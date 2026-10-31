@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/sequences/Sequence;II)V
-    .locals 4
+    .registers 8
     .param p1, "sequence"    # Lkotlin/sequences/Sequence;
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -114,47 +114,47 @@
 
     const/4 v2, 0x0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_17
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_5
+    :goto_18
+    if-eqz v0, :cond_7b
 
     .line 374
     iget v0, p0, Lkotlin/sequences/SubSequence;->endIndex:I
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_20
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_21
 
-    :cond_1
+    :cond_20
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_4
+    :goto_21
+    if-eqz v0, :cond_5b
 
     .line 375
     iget v0, p0, Lkotlin/sequences/SubSequence;->endIndex:I
 
     iget v3, p0, Lkotlin/sequences/SubSequence;->startIndex:I
 
-    if-lt v0, v3, :cond_2
+    if-lt v0, v3, :cond_2a
 
-    goto :goto_2
+    goto :goto_2b
 
-    :cond_2
+    :cond_2a
     const/4 v1, 0x0
 
-    :goto_2
-    if-eqz v1, :cond_3
+    :goto_2b
+    if-eqz v1, :cond_2f
 
     .line 376
     nop
@@ -163,7 +163,7 @@
     return-void
 
     .line 699
-    :cond_3
+    :cond_2f
     const/4 v0, 0x0
 
     .line 375
@@ -212,7 +212,7 @@
     throw v1
 
     .line 699
-    :cond_4
+    :cond_5b
     const/4 v0, 0x0
 
     .line 374
@@ -249,7 +249,7 @@
     throw v1
 
     .line 699
-    :cond_5
+    :cond_7b
     const/4 v0, 0x0
 
     .line 373
@@ -287,7 +287,7 @@
 .end method
 
 .method public static final synthetic access$getEndIndex$p(Lkotlin/sequences/SubSequence;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/SubSequence;
 
     .line 366
@@ -297,7 +297,7 @@
 .end method
 
 .method public static final synthetic access$getSequence$p(Lkotlin/sequences/SubSequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/SubSequence;
 
     .line 366
@@ -307,7 +307,7 @@
 .end method
 
 .method public static final synthetic access$getStartIndex$p(Lkotlin/sequences/SubSequence;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/SubSequence;
 
     .line 366
@@ -317,7 +317,7 @@
 .end method
 
 .method private final getCount()I
-    .locals 2
+    .registers 3
 
     .line 378
     iget v0, p0, Lkotlin/sequences/SubSequence;->endIndex:I
@@ -332,7 +332,7 @@
 
 # virtual methods
 .method public drop(I)Lkotlin/sequences/Sequence;
-    .locals 4
+    .registers 6
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -347,15 +347,15 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_b
 
     invoke-static {}, Lkotlin/sequences/SequencesKt;->emptySequence()Lkotlin/sequences/Sequence;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_b
     new-instance v0, Lkotlin/sequences/SubSequence;
 
     iget-object v1, p0, Lkotlin/sequences/SubSequence;->sequence:Lkotlin/sequences/Sequence;
@@ -370,12 +370,12 @@
 
     check-cast v0, Lkotlin/sequences/Sequence;
 
-    :goto_0
+    :goto_19
     return-object v0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -396,7 +396,7 @@
 .end method
 
 .method public take(I)Lkotlin/sequences/Sequence;
-    .locals 4
+    .registers 6
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -411,15 +411,15 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_a
 
     move-object v0, p0
 
     check-cast v0, Lkotlin/sequences/Sequence;
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_a
     new-instance v0, Lkotlin/sequences/SubSequence;
 
     iget-object v1, p0, Lkotlin/sequences/SubSequence;->sequence:Lkotlin/sequences/Sequence;
@@ -434,6 +434,6 @@
 
     check-cast v0, Lkotlin/sequences/Sequence;
 
-    :goto_0
+    :goto_18
     return-object v0
 .end method

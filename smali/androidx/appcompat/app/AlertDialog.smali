@@ -26,7 +26,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 88
@@ -39,7 +39,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;I)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "themeResId"    # I
 
@@ -70,7 +70,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cancelable"    # Z
     .param p3, "cancelListener"    # Landroid/content/DialogInterface$OnCancelListener;
@@ -91,7 +91,7 @@
 .end method
 
 .method static resolveDialogTheme(Landroid/content/Context;I)I
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "resid"    # I
 
@@ -102,13 +102,13 @@
 
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     .line 112
     return p1
 
     .line 114
-    :cond_0
+    :cond_8
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public getButton(I)Landroid/widget/Button;
-    .locals 1
+    .registers 3
     .param p1, "whichButton"    # I
 
     .line 131
@@ -146,7 +146,7 @@
 .end method
 
 .method public getListView()Landroid/widget/ListView;
-    .locals 1
+    .registers 2
 
     .line 140
     iget-object v0, p0, Landroidx/appcompat/app/AlertDialog;->mAlert:Landroidx/appcompat/app/AlertController;
@@ -159,7 +159,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 278
@@ -175,7 +175,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 4
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
 
@@ -186,7 +186,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 285
     const/4 v0, 0x1
@@ -194,7 +194,7 @@
     return v0
 
     .line 287
-    :cond_0
+    :cond_a
     invoke-super {p0, p1, p2}, Landroidx/appcompat/app/AppCompatDialog;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v0
@@ -203,7 +203,7 @@
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 4
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
 
@@ -214,7 +214,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 293
     const/4 v0, 0x1
@@ -222,7 +222,7 @@
     return v0
 
     .line 295
-    :cond_0
+    :cond_a
     invoke-super {p0, p1, p2}, Landroidx/appcompat/app/AppCompatDialog;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
     move-result v0
@@ -231,7 +231,7 @@
 .end method
 
 .method public setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-    .locals 6
+    .registers 10
     .param p1, "whichButton"    # I
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "listener"    # Landroid/content/DialogInterface$OnClickListener;
@@ -256,7 +256,7 @@
 .end method
 
 .method public setButton(ILjava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Landroid/content/DialogInterface$OnClickListener;)V
-    .locals 6
+    .registers 11
     .param p1, "whichButton"    # I
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "icon"    # Landroid/graphics/drawable/Drawable;
@@ -282,7 +282,7 @@
 .end method
 
 .method public setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
-    .locals 6
+    .registers 10
     .param p1, "whichButton"    # I
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "msg"    # Landroid/os/Message;
@@ -307,7 +307,7 @@
 .end method
 
 .method setButtonPanelLayoutHint(I)V
-    .locals 1
+    .registers 3
     .param p1, "layoutHint"    # I
 
     .line 196
@@ -320,7 +320,7 @@
 .end method
 
 .method public setCustomTitle(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "customTitleView"    # Landroid/view/View;
 
     .line 155
@@ -333,7 +333,7 @@
 .end method
 
 .method public setIcon(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 253
@@ -346,7 +346,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 262
@@ -359,7 +359,7 @@
 .end method
 
 .method public setIconAttribute(I)V
-    .locals 3
+    .registers 5
     .param p1, "attrId"    # I
 
     .line 271
@@ -393,7 +393,7 @@
 .end method
 
 .method public setMessage(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "message"    # Ljava/lang/CharSequence;
 
     .line 164
@@ -406,7 +406,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 145
@@ -422,7 +422,7 @@
 .end method
 
 .method public setView(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 172
@@ -435,7 +435,7 @@
 .end method
 
 .method public setView(Landroid/view/View;IIII)V
-    .locals 6
+    .registers 12
     .param p1, "view"    # Landroid/view/View;
     .param p2, "viewSpacingLeft"    # I
     .param p3, "viewSpacingTop"    # I

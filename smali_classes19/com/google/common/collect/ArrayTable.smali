@@ -116,7 +116,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/ArrayTable;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -191,14 +191,14 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_33
     iget-object v3, p0, Lcom/google/common/collect/ArrayTable;->rowList:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v3}, Lcom/google/common/collect/ImmutableList;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_4c
 
     .line 186
     iget-object v3, p1, Lcom/google/common/collect/ArrayTable;->array:[[Ljava/lang/Object;
@@ -218,16 +218,16 @@
     .line 185
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 188
     .end local v2    # "i":I
-    :cond_0
+    :cond_4c
     return-void
 .end method
 
 .method private constructor <init>(Lcom/google/common/collect/Table;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -257,7 +257,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/Iterable;Ljava/lang/Iterable;)V
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -305,16 +305,16 @@
 
     const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_21
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_22
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 160
@@ -376,7 +376,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/ArrayTable;I)Lcom/google/common/collect/Table$Cell;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/collect/ArrayTable;
     .param p1, "x1"    # I
 
@@ -389,7 +389,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/ArrayTable;
 
     .line 94
@@ -399,7 +399,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/ArrayTable;
 
     .line 94
@@ -409,7 +409,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/ArrayTable;
 
     .line 94
@@ -419,7 +419,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/ArrayTable;
 
     .line 94
@@ -429,7 +429,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/google/common/collect/ArrayTable;I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/collect/ArrayTable;
     .param p1, "x1"    # I
 
@@ -442,7 +442,7 @@
 .end method
 
 .method public static create(Lcom/google/common/collect/Table;)Lcom/google/common/collect/ArrayTable;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -463,7 +463,7 @@
     .local p0, "table":Lcom/google/common/collect/Table;, "Lcom/google/common/collect/Table<TR;TC;+TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/ArrayTable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 137
     new-instance v0, Lcom/google/common/collect/ArrayTable;
@@ -474,21 +474,21 @@
 
     invoke-direct {v0, v1}, Lcom/google/common/collect/ArrayTable;-><init>(Lcom/google/common/collect/ArrayTable;)V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 138
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/collect/ArrayTable;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/ArrayTable;-><init>(Lcom/google/common/collect/Table;)V
 
     .line 136
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public static create(Ljava/lang/Iterable;Ljava/lang/Iterable;)Lcom/google/common/collect/ArrayTable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -518,7 +518,7 @@
 .end method
 
 .method private getCell(I)Lcom/google/common/collect/Table$Cell;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -538,7 +538,7 @@
 .end method
 
 .method private getValue(I)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -581,7 +581,7 @@
 
 # virtual methods
 .method public at(II)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "rowIndex"    # I
     .param p2, "columnIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -623,7 +623,7 @@
 .end method
 
 .method cellIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -647,7 +647,7 @@
 .end method
 
 .method public cellSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -667,7 +667,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -681,7 +681,7 @@
 .end method
 
 .method public column(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)",
@@ -706,7 +706,7 @@
 
     .line 609
     .local v0, "columnIndex":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 610
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
@@ -716,7 +716,7 @@
     return-object v1
 
     .line 612
-    :cond_0
+    :cond_12
     new-instance v1, Lcom/google/common/collect/ArrayTable$Column;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -729,7 +729,7 @@
 .end method
 
 .method public columnKeyList()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -746,7 +746,7 @@
 .end method
 
 .method public columnKeySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -767,7 +767,7 @@
 .end method
 
 .method public bridge synthetic columnKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 91
     .local p0, "this":Lcom/google/common/collect/ArrayTable;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>;"
@@ -779,7 +779,7 @@
 .end method
 
 .method public columnMap()Ljava/util/Map;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -796,7 +796,7 @@
 
     .line 658
     .local v0, "map":Lcom/google/common/collect/ArrayTable$ColumnMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.ColumnMap;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     new-instance v1, Lcom/google/common/collect/ArrayTable$ColumnMap;
 
@@ -806,17 +806,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/ArrayTable;->columnMap:Lcom/google/common/collect/ArrayTable$ColumnMap;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v1, v0
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method
 
 .method public contains(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -832,27 +832,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-virtual {p0, p2}, Lcom/google/common/collect/ArrayTable;->containsColumn(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public containsColumn(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "columnKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -870,7 +870,7 @@
 .end method
 
 .method public containsRow(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -888,7 +888,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 9
+    .registers 11
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -904,8 +904,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_2
+    :goto_5
+    if-ge v3, v1, :cond_1d
 
     aget-object v4, v0, v3
 
@@ -915,8 +915,8 @@
 
     const/4 v6, 0x0
 
-    :goto_1
-    if-ge v6, v5, :cond_1
+    :goto_b
+    if-ge v6, v5, :cond_1a
 
     aget-object v7, v4, v6
 
@@ -926,7 +926,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_17
 
     .line 430
     const/4 v0, 0x1
@@ -935,25 +935,25 @@
 
     .line 428
     .end local v7    # "element":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_17
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_b
 
     .line 427
     .end local v4    # "row":[Ljava/lang/Object;, "[TV;"
-    :cond_1
+    :cond_1a
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 434
-    :cond_2
+    :cond_1d
     return v2
 .end method
 
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -969,7 +969,7 @@
 .end method
 
 .method public erase(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1014,14 +1014,14 @@
     .local v1, "columnIndex":Ljava/lang/Integer;
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
-    goto :goto_0
+    goto :goto_23
 
     .line 528
-    :cond_0
+    :cond_16
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
@@ -1037,13 +1037,13 @@
     return-object v2
 
     .line 526
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     return-object v2
 .end method
 
 .method public eraseAll()V
-    .locals 5
+    .registers 6
 
     .line 393
     .local p0, "this":Lcom/google/common/collect/ArrayTable;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>;"
@@ -1053,8 +1053,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_4
+    if-ge v2, v1, :cond_f
 
     aget-object v3, v0, v2
 
@@ -1068,15 +1068,15 @@
     .end local v3    # "row":[Ljava/lang/Object;, "[TV;"
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 396
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1119,13 +1119,13 @@
 
     .line 442
     .local v1, "columnIndex":Ljava/lang/Integer;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_15
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
@@ -1138,18 +1138,18 @@
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_23
     return-object v2
 .end method
 
 .method public bridge synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     .line 91
     .local p0, "this":Lcom/google/common/collect/ArrayTable;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>;"
@@ -1161,7 +1161,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 450
     .local p0, "this":Lcom/google/common/collect/ArrayTable;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>;"
@@ -1171,7 +1171,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v0, p0, Lcom/google/common/collect/ArrayTable;->columnList:Lcom/google/common/collect/ImmutableList;
 
@@ -1179,25 +1179,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_14
     return v0
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 10
     .param p3    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1236,16 +1236,16 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_15
     const-string v4, "Row %s not in %s"
 
     iget-object v5, p0, Lcom/google/common/collect/ArrayTable;->rowList:Lcom/google/common/collect/ImmutableList;
@@ -1263,14 +1263,14 @@
 
     .line 468
     .local v3, "columnIndex":Ljava/lang/Integer;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_28
     const-string v2, "Column %s not in %s"
 
     iget-object v4, p0, Lcom/google/common/collect/ArrayTable;->columnList:Lcom/google/common/collect/ImmutableList;
@@ -1294,7 +1294,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/Table;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1313,7 +1313,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1347,7 +1347,7 @@
 .end method
 
 .method public row(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)",
@@ -1372,7 +1372,7 @@
 
     .line 704
     .local v0, "rowIndex":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 705
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
@@ -1382,7 +1382,7 @@
     return-object v1
 
     .line 707
-    :cond_0
+    :cond_12
     new-instance v1, Lcom/google/common/collect/ArrayTable$Row;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -1395,7 +1395,7 @@
 .end method
 
 .method public rowKeyList()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1412,7 +1412,7 @@
 .end method
 
 .method public rowKeySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1433,7 +1433,7 @@
 .end method
 
 .method public bridge synthetic rowKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 91
     .local p0, "this":Lcom/google/common/collect/ArrayTable;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>;"
@@ -1445,7 +1445,7 @@
 .end method
 
 .method public rowMap()Ljava/util/Map;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1462,7 +1462,7 @@
 
     .line 753
     .local v0, "map":Lcom/google/common/collect/ArrayTable$RowMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.RowMap;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     new-instance v1, Lcom/google/common/collect/ArrayTable$RowMap;
 
@@ -1472,17 +1472,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/ArrayTable;->rowMap:Lcom/google/common/collect/ArrayTable$RowMap;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v1, v0
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method
 
 .method public set(IILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "rowIndex"    # I
     .param p2, "columnIndex"    # I
     .param p3    # Ljava/lang/Object;
@@ -1538,7 +1538,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 535
     .local p0, "this":Lcom/google/common/collect/ArrayTable;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>;"
@@ -1560,7 +1560,7 @@
 .end method
 
 .method public toArray(Ljava/lang/Class;)[[Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1599,14 +1599,14 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_17
     iget-object v2, p0, Lcom/google/common/collect/ArrayTable;->rowList:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v2}, Lcom/google/common/collect/ImmutableList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_31
 
     .line 373
     iget-object v2, p0, Lcom/google/common/collect/ArrayTable;->array:[[Ljava/lang/Object;
@@ -1628,16 +1628,16 @@
     .line 372
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 375
     .end local v1    # "i":I
-    :cond_0
+    :cond_31
     return-object v0
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 91
     .local p0, "this":Lcom/google/common/collect/ArrayTable;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>;"
@@ -1649,7 +1649,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1668,7 +1668,7 @@
 .end method
 
 .method valuesIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

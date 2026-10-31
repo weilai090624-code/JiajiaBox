@@ -46,7 +46,7 @@
 
 # direct methods
 .method public static final addListener(Landroid/transition/Transition;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Landroid/transition/Transition$TransitionListener;
-    .locals 8
+    .registers 14
     .param p0, "$this$addListener"    # Landroid/transition/Transition;
     .param p1, "onEnd"    # Lkotlin/jvm/functions/Function1;
     .param p2, "onStart"    # Lkotlin/jvm/functions/Function1;
@@ -123,7 +123,7 @@
 .end method
 
 .method public static synthetic addListener$default(Landroid/transition/Transition;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Landroid/transition/Transition$TransitionListener;
-    .locals 6
+    .registers 14
     .param p0, "$this$addListener_u24default"    # Landroid/transition/Transition;
     .param p1, "onEnd"    # Lkotlin/jvm/functions/Function1;
     .param p2, "onStart"    # Lkotlin/jvm/functions/Function1;
@@ -134,7 +134,7 @@
     .line 59
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_9
 
     .line 60
     sget-object p7, Landroidx/core/transition/TransitionKt$addListener$1;->INSTANCE:Landroidx/core/transition/TransitionKt$addListener$1;
@@ -144,10 +144,10 @@
     check-cast p1, Lkotlin/jvm/functions/Function1;
 
     .line 59
-    :cond_0
+    :cond_9
     and-int/lit8 p7, p6, 0x2
 
-    if-eqz p7, :cond_1
+    if-eqz p7, :cond_14
 
     .line 61
     sget-object p7, Landroidx/core/transition/TransitionKt$addListener$2;->INSTANCE:Landroidx/core/transition/TransitionKt$addListener$2;
@@ -158,18 +158,18 @@
 
     move-object v0, p2
 
-    goto :goto_0
+    goto :goto_15
 
     .line 59
-    :cond_1
+    :cond_14
     move-object v0, p2
 
     .end local p2    # "onStart":Lkotlin/jvm/functions/Function1;
     .local v0, "onStart":Lkotlin/jvm/functions/Function1;
-    :goto_0
+    :goto_15
     and-int/lit8 p2, p6, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_20
 
     .line 62
     sget-object p2, Landroidx/core/transition/TransitionKt$addListener$3;->INSTANCE:Landroidx/core/transition/TransitionKt$addListener$3;
@@ -180,18 +180,18 @@
 
     move-object v1, p3
 
-    goto :goto_1
+    goto :goto_21
 
     .line 59
-    :cond_2
+    :cond_20
     move-object v1, p3
 
     .end local p3    # "onCancel":Lkotlin/jvm/functions/Function1;
     .local v1, "onCancel":Lkotlin/jvm/functions/Function1;
-    :goto_1
+    :goto_21
     and-int/lit8 p2, p6, 0x8
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_2c
 
     .line 63
     sget-object p2, Landroidx/core/transition/TransitionKt$addListener$4;->INSTANCE:Landroidx/core/transition/TransitionKt$addListener$4;
@@ -202,18 +202,18 @@
 
     move-object v2, p4
 
-    goto :goto_2
+    goto :goto_2d
 
     .line 59
-    :cond_3
+    :cond_2c
     move-object v2, p4
 
     .end local p4    # "onResume":Lkotlin/jvm/functions/Function1;
     .local v2, "onResume":Lkotlin/jvm/functions/Function1;
-    :goto_2
+    :goto_2d
     and-int/lit8 p2, p6, 0x10
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_38
 
     .line 64
     sget-object p2, Landroidx/core/transition/TransitionKt$addListener$5;->INSTANCE:Landroidx/core/transition/TransitionKt$addListener$5;
@@ -224,15 +224,15 @@
 
     move-object v3, p5
 
-    goto :goto_3
+    goto :goto_39
 
     .line 59
-    :cond_4
+    :cond_38
     move-object v3, p5
 
     .end local p5    # "onPause":Lkotlin/jvm/functions/Function1;
     .local v3, "onPause":Lkotlin/jvm/functions/Function1;
-    :goto_3
+    :goto_39
     const/4 v4, 0x0
 
     .line 66
@@ -270,7 +270,7 @@
 .end method
 
 .method public static final doOnCancel(Landroid/transition/Transition;Lkotlin/jvm/functions/Function1;)Landroid/transition/Transition$TransitionListener;
-    .locals 5
+    .registers 7
     .param p0, "$this$doOnCancel"    # Landroid/transition/Transition;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -347,7 +347,7 @@
 .end method
 
 .method public static final doOnEnd(Landroid/transition/Transition;Lkotlin/jvm/functions/Function1;)Landroid/transition/Transition$TransitionListener;
-    .locals 5
+    .registers 7
     .param p0, "$this$doOnEnd"    # Landroid/transition/Transition;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -424,7 +424,7 @@
 .end method
 
 .method public static final doOnPause(Landroid/transition/Transition;Lkotlin/jvm/functions/Function1;)Landroid/transition/Transition$TransitionListener;
-    .locals 5
+    .registers 7
     .param p0, "$this$doOnPause"    # Landroid/transition/Transition;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -501,7 +501,7 @@
 .end method
 
 .method public static final doOnResume(Landroid/transition/Transition;Lkotlin/jvm/functions/Function1;)Landroid/transition/Transition$TransitionListener;
-    .locals 5
+    .registers 7
     .param p0, "$this$doOnResume"    # Landroid/transition/Transition;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -578,7 +578,7 @@
 .end method
 
 .method public static final doOnStart(Landroid/transition/Transition;Lkotlin/jvm/functions/Function1;)Landroid/transition/Transition$TransitionListener;
-    .locals 5
+    .registers 7
     .param p0, "$this$doOnStart"    # Landroid/transition/Transition;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;

@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/CoroutineName$Key;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 19
@@ -86,15 +86,15 @@
 .end method
 
 .method public static synthetic copy$default(Lkotlinx/coroutines/CoroutineName;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/coroutines/CoroutineName;
-    .locals 0
+    .registers 4
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     iget-object p1, p0, Lkotlinx/coroutines/CoroutineName;->name:Ljava/lang/String;
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1}, Lkotlinx/coroutines/CoroutineName;->copy(Ljava/lang/String;)Lkotlinx/coroutines/CoroutineName;
 
     move-result-object p0
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/CoroutineName;->name:Ljava/lang/String;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public final copy(Ljava/lang/String;)Lkotlinx/coroutines/CoroutineName;
-    .locals 1
+    .registers 3
 
     new-instance v0, Lkotlinx/coroutines/CoroutineName;
 
@@ -123,24 +123,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlinx/coroutines/CoroutineName;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lkotlinx/coroutines/CoroutineName;
@@ -153,16 +153,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     return v0
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 18
     iget-object v0, p0, Lkotlinx/coroutines/CoroutineName;->name:Ljava/lang/String;
@@ -171,7 +171,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/CoroutineName;->name:Ljava/lang/String;
 
@@ -183,7 +183,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 28
     new-instance v0, Ljava/lang/StringBuilder;

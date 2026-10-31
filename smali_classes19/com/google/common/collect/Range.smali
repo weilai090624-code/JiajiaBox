@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 299
     new-instance v0, Lcom/google/common/collect/Range;
@@ -89,7 +89,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/collect/Cut;Lcom/google/common/collect/Cut;)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -129,31 +129,31 @@
 
     move-result v0
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_27
 
     .line 357
     invoke-static {}, Lcom/google/common/collect/Cut;->aboveAll()Lcom/google/common/collect/Cut;
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_27
 
     .line 358
     invoke-static {}, Lcom/google/common/collect/Cut;->belowAll()Lcom/google/common/collect/Cut;
 
     move-result-object v0
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_26
 
-    goto :goto_0
+    goto :goto_27
 
     .line 361
-    :cond_0
+    :cond_26
     return-void
 
     .line 359
-    :cond_1
-    :goto_0
+    :cond_27
+    :goto_27
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1, p2}, Lcom/google/common/collect/Range;->toString(Lcom/google/common/collect/Cut;Lcom/google/common/collect/Cut;)Ljava/lang/String;
@@ -170,27 +170,27 @@
 
     const-string v3, "Invalid range: "
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3e
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_43
 
-    :cond_2
+    :cond_3e
     new-instance v1, Ljava/lang/String;
 
     invoke-direct {v1, v3}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
-    :goto_1
+    :goto_43
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static all()Lcom/google/common/collect/Range;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -208,7 +208,7 @@
 .end method
 
 .method public static atLeast(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -237,7 +237,7 @@
 .end method
 
 .method public static atMost(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -266,7 +266,7 @@
 .end method
 
 .method public static closed(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -296,7 +296,7 @@
 .end method
 
 .method public static closedOpen(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -326,7 +326,7 @@
 .end method
 
 .method static compareOrThrow(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
-    .locals 1
+    .registers 3
     .param p0, "left"    # Ljava/lang/Comparable;
     .param p1, "right"    # Ljava/lang/Comparable;
 
@@ -339,7 +339,7 @@
 .end method
 
 .method static create(Lcom/google/common/collect/Cut;Lcom/google/common/collect/Cut;)Lcom/google/common/collect/Range;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -365,7 +365,7 @@
 .end method
 
 .method public static downTo(Ljava/lang/Comparable;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 4
     .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -389,7 +389,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     .line 295
     new-instance v0, Ljava/lang/AssertionError;
@@ -399,7 +399,7 @@
     throw v0
 
     .line 293
-    :pswitch_0
+    :pswitch_11
     invoke-static {p0}, Lcom/google/common/collect/Range;->atLeast(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -407,7 +407,7 @@
     return-object v0
 
     .line 291
-    :pswitch_1
+    :pswitch_16
     invoke-static {p0}, Lcom/google/common/collect/Range;->greaterThan(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -416,15 +416,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public static encloseAll(Ljava/lang/Iterable;)Lcom/google/common/collect/Range;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -444,7 +444,7 @@
     .line 332
     instance-of v0, p0, Ljava/util/SortedSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     .line 333
     move-object v0, p0
@@ -467,12 +467,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2b
 
     .line 336
-    :cond_0
+    :cond_1a
     invoke-interface {v0}, Ljava/util/SortedSet;->first()Ljava/lang/Object;
 
     move-result-object v2
@@ -494,7 +494,7 @@
     .line 339
     .end local v0    # "set":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TC;>;"
     .end local v1    # "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<*>;"
-    :cond_1
+    :cond_2b
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -519,12 +519,12 @@
 
     .line 342
     .local v2, "max":Ljava/lang/Comparable;, "TC;"
-    :goto_0
+    :goto_3c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_65
 
     .line 343
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -568,10 +568,10 @@
 
     .line 346
     .end local v3    # "value":Ljava/lang/Comparable;, "TC;"
-    goto :goto_0
+    goto :goto_3c
 
     .line 347
-    :cond_2
+    :cond_65
     invoke-static {v1, v2}, Lcom/google/common/collect/Range;->closed(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
 
     move-result-object v3
@@ -580,7 +580,7 @@
 .end method
 
 .method public static greaterThan(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -609,7 +609,7 @@
 .end method
 
 .method public static lessThan(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -638,7 +638,7 @@
 .end method
 
 .method static lowerBoundFn()Lcom/google/common/base/Function;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -659,7 +659,7 @@
 .end method
 
 .method public static open(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -689,7 +689,7 @@
 .end method
 
 .method public static openClosed(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -719,7 +719,7 @@
 .end method
 
 .method public static range(Ljava/lang/Comparable;Lcom/google/common/collect/BoundType;Ljava/lang/Comparable;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/Range;
-    .locals 3
+    .registers 7
     .param p1, "lowerType"    # Lcom/google/common/collect/BoundType;
     .param p3, "upperType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
@@ -747,40 +747,40 @@
     .line 223
     sget-object v0, Lcom/google/common/collect/BoundType;->OPEN:Lcom/google/common/collect/BoundType;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_f
 
     invoke-static {p0}, Lcom/google/common/collect/Cut;->aboveValue(Ljava/lang/Comparable;)Lcom/google/common/collect/Cut;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_f
     invoke-static {p0}, Lcom/google/common/collect/Cut;->belowValue(Ljava/lang/Comparable;)Lcom/google/common/collect/Cut;
 
     move-result-object v0
 
     .line 225
     .local v0, "lowerBound":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
-    :goto_0
+    :goto_13
     sget-object v1, Lcom/google/common/collect/BoundType;->OPEN:Lcom/google/common/collect/BoundType;
 
-    if-ne p3, v1, :cond_1
+    if-ne p3, v1, :cond_1c
 
     invoke-static {p2}, Lcom/google/common/collect/Cut;->belowValue(Ljava/lang/Comparable;)Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
+    :cond_1c
     invoke-static {p2}, Lcom/google/common/collect/Cut;->aboveValue(Ljava/lang/Comparable;)Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
     .line 226
     .local v1, "upperBound":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
-    :goto_1
+    :goto_20
     invoke-static {v0, v1}, Lcom/google/common/collect/Range;->create(Lcom/google/common/collect/Cut;Lcom/google/common/collect/Cut;)Lcom/google/common/collect/Range;
 
     move-result-object v2
@@ -789,7 +789,7 @@
 .end method
 
 .method static rangeLexOrdering()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -808,7 +808,7 @@
 .end method
 
 .method public static singleton(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -829,7 +829,7 @@
 .end method
 
 .method private static toString(Lcom/google/common/collect/Cut;Lcom/google/common/collect/Cut;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -871,7 +871,7 @@
 .end method
 
 .method public static upTo(Ljava/lang/Comparable;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/Range;
-    .locals 2
+    .registers 4
     .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -895,7 +895,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     .line 260
     new-instance v0, Ljava/lang/AssertionError;
@@ -905,7 +905,7 @@
     throw v0
 
     .line 258
-    :pswitch_0
+    :pswitch_11
     invoke-static {p0}, Lcom/google/common/collect/Range;->atMost(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -913,7 +913,7 @@
     return-object v0
 
     .line 256
-    :pswitch_1
+    :pswitch_16
     invoke-static {p0}, Lcom/google/common/collect/Range;->lessThan(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -922,15 +922,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method static upperBoundFn()Lcom/google/common/base/Function;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -953,7 +953,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)Z"
@@ -974,7 +974,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -990,7 +990,7 @@
 .end method
 
 .method public canonical(Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Range;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1025,27 +1025,27 @@
     .local v1, "upper":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     iget-object v2, p0, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_19
 
     iget-object v2, p0, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_19
 
     move-object v2, p0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_19
     invoke-static {v0, v1}, Lcom/google/common/collect/Range;->create(Lcom/google/common/collect/Cut;Lcom/google/common/collect/Cut;)Lcom/google/common/collect/Range;
 
     move-result-object v2
 
-    :goto_0
+    :goto_1d
     return-object v2
 .end method
 
 .method public contains(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)Z"
@@ -1064,7 +1064,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
@@ -1072,21 +1072,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_16
     return v0
 .end method
 
 .method public containsAll(Ljava/lang/Iterable;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1104,18 +1104,18 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 455
     return v1
 
     .line 459
-    :cond_0
+    :cond_8
     instance-of v0, p1, Ljava/util/SortedSet;
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3b
 
     .line 460
     move-object v0, p1
@@ -1138,12 +1138,12 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_20
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_3b
 
     .line 463
-    :cond_1
+    :cond_20
     invoke-interface {v0}, Ljava/util/SortedSet;->first()Ljava/lang/Object;
 
     move-result-object v4
@@ -1154,7 +1154,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_39
 
     invoke-interface {v0}, Ljava/util/SortedSet;->last()Ljava/lang/Object;
 
@@ -1166,30 +1166,30 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_39
 
-    goto :goto_0
+    goto :goto_3a
 
-    :cond_2
+    :cond_39
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_3a
     return v1
 
     .line 467
     .end local v0    # "set":Ljava/util/SortedSet;, "Ljava/util/SortedSet<+TC;>;"
     .end local v3    # "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<*>;"
-    :cond_3
+    :cond_3b
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_1
+    :goto_3f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_53
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1203,23 +1203,23 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_52
 
     .line 469
     return v2
 
     .line 471
     .end local v3    # "value":Ljava/lang/Comparable;, "TC;"
-    :cond_4
-    goto :goto_1
+    :cond_52
+    goto :goto_3f
 
     .line 472
-    :cond_5
+    :cond_53
     return v1
 .end method
 
 .method public encloses(Lcom/google/common/collect/Range;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1239,7 +1239,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_16
 
     iget-object v0, p0, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
@@ -1250,22 +1250,22 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     .line 499
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1277,7 +1277,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 669
     move-object v0, p1
@@ -1294,7 +1294,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     iget-object v2, p0, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
@@ -1304,21 +1304,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1d
     return v1
 
     .line 672
     .end local v0    # "other":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<*>;"
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method public gap(Lcom/google/common/collect/Range;)Lcom/google/common/collect/Range;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1340,7 +1340,7 @@
 
     move-result v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_53
 
     iget-object v0, p1, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
@@ -1351,12 +1351,12 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_53
 
     .line 593
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -1420,8 +1420,8 @@
     throw v0
 
     .line 597
-    :cond_1
-    :goto_0
+    :cond_53
+    :goto_53
     iget-object v0, p0, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
     iget-object v1, p1, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
@@ -1430,42 +1430,42 @@
 
     move-result v0
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_5f
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_60
 
-    :cond_2
+    :cond_5f
     const/4 v0, 0x0
 
     .line 598
     .local v0, "isThisFirst":Z
-    :goto_1
-    if-eqz v0, :cond_3
+    :goto_60
+    if-eqz v0, :cond_64
 
     move-object v1, p0
 
-    goto :goto_2
+    goto :goto_65
 
-    :cond_3
+    :cond_64
     move-object v1, p1
 
     .line 599
     .local v1, "firstRange":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    :goto_2
-    if-eqz v0, :cond_4
+    :goto_65
+    if-eqz v0, :cond_69
 
     move-object v2, p1
 
-    goto :goto_3
+    goto :goto_6a
 
-    :cond_4
+    :cond_69
     move-object v2, p0
 
     .line 600
     .local v2, "secondRange":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    :goto_3
+    :goto_6a
     iget-object v3, v1, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
     iget-object v4, v2, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
@@ -1478,7 +1478,7 @@
 .end method
 
 .method public hasLowerBound()Z
-    .locals 2
+    .registers 3
 
     .line 365
     .local p0, "this":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
@@ -1488,21 +1488,21 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public hasUpperBound()Z
-    .locals 2
+    .registers 3
 
     .line 391
     .local p0, "this":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
@@ -1512,21 +1512,21 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 678
     .local p0, "this":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
@@ -1550,7 +1550,7 @@
 .end method
 
 .method public intersection(Lcom/google/common/collect/Range;)Lcom/google/common/collect/Range;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1584,48 +1584,48 @@
 
     .line 552
     .local v1, "upperCmp":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_15
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_15
 
     .line 553
     return-object p0
 
     .line 554
-    :cond_0
-    if-gtz v0, :cond_1
+    :cond_15
+    if-gtz v0, :cond_1a
 
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_1a
 
     .line 555
     return-object p1
 
     .line 557
-    :cond_1
-    if-ltz v0, :cond_2
+    :cond_1a
+    if-ltz v0, :cond_1f
 
     iget-object v2, p0, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_2
+    :cond_1f
     iget-object v2, p1, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
     .line 558
     .local v2, "newLower":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
-    :goto_0
-    if-gtz v1, :cond_3
+    :goto_21
+    if-gtz v1, :cond_26
 
     iget-object v3, p0, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_3
+    :cond_26
     iget-object v3, p1, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
     .line 559
     .local v3, "newUpper":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
-    :goto_1
+    :goto_28
     invoke-static {v2, v3}, Lcom/google/common/collect/Range;->create(Lcom/google/common/collect/Cut;Lcom/google/common/collect/Cut;)Lcom/google/common/collect/Range;
 
     move-result-object v4
@@ -1634,7 +1634,7 @@
 .end method
 
 .method public isConnected(Lcom/google/common/collect/Range;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1654,7 +1654,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_16
 
     iget-object v0, p1, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
@@ -1665,22 +1665,22 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     .line 529
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 425
     .local p0, "this":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
@@ -1696,7 +1696,7 @@
 .end method
 
 .method public lowerBoundType()Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 2
 
     .line 386
     .local p0, "this":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
@@ -1710,7 +1710,7 @@
 .end method
 
 .method public lowerEndpoint()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -1729,7 +1729,7 @@
 .end method
 
 .method readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 699
     .local p0, "this":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
@@ -1739,7 +1739,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 700
     invoke-static {}, Lcom/google/common/collect/Range;->all()Lcom/google/common/collect/Range;
@@ -1749,12 +1749,12 @@
     return-object v0
 
     .line 702
-    :cond_0
+    :cond_d
     return-object p0
 .end method
 
 .method public span(Lcom/google/common/collect/Range;)Lcom/google/common/collect/Range;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1788,48 +1788,48 @@
 
     .line 617
     .local v1, "upperCmp":I
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_15
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_15
 
     .line 618
     return-object p0
 
     .line 619
-    :cond_0
-    if-ltz v0, :cond_1
+    :cond_15
+    if-ltz v0, :cond_1a
 
-    if-gtz v1, :cond_1
+    if-gtz v1, :cond_1a
 
     .line 620
     return-object p1
 
     .line 622
-    :cond_1
-    if-gtz v0, :cond_2
+    :cond_1a
+    if-gtz v0, :cond_1f
 
     iget-object v2, p0, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_2
+    :cond_1f
     iget-object v2, p1, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
     .line 623
     .local v2, "newLower":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
-    :goto_0
-    if-ltz v1, :cond_3
+    :goto_21
+    if-ltz v1, :cond_26
 
     iget-object v3, p0, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_3
+    :cond_26
     iget-object v3, p1, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
     .line 624
     .local v3, "newUpper":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
-    :goto_1
+    :goto_28
     invoke-static {v2, v3}, Lcom/google/common/collect/Range;->create(Lcom/google/common/collect/Cut;Lcom/google/common/collect/Cut;)Lcom/google/common/collect/Range;
 
     move-result-object v4
@@ -1838,7 +1838,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 687
     .local p0, "this":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
@@ -1854,7 +1854,7 @@
 .end method
 
 .method public upperBoundType()Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 2
 
     .line 412
     .local p0, "this":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
@@ -1868,7 +1868,7 @@
 .end method
 
 .method public upperEndpoint()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"

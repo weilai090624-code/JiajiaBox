@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 23
     const-string v0, "SCAN_RESULT"
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,11 +71,11 @@
 .end method
 
 .method public static parseScanResult(Landroid/content/Intent;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "data"    # Landroid/content/Intent;
 
     .line 178
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 179
     sget-object v0, Lcom/king/zxing/CameraScan;->SCAN_RESULT:Ljava/lang/String;
@@ -87,7 +87,7 @@
     return-object v0
 
     .line 181
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return-object v0
@@ -99,7 +99,7 @@
 .end method
 
 .method protected isNeedAutoZoom()Z
-    .locals 1
+    .registers 2
 
     .line 65
     iget-boolean v0, p0, Lcom/king/zxing/CameraScan;->isNeedAutoZoom:Z
@@ -108,7 +108,7 @@
 .end method
 
 .method protected isNeedTouchZoom()Z
-    .locals 1
+    .registers 2
 
     .line 46
     iget-boolean v0, p0, Lcom/king/zxing/CameraScan;->isNeedTouchZoom:Z
@@ -132,7 +132,7 @@
 .end method
 
 .method public setNeedAutoZoom(Z)Lcom/king/zxing/CameraScan;
-    .locals 0
+    .registers 2
     .param p1, "needAutoZoom"    # Z
 
     .line 74
@@ -143,7 +143,7 @@
 .end method
 
 .method public setNeedTouchZoom(Z)Lcom/king/zxing/CameraScan;
-    .locals 0
+    .registers 2
     .param p1, "needTouchZoom"    # Z
 
     .line 56

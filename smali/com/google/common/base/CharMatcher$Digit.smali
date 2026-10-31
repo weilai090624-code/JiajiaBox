@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1355
     new-instance v0, Lcom/google/common/base/CharMatcher$Digit;
@@ -35,7 +35,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 1358
     invoke-static {}, Lcom/google/common/base/CharMatcher$Digit;->zeroes()[C
@@ -55,7 +55,7 @@
 .end method
 
 .method private static nines()[C
-    .locals 4
+    .registers 4
 
     .line 1348
     const-string v0, "0\u0660\u06f0\u07c0\u0966\u09e6\u0a66\u0ae6\u0b66\u0be6\u0c66\u0ce6\u0d66\u0de6\u0e50\u0ed0\u0f20\u1040\u1090\u17e0\u1810\u1946\u19d0\u1a80\u1a90\u1b50\u1bb0\u1c40\u1c50\ua620\ua8d0\ua900\ua9d0\ua9f0\uaa50\uabf0\uff10"
@@ -71,12 +71,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_9
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     .line 1350
     invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
@@ -92,16 +92,16 @@
     .line 1349
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1352
     .end local v2    # "i":I
-    :cond_0
+    :cond_1b
     return-object v1
 .end method
 
 .method private static zeroes()[C
-    .locals 1
+    .registers 1
 
     .line 1344
     const-string v0, "0\u0660\u06f0\u07c0\u0966\u09e6\u0a66\u0ae6\u0b66\u0be6\u0c66\u0ce6\u0d66\u0de6\u0e50\u0ed0\u0f20\u1040\u1090\u17e0\u1810\u1946\u19d0\u1a80\u1a90\u1b50\u1bb0\u1c40\u1c50\ua620\ua8d0\ua900\ua9d0\ua9f0\uaa50\uabf0\uff10"

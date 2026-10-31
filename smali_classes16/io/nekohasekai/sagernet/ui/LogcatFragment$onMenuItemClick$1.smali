@@ -70,7 +70,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/LogcatFragment;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -119,7 +119,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,7 +162,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -171,7 +171,7 @@
     .line 88
     iget v1, p0, Lio/nekohasekai/sagernet/ui/LogcatFragment$onMenuItemClick$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_5e
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -182,18 +182,18 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_40
 
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_5a
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 89
@@ -203,7 +203,7 @@
     .line 90
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_1e
     invoke-static {}, Llibcore/Libcore;->nekoLogClear()V
 
     .line 91
@@ -214,8 +214,8 @@
     const-string v3, "/system/bin/logcat -c"
 
     invoke-virtual {v2, v3}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_2a} :catch_43
 
     .line 98
     new-instance v2, Lio/nekohasekai/sagernet/ui/LogcatFragment$onMenuItemClick$1$2;
@@ -238,20 +238,20 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_40
 
     .line 88
     return-object v0
 
     .line 101
-    :cond_0
-    :goto_0
+    :cond_40
+    :goto_40
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 92
-    :catch_0
+    :catch_43
     move-exception v2
 
     .line 93
@@ -277,24 +277,24 @@
     move-result-object v1
 
     .end local v2    # "e":Ljava/lang/Exception;
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_5a
 
     .line 88
     return-object v0
 
     .line 96
-    :cond_1
-    :goto_1
+    :cond_5a
+    :goto_5a
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

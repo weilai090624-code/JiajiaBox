@@ -43,7 +43,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/tls/CertificateChainCleaner$Companion;-><init>()V
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final get(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/tls/CertificateChainCleaner;
-    .locals 1
+    .registers 3
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     const-string v0, "trustManager"
@@ -84,7 +84,7 @@
 .end method
 
 .method public final varargs get([Ljava/security/cert/X509Certificate;)Lokhttp3/internal/tls/CertificateChainCleaner;
-    .locals 3
+    .registers 5
     .param p1, "caCerts"    # [Ljava/security/cert/X509Certificate;
 
     const-string v0, "caCerts"

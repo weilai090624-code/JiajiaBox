@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
-    .locals 1
+    .registers 4
     .param p1, "a"    # Ljava/lang/Comparable;
     .param p2, "b"    # Ljava/lang/Comparable;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 43
     check-cast p1, Ljava/lang/Comparable;

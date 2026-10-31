@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 516
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILj$/time/temporal/IsoFields-IA;)V
-    .locals 0
+    .registers 4
 
     invoke-direct {p0, p1, p2}, Lj$/time/temporal/IsoFields$Field$4;-><init>(Ljava/lang/String;I)V
 
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public adjustInto(Lj$/time/temporal/Temporal;J)Lj$/time/temporal/Temporal;
-    .locals 8
+    .registers 12
     .param p2, "newValue"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -53,7 +53,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     .line 552
     invoke-virtual {p0}, Lj$/time/temporal/IsoFields$Field$4;->range()Lj$/time/temporal/ValueRange;
@@ -90,7 +90,7 @@
     .local v3, "week":I
     const/16 v4, 0x35
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_2c
 
     invoke-static {v0}, Lj$/time/temporal/IsoFields$Field;->-$$Nest$smgetWeekRange(I)I
 
@@ -98,13 +98,13 @@
 
     const/16 v5, 0x34
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_2c
 
     .line 557
     const/16 v3, 0x34
 
     .line 559
-    :cond_0
+    :cond_2c
     const/4 v4, 0x4
 
     const/4 v5, 0x1
@@ -151,7 +151,7 @@
     .end local v3    # "week":I
     .end local v4    # "resolved":Lj$/time/LocalDate;
     .end local v5    # "days":I
-    :cond_1
+    :cond_49
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v1, "Unsupported field: WeekBasedYear"
@@ -162,7 +162,7 @@
 .end method
 
 .method public getBaseUnit()Lj$/time/temporal/TemporalUnit;
-    .locals 1
+    .registers 2
 
     .line 519
     sget-object v0, Lj$/time/temporal/IsoFields;->WEEK_BASED_YEARS:Lj$/time/temporal/TemporalUnit;
@@ -171,7 +171,7 @@
 .end method
 
 .method public getFrom(Lj$/time/temporal/TemporalAccessor;)J
-    .locals 2
+    .registers 4
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 535
@@ -179,7 +179,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 538
     invoke-static {p1}, Lj$/time/LocalDate;->from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/LocalDate;
@@ -195,7 +195,7 @@
     return-wide v0
 
     .line 536
-    :cond_0
+    :cond_10
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v1, "Unsupported field: WeekBasedYear"
@@ -206,7 +206,7 @@
 .end method
 
 .method public getRangeUnit()Lj$/time/temporal/TemporalUnit;
-    .locals 1
+    .registers 2
 
     .line 523
     sget-object v0, Lj$/time/temporal/ChronoUnit;->FOREVER:Lj$/time/temporal/ChronoUnit;
@@ -215,7 +215,7 @@
 .end method
 
 .method public isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 531
@@ -225,27 +225,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-static {p1}, Lj$/time/temporal/IsoFields;->isIso(Lj$/time/temporal/TemporalAccessor;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public range()Lj$/time/temporal/ValueRange;
-    .locals 1
+    .registers 2
 
     .line 527
     sget-object v0, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
@@ -258,7 +258,7 @@
 .end method
 
 .method public rangeRefinedBy(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
-    .locals 2
+    .registers 4
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 541
@@ -266,7 +266,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 544
     invoke-super {p0, p1}, Lj$/time/temporal/IsoFields$Field;->rangeRefinedBy(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
@@ -276,7 +276,7 @@
     return-object v0
 
     .line 542
-    :cond_0
+    :cond_b
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v1, "Unsupported field: WeekBasedYear"
@@ -287,7 +287,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 566
     const-string v0, "WeekBasedYear"

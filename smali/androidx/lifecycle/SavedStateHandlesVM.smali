@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 118
     invoke-direct {p0}, Landroidx/lifecycle/ViewModel;-><init>()V
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final getHandles()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

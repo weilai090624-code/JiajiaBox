@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -60,7 +60,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/concurrent/Callable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,7 +86,7 @@
 .end method
 
 .method public static create(Ljava/lang/Runnable;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFutureTask;
-    .locals 1
+    .registers 3
     .param p0, "runnable"    # Ljava/lang/Runnable;
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -114,7 +114,7 @@
 .end method
 
 .method public static create(Ljava/util/concurrent/Callable;)Lcom/google/common/util/concurrent/ListenableFutureTask;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -139,7 +139,7 @@
 
 # virtual methods
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p1, "listener"    # Ljava/lang/Runnable;
     .param p2, "exec"    # Ljava/util/concurrent/Executor;
 
@@ -154,7 +154,7 @@
 .end method
 
 .method protected done()V
-    .locals 1
+    .registers 2
 
     .line 111
     .local p0, "this":Lcom/google/common/util/concurrent/ListenableFutureTask;, "Lcom/google/common/util/concurrent/ListenableFutureTask<TV;>;"
@@ -167,7 +167,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 5
+    .registers 9
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -201,7 +201,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_12
 
     .line 101
     invoke-super {p0, p1, p2, p3}, Ljava/util/concurrent/FutureTask;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
@@ -211,7 +211,7 @@
     return-object v2
 
     .line 104
-    :cond_0
+    :cond_12
     nop
 
     .line 105

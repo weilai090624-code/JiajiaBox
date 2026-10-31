@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Supplier;JLjava/util/concurrent/TimeUnit;)V
-    .locals 3
+    .registers 8
     .param p2, "duration"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -101,16 +101,16 @@
 
     cmp-long v2, p2, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_19
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1a
     const-string v1, "duration (%s %s) must be > 0"
 
     invoke-static {v0, v1, p2, p3, p4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;JLjava/lang/Object;)V
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public get()Ljava/lang/Object;
-    .locals 9
+    .registers 10
     .annotation runtime Lcom/google/common/base/ParametricNullness;
     .end annotation
 
@@ -148,25 +148,25 @@
 
     cmp-long v6, v0, v4
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_12
 
     sub-long v6, v2, v0
 
     cmp-long v8, v6, v4
 
-    if-ltz v8, :cond_3
+    if-ltz v8, :cond_32
 
     .line 260
-    :cond_0
+    :cond_12
     monitor-enter p0
 
     .line 261
-    :try_start_0
+    :try_start_13
     iget-wide v6, p0, Lcom/google/common/base/Suppliers$ExpiringMemoizingSupplier;->expirationNanos:J
 
     cmp-long v8, v0, v6
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_31
 
     .line 262
     iget-object v6, p0, Lcom/google/common/base/Suppliers$ExpiringMemoizingSupplier;->delegate:Lcom/google/common/base/Supplier;
@@ -187,16 +187,16 @@
     .line 267
     cmp-long v7, v0, v4
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_2c
 
     const-wide/16 v4, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_1
+    :cond_2c
     move-wide v4, v0
 
-    :goto_0
+    :goto_2d
     iput-wide v4, p0, Lcom/google/common/base/Suppliers$ExpiringMemoizingSupplier;->expirationNanos:J
 
     .line 268
@@ -206,13 +206,13 @@
 
     .line 270
     .end local v6    # "t":Ljava/lang/Object;, "TT;"
-    :cond_2
+    :cond_31
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_13 .. :try_end_32} :catchall_39
 
     .line 273
-    :cond_3
+    :cond_32
     iget-object v4, p0, Lcom/google/common/base/Suppliers$ExpiringMemoizingSupplier;->value:Ljava/lang/Object;
 
     invoke-static {v4}, Lcom/google/common/base/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
@@ -222,19 +222,19 @@
     return-object v4
 
     .line 270
-    :catchall_0
+    :catchall_39
     move-exception v4
 
-    :try_start_1
+    :try_start_3a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3b
+    .catchall {:try_start_3a .. :try_end_3b} :catchall_39
 
     throw v4
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 280
     .local p0, "this":Lcom/google/common/base/Suppliers$ExpiringMemoizingSupplier;, "Lcom/google/common/base/Suppliers$ExpiringMemoizingSupplier<TT;>;"

@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method public static get(I[D[[D)Landroidx/constraintlayout/core/motion/utils/CurveFit;
-    .locals 4
+    .registers 7
     .param p0, "type"    # I
     .param p1, "time"    # [D
     .param p2, "y"    # [[D
@@ -40,17 +40,17 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_5
 
     .line 33
     const/4 p0, 0x2
 
     .line 35
-    :cond_0
-    packed-switch p0, :pswitch_data_0
+    :cond_5
+    packed-switch p0, :pswitch_data_20
 
     .line 41
-    :pswitch_0
+    :pswitch_8
     new-instance v0, Landroidx/constraintlayout/core/motion/utils/LinearCurveFit;
 
     invoke-direct {v0, p1, p2}, Landroidx/constraintlayout/core/motion/utils/LinearCurveFit;-><init>([D[[D)V
@@ -58,7 +58,7 @@
     return-object v0
 
     .line 39
-    :pswitch_1
+    :pswitch_e
     new-instance v0, Landroidx/constraintlayout/core/motion/utils/CurveFit$Constant;
 
     const/4 v1, 0x0
@@ -72,7 +72,7 @@
     return-object v0
 
     .line 37
-    :pswitch_2
+    :pswitch_19
     new-instance v0, Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;
 
     invoke-direct {v0, p1, p2}, Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;-><init>([D[[D)V
@@ -81,16 +81,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_20
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_19
+        :pswitch_8
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method public static getArc([I[D[[D)Landroidx/constraintlayout/core/motion/utils/CurveFit;
-    .locals 1
+    .registers 4
     .param p0, "arcModes"    # [I
     .param p1, "time"    # [D
     .param p2, "y"    # [[D

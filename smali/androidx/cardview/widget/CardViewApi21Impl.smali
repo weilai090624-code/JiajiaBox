@@ -8,7 +8,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method private getCardBackground(Landroidx/cardview/widget/CardViewDelegate;)Landroidx/cardview/widget/RoundRectDrawable;
-    .locals 1
+    .registers 3
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
 
     .line 122
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getBackgroundColor(Landroidx/cardview/widget/CardViewDelegate;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 3
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
 
     .line 118
@@ -49,7 +49,7 @@
 .end method
 
 .method public getElevation(Landroidx/cardview/widget/CardViewDelegate;)F
-    .locals 1
+    .registers 3
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
 
     .line 83
@@ -65,7 +65,7 @@
 .end method
 
 .method public getMaxElevation(Landroidx/cardview/widget/CardViewDelegate;)F
-    .locals 1
+    .registers 3
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
 
     .line 58
@@ -81,7 +81,7 @@
 .end method
 
 .method public getMinHeight(Landroidx/cardview/widget/CardViewDelegate;)F
-    .locals 2
+    .registers 4
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
 
     .line 68
@@ -97,7 +97,7 @@
 .end method
 
 .method public getMinWidth(Landroidx/cardview/widget/CardViewDelegate;)F
-    .locals 2
+    .registers 4
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
 
     .line 63
@@ -113,7 +113,7 @@
 .end method
 
 .method public getRadius(Landroidx/cardview/widget/CardViewDelegate;)F
-    .locals 1
+    .registers 3
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
 
     .line 73
@@ -129,14 +129,14 @@
 .end method
 
 .method public initStatic()V
-    .locals 0
+    .registers 1
 
     .line 47
     return-void
 .end method
 
 .method public initialize(Landroidx/cardview/widget/CardViewDelegate;Landroid/content/Context;Landroid/content/res/ColorStateList;FFF)V
-    .locals 3
+    .registers 10
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
     .param p2, "context"    # Landroid/content/Context;
     .param p3, "backgroundColor"    # Landroid/content/res/ColorStateList;
@@ -175,7 +175,7 @@
 .end method
 
 .method public onCompatPaddingChanged(Landroidx/cardview/widget/CardViewDelegate;)V
-    .locals 1
+    .registers 3
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
 
     .line 103
@@ -190,7 +190,7 @@
 .end method
 
 .method public onPreventCornerOverlapChanged(Landroidx/cardview/widget/CardViewDelegate;)V
-    .locals 1
+    .registers 3
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
 
     .line 108
@@ -205,7 +205,7 @@
 .end method
 
 .method public setBackgroundColor(Landroidx/cardview/widget/CardViewDelegate;Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 4
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
     .param p2, "color"    # Landroid/content/res/ColorStateList;
 
@@ -221,7 +221,7 @@
 .end method
 
 .method public setElevation(Landroidx/cardview/widget/CardViewDelegate;F)V
-    .locals 1
+    .registers 4
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
     .param p2, "elevation"    # F
 
@@ -237,7 +237,7 @@
 .end method
 
 .method public setMaxElevation(Landroidx/cardview/widget/CardViewDelegate;F)V
-    .locals 3
+    .registers 6
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
     .param p2, "maxElevation"    # F
 
@@ -266,7 +266,7 @@
 .end method
 
 .method public setRadius(Landroidx/cardview/widget/CardViewDelegate;F)V
-    .locals 1
+    .registers 4
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
     .param p2, "radius"    # F
 
@@ -282,7 +282,7 @@
 .end method
 
 .method public updatePadding(Landroidx/cardview/widget/CardViewDelegate;)V
-    .locals 5
+    .registers 7
     .param p1, "cardView"    # Landroidx/cardview/widget/CardViewDelegate;
 
     .line 88
@@ -290,7 +290,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 89
     const/4 v0, 0x0
@@ -301,7 +301,7 @@
     return-void
 
     .line 92
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getMaxElevation(Landroidx/cardview/widget/CardViewDelegate;)F
 
     move-result v0

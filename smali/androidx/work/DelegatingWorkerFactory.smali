@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 35
     const-string v0, "DelegatingWkrFctry"
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 43
     invoke-direct {p0}, Landroidx/work/WorkerFactory;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public final addFactory(Landroidx/work/WorkerFactory;)V
-    .locals 1
+    .registers 3
     .param p1, "workerFactory"    # Landroidx/work/WorkerFactory;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -76,7 +76,7 @@
 .end method
 
 .method public final createWorker(Landroid/content/Context;Ljava/lang/String;Landroidx/work/WorkerParameters;)Landroidx/work/ListenableWorker;
-    .locals 5
+    .registers 9
     .param p1, "appContext"    # Landroid/content/Context;
     .param p2, "workerClassName"    # Ljava/lang/String;
     .param p3, "workerParameters"    # Landroidx/work/WorkerParameters;
@@ -100,12 +100,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -115,32 +115,32 @@
 
     .line 71
     .local v1, "factory":Landroidx/work/WorkerFactory;
-    :try_start_0
+    :try_start_12
     invoke-virtual {v1, p1, p2, p3}, Landroidx/work/WorkerFactory;->createWorker(Landroid/content/Context;Ljava/lang/String;Landroidx/work/WorkerParameters;)Landroidx/work/ListenableWorker;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_12 .. :try_end_16} :catchall_1b
 
     .line 73
     .local v2, "worker":Landroidx/work/ListenableWorker;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 74
     return-object v2
 
     .line 81
     .end local v2    # "worker":Landroidx/work/ListenableWorker;
-    :cond_0
+    :cond_19
     nop
 
     .line 82
     .end local v1    # "factory":Landroidx/work/WorkerFactory;
-    goto :goto_0
+    goto :goto_6
 
     .line 76
     .restart local v1    # "factory":Landroidx/work/WorkerFactory;
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     .line 77
@@ -186,14 +186,14 @@
     .end local v0    # "throwable":Ljava/lang/Throwable;
     .end local v1    # "factory":Landroidx/work/WorkerFactory;
     .end local v2    # "message":Ljava/lang/String;
-    :cond_1
+    :cond_3f
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method getFactories()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

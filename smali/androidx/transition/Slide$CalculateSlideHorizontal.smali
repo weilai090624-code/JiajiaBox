@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroidx/transition/Slide$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Landroidx/transition/Slide$1;
 
     .line 78
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getGoneY(Landroid/view/ViewGroup;Landroid/view/View;)F
-    .locals 1
+    .registers 4
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
 

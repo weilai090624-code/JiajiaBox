@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Pipe;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lokio/Pipe;
 
     iput-object p1, p0, Lokio/Pipe$source$1;->this$0:Lokio/Pipe;
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 5
+    .registers 6
 
     .line 145
     iget-object v0, p0, Lokio/Pipe$source$1;->this$0:Lokio/Pipe;
@@ -102,7 +102,7 @@
     .local v3, "$i$a$-synchronized-Pipe$source$1$close$1":I
     const/4 v4, 0x1
 
-    :try_start_0
+    :try_start_c
     invoke-virtual {v1, v4}, Lokio/Pipe;->setSourceClosed$okio(Z)V
 
     .line 147
@@ -119,8 +119,8 @@
 
     .end local v3    # "$i$a$-synchronized-Pipe$source$1$close$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_c .. :try_end_1b} :catchall_1e
 
     monitor-exit v0
 
@@ -135,7 +135,7 @@
     .line 148
     .restart local v0    # "lock$iv":Ljava/lang/Object;
     .restart local v2    # "$i$f$synchronized":I
-    :catchall_0
+    :catchall_1e
     move-exception v1
 
     monitor-exit v0
@@ -144,7 +144,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 9
+    .registers 13
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -172,22 +172,22 @@
 
     .line 129
     .local v3, "$i$a$-synchronized-Pipe$source$1$read$1":I
-    :try_start_0
+    :try_start_10
     invoke-virtual {v1}, Lokio/Pipe;->getSourceClosed$okio()Z
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_68
 
     .line 130
     invoke-virtual {v1}, Lokio/Pipe;->getCanceled$okio()Z
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_60
 
     .line 132
-    :goto_0
+    :goto_1c
     invoke-virtual {v1}, Lokio/Pipe;->getBuffer$okio()Lokio/Buffer;
 
     move-result-object v4
@@ -200,16 +200,16 @@
 
     cmp-long v8, v4, v6
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_4c
 
     .line 133
     invoke-virtual {v1}, Lokio/Pipe;->getSinkClosed$okio()Z
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_10 .. :try_end_2e} :catchall_77
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_34
 
     .end local v0    # "lock$iv":Ljava/lang/Object;
     .end local v2    # "$i$f$synchronized":I
@@ -224,8 +224,8 @@
     .restart local v0    # "lock$iv":Ljava/lang/Object;
     .restart local v2    # "$i$f$synchronized":I
     .restart local v3    # "$i$a$-synchronized-Pipe$source$1$read$1":I
-    :cond_0
-    :try_start_1
+    :cond_34
+    :try_start_34
     iget-object v4, p0, Lokio/Pipe$source$1;->timeout:Lokio/Timeout;
 
     invoke-virtual {v1}, Lokio/Pipe;->getBuffer$okio()Lokio/Buffer;
@@ -239,11 +239,11 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_44
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_44
     new-instance v1, Ljava/io/IOException;
 
     const-string v4, "canceled"
@@ -261,7 +261,7 @@
     .restart local v2    # "$i$f$synchronized":I
     .restart local p1    # "sink":Lokio/Buffer;
     .restart local p2    # "byteCount":J
-    :cond_2
+    :cond_4c
     invoke-virtual {v1}, Lokio/Pipe;->getBuffer$okio()Lokio/Buffer;
 
     move-result-object v4
@@ -279,8 +279,8 @@
     check-cast v1, Ljava/lang/Object;
 
     invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5d
+    .catchall {:try_start_34 .. :try_end_5d} :catchall_77
 
     .line 140
     nop
@@ -297,8 +297,8 @@
     .restart local v0    # "lock$iv":Ljava/lang/Object;
     .restart local v2    # "$i$f$synchronized":I
     .restart local v3    # "$i$a$-synchronized-Pipe$source$1$read$1":I
-    :cond_3
-    :try_start_2
+    :cond_60
+    :try_start_60
     new-instance v1, Ljava/io/IOException;
 
     const-string v4, "canceled"
@@ -316,7 +316,7 @@
     .restart local v2    # "$i$f$synchronized":I
     .restart local p1    # "sink":Lokio/Buffer;
     .restart local p2    # "byteCount":J
-    :cond_4
+    :cond_68
     const/4 v1, 0x0
 
     .line 129
@@ -339,8 +339,8 @@
     .end local p1    # "sink":Lokio/Buffer;
     .end local p2    # "byteCount":J
     throw v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_77
+    .catchall {:try_start_60 .. :try_end_77} :catchall_77
 
     .line 140
     .end local v3    # "$i$a$-synchronized-Pipe$source$1$read$1":I
@@ -348,7 +348,7 @@
     .restart local v2    # "$i$f$synchronized":I
     .restart local p1    # "sink":Lokio/Buffer;
     .restart local p2    # "byteCount":J
-    :catchall_0
+    :catchall_77
     move-exception v1
 
     monitor-exit v0
@@ -357,7 +357,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 151
     iget-object v0, p0, Lokio/Pipe$source$1;->timeout:Lokio/Timeout;

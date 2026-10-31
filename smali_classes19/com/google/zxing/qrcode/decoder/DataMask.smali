@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     .line 39
     new-instance v0, Lcom/google/zxing/qrcode/decoder/DataMask$1;
@@ -168,7 +168,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -182,7 +182,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/zxing/qrcode/decoder/DataMask$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # I
     .param p3, "x2"    # Lcom/google/zxing/qrcode/decoder/DataMask$1;
@@ -194,7 +194,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/zxing/qrcode/decoder/DataMask;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 32
@@ -210,7 +210,7 @@
 .end method
 
 .method public static values()[Lcom/google/zxing/qrcode/decoder/DataMask;
-    .locals 1
+    .registers 1
 
     .line 32
     sget-object v0, Lcom/google/zxing/qrcode/decoder/DataMask;->$VALUES:[Lcom/google/zxing/qrcode/decoder/DataMask;
@@ -230,7 +230,7 @@
 .end method
 
 .method final unmaskBitMatrix(Lcom/google/zxing/common/BitMatrix;I)V
-    .locals 3
+    .registers 6
     .param p1, "bits"    # Lcom/google/zxing/common/BitMatrix;
     .param p2, "dimension"    # I
 
@@ -238,41 +238,41 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p2, :cond_2
+    :goto_1
+    if-ge v0, p2, :cond_15
 
     .line 131
     const/4 v1, 0x0
 
     .local v1, "j":I
-    :goto_1
-    if-ge v1, p2, :cond_1
+    :goto_4
+    if-ge v1, p2, :cond_12
 
     .line 132
     invoke-virtual {p0, v0, v1}, Lcom/google/zxing/qrcode/decoder/DataMask;->isMasked(II)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_f
 
     .line 133
     invoke-virtual {p1, v1, v0}, Lcom/google/zxing/common/BitMatrix;->flip(II)V
 
     .line 131
-    :cond_0
+    :cond_f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_4
 
     .line 130
     .end local v1    # "j":I
-    :cond_1
+    :cond_12
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 137
     .end local v0    # "i":I
-    :cond_2
+    :cond_15
     return-void
 .end method

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 50
     invoke-direct {p0}, Lkotlin/random/AbstractPlatformRandom;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public getImpl()Ljava/util/Random;
-    .locals 2
+    .registers 3
 
     .line 56
     iget-object v0, p0, Lkotlin/random/FallbackThreadLocalRandom;->implStorage:Lkotlin/random/FallbackThreadLocalRandom$implStorage$1;

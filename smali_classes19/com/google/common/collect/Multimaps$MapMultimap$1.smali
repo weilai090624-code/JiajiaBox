@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multimaps$MapMultimap;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Multimaps$MapMultimap;
 
     .line 1044
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -65,7 +65,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 1080
     .local p0, "this":Lcom/google/common/collect/Multimaps$MapMultimap$1;, "Lcom/google/common/collect/Multimaps$MapMultimap$1;"

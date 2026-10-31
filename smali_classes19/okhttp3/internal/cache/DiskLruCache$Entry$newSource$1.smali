@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/cache/DiskLruCache;Lokhttp3/internal/cache/DiskLruCache$Entry;Lokio/Source;)V
-    .locals 0
+    .registers 4
     .param p1, "$receiver"    # Lokhttp3/internal/cache/DiskLruCache;
     .param p2, "$receiver"    # Lokhttp3/internal/cache/DiskLruCache$Entry;
     .param p3, "$fileSource"    # Lokio/Source;
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 5
+    .registers 6
 
     .line 1048
     invoke-super {p0}, Lokio/ForwardingSource;->close()V
@@ -76,7 +76,7 @@
     .line 1049
     iget-boolean v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry$newSource$1;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     .line 1050
     const/4 v0, 0x1
@@ -96,7 +96,7 @@
 
     .line 1052
     .local v3, "$i$a$-synchronized-DiskLruCache$Entry$newSource$1$close$1":I
-    :try_start_0
+    :try_start_12
     invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache$Entry;->getLockingSourceCount$okhttp()I
 
     move-result v4
@@ -110,32 +110,32 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2a
 
     invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache$Entry;->getZombie$okhttp()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2a
 
     .line 1054
     invoke-virtual {v2, v1}, Lokhttp3/internal/cache/DiskLruCache;->removeEntry$okhttp(Lokhttp3/internal/cache/DiskLruCache$Entry;)Z
 
     .line 1056
-    :cond_0
+    :cond_2a
     nop
 
     .end local v3    # "$i$a$-synchronized-DiskLruCache$Entry$newSource$1$close$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2d
+    .catchall {:try_start_12 .. :try_end_2d} :catchall_2f
 
     .line 1051
     monitor-exit v0
 
-    goto :goto_0
+    goto :goto_32
 
-    :catchall_0
+    :catchall_2f
     move-exception v1
 
     monitor-exit v0
@@ -143,7 +143,7 @@
     throw v1
 
     .line 1058
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     return-void
 .end method

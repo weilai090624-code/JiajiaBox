@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1194
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static hasProvider(Landroid/location/LocationManager;Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p0, "locationManager"    # Landroid/location/LocationManager;
     .param p1, "provider"    # Ljava/lang/String;
 
@@ -39,7 +39,7 @@
 .end method
 
 .method static registerGnssMeasurementsCallback(Landroid/location/LocationManager;Ljava/util/concurrent/Executor;Landroid/location/GnssMeasurementsEvent$Callback;)Z
-    .locals 1
+    .registers 4
     .param p0, "locationManager"    # Landroid/location/LocationManager;
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "callback"    # Landroid/location/GnssMeasurementsEvent$Callback;
@@ -53,7 +53,7 @@
 .end method
 
 .method static requestLocationUpdates(Landroid/location/LocationManager;Ljava/lang/String;Landroid/location/LocationRequest;Ljava/util/concurrent/Executor;Landroid/location/LocationListener;)V
-    .locals 0
+    .registers 5
     .param p0, "locationManager"    # Landroid/location/LocationManager;
     .param p1, "provider"    # Ljava/lang/String;
     .param p2, "locationRequest"    # Landroid/location/LocationRequest;

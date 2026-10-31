@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 321
     new-instance v0, Landroid/graphics/RectF;
@@ -39,7 +39,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method static calculateArea(Landroid/graphics/RectF;)F
-    .locals 2
+    .registers 3
     .param p0, "bounds"    # Landroid/graphics/RectF;
 
     .line 318
@@ -66,7 +66,7 @@
 .end method
 
 .method static convertToRelativeCornerSizes(Lcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/RectF;)Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 1
+    .registers 3
     .param p0, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p1, "bounds"    # Landroid/graphics/RectF;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method static createColorShader(I)Landroid/graphics/Shader;
-    .locals 9
+    .registers 10
     .param p0, "color"    # I
 
     .line 267
@@ -111,7 +111,7 @@
 .end method
 
 .method static defaultIfNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -123,21 +123,21 @@
     .line 314
     .local p0, "value":Ljava/lang/Object;, "TT;"
     .local p1, "defaultValue":Ljava/lang/Object;, "TT;"
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_4
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     move-object v0, p1
 
-    :goto_0
+    :goto_5
     return-object v0
 .end method
 
 .method static findAncestorById(Landroid/view/View;I)Landroid/view/View;
-    .locals 4
+    .registers 6
     .param p0, "view"    # Landroid/view/View;
     .param p1, "ancestorId"    # I
 
@@ -152,21 +152,21 @@
 
     .line 280
     .local v0, "resourceName":Ljava/lang/String;
-    :goto_0
-    if-eqz p0, :cond_1
+    :goto_8
+    if-eqz p0, :cond_1d
 
     .line 281
     invoke-virtual {p0}, Landroid/view/View;->getId()I
 
     move-result v1
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_11
 
     .line 282
     return-object p0
 
     .line 284
-    :cond_0
+    :cond_11
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
@@ -175,7 +175,7 @@
     .local v1, "parent":Landroid/view/ViewParent;
     instance-of v2, v1, Landroid/view/View;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1d
 
     .line 286
     move-object p0, v1
@@ -184,10 +184,10 @@
 
     .line 290
     .end local v1    # "parent":Landroid/view/ViewParent;
-    goto :goto_0
+    goto :goto_8
 
     .line 291
-    :cond_1
+    :cond_1d
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -214,7 +214,7 @@
 .end method
 
 .method static findDescendantOrAncestorById(Landroid/view/View;I)Landroid/view/View;
-    .locals 2
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "viewId"    # I
 
@@ -225,13 +225,13 @@
 
     .line 272
     .local v0, "descendant":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 273
     return-object v0
 
     .line 275
-    :cond_0
+    :cond_7
     invoke-static {p0, p1}, Lcom/google/android/material/transition/platform/TransitionUtils;->findAncestorById(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v1
@@ -240,7 +240,7 @@
 .end method
 
 .method static getLocationOnScreen(Landroid/view/View;)Landroid/graphics/RectF;
-    .locals 10
+    .registers 11
     .param p0, "view"    # Landroid/view/View;
 
     .line 303
@@ -297,7 +297,7 @@
 .end method
 
 .method static getRelativeBounds(Landroid/view/View;)Landroid/graphics/RectF;
-    .locals 5
+    .registers 6
     .param p0, "view"    # Landroid/view/View;
 
     .line 295
@@ -333,7 +333,7 @@
 .end method
 
 .method static getRelativeBoundsRect(Landroid/view/View;)Landroid/graphics/Rect;
-    .locals 5
+    .registers 6
     .param p0, "view"    # Landroid/view/View;
 
     .line 299
@@ -361,7 +361,7 @@
 .end method
 
 .method private static isShapeAppearanceSignificant(Lcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/RectF;)Z
-    .locals 2
+    .registers 4
     .param p0, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p1, "bounds"    # Landroid/graphics/RectF;
 
@@ -378,7 +378,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_34
 
     .line 171
     invoke-virtual {p0}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getTopRightCornerSize()Lcom/google/android/material/shape/CornerSize;
@@ -391,7 +391,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_34
 
     .line 172
     invoke-virtual {p0}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getBottomRightCornerSize()Lcom/google/android/material/shape/CornerSize;
@@ -404,7 +404,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_34
 
     .line 173
     invoke-virtual {p0}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getBottomLeftCornerSize()Lcom/google/android/material/shape/CornerSize;
@@ -417,26 +417,26 @@
 
     cmpl-float v0, v0, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_32
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_35
 
-    :cond_1
-    :goto_0
+    :cond_34
+    :goto_34
     const/4 v0, 0x1
 
     .line 170
-    :goto_1
+    :goto_35
     return v0
 .end method
 
 .method static synthetic lambda$convertToRelativeCornerSizes$0(Landroid/graphics/RectF;Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;
-    .locals 1
+    .registers 3
     .param p0, "bounds"    # Landroid/graphics/RectF;
     .param p1, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
@@ -449,7 +449,7 @@
 .end method
 
 .method static lerp(FFF)F
-    .locals 1
+    .registers 4
     .param p0, "startValue"    # F
     .param p1, "endValue"    # F
     .param p2, "fraction"    # F
@@ -465,7 +465,7 @@
 .end method
 
 .method static lerp(FFFFF)F
-    .locals 6
+    .registers 11
     .param p0, "startValue"    # F
     .param p1, "endValue"    # F
     .param p2, "startFraction"    # F
@@ -493,7 +493,7 @@
 .end method
 
 .method static lerp(FFFFFZ)F
-    .locals 2
+    .registers 8
     .param p0, "startValue"    # F
     .param p1, "endValue"    # F
     .param p2, "startFraction"    # F
@@ -502,22 +502,22 @@
     .param p5, "allowOvershoot"    # Z
 
     .line 203
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_12
 
     const/4 v0, 0x0
 
     cmpg-float v0, p4, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_d
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v0, p4, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_12
 
     .line 204
-    :cond_0
+    :cond_d
     invoke-static {p0, p1, p4}, Lcom/google/android/material/transition/platform/TransitionUtils;->lerp(FFF)F
 
     move-result v0
@@ -525,25 +525,25 @@
     return v0
 
     .line 206
-    :cond_1
+    :cond_12
     cmpg-float v0, p4, p2
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_17
 
     .line 207
     return p0
 
     .line 209
-    :cond_2
+    :cond_17
     cmpl-float v0, p4, p3
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_1c
 
     .line 210
     return p1
 
     .line 213
-    :cond_3
+    :cond_1c
     sub-float v0, p4, p2
 
     sub-float v1, p3, p2
@@ -558,7 +558,7 @@
 .end method
 
 .method static lerp(IIFFF)I
-    .locals 4
+    .registers 9
     .param p0, "startValue"    # I
     .param p1, "endValue"    # I
     .param p2, "startFraction"    # F
@@ -568,22 +568,22 @@
     .line 222
     cmpg-float v0, p4, p2
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_5
 
     .line 223
     return p0
 
     .line 225
-    :cond_0
+    :cond_5
     cmpl-float v0, p4, p3
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_a
 
     .line 226
     return p1
 
     .line 228
-    :cond_1
+    :cond_a
     int-to-float v0, p0
 
     int-to-float v1, p1
@@ -606,7 +606,7 @@
 .end method
 
 .method static lerp(Lcom/google/android/material/shape/ShapeAppearanceModel;Lcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/RectF;Landroid/graphics/RectF;FFF)Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 7
+    .registers 14
     .param p0, "startValue"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p1, "endValue"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p2, "startBounds"    # Landroid/graphics/RectF;
@@ -618,22 +618,22 @@
     .line 240
     cmpg-float v0, p6, p4
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_5
 
     .line 241
     return-object p0
 
     .line 243
-    :cond_0
+    :cond_5
     cmpl-float v0, p6, p5
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_a
 
     .line 244
     return-object p1
 
     .line 247
-    :cond_1
+    :cond_a
     new-instance v0, Lcom/google/android/material/transition/platform/TransitionUtils$1;
 
     move-object v1, v0
@@ -658,29 +658,29 @@
 .end method
 
 .method static maybeAddTransition(Landroid/transition/TransitionSet;Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p0, "transitionSet"    # Landroid/transition/TransitionSet;
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 364
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 365
     invoke-virtual {p0, p1}, Landroid/transition/TransitionSet;->addTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
 
     .line 367
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method static maybeApplyThemeDuration(Landroid/transition/Transition;Landroid/content/Context;I)Z
-    .locals 5
+    .registers 8
     .param p0, "transition"    # Landroid/transition/Transition;
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrResId"    # I
 
     .line 80
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_19
 
     invoke-virtual {p0}, Landroid/transition/Transition;->getDuration()J
 
@@ -690,7 +690,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_19
 
     .line 81
     const/4 v0, -0x1
@@ -701,7 +701,7 @@
 
     .line 82
     .local v1, "duration":I
-    if-eq v1, v0, :cond_0
+    if-eq v1, v0, :cond_19
 
     .line 83
     int-to-long v2, v1
@@ -715,27 +715,27 @@
 
     .line 87
     .end local v1    # "duration":I
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method static maybeApplyThemeInterpolator(Landroid/transition/Transition;Landroid/content/Context;ILandroid/animation/TimeInterpolator;)Z
-    .locals 2
+    .registers 6
     .param p0, "transition"    # Landroid/transition/Transition;
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrResId"    # I
     .param p3, "defaultInterpolator"    # Landroid/animation/TimeInterpolator;
 
     .line 69
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_12
 
     invoke-virtual {p0}, Landroid/transition/Transition;->getInterpolator()Landroid/animation/TimeInterpolator;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 70
     nop
@@ -756,20 +756,20 @@
 
     .line 75
     .end local v0    # "interpolator":Landroid/animation/TimeInterpolator;
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method static maybeApplyThemePath(Landroid/transition/Transition;Landroid/content/Context;I)Z
-    .locals 2
+    .registers 5
     .param p0, "transition"    # Landroid/transition/Transition;
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrResId"    # I
 
     .line 92
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 93
     invoke-static {p1, p2}, Lcom/google/android/material/transition/platform/TransitionUtils;->resolveThemePath(Landroid/content/Context;I)Landroid/transition/PathMotion;
@@ -778,7 +778,7 @@
 
     .line 94
     .local v0, "pathMotion":Landroid/transition/PathMotion;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 95
     invoke-virtual {p0, v0}, Landroid/transition/Transition;->setPathMotion(Landroid/transition/PathMotion;)V
@@ -790,30 +790,30 @@
 
     .line 99
     .end local v0    # "pathMotion":Landroid/transition/PathMotion;
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method static maybeRemoveTransition(Landroid/transition/TransitionSet;Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p0, "transitionSet"    # Landroid/transition/TransitionSet;
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 370
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 371
     invoke-virtual {p0, p1}, Landroid/transition/TransitionSet;->removeTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
 
     .line 373
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method static resolveThemePath(Landroid/content/Context;I)Landroid/transition/PathMotion;
-    .locals 5
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attrResId"    # I
 
@@ -836,28 +836,28 @@
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5a
 
     .line 106
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/16 v4, 0x10
 
-    if-ne v1, v4, :cond_2
+    if-ne v1, v4, :cond_3d
 
     .line 107
     iget v1, v0, Landroid/util/TypedValue;->data:I
 
     .line 108
     .local v1, "pathInt":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     .line 110
     return-object v3
 
     .line 111
-    :cond_0
-    if-ne v1, v2, :cond_1
+    :cond_1c
+    if-ne v1, v2, :cond_24
 
     .line 112
     new-instance v2, Lcom/google/android/material/transition/platform/MaterialArcMotion;
@@ -867,7 +867,7 @@
     return-object v2
 
     .line 114
-    :cond_1
+    :cond_24
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -894,12 +894,12 @@
 
     .line 116
     .end local v1    # "pathInt":I
-    :cond_2
+    :cond_3d
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_52
 
     .line 117
     iget-object v1, v0, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
@@ -922,7 +922,7 @@
 
     .line 120
     .end local v1    # "pathString":Ljava/lang/String;
-    :cond_3
+    :cond_52
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Motion path theme attribute must either be an enum value or path data string"
@@ -932,12 +932,12 @@
     throw v1
 
     .line 124
-    :cond_4
+    :cond_5a
     return-object v3
 .end method
 
 .method private static saveLayerAlphaCompat(Landroid/graphics/Canvas;Landroid/graphics/Rect;I)I
-    .locals 1
+    .registers 4
     .param p0, "canvas"    # Landroid/graphics/Canvas;
     .param p1, "bounds"    # Landroid/graphics/Rect;
     .param p2, "alpha"    # I
@@ -961,7 +961,7 @@
 .end method
 
 .method static transform(Landroid/graphics/Canvas;Landroid/graphics/Rect;FFFILcom/google/android/material/transition/platform/TransitionUtils$CanvasOperation;)V
-    .locals 2
+    .registers 9
     .param p0, "canvas"    # Landroid/graphics/Canvas;
     .param p1, "bounds"    # Landroid/graphics/Rect;
     .param p2, "dx"    # F
@@ -971,13 +971,13 @@
     .param p6, "op"    # Lcom/google/android/material/transition/platform/TransitionUtils$CanvasOperation;
 
     .line 345
-    if-gtz p5, :cond_0
+    if-gtz p5, :cond_3
 
     .line 346
     return-void
 
     .line 349
-    :cond_0
+    :cond_3
     invoke-virtual {p0}, Landroid/graphics/Canvas;->save()I
 
     move-result v0
@@ -992,13 +992,13 @@
     .line 352
     const/16 v1, 0xff
 
-    if-ge p5, v1, :cond_1
+    if-ge p5, v1, :cond_14
 
     .line 353
     invoke-static {p0, p1, p5}, Lcom/google/android/material/transition/platform/TransitionUtils;->saveLayerAlphaCompat(Landroid/graphics/Canvas;Landroid/graphics/Rect;I)I
 
     .line 355
-    :cond_1
+    :cond_14
     invoke-interface {p6, p0}, Lcom/google/android/material/transition/platform/TransitionUtils$CanvasOperation;->run(Landroid/graphics/Canvas;)V
 
     .line 356
@@ -1009,7 +1009,7 @@
 .end method
 
 .method static transformCornerSizes(Lcom/google/android/material/shape/ShapeAppearanceModel;Lcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/RectF;Lcom/google/android/material/transition/platform/TransitionUtils$CornerSizeBinaryOperator;)Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 4
+    .registers 8
     .param p0, "shapeAppearanceModel1"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p1, "shapeAppearanceModel2"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p2, "shapeAppearanceModel1Bounds"    # Landroid/graphics/RectF;
@@ -1020,18 +1020,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 145
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_9
 
     .line 146
-    :cond_0
+    :cond_8
     move-object v0, p1
 
-    :goto_0
+    :goto_9
     nop
 
     .line 148

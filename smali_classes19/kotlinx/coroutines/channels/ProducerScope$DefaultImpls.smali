@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static offer(Lkotlinx/coroutines/channels/ProducerScope;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/channels/ProducerScope;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method public static getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributes"    # Landroid/content/res/TypedArray;
     .param p2, "index"    # I
@@ -30,7 +30,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 63
     const/4 v0, 0x0
@@ -41,7 +41,7 @@
 
     .line 64
     .local v0, "resourceId":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 65
     invoke-static {p0, v0}, Landroidx/appcompat/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
@@ -50,7 +50,7 @@
 
     .line 66
     .local v1, "value":Landroid/content/res/ColorStateList;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 67
     return-object v1
@@ -58,7 +58,7 @@
     .line 74
     .end local v0    # "resourceId":I
     .end local v1    # "value":Landroid/content/res/ColorStateList;
-    :cond_0
+    :cond_14
     nop
 
     .line 81
@@ -70,7 +70,7 @@
 .end method
 
 .method public static getColorStateList(Landroid/content/Context;Landroidx/appcompat/widget/TintTypedArray;I)Landroid/content/res/ColorStateList;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributes"    # Landroidx/appcompat/widget/TintTypedArray;
     .param p2, "index"    # I
@@ -80,7 +80,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 92
     const/4 v0, 0x0
@@ -91,7 +91,7 @@
 
     .line 93
     .local v0, "resourceId":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 94
     invoke-static {p0, v0}, Landroidx/appcompat/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
@@ -100,7 +100,7 @@
 
     .line 95
     .local v1, "value":Landroid/content/res/ColorStateList;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 96
     return-object v1
@@ -108,7 +108,7 @@
     .line 103
     .end local v0    # "resourceId":I
     .end local v1    # "value":Landroid/content/res/ColorStateList;
-    :cond_0
+    :cond_14
     nop
 
     .line 110
@@ -120,7 +120,7 @@
 .end method
 
 .method private static getComplexUnit(Landroid/util/TypedValue;)I
-    .locals 2
+    .registers 3
     .param p0, "tv"    # Landroid/util/TypedValue;
 
     .line 245
@@ -128,7 +128,7 @@
 
     const/16 v1, 0x16
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 246
     invoke-virtual {p0}, Landroid/util/TypedValue;->getComplexUnit()I
@@ -138,7 +138,7 @@
     return v0
 
     .line 248
-    :cond_0
+    :cond_b
     iget v0, p0, Landroid/util/TypedValue;->data:I
 
     shr-int/lit8 v0, v0, 0x0
@@ -149,7 +149,7 @@
 .end method
 
 .method public static getDimensionPixelSize(Landroid/content/Context;Landroid/content/res/TypedArray;II)I
-    .locals 3
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributes"    # Landroid/content/res/TypedArray;
     .param p2, "index"    # I
@@ -166,18 +166,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/4 v2, 0x2
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_11
 
-    goto :goto_0
+    goto :goto_28
 
     .line 178
-    :cond_0
+    :cond_11
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v1
@@ -210,8 +210,8 @@
     .line 175
     .end local v1    # "styledAttrs":Landroid/content/res/TypedArray;
     .end local v2    # "dimension":I
-    :cond_1
-    :goto_0
+    :cond_28
+    :goto_28
     invoke-virtual {p1, p2, p3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v1
@@ -220,7 +220,7 @@
 .end method
 
 .method public static getDrawable(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributes"    # Landroid/content/res/TypedArray;
     .param p2, "index"    # I
@@ -230,7 +230,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 123
     const/4 v0, 0x0
@@ -241,7 +241,7 @@
 
     .line 124
     .local v0, "resourceId":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 125
     invoke-static {p0, v0}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
@@ -250,7 +250,7 @@
 
     .line 126
     .local v1, "value":Landroid/graphics/drawable/Drawable;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 127
     return-object v1
@@ -258,7 +258,7 @@
     .line 131
     .end local v0    # "resourceId":I
     .end local v1    # "value":Landroid/graphics/drawable/Drawable;
-    :cond_0
+    :cond_14
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -267,7 +267,7 @@
 .end method
 
 .method static getIndexWithValue(Landroid/content/res/TypedArray;II)I
-    .locals 1
+    .registers 4
     .param p0, "attributes"    # Landroid/content/res/TypedArray;
     .param p1, "a"    # I
     .param p2, "b"    # I
@@ -277,18 +277,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 260
     return p1
 
     .line 262
-    :cond_0
+    :cond_7
     return p2
 .end method
 
 .method public static getTextAppearance(Landroid/content/Context;Landroid/content/res/TypedArray;I)Lcom/google/android/material/resources/TextAppearance;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributes"    # Landroid/content/res/TypedArray;
     .param p2, "index"    # I
@@ -298,7 +298,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 143
     const/4 v0, 0x0
@@ -309,7 +309,7 @@
 
     .line 144
     .local v0, "resourceId":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 145
     new-instance v1, Lcom/google/android/material/resources/TextAppearance;
@@ -320,26 +320,26 @@
 
     .line 148
     .end local v0    # "resourceId":I
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static getUnscaledTextSize(Landroid/content/Context;II)I
-    .locals 5
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "textAppearance"    # I
     .param p2, "defValue"    # I
 
     .line 211
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 212
     return p2
 
     .line 215
-    :cond_0
+    :cond_3
     sget-object v0, Lcom/google/android/material/R$styleable;->TextAppearance:[I
 
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
@@ -365,20 +365,20 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 220
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1a
 
     .line 221
     return p2
 
     .line 226
-    :cond_1
+    :cond_1a
     invoke-static {v1}, Lcom/google/android/material/resources/MaterialResources;->getComplexUnit(Landroid/util/TypedValue;)I
 
     move-result v3
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_38
 
     .line 229
     iget v3, v1, Landroid/util/TypedValue;->data:I
@@ -408,7 +408,7 @@
     return v3
 
     .line 234
-    :cond_2
+    :cond_38
     iget v3, v1, Landroid/util/TypedValue;->data:I
 
     .line 235
@@ -429,7 +429,7 @@
 .end method
 
 .method public static isFontScaleAtLeast1_3(Landroid/content/Context;)Z
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 188
@@ -447,21 +447,21 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public static isFontScaleAtLeast2_0(Landroid/content/Context;)Z
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 195
@@ -479,15 +479,15 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method

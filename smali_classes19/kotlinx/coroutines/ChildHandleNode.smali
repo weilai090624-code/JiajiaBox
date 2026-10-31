@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/ChildJob;)V
-    .locals 0
+    .registers 2
     .param p1, "childJob"    # Lkotlinx/coroutines/ChildJob;
 
     .line 1437
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public childCancelled(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 1440
@@ -78,7 +78,7 @@
 .end method
 
 .method public getParent()Lkotlinx/coroutines/Job;
-    .locals 1
+    .registers 2
 
     .line 1438
     invoke-virtual {p0}, Lkotlinx/coroutines/ChildHandleNode;->getJob()Lkotlinx/coroutines/JobSupport;
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 1435
@@ -107,7 +107,7 @@
 .end method
 
 .method public invoke(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 1439

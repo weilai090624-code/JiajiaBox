@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/TextView;)V
-    .locals 1
+    .registers 3
     .param p1, "textView"    # Landroid/widget/TextView;
 
     .line 75
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/TextView;Z)V
-    .locals 1
+    .registers 4
     .param p1, "textView"    # Landroid/widget/TextView;
     .param p2, "expectInitializedEmojiCompat"    # Z
 
@@ -48,7 +48,7 @@
     nop
 
     .line 100
-    if-nez p2, :cond_0
+    if-nez p2, :cond_14
 
     .line 101
     new-instance v0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$SkippingHelper19;
@@ -57,10 +57,10 @@
 
     iput-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper;->mHelper:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 103
-    :cond_0
+    :cond_14
     new-instance v0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;
 
     invoke-direct {v0, p1}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;-><init>(Landroid/widget/TextView;)V
@@ -68,14 +68,14 @@
     iput-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper;->mHelper:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal;
 
     .line 105
-    :goto_0
+    :goto_1b
     return-void
 .end method
 
 
 # virtual methods
 .method public getFilters([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
-    .locals 1
+    .registers 3
     .param p1, "filters"    # [Landroid/text/InputFilter;
 
     .line 132
@@ -89,7 +89,7 @@
 .end method
 
 .method public isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 180
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper;->mHelper:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal;
@@ -102,7 +102,7 @@
 .end method
 
 .method public setAllCaps(Z)V
-    .locals 1
+    .registers 3
     .param p1, "allCaps"    # Z
 
     .line 173
@@ -115,7 +115,7 @@
 .end method
 
 .method public setEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "enabled"    # Z
 
     .line 163
@@ -128,7 +128,7 @@
 .end method
 
 .method public updateTransformationMethod()V
-    .locals 1
+    .registers 2
 
     .line 115
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper;->mHelper:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal;
@@ -140,7 +140,7 @@
 .end method
 
 .method public wrapTransformationMethod(Landroid/text/method/TransformationMethod;)Landroid/text/method/TransformationMethod;
-    .locals 1
+    .registers 3
     .param p1, "transformationMethod"    # Landroid/text/method/TransformationMethod;
 
     .line 145

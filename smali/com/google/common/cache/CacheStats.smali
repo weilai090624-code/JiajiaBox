@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(JJJJJJ)V
-    .locals 18
+    .registers 31
     .param p1, "hitCount"    # J
     .param p3, "missCount"    # J
     .param p5, "loadSuccessCount"    # J
@@ -58,89 +58,89 @@
 
     cmp-long v17, v1, v15
 
-    if-ltz v17, :cond_0
+    if-ltz v17, :cond_1c
 
     const/16 v17, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1c
     const/16 v17, 0x0
 
-    :goto_0
+    :goto_1e
     invoke-static/range {v17 .. v17}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 87
     cmp-long v17, v3, v15
 
-    if-ltz v17, :cond_1
+    if-ltz v17, :cond_28
 
     const/16 v17, 0x1
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_1
+    :cond_28
     const/16 v17, 0x0
 
-    :goto_1
+    :goto_2a
     invoke-static/range {v17 .. v17}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 88
     cmp-long v17, v5, v15
 
-    if-ltz v17, :cond_2
+    if-ltz v17, :cond_34
 
     const/16 v17, 0x1
 
-    goto :goto_2
+    goto :goto_36
 
-    :cond_2
+    :cond_34
     const/16 v17, 0x0
 
-    :goto_2
+    :goto_36
     invoke-static/range {v17 .. v17}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 89
     cmp-long v17, v7, v15
 
-    if-ltz v17, :cond_3
+    if-ltz v17, :cond_40
 
     const/16 v17, 0x1
 
-    goto :goto_3
+    goto :goto_42
 
-    :cond_3
+    :cond_40
     const/16 v17, 0x0
 
-    :goto_3
+    :goto_42
     invoke-static/range {v17 .. v17}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 90
     cmp-long v17, v9, v15
 
-    if-ltz v17, :cond_4
+    if-ltz v17, :cond_4c
 
     const/16 v17, 0x1
 
-    goto :goto_4
+    goto :goto_4e
 
-    :cond_4
+    :cond_4c
     const/16 v17, 0x0
 
-    :goto_4
+    :goto_4e
     invoke-static/range {v17 .. v17}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 91
     cmp-long v17, v11, v15
 
-    if-ltz v17, :cond_5
+    if-ltz v17, :cond_56
 
-    goto :goto_5
+    goto :goto_57
 
-    :cond_5
+    :cond_56
     const/4 v13, 0x0
 
-    :goto_5
+    :goto_57
     invoke-static {v13}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 93
@@ -168,7 +168,7 @@
 
 # virtual methods
 .method public averageLoadPenalty()D
-    .locals 6
+    .registers 7
 
     .line 226
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->loadSuccessCount:J
@@ -185,13 +185,13 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_11
 
     const-wide/16 v2, 0x0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_11
     iget-wide v2, p0, Lcom/google/common/cache/CacheStats;->totalLoadTime:J
 
     long-to-double v2, v2
@@ -200,12 +200,12 @@
 
     div-double/2addr v2, v4
 
-    :goto_0
+    :goto_16
     return-wide v2
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -216,7 +216,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     .line 282
     move-object v0, p1
@@ -231,7 +231,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_39
 
     iget-wide v2, p0, Lcom/google/common/cache/CacheStats;->missCount:J
 
@@ -239,7 +239,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_39
 
     iget-wide v2, p0, Lcom/google/common/cache/CacheStats;->loadSuccessCount:J
 
@@ -247,7 +247,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_39
 
     iget-wide v2, p0, Lcom/google/common/cache/CacheStats;->loadExceptionCount:J
 
@@ -255,7 +255,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_39
 
     iget-wide v2, p0, Lcom/google/common/cache/CacheStats;->totalLoadTime:J
 
@@ -263,7 +263,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_39
 
     iget-wide v2, p0, Lcom/google/common/cache/CacheStats;->evictionCount:J
 
@@ -271,21 +271,21 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_39
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_39
     return v1
 
     .line 290
     .end local v0    # "other":Lcom/google/common/cache/CacheStats;
-    :cond_1
+    :cond_3a
     return v1
 .end method
 
 .method public evictionCount()J
-    .locals 2
+    .registers 3
 
     .line 235
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->evictionCount:J
@@ -294,7 +294,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 8
+    .registers 9
 
     .line 275
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->hitCount:J
@@ -371,7 +371,7 @@
 .end method
 
 .method public hitCount()J
-    .locals 2
+    .registers 3
 
     .line 115
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->hitCount:J
@@ -380,7 +380,7 @@
 .end method
 
 .method public hitRate()D
-    .locals 6
+    .registers 7
 
     .line 124
     invoke-virtual {p0}, Lcom/google/common/cache/CacheStats;->requestCount()J
@@ -393,13 +393,13 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_d
 
     const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_d
     iget-wide v2, p0, Lcom/google/common/cache/CacheStats;->hitCount:J
 
     long-to-double v2, v2
@@ -408,12 +408,12 @@
 
     div-double/2addr v2, v4
 
-    :goto_0
+    :goto_12
     return-wide v2
 .end method
 
 .method public loadCount()J
-    .locals 4
+    .registers 5
 
     .line 162
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->loadSuccessCount:J
@@ -428,7 +428,7 @@
 .end method
 
 .method public loadExceptionCount()J
-    .locals 2
+    .registers 3
 
     .line 190
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->loadExceptionCount:J
@@ -437,7 +437,7 @@
 .end method
 
 .method public loadExceptionRate()D
-    .locals 6
+    .registers 7
 
     .line 203
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->loadSuccessCount:J
@@ -454,13 +454,13 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_11
 
     const-wide/16 v2, 0x0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_11
     iget-wide v2, p0, Lcom/google/common/cache/CacheStats;->loadExceptionCount:J
 
     long-to-double v2, v2
@@ -469,12 +469,12 @@
 
     div-double/2addr v2, v4
 
-    :goto_0
+    :goto_16
     return-wide v2
 .end method
 
 .method public loadSuccessCount()J
-    .locals 2
+    .registers 3
 
     .line 176
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->loadSuccessCount:J
@@ -483,7 +483,7 @@
 .end method
 
 .method public minus(Lcom/google/common/cache/CacheStats;)Lcom/google/common/cache/CacheStats;
-    .locals 20
+    .registers 22
     .param p1, "other"    # Lcom/google/common/cache/CacheStats;
 
     .line 244
@@ -598,7 +598,7 @@
 .end method
 
 .method public missCount()J
-    .locals 2
+    .registers 3
 
     .line 135
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->missCount:J
@@ -607,7 +607,7 @@
 .end method
 
 .method public missRate()D
-    .locals 6
+    .registers 7
 
     .line 148
     invoke-virtual {p0}, Lcom/google/common/cache/CacheStats;->requestCount()J
@@ -620,13 +620,13 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_d
 
     const-wide/16 v2, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_d
     iget-wide v2, p0, Lcom/google/common/cache/CacheStats;->missCount:J
 
     long-to-double v2, v2
@@ -635,12 +635,12 @@
 
     div-double/2addr v2, v4
 
-    :goto_0
+    :goto_12
     return-wide v2
 .end method
 
 .method public plus(Lcom/google/common/cache/CacheStats;)Lcom/google/common/cache/CacheStats;
-    .locals 18
+    .registers 20
     .param p1, "other"    # Lcom/google/common/cache/CacheStats;
 
     .line 264
@@ -717,7 +717,7 @@
 .end method
 
 .method public requestCount()J
-    .locals 4
+    .registers 5
 
     .line 110
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->hitCount:J
@@ -732,7 +732,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 295
     invoke-static {p0}, Lcom/google/common/base/MoreObjects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
@@ -803,7 +803,7 @@
 .end method
 
 .method public totalLoadTime()J
-    .locals 2
+    .registers 3
 
     .line 214
     iget-wide v0, p0, Lcom/google/common/cache/CacheStats;->totalLoadTime:J

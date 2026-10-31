@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Landroid/app/AppComponentFactory;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method static checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -35,7 +35,7 @@
     .local p0, "obj":Ljava/lang/Object;, "TT;"
     instance-of v0, p0, Landroidx/core/app/CoreComponentFactory$CompatWrapped;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 80
     move-object v0, p0
@@ -48,21 +48,21 @@
 
     .line 81
     .local v0, "wrapper":Ljava/lang/Object;, "TT;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 82
     return-object v0
 
     .line 85
     .end local v0    # "wrapper":Ljava/lang/Object;, "TT;"
-    :cond_0
+    :cond_e
     return-object p0
 .end method
 
 
 # virtual methods
 .method public instantiateActivity(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Activity;
-    .locals 1
+    .registers 5
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "intent"    # Landroid/content/Intent;
@@ -89,7 +89,7 @@
 .end method
 
 .method public instantiateApplication(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/app/Application;
-    .locals 1
+    .registers 4
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -115,7 +115,7 @@
 .end method
 
 .method public instantiateProvider(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/content/ContentProvider;
-    .locals 1
+    .registers 4
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -141,7 +141,7 @@
 .end method
 
 .method public instantiateReceiver(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/content/BroadcastReceiver;
-    .locals 1
+    .registers 5
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "intent"    # Landroid/content/Intent;
@@ -168,7 +168,7 @@
 .end method
 
 .method public instantiateService(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Service;
-    .locals 1
+    .registers 5
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "intent"    # Landroid/content/Intent;

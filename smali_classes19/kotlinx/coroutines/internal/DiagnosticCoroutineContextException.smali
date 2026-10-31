@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 39
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public fillInStackTrace()Ljava/lang/Throwable;
-    .locals 2
+    .registers 3
 
     .line 46
     const/4 v0, 0x0
@@ -79,7 +79,7 @@
 .end method
 
 .method public getLocalizedMessage()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Lkotlinx/coroutines/internal/DiagnosticCoroutineContextException;->context:Lkotlin/coroutines/CoroutineContext;

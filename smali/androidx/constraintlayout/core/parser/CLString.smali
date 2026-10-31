@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>([C)V
-    .locals 0
+    .registers 2
     .param p1, "content"    # [C
 
     .line 21
@@ -16,7 +16,7 @@
 .end method
 
 .method public static allocate([C)Landroidx/constraintlayout/core/parser/CLElement;
-    .locals 1
+    .registers 2
     .param p0, "content"    # [C
 
     .line 24
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method protected toFormattedJSON(II)Ljava/lang/String;
-    .locals 3
+    .registers 6
     .param p1, "indent"    # I
     .param p2, "forceIndent"    # I
 
@@ -67,7 +67,7 @@
 .end method
 
 .method protected toJSON()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 27
     new-instance v0, Ljava/lang/StringBuilder;

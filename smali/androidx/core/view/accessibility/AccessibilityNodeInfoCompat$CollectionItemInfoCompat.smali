@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "info"    # Ljava/lang/Object;
 
     .line 1124
@@ -40,7 +40,7 @@
 .end method
 
 .method public static obtain(IIIIZ)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;
-    .locals 2
+    .registers 7
     .param p0, "rowIndex"    # I
     .param p1, "rowSpan"    # I
     .param p2, "columnIndex"    # I
@@ -60,7 +60,7 @@
 .end method
 
 .method public static obtain(IIIIZZ)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;
-    .locals 2
+    .registers 8
     .param p0, "rowIndex"    # I
     .param p1, "rowSpan"    # I
     .param p2, "columnIndex"    # I
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public getColumnIndex()I
-    .locals 1
+    .registers 2
 
     .line 1134
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;->mInfo:Ljava/lang/Object;
@@ -101,7 +101,7 @@
 .end method
 
 .method public getColumnSpan()I
-    .locals 1
+    .registers 2
 
     .line 1143
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;->mInfo:Ljava/lang/Object;
@@ -116,14 +116,14 @@
 .end method
 
 .method public getColumnTitle()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 1211
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x21
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 1212
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;->mInfo:Ljava/lang/Object;
@@ -135,14 +135,14 @@
     return-object v0
 
     .line 1214
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public getRowIndex()I
-    .locals 1
+    .registers 2
 
     .line 1152
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;->mInfo:Ljava/lang/Object;
@@ -157,7 +157,7 @@
 .end method
 
 .method public getRowSpan()I
-    .locals 1
+    .registers 2
 
     .line 1161
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;->mInfo:Ljava/lang/Object;
@@ -172,14 +172,14 @@
 .end method
 
 .method public getRowTitle()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 1197
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x21
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 1198
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;->mInfo:Ljava/lang/Object;
@@ -191,14 +191,14 @@
     return-object v0
 
     .line 1200
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public isHeading()Z
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -215,7 +215,7 @@
 .end method
 
 .method public isSelected()Z
-    .locals 1
+    .registers 2
 
     .line 1183
     nop

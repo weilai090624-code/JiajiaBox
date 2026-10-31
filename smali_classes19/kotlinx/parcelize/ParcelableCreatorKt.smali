@@ -27,7 +27,7 @@
 
 # direct methods
 .method public static final synthetic parcelableCreator()Landroid/os/Parcelable$Creator;
-    .locals 6
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -68,14 +68,14 @@
 
     instance-of v5, v3, Landroid/os/Parcelable$Creator;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1e
 
     move-object v4, v3
 
     check-cast v4, Landroid/os/Parcelable$Creator;
 
-    :cond_0
-    if-eqz v4, :cond_1
+    :cond_1e
+    if-eqz v4, :cond_24
 
     move-object v1, v4
 
@@ -84,7 +84,7 @@
     .line 18
     return-object v4
 
-    :cond_1
+    :cond_24
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;

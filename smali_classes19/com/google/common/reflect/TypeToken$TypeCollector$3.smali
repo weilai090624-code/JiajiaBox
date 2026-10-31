@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/reflect/TypeToken$TypeCollector;Lcom/google/common/reflect/TypeToken$TypeCollector;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/reflect/TypeToken$TypeCollector;
 
     .line 1372
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method collectTypes(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,12 +61,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -82,18 +82,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1f
 
     .line 1383
     invoke-virtual {v0, v2}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
 
     .line 1385
     .end local v2    # "type":Ljava/lang/Object;, "TK;"
-    :cond_0
-    goto :goto_0
+    :cond_1f
+    goto :goto_8
 
     .line 1386
-    :cond_1
+    :cond_20
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v1
@@ -106,7 +106,7 @@
 .end method
 
 .method getInterfaces(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",

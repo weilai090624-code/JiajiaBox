@@ -78,7 +78,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 10
+    .registers 13
 
     const-string v0, "context"
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
-    .locals 10
+    .registers 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,7 +160,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/constraints/trackers/ConstraintTracker;Landroidx/work/impl/constraints/trackers/BatteryNotLowTracker;)V
-    .locals 10
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -214,7 +214,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/constraints/trackers/ConstraintTracker;Landroidx/work/impl/constraints/trackers/BatteryNotLowTracker;Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
-    .locals 10
+    .registers 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -274,7 +274,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/constraints/trackers/ConstraintTracker;Landroidx/work/impl/constraints/trackers/BatteryNotLowTracker;Landroidx/work/impl/constraints/trackers/ConstraintTracker;Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
-    .locals 1
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .param p3, "batteryChargingTracker"    # Landroidx/work/impl/constraints/trackers/ConstraintTracker;
@@ -343,14 +343,14 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/constraints/trackers/ConstraintTracker;Landroidx/work/impl/constraints/trackers/BatteryNotLowTracker;Landroidx/work/impl/constraints/trackers/ConstraintTracker;Landroidx/work/impl/constraints/trackers/ConstraintTracker;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 7
+    .registers 16
 
     .line 30
     and-int/lit8 v0, p7, 0x4
 
     const-string v1, "context.applicationContext"
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 37
     new-instance v0, Landroidx/work/impl/constraints/trackers/BatteryChargingTracker;
@@ -367,16 +367,16 @@
 
     move-object v3, v0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 30
-    :cond_0
+    :cond_16
     move-object v3, p3
 
-    :goto_0
+    :goto_17
     and-int/lit8 v0, p7, 0x8
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 43
     new-instance v0, Landroidx/work/impl/constraints/trackers/BatteryNotLowTracker;
@@ -391,16 +391,16 @@
 
     move-object v4, v0
 
-    goto :goto_1
+    goto :goto_2a
 
     .line 30
-    :cond_1
+    :cond_29
     move-object v4, p4
 
-    :goto_1
+    :goto_2a
     and-int/lit8 v0, p7, 0x10
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3b
 
     .line 49
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -415,16 +415,16 @@
 
     move-object v5, v0
 
-    goto :goto_2
+    goto :goto_3c
 
     .line 30
-    :cond_2
+    :cond_3b
     move-object v5, p5
 
-    :goto_2
+    :goto_3c
     and-int/lit8 v0, p7, 0x20
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_50
 
     .line 55
     new-instance v0, Landroidx/work/impl/constraints/trackers/StorageNotLowTracker;
@@ -441,13 +441,13 @@
 
     move-object v6, v0
 
-    goto :goto_3
+    goto :goto_51
 
     .line 30
-    :cond_3
+    :cond_50
     move-object v6, p6
 
-    :goto_3
+    :goto_51
     move-object v0, p0
 
     move-object v1, p1
@@ -463,7 +463,7 @@
 
 # virtual methods
 .method public final getBatteryChargingTracker()Landroidx/work/impl/constraints/trackers/ConstraintTracker;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -480,7 +480,7 @@
 .end method
 
 .method public final getBatteryNotLowTracker()Landroidx/work/impl/constraints/trackers/BatteryNotLowTracker;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Landroidx/work/impl/constraints/trackers/Trackers;->batteryNotLowTracker:Landroidx/work/impl/constraints/trackers/BatteryNotLowTracker;
@@ -489,7 +489,7 @@
 .end method
 
 .method public final getNetworkStateTracker()Landroidx/work/impl/constraints/trackers/ConstraintTracker;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -506,7 +506,7 @@
 .end method
 
 .method public final getStorageNotLowTracker()Landroidx/work/impl/constraints/trackers/ConstraintTracker;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method checkPermission(ILjava/lang/String;)V
-    .locals 5
+    .registers 8
     .param p1, "callingUid"    # I
     .param p2, "packageName"    # Ljava/lang/String;
 
@@ -47,8 +47,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_a
+    if-ge v2, v1, :cond_18
 
     aget-object v3, v0, v2
 
@@ -58,20 +58,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_15
 
     .line 119
     return-void
 
     .line 117
     .end local v3    # "validPackage":Ljava/lang/String;
-    :cond_0
+    :cond_15
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 122
-    :cond_1
+    :cond_18
     new-instance v0, Ljava/lang/SecurityException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -111,7 +111,7 @@
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 2
+    .registers 4
     .param p1, "intent"    # Landroid/content/Intent;
 
     .line 51
@@ -127,7 +127,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 54
     nop
@@ -136,6 +136,6 @@
     return-object v1
 
     .line 59
-    :cond_0
+    :cond_f
     return-object v1
 .end method

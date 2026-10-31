@@ -74,7 +74,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/model/UndoStack$Companion;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -107,7 +107,7 @@
 .end method
 
 .method private constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "stack"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -137,7 +137,7 @@
 .end method
 
 .method private final removeLast()Z
-    .locals 4
+    .registers 5
 
     .line 165
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->getSize()I
@@ -146,13 +146,13 @@
 
     const/4 v1, 0x0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_8
 
     .line 166
     return v1
 
     .line 168
-    :cond_0
+    :cond_8
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -201,28 +201,28 @@
 
 # virtual methods
 .method public final canUndo()Z
-    .locals 1
+    .registers 2
 
     .line 157
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->getSize()I
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public final clone()Lcom/blacksquircle/ui/editorkit/model/UndoStack;
-    .locals 2
+    .registers 3
 
     .line 161
     new-instance v0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;
@@ -235,7 +235,7 @@
 .end method
 
 .method public final get(I)Lcom/blacksquircle/ui/editorkit/model/TextChange;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 36
@@ -251,7 +251,7 @@
 .end method
 
 .method public final getSize()I
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
@@ -264,7 +264,7 @@
 .end method
 
 .method public final pop()Lcom/blacksquircle/ui/editorkit/model/TextChange;
-    .locals 4
+    .registers 5
 
     .line 40
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
@@ -323,7 +323,7 @@
 .end method
 
 .method public final push(Lcom/blacksquircle/ui/editorkit/model/TextChange;)V
-    .locals 12
+    .registers 14
     .param p1, "textChange"    # Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
     const-string/jumbo v0, "textChange"
@@ -353,14 +353,14 @@
     .local v0, "delta":I
     const v1, 0x7fffffff
 
-    if-ge v0, v1, :cond_1c
+    if-ge v0, v1, :cond_24a
 
     .line 49
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->getSize()I
 
     move-result v2
 
-    if-lez v2, :cond_19
+    if-lez v2, :cond_234
 
     .line 50
     iget-object v2, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
@@ -409,19 +409,19 @@
 
     const/4 v10, 0x0
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_44
 
     const/4 v9, 0x1
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_0
+    :cond_44
     const/4 v9, 0x0
 
-    :goto_0
+    :goto_45
     const-string/jumbo v11, "this as java.lang.String).toCharArray()"
 
-    if-eqz v9, :cond_b
+    if-eqz v9, :cond_128
 
     .line 57
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getNewText()Ljava/lang/String;
@@ -432,7 +432,7 @@
 
     move-result v9
 
-    if-ne v9, v4, :cond_b
+    if-ne v9, v4, :cond_128
 
     .line 58
     invoke-virtual {v2}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getOldText()Ljava/lang/String;
@@ -445,17 +445,17 @@
 
     move-result v9
 
-    if-nez v9, :cond_1
+    if-nez v9, :cond_62
 
     const/4 v9, 0x1
 
-    goto :goto_1
+    goto :goto_63
 
-    :cond_1
+    :cond_62
     const/4 v9, 0x0
 
-    :goto_1
-    if-eqz v9, :cond_b
+    :goto_63
+    if-eqz v9, :cond_128
 
     .line 60
     invoke-virtual {v2}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getStart()I
@@ -476,17 +476,17 @@
 
     move-result v9
 
-    if-eq v4, v9, :cond_2
+    if-eq v4, v9, :cond_7f
 
     .line 61
     iget-object v4, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v4, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_9
+    goto/16 :goto_239
 
     .line 62
-    :cond_2
+    :cond_7f
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getNewText()Ljava/lang/String;
 
     move-result-object v4
@@ -499,7 +499,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_d0
 
     .line 63
     const/4 v4, 0x1
@@ -523,8 +523,8 @@
     array-length v5, v3
 
     .line 66
-    :goto_2
-    if-ge v8, v5, :cond_4
+    :goto_9b
+    if-ge v8, v5, :cond_a9
 
     .line 67
     aget-char v6, v3, v8
@@ -533,20 +533,20 @@
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_a6
 
     .line 68
     const/4 v4, 0x0
 
     .line 70
-    :cond_3
+    :cond_a6
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2
+    goto :goto_9b
 
     .line 72
-    :cond_4
-    if-eqz v4, :cond_5
+    :cond_a9
+    if-eqz v4, :cond_c9
 
     .line 73
     invoke-virtual {v2}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getNewText()Ljava/lang/String;
@@ -575,20 +575,20 @@
 
     invoke-virtual {v2, v6}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->setNewText(Ljava/lang/String;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_239
 
     .line 75
-    :cond_5
+    :cond_c9
     iget-object v6, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v6, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_9
+    goto/16 :goto_239
 
     .line 77
     .end local v4    # "allWhitespace":Z
     .restart local v6    # "allWhitespace":Z
-    :cond_6
+    :cond_d0
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getNewText()Ljava/lang/String;
 
     move-result-object v4
@@ -601,7 +601,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_121
 
     .line 78
     const/4 v4, 0x1
@@ -625,8 +625,8 @@
     array-length v5, v3
 
     .line 81
-    :goto_3
-    if-ge v8, v5, :cond_8
+    :goto_ec
+    if-ge v8, v5, :cond_fa
 
     .line 82
     aget-char v7, v3, v8
@@ -635,20 +635,20 @@
 
     move-result v7
 
-    if-nez v7, :cond_7
+    if-nez v7, :cond_f7
 
     .line 83
     const/4 v4, 0x0
 
     .line 85
-    :cond_7
+    :cond_f7
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_3
+    goto :goto_ec
 
     .line 87
-    :cond_8
-    if-eqz v4, :cond_9
+    :cond_fa
+    if-eqz v4, :cond_11a
 
     .line 88
     invoke-virtual {v2}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getNewText()Ljava/lang/String;
@@ -677,28 +677,28 @@
 
     invoke-virtual {v2, v7}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->setNewText(Ljava/lang/String;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_239
 
     .line 90
-    :cond_9
+    :cond_11a
     iget-object v7, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v7, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_9
+    goto/16 :goto_239
 
     .line 93
     .end local v4    # "allLettersDigits":Z
     .restart local v7    # "allLettersDigits":Z
-    :cond_a
+    :cond_121
     iget-object v4, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v4, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_9
+    goto/16 :goto_239
 
     .line 95
-    :cond_b
+    :cond_128
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getOldText()Ljava/lang/String;
 
     move-result-object v9
@@ -707,7 +707,7 @@
 
     move-result v9
 
-    if-ne v9, v4, :cond_18
+    if-ne v9, v4, :cond_22e
 
     .line 96
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getNewText()Ljava/lang/String;
@@ -720,17 +720,17 @@
 
     move-result v9
 
-    if-lez v9, :cond_c
+    if-lez v9, :cond_140
 
     const/4 v9, 0x1
 
-    goto :goto_4
+    goto :goto_141
 
-    :cond_c
+    :cond_140
     const/4 v9, 0x0
 
-    :goto_4
-    if-nez v9, :cond_18
+    :goto_141
+    if-nez v9, :cond_22e
 
     .line 97
     invoke-virtual {v2}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getNewText()Ljava/lang/String;
@@ -743,22 +743,22 @@
 
     move-result v9
 
-    if-lez v9, :cond_d
+    if-lez v9, :cond_151
 
     const/4 v9, 0x1
 
-    goto :goto_5
+    goto :goto_152
 
-    :cond_d
+    :cond_151
     const/4 v9, 0x0
 
-    :goto_5
-    if-eqz v9, :cond_e
+    :goto_152
+    if-eqz v9, :cond_156
 
-    goto/16 :goto_8
+    goto/16 :goto_22e
 
     .line 100
-    :cond_e
+    :cond_156
     invoke-virtual {v2}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getStart()I
 
     move-result v9
@@ -769,17 +769,17 @@
 
     move-result v4
 
-    if-eq v9, v4, :cond_f
+    if-eq v9, v4, :cond_168
 
     .line 101
     iget-object v4, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v4, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_9
+    goto/16 :goto_239
 
     .line 102
-    :cond_f
+    :cond_168
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getOldText()Ljava/lang/String;
 
     move-result-object v4
@@ -792,7 +792,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_13
+    if-eqz v4, :cond_1c9
 
     .line 103
     const/4 v4, 0x1
@@ -816,8 +816,8 @@
     array-length v5, v3
 
     .line 106
-    :goto_6
-    if-ge v8, v5, :cond_11
+    :goto_184
+    if-ge v8, v5, :cond_192
 
     .line 107
     aget-char v6, v3, v8
@@ -826,20 +826,20 @@
 
     move-result v6
 
-    if-nez v6, :cond_10
+    if-nez v6, :cond_18f
 
     .line 108
     const/4 v4, 0x0
 
     .line 110
-    :cond_10
+    :cond_18f
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_6
+    goto :goto_184
 
     .line 112
-    :cond_11
-    if-eqz v4, :cond_12
+    :cond_192
+    if-eqz v4, :cond_1c2
 
     .line 113
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getOldText()Ljava/lang/String;
@@ -885,20 +885,20 @@
 
     invoke-virtual {v2, v6}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->setStart(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_239
 
     .line 116
-    :cond_12
+    :cond_1c2
     iget-object v6, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v6, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_9
+    goto/16 :goto_239
 
     .line 118
     .end local v4    # "allWhitespace":Z
     .restart local v6    # "allWhitespace":Z
-    :cond_13
+    :cond_1c9
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getOldText()Ljava/lang/String;
 
     move-result-object v4
@@ -911,7 +911,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_17
+    if-eqz v4, :cond_228
 
     .line 119
     const/4 v4, 0x1
@@ -935,8 +935,8 @@
     array-length v5, v3
 
     .line 122
-    :goto_7
-    if-ge v8, v5, :cond_15
+    :goto_1e5
+    if-ge v8, v5, :cond_1f3
 
     .line 123
     aget-char v7, v3, v8
@@ -945,20 +945,20 @@
 
     move-result v7
 
-    if-nez v7, :cond_14
+    if-nez v7, :cond_1f0
 
     .line 124
     const/4 v4, 0x0
 
     .line 126
-    :cond_14
+    :cond_1f0
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_7
+    goto :goto_1e5
 
     .line 128
-    :cond_15
-    if-eqz v4, :cond_16
+    :cond_1f3
+    if-eqz v4, :cond_222
 
     .line 129
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getOldText()Ljava/lang/String;
@@ -1004,34 +1004,34 @@
 
     invoke-virtual {v2, v7}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->setStart(I)V
 
-    goto :goto_9
+    goto :goto_239
 
     .line 132
-    :cond_16
+    :cond_222
     iget-object v7, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v7, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_9
+    goto :goto_239
 
     .line 135
     .end local v4    # "allLettersDigits":Z
     .restart local v7    # "allLettersDigits":Z
-    :cond_17
+    :cond_228
     iget-object v4, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v4, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_9
+    goto :goto_239
 
     .line 99
-    :cond_18
-    :goto_8
+    :cond_22e
+    :goto_22e
     iget-object v4, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v4, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_9
+    goto :goto_239
 
     .line 138
     .end local v2    # "previous":Lcom/blacksquircle/ui/editorkit/model/TextChange;
@@ -1040,13 +1040,13 @@
     .end local v6    # "allWhitespace":Z
     .end local v7    # "allLettersDigits":Z
     .end local v8    # "i":I
-    :cond_19
+    :cond_234
     iget-object v2, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->stack:Ljava/util/List;
 
     invoke-interface {v2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 140
-    :goto_9
+    :goto_239
     iget v2, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->currentSize:I
 
     add-int/2addr v2, v0
@@ -1054,27 +1054,27 @@
     iput v2, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->currentSize:I
 
     .line 141
-    :cond_1a
+    :cond_23e
     iget v2, p0, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->currentSize:I
 
-    if-le v2, v1, :cond_1b
+    if-le v2, v1, :cond_249
 
     .line 142
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->removeLast()Z
 
     move-result v2
 
-    if-nez v2, :cond_1a
+    if-nez v2, :cond_23e
 
     .line 143
     return-void
 
     .line 146
-    :cond_1b
+    :cond_249
     return-void
 
     .line 148
-    :cond_1c
+    :cond_24a
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->removeAll()V
 
     .line 149
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public final removeAll()V
-    .locals 1
+    .registers 2
 
     .line 152
     const/4 v0, 0x0

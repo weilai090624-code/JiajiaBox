@@ -92,7 +92,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/ArrayList;Lkotlin/jvm/functions/Function3;Ljava/nio/file/Path;Ljava/nio/file/Path;Ljava/nio/file/Path;Lkotlin/jvm/functions/Function3;)V
-    .locals 1
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -147,7 +147,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 234
@@ -163,7 +163,7 @@
 .end method
 
 .method public final invoke(Lkotlin/io/path/FileVisitorBuilder;)V
-    .locals 8
+    .registers 10
     .param p1, "$this$visitFileTree"    # Lkotlin/io/path/FileVisitorBuilder;
 
     const-string v0, "$this$visitFileTree"

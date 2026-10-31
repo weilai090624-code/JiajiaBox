@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/database/Cursor;[Ljava/lang/String;[I)V
-    .locals 0
+    .registers 4
     .param p1, "$cursor"    # Landroid/database/Cursor;
     .param p2, "$columnNames"    # [Ljava/lang/String;
     .param p3, "$mapping"    # [I
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public getColumnIndex(Ljava/lang/String;)I
-    .locals 11
+    .registers 13
     .param p1, "columnName"    # Ljava/lang/String;
 
     const-string v0, "columnName"
@@ -91,8 +91,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_1
+    :goto_d
+    if-ge v5, v4, :cond_25
 
     aget-object v6, v0, v5
 
@@ -114,7 +114,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_1f
 
     .line 177
     aget v1, v1, v3
@@ -122,7 +122,7 @@
     return v1
 
     .line 179
-    :cond_0
+    :cond_1f
     nop
 
     .line 186
@@ -136,12 +136,12 @@
 
     move v3, v7
 
-    goto :goto_0
+    goto :goto_d
 
     .line 187
     .end local v7    # "index$iv":I
     .local v3, "index$iv":I
-    :cond_1
+    :cond_25
     nop
 
     .line 180

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4465
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static addHistoricMessage(Landroid/app/Notification$MessagingStyle;Landroid/app/Notification$MessagingStyle$Message;)Landroid/app/Notification$MessagingStyle;
-    .locals 1
+    .registers 3
     .param p0, "messagingStyle"    # Landroid/app/Notification$MessagingStyle;
     .param p1, "message"    # Landroid/app/Notification$MessagingStyle$Message;
 

@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 .end method
 
 .method public final yieldAll(Ljava/lang/Iterable;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "elements"    # Ljava/lang/Iterable;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -94,7 +94,7 @@
     .line 80
     instance-of v0, p1, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     move-object v0, p1
 
@@ -104,14 +104,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 81
-    :cond_0
+    :cond_10
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -124,11 +124,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1f
 
     return-object v0
 
-    :cond_1
+    :cond_1f
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
@@ -150,7 +150,7 @@
 .end method
 
 .method public final yieldAll(Lkotlin/sequences/Sequence;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "sequence"    # Lkotlin/sequences/Sequence;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -179,11 +179,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     return-object v0
 
-    :cond_0
+    :cond_f
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/RectF;Landroid/graphics/RectF;FFF)V
-    .locals 0
+    .registers 6
 
     .line 251
     iput-object p1, p0, Lcom/google/android/material/transition/platform/TransitionUtils$1;->val$startBounds:Landroid/graphics/RectF;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;
-    .locals 5
+    .registers 8
     .param p1, "cornerSize1"    # Lcom/google/android/material/shape/CornerSize;
     .param p2, "cornerSize2"    # Lcom/google/android/material/shape/CornerSize;
 

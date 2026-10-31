@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/ConcurrentHashMultiset;)V
-    .locals 0
+    .registers 2
 
     .line 562
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$EntrySet;, "Lcom/google/common/collect/ConcurrentHashMultiset<TE;>.EntrySet;"
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ConcurrentHashMultiset;Lcom/google/common/collect/ConcurrentHashMultiset$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/ConcurrentHashMultiset;
     .param p2, "x1"    # Lcom/google/common/collect/ConcurrentHashMultiset$1;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method private snapshot()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method multiset()Lcom/google/common/collect/ConcurrentHashMultiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -103,7 +103,7 @@
 .end method
 
 .method bridge synthetic multiset()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
 
     .line 561
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$EntrySet;, "Lcom/google/common/collect/ConcurrentHashMultiset<TE;>.EntrySet;"
@@ -115,7 +115,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 575
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$EntrySet;, "Lcom/google/common/collect/ConcurrentHashMultiset<TE;>.EntrySet;"
@@ -131,7 +131,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

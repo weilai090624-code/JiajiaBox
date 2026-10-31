@@ -24,7 +24,7 @@
 
 # direct methods
 .method protected constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "segmentCount"    # I
 
     .line 40
@@ -53,7 +53,7 @@
 .end method
 
 .method protected getFractionInRange(III)F
-    .locals 2
+    .registers 6
     .param p1, "playtime"    # I
     .param p2, "start"    # I
     .param p3, "duration"    # I
@@ -78,7 +78,7 @@
 .end method
 
 .method protected registerDrawable(Lcom/google/android/material/progressindicator/IndeterminateDrawable;)V
-    .locals 0
+    .registers 2
     .param p1, "drawable"    # Lcom/google/android/material/progressindicator/IndeterminateDrawable;
 
     .line 47

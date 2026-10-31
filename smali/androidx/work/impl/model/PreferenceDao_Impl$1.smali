@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/PreferenceDao_Impl;Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/model/PreferenceDao_Impl;
     .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public bind(Landroidx/sqlite/db/SupportSQLiteStatement;Landroidx/work/impl/model/Preference;)V
-    .locals 4
+    .registers 7
     .param p1, "stmt"    # Landroidx/sqlite/db/SupportSQLiteStatement;
     .param p2, "value"    # Landroidx/work/impl/model/Preference;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -74,15 +74,15 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 37
     invoke-interface {p1, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 39
-    :cond_0
+    :cond_b
     invoke-virtual {p2}, Landroidx/work/impl/model/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
@@ -90,22 +90,22 @@
     invoke-interface {p1, v1, v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 41
-    :goto_0
+    :goto_12
     invoke-virtual {p2}, Landroidx/work/impl/model/Preference;->getValue()Ljava/lang/Long;
 
     move-result-object v0
 
     const/4 v1, 0x2
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1d
 
     .line 42
     invoke-interface {p1, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_1
+    goto :goto_28
 
     .line 44
-    :cond_1
+    :cond_1d
     invoke-virtual {p2}, Landroidx/work/impl/model/Preference;->getValue()Ljava/lang/Long;
 
     move-result-object v0
@@ -117,12 +117,12 @@
     invoke-interface {p1, v1, v2, v3}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindLong(IJ)V
 
     .line 46
-    :goto_1
+    :goto_28
     return-void
 .end method
 
 .method public bridge synthetic bind(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -143,7 +143,7 @@
 .end method
 
 .method public createQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 31
     const-string v0, "INSERT OR REPLACE INTO `Preference` (`key`,`long_value`) VALUES (?,?)"

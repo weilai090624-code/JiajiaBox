@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 1494
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 3
+    .registers 5
     .param p1, "t"    # I
 
     .line 1500
@@ -69,7 +69,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public bridge synthetic forEach(Ljava/lang/Object;J)V
-    .locals 0
+    .registers 4
 
     .line 1490
     check-cast p1, Ljava/util/function/IntConsumer;
@@ -90,7 +90,7 @@
 .end method
 
 .method public forEach(Ljava/util/function/IntConsumer;J)V
-    .locals 4
+    .registers 8
     .param p1, "action"    # Ljava/util/function/IntConsumer;
     .param p2, "fence"    # J
 
@@ -98,12 +98,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     int-to-long v1, v0
 
     cmp-long v3, v1, p2
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_10
 
     .line 1506
     iget-object v1, p0, Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfInt;->array:[I
@@ -115,10 +115,10 @@
     .line 1505
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1508
     .end local v0    # "i":I
-    :cond_0
+    :cond_10
     return-void
 .end method

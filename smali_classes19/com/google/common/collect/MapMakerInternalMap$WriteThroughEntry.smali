@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/collect/MapMakerInternalMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -84,7 +84,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 2659
     move-object v0, p1
@@ -103,7 +103,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     iget-object v2, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->value:Ljava/lang/Object;
 
@@ -115,21 +115,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_21
     return v1
 
     .line 2662
     .end local v0    # "that":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_1
+    :cond_22
     return v1
 .end method
 
 .method public getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -144,7 +144,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -159,7 +159,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 2668
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.WriteThroughEntry;"
@@ -181,7 +181,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"

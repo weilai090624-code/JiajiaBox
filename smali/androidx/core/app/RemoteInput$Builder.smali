@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "resultKey"    # Ljava/lang/String;
 
     .line 197
@@ -71,7 +71,7 @@
     iput v0, p0, Landroidx/core/app/RemoteInput$Builder;->mEditChoicesBeforeSending:I
 
     .line 198
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1c
 
     .line 201
     iput-object p1, p0, Landroidx/core/app/RemoteInput$Builder;->mResultKey:Ljava/lang/String;
@@ -80,7 +80,7 @@
     return-void
 
     .line 199
-    :cond_0
+    :cond_1c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Result key can\'t be null"
@@ -93,11 +93,11 @@
 
 # virtual methods
 .method public addExtras(Landroid/os/Bundle;)Landroidx/core/app/RemoteInput$Builder;
-    .locals 1
+    .registers 3
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 292
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 293
     iget-object v0, p0, Landroidx/core/app/RemoteInput$Builder;->mExtras:Landroid/os/Bundle;
@@ -105,12 +105,12 @@
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     .line 295
-    :cond_0
+    :cond_7
     return-object p0
 .end method
 
 .method public build()Landroidx/core/app/RemoteInput;
-    .locals 9
+    .registers 10
 
     .line 314
     new-instance v8, Landroidx/core/app/RemoteInput;
@@ -137,7 +137,7 @@
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 305
     iget-object v0, p0, Landroidx/core/app/RemoteInput$Builder;->mExtras:Landroid/os/Bundle;
@@ -146,33 +146,33 @@
 .end method
 
 .method public setAllowDataType(Ljava/lang/String;Z)Landroidx/core/app/RemoteInput$Builder;
-    .locals 1
+    .registers 4
     .param p1, "mimeType"    # Ljava/lang/String;
     .param p2, "doAllow"    # Z
 
     .line 246
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     .line 247
     iget-object v0, p0, Landroidx/core/app/RemoteInput$Builder;->mAllowedDataTypes:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_d
 
     .line 249
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/core/app/RemoteInput$Builder;->mAllowedDataTypes:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     .line 251
-    :goto_0
+    :goto_d
     return-object p0
 .end method
 
 .method public setAllowFreeFormInput(Z)Landroidx/core/app/RemoteInput$Builder;
-    .locals 0
+    .registers 2
     .param p1, "allowFreeFormTextInput"    # Z
 
     .line 266
@@ -183,7 +183,7 @@
 .end method
 
 .method public setChoices([Ljava/lang/CharSequence;)Landroidx/core/app/RemoteInput$Builder;
-    .locals 0
+    .registers 2
     .param p1, "choices"    # [Ljava/lang/CharSequence;
 
     .line 230
@@ -194,7 +194,7 @@
 .end method
 
 .method public setEditChoicesBeforeSending(I)Landroidx/core/app/RemoteInput$Builder;
-    .locals 0
+    .registers 2
     .param p1, "editChoicesBeforeSending"    # I
 
     .line 279
@@ -205,7 +205,7 @@
 .end method
 
 .method public setLabel(Ljava/lang/CharSequence;)Landroidx/core/app/RemoteInput$Builder;
-    .locals 0
+    .registers 2
     .param p1, "label"    # Ljava/lang/CharSequence;
 
     .line 212

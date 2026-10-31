@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(ZLj$/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Supplier;)V
-    .locals 2
+    .registers 8
     .param p1, "mustFindFirst"    # Z
     .param p2, "shape"    # Lj$/util/stream/StreamShape;
     .annotation system Ldalvik/annotation/Signature;
@@ -91,16 +91,16 @@
     .line 130
     sget v0, Lj$/util/stream/StreamOpFlag;->IS_SHORT_CIRCUIT:I
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     sget v1, Lj$/util/stream/StreamOpFlag;->NOT_ORDERED:I
 
-    :goto_0
+    :goto_b
     or-int/2addr v0, v1
 
     iput v0, p0, Lj$/util/stream/FindOps$FindOp;->opFlags:I
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -165,7 +165,7 @@
 .end method
 
 .method public evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -202,21 +202,21 @@
 
     .line 151
     .local v0, "result":Ljava/lang/Object;, "TO;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     iget-object v1, p0, Lj$/util/stream/FindOps$FindOp;->emptyValue:Ljava/lang/Object;
 
-    :goto_0
+    :goto_18
     return-object v1
 .end method
 
 .method public getOpFlags()I
-    .locals 1
+    .registers 2
 
     .line 139
     .local p0, "this":Lj$/util/stream/FindOps$FindOp;, "Ljava/util/stream/FindOps$FindOp<TT;TO;>;"
@@ -226,7 +226,7 @@
 .end method
 
 .method public inputShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     .line 144
     .local p0, "this":Lj$/util/stream/FindOps$FindOp;, "Ljava/util/stream/FindOps$FindOp<TT;TO;>;"

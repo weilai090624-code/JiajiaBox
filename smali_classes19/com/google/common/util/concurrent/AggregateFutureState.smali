@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 54
     const-class v0, Lcom/google/common/util/concurrent/AggregateFutureState;
@@ -71,7 +71,7 @@
 
     .line 60
     .local v1, "thrownReflectionFailure":Ljava/lang/Throwable;
-    :try_start_0
+    :try_start_d
     new-instance v2, Lcom/google/common/util/concurrent/AggregateFutureState$SafeAtomicHelper;
 
     const-class v3, Ljava/util/Set;
@@ -91,18 +91,18 @@
     move-result-object v0
 
     invoke-direct {v2, v3, v0}, Lcom/google/common/util/concurrent/AggregateFutureState$SafeAtomicHelper;-><init>(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_d .. :try_end_20} :catchall_22
 
     move-object v0, v2
 
     .line 71
     .local v0, "helper":Lcom/google/common/util/concurrent/AggregateFutureState$AtomicHelper;
-    goto :goto_0
+    goto :goto_2b
 
     .line 64
     .end local v0    # "helper":Lcom/google/common/util/concurrent/AggregateFutureState$AtomicHelper;
-    :catchall_0
+    :catchall_22
     move-exception v0
 
     .line 69
@@ -120,11 +120,11 @@
 
     .line 72
     .local v0, "helper":Lcom/google/common/util/concurrent/AggregateFutureState$AtomicHelper;
-    :goto_0
+    :goto_2b
     sput-object v0, Lcom/google/common/util/concurrent/AggregateFutureState;->ATOMIC_HELPER:Lcom/google/common/util/concurrent/AggregateFutureState$AtomicHelper;
 
     .line 75
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_38
 
     .line 76
     sget-object v2, Lcom/google/common/util/concurrent/AggregateFutureState;->log:Ljava/util/logging/Logger;
@@ -138,12 +138,12 @@
     .line 78
     .end local v0    # "helper":Lcom/google/common/util/concurrent/AggregateFutureState$AtomicHelper;
     .end local v1    # "thrownReflectionFailure":Ljava/lang/Throwable;
-    :cond_0
+    :cond_38
     return-void
 .end method
 
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "remainingFutures"    # I
 
     .line 80
@@ -163,7 +163,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/util/concurrent/AggregateFutureState;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AggregateFutureState;
 
     .line 44
@@ -173,7 +173,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/google/common/util/concurrent/AggregateFutureState;Ljava/util/Set;)Ljava/util/Set;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AggregateFutureState;
     .param p1, "x1"    # Ljava/util/Set;
 
@@ -184,7 +184,7 @@
 .end method
 
 .method static synthetic access$306(Lcom/google/common/util/concurrent/AggregateFutureState;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AggregateFutureState;
 
     .line 44
@@ -211,7 +211,7 @@
 .end method
 
 .method final clearSeenExceptions()V
-    .locals 1
+    .registers 2
 
     .line 149
     .local p0, "this":Lcom/google/common/util/concurrent/AggregateFutureState;, "Lcom/google/common/util/concurrent/AggregateFutureState<TOutputT;>;"
@@ -224,7 +224,7 @@
 .end method
 
 .method final decrementRemainingAndGet()I
-    .locals 1
+    .registers 2
 
     .line 145
     .local p0, "this":Lcom/google/common/util/concurrent/AggregateFutureState;, "Lcom/google/common/util/concurrent/AggregateFutureState<TOutputT;>;"
@@ -238,7 +238,7 @@
 .end method
 
 .method final getOrInitSeenExceptions()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -254,7 +254,7 @@
 
     .line 102
     .local v0, "seenExceptionsLocal":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Throwable;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 118
     invoke-static {}, Lcom/google/common/collect/Sets;->newConcurrentHashSet()Ljava/util/Set;
@@ -283,6 +283,6 @@
     check-cast v0, Ljava/util/Set;
 
     .line 138
-    :cond_0
+    :cond_1a
     return-object v0
 .end method

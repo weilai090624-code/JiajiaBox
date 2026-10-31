@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin$Companion;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 27
     const-string v0, "brackets-highlight-1180"
@@ -94,7 +94,7 @@
 
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_20
 
     iput-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->delimiters:[C
 
@@ -117,7 +117,7 @@
     .line 27
     return-void
 
-    :array_0
+    :array_20
     .array-data 2
         0x7bs
         0x5bs
@@ -131,7 +131,7 @@
 .end method
 
 .method private final checkMatchingBracket(I)V
-    .locals 9
+    .registers 11
     .param p1, "pos"    # I
 
     .line 53
@@ -143,12 +143,12 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     return-void
 
     .line 54
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v0
@@ -175,7 +175,7 @@
     invoke-interface {v0, v1}, Landroid/text/Editable;->removeSpan(Ljava/lang/Object;)V
 
     .line 56
-    if-lez p1, :cond_a
+    if-lez p1, :cond_d7
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
@@ -189,7 +189,7 @@
 
     move-result v0
 
-    if-gt p1, v0, :cond_a
+    if-gt p1, v0, :cond_d7
 
     .line 57
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -215,15 +215,15 @@
 
     array-length v2, v2
 
-    :goto_0
-    if-ge v1, v2, :cond_a
+    :goto_47
+    if-ge v1, v2, :cond_d7
 
     .line 59
     iget-object v3, p0, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->delimiters:[C
 
     aget-char v3, v3, v1
 
-    if-ne v3, v0, :cond_9
+    if-ne v3, v0, :cond_d3
 
     .line 60
     iget-object v3, p0, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->delimiters:[C
@@ -236,18 +236,18 @@
     .local v3, "half":I
     add-int/lit8 v4, v3, -0x1
 
-    if-gt v1, v4, :cond_1
+    if-gt v1, v4, :cond_5a
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_5b
 
-    :cond_1
+    :cond_5a
     const/4 v4, 0x0
 
     .line 62
     .local v4, "open":Z
-    :goto_1
+    :goto_5b
     iget-object v5, p0, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->delimiters:[C
 
     add-int v6, v1, v3
@@ -266,14 +266,14 @@
 
     .line 64
     .local v6, "k":I
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_a2
 
     .line 65
     const/4 v7, 0x1
 
     .line 66
     .local v7, "nob":I
-    :goto_2
+    :goto_69
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v8
@@ -286,7 +286,7 @@
 
     move-result v8
 
-    if-ge v6, v8, :cond_9
+    if-ge v6, v8, :cond_d3
 
     .line 67
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -301,13 +301,13 @@
 
     move-result v8
 
-    if-ne v8, v5, :cond_2
+    if-ne v8, v5, :cond_87
 
     .line 68
     add-int/lit8 v7, v7, -0x1
 
     .line 70
-    :cond_2
+    :cond_87
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v8
@@ -320,14 +320,14 @@
 
     move-result v8
 
-    if-ne v8, v0, :cond_3
+    if-ne v8, v0, :cond_97
 
     .line 71
     add-int/lit8 v7, v7, 0x1
 
     .line 73
-    :cond_3
-    if-nez v7, :cond_4
+    :cond_97
+    if-nez v7, :cond_9f
 
     .line 74
     add-int/lit8 v8, p1, -0x1
@@ -335,17 +335,17 @@
     invoke-direct {p0, v8, v6}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->showBracket(II)V
 
     .line 75
-    goto :goto_4
+    goto :goto_d3
 
     .line 77
-    :cond_4
+    :cond_9f
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_69
 
     .line 80
     .end local v7    # "nob":I
-    :cond_5
+    :cond_a2
     const/4 v7, 0x1
 
     .local v7, "ncb":I
@@ -355,8 +355,8 @@
     nop
 
     .line 82
-    :goto_3
-    if-ltz v6, :cond_9
+    :goto_a6
+    if-ltz v6, :cond_d3
 
     .line 83
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -371,13 +371,13 @@
 
     move-result v8
 
-    if-ne v8, v5, :cond_6
+    if-ne v8, v5, :cond_b8
 
     .line 84
     add-int/lit8 v7, v7, -0x1
 
     .line 86
-    :cond_6
+    :cond_b8
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v8
@@ -390,14 +390,14 @@
 
     move-result v8
 
-    if-ne v8, v0, :cond_7
+    if-ne v8, v0, :cond_c8
 
     .line 87
     add-int/lit8 v7, v7, 0x1
 
     .line 89
-    :cond_7
-    if-nez v7, :cond_8
+    :cond_c8
+    if-nez v7, :cond_d0
 
     .line 90
     add-int/lit8 v8, p1, -0x1
@@ -405,13 +405,13 @@
     invoke-direct {p0, v6, v8}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->showBracket(II)V
 
     .line 91
-    goto :goto_4
+    goto :goto_d3
 
     .line 93
-    :cond_8
+    :cond_d0
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_3
+    goto :goto_a6
 
     .line 58
     .end local v3    # "half":I
@@ -419,21 +419,21 @@
     .end local v5    # "c2":C
     .end local v6    # "k":I
     .end local v7    # "ncb":I
-    :cond_9
-    :goto_4
+    :cond_d3
+    :goto_d3
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_47
 
     .line 99
     .end local v0    # "c1":C
     .end local v1    # "i":I
-    :cond_a
+    :cond_d7
     return-void
 .end method
 
 .method private final showBracket(II)V
-    .locals 4
+    .registers 7
     .param p1, "i"    # I
     .param p2, "j"    # I
 
@@ -476,7 +476,7 @@
 
 # virtual methods
 .method public onAttached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 2
+    .registers 4
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -498,7 +498,7 @@
 .end method
 
 .method public onColorSchemeChanged(Lcom/blacksquircle/ui/editorkit/model/ColorScheme;)V
-    .locals 2
+    .registers 4
     .param p1, "colorScheme"    # Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     const-string v0, "colorScheme"
@@ -535,7 +535,7 @@
 .end method
 
 .method public onSelectionChanged(II)V
-    .locals 0
+    .registers 3
     .param p1, "selStart"    # I
     .param p2, "selEnd"    # I
 
@@ -543,12 +543,12 @@
     invoke-super {p0, p1, p2}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onSelectionChanged(II)V
 
     .line 47
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_8
 
     .line 48
     invoke-direct {p0, p1}, Lcom/blacksquircle/ui/editorkit/plugin/delimiters/BracketsHighlightPlugin;->checkMatchingBracket(I)V
 
     .line 50
-    :cond_0
+    :cond_8
     return-void
 .end method

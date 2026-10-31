@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 3
+    .registers 6
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 6
+    .registers 7
 
     const/4 v4, 0x7
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>(FFI)V
-    .locals 0
+    .registers 4
     .param p1, "lineWidth"    # F
     .param p2, "waveSize"    # F
     .param p3, "color"    # I
@@ -100,14 +100,14 @@
 .end method
 
 .method public synthetic constructor <init>(FFIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
+    .registers 7
 
     .line 25
     and-int/lit8 p5, p4, 0x1
 
     const/high16 v0, 0x3f000000    # 0.5f
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_15
 
     .line 26
     const/4 p1, 0x1
@@ -129,10 +129,10 @@
     add-float/2addr p1, v0
 
     .line 25
-    :cond_0
+    :cond_15
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_28
 
     .line 27
     const/4 p2, 0x3
@@ -154,16 +154,16 @@
     add-float/2addr p2, v0
 
     .line 25
-    :cond_1
+    :cond_28
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_2e
 
     .line 28
     const/high16 p3, -0x10000
 
     .line 25
-    :cond_2
+    :cond_2e
     invoke-direct {p0, p1, p2, p3}, Lcom/blacksquircle/ui/editorkit/model/ErrorSpan;-><init>(FFI)V
 
     .line 56
@@ -173,7 +173,7 @@
 
 # virtual methods
 .method public drawBackground(Landroid/graphics/Canvas;Landroid/graphics/Paint;IIIIILjava/lang/CharSequence;III)V
-    .locals 18
+    .registers 30
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "paint"    # Landroid/graphics/Paint;
     .param p3, "left"    # I
@@ -255,14 +255,14 @@
 
     .line 50
     .local v17, "i":F
-    :goto_0
+    :goto_3d
     int-to-float v6, v2
 
     add-float/2addr v6, v14
 
     cmpg-float v6, v17, v6
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_69
 
     .line 51
     int-to-float v8, v3
@@ -307,9 +307,9 @@
     .line 53
     add-float v17, v17, v16
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 55
-    :cond_0
+    :cond_69
     return-void
 .end method

@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/ValueGraphBuilder;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public addNode(Ljava/lang/Object;)Lcom/google/common/graph/ImmutableValueGraph$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -102,7 +102,7 @@
 .end method
 
 .method public build()Lcom/google/common/graph/ImmutableValueGraph;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,7 +123,7 @@
 .end method
 
 .method public putEdgeValue(Lcom/google/common/graph/EndpointPair;Ljava/lang/Object;)Lcom/google/common/graph/ImmutableValueGraph$Builder;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -147,7 +147,7 @@
 .end method
 
 .method public putEdgeValue(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/graph/ImmutableValueGraph$Builder;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TN;TV;)",

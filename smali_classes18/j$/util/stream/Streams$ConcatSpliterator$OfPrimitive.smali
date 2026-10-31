@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>(Lj$/util/Spliterator$OfPrimitive;Lj$/util/Spliterator$OfPrimitive;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_SP",
@@ -63,7 +63,7 @@
 .end method
 
 .method synthetic constructor <init>(Lj$/util/Spliterator$OfPrimitive;Lj$/util/Spliterator$OfPrimitive;Lj$/util/stream/Streams-IA;)V
-    .locals 0
+    .registers 4
 
     invoke-direct {p0, p1, p2}, Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;-><init>(Lj$/util/Spliterator$OfPrimitive;Lj$/util/Spliterator$OfPrimitive;)V
 
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public forEachRemaining(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)V"
@@ -85,7 +85,7 @@
     .local p1, "action":Ljava/lang/Object;, "TT_CONS;"
     iget-boolean v0, p0, Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;->beforeSplit:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 800
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;->aSpliterator:Lj$/util/Spliterator;
@@ -95,7 +95,7 @@
     invoke-interface {v0, p1}, Lj$/util/Spliterator$OfPrimitive;->forEachRemaining(Ljava/lang/Object;)V
 
     .line 801
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;->bSpliterator:Lj$/util/Spliterator;
 
     check-cast v0, Lj$/util/Spliterator$OfPrimitive;
@@ -107,7 +107,7 @@
 .end method
 
 .method public tryAdvance(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)Z"
@@ -119,7 +119,7 @@
     .local p1, "action":Ljava/lang/Object;, "TT_CONS;"
     iget-boolean v0, p0, Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;->beforeSplit:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 786
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;->aSpliterator:Lj$/util/Spliterator;
@@ -132,7 +132,7 @@
 
     .line 787
     .local v0, "hasNext":Z
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
     .line 788
     const/4 v1, 0x0
@@ -148,11 +148,11 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_22
 
     .line 793
     .end local v0    # "hasNext":Z
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;->bSpliterator:Lj$/util/Spliterator;
 
     check-cast v0, Lj$/util/Spliterator$OfPrimitive;
@@ -163,13 +163,13 @@
 
     .line 794
     .restart local v0    # "hasNext":Z
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     return v0
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 775
     .local p0, "this":Lj$/util/stream/Streams$ConcatSpliterator$OfPrimitive;, "Ljava/util/stream/Streams$ConcatSpliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;"

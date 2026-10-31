@@ -45,7 +45,7 @@
 
 # direct methods
 .method public static final awaitCancellation(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +57,7 @@
 
     instance-of v0, p0, Lkotlinx/coroutines/DelayKt$awaitCancellation$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p0
 
@@ -69,7 +69,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p0, v0, Lkotlinx/coroutines/DelayKt$awaitCancellation$1;->label:I
 
@@ -77,14 +77,14 @@
 
     iput p0, v0, Lkotlinx/coroutines/DelayKt$awaitCancellation$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/DelayKt$awaitCancellation$1;
 
     invoke-direct {v0, p0}, Lkotlinx/coroutines/DelayKt$awaitCancellation$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p0, v0
 
     .local p0, "$continuation":Lkotlin/coroutines/Continuation;
@@ -98,7 +98,7 @@
     .line 106
     iget v2, p0, Lkotlinx/coroutines/DelayKt$awaitCancellation$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_6c
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p0    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -112,16 +112,16 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p0    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 v1, 0x0
 
     .local v1, "$i$f$suspendCancellableCoroutine":I
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_64
 
     .end local v1    # "$i$f$suspendCancellableCoroutine":I
-    :pswitch_1
+    :pswitch_32
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     const/4 v2, 0x0
@@ -183,7 +183,7 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_60
 
     move-object v4, p0
 
@@ -191,20 +191,20 @@
 
     invoke-static {v4}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_1
-    if-ne v3, v1, :cond_2
+    :cond_60
+    if-ne v3, v1, :cond_63
 
     .line 106
     return-object v1
 
     .line 163
-    :cond_2
+    :cond_63
     move v1, v2
 
     .line 173
     .end local v2    # "$i$f$suspendCancellableCoroutine":I
     .restart local v1    # "$i$f$suspendCancellableCoroutine":I
-    :goto_1
+    :goto_64
     nop
 
     .line 106
@@ -217,15 +217,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_32
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final delay(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 12
     .param p0, "timeMillis"    # J
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -244,14 +244,14 @@
 
     cmp-long v2, p0, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_9
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 127
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     .line 174
@@ -291,7 +291,7 @@
 
     cmp-long v8, p0, v6
 
-    if-gez v8, :cond_1
+    if-gez v8, :cond_31
 
     .line 130
     invoke-interface {v4}, Lkotlinx/coroutines/CancellableContinuation;->getContext()Lkotlin/coroutines/CoroutineContext;
@@ -305,7 +305,7 @@
     invoke-interface {v6, p0, p1, v4}, Lkotlinx/coroutines/Delay;->scheduleResumeAfterDelay(JLkotlinx/coroutines/CancellableContinuation;)V
 
     .line 132
-    :cond_1
+    :cond_31
     nop
 
     .line 182
@@ -326,21 +326,21 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_40
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_2
+    :cond_40
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_47
 
     return-object v1
 
     .line 184
-    :cond_3
+    :cond_47
     nop
 
     .end local v0    # "$i$f$suspendCancellableCoroutine":I
@@ -351,7 +351,7 @@
 .end method
 
 .method public static final delay-VtjQ1oo(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "duration"    # J
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -378,18 +378,18 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     return-object v0
 
-    :cond_0
+    :cond_f
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method public static final getDelay(Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/Delay;
-    .locals 2
+    .registers 3
     .param p0, "$this$delay"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 154
@@ -403,28 +403,28 @@
 
     instance-of v1, v0, Lkotlinx/coroutines/Delay;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     check-cast v0, Lkotlinx/coroutines/Delay;
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_10
+    if-nez v0, :cond_16
 
     invoke-static {}, Lkotlinx/coroutines/DefaultExecutorKt;->getDefaultDelay()Lkotlinx/coroutines/Delay;
 
     move-result-object v0
 
-    :cond_1
+    :cond_16
     return-object v0
 .end method
 
 .method public static final toDelayMillis-LRDsOJo(J)J
-    .locals 4
+    .registers 6
     .param p0, "$this$toDelayMillis_u2dLRDsOJo"    # J
 
     .line 161
@@ -438,7 +438,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_17
 
     invoke-static {p0, p1}, Lkotlin/time/Duration;->getInWholeMilliseconds-impl(J)J
 
@@ -450,11 +450,11 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_17
     const-wide/16 v0, 0x0
 
-    :goto_0
+    :goto_19
     return-wide v0
 .end method

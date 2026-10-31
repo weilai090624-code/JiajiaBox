@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/Display;Landroidx/camera/core/CameraInfo;FF)V
-    .locals 0
+    .registers 5
     .param p1, "display"    # Landroid/view/Display;
     .param p2, "cameraInfo"    # Landroidx/camera/core/CameraInfo;
     .param p3, "width"    # F
@@ -55,14 +55,14 @@
 .end method
 
 .method private getLensFacing()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 98
     iget-object v0, p0, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->mCameraInfo:Landroidx/camera/core/CameraInfo;
 
     instance-of v0, v0, Landroidx/camera/core/impl/CameraInfoInternal;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 99
     iget-object v0, p0, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->mCameraInfo:Landroidx/camera/core/CameraInfo;
@@ -76,14 +76,14 @@
     return-object v0
 
     .line 101
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private getRelativeCameraOrientation(Z)I
-    .locals 3
+    .registers 5
     .param p1, "compensateForMirroring"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -112,25 +112,25 @@
 
     .line 166
     .local v1, "rotationDegrees":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     .line 167
     rsub-int v2, v1, 0x168
 
     rem-int/lit16 v2, v2, 0x168
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_12} :catch_14
 
     move v1, v2
 
     .line 171
     .end local v0    # "displayRotation":I
-    :cond_0
-    goto :goto_0
+    :cond_13
+    goto :goto_16
 
     .line 169
     .end local v1    # "rotationDegrees":I
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 170
@@ -140,14 +140,14 @@
     .line 172
     .end local v0    # "e":Ljava/lang/Exception;
     .restart local v1    # "rotationDegrees":I
-    :goto_0
+    :goto_16
     return v1
 .end method
 
 
 # virtual methods
 .method protected convertPoint(FF)Landroid/graphics/PointF;
-    .locals 10
+    .registers 13
     .param p1, "x"    # F
     .param p2, "y"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -176,25 +176,25 @@
 
     .line 117
     .local v2, "lensFacing":Ljava/lang/Integer;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_12
 
     .line 118
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_12
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v3, 0x0
 
     .line 119
     .local v3, "compensateForMirroring":Z
-    :goto_0
+    :goto_13
     invoke-direct {p0, v3}, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->getRelativeCameraOrientation(Z)I
 
     move-result v4
@@ -219,14 +219,14 @@
     .local v8, "outputHeight":F
     const/16 v9, 0x5a
 
-    if-eq v4, v9, :cond_1
+    if-eq v4, v9, :cond_23
 
     const/16 v9, 0x10e
 
-    if-ne v4, v9, :cond_2
+    if-ne v4, v9, :cond_27
 
     .line 127
-    :cond_1
+    :cond_23
     move v5, p2
 
     .line 128
@@ -239,44 +239,44 @@
     move v8, v0
 
     .line 133
-    :cond_2
-    sparse-switch v4, :sswitch_data_0
+    :cond_27
+    sparse-switch v4, :sswitch_data_42
 
-    goto :goto_1
+    goto :goto_36
 
     .line 143
-    :sswitch_0
+    :sswitch_2b
     sub-float v5, v7, v5
 
     .line 144
-    goto :goto_1
+    goto :goto_36
 
     .line 139
-    :sswitch_1
+    :sswitch_2e
     sub-float v5, v7, v5
 
     .line 140
     sub-float v6, v8, v6
 
     .line 141
-    goto :goto_1
+    goto :goto_36
 
     .line 136
-    :sswitch_2
+    :sswitch_33
     sub-float v6, v8, v6
 
     .line 137
     nop
 
     .line 150
-    :goto_1
-    if-eqz v3, :cond_3
+    :goto_36
+    if-eqz v3, :cond_3a
 
     .line 151
     sub-float v5, v7, v5
 
     .line 155
-    :cond_3
+    :cond_3a
     div-float/2addr v5, v7
 
     .line 156
@@ -289,10 +289,10 @@
 
     return-object v9
 
-    :sswitch_data_0
+    :sswitch_data_42
     .sparse-switch
-        0x5a -> :sswitch_2
-        0xb4 -> :sswitch_1
-        0x10e -> :sswitch_0
+        0x5a -> :sswitch_33
+        0xb4 -> :sswitch_2e
+        0x10e -> :sswitch_2b
     .end sparse-switch
 .end method

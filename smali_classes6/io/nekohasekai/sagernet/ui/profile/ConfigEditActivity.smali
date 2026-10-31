@@ -83,7 +83,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$BrQYqPJR0QJ8JXca8xt3xOU51IE(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->onCreate$lambda$7(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Gp53sRweares2KxUh_dcNxTtW98(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->onCreate$lambda$14(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$LxTMtZeuDmdYTghVrFA_hQz0lqk(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->onCreate$lambda$11(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Ljava/lang/String;)V
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$O-rYrEeqyQhnxqEZMKUMqvEb6rw(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->onCreate$lambda$8(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
 
@@ -117,7 +117,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$aMWvoWExsRvrfzFoSqs-cyGYt3g(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->onCreate$lambda$10(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$lN4NMz4bkJdhQcpEQLgAqpN6fWM(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->onCreate$lambda$6(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;-><init>()V
@@ -148,7 +148,7 @@
 .end method
 
 .method private static final onCreate$lambda$10(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;
     .param p1, "it"    # Landroid/view/View;
 
@@ -157,7 +157,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .local v0, "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -185,12 +185,12 @@
     nop
 
     .line 110
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method private static final onCreate$lambda$11(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;
     .param p1, "char"    # Ljava/lang/String;
 
@@ -202,7 +202,7 @@
     nop
 
     .line 115
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->getBinding()Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
 
     move-result-object v0
@@ -220,22 +220,22 @@
     check-cast v1, Ljava/lang/CharSequence;
 
     invoke-static {v0, v1}, Lcom/blacksquircle/ui/editorkit/ExtensionsKt;->insert(Landroid/widget/EditText;Ljava/lang/CharSequence;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_19} :catch_1a
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 116
-    :catch_0
+    :catch_1a
     move-exception v0
 
     .line 118
-    :goto_0
+    :goto_1b
     return-void
 .end method
 
 .method private static final onCreate$lambda$14(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 10
+    .registers 12
     .param p0, "v"    # Landroid/view/View;
     .param p1, "windowInsets"    # Landroidx/core/view/WindowInsetsCompat;
 
@@ -297,7 +297,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_51
 
     check-cast v5, Landroid/view/ViewGroup$MarginLayoutParams;
 
@@ -314,7 +314,7 @@
 
     .line 130
     .local v7, "$i$a$-updateLayoutParamsTyped-ConfigEditActivity$onCreate$10$1":I
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_45
 
     .line 131
     iget v8, v0, Landroidx/core/graphics/Insets;->bottom:I
@@ -325,16 +325,16 @@
 
     iput v8, v6, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
-    goto :goto_0
+    goto :goto_48
 
     .line 133
-    :cond_0
+    :cond_45
     const/4 v8, 0x0
 
     iput v8, v6, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
     .line 135
-    :goto_0
+    :goto_48
     nop
 
     .line 218
@@ -359,7 +359,7 @@
     .line 217
     .restart local v3    # "$this$updateLayoutParams$iv":Landroid/view/View;
     .restart local v4    # "$i$f$updateLayoutParamsTyped":I
-    :cond_1
+    :cond_51
     new-instance v5, Ljava/lang/NullPointerException;
 
     const-string v6, "null cannot be cast to non-null type android.view.ViewGroup.MarginLayoutParams"
@@ -370,7 +370,7 @@
 .end method
 
 .method private static final onCreate$lambda$6(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;
     .param p1, "it"    # Landroid/view/View;
 
@@ -378,7 +378,7 @@
     nop
 
     .line 90
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->getBinding()Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
 
     move-result-object v0
@@ -404,22 +404,22 @@
     check-cast v1, Ljava/lang/CharSequence;
 
     invoke-static {v0, v1}, Lcom/blacksquircle/ui/editorkit/ExtensionsKt;->insert(Landroid/widget/EditText;Ljava/lang/CharSequence;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1d} :catch_1e
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 91
-    :catch_0
+    :catch_1e
     move-exception v0
 
     .line 93
-    :goto_0
+    :goto_1f
     return-void
 .end method
 
 .method private static final onCreate$lambda$7(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;
     .param p1, "it"    # Landroid/view/View;
 
@@ -427,7 +427,7 @@
     nop
 
     .line 96
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->getBinding()Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
 
     move-result-object v0
@@ -435,22 +435,22 @@
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;->editor:Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->undo()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_c
 
     .line 97
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 99
-    :goto_0
+    :goto_c
     return-void
 .end method
 
 .method private static final onCreate$lambda$8(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;
     .param p1, "it"    # Landroid/view/View;
 
@@ -458,7 +458,7 @@
     nop
 
     .line 102
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->getBinding()Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
 
     move-result-object v0
@@ -466,30 +466,30 @@
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;->editor:Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->redo()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_c
 
     .line 103
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 105
-    :goto_0
+    :goto_c
     return-void
 .end method
 
 
 # virtual methods
 .method public final formatText()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 144
     nop
 
     .line 145
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->getBinding()Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
 
     move-result-object v0
@@ -514,7 +514,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 147
     const-string v1, ""
@@ -522,7 +522,7 @@
     return-object v1
 
     .line 149
-    :cond_0
+    :cond_1b
     new-instance v1, Lorg/json/JSONObject;
 
     invoke-direct {v1, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
@@ -530,14 +530,14 @@
     invoke-static {v1}, Lio/nekohasekai/sagernet/ktx/FormatsKt;->toStringPretty(Lorg/json/JSONObject;)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_24
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_24} :catch_25
 
     return-object v1
 
     .line 150
     .end local v0    # "txt":Ljava/lang/String;
-    :catch_0
+    :catch_25
     move-exception v0
 
     .line 151
@@ -580,16 +580,16 @@
 .end method
 
 .method public final getBinding()Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
-    .locals 1
+    .registers 2
 
     .line 51
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "binding"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -600,7 +600,7 @@
 .end method
 
 .method public final getDirty()Z
-    .locals 1
+    .registers 2
 
     .line 34
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->dirty:Z
@@ -609,7 +609,7 @@
 .end method
 
 .method public final getKey()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 35
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->key:Ljava/lang/String;
@@ -618,7 +618,7 @@
 .end method
 
 .method public final getUseConfigStore()Z
-    .locals 1
+    .registers 2
 
     .line 36
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->useConfigStore:Z
@@ -627,12 +627,12 @@
 .end method
 
 .method public onBackPressed()V
-    .locals 6
+    .registers 7
 
     .line 169
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->dirty:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity$UnsavedChangesDialogFragment;
 
@@ -665,18 +665,18 @@
 
     invoke-virtual {v0, v1, v5}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity$UnsavedChangesDialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1b
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onBackPressed()V
 
     .line 171
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 10
+    .registers 12
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 55
@@ -689,13 +689,13 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     invoke-virtual {v0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     .local v0, "$this$onCreate_u24lambda_u242":Landroid/os/Bundle;
     const/4 v2, 0x0
@@ -708,7 +708,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     .line 193
     .local v3, "it":Ljava/lang/String;
@@ -721,14 +721,14 @@
     .line 59
     .end local v3    # "it":Ljava/lang/String;
     .end local v4    # "$i$a$-let-ConfigEditActivity$onCreate$1$1":I
-    :cond_0
+    :cond_1c
     const-string v3, "useConfigStore"
 
     invoke-virtual {v0, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
     .line 193
     .restart local v3    # "it":Ljava/lang/String;
@@ -741,13 +741,13 @@
     .line 60
     .end local v3    # "it":Ljava/lang/String;
     .end local v4    # "$i$a$-let-ConfigEditActivity$onCreate$1$2":I
-    :cond_1
+    :cond_27
     nop
 
     .line 57
     .end local v0    # "$this$onCreate_u24lambda_u242":Landroid/os/Bundle;
     .end local v2    # "$i$a$-apply-ConfigEditActivity$onCreate$1":I
-    :cond_2
+    :cond_28
     nop
 
     .line 62
@@ -790,7 +790,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_65
 
     .local v0, "$this$onCreate_u24lambda_u243":Landroidx/appcompat/app/ActionBar;
     const/4 v2, 0x0
@@ -818,7 +818,7 @@
     nop
 
     .line 72
-    :cond_3
+    :cond_65
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->getBinding()Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
 
     move-result-object v0
@@ -846,7 +846,7 @@
 
     const-string v4, ""
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_95
 
     .line 76
     sget-object v3, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -861,22 +861,22 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_8e
 
-    goto :goto_0
+    goto :goto_8f
 
-    :cond_4
+    :cond_8e
     move-object v4, v3
 
-    :goto_0
+    :goto_8f
     check-cast v4, Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v4}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->setTextContent(Ljava/lang/CharSequence;)V
 
-    goto :goto_2
+    goto :goto_aa
 
     .line 78
-    :cond_5
+    :cond_95
     sget-object v3, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/database/DataStore;->getProfileCacheStore()Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;
@@ -889,20 +889,20 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_a4
 
-    goto :goto_1
+    goto :goto_a5
 
-    :cond_6
+    :cond_a4
     move-object v4, v3
 
-    :goto_1
+    :goto_a5
     check-cast v4, Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v4}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->setTextContent(Ljava/lang/CharSequence;)V
 
     .line 80
-    :goto_2
+    :goto_aa
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     move-object v3, v0
@@ -1057,12 +1057,12 @@
     .local v5, "$i$f$mapTo":I
     const/4 v6, 0x0
 
-    :goto_3
+    :goto_124
     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
     move-result v7
 
-    if-ge v6, v7, :cond_7
+    if-ge v6, v7, :cond_13a
 
     invoke-interface {v4, v6}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -1090,10 +1090,10 @@
     .end local v7    # "item$iv$iv":C
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3
+    goto :goto_124
 
     .line 216
-    :cond_7
+    :cond_13a
     nop
 
     .end local v3    # "destination$iv$iv":Ljava/util/Collection;
@@ -1165,7 +1165,7 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 2
+    .registers 4
     .param p1, "menu"    # Landroid/view/Menu;
 
     const-string v0, "menu"
@@ -1188,7 +1188,7 @@
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 2
+    .registers 4
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -1203,7 +1203,7 @@
     .line 185
     const v1, 0x7f0a0036
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     .line 186
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->saveAndExit()V
@@ -1214,7 +1214,7 @@
     return v0
 
     .line 190
-    :cond_0
+    :cond_13
     invoke-super {p0, p1}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -1223,33 +1223,33 @@
 .end method
 
 .method public onSupportNavigateUp()Z
-    .locals 1
+    .registers 2
 
     .line 174
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onSupportNavigateUp()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->finish()V
 
     .line 175
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public final saveAndExit()V
-    .locals 4
+    .registers 5
 
     .line 158
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->formatText()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .local v0, "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -1258,7 +1258,7 @@
     .local v1, "$i$a$-let-ConfigEditActivity$saveAndExit$1":I
     iget-boolean v2, p0, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->useConfigStore:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     .line 160
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1271,10 +1271,10 @@
 
     invoke-virtual {v2, v3, v0}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_22
 
     .line 162
-    :cond_0
+    :cond_17
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/DataStore;->getProfileCacheStore()Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;
@@ -1286,7 +1286,7 @@
     invoke-virtual {v2, v3, v0}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 164
-    :goto_0
+    :goto_22
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;->finish()V
 
     .line 165
@@ -1298,12 +1298,12 @@
     nop
 
     .line 166
-    :cond_1
+    :cond_27
     return-void
 .end method
 
 .method public final setBinding(Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/databinding/LayoutEditConfigBinding;
 
     const-string v0, "<set-?>"
@@ -1317,7 +1317,7 @@
 .end method
 
 .method public final setDirty(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 34
@@ -1327,7 +1327,7 @@
 .end method
 
 .method public final setKey(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1341,7 +1341,7 @@
 .end method
 
 .method public final setUseConfigStore(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 36

@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractService;Lcom/google/common/util/concurrent/Service$State;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/AbstractService;
 
     .line 548
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public call(Lcom/google/common/util/concurrent/Service$Listener;)V
-    .locals 2
+    .registers 4
     .param p1, "listener"    # Lcom/google/common/util/concurrent/Service$Listener;
 
     .line 551
@@ -65,7 +65,7 @@
 .end method
 
 .method public bridge synthetic call(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 548
     check-cast p1, Lcom/google/common/util/concurrent/Service$Listener;
@@ -76,7 +76,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 556
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractService$5;->val$from:Lcom/google/common/util/concurrent/Service$State;

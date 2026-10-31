@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/ColorStateList;Landroid/content/res/Configuration;Landroid/content/res/Resources$Theme;)V
-    .locals 1
+    .registers 5
     .param p1, "value"    # Landroid/content/res/ColorStateList;
     .param p2, "configuration"    # Landroid/content/res/Configuration;
     .param p3, "theme"    # Landroid/content/res/Resources$Theme;
@@ -39,18 +39,18 @@
     iput-object p2, p0, Landroidx/core/content/res/ResourcesCompat$ColorStateListCacheEntry;->mConfiguration:Landroid/content/res/Configuration;
 
     .line 360
-    if-nez p3, :cond_0
+    if-nez p3, :cond_b
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-virtual {p3}, Landroid/content/res/Resources$Theme;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_f
     iput v0, p0, Landroidx/core/content/res/ResourcesCompat$ColorStateListCacheEntry;->mThemeHash:I
 
     .line 361

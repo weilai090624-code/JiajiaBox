@@ -273,7 +273,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 607
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -282,7 +282,7 @@
 .end method
 
 .method public static findPointerIndex(Landroid/view/MotionEvent;I)I
-    .locals 1
+    .registers 3
     .param p0, "event"    # Landroid/view/MotionEvent;
     .param p1, "pointerId"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -297,7 +297,7 @@
 .end method
 
 .method public static getActionIndex(Landroid/view/MotionEvent;)I
-    .locals 1
+    .registers 2
     .param p0, "event"    # Landroid/view/MotionEvent;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -311,7 +311,7 @@
 .end method
 
 .method public static getActionMasked(Landroid/view/MotionEvent;)I
-    .locals 1
+    .registers 2
     .param p0, "event"    # Landroid/view/MotionEvent;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -325,7 +325,7 @@
 .end method
 
 .method public static getAxisValue(Landroid/view/MotionEvent;I)F
-    .locals 1
+    .registers 3
     .param p0, "event"    # Landroid/view/MotionEvent;
     .param p1, "axis"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -340,7 +340,7 @@
 .end method
 
 .method public static getAxisValue(Landroid/view/MotionEvent;II)F
-    .locals 1
+    .registers 4
     .param p0, "event"    # Landroid/view/MotionEvent;
     .param p1, "axis"    # I
     .param p2, "pointerIndex"    # I
@@ -356,7 +356,7 @@
 .end method
 
 .method public static getButtonState(Landroid/view/MotionEvent;)I
-    .locals 1
+    .registers 2
     .param p0, "event"    # Landroid/view/MotionEvent;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -370,7 +370,7 @@
 .end method
 
 .method public static getPointerCount(Landroid/view/MotionEvent;)I
-    .locals 1
+    .registers 2
     .param p0, "event"    # Landroid/view/MotionEvent;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -384,7 +384,7 @@
 .end method
 
 .method public static getPointerId(Landroid/view/MotionEvent;I)I
-    .locals 1
+    .registers 3
     .param p0, "event"    # Landroid/view/MotionEvent;
     .param p1, "pointerIndex"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -399,7 +399,7 @@
 .end method
 
 .method public static getSource(Landroid/view/MotionEvent;)I
-    .locals 1
+    .registers 2
     .param p0, "event"    # Landroid/view/MotionEvent;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -413,7 +413,7 @@
 .end method
 
 .method public static getX(Landroid/view/MotionEvent;I)F
-    .locals 1
+    .registers 3
     .param p0, "event"    # Landroid/view/MotionEvent;
     .param p1, "pointerIndex"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -428,7 +428,7 @@
 .end method
 
 .method public static getY(Landroid/view/MotionEvent;I)F
-    .locals 1
+    .registers 3
     .param p0, "event"    # Landroid/view/MotionEvent;
     .param p1, "pointerIndex"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -443,7 +443,7 @@
 .end method
 
 .method public static isFromSource(Landroid/view/MotionEvent;I)Z
-    .locals 1
+    .registers 3
     .param p0, "event"    # Landroid/view/MotionEvent;
     .param p1, "source"    # I
 
@@ -454,15 +454,15 @@
 
     and-int/2addr v0, p1
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method

@@ -76,7 +76,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lokhttp3/Protocol;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x6
 
@@ -122,7 +122,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 35
     new-instance v0, Lokhttp3/Protocol;
@@ -224,7 +224,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .param p3, "protocol"    # Ljava/lang/String;
@@ -245,7 +245,7 @@
 .end method
 
 .method public static final synthetic access$getProtocol$p(Lokhttp3/Protocol;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/Protocol;
 
     .line 31
@@ -255,7 +255,7 @@
 .end method
 
 .method public static final get(Ljava/lang/String;)Lokhttp3/Protocol;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -275,7 +275,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lokhttp3/Protocol;
-    .locals 1
+    .registers 2
 
     const-class v0, Lokhttp3/Protocol;
 
@@ -289,7 +289,7 @@
 .end method
 
 .method public static values()[Lokhttp3/Protocol;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lokhttp3/Protocol;->$VALUES:[Lokhttp3/Protocol;
 
@@ -305,7 +305,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Lokhttp3/Protocol;->protocol:Ljava/lang/String;

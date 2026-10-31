@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,7 +41,7 @@
 .end method
 
 .method static of()Lcom/google/common/graph/UndirectedNetworkConnections;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -69,7 +69,7 @@
 .end method
 
 .method static ofImmutable(Ljava/util/Map;)Lcom/google/common/graph/UndirectedNetworkConnections;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public adjacentNodes()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -127,7 +127,7 @@
 .end method
 
 .method public edgesConnecting(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",

@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 106
     .local p0, "this":Lj$/util/stream/SpinedBuffer;, "Ljava/util/stream/SpinedBuffer<TE;>;"
@@ -80,7 +80,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "initialCapacity"    # I
 
     .line 97
@@ -103,13 +103,13 @@
 .end method
 
 .method private inflateSpine()V
-    .locals 3
+    .registers 4
 
     .line 121
     .local p0, "this":Lj$/util/stream/SpinedBuffer;, "Ljava/util/stream/SpinedBuffer<TE;>;"
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 122
     const/16 v0, 0x8
@@ -133,14 +133,14 @@
     aput-object v2, v0, v1
 
     .line 126
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -156,7 +156,7 @@
 
     array-length v1, v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_31
 
     .line 256
     invoke-direct {p0}, Lj$/util/stream/SpinedBuffer;->inflateSpine()V
@@ -170,7 +170,7 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1d
 
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
 
@@ -180,14 +180,14 @@
 
     aget-object v0, v0, v1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_20
 
     .line 258
-    :cond_0
+    :cond_1d
     invoke-virtual {p0}, Lj$/util/stream/SpinedBuffer;->increaseCapacity()V
 
     .line 259
-    :cond_1
+    :cond_20
     const/4 v0, 0x0
 
     iput v0, p0, Lj$/util/stream/SpinedBuffer;->elementIndex:I
@@ -209,7 +209,7 @@
     iput-object v0, p0, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
 
     .line 263
-    :cond_2
+    :cond_31
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer;->elementIndex:I
@@ -225,7 +225,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -235,7 +235,7 @@
 .end method
 
 .method public asArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -257,7 +257,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_17
 
     .line 214
     long-to-int v2, v0
@@ -279,7 +279,7 @@
 
     .line 213
     .end local v2    # "result":[Ljava/lang/Object;, "[TE;"
-    :cond_0
+    :cond_17
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -290,13 +290,13 @@
 .end method
 
 .method protected capacity()J
-    .locals 5
+    .registers 6
 
     .line 114
     .local p0, "this":Lj$/util/stream/SpinedBuffer;, "Ljava/util/stream/SpinedBuffer<TE;>;"
     iget v0, p0, Lj$/util/stream/SpinedBuffer;->spineIndex:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 115
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
@@ -305,10 +305,10 @@
 
     int-to-long v0, v0
 
-    goto :goto_0
+    goto :goto_19
 
     .line 116
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer;->priorElementCount:[J
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer;->spineIndex:I
@@ -328,12 +328,12 @@
     add-long v0, v1, v3
 
     .line 114
-    :goto_0
+    :goto_19
     return-wide v0
 .end method
 
 .method public clear()V
-    .locals 4
+    .registers 5
 
     .line 221
     .local p0, "this":Lj$/util/stream/SpinedBuffer;, "Ljava/util/stream/SpinedBuffer<TE;>;"
@@ -343,7 +343,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 222
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
@@ -356,12 +356,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_d
     iget-object v3, p0, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
 
     array-length v3, v3
 
-    if-ge v0, v3, :cond_0
+    if-ge v0, v3, :cond_19
 
     .line 224
     iget-object v3, p0, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
@@ -371,27 +371,27 @@
     .line 223
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 225
     .end local v0    # "i":I
-    :cond_0
+    :cond_19
     iput-object v2, p0, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
 
     .line 226
     iput-object v2, p0, Lj$/util/stream/SpinedBuffer;->priorElementCount:[J
 
-    goto :goto_2
+    goto :goto_2a
 
     .line 229
-    :cond_1
+    :cond_1e
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_1
+    :goto_1f
     iget v3, p0, Lj$/util/stream/SpinedBuffer;->elementIndex:I
 
-    if-ge v0, v3, :cond_2
+    if-ge v0, v3, :cond_2a
 
     .line 230
     iget-object v3, p0, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
@@ -401,12 +401,12 @@
     .line 229
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 232
     .end local v0    # "i":I
-    :cond_2
-    :goto_2
+    :cond_2a
+    :goto_2a
     iput v1, p0, Lj$/util/stream/SpinedBuffer;->elementIndex:I
 
     .line 233
@@ -417,7 +417,7 @@
 .end method
 
 .method public copyInto([Ljava/lang/Object;I)V
-    .locals 6
+    .registers 9
     .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -444,20 +444,20 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_3
+    if-gtz v4, :cond_44
 
     int-to-long v2, p2
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_3
+    if-ltz v4, :cond_44
 
     .line 193
     iget v2, p0, Lj$/util/stream/SpinedBuffer;->spineIndex:I
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1e
 
     .line 194
     iget-object v2, p0, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
@@ -466,17 +466,17 @@
 
     invoke-static {v2, v3, p1, p2, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto :goto_1
+    goto :goto_43
 
     .line 197
-    :cond_0
+    :cond_1e
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_1f
     iget v4, p0, Lj$/util/stream/SpinedBuffer;->spineIndex:I
 
-    if-ge v2, v4, :cond_1
+    if-ge v2, v4, :cond_38
 
     .line 198
     iget-object v4, p0, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
@@ -503,14 +503,14 @@
     .line 197
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 201
     .end local v2    # "i":I
-    :cond_1
+    :cond_38
     iget v2, p0, Lj$/util/stream/SpinedBuffer;->elementIndex:I
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_43
 
     .line 202
     iget-object v2, p0, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
@@ -520,12 +520,12 @@
     invoke-static {v2, v3, p1, p2, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 204
-    :cond_2
-    :goto_1
+    :cond_43
+    :goto_43
     return-void
 
     .line 190
-    :cond_3
+    :cond_44
     new-instance v2, Ljava/lang/IndexOutOfBoundsException;
 
     const-string v3, "does not fit"
@@ -536,7 +536,7 @@
 .end method
 
 .method protected final ensureCapacity(J)V
-    .locals 10
+    .registers 13
     .param p1, "targetSize"    # J
 
     .line 133
@@ -549,7 +549,7 @@
     .local v0, "capacity":J
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_51
 
     .line 135
     invoke-direct {p0}, Lj$/util/stream/SpinedBuffer;->inflateSpine()V
@@ -560,17 +560,17 @@
     add-int/lit8 v2, v2, 0x1
 
     .local v2, "i":I
-    :goto_0
+    :goto_f
     cmp-long v3, p1, v0
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_51
 
     .line 137
     iget-object v3, p0, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
 
     array-length v3, v3
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_2f
 
     .line 138
     iget-object v3, p0, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
@@ -602,7 +602,7 @@
 
     .line 142
     .end local v3    # "newSpineSize":I
-    :cond_0
+    :cond_2f
     invoke-virtual {p0, v2}, Lj$/util/stream/SpinedBuffer;->chunkSize(I)I
 
     move-result v3
@@ -647,16 +647,16 @@
     .end local v3    # "nextChunkSize":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 148
     .end local v2    # "i":I
-    :cond_1
+    :cond_51
     return-void
 .end method
 
 .method public forEach(Ljava/util/function/Consumer;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -671,10 +671,10 @@
     const/4 v0, 0x0
 
     .local v0, "j":I
-    :goto_0
+    :goto_1
     iget v1, p0, Lj$/util/stream/SpinedBuffer;->spineIndex:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_18
 
     .line 245
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
@@ -685,8 +685,8 @@
 
     const/4 v3, 0x0
 
-    :goto_1
-    if-ge v3, v2, :cond_0
+    :goto_b
+    if-ge v3, v2, :cond_15
 
     aget-object v4, v1, v3
 
@@ -698,24 +698,24 @@
     .end local v4    # "t":Ljava/lang/Object;, "TE;"
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_b
 
     .line 244
-    :cond_0
+    :cond_15
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 249
     .end local v0    # "j":I
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_2
+    :goto_19
     iget v1, p0, Lj$/util/stream/SpinedBuffer;->elementIndex:I
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_27
 
     .line 250
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
@@ -727,16 +727,16 @@
     .line 249
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_19
 
     .line 251
     .end local v0    # "i":I
-    :cond_2
+    :cond_27
     return-void
 .end method
 
 .method public get(J)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p1, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -748,7 +748,7 @@
     .local p0, "this":Lj$/util/stream/SpinedBuffer;, "Ljava/util/stream/SpinedBuffer<TE;>;"
     iget v0, p0, Lj$/util/stream/SpinedBuffer;->spineIndex:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     .line 167
     iget v0, p0, Lj$/util/stream/SpinedBuffer;->elementIndex:I
@@ -757,7 +757,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_11
 
     .line 168
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
@@ -769,7 +769,7 @@
     return-object v0
 
     .line 170
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-static {p1, p2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
@@ -781,23 +781,23 @@
     throw v0
 
     .line 173
-    :cond_1
+    :cond_1b
     invoke-virtual {p0}, Lj$/util/stream/SpinedBuffer;->count()J
 
     move-result-wide v0
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_4
+    if-gez v2, :cond_52
 
     .line 176
     const/4 v0, 0x0
 
     .local v0, "j":I
-    :goto_0
+    :goto_24
     iget v1, p0, Lj$/util/stream/SpinedBuffer;->spineIndex:I
 
-    if-gt v0, v1, :cond_3
+    if-gt v0, v1, :cond_48
 
     .line 177
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer;->priorElementCount:[J
@@ -816,7 +816,7 @@
 
     cmp-long v1, p1, v2
 
-    if-gez v1, :cond_2
+    if-gez v1, :cond_45
 
     .line 178
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
@@ -836,14 +836,14 @@
     return-object v1
 
     .line 176
-    :cond_2
+    :cond_45
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 180
     .end local v0    # "j":I
-    :cond_3
+    :cond_48
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-static {p1, p2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
@@ -855,7 +855,7 @@
     throw v0
 
     .line 174
-    :cond_4
+    :cond_52
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-static {p1, p2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
@@ -868,7 +868,7 @@
 .end method
 
 .method protected increaseCapacity()V
-    .locals 4
+    .registers 5
 
     .line 154
     .local p0, "this":Lj$/util/stream/SpinedBuffer;, "Ljava/util/stream/SpinedBuffer<TE;>;"
@@ -887,7 +887,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -910,7 +910,7 @@
 .end method
 
 .method public spliterator()Lj$/util/Spliterator;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -941,7 +941,7 @@
 .end method
 
 .method public synthetic spliterator()Ljava/util/Spliterator;
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Lj$/util/stream/SpinedBuffer;->spliterator()Lj$/util/Spliterator;
 
@@ -955,7 +955,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 268
     .local p0, "this":Lj$/util/stream/SpinedBuffer;, "Ljava/util/stream/SpinedBuffer<TE;>;"

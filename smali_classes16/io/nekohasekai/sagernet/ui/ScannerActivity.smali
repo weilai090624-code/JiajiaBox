@@ -119,7 +119,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$VwrZvTFg5l3bPhmI7BeAqUK5YqA(Lio/nekohasekai/sagernet/ui/ScannerActivity;Ljava/util/List;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->importCodeFile$lambda$2(Lio/nekohasekai/sagernet/ui/ScannerActivity;Ljava/util/List;)V
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$k9zCD6nwALfpBuWiCz3gPKXvzbY(Lio/nekohasekai/sagernet/ui/ScannerActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->onCreate$lambda$1(Lio/nekohasekai/sagernet/ui/ScannerActivity;Landroid/view/View;)V
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 33
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;-><init>()V
@@ -183,7 +183,7 @@
 .end method
 
 .method private static final importCodeFile$lambda$2(Lio/nekohasekai/sagernet/ui/ScannerActivity;Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ScannerActivity;
     .param p1, "it"    # Ljava/util/List;
 
@@ -207,7 +207,7 @@
 .end method
 
 .method private static final onCreate$lambda$1(Lio/nekohasekai/sagernet/ui/ScannerActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ScannerActivity;
     .param p1, "it"    # Landroid/view/View;
 
@@ -218,7 +218,7 @@
 .end method
 
 .method private final releaseCamera()V
-    .locals 1
+    .registers 2
 
     .line 183
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->getCameraScan()Lcom/king/zxing/CameraScan;
@@ -234,16 +234,16 @@
 
 # virtual methods
 .method public final getBinding()Lio/nekohasekai/sagernet/databinding/LayoutScannerBinding;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ScannerActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutScannerBinding;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "binding"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -254,7 +254,7 @@
 .end method
 
 .method public final getCAMERA_PERMISSION_REQUEST_CODE()I
-    .locals 1
+    .registers 2
 
     .line 195
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ScannerActivity;->CAMERA_PERMISSION_REQUEST_CODE:I
@@ -263,16 +263,16 @@
 .end method
 
 .method public final getCameraScan()Lcom/king/zxing/CameraScan;
-    .locals 1
+    .registers 2
 
     .line 37
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ScannerActivity;->cameraScan:Lcom/king/zxing/CameraScan;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "cameraScan"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -283,7 +283,7 @@
 .end method
 
 .method public final getFinished()Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ScannerActivity;->finished:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -292,7 +292,7 @@
 .end method
 
 .method public final getImportCodeFile()Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -309,7 +309,7 @@
 .end method
 
 .method public final getImportedN()Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 1
+    .registers 2
 
     .line 105
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ScannerActivity;->importedN:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -318,7 +318,7 @@
 .end method
 
 .method public final initCameraScan()V
-    .locals 3
+    .registers 4
 
     .line 159
     new-instance v0, Lcom/king/zxing/DefaultCameraScan;
@@ -377,7 +377,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 40
@@ -388,7 +388,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1d
 
     move-object v0, p0
 
@@ -417,7 +417,7 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutManager;->reportShortcutUsed(Ljava/lang/String;)V
 
     .line 43
-    :cond_0
+    :cond_1d
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v0
@@ -457,7 +457,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_54
 
     .local v0, "$this$onCreate_u24lambda_u240":Landroidx/appcompat/app/ActionBar;
     const/4 v1, 0x0
@@ -482,7 +482,7 @@
     nop
 
     .line 52
-    :cond_1
+    :cond_54
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->initCameraScan()V
 
     .line 53
@@ -506,7 +506,7 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 2
+    .registers 4
     .param p1, "menu"    # Landroid/view/Menu;
 
     const-string v0, "menu"
@@ -529,7 +529,7 @@
 .end method
 
 .method protected onDestroy()V
-    .locals 4
+    .registers 5
 
     .line 223
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->releaseCamera()V
@@ -544,7 +544,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_4e
 
     .line 226
     const v0, 0x7f130030
@@ -614,12 +614,12 @@
 
     .line 230
     .end local v0    # "text":Ljava/lang/String;
-    :cond_0
+    :cond_4e
     return-void
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 3
+    .registers 5
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -633,7 +633,7 @@
 
     const v1, 0x7f0a0058
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1a
 
     .line 97
     move-object v0, p0
@@ -649,21 +649,21 @@
     .line 98
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 100
-    :cond_0
+    :cond_1a
     invoke-super {p0, p1}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
     .line 96
-    :goto_0
+    :goto_1e
     return v0
 .end method
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
-    .locals 1
+    .registers 5
     .param p1, "requestCode"    # I
     .param p2, "permissions"    # [Ljava/lang/String;
     .param p3, "grantResults"    # [I
@@ -682,18 +682,18 @@
     .line 201
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ScannerActivity;->CAMERA_PERMISSION_REQUEST_CODE:I
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_14
 
     .line 202
     invoke-virtual {p0, p2, p3}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->requestCameraPermissionResult([Ljava/lang/String;[I)V
 
     .line 204
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public onScanResultCallback(Lcom/google/zxing/Result;)Z
-    .locals 1
+    .registers 3
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 113
@@ -707,14 +707,14 @@
 .end method
 
 .method public final onScanResultCallback(Lcom/google/zxing/Result;Z)Z
-    .locals 3
+    .registers 6
     .param p1, "result"    # Lcom/google/zxing/Result;
     .param p2, "multi"    # Z
 
     .line 117
     const/4 v0, 0x1
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_c
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ScannerActivity;->finished:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -722,18 +722,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     return v0
 
     .line 118
-    :cond_0
-    if-nez p2, :cond_1
+    :cond_c
+    if-nez p2, :cond_11
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->finish()V
 
     .line 119
-    :cond_1
+    :cond_11
     new-instance v1, Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;
 
     const/4 v2, 0x0
@@ -749,7 +749,7 @@
 .end method
 
 .method public synthetic onScanResultFailure()V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lcom/king/zxing/CameraScan$OnScanResultCallback$-CC;->$default$onScanResultFailure(Lcom/king/zxing/CameraScan$OnScanResultCallback;)V
 
@@ -757,7 +757,7 @@
 .end method
 
 .method public final requestCameraPermissionResult([Ljava/lang/String;[I)V
-    .locals 1
+    .registers 4
     .param p1, "permissions"    # [Ljava/lang/String;
     .param p2, "grantResults"    # [I
 
@@ -782,24 +782,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 216
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->startCamera()V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 218
-    :cond_0
+    :cond_18
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->finish()V
 
     .line 220
-    :goto_0
+    :goto_1b
     return-void
 .end method
 
 .method public final setBinding(Lio/nekohasekai/sagernet/databinding/LayoutScannerBinding;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/databinding/LayoutScannerBinding;
 
     const-string v0, "<set-?>"
@@ -813,7 +813,7 @@
 .end method
 
 .method public final setCameraScan(Lcom/king/zxing/CameraScan;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lcom/king/zxing/CameraScan;
 
     const-string v0, "<set-?>"
@@ -827,7 +827,7 @@
 .end method
 
 .method public final setFinished(Ljava/util/concurrent/atomic/AtomicBoolean;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const-string v0, "<set-?>"
@@ -841,7 +841,7 @@
 .end method
 
 .method public final setImportedN(Ljava/util/concurrent/atomic/AtomicInteger;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/concurrent/atomic/AtomicInteger;
 
     const-string v0, "<set-?>"
@@ -855,7 +855,7 @@
 .end method
 
 .method public final startCamera()V
-    .locals 3
+    .registers 4
 
     .line 169
     move-object v0, p0
@@ -868,7 +868,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 170
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->getCameraScan()Lcom/king/zxing/CameraScan;
@@ -877,10 +877,10 @@
 
     invoke-virtual {v0}, Lcom/king/zxing/CameraScan;->startCamera()V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 172
-    :cond_0
+    :cond_13
     const-string v0, "checkPermissionResult != PERMISSION_GRANTED"
 
     invoke-static {v0}, Lcom/king/zxing/util/LogUtils;->d(Ljava/lang/String;)V
@@ -896,12 +896,12 @@
     invoke-static {v0, v1, v2}, Lcom/king/zxing/util/PermissionUtils;->requestPermission(Landroid/app/Activity;Ljava/lang/String;I)V
 
     .line 177
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 .method protected final toggleTorchState()V
-    .locals 3
+    .registers 4
 
     .line 190
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->getCameraScan()Lcom/king/zxing/CameraScan;

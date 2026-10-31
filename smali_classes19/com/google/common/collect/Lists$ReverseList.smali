@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/Lists$ReverseList;I)I
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/collect/Lists$ReverseList;
     .param p1, "x1"    # I
 
@@ -78,7 +78,7 @@
 .end method
 
 .method private reverseIndex(I)I
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 825
@@ -100,7 +100,7 @@
 .end method
 
 .method private reversePosition(I)I
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 831
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -150,7 +150,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 843
     .local p0, "this":Lcom/google/common/collect/Lists$ReverseList;, "Lcom/google/common/collect/Lists$ReverseList<TT;>;"
@@ -163,7 +163,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -190,7 +190,7 @@
 .end method
 
 .method getForwardList()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -207,7 +207,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -226,7 +226,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -260,7 +260,7 @@
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -287,7 +287,7 @@
 .end method
 
 .method protected removeRange(II)V
-    .locals 1
+    .registers 4
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
 
@@ -304,7 +304,7 @@
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -336,7 +336,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 871
     .local p0, "this":Lcom/google/common/collect/Lists$ReverseList;, "Lcom/google/common/collect/Lists$ReverseList<TT;>;"
@@ -350,7 +350,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 3
+    .registers 6
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;

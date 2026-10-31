@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 653
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -166,7 +166,7 @@
 
 # virtual methods
 .method draw(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
-    .locals 12
+    .registers 15
     .param p1, "c"    # Landroid/graphics/Canvas;
     .param p2, "bounds"    # Landroid/graphics/Rect;
 
@@ -193,7 +193,7 @@
 
     cmpg-float v1, v1, v3
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_32
 
     .line 699
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
@@ -234,16 +234,16 @@
 
     move v7, v0
 
-    goto :goto_0
+    goto :goto_33
 
     .line 697
-    :cond_0
+    :cond_32
     move v7, v0
 
     .line 702
     .end local v0    # "arcRadius":F
     .local v7, "arcRadius":F
-    :goto_0
+    :goto_33
     invoke-virtual {p2}, Landroid/graphics/Rect;->centerX()I
 
     move-result v0
@@ -380,7 +380,7 @@
 .end method
 
 .method drawTriangle(Landroid/graphics/Canvas;FFLandroid/graphics/RectF;)V
-    .locals 7
+    .registers 12
     .param p1, "c"    # Landroid/graphics/Canvas;
     .param p2, "startAngle"    # F
     .param p3, "sweepAngle"    # F
@@ -389,12 +389,12 @@
     .line 727
     iget-boolean v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mShowArrow:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_99
 
     .line 728
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mArrow:Landroid/graphics/Path;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 729
     new-instance v0, Landroid/graphics/Path;
@@ -410,16 +410,16 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Path;->setFillType(Landroid/graphics/Path$FillType;)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 732
-    :cond_0
+    :cond_17
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mArrow:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->reset()V
 
     .line 734
-    :goto_0
+    :goto_1c
     invoke-virtual {p4}, Landroid/graphics/RectF;->width()F
 
     move-result v0
@@ -567,12 +567,12 @@
     .line 756
     .end local v0    # "centerRadius":F
     .end local v2    # "inset":F
-    :cond_1
+    :cond_99
     return-void
 .end method
 
 .method getAlpha()I
-    .locals 1
+    .registers 2
 
     .line 838
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mAlpha:I
@@ -581,7 +581,7 @@
 .end method
 
 .method getArrowHeight()F
-    .locals 1
+    .registers 2
 
     .line 688
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mArrowHeight:I
@@ -592,7 +592,7 @@
 .end method
 
 .method getArrowScale()F
-    .locals 1
+    .registers 2
 
     .line 923
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mArrowScale:F
@@ -601,7 +601,7 @@
 .end method
 
 .method getArrowWidth()F
-    .locals 1
+    .registers 2
 
     .line 684
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mArrowWidth:I
@@ -612,7 +612,7 @@
 .end method
 
 .method getBackgroundColor()I
-    .locals 1
+    .registers 2
 
     .line 792
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mCirclePaint:Landroid/graphics/Paint;
@@ -625,7 +625,7 @@
 .end method
 
 .method getCenterRadius()F
-    .locals 1
+    .registers 2
 
     .line 897
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mRingCenterRadius:F
@@ -634,7 +634,7 @@
 .end method
 
 .method getColors()[I
-    .locals 1
+    .registers 2
 
     .line 770
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mColors:[I
@@ -643,7 +643,7 @@
 .end method
 
 .method getEndTrim()F
-    .locals 1
+    .registers 2
 
     .line 878
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mEndTrim:F
@@ -652,7 +652,7 @@
 .end method
 
 .method getNextColor()I
-    .locals 2
+    .registers 3
 
     .line 808
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mColors:[I
@@ -667,7 +667,7 @@
 .end method
 
 .method getNextColorIndex()I
-    .locals 2
+    .registers 3
 
     .line 812
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mColorIndex:I
@@ -684,7 +684,7 @@
 .end method
 
 .method getRotation()F
-    .locals 1
+    .registers 2
 
     .line 886
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mRotation:F
@@ -693,7 +693,7 @@
 .end method
 
 .method getShowArrow()Z
-    .locals 1
+    .registers 2
 
     .line 910
     iget-boolean v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mShowArrow:Z
@@ -702,7 +702,7 @@
 .end method
 
 .method getStartTrim()F
-    .locals 1
+    .registers 2
 
     .line 858
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mStartTrim:F
@@ -711,7 +711,7 @@
 .end method
 
 .method getStartingColor()I
-    .locals 2
+    .registers 3
 
     .line 870
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mColors:[I
@@ -724,7 +724,7 @@
 .end method
 
 .method getStartingEndTrim()F
-    .locals 1
+    .registers 2
 
     .line 866
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mStartingEndTrim:F
@@ -733,7 +733,7 @@
 .end method
 
 .method getStartingRotation()F
-    .locals 1
+    .registers 2
 
     .line 930
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mStartingRotation:F
@@ -742,7 +742,7 @@
 .end method
 
 .method getStartingStartTrim()F
-    .locals 1
+    .registers 2
 
     .line 862
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mStartingStartTrim:F
@@ -751,7 +751,7 @@
 .end method
 
 .method getStrokeCap()Landroid/graphics/Paint$Cap;
-    .locals 1
+    .registers 2
 
     .line 680
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mPaint:Landroid/graphics/Paint;
@@ -764,7 +764,7 @@
 .end method
 
 .method getStrokeWidth()F
-    .locals 1
+    .registers 2
 
     .line 850
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mStrokeWidth:F
@@ -773,7 +773,7 @@
 .end method
 
 .method goToNextColor()V
-    .locals 1
+    .registers 2
 
     .line 820
     invoke-virtual {p0}, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->getNextColorIndex()I
@@ -787,7 +787,7 @@
 .end method
 
 .method resetOriginals()V
-    .locals 1
+    .registers 2
 
     .line 947
     const/4 v0, 0x0
@@ -814,7 +814,7 @@
 .end method
 
 .method setAlpha(I)V
-    .locals 0
+    .registers 2
     .param p1, "alpha"    # I
 
     .line 831
@@ -825,7 +825,7 @@
 .end method
 
 .method setArrowDimensions(FF)V
-    .locals 1
+    .registers 4
     .param p1, "width"    # F
     .param p2, "height"    # F
 
@@ -844,7 +844,7 @@
 .end method
 
 .method setArrowScale(F)V
-    .locals 1
+    .registers 3
     .param p1, "scale"    # F
 
     .line 917
@@ -852,18 +852,18 @@
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 918
     iput p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mArrowScale:F
 
     .line 920
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method setBackgroundColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 788
@@ -876,7 +876,7 @@
 .end method
 
 .method setCenterRadius(F)V
-    .locals 0
+    .registers 2
     .param p1, "centerRadius"    # F
 
     .line 893
@@ -887,7 +887,7 @@
 .end method
 
 .method setColor(I)V
-    .locals 0
+    .registers 2
     .param p1, "color"    # I
 
     .line 781
@@ -898,7 +898,7 @@
 .end method
 
 .method setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 1
+    .registers 3
     .param p1, "filter"    # Landroid/graphics/ColorFilter;
 
     .line 824
@@ -911,7 +911,7 @@
 .end method
 
 .method setColorIndex(I)V
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 800
@@ -931,7 +931,7 @@
 .end method
 
 .method setColors([I)V
-    .locals 1
+    .registers 3
     .param p1, "colors"    # [I
 
     .line 764
@@ -947,7 +947,7 @@
 .end method
 
 .method setEndTrim(F)V
-    .locals 0
+    .registers 2
     .param p1, "endTrim"    # F
 
     .line 874
@@ -958,7 +958,7 @@
 .end method
 
 .method setRotation(F)V
-    .locals 0
+    .registers 2
     .param p1, "rotation"    # F
 
     .line 882
@@ -969,24 +969,24 @@
 .end method
 
 .method setShowArrow(Z)V
-    .locals 1
+    .registers 3
     .param p1, "show"    # Z
 
     .line 904
     iget-boolean v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mShowArrow:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_6
 
     .line 905
     iput-boolean p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mShowArrow:Z
 
     .line 907
-    :cond_0
+    :cond_6
     return-void
 .end method
 
 .method setStartTrim(F)V
-    .locals 0
+    .registers 2
     .param p1, "startTrim"    # F
 
     .line 854
@@ -997,7 +997,7 @@
 .end method
 
 .method setStrokeCap(Landroid/graphics/Paint$Cap;)V
-    .locals 1
+    .registers 3
     .param p1, "strokeCap"    # Landroid/graphics/Paint$Cap;
 
     .line 676
@@ -1010,7 +1010,7 @@
 .end method
 
 .method setStrokeWidth(F)V
-    .locals 1
+    .registers 3
     .param p1, "strokeWidth"    # F
 
     .line 845
@@ -1026,7 +1026,7 @@
 .end method
 
 .method storeOriginals()V
-    .locals 1
+    .registers 2
 
     .line 938
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mStartTrim:F

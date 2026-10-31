@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 31
     const/4 v0, 0x1
@@ -20,7 +20,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Landroidx/transition/ViewUtilsApi21;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public setLeftTopRightBottom(Landroid/view/View;IIII)V
-    .locals 2
+    .registers 8
     .param p1, "v"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -41,19 +41,19 @@
     .line 36
     sget-boolean v0, Landroidx/transition/ViewUtilsApi22;->sTryHiddenSetLeftTopRightBottom:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 40
-    :try_start_0
+    :try_start_4
     invoke-virtual {p1, p2, p3, p4, p5}, Landroid/view/View;->setLeftTopRightBottom(IIII)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_4 .. :try_end_7} :catch_8
 
     .line 43
-    goto :goto_0
+    goto :goto_c
 
     .line 41
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 42
@@ -64,7 +64,7 @@
 
     .line 45
     .end local v0    # "e":Ljava/lang/NoSuchMethodError;
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     return-void
 .end method

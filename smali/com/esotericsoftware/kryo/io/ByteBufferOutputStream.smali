@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "bufferSize"    # I
 
     .line 38
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Ljava/nio/ByteBuffer;)V
-    .locals 0
+    .registers 2
     .param p1, "byteBuffer"    # Ljava/nio/ByteBuffer;
 
     .line 41
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getByteBuffer()Ljava/nio/ByteBuffer;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/ByteBufferOutputStream;->byteBuffer:Ljava/nio/ByteBuffer;
@@ -59,7 +59,7 @@
 .end method
 
 .method public setByteBuffer(Ljava/nio/ByteBuffer;)V
-    .locals 0
+    .registers 2
     .param p1, "byteBuffer"    # Ljava/nio/ByteBuffer;
 
     .line 50
@@ -70,7 +70,7 @@
 .end method
 
 .method public write(I)V
-    .locals 2
+    .registers 4
     .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -85,12 +85,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutputStream;->flush()V
 
     .line 55
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/ByteBufferOutputStream;->byteBuffer:Ljava/nio/ByteBuffer;
 
     int-to-byte v1, p1
@@ -102,7 +102,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 1
+    .registers 5
     .param p1, "bytes"    # [B
     .param p2, "offset"    # I
     .param p3, "length"    # I
@@ -119,12 +119,12 @@
 
     move-result v0
 
-    if-ge v0, p3, :cond_0
+    if-ge v0, p3, :cond_b
 
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutputStream;->flush()V
 
     .line 60
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/ByteBufferOutputStream;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/nio/ByteBuffer;->put([BII)Ljava/nio/ByteBuffer;

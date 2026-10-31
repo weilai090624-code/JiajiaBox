@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 4
+    .registers 5
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -126,8 +126,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_47
+    if-ge v1, v0, :cond_67
 
     .line 73
     iget-object v2, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->cornerPaths:[Lcom/google/android/material/shape/ShapePath;
@@ -159,16 +159,16 @@
     .line 72
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_47
 
     .line 77
     .end local v1    # "i":I
-    :cond_0
+    :cond_67
     return-void
 .end method
 
 .method private angleOfEdge(I)F
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 325
@@ -184,7 +184,7 @@
 .end method
 
 .method private appendCornerPath(Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;I)V
-    .locals 4
+    .registers 7
     .param p1, "spec"    # Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;
     .param p2, "index"    # I
 
@@ -228,7 +228,7 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->mapPoints([F)V
 
     .line 173
-    if-nez p2, :cond_0
+    if-nez p2, :cond_33
 
     .line 174
     iget-object v0, p1, Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;->path:Landroid/graphics/Path;
@@ -243,10 +243,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Path;->moveTo(FF)V
 
-    goto :goto_0
+    goto :goto_40
 
     .line 176
-    :cond_0
+    :cond_33
     iget-object v0, p1, Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;->path:Landroid/graphics/Path;
 
     iget-object v1, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->scratch:[F
@@ -260,7 +260,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Path;->lineTo(FF)V
 
     .line 178
-    :goto_0
+    :goto_40
     iget-object v0, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->cornerPaths:[Lcom/google/android/material/shape/ShapePath;
 
     aget-object v0, v0, p2
@@ -276,7 +276,7 @@
     .line 179
     iget-object v0, p1, Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;->pathListener:Lcom/google/android/material/shape/ShapeAppearancePathProvider$PathListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5e
 
     .line 180
     iget-object v0, p1, Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;->pathListener:Lcom/google/android/material/shape/ShapeAppearancePathProvider$PathListener;
@@ -292,12 +292,12 @@
     invoke-interface {v0, v1, v2, p2}, Lcom/google/android/material/shape/ShapeAppearancePathProvider$PathListener;->onCornerPathCreated(Lcom/google/android/material/shape/ShapePath;Landroid/graphics/Matrix;I)V
 
     .line 182
-    :cond_1
+    :cond_5e
     return-void
 .end method
 
 .method private appendEdgePath(Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;I)V
-    .locals 10
+    .registers 13
     .param p1, "spec"    # Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;
     .param p2, "index"    # I
 
@@ -471,14 +471,14 @@
     .line 204
     iget-boolean v6, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->edgeIntersectionCheckEnabled:Z
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_ee
 
     .line 206
     invoke-virtual {v5}, Lcom/google/android/material/shape/EdgeTreatment;->forceIntersection()Z
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_ad
 
     iget-object v6, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->edgePath:Landroid/graphics/Path;
 
@@ -487,7 +487,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_ad
 
     iget-object v6, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->edgePath:Landroid/graphics/Path;
 
@@ -496,10 +496,10 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_ee
 
     .line 212
-    :cond_0
+    :cond_ad
     iget-object v6, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->edgePath:Landroid/graphics/Path;
 
     iget-object v7, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->edgePath:Landroid/graphics/Path;
@@ -565,10 +565,10 @@
 
     invoke-virtual {v3, v4, v6}, Lcom/google/android/material/shape/ShapePath;->applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
 
-    goto :goto_0
+    goto :goto_f9
 
     .line 224
-    :cond_1
+    :cond_ee
     iget-object v3, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->shapePath:Lcom/google/android/material/shape/ShapePath;
 
     iget-object v4, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->edgeTransforms:[Landroid/graphics/Matrix;
@@ -580,10 +580,10 @@
     invoke-virtual {v3, v4, v6}, Lcom/google/android/material/shape/ShapePath;->applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
 
     .line 227
-    :goto_0
+    :goto_f9
     iget-object v3, p1, Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;->pathListener:Lcom/google/android/material/shape/ShapeAppearancePathProvider$PathListener;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_108
 
     .line 228
     iget-object v3, p1, Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;->pathListener:Lcom/google/android/material/shape/ShapeAppearancePathProvider$PathListener;
@@ -597,18 +597,18 @@
     invoke-interface {v3, v4, v6, p2}, Lcom/google/android/material/shape/ShapeAppearancePathProvider$PathListener;->onEdgePathCreated(Lcom/google/android/material/shape/ShapePath;Landroid/graphics/Matrix;I)V
 
     .line 230
-    :cond_2
+    :cond_108
     return-void
 .end method
 
 .method private getCoordinatesOfCorner(ILandroid/graphics/RectF;Landroid/graphics/PointF;)V
-    .locals 2
+    .registers 6
     .param p1, "index"    # I
     .param p2, "bounds"    # Landroid/graphics/RectF;
     .param p3, "pointF"    # Landroid/graphics/PointF;
 
     .line 307
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_24
 
     .line 319
     iget v0, p2, Landroid/graphics/RectF;->right:F
@@ -617,10 +617,10 @@
 
     invoke-virtual {p3, v0, v1}, Landroid/graphics/PointF;->set(FF)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 315
-    :pswitch_0
+    :pswitch_b
     iget v0, p2, Landroid/graphics/RectF;->left:F
 
     iget v1, p2, Landroid/graphics/RectF;->top:F
@@ -628,10 +628,10 @@
     invoke-virtual {p3, v0, v1}, Landroid/graphics/PointF;->set(FF)V
 
     .line 316
-    goto :goto_0
+    goto :goto_23
 
     .line 312
-    :pswitch_1
+    :pswitch_13
     iget v0, p2, Landroid/graphics/RectF;->left:F
 
     iget v1, p2, Landroid/graphics/RectF;->bottom:F
@@ -639,10 +639,10 @@
     invoke-virtual {p3, v0, v1}, Landroid/graphics/PointF;->set(FF)V
 
     .line 313
-    goto :goto_0
+    goto :goto_23
 
     .line 309
-    :pswitch_2
+    :pswitch_1b
     iget v0, p2, Landroid/graphics/RectF;->right:F
 
     iget v1, p2, Landroid/graphics/RectF;->bottom:F
@@ -653,24 +653,24 @@
     nop
 
     .line 322
-    :goto_0
+    :goto_23
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_13
+        :pswitch_b
     .end packed-switch
 .end method
 
 .method private getCornerSizeForIndex(ILcom/google/android/material/shape/ShapeAppearanceModel;)Lcom/google/android/material/shape/CornerSize;
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 278
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_18
 
     .line 287
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getTopRightCornerSize()Lcom/google/android/material/shape/CornerSize;
@@ -680,7 +680,7 @@
     return-object v0
 
     .line 284
-    :pswitch_0
+    :pswitch_8
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getTopLeftCornerSize()Lcom/google/android/material/shape/CornerSize;
 
     move-result-object v0
@@ -688,7 +688,7 @@
     return-object v0
 
     .line 282
-    :pswitch_1
+    :pswitch_d
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getBottomLeftCornerSize()Lcom/google/android/material/shape/CornerSize;
 
     move-result-object v0
@@ -696,7 +696,7 @@
     return-object v0
 
     .line 280
-    :pswitch_2
+    :pswitch_12
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getBottomRightCornerSize()Lcom/google/android/material/shape/CornerSize;
 
     move-result-object v0
@@ -705,21 +705,21 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_12
+        :pswitch_d
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method private getCornerTreatmentForIndex(ILcom/google/android/material/shape/ShapeAppearanceModel;)Lcom/google/android/material/shape/CornerTreatment;
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 263
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_18
 
     .line 272
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getTopRightCorner()Lcom/google/android/material/shape/CornerTreatment;
@@ -729,7 +729,7 @@
     return-object v0
 
     .line 269
-    :pswitch_0
+    :pswitch_8
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getTopLeftCorner()Lcom/google/android/material/shape/CornerTreatment;
 
     move-result-object v0
@@ -737,7 +737,7 @@
     return-object v0
 
     .line 267
-    :pswitch_1
+    :pswitch_d
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getBottomLeftCorner()Lcom/google/android/material/shape/CornerTreatment;
 
     move-result-object v0
@@ -745,7 +745,7 @@
     return-object v0
 
     .line 265
-    :pswitch_2
+    :pswitch_12
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getBottomRightCorner()Lcom/google/android/material/shape/CornerTreatment;
 
     move-result-object v0
@@ -754,16 +754,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_12
+        :pswitch_d
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method private getEdgeCenterForIndex(Landroid/graphics/RectF;I)F
-    .locals 4
+    .registers 7
     .param p1, "bounds"    # Landroid/graphics/RectF;
     .param p2, "index"    # I
 
@@ -803,10 +803,10 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->mapPoints([F)V
 
     .line 250
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_3e
 
     .line 257
-    :pswitch_0
+    :pswitch_22
     invoke-virtual {p1}, Landroid/graphics/RectF;->centerY()F
 
     move-result v0
@@ -824,7 +824,7 @@
     return v0
 
     .line 253
-    :pswitch_1
+    :pswitch_30
     invoke-virtual {p1}, Landroid/graphics/RectF;->centerX()F
 
     move-result v0
@@ -841,21 +841,21 @@
 
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_3e
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_30
+        :pswitch_22
+        :pswitch_30
     .end packed-switch
 .end method
 
 .method private getEdgeTreatmentForIndex(ILcom/google/android/material/shape/ShapeAppearanceModel;)Lcom/google/android/material/shape/EdgeTreatment;
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 293
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_18
 
     .line 302
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getRightEdge()Lcom/google/android/material/shape/EdgeTreatment;
@@ -865,7 +865,7 @@
     return-object v0
 
     .line 299
-    :pswitch_0
+    :pswitch_8
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getTopEdge()Lcom/google/android/material/shape/EdgeTreatment;
 
     move-result-object v0
@@ -873,7 +873,7 @@
     return-object v0
 
     .line 297
-    :pswitch_1
+    :pswitch_d
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getLeftEdge()Lcom/google/android/material/shape/EdgeTreatment;
 
     move-result-object v0
@@ -881,7 +881,7 @@
     return-object v0
 
     .line 295
-    :pswitch_2
+    :pswitch_12
     invoke-virtual {p2}, Lcom/google/android/material/shape/ShapeAppearanceModel;->getBottomEdge()Lcom/google/android/material/shape/EdgeTreatment;
 
     move-result-object v0
@@ -890,16 +890,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_12
+        :pswitch_d
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method public static getInstance()Lcom/google/android/material/shape/ShapeAppearancePathProvider;
-    .locals 1
+    .registers 1
 
     .line 83
     sget-object v0, Lcom/google/android/material/shape/ShapeAppearancePathProvider$Lazy;->INSTANCE:Lcom/google/android/material/shape/ShapeAppearancePathProvider;
@@ -908,7 +908,7 @@
 .end method
 
 .method private pathOverlapsCorner(Landroid/graphics/Path;I)Z
-    .locals 4
+    .registers 7
     .param p1, "edgePath"    # Landroid/graphics/Path;
     .param p2, "index"    # I
 
@@ -961,7 +961,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_44
 
     invoke-virtual {v0}, Landroid/graphics/RectF;->width()F
 
@@ -971,7 +971,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_43
 
     invoke-virtual {v0}, Landroid/graphics/RectF;->height()F
 
@@ -979,20 +979,20 @@
 
     cmpl-float v2, v2, v3
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_43
 
-    goto :goto_0
+    goto :goto_44
 
-    :cond_0
+    :cond_43
     const/4 v1, 0x0
 
-    :cond_1
-    :goto_0
+    :cond_44
+    :goto_44
     return v1
 .end method
 
 .method private setCornerPathAndTransform(Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;I)V
-    .locals 7
+    .registers 10
     .param p1, "spec"    # Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;
     .param p2, "index"    # I
 
@@ -1073,7 +1073,7 @@
 .end method
 
 .method private setEdgePathAndTransform(I)V
-    .locals 5
+    .registers 7
     .param p1, "index"    # I
 
     .line 160
@@ -1157,7 +1157,7 @@
 
 # virtual methods
 .method public calculatePath(Lcom/google/android/material/shape/ShapeAppearanceModel;FLandroid/graphics/RectF;Landroid/graphics/Path;)V
-    .locals 6
+    .registers 11
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p2, "interpolation"    # F
     .param p3, "bounds"    # Landroid/graphics/RectF;
@@ -1183,7 +1183,7 @@
 .end method
 
 .method public calculatePath(Lcom/google/android/material/shape/ShapeAppearanceModel;FLandroid/graphics/RectF;Lcom/google/android/material/shape/ShapeAppearancePathProvider$PathListener;Landroid/graphics/Path;)V
-    .locals 8
+    .registers 14
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p2, "interpolation"    # F
     .param p3, "bounds"    # Landroid/graphics/RectF;
@@ -1232,10 +1232,10 @@
     const/4 v1, 0x0
 
     .local v1, "index":I
-    :goto_0
+    :goto_20
     const/4 v2, 0x4
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_2c
 
     .line 129
     invoke-direct {p0, v0, v1}, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->setCornerPathAndTransform(Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;I)V
@@ -1246,16 +1246,16 @@
     .line 128
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
     .line 133
     .end local v1    # "index":I
-    :cond_0
+    :cond_2c
     const/4 v1, 0x0
 
     .restart local v1    # "index":I
-    :goto_1
-    if-ge v1, v2, :cond_1
+    :goto_2d
+    if-ge v1, v2, :cond_38
 
     .line 134
     invoke-direct {p0, v0, v1}, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->appendCornerPath(Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;I)V
@@ -1266,11 +1266,11 @@
     .line 133
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 138
     .end local v1    # "index":I
-    :cond_1
+    :cond_38
     invoke-virtual {p5}, Landroid/graphics/Path;->close()V
 
     .line 139
@@ -1285,7 +1285,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4f
 
     .line 143
     iget-object v1, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->overlappedEdgePath:Landroid/graphics/Path;
@@ -1295,12 +1295,12 @@
     invoke-virtual {p5, v1, v2}, Landroid/graphics/Path;->op(Landroid/graphics/Path;Landroid/graphics/Path$Op;)Z
 
     .line 145
-    :cond_2
+    :cond_4f
     return-void
 .end method
 
 .method setEdgeIntersectionCheckEnable(Z)V
-    .locals 0
+    .registers 2
     .param p1, "enable"    # Z
 
     .line 329

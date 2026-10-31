@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/WindowDecorActionBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/app/WindowDecorActionBar;
 
     .line 134
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 137
@@ -42,13 +42,13 @@
 
     iget-boolean v0, v0, Landroidx/appcompat/app/WindowDecorActionBar;->mContentAnimations:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$1;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
     iget-object v0, v0, Landroidx/appcompat/app/WindowDecorActionBar;->mContentView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 138
     iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$1;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
@@ -67,7 +67,7 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/ActionBarContainer;->setTranslationY(F)V
 
     .line 141
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$1;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
     iget-object v0, v0, Landroidx/appcompat/app/WindowDecorActionBar;->mContainerView:Landroidx/appcompat/widget/ActionBarContainer;
@@ -102,7 +102,7 @@
 
     iget-object v0, v0, Landroidx/appcompat/app/WindowDecorActionBar;->mOverlayLayout:Landroidx/appcompat/widget/ActionBarOverlayLayout;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_43
 
     .line 146
     iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$1;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
@@ -112,6 +112,6 @@
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V
 
     .line 148
-    :cond_1
+    :cond_43
     return-void
 .end method

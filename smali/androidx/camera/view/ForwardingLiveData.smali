@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     .local p0, "this":Landroidx/camera/view/ForwardingLiveData;, "Landroidx/camera/view/ForwardingLiveData<TT;>;"
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -51,25 +51,25 @@
     .local p0, "this":Landroidx/camera/view/ForwardingLiveData;, "Landroidx/camera/view/ForwardingLiveData<TT;>;"
     iget-object v0, p0, Landroidx/camera/view/ForwardingLiveData;->mLiveDataSource:Landroidx/lifecycle/LiveData;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/camera/view/ForwardingLiveData;->mLiveDataSource:Landroidx/lifecycle/LiveData;
 
     invoke-virtual {v0}, Landroidx/lifecycle/LiveData;->getValue()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method setSource(Landroidx/lifecycle/LiveData;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -92,7 +92,7 @@
     .local p1, "liveDataSource":Landroidx/lifecycle/LiveData;, "Landroidx/lifecycle/LiveData<TT;>;"
     iget-object v0, p0, Landroidx/camera/view/ForwardingLiveData;->mLiveDataSource:Landroidx/lifecycle/LiveData;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 37
     iget-object v0, p0, Landroidx/camera/view/ForwardingLiveData;->mLiveDataSource:Landroidx/lifecycle/LiveData;
@@ -100,7 +100,7 @@
     invoke-super {p0, v0}, Landroidx/lifecycle/MediatorLiveData;->removeSource(Landroidx/lifecycle/LiveData;)V
 
     .line 39
-    :cond_0
+    :cond_9
     iput-object p1, p0, Landroidx/camera/view/ForwardingLiveData;->mLiveDataSource:Landroidx/lifecycle/LiveData;
 
     .line 40

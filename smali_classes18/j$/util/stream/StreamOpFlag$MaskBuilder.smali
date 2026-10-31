@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method build()Ljava/util/Map;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -76,8 +76,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_7
+    if-ge v3, v1, :cond_17
 
     aget-object v4, v0, v3
 
@@ -95,17 +95,17 @@
     .end local v4    # "t":Lj$/util/stream/StreamOpFlag$Type;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 415
-    :cond_0
+    :cond_17
     iget-object v0, p0, Lj$/util/stream/StreamOpFlag$MaskBuilder;->map:Ljava/util/Map;
 
     return-object v0
 .end method
 
 .method clear(Lj$/util/stream/StreamOpFlag$Type;)Lj$/util/stream/StreamOpFlag$MaskBuilder;
-    .locals 1
+    .registers 3
     .param p1, "t"    # Lj$/util/stream/StreamOpFlag$Type;
 
     .line 404
@@ -123,7 +123,7 @@
 .end method
 
 .method mask(Lj$/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;)Lj$/util/stream/StreamOpFlag$MaskBuilder;
-    .locals 1
+    .registers 4
     .param p1, "t"    # Lj$/util/stream/StreamOpFlag$Type;
     .param p2, "i"    # Ljava/lang/Integer;
 
@@ -137,7 +137,7 @@
 .end method
 
 .method set(Lj$/util/stream/StreamOpFlag$Type;)Lj$/util/stream/StreamOpFlag$MaskBuilder;
-    .locals 1
+    .registers 3
     .param p1, "t"    # Lj$/util/stream/StreamOpFlag$Type;
 
     .line 400
@@ -155,7 +155,7 @@
 .end method
 
 .method setAndClear(Lj$/util/stream/StreamOpFlag$Type;)Lj$/util/stream/StreamOpFlag$MaskBuilder;
-    .locals 1
+    .registers 3
     .param p1, "t"    # Lj$/util/stream/StreamOpFlag$Type;
 
     .line 408

@@ -44,7 +44,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/primitives/Booleans$BooleanComparator;
-    .locals 3
+    .registers 3
 
     .line 50
     const/4 v0, 0x2
@@ -67,7 +67,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 51
     new-instance v0, Lcom/google/common/primitives/Booleans$BooleanComparator;
@@ -108,7 +108,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IILjava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p3, "trueValue"    # I
     .param p4, "toString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -133,7 +133,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/primitives/Booleans$BooleanComparator;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 50
@@ -149,7 +149,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/primitives/Booleans$BooleanComparator;
-    .locals 1
+    .registers 1
 
     .line 50
     sget-object v0, Lcom/google/common/primitives/Booleans$BooleanComparator;->$VALUES:[Lcom/google/common/primitives/Booleans$BooleanComparator;
@@ -166,7 +166,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Boolean;Ljava/lang/Boolean;)I
-    .locals 3
+    .registers 6
     .param p1, "a"    # Ljava/lang/Boolean;
     .param p2, "b"    # Ljava/lang/Boolean;
 
@@ -177,36 +177,36 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     iget v0, p0, Lcom/google/common/primitives/Booleans$BooleanComparator;->trueValue:I
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 65
     .local v0, "aVal":I
-    :goto_0
+    :goto_b
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_13
 
     iget v1, p0, Lcom/google/common/primitives/Booleans$BooleanComparator;->trueValue:I
 
     .line 66
     .local v1, "bVal":I
-    :cond_1
+    :cond_13
     sub-int v2, v1, v0
 
     return v2
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 50
     check-cast p1, Ljava/lang/Boolean;
@@ -221,7 +221,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Lcom/google/common/primitives/Booleans$BooleanComparator;->toString:Ljava/lang/String;

@@ -42,14 +42,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     .line 100
     return-void
 .end method
 
 .method constructor <init>(Lj$/time/Month;ILj$/time/DayOfWeek;Lj$/time/LocalTime;ZLj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;Lj$/time/ZoneOffset;Lj$/time/ZoneOffset;Lj$/time/ZoneOffset;)V
-    .locals 1
+    .registers 11
     .param p1, "month"    # Lj$/time/Month;
     .param p2, "dayOfMonthIndicator"    # I
     .param p3, "dayOfWeek"    # Lj$/time/DayOfWeek;
@@ -100,7 +100,7 @@
 .end method
 
 .method public static of(Lj$/time/Month;ILj$/time/DayOfWeek;Lj$/time/LocalTime;ZLj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;Lj$/time/ZoneOffset;Lj$/time/ZoneOffset;Lj$/time/ZoneOffset;)Lj$/time/zone/ZoneOffsetTransitionRule;
-    .locals 17
+    .registers 26
     .param p0, "month"    # Lj$/time/Month;
     .param p1, "dayOfMonthIndicator"    # I
     .param p2, "dayOfWeek"    # Lj$/time/DayOfWeek;
@@ -158,16 +158,16 @@
     .line 188
     const/16 v0, -0x1c
 
-    if-lt v10, v0, :cond_3
+    if-lt v10, v0, :cond_71
 
     const/16 v0, 0x1f
 
-    if-gt v10, v0, :cond_3
+    if-gt v10, v0, :cond_71
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_71
 
     .line 191
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_49
 
     sget-object v0, Lj$/time/LocalTime;->MIDNIGHT:Lj$/time/LocalTime;
 
@@ -175,12 +175,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_41
 
-    goto :goto_0
+    goto :goto_49
 
     .line 192
-    :cond_0
+    :cond_41
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Time must be midnight when end of day flag is true"
@@ -190,13 +190,13 @@
     throw v0
 
     .line 194
-    :cond_1
-    :goto_0
+    :cond_49
+    :goto_49
     invoke-virtual/range {p3 .. p3}, Lj$/time/LocalTime;->getNano()I
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_69
 
     .line 197
     new-instance v16, Lj$/time/zone/ZoneOffsetTransitionRule;
@@ -226,7 +226,7 @@
     return-object v16
 
     .line 195
-    :cond_2
+    :cond_69
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Time\'s nano-of-second must be zero"
@@ -236,7 +236,7 @@
     throw v0
 
     .line 189
-    :cond_3
+    :cond_71
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Day of month indicator must be between -28 and 31 inclusive excluding zero"
@@ -247,7 +247,7 @@
 .end method
 
 .method static readExternal(Ljava/io/DataInput;)Lj$/time/zone/ZoneOffsetTransitionRule;
-    .locals 18
+    .registers 19
     .param p0, "in"    # Ljava/io/DataInput;
 
     .line 346
@@ -283,18 +283,18 @@
 
     .line 350
     .local v12, "dowByte":I
-    if-nez v12, :cond_0
+    if-nez v12, :cond_1a
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1a
     invoke-static {v12}, Lj$/time/DayOfWeek;->of(I)Lj$/time/DayOfWeek;
 
     move-result-object v2
 
-    :goto_0
+    :goto_1e
     move-object v4, v2
 
     .line 351
@@ -339,7 +339,7 @@
 
     const/4 v3, 0x0
 
-    if-ne v13, v2, :cond_1
+    if-ne v13, v2, :cond_48
 
     invoke-interface/range {p0 .. p0}, Ljava/io/DataInput;->readInt()I
 
@@ -351,36 +351,36 @@
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_4e
 
-    :cond_1
+    :cond_48
     rem-int/lit8 v2, v13, 0x18
 
     invoke-static {v2, v3}, Lj$/time/LocalTime;->of(II)Lj$/time/LocalTime;
 
     move-result-object v2
 
-    :goto_1
+    :goto_4e
     move-object v5, v2
 
     .line 357
     .local v5, "time":Lj$/time/LocalTime;
     const/16 v2, 0xff
 
-    if-ne v15, v2, :cond_2
+    if-ne v15, v2, :cond_58
 
     invoke-interface/range {p0 .. p0}, Ljava/io/DataInput;->readInt()I
 
     move-result v2
 
-    goto :goto_2
+    goto :goto_5c
 
-    :cond_2
+    :cond_58
     add-int/lit8 v2, v15, -0x80
 
     mul-int/lit16 v2, v2, 0x384
 
-    :goto_2
+    :goto_5c
     invoke-static {v2}, Lj$/time/ZoneOffset;->ofTotalSeconds(I)Lj$/time/ZoneOffset;
 
     move-result-object v2
@@ -391,15 +391,15 @@
     .local v8, "std":Lj$/time/ZoneOffset;
     const/4 v2, 0x3
 
-    if-ne v7, v2, :cond_3
+    if-ne v7, v2, :cond_69
 
     invoke-interface/range {p0 .. p0}, Ljava/io/DataInput;->readInt()I
 
     move-result v9
 
-    goto :goto_3
+    goto :goto_70
 
-    :cond_3
+    :cond_69
     invoke-virtual {v8}, Lj$/time/ZoneOffset;->getTotalSeconds()I
 
     move-result v9
@@ -408,22 +408,22 @@
 
     add-int/2addr v9, v10
 
-    :goto_3
+    :goto_70
     invoke-static {v9}, Lj$/time/ZoneOffset;->ofTotalSeconds(I)Lj$/time/ZoneOffset;
 
     move-result-object v9
 
     .line 359
     .local v9, "before":Lj$/time/ZoneOffset;
-    if-ne v6, v2, :cond_4
+    if-ne v6, v2, :cond_7b
 
     invoke-interface/range {p0 .. p0}, Ljava/io/DataInput;->readInt()I
 
     move-result v2
 
-    goto :goto_4
+    goto :goto_82
 
-    :cond_4
+    :cond_7b
     invoke-virtual {v8}, Lj$/time/ZoneOffset;->getTotalSeconds()I
 
     move-result v2
@@ -432,7 +432,7 @@
 
     add-int/2addr v2, v10
 
-    :goto_4
+    :goto_82
     invoke-static {v2}, Lj$/time/ZoneOffset;->ofTotalSeconds(I)Lj$/time/ZoneOffset;
 
     move-result-object v2
@@ -443,18 +443,18 @@
     .local v10, "after":Lj$/time/ZoneOffset;
     const/16 v2, 0x18
 
-    if-ne v13, v2, :cond_5
+    if-ne v13, v2, :cond_8f
 
     const/4 v2, 0x1
 
     const/16 v16, 0x1
 
-    goto :goto_5
+    goto :goto_91
 
-    :cond_5
+    :cond_8f
     const/16 v16, 0x0
 
-    :goto_5
+    :goto_91
     move-object v2, v1
 
     move v3, v11
@@ -479,7 +479,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 247
@@ -493,7 +493,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 296
     new-instance v0, Lj$/time/zone/Ser;
@@ -508,13 +508,13 @@
 
 # virtual methods
 .method public createTransition(I)Lj$/time/zone/ZoneOffsetTransition;
-    .locals 6
+    .registers 8
     .param p1, "year"    # I
 
     .line 489
     iget-byte v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dom:B
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_2b
 
     .line 490
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->month:Lj$/time/Month;
@@ -547,7 +547,7 @@
     .local v0, "date":Lj$/time/LocalDate;
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_41
 
     .line 492
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
@@ -560,11 +560,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_41
 
     .line 495
     .end local v0    # "date":Lj$/time/LocalDate;
-    :cond_0
+    :cond_2b
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->month:Lj$/time/Month;
 
     iget-byte v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dom:B
@@ -577,7 +577,7 @@
     .restart local v0    # "date":Lj$/time/LocalDate;
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_41
 
     .line 497
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
@@ -591,11 +591,11 @@
     move-result-object v0
 
     .line 500
-    :cond_1
-    :goto_0
+    :cond_41
+    :goto_41
     iget-boolean v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->timeEndOfDay:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4b
 
     .line 501
     const-wide/16 v1, 0x1
@@ -605,7 +605,7 @@
     move-result-object v0
 
     .line 503
-    :cond_2
+    :cond_4b
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->time:Lj$/time/LocalTime;
 
     invoke-static {v0, v1}, Lj$/time/LocalDateTime;->of(Lj$/time/LocalDate;Lj$/time/LocalTime;)Lj$/time/LocalDateTime;
@@ -638,24 +638,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "otherRule"    # Ljava/lang/Object;
 
     .line 519
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 520
     return v0
 
     .line 522
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/time/zone/ZoneOffsetTransitionRule;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_55
 
     .line 523
     move-object v1, p1
@@ -668,25 +668,25 @@
 
     iget-object v4, v1, Lj$/time/zone/ZoneOffsetTransitionRule;->month:Lj$/time/Month;
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_53
 
     iget-byte v3, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dom:B
 
     iget-byte v4, v1, Lj$/time/zone/ZoneOffsetTransitionRule;->dom:B
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_53
 
     iget-object v3, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
 
     iget-object v4, v1, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_53
 
     iget-object v3, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->timeDefinition:Lj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;
 
     iget-object v4, v1, Lj$/time/zone/ZoneOffsetTransitionRule;->timeDefinition:Lj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_53
 
     iget-object v3, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->time:Lj$/time/LocalTime;
 
@@ -697,13 +697,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_53
 
     iget-boolean v3, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->timeEndOfDay:Z
 
     iget-boolean v4, v1, Lj$/time/zone/ZoneOffsetTransitionRule;->timeEndOfDay:Z
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_53
 
     iget-object v3, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->standardOffset:Lj$/time/ZoneOffset;
 
@@ -714,7 +714,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_53
 
     iget-object v3, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->offsetBefore:Lj$/time/ZoneOffset;
 
@@ -725,7 +725,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_53
 
     iget-object v3, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->offsetAfter:Lj$/time/ZoneOffset;
 
@@ -736,25 +736,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_53
 
-    goto :goto_0
+    goto :goto_54
 
-    :cond_1
+    :cond_53
     const/4 v0, 0x0
 
     .line 524
-    :goto_0
+    :goto_54
     return v0
 
     .line 532
     .end local v1    # "other":Lj$/time/zone/ZoneOffsetTransitionRule;
-    :cond_2
+    :cond_55
     return v2
 .end method
 
 .method public getDayOfMonthIndicator()I
-    .locals 1
+    .registers 2
 
     .line 397
     iget-byte v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dom:B
@@ -763,7 +763,7 @@
 .end method
 
 .method public getDayOfWeek()Lj$/time/DayOfWeek;
-    .locals 1
+    .registers 2
 
     .line 413
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
@@ -772,7 +772,7 @@
 .end method
 
 .method public getLocalTime()Lj$/time/LocalTime;
-    .locals 1
+    .registers 2
 
     .line 425
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->time:Lj$/time/LocalTime;
@@ -781,7 +781,7 @@
 .end method
 
 .method public getMonth()Lj$/time/Month;
-    .locals 1
+    .registers 2
 
     .line 375
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->month:Lj$/time/Month;
@@ -790,7 +790,7 @@
 .end method
 
 .method public getOffsetAfter()Lj$/time/ZoneOffset;
-    .locals 1
+    .registers 2
 
     .line 475
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->offsetAfter:Lj$/time/ZoneOffset;
@@ -799,7 +799,7 @@
 .end method
 
 .method public getOffsetBefore()Lj$/time/ZoneOffset;
-    .locals 1
+    .registers 2
 
     .line 466
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->offsetBefore:Lj$/time/ZoneOffset;
@@ -808,7 +808,7 @@
 .end method
 
 .method public getStandardOffset()Lj$/time/ZoneOffset;
-    .locals 1
+    .registers 2
 
     .line 457
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->standardOffset:Lj$/time/ZoneOffset;
@@ -817,7 +817,7 @@
 .end method
 
 .method public getTimeDefinition()Lj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;
-    .locals 1
+    .registers 2
 
     .line 448
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->timeDefinition:Lj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;
@@ -826,7 +826,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 542
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->time:Lj$/time/LocalTime;
@@ -863,20 +863,20 @@
     .line 544
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_21
 
     const/4 v1, 0x7
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_21
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
 
     invoke-virtual {v1}, Lj$/time/DayOfWeek;->ordinal()I
 
     move-result v1
 
-    :goto_0
+    :goto_27
     shl-int/lit8 v1, v1, 0x2
 
     add-int/2addr v0, v1
@@ -921,7 +921,7 @@
 .end method
 
 .method public isMidnightEndOfDay()Z
-    .locals 1
+    .registers 2
 
     .line 436
     iget-boolean v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->timeEndOfDay:Z
@@ -930,7 +930,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 557
     new-instance v0, Ljava/lang/StringBuilder;
@@ -954,16 +954,16 @@
 
     move-result v2
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_18
 
     const-string v2, "Gap "
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_18
     const-string v2, "Overlap "
 
-    :goto_0
+    :goto_1a
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -996,14 +996,14 @@
 
     const/16 v2, 0x20
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_ab
 
     .line 562
     iget-byte v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dom:B
 
     const/4 v3, -0x1
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_5a
 
     .line 563
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
@@ -1030,13 +1030,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_be
 
     .line 564
-    :cond_1
+    :cond_5a
     iget-byte v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dom:B
 
-    if-gez v1, :cond_2
+    if-gez v1, :cond_87
 
     .line 565
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
@@ -1079,10 +1079,10 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_be
 
     .line 567
-    :cond_2
+    :cond_87
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
 
     invoke-virtual {v1}, Lj$/time/DayOfWeek;->name()Ljava/lang/String;
@@ -1117,10 +1117,10 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_be
 
     .line 570
-    :cond_3
+    :cond_ab
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->month:Lj$/time/Month;
 
     invoke-virtual {v1}, Lj$/time/Month;->name()Ljava/lang/String;
@@ -1140,7 +1140,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 572
-    :goto_1
+    :goto_be
     const-string v1, " at "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1149,20 +1149,20 @@
 
     iget-boolean v2, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->timeEndOfDay:Z
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_cb
 
     const-string v2, "24:00"
 
-    goto :goto_2
+    goto :goto_d1
 
-    :cond_4
+    :cond_cb
     iget-object v2, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->time:Lj$/time/LocalTime;
 
     invoke-virtual {v2}, Lj$/time/LocalTime;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_2
+    :goto_d1
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -1207,19 +1207,19 @@
 .end method
 
 .method writeExternal(Ljava/io/DataOutput;)V
-    .locals 14
+    .registers 16
     .param p1, "out"    # Ljava/io/DataOutput;
 
     .line 306
     iget-boolean v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->timeEndOfDay:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const v0, 0x15180
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_8
     iget-object v0, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->time:Lj$/time/LocalTime;
 
     invoke-virtual {v0}, Lj$/time/LocalTime;->toSecondOfDay()I
@@ -1228,7 +1228,7 @@
 
     .line 307
     .local v0, "timeSecs":I
-    :goto_0
+    :goto_e
     iget-object v1, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->standardOffset:Lj$/time/ZoneOffset;
 
     invoke-virtual {v1}, Lj$/time/ZoneOffset;->getTotalSeconds()I
@@ -1261,104 +1261,104 @@
 
     const/16 v5, 0x1f
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_36
 
     iget-boolean v4, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->timeEndOfDay:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2f
 
     const/16 v4, 0x18
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_1
+    :cond_2f
     iget-object v4, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->time:Lj$/time/LocalTime;
 
     invoke-virtual {v4}, Lj$/time/LocalTime;->getHour()I
 
     move-result v4
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_2
+    :cond_36
     const/16 v4, 0x1f
 
     .line 311
     .local v4, "timeByte":I
-    :goto_1
+    :goto_38
     rem-int/lit16 v6, v1, 0x384
 
     const/16 v7, 0xff
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_43
 
     div-int/lit16 v6, v1, 0x384
 
     add-int/lit16 v6, v6, 0x80
 
-    goto :goto_2
+    goto :goto_45
 
-    :cond_3
+    :cond_43
     const/16 v6, 0xff
 
     .line 312
     .local v6, "stdOffsetByte":I
-    :goto_2
+    :goto_45
     const/16 v8, 0xe10
 
     const/4 v9, 0x3
 
     const/16 v10, 0x708
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_53
 
-    if-eq v2, v10, :cond_5
+    if-eq v2, v10, :cond_53
 
-    if-ne v2, v8, :cond_4
+    if-ne v2, v8, :cond_51
 
-    goto :goto_3
+    goto :goto_53
 
-    :cond_4
+    :cond_51
     const/4 v11, 0x3
 
-    goto :goto_4
+    goto :goto_55
 
-    :cond_5
-    :goto_3
+    :cond_53
+    :goto_53
     div-int/lit16 v11, v2, 0x708
 
     .line 313
     .local v11, "beforeByte":I
-    :goto_4
-    if-eqz v3, :cond_7
+    :goto_55
+    if-eqz v3, :cond_5e
 
-    if-eq v3, v10, :cond_7
+    if-eq v3, v10, :cond_5e
 
-    if-ne v3, v8, :cond_6
+    if-ne v3, v8, :cond_5c
 
-    goto :goto_5
+    goto :goto_5e
 
-    :cond_6
+    :cond_5c
     const/4 v8, 0x3
 
-    goto :goto_6
+    goto :goto_60
 
-    :cond_7
-    :goto_5
+    :cond_5e
+    :goto_5e
     div-int/lit16 v8, v3, 0x708
 
     .line 314
     .local v8, "afterByte":I
-    :goto_6
+    :goto_60
     iget-object v10, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
 
-    if-nez v10, :cond_8
+    if-nez v10, :cond_66
 
     const/4 v10, 0x0
 
-    goto :goto_7
+    goto :goto_6c
 
-    :cond_8
+    :cond_66
     iget-object v10, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->dow:Lj$/time/DayOfWeek;
 
     invoke-virtual {v10}, Lj$/time/DayOfWeek;->getValue()I
@@ -1367,7 +1367,7 @@
 
     .line 315
     .local v10, "dowByte":I
-    :goto_7
+    :goto_6c
     iget-object v12, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->month:Lj$/time/Month;
 
     invoke-virtual {v12}, Lj$/time/Month;->getValue()I
@@ -1418,21 +1418,21 @@
     invoke-interface {p1, v12}, Ljava/io/DataOutput;->writeInt(I)V
 
     .line 324
-    if-ne v4, v5, :cond_9
+    if-ne v4, v5, :cond_99
 
     .line 325
     invoke-interface {p1, v0}, Ljava/io/DataOutput;->writeInt(I)V
 
     .line 327
-    :cond_9
-    if-ne v6, v7, :cond_a
+    :cond_99
+    if-ne v6, v7, :cond_9e
 
     .line 328
     invoke-interface {p1, v1}, Ljava/io/DataOutput;->writeInt(I)V
 
     .line 330
-    :cond_a
-    if-ne v11, v9, :cond_b
+    :cond_9e
+    if-ne v11, v9, :cond_a9
 
     .line 331
     iget-object v5, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->offsetBefore:Lj$/time/ZoneOffset;
@@ -1444,8 +1444,8 @@
     invoke-interface {p1, v5}, Ljava/io/DataOutput;->writeInt(I)V
 
     .line 333
-    :cond_b
-    if-ne v8, v9, :cond_c
+    :cond_a9
+    if-ne v8, v9, :cond_b4
 
     .line 334
     iget-object v5, p0, Lj$/time/zone/ZoneOffsetTransitionRule;->offsetAfter:Lj$/time/ZoneOffset;
@@ -1457,6 +1457,6 @@
     invoke-interface {p1, v5}, Ljava/io/DataOutput;->writeInt(I)V
 
     .line 336
-    :cond_c
+    :cond_b4
     return-void
 .end method

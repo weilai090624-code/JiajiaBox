@@ -53,7 +53,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Comparator;I)V
-    .locals 4
+    .registers 7
     .param p2, "k"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -87,16 +87,16 @@
 
     const/4 v1, 0x0
 
-    if-ltz p2, :cond_0
+    if-ltz p2, :cond_15
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_16
     const-string v3, "k (%s) must be >= 0"
 
     invoke-static {v2, v3, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
@@ -104,14 +104,14 @@
     .line 125
     const v2, 0x3fffffff    # 1.9999999f
 
-    if-gt p2, v2, :cond_1
+    if-gt p2, v2, :cond_21
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_22
     const-string v2, "k (%s) must be <= Integer.MAX_VALUE / 2"
 
     invoke-static {v0, v2, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
@@ -140,7 +140,7 @@
 .end method
 
 .method public static greatest(I)Lcom/google/common/collect/TopKSelector;
-    .locals 1
+    .registers 2
     .param p0, "k"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -165,7 +165,7 @@
 .end method
 
 .method public static greatest(ILjava/util/Comparator;)Lcom/google/common/collect/TopKSelector;
-    .locals 2
+    .registers 4
     .param p0, "k"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -197,7 +197,7 @@
 .end method
 
 .method public static least(I)Lcom/google/common/collect/TopKSelector;
-    .locals 1
+    .registers 2
     .param p0, "k"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -222,7 +222,7 @@
 .end method
 
 .method public static least(ILjava/util/Comparator;)Lcom/google/common/collect/TopKSelector;
-    .locals 1
+    .registers 3
     .param p0, "k"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -246,7 +246,7 @@
 .end method
 
 .method private partition(III)I
-    .locals 5
+    .registers 9
     .param p1, "left"    # I
     .param p2, "right"    # I
     .param p3, "pivotIndex"    # I
@@ -279,8 +279,8 @@
     move v2, p1
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, p2, :cond_1
+    :goto_12
+    if-ge v2, p2, :cond_2c
 
     .line 216
     iget-object v3, p0, Lcom/google/common/collect/TopKSelector;->comparator:Ljava/util/Comparator;
@@ -297,7 +297,7 @@
 
     move-result v3
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_29
 
     .line 217
     invoke-direct {p0, v1, v2}, Lcom/google/common/collect/TopKSelector;->swap(II)V
@@ -306,14 +306,14 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 215
-    :cond_0
+    :cond_29
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 221
     .end local v2    # "i":I
-    :cond_1
+    :cond_2c
     iget-object v2, p0, Lcom/google/common/collect/TopKSelector;->buffer:[Ljava/lang/Object;
 
     iget-object v3, p0, Lcom/google/common/collect/TopKSelector;->buffer:[Ljava/lang/Object;
@@ -332,7 +332,7 @@
 .end method
 
 .method private swap(II)V
-    .locals 3
+    .registers 6
     .param p1, "i"    # I
     .param p2, "j"    # I
 
@@ -362,7 +362,7 @@
 .end method
 
 .method private trim()V
-    .locals 10
+    .registers 11
 
     .line 163
     .local p0, "this":Lcom/google/common/collect/TopKSelector;, "Lcom/google/common/collect/TopKSelector<TT;>;"
@@ -398,8 +398,8 @@
 
     .line 172
     .local v4, "maxIterations":I
-    :goto_0
-    if-ge v0, v1, :cond_2
+    :goto_13
+    if-ge v0, v1, :cond_40
 
     .line 173
     add-int v5, v0, v1
@@ -418,18 +418,18 @@
     .local v6, "pivotNewIndex":I
     iget v7, p0, Lcom/google/common/collect/TopKSelector;->k:I
 
-    if-le v6, v7, :cond_0
+    if-le v6, v7, :cond_26
 
     .line 178
     add-int/lit8 v1, v6, -0x1
 
-    goto :goto_1
+    goto :goto_31
 
     .line 179
-    :cond_0
+    :cond_26
     iget v7, p0, Lcom/google/common/collect/TopKSelector;->k:I
 
-    if-ge v6, v7, :cond_2
+    if-ge v6, v7, :cond_40
 
     .line 180
     add-int/lit8 v7, v0, 0x1
@@ -442,11 +442,11 @@
     move v2, v6
 
     .line 185
-    :goto_1
+    :goto_31
     add-int/lit8 v3, v3, 0x1
 
     .line 186
-    if-lt v3, v4, :cond_1
+    if-lt v3, v4, :cond_3f
 
     .line 188
     iget-object v7, p0, Lcom/google/common/collect/TopKSelector;->buffer:[Ljava/lang/Object;
@@ -458,17 +458,17 @@
     invoke-static {v7, v0, v8, v9}, Ljava/util/Arrays;->sort([Ljava/lang/Object;IILjava/util/Comparator;)V
 
     .line 189
-    goto :goto_2
+    goto :goto_40
 
     .line 191
     .end local v5    # "pivotIndex":I
     .end local v6    # "pivotNewIndex":I
-    :cond_1
-    goto :goto_0
+    :cond_3f
+    goto :goto_13
 
     .line 192
-    :cond_2
-    :goto_2
+    :cond_40
+    :goto_40
     iget v5, p0, Lcom/google/common/collect/TopKSelector;->k:I
 
     iput v5, p0, Lcom/google/common/collect/TopKSelector;->bufferSize:I
@@ -488,10 +488,10 @@
     add-int/lit8 v5, v2, 0x1
 
     .local v5, "i":I
-    :goto_3
+    :goto_50
     iget v6, p0, Lcom/google/common/collect/TopKSelector;->k:I
 
-    if-ge v5, v6, :cond_4
+    if-ge v5, v6, :cond_73
 
     .line 196
     iget-object v6, p0, Lcom/google/common/collect/TopKSelector;->comparator:Ljava/util/Comparator;
@@ -516,7 +516,7 @@
 
     move-result v6
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_70
 
     .line 199
     iget-object v6, p0, Lcom/google/common/collect/TopKSelector;->buffer:[Ljava/lang/Object;
@@ -526,21 +526,21 @@
     iput-object v6, p0, Lcom/google/common/collect/TopKSelector;->threshold:Ljava/lang/Object;
 
     .line 195
-    :cond_3
+    :cond_70
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_3
+    goto :goto_50
 
     .line 202
     .end local v5    # "i":I
-    :cond_4
+    :cond_73
     return-void
 .end method
 
 
 # virtual methods
 .method public offer(Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -556,16 +556,16 @@
     .local p1, "elem":Ljava/lang/Object;, "TT;"
     iget v0, p0, Lcom/google/common/collect/TopKSelector;->k:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 137
     return-void
 
     .line 138
-    :cond_0
+    :cond_5
     iget v0, p0, Lcom/google/common/collect/TopKSelector;->bufferSize:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 139
     iget-object v0, p0, Lcom/google/common/collect/TopKSelector;->buffer:[Ljava/lang/Object;
@@ -582,15 +582,15 @@
 
     iput v0, p0, Lcom/google/common/collect/TopKSelector;->bufferSize:I
 
-    goto :goto_0
+    goto :goto_58
 
     .line 142
-    :cond_1
+    :cond_14
     iget v0, p0, Lcom/google/common/collect/TopKSelector;->bufferSize:I
 
     iget v1, p0, Lcom/google/common/collect/TopKSelector;->k:I
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_35
 
     .line 143
     iget-object v0, p0, Lcom/google/common/collect/TopKSelector;->buffer:[Ljava/lang/Object;
@@ -616,15 +616,15 @@
 
     move-result v0
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_58
 
     .line 146
     iput-object p1, p0, Lcom/google/common/collect/TopKSelector;->threshold:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_58
 
     .line 149
-    :cond_2
+    :cond_35
     iget-object v0, p0, Lcom/google/common/collect/TopKSelector;->comparator:Ljava/util/Comparator;
 
     iget-object v1, p0, Lcom/google/common/collect/TopKSelector;->threshold:Ljava/lang/Object;
@@ -637,7 +637,7 @@
 
     move-result v0
 
-    if-gez v0, :cond_3
+    if-gez v0, :cond_58
 
     .line 151
     iget-object v0, p0, Lcom/google/common/collect/TopKSelector;->buffer:[Ljava/lang/Object;
@@ -657,19 +657,19 @@
 
     mul-int/lit8 v1, v1, 0x2
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_58
 
     .line 153
     invoke-direct {p0}, Lcom/google/common/collect/TopKSelector;->trim()V
 
     .line 156
-    :cond_3
-    :goto_0
+    :cond_58
+    :goto_58
     return-void
 .end method
 
 .method public offerAll(Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -692,7 +692,7 @@
 .end method
 
 .method public offerAll(Ljava/util/Iterator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -706,12 +706,12 @@
     .local p1, "elements":Ljava/util/Iterator;, "Ljava/util/Iterator<+TT;>;"
     nop
 
-    :goto_0
+    :goto_1
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 253
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -720,15 +720,15 @@
 
     invoke-virtual {p0, v0}, Lcom/google/common/collect/TopKSelector;->offer(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 255
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public topK()Ljava/util/List;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -754,7 +754,7 @@
 
     iget v1, p0, Lcom/google/common/collect/TopKSelector;->k:I
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_29
 
     .line 268
     iget-object v0, p0, Lcom/google/common/collect/TopKSelector;->buffer:[Ljava/lang/Object;
@@ -786,7 +786,7 @@
     iput-object v0, p0, Lcom/google/common/collect/TopKSelector;->threshold:Ljava/lang/Object;
 
     .line 273
-    :cond_0
+    :cond_29
     iget-object v0, p0, Lcom/google/common/collect/TopKSelector;->buffer:[Ljava/lang/Object;
 
     iget v1, p0, Lcom/google/common/collect/TopKSelector;->bufferSize:I

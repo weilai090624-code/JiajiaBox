@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 153
     sget-object v0, Lkotlin/time/DurationUnit;->NANOSECONDS:Lkotlin/time/DurationUnit;
@@ -66,7 +66,7 @@
 .end method
 
 .method private final overflow-LRDsOJo(J)V
-    .locals 4
+    .registers 7
     .param p1, "duration"    # J
 
     .line 196
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public final plusAssign-LRDsOJo(J)V
-    .locals 18
+    .registers 21
     .param p1, "duration"    # J
 
     .line 172
@@ -171,20 +171,20 @@
 
     cmp-long v16, v10, v14
 
-    if-nez v16, :cond_0
+    if-nez v16, :cond_20
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v0, 0x0
 
     .line 173
     .end local v0    # "$i$f$isSaturated":I
     .end local v6    # "$this$isSaturated$iv":J
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_21
+    if-nez v0, :cond_3c
 
     .line 175
     iget-wide v6, v1, Lkotlin/time/TestTimeSource;->reading:J
@@ -201,7 +201,7 @@
 
     cmp-long v0, v8, v10
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_39
 
     iget-wide v8, v1, Lkotlin/time/TestTimeSource;->reading:J
 
@@ -209,19 +209,19 @@
 
     cmp-long v0, v8, v10
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_39
 
     invoke-direct/range {p0 .. p2}, Lkotlin/time/TestTimeSource;->overflow-LRDsOJo(J)V
 
     .line 177
-    :cond_1
+    :cond_39
     iput-wide v6, v1, Lkotlin/time/TestTimeSource;->reading:J
 
     .end local v6    # "newReading":J
-    goto :goto_2
+    goto :goto_6b
 
     .line 179
-    :cond_2
+    :cond_3c
     const/4 v0, 0x2
 
     invoke-static {v2, v3, v0}, Lkotlin/time/Duration;->div-UwyO8pc(JI)J
@@ -249,18 +249,18 @@
 
     cmp-long v16, v8, v14
 
-    if-nez v16, :cond_3
+    if-nez v16, :cond_53
 
-    goto :goto_1
+    goto :goto_54
 
-    :cond_3
+    :cond_53
     const/4 v12, 0x0
 
     .line 180
     .end local v0    # "$i$f$isSaturated":I
     .end local v10    # "$this$isSaturated$iv":J
-    :goto_1
-    if-nez v12, :cond_4
+    :goto_54
+    if-nez v12, :cond_68
 
     .line 181
     iget-wide v8, v1, Lkotlin/time/TestTimeSource;->reading:J
@@ -270,7 +270,7 @@
     nop
 
     .line 183
-    :try_start_0
+    :try_start_59
     invoke-virtual {v1, v6, v7}, Lkotlin/time/TestTimeSource;->plusAssign-LRDsOJo(J)V
 
     .line 184
@@ -279,13 +279,13 @@
     move-result-wide v10
 
     invoke-virtual {v1, v10, v11}, Lkotlin/time/TestTimeSource;->plusAssign-LRDsOJo(J)V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_63
+    .catch Ljava/lang/IllegalStateException; {:try_start_59 .. :try_end_63} :catch_64
 
-    goto :goto_2
+    goto :goto_6b
 
     .line 185
-    :catch_0
+    :catch_64
     move-exception v0
 
     .line 186
@@ -298,17 +298,17 @@
     .line 190
     .end local v0    # "e":Ljava/lang/IllegalStateException;
     .end local v8    # "readingBefore":J
-    :cond_4
+    :cond_68
     invoke-direct/range {p0 .. p2}, Lkotlin/time/TestTimeSource;->overflow-LRDsOJo(J)V
 
     .line 193
     .end local v6    # "half":J
-    :goto_2
+    :goto_6b
     return-void
 .end method
 
 .method protected read()J
-    .locals 2
+    .registers 3
 
     .line 160
     iget-wide v0, p0, Lkotlin/time/TestTimeSource;->reading:J

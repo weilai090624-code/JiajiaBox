@@ -10,7 +10,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public static compile(Ljava/lang/String;)Lcom/google/common/base/CommonPattern;
-    .locals 1
+    .registers 2
     .param p0, "pattern"    # Ljava/lang/String;
 
     .line 38
@@ -31,7 +31,7 @@
 .end method
 
 .method public static isPcreLike()Z
-    .locals 1
+    .registers 1
 
     .line 42
     invoke-static {}, Lcom/google/common/base/Platform;->patternCompilerIsPcreLike()Z

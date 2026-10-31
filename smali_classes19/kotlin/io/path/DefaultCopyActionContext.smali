@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/io/path/DefaultCopyActionContext;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 256
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public copyToIgnoringExistingDirectory(Ljava/nio/file/Path;Ljava/nio/file/Path;Z)Lkotlin/io/path/CopyActionResult;
-    .locals 5
+    .registers 9
     .param p1, "$this$copyToIgnoringExistingDirectory"    # Ljava/nio/file/Path;
     .param p2, "target"    # Ljava/nio/file/Path;
     .param p3, "followLinks"    # Z
@@ -104,7 +104,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_38
 
     const/4 v1, 0x1
 
@@ -126,10 +126,10 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_4f
 
     .line 263
-    :cond_0
+    :cond_38
     array-length v1, v0
 
     invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -155,7 +155,7 @@
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 266
-    :cond_1
+    :cond_4f
     sget-object v1, Lkotlin/io/path/CopyActionResult;->CONTINUE:Lkotlin/io/path/CopyActionResult;
 
     return-object v1

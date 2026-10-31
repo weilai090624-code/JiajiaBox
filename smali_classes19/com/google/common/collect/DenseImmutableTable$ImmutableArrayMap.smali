@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "size"    # I
 
     .line 93
@@ -47,7 +47,7 @@
 .end method
 
 .method private isFull()Z
-    .locals 2
+    .registers 3
 
     .line 101
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;, "Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap<TK;TV;>;"
@@ -61,23 +61,23 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 
 # virtual methods
 .method createKeySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -92,7 +92,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->keyToIndex()Lcom/google/common/collect/ImmutableMap;
 
@@ -102,19 +102,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_f
     invoke-super {p0}, Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;->createKeySet()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method entryIterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -134,7 +134,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -164,13 +164,13 @@
 
     .line 125
     .local v0, "keyIndex":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_e
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
@@ -179,12 +179,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_16
     return-object v1
 .end method
 
 .method getKey(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -237,7 +237,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 118
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;, "Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap<TK;TV;>;"

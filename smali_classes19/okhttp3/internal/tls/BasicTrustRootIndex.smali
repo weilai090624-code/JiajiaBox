@@ -62,7 +62,7 @@
 
 # direct methods
 .method public varargs constructor <init>([Ljava/security/cert/X509Certificate;)V
-    .locals 10
+    .registers 12
     .param p1, "caCerts"    # [Ljava/security/cert/X509Certificate;
 
     const-string v0, "caCerts"
@@ -88,8 +88,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_12
+    if-ge v2, v1, :cond_3e
 
     aget-object v3, p1, v2
 
@@ -119,7 +119,7 @@
 
     .line 58
     .local v7, "value$iv":Ljava/lang/Object;
-    if-nez v7, :cond_0
+    if-nez v7, :cond_36
 
     .line 59
     const/4 v8, 0x0
@@ -141,14 +141,14 @@
     nop
 
     .end local v9    # "answer$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_37
 
     .line 63
-    :cond_0
+    :cond_36
     move-object v9, v7
 
     .line 58
-    :goto_1
+    :goto_37
     nop
 
     .end local v4    # "key$iv":Ljava/lang/Object;
@@ -160,11 +160,11 @@
     .line 28
     invoke-interface {v9, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_12
 
     .line 30
     .end local v3    # "caCert":Ljava/security/cert/X509Certificate;
-    :cond_1
+    :cond_3e
     iput-object v0, p0, Lokhttp3/internal/tls/BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
 
     .line 31
@@ -178,16 +178,16 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 48
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_16
 
     .line 49
     instance-of v0, p1, Lokhttp3/internal/tls/BasicTrustRootIndex;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -201,26 +201,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     const/4 v0, 0x1
 
     .line 48
-    :goto_1
+    :goto_17
     return v0
 .end method
 
 .method public findByIssuerAndSignature(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;
-    .locals 11
+    .registers 13
     .param p1, "cert"    # Ljava/security/cert/X509Certificate;
 
     const-string v0, "cert"
@@ -244,13 +244,13 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     return-object v2
 
     .line 37
     .local v1, "subjectCaCerts":Ljava/util/Set;
-    :cond_0
+    :cond_15
     move-object v3, v1
 
     check-cast v3, Ljava/lang/Iterable;
@@ -264,12 +264,12 @@
 
     move-result-object v5
 
-    :cond_1
+    :cond_1d
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3c
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -288,22 +288,22 @@
     nop
 
     .line 39
-    :try_start_0
+    :try_start_2c
     invoke-virtual {v7}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
 
     move-result-object v9
 
     invoke-virtual {p1, v9}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_33
+    .catch Ljava/lang/Exception; {:try_start_2c .. :try_end_33} :catch_35
 
     .line 40
     const/4 v9, 0x1
 
-    goto :goto_0
+    goto :goto_38
 
     .line 41
-    :catch_0
+    :catch_35
     move-exception v9
 
     .line 42
@@ -315,21 +315,21 @@
     .end local v7    # "it":Ljava/security/cert/X509Certificate;
     .end local v8    # "$i$a$-firstOrNull-BasicTrustRootIndex$findByIssuerAndSignature$1":I
     .end local v9    # "_":Ljava/lang/Exception;
-    :goto_0
-    if-eqz v9, :cond_1
+    :goto_38
+    if-eqz v9, :cond_1d
 
     move-object v2, v6
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 65
     .end local v6    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_3c
     nop
 
     .end local v3    # "$this$firstOrNull$iv":Ljava/lang/Iterable;
     .end local v4    # "$i$f$firstOrNull":I
-    :goto_1
+    :goto_3d
     check-cast v2, Ljava/security/cert/X509Certificate;
 
     .line 37
@@ -337,7 +337,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Lokhttp3/internal/tls/BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;

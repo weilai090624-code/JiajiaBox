@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Iterator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,7 +60,7 @@
 .end method
 
 .method private advance()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -77,7 +77,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 47
     iget-object v0, p0, Lcom/google/common/io/MultiReader;->it:Ljava/util/Iterator;
@@ -95,14 +95,14 @@
     iput-object v0, p0, Lcom/google/common/io/MultiReader;->current:Ljava/io/Reader;
 
     .line 49
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -112,26 +112,26 @@
     .line 87
     iget-object v0, p0, Lcom/google/common/io/MultiReader;->current:Ljava/io/Reader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 89
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_5
     iget-object v1, p0, Lcom/google/common/io/MultiReader;->current:Ljava/io/Reader;
 
     invoke-virtual {v1}, Ljava/io/Reader;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_5 .. :try_end_a} :catchall_d
 
     .line 91
     iput-object v0, p0, Lcom/google/common/io/MultiReader;->current:Ljava/io/Reader;
 
     .line 92
-    goto :goto_0
+    goto :goto_11
 
     .line 91
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     iput-object v0, p0, Lcom/google/common/io/MultiReader;->current:Ljava/io/Reader;
@@ -140,13 +140,13 @@
     throw v1
 
     .line 94
-    :cond_0
-    :goto_0
+    :cond_11
+    :goto_11
     return-void
 .end method
 
 .method public read([CII)I
-    .locals 2
+    .registers 6
     .param p1, "cbuf"    # [C
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -164,13 +164,13 @@
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 55
     return v1
 
     .line 57
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/google/common/io/MultiReader;->current:Ljava/io/Reader;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/Reader;->read([CII)I
@@ -179,7 +179,7 @@
 
     .line 58
     .local v0, "result":I
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_19
 
     .line 59
     invoke-direct {p0}, Lcom/google/common/io/MultiReader;->advance()V
@@ -192,12 +192,12 @@
     return v1
 
     .line 62
-    :cond_1
+    :cond_19
     return v0
 .end method
 
 .method public ready()Z
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -207,7 +207,7 @@
     .line 82
     iget-object v0, p0, Lcom/google/common/io/MultiReader;->current:Ljava/io/Reader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/google/common/io/MultiReader;->current:Ljava/io/Reader;
 
@@ -215,21 +215,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public skip(J)J
-    .locals 5
+    .registers 8
     .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -242,16 +242,16 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_8
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_9
     const-string v3, "n is negative"
 
     invoke-static {v2, v3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -259,13 +259,13 @@
     .line 68
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_25
 
     .line 69
-    :goto_1
+    :goto_12
     iget-object v2, p0, Lcom/google/common/io/MultiReader;->current:Ljava/io/Reader;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_25
 
     .line 70
     iget-object v2, p0, Lcom/google/common/io/MultiReader;->current:Ljava/io/Reader;
@@ -278,20 +278,20 @@
     .local v2, "result":J
     cmp-long v4, v2, v0
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_21
 
     .line 72
     return-wide v2
 
     .line 74
-    :cond_1
+    :cond_21
     invoke-direct {p0}, Lcom/google/common/io/MultiReader;->advance()V
 
     .line 75
     .end local v2    # "result":J
-    goto :goto_1
+    goto :goto_12
 
     .line 77
-    :cond_2
+    :cond_25
     return-wide v0
 .end method

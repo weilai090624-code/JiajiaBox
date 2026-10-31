@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 73
     const-string v0, "ListenableCallbackRbl"
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/multiprocess/ListenableCallback;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,7 +81,7 @@
 .end method
 
 .method public static reportFailure(Landroidx/work/multiprocess/IWorkManagerImplCallback;Ljava/lang/Throwable;)V
-    .locals 4
+    .registers 6
     .param p0, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
@@ -92,14 +92,14 @@
     move-result-object v0
 
     invoke-interface {p0, v0}, Landroidx/work/multiprocess/IWorkManagerImplCallback;->onFailure(Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
 
     .line 113
-    goto :goto_0
+    goto :goto_14
 
     .line 111
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 112
@@ -116,26 +116,26 @@
 
     .line 114
     .end local v0    # "exception":Landroid/os/RemoteException;
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method public static reportSuccess(Landroidx/work/multiprocess/IWorkManagerImplCallback;[B)V
-    .locals 4
+    .registers 6
     .param p0, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .param p1, "response"    # [B
 
     .line 97
     :try_start_0
     invoke-interface {p0, p1}, Landroidx/work/multiprocess/IWorkManagerImplCallback;->onSuccess([B)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_3} :catch_4
 
     .line 100
-    goto :goto_0
+    goto :goto_10
 
     .line 98
-    :catch_0
+    :catch_4
     move-exception v0
 
     .line 99
@@ -152,14 +152,14 @@
 
     .line 101
     .end local v0    # "exception":Landroid/os/RemoteException;
-    :goto_0
+    :goto_10
     return-void
 .end method
 
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 83
     .local p0, "this":Landroidx/work/multiprocess/ListenableCallback$ListenableCallbackRunnable;, "Landroidx/work/multiprocess/ListenableCallback$ListenableCallbackRunnable<TI;>;"
@@ -185,15 +185,15 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroidx/work/multiprocess/ListenableCallback$ListenableCallbackRunnable;->reportSuccess(Landroidx/work/multiprocess/IWorkManagerImplCallback;[B)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_0 .. :try_end_15} :catchall_16
 
     .line 87
     .end local v0    # "result":Ljava/lang/Object;, "TI;"
-    goto :goto_0
+    goto :goto_1e
 
     .line 85
-    :catchall_0
+    :catchall_16
     move-exception v0
 
     .line 86
@@ -206,6 +206,6 @@
 
     .line 88
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_1e
     return-void
 .end method

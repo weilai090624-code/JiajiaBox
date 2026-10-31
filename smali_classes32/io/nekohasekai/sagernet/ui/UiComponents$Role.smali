@@ -1,4 +1,4 @@
-.class final enum Lio/nekohasekai/sagernet/ui/UiComponents$Role;
+.class public final enum Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 .super Ljava/lang/Enum;
 .source "UiComponents.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x401a
+    accessFlags = 0x4019
     name = "Role"
 .end annotation
 
@@ -48,7 +48,7 @@
 
     const/16 v0, 0x8
 
-    .line 31
+    .line 30
     new-array v0, v0, [Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     sget-object v1, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SURFACE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
@@ -116,6 +116,7 @@
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SURFACE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
+    .line 32
     new-instance v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const-string v1, "TITLE"
@@ -126,6 +127,7 @@
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->TITLE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
+    .line 33
     new-instance v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const-string v1, "TEXT"
@@ -136,6 +138,7 @@
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->TEXT:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
+    .line 34
     new-instance v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const-string v1, "SECONDARY"
@@ -146,6 +149,7 @@
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->SECONDARY:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
+    .line 35
     new-instance v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const-string v1, "FIELD"
@@ -156,6 +160,7 @@
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->FIELD:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
+    .line 36
     new-instance v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const-string v1, "ACTION"
@@ -166,6 +171,7 @@
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ACTION:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
+    .line 37
     new-instance v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const-string v1, "CHOICE"
@@ -176,6 +182,7 @@
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->CHOICE:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
+    .line 38
     new-instance v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     const-string v1, "ROUTING"
@@ -186,6 +193,7 @@
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->ROUTING:Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
+    .line 30
     invoke-static {}, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->$values()[Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     move-result-object v0
@@ -214,7 +222,7 @@
         }
     .end annotation
 
-    .line 31
+    .line 30
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -231,7 +239,7 @@
         }
     .end annotation
 
-    .line 31
+    .line 30
     const-class v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -246,7 +254,7 @@
 .method public static values()[Lio/nekohasekai/sagernet/ui/UiComponents$Role;
     .registers 1
 
-    .line 31
+    .line 30
     sget-object v0, Lio/nekohasekai/sagernet/ui/UiComponents$Role;->$VALUES:[Lio/nekohasekai/sagernet/ui/UiComponents$Role;
 
     invoke-virtual {v0}, [Lio/nekohasekai/sagernet/ui/UiComponents$Role;->clone()Ljava/lang/Object;

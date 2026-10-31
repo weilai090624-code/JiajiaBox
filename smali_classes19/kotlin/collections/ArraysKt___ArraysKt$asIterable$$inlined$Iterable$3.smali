@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>([S)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lkotlin/collections/ArraysKt___ArraysKt$asIterable$$inlined$Iterable$3;->$this_asIterable$inlined:[S
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

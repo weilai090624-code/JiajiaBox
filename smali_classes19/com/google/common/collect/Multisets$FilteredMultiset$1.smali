@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multisets$FilteredMultiset;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/Multisets$FilteredMultiset;
 
     .line 318
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/collect/Multiset$Entry;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 318
     .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset$1;, "Lcom/google/common/collect/Multisets$FilteredMultiset$1;"

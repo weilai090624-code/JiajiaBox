@@ -71,7 +71,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 72
     const-wide v0, 0x4046800000000000L    # 45.0
@@ -91,18 +91,18 @@
 
     const/16 v1, 0x1c
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_1b
 
     new-instance v0, Landroid/graphics/drawable/ColorDrawable;
 
     invoke-direct {v0}, Landroid/graphics/drawable/ColorDrawable;-><init>()V
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1c
     sput-object v0, Lcom/google/android/material/card/MaterialCardViewHelper;->CHECKED_ICON_NONE:Landroid/graphics/drawable/Drawable;
 
     .line 97
@@ -110,7 +110,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/card/MaterialCardView;Landroid/util/AttributeSet;II)V
-    .locals 5
+    .registers 10
     .param p1, "card"    # Lcom/google/android/material/card/MaterialCardView;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -204,7 +204,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_56
 
     .line 154
     sget v3, Lcom/google/android/material/R$styleable;->CardView_cardCornerRadius:I
@@ -218,7 +218,7 @@
     invoke-virtual {v1, v0}, Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;->setAllCornerSizes(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 158
-    :cond_0
+    :cond_56
     new-instance v0, Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     invoke-direct {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;-><init>()V
@@ -295,7 +295,7 @@
 .end method
 
 .method private calculateActualCornerPadding()F
-    .locals 4
+    .registers 5
 
     .line 657
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -392,14 +392,14 @@
 .end method
 
 .method private calculateCornerPaddingForCornerTreatment(Lcom/google/android/material/shape/CornerTreatment;F)F
-    .locals 4
+    .registers 7
     .param p1, "treatment"    # Lcom/google/android/material/shape/CornerTreatment;
     .param p2, "size"    # F
 
     .line 674
     instance-of v0, p1, Lcom/google/android/material/shape/RoundedCornerTreatment;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 675
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
@@ -417,10 +417,10 @@
     return v0
 
     .line 676
-    :cond_0
+    :cond_e
     instance-of v0, p1, Lcom/google/android/material/shape/CutCornerTreatment;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 677
     const/high16 v0, 0x40000000    # 2.0f
@@ -430,14 +430,14 @@
     return v0
 
     .line 679
-    :cond_1
+    :cond_17
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private calculateHorizontalBackgroundPadding()F
-    .locals 2
+    .registers 3
 
     .line 622
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
@@ -451,18 +451,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->calculateActualCornerPadding()F
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     add-float/2addr v0, v1
 
     .line 622
@@ -470,7 +470,7 @@
 .end method
 
 .method private calculateVerticalBackgroundPadding()F
-    .locals 2
+    .registers 3
 
     .line 612
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
@@ -488,18 +488,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->calculateActualCornerPadding()F
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     add-float/2addr v0, v1
 
     .line 612
@@ -507,7 +507,7 @@
 .end method
 
 .method private canClipToOutline()Z
-    .locals 1
+    .registers 2
 
     .line 627
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->bgDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -516,21 +516,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method private createCompatRippleDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 3
+    .registers 4
 
     .line 711
     new-instance v0, Landroid/graphics/drawable/StateListDrawable;
@@ -568,12 +568,12 @@
 .end method
 
 .method private createForegroundRippleDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 4
+    .registers 5
 
     .line 700
     sget-boolean v0, Lcom/google/android/material/ripple/RippleUtils;->USE_FRAMEWORK_RIPPLE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 701
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->createForegroundShapeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -596,7 +596,7 @@
     return-object v0
 
     .line 706
-    :cond_0
+    :cond_15
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->createCompatRippleDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -605,7 +605,7 @@
 .end method
 
 .method private createForegroundShapeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 2
+    .registers 3
 
     .line 729
     new-instance v0, Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -618,12 +618,12 @@
 .end method
 
 .method private getClickableForeground()Landroid/graphics/drawable/Drawable;
-    .locals 4
+    .registers 5
 
     .line 684
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->rippleDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 685
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->createForegroundRippleDrawable()Landroid/graphics/drawable/Drawable;
@@ -633,10 +633,10 @@
     iput-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->rippleDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 688
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->clickableForegroundDrawable:Landroid/graphics/drawable/LayerDrawable;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2e
 
     .line 689
     new-instance v0, Landroid/graphics/drawable/LayerDrawable;
@@ -675,14 +675,14 @@
     invoke-virtual {v0, v3, v1}, Landroid/graphics/drawable/LayerDrawable;->setId(II)V
 
     .line 695
-    :cond_1
+    :cond_2e
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->clickableForegroundDrawable:Landroid/graphics/drawable/LayerDrawable;
 
     return-object v0
 .end method
 
 .method private getParentCardViewCalculatedCornerPadding()F
-    .locals 4
+    .registers 5
 
     .line 631
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
@@ -691,7 +691,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
 
@@ -700,7 +700,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 633
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
@@ -724,14 +724,14 @@
     return v0
 
     .line 635
-    :cond_0
+    :cond_20
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private insetDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 11
+    .registers 13
     .param p1, "originalDrawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 575
@@ -747,7 +747,7 @@
 
     .line 578
     .local v2, "isPreLollipop":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_d
 
     iget-object v3, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
 
@@ -755,10 +755,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
     .line 580
-    :cond_0
+    :cond_d
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->calculateVerticalBackgroundPadding()F
 
     move-result v3
@@ -785,7 +785,7 @@
     double-to-int v1, v3
 
     .line 583
-    :cond_1
+    :cond_21
     new-instance v10, Lcom/google/android/material/card/MaterialCardViewHelper$1;
 
     move-object v3, v10
@@ -808,7 +808,7 @@
 .end method
 
 .method private isCheckedIconBottom()Z
-    .locals 2
+    .registers 3
 
     .line 763
     iget v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconGravity:I
@@ -817,21 +817,21 @@
 
     and-int/2addr v0, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method private isCheckedIconEnd()Z
-    .locals 2
+    .registers 3
 
     .line 759
     iget v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconGravity:I
@@ -840,21 +840,21 @@
 
     and-int/2addr v0, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method private shouldAddCornerPaddingInsideCardBackground()Z
-    .locals 1
+    .registers 2
 
     .line 639
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
@@ -863,27 +863,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->canClipToOutline()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method private shouldAddCornerPaddingOutsideCardBackground()Z
-    .locals 1
+    .registers 2
 
     .line 643
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
@@ -892,14 +892,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 644
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->canClipToOutline()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
 
@@ -908,22 +908,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     .line 643
-    :goto_0
+    :goto_19
     return v0
 .end method
 
 .method private updateInsetForeground(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .registers 4
     .param p1, "insetForeground"    # Landroid/graphics/drawable/Drawable;
 
     .line 555
@@ -931,7 +931,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1c
 
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
 
@@ -942,7 +942,7 @@
 
     instance-of v0, v0, Landroid/graphics/drawable/InsetDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 557
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
@@ -955,10 +955,10 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/InsetDrawable;->setDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_0
+    goto :goto_25
 
     .line 559
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
 
     invoke-direct {p0, p1}, Lcom/google/android/material/card/MaterialCardViewHelper;->insetDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
@@ -968,21 +968,21 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/card/MaterialCardView;->setForeground(Landroid/graphics/drawable/Drawable;)V
 
     .line 561
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method private updateRippleColor()V
-    .locals 2
+    .registers 3
 
     .line 720
     sget-boolean v0, Lcom/google/android/material/ripple/RippleUtils;->USE_FRAMEWORK_RIPPLE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->rippleDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 721
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->rippleDrawable:Landroid/graphics/drawable/Drawable;
@@ -993,13 +993,13 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/RippleDrawable;->setColor(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 722
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->compatRippleDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 723
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->compatRippleDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1009,49 +1009,49 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setFillColor(Landroid/content/res/ColorStateList;)V
 
     .line 725
-    :cond_1
-    :goto_0
+    :cond_1d
+    :goto_1d
     return-void
 .end method
 
 
 # virtual methods
 .method public animateCheckedIcon(Z)V
-    .locals 5
+    .registers 7
     .param p1, "checked"    # Z
 
     .line 310
     const/high16 v0, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v1, 0x0
 
     .line 311
     .local v1, "targetCheckedProgress":F
-    :goto_0
-    if-eqz p1, :cond_1
+    :goto_8
+    if-eqz p1, :cond_e
 
     iget v2, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedAnimationProgress:F
 
     sub-float/2addr v0, v2
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
+    :cond_e
     iget v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedAnimationProgress:F
 
     .line 312
     .local v0, "delta":F
-    :goto_1
+    :goto_10
     iget-object v2, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->iconAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1c
 
     .line 313
     iget-object v2, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->iconAnimator:Landroid/animation/ValueAnimator;
@@ -1064,7 +1064,7 @@
     iput-object v2, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->iconAnimator:Landroid/animation/ValueAnimator;
 
     .line 316
-    :cond_2
+    :cond_1c
     iget v2, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedAnimationProgress:F
 
     const/4 v3, 0x2
@@ -1105,7 +1105,7 @@
     iget-object v2, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->iconAnimator:Landroid/animation/ValueAnimator;
 
     .line 328
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_49
 
     .line 329
     iget v3, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->iconFadeInAnimDuration:I
@@ -1116,10 +1116,10 @@
 
     float-to-long v3, v3
 
-    goto :goto_2
+    goto :goto_4f
 
     .line 330
-    :cond_3
+    :cond_49
     iget v3, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->iconFadeOutAnimDuration:I
 
     int-to-float v3, v3
@@ -1129,7 +1129,7 @@
     float-to-long v3, v3
 
     .line 327
-    :goto_2
+    :goto_4f
     invoke-virtual {v2, v3, v4}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     .line 331
@@ -1142,12 +1142,12 @@
 .end method
 
 .method forceRippleRedraw()V
-    .locals 7
+    .registers 8
 
     .line 517
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->rippleDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 518
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->rippleDrawable:Landroid/graphics/drawable/Drawable;
@@ -1188,12 +1188,12 @@
     .line 526
     .end local v0    # "bounds":Landroid/graphics/Rect;
     .end local v1    # "bottom":I
-    :cond_0
+    :cond_24
     return-void
 .end method
 
 .method getBackground()Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 1
+    .registers 2
 
     .line 270
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->bgDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1202,7 +1202,7 @@
 .end method
 
 .method getCardBackgroundColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 278
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->bgDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1215,7 +1215,7 @@
 .end method
 
 .method getCardForegroundColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 287
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundContentDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1228,7 +1228,7 @@
 .end method
 
 .method getCheckedIcon()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 440
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIcon:Landroid/graphics/drawable/Drawable;
@@ -1237,7 +1237,7 @@
 .end method
 
 .method getCheckedIconGravity()I
-    .locals 1
+    .registers 2
 
     .line 749
     iget v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconGravity:I
@@ -1246,7 +1246,7 @@
 .end method
 
 .method getCheckedIconMargin()I
-    .locals 1
+    .registers 2
 
     .line 469
     iget v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconMargin:I
@@ -1255,7 +1255,7 @@
 .end method
 
 .method getCheckedIconSize()I
-    .locals 1
+    .registers 2
 
     .line 460
     iget v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconSize:I
@@ -1264,7 +1264,7 @@
 .end method
 
 .method getCheckedIconTint()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 430
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconTint:Landroid/content/res/ColorStateList;
@@ -1273,7 +1273,7 @@
 .end method
 
 .method getCornerRadius()F
-    .locals 1
+    .registers 2
 
     .line 348
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->bgDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1286,7 +1286,7 @@
 .end method
 
 .method getProgress()F
-    .locals 1
+    .registers 2
 
     .line 364
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->bgDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1299,7 +1299,7 @@
 .end method
 
 .method getRippleColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 435
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->rippleColor:Landroid/content/res/ColorStateList;
@@ -1308,7 +1308,7 @@
 .end method
 
 .method getShapeAppearanceModel()Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 1
+    .registers 2
 
     .line 546
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -1317,30 +1317,30 @@
 .end method
 
 .method getStrokeColor()I
-    .locals 1
+    .registers 2
 
     .line 247
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->strokeColor:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->strokeColor:Landroid/content/res/ColorStateList;
 
     invoke-virtual {v0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
 
     move-result v0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method getStrokeColorStateList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 252
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->strokeColor:Landroid/content/res/ColorStateList;
@@ -1349,7 +1349,7 @@
 .end method
 
 .method getStrokeWidth()I
-    .locals 1
+    .registers 2
 
     .line 265
     iget v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->strokeWidth:I
@@ -1358,7 +1358,7 @@
 .end method
 
 .method getUserContentPadding()Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
 
     .line 297
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->userContentPadding:Landroid/graphics/Rect;
@@ -1367,7 +1367,7 @@
 .end method
 
 .method isBackgroundOverwritten()Z
-    .locals 1
+    .registers 2
 
     .line 229
     iget-boolean v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->isBackgroundOverwritten:Z
@@ -1376,7 +1376,7 @@
 .end method
 
 .method isCheckable()Z
-    .locals 1
+    .registers 2
 
     .line 413
     iget-boolean v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkable:Z
@@ -1385,7 +1385,7 @@
 .end method
 
 .method synthetic lambda$animateCheckedIcon$0$com-google-android-material-card-MaterialCardViewHelper(Landroid/animation/ValueAnimator;)V
-    .locals 3
+    .registers 5
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 319
@@ -1421,7 +1421,7 @@
 .end method
 
 .method loadFromAttributes(Landroid/content/res/TypedArray;)V
-    .locals 3
+    .registers 5
     .param p1, "attributes"    # Landroid/content/res/TypedArray;
 
     .line 177
@@ -1444,7 +1444,7 @@
     .line 181
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->strokeColor:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 182
     const/4 v0, -0x1
@@ -1456,7 +1456,7 @@
     iput-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->strokeColor:Landroid/content/res/ColorStateList;
 
     .line 185
-    :cond_0
+    :cond_19
     sget v0, Lcom/google/android/material/R$styleable;->MaterialCardView_strokeWidth:I
 
     const/4 v1, 0x0
@@ -1572,7 +1572,7 @@
     .line 204
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->rippleColor:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_8b
 
     .line 205
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
@@ -1592,7 +1592,7 @@
     iput-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->rippleColor:Landroid/content/res/ColorStateList;
 
     .line 210
-    :cond_1
+    :cond_8b
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
 
     .line 212
@@ -1641,18 +1641,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bc
 
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->getClickableForeground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_be
 
-    :cond_2
+    :cond_bc
     iget-object v1, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundContentDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    :goto_0
+    :goto_be
     iput-object v1, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->fgDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 225
@@ -1671,14 +1671,14 @@
 .end method
 
 .method recalculateCheckedIconPosition(II)V
-    .locals 11
+    .registers 14
     .param p1, "measuredWidth"    # I
     .param p2, "measuredHeight"    # I
 
     .line 477
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->clickableForegroundDrawable:Landroid/graphics/drawable/LayerDrawable;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8b
 
     .line 478
     const/4 v0, 0x0
@@ -1693,7 +1693,7 @@
 
     .line 481
     .local v2, "horizontalPaddingAdjustment":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     iget-object v3, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
 
@@ -1701,10 +1701,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2b
 
     .line 482
-    :cond_0
+    :cond_11
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->calculateVerticalBackgroundPadding()F
 
     move-result v3
@@ -1737,12 +1737,12 @@
     double-to-int v2, v3
 
     .line 487
-    :cond_1
+    :cond_2b
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->isCheckedIconEnd()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3a
 
     .line 488
     iget v3, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconMargin:I
@@ -1755,13 +1755,13 @@
 
     sub-int/2addr v3, v2
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 489
-    :cond_2
+    :cond_3a
     iget v3, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconMargin:I
 
-    :goto_0
+    :goto_3c
     nop
 
     .line 491
@@ -1770,17 +1770,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_47
 
     .line 492
     iget v4, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconMargin:I
 
     move v10, v4
 
-    goto :goto_1
+    goto :goto_50
 
     .line 493
-    :cond_3
+    :cond_47
     iget v4, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconMargin:I
 
     sub-int v4, p2, v4
@@ -1793,7 +1793,7 @@
 
     move v10, v4
 
-    :goto_1
+    :goto_50
     nop
 
     .line 496
@@ -1802,15 +1802,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5a
 
     .line 497
     iget v4, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconMargin:I
 
-    goto :goto_2
+    goto :goto_62
 
     .line 498
-    :cond_4
+    :cond_5a
     iget v4, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconMargin:I
 
     sub-int v4, p1, v4
@@ -1821,7 +1821,7 @@
 
     sub-int/2addr v4, v2
 
-    :goto_2
+    :goto_62
     nop
 
     .line 500
@@ -1830,7 +1830,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_73
 
     .line 501
     iget v5, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconMargin:I
@@ -1845,15 +1845,15 @@
 
     move v8, v5
 
-    goto :goto_3
+    goto :goto_76
 
     .line 502
-    :cond_5
+    :cond_73
     iget v5, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIconMargin:I
 
     move v8, v5
 
-    :goto_3
+    :goto_76
     nop
 
     .line 504
@@ -1866,7 +1866,7 @@
 
     const/4 v6, 0x1
 
-    if-ne v5, v6, :cond_6
+    if-ne v5, v6, :cond_83
 
     .line 506
     move v5, v4
@@ -1880,7 +1880,7 @@
 
     .line 511
     .end local v5    # "tmp":I
-    :cond_6
+    :cond_83
     iget-object v5, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->clickableForegroundDrawable:Landroid/graphics/drawable/LayerDrawable;
 
     const/4 v6, 0x2
@@ -1899,12 +1899,12 @@
     .end local v4    # "right":I
     .end local v8    # "top":I
     .end local v10    # "bottom":I
-    :cond_7
+    :cond_8b
     return-void
 .end method
 
 .method setBackgroundOverwritten(Z)V
-    .locals 0
+    .registers 2
     .param p1, "isBackgroundOverwritten"    # Z
 
     .line 233
@@ -1915,7 +1915,7 @@
 .end method
 
 .method setCardBackgroundColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # Landroid/content/res/ColorStateList;
 
     .line 274
@@ -1928,14 +1928,14 @@
 .end method
 
 .method setCardForegroundColor(Landroid/content/res/ColorStateList;)V
-    .locals 2
+    .registers 4
     .param p1, "foregroundColor"    # Landroid/content/res/ColorStateList;
 
     .line 282
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundContentDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     .line 283
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     const/4 v1, 0x0
 
@@ -1943,13 +1943,13 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     move-object v1, p1
 
     .line 282
-    :goto_0
+    :goto_b
     invoke-virtual {v0, v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setFillColor(Landroid/content/res/ColorStateList;)V
 
     .line 284
@@ -1957,7 +1957,7 @@
 .end method
 
 .method setCheckable(Z)V
-    .locals 0
+    .registers 2
     .param p1, "checkable"    # Z
 
     .line 409
@@ -1968,7 +1968,7 @@
 .end method
 
 .method public setChecked(Z)V
-    .locals 1
+    .registers 3
     .param p1, "checked"    # Z
 
     .line 733
@@ -1981,64 +1981,64 @@
 .end method
 
 .method public setChecked(ZZ)V
-    .locals 2
+    .registers 5
     .param p1, "checked"    # Z
     .param p2, "animate"    # Z
 
     .line 737
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIcon:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_1d
 
     .line 738
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     .line 739
     invoke-virtual {p0, p1}, Lcom/google/android/material/card/MaterialCardViewHelper;->animateCheckedIcon(Z)V
 
-    goto :goto_2
+    goto :goto_1d
 
     .line 741
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIcon:Landroid/graphics/drawable/Drawable;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_11
 
     const/16 v1, 0xff
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_1
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
     .line 742
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1a
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_2
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_1b
     iput v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedAnimationProgress:F
 
     .line 745
-    :cond_3
-    :goto_2
+    :cond_1d
+    :goto_1d
     return-void
 .end method
 
 .method setCheckedIcon(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
+    .registers 5
     .param p1, "checkedIcon"    # Landroid/graphics/drawable/Drawable;
 
     .line 444
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1d
 
     .line 445
     invoke-static {p1}, Landroidx/core/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
@@ -2067,19 +2067,19 @@
 
     invoke-virtual {p0, v0}, Lcom/google/android/material/card/MaterialCardViewHelper;->setChecked(Z)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 449
-    :cond_0
+    :cond_1d
     sget-object v0, Lcom/google/android/material/card/MaterialCardViewHelper;->CHECKED_ICON_NONE:Landroid/graphics/drawable/Drawable;
 
     iput-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIcon:Landroid/graphics/drawable/Drawable;
 
     .line 452
-    :goto_0
+    :goto_21
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->clickableForegroundDrawable:Landroid/graphics/drawable/LayerDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     .line 453
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->clickableForegroundDrawable:Landroid/graphics/drawable/LayerDrawable;
@@ -2091,12 +2091,12 @@
     invoke-virtual {v0, v1, v2}, Landroid/graphics/drawable/LayerDrawable;->setDrawableByLayerId(ILandroid/graphics/drawable/Drawable;)Z
 
     .line 456
-    :cond_1
+    :cond_2e
     return-void
 .end method
 
 .method setCheckedIconGravity(I)V
-    .locals 2
+    .registers 4
     .param p1, "checkedIconGravity"    # I
 
     .line 753
@@ -2124,7 +2124,7 @@
 .end method
 
 .method setCheckedIconMargin(I)V
-    .locals 0
+    .registers 2
     .param p1, "checkedIconMargin"    # I
 
     .line 473
@@ -2135,7 +2135,7 @@
 .end method
 
 .method setCheckedIconSize(I)V
-    .locals 0
+    .registers 2
     .param p1, "checkedIconSize"    # I
 
     .line 464
@@ -2146,7 +2146,7 @@
 .end method
 
 .method setCheckedIconTint(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "checkedIconTint"    # Landroid/content/res/ColorStateList;
 
     .line 422
@@ -2155,7 +2155,7 @@
     .line 423
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIcon:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 424
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->checkedIcon:Landroid/graphics/drawable/Drawable;
@@ -2163,12 +2163,12 @@
     invoke-static {v0, p1}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 426
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method setCornerRadius(F)V
-    .locals 1
+    .registers 3
     .param p1, "cornerRadius"    # F
 
     .line 335
@@ -2190,37 +2190,37 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 338
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->shouldAddCornerPaddingInsideCardBackground()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 339
-    :cond_0
+    :cond_1a
     invoke-virtual {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->updateContentPadding()V
 
     .line 342
-    :cond_1
+    :cond_1d
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->shouldAddCornerPaddingOutsideCardBackground()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     .line 343
     invoke-virtual {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->updateInsets()V
 
     .line 345
-    :cond_2
+    :cond_26
     return-void
 .end method
 
 .method setProgress(F)V
-    .locals 1
+    .registers 3
     .param p1, "progress"    # F
 
     .line 352
@@ -2231,7 +2231,7 @@
     .line 353
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundContentDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 354
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundContentDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -2239,10 +2239,10 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setInterpolation(F)V
 
     .line 357
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 358
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -2250,12 +2250,12 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setInterpolation(F)V
 
     .line 360
-    :cond_1
+    :cond_17
     return-void
 .end method
 
 .method setRippleColor(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1, "rippleColor"    # Landroid/content/res/ColorStateList;
 
     .line 417
@@ -2269,7 +2269,7 @@
 .end method
 
 .method setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 2
+    .registers 4
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 529
@@ -2296,7 +2296,7 @@
     .line 532
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundContentDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 533
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundContentDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -2304,10 +2304,10 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     .line 536
-    :cond_0
+    :cond_1d
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 537
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -2315,10 +2315,10 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     .line 540
-    :cond_1
+    :cond_26
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->compatRippleDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     .line 541
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->compatRippleDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -2326,24 +2326,24 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     .line 543
-    :cond_2
+    :cond_2f
     return-void
 .end method
 
 .method setStrokeColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "strokeColor"    # Landroid/content/res/ColorStateList;
 
     .line 237
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->strokeColor:Landroid/content/res/ColorStateList;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 238
     return-void
 
     .line 241
-    :cond_0
+    :cond_5
     iput-object p1, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->strokeColor:Landroid/content/res/ColorStateList;
 
     .line 242
@@ -2354,19 +2354,19 @@
 .end method
 
 .method setStrokeWidth(I)V
-    .locals 1
+    .registers 3
     .param p1, "strokeWidth"    # I
 
     .line 256
     iget v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->strokeWidth:I
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 257
     return-void
 
     .line 259
-    :cond_0
+    :cond_5
     iput p1, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->strokeWidth:I
 
     .line 260
@@ -2377,7 +2377,7 @@
 .end method
 
 .method setUserContentPadding(IIII)V
-    .locals 1
+    .registers 6
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -2396,7 +2396,7 @@
 .end method
 
 .method updateClickable()V
-    .locals 2
+    .registers 3
 
     .line 301
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->fgDrawable:Landroid/graphics/drawable/Drawable;
@@ -2412,24 +2412,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->getClickableForeground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundContentDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    :goto_0
+    :goto_12
     iput-object v1, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->fgDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 304
     iget-object v1, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->fgDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     .line 305
     iget-object v1, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->fgDrawable:Landroid/graphics/drawable/Drawable;
@@ -2437,12 +2437,12 @@
     invoke-direct {p0, v1}, Lcom/google/android/material/card/MaterialCardViewHelper;->updateInsetForeground(Landroid/graphics/drawable/Drawable;)V
 
     .line 307
-    :cond_1
+    :cond_1d
     return-void
 .end method
 
 .method updateContentPadding()V
-    .locals 7
+    .registers 8
 
     .line 391
     nop
@@ -2452,42 +2452,42 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     .line 393
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->shouldAddCornerPaddingOutsideCardBackground()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_11
 
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     const/4 v0, 0x1
 
     .line 398
     .local v0, "includeCornerPadding":Z
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_11
+    if-eqz v0, :cond_18
 
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->calculateActualCornerPadding()F
 
     move-result v1
 
-    goto :goto_2
+    goto :goto_19
 
-    :cond_2
+    :cond_18
     const/4 v1, 0x0
 
     .line 399
-    :goto_2
+    :goto_19
     invoke-direct {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->getParentCardViewCalculatedCornerPadding()F
 
     move-result v2
@@ -2531,7 +2531,7 @@
 .end method
 
 .method updateElevation()V
-    .locals 2
+    .registers 3
 
     .line 368
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->bgDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -2549,14 +2549,14 @@
 .end method
 
 .method updateInsets()V
-    .locals 2
+    .registers 3
 
     .line 373
     invoke-virtual {p0}, Lcom/google/android/material/card/MaterialCardViewHelper;->isBackgroundOverwritten()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 374
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
@@ -2570,7 +2570,7 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/card/MaterialCardView;->setBackgroundInternal(Landroid/graphics/drawable/Drawable;)V
 
     .line 376
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->materialCardView:Lcom/google/android/material/card/MaterialCardView;
 
     iget-object v1, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->fgDrawable:Landroid/graphics/drawable/Drawable;
@@ -2586,7 +2586,7 @@
 .end method
 
 .method updateStroke()V
-    .locals 3
+    .registers 4
 
     .line 380
     iget-object v0, p0, Lcom/google/android/material/card/MaterialCardViewHelper;->foregroundContentDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;

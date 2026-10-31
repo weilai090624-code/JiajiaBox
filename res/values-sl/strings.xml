@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Dohodni klic</string>
     <string name="call_notification_ongoing_text">Aktivni klic</string>
     <string name="call_notification_screening_text">Preverjanje dohodnega klica</string>
-    <string name="character_counter_content_description" formatted="false">Število vnesenih znakov je %1$d od %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Omejitev števila znakov je presegla %1$d od %2$d</string>
+    <string name="character_counter_content_description">Število vnesenih znakov je %1$d od %2$d</string>
+    <string name="character_counter_overflowed_content_description">Omejitev števila znakov je presegla %1$d od %2$d</string>
     <string name="clear_text_end_icon_content_description">Izbris besedila</string>
     <string name="copy">Kopiraj</string>
     <string name="copy_toast_msg">Povezava je kopirana v odložišče</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Zunaj razpona: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Začetni datum–%1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s–končni datum</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
     <string name="mtrl_picker_range_header_title">Izberite obseg</string>
     <string name="mtrl_picker_range_header_unselected">Začetni datum–končni datum</string>
     <string name="mtrl_picker_save">Shrani</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">»%1$s« je bilo kopirano v odložišče.</string>
     <string name="search_menu_title">Iskanje</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">IZKLOPLJENO</string>
     <string name="v7_preference_on">VKLOPLJENO</string>
 </resources>

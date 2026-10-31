@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     .line 2266
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public perform(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "arguments"    # Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;
 

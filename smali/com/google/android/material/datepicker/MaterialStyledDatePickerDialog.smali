@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 52
     sget v0, Lcom/google/android/material/R$style;->MaterialAlertDialog_MaterialComponents_Picker_Date_Spinner:I
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 59
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "themeResId"    # I
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/app/DatePickerDialog$OnDateSetListener;III)V
-    .locals 5
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "themeResId"    # I
     .param p3, "listener"    # Landroid/app/DatePickerDialog$OnDateSetListener;
@@ -153,7 +153,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/app/DatePickerDialog$OnDateSetListener;III)V
-    .locals 7
+    .registers 13
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "listener"    # Landroid/app/DatePickerDialog$OnDateSetListener;
     .param p3, "year"    # I
@@ -184,7 +184,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 106

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "threadName"    # Ljava/lang/String;
     .param p2, "priority"    # I
 
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 3
+    .registers 5
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 171

@@ -157,7 +157,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lkotlin/text/CharCategory;
-    .locals 3
+    .registers 3
 
     const/16 v0, 0x1e
 
@@ -347,7 +347,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 12
     new-instance v0, Lkotlin/text/CharCategory;
@@ -783,7 +783,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IILjava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .param p3, "value"    # I
@@ -807,7 +807,7 @@
 .end method
 
 .method public static getEntries()Lkotlin/enums/EnumEntries;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -823,7 +823,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lkotlin/text/CharCategory;
-    .locals 1
+    .registers 2
 
     const-class v0, Lkotlin/text/CharCategory;
 
@@ -837,7 +837,7 @@
 .end method
 
 .method public static values()[Lkotlin/text/CharCategory;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lkotlin/text/CharCategory;->$VALUES:[Lkotlin/text/CharCategory;
 
@@ -853,7 +853,7 @@
 
 # virtual methods
 .method public final contains(C)Z
-    .locals 2
+    .registers 4
     .param p1, "char"    # C
 
     .line 162
@@ -863,21 +863,21 @@
 
     iget v1, p0, Lkotlin/text/CharCategory;->value:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public final getCode()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 8
     iget-object v0, p0, Lkotlin/text/CharCategory;->code:Ljava/lang/String;
@@ -886,7 +886,7 @@
 .end method
 
 .method public final getValue()I
-    .locals 1
+    .registers 2
 
     .line 8
     iget v0, p0, Lkotlin/text/CharCategory;->value:I

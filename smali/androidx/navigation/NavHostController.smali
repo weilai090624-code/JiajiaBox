@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final enableOnBackPressed(Z)V
-    .locals 0
+    .registers 2
     .param p1, "enabled"    # Z
 
     .line 85
@@ -69,7 +69,7 @@
 .end method
 
 .method public final setLifecycleOwner(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
     const-string v0, "owner"
@@ -84,7 +84,7 @@
 .end method
 
 .method public final setOnBackPressedDispatcher(Landroidx/activity/OnBackPressedDispatcher;)V
-    .locals 1
+    .registers 3
     .param p1, "dispatcher"    # Landroidx/activity/OnBackPressedDispatcher;
 
     const-string v0, "dispatcher"
@@ -99,7 +99,7 @@
 .end method
 
 .method public final setViewModelStore(Landroidx/lifecycle/ViewModelStore;)V
-    .locals 1
+    .registers 3
     .param p1, "viewModelStore"    # Landroidx/lifecycle/ViewModelStore;
 
     const-string/jumbo v0, "viewModelStore"

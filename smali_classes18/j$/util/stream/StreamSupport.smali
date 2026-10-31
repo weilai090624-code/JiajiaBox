@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static doubleStream(Lj$/util/Spliterator$OfDouble;Z)Lj$/util/stream/DoubleStream;
-    .locals 2
+    .registers 4
     .param p0, "spliterator"    # Lj$/util/Spliterator$OfDouble;
     .param p1, "parallel"    # Z
 
@@ -33,7 +33,7 @@
 .end method
 
 .method public static doubleStream(Ljava/util/function/Supplier;IZ)Lj$/util/stream/DoubleStream;
-    .locals 2
+    .registers 5
     .param p1, "characteristics"    # I
     .param p2, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -63,7 +63,7 @@
 .end method
 
 .method public static intStream(Lj$/util/Spliterator$OfInt;Z)Lj$/util/stream/IntStream;
-    .locals 2
+    .registers 4
     .param p0, "spliterator"    # Lj$/util/Spliterator$OfInt;
     .param p1, "parallel"    # Z
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public static intStream(Ljava/util/function/Supplier;IZ)Lj$/util/stream/IntStream;
-    .locals 2
+    .registers 5
     .param p1, "characteristics"    # I
     .param p2, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -112,7 +112,7 @@
 .end method
 
 .method public static longStream(Lj$/util/Spliterator$OfLong;Z)Lj$/util/stream/LongStream;
-    .locals 2
+    .registers 4
     .param p0, "spliterator"    # Lj$/util/Spliterator$OfLong;
     .param p1, "parallel"    # Z
 
@@ -131,7 +131,7 @@
 .end method
 
 .method public static longStream(Ljava/util/function/Supplier;IZ)Lj$/util/stream/LongStream;
-    .locals 2
+    .registers 5
     .param p1, "characteristics"    # I
     .param p2, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -161,7 +161,7 @@
 .end method
 
 .method public static stream(Lj$/util/Spliterator;Z)Lj$/util/stream/Stream;
-    .locals 2
+    .registers 4
     .param p1, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -194,7 +194,7 @@
 .end method
 
 .method public static stream(Ljava/util/function/Supplier;IZ)Lj$/util/stream/Stream;
-    .locals 2
+    .registers 5
     .param p1, "characteristics"    # I
     .param p2, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;

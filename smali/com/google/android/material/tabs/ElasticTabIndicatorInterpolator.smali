@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Lcom/google/android/material/tabs/TabIndicatorInterpolator;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method private static accInterp(F)F
-    .locals 4
+    .registers 5
     .param p0, "fraction"    # F
 
     .line 43
@@ -42,7 +42,7 @@
 .end method
 
 .method private static decInterp(F)F
-    .locals 4
+    .registers 5
     .param p0, "fraction"    # F
 
     .line 37
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method updateIndicatorForOffset(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;Landroid/view/View;FLandroid/graphics/drawable/Drawable;)V
-    .locals 9
+    .registers 15
     .param p1, "tabLayout"    # Lcom/google/android/material/tabs/TabLayout;
     .param p2, "startTitle"    # Landroid/view/View;
     .param p3, "endTitle"    # Landroid/view/View;
@@ -94,19 +94,19 @@
 
     cmpg-float v2, v2, v3
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_12
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
     .line 66
     .local v2, "isMovingRight":Z
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_13
+    if-eqz v2, :cond_1e
 
     .line 67
     invoke-static {p4}, Lcom/google/android/material/tabs/ElasticTabIndicatorInterpolator;->accInterp(F)F
@@ -120,12 +120,12 @@
     move-result v4
 
     .local v4, "rightFraction":F
-    goto :goto_1
+    goto :goto_26
 
     .line 70
     .end local v3    # "leftFraction":F
     .end local v4    # "rightFraction":F
-    :cond_1
+    :cond_1e
     invoke-static {p4}, Lcom/google/android/material/tabs/ElasticTabIndicatorInterpolator;->decInterp(F)F
 
     move-result v3
@@ -138,7 +138,7 @@
 
     .line 73
     .restart local v4    # "rightFraction":F
-    :goto_1
+    :goto_26
     iget v5, v0, Landroid/graphics/RectF;->left:F
 
     float-to-int v5, v5

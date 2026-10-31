@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;)V
-    .locals 0
+    .registers 2
     .param p1, "constructorConstructor"    # Lcom/google/gson/internal/ConstructorConstructor;
 
     .line 37
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 3
+    .registers 6
     .param p1, "gson"    # Lcom/google/gson/Gson;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -61,7 +61,7 @@
 
     .line 46
     .local v1, "annotation":Lcom/google/gson/annotations/JsonAdapter;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 47
     const/4 v2, 0x0
@@ -69,7 +69,7 @@
     return-object v2
 
     .line 49
-    :cond_0
+    :cond_10
     iget-object v2, p0, Lcom/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory;->constructorConstructor:Lcom/google/gson/internal/ConstructorConstructor;
 
     invoke-virtual {p0, v2, p1, p2, v1}, Lcom/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory;->getTypeAdapter(Lcom/google/gson/internal/ConstructorConstructor;Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;Lcom/google/gson/annotations/JsonAdapter;)Lcom/google/gson/TypeAdapter;
@@ -80,7 +80,7 @@
 .end method
 
 .method getTypeAdapter(Lcom/google/gson/internal/ConstructorConstructor;Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;Lcom/google/gson/annotations/JsonAdapter;)Lcom/google/gson/TypeAdapter;
-    .locals 9
+    .registers 14
     .param p1, "constructorConstructor"    # Lcom/google/gson/internal/ConstructorConstructor;
     .param p2, "gson"    # Lcom/google/gson/Gson;
     .param p4, "annotation"    # Lcom/google/gson/annotations/JsonAdapter;
@@ -120,7 +120,7 @@
     .local v0, "instance":Ljava/lang/Object;
     instance-of v1, v0, Lcom/google/gson/TypeAdapter;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 59
     move-object v1, v0
@@ -128,14 +128,14 @@
     check-cast v1, Lcom/google/gson/TypeAdapter;
 
     .local v1, "typeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<*>;"
-    goto/16 :goto_3
+    goto/16 :goto_84
 
     .line 60
     .end local v1    # "typeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<*>;"
-    :cond_0
+    :cond_19
     instance-of v1, v0, Lcom/google/gson/TypeAdapterFactory;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     .line 61
     move-object v1, v0
@@ -147,23 +147,23 @@
     move-result-object v1
 
     .restart local v1    # "typeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<*>;"
-    goto :goto_3
+    goto :goto_84
 
     .line 62
     .end local v1    # "typeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<*>;"
-    :cond_1
+    :cond_25
     instance-of v1, v0, Lcom/google/gson/JsonSerializer;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_63
 
     instance-of v1, v0, Lcom/google/gson/JsonDeserializer;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2e
 
-    goto :goto_0
+    goto :goto_63
 
     .line 71
-    :cond_2
+    :cond_2e
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -218,13 +218,13 @@
     throw v1
 
     .line 63
-    :cond_3
-    :goto_0
+    :cond_63
+    :goto_63
     instance-of v1, v0, Lcom/google/gson/JsonSerializer;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6d
 
     .line 64
     move-object v1, v0
@@ -233,20 +233,20 @@
 
     move-object v4, v1
 
-    goto :goto_1
+    goto :goto_6e
 
     .line 65
-    :cond_4
+    :cond_6d
     move-object v4, v2
 
-    :goto_1
+    :goto_6e
     nop
 
     .line 66
     .local v4, "serializer":Lcom/google/gson/JsonSerializer;, "Lcom/google/gson/JsonSerializer<*>;"
     instance-of v1, v0, Lcom/google/gson/JsonDeserializer;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_78
 
     .line 67
     move-object v2, v0
@@ -255,13 +255,13 @@
 
     move-object v5, v2
 
-    goto :goto_2
+    goto :goto_79
 
     .line 68
-    :cond_5
+    :cond_78
     move-object v5, v2
 
-    :goto_2
+    :goto_79
     nop
 
     .line 69
@@ -285,14 +285,14 @@
     nop
 
     .line 77
-    :goto_3
-    if-eqz v1, :cond_6
+    :goto_84
+    if-eqz v1, :cond_90
 
     invoke-interface {p4}, Lcom/google/gson/annotations/JsonAdapter;->nullSafe()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_90
 
     .line 78
     invoke-virtual {v1}, Lcom/google/gson/TypeAdapter;->nullSafe()Lcom/google/gson/TypeAdapter;
@@ -300,6 +300,6 @@
     move-result-object v1
 
     .line 81
-    :cond_6
+    :cond_90
     return-object v1
 .end method

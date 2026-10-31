@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -109,7 +109,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -123,7 +123,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -152,14 +152,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 564
     iget v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1$groupCount$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_26
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -169,7 +169,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 565
@@ -194,8 +194,8 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

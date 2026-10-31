@@ -51,7 +51,7 @@
 
 # direct methods
 .method public static final combineInternal(Lkotlinx/coroutines/flow/FlowCollector;[Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 12
     .param p0, "$this$combineInternal"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p1, "flows"    # [Lkotlinx/coroutines/flow/Flow;
     .param p2, "arrayFactory"    # Lkotlin/jvm/functions/Function0;
@@ -115,11 +115,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_18
 
     return-object v0
 
-    :cond_0
+    :cond_18
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 83
@@ -127,7 +127,7 @@
 .end method
 
 .method public static final zipImpl(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow2"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function3;

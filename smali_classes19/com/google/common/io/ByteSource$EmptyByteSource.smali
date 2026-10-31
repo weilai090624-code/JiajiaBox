@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 661
     new-instance v0, Lcom/google/common/io/ByteSource$EmptyByteSource;
@@ -33,7 +33,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 664
     const/4 v0, 0x0
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public asCharSource(Ljava/nio/charset/Charset;)Lcom/google/common/io/CharSource;
-    .locals 1
+    .registers 3
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 669
@@ -64,7 +64,7 @@
 .end method
 
 .method public read()[B
-    .locals 1
+    .registers 2
 
     .line 675
     iget-object v0, p0, Lcom/google/common/io/ByteSource$EmptyByteSource;->bytes:[B
@@ -73,7 +73,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 680
     const-string v0, "ByteSource.empty()"

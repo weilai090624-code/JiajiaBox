@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method static clear(Ljava/nio/Buffer;)V
-    .locals 0
+    .registers 1
     .param p0, "b"    # Ljava/nio/Buffer;
 
     .line 28
@@ -30,7 +30,7 @@
 .end method
 
 .method static flip(Ljava/nio/Buffer;)V
-    .locals 0
+    .registers 1
     .param p0, "b"    # Ljava/nio/Buffer;
 
     .line 32
@@ -41,7 +41,7 @@
 .end method
 
 .method static limit(Ljava/nio/Buffer;I)V
-    .locals 0
+    .registers 2
     .param p0, "b"    # Ljava/nio/Buffer;
     .param p1, "limit"    # I
 
@@ -53,7 +53,7 @@
 .end method
 
 .method static mark(Ljava/nio/Buffer;)V
-    .locals 0
+    .registers 1
     .param p0, "b"    # Ljava/nio/Buffer;
 
     .line 40
@@ -64,7 +64,7 @@
 .end method
 
 .method static position(Ljava/nio/Buffer;I)V
-    .locals 0
+    .registers 2
     .param p0, "b"    # Ljava/nio/Buffer;
     .param p1, "position"    # I
 
@@ -76,7 +76,7 @@
 .end method
 
 .method static reset(Ljava/nio/Buffer;)V
-    .locals 0
+    .registers 1
     .param p0, "b"    # Ljava/nio/Buffer;
 
     .line 48

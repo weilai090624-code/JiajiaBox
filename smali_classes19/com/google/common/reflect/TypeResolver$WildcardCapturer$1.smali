@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/reflect/TypeResolver$WildcardCapturer;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/reflect/TypeVariable;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/reflect/TypeResolver$WildcardCapturer;
     .param p2, "id"    # Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method captureAsTypeVariable([Ljava/lang/reflect/Type;)Ljava/lang/reflect/TypeVariable;
-    .locals 3
+    .registers 5
     .param p1, "upperBounds"    # [Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -79,7 +79,7 @@
 
     const/4 v2, 0x1
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_22
 
     .line 520
     const-class v1, Ljava/lang/Object;
@@ -87,7 +87,7 @@
     invoke-interface {v0, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     .line 522
-    :cond_0
+    :cond_22
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/reflect/Type;

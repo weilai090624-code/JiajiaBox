@@ -19,10 +19,12 @@
 
 .field public final synthetic f$5:Ljava/lang/String;
 
+.field public final synthetic f$6:J
+
 
 # direct methods
-.method public synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;)V
-    .registers 7
+.method public synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;J)V
+    .registers 9
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,13 +41,15 @@
 
     iput-object p6, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$0;->f$5:Ljava/lang/String;
 
+    iput-wide p7, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$0;->f$6:J
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final run()V
-    .registers 7
+    .registers 9
 
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$0;->f$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
@@ -60,7 +64,9 @@
 
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$0;->f$5:Ljava/lang/String;
 
-    invoke-virtual/range {v0 .. v5}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->lambda$request$2$io-nekohasekai-sagernet-ui-ConnectionCard(ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;)V
+    iget-wide v6, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$0;->f$6:J
+
+    invoke-virtual/range {v0 .. v7}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->lambda$request$2$io-nekohasekai-sagernet-ui-ConnectionCard(ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;J)V
 
     return-void
 .end method

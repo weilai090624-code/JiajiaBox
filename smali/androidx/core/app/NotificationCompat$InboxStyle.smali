@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 5289
     invoke-direct {p0}, Landroidx/core/app/NotificationCompat$Style;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/core/app/NotificationCompat$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/core/app/NotificationCompat$Builder;
 
     .line 5292
@@ -72,11 +72,11 @@
 
 # virtual methods
 .method public addLine(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$InboxStyle;
-    .locals 2
+    .registers 4
     .param p1, "cs"    # Ljava/lang/CharSequence;
 
     .line 5318
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 5319
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$InboxStyle;->mTexts:Ljava/util/ArrayList;
@@ -88,12 +88,12 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 5321
-    :cond_0
+    :cond_b
     return-object p0
 .end method
 
 .method public apply(Landroidx/core/app/NotificationBuilderWithBuilderAccessor;)V
-    .locals 4
+    .registers 6
     .param p1, "builder"    # Landroidx/core/app/NotificationBuilderWithBuilderAccessor;
 
     .line 5338
@@ -118,7 +118,7 @@
     .line 5341
     iget-boolean v2, p0, Landroidx/core/app/NotificationCompat$InboxStyle;->mSummaryTextSet:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     .line 5342
     iget-object v2, p0, Landroidx/core/app/NotificationCompat$InboxStyle;->mSummaryText:Ljava/lang/CharSequence;
@@ -126,19 +126,19 @@
     invoke-virtual {v1, v2}, Landroid/app/Notification$InboxStyle;->setSummaryText(Ljava/lang/CharSequence;)Landroid/app/Notification$InboxStyle;
 
     .line 5344
-    :cond_0
+    :cond_18
     iget-object v2, p0, Landroidx/core/app/NotificationCompat$InboxStyle;->mTexts:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_0
+    :goto_1e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2e
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -152,15 +152,15 @@
 
     .line 5346
     .end local v3    # "text":Ljava/lang/CharSequence;
-    goto :goto_0
+    goto :goto_1e
 
     .line 5347
-    :cond_1
+    :cond_2e
     return-void
 .end method
 
 .method protected clearCompatExtraKeys(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 5367
@@ -176,7 +176,7 @@
 .end method
 
 .method protected getClassName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 5330
     const-string v0, "androidx.core.app.NotificationCompat$InboxStyle"
@@ -185,7 +185,7 @@
 .end method
 
 .method protected restoreFromCompatExtras(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 5354
@@ -203,7 +203,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 5358
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$InboxStyle;->mTexts:Ljava/util/ArrayList;
@@ -215,12 +215,12 @@
     invoke-static {v1, v0}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
 
     .line 5360
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public setBigContentTitle(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$InboxStyle;
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 5301
@@ -235,7 +235,7 @@
 .end method
 
 .method public setSummaryText(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$InboxStyle;
-    .locals 1
+    .registers 3
     .param p1, "cs"    # Ljava/lang/CharSequence;
 
     .line 5309

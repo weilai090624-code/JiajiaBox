@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Ljava/util/function/IntFunction;)V
-    .locals 2
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,7 +107,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/WhileOps$TakeWhileTask;Lj$/util/Spliterator;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -146,7 +146,7 @@
 
 # virtual methods
 .method protected cancel()V
-    .locals 1
+    .registers 2
 
     .line 1266
     .local p0, "this":Lj$/util/stream/WhileOps$TakeWhileTask;, "Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;"
@@ -155,11 +155,11 @@
     .line 1267
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->isOrdered:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->completed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 1270
     invoke-virtual {p0}, Lj$/util/stream/WhileOps$TakeWhileTask;->getEmptyResult()Lj$/util/stream/Node;
@@ -169,12 +169,12 @@
     invoke-virtual {p0, v0}, Lj$/util/stream/WhileOps$TakeWhileTask;->setLocalResult(Ljava/lang/Object;)V
 
     .line 1271
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method protected final doLeaf()Lj$/util/stream/Node;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -227,13 +227,13 @@
 
     iput-boolean v2, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->shortCircuited:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2b
 
     .line 1211
     invoke-virtual {p0}, Lj$/util/stream/WhileOps$TakeWhileTask;->cancelLaterNodes()V
 
     .line 1214
-    :cond_0
+    :cond_2b
     invoke-interface {v0}, Lj$/util/stream/Node$Builder;->build()Lj$/util/stream/Node;
 
     move-result-object v2
@@ -251,7 +251,7 @@
 .end method
 
 .method protected bridge synthetic doLeaf()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1164
     .local p0, "this":Lj$/util/stream/WhileOps$TakeWhileTask;, "Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;"
@@ -263,7 +263,7 @@
 .end method
 
 .method protected final getEmptyResult()Lj$/util/stream/Node;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -288,7 +288,7 @@
 .end method
 
 .method protected bridge synthetic getEmptyResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1164
     .local p0, "this":Lj$/util/stream/WhileOps$TakeWhileTask;, "Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;"
@@ -300,7 +300,7 @@
 .end method
 
 .method protected bridge synthetic makeChild(Lj$/util/Spliterator;)Lj$/util/stream/AbstractTask;
-    .locals 0
+    .registers 2
 
     .line 1164
     .local p0, "this":Lj$/util/stream/WhileOps$TakeWhileTask;, "Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;"
@@ -312,7 +312,7 @@
 .end method
 
 .method protected makeChild(Lj$/util/Spliterator;)Lj$/util/stream/WhileOps$TakeWhileTask;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -334,7 +334,7 @@
 .end method
 
 .method merge()Lj$/util/stream/Node;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -355,7 +355,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_17
 
     .line 1250
     iget-object v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->rightChild:Lj$/util/stream/AbstractTask;
@@ -371,7 +371,7 @@
     return-object v0
 
     .line 1252
-    :cond_0
+    :cond_17
     iget-object v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->rightChild:Lj$/util/stream/AbstractTask;
 
     check-cast v0, Lj$/util/stream/WhileOps$TakeWhileTask;
@@ -380,7 +380,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2c
 
     .line 1255
     iget-object v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->leftChild:Lj$/util/stream/AbstractTask;
@@ -396,7 +396,7 @@
     return-object v0
 
     .line 1259
-    :cond_1
+    :cond_2c
     iget-object v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->op:Lj$/util/stream/AbstractPipeline;
 
     invoke-virtual {v0}, Lj$/util/stream/AbstractPipeline;->getOutputShape()Lj$/util/stream/StreamShape;
@@ -433,7 +433,7 @@
 .end method
 
 .method public final onCompletion(Ljava/util/concurrent/CountedCompleter;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -449,7 +449,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_5b
 
     .line 1223
     iget-object v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->leftChild:Lj$/util/stream/AbstractTask;
@@ -471,11 +471,11 @@
     .line 1224
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->isOrdered:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->canceled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 1225
     const-wide/16 v0, 0x0
@@ -488,14 +488,14 @@
     move-result-object v0
 
     .local v0, "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    goto :goto_0
+    goto :goto_58
 
     .line 1228
     .end local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    :cond_0
+    :cond_26
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->isOrdered:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_45
 
     iget-object v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->leftChild:Lj$/util/stream/AbstractTask;
 
@@ -503,7 +503,7 @@
 
     iget-boolean v0, v0, Lj$/util/stream/WhileOps$TakeWhileTask;->shortCircuited:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_45
 
     .line 1231
     iget-object v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->leftChild:Lj$/util/stream/AbstractTask;
@@ -526,11 +526,11 @@
     check-cast v0, Lj$/util/stream/Node;
 
     .restart local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    goto :goto_0
+    goto :goto_58
 
     .line 1235
     .end local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    :cond_1
+    :cond_45
     iget-object v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->leftChild:Lj$/util/stream/AbstractTask;
 
     check-cast v0, Lj$/util/stream/WhileOps$TakeWhileTask;
@@ -554,12 +554,12 @@
 
     .line 1239
     .restart local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    :goto_0
+    :goto_58
     invoke-virtual {p0, v0}, Lj$/util/stream/WhileOps$TakeWhileTask;->setLocalResult(Ljava/lang/Object;)V
 
     .line 1242
     .end local v0    # "result":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    :cond_2
+    :cond_5b
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lj$/util/stream/WhileOps$TakeWhileTask;->completed:Z

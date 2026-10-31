@@ -64,7 +64,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;Landroid/graphics/Rect;Lio/nekohasekai/sagernet/ui/JJGlassCapsule;Lio/nekohasekai/sagernet/ui/MainActivity;Lkotlin/jvm/functions/Function0;)V
-    .locals 0
+    .registers 6
     .param p1, "$lp"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p2, "$target"    # Landroid/graphics/Rect;
     .param p3, "$capsule"    # Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     const-string v0, "animation"
@@ -114,7 +114,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     const-string v0, "animation"
@@ -184,17 +184,17 @@
     .line 547
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity$morphGlassCapsule$1$2;->$onEnd:Lkotlin/jvm/functions/Function0;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_44
 
     invoke-interface {v0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     .line 548
-    :cond_0
+    :cond_44
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     const-string v0, "animation"
@@ -206,7 +206,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     const-string v0, "animation"

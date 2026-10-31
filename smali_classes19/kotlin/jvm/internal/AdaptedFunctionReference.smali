@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 7
+    .registers 13
     .param p1, "arity"    # I
     .param p2, "owner"    # Ljava/lang/Class;
     .param p3, "name"    # Ljava/lang/String;
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/Object;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 2
+    .registers 9
     .param p1, "arity"    # I
     .param p2, "receiver"    # Ljava/lang/Object;
     .param p3, "owner"    # Ljava/lang/Class;
@@ -82,14 +82,14 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     iput-boolean v1, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->isTopLevel:Z
 
     .line 48
@@ -107,28 +107,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 64
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 65
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlin/jvm/internal/AdaptedFunctionReference;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 66
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lkotlin/jvm/internal/AdaptedFunctionReference;
@@ -139,19 +139,19 @@
 
     iget-boolean v4, v1, Lkotlin/jvm/internal/AdaptedFunctionReference;->isTopLevel:Z
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_48
 
     iget v3, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->arity:I
 
     iget v4, v1, Lkotlin/jvm/internal/AdaptedFunctionReference;->arity:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_48
 
     iget v3, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->flags:I
 
     iget v4, v1, Lkotlin/jvm/internal/AdaptedFunctionReference;->flags:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_48
 
     iget-object v3, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->receiver:Ljava/lang/Object;
 
@@ -162,7 +162,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_48
 
     iget-object v3, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->owner:Ljava/lang/Class;
 
@@ -173,7 +173,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_48
 
     iget-object v3, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->name:Ljava/lang/String;
 
@@ -184,7 +184,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_48
 
     iget-object v3, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->signature:Ljava/lang/String;
 
@@ -195,20 +195,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_48
 
-    goto :goto_0
+    goto :goto_49
 
-    :cond_2
+    :cond_48
     const/4 v0, 0x0
 
     .line 67
-    :goto_0
+    :goto_49
     return v0
 .end method
 
 .method public getArity()I
-    .locals 1
+    .registers 2
 
     .line 54
     iget v0, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->arity:I
@@ -217,21 +217,21 @@
 .end method
 
 .method public getOwner()Lkotlin/reflect/KDeclarationContainer;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->owner:Ljava/lang/Class;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_6
     iget-boolean v0, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->isTopLevel:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->owner:Ljava/lang/Class;
 
@@ -240,9 +240,9 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_11
     iget-object v0, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->owner:Ljava/lang/Class;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
@@ -250,19 +250,19 @@
     move-result-object v0
 
     .line 58
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 78
     iget-object v0, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->receiver:Ljava/lang/Object;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->receiver:Ljava/lang/Object;
 
@@ -270,19 +270,19 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     .line 79
     .local v0, "result":I
-    :goto_0
+    :goto_d
     mul-int/lit8 v2, v0, 0x1f
 
     iget-object v3, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->owner:Ljava/lang/Class;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_19
 
     iget-object v1, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->owner:Ljava/lang/Class;
 
@@ -290,7 +290,7 @@
 
     move-result v1
 
-    :cond_1
+    :cond_19
     add-int/2addr v2, v1
 
     .line 80
@@ -326,16 +326,16 @@
 
     iget-boolean v2, p0, Lkotlin/jvm/internal/AdaptedFunctionReference;->isTopLevel:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_35
 
     const/16 v2, 0x4cf
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_2
+    :cond_35
     const/16 v2, 0x4d5
 
-    :goto_1
+    :goto_37
     add-int/2addr v0, v2
 
     .line 83
@@ -363,7 +363,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 90
     invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->renderLambdaToString(Lkotlin/jvm/internal/FunctionBase;)Ljava/lang/String;

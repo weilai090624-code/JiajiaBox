@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public getDefaultFlowStyle()Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
-    .locals 1
+    .registers 2
 
     .line 192
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->defaultFlowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
@@ -110,12 +110,12 @@
 .end method
 
 .method public getDefaultScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
-    .locals 1
+    .registers 2
 
     .line 181
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->defaultScalarStyle:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 182
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->PLAIN:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -123,19 +123,19 @@
     return-object v0
 
     .line 184
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->defaultScalarStyle:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     return-object v0
 .end method
 
 .method public final getPropertyUtils()Lorg/yaml/snakeyaml/introspector/PropertyUtils;
-    .locals 1
+    .registers 2
 
     .line 201
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->propertyUtils:Lorg/yaml/snakeyaml/introspector/PropertyUtils;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 202
     new-instance v0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;
@@ -145,14 +145,14 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->propertyUtils:Lorg/yaml/snakeyaml/introspector/PropertyUtils;
 
     .line 204
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->propertyUtils:Lorg/yaml/snakeyaml/introspector/PropertyUtils;
 
     return-object v0
 .end method
 
 .method public final isExplicitPropertyUtils()Z
-    .locals 1
+    .registers 2
 
     .line 208
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->explicitPropertyUtils:Z
@@ -161,7 +161,7 @@
 .end method
 
 .method public represent(Ljava/lang/Object;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 2
+    .registers 4
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 65
@@ -185,7 +185,7 @@
 .end method
 
 .method protected final representData(Ljava/lang/Object;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 5
+    .registers 7
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 72
@@ -200,7 +200,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 75
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->representedObjects:Ljava/util/Map;
@@ -219,10 +219,10 @@
 
     .line 80
     .end local v0    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_21
 
     .line 81
     iget-object v1, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->nullRepresenter:Lorg/yaml/snakeyaml/representer/Represent;
@@ -237,7 +237,7 @@
 
     .line 86
     .end local v0    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_1
+    :cond_21
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -250,7 +250,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3a
 
     .line 88
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->representers:Ljava/util/Map;
@@ -269,11 +269,11 @@
 
     .line 90
     .local v0, "node":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_1
+    goto :goto_88
 
     .line 92
     .end local v0    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_2
+    :cond_3a
     iget-object v2, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->multiRepresenters:Ljava/util/Map;
 
     invoke-interface {v2}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -285,12 +285,12 @@
     move-result-object v2
 
     .local v2, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_44
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_66
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -300,13 +300,13 @@
 
     .line 93
     .local v3, "repr":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_65
 
     invoke-virtual {v3, p1}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_65
 
     .line 94
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->multiRepresenters:Ljava/util/Map;
@@ -331,19 +331,19 @@
     .end local v0    # "representer":Lorg/yaml/snakeyaml/representer/Represent;
     .end local v3    # "repr":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v4    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_3
-    goto :goto_0
+    :cond_65
+    goto :goto_44
 
     .line 101
     .end local v2    # "i$":Ljava/util/Iterator;
-    :cond_4
+    :cond_66
     iget-object v2, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->multiRepresenters:Ljava/util/Map;
 
     invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_7b
 
     .line 102
     iget-object v2, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->multiRepresenters:Ljava/util/Map;
@@ -362,11 +362,11 @@
 
     .line 104
     .local v0, "node":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_1
+    goto :goto_88
 
     .line 105
     .end local v0    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_5
+    :cond_7b
     iget-object v2, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->representers:Ljava/util/Map;
 
     invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -385,12 +385,12 @@
 
     .line 109
     .local v0, "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :goto_1
+    :goto_88
     return-object v0
 .end method
 
 .method protected representMapping(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/util/Map;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 8
+    .registers 12
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p3, "flowStyle"    # Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
     .annotation system Ldalvik/annotation/Signature;
@@ -443,12 +443,12 @@
     move-result-object v3
 
     .local v3, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_1f
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_62
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -480,7 +480,7 @@
     .local v6, "nodeValue":Lorg/yaml/snakeyaml/nodes/Node;
     instance-of v7, v5, Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_48
 
     move-object v7, v5
 
@@ -490,17 +490,17 @@
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_4a
 
     .line 159
-    :cond_0
+    :cond_48
     sget-object v2, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->BLOCK:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     .line 161
-    :cond_1
+    :cond_4a
     instance-of v7, v6, Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_57
 
     move-object v7, v6
 
@@ -510,14 +510,14 @@
 
     move-result v7
 
-    if-nez v7, :cond_3
+    if-nez v7, :cond_59
 
     .line 162
-    :cond_2
+    :cond_57
     sget-object v2, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->BLOCK:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     .line 164
-    :cond_3
+    :cond_59
     new-instance v7, Lorg/yaml/snakeyaml/nodes/NodeTuple;
 
     invoke-direct {v7, v5, v6}, Lorg/yaml/snakeyaml/nodes/NodeTuple;-><init>(Lorg/yaml/snakeyaml/nodes/Node;Lorg/yaml/snakeyaml/nodes/Node;)V
@@ -528,41 +528,41 @@
     .end local v4    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     .end local v5    # "nodeKey":Lorg/yaml/snakeyaml/nodes/Node;
     .end local v6    # "nodeValue":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_0
+    goto :goto_1f
 
     .line 166
     .end local v3    # "i$":Ljava/util/Iterator;
-    :cond_4
+    :cond_62
     sget-object v3, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->AUTO:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
-    if-ne p3, v3, :cond_6
+    if-ne p3, v3, :cond_75
 
     .line 167
     iget-object v3, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->defaultFlowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     sget-object v4, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->AUTO:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
-    if-eq v3, v4, :cond_5
+    if-eq v3, v4, :cond_72
 
     .line 168
     iget-object v3, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->defaultFlowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     invoke-virtual {v1, v3}, Lorg/yaml/snakeyaml/nodes/MappingNode;->setFlowStyle(Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
 
-    goto :goto_1
+    goto :goto_75
 
     .line 170
-    :cond_5
+    :cond_72
     invoke-virtual {v1, v2}, Lorg/yaml/snakeyaml/nodes/MappingNode;->setFlowStyle(Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
 
     .line 173
-    :cond_6
-    :goto_1
+    :cond_75
+    :goto_75
     return-object v1
 .end method
 
 .method protected representScalar(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/lang/String;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 1
+    .registers 4
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -577,19 +577,19 @@
 .end method
 
 .method protected representScalar(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/lang/String;Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 7
+    .registers 11
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "style"    # Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     .line 113
-    if-nez p3, :cond_0
+    if-nez p3, :cond_4
 
     .line 114
     iget-object p3, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->defaultScalarStyle:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     .line 116
-    :cond_0
+    :cond_4
     new-instance v6, Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
     const/4 v3, 0x0
@@ -612,7 +612,7 @@
 .end method
 
 .method protected representSequence(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/lang/Iterable;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 8
+    .registers 12
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p3, "flowStyle"    # Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
     .annotation system Ldalvik/annotation/Signature;
@@ -635,7 +635,7 @@
     .local v0, "size":I
     instance-of v1, p2, Ljava/util/List;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     .line 127
     move-object v1, p2
@@ -647,7 +647,7 @@
     move-result v0
 
     .line 129
-    :cond_0
+    :cond_d
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
@@ -676,12 +676,12 @@
     move-result-object v4
 
     .local v4, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_24
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_45
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -697,7 +697,7 @@
     .local v6, "nodeItem":Lorg/yaml/snakeyaml/nodes/Node;
     instance-of v7, v6, Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_3f
 
     move-object v7, v6
 
@@ -707,54 +707,54 @@
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_41
 
     .line 136
-    :cond_1
+    :cond_3f
     sget-object v3, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->BLOCK:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     .line 138
-    :cond_2
+    :cond_41
     invoke-interface {v1, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 139
     .end local v5    # "item":Ljava/lang/Object;
     .end local v6    # "nodeItem":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_0
+    goto :goto_24
 
     .line 140
     .end local v4    # "i$":Ljava/util/Iterator;
-    :cond_3
+    :cond_45
     sget-object v4, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->AUTO:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
-    if-ne p3, v4, :cond_5
+    if-ne p3, v4, :cond_58
 
     .line 141
     iget-object v4, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->defaultFlowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     sget-object v5, Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;->AUTO:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
-    if-eq v4, v5, :cond_4
+    if-eq v4, v5, :cond_55
 
     .line 142
     iget-object v4, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter;->defaultFlowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     invoke-virtual {v2, v4}, Lorg/yaml/snakeyaml/nodes/SequenceNode;->setFlowStyle(Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
 
-    goto :goto_1
+    goto :goto_58
 
     .line 144
-    :cond_4
+    :cond_55
     invoke-virtual {v2, v3}, Lorg/yaml/snakeyaml/nodes/SequenceNode;->setFlowStyle(Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
 
     .line 147
-    :cond_5
-    :goto_1
+    :cond_58
+    :goto_58
     return-object v2
 .end method
 
 .method public setDefaultFlowStyle(Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
-    .locals 0
+    .registers 2
     .param p1, "defaultFlowStyle"    # Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     .line 188
@@ -765,7 +765,7 @@
 .end method
 
 .method public setDefaultScalarStyle(Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;)V
-    .locals 0
+    .registers 2
     .param p1, "defaultStyle"    # Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     .line 177
@@ -776,7 +776,7 @@
 .end method
 
 .method public setPropertyUtils(Lorg/yaml/snakeyaml/introspector/PropertyUtils;)V
-    .locals 1
+    .registers 3
     .param p1, "propertyUtils"    # Lorg/yaml/snakeyaml/introspector/PropertyUtils;
 
     .line 196

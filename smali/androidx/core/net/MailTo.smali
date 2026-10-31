@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,11 +51,11 @@
 .end method
 
 .method public static isMailTo(Landroid/net/Uri;)Z
-    .locals 2
+    .registers 3
     .param p0, "uri"    # Landroid/net/Uri;
 
     .line 89
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_10
 
     const-string v0, "mailto"
 
@@ -67,25 +67,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public static isMailTo(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "uri"    # Ljava/lang/String;
 
     .line 74
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_c
 
     const-string v0, "mailto:"
 
@@ -93,21 +93,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public static parse(Landroid/net/Uri;)Landroidx/core/net/MailTo;
-    .locals 1
+    .registers 2
     .param p0, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -128,7 +128,7 @@
 .end method
 
 .method public static parse(Ljava/lang/String;)Landroidx/core/net/MailTo;
-    .locals 14
+    .registers 15
     .param p0, "uri"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -144,7 +144,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_a5
 
     .line 114
     const/16 v0, 0x23
@@ -159,7 +159,7 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_17
 
     .line 116
     invoke-virtual {p0, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -167,7 +167,7 @@
     move-result-object p0
 
     .line 121
-    :cond_0
+    :cond_17
     const/16 v3, 0x3f
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->indexOf(I)I
@@ -178,7 +178,7 @@
     .local v3, "queryIndex":I
     const-string v4, "mailto:"
 
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_2f
 
     .line 123
     invoke-virtual {v4}, Ljava/lang/String;->length()I
@@ -198,12 +198,12 @@
     const/4 v4, 0x0
 
     .local v4, "query":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_41
 
     .line 126
     .end local v1    # "address":Ljava/lang/String;
     .end local v4    # "query":Ljava/lang/String;
-    :cond_1
+    :cond_2f
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -226,14 +226,14 @@
 
     .line 130
     .restart local v4    # "query":Ljava/lang/String;
-    :goto_0
+    :goto_41
     new-instance v5, Landroidx/core/net/MailTo;
 
     invoke-direct {v5}, Landroidx/core/net/MailTo;-><init>()V
 
     .line 133
     .local v5, "mailTo":Landroidx/core/net/MailTo;
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_7f
 
     .line 135
     const-string v6, "&"
@@ -248,8 +248,8 @@
 
     const/4 v8, 0x0
 
-    :goto_1
-    if-ge v8, v7, :cond_4
+    :goto_50
+    if-ge v8, v7, :cond_7f
 
     aget-object v9, v6, v8
 
@@ -267,13 +267,13 @@
     .local v10, "nameValueArray":[Ljava/lang/String;
     array-length v11, v10
 
-    if-nez v11, :cond_2
+    if-nez v11, :cond_5f
 
     .line 139
-    goto :goto_3
+    goto :goto_7c
 
     .line 144
-    :cond_2
+    :cond_5f
     aget-object v11, v10, v2
 
     invoke-static {v11}, Landroid/net/Uri;->decode(Ljava/lang/String;)Ljava/lang/String;
@@ -292,7 +292,7 @@
 
     const/4 v13, 0x1
 
-    if-le v12, v13, :cond_3
+    if-le v12, v13, :cond_76
 
     .line 146
     aget-object v12, v10, v13
@@ -301,14 +301,14 @@
 
     move-result-object v12
 
-    goto :goto_2
+    goto :goto_77
 
-    :cond_3
+    :cond_76
     const/4 v12, 0x0
 
     .line 148
     .local v12, "queryParameterValue":Ljava/lang/String;
-    :goto_2
+    :goto_77
     iget-object v13, v5, Landroidx/core/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
     invoke-virtual {v13, v11, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -318,21 +318,21 @@
     .end local v10    # "nameValueArray":[Ljava/lang/String;
     .end local v11    # "queryParameterKey":Ljava/lang/String;
     .end local v12    # "queryParameterValue":Ljava/lang/String;
-    :goto_3
+    :goto_7c
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_50
 
     .line 154
     .end local v6    # "queries":[Ljava/lang/String;
-    :cond_4
+    :cond_7f
     invoke-virtual {v5}, Landroidx/core/net/MailTo;->getTo()Ljava/lang/String;
 
     move-result-object v2
 
     .line 155
     .local v2, "toParameter":Ljava/lang/String;
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_9c
 
     .line 156
     new-instance v6, Ljava/lang/StringBuilder;
@@ -358,7 +358,7 @@
     move-result-object v1
 
     .line 158
-    :cond_5
+    :cond_9c
     iget-object v6, v5, Landroidx/core/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
     const-string/jumbo v7, "to"
@@ -375,7 +375,7 @@
     .end local v3    # "queryIndex":I
     .end local v4    # "query":Ljava/lang/String;
     .end local v5    # "mailTo":Landroidx/core/net/MailTo;
-    :cond_6
+    :cond_a5
     new-instance v0, Landroidx/core/net/ParseException;
 
     const-string v1, "Not a mailto scheme"
@@ -388,7 +388,7 @@
 
 # virtual methods
 .method public getBcc()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 211
     iget-object v0, p0, Landroidx/core/net/MailTo;->mHeaders:Ljava/util/HashMap;
@@ -405,7 +405,7 @@
 .end method
 
 .method public getBody()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 231
     iget-object v0, p0, Landroidx/core/net/MailTo;->mHeaders:Ljava/util/HashMap;
@@ -422,7 +422,7 @@
 .end method
 
 .method public getCc()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 200
     iget-object v0, p0, Landroidx/core/net/MailTo;->mHeaders:Ljava/util/HashMap;
@@ -439,7 +439,7 @@
 .end method
 
 .method public getHeaders()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -457,7 +457,7 @@
 .end method
 
 .method public getSubject()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 221
     iget-object v0, p0, Landroidx/core/net/MailTo;->mHeaders:Ljava/util/HashMap;
@@ -474,7 +474,7 @@
 .end method
 
 .method public getTo()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 189
     iget-object v0, p0, Landroidx/core/net/MailTo;->mHeaders:Ljava/util/HashMap;
@@ -491,7 +491,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 246
     new-instance v0, Ljava/lang/StringBuilder;
@@ -517,12 +517,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_16
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_47
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -569,10 +569,10 @@
 
     .line 253
     .end local v2    # "header":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
-    goto :goto_0
+    goto :goto_16
 
     .line 254
-    :cond_0
+    :cond_47
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

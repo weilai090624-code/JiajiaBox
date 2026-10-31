@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Queue;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -79,7 +79,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 42
     invoke-virtual {p0}, Lcom/google/common/collect/ConsumingQueueIterator;->endOfData()Ljava/lang/Object;
@@ -89,7 +89,7 @@
     return-object v0
 
     .line 44
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/common/collect/ConsumingQueueIterator;->queue:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->remove()Ljava/lang/Object;

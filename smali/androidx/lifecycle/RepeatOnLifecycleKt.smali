@@ -37,7 +37,7 @@
 
 # direct methods
 .method public static final repeatOnLifecycle(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "$this$repeatOnLifecycle"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
@@ -68,17 +68,17 @@
     .line 74
     sget-object v0, Landroidx/lifecycle/Lifecycle$State;->INITIALIZED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_7
+    if-eqz v0, :cond_2a
 
     .line 78
     invoke-virtual {p0}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -87,7 +87,7 @@
 
     sget-object v1, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_14
 
     .line 79
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -95,7 +95,7 @@
     return-object v0
 
     .line 83
-    :cond_1
+    :cond_14
     new-instance v0, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3;
 
     const/4 v1, 0x0
@@ -112,18 +112,18 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_27
 
     return-object v0
 
-    :cond_2
+    :cond_27
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 135
     return-object v0
 
     .line 74
-    :cond_3
+    :cond_2a
     const/4 v0, 0x0
 
     .line 75
@@ -146,7 +146,7 @@
 .end method
 
 .method public static final repeatOnLifecycle(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "$this$repeatOnLifecycle"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
@@ -187,11 +187,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     return-object v0
 
-    :cond_0
+    :cond_f
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0

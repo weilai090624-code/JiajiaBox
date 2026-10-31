@@ -101,7 +101,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 33
     new-instance v0, Lcom/google/zxing/common/CharacterSetECI;
@@ -758,8 +758,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_2
+    :goto_282
+    if-ge v4, v2, :cond_2b7
 
     aget-object v5, v0, v4
 
@@ -773,8 +773,8 @@
 
     const/4 v7, 0x0
 
-    :goto_1
-    if-ge v7, v6, :cond_0
+    :goto_28b
+    if-ge v7, v6, :cond_29b
 
     aget v8, v5, v7
 
@@ -792,10 +792,10 @@
     .end local v8    # "value":I
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_28b
 
     .line 68
-    :cond_0
+    :cond_29b
     sget-object v5, Lcom/google/zxing/common/CharacterSetECI;->NAME_TO_ECI:Ljava/util/Map;
 
     invoke-virtual {v3}, Lcom/google/zxing/common/CharacterSetECI;->name()Ljava/lang/String;
@@ -811,8 +811,8 @@
 
     const/4 v7, 0x0
 
-    :goto_2
-    if-ge v7, v6, :cond_1
+    :goto_2a8
+    if-ge v7, v6, :cond_2b4
 
     aget-object v8, v5, v7
 
@@ -826,22 +826,22 @@
     .end local v8    # "name":Ljava/lang/String;
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_2
+    goto :goto_2a8
 
     .line 64
     .end local v3    # "eci":Lcom/google/zxing/common/CharacterSetECI;
-    :cond_1
+    :cond_2b4
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_282
 
     .line 73
-    :cond_2
+    :cond_2b7
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 2
+    .registers 6
     .param p3, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -865,7 +865,7 @@
 .end method
 
 .method private varargs constructor <init>(Ljava/lang/String;II[Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p3, "value"    # I
     .param p4, "otherEncodingNames"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -894,7 +894,7 @@
 .end method
 
 .method private varargs constructor <init>(Ljava/lang/String;I[I[Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p3, "values"    # [I
     .param p4, "otherEncodingNames"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -919,7 +919,7 @@
 .end method
 
 .method public static getCharacterSetECIByName(Ljava/lang/String;)Lcom/google/zxing/common/CharacterSetECI;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 115
@@ -935,7 +935,7 @@
 .end method
 
 .method public static getCharacterSetECIByValue(I)Lcom/google/zxing/common/CharacterSetECI;
-    .locals 2
+    .registers 3
     .param p0, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -944,11 +944,11 @@
     .end annotation
 
     .line 103
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_13
 
     const/16 v0, 0x384
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_13
 
     .line 106
     sget-object v0, Lcom/google/zxing/common/CharacterSetECI;->VALUE_TO_ECI:Ljava/util/Map;
@@ -966,7 +966,7 @@
     return-object v0
 
     .line 104
-    :cond_0
+    :cond_13
     invoke-static {}, Lcom/google/zxing/FormatException;->getFormatInstance()Lcom/google/zxing/FormatException;
 
     move-result-object v0
@@ -975,7 +975,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/zxing/common/CharacterSetECI;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 30
@@ -991,7 +991,7 @@
 .end method
 
 .method public static values()[Lcom/google/zxing/common/CharacterSetECI;
-    .locals 1
+    .registers 1
 
     .line 30
     sget-object v0, Lcom/google/zxing/common/CharacterSetECI;->$VALUES:[Lcom/google/zxing/common/CharacterSetECI;
@@ -1008,7 +1008,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 2
+    .registers 3
 
     .line 93
     iget-object v0, p0, Lcom/google/zxing/common/CharacterSetECI;->values:[I

@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Collection;Lcom/google/common/base/Function;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 275
     .local p0, "this":Lcom/google/common/collect/Collections2$TransformedCollection;, "Lcom/google/common/collect/Collections2$TransformedCollection<TF;TT;>;"
@@ -103,7 +103,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 280
     .local p0, "this":Lcom/google/common/collect/Collections2$TransformedCollection;, "Lcom/google/common/collect/Collections2$TransformedCollection<TF;TT;>;"
@@ -117,7 +117,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -144,7 +144,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 290
     .local p0, "this":Lcom/google/common/collect/Collections2$TransformedCollection;, "Lcom/google/common/collect/Collections2$TransformedCollection<TF;TT;>;"

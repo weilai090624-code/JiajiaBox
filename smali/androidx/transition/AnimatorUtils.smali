@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method static addPauseListener(Landroid/animation/Animator;Landroid/animation/AnimatorListenerAdapter;)V
-    .locals 0
+    .registers 2
     .param p0, "animator"    # Landroid/animation/Animator;
     .param p1, "listener"    # Landroid/animation/AnimatorListenerAdapter;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static pause(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 1
     .param p0, "animator"    # Landroid/animation/Animator;
 
     .line 37
@@ -52,7 +52,7 @@
 .end method
 
 .method static resume(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 1
     .param p0, "animator"    # Landroid/animation/Animator;
 
     .line 53

@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/activity/ComponentActivity;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/activity/ComponentActivity$defaultViewModelProviderFactory$2;->this$0:Landroidx/activity/ComponentActivity;
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/SavedStateViewModelFactory;
-    .locals 4
+    .registers 5
 
     .line 547
     new-instance v0, Landroidx/lifecycle/SavedStateViewModelFactory;
@@ -85,7 +85,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1f
 
     iget-object v3, p0, Landroidx/activity/ComponentActivity$defaultViewModelProviderFactory$2;->this$0:Landroidx/activity/ComponentActivity;
 
@@ -97,19 +97,19 @@
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_1f
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_20
     invoke-direct {v0, v1, v2, v3}, Landroidx/lifecycle/SavedStateViewModelFactory;-><init>(Landroid/app/Application;Landroidx/savedstate/SavedStateRegistryOwner;Landroid/os/Bundle;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 546
     invoke-virtual {p0}, Landroidx/activity/ComponentActivity$defaultViewModelProviderFactory$2;->invoke()Landroidx/lifecycle/SavedStateViewModelFactory;

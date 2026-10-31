@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)V
-    .locals 0
+    .registers 4
 
     iput-object p1, p0, Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1;->$initial$inlined:Ljava/lang/Object;
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,7 +95,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -107,7 +107,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1$1;->label:I
 
@@ -115,14 +115,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1$1;-><init>(Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -136,7 +136,7 @@
     .line 106
     iget v2, p2, Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_88
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -150,16 +150,16 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p1, 0x0
 
     .local p1, "$i$a$-unsafeFlow-FlowKt__TransformKt$runningFold$1":I
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_83
 
     .end local p1    # "$i$a$-unsafeFlow-FlowKt__TransformKt$runningFold$1":I
-    :pswitch_1
+    :pswitch_32
     const/4 p1, 0x0
 
     .restart local p1    # "$i$a$-unsafeFlow-FlowKt__TransformKt$runningFold$1":I
@@ -180,13 +180,13 @@
     .local v4, "this":Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_67
 
     .end local v2    # "accumulator":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v3    # "$this$runningFold_u24lambda_u249":Lkotlinx/coroutines/flow/FlowCollector;
     .end local v4    # "this":Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1;
     .end local p1    # "$i$a$-unsafeFlow-FlowKt__TransformKt$runningFold$1":I
-    :pswitch_2
+    :pswitch_43
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v4, p0
@@ -232,14 +232,14 @@
 
     move-result-object v5
 
-    if-ne v5, v1, :cond_1
+    if-ne v5, v1, :cond_67
 
     .line 106
     return-object v1
 
     .line 116
-    :cond_1
-    :goto_1
+    :cond_67
+    :goto_67
     iget-object v5, v4, Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1;->$this_runningFold$inlined:Lkotlinx/coroutines/flow/Flow;
 
     new-instance v6, Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$1$1;
@@ -269,14 +269,14 @@
     .end local v2    # "accumulator":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v3    # "$this$runningFold_u24lambda_u249":Lkotlinx/coroutines/flow/FlowCollector;
     .end local v4    # "this":Lkotlinx/coroutines/flow/FlowKt__TransformKt$runningFold$$inlined$unsafeFlow$1;
-    if-ne v2, v1, :cond_2
+    if-ne v2, v1, :cond_83
 
     .line 106
     return-object v1
 
     .line 120
-    :cond_2
-    :goto_2
+    :cond_83
+    :goto_83
     nop
 
     .line 109
@@ -288,10 +288,10 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_88
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_43
+        :pswitch_32
+        :pswitch_2d
     .end packed-switch
 .end method

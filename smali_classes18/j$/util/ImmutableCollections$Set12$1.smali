@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/ImmutableCollections$Set12;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lj$/util/ImmutableCollections$Set12;
 
     .line 533
@@ -57,27 +57,27 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 538
     .local p0, "this":Lj$/util/ImmutableCollections$Set12$1;, "Ljava/util/ImmutableCollections$Set12$1;"
     iget v0, p0, Lj$/util/ImmutableCollections$Set12$1;->idx:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -90,7 +90,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_1d
 
     .line 544
     const/4 v0, 0x0
@@ -100,39 +100,39 @@
     .line 545
     sget v0, Lj$/util/ImmutableCollections;->SALT:I
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_18
 
     iget-object v0, p0, Lj$/util/ImmutableCollections$Set12$1;->this$0:Lj$/util/ImmutableCollections$Set12;
 
     iget-object v0, v0, Lj$/util/ImmutableCollections$Set12;->e1:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lj$/util/ImmutableCollections$Set12$1;->this$0:Lj$/util/ImmutableCollections$Set12;
 
     iget-object v0, v0, Lj$/util/ImmutableCollections$Set12;->e1:Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     iget-object v0, p0, Lj$/util/ImmutableCollections$Set12$1;->this$0:Lj$/util/ImmutableCollections$Set12;
 
     iget-object v0, v0, Lj$/util/ImmutableCollections$Set12;->e0:Ljava/lang/Object;
 
-    :goto_1
+    :goto_1c
     return-object v0
 
     .line 546
-    :cond_2
+    :cond_1d
     iget v0, p0, Lj$/util/ImmutableCollections$Set12$1;->idx:I
 
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_4
+    if-ne v0, v2, :cond_32
 
     .line 547
     iput v1, p0, Lj$/util/ImmutableCollections$Set12$1;->idx:I
@@ -140,24 +140,24 @@
     .line 548
     sget v0, Lj$/util/ImmutableCollections;->SALT:I
 
-    if-ltz v0, :cond_3
+    if-ltz v0, :cond_2d
 
     iget-object v0, p0, Lj$/util/ImmutableCollections$Set12$1;->this$0:Lj$/util/ImmutableCollections$Set12;
 
     iget-object v0, v0, Lj$/util/ImmutableCollections$Set12;->e1:Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_31
 
-    :cond_3
+    :cond_2d
     iget-object v0, p0, Lj$/util/ImmutableCollections$Set12$1;->this$0:Lj$/util/ImmutableCollections$Set12;
 
     iget-object v0, v0, Lj$/util/ImmutableCollections$Set12;->e0:Ljava/lang/Object;
 
-    :goto_2
+    :goto_31
     return-object v0
 
     .line 550
-    :cond_4
+    :cond_32
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

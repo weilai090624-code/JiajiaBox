@@ -35,7 +35,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetsignStyle(Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;)Lj$/time/format/SignStyle;
-    .locals 0
+    .registers 1
 
     iget-object p0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->signStyle:Lj$/time/format/SignStyle;
 
@@ -43,20 +43,20 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 2638
     const/16 v0, 0xb
 
     new-array v0, v0, [J
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_a
 
     sput-object v0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->EXCEED_POINTS:[J
 
     return-void
 
-    :array_0
+    :array_a
     .array-data 8
         0x0
         0xa
@@ -73,7 +73,7 @@
 .end method
 
 .method constructor <init>(Lj$/time/temporal/TemporalField;IILj$/time/format/SignStyle;)V
-    .locals 1
+    .registers 6
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "minWidth"    # I
     .param p3, "maxWidth"    # I
@@ -104,7 +104,7 @@
 .end method
 
 .method protected constructor <init>(Lj$/time/temporal/TemporalField;IILj$/time/format/SignStyle;I)V
-    .locals 0
+    .registers 6
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "minWidth"    # I
     .param p3, "maxWidth"    # I
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 11
+    .registers 14
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -149,7 +149,7 @@
 
     .line 2719
     .local v0, "valueLong":Ljava/lang/Long;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 2720
     const/4 v1, 0x0
@@ -157,7 +157,7 @@
     return v1
 
     .line 2722
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v1
@@ -178,13 +178,13 @@
 
     cmp-long v6, v1, v4
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_1f
 
     const-string v4, "9223372036854775808"
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_1
+    :cond_1f
     invoke-static {v1, v2}, Ljava/lang/Math;->abs(J)J
 
     move-result-wide v4
@@ -195,7 +195,7 @@
 
     .line 2725
     .local v4, "str":Ljava/lang/String;
-    :goto_0
+    :goto_27
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -206,7 +206,7 @@
 
     const-string v8, "Field "
 
-    if-gt v5, v6, :cond_5
+    if-gt v5, v6, :cond_c1
 
     .line 2730
     invoke-virtual {v3, v4}, Lj$/time/format/DecimalStyle;->convertNumberToI18N(Ljava/lang/String;)Ljava/lang/String;
@@ -218,7 +218,7 @@
 
     cmp-long v9, v1, v5
 
-    if-ltz v9, :cond_3
+    if-ltz v9, :cond_6b
 
     .line 2733
     sget-object v5, Lj$/time/format/DateTimeFormatterBuilder$3;->$SwitchMap$java$time$format$SignStyle:[I
@@ -231,27 +231,27 @@
 
     aget v5, v5, v6
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_ee
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 2740
-    :pswitch_0
+    :pswitch_4b
     invoke-virtual {v3}, Lj$/time/format/DecimalStyle;->getPositiveSign()C
 
     move-result v5
 
     invoke-virtual {p2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 2735
-    :pswitch_1
+    :pswitch_53
     iget v5, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->minWidth:I
 
     const/16 v6, 0x13
 
-    if-ge v5, v6, :cond_2
+    if-ge v5, v6, :cond_6a
 
     sget-object v5, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->EXCEED_POINTS:[J
 
@@ -261,7 +261,7 @@
 
     cmp-long v5, v1, v6
 
-    if-ltz v5, :cond_2
+    if-ltz v5, :cond_6a
 
     .line 2736
     invoke-virtual {v3}, Lj$/time/format/DecimalStyle;->getPositiveSign()C
@@ -271,12 +271,12 @@
     invoke-virtual {p2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 2741
-    :cond_2
-    :goto_1
-    goto :goto_2
+    :cond_6a
+    :goto_6a
+    goto :goto_a8
 
     .line 2744
-    :cond_3
+    :cond_6b
     sget-object v5, Lj$/time/format/DateTimeFormatterBuilder$3;->$SwitchMap$java$time$format$SignStyle:[I
 
     iget-object v6, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->signStyle:Lj$/time/format/SignStyle;
@@ -287,12 +287,12 @@
 
     aget v5, v5, v6
 
-    packed-switch v5, :pswitch_data_1
+    packed-switch v5, :pswitch_data_f6
 
-    goto :goto_2
+    goto :goto_a8
 
     .line 2751
-    :pswitch_2
+    :pswitch_79
     new-instance v5, Lj$/time/DateTimeException;
 
     iget-object v6, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -332,7 +332,7 @@
     throw v5
 
     .line 2748
-    :pswitch_3
+    :pswitch_a0
     invoke-virtual {v3}, Lj$/time/format/DecimalStyle;->getNegativeSign()C
 
     move-result v5
@@ -343,11 +343,11 @@
     nop
 
     .line 2756
-    :goto_2
+    :goto_a8
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_3
+    :goto_a9
     iget v6, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->minWidth:I
 
     invoke-virtual {v4}, Ljava/lang/String;->length()I
@@ -356,7 +356,7 @@
 
     sub-int/2addr v6, v7
 
-    if-ge v5, v6, :cond_4
+    if-ge v5, v6, :cond_bc
 
     .line 2757
     invoke-virtual {v3}, Lj$/time/format/DecimalStyle;->getZeroDigit()C
@@ -368,11 +368,11 @@
     .line 2756
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_3
+    goto :goto_a9
 
     .line 2759
     .end local v5    # "i":I
-    :cond_4
+    :cond_bc
     invoke-virtual {p2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 2760
@@ -381,7 +381,7 @@
     return v5
 
     .line 2726
-    :cond_5
+    :cond_c1
     new-instance v5, Lj$/time/DateTimeException;
 
     iget-object v6, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -426,23 +426,23 @@
 
     throw v5
 
-    :pswitch_data_0
+    :pswitch_data_ee
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_53
+        :pswitch_4b
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_f6
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_2
+        :pswitch_a0
+        :pswitch_a0
+        :pswitch_a0
+        :pswitch_79
     .end packed-switch
 .end method
 
 .method getValue(Lj$/time/format/DateTimePrintContext;J)J
-    .locals 0
+    .registers 4
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "value"    # J
 
@@ -451,7 +451,7 @@
 .end method
 
 .method isFixedWidth(Lj$/time/format/DateTimeParseContext;)Z
-    .locals 2
+    .registers 4
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
 
     .line 2782
@@ -459,41 +459,41 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_18
 
     iget v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->subsequentWidth:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_16
 
     iget v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->minWidth:I
 
     iget v1, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->maxWidth:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->signStyle:Lj$/time/format/SignStyle;
 
     sget-object v1, Lj$/time/format/SignStyle;->NOT_NEGATIVE:Lj$/time/format/SignStyle;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_19
     return v0
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 21
+    .registers 25
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -509,7 +509,7 @@
 
     .line 2789
     .local v7, "length":I
-    if-ne v0, v7, :cond_0
+    if-ne v0, v7, :cond_c
 
     .line 2790
     not-int v1, v0
@@ -517,7 +517,7 @@
     return v1
 
     .line 2792
-    :cond_0
+    :cond_c
     invoke-interface/range {p2 .. p3}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v8
@@ -544,7 +544,7 @@
 
     const/4 v5, 0x1
 
-    if-ne v8, v3, :cond_3
+    if-ne v8, v3, :cond_3c
 
     .line 2796
     iget-object v3, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->signStyle:Lj$/time/format/SignStyle;
@@ -557,21 +557,21 @@
 
     iget v11, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->maxWidth:I
 
-    if-ne v10, v11, :cond_1
+    if-ne v10, v11, :cond_2c
 
     const/4 v10, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_1
+    :cond_2c
     const/4 v10, 0x0
 
-    :goto_0
+    :goto_2d
     invoke-virtual {v3, v5, v9, v10}, Lj$/time/format/SignStyle;->parse(ZZZ)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_35
 
     .line 2797
     not-int v3, v0
@@ -579,7 +579,7 @@
     return v3
 
     .line 2799
-    :cond_2
+    :cond_35
     const/4 v2, 0x1
 
     .line 2800
@@ -593,12 +593,12 @@
 
     .end local p3    # "position":I
     .local v0, "position":I
-    goto :goto_2
+    goto :goto_75
 
     .line 2801
     .end local v0    # "position":I
     .restart local p3    # "position":I
-    :cond_3
+    :cond_3c
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->getDecimalStyle()Lj$/time/format/DecimalStyle;
 
     move-result-object v3
@@ -607,7 +607,7 @@
 
     move-result v3
 
-    if-ne v8, v3, :cond_6
+    if-ne v8, v3, :cond_64
 
     .line 2802
     iget-object v3, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->signStyle:Lj$/time/format/SignStyle;
@@ -620,21 +620,21 @@
 
     iget v11, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->maxWidth:I
 
-    if-ne v10, v11, :cond_4
+    if-ne v10, v11, :cond_54
 
     const/4 v10, 0x1
 
-    goto :goto_1
+    goto :goto_55
 
-    :cond_4
+    :cond_54
     const/4 v10, 0x0
 
-    :goto_1
+    :goto_55
     invoke-virtual {v3, v4, v9, v10}, Lj$/time/format/SignStyle;->parse(ZZZ)Z
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_5d
 
     .line 2803
     not-int v3, v0
@@ -642,7 +642,7 @@
     return v3
 
     .line 2805
-    :cond_5
+    :cond_5d
     const/4 v1, 0x1
 
     .line 2806
@@ -656,23 +656,23 @@
 
     .end local p3    # "position":I
     .restart local v0    # "position":I
-    goto :goto_2
+    goto :goto_75
 
     .line 2808
     .end local v0    # "position":I
     .restart local p3    # "position":I
-    :cond_6
+    :cond_64
     iget-object v3, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->signStyle:Lj$/time/format/SignStyle;
 
     sget-object v9, Lj$/time/format/SignStyle;->ALWAYS:Lj$/time/format/SignStyle;
 
-    if-ne v3, v9, :cond_7
+    if-ne v3, v9, :cond_72
 
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->isStrict()Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_72
 
     .line 2809
     not-int v3, v0
@@ -680,7 +680,7 @@
     return v3
 
     .line 2812
-    :cond_7
+    :cond_72
     move v9, v0
 
     move v10, v1
@@ -693,23 +693,23 @@
     .local v9, "position":I
     .local v10, "negative":Z
     .local v11, "positive":Z
-    :goto_2
+    :goto_75
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->isStrict()Z
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_81
 
     invoke-virtual/range {p0 .. p1}, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->isFixedWidth(Lj$/time/format/DateTimeParseContext;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_83
 
-    :cond_8
+    :cond_81
     iget v5, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->minWidth:I
 
-    :cond_9
+    :cond_83
     move v12, v5
 
     .line 2813
@@ -718,7 +718,7 @@
 
     .line 2814
     .local v13, "minEndPos":I
-    if-le v13, v7, :cond_a
+    if-le v13, v7, :cond_8a
 
     .line 2815
     not-int v0, v9
@@ -726,31 +726,31 @@
     return v0
 
     .line 2817
-    :cond_a
+    :cond_8a
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->isStrict()Z
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_9a
 
     invoke-virtual/range {p0 .. p1}, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->isFixedWidth(Lj$/time/format/DateTimeParseContext;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_97
 
-    goto :goto_3
+    goto :goto_9a
 
-    :cond_b
+    :cond_97
     const/16 v0, 0x9
 
-    goto :goto_4
+    goto :goto_9c
 
-    :cond_c
-    :goto_3
+    :cond_9a
+    :goto_9a
     iget v0, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->maxWidth:I
 
-    :goto_4
+    :goto_9c
     iget v1, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->subsequentWidth:I
 
     invoke-static {v1, v4}, Ljava/lang/Math;->max(II)I
@@ -780,10 +780,10 @@
     .end local v0    # "effMaxWidth":I
     .local v5, "pass":I
     .local v14, "effMaxWidth":I
-    :goto_5
+    :goto_a9
     const/4 v0, 0x2
 
-    if-ge v5, v0, :cond_13
+    if-ge v5, v0, :cond_134
 
     .line 2822
     add-int v0, v4, v14
@@ -794,8 +794,8 @@
 
     .line 2823
     .local v0, "maxEndPos":I
-    :goto_6
-    if-ge v4, v0, :cond_11
+    :goto_b2
+    if-ge v4, v0, :cond_10c
 
     .line 2824
     add-int/lit8 v15, v4, 0x1
@@ -828,13 +828,13 @@
 
     .line 2826
     .local v0, "digit":I
-    if-gez v0, :cond_e
+    if-gez v0, :cond_da
 
     .line 2827
     add-int/lit8 v15, v15, -0x1
 
     .line 2828
-    if-ge v15, v13, :cond_d
+    if-ge v15, v13, :cond_d2
 
     .line 2829
     move/from16 v17, v4
@@ -848,7 +848,7 @@
     .line 2828
     .end local v17    # "ch":C
     .restart local v4    # "ch":C
-    :cond_d
+    :cond_d2
     move/from16 v17, v4
 
     .end local v4    # "ch":C
@@ -859,12 +859,12 @@
 
     move v4, v15
 
-    goto :goto_8
+    goto :goto_114
 
     .line 2833
     .end local v17    # "ch":C
     .restart local v4    # "ch":C
-    :cond_e
+    :cond_da
     move/from16 v17, v4
 
     .end local v4    # "ch":C
@@ -873,10 +873,10 @@
 
     const/16 v7, 0x12
 
-    if-le v4, v7, :cond_10
+    if-le v4, v7, :cond_fa
 
     .line 2834
-    if-nez v3, :cond_f
+    if-nez v3, :cond_e8
 
     .line 2835
     invoke-static {v1, v2}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
@@ -884,7 +884,7 @@
     move-result-object v3
 
     .line 2837
-    :cond_f
+    :cond_e8
     sget-object v4, Ljava/math/BigInteger;->TEN:Ljava/math/BigInteger;
 
     invoke-virtual {v3, v4}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
@@ -905,12 +905,12 @@
 
     move-result-object v3
 
-    goto :goto_7
+    goto :goto_104
 
     .line 2839
     .end local v18    # "sign":C
     .restart local v8    # "sign":C
-    :cond_10
+    :cond_fa
     move/from16 v18, v8
 
     .end local v8    # "sign":C
@@ -932,7 +932,7 @@
     .end local v17    # "ch":C
     .end local v19    # "total":J
     .restart local v1    # "total":J
-    :goto_7
+    :goto_104
     move/from16 v0, p3
 
     move v4, v15
@@ -941,7 +941,7 @@
 
     move/from16 v8, v18
 
-    goto :goto_6
+    goto :goto_b2
 
     .line 2823
     .end local v15    # "pos":I
@@ -952,7 +952,7 @@
     .local v4, "pos":I
     .restart local v7    # "length":I
     .restart local v8    # "sign":C
-    :cond_11
+    :cond_10c
     move/from16 p3, v0
 
     move-wide/from16 v19, v1
@@ -970,12 +970,12 @@
     .restart local v18    # "sign":C
     .restart local v19    # "total":J
     .restart local p3    # "maxEndPos":I
-    :goto_8
+    :goto_114
     iget v0, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->subsequentWidth:I
 
-    if-lez v0, :cond_12
+    if-lez v0, :cond_130
 
-    if-nez v5, :cond_12
+    if-nez v5, :cond_130
 
     .line 2844
     sub-int v0, v4, v9
@@ -1010,18 +1010,18 @@
 
     move/from16 v8, v18
 
-    goto/16 :goto_5
+    goto/16 :goto_a9
 
     .line 2853
     .end local v1    # "total":J
     .end local v5    # "pass":I
     .restart local v19    # "total":J
-    :cond_12
+    :cond_130
     move v7, v4
 
     move-wide/from16 v1, v19
 
-    goto :goto_9
+    goto :goto_139
 
     .line 2821
     .end local v16    # "length":I
@@ -1031,7 +1031,7 @@
     .restart local v5    # "pass":I
     .restart local v7    # "length":I
     .restart local v8    # "sign":C
-    :cond_13
+    :cond_134
     move/from16 v16, v7
 
     move/from16 v18, v8
@@ -1046,11 +1046,11 @@
     .end local v4    # "pos":I
     .end local v5    # "pass":I
     .local v7, "pos":I
-    :goto_9
-    if-eqz v10, :cond_17
+    :goto_139
+    if-eqz v10, :cond_16c
 
     .line 2854
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_157
 
     .line 2855
     sget-object v0, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
@@ -1059,13 +1059,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_14f
 
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->isStrict()Z
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_14f
 
     .line 2856
     add-int/lit8 v0, v9, -0x1
@@ -1075,7 +1075,7 @@
     return v0
 
     .line 2858
-    :cond_14
+    :cond_14f
     invoke-virtual {v3}, Ljava/math/BigInteger;->negate()Ljava/math/BigInteger;
 
     move-result-object v3
@@ -1084,21 +1084,21 @@
 
     move-object v8, v3
 
-    goto :goto_a
+    goto :goto_18d
 
     .line 2860
-    :cond_15
+    :cond_157
     const-wide/16 v4, 0x0
 
     cmp-long v0, v1, v4
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_167
 
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->isStrict()Z
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_167
 
     .line 2861
     add-int/lit8 v0, v9, -0x1
@@ -1108,40 +1108,40 @@
     return v0
 
     .line 2863
-    :cond_16
+    :cond_167
     neg-long v1, v1
 
     move-wide/from16 v19, v1
 
     move-object v8, v3
 
-    goto :goto_a
+    goto :goto_18d
 
     .line 2865
-    :cond_17
+    :cond_16c
     iget-object v0, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->signStyle:Lj$/time/format/SignStyle;
 
     sget-object v4, Lj$/time/format/SignStyle;->EXCEEDS_PAD:Lj$/time/format/SignStyle;
 
-    if-ne v0, v4, :cond_19
+    if-ne v0, v4, :cond_18a
 
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->isStrict()Z
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_18a
 
     .line 2866
     sub-int v0, v7, v9
 
     .line 2867
     .restart local v0    # "parseLen":I
-    if-eqz v11, :cond_18
+    if-eqz v11, :cond_184
 
     .line 2868
     iget v4, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->minWidth:I
 
-    if-gt v0, v4, :cond_19
+    if-gt v0, v4, :cond_18a
 
     .line 2869
     add-int/lit8 v4, v9, -0x1
@@ -1151,10 +1151,10 @@
     return v4
 
     .line 2872
-    :cond_18
+    :cond_184
     iget v4, v6, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->minWidth:I
 
-    if-le v0, v4, :cond_19
+    if-le v0, v4, :cond_18a
 
     .line 2873
     not-int v4, v9
@@ -1163,7 +1163,7 @@
 
     .line 2877
     .end local v0    # "parseLen":I
-    :cond_19
+    :cond_18a
     move-wide/from16 v19, v1
 
     move-object v8, v3
@@ -1172,8 +1172,8 @@
     .end local v3    # "totalBig":Ljava/math/BigInteger;
     .local v8, "totalBig":Ljava/math/BigInteger;
     .restart local v19    # "total":J
-    :goto_a
-    if-eqz v8, :cond_1b
+    :goto_18d
+    if-eqz v8, :cond_1ae
 
     .line 2878
     invoke-virtual {v8}, Ljava/math/BigInteger;->bitLength()I
@@ -1182,7 +1182,7 @@
 
     const/16 v1, 0x3f
 
-    if-le v0, v1, :cond_1a
+    if-le v0, v1, :cond_19f
 
     .line 2880
     sget-object v0, Ljava/math/BigInteger;->TEN:Ljava/math/BigInteger;
@@ -1195,7 +1195,7 @@
     add-int/lit8 v7, v7, -0x1
 
     .line 2883
-    :cond_1a
+    :cond_19f
     invoke-virtual {v8}, Ljava/math/BigInteger;->longValue()J
 
     move-result-wide v2
@@ -1215,7 +1215,7 @@
     return v0
 
     .line 2885
-    :cond_1b
+    :cond_1ae
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1234,7 +1234,7 @@
 .end method
 
 .method setValue(Lj$/time/format/DateTimeParseContext;JII)I
-    .locals 6
+    .registers 12
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "value"    # J
     .param p4, "errorPos"    # I
@@ -1259,7 +1259,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     .line 2903
     iget v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->minWidth:I
@@ -1270,19 +1270,19 @@
 
     const-string v3, "Value("
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2d
 
     iget v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->maxWidth:I
 
     const/16 v1, 0x13
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2d
 
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->signStyle:Lj$/time/format/SignStyle;
 
     sget-object v1, Lj$/time/format/SignStyle;->NORMAL:Lj$/time/format/SignStyle;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2d
 
     .line 2904
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -1310,20 +1310,20 @@
     return-object v0
 
     .line 2906
-    :cond_0
+    :cond_2d
     iget v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->minWidth:I
 
     iget v1, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->maxWidth:I
 
     const-string v4, ","
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_5d
 
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->signStyle:Lj$/time/format/SignStyle;
 
     sget-object v1, Lj$/time/format/SignStyle;->NOT_NEGATIVE:Lj$/time/format/SignStyle;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_5d
 
     .line 2907
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -1361,7 +1361,7 @@
     return-object v0
 
     .line 2909
-    :cond_1
+    :cond_5d
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->field:Lj$/time/temporal/TemporalField;
 
     iget v1, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->minWidth:I
@@ -1418,20 +1418,20 @@
 .end method
 
 .method withFixedWidth()Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
-    .locals 8
+    .registers 9
 
     .line 2700
     iget v0, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->subsequentWidth:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
     .line 2701
     return-object p0
 
     .line 2703
-    :cond_0
+    :cond_6
     new-instance v0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
 
     iget-object v3, p0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -1452,7 +1452,7 @@
 .end method
 
 .method withSubsequentWidth(I)Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
-    .locals 7
+    .registers 9
     .param p1, "subsequentWidth"    # I
 
     .line 2713

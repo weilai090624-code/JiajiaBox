@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Landroid/webkit/WebViewClient;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/webkit/WebView;
     .param p2, "url"    # Ljava/lang/String;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public onReceivedError(Landroid/webkit/WebView;Landroid/webkit/WebResourceRequest;Landroid/webkit/WebResourceError;)V
-    .locals 1
+    .registers 5
     .param p1, "view"    # Landroid/webkit/WebView;
     .param p2, "request"    # Landroid/webkit/WebResourceRequest;
     .param p3, "error"    # Landroid/webkit/WebResourceError;

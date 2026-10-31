@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public final invoke(Ljava/io/File;Ljava/io/IOException;)V
-    .locals 2
+    .registers 5
     .param p1, "f"    # Ljava/io/File;
     .param p2, "e"    # Ljava/io/IOException;
 
@@ -135,11 +135,11 @@
 
     sget-object v1, Lkotlin/io/OnErrorAction;->TERMINATE:Lkotlin/io/OnErrorAction;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_15
 
     return-void
 
-    :cond_0
+    :cond_15
     new-instance v0, Lkotlin/io/TerminateException;
 
     invoke-direct {v0, p1}, Lkotlin/io/TerminateException;-><init>(Ljava/io/File;)V

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;Landroid/view/View;Lcom/google/android/material/appbar/AppBarLayout;)V
-    .locals 0
+    .registers 4
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public final onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 6
+    .registers 10
 
     .line 0
     iget-object v0, p0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$$ExternalSyntheticLambda1;->f$0:Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;

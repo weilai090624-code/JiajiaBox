@@ -14,7 +14,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "interpolator"    # Landroid/view/animation/Interpolator;
 
@@ -22,21 +22,21 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 57
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_b
 
     .line 58
     new-instance v0, Landroid/widget/OverScroller;
 
     invoke-direct {v0, p1, p2}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_b
     new-instance v0, Landroid/widget/OverScroller;
 
     invoke-direct {v0, p1}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;)V
 
-    :goto_0
+    :goto_10
     iput-object v0, p0, Landroidx/core/widget/ScrollerCompat;->mScroller:Landroid/widget/OverScroller;
 
     .line 59
@@ -44,7 +44,7 @@
 .end method
 
 .method public static create(Landroid/content/Context;)Landroidx/core/widget/ScrollerCompat;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -60,7 +60,7 @@
 .end method
 
 .method public static create(Landroid/content/Context;Landroid/view/animation/Interpolator;)Landroidx/core/widget/ScrollerCompat;
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "interpolator"    # Landroid/view/animation/Interpolator;
     .annotation runtime Ljava/lang/Deprecated;
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public abortAnimation()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public computeScrollOffset()Z
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public fling(IIIIIIII)V
-    .locals 10
+    .registers 19
     .param p1, "startX"    # I
     .param p2, "startY"    # I
     .param p3, "velocityX"    # I
@@ -146,7 +146,7 @@
 .end method
 
 .method public fling(IIIIIIIIII)V
-    .locals 12
+    .registers 23
     .param p1, "startX"    # I
     .param p2, "startY"    # I
     .param p3, "velocityX"    # I
@@ -192,7 +192,7 @@
 .end method
 
 .method public getCurrVelocity()F
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -207,7 +207,7 @@
 .end method
 
 .method public getCurrX()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -222,7 +222,7 @@
 .end method
 
 .method public getCurrY()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -237,7 +237,7 @@
 .end method
 
 .method public getFinalX()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -252,7 +252,7 @@
 .end method
 
 .method public getFinalY()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -267,7 +267,7 @@
 .end method
 
 .method public isFinished()Z
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -282,7 +282,7 @@
 .end method
 
 .method public isOverScrolled()Z
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -297,7 +297,7 @@
 .end method
 
 .method public notifyHorizontalEdgeReached(III)V
-    .locals 1
+    .registers 5
     .param p1, "startX"    # I
     .param p2, "finalX"    # I
     .param p3, "overX"    # I
@@ -314,7 +314,7 @@
 .end method
 
 .method public notifyVerticalEdgeReached(III)V
-    .locals 1
+    .registers 5
     .param p1, "startY"    # I
     .param p2, "finalY"    # I
     .param p3, "overY"    # I
@@ -331,7 +331,7 @@
 .end method
 
 .method public springBack(IIIIII)Z
-    .locals 7
+    .registers 14
     .param p1, "startX"    # I
     .param p2, "startY"    # I
     .param p3, "minX"    # I
@@ -364,7 +364,7 @@
 .end method
 
 .method public startScroll(IIII)V
-    .locals 1
+    .registers 6
     .param p1, "startX"    # I
     .param p2, "startY"    # I
     .param p3, "dx"    # I
@@ -382,7 +382,7 @@
 .end method
 
 .method public startScroll(IIIII)V
-    .locals 6
+    .registers 12
     .param p1, "startX"    # I
     .param p2, "startY"    # I
     .param p3, "dx"    # I

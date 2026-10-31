@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 114
     const/4 v0, 0x0

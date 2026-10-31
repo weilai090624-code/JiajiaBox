@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$onCreate(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/lifecycle/DefaultLifecycleObserver;
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
@@ -19,7 +19,7 @@
 .end method
 
 .method public static $default$onDestroy(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/lifecycle/DefaultLifecycleObserver;
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
@@ -33,7 +33,7 @@
 .end method
 
 .method public static $default$onPause(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/lifecycle/DefaultLifecycleObserver;
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public static $default$onResume(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/lifecycle/DefaultLifecycleObserver;
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public static $default$onStart(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/lifecycle/DefaultLifecycleObserver;
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public static $default$onStop(Landroidx/lifecycle/DefaultLifecycleObserver;Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/lifecycle/DefaultLifecycleObserver;
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 

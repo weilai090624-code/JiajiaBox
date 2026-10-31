@@ -12,7 +12,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 30
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public add(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 36
@@ -45,7 +45,7 @@
 .end method
 
 .method public remove(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 41

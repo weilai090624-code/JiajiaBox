@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 429
     const/4 v0, 0x0
@@ -48,7 +48,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # I
 
     .line 436
@@ -71,13 +71,13 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # I
 
     .line 445
     iget v0, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->count:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 446
     iput p1, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->first:I
@@ -89,18 +89,18 @@
 
     iput v0, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->count:I
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 449
-    :cond_0
+    :cond_d
     iget v0, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->count:I
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_2f
 
     .line 450
     iget-object v0, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->buffer:Lj$/util/stream/SpinedBuffer$OfInt;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 451
     new-instance v0, Lj$/util/stream/SpinedBuffer$OfInt;
@@ -124,17 +124,17 @@
     iput v0, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->count:I
 
     .line 456
-    :cond_1
+    :cond_29
     iget-object v0, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->buffer:Lj$/util/stream/SpinedBuffer$OfInt;
 
     invoke-virtual {v0, p1}, Lj$/util/stream/SpinedBuffer$OfInt;->accept(I)V
 
     .line 461
-    :goto_0
+    :goto_2e
     return-void
 
     .line 459
-    :cond_2
+    :cond_2f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -143,7 +143,7 @@
 .end method
 
 .method public synthetic add(I)Lj$/util/stream/IntStream$Builder;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/IntStream$Builder$-CC;->$default$add(Lj$/util/stream/IntStream$Builder;I)Lj$/util/stream/IntStream$Builder;
 
@@ -153,7 +153,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 
@@ -163,14 +163,14 @@
 .end method
 
 .method public build()Lj$/util/stream/IntStream;
-    .locals 3
+    .registers 4
 
     .line 465
     iget v0, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->count:I
 
     .line 466
     .local v0, "c":I
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_1f
 
     .line 468
     iget v1, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->count:I
@@ -186,15 +186,15 @@
 
     const/4 v2, 0x0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_14
 
     invoke-static {p0, v2}, Lj$/util/stream/StreamSupport;->intStream(Lj$/util/Spliterator$OfInt;Z)Lj$/util/stream/IntStream;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_14
     iget-object v1, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->buffer:Lj$/util/stream/SpinedBuffer$OfInt;
 
     invoke-virtual {v1}, Lj$/util/stream/SpinedBuffer$OfInt;->spliterator()Lj$/util/Spliterator$OfInt;
@@ -205,11 +205,11 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1e
     return-object v1
 
     .line 474
-    :cond_1
+    :cond_1f
     new-instance v1, Ljava/lang/IllegalStateException;
 
     invoke-direct {v1}, Ljava/lang/IllegalStateException;-><init>()V
@@ -218,7 +218,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 415
     check-cast p1, Ljava/util/function/IntConsumer;
@@ -229,7 +229,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)V
 
@@ -237,7 +237,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/IntConsumer;)V
-    .locals 2
+    .registers 4
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 497
@@ -248,7 +248,7 @@
 
     const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 500
     iget v0, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->first:I
@@ -261,12 +261,12 @@
     iput v0, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->count:I
 
     .line 503
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 415
     check-cast p1, Ljava/util/function/IntConsumer;
@@ -279,7 +279,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)Z
 
@@ -289,7 +289,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/IntConsumer;)Z
-    .locals 2
+    .registers 4
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 483
@@ -300,7 +300,7 @@
 
     const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     .line 486
     iget v0, p0, Lj$/util/stream/Streams$IntStreamBuilderImpl;->first:I
@@ -318,14 +318,14 @@
     return v0
 
     .line 491
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 2
 
     .line 415
     invoke-super {p0}, Lj$/util/stream/Streams$AbstractStreamBuilderImpl;->trySplit()Lj$/util/Spliterator;
@@ -338,7 +338,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 415
     invoke-super {p0}, Lj$/util/stream/Streams$AbstractStreamBuilderImpl;->trySplit()Lj$/util/Spliterator;

@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>(Z)V
-    .locals 3
+    .registers 5
     .param p1, "noContextTakeover"    # Z
 
     .line 26
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -112,7 +112,7 @@
 .end method
 
 .method public final inflate(Lokio/Buffer;)V
-    .locals 5
+    .registers 7
     .param p1, "buffer"    # Lokio/Buffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -135,22 +135,22 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_14
+    if-eqz v0, :cond_51
 
     .line 38
     iget-boolean v0, p0, Lokhttp3/internal/ws/MessageInflater;->noContextTakeover:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 39
     iget-object v0, p0, Lokhttp3/internal/ws/MessageInflater;->inflater:Ljava/util/zip/Inflater;
@@ -158,7 +158,7 @@
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->reset()V
 
     .line 42
-    :cond_1
+    :cond_1f
     iget-object v0, p0, Lokhttp3/internal/ws/MessageInflater;->deflatedBytes:Lokio/Buffer;
 
     move-object v1, p1
@@ -191,7 +191,7 @@
 
     .line 50
     .local v0, "totalBytesToRead":J
-    :cond_2
+    :cond_3c
     iget-object v2, p0, Lokhttp3/internal/ws/MessageInflater;->inflaterSource:Lokio/InflaterSource;
 
     const-wide v3, 0x7fffffffffffffffL
@@ -207,14 +207,14 @@
 
     cmp-long v4, v2, v0
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_3c
 
     .line 52
     return-void
 
     .line 36
     .end local v0    # "totalBytesToRead":J
-    :cond_3
+    :cond_51
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."

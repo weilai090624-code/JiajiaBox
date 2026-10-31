@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">შემომავალი ზარი</string>
     <string name="call_notification_ongoing_text">მიმდინარე ზარი</string>
     <string name="call_notification_screening_text">შემომავალი ზარების გაცხრილვა</string>
-    <string name="character_counter_content_description" formatted="false">შეყვანილია %2$d-დან %1$d სიმბოლო</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">გადაჭარბებულია სიმბოლოთა ლიმიტი (%2$d-დან %1$d)</string>
+    <string name="character_counter_content_description">შეყვანილია %2$d-დან %1$d სიმბოლო</string>
+    <string name="character_counter_overflowed_content_description">გადაჭარბებულია სიმბოლოთა ლიმიტი (%2$d-დან %1$d)</string>
     <string name="clear_text_end_icon_content_description">ტექსტის გასუფთავება</string>
     <string name="copy">კოპირება</string>
     <string name="copy_toast_msg">გაცვლის ბუფერში კოპირებული ბმული</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">დიაპაზონს მიღმა: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">დაწყების თარიღი - %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s - დასრულების თარიღი</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
     <string name="mtrl_picker_range_header_title">აირჩიეთ დიაპაზონი</string>
     <string name="mtrl_picker_range_header_unselected">დაწყების თარიღი - დასრულების თარიღი</string>
     <string name="mtrl_picker_save">შენახვა</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">„%1$s“ კოპირებულია გაცვლის ბუფერში.</string>
     <string name="search_menu_title">ძიება</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">გამორთული</string>
     <string name="v7_preference_on">ჩართული</string>
 </resources>

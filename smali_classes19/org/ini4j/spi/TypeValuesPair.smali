@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/ini4j/Registry$Type;[Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "type"    # Lorg/ini4j/Registry$Type;
     .param p2, "values"    # [Ljava/lang/String;
 
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getType()Lorg/ini4j/Registry$Type;
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Lorg/ini4j/spi/TypeValuesPair;->_type:Lorg/ini4j/Registry$Type;
@@ -40,7 +40,7 @@
 .end method
 
 .method public getValues()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 39
     iget-object v0, p0, Lorg/ini4j/spi/TypeValuesPair;->_values:[Ljava/lang/String;

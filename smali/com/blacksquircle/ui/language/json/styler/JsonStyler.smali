@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/language/json/styler/JsonStyler$Companion;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lcom/blacksquircle/ui/language/json/styler/JsonStyler;-><init>()V
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public static final synthetic access$getJsonStyler$cp()Lcom/blacksquircle/ui/language/json/styler/JsonStyler;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Lcom/blacksquircle/ui/language/json/styler/JsonStyler;->jsonStyler:Lcom/blacksquircle/ui/language/json/styler/JsonStyler;
@@ -88,7 +88,7 @@
 .end method
 
 .method public static final synthetic access$setJsonStyler$cp(Lcom/blacksquircle/ui/language/json/styler/JsonStyler;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Lcom/blacksquircle/ui/language/json/styler/JsonStyler;
 
     .line 27
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public execute(Lcom/blacksquircle/ui/language/base/model/TextStructure;)Ljava/util/List;
-    .locals 8
+    .registers 10
     .param p1, "structure"    # Lcom/blacksquircle/ui/language/base/model/TextStructure;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -152,14 +152,14 @@
 
     .line 46
     .local v3, "lexer":Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;
-    :goto_0
+    :goto_22
     nop
 
     .line 47
     nop
 
     .line 48
-    :try_start_0
+    :try_start_24
     invoke-virtual {v3}, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->advance()Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     move-result-object v4
@@ -172,20 +172,20 @@
 
     aget v4, v5, v4
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_9c
 
     .line 89
-    goto :goto_0
+    goto :goto_22
 
-    :pswitch_0
-    goto :goto_1
+    :pswitch_34
+    goto :goto_9a
 
     .line 86
-    :pswitch_1
-    goto :goto_0
+    :pswitch_35
+    goto :goto_22
 
     .line 79
-    :pswitch_2
+    :pswitch_36
     sget-object v4, Lcom/blacksquircle/ui/language/base/model/TokenType;->COMMENT:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     .line 80
@@ -206,12 +206,12 @@
     .local v5, "syntaxHighlightResult":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_22
 
     .line 73
     .end local v4    # "tokenType":Lcom/blacksquircle/ui/language/base/model/TokenType;
     .end local v5    # "syntaxHighlightResult":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
-    :pswitch_3
+    :pswitch_49
     sget-object v4, Lcom/blacksquircle/ui/language/base/model/TokenType;->STRING:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     .line 74
@@ -232,12 +232,12 @@
     .restart local v5    # "syntaxHighlightResult":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_22
 
     .line 67
     .end local v4    # "tokenType":Lcom/blacksquircle/ui/language/base/model/TokenType;
     .end local v5    # "syntaxHighlightResult":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
-    :pswitch_4
+    :pswitch_5c
     sget-object v4, Lcom/blacksquircle/ui/language/base/model/TokenType;->LANG_CONST:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     .line 68
@@ -258,12 +258,12 @@
     .restart local v5    # "syntaxHighlightResult":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_22
 
     .line 60
     .end local v4    # "tokenType":Lcom/blacksquircle/ui/language/base/model/TokenType;
     .end local v5    # "syntaxHighlightResult":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
-    :pswitch_5
+    :pswitch_6f
     sget-object v4, Lcom/blacksquircle/ui/language/base/model/TokenType;->OPERATOR:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     .line 61
@@ -284,12 +284,12 @@
     .restart local v5    # "syntaxHighlightResult":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_22
 
     .line 50
     .end local v4    # "tokenType":Lcom/blacksquircle/ui/language/base/model/TokenType;
     .end local v5    # "syntaxHighlightResult":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
-    :pswitch_6
+    :pswitch_82
     sget-object v4, Lcom/blacksquircle/ui/language/base/model/TokenType;->NUMBER:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     .line 51
@@ -309,15 +309,15 @@
     .line 52
     .restart local v5    # "syntaxHighlightResult":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_94
+    .catchall {:try_start_24 .. :try_end_94} :catchall_95
 
-    goto :goto_0
+    goto :goto_22
 
     .line 92
     .end local v4    # "tokenType":Lcom/blacksquircle/ui/language/base/model/TokenType;
     .end local v5    # "syntaxHighlightResult":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
-    :catchall_0
+    :catchall_95
     move-exception v4
 
     .line 93
@@ -329,30 +329,30 @@
 
     .line 97
     .end local v4    # "e":Ljava/lang/Throwable;
-    :goto_1
+    :goto_9a
     return-object v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_9c
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_5
-        :pswitch_5
-        :pswitch_5
-        :pswitch_5
-        :pswitch_5
-        :pswitch_4
-        :pswitch_4
-        :pswitch_4
-        :pswitch_3
-        :pswitch_3
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_82
+        :pswitch_6f
+        :pswitch_6f
+        :pswitch_6f
+        :pswitch_6f
+        :pswitch_6f
+        :pswitch_6f
+        :pswitch_5c
+        :pswitch_5c
+        :pswitch_5c
+        :pswitch_49
+        :pswitch_49
+        :pswitch_36
+        :pswitch_36
+        :pswitch_35
+        :pswitch_35
+        :pswitch_35
+        :pswitch_34
     .end packed-switch
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
-    .locals 0
+    .registers 2
 
     .line 1410
     iput-object p1, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onScroll(Landroid/widget/AbsListView;III)V
-    .locals 0
+    .registers 5
     .param p1, "view"    # Landroid/widget/AbsListView;
     .param p2, "firstVisibleItem"    # I
     .param p3, "visibleItemCount"    # I
@@ -48,14 +48,14 @@
 .end method
 
 .method public onScrollStateChanged(Landroid/widget/AbsListView;I)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/widget/AbsListView;
     .param p2, "scrollState"    # I
 
     .line 1421
     const/4 v0, 0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_27
 
     iget-object v0, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
@@ -64,7 +64,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_27
 
     iget-object v0, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
@@ -74,7 +74,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 1423
     iget-object v0, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -95,6 +95,6 @@
     invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow$ResizePopupRunnable;->run()V
 
     .line 1426
-    :cond_0
+    :cond_27
     return-void
 .end method

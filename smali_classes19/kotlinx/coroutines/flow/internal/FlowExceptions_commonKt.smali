@@ -31,20 +31,20 @@
 
 # direct methods
 .method public static final checkIndexOverflow(I)I
-    .locals 3
+    .registers 4
     .param p0, "index"    # I
 
     const/4 v0, 0x0
 
     .line 32
     .local v0, "$i$f$checkIndexOverflow":I
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_4
 
     .line 35
     return p0
 
     .line 33
-    :cond_0
+    :cond_4
     new-instance v1, Ljava/lang/ArithmeticException;
 
     const-string v2, "Index overflow has happened"
@@ -55,7 +55,7 @@
 .end method
 
 .method public static final checkOwnership(Lkotlinx/coroutines/flow/internal/AbortFlowException;Lkotlinx/coroutines/flow/FlowCollector;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$checkOwnership"    # Lkotlinx/coroutines/flow/internal/AbortFlowException;
     .param p1, "owner"    # Lkotlinx/coroutines/flow/FlowCollector;
     .annotation system Ldalvik/annotation/Signature;
@@ -70,12 +70,12 @@
     .line 21
     iget-object v0, p0, Lkotlinx/coroutines/flow/internal/AbortFlowException;->owner:Lkotlinx/coroutines/flow/FlowCollector;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 22
     return-void
 
     .line 21
-    :cond_0
+    :cond_5
     throw p0
 .end method

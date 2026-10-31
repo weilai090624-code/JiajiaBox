@@ -21,7 +21,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method private static cancelLayoutTransition(Landroid/animation/LayoutTransition;)V
-    .locals 7
+    .registers 8
     .param p0, "t"    # Landroid/animation/LayoutTransition;
 
     .line 114
@@ -43,12 +43,12 @@
 
     const-string v3, "ViewGroupUtilsApi14"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 116
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_a
     const-class v4, Landroid/animation/LayoutTransition;
 
     const-string v5, "cancel"
@@ -65,14 +65,14 @@
     sget-object v4, Landroidx/transition/ViewGroupUtilsApi14;->sCancelMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v4, v0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_a .. :try_end_1b} :catch_1c
 
     .line 120
-    goto :goto_0
+    goto :goto_20
 
     .line 118
-    :catch_0
+    :catch_1c
     move-exception v4
 
     .line 119
@@ -81,30 +81,30 @@
 
     .line 121
     .end local v4    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_20
     sput-boolean v0, Landroidx/transition/ViewGroupUtilsApi14;->sCancelMethodFetched:Z
 
     .line 123
-    :cond_0
+    :cond_22
     sget-object v0, Landroidx/transition/ViewGroupUtilsApi14;->sCancelMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     .line 125
-    :try_start_1
+    :try_start_26
     sget-object v0, Landroidx/transition/ViewGroupUtilsApi14;->sCancelMethod:Ljava/lang/reflect/Method;
 
     new-array v2, v2, [Ljava/lang/Object;
 
     invoke-virtual {v0, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_2d
+    .catch Ljava/lang/IllegalAccessException; {:try_start_26 .. :try_end_2d} :catch_35
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_26 .. :try_end_2d} :catch_2e
 
-    goto :goto_1
+    goto :goto_39
 
     .line 128
-    :catch_1
+    :catch_2e
     move-exception v0
 
     .line 129
@@ -113,11 +113,11 @@
 
     invoke-static {v3, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    goto :goto_3a
 
     .line 126
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_35
     move-exception v0
 
     .line 127
@@ -126,17 +126,17 @@
 
     .line 130
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :goto_1
+    :goto_39
     nop
 
     .line 132
-    :cond_1
-    :goto_2
+    :cond_3a
+    :goto_3a
     return-void
 .end method
 
 .method static suppressLayout(Landroid/view/ViewGroup;Z)V
-    .locals 6
+    .registers 8
     .param p0, "group"    # Landroid/view/ViewGroup;
     .param p1, "suppress"    # Z
 
@@ -149,7 +149,7 @@
 
     const/4 v3, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     .line 47
     new-instance v0, Landroidx/transition/ViewGroupUtilsApi14$1;
@@ -190,8 +190,8 @@
     invoke-virtual {v0, v4, v3}, Landroid/animation/LayoutTransition;->setAnimator(ILandroid/animation/Animator;)V
 
     .line 59
-    :cond_0
-    if-eqz p1, :cond_3
+    :cond_2a
+    if-eqz p1, :cond_4a
 
     .line 61
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getLayoutTransition()Landroid/animation/LayoutTransition;
@@ -200,23 +200,23 @@
 
     .line 62
     .local v0, "layoutTransition":Landroid/animation/LayoutTransition;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_44
 
     .line 63
     invoke-virtual {v0}, Landroid/animation/LayoutTransition;->isRunning()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3b
 
     .line 64
     invoke-static {v0}, Landroidx/transition/ViewGroupUtilsApi14;->cancelLayoutTransition(Landroid/animation/LayoutTransition;)V
 
     .line 66
-    :cond_1
+    :cond_3b
     sget-object v1, Landroidx/transition/ViewGroupUtilsApi14;->sEmptyLayoutTransition:Landroid/animation/LayoutTransition;
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_44
 
     .line 67
     sget v1, Landroidx/transition/R$id;->transition_layout_save:I
@@ -224,17 +224,17 @@
     invoke-virtual {p0, v1, v0}, Landroid/view/ViewGroup;->setTag(ILjava/lang/Object;)V
 
     .line 71
-    :cond_2
+    :cond_44
     sget-object v1, Landroidx/transition/ViewGroupUtilsApi14;->sEmptyLayoutTransition:Landroid/animation/LayoutTransition;
 
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
 
     .line 72
     .end local v0    # "layoutTransition":Landroid/animation/LayoutTransition;
-    goto :goto_2
+    goto :goto_9c
 
     .line 74
-    :cond_3
+    :cond_4a
     invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
 
     .line 76
@@ -242,10 +242,10 @@
 
     const-string v4, "ViewGroupUtilsApi14"
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_6b
 
     .line 78
-    :try_start_0
+    :try_start_53
     const-class v0, Landroid/view/ViewGroup;
 
     const-string v5, "mLayoutSuppressed"
@@ -260,14 +260,14 @@
     sget-object v0, Landroidx/transition/ViewGroupUtilsApi14;->sLayoutSuppressedField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, v2}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_62
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_53 .. :try_end_62} :catch_63
 
     .line 82
-    goto :goto_0
+    goto :goto_69
 
     .line 80
-    :catch_0
+    :catch_63
     move-exception v0
 
     .line 81
@@ -278,21 +278,21 @@
 
     .line 83
     .end local v0    # "e":Ljava/lang/NoSuchFieldException;
-    :goto_0
+    :goto_69
     sput-boolean v2, Landroidx/transition/ViewGroupUtilsApi14;->sLayoutSuppressedFieldFetched:Z
 
     .line 85
-    :cond_4
+    :cond_6b
     const/4 v0, 0x0
 
     .line 86
     .local v0, "layoutSuppressed":Z
     sget-object v2, Landroidx/transition/ViewGroupUtilsApi14;->sLayoutSuppressedField:Ljava/lang/reflect/Field;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_85
 
     .line 88
-    :try_start_1
+    :try_start_70
     sget-object v2, Landroidx/transition/ViewGroupUtilsApi14;->sLayoutSuppressedField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v2, p0}, Ljava/lang/reflect/Field;->getBoolean(Ljava/lang/Object;)Z
@@ -302,21 +302,21 @@
     move v0, v2
 
     .line 89
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_7e
 
     .line 90
     sget-object v2, Landroidx/transition/ViewGroupUtilsApi14;->sLayoutSuppressedField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v2, p0, v1}, Ljava/lang/reflect/Field;->setBoolean(Ljava/lang/Object;Z)V
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_7e
+    .catch Ljava/lang/IllegalAccessException; {:try_start_70 .. :try_end_7e} :catch_7f
 
     .line 94
-    :cond_5
-    goto :goto_1
+    :cond_7e
+    goto :goto_85
 
     .line 92
-    :catch_1
+    :catch_7f
     move-exception v1
 
     .line 93
@@ -327,15 +327,15 @@
 
     .line 96
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    :cond_6
-    :goto_1
-    if-eqz v0, :cond_7
+    :cond_85
+    :goto_85
+    if-eqz v0, :cond_8a
 
     .line 97
     invoke-virtual {p0}, Landroid/view/ViewGroup;->requestLayout()V
 
     .line 100
-    :cond_7
+    :cond_8a
     sget v1, Landroidx/transition/R$id;->transition_layout_save:I
 
     .line 101
@@ -347,7 +347,7 @@
 
     .line 102
     .local v1, "layoutTransition":Landroid/animation/LayoutTransition;
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9c
 
     .line 103
     sget v2, Landroidx/transition/R$id;->transition_layout_save:I
@@ -360,7 +360,7 @@
     .line 107
     .end local v0    # "layoutSuppressed":Z
     .end local v1    # "layoutTransition":Landroid/animation/LayoutTransition;
-    :cond_8
-    :goto_2
+    :cond_9c
+    :goto_9c
     return-void
 .end method

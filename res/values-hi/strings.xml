@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">आने वाला (इनकमिंग) कॉल</string>
     <string name="call_notification_ongoing_text">पहले से जारी कॉल</string>
     <string name="call_notification_screening_text">इनकमिंग कॉल को स्क्रीन किया जा रहा है</string>
-    <string name="character_counter_content_description" formatted="false">%2$d वर्णों में से %1$d वर्ण दर्ज किए गए</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">अभी %1$d वर्ण हैं जबकि %2$d से ज़्यादा नहीं होने चाहिए</string>
+    <string name="character_counter_content_description">%2$d वर्णों में से %1$d वर्ण दर्ज किए गए</string>
+    <string name="character_counter_overflowed_content_description">अभी %1$d वर्ण हैं जबकि %2$d से ज़्यादा नहीं होने चाहिए</string>
     <string name="clear_text_end_icon_content_description">टेक्स्ट मिटाएं</string>
     <string name="copy">कॉपी करें</string>
     <string name="copy_toast_msg">लिंक क्लिपबोर्ड पर कॉपी किया गया</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">तारीख की मान्य सीमा से बाहर: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">शुरू होने की तारीख – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – खत्म होने की तारीख</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">रेंज चुनें</string>
     <string name="mtrl_picker_range_header_unselected">शुरू होने की तारीख – खत्म होने की तारीख</string>
     <string name="mtrl_picker_save">सेव करें</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" क्लिपबोर्ड पर कॉपी किया गया.</string>
     <string name="search_menu_title">खोजें</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">बंद</string>
     <string name="v7_preference_on">चालू</string>
 </resources>

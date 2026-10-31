@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method private finishLine(Z)Z
-    .locals 2
+    .registers 4
     .param p1, "sawNewline"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -43,32 +43,32 @@
     .line 89
     iget-boolean v0, p0, Lcom/google/common/io/LineBuffer;->sawReturn:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_c
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     const-string v0, "\r\n"
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_9
     const-string v0, "\r"
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_c
+    if-eqz p1, :cond_11
 
     const-string v0, "\n"
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_2
+    :cond_11
     const-string v0, ""
 
     .line 90
     .local v0, "separator":Ljava/lang/String;
-    :goto_0
+    :goto_13
     iget-object v1, p0, Lcom/google/common/io/LineBuffer;->line:Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method protected add([CII)V
-    .locals 8
+    .registers 12
     .param p1, "cbuf"    # [C
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -119,34 +119,34 @@
 
     const/4 v4, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
-    if-lez p3, :cond_1
+    if-lez p3, :cond_1a
 
     .line 54
     aget-char v1, p1, v0
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_11
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     invoke-direct {p0, v1}, Lcom/google/common/io/LineBuffer;->finishLine(Z)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     .line 55
     add-int/lit8 v0, v0, 0x1
 
     .line 59
-    :cond_1
+    :cond_1a
     move v1, v0
 
     .line 60
@@ -154,18 +154,18 @@
     add-int v5, p2, p3
 
     .local v5, "end":I
-    :goto_1
-    if-ge v0, v5, :cond_4
+    :goto_1d
+    if-ge v0, v5, :cond_55
 
     .line 61
     aget-char v6, p1, v0
 
-    sparse-switch v6, :sswitch_data_0
+    sparse-switch v6, :sswitch_data_5e
 
-    goto :goto_3
+    goto :goto_53
 
     .line 63
-    :sswitch_0
+    :sswitch_25
     iget-object v6, p0, Lcom/google/common/io/LineBuffer;->line:Ljava/lang/StringBuilder;
 
     sub-int v7, v0, v1
@@ -178,41 +178,41 @@
     .line 65
     add-int/lit8 v6, v0, 0x1
 
-    if-ge v6, v5, :cond_3
+    if-ge v6, v5, :cond_43
 
     .line 66
     add-int/lit8 v6, v0, 0x1
 
     aget-char v6, p1, v6
 
-    if-ne v6, v3, :cond_2
+    if-ne v6, v3, :cond_3a
 
     const/4 v6, 0x1
 
-    goto :goto_2
+    goto :goto_3b
 
-    :cond_2
+    :cond_3a
     const/4 v6, 0x0
 
-    :goto_2
+    :goto_3b
     invoke-direct {p0, v6}, Lcom/google/common/io/LineBuffer;->finishLine(Z)Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_43
 
     .line 67
     add-int/lit8 v0, v0, 0x1
 
     .line 70
-    :cond_3
+    :cond_43
     add-int/lit8 v1, v0, 0x1
 
     .line 71
-    goto :goto_3
+    goto :goto_53
 
     .line 74
-    :sswitch_1
+    :sswitch_46
     iget-object v6, p0, Lcom/google/common/io/LineBuffer;->line:Ljava/lang/StringBuilder;
 
     sub-int v7, v0, v1
@@ -229,14 +229,14 @@
     nop
 
     .line 60
-    :goto_3
+    :goto_53
     add-int/2addr v0, v4
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 83
     .end local v5    # "end":I
-    :cond_4
+    :cond_55
     iget-object v2, p0, Lcom/google/common/io/LineBuffer;->line:Ljava/lang/StringBuilder;
 
     add-int v3, p2, p3
@@ -248,15 +248,15 @@
     .line 84
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_5e
     .sparse-switch
-        0xa -> :sswitch_1
-        0xd -> :sswitch_0
+        0xa -> :sswitch_46
+        0xd -> :sswitch_25
     .end sparse-switch
 .end method
 
 .method protected finish()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -266,7 +266,7 @@
     .line 103
     iget-boolean v0, p0, Lcom/google/common/io/LineBuffer;->sawReturn:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     iget-object v0, p0, Lcom/google/common/io/LineBuffer;->line:Ljava/lang/StringBuilder;
 
@@ -274,16 +274,16 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_10
 
     .line 104
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/google/common/io/LineBuffer;->finishLine(Z)Z
 
     .line 106
-    :cond_1
+    :cond_10
     return-void
 .end method
 

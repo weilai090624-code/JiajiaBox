@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/StandardKt__StandardKt;-><init>()V
 
@@ -39,7 +39,7 @@
 .end method
 
 .method private static final synchronized(Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "lock"    # Ljava/lang/Object;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -75,12 +75,12 @@
     nop
 
     .line 30
-    :try_start_0
+    :try_start_e
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_e .. :try_end_12} :catchall_14
 
     .line 34
     monitor-exit v0
@@ -89,7 +89,7 @@
     return-object v1
 
     .line 34
-    :catchall_0
+    :catchall_14
     move-exception v1
 
     monitor-exit v0

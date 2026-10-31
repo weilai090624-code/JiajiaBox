@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,15 +62,15 @@
 .end method
 
 .method private static initialize()V
-    .locals 3
+    .registers 3
 
     .line 42
     sget-object v0, Lorg/objenesis/instantiator/basic/ObjectStreamClassInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 44
-    :try_start_0
+    :try_start_4
     const-class v0, Ljava/io/ObjectStreamClass;
 
     const-string v1, "newInstance"
@@ -91,25 +91,25 @@
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/lang/RuntimeException; {:try_start_4 .. :try_end_17} :catch_1a
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_4 .. :try_end_17} :catch_18
 
     .line 49
-    goto :goto_1
+    goto :goto_21
 
     .line 47
-    :catch_0
+    :catch_18
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :catch_1
+    :catch_1a
     move-exception v0
 
     .line 48
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_1b
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -118,15 +118,15 @@
 
     .line 51
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_1
+    :cond_21
+    :goto_21
     return-void
 .end method
 
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -147,13 +147,13 @@
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_b} :catch_c
 
     return-object v0
 
     .line 66
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 67

@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final synthetic access$createsCycle(Lkotlin/io/path/PathNode;)Z
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Lkotlin/io/path/PathNode;
 
     .line 1
@@ -46,7 +46,7 @@
 .end method
 
 .method public static final synthetic access$keyOf(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "path"    # Ljava/nio/file/Path;
     .param p1, "linkOptions"    # [Ljava/nio/file/LinkOption;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method private static final createsCycle(Lkotlin/io/path/PathNode;)Z
-    .locals 4
+    .registers 5
     .param p0, "$this$createsCycle"    # Lkotlin/io/path/PathNode;
 
     .line 124
@@ -69,8 +69,8 @@
 
     .line 125
     .local v0, "ancestor":Lkotlin/io/path/PathNode;
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_4
+    if-eqz v0, :cond_3a
 
     .line 126
     invoke-virtual {v0}, Lkotlin/io/path/PathNode;->getKey()Ljava/lang/Object;
@@ -79,13 +79,13 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     invoke-virtual {p0}, Lkotlin/io/path/PathNode;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     .line 127
     invoke-virtual {v0}, Lkotlin/io/path/PathNode;->getKey()Ljava/lang/Object;
@@ -100,17 +100,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_35
 
     .line 128
     return v2
 
     .line 130
-    :cond_0
+    :cond_22
     nop
 
     .line 131
-    :try_start_0
+    :try_start_23
     invoke-virtual {v0}, Lkotlin/io/path/PathNode;->getPath()Ljava/nio/file/Path;
 
     move-result-object v1
@@ -122,43 +122,43 @@
     invoke-static {v1, v3}, Ljava/nio/file/Files;->isSameFile(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z
 
     move-result v1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2f
+    .catch Ljava/io/IOException; {:try_start_23 .. :try_end_2f} :catch_34
+    .catch Ljava/lang/SecurityException; {:try_start_23 .. :try_end_2f} :catch_32
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_35
 
     .line 132
     return v2
 
     .line 134
-    :catch_0
+    :catch_32
     move-exception v1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 133
-    :catch_1
+    :catch_34
     move-exception v1
 
     .line 137
-    :cond_1
-    :goto_1
+    :cond_35
+    :goto_35
     invoke-virtual {v0}, Lkotlin/io/path/PathNode;->getParent()Lkotlin/io/path/PathNode;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_4
 
     .line 140
-    :cond_2
+    :cond_3a
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method private static final keyOf(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "path"    # Ljava/nio/file/Path;
     .param p1, "linkOptions"    # [Ljava/nio/file/LinkOption;
 
@@ -166,7 +166,7 @@
     nop
 
     .line 112
-    :try_start_0
+    :try_start_1
     array-length v0, p1
 
     invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -196,13 +196,13 @@
     invoke-interface {v0}, Ljava/nio/file/attribute/BasicFileAttributes;->fileKey()Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_1 .. :try_end_1e} :catchall_1f
 
-    goto :goto_0
+    goto :goto_22
 
     .line 113
-    :catchall_0
+    :catchall_1f
     move-exception v0
 
     .line 114
@@ -213,6 +213,6 @@
 
     .line 111
     .end local v0    # "exception":Ljava/lang/Throwable;
-    :goto_0
+    :goto_22
     return-object v0
 .end method

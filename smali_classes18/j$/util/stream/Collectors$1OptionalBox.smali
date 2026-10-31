@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/function/BinaryOperator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -80,7 +80,7 @@
     .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lj$/util/stream/Collectors$1OptionalBox;->present:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 918
     iget-object v0, p0, Lj$/util/stream/Collectors$1OptionalBox;->val$op:Ljava/util/function/BinaryOperator;
@@ -93,10 +93,10 @@
 
     iput-object v0, p0, Lj$/util/stream/Collectors$1OptionalBox;->value:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 921
-    :cond_0
+    :cond_f
     iput-object p1, p0, Lj$/util/stream/Collectors$1OptionalBox;->value:Ljava/lang/Object;
 
     .line 922
@@ -105,12 +105,12 @@
     iput-boolean v0, p0, Lj$/util/stream/Collectors$1OptionalBox;->present:Z
 
     .line 924
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 

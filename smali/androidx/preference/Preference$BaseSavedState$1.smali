@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 2220
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/preference/Preference$BaseSavedState;
-    .locals 1
+    .registers 3
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 2223
@@ -51,7 +51,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 2220
     invoke-virtual {p0, p1}, Landroidx/preference/Preference$BaseSavedState$1;->createFromParcel(Landroid/os/Parcel;)Landroidx/preference/Preference$BaseSavedState;
@@ -62,7 +62,7 @@
 .end method
 
 .method public newArray(I)[Landroidx/preference/Preference$BaseSavedState;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 2228
@@ -72,7 +72,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 2220
     invoke-virtual {p0, p1}, Landroidx/preference/Preference$BaseSavedState$1;->newArray(I)[Landroidx/preference/Preference$BaseSavedState;

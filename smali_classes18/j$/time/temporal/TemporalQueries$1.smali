@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 344
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public queryFrom(Lj$/time/temporal/TemporalAccessor;)Lj$/time/ZoneId;
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 347
@@ -55,7 +55,7 @@
 .end method
 
 .method public bridge synthetic queryFrom(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 344
     invoke-virtual {p0, p1}, Lj$/time/temporal/TemporalQueries$1;->queryFrom(Lj$/time/temporal/TemporalAccessor;)Lj$/time/ZoneId;
@@ -66,7 +66,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 352
     const-string v0, "ZoneId"

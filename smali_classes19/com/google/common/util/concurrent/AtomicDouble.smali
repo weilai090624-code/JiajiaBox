@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 70
     const-wide/16 v0, 0x0
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(D)V
-    .locals 3
+    .registers 6
     .param p1, "initialValue"    # D
 
     .line 64
@@ -55,7 +55,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -86,7 +86,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -111,13 +111,13 @@
 
 # virtual methods
 .method public final addAndGet(D)D
-    .locals 9
+    .registers 12
     .param p1, "delta"    # D
 
     .line 171
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicDouble;->value:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
@@ -148,7 +148,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1a
 
     .line 176
     return-wide v4
@@ -158,12 +158,12 @@
     .end local v2    # "currentVal":D
     .end local v4    # "nextVal":D
     .end local v6    # "next":J
-    :cond_0
-    goto :goto_0
+    :cond_1a
+    goto :goto_1
 .end method
 
 .method public final compareAndSet(DD)Z
-    .locals 5
+    .registers 10
     .param p1, "expect"    # D
     .param p3, "update"    # D
 
@@ -186,7 +186,7 @@
 .end method
 
 .method public doubleValue()D
-    .locals 2
+    .registers 3
 
     .line 221
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AtomicDouble;->get()D
@@ -197,7 +197,7 @@
 .end method
 
 .method public floatValue()F
-    .locals 2
+    .registers 3
 
     .line 215
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AtomicDouble;->get()D
@@ -210,7 +210,7 @@
 .end method
 
 .method public final get()D
-    .locals 2
+    .registers 3
 
     .line 79
     iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicDouble;->value:Ljava/util/concurrent/atomic/AtomicLong;
@@ -227,13 +227,13 @@
 .end method
 
 .method public final getAndAdd(D)D
-    .locals 9
+    .registers 12
     .param p1, "delta"    # D
 
     .line 152
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicDouble;->value:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
@@ -264,7 +264,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1a
 
     .line 157
     return-wide v2
@@ -274,12 +274,12 @@
     .end local v2    # "currentVal":D
     .end local v4    # "nextVal":D
     .end local v6    # "next":J
-    :cond_0
-    goto :goto_0
+    :cond_1a
+    goto :goto_1
 .end method
 
 .method public final getAndSet(D)D
-    .locals 4
+    .registers 7
     .param p1, "newValue"    # D
 
     .line 109
@@ -303,7 +303,7 @@
 .end method
 
 .method public intValue()I
-    .locals 2
+    .registers 3
 
     .line 197
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AtomicDouble;->get()D
@@ -316,7 +316,7 @@
 .end method
 
 .method public final lazySet(D)V
-    .locals 3
+    .registers 6
     .param p1, "newValue"    # D
 
     .line 98
@@ -335,7 +335,7 @@
 .end method
 
 .method public longValue()J
-    .locals 2
+    .registers 3
 
     .line 206
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AtomicDouble;->get()D
@@ -348,7 +348,7 @@
 .end method
 
 .method public final set(D)V
-    .locals 3
+    .registers 6
     .param p1, "newValue"    # D
 
     .line 88
@@ -367,7 +367,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 188
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AtomicDouble;->get()D
@@ -382,7 +382,7 @@
 .end method
 
 .method public final weakCompareAndSet(DD)Z
-    .locals 5
+    .registers 10
     .param p1, "expect"    # D
     .param p3, "update"    # D
 

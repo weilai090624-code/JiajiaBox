@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public call(Lcom/google/common/util/concurrent/Service$Listener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/google/common/util/concurrent/Service$Listener;
 
     .line 70
@@ -50,7 +50,7 @@
 .end method
 
 .method public bridge synthetic call(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 67
     check-cast p1, Lcom/google/common/util/concurrent/Service$Listener;
@@ -61,7 +61,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 75
     const-string v0, "running()"

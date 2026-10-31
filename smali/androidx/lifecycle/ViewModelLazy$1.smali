@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/lifecycle/ViewModelLazy$1;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/viewmodel/CreationExtras$Empty;
-    .locals 1
+    .registers 2
 
     .line 39
     sget-object v0, Landroidx/lifecycle/viewmodel/CreationExtras$Empty;->INSTANCE:Landroidx/lifecycle/viewmodel/CreationExtras$Empty;
@@ -85,7 +85,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 39
     invoke-virtual {p0}, Landroidx/lifecycle/ViewModelLazy$1;->invoke()Landroidx/lifecycle/viewmodel/CreationExtras$Empty;

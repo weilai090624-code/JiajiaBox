@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/adapter/FragmentStateAdapter;Landroid/widget/FrameLayout;Landroidx/viewpager2/adapter/FragmentViewHolder;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
     .line 184
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 2
+    .registers 12
     .param p1, "v"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -63,7 +63,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 189
     iget-object v0, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$1;->val$container:Landroid/widget/FrameLayout;
@@ -78,6 +78,6 @@
     invoke-virtual {v0, v1}, Landroidx/viewpager2/adapter/FragmentStateAdapter;->placeFragmentInViewHolder(Landroidx/viewpager2/adapter/FragmentViewHolder;)V
 
     .line 192
-    :cond_0
+    :cond_14
     return-void
 .end method

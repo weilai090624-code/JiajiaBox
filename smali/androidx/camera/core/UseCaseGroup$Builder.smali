@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public addUseCase(Landroidx/camera/core/UseCase;)Landroidx/camera/core/UseCaseGroup$Builder;
-    .locals 1
+    .registers 3
     .param p1, "useCase"    # Landroidx/camera/core/UseCase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -70,7 +70,7 @@
 .end method
 
 .method public build()Landroidx/camera/core/UseCaseGroup;
-    .locals 3
+    .registers 4
 
     .line 102
     iget-object v0, p0, Landroidx/camera/core/UseCaseGroup$Builder;->mUseCases:Ljava/util/List;
@@ -98,7 +98,7 @@
 .end method
 
 .method public setViewPort(Landroidx/camera/core/ViewPort;)Landroidx/camera/core/UseCaseGroup$Builder;
-    .locals 0
+    .registers 2
     .param p1, "viewPort"    # Landroidx/camera/core/ViewPort;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

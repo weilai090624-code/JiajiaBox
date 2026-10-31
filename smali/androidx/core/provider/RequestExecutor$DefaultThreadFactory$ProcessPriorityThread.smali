@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;Ljava/lang/String;I)V
-    .locals 0
+    .registers 4
     .param p1, "target"    # Ljava/lang/Runnable;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "priority"    # I
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 184
     iget v0, p0, Landroidx/core/provider/RequestExecutor$DefaultThreadFactory$ProcessPriorityThread;->mPriority:I

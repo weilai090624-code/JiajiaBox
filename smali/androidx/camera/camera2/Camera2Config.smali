@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static defaultConfig()Landroidx/camera/core/CameraXConfig;
-    .locals 5
+    .registers 5
 
     .line 46
     new-instance v0, Landroidx/camera/camera2/Camera2Config$$ExternalSyntheticLambda0;
@@ -73,7 +73,7 @@
 .end method
 
 .method static synthetic lambda$defaultConfig$0(Landroid/content/Context;Ljava/lang/Object;Ljava/util/Set;)Landroidx/camera/core/impl/CameraDeviceSurfaceManager;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "cameraManager"    # Ljava/lang/Object;
     .param p2, "availableCameraIds"    # Ljava/util/Set;
@@ -88,13 +88,13 @@
     new-instance v0, Landroidx/camera/camera2/internal/Camera2DeviceSurfaceManager;
 
     invoke-direct {v0, p0, p1, p2}, Landroidx/camera/camera2/internal/Camera2DeviceSurfaceManager;-><init>(Landroid/content/Context;Ljava/lang/Object;Ljava/util/Set;)V
-    :try_end_0
-    .catch Landroidx/camera/core/CameraUnavailableException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Landroidx/camera/core/CameraUnavailableException; {:try_start_0 .. :try_end_5} :catch_6
 
     return-object v0
 
     .line 54
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 55
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic lambda$defaultConfig$1(Landroid/content/Context;)Landroidx/camera/core/impl/UseCaseConfigFactory;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {

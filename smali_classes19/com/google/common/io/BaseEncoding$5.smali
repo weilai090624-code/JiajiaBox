@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Appendable;Ljava/io/Writer;)V
-    .locals 0
+    .registers 3
 
     .line 1056
     iput-object p1, p0, Lcom/google/common/io/BaseEncoding$5;->val$separatingAppendable:Ljava/lang/Appendable;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -54,7 +54,7 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -71,7 +71,7 @@
 .end method
 
 .method public write(I)V
-    .locals 2
+    .registers 4
     .param p1, "c"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -91,7 +91,7 @@
 .end method
 
 .method public write([CII)V
-    .locals 1
+    .registers 5
     .param p1, "chars"    # [C
     .param p2, "off"    # I
     .param p3, "len"    # I

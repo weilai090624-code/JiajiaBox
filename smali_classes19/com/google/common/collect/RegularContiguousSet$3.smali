@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/RegularContiguousSet;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/RegularContiguousSet;
 
     .line 132
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method bridge synthetic delegateCollection()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
 
     .line 132
     .local p0, "this":Lcom/google/common/collect/RegularContiguousSet$3;, "Lcom/google/common/collect/RegularContiguousSet$3;"
@@ -54,7 +54,7 @@
 .end method
 
 .method delegateCollection()Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -71,7 +71,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Comparable;
-    .locals 4
+    .registers 6
     .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -108,7 +108,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 132
     .local p0, "this":Lcom/google/common/collect/RegularContiguousSet$3;, "Lcom/google/common/collect/RegularContiguousSet$3;"

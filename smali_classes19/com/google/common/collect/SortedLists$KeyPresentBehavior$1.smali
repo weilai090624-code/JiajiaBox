@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 52
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method resultIndex(Ljava/util/Comparator;Ljava/lang/Object;Ljava/util/List;I)I
-    .locals 0
+    .registers 5
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

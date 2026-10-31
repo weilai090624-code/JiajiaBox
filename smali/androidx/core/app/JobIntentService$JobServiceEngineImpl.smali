@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/app/JobIntentService;)V
-    .locals 1
+    .registers 3
     .param p1, "service"    # Landroidx/core/app/JobIntentService;
 
     .line 279
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public compatGetBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 285
     invoke-virtual {p0}, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->getBinder()Landroid/os/IBinder;
@@ -73,7 +73,7 @@
 .end method
 
 .method public dequeueWork()Landroidx/core/app/JobIntentService$GenericWorkItem;
-    .locals 3
+    .registers 4
 
     .line 315
     iget-object v0, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mLock:Ljava/lang/Object;
@@ -81,12 +81,12 @@
     monitor-enter v0
 
     .line 316
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mParams:Landroid/app/job/JobParameters;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     .line 317
     monitor-exit v0
@@ -94,7 +94,7 @@
     return-object v2
 
     .line 319
-    :cond_0
+    :cond_a
     iget-object v1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mParams:Landroid/app/job/JobParameters;
 
     invoke-virtual {v1}, Landroid/app/job/JobParameters;->dequeueWork()Landroid/app/job/JobWorkItem;
@@ -104,11 +104,11 @@
     .line 320
     .local v1, "work":Landroid/app/job/JobWorkItem;
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_3 .. :try_end_11} :catchall_27
 
     .line 321
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_26
 
     .line 322
     invoke-virtual {v1}, Landroid/app/job/JobWorkItem;->getIntent()Landroid/content/Intent;
@@ -131,24 +131,24 @@
     return-object v0
 
     .line 325
-    :cond_1
+    :cond_26
     return-object v2
 
     .line 320
     .end local v1    # "work":Landroid/app/job/JobWorkItem;
-    :catchall_0
+    :catchall_27
     move-exception v1
 
-    :try_start_1
+    :try_start_28
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_29
+    .catchall {:try_start_28 .. :try_end_29} :catchall_27
 
     throw v1
 .end method
 
 .method public onStartJob(Landroid/app/job/JobParameters;)Z
-    .locals 2
+    .registers 4
     .param p1, "params"    # Landroid/app/job/JobParameters;
 
     .line 291
@@ -168,7 +168,7 @@
 .end method
 
 .method public onStopJob(Landroid/app/job/JobParameters;)Z
-    .locals 3
+    .registers 5
     .param p1, "params"    # Landroid/app/job/JobParameters;
 
     .line 300
@@ -187,7 +187,7 @@
     .line 304
     const/4 v2, 0x0
 
-    :try_start_0
+    :try_start_a
     iput-object v2, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mParams:Landroid/app/job/JobParameters;
 
     .line 305
@@ -197,12 +197,12 @@
     return v0
 
     .line 305
-    :catchall_0
+    :catchall_e
     move-exception v2
 
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_a .. :try_end_10} :catchall_e
 
     throw v2
 .end method

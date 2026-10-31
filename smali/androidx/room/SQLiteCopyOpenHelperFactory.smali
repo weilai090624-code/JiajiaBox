@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/io/File;Ljava/util/concurrent/Callable;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;)V
-    .locals 1
+    .registers 6
     .param p1, "mCopyFromAssetPath"    # Ljava/lang/String;
     .param p2, "mCopyFromFile"    # Ljava/io/File;
     .param p3, "mCopyFromInputStream"    # Ljava/util/concurrent/Callable;
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public create(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 8
+    .registers 10
     .param p1, "configuration"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;
 
     const-string v0, "configuration"

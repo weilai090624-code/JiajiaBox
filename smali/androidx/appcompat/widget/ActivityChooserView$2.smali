@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/widget/ActivityChooserView;
 
     .line 149
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onGlobalLayout()V
-    .locals 2
+    .registers 3
 
     .line 152
     iget-object v0, p0, Landroidx/appcompat/widget/ActivityChooserView$2;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
@@ -46,7 +46,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 153
     iget-object v0, p0, Landroidx/appcompat/widget/ActivityChooserView$2;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
@@ -55,7 +55,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 154
     iget-object v0, p0, Landroidx/appcompat/widget/ActivityChooserView$2;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
@@ -66,10 +66,10 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->dismiss()V
 
-    goto :goto_0
+    goto :goto_31
 
     .line 156
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Landroidx/appcompat/widget/ActivityChooserView$2;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/ActivityChooserView;->getListPopupWindow()Landroidx/appcompat/widget/ListPopupWindow;
@@ -83,7 +83,7 @@
 
     iget-object v0, v0, Landroidx/appcompat/widget/ActivityChooserView;->mProvider:Landroidx/core/view/ActionProvider;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 158
     iget-object v0, p0, Landroidx/appcompat/widget/ActivityChooserView$2;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
@@ -95,7 +95,7 @@
     invoke-virtual {v0, v1}, Landroidx/core/view/ActionProvider;->subUiVisibilityChanged(Z)V
 
     .line 162
-    :cond_1
-    :goto_0
+    :cond_31
+    :goto_31
     return-void
 .end method

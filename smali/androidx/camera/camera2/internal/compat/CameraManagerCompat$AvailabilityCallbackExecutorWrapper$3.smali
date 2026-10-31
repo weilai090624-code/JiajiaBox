@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/compat/CameraManagerCompat$AvailabilityCallbackExecutorWrapper;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/compat/CameraManagerCompat$AvailabilityCallbackExecutorWrapper;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 331
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraManagerCompat$AvailabilityCallbackExecutorWrapper$3;->this$0:Landroidx/camera/camera2/internal/compat/CameraManagerCompat$AvailabilityCallbackExecutorWrapper;

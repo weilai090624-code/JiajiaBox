@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager/widget/PagerTitleStrip;)V
-    .locals 0
+    .registers 2
 
     .line 475
     iput-object p1, p0, Landroidx/viewpager/widget/PagerTitleStrip$PageListener;->this$0:Landroidx/viewpager/widget/PagerTitleStrip;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onAdapterChanged(Landroidx/viewpager/widget/ViewPager;Landroidx/viewpager/widget/PagerAdapter;Landroidx/viewpager/widget/PagerAdapter;)V
-    .locals 1
+    .registers 5
     .param p1, "viewPager"    # Landroidx/viewpager/widget/ViewPager;
     .param p2, "oldAdapter"    # Landroidx/viewpager/widget/PagerAdapter;
     .param p3, "newAdapter"    # Landroidx/viewpager/widget/PagerAdapter;
@@ -55,7 +55,7 @@
 .end method
 
 .method public onChanged()V
-    .locals 4
+    .registers 5
 
     .line 511
     iget-object v0, p0, Landroidx/viewpager/widget/PagerTitleStrip$PageListener;->this$0:Landroidx/viewpager/widget/PagerTitleStrip;
@@ -87,13 +87,13 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_22
 
     iget-object v0, p0, Landroidx/viewpager/widget/PagerTitleStrip$PageListener;->this$0:Landroidx/viewpager/widget/PagerTitleStrip;
 
     iget v1, v0, Landroidx/viewpager/widget/PagerTitleStrip;->mLastKnownPositionOffset:F
 
-    :cond_0
+    :cond_22
     move v0, v1
 
     .line 514
@@ -117,7 +117,7 @@
 .end method
 
 .method public onPageScrollStateChanged(I)V
-    .locals 0
+    .registers 2
     .param p1, "state"    # I
 
     .line 500
@@ -128,7 +128,7 @@
 .end method
 
 .method public onPageScrolled(IFI)V
-    .locals 2
+    .registers 6
     .param p1, "position"    # I
     .param p2, "positionOffset"    # F
     .param p3, "positionOffsetPixels"    # I
@@ -138,13 +138,13 @@
 
     cmpl-float v0, p2, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_8
 
     .line 482
     add-int/lit8 p1, p1, 0x1
 
     .line 484
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/viewpager/widget/PagerTitleStrip$PageListener;->this$0:Landroidx/viewpager/widget/PagerTitleStrip;
 
     const/4 v1, 0x0
@@ -156,13 +156,13 @@
 .end method
 
 .method public onPageSelected(I)V
-    .locals 4
+    .registers 6
     .param p1, "position"    # I
 
     .line 489
     iget v0, p0, Landroidx/viewpager/widget/PagerTitleStrip$PageListener;->mScrollState:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_35
 
     .line 491
     iget-object v0, p0, Landroidx/viewpager/widget/PagerTitleStrip$PageListener;->this$0:Landroidx/viewpager/widget/PagerTitleStrip;
@@ -194,13 +194,13 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_26
 
     iget-object v0, p0, Landroidx/viewpager/widget/PagerTitleStrip$PageListener;->this$0:Landroidx/viewpager/widget/PagerTitleStrip;
 
     iget v1, v0, Landroidx/viewpager/widget/PagerTitleStrip;->mLastKnownPositionOffset:F
 
-    :cond_0
+    :cond_26
     move v0, v1
 
     .line 494
@@ -221,6 +221,6 @@
 
     .line 496
     .end local v0    # "offset":F
-    :cond_1
+    :cond_35
     return-void
 .end method

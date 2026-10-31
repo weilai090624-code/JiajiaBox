@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/view/menu/MenuItemImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
     .line 877
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public getMenuItem()Landroidx/appcompat/view/menu/MenuItemImpl;
-    .locals 1
+    .registers 2
 
     .line 882
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuTextItem;->menuItem:Landroidx/appcompat/view/menu/MenuItemImpl;

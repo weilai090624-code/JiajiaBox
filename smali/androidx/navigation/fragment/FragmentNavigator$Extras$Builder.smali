@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 383
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final addSharedElement(Landroid/view/View;Ljava/lang/String;)Landroidx/navigation/fragment/FragmentNavigator$Extras$Builder;
-    .locals 1
+    .registers 4
     .param p1, "sharedElement"    # Landroid/view/View;
     .param p2, "name"    # Ljava/lang/String;
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public final addSharedElements(Ljava/util/Map;)Landroidx/navigation/fragment/FragmentNavigator$Extras$Builder;
-    .locals 3
+    .registers 5
     .param p1, "sharedElements"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -130,12 +130,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -160,17 +160,17 @@
     .local v1, "name":Ljava/lang/String;
     invoke-virtual {p0, v2, v1}, Landroidx/navigation/fragment/FragmentNavigator$Extras$Builder;->addSharedElement(Landroid/view/View;Ljava/lang/String;)Landroidx/navigation/fragment/FragmentNavigator$Extras$Builder;
 
-    goto :goto_0
+    goto :goto_e
 
     .line 397
     .end local v1    # "name":Ljava/lang/String;
     .end local v2    # "view":Landroid/view/View;
-    :cond_0
+    :cond_2a
     return-object p0
 .end method
 
 .method public final build()Landroidx/navigation/fragment/FragmentNavigator$Extras;
-    .locals 2
+    .registers 3
 
     .line 422
     new-instance v0, Landroidx/navigation/fragment/FragmentNavigator$Extras;

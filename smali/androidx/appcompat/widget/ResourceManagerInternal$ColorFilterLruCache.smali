@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "maxSize"    # I
 
     .line 421
@@ -36,7 +36,7 @@
 .end method
 
 .method private static generateCacheKey(ILandroid/graphics/PorterDuff$Mode;)I
-    .locals 3
+    .registers 5
     .param p0, "color"    # I
     .param p1, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method get(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
-    .locals 1
+    .registers 4
     .param p1, "color"    # I
     .param p2, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
@@ -92,7 +92,7 @@
 .end method
 
 .method put(ILandroid/graphics/PorterDuff$Mode;Landroid/graphics/PorterDuffColorFilter;)Landroid/graphics/PorterDuffColorFilter;
-    .locals 1
+    .registers 5
     .param p1, "color"    # I
     .param p2, "mode"    # Landroid/graphics/PorterDuff$Mode;
     .param p3, "filter"    # Landroid/graphics/PorterDuffColorFilter;

@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lkotlin/text/StringsKt__StringsKt$splitToSequence$2;->$this_splitToSequence:Ljava/lang/CharSequence;
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 1332
@@ -83,7 +83,7 @@
 .end method
 
 .method public final invoke(Lkotlin/ranges/IntRange;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "it"    # Lkotlin/ranges/IntRange;
 
     const-string v0, "it"

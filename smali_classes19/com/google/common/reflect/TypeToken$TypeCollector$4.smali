@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Comparator;Ljava/util/Map;)V
-    .locals 0
+    .registers 3
 
     .line 1433
     iput-object p1, p0, Lcom/google/common/reflect/TypeToken$TypeCollector$4;->val$valueComparator:Ljava/util/Comparator;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TK;)I"

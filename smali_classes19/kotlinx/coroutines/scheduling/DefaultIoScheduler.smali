@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     new-instance v0, Lkotlinx/coroutines/scheduling/DefaultIoScheduler;
 
@@ -108,7 +108,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 59
     invoke-direct {p0}, Lkotlinx/coroutines/ExecutorCoroutineDispatcher;-><init>()V
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -136,7 +136,7 @@
 .end method
 
 .method public dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -150,7 +150,7 @@
 .end method
 
 .method public dispatchYield(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -164,7 +164,7 @@
 .end method
 
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 71
@@ -178,7 +178,7 @@
 .end method
 
 .method public getExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 69
     move-object v0, p0
@@ -189,7 +189,7 @@
 .end method
 
 .method public limitedParallelism(I)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 3
     .param p1, "parallelism"    # I
 
     .line 76
@@ -203,7 +203,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 92
     const-string v0, "Dispatchers.IO"

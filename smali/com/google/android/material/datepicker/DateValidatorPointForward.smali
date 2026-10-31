@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 57
     new-instance v0, Lcom/google/android/material/datepicker/DateValidatorPointForward$1;
@@ -37,7 +37,7 @@
 .end method
 
 .method private constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "point"    # J
 
     .line 34
@@ -51,7 +51,7 @@
 .end method
 
 .method synthetic constructor <init>(JLcom/google/android/material/datepicker/DateValidatorPointForward$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # J
     .param p3, "x1"    # Lcom/google/android/material/datepicker/DateValidatorPointForward$1;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public static from(J)Lcom/google/android/material/datepicker/DateValidatorPointForward;
-    .locals 1
+    .registers 3
     .param p0, "point"    # J
 
     .line 44
@@ -74,7 +74,7 @@
 .end method
 
 .method public static now()Lcom/google/android/material/datepicker/DateValidatorPointForward;
-    .locals 2
+    .registers 2
 
     .line 53
     invoke-static {}, Lcom/google/android/material/datepicker/UtcDates;->getTodayCalendar()Ljava/util/Calendar;
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 79
     const/4 v0, 0x0
@@ -104,30 +104,30 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 89
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 90
     return v0
 
     .line 92
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/android/material/datepicker/DateValidatorPointForward;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 93
     return v2
 
     .line 95
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/android/material/datepicker/DateValidatorPointForward;
@@ -140,19 +140,19 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_16
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_2
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 101
     iget-wide v0, p0, Lcom/google/android/material/datepicker/DateValidatorPointForward;->point:J
@@ -181,7 +181,7 @@
 .end method
 
 .method public isValid(J)Z
-    .locals 3
+    .registers 6
     .param p1, "date"    # J
 
     .line 74
@@ -189,21 +189,21 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+    .registers 5
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

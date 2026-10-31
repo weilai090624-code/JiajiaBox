@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/EndCompoundLayout;)V
-    .locals 3
+    .registers 5
     .param p1, "endLayout"    # Lcom/google/android/material/textfield/EndCompoundLayout;
 
     .line 67
@@ -134,7 +134,7 @@
 .end method
 
 .method private animateIcon(Z)V
-    .locals 2
+    .registers 4
     .param p1, "show"    # Z
 
     .line 148
@@ -144,19 +144,19 @@
 
     move-result v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 149
     .local v0, "shouldSkipAnimation":Z
-    :goto_0
-    if-eqz p1, :cond_1
+    :goto_b
+    if-eqz p1, :cond_27
 
     iget-object v1, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->iconInAnim:Landroid/animation/AnimatorSet;
 
@@ -164,7 +164,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_27
 
     .line 150
     iget-object v1, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->iconOutAnim:Landroid/animation/ValueAnimator;
@@ -177,18 +177,18 @@
     invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
 
     .line 152
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3a
 
     .line 153
     iget-object v1, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->iconInAnim:Landroid/animation/AnimatorSet;
 
     invoke-virtual {v1}, Landroid/animation/AnimatorSet;->end()V
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 155
-    :cond_1
-    if-nez p1, :cond_2
+    :cond_27
+    if-nez p1, :cond_3a
 
     .line 156
     iget-object v1, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->iconInAnim:Landroid/animation/AnimatorSet;
@@ -201,7 +201,7 @@
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
 
     .line 158
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3a
 
     .line 159
     iget-object v1, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->iconOutAnim:Landroid/animation/ValueAnimator;
@@ -209,13 +209,13 @@
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->end()V
 
     .line 162
-    :cond_2
-    :goto_1
+    :cond_3a
+    :goto_3a
     return-void
 .end method
 
 .method private varargs getAlphaAnimator([F)Landroid/animation/ValueAnimator;
-    .locals 3
+    .registers 5
     .param p1, "values"    # [F
 
     .line 187
@@ -248,14 +248,14 @@
 .end method
 
 .method private getScaleAnimator()Landroid/animation/ValueAnimator;
-    .locals 3
+    .registers 4
 
     .line 199
     const/4 v0, 0x2
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_1e
 
     invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -284,7 +284,7 @@
     .line 207
     return-object v0
 
-    :array_0
+    :array_1e
     .array-data 4
         0x3f4ccccd    # 0.8f
         0x3f800000    # 1.0f
@@ -292,7 +292,7 @@
 .end method
 
 .method private initAnimators()V
-    .locals 6
+    .registers 7
 
     .line 165
     invoke-direct {p0}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->getScaleAnimator()Landroid/animation/ValueAnimator;
@@ -305,7 +305,7 @@
 
     new-array v2, v1, [F
 
-    fill-array-data v2, :array_0
+    fill-array-data v2, :array_42
 
     invoke-direct {p0, v2}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->getAlphaAnimator([F)Landroid/animation/ValueAnimator;
 
@@ -346,7 +346,7 @@
     .line 176
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_4a
 
     invoke-direct {p0, v1}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->getAlphaAnimator([F)Landroid/animation/ValueAnimator;
 
@@ -366,13 +366,13 @@
     .line 184
     return-void
 
-    :array_0
+    :array_42
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_1
+    :array_4a
     .array-data 4
         0x3f800000    # 1.0f
         0x0
@@ -380,12 +380,12 @@
 .end method
 
 .method private shouldBeVisible()Z
-    .locals 1
+    .registers 2
 
     .line 211
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->editText:Landroid/widget/EditText;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->editText:Landroid/widget/EditText;
 
@@ -394,7 +394,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
 
@@ -402,9 +402,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
-    :cond_0
+    :cond_14
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->editText:Landroid/widget/EditText;
 
     .line 213
@@ -416,24 +416,24 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_22
     const/4 v0, 0x0
 
     .line 211
-    :goto_0
+    :goto_23
     return v0
 .end method
 
 
 # virtual methods
 .method afterEditTextChanged(Landroid/text/Editable;)V
-    .locals 1
+    .registers 3
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 131
@@ -443,13 +443,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 132
     return-void
 
     .line 134
-    :cond_0
+    :cond_9
     invoke-direct {p0}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->shouldBeVisible()Z
 
     move-result v0
@@ -461,7 +461,7 @@
 .end method
 
 .method getIconContentDescriptionResId()I
-    .locals 1
+    .registers 2
 
     .line 107
     sget v0, Lcom/google/android/material/R$string;->clear_text_end_icon_content_description:I
@@ -470,7 +470,7 @@
 .end method
 
 .method getIconDrawableResId()I
-    .locals 1
+    .registers 2
 
     .line 102
     sget v0, Lcom/google/android/material/R$drawable;->mtrl_ic_cancel:I
@@ -479,7 +479,7 @@
 .end method
 
 .method getOnEditTextFocusChangeListener()Landroid/view/View$OnFocusChangeListener;
-    .locals 1
+    .registers 2
 
     .line 139
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->onFocusChangeListener:Landroid/view/View$OnFocusChangeListener;
@@ -488,7 +488,7 @@
 .end method
 
 .method getOnIconClickListener()Landroid/view/View$OnClickListener;
-    .locals 1
+    .registers 2
 
     .line 120
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->onIconClickListener:Landroid/view/View$OnClickListener;
@@ -497,7 +497,7 @@
 .end method
 
 .method getOnIconViewFocusChangeListener()Landroid/view/View$OnFocusChangeListener;
-    .locals 1
+    .registers 2
 
     .line 144
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->onFocusChangeListener:Landroid/view/View$OnFocusChangeListener;
@@ -506,7 +506,7 @@
 .end method
 
 .method synthetic lambda$getAlphaAnimator$3$com-google-android-material-textfield-ClearTextEndIconDelegate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 191
@@ -531,7 +531,7 @@
 .end method
 
 .method synthetic lambda$getScaleAnimator$4$com-google-android-material-textfield-ClearTextEndIconDelegate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 203
@@ -561,19 +561,19 @@
 .end method
 
 .method synthetic lambda$new$0$com-google-android-material-textfield-ClearTextEndIconDelegate(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 50
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->editText:Landroid/widget/EditText;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 51
     return-void
 
     .line 53
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->editText:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -582,13 +582,13 @@
 
     .line 54
     .local v0, "text":Landroid/text/Editable;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 55
     invoke-interface {v0}, Landroid/text/Editable;->clear()V
 
     .line 57
-    :cond_1
+    :cond_10
     invoke-virtual {p0}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->refreshIconState()V
 
     .line 58
@@ -596,7 +596,7 @@
 .end method
 
 .method synthetic lambda$new$1$com-google-android-material-textfield-ClearTextEndIconDelegate(Landroid/view/View;Z)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "hasFocus"    # Z
 
@@ -611,7 +611,7 @@
 .end method
 
 .method synthetic lambda$tearDown$2$com-google-android-material-textfield-ClearTextEndIconDelegate()V
-    .locals 1
+    .registers 2
 
     .line 96
     const/4 v0, 0x1
@@ -622,7 +622,7 @@
 .end method
 
 .method public onEditTextAttached(Landroid/widget/EditText;)V
-    .locals 2
+    .registers 4
     .param p1, "editText"    # Landroid/widget/EditText;
 
     .line 125
@@ -642,7 +642,7 @@
 .end method
 
 .method onSuffixVisibilityChanged(Z)V
-    .locals 1
+    .registers 3
     .param p1, "visible"    # Z
 
     .line 112
@@ -652,13 +652,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 113
     return-void
 
     .line 115
-    :cond_0
+    :cond_9
     invoke-direct {p0, p1}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->animateIcon(Z)V
 
     .line 116
@@ -666,7 +666,7 @@
 .end method
 
 .method setUp()V
-    .locals 0
+    .registers 1
 
     .line 88
     invoke-direct {p0}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->initAnimators()V
@@ -676,12 +676,12 @@
 .end method
 
 .method tearDown()V
-    .locals 2
+    .registers 3
 
     .line 93
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->editText:Landroid/widget/EditText;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 94
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->editText:Landroid/widget/EditText;
@@ -693,6 +693,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->post(Ljava/lang/Runnable;)Z
 
     .line 98
-    :cond_0
+    :cond_e
     return-void
 .end method

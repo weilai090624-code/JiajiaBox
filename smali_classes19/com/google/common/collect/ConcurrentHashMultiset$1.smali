@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ConcurrentHashMultiset;Ljava/util/Set;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ConcurrentHashMultiset;
 
     .line 453
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -50,7 +50,7 @@
 
     .line 461
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset$1;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     iget-object v0, p0, Lcom/google/common/collect/ConcurrentHashMultiset$1;->val$delegate:Ljava/util/Set;
 
@@ -58,21 +58,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,7 +92,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 453
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset$1;"
@@ -104,7 +104,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 453
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset$1;"
@@ -116,7 +116,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -133,7 +133,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -141,7 +141,7 @@
 
     .line 471
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset$1;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     iget-object v0, p0, Lcom/google/common/collect/ConcurrentHashMultiset$1;->val$delegate:Ljava/util/Set;
 
@@ -149,21 +149,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

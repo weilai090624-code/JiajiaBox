@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 464
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Entry;, "Lcom/esotericsoftware/kryo/util/IntMap$Entry<TV;>;"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 469
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Entry;, "Lcom/esotericsoftware/kryo/util/IntMap$Entry<TV;>;"

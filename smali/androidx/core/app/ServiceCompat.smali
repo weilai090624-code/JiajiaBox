@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method public static startForeground(Landroid/app/Service;ILandroid/app/Notification;I)V
-    .locals 2
+    .registers 6
     .param p0, "service"    # Landroid/app/Service;
     .param p1, "id"    # I
     .param p2, "notification"    # Landroid/app/Notification;
@@ -49,37 +49,37 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 172
     invoke-static {p0, p1, p2, p3}, Landroidx/core/app/ServiceCompat$Api34Impl;->startForeground(Landroid/app/Service;ILandroid/app/Notification;I)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 173
-    :cond_0
+    :cond_a
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_14
 
     .line 174
     invoke-static {p0, p1, p2, p3}, Landroidx/core/app/ServiceCompat$Api29Impl;->startForeground(Landroid/app/Service;ILandroid/app/Notification;I)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 176
-    :cond_1
+    :cond_14
     invoke-virtual {p0, p1, p2}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
 
     .line 178
-    :goto_0
+    :goto_17
     return-void
 .end method
 
 .method public static stopForeground(Landroid/app/Service;I)V
-    .locals 2
+    .registers 4
     .param p0, "service"    # Landroid/app/Service;
     .param p1, "flags"    # I
 
@@ -88,30 +88,30 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 191
     invoke-static {p0, p1}, Landroidx/core/app/ServiceCompat$Api24Impl;->stopForeground(Landroid/app/Service;I)V
 
-    goto :goto_1
+    goto :goto_14
 
     .line 193
-    :cond_0
+    :cond_a
     and-int/lit8 v0, p1, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     invoke-virtual {p0, v0}, Landroid/app/Service;->stopForeground(Z)V
 
     .line 195
-    :goto_1
+    :goto_14
     return-void
 .end method

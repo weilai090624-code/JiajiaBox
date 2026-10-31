@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 27
     new-instance v0, Lcom/google/zxing/NotFoundException;
@@ -28,7 +28,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Lcom/google/zxing/ReaderException;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getNotFoundInstance()Lcom/google/zxing/NotFoundException;
-    .locals 1
+    .registers 1
 
     .line 37
     sget-object v0, Lcom/google/zxing/NotFoundException;->INSTANCE:Lcom/google/zxing/NotFoundException;

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public static final getAsHandler(Lkotlinx/coroutines/CancelHandlerBase;)Lkotlin/jvm/functions/Function1;
-    .locals 2
+    .registers 3
     .param p0, "$this$asHandler"    # Lkotlinx/coroutines/CancelHandlerBase;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -63,7 +63,7 @@
 .end method
 
 .method public static final getAsHandler(Lkotlinx/coroutines/CompletionHandlerBase;)Lkotlin/jvm/functions/Function1;
-    .locals 2
+    .registers 3
     .param p0, "$this$asHandler"    # Lkotlinx/coroutines/CompletionHandlerBase;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,7 +89,7 @@
 .end method
 
 .method public static final invokeIt(Lkotlin/jvm/functions/Function1;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$invokeIt"    # Lkotlin/jvm/functions/Function1;
     .param p1, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;

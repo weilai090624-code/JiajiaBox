@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static final synthetic typeOf()Lkotlin/reflect/KType;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

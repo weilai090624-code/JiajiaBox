@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 149
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static setClassName(Landroid/view/ViewStructure;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "viewStructure"    # Landroid/view/ViewStructure;
     .param p1, "string"    # Ljava/lang/String;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static setContentDescription(Landroid/view/ViewStructure;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p0, "viewStructure"    # Landroid/view/ViewStructure;
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method static setDimens(Landroid/view/ViewStructure;IIIIII)V
-    .locals 0
+    .registers 7
     .param p0, "viewStructure"    # Landroid/view/ViewStructure;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -67,7 +67,7 @@
 .end method
 
 .method static setText(Landroid/view/ViewStructure;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p0, "viewStructure"    # Landroid/view/ViewStructure;
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
 

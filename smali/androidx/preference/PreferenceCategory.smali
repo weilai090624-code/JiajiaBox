@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 60
@@ -18,7 +18,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 0
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 65
     const/4 v0, 0x0
@@ -78,7 +78,7 @@
 .end method
 
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 2
+    .registers 4
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     .line 75
@@ -89,7 +89,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     .line 77
     iget-object v0, p1, Landroidx/preference/PreferenceViewHolder;->itemView:Landroid/view/View;
@@ -98,19 +98,19 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAccessibilityHeading(Z)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 78
-    :cond_0
+    :cond_10
     nop
 
     .line 104
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public shouldDisableDependents()Z
-    .locals 1
+    .registers 2
 
     .line 70
     invoke-super {p0}, Landroidx/preference/PreferenceGroup;->isEnabled()Z

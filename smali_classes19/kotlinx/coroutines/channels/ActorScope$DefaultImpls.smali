@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static synthetic cancel(Lkotlinx/coroutines/channels/ActorScope;)V
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/channels/ActorScope;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -45,7 +45,7 @@
 .end method
 
 .method public static getOnReceiveOrNull(Lkotlinx/coroutines/channels/ActorScope;)Lkotlinx/coroutines/selects/SelectClause1;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/channels/ActorScope;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -73,7 +73,7 @@
 .end method
 
 .method public static poll(Lkotlinx/coroutines/channels/ActorScope;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/channels/ActorScope;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -108,7 +108,7 @@
 .end method
 
 .method public static receiveOrNull(Lkotlinx/coroutines/channels/ActorScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/channels/ActorScope;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;

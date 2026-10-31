@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator$OfLong;JJ)V
-    .locals 0
+    .registers 6
     .param p1, "s"    # Lj$/util/Spliterator$OfLong;
     .param p2, "sliceOrigin"    # J
     .param p4, "sliceFence"    # J
@@ -43,7 +43,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator$OfLong;JJJJ)V
-    .locals 11
+    .registers 21
     .param p1, "s"    # Lj$/util/Spliterator$OfLong;
     .param p2, "sliceOrigin"    # J
     .param p4, "sliceFence"    # J
@@ -72,7 +72,7 @@
 .end method
 
 .method static synthetic lambda$emptyConsumer$0(J)V
-    .locals 0
+    .registers 2
     .param p0, "e"    # J
 
     .line 864
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method protected bridge synthetic emptyConsumer()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 844
     invoke-virtual {p0}, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfLong;->emptyConsumer()Ljava/util/function/LongConsumer;
@@ -93,7 +93,7 @@
 .end method
 
 .method protected emptyConsumer()Ljava/util/function/LongConsumer;
-    .locals 1
+    .registers 2
 
     .line 864
     new-instance v0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfLong$$ExternalSyntheticLambda0;
@@ -104,7 +104,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfLong$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfLong;Ljava/util/function/Consumer;)V
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/util/function/LongConsumer;)V
-    .locals 0
+    .registers 2
 
     .line 844
     invoke-super {p0, p1}, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->forEachRemaining(Ljava/lang/Object;)V
@@ -121,7 +121,7 @@
 .end method
 
 .method protected makeSpliterator(Lj$/util/Spliterator$OfLong;JJJJ)Lj$/util/Spliterator$OfLong;
-    .locals 11
+    .registers 21
     .param p1, "s"    # Lj$/util/Spliterator$OfLong;
     .param p2, "sliceOrigin"    # J
     .param p4, "sliceFence"    # J
@@ -149,7 +149,7 @@
 .end method
 
 .method protected bridge synthetic makeSpliterator(Lj$/util/Spliterator;JJJJ)Lj$/util/Spliterator;
-    .locals 10
+    .registers 20
 
     .line 844
     move-object v1, p1
@@ -174,7 +174,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfLong$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfLong;Ljava/util/function/Consumer;)Z
 
@@ -184,7 +184,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/util/function/LongConsumer;)Z
-    .locals 0
+    .registers 2
 
     .line 844
     invoke-super {p0, p1}, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->tryAdvance(Ljava/lang/Object;)Z
@@ -195,7 +195,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 2
 
     .line 844
     invoke-super {p0}, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->trySplit()Lj$/util/Spliterator;

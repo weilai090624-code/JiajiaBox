@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomnavigation/BottomNavigationView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/bottomnavigation/BottomNavigationView;
 
     .line 140
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;Lcom/google/android/material/internal/ViewUtils$RelativePadding;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 5
+    .registers 9
     .param p1, "view"    # Landroid/view/View;
     .param p2, "insets"    # Landroidx/core/view/WindowInsetsCompat;
     .param p3, "initialPadding"    # Lcom/google/android/material/internal/ViewUtils$RelativePadding;
@@ -60,14 +60,14 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     move v0, v1
 
     .line 152
@@ -86,16 +86,16 @@
     .local v2, "systemWindowInsetRight":I
     iget v3, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->start:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     move v4, v2
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     move v4, v1
 
-    :goto_1
+    :goto_22
     add-int/2addr v3, v4
 
     iput v3, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->start:I
@@ -103,16 +103,16 @@
     .line 155
     iget v3, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->end:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     move v4, v1
 
-    goto :goto_2
+    goto :goto_2c
 
-    :cond_2
+    :cond_2b
     move v4, v2
 
-    :goto_2
+    :goto_2c
     add-int/2addr v3, v4
 
     iput v3, p3, Lcom/google/android/material/internal/ViewUtils$RelativePadding;->end:I

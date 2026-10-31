@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 104
     new-instance v0, Landroidx/work/multiprocess/parcelable/ParcelableWorkRequest$1;
@@ -37,7 +37,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 9
+    .registers 11
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 59
@@ -235,7 +235,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/WorkRequest;)V
-    .locals 0
+    .registers 2
     .param p1, "workRequest"    # Landroidx/work/WorkRequest;
 
     .line 54
@@ -251,7 +251,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 120
     const/4 v0, 0x0
@@ -260,7 +260,7 @@
 .end method
 
 .method public getWorkRequest()Landroidx/work/WorkRequest;
-    .locals 1
+    .registers 2
 
     .line 169
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkRequest;->mWorkRequest:Landroidx/work/WorkRequest;
@@ -269,7 +269,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 6
+    .registers 9
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method private static filter(Ljava/util/Map;Ljava/util/Map;)Ljava/util/List;
-    .locals 12
+    .registers 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,12 +73,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_5c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -132,7 +132,7 @@
 
     cmpl-double v11, v7, v9
 
-    if-ltz v11, :cond_0
+    if-ltz v11, :cond_5b
 
     .line 168
     invoke-static {v3}, Lcom/google/android/material/color/utilities/ColorUtils;->lstarFromArgb(I)D
@@ -143,13 +143,13 @@
 
     cmpl-double v11, v7, v9
 
-    if-ltz v11, :cond_0
+    if-ltz v11, :cond_5b
 
     const-wide v7, 0x3f847ae147ae147bL    # 0.01
 
     cmpl-double v9, v5, v7
 
-    if-ltz v9, :cond_0
+    if-ltz v9, :cond_5b
 
     .line 170
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -163,16 +163,16 @@
     .end local v3    # "color":I
     .end local v4    # "cam":Lcom/google/android/material/color/utilities/Cam16;
     .end local v5    # "proportion":D
-    :cond_0
-    goto :goto_0
+    :cond_5b
+    goto :goto_d
 
     .line 173
-    :cond_1
+    :cond_5c
     return-object v0
 .end method
 
 .method public static score(Ljava/util/Map;)Ljava/util/List;
-    .locals 23
+    .registers 24
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -200,12 +200,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_a
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -231,10 +231,10 @@
 
     .line 67
     .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    goto :goto_0
+    goto :goto_a
 
     .line 72
-    :cond_0
+    :cond_23
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
@@ -255,12 +255,12 @@
 
     move-result-object v4
 
-    :goto_1
+    :goto_34
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_71
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -338,10 +338,10 @@
     .end local v9    # "proportion":D
     .end local v11    # "cam":Lcom/google/android/material/color/utilities/Cam16;
     .end local v13    # "hue":I
-    goto :goto_1
+    goto :goto_34
 
     .line 88
-    :cond_1
+    :cond_71
     new-instance v4, Ljava/util/HashMap;
 
     invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
@@ -356,12 +356,12 @@
 
     move-result-object v5
 
-    :goto_2
+    :goto_7e
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_c1
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -410,10 +410,10 @@
     add-int/lit8 v9, v10, -0xf
 
     .local v9, "j":I
-    :goto_3
+    :goto_a7
     add-int/lit8 v13, v10, 0xf
 
-    if-ge v9, v13, :cond_2
+    if-ge v9, v13, :cond_b5
 
     .line 96
     invoke-static {v9}, Lcom/google/android/material/color/utilities/MathUtils;->sanitizeDegreesInt(I)I
@@ -430,11 +430,11 @@
     .end local v13    # "neighborHue":I
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_3
+    goto :goto_a7
 
     .line 100
     .end local v9    # "j":I
-    :cond_2
+    :cond_b5
     invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v9
@@ -451,10 +451,10 @@
     .end local v8    # "cam":Lcom/google/android/material/color/utilities/Cam16;
     .end local v10    # "hue":I
     .end local v11    # "excitedProportion":D
-    goto :goto_2
+    goto :goto_7e
 
     .line 104
-    :cond_3
+    :cond_c1
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
@@ -469,12 +469,12 @@
 
     move-result-object v6
 
-    :goto_4
+    :goto_ce
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_132
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -538,18 +538,18 @@
 
     cmpg-double v18, v14, v16
 
-    if-gez v18, :cond_4
+    if-gez v18, :cond_113
 
     const-wide v14, 0x3fb999999999999aL    # 0.1
 
-    goto :goto_5
+    goto :goto_118
 
-    :cond_4
+    :cond_113
     const-wide v14, 0x3fd3333333333333L    # 0.3
 
     .line 114
     .local v14, "chromaWeight":D
-    :goto_5
+    :goto_118
     invoke-virtual {v9}, Lcom/google/android/material/color/utilities/Cam16;->getChroma()D
 
     move-result-wide v18
@@ -589,12 +589,12 @@
     .end local v18    # "chromaScore":D
     move-wide/from16 v0, v20
 
-    goto :goto_4
+    goto :goto_ce
 
     .line 122
     .end local v20    # "populationSum":D
     .restart local v0    # "populationSum":D
-    :cond_5
+    :cond_132
     move-wide/from16 v20, v0
 
     .end local v0    # "populationSum":D
@@ -615,12 +615,12 @@
 
     move-result-object v6
 
-    :goto_6
+    :goto_141
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_163
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -652,10 +652,10 @@
 
     .line 126
     .end local v7    # "color":I
-    goto :goto_6
+    goto :goto_141
 
     .line 130
-    :cond_6
+    :cond_163
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -683,12 +683,12 @@
 
     move-result-object v8
 
-    :goto_7
+    :goto_17d
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_1ff
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -730,12 +730,12 @@
 
     move-result-object v13
 
-    :goto_8
+    :goto_1a2
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_8
+    if-eqz v14, :cond_1d9
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -785,18 +785,18 @@
 
     cmpg-double v22, v0, v2
 
-    if-gez v22, :cond_7
+    if-gez v22, :cond_1d0
 
     .line 141
     const/4 v12, 0x1
 
     .line 142
-    goto :goto_9
+    goto :goto_1e1
 
     .line 144
     .end local v14    # "alreadyChosenColor":Ljava/lang/Integer;
     .end local v15    # "alreadyChosenCam":Lcom/google/android/material/color/utilities/Cam16;
-    :cond_7
+    :cond_1d0
     move-object/from16 v0, v16
 
     move-object/from16 v1, v17
@@ -805,7 +805,7 @@
 
     move-object/from16 v3, v19
 
-    goto :goto_8
+    goto :goto_1a2
 
     .line 138
     .end local v16    # "filteredColors":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
@@ -816,7 +816,7 @@
     .restart local v1    # "filteredColorsToScore":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Double;>;"
     .restart local v2    # "colorsToCam":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Lcom/google/android/material/color/utilities/Cam16;>;"
     .restart local v3    # "hueProportions":[D
-    :cond_8
+    :cond_1d9
     move-object/from16 v16, v0
 
     move-object/from16 v17, v1
@@ -834,8 +834,8 @@
     .restart local v17    # "filteredColorsToScore":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Double;>;"
     .restart local v18    # "colorsToCam":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Lcom/google/android/material/color/utilities/Cam16;>;"
     .restart local v19    # "hueProportions":[D
-    :goto_9
-    if-eqz v12, :cond_9
+    :goto_1e1
+    if-eqz v12, :cond_1ec
 
     .line 147
     move-object/from16 v0, v16
@@ -846,10 +846,10 @@
 
     move-object/from16 v3, v19
 
-    goto :goto_7
+    goto :goto_17d
 
     .line 149
-    :cond_9
+    :cond_1ec
     invoke-interface {v9}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -871,7 +871,7 @@
 
     move-object/from16 v3, v19
 
-    goto/16 :goto_7
+    goto/16 :goto_17d
 
     .line 153
     .end local v16    # "filteredColors":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
@@ -882,7 +882,7 @@
     .restart local v1    # "filteredColorsToScore":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Double;>;"
     .restart local v2    # "colorsToCam":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Lcom/google/android/material/color/utilities/Cam16;>;"
     .restart local v3    # "hueProportions":[D
-    :cond_a
+    :cond_1ff
     move-object/from16 v16, v0
 
     move-object/from16 v17, v1
@@ -903,7 +903,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_217
 
     .line 154
     const v0, -0xbd7a0c
@@ -915,6 +915,6 @@
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 156
-    :cond_b
+    :cond_217
     return-object v7
 .end method

@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/SortedMap;Lcom/google/common/base/Supplier;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/collect/StandardRowSortedTable;)Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/StandardRowSortedTable;
 
     .line 50
@@ -77,7 +77,7 @@
 .end method
 
 .method private sortedBackingMap()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method bridge synthetic createRowMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/StandardRowSortedTable;, "Lcom/google/common/collect/StandardRowSortedTable<TR;TC;TV;>;"
@@ -112,7 +112,7 @@
 .end method
 
 .method createRowMap()Ljava/util/SortedMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -135,7 +135,7 @@
 .end method
 
 .method public bridge synthetic rowKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/StandardRowSortedTable;, "Lcom/google/common/collect/StandardRowSortedTable<TR;TC;TV;>;"
@@ -147,7 +147,7 @@
 .end method
 
 .method public rowKeySet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -172,7 +172,7 @@
 .end method
 
 .method public bridge synthetic rowMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/StandardRowSortedTable;, "Lcom/google/common/collect/StandardRowSortedTable<TR;TC;TV;>;"
@@ -184,7 +184,7 @@
 .end method
 
 .method public rowMap()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

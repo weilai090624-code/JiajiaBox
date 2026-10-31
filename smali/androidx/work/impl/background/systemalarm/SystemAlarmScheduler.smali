@@ -16,7 +16,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 38
     const-string v0, "SystemAlarmScheduler"
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,7 +57,7 @@
 .end method
 
 .method private scheduleWorkSpec(Landroidx/work/impl/model/WorkSpec;)V
-    .locals 4
+    .registers 6
     .param p1, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public cancel(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -152,7 +152,7 @@
 .end method
 
 .method public hasLimitedSchedulingSlots()Z
-    .locals 1
+    .registers 2
 
     .line 61
     const/4 v0, 0x1
@@ -161,7 +161,7 @@
 .end method
 
 .method public varargs schedule([Landroidx/work/impl/model/WorkSpec;)V
-    .locals 3
+    .registers 5
     .param p1, "workSpecs"    # [Landroidx/work/impl/model/WorkSpec;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -177,8 +177,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_2
+    if-ge v1, v0, :cond_c
 
     aget-object v2, p1, v1
 
@@ -190,9 +190,9 @@
     .end local v2    # "workSpec":Landroidx/work/impl/model/WorkSpec;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 51
-    :cond_0
+    :cond_c
     return-void
 .end method

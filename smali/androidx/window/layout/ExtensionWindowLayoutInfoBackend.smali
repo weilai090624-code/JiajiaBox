@@ -84,7 +84,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/window/extensions/layout/WindowLayoutComponent;)V
-    .locals 1
+    .registers 3
     .param p1, "component"    # Landroidx/window/extensions/layout/WindowLayoutComponent;
 
     const-string v0, "component"
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public registerLayoutChangeCallback(Landroid/app/Activity;Ljava/util/concurrent/Executor;Landroidx/core/util/Consumer;)V
-    .locals 7
+    .registers 11
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroidx/core/util/Consumer;
@@ -167,7 +167,7 @@
 
     .line 60
     .local v1, "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$registerLayoutChangeCallback$1":I
-    :try_start_0
+    :try_start_17
     iget-object v2, p0, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend;->activityToListeners:Ljava/util/Map;
 
     invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -176,14 +176,14 @@
 
     check-cast v2, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_23
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_2f
 
     .local v2, "listener":Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;
-    :cond_0
+    :cond_23
     const/4 v3, 0x0
 
     .line 61
@@ -203,8 +203,8 @@
     .end local v3    # "$i$a$-let-ExtensionWindowLayoutInfoBackend$registerLayoutChangeCallback$1$1":I
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    :goto_0
-    if-nez v2, :cond_1
+    :goto_2f
+    if-nez v2, :cond_51
 
     .line 63
     move-object v2, p0
@@ -253,13 +253,13 @@
     nop
 
     .line 70
-    :cond_1
+    :cond_51
     nop
 
     .end local v1    # "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$registerLayoutChangeCallback$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_54
+    .catchall {:try_start_17 .. :try_end_54} :catchall_58
 
     .line 59
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -268,7 +268,7 @@
     return-void
 
     .line 59
-    :catchall_0
+    :catchall_58
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -277,7 +277,7 @@
 .end method
 
 .method public unregisterLayoutChangeCallback(Landroidx/core/util/Consumer;)V
-    .locals 6
+    .registers 8
     .param p1, "callback"    # Landroidx/core/util/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -303,7 +303,7 @@
 
     .line 80
     .local v1, "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$unregisterLayoutChangeCallback$1":I
-    :try_start_0
+    :try_start_d
     iget-object v2, p0, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend;->listenerToActivity:Ljava/util/Map;
 
     invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -311,10 +311,10 @@
     move-result-object v2
 
     check-cast v2, Landroid/app/Activity;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_d .. :try_end_15} :catchall_41
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     .end local v1    # "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$unregisterLayoutChangeCallback$1":I
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -324,8 +324,8 @@
     .line 81
     .restart local v1    # "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$unregisterLayoutChangeCallback$1":I
     .local v2, "activity":Landroid/app/Activity;
-    :cond_0
-    :try_start_1
+    :cond_1b
+    :try_start_1b
     iget-object v3, p0, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend;->activityToListeners:Ljava/util/Map;
 
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -333,10 +333,10 @@
     move-result-object v3
 
     check-cast v3, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_23
+    .catchall {:try_start_1b .. :try_end_23} :catchall_41
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_29
 
     .end local v1    # "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$unregisterLayoutChangeCallback$1":I
     .end local v2    # "activity":Landroid/app/Activity;
@@ -348,8 +348,8 @@
     .restart local v1    # "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$unregisterLayoutChangeCallback$1":I
     .restart local v2    # "activity":Landroid/app/Activity;
     .local v3, "multicastListener":Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;
-    :cond_1
-    :try_start_2
+    :cond_29
+    :try_start_29
     invoke-virtual {v3, p1}, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;->removeListener(Landroidx/core/util/Consumer;)V
 
     .line 83
@@ -357,7 +357,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3a
 
     .line 84
     iget-object v4, p0, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend;->component:Landroidx/window/extensions/layout/WindowLayoutComponent;
@@ -369,15 +369,15 @@
     invoke-interface {v4, v5}, Landroidx/window/extensions/layout/WindowLayoutComponent;->removeWindowLayoutInfoListener(Ljava/util/function/Consumer;)V
 
     .line 86
-    :cond_2
+    :cond_3a
     nop
 
     .end local v1    # "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$unregisterLayoutChangeCallback$1":I
     .end local v2    # "activity":Landroid/app/Activity;
     .end local v3    # "multicastListener":Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3d
+    .catchall {:try_start_29 .. :try_end_3d} :catchall_41
 
     .line 79
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -386,7 +386,7 @@
     return-void
 
     .line 79
-    :catchall_0
+    :catchall_41
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V

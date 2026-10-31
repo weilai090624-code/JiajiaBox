@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/Instant;Lj$/time/ZoneId;)V
-    .locals 0
+    .registers 3
     .param p1, "fixedInstant"    # Lj$/time/Instant;
     .param p2, "zone"    # Lj$/time/ZoneId;
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 619
@@ -57,7 +57,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 620
     move-object v0, p1
@@ -74,7 +74,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     iget-object v2, p0, Lj$/time/Clock$FixedClock;->zone:Lj$/time/ZoneId;
 
@@ -84,21 +84,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1d
     return v1
 
     .line 623
     .end local v0    # "other":Lj$/time/Clock$FixedClock;
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method public getZone()Lj$/time/ZoneId;
-    .locals 1
+    .registers 2
 
     .line 600
     iget-object v0, p0, Lj$/time/Clock$FixedClock;->zone:Lj$/time/ZoneId;
@@ -107,7 +107,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 627
     iget-object v0, p0, Lj$/time/Clock$FixedClock;->instant:Lj$/time/Instant;
@@ -128,7 +128,7 @@
 .end method
 
 .method public instant()Lj$/time/Instant;
-    .locals 1
+    .registers 2
 
     .line 615
     iget-object v0, p0, Lj$/time/Clock$FixedClock;->instant:Lj$/time/Instant;
@@ -137,7 +137,7 @@
 .end method
 
 .method public millis()J
-    .locals 2
+    .registers 3
 
     .line 611
     iget-object v0, p0, Lj$/time/Clock$FixedClock;->instant:Lj$/time/Instant;
@@ -150,7 +150,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 631
     iget-object v0, p0, Lj$/time/Clock$FixedClock;->instant:Lj$/time/Instant;
@@ -195,7 +195,7 @@
 .end method
 
 .method public withZone(Lj$/time/ZoneId;)Lj$/time/Clock;
-    .locals 2
+    .registers 4
     .param p1, "zone"    # Lj$/time/ZoneId;
 
     .line 604
@@ -205,13 +205,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 605
     return-object p0
 
     .line 607
-    :cond_0
+    :cond_9
     new-instance v0, Lj$/time/Clock$FixedClock;
 
     iget-object v1, p0, Lj$/time/Clock$FixedClock;->instant:Lj$/time/Instant;

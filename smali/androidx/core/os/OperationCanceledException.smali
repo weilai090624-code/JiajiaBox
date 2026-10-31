@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 28
     const/4 v0, 0x0
@@ -17,7 +17,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
 
     .line 33

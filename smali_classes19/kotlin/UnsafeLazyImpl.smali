@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 3
     .param p1, "initializer"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -100,7 +100,7 @@
 .end method
 
 .method private final writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 92
     new-instance v0, Lkotlin/InitializedLazyImpl;
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public getValue()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -129,7 +129,7 @@
 
     sget-object v1, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     .line 81
     iget-object v0, p0, Lkotlin/UnsafeLazyImpl;->initializer:Lkotlin/jvm/functions/Function0;
@@ -148,42 +148,42 @@
     iput-object v0, p0, Lkotlin/UnsafeLazyImpl;->initializer:Lkotlin/jvm/functions/Function0;
 
     .line 85
-    :cond_0
+    :cond_14
     iget-object v0, p0, Lkotlin/UnsafeLazyImpl;->_value:Ljava/lang/Object;
 
     return-object v0
 .end method
 
 .method public isInitialized()Z
-    .locals 2
+    .registers 3
 
     .line 88
     iget-object v0, p0, Lkotlin/UnsafeLazyImpl;->_value:Ljava/lang/Object;
 
     sget-object v1, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 90
     invoke-virtual {p0}, Lkotlin/UnsafeLazyImpl;->isInitialized()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {p0}, Lkotlin/UnsafeLazyImpl;->getValue()Ljava/lang/Object;
 
@@ -193,11 +193,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const-string v0, "Lazy value not initialized yet."
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method

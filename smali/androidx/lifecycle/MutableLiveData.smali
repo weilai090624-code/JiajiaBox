@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     .local p0, "this":Landroidx/lifecycle/MutableLiveData;, "Landroidx/lifecycle/MutableLiveData<TT;>;"
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public postValue(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -64,7 +64,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"

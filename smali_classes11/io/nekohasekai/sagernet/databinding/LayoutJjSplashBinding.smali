@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/FrameLayout;Landroid/widget/LinearLayout;Landroid/widget/ImageView;)V
-    .locals 0
+    .registers 4
     .param p1, "rootView"    # Landroid/widget/FrameLayout;
     .param p2, "jjSplashContent"    # Landroid/widget/LinearLayout;
     .param p3, "jjSplashLogo"    # Landroid/widget/ImageView;
@@ -50,7 +50,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutJjSplashBinding;
-    .locals 5
+    .registers 6
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -74,7 +74,7 @@
 
     .line 65
     .local v1, "jjSplashContent":Landroid/widget/LinearLayout;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     .line 69
     const v0, 0x7f0a0179
@@ -88,7 +88,7 @@
 
     .line 71
     .local v2, "jjSplashLogo":Landroid/widget/ImageView;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     .line 75
     new-instance v3, Lio/nekohasekai/sagernet/databinding/LayoutJjSplashBinding;
@@ -102,17 +102,17 @@
     return-object v3
 
     .line 72
-    :cond_0
-    goto :goto_0
+    :cond_1f
+    goto :goto_21
 
     .line 66
     .end local v2    # "jjSplashLogo":Landroid/widget/ImageView;
-    :cond_1
+    :cond_20
     nop
 
     .line 77
     .end local v1    # "jjSplashContent":Landroid/widget/LinearLayout;
-    :goto_0
+    :goto_21
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -137,7 +137,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutJjSplashBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -161,7 +161,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutJjSplashBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -189,13 +189,13 @@
 
     .line 51
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 52
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 54
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutJjSplashBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutJjSplashBinding;
 
     move-result-object v1
@@ -206,7 +206,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutJjSplashBinding;->getRoot()Landroid/widget/FrameLayout;
@@ -217,7 +217,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/FrameLayout;
-    .locals 1
+    .registers 2
 
     .line 39
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutJjSplashBinding;->rootView:Landroid/widget/FrameLayout;

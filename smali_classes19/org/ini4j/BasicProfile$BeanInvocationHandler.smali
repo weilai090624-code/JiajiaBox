@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Lorg/ini4j/BasicProfile;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p2, "prefix"    # Ljava/lang/String;
 
     .line 277
@@ -38,7 +38,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/ini4j/BasicProfile;Ljava/lang/String;Lorg/ini4j/BasicProfile$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Lorg/ini4j/BasicProfile;
     .param p2, "x1"    # Ljava/lang/String;
     .param p3, "x2"    # Lorg/ini4j/BasicProfile$1;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method protected getPropertySpi(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "property"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -82,14 +82,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4d
 
     .line 288
     invoke-virtual {p2}, Ljava/lang/Class;->isArray()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_41
 
     .line 290
     invoke-virtual {p2}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
@@ -110,14 +110,14 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_22
     iget-object v3, p0, Lorg/ini4j/BasicProfile$BeanInvocationHandler;->this$0:Lorg/ini4j/BasicProfile;
 
     invoke-virtual {v3, v0}, Lorg/ini4j/BasicProfile;->length(Ljava/lang/Object;)I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_40
 
     .line 293
     iget-object v3, p0, Lorg/ini4j/BasicProfile$BeanInvocationHandler;->this$0:Lorg/ini4j/BasicProfile;
@@ -141,14 +141,14 @@
     .line 291
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .end local v2    # "i":I
-    :cond_0
-    goto :goto_1
+    :cond_40
+    goto :goto_4d
 
     .line 298
-    :cond_1
+    :cond_41
     iget-object v2, p0, Lorg/ini4j/BasicProfile$BeanInvocationHandler;->this$0:Lorg/ini4j/BasicProfile;
 
     invoke-virtual {v2, v0}, Lorg/ini4j/BasicProfile;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -162,13 +162,13 @@
     move-result-object v1
 
     .line 302
-    :cond_2
-    :goto_1
+    :cond_4d
+    :goto_4d
     return-object v1
 .end method
 
 .method protected hasPropertySpi(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "property"    # Ljava/lang/String;
 
     .line 332
@@ -186,7 +186,7 @@
 .end method
 
 .method protected setPropertySpi(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)V
-    .locals 4
+    .registers 8
     .param p1, "property"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -212,25 +212,25 @@
     invoke-virtual {v1, v0}, Lorg/ini4j/BasicProfile;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 310
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_32
 
     .line 312
     invoke-virtual {p3}, Ljava/lang/Class;->isArray()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_29
 
     .line 314
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_12
     invoke-static {p2}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_28
 
     .line 316
     iget-object v2, p0, Lorg/ini4j/BasicProfile$BeanInvocationHandler;->this$0:Lorg/ini4j/BasicProfile;
@@ -251,14 +251,14 @@
     .end local v2    # "sec":Lorg/ini4j/Profile$Section;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .end local v1    # "i":I
-    :cond_0
-    goto :goto_1
+    :cond_28
+    goto :goto_32
 
     .line 323
-    :cond_1
+    :cond_29
     iget-object v1, p0, Lorg/ini4j/BasicProfile$BeanInvocationHandler;->this$0:Lorg/ini4j/BasicProfile;
 
     invoke-virtual {v1, v0}, Lorg/ini4j/BasicProfile;->add(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
@@ -271,25 +271,25 @@
 
     .line 328
     .end local v1    # "sec":Lorg/ini4j/Profile$Section;
-    :cond_2
-    :goto_1
+    :cond_32
+    :goto_32
     return-void
 .end method
 
 .method transform(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "property"    # Ljava/lang/String;
 
     .line 337
     iget-object v0, p0, Lorg/ini4j/BasicProfile$BeanInvocationHandler;->_prefix:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_6
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -310,14 +310,14 @@
 
     .line 339
     .local v0, "ret":Ljava/lang/String;
-    :goto_0
+    :goto_19
     iget-object v1, p0, Lorg/ini4j/BasicProfile$BeanInvocationHandler;->this$0:Lorg/ini4j/BasicProfile;
 
     invoke-virtual {v1}, Lorg/ini4j/BasicProfile;->isPropertyFirstUpper()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3e
 
     .line 341
     new-instance v1, Ljava/lang/StringBuilder;
@@ -354,6 +354,6 @@
 
     .line 348
     .end local v1    # "buff":Ljava/lang/StringBuilder;
-    :cond_1
+    :cond_3e
     return-object v0
 .end method

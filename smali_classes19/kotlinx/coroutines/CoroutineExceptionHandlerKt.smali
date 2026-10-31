@@ -40,7 +40,7 @@
 
 # direct methods
 .method public static final CoroutineExceptionHandler(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/CoroutineExceptionHandler;
-    .locals 3
+    .registers 4
     .param p0, "handler"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -73,7 +73,7 @@
 .end method
 
 .method public static final handleCoroutineException(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "exception"    # Ljava/lang/Throwable;
 
@@ -81,7 +81,7 @@
     nop
 
     .line 23
-    :try_start_0
+    :try_start_1
     sget-object v0, Lkotlinx/coroutines/CoroutineExceptionHandler;->Key:Lkotlinx/coroutines/CoroutineExceptionHandler$Key;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext$Key;
@@ -92,7 +92,7 @@
 
     check-cast v0, Lkotlinx/coroutines/CoroutineExceptionHandler;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .local v0, "it":Lkotlinx/coroutines/CoroutineExceptionHandler;
     const/4 v1, 0x0
@@ -100,15 +100,15 @@
     .line 24
     .local v1, "$i$a$-let-CoroutineExceptionHandlerKt$handleCoroutineException$1":I
     invoke-interface {v0, p0, p1}, Lkotlinx/coroutines/CoroutineExceptionHandler;->handleException(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Throwable;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_1 .. :try_end_11} :catchall_17
 
     .line 25
     return-void
 
     .end local v0    # "it":Lkotlinx/coroutines/CoroutineExceptionHandler;
     .end local v1    # "$i$a$-let-CoroutineExceptionHandlerKt$handleCoroutineException$1":I
-    :cond_0
+    :cond_12
     nop
 
     .line 32
@@ -118,7 +118,7 @@
     return-void
 
     .line 27
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     .line 28
@@ -134,17 +134,17 @@
 .end method
 
 .method public static final handlerException(Ljava/lang/Throwable;Ljava/lang/Throwable;)Ljava/lang/Throwable;
-    .locals 5
+    .registers 7
     .param p0, "originalException"    # Ljava/lang/Throwable;
     .param p1, "thrownException"    # Ljava/lang/Throwable;
 
     .line 36
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_3
 
     return-object p0
 
     .line 37
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Exception while trying to handle coroutine exception"

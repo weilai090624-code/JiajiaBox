@@ -93,7 +93,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/CancellableContinuation;Lkotlin/jvm/functions/Function2;Ljava/net/HttpURLConnection;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,7 +160,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -174,7 +174,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -203,7 +203,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -212,7 +212,7 @@
     .line 95
     iget v1, p0, Lio/nekohasekai/sagernet/ktx/UtilsKt$useCancellable$2$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_5a
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -223,24 +223,24 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     iget-object v0, p0, Lio/nekohasekai/sagernet/ktx/UtilsKt$useCancellable$2$2;->L$0:Ljava/lang/Object;
 
     check-cast v0, Lkotlin/coroutines/Continuation;
 
-    :try_start_0
+    :try_start_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_18
+    .catchall {:try_start_15 .. :try_end_18} :catchall_44
 
     move-object v1, v0
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_37
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1b
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 96
@@ -248,7 +248,7 @@
     nop
 
     .line 97
-    :try_start_1
+    :try_start_1f
     iget-object v1, p0, Lio/nekohasekai/sagernet/ktx/UtilsKt$useCancellable$2$2;->$cont:Lkotlinx/coroutines/CancellableContinuation;
 
     check-cast v1, Lkotlin/coroutines/Continuation;
@@ -268,36 +268,36 @@
     invoke-interface {v2, v3, p0}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_32
+    .catchall {:try_start_1f .. :try_end_32} :catchall_44
 
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_35
 
     .line 95
     return-object v0
 
     .line 97
-    :cond_0
+    :cond_35
     move-object v0, p1
 
     move-object p1, v2
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
-    :try_start_2
+    :goto_37
+    :try_start_37
     invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
     invoke-interface {v1, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3e
+    .catchall {:try_start_37 .. :try_end_3e} :catchall_3f
 
-    goto :goto_2
+    goto :goto_57
 
     .line 98
-    :catchall_0
+    :catchall_3f
     move-exception p1
 
     move-object v5, v0
@@ -306,16 +306,16 @@
 
     move-object p1, v5
 
-    goto :goto_1
+    goto :goto_45
 
     .end local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catchall_1
+    :catchall_44
     move-exception v0
 
     .line 99
     .local v0, "e":Ljava/lang/Throwable;
-    :goto_1
+    :goto_45
     iget-object v1, p0, Lio/nekohasekai/sagernet/ktx/UtilsKt$useCancellable$2$2;->$cont:Lkotlinx/coroutines/CancellableContinuation;
 
     check-cast v1, Lkotlin/coroutines/Continuation;
@@ -337,14 +337,14 @@
     .line 101
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_2
+    :goto_57
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_5a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_11
     .end packed-switch
 .end method

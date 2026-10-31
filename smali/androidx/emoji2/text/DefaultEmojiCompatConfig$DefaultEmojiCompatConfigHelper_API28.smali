@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 325
     invoke-direct {p0}, Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigHelper_API19;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getSigningSignatures(Landroid/content/pm/PackageManager;Ljava/lang/String;)[Landroid/content/pm/Signature;
-    .locals 2
+    .registers 5
     .param p1, "packageManager"    # Landroid/content/pm/PackageManager;
     .param p2, "providerPackage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;

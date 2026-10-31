@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -63,12 +63,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_24
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -80,7 +80,7 @@
     .local v1, "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     instance-of v2, v1, Landroidx/camera/camera2/internal/Camera2CaptureCallbacks$NoOpSessionCaptureCallback;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_23
 
     .line 114
     iget-object v2, p0, Landroidx/camera/camera2/internal/Camera2CaptureCallbacks$ComboSessionCaptureCallback;->mCallbacks:Ljava/util/List;
@@ -89,18 +89,18 @@
 
     .line 116
     .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    :cond_0
-    goto :goto_0
+    :cond_23
+    goto :goto_e
 
     .line 117
-    :cond_1
+    :cond_24
     return-void
 .end method
 
 
 # virtual methods
 .method public onCaptureBufferLost(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/view/Surface;J)V
-    .locals 8
+    .registers 14
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "surface"    # Landroid/view/Surface;
@@ -127,12 +127,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -156,15 +156,15 @@
 
     .line 126
     .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 127
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
-    .locals 2
+    .registers 6
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "result"    # Landroid/hardware/camera2/TotalCaptureResult;
@@ -188,12 +188,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -207,15 +207,15 @@
 
     .line 135
     .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 136
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onCaptureFailed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureFailure;)V
-    .locals 2
+    .registers 6
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "failure"    # Landroid/hardware/camera2/CaptureFailure;
@@ -239,12 +239,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -258,15 +258,15 @@
 
     .line 144
     .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 145
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onCaptureProgressed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
-    .locals 2
+    .registers 6
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "partialResult"    # Landroid/hardware/camera2/CaptureResult;
@@ -290,12 +290,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -309,15 +309,15 @@
 
     .line 153
     .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 154
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onCaptureSequenceAborted(Landroid/hardware/camera2/CameraCaptureSession;I)V
-    .locals 2
+    .registers 5
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "sequenceId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -338,12 +338,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -357,15 +357,15 @@
 
     .line 161
     .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 162
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onCaptureSequenceCompleted(Landroid/hardware/camera2/CameraCaptureSession;IJ)V
-    .locals 2
+    .registers 7
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "sequenceId"    # I
     .param p3, "frame"    # J
@@ -389,12 +389,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -408,15 +408,15 @@
 
     .line 169
     .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 170
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onCaptureStarted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;JJ)V
-    .locals 9
+    .registers 16
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "timestamp"    # J
@@ -443,12 +443,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -472,9 +472,9 @@
 
     .line 178
     .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 179
-    :cond_0
+    :cond_1b
     return-void
 .end method

@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 34
     const-class v0, Lcom/google/common/base/Platform;
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,14 +57,14 @@
 .end method
 
 .method static checkGwtRpcEnabled()V
-    .locals 0
+    .registers 0
 
     .line 117
     return-void
 .end method
 
 .method static compilePattern(Ljava/lang/String;)Lcom/google/common/base/CommonPattern;
-    .locals 1
+    .registers 2
     .param p0, "pattern"    # Ljava/lang/String;
 
     .line 84
@@ -81,7 +81,7 @@
 .end method
 
 .method static emptyToNull(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "string"    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -94,21 +94,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v0, p0
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method
 
 .method static formatCompact4Digits(D)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "value"    # D
 
     .line 55
@@ -136,7 +136,7 @@
 .end method
 
 .method static getEnumIfPresent(Ljava/lang/Class;Ljava/lang/String;)Lcom/google/common/base/Optional;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -166,15 +166,15 @@
 
     .line 51
     .local v0, "ref":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<+Ljava/lang/Enum<*>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     invoke-static {}, Lcom/google/common/base/Optional;->absent()Lcom/google/common/base/Optional;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_11
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v1
@@ -189,12 +189,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1f
     return-object v1
 .end method
 
 .method private static loadPatternCompiler()Lcom/google/common/base/PatternCompiler;
-    .locals 2
+    .registers 2
 
     .line 98
     new-instance v0, Lcom/google/common/base/Platform$JdkPatternCompiler;
@@ -207,7 +207,7 @@
 .end method
 
 .method private static logPatternCompilerError(Ljava/util/ServiceConfigurationError;)V
-    .locals 3
+    .registers 4
     .param p0, "e"    # Ljava/util/ServiceConfigurationError;
 
     .line 102
@@ -224,28 +224,28 @@
 .end method
 
 .method static nullToEmpty(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "string"    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
     .end param
 
     .line 69
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     const-string v0, ""
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     move-object v0, p0
 
-    :goto_0
+    :goto_6
     return-object v0
 .end method
 
 .method static patternCompilerIsPcreLike()Z
-    .locals 1
+    .registers 1
 
     .line 89
     sget-object v0, Lcom/google/common/base/Platform;->patternCompiler:Lcom/google/common/base/PatternCompiler;
@@ -258,7 +258,7 @@
 .end method
 
 .method static precomputeCharMatcher(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
     .param p0, "matcher"    # Lcom/google/common/base/CharMatcher;
 
     .line 46
@@ -270,38 +270,38 @@
 .end method
 
 .method static stringIsNullOrEmpty(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "string"    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
     .end param
 
     .line 59
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_b
 
     invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_c
     return v0
 .end method
 
 .method static systemNanoTime()J
-    .locals 2
+    .registers 2
 
     .line 42
     invoke-static {}, Ljava/lang/System;->nanoTime()J

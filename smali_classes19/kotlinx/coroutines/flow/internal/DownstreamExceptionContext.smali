@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Throwable;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 0
+    .registers 3
     .param p1, "e"    # Ljava/lang/Throwable;
     .param p2, "originalContext"    # Lkotlin/coroutines/CoroutineContext;
 
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public fold(Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -96,7 +96,7 @@
 .end method
 
 .method public get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -117,7 +117,7 @@
 .end method
 
 .method public minusKey(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -137,7 +137,7 @@
 .end method
 
 .method public plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lkotlinx/coroutines/flow/internal/DownstreamExceptionContext;->$$delegate_0:Lkotlin/coroutines/CoroutineContext;
 

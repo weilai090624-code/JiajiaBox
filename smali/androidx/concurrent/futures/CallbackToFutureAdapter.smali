@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static getFuture(Landroidx/concurrent/futures/CallbackToFutureAdapter$Resolver;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -63,27 +63,27 @@
     iput-object v2, v0, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->tag:Ljava/lang/Object;
 
     .line 102
-    :try_start_0
+    :try_start_12
     invoke-interface {p0, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Resolver;->attachCompleter(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
 
     move-result-object v2
 
     .line 103
     .local v2, "tag":Ljava/lang/Object;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     .line 104
     iput-object v2, v0, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->tag:Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_1a} :catch_1b
 
     .line 108
-    :cond_0
-    goto :goto_0
+    :cond_1a
+    goto :goto_1f
 
     .line 106
     .end local v2    # "tag":Ljava/lang/Object;
-    :catch_0
+    :catch_1b
     move-exception v2
 
     .line 107
@@ -92,6 +92,6 @@
 
     .line 109
     .end local v2    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_1f
     return-object v1
 .end method

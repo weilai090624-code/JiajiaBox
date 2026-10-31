@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)V
-    .locals 0
+    .registers 4
 
     iput-object p1, p0, Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$$inlined$unsafeFlow$1;->$flow2$inlined:Lkotlinx/coroutines/flow/Flow;
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 12
     .param p1, "collector"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -130,12 +130,12 @@
 
     move-result-object v2
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_1d
 
     return-object v0
 
     .line 115
-    :cond_0
+    :cond_1d
     nop
 
     .line 109

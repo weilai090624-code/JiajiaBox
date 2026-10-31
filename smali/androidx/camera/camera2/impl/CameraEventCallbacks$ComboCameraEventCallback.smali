@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -63,12 +63,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -84,17 +84,17 @@
 
     .line 67
     .end local v1    # "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
-    goto :goto_0
+    goto :goto_e
 
     .line 68
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 
 # virtual methods
 .method public getCallbacks()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -111,7 +111,7 @@
 .end method
 
 .method public onDisableSession()Ljava/util/List;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -134,12 +134,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -155,7 +155,7 @@
 
     .line 135
     .local v3, "disableCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     .line 136
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -163,16 +163,16 @@
     .line 138
     .end local v2    # "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
     .end local v3    # "disableCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_b
 
     .line 139
-    :cond_1
+    :cond_21
     return-object v0
 .end method
 
 .method public onEnableSession()Ljava/util/List;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -195,12 +195,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -216,7 +216,7 @@
 
     .line 99
     .local v3, "enableCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     .line 100
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -224,16 +224,16 @@
     .line 102
     .end local v2    # "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
     .end local v3    # "enableCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_b
 
     .line 103
-    :cond_1
+    :cond_21
     return-object v0
 .end method
 
 .method public onPresetSession()Ljava/util/List;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -256,12 +256,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -277,7 +277,7 @@
 
     .line 81
     .local v3, "presetCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     .line 82
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -285,16 +285,16 @@
     .line 84
     .end local v2    # "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
     .end local v3    # "presetCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_b
 
     .line 85
-    :cond_1
+    :cond_21
     return-object v0
 .end method
 
 .method public onRepeating()Ljava/util/List;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -317,12 +317,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -338,7 +338,7 @@
 
     .line 117
     .local v3, "repeatingCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     .line 118
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -346,10 +346,10 @@
     .line 120
     .end local v2    # "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
     .end local v3    # "repeatingCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_b
 
     .line 121
-    :cond_1
+    :cond_21
     return-object v0
 .end method

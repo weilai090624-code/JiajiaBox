@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;F)V
-    .locals 0
+    .registers 3
 
     .line 197
     iput-object p1, p0, Lcom/google/android/material/transition/SlideDistanceProvider$1;->val$view:Landroid/view/View;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 200

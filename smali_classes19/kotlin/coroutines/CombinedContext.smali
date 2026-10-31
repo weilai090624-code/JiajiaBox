@@ -77,7 +77,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext$Element;)V
-    .locals 1
+    .registers 4
     .param p1, "left"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method private final contains(Lkotlin/coroutines/CoroutineContext$Element;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
 
     .line 153
@@ -123,7 +123,7 @@
 .end method
 
 .method private final containsAll(Lkotlin/coroutines/CombinedContext;)Z
-    .locals 3
+    .registers 5
     .param p1, "context"    # Lkotlin/coroutines/CombinedContext;
 
     .line 156
@@ -131,7 +131,7 @@
 
     .line 157
     .local v0, "cur":Lkotlin/coroutines/CombinedContext;
-    :goto_0
+    :goto_1
     nop
 
     .line 158
@@ -141,31 +141,31 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     const/4 v1, 0x0
 
     return v1
 
     .line 159
-    :cond_0
+    :cond_c
     iget-object v1, v0, Lkotlin/coroutines/CombinedContext;->left:Lkotlin/coroutines/CoroutineContext;
 
     .line 160
     .local v1, "next":Lkotlin/coroutines/CoroutineContext;
     instance-of v2, v1, Lkotlin/coroutines/CombinedContext;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_16
 
     .line 161
     move-object v0, v1
 
     check-cast v0, Lkotlin/coroutines/CombinedContext;
 
-    goto :goto_0
+    goto :goto_1
 
     .line 163
-    :cond_1
+    :cond_16
     const-string v2, "null cannot be cast to non-null type kotlin.coroutines.CoroutineContext.Element"
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -182,7 +182,7 @@
 .end method
 
 .method private final size()I
-    .locals 4
+    .registers 5
 
     .line 144
     move-object v0, p0
@@ -193,7 +193,7 @@
 
     .line 146
     .local v1, "size":I
-    :goto_0
+    :goto_2
     nop
 
     .line 147
@@ -201,31 +201,31 @@
 
     instance-of v3, v2, Lkotlin/coroutines/CombinedContext;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_c
 
     check-cast v2, Lkotlin/coroutines/CombinedContext;
 
-    goto :goto_1
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
-    :goto_1
-    if-nez v2, :cond_1
+    :goto_d
+    if-nez v2, :cond_10
 
     return v1
 
-    :cond_1
+    :cond_10
     move-object v0, v2
 
     .line 148
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 .end method
 
 .method private final writeReplace()Ljava/lang/Object;
-    .locals 5
+    .registers 6
 
     .line 179
     invoke-direct {p0}, Lkotlin/coroutines/CombinedContext;->size()I
@@ -257,17 +257,17 @@
     .line 183
     iget v3, v2, Lkotlin/jvm/internal/Ref$IntRef;->element:I
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_1d
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_1e
+    if-eqz v3, :cond_26
 
     .line 185
     new-instance v3, Lkotlin/coroutines/CombinedContext$Serialized;
@@ -277,7 +277,7 @@
     return-object v3
 
     .line 183
-    :cond_1
+    :cond_26
     new-instance v3, Ljava/lang/IllegalStateException;
 
     const-string v4, "Check failed."
@@ -294,15 +294,15 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 169
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_1f
 
     instance-of v0, p1, Lkotlin/coroutines/CombinedContext;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     move-object v0, p1
 
@@ -316,7 +316,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1d
 
     move-object v0, p1
 
@@ -326,25 +326,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_20
     return v0
 .end method
 
 .method public fold(Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -380,7 +380,7 @@
 .end method
 
 .method public get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 3
+    .registers 5
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -401,7 +401,7 @@
 
     .line 119
     .local v0, "cur":Lkotlin/coroutines/CombinedContext;
-    :goto_0
+    :goto_6
     nop
 
     .line 120
@@ -411,7 +411,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 197
     .local v1, "it":Lkotlin/coroutines/CoroutineContext$Element;
@@ -424,24 +424,24 @@
     .line 121
     .end local v1    # "it":Lkotlin/coroutines/CoroutineContext$Element;
     .end local v2    # "$i$a$-let-CombinedContext$get$1":I
-    :cond_0
+    :cond_11
     iget-object v1, v0, Lkotlin/coroutines/CombinedContext;->left:Lkotlin/coroutines/CoroutineContext;
 
     .line 122
     .local v1, "next":Lkotlin/coroutines/CoroutineContext;
     instance-of v2, v1, Lkotlin/coroutines/CombinedContext;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1b
 
     .line 123
     move-object v0, v1
 
     check-cast v0, Lkotlin/coroutines/CombinedContext;
 
-    goto :goto_0
+    goto :goto_6
 
     .line 125
-    :cond_1
+    :cond_1b
     invoke-interface {v1, p1}, Lkotlin/coroutines/CoroutineContext;->get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
 
     move-result-object v2
@@ -450,7 +450,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 171
     iget-object v0, p0, Lkotlin/coroutines/CombinedContext;->left:Lkotlin/coroutines/CoroutineContext;
@@ -471,7 +471,7 @@
 .end method
 
 .method public minusKey(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
-    .locals 3
+    .registers 5
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -493,7 +493,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 197
     .local v0, "it":Lkotlin/coroutines/CoroutineContext$Element;
@@ -508,7 +508,7 @@
     .line 135
     .end local v0    # "it":Lkotlin/coroutines/CoroutineContext$Element;
     .end local v1    # "$i$a$-let-CombinedContext$minusKey$1":I
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lkotlin/coroutines/CombinedContext;->left:Lkotlin/coroutines/CoroutineContext;
 
     invoke-interface {v0, p1}, Lkotlin/coroutines/CoroutineContext;->minusKey(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
@@ -522,28 +522,28 @@
     .line 137
     iget-object v1, p0, Lkotlin/coroutines/CombinedContext;->left:Lkotlin/coroutines/CoroutineContext;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_20
 
     move-object v1, p0
 
     check-cast v1, Lkotlin/coroutines/CoroutineContext;
 
-    goto :goto_0
+    goto :goto_32
 
     .line 138
-    :cond_1
+    :cond_20
     sget-object v1, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_29
 
     iget-object v1, p0, Lkotlin/coroutines/CombinedContext;->element:Lkotlin/coroutines/CoroutineContext$Element;
 
     check-cast v1, Lkotlin/coroutines/CoroutineContext;
 
-    goto :goto_0
+    goto :goto_32
 
     .line 139
-    :cond_2
+    :cond_29
     new-instance v1, Lkotlin/coroutines/CombinedContext;
 
     iget-object v2, p0, Lkotlin/coroutines/CombinedContext;->element:Lkotlin/coroutines/CoroutineContext$Element;
@@ -553,12 +553,12 @@
     check-cast v1, Lkotlin/coroutines/CoroutineContext;
 
     .line 136
-    :goto_0
+    :goto_32
     return-object v1
 .end method
 
 .method public plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 111
@@ -570,7 +570,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 174
     new-instance v0, Ljava/lang/StringBuilder;

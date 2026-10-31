@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/Serializable;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public canICMPing()Z
-    .locals 1
+    .registers 2
 
     .line 48
     const/4 v0, 0x1
@@ -43,7 +43,7 @@
 .end method
 
 .method public canMapping()Z
-    .locals 1
+    .registers 2
 
     .line 56
     const/4 v0, 0x1
@@ -52,7 +52,7 @@
 .end method
 
 .method public canTCPing()Z
-    .locals 1
+    .registers 2
 
     .line 52
     const/4 v0, 0x1
@@ -64,7 +64,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -80,7 +80,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 1
+    .registers 3
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -114,7 +114,7 @@
 .end method
 
 .method public deserializeFromBuffer(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -160,7 +160,7 @@
 .end method
 
 .method public displayAddress()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 40
     new-instance v0, Ljava/lang/StringBuilder;
@@ -197,7 +197,7 @@
 .end method
 
 .method public displayName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->name:Ljava/lang/String;
@@ -206,7 +206,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 33
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->name:Ljava/lang/String;
@@ -214,7 +214,7 @@
     return-object v0
 
     .line 35
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->displayAddress()Ljava/lang/String;
 
     move-result-object v0
@@ -223,7 +223,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -237,15 +237,15 @@
     .line 120
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 121
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_39
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -255,13 +255,13 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_12
 
-    goto :goto_0
+    goto :goto_39
 
     .line 123
-    :cond_1
-    :try_start_0
+    :cond_12
+    :try_start_12
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serializeWithoutName:Z
 
     .line 124
@@ -287,8 +287,8 @@
     invoke-static {v0, v2}, Ljava/util/Arrays;->equals([B[B)Z
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_12 .. :try_end_28} :catchall_30
 
     .line 127
     iput-boolean v1, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serializeWithoutName:Z
@@ -304,7 +304,7 @@
     return v0
 
     .line 127
-    :catchall_0
+    :catchall_30
     move-exception v0
 
     iput-boolean v1, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serializeWithoutName:Z
@@ -320,20 +320,20 @@
     throw v0
 
     .line 121
-    :cond_2
-    :goto_0
+    :cond_39
+    :goto_39
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 135
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_2
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serializeWithoutName:Z
 
     .line 136
@@ -344,8 +344,8 @@
     invoke-static {v0}, Ljava/util/Arrays;->hashCode([B)I
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_2 .. :try_end_c} :catchall_f
 
     .line 138
     iput-boolean v1, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serializeWithoutName:Z
@@ -354,7 +354,7 @@
     return v0
 
     .line 138
-    :catchall_0
+    :catchall_f
     move-exception v0
 
     iput-boolean v1, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serializeWithoutName:Z
@@ -364,7 +364,7 @@
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 2
+    .registers 3
 
     .line 61
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverAddress:Ljava/lang/String;
@@ -373,17 +373,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 62
     const-string v0, "127.0.0.1"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverAddress:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_29
 
     .line 63
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverAddress:Ljava/lang/String;
 
     const-string v1, "["
@@ -392,7 +392,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverAddress:Ljava/lang/String;
 
@@ -402,7 +402,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 64
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverAddress:Ljava/lang/String;
@@ -414,11 +414,11 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverAddress:Ljava/lang/String;
 
     .line 66
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverPort:Ljava/lang/Integer;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_35
 
     .line 67
     const/16 v0, 0x438
@@ -430,17 +430,17 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverPort:Ljava/lang/Integer;
 
     .line 69
-    :cond_2
+    :cond_35
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->name:Ljava/lang/String;
 
     const-string v1, ""
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_3d
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->name:Ljava/lang/String;
 
     .line 71
-    :cond_3
+    :cond_3d
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverAddress:Ljava/lang/String;
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->finalAddress:Ljava/lang/String;
@@ -457,25 +457,25 @@
     .line 74
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->customOutboundJson:Ljava/lang/String;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_4f
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->customOutboundJson:Ljava/lang/String;
 
     .line 75
-    :cond_4
+    :cond_4f
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->customConfigJson:Ljava/lang/String;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_55
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->customConfigJson:Ljava/lang/String;
 
     .line 76
-    :cond_5
+    :cond_55
     return-void
 .end method
 
 .method public network()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 44
     const-string v0, "tcp,udp"
@@ -484,7 +484,7 @@
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -514,7 +514,7 @@
 .end method
 
 .method public serializeToBuffer(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -536,7 +536,7 @@
     .line 86
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serializeWithoutName:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 87
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->name:Ljava/lang/String;
@@ -544,7 +544,7 @@
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
     .line 89
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/AbstractBean;->customOutboundJson:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
@@ -559,7 +559,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 145
     new-instance v0, Ljava/lang/StringBuilder;

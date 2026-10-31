@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 458
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static firstNonNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -41,20 +41,20 @@
     .line 79
     .local p0, "first":Ljava/lang/Object;, "TT;"
     .local p1, "second":Ljava/lang/Object;, "TT;"
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 80
     return-object p0
 
     .line 82
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_3
+    if-eqz p1, :cond_6
 
     .line 83
     return-object p1
 
     .line 85
-    :cond_1
+    :cond_6
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Both parameters are null"
@@ -65,7 +65,7 @@
 .end method
 
 .method public static toStringHelper(Ljava/lang/Class;)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,7 +91,7 @@
 .end method
 
 .method public static toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 3
+    .registers 4
     .param p0, "self"    # Ljava/lang/Object;
 
     .line 129
@@ -113,7 +113,7 @@
 .end method
 
 .method public static toStringHelper(Ljava/lang/String;)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 2
+    .registers 3
     .param p0, "className"    # Ljava/lang/String;
 
     .line 155

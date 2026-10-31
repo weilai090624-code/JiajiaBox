@@ -72,7 +72,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$QqtmWSDQgNQZqImUx-IepxdKeto(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/ProxyGroup;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/MainActivity$importSubscription$6;->invokeSuspend$lambda$0(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/ProxyGroup;Landroid/content/DialogInterface;I)V
 
@@ -80,7 +80,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/MainActivity;Ljava/lang/String;Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -108,7 +108,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$0(Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/database/ProxyGroup;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/MainActivity;
     .param p1, "$group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
 
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,7 +162,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -176,7 +176,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -205,14 +205,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 1138
     iget v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity$importSubscription$6;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_5e
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -222,7 +222,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 1140
@@ -304,8 +304,8 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

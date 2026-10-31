@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 951

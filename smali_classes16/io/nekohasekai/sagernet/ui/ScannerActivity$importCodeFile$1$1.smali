@@ -96,7 +96,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$2KlnTEA4WQmcgJvsevMO7l_Ygvc(Landroid/graphics/ImageDecoder;Landroid/graphics/ImageDecoder$ImageInfo;Landroid/graphics/ImageDecoder$Source;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;->invokeSuspend$lambda$1$lambda$0(Landroid/graphics/ImageDecoder;Landroid/graphics/ImageDecoder$ImageInfo;Landroid/graphics/ImageDecoder$Source;)V
 
@@ -104,7 +104,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/List;Lio/nekohasekai/sagernet/ui/ScannerActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -131,7 +131,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$1$lambda$0(Landroid/graphics/ImageDecoder;Landroid/graphics/ImageDecoder$ImageInfo;Landroid/graphics/ImageDecoder$Source;)V
-    .locals 0
+    .registers 3
     .param p0, "decoder"    # Landroid/graphics/ImageDecoder;
 
     .line 72
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,7 +176,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -190,7 +190,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -219,7 +219,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 12
+    .registers 14
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -230,7 +230,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_f6
 
     .end local p0    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -243,14 +243,14 @@
 
     .restart local p0    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v3, p0
 
-    goto/16 :goto_5
+    goto/16 :goto_f2
 
-    :pswitch_1
+    :pswitch_18
     const/4 v1, 0x0
 
     .local v1, "$i$f$forEachTry":I
@@ -270,10 +270,10 @@
 
     check-cast v6, Lio/nekohasekai/sagernet/ui/ScannerActivity;
 
-    :try_start_0
+    :try_start_26
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/Exception; {:try_start_26 .. :try_end_29} :catch_2f
 
     move-object v7, v6
 
@@ -283,11 +283,11 @@
 
     move-object v4, p0
 
-    goto/16 :goto_2
+    goto/16 :goto_9b
 
     .line 235
     .end local v3    # "$i$a$-forEachTry-ScannerActivity$importCodeFile$1$1$1":I
-    :catch_0
+    :catch_2f
     move-exception v3
 
     move-object v7, v6
@@ -298,13 +298,13 @@
 
     move-object v4, p0
 
-    goto/16 :goto_3
+    goto/16 :goto_a8
 
     .line 63
     .end local v1    # "$i$f$forEachTry":I
     .end local v5    # "result$iv":Ljava/lang/Exception;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_36
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 64
@@ -312,7 +312,7 @@
     nop
 
     .line 65
-    :try_start_1
+    :try_start_3a
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;->$it:Ljava/util/List;
 
     check-cast v1, Ljava/lang/Iterable;
@@ -331,8 +331,8 @@
     invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
+    :try_end_46
+    .catch Ljava/lang/Exception; {:try_start_3a .. :try_end_46} :catch_ce
 
     move v1, v4
 
@@ -346,23 +346,23 @@
     .end local p0    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     .local v1, "$i$f$forEachTry":I
     .local v3, "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
-    :goto_0
-    :try_start_2
+    :goto_4a
+    :try_start_4a
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_c1
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v7
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
+    :try_end_54
+    .catch Ljava/lang/Exception; {:try_start_4a .. :try_end_54} :catch_cc
 
     .line 234
     .local v7, "element$iv":Ljava/lang/Object;
-    :try_start_3
+    :try_start_54
     move-object v8, v7
 
     check-cast v8, Landroid/net/Uri;
@@ -378,7 +378,7 @@
 
     const/16 v10, 0x1c
 
-    if-lt v9, v10, :cond_0
+    if-lt v9, v10, :cond_71
 
     .line 69
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->getContentResolver()Landroid/content/ContentResolver;
@@ -401,11 +401,11 @@
 
     move-result-object v7
 
-    goto :goto_1
+    goto :goto_79
 
     .line 77
     .restart local v7    # "uri":Landroid/net/Uri;
-    :cond_0
+    :cond_71
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
@@ -417,7 +417,7 @@
     move-result-object v7
 
     .line 66
-    :goto_1
+    :goto_79
     nop
 
     .line 80
@@ -449,17 +449,17 @@
     invoke-static {v9, v3}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->onMainDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v9
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_93
+    .catch Ljava/lang/Exception; {:try_start_54 .. :try_end_93} :catch_a1
 
     .end local v7    # "result":Lcom/google/zxing/Result;
-    if-ne v9, v0, :cond_1
+    if-ne v9, v0, :cond_96
 
     .line 63
     return-object v0
 
     .line 81
-    :cond_1
+    :cond_96
     move-object v7, v6
 
     move-object v6, v5
@@ -476,7 +476,7 @@
     .local v3, "$i$a$-forEachTry-ScannerActivity$importCodeFile$1$1$1":I
     .local v4, "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     .local v6, "result$iv":Ljava/lang/Exception;
-    :goto_2
+    :goto_9b
     nop
 
     .line 234
@@ -489,14 +489,14 @@
 
     move-object v6, v7
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 235
     .end local v4    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     .end local v6    # "result$iv":Ljava/lang/Exception;
     .local v3, "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     .restart local v5    # "result$iv":Ljava/lang/Exception;
-    :catch_1
+    :catch_a1
     move-exception v7
 
     move-object v11, v4
@@ -516,8 +516,8 @@
     .local v3, "e$iv":Ljava/lang/Exception;
     .restart local v4    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     .restart local v6    # "result$iv":Ljava/lang/Exception;
-    :goto_3
-    if-nez v6, :cond_2
+    :goto_a8
+    if-nez v6, :cond_b0
 
     move-object v6, v3
 
@@ -529,10 +529,10 @@
 
     move-object v6, v7
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_2
-    :try_start_4
+    :cond_b0
+    :try_start_b0
     move-object v8, v6
 
     check-cast v8, Ljava/lang/Throwable;
@@ -542,8 +542,8 @@
     check-cast v9, Ljava/lang/Throwable;
 
     invoke-static {v8, v9}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_b9
+    .catch Ljava/lang/Exception; {:try_start_b0 .. :try_end_b9} :catch_be
 
     move-object v3, v4
 
@@ -554,25 +554,25 @@
     move-object v6, v7
 
     .end local v3    # "e$iv":Ljava/lang/Exception;
-    goto :goto_0
+    goto :goto_4a
 
     .line 86
     .end local v1    # "$i$f$forEachTry":I
     .end local v6    # "result$iv":Ljava/lang/Exception;
-    :catch_2
+    :catch_be
     move-exception v1
 
     move-object v3, v4
 
-    goto :goto_4
+    goto :goto_d0
 
     .line 238
     .end local v4    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     .restart local v1    # "$i$f$forEachTry":I
     .local v3, "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     .restart local v5    # "result$iv":Ljava/lang/Exception;
-    :cond_3
-    if-nez v5, :cond_4
+    :cond_c1
+    if-nez v5, :cond_ca
 
     .line 241
     nop
@@ -580,37 +580,37 @@
     .line 85
     .end local v1    # "$i$f$forEachTry":I
     .end local v5    # "result$iv":Ljava/lang/Exception;
-    :try_start_5
+    :try_start_c4
     iget-object v1, v3, Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;->this$0:Lio/nekohasekai/sagernet/ui/ScannerActivity;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->finish()V
 
-    goto :goto_6
+    goto :goto_f3
 
     .line 239
     .restart local v1    # "$i$f$forEachTry":I
     .restart local v5    # "result$iv":Ljava/lang/Exception;
-    :cond_4
+    :cond_ca
     nop
 
     .end local v3    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     .end local p1    # "$result":Ljava/lang/Object;
     throw v5
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
+    :try_end_cc
+    .catch Ljava/lang/Exception; {:try_start_c4 .. :try_end_cc} :catch_cc
 
     .line 86
     .end local v1    # "$i$f$forEachTry":I
     .end local v5    # "result$iv":Ljava/lang/Exception;
     .restart local v3    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catch_3
+    :catch_cc
     move-exception v1
 
-    goto :goto_4
+    goto :goto_d0
 
     .end local v3    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
-    :catch_4
+    :catch_ce
     move-exception v1
 
     move-object v3, p0
@@ -618,7 +618,7 @@
     .line 87
     .local v1, "e":Ljava/lang/Exception;
     .restart local v3    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$importCodeFile$1$1;
-    :goto_4
+    :goto_d0
     sget-object v4, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v5, v1
@@ -653,25 +653,25 @@
     move-result-object v1
 
     .end local v1    # "e":Ljava/lang/Exception;
-    if-ne v1, v0, :cond_5
+    if-ne v1, v0, :cond_f2
 
     .line 63
     return-object v0
 
     .line 92
-    :cond_5
-    :goto_5
+    :cond_f2
+    :goto_f2
     nop
 
-    :goto_6
+    :goto_f3
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_f6
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_36
+        :pswitch_18
+        :pswitch_12
     .end packed-switch
 .end method

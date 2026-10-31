@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1724
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onCaptureSuccess(Landroidx/camera/core/ImageProxy;)V
-    .locals 0
+    .registers 2
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -43,7 +43,7 @@
 .end method
 
 .method public onError(Landroidx/camera/core/ImageCaptureException;)V
-    .locals 0
+    .registers 2
     .param p1, "exception"    # Landroidx/camera/core/ImageCaptureException;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

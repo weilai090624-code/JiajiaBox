@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/view/View;)V
-    .locals 1
+    .registers 5
     .param p1, "targetBounds"    # Landroid/graphics/Rect;
     .param p2, "actualBounds"    # Landroid/graphics/Rect;
     .param p3, "delegateView"    # Landroid/view/View;
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 7
+    .registers 9
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 1795
@@ -123,12 +123,12 @@
 
     move-result v5
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_70
 
-    goto :goto_0
+    goto :goto_35
 
     .line 1818
-    :pswitch_0
+    :pswitch_15
     iget-boolean v2, p0, Landroidx/appcompat/widget/SearchView$UpdatableTouchDelegate;->mDelegateTargeted:Z
 
     .line 1819
@@ -136,14 +136,14 @@
 
     iput-boolean v5, p0, Landroidx/appcompat/widget/SearchView$UpdatableTouchDelegate;->mDelegateTargeted:Z
 
-    goto :goto_0
+    goto :goto_35
 
     .line 1810
-    :pswitch_1
+    :pswitch_1b
     iget-boolean v2, p0, Landroidx/appcompat/widget/SearchView$UpdatableTouchDelegate;->mDelegateTargeted:Z
 
     .line 1811
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_35
 
     .line 1812
     iget-object v5, p0, Landroidx/appcompat/widget/SearchView$UpdatableTouchDelegate;->mSlopBounds:Landroid/graphics/Rect;
@@ -152,22 +152,22 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_35
 
     .line 1813
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_35
 
     .line 1803
-    :pswitch_2
+    :pswitch_29
     iget-object v5, p0, Landroidx/appcompat/widget/SearchView$UpdatableTouchDelegate;->mTargetBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v5, v0, v1}, Landroid/graphics/Rect;->contains(II)Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_35
 
     .line 1804
     const/4 v5, 0x1
@@ -178,12 +178,12 @@
     const/4 v2, 0x1
 
     .line 1822
-    :cond_0
-    :goto_0
-    if-eqz v2, :cond_2
+    :cond_35
+    :goto_35
+    if-eqz v2, :cond_6e
 
     .line 1823
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_57
 
     iget-object v5, p0, Landroidx/appcompat/widget/SearchView$UpdatableTouchDelegate;->mActualBounds:Landroid/graphics/Rect;
 
@@ -191,7 +191,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_57
 
     .line 1827
     iget-object v5, p0, Landroidx/appcompat/widget/SearchView$UpdatableTouchDelegate;->mDelegateView:Landroid/view/View;
@@ -218,10 +218,10 @@
     .line 1827
     invoke-virtual {p1, v5, v6}, Landroid/view/MotionEvent;->setLocation(FF)V
 
-    goto :goto_1
+    goto :goto_68
 
     .line 1831
-    :cond_1
+    :cond_57
     iget-object v5, p0, Landroidx/appcompat/widget/SearchView$UpdatableTouchDelegate;->mActualBounds:Landroid/graphics/Rect;
 
     iget v5, v5, Landroid/graphics/Rect;->left:I
@@ -241,7 +241,7 @@
     invoke-virtual {p1, v5, v6}, Landroid/view/MotionEvent;->setLocation(FF)V
 
     .line 1834
-    :goto_1
+    :goto_68
     iget-object v5, p0, Landroidx/appcompat/widget/SearchView$UpdatableTouchDelegate;->mDelegateView:Landroid/view/View;
 
     invoke-virtual {v5, p1}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
@@ -249,22 +249,22 @@
     move-result v4
 
     .line 1836
-    :cond_2
+    :cond_6e
     return v4
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_70
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_29
+        :pswitch_1b
+        :pswitch_1b
+        :pswitch_15
     .end packed-switch
 .end method
 
 .method public setBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 3
+    .registers 6
     .param p1, "desiredBounds"    # Landroid/graphics/Rect;
     .param p2, "actualBounds"    # Landroid/graphics/Rect;
 

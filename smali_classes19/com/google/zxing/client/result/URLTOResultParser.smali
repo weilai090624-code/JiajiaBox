@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Lcom/google/zxing/client/result/ResultParser;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public bridge synthetic parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/ParsedResult;
-    .locals 0
+    .registers 2
 
     .line 28
     invoke-virtual {p0, p1}, Lcom/google/zxing/client/result/URLTOResultParser;->parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/URIParsedResult;
@@ -27,7 +27,7 @@
 .end method
 
 .method public parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/URIParsedResult;
-    .locals 5
+    .registers 7
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 32
@@ -49,7 +49,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     const-string v0, "URLTO:"
 
@@ -57,13 +57,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 34
     return-object v2
 
     .line 36
-    :cond_0
+    :cond_18
     const/16 v0, 0x3a
 
     const/4 v3, 0x6
@@ -78,23 +78,23 @@
     .local v4, "titleEnd":I
     move v4, v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_24
 
     .line 38
     return-object v2
 
     .line 40
-    :cond_1
-    if-gt v4, v3, :cond_2
+    :cond_24
+    if-gt v4, v3, :cond_27
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_2
+    :cond_27
     invoke-virtual {v1, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_0
+    :goto_2b
     move-object v0, v2
 
     .line 41

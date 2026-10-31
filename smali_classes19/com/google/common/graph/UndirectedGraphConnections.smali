@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 .end method
 
 .method static of(Lcom/google/common/graph/ElementOrder;)Lcom/google/common/graph/UndirectedGraphConnections;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -98,7 +98,7 @@
 
     const/4 v2, 0x2
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_32
 
     .line 58
     new-instance v0, Ljava/lang/AssertionError;
@@ -112,7 +112,7 @@
     throw v0
 
     .line 55
-    :pswitch_0
+    :pswitch_1c
     new-instance v0, Lcom/google/common/graph/UndirectedGraphConnections;
 
     new-instance v3, Ljava/util/LinkedHashMap;
@@ -124,7 +124,7 @@
     return-object v0
 
     .line 52
-    :pswitch_1
+    :pswitch_27
     new-instance v0, Lcom/google/common/graph/UndirectedGraphConnections;
 
     new-instance v3, Ljava/util/HashMap;
@@ -135,15 +135,15 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_32
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_27
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method static ofImmutable(Ljava/util/Map;)Lcom/google/common/graph/UndirectedGraphConnections;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -174,7 +174,7 @@
 
 # virtual methods
 .method public addPredecessor(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TV;)V"
@@ -195,7 +195,7 @@
 .end method
 
 .method public addSuccessor(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TV;)TV;"
@@ -219,7 +219,7 @@
 .end method
 
 .method public adjacentNodes()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -244,7 +244,7 @@
 .end method
 
 .method public incidentEdgeIterator(Ljava/lang/Object;)Ljava/util/Iterator;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -281,7 +281,7 @@
 .end method
 
 .method public predecessors()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -300,7 +300,7 @@
 .end method
 
 .method public removePredecessor(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)V"
@@ -320,7 +320,7 @@
 .end method
 
 .method public removeSuccessor(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)TV;"
@@ -343,7 +343,7 @@
 .end method
 
 .method public successors()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -362,7 +362,7 @@
 .end method
 
 .method public value(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)TV;"

@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 278
     const-wide/high16 v0, 0x4000000000000000L    # 2.0
@@ -42,13 +42,13 @@
 
     new-array v0, v0, [D
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_12
 
     sput-object v0, Lcom/google/common/math/DoubleMath;->everySixteenthFactorial:[D
 
     return-void
 
-    :array_0
+    :array_12
     .array-data 8
         0x3ff0000000000000L    # 1.0
         0x42b3077775800000L    # 2.0922789888E13
@@ -65,7 +65,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 528
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,7 +74,7 @@
 .end method
 
 .method private static checkFinite(D)D
-    .locals 1
+    .registers 3
     .param p0, "argument"    # D
 
     .line 524
@@ -89,7 +89,7 @@
 .end method
 
 .method public static factorial(I)D
-    .locals 5
+    .registers 6
     .param p0, "n"    # I
 
     .line 303
@@ -100,7 +100,7 @@
     .line 304
     const/16 v0, 0xaa
 
-    if-le p0, v0, :cond_0
+    if-le p0, v0, :cond_c
 
     .line 305
     const-wide/high16 v0, 0x7ff0000000000000L    # Double.POSITIVE_INFINITY
@@ -108,7 +108,7 @@
     return-wide v0
 
     .line 309
-    :cond_0
+    :cond_c
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
 
     .line 310
@@ -118,8 +118,8 @@
     add-int/lit8 v2, v2, 0x1
 
     .local v2, "i":I
-    :goto_0
-    if-gt v2, p0, :cond_1
+    :goto_12
+    if-gt v2, p0, :cond_1a
 
     .line 311
     int-to-double v3, v2
@@ -129,11 +129,11 @@
     .line 310
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 313
     .end local v2    # "i":I
-    :cond_1
+    :cond_1a
     sget-object v2, Lcom/google/common/math/DoubleMath;->everySixteenthFactorial:[D
 
     shr-int/lit8 v3, p0, 0x4
@@ -146,7 +146,7 @@
 .end method
 
 .method public static fuzzyCompare(DDD)I
-    .locals 2
+    .registers 8
     .param p0, "a"    # D
     .param p2, "b"    # D
     .param p4, "tolerance"    # D
@@ -156,7 +156,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 383
     const/4 v0, 0x0
@@ -164,10 +164,10 @@
     return v0
 
     .line 384
-    :cond_0
+    :cond_8
     cmpg-double v0, p0, p2
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_e
 
     .line 385
     const/4 v0, -0x1
@@ -175,10 +175,10 @@
     return v0
 
     .line 386
-    :cond_1
+    :cond_e
     cmpl-double v0, p0, p2
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_14
 
     .line 387
     const/4 v0, 0x1
@@ -186,7 +186,7 @@
     return v0
 
     .line 389
-    :cond_2
+    :cond_14
     invoke-static {p0, p1}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result v0
@@ -203,7 +203,7 @@
 .end method
 
 .method public static fuzzyEquals(DDD)Z
-    .locals 4
+    .registers 10
     .param p0, "a"    # D
     .param p2, "b"    # D
     .param p4, "tolerance"    # D
@@ -224,43 +224,43 @@
 
     cmpg-double v2, v0, p4
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_24
 
     cmpl-double v0, p0, p2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 365
     invoke-static {p0, p1}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     invoke-static {p2, p3}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_22
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     const/4 v0, 0x1
 
     .line 362
-    :goto_1
+    :goto_25
     return v0
 .end method
 
 .method public static isMathematicalInteger(D)Z
-    .locals 3
+    .registers 5
     .param p0, "x"    # D
 
     .line 288
@@ -268,13 +268,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     const-wide/16 v0, 0x0
 
     cmpl-double v2, p0, v0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 290
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleUtils;->getSignificand(D)J
@@ -291,23 +291,23 @@
 
     move-result v1
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_1e
 
-    :cond_0
+    :cond_1c
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_1
+    :cond_1e
     const/4 v0, 0x0
 
     .line 288
-    :goto_0
+    :goto_1f
     return v0
 .end method
 
 .method public static isPowerOfTwo(D)Z
-    .locals 8
+    .registers 10
     .param p0, "x"    # D
 
     .line 201
@@ -317,13 +317,13 @@
 
     cmpl-double v3, p0, v0
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_1e
 
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleUtils;->isFinite(D)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 202
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleUtils;->getSignificand(D)J
@@ -342,21 +342,21 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_1d
 
     const/4 v2, 0x1
 
-    :cond_0
+    :cond_1d
     return v2
 
     .line 205
     .end local v0    # "significand":J
-    :cond_1
+    :cond_1e
     return v2
 .end method
 
 .method public static log2(D)D
-    .locals 4
+    .registers 6
     .param p0, "x"    # D
 
     .line 225
@@ -372,7 +372,7 @@
 .end method
 
 .method public static log2(DLjava/math/RoundingMode;)I
-    .locals 10
+    .registers 13
     .param p0, "x"    # D
     .param p2, "mode"    # Ljava/math/RoundingMode;
 
@@ -385,22 +385,22 @@
 
     cmpl-double v4, p0, v0
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_10
 
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleUtils;->isFinite(D)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     const-string v1, "x must be positive and finite"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -416,7 +416,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2b
 
     .line 243
     const-wide/high16 v1, 0x4330000000000000L    # 4.503599627370496E15
@@ -432,7 +432,7 @@
     return v1
 
     .line 248
-    :cond_1
+    :cond_2b
     sget-object v1, Lcom/google/common/math/DoubleMath$1;->$SwitchMap$java$math$RoundingMode:[I
 
     invoke-virtual {p2}, Ljava/math/RoundingMode;->ordinal()I
@@ -441,7 +441,7 @@
 
     aget v1, v1, v4
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_76
 
     .line 273
     new-instance v1, Ljava/lang/AssertionError;
@@ -451,7 +451,7 @@
     throw v1
 
     .line 267
-    :pswitch_0
+    :pswitch_3c
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleUtils;->scaleNormalize(D)D
 
     move-result-wide v4
@@ -464,26 +464,26 @@
 
     cmpl-double v1, v6, v8
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_49
 
     const/4 v2, 0x1
 
-    :cond_2
+    :cond_49
     move v1, v2
 
     .line 271
     .local v1, "increment":Z
-    goto :goto_1
+    goto :goto_6e
 
     .line 262
     .end local v1    # "increment":Z
     .end local v4    # "xScaled":D
-    :pswitch_1
-    if-ltz v0, :cond_3
+    :pswitch_4b
+    if-ltz v0, :cond_4e
 
     const/4 v2, 0x1
 
-    :cond_3
+    :cond_4e
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleMath;->isPowerOfTwo(D)Z
 
     move-result v1
@@ -494,16 +494,16 @@
 
     .line 263
     .restart local v1    # "increment":Z
-    goto :goto_1
+    goto :goto_6e
 
     .line 259
     .end local v1    # "increment":Z
-    :pswitch_2
-    if-gez v0, :cond_4
+    :pswitch_55
+    if-gez v0, :cond_58
 
     const/4 v2, 0x1
 
-    :cond_4
+    :cond_58
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleMath;->isPowerOfTwo(D)Z
 
     move-result v1
@@ -514,11 +514,11 @@
 
     .line 260
     .restart local v1    # "increment":Z
-    goto :goto_1
+    goto :goto_6e
 
     .line 256
     .end local v1    # "increment":Z
-    :pswitch_3
+    :pswitch_5f
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleMath;->isPowerOfTwo(D)Z
 
     move-result v1
@@ -527,11 +527,11 @@
 
     .line 257
     .restart local v1    # "increment":Z
-    goto :goto_1
+    goto :goto_6e
 
     .line 250
     .end local v1    # "increment":Z
-    :pswitch_4
+    :pswitch_65
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleMath;->isPowerOfTwo(D)Z
 
     move-result v1
@@ -539,7 +539,7 @@
     invoke-static {v1}, Lcom/google/common/math/MathPreconditions;->checkRoundingUnnecessary(Z)V
 
     .line 253
-    :pswitch_5
+    :pswitch_6c
     const/4 v1, 0x0
 
     .line 254
@@ -547,36 +547,36 @@
     nop
 
     .line 275
-    :goto_1
-    if-eqz v1, :cond_5
+    :goto_6e
+    if-eqz v1, :cond_73
 
     add-int/lit8 v2, v0, 0x1
 
-    goto :goto_2
+    goto :goto_74
 
-    :cond_5
+    :cond_73
     move v2, v0
 
-    :goto_2
+    :goto_74
     return v2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_76
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_5
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_65
+        :pswitch_6c
+        :pswitch_5f
+        :pswitch_55
+        :pswitch_4b
+        :pswitch_3c
+        :pswitch_3c
+        :pswitch_3c
     .end packed-switch
 .end method
 
 .method public static mean(Ljava/lang/Iterable;)D
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -604,7 +604,7 @@
 .end method
 
 .method public static mean(Ljava/util/Iterator;)D
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -649,12 +649,12 @@
 
     .line 512
     .local v2, "mean":D
-    :goto_0
+    :goto_19
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_36
 
     .line 513
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -688,15 +688,15 @@
 
     .line 517
     .end local v4    # "value":D
-    goto :goto_0
+    goto :goto_19
 
     .line 518
-    :cond_0
+    :cond_36
     return-wide v2
 .end method
 
 .method public static varargs mean([D)D
-    .locals 9
+    .registers 10
     .param p0, "values"    # [D
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -706,16 +706,16 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string v2, "Cannot take mean of 0 values"
 
     invoke-static {v0, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -736,10 +736,10 @@
     const/4 v4, 0x1
 
     .local v4, "index":I
-    :goto_1
+    :goto_15
     array-length v5, p0
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_29
 
     .line 413
     aget-wide v5, p0, v4
@@ -765,16 +765,16 @@
     .line 412
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_15
 
     .line 418
     .end local v4    # "index":I
-    :cond_1
+    :cond_29
     return-wide v0
 .end method
 
 .method public static varargs mean([I)D
-    .locals 6
+    .registers 7
     .param p0, "values"    # [I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -782,16 +782,16 @@
     .line 435
     array-length v0, p0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_5
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_6
     const-string v1, "Cannot take mean of 0 values"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -804,10 +804,10 @@
     const/4 v2, 0x0
 
     .local v2, "index":I
-    :goto_1
+    :goto_e
     array-length v3, p0
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_18
 
     .line 441
     aget v3, p0, v2
@@ -819,11 +819,11 @@
     .line 440
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_e
 
     .line 443
     .end local v2    # "index":I
-    :cond_1
+    :cond_18
     long-to-double v2, v0
 
     array-length v4, p0
@@ -836,7 +836,7 @@
 .end method
 
 .method public static varargs mean([J)D
-    .locals 9
+    .registers 10
     .param p0, "values"    # [J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -846,16 +846,16 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string v2, "Cannot take mean of 0 values"
 
     invoke-static {v0, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -874,10 +874,10 @@
     const/4 v4, 0x1
 
     .local v4, "index":I
-    :goto_1
+    :goto_12
     array-length v5, p0
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_22
 
     .line 465
     const-wide/16 v5, 0x1
@@ -900,16 +900,16 @@
     .line 464
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_12
 
     .line 469
     .end local v4    # "index":I
-    :cond_1
+    :cond_22
     return-wide v0
 .end method
 
 .method static roundIntermediate(DLjava/math/RoundingMode;)D
-    .locals 7
+    .registers 10
     .param p0, "x"    # D
     .param p2, "mode"    # Ljava/math/RoundingMode;
 
@@ -918,7 +918,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_83
 
     .line 60
     sget-object v0, Lcom/google/common/math/DoubleMath$1;->$SwitchMap$java$math$RoundingMode:[I
@@ -935,7 +935,7 @@
 
     const-wide/16 v5, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_8c
 
     .line 113
     new-instance v0, Ljava/lang/AssertionError;
@@ -945,7 +945,7 @@
     throw v0
 
     .line 104
-    :pswitch_0
+    :pswitch_1d
     invoke-static {p0, p1}, Ljava/lang/Math;->rint(D)D
 
     move-result-wide v0
@@ -960,18 +960,18 @@
 
     cmpl-double v2, v5, v3
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2c
 
     .line 106
     return-wide p0
 
     .line 108
-    :cond_0
+    :cond_2c
     return-wide v0
 
     .line 94
     .end local v0    # "z":D
-    :pswitch_1
+    :pswitch_2d
     invoke-static {p0, p1}, Ljava/lang/Math;->rint(D)D
 
     move-result-wide v0
@@ -986,7 +986,7 @@
 
     cmpl-double v2, v5, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_41
 
     .line 96
     invoke-static {v3, v4, p0, p1}, Ljava/lang/Math;->copySign(DD)D
@@ -998,12 +998,12 @@
     return-wide v2
 
     .line 98
-    :cond_1
+    :cond_41
     return-wide v0
 
     .line 90
     .end local v0    # "z":D
-    :pswitch_2
+    :pswitch_42
     invoke-static {p0, p1}, Ljava/lang/Math;->rint(D)D
 
     move-result-wide v0
@@ -1011,32 +1011,32 @@
     return-wide v0
 
     .line 83
-    :pswitch_3
+    :pswitch_47
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleMath;->isMathematicalInteger(D)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4e
 
     .line 84
     return-wide p0
 
     .line 86
-    :cond_2
+    :cond_4e
     double-to-long v0, p0
 
     cmpl-double v2, p0, v5
 
-    if-lez v2, :cond_3
+    if-lez v2, :cond_55
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_56
 
-    :cond_3
+    :cond_55
     const/4 v2, -0x1
 
-    :goto_0
+    :goto_56
     int-to-long v2, v2
 
     add-long/2addr v0, v2
@@ -1046,25 +1046,25 @@
     return-wide v0
 
     .line 80
-    :pswitch_4
+    :pswitch_5a
     return-wide p0
 
     .line 73
-    :pswitch_5
+    :pswitch_5b
     cmpg-double v0, p0, v5
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_6a
 
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleMath;->isMathematicalInteger(D)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_66
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 76
-    :cond_4
+    :cond_66
     double-to-long v3, p0
 
     add-long/2addr v3, v1
@@ -1074,26 +1074,26 @@
     return-wide v0
 
     .line 74
-    :cond_5
-    :goto_1
+    :cond_6a
+    :goto_6a
     return-wide p0
 
     .line 66
-    :pswitch_6
+    :pswitch_6b
     cmpl-double v0, p0, v5
 
-    if-gez v0, :cond_7
+    if-gez v0, :cond_7a
 
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleMath;->isMathematicalInteger(D)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_76
 
-    goto :goto_2
+    goto :goto_7a
 
     .line 69
-    :cond_6
+    :cond_76
     double-to-long v3, p0
 
     sub-long/2addr v3, v1
@@ -1103,12 +1103,12 @@
     return-wide v0
 
     .line 67
-    :cond_7
-    :goto_2
+    :cond_7a
+    :goto_7a
     return-wide p0
 
     .line 62
-    :pswitch_7
+    :pswitch_7b
     invoke-static {p0, p1}, Lcom/google/common/math/DoubleMath;->isMathematicalInteger(D)Z
 
     move-result v0
@@ -1119,7 +1119,7 @@
     return-wide p0
 
     .line 58
-    :cond_8
+    :cond_83
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v1, "input is infinite or NaN"
@@ -1130,21 +1130,21 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_8c
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_7b
+        :pswitch_6b
+        :pswitch_5b
+        :pswitch_5a
+        :pswitch_47
+        :pswitch_42
+        :pswitch_2d
+        :pswitch_1d
     .end packed-switch
 .end method
 
 .method public static roundToBigInteger(DLjava/math/RoundingMode;)Ljava/math/BigInteger;
-    .locals 7
+    .registers 10
     .param p0, "x"    # D
     .param p2, "mode"    # Ljava/math/RoundingMode;
 
@@ -1166,31 +1166,31 @@
 
     cmpg-double v6, v0, v2
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     const-wide/high16 v1, 0x43e0000000000000L    # 9.223372036854776E18
 
     cmpg-double v3, p0, v1
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_19
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_1a
     and-int/2addr v0, v4
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_23
 
     .line 187
     double-to-long v0, p0
@@ -1202,7 +1202,7 @@
     return-object v0
 
     .line 189
-    :cond_2
+    :cond_23
     invoke-static {p0, p1}, Ljava/lang/Math;->getExponent(D)I
 
     move-result v0
@@ -1231,23 +1231,23 @@
 
     cmpg-double v6, p0, v4
 
-    if-gez v6, :cond_3
+    if-gez v6, :cond_40
 
     invoke-virtual {v3}, Ljava/math/BigInteger;->negate()Ljava/math/BigInteger;
 
     move-result-object v4
 
-    goto :goto_2
+    goto :goto_41
 
-    :cond_3
+    :cond_40
     move-object v4, v3
 
-    :goto_2
+    :goto_41
     return-object v4
 .end method
 
 .method public static roundToInt(DLjava/math/RoundingMode;)I
-    .locals 8
+    .registers 11
     .param p0, "x"    # D
     .param p2, "mode"    # Ljava/math/RoundingMode;
 
@@ -1266,28 +1266,28 @@
 
     cmpl-double v6, v0, v2
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_11
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_12
     const-wide/high16 v6, 0x41e0000000000000L    # 2.147483648E9
 
     cmpg-double v3, v0, v6
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_19
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_1a
     and-int/2addr v2, v4
 
     invoke-static {v2, p0, p1, p2}, Lcom/google/common/math/MathPreconditions;->checkInRangeForRoundingInputs(ZDLjava/math/RoundingMode;)V
@@ -1299,7 +1299,7 @@
 .end method
 
 .method public static roundToLong(DLjava/math/RoundingMode;)J
-    .locals 9
+    .registers 12
     .param p0, "x"    # D
     .param p2, "mode"    # Ljava/math/RoundingMode;
 
@@ -1322,28 +1322,28 @@
 
     cmpg-double v8, v2, v4
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_11
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_12
     const-wide/high16 v3, 0x43e0000000000000L    # 9.223372036854776E18
 
     cmpg-double v5, v0, v3
 
-    if-gez v5, :cond_1
+    if-gez v5, :cond_19
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v6, 0x0
 
-    :goto_1
+    :goto_1a
     and-int/2addr v2, v6
 
     invoke-static {v2, p0, p1, p2}, Lcom/google/common/math/MathPreconditions;->checkInRangeForRoundingInputs(ZDLjava/math/RoundingMode;)V

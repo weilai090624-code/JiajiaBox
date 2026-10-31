@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/Network;)V
-    .locals 0
+    .registers 2
 
     .line 119
     iput-object p1, p0, Lcom/google/common/graph/ImmutableNetwork$1;->val$network:Lcom/google/common/graph/Network;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TN;"

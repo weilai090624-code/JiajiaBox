@@ -38,7 +38,7 @@
 
 # direct methods
 .method public static final asContextElement(Ljava/lang/ThreadLocal;Ljava/lang/Object;)Lkotlinx/coroutines/ThreadContextElement;
-    .locals 1
+    .registers 3
     .param p0, "$this$asContextElement"    # Ljava/lang/ThreadLocal;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -64,18 +64,18 @@
 .end method
 
 .method public static synthetic asContextElement$default(Ljava/lang/ThreadLocal;Ljava/lang/Object;ILjava/lang/Object;)Lkotlinx/coroutines/ThreadContextElement;
-    .locals 0
+    .registers 4
 
     .line 249
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     invoke-virtual {p0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
     move-result-object p1
 
-    :cond_0
+    :cond_8
     invoke-static {p0, p1}, Lkotlinx/coroutines/ThreadContextElementKt;->asContextElement(Ljava/lang/ThreadLocal;Ljava/lang/Object;)Lkotlinx/coroutines/ThreadContextElement;
 
     move-result-object p0
@@ -84,7 +84,7 @@
 .end method
 
 .method public static final ensurePresent(Ljava/lang/ThreadLocal;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "$this$ensurePresent"    # Ljava/lang/ThreadLocal;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -125,27 +125,27 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_16
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v3, 0x0
 
     .line 287
     .end local v1    # "$this$isPresent$iv":Ljava/lang/ThreadLocal;
     .end local v2    # "$i$f$isPresent":I
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_17
+    if-eqz v3, :cond_1c
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 290
-    :cond_1
+    :cond_1c
     const/4 v1, 0x0
 
     .line 287
@@ -195,7 +195,7 @@
 .end method
 
 .method private static final ensurePresent$$forInline(Ljava/lang/ThreadLocal;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p0, "$this$ensurePresent"    # Ljava/lang/ThreadLocal;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -223,7 +223,7 @@
 .end method
 
 .method public static final isPresent(Ljava/lang/ThreadLocal;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "$this$isPresent"    # Ljava/lang/ThreadLocal;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -257,16 +257,16 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_15
     invoke-static {v1}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -275,7 +275,7 @@
 .end method
 
 .method private static final isPresent$$forInline(Ljava/lang/ThreadLocal;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p0, "$this$isPresent"    # Ljava/lang/ThreadLocal;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;

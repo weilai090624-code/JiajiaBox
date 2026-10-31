@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 72
     .local p0, "this":Lj$/util/ImmutableCollections$AbstractImmutableCollection;, "Ljava/util/ImmutableCollections$AbstractImmutableCollection<TE;>;"
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -61,7 +61,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,7 +81,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 76
     .local p0, "this":Lj$/util/ImmutableCollections$AbstractImmutableCollection;, "Ljava/util/ImmutableCollections$AbstractImmutableCollection<TE;>;"
@@ -93,7 +93,7 @@
 .end method
 
 .method public synthetic forEach(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Collection$-CC;->$default$forEach(Ljava/util/Collection;Ljava/util/function/Consumer;)V
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public synthetic parallelStream()Lj$/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Collection$-CC;->$default$parallelStream(Ljava/util/Collection;)Lj$/util/stream/Stream;
 
@@ -111,7 +111,7 @@
 .end method
 
 .method public synthetic parallelStream()Ljava/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Lj$/util/ImmutableCollections$AbstractImmutableCollection;->parallelStream()Lj$/util/stream/Stream;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 77
@@ -138,7 +138,7 @@
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -158,7 +158,7 @@
 .end method
 
 .method public removeIf(Ljava/util/function/Predicate;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -178,7 +178,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -198,7 +198,7 @@
 .end method
 
 .method public synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Collection$-CC;->$default$spliterator(Ljava/util/Collection;)Lj$/util/Spliterator;
 
@@ -208,7 +208,7 @@
 .end method
 
 .method public synthetic spliterator()Ljava/util/Spliterator;
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Lj$/util/ImmutableCollections$AbstractImmutableCollection;->spliterator()Lj$/util/Spliterator;
 
@@ -222,7 +222,7 @@
 .end method
 
 .method public synthetic stream()Lj$/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Collection$-CC;->$default$stream(Ljava/util/Collection;)Lj$/util/stream/Stream;
 
@@ -232,7 +232,7 @@
 .end method
 
 .method public synthetic stream()Ljava/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Lj$/util/ImmutableCollections$AbstractImmutableCollection;->stream()Lj$/util/stream/Stream;
 
@@ -246,7 +246,7 @@
 .end method
 
 .method public synthetic toArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Collection$-CC;->$default$toArray(Ljava/util/Collection;Ljava/util/function/IntFunction;)[Ljava/lang/Object;
 

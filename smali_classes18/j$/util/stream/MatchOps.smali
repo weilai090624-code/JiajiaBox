@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static synthetic lambda$makeDouble$3(Lj$/util/stream/MatchOps$MatchKind;Ljava/util/function/DoublePredicate;)Lj$/util/stream/MatchOps$BooleanTerminalSink;
-    .locals 1
+    .registers 3
     .param p0, "matchKind"    # Lj$/util/stream/MatchOps$MatchKind;
     .param p1, "predicate"    # Ljava/util/function/DoublePredicate;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static synthetic lambda$makeInt$1(Lj$/util/stream/MatchOps$MatchKind;Ljava/util/function/IntPredicate;)Lj$/util/stream/MatchOps$BooleanTerminalSink;
-    .locals 1
+    .registers 3
     .param p0, "matchKind"    # Lj$/util/stream/MatchOps$MatchKind;
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static synthetic lambda$makeLong$2(Lj$/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)Lj$/util/stream/MatchOps$BooleanTerminalSink;
-    .locals 1
+    .registers 3
     .param p0, "matchKind"    # Lj$/util/stream/MatchOps$MatchKind;
     .param p1, "predicate"    # Ljava/util/function/LongPredicate;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic lambda$makeRef$0(Lj$/util/stream/MatchOps$MatchKind;Ljava/util/function/Predicate;)Lj$/util/stream/MatchOps$BooleanTerminalSink;
-    .locals 1
+    .registers 3
     .param p0, "matchKind"    # Lj$/util/stream/MatchOps$MatchKind;
     .param p1, "predicate"    # Ljava/util/function/Predicate;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public static makeDouble(Ljava/util/function/DoublePredicate;Lj$/util/stream/MatchOps$MatchKind;)Lj$/util/stream/TerminalOp;
-    .locals 3
+    .registers 5
     .param p0, "predicate"    # Ljava/util/function/DoublePredicate;
     .param p1, "matchKind"    # Lj$/util/stream/MatchOps$MatchKind;
     .annotation system Ldalvik/annotation/Signature;
@@ -114,7 +114,7 @@
 .end method
 
 .method public static makeInt(Ljava/util/function/IntPredicate;Lj$/util/stream/MatchOps$MatchKind;)Lj$/util/stream/TerminalOp;
-    .locals 3
+    .registers 5
     .param p0, "predicate"    # Ljava/util/function/IntPredicate;
     .param p1, "matchKind"    # Lj$/util/stream/MatchOps$MatchKind;
     .annotation system Ldalvik/annotation/Signature;
@@ -151,7 +151,7 @@
 .end method
 
 .method public static makeLong(Ljava/util/function/LongPredicate;Lj$/util/stream/MatchOps$MatchKind;)Lj$/util/stream/TerminalOp;
-    .locals 3
+    .registers 5
     .param p0, "predicate"    # Ljava/util/function/LongPredicate;
     .param p1, "matchKind"    # Lj$/util/stream/MatchOps$MatchKind;
     .annotation system Ldalvik/annotation/Signature;
@@ -188,7 +188,7 @@
 .end method
 
 .method public static makeRef(Ljava/util/function/Predicate;Lj$/util/stream/MatchOps$MatchKind;)Lj$/util/stream/TerminalOp;
-    .locals 3
+    .registers 5
     .param p1, "matchKind"    # Lj$/util/stream/MatchOps$MatchKind;
     .annotation system Ldalvik/annotation/Signature;
         value = {

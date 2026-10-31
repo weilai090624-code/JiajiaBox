@@ -36,7 +36,7 @@
 
 # direct methods
 .method protected constructor <init>(Lj$/util/stream/AbstractShortCircuitTask;Lj$/util/Spliterator;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -61,7 +61,7 @@
 .end method
 
 .method protected constructor <init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method protected cancel()V
-    .locals 1
+    .registers 2
 
     .line 197
     .local p0, "this":Lj$/util/stream/AbstractShortCircuitTask;, "Ljava/util/stream/AbstractShortCircuitTask<TP_IN;TP_OUT;TR;TK;>;"
@@ -107,7 +107,7 @@
 .end method
 
 .method protected cancelLaterNodes()V
-    .locals 4
+    .registers 5
 
     .line 223
     .local p0, "this":Lj$/util/stream/AbstractShortCircuitTask;, "Ljava/util/stream/AbstractShortCircuitTask<TP_IN;TP_OUT;TR;TK;>;"
@@ -122,13 +122,13 @@
 
     .line 224
     .local v1, "node":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_7
+    if-eqz v0, :cond_21
 
     .line 227
     iget-object v2, v0, Lj$/util/stream/AbstractShortCircuitTask;->leftChild:Lj$/util/stream/AbstractTask;
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_18
 
     .line 228
     iget-object v2, v0, Lj$/util/stream/AbstractShortCircuitTask;->rightChild:Lj$/util/stream/AbstractTask;
@@ -139,14 +139,14 @@
     .local v2, "rightSibling":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
     iget-boolean v3, v2, Lj$/util/stream/AbstractShortCircuitTask;->canceled:Z
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_18
 
     .line 230
     invoke-virtual {v2}, Lj$/util/stream/AbstractShortCircuitTask;->cancel()V
 
     .line 225
     .end local v2    # "rightSibling":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
-    :cond_0
+    :cond_18
     move-object v1, v0
 
     invoke-virtual {v0}, Lj$/util/stream/AbstractShortCircuitTask;->getParent()Lj$/util/stream/AbstractTask;
@@ -157,17 +157,17 @@
 
     check-cast v0, Lj$/util/stream/AbstractShortCircuitTask;
 
-    goto :goto_0
+    goto :goto_7
 
     .line 233
     .end local v0    # "parent":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
     .end local v1    # "node":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
-    :cond_1
+    :cond_21
     return-void
 .end method
 
 .method public compute()V
-    .locals 13
+    .registers 14
 
     .line 102
     .local p0, "this":Lj$/util/stream/AbstractShortCircuitTask;, "Ljava/util/stream/AbstractShortCircuitTask<TP_IN;TP_OUT;TR;TK;>;"
@@ -199,7 +199,7 @@
 
     .line 109
     .local v7, "sr":Ljava/util/concurrent/atomic/AtomicReference;, "Ljava/util/concurrent/atomic/AtomicReference<TR;>;"
-    :goto_0
+    :goto_e
     invoke-virtual {v7}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object v8
@@ -207,14 +207,14 @@
     move-object v9, v8
 
     .local v9, "result":Ljava/lang/Object;, "TR;"
-    if-nez v8, :cond_4
+    if-nez v8, :cond_59
 
     .line 110
     invoke-virtual {v6}, Lj$/util/stream/AbstractShortCircuitTask;->taskCanceled()Z
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_20
 
     .line 111
     invoke-virtual {v6}, Lj$/util/stream/AbstractShortCircuitTask;->getEmptyResult()Ljava/lang/Object;
@@ -222,13 +222,13 @@
     move-result-object v9
 
     .line 112
-    goto :goto_3
+    goto :goto_59
 
     .line 114
-    :cond_0
+    :cond_20
     cmp-long v8, v1, v3
 
-    if-lez v8, :cond_3
+    if-lez v8, :cond_54
 
     invoke-interface {v0}, Lj$/util/Spliterator;->trySplit()Lj$/util/Spliterator;
 
@@ -237,12 +237,12 @@
     move-object v10, v8
 
     .local v10, "ls":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
-    if-nez v8, :cond_1
+    if-nez v8, :cond_2c
 
-    goto :goto_2
+    goto :goto_54
 
     .line 119
-    :cond_1
+    :cond_2c
     invoke-virtual {v6, v10}, Lj$/util/stream/AbstractShortCircuitTask;->makeChild(Lj$/util/Spliterator;)Lj$/util/stream/AbstractTask;
 
     move-result-object v8
@@ -272,7 +272,7 @@
     invoke-virtual {v6, v8}, Lj$/util/stream/AbstractShortCircuitTask;->setPendingCount(I)V
 
     .line 122
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_49
 
     .line 123
     const/4 v5, 0x0
@@ -287,11 +287,11 @@
     move-object v8, v12
 
     .local v8, "taskToFork":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
-    goto :goto_1
+    goto :goto_4c
 
     .line 129
     .end local v8    # "taskToFork":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
-    :cond_2
+    :cond_49
     const/4 v5, 0x1
 
     .line 130
@@ -302,7 +302,7 @@
 
     .line 133
     .restart local v8    # "taskToFork":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
-    :goto_1
+    :goto_4c
     invoke-virtual {v8}, Lj$/util/stream/AbstractShortCircuitTask;->fork()Ljava/util/concurrent/ForkJoinTask;
 
     .line 134
@@ -314,12 +314,12 @@
     .end local v8    # "taskToFork":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
     .end local v11    # "leftChild":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
     .end local v12    # "rightChild":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
-    goto :goto_0
+    goto :goto_e
 
     .line 115
     .end local v10    # "ls":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
-    :cond_3
-    :goto_2
+    :cond_54
+    :goto_54
     invoke-virtual {v6}, Lj$/util/stream/AbstractShortCircuitTask;->doLeaf()Ljava/lang/Object;
 
     move-result-object v9
@@ -328,8 +328,8 @@
     nop
 
     .line 136
-    :cond_4
-    :goto_3
+    :cond_59
+    :goto_59
     invoke-virtual {v6, v9}, Lj$/util/stream/AbstractShortCircuitTask;->setLocalResult(Ljava/lang/Object;)V
 
     .line 137
@@ -348,7 +348,7 @@
 .end method
 
 .method public getLocalResult()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -361,7 +361,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 186
     iget-object v0, p0, Lj$/util/stream/AbstractShortCircuitTask;->sharedResult:Ljava/util/concurrent/atomic/AtomicReference;
@@ -372,23 +372,23 @@
 
     .line 187
     .local v0, "answer":Ljava/lang/Object;, "TR;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     invoke-virtual {p0}, Lj$/util/stream/AbstractShortCircuitTask;->getEmptyResult()Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     move-object v1, v0
 
-    :goto_0
+    :goto_14
     return-object v1
 
     .line 190
     .end local v0    # "answer":Ljava/lang/Object;, "TR;"
-    :cond_1
+    :cond_15
     invoke-super {p0}, Lj$/util/stream/AbstractTask;->getLocalResult()Ljava/lang/Object;
 
     move-result-object v0
@@ -397,7 +397,7 @@
 .end method
 
 .method public getRawResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -414,7 +414,7 @@
 .end method
 
 .method protected setLocalResult(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)V"
@@ -428,10 +428,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 164
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
     .line 165
     iget-object v0, p0, Lj$/util/stream/AbstractShortCircuitTask;->sharedResult:Ljava/util/concurrent/atomic/AtomicReference;
@@ -440,20 +440,20 @@
 
     invoke-static {v0, v1, p1}, Lj$/util/concurrent/ConcurrentHashMap$SearchEntriesTask$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_12
 
     .line 168
-    :cond_0
+    :cond_f
     invoke-super {p0, p1}, Lj$/util/stream/AbstractTask;->setLocalResult(Ljava/lang/Object;)V
 
     .line 169
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     return-void
 .end method
 
 .method protected shortCircuit(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)V"
@@ -463,7 +463,7 @@
     .line 151
     .local p0, "this":Lj$/util/stream/AbstractShortCircuitTask;, "Ljava/util/stream/AbstractShortCircuitTask<TP_IN;TP_OUT;TR;TK;>;"
     .local p1, "result":Ljava/lang/Object;, "TR;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 152
     iget-object v0, p0, Lj$/util/stream/AbstractShortCircuitTask;->sharedResult:Ljava/util/concurrent/atomic/AtomicReference;
@@ -473,12 +473,12 @@
     invoke-static {v0, v1, p1}, Lj$/util/concurrent/ConcurrentHashMap$SearchEntriesTask$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     .line 153
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method protected taskCanceled()Z
-    .locals 3
+    .registers 4
 
     .line 207
     .local p0, "this":Lj$/util/stream/AbstractShortCircuitTask;, "Ljava/util/stream/AbstractShortCircuitTask<TP_IN;TP_OUT;TR;TK;>;"
@@ -486,7 +486,7 @@
 
     .line 208
     .local v0, "cancel":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 209
     invoke-virtual {p0}, Lj$/util/stream/AbstractShortCircuitTask;->getParent()Lj$/util/stream/AbstractTask;
@@ -496,10 +496,10 @@
     check-cast v1, Lj$/util/stream/AbstractShortCircuitTask;
 
     .local v1, "parent":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
-    :goto_0
-    if-nez v0, :cond_0
+    :goto_a
+    if-nez v0, :cond_18
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 210
     iget-boolean v0, v1, Lj$/util/stream/AbstractShortCircuitTask;->canceled:Z
@@ -513,10 +513,10 @@
 
     check-cast v1, Lj$/util/stream/AbstractShortCircuitTask;
 
-    goto :goto_0
+    goto :goto_a
 
     .line 213
     .end local v1    # "parent":Lj$/util/stream/AbstractShortCircuitTask;, "TK;"
-    :cond_0
+    :cond_18
     return v0
 .end method

@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Supplier;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public get()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/base/ParametricNullness;
     .end annotation
 
@@ -104,16 +104,16 @@
     .local p0, "this":Lcom/google/common/base/Suppliers$MemoizingSupplier;, "Lcom/google/common/base/Suppliers$MemoizingSupplier<TT;>;"
     iget-boolean v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->initialized:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     .line 135
     monitor-enter p0
 
     .line 136
-    :try_start_0
+    :try_start_5
     iget-boolean v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->initialized:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 137
     iget-object v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->delegate:Lcom/google/common/base/Supplier;
@@ -138,23 +138,23 @@
 
     .line 142
     .end local v0    # "t":Ljava/lang/Object;, "TT;"
-    :cond_0
+    :cond_16
     monitor-exit p0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :catchall_0
+    :catchall_18
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_5 .. :try_end_1a} :catchall_18
 
     throw v0
 
     .line 145
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     iget-object v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->value:Ljava/lang/Object;
 
     invoke-static {v0}, Lcom/google/common/base/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
@@ -165,13 +165,13 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 151
     .local p0, "this":Lcom/google/common/base/Suppliers$MemoizingSupplier;, "Lcom/google/common/base/Suppliers$MemoizingSupplier<TT;>;"
     iget-boolean v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->initialized:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     iget-object v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->value:Ljava/lang/Object;
 
@@ -213,12 +213,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_2e
     iget-object v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->delegate:Lcom/google/common/base/Supplier;
 
-    :goto_0
+    :goto_30
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0

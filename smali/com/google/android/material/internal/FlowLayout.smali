@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 50
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -85,38 +85,38 @@
 .end method
 
 .method private static getMeasuredDimension(III)I
-    .locals 1
+    .registers 4
     .param p0, "size"    # I
     .param p1, "mode"    # I
     .param p2, "childrenEdge"    # I
 
     .line 178
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_a
 
     .line 184
     return p2
 
     .line 180
-    :sswitch_0
+    :sswitch_4
     return p0
 
     .line 182
-    :sswitch_1
+    :sswitch_5
     invoke-static {p2, p0}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
     return v0
 
-    :sswitch_data_0
+    :sswitch_data_a
     .sparse-switch
-        -0x80000000 -> :sswitch_1
-        0x40000000 -> :sswitch_0
+        -0x80000000 -> :sswitch_5
+        0x40000000 -> :sswitch_4
     .end sparse-switch
 .end method
 
 .method private loadFromAttributes(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -165,7 +165,7 @@
 
 # virtual methods
 .method protected getItemSpacing()I
-    .locals 1
+    .registers 2
 
     .line 88
     iget v0, p0, Lcom/google/android/material/internal/FlowLayout;->itemSpacing:I
@@ -174,7 +174,7 @@
 .end method
 
 .method protected getLineSpacing()I
-    .locals 1
+    .registers 2
 
     .line 80
     iget v0, p0, Lcom/google/android/material/internal/FlowLayout;->lineSpacing:I
@@ -183,7 +183,7 @@
 .end method
 
 .method protected getRowCount()I
-    .locals 1
+    .registers 2
 
     .line 248
     iget v0, p0, Lcom/google/android/material/internal/FlowLayout;->rowCount:I
@@ -192,7 +192,7 @@
 .end method
 
 .method public getRowIndex(Landroid/view/View;)I
-    .locals 2
+    .registers 4
     .param p1, "child"    # Landroid/view/View;
 
     .line 253
@@ -206,7 +206,7 @@
     .local v0, "index":Ljava/lang/Object;
     instance-of v1, v0, Ljava/lang/Integer;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     .line 255
     const/4 v1, -0x1
@@ -214,7 +214,7 @@
     return v1
 
     .line 257
-    :cond_0
+    :cond_c
     move-object v1, v0
 
     check-cast v1, Ljava/lang/Integer;
@@ -227,7 +227,7 @@
 .end method
 
 .method public isSingleLine()Z
-    .locals 1
+    .registers 2
 
     .line 97
     iget-boolean v0, p0, Lcom/google/android/material/internal/FlowLayout;->singleLine:Z
@@ -236,7 +236,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 17
+    .registers 23
     .param p1, "sizeChanged"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -252,7 +252,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     .line 192
     iput v2, v0, Lcom/google/android/material/internal/FlowLayout;->rowCount:I
@@ -261,7 +261,7 @@
     return-void
 
     .line 195
-    :cond_0
+    :cond_c
     const/4 v1, 0x1
 
     iput v1, v0, Lcom/google/android/material/internal/FlowLayout;->rowCount:I
@@ -271,45 +271,45 @@
 
     move-result v3
 
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_16
 
     const/4 v2, 0x1
 
     .line 198
     .local v2, "isRtl":Z
-    :cond_1
-    if-eqz v2, :cond_2
+    :cond_16
+    if-eqz v2, :cond_1d
 
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/internal/FlowLayout;->getPaddingRight()I
 
     move-result v3
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_2
+    :cond_1d
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/internal/FlowLayout;->getPaddingLeft()I
 
     move-result v3
 
     .line 199
     .local v3, "paddingStart":I
-    :goto_0
-    if-eqz v2, :cond_3
+    :goto_21
+    if-eqz v2, :cond_28
 
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/internal/FlowLayout;->getPaddingLeft()I
 
     move-result v4
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_3
+    :cond_28
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/internal/FlowLayout;->getPaddingRight()I
 
     move-result v4
 
     .line 200
     .local v4, "paddingEnd":I
-    :goto_1
+    :goto_2c
     move v5, v3
 
     .line 201
@@ -333,12 +333,12 @@
     const/4 v9, 0x0
 
     .local v9, "i":I
-    :goto_2
+    :goto_36
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/internal/FlowLayout;->getChildCount()I
 
     move-result v10
 
-    if-ge v9, v10, :cond_8
+    if-ge v9, v10, :cond_bd
 
     .line 208
     invoke-virtual {v0, v9}, Lcom/google/android/material/internal/FlowLayout;->getChildAt(I)Landroid/view/View;
@@ -353,7 +353,7 @@
 
     const/16 v12, 0x8
 
-    if-ne v11, v12, :cond_4
+    if-ne v11, v12, :cond_55
 
     .line 211
     sget v11, Lcom/google/android/material/R$id;->row_index_key:I
@@ -369,10 +369,10 @@
     .line 212
     move/from16 v16, v3
 
-    goto :goto_4
+    goto :goto_b7
 
     .line 215
-    :cond_4
+    :cond_55
     invoke-virtual {v10}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v11
@@ -389,7 +389,7 @@
     .local v13, "endMargin":I
     instance-of v14, v11, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v14, :cond_5
+    if-eqz v14, :cond_6a
 
     .line 219
     move-object v14, v11
@@ -409,7 +409,7 @@
 
     .line 224
     .end local v14    # "marginLp":Landroid/view/ViewGroup$MarginLayoutParams;
-    :cond_5
+    :cond_6a
     add-int v14, v5, v12
 
     invoke-virtual {v10}, Landroid/view/View;->getMeasuredWidth()I
@@ -422,9 +422,9 @@
     .local v14, "childEnd":I
     iget-boolean v15, v0, Lcom/google/android/material/internal/FlowLayout;->singleLine:Z
 
-    if-nez v15, :cond_6
+    if-nez v15, :cond_81
 
-    if-le v14, v8, :cond_6
+    if-le v14, v8, :cond_81
 
     .line 227
     move v5, v3
@@ -442,7 +442,7 @@
     iput v15, v0, Lcom/google/android/material/internal/FlowLayout;->rowCount:I
 
     .line 231
-    :cond_6
+    :cond_81
     sget v15, Lcom/google/android/material/R$id;->row_index_key:I
 
     move/from16 v16, v3
@@ -480,7 +480,7 @@
     .line 236
     .end local v7    # "childBottom":I
     .local v14, "childBottom":I
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_a6
 
     .line 237
     sub-int v7, v8, v3
@@ -491,16 +491,16 @@
 
     invoke-virtual {v10, v7, v6, v15, v14}, Landroid/view/View;->layout(IIII)V
 
-    goto :goto_3
+    goto :goto_ab
 
     .line 240
-    :cond_7
+    :cond_a6
     add-int v7, v5, v12
 
     invoke-virtual {v10, v7, v6, v3, v14}, Landroid/view/View;->layout(IIII)V
 
     .line 243
-    :goto_3
+    :goto_ab
     add-int v7, v12, v13
 
     invoke-virtual {v10}, Landroid/view/View;->getMeasuredWidth()I
@@ -525,23 +525,23 @@
     .end local v13    # "endMargin":I
     .end local v14    # "childBottom":I
     .restart local v7    # "childBottom":I
-    :goto_4
+    :goto_b7
     add-int/lit8 v9, v9, 0x1
 
     move/from16 v3, v16
 
-    goto/16 :goto_2
+    goto/16 :goto_36
 
     .line 245
     .end local v9    # "i":I
     .end local v16    # "paddingStart":I
     .local v3, "paddingStart":I
-    :cond_8
+    :cond_bd
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 21
+    .registers 24
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -574,27 +574,27 @@
     .local v4, "heightMode":I
     const/high16 v5, -0x80000000
 
-    if-eq v2, v5, :cond_1
+    if-eq v2, v5, :cond_1f
 
     const/high16 v5, 0x40000000    # 2.0f
 
-    if-ne v2, v5, :cond_0
+    if-ne v2, v5, :cond_1b
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 116
-    :cond_0
+    :cond_1b
     const v5, 0x7fffffff
 
-    goto :goto_1
+    goto :goto_20
 
     .line 115
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     move v5, v1
 
     .line 116
-    :goto_1
+    :goto_20
     nop
 
     .line 118
@@ -634,12 +634,12 @@
     const/4 v12, 0x0
 
     .local v12, "i":I
-    :goto_2
+    :goto_33
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/internal/FlowLayout;->getChildCount()I
 
     move-result v13
 
-    if-ge v12, v13, :cond_7
+    if-ge v12, v13, :cond_c0
 
     .line 125
     invoke-virtual {v0, v12}, Lcom/google/android/material/internal/FlowLayout;->getChildAt(I)Landroid/view/View;
@@ -654,7 +654,7 @@
 
     const/16 v15, 0x8
 
-    if-ne v14, v15, :cond_2
+    if-ne v14, v15, :cond_4d
 
     .line 128
     move/from16 v14, p1
@@ -663,10 +663,10 @@
 
     move/from16 v16, v5
 
-    goto/16 :goto_5
+    goto/16 :goto_ba
 
     .line 130
-    :cond_2
+    :cond_4d
     move/from16 v14, p1
 
     move/from16 v15, p2
@@ -698,7 +698,7 @@
     .local v19, "childTop":I
     instance-of v7, v5, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_72
 
     .line 136
     move-object v7, v5
@@ -720,19 +720,19 @@
 
     add-int v18, v18, v5
 
-    goto :goto_3
+    goto :goto_74
 
     .line 135
     .end local v7    # "marginLp":Landroid/view/ViewGroup$MarginLayoutParams;
     .end local v20    # "lp":Landroid/view/ViewGroup$LayoutParams;
     .restart local v5    # "lp":Landroid/view/ViewGroup$LayoutParams;
-    :cond_3
+    :cond_72
     move-object/from16 v20, v5
 
     .line 141
     .end local v5    # "lp":Landroid/view/ViewGroup$LayoutParams;
     .restart local v20    # "lp":Landroid/view/ViewGroup$LayoutParams;
-    :goto_3
+    :goto_74
     add-int v5, v6, v17
 
     invoke-virtual {v13}, Landroid/view/View;->getMeasuredWidth()I
@@ -744,13 +744,13 @@
     .line 146
     .end local v9    # "childRight":I
     .local v5, "childRight":I
-    if-le v5, v11, :cond_4
+    if-le v5, v11, :cond_8b
 
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/internal/FlowLayout;->isSingleLine()Z
 
     move-result v7
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_8b
 
     .line 147
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/internal/FlowLayout;->getPaddingLeft()I
@@ -764,17 +764,17 @@
 
     .end local v19    # "childTop":I
     .local v7, "childTop":I
-    goto :goto_4
+    goto :goto_8d
 
     .line 151
     .end local v7    # "childTop":I
     .restart local v19    # "childTop":I
-    :cond_4
+    :cond_8b
     move/from16 v7, v19
 
     .end local v19    # "childTop":I
     .restart local v7    # "childTop":I
-    :goto_4
+    :goto_8d
     add-int v9, v6, v17
 
     invoke-virtual {v13}, Landroid/view/View;->getMeasuredWidth()I
@@ -795,13 +795,13 @@
     .line 155
     .end local v8    # "childBottom":I
     .local v5, "childBottom":I
-    if-le v9, v10, :cond_5
+    if-le v9, v10, :cond_9d
 
     .line 156
     move v10, v9
 
     .line 159
-    :cond_5
+    :cond_9d
     add-int v8, v17, v18
 
     invoke-virtual {v13}, Landroid/view/View;->getMeasuredWidth()I
@@ -827,17 +827,17 @@
 
     add-int/lit8 v5, v5, -0x1
 
-    if-ne v12, v5, :cond_6
+    if-ne v12, v5, :cond_b8
 
     .line 165
     add-int v10, v10, v18
 
     move/from16 v8, v19
 
-    goto :goto_5
+    goto :goto_ba
 
     .line 164
-    :cond_6
+    :cond_b8
     move/from16 v8, v19
 
     .line 124
@@ -847,16 +847,16 @@
     .end local v19    # "childBottom":I
     .end local v20    # "lp":Landroid/view/ViewGroup$LayoutParams;
     .restart local v8    # "childBottom":I
-    :goto_5
+    :goto_ba
     add-int/lit8 v12, v12, 0x1
 
     move/from16 v5, v16
 
-    goto/16 :goto_2
+    goto/16 :goto_33
 
     .end local v16    # "maxWidth":I
     .local v5, "maxWidth":I
-    :cond_7
+    :cond_c0
     move/from16 v16, v5
 
     move/from16 v19, v7
@@ -900,7 +900,7 @@
 .end method
 
 .method protected setItemSpacing(I)V
-    .locals 0
+    .registers 2
     .param p1, "itemSpacing"    # I
 
     .line 92
@@ -911,7 +911,7 @@
 .end method
 
 .method protected setLineSpacing(I)V
-    .locals 0
+    .registers 2
     .param p1, "lineSpacing"    # I
 
     .line 84
@@ -922,7 +922,7 @@
 .end method
 
 .method public setSingleLine(Z)V
-    .locals 0
+    .registers 2
     .param p1, "singleLine"    # Z
 
     .line 102

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 904
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static createStaticLayoutForMeasuring(Ljava/lang/CharSequence;Landroid/text/Layout$Alignment;IILandroid/widget/TextView;Landroid/text/TextPaint;Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl;)Landroid/text/StaticLayout;
-    .locals 4
+    .registers 11
     .param p0, "text"    # Ljava/lang/CharSequence;
     .param p1, "alignment"    # Landroid/text/Layout$Alignment;
     .param p2, "availableWidth"    # I
@@ -101,29 +101,29 @@
     .line 929
     const/4 v2, -0x1
 
-    if-ne p3, v2, :cond_0
+    if-ne p3, v2, :cond_39
 
     const v2, 0x7fffffff
 
-    goto :goto_0
+    goto :goto_3a
 
-    :cond_0
+    :cond_39
     move v2, p3
 
-    :goto_0
+    :goto_3a
     invoke-virtual {v1, v2}, Landroid/text/StaticLayout$Builder;->setMaxLines(I)Landroid/text/StaticLayout$Builder;
 
     .line 934
-    :try_start_0
+    :try_start_3d
     invoke-virtual {p6, v0, p4}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl;->computeAndSetTextDirection(Landroid/text/StaticLayout$Builder;Landroid/widget/TextView;)V
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_40
+    .catch Ljava/lang/ClassCastException; {:try_start_3d .. :try_end_40} :catch_41
 
     .line 938
-    goto :goto_1
+    goto :goto_49
 
     .line 935
-    :catch_0
+    :catch_41
     move-exception v1
 
     .line 937
@@ -136,7 +136,7 @@
 
     .line 939
     .end local v1    # "e":Ljava/lang/ClassCastException;
-    :goto_1
+    :goto_49
     invoke-virtual {v0}, Landroid/text/StaticLayout$Builder;->build()Landroid/text/StaticLayout;
 
     move-result-object v1

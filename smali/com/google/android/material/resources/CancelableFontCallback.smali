@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/resources/CancelableFontCallback$ApplyFont;Landroid/graphics/Typeface;)V
-    .locals 0
+    .registers 3
     .param p1, "applyFont"    # Lcom/google/android/material/resources/CancelableFontCallback$ApplyFont;
     .param p2, "fallbackFont"    # Landroid/graphics/Typeface;
 
@@ -39,13 +39,13 @@
 .end method
 
 .method private updateIfNotCancelled(Landroid/graphics/Typeface;)V
-    .locals 1
+    .registers 3
     .param p1, "updatedFont"    # Landroid/graphics/Typeface;
 
     .line 68
     iget-boolean v0, p0, Lcom/google/android/material/resources/CancelableFontCallback;->cancelled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 69
     iget-object v0, p0, Lcom/google/android/material/resources/CancelableFontCallback;->applyFont:Lcom/google/android/material/resources/CancelableFontCallback$ApplyFont;
@@ -53,14 +53,14 @@
     invoke-interface {v0, p1}, Lcom/google/android/material/resources/CancelableFontCallback$ApplyFont;->apply(Landroid/graphics/Typeface;)V
 
     .line 71
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .registers 2
 
     .line 64
     const/4 v0, 0x1
@@ -72,7 +72,7 @@
 .end method
 
 .method public onFontRetrievalFailed(I)V
-    .locals 1
+    .registers 3
     .param p1, "reason"    # I
 
     .line 54
@@ -85,7 +85,7 @@
 .end method
 
 .method public onFontRetrieved(Landroid/graphics/Typeface;Z)V
-    .locals 0
+    .registers 3
     .param p1, "font"    # Landroid/graphics/Typeface;
     .param p2, "fontResolvedSynchronously"    # Z
 

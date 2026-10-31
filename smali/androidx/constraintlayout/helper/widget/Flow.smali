@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method protected init(Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 9
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -133,7 +133,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
 
     .line 200
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_1ac
 
     .line 201
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/Flow;->getContext()Landroid/content/Context;
@@ -157,8 +157,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_1a
+    :goto_1b
+    if-ge v2, v1, :cond_1a9
 
     .line 204
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -171,7 +171,7 @@
 
     const/4 v5, 0x0
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_31
 
     .line 206
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -182,13 +182,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setOrientation(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 207
-    :cond_0
+    :cond_31
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_android_padding:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_40
 
     .line 208
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -199,13 +199,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setPadding(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 209
-    :cond_1
+    :cond_40
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_android_paddingStart:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_50
 
     .line 210
     nop
@@ -219,13 +219,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setPaddingStart(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 213
-    :cond_2
+    :cond_50
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_android_paddingEnd:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_60
 
     .line 214
     nop
@@ -239,13 +239,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setPaddingEnd(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 217
-    :cond_3
+    :cond_60
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_android_paddingLeft:I
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_6f
 
     .line 218
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -256,13 +256,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setPaddingLeft(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 219
-    :cond_4
+    :cond_6f
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_android_paddingTop:I
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_7e
 
     .line 220
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -273,13 +273,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setPaddingTop(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 221
-    :cond_5
+    :cond_7e
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_android_paddingRight:I
 
-    if-ne v3, v4, :cond_6
+    if-ne v3, v4, :cond_8d
 
     .line 222
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -290,13 +290,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setPaddingRight(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 223
-    :cond_6
+    :cond_8d
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_android_paddingBottom:I
 
-    if-ne v3, v4, :cond_7
+    if-ne v3, v4, :cond_9c
 
     .line 224
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -307,13 +307,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setPaddingBottom(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 225
-    :cond_7
+    :cond_9c
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_wrapMode:I
 
-    if-ne v3, v4, :cond_8
+    if-ne v3, v4, :cond_ab
 
     .line 226
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -324,13 +324,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setWrapMode(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 227
-    :cond_8
+    :cond_ab
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_horizontalStyle:I
 
-    if-ne v3, v4, :cond_9
+    if-ne v3, v4, :cond_ba
 
     .line 228
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -341,13 +341,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setHorizontalStyle(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 229
-    :cond_9
+    :cond_ba
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_verticalStyle:I
 
-    if-ne v3, v4, :cond_a
+    if-ne v3, v4, :cond_c9
 
     .line 230
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -358,13 +358,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setVerticalStyle(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 231
-    :cond_a
+    :cond_c9
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_firstHorizontalStyle:I
 
-    if-ne v3, v4, :cond_b
+    if-ne v3, v4, :cond_d8
 
     .line 232
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -375,13 +375,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setFirstHorizontalStyle(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 233
-    :cond_b
+    :cond_d8
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_lastHorizontalStyle:I
 
-    if-ne v3, v4, :cond_c
+    if-ne v3, v4, :cond_e7
 
     .line 234
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -392,13 +392,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setLastHorizontalStyle(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 235
-    :cond_c
+    :cond_e7
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_firstVerticalStyle:I
 
-    if-ne v3, v4, :cond_d
+    if-ne v3, v4, :cond_f6
 
     .line 236
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -409,13 +409,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setFirstVerticalStyle(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 237
-    :cond_d
+    :cond_f6
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_lastVerticalStyle:I
 
-    if-ne v3, v4, :cond_e
+    if-ne v3, v4, :cond_105
 
     .line 238
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -426,15 +426,15 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setLastVerticalStyle(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 239
-    :cond_e
+    :cond_105
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_horizontalBias:I
 
     const/high16 v6, 0x3f000000    # 0.5f
 
-    if-ne v3, v4, :cond_f
+    if-ne v3, v4, :cond_116
 
     .line 240
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -445,13 +445,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setHorizontalBias(F)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 241
-    :cond_f
+    :cond_116
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_firstHorizontalBias:I
 
-    if-ne v3, v4, :cond_10
+    if-ne v3, v4, :cond_125
 
     .line 242
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -462,13 +462,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setFirstHorizontalBias(F)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 243
-    :cond_10
+    :cond_125
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_lastHorizontalBias:I
 
-    if-ne v3, v4, :cond_11
+    if-ne v3, v4, :cond_134
 
     .line 244
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -479,13 +479,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setLastHorizontalBias(F)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a5
 
     .line 245
-    :cond_11
+    :cond_134
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_firstVerticalBias:I
 
-    if-ne v3, v4, :cond_12
+    if-ne v3, v4, :cond_142
 
     .line 246
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -496,13 +496,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setFirstVerticalBias(F)V
 
-    goto :goto_1
+    goto :goto_1a5
 
     .line 247
-    :cond_12
+    :cond_142
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_lastVerticalBias:I
 
-    if-ne v3, v4, :cond_13
+    if-ne v3, v4, :cond_150
 
     .line 248
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -513,13 +513,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setLastVerticalBias(F)V
 
-    goto :goto_1
+    goto :goto_1a5
 
     .line 249
-    :cond_13
+    :cond_150
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_verticalBias:I
 
-    if-ne v3, v4, :cond_14
+    if-ne v3, v4, :cond_15e
 
     .line 250
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -530,15 +530,15 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setVerticalBias(F)V
 
-    goto :goto_1
+    goto :goto_1a5
 
     .line 251
-    :cond_14
+    :cond_15e
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_horizontalAlign:I
 
     const/4 v6, 0x2
 
-    if-ne v3, v4, :cond_15
+    if-ne v3, v4, :cond_16d
 
     .line 252
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -549,13 +549,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setHorizontalAlign(I)V
 
-    goto :goto_1
+    goto :goto_1a5
 
     .line 253
-    :cond_15
+    :cond_16d
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_verticalAlign:I
 
-    if-ne v3, v4, :cond_16
+    if-ne v3, v4, :cond_17b
 
     .line 254
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -566,13 +566,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setVerticalAlign(I)V
 
-    goto :goto_1
+    goto :goto_1a5
 
     .line 255
-    :cond_16
+    :cond_17b
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_horizontalGap:I
 
-    if-ne v3, v4, :cond_17
+    if-ne v3, v4, :cond_189
 
     .line 256
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -583,13 +583,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setHorizontalGap(I)V
 
-    goto :goto_1
+    goto :goto_1a5
 
     .line 257
-    :cond_17
+    :cond_189
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_verticalGap:I
 
-    if-ne v3, v4, :cond_18
+    if-ne v3, v4, :cond_197
 
     .line 258
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -600,13 +600,13 @@
 
     invoke-virtual {v4, v5}, Landroidx/constraintlayout/core/widgets/Flow;->setVerticalGap(I)V
 
-    goto :goto_1
+    goto :goto_1a5
 
     .line 259
-    :cond_18
+    :cond_197
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_flow_maxElementsWrap:I
 
-    if-ne v3, v4, :cond_19
+    if-ne v3, v4, :cond_1a5
 
     .line 260
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
@@ -621,21 +621,21 @@
 
     .line 203
     .end local v3    # "attr":I
-    :cond_19
-    :goto_1
+    :cond_1a5
+    :goto_1a5
     add-int/lit8 v2, v2, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_1b
 
     .line 263
     .end local v2    # "i":I
-    :cond_1a
+    :cond_1a9
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 266
     .end local v0    # "a":Landroid/content/res/TypedArray;
     .end local v1    # "N":I
-    :cond_1b
+    :cond_1ac
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/core/widgets/Flow;
 
     iput-object v0, p0, Landroidx/constraintlayout/helper/widget/Flow;->mHelperWidget:Landroidx/constraintlayout/core/widgets/Helper;
@@ -648,7 +648,7 @@
 .end method
 
 .method public loadParameters(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;Landroidx/constraintlayout/core/widgets/HelperWidget;Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;Landroid/util/SparseArray;)V
-    .locals 3
+    .registers 8
     .param p1, "constraint"    # Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
     .param p2, "child"    # Landroidx/constraintlayout/core/widgets/HelperWidget;
     .param p3, "layoutParams"    # Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -686,7 +686,7 @@
     .line 183
     instance-of v0, p2, Landroidx/constraintlayout/core/widgets/Flow;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 184
     move-object v0, p2
@@ -699,7 +699,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_14
 
     .line 186
     iget v1, p3, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->orientation:I
@@ -708,12 +708,12 @@
 
     .line 189
     .end local v0    # "flow":Landroidx/constraintlayout/core/widgets/Flow;
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 1
+    .registers 4
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -737,7 +737,7 @@
 .end method
 
 .method public onMeasure(Landroidx/constraintlayout/core/widgets/VirtualLayout;II)V
-    .locals 6
+    .registers 10
     .param p1, "layout"    # Landroidx/constraintlayout/core/widgets/VirtualLayout;
     .param p2, "widthMeasureSpec"    # I
     .param p3, "heightMeasureSpec"    # I
@@ -779,7 +779,7 @@
 
     .line 164
     .local v3, "heightSize":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_21
 
     .line 165
     invoke-virtual {p1, v0, v1, v2, v3}, Landroidx/constraintlayout/core/widgets/VirtualLayout;->measure(IIII)V
@@ -795,21 +795,21 @@
 
     invoke-virtual {p0, v4, v5}, Landroidx/constraintlayout/helper/widget/Flow;->setMeasuredDimension(II)V
 
-    goto :goto_0
+    goto :goto_25
 
     .line 168
-    :cond_0
+    :cond_21
     const/4 v4, 0x0
 
     invoke-virtual {p0, v4, v4}, Landroidx/constraintlayout/helper/widget/Flow;->setMeasuredDimension(II)V
 
     .line 170
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method public resolveRtl(Landroidx/constraintlayout/core/widgets/ConstraintWidget;Z)V
-    .locals 1
+    .registers 4
     .param p1, "widget"    # Landroidx/constraintlayout/core/widgets/ConstraintWidget;
     .param p2, "isRtl"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -833,7 +833,7 @@
 .end method
 
 .method public setFirstHorizontalBias(F)V
-    .locals 1
+    .registers 3
     .param p1, "bias"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -857,7 +857,7 @@
 .end method
 
 .method public setFirstHorizontalStyle(I)V
-    .locals 1
+    .registers 3
     .param p1, "style"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -881,7 +881,7 @@
 .end method
 
 .method public setFirstVerticalBias(F)V
-    .locals 1
+    .registers 3
     .param p1, "bias"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -905,7 +905,7 @@
 .end method
 
 .method public setFirstVerticalStyle(I)V
-    .locals 1
+    .registers 3
     .param p1, "style"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -929,7 +929,7 @@
 .end method
 
 .method public setHorizontalAlign(I)V
-    .locals 1
+    .registers 3
     .param p1, "align"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -953,7 +953,7 @@
 .end method
 
 .method public setHorizontalBias(F)V
-    .locals 1
+    .registers 3
     .param p1, "bias"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -977,7 +977,7 @@
 .end method
 
 .method public setHorizontalGap(I)V
-    .locals 1
+    .registers 3
     .param p1, "gap"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1001,7 +1001,7 @@
 .end method
 
 .method public setHorizontalStyle(I)V
-    .locals 1
+    .registers 3
     .param p1, "style"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1025,7 +1025,7 @@
 .end method
 
 .method public setLastHorizontalBias(F)V
-    .locals 1
+    .registers 3
     .param p1, "bias"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1049,7 +1049,7 @@
 .end method
 
 .method public setLastHorizontalStyle(I)V
-    .locals 1
+    .registers 3
     .param p1, "style"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1073,7 +1073,7 @@
 .end method
 
 .method public setLastVerticalBias(F)V
-    .locals 1
+    .registers 3
     .param p1, "bias"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1097,7 +1097,7 @@
 .end method
 
 .method public setLastVerticalStyle(I)V
-    .locals 1
+    .registers 3
     .param p1, "style"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1121,7 +1121,7 @@
 .end method
 
 .method public setMaxElementsWrap(I)V
-    .locals 1
+    .registers 3
     .param p1, "max"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1145,7 +1145,7 @@
 .end method
 
 .method public setOrientation(I)V
-    .locals 1
+    .registers 3
     .param p1, "orientation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1169,7 +1169,7 @@
 .end method
 
 .method public setPadding(I)V
-    .locals 1
+    .registers 3
     .param p1, "padding"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1193,7 +1193,7 @@
 .end method
 
 .method public setPaddingBottom(I)V
-    .locals 1
+    .registers 3
     .param p1, "paddingBottom"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1217,7 +1217,7 @@
 .end method
 
 .method public setPaddingLeft(I)V
-    .locals 1
+    .registers 3
     .param p1, "paddingLeft"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1241,7 +1241,7 @@
 .end method
 
 .method public setPaddingRight(I)V
-    .locals 1
+    .registers 3
     .param p1, "paddingRight"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1265,7 +1265,7 @@
 .end method
 
 .method public setPaddingTop(I)V
-    .locals 1
+    .registers 3
     .param p1, "paddingTop"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1289,7 +1289,7 @@
 .end method
 
 .method public setVerticalAlign(I)V
-    .locals 1
+    .registers 3
     .param p1, "align"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1313,7 +1313,7 @@
 .end method
 
 .method public setVerticalBias(F)V
-    .locals 1
+    .registers 3
     .param p1, "bias"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1337,7 +1337,7 @@
 .end method
 
 .method public setVerticalGap(I)V
-    .locals 1
+    .registers 3
     .param p1, "gap"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1361,7 +1361,7 @@
 .end method
 
 .method public setVerticalStyle(I)V
-    .locals 1
+    .registers 3
     .param p1, "style"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1385,7 +1385,7 @@
 .end method
 
 .method public setWrapMode(I)V
-    .locals 1
+    .registers 3
     .param p1, "mode"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
-    .locals 2
+    .registers 6
     .param p1, "contentUri"    # Landroid/net/Uri;
     .param p2, "description"    # Landroid/content/ClipDescription;
     .param p3, "linkUri"    # Landroid/net/Uri;
@@ -32,7 +32,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 169
     new-instance v0, Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;
@@ -41,10 +41,10 @@
 
     iput-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat;->mImpl:Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 171
-    :cond_0
+    :cond_11
     new-instance v0, Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatBaseImpl;
 
     invoke-direct {v0, p1, p2, p3}, Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatBaseImpl;-><init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
@@ -52,12 +52,12 @@
     iput-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat;->mImpl:Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
 
     .line 173
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method private constructor <init>(Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "impl"    # Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
 
     .line 175
@@ -71,30 +71,30 @@
 .end method
 
 .method public static wrap(Ljava/lang/Object;)Landroidx/core/view/inputmethod/InputContentInfoCompat;
-    .locals 3
+    .registers 4
     .param p0, "inputContentInfo"    # Ljava/lang/Object;
 
     .line 217
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 218
     return-object v0
 
     .line 220
-    :cond_0
+    :cond_4
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x19
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_b
 
     .line 221
     return-object v0
 
     .line 223
-    :cond_1
+    :cond_b
     new-instance v0, Landroidx/core/view/inputmethod/InputContentInfoCompat;
 
     new-instance v1, Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public getContentUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 184
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat;->mImpl:Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
@@ -122,7 +122,7 @@
 .end method
 
 .method public getDescription()Landroid/content/ClipDescription;
-    .locals 1
+    .registers 2
 
     .line 194
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat;->mImpl:Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
@@ -135,7 +135,7 @@
 .end method
 
 .method public getLinkUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 202
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat;->mImpl:Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
@@ -148,7 +148,7 @@
 .end method
 
 .method public releasePermission()V
-    .locals 1
+    .registers 2
 
     .line 258
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat;->mImpl:Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
@@ -160,7 +160,7 @@
 .end method
 
 .method public requestPermission()V
-    .locals 1
+    .registers 2
 
     .line 249
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat;->mImpl:Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
@@ -172,7 +172,7 @@
 .end method
 
 .method public unwrap()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 236
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputContentInfoCompat;->mImpl:Landroidx/core/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;

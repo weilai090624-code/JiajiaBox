@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">ഇൻകമിംഗ് കോൾ</string>
     <string name="call_notification_ongoing_text">സജീവമായ കോൾ</string>
     <string name="call_notification_screening_text">ഇൻകമിംഗ് കോൾ സ്‌ക്രീൻ ചെയ്യുന്നു</string>
-    <string name="character_counter_content_description" formatted="false">%2$d-ൽ %1$d പ്രതീകങ്ങൾ നൽകി</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">അക്ഷര പരിധി, %2$d-ൽ %1$d കവിഞ്ഞു</string>
+    <string name="character_counter_content_description">%2$d-ൽ %1$d പ്രതീകങ്ങൾ നൽകി</string>
+    <string name="character_counter_overflowed_content_description">അക്ഷര പരിധി, %2$d-ൽ %1$d കവിഞ്ഞു</string>
     <string name="clear_text_end_icon_content_description">ടെക്‌സ്‌റ്റ് മായ്‌ക്കുക</string>
     <string name="copy">പകർത്തുക</string>
     <string name="copy_toast_msg">ക്ലിപ്പ്‌ബോർഡിലേക്ക് ലിങ്ക് പകർത്തി</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">ശ്രേണിക്ക് പുറത്താണ്: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">ആരംഭിക്കുന്ന തീയതി – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – അവസാനിക്കുന്ന തീയതി</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">ശ്രേണി തിരഞ്ഞെടുക്കുക</string>
     <string name="mtrl_picker_range_header_unselected">ആരംഭിക്കുന്ന തീയതി – അവസാനിക്കുന്ന തീയതി</string>
     <string name="mtrl_picker_save">സംരക്ഷിക്കുക</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" ക്ലിപ്‌ബോർഡിലേക്ക് പകർത്തി.</string>
     <string name="search_menu_title">തിരയുക</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ഓഫാണ്</string>
     <string name="v7_preference_on">ഓൺ</string>
 </resources>

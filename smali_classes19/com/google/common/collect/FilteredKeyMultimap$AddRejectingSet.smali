@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -123,7 +123,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -180,7 +180,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 116
     .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;, "Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet<TK;TV;>;"
@@ -192,7 +192,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 116
     .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;, "Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet<TK;TV;>;"
@@ -204,7 +204,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

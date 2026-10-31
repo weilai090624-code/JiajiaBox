@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/WhileOps$2Op;Lj$/util/stream/Sink;Z)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lj$/util/stream/WhileOps$2Op;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,13 +67,13 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 5
+    .registers 7
     .param p1, "t"    # I
 
     .line 451
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$2Op$1OpSink;->take:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     iget-object v0, p0, Lj$/util/stream/WhileOps$2Op$1OpSink;->this$0:Lj$/util/stream/WhileOps$2Op;
 
@@ -87,27 +87,27 @@
 
     iput-boolean v1, p0, Lj$/util/stream/WhileOps$2Op$1OpSink;->take:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v0, 0x1
 
     .line 455
     .local v0, "takeElement":Z
-    :goto_1
+    :goto_16
     iget-boolean v1, p0, Lj$/util/stream/WhileOps$2Op$1OpSink;->val$retainAndCountDroppedElements:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_23
 
     .line 456
     iget-wide v1, p0, Lj$/util/stream/WhileOps$2Op$1OpSink;->dropCount:J
@@ -119,26 +119,26 @@
     iput-wide v1, p0, Lj$/util/stream/WhileOps$2Op$1OpSink;->dropCount:J
 
     .line 460
-    :cond_2
+    :cond_23
     iget-boolean v1, p0, Lj$/util/stream/WhileOps$2Op$1OpSink;->val$retainAndCountDroppedElements:Z
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_29
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_2e
 
     .line 461
-    :cond_3
+    :cond_29
     iget-object v1, p0, Lj$/util/stream/WhileOps$2Op$1OpSink;->downstream:Lj$/util/stream/Sink;
 
     invoke-interface {v1, p1}, Lj$/util/stream/Sink;->accept(I)V
 
     .line 462
-    :cond_4
+    :cond_2e
     return-void
 .end method
 
 .method public getDropCount()J
-    .locals 2
+    .registers 3
 
     .line 466
     iget-wide v0, p0, Lj$/util/stream/WhileOps$2Op$1OpSink;->dropCount:J

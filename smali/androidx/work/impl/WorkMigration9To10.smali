@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public migrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"

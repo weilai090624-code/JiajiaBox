@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Character;)V
-    .locals 6
+    .registers 12
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;)V
-    .locals 7
+    .registers 13
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;ZLjava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Character;)V
-    .locals 7
+    .registers 14
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "resolved"    # Z
     .param p3, "value"    # Ljava/lang/String;
@@ -105,7 +105,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;ZLjava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;)V
-    .locals 2
+    .registers 9
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "resolved"    # Z
     .param p3, "value"    # Ljava/lang/String;
@@ -117,13 +117,13 @@
     invoke-direct {p0, p1, p4, p5}, Lorg/yaml/snakeyaml/nodes/Node;-><init>(Lorg/yaml/snakeyaml/nodes/Tag;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .line 38
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_16
 
     .line 41
     iput-object p3, p0, Lorg/yaml/snakeyaml/nodes/ScalarNode;->value:Ljava/lang/String;
 
     .line 42
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_e
 
     .line 43
     iput-object p6, p0, Lorg/yaml/snakeyaml/nodes/ScalarNode;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -135,7 +135,7 @@
     return-void
 
     .line 42
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Scalar style must be provided."
@@ -145,7 +145,7 @@
     throw v0
 
     .line 39
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "value in a Node is required."
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public getNodeId()Lorg/yaml/snakeyaml/nodes/NodeId;
-    .locals 1
+    .registers 2
 
     .line 96
     sget-object v0, Lorg/yaml/snakeyaml/nodes/NodeId;->scalar:Lorg/yaml/snakeyaml/nodes/NodeId;
@@ -167,7 +167,7 @@
 .end method
 
 .method public getScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
-    .locals 1
+    .registers 2
 
     .line 91
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/ScalarNode;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -176,7 +176,7 @@
 .end method
 
 .method public getStyle()Ljava/lang/Character;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -191,7 +191,7 @@
 .end method
 
 .method public getValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 105
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/ScalarNode;->value:Ljava/lang/String;
@@ -200,28 +200,28 @@
 .end method
 
 .method public isPlain()Z
-    .locals 2
+    .registers 3
 
     .line 114
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/ScalarNode;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     sget-object v1, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->PLAIN:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 109
     new-instance v0, Ljava/lang/StringBuilder;

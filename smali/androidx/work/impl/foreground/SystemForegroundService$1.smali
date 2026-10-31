@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/foreground/SystemForegroundService;ILandroid/app/Notification;I)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/work/impl/foreground/SystemForegroundService;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -69,14 +69,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 129
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1f
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_12
 
     .line 130
     iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundService$1;->this$0:Landroidx/work/impl/foreground/SystemForegroundService;
@@ -89,15 +89,15 @@
 
     invoke-static {v0, v1, v2, v3}, Landroidx/work/impl/foreground/SystemForegroundService$Api31Impl;->startForeground(Landroid/app/Service;ILandroid/app/Notification;I)V
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 132
-    :cond_0
+    :cond_12
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_24
 
     .line 133
     iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundService$1;->this$0:Landroidx/work/impl/foreground/SystemForegroundService;
@@ -110,10 +110,10 @@
 
     invoke-static {v0, v1, v2, v3}, Landroidx/work/impl/foreground/SystemForegroundService$Api29Impl;->startForeground(Landroid/app/Service;ILandroid/app/Notification;I)V
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 136
-    :cond_1
+    :cond_24
     iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundService$1;->this$0:Landroidx/work/impl/foreground/SystemForegroundService;
 
     iget v1, p0, Landroidx/work/impl/foreground/SystemForegroundService$1;->val$notificationId:I
@@ -123,6 +123,6 @@
     invoke-virtual {v0, v1, v2}, Landroidx/work/impl/foreground/SystemForegroundService;->startForeground(ILandroid/app/Notification;)V
 
     .line 138
-    :goto_0
+    :goto_2d
     return-void
 .end method

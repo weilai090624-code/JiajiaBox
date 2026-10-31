@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public await()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -43,7 +43,7 @@
 .end method
 
 .method public await(JLjava/util/concurrent/TimeUnit;)Z
-    .locals 1
+    .registers 5
     .param p1, "time"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Throws;
@@ -65,7 +65,7 @@
 .end method
 
 .method public awaitNanos(J)J
-    .locals 2
+    .registers 5
     .param p1, "nanosTimeout"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -86,7 +86,7 @@
 .end method
 
 .method public awaitUninterruptibly()V
-    .locals 1
+    .registers 2
 
     .line 38
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingCondition;->delegate()Ljava/util/concurrent/locks/Condition;
@@ -100,7 +100,7 @@
 .end method
 
 .method public awaitUntil(Ljava/util/Date;)Z
-    .locals 1
+    .registers 3
     .param p1, "deadline"    # Ljava/util/Date;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -124,7 +124,7 @@
 .end method
 
 .method public signal()V
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingCondition;->delegate()Ljava/util/concurrent/locks/Condition;
@@ -138,7 +138,7 @@
 .end method
 
 .method public signalAll()V
-    .locals 1
+    .registers 2
 
     .line 58
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingCondition;->delegate()Ljava/util/concurrent/locks/Condition;

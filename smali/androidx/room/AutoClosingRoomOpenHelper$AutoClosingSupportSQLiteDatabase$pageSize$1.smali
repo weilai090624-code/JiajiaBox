@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase$pageSize$1;
 
@@ -42,7 +42,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 4
+    .registers 5
 
     const-class v0, Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "receiver0"    # Ljava/lang/Object;
 
     .line 216
@@ -80,7 +80,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "receiver0"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
 

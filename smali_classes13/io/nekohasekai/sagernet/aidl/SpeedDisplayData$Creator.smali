@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public final createFromParcel(Landroid/os/Parcel;)Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
-    .locals 14
+    .registers 16
 
     const-string v0, "parcel"
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData$Creator;->createFromParcel(Landroid/os/Parcel;)Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public final newArray(I)[Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
-    .locals 1
+    .registers 3
 
     new-array v0, p1, [Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData$Creator;->newArray(I)[Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 

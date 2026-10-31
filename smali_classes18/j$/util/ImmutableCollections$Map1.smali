@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -78,7 +78,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/ObjectInputStream;
 
     .line 773
@@ -93,7 +93,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 5
+    .registers 6
 
     .line 777
     .local p0, "this":Lj$/util/ImmutableCollections$Map1;, "Ljava/util/ImmutableCollections$Map1<TK;TV;>;"
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 764
@@ -140,7 +140,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 769
@@ -155,7 +155,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -183,7 +183,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -201,21 +201,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-object v0, p0, Lj$/util/ImmutableCollections$Map1;->v0:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 782
     .local p0, "this":Lj$/util/ImmutableCollections$Map1;, "Ljava/util/ImmutableCollections$Map1<TK;TV;>;"

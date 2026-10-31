@@ -56,6 +56,15 @@
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$GroupDeleteCancel;->dialog:Landroid/app/Dialog;
 
+    instance-of p0, v0, Lio/nekohasekai/sagernet/ui/MorphDialog;
+
+    if-eqz p0, :cond_a
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+
+    return-void
+
+    :cond_a
     invoke-virtual {v0}, Landroid/app/Dialog;->cancel()V
 
     return-void

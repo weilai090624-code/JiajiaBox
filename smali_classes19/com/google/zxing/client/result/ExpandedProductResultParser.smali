@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Lcom/google/zxing/client/result/ResultParser;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method private static findAIvalue(ILjava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p0, "i"    # I
     .param p1, "rawText"    # Ljava/lang/String;
 
@@ -28,13 +28,13 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     .line 179
     return-object v2
 
     .line 182
-    :cond_0
+    :cond_a
     add-int/lit8 v0, p0, 0x1
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -54,12 +54,12 @@
     .local v3, "index":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_17
     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-ge v3, v5, :cond_4
+    if-ge v3, v5, :cond_3b
 
     .line 186
     invoke-interface {v0, v3}, Ljava/lang/CharSequence;->charAt(I)C
@@ -72,7 +72,7 @@
 
     const/16 v6, 0x29
 
-    if-ne v5, v6, :cond_1
+    if-ne v5, v6, :cond_2b
 
     .line 188
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -82,37 +82,37 @@
     return-object v2
 
     .line 190
-    :cond_1
+    :cond_2b
     const/16 v5, 0x30
 
-    if-lt v4, v5, :cond_3
+    if-lt v4, v5, :cond_3a
 
     const/16 v5, 0x39
 
-    if-le v4, v5, :cond_2
+    if-le v4, v5, :cond_34
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 193
-    :cond_2
+    :cond_34
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 185
     .end local v4    # "currentChar":C
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 191
     .restart local v4    # "currentChar":C
-    :cond_3
-    :goto_1
+    :cond_3a
+    :goto_3a
     return-object v2
 
     .line 195
     .end local v3    # "index":I
     .end local v4    # "currentChar":C
-    :cond_4
+    :cond_3b
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -121,7 +121,7 @@
 .end method
 
 .method private static findValue(ILjava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p0, "i"    # I
     .param p1, "rawText"    # Ljava/lang/String;
 
@@ -143,12 +143,12 @@
     .local v2, "index":I
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_b
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    if-ge v2, v4, :cond_1
+    if-ge v2, v4, :cond_2a
 
     .line 203
     invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
@@ -161,34 +161,34 @@
 
     const/16 v5, 0x28
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_24
 
     .line 207
     invoke-static {v2, v1}, Lcom/google/zxing/client/result/ExpandedProductResultParser;->findAIvalue(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2a
 
     .line 210
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_27
 
     .line 212
-    :cond_0
+    :cond_24
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 202
     .end local v3    # "c":C
-    :goto_1
+    :goto_27
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 215
     .end local v2    # "index":I
-    :cond_1
+    :cond_2a
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -199,7 +199,7 @@
 
 # virtual methods
 .method public parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/ExpandedProductParsedResult;
-    .locals 33
+    .registers 35
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 45
@@ -212,13 +212,13 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     .line 48
     return-object v2
 
     .line 50
-    :cond_0
+    :cond_a
     invoke-static/range {p1 .. p1}, Lcom/google/zxing/client/result/ExpandedProductResultParser;->getMassagedText(Lcom/google/zxing/Result;)Ljava/lang/String;
 
     move-result-object v0
@@ -340,12 +340,12 @@
     .local v28, "price":Ljava/lang/String;
     .local v29, "priceIncrement":Ljava/lang/String;
     .local v30, "priceCurrency":Ljava/lang/String;
-    :goto_0
+    :goto_3e
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-ge v14, v3, :cond_4
+    if-ge v14, v3, :cond_26a
 
     .line 70
     invoke-static {v14, v0}, Lcom/google/zxing/client/result/ExpandedProductResultParser;->findAIvalue(ILjava/lang/String;)Ljava/lang/String;
@@ -358,13 +358,13 @@
     .local v4, "ai":Ljava/lang/String;
     move-object v4, v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_4e
 
     .line 74
     return-object v2
 
     .line 76
-    :cond_1
+    :cond_4e
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -405,469 +405,469 @@
 
     const/4 v9, 0x3
 
-    sparse-switch v6, :sswitch_data_0
+    sparse-switch v6, :sswitch_data_292
 
-    :cond_2
-    goto/16 :goto_1
+    :cond_6a
+    goto/16 :goto_1fd
 
-    :sswitch_0
+    :sswitch_6c
     const-string v5, "3933"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x22
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_1
+    :sswitch_78
     const-string v5, "3932"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x21
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_2
+    :sswitch_84
     const-string v5, "3931"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x20
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_3
+    :sswitch_90
     const-string v5, "3930"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x1f
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_4
+    :sswitch_9c
     const-string v5, "3923"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x1e
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_5
+    :sswitch_a8
     const-string v5, "3922"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x1d
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_6
+    :sswitch_b4
     const-string v5, "3921"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x1c
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_7
+    :sswitch_c0
     const-string v5, "3920"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x1b
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_8
+    :sswitch_cc
     const-string v5, "3209"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x1a
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_9
+    :sswitch_d8
     const-string v5, "3208"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x19
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_a
+    :sswitch_e4
     const-string v5, "3207"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x18
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_b
+    :sswitch_f0
     const-string v5, "3206"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x17
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_c
+    :sswitch_fc
     const-string v5, "3205"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x16
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_d
+    :sswitch_108
     const-string v5, "3204"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x15
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_e
+    :sswitch_114
     const-string v5, "3203"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x14
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_f
+    :sswitch_120
     const-string v5, "3202"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x13
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_10
+    :sswitch_12c
     const-string v5, "3201"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x12
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_11
+    :sswitch_138
     const-string v5, "3200"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x11
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_12
+    :sswitch_144
     const-string v5, "3109"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x10
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_13
+    :sswitch_150
     const-string v5, "3108"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0xf
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_14
+    :sswitch_15c
     const-string v5, "3107"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0xe
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_15
+    :sswitch_168
     const-string v5, "3106"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0xd
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_16
+    :sswitch_174
     const-string v5, "3105"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0xc
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_17
+    :sswitch_180
     const-string v5, "3104"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0xb
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_18
+    :sswitch_18c
     const-string v5, "3103"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0xa
 
-    goto/16 :goto_2
+    goto/16 :goto_1fe
 
-    :sswitch_19
+    :sswitch_198
     const-string v5, "3102"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x9
 
-    goto :goto_2
+    goto :goto_1fe
 
-    :sswitch_1a
+    :sswitch_1a3
     const-string v5, "3101"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/16 v5, 0x8
 
-    goto :goto_2
+    goto :goto_1fe
 
-    :sswitch_1b
+    :sswitch_1ae
     const-string v5, "3100"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/4 v5, 0x7
 
-    goto :goto_2
+    goto :goto_1fe
 
-    :sswitch_1c
+    :sswitch_1b8
     const-string v5, "17"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/4 v5, 0x6
 
-    goto :goto_2
+    goto :goto_1fe
 
-    :sswitch_1d
+    :sswitch_1c2
     const-string v5, "15"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/4 v5, 0x5
 
-    goto :goto_2
+    goto :goto_1fe
 
-    :sswitch_1e
+    :sswitch_1cc
     const-string v5, "13"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/4 v5, 0x4
 
-    goto :goto_2
+    goto :goto_1fe
 
-    :sswitch_1f
+    :sswitch_1d6
     const-string v5, "11"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/4 v5, 0x3
 
-    goto :goto_2
+    goto :goto_1fe
 
-    :sswitch_20
+    :sswitch_1e0
     const-string v6, "10"
 
     invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_6a
 
-    goto :goto_2
+    goto :goto_1fe
 
-    :sswitch_21
+    :sswitch_1e9
     const-string v5, "01"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/4 v5, 0x1
 
-    goto :goto_2
+    goto :goto_1fe
 
-    :sswitch_22
+    :sswitch_1f3
     const-string v5, "00"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6a
 
     const/4 v5, 0x0
 
-    goto :goto_2
+    goto :goto_1fe
 
-    :goto_1
+    :goto_1fd
     const/4 v5, -0x1
 
-    :goto_2
-    packed-switch v5, :pswitch_data_0
+    :goto_1fe
+    packed-switch v5, :pswitch_data_320
 
     .line 153
     invoke-interface {v15, v4, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -877,23 +877,23 @@
     .end local v4    # "ai":Ljava/lang/String;
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 141
     .restart local v3    # "value":Ljava/lang/String;
     .restart local v4    # "ai":Ljava/lang/String;
-    :pswitch_0
+    :pswitch_208
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v5
 
-    if-ge v5, v8, :cond_3
+    if-ge v5, v8, :cond_20f
 
     .line 145
     return-object v2
 
     .line 147
-    :cond_3
+    :cond_20f
     invoke-virtual {v3, v9}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v28
@@ -911,10 +911,10 @@
     .line 150
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 134
-    :pswitch_1
+    :pswitch_21f
     move-object/from16 v28, v3
 
     .line 135
@@ -925,10 +925,10 @@
     .line 136
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 126
-    :pswitch_2
+    :pswitch_229
     move-object/from16 v25, v3
 
     .line 127
@@ -942,10 +942,10 @@
     .line 129
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 112
-    :pswitch_3
+    :pswitch_235
     move-object/from16 v25, v3
 
     .line 113
@@ -959,75 +959,75 @@
     .line 115
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 100
-    :pswitch_4
+    :pswitch_241
     move-object/from16 v24, v3
 
     .line 101
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 97
-    :pswitch_5
+    :pswitch_247
     move-object/from16 v23, v3
 
     .line 98
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 94
-    :pswitch_6
+    :pswitch_24d
     move-object/from16 v22, v3
 
     .line 95
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 91
-    :pswitch_7
+    :pswitch_253
     move-object/from16 v21, v3
 
     .line 92
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 88
-    :pswitch_8
+    :pswitch_259
     move-object/from16 v20, v3
 
     .line 89
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 85
-    :pswitch_9
+    :pswitch_25f
     move-object v1, v3
 
     .line 86
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 82
-    :pswitch_a
+    :pswitch_264
     move-object/from16 v19, v3
 
     .line 83
     move-object/from16 v17, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_3e
 
     .line 158
     .end local v3    # "value":Ljava/lang/String;
     .end local v4    # "ai":Ljava/lang/String;
-    :cond_4
+    :cond_26a
     new-instance v2, Lcom/google/zxing/client/result/ExpandedProductParsedResult;
 
     move-object v3, v2
@@ -1076,87 +1076,87 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_292
     .sparse-switch
-        0x600 -> :sswitch_22
-        0x601 -> :sswitch_21
-        0x61f -> :sswitch_20
-        0x620 -> :sswitch_1f
-        0x622 -> :sswitch_1e
-        0x624 -> :sswitch_1d
-        0x626 -> :sswitch_1c
-        0x17ecde -> :sswitch_1b
-        0x17ecdf -> :sswitch_1a
-        0x17ece0 -> :sswitch_19
-        0x17ece1 -> :sswitch_18
-        0x17ece2 -> :sswitch_17
-        0x17ece3 -> :sswitch_16
-        0x17ece4 -> :sswitch_15
-        0x17ece5 -> :sswitch_14
-        0x17ece6 -> :sswitch_13
-        0x17ece7 -> :sswitch_12
-        0x17f09f -> :sswitch_11
-        0x17f0a0 -> :sswitch_10
-        0x17f0a1 -> :sswitch_f
-        0x17f0a2 -> :sswitch_e
-        0x17f0a3 -> :sswitch_d
-        0x17f0a4 -> :sswitch_c
-        0x17f0a5 -> :sswitch_b
-        0x17f0a6 -> :sswitch_a
-        0x17f0a7 -> :sswitch_9
-        0x17f0a8 -> :sswitch_8
-        0x180b24 -> :sswitch_7
-        0x180b25 -> :sswitch_6
-        0x180b26 -> :sswitch_5
-        0x180b27 -> :sswitch_4
-        0x180b43 -> :sswitch_3
-        0x180b44 -> :sswitch_2
-        0x180b45 -> :sswitch_1
-        0x180b46 -> :sswitch_0
+        0x600 -> :sswitch_1f3
+        0x601 -> :sswitch_1e9
+        0x61f -> :sswitch_1e0
+        0x620 -> :sswitch_1d6
+        0x622 -> :sswitch_1cc
+        0x624 -> :sswitch_1c2
+        0x626 -> :sswitch_1b8
+        0x17ecde -> :sswitch_1ae
+        0x17ecdf -> :sswitch_1a3
+        0x17ece0 -> :sswitch_198
+        0x17ece1 -> :sswitch_18c
+        0x17ece2 -> :sswitch_180
+        0x17ece3 -> :sswitch_174
+        0x17ece4 -> :sswitch_168
+        0x17ece5 -> :sswitch_15c
+        0x17ece6 -> :sswitch_150
+        0x17ece7 -> :sswitch_144
+        0x17f09f -> :sswitch_138
+        0x17f0a0 -> :sswitch_12c
+        0x17f0a1 -> :sswitch_120
+        0x17f0a2 -> :sswitch_114
+        0x17f0a3 -> :sswitch_108
+        0x17f0a4 -> :sswitch_fc
+        0x17f0a5 -> :sswitch_f0
+        0x17f0a6 -> :sswitch_e4
+        0x17f0a7 -> :sswitch_d8
+        0x17f0a8 -> :sswitch_cc
+        0x180b24 -> :sswitch_c0
+        0x180b25 -> :sswitch_b4
+        0x180b26 -> :sswitch_a8
+        0x180b27 -> :sswitch_9c
+        0x180b43 -> :sswitch_90
+        0x180b44 -> :sswitch_84
+        0x180b45 -> :sswitch_78
+        0x180b46 -> :sswitch_6c
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_320
     .packed-switch 0x0
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_264
+        :pswitch_25f
+        :pswitch_259
+        :pswitch_253
+        :pswitch_24d
+        :pswitch_247
+        :pswitch_241
+        :pswitch_235
+        :pswitch_235
+        :pswitch_235
+        :pswitch_235
+        :pswitch_235
+        :pswitch_235
+        :pswitch_235
+        :pswitch_235
+        :pswitch_235
+        :pswitch_235
+        :pswitch_229
+        :pswitch_229
+        :pswitch_229
+        :pswitch_229
+        :pswitch_229
+        :pswitch_229
+        :pswitch_229
+        :pswitch_229
+        :pswitch_229
+        :pswitch_229
+        :pswitch_21f
+        :pswitch_21f
+        :pswitch_21f
+        :pswitch_21f
+        :pswitch_208
+        :pswitch_208
+        :pswitch_208
+        :pswitch_208
     .end packed-switch
 .end method
 
 .method public bridge synthetic parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/ParsedResult;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/google/zxing/client/result/ExpandedProductResultParser;->parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/ExpandedProductParsedResult;

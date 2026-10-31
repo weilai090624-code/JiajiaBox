@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 5
+    .registers 6
 
     .line 55
     invoke-direct {p0}, Lcom/google/android/material/transformation/ExpandableTransformationBehavior;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method private createScrimAnimation(Landroid/view/View;ZZLjava/util/List;Ljava/util/List;)V
-    .locals 5
+    .registers 11
     .param p1, "child"    # Landroid/view/View;
     .param p2, "expanded"    # Z
     .param p3, "currentlyAnimating"    # Z
@@ -109,34 +109,34 @@
     .line 112
     .local p4, "animations":Ljava/util/List;, "Ljava/util/List<Landroid/animation/Animator;>;"
     .local p5, "unusedListeners":Ljava/util/List;, "Ljava/util/List<Landroid/animation/Animator$AnimatorListener;>;"
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     iget-object v0, p0, Lcom/google/android/material/transformation/FabTransformationScrimBehavior;->expandTiming:Lcom/google/android/material/animation/MotionTiming;
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/android/material/transformation/FabTransformationScrimBehavior;->collapseTiming:Lcom/google/android/material/animation/MotionTiming;
 
     .line 115
     .local v0, "timing":Lcom/google/android/material/animation/MotionTiming;
-    :goto_0
+    :goto_7
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
     const/4 v3, 0x1
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1e
 
     .line 116
-    if-nez p3, :cond_1
+    if-nez p3, :cond_11
 
     .line 117
     invoke-virtual {p1, v2}, Landroid/view/View;->setAlpha(F)V
 
     .line 119
-    :cond_1
+    :cond_11
     sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
     new-array v3, v3, [F
@@ -150,11 +150,11 @@
     move-result-object v1
 
     .local v1, "animator":Landroid/animation/Animator;
-    goto :goto_1
+    goto :goto_28
 
     .line 121
     .end local v1    # "animator":Landroid/animation/Animator;
-    :cond_2
+    :cond_1e
     sget-object v4, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
     new-array v3, v3, [F
@@ -167,7 +167,7 @@
 
     .line 124
     .restart local v1    # "animator":Landroid/animation/Animator;
-    :goto_1
+    :goto_28
     invoke-virtual {v0, v1}, Lcom/google/android/material/animation/MotionTiming;->apply(Landroid/animation/Animator;)V
 
     .line 125
@@ -180,7 +180,7 @@
 
 # virtual methods
 .method public layoutDependsOn(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
-    .locals 1
+    .registers 5
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "dependency"    # Landroid/view/View;
@@ -192,7 +192,7 @@
 .end method
 
 .method protected onCreateExpandedStateChangeAnimation(Landroid/view/View;Landroid/view/View;ZZ)Landroid/animation/AnimatorSet;
-    .locals 7
+    .registers 12
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z
@@ -244,7 +244,7 @@
 .end method
 
 .method public onTouchEvent(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 5
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "ev"    # Landroid/view/MotionEvent;

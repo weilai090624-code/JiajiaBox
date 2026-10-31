@@ -40,7 +40,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/util/concurrent/Service$State;
-    .locals 3
+    .registers 3
 
     .line 177
     const/4 v0, 0x6
@@ -87,7 +87,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 179
     new-instance v0, Lcom/google/common/util/concurrent/Service$State;
@@ -166,7 +166,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -180,7 +180,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/util/concurrent/Service$State;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 177
@@ -196,7 +196,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/util/concurrent/Service$State;
-    .locals 1
+    .registers 1
 
     .line 177
     sget-object v0, Lcom/google/common/util/concurrent/Service$State;->$VALUES:[Lcom/google/common/util/concurrent/Service$State;

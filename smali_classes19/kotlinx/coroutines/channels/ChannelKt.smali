@@ -50,7 +50,7 @@
 
 # direct methods
 .method public static final synthetic Channel(I)Lkotlinx/coroutines/channels/Channel;
-    .locals 2
+    .registers 3
     .param p0, "capacity"    # I
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final Channel(ILkotlinx/coroutines/channels/BufferOverflow;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/channels/Channel;
-    .locals 3
+    .registers 6
     .param p0, "capacity"    # I
     .param p1, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
     .param p2, "onUndeliveredElement"    # Lkotlin/jvm/functions/Function1;
@@ -94,21 +94,21 @@
 
     const/4 v1, 0x1
 
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_74
 
     .line 797
     sget-object v0, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_69
 
     new-instance v0, Lkotlinx/coroutines/channels/BufferedChannel;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/channels/BufferedChannel;-><init>(ILkotlin/jvm/functions/Function1;)V
 
-    goto :goto_2
+    goto :goto_70
 
     .line 791
-    :sswitch_0
+    :sswitch_f
     new-instance v0, Lkotlinx/coroutines/channels/BufferedChannel;
 
     const v1, 0x7fffffff
@@ -117,23 +117,23 @@
 
     check-cast v0, Lkotlinx/coroutines/channels/Channel;
 
-    goto :goto_3
+    goto :goto_72
 
     .line 780
-    :sswitch_1
+    :sswitch_1a
     sget-object v2, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_24
 
     .line 781
     new-instance v1, Lkotlinx/coroutines/channels/BufferedChannel;
 
     invoke-direct {v1, v0, p2}, Lkotlinx/coroutines/channels/BufferedChannel;-><init>(ILkotlin/jvm/functions/Function1;)V
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 783
-    :cond_0
+    :cond_24
     new-instance v0, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;
 
     invoke-direct {v0, v1, p1, p2}, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;-><init>(ILkotlinx/coroutines/channels/BufferOverflow;Lkotlin/jvm/functions/Function1;)V
@@ -142,23 +142,23 @@
 
     check-cast v1, Lkotlinx/coroutines/channels/BufferedChannel;
 
-    :goto_0
+    :goto_2c
     move-object v0, v1
 
     check-cast v0, Lkotlinx/coroutines/channels/Channel;
 
-    goto :goto_3
+    goto :goto_72
 
     .line 786
-    :sswitch_2
+    :sswitch_30
     sget-object v2, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne p1, v2, :cond_1
+    if-ne p1, v2, :cond_35
 
     const/4 v0, 0x1
 
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_35
+    if-eqz v0, :cond_41
 
     .line 789
     new-instance v0, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;
@@ -169,10 +169,10 @@
 
     check-cast v0, Lkotlinx/coroutines/channels/Channel;
 
-    goto :goto_3
+    goto :goto_72
 
     .line 786
-    :cond_2
+    :cond_41
     const/4 v0, 0x0
 
     .line 787
@@ -194,10 +194,10 @@
     throw v0
 
     .line 793
-    :sswitch_3
+    :sswitch_4f
     sget-object v0, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_5f
 
     new-instance v0, Lkotlinx/coroutines/channels/BufferedChannel;
 
@@ -209,58 +209,58 @@
 
     invoke-direct {v0, v1, p2}, Lkotlinx/coroutines/channels/BufferedChannel;-><init>(ILkotlin/jvm/functions/Function1;)V
 
-    goto :goto_1
+    goto :goto_66
 
     .line 794
-    :cond_3
+    :cond_5f
     new-instance v0, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;
 
     invoke-direct {v0, v1, p1, p2}, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;-><init>(ILkotlinx/coroutines/channels/BufferOverflow;Lkotlin/jvm/functions/Function1;)V
 
     check-cast v0, Lkotlinx/coroutines/channels/BufferedChannel;
 
-    :goto_1
+    :goto_66
     check-cast v0, Lkotlinx/coroutines/channels/Channel;
 
-    goto :goto_3
+    goto :goto_72
 
     .line 798
-    :cond_4
+    :cond_69
     new-instance v0, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;
 
     invoke-direct {v0, p0, p1, p2}, Lkotlinx/coroutines/channels/ConflatedBufferedChannel;-><init>(ILkotlinx/coroutines/channels/BufferOverflow;Lkotlin/jvm/functions/Function1;)V
 
     check-cast v0, Lkotlinx/coroutines/channels/BufferedChannel;
 
-    :goto_2
+    :goto_70
     check-cast v0, Lkotlinx/coroutines/channels/Channel;
 
     .line 800
-    :goto_3
+    :goto_72
     return-object v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_74
     .sparse-switch
-        -0x2 -> :sswitch_3
-        -0x1 -> :sswitch_2
-        0x0 -> :sswitch_1
-        0x7fffffff -> :sswitch_0
+        -0x2 -> :sswitch_4f
+        -0x1 -> :sswitch_30
+        0x0 -> :sswitch_1a
+        0x7fffffff -> :sswitch_f
     .end sparse-switch
 .end method
 
 .method public static synthetic Channel$default(IILjava/lang/Object;)Lkotlinx/coroutines/channels/Channel;
-    .locals 0
+    .registers 3
 
     .line 803
     and-int/lit8 p1, p1, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0}, Lkotlinx/coroutines/channels/ChannelKt;->Channel(I)Lkotlinx/coroutines/channels/Channel;
 
     move-result-object p0
@@ -269,36 +269,36 @@
 .end method
 
 .method public static synthetic Channel$default(ILkotlinx/coroutines/channels/BufferOverflow;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/channels/Channel;
-    .locals 0
+    .registers 5
 
     .line 773
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 774
     const/4 p0, 0x0
 
     .line 773
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p3, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     .line 775
     sget-object p1, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
     .line 773
-    :cond_1
+    :cond_b
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_10
 
     .line 776
     const/4 p2, 0x0
 
     .line 773
-    :cond_2
+    :cond_10
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/channels/ChannelKt;->Channel(ILkotlinx/coroutines/channels/BufferOverflow;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/channels/Channel;
 
     move-result-object p0
@@ -307,7 +307,7 @@
 .end method
 
 .method public static final getOrElse-WpGqRn0(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$getOrElse_u2dWpGqRn0"    # Ljava/lang/Object;
     .param p1, "onFailure"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -332,7 +332,7 @@
     .line 505
     instance-of v1, p0, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     invoke-static {p0}, Lkotlinx/coroutines/channels/ChannelResult;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
@@ -342,17 +342,17 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move-object v1, p0
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public static final onClosed-WpGqRn0(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$onClosed_u2dWpGqRn0"    # Ljava/lang/Object;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -379,7 +379,7 @@
     .line 551
     instance-of v1, p0, Lkotlinx/coroutines/channels/ChannelResult$Closed;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     invoke-static {p0}, Lkotlinx/coroutines/channels/ChannelResult;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
@@ -388,12 +388,12 @@
     invoke-interface {p1, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 552
-    :cond_0
+    :cond_d
     return-object p0
 .end method
 
 .method public static final onFailure-WpGqRn0(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$onFailure_u2dWpGqRn0"    # Ljava/lang/Object;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -420,7 +420,7 @@
     .line 533
     instance-of v1, p0, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     invoke-static {p0}, Lkotlinx/coroutines/channels/ChannelResult;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
@@ -429,12 +429,12 @@
     invoke-interface {p1, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 534
-    :cond_0
+    :cond_d
     return-object p0
 .end method
 
 .method public static final onSuccess-WpGqRn0(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$onSuccess_u2dWpGqRn0"    # Ljava/lang/Object;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -460,11 +460,11 @@
     .line 518
     instance-of v1, p0, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 519
-    :cond_0
+    :cond_9
     return-object p0
 .end method

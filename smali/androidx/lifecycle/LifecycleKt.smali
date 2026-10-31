@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final getCoroutineScope(Landroidx/lifecycle/Lifecycle;)Landroidx/lifecycle/LifecycleCoroutineScope;
-    .locals 5
+    .registers 6
     .param p0, "$this$coroutineScope"    # Landroidx/lifecycle/Lifecycle;
 
     const-string v0, "<this>"
@@ -36,7 +36,7 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 293
-    :cond_0
+    :cond_5
     nop
 
     .line 294
@@ -52,7 +52,7 @@
 
     .line 295
     .local v0, "existing":Landroidx/lifecycle/LifecycleCoroutineScopeImpl;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 296
     move-object v1, v0
@@ -62,7 +62,7 @@
     return-object v1
 
     .line 298
-    :cond_1
+    :cond_16
     new-instance v1, Landroidx/lifecycle/LifecycleCoroutineScopeImpl;
 
     .line 299
@@ -104,7 +104,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_5
 
     .line 303
     invoke-virtual {v1}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->register()V

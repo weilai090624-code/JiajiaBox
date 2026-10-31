@@ -28,13 +28,13 @@
 
 # direct methods
 .method constructor <init>(ILgo/Seq$GoObject;Lgo/Seq$GoRefQueue;)V
-    .locals 1
+    .registers 5
 
     .line 289
     invoke-direct {p0, p2, p3}, Ljava/lang/ref/PhantomReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
     .line 290
-    if-gtz p1, :cond_0
+    if-gtz p1, :cond_8
 
     .line 293
     iput p1, p0, Lgo/Seq$GoRef;->refnum:I
@@ -43,7 +43,7 @@
     return-void
 
     .line 291
-    :cond_0
+    :cond_8
     new-instance p2, Ljava/lang/RuntimeException;
 
     new-instance p3, Ljava/lang/StringBuilder;

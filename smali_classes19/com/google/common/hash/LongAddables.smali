@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 32
     :try_start_0
@@ -40,16 +40,16 @@
     new-instance v0, Lcom/google/common/hash/LongAddables$1;
 
     invoke-direct {v0}, Lcom/google/common/hash/LongAddables$1;-><init>()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_0 .. :try_end_a} :catchall_b
 
     .line 48
     .local v0, "supplier":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<Lcom/google/common/hash/LongAddable;>;"
-    goto :goto_0
+    goto :goto_12
 
     .line 40
     .end local v0    # "supplier":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<Lcom/google/common/hash/LongAddable;>;"
-    :catchall_0
+    :catchall_b
     move-exception v0
 
     .line 41
@@ -62,7 +62,7 @@
 
     .line 49
     .local v0, "supplier":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<Lcom/google/common/hash/LongAddable;>;"
-    :goto_0
+    :goto_12
     sput-object v0, Lcom/google/common/hash/LongAddables;->SUPPLIER:Lcom/google/common/base/Supplier;
 
     .line 50
@@ -71,7 +71,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 .end method
 
 .method public static create()Lcom/google/common/hash/LongAddable;
-    .locals 1
+    .registers 1
 
     .line 53
     sget-object v0, Lcom/google/common/hash/LongAddables;->SUPPLIER:Lcom/google/common/base/Supplier;

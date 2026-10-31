@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/zxing/common/BitMatrix;)V
-    .locals 0
+    .registers 2
     .param p1, "image"    # Lcom/google/zxing/common/BitMatrix;
 
     .line 44
@@ -25,7 +25,7 @@
 .end method
 
 .method private calculateModuleSizeOneWay(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;)F
-    .locals 5
+    .registers 8
     .param p1, "pattern"    # Lcom/google/zxing/ResultPoint;
     .param p2, "otherPattern"    # Lcom/google/zxing/ResultPoint;
 
@@ -104,7 +104,7 @@
 
     const/high16 v3, 0x40e00000    # 7.0f
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3b
 
     .line 251
     div-float v2, v1, v3
@@ -112,12 +112,12 @@
     return v2
 
     .line 253
-    :cond_0
+    :cond_3b
     invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_44
 
     .line 254
     div-float v2, v0, v3
@@ -125,7 +125,7 @@
     return v2
 
     .line 258
-    :cond_1
+    :cond_44
     add-float v2, v0, v1
 
     const/high16 v3, 0x41600000    # 14.0f
@@ -136,7 +136,7 @@
 .end method
 
 .method private static computeDimension(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;F)I
-    .locals 4
+    .registers 8
     .param p0, "topLeft"    # Lcom/google/zxing/ResultPoint;
     .param p1, "topRight"    # Lcom/google/zxing/ResultPoint;
     .param p2, "bottomLeft"    # Lcom/google/zxing/ResultPoint;
@@ -186,13 +186,13 @@
 
     and-int/lit8 v2, v2, 0x3
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_2c
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_1f
+    goto :goto_2b
 
     .line 214
-    :pswitch_1
+    :pswitch_20
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v2
@@ -200,34 +200,34 @@
     throw v2
 
     .line 211
-    :pswitch_2
+    :pswitch_25
     add-int/lit8 v3, v3, -0x1
 
     .line 212
-    goto :goto_0
+    goto :goto_2b
 
     .line 207
-    :pswitch_3
+    :pswitch_28
     add-int/lit8 v3, v3, 0x1
 
     .line 208
     nop
 
     .line 216
-    :goto_0
+    :goto_2b
     return v3
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
+        :pswitch_28
+        :pswitch_1f
+        :pswitch_25
+        :pswitch_20
     .end packed-switch
 .end method
 
 .method private static createTransform(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;I)Lcom/google/zxing/common/PerspectiveTransform;
-    .locals 22
+    .registers 27
     .param p0, "topLeft"    # Lcom/google/zxing/ResultPoint;
     .param p1, "topRight"    # Lcom/google/zxing/ResultPoint;
     .param p2, "bottomLeft"    # Lcom/google/zxing/ResultPoint;
@@ -245,7 +245,7 @@
 
     .line 154
     .local v1, "dimMinusThree":F
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1d
 
     .line 155
     invoke-virtual/range {p3 .. p3}, Lcom/google/zxing/ResultPoint;->getX()F
@@ -277,14 +277,14 @@
     move/from16 v21, v5
 
     .local v4, "sourceBottomRightY":F
-    goto :goto_0
+    goto :goto_41
 
     .line 161
     .end local v2    # "bottomRightX":F
     .end local v3    # "bottomRightY":F
     .end local v4    # "sourceBottomRightY":F
     .end local v5    # "sourceBottomRightX":F
-    :cond_0
+    :cond_1d
     invoke-virtual/range {p1 .. p1}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result v2
@@ -339,7 +339,7 @@
     .local v19, "bottomRightY":F
     .local v20, "sourceBottomRightY":F
     .local v21, "sourceBottomRightX":F
-    :goto_0
+    :goto_41
     nop
 
     .line 176
@@ -401,7 +401,7 @@
 .end method
 
 .method private static sampleGrid(Lcom/google/zxing/common/BitMatrix;Lcom/google/zxing/common/PerspectiveTransform;I)Lcom/google/zxing/common/BitMatrix;
-    .locals 1
+    .registers 4
     .param p0, "image"    # Lcom/google/zxing/common/BitMatrix;
     .param p1, "transform"    # Lcom/google/zxing/common/PerspectiveTransform;
     .param p2, "dimension"    # I
@@ -425,7 +425,7 @@
 .end method
 
 .method private sizeOfBlackWhiteBlackRun(IIII)F
-    .locals 19
+    .registers 24
     .param p1, "fromX"    # I
     .param p2, "fromY"    # I
     .param p3, "toX"    # I
@@ -446,23 +446,23 @@
 
     const/4 v3, 0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     const/4 v1, 0x0
 
     .line 310
     .local v1, "steep":Z
     move v1, v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 311
     move/from16 v0, p1
@@ -491,7 +491,7 @@
 
     .end local p4    # "toY":I
     .local v7, "toY":I
-    goto :goto_1
+    goto :goto_29
 
     .line 310
     .end local v0    # "temp":I
@@ -503,7 +503,7 @@
     .restart local p2    # "fromY":I
     .restart local p3    # "toX":I
     .restart local p4    # "toY":I
-    :cond_1
+    :cond_21
     move/from16 v4, p1
 
     move/from16 v5, p2
@@ -521,7 +521,7 @@
     .restart local v5    # "fromY":I
     .restart local v6    # "toX":I
     .restart local v7    # "toY":I
-    :goto_1
+    :goto_29
     sub-int v0, v6, v4
 
     invoke-static {v0}, Ljava/lang/Math;->abs(I)I
@@ -548,25 +548,25 @@
     .local v9, "error":I
     const/4 v11, -0x1
 
-    if-ge v4, v6, :cond_2
+    if-ge v4, v6, :cond_3d
 
     const/4 v12, 0x1
 
-    goto :goto_2
+    goto :goto_3e
 
-    :cond_2
+    :cond_3d
     const/4 v12, -0x1
 
     .line 323
     .local v12, "xstep":I
-    :goto_2
-    if-ge v5, v7, :cond_3
+    :goto_3e
+    if-ge v5, v7, :cond_41
 
     const/4 v11, 0x1
 
     .line 326
     .local v11, "ystep":I
-    :cond_3
+    :cond_41
     const/4 v13, 0x0
 
     .line 328
@@ -583,46 +583,46 @@
     move/from16 v2, v16
 
     .local v2, "y":I
-    :goto_3
-    if-eq v15, v14, :cond_a
+    :goto_49
+    if-eq v15, v14, :cond_8e
 
     .line 330
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_50
 
     move/from16 v17, v2
 
-    goto :goto_4
+    goto :goto_52
 
-    :cond_4
+    :cond_50
     move/from16 v17, v15
 
-    :goto_4
+    :goto_52
     move/from16 p1, v17
 
     .line 331
     .local p1, "realX":I
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_59
 
     move/from16 v17, v15
 
-    goto :goto_5
+    goto :goto_5b
 
-    :cond_5
+    :cond_59
     move/from16 v17, v2
 
-    :goto_5
+    :goto_5b
     move/from16 p2, v17
 
     .line 336
     .local p2, "realY":I
-    if-ne v13, v3, :cond_6
+    if-ne v13, v3, :cond_60
 
-    goto :goto_6
+    goto :goto_61
 
-    :cond_6
+    :cond_60
     const/4 v3, 0x0
 
-    :goto_6
+    :goto_61
     move-object/from16 v10, p0
 
     move/from16 v18, v1
@@ -645,12 +645,12 @@
 
     move-result v1
 
-    if-ne v3, v1, :cond_8
+    if-ne v3, v1, :cond_7d
 
     .line 337
     const/4 v1, 0x2
 
-    if-ne v13, v1, :cond_7
+    if-ne v13, v1, :cond_7b
 
     .line 338
     invoke-static {v15, v2, v4, v5}, Lcom/google/zxing/common/detector/MathUtils;->distance(IIII)F
@@ -660,20 +660,20 @@
     return v1
 
     .line 340
-    :cond_7
+    :cond_7b
     add-int/lit8 v13, v13, 0x1
 
     .line 343
-    :cond_8
+    :cond_7d
     add-int v1, v9, v8
 
     .line 344
     move v9, v1
 
-    if-lez v1, :cond_9
+    if-lez v1, :cond_86
 
     .line 345
-    if-eq v2, v7, :cond_b
+    if-eq v2, v7, :cond_92
 
     .line 348
     add-int/2addr v2, v11
@@ -684,7 +684,7 @@
     .line 329
     .end local v10    # "realX":I
     .end local v14    # "realY":I
-    :cond_9
+    :cond_86
     add-int/2addr v15, v12
 
     move/from16 v14, p1
@@ -695,13 +695,13 @@
 
     const/4 v10, 0x2
 
-    goto :goto_3
+    goto :goto_49
 
     .end local v18    # "steep":Z
     .end local p1    # "xLimit":I
     .restart local v1    # "steep":Z
     .local v14, "xLimit":I
-    :cond_a
+    :cond_8e
     move/from16 v18, v1
 
     move/from16 p1, v14
@@ -713,10 +713,10 @@
     .end local v15    # "x":I
     .restart local v18    # "steep":Z
     .restart local p1    # "xLimit":I
-    :cond_b
+    :cond_92
     const/4 v1, 0x2
 
-    if-ne v13, v1, :cond_c
+    if-ne v13, v1, :cond_9c
 
     .line 356
     add-int v1, v6, v12
@@ -728,14 +728,14 @@
     return v1
 
     .line 359
-    :cond_c
+    :cond_9c
     const/high16 v1, 0x7fc00000    # Float.NaN
 
     return v1
 .end method
 
 .method private sizeOfBlackWhiteBlackRunBothWays(IIII)F
-    .locals 6
+    .registers 11
     .param p1, "fromX"    # I
     .param p2, "fromY"    # I
     .param p3, "toX"    # I
@@ -762,7 +762,7 @@
     .local v3, "otherToX":I
     move v3, v2
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_16
 
     .line 274
     int-to-float v2, p1
@@ -776,17 +776,17 @@
     .line 275
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_35
 
     .line 276
-    :cond_0
+    :cond_16
     iget-object v2, p0, Lcom/google/zxing/qrcode/detector/Detector;->image:Lcom/google/zxing/common/BitMatrix;
 
     invoke-virtual {v2}, Lcom/google/zxing/common/BitMatrix;->getWidth()I
 
     move-result v2
 
-    if-lt v3, v2, :cond_1
+    if-lt v3, v2, :cond_35
 
     .line 277
     iget-object v2, p0, Lcom/google/zxing/qrcode/detector/Detector;->image:Lcom/google/zxing/common/BitMatrix;
@@ -817,8 +817,8 @@
     add-int/lit8 v3, v2, -0x1
 
     .line 280
-    :cond_1
-    :goto_0
+    :cond_35
+    :goto_35
     int-to-float v2, p2
 
     sub-int v4, p4, p2
@@ -836,7 +836,7 @@
     const/high16 v1, 0x3f800000    # 1.0f
 
     .line 283
-    if-gez v2, :cond_2
+    if-gez v2, :cond_49
 
     .line 284
     int-to-float v4, p2
@@ -850,17 +850,17 @@
     .line 285
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_68
 
     .line 286
-    :cond_2
+    :cond_49
     iget-object v4, p0, Lcom/google/zxing/qrcode/detector/Detector;->image:Lcom/google/zxing/common/BitMatrix;
 
     invoke-virtual {v4}, Lcom/google/zxing/common/BitMatrix;->getHeight()I
 
     move-result v4
 
-    if-lt v2, v4, :cond_3
+    if-lt v2, v4, :cond_68
 
     .line 287
     iget-object v4, p0, Lcom/google/zxing/qrcode/detector/Detector;->image:Lcom/google/zxing/common/BitMatrix;
@@ -891,8 +891,8 @@
     add-int/lit8 v2, v4, -0x1
 
     .line 290
-    :cond_3
-    :goto_1
+    :cond_68
+    :goto_68
     int-to-float v4, p1
 
     sub-int v5, v3, p1
@@ -923,7 +923,7 @@
 
 # virtual methods
 .method protected final calculateModuleSize(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;)F
-    .locals 2
+    .registers 6
     .param p1, "topLeft"    # Lcom/google/zxing/ResultPoint;
     .param p2, "topRight"    # Lcom/google/zxing/ResultPoint;
     .param p3, "bottomLeft"    # Lcom/google/zxing/ResultPoint;
@@ -949,7 +949,7 @@
 .end method
 
 .method public detect()Lcom/google/zxing/common/DetectorResult;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/NotFoundException;,
@@ -968,7 +968,7 @@
 .end method
 
 .method public final detect(Ljava/util/Map;)Lcom/google/zxing/common/DetectorResult;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -988,13 +988,13 @@
 
     .line 77
     .local p1, "hints":Ljava/util/Map;, "Ljava/util/Map<Lcom/google/zxing/DecodeHintType;*>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_4
     sget-object v0, Lcom/google/zxing/DecodeHintType;->NEED_RESULT_POINT_CALLBACK:Lcom/google/zxing/DecodeHintType;
 
     .line 78
@@ -1004,7 +1004,7 @@
 
     check-cast v0, Lcom/google/zxing/ResultPointCallback;
 
-    :goto_0
+    :goto_c
     iput-object v0, p0, Lcom/google/zxing/qrcode/detector/Detector;->resultPointCallback:Lcom/google/zxing/ResultPointCallback;
 
     .line 80
@@ -1031,7 +1031,7 @@
 .end method
 
 .method protected final findAlignmentInRegion(FIIF)Lcom/google/zxing/qrcode/detector/AlignmentPattern;
-    .locals 15
+    .registers 20
     .param p1, "overallEstModuleSize"    # F
     .param p2, "estAlignmentX"    # I
     .param p3, "estAlignmentY"    # I
@@ -1095,7 +1095,7 @@
 
     cmpg-float v4, v4, v7
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_5f
 
     .line 387
     sub-int v4, p3, v1
@@ -1134,7 +1134,7 @@
 
     cmpg-float v4, v4, v6
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_5a
 
     .line 393
     new-instance v14, Lcom/google/zxing/qrcode/detector/AlignmentPatternFinder;
@@ -1165,7 +1165,7 @@
     return-object v4
 
     .line 390
-    :cond_0
+    :cond_5a
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v4
@@ -1175,7 +1175,7 @@
     .line 384
     .end local v3    # "alignmentAreaTopY":I
     .end local v13    # "alignmentAreaBottomY":I
-    :cond_1
+    :cond_5f
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v3
@@ -1184,7 +1184,7 @@
 .end method
 
 .method protected final getImage()Lcom/google/zxing/common/BitMatrix;
-    .locals 1
+    .registers 2
 
     .line 49
     iget-object v0, p0, Lcom/google/zxing/qrcode/detector/Detector;->image:Lcom/google/zxing/common/BitMatrix;
@@ -1193,7 +1193,7 @@
 .end method
 
 .method protected final getResultPointCallback()Lcom/google/zxing/ResultPointCallback;
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Lcom/google/zxing/qrcode/detector/Detector;->resultPointCallback:Lcom/google/zxing/ResultPointCallback;
@@ -1202,7 +1202,7 @@
 .end method
 
 .method protected final processFinderPatternInfo(Lcom/google/zxing/qrcode/detector/FinderPatternInfo;)Lcom/google/zxing/common/DetectorResult;
-    .locals 16
+    .registers 18
     .param p1, "info"    # Lcom/google/zxing/qrcode/detector/FinderPatternInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1246,7 +1246,7 @@
 
     cmpg-float v0, v0, v6
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_ae
 
     .line 97
     invoke-static {v2, v3, v4, v5}, Lcom/google/zxing/qrcode/detector/Detector;->computeDimension(Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;Lcom/google/zxing/ResultPoint;F)I
@@ -1287,7 +1287,7 @@
 
     array-length v0, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_82
 
     .line 106
     invoke-virtual {v3}, Lcom/google/zxing/qrcode/detector/FinderPattern;->getX()F
@@ -1377,34 +1377,34 @@
     move v15, v0
 
     .local v15, "i":I
-    :goto_0
+    :goto_73
     const/16 v0, 0x10
 
-    if-gt v15, v0, :cond_0
+    if-gt v15, v0, :cond_82
 
     .line 118
     int-to-float v0, v15
 
-    :try_start_0
+    :try_start_78
     invoke-virtual {v1, v5, v13, v14, v0}, Lcom/google/zxing/qrcode/detector/Detector;->findAlignmentInRegion(FIIF)Lcom/google/zxing/qrcode/detector/AlignmentPattern;
 
     move-result-object v0
-    :try_end_0
-    .catch Lcom/google/zxing/NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7c
+    .catch Lcom/google/zxing/NotFoundException; {:try_start_78 .. :try_end_7c} :catch_7e
 
     move-object v10, v0
 
     .line 122
-    goto :goto_1
+    goto :goto_82
 
     .line 123
-    :catch_0
+    :catch_7e
     move-exception v0
 
     .line 116
     shl-int/lit8 v15, v15, 0x1
 
-    goto :goto_0
+    goto :goto_73
 
     .line 130
     .end local v6    # "correctionToTopLeft":F
@@ -1413,8 +1413,8 @@
     .end local v13    # "estAlignmentX":I
     .end local v14    # "estAlignmentY":I
     .end local v15    # "i":I
-    :cond_0
-    :goto_1
+    :cond_82
+    :goto_82
     nop
 
     .line 131
@@ -1440,7 +1440,7 @@
 
     const/4 v14, 0x1
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_9c
 
     .line 137
     new-array v11, v11, [Lcom/google/zxing/ResultPoint;
@@ -1452,11 +1452,11 @@
     aput-object v3, v11, v12
 
     .local v11, "points":[Lcom/google/zxing/ResultPoint;
-    goto :goto_2
+    goto :goto_a8
 
     .line 139
     .end local v11    # "points":[Lcom/google/zxing/ResultPoint;
-    :cond_1
+    :cond_9c
     const/4 v15, 0x4
 
     new-array v15, v15, [Lcom/google/zxing/ResultPoint;
@@ -1473,7 +1473,7 @@
 
     .line 141
     .restart local v11    # "points":[Lcom/google/zxing/ResultPoint;
-    :goto_2
+    :goto_a8
     new-instance v12, Lcom/google/zxing/common/DetectorResult;
 
     invoke-direct {v12, v6, v11}, Lcom/google/zxing/common/DetectorResult;-><init>(Lcom/google/zxing/common/BitMatrix;[Lcom/google/zxing/ResultPoint;)V
@@ -1488,7 +1488,7 @@
     .end local v9    # "modulesBetweenFPCenters":I
     .end local v10    # "alignmentPattern":Lcom/google/zxing/qrcode/detector/AlignmentPattern;
     .end local v11    # "points":[Lcom/google/zxing/ResultPoint;
-    :cond_2
+    :cond_ae
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v0

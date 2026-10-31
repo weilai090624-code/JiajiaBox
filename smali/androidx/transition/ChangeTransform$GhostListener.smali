@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroidx/transition/GhostView;)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
     .param p2, "ghostView"    # Landroidx/transition/GhostView;
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 3
+    .registers 5
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 532
@@ -74,7 +74,7 @@
 .end method
 
 .method public onTransitionPause(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 540
@@ -89,7 +89,7 @@
 .end method
 
 .method public onTransitionResume(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 545

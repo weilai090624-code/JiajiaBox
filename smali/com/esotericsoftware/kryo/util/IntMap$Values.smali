@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/IntMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 575
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
@@ -65,7 +65,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -80,7 +80,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -91,14 +91,14 @@
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->hasNext:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 582
     iget v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->nextIndex:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 583
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->map:Lcom/esotericsoftware/kryo/util/IntMap;
@@ -106,11 +106,11 @@
     iget-object v0, v0, Lcom/esotericsoftware/kryo/util/IntMap;->zeroValue:Ljava/lang/Object;
 
     .local v0, "value":Ljava/lang/Object;, "TV;"
-    goto :goto_0
+    goto :goto_16
 
     .line 585
     .end local v0    # "value":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->map:Lcom/esotericsoftware/kryo/util/IntMap;
 
     iget-object v0, v0, Lcom/esotericsoftware/kryo/util/IntMap;->valueTable:[Ljava/lang/Object;
@@ -121,7 +121,7 @@
 
     .line 586
     .restart local v0    # "value":Ljava/lang/Object;, "TV;"
-    :goto_0
+    :goto_16
     iget v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->nextIndex:I
 
     iput v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->currentIndex:I
@@ -134,7 +134,7 @@
 
     .line 580
     .end local v0    # "value":Ljava/lang/Object;, "TV;"
-    :cond_1
+    :cond_1e
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -143,7 +143,7 @@
 .end method
 
 .method public bridge synthetic remove()V
-    .locals 0
+    .registers 1
 
     .line 569
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
@@ -153,7 +153,7 @@
 .end method
 
 .method public bridge synthetic reset()V
-    .locals 0
+    .registers 1
 
     .line 569
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
@@ -163,7 +163,7 @@
 .end method
 
 .method public toList()Ljava/util/ArrayList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -184,10 +184,10 @@
 
     .line 598
     .local v0, "array":Ljava/util/ArrayList;
-    :goto_0
+    :goto_9
     iget-boolean v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->hasNext:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 599
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/IntMap$Values;->next()Ljava/lang/Object;
@@ -196,9 +196,9 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_9
 
     .line 600
-    :cond_0
+    :cond_15
     return-object v0
 .end method

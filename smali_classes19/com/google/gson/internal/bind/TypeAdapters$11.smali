@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 310
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Number;
-    .locals 2
+    .registers 4
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -50,7 +50,7 @@
 
     sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 314
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
@@ -61,8 +61,8 @@
     return-object v0
 
     .line 318
-    :cond_0
-    :try_start_0
+    :cond_d
+    :try_start_d
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextLong()J
 
     move-result-wide v0
@@ -70,13 +70,13 @@
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/NumberFormatException; {:try_start_d .. :try_end_15} :catch_16
 
     return-object v0
 
     .line 319
-    :catch_0
+    :catch_16
     move-exception v0
 
     .line 320
@@ -89,7 +89,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -105,7 +105,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Number;)V
-    .locals 0
+    .registers 3
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .param p2, "value"    # Ljava/lang/Number;
     .annotation system Ldalvik/annotation/Throws;
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

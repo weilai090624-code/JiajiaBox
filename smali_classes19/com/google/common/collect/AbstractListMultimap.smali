@@ -31,7 +31,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public asMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -75,7 +75,7 @@
 .end method
 
 .method bridge synthetic createCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/AbstractListMultimap;, "Lcom/google/common/collect/AbstractListMultimap<TK;TV;>;"
@@ -97,7 +97,7 @@
 .end method
 
 .method bridge synthetic createUnmodifiableEmptyCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/AbstractListMultimap;, "Lcom/google/common/collect/AbstractListMultimap<TK;TV;>;"
@@ -109,7 +109,7 @@
 .end method
 
 .method createUnmodifiableEmptyCollection()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -128,7 +128,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -144,7 +144,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -160,7 +160,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -186,7 +186,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -213,7 +213,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -229,7 +229,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -256,7 +256,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -272,7 +272,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -301,7 +301,7 @@
 .end method
 
 .method unmodifiableCollectionSubclass(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -329,7 +329,7 @@
 .end method
 
 .method wrapCollection(Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

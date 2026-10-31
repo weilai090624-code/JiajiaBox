@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/sync/SemaphoreImpl;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lkotlinx/coroutines/sync/SemaphoreImpl$onCancellationRelease$1;->this$0:Lkotlinx/coroutines/sync/SemaphoreImpl;
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 154
@@ -83,7 +83,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
 
     .line 154
     iget-object p1, p0, Lkotlinx/coroutines/sync/SemaphoreImpl$onCancellationRelease$1;->this$0:Lkotlinx/coroutines/sync/SemaphoreImpl;

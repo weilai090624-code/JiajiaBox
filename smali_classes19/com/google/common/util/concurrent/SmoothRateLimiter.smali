@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;)V
-    .locals 2
+    .registers 4
     .param p1, "stopwatch"    # Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
 
     .line 331
@@ -43,7 +43,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;Lcom/google/common/util/concurrent/SmoothRateLimiter$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/SmoothRateLimiter$1;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method final doGetRate()D
-    .locals 4
+    .registers 5
 
     .line 346
     sget-object v0, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
@@ -83,7 +83,7 @@
 .end method
 
 .method final doSetRate(DJ)V
-    .locals 3
+    .registers 8
     .param p1, "permitsPerSecond"    # D
     .param p3, "nowMicros"    # J
 
@@ -115,7 +115,7 @@
 .end method
 
 .method final queryEarliestAvailable(J)J
-    .locals 2
+    .registers 5
     .param p1, "nowMicros"    # J
 
     .line 351
@@ -125,7 +125,7 @@
 .end method
 
 .method final reserveEarliestAvailable(IJ)J
-    .locals 10
+    .registers 14
     .param p1, "requiredPermits"    # I
     .param p2, "nowMicros"    # J
 
@@ -190,7 +190,7 @@
 .end method
 
 .method resync(J)V
-    .locals 6
+    .registers 9
     .param p1, "nowMicros"    # J
 
     .line 386
@@ -198,7 +198,7 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_1d
 
     .line 387
     iget-wide v0, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter;->nextFreeTicketMicros:J
@@ -232,7 +232,7 @@
 
     .line 391
     .end local v0    # "newPermits":D
-    :cond_0
+    :cond_1d
     return-void
 .end method
 

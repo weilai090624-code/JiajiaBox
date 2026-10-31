@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public collapseItemActionView(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/view/menu/MenuItemImpl;)Z
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method public expandItemActionView(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/view/menu/MenuItemImpl;)Z
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public flagActionItems()Z
-    .locals 1
+    .registers 2
 
     .line 91
     const/4 v0, 0x0
@@ -73,7 +73,7 @@
 .end method
 
 .method public getId()I
-    .locals 1
+    .registers 2
 
     .line 110
     iget v0, p0, Lcom/google/android/material/navigation/NavigationBarPresenter;->id:I
@@ -82,7 +82,7 @@
 .end method
 
 .method public getMenuView(Landroid/view/ViewGroup;)Landroidx/appcompat/view/menu/MenuView;
-    .locals 1
+    .registers 3
     .param p1, "root"    # Landroid/view/ViewGroup;
 
     .line 63
@@ -92,7 +92,7 @@
 .end method
 
 .method public initForMenu(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
@@ -111,7 +111,7 @@
 .end method
 
 .method public onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
-    .locals 0
+    .registers 3
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "allMenusAreClosing"    # Z
 
@@ -120,13 +120,13 @@
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .line 125
     instance-of v0, p1, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 126
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarPresenter;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -166,12 +166,12 @@
 
     .line 132
     .end local v0    # "badgeDrawables":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Lcom/google/android/material/badge/BadgeDrawable;>;"
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 2
+    .registers 3
 
     .line 116
     new-instance v0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;
@@ -207,7 +207,7 @@
 .end method
 
 .method public onSubMenuSelected(Landroidx/appcompat/view/menu/SubMenuBuilder;)Z
-    .locals 1
+    .registers 3
     .param p1, "subMenu"    # Landroidx/appcompat/view/menu/SubMenuBuilder;
 
     .line 83
@@ -217,7 +217,7 @@
 .end method
 
 .method public setCallback(Landroidx/appcompat/view/menu/MenuPresenter$Callback;)V
-    .locals 0
+    .registers 2
     .param p1, "cb"    # Landroidx/appcompat/view/menu/MenuPresenter$Callback;
 
     .line 79
@@ -225,7 +225,7 @@
 .end method
 
 .method public setId(I)V
-    .locals 0
+    .registers 2
     .param p1, "id"    # I
 
     .line 105
@@ -236,7 +236,7 @@
 .end method
 
 .method public setMenuView(Lcom/google/android/material/navigation/NavigationBarMenuView;)V
-    .locals 0
+    .registers 2
     .param p1, "menuView"    # Lcom/google/android/material/navigation/NavigationBarMenuView;
 
     .line 51
@@ -247,7 +247,7 @@
 .end method
 
 .method public setUpdateSuspended(Z)V
-    .locals 0
+    .registers 2
     .param p1, "updateSuspended"    # Z
 
     .line 135
@@ -258,35 +258,35 @@
 .end method
 
 .method public updateMenuView(Z)V
-    .locals 1
+    .registers 3
     .param p1, "cleared"    # Z
 
     .line 68
     iget-boolean v0, p0, Lcom/google/android/material/navigation/NavigationBarPresenter;->updateSuspended:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 69
     return-void
 
     .line 71
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_5
+    if-eqz p1, :cond_d
 
     .line 72
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarPresenter;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
 
     invoke-virtual {v0}, Lcom/google/android/material/navigation/NavigationBarMenuView;->buildMenuView()V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 74
-    :cond_1
+    :cond_d
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarPresenter;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
 
     invoke-virtual {v0}, Lcom/google/android/material/navigation/NavigationBarMenuView;->updateMenuView()V
 
     .line 76
-    :goto_0
+    :goto_12
     return-void
 .end method

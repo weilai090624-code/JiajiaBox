@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method getIniLocation(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
 
     .line 57
@@ -43,10 +43,10 @@
 
     .line 59
     .local v0, "location":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 63
-    :try_start_0
+    :try_start_6
     new-instance v1, Ljava/util/Properties;
 
     invoke-direct {v1}, Ljava/util/Properties;-><init>()V
@@ -73,27 +73,27 @@
     invoke-virtual {v1, p1}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_20
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_20} :catch_22
 
     move-object v0, v2
 
     .line 71
     .end local v1    # "props":Ljava/util/Properties;
-    goto :goto_0
+    goto :goto_23
 
     .line 68
-    :catch_0
+    :catch_22
     move-exception v1
 
     .line 74
-    :cond_0
-    :goto_0
+    :cond_23
+    :goto_23
     return-object v0
 .end method
 
 .method getResource(Ljava/lang/String;)Ljava/net/URL;
-    .locals 2
+    .registers 4
     .param p1, "location"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -113,7 +113,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 86
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -129,26 +129,26 @@
     move-result-object v1
 
     .local v1, "url":Ljava/net/URL;
-    goto :goto_0
+    goto :goto_1c
 
     .line 90
     .end local v1    # "url":Ljava/net/URL;
-    :cond_0
+    :cond_18
     invoke-virtual {v0}, Ljava/net/URI;->toURL()Ljava/net/URL;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1c
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_1c} :catch_1d
 
     .line 93
     .restart local v1    # "url":Ljava/net/URL;
-    :goto_0
+    :goto_1c
     return-object v1
 
     .line 95
     .end local v0    # "uri":Ljava/net/URI;
     .end local v1    # "url":Ljava/net/URL;
-    :catch_0
+    :catch_1d
     move-exception v0
 
     .line 97
@@ -167,7 +167,7 @@
 .end method
 
 .method getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
-    .locals 2
+    .registers 4
     .param p1, "location"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -184,13 +184,13 @@
     invoke-virtual {v0}, Ljava/net/URL;->openStream()Ljava/io/InputStream;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 107
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 109
@@ -209,7 +209,7 @@
 .end method
 
 .method newIniPreferences(Ljava/lang/String;)Ljava/util/prefs/Preferences;
-    .locals 4
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
 
     .line 115
@@ -225,23 +225,23 @@
 
     .line 118
     .local v1, "location":Ljava/lang/String;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     .line 122
-    :try_start_0
+    :try_start_b
     invoke-virtual {p0, v1}, Lorg/ini4j/IniPreferencesFactory;->getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Lorg/ini4j/Ini;->load(Ljava/io/InputStream;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_12} :catch_13
 
     .line 127
-    goto :goto_0
+    goto :goto_20
 
     .line 124
-    :catch_0
+    :catch_13
     move-exception v2
 
     .line 126
@@ -260,8 +260,8 @@
 
     .line 130
     .end local v2    # "x":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_20
+    :goto_20
     new-instance v2, Lorg/ini4j/IniPreferences;
 
     invoke-direct {v2, v0}, Lorg/ini4j/IniPreferences;-><init>(Lorg/ini4j/Ini;)V
@@ -270,15 +270,15 @@
 .end method
 
 .method public declared-synchronized systemRoot()Ljava/util/prefs/Preferences;
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 37
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lorg/ini4j/IniPreferencesFactory;->_system:Ljava/util/prefs/Preferences;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 39
     const-string v0, "org.ini4j.prefs.system"
@@ -291,37 +291,37 @@
 
     .line 42
     .end local p0    # "this":Lorg/ini4j/IniPreferencesFactory;
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lorg/ini4j/IniPreferencesFactory;->_system:Ljava/util/prefs/Preferences;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_1 .. :try_end_f} :catchall_11
 
     monitor-exit p0
 
     return-object v0
 
     .line 36
-    :catchall_0
+    :catchall_11
     move-exception v0
 
-    :try_start_1
+    :try_start_12
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_13
+    .catchall {:try_start_12 .. :try_end_13} :catchall_11
 
     throw v0
 .end method
 
 .method public declared-synchronized userRoot()Ljava/util/prefs/Preferences;
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 47
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lorg/ini4j/IniPreferencesFactory;->_user:Ljava/util/prefs/Preferences;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 49
     const-string v0, "org.ini4j.prefs.user"
@@ -334,23 +334,23 @@
 
     .line 52
     .end local p0    # "this":Lorg/ini4j/IniPreferencesFactory;
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lorg/ini4j/IniPreferencesFactory;->_user:Ljava/util/prefs/Preferences;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_1 .. :try_end_f} :catchall_11
 
     monitor-exit p0
 
     return-object v0
 
     .line 46
-    :catchall_0
+    :catchall_11
     move-exception v0
 
-    :try_start_1
+    :try_start_12
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_13
+    .catchall {:try_start_12 .. :try_end_13} :catchall_11
 
     throw v0
 .end method

@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,38 +22,38 @@
 .end method
 
 .method public static isDateInputKeyboardMissingSeparatorCharacters()Z
-    .locals 1
+    .registers 1
 
     .line 53
     invoke-static {}, Lcom/google/android/material/internal/ManufacturerUtils;->isLGEDevice()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/google/android/material/internal/ManufacturerUtils;->isSamsungDevice()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public static isLGEDevice()Z
-    .locals 2
+    .registers 2
 
     .line 41
     sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
@@ -74,7 +74,7 @@
 .end method
 
 .method public static isMeizuDevice()Z
-    .locals 2
+    .registers 2
 
     .line 36
     sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
@@ -95,7 +95,7 @@
 .end method
 
 .method public static isSamsungDevice()Z
-    .locals 2
+    .registers 2
 
     .line 46
     sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;

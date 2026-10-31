@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 46
     new-instance v0, Lorg/yaml/snakeyaml/util/PlatformFeatureDetector;
@@ -60,7 +60,7 @@
 .end method
 
 .method constructor <init>(Lorg/yaml/snakeyaml/util/PlatformFeatureDetector;)V
-    .locals 1
+    .registers 3
     .param p1, "platformFeatureDetector"    # Lorg/yaml/snakeyaml/util/PlatformFeatureDetector;
 
     .line 49
@@ -101,7 +101,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 57
     sget-object v0, Lorg/yaml/snakeyaml/introspector/BeanAccess;->FIELD:Lorg/yaml/snakeyaml/introspector/BeanAccess;
@@ -109,12 +109,12 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->beanAccess:Lorg/yaml/snakeyaml/introspector/BeanAccess;
 
     .line 59
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 .method private isTransient(Ljava/beans/FeatureDescriptor;)Z
-    .locals 2
+    .registers 4
     .param p1, "fd"    # Ljava/beans/FeatureDescriptor;
 
     .line 120
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method protected createPropertySet(Ljava/lang/Class;Lorg/yaml/snakeyaml/introspector/BeanAccess;)Ljava/util/Set;
-    .locals 5
+    .registers 8
     .param p2, "bAccess"    # Lorg/yaml/snakeyaml/introspector/BeanAccess;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -176,12 +176,12 @@
     move-result-object v2
 
     .local v2, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_11
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_31
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -195,35 +195,35 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_30
 
     iget-boolean v4, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->allowReadOnlyProperties:Z
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2d
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/introspector/Property;->isWritable()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_30
 
     .line 141
-    :cond_0
+    :cond_2d
     invoke-interface {v0, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 143
     .end local v3    # "property":Lorg/yaml/snakeyaml/introspector/Property;
-    :cond_1
-    goto :goto_0
+    :cond_30
+    goto :goto_11
 
     .line 144
     .end local v2    # "i$":Ljava/util/Iterator;
-    :cond_2
+    :cond_31
     return-object v0
 .end method
 
 .method public getProperties(Ljava/lang/Class;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -249,7 +249,7 @@
 .end method
 
 .method public getProperties(Ljava/lang/Class;Lorg/yaml/snakeyaml/introspector/BeanAccess;)Ljava/util/Set;
-    .locals 2
+    .registers 5
     .param p2, "bAccess"    # Lorg/yaml/snakeyaml/introspector/BeanAccess;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -274,7 +274,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 129
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->readableProperties:Ljava/util/Map;
@@ -288,7 +288,7 @@
     return-object v0
 
     .line 131
-    :cond_0
+    :cond_11
     invoke-virtual {p0, p1, p2}, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->createPropertySet(Ljava/lang/Class;Lorg/yaml/snakeyaml/introspector/BeanAccess;)Ljava/util/Set;
 
     move-result-object v0
@@ -304,7 +304,7 @@
 .end method
 
 .method protected getPropertiesMap(Ljava/lang/Class;Lorg/yaml/snakeyaml/introspector/BeanAccess;)Ljava/util/Map;
-    .locals 10
+    .registers 13
     .param p2, "bAccess"    # Lorg/yaml/snakeyaml/introspector/BeanAccess;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -328,7 +328,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 63
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->propertiesCache:Ljava/util/Map;
@@ -342,7 +342,7 @@
     return-object v0
 
     .line 66
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
@@ -361,25 +361,25 @@
 
     aget v2, v2, v3
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_102
 
     .line 83
-    :try_start_0
+    :try_start_22
     invoke-static {p1}, Ljava/beans/Introspector;->getBeanInfo(Ljava/lang/Class;)Ljava/beans/BeanInfo;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/beans/IntrospectionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/beans/IntrospectionException; {:try_start_22 .. :try_end_26} :catch_fb
 
-    goto :goto_2
+    goto :goto_64
 
     .line 70
-    :pswitch_0
+    :pswitch_27
     move-object v2, p1
 
     .local v2, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :goto_0
-    if-eqz v2, :cond_3
+    :goto_28
+    if-eqz v2, :cond_62
 
     .line 71
     invoke-virtual {v2}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
@@ -393,8 +393,8 @@
     const/4 v5, 0x0
 
     .local v5, "i$":I
-    :goto_1
-    if-ge v5, v4, :cond_2
+    :goto_30
+    if-ge v5, v4, :cond_5d
 
     aget-object v6, v3, v5
 
@@ -410,13 +410,13 @@
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_5a
 
     invoke-static {v7}, Ljava/lang/reflect/Modifier;->isTransient(I)Z
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_5a
 
     invoke-virtual {v6}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
@@ -426,7 +426,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_5a
 
     .line 75
     invoke-virtual {v6}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
@@ -442,30 +442,30 @@
     .line 71
     .end local v6    # "field":Ljava/lang/reflect/Field;
     .end local v7    # "modifiers":I
-    :cond_1
+    :cond_5a
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_30
 
     .line 70
     .end local v3    # "arr$":[Ljava/lang/reflect/Field;
     .end local v4    # "len$":I
     .end local v5    # "i$":I
-    :cond_2
+    :cond_5d
     invoke-virtual {v2}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_28
 
     .line 79
     .end local v2    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_3
-    goto/16 :goto_7
+    :cond_62
+    goto/16 :goto_cf
 
     .line 83
-    :goto_2
-    :try_start_1
+    :goto_64
+    :try_start_64
     invoke-interface {v2}, Ljava/beans/BeanInfo;->getPropertyDescriptors()[Ljava/beans/PropertyDescriptor;
 
     move-result-object v2
@@ -477,8 +477,8 @@
     const/4 v4, 0x0
 
     .local v4, "i$":I
-    :goto_3
-    if-ge v4, v3, :cond_6
+    :goto_6a
+    if-ge v4, v3, :cond_95
 
     aget-object v5, v2, v4
 
@@ -490,7 +490,7 @@
 
     .line 86
     .local v6, "readMethod":Ljava/lang/reflect/Method;
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_80
 
     invoke-virtual {v6}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
@@ -502,14 +502,14 @@
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_92
 
-    :cond_4
+    :cond_80
     invoke-direct {p0, v5}, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->isTransient(Ljava/beans/FeatureDescriptor;)Z
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_92
 
     .line 88
     invoke-virtual {v5}, Ljava/beans/PropertyDescriptor;->getName()Ljava/lang/String;
@@ -521,30 +521,30 @@
     invoke-direct {v8, v5}, Lorg/yaml/snakeyaml/introspector/MethodProperty;-><init>(Ljava/beans/PropertyDescriptor;)V
 
     invoke-interface {v0, v7, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Ljava/beans/IntrospectionException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_92
+    .catch Ljava/beans/IntrospectionException; {:try_start_64 .. :try_end_92} :catch_fb
 
     .line 83
     .end local v5    # "property":Ljava/beans/PropertyDescriptor;
     .end local v6    # "readMethod":Ljava/lang/reflect/Method;
-    :cond_5
+    :cond_92
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_6a
 
     .line 93
     .end local v2    # "arr$":[Ljava/beans/PropertyDescriptor;
     .end local v3    # "len$":I
     .end local v4    # "i$":I
-    :cond_6
+    :cond_95
     nop
 
     .line 96
     move-object v2, p1
 
     .local v2, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :goto_4
-    if-eqz v2, :cond_a
+    :goto_97
+    if-eqz v2, :cond_cf
 
     .line 97
     invoke-virtual {v2}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
@@ -558,8 +558,8 @@
     const/4 v5, 0x0
 
     .local v5, "i$":I
-    :goto_5
-    if-ge v5, v4, :cond_9
+    :goto_9f
+    if-ge v5, v4, :cond_ca
 
     aget-object v6, v3, v5
 
@@ -575,20 +575,20 @@
 
     move-result v8
 
-    if-nez v8, :cond_8
+    if-nez v8, :cond_c7
 
     invoke-static {v7}, Ljava/lang/reflect/Modifier;->isTransient(I)Z
 
     move-result v8
 
-    if-nez v8, :cond_8
+    if-nez v8, :cond_c7
 
     .line 100
     invoke-static {v7}, Ljava/lang/reflect/Modifier;->isPublic(I)Z
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_c6
 
     .line 101
     invoke-virtual {v6}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
@@ -601,48 +601,48 @@
 
     invoke-interface {v0, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_6
+    goto :goto_c7
 
     .line 103
-    :cond_7
+    :cond_c6
     const/4 v1, 0x1
 
     .line 97
     .end local v6    # "field":Ljava/lang/reflect/Field;
     .end local v7    # "modifiers":I
-    :cond_8
-    :goto_6
+    :cond_c7
+    :goto_c7
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_5
+    goto :goto_9f
 
     .line 96
     .end local v3    # "arr$":[Ljava/lang/reflect/Field;
     .end local v4    # "len$":I
     .end local v5    # "i$":I
-    :cond_9
+    :cond_ca
     invoke-virtual {v2}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v2
 
-    goto :goto_4
+    goto :goto_97
 
     .line 110
     .end local v2    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_a
-    :goto_7
+    :cond_cf
+    :goto_cf
     invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_f5
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_d8
 
-    goto :goto_8
+    goto :goto_f5
 
     .line 111
-    :cond_b
+    :cond_d8
     new-instance v2, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -672,8 +672,8 @@
     throw v2
 
     .line 113
-    :cond_c
-    :goto_8
+    :cond_f5
+    :goto_f5
     iget-object v2, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->propertiesCache:Ljava/util/Map;
 
     invoke-interface {v2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -682,7 +682,7 @@
     return-object v0
 
     .line 91
-    :catch_0
+    :catch_fb
     move-exception v2
 
     .line 92
@@ -693,14 +693,14 @@
 
     throw v3
 
-    :pswitch_data_0
+    :pswitch_data_102
     .packed-switch 0x1
-        :pswitch_0
+        :pswitch_27
     .end packed-switch
 .end method
 
 .method public getProperty(Ljava/lang/Class;Ljava/lang/String;)Lorg/yaml/snakeyaml/introspector/Property;
-    .locals 1
+    .registers 4
     .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -727,7 +727,7 @@
 .end method
 
 .method public getProperty(Ljava/lang/Class;Ljava/lang/String;Lorg/yaml/snakeyaml/introspector/BeanAccess;)Lorg/yaml/snakeyaml/introspector/Property;
-    .locals 5
+    .registers 9
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "bAccess"    # Lorg/yaml/snakeyaml/introspector/BeanAccess;
     .annotation system Ldalvik/annotation/Signature;
@@ -760,11 +760,11 @@
 
     .line 154
     .local v1, "property":Lorg/yaml/snakeyaml/introspector/Property;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     iget-boolean v2, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->skipMissingProperties:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     .line 155
     new-instance v2, Lorg/yaml/snakeyaml/introspector/MissingProperty;
@@ -774,14 +774,14 @@
     move-object v1, v2
 
     .line 157
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_16
+    if-eqz v1, :cond_19
 
     .line 161
     return-object v1
 
     .line 158
-    :cond_1
+    :cond_19
     new-instance v2, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -822,7 +822,7 @@
 .end method
 
 .method public isAllowReadOnlyProperties()Z
-    .locals 1
+    .registers 2
 
     .line 185
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->allowReadOnlyProperties:Z
@@ -831,7 +831,7 @@
 .end method
 
 .method public isSkipMissingProperties()Z
-    .locals 1
+    .registers 2
 
     .line 203
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->skipMissingProperties:Z
@@ -840,13 +840,13 @@
 .end method
 
 .method public setAllowReadOnlyProperties(Z)V
-    .locals 1
+    .registers 3
     .param p1, "allowReadOnlyProperties"    # Z
 
     .line 178
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->allowReadOnlyProperties:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_b
 
     .line 179
     iput-boolean p1, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->allowReadOnlyProperties:Z
@@ -857,12 +857,12 @@
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
     .line 182
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setBeanAccess(Lorg/yaml/snakeyaml/introspector/BeanAccess;)V
-    .locals 2
+    .registers 4
     .param p1, "beanAccess"    # Lorg/yaml/snakeyaml/introspector/BeanAccess;
 
     .line 165
@@ -872,16 +872,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     sget-object v0, Lorg/yaml/snakeyaml/introspector/BeanAccess;->FIELD:Lorg/yaml/snakeyaml/introspector/BeanAccess;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_d
 
-    goto :goto_0
+    goto :goto_15
 
     .line 166
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "JVM is Android - only BeanAccess.FIELD is available"
@@ -891,11 +891,11 @@
     throw v0
 
     .line 170
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->beanAccess:Lorg/yaml/snakeyaml/introspector/BeanAccess;
 
-    if-eq v0, p1, :cond_2
+    if-eq v0, p1, :cond_25
 
     .line 171
     iput-object p1, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->beanAccess:Lorg/yaml/snakeyaml/introspector/BeanAccess;
@@ -911,18 +911,18 @@
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
     .line 175
-    :cond_2
+    :cond_25
     return-void
 .end method
 
 .method public setSkipMissingProperties(Z)V
-    .locals 1
+    .registers 3
     .param p1, "skipMissingProperties"    # Z
 
     .line 196
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->skipMissingProperties:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_b
 
     .line 197
     iput-boolean p1, p0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;->skipMissingProperties:Z
@@ -933,6 +933,6 @@
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
     .line 200
-    :cond_0
+    :cond_b
     return-void
 .end method

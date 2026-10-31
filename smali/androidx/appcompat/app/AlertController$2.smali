@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AlertController;Landroid/view/View;Landroid/view/View;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/appcompat/app/AlertController;
 
     .line 591
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onScrollChange(Landroidx/core/widget/NestedScrollView;IIII)V
-    .locals 2
+    .registers 8
     .param p1, "v"    # Landroidx/core/widget/NestedScrollView;
     .param p2, "scrollX"    # I
     .param p3, "scrollY"    # I

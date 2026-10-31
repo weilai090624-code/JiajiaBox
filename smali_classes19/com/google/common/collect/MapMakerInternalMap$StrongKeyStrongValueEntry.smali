@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;ILcom/google/common/collect/MapMakerInternalMap$StrongKeyStrongValueEntry;)V
-    .locals 1
+    .registers 5
     .param p2, "hash"    # I
     .param p3    # Lcom/google/common/collect/MapMakerInternalMap$StrongKeyStrongValueEntry;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method copy(Lcom/google/common/collect/MapMakerInternalMap$StrongKeyStrongValueEntry;)Lcom/google/common/collect/MapMakerInternalMap$StrongKeyStrongValueEntry;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,7 +121,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -139,7 +139,7 @@
 .end method
 
 .method setValue(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)V"

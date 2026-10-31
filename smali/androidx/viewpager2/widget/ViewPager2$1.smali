@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/viewpager2/widget/ViewPager2;
 
     .line 133
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 2
+    .registers 3
 
     .line 136
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$1;->this$0:Landroidx/viewpager2/widget/ViewPager2;

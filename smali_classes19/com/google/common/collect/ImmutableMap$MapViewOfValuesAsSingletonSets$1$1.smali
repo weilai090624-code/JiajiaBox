@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1;Ljava/util/Map$Entry;)V
-    .locals 0
+    .registers 3
     .param p1, "this$2"    # Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1;
 
     .line 882
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -63,7 +63,7 @@
 .end method
 
 .method public getValue()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -88,7 +88,7 @@
 .end method
 
 .method public bridge synthetic getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 882
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;, "Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;"

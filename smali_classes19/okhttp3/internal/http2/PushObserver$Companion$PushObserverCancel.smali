@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public onData(ILokio/BufferedSource;IZ)Z
-    .locals 2
+    .registers 7
     .param p1, "streamId"    # I
     .param p2, "source"    # Lokio/BufferedSource;
     .param p3, "byteCount"    # I
@@ -94,7 +94,7 @@
 .end method
 
 .method public onHeaders(ILjava/util/List;Z)Z
-    .locals 1
+    .registers 5
     .param p1, "streamId"    # I
     .param p2, "responseHeaders"    # Ljava/util/List;
     .param p3, "last"    # Z
@@ -118,7 +118,7 @@
 .end method
 
 .method public onRequest(ILjava/util/List;)Z
-    .locals 1
+    .registers 4
     .param p1, "streamId"    # I
     .param p2, "requestHeaders"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -141,7 +141,7 @@
 .end method
 
 .method public onReset(ILokhttp3/internal/http2/ErrorCode;)V
-    .locals 1
+    .registers 4
     .param p1, "streamId"    # I
     .param p2, "errorCode"    # Lokhttp3/internal/http2/ErrorCode;
 

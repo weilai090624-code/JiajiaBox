@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static newArray(Lkotlinx/parcelize/Parceler;I)[Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this"    # Lkotlinx/parcelize/Parceler;
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Signature;

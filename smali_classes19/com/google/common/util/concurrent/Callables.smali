@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/lang/String;Ljava/lang/Thread;)Z
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Ljava/lang/String;
     .param p1, "x1"    # Ljava/lang/Thread;
 
@@ -32,7 +32,7 @@
 .end method
 
 .method public static asAsyncCallable(Ljava/util/concurrent/Callable;Lcom/google/common/util/concurrent/ListeningExecutorService;)Lcom/google/common/util/concurrent/AsyncCallable;
-    .locals 1
+    .registers 3
     .param p1, "listeningExecutorService"    # Lcom/google/common/util/concurrent/ListeningExecutorService;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -64,7 +64,7 @@
 .end method
 
 .method public static returning(Ljava/lang/Object;)Ljava/util/concurrent/Callable;
-    .locals 1
+    .registers 2
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
         .end annotation
@@ -89,7 +89,7 @@
 .end method
 
 .method static threadRenaming(Ljava/lang/Runnable;Lcom/google/common/base/Supplier;)Ljava/lang/Runnable;
-    .locals 1
+    .registers 3
     .param p0, "task"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -118,7 +118,7 @@
 .end method
 
 .method static threadRenaming(Ljava/util/concurrent/Callable;Lcom/google/common/base/Supplier;)Ljava/util/concurrent/Callable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -151,15 +151,15 @@
 .end method
 
 .method private static trySetName(Ljava/lang/String;Ljava/lang/Thread;)Z
-    .locals 2
+    .registers 4
     .param p0, "threadName"    # Ljava/lang/String;
     .param p1, "currentThread"    # Ljava/lang/Thread;
 
     .line 139
     :try_start_0
     invoke-virtual {p1, p0}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_3} :catch_5
 
     .line 140
     const/4 v0, 0x1
@@ -167,7 +167,7 @@
     return v0
 
     .line 141
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 142

@@ -95,7 +95,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/layout/SidecarWindowBackend$Companion;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/window/layout/ExtensionInterfaceCompat;)V
-    .locals 2
+    .registers 4
     .param p1, "windowExtension"    # Landroidx/window/layout/ExtensionInterfaceCompat;
 
     .line 36
@@ -138,11 +138,11 @@
     .line 51
     iget-object v0, p0, Landroidx/window/layout/SidecarWindowBackend;->windowExtension:Landroidx/window/layout/ExtensionInterfaceCompat;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_12
     new-instance v1, Landroidx/window/layout/SidecarWindowBackend$ExtensionListenerImpl;
 
     invoke-direct {v1, p0}, Landroidx/window/layout/SidecarWindowBackend$ExtensionListenerImpl;-><init>(Landroidx/window/layout/SidecarWindowBackend;)V
@@ -152,7 +152,7 @@
     invoke-interface {v0, v1}, Landroidx/window/layout/ExtensionInterfaceCompat;->setExtensionCallback(Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;)V
 
     .line 52
-    :goto_0
+    :goto_1c
     nop
 
     .line 36
@@ -160,7 +160,7 @@
 .end method
 
 .method public static final synthetic access$getGlobalInstance$cp()Landroidx/window/layout/SidecarWindowBackend;
-    .locals 1
+    .registers 1
 
     .line 36
     sget-object v0, Landroidx/window/layout/SidecarWindowBackend;->globalInstance:Landroidx/window/layout/SidecarWindowBackend;
@@ -169,7 +169,7 @@
 .end method
 
 .method public static final synthetic access$getGlobalLock$cp()Ljava/util/concurrent/locks/ReentrantLock;
-    .locals 1
+    .registers 1
 
     .line 36
     sget-object v0, Landroidx/window/layout/SidecarWindowBackend;->globalLock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -178,7 +178,7 @@
 .end method
 
 .method public static final synthetic access$setGlobalInstance$cp(Landroidx/window/layout/SidecarWindowBackend;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Landroidx/window/layout/SidecarWindowBackend;
 
     .line 36
@@ -188,7 +188,7 @@
 .end method
 
 .method private final callbackRemovedForActivity(Landroid/app/Activity;)V
-    .locals 8
+    .registers 10
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 127
@@ -205,7 +205,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     move-object v2, v0
 
@@ -215,22 +215,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
-    goto :goto_0
+    goto :goto_33
 
     .line 250
-    :cond_0
+    :cond_14
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_32
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -256,54 +256,54 @@
 
     .end local v5    # "wrapper":Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;
     .end local v6    # "$i$a$-any-SidecarWindowBackend$callbackRemovedForActivity$hasRegisteredCallback$1":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_18
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 251
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_32
     nop
 
     .line 127
     .end local v0    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$any":I
-    :goto_0
+    :goto_33
     move v0, v3
 
     .line 130
     .local v0, "hasRegisteredCallback":Z
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_37
 
     .line 131
     return-void
 
     .line 134
-    :cond_3
+    :cond_37
     iget-object v1, p0, Landroidx/window/layout/SidecarWindowBackend;->windowExtension:Landroidx/window/layout/ExtensionInterfaceCompat;
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3c
 
-    goto :goto_1
+    goto :goto_3f
 
-    :cond_4
+    :cond_3c
     invoke-interface {v1, p1}, Landroidx/window/layout/ExtensionInterfaceCompat;->onWindowLayoutChangeListenerRemoved(Landroid/app/Activity;)V
 
     .line 135
-    :goto_1
+    :goto_3f
     return-void
 .end method
 
 .method public static synthetic getWindowLayoutChangeCallbacks$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private final isActivityRegistered(Landroid/app/Activity;)Z
-    .locals 8
+    .registers 10
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 90
@@ -320,7 +320,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     move-object v2, v0
 
@@ -330,22 +330,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
-    goto :goto_0
+    goto :goto_33
 
     .line 247
-    :cond_0
+    :cond_14
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_32
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -371,28 +371,28 @@
 
     .end local v5    # "callbackWrapper":Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;
     .end local v6    # "$i$a$-any-SidecarWindowBackend$isActivityRegistered$1":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_18
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 248
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_32
     nop
 
     .line 90
     .end local v0    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$any":I
-    :goto_0
+    :goto_33
     return v3
 .end method
 
 
 # virtual methods
 .method public final getWindowExtension()Landroidx/window/layout/ExtensionInterfaceCompat;
-    .locals 1
+    .registers 2
 
     .line 39
     iget-object v0, p0, Landroidx/window/layout/SidecarWindowBackend;->windowExtension:Landroidx/window/layout/ExtensionInterfaceCompat;
@@ -401,7 +401,7 @@
 .end method
 
 .method public final getWindowLayoutChangeCallbacks()Ljava/util/concurrent/CopyOnWriteArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -418,7 +418,7 @@
 .end method
 
 .method public registerLayoutChangeCallback(Landroid/app/Activity;Ljava/util/concurrent/Executor;Landroidx/core/util/Consumer;)V
-    .locals 16
+    .registers 20
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroidx/core/util/Consumer;
@@ -464,14 +464,14 @@
 
     .line 60
     .local v0, "$i$a$-withLock-SidecarWindowBackend$registerLayoutChangeCallback$1":I
-    :try_start_0
+    :try_start_1e
     invoke-virtual/range {p0 .. p0}, Landroidx/window/layout/SidecarWindowBackend;->getWindowExtension()Landroidx/window/layout/ExtensionInterfaceCompat;
 
     move-result-object v5
 
     .line 61
     .local v5, "windowExtension":Landroidx/window/layout/ExtensionInterfaceCompat;
-    if-nez v5, :cond_0
+    if-nez v5, :cond_36
 
     .line 62
     nop
@@ -486,8 +486,8 @@
     invoke-direct {v6, v7}, Landroidx/window/layout/WindowLayoutInfo;-><init>(Ljava/util/List;)V
 
     invoke-interface {v3, v6}, Landroidx/core/util/Consumer;->accept(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_31
+    .catchall {:try_start_1e .. :try_end_31} :catchall_89
 
     .line 66
     nop
@@ -501,8 +501,8 @@
     .line 71
     .restart local v0    # "$i$a$-withLock-SidecarWindowBackend$registerLayoutChangeCallback$1":I
     .restart local v5    # "windowExtension":Landroidx/window/layout/ExtensionInterfaceCompat;
-    :cond_0
-    :try_start_1
+    :cond_36
+    :try_start_36
     invoke-direct/range {p0 .. p1}, Landroidx/window/layout/SidecarWindowBackend;->isActivityRegistered(Landroid/app/Activity;)Z
 
     move-result v6
@@ -522,15 +522,15 @@
     invoke-virtual {v8, v7}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
 
     .line 74
-    if-nez v6, :cond_1
+    if-nez v6, :cond_4c
 
     .line 75
     invoke-interface {v5, v1}, Landroidx/window/layout/ExtensionInterfaceCompat;->onWindowLayoutChangeListenerAdded(Landroid/app/Activity;)V
 
-    goto :goto_2
+    goto :goto_82
 
     .line 79
-    :cond_1
+    :cond_4c
     invoke-virtual/range {p0 .. p0}, Landroidx/window/layout/SidecarWindowBackend;->getWindowLayoutChangeCallbacks()Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v8
@@ -546,14 +546,14 @@
 
     move-result-object v10
 
-    :cond_2
+    :cond_57
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
     const/4 v12, 0x0
 
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_71
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -579,50 +579,50 @@
 
     .end local v13    # "it":Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;
     .end local v14    # "$i$a$-firstOrNull-SidecarWindowBackend$registerLayoutChangeCallback$1$lastInfo$1":I
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_57
 
-    goto :goto_0
+    goto :goto_72
 
     .line 245
     .end local v11    # "element$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_71
     move-object v11, v12
 
     .line 79
     .end local v8    # "$this$firstOrNull$iv":Ljava/lang/Iterable;
     .end local v9    # "$i$f$firstOrNull":I
-    :goto_0
+    :goto_72
     check-cast v11, Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;
 
     .line 81
     nop
 
     .line 79
-    if-nez v11, :cond_4
+    if-nez v11, :cond_78
 
     .line 81
-    goto :goto_1
+    goto :goto_7c
 
-    :cond_4
+    :cond_78
     invoke-virtual {v11}, Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;->getLastInfo()Landroidx/window/layout/WindowLayoutInfo;
 
     move-result-object v12
 
     .line 79
-    :goto_1
+    :goto_7c
     move-object v8, v12
 
     .line 82
     .local v8, "lastInfo":Landroidx/window/layout/WindowLayoutInfo;
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_82
 
     .line 83
     invoke-virtual {v7, v8}, Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;->accept(Landroidx/window/layout/WindowLayoutInfo;)V
 
     .line 86
     .end local v8    # "lastInfo":Landroidx/window/layout/WindowLayoutInfo;
-    :cond_5
-    :goto_2
+    :cond_82
+    :goto_82
     nop
 
     .end local v0    # "$i$a$-withLock-SidecarWindowBackend$registerLayoutChangeCallback$1":I
@@ -630,8 +630,8 @@
     .end local v6    # "isActivityRegistered":Z
     .end local v7    # "callbackWrapper":Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_85
+    .catchall {:try_start_36 .. :try_end_85} :catchall_89
 
     .line 59
     invoke-interface {v4}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -640,7 +640,7 @@
     return-void
 
     .line 59
-    :catchall_0
+    :catchall_89
     move-exception v0
 
     invoke-interface {v4}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -649,7 +649,7 @@
 .end method
 
 .method public final setWindowExtension(Landroidx/window/layout/ExtensionInterfaceCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroidx/window/layout/ExtensionInterfaceCompat;
 
     .line 39
@@ -659,7 +659,7 @@
 .end method
 
 .method public unregisterLayoutChangeCallback(Landroidx/core/util/Consumer;)V
-    .locals 7
+    .registers 9
     .param p1, "callback"    # Landroidx/core/util/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -683,14 +683,14 @@
 
     .line 97
     .local v1, "$i$a$-synchronized-SidecarWindowBackend$unregisterLayoutChangeCallback$1":I
-    :try_start_0
+    :try_start_9
     invoke-virtual {p0}, Landroidx/window/layout/SidecarWindowBackend;->getWindowExtension()Landroidx/window/layout/ExtensionInterfaceCompat;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_9 .. :try_end_d} :catchall_64
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_13
 
     .line 98
     nop
@@ -705,8 +705,8 @@
 
     .line 106
     .restart local v1    # "$i$a$-synchronized-SidecarWindowBackend$unregisterLayoutChangeCallback$1":I
-    :cond_0
-    :try_start_1
+    :cond_13
+    :try_start_13
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
@@ -723,13 +723,13 @@
 
     move-result-object v3
 
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3d
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -745,7 +745,7 @@
 
     .line 109
     .local v5, "registeredCallback":Landroidx/core/util/Consumer;
-    if-ne v5, p1, :cond_1
+    if-ne v5, p1, :cond_22
 
     .line 110
     const-string v6, "callbackWrapper"
@@ -754,12 +754,12 @@
 
     invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_22
 
     .line 114
     .end local v4    # "callbackWrapper":Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;
     .end local v5    # "registeredCallback":Landroidx/core/util/Consumer;
-    :cond_2
+    :cond_3d
     invoke-virtual {p0}, Landroidx/window/layout/SidecarWindowBackend;->getWindowLayoutChangeCallbacks()Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v3
@@ -775,12 +775,12 @@
 
     move-result-object v3
 
-    :goto_1
+    :goto_4b
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_5f
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -797,17 +797,17 @@
     invoke-direct {p0, v5}, Landroidx/window/layout/SidecarWindowBackend;->callbackRemovedForActivity(Landroid/app/Activity;)V
 
     .end local v4    # "callbackWrapper":Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;
-    goto :goto_1
+    goto :goto_4b
 
     .line 118
-    :cond_3
+    :cond_5f
     nop
 
     .end local v1    # "$i$a$-synchronized-SidecarWindowBackend$unregisterLayoutChangeCallback$1":I
     .end local v2    # "itemsToRemove":Ljava/util/List;
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_62
+    .catchall {:try_start_13 .. :try_end_62} :catchall_64
 
     .line 96
     monitor-exit v0
@@ -816,7 +816,7 @@
     return-void
 
     .line 96
-    :catchall_0
+    :catchall_64
     move-exception v1
 
     monitor-exit v0

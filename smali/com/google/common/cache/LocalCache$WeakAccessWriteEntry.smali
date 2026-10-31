@@ -70,7 +70,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;ILcom/google/common/cache/ReferenceEntry;)V
-    .locals 3
+    .registers 8
     .param p3, "hash"    # I
     .param p4    # Lcom/google/common/cache/ReferenceEntry;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public getAccessTime()J
-    .locals 2
+    .registers 3
 
     .line 1373
     .local p0, "this":Lcom/google/common/cache/LocalCache$WeakAccessWriteEntry;, "Lcom/google/common/cache/LocalCache$WeakAccessWriteEntry<TK;TV;>;"
@@ -146,7 +146,7 @@
 .end method
 
 .method public getNextInAccessQueue()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -163,7 +163,7 @@
 .end method
 
 .method public getNextInWriteQueue()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -180,7 +180,7 @@
 .end method
 
 .method public getPreviousInAccessQueue()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -197,7 +197,7 @@
 .end method
 
 .method public getPreviousInWriteQueue()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -214,7 +214,7 @@
 .end method
 
 .method public getWriteTime()J
-    .locals 2
+    .registers 3
 
     .line 1413
     .local p0, "this":Lcom/google/common/cache/LocalCache$WeakAccessWriteEntry;, "Lcom/google/common/cache/LocalCache$WeakAccessWriteEntry<TK;TV;>;"
@@ -224,7 +224,7 @@
 .end method
 
 .method public setAccessTime(J)V
-    .locals 0
+    .registers 3
     .param p1, "time"    # J
 
     .line 1378
@@ -236,7 +236,7 @@
 .end method
 
 .method public setNextInAccessQueue(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -255,7 +255,7 @@
 .end method
 
 .method public setNextInWriteQueue(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -274,7 +274,7 @@
 .end method
 
 .method public setPreviousInAccessQueue(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -293,7 +293,7 @@
 .end method
 
 .method public setPreviousInWriteQueue(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -312,7 +312,7 @@
 .end method
 
 .method public setWriteTime(J)V
-    .locals 0
+    .registers 3
     .param p1, "time"    # J
 
     .line 1418

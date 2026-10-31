@@ -78,7 +78,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 17
+    .registers 17
 
     .line 159
     const-string v12, "DOUBLE"
@@ -954,7 +954,7 @@
 .end method
 
 .method constructor <init>(Ljava/nio/ByteOrder;Ljava/util/List;)V
-    .locals 2
+    .registers 5
     .param p1, "order"    # Ljava/nio/ByteOrder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -992,16 +992,16 @@
 
     array-length v1, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     const-string v1, "Malformed attributes list. Number of IFDs mismatch."
 
     invoke-static {v0, v1}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
@@ -1017,7 +1017,7 @@
 .end method
 
 .method public static builderForDevice()Landroidx/camera/core/impl/utils/ExifData$Builder;
-    .locals 4
+    .registers 4
 
     .line 387
     new-instance v0, Landroidx/camera/core/impl/utils/ExifData$Builder;
@@ -1103,7 +1103,7 @@
 .end method
 
 .method private getExifAttribute(Ljava/lang/String;)Landroidx/camera/core/impl/utils/ExifAttribute;
-    .locals 2
+    .registers 4
     .param p1, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1121,22 +1121,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 368
     const-string p1, "PhotographicSensitivity"
 
     .line 372
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_b
     sget-object v1, Landroidx/camera/core/impl/utils/ExifData;->EXIF_TAGS:[[Landroidx/camera/core/impl/utils/ExifTag;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_24
 
     .line 373
     iget-object v1, p0, Landroidx/camera/core/impl/utils/ExifData;->mAttributes:Ljava/util/List;
@@ -1155,21 +1155,21 @@
 
     .line 374
     .local v1, "value":Landroidx/camera/core/impl/utils/ExifAttribute;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     .line 375
     return-object v1
 
     .line 372
     .end local v1    # "value":Landroidx/camera/core/impl/utils/ExifAttribute;
-    :cond_1
+    :cond_21
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 378
     .end local v0    # "i":I
-    :cond_2
+    :cond_24
     const/4 v0, 0x0
 
     return-object v0
@@ -1178,7 +1178,7 @@
 
 # virtual methods
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
-    .locals 12
+    .registers 14
     .param p1, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1198,7 +1198,7 @@
     .local v0, "attribute":Landroidx/camera/core/impl/utils/ExifAttribute;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_cb
 
     .line 323
     sget-object v2, Landroidx/camera/core/impl/utils/ExifData;->sTagSetForCompatibility:Ljava/util/HashSet;
@@ -1207,7 +1207,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_16
 
     .line 324
     iget-object v1, p0, Landroidx/camera/core/impl/utils/ExifData;->mByteOrder:Ljava/nio/ByteOrder;
@@ -1219,14 +1219,14 @@
     return-object v1
 
     .line 326
-    :cond_0
+    :cond_16
     const-string v2, "GPSTimeStamp"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_be
 
     .line 328
     iget v2, v0, Landroidx/camera/core/impl/utils/ExifAttribute;->format:I
@@ -1235,13 +1235,13 @@
 
     const-string v4, "ExifData"
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_44
 
     iget v2, v0, Landroidx/camera/core/impl/utils/ExifAttribute;->format:I
 
     const/16 v3, 0xa
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_44
 
     .line 330
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1270,7 +1270,7 @@
     return-object v1
 
     .line 334
-    :cond_1
+    :cond_44
     iget-object v2, p0, Landroidx/camera/core/impl/utils/ExifData;->mByteOrder:Ljava/nio/ByteOrder;
 
     .line 335
@@ -1282,18 +1282,18 @@
 
     .line 336
     .local v2, "array":[Landroidx/camera/core/impl/utils/LongRational;
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_a3
 
     array-length v3, v2
 
     const/4 v5, 0x3
 
-    if-eq v3, v5, :cond_2
+    if-eq v3, v5, :cond_53
 
-    goto :goto_0
+    goto :goto_a3
 
     .line 340
-    :cond_2
+    :cond_53
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const/4 v3, 0x0
@@ -1395,8 +1395,8 @@
     return-object v1
 
     .line 337
-    :cond_3
-    :goto_0
+    :cond_a3
+    :goto_a3
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1426,8 +1426,8 @@
 
     .line 346
     .end local v2    # "array":[Landroidx/camera/core/impl/utils/LongRational;
-    :cond_4
-    :try_start_0
+    :cond_be
+    :try_start_be
     iget-object v2, p0, Landroidx/camera/core/impl/utils/ExifData;->mByteOrder:Ljava/nio/ByteOrder;
 
     invoke-virtual {v0, v2}, Landroidx/camera/core/impl/utils/ExifAttribute;->getDoubleValue(Ljava/nio/ByteOrder;)D
@@ -1437,13 +1437,13 @@
     invoke-static {v2, v3}, Ljava/lang/Double;->toString(D)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c8
+    .catch Ljava/lang/NumberFormatException; {:try_start_be .. :try_end_c8} :catch_c9
 
     return-object v1
 
     .line 347
-    :catch_0
+    :catch_c9
     move-exception v2
 
     .line 348
@@ -1452,12 +1452,12 @@
 
     .line 351
     .end local v2    # "e":Ljava/lang/NumberFormatException;
-    :cond_5
+    :cond_cb
     return-object v1
 .end method
 
 .method getAttributes(I)Ljava/util/Map;
-    .locals 3
+    .registers 5
     .param p1, "ifdIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1524,7 +1524,7 @@
 .end method
 
 .method public getByteOrder()Ljava/nio/ByteOrder;
-    .locals 1
+    .registers 2
 
     .line 302
     iget-object v0, p0, Landroidx/camera/core/impl/utils/ExifData;->mByteOrder:Ljava/nio/ByteOrder;

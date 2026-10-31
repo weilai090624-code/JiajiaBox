@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase$inTransaction$1;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 6
+    .registers 7
 
     const-class v2, Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public final invoke(Landroidx/sqlite/db/SupportSQLiteDatabase;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "p0"
@@ -97,7 +97,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 168

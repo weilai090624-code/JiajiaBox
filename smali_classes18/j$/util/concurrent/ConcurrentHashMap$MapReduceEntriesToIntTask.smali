@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/concurrent/ConcurrentHashMap$BulkTask;III[Lj$/util/concurrent/ConcurrentHashMap$Node;Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;Ljava/util/function/ToIntFunction;ILjava/util/function/IntBinaryOperator;)V
-    .locals 0
+    .registers 10
     .param p2, "b"    # I
     .param p3, "i"    # I
     .param p4, "f"    # I
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public final compute()V
-    .locals 17
+    .registers 18
 
     .line 6271
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask<TK;TV;>;"
@@ -125,14 +125,14 @@
     move-object v11, v0
 
     .local v11, "transformer":Ljava/util/function/ToIntFunction;, "Ljava/util/function/ToIntFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7e
 
     iget-object v0, v10, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;->reducer:Ljava/util/function/IntBinaryOperator;
 
     move-object v12, v0
 
     .local v12, "reducer":Ljava/util/function/IntBinaryOperator;
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7e
 
     .line 6273
     iget v13, v10, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;->basis:I
@@ -142,10 +142,10 @@
     iget v14, v10, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;->baseIndex:I
 
     .local v14, "i":I
-    :goto_0
+    :goto_10
     iget v0, v10, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;->batch:I
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_46
 
     iget v0, v10, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;->baseLimit:I
 
@@ -161,7 +161,7 @@
     move v15, v0
 
     .local v15, "h":I
-    if-le v0, v14, :cond_0
+    if-le v0, v14, :cond_43
 
     .line 6276
     invoke-virtual {v10, v1}, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;->addToPendingCount(I)V
@@ -208,35 +208,35 @@
 
     move/from16 v13, v16
 
-    goto :goto_0
+    goto :goto_10
 
     .line 6274
     .end local v16    # "r":I
     .restart local v13    # "r":I
-    :cond_0
+    :cond_43
     move/from16 v16, v13
 
     .end local v13    # "r":I
     .restart local v16    # "r":I
-    goto :goto_1
+    goto :goto_48
 
     .end local v4    # "f":I
     .end local v15    # "h":I
     .end local v16    # "r":I
     .restart local v13    # "r":I
-    :cond_1
+    :cond_46
     move/from16 v16, v13
 
     .line 6281
     .end local v13    # "r":I
     .end local v14    # "i":I
     .restart local v16    # "r":I
-    :goto_1
+    :goto_48
     move/from16 v13, v16
 
     .end local v16    # "r":I
     .restart local v13    # "r":I
-    :goto_2
+    :goto_4a
     invoke-virtual/range {p0 .. p0}, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
 
     move-result-object v0
@@ -244,7 +244,7 @@
     move-object v1, v0
 
     .local v1, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5a
 
     .line 6282
     invoke-interface {v11, v1}, Ljava/util/function/ToIntFunction;->applyAsInt(Ljava/lang/Object;)I
@@ -255,11 +255,11 @@
 
     move-result v13
 
-    goto :goto_2
+    goto :goto_4a
 
     .line 6283
     .end local v1    # "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    :cond_2
+    :cond_5a
     iput v13, v10, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;->result:I
 
     .line 6285
@@ -268,8 +268,8 @@
     move-result-object v0
 
     .local v0, "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
-    :goto_3
-    if-eqz v0, :cond_4
+    :goto_60
+    if-eqz v0, :cond_7e
 
     .line 6288
     move-object v1, v0
@@ -282,8 +282,8 @@
 
     .line 6290
     .local v2, "s":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask<TK;TV;>;"
-    :goto_4
-    if-eqz v2, :cond_3
+    :goto_67
+    if-eqz v2, :cond_79
 
     .line 6291
     iget v3, v1, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;->result:I
@@ -303,28 +303,28 @@
 
     move-object v2, v3
 
-    goto :goto_4
+    goto :goto_67
 
     .line 6285
     .end local v1    # "t":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask<TK;TV;>;"
     .end local v2    # "s":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask<TK;TV;>;"
-    :cond_3
+    :cond_79
     invoke-virtual {v0}, Ljava/util/concurrent/CountedCompleter;->nextComplete()Ljava/util/concurrent/CountedCompleter;
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_60
 
     .line 6296
     .end local v0    # "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
     .end local v12    # "reducer":Ljava/util/function/IntBinaryOperator;
     .end local v13    # "r":I
-    :cond_4
+    :cond_7e
     return-void
 .end method
 
 .method public final getRawResult()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 6267
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask<TK;TV;>;"
@@ -338,7 +338,7 @@
 .end method
 
 .method public bridge synthetic getRawResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 6249
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask<TK;TV;>;"

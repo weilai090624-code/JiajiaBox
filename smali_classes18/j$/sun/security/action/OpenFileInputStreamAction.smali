@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 0
+    .registers 2
     .param p1, "file"    # Ljava/io/File;
 
     .line 42
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "filename"    # Ljava/lang/String;
 
     .line 46
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public run()Ljava/io/FileInputStream;
-    .locals 2
+    .registers 3
 
     .line 51
     new-instance v0, Ljava/io/FileInputStream;
@@ -70,7 +70,7 @@
 .end method
 
 .method public bridge synthetic run()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 37
     invoke-virtual {p0}, Lj$/sun/security/action/OpenFileInputStreamAction;->run()Ljava/io/FileInputStream;

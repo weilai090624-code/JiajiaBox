@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
-    .locals 1
+    .registers 7
     .param p1, "referenceTable"    # Ljava/lang/String;
     .param p2, "onDelete"    # Ljava/lang/String;
     .param p3, "onUpdate"    # Ljava/lang/String;
@@ -142,28 +142,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 349
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 350
-    :cond_0
+    :cond_4
     instance-of v0, p1, Landroidx/room/util/TableInfo$ForeignKey;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     return v1
 
     .line 351
-    :cond_1
+    :cond_a
     iget-object v0, p0, Landroidx/room/util/TableInfo$ForeignKey;->referenceTable:Ljava/lang/String;
 
     move-object v2, p1
@@ -176,12 +176,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_18
 
     return v1
 
     .line 352
-    :cond_2
+    :cond_18
     iget-object v0, p0, Landroidx/room/util/TableInfo$ForeignKey;->onDelete:Ljava/lang/String;
 
     move-object v2, p1
@@ -194,12 +194,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_26
 
     return v1
 
     .line 353
-    :cond_3
+    :cond_26
     iget-object v0, p0, Landroidx/room/util/TableInfo$ForeignKey;->onUpdate:Ljava/lang/String;
 
     move-object v2, p1
@@ -212,12 +212,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_34
 
     return v1
 
     .line 354
-    :cond_4
+    :cond_34
     iget-object v0, p0, Landroidx/room/util/TableInfo$ForeignKey;->columnNames:Ljava/util/List;
 
     move-object v2, p1
@@ -230,11 +230,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_42
 
-    goto :goto_0
+    goto :goto_4d
 
-    :cond_5
+    :cond_42
     iget-object v0, p0, Landroidx/room/util/TableInfo$ForeignKey;->referenceColumnNames:Ljava/util/List;
 
     .line 355
@@ -249,12 +249,12 @@
     move-result v1
 
     .line 354
-    :goto_0
+    :goto_4d
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 359
     iget-object v0, p0, Landroidx/room/util/TableInfo$ForeignKey;->referenceTable:Ljava/lang/String;
@@ -321,7 +321,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 368
     new-instance v0, Ljava/lang/StringBuilder;

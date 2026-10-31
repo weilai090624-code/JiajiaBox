@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/layout/SidecarAdapter$translate$checkedFeature$2;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public final invoke(Landroidx/window/sidecar/SidecarDisplayFeature;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 3
     .param p1, "$this$require"    # Landroidx/window/sidecar/SidecarDisplayFeature;
 
     const-string v0, "$this$require"
@@ -93,7 +93,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     invoke-virtual {p1}, Landroidx/window/sidecar/SidecarDisplayFeature;->getRect()Landroid/graphics/Rect;
 
@@ -103,20 +103,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_1d
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -125,7 +125,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 163

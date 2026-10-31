@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 32
     new-instance v0, Lorg/yaml/snakeyaml/nodes/Tag;
@@ -269,7 +269,7 @@
     invoke-interface {v2, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 68
-    :try_start_0
+    :try_start_ce
     const-string v3, "java.sql.Date"
 
     invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -286,18 +286,18 @@
     move-result-object v3
 
     invoke-interface {v2, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_ce .. :try_end_e0} :catch_e1
 
     .line 72
-    goto :goto_0
+    goto :goto_e2
 
     .line 70
-    :catch_0
+    :catch_e1
     move-exception v3
 
     .line 74
-    :goto_0
+    :goto_e2
     sget-object v3, Lorg/yaml/snakeyaml/nodes/Tag;->COMPATIBILITY_MAP:Ljava/util/Map;
 
     sget-object v4, Lorg/yaml/snakeyaml/nodes/Tag;->TIMESTAMP:Lorg/yaml/snakeyaml/nodes/Tag;
@@ -312,7 +312,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -333,7 +333,7 @@
     iput-boolean v0, p0, Lorg/yaml/snakeyaml/nodes/Tag;->secondary:Z
 
     .line 93
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_26
 
     .line 96
     new-instance v0, Ljava/lang/StringBuilder;
@@ -368,7 +368,7 @@
     return-void
 
     .line 94
-    :cond_0
+    :cond_26
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Class for tag must be provided."
@@ -379,7 +379,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "tag"    # Ljava/lang/String;
 
     .line 80
@@ -391,14 +391,14 @@
     iput-boolean v0, p0, Lorg/yaml/snakeyaml/nodes/Tag;->secondary:Z
 
     .line 81
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3d
 
     .line 83
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_35
 
     .line 85
     invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -413,7 +413,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2d
 
     .line 88
     invoke-static {p1}, Lorg/yaml/snakeyaml/util/UriEncoder;->encode(Ljava/lang/String;)Ljava/lang/String;
@@ -437,7 +437,7 @@
     return-void
 
     .line 86
-    :cond_0
+    :cond_2d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Tag must not contain leading or trailing spaces."
@@ -447,7 +447,7 @@
     throw v0
 
     .line 84
-    :cond_1
+    :cond_35
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Tag must not be empty."
@@ -457,7 +457,7 @@
     throw v0
 
     .line 82
-    :cond_2
+    :cond_3d
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Tag must be provided."
@@ -468,7 +468,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/URI;)V
-    .locals 2
+    .registers 4
     .param p1, "uri"    # Ljava/net/URI;
 
     .line 104
@@ -480,7 +480,7 @@
     iput-boolean v0, p0, Lorg/yaml/snakeyaml/nodes/Tag;->secondary:Z
 
     .line 105
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 108
     invoke-virtual {p1}, Ljava/net/URI;->toASCIIString()Ljava/lang/String;
@@ -493,7 +493,7 @@
     return-void
 
     .line 106
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "URI for tag must be provided."
@@ -506,13 +506,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 137
     instance-of v0, p1, Lorg/yaml/snakeyaml/nodes/Tag;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 138
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/Tag;->value:Ljava/lang/String;
@@ -532,14 +532,14 @@
     return v0
 
     .line 140
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public getClassName()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 124
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/Tag;->value:Ljava/lang/String;
@@ -550,7 +550,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 127
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/Tag;->value:Ljava/lang/String;
@@ -570,7 +570,7 @@
     return-object v0
 
     .line 125
-    :cond_0
+    :cond_19
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -599,7 +599,7 @@
 .end method
 
 .method public getValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 116
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/Tag;->value:Ljava/lang/String;
@@ -608,7 +608,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 145
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/Tag;->value:Ljava/lang/String;
@@ -621,7 +621,7 @@
 .end method
 
 .method public isCompatible(Ljava/lang/Class;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -642,7 +642,7 @@
 
     .line 157
     .local v0, "set":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 158
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -652,14 +652,14 @@
     return v1
 
     .line 160
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public isSecondary()Z
-    .locals 1
+    .registers 2
 
     .line 112
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/nodes/Tag;->secondary:Z
@@ -668,7 +668,7 @@
 .end method
 
 .method public matches(Ljava/lang/Class;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -713,7 +713,7 @@
 .end method
 
 .method public startsWith(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "prefix"    # Ljava/lang/String;
 
     .line 120
@@ -727,7 +727,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 132
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/Tag;->value:Ljava/lang/String;

@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final convertByteToUUID([B)Ljava/util/UUID;
-    .locals 6
+    .registers 7
     .param p0, "bytes"    # [B
 
     const-string v0, "bytes"
@@ -63,7 +63,7 @@
 .end method
 
 .method public static final convertUUIDToByte(Ljava/util/UUID;)[B
-    .locals 4
+    .registers 5
     .param p0, "uuid"    # Ljava/util/UUID;
 
     const-string/jumbo v0, "uuid"

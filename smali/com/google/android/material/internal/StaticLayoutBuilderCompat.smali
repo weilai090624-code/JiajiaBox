@@ -73,23 +73,23 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 58
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     sput v0, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->DEFAULT_HYPHENATION_FREQUENCY:I
 
     .line 57
@@ -97,7 +97,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;I)V
-    .locals 1
+    .registers 5
     .param p1, "source"    # Ljava/lang/CharSequence;
     .param p2, "paint"    # Landroid/text/TextPaint;
     .param p3, "width"    # I
@@ -166,7 +166,7 @@
 .end method
 
 .method private createConstructorWithReflection()V
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/android/material/internal/StaticLayoutBuilderCompat$StaticLayoutBuilderCompatException;
@@ -176,38 +176,38 @@
     .line 334
     sget-boolean v0, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->initialized:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 335
     return-void
 
     .line 340
-    :cond_0
-    :try_start_0
+    :cond_5
+    :try_start_5
     iget-boolean v0, p0, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->isRtl:Z
 
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x17
 
-    if-lt v0, v3, :cond_1
+    if-lt v0, v3, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
     .line 341
     .local v0, "useRtl":Z
-    :goto_0
+    :goto_14
     nop
 
     .line 342
@@ -215,16 +215,16 @@
 
     .line 343
     .local v3, "textDirClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1c
 
     sget-object v4, Landroid/text/TextDirectionHeuristics;->RTL:Landroid/text/TextDirectionHeuristic;
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_2
+    :cond_1c
     sget-object v4, Landroid/text/TextDirectionHeuristics;->LTR:Landroid/text/TextDirectionHeuristic;
 
-    :goto_1
+    :goto_1e
     sput-object v4, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->textDirection:Ljava/lang/Object;
 
     .line 352
@@ -313,8 +313,8 @@
 
     .line 371
     sput-boolean v2, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->initialized:Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6c
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_6c} :catch_6e
 
     .line 374
     .end local v0    # "useRtl":Z
@@ -326,7 +326,7 @@
     return-void
 
     .line 372
-    :catch_0
+    :catch_6e
     move-exception v0
 
     .line 373
@@ -339,7 +339,7 @@
 .end method
 
 .method public static obtain(Ljava/lang/CharSequence;Landroid/text/TextPaint;I)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 1
+    .registers 4
     .param p0, "source"    # Ljava/lang/CharSequence;
     .param p1, "paint"    # Landroid/text/TextPaint;
     .param p2, "width"    # I
@@ -355,7 +355,7 @@
 
 # virtual methods
 .method public build()Landroid/text/StaticLayout;
-    .locals 18
+    .registers 19
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/android/material/internal/StaticLayoutBuilderCompat$StaticLayoutBuilderCompatException;
@@ -367,7 +367,7 @@
 
     iget-object v0, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->source:Ljava/lang/CharSequence;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 247
     const-string v0, ""
@@ -375,7 +375,7 @@
     iput-object v0, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->source:Ljava/lang/CharSequence;
 
     .line 251
-    :cond_0
+    :cond_a
     iget v0, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->width:I
 
     const/4 v2, 0x0
@@ -394,7 +394,7 @@
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_25
 
     .line 254
     iget-object v4, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->source:Ljava/lang/CharSequence;
@@ -411,16 +411,16 @@
 
     move-object v4, v0
 
-    goto :goto_0
+    goto :goto_26
 
     .line 253
-    :cond_1
+    :cond_25
     move-object v4, v0
 
     .line 257
     .end local v0    # "textToDraw":Ljava/lang/CharSequence;
     .local v4, "textToDraw":Ljava/lang/CharSequence;
-    :goto_0
+    :goto_26
     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -442,16 +442,16 @@
 
     const/4 v8, 0x0
 
-    if-lt v0, v6, :cond_9
+    if-lt v0, v6, :cond_a0
 
     .line 259
     iget-boolean v0, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->isRtl:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_47
 
     iget v0, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->maxLines:I
 
-    if-ne v0, v5, :cond_2
+    if-ne v0, v5, :cond_47
 
     .line 260
     sget-object v0, Landroid/text/Layout$Alignment;->ALIGN_OPPOSITE:Landroid/text/Layout$Alignment;
@@ -459,7 +459,7 @@
     iput-object v0, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->alignment:Landroid/text/Layout$Alignment;
 
     .line 264
-    :cond_2
+    :cond_47
     iget v0, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->start:I
 
     iget v2, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->end:I
@@ -485,18 +485,18 @@
     .line 269
     iget-boolean v2, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->isRtl:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_62
 
     .line 270
     sget-object v2, Landroid/text/TextDirectionHeuristics;->RTL:Landroid/text/TextDirectionHeuristic;
 
-    goto :goto_1
+    goto :goto_64
 
     .line 271
-    :cond_3
+    :cond_62
     sget-object v2, Landroid/text/TextDirectionHeuristics;->LTR:Landroid/text/TextDirectionHeuristic;
 
-    :goto_1
+    :goto_64
     nop
 
     .line 272
@@ -506,7 +506,7 @@
     .line 273
     iget-object v6, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->ellipsize:Landroid/text/TextUtils$TruncateAt;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_71
 
     .line 274
     iget-object v6, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->ellipsize:Landroid/text/TextUtils$TruncateAt;
@@ -514,7 +514,7 @@
     invoke-virtual {v0, v6}, Landroid/text/StaticLayout$Builder;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)Landroid/text/StaticLayout$Builder;
 
     .line 276
-    :cond_4
+    :cond_71
     iget v6, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->maxLines:I
 
     invoke-virtual {v0, v6}, Landroid/text/StaticLayout$Builder;->setMaxLines(I)Landroid/text/StaticLayout$Builder;
@@ -524,16 +524,16 @@
 
     cmpl-float v6, v6, v8
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_82
 
     iget v6, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->lineSpacingMultiplier:F
 
     cmpl-float v6, v6, v7
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_89
 
     .line 279
-    :cond_5
+    :cond_82
     iget v6, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->lineSpacingAdd:F
 
     iget v7, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->lineSpacingMultiplier:F
@@ -541,10 +541,10 @@
     invoke-virtual {v0, v6, v7}, Landroid/text/StaticLayout$Builder;->setLineSpacing(FF)Landroid/text/StaticLayout$Builder;
 
     .line 281
-    :cond_6
+    :cond_89
     iget v6, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->maxLines:I
 
-    if-le v6, v5, :cond_7
+    if-le v6, v5, :cond_92
 
     .line 282
     iget v5, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->hyphenationFrequency:I
@@ -552,10 +552,10 @@
     invoke-virtual {v0, v5}, Landroid/text/StaticLayout$Builder;->setHyphenationFrequency(I)Landroid/text/StaticLayout$Builder;
 
     .line 284
-    :cond_7
+    :cond_92
     iget-object v5, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->staticLayoutBuilderConfigurer:Lcom/google/android/material/internal/StaticLayoutBuilderConfigurer;
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_9b
 
     .line 285
     iget-object v5, v1, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->staticLayoutBuilderConfigurer:Lcom/google/android/material/internal/StaticLayoutBuilderConfigurer;
@@ -563,7 +563,7 @@
     invoke-interface {v5, v0}, Lcom/google/android/material/internal/StaticLayoutBuilderConfigurer;->configure(Landroid/text/StaticLayout$Builder;)V
 
     .line 287
-    :cond_8
+    :cond_9b
     invoke-virtual {v0}, Landroid/text/StaticLayout$Builder;->build()Landroid/text/StaticLayout;
 
     move-result-object v5
@@ -573,11 +573,11 @@
     .line 290
     .end local v0    # "builder":Landroid/text/StaticLayout$Builder;
     .end local v2    # "textDirectionHeuristic":Landroid/text/TextDirectionHeuristic;
-    :cond_9
+    :cond_a0
     invoke-direct/range {p0 .. p0}, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->createConstructorWithReflection()V
 
     .line 293
-    :try_start_0
+    :try_start_a3
     sget-object v0, Lcom/google/android/material/internal/StaticLayoutBuilderCompat;->constructor:Ljava/lang/reflect/Constructor;
 
     invoke-static {v0}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -709,14 +709,14 @@
     move-result-object v0
 
     check-cast v0, Landroid/text/StaticLayout;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_116
+    .catch Ljava/lang/Exception; {:try_start_a3 .. :try_end_116} :catch_117
 
     .line 293
     return-object v0
 
     .line 308
-    :catch_0
+    :catch_117
     move-exception v0
 
     .line 309
@@ -729,7 +729,7 @@
 .end method
 
 .method public setAlignment(Landroid/text/Layout$Alignment;)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 0
+    .registers 2
     .param p1, "alignment"    # Landroid/text/Layout$Alignment;
 
     .line 128
@@ -740,7 +740,7 @@
 .end method
 
 .method public setEllipsize(Landroid/text/TextUtils$TruncateAt;)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 0
+    .registers 2
     .param p1, "ellipsize"    # Landroid/text/TextUtils$TruncateAt;
 
     .line 228
@@ -751,7 +751,7 @@
 .end method
 
 .method public setEnd(I)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 0
+    .registers 2
     .param p1, "end"    # I
 
     .line 168
@@ -762,7 +762,7 @@
 .end method
 
 .method public setHyphenationFrequency(I)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 0
+    .registers 2
     .param p1, "hyphenationFrequency"    # I
 
     .line 213
@@ -773,7 +773,7 @@
 .end method
 
 .method public setIncludePad(Z)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 0
+    .registers 2
     .param p1, "includePad"    # Z
 
     .line 143
@@ -784,7 +784,7 @@
 .end method
 
 .method public setIsRtl(Z)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 0
+    .registers 2
     .param p1, "isRtl"    # Z
 
     .line 378
@@ -795,7 +795,7 @@
 .end method
 
 .method public setLineSpacing(FF)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 0
+    .registers 3
     .param p1, "spacingAdd"    # F
     .param p2, "lineSpacingMultiplier"    # F
 
@@ -810,7 +810,7 @@
 .end method
 
 .method public setMaxLines(I)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 0
+    .registers 2
     .param p1, "maxLines"    # I
 
     .line 183
@@ -821,7 +821,7 @@
 .end method
 
 .method public setStart(I)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 0
+    .registers 2
     .param p1, "start"    # I
 
     .line 155
@@ -832,7 +832,7 @@
 .end method
 
 .method public setStaticLayoutBuilderConfigurer(Lcom/google/android/material/internal/StaticLayoutBuilderConfigurer;)Lcom/google/android/material/internal/StaticLayoutBuilderCompat;
-    .locals 0
+    .registers 2
     .param p1, "staticLayoutBuilderConfigurer"    # Lcom/google/android/material/internal/StaticLayoutBuilderConfigurer;
 
     .line 240

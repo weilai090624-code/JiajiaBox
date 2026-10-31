@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/SafeConstructor;)V
-    .locals 0
+    .registers 2
 
     .line 199
     iput-object p1, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlNull;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -33,11 +33,11 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 202
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlNull;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
 
@@ -48,7 +48,7 @@
     invoke-virtual {v0, v1}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->constructScalar(Lorg/yaml/snakeyaml/nodes/ScalarNode;)Ljava/lang/String;
 
     .line 203
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     return-object v0

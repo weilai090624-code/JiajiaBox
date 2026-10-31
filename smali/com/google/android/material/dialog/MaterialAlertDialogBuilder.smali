@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 70
     sget v0, Lcom/google/android/material/R$attr;->alertDialogStyle:I
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 104
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "overrideThemeResId"    # I
 
@@ -140,7 +140,7 @@
 
     const/16 v4, 0x1c
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_70
 
     .line 129
     new-instance v3, Landroid/util/TypedValue;
@@ -181,13 +181,13 @@
 
     const/4 v6, 0x5
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v6, :cond_70
 
     const/4 v5, 0x0
 
     cmpl-float v5, v4, v5
 
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_70
 
     .line 134
     invoke-virtual {v2, v4}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setCornerSize(F)V
@@ -195,7 +195,7 @@
     .line 137
     .end local v3    # "dialogCornerRadiusValue":Landroid/util/TypedValue;
     .end local v4    # "dialogCornerRadius":F
-    :cond_0
+    :cond_70
     iput-object v2, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->background:Landroid/graphics/drawable/Drawable;
 
     .line 138
@@ -203,7 +203,7 @@
 .end method
 
 .method private static createMaterialAlertDialogThemedContext(Landroid/content/Context;)Landroid/content/Context;
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
 
     .line 89
@@ -225,13 +225,13 @@
 
     .line 91
     .local v1, "themedContext":Landroid/content/Context;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 92
     return-object v1
 
     .line 94
-    :cond_0
+    :cond_10
     new-instance v2, Landroidx/appcompat/view/ContextThemeWrapper;
 
     invoke-direct {v2, v1, v0}, Landroidx/appcompat/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
@@ -240,7 +240,7 @@
 .end method
 
 .method private static getMaterialAlertDialogThemeOverlay(Landroid/content/Context;)I
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 80
@@ -253,7 +253,7 @@
 
     .line 82
     .local v0, "materialAlertDialogThemeOverlay":Landroid/util/TypedValue;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 83
     const/4 v1, 0x0
@@ -261,40 +261,40 @@
     return v1
 
     .line 85
-    :cond_0
+    :cond_a
     iget v1, v0, Landroid/util/TypedValue;->data:I
 
     return v1
 .end method
 
 .method private static getOverridingThemeResId(Landroid/content/Context;I)I
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "overrideThemeResId"    # I
 
     .line 98
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 99
     invoke-static {p0}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->getMaterialAlertDialogThemeOverlay(Landroid/content/Context;)I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 100
-    :cond_0
+    :cond_7
     move v0, p1
 
     .line 98
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 
 # virtual methods
 .method public create()Landroidx/appcompat/app/AlertDialog;
-    .locals 6
+    .registers 7
 
     .line 143
     invoke-super {p0}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
@@ -319,7 +319,7 @@
 
     instance-of v3, v3, Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1d
 
     .line 149
     iget-object v3, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->background:Landroid/graphics/drawable/Drawable;
@@ -333,7 +333,7 @@
     invoke-virtual {v3, v4}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setElevation(F)V
 
     .line 152
-    :cond_0
+    :cond_1d
     iget-object v3, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->background:Landroid/graphics/drawable/Drawable;
 
     iget-object v4, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
@@ -360,7 +360,7 @@
 .end method
 
 .method public getBackground()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 160
     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->background:Landroid/graphics/drawable/Drawable;
@@ -369,7 +369,7 @@
 .end method
 
 .method public bridge synthetic setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -380,7 +380,7 @@
 .end method
 
 .method public setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 4
     .param p1, "adapter"    # Landroid/widget/ListAdapter;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -395,7 +395,7 @@
 .end method
 
 .method public setBackground(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 0
+    .registers 2
     .param p1, "background"    # Landroid/graphics/drawable/Drawable;
 
     .line 166
@@ -406,7 +406,7 @@
 .end method
 
 .method public setBackgroundInsetBottom(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "backgroundInsetBottom"    # I
 
     .line 206
@@ -419,7 +419,7 @@
 .end method
 
 .method public setBackgroundInsetEnd(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 2
+    .registers 4
     .param p1, "backgroundInsetEnd"    # I
 
     .line 193
@@ -444,28 +444,28 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     .line 196
     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
 
     iput p1, v0, Landroid/graphics/Rect;->left:I
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 198
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
 
     iput p1, v0, Landroid/graphics/Rect;->right:I
 
     .line 200
-    :goto_0
+    :goto_1d
     return-object p0
 .end method
 
 .method public setBackgroundInsetStart(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 2
+    .registers 4
     .param p1, "backgroundInsetStart"    # I
 
     .line 173
@@ -490,28 +490,28 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     .line 176
     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
 
     iput p1, v0, Landroid/graphics/Rect;->right:I
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 178
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
 
     iput p1, v0, Landroid/graphics/Rect;->left:I
 
     .line 180
-    :goto_0
+    :goto_1d
     return-object p0
 .end method
 
 .method public setBackgroundInsetTop(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "backgroundInsetTop"    # I
 
     .line 186
@@ -524,7 +524,7 @@
 .end method
 
 .method public bridge synthetic setCancelable(Z)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setCancelable(Z)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -535,7 +535,7 @@
 .end method
 
 .method public setCancelable(Z)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "cancelable"    # Z
 
     .line 342
@@ -549,7 +549,7 @@
 .end method
 
 .method public bridge synthetic setCursor(Landroid/database/Cursor;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 4
 
     .line 68
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setCursor(Landroid/database/Cursor;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -560,7 +560,7 @@
 .end method
 
 .method public setCursor(Landroid/database/Cursor;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 5
     .param p1, "cursor"    # Landroid/database/Cursor;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
     .param p3, "labelColumn"    # Ljava/lang/String;
@@ -576,7 +576,7 @@
 .end method
 
 .method public bridge synthetic setCustomTitle(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setCustomTitle(Landroid/view/View;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -587,7 +587,7 @@
 .end method
 
 .method public setCustomTitle(Landroid/view/View;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "customTitleView"    # Landroid/view/View;
 
     .line 231
@@ -601,7 +601,7 @@
 .end method
 
 .method public bridge synthetic setIcon(I)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setIcon(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -612,7 +612,7 @@
 .end method
 
 .method public bridge synthetic setIcon(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setIcon(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -623,7 +623,7 @@
 .end method
 
 .method public setIcon(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "iconId"    # I
 
     .line 252
@@ -637,7 +637,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 259
@@ -651,7 +651,7 @@
 .end method
 
 .method public bridge synthetic setIconAttribute(I)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setIconAttribute(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -662,7 +662,7 @@
 .end method
 
 .method public setIconAttribute(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "attrId"    # I
 
     .line 266
@@ -676,7 +676,7 @@
 .end method
 
 .method public bridge synthetic setItems(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setItems(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -687,7 +687,7 @@
 .end method
 
 .method public bridge synthetic setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -698,7 +698,7 @@
 .end method
 
 .method public setItems(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 4
     .param p1, "itemsId"    # I
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -713,7 +713,7 @@
 .end method
 
 .method public setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 4
     .param p1, "items"    # [Ljava/lang/CharSequence;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -728,7 +728,7 @@
 .end method
 
 .method public bridge synthetic setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setMessage(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -739,7 +739,7 @@
 .end method
 
 .method public bridge synthetic setMessage(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setMessage(Ljava/lang/CharSequence;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -750,7 +750,7 @@
 .end method
 
 .method public setMessage(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "messageId"    # I
 
     .line 238
@@ -764,7 +764,7 @@
 .end method
 
 .method public setMessage(Ljava/lang/CharSequence;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "message"    # Ljava/lang/CharSequence;
 
     .line 245
@@ -778,7 +778,7 @@
 .end method
 
 .method public bridge synthetic setMultiChoiceItems(I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 4
 
     .line 68
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setMultiChoiceItems(I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -789,7 +789,7 @@
 .end method
 
 .method public bridge synthetic setMultiChoiceItems(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 5
 
     .line 68
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setMultiChoiceItems(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -800,7 +800,7 @@
 .end method
 
 .method public bridge synthetic setMultiChoiceItems([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 4
 
     .line 68
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setMultiChoiceItems([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -811,7 +811,7 @@
 .end method
 
 .method public setMultiChoiceItems(I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 5
     .param p1, "itemsId"    # I
     .param p2, "checkedItems"    # [Z
     .param p3, "listener"    # Landroid/content/DialogInterface$OnMultiChoiceClickListener;
@@ -827,7 +827,7 @@
 .end method
 
 .method public setMultiChoiceItems(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 6
     .param p1, "cursor"    # Landroid/database/Cursor;
     .param p2, "isCheckedColumn"    # Ljava/lang/String;
     .param p3, "labelColumn"    # Ljava/lang/String;
@@ -848,7 +848,7 @@
 .end method
 
 .method public setMultiChoiceItems([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 5
     .param p1, "items"    # [Ljava/lang/CharSequence;
     .param p2, "checkedItems"    # [Z
     .param p3, "listener"    # Landroid/content/DialogInterface$OnMultiChoiceClickListener;
@@ -864,7 +864,7 @@
 .end method
 
 .method public bridge synthetic setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -875,7 +875,7 @@
 .end method
 
 .method public bridge synthetic setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -886,7 +886,7 @@
 .end method
 
 .method public setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 4
     .param p1, "textId"    # I
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -901,7 +901,7 @@
 .end method
 
 .method public setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -916,7 +916,7 @@
 .end method
 
 .method public bridge synthetic setNegativeButtonIcon(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setNegativeButtonIcon(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -927,7 +927,7 @@
 .end method
 
 .method public setNegativeButtonIcon(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 312
@@ -941,7 +941,7 @@
 .end method
 
 .method public bridge synthetic setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -952,7 +952,7 @@
 .end method
 
 .method public bridge synthetic setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -963,7 +963,7 @@
 .end method
 
 .method public setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 4
     .param p1, "textId"    # I
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -978,7 +978,7 @@
 .end method
 
 .method public setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -993,7 +993,7 @@
 .end method
 
 .method public bridge synthetic setNeutralButtonIcon(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setNeutralButtonIcon(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1004,7 +1004,7 @@
 .end method
 
 .method public setNeutralButtonIcon(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 335
@@ -1018,7 +1018,7 @@
 .end method
 
 .method public bridge synthetic setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1029,7 +1029,7 @@
 .end method
 
 .method public setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "onCancelListener"    # Landroid/content/DialogInterface$OnCancelListener;
 
     .line 350
@@ -1043,7 +1043,7 @@
 .end method
 
 .method public bridge synthetic setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1054,7 +1054,7 @@
 .end method
 
 .method public setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "onDismissListener"    # Landroid/content/DialogInterface$OnDismissListener;
 
     .line 358
@@ -1068,7 +1068,7 @@
 .end method
 
 .method public bridge synthetic setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1079,7 +1079,7 @@
 .end method
 
 .method public setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/widget/AdapterView$OnItemSelectedListener;
 
     .line 475
@@ -1093,7 +1093,7 @@
 .end method
 
 .method public bridge synthetic setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1104,7 +1104,7 @@
 .end method
 
 .method public setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "onKeyListener"    # Landroid/content/DialogInterface$OnKeyListener;
 
     .line 365
@@ -1118,7 +1118,7 @@
 .end method
 
 .method public bridge synthetic setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1129,7 +1129,7 @@
 .end method
 
 .method public bridge synthetic setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1140,7 +1140,7 @@
 .end method
 
 .method public setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 4
     .param p1, "textId"    # I
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -1155,7 +1155,7 @@
 .end method
 
 .method public setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -1170,7 +1170,7 @@
 .end method
 
 .method public bridge synthetic setPositiveButtonIcon(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setPositiveButtonIcon(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1181,7 +1181,7 @@
 .end method
 
 .method public setPositiveButtonIcon(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 289
@@ -1195,7 +1195,7 @@
 .end method
 
 .method public bridge synthetic setSingleChoiceItems(IILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 4
 
     .line 68
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setSingleChoiceItems(IILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1206,7 +1206,7 @@
 .end method
 
 .method public bridge synthetic setSingleChoiceItems(Landroid/database/Cursor;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 5
 
     .line 68
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setSingleChoiceItems(Landroid/database/Cursor;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1217,7 +1217,7 @@
 .end method
 
 .method public bridge synthetic setSingleChoiceItems(Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 4
 
     .line 68
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setSingleChoiceItems(Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1228,7 +1228,7 @@
 .end method
 
 .method public bridge synthetic setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 4
 
     .line 68
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1239,7 +1239,7 @@
 .end method
 
 .method public setSingleChoiceItems(IILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 5
     .param p1, "itemsId"    # I
     .param p2, "checkedItem"    # I
     .param p3, "listener"    # Landroid/content/DialogInterface$OnClickListener;
@@ -1255,7 +1255,7 @@
 .end method
 
 .method public setSingleChoiceItems(Landroid/database/Cursor;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 6
     .param p1, "cursor"    # Landroid/database/Cursor;
     .param p2, "checkedItem"    # I
     .param p3, "labelColumn"    # Ljava/lang/String;
@@ -1276,7 +1276,7 @@
 .end method
 
 .method public setSingleChoiceItems(Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 5
     .param p1, "adapter"    # Landroid/widget/ListAdapter;
     .param p2, "checkedItem"    # I
     .param p3, "listener"    # Landroid/content/DialogInterface$OnClickListener;
@@ -1292,7 +1292,7 @@
 .end method
 
 .method public setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 5
     .param p1, "items"    # [Ljava/lang/CharSequence;
     .param p2, "checkedItem"    # I
     .param p3, "listener"    # Landroid/content/DialogInterface$OnClickListener;
@@ -1308,7 +1308,7 @@
 .end method
 
 .method public bridge synthetic setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setTitle(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1319,7 +1319,7 @@
 .end method
 
 .method public bridge synthetic setTitle(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setTitle(Ljava/lang/CharSequence;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1330,7 +1330,7 @@
 .end method
 
 .method public setTitle(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "titleId"    # I
 
     .line 217
@@ -1344,7 +1344,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 224
@@ -1358,7 +1358,7 @@
 .end method
 
 .method public bridge synthetic setView(I)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setView(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1369,7 +1369,7 @@
 .end method
 
 .method public bridge synthetic setView(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setView(Landroid/view/View;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -1380,7 +1380,7 @@
 .end method
 
 .method public setView(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "layoutResId"    # I
 
     .line 482
@@ -1394,7 +1394,7 @@
 .end method
 
 .method public setView(Landroid/view/View;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 489

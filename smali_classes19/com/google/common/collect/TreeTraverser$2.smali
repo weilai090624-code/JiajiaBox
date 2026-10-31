@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeTraverser;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/TreeTraverser;
 
     .line 118
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -69,7 +69,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 118
     .local p0, "this":Lcom/google/common/collect/TreeTraverser$2;, "Lcom/google/common/collect/TreeTraverser$2;"

@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageProxy;Landroidx/camera/core/ImageCapture$OutputFileOptions;ILjava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Landroidx/camera/core/ImageSaver$OnImageSavedCallback;)V
-    .locals 0
+    .registers 7
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
     .param p2, "outputFileOptions"    # Landroidx/camera/core/ImageCapture$OutputFileOptions;
     .param p3, "orientation"    # I
@@ -97,7 +97,7 @@
 .end method
 
 .method private copyTempFileToOutputStream(Ljava/io/File;Ljava/io/OutputStream;)V
-    .locals 4
+    .registers 7
     .param p1, "tempFile"    # Ljava/io/File;
     .param p2, "outputStream"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -126,12 +126,12 @@
     .local v0, "in":Ljava/io/InputStream;
     const/16 v1, 0x400
 
-    :try_start_0
+    :try_start_7
     new-array v1, v1, [B
 
     .line 299
     .local v1, "buf":[B
-    :goto_0
+    :goto_9
     invoke-virtual {v0, v1}, Ljava/io/InputStream;->read([B)I
 
     move-result v2
@@ -139,21 +139,21 @@
     move v3, v2
 
     .local v3, "len":I
-    if-lez v2, :cond_0
+    if-lez v2, :cond_15
 
     .line 300
     const/4 v2, 0x0
 
     invoke-virtual {p2, v1, v2, v3}, Ljava/io/OutputStream;->write([BII)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_7 .. :try_end_14} :catchall_19
 
-    goto :goto_0
+    goto :goto_9
 
     .line 302
     .end local v1    # "buf":[B
     .end local v3    # "len":I
-    :cond_0
+    :cond_15
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
     .line 303
@@ -162,27 +162,27 @@
 
     .line 296
     .restart local v0    # "in":Ljava/io/InputStream;
-    :catchall_0
+    :catchall_19
     move-exception v1
 
-    :try_start_1
+    :try_start_1a
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_1d
+    .catchall {:try_start_1a .. :try_end_1d} :catchall_1e
 
-    goto :goto_1
+    goto :goto_22
 
-    :catchall_1
+    :catchall_1e
     move-exception v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_1
+    :goto_22
     throw v1
 .end method
 
 .method private copyTempFileToUri(Ljava/io/File;Landroid/net/Uri;)Z
-    .locals 3
+    .registers 6
     .param p1, "tempFile"    # Ljava/io/File;
     .param p2, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -216,67 +216,67 @@
 
     .line 285
     .local v0, "outputStream":Ljava/io/OutputStream;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 287
     nop
 
     .line 290
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
     .line 287
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
     return v1
 
     .line 289
-    :cond_1
-    :try_start_0
+    :cond_14
+    :try_start_14
     invoke-direct {p0, p1, v0}, Landroidx/camera/core/ImageSaver;->copyTempFileToOutputStream(Ljava/io/File;Ljava/io/OutputStream;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_14 .. :try_end_17} :catchall_1e
 
     .line 290
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1c
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
     .line 291
     .end local v0    # "outputStream":Ljava/io/OutputStream;
-    :cond_2
+    :cond_1c
     const/4 v0, 0x1
 
     return v0
 
     .line 283
     .restart local v0    # "outputStream":Ljava/io/OutputStream;
-    :catchall_0
+    :catchall_1e
     move-exception v1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_29
 
-    :try_start_1
+    :try_start_21
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_24
+    .catchall {:try_start_21 .. :try_end_24} :catchall_25
 
-    goto :goto_0
+    goto :goto_29
 
-    :catchall_1
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :cond_3
-    :goto_0
+    :cond_29
+    :goto_29
     throw v1
 .end method
 
 .method private isSaveToFile()Z
-    .locals 1
+    .registers 2
 
     .line 252
     iget-object v0, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
@@ -285,21 +285,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method private isSaveToMediaStore()Z
-    .locals 1
+    .registers 2
 
     .line 246
     iget-object v0, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
@@ -308,7 +308,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
 
@@ -317,7 +317,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
 
@@ -326,22 +326,22 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
     .line 246
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method private isSaveToOutputStream()Z
-    .locals 1
+    .registers 2
 
     .line 256
     iget-object v0, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
@@ -350,21 +350,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method private postError(Landroidx/camera/core/ImageSaver$SaveError;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 7
     .param p1, "saveError"    # Landroidx/camera/core/ImageSaver$SaveError;
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "cause"    # Ljava/lang/Throwable;
@@ -390,14 +390,14 @@
     invoke-direct {v1, p0, p1, p2, p3}, Landroidx/camera/core/ImageSaver$$ExternalSyntheticLambda0;-><init>(Landroidx/camera/core/ImageSaver;Landroidx/camera/core/ImageSaver$SaveError;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_a} :catch_b
 
     .line 323
-    goto :goto_0
+    goto :goto_13
 
     .line 320
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 321
@@ -410,12 +410,12 @@
 
     .line 324
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method private postSuccess(Landroid/net/Uri;)V
-    .locals 3
+    .registers 5
     .param p1, "outputUri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -435,14 +435,14 @@
     invoke-direct {v1, p0, p1}, Landroidx/camera/core/ImageSaver$$ExternalSyntheticLambda2;-><init>(Landroidx/camera/core/ImageSaver;Landroid/net/Uri;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_a} :catch_b
 
     .line 313
-    goto :goto_0
+    goto :goto_13
 
     .line 309
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 310
@@ -455,31 +455,31 @@
 
     .line 314
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method private saveImageToTempFile()Ljava/io/File;
-    .locals 14
+    .registers 15
 
     .line 102
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-direct {p0}, Landroidx/camera/core/ImageSaver;->isSaveToFile()Z
 
     move-result v1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_5} :catch_114
 
     const-string v2, ".tmp"
 
     const-string v3, "CameraX"
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_38
 
     .line 104
-    :try_start_1
+    :try_start_b
     new-instance v1, Ljava/io/File;
 
     iget-object v4, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
@@ -524,20 +524,20 @@
     invoke-direct {v1, v4, v2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .local v1, "tempFile":Ljava/io/File;
-    goto :goto_0
+    goto :goto_3c
 
     .line 107
     .end local v1    # "tempFile":Ljava/io/File;
-    :cond_0
+    :cond_38
     invoke-static {v3, v2}, Ljava/io/File;->createTempFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
+    :try_end_3c
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_3c} :catch_114
 
     .line 112
     .restart local v1    # "tempFile":Ljava/io/File;
-    :goto_0
+    :goto_3c
     nop
 
     .line 114
@@ -553,25 +553,25 @@
 
     .line 117
     .local v4, "exception":Ljava/lang/Exception;
-    :try_start_2
+    :try_start_40
     iget-object v5, p0, Landroidx/camera/core/ImageSaver;->mImage:Landroidx/camera/core/ImageProxy;
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_42
+    .catch Ljava/io/IOException; {:try_start_40 .. :try_end_42} :catch_103
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_40 .. :try_end_42} :catch_101
+    .catch Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException; {:try_start_40 .. :try_end_42} :catch_e0
 
     .line 118
     .local v5, "imageToClose":Landroidx/camera/core/ImageProxy;
-    :try_start_3
+    :try_start_42
     new-instance v6, Ljava/io/FileOutputStream;
 
     invoke-direct {v6, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_47
+    .catchall {:try_start_42 .. :try_end_47} :catchall_d4
 
     .line 119
     .local v6, "output":Ljava/io/FileOutputStream;
-    :try_start_4
+    :try_start_47
     iget-object v7, p0, Landroidx/camera/core/ImageSaver;->mImage:Landroidx/camera/core/ImageProxy;
 
     invoke-static {v7}, Landroidx/camera/core/internal/utils/ImageUtil;->imageToJpegByteArray(Landroidx/camera/core/ImageProxy;)[B
@@ -602,7 +602,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_8e
 
     .line 130
     iget-object v9, p0, Landroidx/camera/core/ImageSaver;->mImage:Landroidx/camera/core/ImageProxy;
@@ -658,16 +658,16 @@
     .end local v10    # "data":[B
     .end local v11    # "inputStream":Ljava/io/InputStream;
     .end local v12    # "originalExif":Landroidx/camera/core/impl/utils/Exif;
-    goto :goto_1
+    goto :goto_93
 
     .line 141
-    :cond_1
+    :cond_8e
     iget v9, p0, Landroidx/camera/core/ImageSaver;->mOrientation:I
 
     invoke-virtual {v8, v9}, Landroidx/camera/core/impl/utils/Exif;->rotate(I)V
 
     .line 144
-    :goto_1
+    :goto_93
     iget-object v9, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
 
     invoke-virtual {v9}, Landroidx/camera/core/ImageCapture$OutputFileOptions;->getMetadata()Landroidx/camera/core/ImageCapture$Metadata;
@@ -680,29 +680,29 @@
 
     move-result v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_a2
 
     .line 146
     invoke-virtual {v8}, Landroidx/camera/core/impl/utils/Exif;->flipHorizontally()V
 
     .line 148
-    :cond_2
+    :cond_a2
     invoke-virtual {v9}, Landroidx/camera/core/ImageCapture$Metadata;->isReversedVertical()Z
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_ab
 
     .line 149
     invoke-virtual {v8}, Landroidx/camera/core/impl/utils/Exif;->flipVertically()V
 
     .line 151
-    :cond_3
+    :cond_ab
     invoke-virtual {v9}, Landroidx/camera/core/ImageCapture$Metadata;->getLocation()Landroid/location/Location;
 
     move-result-object v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_be
 
     .line 152
     iget-object v10, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
@@ -718,48 +718,48 @@
     invoke-virtual {v8, v10}, Landroidx/camera/core/impl/utils/Exif;->attachLocation(Landroid/location/Location;)V
 
     .line 155
-    :cond_4
+    :cond_be
     invoke-virtual {v8}, Landroidx/camera/core/impl/utils/Exif;->save()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_c1
+    .catchall {:try_start_47 .. :try_end_c1} :catchall_ca
 
     .line 156
     .end local v7    # "bytes":[B
     .end local v8    # "exif":Landroidx/camera/core/impl/utils/Exif;
     .end local v9    # "metadata":Landroidx/camera/core/ImageCapture$Metadata;
-    :try_start_5
+    :try_start_c1
     invoke-virtual {v6}, Ljava/io/FileOutputStream;->close()V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :try_end_c4
+    .catchall {:try_start_c1 .. :try_end_c4} :catchall_d4
 
     .end local v6    # "output":Ljava/io/FileOutputStream;
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_109
 
-    :try_start_6
+    :try_start_c6
     invoke-interface {v5}, Landroidx/camera/core/ImageProxy;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_6 .. :try_end_6} :catch_1
-    .catch Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException; {:try_start_6 .. :try_end_6} :catch_0
+    :try_end_c9
+    .catch Ljava/io/IOException; {:try_start_c6 .. :try_end_c9} :catch_103
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_c6 .. :try_end_c9} :catch_101
+    .catch Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException; {:try_start_c6 .. :try_end_c9} :catch_e0
 
-    goto :goto_6
+    goto :goto_109
 
     .line 117
     .restart local v6    # "output":Ljava/io/FileOutputStream;
-    :catchall_0
+    :catchall_ca
     move-exception v7
 
-    :try_start_7
+    :try_start_cb
     invoke-virtual {v6}, Ljava/io/FileOutputStream;->close()V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+    :try_end_ce
+    .catchall {:try_start_cb .. :try_end_ce} :catchall_cf
 
-    goto :goto_2
+    goto :goto_d3
 
-    :catchall_1
+    :catchall_cf
     move-exception v8
 
-    :try_start_8
+    :try_start_d0
     invoke-virtual {v7, v8}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     .end local v1    # "tempFile":Ljava/io/File;
@@ -767,10 +767,10 @@
     .end local v3    # "errorMessage":Ljava/lang/String;
     .end local v4    # "exception":Ljava/lang/Exception;
     .end local v5    # "imageToClose":Landroidx/camera/core/ImageProxy;
-    :goto_2
+    :goto_d3
     throw v7
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_2
+    :try_end_d4
+    .catchall {:try_start_d0 .. :try_end_d4} :catchall_d4
 
     .end local v6    # "output":Ljava/io/FileOutputStream;
     .restart local v1    # "tempFile":Ljava/io/File;
@@ -778,35 +778,35 @@
     .restart local v3    # "errorMessage":Ljava/lang/String;
     .restart local v4    # "exception":Ljava/lang/Exception;
     .restart local v5    # "imageToClose":Landroidx/camera/core/ImageProxy;
-    :catchall_2
+    :catchall_d4
     move-exception v6
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_df
 
-    :try_start_9
+    :try_start_d7
     invoke-interface {v5}, Landroidx/camera/core/ImageProxy;->close()V
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_3
+    :try_end_da
+    .catchall {:try_start_d7 .. :try_end_da} :catchall_db
 
-    goto :goto_3
+    goto :goto_df
 
-    :catchall_3
+    :catchall_db
     move-exception v7
 
-    :try_start_a
+    :try_start_dc
     invoke-virtual {v6, v7}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     .end local v1    # "tempFile":Ljava/io/File;
     .end local v2    # "saveError":Landroidx/camera/core/ImageSaver$SaveError;
     .end local v3    # "errorMessage":Ljava/lang/String;
     .end local v4    # "exception":Ljava/lang/Exception;
-    :cond_5
-    :goto_3
+    :cond_df
+    :goto_df
     throw v6
-    :try_end_a
-    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_2
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_a .. :try_end_a} :catch_1
-    .catch Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException; {:try_start_a .. :try_end_a} :catch_0
+    :try_end_e0
+    .catch Ljava/io/IOException; {:try_start_dc .. :try_end_e0} :catch_103
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_dc .. :try_end_e0} :catch_101
+    .catch Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException; {:try_start_dc .. :try_end_e0} :catch_e0
 
     .line 160
     .end local v5    # "imageToClose":Landroidx/camera/core/ImageProxy;
@@ -814,7 +814,7 @@
     .restart local v2    # "saveError":Landroidx/camera/core/ImageSaver$SaveError;
     .restart local v3    # "errorMessage":Ljava/lang/String;
     .restart local v4    # "exception":Ljava/lang/Exception;
-    :catch_0
+    :catch_e0
     move-exception v5
 
     .line 161
@@ -831,7 +831,7 @@
 
     aget v6, v6, v7
 
-    packed-switch v6, :pswitch_data_0
+    packed-switch v6, :pswitch_data_11e
 
     .line 172
     sget-object v2, Landroidx/camera/core/ImageSaver$SaveError;->UNKNOWN:Landroidx/camera/core/ImageSaver$SaveError;
@@ -839,20 +839,20 @@
     .line 173
     const-string v3, "Failed to transcode mImage"
 
-    goto :goto_4
+    goto :goto_ff
 
     .line 167
-    :pswitch_0
+    :pswitch_f5
     sget-object v2, Landroidx/camera/core/ImageSaver$SaveError;->CROP_FAILED:Landroidx/camera/core/ImageSaver$SaveError;
 
     .line 168
     const-string v3, "Failed to crop mImage"
 
     .line 169
-    goto :goto_4
+    goto :goto_ff
 
     .line 163
-    :pswitch_1
+    :pswitch_fa
     sget-object v2, Landroidx/camera/core/ImageSaver$SaveError;->ENCODE_FAILED:Landroidx/camera/core/ImageSaver$SaveError;
 
     .line 164
@@ -862,24 +862,24 @@
     nop
 
     .line 176
-    :goto_4
+    :goto_ff
     move-object v4, v5
 
-    goto :goto_7
+    goto :goto_10a
 
     .line 156
     .end local v5    # "e":Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException;
-    :catch_1
+    :catch_101
     move-exception v5
 
-    goto :goto_5
+    goto :goto_104
 
-    :catch_2
+    :catch_103
     move-exception v5
 
     .line 157
     .local v5, "e":Ljava/lang/Exception;
-    :goto_5
+    :goto_104
     sget-object v2, Landroidx/camera/core/ImageSaver$SaveError;->FILE_IO_FAILED:Landroidx/camera/core/ImageSaver$SaveError;
 
     .line 158
@@ -890,13 +890,13 @@
 
     .line 177
     .end local v5    # "e":Ljava/lang/Exception;
-    :cond_6
-    :goto_6
+    :cond_109
+    :goto_109
     nop
 
     .line 178
-    :goto_7
-    if-eqz v2, :cond_7
+    :goto_10a
+    if-eqz v2, :cond_113
 
     .line 179
     invoke-direct {p0, v2, v3, v4}, Landroidx/camera/core/ImageSaver;->postError(Landroidx/camera/core/ImageSaver$SaveError;Ljava/lang/String;Ljava/lang/Throwable;)V
@@ -908,7 +908,7 @@
     return-object v0
 
     .line 183
-    :cond_7
+    :cond_113
     return-object v1
 
     .line 109
@@ -916,7 +916,7 @@
     .end local v2    # "saveError":Landroidx/camera/core/ImageSaver$SaveError;
     .end local v3    # "errorMessage":Ljava/lang/String;
     .end local v4    # "exception":Ljava/lang/Exception;
-    :catch_3
+    :catch_114
     move-exception v1
 
     .line 110
@@ -932,15 +932,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_11e
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_fa
+        :pswitch_f5
     .end packed-switch
 .end method
 
 .method private setContentValuePending(Landroid/content/ContentValues;I)V
-    .locals 2
+    .registers 5
     .param p1, "values"    # Landroid/content/ContentValues;
     .param p2, "isPending"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -959,7 +959,7 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
     .line 273
     const-string v0, "is_pending"
@@ -971,12 +971,12 @@
     invoke-virtual {p1, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 275
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method private setUriNotPending(Landroid/net/Uri;)V
-    .locals 3
+    .registers 5
     .param p1, "outputUri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -992,7 +992,7 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_19
 
     .line 264
     new-instance v0, Landroid/content/ContentValues;
@@ -1018,14 +1018,14 @@
 
     .line 268
     .end local v0    # "values":Landroid/content/ContentValues;
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 
 # virtual methods
 .method copyTempFileToDestination(Ljava/io/File;)V
-    .locals 7
+    .registers 9
     .param p1, "tempFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1056,12 +1056,12 @@
 
     .line 198
     .local v3, "outputUri":Landroid/net/Uri;
-    :try_start_0
+    :try_start_7
     invoke-direct {p0}, Landroidx/camera/core/ImageSaver;->isSaveToMediaStore()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_55
 
     .line 199
     iget-object v4, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
@@ -1070,7 +1070,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_21
 
     .line 200
     new-instance v4, Landroid/content/ContentValues;
@@ -1083,15 +1083,15 @@
 
     invoke-direct {v4, v5}, Landroid/content/ContentValues;-><init>(Landroid/content/ContentValues;)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 201
-    :cond_0
+    :cond_21
     new-instance v4, Landroid/content/ContentValues;
 
     invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
-    :goto_0
+    :goto_26
     nop
 
     .line 202
@@ -1122,7 +1122,7 @@
     move-object v3, v5
 
     .line 206
-    if-nez v3, :cond_1
+    if-nez v3, :cond_45
 
     .line 207
     sget-object v5, Landroidx/camera/core/ImageSaver$SaveError;->FILE_IO_FAILED:Landroidx/camera/core/ImageSaver$SaveError;
@@ -1134,15 +1134,15 @@
 
     move-object v1, v5
 
-    goto :goto_1
+    goto :goto_54
 
     .line 210
-    :cond_1
+    :cond_45
     invoke-direct {p0, p1, v3}, Landroidx/camera/core/ImageSaver;->copyTempFileToUri(Ljava/io/File;Landroid/net/Uri;)Z
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_51
 
     .line 211
     sget-object v5, Landroidx/camera/core/ImageSaver$SaveError;->FILE_IO_FAILED:Landroidx/camera/core/ImageSaver$SaveError;
@@ -1155,20 +1155,20 @@
     move-object v1, v5
 
     .line 214
-    :cond_2
+    :cond_51
     invoke-direct {p0, v3}, Landroidx/camera/core/ImageSaver;->setUriNotPending(Landroid/net/Uri;)V
 
     .line 216
     .end local v4    # "values":Landroid/content/ContentValues;
-    :goto_1
-    goto :goto_3
+    :goto_54
+    goto :goto_93
 
-    :cond_3
+    :cond_55
     invoke-direct {p0}, Landroidx/camera/core/ImageSaver;->isSaveToOutputStream()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_65
 
     .line 217
     iget-object v4, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
@@ -1179,15 +1179,15 @@
 
     invoke-direct {p0, p1, v4}, Landroidx/camera/core/ImageSaver;->copyTempFileToOutputStream(Ljava/io/File;Ljava/io/OutputStream;)V
 
-    goto :goto_3
+    goto :goto_93
 
     .line 218
-    :cond_4
+    :cond_65
     invoke-direct {p0}, Landroidx/camera/core/ImageSaver;->isSaveToFile()Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_93
 
     .line 219
     iget-object v4, p0, Landroidx/camera/core/ImageSaver;->mOutputFileOptions:Landroidx/camera/core/ImageCapture$OutputFileOptions;
@@ -1202,18 +1202,18 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_7a
 
     .line 224
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
     .line 226
-    :cond_5
+    :cond_7a
     invoke-virtual {p1, v4}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
     move-result v5
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_93
 
     .line 227
     sget-object v5, Landroidx/camera/core/ImageSaver$SaveError;->FILE_IO_FAILED:Landroidx/camera/core/ImageSaver$SaveError;
@@ -1222,43 +1222,43 @@
 
     .line 228
     const-string v5, "Failed to rename file."
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_85
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_85} :catch_8b
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_85} :catch_89
+    .catchall {:try_start_7 .. :try_end_85} :catchall_87
 
     move-object v1, v5
 
-    goto :goto_3
+    goto :goto_93
 
     .line 236
     .end local v4    # "targetFile":Ljava/io/File;
-    :catchall_0
+    :catchall_87
     move-exception v4
 
-    goto :goto_5
+    goto :goto_a1
 
     .line 231
-    :catch_0
+    :catch_89
     move-exception v4
 
-    goto :goto_2
+    goto :goto_8c
 
-    :catch_1
+    :catch_8b
     move-exception v4
 
     .line 232
     .local v4, "e":Ljava/lang/Exception;
-    :goto_2
-    :try_start_1
+    :goto_8c
+    :try_start_8c
     sget-object v5, Landroidx/camera/core/ImageSaver$SaveError;->FILE_IO_FAILED:Landroidx/camera/core/ImageSaver$SaveError;
 
     move-object v0, v5
 
     .line 233
     const-string v5, "Failed to write destination file."
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_91
+    .catchall {:try_start_8c .. :try_end_91} :catchall_87
 
     move-object v1, v5
 
@@ -1267,31 +1267,31 @@
 
     .line 236
     .end local v4    # "e":Ljava/lang/Exception;
-    :cond_6
-    :goto_3
+    :cond_93
+    :goto_93
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
     .line 237
     nop
 
     .line 238
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_9d
 
     .line 239
     invoke-direct {p0, v0, v1, v2}, Landroidx/camera/core/ImageSaver;->postError(Landroidx/camera/core/ImageSaver$SaveError;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_4
+    goto :goto_a0
 
     .line 241
-    :cond_7
+    :cond_9d
     invoke-direct {p0, v3}, Landroidx/camera/core/ImageSaver;->postSuccess(Landroid/net/Uri;)V
 
     .line 243
-    :goto_4
+    :goto_a0
     return-void
 
     .line 236
-    :goto_5
+    :goto_a1
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
     .line 237
@@ -1299,7 +1299,7 @@
 .end method
 
 .method synthetic lambda$postError$2$androidx-camera-core-ImageSaver(Landroidx/camera/core/ImageSaver$SaveError;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 5
     .param p1, "saveError"    # Landroidx/camera/core/ImageSaver$SaveError;
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "cause"    # Ljava/lang/Throwable;
@@ -1313,7 +1313,7 @@
 .end method
 
 .method synthetic lambda$postSuccess$1$androidx-camera-core-ImageSaver(Landroid/net/Uri;)V
-    .locals 2
+    .registers 4
     .param p1, "outputUri"    # Landroid/net/Uri;
 
     .line 308
@@ -1329,7 +1329,7 @@
 .end method
 
 .method synthetic lambda$run$0$androidx-camera-core-ImageSaver(Ljava/io/File;)V
-    .locals 0
+    .registers 2
     .param p1, "tempFile"    # Ljava/io/File;
 
     .line 89
@@ -1339,7 +1339,7 @@
 .end method
 
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 85
     invoke-direct {p0}, Landroidx/camera/core/ImageSaver;->saveImageToTempFile()Ljava/io/File;
@@ -1348,7 +1348,7 @@
 
     .line 86
     .local v0, "tempFile":Ljava/io/File;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 89
     iget-object v1, p0, Landroidx/camera/core/ImageSaver;->mSequentialIoExecutor:Ljava/util/concurrent/Executor;
@@ -1360,6 +1360,6 @@
     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     .line 91
-    :cond_0
+    :cond_10
     return-void
 .end method

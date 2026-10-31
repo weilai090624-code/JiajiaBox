@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final asOutcomeReceiver(Lkotlin/coroutines/Continuation;)Landroid/os/OutcomeReceiver;
-    .locals 1
+    .registers 2
     .param p0, "$this$asOutcomeReceiver"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {

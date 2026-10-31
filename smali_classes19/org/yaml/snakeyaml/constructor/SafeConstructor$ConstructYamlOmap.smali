@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/SafeConstructor;)V
-    .locals 0
+    .registers 2
 
     .line 428
     iput-object p1, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlOmap;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 10
+    .registers 12
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 433
@@ -47,7 +47,7 @@
 
     const-string v2, "while constructing an ordered map"
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_b6
 
     .line 439
     move-object v1, p1
@@ -65,12 +65,12 @@
     move-result-object v3
 
     .local v3, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_16
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_b5
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -82,7 +82,7 @@
     .local v4, "subnode":Lorg/yaml/snakeyaml/nodes/Node;
     instance-of v5, v4, Lorg/yaml/snakeyaml/nodes/MappingNode;
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_90
 
     .line 447
     move-object v5, v4
@@ -101,7 +101,7 @@
 
     const/4 v7, 0x1
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_61
 
     .line 454
     invoke-virtual {v5}, Lorg/yaml/snakeyaml/nodes/MappingNode;->getValue()Ljava/util/List;
@@ -163,12 +163,12 @@
     .end local v7    # "valueNode":Lorg/yaml/snakeyaml/nodes/Node;
     .end local v8    # "key":Ljava/lang/Object;
     .end local v9    # "value":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_16
 
     .line 449
     .restart local v4    # "subnode":Lorg/yaml/snakeyaml/nodes/Node;
     .restart local v5    # "mnode":Lorg/yaml/snakeyaml/nodes/MappingNode;
-    :cond_0
+    :cond_61
     new-instance v6, Lorg/yaml/snakeyaml/constructor/ConstructorException;
 
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/nodes/Node;->getStartMark()Lorg/yaml/snakeyaml/error/Mark;
@@ -217,7 +217,7 @@
 
     .line 442
     .end local v5    # "mnode":Lorg/yaml/snakeyaml/nodes/MappingNode;
-    :cond_1
+    :cond_90
     new-instance v5, Lorg/yaml/snakeyaml/constructor/ConstructorException;
 
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/nodes/Node;->getStartMark()Lorg/yaml/snakeyaml/error/Mark;
@@ -257,12 +257,12 @@
     .line 460
     .end local v3    # "i$":Ljava/util/Iterator;
     .end local v4    # "subnode":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_2
+    :cond_b5
     return-object v0
 
     .line 435
     .end local v1    # "snode":Lorg/yaml/snakeyaml/nodes/SequenceNode;
-    :cond_3
+    :cond_b6
     new-instance v1, Lorg/yaml/snakeyaml/constructor/ConstructorException;
 
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/nodes/Node;->getStartMark()Lorg/yaml/snakeyaml/error/Mark;

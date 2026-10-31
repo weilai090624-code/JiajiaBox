@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/CancellableContinuationImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "cont"    # Lkotlinx/coroutines/CancellableContinuationImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public invokeOnCancellation(Lkotlinx/coroutines/internal/Segment;I)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public static get(Ljava/lang/Class;)Lcom/esotericsoftware/reflectasm/FieldAccess;
-    .locals 17
+    .registers 18
     .param p0, "type"    # Ljava/lang/Class;
 
     .line 113
@@ -30,7 +30,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_165
 
     .line 116
     new-instance v0, Ljava/util/ArrayList;
@@ -47,10 +47,10 @@
 
     .line 118
     .local v2, "nextClass":Ljava/lang/Class;
-    :goto_0
+    :goto_f
     const-class v0, Ljava/lang/Object;
 
-    if-eq v2, v0, :cond_3
+    if-eq v2, v0, :cond_3a
 
     .line 119
     invoke-virtual {v2}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
@@ -65,8 +65,8 @@
     array-length v4, v0
 
     .local v4, "n":I
-    :goto_1
-    if-ge v3, v4, :cond_2
+    :goto_19
+    if-ge v3, v4, :cond_35
 
     .line 121
     aget-object v5, v0, v3
@@ -83,46 +83,46 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_28
 
-    goto :goto_2
+    goto :goto_32
 
     .line 124
-    :cond_0
+    :cond_28
     invoke-static {v6}, Ljava/lang/reflect/Modifier;->isPrivate(I)Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_2f
 
-    goto :goto_2
+    goto :goto_32
 
     .line 125
-    :cond_1
+    :cond_2f
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 120
     .end local v5    # "field":Ljava/lang/reflect/Field;
     .end local v6    # "modifiers":I
-    :goto_2
+    :goto_32
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
     .line 127
     .end local v3    # "i":I
     .end local v4    # "n":I
-    :cond_2
+    :cond_35
     invoke-virtual {v2}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v2
 
     .line 128
     .end local v0    # "declaredFields":[Ljava/lang/reflect/Field;
-    goto :goto_0
+    goto :goto_f
 
     .line 130
-    :cond_3
+    :cond_3a
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v0
@@ -145,8 +145,8 @@
     array-length v5, v3
 
     .local v5, "n":I
-    :goto_3
-    if-ge v0, v5, :cond_4
+    :goto_48
+    if-ge v0, v5, :cond_65
 
     .line 133
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -177,12 +177,12 @@
     .line 132
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_48
 
     .line 137
     .end local v0    # "i":I
     .end local v5    # "n":I
-    :cond_4
+    :cond_65
     invoke-virtual/range {p0 .. p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v5
@@ -215,7 +215,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_97
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -235,7 +235,7 @@
 
     move-result-object v0
 
-    :cond_5
+    :cond_97
     move-object v6, v0
 
     .line 142
@@ -250,14 +250,14 @@
     monitor-enter v7
 
     .line 144
-    :try_start_0
+    :try_start_9d
     invoke-virtual {v7, v6}, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->loadAccessClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
     .line 145
     .local v0, "accessClass":Ljava/lang/Class;
-    if-nez v0, :cond_6
+    if-nez v0, :cond_12d
 
     .line 146
     const/16 v8, 0x2f
@@ -406,25 +406,25 @@
 
     move-object v8, v0
 
-    goto :goto_4
+    goto :goto_12e
 
     .line 145
     .end local v8    # "classNameInternal":Ljava/lang/String;
     .end local v9    # "cw":Lcom/esotericsoftware/asm/ClassWriter;
     .end local v13    # "accessClassNameInternal":Ljava/lang/String;
-    :cond_6
+    :cond_12d
     move-object v8, v0
 
     .line 175
     .end local v0    # "accessClass":Ljava/lang/Class;
     .local v8, "accessClass":Ljava/lang/Class;
-    :goto_4
+    :goto_12e
     monitor-exit v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_12f
+    .catchall {:try_start_9d .. :try_end_12f} :catchall_162
 
     .line 177
-    :try_start_1
+    :try_start_12f
     invoke-virtual {v8}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object v0
@@ -452,15 +452,15 @@
     check-cast v9, [Ljava/lang/reflect/Field;
 
     iput-object v9, v0, Lcom/esotericsoftware/reflectasm/FieldAccess;->fields:[Ljava/lang/reflect/Field;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_147
+    .catchall {:try_start_12f .. :try_end_147} :catchall_148
 
     .line 181
     return-object v0
 
     .line 182
     .end local v0    # "access":Lcom/esotericsoftware/reflectasm/FieldAccess;
-    :catchall_0
+    :catchall_148
     move-exception v0
 
     .line 183
@@ -492,13 +492,13 @@
     .line 175
     .end local v0    # "t":Ljava/lang/Throwable;
     .end local v8    # "accessClass":Ljava/lang/Class;
-    :catchall_1
+    :catchall_162
     move-exception v0
 
-    :try_start_2
+    :try_start_163
     monitor-exit v7
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_164
+    .catchall {:try_start_163 .. :try_end_164} :catchall_162
 
     throw v0
 
@@ -510,7 +510,7 @@
     .end local v5    # "className":Ljava/lang/String;
     .end local v6    # "accessClassName":Ljava/lang/String;
     .end local v7    # "loader":Lcom/esotericsoftware/reflectasm/AccessClassLoader;
-    :cond_7
+    :cond_165
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The type must not be the Object class, an interface, a primitive type, or void."
@@ -521,7 +521,7 @@
 .end method
 
 .method private static insertConstructor(Lcom/esotericsoftware/asm/ClassWriter;)V
-    .locals 6
+    .registers 7
     .param p0, "cw"    # Lcom/esotericsoftware/asm/ClassWriter;
 
     .line 188
@@ -581,7 +581,7 @@
 .end method
 
 .method private static insertGetObject(Lcom/esotericsoftware/asm/ClassWriter;Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 16
+    .registers 19
     .param p0, "cw"    # Lcom/esotericsoftware/asm/ClassWriter;
     .param p1, "classNameInternal"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -633,7 +633,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_f6
 
     .line 282
     add-int/lit8 v0, v0, -0x1
@@ -653,8 +653,8 @@
     array-length v4, v2
 
     .local v4, "n":I
-    :goto_0
-    if-ge v3, v4, :cond_0
+    :goto_27
+    if-ge v3, v4, :cond_33
 
     .line 285
     new-instance v5, Lcom/esotericsoftware/asm/Label;
@@ -666,12 +666,12 @@
     .line 284
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
     .line 286
     .end local v3    # "i":I
     .end local v4    # "n":I
-    :cond_0
+    :cond_33
     new-instance v3, Lcom/esotericsoftware/asm/Label;
 
     invoke-direct {v3}, Lcom/esotericsoftware/asm/Label;-><init>()V
@@ -695,8 +695,8 @@
     array-length v6, v2
 
     .local v6, "n":I
-    :goto_1
-    if-ge v4, v6, :cond_1
+    :goto_41
+    if-ge v4, v6, :cond_e5
 
     .line 290
     move-object/from16 v13, p2
@@ -796,22 +796,22 @@
 
     const/16 v10, 0xb8
 
-    packed-switch v8, :pswitch_data_0
+    packed-switch v8, :pswitch_data_106
 
-    goto :goto_2
+    goto :goto_dc
 
     .line 323
-    :pswitch_0
+    :pswitch_9c
     const-string v8, "java/lang/Double"
 
     const-string v11, "(D)Ljava/lang/Double;"
 
     invoke-virtual {v1, v10, v8, v9, v11}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_dc
 
     .line 320
-    :pswitch_1
+    :pswitch_a4
     const-string v8, "java/lang/Long"
 
     const-string v11, "(J)Ljava/lang/Long;"
@@ -819,10 +819,10 @@
     invoke-virtual {v1, v10, v8, v9, v11}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 321
-    goto :goto_2
+    goto :goto_dc
 
     .line 317
-    :pswitch_2
+    :pswitch_ac
     const-string v8, "java/lang/Float"
 
     const-string v11, "(F)Ljava/lang/Float;"
@@ -830,10 +830,10 @@
     invoke-virtual {v1, v10, v8, v9, v11}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 318
-    goto :goto_2
+    goto :goto_dc
 
     .line 314
-    :pswitch_3
+    :pswitch_b4
     const-string v8, "java/lang/Integer"
 
     const-string v11, "(I)Ljava/lang/Integer;"
@@ -841,10 +841,10 @@
     invoke-virtual {v1, v10, v8, v9, v11}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 315
-    goto :goto_2
+    goto :goto_dc
 
     .line 311
-    :pswitch_4
+    :pswitch_bc
     const-string v8, "java/lang/Short"
 
     const-string v11, "(S)Ljava/lang/Short;"
@@ -852,10 +852,10 @@
     invoke-virtual {v1, v10, v8, v9, v11}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 312
-    goto :goto_2
+    goto :goto_dc
 
     .line 305
-    :pswitch_5
+    :pswitch_c4
     const-string v8, "java/lang/Byte"
 
     const-string v11, "(B)Ljava/lang/Byte;"
@@ -863,10 +863,10 @@
     invoke-virtual {v1, v10, v8, v9, v11}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 306
-    goto :goto_2
+    goto :goto_dc
 
     .line 308
-    :pswitch_6
+    :pswitch_cc
     const-string v8, "java/lang/Character"
 
     const-string v11, "(C)Ljava/lang/Character;"
@@ -874,10 +874,10 @@
     invoke-virtual {v1, v10, v8, v9, v11}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 309
-    goto :goto_2
+    goto :goto_dc
 
     .line 302
-    :pswitch_7
+    :pswitch_d4
     const-string v8, "java/lang/Boolean"
 
     const-string v11, "(Z)Ljava/lang/Boolean;"
@@ -888,7 +888,7 @@
     nop
 
     .line 327
-    :goto_2
+    :goto_dc
     const/16 v8, 0xb0
 
     invoke-virtual {v1, v8}, Lcom/esotericsoftware/asm/MethodVisitor;->visitInsn(I)V
@@ -898,9 +898,9 @@
     .end local v14    # "field":Ljava/lang/reflect/Field;
     add-int/lit8 v4, v4, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_41
 
-    :cond_1
+    :cond_e5
     move-object/from16 v15, p1
 
     move-object/from16 v13, p2
@@ -925,18 +925,18 @@
 
     invoke-virtual/range {v7 .. v12}, Lcom/esotericsoftware/asm/MethodVisitor;->visitFrame(II[Ljava/lang/Object;I[Ljava/lang/Object;)V
 
-    goto :goto_3
+    goto :goto_fa
 
     .line 281
     .end local v2    # "labels":[Lcom/esotericsoftware/asm/Label;
     .end local v3    # "defaultLabel":Lcom/esotericsoftware/asm/Label;
-    :cond_2
+    :cond_f6
     move-object/from16 v15, p1
 
     move-object/from16 v13, p2
 
     .line 333
-    :goto_3
+    :goto_fa
     invoke-static {v1}, Lcom/esotericsoftware/reflectasm/FieldAccess;->insertThrowExceptionForFieldNotFound(Lcom/esotericsoftware/asm/MethodVisitor;)Lcom/esotericsoftware/asm/MethodVisitor;
 
     .line 334
@@ -952,21 +952,21 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_106
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_d4
+        :pswitch_cc
+        :pswitch_c4
+        :pswitch_bc
+        :pswitch_b4
+        :pswitch_ac
+        :pswitch_a4
+        :pswitch_9c
     .end packed-switch
 .end method
 
 .method private static insertGetPrimitive(Lcom/esotericsoftware/asm/ClassWriter;Ljava/lang/String;Ljava/util/ArrayList;Lcom/esotericsoftware/asm/Type;)V
-    .locals 22
+    .registers 26
     .param p0, "cw"    # Lcom/esotericsoftware/asm/ClassWriter;
     .param p1, "classNameInternal"    # Ljava/lang/String;
     .param p3, "primitiveType"    # Lcom/esotericsoftware/asm/Type;
@@ -1001,7 +1001,7 @@
 
     move-result v3
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_146
 
     .line 523
     const-string v3, "get"
@@ -1011,12 +1011,12 @@
     const/16 v4, 0xb0
 
     .local v4, "returnValueInstruction":I
-    goto :goto_0
+    goto :goto_3b
 
     .line 519
     .end local v3    # "getterMethodName":Ljava/lang/String;
     .end local v4    # "returnValueInstruction":I
-    :pswitch_0
+    :pswitch_13
     const-string v3, "getDouble"
 
     .line 520
@@ -1025,12 +1025,12 @@
 
     .line 521
     .restart local v4    # "returnValueInstruction":I
-    goto :goto_0
+    goto :goto_3b
 
     .line 515
     .end local v3    # "getterMethodName":Ljava/lang/String;
     .end local v4    # "returnValueInstruction":I
-    :pswitch_1
+    :pswitch_18
     const-string v3, "getLong"
 
     .line 516
@@ -1039,12 +1039,12 @@
 
     .line 517
     .restart local v4    # "returnValueInstruction":I
-    goto :goto_0
+    goto :goto_3b
 
     .line 511
     .end local v3    # "getterMethodName":Ljava/lang/String;
     .end local v4    # "returnValueInstruction":I
-    :pswitch_2
+    :pswitch_1d
     const-string v3, "getFloat"
 
     .line 512
@@ -1053,12 +1053,12 @@
 
     .line 513
     .restart local v4    # "returnValueInstruction":I
-    goto :goto_0
+    goto :goto_3b
 
     .line 507
     .end local v3    # "getterMethodName":Ljava/lang/String;
     .end local v4    # "returnValueInstruction":I
-    :pswitch_3
+    :pswitch_22
     const-string v3, "getInt"
 
     .line 508
@@ -1067,12 +1067,12 @@
 
     .line 509
     .restart local v4    # "returnValueInstruction":I
-    goto :goto_0
+    goto :goto_3b
 
     .line 503
     .end local v3    # "getterMethodName":Ljava/lang/String;
     .end local v4    # "returnValueInstruction":I
-    :pswitch_4
+    :pswitch_27
     const-string v3, "getShort"
 
     .line 504
@@ -1081,12 +1081,12 @@
 
     .line 505
     .restart local v4    # "returnValueInstruction":I
-    goto :goto_0
+    goto :goto_3b
 
     .line 495
     .end local v3    # "getterMethodName":Ljava/lang/String;
     .end local v4    # "returnValueInstruction":I
-    :pswitch_5
+    :pswitch_2c
     const-string v3, "getByte"
 
     .line 496
@@ -1095,12 +1095,12 @@
 
     .line 497
     .restart local v4    # "returnValueInstruction":I
-    goto :goto_0
+    goto :goto_3b
 
     .line 499
     .end local v3    # "getterMethodName":Ljava/lang/String;
     .end local v4    # "returnValueInstruction":I
-    :pswitch_6
+    :pswitch_31
     const-string v3, "getChar"
 
     .line 500
@@ -1109,12 +1109,12 @@
 
     .line 501
     .restart local v4    # "returnValueInstruction":I
-    goto :goto_0
+    goto :goto_3b
 
     .line 491
     .end local v3    # "getterMethodName":Ljava/lang/String;
     .end local v4    # "returnValueInstruction":I
-    :pswitch_7
+    :pswitch_36
     const-string v3, "getBoolean"
 
     .line 492
@@ -1126,7 +1126,7 @@
     nop
 
     .line 527
-    :goto_0
+    :goto_3b
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -1175,7 +1175,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_13a
 
     .line 532
     add-int/lit8 v1, v1, -0x1
@@ -1205,8 +1205,8 @@
     array-length v10, v6
 
     .local v10, "n":I
-    :goto_1
-    if-ge v9, v10, :cond_1
+    :goto_77
+    if-ge v9, v10, :cond_9d
 
     .line 537
     invoke-virtual {v0, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1229,7 +1229,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_97
 
     .line 538
     new-instance v11, Lcom/esotericsoftware/asm/Label;
@@ -1238,22 +1238,22 @@
 
     aput-object v11, v6, v9
 
-    goto :goto_2
+    goto :goto_9a
 
     .line 540
-    :cond_0
+    :cond_97
     aput-object v7, v6, v9
 
     .line 541
     const/4 v8, 0x1
 
     .line 536
-    :goto_2
+    :goto_9a
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_77
 
-    :cond_1
+    :cond_9d
     move-object/from16 v15, p3
 
     .line 544
@@ -1282,8 +1282,8 @@
     array-length v13, v6
 
     .local v13, "n":I
-    :goto_3
-    if-ge v10, v13, :cond_3
+    :goto_ad
+    if-ge v10, v13, :cond_112
 
     .line 548
     invoke-virtual {v0, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1302,7 +1302,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_2
+    if-nez v11, :cond_105
 
     .line 550
     aget-object v11, v6, v10
@@ -1378,12 +1378,12 @@
     .line 556
     invoke-virtual {v5, v4}, Lcom/esotericsoftware/asm/MethodVisitor;->visitInsn(I)V
 
-    goto :goto_4
+    goto :goto_10a
 
     .line 549
     .end local v21    # "n":I
     .restart local v13    # "n":I
-    :cond_2
+    :cond_105
     move-object/from16 v15, p1
 
     move/from16 v21, v13
@@ -1394,7 +1394,7 @@
     .end local v13    # "n":I
     .end local v17    # "field":Ljava/lang/reflect/Field;
     .restart local v21    # "n":I
-    :goto_4
+    :goto_10a
     add-int/lit8 v10, v10, 0x1
 
     move-object/from16 v15, p3
@@ -1403,11 +1403,11 @@
 
     const/4 v14, 0x1
 
-    goto :goto_3
+    goto :goto_ad
 
     .end local v21    # "n":I
     .restart local v13    # "n":I
-    :cond_3
+    :cond_112
     move-object/from16 v15, p1
 
     move/from16 v21, v13
@@ -1415,7 +1415,7 @@
     .line 560
     .end local v10    # "i":I
     .end local v13    # "n":I
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_12d
 
     .line 561
     invoke-virtual {v5, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitLabel(Lcom/esotericsoftware/asm/Label;)V
@@ -1445,7 +1445,7 @@
     invoke-static {v5, v10}, Lcom/esotericsoftware/reflectasm/FieldAccess;->insertThrowExceptionForFieldType(Lcom/esotericsoftware/asm/MethodVisitor;Ljava/lang/String;)Lcom/esotericsoftware/asm/MethodVisitor;
 
     .line 566
-    :cond_4
+    :cond_12d
     invoke-virtual {v5, v9}, Lcom/esotericsoftware/asm/MethodVisitor;->visitLabel(Lcom/esotericsoftware/asm/Label;)V
 
     .line 567
@@ -1468,7 +1468,7 @@
     .end local v7    # "labelForInvalidTypes":Lcom/esotericsoftware/asm/Label;
     .end local v8    # "hasAnyBadTypeLabel":Z
     .end local v9    # "defaultLabel":Lcom/esotericsoftware/asm/Label;
-    :cond_5
+    :cond_13a
     invoke-static {v5}, Lcom/esotericsoftware/reflectasm/FieldAccess;->insertThrowExceptionForFieldNotFound(Lcom/esotericsoftware/asm/MethodVisitor;)Lcom/esotericsoftware/asm/MethodVisitor;
 
     move-result-object v5
@@ -1484,21 +1484,21 @@
     .line 572
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_146
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_36
+        :pswitch_31
+        :pswitch_2c
+        :pswitch_27
+        :pswitch_22
+        :pswitch_1d
+        :pswitch_18
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method private static insertGetString(Lcom/esotericsoftware/asm/ClassWriter;Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 17
+    .registers 20
     .param p0, "cw"    # Lcom/esotericsoftware/asm/ClassWriter;
     .param p1, "classNameInternal"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -1552,7 +1552,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_d3
 
     .line 345
     add-int/lit8 v1, v1, -0x1
@@ -1582,8 +1582,8 @@
     array-length v7, v3
 
     .local v7, "n":I
-    :goto_0
-    if-ge v6, v7, :cond_1
+    :goto_2f
+    if-ge v6, v7, :cond_51
 
     .line 350
     invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1602,7 +1602,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_4b
 
     .line 351
     new-instance v8, Lcom/esotericsoftware/asm/Label;
@@ -1611,25 +1611,25 @@
 
     aput-object v8, v3, v6
 
-    goto :goto_1
+    goto :goto_4e
 
     .line 353
-    :cond_0
+    :cond_4b
     aput-object v4, v3, v6
 
     .line 354
     const/4 v5, 0x1
 
     .line 349
-    :goto_1
+    :goto_4e
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 357
     .end local v6    # "i":I
     .end local v7    # "n":I
-    :cond_1
+    :cond_51
     new-instance v6, Lcom/esotericsoftware/asm/Label;
 
     invoke-direct {v6}, Lcom/esotericsoftware/asm/Label;-><init>()V
@@ -1653,8 +1653,8 @@
     array-length v15, v3
 
     .local v15, "n":I
-    :goto_2
-    if-ge v7, v15, :cond_3
+    :goto_5f
+    if-ge v7, v15, :cond_b1
 
     .line 361
     aget-object v8, v3, v7
@@ -1663,7 +1663,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_ac
 
     .line 362
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1739,26 +1739,26 @@
 
     invoke-virtual {v2, v8}, Lcom/esotericsoftware/asm/MethodVisitor;->visitInsn(I)V
 
-    goto :goto_3
+    goto :goto_ae
 
     .line 361
     .end local v16    # "field":Ljava/lang/reflect/Field;
-    :cond_2
+    :cond_ac
     move-object/from16 v13, p1
 
     .line 360
-    :goto_3
+    :goto_ae
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_2
+    goto :goto_5f
 
-    :cond_3
+    :cond_b1
     move-object/from16 v13, p1
 
     .line 373
     .end local v7    # "i":I
     .end local v15    # "n":I
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_c7
 
     .line 374
     invoke-virtual {v2, v4}, Lcom/esotericsoftware/asm/MethodVisitor;->visitLabel(Lcom/esotericsoftware/asm/Label;)V
@@ -1786,7 +1786,7 @@
     invoke-static {v2, v7}, Lcom/esotericsoftware/reflectasm/FieldAccess;->insertThrowExceptionForFieldType(Lcom/esotericsoftware/asm/MethodVisitor;Ljava/lang/String;)Lcom/esotericsoftware/asm/MethodVisitor;
 
     .line 379
-    :cond_4
+    :cond_c7
     invoke-virtual {v2, v6}, Lcom/esotericsoftware/asm/MethodVisitor;->visitLabel(Lcom/esotericsoftware/asm/Label;)V
 
     .line 380
@@ -1809,7 +1809,7 @@
     .end local v4    # "labelForInvalidTypes":Lcom/esotericsoftware/asm/Label;
     .end local v5    # "hasAnyBadTypeLabel":Z
     .end local v6    # "defaultLabel":Lcom/esotericsoftware/asm/Label;
-    :cond_5
+    :cond_d3
     invoke-static {v2}, Lcom/esotericsoftware/reflectasm/FieldAccess;->insertThrowExceptionForFieldNotFound(Lcom/esotericsoftware/asm/MethodVisitor;)Lcom/esotericsoftware/asm/MethodVisitor;
 
     .line 383
@@ -1825,7 +1825,7 @@
 .end method
 
 .method private static insertSetObject(Lcom/esotericsoftware/asm/ClassWriter;Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 16
+    .registers 19
     .param p0, "cw"    # Lcom/esotericsoftware/asm/ClassWriter;
     .param p1, "classNameInternal"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -1877,7 +1877,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_12f
 
     .line 204
     add-int/lit8 v0, v0, -0x1
@@ -1897,8 +1897,8 @@
     array-length v4, v2
 
     .local v4, "n":I
-    :goto_0
-    if-ge v3, v4, :cond_0
+    :goto_27
+    if-ge v3, v4, :cond_33
 
     .line 207
     new-instance v5, Lcom/esotericsoftware/asm/Label;
@@ -1910,12 +1910,12 @@
     .line 206
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
     .line 208
     .end local v3    # "i":I
     .end local v4    # "n":I
-    :cond_0
+    :cond_33
     new-instance v3, Lcom/esotericsoftware/asm/Label;
 
     invoke-direct {v3}, Lcom/esotericsoftware/asm/Label;-><init>()V
@@ -1939,8 +1939,8 @@
     array-length v6, v2
 
     .local v6, "n":I
-    :goto_1
-    if-ge v4, v6, :cond_1
+    :goto_41
+    if-ge v4, v6, :cond_11d
 
     .line 212
     move-object/from16 v13, p2
@@ -2008,22 +2008,22 @@
 
     const/16 v9, 0xb6
 
-    packed-switch v7, :pswitch_data_0
+    packed-switch v7, :pswitch_data_13e
 
-    goto/16 :goto_2
+    goto/16 :goto_f7
 
     .line 258
-    :pswitch_0
+    :pswitch_7d
     invoke-virtual {v15}, Lcom/esotericsoftware/asm/Type;->getInternalName()Ljava/lang/String;
 
     move-result-object v7
 
     invoke-virtual {v1, v8, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_f7
 
     .line 255
-    :pswitch_1
+    :pswitch_86
     invoke-virtual {v15}, Lcom/esotericsoftware/asm/Type;->getDescriptor()Ljava/lang/String;
 
     move-result-object v7
@@ -2031,10 +2031,10 @@
     invoke-virtual {v1, v8, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
 
     .line 256
-    goto :goto_2
+    goto :goto_f7
 
     .line 251
-    :pswitch_2
+    :pswitch_8e
     const-string v7, "java/lang/Double"
 
     invoke-virtual {v1, v8, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
@@ -2047,10 +2047,10 @@
     invoke-virtual {v1, v9, v7, v8, v10}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 253
-    goto :goto_2
+    goto :goto_f7
 
     .line 247
-    :pswitch_3
+    :pswitch_9b
     const-string v7, "java/lang/Long"
 
     invoke-virtual {v1, v8, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
@@ -2063,10 +2063,10 @@
     invoke-virtual {v1, v9, v7, v8, v10}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 249
-    goto :goto_2
+    goto :goto_f7
 
     .line 243
-    :pswitch_4
+    :pswitch_a8
     const-string v7, "java/lang/Float"
 
     invoke-virtual {v1, v8, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
@@ -2079,10 +2079,10 @@
     invoke-virtual {v1, v9, v7, v8, v10}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 245
-    goto :goto_2
+    goto :goto_f7
 
     .line 239
-    :pswitch_5
+    :pswitch_b5
     const-string v7, "java/lang/Integer"
 
     invoke-virtual {v1, v8, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
@@ -2095,10 +2095,10 @@
     invoke-virtual {v1, v9, v7, v8, v10}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 241
-    goto :goto_2
+    goto :goto_f7
 
     .line 235
-    :pswitch_6
+    :pswitch_c2
     const-string v7, "java/lang/Short"
 
     invoke-virtual {v1, v8, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
@@ -2111,10 +2111,10 @@
     invoke-virtual {v1, v9, v7, v8, v10}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 237
-    goto :goto_2
+    goto :goto_f7
 
     .line 227
-    :pswitch_7
+    :pswitch_d0
     const-string v7, "java/lang/Byte"
 
     invoke-virtual {v1, v8, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
@@ -2127,10 +2127,10 @@
     invoke-virtual {v1, v9, v7, v8, v10}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 229
-    goto :goto_2
+    goto :goto_f7
 
     .line 231
-    :pswitch_8
+    :pswitch_dd
     const-string v7, "java/lang/Character"
 
     invoke-virtual {v1, v8, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
@@ -2143,10 +2143,10 @@
     invoke-virtual {v1, v9, v7, v8, v10}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 233
-    goto :goto_2
+    goto :goto_f7
 
     .line 223
-    :pswitch_9
+    :pswitch_ea
     const-string v7, "java/lang/Boolean"
 
     invoke-virtual {v1, v8, v7}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
@@ -2162,7 +2162,7 @@
     nop
 
     .line 262
-    :goto_2
+    :goto_f7
     invoke-virtual {v14}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
     move-result-object v7
@@ -2203,9 +2203,9 @@
     .end local v15    # "fieldType":Lcom/esotericsoftware/asm/Type;
     add-int/lit8 v4, v4, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_41
 
-    :cond_1
+    :cond_11d
     move-object/from16 v12, p1
 
     move-object/from16 v13, p2
@@ -2232,16 +2232,16 @@
 
     invoke-virtual/range {v7 .. v12}, Lcom/esotericsoftware/asm/MethodVisitor;->visitFrame(II[Ljava/lang/Object;I[Ljava/lang/Object;)V
 
-    goto :goto_3
+    goto :goto_131
 
     .line 203
     .end local v2    # "labels":[Lcom/esotericsoftware/asm/Label;
     .end local v3    # "defaultLabel":Lcom/esotericsoftware/asm/Label;
-    :cond_2
+    :cond_12f
     move-object/from16 v13, p2
 
     .line 270
-    :goto_3
+    :goto_131
     invoke-static {v1}, Lcom/esotericsoftware/reflectasm/FieldAccess;->insertThrowExceptionForFieldNotFound(Lcom/esotericsoftware/asm/MethodVisitor;)Lcom/esotericsoftware/asm/MethodVisitor;
 
     move-result-object v1
@@ -2259,23 +2259,23 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_13e
     .packed-switch 0x1
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_ea
+        :pswitch_dd
+        :pswitch_d0
+        :pswitch_c2
+        :pswitch_b5
+        :pswitch_a8
+        :pswitch_9b
+        :pswitch_8e
+        :pswitch_86
+        :pswitch_7d
     .end packed-switch
 .end method
 
 .method private static insertSetPrimitive(Lcom/esotericsoftware/asm/ClassWriter;Ljava/lang/String;Ljava/util/ArrayList;Lcom/esotericsoftware/asm/Type;)V
-    .locals 23
+    .registers 27
     .param p0, "cw"    # Lcom/esotericsoftware/asm/ClassWriter;
     .param p1, "classNameInternal"    # Ljava/lang/String;
     .param p3, "primitiveType"    # Lcom/esotericsoftware/asm/Type;
@@ -2314,7 +2314,7 @@
 
     move-result v4
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_170
 
     .line 430
     const-string v4, "set"
@@ -2328,12 +2328,12 @@
     move v11, v5
 
     .local v5, "loadValueInstruction":I
-    goto :goto_0
+    goto :goto_59
 
     .line 425
     .end local v4    # "setterMethodName":Ljava/lang/String;
     .end local v5    # "loadValueInstruction":I
-    :pswitch_0
+    :pswitch_16
     const-string/jumbo v4, "setDouble"
 
     .line 426
@@ -2349,12 +2349,12 @@
 
     move v11, v5
 
-    goto :goto_0
+    goto :goto_59
 
     .line 420
     .end local v4    # "setterMethodName":Ljava/lang/String;
     .end local v5    # "loadValueInstruction":I
-    :pswitch_1
+    :pswitch_20
     const-string/jumbo v4, "setLong"
 
     .line 421
@@ -2370,12 +2370,12 @@
 
     move v11, v5
 
-    goto :goto_0
+    goto :goto_59
 
     .line 416
     .end local v4    # "setterMethodName":Ljava/lang/String;
     .end local v5    # "loadValueInstruction":I
-    :pswitch_2
+    :pswitch_2a
     const-string/jumbo v4, "setFloat"
 
     .line 417
@@ -2388,12 +2388,12 @@
 
     move v11, v5
 
-    goto :goto_0
+    goto :goto_59
 
     .line 412
     .end local v4    # "setterMethodName":Ljava/lang/String;
     .end local v5    # "loadValueInstruction":I
-    :pswitch_3
+    :pswitch_32
     const-string/jumbo v4, "setInt"
 
     .line 413
@@ -2406,12 +2406,12 @@
 
     move v11, v5
 
-    goto :goto_0
+    goto :goto_59
 
     .line 408
     .end local v4    # "setterMethodName":Ljava/lang/String;
     .end local v5    # "loadValueInstruction":I
-    :pswitch_4
+    :pswitch_3a
     const-string/jumbo v4, "setShort"
 
     .line 409
@@ -2424,12 +2424,12 @@
 
     move v11, v5
 
-    goto :goto_0
+    goto :goto_59
 
     .line 400
     .end local v4    # "setterMethodName":Ljava/lang/String;
     .end local v5    # "loadValueInstruction":I
-    :pswitch_5
+    :pswitch_42
     const-string/jumbo v4, "setByte"
 
     .line 401
@@ -2442,12 +2442,12 @@
 
     move v11, v5
 
-    goto :goto_0
+    goto :goto_59
 
     .line 404
     .end local v4    # "setterMethodName":Ljava/lang/String;
     .end local v5    # "loadValueInstruction":I
-    :pswitch_6
+    :pswitch_4a
     const-string/jumbo v4, "setChar"
 
     .line 405
@@ -2460,12 +2460,12 @@
 
     move v11, v5
 
-    goto :goto_0
+    goto :goto_59
 
     .line 396
     .end local v4    # "setterMethodName":Ljava/lang/String;
     .end local v5    # "loadValueInstruction":I
-    :pswitch_7
+    :pswitch_52
     const-string/jumbo v4, "setBoolean"
 
     .line 397
@@ -2483,7 +2483,7 @@
     .end local v5    # "loadValueInstruction":I
     .local v10, "setterMethodName":Ljava/lang/String;
     .local v11, "loadValueInstruction":I
-    :goto_0
+    :goto_59
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -2538,7 +2538,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_164
 
     .line 440
     add-int/lit8 v1, v1, -0x1
@@ -2568,8 +2568,8 @@
     array-length v9, v5
 
     .local v9, "n":I
-    :goto_1
-    if-ge v8, v9, :cond_1
+    :goto_9b
+    if-ge v8, v9, :cond_c1
 
     .line 445
     invoke-virtual {v0, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2592,7 +2592,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_0
+    if-eqz v12, :cond_bb
 
     .line 446
     new-instance v12, Lcom/esotericsoftware/asm/Label;
@@ -2601,22 +2601,22 @@
 
     aput-object v12, v5, v8
 
-    goto :goto_2
+    goto :goto_be
 
     .line 448
-    :cond_0
+    :cond_bb
     aput-object v6, v5, v8
 
     .line 449
     const/4 v7, 0x1
 
     .line 444
-    :goto_2
+    :goto_be
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_9b
 
-    :cond_1
+    :cond_c1
     move-object/from16 v15, p3
 
     .line 452
@@ -2645,8 +2645,8 @@
     array-length v13, v5
 
     .local v13, "n":I
-    :goto_3
-    if-ge v9, v13, :cond_3
+    :goto_d1
+    if-ge v9, v13, :cond_13a
 
     .line 456
     aget-object v12, v5, v9
@@ -2655,7 +2655,7 @@
 
     move-result v12
 
-    if-nez v12, :cond_2
+    if-nez v12, :cond_12e
 
     .line 457
     invoke-virtual {v0, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2746,13 +2746,13 @@
 
     invoke-virtual {v4, v12}, Lcom/esotericsoftware/asm/MethodVisitor;->visitInsn(I)V
 
-    goto :goto_4
+    goto :goto_132
 
     .line 456
     .end local v18    # "field":Ljava/lang/reflect/Field;
     .end local v22    # "n":I
     .restart local v13    # "n":I
-    :cond_2
+    :cond_12e
     move-object/from16 v15, p1
 
     move/from16 v22, v13
@@ -2760,7 +2760,7 @@
     .line 455
     .end local v13    # "n":I
     .restart local v22    # "n":I
-    :goto_4
+    :goto_132
     add-int/lit8 v9, v9, 0x1
 
     move-object/from16 v15, p3
@@ -2769,11 +2769,11 @@
 
     const/4 v14, 0x1
 
-    goto :goto_3
+    goto :goto_d1
 
     .end local v22    # "n":I
     .restart local v13    # "n":I
-    :cond_3
+    :cond_13a
     move-object/from16 v15, p1
 
     move/from16 v22, v13
@@ -2781,7 +2781,7 @@
     .line 469
     .end local v9    # "i":I
     .end local v13    # "n":I
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_156
 
     .line 470
     invoke-virtual {v4, v6}, Lcom/esotericsoftware/asm/MethodVisitor;->visitLabel(Lcom/esotericsoftware/asm/Label;)V
@@ -2811,7 +2811,7 @@
     invoke-static {v4, v9}, Lcom/esotericsoftware/reflectasm/FieldAccess;->insertThrowExceptionForFieldType(Lcom/esotericsoftware/asm/MethodVisitor;Ljava/lang/String;)Lcom/esotericsoftware/asm/MethodVisitor;
 
     .line 475
-    :cond_4
+    :cond_156
     invoke-virtual {v4, v8}, Lcom/esotericsoftware/asm/MethodVisitor;->visitLabel(Lcom/esotericsoftware/asm/Label;)V
 
     .line 476
@@ -2834,7 +2834,7 @@
     .end local v6    # "labelForInvalidTypes":Lcom/esotericsoftware/asm/Label;
     .end local v7    # "hasAnyBadTypeLabel":Z
     .end local v8    # "defaultLabel":Lcom/esotericsoftware/asm/Label;
-    :cond_5
+    :cond_164
     invoke-static {v4}, Lcom/esotericsoftware/reflectasm/FieldAccess;->insertThrowExceptionForFieldNotFound(Lcom/esotericsoftware/asm/MethodVisitor;)Lcom/esotericsoftware/asm/MethodVisitor;
 
     move-result-object v4
@@ -2850,21 +2850,21 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_170
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_52
+        :pswitch_4a
+        :pswitch_42
+        :pswitch_3a
+        :pswitch_32
+        :pswitch_2a
+        :pswitch_20
+        :pswitch_16
     .end packed-switch
 .end method
 
 .method private static insertThrowExceptionForFieldNotFound(Lcom/esotericsoftware/asm/MethodVisitor;)Lcom/esotericsoftware/asm/MethodVisitor;
-    .locals 8
+    .registers 9
     .param p0, "mv"    # Lcom/esotericsoftware/asm/MethodVisitor;
 
     .line 575
@@ -2937,7 +2937,7 @@
 .end method
 
 .method private static insertThrowExceptionForFieldType(Lcom/esotericsoftware/asm/MethodVisitor;Ljava/lang/String;)Lcom/esotericsoftware/asm/MethodVisitor;
-    .locals 8
+    .registers 10
     .param p0, "mv"    # Lcom/esotericsoftware/asm/MethodVisitor;
     .param p1, "fieldType"    # Ljava/lang/String;
 
@@ -3038,7 +3038,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "instance"    # Ljava/lang/Object;
     .param p2, "fieldName"    # Ljava/lang/String;
 
@@ -3067,7 +3067,7 @@
 .end method
 
 .method public getFieldCount()I
-    .locals 1
+    .registers 2
 
     .line 62
     iget-object v0, p0, Lcom/esotericsoftware/reflectasm/FieldAccess;->fieldTypes:[Ljava/lang/Class;
@@ -3078,7 +3078,7 @@
 .end method
 
 .method public getFieldNames()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lcom/esotericsoftware/reflectasm/FieldAccess;->fieldNames:[Ljava/lang/String;
@@ -3087,7 +3087,7 @@
 .end method
 
 .method public getFieldTypes()[Ljava/lang/Class;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Lcom/esotericsoftware/reflectasm/FieldAccess;->fieldTypes:[Ljava/lang/Class;
@@ -3096,7 +3096,7 @@
 .end method
 
 .method public getFields()[Ljava/lang/reflect/Field;
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Lcom/esotericsoftware/reflectasm/FieldAccess;->fields:[Ljava/lang/reflect/Field;
@@ -3108,7 +3108,7 @@
 .end method
 
 .method public getIndex(Ljava/lang/String;)I
-    .locals 3
+    .registers 5
     .param p1, "fieldName"    # Ljava/lang/String;
 
     .line 34
@@ -3120,8 +3120,8 @@
     array-length v1, v1
 
     .local v1, "n":I
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_4
+    if-ge v0, v1, :cond_14
 
     .line 35
     iget-object v2, p0, Lcom/esotericsoftware/reflectasm/FieldAccess;->fieldNames:[Ljava/lang/String;
@@ -3132,20 +3132,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     return v0
 
     .line 34
-    :cond_0
+    :cond_11
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 36
     .end local v0    # "i":I
     .end local v1    # "n":I
-    :cond_1
+    :cond_14
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3172,7 +3172,7 @@
 .end method
 
 .method public getIndex(Ljava/lang/reflect/Field;)I
-    .locals 3
+    .registers 5
     .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 40
@@ -3184,8 +3184,8 @@
     array-length v1, v1
 
     .local v1, "n":I
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_4
+    if-ge v0, v1, :cond_14
 
     .line 41
     iget-object v2, p0, Lcom/esotericsoftware/reflectasm/FieldAccess;->fields:[Ljava/lang/reflect/Field;
@@ -3196,20 +3196,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     return v0
 
     .line 40
-    :cond_0
+    :cond_11
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 42
     .end local v0    # "i":I
     .end local v1    # "n":I
-    :cond_1
+    :cond_14
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3251,7 +3251,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "instance"    # Ljava/lang/Object;
     .param p2, "fieldName"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
@@ -3280,7 +3280,7 @@
 .end method
 
 .method public setFields([Ljava/lang/reflect/Field;)V
-    .locals 0
+    .registers 2
     .param p1, "fields"    # [Ljava/lang/reflect/Field;
 
     .line 70

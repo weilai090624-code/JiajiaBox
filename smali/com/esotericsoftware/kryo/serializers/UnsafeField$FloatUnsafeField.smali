@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;)V
-    .locals 2
+    .registers 4
     .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 89
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public copy(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 6
+    .registers 9
     .param p1, "original"    # Ljava/lang/Object;
     .param p2, "copy"    # Ljava/lang/Object;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p2, "object"    # Ljava/lang/Object;
 

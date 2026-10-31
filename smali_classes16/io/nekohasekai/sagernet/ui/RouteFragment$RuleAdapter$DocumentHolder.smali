@@ -44,7 +44,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$qpkfhCdl-0hLIDS1vsbV84Uy9KQ(Landroid/view/View;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$DocumentHolder;->bind$lambda$0(Landroid/view/View;)V
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Lio/nekohasekai/sagernet/databinding/LayoutEmptyRouteBinding;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
     .param p2, "binding"    # Lio/nekohasekai/sagernet/databinding/LayoutEmptyRouteBinding;
     .annotation system Ldalvik/annotation/Signature;
@@ -82,7 +82,7 @@
 .end method
 
 .method private static final bind$lambda$0(Landroid/view/View;)V
-    .locals 2
+    .registers 3
     .param p0, "it"    # Landroid/view/View;
 
     .line 267
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public final bind()V
-    .locals 2
+    .registers 3
 
     .line 266
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$DocumentHolder;->itemView:Landroid/view/View;

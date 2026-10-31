@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 56
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/Serializable$CREATOR;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public newArray(I)[Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -53,7 +53,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -72,7 +72,7 @@
 .end method
 
 .method public bridge synthetic newInstance()Lio/nekohasekai/sagernet/fmt/Serializable;
-    .locals 1
+    .registers 2
 
     .line 56
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean$1;->newInstance()Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
@@ -83,7 +83,7 @@
 .end method
 
 .method public newInstance()Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
-    .locals 1
+    .registers 2
 
     .line 60
     new-instance v0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;

@@ -72,7 +72,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 143
     const-string v0, "okio.Okio"
@@ -87,7 +87,7 @@
 .end method
 
 .method public static final synthetic access$getLogger$p()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lokio/Okio__JvmOkioKt;->logger:Ljava/util/logging/Logger;
@@ -96,7 +96,7 @@
 .end method
 
 .method public static final appendingSink(Ljava/io/File;)Lokio/Sink;
-    .locals 2
+    .registers 3
     .param p0, "$this$appendingSink"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -125,7 +125,7 @@
 .end method
 
 .method public static final asResourceFileSystem(Ljava/lang/ClassLoader;)Lokio/FileSystem;
-    .locals 2
+    .registers 3
     .param p0, "$this$asResourceFileSystem"    # Ljava/lang/ClassLoader;
 
     const-string v0, "<this>"
@@ -145,7 +145,7 @@
 .end method
 
 .method public static final cipherSink(Lokio/Sink;Ljavax/crypto/Cipher;)Lokio/CipherSink;
-    .locals 2
+    .registers 4
     .param p0, "$this$cipherSink"    # Lokio/Sink;
     .param p1, "cipher"    # Ljavax/crypto/Cipher;
 
@@ -170,7 +170,7 @@
 .end method
 
 .method public static final cipherSource(Lokio/Source;Ljavax/crypto/Cipher;)Lokio/CipherSource;
-    .locals 2
+    .registers 4
     .param p0, "$this$cipherSource"    # Lokio/Source;
     .param p1, "cipher"    # Ljavax/crypto/Cipher;
 
@@ -195,7 +195,7 @@
 .end method
 
 .method public static final hashingSink(Lokio/Sink;Ljava/security/MessageDigest;)Lokio/HashingSink;
-    .locals 1
+    .registers 3
     .param p0, "$this$hashingSink"    # Lokio/Sink;
     .param p1, "digest"    # Ljava/security/MessageDigest;
 
@@ -216,7 +216,7 @@
 .end method
 
 .method public static final hashingSink(Lokio/Sink;Ljavax/crypto/Mac;)Lokio/HashingSink;
-    .locals 1
+    .registers 3
     .param p0, "$this$hashingSink"    # Lokio/Sink;
     .param p1, "mac"    # Ljavax/crypto/Mac;
 
@@ -237,7 +237,7 @@
 .end method
 
 .method public static final hashingSource(Lokio/Source;Ljava/security/MessageDigest;)Lokio/HashingSource;
-    .locals 1
+    .registers 3
     .param p0, "$this$hashingSource"    # Lokio/Source;
     .param p1, "digest"    # Ljava/security/MessageDigest;
 
@@ -258,7 +258,7 @@
 .end method
 
 .method public static final hashingSource(Lokio/Source;Ljavax/crypto/Mac;)Lokio/HashingSource;
-    .locals 1
+    .registers 3
     .param p0, "$this$hashingSource"    # Lokio/Source;
     .param p1, "mac"    # Ljavax/crypto/Mac;
 
@@ -279,7 +279,7 @@
 .end method
 
 .method public static final isAndroidGetsocknameError(Ljava/lang/AssertionError;)Z
-    .locals 5
+    .registers 6
     .param p0, "$this$isAndroidGetsocknameError"    # Ljava/lang/AssertionError;
 
     const-string v0, "<this>"
@@ -293,19 +293,19 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     invoke-virtual {p0}, Ljava/lang/AssertionError;->getMessage()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_14
     check-cast v0, Ljava/lang/CharSequence;
 
     const-string v2, "getsockname failed"
@@ -320,17 +320,17 @@
 
     move-result v0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_20
+    if-eqz v0, :cond_23
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_23
     return v1
 .end method
 
 .method public static final openZip(Lokio/FileSystem;Lokio/Path;)Lokio/FileSystem;
-    .locals 2
+    .registers 4
     .param p0, "$this$openZip"    # Lokio/FileSystem;
     .param p1, "zipPath"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
@@ -362,7 +362,7 @@
 .end method
 
 .method public static final sink(Ljava/io/File;)Lokio/Sink;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -387,7 +387,7 @@
 .end method
 
 .method public static final sink(Ljava/io/File;Z)Lokio/Sink;
-    .locals 1
+    .registers 3
     .param p0, "$this$sink"    # Ljava/io/File;
     .param p1, "append"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -415,7 +415,7 @@
 .end method
 
 .method public static final sink(Ljava/io/OutputStream;)Lokio/Sink;
-    .locals 2
+    .registers 3
     .param p0, "$this$sink"    # Ljava/io/OutputStream;
 
     const-string v0, "<this>"
@@ -437,7 +437,7 @@
 .end method
 
 .method public static final sink(Ljava/net/Socket;)Lokio/Sink;
-    .locals 4
+    .registers 5
     .param p0, "$this$sink"    # Ljava/net/Socket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -486,7 +486,7 @@
 .end method
 
 .method public static final varargs sink(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Lokio/Sink;
-    .locals 2
+    .registers 4
     .param p0, "$this$sink"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/OpenOption;
     .annotation system Ldalvik/annotation/Throws;
@@ -528,7 +528,7 @@
 .end method
 
 .method public static synthetic sink$default(Ljava/io/File;ZILjava/lang/Object;)Lokio/Sink;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -538,11 +538,11 @@
     .line 174
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lokio/Okio;->sink(Ljava/io/File;Z)Lokio/Sink;
 
     move-result-object p0
@@ -551,7 +551,7 @@
 .end method
 
 .method public static final source(Ljava/io/File;)Lokio/Source;
-    .locals 3
+    .registers 4
     .param p0, "$this$source"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -582,7 +582,7 @@
 .end method
 
 .method public static final source(Ljava/io/InputStream;)Lokio/Source;
-    .locals 2
+    .registers 3
     .param p0, "$this$source"    # Ljava/io/InputStream;
 
     const-string v0, "<this>"
@@ -604,7 +604,7 @@
 .end method
 
 .method public static final source(Ljava/net/Socket;)Lokio/Source;
-    .locals 4
+    .registers 5
     .param p0, "$this$source"    # Ljava/net/Socket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -653,7 +653,7 @@
 .end method
 
 .method public static final varargs source(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Lokio/Source;
-    .locals 2
+    .registers 4
     .param p0, "$this$source"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/OpenOption;
     .annotation system Ldalvik/annotation/Throws;

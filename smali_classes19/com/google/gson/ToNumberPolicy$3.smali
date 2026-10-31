@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 65
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public readNumber(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Number;
-    .locals 7
+    .registers 9
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -47,7 +47,7 @@
 
     .line 69
     .local v1, "value":Ljava/lang/String;
-    :try_start_0
+    :try_start_6
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v2
@@ -55,18 +55,18 @@
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_e} :catch_f
 
     return-object v0
 
     .line 70
-    :catch_0
+    :catch_f
     move-exception v2
 
     .line 72
     .local v2, "longE":Ljava/lang/NumberFormatException;
-    :try_start_1
+    :try_start_10
     invoke-static {v1}, Ljava/lang/Double;->valueOf(Ljava/lang/String;)Ljava/lang/Double;
 
     move-result-object v3
@@ -77,27 +77,27 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_20
 
     invoke-virtual {v3}, Ljava/lang/Double;->isNaN()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_26
 
-    :cond_0
+    :cond_20
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->isLenient()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_27
 
     .line 76
-    :cond_1
+    :cond_26
     return-object v3
 
     .line 74
-    :cond_2
+    :cond_27
     new-instance v4, Lcom/google/gson/stream/MalformedJsonException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -136,15 +136,15 @@
     .end local v2    # "longE":Ljava/lang/NumberFormatException;
     .end local p1    # "in":Lcom/google/gson/stream/JsonReader;
     throw v4
-    :try_end_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_4c
+    .catch Ljava/lang/NumberFormatException; {:try_start_10 .. :try_end_4c} :catch_4c
 
     .line 77
     .end local v3    # "d":Ljava/lang/Double;
     .restart local v1    # "value":Ljava/lang/String;
     .restart local v2    # "longE":Ljava/lang/NumberFormatException;
     .restart local p1    # "in":Lcom/google/gson/stream/JsonReader;
-    :catch_1
+    :catch_4c
     move-exception v3
 
     .line 78

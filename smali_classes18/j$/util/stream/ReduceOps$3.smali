@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/StreamShape;Ljava/util/function/BinaryOperator;Ljava/util/function/BiConsumer;Ljava/util/function/Supplier;Lj$/util/stream/Collector;)V
-    .locals 0
+    .registers 6
     .param p1, "shape"    # Lj$/util/stream/StreamShape;
 
     .line 177
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public getOpFlags()I
-    .locals 2
+    .registers 3
 
     .line 185
     iget-object v0, p0, Lj$/util/stream/ReduceOps$3;->val$collector:Lj$/util/stream/Collector;
@@ -70,24 +70,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 186
     sget v0, Lj$/util/stream/StreamOpFlag;->NOT_ORDERED:I
 
-    goto :goto_0
+    goto :goto_12
 
     .line 187
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 185
-    :goto_0
+    :goto_12
     return v0
 .end method
 
 .method public makeSink()Lj$/util/stream/ReduceOps$3ReducingSink;
-    .locals 4
+    .registers 5
 
     .line 180
     new-instance v0, Lj$/util/stream/ReduceOps$3ReducingSink;
@@ -104,7 +104,7 @@
 .end method
 
 .method public bridge synthetic makeSink()Lj$/util/stream/ReduceOps$AccumulatingSink;
-    .locals 1
+    .registers 2
 
     .line 177
     invoke-virtual {p0}, Lj$/util/stream/ReduceOps$3;->makeSink()Lj$/util/stream/ReduceOps$3ReducingSink;

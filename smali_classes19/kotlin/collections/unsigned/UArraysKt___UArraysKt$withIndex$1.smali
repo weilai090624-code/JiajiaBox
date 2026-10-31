@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>([I)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lkotlin/collections/unsigned/UArraysKt___UArraysKt$withIndex$1;->$this_withIndex:[I
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 5217
     invoke-virtual {p0}, Lkotlin/collections/unsigned/UArraysKt___UArraysKt$withIndex$1;->invoke()Ljava/util/Iterator;
@@ -78,7 +78,7 @@
 .end method
 
 .method public final invoke()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

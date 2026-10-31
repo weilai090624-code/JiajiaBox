@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Lj$/util/stream/Sink;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public synthetic accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;D)V
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public synthetic accept(I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;I)V
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public synthetic accept(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;J)V
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 1
+    .registers 4
     .param p1, "size"    # J
 
     .line 253
@@ -121,7 +121,7 @@
 .end method
 
 .method public cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     .line 263
     .local p0, "this":Lj$/util/stream/Sink$ChainedReference;, "Ljava/util/stream/Sink$ChainedReference<TT;TE_OUT;>;"
@@ -135,7 +135,7 @@
 .end method
 
 .method public end()V
-    .locals 1
+    .registers 2
 
     .line 258
     .local p0, "this":Lj$/util/stream/Sink$ChainedReference;, "Ljava/util/stream/Sink$ChainedReference<TT;TE_OUT;>;"

@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .param p1, "workerClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,20 +101,20 @@
 
 # virtual methods
 .method public buildInternal$work_runtime_release()Landroidx/work/OneTimeWorkRequest;
-    .locals 2
+    .registers 3
 
     .line 63
     invoke-virtual {p0}, Landroidx/work/OneTimeWorkRequest$Builder;->getBackoffCriteriaSet$work_runtime_release()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1b
 
     .line 64
     invoke-virtual {p0}, Landroidx/work/OneTimeWorkRequest$Builder;->getWorkSpec$work_runtime_release()Landroidx/work/impl/model/WorkSpec;
@@ -127,22 +127,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     const/4 v0, 0x1
 
     .line 62
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_1c
+    if-eqz v0, :cond_24
 
     .line 66
     new-instance v0, Landroidx/work/OneTimeWorkRequest;
@@ -152,7 +152,7 @@
     return-object v0
 
     .line 62
-    :cond_2
+    :cond_24
     const/4 v0, 0x0
 
     .line 65
@@ -175,7 +175,7 @@
 .end method
 
 .method public bridge synthetic buildInternal$work_runtime_release()Landroidx/work/WorkRequest;
-    .locals 1
+    .registers 2
 
     .line 35
     invoke-virtual {p0}, Landroidx/work/OneTimeWorkRequest$Builder;->buildInternal$work_runtime_release()Landroidx/work/OneTimeWorkRequest;
@@ -188,14 +188,14 @@
 .end method
 
 .method public getThisObject$work_runtime_release()Landroidx/work/OneTimeWorkRequest$Builder;
-    .locals 0
+    .registers 1
 
     .line 70
     return-object p0
 .end method
 
 .method public bridge synthetic getThisObject$work_runtime_release()Landroidx/work/WorkRequest$Builder;
-    .locals 1
+    .registers 2
 
     .line 35
     invoke-virtual {p0}, Landroidx/work/OneTimeWorkRequest$Builder;->getThisObject$work_runtime_release()Landroidx/work/OneTimeWorkRequest$Builder;
@@ -208,7 +208,7 @@
 .end method
 
 .method public final setInputMerger(Ljava/lang/Class;)Landroidx/work/OneTimeWorkRequest$Builder;
-    .locals 2
+    .registers 4
     .param p1, "inputMerger"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 125
     new-instance v0, Lcom/google/common/collect/Range$LowerBoundFn;
@@ -46,7 +46,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/collect/Range;)Lcom/google/common/collect/Cut;
-    .locals 1
+    .registers 3
     .param p1, "range"    # Lcom/google/common/collect/Range;
 
     .line 129
@@ -67,7 +67,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 124
     check-cast p1, Lcom/google/common/collect/Range;

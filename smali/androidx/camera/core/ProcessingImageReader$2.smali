@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ProcessingImageReader;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/core/ProcessingImageReader;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method synthetic lambda$onImageAvailable$0$androidx-camera-core-ProcessingImageReader$2(Landroidx/camera/core/impl/ImageReaderProxy$OnImageAvailableListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroidx/camera/core/impl/ImageReaderProxy$OnImageAvailableListener;
 
     .line 86
@@ -57,7 +57,7 @@
 .end method
 
 .method public onImageAvailable(Landroidx/camera/core/impl/ImageReaderProxy;)V
-    .locals 4
+    .registers 6
     .param p1, "reader"    # Landroidx/camera/core/impl/ImageReaderProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -76,7 +76,7 @@
     monitor-enter v0
 
     .line 76
-    :try_start_0
+    :try_start_5
     iget-object v1, p0, Landroidx/camera/core/ProcessingImageReader$2;->this$0:Landroidx/camera/core/ProcessingImageReader;
 
     iget-object v1, v1, Landroidx/camera/core/ProcessingImageReader;->mListener:Landroidx/camera/core/impl/ImageReaderProxy$OnImageAvailableListener;
@@ -102,14 +102,14 @@
 
     .line 82
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_5 .. :try_end_1a} :catchall_2d
 
     .line 83
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2c
 
     .line 84
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_27
 
     .line 85
     new-instance v0, Landroidx/camera/core/ProcessingImageReader$2$$ExternalSyntheticLambda0;
@@ -118,29 +118,29 @@
 
     invoke-interface {v2, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 88
-    :cond_0
+    :cond_27
     iget-object v0, p0, Landroidx/camera/core/ProcessingImageReader$2;->this$0:Landroidx/camera/core/ProcessingImageReader;
 
     invoke-interface {v1, v0}, Landroidx/camera/core/impl/ImageReaderProxy$OnImageAvailableListener;->onImageAvailable(Landroidx/camera/core/impl/ImageReaderProxy;)V
 
     .line 91
-    :cond_1
-    :goto_0
+    :cond_2c
+    :goto_2c
     return-void
 
     .line 82
     .end local v1    # "listener":Landroidx/camera/core/impl/ImageReaderProxy$OnImageAvailableListener;
     .end local v2    # "executor":Ljava/util/concurrent/Executor;
-    :catchall_0
+    :catchall_2d
     move-exception v1
 
-    :try_start_1
+    :try_start_2e
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_2e .. :try_end_2f} :catchall_2d
 
     throw v1
 .end method

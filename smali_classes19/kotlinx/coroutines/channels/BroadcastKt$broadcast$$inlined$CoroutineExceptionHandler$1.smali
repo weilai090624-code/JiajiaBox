@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/CoroutineExceptionHandler$Key;)V
-    .locals 1
+    .registers 3
     .param p1, "$super_call_param$1"    # Lkotlinx/coroutines/CoroutineExceptionHandler$Key;
 
     .line 48
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public handleException(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "exception"    # Ljava/lang/Throwable;
 

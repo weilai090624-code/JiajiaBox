@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static flipFunctionReturningStream(Ljava/util/function/DoubleFunction;)Ljava/util/function/DoubleFunction;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,7 +46,7 @@
 .end method
 
 .method public static flipFunctionReturningStream(Ljava/util/function/Function;)Ljava/util/function/Function;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 .end method
 
 .method public static flipFunctionReturningStream(Ljava/util/function/IntFunction;)Ljava/util/function/IntFunction;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
 .end method
 
 .method public static flipFunctionReturningStream(Ljava/util/function/LongFunction;)Ljava/util/function/LongFunction;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

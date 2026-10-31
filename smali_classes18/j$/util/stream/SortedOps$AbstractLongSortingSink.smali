@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Sink;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public final cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     .line 533
     const/4 v0, 0x1

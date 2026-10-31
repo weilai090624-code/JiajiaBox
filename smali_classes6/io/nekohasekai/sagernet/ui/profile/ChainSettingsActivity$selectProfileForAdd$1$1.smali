@@ -71,7 +71,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$tIOwVJBzO37_T3bvPUPAOFCn_AY(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Lio/nekohasekai/sagernet/database/ProxyEntity;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$selectProfileForAdd$1$1;->invokeSuspend$lambda$0(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Lio/nekohasekai/sagernet/database/ProxyEntity;)V
 
@@ -79,7 +79,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Intent;Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,7 +104,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$0(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Lio/nekohasekai/sagernet/database/ProxyEntity;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
     .param p1, "$profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
 
@@ -113,7 +113,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 228
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->getProxyList()Ljava/util/ArrayList;
@@ -139,10 +139,10 @@
 
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;->notifyItemChanged(I)V
 
-    goto :goto_0
+    goto :goto_35
 
     .line 231
-    :cond_0
+    :cond_1f
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->getProxyList()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -165,14 +165,14 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;->notifyItemInserted(I)V
 
     .line 234
-    :goto_0
+    :goto_35
     return-void
 .end method
 
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -199,7 +199,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -213,7 +213,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -242,7 +242,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -251,7 +251,7 @@
     .line 210
     iget v1, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$selectProfileForAdd$1$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_6c
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -262,13 +262,13 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_53
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 211
@@ -314,7 +314,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_54
 
     .line 220
     .end local v1    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -338,19 +338,19 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_53
 
     .line 210
     return-object v0
 
     .line 220
-    :cond_0
-    :goto_0
-    goto :goto_1
+    :cond_53
+    :goto_53
+    goto :goto_68
 
     .line 226
     .restart local v1    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_1
+    :cond_54
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$selectProfileForAdd$1$1;->this$0:Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->getConfigurationList()Landroidx/recyclerview/widget/RecyclerView;
@@ -371,16 +371,16 @@
 
     .line 236
     .end local v1    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :goto_1
+    :goto_68
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

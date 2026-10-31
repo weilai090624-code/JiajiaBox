@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 256
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/Serializer;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public bridge synthetic copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 256
     check-cast p2, [Ljava/lang/String;
@@ -55,7 +55,7 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;[Ljava/lang/String;)[Ljava/lang/String;
-    .locals 3
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "original"    # [Ljava/lang/String;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 256
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultArraySerializers$StringArraySerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)[Ljava/lang/String;
@@ -88,7 +88,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)[Ljava/lang/String;
-    .locals 5
+    .registers 9
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p3, "type"    # Ljava/lang/Class;
@@ -102,14 +102,14 @@
 
     .line 279
     .local v0, "length":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 280
-    :cond_0
+    :cond_9
     add-int/lit8 v0, v0, -0x1
 
     new-array v1, v0, [Ljava/lang/String;
@@ -120,7 +120,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_36
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Kryo;->getReferenceResolver()Lcom/esotericsoftware/kryo/ReferenceResolver;
 
@@ -132,7 +132,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_36
 
     .line 282
     const-class v2, Ljava/lang/String;
@@ -146,8 +146,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v0, :cond_1
+    :goto_26
+    if-ge v3, v0, :cond_35
 
     .line 284
     const-class v4, Ljava/lang/String;
@@ -163,21 +163,21 @@
     .line 283
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 285
     .end local v2    # "serializer":Lcom/esotericsoftware/kryo/Serializer;
     .end local v3    # "i":I
-    :cond_1
-    goto :goto_2
+    :cond_35
+    goto :goto_42
 
     .line 286
-    :cond_2
+    :cond_36
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_1
-    if-ge v2, v0, :cond_3
+    :goto_37
+    if-ge v2, v0, :cond_42
 
     .line 287
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readString()Ljava/lang/String;
@@ -189,17 +189,17 @@
     .line 286
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_37
 
     .line 289
     .end local v2    # "i":I
-    :cond_3
-    :goto_2
+    :cond_42
+    :goto_42
     return-object v1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 256
     check-cast p3, [Ljava/lang/String;
@@ -210,13 +210,13 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;[Ljava/lang/String;)V
-    .locals 4
+    .registers 8
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # [Ljava/lang/String;
 
     .line 262
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7
 
     .line 263
     const/4 v0, 0x0
@@ -227,7 +227,7 @@
     return-void
 
     .line 266
-    :cond_0
+    :cond_7
     array-length v0, p3
 
     const/4 v1, 0x1
@@ -241,7 +241,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_32
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Kryo;->getReferenceResolver()Lcom/esotericsoftware/kryo/ReferenceResolver;
 
@@ -253,7 +253,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_32
 
     .line 268
     const-class v0, Ljava/lang/String;
@@ -270,8 +270,8 @@
     array-length v2, p3
 
     .local v2, "n":I
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_27
+    if-ge v1, v2, :cond_31
 
     .line 270
     aget-object v3, p3, v1
@@ -281,25 +281,25 @@
     .line 269
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
     .line 271
     .end local v0    # "serializer":Lcom/esotericsoftware/kryo/Serializer;
     .end local v1    # "i":I
     .end local v2    # "n":I
-    :cond_1
-    goto :goto_2
+    :cond_31
+    goto :goto_3e
 
     .line 272
-    :cond_2
+    :cond_32
     const/4 v0, 0x0
 
     .local v0, "i":I
     array-length v1, p3
 
     .local v1, "n":I
-    :goto_1
-    if-ge v0, v1, :cond_3
+    :goto_34
+    if-ge v0, v1, :cond_3e
 
     .line 273
     aget-object v2, p3, v0
@@ -309,12 +309,12 @@
     .line 272
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_34
 
     .line 275
     .end local v0    # "i":I
     .end local v1    # "n":I
-    :cond_3
-    :goto_2
+    :cond_3e
+    :goto_3e
     return-void
 .end method

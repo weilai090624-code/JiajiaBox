@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     .line 50
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method protected createNavigationBarItemView(Landroid/content/Context;)Lcom/google/android/material/navigation/NavigationBarItemView;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 196
@@ -121,7 +121,7 @@
 .end method
 
 .method public isItemHorizontalTranslationEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 190
     iget-boolean v0, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->itemHorizontalTranslationEnabled:Z
@@ -130,7 +130,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 9
+    .registers 15
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -159,8 +159,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v0, :cond_2
+    :goto_a
+    if-ge v4, v0, :cond_3e
 
     .line 157
     invoke-virtual {p0, v4}, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->getChildAt(I)Landroid/view/View;
@@ -175,13 +175,13 @@
 
     const/16 v7, 0x8
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_19
 
     .line 159
-    goto :goto_2
+    goto :goto_3b
 
     .line 161
-    :cond_0
+    :cond_19
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v6
@@ -190,7 +190,7 @@
 
     const/4 v8, 0x1
 
-    if-ne v6, v8, :cond_1
+    if-ne v6, v8, :cond_2e
 
     .line 162
     sub-int v6, v1, v3
@@ -205,10 +205,10 @@
 
     invoke-virtual {v5, v6, v7, v8, v2}, Landroid/view/View;->layout(IIII)V
 
-    goto :goto_1
+    goto :goto_36
 
     .line 164
-    :cond_1
+    :cond_2e
     invoke-virtual {v5}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v6
@@ -218,7 +218,7 @@
     invoke-virtual {v5, v3, v7, v6, v2}, Landroid/view/View;->layout(IIII)V
 
     .line 166
-    :goto_1
+    :goto_36
     invoke-virtual {v5}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v6
@@ -227,19 +227,19 @@
 
     .line 156
     .end local v5    # "child":Landroid/view/View;
-    :goto_2
+    :goto_3b
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 168
     .end local v4    # "i":I
-    :cond_2
+    :cond_3e
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 21
+    .registers 24
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -305,14 +305,14 @@
 
     const/4 v10, 0x1
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_c4
 
     .line 84
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->isItemHorizontalTranslationEnabled()Z
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_c1
 
     .line 85
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->getSelectedItemPosition()I
@@ -333,7 +333,7 @@
 
     move-result v12
 
-    if-eq v12, v9, :cond_0
+    if-eq v12, v9, :cond_5b
 
     .line 90
     iget v12, v0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->activeItemMaxWidth:I
@@ -358,21 +358,21 @@
     move-result v11
 
     .line 94
-    :cond_0
+    :cond_5b
     invoke-virtual {v8}, Landroid/view/View;->getVisibility()I
 
     move-result v12
 
-    if-eq v12, v9, :cond_1
+    if-eq v12, v9, :cond_63
 
     const/4 v12, 0x1
 
-    goto :goto_0
+    goto :goto_64
 
-    :cond_1
+    :cond_63
     const/4 v12, 0x0
 
-    :goto_0
+    :goto_64
     sub-int v12, v3, v12
 
     .line 95
@@ -401,14 +401,14 @@
     sub-int v15, v2, v14
 
     .line 99
-    if-nez v12, :cond_2
+    if-nez v12, :cond_7b
 
-    goto :goto_1
+    goto :goto_7c
 
-    :cond_2
+    :cond_7b
     move v10, v12
 
-    :goto_1
+    :goto_7c
     div-int/2addr v15, v10
 
     .line 100
@@ -434,8 +434,8 @@
     move/from16 v6, v17
 
     .local v6, "i":I
-    :goto_2
-    if-ge v6, v4, :cond_5
+    :goto_8d
+    if-ge v6, v4, :cond_be
 
     .line 104
     const/16 v18, 0x0
@@ -454,27 +454,27 @@
 
     move-result v1
 
-    if-eq v1, v9, :cond_4
+    if-eq v1, v9, :cond_ae
 
     .line 106
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->getSelectedItemPosition()I
 
     move-result v1
 
-    if-ne v6, v1, :cond_3
+    if-ne v6, v1, :cond_a5
 
     move v1, v14
 
-    goto :goto_3
+    goto :goto_a6
 
-    :cond_3
+    :cond_a5
     move v1, v10
 
-    :goto_3
+    :goto_a6
     move/from16 v18, v1
 
     .line 110
-    if-lez v16, :cond_4
+    if-lez v16, :cond_ae
 
     .line 111
     add-int/lit8 v18, v18, 0x1
@@ -483,7 +483,7 @@
     add-int/lit8 v16, v16, -0x1
 
     .line 115
-    :cond_4
+    :cond_ae
     iget-object v1, v0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->tempChildWidths:Ljava/util/List;
 
     invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -500,11 +500,11 @@
 
     const/16 v9, 0x8
 
-    goto :goto_2
+    goto :goto_8d
 
     .end local v20    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
     .restart local v1    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
-    :cond_5
+    :cond_be
     move-object/from16 v20, v1
 
     .line 117
@@ -519,36 +519,36 @@
     .end local v15    # "inactiveMaxAvailable":I
     .end local v16    # "extra":I
     .restart local v20    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
-    goto :goto_7
+    goto :goto_f9
 
     .line 84
     .end local v20    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
     .restart local v1    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
-    :cond_6
+    :cond_c1
     move-object/from16 v20, v1
 
     .end local v1    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
     .restart local v20    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
-    goto :goto_4
+    goto :goto_c6
 
     .line 83
     .end local v20    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
     .restart local v1    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
-    :cond_7
+    :cond_c4
     move-object/from16 v20, v1
 
     .line 118
     .end local v1    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
     .restart local v20    # "menu":Landroidx/appcompat/view/menu/MenuBuilder;
-    :goto_4
-    if-nez v3, :cond_8
+    :goto_c6
+    if-nez v3, :cond_c9
 
-    goto :goto_5
+    goto :goto_ca
 
-    :cond_8
+    :cond_c9
     move v10, v3
 
-    :goto_5
+    :goto_ca
     div-int v1, v2, v10
 
     .line 119
@@ -570,8 +570,8 @@
     const/4 v9, 0x0
 
     .local v9, "i":I
-    :goto_6
-    if-ge v9, v4, :cond_a
+    :goto_d7
+    if-ge v9, v4, :cond_f9
 
     .line 122
     const/4 v10, 0x0
@@ -588,13 +588,13 @@
 
     const/16 v12, 0x8
 
-    if-eq v11, v12, :cond_9
+    if-eq v11, v12, :cond_ed
 
     .line 124
     move v10, v6
 
     .line 125
-    if-lez v8, :cond_9
+    if-lez v8, :cond_ed
 
     .line 126
     add-int/lit8 v10, v10, 0x1
@@ -603,7 +603,7 @@
     add-int/lit8 v8, v8, -0x1
 
     .line 130
-    :cond_9
+    :cond_ed
     iget-object v11, v0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->tempChildWidths:Ljava/util/List;
 
     invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -616,15 +616,15 @@
     .end local v10    # "tempChildWidth":I
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_6
+    goto :goto_d7
 
     .line 134
     .end local v1    # "maxAvailable":I
     .end local v6    # "childWidth":I
     .end local v8    # "extra":I
     .end local v9    # "i":I
-    :cond_a
-    :goto_7
+    :cond_f9
+    :goto_f9
     const/4 v1, 0x0
 
     .line 135
@@ -632,8 +632,8 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_8
-    if-ge v6, v4, :cond_c
+    :goto_fb
+    if-ge v6, v4, :cond_133
 
     .line 136
     invoke-virtual {v0, v6}, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->getChildAt(I)Landroid/view/View;
@@ -648,15 +648,15 @@
 
     const/16 v10, 0x8
 
-    if-ne v9, v10, :cond_b
+    if-ne v9, v10, :cond_10c
 
     .line 138
     const/high16 v11, 0x40000000    # 2.0f
 
-    goto :goto_9
+    goto :goto_130
 
     .line 140
-    :cond_b
+    :cond_10c
     iget-object v9, v0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->tempChildWidths:Ljava/util/List;
 
     .line 141
@@ -702,14 +702,14 @@
     .line 135
     .end local v8    # "child":Landroid/view/View;
     .end local v9    # "params":Landroid/view/ViewGroup$LayoutParams;
-    :goto_9
+    :goto_130
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_8
+    goto :goto_fb
 
     .line 147
     .end local v6    # "i":I
-    :cond_c
+    :cond_133
     invoke-virtual {v0, v1, v5}, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->setMeasuredDimension(II)V
 
     .line 148
@@ -717,7 +717,7 @@
 .end method
 
 .method public setItemHorizontalTranslationEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "itemHorizontalTranslationEnabled"    # Z
 
     .line 179

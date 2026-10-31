@@ -21,7 +21,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 7
+    .registers 12
     .param p1, "context"    # Ljava/lang/String;
     .param p2, "contextMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "problem"    # Ljava/lang/String;
@@ -49,7 +49,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/String;)V
-    .locals 7
+    .registers 13
     .param p1, "context"    # Ljava/lang/String;
     .param p2, "contextMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "problem"    # Ljava/lang/String;
@@ -78,7 +78,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 9
     .param p1, "context"    # Ljava/lang/String;
     .param p2, "contextMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "problem"    # Ljava/lang/String;
@@ -139,7 +139,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Throwable;)V
-    .locals 7
+    .registers 13
     .param p1, "context"    # Ljava/lang/String;
     .param p2, "contextMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "problem"    # Ljava/lang/String;
@@ -170,7 +170,7 @@
 
 # virtual methods
 .method public getContext()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 87
     iget-object v0, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->context:Ljava/lang/String;
@@ -179,7 +179,7 @@
 .end method
 
 .method public getContextMark()Lorg/yaml/snakeyaml/error/Mark;
-    .locals 1
+    .registers 2
 
     .line 91
     iget-object v0, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->contextMark:Lorg/yaml/snakeyaml/error/Mark;
@@ -188,7 +188,7 @@
 .end method
 
 .method public getMessage()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->toString()Ljava/lang/String;
@@ -199,7 +199,7 @@
 .end method
 
 .method public getProblem()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 95
     iget-object v0, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->problem:Ljava/lang/String;
@@ -208,7 +208,7 @@
 .end method
 
 .method public getProblemMark()Lorg/yaml/snakeyaml/error/Mark;
-    .locals 1
+    .registers 2
 
     .line 99
     iget-object v0, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->problemMark:Lorg/yaml/snakeyaml/error/Mark;
@@ -217,7 +217,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 58
     new-instance v0, Ljava/lang/StringBuilder;
@@ -230,7 +230,7 @@
 
     const-string v2, "\n"
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 60
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->context:Ljava/lang/String;
@@ -241,18 +241,18 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 63
-    :cond_0
+    :cond_13
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->contextMark:Lorg/yaml/snakeyaml/error/Mark;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_59
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->problem:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4d
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->problemMark:Lorg/yaml/snakeyaml/error/Mark;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4d
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->contextMark:Lorg/yaml/snakeyaml/error/Mark;
 
@@ -270,7 +270,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_4d
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->contextMark:Lorg/yaml/snakeyaml/error/Mark;
 
@@ -284,7 +284,7 @@
 
     move-result v3
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_4d
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->contextMark:Lorg/yaml/snakeyaml/error/Mark;
 
@@ -298,10 +298,10 @@
 
     move-result v3
 
-    if-eq v1, v3, :cond_2
+    if-eq v1, v3, :cond_59
 
     .line 68
-    :cond_1
+    :cond_4d
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->contextMark:Lorg/yaml/snakeyaml/error/Mark;
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/error/Mark;->toString()Ljava/lang/String;
@@ -314,10 +314,10 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 71
-    :cond_2
+    :cond_59
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->problem:Ljava/lang/String;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_65
 
     .line 72
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->problem:Ljava/lang/String;
@@ -328,10 +328,10 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 75
-    :cond_3
+    :cond_65
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->problemMark:Lorg/yaml/snakeyaml/error/Mark;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_75
 
     .line 76
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->problemMark:Lorg/yaml/snakeyaml/error/Mark;
@@ -346,10 +346,10 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 79
-    :cond_4
+    :cond_75
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->note:Ljava/lang/String;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_81
 
     .line 80
     iget-object v1, p0, Lorg/yaml/snakeyaml/error/MarkedYAMLException;->note:Ljava/lang/String;
@@ -360,7 +360,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 83
-    :cond_5
+    :cond_81
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

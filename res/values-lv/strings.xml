@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Ienākošais zvans</string>
     <string name="call_notification_ongoing_text">Pašreizējais zvans</string>
     <string name="call_notification_screening_text">Ienākošā zvana filtrēšana</string>
-    <string name="character_counter_content_description" formatted="false">Ievadītās rakstzīmes: %1$d no %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Pārsniegts rakstzīmju skaita ierobežojums (%1$d no %2$d)</string>
+    <string name="character_counter_content_description">Ievadītās rakstzīmes: %1$d no %2$d</string>
+    <string name="character_counter_overflowed_content_description">Pārsniegts rakstzīmju skaita ierobežojums (%1$d no %2$d)</string>
     <string name="clear_text_end_icon_content_description">Notīrīt tekstu</string>
     <string name="copy">Kopēt</string>
     <string name="copy_toast_msg">Saite ir kopēta starpliktuvē.</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Ārpus diapazona: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Sākuma datums–%1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s–beigu datums</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
     <string name="mtrl_picker_range_header_title">Atlasiet diapazonu</string>
     <string name="mtrl_picker_range_header_unselected">Sākuma datums–beigu datums</string>
     <string name="mtrl_picker_save">Saglabāt</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">Preference “%1$s” ir kopēta starpliktuvē.</string>
     <string name="search_menu_title">Meklēt</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">IZSLĒGTS</string>
     <string name="v7_preference_on">IESLĒGTS</string>
 </resources>

@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public approveCall(Ljava/lang/String;I)Z
-    .locals 7
+    .registers 10
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
 
@@ -89,36 +89,36 @@
     .local v0, "nullableMask":Ljava/lang/Integer;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v2, 0x0
 
     .line 34
     .local v2, "mask":I
-    :goto_0
+    :goto_16
     and-int v3, v2, p2
 
     const/4 v4, 0x1
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1d
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v3, 0x0
 
     .line 35
     .local v3, "wasCalled":Z
-    :goto_1
+    :goto_1e
     iget-object v5, p0, Landroidx/lifecycle/MethodCallsLogger;->calledMethods:Ljava/util/Map;
 
     or-int v6, v2, p2
@@ -130,10 +130,10 @@
     invoke-interface {v5, p1, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 36
-    if-nez v3, :cond_2
+    if-nez v3, :cond_2c
 
     const/4 v1, 0x1
 
-    :cond_2
+    :cond_2c
     return v1
 .end method

@@ -50,7 +50,7 @@
 
 # direct methods
 .method public static final and(Landroid/graphics/Region;Landroid/graphics/Rect;)Landroid/graphics/Region;
-    .locals 5
+    .registers 7
     .param p0, "$this$and"    # Landroid/graphics/Region;
     .param p1, "r"    # Landroid/graphics/Rect;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static final and(Landroid/graphics/Region;Landroid/graphics/Region;)Landroid/graphics/Region;
-    .locals 5
+    .registers 7
     .param p0, "$this$and"    # Landroid/graphics/Region;
     .param p1, "r"    # Landroid/graphics/Region;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public static final contains(Landroid/graphics/Region;Landroid/graphics/Point;)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Landroid/graphics/Region;
     .param p1, "p"    # Landroid/graphics/Point;
 
@@ -136,7 +136,7 @@
 .end method
 
 .method public static final forEach(Landroid/graphics/Region;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p0, "$this$forEach"    # Landroid/graphics/Region;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -161,7 +161,7 @@
 
     .line 132
     .local v1, "iterator":Landroid/graphics/RegionIterator;
-    :goto_0
+    :goto_6
     nop
 
     .line 133
@@ -175,7 +175,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_14
 
     .line 135
     nop
@@ -186,14 +186,14 @@
 
     .line 137
     .restart local v2    # "r":Landroid/graphics/Rect;
-    :cond_0
+    :cond_14
     invoke-interface {p1, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_6
 .end method
 
 .method public static final iterator(Landroid/graphics/Region;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$iterator"    # Landroid/graphics/Region;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -218,7 +218,7 @@
 .end method
 
 .method public static final minus(Landroid/graphics/Region;Landroid/graphics/Rect;)Landroid/graphics/Region;
-    .locals 5
+    .registers 7
     .param p0, "$this$minus"    # Landroid/graphics/Region;
     .param p1, "r"    # Landroid/graphics/Rect;
 
@@ -251,7 +251,7 @@
 .end method
 
 .method public static final minus(Landroid/graphics/Region;Landroid/graphics/Region;)Landroid/graphics/Region;
-    .locals 5
+    .registers 7
     .param p0, "$this$minus"    # Landroid/graphics/Region;
     .param p1, "r"    # Landroid/graphics/Region;
 
@@ -284,7 +284,7 @@
 .end method
 
 .method public static final not(Landroid/graphics/Region;)Landroid/graphics/Region;
-    .locals 7
+    .registers 8
     .param p0, "$this$not"    # Landroid/graphics/Region;
 
     const/4 v0, 0x0
@@ -332,7 +332,7 @@
 .end method
 
 .method public static final or(Landroid/graphics/Region;Landroid/graphics/Rect;)Landroid/graphics/Region;
-    .locals 6
+    .registers 8
     .param p0, "$this$or"    # Landroid/graphics/Region;
     .param p1, "r"    # Landroid/graphics/Rect;
 
@@ -375,7 +375,7 @@
 .end method
 
 .method public static final or(Landroid/graphics/Region;Landroid/graphics/Region;)Landroid/graphics/Region;
-    .locals 7
+    .registers 9
     .param p0, "$this$or"    # Landroid/graphics/Region;
     .param p1, "r"    # Landroid/graphics/Region;
 
@@ -420,7 +420,7 @@
 .end method
 
 .method public static final plus(Landroid/graphics/Region;Landroid/graphics/Rect;)Landroid/graphics/Region;
-    .locals 4
+    .registers 6
     .param p0, "$this$plus"    # Landroid/graphics/Region;
     .param p1, "r"    # Landroid/graphics/Rect;
 
@@ -451,7 +451,7 @@
 .end method
 
 .method public static final plus(Landroid/graphics/Region;Landroid/graphics/Region;)Landroid/graphics/Region;
-    .locals 5
+    .registers 7
     .param p0, "$this$plus"    # Landroid/graphics/Region;
     .param p1, "r"    # Landroid/graphics/Region;
 
@@ -484,7 +484,7 @@
 .end method
 
 .method public static final unaryMinus(Landroid/graphics/Region;)Landroid/graphics/Region;
-    .locals 5
+    .registers 6
     .param p0, "$this$unaryMinus"    # Landroid/graphics/Region;
 
     const/4 v0, 0x0
@@ -520,7 +520,7 @@
 .end method
 
 .method public static final xor(Landroid/graphics/Region;Landroid/graphics/Rect;)Landroid/graphics/Region;
-    .locals 5
+    .registers 7
     .param p0, "$this$xor"    # Landroid/graphics/Region;
     .param p1, "r"    # Landroid/graphics/Rect;
 
@@ -553,7 +553,7 @@
 .end method
 
 .method public static final xor(Landroid/graphics/Region;Landroid/graphics/Region;)Landroid/graphics/Region;
-    .locals 5
+    .registers 7
     .param p0, "$this$xor"    # Landroid/graphics/Region;
     .param p1, "r"    # Landroid/graphics/Region;
 

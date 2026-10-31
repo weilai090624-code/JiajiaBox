@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,7 +21,7 @@
 .end method
 
 .method private getOnePlus6ExcludedSizes(Ljava/lang/String;I)Ljava/util/List;
-    .locals 4
+    .registers 7
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "imageFormat"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -59,11 +59,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     const/16 v1, 0x100
 
-    if-ne p2, v1, :cond_0
+    if-ne p2, v1, :cond_29
 
     .line 75
     new-instance v1, Landroid/util/Size;
@@ -88,12 +88,12 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 78
-    :cond_0
+    :cond_29
     return-object v0
 .end method
 
 .method private getOnePlus6TExcludedSizes(Ljava/lang/String;I)Ljava/util/List;
-    .locals 4
+    .registers 7
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "imageFormat"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -131,11 +131,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     const/16 v1, 0x100
 
-    if-ne p2, v1, :cond_0
+    if-ne p2, v1, :cond_29
 
     .line 85
     new-instance v1, Landroid/util/Size;
@@ -160,12 +160,12 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 88
-    :cond_0
+    :cond_29
     return-object v0
 .end method
 
 .method private static isOnePlus6()Z
-    .locals 2
+    .registers 2
 
     .line 47
     const-string v0, "OnePlus"
@@ -176,7 +176,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const-string v0, "OnePlus6"
 
@@ -186,21 +186,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method private static isOnePlus6T()Z
-    .locals 2
+    .registers 2
 
     .line 51
     const-string v0, "OnePlus"
@@ -211,7 +211,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const-string v0, "OnePlus6T"
 
@@ -221,54 +221,54 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method static load()Z
-    .locals 1
+    .registers 1
 
     .line 43
     invoke-static {}, Landroidx/camera/camera2/internal/compat/quirk/ExcludedSupportedSizesQuirk;->isOnePlus6()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-static {}, Landroidx/camera/camera2/internal/compat/quirk/ExcludedSupportedSizesQuirk;->isOnePlus6T()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 
 # virtual methods
 .method public getExcludedSizes(Ljava/lang/String;I)Ljava/util/List;
-    .locals 2
+    .registers 5
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "imageFormat"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -298,7 +298,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 62
     invoke-direct {p0, p1, p2}, Landroidx/camera/camera2/internal/compat/quirk/ExcludedSupportedSizesQuirk;->getOnePlus6ExcludedSizes(Ljava/lang/String;I)Ljava/util/List;
@@ -308,12 +308,12 @@
     return-object v0
 
     .line 64
-    :cond_0
+    :cond_b
     invoke-static {}, Landroidx/camera/camera2/internal/compat/quirk/ExcludedSupportedSizesQuirk;->isOnePlus6T()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 65
     invoke-direct {p0, p1, p2}, Landroidx/camera/camera2/internal/compat/quirk/ExcludedSupportedSizesQuirk;->getOnePlus6TExcludedSizes(Ljava/lang/String;I)Ljava/util/List;
@@ -323,7 +323,7 @@
     return-object v0
 
     .line 67
-    :cond_1
+    :cond_16
     const-string v0, "ExcludedSupportedSizesQuirk"
 
     const-string v1, "Cannot retrieve list of supported sizes to exclude on this device."

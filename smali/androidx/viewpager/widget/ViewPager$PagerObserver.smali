@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
-    .locals 0
+    .registers 2
 
     .line 3092
     iput-object p1, p0, Landroidx/viewpager/widget/ViewPager$PagerObserver;->this$0:Landroidx/viewpager/widget/ViewPager;
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 1
+    .registers 2
 
     .line 3097
     iget-object v0, p0, Landroidx/viewpager/widget/ViewPager$PagerObserver;->this$0:Landroidx/viewpager/widget/ViewPager;
@@ -46,7 +46,7 @@
 .end method
 
 .method public onInvalidated()V
-    .locals 1
+    .registers 2
 
     .line 3101
     iget-object v0, p0, Landroidx/viewpager/widget/ViewPager$PagerObserver;->this$0:Landroidx/viewpager/widget/ViewPager;

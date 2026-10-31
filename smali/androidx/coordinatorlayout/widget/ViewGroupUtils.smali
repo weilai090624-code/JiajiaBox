@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 35
     new-instance v0, Ljava/lang/ThreadLocal;
@@ -47,7 +47,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method public static getDescendantRect(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;)V
-    .locals 3
+    .registers 6
     .param p0, "parent"    # Landroid/view/ViewGroup;
     .param p1, "descendant"    # Landroid/view/View;
     .param p2, "out"    # Landroid/graphics/Rect;
@@ -83,7 +83,7 @@
 .end method
 
 .method private static offsetDescendantMatrix(Landroid/view/ViewParent;Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 4
+    .registers 7
     .param p0, "target"    # Landroid/view/ViewParent;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "m"    # Landroid/graphics/Matrix;
@@ -97,9 +97,9 @@
     .local v0, "parent":Landroid/view/ViewParent;
     instance-of v1, v0, Landroid/view/View;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_1f
 
     .line 84
     move-object v1, v0
@@ -131,7 +131,7 @@
 
     .line 89
     .end local v1    # "vp":Landroid/view/View;
-    :cond_0
+    :cond_1f
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
     move-result v1
@@ -155,7 +155,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3d
 
     .line 92
     invoke-virtual {p1}, Landroid/view/View;->getMatrix()Landroid/graphics/Matrix;
@@ -165,12 +165,12 @@
     invoke-virtual {p2, v1}, Landroid/graphics/Matrix;->preConcat(Landroid/graphics/Matrix;)Z
 
     .line 94
-    :cond_1
+    :cond_3d
     return-void
 .end method
 
 .method static offsetDescendantRect(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;)V
-    .locals 7
+    .registers 10
     .param p0, "parent"    # Landroid/view/ViewGroup;
     .param p1, "descendant"    # Landroid/view/View;
     .param p2, "rect"    # Landroid/graphics/Rect;
@@ -186,7 +186,7 @@
 
     .line 49
     .local v0, "m":Landroid/graphics/Matrix;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 50
     new-instance v1, Landroid/graphics/Matrix;
@@ -200,14 +200,14 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 53
-    :cond_0
+    :cond_16
     invoke-virtual {v0}, Landroid/graphics/Matrix;->reset()V
 
     .line 56
-    :goto_0
+    :goto_19
     invoke-static {p0, p1, v0}, Landroidx/coordinatorlayout/widget/ViewGroupUtils;->offsetDescendantMatrix(Landroid/view/ViewParent;Landroid/view/View;Landroid/graphics/Matrix;)V
 
     .line 58
@@ -221,7 +221,7 @@
 
     .line 59
     .local v1, "rectF":Landroid/graphics/RectF;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_31
 
     .line 60
     new-instance v2, Landroid/graphics/RectF;
@@ -236,7 +236,7 @@
     invoke-virtual {v2, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
     .line 63
-    :cond_1
+    :cond_31
     invoke-virtual {v1, p2}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
 
     .line 64

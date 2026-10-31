@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;Landroidx/appcompat/view/ActionMode$Callback;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/appcompat/app/AppCompatDelegateImpl;
     .param p2, "wrapped"    # Landroidx/appcompat/view/ActionMode$Callback;
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onActionItemClicked(Landroidx/appcompat/view/ActionMode;Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 4
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
     .param p2, "item"    # Landroid/view/MenuItem;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public onCreateActionMode(Landroidx/appcompat/view/ActionMode;Landroid/view/Menu;)Z
-    .locals 1
+    .registers 4
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
     .param p2, "menu"    # Landroid/view/Menu;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public onDestroyActionMode(Landroidx/appcompat/view/ActionMode;)V
-    .locals 3
+    .registers 5
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
 
     .line 3027
@@ -87,7 +87,7 @@
 
     iget-object v0, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mActionModePopup:Landroid/widget/PopupWindow;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 3029
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -105,12 +105,12 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     .line 3032
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     iget-object v0, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mActionModeView:Landroidx/appcompat/widget/ActionBarContextView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_42
 
     .line 3033
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -148,12 +148,12 @@
     invoke-virtual {v0, v1}, Landroidx/core/view/ViewPropertyAnimatorCompat;->setListener(Landroidx/core/view/ViewPropertyAnimatorListener;)Landroidx/core/view/ViewPropertyAnimatorCompat;
 
     .line 3051
-    :cond_1
+    :cond_42
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     iget-object v0, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mAppCompatCallback:Landroidx/appcompat/app/AppCompatCallback;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_53
 
     .line 3052
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -167,7 +167,7 @@
     invoke-interface {v0, v1}, Landroidx/appcompat/app/AppCompatCallback;->onSupportActionModeFinished(Landroidx/appcompat/view/ActionMode;)V
 
     .line 3054
-    :cond_2
+    :cond_53
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     const/4 v1, 0x0
@@ -191,7 +191,7 @@
 .end method
 
 .method public onPrepareActionMode(Landroidx/appcompat/view/ActionMode;Landroid/view/Menu;)Z
-    .locals 1
+    .registers 4
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
     .param p2, "menu"    # Landroid/view/Menu;
 

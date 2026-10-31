@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 455
     const/4 v0, 0x0
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public bridge synthetic get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 457
     const-string v0, "boolean"
@@ -115,7 +115,7 @@
 .end method
 
 .method public parseValue(Ljava/lang/String;)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
 
     const-string/jumbo v0, "value"
@@ -132,26 +132,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 471
-    :cond_0
+    :cond_12
     const-string v0, "false"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     const/4 v0, 0x0
 
     .line 473
-    :goto_0
+    :goto_1b
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -160,7 +160,7 @@
     return-object v0
 
     .line 473
-    :cond_1
+    :cond_20
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     .line 474
@@ -175,7 +175,7 @@
 .end method
 
 .method public bridge synthetic parseValue(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 455
@@ -187,7 +187,7 @@
 .end method
 
 .method public bridge synthetic put(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
@@ -207,7 +207,7 @@
 .end method
 
 .method public put(Landroid/os/Bundle;Ljava/lang/String;Z)V
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Z

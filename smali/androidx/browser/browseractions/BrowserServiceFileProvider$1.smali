@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/ContentResolver;Landroid/net/Uri;Landroidx/concurrent/futures/ResolvableFuture;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .registers 7
 
     .line 282
     :try_start_0
@@ -65,7 +65,7 @@
 
     .line 284
     .local v0, "descriptor":Landroid/os/ParcelFileDescriptor;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 285
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$1;->val$result:Landroidx/concurrent/futures/ResolvableFuture;
@@ -80,7 +80,7 @@
     return-void
 
     .line 289
-    :cond_0
+    :cond_17
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v1
@@ -96,7 +96,7 @@
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
 
     .line 293
-    if-nez v2, :cond_1
+    if-nez v2, :cond_31
 
     .line 294
     iget-object v3, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$1;->val$result:Landroidx/concurrent/futures/ResolvableFuture;
@@ -113,12 +113,12 @@
     return-void
 
     .line 298
-    :cond_1
+    :cond_31
     iget-object v3, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$1;->val$result:Landroidx/concurrent/futures/ResolvableFuture;
 
     invoke-virtual {v3, v2}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_36
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_36} :catch_38
 
     .line 301
     nop
@@ -126,10 +126,10 @@
     .end local v0    # "descriptor":Landroid/os/ParcelFileDescriptor;
     .end local v1    # "fileDescriptor":Ljava/io/FileDescriptor;
     .end local v2    # "bitmap":Landroid/graphics/Bitmap;
-    goto :goto_0
+    goto :goto_3e
 
     .line 299
-    :catch_0
+    :catch_38
     move-exception v0
 
     .line 300
@@ -140,6 +140,6 @@
 
     .line 302
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_3e
     return-void
 .end method

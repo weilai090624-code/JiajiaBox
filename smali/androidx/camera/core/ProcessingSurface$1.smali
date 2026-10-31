@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ProcessingSurface;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/core/ProcessingSurface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -77,7 +77,7 @@
 .end method
 
 .method public onSuccess(Landroid/view/Surface;)V
-    .locals 3
+    .registers 5
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -96,7 +96,7 @@
     monitor-enter v0
 
     .line 162
-    :try_start_0
+    :try_start_5
     iget-object v1, p0, Landroidx/camera/core/ProcessingSurface$1;->this$0:Landroidx/camera/core/ProcessingSurface;
 
     iget-object v1, v1, Landroidx/camera/core/ProcessingSurface;->mCaptureProcessor:Landroidx/camera/core/impl/CaptureProcessor;
@@ -112,18 +112,18 @@
     return-void
 
     .line 163
-    :catchall_0
+    :catchall_f
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_5 .. :try_end_11} :catchall_f
 
     throw v1
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000

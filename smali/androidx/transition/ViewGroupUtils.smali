@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 37
     const/4 v0, 0x1
@@ -24,7 +24,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method static getChildDrawingOrder(Landroid/view/ViewGroup;I)I
-    .locals 7
+    .registers 9
     .param p0, "viewGroup"    # Landroid/view/ViewGroup;
     .param p1, "i"    # I
 
@@ -43,7 +43,7 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 84
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->getChildDrawingOrder(I)I
@@ -53,7 +53,7 @@
     return v0
 
     .line 86
-    :cond_0
+    :cond_b
     sget-boolean v0, Landroidx/transition/ViewGroupUtils;->sGetChildDrawingOrderMethodFetched:Z
 
     const/4 v1, 0x0
@@ -62,10 +62,10 @@
 
     const/4 v3, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2d
 
     .line 88
-    :try_start_0
+    :try_start_12
     const-class v0, Landroid/view/ViewGroup;
 
     const-string v4, "getChildDrawingOrder"
@@ -88,28 +88,28 @@
     sget-object v0, Landroidx/transition/ViewGroupUtils;->sGetChildDrawingOrderMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, v3}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_12 .. :try_end_29} :catch_2a
 
     .line 93
-    goto :goto_0
+    goto :goto_2b
 
     .line 91
-    :catch_0
+    :catch_2a
     move-exception v0
 
     .line 94
-    :goto_0
+    :goto_2b
     sput-boolean v3, Landroidx/transition/ViewGroupUtils;->sGetChildDrawingOrderMethodFetched:Z
 
     .line 96
-    :cond_1
+    :cond_2d
     sget-object v0, Landroidx/transition/ViewGroupUtils;->sGetChildDrawingOrderMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_54
 
     .line 98
-    :try_start_1
+    :try_start_31
     sget-object v0, Landroidx/transition/ViewGroupUtils;->sGetChildDrawingOrderMethod:Ljava/lang/reflect/Method;
 
     .line 99
@@ -141,33 +141,33 @@
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_4f
+    .catch Ljava/lang/IllegalAccessException; {:try_start_31 .. :try_end_4f} :catch_52
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_31 .. :try_end_4f} :catch_50
 
     return v0
 
     .line 101
-    :catch_1
+    :catch_50
     move-exception v0
 
-    goto :goto_1
+    goto :goto_54
 
     .line 100
-    :catch_2
+    :catch_52
     move-exception v0
 
     .line 102
     nop
 
     .line 105
-    :cond_2
-    :goto_1
+    :cond_54
+    :goto_54
     return p1
 .end method
 
 .method static getOverlay(Landroid/view/ViewGroup;)Landroidx/transition/ViewGroupOverlayImpl;
-    .locals 1
+    .registers 2
     .param p0, "group"    # Landroid/view/ViewGroup;
 
     .line 46
@@ -182,26 +182,26 @@
 .end method
 
 .method private static hiddenSuppressLayout(Landroid/view/ViewGroup;Z)V
-    .locals 2
+    .registers 4
     .param p0, "group"    # Landroid/view/ViewGroup;
     .param p1, "suppress"    # Z
 
     .line 68
     sget-boolean v0, Landroidx/transition/ViewGroupUtils;->sTryHiddenSuppressLayout:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 72
-    :try_start_0
+    :try_start_4
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->suppressLayout(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_4 .. :try_end_7} :catch_8
 
     .line 75
-    goto :goto_0
+    goto :goto_c
 
     .line 73
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 74
@@ -212,13 +212,13 @@
 
     .line 77
     .end local v0    # "e":Ljava/lang/NoSuchMethodError;
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     return-void
 .end method
 
 .method static suppressLayout(Landroid/view/ViewGroup;Z)V
-    .locals 2
+    .registers 4
     .param p0, "group"    # Landroid/view/ViewGroup;
     .param p1, "suppress"    # Z
 
@@ -227,21 +227,21 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 57
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->suppressLayout(Z)V
 
-    goto :goto_0
+    goto :goto_e
 
     .line 58
-    :cond_0
+    :cond_a
     nop
 
     .line 59
     invoke-static {p0, p1}, Landroidx/transition/ViewGroupUtils;->hiddenSuppressLayout(Landroid/view/ViewGroup;Z)V
 
     .line 63
-    :goto_0
+    :goto_e
     return-void
 .end method

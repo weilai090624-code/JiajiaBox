@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultiset;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractMapBasedMultiset;
 
     .line 166
@@ -78,7 +78,7 @@
 .end method
 
 .method private checkForConcurrentModification()V
-    .locals 2
+    .registers 3
 
     .line 175
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultiset$Itr;, "Lcom/google/common/collect/AbstractMapBasedMultiset<TE;>.Itr<TT;>;"
@@ -90,13 +90,13 @@
 
     iget v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset$Itr;->expectedModCount:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 178
     return-void
 
     .line 176
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 182
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultiset$Itr;, "Lcom/google/common/collect/AbstractMapBasedMultiset<TE;>.Itr<TT;>;"
@@ -116,21 +116,21 @@
     .line 183
     iget v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset$Itr;->entryIndex:I
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -146,7 +146,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 192
     iget v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset$Itr;->entryIndex:I
@@ -179,7 +179,7 @@
 
     .line 190
     .end local v0    # "result":Ljava/lang/Object;, "TT;"
-    :cond_0
+    :cond_1d
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -188,7 +188,7 @@
 .end method
 
 .method public remove()V
-    .locals 6
+    .registers 7
 
     .line 200
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultiset$Itr;, "Lcom/google/common/collect/AbstractMapBasedMultiset<TE;>.Itr<TT;>;"
@@ -199,16 +199,16 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-static {v0}, Lcom/google/common/collect/CollectPreconditions;->checkRemove(Z)V
 
     .line 202

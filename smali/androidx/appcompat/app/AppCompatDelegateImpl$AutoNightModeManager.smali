@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     .line 3629
@@ -36,15 +36,15 @@
 
 # virtual methods
 .method cleanup()V
-    .locals 2
+    .registers 3
 
     .line 3661
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 3663
-    :try_start_0
+    :try_start_4
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     iget-object v0, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mContext:Landroid/content/Context;
@@ -52,24 +52,24 @@
     iget-object v1, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_4 .. :try_end_d} :catch_e
 
     .line 3667
-    goto :goto_0
+    goto :goto_f
 
     .line 3664
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 3668
-    :goto_0
+    :goto_f
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;->mReceiver:Landroid/content/BroadcastReceiver;
 
     .line 3670
-    :cond_0
+    :cond_12
     return-void
 .end method
 
@@ -80,21 +80,21 @@
 .end method
 
 .method isListening()Z
-    .locals 1
+    .registers 2
 
     .line 3673
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
@@ -102,7 +102,7 @@
 .end method
 
 .method setup()V
-    .locals 3
+    .registers 4
 
     .line 3638
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;->cleanup()V
@@ -114,21 +114,21 @@
 
     .line 3641
     .local v0, "filter":Landroid/content/IntentFilter;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_25
 
     invoke-virtual {v0}, Landroid/content/IntentFilter;->countActions()I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
-    goto :goto_0
+    goto :goto_25
 
     .line 3646
-    :cond_0
+    :cond_10
     iget-object v1, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1b
 
     .line 3647
     new-instance v1, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager$1;
@@ -138,7 +138,7 @@
     iput-object v1, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;->mReceiver:Landroid/content/BroadcastReceiver;
 
     .line 3654
-    :cond_1
+    :cond_1b
     iget-object v1, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     iget-object v1, v1, Landroidx/appcompat/app/AppCompatDelegateImpl;->mContext:Landroid/content/Context;
@@ -151,7 +151,7 @@
     return-void
 
     .line 3643
-    :cond_2
-    :goto_0
+    :cond_25
+    :goto_25
     return-void
 .end method

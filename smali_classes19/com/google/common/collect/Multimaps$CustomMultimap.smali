@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Lcom/google/common/base/Supplier;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,7 +80,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -118,7 +118,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method createAsMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -170,7 +170,7 @@
 .end method
 
 .method protected createCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -193,7 +193,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -212,7 +212,7 @@
 .end method
 
 .method unmodifiableCollectionSubclass(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -230,7 +230,7 @@
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     instance-of v0, p1, Ljava/util/NavigableSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 144
     move-object v0, p1
@@ -244,10 +244,10 @@
     return-object v0
 
     .line 145
-    :cond_0
+    :cond_c
     instance-of v0, p1, Ljava/util/SortedSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 146
     move-object v0, p1
@@ -261,10 +261,10 @@
     return-object v0
 
     .line 147
-    :cond_1
+    :cond_18
     instance-of v0, p1, Ljava/util/Set;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_24
 
     .line 148
     move-object v0, p1
@@ -278,10 +278,10 @@
     return-object v0
 
     .line 149
-    :cond_2
+    :cond_24
     instance-of v0, p1, Ljava/util/List;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_30
 
     .line 150
     move-object v0, p1
@@ -295,7 +295,7 @@
     return-object v0
 
     .line 152
-    :cond_3
+    :cond_30
     invoke-static {p1}, Ljava/util/Collections;->unmodifiableCollection(Ljava/util/Collection;)Ljava/util/Collection;
 
     move-result-object v0
@@ -304,7 +304,7 @@
 .end method
 
 .method wrapCollection(Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -327,7 +327,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 159
     move-object v0, p2
@@ -341,10 +341,10 @@
     return-object v0
 
     .line 160
-    :cond_0
+    :cond_d
     instance-of v0, p2, Ljava/util/NavigableSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 161
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;
@@ -358,10 +358,10 @@
     return-object v0
 
     .line 162
-    :cond_1
+    :cond_1a
     instance-of v0, p2, Ljava/util/SortedSet;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_27
 
     .line 163
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;
@@ -375,10 +375,10 @@
     return-object v0
 
     .line 164
-    :cond_2
+    :cond_27
     instance-of v0, p2, Ljava/util/Set;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_34
 
     .line 165
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSet;
@@ -392,7 +392,7 @@
     return-object v0
 
     .line 167
-    :cond_3
+    :cond_34
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;
 
     invoke-direct {v0, p0, p1, p2, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/Collection;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$onScanResultFailure(Lcom/king/zxing/CameraScan$OnScanResultCallback;)V
-    .locals 0
+    .registers 1
     .param p0, "_this"    # Lcom/king/zxing/CameraScan$OnScanResultCallback;
 
     .line 167

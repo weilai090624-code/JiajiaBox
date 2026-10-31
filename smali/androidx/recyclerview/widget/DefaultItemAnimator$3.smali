@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/DefaultItemAnimator;Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/recyclerview/widget/DefaultItemAnimator;
 
     .line 170
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 173
     iget-object v0, p0, Landroidx/recyclerview/widget/DefaultItemAnimator$3;->val$additions:Ljava/util/ArrayList;
@@ -50,12 +50,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -71,10 +71,10 @@
 
     .line 175
     .end local v1    # "holder":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    goto :goto_0
+    goto :goto_6
 
     .line 176
-    :cond_0
+    :cond_18
     iget-object v0, p0, Landroidx/recyclerview/widget/DefaultItemAnimator$3;->val$additions:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V

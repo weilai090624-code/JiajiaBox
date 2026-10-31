@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 79
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/ImmutableSerializer;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Lj$/util/OptionalLong;
-    .locals 3
+    .registers 7
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p3, "type"    # Ljava/lang/Class;
@@ -47,7 +47,7 @@
 
     .line 87
     .local v0, "present":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readLong()J
 
@@ -57,19 +57,19 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_f
     invoke-static {}, Lj$/util/OptionalLong;->empty()Lj$/util/OptionalLong;
 
     move-result-object v1
 
-    :goto_0
+    :goto_13
     return-object v1
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 79
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/OptionalSerializers$OptionalLongSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Lj$/util/OptionalLong;
@@ -80,7 +80,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Lj$/util/OptionalLong;)V
-    .locals 2
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Lj$/util/OptionalLong;
@@ -97,7 +97,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {p3}, Lj$/util/OptionalLong;->getAsLong()J
 
@@ -106,12 +106,12 @@
     invoke-virtual {p2, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeLong(J)V
 
     .line 83
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 79
     check-cast p3, Lj$/util/OptionalLong;

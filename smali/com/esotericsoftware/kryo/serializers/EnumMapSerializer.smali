@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method protected create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/EnumMap;
-    .locals 2
+    .registers 7
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p4, "size"    # I
@@ -82,7 +82,7 @@
 .end method
 
 .method protected bridge synthetic create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/Map;
-    .locals 0
+    .registers 5
 
     .line 28
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/esotericsoftware/kryo/serializers/EnumMapSerializer;->create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/EnumMap;
@@ -93,7 +93,7 @@
 .end method
 
 .method protected createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/EnumMap;)Ljava/util/EnumMap;
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "original"    # Ljava/util/EnumMap;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method protected bridge synthetic createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Map;)Ljava/util/Map;
-    .locals 0
+    .registers 3
 
     .line 28
     check-cast p2, Ljava/util/EnumMap;

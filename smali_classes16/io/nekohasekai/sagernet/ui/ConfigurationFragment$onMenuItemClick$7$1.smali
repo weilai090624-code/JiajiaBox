@@ -81,7 +81,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$uNcpXDoiP3kbLkbfbaoJocQOeAE(Ljava/util/List;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$7$1;->invokeSuspend$lambda$2(Ljava/util/List;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/content/DialogInterface;I)V
 
@@ -89,7 +89,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Ljava/util/List;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -116,7 +116,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$2(Ljava/util/List;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/content/DialogInterface;I)V
-    .locals 6
+    .registers 10
     .param p0, "$toClear"    # Ljava/util/List;
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
@@ -125,12 +125,12 @@
 
     move-result-object p2
 
-    :goto_0
+    :goto_4
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p3
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_5f
 
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -164,13 +164,13 @@
 
     check-cast v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5e
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getAdapter()Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5e
 
     .local v0, "$this$invokeSuspend_u24lambda_u242_u24lambda_u241":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
     const/4 v1, 0x0
@@ -195,7 +195,7 @@
 
     .line 584
     .local v2, "index":I
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_5c
 
     .line 585
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->getConfigurationIdList()Ljava/util/List;
@@ -223,21 +223,21 @@
     invoke-virtual {v0, v2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->notifyItemRemoved(I)V
 
     .line 589
-    :cond_0
+    :cond_5c
     nop
 
     .line 582
     .end local v0    # "$this$invokeSuspend_u24lambda_u242_u24lambda_u241":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
     .end local v1    # "$i$a$-apply-ConfigurationFragment$onMenuItemClick$7$1$2$1":I
     .end local v2    # "index":I
-    goto :goto_0
+    goto :goto_4
 
     .end local p3    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_1
-    goto :goto_0
+    :cond_5e
+    goto :goto_4
 
     .line 591
-    :cond_2
+    :cond_5f
     new-instance p2, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$7$1$2$2;
 
     const/4 p3, 0x0
@@ -255,7 +255,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -282,7 +282,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -296,7 +296,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -325,7 +325,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 21
+    .registers 23
 
     move-object/from16 v0, p0
 
@@ -334,7 +334,7 @@
     .line 566
     iget v1, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$7$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_d0
 
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -344,7 +344,7 @@
 
     throw v1
 
-    :pswitch_0
+    :pswitch_12
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v1, p1
@@ -428,14 +428,14 @@
     move-result-object v10
 
     .end local v4    # "$this$forEachIndexed$iv$iv$iv":Ljava/lang/Iterable;
-    :goto_0
+    :goto_55
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     const/4 v11, 0x0
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_87
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -446,13 +446,13 @@
 
     .end local v9    # "index$iv$iv$iv":I
     .local v12, "index$iv$iv$iv":I
-    if-gez v9, :cond_0
+    if-gez v9, :cond_67
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
     .local v4, "element$iv$iv":Ljava/lang/Object;
     .local v9, "index$iv$iv":I
-    :cond_0
+    :cond_67
     const/4 v13, 0x0
 
     .line 1775
@@ -472,7 +472,7 @@
     .local v9, "$i$a$-mapIndexedNotNull-ConfigurationFragment$onMenuItemClick$7$1$1":I
     const/16 v15, 0x14
 
-    if-ge v4, v15, :cond_1
+    if-ge v4, v15, :cond_76
 
     .line 572
     .end local v4    # "index":I
@@ -480,33 +480,33 @@
 
     move-result-object v11
 
-    goto :goto_1
+    goto :goto_7d
 
     .line 573
     .end local v14    # "proxyEntity":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .restart local v4    # "index":I
-    :cond_1
+    :cond_76
     nop
 
     .end local v4    # "index":I
-    if-ne v4, v15, :cond_2
+    if-ne v4, v15, :cond_7c
 
     .line 574
     const-string v11, "......"
 
-    goto :goto_1
+    goto :goto_7d
 
     .line 576
-    :cond_2
+    :cond_7c
     nop
 
     .line 577
-    :goto_1
+    :goto_7d
     nop
 
     .line 1775
     .end local v9    # "$i$a$-mapIndexedNotNull-ConfigurationFragment$onMenuItemClick$7$1$1":I
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_85
 
     move-object v4, v11
 
@@ -522,15 +522,15 @@
     .end local v4    # "it$iv$iv":Ljava/lang/Object;
     .end local v9    # "$i$a$-let-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1$1$iv$iv":I
     .end local v13    # "$i$a$-forEachIndexed-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1$iv$iv":I
-    :cond_3
+    :cond_85
     move v9, v12
 
-    goto :goto_0
+    goto :goto_55
 
     .line 1779
     .end local v12    # "index$iv$iv$iv":I
     .local v9, "index$iv$iv$iv":I
-    :cond_4
+    :cond_87
     nop
 
     .line 1780
@@ -623,8 +623,8 @@
 
     return-object v2
 
-    :pswitch_data_0
+    :pswitch_data_d0
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_12
     .end packed-switch
 .end method

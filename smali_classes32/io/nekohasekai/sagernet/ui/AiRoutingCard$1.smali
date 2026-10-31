@@ -51,7 +51,7 @@
         }
     .end annotation
 
-    .line 250
+    .line 264
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard$1;->this$0:Lio/nekohasekai/sagernet/ui/AiRoutingCard;
 
     iput-object p2, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard$1;->val$rows:Ljava/util/List;
@@ -82,7 +82,7 @@
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .registers 8
 
-    .line 253
+    .line 267
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object p1
@@ -103,7 +103,7 @@
 
     const/4 p4, 0x0
 
-    .line 255
+    .line 269
     :goto_11
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard$1;->val$rows:Ljava/util/List;
 
@@ -115,7 +115,7 @@
 
     if-eqz p3, :cond_32
 
-    .line 256
+    .line 270
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard$1;->val$labels:Ljava/util/List;
 
     invoke-interface {v0, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -147,7 +147,7 @@
     :goto_32
     const/4 v0, 0x1
 
-    .line 257
+    .line 271
     :goto_33
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard$1;->val$rows:Ljava/util/List;
 
@@ -180,7 +180,7 @@
 
     goto :goto_11
 
-    .line 260
+    .line 274
     :cond_4d
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard$1;->val$status:Landroid/widget/TextView;
 

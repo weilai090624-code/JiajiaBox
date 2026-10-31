@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 9
+    .registers 11
     .param p1, "configString"    # Ljava/lang/String;
 
     .line 31
@@ -57,10 +57,10 @@
 
     .line 38
     .local v4, "count":I
-    :goto_0
+    :goto_1e
     const/4 v5, -0x1
 
-    if-eq v3, v5, :cond_0
+    if-eq v3, v5, :cond_3a
 
     .line 39
     invoke-virtual {p1, v1, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -96,12 +96,12 @@
     .end local v5    # "tmp":Ljava/lang/String;
     move v4, v6
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 43
     .end local v6    # "count":I
     .restart local v4    # "count":I
-    :cond_0
+    :cond_3a
     const/16 v2, 0x29
 
     invoke-virtual {p1, v2, v1}, Ljava/lang/String;->indexOf(II)I
@@ -147,7 +147,7 @@
 .end method
 
 .method private static genSpline(Ljava/lang/String;)Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;
-    .locals 6
+    .registers 7
     .param p0, "str"    # Ljava/lang/String;
 
     .line 51
@@ -172,10 +172,10 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_b
     array-length v4, v2
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_19
 
     .line 55
     aget-object v4, v1, v3
@@ -189,11 +189,11 @@
     .line 54
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 57
     .end local v3    # "i":I
-    :cond_0
+    :cond_19
     invoke-static {v2}, Landroidx/constraintlayout/core/motion/utils/StepCurve;->genSpline([D)Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;
 
     move-result-object v3
@@ -202,7 +202,7 @@
 .end method
 
 .method private static genSpline([D)Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;
-    .locals 18
+    .registers 19
     .param p0, "values"    # [D
 
     .line 61
@@ -259,10 +259,10 @@
     const/4 v10, 0x0
 
     .local v10, "i":I
-    :goto_0
+    :goto_21
     array-length v11, v0
 
-    if-ge v10, v11, :cond_1
+    if-ge v10, v11, :cond_5f
 
     .line 67
     aget-wide v11, v0, v10
@@ -285,7 +285,7 @@
     aput-wide v14, v9, v13
 
     .line 70
-    if-lez v10, :cond_0
+    if-lez v10, :cond_5c
 
     .line 71
     mul-int/lit8 v13, v3, 0x2
@@ -339,14 +339,14 @@
 
     .line 66
     .end local v11    # "v":D
-    :cond_0
+    :cond_5c
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
     .line 89
     .end local v10    # "i":I
-    :cond_1
+    :cond_5f
     new-instance v10, Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;
 
     invoke-direct {v10, v9, v2}, Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;-><init>([D[[D)V
@@ -415,7 +415,7 @@
 
 # virtual methods
 .method public get(D)D
-    .locals 2
+    .registers 5
     .param p1, "x"    # D
 
     .line 100
@@ -431,7 +431,7 @@
 .end method
 
 .method public getDiff(D)D
-    .locals 2
+    .registers 5
     .param p1, "x"    # D
 
     .line 96

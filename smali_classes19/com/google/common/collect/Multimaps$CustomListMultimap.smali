@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Lcom/google/common/base/Supplier;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,7 +80,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -118,7 +118,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method createAsMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -170,7 +170,7 @@
 .end method
 
 .method protected bridge synthetic createCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 231
     .local p0, "this":Lcom/google/common/collect/Multimaps$CustomListMultimap;, "Lcom/google/common/collect/Multimaps$CustomListMultimap<TK;TV;>;"
@@ -182,7 +182,7 @@
 .end method
 
 .method protected createCollection()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -205,7 +205,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

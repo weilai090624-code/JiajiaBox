@@ -25,6 +25,7 @@ import (
 	"github.com/sagernet/sing-box/protocol/hysteria"
 	"github.com/sagernet/sing-box/protocol/hysteria2"
 	"github.com/sagernet/sing-box/protocol/mixed"
+	"github.com/sagernet/sing-box/protocol/nowhere"
 	"github.com/sagernet/sing-box/protocol/redirect"
 	"github.com/sagernet/sing-box/protocol/shadowsocks"
 	"github.com/sagernet/sing-box/protocol/shadowtls"
@@ -78,6 +79,7 @@ func nekoboxAndroidOutboundRegistry() *outbound.Registry {
 	shadowtls.RegisterOutbound(registry)
 	vless.RegisterOutbound(registry)
 	anytls.RegisterOutbound(registry)
+	nowhere.RegisterOutbound(registry)
 
 	hysteria.RegisterOutbound(registry)
 	tuic.RegisterOutbound(registry)

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method public options(Landroidx/camera/core/CameraSelector$Builder;)Landroidx/camera/core/CameraSelector;
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/camera/core/CameraSelector$Builder;
 
     .line 25
@@ -29,7 +29,7 @@
 .end method
 
 .method public options(Landroidx/camera/core/ImageAnalysis$Builder;)Landroidx/camera/core/ImageAnalysis;
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/camera/core/ImageAnalysis$Builder;
 
     .line 30
@@ -41,7 +41,7 @@
 .end method
 
 .method public options(Landroidx/camera/core/Preview$Builder;)Landroidx/camera/core/Preview;
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/camera/core/Preview$Builder;
 
     .line 20

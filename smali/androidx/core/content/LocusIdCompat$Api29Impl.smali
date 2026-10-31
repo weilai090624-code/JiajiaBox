@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 152
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static create(Ljava/lang/String;)Landroid/content/LocusId;
-    .locals 1
+    .registers 2
     .param p0, "id"    # Ljava/lang/String;
 
     .line 159
@@ -37,7 +37,7 @@
 .end method
 
 .method static getId(Landroid/content/LocusId;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "obj"    # Landroid/content/LocusId;
 
     .line 167

@@ -36,7 +36,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/hash/Funnels$IntegerFunnel;
-    .locals 3
+    .registers 3
 
     .line 149
     const/4 v0, 0x1
@@ -53,7 +53,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 150
     new-instance v0, Lcom/google/common/hash/Funnels$IntegerFunnel;
@@ -77,7 +77,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -91,7 +91,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/hash/Funnels$IntegerFunnel;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 149
@@ -107,7 +107,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/hash/Funnels$IntegerFunnel;
-    .locals 1
+    .registers 1
 
     .line 149
     sget-object v0, Lcom/google/common/hash/Funnels$IntegerFunnel;->$VALUES:[Lcom/google/common/hash/Funnels$IntegerFunnel;
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public funnel(Ljava/lang/Integer;Lcom/google/common/hash/PrimitiveSink;)V
-    .locals 1
+    .registers 4
     .param p1, "from"    # Ljava/lang/Integer;
     .param p2, "into"    # Lcom/google/common/hash/PrimitiveSink;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic funnel(Ljava/lang/Object;Lcom/google/common/hash/PrimitiveSink;)V
-    .locals 0
+    .registers 3
 
     .line 149
     check-cast p1, Ljava/lang/Integer;
@@ -151,7 +151,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 159
     const-string v0, "Funnels.integerFunnel()"

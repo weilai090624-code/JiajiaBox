@@ -29,7 +29,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     .local p0, "this":Lcom/google/common/collect/ForwardingConcurrentMap;, "Lcom/google/common/collect/ForwardingConcurrentMap<TK;TV;>;"
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public synthetic compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$compute(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public synthetic computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$computeIfAbsent(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public synthetic computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$computeIfPresent(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -71,7 +71,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/collect/ForwardingConcurrentMap;, "Lcom/google/common/collect/ForwardingConcurrentMap<TK;TV;>;"
@@ -83,7 +83,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/collect/ForwardingConcurrentMap;, "Lcom/google/common/collect/ForwardingConcurrentMap<TK;TV;>;"
@@ -105,7 +105,7 @@
 .end method
 
 .method public synthetic forEach(Ljava/util/function/BiConsumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$forEach(Ljava/util/concurrent/ConcurrentMap;Ljava/util/function/BiConsumer;)V
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public synthetic getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$getOrDefault(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -123,7 +123,7 @@
 .end method
 
 .method public synthetic merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$merge(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -159,7 +159,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -183,7 +183,7 @@
 .end method
 
 .method public replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -209,7 +209,7 @@
 .end method
 
 .method public replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;TV;)Z"
@@ -233,7 +233,7 @@
 .end method
 
 .method public synthetic replaceAll(Ljava/util/function/BiFunction;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/concurrent/ConcurrentMap$-CC;->$default$replaceAll(Ljava/util/concurrent/ConcurrentMap;Ljava/util/function/BiFunction;)V
 

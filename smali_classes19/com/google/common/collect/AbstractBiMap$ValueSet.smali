@@ -36,7 +36,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/AbstractBiMap;)V
-    .locals 0
+    .registers 2
 
     .line 262
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$ValueSet;, "Lcom/google/common/collect/AbstractBiMap<TK;TV;>.ValueSet;"
@@ -59,7 +59,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/AbstractBiMap;Lcom/google/common/collect/AbstractBiMap$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/AbstractBiMap;
     .param p2, "x1"    # Lcom/google/common/collect/AbstractBiMap$1;
 
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 261
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$ValueSet;, "Lcom/google/common/collect/AbstractBiMap<TK;TV;>.ValueSet;"
@@ -85,7 +85,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 261
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$ValueSet;, "Lcom/google/common/collect/AbstractBiMap<TK;TV;>.ValueSet;"
@@ -97,7 +97,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -114,7 +114,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -143,7 +143,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 277
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$ValueSet;, "Lcom/google/common/collect/AbstractBiMap<TK;TV;>.ValueSet;"
@@ -155,7 +155,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -175,7 +175,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 288
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$ValueSet;, "Lcom/google/common/collect/AbstractBiMap<TK;TV;>.ValueSet;"

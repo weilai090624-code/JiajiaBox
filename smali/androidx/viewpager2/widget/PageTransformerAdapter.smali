@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/LinearLayoutManager;)V
-    .locals 0
+    .registers 2
     .param p1, "layoutManager"    # Landroidx/recyclerview/widget/LinearLayoutManager;
 
     .line 36
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method getPageTransformer()Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Landroidx/viewpager2/widget/PageTransformerAdapter;->mPageTransformer:Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
@@ -36,7 +36,7 @@
 .end method
 
 .method public onPageScrollStateChanged(I)V
-    .locals 0
+    .registers 2
     .param p1, "state"    # I
 
     .line 82
@@ -44,7 +44,7 @@
 .end method
 
 .method public onPageScrolled(IFI)V
-    .locals 9
+    .registers 13
     .param p1, "position"    # I
     .param p2, "positionOffset"    # F
     .param p3, "positionOffsetPixels"    # I
@@ -52,13 +52,13 @@
     .line 58
     iget-object v0, p0, Landroidx/viewpager2/widget/PageTransformerAdapter;->mPageTransformer:Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 59
     return-void
 
     .line 62
-    :cond_0
+    :cond_5
     neg-float v0, p2
 
     .line 63
@@ -66,14 +66,14 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_7
     iget-object v2, p0, Landroidx/viewpager2/widget/PageTransformerAdapter;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
     invoke-virtual {v2}, Landroidx/recyclerview/widget/LinearLayoutManager;->getChildCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_4e
 
     .line 64
     iget-object v2, p0, Landroidx/viewpager2/widget/PageTransformerAdapter;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
@@ -84,7 +84,7 @@
 
     .line 65
     .local v2, "view":Landroid/view/View;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 70
     iget-object v3, p0, Landroidx/viewpager2/widget/PageTransformerAdapter;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
@@ -113,11 +113,11 @@
     .end local v4    # "viewOffset":F
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 66
     .restart local v2    # "view":Landroid/view/View;
-    :cond_1
+    :cond_29
     new-instance v3, Ljava/lang/IllegalStateException;
 
     sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -163,12 +163,12 @@
     .line 74
     .end local v1    # "i":I
     .end local v2    # "view":Landroid/view/View;
-    :cond_2
+    :cond_4e
     return-void
 .end method
 
 .method public onPageSelected(I)V
-    .locals 0
+    .registers 2
     .param p1, "position"    # I
 
     .line 78
@@ -176,7 +176,7 @@
 .end method
 
 .method setPageTransformer(Landroidx/viewpager2/widget/ViewPager2$PageTransformer;)V
-    .locals 0
+    .registers 2
     .param p1, "transformer"    # Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
 
     .line 53

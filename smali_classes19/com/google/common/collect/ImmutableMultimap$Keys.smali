@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/ImmutableMultimap;
 
     .line 627
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -60,7 +60,7 @@
 .end method
 
 .method public count(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -80,23 +80,23 @@
 
     .line 636
     .local v0, "values":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_e
     invoke-interface {v0}, Ljava/util/Collection;->size()I
 
     move-result v1
 
-    :goto_0
+    :goto_12
     return v1
 .end method
 
 .method public elementSet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -117,7 +117,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 625
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Keys;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>.Keys;"
@@ -129,7 +129,7 @@
 .end method
 
 .method getEntry(I)Lcom/google/common/collect/Multiset$Entry;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -183,7 +183,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 657
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Keys;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>.Keys;"
@@ -193,7 +193,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 646
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Keys;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>.Keys;"
@@ -207,7 +207,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 663
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Keys;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>.Keys;"

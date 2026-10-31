@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;
 
     .line 583
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 598
@@ -49,7 +49,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 593
@@ -57,7 +57,7 @@
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 4
+    .registers 6
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 602
@@ -86,7 +86,7 @@
 
     iget-boolean v0, v0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;->mFinishing:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_30
 
     .line 608
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$2;->this$0:Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;
@@ -111,10 +111,10 @@
 
     invoke-virtual {v0, v1}, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->setShowArrow(Z)V
 
-    goto :goto_0
+    goto :goto_39
 
     .line 614
-    :cond_0
+    :cond_30
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$2;->this$0:Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;
 
     iget-object v1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$2;->this$0:Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;
@@ -126,12 +126,12 @@
     iput v1, v0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;->mRotationCount:F
 
     .line 616
-    :goto_0
+    :goto_39
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 587

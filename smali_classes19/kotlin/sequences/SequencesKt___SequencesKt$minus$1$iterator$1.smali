@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/Ref$BooleanRef;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public final invoke(Ljava/lang/Object;)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .param p1, "it"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,7 +101,7 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     iget-object v0, p0, Lkotlin/sequences/SequencesKt___SequencesKt$minus$1$iterator$1;->$element:Ljava/lang/Object;
 
@@ -109,7 +109,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Lkotlin/sequences/SequencesKt___SequencesKt$minus$1$iterator$1;->$removed:Lkotlin/jvm/internal/Ref$BooleanRef;
 
@@ -117,7 +117,7 @@
 
     const/4 v1, 0x0
 
-    :cond_0
+    :cond_14
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -126,7 +126,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 2625

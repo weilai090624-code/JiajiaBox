@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public static final getRoot(Ljava/io/File;)Ljava/io/File;
-    .locals 2
+    .registers 3
     .param p0, "$this$root"    # Ljava/io/File;
 
     const-string v0, "<this>"
@@ -75,7 +75,7 @@
 .end method
 
 .method private static final getRootLength$FilesKt__FilePathComponentsKt(Ljava/lang/String;)I
-    .locals 10
+    .registers 11
     .param p0, "$this$getRootLength"    # Ljava/lang/String;
 
     .line 28
@@ -101,14 +101,14 @@
     .local v0, "first":I
     const/4 v1, 0x1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_46
 
     .line 30
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-le v2, v1, :cond_1
+    if-le v2, v1, :cond_45
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
@@ -116,7 +116,7 @@
 
     sget-char v3, Ljava/io/File;->separatorChar:C
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_45
 
     .line 34
     move-object v4, p0
@@ -138,7 +138,7 @@
     move-result v0
 
     .line 35
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_45
 
     .line 36
     move-object v2, p0
@@ -160,7 +160,7 @@
     move-result v0
 
     .line 37
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_40
 
     .line 38
     add-int/lit8 v1, v0, 0x1
@@ -168,7 +168,7 @@
     return v1
 
     .line 40
-    :cond_0
+    :cond_40
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -176,14 +176,14 @@
     return v1
 
     .line 43
-    :cond_1
+    :cond_45
     return v1
 
     .line 46
-    :cond_2
+    :cond_46
     const/16 v2, 0x3a
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_54
 
     add-int/lit8 v3, v0, -0x1
 
@@ -191,7 +191,7 @@
 
     move-result v3
 
-    if-ne v3, v2, :cond_3
+    if-ne v3, v2, :cond_54
 
     .line 47
     add-int/2addr v0, v1
@@ -200,12 +200,12 @@
     return v0
 
     .line 51
-    :cond_3
+    :cond_54
     const/4 v1, -0x1
 
     const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_68
 
     move-object v1, p0
 
@@ -219,7 +219,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_68
 
     .line 52
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -229,12 +229,12 @@
     return v1
 
     .line 53
-    :cond_4
+    :cond_68
     return v3
 .end method
 
 .method public static final getRootName(Ljava/io/File;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$rootName"    # Ljava/io/File;
 
     const-string v0, "<this>"
@@ -274,7 +274,7 @@
 .end method
 
 .method public static final isRooted(Ljava/io/File;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isRooted"    # Ljava/io/File;
 
     const-string v0, "<this>"
@@ -294,21 +294,21 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public static final subPath(Ljava/io/File;II)Ljava/io/File;
-    .locals 1
+    .registers 4
     .param p0, "$this$subPath"    # Ljava/io/File;
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
@@ -330,7 +330,7 @@
 .end method
 
 .method public static final toComponents(Ljava/io/File;)Lkotlin/io/FilePathComponents;
-    .locals 14
+    .registers 15
     .param p0, "$this$toComponents"    # Ljava/io/File;
 
     const-string v0, "<this>"
@@ -384,25 +384,25 @@
 
     const/4 v6, 0x1
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_2e
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_2e
     const/4 v5, 0x0
 
-    :goto_0
-    if-eqz v5, :cond_1
+    :goto_2f
+    if-eqz v5, :cond_36
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v2
 
-    goto :goto_2
+    goto :goto_78
 
-    :cond_1
+    :cond_36
     move-object v5, v4
 
     check-cast v5, Ljava/lang/CharSequence;
@@ -456,12 +456,12 @@
 
     move-result-object v9
 
-    :goto_1
+    :goto_5d
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_74
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -487,11 +487,11 @@
     .end local v12    # "$i$a$-map-FilesKt__FilePathComponentsKt$toComponents$list$1":I
     invoke-interface {v6, v13}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 152
     .end local v10    # "item$iv$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_74
     nop
 
     .end local v6    # "destination$iv$iv":Ljava/util/Collection;
@@ -505,7 +505,7 @@
     .line 133
     .end local v2    # "$this$map$iv":Ljava/lang/Iterable;
     .end local v5    # "$i$f$map":I
-    :goto_2
+    :goto_78
     nop
 
     .line 134

@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/CancelledContinuation;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/coroutines/Continuation;Ljava/lang/Throwable;Z)V
-    .locals 3
+    .registers 7
     .param p1, "continuation"    # Lkotlin/coroutines/Continuation;
     .param p2, "cause"    # Ljava/lang/Throwable;
     .param p3, "handled"    # Z
@@ -77,7 +77,7 @@
     .end annotation
 
     .line 63
-    if-nez p2, :cond_0
+    if-nez p2, :cond_23
 
     new-instance v0, Ljava/util/concurrent/CancellationException;
 
@@ -109,12 +109,12 @@
 
     check-cast v0, Ljava/lang/Throwable;
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     move-object v0, p2
 
-    :goto_0
+    :goto_24
     invoke-direct {p0, v0, p3}, Lkotlinx/coroutines/CompletedExceptionally;-><init>(Ljava/lang/Throwable;Z)V
 
     .line 64
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public final makeResumed()Z
-    .locals 3
+    .registers 4
 
     sget-object v0, Lkotlinx/coroutines/CancelledContinuation;->_resumed$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 

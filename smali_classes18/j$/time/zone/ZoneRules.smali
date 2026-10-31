@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 164
     const/4 v0, 0x0
@@ -78,7 +78,7 @@
 .end method
 
 .method private constructor <init>(Lj$/time/ZoneOffset;)V
-    .locals 2
+    .registers 4
     .param p1, "offset"    # Lj$/time/ZoneOffset;
 
     .line 319
@@ -140,7 +140,7 @@
 .end method
 
 .method constructor <init>(Lj$/time/ZoneOffset;Lj$/time/ZoneOffset;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
-    .locals 6
+    .registers 12
     .param p1, "baseStandardOffset"    # Lj$/time/ZoneOffset;
     .param p2, "baseWallOffset"    # Lj$/time/ZoneOffset;
     .annotation system Ldalvik/annotation/Signature;
@@ -204,12 +204,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_22
     invoke-interface {p3}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_49
 
     .line 234
     iget-object v1, p0, Lj$/time/zone/ZoneRules;->standardTransitions:[J
@@ -246,11 +246,11 @@
     .line 233
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 239
     .end local v0    # "i":I
-    :cond_0
+    :cond_49
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -270,12 +270,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_5a
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_91
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -289,7 +289,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_7b
 
     .line 244
     invoke-virtual {v3}, Lj$/time/zone/ZoneOffsetTransition;->getDateTimeBefore()Lj$/time/LocalDateTime;
@@ -305,10 +305,10 @@
 
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_89
 
     .line 247
-    :cond_1
+    :cond_7b
     invoke-virtual {v3}, Lj$/time/zone/ZoneOffsetTransition;->getDateTimeAfter()Lj$/time/LocalDateTime;
 
     move-result-object v4
@@ -323,7 +323,7 @@
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 250
-    :goto_2
+    :goto_89
     invoke-virtual {v3}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetAfter()Lj$/time/ZoneOffset;
 
     move-result-object v4
@@ -332,10 +332,10 @@
 
     .line 251
     .end local v3    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    goto :goto_1
+    goto :goto_5a
 
     .line 252
-    :cond_2
+    :cond_91
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v2
@@ -378,12 +378,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_3
+    :goto_b6
     invoke-interface {p4}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_cd
 
     .line 258
     iget-object v3, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
@@ -403,18 +403,18 @@
     .line 257
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_b6
 
     .line 262
     .end local v2    # "i":I
-    :cond_3
+    :cond_cd
     invoke-interface {p5}, Ljava/util/List;->size()I
 
     move-result v2
 
     const/16 v3, 0x10
 
-    if-gt v2, v3, :cond_4
+    if-gt v2, v3, :cond_e7
 
     .line 265
     invoke-interface {p5}, Ljava/util/List;->size()I
@@ -440,7 +440,7 @@
     return-void
 
     .line 263
-    :cond_4
+    :cond_e7
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Too many transition rules"
@@ -451,7 +451,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/TimeZone;)V
-    .locals 3
+    .registers 5
     .param p1, "tz"    # Ljava/util/TimeZone;
 
     .line 331
@@ -519,7 +519,7 @@
 .end method
 
 .method private constructor <init>([J[Lj$/time/ZoneOffset;[J[Lj$/time/ZoneOffset;[Lj$/time/zone/ZoneOffsetTransitionRule;)V
-    .locals 7
+    .registers 13
     .param p1, "standardTransitions"    # [J
     .param p2, "standardOffsets"    # [Lj$/time/ZoneOffset;
     .param p3, "savingsInstantTransitions"    # [J
@@ -554,17 +554,17 @@
     .line 291
     array-length v0, p3
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 292
     sget-object v0, Lj$/time/zone/ZoneRules;->EMPTY_LDT_ARRAY:[Lj$/time/LocalDateTime;
 
     iput-object v0, p0, Lj$/time/zone/ZoneRules;->savingsLocalTransitions:[Lj$/time/LocalDateTime;
 
-    goto :goto_2
+    goto :goto_66
 
     .line 295
-    :cond_0
+    :cond_1c
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -574,10 +574,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_22
     array-length v2, p3
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_58
 
     .line 297
     aget-object v2, p4, v1
@@ -602,7 +602,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_47
 
     .line 301
     invoke-virtual {v4}, Lj$/time/zone/ZoneOffsetTransition;->getDateTimeBefore()Lj$/time/LocalDateTime;
@@ -618,10 +618,10 @@
 
     invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_55
 
     .line 304
-    :cond_1
+    :cond_47
     invoke-virtual {v4}, Lj$/time/zone/ZoneOffsetTransition;->getDateTimeAfter()Lj$/time/LocalDateTime;
 
     move-result-object v5
@@ -639,14 +639,14 @@
     .end local v2    # "before":Lj$/time/ZoneOffset;
     .end local v3    # "after":Lj$/time/ZoneOffset;
     .end local v4    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :goto_1
+    :goto_55
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 308
     .end local v1    # "i":I
-    :cond_2
+    :cond_58
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -663,7 +663,7 @@
 
     .line 310
     .end local v0    # "localTransitionList":Ljava/util/List;, "Ljava/util/List<Ljava/time/LocalDateTime;>;"
-    :goto_2
+    :goto_66
     const/4 v0, 0x0
 
     iput-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -673,7 +673,7 @@
 .end method
 
 .method private findOffsetInfo(Lj$/time/LocalDateTime;Lj$/time/zone/ZoneOffsetTransition;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "dt"    # Lj$/time/LocalDateTime;
     .param p2, "trans"    # Lj$/time/zone/ZoneOffsetTransition;
 
@@ -688,14 +688,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_25
 
     .line 769
     invoke-virtual {p1, v0}, Lj$/time/LocalDateTime;->isBefore(Lj$/time/chrono/ChronoLocalDateTime;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 770
     invoke-virtual {p2}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetBefore()Lj$/time/ZoneOffset;
@@ -705,7 +705,7 @@
     return-object v1
 
     .line 772
-    :cond_0
+    :cond_15
     invoke-virtual {p2}, Lj$/time/zone/ZoneOffsetTransition;->getDateTimeAfter()Lj$/time/LocalDateTime;
 
     move-result-object v1
@@ -714,13 +714,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     .line 773
     return-object p2
 
     .line 775
-    :cond_1
+    :cond_20
     invoke-virtual {p2}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetAfter()Lj$/time/ZoneOffset;
 
     move-result-object v1
@@ -728,12 +728,12 @@
     return-object v1
 
     .line 778
-    :cond_2
+    :cond_25
     invoke-virtual {p1, v0}, Lj$/time/LocalDateTime;->isBefore(Lj$/time/chrono/ChronoLocalDateTime;)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_30
 
     .line 779
     invoke-virtual {p2}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetAfter()Lj$/time/ZoneOffset;
@@ -743,7 +743,7 @@
     return-object v1
 
     .line 781
-    :cond_3
+    :cond_30
     invoke-virtual {p2}, Lj$/time/zone/ZoneOffsetTransition;->getDateTimeAfter()Lj$/time/LocalDateTime;
 
     move-result-object v1
@@ -752,7 +752,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3f
 
     .line 782
     invoke-virtual {p2}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetBefore()Lj$/time/ZoneOffset;
@@ -762,12 +762,12 @@
     return-object v1
 
     .line 784
-    :cond_4
+    :cond_3f
     return-object p2
 .end method
 
 .method private findTransitionArray(I)[Lj$/time/zone/ZoneOffsetTransition;
-    .locals 22
+    .registers 24
     .param p1, "year"    # I
 
     .line 798
@@ -791,21 +791,21 @@
 
     .line 800
     .local v3, "transArray":[Lj$/time/zone/ZoneOffsetTransition;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_13
 
     .line 801
     return-object v3
 
     .line 804
-    :cond_0
+    :cond_13
     iget-object v4, v0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_df
 
     .line 805
     const/16 v4, 0x708
 
-    if-ge v1, v4, :cond_1
+    if-ge v1, v4, :cond_1e
 
     .line 806
     sget-object v4, Lj$/time/zone/ZoneRules;->NO_TRANSITIONS:[Lj$/time/zone/ZoneOffsetTransition;
@@ -813,7 +813,7 @@
     return-object v4
 
     .line 808
-    :cond_1
+    :cond_1e
     add-int/lit8 v4, v1, -0x1
 
     const/16 v6, 0xc
@@ -859,10 +859,10 @@
     sget-object v3, Lj$/time/zone/ZoneRules;->NO_TRANSITIONS:[Lj$/time/zone/ZoneOffsetTransition;
 
     .line 814
-    :goto_0
+    :goto_41
     cmp-long v13, v6, v11
 
-    if-gez v13, :cond_7
+    if-gez v13, :cond_cc
 
     .line 815
     const-wide/32 v13, 0x76a700
@@ -883,21 +883,21 @@
 
     move-result v5
 
-    if-eq v8, v5, :cond_6
+    if-eq v8, v5, :cond_c1
 
     move-wide/from16 v6, v16
 
     .line 818
     .end local v16    # "lower":J
     .restart local v6    # "lower":J
-    :goto_1
+    :goto_57
     sub-long v16, v13, v6
 
     const-wide/16 v18, 0x1
 
     cmp-long v5, v16, v18
 
-    if-lez v5, :cond_3
+    if-lez v5, :cond_80
 
     .line 819
     add-long v9, v13, v6
@@ -928,36 +928,36 @@
 
     move-result v9
 
-    if-ne v9, v8, :cond_2
+    if-ne v9, v8, :cond_78
 
     .line 821
     move-wide v6, v4
 
-    goto :goto_2
+    goto :goto_7a
 
     .line 823
-    :cond_2
+    :cond_78
     move-wide v9, v4
 
     move-wide v13, v9
 
     .line 825
     .end local v4    # "middle":J
-    :goto_2
+    :goto_7a
     move-object v4, v15
 
     move-wide/from16 v11, v20
 
     const-wide/16 v9, 0x3e8
 
-    goto :goto_1
+    goto :goto_57
 
     .line 826
     .end local v15    # "newYearsEve":Lj$/time/LocalDateTime;
     .end local v20    # "max":J
     .local v4, "newYearsEve":Lj$/time/LocalDateTime;
     .restart local v11    # "max":J
-    :cond_3
+    :cond_80
     move-object v15, v4
 
     move-wide/from16 v20, v11
@@ -976,7 +976,7 @@
 
     move-result v4
 
-    if-eq v4, v8, :cond_4
+    if-eq v4, v8, :cond_91
 
     .line 827
     move-wide v4, v6
@@ -984,7 +984,7 @@
     move-wide v13, v4
 
     .line 829
-    :cond_4
+    :cond_91
     invoke-static {v8}, Lj$/time/zone/ZoneRules;->offsetFromMillis(I)Lj$/time/ZoneOffset;
 
     move-result-object v4
@@ -1014,7 +1014,7 @@
 
     move-result v11
 
-    if-ne v11, v1, :cond_5
+    if-ne v11, v1, :cond_bf
 
     .line 833
     array-length v11, v3
@@ -1042,13 +1042,13 @@
 
     move v8, v5
 
-    goto :goto_3
+    goto :goto_c6
 
     .line 832
-    :cond_5
+    :cond_bf
     move v8, v5
 
-    goto :goto_3
+    goto :goto_c6
 
     .line 816
     .end local v5    # "curOffsetMillis":I
@@ -1059,7 +1059,7 @@
     .local v8, "curOffsetMillis":I
     .restart local v11    # "max":J
     .restart local v16    # "lower":J
-    :cond_6
+    :cond_c1
     move-object v15, v4
 
     move-wide/from16 v20, v11
@@ -1073,7 +1073,7 @@
     .line 838
     .end local v16    # "lower":J
     .restart local v6    # "lower":J
-    :goto_3
+    :goto_c6
     move-wide v6, v13
 
     .line 839
@@ -1082,14 +1082,14 @@
 
     move-wide/from16 v11, v20
 
-    goto/16 :goto_0
+    goto/16 :goto_41
 
     .line 841
     .end local v15    # "newYearsEve":Lj$/time/LocalDateTime;
     .end local v20    # "max":J
     .restart local v4    # "newYearsEve":Lj$/time/LocalDateTime;
     .restart local v11    # "max":J
-    :cond_7
+    :cond_cc
     move-object v15, v4
 
     move-wide/from16 v16, v6
@@ -1104,11 +1104,11 @@
     .restart local v20    # "max":J
     const/16 v4, 0x77c
 
-    if-gt v4, v1, :cond_8
+    if-gt v4, v1, :cond_de
 
     const/16 v4, 0x834
 
-    if-ge v1, v4, :cond_8
+    if-ge v1, v4, :cond_de
 
     .line 842
     iget-object v4, v0, Lj$/time/zone/ZoneRules;->lastRulesCache:Ljava/util/concurrent/ConcurrentMap;
@@ -1116,7 +1116,7 @@
     invoke-interface {v4, v2, v3}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 844
-    :cond_8
+    :cond_de
     return-object v3
 
     .line 846
@@ -1124,7 +1124,7 @@
     .end local v15    # "newYearsEve":Lj$/time/LocalDateTime;
     .end local v16    # "lower":J
     .end local v20    # "max":J
-    :cond_9
+    :cond_df
     iget-object v4, v0, Lj$/time/zone/ZoneRules;->lastRules:[Lj$/time/zone/ZoneOffsetTransitionRule;
 
     .line 847
@@ -1137,10 +1137,10 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_4
+    :goto_e5
     array-length v6, v4
 
-    if-ge v5, v6, :cond_a
+    if-ge v5, v6, :cond_f3
 
     .line 849
     aget-object v6, v4, v5
@@ -1154,14 +1154,14 @@
     .line 848
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_4
+    goto :goto_e5
 
     .line 851
     .end local v5    # "i":I
-    :cond_a
+    :cond_f3
     const/16 v5, 0x834
 
-    if-ge v1, v5, :cond_b
+    if-ge v1, v5, :cond_fc
 
     .line 852
     iget-object v5, v0, Lj$/time/zone/ZoneRules;->lastRulesCache:Ljava/util/concurrent/ConcurrentMap;
@@ -1169,12 +1169,12 @@
     invoke-interface {v5, v2, v3}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 854
-    :cond_b
+    :cond_fc
     return-object v3
 .end method
 
 .method private findYear(JLj$/time/ZoneOffset;)I
-    .locals 5
+    .registers 9
     .param p1, "epochSecond"    # J
     .param p3, "offset"    # Lj$/time/ZoneOffset;
 
@@ -1209,7 +1209,7 @@
 .end method
 
 .method private getOffsetInfo(Lj$/time/LocalDateTime;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p1, "dt"    # Lj$/time/LocalDateTime;
 
     .line 690
@@ -1217,7 +1217,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_45
 
     .line 691
     invoke-virtual {p1}, Lj$/time/LocalDateTime;->getYear()I
@@ -1232,7 +1232,7 @@
     .local v0, "transArray":[Lj$/time/zone/ZoneOffsetTransition;
     array-length v2, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_27
 
     .line 696
     iget-object v2, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -1262,15 +1262,15 @@
     return-object v1
 
     .line 700
-    :cond_0
+    :cond_27
     const/4 v2, 0x0
 
     .line 701
     .local v2, "info":Ljava/lang/Object;
     array-length v3, v0
 
-    :goto_0
-    if-ge v1, v3, :cond_3
+    :goto_29
+    if-ge v1, v3, :cond_44
 
     aget-object v4, v0, v1
 
@@ -1283,7 +1283,7 @@
     .line 703
     instance-of v5, v2, Lj$/time/zone/ZoneOffsetTransition;
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_43
 
     invoke-virtual {v4}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetBefore()Lj$/time/ZoneOffset;
 
@@ -1293,37 +1293,37 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_40
 
-    goto :goto_1
+    goto :goto_43
 
     .line 701
     .end local v4    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_1
+    :cond_40
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
     .line 704
     .restart local v4    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_2
-    :goto_1
+    :cond_43
+    :goto_43
     return-object v2
 
     .line 707
     .end local v4    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_3
+    :cond_44
     return-object v2
 
     .line 709
     .end local v0    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
     .end local v2    # "info":Ljava/lang/Object;
-    :cond_4
+    :cond_45
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     array-length v0, v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_4f
 
     .line 710
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->standardOffsets:[Lj$/time/ZoneOffset;
@@ -1333,12 +1333,12 @@
     return-object v0
 
     .line 713
-    :cond_5
+    :cond_4f
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->lastRules:[Lj$/time/zone/ZoneOffsetTransitionRule;
 
     array-length v0, v0
 
-    if-lez v0, :cond_9
+    if-lez v0, :cond_89
 
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->savingsLocalTransitions:[Lj$/time/LocalDateTime;
 
@@ -1355,7 +1355,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_89
 
     .line 715
     invoke-virtual {p1}, Lj$/time/LocalDateTime;->getYear()I
@@ -1374,8 +1374,8 @@
     .restart local v2    # "info":Ljava/lang/Object;
     array-length v3, v0
 
-    :goto_2
-    if-ge v1, v3, :cond_8
+    :goto_6d
+    if-ge v1, v3, :cond_88
 
     aget-object v4, v0, v1
 
@@ -1388,7 +1388,7 @@
     .line 719
     instance-of v5, v2, Lj$/time/zone/ZoneOffsetTransition;
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_87
 
     invoke-virtual {v4}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetBefore()Lj$/time/ZoneOffset;
 
@@ -1398,32 +1398,32 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_84
 
-    goto :goto_3
+    goto :goto_87
 
     .line 717
     .end local v4    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_6
+    :cond_84
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_6d
 
     .line 720
     .restart local v4    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_7
-    :goto_3
+    :cond_87
+    :goto_87
     return-object v2
 
     .line 723
     .end local v4    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_8
+    :cond_88
     return-object v2
 
     .line 727
     .end local v0    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
     .end local v2    # "info":Ljava/lang/Object;
-    :cond_9
+    :cond_89
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->savingsLocalTransitions:[Lj$/time/LocalDateTime;
 
     invoke-static {v0, p1}, Ljava/util/Arrays;->binarySearch([Ljava/lang/Object;Ljava/lang/Object;)I
@@ -1434,7 +1434,7 @@
     .local v0, "index":I
     const/4 v2, -0x1
 
-    if-ne v0, v2, :cond_a
+    if-ne v0, v2, :cond_97
 
     .line 730
     iget-object v2, p0, Lj$/time/zone/ZoneRules;->wallOffsets:[Lj$/time/ZoneOffset;
@@ -1444,25 +1444,25 @@
     return-object v1
 
     .line 732
-    :cond_a
-    if-gez v0, :cond_b
+    :cond_97
+    if-gez v0, :cond_9d
 
     .line 734
     neg-int v1, v0
 
     add-int/lit8 v0, v1, -0x2
 
-    goto :goto_4
+    goto :goto_b6
 
     .line 735
-    :cond_b
+    :cond_9d
     iget-object v1, p0, Lj$/time/zone/ZoneRules;->savingsLocalTransitions:[Lj$/time/LocalDateTime;
 
     array-length v1, v1
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ge v0, v1, :cond_c
+    if-ge v0, v1, :cond_b6
 
     iget-object v1, p0, Lj$/time/zone/ZoneRules;->savingsLocalTransitions:[Lj$/time/LocalDateTime;
 
@@ -1479,17 +1479,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_b6
 
     .line 738
     add-int/lit8 v0, v0, 0x1
 
     .line 740
-    :cond_c
-    :goto_4
+    :cond_b6
+    :goto_b6
     and-int/lit8 v1, v0, 0x1
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_e8
 
     .line 742
     iget-object v1, p0, Lj$/time/zone/ZoneRules;->savingsLocalTransitions:[Lj$/time/LocalDateTime;
@@ -1532,7 +1532,7 @@
 
     move-result v6
 
-    if-le v5, v6, :cond_d
+    if-le v5, v6, :cond_e2
 
     .line 748
     new-instance v5, Lj$/time/zone/ZoneOffsetTransition;
@@ -1542,7 +1542,7 @@
     return-object v5
 
     .line 751
-    :cond_d
+    :cond_e2
     new-instance v5, Lj$/time/zone/ZoneOffsetTransition;
 
     invoke-direct {v5, v2, v3, v4}, Lj$/time/zone/ZoneOffsetTransition;-><init>(Lj$/time/LocalDateTime;Lj$/time/ZoneOffset;Lj$/time/ZoneOffset;)V
@@ -1554,7 +1554,7 @@
     .end local v2    # "dtAfter":Lj$/time/LocalDateTime;
     .end local v3    # "offsetBefore":Lj$/time/ZoneOffset;
     .end local v4    # "offsetAfter":Lj$/time/ZoneOffset;
-    :cond_e
+    :cond_e8
     iget-object v1, p0, Lj$/time/zone/ZoneRules;->wallOffsets:[Lj$/time/ZoneOffset;
 
     div-int/lit8 v2, v0, 0x2
@@ -1567,7 +1567,7 @@
 .end method
 
 .method public static of(Lj$/time/ZoneOffset;)Lj$/time/zone/ZoneRules;
-    .locals 1
+    .registers 2
     .param p0, "offset"    # Lj$/time/ZoneOffset;
 
     .line 207
@@ -1584,7 +1584,7 @@
 .end method
 
 .method public static of(Lj$/time/ZoneOffset;Lj$/time/ZoneOffset;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lj$/time/zone/ZoneRules;
-    .locals 7
+    .registers 12
     .param p0, "baseStandardOffset"    # Lj$/time/ZoneOffset;
     .param p1, "baseWallOffset"    # Lj$/time/ZoneOffset;
     .annotation system Ldalvik/annotation/Signature;
@@ -1654,7 +1654,7 @@
 .end method
 
 .method private static offsetFromMillis(I)Lj$/time/ZoneOffset;
-    .locals 1
+    .registers 2
     .param p0, "offsetMillis"    # I
 
     .line 344
@@ -1668,7 +1668,7 @@
 .end method
 
 .method static readExternal(Ljava/io/DataInput;)Lj$/time/zone/ZoneRules;
-    .locals 15
+    .registers 16
     .param p0, "in"    # Ljava/io/DataInput;
 
     .line 465
@@ -1678,17 +1678,17 @@
 
     .line 466
     .local v0, "stdSize":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     sget-object v1, Lj$/time/zone/ZoneRules;->EMPTY_LONG_ARRAY:[J
 
-    goto :goto_0
+    goto :goto_b
 
     .line 467
-    :cond_0
+    :cond_9
     new-array v1, v0, [J
 
-    :goto_0
+    :goto_b
     nop
 
     .line 468
@@ -1696,8 +1696,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_1
-    if-ge v2, v0, :cond_1
+    :goto_d
+    if-ge v2, v0, :cond_18
 
     .line 469
     invoke-static {p0}, Lj$/time/zone/Ser;->readEpochSec(Ljava/io/DataInput;)J
@@ -1709,11 +1709,11 @@
     .line 468
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_d
 
     .line 471
     .end local v2    # "i":I
-    :cond_1
+    :cond_18
     add-int/lit8 v2, v0, 0x1
 
     new-array v8, v2, [Lj$/time/ZoneOffset;
@@ -1723,10 +1723,10 @@
     const/4 v2, 0x0
 
     .restart local v2    # "i":I
-    :goto_2
+    :goto_1d
     array-length v3, v8
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_29
 
     .line 473
     invoke-static {p0}, Lj$/time/zone/Ser;->readOffset(Ljava/io/DataInput;)Lj$/time/ZoneOffset;
@@ -1738,28 +1738,28 @@
     .line 472
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_1d
 
     .line 475
     .end local v2    # "i":I
-    :cond_2
+    :cond_29
     invoke-interface {p0}, Ljava/io/DataInput;->readInt()I
 
     move-result v9
 
     .line 476
     .local v9, "savSize":I
-    if-nez v9, :cond_3
+    if-nez v9, :cond_32
 
     sget-object v2, Lj$/time/zone/ZoneRules;->EMPTY_LONG_ARRAY:[J
 
-    goto :goto_3
+    goto :goto_34
 
     .line 477
-    :cond_3
+    :cond_32
     new-array v2, v9, [J
 
-    :goto_3
+    :goto_34
     move-object v10, v2
 
     .line 478
@@ -1767,8 +1767,8 @@
     const/4 v2, 0x0
 
     .restart local v2    # "i":I
-    :goto_4
-    if-ge v2, v9, :cond_4
+    :goto_36
+    if-ge v2, v9, :cond_41
 
     .line 479
     invoke-static {p0}, Lj$/time/zone/Ser;->readEpochSec(Ljava/io/DataInput;)J
@@ -1780,11 +1780,11 @@
     .line 478
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4
+    goto :goto_36
 
     .line 481
     .end local v2    # "i":I
-    :cond_4
+    :cond_41
     add-int/lit8 v2, v9, 0x1
 
     new-array v11, v2, [Lj$/time/ZoneOffset;
@@ -1794,10 +1794,10 @@
     const/4 v2, 0x0
 
     .restart local v2    # "i":I
-    :goto_5
+    :goto_46
     array-length v3, v11
 
-    if-ge v2, v3, :cond_5
+    if-ge v2, v3, :cond_52
 
     .line 483
     invoke-static {p0}, Lj$/time/zone/Ser;->readOffset(Ljava/io/DataInput;)Lj$/time/ZoneOffset;
@@ -1809,28 +1809,28 @@
     .line 482
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_5
+    goto :goto_46
 
     .line 485
     .end local v2    # "i":I
-    :cond_5
+    :cond_52
     invoke-interface {p0}, Ljava/io/DataInput;->readByte()B
 
     move-result v12
 
     .line 486
     .local v12, "ruleSize":I
-    if-nez v12, :cond_6
+    if-nez v12, :cond_5b
 
     .line 487
     sget-object v2, Lj$/time/zone/ZoneRules;->EMPTY_LASTRULES:[Lj$/time/zone/ZoneOffsetTransitionRule;
 
-    goto :goto_6
+    goto :goto_5d
 
-    :cond_6
+    :cond_5b
     new-array v2, v12, [Lj$/time/zone/ZoneOffsetTransitionRule;
 
-    :goto_6
+    :goto_5d
     move-object v13, v2
 
     .line 488
@@ -1838,8 +1838,8 @@
     const/4 v2, 0x0
 
     .restart local v2    # "i":I
-    :goto_7
-    if-ge v2, v12, :cond_7
+    :goto_5f
+    if-ge v2, v12, :cond_6a
 
     .line 489
     invoke-static {p0}, Lj$/time/zone/ZoneOffsetTransitionRule;->readExternal(Ljava/io/DataInput;)Lj$/time/zone/ZoneOffsetTransitionRule;
@@ -1851,11 +1851,11 @@
     .line 488
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_7
+    goto :goto_5f
 
     .line 491
     .end local v2    # "i":I
-    :cond_7
+    :cond_6a
     new-instance v14, Lj$/time/zone/ZoneRules;
 
     move-object v2, v14
@@ -1876,7 +1876,7 @@
 .end method
 
 .method static readExternalTimeZone(Ljava/io/DataInput;)Lj$/time/zone/ZoneRules;
-    .locals 2
+    .registers 3
     .param p0, "in"    # Ljava/io/DataInput;
 
     .line 496
@@ -1898,7 +1898,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 354
@@ -1912,23 +1912,23 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 422
     new-instance v0, Lj$/time/zone/Ser;
 
     iget-object v1, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/16 v1, 0x64
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x1
 
-    :goto_0
+    :goto_a
     invoke-direct {v0, v1, p0}, Lj$/time/zone/Ser;-><init>(BLjava/lang/Object;)V
 
     return-object v0
@@ -1937,24 +1937,24 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "otherRules"    # Ljava/lang/Object;
 
     .line 1219
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 1220
     return v0
 
     .line 1222
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/time/zone/ZoneRules;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4b
 
     .line 1223
     move-object v1, p1
@@ -1971,7 +1971,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_49
 
     iget-object v3, p0, Lj$/time/zone/ZoneRules;->standardTransitions:[J
 
@@ -1982,7 +1982,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_49
 
     iget-object v3, p0, Lj$/time/zone/ZoneRules;->standardOffsets:[Lj$/time/ZoneOffset;
 
@@ -1993,7 +1993,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_49
 
     iget-object v3, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
@@ -2004,7 +2004,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_49
 
     iget-object v3, p0, Lj$/time/zone/ZoneRules;->wallOffsets:[Lj$/time/ZoneOffset;
 
@@ -2015,7 +2015,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_49
 
     iget-object v3, p0, Lj$/time/zone/ZoneRules;->lastRules:[Lj$/time/zone/ZoneOffsetTransitionRule;
 
@@ -2026,31 +2026,31 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_49
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_1
+    :cond_49
     const/4 v0, 0x0
 
     .line 1226
-    :goto_0
+    :goto_4a
     return v0
 
     .line 1233
     .end local v1    # "other":Lj$/time/zone/ZoneRules;
-    :cond_2
+    :cond_4b
     return v2
 .end method
 
 .method public getDaylightSavings(Lj$/time/Instant;)Lj$/time/Duration;
-    .locals 4
+    .registers 6
     .param p1, "instant"    # Lj$/time/Instant;
 
     .line 907
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 908
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -2083,12 +2083,12 @@
 
     .line 911
     .end local v0    # "offset":I
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     array-length v0, v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     .line 912
     sget-object v0, Lj$/time/Duration;->ZERO:Lj$/time/Duration;
@@ -2096,7 +2096,7 @@
     return-object v0
 
     .line 914
-    :cond_1
+    :cond_24
     invoke-virtual {p0, p1}, Lj$/time/zone/ZoneRules;->getStandardOffset(Lj$/time/Instant;)Lj$/time/ZoneOffset;
 
     move-result-object v0
@@ -2129,13 +2129,13 @@
 .end method
 
 .method public getOffset(Lj$/time/Instant;)Lj$/time/ZoneOffset;
-    .locals 9
+    .registers 11
     .param p1, "instant"    # Lj$/time/Instant;
 
     .line 531
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 532
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -2155,12 +2155,12 @@
     return-object v0
 
     .line 534
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     array-length v0, v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     .line 535
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->standardOffsets:[Lj$/time/ZoneOffset;
@@ -2172,7 +2172,7 @@
     return-object v0
 
     .line 537
-    :cond_1
+    :cond_1e
     invoke-virtual {p1}, Lj$/time/Instant;->getEpochSecond()J
 
     move-result-wide v0
@@ -2183,7 +2183,7 @@
 
     array-length v2, v2
 
-    if-lez v2, :cond_4
+    if-lez v2, :cond_61
 
     iget-object v2, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
@@ -2197,7 +2197,7 @@
 
     cmp-long v2, v0, v3
 
-    if-lez v2, :cond_4
+    if-lez v2, :cond_61
 
     .line 541
     iget-object v2, p0, Lj$/time/zone/ZoneRules;->wallOffsets:[Lj$/time/ZoneOffset;
@@ -2229,10 +2229,10 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_0
+    :goto_47
     array-length v6, v3
 
-    if-ge v5, v6, :cond_3
+    if-ge v5, v6, :cond_5c
 
     .line 545
     aget-object v4, v3, v5
@@ -2244,7 +2244,7 @@
 
     cmp-long v8, v0, v6
 
-    if-gez v8, :cond_2
+    if-gez v8, :cond_59
 
     .line 547
     invoke-virtual {v4}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetBefore()Lj$/time/ZoneOffset;
@@ -2254,14 +2254,14 @@
     return-object v6
 
     .line 544
-    :cond_2
+    :cond_59
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_47
 
     .line 550
     .end local v5    # "i":I
-    :cond_3
+    :cond_5c
     invoke-virtual {v4}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetAfter()Lj$/time/ZoneOffset;
 
     move-result-object v5
@@ -2272,7 +2272,7 @@
     .end local v2    # "year":I
     .end local v3    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
     .end local v4    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_4
+    :cond_61
     iget-object v2, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     invoke-static {v2, v0, v1}, Ljava/util/Arrays;->binarySearch([JJ)I
@@ -2281,7 +2281,7 @@
 
     .line 555
     .local v2, "index":I
-    if-gez v2, :cond_5
+    if-gez v2, :cond_6c
 
     .line 557
     neg-int v3, v2
@@ -2289,7 +2289,7 @@
     add-int/lit8 v2, v3, -0x2
 
     .line 559
-    :cond_5
+    :cond_6c
     iget-object v3, p0, Lj$/time/zone/ZoneRules;->wallOffsets:[Lj$/time/ZoneOffset;
 
     add-int/lit8 v4, v2, 0x1
@@ -2300,7 +2300,7 @@
 .end method
 
 .method public getOffset(Lj$/time/LocalDateTime;)Lj$/time/ZoneOffset;
-    .locals 2
+    .registers 4
     .param p1, "localDateTime"    # Lj$/time/LocalDateTime;
 
     .line 591
@@ -2312,7 +2312,7 @@
     .local v0, "info":Ljava/lang/Object;
     instance-of v1, v0, Lj$/time/zone/ZoneOffsetTransition;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 593
     move-object v1, v0
@@ -2326,7 +2326,7 @@
     return-object v1
 
     .line 595
-    :cond_0
+    :cond_10
     move-object v1, v0
 
     check-cast v1, Lj$/time/ZoneOffset;
@@ -2335,13 +2335,13 @@
 .end method
 
 .method public getStandardOffset(Lj$/time/Instant;)Lj$/time/ZoneOffset;
-    .locals 5
+    .registers 7
     .param p1, "instant"    # Lj$/time/Instant;
 
     .line 872
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 873
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -2357,12 +2357,12 @@
     return-object v0
 
     .line 875
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     array-length v0, v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
     .line 876
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->standardOffsets:[Lj$/time/ZoneOffset;
@@ -2374,7 +2374,7 @@
     return-object v0
 
     .line 878
-    :cond_1
+    :cond_1a
     invoke-virtual {p1}, Lj$/time/Instant;->getEpochSecond()J
 
     move-result-wide v0
@@ -2389,7 +2389,7 @@
 
     .line 880
     .local v2, "index":I
-    if-gez v2, :cond_2
+    if-gez v2, :cond_29
 
     .line 882
     neg-int v3, v2
@@ -2397,7 +2397,7 @@
     add-int/lit8 v2, v3, -0x2
 
     .line 884
-    :cond_2
+    :cond_29
     iget-object v3, p0, Lj$/time/zone/ZoneRules;->standardOffsets:[Lj$/time/ZoneOffset;
 
     add-int/lit8 v4, v2, 0x1
@@ -2408,7 +2408,7 @@
 .end method
 
 .method public getTransition(Lj$/time/LocalDateTime;)Lj$/time/zone/ZoneOffsetTransition;
-    .locals 2
+    .registers 4
     .param p1, "localDateTime"    # Lj$/time/LocalDateTime;
 
     .line 684
@@ -2420,23 +2420,23 @@
     .local v0, "info":Ljava/lang/Object;
     instance-of v1, v0, Lj$/time/zone/ZoneOffsetTransition;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     move-object v1, v0
 
     check-cast v1, Lj$/time/zone/ZoneOffsetTransition;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_d
     return-object v1
 .end method
 
 .method public getTransitionRules()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2457,7 +2457,7 @@
 .end method
 
 .method public getTransitions()Ljava/util/List;
-    .locals 8
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2477,12 +2477,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     iget-object v2, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_24
 
     .line 1175
     new-instance v2, Lj$/time/zone/ZoneOffsetTransition;
@@ -2508,11 +2508,11 @@
     .line 1174
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 1177
     .end local v1    # "i":I
-    :cond_0
+    :cond_24
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v1
@@ -2521,7 +2521,7 @@
 .end method
 
 .method public getValidOffsets(Lj$/time/LocalDateTime;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p1, "localDateTime"    # Lj$/time/LocalDateTime;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2543,7 +2543,7 @@
     .local v0, "info":Ljava/lang/Object;
     instance-of v1, v0, Lj$/time/zone/ZoneOffsetTransition;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 644
     move-object v1, v0
@@ -2557,7 +2557,7 @@
     return-object v1
 
     .line 646
-    :cond_0
+    :cond_10
     move-object v1, v0
 
     check-cast v1, Lj$/time/ZoneOffset;
@@ -2570,7 +2570,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 1245
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -2629,7 +2629,7 @@
 .end method
 
 .method public isDaylightSavings(Lj$/time/Instant;)Z
-    .locals 2
+    .registers 4
     .param p1, "instant"    # Lj$/time/Instant;
 
     .line 934
@@ -2651,7 +2651,7 @@
 .end method
 
 .method public isFixedOffset()Z
-    .locals 3
+    .registers 4
 
     .line 507
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -2660,7 +2660,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_25
 
     .line 508
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -2669,7 +2669,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_24
 
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
 
@@ -2677,12 +2677,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
-    goto :goto_1
+    goto :goto_24
 
     .line 513
-    :cond_0
+    :cond_17
     invoke-static {}, Lj$/time/Instant;->now()Lj$/time/Instant;
 
     move-result-object v0
@@ -2691,40 +2691,40 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_22
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_23
     return v1
 
     .line 509
-    :cond_2
-    :goto_1
+    :cond_24
+    :goto_24
     return v2
 
     .line 515
-    :cond_3
+    :cond_25
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     array-length v0, v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_2b
 
-    goto :goto_2
+    goto :goto_2c
 
-    :cond_4
+    :cond_2b
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_2c
     return v1
 .end method
 
 .method public isValidOffset(Lj$/time/LocalDateTime;Lj$/time/ZoneOffset;)Z
-    .locals 1
+    .registers 4
     .param p1, "localDateTime"    # Lj$/time/LocalDateTime;
     .param p2, "offset"    # Lj$/time/ZoneOffset;
 
@@ -2741,7 +2741,7 @@
 .end method
 
 .method public nextTransition(Lj$/time/Instant;)Lj$/time/zone/ZoneOffsetTransition;
-    .locals 18
+    .registers 20
     .param p1, "instant"    # Lj$/time/Instant;
 
     .line 968
@@ -2751,7 +2751,7 @@
 
     const v2, 0x3b9ac9ff
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_a1
 
     .line 969
     invoke-virtual/range {p1 .. p1}, Lj$/time/Instant;->getEpochSecond()J
@@ -2780,8 +2780,8 @@
 
     const/4 v9, 0x0
 
-    :goto_0
-    if-ge v9, v8, :cond_1
+    :goto_1b
+    if-ge v9, v8, :cond_2b
 
     aget-object v10, v7, v9
 
@@ -2793,21 +2793,21 @@
 
     cmp-long v13, v5, v11
 
-    if-gez v13, :cond_0
+    if-gez v13, :cond_28
 
     .line 974
     return-object v10
 
     .line 972
     .end local v10    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_0
+    :cond_28
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 979
-    :cond_1
-    if-ge v1, v2, :cond_3
+    :cond_2b
+    if-ge v1, v2, :cond_45
 
     .line 980
     add-int/lit8 v2, v1, 0x1
@@ -2821,8 +2821,8 @@
 
     const/4 v8, 0x0
 
-    :goto_1
-    if-ge v8, v2, :cond_3
+    :goto_35
+    if-ge v8, v2, :cond_45
 
     aget-object v9, v7, v8
 
@@ -2834,20 +2834,20 @@
 
     cmp-long v12, v5, v10
 
-    if-gez v12, :cond_2
+    if-gez v12, :cond_42
 
     .line 983
     return-object v9
 
     .line 981
     .end local v9    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_2
+    :cond_42
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 991
-    :cond_3
+    :cond_45
     const-wide/32 v8, 0x1da9c00
 
     add-long/2addr v8, v5
@@ -2886,10 +2886,10 @@
 
     .line 994
     .local v10, "max":J
-    :goto_2
+    :goto_63
     cmp-long v14, v8, v10
 
-    if-gtz v14, :cond_7
+    if-gtz v14, :cond_9f
 
     .line 995
     iget-object v14, v0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -2902,7 +2902,7 @@
 
     .line 996
     .local v3, "probeOffsetMillis":I
-    if-eq v2, v3, :cond_6
+    if-eq v2, v3, :cond_99
 
     .line 997
     invoke-static {v3}, Lj$/time/zone/ZoneRules;->offsetFromMillis(I)Lj$/time/ZoneOffset;
@@ -2927,8 +2927,8 @@
 
     const/4 v12, 0x0
 
-    :goto_3
-    if-ge v12, v7, :cond_5
+    :goto_81
+    if-ge v12, v7, :cond_91
 
     aget-object v13, v4, v12
 
@@ -2940,20 +2940,20 @@
 
     cmp-long v16, v5, v14
 
-    if-gez v16, :cond_4
+    if-gez v16, :cond_8e
 
     .line 1002
     return-object v13
 
     .line 1000
     .end local v13    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_4
+    :cond_8e
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_3
+    goto :goto_81
 
     .line 1006
-    :cond_5
+    :cond_91
     invoke-direct {v0, v1}, Lj$/time/zone/ZoneRules;->findTransitionArray(I)[Lj$/time/zone/ZoneOffsetTransition;
 
     move-result-object v4
@@ -2968,17 +2968,17 @@
     .line 1009
     .end local v4    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
     .restart local v7    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
-    :cond_6
+    :cond_99
     const-wide/32 v16, 0x76a700
 
     add-long v8, v8, v16
 
     .line 1010
     .end local v3    # "probeOffsetMillis":I
-    goto :goto_2
+    goto :goto_63
 
     .line 1011
-    :cond_7
+    :cond_9f
     const/4 v3, 0x0
 
     return-object v3
@@ -2990,20 +2990,20 @@
     .end local v7    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
     .end local v8    # "probeSec":J
     .end local v10    # "max":J
-    :cond_8
+    :cond_a1
     const/4 v3, 0x0
 
     iget-object v1, v0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     array-length v1, v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_a8
 
     .line 1014
     return-object v3
 
     .line 1016
-    :cond_9
+    :cond_a8
     invoke-virtual/range {p1 .. p1}, Lj$/time/Instant;->getEpochSecond()J
 
     move-result-wide v3
@@ -3022,14 +3022,14 @@
 
     cmp-long v1, v3, v5
 
-    if-ltz v1, :cond_e
+    if-ltz v1, :cond_f1
 
     .line 1019
     iget-object v1, v0, Lj$/time/zone/ZoneRules;->lastRules:[Lj$/time/zone/ZoneOffsetTransitionRule;
 
     array-length v1, v1
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_c0
 
     .line 1020
     const/4 v1, 0x0
@@ -3037,7 +3037,7 @@
     return-object v1
 
     .line 1023
-    :cond_a
+    :cond_c0
     iget-object v1, v0, Lj$/time/zone/ZoneRules;->wallOffsets:[Lj$/time/ZoneOffset;
 
     iget-object v5, v0, Lj$/time/zone/ZoneRules;->wallOffsets:[Lj$/time/ZoneOffset;
@@ -3064,8 +3064,8 @@
 
     const/4 v7, 0x0
 
-    :goto_4
-    if-ge v7, v6, :cond_c
+    :goto_d3
+    if-ge v7, v6, :cond_e3
 
     aget-object v8, v5, v7
 
@@ -3077,21 +3077,21 @@
 
     cmp-long v11, v3, v9
 
-    if-gez v11, :cond_b
+    if-gez v11, :cond_e0
 
     .line 1027
     return-object v8
 
     .line 1025
     .end local v8    # "trans":Lj$/time/zone/ZoneOffsetTransition;
-    :cond_b
+    :cond_e0
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_4
+    goto :goto_d3
 
     .line 1031
-    :cond_c
-    if-ge v1, v2, :cond_d
+    :cond_e3
+    if-ge v1, v2, :cond_ef
 
     .line 1032
     add-int/lit8 v2, v1, 0x1
@@ -3112,7 +3112,7 @@
     .line 1035
     .end local v2    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
     .restart local v5    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
-    :cond_d
+    :cond_ef
     const/4 v2, 0x0
 
     return-object v2
@@ -3120,7 +3120,7 @@
     .line 1039
     .end local v1    # "year":I
     .end local v5    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
-    :cond_e
+    :cond_f1
     iget-object v1, v0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     invoke-static {v1, v3, v4}, Ljava/util/Arrays;->binarySearch([JJ)I
@@ -3129,7 +3129,7 @@
 
     .line 1040
     .local v1, "index":I
-    if-gez v1, :cond_f
+    if-gez v1, :cond_fd
 
     .line 1041
     neg-int v2, v1
@@ -3138,18 +3138,18 @@
 
     .end local v1    # "index":I
     .local v2, "index":I
-    goto :goto_5
+    goto :goto_ff
 
     .line 1043
     .end local v2    # "index":I
     .restart local v1    # "index":I
-    :cond_f
+    :cond_fd
     add-int/lit8 v2, v1, 0x1
 
     .line 1045
     .end local v1    # "index":I
     .restart local v2    # "index":I
-    :goto_5
+    :goto_ff
     new-instance v1, Lj$/time/zone/ZoneOffsetTransition;
 
     iget-object v5, v0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
@@ -3172,7 +3172,7 @@
 .end method
 
 .method public previousTransition(Lj$/time/Instant;)Lj$/time/zone/ZoneOffsetTransition;
-    .locals 18
+    .registers 20
     .param p1, "instant"    # Lj$/time/Instant;
 
     .line 1061
@@ -3186,7 +3186,7 @@
 
     const/4 v7, 0x1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_d0
 
     .line 1062
     invoke-virtual/range {p1 .. p1}, Lj$/time/Instant;->getEpochSecond()J
@@ -3199,17 +3199,17 @@
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1d
 
     cmp-long v1, v8, v2
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_1d
 
     .line 1064
     add-long/2addr v8, v4
 
     .line 1066
-    :cond_0
+    :cond_1d
     invoke-virtual/range {p0 .. p1}, Lj$/time/zone/ZoneRules;->getOffset(Lj$/time/Instant;)Lj$/time/ZoneOffset;
 
     move-result-object v1
@@ -3231,8 +3231,8 @@
     sub-int/2addr v3, v7
 
     .local v3, "i":I
-    :goto_0
-    if-ltz v3, :cond_2
+    :goto_2b
+    if-ltz v3, :cond_3d
 
     .line 1069
     aget-object v10, v2, v3
@@ -3243,7 +3243,7 @@
 
     cmp-long v12, v8, v10
 
-    if-lez v12, :cond_1
+    if-lez v12, :cond_3a
 
     .line 1070
     aget-object v4, v2, v3
@@ -3251,17 +3251,17 @@
     return-object v4
 
     .line 1068
-    :cond_1
+    :cond_3a
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 1075
     .end local v3    # "i":I
-    :cond_2
+    :cond_3d
     const/16 v3, 0x708
 
-    if-le v1, v3, :cond_9
+    if-le v1, v3, :cond_ce
 
     .line 1076
     add-int/lit8 v10, v1, -0x1
@@ -3276,8 +3276,8 @@
     sub-int/2addr v10, v7
 
     .local v10, "i":I
-    :goto_1
-    if-ltz v10, :cond_4
+    :goto_49
+    if-ltz v10, :cond_5b
 
     .line 1078
     aget-object v11, v2, v10
@@ -3288,7 +3288,7 @@
 
     cmp-long v13, v8, v11
 
-    if-lez v13, :cond_3
+    if-lez v13, :cond_58
 
     .line 1079
     aget-object v3, v2, v10
@@ -3296,14 +3296,14 @@
     return-object v3
 
     .line 1077
-    :cond_3
+    :cond_58
     add-int/lit8 v10, v10, -0x1
 
-    goto :goto_1
+    goto :goto_49
 
     .line 1089
     .end local v10    # "i":I
-    :cond_4
+    :cond_5b
     const-wide/32 v10, 0x1da9c00
 
     sub-long v10, v8, v10
@@ -3358,10 +3358,10 @@
 
     .line 1094
     .local v12, "min":J
-    :goto_2
+    :goto_8b
     cmp-long v3, v12, v10
 
-    if-gtz v3, :cond_8
+    if-gtz v3, :cond_cc
 
     .line 1095
     iget-object v3, v0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -3374,7 +3374,7 @@
 
     .line 1096
     .local v3, "probeOffsetMillis":I
-    if-eq v4, v3, :cond_7
+    if-eq v4, v3, :cond_c6
 
     .line 1097
     invoke-static {v3}, Lj$/time/zone/ZoneRules;->offsetFromMillis(I)Lj$/time/ZoneOffset;
@@ -3400,8 +3400,8 @@
     sub-int/2addr v5, v6
 
     .local v5, "i":I
-    :goto_3
-    if-ltz v5, :cond_6
+    :goto_aa
+    if-ltz v5, :cond_bc
 
     .line 1101
     aget-object v6, v2, v5
@@ -3412,7 +3412,7 @@
 
     cmp-long v14, v8, v6
 
-    if-lez v14, :cond_5
+    if-lez v14, :cond_b9
 
     .line 1102
     aget-object v6, v2, v5
@@ -3420,14 +3420,14 @@
     return-object v6
 
     .line 1100
-    :cond_5
+    :cond_b9
     add-int/lit8 v5, v5, -0x1
 
-    goto :goto_3
+    goto :goto_aa
 
     .line 1106
     .end local v5    # "i":I
-    :cond_6
+    :cond_bc
     invoke-direct {v0, v1}, Lj$/time/zone/ZoneRules;->findTransitionArray(I)[Lj$/time/zone/ZoneOffsetTransition;
 
     move-result-object v2
@@ -3444,7 +3444,7 @@
     return-object v5
 
     .line 1109
-    :cond_7
+    :cond_c6
     const-wide/32 v5, 0x76a700
 
     sub-long/2addr v10, v5
@@ -3453,10 +3453,10 @@
     .end local v3    # "probeOffsetMillis":I
     const/4 v7, 0x1
 
-    goto :goto_2
+    goto :goto_8b
 
     .line 1111
-    :cond_8
+    :cond_cc
     const/4 v6, 0x0
 
     return-object v6
@@ -3465,7 +3465,7 @@
     .end local v4    # "curOffsetMillis":I
     .end local v10    # "probeSec":J
     .end local v12    # "min":J
-    :cond_9
+    :cond_ce
     const/4 v6, 0x0
 
     return-object v6
@@ -3474,20 +3474,20 @@
     .end local v1    # "year":I
     .end local v2    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
     .end local v8    # "epochSec":J
-    :cond_a
+    :cond_d0
     const/4 v6, 0x0
 
     iget-object v1, v0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     array-length v1, v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_d7
 
     .line 1114
     return-object v6
 
     .line 1116
-    :cond_b
+    :cond_d7
     invoke-virtual/range {p1 .. p1}, Lj$/time/Instant;->getEpochSecond()J
 
     move-result-wide v6
@@ -3498,17 +3498,17 @@
 
     move-result v1
 
-    if-lez v1, :cond_c
+    if-lez v1, :cond_e6
 
     cmp-long v1, v6, v2
 
-    if-gez v1, :cond_c
+    if-gez v1, :cond_e6
 
     .line 1118
     add-long/2addr v6, v4
 
     .line 1122
-    :cond_c
+    :cond_e6
     iget-object v1, v0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     iget-object v2, v0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
@@ -3527,11 +3527,11 @@
 
     array-length v1, v1
 
-    if-lez v1, :cond_f
+    if-lez v1, :cond_12f
 
     cmp-long v1, v6, v2
 
-    if-lez v1, :cond_f
+    if-lez v1, :cond_12f
 
     .line 1125
     iget-object v1, v0, Lj$/time/zone/ZoneRules;->wallOffsets:[Lj$/time/ZoneOffset;
@@ -3565,8 +3565,8 @@
     sub-int/2addr v9, v5
 
     .local v9, "i":I
-    :goto_4
-    if-ltz v9, :cond_e
+    :goto_10b
+    if-ltz v9, :cond_11d
 
     .line 1129
     aget-object v5, v8, v9
@@ -3577,7 +3577,7 @@
 
     cmp-long v5, v6, v10
 
-    if-lez v5, :cond_d
+    if-lez v5, :cond_11a
 
     .line 1130
     aget-object v5, v8, v9
@@ -3585,14 +3585,14 @@
     return-object v5
 
     .line 1128
-    :cond_d
+    :cond_11a
     add-int/lit8 v9, v9, -0x1
 
-    goto :goto_4
+    goto :goto_10b
 
     .line 1134
     .end local v9    # "i":I
-    :cond_e
+    :cond_11d
     invoke-direct {v0, v2, v3, v1}, Lj$/time/zone/ZoneRules;->findYear(JLj$/time/ZoneOffset;)I
 
     move-result v5
@@ -3601,7 +3601,7 @@
     .local v5, "lastHistoricYear":I
     add-int/lit8 v4, v4, -0x1
 
-    if-le v4, v5, :cond_f
+    if-le v4, v5, :cond_12f
 
     .line 1136
     invoke-direct {v0, v4}, Lj$/time/zone/ZoneRules;->findTransitionArray(I)[Lj$/time/zone/ZoneOffsetTransition;
@@ -3624,7 +3624,7 @@
     .end local v4    # "year":I
     .end local v5    # "lastHistoricYear":I
     .end local v8    # "transArray":[Lj$/time/zone/ZoneOffsetTransition;
-    :cond_f
+    :cond_12f
     iget-object v1, v0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     invoke-static {v1, v6, v7}, Ljava/util/Arrays;->binarySearch([JJ)I
@@ -3633,7 +3633,7 @@
 
     .line 1144
     .local v1, "index":I
-    if-gez v1, :cond_10
+    if-gez v1, :cond_13b
 
     .line 1145
     neg-int v4, v1
@@ -3643,8 +3643,8 @@
     add-int/lit8 v1, v4, -0x1
 
     .line 1147
-    :cond_10
-    if-gtz v1, :cond_11
+    :cond_13b
+    if-gtz v1, :cond_13f
 
     .line 1148
     const/4 v4, 0x0
@@ -3652,7 +3652,7 @@
     return-object v4
 
     .line 1150
-    :cond_11
+    :cond_13f
     new-instance v4, Lj$/time/zone/ZoneOffsetTransition;
 
     iget-object v5, v0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
@@ -3677,14 +3677,14 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 1261
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
 
     const-string v1, "]"
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 1262
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->timeZone:Ljava/util/TimeZone;
@@ -3718,7 +3718,7 @@
     return-object v0
 
     .line 1264
-    :cond_0
+    :cond_24
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->standardOffsets:[Lj$/time/ZoneOffset;
 
     iget-object v2, p0, Lj$/time/zone/ZoneRules;->standardOffsets:[Lj$/time/ZoneOffset;
@@ -3755,7 +3755,7 @@
 .end method
 
 .method writeExternal(Ljava/io/DataOutput;)V
-    .locals 6
+    .registers 8
     .param p1, "out"    # Ljava/io/DataOutput;
 
     .line 432
@@ -3774,8 +3774,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_b
+    if-ge v3, v1, :cond_15
 
     aget-wide v4, v0, v3
 
@@ -3787,18 +3787,18 @@
     .end local v4    # "trans":J
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 436
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->standardOffsets:[Lj$/time/ZoneOffset;
 
     array-length v1, v0
 
     const/4 v3, 0x0
 
-    :goto_1
-    if-ge v3, v1, :cond_1
+    :goto_19
+    if-ge v3, v1, :cond_23
 
     aget-object v4, v0, v3
 
@@ -3810,10 +3810,10 @@
     .end local v4    # "offset":Lj$/time/ZoneOffset;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
     .line 439
-    :cond_1
+    :cond_23
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->savingsInstantTransitions:[J
 
     array-length v0, v0
@@ -3827,8 +3827,8 @@
 
     const/4 v3, 0x0
 
-    :goto_2
-    if-ge v3, v1, :cond_2
+    :goto_2d
+    if-ge v3, v1, :cond_37
 
     aget-wide v4, v0, v3
 
@@ -3840,18 +3840,18 @@
     .end local v4    # "trans":J
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_2d
 
     .line 443
-    :cond_2
+    :cond_37
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->wallOffsets:[Lj$/time/ZoneOffset;
 
     array-length v1, v0
 
     const/4 v3, 0x0
 
-    :goto_3
-    if-ge v3, v1, :cond_3
+    :goto_3b
+    if-ge v3, v1, :cond_45
 
     aget-object v4, v0, v3
 
@@ -3863,10 +3863,10 @@
     .end local v4    # "offset":Lj$/time/ZoneOffset;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_3b
 
     .line 446
-    :cond_3
+    :cond_45
     iget-object v0, p0, Lj$/time/zone/ZoneRules;->lastRules:[Lj$/time/zone/ZoneOffsetTransitionRule;
 
     array-length v0, v0
@@ -3878,8 +3878,8 @@
 
     array-length v1, v0
 
-    :goto_4
-    if-ge v2, v1, :cond_4
+    :goto_4e
+    if-ge v2, v1, :cond_58
 
     aget-object v3, v0, v2
 
@@ -3891,15 +3891,15 @@
     .end local v3    # "rule":Lj$/time/zone/ZoneOffsetTransitionRule;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4
+    goto :goto_4e
 
     .line 450
-    :cond_4
+    :cond_58
     return-void
 .end method
 
 .method writeExternalTimeZone(Ljava/io/DataOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "out"    # Ljava/io/DataOutput;
 
     .line 454

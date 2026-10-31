@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(DDDD)V
-    .locals 0
+    .registers 9
     .param p1, "a"    # D
     .param p3, "b"    # D
     .param p5, "c"    # D
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public eval(D)D
-    .locals 4
+    .registers 7
     .param p1, "u"    # D
 
     .line 190
@@ -82,7 +82,7 @@
 .end method
 
 .method public vel(D)D
-    .locals 6
+    .registers 9
     .param p1, "v"    # D
 
     .line 199

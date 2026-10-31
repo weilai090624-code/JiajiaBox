@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Set;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,16 +64,16 @@
 
     const/16 v1, 0x1e
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     invoke-interface {p1}, Ljava/util/Set;->size()I
 
     move-result v1
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -107,7 +107,7 @@
     .local p0, "this":Lcom/google/common/collect/Sets$PowerSet;, "Lcom/google/common/collect/Sets$PowerSet<TE;>;"
     instance-of v0, p1, Ljava/util/Set;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 1537
     move-object v0, p1
@@ -130,14 +130,14 @@
 
     .line 1540
     .end local v0    # "set":Ljava/util/Set;, "Ljava/util/Set<*>;"
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -147,7 +147,7 @@
     .local p0, "this":Lcom/google/common/collect/Sets$PowerSet;, "Lcom/google/common/collect/Sets$PowerSet<TE;>;"
     instance-of v0, p1, Lcom/google/common/collect/Sets$PowerSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 1546
     move-object v0, p1
@@ -176,7 +176,7 @@
 
     .line 1549
     .end local v0    # "that":Lcom/google/common/collect/Sets$PowerSet;, "Lcom/google/common/collect/Sets$PowerSet<*>;"
-    :cond_0
+    :cond_18
     invoke-super {p0, p1}, Ljava/util/AbstractSet;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -185,7 +185,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 1559
     .local p0, "this":Lcom/google/common/collect/Sets$PowerSet;, "Lcom/google/common/collect/Sets$PowerSet<TE;>;"
@@ -213,7 +213,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 1521
     .local p0, "this":Lcom/google/common/collect/Sets$PowerSet;, "Lcom/google/common/collect/Sets$PowerSet<TE;>;"
@@ -223,7 +223,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -247,7 +247,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 1516
     .local p0, "this":Lcom/google/common/collect/Sets$PowerSet;, "Lcom/google/common/collect/Sets$PowerSet<TE;>;"
@@ -265,7 +265,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 1564
     .local p0, "this":Lcom/google/common/collect/Sets$PowerSet;, "Lcom/google/common/collect/Sets$PowerSet<TE;>;"

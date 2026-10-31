@@ -73,7 +73,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 91
     invoke-static {}, Ljava/util/concurrent/ForkJoinPool;->getCommonPoolParallelism()I
@@ -88,7 +88,7 @@
 .end method
 
 .method protected constructor <init>(Lj$/util/stream/AbstractTask;Lj$/util/Spliterator;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -121,7 +121,7 @@
 .end method
 
 .method protected constructor <init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -156,7 +156,7 @@
 .end method
 
 .method public static getLeafTarget()I
-    .locals 1
+    .registers 1
 
     .line 168
     sget v0, Lj$/util/stream/AbstractTask;->LEAF_TARGET:I
@@ -165,7 +165,7 @@
 .end method
 
 .method public static suggestTargetSize(J)J
-    .locals 5
+    .registers 7
     .param p0, "sizeEstimate"    # J
 
     .line 196
@@ -183,23 +183,23 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_f
 
     move-wide v2, v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const-wide/16 v2, 0x1
 
-    :goto_0
+    :goto_11
     return-wide v2
 .end method
 
 
 # virtual methods
 .method public compute()V
-    .locals 11
+    .registers 12
 
     .line 304
     .local p0, "this":Lj$/util/stream/AbstractTask;, "Ljava/util/stream/AbstractTask<TP_IN;TP_OUT;TR;TK;>;"
@@ -227,10 +227,10 @@
 
     .line 309
     .local v6, "task":Lj$/util/stream/AbstractTask;, "TK;"
-    :goto_0
+    :goto_c
     cmp-long v7, v1, v3
 
-    if-lez v7, :cond_1
+    if-lez v7, :cond_3b
 
     invoke-interface {v0}, Lj$/util/Spliterator;->trySplit()Lj$/util/Spliterator;
 
@@ -239,7 +239,7 @@
     move-object v8, v7
 
     .local v8, "ls":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_3b
 
     .line 311
     invoke-virtual {v6, v8}, Lj$/util/stream/AbstractTask;->makeChild(Lj$/util/Spliterator;)Lj$/util/stream/AbstractTask;
@@ -267,7 +267,7 @@
     invoke-virtual {v6, v7}, Lj$/util/stream/AbstractTask;->setPendingCount(I)V
 
     .line 314
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_30
 
     .line 315
     const/4 v5, 0x0
@@ -282,11 +282,11 @@
     move-object v7, v10
 
     .local v7, "taskToFork":Lj$/util/stream/AbstractTask;, "TK;"
-    goto :goto_1
+    goto :goto_33
 
     .line 321
     .end local v7    # "taskToFork":Lj$/util/stream/AbstractTask;, "TK;"
-    :cond_0
+    :cond_30
     const/4 v5, 0x1
 
     .line 322
@@ -297,7 +297,7 @@
 
     .line 325
     .restart local v7    # "taskToFork":Lj$/util/stream/AbstractTask;, "TK;"
-    :goto_1
+    :goto_33
     invoke-virtual {v7}, Lj$/util/stream/AbstractTask;->fork()Ljava/util/concurrent/ForkJoinTask;
 
     .line 326
@@ -309,11 +309,11 @@
     .end local v7    # "taskToFork":Lj$/util/stream/AbstractTask;, "TK;"
     .end local v9    # "leftChild":Lj$/util/stream/AbstractTask;, "TK;"
     .end local v10    # "rightChild":Lj$/util/stream/AbstractTask;, "TK;"
-    goto :goto_0
+    goto :goto_c
 
     .line 328
     .end local v8    # "ls":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
-    :cond_1
+    :cond_3b
     invoke-virtual {v6}, Lj$/util/stream/AbstractTask;->doLeaf()Ljava/lang/Object;
 
     move-result-object v7
@@ -336,7 +336,7 @@
 .end method
 
 .method protected getLocalResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -351,7 +351,7 @@
 .end method
 
 .method protected getParent()Lj$/util/stream/AbstractTask;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -370,7 +370,7 @@
 .end method
 
 .method public getRawResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -385,7 +385,7 @@
 .end method
 
 .method protected final getTargetSize(J)J
-    .locals 7
+    .registers 10
     .param p1, "sizeEstimate"    # J
 
     .line 206
@@ -399,14 +399,14 @@
 
     cmp-long v6, v0, v4
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_b
 
     move-wide v0, v2
 
-    goto :goto_0
+    goto :goto_11
 
     .line 207
-    :cond_0
+    :cond_b
     invoke-static {p1, p2}, Lj$/util/stream/AbstractTask;->suggestTargetSize(J)J
 
     move-result-wide v0
@@ -414,32 +414,32 @@
     iput-wide v0, p0, Lj$/util/stream/AbstractTask;->targetSize:J
 
     .line 206
-    :goto_0
+    :goto_11
     return-wide v0
 .end method
 
 .method protected isLeaf()Z
-    .locals 1
+    .registers 2
 
     .line 267
     .local p0, "this":Lj$/util/stream/AbstractTask;, "Ljava/util/stream/AbstractTask<TP_IN;TP_OUT;TR;TK;>;"
     iget-object v0, p0, Lj$/util/stream/AbstractTask;->leftChild:Lj$/util/stream/AbstractTask;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method protected isLeftmostNode()Z
-    .locals 3
+    .registers 4
 
     .line 355
     .local p0, "this":Lj$/util/stream/AbstractTask;, "Ljava/util/stream/AbstractTask<TP_IN;TP_OUT;TR;TK;>;"
@@ -447,8 +447,8 @@
 
     .line 356
     .local v0, "node":Lj$/util/stream/AbstractTask;, "TK;"
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_1
+    if-eqz v0, :cond_11
 
     .line 357
     invoke-virtual {v0}, Lj$/util/stream/AbstractTask;->getParent()Lj$/util/stream/AbstractTask;
@@ -457,11 +457,11 @@
 
     .line 358
     .local v1, "parent":Lj$/util/stream/AbstractTask;, "TK;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     iget-object v2, v1, Lj$/util/stream/AbstractTask;->leftChild:Lj$/util/stream/AbstractTask;
 
-    if-eq v2, v0, :cond_0
+    if-eq v2, v0, :cond_f
 
     .line 359
     const/4 v2, 0x0
@@ -469,22 +469,22 @@
     return v2
 
     .line 360
-    :cond_0
+    :cond_f
     move-object v0, v1
 
     .line 361
     .end local v1    # "parent":Lj$/util/stream/AbstractTask;, "TK;"
-    goto :goto_0
+    goto :goto_1
 
     .line 362
-    :cond_1
+    :cond_11
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method protected isRoot()Z
-    .locals 1
+    .registers 2
 
     .line 276
     .local p0, "this":Lj$/util/stream/AbstractTask;, "Ljava/util/stream/AbstractTask<TP_IN;TP_OUT;TR;TK;>;"
@@ -492,16 +492,16 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
@@ -516,7 +516,7 @@
 .end method
 
 .method public onCompletion(Ljava/util/concurrent/CountedCompleter;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -542,7 +542,7 @@
 .end method
 
 .method protected setLocalResult(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)V"
@@ -559,7 +559,7 @@
 .end method
 
 .method protected setRawResult(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)V"
@@ -569,13 +569,13 @@
     .line 234
     .local p0, "this":Lj$/util/stream/AbstractTask;, "Ljava/util/stream/AbstractTask<TP_IN;TP_OUT;TR;TK;>;"
     .local p1, "result":Ljava/lang/Object;, "TR;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 236
     return-void
 
     .line 235
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V

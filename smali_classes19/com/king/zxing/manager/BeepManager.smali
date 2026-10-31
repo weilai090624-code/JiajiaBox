@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 43
@@ -47,7 +47,7 @@
 .end method
 
 .method private buildMediaPlayer(Landroid/content/Context;)Landroid/media/MediaPlayer;
-    .locals 8
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
 
     .line 76
@@ -57,7 +57,7 @@
 
     .line 78
     .local v0, "mediaPlayer":Landroid/media/MediaPlayer;
-    :try_start_0
+    :try_start_5
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -103,15 +103,15 @@
 
     .line 83
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->prepare()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_2e} :catch_2f
 
     .line 84
     return-object v0
 
     .line 85
     .end local v7    # "file":Landroid/content/res/AssetFileDescriptor;
-    :catch_0
+    :catch_2f
     move-exception v1
 
     .line 86
@@ -128,15 +128,15 @@
 .end method
 
 .method private declared-synchronized updatePrefs()V
-    .locals 2
+    .registers 3
 
     monitor-enter p0
 
     .line 58
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/king/zxing/manager/BeepManager;->mediaPlayer:Landroid/media/MediaPlayer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 59
     iget-object v0, p0, Lcom/king/zxing/manager/BeepManager;->context:Landroid/content/Context;
@@ -149,10 +149,10 @@
 
     .line 61
     .end local p0    # "this":Lcom/king/zxing/manager/BeepManager;
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/king/zxing/manager/BeepManager;->vibrator:Landroid/os/Vibrator;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1d
 
     .line 62
     iget-object v0, p0, Lcom/king/zxing/manager/BeepManager;->context:Landroid/content/Context;
@@ -166,23 +166,23 @@
     check-cast v0, Landroid/os/Vibrator;
 
     iput-object v0, p0, Lcom/king/zxing/manager/BeepManager;->vibrator:Landroid/os/Vibrator;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_1 .. :try_end_1d} :catchall_1f
 
     .line 64
-    :cond_1
+    :cond_1d
     monitor-exit p0
 
     return-void
 
     .line 57
-    :catchall_0
+    :catchall_1f
     move-exception v0
 
-    :try_start_1
+    :try_start_20
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_21
+    .catchall {:try_start_20 .. :try_end_21} :catchall_1f
 
     throw v0
 .end method
@@ -190,15 +190,15 @@
 
 # virtual methods
 .method public declared-synchronized close()V
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 102
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/king/zxing/manager/BeepManager;->mediaPlayer:Landroid/media/MediaPlayer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 103
     iget-object v0, p0, Lcom/king/zxing/manager/BeepManager;->mediaPlayer:Landroid/media/MediaPlayer;
@@ -209,51 +209,51 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/king/zxing/manager/BeepManager;->mediaPlayer:Landroid/media/MediaPlayer;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_d} :catch_10
+    .catchall {:try_start_1 .. :try_end_d} :catchall_e
 
     .line 108
     .end local p0    # "this":Lcom/king/zxing/manager/BeepManager;
-    :cond_0
-    goto :goto_0
+    :cond_d
+    goto :goto_14
 
     .line 101
-    :catchall_0
+    :catchall_e
     move-exception v0
 
-    goto :goto_1
+    goto :goto_16
 
     .line 106
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 107
     .local v0, "e":Ljava/lang/Exception;
-    :try_start_1
+    :try_start_11
     invoke-static {v0}, Lcom/king/zxing/util/LogUtils;->e(Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_14
+    .catchall {:try_start_11 .. :try_end_14} :catchall_e
 
     .line 109
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_14
     monitor-exit p0
 
     return-void
 
     .line 101
-    :goto_1
-    :try_start_2
+    :goto_16
+    :try_start_16
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_17
+    .catchall {:try_start_16 .. :try_end_17} :catchall_e
 
     throw v0
 .end method
 
 .method public declared-synchronized onError(Landroid/media/MediaPlayer;II)Z
-    .locals 1
+    .registers 5
     .param p1, "mp"    # Landroid/media/MediaPlayer;
     .param p2, "what"    # I
     .param p3, "extra"    # I
@@ -261,13 +261,13 @@
     monitor-enter p0
 
     .line 94
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lcom/king/zxing/manager/BeepManager;->close()V
 
     .line 95
     invoke-direct {p0}, Lcom/king/zxing/manager/BeepManager;->updatePrefs()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_a
 
     .line 96
     monitor-exit p0
@@ -281,31 +281,31 @@
     .end local p1    # "mp":Landroid/media/MediaPlayer;
     .end local p2    # "what":I
     .end local p3    # "extra":I
-    :catchall_0
+    :catchall_a
     move-exception p1
 
-    :try_start_1
+    :try_start_b
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_c
+    .catchall {:try_start_b .. :try_end_c} :catchall_a
 
     throw p1
 .end method
 
 .method public declared-synchronized playBeepSoundAndVibrate()V
-    .locals 3
+    .registers 4
 
     monitor-enter p0
 
     .line 67
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lcom/king/zxing/manager/BeepManager;->playBeep:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/king/zxing/manager/BeepManager;->mediaPlayer:Landroid/media/MediaPlayer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 68
     iget-object v0, p0, Lcom/king/zxing/manager/BeepManager;->mediaPlayer:Landroid/media/MediaPlayer;
@@ -314,10 +314,10 @@
 
     .line 70
     .end local p0    # "this":Lcom/king/zxing/manager/BeepManager;
-    :cond_0
+    :cond_e
     iget-boolean v0, p0, Lcom/king/zxing/manager/BeepManager;->vibrate:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 71
     iget-object v0, p0, Lcom/king/zxing/manager/BeepManager;->vibrator:Landroid/os/Vibrator;
@@ -325,29 +325,29 @@
     const-wide/16 v1, 0xc8
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Vibrator;->vibrate(J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_1 .. :try_end_19} :catchall_1b
 
     .line 73
-    :cond_1
+    :cond_19
     monitor-exit p0
 
     return-void
 
     .line 66
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
-    :try_start_1
+    :try_start_1c
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_1c .. :try_end_1d} :catchall_1b
 
     throw v0
 .end method
 
 .method public setPlayBeep(Z)V
-    .locals 0
+    .registers 2
     .param p1, "playBeep"    # Z
 
     .line 54
@@ -358,7 +358,7 @@
 .end method
 
 .method public setVibrate(Z)V
-    .locals 0
+    .registers 2
     .param p1, "vibrate"    # Z
 
     .line 50

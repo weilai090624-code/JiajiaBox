@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final findNavController(Landroid/app/Activity;I)Landroidx/navigation/NavController;
-    .locals 1
+    .registers 3
     .param p0, "$this$findNavController"    # Landroid/app/Activity;
     .param p1, "viewId"    # I
 

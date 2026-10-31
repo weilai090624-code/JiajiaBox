@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/MultipartBody$Part$Companion;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructor <init>(Lokhttp3/Headers;Lokhttp3/RequestBody;)V
-    .locals 0
+    .registers 3
     .param p1, "headers"    # Lokhttp3/Headers;
     .param p2, "body"    # Lokhttp3/RequestBody;
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lokhttp3/Headers;Lokhttp3/RequestBody;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     invoke-direct {p0, p1, p2}, Lokhttp3/MultipartBody$Part;-><init>(Lokhttp3/Headers;Lokhttp3/RequestBody;)V
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public static final create(Lokhttp3/Headers;Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$Part;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public static final create(Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$Part;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public static final createFormData(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/MultipartBody$Part;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public static final createFormData(Ljava/lang/String;Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$Part;
-    .locals 1
+    .registers 4
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public final -deprecated_body()Lokhttp3/RequestBody;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -175,7 +175,7 @@
 .end method
 
 .method public final -deprecated_headers()Lokhttp3/Headers;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -192,7 +192,7 @@
 .end method
 
 .method public final body()Lokhttp3/RequestBody;
-    .locals 1
+    .registers 2
 
     .line 178
     iget-object v0, p0, Lokhttp3/MultipartBody$Part;->body:Lokhttp3/RequestBody;
@@ -201,7 +201,7 @@
 .end method
 
 .method public final headers()Lokhttp3/Headers;
-    .locals 1
+    .registers 2
 
     .line 177
     iget-object v0, p0, Lokhttp3/MultipartBody$Part;->headers:Lokhttp3/Headers;

@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkManagerImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public apply(Ljava/util/List;)Landroidx/work/WorkInfo;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -83,13 +83,13 @@
 
     .line 580
     .local v0, "workInfo":Landroidx/work/WorkInfo;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_14
 
     .line 581
     const/4 v1, 0x0
@@ -105,12 +105,12 @@
     move-result-object v0
 
     .line 583
-    :cond_0
+    :cond_14
     return-object v0
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000

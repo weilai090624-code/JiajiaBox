@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method constructor <init>(ILandroidx/fragment/app/Fragment;)V
-    .locals 1
+    .registers 4
     .param p1, "cmd"    # I
     .param p2, "fragment"    # Landroidx/fragment/app/Fragment;
 
@@ -79,7 +79,7 @@
 .end method
 
 .method constructor <init>(ILandroidx/fragment/app/Fragment;Landroidx/lifecycle/Lifecycle$State;)V
-    .locals 1
+    .registers 5
     .param p1, "cmd"    # I
     .param p2, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p3, "state"    # Landroidx/lifecycle/Lifecycle$State;
@@ -111,7 +111,7 @@
 .end method
 
 .method constructor <init>(ILandroidx/fragment/app/Fragment;Z)V
-    .locals 1
+    .registers 5
     .param p1, "cmd"    # I
     .param p2, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p3, "fromExpandedOp"    # Z
@@ -143,7 +143,7 @@
 .end method
 
 .method constructor <init>(Landroidx/fragment/app/FragmentTransaction$Op;)V
-    .locals 1
+    .registers 3
     .param p1, "op"    # Landroidx/fragment/app/FragmentTransaction$Op;
 
     .line 102

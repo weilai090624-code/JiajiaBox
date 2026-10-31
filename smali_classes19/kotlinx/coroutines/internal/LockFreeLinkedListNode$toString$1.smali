@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 6
+    .registers 8
 
     const-class v2, Lkotlinx/coroutines/DebugStringsKt;
 
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 319
     iget-object v0, p0, Lkotlinx/coroutines/internal/LockFreeLinkedListNode$toString$1;->receiver:Ljava/lang/Object;

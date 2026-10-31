@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 28
     new-instance v0, Ljava/util/WeakHashMap;
@@ -68,7 +68,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 3
     .param p1, "parent"    # Ljava/lang/ClassLoader;
 
     .line 39
@@ -86,7 +86,7 @@
 .end method
 
 .method public static activeAccessClassLoaders()I
-    .locals 2
+    .registers 2
 
     .line 161
     sget-object v0, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->accessClassLoaders:Ljava/util/WeakHashMap;
@@ -99,17 +99,17 @@
     .local v0, "sz":I
     sget-object v1, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->selfContextAccessClassLoader:Lcom/esotericsoftware/reflectasm/AccessClassLoader;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     add-int/lit8 v0, v0, 0x1
 
     .line 163
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method static areInSameRuntimeClassLoader(Ljava/lang/Class;Ljava/lang/Class;)Z
-    .locals 5
+    .registers 7
     .param p0, "type1"    # Ljava/lang/Class;
     .param p1, "type2"    # Ljava/lang/Class;
 
@@ -124,13 +124,13 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_c
 
     .line 86
     return v2
 
     .line 88
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
@@ -151,42 +151,42 @@
     .local v3, "systemClassLoader":Ljava/lang/ClassLoader;
     const/4 v4, 0x1
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_21
 
     .line 92
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
-    if-ne v1, v3, :cond_2
+    if-ne v1, v3, :cond_20
 
-    :cond_1
+    :cond_1f
     const/4 v2, 0x1
 
-    :cond_2
+    :cond_20
     return v2
 
     .line 94
-    :cond_3
-    if-nez v1, :cond_5
+    :cond_21
+    if-nez v1, :cond_27
 
-    if-ne v0, v3, :cond_4
+    if-ne v0, v3, :cond_26
 
     const/4 v2, 0x1
 
-    :cond_4
+    :cond_26
     return v2
 
     .line 95
-    :cond_5
-    if-ne v0, v1, :cond_6
+    :cond_27
+    if-ne v0, v1, :cond_2a
 
     const/4 v2, 0x1
 
-    :cond_6
+    :cond_2a
     return v2
 .end method
 
 .method static get(Ljava/lang/Class;)Lcom/esotericsoftware/reflectasm/AccessClassLoader;
-    .locals 6
+    .registers 7
     .param p0, "type"    # Ljava/lang/Class;
 
     .line 121
@@ -202,12 +202,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_28
 
     .line 124
     sget-object v1, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->selfContextAccessClassLoader:Lcom/esotericsoftware/reflectasm/AccessClassLoader;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_25
 
     .line 125
     sget-object v1, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->accessClassLoaders:Ljava/util/WeakHashMap;
@@ -215,10 +215,10 @@
     monitor-enter v1
 
     .line 126
-    :try_start_0
+    :try_start_13
     sget-object v2, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->selfContextAccessClassLoader:Lcom/esotericsoftware/reflectasm/AccessClassLoader;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_20
 
     .line 127
     new-instance v2, Lcom/esotericsoftware/reflectasm/AccessClassLoader;
@@ -230,35 +230,35 @@
     sput-object v2, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->selfContextAccessClassLoader:Lcom/esotericsoftware/reflectasm/AccessClassLoader;
 
     .line 128
-    :cond_0
+    :cond_20
     monitor-exit v1
 
-    goto :goto_0
+    goto :goto_25
 
-    :catchall_0
+    :catchall_22
     move-exception v2
 
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_13 .. :try_end_24} :catchall_22
 
     throw v2
 
     .line 130
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     sget-object v1, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->selfContextAccessClassLoader:Lcom/esotericsoftware/reflectasm/AccessClassLoader;
 
     return-object v1
 
     .line 133
-    :cond_2
+    :cond_28
     sget-object v1, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->accessClassLoaders:Ljava/util/WeakHashMap;
 
     monitor-enter v1
 
     .line 134
-    :try_start_1
+    :try_start_2b
     sget-object v2, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->accessClassLoaders:Ljava/util/WeakHashMap;
 
     invoke-virtual {v2, v0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -269,7 +269,7 @@
 
     .line 135
     .local v2, "ref":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Lcom/esotericsoftware/reflectasm/AccessClassLoader;>;"
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_44
 
     .line 136
     invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -280,7 +280,7 @@
 
     .line 137
     .local v3, "accessClassLoader":Lcom/esotericsoftware/reflectasm/AccessClassLoader;
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_3f
 
     .line 138
     monitor-exit v1
@@ -288,14 +288,14 @@
     return-object v3
 
     .line 140
-    :cond_3
+    :cond_3f
     sget-object v4, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->accessClassLoaders:Ljava/util/WeakHashMap;
 
     invoke-virtual {v4, v0}, Ljava/util/WeakHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 142
     .end local v3    # "accessClassLoader":Lcom/esotericsoftware/reflectasm/AccessClassLoader;
-    :cond_4
+    :cond_44
     new-instance v3, Lcom/esotericsoftware/reflectasm/AccessClassLoader;
 
     invoke-direct {v3, v0}, Lcom/esotericsoftware/reflectasm/AccessClassLoader;-><init>(Ljava/lang/ClassLoader;)V
@@ -318,18 +318,18 @@
     .line 145
     .end local v2    # "ref":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Lcom/esotericsoftware/reflectasm/AccessClassLoader;>;"
     .end local v3    # "accessClassLoader":Lcom/esotericsoftware/reflectasm/AccessClassLoader;
-    :catchall_1
+    :catchall_55
     move-exception v2
 
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_57
+    .catchall {:try_start_2b .. :try_end_57} :catchall_55
 
     throw v2
 .end method
 
 .method private static getDefineClassMethod()Ljava/lang/reflect/Method;
-    .locals 7
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -339,7 +339,7 @@
     .line 105
     sget-object v0, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->defineClassMethod:Ljava/lang/reflect/Method;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3b
 
     .line 106
     sget-object v0, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->accessClassLoaders:Ljava/util/WeakHashMap;
@@ -347,10 +347,10 @@
     monitor-enter v0
 
     .line 107
-    :try_start_0
+    :try_start_7
     sget-object v1, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->defineClassMethod:Ljava/lang/reflect/Method;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_36
 
     .line 108
     const-class v1, Ljava/lang/ClassLoader;
@@ -394,52 +394,52 @@
     move-result-object v1
 
     sput-object v1, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->defineClassMethod:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_7 .. :try_end_2f} :catchall_38
 
     .line 111
-    :try_start_1
+    :try_start_2f
     sget-object v1, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->defineClassMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v1, v5}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_34
+    .catch Ljava/lang/Exception; {:try_start_2f .. :try_end_34} :catch_35
+    .catchall {:try_start_2f .. :try_end_34} :catchall_38
 
     .line 113
-    goto :goto_0
+    goto :goto_36
 
     .line 112
-    :catch_0
+    :catch_35
     move-exception v1
 
     .line 115
-    :cond_0
-    :goto_0
-    :try_start_2
+    :cond_36
+    :goto_36
+    :try_start_36
     monitor-exit v0
 
-    goto :goto_1
+    goto :goto_3b
 
-    :catchall_0
+    :catchall_38
     move-exception v1
 
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_36 .. :try_end_3a} :catchall_38
 
     throw v1
 
     .line 117
-    :cond_1
-    :goto_1
+    :cond_3b
+    :goto_3b
     sget-object v0, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->defineClassMethod:Ljava/lang/reflect/Method;
 
     return-object v0
 .end method
 
 .method private static getParentClassLoader(Ljava/lang/Class;)Ljava/lang/ClassLoader;
-    .locals 1
+    .registers 2
     .param p0, "type"    # Ljava/lang/Class;
 
     .line 99
@@ -449,19 +449,19 @@
 
     .line 100
     .local v0, "parent":Ljava/lang/ClassLoader;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     invoke-static {}, Ljava/lang/ClassLoader;->getSystemClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
     .line 101
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public static remove(Ljava/lang/ClassLoader;)V
-    .locals 2
+    .registers 3
     .param p0, "parent"    # Ljava/lang/ClassLoader;
 
     .line 150
@@ -471,23 +471,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 151
     const/4 v0, 0x0
 
     sput-object v0, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->selfContextAccessClassLoader:Lcom/esotericsoftware/reflectasm/AccessClassLoader;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 154
-    :cond_0
+    :cond_c
     sget-object v0, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->accessClassLoaders:Ljava/util/WeakHashMap;
 
     monitor-enter v0
 
     .line 155
-    :try_start_0
+    :try_start_f
     sget-object v1, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->accessClassLoaders:Ljava/util/WeakHashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -496,16 +496,16 @@
     monitor-exit v0
 
     .line 158
-    :goto_0
+    :goto_15
     return-void
 
     .line 156
-    :catchall_0
+    :catchall_16
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_f .. :try_end_18} :catchall_16
 
     throw v1
 .end method
@@ -513,7 +513,7 @@
 
 # virtual methods
 .method defineAccessClass(Ljava/lang/String;[B)Ljava/lang/Class;
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "bytes"    # [B
     .annotation system Ldalvik/annotation/Throws;
@@ -536,7 +536,7 @@
 .end method
 
 .method defineClass(Ljava/lang/String;[B)Ljava/lang/Class;
-    .locals 7
+    .registers 10
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "bytes"    # [B
     .annotation system Ldalvik/annotation/Signature;
@@ -614,13 +614,13 @@
     move-result-object v0
 
     check-cast v0, Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_31
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_31} :catch_32
 
     return-object v0
 
     .line 75
-    :catch_0
+    :catch_32
     move-exception v0
 
     .line 78
@@ -650,7 +650,7 @@
 .end method
 
 .method loadAccessClass(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
 
     .line 45
@@ -660,22 +660,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 47
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_9
     invoke-virtual {p0, p1, v0}, Lcom/esotericsoftware/reflectasm/AccessClassLoader;->loadClass(Ljava/lang/String;Z)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_9 .. :try_end_d} :catch_e
 
     return-object v0
 
     .line 48
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 49
@@ -688,14 +688,14 @@
 
     .line 52
     .end local v0    # "ex":Ljava/lang/ClassNotFoundException;
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method protected loadClass(Ljava/lang/String;Z)Ljava/lang/Class;
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "resolve"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -725,14 +725,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const-class v0, Lcom/esotericsoftware/reflectasm/FieldAccess;
 
     return-object v0
 
     .line 63
-    :cond_0
+    :cond_f
     const-class v0, Lcom/esotericsoftware/reflectasm/MethodAccess;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -743,14 +743,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     const-class v0, Lcom/esotericsoftware/reflectasm/MethodAccess;
 
     return-object v0
 
     .line 64
-    :cond_1
+    :cond_1e
     const-class v0, Lcom/esotericsoftware/reflectasm/ConstructorAccess;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -761,14 +761,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     const-class v0, Lcom/esotericsoftware/reflectasm/ConstructorAccess;
 
     return-object v0
 
     .line 65
-    :cond_2
+    :cond_2d
     const-class v0, Lcom/esotericsoftware/reflectasm/PublicConstructorAccess;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -779,14 +779,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3c
 
     const-class v0, Lcom/esotericsoftware/reflectasm/PublicConstructorAccess;
 
     return-object v0
 
     .line 67
-    :cond_3
+    :cond_3c
     invoke-super {p0, p1, p2}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;Z)Ljava/lang/Class;
 
     move-result-object v0

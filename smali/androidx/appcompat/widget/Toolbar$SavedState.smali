@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 2652
     new-instance v0, Landroidx/appcompat/widget/Toolbar$SavedState$1;
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/os/Parcel;
 
     .line 2632
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -79,16 +79,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     iput-boolean v0, p0, Landroidx/appcompat/widget/Toolbar$SavedState;->isOverflowOpen:Z
 
     .line 2639
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 2642
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

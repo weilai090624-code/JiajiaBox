@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/File;Ljava/lang/String;Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 5
     .param p1, "file"    # Ljava/io/File;
     .param p2, "resourceName"    # Ljava/lang/String;
     .param p3, "loader"    # Ljava/lang/ClassLoader;
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 367
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$ClassInfo;->className:Ljava/lang/String;
@@ -51,7 +51,7 @@
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 331
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$ClassInfo;->className:Ljava/lang/String;
@@ -64,7 +64,7 @@
 .end method
 
 .method public getSimpleName()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 344
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$ClassInfo;->className:Ljava/lang/String;
@@ -79,7 +79,7 @@
     .local v0, "lastDollarSign":I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_20
 
     .line 346
     iget-object v1, p0, Lcom/google/common/reflect/ClassPath$ClassInfo;->className:Ljava/lang/String;
@@ -108,7 +108,7 @@
 
     .line 351
     .end local v1    # "innerClassName":Ljava/lang/String;
-    :cond_0
+    :cond_20
     invoke-virtual {p0}, Lcom/google/common/reflect/ClassPath$ClassInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
@@ -119,7 +119,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2d
 
     .line 353
     iget-object v2, p0, Lcom/google/common/reflect/ClassPath$ClassInfo;->className:Ljava/lang/String;
@@ -127,7 +127,7 @@
     return-object v2
 
     .line 357
-    :cond_1
+    :cond_2d
     iget-object v2, p0, Lcom/google/common/reflect/ClassPath$ClassInfo;->className:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -144,7 +144,7 @@
 .end method
 
 .method public isTopLevel()Z
-    .locals 2
+    .registers 3
 
     .line 379
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$ClassInfo;->className:Ljava/lang/String;
@@ -157,21 +157,21 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method public load()Ljava/lang/Class;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -189,13 +189,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 391
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 393
@@ -208,7 +208,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 399
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$ClassInfo;->className:Ljava/lang/String;

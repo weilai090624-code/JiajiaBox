@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/io/BaseEncoding;Lcom/google/common/io/CharSink;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/io/BaseEncoding;
 
     .line 181
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public openStream()Ljava/io/OutputStream;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -82,7 +82,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Iterator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -119,7 +119,7 @@
 .end method
 
 .method private getTopMetaIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -137,10 +137,10 @@
     .local p0, "this":Lcom/google/common/collect/Iterators$ConcatenatedIterator;, "Lcom/google/common/collect/Iterators$ConcatenatedIterator<TT;>;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->topMetaIterator:Ljava/util/Iterator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->topMetaIterator:Ljava/util/Iterator;
 
@@ -148,22 +148,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
-    goto :goto_1
+    goto :goto_11
 
     .line 1390
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->topMetaIterator:Ljava/util/Iterator;
 
     return-object v0
 
     .line 1384
-    :cond_1
-    :goto_1
+    :cond_11
+    :goto_11
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->metaIterators:Ljava/util/Deque;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->metaIterators:Ljava/util/Deque;
 
@@ -171,7 +171,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_28
 
     .line 1385
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->metaIterators:Ljava/util/Deque;
@@ -184,10 +184,10 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->topMetaIterator:Ljava/util/Iterator;
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1387
-    :cond_2
+    :cond_28
     const/4 v0, 0x0
 
     return-object v0
@@ -196,14 +196,14 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 3
+    .registers 4
 
     .line 1395
     .local p0, "this":Lcom/google/common/collect/Iterators$ConcatenatedIterator;, "Lcom/google/common/collect/Iterators$ConcatenatedIterator<TT;>;"
     nop
 
-    :cond_0
-    :goto_0
+    :cond_1
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->iterator:Ljava/util/Iterator;
 
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -216,7 +216,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_64
 
     .line 1399
     invoke-direct {p0}, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->getTopMetaIterator()Ljava/util/Iterator;
@@ -228,7 +228,7 @@
     .line 1400
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->topMetaIterator:Ljava/util/Iterator;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     .line 1401
     const/4 v0, 0x0
@@ -236,7 +236,7 @@
     return v0
 
     .line 1404
-    :cond_1
+    :cond_1b
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->topMetaIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -252,7 +252,7 @@
 
     instance-of v0, v0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     .line 1410
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->iterator:Ljava/util/Iterator;
@@ -268,7 +268,7 @@
     .line 1416
     iget-object v1, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->metaIterators:Ljava/util/Deque;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3e
 
     .line 1417
     new-instance v1, Ljava/util/ArrayDeque;
@@ -278,7 +278,7 @@
     iput-object v1, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->metaIterators:Ljava/util/Deque;
 
     .line 1419
-    :cond_2
+    :cond_3e
     iget-object v1, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->metaIterators:Ljava/util/Deque;
 
     iget-object v2, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->topMetaIterator:Ljava/util/Iterator;
@@ -288,17 +288,17 @@
     .line 1420
     iget-object v1, v0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->metaIterators:Ljava/util/Deque;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5f
 
     .line 1421
-    :goto_1
+    :goto_49
     iget-object v1, v0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->metaIterators:Ljava/util/Deque;
 
     invoke-interface {v1}, Ljava/util/Deque;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_5f
 
     .line 1422
     iget-object v1, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->metaIterators:Ljava/util/Deque;
@@ -313,27 +313,27 @@
 
     invoke-interface {v1, v2}, Ljava/util/Deque;->addFirst(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_49
 
     .line 1425
-    :cond_3
+    :cond_5f
     iget-object v1, v0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->topMetaIterator:Ljava/util/Iterator;
 
     iput-object v1, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->topMetaIterator:Ljava/util/Iterator;
 
     .line 1426
     .end local v0    # "topConcat":Lcom/google/common/collect/Iterators$ConcatenatedIterator;, "Lcom/google/common/collect/Iterators$ConcatenatedIterator<TT;>;"
-    goto :goto_0
+    goto :goto_1
 
     .line 1428
-    :cond_4
+    :cond_64
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -349,7 +349,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 1435
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->iterator:Ljava/util/Iterator;
@@ -366,7 +366,7 @@
     return-object v0
 
     .line 1438
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -375,13 +375,13 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     .line 1444
     .local p0, "this":Lcom/google/common/collect/Iterators$ConcatenatedIterator;, "Lcom/google/common/collect/Iterators$ConcatenatedIterator<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->toRemove:Ljava/util/Iterator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 1447
     iget-object v0, p0, Lcom/google/common/collect/Iterators$ConcatenatedIterator;->toRemove:Ljava/util/Iterator;
@@ -397,7 +397,7 @@
     return-void
 
     .line 1445
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "no calls to next() since the last call to remove()"

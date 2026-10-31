@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 46
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -138,7 +138,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -147,7 +147,7 @@
 .end method
 
 .method private static add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -183,7 +183,7 @@
 .end method
 
 .method public static allPrimitiveTypes()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -204,7 +204,7 @@
 .end method
 
 .method public static allWrapperTypes()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -225,7 +225,7 @@
 .end method
 
 .method public static isWrapperType(Ljava/lang/Class;)Z
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -250,7 +250,7 @@
 .end method
 
 .method public static unwrap(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -278,21 +278,21 @@
 
     .line 137
     .local v0, "unwrapped":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move-object v1, v0
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public static wrap(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -320,15 +320,15 @@
 
     .line 118
     .local v0, "wrapped":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move-object v1, v0
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method

@@ -84,7 +84,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 122
     new-instance v0, Ljava/util/HashMap;
@@ -114,7 +114,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/reader/StreamReader;)V
-    .locals 1
+    .registers 3
     .param p1, "reader"    # Lorg/yaml/snakeyaml/reader/StreamReader;
 
     .line 136
@@ -129,7 +129,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/reader/StreamReader;Z)V
-    .locals 1
+    .registers 4
     .param p1, "reader"    # Lorg/yaml/snakeyaml/reader/StreamReader;
     .param p2, "parseComments"    # Z
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/scanner/Scanner;)V
-    .locals 4
+    .registers 6
     .param p1, "scanner"    # Lorg/yaml/snakeyaml/scanner/Scanner;
 
     .line 143
@@ -206,7 +206,7 @@
 .end method
 
 .method static synthetic access$100(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/parser/Production;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     .line 121
@@ -216,7 +216,7 @@
 .end method
 
 .method static synthetic access$1000(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     .line 121
@@ -228,7 +228,7 @@
 .end method
 
 .method static synthetic access$102(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/Production;)Lorg/yaml/snakeyaml/parser/Production;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/parser/Production;
 
@@ -239,7 +239,7 @@
 .end method
 
 .method static synthetic access$1200(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/util/ArrayStack;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     .line 121
@@ -249,7 +249,7 @@
 .end method
 
 .method static synthetic access$1300(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/error/Mark;)Lorg/yaml/snakeyaml/events/Event;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/error/Mark;
 
@@ -262,7 +262,7 @@
 .end method
 
 .method static synthetic access$1400(Lorg/yaml/snakeyaml/parser/ParserImpl;ZZ)Lorg/yaml/snakeyaml/events/Event;
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
     .param p1, "x1"    # Z
     .param p2, "x2"    # Z
@@ -276,7 +276,7 @@
 .end method
 
 .method static synthetic access$2300(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/events/Event;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     .line 121
@@ -288,7 +288,7 @@
 .end method
 
 .method static synthetic access$2600(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/events/Event;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     .line 121
@@ -300,7 +300,7 @@
 .end method
 
 .method static synthetic access$300(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/tokens/CommentToken;)Lorg/yaml/snakeyaml/events/CommentEvent;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/tokens/CommentToken;
 
@@ -313,7 +313,7 @@
 .end method
 
 .method static synthetic access$402(Lorg/yaml/snakeyaml/parser/ParserImpl;Lorg/yaml/snakeyaml/parser/VersionTagsTuple;)Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
 
@@ -324,7 +324,7 @@
 .end method
 
 .method static synthetic access$500()Ljava/util/Map;
-    .locals 1
+    .registers 1
 
     .line 121
     sget-object v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->DEFAULT_TAGS:Ljava/util/Map;
@@ -333,7 +333,7 @@
 .end method
 
 .method static synthetic access$700(Lorg/yaml/snakeyaml/parser/ParserImpl;)Lorg/yaml/snakeyaml/util/ArrayStack;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/parser/ParserImpl;
 
     .line 121
@@ -343,7 +343,7 @@
 .end method
 
 .method private parseBlockNodeOrIndentlessSequence()Lorg/yaml/snakeyaml/events/Event;
-    .locals 1
+    .registers 2
 
     .line 404
     const/4 v0, 0x1
@@ -356,7 +356,7 @@
 .end method
 
 .method private parseFlowNode()Lorg/yaml/snakeyaml/events/Event;
-    .locals 1
+    .registers 2
 
     .line 400
     const/4 v0, 0x0
@@ -369,7 +369,7 @@
 .end method
 
 .method private parseNode(ZZ)Lorg/yaml/snakeyaml/events/Event;
-    .locals 20
+    .registers 23
     .param p1, "block"    # Z
     .param p2, "indentlessSequence"    # Z
 
@@ -404,7 +404,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_3a
 
     .line 413
     iget-object v4, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -447,11 +447,11 @@
 
     .line 416
     .end local v4    # "token":Lorg/yaml/snakeyaml/tokens/AliasToken;
-    goto/16 :goto_8
+    goto/16 :goto_30e
 
     .line 417
     .end local v5    # "event":Lorg/yaml/snakeyaml/events/Event;
-    :cond_0
+    :cond_3a
     const/4 v4, 0x0
 
     .line 418
@@ -472,7 +472,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_81
 
     .line 420
     iget-object v7, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -512,7 +512,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_c3
 
     .line 425
     iget-object v9, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -539,12 +539,12 @@
 
     move-result-object v6
 
-    goto :goto_0
+    goto :goto_c3
 
     .line 430
     .end local v7    # "token":Lorg/yaml/snakeyaml/tokens/AnchorToken;
     .end local v9    # "tagToken":Lorg/yaml/snakeyaml/tokens/TagToken;
-    :cond_1
+    :cond_81
     iget-object v7, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
 
     new-array v9, v5, [Lorg/yaml/snakeyaml/tokens/Token$ID;
@@ -557,7 +557,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_c3
 
     .line 431
     iget-object v7, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -600,7 +600,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_c4
 
     .line 437
     iget-object v9, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -622,23 +622,23 @@
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_c4
 
     .line 430
     .end local v7    # "tagToken":Lorg/yaml/snakeyaml/tokens/TagToken;
     .end local v9    # "token":Lorg/yaml/snakeyaml/tokens/AnchorToken;
-    :cond_2
-    :goto_0
+    :cond_c3
+    :goto_c3
     nop
 
     .line 442
-    :cond_3
-    :goto_1
+    :cond_c4
+    :goto_c4
     const/4 v7, 0x0
 
     .line 443
     .local v7, "tag":Ljava/lang/String;
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_117
 
     .line 444
     invoke-virtual {v6}, Lorg/yaml/snakeyaml/tokens/TagTuple;->getHandle()Ljava/lang/String;
@@ -653,7 +653,7 @@
 
     .line 446
     .local v10, "suffix":Ljava/lang/String;
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_116
 
     .line 447
     iget-object v11, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->directives:Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
@@ -666,7 +666,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_fb
 
     .line 451
     new-instance v11, Ljava/lang/StringBuilder;
@@ -697,10 +697,10 @@
 
     move-result-object v7
 
-    goto :goto_2
+    goto :goto_117
 
     .line 448
-    :cond_4
+    :cond_fb
     new-instance v5, Lorg/yaml/snakeyaml/parser/ParserException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -728,15 +728,15 @@
     throw v5
 
     .line 453
-    :cond_5
+    :cond_116
     move-object v7, v10
 
     .line 456
     .end local v9    # "handle":Ljava/lang/String;
     .end local v10    # "suffix":Ljava/lang/String;
-    :cond_6
-    :goto_2
-    if-nez v1, :cond_7
+    :cond_117
+    :goto_117
+    if-nez v1, :cond_124
 
     .line 457
     iget-object v9, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -753,40 +753,40 @@
     move-object v2, v1
 
     .line 460
-    :cond_7
+    :cond_124
     const/16 v17, 0x0
 
     .line 461
     .local v17, "event":Lorg/yaml/snakeyaml/events/Event;
     const-string v9, "!"
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_133
 
     invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_131
 
-    goto :goto_3
+    goto :goto_133
 
-    :cond_8
+    :cond_131
     const/4 v10, 0x0
 
-    goto :goto_4
+    goto :goto_134
 
-    :cond_9
-    :goto_3
+    :cond_133
+    :goto_133
     const/4 v10, 0x1
 
-    :goto_4
+    :goto_134
     move v15, v10
 
     .line 462
     .local v15, "implicit":Z
     const/4 v14, 0x0
 
-    if-eqz p2, :cond_a
+    if-eqz p2, :cond_16e
 
     iget-object v10, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
 
@@ -800,7 +800,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_16e
 
     .line 463
     iget-object v5, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -855,7 +855,7 @@
 
     move-object/from16 v3, v18
 
-    goto/16 :goto_8
+    goto/16 :goto_30e
 
     .line 462
     .end local v5    # "event":Lorg/yaml/snakeyaml/events/Event;
@@ -864,7 +864,7 @@
     .restart local v3    # "tagMark":Lorg/yaml/snakeyaml/error/Mark;
     .restart local v15    # "implicit":Z
     .restart local v17    # "event":Lorg/yaml/snakeyaml/events/Event;
-    :cond_a
+    :cond_16e
     move-object/from16 v18, v3
 
     move-object v3, v14
@@ -888,7 +888,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_f
+    if-eqz v10, :cond_1d2
 
     .line 469
     iget-object v3, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -910,19 +910,19 @@
 
     move-result v10
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_195
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_19b
 
-    :cond_b
+    :cond_195
     invoke-virtual {v9, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_1a2
 
     .line 473
-    :cond_c
+    :cond_19b
     new-instance v9, Lorg/yaml/snakeyaml/events/ImplicitTuple;
 
     invoke-direct {v9, v5, v8}, Lorg/yaml/snakeyaml/events/ImplicitTuple;-><init>(ZZ)V
@@ -930,12 +930,12 @@
     move-object v5, v9
 
     .local v5, "implicitValues":Lorg/yaml/snakeyaml/events/ImplicitTuple;
-    goto :goto_5
+    goto :goto_1b0
 
     .line 474
     .end local v5    # "implicitValues":Lorg/yaml/snakeyaml/events/ImplicitTuple;
-    :cond_d
-    if-nez v7, :cond_e
+    :cond_1a2
+    if-nez v7, :cond_1ab
 
     .line 475
     new-instance v9, Lorg/yaml/snakeyaml/events/ImplicitTuple;
@@ -945,18 +945,18 @@
     move-object v5, v9
 
     .restart local v5    # "implicitValues":Lorg/yaml/snakeyaml/events/ImplicitTuple;
-    goto :goto_5
+    goto :goto_1b0
 
     .line 477
     .end local v5    # "implicitValues":Lorg/yaml/snakeyaml/events/ImplicitTuple;
-    :cond_e
+    :cond_1ab
     new-instance v5, Lorg/yaml/snakeyaml/events/ImplicitTuple;
 
     invoke-direct {v5, v8, v8}, Lorg/yaml/snakeyaml/events/ImplicitTuple;-><init>(ZZ)V
 
     .line 479
     .restart local v5    # "implicitValues":Lorg/yaml/snakeyaml/events/ImplicitTuple;
-    :goto_5
+    :goto_1b0
     new-instance v8, Lorg/yaml/snakeyaml/events/ScalarEvent;
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/tokens/ScalarToken;->getValue()Ljava/lang/String;
@@ -1001,11 +1001,11 @@
 
     move-object/from16 v3, v18
 
-    goto/16 :goto_8
+    goto/16 :goto_30e
 
     .end local v8    # "event":Lorg/yaml/snakeyaml/events/Event;
     .restart local v17    # "event":Lorg/yaml/snakeyaml/events/Event;
-    :cond_f
+    :cond_1d2
     iget-object v9, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
 
     new-array v10, v5, [Lorg/yaml/snakeyaml/tokens/Token$ID;
@@ -1018,7 +1018,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_10
+    if-eqz v9, :cond_203
 
     .line 483
     iget-object v5, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -1061,12 +1061,12 @@
 
     move-object/from16 v3, v18
 
-    goto/16 :goto_8
+    goto/16 :goto_30e
 
     .line 487
     .end local v5    # "event":Lorg/yaml/snakeyaml/events/Event;
     .restart local v17    # "event":Lorg/yaml/snakeyaml/events/Event;
-    :cond_10
+    :cond_203
     iget-object v9, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
 
     new-array v10, v5, [Lorg/yaml/snakeyaml/tokens/Token$ID;
@@ -1079,7 +1079,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_11
+    if-eqz v9, :cond_234
 
     .line 488
     iget-object v5, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -1122,13 +1122,13 @@
 
     move-object/from16 v3, v18
 
-    goto/16 :goto_8
+    goto/16 :goto_30e
 
     .line 492
     .end local v5    # "event":Lorg/yaml/snakeyaml/events/Event;
     .restart local v17    # "event":Lorg/yaml/snakeyaml/events/Event;
-    :cond_11
-    if-eqz p1, :cond_12
+    :cond_234
+    if-eqz p1, :cond_267
 
     iget-object v9, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
 
@@ -1142,7 +1142,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_12
+    if-eqz v9, :cond_267
 
     .line 493
     iget-object v5, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -1185,13 +1185,13 @@
 
     move-object/from16 v3, v18
 
-    goto/16 :goto_8
+    goto/16 :goto_30e
 
     .line 497
     .end local v5    # "event":Lorg/yaml/snakeyaml/events/Event;
     .restart local v17    # "event":Lorg/yaml/snakeyaml/events/Event;
-    :cond_12
-    if-eqz p1, :cond_13
+    :cond_267
+    if-eqz p1, :cond_29a
 
     iget-object v9, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
 
@@ -1205,7 +1205,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_13
+    if-eqz v5, :cond_29a
 
     .line 498
     iget-object v5, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -1248,20 +1248,20 @@
 
     move-object/from16 v3, v18
 
-    goto/16 :goto_8
+    goto/16 :goto_30e
 
     .line 502
     .end local v5    # "event":Lorg/yaml/snakeyaml/events/Event;
     .restart local v17    # "event":Lorg/yaml/snakeyaml/events/Event;
-    :cond_13
-    if-nez v4, :cond_16
+    :cond_29a
+    if-nez v4, :cond_2ec
 
-    if-eqz v7, :cond_14
+    if-eqz v7, :cond_29f
 
-    goto :goto_7
+    goto :goto_2ec
 
     .line 509
-    :cond_14
+    :cond_29f
     iget-object v3, v0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
 
     invoke-interface {v3}, Lorg/yaml/snakeyaml/scanner/Scanner;->peekToken()Lorg/yaml/snakeyaml/tokens/Token;
@@ -1282,16 +1282,16 @@
 
     move-result-object v8
 
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_2b7
 
     const-string v9, "block"
 
-    goto :goto_6
+    goto :goto_2b9
 
-    :cond_15
+    :cond_2b7
     const-string v9, "flow"
 
-    :goto_6
+    :goto_2b9
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
@@ -1344,8 +1344,8 @@
 
     .line 505
     .end local v3    # "token":Lorg/yaml/snakeyaml/tokens/Token;
-    :cond_16
-    :goto_7
+    :cond_2ec
+    :goto_2ec
     new-instance v3, Lorg/yaml/snakeyaml/events/ScalarEvent;
 
     new-instance v12, Lorg/yaml/snakeyaml/events/ImplicitTuple;
@@ -1396,12 +1396,12 @@
     .end local v18    # "tagMark":Lorg/yaml/snakeyaml/error/Mark;
     .local v3, "tagMark":Lorg/yaml/snakeyaml/error/Mark;
     .local v5, "event":Lorg/yaml/snakeyaml/events/Event;
-    :goto_8
+    :goto_30e
     return-object v5
 .end method
 
 .method private processDirectives()Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
-    .locals 10
+    .registers 11
 
     .line 322
     const/4 v0, 0x0
@@ -1414,7 +1414,7 @@
 
     .line 324
     .local v1, "tagHandles":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
-    :goto_0
+    :goto_6
     iget-object v2, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
 
     const/4 v3, 0x1
@@ -1431,7 +1431,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_ae
 
     .line 326
     iget-object v2, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->scanner:Lorg/yaml/snakeyaml/scanner/Scanner;
@@ -1456,10 +1456,10 @@
 
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_69
 
     .line 328
-    if-nez v0, :cond_2
+    if-nez v0, :cond_5d
 
     .line 332
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/tokens/DirectiveToken;->getValue()Ljava/util/List;
@@ -1480,7 +1480,7 @@
 
     move-result v7
 
-    if-ne v7, v3, :cond_1
+    if-ne v7, v3, :cond_51
 
     .line 339
     invoke-interface {v4, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1495,15 +1495,15 @@
 
     move-result v5
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_e6
 
     .line 346
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$Version;->V1_1:Lorg/yaml/snakeyaml/DumperOptions$Version;
 
-    goto :goto_1
+    goto :goto_50
 
     .line 342
-    :pswitch_0
+    :pswitch_4d
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$Version;->V1_0:Lorg/yaml/snakeyaml/DumperOptions$Version;
 
     .line 343
@@ -1513,14 +1513,14 @@
     .end local v3    # "minor":Ljava/lang/Integer;
     .end local v4    # "value":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     .end local v6    # "major":Ljava/lang/Integer;
-    :cond_0
-    :goto_1
-    goto :goto_2
+    :cond_50
+    :goto_50
+    goto :goto_ac
 
     .line 335
     .restart local v4    # "value":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     .restart local v6    # "major":Ljava/lang/Integer;
-    :cond_1
+    :cond_51
     new-instance v3, Lorg/yaml/snakeyaml/parser/ParserException;
 
     const-string v7, "found incompatible YAML document (version 1.* is required)"
@@ -1536,7 +1536,7 @@
     .line 329
     .end local v4    # "value":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     .end local v6    # "major":Ljava/lang/Integer;
-    :cond_2
+    :cond_5d
     new-instance v3, Lorg/yaml/snakeyaml/parser/ParserException;
 
     const-string v4, "found duplicate YAML directive"
@@ -1550,7 +1550,7 @@
     throw v3
 
     .line 349
-    :cond_3
+    :cond_69
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/tokens/DirectiveToken;->getName()Ljava/lang/String;
 
     move-result-object v4
@@ -1561,7 +1561,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_50
 
     .line 350
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/tokens/DirectiveToken;->getValue()Ljava/util/List;
@@ -1590,15 +1590,15 @@
 
     move-result v7
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_8f
 
     .line 357
     invoke-virtual {v1, v6, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_ac
 
     .line 354
-    :cond_4
+    :cond_8f
     new-instance v7, Lorg/yaml/snakeyaml/parser/ParserException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1632,21 +1632,21 @@
     .end local v3    # "prefix":Ljava/lang/String;
     .end local v4    # "value":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .end local v6    # "handle":Ljava/lang/String;
-    :goto_2
-    goto/16 :goto_0
+    :goto_ac
+    goto/16 :goto_6
 
     .line 360
-    :cond_5
-    if-nez v0, :cond_6
+    :cond_ae
+    if-nez v0, :cond_b6
 
     invoke-virtual {v1}, Ljava/util/HashMap;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_e3
 
     .line 362
-    :cond_6
+    :cond_b6
     sget-object v2, Lorg/yaml/snakeyaml/parser/ParserImpl;->DEFAULT_TAGS:Ljava/util/Map;
 
     invoke-interface {v2}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -1658,12 +1658,12 @@
     move-result-object v2
 
     .local v2, "i$":Ljava/util/Iterator;
-    :goto_3
+    :goto_c0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_dc
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1677,7 +1677,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_db
 
     .line 365
     sget-object v4, Lorg/yaml/snakeyaml/parser/ParserImpl;->DEFAULT_TAGS:Ljava/util/Map;
@@ -1690,12 +1690,12 @@
 
     .line 367
     .end local v3    # "key":Ljava/lang/String;
-    :cond_7
-    goto :goto_3
+    :cond_db
+    goto :goto_c0
 
     .line 368
     .end local v2    # "i$":Ljava/util/Iterator;
-    :cond_8
+    :cond_dc
     new-instance v2, Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
 
     invoke-direct {v2, v0, v1}, Lorg/yaml/snakeyaml/parser/VersionTagsTuple;-><init>(Lorg/yaml/snakeyaml/DumperOptions$Version;Ljava/util/Map;)V
@@ -1703,19 +1703,19 @@
     iput-object v2, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->directives:Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
 
     .line 370
-    :cond_9
+    :cond_e3
     iget-object v2, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->directives:Lorg/yaml/snakeyaml/parser/VersionTagsTuple;
 
     return-object v2
 
-    :pswitch_data_0
+    :pswitch_data_e6
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_4d
     .end packed-switch
 .end method
 
 .method private processEmptyScalar(Lorg/yaml/snakeyaml/error/Mark;)Lorg/yaml/snakeyaml/events/Event;
-    .locals 9
+    .registers 11
     .param p1, "mark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 934
@@ -1749,7 +1749,7 @@
 .end method
 
 .method private produceCommentEvent(Lorg/yaml/snakeyaml/tokens/CommentToken;)Lorg/yaml/snakeyaml/events/CommentEvent;
-    .locals 5
+    .registers 7
     .param p1, "token"    # Lorg/yaml/snakeyaml/tokens/CommentToken;
 
     .line 183
@@ -1787,7 +1787,7 @@
 
 # virtual methods
 .method public checkEvent(Lorg/yaml/snakeyaml/events/Event$ID;)Z
-    .locals 1
+    .registers 3
     .param p1, "choice"    # Lorg/yaml/snakeyaml/events/Event$ID;
 
     .line 156
@@ -1796,7 +1796,7 @@
     .line 157
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->currentEvent:Lorg/yaml/snakeyaml/events/Event;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->currentEvent:Lorg/yaml/snakeyaml/events/Event;
 
@@ -1804,21 +1804,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     return v0
 .end method
 
 .method public getEvent()Lorg/yaml/snakeyaml/events/Event;
-    .locals 2
+    .registers 3
 
     .line 176
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/parser/ParserImpl;->peekEvent()Lorg/yaml/snakeyaml/events/Event;
@@ -1837,17 +1837,17 @@
 .end method
 
 .method public peekEvent()Lorg/yaml/snakeyaml/events/Event;
-    .locals 1
+    .registers 2
 
     .line 164
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->currentEvent:Lorg/yaml/snakeyaml/events/Event;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 165
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->state:Lorg/yaml/snakeyaml/parser/Production;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 166
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->state:Lorg/yaml/snakeyaml/parser/Production;
@@ -1859,7 +1859,7 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->currentEvent:Lorg/yaml/snakeyaml/events/Event;
 
     .line 169
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/ParserImpl;->currentEvent:Lorg/yaml/snakeyaml/events/Event;
 
     return-object v0

@@ -68,7 +68,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/graph/BaseGraph;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -117,7 +117,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/graph/BaseGraph;Lcom/google/common/graph/EndpointPairIterator$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/graph/BaseGraph;
     .param p2, "x1"    # Lcom/google/common/graph/EndpointPairIterator$1;
 
@@ -129,7 +129,7 @@
 .end method
 
 .method static of(Lcom/google/common/graph/BaseGraph;)Lcom/google/common/graph/EndpointPairIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -150,27 +150,27 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     new-instance v0, Lcom/google/common/graph/EndpointPairIterator$Directed;
 
     invoke-direct {v0, p0, v1}, Lcom/google/common/graph/EndpointPairIterator$Directed;-><init>(Lcom/google/common/graph/BaseGraph;Lcom/google/common/graph/EndpointPairIterator$1;)V
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/graph/EndpointPairIterator$Undirected;
 
     invoke-direct {v0, p0, v1}, Lcom/google/common/graph/EndpointPairIterator$Undirected;-><init>(Lcom/google/common/graph/BaseGraph;Lcom/google/common/graph/EndpointPairIterator$1;)V
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 
 # virtual methods
 .method final advance()Z
-    .locals 3
+    .registers 4
 
     .line 59
     .local p0, "this":Lcom/google/common/graph/EndpointPairIterator;, "Lcom/google/common/graph/EndpointPairIterator<TN;>;"
@@ -193,7 +193,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 61
     const/4 v0, 0x0
@@ -201,7 +201,7 @@
     return v0
 
     .line 63
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lcom/google/common/graph/EndpointPairIterator;->nodeIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;

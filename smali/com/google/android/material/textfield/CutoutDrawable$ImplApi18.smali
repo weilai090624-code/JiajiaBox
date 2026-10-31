@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 1
+    .registers 3
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 82
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method protected drawStrokeShape(Landroid/graphics/Canvas;)V
-    .locals 2
+    .registers 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 87
@@ -41,15 +41,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 88
     invoke-super {p0, p1}, Lcom/google/android/material/textfield/CutoutDrawable;->drawStrokeShape(Landroid/graphics/Canvas;)V
 
-    goto :goto_1
+    goto :goto_28
 
     .line 91
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 92
@@ -57,17 +57,17 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1b
 
     .line 93
     iget-object v0, p0, Lcom/google/android/material/textfield/CutoutDrawable$ImplApi18;->cutoutBounds:Landroid/graphics/RectF;
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->clipOutRect(Landroid/graphics/RectF;)Z
 
-    goto :goto_0
+    goto :goto_22
 
     .line 95
-    :cond_1
+    :cond_1b
     iget-object v0, p0, Lcom/google/android/material/textfield/CutoutDrawable$ImplApi18;->cutoutBounds:Landroid/graphics/RectF;
 
     sget-object v1, Landroid/graphics/Region$Op;->DIFFERENCE:Landroid/graphics/Region$Op;
@@ -75,13 +75,13 @@
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->clipRect(Landroid/graphics/RectF;Landroid/graphics/Region$Op;)Z
 
     .line 97
-    :goto_0
+    :goto_22
     invoke-super {p0, p1}, Lcom/google/android/material/textfield/CutoutDrawable;->drawStrokeShape(Landroid/graphics/Canvas;)V
 
     .line 98
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 100
-    :goto_1
+    :goto_28
     return-void
 .end method

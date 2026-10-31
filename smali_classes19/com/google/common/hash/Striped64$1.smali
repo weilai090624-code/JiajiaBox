@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 297
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic run()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -55,7 +55,7 @@
 .end method
 
 .method public run()Lsun/misc/Unsafe;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -75,8 +75,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_8
+    if-ge v3, v2, :cond_25
 
     aget-object v4, v1, v3
 
@@ -99,7 +99,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_22
 
     invoke-virtual {v0, v5}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -112,13 +112,13 @@
     .line 301
     .end local v4    # "f":Ljava/lang/reflect/Field;
     .end local v5    # "x":Ljava/lang/Object;
-    :cond_0
+    :cond_22
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 306
-    :cond_1
+    :cond_25
     new-instance v1, Ljava/lang/NoSuchFieldError;
 
     const-string v2, "the Unsafe"

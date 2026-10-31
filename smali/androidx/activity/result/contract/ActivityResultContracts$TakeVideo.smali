@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 295
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContract;-><init>()V
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public createIntent(Landroid/content/Context;Landroid/net/Uri;)Landroid/content/Intent;
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Landroid/net/Uri;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public bridge synthetic createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -130,7 +130,7 @@
 .end method
 
 .method public final getSynchronousResult(Landroid/content/Context;Landroid/net/Uri;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Signature;
@@ -160,7 +160,7 @@
 .end method
 
 .method public bridge synthetic getSynchronousResult(Landroid/content/Context;Ljava/lang/Object;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -177,7 +177,7 @@
 .end method
 
 .method public final parseResult(ILandroid/content/Intent;)Landroid/graphics/Bitmap;
-    .locals 3
+    .registers 6
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -192,31 +192,31 @@
     .local v1, "$i$a$-takeIf-ActivityResultContracts$TakeVideo$parseResult$1":I
     const/4 v2, -0x1
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_7
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v2, 0x0
 
     .end local v0    # "it":Landroid/content/Intent;
     .end local v1    # "$i$a$-takeIf-ActivityResultContracts$TakeVideo$parseResult$1":I
-    :goto_0
+    :goto_8
     const/4 v0, 0x0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_d
 
     move-object v1, p2
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
+    :cond_d
     move-object v1, v0
 
-    :goto_1
-    if-eqz v1, :cond_2
+    :goto_e
+    if-eqz v1, :cond_18
 
     const-string v0, "data"
 
@@ -226,12 +226,12 @@
 
     check-cast v0, Landroid/graphics/Bitmap;
 
-    :cond_2
+    :cond_18
     return-object v0
 .end method
 
 .method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 

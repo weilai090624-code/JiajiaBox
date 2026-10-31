@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/EndCompoundLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "endLayout"    # Lcom/google/android/material/textfield/EndCompoundLayout;
 
     .line 31
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method setUp()V
-    .locals 2
+    .registers 3
 
     .line 36
     iget-object v0, p0, Lcom/google/android/material/textfield/CustomEndIconDelegate;->endLayout:Lcom/google/android/material/textfield/EndCompoundLayout;

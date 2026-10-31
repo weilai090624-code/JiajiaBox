@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public final close()V
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lkotlin/jdk7/AutoCloseableKt$AutoCloseable$1;->$closeAction:Lkotlin/jvm/functions/Function0;

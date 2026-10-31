@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -26,7 +26,7 @@
 .end method
 
 .method static create(Landroid/content/Context;)Landroidx/camera/camera2/internal/compat/CameraManagerCompatApi28Impl;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -46,7 +46,7 @@
 .end method
 
 .method private isDndFailCase(Ljava/lang/Throwable;)Z
-    .locals 2
+    .registers 4
     .param p1, "throwable"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -62,27 +62,27 @@
 
     const/16 v1, 0x1c
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     invoke-static {p1}, Landroidx/camera/camera2/internal/compat/CameraManagerCompatApi28Impl;->isDndRuntimeException(Ljava/lang/Throwable;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method private static isDndRuntimeException(Ljava/lang/Throwable;)Z
-    .locals 3
+    .registers 4
     .param p0, "throwable"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -106,7 +106,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     .line 131
     invoke-virtual {p0}, Ljava/lang/Throwable;->getStackTrace()[Ljava/lang/StackTraceElement;
@@ -116,16 +116,16 @@
     move-object v2, v0
 
     .local v2, "stackTraceElement":[Ljava/lang/StackTraceElement;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     array-length v0, v2
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_18
 
-    goto :goto_0
+    goto :goto_25
 
     .line 135
-    :cond_0
+    :cond_18
     aget-object v0, v2, v1
 
     invoke-virtual {v0}, Ljava/lang/StackTraceElement;->getMethodName()Ljava/lang/String;
@@ -141,18 +141,18 @@
     return v0
 
     .line 133
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     return v1
 
     .line 137
     .end local v2    # "stackTraceElement":[Ljava/lang/StackTraceElement;
-    :cond_2
+    :cond_26
     return v1
 .end method
 
 .method private throwDndException(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -182,7 +182,7 @@
 
 # virtual methods
 .method public getCameraCharacteristics(Ljava/lang/String;)Landroid/hardware/camera2/CameraCharacteristics;
-    .locals 2
+    .registers 4
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -204,8 +204,8 @@
     invoke-super {p0, p1}, Landroidx/camera/camera2/internal/compat/CameraManagerCompatBaseImpl;->getCameraCharacteristics(Ljava/lang/String;)Landroid/hardware/camera2/CameraCharacteristics;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_4} :catch_6
 
     .line 96
     .local v0, "cameraCharacteristics":Landroid/hardware/camera2/CameraCharacteristics;
@@ -216,7 +216,7 @@
 
     .line 88
     .end local v0    # "cameraCharacteristics":Landroid/hardware/camera2/CameraCharacteristics;
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 89
@@ -225,18 +225,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 93
     invoke-direct {p0, v0}, Landroidx/camera/camera2/internal/compat/CameraManagerCompatApi28Impl;->throwDndException(Ljava/lang/Throwable;)V
 
     .line 95
-    :cond_0
+    :cond_10
     throw v0
 .end method
 
 .method public openCamera(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraDevice$StateCallback;)V
-    .locals 2
+    .registers 6
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroid/hardware/camera2/CameraDevice$StateCallback;
@@ -264,11 +264,11 @@
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraManagerCompatApi28Impl;->mCameraManager:Landroid/hardware/camera2/CameraManager;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/hardware/camera2/CameraManager;->openCamera(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraDevice$StateCallback;)V
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_5} :catch_16
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_5} :catch_14
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_5} :catch_12
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 78
     nop
@@ -277,7 +277,7 @@
     return-void
 
     .line 73
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 74
@@ -286,33 +286,33 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 75
     invoke-direct {p0, v0}, Landroidx/camera/camera2/internal/compat/CameraManagerCompatApi28Impl;->throwDndException(Ljava/lang/Throwable;)V
 
     .line 77
-    :cond_0
+    :cond_11
     throw v0
 
     .line 70
     .end local v0    # "e":Ljava/lang/RuntimeException;
-    :catch_1
+    :catch_12
     move-exception v0
 
-    goto :goto_0
+    goto :goto_15
 
-    :catch_2
+    :catch_14
     move-exception v0
 
     .line 72
     .restart local v0    # "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_15
     throw v0
 
     .line 68
     .end local v0    # "e":Ljava/lang/RuntimeException;
-    :catch_3
+    :catch_16
     move-exception v0
 
     .line 69
@@ -325,7 +325,7 @@
 .end method
 
 .method public registerAvailabilityCallback(Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraManager$AvailabilityCallback;)V
-    .locals 1
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "callback"    # Landroid/hardware/camera2/CameraManager$AvailabilityCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -349,7 +349,7 @@
 .end method
 
 .method public unregisterAvailabilityCallback(Landroid/hardware/camera2/CameraManager$AvailabilityCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Landroid/hardware/camera2/CameraManager$AvailabilityCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

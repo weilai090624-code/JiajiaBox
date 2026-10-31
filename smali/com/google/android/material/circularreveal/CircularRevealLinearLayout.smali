@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 33
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public actualDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 94
@@ -57,7 +57,7 @@
 .end method
 
 .method public actualIsOpaque()Z
-    .locals 1
+    .registers 2
 
     .line 108
     invoke-super {p0}, Landroid/widget/LinearLayout;->isOpaque()Z
@@ -68,7 +68,7 @@
 .end method
 
 .method public buildCircularRevealCache()V
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealLinearLayout;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
@@ -80,7 +80,7 @@
 .end method
 
 .method public destroyCircularRevealCache()V
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealLinearLayout;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
@@ -92,32 +92,32 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 1
+    .registers 3
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 85
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealLinearLayout;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 86
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealLinearLayout;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
 
     invoke-virtual {v0, p1}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->draw(Landroid/graphics/Canvas;)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 88
-    :cond_0
+    :cond_a
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->draw(Landroid/graphics/Canvas;)V
 
     .line 90
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method public getCircularRevealOverlayDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 75
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealLinearLayout;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
@@ -130,7 +130,7 @@
 .end method
 
 .method public getCircularRevealScrimColor()I
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealLinearLayout;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
@@ -143,7 +143,7 @@
 .end method
 
 .method public getRevealInfo()Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealLinearLayout;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
@@ -156,12 +156,12 @@
 .end method
 
 .method public isOpaque()Z
-    .locals 1
+    .registers 2
 
     .line 99
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealLinearLayout;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 100
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealLinearLayout;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
@@ -173,7 +173,7 @@
     return v0
 
     .line 102
-    :cond_0
+    :cond_b
     invoke-super {p0}, Landroid/widget/LinearLayout;->isOpaque()Z
 
     move-result v0
@@ -182,7 +182,7 @@
 .end method
 
 .method public setCircularRevealOverlayDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 80
@@ -195,7 +195,7 @@
 .end method
 
 .method public setCircularRevealScrimColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 69
@@ -208,7 +208,7 @@
 .end method
 
 .method public setRevealInfo(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V
-    .locals 1
+    .registers 3
     .param p1, "revealInfo"    # Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
     .line 59

@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/Ref$ObjectRef;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public final emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -107,17 +107,17 @@
 
     sget-object v1, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_b
+    if-eqz v0, :cond_14
 
     .line 59
     iget-object v0, p0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$single$2;->$result:Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -130,7 +130,7 @@
     return-object v0
 
     .line 173
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     .line 58

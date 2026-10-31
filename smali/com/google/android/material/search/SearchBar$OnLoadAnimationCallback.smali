@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 848
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,14 +27,14 @@
 
 # virtual methods
 .method public onAnimationEnd()V
-    .locals 0
+    .registers 1
 
     .line 851
     return-void
 .end method
 
 .method public onAnimationStart()V
-    .locals 0
+    .registers 1
 
     .line 849
     return-void

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static playTogether(Landroid/animation/AnimatorSet;Ljava/util/List;)V
-    .locals 9
+    .registers 11
     .param p0, "animatorSet"    # Landroid/animation/AnimatorSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -40,8 +40,8 @@
     move-result v3
 
     .local v3, "count":I
-    :goto_0
-    if-ge v2, v3, :cond_0
+    :goto_7
+    if-ge v2, v3, :cond_1f
 
     .line 40
     invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -70,12 +70,12 @@
     .end local v4    # "animator":Landroid/animation/Animator;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 43
     .end local v2    # "i":I
     .end local v3    # "count":I
-    :cond_0
+    :cond_1f
     const/4 v2, 0x0
 
     filled-new-array {v2, v2}, [I

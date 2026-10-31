@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 379
@@ -49,7 +49,7 @@
 .end method
 
 .method private isEmojiSpan(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "span"    # Ljava/lang/Object;
 
     .line 457
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 1
+    .registers 3
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 395
@@ -76,7 +76,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -94,7 +94,7 @@
 .end method
 
 .method final blockCalls()V
-    .locals 1
+    .registers 2
 
     .line 449
     iget-object v0, p0, Landroidx/emoji2/text/SpannableBuilder$WatcherWrapper;->mBlockCalls:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -106,7 +106,7 @@
 .end method
 
 .method public onSpanAdded(Landroid/text/Spannable;Ljava/lang/Object;II)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Landroid/text/Spannable;
     .param p2, "what"    # Ljava/lang/Object;
     .param p3, "start"    # I
@@ -119,19 +119,19 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_f
 
     invoke-direct {p0, p2}, Landroidx/emoji2/text/SpannableBuilder$WatcherWrapper;->isEmojiSpan(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 405
     return-void
 
     .line 407
-    :cond_0
+    :cond_f
     iget-object v0, p0, Landroidx/emoji2/text/SpannableBuilder$WatcherWrapper;->mObject:Ljava/lang/Object;
 
     check-cast v0, Landroid/text/SpanWatcher;
@@ -143,7 +143,7 @@
 .end method
 
 .method public onSpanChanged(Landroid/text/Spannable;Ljava/lang/Object;IIII)V
-    .locals 7
+    .registers 14
     .param p1, "text"    # Landroid/text/Spannable;
     .param p2, "what"    # Ljava/lang/Object;
     .param p3, "ostart"    # I
@@ -158,40 +158,40 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_f
 
     invoke-direct {p0, p2}, Landroidx/emoji2/text/SpannableBuilder$WatcherWrapper;->isEmojiSpan(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 430
     return-void
 
     .line 433
-    :cond_0
+    :cond_f
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1c
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_1b
 
     .line 438
-    if-le p3, p4, :cond_1
+    if-le p3, p4, :cond_18
 
     .line 439
     const/4 p3, 0x0
 
     .line 441
-    :cond_1
-    if-le p5, p6, :cond_2
+    :cond_18
+    if-le p5, p6, :cond_1b
 
     .line 442
     const/4 p5, 0x0
 
     .line 445
-    :cond_2
+    :cond_1b
     iget-object v0, p0, Landroidx/emoji2/text/SpannableBuilder$WatcherWrapper;->mObject:Ljava/lang/Object;
 
     check-cast v0, Landroid/text/SpanWatcher;
@@ -215,7 +215,7 @@
 .end method
 
 .method public onSpanRemoved(Landroid/text/Spannable;Ljava/lang/Object;II)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Landroid/text/Spannable;
     .param p2, "what"    # Ljava/lang/Object;
     .param p3, "start"    # I
@@ -228,19 +228,19 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_f
 
     invoke-direct {p0, p2}, Landroidx/emoji2/text/SpannableBuilder$WatcherWrapper;->isEmojiSpan(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 417
     return-void
 
     .line 419
-    :cond_0
+    :cond_f
     iget-object v0, p0, Landroidx/emoji2/text/SpannableBuilder$WatcherWrapper;->mObject:Ljava/lang/Object;
 
     check-cast v0, Landroid/text/SpanWatcher;
@@ -252,7 +252,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
@@ -270,7 +270,7 @@
 .end method
 
 .method final unblockCalls()V
-    .locals 1
+    .registers 2
 
     .line 453
     iget-object v0, p0, Landroidx/emoji2/text/SpannableBuilder$WatcherWrapper;->mBlockCalls:Ljava/util/concurrent/atomic/AtomicInteger;

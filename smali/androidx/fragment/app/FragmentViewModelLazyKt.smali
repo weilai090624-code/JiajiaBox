@@ -42,7 +42,7 @@
 
 # direct methods
 .method public static final synthetic access$viewModels$lambda-0(Lkotlin/Lazy;)Landroidx/lifecycle/ViewModelStoreOwner;
-    .locals 1
+    .registers 2
     .param p0, "$owner$delegate"    # Lkotlin/Lazy;
 
     .line 1
@@ -54,7 +54,7 @@
 .end method
 
 .method public static final synthetic access$viewModels$lambda-1(Lkotlin/Lazy;)Landroidx/lifecycle/ViewModelStoreOwner;
-    .locals 1
+    .registers 2
     .param p0, "$owner$delegate"    # Lkotlin/Lazy;
 
     .line 1
@@ -66,7 +66,7 @@
 .end method
 
 .method public static final synthetic activityViewModels(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 5
+    .registers 7
     .param p0, "$this$activityViewModels"    # Landroidx/fragment/app/Fragment;
     .param p1, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -122,7 +122,7 @@
     check-cast v3, Lkotlin/jvm/functions/Function0;
 
     .line 152
-    if-nez p1, :cond_0
+    if-nez p1, :cond_2a
 
     .line 149
     new-instance v4, Landroidx/fragment/app/FragmentViewModelLazyKt$activityViewModels$3;
@@ -131,14 +131,14 @@
 
     check-cast v4, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 152
-    :cond_0
+    :cond_2a
     move-object v4, p1
 
     .line 149
-    :goto_0
+    :goto_2b
     invoke-static {p0, v1, v2, v3, v4}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v1
@@ -148,7 +148,7 @@
 .end method
 
 .method public static final synthetic activityViewModels(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 5
+    .registers 8
     .param p0, "$this$activityViewModels"    # Landroidx/fragment/app/Fragment;
     .param p1, "extrasProducer"    # Lkotlin/jvm/functions/Function0;
     .param p2, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
@@ -204,7 +204,7 @@
     check-cast v3, Lkotlin/jvm/functions/Function0;
 
     .line 178
-    if-nez p2, :cond_0
+    if-nez p2, :cond_2a
 
     .line 175
     new-instance v4, Landroidx/fragment/app/FragmentViewModelLazyKt$activityViewModels$6;
@@ -213,14 +213,14 @@
 
     check-cast v4, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 178
-    :cond_0
+    :cond_2a
     move-object v4, p2
 
     .line 175
-    :goto_0
+    :goto_2b
     invoke-static {p0, v1, v2, v3, v4}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v1
@@ -230,20 +230,20 @@
 .end method
 
 .method public static synthetic activityViewModels$default(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
-    .locals 3
+    .registers 7
     .param p0, "$this$activityViewModels_u24default"    # Landroidx/fragment/app/Fragment;
     .param p1, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
 
     .line 147
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     .line 148
     const/4 p1, 0x0
 
     .line 147
-    :cond_0
+    :cond_5
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -277,7 +277,7 @@
     check-cast v1, Lkotlin/jvm/functions/Function0;
 
     .line 152
-    if-nez p1, :cond_1
+    if-nez p1, :cond_2f
 
     .line 149
     new-instance v2, Landroidx/fragment/app/FragmentViewModelLazyKt$activityViewModels$3;
@@ -286,14 +286,14 @@
 
     check-cast v2, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_30
 
     .line 152
-    :cond_1
+    :cond_2f
     move-object v2, p1
 
     .line 149
-    :goto_0
+    :goto_30
     invoke-static {p0, p3, v0, v1, v2}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object p3
@@ -303,7 +303,7 @@
 .end method
 
 .method public static synthetic activityViewModels$default(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
-    .locals 3
+    .registers 8
     .param p0, "$this$activityViewModels_u24default"    # Landroidx/fragment/app/Fragment;
     .param p1, "extrasProducer"    # Lkotlin/jvm/functions/Function0;
     .param p2, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
@@ -311,22 +311,22 @@
     .line 172
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 173
     const/4 p1, 0x0
 
     .line 172
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_a
 
     .line 174
     const/4 p2, 0x0
 
     .line 172
-    :cond_1
+    :cond_a
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -360,7 +360,7 @@
     check-cast v1, Lkotlin/jvm/functions/Function0;
 
     .line 178
-    if-nez p2, :cond_2
+    if-nez p2, :cond_34
 
     .line 175
     new-instance v2, Landroidx/fragment/app/FragmentViewModelLazyKt$activityViewModels$6;
@@ -369,14 +369,14 @@
 
     check-cast v2, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_35
 
     .line 178
-    :cond_2
+    :cond_34
     move-object v2, p2
 
     .line 175
-    :goto_0
+    :goto_35
     invoke-static {p0, p4, v0, v1, v2}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object p4
@@ -386,7 +386,7 @@
 .end method
 
 .method public static final synthetic createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 1
+    .registers 5
     .param p0, "$this$createViewModelLazy"    # Landroidx/fragment/app/Fragment;
     .param p1, "viewModelClass"    # Lkotlin/reflect/KClass;
     .param p2, "storeProducer"    # Lkotlin/jvm/functions/Function0;
@@ -437,7 +437,7 @@
 .end method
 
 .method public static final createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 2
+    .registers 7
     .param p0, "$this$createViewModelLazy"    # Landroidx/fragment/app/Fragment;
     .param p1, "viewModelClass"    # Lkotlin/reflect/KClass;
     .param p2, "storeProducer"    # Lkotlin/jvm/functions/Function0;
@@ -485,7 +485,7 @@
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 217
-    if-nez p4, :cond_0
+    if-nez p4, :cond_20
 
     new-instance v0, Landroidx/fragment/app/FragmentViewModelLazyKt$createViewModelLazy$factoryPromise$1;
 
@@ -493,14 +493,14 @@
 
     check-cast v0, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     move-object v0, p4
 
     .line 220
     .local v0, "factoryPromise":Lkotlin/jvm/functions/Function0;
-    :goto_0
+    :goto_21
     new-instance v1, Landroidx/lifecycle/ViewModelLazy;
 
     invoke-direct {v1, p1, p2, v0, p3}, Landroidx/lifecycle/ViewModelLazy;-><init>(Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)V
@@ -511,18 +511,18 @@
 .end method
 
 .method public static synthetic createViewModelLazy$default(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
-    .locals 0
+    .registers 6
 
     .line 191
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 194
     const/4 p3, 0x0
 
     .line 191
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object p0
@@ -531,12 +531,12 @@
 .end method
 
 .method public static synthetic createViewModelLazy$default(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
-    .locals 0
+    .registers 7
 
     .line 210
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_b
 
     .line 213
     new-instance p3, Landroidx/fragment/app/FragmentViewModelLazyKt$createViewModelLazy$2;
@@ -546,16 +546,16 @@
     check-cast p3, Lkotlin/jvm/functions/Function0;
 
     .line 210
-    :cond_0
+    :cond_b
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_10
 
     .line 214
     const/4 p4, 0x0
 
     .line 210
-    :cond_1
+    :cond_10
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object p0
@@ -564,7 +564,7 @@
 .end method
 
 .method public static final synthetic viewModels(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 6
+    .registers 9
     .param p0, "$this$viewModels"    # Landroidx/fragment/app/Fragment;
     .param p1, "ownerProducer"    # Lkotlin/jvm/functions/Function0;
     .param p2, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
@@ -643,7 +643,7 @@
     check-cast v4, Lkotlin/jvm/functions/Function0;
 
     .line 73
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3c
 
     .line 66
     new-instance v5, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$4;
@@ -652,14 +652,14 @@
 
     check-cast v5, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 73
-    :cond_0
+    :cond_3c
     move-object v5, p2
 
     .line 66
-    :goto_0
+    :goto_3d
     invoke-static {p0, v2, v3, v4, v5}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v2
@@ -668,7 +668,7 @@
 .end method
 
 .method public static final synthetic viewModels(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 6
+    .registers 10
     .param p0, "$this$viewModels"    # Landroidx/fragment/app/Fragment;
     .param p1, "ownerProducer"    # Lkotlin/jvm/functions/Function0;
     .param p2, "extrasProducer"    # Lkotlin/jvm/functions/Function0;
@@ -747,7 +747,7 @@
     check-cast v4, Lkotlin/jvm/functions/Function0;
 
     .line 120
-    if-nez p3, :cond_0
+    if-nez p3, :cond_3c
 
     .line 112
     new-instance v5, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$8;
@@ -756,14 +756,14 @@
 
     check-cast v5, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 120
-    :cond_0
+    :cond_3c
     move-object v5, p3
 
     .line 112
-    :goto_0
+    :goto_3d
     invoke-static {p0, v2, v3, v4, v5}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v2
@@ -772,7 +772,7 @@
 .end method
 
 .method public static synthetic viewModels$default(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
-    .locals 4
+    .registers 9
     .param p0, "$this$viewModels_u24default"    # Landroidx/fragment/app/Fragment;
     .param p1, "ownerProducer"    # Lkotlin/jvm/functions/Function0;
     .param p2, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
@@ -780,7 +780,7 @@
     .line 61
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_c
 
     .line 62
     new-instance p4, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$1;
@@ -792,16 +792,16 @@
     check-cast p1, Lkotlin/jvm/functions/Function0;
 
     .line 61
-    :cond_0
+    :cond_c
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_11
 
     .line 63
     const/4 p2, 0x0
 
     .line 61
-    :cond_1
+    :cond_11
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -853,7 +853,7 @@
     check-cast v2, Lkotlin/jvm/functions/Function0;
 
     .line 73
-    if-nez p2, :cond_2
+    if-nez p2, :cond_4d
 
     .line 66
     new-instance v3, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$4;
@@ -862,14 +862,14 @@
 
     check-cast v3, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 73
-    :cond_2
+    :cond_4d
     move-object v3, p2
 
     .line 66
-    :goto_0
+    :goto_4e
     invoke-static {p0, v0, v1, v2, v3}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v0
@@ -878,7 +878,7 @@
 .end method
 
 .method public static synthetic viewModels$default(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
-    .locals 4
+    .registers 10
     .param p0, "$this$viewModels_u24default"    # Landroidx/fragment/app/Fragment;
     .param p1, "ownerProducer"    # Lkotlin/jvm/functions/Function0;
     .param p2, "extrasProducer"    # Lkotlin/jvm/functions/Function0;
@@ -887,7 +887,7 @@
     .line 106
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_c
 
     .line 107
     new-instance p5, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$5;
@@ -899,27 +899,27 @@
     check-cast p1, Lkotlin/jvm/functions/Function0;
 
     .line 106
-    :cond_0
+    :cond_c
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_11
 
     .line 108
     const/4 p2, 0x0
 
     .line 106
-    :cond_1
+    :cond_11
     const/4 p5, 0x4
 
     and-int/2addr p4, p5
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_16
 
     .line 109
     const/4 p3, 0x0
 
     .line 106
-    :cond_2
+    :cond_16
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -969,7 +969,7 @@
     check-cast v2, Lkotlin/jvm/functions/Function0;
 
     .line 120
-    if-nez p3, :cond_3
+    if-nez p3, :cond_51
 
     .line 112
     new-instance v3, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$8;
@@ -978,14 +978,14 @@
 
     check-cast v3, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_52
 
     .line 120
-    :cond_3
+    :cond_51
     move-object v3, p3
 
     .line 112
-    :goto_0
+    :goto_52
     invoke-static {p0, p5, v1, v2, v3}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object p5
@@ -994,7 +994,7 @@
 .end method
 
 .method private static final viewModels$lambda-0(Lkotlin/Lazy;)Landroidx/lifecycle/ViewModelStoreOwner;
-    .locals 1
+    .registers 2
     .param p0, "$owner$delegate"    # Lkotlin/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1018,7 +1018,7 @@
 .end method
 
 .method private static final viewModels$lambda-1(Lkotlin/Lazy;)Landroidx/lifecycle/ViewModelStoreOwner;
-    .locals 1
+    .registers 2
     .param p0, "$owner$delegate"    # Lkotlin/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {

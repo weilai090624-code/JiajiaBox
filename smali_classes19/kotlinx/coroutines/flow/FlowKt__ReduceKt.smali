@@ -57,7 +57,7 @@
 
 # direct methods
 .method public static final first(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -73,7 +73,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -85,7 +85,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$1;->label:I
 
@@ -93,14 +93,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -114,7 +114,7 @@
     .line 90
     iget v2, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_82
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -128,7 +128,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$collectWhile":I
@@ -142,24 +142,24 @@
     check-cast v2, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     .local v2, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :try_start_0
+    :try_start_36
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_36 .. :try_end_39} :catch_3a
 
-    goto :goto_1
+    goto :goto_63
 
     .line 199
-    :catch_0
+    :catch_3a
     move-exception v3
 
-    goto :goto_2
+    goto :goto_69
 
     .line 90
     .end local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$1;
     .end local v2    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local p0    # "$i$f$collectWhile":I
-    :pswitch_1
+    :pswitch_3c
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 91
@@ -190,7 +190,7 @@
     nop
 
     .line 198
-    :try_start_1
+    :try_start_50
     move-object v5, v4
 
     check-cast v5, Lkotlinx/coroutines/flow/FlowCollector;
@@ -206,17 +206,17 @@
     invoke-interface {p0, v5, p1}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_1
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_5e
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_50 .. :try_end_5e} :catch_64
 
     .end local p0    # "$this$collectWhile$iv":Lkotlinx/coroutines/flow/Flow;
-    if-ne v5, v1, :cond_1
+    if-ne v5, v1, :cond_61
 
     .line 90
     return-object v1
 
     .line 198
-    :cond_1
+    :cond_61
     move p0, v3
 
     move-object v1, v4
@@ -225,15 +225,15 @@
     .end local v4    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$1;
     .restart local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$1;
     .local p0, "$i$f$collectWhile":I
-    :goto_1
-    goto :goto_3
+    :goto_63
+    goto :goto_6f
 
     .line 199
     .end local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$1;
     .end local p0    # "$i$f$collectWhile":I
     .restart local v3    # "$i$f$collectWhile":I
     .restart local v4    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$1;
-    :catch_1
+    :catch_64
     move-exception p0
 
     move-object v1, v4
@@ -249,7 +249,7 @@
     .restart local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$1;
     .local v3, "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
     .restart local p0    # "$i$f$collectWhile":I
-    :goto_2
+    :goto_69
     move-object v4, v1
 
     check-cast v4, Lkotlinx/coroutines/flow/FlowCollector;
@@ -259,7 +259,7 @@
     .line 202
     .end local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$1;
     .end local v3    # "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
-    :goto_3
+    :goto_6f
     nop
 
     .line 96
@@ -268,7 +268,7 @@
 
     sget-object v1, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq p0, v1, :cond_2
+    if-eq p0, v1, :cond_79
 
     .line 97
     iget-object p0, v2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -276,7 +276,7 @@
     return-object p0
 
     .line 96
-    :cond_2
+    :cond_79
     new-instance p0, Ljava/util/NoSuchElementException;
 
     const-string v1, "Expected at least one element"
@@ -287,15 +287,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_82
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3c
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final first(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -319,7 +319,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$3;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -331,7 +331,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$3;->label:I
 
@@ -339,14 +339,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$3;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$3;
 
     invoke-direct {v0, p2}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$3;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -360,7 +360,7 @@
     .line 104
     iget v2, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$3;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_9c
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -374,7 +374,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$collectWhile":I
@@ -393,25 +393,25 @@
     check-cast v2, Lkotlin/jvm/functions/Function2;
 
     .local v2, "predicate":Lkotlin/jvm/functions/Function2;
-    :try_start_0
+    :try_start_3a
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3d
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_3a .. :try_end_3d} :catch_3e
 
-    goto :goto_1
+    goto :goto_6b
 
     .line 214
-    :catch_0
+    :catch_3e
     move-exception v3
 
-    goto :goto_2
+    goto :goto_72
 
     .line 104
     .end local v1    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v2    # "predicate":Lkotlin/jvm/functions/Function2;
     .end local p0    # "$i$f$collectWhile":I
     .end local p1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$2;
-    :pswitch_1
+    :pswitch_40
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p0, "$this$first":Lkotlinx/coroutines/flow/Flow;
@@ -445,7 +445,7 @@
     nop
 
     .line 213
-    :try_start_1
+    :try_start_55
     move-object v5, v4
 
     check-cast v5, Lkotlinx/coroutines/flow/FlowCollector;
@@ -463,17 +463,17 @@
     invoke-interface {p0, v5, p2}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_1
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_65
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_55 .. :try_end_65} :catch_6c
 
     .end local p0    # "$this$collectWhile$iv":Lkotlinx/coroutines/flow/Flow;
-    if-ne v5, v1, :cond_1
+    if-ne v5, v1, :cond_68
 
     .line 104
     return-object v1
 
     .line 213
-    :cond_1
+    :cond_68
     move-object v1, p1
 
     move p0, v3
@@ -485,8 +485,8 @@
     .restart local v1    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p0, "$i$f$collectWhile":I
     .local p1, "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$2;
-    :goto_1
-    goto :goto_3
+    :goto_6b
+    goto :goto_78
 
     .line 214
     .end local v1    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -494,7 +494,7 @@
     .restart local v3    # "$i$f$collectWhile":I
     .restart local v4    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$2;
     .local p1, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :catch_1
+    :catch_6c
     move-exception p0
 
     move-object v1, p1
@@ -513,7 +513,7 @@
     .local v3, "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
     .restart local p0    # "$i$f$collectWhile":I
     .local p1, "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$2;
-    :goto_2
+    :goto_72
     move-object v4, p1
 
     check-cast v4, Lkotlinx/coroutines/flow/FlowCollector;
@@ -523,7 +523,7 @@
     .line 217
     .end local v3    # "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
     .end local p1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$first$$inlined$collectWhile$2;
-    :goto_3
+    :goto_78
     nop
 
     .line 114
@@ -532,7 +532,7 @@
 
     sget-object p1, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq p0, p1, :cond_2
+    if-eq p0, p1, :cond_82
 
     .line 115
     iget-object p0, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -540,7 +540,7 @@
     return-object p0
 
     .line 114
-    :cond_2
+    :cond_82
     new-instance p0, Ljava/util/NoSuchElementException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -567,15 +567,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_9c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_40
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final firstOrNull(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -591,7 +591,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -603,7 +603,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$1;->label:I
 
@@ -611,14 +611,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -632,7 +632,7 @@
     .line 122
     iget v2, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_70
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -646,7 +646,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$collectWhile":I
@@ -660,24 +660,24 @@
     check-cast v2, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     .local v2, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :try_start_0
+    :try_start_36
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_36 .. :try_end_39} :catch_3a
 
-    goto :goto_1
+    goto :goto_5f
 
     .line 229
-    :catch_0
+    :catch_3a
     move-exception v3
 
-    goto :goto_2
+    goto :goto_65
 
     .line 122
     .end local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$1;
     .end local v2    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local p0    # "$i$f$collectWhile":I
-    :pswitch_1
+    :pswitch_3c
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 123
@@ -704,7 +704,7 @@
     nop
 
     .line 228
-    :try_start_1
+    :try_start_4c
     move-object v5, v4
 
     check-cast v5, Lkotlinx/coroutines/flow/FlowCollector;
@@ -720,17 +720,17 @@
     invoke-interface {p0, v5, p1}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_1
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_5a
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_4c .. :try_end_5a} :catch_60
 
     .end local p0    # "$this$collectWhile$iv":Lkotlinx/coroutines/flow/Flow;
-    if-ne v5, v1, :cond_1
+    if-ne v5, v1, :cond_5d
 
     .line 122
     return-object v1
 
     .line 228
-    :cond_1
+    :cond_5d
     move p0, v3
 
     move-object v1, v4
@@ -739,15 +739,15 @@
     .end local v4    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$1;
     .restart local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$1;
     .local p0, "$i$f$collectWhile":I
-    :goto_1
-    goto :goto_3
+    :goto_5f
+    goto :goto_6b
 
     .line 229
     .end local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$1;
     .end local p0    # "$i$f$collectWhile":I
     .restart local v3    # "$i$f$collectWhile":I
     .restart local v4    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$1;
-    :catch_1
+    :catch_60
     move-exception p0
 
     move-object v1, v4
@@ -763,7 +763,7 @@
     .restart local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$1;
     .local v3, "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
     .restart local p0    # "$i$f$collectWhile":I
-    :goto_2
+    :goto_65
     move-object v4, v1
 
     check-cast v4, Lkotlinx/coroutines/flow/FlowCollector;
@@ -773,7 +773,7 @@
     .line 232
     .end local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$1;
     .end local v3    # "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
-    :goto_3
+    :goto_6b
     nop
 
     .line 128
@@ -784,15 +784,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_70
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3c
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final firstOrNull(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -816,7 +816,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$3;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -828,7 +828,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$3;->label:I
 
@@ -836,14 +836,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$3;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$3;
 
     invoke-direct {v0, p2}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$3;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -857,7 +857,7 @@
     .line 135
     iget v2, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$3;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_70
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -871,7 +871,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$collectWhile":I
@@ -885,24 +885,24 @@
     check-cast v1, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     .local v1, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :try_start_0
+    :try_start_36
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_36 .. :try_end_39} :catch_3a
 
-    goto :goto_1
+    goto :goto_60
 
     .line 244
-    :catch_0
+    :catch_3a
     move-exception v2
 
-    goto :goto_2
+    goto :goto_66
 
     .line 135
     .end local v1    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local p0    # "$i$f$collectWhile":I
     .end local p1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2;
-    :pswitch_1
+    :pswitch_3c
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 136
@@ -931,7 +931,7 @@
     nop
 
     .line 243
-    :try_start_1
+    :try_start_4c
     move-object p1, v4
 
     check-cast p1, Lkotlinx/coroutines/flow/FlowCollector;
@@ -947,17 +947,17 @@
     invoke-interface {p0, p1, p2}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p1
-    :try_end_1
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_5a
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_4c .. :try_end_5a} :catch_61
 
     .end local p0    # "$this$collectWhile$iv":Lkotlinx/coroutines/flow/Flow;
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_5d
 
     .line 135
     return-object v1
 
     .line 243
-    :cond_1
+    :cond_5d
     move-object v1, v2
 
     move p0, v3
@@ -970,8 +970,8 @@
     .restart local v1    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p0, "$i$f$collectWhile":I
     .local p1, "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2;
-    :goto_1
-    goto :goto_3
+    :goto_60
+    goto :goto_6c
 
     .line 244
     .end local v1    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -980,7 +980,7 @@
     .restart local v2    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v3    # "$i$f$collectWhile":I
     .restart local v4    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2;
-    :catch_1
+    :catch_61
     move-exception p0
 
     move-object v1, v2
@@ -998,7 +998,7 @@
     .local v2, "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
     .restart local p0    # "$i$f$collectWhile":I
     .restart local p1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2;
-    :goto_2
+    :goto_66
     move-object v3, p1
 
     check-cast v3, Lkotlinx/coroutines/flow/FlowCollector;
@@ -1008,7 +1008,7 @@
     .line 247
     .end local v2    # "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
     .end local p1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2;
-    :goto_3
+    :goto_6c
     nop
 
     .line 145
@@ -1017,15 +1017,15 @@
 
     return-object p0
 
-    :pswitch_data_0
+    :pswitch_data_70
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3c
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final fold(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1049,7 +1049,7 @@
 
     instance-of v0, p3, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p3
 
@@ -1061,7 +1061,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p3, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$1;->label:I
 
@@ -1069,14 +1069,14 @@
 
     iput p3, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$1;
 
     invoke-direct {v0, p3}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p3, v0
 
     .local p3, "$continuation":Lkotlin/coroutines/Continuation;
@@ -1090,7 +1090,7 @@
     .line 39
     iget v2, p3, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_5a
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p3    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -1104,7 +1104,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p3    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$fold":I
@@ -1115,11 +1115,11 @@
     .local p1, "accumulator":Lkotlin/jvm/internal/Ref$ObjectRef;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_56
 
     .end local p0    # "$i$f$fold":I
     .end local p1    # "accumulator":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :pswitch_1
+    :pswitch_36
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p0, "$this$fold":Lkotlinx/coroutines/flow/Flow;
@@ -1156,13 +1156,13 @@
 
     .end local p0    # "$this$fold":Lkotlinx/coroutines/flow/Flow;
     .end local p2    # "operation":Lkotlin/jvm/functions/Function3;
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_54
 
     .line 39
     return-object v1
 
     .line 44
-    :cond_1
+    :cond_54
     move p0, v2
 
     move-object p1, v3
@@ -1172,22 +1172,22 @@
     .end local v3    # "accumulator":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p0, "$i$f$fold":I
     .local p1, "accumulator":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :goto_1
+    :goto_56
     iget-object p2, p1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     return-object p2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_36
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method private static final fold$$forInline(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p0, "$this$fold"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -1240,7 +1240,7 @@
 .end method
 
 .method public static final last(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1256,7 +1256,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$last$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -1268,7 +1268,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$last$1;->label:I
 
@@ -1276,14 +1276,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$last$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$last$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$last$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -1297,7 +1297,7 @@
     .line 153
     iget v2, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$last$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_66
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -1311,7 +1311,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p0, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$last$1;->L$0:Ljava/lang/Object;
 
     check-cast p0, Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -1319,10 +1319,10 @@
     .local p0, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_55
 
     .end local p0    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :pswitch_1
+    :pswitch_35
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 154
@@ -1354,24 +1354,24 @@
     move-result-object p0
 
     .end local p0    # "$this$last":Lkotlinx/coroutines/flow/Flow;
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_54
 
     .line 153
     return-object v1
 
     .line 155
-    :cond_1
+    :cond_54
     move-object p0, v2
 
     .line 158
     .end local v2    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p0, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :goto_1
+    :goto_55
     iget-object v1, p0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     sget-object v2, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_5e
 
     .line 159
     iget-object v1, p0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -1379,7 +1379,7 @@
     return-object v1
 
     .line 158
-    :cond_2
+    :cond_5e
     new-instance v1, Ljava/util/NoSuchElementException;
 
     const-string v2, "Expected at least one element"
@@ -1388,15 +1388,15 @@
 
     throw v1
 
-    :pswitch_data_0
+    :pswitch_data_66
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final lastOrNull(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1412,7 +1412,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$lastOrNull$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -1424,7 +1424,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$lastOrNull$1;->label:I
 
@@ -1432,14 +1432,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$lastOrNull$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$lastOrNull$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$lastOrNull$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -1453,7 +1453,7 @@
     .line 165
     iget v2, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$lastOrNull$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_54
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -1467,7 +1467,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p0, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$lastOrNull$1;->L$0:Ljava/lang/Object;
 
     check-cast p0, Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -1475,10 +1475,10 @@
     .local p0, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_51
 
     .end local p0    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :pswitch_1
+    :pswitch_35
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 166
@@ -1506,32 +1506,32 @@
     move-result-object p0
 
     .end local p0    # "$this$lastOrNull":Lkotlinx/coroutines/flow/Flow;
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_50
 
     .line 165
     return-object v1
 
     .line 167
-    :cond_1
+    :cond_50
     move-object p0, v2
 
     .line 170
     .end local v2    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p0, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :goto_1
+    :goto_51
     iget-object v1, p0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_54
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final reduce(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -1553,7 +1553,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$reduce$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -1565,7 +1565,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$reduce$1;->label:I
 
@@ -1573,14 +1573,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$reduce$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$reduce$1;
 
     invoke-direct {v0, p2}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$reduce$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -1594,7 +1594,7 @@
     .line 19
     iget v2, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$reduce$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_66
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -1608,7 +1608,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p0, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$reduce$1;->L$0:Ljava/lang/Object;
 
     check-cast p0, Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -1616,10 +1616,10 @@
     .local p0, "accumulator":Lkotlin/jvm/internal/Ref$ObjectRef;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_55
 
     .end local p0    # "accumulator":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :pswitch_1
+    :pswitch_35
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 20
@@ -1653,24 +1653,24 @@
 
     .end local p0    # "$this$reduce":Lkotlinx/coroutines/flow/Flow;
     .end local p1    # "operation":Lkotlin/jvm/functions/Function3;
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_54
 
     .line 19
     return-object v1
 
     .line 22
-    :cond_1
+    :cond_54
     move-object p0, v2
 
     .line 31
     .end local v2    # "accumulator":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p0, "accumulator":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :goto_1
+    :goto_55
     iget-object p1, p0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     sget-object v1, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq p1, v1, :cond_2
+    if-eq p1, v1, :cond_5e
 
     .line 33
     iget-object p1, p0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -1678,7 +1678,7 @@
     return-object p1
 
     .line 31
-    :cond_2
+    :cond_5e
     new-instance p1, Ljava/util/NoSuchElementException;
 
     const-string v1, "Empty flow can\'t be reduced"
@@ -1687,15 +1687,15 @@
 
     throw p1
 
-    :pswitch_data_0
+    :pswitch_data_66
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final single(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1711,7 +1711,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$single$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -1723,7 +1723,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$single$1;->label:I
 
@@ -1731,14 +1731,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$single$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$single$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$single$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -1752,7 +1752,7 @@
     .line 55
     iget v2, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$single$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_66
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -1766,7 +1766,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p0, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$single$1;->L$0:Ljava/lang/Object;
 
     check-cast p0, Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -1774,10 +1774,10 @@
     .local p0, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_55
 
     .end local p0    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :pswitch_1
+    :pswitch_35
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 56
@@ -1809,24 +1809,24 @@
     move-result-object p0
 
     .end local p0    # "$this$single":Lkotlinx/coroutines/flow/Flow;
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_54
 
     .line 55
     return-object v1
 
     .line 57
-    :cond_1
+    :cond_54
     move-object p0, v2
 
     .line 62
     .end local v2    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p0, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :goto_1
+    :goto_55
     iget-object v1, p0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     sget-object v2, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_5e
 
     .line 63
     iget-object v1, p0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -1834,7 +1834,7 @@
     return-object v1
 
     .line 62
-    :cond_2
+    :cond_5e
     new-instance v1, Ljava/util/NoSuchElementException;
 
     const-string v2, "Flow is empty"
@@ -1843,15 +1843,15 @@
 
     throw v1
 
-    :pswitch_data_0
+    :pswitch_data_66
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final singleOrNull(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1867,7 +1867,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -1879,7 +1879,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$1;->label:I
 
@@ -1887,14 +1887,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -1908,7 +1908,7 @@
     .line 70
     iget v2, p1, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_7c
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -1922,7 +1922,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$collectWhile":I
@@ -1936,24 +1936,24 @@
     check-cast v2, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     .local v2, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :try_start_0
+    :try_start_36
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_36 .. :try_end_39} :catch_3a
 
-    goto :goto_1
+    goto :goto_63
 
     .line 184
-    :catch_0
+    :catch_3a
     move-exception v3
 
-    goto :goto_2
+    goto :goto_69
 
     .line 70
     .end local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$$inlined$collectWhile$1;
     .end local v2    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local p0    # "$i$f$collectWhile":I
-    :pswitch_1
+    :pswitch_3c
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 71
@@ -1984,7 +1984,7 @@
     nop
 
     .line 183
-    :try_start_1
+    :try_start_50
     move-object v5, v4
 
     check-cast v5, Lkotlinx/coroutines/flow/FlowCollector;
@@ -2000,17 +2000,17 @@
     invoke-interface {p0, v5, p1}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_1
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_5e
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_50 .. :try_end_5e} :catch_64
 
     .end local p0    # "$this$collectWhile$iv":Lkotlinx/coroutines/flow/Flow;
-    if-ne v5, v1, :cond_1
+    if-ne v5, v1, :cond_61
 
     .line 70
     return-object v1
 
     .line 183
-    :cond_1
+    :cond_61
     move p0, v3
 
     move-object v1, v4
@@ -2019,15 +2019,15 @@
     .end local v4    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$$inlined$collectWhile$1;
     .restart local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$$inlined$collectWhile$1;
     .local p0, "$i$f$collectWhile":I
-    :goto_1
-    goto :goto_3
+    :goto_63
+    goto :goto_6f
 
     .line 184
     .end local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$$inlined$collectWhile$1;
     .end local p0    # "$i$f$collectWhile":I
     .restart local v3    # "$i$f$collectWhile":I
     .restart local v4    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$$inlined$collectWhile$1;
-    :catch_1
+    :catch_64
     move-exception p0
 
     move-object v1, v4
@@ -2043,7 +2043,7 @@
     .restart local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$$inlined$collectWhile$1;
     .local v3, "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
     .restart local p0    # "$i$f$collectWhile":I
-    :goto_2
+    :goto_69
     move-object v4, v1
 
     check-cast v4, Lkotlinx/coroutines/flow/FlowCollector;
@@ -2053,7 +2053,7 @@
     .line 187
     .end local v1    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$$inlined$collectWhile$1;
     .end local v3    # "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
-    :goto_3
+    :goto_6f
     nop
 
     .line 83
@@ -2062,24 +2062,24 @@
 
     sget-object v1, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    if-ne p0, v1, :cond_2
+    if-ne p0, v1, :cond_78
 
     const/4 p0, 0x0
 
-    goto :goto_4
+    goto :goto_7a
 
-    :cond_2
+    :cond_78
     iget-object p0, v2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .end local v2    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :goto_4
+    :goto_7a
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_7c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3c
+        :pswitch_2d
     .end packed-switch
 .end method

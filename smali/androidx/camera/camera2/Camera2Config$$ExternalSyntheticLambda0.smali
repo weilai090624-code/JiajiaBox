@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public final newInstance(Landroid/content/Context;Landroidx/camera/core/impl/CameraThreadConfig;Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/impl/CameraFactory;
-    .locals 1
+    .registers 5
 
     .line 0
     new-instance v0, Landroidx/camera/camera2/internal/Camera2CameraFactory;

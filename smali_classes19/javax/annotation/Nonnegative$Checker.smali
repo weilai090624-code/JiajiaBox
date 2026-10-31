@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic forConstantValue(Ljava/lang/annotation/Annotation;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 0
+    .registers 3
 
     .line 22
     check-cast p1, Ljavax/annotation/Nonnegative;
@@ -52,14 +52,14 @@
 .end method
 
 .method public forConstantValue(Ljavax/annotation/Nonnegative;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 8
+    .registers 11
     .param p1, "annotation"    # Ljavax/annotation/Nonnegative;
     .param p2, "v"    # Ljava/lang/Object;
 
     .line 25
     instance-of v0, p2, Ljava/lang/Number;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 26
     sget-object v0, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
@@ -67,7 +67,7 @@
     return-object v0
 
     .line 28
-    :cond_0
+    :cond_7
     move-object v0, p2
 
     check-cast v0, Ljava/lang/Number;
@@ -80,7 +80,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1e
 
     .line 30
     invoke-virtual {v0}, Ljava/lang/Number;->longValue()J
@@ -91,25 +91,25 @@
 
     cmp-long v1, v4, v6
 
-    if-gez v1, :cond_1
+    if-gez v1, :cond_1b
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1c
     move v1, v2
 
     .local v1, "isNegative":Z
-    goto :goto_4
+    goto :goto_4a
 
     .line 31
     .end local v1    # "isNegative":Z
-    :cond_2
+    :cond_1e
     instance-of v1, v0, Ljava/lang/Double;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_30
 
     .line 32
     invoke-virtual {v0}, Ljava/lang/Number;->doubleValue()D
@@ -120,25 +120,25 @@
 
     cmpg-double v1, v4, v6
 
-    if-gez v1, :cond_3
+    if-gez v1, :cond_2d
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_3
+    :cond_2d
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_2e
     move v1, v2
 
     .restart local v1    # "isNegative":Z
-    goto :goto_4
+    goto :goto_4a
 
     .line 33
     .end local v1    # "isNegative":Z
-    :cond_4
+    :cond_30
     instance-of v1, v0, Ljava/lang/Float;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_41
 
     .line 34
     invoke-virtual {v0}, Ljava/lang/Number;->floatValue()F
@@ -149,40 +149,40 @@
 
     cmpg-float v1, v1, v4
 
-    if-gez v1, :cond_5
+    if-gez v1, :cond_3e
 
-    goto :goto_2
+    goto :goto_3f
 
-    :cond_5
+    :cond_3e
     const/4 v2, 0x0
 
-    :goto_2
+    :goto_3f
     move v1, v2
 
     .restart local v1    # "isNegative":Z
-    goto :goto_4
+    goto :goto_4a
 
     .line 36
     .end local v1    # "isNegative":Z
-    :cond_6
+    :cond_41
     invoke-virtual {v0}, Ljava/lang/Number;->intValue()I
 
     move-result v1
 
-    if-gez v1, :cond_7
+    if-gez v1, :cond_48
 
-    goto :goto_3
+    goto :goto_49
 
-    :cond_7
+    :cond_48
     const/4 v2, 0x0
 
-    :goto_3
+    :goto_49
     move v1, v2
 
     .line 38
     .restart local v1    # "isNegative":Z
-    :goto_4
-    if-eqz v1, :cond_8
+    :goto_4a
+    if-eqz v1, :cond_4f
 
     .line 39
     sget-object v2, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
@@ -190,7 +190,7 @@
     return-object v2
 
     .line 41
-    :cond_8
+    :cond_4f
     sget-object v2, Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
 
     return-object v2

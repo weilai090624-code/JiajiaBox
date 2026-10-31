@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 194
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public getAcceleration(FF)F
-    .locals 1
+    .registers 4
     .param p1, "position"    # F
     .param p2, "velocity"    # F
 
@@ -69,7 +69,7 @@
 .end method
 
 .method getFrictionScalar()F
-    .locals 2
+    .registers 3
 
     .line 213
     iget v0, p0, Landroidx/dynamicanimation/animation/FlingAnimation$DragForce;->mFriction:F
@@ -82,7 +82,7 @@
 .end method
 
 .method public isAtEquilibrium(FF)Z
-    .locals 2
+    .registers 5
     .param p1, "value"    # F
     .param p2, "velocity"    # F
 
@@ -95,21 +95,21 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method setFrictionScalar(F)V
-    .locals 1
+    .registers 3
     .param p1, "frictionScalar"    # F
 
     .line 209
@@ -124,7 +124,7 @@
 .end method
 
 .method setValueThreshold(F)V
-    .locals 1
+    .registers 3
     .param p1, "threshold"    # F
 
     .line 237
@@ -139,7 +139,7 @@
 .end method
 
 .method updateValueAndVelocity(FFJ)Landroidx/dynamicanimation/animation/DynamicAnimation$MassState;
-    .locals 8
+    .registers 13
     .param p1, "value"    # F
     .param p2, "velocity"    # F
     .param p3, "deltaT"    # J
@@ -224,7 +224,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_47
 
     .line 221
     iget-object v0, p0, Landroidx/dynamicanimation/animation/FlingAnimation$DragForce;->mMassState:Landroidx/dynamicanimation/animation/DynamicAnimation$MassState;
@@ -234,7 +234,7 @@
     iput v1, v0, Landroidx/dynamicanimation/animation/DynamicAnimation$MassState;->mVelocity:F
 
     .line 223
-    :cond_0
+    :cond_47
     iget-object v0, p0, Landroidx/dynamicanimation/animation/FlingAnimation$DragForce;->mMassState:Landroidx/dynamicanimation/animation/DynamicAnimation$MassState;
 
     return-object v0

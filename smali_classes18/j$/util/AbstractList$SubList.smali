@@ -50,7 +50,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetoffset(Lj$/util/AbstractList$SubList;)I
-    .locals 0
+    .registers 1
 
     iget p0, p0, Lj$/util/AbstractList$SubList;->offset:I
 
@@ -58,7 +58,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$fgetroot(Lj$/util/AbstractList$SubList;)Lj$/util/AbstractList;
-    .locals 0
+    .registers 1
 
     iget-object p0, p0, Lj$/util/AbstractList$SubList;->root:Lj$/util/AbstractList;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$mupdateSizeAndModCount(Lj$/util/AbstractList$SubList;I)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0, p1}, Lj$/util/AbstractList$SubList;->updateSizeAndModCount(I)V
 
@@ -74,7 +74,7 @@
 .end method
 
 .method protected constructor <init>(Lj$/util/AbstractList$SubList;II)V
-    .locals 1
+    .registers 5
     .param p2, "fromIndex"    # I
     .param p3, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -122,7 +122,7 @@
 .end method
 
 .method public constructor <init>(Lj$/util/AbstractList;II)V
-    .locals 1
+    .registers 5
     .param p2, "fromIndex"    # I
     .param p3, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -164,7 +164,7 @@
 .end method
 
 .method private checkForComodification()V
-    .locals 2
+    .registers 3
 
     .line 903
     .local p0, "this":Lj$/util/AbstractList$SubList;, "Ljava/util/AbstractList$SubList<TE;>;"
@@ -174,13 +174,13 @@
 
     iget v1, p0, Lj$/util/AbstractList$SubList;->modCount:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     .line 905
     return-void
 
     .line 904
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -189,7 +189,7 @@
 .end method
 
 .method private outOfBoundsMsg(I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 899
@@ -228,22 +228,22 @@
 .end method
 
 .method private rangeCheckForAdd(I)V
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 894
     .local p0, "this":Lj$/util/AbstractList$SubList;, "Ljava/util/AbstractList$SubList<TE;>;"
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_7
 
     iget v0, p0, Lj$/util/AbstractList$SubList;->size:I
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_7
 
     .line 896
     return-void
 
     .line 895
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {p0, p1}, Lj$/util/AbstractList$SubList;->outOfBoundsMsg(I)Ljava/lang/String;
@@ -256,7 +256,7 @@
 .end method
 
 .method private updateSizeAndModCount(I)V
-    .locals 2
+    .registers 4
     .param p1, "sizeChange"    # I
 
     .line 908
@@ -265,7 +265,7 @@
 
     .line 910
     .local v0, "slist":Lj$/util/AbstractList$SubList;, "Ljava/util/AbstractList$SubList<TE;>;"
-    :cond_0
+    :cond_1
     iget v1, v0, Lj$/util/AbstractList$SubList;->size:I
 
     add-int/2addr v1, p1
@@ -283,7 +283,7 @@
     iget-object v0, v0, Lj$/util/AbstractList$SubList;->parent:Lj$/util/AbstractList$SubList;
 
     .line 913
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     .line 914
     return-void
@@ -292,7 +292,7 @@
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -327,7 +327,7 @@
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
-    .locals 3
+    .registers 6
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -349,7 +349,7 @@
 
     .line 822
     .local v0, "cSize":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 823
     const/4 v1, 0x0
@@ -357,7 +357,7 @@
     return v1
 
     .line 824
-    :cond_0
+    :cond_b
     invoke-direct {p0}, Lj$/util/AbstractList$SubList;->checkForComodification()V
 
     .line 825
@@ -379,7 +379,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -401,7 +401,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -433,7 +433,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -452,7 +452,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -478,7 +478,7 @@
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -517,7 +517,7 @@
 .end method
 
 .method protected removeRange(II)V
-    .locals 3
+    .registers 6
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
 
@@ -548,7 +548,7 @@
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -581,7 +581,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 790
     .local p0, "this":Lj$/util/AbstractList$SubList;, "Ljava/util/AbstractList$SubList<TE;>;"
@@ -594,7 +594,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;

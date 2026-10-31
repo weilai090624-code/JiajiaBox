@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 65
     const/4 v0, 0x3
@@ -24,7 +24,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -58,7 +58,7 @@
 .end method
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 4
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "throwable"    # Ljava/lang/Throwable;
@@ -80,7 +80,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 141
     invoke-static {p0}, Landroidx/camera/core/Logger;->truncateTag(Ljava/lang/String;)Ljava/lang/String;
@@ -90,12 +90,12 @@
     invoke-static {v0, p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 143
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -119,7 +119,7 @@
 .end method
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 4
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "throwable"    # Ljava/lang/Throwable;
@@ -141,7 +141,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 198
     invoke-static {p0}, Landroidx/camera/core/Logger;->truncateTag(Ljava/lang/String;)Ljava/lang/String;
@@ -151,12 +151,12 @@
     invoke-static {v0, p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 200
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -180,7 +180,7 @@
 .end method
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 4
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "throwable"    # Ljava/lang/Throwable;
@@ -202,7 +202,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 160
     invoke-static {p0}, Landroidx/camera/core/Logger;->truncateTag(Ljava/lang/String;)Ljava/lang/String;
@@ -212,12 +212,12 @@
     invoke-static {v0, p1, p2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 162
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public static isDebugEnabled(Ljava/lang/String;)Z
-    .locals 2
+    .registers 3
     .param p0, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -233,7 +233,7 @@
 
     const/4 v1, 0x3
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_12
 
     invoke-static {p0}, Landroidx/camera/core/Logger;->truncateTag(Ljava/lang/String;)Ljava/lang/String;
 
@@ -243,25 +243,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_13
     return v0
 .end method
 
 .method public static isErrorEnabled(Ljava/lang/String;)Z
-    .locals 2
+    .registers 3
     .param p0, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -277,7 +277,7 @@
 
     const/4 v1, 0x6
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_12
 
     invoke-static {p0}, Landroidx/camera/core/Logger;->truncateTag(Ljava/lang/String;)Ljava/lang/String;
 
@@ -287,25 +287,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_13
     return v0
 .end method
 
 .method public static isInfoEnabled(Ljava/lang/String;)Z
-    .locals 2
+    .registers 3
     .param p0, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -321,7 +321,7 @@
 
     const/4 v1, 0x4
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_12
 
     invoke-static {p0}, Landroidx/camera/core/Logger;->truncateTag(Ljava/lang/String;)Ljava/lang/String;
 
@@ -331,25 +331,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_13
     return v0
 .end method
 
 .method public static isWarnEnabled(Ljava/lang/String;)Z
-    .locals 2
+    .registers 3
     .param p0, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -365,7 +365,7 @@
 
     const/4 v1, 0x5
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_12
 
     invoke-static {p0}, Landroidx/camera/core/Logger;->truncateTag(Ljava/lang/String;)Ljava/lang/String;
 
@@ -375,25 +375,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_13
     return v0
 .end method
 
 .method static resetMinLogLevel()V
-    .locals 1
+    .registers 1
 
     .line 83
     const/4 v0, 0x3
@@ -405,7 +405,7 @@
 .end method
 
 .method static setMinLogLevel(I)V
-    .locals 0
+    .registers 1
     .param p0, "logLevel"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -424,7 +424,7 @@
 .end method
 
 .method private static truncateTag(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -442,13 +442,13 @@
 
     const/16 v1, 0x17
 
-    if-ge v1, v0, :cond_0
+    if-ge v1, v0, :cond_14
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x18
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_14
 
     .line 210
     const/4 v0, 0x0
@@ -460,12 +460,12 @@
     return-object v0
 
     .line 212
-    :cond_0
+    :cond_14
     return-object p0
 .end method
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -489,7 +489,7 @@
 .end method
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 4
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "throwable"    # Ljava/lang/Throwable;
@@ -511,7 +511,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 179
     invoke-static {p0}, Landroidx/camera/core/Logger;->truncateTag(Ljava/lang/String;)Ljava/lang/String;
@@ -521,6 +521,6 @@
     invoke-static {v0, p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 181
-    :cond_0
+    :cond_d
     return-void
 .end method

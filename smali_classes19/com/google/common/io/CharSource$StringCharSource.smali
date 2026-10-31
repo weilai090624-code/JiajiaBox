@@ -16,7 +16,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "seq"    # Ljava/lang/String;
 
     .line 573
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public copyTo(Lcom/google/common/io/CharSink;)J
-    .locals 4
+    .registers 6
     .param p1, "sink"    # Lcom/google/common/io/CharSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -47,7 +47,7 @@
 
     .line 592
     .local v0, "closer":Lcom/google/common/io/Closer;
-    :try_start_0
+    :try_start_7
     invoke-virtual {p1}, Lcom/google/common/io/CharSink;->openStream()Ljava/io/Writer;
 
     move-result-object v1
@@ -72,8 +72,8 @@
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_7 .. :try_end_1e} :catchall_23
 
     int-to-long v2, v2
 
@@ -85,12 +85,12 @@
 
     .line 595
     .end local v1    # "writer":Ljava/io/Writer;
-    :catchall_0
+    :catchall_23
     move-exception v1
 
     .line 596
     .local v1, "e":Ljava/lang/Throwable;
-    :try_start_1
+    :try_start_24
     invoke-virtual {v0, v1}, Lcom/google/common/io/Closer;->rethrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
     move-result-object v2
@@ -98,14 +98,14 @@
     .end local v0    # "closer":Lcom/google/common/io/Closer;
     .end local p1    # "sink":Lcom/google/common/io/CharSink;
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_29
+    .catchall {:try_start_24 .. :try_end_29} :catchall_29
 
     .line 598
     .end local v1    # "e":Ljava/lang/Throwable;
     .restart local v0    # "closer":Lcom/google/common/io/Closer;
     .restart local p1    # "sink":Lcom/google/common/io/CharSink;
-    :catchall_1
+    :catchall_29
     move-exception v1
 
     invoke-virtual {v0}, Lcom/google/common/io/Closer;->close()V
@@ -115,7 +115,7 @@
 .end method
 
 .method public copyTo(Ljava/lang/Appendable;)J
-    .locals 2
+    .registers 4
     .param p1, "appendable"    # Ljava/lang/Appendable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -141,7 +141,7 @@
 .end method
 
 .method public openStream()Ljava/io/Reader;
-    .locals 2
+    .registers 3
 
     .line 578
     new-instance v0, Ljava/io/StringReader;

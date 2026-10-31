@@ -5,18 +5,18 @@
 
 # direct methods
 .method public static synthetic m(Z)I
-    .locals 0
+    .registers 1
 
     .line 0
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     const/16 p0, 0x4cf
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     const/16 p0, 0x4d5
 
-    :goto_0
+    :goto_7
     return p0
 .end method

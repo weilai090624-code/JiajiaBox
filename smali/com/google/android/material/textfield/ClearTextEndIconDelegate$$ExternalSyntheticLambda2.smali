@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .registers 3
 
     .line 0
     iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate$$ExternalSyntheticLambda2;->f$0:Lcom/google/android/material/textfield/ClearTextEndIconDelegate;

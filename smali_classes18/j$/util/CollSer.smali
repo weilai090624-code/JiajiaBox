@@ -24,7 +24,7 @@
 
 # direct methods
 .method varargs constructor <init>(I[Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "t"    # I
     .param p2, "a"    # [Ljava/lang/Object;
 
@@ -42,7 +42,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 4
+    .registers 6
     .param p1, "ois"    # Ljava/io/ObjectInputStream;
 
     .line 1060
@@ -55,7 +55,7 @@
 
     .line 1063
     .local v0, "len":I
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_1a
 
     .line 1069
     new-array v1, v0, [Ljava/lang/Object;
@@ -65,8 +65,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_c
+    if-ge v2, v0, :cond_17
 
     .line 1071
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
@@ -78,11 +78,11 @@
     .line 1070
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 1074
     .end local v2    # "i":I
-    :cond_0
+    :cond_17
     iput-object v1, p0, Lj$/util/CollSer;->array:[Ljava/lang/Object;
 
     .line 1075
@@ -90,7 +90,7 @@
 
     .line 1064
     .end local v1    # "a":[Ljava/lang/Object;
-    :cond_1
+    :cond_1a
     new-instance v1, Ljava/io/InvalidObjectException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -117,13 +117,13 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 5
+    .registers 6
 
     .line 1117
     :try_start_0
     iget-object v0, p0, Lj$/util/CollSer;->array:[Ljava/lang/Object;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_58
 
     .line 1123
     iget v0, p0, Lj$/util/CollSer;->tag:I
@@ -134,20 +134,20 @@
 
     const/4 v2, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_6e
 
     .line 1137
     new-instance v0, Ljava/io/InvalidObjectException;
 
-    goto :goto_0
+    goto :goto_44
 
     .line 1129
-    :pswitch_0
+    :pswitch_10
     iget-object v0, p0, Lj$/util/CollSer;->array:[Ljava/lang/Object;
 
     array-length v0, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 1130
     invoke-static {}, Lj$/util/ImmutableCollections;->emptyMap()Ljava/util/Map;
@@ -157,14 +157,14 @@
     return-object v0
 
     .line 1131
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Lj$/util/CollSer;->array:[Ljava/lang/Object;
 
     array-length v0, v0
 
     const/4 v3, 0x2
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v3, :cond_2e
 
     .line 1132
     new-instance v0, Lj$/util/ImmutableCollections$Map1;
@@ -182,7 +182,7 @@
     return-object v0
 
     .line 1134
-    :cond_1
+    :cond_2e
     new-instance v0, Lj$/util/ImmutableCollections$MapN;
 
     iget-object v1, p0, Lj$/util/CollSer;->array:[Ljava/lang/Object;
@@ -192,7 +192,7 @@
     return-object v0
 
     .line 1127
-    :pswitch_1
+    :pswitch_36
     iget-object v0, p0, Lj$/util/CollSer;->array:[Ljava/lang/Object;
 
     invoke-static {v0}, Lj$/util/CollSer$$ExternalSyntheticBackport0;->m([Ljava/lang/Object;)Ljava/util/Set;
@@ -202,7 +202,7 @@
     return-object v0
 
     .line 1125
-    :pswitch_2
+    :pswitch_3d
     iget-object v0, p0, Lj$/util/CollSer;->array:[Ljava/lang/Object;
 
     invoke-static {v0}, Lj$/time/Duration$DurationUnits$$ExternalSyntheticBackport0;->m([Ljava/lang/Object;)Ljava/util/List;
@@ -212,7 +212,7 @@
     return-object v0
 
     .line 1137
-    :goto_0
+    :goto_44
     const-string v3, "invalid flags 0x%x"
 
     iget v4, p0, Lj$/util/CollSer;->tag:I
@@ -234,7 +234,7 @@
     throw v0
 
     .line 1118
-    :cond_2
+    :cond_58
     new-instance v0, Ljava/io/InvalidObjectException;
 
     const-string v1, "null array"
@@ -242,22 +242,22 @@
     invoke-direct {v0, v1}, Ljava/io/InvalidObjectException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_60
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_60} :catch_62
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_60} :catch_60
 
     .line 1139
-    :catch_0
+    :catch_60
     move-exception v0
 
-    goto :goto_1
+    goto :goto_63
 
-    :catch_1
+    :catch_62
     move-exception v0
 
     .line 1140
     .local v0, "ex":Ljava/lang/RuntimeException;
-    :goto_1
+    :goto_63
     new-instance v1, Ljava/io/InvalidObjectException;
 
     const-string v2, "invalid object"
@@ -271,16 +271,16 @@
     .line 1142
     throw v1
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3d
+        :pswitch_36
+        :pswitch_10
     .end packed-switch
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "oos"    # Ljava/io/ObjectOutputStream;
 
     .line 1090
@@ -297,12 +297,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_a
     iget-object v1, p0, Lj$/util/CollSer;->array:[Ljava/lang/Object;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_19
 
     .line 1093
     iget-object v1, p0, Lj$/util/CollSer;->array:[Ljava/lang/Object;
@@ -314,10 +314,10 @@
     .line 1092
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 1095
     .end local v0    # "i":I
-    :cond_0
+    :cond_19
     return-void
 .end method

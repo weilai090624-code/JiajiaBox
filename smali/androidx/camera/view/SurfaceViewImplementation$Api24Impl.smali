@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 285
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static pixelCopyRequest(Landroid/view/SurfaceView;Landroid/graphics/Bitmap;Landroid/view/PixelCopy$OnPixelCopyFinishedListener;Landroid/os/Handler;)V
-    .locals 0
+    .registers 4
     .param p0, "source"    # Landroid/view/SurfaceView;
     .param p1, "dest"    # Landroid/graphics/Bitmap;
     .param p2, "listener"    # Landroid/view/PixelCopy$OnPixelCopyFinishedListener;

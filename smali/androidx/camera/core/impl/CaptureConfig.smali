@@ -66,7 +66,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 49
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
@@ -97,7 +97,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/List;Landroidx/camera/core/impl/Config;ILjava/util/List;ZLandroidx/camera/core/impl/TagBundle;)V
-    .locals 1
+    .registers 8
     .param p2, "implementationOptions"    # Landroidx/camera/core/impl/Config;
     .param p3, "templateType"    # I
     .param p5, "useRepeatingSurface"    # Z
@@ -169,7 +169,7 @@
 .end method
 
 .method public static defaultEmptyCaptureConfig()Landroidx/camera/core/impl/CaptureConfig;
-    .locals 1
+    .registers 1
 
     .line 114
     new-instance v0, Landroidx/camera/core/impl/CaptureConfig$Builder;
@@ -186,7 +186,7 @@
 
 # virtual methods
 .method public getCameraCaptureCallbacks()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -203,7 +203,7 @@
 .end method
 
 .method public getImplementationOptions()Landroidx/camera/core/impl/Config;
-    .locals 1
+    .registers 2
 
     .line 125
     iget-object v0, p0, Landroidx/camera/core/impl/CaptureConfig;->mImplementationOptions:Landroidx/camera/core/impl/Config;
@@ -212,7 +212,7 @@
 .end method
 
 .method public getSurfaces()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -233,7 +233,7 @@
 .end method
 
 .method public getTagBundle()Landroidx/camera/core/impl/TagBundle;
-    .locals 1
+    .registers 2
 
     .line 144
     iget-object v0, p0, Landroidx/camera/core/impl/CaptureConfig;->mTagBundle:Landroidx/camera/core/impl/TagBundle;
@@ -242,7 +242,7 @@
 .end method
 
 .method public getTemplateType()I
-    .locals 1
+    .registers 2
 
     .line 129
     iget v0, p0, Landroidx/camera/core/impl/CaptureConfig;->mTemplateType:I
@@ -251,7 +251,7 @@
 .end method
 
 .method public isUseRepeatingSurface()Z
-    .locals 1
+    .registers 2
 
     .line 133
     iget-boolean v0, p0, Landroidx/camera/core/impl/CaptureConfig;->mUseRepeatingSurface:Z

@@ -78,7 +78,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/CompletableDeferred;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 13
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -127,7 +127,7 @@
 
     check-cast v0, Lkotlinx/coroutines/flow/MutableStateFlow;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 427
     .local v0, "it":Lkotlinx/coroutines/flow/MutableStateFlow;
@@ -141,13 +141,13 @@
     .end local v1    # "$i$a$-let-FlowKt__ShareKt$launchSharingDeferred$1$1$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_10
+    if-nez v0, :cond_37
 
     iget-object v0, p0, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharingDeferred$1$1;->$$this$launch:Lkotlinx/coroutines/CoroutineScope;
 
@@ -206,7 +206,7 @@
     nop
 
     .line 346
-    :cond_1
+    :cond_37
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0

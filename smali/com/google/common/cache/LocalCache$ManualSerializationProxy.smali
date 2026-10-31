@@ -114,7 +114,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/cache/LocalCache$Strength;Lcom/google/common/cache/LocalCache$Strength;Lcom/google/common/base/Equivalence;Lcom/google/common/base/Equivalence;JJJLcom/google/common/cache/Weigher;ILcom/google/common/cache/RemovalListener;Lcom/google/common/base/Ticker;Lcom/google/common/cache/CacheLoader;)V
-    .locals 16
+    .registers 32
     .param p1, "keyStrength"    # Lcom/google/common/cache/LocalCache$Strength;
     .param p2, "valueStrength"    # Lcom/google/common/cache/LocalCache$Strength;
     .param p5, "expireAfterWriteNanos"    # J
@@ -211,24 +211,24 @@
 
     move-result-object v15
 
-    if-eq v1, v15, :cond_1
+    if-eq v1, v15, :cond_3c
 
     sget-object v15, Lcom/google/common/cache/CacheBuilder;->NULL_TICKER:Lcom/google/common/base/Ticker;
 
-    if-ne v1, v15, :cond_0
+    if-ne v1, v15, :cond_3a
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_0
+    :cond_3a
     move-object v15, v1
 
-    goto :goto_1
+    goto :goto_3d
 
-    :cond_1
-    :goto_0
+    :cond_3c
+    :goto_3c
     const/4 v15, 0x0
 
-    :goto_1
+    :goto_3d
     iput-object v15, v0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->ticker:Lcom/google/common/base/Ticker;
 
     .line 4564
@@ -241,7 +241,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/cache/LocalCache;)V
-    .locals 17
+    .registers 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -290,7 +290,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -321,7 +321,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 4606
     .local p0, "this":Lcom/google/common/cache/LocalCache$ManualSerializationProxy;, "Lcom/google/common/cache/LocalCache$ManualSerializationProxy<TK;TV;>;"
@@ -333,7 +333,7 @@
 
 # virtual methods
 .method protected delegate()Lcom/google/common/cache/Cache;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -350,7 +350,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 4505
     .local p0, "this":Lcom/google/common/cache/LocalCache$ManualSerializationProxy;, "Lcom/google/common/cache/LocalCache$ManualSerializationProxy<TK;TV;>;"
@@ -362,7 +362,7 @@
 .end method
 
 .method recreateCacheBuilder()Lcom/google/common/cache/CacheBuilder;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -432,7 +432,7 @@
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_3a
 
     .line 4578
     iget-wide v1, p0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->expireAfterWriteNanos:J
@@ -442,12 +442,12 @@
     invoke-virtual {v0, v1, v2, v5}, Lcom/google/common/cache/CacheBuilder;->expireAfterWrite(JLjava/util/concurrent/TimeUnit;)Lcom/google/common/cache/CacheBuilder;
 
     .line 4580
-    :cond_0
+    :cond_3a
     iget-wide v1, p0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->expireAfterAccessNanos:J
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_1
+    if-lez v5, :cond_47
 
     .line 4581
     iget-wide v1, p0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->expireAfterAccessNanos:J
@@ -457,14 +457,14 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/google/common/cache/CacheBuilder;->expireAfterAccess(JLjava/util/concurrent/TimeUnit;)Lcom/google/common/cache/CacheBuilder;
 
     .line 4583
-    :cond_1
+    :cond_47
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->weigher:Lcom/google/common/cache/Weigher;
 
     sget-object v2, Lcom/google/common/cache/CacheBuilder$OneWeigher;->INSTANCE:Lcom/google/common/cache/CacheBuilder$OneWeigher;
 
     const-wide/16 v3, -0x1
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_60
 
     .line 4584
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->weigher:Lcom/google/common/cache/Weigher;
@@ -476,22 +476,22 @@
 
     cmp-long v5, v1, v3
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_6b
 
     .line 4586
     iget-wide v1, p0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->maxWeight:J
 
     invoke-virtual {v0, v1, v2}, Lcom/google/common/cache/CacheBuilder;->maximumWeight(J)Lcom/google/common/cache/CacheBuilder;
 
-    goto :goto_0
+    goto :goto_6b
 
     .line 4589
-    :cond_2
+    :cond_60
     iget-wide v1, p0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->maxWeight:J
 
     cmp-long v5, v1, v3
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_6b
 
     .line 4590
     iget-wide v1, p0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->maxWeight:J
@@ -499,11 +499,11 @@
     invoke-virtual {v0, v1, v2}, Lcom/google/common/cache/CacheBuilder;->maximumSize(J)Lcom/google/common/cache/CacheBuilder;
 
     .line 4593
-    :cond_3
-    :goto_0
+    :cond_6b
+    :goto_6b
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->ticker:Lcom/google/common/base/Ticker;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_74
 
     .line 4594
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$ManualSerializationProxy;->ticker:Lcom/google/common/base/Ticker;
@@ -511,6 +511,6 @@
     invoke-virtual {v0, v1}, Lcom/google/common/cache/CacheBuilder;->ticker(Lcom/google/common/base/Ticker;)Lcom/google/common/cache/CacheBuilder;
 
     .line 4596
-    :cond_4
+    :cond_74
     return-object v0
 .end method

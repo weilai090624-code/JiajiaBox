@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>([Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;)V
-    .locals 0
+    .registers 2
     .param p1, "entries"    # [Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;
 
     .line 168
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public getEntries()[Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;
-    .locals 1
+    .registers 2
 
     .line 173
     iget-object v0, p0, Landroidx/core/content/res/FontResourcesParserCompat$FontFamilyFilesResourceEntry;->mEntries:[Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;

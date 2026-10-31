@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/CacheLoader;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 3
 
     .line 191
     iput-object p1, p0, Lcom/google/common/cache/CacheLoader$1;->val$loader:Lcom/google/common/cache/CacheLoader;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public load(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -69,7 +69,7 @@
 .end method
 
 .method public loadAll(Ljava/lang/Iterable;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 .end method
 
 .method public reload(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)",

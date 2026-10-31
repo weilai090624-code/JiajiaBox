@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1009
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static setExcludedFromSurfaces(Landroid/content/pm/ShortcutInfo$Builder;I)V
-    .locals 0
+    .registers 2
     .param p0, "builder"    # Landroid/content/pm/ShortcutInfo$Builder;
     .param p1, "surfaces"    # I
 

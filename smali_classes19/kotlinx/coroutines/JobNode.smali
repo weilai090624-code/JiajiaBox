@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1344
     invoke-direct {p0}, Lkotlinx/coroutines/CompletionHandlerBase;-><init>()V
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public dispose()V
-    .locals 1
+    .registers 2
 
     .line 1351
     invoke-virtual {p0}, Lkotlinx/coroutines/JobNode;->getJob()Lkotlinx/coroutines/JobSupport;
@@ -77,16 +77,16 @@
 .end method
 
 .method public final getJob()Lkotlinx/coroutines/JobSupport;
-    .locals 1
+    .registers 2
 
     .line 1348
     iget-object v0, p0, Lkotlinx/coroutines/JobNode;->job:Lkotlinx/coroutines/JobSupport;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "job"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -97,7 +97,7 @@
 .end method
 
 .method public getList()Lkotlinx/coroutines/NodeList;
-    .locals 1
+    .registers 2
 
     .line 1350
     const/4 v0, 0x0
@@ -106,7 +106,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 1349
     const/4 v0, 0x1
@@ -115,7 +115,7 @@
 .end method
 
 .method public final setJob(Lkotlinx/coroutines/JobSupport;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lkotlinx/coroutines/JobSupport;
 
     .line 1348
@@ -125,7 +125,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 1352
     new-instance v0, Ljava/lang/StringBuilder;

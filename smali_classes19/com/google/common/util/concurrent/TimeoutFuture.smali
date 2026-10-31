@@ -53,7 +53,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/util/concurrent/TimeoutFuture;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/TimeoutFuture;
 
     .line 39
@@ -91,7 +91,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/util/concurrent/TimeoutFuture;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/TimeoutFuture;
 
     .line 39
@@ -101,7 +101,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/google/common/util/concurrent/TimeoutFuture;Ljava/util/concurrent/ScheduledFuture;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/TimeoutFuture;
     .param p1, "x1"    # Ljava/util/concurrent/ScheduledFuture;
 
@@ -112,7 +112,7 @@
 .end method
 
 .method static create(Lcom/google/common/util/concurrent/ListenableFuture;JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/ScheduledExecutorService;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 8
     .param p1, "time"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .param p4, "scheduledExecutor"    # Ljava/util/concurrent/ScheduledExecutorService;
@@ -165,7 +165,7 @@
 
 # virtual methods
 .method protected afterDone()V
-    .locals 2
+    .registers 3
 
     .line 177
     .local p0, "this":Lcom/google/common/util/concurrent/TimeoutFuture;, "Lcom/google/common/util/concurrent/TimeoutFuture<TV;>;"
@@ -178,7 +178,7 @@
 
     .line 183
     .local v0, "localTimer":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 184
     const/4 v1, 0x0
@@ -186,7 +186,7 @@
     invoke-interface {v0, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
     .line 187
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
@@ -199,7 +199,7 @@
 .end method
 
 .method protected pendingToString()Ljava/lang/String;
-    .locals 8
+    .registers 9
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -213,7 +213,7 @@
 
     .line 161
     .local v1, "localTimer":Ljava/util/concurrent/ScheduledFuture;, "Ljava/util/concurrent/ScheduledFuture<*>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_67
 
     .line 162
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -256,7 +256,7 @@
 
     .line 163
     .local v2, "message":Ljava/lang/String;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_66
 
     .line 164
     sget-object v3, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
@@ -271,7 +271,7 @@
 
     cmp-long v7, v3, v5
 
-    if-lez v7, :cond_0
+    if-lez v7, :cond_66
 
     .line 167
     invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -318,12 +318,12 @@
 
     .line 170
     .end local v3    # "delay":J
-    :cond_0
+    :cond_66
     return-object v2
 
     .line 172
     .end local v2    # "message":Ljava/lang/String;
-    :cond_1
+    :cond_67
     const/4 v2, 0x0
 
     return-object v2

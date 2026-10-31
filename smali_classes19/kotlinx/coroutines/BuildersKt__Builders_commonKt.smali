@@ -63,7 +63,7 @@
 
 # direct methods
 .method public static final async(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Deferred;
-    .locals 3
+    .registers 7
     .param p0, "$this$async"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "start"    # Lkotlinx/coroutines/CoroutineStart;
@@ -100,7 +100,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 89
     new-instance v1, Lkotlinx/coroutines/LazyDeferredCoroutine;
@@ -109,10 +109,10 @@
 
     check-cast v1, Lkotlinx/coroutines/DeferredCoroutine;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 90
-    :cond_0
+    :cond_12
     new-instance v1, Lkotlinx/coroutines/DeferredCoroutine;
 
     const/4 v2, 0x1
@@ -120,7 +120,7 @@
     invoke-direct {v1, v0, v2}, Lkotlinx/coroutines/DeferredCoroutine;-><init>(Lkotlin/coroutines/CoroutineContext;Z)V
 
     .line 88
-    :goto_0
+    :goto_18
     nop
 
     .line 91
@@ -136,12 +136,12 @@
 .end method
 
 .method public static synthetic async$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Deferred;
-    .locals 0
+    .registers 6
 
     .line 82
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     .line 83
     sget-object p1, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -149,16 +149,16 @@
     check-cast p1, Lkotlin/coroutines/CoroutineContext;
 
     .line 82
-    :cond_0
+    :cond_8
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_e
 
     .line 84
     sget-object p2, Lkotlinx/coroutines/CoroutineStart;->DEFAULT:Lkotlinx/coroutines/CoroutineStart;
 
     .line 82
-    :cond_1
+    :cond_e
     invoke-static {p0, p1, p2, p3}, Lkotlinx/coroutines/BuildersKt;->async(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Deferred;
 
     move-result-object p0
@@ -167,7 +167,7 @@
 .end method
 
 .method public static final invoke(Lkotlinx/coroutines/CoroutineDispatcher;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$invoke"    # Lkotlinx/coroutines/CoroutineDispatcher;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -207,7 +207,7 @@
 .end method
 
 .method private static final invoke$$forInline(Lkotlinx/coroutines/CoroutineDispatcher;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$invoke"    # Lkotlinx/coroutines/CoroutineDispatcher;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -247,7 +247,7 @@
 .end method
 
 .method public static final launch(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
-    .locals 3
+    .registers 7
     .param p0, "$this$launch"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "start"    # Lkotlinx/coroutines/CoroutineStart;
@@ -283,7 +283,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 54
     new-instance v1, Lkotlinx/coroutines/LazyStandaloneCoroutine;
@@ -292,10 +292,10 @@
 
     check-cast v1, Lkotlinx/coroutines/StandaloneCoroutine;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 55
-    :cond_0
+    :cond_12
     new-instance v1, Lkotlinx/coroutines/StandaloneCoroutine;
 
     const/4 v2, 0x1
@@ -303,7 +303,7 @@
     invoke-direct {v1, v0, v2}, Lkotlinx/coroutines/StandaloneCoroutine;-><init>(Lkotlin/coroutines/CoroutineContext;Z)V
 
     .line 53
-    :goto_0
+    :goto_18
     nop
 
     .line 56
@@ -319,12 +319,12 @@
 .end method
 
 .method public static synthetic launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
-    .locals 0
+    .registers 6
 
     .line 47
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     .line 48
     sget-object p1, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -332,16 +332,16 @@
     check-cast p1, Lkotlin/coroutines/CoroutineContext;
 
     .line 47
-    :cond_0
+    :cond_8
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_e
 
     .line 49
     sget-object p2, Lkotlinx/coroutines/CoroutineStart;->DEFAULT:Lkotlinx/coroutines/CoroutineStart;
 
     .line 47
-    :cond_1
+    :cond_e
     invoke-static {p0, p1, p2, p3}, Lkotlinx/coroutines/BuildersKt;->launch(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     move-result-object p0
@@ -350,7 +350,7 @@
 .end method
 
 .method public static final withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 11
+    .registers 14
     .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -400,7 +400,7 @@
     invoke-static {v3}, Lkotlinx/coroutines/JobKt;->ensureActive(Lkotlin/coroutines/CoroutineContext;)V
 
     .line 157
-    if-ne v3, v2, :cond_0
+    if-ne v3, v2, :cond_1a
 
     .line 158
     new-instance v4, Lkotlinx/coroutines/internal/ScopeCoroutine;
@@ -413,11 +413,11 @@
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_66
 
     .line 163
     .end local v4    # "coroutine":Lkotlinx/coroutines/internal/ScopeCoroutine;
-    :cond_0
+    :cond_1a
     sget-object v4, Lkotlin/coroutines/ContinuationInterceptor;->Key:Lkotlin/coroutines/ContinuationInterceptor$Key;
 
     check-cast v4, Lkotlin/coroutines/CoroutineContext$Key;
@@ -438,7 +438,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_52
 
     .line 164
     new-instance v4, Lkotlinx/coroutines/UndispatchedCoroutine;
@@ -472,7 +472,7 @@
 
     .line 167
     .local v9, "$i$a$-withCoroutineContext-BuildersKt__Builders_commonKt$withContext$3$1":I
-    :try_start_0
+    :try_start_41
     move-object v10, v4
 
     check-cast v10, Lkotlinx/coroutines/internal/ScopeCoroutine;
@@ -480,8 +480,8 @@
     invoke-static {v10, v4, p1}, Lkotlinx/coroutines/intrinsics/UndispatchedKt;->startUndispatchedOrReturn(Lkotlinx/coroutines/internal/ScopeCoroutine;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 
     move-result-object v10
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_48
+    .catchall {:try_start_41 .. :try_end_48} :catchall_4d
 
     .line 278
     .end local v5    # "context$iv":Lkotlin/coroutines/CoroutineContext;
@@ -493,13 +493,13 @@
 
     move-object v5, v10
 
-    goto :goto_0
+    goto :goto_66
 
     .restart local v5    # "context$iv":Lkotlin/coroutines/CoroutineContext;
     .restart local v6    # "countOrElement$iv":Ljava/lang/Object;
     .restart local v7    # "$i$f$withCoroutineContext":I
     .restart local v8    # "oldValue$iv":Ljava/lang/Object;
-    :catchall_0
+    :catchall_4d
     move-exception v9
 
     invoke-static {v5, v8}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
@@ -512,7 +512,7 @@
     .end local v6    # "countOrElement$iv":Ljava/lang/Object;
     .end local v7    # "$i$f$withCoroutineContext":I
     .end local v8    # "oldValue$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_52
     new-instance v4, Lkotlinx/coroutines/DispatchedCoroutine;
 
     invoke-direct {v4, v3, v0}, Lkotlinx/coroutines/DispatchedCoroutine;-><init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/Continuation;)V
@@ -546,15 +546,15 @@
     .end local v2    # "oldContext":Lkotlin/coroutines/CoroutineContext;
     .end local v3    # "newContext":Lkotlin/coroutines/CoroutineContext;
     .end local v4    # "coroutine":Lkotlinx/coroutines/DispatchedCoroutine;
-    :goto_0
+    :goto_66
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-ne v5, v0, :cond_2
+    if-ne v5, v0, :cond_6f
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_2
+    :cond_6f
     return-object v5
 .end method

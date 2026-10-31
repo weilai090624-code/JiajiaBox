@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Lkotlinx/coroutines/channels/BufferedChannel;Lkotlinx/coroutines/selects/SelectInstance;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 1543
@@ -116,7 +116,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p1, "it"    # Ljava/lang/Throwable;
 
     .line 1543
@@ -126,7 +126,7 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_17
 
     iget-object v0, p0, Lkotlinx/coroutines/channels/BufferedChannel$onUndeliveredElementReceiveCancellationConstructor$1$1$1;->this$0:Lkotlinx/coroutines/channels/BufferedChannel;
 
@@ -142,6 +142,6 @@
 
     invoke-static {v0, v1, v2}, Lkotlinx/coroutines/internal/OnUndeliveredElementKt;->callUndeliveredElement(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Lkotlin/coroutines/CoroutineContext;)V
 
-    :cond_0
+    :cond_17
     return-void
 .end method

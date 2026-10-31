@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText$syntaxHighlight$1;->this$0:Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 408
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText$syntaxHighlight$1;->invoke()Ljava/util/List;
@@ -78,7 +78,7 @@
 .end method
 
 .method public final invoke()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -95,13 +95,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     invoke-interface {v0}, Lcom/blacksquircle/ui/language/base/Language;->getStyler()Lcom/blacksquircle/ui/language/base/styler/LanguageStyler;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText$syntaxHighlight$1;->this$0:Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;
 
@@ -113,13 +113,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
-    :cond_0
+    :cond_1a
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    :cond_1
+    :cond_1e
     return-object v0
 .end method

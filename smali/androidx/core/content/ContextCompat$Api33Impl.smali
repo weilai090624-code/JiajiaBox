@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1178
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static registerReceiver(Landroid/content/Context;Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
-    .locals 1
+    .registers 7
     .param p0, "obj"    # Landroid/content/Context;
     .param p1, "receiver"    # Landroid/content/BroadcastReceiver;
     .param p2, "filter"    # Landroid/content/IntentFilter;

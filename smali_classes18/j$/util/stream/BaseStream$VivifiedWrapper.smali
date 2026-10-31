@@ -12,7 +12,7 @@
 
 # direct methods
 .method private synthetic constructor <init>(Ljava/util/stream/BaseStream;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -22,18 +22,18 @@
 .end method
 
 .method public static synthetic convert(Ljava/util/stream/BaseStream;)Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :cond_4
     instance-of v0, p0, Lj$/util/stream/BaseStream$Wrapper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     check-cast p0, Lj$/util/stream/BaseStream$Wrapper;
 
@@ -41,10 +41,10 @@
 
     return-object p0
 
-    :cond_1
+    :cond_d
     instance-of v0, p0, Ljava/util/stream/DoubleStream;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_18
 
     check-cast p0, Ljava/util/stream/DoubleStream;
 
@@ -54,10 +54,10 @@
 
     return-object p0
 
-    :cond_2
+    :cond_18
     instance-of v0, p0, Ljava/util/stream/IntStream;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_23
 
     check-cast p0, Ljava/util/stream/IntStream;
 
@@ -67,10 +67,10 @@
 
     return-object p0
 
-    :cond_3
+    :cond_23
     instance-of v0, p0, Ljava/util/stream/LongStream;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_2e
 
     check-cast p0, Ljava/util/stream/LongStream;
 
@@ -80,10 +80,10 @@
 
     return-object p0
 
-    :cond_4
+    :cond_2e
     instance-of v0, p0, Ljava/util/stream/Stream;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_39
 
     check-cast p0, Ljava/util/stream/Stream;
 
@@ -93,7 +93,7 @@
 
     return-object p0
 
-    :cond_5
+    :cond_39
     new-instance v0, Lj$/util/stream/BaseStream$VivifiedWrapper;
 
     invoke-direct {v0, p0}, Lj$/util/stream/BaseStream$VivifiedWrapper;-><init>(Ljava/util/stream/BaseStream;)V
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public synthetic close()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 
@@ -114,19 +114,19 @@
 .end method
 
 .method public synthetic equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 
     instance-of v1, p1, Lj$/util/stream/BaseStream$VivifiedWrapper;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     check-cast p1, Lj$/util/stream/BaseStream$VivifiedWrapper;
 
     iget-object p1, p1, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 
-    :cond_0
+    :cond_a
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p1
@@ -135,7 +135,7 @@
 .end method
 
 .method public synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public synthetic isParallel()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 
@@ -171,7 +171,7 @@
 .end method
 
 .method public synthetic onClose(Ljava/lang/Runnable;)Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public synthetic parallel()Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 
@@ -203,7 +203,7 @@
 .end method
 
 .method public synthetic sequential()Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 
@@ -219,7 +219,7 @@
 .end method
 
 .method public synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 
@@ -235,7 +235,7 @@
 .end method
 
 .method public synthetic unordered()Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/stream/BaseStream$VivifiedWrapper;->wrappedValue:Ljava/util/stream/BaseStream;
 

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/DefaultSpecialEffectsController;Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/fragment/app/DefaultSpecialEffectsController;
 
     .line 653
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 656
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$8;->val$transitioningViews:Ljava/util/ArrayList;

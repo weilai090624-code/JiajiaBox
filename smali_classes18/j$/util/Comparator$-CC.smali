@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$reversed(Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Ljava/util/Comparator;
 
     .line 185
@@ -17,7 +17,7 @@
 .end method
 
 .method public static $default$thenComparing(Ljava/util/Comparator;Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/Comparator;
 
     .line 214
@@ -37,7 +37,7 @@
 .end method
 
 .method public static $default$thenComparing(Ljava/util/Comparator;Ljava/util/function/Function;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/Comparator;
 
     .line 265
@@ -54,7 +54,7 @@
 .end method
 
 .method public static $default$thenComparing(Ljava/util/Comparator;Ljava/util/function/Function;Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/Comparator;
 
     .line 242
@@ -72,7 +72,7 @@
 .end method
 
 .method public static $default$thenComparingDouble(Ljava/util/Comparator;Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/Comparator;
 
     .line 322
@@ -89,7 +89,7 @@
 .end method
 
 .method public static $default$thenComparingInt(Ljava/util/Comparator;Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/Comparator;
 
     .line 284
@@ -106,7 +106,7 @@
 .end method
 
 .method public static $default$thenComparingLong(Ljava/util/Comparator;Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/Comparator;
 
     .line 303
@@ -123,7 +123,7 @@
 .end method
 
 .method public static synthetic $private$lambda$thenComparing$36697e65$1(Ljava/util/Comparator;Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 6
     .param p0, "_this"    # Ljava/util/Comparator;
     .param p1, "other"    # Ljava/util/Comparator;
     .param p2, "c1"    # Ljava/lang/Object;
@@ -136,23 +136,23 @@
 
     .line 217
     .local v0, "res":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     move v1, v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_8
     invoke-interface {p1, p2, p3}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v1
 
-    :goto_0
+    :goto_c
     return v1
 .end method
 
 .method public static comparing(Ljava/util/function/Function;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -184,7 +184,7 @@
 .end method
 
 .method public static comparing(Ljava/util/function/Function;Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -222,7 +222,7 @@
 .end method
 
 .method public static comparingDouble(Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -252,7 +252,7 @@
 .end method
 
 .method public static comparingInt(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -282,7 +282,7 @@
 .end method
 
 .method public static comparingLong(Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -312,7 +312,7 @@
 .end method
 
 .method public static synthetic lambda$comparing$77a9974f$1(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 5
     .param p0, "keyExtractor"    # Ljava/util/function/Function;
     .param p1, "c1"    # Ljava/lang/Object;
     .param p2, "c2"    # Ljava/lang/Object;
@@ -336,7 +336,7 @@
 .end method
 
 .method public static synthetic lambda$comparing$ea9a8b3a$1(Ljava/util/Comparator;Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 6
     .param p0, "keyComparator"    # Ljava/util/Comparator;
     .param p1, "keyExtractor"    # Ljava/util/function/Function;
     .param p2, "c1"    # Ljava/lang/Object;
@@ -361,7 +361,7 @@
 .end method
 
 .method public static synthetic lambda$comparingDouble$8dcf42ea$1(Ljava/util/function/ToDoubleFunction;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 4
+    .registers 7
     .param p0, "keyExtractor"    # Ljava/util/function/ToDoubleFunction;
     .param p1, "c1"    # Ljava/lang/Object;
     .param p2, "c2"    # Ljava/lang/Object;
@@ -383,7 +383,7 @@
 .end method
 
 .method public static synthetic lambda$comparingInt$7b0bb60$1(Ljava/util/function/ToIntFunction;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 5
     .param p0, "keyExtractor"    # Ljava/util/function/ToIntFunction;
     .param p1, "c1"    # Ljava/lang/Object;
     .param p2, "c2"    # Ljava/lang/Object;
@@ -405,7 +405,7 @@
 .end method
 
 .method public static synthetic lambda$comparingLong$6043328a$1(Ljava/util/function/ToLongFunction;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 4
+    .registers 7
     .param p0, "keyExtractor"    # Ljava/util/function/ToLongFunction;
     .param p1, "c1"    # Ljava/lang/Object;
     .param p2, "c2"    # Ljava/lang/Object;
@@ -427,7 +427,7 @@
 .end method
 
 .method public static naturalOrder()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -445,7 +445,7 @@
 .end method
 
 .method public static nullsFirst(Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -470,7 +470,7 @@
 .end method
 
 .method public static nullsLast(Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -495,7 +495,7 @@
 .end method
 
 .method public static reverseOrder()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",

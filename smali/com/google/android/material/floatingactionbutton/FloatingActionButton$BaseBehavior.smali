@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 959
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior<TT;>;"
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -91,7 +91,7 @@
 .end method
 
 .method private static isBottomSheet(Landroid/view/View;)Z
-    .locals 2
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
 
     .line 1021
@@ -103,7 +103,7 @@
     .local v0, "lp":Landroid/view/ViewGroup$LayoutParams;
     instance-of v1, v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 1023
     move-object v1, v0
@@ -119,14 +119,14 @@
     return v1
 
     .line 1025
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method private offsetIfNeeded(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V
-    .locals 7
+    .registers 10
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "fab"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
@@ -136,19 +136,19 @@
 
     .line 1153
     .local v0, "padding":Landroid/graphics/Rect;
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_59
 
     invoke-virtual {v0}, Landroid/graphics/Rect;->centerX()I
 
     move-result v1
 
-    if-lez v1, :cond_5
+    if-lez v1, :cond_59
 
     invoke-virtual {v0}, Landroid/graphics/Rect;->centerY()I
 
     move-result v1
 
-    if-lez v1, :cond_5
+    if-lez v1, :cond_59
 
     .line 1154
     nop
@@ -182,22 +182,22 @@
 
     sub-int/2addr v5, v6
 
-    if-lt v4, v5, :cond_0
+    if-lt v4, v5, :cond_29
 
     .line 1162
     iget v3, v0, Landroid/graphics/Rect;->right:I
 
-    goto :goto_0
+    goto :goto_34
 
     .line 1163
-    :cond_0
+    :cond_29
     invoke-virtual {p2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getLeft()I
 
     move-result v4
 
     iget v5, v1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->leftMargin:I
 
-    if-gt v4, v5, :cond_1
+    if-gt v4, v5, :cond_34
 
     .line 1165
     iget v4, v0, Landroid/graphics/Rect;->left:I
@@ -205,8 +205,8 @@
     neg-int v3, v4
 
     .line 1167
-    :cond_1
-    :goto_0
+    :cond_34
+    :goto_34
     invoke-virtual {p2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getBottom()I
 
     move-result v4
@@ -219,22 +219,22 @@
 
     sub-int/2addr v5, v6
 
-    if-lt v4, v5, :cond_2
+    if-lt v4, v5, :cond_44
 
     .line 1169
     iget v2, v0, Landroid/graphics/Rect;->bottom:I
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 1170
-    :cond_2
+    :cond_44
     invoke-virtual {p2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getTop()I
 
     move-result v4
 
     iget v5, v1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->topMargin:I
 
-    if-gt v4, v5, :cond_3
+    if-gt v4, v5, :cond_4f
 
     .line 1172
     iget v4, v0, Landroid/graphics/Rect;->top:I
@@ -242,16 +242,16 @@
     neg-int v2, v4
 
     .line 1175
-    :cond_3
-    :goto_1
-    if-eqz v2, :cond_4
+    :cond_4f
+    :goto_4f
+    if-eqz v2, :cond_54
 
     .line 1176
     invoke-static {p2, v2}, Landroidx/core/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
 
     .line 1178
-    :cond_4
-    if-eqz v3, :cond_5
+    :cond_54
+    if-eqz v3, :cond_59
 
     .line 1179
     invoke-static {p2, v3}, Landroidx/core/view/ViewCompat;->offsetLeftAndRight(Landroid/view/View;I)V
@@ -260,12 +260,12 @@
     .end local v1    # "lp":Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
     .end local v2    # "offsetTB":I
     .end local v3    # "offsetLR":I
-    :cond_5
+    :cond_59
     return-void
 .end method
 
 .method private shouldUpdateVisibility(Landroid/view/View;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)Z
-    .locals 4
+    .registers 7
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
@@ -286,13 +286,13 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     .line 1040
     return v2
 
     .line 1043
-    :cond_0
+    :cond_d
     invoke-virtual {v0}, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->getAnchorId()I
 
     move-result v1
@@ -301,31 +301,31 @@
 
     move-result v3
 
-    if-eq v1, v3, :cond_1
+    if-eq v1, v3, :cond_18
 
     .line 1046
     return v2
 
     .line 1050
-    :cond_1
+    :cond_18
     invoke-virtual {p2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getUserSetVisibility()I
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1f
 
     .line 1052
     return v2
 
     .line 1055
-    :cond_2
+    :cond_1f
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method private updateFabVisibilityForAppBarLayout(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)Z
-    .locals 4
+    .registers 8
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "appBarLayout"    # Lcom/google/android/material/appbar/AppBarLayout;
     .param p3, "child"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -338,16 +338,16 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 1063
     return v1
 
     .line 1066
-    :cond_0
+    :cond_8
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->tmpRect:Landroid/graphics/Rect;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 1067
     new-instance v0, Landroid/graphics/Rect;
@@ -357,7 +357,7 @@
     iput-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->tmpRect:Landroid/graphics/Rect;
 
     .line 1071
-    :cond_1
+    :cond_13
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->tmpRect:Landroid/graphics/Rect;
 
     .line 1072
@@ -371,30 +371,30 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_2
+    if-gt v2, v3, :cond_26
 
     .line 1076
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->internalAutoHideListener:Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;
 
     invoke-virtual {p3, v2, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->hide(Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;Z)V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 1079
-    :cond_2
+    :cond_26
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->internalAutoHideListener:Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;
 
     invoke-virtual {p3, v2, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->show(Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;Z)V
 
     .line 1081
-    :goto_0
+    :goto_2b
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method private updateFabVisibilityForBottomSheet(Landroid/view/View;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)Z
-    .locals 5
+    .registers 8
     .param p1, "bottomSheet"    # Landroid/view/View;
     .param p2, "child"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
@@ -406,13 +406,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 1089
     return v1
 
     .line 1091
-    :cond_0
+    :cond_8
     invoke-virtual {p2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
@@ -435,23 +435,23 @@
 
     add-int/2addr v3, v4
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_23
 
     .line 1093
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->internalAutoHideListener:Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;
 
     invoke-virtual {p2, v2, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->hide(Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;Z)V
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1095
-    :cond_1
+    :cond_23
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->internalAutoHideListener:Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;
 
     invoke-virtual {p2, v2, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->show(Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;Z)V
 
     .line 1097
-    :goto_0
+    :goto_28
     const/4 v1, 0x1
 
     return v1
@@ -460,7 +460,7 @@
 
 # virtual methods
 .method public bridge synthetic getInsetDodgeRect(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/graphics/Rect;)Z
-    .locals 0
+    .registers 4
 
     .line 950
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior<TT;>;"
@@ -474,7 +474,7 @@
 .end method
 
 .method public getInsetDodgeRect(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Landroid/graphics/Rect;)Z
-    .locals 6
+    .registers 10
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
     .param p3, "rect"    # Landroid/graphics/Rect;
@@ -533,7 +533,7 @@
 .end method
 
 .method public isAutoHideEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 995
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior<TT;>;"
@@ -543,14 +543,14 @@
 .end method
 
 .method public onAttachedToLayoutParams(Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "lp"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
     .line 1000
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior<TT;>;"
     iget v0, p1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->dodgeInsetEdges:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 1003
     const/16 v0, 0x50
@@ -558,12 +558,12 @@
     iput v0, p1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->dodgeInsetEdges:I
 
     .line 1005
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method public bridge synthetic onDependentViewChanged(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
-    .locals 0
+    .registers 4
 
     .line 950
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior<TT;>;"
@@ -577,7 +577,7 @@
 .end method
 
 .method public onDependentViewChanged(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Landroid/view/View;)Z
-    .locals 1
+    .registers 5
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
     .param p3, "dependency"    # Landroid/view/View;
@@ -586,7 +586,7 @@
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior<TT;>;"
     instance-of v0, p3, Lcom/google/android/material/appbar/AppBarLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1013
     move-object v0, p3
@@ -595,29 +595,29 @@
 
     invoke-direct {p0, p1, v0, p2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->updateFabVisibilityForAppBarLayout(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)Z
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1014
-    :cond_0
+    :cond_b
     invoke-static {p3}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->isBottomSheet(Landroid/view/View;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 1015
     invoke-direct {p0, p3, p2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->updateFabVisibilityForBottomSheet(Landroid/view/View;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)Z
 
     .line 1017
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public bridge synthetic onLayoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z
-    .locals 0
+    .registers 4
 
     .line 950
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior<TT;>;"
@@ -631,7 +631,7 @@
 .end method
 
 .method public onLayoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;I)Z
-    .locals 5
+    .registers 9
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
     .param p3, "layoutDirection"    # I
@@ -652,8 +652,8 @@
     move-result v2
 
     .local v2, "count":I
-    :goto_0
-    if-ge v1, v2, :cond_2
+    :goto_9
+    if-ge v1, v2, :cond_2f
 
     .line 1108
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -666,7 +666,7 @@
     .local v3, "dependency":Landroid/view/View;
     instance-of v4, v3, Lcom/google/android/material/appbar/AppBarLayout;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1f
 
     .line 1110
     move-object v4, v3
@@ -677,41 +677,41 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2c
 
     .line 1111
-    goto :goto_1
+    goto :goto_2f
 
     .line 1113
-    :cond_0
+    :cond_1f
     invoke-static {v3}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->isBottomSheet(Landroid/view/View;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2c
 
     .line 1114
     invoke-direct {p0, v3, p2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$BaseBehavior;->updateFabVisibilityForBottomSheet(Landroid/view/View;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2c
 
     .line 1115
-    goto :goto_1
+    goto :goto_2f
 
     .line 1107
     .end local v3    # "dependency":Landroid/view/View;
-    :cond_1
+    :cond_2c
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1120
     .end local v1    # "i":I
     .end local v2    # "count":I
-    :cond_2
-    :goto_1
+    :cond_2f
+    :goto_2f
     invoke-virtual {p1, p2, p3}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->onLayoutChild(Landroid/view/View;I)V
 
     .line 1122
@@ -724,7 +724,7 @@
 .end method
 
 .method public setAutoHideEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "autoHide"    # Z
 
     .line 983
@@ -736,7 +736,7 @@
 .end method
 
 .method public setInternalAutoHideListener(Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;
 
     .line 1030

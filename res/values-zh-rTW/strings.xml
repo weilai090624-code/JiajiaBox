@@ -99,8 +99,8 @@
     <string name="call_notification_screening_text">正在過濾來電</string>
     <string name="certificates">憑證</string>
     <string name="chain_settings">鏈結設定</string>
-    <string name="character_counter_content_description" formatted="false">已輸入 %1$d 個字元 (上限為 %2$d 個字元)</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">超過字元限制 (共 %1$d 字元，上限 %2$d 字元)</string>
+    <string name="character_counter_content_description">已輸入 %1$d 個字元 (上限為 %2$d 個字元)</string>
+    <string name="character_counter_overflowed_content_description">超過字元限制 (共 %1$d 字元，上限 %2$d 字元)</string>
     <string name="circular_reference">循環參考</string>
     <string name="circular_reference_sum">路由中不能包含自己。</string>
     <string name="clear_logcat">清除記錄檔</string>
@@ -294,7 +294,7 @@
     <string name="mtrl_picker_out_of_range">超出日期範圍：%1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">開始日期 – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – 結束日期</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">選取範圍</string>
     <string name="mtrl_picker_range_header_unselected">開始日期 - 結束日期</string>
     <string name="mtrl_picker_save">儲存</string>
@@ -437,7 +437,7 @@
     <string name="show_system_apps">顯示系統應用程式</string>
     <string name="sni">伺服器名稱指示</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"代理： %1$s↑ %2$s↓ 
+    <string name="speed_detail">"代理： %1$s↑ %2$s↓ 
 直連： %3$s↑ %4$s↓"</string>
     <string name="speed_interval">速度通知更新間隔</string>
     <string name="ss_cat">Shadowsocks 設定</string>
@@ -464,7 +464,7 @@
     <string name="subscription_used">已用 %s</string>
     <string name="subscription_user_agent">使用者代理</string>
     <string name="subscriptions">訂閱</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s、%2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s、%2$s</string>
     <string name="tcp_connections">%d 個 TCP 連線</string>
     <string name="tcp_keep_alive_interval">TCP 保持連線傳送間隔</string>
     <string name="telegram">Telegram 更新頻道</string>
@@ -472,7 +472,7 @@
     <string name="tile_title">切換器</string>
     <string name="tls">使用 TLS</string>
     <string name="tools_network">網路</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="traffic_sniffing">啟用流量嗅探</string>
     <string name="translate_platform">翻譯平台</string>
     <string name="transproxy_mode">透明代理模式</string>

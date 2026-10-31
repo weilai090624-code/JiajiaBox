@@ -16,7 +16,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroid/app/Dialog;Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;)V
-    .locals 0
+    .registers 4
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public final onLongClick(Landroid/view/View;)Z
-    .locals 3
+    .registers 5
 
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$showGroupSwitcher$1$$ExternalSyntheticLambda1;->f$0:Landroid/app/Dialog;

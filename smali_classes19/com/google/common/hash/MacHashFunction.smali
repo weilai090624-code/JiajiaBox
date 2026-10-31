@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/security/Key;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "algorithmName"    # Ljava/lang/String;
     .param p2, "key"    # Ljava/security/Key;
     .param p3, "toString"    # Ljava/lang/String;
@@ -89,7 +89,7 @@
 .end method
 
 .method private static getMac(Ljava/lang/String;Ljava/security/Key;)Ljavax/crypto/Mac;
-    .locals 2
+    .registers 4
     .param p0, "algorithmName"    # Ljava/lang/String;
     .param p1, "key"    # Ljava/security/Key;
 
@@ -102,16 +102,16 @@
     .line 71
     .local v0, "mac":Ljavax/crypto/Mac;
     invoke-virtual {v0, p1}, Ljavax/crypto/Mac;->init(Ljava/security/Key;)V
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_7} :catch_f
+    .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_7} :catch_8
 
     .line 72
     return-object v0
 
     .line 75
     .end local v0    # "mac":Ljavax/crypto/Mac;
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 76
@@ -124,7 +124,7 @@
 
     .line 73
     .end local v0    # "e":Ljava/security/InvalidKeyException;
-    :catch_1
+    :catch_f
     move-exception v0
 
     .line 74
@@ -137,14 +137,14 @@
 .end method
 
 .method private static supportsClone(Ljavax/crypto/Mac;)Z
-    .locals 2
+    .registers 3
     .param p0, "mac"    # Ljavax/crypto/Mac;
 
     .line 61
     :try_start_0
     invoke-virtual {p0}, Ljavax/crypto/Mac;->clone()Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_3} :catch_5
 
     .line 62
     const/4 v0, 0x1
@@ -152,7 +152,7 @@
     return v0
 
     .line 63
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 64
@@ -165,7 +165,7 @@
 
 # virtual methods
 .method public bits()I
-    .locals 1
+    .registers 2
 
     .line 56
     iget v0, p0, Lcom/google/common/hash/MacHashFunction;->bits:I
@@ -174,17 +174,17 @@
 .end method
 
 .method public newHasher()Lcom/google/common/hash/Hasher;
-    .locals 4
+    .registers 5
 
     .line 82
     iget-boolean v0, p0, Lcom/google/common/hash/MacHashFunction;->supportsClone:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 84
-    :try_start_0
+    :try_start_5
     new-instance v0, Lcom/google/common/hash/MacHashFunction$MacHasher;
 
     iget-object v2, p0, Lcom/google/common/hash/MacHashFunction;->prototype:Ljavax/crypto/Mac;
@@ -196,17 +196,17 @@
     check-cast v2, Ljavax/crypto/Mac;
 
     invoke-direct {v0, v2, v1}, Lcom/google/common/hash/MacHashFunction$MacHasher;-><init>(Ljavax/crypto/Mac;Lcom/google/common/hash/MacHashFunction$1;)V
-    :try_end_0
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_5 .. :try_end_12} :catch_13
 
     return-object v0
 
     .line 85
-    :catch_0
+    :catch_13
     move-exception v0
 
     .line 89
-    :cond_0
+    :cond_14
     new-instance v0, Lcom/google/common/hash/MacHashFunction$MacHasher;
 
     iget-object v2, p0, Lcom/google/common/hash/MacHashFunction;->prototype:Ljavax/crypto/Mac;
@@ -227,7 +227,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Lcom/google/common/hash/MacHashFunction;->toString:Ljava/lang/String;

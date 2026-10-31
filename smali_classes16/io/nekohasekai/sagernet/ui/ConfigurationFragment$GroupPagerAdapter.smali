@@ -127,7 +127,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$BoFtOm8QuYl--CwuXYpyxFMs76Q(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->groupRemoved$lambda$6(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;I)V
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$MyC4uihO01XtQODR10ubfcyduHU(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->groupAdd$lambda$4(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$kGXxum3orm_y4Vj5Ro7JOWp4-_E(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;ILio/nekohasekai/sagernet/database/ProxyGroup;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->groupUpdated$lambda$8(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;ILio/nekohasekai/sagernet/database/ProxyGroup;)V
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$zyvFOVBQqU5lkzsmr78tOA8-8jo(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->groupAdd$lambda$4$lambda$3(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -206,7 +206,7 @@
 .end method
 
 .method private static final groupAdd$lambda$4(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
-    .locals 9
+    .registers 12
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;
     .param p1, "$group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "this$1"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
@@ -232,7 +232,7 @@
 
     const/4 v4, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     move-object v2, v0
 
@@ -242,22 +242,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
-    goto :goto_0
+    goto :goto_35
 
     .line 1784
-    :cond_0
+    :cond_1a
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_1e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_34
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -280,22 +280,22 @@
     .line 1784
     .end local v6    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v7    # "$i$a$-any-ConfigurationFragment$GroupPagerAdapter$groupAdd$2$1":I
-    if-nez v8, :cond_1
+    if-nez v8, :cond_1e
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_35
 
     .line 1785
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_34
     nop
 
     .line 1009
     .end local v0    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$any":I
-    :goto_0
-    if-eqz v3, :cond_3
+    :goto_35
+    if-eqz v3, :cond_43
 
     invoke-virtual {p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getTabLayout()Lcom/google/android/material/tabs/TabLayout;
 
@@ -308,7 +308,7 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/tabs/TabLayout;->post(Ljava/lang/Runnable;)Z
 
     .line 1013
-    :cond_3
+    :cond_43
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->groupList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -336,17 +336,17 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_61
 
     invoke-virtual {v0}, Lcom/google/android/material/tabs/TabLayout$Tab;->select()V
 
     .line 1015
-    :cond_4
+    :cond_61
     return-void
 .end method
 
 .method private static final groupAdd$lambda$4$lambda$3(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     .line 1010
@@ -363,7 +363,7 @@
 .end method
 
 .method private static final groupRemoved$lambda$6(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;I)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;
     .param p1, "$index"    # I
 
@@ -380,7 +380,7 @@
 .end method
 
 .method private static final groupUpdated$lambda$8(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;ILio/nekohasekai/sagernet/database/ProxyGroup;)V
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
     .param p1, "$index"    # I
     .param p2, "$group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -394,7 +394,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     invoke-virtual {p2}, Lio/nekohasekai/sagernet/database/ProxyGroup;->displayName()Ljava/lang/String;
 
@@ -405,21 +405,21 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/tabs/TabLayout$Tab;->setText(Ljava/lang/CharSequence;)Lcom/google/android/material/tabs/TabLayout$Tab;
 
     .line 1034
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public static synthetic reload$default(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;ZILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 931
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->reload(Z)V
 
     return-void
@@ -428,7 +428,7 @@
 
 # virtual methods
 .method public containsItem(J)Z
-    .locals 11
+    .registers 14
     .param p1, "itemId"    # J
 
     .line 1002
@@ -445,7 +445,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     move-object v2, v0
 
@@ -455,22 +455,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
-    goto :goto_1
+    goto :goto_37
 
     .line 1766
-    :cond_0
+    :cond_14
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_36
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -494,39 +494,39 @@
 
     cmp-long v10, v7, p1
 
-    if-nez v10, :cond_2
+    if-nez v10, :cond_31
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_2
+    :cond_31
     const/4 v5, 0x0
 
     .line 1766
     .end local v5    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v6    # "$i$a$-any-ConfigurationFragment$GroupPagerAdapter$containsItem$1":I
-    :goto_0
-    if-eqz v5, :cond_1
+    :goto_32
+    if-eqz v5, :cond_18
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_37
 
     .line 1767
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_36
     nop
 
     .line 1002
     .end local v0    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$any":I
-    :goto_1
+    :goto_37
     return v3
 .end method
 
 .method public createFragment(I)Landroidx/fragment/app/Fragment;
-    .locals 6
+    .registers 8
     .param p1, "position"    # I
 
     .line 988
@@ -573,7 +573,7 @@
     .line 991
     iget v3, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->selectedGroupIndex:I
 
-    if-ne p1, v3, :cond_0
+    if-ne p1, v3, :cond_2d
 
     .line 992
     const/4 v3, 0x1
@@ -581,7 +581,7 @@
     invoke-virtual {v1, v3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->setSelected(Z)V
 
     .line 994
-    :cond_0
+    :cond_2d
     nop
 
     .line 988
@@ -593,7 +593,7 @@
 .end method
 
 .method public final getGroupFragments()Ljava/util/HashMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -611,7 +611,7 @@
 .end method
 
 .method public final getGroupList()Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -628,7 +628,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 984
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->groupList:Ljava/util/ArrayList;
@@ -641,7 +641,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 998
@@ -661,7 +661,7 @@
 .end method
 
 .method public final getSelectedGroupIndex()I
-    .locals 1
+    .registers 2
 
     .line 927
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->selectedGroupIndex:I
@@ -670,7 +670,7 @@
 .end method
 
 .method public groupAdd(Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -707,7 +707,7 @@
 .end method
 
 .method public groupRemoved(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 11
+    .registers 15
     .param p1, "groupId"    # J
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -739,14 +739,14 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_a
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     const/4 v5, -0x1
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2b
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -769,54 +769,54 @@
 
     cmp-long v10, v8, p1
 
-    if-nez v10, :cond_0
+    if-nez v10, :cond_23
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     const/4 v8, 0x0
 
     .line 1770
     .end local v6    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v7    # "$i$a$-indexOfFirst-ConfigurationFragment$GroupPagerAdapter$groupRemoved$index$1":I
-    :goto_1
-    if-eqz v8, :cond_1
+    :goto_24
+    if-eqz v8, :cond_27
 
     .line 1771
-    goto :goto_2
+    goto :goto_2c
 
     .line 1772
-    :cond_1
+    :cond_27
     nop
 
     .end local v4    # "item$iv":Ljava/lang/Object;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 1774
-    :cond_2
+    :cond_2b
     const/4 v2, -0x1
 
     .line 1019
     .end local v0    # "$this$indexOfFirst$iv":Ljava/util/List;
     .end local v1    # "$i$f$indexOfFirst":I
     .end local v2    # "index$iv":I
-    :goto_2
+    :goto_2c
     move v0, v2
 
     .line 1020
     .local v0, "index":I
-    if-ne v0, v5, :cond_3
+    if-ne v0, v5, :cond_32
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 1022
-    :cond_3
+    :cond_32
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getTabLayout()Lcom/google/android/material/tabs/TabLayout;
@@ -836,7 +836,7 @@
 .end method
 
 .method public groupUpdated(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "groupId"    # J
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -857,7 +857,7 @@
 .end method
 
 .method public groupUpdated(Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 13
+    .registers 16
     .param p1, "group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -890,14 +890,14 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_a
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     const/4 v5, -0x1
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2f
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -924,54 +924,54 @@
 
     cmp-long v12, v8, v10
 
-    if-nez v12, :cond_0
+    if-nez v12, :cond_27
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     const/4 v8, 0x0
 
     .line 1777
     .end local v6    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v7    # "$i$a$-indexOfFirst-ConfigurationFragment$GroupPagerAdapter$groupUpdated$index$1":I
-    :goto_1
-    if-eqz v8, :cond_1
+    :goto_28
+    if-eqz v8, :cond_2b
 
     .line 1778
-    goto :goto_2
+    goto :goto_30
 
     .line 1779
-    :cond_1
+    :cond_2b
     nop
 
     .end local v4    # "item$iv":Ljava/lang/Object;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 1781
-    :cond_2
+    :cond_2f
     const/4 v2, -0x1
 
     .line 1029
     .end local v0    # "$this$indexOfFirst$iv":Ljava/util/List;
     .end local v1    # "$i$f$indexOfFirst":I
     .end local v2    # "index$iv":I
-    :goto_2
+    :goto_30
     move v0, v2
 
     .line 1030
     .local v0, "index":I
-    if-ne v0, v5, :cond_3
+    if-ne v0, v5, :cond_36
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 1032
-    :cond_3
+    :cond_36
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getTabLayout()Lcom/google/android/material/tabs/TabLayout;
@@ -993,7 +993,7 @@
 .end method
 
 .method public onAdd(Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 12
+    .registers 15
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1017,7 +1017,7 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -1028,7 +1028,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1054,27 +1054,27 @@
 
     cmp-long v11, v7, v9
 
-    if-nez v11, :cond_1
+    if-nez v11, :cond_27
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v5, 0x0
 
     .end local v5    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v6    # "$i$a$-find-ConfigurationFragment$GroupPagerAdapter$onAdd$2":I
-    :goto_0
-    if-eqz v5, :cond_0
+    :goto_28
+    if-eqz v5, :cond_8
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_2
+    :cond_2b
     move-object v1, v4
 
-    :goto_1
-    if-nez v1, :cond_3
+    :goto_2c
+    if-nez v1, :cond_3a
 
     .line 1041
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1089,14 +1089,14 @@
     invoke-static {p0, v3, v2, v4}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->reload$default(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;ZILjava/lang/Object;)V
 
     .line 1044
-    :cond_3
+    :cond_3a
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method public onRemoved(JJLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 16
     .param p1, "groupId"    # J
     .param p3, "profileId"    # J
     .param p5, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -1120,7 +1120,7 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -1131,7 +1131,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_27
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1153,35 +1153,35 @@
 
     cmp-long v9, v7, p1
 
-    if-nez v9, :cond_1
+    if-nez v9, :cond_23
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_23
     const/4 v5, 0x0
 
     .end local v5    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v6    # "$i$a$-find-ConfigurationFragment$GroupPagerAdapter$onRemoved$group$1":I
-    :goto_0
-    if-eqz v5, :cond_0
+    :goto_24
+    if-eqz v5, :cond_8
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_2
+    :cond_27
     move-object v1, v4
 
-    :goto_1
+    :goto_28
     check-cast v1, Lio/nekohasekai/sagernet/database/ProxyGroup;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2f
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :cond_3
+    :cond_2f
     move-object v0, v1
 
     .line 1052
@@ -1190,7 +1190,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_49
 
     sget-object v1, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
@@ -1206,20 +1206,20 @@
 
     cmp-long v1, v5, v7
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_49
 
     .line 1053
     invoke-static {p0, v3, v2, v4}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->reload$default(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;ZILjava/lang/Object;)V
 
     .line 1055
-    :cond_4
+    :cond_49
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 .end method
 
 .method public onUpdated(Lio/nekohasekai/sagernet/aidl/TrafficData;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "data"    # Lio/nekohasekai/sagernet/aidl/TrafficData;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1241,7 +1241,7 @@
 .end method
 
 .method public onUpdated(Lio/nekohasekai/sagernet/database/ProxyEntity;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "noTraffic"    # Z
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -1265,7 +1265,7 @@
 .end method
 
 .method public final reload(Z)V
-    .locals 3
+    .registers 5
     .param p1, "now"    # Z
 
     .line 933
@@ -1275,7 +1275,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 934
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
@@ -1293,7 +1293,7 @@
     invoke-virtual {v0, v1}, Landroidx/viewpager2/widget/ViewPager2;->unregisterOnPageChangeCallback(Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;)V
 
     .line 937
-    :cond_0
+    :cond_17
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter$reload$1;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
@@ -1311,7 +1311,7 @@
 .end method
 
 .method public final setGroupFragments(Ljava/util/HashMap;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1334,7 +1334,7 @@
 .end method
 
 .method public final setGroupList(Ljava/util/ArrayList;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1356,7 +1356,7 @@
 .end method
 
 .method public final setSelectedGroupIndex(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 927

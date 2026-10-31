@@ -102,7 +102,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/collections/builders/SetBuilder$Companion;
 
@@ -129,7 +129,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 17
     new-instance v0, Lkotlin/collections/builders/MapBuilder;
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initialCapacity"    # I
 
     .line 19
@@ -156,7 +156,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/collections/builders/MapBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "backing"    # Lkotlin/collections/builders/MapBuilder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -181,7 +181,7 @@
 .end method
 
 .method private final writeReplace()Ljava/lang/Object;
-    .locals 3
+    .registers 4
 
     .line 27
     iget-object v0, p0, Lkotlin/collections/builders/SetBuilder;->backing:Lkotlin/collections/builders/MapBuilder;
@@ -190,7 +190,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 28
     new-instance v0, Lkotlin/collections/builders/SerializedCollection;
@@ -206,7 +206,7 @@
     .line 30
     return-object v0
 
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/io/NotSerializableException;
 
     const-string v1, "The set cannot be serialized while it is being built."
@@ -219,7 +219,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -234,21 +234,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -276,7 +276,7 @@
 .end method
 
 .method public final build()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -295,25 +295,25 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_f
 
     move-object v0, p0
 
     check-cast v0, Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_f
     sget-object v0, Lkotlin/collections/builders/SetBuilder;->Empty:Lkotlin/collections/builders/SetBuilder;
 
     check-cast v0, Ljava/util/Set;
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 35
     iget-object v0, p0, Lkotlin/collections/builders/SetBuilder;->backing:Lkotlin/collections/builders/MapBuilder;
@@ -324,7 +324,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 34
@@ -338,7 +338,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Lkotlin/collections/builders/SetBuilder;->backing:Lkotlin/collections/builders/MapBuilder;
@@ -351,7 +351,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Lkotlin/collections/builders/SetBuilder;->backing:Lkotlin/collections/builders/MapBuilder;
@@ -364,7 +364,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -386,7 +386,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 37
@@ -400,7 +400,7 @@
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -430,7 +430,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;IZ)V
-    .locals 1
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "finalVisibility"    # I
     .param p3, "suppressLayout"    # Z
@@ -75,12 +75,12 @@
 .end method
 
 .method private hideViewWhenNotCanceled()V
-    .locals 2
+    .registers 3
 
     .line 609
     iget-boolean v0, p0, Landroidx/transition/Visibility$DisappearListener;->mCanceled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 611
     iget-object v0, p0, Landroidx/transition/Visibility$DisappearListener;->mView:Landroid/view/View;
@@ -92,7 +92,7 @@
     .line 612
     iget-object v0, p0, Landroidx/transition/Visibility$DisappearListener;->mParent:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 613
     iget-object v0, p0, Landroidx/transition/Visibility$DisappearListener;->mParent:Landroid/view/ViewGroup;
@@ -100,7 +100,7 @@
     invoke-virtual {v0}, Landroid/view/ViewGroup;->invalidate()V
 
     .line 617
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroidx/transition/Visibility$DisappearListener;->suppressLayout(Z)V
@@ -110,21 +110,21 @@
 .end method
 
 .method private suppressLayout(Z)V
-    .locals 1
+    .registers 3
     .param p1, "suppress"    # Z
 
     .line 621
     iget-boolean v0, p0, Landroidx/transition/Visibility$DisappearListener;->mSuppressLayout:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-boolean v0, p0, Landroidx/transition/Visibility$DisappearListener;->mLayoutSuppressed:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_13
 
     iget-object v0, p0, Landroidx/transition/Visibility$DisappearListener;->mParent:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 622
     iput-boolean p1, p0, Landroidx/transition/Visibility$DisappearListener;->mLayoutSuppressed:Z
@@ -135,14 +135,14 @@
     invoke-static {v0, p1}, Landroidx/transition/ViewGroupUtils;->suppressLayout(Landroid/view/ViewGroup;Z)V
 
     .line 625
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 567
@@ -155,7 +155,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 580
@@ -166,13 +166,13 @@
 .end method
 
 .method public onAnimationPause(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 551
     iget-boolean v0, p0, Landroidx/transition/Visibility$DisappearListener;->mCanceled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 552
     iget-object v0, p0, Landroidx/transition/Visibility$DisappearListener;->mView:Landroid/view/View;
@@ -182,12 +182,12 @@
     invoke-static {v0, v1}, Landroidx/transition/ViewUtils;->setTransitionVisibility(Landroid/view/View;I)V
 
     .line 554
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 572
@@ -195,13 +195,13 @@
 .end method
 
 .method public onAnimationResume(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 560
     iget-boolean v0, p0, Landroidx/transition/Visibility$DisappearListener;->mCanceled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 561
     iget-object v0, p0, Landroidx/transition/Visibility$DisappearListener;->mView:Landroid/view/View;
@@ -211,12 +211,12 @@
     invoke-static {v0, v1}, Landroidx/transition/ViewUtils;->setTransitionVisibility(Landroid/view/View;I)V
 
     .line 563
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 576
@@ -224,7 +224,7 @@
 .end method
 
 .method public onTransitionCancel(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 596
@@ -232,7 +232,7 @@
 .end method
 
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 590
@@ -246,7 +246,7 @@
 .end method
 
 .method public onTransitionPause(Landroidx/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 600
@@ -259,7 +259,7 @@
 .end method
 
 .method public onTransitionResume(Landroidx/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 605
@@ -272,7 +272,7 @@
 .end method
 
 .method public onTransitionStart(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 586

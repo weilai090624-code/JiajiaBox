@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/WhileOps$2;Lj$/util/stream/Sink;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lj$/util/stream/WhileOps$2;
 
     .line 145
@@ -50,13 +50,13 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # I
 
     .line 155
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$2$1;->take:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Lj$/util/stream/WhileOps$2$1;->this$0:Lj$/util/stream/WhileOps$2;
 
@@ -68,7 +68,7 @@
 
     iput-boolean v0, p0, Lj$/util/stream/WhileOps$2$1;->take:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 156
     iget-object v0, p0, Lj$/util/stream/WhileOps$2$1;->downstream:Lj$/util/stream/Sink;
@@ -76,12 +76,12 @@
     invoke-interface {v0, p1}, Lj$/util/stream/Sink;->accept(I)V
 
     .line 158
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public begin(J)V
-    .locals 3
+    .registers 6
     .param p1, "size"    # J
 
     .line 150
@@ -96,12 +96,12 @@
 .end method
 
 .method public cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     .line 162
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$2$1;->take:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lj$/util/stream/WhileOps$2$1;->downstream:Lj$/util/stream/Sink;
 
@@ -109,19 +109,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method

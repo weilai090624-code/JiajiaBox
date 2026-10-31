@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 51
     const/4 v0, 0x0
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)V
-    .locals 16
+    .registers 19
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "type"    # Ljava/lang/Class;
 
@@ -59,12 +59,12 @@
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/kryo/Serializer;-><init>()V
 
     .line 58
-    :try_start_0
+    :try_start_7
     invoke-static/range {p2 .. p2}, Ljava/beans/Introspector;->getBeanInfo(Ljava/lang/Class;)Ljava/beans/BeanInfo;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/beans/IntrospectionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/beans/IntrospectionException; {:try_start_7 .. :try_end_b} :catch_bf
 
     move-object v3, v0
 
@@ -102,8 +102,8 @@
     array-length v6, v4
 
     .local v6, "n":I
-    :goto_0
-    if-ge v0, v6, :cond_4
+    :goto_22
+    if-ge v0, v6, :cond_6f
 
     .line 71
     aget-object v7, v4, v0
@@ -122,12 +122,12 @@
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_33
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 74
-    :cond_0
+    :cond_33
     invoke-virtual {v7}, Ljava/beans/PropertyDescriptor;->getReadMethod()Ljava/lang/reflect/Method;
 
     move-result-object v9
@@ -140,14 +140,14 @@
 
     .line 76
     .local v10, "setMethod":Ljava/lang/reflect/Method;
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_6c
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_40
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 79
-    :cond_1
+    :cond_40
     const/4 v11, 0x0
 
     .line 80
@@ -162,7 +162,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_53
 
     invoke-virtual {v2, v12}, Lcom/esotericsoftware/kryo/Kryo;->getRegistration(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Registration;
 
@@ -173,7 +173,7 @@
     move-result-object v11
 
     .line 83
-    :cond_2
+    :cond_53
     new-instance v13, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
 
     invoke-direct {v13, v1}, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;-><init>(Lcom/esotericsoftware/kryo/serializers/BeanSerializer;)V
@@ -213,16 +213,16 @@
     .end local v11    # "serializer":Lcom/esotericsoftware/kryo/Serializer;
     .end local v12    # "returnType":Ljava/lang/Class;
     .end local v13    # "cachedProperty":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
-    :cond_3
-    :goto_1
+    :cond_6c
+    :goto_6c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 92
     .end local v0    # "i":I
     .end local v6    # "n":I
-    :cond_4
+    :cond_6f
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v0
@@ -238,7 +238,7 @@
     iput-object v0, v1, Lcom/esotericsoftware/kryo/serializers/BeanSerializer;->properties:[Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
 
     .line 95
-    :try_start_1
+    :try_start_7d
     invoke-static/range {p2 .. p2}, Lcom/esotericsoftware/reflectasm/MethodAccess;->get(Ljava/lang/Class;)Lcom/esotericsoftware/reflectasm/MethodAccess;
 
     move-result-object v0
@@ -254,8 +254,8 @@
     array-length v6, v6
 
     .restart local v6    # "n":I
-    :goto_2
-    if-ge v0, v6, :cond_5
+    :goto_87
+    if-ge v0, v6, :cond_bc
 
     .line 97
     iget-object v7, v1, Lcom/esotericsoftware/kryo/serializers/BeanSerializer;->properties:[Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
@@ -312,34 +312,34 @@
     move-result v8
 
     iput v8, v7, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->setterAccessIndex:I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b9
+    .catchall {:try_start_7d .. :try_end_b9} :catchall_bd
 
     .line 96
     .end local v7    # "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_87
 
     .line 105
     .end local v0    # "i":I
     .end local v6    # "n":I
-    :cond_5
-    goto :goto_3
+    :cond_bc
+    goto :goto_be
 
     .line 103
-    :catchall_0
+    :catchall_bd
     move-exception v0
 
     .line 106
-    :goto_3
+    :goto_be
     return-void
 
     .line 59
     .end local v3    # "info":Ljava/beans/BeanInfo;
     .end local v4    # "descriptors":[Ljava/beans/PropertyDescriptor;
     .end local v5    # "cachedProperties":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;>;"
-    :catch_0
+    :catch_bf
     move-exception v0
 
     move-object v3, v0
@@ -360,7 +360,7 @@
 
 # virtual methods
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 10
+    .registers 13
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -395,8 +395,8 @@
     array-length v4, v4
 
     .local v4, "n":I
-    :goto_0
-    if-ge v3, v4, :cond_0
+    :goto_10
+    if-ge v3, v4, :cond_a0
 
     .line 168
     iget-object v5, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer;->properties:[Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
@@ -405,7 +405,7 @@
 
     .line 170
     .local v5, "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
-    :try_start_0
+    :try_start_16
     invoke-virtual {v5, p2}, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
@@ -413,10 +413,10 @@
     .line 171
     .local v6, "value":Ljava/lang/Object;
     invoke-virtual {v5, v2, v6}, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_16 .. :try_end_1d} :catch_7a
+    .catch Ljava/lang/Exception; {:try_start_16 .. :try_end_1d} :catch_4c
+    .catchall {:try_start_16 .. :try_end_1d} :catchall_21
 
     .line 181
     .end local v6    # "value":Ljava/lang/Object;
@@ -426,11 +426,11 @@
     .end local v5    # "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 177
     .restart local v5    # "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
-    :catchall_0
+    :catchall_21
     move-exception v6
 
     .line 178
@@ -481,7 +481,7 @@
     .line 175
     .end local v6    # "t":Ljava/lang/Throwable;
     .end local v7    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_0
+    :catch_4c
     move-exception v6
 
     .line 176
@@ -532,7 +532,7 @@
 
     .line 172
     .end local v6    # "ex":Ljava/lang/Exception;
-    :catch_1
+    :catch_7a
     move-exception v6
 
     .line 173
@@ -579,12 +579,12 @@
     .end local v4    # "n":I
     .end local v5    # "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
     .end local v6    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :cond_0
+    :cond_a0
     return-object v2
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 10
+    .registers 14
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -621,8 +621,8 @@
     array-length v4, v4
 
     .local v4, "n":I
-    :goto_0
-    if-ge v3, v4, :cond_2
+    :goto_f
+    if-ge v3, v4, :cond_104
 
     .line 139
     iget-object v5, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer;->properties:[Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
@@ -631,10 +631,10 @@
 
     .line 141
     .local v5, "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
-    :try_start_0
+    :try_start_15
     sget-boolean v6, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_41
 
     const-string v6, "kryo"
 
@@ -675,12 +675,12 @@
     invoke-static {v6, v7}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 143
-    :cond_0
+    :cond_41
     iget-object v6, v5, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->serializer:Lcom/esotericsoftware/kryo/Serializer;
 
     .line 144
     .local v6, "serializer":Lcom/esotericsoftware/kryo/Serializer;
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_4c
 
     .line 145
     iget-object v7, v5, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->setMethodType:Ljava/lang/Class;
@@ -690,24 +690,24 @@
     move-result-object v7
 
     .local v7, "value":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_50
 
     .line 147
     .end local v7    # "value":Ljava/lang/Object;
-    :cond_1
+    :cond_4c
     invoke-virtual {p1, p2}, Lcom/esotericsoftware/kryo/Kryo;->readClassAndObject(Lcom/esotericsoftware/kryo/io/Input;)Ljava/lang/Object;
 
     move-result-object v7
 
     .line 148
     .restart local v7    # "value":Ljava/lang/Object;
-    :goto_1
+    :goto_50
     invoke-virtual {v5, v2, v7}, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_53
+    .catch Ljava/lang/IllegalAccessException; {:try_start_15 .. :try_end_53} :catch_d6
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_15 .. :try_end_53} :catch_a8
+    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_15 .. :try_end_53} :catch_82
+    .catchall {:try_start_15 .. :try_end_53} :catchall_57
 
     .line 160
     .end local v6    # "serializer":Lcom/esotericsoftware/kryo/Serializer;
@@ -718,11 +718,11 @@
     .end local v5    # "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 156
     .restart local v5    # "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
-    :catchall_0
+    :catchall_57
     move-exception v6
 
     .line 157
@@ -773,7 +773,7 @@
     .line 153
     .end local v6    # "t":Ljava/lang/Throwable;
     .end local v7    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_0
+    :catch_82
     move-exception v6
 
     .line 154
@@ -817,7 +817,7 @@
 
     .line 151
     .end local v6    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_1
+    :catch_a8
     move-exception v6
 
     .line 152
@@ -868,7 +868,7 @@
 
     .line 149
     .end local v6    # "ex":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_d6
     move-exception v6
 
     .line 150
@@ -922,12 +922,12 @@
     .end local v4    # "n":I
     .end local v5    # "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
     .end local v6    # "ex":Ljava/lang/IllegalAccessException;
-    :cond_2
+    :cond_104
     return-object v2
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 10
+    .registers 14
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .annotation system Ldalvik/annotation/Signature;
@@ -960,8 +960,8 @@
     array-length v4, v4
 
     .local v4, "n":I
-    :goto_0
-    if-ge v3, v4, :cond_2
+    :goto_c
+    if-ge v3, v4, :cond_ee
 
     .line 111
     iget-object v5, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer;->properties:[Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
@@ -970,10 +970,10 @@
 
     .line 113
     .local v5, "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
-    :try_start_0
+    :try_start_12
     sget-boolean v6, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_3e
 
     const-string v6, "kryo"
 
@@ -1014,7 +1014,7 @@
     invoke-static {v6, v7}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 114
-    :cond_0
+    :cond_3e
     invoke-virtual {v5, p3}, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
@@ -1025,37 +1025,37 @@
 
     .line 116
     .local v7, "serializer":Lcom/esotericsoftware/kryo/Serializer;
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_4a
 
     .line 117
     invoke-virtual {p1, p2, v6, v7}, Lcom/esotericsoftware/kryo/Kryo;->writeObjectOrNull(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;Lcom/esotericsoftware/kryo/Serializer;)V
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 119
-    :cond_1
+    :cond_4a
     invoke-virtual {p1, p2, v6}, Lcom/esotericsoftware/kryo/Kryo;->writeClassAndObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4d
+    .catch Ljava/lang/IllegalAccessException; {:try_start_12 .. :try_end_4d} :catch_c4
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_12 .. :try_end_4d} :catch_9a
+    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_12 .. :try_end_4d} :catch_78
+    .catchall {:try_start_12 .. :try_end_4d} :catchall_51
 
     .line 131
     .end local v6    # "value":Ljava/lang/Object;
     .end local v7    # "serializer":Lcom/esotericsoftware/kryo/Serializer;
-    :goto_1
+    :goto_4d
     nop
 
     .line 110
     .end local v5    # "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 127
     .restart local v5    # "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
-    :catchall_0
+    :catchall_51
     move-exception v6
 
     .line 128
@@ -1102,7 +1102,7 @@
     .line 124
     .end local v6    # "t":Ljava/lang/Throwable;
     .end local v7    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_0
+    :catch_78
     move-exception v6
 
     .line 125
@@ -1142,7 +1142,7 @@
 
     .line 122
     .end local v6    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_1
+    :catch_9a
     move-exception v6
 
     .line 123
@@ -1189,7 +1189,7 @@
 
     .line 120
     .end local v6    # "ex":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_c4
     move-exception v6
 
     .line 121
@@ -1239,6 +1239,6 @@
     .end local v4    # "n":I
     .end local v5    # "property":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;
     .end local v6    # "ex":Ljava/lang/IllegalAccessException;
-    :cond_2
+    :cond_ee
     return-void
 .end method

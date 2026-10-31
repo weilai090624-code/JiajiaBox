@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 17
     invoke-direct {p0}, Lkotlin/jvm/internal/CallableReference;-><init>()V
@@ -27,7 +27,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "receiver"    # Ljava/lang/Object;
 
     .line 24
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 9
+    .registers 15
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "owner"    # Ljava/lang/Class;
     .param p3, "name"    # Ljava/lang/String;
@@ -57,16 +57,16 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_8
 
     const/4 v8, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v8, 0x0
 
-    :goto_0
+    :goto_9
     move-object v3, p0
 
     move-object v4, p1
@@ -84,11 +84,11 @@
 
     const/4 v3, 0x2
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v3, :cond_17
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_17
     iput-boolean v1, p0, Lkotlin/jvm/internal/PropertyReference;->syntheticJavaProperty:Z
 
     .line 34
@@ -98,44 +98,44 @@
 
 # virtual methods
 .method public compute()Lkotlin/reflect/KCallable;
-    .locals 1
+    .registers 2
 
     .line 48
     iget-boolean v0, p0, Lkotlin/jvm/internal/PropertyReference;->syntheticJavaProperty:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_6
     invoke-super {p0}, Lkotlin/jvm/internal/CallableReference;->compute()Lkotlin/reflect/KCallable;
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 65
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 66
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlin/jvm/internal/PropertyReference;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_47
 
     .line 67
     move-object v1, p1
@@ -156,7 +156,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_45
 
     .line 69
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference;->getName()Ljava/lang/String;
@@ -171,7 +171,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_45
 
     .line 70
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference;->getSignature()Ljava/lang/String;
@@ -186,7 +186,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_45
 
     .line 71
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference;->getBoundReceiver()Ljava/lang/Object;
@@ -201,23 +201,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_45
 
-    goto :goto_0
+    goto :goto_46
 
-    :cond_1
+    :cond_45
     const/4 v0, 0x0
 
     .line 68
-    :goto_0
+    :goto_46
     return v0
 
     .line 73
     .end local v1    # "other":Lkotlin/jvm/internal/PropertyReference;
-    :cond_2
+    :cond_47
     instance-of v0, p1, Lkotlin/reflect/KProperty;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_54
 
     .line 74
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference;->compute()Lkotlin/reflect/KCallable;
@@ -231,12 +231,12 @@
     return v0
 
     .line 76
-    :cond_3
+    :cond_54
     return v2
 .end method
 
 .method protected bridge synthetic getReflected()Lkotlin/reflect/KCallable;
-    .locals 1
+    .registers 2
 
     .line 12
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference;->getReflected()Lkotlin/reflect/KProperty;
@@ -247,12 +247,12 @@
 .end method
 
 .method protected getReflected()Lkotlin/reflect/KProperty;
-    .locals 2
+    .registers 3
 
     .line 39
     iget-boolean v0, p0, Lkotlin/jvm/internal/PropertyReference;->syntheticJavaProperty:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 43
     invoke-super {p0}, Lkotlin/jvm/internal/CallableReference;->getReflected()Lkotlin/reflect/KCallable;
@@ -264,7 +264,7 @@
     return-object v0
 
     .line 40
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Kotlin reflection is not yet supported for synthetic Java properties. Please follow/upvote https://youtrack.jetbrains.com/issue/KT-55980"
@@ -275,7 +275,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 81
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference;->getOwner()Lkotlin/reflect/KDeclarationContainer;
@@ -314,7 +314,7 @@
 .end method
 
 .method public isConst()Z
-    .locals 1
+    .registers 2
 
     .line 60
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference;->getReflected()Lkotlin/reflect/KProperty;
@@ -329,7 +329,7 @@
 .end method
 
 .method public isLateinit()Z
-    .locals 1
+    .registers 2
 
     .line 54
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference;->getReflected()Lkotlin/reflect/KProperty;
@@ -344,7 +344,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 86
     invoke-virtual {p0}, Lkotlin/jvm/internal/PropertyReference;->compute()Lkotlin/reflect/KCallable;
@@ -353,7 +353,7 @@
 
     .line 87
     .local v0, "reflected":Lkotlin/reflect/KCallable;
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_b
 
     .line 88
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -363,7 +363,7 @@
     return-object v1
 
     .line 91
-    :cond_0
+    :cond_b
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

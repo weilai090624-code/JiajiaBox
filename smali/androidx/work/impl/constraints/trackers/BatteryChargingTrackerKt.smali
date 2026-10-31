@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 84
     const-string v0, "BatteryChrgTracker"
@@ -48,7 +48,7 @@
 .end method
 
 .method public static final synthetic access$getTAG$p()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Landroidx/work/impl/constraints/trackers/BatteryChargingTrackerKt;->TAG:Ljava/lang/String;

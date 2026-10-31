@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method static getCertificateSHA256Fingerprint(Landroid/content/pm/Signature;)[B
-    .locals 2
+    .registers 3
     .param p0, "signature"    # Landroid/content/pm/Signature;
 
     .line 163
@@ -46,13 +46,13 @@
     invoke-virtual {v0, v1}, Ljava/security/MessageDigest;->digest([B)[B
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_e} :catch_f
 
     return-object v0
 
     .line 164
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 166
@@ -63,7 +63,7 @@
 .end method
 
 .method static getFingerprintsForPackage(Ljava/lang/String;Landroid/content/pm/PackageManager;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "pm"    # Landroid/content/pm/PackageManager;
     .annotation system Ldalvik/annotation/Signature;
@@ -86,13 +86,13 @@
     invoke-interface {v0, p0, p1}, Landroidx/browser/trusted/PackageIdentityUtils$SignaturesCompat;->getFingerprintsForPackage(Ljava/lang/String;Landroid/content/pm/PackageManager;)Ljava/util/List;
 
     move-result-object v0
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 48
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 49
@@ -110,14 +110,14 @@
 .end method
 
 .method private static getImpl()Landroidx/browser/trusted/PackageIdentityUtils$SignaturesCompat;
-    .locals 2
+    .registers 2
 
     .line 64
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_c
 
     .line 65
     new-instance v0, Landroidx/browser/trusted/PackageIdentityUtils$Api28Implementation;
@@ -127,7 +127,7 @@
     return-object v0
 
     .line 67
-    :cond_0
+    :cond_c
     new-instance v0, Landroidx/browser/trusted/PackageIdentityUtils$Pre28Implementation;
 
     invoke-direct {v0}, Landroidx/browser/trusted/PackageIdentityUtils$Pre28Implementation;-><init>()V
@@ -136,7 +136,7 @@
 .end method
 
 .method static packageMatchesToken(Ljava/lang/String;Landroid/content/pm/PackageManager;Landroidx/browser/trusted/TokenContents;)Z
-    .locals 3
+    .registers 6
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "pm"    # Landroid/content/pm/PackageManager;
     .param p2, "token"    # Landroidx/browser/trusted/TokenContents;
@@ -150,24 +150,24 @@
     invoke-interface {v0, p0, p1, p2}, Landroidx/browser/trusted/PackageIdentityUtils$SignaturesCompat;->packageMatchesToken(Ljava/lang/String;Landroid/content/pm/PackageManager;Landroidx/browser/trusted/TokenContents;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_8} :catch_b
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_8} :catch_9
 
     return v0
 
     .line 57
-    :catch_0
+    :catch_9
     move-exception v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :catch_1
+    :catch_b
     move-exception v0
 
     .line 58
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_c
     const-string v1, "PackageIdentity"
 
     const-string v2, "Could not check if package matches token."

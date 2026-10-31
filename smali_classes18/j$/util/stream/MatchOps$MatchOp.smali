@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/StreamShape;Lj$/util/stream/MatchOps$MatchKind;Ljava/util/function/Supplier;)V
-    .locals 0
+    .registers 4
     .param p1, "shape"    # Lj$/util/stream/StreamShape;
     .param p2, "matchKind"    # Lj$/util/stream/MatchOps$MatchKind;
     .annotation system Ldalvik/annotation/Signature;
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -115,7 +115,7 @@
 .end method
 
 .method public bridge synthetic evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 196
     .local p0, "this":Lj$/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"
@@ -127,7 +127,7 @@
 .end method
 
 .method public evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -171,7 +171,7 @@
 .end method
 
 .method public bridge synthetic evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 196
     .local p0, "this":Lj$/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"
@@ -183,7 +183,7 @@
 .end method
 
 .method public getOpFlags()I
-    .locals 2
+    .registers 3
 
     .line 219
     .local p0, "this":Lj$/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"
@@ -197,7 +197,7 @@
 .end method
 
 .method public inputShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     .line 224
     .local p0, "this":Lj$/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"

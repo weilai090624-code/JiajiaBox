@@ -35,7 +35,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/graph/ValueGraph;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +72,7 @@
 .end method
 
 .method private static connectionsOf(Lcom/google/common/graph/ValueGraph;Ljava/lang/Object;)Lcom/google/common/graph/GraphConnections;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -100,7 +100,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 104
     nop
@@ -115,10 +115,10 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 106
-    :cond_0
+    :cond_15
     nop
 
     .line 107
@@ -136,12 +136,12 @@
     move-result-object v1
 
     .line 103
-    :goto_0
+    :goto_22
     return-object v1
 .end method
 
 .method public static copyOf(Lcom/google/common/graph/ImmutableValueGraph;)Lcom/google/common/graph/ImmutableValueGraph;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -171,7 +171,7 @@
 .end method
 
 .method public static copyOf(Lcom/google/common/graph/ValueGraph;)Lcom/google/common/graph/ImmutableValueGraph;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -190,28 +190,28 @@
     .local p0, "graph":Lcom/google/common/graph/ValueGraph;, "Lcom/google/common/graph/ValueGraph<TN;TV;>;"
     instance-of v0, p0, Lcom/google/common/graph/ImmutableValueGraph;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 57
     move-object v0, p0
 
     check-cast v0, Lcom/google/common/graph/ImmutableValueGraph;
 
-    goto :goto_0
+    goto :goto_d
 
     .line 58
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/common/graph/ImmutableValueGraph;
 
     invoke-direct {v0, p0}, Lcom/google/common/graph/ImmutableValueGraph;-><init>(Lcom/google/common/graph/ValueGraph;)V
 
     .line 56
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 .method private static getNodeConnections(Lcom/google/common/graph/ValueGraph;)Lcom/google/common/collect/ImmutableMap;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -244,12 +244,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -265,10 +265,10 @@
 
     .line 89
     .end local v2    # "node":Ljava/lang/Object;, "TN;"
-    goto :goto_0
+    goto :goto_c
 
     .line 90
-    :cond_0
+    :cond_1e
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap$Builder;->build()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v1
@@ -279,7 +279,7 @@
 
 # virtual methods
 .method public bridge synthetic adjacentNodes(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"
@@ -291,7 +291,7 @@
 .end method
 
 .method public bridge synthetic allowsSelfLoops()Z
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"
@@ -303,7 +303,7 @@
 .end method
 
 .method public bridge synthetic asGraph()Lcom/google/common/graph/Graph;
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"
@@ -315,7 +315,7 @@
 .end method
 
 .method public asGraph()Lcom/google/common/graph/ImmutableGraph;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -334,7 +334,7 @@
 .end method
 
 .method public bridge synthetic edgeValueOrDefault(Lcom/google/common/graph/EndpointPair;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -352,7 +352,7 @@
 .end method
 
 .method public bridge synthetic edgeValueOrDefault(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
     .param p3    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -370,7 +370,7 @@
 .end method
 
 .method public bridge synthetic hasEdgeConnecting(Lcom/google/common/graph/EndpointPair;)Z
-    .locals 0
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"
@@ -382,7 +382,7 @@
 .end method
 
 .method public bridge synthetic hasEdgeConnecting(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"
@@ -394,7 +394,7 @@
 .end method
 
 .method public incidentEdgeOrder()Lcom/google/common/graph/ElementOrder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -413,7 +413,7 @@
 .end method
 
 .method public bridge synthetic incidentEdges(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"
@@ -425,7 +425,7 @@
 .end method
 
 .method public bridge synthetic isDirected()Z
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"
@@ -437,7 +437,7 @@
 .end method
 
 .method public bridge synthetic nodeOrder()Lcom/google/common/graph/ElementOrder;
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"
@@ -449,7 +449,7 @@
 .end method
 
 .method public bridge synthetic nodes()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"
@@ -461,7 +461,7 @@
 .end method
 
 .method public bridge synthetic predecessors(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"
@@ -473,7 +473,7 @@
 .end method
 
 .method public bridge synthetic successors(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/graph/ImmutableValueGraph;, "Lcom/google/common/graph/ImmutableValueGraph<TN;TV;>;"

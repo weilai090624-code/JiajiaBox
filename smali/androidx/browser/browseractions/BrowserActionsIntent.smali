@@ -75,7 +75,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Intent;)V
-    .locals 0
+    .registers 2
     .param p1, "intent"    # Landroid/content/Intent;
 
     .line 171
@@ -89,7 +89,7 @@
 .end method
 
 .method public static getBrowserActionsIntentHandlers(Landroid/content/Context;)Ljava/util/List;
-    .locals 3
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -134,7 +134,7 @@
 .end method
 
 .method public static getCreatorPackageName(Landroid/content/Intent;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "intent"    # Landroid/content/Intent;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -148,7 +148,7 @@
 .end method
 
 .method public static getUntrustedCreatorPackageName(Landroid/content/Intent;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 469
@@ -162,7 +162,7 @@
 
     .line 470
     .local v0, "pendingIntent":Landroid/app/PendingIntent;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 471
     invoke-virtual {v0}, Landroid/app/PendingIntent;->getTargetPackage()Ljava/lang/String;
@@ -172,14 +172,14 @@
     return-object v1
 
     .line 473
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static launchIntent(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "intent"    # Landroid/content/Intent;
 
@@ -197,7 +197,7 @@
 .end method
 
 .method static launchIntent(Landroid/content/Context;Landroid/content/Intent;Ljava/util/List;)V
-    .locals 6
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
@@ -213,25 +213,25 @@
 
     .line 353
     .local p2, "handlers":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_60
 
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_2
+    goto :goto_60
 
     .line 356
-    :cond_0
+    :cond_9
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1f
 
     .line 357
     const/4 v0, 0x0
@@ -248,10 +248,10 @@
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    goto :goto_1
+    goto :goto_5b
 
     .line 359
-    :cond_1
+    :cond_1f
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "https://www.example.com"
@@ -283,7 +283,7 @@
 
     .line 363
     .local v2, "defaultHandler":Landroid/content/pm/ResolveInfo;
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5b
 
     .line 364
     iget-object v3, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -295,12 +295,12 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_3e
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_5b
 
     .line 366
     invoke-interface {p2, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -317,19 +317,19 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_58
 
     .line 367
     invoke-virtual {p1, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 368
-    goto :goto_1
+    goto :goto_5b
 
     .line 365
-    :cond_2
+    :cond_58
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 373
     .end local v0    # "viewIntent":Landroid/content/Intent;
@@ -337,8 +337,8 @@
     .end local v2    # "defaultHandler":Landroid/content/pm/ResolveInfo;
     .end local v3    # "defaultPackageName":Ljava/lang/String;
     .end local v4    # "i":I
-    :cond_3
-    :goto_1
+    :cond_5b
+    :goto_5b
     const/4 v0, 0x0
 
     invoke-static {p0, p1, v0}, Landroidx/core/content/ContextCompat;->startActivity(Landroid/content/Context;Landroid/content/Intent;Landroid/os/Bundle;)V
@@ -347,8 +347,8 @@
     return-void
 
     .line 354
-    :cond_4
-    :goto_2
+    :cond_60
+    :goto_60
     invoke-static {p0, p1}, Landroidx/browser/browseractions/BrowserActionsIntent;->openFallbackBrowserActionsMenu(Landroid/content/Context;Landroid/content/Intent;)V
 
     .line 355
@@ -356,7 +356,7 @@
 .end method
 
 .method public static openBrowserAction(Landroid/content/Context;Landroid/net/Uri;)V
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "uri"    # Landroid/net/Uri;
 
@@ -382,7 +382,7 @@
 .end method
 
 .method public static openBrowserAction(Landroid/content/Context;Landroid/net/Uri;ILjava/util/ArrayList;Landroid/app/PendingIntent;)V
-    .locals 2
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "type"    # I
@@ -440,7 +440,7 @@
 .end method
 
 .method private static openFallbackBrowserActionsMenu(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "intent"    # Landroid/content/Intent;
 
@@ -459,20 +459,20 @@
 
     .line 397
     .local v1, "bundles":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/Bundle;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     invoke-static {v1}, Landroidx/browser/browseractions/BrowserActionsIntent;->parseBrowserActionItems(Ljava/util/ArrayList;)Ljava/util/List;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
     .line 398
     .local v2, "items":Ljava/util/List;, "Ljava/util/List<Landroidx/browser/browseractions/BrowserActionItem;>;"
-    :goto_0
+    :goto_12
     invoke-static {p0, v0, v2}, Landroidx/browser/browseractions/BrowserActionsIntent;->openFallbackBrowserActionsMenu(Landroid/content/Context;Landroid/net/Uri;Ljava/util/List;)V
 
     .line 399
@@ -480,7 +480,7 @@
 .end method
 
 .method private static openFallbackBrowserActionsMenu(Landroid/content/Context;Landroid/net/Uri;Ljava/util/List;)V
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Signature;
@@ -507,7 +507,7 @@
     .line 419
     sget-object v1, Landroidx/browser/browseractions/BrowserActionsIntent;->sDialogListenter:Landroidx/browser/browseractions/BrowserActionsIntent$BrowserActionsFallDialogListener;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 420
     sget-object v1, Landroidx/browser/browseractions/BrowserActionsIntent;->sDialogListenter:Landroidx/browser/browseractions/BrowserActionsIntent$BrowserActionsFallDialogListener;
@@ -515,12 +515,12 @@
     invoke-interface {v1}, Landroidx/browser/browseractions/BrowserActionsIntent$BrowserActionsFallDialogListener;->onDialogShown()V
 
     .line 422
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public static parseBrowserActionItems(Ljava/util/ArrayList;)Ljava/util/List;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -544,12 +544,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_52
 
     .line 435
     invoke-virtual {p0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -600,12 +600,12 @@
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_4a
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4a
 
     .line 443
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_3e
 
     .line 444
     new-instance v7, Landroidx/browser/browseractions/BrowserActionItem;
@@ -613,18 +613,18 @@
     invoke-direct {v7, v3, v4, v5}, Landroidx/browser/browseractions/BrowserActionItem;-><init>(Ljava/lang/String;Landroid/app/PendingIntent;I)V
 
     .local v7, "item":Landroidx/browser/browseractions/BrowserActionItem;
-    goto :goto_1
+    goto :goto_43
 
     .line 446
     .end local v7    # "item":Landroidx/browser/browseractions/BrowserActionItem;
-    :cond_0
+    :cond_3e
     new-instance v7, Landroidx/browser/browseractions/BrowserActionItem;
 
     invoke-direct {v7, v3, v4, v6}, Landroidx/browser/browseractions/BrowserActionItem;-><init>(Ljava/lang/String;Landroid/app/PendingIntent;Landroid/net/Uri;)V
 
     .line 448
     .restart local v7    # "item":Landroidx/browser/browseractions/BrowserActionItem;
-    :goto_1
+    :goto_43
     invoke-interface {v0, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 449
@@ -639,7 +639,7 @@
     .end local v6    # "iconUri":Landroid/net/Uri;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 450
     .restart local v2    # "bundle":Landroid/os/Bundle;
@@ -647,7 +647,7 @@
     .restart local v4    # "action":Landroid/app/PendingIntent;
     .restart local v5    # "iconId":I
     .restart local v6    # "iconUri":Landroid/net/Uri;
-    :cond_1
+    :cond_4a
     new-instance v7, Ljava/lang/IllegalArgumentException;
 
     const-string v8, "Custom item should contain a non-empty title and non-null intent."
@@ -663,12 +663,12 @@
     .end local v4    # "action":Landroid/app/PendingIntent;
     .end local v5    # "iconId":I
     .end local v6    # "iconUri":Landroid/net/Uri;
-    :cond_2
+    :cond_52
     return-object v0
 .end method
 
 .method static setDialogShownListenter(Landroidx/browser/browseractions/BrowserActionsIntent$BrowserActionsFallDialogListener;)V
-    .locals 0
+    .registers 1
     .param p0, "dialogListener"    # Landroidx/browser/browseractions/BrowserActionsIntent$BrowserActionsFallDialogListener;
 
     .line 405
@@ -681,7 +681,7 @@
 
 # virtual methods
 .method public getIntent()Landroid/content/Intent;
-    .locals 1
+    .registers 2
 
     .line 167
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionsIntent;->mIntent:Landroid/content/Intent;

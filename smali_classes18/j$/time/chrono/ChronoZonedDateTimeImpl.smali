@@ -42,7 +42,7 @@
 
 # direct methods
 .method private constructor <init>(Lj$/time/chrono/ChronoLocalDateTimeImpl;Lj$/time/ZoneOffset;Lj$/time/ZoneId;)V
-    .locals 1
+    .registers 5
     .param p2, "offset"    # Lj$/time/ZoneOffset;
     .param p3, "zone"    # Lj$/time/ZoneId;
     .annotation system Ldalvik/annotation/Signature;
@@ -99,7 +99,7 @@
 .end method
 
 .method private create(Lj$/time/Instant;Lj$/time/ZoneId;)Lj$/time/chrono/ChronoZonedDateTimeImpl;
-    .locals 1
+    .registers 4
     .param p1, "instant"    # Lj$/time/Instant;
     .param p2, "zone"    # Lj$/time/ZoneId;
     .annotation system Ldalvik/annotation/Signature;
@@ -127,7 +127,7 @@
 .end method
 
 .method static ensureValid(Lj$/time/chrono/Chronology;Lj$/time/temporal/Temporal;)Lj$/time/chrono/ChronoZonedDateTimeImpl;
-    .locals 6
+    .registers 8
     .param p0, "chrono"    # Lj$/time/chrono/Chronology;
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
     .annotation system Ldalvik/annotation/Signature;
@@ -158,13 +158,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 207
     return-object v0
 
     .line 204
-    :cond_0
+    :cond_e
     new-instance v1, Ljava/lang/ClassCastException;
 
     invoke-interface {p0}, Lj$/time/chrono/Chronology;->getId()Ljava/lang/String;
@@ -214,7 +214,7 @@
 .end method
 
 .method static ofBest(Lj$/time/chrono/ChronoLocalDateTimeImpl;Lj$/time/ZoneId;Lj$/time/ZoneOffset;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 6
+    .registers 9
     .param p1, "zone"    # Lj$/time/ZoneId;
     .param p2, "preferredOffset"    # Lj$/time/ZoneOffset;
     .annotation system Ldalvik/annotation/Signature;
@@ -246,7 +246,7 @@
     .line 138
     instance-of v0, p1, Lj$/time/ZoneOffset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 139
     new-instance v0, Lj$/time/chrono/ChronoZonedDateTimeImpl;
@@ -260,7 +260,7 @@
     return-object v0
 
     .line 141
-    :cond_0
+    :cond_17
     invoke-virtual {p1}, Lj$/time/ZoneId;->getRules()Lj$/time/zone/ZoneRules;
 
     move-result-object v0
@@ -287,7 +287,7 @@
 
     const/4 v5, 0x0
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_32
 
     .line 146
     invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -297,16 +297,16 @@
     check-cast v3, Lj$/time/ZoneOffset;
 
     .local v3, "offset":Lj$/time/ZoneOffset;
-    goto :goto_0
+    goto :goto_5d
 
     .line 147
     .end local v3    # "offset":Lj$/time/ZoneOffset;
-    :cond_1
+    :cond_32
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_4d
 
     .line 148
     invoke-virtual {v0, v1}, Lj$/time/zone/ZoneRules;->getTransition(Lj$/time/LocalDateTime;)Lj$/time/zone/ZoneOffsetTransition;
@@ -334,28 +334,28 @@
 
     .line 151
     .local v3, "offset":Lj$/time/ZoneOffset;
-    goto :goto_0
+    goto :goto_5d
 
     .line 152
     .end local v3    # "offset":Lj$/time/ZoneOffset;
-    :cond_2
-    if-eqz p2, :cond_3
+    :cond_4d
+    if-eqz p2, :cond_57
 
     invoke-interface {v2, p2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_57
 
     .line 153
     move-object v3, p2
 
     .restart local v3    # "offset":Lj$/time/ZoneOffset;
-    goto :goto_0
+    goto :goto_5d
 
     .line 155
     .end local v3    # "offset":Lj$/time/ZoneOffset;
-    :cond_3
+    :cond_57
     invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -364,7 +364,7 @@
 
     .line 158
     .restart local v3    # "offset":Lj$/time/ZoneOffset;
-    :goto_0
+    :goto_5d
     const-string v4, "offset"
 
     invoke-static {v3, v4}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
@@ -378,7 +378,7 @@
 .end method
 
 .method static ofInstant(Lj$/time/chrono/Chronology;Lj$/time/Instant;Lj$/time/ZoneId;)Lj$/time/chrono/ChronoZonedDateTimeImpl;
-    .locals 5
+    .registers 8
     .param p0, "chrono"    # Lj$/time/chrono/Chronology;
     .param p1, "instant"    # Lj$/time/Instant;
     .param p2, "zone"    # Lj$/time/ZoneId;
@@ -442,7 +442,7 @@
 .end method
 
 .method static readExternal(Ljava/io/ObjectInput;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 4
+    .registers 5
     .param p0, "in"    # Ljava/io/ObjectInput;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -491,7 +491,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 347
@@ -506,7 +506,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 337
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
@@ -522,7 +522,7 @@
 
 # virtual methods
 .method public synthetic compareTo(Lj$/time/chrono/ChronoZonedDateTime;)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$compareTo(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/chrono/ChronoZonedDateTime;)I
 
@@ -532,7 +532,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$compareTo(Lj$/time/chrono/ChronoZonedDateTime;Ljava/lang/Object;)I
 
@@ -542,25 +542,25 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 367
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 368
     return v0
 
     .line 370
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/time/chrono/ChronoZonedDateTime;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_15
 
     .line 371
     move-object v1, p1
@@ -571,23 +571,23 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_13
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 
     .line 373
-    :cond_2
+    :cond_15
     return v2
 .end method
 
 .method public synthetic format(Lj$/time/format/DateTimeFormatter;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$format(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/format/DateTimeFormatter;)Ljava/lang/String;
 
@@ -597,7 +597,7 @@
 .end method
 
 .method public synthetic get(Lj$/time/temporal/TemporalField;)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$get(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalField;)I
 
@@ -607,7 +607,7 @@
 .end method
 
 .method public synthetic getChronology()Lj$/time/chrono/Chronology;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$getChronology(Lj$/time/chrono/ChronoZonedDateTime;)Lj$/time/chrono/Chronology;
 
@@ -617,7 +617,7 @@
 .end method
 
 .method public synthetic getLong(Lj$/time/temporal/TemporalField;)J
-    .locals 2
+    .registers 4
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$getLong(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalField;)J
 
@@ -627,7 +627,7 @@
 .end method
 
 .method public getOffset()Lj$/time/ZoneOffset;
-    .locals 1
+    .registers 2
 
     .line 227
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
@@ -637,7 +637,7 @@
 .end method
 
 .method public getZone()Lj$/time/ZoneId;
-    .locals 1
+    .registers 2
 
     .line 262
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
@@ -647,7 +647,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 378
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
@@ -689,7 +689,7 @@
 .end method
 
 .method public synthetic isAfter(Lj$/time/chrono/ChronoZonedDateTime;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$isAfter(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/chrono/ChronoZonedDateTime;)Z
 
@@ -699,7 +699,7 @@
 .end method
 
 .method public synthetic isBefore(Lj$/time/chrono/ChronoZonedDateTime;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$isBefore(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/chrono/ChronoZonedDateTime;)Z
 
@@ -709,7 +709,7 @@
 .end method
 
 .method public synthetic isEqual(Lj$/time/chrono/ChronoZonedDateTime;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$isEqual(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/chrono/ChronoZonedDateTime;)Z
 
@@ -719,40 +719,40 @@
 .end method
 
 .method public isSupported(Lj$/time/temporal/TemporalField;)Z
-    .locals 1
+    .registers 3
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 279
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public synthetic isSupported(Lj$/time/temporal/TemporalUnit;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$isSupported(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalUnit;)Z
 
@@ -762,7 +762,7 @@
 .end method
 
 .method public synthetic minus(JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$minus(Lj$/time/chrono/ChronoZonedDateTime;JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/ChronoZonedDateTime;
 
@@ -772,7 +772,7 @@
 .end method
 
 .method public synthetic minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$minus(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoZonedDateTime;
 
@@ -782,7 +782,7 @@
 .end method
 
 .method public bridge synthetic minus(JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$minus(Lj$/time/chrono/ChronoZonedDateTime;JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
 
@@ -792,7 +792,7 @@
 .end method
 
 .method public bridge synthetic minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$minus(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
 
@@ -802,7 +802,7 @@
 .end method
 
 .method public plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 2
+    .registers 6
     .param p1, "amountToAdd"    # J
     .param p3, "unit"    # Lj$/time/temporal/TemporalUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -819,7 +819,7 @@
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
     instance-of v0, p3, Lj$/time/temporal/ChronoUnit;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 303
     iget-object v0, p0, Lj$/time/chrono/ChronoZonedDateTimeImpl;->dateTime:Lj$/time/chrono/ChronoLocalDateTimeImpl;
@@ -835,7 +835,7 @@
     return-object v0
 
     .line 305
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Lj$/time/chrono/ChronoZonedDateTimeImpl;->getChronology()Lj$/time/chrono/Chronology;
 
     move-result-object v0
@@ -852,7 +852,7 @@
 .end method
 
 .method public synthetic plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$plus(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoZonedDateTime;
 
@@ -862,7 +862,7 @@
 .end method
 
 .method public bridge synthetic plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
 
     .line 104
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
@@ -874,7 +874,7 @@
 .end method
 
 .method public bridge synthetic plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$plus(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
 
@@ -884,7 +884,7 @@
 .end method
 
 .method public synthetic query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$query(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
@@ -894,7 +894,7 @@
 .end method
 
 .method public synthetic range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$range(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
 
@@ -904,7 +904,7 @@
 .end method
 
 .method public synthetic toEpochSecond()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$toEpochSecond(Lj$/time/chrono/ChronoZonedDateTime;)J
 
@@ -914,7 +914,7 @@
 .end method
 
 .method public synthetic toInstant()Lj$/time/Instant;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$toInstant(Lj$/time/chrono/ChronoZonedDateTime;)Lj$/time/Instant;
 
@@ -924,7 +924,7 @@
 .end method
 
 .method public synthetic toLocalDate()Lj$/time/chrono/ChronoLocalDate;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$toLocalDate(Lj$/time/chrono/ChronoZonedDateTime;)Lj$/time/chrono/ChronoLocalDate;
 
@@ -934,7 +934,7 @@
 .end method
 
 .method public toLocalDateTime()Lj$/time/chrono/ChronoLocalDateTime;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -951,7 +951,7 @@
 .end method
 
 .method public synthetic toLocalTime()Lj$/time/LocalTime;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$toLocalTime(Lj$/time/chrono/ChronoZonedDateTime;)Lj$/time/LocalTime;
 
@@ -961,7 +961,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 383
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
@@ -1007,7 +1007,7 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_50
 
     .line 385
     invoke-virtual {p0}, Lj$/time/chrono/ChronoZonedDateTimeImpl;->getZone()Lj$/time/ZoneId;
@@ -1047,12 +1047,12 @@
     move-result-object v0
 
     .line 387
-    :cond_0
+    :cond_50
     return-object v0
 .end method
 
 .method public until(Lj$/time/temporal/Temporal;Lj$/time/temporal/TemporalUnit;)J
-    .locals 3
+    .registers 6
     .param p1, "endExclusive"    # Lj$/time/temporal/Temporal;
     .param p2, "unit"    # Lj$/time/temporal/TemporalUnit;
 
@@ -1075,7 +1075,7 @@
     .local v0, "end":Lj$/time/chrono/ChronoZonedDateTime;, "Ljava/time/chrono/ChronoZonedDateTime<TD;>;"
     instance-of v1, p2, Lj$/time/temporal/ChronoUnit;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     .line 315
     iget-object v1, p0, Lj$/time/chrono/ChronoZonedDateTimeImpl;->offset:Lj$/time/ZoneOffset;
@@ -1098,7 +1098,7 @@
     return-wide v1
 
     .line 318
-    :cond_0
+    :cond_22
     const-string v1, "unit"
 
     invoke-static {p2, v1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
@@ -1112,7 +1112,7 @@
 .end method
 
 .method public synthetic with(Lj$/time/temporal/TemporalAdjuster;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$with(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalAdjuster;)Lj$/time/chrono/ChronoZonedDateTime;
 
@@ -1122,7 +1122,7 @@
 .end method
 
 .method public with(Lj$/time/temporal/TemporalField;J)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 4
+    .registers 8
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "newValue"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -1139,7 +1139,7 @@
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_43
 
     .line 286
     move-object v0, p1
@@ -1156,7 +1156,7 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_50
 
     .line 294
     iget-object v1, p0, Lj$/time/chrono/ChronoZonedDateTimeImpl;->dateTime:Lj$/time/chrono/ChronoLocalDateTimeImpl;
@@ -1176,7 +1176,7 @@
     return-object v1
 
     .line 290
-    :pswitch_0
+    :pswitch_21
     invoke-virtual {v0, p2, p3}, Lj$/time/temporal/ChronoField;->checkValidIntValue(J)I
 
     move-result v1
@@ -1203,7 +1203,7 @@
 
     .line 288
     .end local v1    # "offset":Lj$/time/ZoneOffset;
-    :pswitch_1
+    :pswitch_36
     invoke-virtual {p0}, Lj$/time/chrono/ChronoZonedDateTimeImpl;->toEpochSecond()J
 
     move-result-wide v1
@@ -1220,7 +1220,7 @@
 
     .line 296
     .end local v0    # "f":Lj$/time/temporal/ChronoField;
-    :cond_0
+    :cond_43
     invoke-virtual {p0}, Lj$/time/chrono/ChronoZonedDateTimeImpl;->getChronology()Lj$/time/chrono/Chronology;
 
     move-result-object v0
@@ -1235,15 +1235,15 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_50
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_36
+        :pswitch_21
     .end packed-switch
 .end method
 
 .method public bridge synthetic with(Lj$/time/temporal/TemporalAdjuster;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/ChronoZonedDateTime$-CC;->$default$with(Lj$/time/chrono/ChronoZonedDateTime;Lj$/time/temporal/TemporalAdjuster;)Lj$/time/temporal/Temporal;
 
@@ -1253,7 +1253,7 @@
 .end method
 
 .method public bridge synthetic with(Lj$/time/temporal/TemporalField;J)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
 
     .line 104
     .local p0, "this":Lj$/time/chrono/ChronoZonedDateTimeImpl;, "Ljava/time/chrono/ChronoZonedDateTimeImpl<TD;>;"
@@ -1265,7 +1265,7 @@
 .end method
 
 .method public withEarlierOffsetAtOverlap()Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1294,13 +1294,13 @@
 
     .line 233
     .local v0, "trans":Lj$/time/zone/ZoneOffsetTransition;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     invoke-virtual {v0}, Lj$/time/zone/ZoneOffsetTransition;->isOverlap()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2e
 
     .line 234
     invoke-virtual {v0}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetBefore()Lj$/time/ZoneOffset;
@@ -1315,7 +1315,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2e
 
     .line 236
     new-instance v2, Lj$/time/chrono/ChronoZonedDateTimeImpl;
@@ -1330,12 +1330,12 @@
 
     .line 239
     .end local v1    # "earlierOffset":Lj$/time/ZoneOffset;
-    :cond_0
+    :cond_2e
     return-object p0
 .end method
 
 .method public withLaterOffsetAtOverlap()Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1364,7 +1364,7 @@
 
     .line 245
     .local v0, "trans":Lj$/time/zone/ZoneOffsetTransition;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     .line 246
     invoke-virtual {v0}, Lj$/time/zone/ZoneOffsetTransition;->getOffsetAfter()Lj$/time/ZoneOffset;
@@ -1381,7 +1381,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2a
 
     .line 248
     new-instance v2, Lj$/time/chrono/ChronoZonedDateTimeImpl;
@@ -1396,12 +1396,12 @@
 
     .line 251
     .end local v1    # "offset":Lj$/time/ZoneOffset;
-    :cond_0
+    :cond_2a
     return-object p0
 .end method
 
 .method public withZoneSameInstant(Lj$/time/ZoneId;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 2
+    .registers 4
     .param p1, "zone"    # Lj$/time/ZoneId;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1426,13 +1426,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lj$/time/chrono/ChronoZonedDateTimeImpl;->dateTime:Lj$/time/chrono/ChronoLocalDateTimeImpl;
 
     iget-object v1, p0, Lj$/time/chrono/ChronoZonedDateTimeImpl;->offset:Lj$/time/ZoneOffset;
@@ -1445,12 +1445,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1b
     return-object v0
 .end method
 
 .method public withZoneSameLocal(Lj$/time/ZoneId;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 2
+    .registers 4
     .param p1, "zone"    # Lj$/time/ZoneId;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1476,7 +1476,7 @@
 .end method
 
 .method writeExternal(Ljava/io/ObjectOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "out"    # Ljava/io/ObjectOutput;
 
     .line 351

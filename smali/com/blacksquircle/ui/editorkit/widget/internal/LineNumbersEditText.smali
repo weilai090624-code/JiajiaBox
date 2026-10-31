@@ -85,7 +85,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
 
     const-string v0, "context"
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
 
     const-string v0, "context"
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 2
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -193,27 +193,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 30
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 32
     const/4 p2, 0x0
 
     .line 30
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 33
     const p3, 0x101006b
 
     .line 30
-    :cond_1
+    :cond_c
     invoke-direct {p0, p1, p2, p3}, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 142
@@ -221,24 +221,24 @@
 .end method
 
 .method private final replaceText(IILjava/lang/CharSequence;)V
-    .locals 9
+    .registers 13
     .param p1, "newStart"    # I
     .param p2, "newEnd"    # I
     .param p3, "newText"    # Ljava/lang/CharSequence;
 
     .line 122
-    if-gez p1, :cond_0
+    if-gez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     move v0, p1
 
     .line 123
     .local v0, "start":I
-    :goto_0
+    :goto_5
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->structure:Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->getText()Ljava/lang/CharSequence;
@@ -249,7 +249,7 @@
 
     move-result v1
 
-    if-le p2, v1, :cond_1
+    if-le p2, v1, :cond_1c
 
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->structure:Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
@@ -261,14 +261,14 @@
 
     move-result v1
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     move v1, p2
 
     .line 124
     .local v1, "end":I
-    :goto_1
+    :goto_1d
     invoke-interface {p3}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
@@ -290,10 +290,10 @@
     move v4, v0
 
     .local v4, "i":I
-    :goto_2
+    :goto_2b
     const/16 v5, 0xa
 
-    if-ge v4, v1, :cond_3
+    if-ge v4, v1, :cond_43
 
     .line 127
     iget-object v6, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->structure:Lcom/blacksquircle/ui/language/base/model/TextStructure;
@@ -306,7 +306,7 @@
 
     move-result v6
 
-    if-ne v6, v5, :cond_2
+    if-ne v6, v5, :cond_40
 
     .line 128
     add-int/lit8 v5, v3, 0x1
@@ -314,14 +314,14 @@
     invoke-virtual {p0, v5}, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->removeLine(I)V
 
     .line 126
-    :cond_2
+    :cond_40
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_2b
 
     .line 131
     .end local v4    # "i":I
-    :cond_3
+    :cond_43
     iget-object v4, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->structure:Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
     iget-object v6, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->structure:Lcom/blacksquircle/ui/language/base/model/TextStructure;
@@ -342,15 +342,15 @@
 
     move-result v6
 
-    :goto_3
-    if-ge v4, v6, :cond_5
+    :goto_55
+    if-ge v4, v6, :cond_71
 
     .line 133
     invoke-interface {p3, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v7
 
-    if-ne v7, v5, :cond_4
+    if-ne v7, v5, :cond_6e
 
     .line 134
     iget-object v7, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->structure:Lcom/blacksquircle/ui/language/base/model/TextStructure;
@@ -370,14 +370,14 @@
     invoke-virtual {p0, v7, v8}, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->addLine(II)V
 
     .line 132
-    :cond_4
+    :cond_6e
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_55
 
     .line 137
     .end local v4    # "i":I
-    :cond_5
+    :cond_71
     iget-object v4, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->structure:Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
     invoke-virtual {v4}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->getText()Ljava/lang/CharSequence;
@@ -388,7 +388,7 @@
     .local v4, "editable":Ljava/lang/CharSequence;
     instance-of v5, v4, Landroid/text/Editable;
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_81
 
     .line 139
     move-object v5, v4
@@ -398,14 +398,14 @@
     invoke-interface {v5, v0, v1, p3}, Landroid/text/Editable;->replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
 
     .line 141
-    :cond_6
+    :cond_81
     return-void
 .end method
 
 
 # virtual methods
 .method protected addLine(II)V
-    .locals 1
+    .registers 4
     .param p1, "lineNumber"    # I
     .param p2, "lineStart"    # I
 
@@ -418,7 +418,7 @@
 .end method
 
 .method protected doAfterTextChanged(Landroid/text/Editable;)V
-    .locals 0
+    .registers 2
     .param p1, "text"    # Landroid/text/Editable;
 
     .line 97
@@ -426,7 +426,7 @@
 .end method
 
 .method protected doBeforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -445,14 +445,14 @@
 .end method
 
 .method protected doOnTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 5
+    .registers 10
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
     .param p4, "count"    # I
 
     .line 84
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     add-int v0, p2, p4
 
@@ -460,14 +460,14 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
-    :cond_0
+    :cond_a
     const-string v0, ""
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    :cond_1
+    :cond_e
     iput-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->textChangedNewText:Ljava/lang/CharSequence;
 
     .line 85
@@ -511,10 +511,10 @@
     move v2, v0
 
     .local v2, "currentLine":I
-    if-gt v2, v1, :cond_3
+    if-gt v2, v1, :cond_49
 
     .line 89
-    :goto_0
+    :goto_33
     iget-object v3, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->structure:Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
     invoke-virtual {v3, v2}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->getIndexForStartOfLine(I)I
@@ -531,7 +531,7 @@
 
     .line 91
     .local v4, "lineEnd":I
-    if-gt v3, v4, :cond_2
+    if-gt v3, v4, :cond_44
 
     .line 92
     invoke-virtual {p0, v2, v3, v4}, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->processLine(III)V
@@ -539,21 +539,21 @@
     .line 88
     .end local v3    # "lineStart":I
     .end local v4    # "lineEnd":I
-    :cond_2
-    if-eq v2, v1, :cond_3
+    :cond_44
+    if-eq v2, v1, :cond_49
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 95
     .end local v2    # "currentLine":I
-    :cond_3
+    :cond_49
     return-void
 .end method
 
 .method public final getSoftKeyboard()Z
-    .locals 1
+    .registers 2
 
     .line 36
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->softKeyboard:Z
@@ -562,7 +562,7 @@
 .end method
 
 .method public final getStructure()Lcom/blacksquircle/ui/language/base/model/TextStructure;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->structure:Lcom/blacksquircle/ui/language/base/model/TextStructure;
@@ -571,7 +571,7 @@
 .end method
 
 .method protected processLine(III)V
-    .locals 0
+    .registers 4
     .param p1, "lineNumber"    # I
     .param p2, "lineStart"    # I
     .param p3, "lineEnd"    # I
@@ -581,7 +581,7 @@
 .end method
 
 .method protected removeLine(I)V
-    .locals 1
+    .registers 3
     .param p1, "lineNumber"    # I
 
     .line 105
@@ -593,26 +593,26 @@
 .end method
 
 .method public final setSoftKeyboard(Z)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Z
 
     .line 38
     iput-boolean p1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->softKeyboard:Z
 
     .line 39
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     .line 40
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 42
-    :cond_0
+    :cond_6
     const/high16 v0, 0x10000000
 
     .line 39
-    :goto_0
+    :goto_8
     invoke-virtual {p0, v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->setImeOptions(I)V
 
     .line 44
@@ -620,7 +620,7 @@
 .end method
 
 .method public setTextContent(Ljava/lang/CharSequence;)V
-    .locals 4
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     const-string/jumbo v0, "text"
@@ -640,7 +640,7 @@
     .line 110
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_f
     invoke-virtual {p0, p1}, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 111
@@ -655,13 +655,13 @@
     move-result v1
 
     invoke-direct {p0, v0, v1, p1}, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->replaceText(IILjava/lang/CharSequence;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_f .. :try_end_1f} :catchall_20
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 112
-    :catchall_0
+    :catchall_20
     move-exception v1
 
     .line 113
@@ -713,7 +713,7 @@
 
     .line 118
     .end local v1    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_4d
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;->textWatcher:Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText$textWatcher$1;
 
     check-cast v0, Landroid/text/TextWatcher;

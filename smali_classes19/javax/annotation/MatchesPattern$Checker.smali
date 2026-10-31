@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic forConstantValue(Ljava/lang/annotation/Annotation;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 0
+    .registers 3
 
     .line 26
     check-cast p1, Ljavax/annotation/MatchesPattern;
@@ -52,7 +52,7 @@
 .end method
 
 .method public forConstantValue(Ljavax/annotation/MatchesPattern;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 2
+    .registers 5
     .param p1, "annotation"    # Ljavax/annotation/MatchesPattern;
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -83,7 +83,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 30
     sget-object v1, Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
@@ -91,7 +91,7 @@
     return-object v1
 
     .line 31
-    :cond_0
+    :cond_1c
     sget-object v1, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
 
     return-object v1

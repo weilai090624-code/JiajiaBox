@@ -48,7 +48,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$-U6geAkKUj-20kggK6CIEcpVkYg(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$AddHolder;->bind$lambda$0(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Landroid/view/View;)V
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
     .param p2, "binding"    # Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;
     .annotation system Ldalvik/annotation/Signature;
@@ -90,7 +90,7 @@
 .end method
 
 .method private static final bind$lambda$0(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
     .param p1, "it"    # Landroid/view/View;
 
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public final bind()V
-    .locals 3
+    .registers 4
 
     .line 242
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$AddHolder;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;
@@ -149,7 +149,7 @@
 .end method
 
 .method public final getBinding()Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;
-    .locals 1
+    .registers 2
 
     .line 239
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$AddHolder;->binding:Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;

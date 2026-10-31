@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/expandable/ExpandableWidget;)V
-    .locals 1
+    .registers 3
     .param p1, "widget"    # Lcom/google/android/material/expandable/ExpandableWidget;
 
     .line 40
@@ -39,7 +39,7 @@
 .end method
 
 .method private dispatchExpandedStateChanged()V
-    .locals 3
+    .registers 4
 
     .line 91
     iget-object v0, p0, Lcom/google/android/material/expandable/ExpandableWidgetHelper;->widget:Landroid/view/View;
@@ -52,7 +52,7 @@
     .local v0, "parent":Landroid/view/ViewParent;
     instance-of v1, v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 93
     move-object v1, v0
@@ -64,14 +64,14 @@
     invoke-virtual {v1, v2}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->dispatchDependentViewsChanged(Landroid/view/View;)V
 
     .line 95
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 
 # virtual methods
 .method public getExpandedComponentIdHint()I
-    .locals 1
+    .registers 2
 
     .line 87
     iget v0, p0, Lcom/google/android/material/expandable/ExpandableWidgetHelper;->expandedComponentIdHint:I
@@ -80,7 +80,7 @@
 .end method
 
 .method public isExpanded()Z
-    .locals 1
+    .registers 2
 
     .line 56
     iget-boolean v0, p0, Lcom/google/android/material/expandable/ExpandableWidgetHelper;->expanded:Z
@@ -89,7 +89,7 @@
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroid/os/Bundle;
 
     .line 71
@@ -115,18 +115,18 @@
     .line 74
     iget-boolean v0, p0, Lcom/google/android/material/expandable/ExpandableWidgetHelper;->expanded:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 75
     invoke-direct {p0}, Lcom/google/android/material/expandable/ExpandableWidgetHelper;->dispatchExpandedStateChanged()V
 
     .line 77
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 62
     new-instance v0, Landroid/os/Bundle;
@@ -153,13 +153,13 @@
 .end method
 
 .method public setExpanded(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "expanded"    # Z
 
     .line 46
     iget-boolean v0, p0, Lcom/google/android/material/expandable/ExpandableWidgetHelper;->expanded:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_b
 
     .line 47
     iput-boolean p1, p0, Lcom/google/android/material/expandable/ExpandableWidgetHelper;->expanded:Z
@@ -173,14 +173,14 @@
     return v0
 
     .line 51
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public setExpandedComponentIdHint(I)V
-    .locals 0
+    .registers 2
     .param p1, "expandedComponentIdHint"    # I
 
     .line 81

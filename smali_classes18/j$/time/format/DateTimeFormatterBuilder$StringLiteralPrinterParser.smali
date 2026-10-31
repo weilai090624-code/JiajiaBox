@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "literal"    # Ljava/lang/String;
 
     .line 2600
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 7
+    .registers 11
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -67,9 +67,9 @@
 
     .line 2613
     .local v0, "length":I
-    if-gt p3, v0, :cond_1
+    if-gt p3, v0, :cond_24
 
-    if-ltz p3, :cond_1
+    if-ltz p3, :cond_24
 
     .line 2616
     iget-object v4, p0, Lj$/time/format/DateTimeFormatterBuilder$StringLiteralPrinterParser;->literal:Ljava/lang/String;
@@ -92,7 +92,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     .line 2617
     not-int v1, p3
@@ -100,7 +100,7 @@
     return v1
 
     .line 2619
-    :cond_0
+    :cond_1c
     iget-object v1, p0, Lj$/time/format/DateTimeFormatterBuilder$StringLiteralPrinterParser;->literal:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -112,7 +112,7 @@
     return v1
 
     .line 2614
-    :cond_1
+    :cond_24
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -121,7 +121,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 2624
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$StringLiteralPrinterParser;->literal:Ljava/lang/String;

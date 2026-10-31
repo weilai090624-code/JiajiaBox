@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/MultiSelectListPreferenceDialogFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/MultiSelectListPreferenceDialogFragment;
 
     .line 119
@@ -37,13 +37,13 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;IZ)V
-    .locals 4
+    .registers 8
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "which"    # I
     .param p3, "isChecked"    # Z
 
     .line 122
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1c
 
     .line 123
     iget-object v0, p0, Landroidx/preference/MultiSelectListPreferenceDialogFragment$1;->this$0:Landroidx/preference/MultiSelectListPreferenceDialogFragment;
@@ -74,10 +74,10 @@
 
     iput-boolean v1, v0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mPreferenceChanged:Z
 
-    goto :goto_0
+    goto :goto_35
 
     .line 126
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Landroidx/preference/MultiSelectListPreferenceDialogFragment$1;->this$0:Landroidx/preference/MultiSelectListPreferenceDialogFragment;
 
     iget-boolean v1, v0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mPreferenceChanged:Z
@@ -107,6 +107,6 @@
     iput-boolean v1, v0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mPreferenceChanged:Z
 
     .line 129
-    :goto_0
+    :goto_35
     return-void
 .end method

@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public final accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p1, p2}, Lj$/util/stream/Node$OfDouble$-CC;->lambda$truncate$0(D)V
 
@@ -26,7 +26,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/DoubleConsumer$-CC;->$default$andThen(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
 

@@ -43,7 +43,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/database/StringCollectionConverter$Companion;-><init>()V
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final fromSet(Ljava/util/Set;)Ljava/lang/String;
-    .locals 10
+    .registers 12
     .param p1, "set"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -86,15 +86,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 31
     const-string v0, ""
 
-    goto :goto_0
+    goto :goto_22
 
     .line 33
-    :cond_0
+    :cond_e
     move-object v1, p1
 
     check-cast v1, Ljava/lang/Iterable;
@@ -124,12 +124,12 @@
     move-result-object v0
 
     .line 34
-    :goto_0
+    :goto_22
     return-object v0
 .end method
 
 .method public final toSet(Ljava/lang/String;)Ljava/util/Set;
-    .locals 7
+    .registers 9
     .param p1, "str"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -158,17 +158,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 39
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 41
-    :cond_0
+    :cond_13
     move-object v1, p1
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -198,6 +198,6 @@
     move-result-object v0
 
     .line 42
-    :goto_0
+    :goto_2a
     return-object v0
 .end method

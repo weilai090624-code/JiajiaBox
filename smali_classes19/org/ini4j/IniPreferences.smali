@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 33
     const/4 v0, 0x0
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/URL;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -118,7 +118,7 @@
 .end method
 
 .method public constructor <init>(Lorg/ini4j/Ini;)V
-    .locals 2
+    .registers 4
     .param p1, "ini"    # Lorg/ini4j/Ini;
 
     .line 45
@@ -136,7 +136,7 @@
 .end method
 
 .method static synthetic access$000()[Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 29
     sget-object v0, Lorg/ini4j/IniPreferences;->EMPTY:[Ljava/lang/String;
@@ -145,7 +145,7 @@
 .end method
 
 .method static synthetic access$100(Lorg/ini4j/IniPreferences;)Lorg/ini4j/Ini;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/ini4j/IniPreferences;
 
     .line 29
@@ -157,7 +157,7 @@
 
 # virtual methods
 .method protected bridge synthetic childSpi(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 29
@@ -169,7 +169,7 @@
 .end method
 
 .method protected childSpi(Ljava/lang/String;)Lorg/ini4j/IniPreferences$SectionPreferences;
-    .locals 3
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
 
     .line 151
@@ -183,19 +183,19 @@
 
     .line 152
     .local v0, "sec":Lorg/ini4j/Profile$Section;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
     .line 154
     .local v1, "isNew":Z
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_d
+    if-eqz v1, :cond_15
 
     .line 156
     iget-object v2, p0, Lorg/ini4j/IniPreferences;->_ini:Lorg/ini4j/Ini;
@@ -205,7 +205,7 @@
     move-result-object v0
 
     .line 159
-    :cond_1
+    :cond_15
     new-instance v2, Lorg/ini4j/IniPreferences$SectionPreferences;
 
     invoke-direct {v2, p0, p0, v0, v1}, Lorg/ini4j/IniPreferences$SectionPreferences;-><init>(Lorg/ini4j/IniPreferences;Ljava/util/prefs/AbstractPreferences;Lorg/ini4j/Profile$Section;Z)V
@@ -214,7 +214,7 @@
 .end method
 
 .method protected childrenNamesSpi()[Ljava/lang/String;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;
@@ -239,12 +239,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -264,19 +264,19 @@
 
     move-result v3
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_2a
 
     .line 136
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 138
     .end local v2    # "name":Ljava/lang/String;
-    :cond_0
-    goto :goto_0
+    :cond_2a
+    goto :goto_f
 
     .line 140
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_1
+    :cond_2b
     sget-object v1, Lorg/ini4j/IniPreferences;->EMPTY:[Ljava/lang/String;
 
     invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -289,7 +289,7 @@
 .end method
 
 .method protected flushSpi()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;
@@ -301,7 +301,7 @@
 .end method
 
 .method protected getIni()Lorg/ini4j/Ini;
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Lorg/ini4j/IniPreferences;->_ini:Lorg/ini4j/Ini;
@@ -310,7 +310,7 @@
 .end method
 
 .method protected getSpi(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -327,7 +327,7 @@
 .end method
 
 .method protected keysSpi()[Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;
@@ -341,7 +341,7 @@
 .end method
 
 .method protected putSpi(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -359,7 +359,7 @@
 .end method
 
 .method protected removeNodeSpi()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;,
@@ -376,7 +376,7 @@
 .end method
 
 .method protected removeSpi(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -393,7 +393,7 @@
 .end method
 
 .method protected syncSpi()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/prefs/BackingStoreException;

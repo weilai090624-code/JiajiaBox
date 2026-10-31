@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 208
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin$Companion;-><init>()V
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public static final synthetic access$getDp(Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin$Companion;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lcom/blacksquircle/ui/editorkit/plugin/linenumbers/LineNumbersPlugin$Companion;
     .param p1, "$receiver"    # I
 
@@ -71,7 +71,7 @@
 .end method
 
 .method private final getDp(I)I
-    .locals 2
+    .registers 4
     .param p1, "$this$dp"    # I
 
     .line 213

@@ -62,7 +62,7 @@
 
 # direct methods
 .method public static final asFlow(Ljava/lang/Iterable;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$asFlow"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -93,7 +93,7 @@
 .end method
 
 .method public static final asFlow(Ljava/util/Iterator;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$asFlow"    # Ljava/util/Iterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -124,7 +124,7 @@
 .end method
 
 .method public static final asFlow(Lkotlin/jvm/functions/Function0;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$asFlow"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -155,7 +155,7 @@
 .end method
 
 .method public static final asFlow(Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$asFlow"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,7 +190,7 @@
 .end method
 
 .method public static final asFlow(Lkotlin/ranges/IntRange;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$asFlow"    # Lkotlin/ranges/IntRange;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -220,7 +220,7 @@
 .end method
 
 .method public static final asFlow(Lkotlin/ranges/LongRange;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$asFlow"    # Lkotlin/ranges/LongRange;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -250,7 +250,7 @@
 .end method
 
 .method public static final asFlow(Lkotlin/sequences/Sequence;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$asFlow"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -281,7 +281,7 @@
 .end method
 
 .method public static final asFlow([I)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$asFlow"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -309,7 +309,7 @@
 .end method
 
 .method public static final asFlow([J)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$asFlow"    # [J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -337,7 +337,7 @@
 .end method
 
 .method public static final asFlow([Ljava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$asFlow"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -366,7 +366,7 @@
 .end method
 
 .method public static final callbackFlow(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 8
+    .registers 9
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -413,7 +413,7 @@
 .end method
 
 .method public static final channelFlow(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 8
+    .registers 9
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -460,7 +460,7 @@
 .end method
 
 .method public static final emptyFlow()Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -480,7 +480,7 @@
 .end method
 
 .method public static final flow(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -513,7 +513,7 @@
 .end method
 
 .method public static final flowOf(Ljava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -542,7 +542,7 @@
 .end method
 
 .method public static final varargs flowOf([Ljava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

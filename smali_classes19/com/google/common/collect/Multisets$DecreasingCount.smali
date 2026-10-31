@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1154
     new-instance v0, Lcom/google/common/collect/Multisets$DecreasingCount;
@@ -45,7 +45,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1153
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public compare(Lcom/google/common/collect/Multiset$Entry;Lcom/google/common/collect/Multiset$Entry;)I
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,7 +84,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 1153
     check-cast p1, Lcom/google/common/collect/Multiset$Entry;

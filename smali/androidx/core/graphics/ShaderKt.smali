@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final transform(Landroid/graphics/Shader;Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$transform"    # Landroid/graphics/Shader;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;

@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/pinchzoom/PinchZoomPlugin$Companion;
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 26
     const-string v0, "pinchzoom-0361"
@@ -116,7 +116,7 @@
 .end method
 
 .method private final getDistanceBetweenTouches(Landroid/view/MotionEvent;)F
-    .locals 4
+    .registers 6
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 62
@@ -166,7 +166,7 @@
 .end method
 
 .method private final updateTextSize(F)Z
-    .locals 4
+    .registers 6
     .param p1, "size"    # F
 
     .line 68
@@ -179,26 +179,26 @@
 
     cmpg-float v1, p1, v1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_d
 
     iget v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/pinchzoom/PinchZoomPlugin;->minTextSize:F
 
-    goto :goto_0
+    goto :goto_22
 
     .line 70
-    :cond_0
+    :cond_d
     iget v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/pinchzoom/PinchZoomPlugin;->maxTextSize:F
 
     cmpl-float v1, p1, v1
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_16
 
     iget v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/pinchzoom/PinchZoomPlugin;->maxTextSize:F
 
-    goto :goto_0
+    goto :goto_22
 
     .line 71
-    :cond_1
+    :cond_16
     const/4 v1, 0x2
 
     int-to-float v1, v1
@@ -216,7 +216,7 @@
     div-float v1, v2, v1
 
     .line 68
-    :goto_0
+    :goto_22
     invoke-virtual {v0, v1}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->setTextSize(F)V
 
     .line 73
@@ -228,7 +228,7 @@
 
 # virtual methods
 .method public final getMaxTextSize()F
-    .locals 1
+    .registers 2
 
     .line 29
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/pinchzoom/PinchZoomPlugin;->maxTextSize:F
@@ -237,7 +237,7 @@
 .end method
 
 .method public final getMinTextSize()F
-    .locals 1
+    .registers 2
 
     .line 28
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/pinchzoom/PinchZoomPlugin;->minTextSize:F
@@ -246,7 +246,7 @@
 .end method
 
 .method public onAttached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 2
+    .registers 4
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -268,7 +268,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 4
+    .registers 6
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     const-string v0, "event"
@@ -282,19 +282,19 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_4a
 
-    goto :goto_0
+    goto :goto_48
 
     .line 44
-    :pswitch_0
+    :pswitch_e
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v0
 
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_48
 
     .line 45
     invoke-direct {p0, p1}, Lcom/blacksquircle/ui/editorkit/plugin/pinchzoom/PinchZoomPlugin;->getDistanceBetweenTouches(Landroid/view/MotionEvent;)F
@@ -305,7 +305,7 @@
     .local v0, "distance":F
     iget-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/pinchzoom/PinchZoomPlugin;->isDoingPinchZoom:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_3d
 
     .line 48
     nop
@@ -355,7 +355,7 @@
     .line 54
     .end local v1    # "scaledDensity":F
     .end local v2    # "textSize":F
-    :cond_0
+    :cond_3d
     iget v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/pinchzoom/PinchZoomPlugin;->pinchFactor:F
 
     mul-float v1, v1, v0
@@ -368,26 +368,26 @@
 
     .line 42
     .end local v0    # "distance":F
-    :pswitch_1
+    :pswitch_46
     iput-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/pinchzoom/PinchZoomPlugin;->isDoingPinchZoom:Z
 
     .line 58
-    :cond_1
-    :goto_0
+    :cond_48
+    :goto_48
     return v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_46
+        :pswitch_e
+        :pswitch_46
     .end packed-switch
 .end method
 
 .method public final setMaxTextSize(F)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # F
 
     .line 29
@@ -397,7 +397,7 @@
 .end method
 
 .method public final setMinTextSize(F)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # F
 
     .line 28

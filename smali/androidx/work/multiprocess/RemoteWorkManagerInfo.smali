@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 41
     new-instance v0, Ljava/lang/Object;
@@ -34,7 +34,7 @@
 .end method
 
 .method private constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     .line 79
@@ -47,7 +47,7 @@
 
     .line 81
     .local v0, "instance":Landroidx/work/impl/WorkManagerImpl;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 83
     invoke-virtual {v0}, Landroidx/work/impl/WorkManagerImpl;->getConfiguration()Landroidx/work/Configuration;
@@ -63,10 +63,10 @@
 
     iput-object v1, p0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    goto :goto_1
+    goto :goto_48
 
     .line 86
-    :cond_0
+    :cond_16
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
@@ -75,7 +75,7 @@
     .local v1, "appContext":Landroid/content/Context;
     instance-of v2, v1, Landroidx/work/Configuration$Provider;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_28
 
     .line 88
     move-object v2, v1
@@ -92,10 +92,10 @@
 
     .line 90
     .end local v2    # "provider":Landroidx/work/Configuration$Provider;
-    goto :goto_0
+    goto :goto_3b
 
     .line 92
-    :cond_1
+    :cond_28
     new-instance v2, Landroidx/work/Configuration$Builder;
 
     invoke-direct {v2}, Landroidx/work/Configuration$Builder;-><init>()V
@@ -117,7 +117,7 @@
     iput-object v2, p0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->mConfiguration:Landroidx/work/Configuration;
 
     .line 96
-    :goto_0
+    :goto_3b
     new-instance v2, Landroidx/work/impl/utils/taskexecutor/WorkManagerTaskExecutor;
 
     iget-object v3, p0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->mConfiguration:Landroidx/work/Configuration;
@@ -132,7 +132,7 @@
 
     .line 98
     .end local v1    # "appContext":Landroid/content/Context;
-    :goto_1
+    :goto_48
     new-instance v1, Landroidx/work/multiprocess/RemoteProgressUpdater;
 
     invoke-direct {v1}, Landroidx/work/multiprocess/RemoteProgressUpdater;-><init>()V
@@ -151,7 +151,7 @@
 .end method
 
 .method public static clearInstance()V
-    .locals 2
+    .registers 2
 
     .line 73
     sget-object v0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->sLock:Ljava/lang/Object;
@@ -161,7 +161,7 @@
     .line 74
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_4
     sput-object v1, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->sInstance:Landroidx/work/multiprocess/RemoteWorkManagerInfo;
 
     .line 75
@@ -171,24 +171,24 @@
     return-void
 
     .line 75
-    :catchall_0
+    :catchall_8
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_4 .. :try_end_a} :catchall_8
 
     throw v1
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Landroidx/work/multiprocess/RemoteWorkManagerInfo;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 58
     sget-object v0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->sInstance:Landroidx/work/multiprocess/RemoteWorkManagerInfo;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     .line 59
     sget-object v0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->sLock:Ljava/lang/Object;
@@ -196,10 +196,10 @@
     monitor-enter v0
 
     .line 60
-    :try_start_0
+    :try_start_7
     sget-object v1, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->sInstance:Landroidx/work/multiprocess/RemoteWorkManagerInfo;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 61
     new-instance v1, Landroidx/work/multiprocess/RemoteWorkManagerInfo;
@@ -209,23 +209,23 @@
     sput-object v1, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->sInstance:Landroidx/work/multiprocess/RemoteWorkManagerInfo;
 
     .line 63
-    :cond_0
+    :cond_12
     monitor-exit v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :catchall_0
+    :catchall_14
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_7 .. :try_end_16} :catchall_14
 
     throw v1
 
     .line 65
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     sget-object v0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->sInstance:Landroidx/work/multiprocess/RemoteWorkManagerInfo;
 
     return-object v0
@@ -234,7 +234,7 @@
 
 # virtual methods
 .method public getConfiguration()Landroidx/work/Configuration;
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->mConfiguration:Landroidx/work/Configuration;
@@ -243,7 +243,7 @@
 .end method
 
 .method public getForegroundUpdater()Landroidx/work/ForegroundUpdater;
-    .locals 1
+    .registers 2
 
     .line 135
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->mForegroundUpdater:Landroidx/work/ForegroundUpdater;
@@ -252,7 +252,7 @@
 .end method
 
 .method public getProgressUpdater()Landroidx/work/ProgressUpdater;
-    .locals 1
+    .registers 2
 
     .line 126
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->mProgressUpdater:Landroidx/work/ProgressUpdater;
@@ -261,7 +261,7 @@
 .end method
 
 .method public getTaskExecutor()Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .locals 1
+    .registers 2
 
     .line 117
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteWorkManagerInfo;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;

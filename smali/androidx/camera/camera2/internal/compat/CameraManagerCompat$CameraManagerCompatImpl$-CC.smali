@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static from(Landroid/content/Context;Landroid/os/Handler;)Landroidx/camera/camera2/internal/compat/CameraManagerCompat$CameraManagerCompatImpl;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "compatHandler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -24,7 +24,7 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_c
 
     .line 262
     new-instance v0, Landroidx/camera/camera2/internal/compat/CameraManagerCompatApi29Impl;
@@ -34,12 +34,12 @@
     return-object v0
 
     .line 263
-    :cond_0
+    :cond_c
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_17
 
     .line 265
     invoke-static {p0}, Landroidx/camera/camera2/internal/compat/CameraManagerCompatApi28Impl;->create(Landroid/content/Context;)Landroidx/camera/camera2/internal/compat/CameraManagerCompatApi28Impl;
@@ -49,7 +49,7 @@
     return-object v0
 
     .line 268
-    :cond_1
+    :cond_17
     invoke-static {p0, p1}, Landroidx/camera/camera2/internal/compat/CameraManagerCompatBaseImpl;->create(Landroid/content/Context;Landroid/os/Handler;)Landroidx/camera/camera2/internal/compat/CameraManagerCompatBaseImpl;
 
     move-result-object v0

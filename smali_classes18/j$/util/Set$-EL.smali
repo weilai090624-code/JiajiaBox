@@ -5,11 +5,11 @@
 
 # direct methods
 .method public static synthetic spliterator(Ljava/util/Set;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     instance-of v0, p0, Lj$/util/Set;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/util/Set;
 
@@ -19,10 +19,10 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     instance-of v0, p0, Ljava/util/LinkedHashSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     check-cast p0, Ljava/util/LinkedHashSet;
 
@@ -32,10 +32,10 @@
 
     return-object p0
 
-    :cond_1
+    :cond_16
     instance-of v0, p0, Ljava/util/SortedSet;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     check-cast p0, Ljava/util/SortedSet;
 
@@ -45,7 +45,7 @@
 
     return-object p0
 
-    :cond_2
+    :cond_21
     invoke-static {p0}, Lj$/util/Set$-CC;->$default$spliterator(Ljava/util/Set;)Lj$/util/Spliterator;
 
     move-result-object p0

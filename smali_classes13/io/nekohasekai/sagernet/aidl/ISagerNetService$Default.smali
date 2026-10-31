@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 30
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method public getProfileName()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -53,7 +53,7 @@
 .end method
 
 .method public getState()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,7 +67,7 @@
 .end method
 
 .method public registerCallback(Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;I)V
-    .locals 0
+    .registers 3
     .param p1, "cb"    # Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
     .param p2, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -92,7 +92,7 @@
 .end method
 
 .method public unregisterCallback(Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "cb"    # Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -114,7 +114,7 @@
 .end method
 
 .method public urlTest()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

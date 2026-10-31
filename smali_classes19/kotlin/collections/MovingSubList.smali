@@ -72,7 +72,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "list"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -127,7 +127,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 80
     iget v0, p0, Lkotlin/collections/MovingSubList;->_size:I
@@ -136,7 +136,7 @@
 .end method
 
 .method public final move(II)V
-    .locals 2
+    .registers 5
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
 

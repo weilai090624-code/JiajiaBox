@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 12
     new-instance v0, Lkotlinx/coroutines/internal/Symbol;
@@ -84,7 +84,7 @@
 .end method
 
 .method public static final synthetic access$getUNDEFINED$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/internal/DispatchedContinuationKt;->UNDEFINED:Lkotlinx/coroutines/internal/Symbol;
@@ -93,7 +93,7 @@
 .end method
 
 .method private static final executeUnconfined(Lkotlinx/coroutines/internal/DispatchedContinuation;Ljava/lang/Object;IZLkotlin/jvm/functions/Function0;)Z
-    .locals 8
+    .registers 13
     .param p0, "$this$executeUnconfined"    # Lkotlinx/coroutines/internal/DispatchedContinuation;
     .param p1, "contState"    # Ljava/lang/Object;
     .param p2, "mode"    # I
@@ -124,7 +124,7 @@
 
     const/4 v3, 0x1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_19
 
     .line 421
     const/4 v1, 0x0
@@ -133,22 +133,22 @@
     .local v1, "$i$a$-assert-DispatchedContinuationKt$executeUnconfined$1":I
     const/4 v4, -0x1
 
-    if-eq p2, v4, :cond_0
+    if-eq p2, v4, :cond_f
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     .end local v1    # "$i$a$-assert-DispatchedContinuationKt$executeUnconfined$1":I
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_10
+    if-eqz v1, :cond_13
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_13
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
@@ -156,8 +156,8 @@
     throw v1
 
     .line 302
-    :cond_2
-    :goto_1
+    :cond_19
+    :goto_19
     sget-object v1, Lkotlinx/coroutines/ThreadLocalEventLoop;->INSTANCE:Lkotlinx/coroutines/ThreadLocalEventLoop;
 
     invoke-virtual {v1}, Lkotlinx/coroutines/ThreadLocalEventLoop;->getEventLoop$kotlinx_coroutines_core()Lkotlinx/coroutines/EventLoop;
@@ -166,23 +166,23 @@
 
     .line 304
     .local v1, "eventLoop":Lkotlinx/coroutines/EventLoop;
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_28
 
     invoke-virtual {v1}, Lkotlinx/coroutines/EventLoop;->isUnconfinedQueueEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_28
 
     return v2
 
     .line 305
-    :cond_3
+    :cond_28
     invoke-virtual {v1}, Lkotlinx/coroutines/EventLoop;->isUnconfinedLoopActive()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3a
 
     .line 307
     iput-object p1, p0, Lkotlinx/coroutines/internal/DispatchedContinuation;->_state:Ljava/lang/Object;
@@ -200,10 +200,10 @@
     .line 310
     const/4 v2, 0x1
 
-    goto :goto_3
+    goto :goto_58
 
     .line 313
-    :cond_4
+    :cond_3a
     move-object v4, p0
 
     check-cast v4, Lkotlinx/coroutines/DispatchedTask;
@@ -219,40 +219,40 @@
     nop
 
     .line 424
-    :try_start_0
+    :try_start_42
     invoke-interface {p4}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     .line 425
-    :cond_5
+    :cond_45
     nop
 
     .line 427
     invoke-virtual {v1}, Lkotlinx/coroutines/EventLoop;->processUnconfinedEvent()Z
 
     move-result v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_42 .. :try_end_4a} :catchall_4d
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_45
 
-    goto :goto_2
+    goto :goto_52
 
     .line 429
-    :catchall_0
+    :catchall_4d
     move-exception v6
 
     .line 434
     .local v6, "e$iv":Ljava/lang/Throwable;
     const/4 v7, 0x0
 
-    :try_start_1
+    :try_start_4f
     invoke-virtual {v4, v6, v7}, Lkotlinx/coroutines/DispatchedTask;->handleFatalException$kotlinx_coroutines_core(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_52
+    .catchall {:try_start_4f .. :try_end_52} :catchall_59
 
     .line 436
     .end local v6    # "e$iv":Ljava/lang/Throwable;
-    :goto_2
+    :goto_52
     invoke-virtual {v1, v3}, Lkotlinx/coroutines/EventLoop;->decrementUseCount(Z)V
 
     .line 437
@@ -267,13 +267,13 @@
     nop
 
     .line 305
-    :goto_3
+    :goto_58
     return v2
 
     .line 436
     .restart local v4    # "$this$runUnconfinedEventLoop$iv":Lkotlinx/coroutines/DispatchedTask;
     .restart local v5    # "$i$f$runUnconfinedEventLoop":I
-    :catchall_1
+    :catchall_59
     move-exception v2
 
     invoke-virtual {v1, v3}, Lkotlinx/coroutines/EventLoop;->decrementUseCount(Z)V
@@ -282,7 +282,7 @@
 .end method
 
 .method static synthetic executeUnconfined$default(Lkotlinx/coroutines/internal/DispatchedContinuation;Ljava/lang/Object;IZLkotlin/jvm/functions/Function0;ILjava/lang/Object;)Z
-    .locals 6
+    .registers 13
     .param p0, "$this$executeUnconfined_u24default"    # Lkotlinx/coroutines/internal/DispatchedContinuation;
     .param p1, "contState"    # Ljava/lang/Object;
     .param p2, "mode"    # I
@@ -292,13 +292,13 @@
     .line 297
     and-int/lit8 p5, p5, 0x4
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 298
     const/4 p3, 0x0
 
     .line 297
-    :cond_0
+    :cond_5
     const/4 p5, 0x0
 
     .line 301
@@ -311,7 +311,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz p6, :cond_3
+    if-eqz p6, :cond_1e
 
     .line 421
     const/4 p6, 0x0
@@ -320,22 +320,22 @@
     .local p6, "$i$a$-assert-DispatchedContinuationKt$executeUnconfined$1":I
     const/4 v2, -0x1
 
-    if-eq p2, v2, :cond_1
+    if-eq p2, v2, :cond_14
 
     const/4 p6, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 p6, 0x0
 
     .end local p6    # "$i$a$-assert-DispatchedContinuationKt$executeUnconfined$1":I
-    :goto_0
-    if-eqz p6, :cond_2
+    :goto_15
+    if-eqz p6, :cond_18
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_2
+    :cond_18
     new-instance p6, Ljava/lang/AssertionError;
 
     invoke-direct {p6}, Ljava/lang/AssertionError;-><init>()V
@@ -343,8 +343,8 @@
     throw p6
 
     .line 302
-    :cond_3
-    :goto_1
+    :cond_1e
+    :goto_1e
     sget-object p6, Lkotlinx/coroutines/ThreadLocalEventLoop;->INSTANCE:Lkotlinx/coroutines/ThreadLocalEventLoop;
 
     invoke-virtual {p6}, Lkotlinx/coroutines/ThreadLocalEventLoop;->getEventLoop$kotlinx_coroutines_core()Lkotlinx/coroutines/EventLoop;
@@ -353,23 +353,23 @@
 
     .line 304
     .local p6, "eventLoop":Lkotlinx/coroutines/EventLoop;
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_2d
 
     invoke-virtual {p6}, Lkotlinx/coroutines/EventLoop;->isUnconfinedQueueEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_2d
 
     return v0
 
     .line 305
-    :cond_4
+    :cond_2d
     invoke-virtual {p6}, Lkotlinx/coroutines/EventLoop;->isUnconfinedLoopActive()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_3f
 
     .line 307
     iput-object p1, p0, Lkotlinx/coroutines/internal/DispatchedContinuation;->_state:Ljava/lang/Object;
@@ -387,10 +387,10 @@
     .line 310
     const/4 v0, 0x1
 
-    goto :goto_3
+    goto :goto_5d
 
     .line 313
-    :cond_5
+    :cond_3f
     move-object v2, p0
 
     check-cast v2, Lkotlinx/coroutines/DispatchedTask;
@@ -406,40 +406,40 @@
     nop
 
     .line 424
-    :try_start_0
+    :try_start_47
     invoke-interface {p4}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     .line 425
-    :cond_6
+    :cond_4a
     nop
 
     .line 427
     invoke-virtual {p6}, Lkotlinx/coroutines/EventLoop;->processUnconfinedEvent()Z
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4f
+    .catchall {:try_start_47 .. :try_end_4f} :catchall_52
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_4a
 
-    goto :goto_2
+    goto :goto_57
 
     .line 429
-    :catchall_0
+    :catchall_52
     move-exception v4
 
     .line 434
     .local v4, "e$iv":Ljava/lang/Throwable;
     const/4 v5, 0x0
 
-    :try_start_1
+    :try_start_54
     invoke-virtual {v2, v4, v5}, Lkotlinx/coroutines/DispatchedTask;->handleFatalException$kotlinx_coroutines_core(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_57
+    .catchall {:try_start_54 .. :try_end_57} :catchall_5e
 
     .line 436
     .end local v4    # "e$iv":Ljava/lang/Throwable;
-    :goto_2
+    :goto_57
     invoke-virtual {p6, v1}, Lkotlinx/coroutines/EventLoop;->decrementUseCount(Z)V
 
     .line 437
@@ -454,13 +454,13 @@
     nop
 
     .line 305
-    :goto_3
+    :goto_5d
     return v0
 
     .line 436
     .restart local v2    # "$this$runUnconfinedEventLoop$iv":Lkotlinx/coroutines/DispatchedTask;
     .restart local v3    # "$i$f$runUnconfinedEventLoop":I
-    :catchall_1
+    :catchall_5e
     move-exception v0
 
     invoke-virtual {p6, v1}, Lkotlinx/coroutines/EventLoop;->decrementUseCount(Z)V
@@ -469,7 +469,7 @@
 .end method
 
 .method public static final resumeCancellableWith(Lkotlin/coroutines/Continuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
-    .locals 22
+    .registers 25
     .param p0, "$this$resumeCancellableWith"    # Lkotlin/coroutines/Continuation;
     .param p1, "result"    # Ljava/lang/Object;
     .param p2, "onCancellation"    # Lkotlin/jvm/functions/Function1;
@@ -495,7 +495,7 @@
     .line 282
     instance-of v0, v1, Lkotlinx/coroutines/internal/DispatchedContinuation;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_146
 
     move-object v2, v1
 
@@ -524,7 +524,7 @@
 
     const/4 v5, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
     .line 320
     iput-object v4, v2, Lkotlinx/coroutines/internal/DispatchedContinuation;->_state:Ljava/lang/Object;
@@ -551,10 +551,10 @@
 
     move/from16 v19, v3
 
-    goto/16 :goto_7
+    goto/16 :goto_13d
 
     .line 324
-    :cond_0
+    :cond_33
     const/4 v0, 0x1
 
     .local v0, "mode$iv$iv":I
@@ -581,7 +581,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_41
 
     .line 330
     const/4 v0, 0x0
@@ -592,7 +592,7 @@
 
     .line 331
     .end local v0    # "$i$a$-assert-DispatchedContinuationKt$executeUnconfined$1$iv$iv":I
-    :cond_1
+    :cond_41
     sget-object v0, Lkotlinx/coroutines/ThreadLocalEventLoop;->INSTANCE:Lkotlinx/coroutines/ThreadLocalEventLoop;
 
     invoke-virtual {v0}, Lkotlinx/coroutines/ThreadLocalEventLoop;->getEventLoop$kotlinx_coroutines_core()Lkotlinx/coroutines/EventLoop;
@@ -608,7 +608,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_60
 
     .line 336
     iput-object v4, v6, Lkotlinx/coroutines/internal/DispatchedContinuation;->_state:Ljava/lang/Object;
@@ -630,10 +630,10 @@
 
     move/from16 v19, v3
 
-    goto/16 :goto_6
+    goto/16 :goto_13c
 
     .line 342
-    :cond_2
+    :cond_60
     move-object v11, v6
 
     check-cast v11, Lkotlinx/coroutines/DispatchedTask;
@@ -660,7 +660,7 @@
 
     .line 347
     .local v14, "$i$f$resumeCancelled$kotlinx_coroutines_core":I
-    :try_start_0
+    :try_start_6b
     invoke-virtual {v0}, Lkotlinx/coroutines/internal/DispatchedContinuation;->getContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object v15
@@ -676,19 +676,19 @@
     move-result-object v5
 
     check-cast v5, Lkotlinx/coroutines/Job;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_6
+    :try_end_7b
+    .catchall {:try_start_6b .. :try_end_7b} :catchall_12a
 
     .line 348
     .local v5, "job$iv$iv":Lkotlinx/coroutines/Job;
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_ae
 
-    :try_start_1
+    :try_start_7d
     invoke-interface {v5}, Lkotlinx/coroutines/Job;->isActive()Z
 
     move-result v15
 
-    if-nez v15, :cond_3
+    if-nez v15, :cond_ae
 
     .line 349
     invoke-interface {v5}, Lkotlinx/coroutines/Job;->getCancellationException()Ljava/util/concurrent/CancellationException;
@@ -727,13 +727,13 @@
     move-result-object v0
 
     invoke-interface {v1, v0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_a3
+    .catchall {:try_start_7d .. :try_end_a3} :catchall_a5
 
     .line 352
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b1
 
     .line 377
     .end local v5    # "job$iv$iv":Lkotlinx/coroutines/Job;
@@ -741,7 +741,7 @@
     .end local v14    # "$i$f$resumeCancelled$kotlinx_coroutines_core":I
     .end local v15    # "cause$iv$iv":Ljava/util/concurrent/CancellationException;
     .end local v17    # "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
-    :catchall_0
+    :catchall_a5
     move-exception v0
 
     move-object/from16 v1, p1
@@ -750,14 +750,14 @@
 
     move/from16 v19, v3
 
-    goto/16 :goto_4
+    goto/16 :goto_131
 
     .line 348
     .restart local v0    # "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .restart local v5    # "job$iv$iv":Lkotlinx/coroutines/Job;
     .restart local v13    # "$i$a$-executeUnconfined$default-DispatchedContinuation$resumeCancellableWith$1$iv":I
     .restart local v14    # "$i$f$resumeCancelled$kotlinx_coroutines_core":I
-    :cond_3
+    :cond_ae
     move-object/from16 v17, v0
 
     .line 354
@@ -769,8 +769,8 @@
     .end local v5    # "job$iv$iv":Lkotlinx/coroutines/Job;
     .end local v14    # "$i$f$resumeCancelled$kotlinx_coroutines_core":I
     .end local v17    # "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
-    :goto_0
-    if-nez v0, :cond_9
+    :goto_b1
+    if-nez v0, :cond_118
 
     .line 355
     move-object v1, v2
@@ -780,7 +780,7 @@
 
     .line 356
     .local v5, "$i$f$resumeUndispatchedWith$kotlinx_coroutines_core":I
-    :try_start_2
+    :try_start_b5
     iget-object v0, v1, Lkotlinx/coroutines/internal/DispatchedContinuation;->continuation:Lkotlin/coroutines/Continuation;
 
     iget-object v14, v1, Lkotlinx/coroutines/internal/DispatchedContinuation;->countOrElement:Ljava/lang/Object;
@@ -796,8 +796,8 @@
     invoke-interface {v15}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_6
+    :try_end_c0
+    .catchall {:try_start_b5 .. :try_end_c0} :catchall_12a
 
     move-object/from16 v17, v0
 
@@ -810,7 +810,7 @@
     .end local v17    # "context$iv$iv$iv":Lkotlin/coroutines/CoroutineContext;
     .local v2, "context$iv$iv$iv":Lkotlin/coroutines/CoroutineContext;
     .local v18, "this_$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
-    :try_start_3
+    :try_start_c6
     invoke-static {v2, v14}, Lkotlinx/coroutines/internal/ThreadContextKt;->updateThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -820,8 +820,8 @@
     .line 359
     .local v17, "oldValue$iv$iv$iv":Ljava/lang/Object;
     sget-object v0, Lkotlinx/coroutines/internal/ThreadContextKt;->NO_THREAD_ELEMENTS:Lkotlinx/coroutines/internal/Symbol;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_4
+    :try_end_ce
+    .catchall {:try_start_c6 .. :try_end_ce} :catchall_112
 
     move/from16 v19, v3
 
@@ -830,17 +830,17 @@
     .end local v17    # "oldValue$iv$iv$iv":Ljava/lang/Object;
     .local v3, "oldValue$iv$iv$iv":Ljava/lang/Object;
     .local v19, "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
-    if-eq v3, v0, :cond_4
+    if-eq v3, v0, :cond_dd
 
     .line 361
-    :try_start_4
+    :try_start_d4
     invoke-static {v15, v2, v3}, Lkotlinx/coroutines/CoroutineContextKt;->updateUndispatchedCompletion(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)Lkotlinx/coroutines/UndispatchedCoroutine;
 
     move-result-object v0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_d8
+    .catchall {:try_start_d4 .. :try_end_d8} :catchall_d9
 
-    goto :goto_1
+    goto :goto_de
 
     .line 377
     .end local v1    # "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
@@ -851,12 +851,12 @@
     .end local v14    # "countOrElement$iv$iv$iv":Ljava/lang/Object;
     .end local v15    # "continuation$iv$iv$iv":Lkotlin/coroutines/Continuation;
     .end local v16    # "$i$f$withContinuationContext":I
-    :catchall_1
+    :catchall_d9
     move-exception v0
 
     move-object/from16 v1, p1
 
-    goto :goto_4
+    goto :goto_131
 
     .line 363
     .restart local v1    # "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
@@ -867,11 +867,11 @@
     .restart local v14    # "countOrElement$iv$iv$iv":Ljava/lang/Object;
     .restart local v15    # "continuation$iv$iv$iv":Lkotlin/coroutines/Continuation;
     .restart local v16    # "$i$f$withContinuationContext":I
-    :cond_4
+    :cond_dd
     const/4 v0, 0x0
 
     .line 359
-    :goto_1
+    :goto_de
     move-object/from16 v17, v0
 
     .line 365
@@ -887,10 +887,10 @@
 
     .end local v0    # "$i$a$-withContinuationContext-DispatchedContinuation$resumeUndispatchedWith$1$iv$iv":I
     .local v20, "$i$a$-withContinuationContext-DispatchedContinuation$resumeUndispatchedWith$1$iv$iv":I
-    :try_start_5
+    :try_start_e4
     iget-object v0, v1, Lkotlinx/coroutines/internal/DispatchedContinuation;->continuation:Lkotlin/coroutines/Continuation;
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_e6
+    .catchall {:try_start_e4 .. :try_end_e6} :catchall_100
 
     move-object/from16 v21, v1
 
@@ -898,7 +898,7 @@
 
     .end local v1    # "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .local v21, "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
-    :try_start_6
+    :try_start_ea
     invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 368
@@ -906,28 +906,28 @@
 
     .end local v20    # "$i$a$-withContinuationContext-DispatchedContinuation$resumeUndispatchedWith$1$iv$iv":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+    :try_end_f0
+    .catchall {:try_start_ea .. :try_end_f0} :catchall_fe
 
     .line 366
     nop
 
     .line 369
-    if-eqz v17, :cond_5
+    if-eqz v17, :cond_f9
 
-    :try_start_7
+    :try_start_f3
     invoke-virtual/range {v17 .. v17}, Lkotlinx/coroutines/UndispatchedCoroutine;->clearThreadContext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_fc
 
     .line 370
-    :cond_5
+    :cond_f9
     invoke-static {v2, v3}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
     .line 366
-    :cond_6
+    :cond_fc
     nop
 
     .line 371
@@ -937,7 +937,7 @@
     .end local v15    # "continuation$iv$iv$iv":Lkotlin/coroutines/Continuation;
     .end local v16    # "$i$f$withContinuationContext":I
     .end local v17    # "undispatchedCompletion$iv$iv$iv":Lkotlinx/coroutines/UndispatchedCoroutine;
-    goto :goto_3
+    goto :goto_11e
 
     .line 369
     .restart local v2    # "context$iv$iv$iv":Lkotlin/coroutines/CoroutineContext;
@@ -946,14 +946,14 @@
     .restart local v15    # "continuation$iv$iv$iv":Lkotlin/coroutines/Continuation;
     .restart local v16    # "$i$f$withContinuationContext":I
     .restart local v17    # "undispatchedCompletion$iv$iv$iv":Lkotlinx/coroutines/UndispatchedCoroutine;
-    :catchall_2
+    :catchall_fe
     move-exception v0
 
-    goto :goto_2
+    goto :goto_105
 
     .end local v21    # "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .restart local v1    # "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
-    :catchall_3
+    :catchall_100
     move-exception v0
 
     move-object/from16 v21, v1
@@ -962,20 +962,20 @@
 
     .end local v1    # "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .restart local v21    # "this_$iv$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
-    :goto_2
-    if-eqz v17, :cond_7
+    :goto_105
+    if-eqz v17, :cond_10d
 
     invoke-virtual/range {v17 .. v17}, Lkotlinx/coroutines/UndispatchedCoroutine;->clearThreadContext()Z
 
     move-result v20
 
-    if-eqz v20, :cond_8
+    if-eqz v20, :cond_110
 
     .line 370
-    :cond_7
+    :cond_10d
     invoke-static {v2, v3}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
-    :cond_8
+    :cond_110
     nop
 
     .end local v4    # "state$iv":Ljava/lang/Object;
@@ -1015,7 +1015,7 @@
     .restart local p0    # "$this$resumeCancellableWith":Lkotlin/coroutines/Continuation;
     .restart local p1    # "result":Ljava/lang/Object;
     .restart local p2    # "onCancellation":Lkotlin/jvm/functions/Function1;
-    :catchall_4
+    :catchall_112
     move-exception v0
 
     move-object/from16 v1, p1
@@ -1024,7 +1024,7 @@
 
     .end local v3    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
     .restart local v19    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
-    goto :goto_4
+    goto :goto_131
 
     .line 346
     .end local v18    # "this_$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
@@ -1032,7 +1032,7 @@
     .local v2, "this_$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .restart local v3    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
     .restart local v13    # "$i$a$-executeUnconfined$default-DispatchedContinuation$resumeCancellableWith$1$iv":I
-    :cond_9
+    :cond_118
     move-object/from16 v1, p1
 
     move-object/from16 v18, v2
@@ -1044,7 +1044,7 @@
     .end local v3    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
     .restart local v18    # "this_$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .restart local v19    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
-    :goto_3
+    :goto_11e
     nop
 
     .line 345
@@ -1052,31 +1052,31 @@
     nop
 
     .line 373
-    :cond_a
+    :cond_120
     nop
 
     .line 375
     invoke-virtual {v10}, Lkotlinx/coroutines/EventLoop;->processUnconfinedEvent()Z
 
     move-result v0
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_5
+    :try_end_125
+    .catchall {:try_start_f3 .. :try_end_125} :catchall_128
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_120
 
-    goto :goto_5
+    goto :goto_135
 
     .line 377
-    :catchall_5
+    :catchall_128
     move-exception v0
 
-    goto :goto_4
+    goto :goto_131
 
     .end local v18    # "this_$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .end local v19    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
     .restart local v2    # "this_$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .restart local v3    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
-    :catchall_6
+    :catchall_12a
     move-exception v0
 
     move-object/from16 v1, p1
@@ -1091,17 +1091,17 @@
     .local v0, "e$iv$iv$iv":Ljava/lang/Throwable;
     .restart local v18    # "this_$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .restart local v19    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
-    :goto_4
+    :goto_131
     const/4 v2, 0x0
 
-    :try_start_8
+    :try_start_132
     invoke-virtual {v11, v0, v2}, Lkotlinx/coroutines/DispatchedTask;->handleFatalException$kotlinx_coroutines_core(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_7
+    :try_end_135
+    .catchall {:try_start_132 .. :try_end_135} :catchall_13f
 
     .line 384
     .end local v0    # "e$iv$iv$iv":Ljava/lang/Throwable;
-    :goto_5
+    :goto_135
     const/4 v2, 0x1
 
     invoke-virtual {v10, v2}, Lkotlinx/coroutines/EventLoop;->decrementUseCount(Z)V
@@ -1118,7 +1118,7 @@
     nop
 
     .line 334
-    :goto_6
+    :goto_13c
     nop
 
     .line 388
@@ -1127,13 +1127,13 @@
     .end local v8    # "doYield$iv$iv":Z
     .end local v9    # "$i$f$executeUnconfined":I
     .end local v10    # "eventLoop$iv$iv":Lkotlinx/coroutines/EventLoop;
-    :goto_7
+    :goto_13d
     nop
 
     .end local v4    # "state$iv":Ljava/lang/Object;
     .end local v18    # "this_$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .end local v19    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
-    goto :goto_8
+    goto :goto_14b
 
     .line 384
     .restart local v4    # "state$iv":Ljava/lang/Object;
@@ -1146,7 +1146,7 @@
     .restart local v12    # "$i$f$runUnconfinedEventLoop":I
     .restart local v18    # "this_$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .restart local v19    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
-    :catchall_7
+    :catchall_13f
     move-exception v0
 
     move-object v2, v0
@@ -1168,36 +1168,36 @@
     .end local v12    # "$i$f$runUnconfinedEventLoop":I
     .end local v18    # "this_$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .end local v19    # "$i$f$resumeCancellableWith$kotlinx_coroutines_core":I
-    :cond_b
+    :cond_146
     move-object/from16 v1, p1
 
     invoke-interface/range {p0 .. p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 284
-    :goto_8
+    :goto_14b
     return-void
 .end method
 
 .method public static synthetic resumeCancellableWith$default(Lkotlin/coroutines/Continuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 278
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 280
     const/4 p2, 0x0
 
     .line 278
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/internal/DispatchedContinuationKt;->resumeCancellableWith(Lkotlin/coroutines/Continuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
 
     return-void
 .end method
 
 .method public static final yieldUndispatched(Lkotlinx/coroutines/internal/DispatchedContinuation;)Z
-    .locals 12
+    .registers 13
     .param p0, "$this$yieldUndispatched"    # Lkotlinx/coroutines/internal/DispatchedContinuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1230,7 +1230,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_e
 
     .line 390
     const/4 v5, 0x0
@@ -1241,7 +1241,7 @@
 
     .line 391
     .end local v5    # "$i$a$-assert-DispatchedContinuationKt$executeUnconfined$1$iv":I
-    :cond_0
+    :cond_e
     sget-object v5, Lkotlinx/coroutines/ThreadLocalEventLoop;->INSTANCE:Lkotlinx/coroutines/ThreadLocalEventLoop;
 
     invoke-virtual {v5}, Lkotlinx/coroutines/ThreadLocalEventLoop;->getEventLoop$kotlinx_coroutines_core()Lkotlinx/coroutines/EventLoop;
@@ -1256,19 +1256,19 @@
 
     const/4 v7, 0x0
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_1c
 
-    goto :goto_2
+    goto :goto_51
 
     .line 394
-    :cond_1
+    :cond_1c
     invoke-virtual {v5}, Lkotlinx/coroutines/EventLoop;->isUnconfinedLoopActive()Z
 
     move-result v6
 
     const/4 v8, 0x1
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_2f
 
     .line 396
     iput-object v0, v3, Lkotlinx/coroutines/internal/DispatchedContinuation;->_state:Ljava/lang/Object;
@@ -1286,10 +1286,10 @@
     .line 399
     const/4 v7, 0x1
 
-    goto :goto_1
+    goto :goto_50
 
     .line 402
-    :cond_2
+    :cond_2f
     move-object v6, v3
 
     check-cast v6, Lkotlinx/coroutines/DispatchedTask;
@@ -1309,7 +1309,7 @@
 
     .line 288
     .local v10, "$i$a$-executeUnconfined-DispatchedContinuationKt$yieldUndispatched$1":I
-    :try_start_0
+    :try_start_38
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/DispatchedContinuation;->run()V
 
     .line 289
@@ -1320,36 +1320,36 @@
     nop
 
     .line 406
-    :cond_3
+    :cond_3d
     nop
 
     .line 408
     invoke-virtual {v5}, Lkotlinx/coroutines/EventLoop;->processUnconfinedEvent()Z
 
     move-result v10
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_42
+    .catchall {:try_start_38 .. :try_end_42} :catchall_45
 
-    if-nez v10, :cond_3
+    if-nez v10, :cond_3d
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 410
-    :catchall_0
+    :catchall_45
     move-exception v10
 
     .line 415
     .local v10, "e$iv$iv":Ljava/lang/Throwable;
     const/4 v11, 0x0
 
-    :try_start_1
+    :try_start_47
     invoke-virtual {v6, v10, v11}, Lkotlinx/coroutines/DispatchedTask;->handleFatalException$kotlinx_coroutines_core(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_4a
+    .catchall {:try_start_47 .. :try_end_4a} :catchall_52
 
     .line 417
     .end local v10    # "e$iv$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_4a
     invoke-virtual {v5, v8}, Lkotlinx/coroutines/EventLoop;->decrementUseCount(Z)V
 
     .line 418
@@ -1364,7 +1364,7 @@
     nop
 
     .line 394
-    :goto_1
+    :goto_50
     nop
 
     .line 289
@@ -1374,7 +1374,7 @@
     .end local v3    # "$this$executeUnconfined$iv":Lkotlinx/coroutines/internal/DispatchedContinuation;
     .end local v4    # "$i$f$executeUnconfined":I
     .end local v5    # "eventLoop$iv":Lkotlinx/coroutines/EventLoop;
-    :goto_2
+    :goto_51
     return v7
 
     .line 417
@@ -1386,7 +1386,7 @@
     .restart local v5    # "eventLoop$iv":Lkotlinx/coroutines/EventLoop;
     .restart local v6    # "$this$runUnconfinedEventLoop$iv$iv":Lkotlinx/coroutines/DispatchedTask;
     .restart local v9    # "$i$f$runUnconfinedEventLoop":I
-    :catchall_1
+    :catchall_52
     move-exception v7
 
     invoke-virtual {v5, v8}, Lkotlinx/coroutines/EventLoop;->decrementUseCount(Z)V

@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 45
     const-class v0, Landroidx/core/text/util/LocalePreferences;
@@ -58,7 +58,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 624
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 .end method
 
 .method private static getBaseFirstDayOfWeek(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 543
@@ -92,7 +92,7 @@
 .end method
 
 .method private static getBaseHourCycle(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 531
@@ -113,21 +113,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     const-string v1, "h23"
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-string v1, "h12"
 
-    :goto_0
+    :goto_14
     return-object v1
 .end method
 
 .method public static getCalendarType()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 216
     const/4 v0, 0x1
@@ -140,7 +140,7 @@
 .end method
 
 .method public static getCalendarType(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 227
@@ -154,7 +154,7 @@
 .end method
 
 .method public static getCalendarType(Ljava/util/Locale;Z)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "locale"    # Ljava/util/Locale;
     .param p1, "resolved"    # Z
 
@@ -169,18 +169,18 @@
 
     .line 275
     .local v0, "result":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 276
     return-object v0
 
     .line 278
-    :cond_0
+    :cond_b
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x18
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_16
 
     .line 279
     invoke-static {p0}, Landroidx/core/text/util/LocalePreferences$Api24Impl;->getCalendarType(Ljava/util/Locale;)Ljava/lang/String;
@@ -190,17 +190,17 @@
     return-object v1
 
     .line 281
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_16
+    if-eqz p1, :cond_1a
 
     const-string v1, "gregorian"
 
-    :cond_2
+    :cond_1a
     return-object v1
 .end method
 
 .method public static getCalendarType(Z)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "resolved"    # Z
 
     .line 250
@@ -208,22 +208,22 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 251
     invoke-static {}, Landroidx/core/text/util/LocalePreferences$Api24Impl;->getDefaultLocale()Ljava/util/Locale;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 252
-    :cond_0
+    :cond_b
     invoke-static {}, Landroidx/core/text/util/LocalePreferences;->getDefaultLocale()Ljava/util/Locale;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     nop
 
     .line 253
@@ -236,7 +236,7 @@
 .end method
 
 .method private static getDefaultLocale()Ljava/util/Locale;
-    .locals 1
+    .registers 1
 
     .line 560
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -247,7 +247,7 @@
 .end method
 
 .method public static getFirstDayOfWeek()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 439
     const/4 v0, 0x1
@@ -260,7 +260,7 @@
 .end method
 
 .method public static getFirstDayOfWeek(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 450
@@ -274,7 +274,7 @@
 .end method
 
 .method public static getFirstDayOfWeek(Ljava/util/Locale;Z)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "locale"    # Ljava/util/Locale;
     .param p1, "resolved"    # Z
 
@@ -289,23 +289,23 @@
 
     .line 501
     .local v0, "result":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     invoke-static {p0}, Landroidx/core/text/util/LocalePreferences;->getBaseFirstDayOfWeek(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public static getFirstDayOfWeek(Z)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "resolved"    # Z
 
     .line 473
@@ -313,22 +313,22 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 474
     invoke-static {}, Landroidx/core/text/util/LocalePreferences$Api24Impl;->getDefaultLocale()Ljava/util/Locale;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 475
-    :cond_0
+    :cond_b
     invoke-static {}, Landroidx/core/text/util/LocalePreferences;->getDefaultLocale()Ljava/util/Locale;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     nop
 
     .line 476
@@ -341,7 +341,7 @@
 .end method
 
 .method public static getHourCycle()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 87
     const/4 v0, 0x1
@@ -354,7 +354,7 @@
 .end method
 
 .method public static getHourCycle(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 98
@@ -368,7 +368,7 @@
 .end method
 
 .method public static getHourCycle(Ljava/util/Locale;Z)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "locale"    # Ljava/util/Locale;
     .param p1, "resolved"    # Z
 
@@ -383,18 +383,18 @@
 
     .line 146
     .local v0, "result":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 147
     return-object v0
 
     .line 149
-    :cond_0
+    :cond_b
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x21
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_16
 
     .line 150
     invoke-static {p0}, Landroidx/core/text/util/LocalePreferences$Api33Impl;->getHourCycle(Ljava/util/Locale;)Ljava/lang/String;
@@ -404,7 +404,7 @@
     return-object v1
 
     .line 152
-    :cond_1
+    :cond_16
     invoke-static {p0}, Landroidx/core/text/util/LocalePreferences;->getBaseHourCycle(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v1
@@ -413,7 +413,7 @@
 .end method
 
 .method public static getHourCycle(Z)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "resolved"    # Z
 
     .line 121
@@ -421,22 +421,22 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 122
     invoke-static {}, Landroidx/core/text/util/LocalePreferences$Api24Impl;->getDefaultLocale()Ljava/util/Locale;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 123
-    :cond_0
+    :cond_b
     invoke-static {}, Landroidx/core/text/util/LocalePreferences;->getDefaultLocale()Ljava/util/Locale;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     nop
 
     .line 124
@@ -449,7 +449,7 @@
 .end method
 
 .method private static getStringOfFirstDayOfWeek(I)Ljava/lang/String;
-    .locals 7
+    .registers 8
     .param p0, "fw"    # I
 
     .line 548
@@ -475,27 +475,27 @@
     .local v0, "arrDays":[Ljava/lang/String;
     const/4 v1, 0x1
 
-    if-lt p0, v1, :cond_0
+    if-lt p0, v1, :cond_21
 
     const/4 v1, 0x7
 
-    if-gt p0, v1, :cond_0
+    if-gt p0, v1, :cond_21
 
     add-int/lit8 v1, p0, -0x1
 
     aget-object v1, v0, v1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_21
     const-string v1, ""
 
-    :goto_0
+    :goto_23
     return-object v1
 .end method
 
 .method private static getTemperatureHardCoded(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 524
@@ -509,24 +509,24 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_f
 
     .line 525
     const-string v0, "fahrenhe"
 
-    goto :goto_0
+    goto :goto_11
 
     .line 526
-    :cond_0
+    :cond_f
     const-string v0, "celsius"
 
     .line 524
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 .method public static getTemperatureUnit()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 321
     const/4 v0, 0x1
@@ -539,7 +539,7 @@
 .end method
 
 .method public static getTemperatureUnit(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 332
@@ -553,7 +553,7 @@
 .end method
 
 .method public static getTemperatureUnit(Ljava/util/Locale;Z)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "locale"    # Ljava/util/Locale;
     .param p1, "resolved"    # Z
 
@@ -568,18 +568,18 @@
 
     .line 381
     .local v0, "result":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 382
     return-object v0
 
     .line 384
-    :cond_0
+    :cond_b
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x21
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_16
 
     .line 385
     invoke-static {p0}, Landroidx/core/text/util/LocalePreferences$Api33Impl;->getResolvedTemperatureUnit(Ljava/util/Locale;)Ljava/lang/String;
@@ -589,7 +589,7 @@
     return-object v1
 
     .line 387
-    :cond_1
+    :cond_16
     invoke-static {p0}, Landroidx/core/text/util/LocalePreferences;->getTemperatureHardCoded(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v1
@@ -598,7 +598,7 @@
 .end method
 
 .method public static getTemperatureUnit(Z)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "resolved"    # Z
 
     .line 355
@@ -606,22 +606,22 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 356
     invoke-static {}, Landroidx/core/text/util/LocalePreferences$Api24Impl;->getDefaultLocale()Ljava/util/Locale;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 357
-    :cond_0
+    :cond_b
     invoke-static {}, Landroidx/core/text/util/LocalePreferences;->getDefaultLocale()Ljava/util/Locale;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     nop
 
     .line 358
@@ -634,7 +634,7 @@
 .end method
 
 .method private static getUnicodeLocaleType(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;Z)Ljava/lang/String;
-    .locals 2
+    .registers 6
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "defaultValue"    # Ljava/lang/String;
     .param p2, "locale"    # Ljava/util/Locale;
@@ -647,20 +647,20 @@
 
     .line 507
     .local v0, "ext":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 508
     return-object v0
 
     .line 510
-    :cond_0
-    if-nez p3, :cond_1
+    :cond_7
+    if-nez p3, :cond_a
 
     .line 511
     return-object p1
 
     .line 513
-    :cond_1
+    :cond_a
     const/4 v1, 0x0
 
     return-object v1

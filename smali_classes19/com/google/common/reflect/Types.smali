@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 60
     new-instance v0, Lcom/google/common/reflect/Types$1;
@@ -66,7 +66,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 697
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 .end method
 
 .method static synthetic access$100([Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # [Ljava/lang/reflect/Type;
 
     .line 57
@@ -87,7 +87,7 @@
 .end method
 
 .method static synthetic access$200([Ljava/lang/reflect/Type;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # [Ljava/lang/reflect/Type;
     .param p1, "x1"    # Ljava/lang/String;
 
@@ -98,7 +98,7 @@
 .end method
 
 .method static synthetic access$300(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/util/Collection;
 
     .line 57
@@ -110,7 +110,7 @@
 .end method
 
 .method static synthetic access$400()Lcom/google/common/base/Function;
-    .locals 1
+    .registers 1
 
     .line 57
     sget-object v0, Lcom/google/common/reflect/Types;->TYPE_NAME:Lcom/google/common/base/Function;
@@ -119,7 +119,7 @@
 .end method
 
 .method static synthetic access$500()Lcom/google/common/base/Joiner;
-    .locals 1
+    .registers 1
 
     .line 57
     sget-object v0, Lcom/google/common/reflect/Types;->COMMA_JOINER:Lcom/google/common/base/Joiner;
@@ -128,7 +128,7 @@
 .end method
 
 .method static synthetic access$700(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/lang/Iterable;
 
     .line 57
@@ -140,7 +140,7 @@
 .end method
 
 .method private static disallowPrimitiveType([Ljava/lang/reflect/Type;Ljava/lang/String;)V
-    .locals 6
+    .registers 8
     .param p0, "types"    # [Ljava/lang/reflect/Type;
     .param p1, "usedAs"    # Ljava/lang/String;
 
@@ -149,8 +149,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_2
+    if-ge v1, v0, :cond_1b
 
     aget-object v2, p0, v1
 
@@ -158,7 +158,7 @@
     .local v2, "type":Ljava/lang/reflect/Type;
     instance-of v3, v2, Ljava/lang/Class;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
     .line 541
     move-object v3, v2
@@ -180,18 +180,18 @@
     .line 539
     .end local v2    # "type":Ljava/lang/reflect/Type;
     .end local v3    # "cls":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_0
+    :cond_18
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 545
-    :cond_1
+    :cond_1b
     return-void
 .end method
 
 .method private static filterUpperBounds(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -224,7 +224,7 @@
 .end method
 
 .method static getArrayClass(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -251,7 +251,7 @@
 .end method
 
 .method static getComponentType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 4
+    .registers 5
     .param p0, "type"    # Ljava/lang/reflect/Type;
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -292,13 +292,13 @@
 .end method
 
 .method static newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 6
+    .registers 7
     .param p0, "componentType"    # Ljava/lang/reflect/Type;
 
     .line 72
     instance-of v0, p0, Ljava/lang/reflect/WildcardType;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3f
 
     .line 73
     move-object v0, p0
@@ -319,16 +319,16 @@
 
     const/4 v4, 0x1
 
-    if-gt v2, v4, :cond_0
+    if-gt v2, v4, :cond_12
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_13
     const-string v5, "Wildcard cannot have more than one lower bounds."
 
     invoke-static {v2, v5}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -336,7 +336,7 @@
     .line 76
     array-length v2, v1
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_26
 
     .line 77
     aget-object v2, v1, v3
@@ -352,7 +352,7 @@
     return-object v2
 
     .line 79
-    :cond_1
+    :cond_26
     invoke-interface {v0}, Ljava/lang/reflect/WildcardType;->getUpperBounds()[Ljava/lang/reflect/Type;
 
     move-result-object v2
@@ -361,14 +361,14 @@
     .local v2, "upperBounds":[Ljava/lang/reflect/Type;
     array-length v5, v2
 
-    if-ne v5, v4, :cond_2
+    if-ne v5, v4, :cond_2e
 
-    goto :goto_1
+    goto :goto_2f
 
-    :cond_2
+    :cond_2e
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_2f
     const-string v5, "Wildcard should have only one upper bound."
 
     invoke-static {v4, v5}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -390,7 +390,7 @@
     .end local v0    # "wildcard":Ljava/lang/reflect/WildcardType;
     .end local v1    # "lowerBounds":[Ljava/lang/reflect/Type;
     .end local v2    # "upperBounds":[Ljava/lang/reflect/Type;
-    :cond_3
+    :cond_3f
     sget-object v0, Lcom/google/common/reflect/Types$JavaVersion;->CURRENT:Lcom/google/common/reflect/Types$JavaVersion;
 
     invoke-virtual {v0, p0}, Lcom/google/common/reflect/Types$JavaVersion;->newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
@@ -401,7 +401,7 @@
 .end method
 
 .method static varargs newArtificialTypeVariable(Ljava/lang/reflect/GenericDeclaration;Ljava/lang/String;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/TypeVariable;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "bounds"    # [Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
@@ -425,7 +425,7 @@
     .line 156
     array-length v0, p2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x1
 
@@ -437,13 +437,13 @@
 
     aput-object v2, v0, v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v0, p2
 
     .line 155
-    :goto_0
+    :goto_e
     invoke-static {p0, p1, v0}, Lcom/google/common/reflect/Types;->newTypeVariableImpl(Ljava/lang/reflect/GenericDeclaration;Ljava/lang/String;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/TypeVariable;
 
     move-result-object v0
@@ -452,7 +452,7 @@
 .end method
 
 .method static varargs newParameterizedType(Ljava/lang/Class;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;
-    .locals 2
+    .registers 4
     .param p1, "arguments"    # [Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -483,7 +483,7 @@
 .end method
 
 .method static varargs newParameterizedTypeWithOwner(Ljava/lang/reflect/Type;Ljava/lang/Class;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;
-    .locals 2
+    .registers 5
     .param p0, "ownerType"    # Ljava/lang/reflect/Type;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -503,7 +503,7 @@
 
     .line 93
     .local p1, "rawType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     .line 94
     invoke-static {p1, p2}, Lcom/google/common/reflect/Types;->newParameterizedType(Ljava/lang/Class;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;
@@ -513,7 +513,7 @@
     return-object v0
 
     .line 97
-    :cond_0
+    :cond_7
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 98
@@ -521,16 +521,16 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     const-string v1, "Owner type for unenclosed %s"
 
     invoke-static {v0, v1, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -544,7 +544,7 @@
 .end method
 
 .method private static newTypeVariableImpl(Ljava/lang/reflect/GenericDeclaration;Ljava/lang/String;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/TypeVariable;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "bounds"    # [Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
@@ -588,7 +588,7 @@
 .end method
 
 .method static subtypeOf(Ljava/lang/reflect/Type;)Ljava/lang/reflect/WildcardType;
-    .locals 4
+    .registers 5
     .param p0, "upperBound"    # Ljava/lang/reflect/Type;
 
     .line 162
@@ -610,7 +610,7 @@
 .end method
 
 .method private static subtypeOfComponentType([Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 4
+    .registers 5
     .param p0, "bounds"    # [Ljava/lang/reflect/Type;
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -620,8 +620,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_2
+    if-ge v1, v0, :cond_22
 
     aget-object v2, p0, v1
 
@@ -633,12 +633,12 @@
 
     .line 216
     .local v3, "componentType":Ljava/lang/reflect/Type;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1f
 
     .line 219
     instance-of v0, v3, Ljava/lang/Class;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 220
     move-object v0, v3
@@ -651,14 +651,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 222
     return-object v0
 
     .line 225
     .end local v0    # "componentClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_0
+    :cond_1a
     invoke-static {v3}, Lcom/google/common/reflect/Types;->subtypeOf(Ljava/lang/reflect/Type;)Ljava/lang/reflect/WildcardType;
 
     move-result-object v0
@@ -668,20 +668,20 @@
     .line 214
     .end local v2    # "bound":Ljava/lang/reflect/Type;
     .end local v3    # "componentType":Ljava/lang/reflect/Type;
-    :cond_1
+    :cond_1f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 228
-    :cond_2
+    :cond_22
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method static supertypeOf(Ljava/lang/reflect/Type;)Ljava/lang/reflect/WildcardType;
-    .locals 5
+    .registers 6
     .param p0, "lowerBound"    # Ljava/lang/reflect/Type;
 
     .line 168
@@ -707,7 +707,7 @@
 .end method
 
 .method private static toArray(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -734,13 +734,13 @@
 .end method
 
 .method static toString(Ljava/lang/reflect/Type;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "type"    # Ljava/lang/reflect/Type;
 
     .line 177
     instance-of v0, p0, Ljava/lang/Class;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v0, p0
 
@@ -750,13 +750,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     return-object v0
 .end method

@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 241
     new-instance v0, Lkotlinx/coroutines/internal/Symbol;
@@ -81,7 +81,7 @@
 .end method
 
 .method public static final MutableStateFlow(Ljava/lang/Object;)Lkotlinx/coroutines/flow/MutableStateFlow;
-    .locals 2
+    .registers 3
     .param p0, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -96,16 +96,16 @@
     .line 187
     new-instance v0, Lkotlinx/coroutines/flow/StateFlowImpl;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     sget-object v1, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     move-object v1, p0
 
-    :goto_0
+    :goto_8
     invoke-direct {v0, v1}, Lkotlinx/coroutines/flow/StateFlowImpl;-><init>(Ljava/lang/Object;)V
 
     check-cast v0, Lkotlinx/coroutines/flow/MutableStateFlow;
@@ -114,7 +114,7 @@
 .end method
 
 .method public static final synthetic access$getNONE$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/flow/StateFlowKt;->NONE:Lkotlinx/coroutines/internal/Symbol;
@@ -123,7 +123,7 @@
 .end method
 
 .method public static final synthetic access$getPENDING$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/flow/StateFlowKt;->PENDING:Lkotlinx/coroutines/internal/Symbol;
@@ -132,7 +132,7 @@
 .end method
 
 .method public static final fuseStateFlow(Lkotlinx/coroutines/flow/StateFlow;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 8
     .param p0, "$this$fuseStateFlow"    # Lkotlinx/coroutines/flow/StateFlow;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
@@ -162,7 +162,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_18
 
     .line 429
     const/4 v0, 0x0
@@ -171,22 +171,22 @@
     .local v0, "$i$a$-assert-StateFlowKt$fuseStateFlow$1":I
     const/4 v3, -0x1
 
-    if-eq p2, v3, :cond_0
+    if-eq p2, v3, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     .end local v0    # "$i$a$-assert-StateFlowKt$fuseStateFlow$1":I
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_12
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_12
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -194,30 +194,30 @@
     throw v0
 
     .line 423
-    :cond_2
-    :goto_1
-    if-ltz p2, :cond_3
+    :cond_18
+    :goto_18
+    if-ltz p2, :cond_1e
 
     const/4 v0, 0x2
 
-    if-ge p2, v0, :cond_3
+    if-ge p2, v0, :cond_1e
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_3
+    :cond_1e
     const/4 v1, 0x0
 
-    :goto_2
-    if-nez v1, :cond_4
+    :goto_1f
+    if-nez v1, :cond_24
 
     const/4 v0, -0x2
 
-    if-ne p2, v0, :cond_5
+    if-ne p2, v0, :cond_2c
 
-    :cond_4
+    :cond_24
     sget-object v0, Lkotlinx/coroutines/channels/BufferOverflow;->DROP_OLDEST:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne p3, v0, :cond_5
+    if-ne p3, v0, :cond_2c
 
     .line 424
     move-object v0, p0
@@ -227,7 +227,7 @@
     return-object v0
 
     .line 426
-    :cond_5
+    :cond_2c
     move-object v0, p0
 
     check-cast v0, Lkotlinx/coroutines/flow/SharedFlow;
@@ -240,7 +240,7 @@
 .end method
 
 .method public static final getAndUpdate(Lkotlinx/coroutines/flow/MutableStateFlow;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$getAndUpdate"    # Lkotlinx/coroutines/flow/MutableStateFlow;
     .param p1, "function"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -259,7 +259,7 @@
 
     .line 214
     .local v0, "$i$f$getAndUpdate":I
-    :cond_0
+    :cond_1
     nop
 
     .line 215
@@ -279,14 +279,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     .line 218
     return-object v1
 .end method
 
 .method public static final update(Lkotlinx/coroutines/flow/MutableStateFlow;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p0, "$this$update"    # Lkotlinx/coroutines/flow/MutableStateFlow;
     .param p1, "function"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -305,7 +305,7 @@
 
     .line 230
     .local v0, "$i$f$update":I
-    :cond_0
+    :cond_1
     nop
 
     .line 231
@@ -325,14 +325,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     .line 234
     return-void
 .end method
 
 .method public static final updateAndGet(Lkotlinx/coroutines/flow/MutableStateFlow;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$updateAndGet"    # Lkotlinx/coroutines/flow/MutableStateFlow;
     .param p1, "function"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -351,7 +351,7 @@
 
     .line 198
     .local v0, "$i$f$updateAndGet":I
-    :cond_0
+    :cond_1
     nop
 
     .line 199
@@ -371,7 +371,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     .line 202
     return-object v2

@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>([Lkotlinx/coroutines/flow/Flow;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 238
     invoke-virtual {p0}, Lkotlinx/coroutines/flow/FlowKt__ZipKt$combine$5$1;->invoke()[Ljava/lang/Object;
@@ -96,7 +96,7 @@
 .end method
 
 .method public final invoke()[Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()[TT;"

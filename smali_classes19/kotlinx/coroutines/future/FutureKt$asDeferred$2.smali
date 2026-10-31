@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/CompletableDeferred;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
@@ -119,63 +119,63 @@
     nop
 
     .line 132
-    if-nez p2, :cond_0
+    if-nez p2, :cond_a
 
     .line 134
-    :try_start_0
+    :try_start_3
     iget-object v0, p0, Lkotlinx/coroutines/future/FutureKt$asDeferred$2;->$result:Lkotlinx/coroutines/CompletableDeferred;
 
     invoke-interface {v0, p1}, Lkotlinx/coroutines/CompletableDeferred;->complete(Ljava/lang/Object;)Z
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_22
 
     .line 138
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lkotlinx/coroutines/future/FutureKt$asDeferred$2;->$result:Lkotlinx/coroutines/CompletableDeferred;
 
     instance-of v1, p2, Ljava/util/concurrent/CompletionException;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     move-object v1, p2
 
     check-cast v1, Ljava/util/concurrent/CompletionException;
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_2
+    :goto_15
+    if-eqz v1, :cond_1d
 
     invoke-virtual {v1}, Ljava/util/concurrent/CompletionException;->getCause()Ljava/lang/Throwable;
 
     move-result-object v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_1e
 
-    :cond_2
+    :cond_1d
     move-object v1, p2
 
-    :cond_3
+    :cond_1e
     invoke-interface {v0, v1}, Lkotlinx/coroutines/CompletableDeferred;->completeExceptionally(Ljava/lang/Throwable;)Z
 
     move-result v0
 
-    :goto_1
+    :goto_22
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_3 .. :try_end_26} :catchall_27
 
-    goto :goto_2
+    goto :goto_32
 
     .line 140
-    :catchall_0
+    :catchall_27
     move-exception v0
 
     .line 142
@@ -192,6 +192,6 @@
 
     .line 131
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_2
+    :goto_32
     return-object v0
 .end method

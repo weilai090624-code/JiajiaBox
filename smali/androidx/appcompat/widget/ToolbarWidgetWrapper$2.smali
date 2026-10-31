@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ToolbarWidgetWrapper;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/appcompat/widget/ToolbarWidgetWrapper;
 
     .line 572
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 589
@@ -58,13 +58,13 @@
 .end method
 
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 582
     iget-boolean v0, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;->mCanceled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 583
     iget-object v0, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;->this$0:Landroidx/appcompat/widget/ToolbarWidgetWrapper;
@@ -76,12 +76,12 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/Toolbar;->setVisibility(I)V
 
     .line 585
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 577

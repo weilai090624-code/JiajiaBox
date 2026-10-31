@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/SearchView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/widget/SearchView;
 
     .line 1436
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 1
+    .registers 7
     .param p2, "view"    # Landroid/view/View;
     .param p3, "position"    # I
     .param p4, "id"    # J
@@ -62,7 +62,7 @@
 .end method
 
 .method public onNothingSelected(Landroid/widget/AdapterView;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractMultimap;
 
     .line 181
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 199
     .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Values;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Values;"
@@ -55,7 +55,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -73,7 +73,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -94,7 +94,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 189
     .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Values;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Values;"

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>([ILandroid/animation/ValueAnimator;)V
-    .locals 0
+    .registers 3
     .param p1, "specs"    # [I
     .param p2, "animator"    # Landroid/animation/ValueAnimator;
 

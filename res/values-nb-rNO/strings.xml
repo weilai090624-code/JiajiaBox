@@ -306,7 +306,7 @@
     <string name="show_system_apps">Vis systemprogrammer</string>
     <string name="sni">Servernavn indikasjon</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"Proxy： %1$s↑ %2$s↓ 
+    <string name="speed_detail">"Proxy： %1$s↑ %2$s↓ 
 Direkte： %3$s↑ %4$s↓"</string>
     <string name="speed_interval">Oppdateringsintervall for hastighetsvarsling</string>
     <string name="ss_cat">Innstillinger for Shadowsocks</string>
@@ -334,7 +334,7 @@ Direkte： %3$s↑ %4$s↓"</string>
     <string name="theme">Drakt</string>
     <string name="tile_title">Bytter</string>
     <string name="tls">Bruk TLS</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="traffic_sniffing">Aktiver trafikksniff</string>
     <string name="translate_platform">Oversettelsesplattform</string>
     <string name="transproxy_mode">Transproxy -modus</string>

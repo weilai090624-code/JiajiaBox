@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/AbstractIdleService;)V
-    .locals 0
+    .registers 2
 
     .line 41
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractIdleService$ThreadNameSupplier;->this$0:Lcom/google/common/util/concurrent/AbstractIdleService;
@@ -43,7 +43,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractIdleService;Lcom/google/common/util/concurrent/AbstractIdleService$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/util/concurrent/AbstractIdleService;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/AbstractIdleService$1;
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 40
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractIdleService$ThreadNameSupplier;->get()Ljava/lang/String;
@@ -67,7 +67,7 @@
 .end method
 
 .method public get()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 44
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractIdleService$ThreadNameSupplier;->this$0:Lcom/google/common/util/concurrent/AbstractIdleService;

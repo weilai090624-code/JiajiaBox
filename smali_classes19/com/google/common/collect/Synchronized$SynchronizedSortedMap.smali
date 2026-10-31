@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/SortedMap;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -83,7 +83,7 @@
     monitor-enter v0
 
     .line 1153
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v1
@@ -97,18 +97,18 @@
     return-object v1
 
     .line 1154
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1137
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
@@ -120,7 +120,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 1137
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
@@ -132,7 +132,7 @@
 .end method
 
 .method delegate()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -153,7 +153,7 @@
 .end method
 
 .method public firstKey()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -167,7 +167,7 @@
     monitor-enter v0
 
     .line 1160
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v1
@@ -181,18 +181,18 @@
     return-object v1
 
     .line 1161
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -209,7 +209,7 @@
     monitor-enter v0
 
     .line 1167
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v1
@@ -229,18 +229,18 @@
     return-object v1
 
     .line 1168
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public lastKey()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -254,7 +254,7 @@
     monitor-enter v0
 
     .line 1174
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v1
@@ -268,18 +268,18 @@
     return-object v1
 
     .line 1175
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TK;)",
@@ -297,7 +297,7 @@
     monitor-enter v0
 
     .line 1181
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v1
@@ -317,18 +317,18 @@
     return-object v1
 
     .line 1182
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -345,7 +345,7 @@
     monitor-enter v0
 
     .line 1188
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v1
@@ -365,12 +365,12 @@
     return-object v1
 
     .line 1189
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method

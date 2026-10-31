@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;ZLorg/yaml/snakeyaml/DumperOptions$Version;Ljava/util/Map;)V
-    .locals 0
+    .registers 6
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p2, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "explicit"    # Z
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public getEventId()Lorg/yaml/snakeyaml/events/Event$ID;
-    .locals 1
+    .registers 2
 
     .line 70
     sget-object v0, Lorg/yaml/snakeyaml/events/Event$ID;->DocumentStart:Lorg/yaml/snakeyaml/events/Event$ID;
@@ -70,7 +70,7 @@
 .end method
 
 .method public getExplicit()Z
-    .locals 1
+    .registers 2
 
     .line 43
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/events/DocumentStartEvent;->explicit:Z
@@ -79,7 +79,7 @@
 .end method
 
 .method public getTags()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -97,7 +97,7 @@
 .end method
 
 .method public getVersion()Lorg/yaml/snakeyaml/DumperOptions$Version;
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/DocumentStartEvent;->version:Lorg/yaml/snakeyaml/DumperOptions$Version;

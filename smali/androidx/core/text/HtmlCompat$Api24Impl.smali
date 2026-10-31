@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 186
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
-    .locals 1
+    .registers 3
     .param p0, "source"    # Ljava/lang/String;
     .param p1, "flags"    # I
 
@@ -39,7 +39,7 @@
 .end method
 
 .method static fromHtml(Ljava/lang/String;ILandroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
-    .locals 1
+    .registers 5
     .param p0, "source"    # Ljava/lang/String;
     .param p1, "flags"    # I
     .param p2, "imageGetter"    # Landroid/text/Html$ImageGetter;
@@ -54,7 +54,7 @@
 .end method
 
 .method static toHtml(Landroid/text/Spanned;I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "text"    # Landroid/text/Spanned;
     .param p1, "option"    # I
 

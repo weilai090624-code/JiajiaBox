@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/DirtyTextPlugin$Companion;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 24
     const-string v0, "dirty-text-9124"
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 1
+    .registers 3
     .param p1, "text"    # Landroid/text/Editable;
 
     .line 41
@@ -99,22 +99,22 @@
     .line 42
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/DirtyTextPlugin;->isDirty:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 43
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/DirtyTextPlugin;->onChangeListener:Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-interface {v0}, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;->onContentChanged()V
 
     .line 45
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public final getOnChangeListener()Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/DirtyTextPlugin;->onChangeListener:Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;
@@ -123,7 +123,7 @@
 .end method
 
 .method public onAttached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 2
+    .registers 4
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -145,7 +145,7 @@
 .end method
 
 .method public onDetached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 1
+    .registers 3
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -165,7 +165,7 @@
 .end method
 
 .method public final setOnChangeListener(Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;
 
     .line 26
@@ -175,7 +175,7 @@
 .end method
 
 .method public setTextContent(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     const-string/jumbo v0, "text"

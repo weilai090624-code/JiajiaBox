@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     invoke-direct {p0}, Landroidx/lifecycle/EmptyActivityLifecycleCallbacks;-><init>()V
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public onActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 

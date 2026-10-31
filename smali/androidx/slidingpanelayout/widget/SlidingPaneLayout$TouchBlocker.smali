@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 1818
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onGenericMotionEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 1829
@@ -46,7 +46,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 1824

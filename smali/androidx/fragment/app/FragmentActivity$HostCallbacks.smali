@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/FragmentActivity;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentActivity;
 
     .line 585
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public addMenuProvider(Landroidx/core/view/MenuProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "provider"    # Landroidx/core/view/MenuProvider;
 
     .line 736
@@ -79,7 +79,7 @@
 .end method
 
 .method public addMenuProvider(Landroidx/core/view/MenuProvider;Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 4
     .param p1, "provider"    # Landroidx/core/view/MenuProvider;
     .param p2, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public addMenuProvider(Landroidx/core/view/MenuProvider;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;)V
-    .locals 1
+    .registers 5
     .param p1, "provider"    # Landroidx/core/view/MenuProvider;
     .param p2, "owner"    # Landroidx/lifecycle/LifecycleOwner;
     .param p3, "state"    # Landroidx/lifecycle/Lifecycle$State;
@@ -108,7 +108,7 @@
 .end method
 
 .method public addOnConfigurationChangedListener(Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -129,7 +129,7 @@
 .end method
 
 .method public addOnMultiWindowModeChangedListener(Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -150,7 +150,7 @@
 .end method
 
 .method public addOnPictureInPictureModeChangedListener(Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -171,7 +171,7 @@
 .end method
 
 .method public addOnTrimMemoryListener(Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -192,7 +192,7 @@
 .end method
 
 .method public getActivityResultRegistry()Landroidx/activity/result/ActivityResultRegistry;
-    .locals 1
+    .registers 2
 
     .line 677
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -205,7 +205,7 @@
 .end method
 
 .method public getLifecycle()Landroidx/lifecycle/Lifecycle;
-    .locals 1
+    .registers 2
 
     .line 596
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -216,7 +216,7 @@
 .end method
 
 .method public getOnBackPressedDispatcher()Landroidx/activity/OnBackPressedDispatcher;
-    .locals 1
+    .registers 2
 
     .line 608
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -229,7 +229,7 @@
 .end method
 
 .method public getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
-    .locals 1
+    .registers 2
 
     .line 683
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -242,7 +242,7 @@
 .end method
 
 .method public getViewModelStore()Landroidx/lifecycle/ViewModelStore;
-    .locals 1
+    .registers 2
 
     .line 602
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -255,7 +255,7 @@
 .end method
 
 .method public invalidateMenu()V
-    .locals 1
+    .registers 2
 
     .line 757
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -267,7 +267,7 @@
 .end method
 
 .method public onAttachFragment(Landroidx/fragment/app/FragmentManager;Landroidx/fragment/app/Fragment;)V
-    .locals 1
+    .registers 4
     .param p1, "fragmentManager"    # Landroidx/fragment/app/FragmentManager;
     .param p2, "fragment"    # Landroidx/fragment/app/Fragment;
 
@@ -281,7 +281,7 @@
 .end method
 
 .method public onDump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 1
+    .registers 6
     .param p1, "prefix"    # Ljava/lang/String;
     .param p2, "fd"    # Ljava/io/FileDescriptor;
     .param p3, "writer"    # Ljava/io/PrintWriter;
@@ -297,7 +297,7 @@
 .end method
 
 .method public onFindViewById(I)Landroid/view/View;
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 665
@@ -311,7 +311,7 @@
 .end method
 
 .method public onGetHost()Landroidx/fragment/app/FragmentActivity;
-    .locals 1
+    .registers 2
 
     .line 630
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -320,7 +320,7 @@
 .end method
 
 .method public bridge synthetic onGetHost()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 573
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->onGetHost()Landroidx/fragment/app/FragmentActivity;
@@ -331,7 +331,7 @@
 .end method
 
 .method public onGetLayoutInflater()Landroid/view/LayoutInflater;
-    .locals 2
+    .registers 3
 
     .line 625
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -350,7 +350,7 @@
 .end method
 
 .method public onGetWindowAnimations()I
-    .locals 2
+    .registers 3
 
     .line 651
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -361,25 +361,25 @@
 
     .line 652
     .local v0, "w":Landroid/view/Window;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v1
 
     iget v1, v1, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    :goto_0
+    :goto_10
     return v1
 .end method
 
 .method public onHasView()Z
-    .locals 2
+    .registers 3
 
     .line 670
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -390,27 +390,27 @@
 
     .line 671
     .local v0, "w":Landroid/view/Window;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Landroid/view/Window;->peekDecorView()Landroid/view/View;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     return v1
 .end method
 
 .method public onHasWindowAnimations()Z
-    .locals 1
+    .registers 2
 
     .line 646
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -419,21 +419,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public onShouldSaveFragmentState(Landroidx/fragment/app/Fragment;)Z
-    .locals 1
+    .registers 3
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
 
     .line 619
@@ -449,7 +449,7 @@
 .end method
 
 .method public onShouldShowRequestPermissionRationale(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "permission"    # Ljava/lang/String;
 
     .line 640
@@ -463,7 +463,7 @@
 .end method
 
 .method public onSupportInvalidateOptionsMenu()V
-    .locals 0
+    .registers 1
 
     .line 635
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->invalidateMenu()V
@@ -473,7 +473,7 @@
 .end method
 
 .method public removeMenuProvider(Landroidx/core/view/MenuProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "provider"    # Landroidx/core/view/MenuProvider;
 
     .line 752
@@ -486,7 +486,7 @@
 .end method
 
 .method public removeOnConfigurationChangedListener(Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -507,7 +507,7 @@
 .end method
 
 .method public removeOnMultiWindowModeChangedListener(Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -528,7 +528,7 @@
 .end method
 
 .method public removeOnPictureInPictureModeChangedListener(Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -549,7 +549,7 @@
 .end method
 
 .method public removeOnTrimMemoryListener(Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

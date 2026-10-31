@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;Ljava/lang/StackTraceElement;)V
-    .locals 0
+    .registers 3
     .param p1, "callerFrame"    # Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
     .param p2, "stackTraceElement"    # Ljava/lang/StackTraceElement;
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public getCallerFrame()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    .locals 1
+    .registers 2
 
     .line 14
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/StackTraceFrame;->callerFrame:Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
@@ -70,7 +70,7 @@
 .end method
 
 .method public getStackTraceElement()Ljava/lang/StackTraceElement;
-    .locals 1
+    .registers 2
 
     .line 18
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/StackTraceFrame;->stackTraceElement:Ljava/lang/StackTraceElement;

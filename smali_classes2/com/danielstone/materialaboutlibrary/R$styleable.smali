@@ -2013,13 +2013,13 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     const/16 v0, 0x1d
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_3ac
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->ActionBar:[I
 
@@ -2049,7 +2049,7 @@
 
     new-array v2, v1, [I
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_3ea
 
     sput-object v2, Lcom/danielstone/materialaboutlibrary/R$styleable;->ActionMode:[I
 
@@ -2067,13 +2067,13 @@
 
     new-array v2, v2, [I
 
-    fill-array-data v2, :array_2
+    fill-array-data v2, :array_3fa
 
     sput-object v2, Lcom/danielstone/materialaboutlibrary/R$styleable;->AlertDialog:[I
 
     new-array v2, v1, [I
 
-    fill-array-data v2, :array_3
+    fill-array-data v2, :array_40e
 
     sput-object v2, Lcom/danielstone/materialaboutlibrary/R$styleable;->AnimatedStateListDrawableCompat:[I
 
@@ -2103,7 +2103,7 @@
 
     new-array v4, v4, [I
 
-    fill-array-data v4, :array_4
+    fill-array-data v4, :array_41e
 
     sput-object v4, Lcom/danielstone/materialaboutlibrary/R$styleable;->AppBarLayout:[I
 
@@ -2165,7 +2165,7 @@
 
     new-array v5, v4, [I
 
-    fill-array-data v5, :array_5
+    fill-array-data v5, :array_434
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->AppCompatTextHelper:[I
 
@@ -2173,7 +2173,7 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_6
+    fill-array-data v5, :array_446
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->AppCompatTextView:[I
 
@@ -2181,7 +2181,7 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_7
+    fill-array-data v5, :array_476
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->AppCompatTheme:[I
 
@@ -2189,7 +2189,7 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_8
+    fill-array-data v5, :array_578
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->Badge:[I
 
@@ -2197,7 +2197,7 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_9
+    fill-array-data v5, :array_594
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->BottomAppBar:[I
 
@@ -2217,7 +2217,7 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_a
+    fill-array-data v5, :array_5ba
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->BottomSheetBehavior_Layout:[I
 
@@ -2233,7 +2233,7 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_b
+    fill-array-data v5, :array_5ee
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->CardView:[I
 
@@ -2241,13 +2241,13 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_c
+    fill-array-data v5, :array_60c
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->Chip:[I
 
     new-array v5, v4, [I
 
-    fill-array-data v5, :array_d
+    fill-array-data v5, :array_664
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->ChipGroup:[I
 
@@ -2255,7 +2255,7 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_e
+    fill-array-data v5, :array_676
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->CollapsingToolbarLayout:[I
 
@@ -2311,7 +2311,7 @@
 
     new-array v5, v4, [I
 
-    fill-array-data v5, :array_f
+    fill-array-data v5, :array_6aa
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->CoordinatorLayout_Layout:[I
 
@@ -2319,13 +2319,13 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_10
+    fill-array-data v5, :array_6bc
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->DrawerArrowToggle:[I
 
     new-array v5, v4, [I
 
-    fill-array-data v5, :array_11
+    fill-array-data v5, :array_6d0
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->ExtendedFloatingActionButton:[I
 
@@ -2343,7 +2343,7 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_12
+    fill-array-data v5, :array_6e2
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->FloatingActionButton:[I
 
@@ -2367,7 +2367,7 @@
 
     new-array v4, v4, [I
 
-    fill-array-data v4, :array_13
+    fill-array-data v4, :array_708
 
     sput-object v4, Lcom/danielstone/materialaboutlibrary/R$styleable;->FontFamily:[I
 
@@ -2375,7 +2375,7 @@
 
     new-array v5, v4, [I
 
-    fill-array-data v5, :array_14
+    fill-array-data v5, :array_71a
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->FontFamilyFont:[I
 
@@ -2395,7 +2395,7 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_15
+    fill-array-data v5, :array_732
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->GradientColor:[I
 
@@ -2413,7 +2413,7 @@
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_16
+    fill-array-data v5, :array_74e
 
     sput-object v5, Lcom/danielstone/materialaboutlibrary/R$styleable;->LinearLayoutCompat:[I
 
@@ -2455,7 +2455,7 @@
 
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_17
+    fill-array-data v0, :array_764
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->MaterialAlertDialogTheme:[I
 
@@ -2463,7 +2463,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_18
+    fill-array-data v0, :array_774
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->MaterialButton:[I
 
@@ -2483,13 +2483,13 @@
 
     new-array v0, v4, [I
 
-    fill-array-data v0, :array_19
+    fill-array-data v0, :array_7a4
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->MaterialCalendar:[I
 
     new-array v0, v4, [I
 
-    fill-array-data v0, :array_1a
+    fill-array-data v0, :array_7bc
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->MaterialCalendarItem:[I
 
@@ -2497,7 +2497,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1b
+    fill-array-data v0, :array_7d4
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->MaterialCardView:[I
 
@@ -2505,7 +2505,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1c
+    fill-array-data v0, :array_7f2
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->MaterialCheckBox:[I
 
@@ -2553,7 +2553,7 @@
 
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_1d
+    fill-array-data v0, :array_80c
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->MenuGroup:[I
 
@@ -2561,7 +2561,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1e
+    fill-array-data v0, :array_81c
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->MenuItem:[I
 
@@ -2569,7 +2569,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1f
+    fill-array-data v0, :array_84e
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->MenuView:[I
 
@@ -2577,7 +2577,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_20
+    fill-array-data v0, :array_864
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->NavigationView:[I
 
@@ -2615,7 +2615,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_21
+    fill-array-data v0, :array_8ae
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->RecyclerView:[I
 
@@ -2639,13 +2639,13 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_22
+    fill-array-data v0, :array_8ca
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->SearchView:[I
 
     new-array v0, v4, [I
 
-    fill-array-data v0, :array_23
+    fill-array-data v0, :array_904
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->ShapeAppearance:[I
 
@@ -2663,7 +2663,7 @@
 
     new-array v0, v4, [I
 
-    fill-array-data v0, :array_24
+    fill-array-data v0, :array_91c
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->SnackbarLayout:[I
 
@@ -2685,7 +2685,7 @@
 
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_25
+    fill-array-data v0, :array_934
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->StateListDrawable:[I
 
@@ -2699,7 +2699,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_26
+    fill-array-data v0, :array_944
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->SwitchCompat:[I
 
@@ -2727,7 +2727,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_27
+    fill-array-data v0, :array_964
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->TabLayout:[I
 
@@ -2735,7 +2735,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_28
+    fill-array-data v0, :array_99e
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->TextAppearance:[I
 
@@ -2743,7 +2743,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_29
+    fill-array-data v0, :array_9c2
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->TextInputLayout:[I
 
@@ -2761,7 +2761,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_2a
+    fill-array-data v0, :array_a56
 
     sput-object v0, Lcom/danielstone/materialaboutlibrary/R$styleable;->Toolbar:[I
 
@@ -2813,7 +2813,7 @@
 
     nop
 
-    :array_0
+    :array_3ac
     .array-data 4
         0x7f04004f
         0x7f040056
@@ -2846,7 +2846,7 @@
         0x7f0404f7
     .end array-data
 
-    :array_1
+    :array_3ea
     .array-data 4
         0x7f04004f
         0x7f040056
@@ -2856,7 +2856,7 @@
         0x7f0404f7
     .end array-data
 
-    :array_2
+    :array_3fa
     .array-data 4
         0x10100f2
         0x7f04008f
@@ -2868,7 +2868,7 @@
         0x7f040422
     .end array-data
 
-    :array_3
+    :array_40e
     .array-data 4
         0x101011c
         0x1010194
@@ -2878,7 +2878,7 @@
         0x101030d
     .end array-data
 
-    :array_4
+    :array_41e
     .array-data 4
         0x10100d4
         0x101048f
@@ -2891,7 +2891,7 @@
         0x7f04044e
     .end array-data
 
-    :array_5
+    :array_434
     .array-data 4
         0x1010034
         0x101016d
@@ -2902,7 +2902,7 @@
         0x1010393
     .end array-data
 
-    :array_6
+    :array_446
     .array-data 4
         0x1010034
         0x7f040049
@@ -2928,7 +2928,7 @@
         0x7f0404c6
     .end array-data
 
-    :array_7
+    :array_476
     .array-data 4
         0x1010057
         0x10100ae
@@ -3059,7 +3059,7 @@
         0x7f04053e
     .end array-data
 
-    :array_8
+    :array_578
     .array-data 4
         0x7f040050
         0x7f04005a
@@ -3075,7 +3075,7 @@
         0x7f040524
     .end array-data
 
-    :array_9
+    :array_594
     .array-data 4
         0x7f04002c
         0x7f040058
@@ -3096,7 +3096,7 @@
         0x7f0403e3
     .end array-data
 
-    :array_a
+    :array_5ba
     .array-data 4
         0x101011f
         0x1010120
@@ -3124,7 +3124,7 @@
         0x7f040411
     .end array-data
 
-    :array_b
+    :array_5ee
     .array-data 4
         0x101013f
         0x1010140
@@ -3141,7 +3141,7 @@
         0x7f040133
     .end array-data
 
-    :array_c
+    :array_60c
     .array-data 4
         0x1010034
         0x1010095
@@ -3187,7 +3187,7 @@
         0x7f0404cb
     .end array-data
 
-    :array_d
+    :array_664
     .array-data 4
         0x7f0400b1
         0x7f0400c6
@@ -3198,7 +3198,7 @@
         0x7f040425
     .end array-data
 
-    :array_e
+    :array_676
     .array-data 4
         0x7f0400e8
         0x7f0400e9
@@ -3226,7 +3226,7 @@
         0x7f0404f9
     .end array-data
 
-    :array_f
+    :array_6aa
     .array-data 4
         0x10100b3
         0x7f040299
@@ -3237,7 +3237,7 @@
         0x7f0402d7
     .end array-data
 
-    :array_10
+    :array_6bc
     .array-data 4
         0x7f040043
         0x7f040044
@@ -3249,7 +3249,7 @@
         0x7f0404d1
     .end array-data
 
-    :array_11
+    :array_6d0
     .array-data 4
         0x7f0400e7
         0x7f040197
@@ -3260,7 +3260,7 @@
         0x7f04041b
     .end array-data
 
-    :array_12
+    :array_6e2
     .array-data 4
         0x101000e
         0x7f040058
@@ -3281,7 +3281,7 @@
         0x7f04051e
     .end array-data
 
-    :array_13
+    :array_708
     .array-data 4
         0x7f04020e
         0x7f04020f
@@ -3292,7 +3292,7 @@
         0x7f040214
     .end array-data
 
-    :array_14
+    :array_71a
     .array-data 4
         0x1010532
         0x1010533
@@ -3306,7 +3306,7 @@
         0x7f04051a
     .end array-data
 
-    :array_15
+    :array_732
     .array-data 4
         0x101019d
         0x101019e
@@ -3322,7 +3322,7 @@
         0x1010513
     .end array-data
 
-    :array_16
+    :array_74e
     .array-data 4
         0x10100af
         0x10100c4
@@ -3335,7 +3335,7 @@
         0x7f040415
     .end array-data
 
-    :array_17
+    :array_764
     .array-data 4
         0x7f040302
         0x7f040303
@@ -3345,7 +3345,7 @@
         0x7f040307
     .end array-data
 
-    :array_18
+    :array_774
     .array-data 4
         0x10100d4
         0x10101b7
@@ -3371,7 +3371,7 @@
         0x7f0404f8
     .end array-data
 
-    :array_19
+    :array_7a4
     .array-data 4
         0x101020d
         0x7f04015c
@@ -3385,7 +3385,7 @@
         0x7f040541
     .end array-data
 
-    :array_1a
+    :array_7bc
     .array-data 4
         0x10101b7
         0x10101b8
@@ -3399,7 +3399,7 @@
         0x7f040280
     .end array-data
 
-    :array_1b
+    :array_7d4
     .array-data 4
         0x10101e5
         0x7f04009a
@@ -3416,7 +3416,7 @@
         0x7f040451
     .end array-data
 
-    :array_1c
+    :array_7f2
     .array-data 4
         0x1010107
         0x7f04008c
@@ -3431,7 +3431,7 @@
         0x7f040520
     .end array-data
 
-    :array_1d
+    :array_80c
     .array-data 4
         0x101000e
         0x10100d0
@@ -3441,7 +3441,7 @@
         0x10101e0
     .end array-data
 
-    :array_1e
+    :array_81c
     .array-data 4
         0x1010002
         0x101000e
@@ -3468,7 +3468,7 @@
         0x7f040500
     .end array-data
 
-    :array_1f
+    :array_84e
     .array-data 4
         0x10100ae
         0x101012c
@@ -3481,7 +3481,7 @@
         0x7f040452
     .end array-data
 
-    :array_20
+    :array_864
     .array-data 4
         0x10100b3
         0x10100d4
@@ -3520,7 +3520,7 @@
         0x7f040501
     .end array-data
 
-    :array_21
+    :array_8ae
     .array-data 4
         0x10100c4
         0x10100eb
@@ -3536,7 +3536,7 @@
         0x7f04043a
     .end array-data
 
-    :array_22
+    :array_8ca
     .array-data 4
         0x1010034
         0x10100da
@@ -3567,7 +3567,7 @@
         0x7f04052b
     .end array-data
 
-    :array_23
+    :array_904
     .array-data 4
         0x7f04013a
         0x7f04013b
@@ -3581,7 +3581,7 @@
         0x7f040146
     .end array-data
 
-    :array_24
+    :array_91c
     .array-data 4
         0x101011f
         0x7f040027
@@ -3595,7 +3595,7 @@
         0x7f04040c
     .end array-data
 
-    :array_25
+    :array_934
     .array-data 4
         0x101011c
         0x1010194
@@ -3605,7 +3605,7 @@
         0x101030d
     .end array-data
 
-    :array_26
+    :array_944
     .array-data 4
         0x1010124
         0x1010125
@@ -3623,7 +3623,7 @@
         0x7f040510
     .end array-data
 
-    :array_27
+    :array_964
     .array-data 4
         0x7f04046d
         0x7f04046e
@@ -3654,7 +3654,7 @@
         0x7f040489
     .end array-data
 
-    :array_28
+    :array_99e
     .array-data 4
         0x1010095
         0x1010096
@@ -3674,7 +3674,7 @@
         0x7f0404c6
     .end array-data
 
-    :array_29
+    :array_9c2
     .array-data 4
         0x101000e
         0x101009a
@@ -3750,7 +3750,7 @@
         0x7f04045f
     .end array-data
 
-    :array_2a
+    :array_a56
     .array-data 4
         0x10100af
         0x1010140
@@ -3786,7 +3786,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

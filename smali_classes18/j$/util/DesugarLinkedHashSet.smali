@@ -4,7 +4,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -12,7 +12,7 @@
 .end method
 
 .method public static spliterator(Ljava/util/LinkedHashSet;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 196
     .local p0, "this":Ljava/util/LinkedHashSet;, "Ljava/util/LinkedHashSet<TE;>;"

@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/text/StringsKt__RegexExtensionsKt;-><init>()V
 
@@ -72,7 +72,7 @@
 .end method
 
 .method private static final append(Ljava/lang/StringBuilder;B)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$append"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # B
 
@@ -93,7 +93,7 @@
 .end method
 
 .method private static final append(Ljava/lang/StringBuilder;S)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$append"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # S
 
@@ -114,7 +114,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;B)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # B
 
@@ -143,7 +143,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;D)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 6
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # D
 
@@ -172,7 +172,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;F)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # F
 
@@ -201,7 +201,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # I
 
@@ -230,7 +230,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;J)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 6
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # J
 
@@ -259,7 +259,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;Ljava/lang/StringBuffer;)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/StringBuffer;
 
@@ -288,7 +288,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/StringBuilder;
 
@@ -321,7 +321,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;S)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # S
 
@@ -350,7 +350,7 @@
 .end method
 
 .method private static final appendRange(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 6
     .param p0, "$this$appendRange"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/CharSequence;
     .param p2, "startIndex"    # I
@@ -377,7 +377,7 @@
 .end method
 
 .method private static final appendRange(Ljava/lang/StringBuilder;[CII)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 6
     .param p0, "$this$appendRange"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # [C
     .param p2, "startIndex"    # I
@@ -406,7 +406,7 @@
 .end method
 
 .method public static final appendln(Ljava/lang/Appendable;)Ljava/lang/Appendable;
-    .locals 2
+    .registers 3
     .param p0, "$this$appendln"    # Ljava/lang/Appendable;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
@@ -438,7 +438,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/Appendable;C)Ljava/lang/Appendable;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/Appendable;
     .param p1, "value"    # C
     .annotation runtime Lkotlin/Deprecated;
@@ -471,7 +471,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/Appendable;Ljava/lang/CharSequence;)Ljava/lang/Appendable;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/Appendable;
     .param p1, "value"    # Ljava/lang/CharSequence;
     .annotation runtime Lkotlin/Deprecated;
@@ -504,7 +504,7 @@
 .end method
 
 .method public static final appendln(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 3
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
@@ -534,7 +534,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;B)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # B
     .annotation runtime Lkotlin/Deprecated;
@@ -567,7 +567,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;C)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # C
     .annotation runtime Lkotlin/Deprecated;
@@ -600,7 +600,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;D)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 5
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
@@ -633,7 +633,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;F)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # F
     .annotation runtime Lkotlin/Deprecated;
@@ -666,7 +666,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
@@ -699,7 +699,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;J)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 5
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # J
     .annotation runtime Lkotlin/Deprecated;
@@ -732,7 +732,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/CharSequence;
     .annotation runtime Lkotlin/Deprecated;
@@ -765,7 +765,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation runtime Lkotlin/Deprecated;
@@ -798,7 +798,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
@@ -831,7 +831,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;Ljava/lang/StringBuffer;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/StringBuffer;
     .annotation runtime Lkotlin/Deprecated;
@@ -864,7 +864,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/StringBuilder;
     .annotation runtime Lkotlin/Deprecated;
@@ -901,7 +901,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;S)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # S
     .annotation runtime Lkotlin/Deprecated;
@@ -934,7 +934,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;Z)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Z
     .annotation runtime Lkotlin/Deprecated;
@@ -967,7 +967,7 @@
 .end method
 
 .method private static final appendln(Ljava/lang/StringBuilder;[C)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$appendln"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # [C
     .annotation runtime Lkotlin/Deprecated;
@@ -1004,7 +1004,7 @@
 .end method
 
 .method public static final clear(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 4
     .param p0, "$this$clear"    # Ljava/lang/StringBuilder;
 
     const-string v0, "<this>"
@@ -1030,7 +1030,7 @@
 .end method
 
 .method private static final deleteAt(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$deleteAt"    # Ljava/lang/StringBuilder;
     .param p1, "index"    # I
 
@@ -1051,7 +1051,7 @@
 .end method
 
 .method private static final deleteRange(Ljava/lang/StringBuilder;II)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 5
     .param p0, "$this$deleteRange"    # Ljava/lang/StringBuilder;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -1073,7 +1073,7 @@
 .end method
 
 .method private static final insert(Ljava/lang/StringBuilder;IB)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 5
     .param p0, "$this$insert"    # Ljava/lang/StringBuilder;
     .param p1, "index"    # I
     .param p2, "value"    # B
@@ -1095,7 +1095,7 @@
 .end method
 
 .method private static final insert(Ljava/lang/StringBuilder;IS)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 5
     .param p0, "$this$insert"    # Ljava/lang/StringBuilder;
     .param p1, "index"    # I
     .param p2, "value"    # S
@@ -1117,7 +1117,7 @@
 .end method
 
 .method private static final insertRange(Ljava/lang/StringBuilder;ILjava/lang/CharSequence;II)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 7
     .param p0, "$this$insertRange"    # Ljava/lang/StringBuilder;
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/CharSequence;
@@ -1145,7 +1145,7 @@
 .end method
 
 .method private static final insertRange(Ljava/lang/StringBuilder;I[CII)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 7
     .param p0, "$this$insertRange"    # Ljava/lang/StringBuilder;
     .param p1, "index"    # I
     .param p2, "value"    # [C
@@ -1175,7 +1175,7 @@
 .end method
 
 .method private static final set(Ljava/lang/StringBuilder;IC)V
-    .locals 1
+    .registers 4
     .param p0, "$this$set"    # Ljava/lang/StringBuilder;
     .param p1, "index"    # I
     .param p2, "value"    # C
@@ -1191,7 +1191,7 @@
 .end method
 
 .method private static final setRange(Ljava/lang/StringBuilder;IILjava/lang/String;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 6
     .param p0, "$this$setRange"    # Ljava/lang/StringBuilder;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -1218,7 +1218,7 @@
 .end method
 
 .method private static final toCharArray(Ljava/lang/StringBuilder;[CIII)V
-    .locals 1
+    .registers 6
     .param p0, "$this$toCharArray"    # Ljava/lang/StringBuilder;
     .param p1, "destination"    # [C
     .param p2, "destinationOffset"    # I
@@ -1240,7 +1240,7 @@
 .end method
 
 .method static synthetic toCharArray$default(Ljava/lang/StringBuilder;[CIIIILjava/lang/Object;)V
-    .locals 0
+    .registers 7
     .param p0, "$this$toCharArray_u24default"    # Ljava/lang/StringBuilder;
     .param p1, "destination"    # [C
     .param p2, "destinationOffset"    # I
@@ -1250,27 +1250,27 @@
     .line 129
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_a
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_a
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_12
 
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->length()I
 
     move-result p4
 
-    :cond_2
+    :cond_12
     const-string p5, "<this>"
 
     invoke-static {p0, p5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

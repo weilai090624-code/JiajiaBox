@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/graph/BaseGraph;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +78,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/graph/BaseGraph;Lcom/google/common/graph/EndpointPairIterator$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/graph/BaseGraph;
     .param p2, "x1"    # Lcom/google/common/graph/EndpointPairIterator$1;
 
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method protected computeNext()Lcom/google/common/graph/EndpointPair;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -108,20 +108,20 @@
     .local p0, "this":Lcom/google/common/graph/EndpointPairIterator$Undirected;, "Lcom/google/common/graph/EndpointPairIterator$Undirected<TN;>;"
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/google/common/graph/EndpointPairIterator$Undirected;->visitedNodes:Ljava/util/Set;
 
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 136
-    :goto_0
+    :goto_6
     iget-object v0, p0, Lcom/google/common/graph/EndpointPairIterator$Undirected;->successorIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     .line 137
     iget-object v0, p0, Lcom/google/common/graph/EndpointPairIterator$Undirected;->successorIterator:Ljava/util/Iterator;
@@ -138,7 +138,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_27
 
     .line 140
     iget-object v1, p0, Lcom/google/common/graph/EndpointPairIterator$Undirected;->node:Ljava/lang/Object;
@@ -155,11 +155,11 @@
 
     .line 142
     .end local v0    # "otherNode":Ljava/lang/Object;, "TN;"
-    :cond_1
-    goto :goto_0
+    :cond_27
+    goto :goto_6
 
     .line 144
-    :cond_2
+    :cond_28
     iget-object v0, p0, Lcom/google/common/graph/EndpointPairIterator$Undirected;->visitedNodes:Ljava/util/Set;
 
     iget-object v1, p0, Lcom/google/common/graph/EndpointPairIterator$Undirected;->node:Ljava/lang/Object;
@@ -171,7 +171,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     .line 146
     const/4 v0, 0x0
@@ -189,7 +189,7 @@
 .end method
 
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 

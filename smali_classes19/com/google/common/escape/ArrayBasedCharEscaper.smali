@@ -20,7 +20,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/google/common/escape/ArrayBasedEscaperMap;CC)V
-    .locals 1
+    .registers 5
     .param p1, "escaperMap"    # Lcom/google/common/escape/ArrayBasedEscaperMap;
     .param p2, "safeMin"    # C
     .param p3, "safeMax"    # C
@@ -46,7 +46,7 @@
     iput v0, p0, Lcom/google/common/escape/ArrayBasedCharEscaper;->replacementsLength:I
 
     .line 92
-    if-ge p3, p2, :cond_0
+    if-ge p3, p2, :cond_17
 
     .line 95
     const/4 p3, 0x0
@@ -55,7 +55,7 @@
     const p2, 0xffff
 
     .line 98
-    :cond_0
+    :cond_17
     iput-char p2, p0, Lcom/google/common/escape/ArrayBasedCharEscaper;->safeMin:C
 
     .line 99
@@ -66,7 +66,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/util/Map;CC)V
-    .locals 1
+    .registers 5
     .param p2, "safeMin"    # C
     .param p3, "safeMax"    # C
     .annotation system Ldalvik/annotation/Signature;
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public final escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "s"    # Ljava/lang/String;
 
     .line 108
@@ -104,12 +104,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_4
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_29
 
     .line 110
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
@@ -120,36 +120,36 @@
     .local v1, "c":C
     iget v2, p0, Lcom/google/common/escape/ArrayBasedCharEscaper;->replacementsLength:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_18
 
     iget-object v2, p0, Lcom/google/common/escape/ArrayBasedCharEscaper;->replacements:[[C
 
     aget-object v2, v2, v1
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_24
 
-    :cond_0
+    :cond_18
     iget-char v2, p0, Lcom/google/common/escape/ArrayBasedCharEscaper;->safeMax:C
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_24
 
     iget-char v2, p0, Lcom/google/common/escape/ArrayBasedCharEscaper;->safeMin:C
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_21
 
-    goto :goto_1
+    goto :goto_24
 
     .line 109
     .end local v1    # "c":C
-    :cond_1
+    :cond_21
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 112
     .restart local v1    # "c":C
-    :cond_2
-    :goto_1
+    :cond_24
+    :goto_24
     invoke-virtual {p0, p1, v0}, Lcom/google/common/escape/ArrayBasedCharEscaper;->escapeSlow(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v2
@@ -159,12 +159,12 @@
     .line 115
     .end local v0    # "i":I
     .end local v1    # "c":C
-    :cond_3
+    :cond_29
     return-object p1
 .end method
 
 .method protected final escape(C)[C
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -172,7 +172,7 @@
     .line 128
     iget v0, p0, Lcom/google/common/escape/ArrayBasedCharEscaper;->replacementsLength:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_b
 
     .line 129
     iget-object v0, p0, Lcom/google/common/escape/ArrayBasedCharEscaper;->replacements:[[C
@@ -181,21 +181,21 @@
 
     .line 130
     .local v0, "chars":[C
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 131
     return-object v0
 
     .line 134
     .end local v0    # "chars":[C
-    :cond_0
+    :cond_b
     iget-char v0, p0, Lcom/google/common/escape/ArrayBasedCharEscaper;->safeMin:C
 
-    if-lt p1, v0, :cond_1
+    if-lt p1, v0, :cond_15
 
     iget-char v0, p0, Lcom/google/common/escape/ArrayBasedCharEscaper;->safeMax:C
 
-    if-gt p1, v0, :cond_1
+    if-gt p1, v0, :cond_15
 
     .line 135
     const/4 v0, 0x0
@@ -203,7 +203,7 @@
     return-object v0
 
     .line 137
-    :cond_1
+    :cond_15
     invoke-virtual {p0, p1}, Lcom/google/common/escape/ArrayBasedCharEscaper;->escapeUnsafe(C)[C
 
     move-result-object v0

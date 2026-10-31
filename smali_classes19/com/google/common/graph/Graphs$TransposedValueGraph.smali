@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/ValueGraph;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/graph/Graphs$TransposedValueGraph;)Lcom/google/common/graph/ValueGraph;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/Graphs$TransposedValueGraph;
 
     .line 324
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method delegate()Lcom/google/common/graph/ValueGraph;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -90,7 +90,7 @@
 .end method
 
 .method public edgeValueOrDefault(Lcom/google/common/graph/EndpointPair;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -126,7 +126,7 @@
 .end method
 
 .method public edgeValueOrDefault(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p3    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -157,7 +157,7 @@
 .end method
 
 .method public hasEdgeConnecting(Lcom/google/common/graph/EndpointPair;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,7 +185,7 @@
 .end method
 
 .method public hasEdgeConnecting(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TN;)Z"
@@ -208,7 +208,7 @@
 .end method
 
 .method public inDegree(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)I"
@@ -230,7 +230,7 @@
 .end method
 
 .method public outDegree(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)I"
@@ -252,7 +252,7 @@
 .end method
 
 .method public bridge synthetic predecessors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     .line 324
     .local p0, "this":Lcom/google/common/graph/Graphs$TransposedValueGraph;, "Lcom/google/common/graph/Graphs$TransposedValueGraph<TN;TV;>;"
@@ -264,7 +264,7 @@
 .end method
 
 .method public predecessors(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -288,7 +288,7 @@
 .end method
 
 .method public bridge synthetic successors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     .line 324
     .local p0, "this":Lcom/google/common/graph/Graphs$TransposedValueGraph;, "Lcom/google/common/graph/Graphs$TransposedValueGraph<TN;TV;>;"
@@ -300,7 +300,7 @@
 .end method
 
 .method public successors(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",

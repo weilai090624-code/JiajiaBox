@@ -84,7 +84,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 200
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -97,7 +97,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "expectedKeys"    # I
 
     .line 203
@@ -116,7 +116,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/collect/Multimap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -146,7 +146,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/LinkedListMultimap;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/LinkedListMultimap;
 
     .line 99
@@ -156,7 +156,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/collect/LinkedListMultimap;)Lcom/google/common/collect/LinkedListMultimap$Node;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/LinkedListMultimap;
 
     .line 99
@@ -166,7 +166,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/collect/LinkedListMultimap;)Lcom/google/common/collect/LinkedListMultimap$Node;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/LinkedListMultimap;
 
     .line 99
@@ -176,7 +176,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/common/collect/LinkedListMultimap;Lcom/google/common/collect/LinkedListMultimap$Node;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/LinkedListMultimap;
     .param p1, "x1"    # Lcom/google/common/collect/LinkedListMultimap$Node;
 
@@ -187,7 +187,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/common/collect/LinkedListMultimap;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/LinkedListMultimap;
     .param p1, "x1"    # Ljava/lang/Object;
 
@@ -198,7 +198,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/collect/LinkedListMultimap;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/LinkedListMultimap;
 
     .line 99
@@ -208,7 +208,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/collect/LinkedListMultimap;Ljava/lang/Object;Ljava/lang/Object;Lcom/google/common/collect/LinkedListMultimap$Node;)Lcom/google/common/collect/LinkedListMultimap$Node;
-    .locals 1
+    .registers 5
     .param p0, "x0"    # Lcom/google/common/collect/LinkedListMultimap;
     .param p1, "x1"    # Ljava/lang/Object;
     .param p2, "x2"    # Ljava/lang/Object;
@@ -223,7 +223,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/google/common/collect/LinkedListMultimap;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/LinkedListMultimap;
 
     .line 99
@@ -233,7 +233,7 @@
 .end method
 
 .method private addNode(Ljava/lang/Object;Ljava/lang/Object;Lcom/google/common/collect/LinkedListMultimap$Node;)Lcom/google/common/collect/LinkedListMultimap$Node;
-    .locals 4
+    .registers 8
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -269,7 +269,7 @@
     .local v0, "node":Lcom/google/common/collect/LinkedListMultimap$Node;, "Lcom/google/common/collect/LinkedListMultimap$Node<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/LinkedListMultimap;->head:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1f
 
     .line 224
     iput-object v0, p0, Lcom/google/common/collect/LinkedListMultimap;->tail:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -292,11 +292,11 @@
 
     iput v1, p0, Lcom/google/common/collect/LinkedListMultimap;->modCount:I
 
-    goto/16 :goto_3
+    goto/16 :goto_96
 
     .line 227
-    :cond_0
-    if-nez p3, :cond_2
+    :cond_1f
+    if-nez p3, :cond_5c
 
     .line 229
     iget-object v1, p0, Lcom/google/common/collect/LinkedListMultimap;->tail:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -328,7 +328,7 @@
 
     .line 233
     .local v1, "keyList":Lcom/google/common/collect/LinkedListMultimap$KeyList;, "Lcom/google/common/collect/LinkedListMultimap$KeyList<TK;TV;>;"
-    if-nez v1, :cond_1
+    if-nez v1, :cond_4d
 
     .line 234
     iget-object v2, p0, Lcom/google/common/collect/LinkedListMultimap;->keyToKeyList:Ljava/util/Map;
@@ -348,10 +348,10 @@
 
     iput v2, p0, Lcom/google/common/collect/LinkedListMultimap;->modCount:I
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 237
-    :cond_1
+    :cond_4d
     iget v2, v1, Lcom/google/common/collect/LinkedListMultimap$KeyList;->count:I
 
     add-int/lit8 v2, v2, 0x1
@@ -374,11 +374,11 @@
     .line 243
     .end local v1    # "keyList":Lcom/google/common/collect/LinkedListMultimap$KeyList;, "Lcom/google/common/collect/LinkedListMultimap$KeyList<TK;TV;>;"
     .end local v2    # "keyTail":Lcom/google/common/collect/LinkedListMultimap$Node;, "Lcom/google/common/collect/LinkedListMultimap$Node<TK;TV;>;"
-    :goto_0
-    goto :goto_3
+    :goto_5b
+    goto :goto_96
 
     .line 249
-    :cond_2
+    :cond_5c
     iget-object v1, p0, Lcom/google/common/collect/LinkedListMultimap;->keyToKeyList:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -420,38 +420,38 @@
     .line 255
     iget-object v2, p3, Lcom/google/common/collect/LinkedListMultimap$Node;->previousSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_83
 
     .line 256
     iput-object v0, v1, Lcom/google/common/collect/LinkedListMultimap$KeyList;->head:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    goto :goto_1
+    goto :goto_87
 
     .line 258
-    :cond_3
+    :cond_83
     iget-object v2, p3, Lcom/google/common/collect/LinkedListMultimap$Node;->previousSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     iput-object v0, v2, Lcom/google/common/collect/LinkedListMultimap$Node;->nextSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     .line 260
-    :goto_1
+    :goto_87
     iget-object v2, p3, Lcom/google/common/collect/LinkedListMultimap$Node;->previous:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_8e
 
     .line 261
     iput-object v0, p0, Lcom/google/common/collect/LinkedListMultimap;->head:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    goto :goto_2
+    goto :goto_92
 
     .line 263
-    :cond_4
+    :cond_8e
     iget-object v2, p3, Lcom/google/common/collect/LinkedListMultimap$Node;->previous:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     iput-object v0, v2, Lcom/google/common/collect/LinkedListMultimap$Node;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     .line 265
-    :goto_2
+    :goto_92
     iput-object v0, p3, Lcom/google/common/collect/LinkedListMultimap$Node;->previous:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     .line 266
@@ -459,7 +459,7 @@
 
     .line 268
     .end local v1    # "keyList":Lcom/google/common/collect/LinkedListMultimap$KeyList;, "Lcom/google/common/collect/LinkedListMultimap$KeyList<TK;TV;>;"
-    :goto_3
+    :goto_96
     iget v1, p0, Lcom/google/common/collect/LinkedListMultimap;->size:I
 
     add-int/lit8 v1, v1, 0x1
@@ -471,7 +471,7 @@
 .end method
 
 .method public static create()Lcom/google/common/collect/LinkedListMultimap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -493,7 +493,7 @@
 .end method
 
 .method public static create(I)Lcom/google/common/collect/LinkedListMultimap;
-    .locals 1
+    .registers 2
     .param p0, "expectedKeys"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -516,7 +516,7 @@
 .end method
 
 .method public static create(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/LinkedListMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -541,7 +541,7 @@
 .end method
 
 .method private getCopy(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -573,7 +573,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 4
+    .registers 6
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -603,8 +603,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_e
+    if-ge v1, v0, :cond_1e
 
     .line 873
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
@@ -626,16 +626,16 @@
     .end local v3    # "value":Ljava/lang/Object;, "TV;"
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 878
     .end local v1    # "i":I
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method private removeAllNodes(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -660,7 +660,7 @@
 .end method
 
 .method private removeNode(Lcom/google/common/collect/LinkedListMultimap$Node;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -674,7 +674,7 @@
     .local p1, "node":Lcom/google/common/collect/LinkedListMultimap$Node;, "Lcom/google/common/collect/LinkedListMultimap$Node<TK;TV;>;"
     iget-object v0, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->previous:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 278
     iget-object v0, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->previous:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -683,19 +683,19 @@
 
     iput-object v1, v0, Lcom/google/common/collect/LinkedListMultimap$Node;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 280
-    :cond_0
+    :cond_b
     iget-object v0, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     iput-object v0, p0, Lcom/google/common/collect/LinkedListMultimap;->head:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     .line 282
-    :goto_0
+    :goto_f
     iget-object v0, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 283
     iget-object v0, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -704,23 +704,23 @@
 
     iput-object v1, v0, Lcom/google/common/collect/LinkedListMultimap$Node;->previous:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 285
-    :cond_1
+    :cond_1a
     iget-object v0, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->previous:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     iput-object v0, p0, Lcom/google/common/collect/LinkedListMultimap;->tail:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     .line 287
-    :goto_1
+    :goto_1e
     iget-object v0, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->previousSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_40
 
     iget-object v0, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->nextSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_40
 
     .line 293
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap;->keyToKeyList:Ljava/util/Map;
@@ -754,10 +754,10 @@
 
     .line 296
     .end local v0    # "keyList":Lcom/google/common/collect/LinkedListMultimap$KeyList;, "Lcom/google/common/collect/LinkedListMultimap$KeyList<TK;TV;>;"
-    goto :goto_3
+    goto :goto_80
 
     .line 298
-    :cond_2
+    :cond_40
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap;->keyToKeyList:Ljava/util/Map;
 
     iget-object v1, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->key:Ljava/lang/Object;
@@ -785,7 +785,7 @@
     .line 301
     iget-object v1, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->previousSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_65
 
     .line 303
     iget-object v1, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->nextSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -798,10 +798,10 @@
 
     iput-object v1, v0, Lcom/google/common/collect/LinkedListMultimap$KeyList;->head:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    goto :goto_2
+    goto :goto_6b
 
     .line 305
-    :cond_3
+    :cond_65
     iget-object v1, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->previousSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     iget-object v2, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->nextSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -809,10 +809,10 @@
     iput-object v2, v1, Lcom/google/common/collect/LinkedListMultimap$Node;->nextSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     .line 308
-    :goto_2
+    :goto_6b
     iget-object v1, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->nextSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_7a
 
     .line 310
     iget-object v1, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->previousSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -825,10 +825,10 @@
 
     iput-object v1, v0, Lcom/google/common/collect/LinkedListMultimap$KeyList;->tail:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    goto :goto_3
+    goto :goto_80
 
     .line 312
-    :cond_4
+    :cond_7a
     iget-object v1, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->nextSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     iget-object v2, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->previousSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -837,7 +837,7 @@
 
     .line 315
     .end local v0    # "keyList":Lcom/google/common/collect/LinkedListMultimap$KeyList;, "Lcom/google/common/collect/LinkedListMultimap$KeyList<TK;TV;>;"
-    :goto_3
+    :goto_80
     iget v0, p0, Lcom/google/common/collect/LinkedListMultimap;->size:I
 
     add-int/lit8 v0, v0, -0x1
@@ -849,7 +849,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 3
+    .registers 5
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -877,12 +877,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_12
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2d
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -907,17 +907,17 @@
 
     .line 863
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    goto :goto_0
+    goto :goto_12
 
     .line 864
-    :cond_0
+    :cond_2d
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic asMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -929,7 +929,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 695
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -962,7 +962,7 @@
 .end method
 
 .method public bridge synthetic containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -982,7 +982,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1000,7 +1000,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1020,7 +1020,7 @@
 .end method
 
 .method createAsMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1041,7 +1041,7 @@
 .end method
 
 .method bridge synthetic createEntries()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1053,7 +1053,7 @@
 .end method
 
 .method createEntries()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1073,7 +1073,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1092,7 +1092,7 @@
 .end method
 
 .method createKeys()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1111,7 +1111,7 @@
 .end method
 
 .method bridge synthetic createValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1123,7 +1123,7 @@
 .end method
 
 .method createValues()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1142,7 +1142,7 @@
 .end method
 
 .method public bridge synthetic entries()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1154,7 +1154,7 @@
 .end method
 
 .method public entries()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1176,7 +1176,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1198,7 +1198,7 @@
 .end method
 
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1214,7 +1214,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1230,7 +1230,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1254,7 +1254,7 @@
 .end method
 
 .method public bridge synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1266,27 +1266,27 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 603
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap;->head:Lcom/google/common/collect/LinkedListMultimap$Node;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1298,7 +1298,7 @@
 .end method
 
 .method public bridge synthetic keys()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1310,7 +1310,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1340,7 +1340,7 @@
 .end method
 
 .method public bridge synthetic putAll(Lcom/google/common/collect/Multimap;)Z
-    .locals 0
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1352,7 +1352,7 @@
 .end method
 
 .method public bridge synthetic putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1368,7 +1368,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1388,7 +1388,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1400,7 +1400,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1431,7 +1431,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1447,7 +1447,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 4
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1484,18 +1484,18 @@
 
     .line 650
     .local v2, "newValues":Ljava/util/Iterator;, "Ljava/util/Iterator<+TV;>;"
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_24
 
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_24
 
     .line 651
     invoke-interface {v1}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -1507,16 +1507,16 @@
 
     invoke-interface {v1, v3}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 656
-    :cond_0
-    :goto_1
+    :cond_24
+    :goto_24
     invoke-interface {v1}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_31
 
     .line 657
     invoke-interface {v1}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -1524,16 +1524,16 @@
     .line 658
     invoke-interface {v1}, Ljava/util/ListIterator;->remove()V
 
-    goto :goto_1
+    goto :goto_24
 
     .line 662
-    :cond_1
-    :goto_2
+    :cond_31
+    :goto_31
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3f
 
     .line 663
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1542,15 +1542,15 @@
 
     invoke-interface {v1, v3}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_31
 
     .line 666
-    :cond_2
+    :cond_3f
     return-object v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 598
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1560,7 +1560,7 @@
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1572,7 +1572,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/LinkedListMultimap;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>;"
@@ -1584,7 +1584,7 @@
 .end method
 
 .method public values()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

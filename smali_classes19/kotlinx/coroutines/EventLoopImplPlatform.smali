@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Lkotlinx/coroutines/EventLoop;-><init>()V
@@ -51,7 +51,7 @@
 .end method
 
 .method protected reschedule(JLkotlinx/coroutines/EventLoopImplBase$DelayedTask;)V
-    .locals 1
+    .registers 5
     .param p1, "now"    # J
     .param p3, "delayedTask"    # Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method protected final unpark()V
-    .locals 2
+    .registers 3
 
     .line 15
     invoke-virtual {p0}, Lkotlinx/coroutines/EventLoopImplPlatform;->getThread()Ljava/lang/Thread;
@@ -78,30 +78,30 @@
 
     move-result-object v1
 
-    if-eq v1, v0, :cond_1
+    if-eq v1, v0, :cond_1c
 
     .line 17
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-virtual {v1, v0}, Lkotlinx/coroutines/AbstractTimeSource;->unpark(Ljava/lang/Thread;)V
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_1
+    :goto_17
+    if-nez v1, :cond_1c
 
     invoke-static {v0}, Ljava/util/concurrent/locks/LockSupport;->unpark(Ljava/lang/Thread;)V
 
     .line 18
-    :cond_1
+    :cond_1c
     return-void
 .end method

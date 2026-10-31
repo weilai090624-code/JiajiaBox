@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     .local p0, "this":Lcom/google/common/collect/RegularImmutableTable;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>;"
@@ -41,7 +41,7 @@
 .end method
 
 .method static forCells(Ljava/lang/Iterable;)Lcom/google/common/collect/RegularImmutableTable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -71,7 +71,7 @@
 .end method
 
 .method static forCells(Ljava/util/List;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/util/Comparator;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -108,12 +108,12 @@
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 104
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_f
 
     .line 112
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/google/common/collect/RegularImmutableTable$1;
 
     invoke-direct {v0, p1, p2}, Lcom/google/common/collect/RegularImmutableTable$1;-><init>(Ljava/util/Comparator;Ljava/util/Comparator;)V
@@ -124,7 +124,7 @@
 
     .line 130
     .end local v0    # "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<Lcom/google/common/collect/Table$Cell<TR;TC;TV;>;>;"
-    :cond_1
+    :cond_f
     invoke-static {p0, p1, p2}, Lcom/google/common/collect/RegularImmutableTable;->forCellsInternal(Ljava/lang/Iterable;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
 
     move-result-object v0
@@ -133,7 +133,7 @@
 .end method
 
 .method private static forCellsInternal(Ljava/lang/Iterable;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
-    .locals 6
+    .registers 9
     .param p1    # Ljava/util/Comparator;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -189,12 +189,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_12
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2d
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -219,21 +219,21 @@
 
     .line 147
     .end local v4    # "cell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<TR;TC;TV;>;"
-    goto :goto_0
+    goto :goto_12
 
     .line 150
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_2d
+    if-nez p1, :cond_34
 
     .line 151
     invoke-static {v0}, Lcom/google/common/collect/ImmutableSet;->copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 152
-    :cond_1
+    :cond_34
     invoke-static {p1, v0}, Lcom/google/common/collect/ImmutableList;->sortedCopyOf(Ljava/util/Comparator;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v3
@@ -242,22 +242,22 @@
 
     move-result-object v3
 
-    :goto_1
+    :goto_3c
     nop
 
     .line 154
     .local v3, "rowSpace":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<TR;>;"
-    if-nez p2, :cond_2
+    if-nez p2, :cond_44
 
     .line 155
     invoke-static {v1}, Lcom/google/common/collect/ImmutableSet;->copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v4
 
-    goto :goto_2
+    goto :goto_4c
 
     .line 156
-    :cond_2
+    :cond_44
     invoke-static {p2, v1}, Lcom/google/common/collect/ImmutableList;->sortedCopyOf(Ljava/util/Comparator;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v4
@@ -266,7 +266,7 @@
 
     move-result-object v4
 
-    :goto_2
+    :goto_4c
     nop
 
     .line 158
@@ -279,7 +279,7 @@
 .end method
 
 .method static forOrderedComponents(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableSet;Lcom/google/common/collect/ImmutableSet;)Lcom/google/common/collect/RegularImmutableTable;
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -331,30 +331,30 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_1e
 
     .line 169
     new-instance v0, Lcom/google/common/collect/DenseImmutableTable;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/google/common/collect/DenseImmutableTable;-><init>(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableSet;Lcom/google/common/collect/ImmutableSet;)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 170
-    :cond_0
+    :cond_1e
     new-instance v0, Lcom/google/common/collect/SparseImmutableTable;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/google/common/collect/SparseImmutableTable;-><init>(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableSet;Lcom/google/common/collect/ImmutableSet;)V
 
     .line 168
-    :goto_0
+    :goto_23
     return-object v0
 .end method
 
 
 # virtual methods
 .method final checkNoDuplicate(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 7
+    .registers 12
     .param p3    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -371,20 +371,20 @@
     .local p2, "columnKey":Ljava/lang/Object;, "TC;"
     .local p3, "existingValue":Ljava/lang/Object;, "TV;"
     .local p4, "newValue":Ljava/lang/Object;, "TV;"
-    if-nez p3, :cond_0
+    if-nez p3, :cond_5
 
     const/4 v0, 0x1
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     const-string v2, "Duplicate key: (row=%s, column=%s), values: [%s, %s]."
 
     move-object v3, p1
@@ -402,7 +402,7 @@
 .end method
 
 .method final createCellSet()Lcom/google/common/collect/ImmutableSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -418,27 +418,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_b
     new-instance v0, Lcom/google/common/collect/RegularImmutableTable$CellSet;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/google/common/collect/RegularImmutableTable$CellSet;-><init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$1;)V
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 .method bridge synthetic createCellSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 34
     .local p0, "this":Lcom/google/common/collect/RegularImmutableTable;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>;"
@@ -450,7 +450,7 @@
 .end method
 
 .method final createValues()Lcom/google/common/collect/ImmutableCollection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -465,27 +465,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_b
     new-instance v0, Lcom/google/common/collect/RegularImmutableTable$Values;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/google/common/collect/RegularImmutableTable$Values;-><init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$1;)V
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 .method bridge synthetic createValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 34
     .local p0, "this":Lcom/google/common/collect/RegularImmutableTable;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>;"

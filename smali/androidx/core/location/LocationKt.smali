@@ -27,7 +27,7 @@
 
 # direct methods
 .method public static final component1(Landroid/location/Location;)D
-    .locals 3
+    .registers 4
     .param p0, "$this$component1"    # Landroid/location/Location;
 
     const/4 v0, 0x0
@@ -42,7 +42,7 @@
 .end method
 
 .method public static final component2(Landroid/location/Location;)D
-    .locals 3
+    .registers 4
     .param p0, "$this$component2"    # Landroid/location/Location;
 
     const/4 v0, 0x0

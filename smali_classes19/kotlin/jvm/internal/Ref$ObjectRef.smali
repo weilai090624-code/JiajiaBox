@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     .local p0, "this":Lkotlin/jvm/internal/Ref$ObjectRef;, "Lkotlin/jvm/internal/Ref$ObjectRef<TT;>;"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 18
     .local p0, "this":Lkotlin/jvm/internal/Ref$ObjectRef;, "Lkotlin/jvm/internal/Ref$ObjectRef<TT;>;"

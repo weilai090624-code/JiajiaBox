@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/ExecutionList$RunnableExecutorPair;)V
-    .locals 0
+    .registers 4
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "next"    # Lcom/google/common/util/concurrent/ExecutionList$RunnableExecutorPair;

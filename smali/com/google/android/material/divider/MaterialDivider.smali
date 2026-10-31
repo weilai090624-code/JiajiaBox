@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 50
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_MaterialDivider:I
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 59
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 7
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -172,7 +172,7 @@
 
 # virtual methods
 .method public getDividerColor()I
-    .locals 1
+    .registers 2
 
     .line 251
     iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->color:I
@@ -181,7 +181,7 @@
 .end method
 
 .method public getDividerInsetEnd()I
-    .locals 1
+    .registers 2
 
     .line 215
     iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->insetEnd:I
@@ -190,7 +190,7 @@
 .end method
 
 .method public getDividerInsetStart()I
-    .locals 1
+    .registers 2
 
     .line 182
     iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->insetStart:I
@@ -199,7 +199,7 @@
 .end method
 
 .method public getDividerThickness()I
-    .locals 1
+    .registers 2
 
     .line 149
     iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
@@ -208,7 +208,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 7
+    .registers 9
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 106
@@ -223,44 +223,44 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_c
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     move v0, v2
 
     .line 109
     .local v0, "isRtl":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     iget v2, p0, Lcom/google/android/material/divider/MaterialDivider;->insetEnd:I
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_13
     iget v2, p0, Lcom/google/android/material/divider/MaterialDivider;->insetStart:I
 
     .line 110
     .local v2, "left":I
-    :goto_1
+    :goto_15
     invoke-virtual {p0}, Lcom/google/android/material/divider/MaterialDivider;->getWidth()I
 
     move-result v3
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1e
 
     iget v4, p0, Lcom/google/android/material/divider/MaterialDivider;->insetStart:I
 
-    goto :goto_2
+    goto :goto_20
 
-    :cond_2
+    :cond_1e
     iget v4, p0, Lcom/google/android/material/divider/MaterialDivider;->insetEnd:I
 
-    :goto_2
+    :goto_20
     sub-int/2addr v3, v4
 
     .line 111
@@ -289,7 +289,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 3
+    .registers 6
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -311,25 +311,25 @@
     .local v1, "newThickness":I
     const/high16 v2, -0x80000000
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_11
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_22
 
     .line 97
-    :cond_0
+    :cond_11
     iget v2, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_1b
 
     iget v2, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_1b
 
     .line 98
     iget v1, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
 
     .line 100
-    :cond_1
+    :cond_1b
     invoke-virtual {p0}, Lcom/google/android/material/divider/MaterialDivider;->getMeasuredWidth()I
 
     move-result v2
@@ -337,18 +337,18 @@
     invoke-virtual {p0, v2, v1}, Lcom/google/android/material/divider/MaterialDivider;->setMeasuredDimension(II)V
 
     .line 102
-    :cond_2
+    :cond_22
     return-void
 .end method
 
 .method public setDividerColor(I)V
-    .locals 2
+    .registers 4
     .param p1, "color"    # I
 
     .line 226
     iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->color:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_12
 
     .line 227
     iput p1, p0, Lcom/google/android/material/divider/MaterialDivider;->color:I
@@ -366,12 +366,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/divider/MaterialDivider;->invalidate()V
 
     .line 231
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public setDividerColorResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "colorId"    # I
 
     .line 241
@@ -390,7 +390,7 @@
 .end method
 
 .method public setDividerInsetEnd(I)V
-    .locals 0
+    .registers 2
     .param p1, "insetEnd"    # I
 
     .line 193
@@ -401,7 +401,7 @@
 .end method
 
 .method public setDividerInsetEndResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "insetEndId"    # I
 
     .line 204
@@ -424,7 +424,7 @@
 .end method
 
 .method public setDividerInsetStart(I)V
-    .locals 0
+    .registers 2
     .param p1, "insetStart"    # I
 
     .line 160
@@ -435,7 +435,7 @@
 .end method
 
 .method public setDividerInsetStartResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "insetStartId"    # I
 
     .line 171
@@ -458,13 +458,13 @@
 .end method
 
 .method public setDividerThickness(I)V
-    .locals 1
+    .registers 3
     .param p1, "thickness"    # I
 
     .line 124
     iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 125
     iput p1, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
@@ -473,12 +473,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/divider/MaterialDivider;->requestLayout()V
 
     .line 128
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setDividerThicknessResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "thicknessId"    # I
 
     .line 139

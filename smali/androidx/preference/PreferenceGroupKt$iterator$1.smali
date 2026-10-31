@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/PreferenceGroup;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/preference/PreferenceGroup;
 
     iput-object p1, p0, Landroidx/preference/PreferenceGroupKt$iterator$1;->$this_iterator:Landroidx/preference/PreferenceGroup;
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 3
+    .registers 4
 
     .line 86
     iget v0, p0, Landroidx/preference/PreferenceGroupKt$iterator$1;->index:I
@@ -98,22 +98,22 @@
 
     .end local v1    # "$this$size$iv":Landroidx/preference/PreferenceGroup;
     .end local v2    # "$i$f$getSize":I
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     .line 86
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method public next()Landroidx/preference/Preference;
-    .locals 3
+    .registers 4
 
     .line 87
     iget-object v0, p0, Landroidx/preference/PreferenceGroupKt$iterator$1;->$this_iterator:Landroidx/preference/PreferenceGroup;
@@ -136,7 +136,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 84
     invoke-virtual {p0}, Landroidx/preference/PreferenceGroupKt$iterator$1;->next()Landroidx/preference/Preference;
@@ -147,7 +147,7 @@
 .end method
 
 .method public remove()V
-    .locals 3
+    .registers 4
 
     .line 89
     iget-object v0, p0, Landroidx/preference/PreferenceGroupKt$iterator$1;->$this_iterator:Landroidx/preference/PreferenceGroup;

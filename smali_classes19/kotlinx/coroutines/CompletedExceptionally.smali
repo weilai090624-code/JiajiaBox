@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/CompletedExceptionally;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;Z)V
-    .locals 0
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
     .param p2, "handled"    # Z
 
@@ -84,18 +84,18 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/Throwable;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 42
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 44
     const/4 p2, 0x0
 
     .line 42
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Lkotlinx/coroutines/CompletedExceptionally;-><init>(Ljava/lang/Throwable;Z)V
 
     .line 50
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public final getHandled()Z
-    .locals 1
+    .registers 2
 
     sget-object v0, Lkotlinx/coroutines/CompletedExceptionally;->_handled$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -114,21 +114,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public final makeHandled()Z
-    .locals 3
+    .registers 4
 
     sget-object v0, Lkotlinx/coroutines/CompletedExceptionally;->_handled$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -145,7 +145,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 49
     new-instance v0, Ljava/lang/StringBuilder;

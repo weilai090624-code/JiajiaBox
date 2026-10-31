@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static final getActiveNetworkCompat(Landroid/net/ConnectivityManager;)Landroid/net/Network;
-    .locals 1
+    .registers 2
     .param p0, "$this$getActiveNetworkCompat"    # Landroid/net/ConnectivityManager;
 
     const-string v0, "<this>"

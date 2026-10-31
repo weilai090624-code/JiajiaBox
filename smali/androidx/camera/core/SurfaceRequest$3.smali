@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/SurfaceRequest;Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/camera/core/SurfaceRequest;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 4
+    .registers 6
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -86,7 +86,7 @@
     .line 203
     instance-of v0, p1, Ljava/util/concurrent/CancellationException;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 204
     iget-object v0, p0, Landroidx/camera/core/SurfaceRequest$3;->val$sessionStatusCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -121,10 +121,10 @@
 
     invoke-static {v0}, Landroidx/core/util/Preconditions;->checkState(Z)V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 208
-    :cond_0
+    :cond_28
     iget-object v0, p0, Landroidx/camera/core/SurfaceRequest$3;->val$sessionStatusCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     const/4 v1, 0x0
@@ -132,12 +132,12 @@
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
     .line 210
-    :goto_0
+    :goto_2e
     return-void
 .end method
 
 .method public onSuccess(Landroid/view/Surface;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -160,7 +160,7 @@
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000

@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method static synthetic access$800(Ljava/lang/String;Ljava/lang/Iterable;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Ljava/lang/String;
     .param p1, "x1"    # Ljava/lang/Iterable;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public static alwaysFalse()Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -70,7 +70,7 @@
 .end method
 
 .method public static alwaysTrue()Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -92,7 +92,7 @@
 .end method
 
 .method public static and(Lcom/google/common/base/Predicate;Lcom/google/common/base/Predicate;)Lcom/google/common/base/Predicate;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -136,7 +136,7 @@
 .end method
 
 .method public static and(Ljava/lang/Iterable;)Lcom/google/common/base/Predicate;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -167,7 +167,7 @@
 .end method
 
 .method public static varargs and([Lcom/google/common/base/Predicate;)Lcom/google/common/base/Predicate;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -199,7 +199,7 @@
 .end method
 
 .method private static asList(Lcom/google/common/base/Predicate;Lcom/google/common/base/Predicate;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -238,7 +238,7 @@
 .end method
 
 .method public static compose(Lcom/google/common/base/Predicate;Lcom/google/common/base/Function;)Lcom/google/common/base/Predicate;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -268,7 +268,7 @@
 .end method
 
 .method public static contains(Ljava/util/regex/Pattern;)Lcom/google/common/base/Predicate;
-    .locals 2
+    .registers 3
     .param p0, "pattern"    # Ljava/util/regex/Pattern;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -294,7 +294,7 @@
 .end method
 
 .method public static containsPattern(Ljava/lang/String;)Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 2
     .param p0, "pattern"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -316,7 +316,7 @@
 .end method
 
 .method static defensiveCopy(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -341,12 +341,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -362,15 +362,15 @@
 
     .line 719
     .end local v2    # "element":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_9
 
     .line 720
-    :cond_0
+    :cond_1b
     return-object v0
 .end method
 
 .method private static varargs defensiveCopy([Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -395,7 +395,7 @@
 .end method
 
 .method public static equalTo(Ljava/lang/Object;)Lcom/google/common/base/Predicate;
-    .locals 2
+    .registers 3
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -412,17 +412,17 @@
 
     .line 161
     .local p0, "target":Ljava/lang/Object;, "TT;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     .line 162
     invoke-static {}, Lcom/google/common/base/Predicates;->isNull()Lcom/google/common/base/Predicate;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
     .line 163
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/google/common/base/Predicates$IsEqualToPredicate;
 
     const/4 v1, 0x0
@@ -434,12 +434,12 @@
     move-result-object v0
 
     .line 161
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 .method public static in(Ljava/util/Collection;)Lcom/google/common/base/Predicate;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -464,7 +464,7 @@
 .end method
 
 .method public static instanceOf(Ljava/lang/Class;)Lcom/google/common/base/Predicate;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -489,7 +489,7 @@
 .end method
 
 .method public static isNull()Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -511,7 +511,7 @@
 .end method
 
 .method public static not(Lcom/google/common/base/Predicate;)Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -534,7 +534,7 @@
 .end method
 
 .method public static notNull()Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -556,7 +556,7 @@
 .end method
 
 .method public static or(Lcom/google/common/base/Predicate;Lcom/google/common/base/Predicate;)Lcom/google/common/base/Predicate;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -600,7 +600,7 @@
 .end method
 
 .method public static or(Ljava/lang/Iterable;)Lcom/google/common/base/Predicate;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -631,7 +631,7 @@
 .end method
 
 .method public static varargs or([Lcom/google/common/base/Predicate;)Lcom/google/common/base/Predicate;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -663,7 +663,7 @@
 .end method
 
 .method public static subtypeOf(Ljava/lang/Class;)Lcom/google/common/base/Predicate;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -687,7 +687,7 @@
 .end method
 
 .method private static toStringHelper(Ljava/lang/String;Ljava/lang/Iterable;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0, "methodName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -727,12 +727,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_16
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2c
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -740,7 +740,7 @@
 
     .line 440
     .local v3, "o":Ljava/lang/Object;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_27
 
     .line 441
     const/16 v4, 0x2c
@@ -748,7 +748,7 @@
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 443
-    :cond_0
+    :cond_27
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 444
@@ -756,10 +756,10 @@
 
     .line 445
     .end local v3    # "o":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_16
 
     .line 446
-    :cond_1
+    :cond_2c
     const/16 v2, 0x29
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;

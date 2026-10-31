@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public get(I)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p1, "imageFormat"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -64,7 +64,7 @@
 
     .line 55
     .local v0, "quirk":Landroidx/camera/camera2/internal/compat/quirk/ExcludedSupportedSizesQuirk;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 56
     new-instance v1, Ljava/util/ArrayList;
@@ -74,7 +74,7 @@
     return-object v1
 
     .line 58
-    :cond_0
+    :cond_10
     iget-object v1, p0, Landroidx/camera/camera2/internal/compat/workaround/ExcludedSupportedSizesContainer;->mCameraId:Ljava/lang/String;
 
     invoke-virtual {v0, v1, p1}, Landroidx/camera/camera2/internal/compat/quirk/ExcludedSupportedSizesQuirk;->getExcludedSizes(Ljava/lang/String;I)Ljava/util/List;

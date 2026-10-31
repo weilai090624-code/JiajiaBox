@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/TrustedListenableFutureTask;Lcom/google/common/util/concurrent/AsyncCallable;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method afterRanInterruptiblyFailure(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "error"    # Ljava/lang/Throwable;
 
     .line 180
@@ -83,7 +83,7 @@
 .end method
 
 .method afterRanInterruptiblySuccess(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,7 +104,7 @@
 .end method
 
 .method bridge synthetic afterRanInterruptiblySuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 150
     .local p0, "this":Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleAsyncTask;, "Lcom/google/common/util/concurrent/TrustedListenableFutureTask<TV;>.TrustedFutureInterruptibleAsyncTask;"
@@ -116,7 +116,7 @@
 .end method
 
 .method final isDone()Z
-    .locals 1
+    .registers 2
 
     .line 161
     .local p0, "this":Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleAsyncTask;, "Lcom/google/common/util/concurrent/TrustedListenableFutureTask<TV;>.TrustedFutureInterruptibleAsyncTask;"
@@ -130,7 +130,7 @@
 .end method
 
 .method runInterruptibly()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -169,7 +169,7 @@
 .end method
 
 .method bridge synthetic runInterruptibly()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -186,7 +186,7 @@
 .end method
 
 .method toPendingString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 185
     .local p0, "this":Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleAsyncTask;, "Lcom/google/common/util/concurrent/TrustedListenableFutureTask<TV;>.TrustedFutureInterruptibleAsyncTask;"

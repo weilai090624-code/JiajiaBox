@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method public static forNaN()Lcom/google/common/math/LinearTransformation;
-    .locals 1
+    .registers 1
 
     .line 128
     sget-object v0, Lcom/google/common/math/LinearTransformation$NaNLinearTransformation;->INSTANCE:Lcom/google/common/math/LinearTransformation$NaNLinearTransformation;
@@ -37,7 +37,7 @@
 .end method
 
 .method public static horizontal(D)Lcom/google/common/math/LinearTransformation;
-    .locals 3
+    .registers 5
     .param p0, "y"    # D
 
     .line 116
@@ -60,7 +60,7 @@
 .end method
 
 .method public static mapping(DD)Lcom/google/common/math/LinearTransformation$LinearTransformationBuilder;
-    .locals 7
+    .registers 11
     .param p0, "x1"    # D
     .param p2, "y1"    # D
 
@@ -69,22 +69,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-static {p2, p3}, Lcom/google/common/math/DoubleUtils;->isFinite(D)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 49
@@ -104,7 +104,7 @@
 .end method
 
 .method public static vertical(D)Lcom/google/common/math/LinearTransformation;
-    .locals 1
+    .registers 3
     .param p0, "x"    # D
 
     .line 107

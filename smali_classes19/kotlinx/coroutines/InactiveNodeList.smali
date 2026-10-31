@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/NodeList;)V
-    .locals 0
+    .registers 2
     .param p1, "list"    # Lkotlinx/coroutines/NodeList;
 
     .line 1375
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public getList()Lkotlinx/coroutines/NodeList;
-    .locals 1
+    .registers 2
 
     .line 1376
     iget-object v0, p0, Lkotlinx/coroutines/InactiveNodeList;->list:Lkotlinx/coroutines/NodeList;
@@ -67,7 +67,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 1378
     const/4 v0, 0x0
@@ -76,14 +76,14 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 1379
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getDEBUG()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-virtual {p0}, Lkotlinx/coroutines/InactiveNodeList;->getList()Lkotlinx/coroutines/NodeList;
 
@@ -95,13 +95,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_11
     invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static toEpochSecond(Lj$/time/OffsetTime;Lj$/time/LocalDate;)J
-    .locals 8
+    .registers 10
     .param p0, "receiver"    # Lj$/time/OffsetTime;
     .param p1, "date"    # Lj$/time/LocalDate;
 

@@ -74,7 +74,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     new-instance v0, Lokhttp3/internal/platform/android/AndroidLog;
 
@@ -110,21 +110,21 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_20
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_20
     invoke-virtual {v3}, Ljava/lang/Package;->getName()Ljava/lang/String;
 
     move-result-object v3
 
     .line 59
     .local v3, "packageName":Ljava/lang/String;
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_24
+    if-eqz v3, :cond_2e
 
     .line 60
     move-object v4, v1
@@ -136,7 +136,7 @@
     invoke-interface {v4, v3, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 63
-    :cond_1
+    :cond_2e
     move-object v4, v1
 
     check-cast v4, Ljava/util/Map;
@@ -224,7 +224,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -233,7 +233,7 @@
 .end method
 
 .method private final enableLogging(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "logger"    # Ljava/lang/String;
     .param p2, "tag"    # Ljava/lang/String;
 
@@ -250,7 +250,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_31
 
     .line 107
     const/4 v1, 0x0
@@ -267,32 +267,32 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     sget-object v1, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 111
-    :cond_0
+    :cond_1b
     const/4 v1, 0x4
 
     invoke-static {p2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     sget-object v1, Ljava/util/logging/Level;->INFO:Ljava/util/logging/Level;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 112
-    :cond_1
+    :cond_25
     sget-object v1, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
 
     .line 109
-    :goto_0
+    :goto_27
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->setLevel(Ljava/util/logging/Level;)V
 
     .line 114
@@ -303,12 +303,12 @@
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->addHandler(Ljava/util/logging/Handler;)V
 
     .line 116
-    :cond_2
+    :cond_31
     return-void
 .end method
 
 .method private final loggerTag(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "loggerName"    # Ljava/lang/String;
 
     .line 95
@@ -320,7 +320,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/16 v0, 0x17
 
@@ -328,14 +328,14 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 
 # virtual methods
 .method public final androidLog$okhttp(Ljava/lang/String;ILjava/lang/String;Ljava/lang/Throwable;)V
-    .locals 10
+    .registers 15
     .param p1, "loggerName"    # Ljava/lang/String;
     .param p2, "logLevel"    # I
     .param p3, "message"    # Ljava/lang/String;
@@ -360,14 +360,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6f
 
     .line 73
     move-object v1, p3
 
     .line 74
     .local v1, "logMessage":Ljava/lang/String;
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_32
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -396,7 +396,7 @@
     move-result-object v1
 
     .line 77
-    :cond_0
+    :cond_32
     const/4 v2, 0x0
 
     .line 78
@@ -407,8 +407,8 @@
 
     .line 79
     .local v3, "length":I
-    :goto_0
-    if-ge v2, v3, :cond_4
+    :goto_37
+    if-ge v2, v3, :cond_6f
 
     .line 80
     move-object v4, v1
@@ -433,20 +433,20 @@
     .local v4, "newline":I
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_4b
 
     move v5, v4
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_1
+    :cond_4b
     move v5, v3
 
-    :goto_1
+    :goto_4c
     move v4, v5
 
     .line 83
-    :cond_2
+    :cond_4d
     add-int/lit16 v5, v2, 0xfa0
 
     invoke-static {v4, v5}, Ljava/lang/Math;->min(II)I
@@ -455,7 +455,7 @@
 
     .line 84
     .local v5, "end":I
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_67
 
     invoke-virtual {v1, v2, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -471,19 +471,19 @@
     move v2, v5
 
     .line 86
-    if-lt v2, v4, :cond_2
+    if-lt v2, v4, :cond_4d
 
     .line 87
     .end local v5    # "end":I
     add-int/lit8 v2, v2, 0x1
 
     .end local v4    # "newline":I
-    goto :goto_0
+    goto :goto_37
 
     .line 84
     .restart local v4    # "newline":I
     .restart local v5    # "end":I
-    :cond_3
+    :cond_67
     new-instance v6, Ljava/lang/NullPointerException;
 
     const-string v7, "null cannot be cast to non-null type java.lang.String"
@@ -498,12 +498,12 @@
     .end local v3    # "length":I
     .end local v4    # "newline":I
     .end local v5    # "end":I
-    :cond_4
+    :cond_6f
     return-void
 .end method
 
 .method public final enable()V
-    .locals 3
+    .registers 4
 
     .line 99
     sget-object v0, Lokhttp3/internal/platform/android/AndroidLog;->knownLoggers:Ljava/util/Map;
@@ -516,12 +516,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -548,9 +548,9 @@
 
     .end local v1    # "tag":Ljava/lang/String;
     .end local v2    # "logger":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_a
 
     .line 102
-    :cond_0
+    :cond_26
     return-void
 .end method

@@ -47,21 +47,21 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 116
     const/16 v0, 0x1e
 
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_54
 
     sput-object v1, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->TEXT_MIXED_RAW:[B
 
     .line 123
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_68
 
     sput-object v0, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->TEXT_PUNCTUATION_RAW:[B
 
@@ -94,12 +94,12 @@
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_26
     sget-object v3, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->TEXT_MIXED_RAW:[B
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_39
 
     .line 139
     sget-object v3, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->TEXT_MIXED_RAW:[B
@@ -107,7 +107,7 @@
     aget-byte v3, v3, v2
 
     .line 140
-    if-lez v3, :cond_0
+    if-lez v3, :cond_36
 
     .line 141
     sget-object v4, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->MIXED:[B
@@ -117,13 +117,13 @@
     aput-byte v5, v4, v3
 
     .line 138
-    :cond_0
+    :cond_36
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 144
-    :cond_1
+    :cond_39
     sget-object v2, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->PUNCTUATION:[B
 
     invoke-static {v2, v1}, Ljava/util/Arrays;->fill([BB)V
@@ -131,12 +131,12 @@
     .line 145
     nop
 
-    :goto_1
+    :goto_3f
     sget-object v1, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->TEXT_PUNCTUATION_RAW:[B
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_52
 
     .line 146
     sget-object v1, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->TEXT_PUNCTUATION_RAW:[B
@@ -144,7 +144,7 @@
     aget-byte v1, v1, v0
 
     .line 147
-    if-lez v1, :cond_2
+    if-lez v1, :cond_4f
 
     .line 148
     sget-object v2, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->PUNCTUATION:[B
@@ -154,18 +154,18 @@
     aput-byte v3, v2, v1
 
     .line 145
-    :cond_2
+    :cond_4f
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 151
-    :cond_3
+    :cond_52
     return-void
 
     nop
 
-    :array_0
+    :array_54
     .array-data 1
         0x30t
         0x31t
@@ -201,7 +201,7 @@
 
     nop
 
-    :array_1
+    :array_68
     .array-data 1
         0x3bt
         0x3ct
@@ -237,7 +237,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 132
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -247,7 +247,7 @@
 .end method
 
 .method private static determineConsecutiveBinaryCount(Ljava/lang/String;ILjava/nio/charset/Charset;)I
-    .locals 8
+    .registers 11
     .param p0, "msg"    # Ljava/lang/String;
     .param p1, "startpos"    # I
     .param p2, "encoding"    # Ljava/nio/charset/Charset;
@@ -276,8 +276,8 @@
     const/4 v3, 0x0
 
     .line 542
-    :goto_0
-    if-ge v2, v1, :cond_3
+    :goto_a
+    if-ge v2, v1, :cond_5f
 
     .line 543
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
@@ -290,16 +290,16 @@
 
     .line 546
     .local v5, "numericCount":I
-    :goto_1
+    :goto_11
     const/16 v6, 0xd
 
-    if-ge v5, v6, :cond_0
+    if-ge v5, v6, :cond_27
 
     invoke-static {v4}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isDigit(C)Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_27
 
     .line 547
     add-int/lit8 v5, v5, 0x1
@@ -311,7 +311,7 @@
     .local v3, "i":I
     move v3, v7
 
-    if-ge v7, v1, :cond_0
+    if-ge v7, v1, :cond_27
 
     .line 553
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
@@ -320,11 +320,11 @@
 
     .line 554
     .end local v3    # "i":I
-    goto :goto_1
+    goto :goto_11
 
     .line 555
-    :cond_0
-    if-lt v5, v6, :cond_1
+    :cond_27
+    if-lt v5, v6, :cond_2c
 
     .line 556
     sub-int v3, v2, p1
@@ -332,7 +332,7 @@
     return v3
 
     .line 558
-    :cond_1
+    :cond_2c
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v4
@@ -342,7 +342,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3a
 
     .line 563
     nop
@@ -352,12 +352,12 @@
     add-int/lit8 v2, v2, 0x1
 
     .line 564
-    goto :goto_0
+    goto :goto_a
 
     .line 561
     .restart local v4    # "ch":C
     .restart local v5    # "numericCount":I
-    :cond_2
+    :cond_3a
     new-instance v3, Lcom/google/zxing/WriterException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -397,14 +397,14 @@
     .line 565
     .end local v4    # "ch":C
     .end local v5    # "numericCount":I
-    :cond_3
+    :cond_5f
     sub-int v3, v2, p1
 
     return v3
 .end method
 
 .method private static determineConsecutiveDigitCount(Ljava/lang/CharSequence;I)I
-    .locals 5
+    .registers 7
     .param p0, "msg"    # Ljava/lang/CharSequence;
     .param p1, "startpos"    # I
 
@@ -423,7 +423,7 @@
 
     .line 478
     .local v2, "idx":I
-    if-ge p1, v1, :cond_1
+    if-ge p1, v1, :cond_1f
 
     .line 479
     invoke-interface {p0, p1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -432,15 +432,15 @@
 
     .line 480
     .local v3, "ch":C
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     invoke-static {v3}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isDigit(C)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1f
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_1f
 
     .line 481
     add-int/lit8 v0, v0, 0x1
@@ -449,23 +449,23 @@
     add-int/lit8 v2, v2, 0x1
 
     .line 483
-    if-ge v2, v1, :cond_0
+    if-ge v2, v1, :cond_c
 
     .line 484
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
 
-    goto :goto_0
+    goto :goto_c
 
     .line 488
     .end local v3    # "ch":C
-    :cond_1
+    :cond_1f
     return v0
 .end method
 
 .method private static determineConsecutiveTextCount(Ljava/lang/CharSequence;I)I
-    .locals 6
+    .registers 8
     .param p0, "msg"    # Ljava/lang/CharSequence;
     .param p1, "startpos"    # I
 
@@ -480,9 +480,9 @@
 
     .line 501
     .local v1, "idx":I
-    :cond_0
-    :goto_0
-    if-ge v1, v0, :cond_4
+    :cond_5
+    :goto_5
+    if-ge v1, v0, :cond_39
 
     .line 502
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -495,19 +495,19 @@
 
     .line 504
     .local v3, "numericCount":I
-    :cond_1
-    :goto_1
+    :cond_c
+    :goto_c
     const/16 v4, 0xd
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_23
 
     invoke-static {v2}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isDigit(C)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_23
 
-    if-ge v1, v0, :cond_2
+    if-ge v1, v0, :cond_23
 
     .line 505
     add-int/lit8 v3, v3, 0x1
@@ -516,18 +516,18 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 507
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_c
 
     .line 508
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v2
 
-    goto :goto_1
+    goto :goto_c
 
     .line 511
-    :cond_2
-    if-lt v3, v4, :cond_3
+    :cond_23
+    if-lt v3, v4, :cond_29
 
     .line 512
     sub-int v4, v1, p1
@@ -537,8 +537,8 @@
     return v4
 
     .line 514
-    :cond_3
-    if-gtz v3, :cond_0
+    :cond_29
+    if-gtz v3, :cond_5
 
     .line 518
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -550,7 +550,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_39
 
     .line 524
     nop
@@ -560,17 +560,17 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 525
-    goto :goto_0
+    goto :goto_5
 
     .line 526
-    :cond_4
+    :cond_39
     sub-int v2, v1, p1
 
     return v2
 .end method
 
 .method private static encodeBinary([BIIILjava/lang/StringBuilder;)V
-    .locals 11
+    .registers 16
     .param p0, "bytes"    # [B
     .param p1, "startpos"    # I
     .param p2, "count"    # I
@@ -580,45 +580,45 @@
     .line 382
     const/4 v0, 0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_b
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_b
 
     .line 383
     const/16 v0, 0x391
 
     invoke-virtual {p4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 385
-    :cond_0
+    :cond_b
     rem-int/lit8 v0, p2, 0x6
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     .line 386
     const/16 v0, 0x39c
 
     invoke-virtual {p4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 388
-    :cond_1
+    :cond_15
     const/16 v0, 0x385
 
     invoke-virtual {p4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 392
-    :goto_0
+    :goto_1a
     move v0, p1
 
     .line 394
     .local v0, "idx":I
     const/4 v1, 0x6
 
-    if-lt p2, v1, :cond_5
+    if-lt p2, v1, :cond_59
 
     .line 395
     const/4 v2, 0x5
@@ -627,12 +627,12 @@
 
     .line 396
     .local v3, "chars":[C
-    :goto_1
+    :goto_21
     add-int v4, p1, p2
 
     sub-int/2addr v4, v0
 
-    if-lt v4, v1, :cond_5
+    if-lt v4, v1, :cond_59
 
     .line 397
     const-wide/16 v4, 0x0
@@ -642,8 +642,8 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_2
-    if-ge v6, v1, :cond_2
+    :goto_29
+    if-ge v6, v1, :cond_3b
 
     .line 399
     const/16 v7, 0x8
@@ -664,16 +664,16 @@
     .line 398
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_29
 
     .line 402
     .end local v6    # "i":I
-    :cond_2
+    :cond_3b
     const/4 v6, 0x0
 
     .restart local v6    # "i":I
-    :goto_3
-    if-ge v6, v2, :cond_3
+    :goto_3c
+    if-ge v6, v2, :cond_4a
 
     .line 403
     const-wide/16 v7, 0x384
@@ -692,16 +692,16 @@
     .line 402
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3
+    goto :goto_3c
 
     .line 406
     .end local v6    # "i":I
-    :cond_3
+    :cond_4a
     const/4 v6, 0x4
 
     .restart local v6    # "i":I
-    :goto_4
-    if-ltz v6, :cond_4
+    :goto_4b
+    if-ltz v6, :cond_55
 
     .line 407
     aget-char v7, v3, v6
@@ -711,29 +711,29 @@
     .line 406
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_4
+    goto :goto_4b
 
     .line 409
     .end local v6    # "i":I
-    :cond_4
+    :cond_55
     nop
 
     .end local v4    # "t":J
     add-int/lit8 v0, v0, 0x6
 
     .line 410
-    goto :goto_1
+    goto :goto_21
 
     .line 413
     .end local v3    # "chars":[C
-    :cond_5
+    :cond_59
     move v1, v0
 
     .local v1, "i":I
-    :goto_5
+    :goto_5a
     add-int v2, p1, p2
 
-    if-ge v1, v2, :cond_6
+    if-ge v1, v2, :cond_69
 
     .line 414
     aget-byte v2, p0, v1
@@ -750,16 +750,16 @@
     .end local v2    # "ch":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_5
+    goto :goto_5a
 
     .line 417
     .end local v1    # "i":I
-    :cond_6
+    :cond_69
     return-void
 .end method
 
 .method static encodeHighLevel(Ljava/lang/String;Lcom/google/zxing/pdf417/encoder/Compaction;Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 16
+    .registers 19
     .param p0, "msg"    # Ljava/lang/String;
     .param p1, "compaction"    # Lcom/google/zxing/pdf417/encoder/Compaction;
     .param p2, "encoding"    # Ljava/nio/charset/Charset;
@@ -786,26 +786,26 @@
     .local v2, "sb":Ljava/lang/StringBuilder;
     const/4 v3, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
     .line 170
     sget-object v1, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->DEFAULT_ENCODING:Ljava/nio/charset/Charset;
 
     .end local p2    # "encoding":Ljava/nio/charset/Charset;
     .local v1, "encoding":Ljava/nio/charset/Charset;
-    goto :goto_0
+    goto :goto_2e
 
     .line 171
     .end local v1    # "encoding":Ljava/nio/charset/Charset;
     .restart local p2    # "encoding":Ljava/nio/charset/Charset;
-    :cond_0
+    :cond_13
     sget-object v4, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->DEFAULT_ENCODING:Ljava/nio/charset/Charset;
 
     invoke-virtual {v4, v1}, Ljava/nio/charset/Charset;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2e
 
     .line 172
     invoke-virtual/range {p2 .. p2}, Ljava/nio/charset/Charset;->name()Ljava/lang/String;
@@ -822,7 +822,7 @@
     .local v5, "eci":Lcom/google/zxing/common/CharacterSetECI;
     move-object v5, v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2e
 
     .line 174
     invoke-virtual {v5}, Lcom/google/zxing/common/CharacterSetECI;->getValue()I
@@ -835,8 +835,8 @@
     .end local v5    # "eci":Lcom/google/zxing/common/CharacterSetECI;
     .end local p2    # "encoding":Ljava/nio/charset/Charset;
     .restart local v1    # "encoding":Ljava/nio/charset/Charset;
-    :cond_1
-    :goto_0
+    :cond_2e
+    :goto_2e
     invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -865,7 +865,7 @@
 
     const/4 v10, 0x0
 
-    packed-switch v7, :pswitch_data_0
+    packed-switch v7, :pswitch_data_b6
 
     .line 196
     const/4 v7, 0x0
@@ -877,21 +877,21 @@
 
     const/4 v13, 0x0
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 192
     .end local v7    # "encodingMode":I
-    :pswitch_0
+    :pswitch_48
     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 193
     invoke-static {v0, v10, v4, v2}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->encodeNumeric(Ljava/lang/String;IILjava/lang/StringBuilder;)V
 
     .line 194
-    goto/16 :goto_4
+    goto/16 :goto_b1
 
     .line 188
-    :pswitch_1
+    :pswitch_50
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
     move-result-object v7
@@ -905,20 +905,20 @@
     invoke-static {v7, v10, v8, v9, v2}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->encodeBinary([BIIILjava/lang/StringBuilder;)V
 
     .line 190
-    goto :goto_4
+    goto :goto_b1
 
     .line 185
     .end local v3    # "msgBytes":[B
-    :pswitch_2
+    :pswitch_5a
     invoke-static {v0, v10, v4, v2, v10}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->encodeText(Ljava/lang/CharSequence;IILjava/lang/StringBuilder;I)I
 
     .line 186
-    goto :goto_4
+    goto :goto_b1
 
     .line 197
     .restart local v7    # "encodingMode":I
-    :goto_1
-    if-ge v5, v4, :cond_8
+    :goto_5e
+    if-ge v5, v4, :cond_b1
 
     .line 198
     invoke-static {v0, v5}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->determineConsecutiveDigitCount(Ljava/lang/CharSequence;I)I
@@ -931,7 +931,7 @@
 
     const/16 v15, 0xd
 
-    if-lt v14, v15, :cond_2
+    if-lt v14, v15, :cond_73
 
     .line 200
     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -948,10 +948,10 @@
     .line 204
     add-int/2addr v5, v11
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 206
-    :cond_2
+    :cond_73
     invoke-static {v0, v5}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->determineConsecutiveTextCount(Ljava/lang/CharSequence;I)I
 
     move-result v14
@@ -962,14 +962,14 @@
 
     const/4 v15, 0x5
 
-    if-ge v14, v15, :cond_6
+    if-ge v14, v15, :cond_a2
 
-    if-ne v11, v4, :cond_3
+    if-ne v11, v4, :cond_7e
 
-    goto :goto_3
+    goto :goto_a2
 
     .line 216
-    :cond_3
+    :cond_7e
     invoke-static {v0, v5, v1}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->determineConsecutiveBinaryCount(Ljava/lang/String;ILjava/nio/charset/Charset;)I
 
     move-result v14
@@ -978,13 +978,13 @@
     .local v13, "b":I
     move v13, v14
 
-    if-nez v14, :cond_4
+    if-nez v14, :cond_86
 
     .line 218
     const/4 v13, 0x1
 
     .line 220
-    :cond_4
+    :cond_86
     add-int v14, v5, v13
 
     invoke-virtual {v0, v5, v14}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -1001,17 +1001,17 @@
 
     array-length v14, v14
 
-    if-ne v14, v9, :cond_5
+    if-ne v14, v9, :cond_9a
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_9a
 
     .line 223
     invoke-static {v3, v10, v9, v10, v2}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->encodeBinary([BIIILjava/lang/StringBuilder;)V
 
-    goto :goto_2
+    goto :goto_a0
 
     .line 226
-    :cond_5
+    :cond_9a
     array-length v14, v3
 
     invoke-static {v3, v10, v14, v7, v2}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->encodeBinary([BIIILjava/lang/StringBuilder;)V
@@ -1023,7 +1023,7 @@
     const/4 v6, 0x0
 
     .line 230
-    :goto_2
+    :goto_a0
     add-int/2addr v5, v13
 
     .line 233
@@ -1031,14 +1031,14 @@
     .end local v11    # "n":I
     .end local v12    # "t":I
     .end local v13    # "b":I
-    goto :goto_1
+    goto :goto_5e
 
     .line 208
     .restart local v11    # "n":I
     .restart local v12    # "t":I
-    :cond_6
-    :goto_3
-    if-eqz v7, :cond_7
+    :cond_a2
+    :goto_a2
+    if-eqz v7, :cond_ab
 
     .line 209
     const/16 v14, 0x384
@@ -1052,7 +1052,7 @@
     const/4 v6, 0x0
 
     .line 213
-    :cond_7
+    :cond_ab
     invoke-static {v0, v5, v12, v2, v6}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->encodeText(Ljava/lang/CharSequence;IILjava/lang/StringBuilder;I)I
 
     move-result v6
@@ -1060,30 +1060,30 @@
     .line 214
     add-int/2addr v5, v12
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 237
     .end local v7    # "encodingMode":I
     .end local v11    # "n":I
     .end local v12    # "t":I
-    :cond_8
-    :goto_4
+    :cond_b1
+    :goto_b1
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
     return-object v3
 
-    :pswitch_data_0
+    :pswitch_data_b6
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5a
+        :pswitch_50
+        :pswitch_48
     .end packed-switch
 .end method
 
 .method private static encodeNumeric(Ljava/lang/String;IILjava/lang/StringBuilder;)V
-    .locals 9
+    .registers 13
     .param p0, "msg"    # Ljava/lang/String;
     .param p1, "startpos"    # I
     .param p2, "count"    # I
@@ -1120,8 +1120,8 @@
 
     .line 424
     .local v3, "num0":Ljava/math/BigInteger;
-    :goto_0
-    if-ge v0, p2, :cond_2
+    :goto_16
+    if-ge v0, p2, :cond_6c
 
     .line 425
     const/4 v4, 0x0
@@ -1171,7 +1171,7 @@
 
     .line 430
     .local v6, "bigint":Ljava/math/BigInteger;
-    :cond_0
+    :cond_41
     invoke-virtual {v6, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v7
@@ -1196,7 +1196,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_41
 
     .line 435
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
@@ -1206,8 +1206,8 @@
     add-int/lit8 v7, v7, -0x1
 
     .local v7, "i":I
-    :goto_1
-    if-ltz v7, :cond_1
+    :goto_5e
+    if-ltz v7, :cond_6a
 
     .line 436
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->charAt(I)C
@@ -1219,26 +1219,26 @@
     .line 435
     add-int/lit8 v7, v7, -0x1
 
-    goto :goto_1
+    goto :goto_5e
 
     .line 438
     .end local v7    # "i":I
-    :cond_1
+    :cond_6a
     add-int/2addr v0, v4
 
     .line 439
     .end local v4    # "len":I
     .end local v5    # "part":Ljava/lang/String;
     .end local v6    # "bigint":Ljava/math/BigInteger;
-    goto :goto_0
+    goto :goto_16
 
     .line 440
-    :cond_2
+    :cond_6c
     return-void
 .end method
 
 .method private static encodeText(Ljava/lang/CharSequence;IILjava/lang/StringBuilder;I)I
-    .locals 16
+    .registers 21
 
     .line 256
     move-object/from16 v0, p0
@@ -1262,8 +1262,8 @@
     const/4 v6, 0x0
 
     .line 260
-    :cond_0
-    :goto_0
+    :cond_10
+    :goto_10
     add-int v7, p1, v6
 
     invoke-interface {v0, v7}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1285,14 +1285,14 @@
 
     const/4 v15, 0x1
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_130
 
     .line 336
     invoke-static {v8}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isPunctuation(C)Z
 
     move-result v7
 
-    if-eqz v7, :cond_11
+    if-eqz v7, :cond_129
 
     .line 337
     sget-object v7, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->PUNCTUATION:[B
@@ -1303,15 +1303,15 @@
 
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_f5
 
     .line 310
-    :pswitch_0
+    :pswitch_35
     invoke-static {v8}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isMixed(C)Z
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_45
 
     .line 311
     sget-object v7, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->MIXED:[B
@@ -1322,15 +1322,15 @@
 
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_f5
 
     .line 313
-    :cond_1
+    :cond_45
     invoke-static {v8}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isAlphaUpper(C)Z
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_51
 
     .line 314
     nop
@@ -1341,15 +1341,15 @@
     .line 316
     const/4 v5, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
     .line 317
-    :cond_2
+    :cond_51
     invoke-static {v8}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isAlphaLower(C)Z
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_5d
 
     .line 318
     nop
@@ -1360,13 +1360,13 @@
     .line 320
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 322
-    :cond_3
+    :cond_5d
     add-int/lit8 v7, v7, 0x1
 
-    if-ge v7, v1, :cond_4
+    if-ge v7, v1, :cond_73
 
     .line 323
     invoke-interface {v0, v7}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1378,7 +1378,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_73
 
     .line 325
     nop
@@ -1391,10 +1391,10 @@
     .line 327
     const/4 v5, 0x3
 
-    goto :goto_0
+    goto :goto_10
 
     .line 330
-    :cond_4
+    :cond_73
     invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 331
@@ -1407,41 +1407,41 @@
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 334
-    goto/16 :goto_1
+    goto/16 :goto_f5
 
     .line 286
-    :pswitch_1
+    :pswitch_80
     invoke-static {v8}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isAlphaLower(C)Z
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_93
 
     .line 287
-    if-ne v8, v10, :cond_5
+    if-ne v8, v10, :cond_8c
 
     .line 288
     invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_f5
 
     .line 290
-    :cond_5
+    :cond_8c
     add-int/lit8 v8, v8, -0x61
 
     int-to-char v7, v8
 
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_f5
 
     .line 293
-    :cond_6
+    :cond_93
     invoke-static {v8}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isAlphaUpper(C)Z
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_a3
 
     .line 294
     invoke-virtual {v3, v12}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -1454,15 +1454,15 @@
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 297
-    goto :goto_1
+    goto :goto_f5
 
     .line 298
-    :cond_7
+    :cond_a3
     invoke-static {v8}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isMixed(C)Z
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_b0
 
     .line 299
     nop
@@ -1473,10 +1473,10 @@
     .line 301
     const/4 v5, 0x2
 
-    goto/16 :goto_0
+    goto/16 :goto_10
 
     .line 303
-    :cond_8
+    :cond_b0
     invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 304
@@ -1489,41 +1489,41 @@
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 305
-    goto :goto_1
+    goto :goto_f5
 
     .line 263
-    :pswitch_2
+    :pswitch_bc
     invoke-static {v8}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isAlphaUpper(C)Z
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_cf
 
     .line 264
-    if-ne v8, v10, :cond_9
+    if-ne v8, v10, :cond_c8
 
     .line 265
     invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_f5
 
     .line 267
-    :cond_9
+    :cond_c8
     add-int/lit8 v8, v8, -0x41
 
     int-to-char v7, v8
 
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_f5
 
     .line 270
-    :cond_a
+    :cond_cf
     invoke-static {v8}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isAlphaLower(C)Z
 
     move-result v7
 
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_dc
 
     .line 271
     nop
@@ -1534,15 +1534,15 @@
     .line 273
     const/4 v5, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_10
 
     .line 274
-    :cond_b
+    :cond_dc
     invoke-static {v8}, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder;->isMixed(C)Z
 
     move-result v7
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_e9
 
     .line 275
     nop
@@ -1553,10 +1553,10 @@
     .line 277
     const/4 v5, 0x2
 
-    goto/16 :goto_0
+    goto/16 :goto_10
 
     .line 279
-    :cond_c
+    :cond_e9
     invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 280
@@ -1572,11 +1572,11 @@
     nop
 
     .line 344
-    :goto_1
+    :goto_f5
     add-int/lit8 v6, v6, 0x1
 
     .line 345
-    if-lt v6, v1, :cond_0
+    if-lt v6, v1, :cond_10
 
     .line 349
     nop
@@ -1591,24 +1591,24 @@
 
     const/4 v6, 0x0
 
-    :goto_2
-    if-ge v1, v0, :cond_f
+    :goto_100
+    if-ge v1, v0, :cond_11e
 
     .line 352
     rem-int/lit8 v7, v1, 0x2
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_108
 
     const/4 v7, 0x1
 
-    goto :goto_3
+    goto :goto_109
 
-    :cond_d
+    :cond_108
     const/4 v7, 0x0
 
     .line 353
-    :goto_3
-    if-eqz v7, :cond_e
+    :goto_109
+    if-eqz v7, :cond_117
 
     .line 354
     mul-int/lit8 v6, v6, 0x1e
@@ -1624,25 +1624,25 @@
     .line 355
     invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    goto :goto_11b
 
     .line 357
-    :cond_e
+    :cond_117
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->charAt(I)C
 
     move-result v6
 
     .line 351
-    :goto_4
+    :goto_11b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_100
 
     .line 360
-    :cond_f
+    :cond_11e
     rem-int/2addr v0, v13
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_128
 
     .line 361
     mul-int/lit8 v6, v6, 0x1e
@@ -1654,11 +1654,11 @@
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 363
-    :cond_10
+    :cond_128
     return v5
 
     .line 339
-    :cond_11
+    :cond_129
     nop
 
     .line 340
@@ -1667,18 +1667,18 @@
     .line 341
     const/4 v5, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_10
 
-    :pswitch_data_0
+    :pswitch_data_130
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_bc
+        :pswitch_80
+        :pswitch_35
     .end packed-switch
 .end method
 
 .method private static encodingECI(ILjava/lang/StringBuilder;)V
-    .locals 3
+    .registers 5
     .param p0, "eci"    # I
     .param p1, "sb"    # Ljava/lang/StringBuilder;
     .annotation system Ldalvik/annotation/Throws;
@@ -1688,11 +1688,11 @@
     .end annotation
 
     .line 569
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_10
 
     const/16 v0, 0x384
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_10
 
     .line 570
     const/16 v0, 0x39f
@@ -1707,10 +1707,10 @@
     return-void
 
     .line 572
-    :cond_0
+    :cond_10
     const v0, 0xc5f94
 
-    if-ge p0, v0, :cond_1
+    if-ge p0, v0, :cond_29
 
     .line 573
     const/16 v0, 0x39e
@@ -1736,10 +1736,10 @@
     return-void
 
     .line 576
-    :cond_1
+    :cond_29
     const v1, 0xc6318
 
-    if-ge p0, v1, :cond_2
+    if-ge p0, v1, :cond_39
 
     .line 577
     const/16 v1, 0x39d
@@ -1756,7 +1756,7 @@
     return-void
 
     .line 580
-    :cond_2
+    :cond_39
     new-instance v0, Lcom/google/zxing/WriterException;
 
     const-string v1, "ECI number not in valid range from 0..811799, but was "
@@ -1775,92 +1775,92 @@
 .end method
 
 .method private static isAlphaLower(C)Z
-    .locals 1
+    .registers 2
     .param p0, "ch"    # C
 
     .line 452
     const/16 v0, 0x20
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_f
 
     const/16 v0, 0x61
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_d
 
     const/16 v0, 0x7a
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     return v0
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method private static isAlphaUpper(C)Z
-    .locals 1
+    .registers 2
     .param p0, "ch"    # C
 
     .line 448
     const/16 v0, 0x20
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_f
 
     const/16 v0, 0x41
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_d
 
     const/16 v0, 0x5a
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     return v0
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method private static isDigit(C)Z
-    .locals 1
+    .registers 2
     .param p0, "ch"    # C
 
     .line 444
     const/16 v0, 0x30
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_a
 
     const/16 v0, 0x39
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_a
 
     const/4 v0, 0x1
 
     return v0
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private static isMixed(C)Z
-    .locals 2
+    .registers 3
     .param p0, "ch"    # C
 
     .line 456
@@ -1870,20 +1870,20 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
     const/4 v0, 0x1
 
     return v0
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private static isPunctuation(C)Z
-    .locals 2
+    .registers 3
     .param p0, "ch"    # C
 
     .line 460
@@ -1893,52 +1893,52 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
     const/4 v0, 0x1
 
     return v0
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private static isText(C)Z
-    .locals 1
+    .registers 2
     .param p0, "ch"    # C
 
     .line 464
     const/16 v0, 0x9
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_17
 
     const/16 v0, 0xa
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_17
 
     const/16 v0, 0xd
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_17
 
     const/16 v0, 0x20
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_15
 
     const/16 v0, 0x7e
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
     return v0
 
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     const/4 v0, 0x1
 
     return v0

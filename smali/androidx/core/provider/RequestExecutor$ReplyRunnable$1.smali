@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/provider/RequestExecutor$ReplyRunnable;Landroidx/core/util/Consumer;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/core/provider/RequestExecutor$ReplyRunnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 154
     .local p0, "this":Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;, "Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;"

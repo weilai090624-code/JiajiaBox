@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 725
     .local p0, "this":Lj$/util/ImmutableCollections$AbstractImmutableMap;, "Ljava/util/ImmutableCollections$AbstractImmutableMap<TK;TV;>;"
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 726
     .local p0, "this":Lj$/util/ImmutableCollections$AbstractImmutableMap;, "Ljava/util/ImmutableCollections$AbstractImmutableMap<TK;TV;>;"
@@ -59,7 +59,7 @@
 .end method
 
 .method public compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -80,7 +80,7 @@
 .end method
 
 .method public computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -101,7 +101,7 @@
 .end method
 
 .method public computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -122,7 +122,7 @@
 .end method
 
 .method public synthetic forEach(Ljava/util/function/BiConsumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Map$-CC;->$default$forEach(Ljava/util/Map;Ljava/util/function/BiConsumer;)V
 
@@ -130,7 +130,7 @@
 .end method
 
 .method public synthetic getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/Map$-CC;->$default$getOrDefault(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;",
@@ -162,7 +162,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -181,7 +181,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -201,7 +201,7 @@
 .end method
 
 .method public putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -220,7 +220,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -240,7 +240,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -254,7 +254,7 @@
 .end method
 
 .method public replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -273,7 +273,7 @@
 .end method
 
 .method public replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;TV;)Z"
@@ -293,7 +293,7 @@
 .end method
 
 .method public replaceAll(Ljava/util/function/BiFunction;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

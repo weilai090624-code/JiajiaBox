@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 114
     new-instance v0, Lj$/time/chrono/ThaiBuddhistChronology;
@@ -167,7 +167,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 163
     invoke-direct {p0}, Lj$/time/chrono/AbstractChronology;-><init>()V
@@ -177,7 +177,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 398
@@ -193,7 +193,7 @@
 
 # virtual methods
 .method public bridge synthetic date(III)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 4
 
     .line 109
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/chrono/ThaiBuddhistChronology;->date(III)Lj$/time/chrono/ThaiBuddhistDate;
@@ -204,7 +204,7 @@
 .end method
 
 .method public bridge synthetic date(Lj$/time/chrono/Era;III)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 5
 
     .line 109
     invoke-virtual {p0, p1, p2, p3, p4}, Lj$/time/chrono/ThaiBuddhistChronology;->date(Lj$/time/chrono/Era;III)Lj$/time/chrono/ThaiBuddhistDate;
@@ -215,7 +215,7 @@
 .end method
 
 .method public bridge synthetic date(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 2
 
     .line 109
     invoke-virtual {p0, p1}, Lj$/time/chrono/ThaiBuddhistChronology;->date(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ThaiBuddhistDate;
@@ -226,7 +226,7 @@
 .end method
 
 .method public date(III)Lj$/time/chrono/ThaiBuddhistDate;
-    .locals 2
+    .registers 6
     .param p1, "prolepticYear"    # I
     .param p2, "month"    # I
     .param p3, "dayOfMonth"    # I
@@ -246,7 +246,7 @@
 .end method
 
 .method public date(Lj$/time/chrono/Era;III)Lj$/time/chrono/ThaiBuddhistDate;
-    .locals 1
+    .registers 6
     .param p1, "era"    # Lj$/time/chrono/Era;
     .param p2, "yearOfEra"    # I
     .param p3, "month"    # I
@@ -265,13 +265,13 @@
 .end method
 
 .method public date(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ThaiBuddhistDate;
-    .locals 2
+    .registers 4
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 290
     instance-of v0, p1, Lj$/time/chrono/ThaiBuddhistDate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 291
     move-object v0, p1
@@ -281,7 +281,7 @@
     return-object v0
 
     .line 293
-    :cond_0
+    :cond_8
     new-instance v0, Lj$/time/chrono/ThaiBuddhistDate;
 
     invoke-static {p1}, Lj$/time/LocalDate;->from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/LocalDate;
@@ -294,7 +294,7 @@
 .end method
 
 .method public bridge synthetic dateEpochDay(J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 109
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/ThaiBuddhistChronology;->dateEpochDay(J)Lj$/time/chrono/ThaiBuddhistDate;
@@ -305,7 +305,7 @@
 .end method
 
 .method public dateEpochDay(J)Lj$/time/chrono/ThaiBuddhistDate;
-    .locals 2
+    .registers 5
     .param p1, "epochDay"    # J
 
     .line 270
@@ -321,7 +321,7 @@
 .end method
 
 .method public bridge synthetic dateNow()Lj$/time/chrono/ChronoLocalDate;
-    .locals 1
+    .registers 2
 
     .line 109
     invoke-virtual {p0}, Lj$/time/chrono/ThaiBuddhistChronology;->dateNow()Lj$/time/chrono/ThaiBuddhistDate;
@@ -332,7 +332,7 @@
 .end method
 
 .method public bridge synthetic dateNow(Lj$/time/Clock;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 2
 
     .line 109
     invoke-virtual {p0, p1}, Lj$/time/chrono/ThaiBuddhistChronology;->dateNow(Lj$/time/Clock;)Lj$/time/chrono/ThaiBuddhistDate;
@@ -343,7 +343,7 @@
 .end method
 
 .method public bridge synthetic dateNow(Lj$/time/ZoneId;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 2
 
     .line 109
     invoke-virtual {p0, p1}, Lj$/time/chrono/ThaiBuddhistChronology;->dateNow(Lj$/time/ZoneId;)Lj$/time/chrono/ThaiBuddhistDate;
@@ -354,7 +354,7 @@
 .end method
 
 .method public dateNow()Lj$/time/chrono/ThaiBuddhistDate;
-    .locals 1
+    .registers 2
 
     .line 275
     invoke-static {}, Lj$/time/Clock;->systemDefaultZone()Lj$/time/Clock;
@@ -369,7 +369,7 @@
 .end method
 
 .method public dateNow(Lj$/time/Clock;)Lj$/time/chrono/ThaiBuddhistDate;
-    .locals 1
+    .registers 3
     .param p1, "clock"    # Lj$/time/Clock;
 
     .line 285
@@ -385,7 +385,7 @@
 .end method
 
 .method public dateNow(Lj$/time/ZoneId;)Lj$/time/chrono/ThaiBuddhistDate;
-    .locals 1
+    .registers 3
     .param p1, "zone"    # Lj$/time/ZoneId;
 
     .line 280
@@ -401,7 +401,7 @@
 .end method
 
 .method public bridge synthetic dateYearDay(II)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 109
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/ThaiBuddhistChronology;->dateYearDay(II)Lj$/time/chrono/ThaiBuddhistDate;
@@ -412,7 +412,7 @@
 .end method
 
 .method public bridge synthetic dateYearDay(Lj$/time/chrono/Era;II)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 4
 
     .line 109
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/chrono/ThaiBuddhistChronology;->dateYearDay(Lj$/time/chrono/Era;II)Lj$/time/chrono/ThaiBuddhistDate;
@@ -423,7 +423,7 @@
 .end method
 
 .method public dateYearDay(II)Lj$/time/chrono/ThaiBuddhistDate;
-    .locals 2
+    .registers 5
     .param p1, "prolepticYear"    # I
     .param p2, "dayOfYear"    # I
 
@@ -442,7 +442,7 @@
 .end method
 
 .method public dateYearDay(Lj$/time/chrono/Era;II)Lj$/time/chrono/ThaiBuddhistDate;
-    .locals 1
+    .registers 5
     .param p1, "era"    # Lj$/time/chrono/Era;
     .param p2, "yearOfEra"    # I
     .param p3, "dayOfYear"    # I
@@ -460,7 +460,7 @@
 .end method
 
 .method public bridge synthetic eraOf(I)Lj$/time/chrono/Era;
-    .locals 0
+    .registers 2
 
     .line 109
     invoke-virtual {p0, p1}, Lj$/time/chrono/ThaiBuddhistChronology;->eraOf(I)Lj$/time/chrono/ThaiBuddhistEra;
@@ -471,7 +471,7 @@
 .end method
 
 .method public eraOf(I)Lj$/time/chrono/ThaiBuddhistEra;
-    .locals 1
+    .registers 3
     .param p1, "eraValue"    # I
 
     .line 340
@@ -483,7 +483,7 @@
 .end method
 
 .method public eras()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -506,7 +506,7 @@
 .end method
 
 .method public getCalendarType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 195
     const-string v0, "buddhist"
@@ -515,7 +515,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 178
     const-string v0, "ThaiBuddhist"
@@ -524,7 +524,7 @@
 .end method
 
 .method public isLeapYear(J)Z
-    .locals 3
+    .registers 6
     .param p1, "prolepticYear"    # J
 
     .line 327
@@ -542,7 +542,7 @@
 .end method
 
 .method public localDateTime(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ChronoLocalDateTime;
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -564,32 +564,32 @@
 .end method
 
 .method public prolepticYear(Lj$/time/chrono/Era;I)I
-    .locals 2
+    .registers 5
     .param p1, "era"    # Lj$/time/chrono/Era;
     .param p2, "yearOfEra"    # I
 
     .line 332
     instance-of v0, p1, Lj$/time/chrono/ThaiBuddhistEra;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 335
     sget-object v0, Lj$/time/chrono/ThaiBuddhistEra;->BE:Lj$/time/chrono/ThaiBuddhistEra;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     move v0, p2
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     rsub-int/lit8 v0, p2, 0x1
 
-    :goto_0
+    :goto_c
     return v0
 
     .line 333
-    :cond_1
+    :cond_d
     new-instance v0, Ljava/lang/ClassCastException;
 
     const-string v1, "Era must be BuddhistEra"
@@ -600,7 +600,7 @@
 .end method
 
 .method public range(Lj$/time/temporal/ChronoField;)Lj$/time/temporal/ValueRange;
-    .locals 13
+    .registers 15
     .param p1, "field"    # Lj$/time/temporal/ChronoField;
 
     .line 351
@@ -614,7 +614,7 @@
 
     const-wide/16 v1, 0x21f
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_5c
 
     .line 365
     invoke-virtual {p1}, Lj$/time/temporal/ChronoField;->range()Lj$/time/temporal/ValueRange;
@@ -624,7 +624,7 @@
     return-object v0
 
     .line 361
-    :pswitch_0
+    :pswitch_12
     sget-object v0, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v0}, Lj$/time/temporal/ChronoField;->range()Lj$/time/temporal/ValueRange;
@@ -653,7 +653,7 @@
 
     .line 357
     .end local v0    # "range":Lj$/time/temporal/ValueRange;
-    :pswitch_1
+    :pswitch_27
     sget-object v0, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v0}, Lj$/time/temporal/ChronoField;->range()Lj$/time/temporal/ValueRange;
@@ -690,7 +690,7 @@
 
     .line 353
     .end local v0    # "range":Lj$/time/temporal/ValueRange;
-    :pswitch_2
+    :pswitch_44
     sget-object v0, Lj$/time/temporal/ChronoField;->PROLEPTIC_MONTH:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v0}, Lj$/time/temporal/ChronoField;->range()Lj$/time/temporal/ValueRange;
@@ -721,16 +721,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5c
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_44
+        :pswitch_27
+        :pswitch_12
     .end packed-switch
 .end method
 
 .method public bridge synthetic resolveDate(Ljava/util/Map;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 109
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/ThaiBuddhistChronology;->resolveDate(Ljava/util/Map;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/ThaiBuddhistDate;
@@ -741,7 +741,7 @@
 .end method
 
 .method public resolveDate(Ljava/util/Map;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/ThaiBuddhistDate;
-    .locals 1
+    .registers 4
     .param p2, "resolverStyle"    # Lj$/time/format/ResolverStyle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -768,7 +768,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 388
     invoke-super {p0}, Lj$/time/chrono/AbstractChronology;->writeReplace()Ljava/lang/Object;
@@ -779,7 +779,7 @@
 .end method
 
 .method public zonedDateTime(Lj$/time/Instant;Lj$/time/ZoneId;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 1
+    .registers 4
     .param p1, "instant"    # Lj$/time/Instant;
     .param p2, "zone"    # Lj$/time/ZoneId;
     .annotation system Ldalvik/annotation/Signature;
@@ -803,7 +803,7 @@
 .end method
 
 .method public zonedDateTime(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
     .annotation system Ldalvik/annotation/Signature;
         value = {

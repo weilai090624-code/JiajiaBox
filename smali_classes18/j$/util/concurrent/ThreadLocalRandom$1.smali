@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1127
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method protected initialValue()Lj$/util/concurrent/ThreadLocalRandom;
-    .locals 2
+    .registers 3
 
     .line 1129
     new-instance v0, Lj$/util/concurrent/ThreadLocalRandom;
@@ -48,7 +48,7 @@
 .end method
 
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1127
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom$1;->initialValue()Lj$/util/concurrent/ThreadLocalRandom;

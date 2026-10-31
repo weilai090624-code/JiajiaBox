@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/drawerlayout/widget/DrawerLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/drawerlayout/widget/DrawerLayout;
 
     .line 259
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public perform(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "arguments"    # Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;
 
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Landroidx/drawerlayout/widget/DrawerLayout$1;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
@@ -58,7 +58,7 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_18
 
     .line 263
     iget-object v0, p0, Landroidx/drawerlayout/widget/DrawerLayout$1;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
@@ -71,7 +71,7 @@
     return v0
 
     .line 266
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     return v0

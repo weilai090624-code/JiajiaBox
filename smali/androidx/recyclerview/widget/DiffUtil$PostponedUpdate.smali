@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(IIZ)V
-    .locals 0
+    .registers 4
     .param p1, "posInOwnerList"    # I
     .param p2, "currentPos"    # I
     .param p3, "removal"    # Z

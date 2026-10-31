@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 44
     const-string v0, "os.name"
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 51
     invoke-direct {p0}, Lorg/ini4j/BasicRegistry;-><init>()V
@@ -117,7 +117,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -140,7 +140,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -160,7 +160,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -180,7 +180,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "registryKey"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -199,7 +199,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/URL;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -219,7 +219,7 @@
 .end method
 
 .method private createTempFile()Ljava/io/File;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -244,7 +244,7 @@
 .end method
 
 .method public static isWindows()Z
-    .locals 1
+    .registers 1
 
     .line 99
     sget-boolean v0, Lorg/ini4j/Reg;->WINDOWS:Z
@@ -253,7 +253,7 @@
 .end method
 
 .method private regExport(Ljava/lang/String;Ljava/io/File;)V
-    .locals 6
+    .registers 9
     .param p1, "registryKey"    # Ljava/lang/String;
     .param p2, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
@@ -291,7 +291,7 @@
 .end method
 
 .method private regImport(Ljava/io/File;)V
-    .locals 5
+    .registers 7
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -326,18 +326,18 @@
 .end method
 
 .method private requireWindows()V
-    .locals 2
+    .registers 3
 
     .line 309
     sget-boolean v0, Lorg/ini4j/Reg;->WINDOWS:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 313
     return-void
 
     .line 311
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Unsupported operating system or runtime environment"
@@ -350,7 +350,7 @@
 
 # virtual methods
 .method exec([Ljava/lang/String;)V
-    .locals 8
+    .registers 10
     .param p1, "args"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -369,14 +369,14 @@
 
     .line 268
     .local v0, "proc":Ljava/lang/Process;
-    :try_start_0
+    :try_start_8
     invoke-virtual {v0}, Ljava/lang/Process;->waitFor()I
 
     move-result v1
 
     .line 270
     .local v1, "status":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 283
     .end local v1    # "status":I
@@ -387,7 +387,7 @@
 
     .line 272
     .restart local v1    # "status":I
-    :cond_0
+    :cond_10
     new-instance v2, Ljava/io/InputStreamReader;
 
     invoke-virtual {v0}, Ljava/lang/Process;->getErrorStream()Ljava/io/InputStream;
@@ -430,8 +430,8 @@
     .end local v0    # "proc":Ljava/lang/Process;
     .end local p1    # "args":[Ljava/lang/String;
     throw v5
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_34
+    .catch Ljava/lang/InterruptedException; {:try_start_8 .. :try_end_34} :catch_34
 
     .line 280
     .end local v1    # "status":I
@@ -440,7 +440,7 @@
     .end local v4    # "n":I
     .restart local v0    # "proc":Ljava/lang/Process;
     .restart local p1    # "args":[Ljava/lang/String;
-    :catch_0
+    :catch_34
     move-exception v1
 
     .line 282
@@ -463,7 +463,7 @@
 .end method
 
 .method public getConfig()Lorg/ini4j/Config;
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Lorg/ini4j/Reg;->_config:Lorg/ini4j/Config;
@@ -472,7 +472,7 @@
 .end method
 
 .method public getFile()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 114
     iget-object v0, p0, Lorg/ini4j/Reg;->_file:Ljava/io/File;
@@ -481,7 +481,7 @@
 .end method
 
 .method getPathSeparator()C
-    .locals 1
+    .registers 2
 
     .line 254
     invoke-virtual {p0}, Lorg/ini4j/Reg;->getConfig()Lorg/ini4j/Config;
@@ -496,7 +496,7 @@
 .end method
 
 .method isPropertyFirstUpper()Z
-    .locals 1
+    .registers 2
 
     .line 259
     invoke-virtual {p0}, Lorg/ini4j/Reg;->getConfig()Lorg/ini4j/Config;
@@ -511,7 +511,7 @@
 .end method
 
 .method isTreeMode()Z
-    .locals 1
+    .registers 2
 
     .line 249
     invoke-virtual {p0}, Lorg/ini4j/Reg;->getConfig()Lorg/ini4j/Config;
@@ -526,7 +526,7 @@
 .end method
 
 .method public load()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -537,7 +537,7 @@
     .line 124
     iget-object v0, p0, Lorg/ini4j/Reg;->_file:Ljava/io/File;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 129
     iget-object v0, p0, Lorg/ini4j/Reg;->_file:Ljava/io/File;
@@ -548,7 +548,7 @@
     return-void
 
     .line 126
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/io/FileNotFoundException;
 
     invoke-direct {v0}, Ljava/io/FileNotFoundException;-><init>()V
@@ -557,7 +557,7 @@
 .end method
 
 .method public load(Ljava/io/File;)V
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -582,7 +582,7 @@
 .end method
 
 .method public load(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -611,7 +611,7 @@
 .end method
 
 .method public load(Ljava/io/Reader;)V
-    .locals 5
+    .registers 7
     .param p1, "input"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -636,34 +636,34 @@
     move-result v2
 
     .local v2, "c":I
-    :goto_0
+    :goto_a
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_26
 
     .line 149
     const/16 v3, 0xa
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_16
 
     .line 151
     add-int/lit8 v0, v0, -0x1
 
     .line 152
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 154
-    goto :goto_1
+    goto :goto_26
 
     .line 157
-    :cond_0
+    :cond_16
     const/16 v3, 0xd
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_21
 
     const/4 v3, 0x1
 
-    if-eq v0, v3, :cond_1
+    if-eq v0, v3, :cond_21
 
     .line 159
     int-to-char v3, v2
@@ -671,22 +671,22 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 147
-    :cond_1
+    :cond_21
     invoke-virtual {p1}, Ljava/io/Reader;->read()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_a
 
     .line 163
     .end local v2    # "c":I
-    :cond_2
-    :goto_1
+    :cond_26
+    :goto_26
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_67
 
     .line 168
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -701,7 +701,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4a
 
     .line 173
     invoke-virtual {p0}, Lorg/ini4j/Reg;->getConfig()Lorg/ini4j/Config;
@@ -722,7 +722,7 @@
     return-void
 
     .line 170
-    :cond_3
+    :cond_4a
     new-instance v2, Lorg/ini4j/InvalidFileFormatException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -752,7 +752,7 @@
     throw v2
 
     .line 165
-    :cond_4
+    :cond_67
     new-instance v2, Lorg/ini4j/InvalidFileFormatException;
 
     const-string v3, "Missing version header"
@@ -763,7 +763,7 @@
 .end method
 
 .method public load(Ljava/net/URL;)V
-    .locals 3
+    .registers 5
     .param p1, "input"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -796,7 +796,7 @@
 .end method
 
 .method protected newBuilder()Lorg/ini4j/spi/IniHandler;
-    .locals 1
+    .registers 2
 
     .line 244
     invoke-static {p0}, Lorg/ini4j/spi/RegBuilder;->newInstance(Lorg/ini4j/Reg;)Lorg/ini4j/spi/RegBuilder;
@@ -807,7 +807,7 @@
 .end method
 
 .method public read(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "registryKey"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -822,13 +822,13 @@
 
     .line 187
     .local v0, "tmp":Ljava/io/File;
-    :try_start_0
+    :try_start_4
     invoke-direct {p0, p1, v0}, Lorg/ini4j/Reg;->regExport(Ljava/lang/String;Ljava/io/File;)V
 
     .line 188
     invoke-virtual {p0, v0}, Lorg/ini4j/Reg;->load(Ljava/io/File;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_4 .. :try_end_a} :catchall_f
 
     .line 192
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
@@ -840,7 +840,7 @@
     return-void
 
     .line 192
-    :catchall_0
+    :catchall_f
     move-exception v1
 
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
@@ -849,7 +849,7 @@
 .end method
 
 .method public setConfig(Lorg/ini4j/Config;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Lorg/ini4j/Config;
 
     .line 109
@@ -860,7 +860,7 @@
 .end method
 
 .method public setFile(Ljava/io/File;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/io/File;
 
     .line 119
@@ -871,7 +871,7 @@
 .end method
 
 .method public store()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -881,7 +881,7 @@
     .line 198
     iget-object v0, p0, Lorg/ini4j/Reg;->_file:Ljava/io/File;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 203
     iget-object v0, p0, Lorg/ini4j/Reg;->_file:Ljava/io/File;
@@ -892,7 +892,7 @@
     return-void
 
     .line 200
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/io/FileNotFoundException;
 
     invoke-direct {v0}, Ljava/io/FileNotFoundException;-><init>()V
@@ -901,7 +901,7 @@
 .end method
 
 .method public store(Ljava/io/File;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -926,7 +926,7 @@
 .end method
 
 .method public store(Ljava/io/OutputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "output"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -954,7 +954,7 @@
 .end method
 
 .method public store(Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Ljava/io/Writer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1007,7 +1007,7 @@
 .end method
 
 .method public write()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1021,13 +1021,13 @@
 
     .line 233
     .local v0, "tmp":Ljava/io/File;
-    :try_start_0
+    :try_start_4
     invoke-virtual {p0, v0}, Lorg/ini4j/Reg;->store(Ljava/io/File;)V
 
     .line 234
     invoke-direct {p0, v0}, Lorg/ini4j/Reg;->regImport(Ljava/io/File;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_4 .. :try_end_a} :catchall_f
 
     .line 238
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
@@ -1039,7 +1039,7 @@
     return-void
 
     .line 238
-    :catchall_0
+    :catchall_f
     move-exception v1
 
     invoke-virtual {v0}, Ljava/io/File;->delete()Z

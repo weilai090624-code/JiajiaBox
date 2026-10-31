@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/util/concurrent/AsyncFunction;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method doTransform(Lcom/google/common/util/concurrent/AsyncFunction;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 5
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
         .end annotation
@@ -96,7 +96,7 @@
 .end method
 
 .method bridge synthetic doTransform(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
         .end annotation
@@ -119,7 +119,7 @@
 .end method
 
 .method setResult(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -138,7 +138,7 @@
 .end method
 
 .method bridge synthetic setResult(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 208
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractTransformFuture$AsyncTransformFuture;, "Lcom/google/common/util/concurrent/AbstractTransformFuture$AsyncTransformFuture<TI;TO;>;"

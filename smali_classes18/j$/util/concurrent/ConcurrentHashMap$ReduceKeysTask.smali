@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/concurrent/ConcurrentHashMap$BulkTask;III[Lj$/util/concurrent/ConcurrentHashMap$Node;Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;Ljava/util/function/BiFunction;)V
-    .locals 0
+    .registers 8
     .param p2, "b"    # I
     .param p3, "i"    # I
     .param p4, "f"    # I
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public final compute()V
-    .locals 12
+    .registers 13
 
     .line 5407
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;, "Ljava/util/concurrent/ConcurrentHashMap$ReduceKeysTask<TK;TV;>;"
@@ -112,16 +112,16 @@
     move-object v9, v0
 
     .local v9, "reducer":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<-TK;-TK;+TK;>;"
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_76
 
     .line 5408
     iget v0, p0, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->baseIndex:I
 
     .local v0, "i":I
-    :goto_0
+    :goto_7
     iget v1, p0, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->batch:I
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_32
 
     iget v1, p0, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->baseLimit:I
 
@@ -137,7 +137,7 @@
     move v10, v1
 
     .local v10, "h":I
-    if-le v1, v0, :cond_0
+    if-le v1, v0, :cond_32
 
     .line 5410
     invoke-virtual {p0, v2}, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->addToPendingCount(I)V
@@ -172,18 +172,18 @@
     .line 5413
     invoke-virtual {v11}, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->fork()Ljava/util/concurrent/ForkJoinTask;
 
-    goto :goto_0
+    goto :goto_7
 
     .line 5415
     .end local v0    # "i":I
     .end local v5    # "f":I
     .end local v10    # "h":I
-    :cond_0
+    :cond_32
     const/4 v0, 0x0
 
     .line 5416
     .local v0, "r":Ljava/lang/Object;, "TK;"
-    :goto_1
+    :goto_33
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
 
     move-result-object v1
@@ -191,41 +191,41 @@
     move-object v2, v1
 
     .local v2, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4a
 
     .line 5417
     iget-object v1, v2, Lj$/util/concurrent/ConcurrentHashMap$Node;->key:Ljava/lang/Object;
 
     .line 5418
     .local v1, "u":Ljava/lang/Object;, "TK;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_40
 
     move-object v3, v1
 
-    goto :goto_2
+    goto :goto_48
 
-    :cond_1
-    if-nez v1, :cond_2
+    :cond_40
+    if-nez v1, :cond_44
 
     move-object v3, v0
 
-    goto :goto_2
+    goto :goto_48
 
-    :cond_2
+    :cond_44
     invoke-interface {v9, v0, v1}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    :goto_2
+    :goto_48
     move-object v0, v3
 
     .line 5419
     .end local v1    # "u":Ljava/lang/Object;, "TK;"
-    goto :goto_1
+    goto :goto_33
 
     .line 5420
     .end local v2    # "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    :cond_3
+    :cond_4a
     iput-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->result:Ljava/lang/Object;
 
     .line 5422
@@ -234,8 +234,8 @@
     move-result-object v1
 
     .local v1, "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
-    :goto_3
-    if-eqz v1, :cond_7
+    :goto_50
+    if-eqz v1, :cond_76
 
     .line 5425
     move-object v2, v1
@@ -248,8 +248,8 @@
 
     .line 5427
     .local v3, "s":Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;, "Ljava/util/concurrent/ConcurrentHashMap$ReduceKeysTask<TK;TV;>;"
-    :goto_4
-    if-eqz v3, :cond_6
+    :goto_57
+    if-eqz v3, :cond_71
 
     .line 5429
     iget-object v4, v3, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->result:Ljava/lang/Object;
@@ -257,7 +257,7 @@
     move-object v5, v4
 
     .local v5, "sr":Ljava/lang/Object;, "TK;"
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6b
 
     .line 5430
     iget-object v4, v2, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->result:Ljava/lang/Object;
@@ -265,24 +265,24 @@
     move-object v6, v4
 
     .local v6, "tr":Ljava/lang/Object;, "TK;"
-    if-nez v4, :cond_4
+    if-nez v4, :cond_65
 
     move-object v4, v5
 
-    goto :goto_5
+    goto :goto_69
 
     .line 5431
-    :cond_4
+    :cond_65
     invoke-interface {v9, v6, v5}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
 
-    :goto_5
+    :goto_69
     iput-object v4, v2, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->result:Ljava/lang/Object;
 
     .line 5432
     .end local v6    # "tr":Ljava/lang/Object;, "TK;"
-    :cond_5
+    :cond_6b
     iget-object v4, v3, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->nextRight:Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;
 
     iput-object v4, v2, Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;->rights:Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;
@@ -291,27 +291,27 @@
 
     .line 5433
     .end local v5    # "sr":Ljava/lang/Object;, "TK;"
-    goto :goto_4
+    goto :goto_57
 
     .line 5422
     .end local v2    # "t":Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;, "Ljava/util/concurrent/ConcurrentHashMap$ReduceKeysTask<TK;TV;>;"
     .end local v3    # "s":Lj$/util/concurrent/ConcurrentHashMap$ReduceKeysTask;, "Ljava/util/concurrent/ConcurrentHashMap$ReduceKeysTask<TK;TV;>;"
-    :cond_6
+    :cond_71
     invoke-virtual {v1}, Ljava/util/concurrent/CountedCompleter;->nextComplete()Ljava/util/concurrent/CountedCompleter;
 
     move-result-object v1
 
-    goto :goto_3
+    goto :goto_50
 
     .line 5436
     .end local v0    # "r":Ljava/lang/Object;, "TK;"
     .end local v1    # "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
-    :cond_7
+    :cond_76
     return-void
 .end method
 
 .method public final getRawResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"

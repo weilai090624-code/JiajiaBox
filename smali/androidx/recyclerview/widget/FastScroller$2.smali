@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/FastScroller;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/FastScroller;
 
     .line 130
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
-    .locals 3
+    .registers 7
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "dx"    # I
     .param p3, "dy"    # I

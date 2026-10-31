@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/AbstractNavigableMap;)V
-    .locals 0
+    .registers 2
 
     .line 175
     .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap$DescendingMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>.DescendingMap;"
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/AbstractNavigableMap;Lcom/google/common/collect/AbstractNavigableMap$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/AbstractNavigableMap;
     .param p2, "x1"    # Lcom/google/common/collect/AbstractNavigableMap$1;
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method entryIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -75,7 +75,7 @@
 .end method
 
 .method forward()Ljava/util/NavigableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

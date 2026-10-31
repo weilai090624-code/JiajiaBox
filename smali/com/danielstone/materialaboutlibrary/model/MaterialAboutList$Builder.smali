@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$Builder;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$Builder;
 
     .line 33
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public addCard(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList$Builder;
-    .locals 1
+    .registers 3
     .param p1, "card"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
 
     .line 37
@@ -69,7 +69,7 @@
 .end method
 
 .method public build()Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
-    .locals 2
+    .registers 3
 
     .line 42
     new-instance v0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;

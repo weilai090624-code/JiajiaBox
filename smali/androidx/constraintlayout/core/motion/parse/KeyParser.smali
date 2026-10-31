@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .locals 1
+    .registers 2
     .param p0, "args"    # [Ljava/lang/String;
 
     .line 81
@@ -38,7 +38,7 @@
 .end method
 
 .method private static parse(Ljava/lang/String;Landroidx/constraintlayout/core/motion/parse/KeyParser$Ids;Landroidx/constraintlayout/core/motion/parse/KeyParser$DataType;)Landroidx/constraintlayout/core/motion/utils/TypedBundle;
-    .locals 11
+    .registers 14
     .param p0, "str"    # Ljava/lang/String;
     .param p1, "table"    # Landroidx/constraintlayout/core/motion/parse/KeyParser$Ids;
     .param p2, "dtype"    # Landroidx/constraintlayout/core/motion/parse/KeyParser$DataType;
@@ -50,7 +50,7 @@
 
     .line 40
     .local v0, "bundle":Landroidx/constraintlayout/core/motion/utils/TypedBundle;
-    :try_start_0
+    :try_start_5
     invoke-static {p0}, Landroidx/constraintlayout/core/parser/CLParser;->parse(Ljava/lang/String;)Landroidx/constraintlayout/core/parser/CLObject;
 
     move-result-object v1
@@ -66,8 +66,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_e
+    if-ge v3, v2, :cond_da
 
     .line 43
     invoke-virtual {v1, v3}, Landroidx/constraintlayout/core/parser/CLObject;->get(I)Landroidx/constraintlayout/core/parser/CLElement;
@@ -98,7 +98,7 @@
     .local v7, "id":I
     const/4 v8, -0x1
 
-    if-ne v7, v8, :cond_0
+    if-ne v7, v8, :cond_40
 
     .line 48
     sget-object v8, Ljava/lang/System;->err:Ljava/io/PrintStream;
@@ -124,25 +124,25 @@
     invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 49
-    goto/16 :goto_1
+    goto/16 :goto_d6
 
     .line 51
-    :cond_0
+    :cond_40
     invoke-interface {p2, v7}, Landroidx/constraintlayout/core/motion/parse/KeyParser$DataType;->get(I)I
 
     move-result v8
-    :try_end_0
-    .catch Landroidx/constraintlayout/core/parser/CLParsingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_44
+    .catch Landroidx/constraintlayout/core/parser/CLParsingException; {:try_start_5 .. :try_end_44} :catch_db
 
     const-string v9, "parse "
 
-    sparse-switch v8, :sswitch_data_0
+    sparse-switch v8, :sswitch_data_e0
 
-    goto/16 :goto_1
+    goto/16 :goto_d6
 
     .line 57
-    :sswitch_0
-    :try_start_1
+    :sswitch_4b
+    :try_start_4b
     invoke-virtual {v6}, Landroidx/constraintlayout/core/parser/CLElement;->content()Ljava/lang/String;
 
     move-result-object v8
@@ -185,10 +185,10 @@
     invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 60
-    goto :goto_1
+    goto :goto_d6
 
     .line 53
-    :sswitch_1
+    :sswitch_77
     invoke-virtual {v6}, Landroidx/constraintlayout/core/parser/CLElement;->getFloat()F
 
     move-result v8
@@ -231,10 +231,10 @@
     invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 55
-    goto :goto_1
+    goto :goto_d6
 
     .line 62
-    :sswitch_2
+    :sswitch_a3
     invoke-virtual {v6}, Landroidx/constraintlayout/core/parser/CLElement;->getInt()I
 
     move-result v8
@@ -277,37 +277,37 @@
     invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 64
-    goto :goto_1
+    goto :goto_d6
 
     .line 66
-    :sswitch_3
+    :sswitch_cf
     invoke-virtual {v1, v3}, Landroidx/constraintlayout/core/parser/CLObject;->getBoolean(I)Z
 
     move-result v8
 
     invoke-virtual {v0, v7, v8}, Landroidx/constraintlayout/core/motion/utils/TypedBundle;->add(IZ)V
-    :try_end_1
-    .catch Landroidx/constraintlayout/core/parser/CLParsingException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_d6
+    .catch Landroidx/constraintlayout/core/parser/CLParsingException; {:try_start_4b .. :try_end_d6} :catch_db
 
     .line 42
     .end local v4    # "clkey":Landroidx/constraintlayout/core/parser/CLKey;
     .end local v5    # "type":Ljava/lang/String;
     .end local v6    # "value":Landroidx/constraintlayout/core/parser/CLElement;
     .end local v7    # "id":I
-    :goto_1
+    :goto_d6
     add-int/lit8 v3, v3, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_e
 
     .line 72
     .end local v1    # "parsedContent":Landroidx/constraintlayout/core/parser/CLObject;
     .end local v2    # "n":I
     .end local v3    # "i":I
-    :cond_1
-    goto :goto_2
+    :cond_da
+    goto :goto_df
 
     .line 70
-    :catch_0
+    :catch_db
     move-exception v1
 
     .line 71
@@ -316,20 +316,20 @@
 
     .line 73
     .end local v1    # "e":Landroidx/constraintlayout/core/parser/CLParsingException;
-    :goto_2
+    :goto_df
     return-object v0
 
-    :sswitch_data_0
+    :sswitch_data_e0
     .sparse-switch
-        0x1 -> :sswitch_3
-        0x2 -> :sswitch_2
-        0x4 -> :sswitch_1
-        0x8 -> :sswitch_0
+        0x1 -> :sswitch_cf
+        0x2 -> :sswitch_a3
+        0x4 -> :sswitch_77
+        0x8 -> :sswitch_4b
     .end sparse-switch
 .end method
 
 .method public static parseAttributes(Ljava/lang/String;)Landroidx/constraintlayout/core/motion/utils/TypedBundle;
-    .locals 2
+    .registers 3
     .param p0, "str"    # Ljava/lang/String;
 
     .line 77

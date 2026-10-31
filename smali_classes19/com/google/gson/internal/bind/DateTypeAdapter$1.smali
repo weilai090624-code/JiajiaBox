@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 2
+    .registers 5
     .param p1, "gson"    # Lcom/google/gson/Gson;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -53,17 +53,17 @@
 
     const-class v1, Ljava/util/Date;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     new-instance v0, Lcom/google/gson/internal/bind/DateTypeAdapter;
 
     invoke-direct {v0}, Lcom/google/gson/internal/bind/DateTypeAdapter;-><init>()V
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method

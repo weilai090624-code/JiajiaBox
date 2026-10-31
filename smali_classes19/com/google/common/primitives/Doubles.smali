@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 661
     invoke-static {}, Lcom/google/common/primitives/Doubles;->fpPattern()Ljava/util/regex/Pattern;
@@ -37,7 +37,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 52
     invoke-direct {p0}, Lcom/google/common/primitives/DoublesMethodsForWeb;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method static synthetic access$000([DDII)I
-    .locals 1
+    .registers 6
     .param p0, "x0"    # [D
     .param p1, "x1"    # D
     .param p3, "x2"    # I
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$100([DDII)I
-    .locals 1
+    .registers 6
     .param p0, "x0"    # [D
     .param p1, "x1"    # D
     .param p3, "x2"    # I
@@ -76,7 +76,7 @@
 .end method
 
 .method public static varargs asList([D)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "backingArray"    # [D
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +90,7 @@
     .line 517
     array-length v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 518
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
@@ -100,7 +100,7 @@
     return-object v0
 
     .line 520
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;
 
     invoke-direct {v0, p0}, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;-><init>([D)V
@@ -109,7 +109,7 @@
 .end method
 
 .method public static compare(DD)I
-    .locals 1
+    .registers 5
     .param p0, "a"    # D
     .param p2, "b"    # D
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public static varargs concat([[D)[D
-    .locals 8
+    .registers 9
     .param p0, "arrays"    # [[D
 
     .line 276
@@ -136,8 +136,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_4
+    if-ge v3, v1, :cond_d
 
     aget-object v4, p0, v3
 
@@ -151,10 +151,10 @@
     .end local v4    # "array":[D
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 280
-    :cond_0
+    :cond_d
     new-array v1, v0, [D
 
     .line 281
@@ -167,8 +167,8 @@
 
     const/4 v5, 0x0
 
-    :goto_1
-    if-ge v5, v4, :cond_1
+    :goto_12
+    if-ge v5, v4, :cond_1f
 
     aget-object v6, p0, v5
 
@@ -187,15 +187,15 @@
     .end local v6    # "array":[D
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_12
 
     .line 286
-    :cond_1
+    :cond_1f
     return-object v1
 .end method
 
 .method public static constrainToRange(DDD)D
-    .locals 5
+    .registers 11
     .param p0, "value"    # D
     .param p2, "min"    # D
     .param p4, "max"    # D
@@ -203,7 +203,7 @@
     .line 260
     cmpg-double v0, p2, p4
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_d
 
     .line 261
     invoke-static {p0, p1, p2, p3}, Ljava/lang/Math;->max(DD)D
@@ -217,7 +217,7 @@
     return-wide v0
 
     .line 263
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     .line 264
@@ -253,7 +253,7 @@
 .end method
 
 .method public static contains([DD)Z
-    .locals 6
+    .registers 9
     .param p0, "array"    # [D
     .param p1, "target"    # D
 
@@ -264,8 +264,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_3
+    if-ge v2, v0, :cond_10
 
     aget-wide v3, p0, v2
 
@@ -273,7 +273,7 @@
     .local v3, "value":D
     cmpl-double v5, v3, p1
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_d
 
     .line 120
     const/4 v0, 0x1
@@ -282,18 +282,18 @@
 
     .line 118
     .end local v3    # "value":D
-    :cond_0
+    :cond_d
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 123
-    :cond_1
+    :cond_10
     return v1
 .end method
 
 .method public static ensureCapacity([DII)[D
-    .locals 4
+    .registers 7
     .param p0, "array"    # [D
     .param p1, "minLength"    # I
     .param p2, "padding"    # I
@@ -303,29 +303,29 @@
 
     const/4 v1, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_7
     const-string v3, "Invalid minLength: %s"
 
     invoke-static {v2, v3, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
 
     .line 341
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_f
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_10
     const-string v1, "Invalid padding: %s"
 
     invoke-static {v0, v1, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
@@ -333,7 +333,7 @@
     .line 342
     array-length v0, p0
 
-    if-ge v0, p1, :cond_2
+    if-ge v0, p1, :cond_1f
 
     add-int v0, p1, p2
 
@@ -341,17 +341,17 @@
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_20
 
-    :cond_2
+    :cond_1f
     move-object v0, p0
 
-    :goto_2
+    :goto_20
     return-object v0
 .end method
 
 .method private static fpPattern()Ljava/util/regex/Pattern;
-    .locals 7
+    .registers 7
 
     .line 672
     const-string v0, "(?:\\d+#(?:\\.\\d*#)?|\\.\\d+#)"
@@ -490,7 +490,7 @@
 .end method
 
 .method public static hashCode(D)I
-    .locals 1
+    .registers 3
     .param p0, "value"    # D
 
     .line 73
@@ -506,7 +506,7 @@
 .end method
 
 .method public static indexOf([DD)I
-    .locals 2
+    .registers 5
     .param p0, "array"    # [D
     .param p1, "target"    # D
 
@@ -523,7 +523,7 @@
 .end method
 
 .method private static indexOf([DDII)I
-    .locals 4
+    .registers 9
     .param p0, "array"    # [D
     .param p1, "target"    # D
     .param p3, "start"    # I
@@ -533,35 +533,35 @@
     move v0, p3
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p4, :cond_1
+    :goto_1
+    if-ge v0, p4, :cond_d
 
     .line 142
     aget-wide v1, p0, v0
 
     cmpl-double v3, v1, p1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_a
 
     .line 143
     return v0
 
     .line 141
-    :cond_0
+    :cond_a
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 146
     .end local v0    # "i":I
-    :cond_1
+    :cond_d
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public static indexOf([D[D)I
-    .locals 7
+    .registers 9
     .param p0, "array"    # [D
     .param p1, "target"    # [D
 
@@ -578,7 +578,7 @@
     .line 164
     array-length v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 165
     const/4 v0, 0x0
@@ -586,11 +586,11 @@
     return v0
 
     .line 169
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_10
     array-length v1, p0
 
     array-length v2, p1
@@ -599,16 +599,16 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_2d
 
     .line 170
     const/4 v1, 0x0
 
     .local v1, "j":I
-    :goto_1
+    :goto_18
     array-length v2, p1
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_2c
 
     .line 171
     add-int v2, v0, v1
@@ -619,7 +619,7 @@
 
     cmpl-double v6, v2, v4
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_29
 
     .line 172
     nop
@@ -628,30 +628,30 @@
     .end local v1    # "j":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 170
     .restart local v1    # "j":I
-    :cond_1
+    :cond_29
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
     .line 175
     .end local v1    # "j":I
-    :cond_2
+    :cond_2c
     return v0
 
     .line 177
     .end local v0    # "i":I
-    :cond_3
+    :cond_2d
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public static isFinite(D)Z
-    .locals 3
+    .registers 5
     .param p0, "value"    # D
 
     .line 106
@@ -659,27 +659,27 @@
 
     cmpg-double v2, v0, p0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_e
 
     const-wide/high16 v0, 0x7ff0000000000000L    # Double.POSITIVE_INFINITY
 
     cmpg-double v2, p0, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public static varargs join(Ljava/lang/String;[D)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0, "separator"    # Ljava/lang/String;
     .param p1, "array"    # [D
 
@@ -689,7 +689,7 @@
     .line 359
     array-length v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 360
     const-string v0, ""
@@ -697,7 +697,7 @@
     return-object v0
 
     .line 364
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/StringBuilder;
 
     array-length v1, p1
@@ -718,10 +718,10 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_18
     array-length v2, p1
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_27
 
     .line 367
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -735,11 +735,11 @@
     .line 366
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 369
     .end local v1    # "i":I
-    :cond_1
+    :cond_27
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -748,7 +748,7 @@
 .end method
 
 .method public static lastIndexOf([DD)I
-    .locals 2
+    .registers 5
     .param p0, "array"    # [D
     .param p1, "target"    # D
 
@@ -765,7 +765,7 @@
 .end method
 
 .method private static lastIndexOf([DDII)I
-    .locals 4
+    .registers 9
     .param p0, "array"    # [D
     .param p1, "target"    # D
     .param p3, "start"    # I
@@ -775,35 +775,35 @@
     add-int/lit8 v0, p4, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-lt v0, p3, :cond_1
+    :goto_2
+    if-lt v0, p3, :cond_e
 
     .line 196
     aget-wide v1, p0, v0
 
     cmpl-double v3, v1, p1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_b
 
     .line 197
     return v0
 
     .line 195
-    :cond_0
+    :cond_b
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 200
     .end local v0    # "i":I
-    :cond_1
+    :cond_e
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public static lexicographicalComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -819,7 +819,7 @@
 .end method
 
 .method public static varargs max([D)D
-    .locals 5
+    .registers 6
     .param p0, "array"    # [D
 
     .line 235
@@ -827,16 +827,16 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 236
@@ -847,10 +847,10 @@
     const/4 v2, 0x1
 
     .local v2, "i":I
-    :goto_1
+    :goto_d
     array-length v3, p0
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_19
 
     .line 238
     aget-wide v3, p0, v2
@@ -862,16 +862,16 @@
     .line 237
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_d
 
     .line 240
     .end local v2    # "i":I
-    :cond_1
+    :cond_19
     return-wide v0
 .end method
 
 .method public static varargs min([D)D
-    .locals 5
+    .registers 6
     .param p0, "array"    # [D
 
     .line 215
@@ -879,16 +879,16 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 216
@@ -899,10 +899,10 @@
     const/4 v2, 0x1
 
     .local v2, "i":I
-    :goto_1
+    :goto_d
     array-length v3, p0
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_19
 
     .line 218
     aget-wide v3, p0, v2
@@ -914,16 +914,16 @@
     .line 217
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_d
 
     .line 220
     .end local v2    # "i":I
-    :cond_1
+    :cond_19
     return-wide v0
 .end method
 
 .method public static reverse([D)V
-    .locals 2
+    .registers 3
     .param p0, "array"    # [D
 
     .line 446
@@ -941,7 +941,7 @@
 .end method
 
 .method public static reverse([DII)V
-    .locals 6
+    .registers 9
     .param p0, "array"    # [D
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -961,8 +961,8 @@
     add-int/lit8 v1, p2, -0x1
 
     .local v1, "j":I
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_a
+    if-ge v0, v1, :cond_19
 
     .line 464
     aget-wide v2, p0, v0
@@ -982,17 +982,17 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 468
     .end local v0    # "i":I
     .end local v1    # "j":I
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public static sortDescending([D)V
-    .locals 2
+    .registers 3
     .param p0, "array"    # [D
 
     .line 419
@@ -1010,7 +1010,7 @@
 .end method
 
 .method public static sortDescending([DII)V
-    .locals 1
+    .registers 4
     .param p0, "array"    # [D
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -1034,7 +1034,7 @@
 .end method
 
 .method public static stringConverter()Lcom/google/common/base/Converter;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1052,7 +1052,7 @@
 .end method
 
 .method public static toArray(Ljava/util/Collection;)[D
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1067,7 +1067,7 @@
     .local p0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<+Ljava/lang/Number;>;"
     instance-of v0, p0, Lcom/google/common/primitives/Doubles$DoubleArrayAsList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 485
     move-object v0, p0
@@ -1081,7 +1081,7 @@
     return-object v0
 
     .line 488
-    :cond_0
+    :cond_c
     invoke-interface {p0}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
 
     move-result-object v0
@@ -1099,8 +1099,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_14
+    if-ge v3, v1, :cond_27
 
     .line 493
     aget-object v4, v0, v3
@@ -1120,16 +1120,16 @@
     .line 491
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 495
     .end local v3    # "i":I
-    :cond_1
+    :cond_27
     return-object v2
 .end method
 
 .method public static tryParse(Ljava/lang/String;)Ljava/lang/Double;
-    .locals 2
+    .registers 3
     .param p0, "string"    # Ljava/lang/String;
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -1145,10 +1145,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 712
-    :try_start_0
+    :try_start_c
     invoke-static {p0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
     move-result-wide v0
@@ -1156,17 +1156,17 @@
     invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NumberFormatException; {:try_start_c .. :try_end_14} :catch_15
 
     return-object v0
 
     .line 713
-    :catch_0
+    :catch_15
     move-exception v0
 
     .line 718
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     return-object v0

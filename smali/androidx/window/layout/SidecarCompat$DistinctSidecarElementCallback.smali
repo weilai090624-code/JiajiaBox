@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/window/layout/SidecarAdapter;Landroidx/window/sidecar/SidecarInterface$SidecarCallback;)V
-    .locals 1
+    .registers 4
     .param p1, "sidecarAdapter"    # Landroidx/window/layout/SidecarAdapter;
     .param p2, "callbackInterface"    # Landroidx/window/sidecar/SidecarInterface$SidecarCallback;
 
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public onDeviceStateChanged(Landroidx/window/sidecar/SidecarDeviceState;)V
-    .locals 4
+    .registers 6
     .param p1, "newDeviceState"    # Landroidx/window/sidecar/SidecarDeviceState;
 
     const-string v0, "newDeviceState"
@@ -136,7 +136,7 @@
 
     .line 425
     .local v1, "$i$a$-withLock-SidecarCompat$DistinctSidecarElementCallback$onDeviceStateChanged$1":I
-    :try_start_0
+    :try_start_d
     iget-object v2, p0, Landroidx/window/layout/SidecarCompat$DistinctSidecarElementCallback;->sidecarAdapter:Landroidx/window/layout/SidecarAdapter;
 
     iget-object v3, p0, Landroidx/window/layout/SidecarCompat$DistinctSidecarElementCallback;->lastDeviceState:Landroidx/window/sidecar/SidecarDeviceState;
@@ -144,10 +144,10 @@
     invoke-virtual {v2, v3, p1}, Landroidx/window/layout/SidecarAdapter;->isEqualSidecarDeviceState(Landroidx/window/sidecar/SidecarDeviceState;Landroidx/window/sidecar/SidecarDeviceState;)Z
 
     move-result v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_d .. :try_end_15} :catchall_2a
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 426
     nop
@@ -159,8 +159,8 @@
 
     .line 428
     .restart local v1    # "$i$a$-withLock-SidecarCompat$DistinctSidecarElementCallback$onDeviceStateChanged$1":I
-    :cond_0
-    :try_start_1
+    :cond_1c
+    :try_start_1c
     iput-object p1, p0, Landroidx/window/layout/SidecarCompat$DistinctSidecarElementCallback;->lastDeviceState:Landroidx/window/sidecar/SidecarDeviceState;
 
     .line 429
@@ -173,8 +173,8 @@
 
     .end local v1    # "$i$a$-withLock-SidecarCompat$DistinctSidecarElementCallback$onDeviceStateChanged$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_26
+    .catchall {:try_start_1c .. :try_end_26} :catchall_2a
 
     .line 424
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -183,7 +183,7 @@
     return-void
 
     .line 424
-    :catchall_0
+    :catchall_2a
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -192,7 +192,7 @@
 .end method
 
 .method public onWindowLayoutChanged(Landroid/os/IBinder;Landroidx/window/sidecar/SidecarWindowLayoutInfo;)V
-    .locals 4
+    .registers 7
     .param p1, "token"    # Landroid/os/IBinder;
     .param p2, "newLayout"    # Landroidx/window/sidecar/SidecarWindowLayoutInfo;
 
@@ -213,7 +213,7 @@
 
     .line 438
     .local v1, "$i$a$-synchronized-SidecarCompat$DistinctSidecarElementCallback$onWindowLayoutChanged$1":I
-    :try_start_0
+    :try_start_f
     iget-object v2, p0, Landroidx/window/layout/SidecarCompat$DistinctSidecarElementCallback;->mActivityWindowLayoutInfo:Ljava/util/WeakHashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -229,10 +229,10 @@
     invoke-virtual {v3, v2, p2}, Landroidx/window/layout/SidecarAdapter;->isEqualSidecarWindowLayoutInfo(Landroidx/window/sidecar/SidecarWindowLayoutInfo;Landroidx/window/sidecar/SidecarWindowLayoutInfo;)Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_f .. :try_end_1d} :catchall_31
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     .line 440
     nop
@@ -246,8 +246,8 @@
     .line 442
     .restart local v1    # "$i$a$-synchronized-SidecarCompat$DistinctSidecarElementCallback$onWindowLayoutChanged$1":I
     .restart local v2    # "lastInfo":Landroidx/window/sidecar/SidecarWindowLayoutInfo;
-    :cond_0
-    :try_start_1
+    :cond_22
+    :try_start_22
     iget-object v3, p0, Landroidx/window/layout/SidecarCompat$DistinctSidecarElementCallback;->mActivityWindowLayoutInfo:Ljava/util/WeakHashMap;
 
     invoke-virtual {v3, p1, p2}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -255,8 +255,8 @@
     move-result-object v3
 
     check-cast v3, Landroidx/window/sidecar/SidecarWindowLayoutInfo;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_22 .. :try_end_2a} :catchall_31
 
     .line 437
     .end local v1    # "$i$a$-synchronized-SidecarCompat$DistinctSidecarElementCallback$onWindowLayoutChanged$1":I
@@ -272,7 +272,7 @@
     return-void
 
     .line 437
-    :catchall_0
+    :catchall_31
     move-exception v1
 
     monitor-exit v0

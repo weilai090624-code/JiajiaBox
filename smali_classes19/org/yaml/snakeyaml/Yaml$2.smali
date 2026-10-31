@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/yaml/snakeyaml/Yaml;Lorg/yaml/snakeyaml/composer/Composer;)V
-    .locals 0
+    .registers 3
 
     .line 589
     iput-object p1, p0, Lorg/yaml/snakeyaml/Yaml$2;->this$0:Lorg/yaml/snakeyaml/Yaml;
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 592
     iget-object v0, p0, Lorg/yaml/snakeyaml/Yaml$2;->val$composer:Lorg/yaml/snakeyaml/composer/Composer;
@@ -62,7 +62,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 589
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/Yaml$2;->next()Lorg/yaml/snakeyaml/nodes/Node;
@@ -73,7 +73,7 @@
 .end method
 
 .method public next()Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 3
+    .registers 4
 
     .line 597
     iget-object v0, p0, Lorg/yaml/snakeyaml/Yaml$2;->val$composer:Lorg/yaml/snakeyaml/composer/Composer;
@@ -84,13 +84,13 @@
 
     .line 598
     .local v0, "node":Lorg/yaml/snakeyaml/nodes/Node;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 599
     return-object v0
 
     .line 601
-    :cond_0
+    :cond_9
     new-instance v1, Ljava/util/NoSuchElementException;
 
     const-string v2, "No Node is available."
@@ -101,7 +101,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 607
     new-instance v0, Ljava/lang/UnsupportedOperationException;

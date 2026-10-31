@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/ValueGraph;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 96
     iput-object p1, p0, Lcom/google/common/graph/ImmutableValueGraph$1;->val$graph:Lcom/google/common/graph/ValueGraph;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)TV;"

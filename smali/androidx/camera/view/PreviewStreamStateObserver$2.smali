@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/PreviewStreamStateObserver;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Landroidx/camera/core/CameraInfo;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/camera/view/PreviewStreamStateObserver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

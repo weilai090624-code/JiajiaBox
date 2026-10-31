@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 76
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 4
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -132,13 +132,13 @@
 .end method
 
 .method private syncCheckboxView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 113
     instance-of v0, p1, Landroid/widget/CompoundButton;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 114
     move-object v0, p1
@@ -150,10 +150,10 @@
     invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 116
-    :cond_0
+    :cond_b
     instance-of v0, p1, Landroid/widget/Checkable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 117
     move-object v0, p1
@@ -165,10 +165,10 @@
     invoke-interface {v0, v1}, Landroid/widget/Checkable;->setChecked(Z)V
 
     .line 119
-    :cond_1
+    :cond_17
     instance-of v0, p1, Landroid/widget/CompoundButton;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_23
 
     .line 120
     move-object v0, p1
@@ -180,12 +180,12 @@
     invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 122
-    :cond_2
+    :cond_23
     return-void
 .end method
 
 .method private syncViewIfAccessibilityEnabled(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 99
@@ -210,13 +210,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     .line 102
     return-void
 
     .line 105
-    :cond_0
+    :cond_14
     const v1, 0x1020001
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -245,7 +245,7 @@
 
 # virtual methods
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 1
+    .registers 3
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     .line 81
@@ -268,7 +268,7 @@
 .end method
 
 .method protected performClick(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 94

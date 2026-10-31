@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 107
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static dividedBy(Lj$/time/Duration;Lj$/time/Duration;)J
-    .locals 4
+    .registers 6
     .param p0, "receiver"    # Lj$/time/Duration;
     .param p1, "divisor"    # Lj$/time/Duration;
 
@@ -58,7 +58,7 @@
 .end method
 
 .method private static toBigDecimalSeconds(Lj$/time/Duration;)Ljava/math/BigDecimal;
-    .locals 7
+    .registers 8
     .param p0, "receiver"    # Lj$/time/Duration;
 
     .line 298
@@ -94,7 +94,7 @@
 .end method
 
 .method public static toDaysPart(Lj$/time/Duration;)J
-    .locals 4
+    .registers 5
     .param p0, "receiver"    # Lj$/time/Duration;
 
     .line 160
@@ -112,7 +112,7 @@
 .end method
 
 .method public static toHoursPart(Lj$/time/Duration;)I
-    .locals 4
+    .registers 5
     .param p0, "receiver"    # Lj$/time/Duration;
 
     .line 177
@@ -130,7 +130,7 @@
 .end method
 
 .method public static toMillisPart(Lj$/time/Duration;)I
-    .locals 2
+    .registers 3
     .param p0, "receiver"    # Lj$/time/Duration;
 
     .line 228
@@ -148,7 +148,7 @@
 .end method
 
 .method public static toMinutesPart(Lj$/time/Duration;)I
-    .locals 4
+    .registers 5
     .param p0, "receiver"    # Lj$/time/Duration;
 
     .line 193
@@ -166,7 +166,7 @@
 .end method
 
 .method public static toNanosPart(Lj$/time/Duration;)I
-    .locals 1
+    .registers 2
     .param p0, "receiver"    # Lj$/time/Duration;
 
     .line 246
@@ -180,7 +180,7 @@
 .end method
 
 .method public static toSeconds(Lj$/time/Duration;)J
-    .locals 2
+    .registers 3
     .param p0, "receiver"    # Lj$/time/Duration;
 
     .line 144
@@ -192,7 +192,7 @@
 .end method
 
 .method public static toSecondsPart(Lj$/time/Duration;)I
-    .locals 4
+    .registers 5
     .param p0, "receiver"    # Lj$/time/Duration;
 
     .line 209
@@ -212,7 +212,7 @@
 .end method
 
 .method public static truncatedTo(Lj$/time/Duration;Lj$/time/temporal/TemporalUnit;)Lj$/time/Duration;
-    .locals 13
+    .registers 15
     .param p0, "receiver"    # Lj$/time/Duration;
     .param p1, "unit"    # Lj$/time/temporal/TemporalUnit;
 
@@ -238,16 +238,16 @@
 
     const-wide/16 v4, 0x0
 
-    if-ne p1, v3, :cond_1
+    if-ne p1, v3, :cond_1e
 
     cmp-long v3, v0, v4
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_19
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1e
 
     .line 280
-    :cond_0
+    :cond_19
     invoke-static {v0, v1}, Lj$/time/Duration;->ofSeconds(J)Lj$/time/Duration;
 
     move-result-object v3
@@ -255,16 +255,16 @@
     return-object v3
 
     .line 281
-    :cond_1
+    :cond_1e
     sget-object v3, Lj$/time/temporal/ChronoUnit;->NANOS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne p1, v3, :cond_2
+    if-ne p1, v3, :cond_23
 
     .line 282
     return-object p0
 
     .line 284
-    :cond_2
+    :cond_23
     invoke-interface {p1}, Lj$/time/temporal/TemporalUnit;->getDuration()Lj$/time/Duration;
 
     move-result-object v3
@@ -279,7 +279,7 @@
 
     cmp-long v10, v6, v8
 
-    if-gtz v10, :cond_4
+    if-gtz v10, :cond_5c
 
     .line 288
     invoke-virtual {v3}, Lj$/time/Duration;->toNanos()J
@@ -294,7 +294,7 @@
 
     cmp-long v12, v10, v4
 
-    if-nez v12, :cond_3
+    if-nez v12, :cond_54
 
     .line 292
     rem-long v4, v0, v8
@@ -326,7 +326,7 @@
     .line 290
     .end local v4    # "nod":J
     .end local v8    # "result":J
-    :cond_3
+    :cond_54
     new-instance v4, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v5, "Unit must divide into a standard day without remainder"
@@ -337,7 +337,7 @@
 
     .line 286
     .end local v6    # "dur":J
-    :cond_4
+    :cond_5c
     new-instance v4, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v5, "Unit is too large to be used for truncation"

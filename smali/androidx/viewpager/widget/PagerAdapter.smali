@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public destroyItem(Landroid/view/View;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "container"    # Landroid/view/View;
     .param p2, "position"    # I
     .param p3, "object"    # Ljava/lang/Object;
@@ -53,7 +53,7 @@
 .end method
 
 .method public destroyItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "container"    # Landroid/view/ViewGroup;
     .param p2, "position"    # I
     .param p3, "object"    # Ljava/lang/Object;
@@ -66,7 +66,7 @@
 .end method
 
 .method public finishUpdate(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "container"    # Landroid/view/View;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -76,7 +76,7 @@
 .end method
 
 .method public finishUpdate(Landroid/view/ViewGroup;)V
-    .locals 0
+    .registers 2
     .param p1, "container"    # Landroid/view/ViewGroup;
 
     .line 154
@@ -90,7 +90,7 @@
 .end method
 
 .method public getItemPosition(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 281
@@ -100,7 +100,7 @@
 .end method
 
 .method public getPageTitle(I)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 332
@@ -110,7 +110,7 @@
 .end method
 
 .method public getPageWidth(I)F
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 343
@@ -120,7 +120,7 @@
 .end method
 
 .method public instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "container"    # Landroid/view/View;
     .param p2, "position"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -137,7 +137,7 @@
 .end method
 
 .method public instantiateItem(Landroid/view/ViewGroup;I)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "container"    # Landroid/view/ViewGroup;
     .param p2, "position"    # I
 
@@ -153,16 +153,16 @@
 .end method
 
 .method public notifyDataSetChanged()V
-    .locals 1
+    .registers 2
 
     .line 289
     monitor-enter p0
 
     .line 290
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/viewpager/widget/PagerAdapter;->mViewPagerObserver:Landroid/database/DataSetObserver;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 291
     iget-object v0, p0, Landroidx/viewpager/widget/PagerAdapter;->mViewPagerObserver:Landroid/database/DataSetObserver;
@@ -170,10 +170,10 @@
     invoke-virtual {v0}, Landroid/database/DataSetObserver;->onChanged()V
 
     .line 293
-    :cond_0
+    :cond_a
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_1 .. :try_end_b} :catchall_11
 
     .line 294
     iget-object v0, p0, Landroidx/viewpager/widget/PagerAdapter;->mObservable:Landroid/database/DataSetObservable;
@@ -184,19 +184,19 @@
     return-void
 
     .line 293
-    :catchall_0
+    :catchall_11
     move-exception v0
 
-    :try_start_1
+    :try_start_12
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_13
+    .catchall {:try_start_12 .. :try_end_13} :catchall_11
 
     throw v0
 .end method
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
-    .locals 1
+    .registers 3
     .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .line 303
@@ -209,7 +209,7 @@
 .end method
 
 .method public restoreState(Landroid/os/Parcelable;Ljava/lang/ClassLoader;)V
-    .locals 0
+    .registers 3
     .param p1, "state"    # Landroid/os/Parcelable;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -218,7 +218,7 @@
 .end method
 
 .method public saveState()Landroid/os/Parcelable;
-    .locals 1
+    .registers 2
 
     .line 252
     const/4 v0, 0x0
@@ -227,7 +227,7 @@
 .end method
 
 .method public setPrimaryItem(Landroid/view/View;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "container"    # Landroid/view/View;
     .param p2, "position"    # I
     .param p3, "object"    # Ljava/lang/Object;
@@ -239,7 +239,7 @@
 .end method
 
 .method public setPrimaryItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "container"    # Landroid/view/ViewGroup;
     .param p2, "position"    # I
     .param p3, "object"    # Ljava/lang/Object;
@@ -252,14 +252,14 @@
 .end method
 
 .method setViewPagerObserver(Landroid/database/DataSetObserver;)V
-    .locals 1
+    .registers 3
     .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .line 316
     monitor-enter p0
 
     .line 317
-    :try_start_0
+    :try_start_1
     iput-object p1, p0, Landroidx/viewpager/widget/PagerAdapter;->mViewPagerObserver:Landroid/database/DataSetObserver;
 
     .line 318
@@ -269,18 +269,18 @@
     return-void
 
     .line 318
-    :catchall_0
+    :catchall_5
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_5
 
     throw v0
 .end method
 
 .method public startUpdate(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "container"    # Landroid/view/View;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -290,7 +290,7 @@
 .end method
 
 .method public startUpdate(Landroid/view/ViewGroup;)V
-    .locals 0
+    .registers 2
     .param p1, "container"    # Landroid/view/ViewGroup;
 
     .line 99
@@ -301,7 +301,7 @@
 .end method
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
-    .locals 1
+    .registers 3
     .param p1, "observer"    # Landroid/database/DataSetObserver;
 
     .line 312

@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/LifecycleRegistry;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 1
+    .registers 4
     .param p1, "registry"    # Landroidx/lifecycle/LifecycleRegistry;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public final getEvent()Landroidx/lifecycle/Lifecycle$Event;
-    .locals 1
+    .registers 2
 
     .line 86
     iget-object v0, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher$DispatchRunnable;->event:Landroidx/lifecycle/Lifecycle$Event;
@@ -93,12 +93,12 @@
 .end method
 
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 91
     iget-boolean v0, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher$DispatchRunnable;->wasExecuted:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 92
     iget-object v0, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher$DispatchRunnable;->registry:Landroidx/lifecycle/LifecycleRegistry;
@@ -113,6 +113,6 @@
     iput-boolean v0, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher$DispatchRunnable;->wasExecuted:Z
 
     .line 95
-    :cond_0
+    :cond_e
     return-void
 .end method

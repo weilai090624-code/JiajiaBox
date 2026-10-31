@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static getLocales(Landroid/content/res/Configuration;)Landroidx/core/os/LocaleListCompat;
-    .locals 3
+    .registers 4
     .param p0, "configuration"    # Landroid/content/res/Configuration;
 
     .line 46
@@ -31,7 +31,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
     .line 47
     invoke-static {p0}, Landroidx/core/os/ConfigurationCompat$Api24Impl;->getLocales(Landroid/content/res/Configuration;)Landroid/os/LocaleList;
@@ -45,7 +45,7 @@
     return-object v0
 
     .line 49
-    :cond_0
+    :cond_f
     iget-object v0, p0, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     const/4 v1, 0x1
@@ -64,7 +64,7 @@
 .end method
 
 .method public static setLocales(Landroid/content/res/Configuration;Landroidx/core/os/LocaleListCompat;)V
-    .locals 2
+    .registers 4
     .param p0, "configuration"    # Landroid/content/res/Configuration;
     .param p1, "locales"    # Landroidx/core/os/LocaleListCompat;
 
@@ -73,20 +73,20 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 59
     invoke-static {p0, p1}, Landroidx/core/os/ConfigurationCompat$Api24Impl;->setLocales(Landroid/content/res/Configuration;Landroidx/core/os/LocaleListCompat;)V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 61
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Landroidx/core/os/LocaleListCompat;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 62
     const/4 v0, 0x0
@@ -98,7 +98,7 @@
     invoke-virtual {p0, v0}, Landroid/content/res/Configuration;->setLocale(Ljava/util/Locale;)V
 
     .line 65
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     return-void
 .end method

@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 50
     const-string v0, "SystemJobInfoConverter"
@@ -34,7 +34,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -68,7 +68,7 @@
 .end method
 
 .method private static convertContentUriTrigger(Landroidx/work/Constraints$ContentUriTrigger;)Landroid/app/job/JobInfo$TriggerContentUri;
-    .locals 3
+    .registers 4
     .param p0, "trigger"    # Landroidx/work/Constraints$ContentUriTrigger;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -84,19 +84,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 142
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     .line 143
     .local v0, "flag":I
-    :goto_0
+    :goto_9
     new-instance v1, Landroid/app/job/JobInfo$TriggerContentUri;
 
     invoke-virtual {p0}, Landroidx/work/Constraints$ContentUriTrigger;->getUri()Landroid/net/Uri;
@@ -109,7 +109,7 @@
 .end method
 
 .method static convertNetworkType(Landroidx/work/NetworkType;)I
-    .locals 5
+    .registers 6
     .param p0, "networkType"    # Landroidx/work/NetworkType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -131,17 +131,17 @@
 
     const/4 v1, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_40
 
-    goto :goto_0
+    goto :goto_22
 
     .line 188
-    :pswitch_0
+    :pswitch_d
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1a
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_22
 
     .line 189
     const/4 v0, 0x4
@@ -149,12 +149,12 @@
     return v0
 
     .line 183
-    :pswitch_1
+    :pswitch_15
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x18
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_22
 
     .line 184
     const/4 v0, 0x3
@@ -162,24 +162,24 @@
     return v0
 
     .line 181
-    :pswitch_2
+    :pswitch_1d
     const/4 v0, 0x2
 
     return v0
 
     .line 179
-    :pswitch_3
+    :pswitch_1f
     return v1
 
     .line 177
-    :pswitch_4
+    :pswitch_20
     const/4 v0, 0x0
 
     return v0
 
     .line 193
-    :cond_0
-    :goto_0
+    :cond_22
+    :goto_22
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
@@ -211,18 +211,18 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_40
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_20
+        :pswitch_1f
+        :pswitch_1d
+        :pswitch_15
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method static setRequiredNetwork(Landroid/app/job/JobInfo$Builder;Landroidx/work/NetworkType;)V
-    .locals 2
+    .registers 4
     .param p0, "builder"    # Landroid/app/job/JobInfo$Builder;
     .param p1, "networkType"    # Landroidx/work/NetworkType;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -241,11 +241,11 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1d
 
     sget-object v0, Landroidx/work/NetworkType;->TEMPORARILY_UNMETERED:Landroidx/work/NetworkType;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1d
 
     .line 157
     new-instance v0, Landroid/net/NetworkRequest$Builder;
@@ -270,10 +270,10 @@
 
     .line 162
     .end local v0    # "networkRequest":Landroid/net/NetworkRequest;
-    goto :goto_0
+    goto :goto_24
 
     .line 163
-    :cond_0
+    :cond_1d
     invoke-static {p1}, Landroidx/work/impl/background/systemjob/SystemJobInfoConverter;->convertNetworkType(Landroidx/work/NetworkType;)I
 
     move-result v0
@@ -281,14 +281,14 @@
     invoke-virtual {p0, v0}, Landroid/app/job/JobInfo$Builder;->setRequiredNetworkType(I)Landroid/app/job/JobInfo$Builder;
 
     .line 165
-    :goto_0
+    :goto_24
     return-void
 .end method
 
 
 # virtual methods
 .method convert(Landroidx/work/impl/model/WorkSpec;I)Landroid/app/job/JobInfo;
-    .locals 17
+    .registers 20
     .param p1, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
     .param p2, "jobId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -386,33 +386,33 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_5c
 
     .line 88
     iget-object v5, v0, Landroidx/work/impl/model/WorkSpec;->backoffPolicy:Landroidx/work/BackoffPolicy;
 
     sget-object v9, Landroidx/work/BackoffPolicy;->LINEAR:Landroidx/work/BackoffPolicy;
 
-    if-ne v5, v9, :cond_0
+    if-ne v5, v9, :cond_56
 
     .line 89
     const/4 v5, 0x0
 
-    goto :goto_0
+    goto :goto_57
 
-    :cond_0
+    :cond_56
     const/4 v5, 0x1
 
     .line 90
     .local v5, "backoffPolicy":I
-    :goto_0
+    :goto_57
     iget-wide v9, v0, Landroidx/work/impl/model/WorkSpec;->backoffDelayDuration:J
 
     invoke-virtual {v3, v9, v10, v5}, Landroid/app/job/JobInfo$Builder;->setBackoffCriteria(JI)Landroid/app/job/JobInfo$Builder;
 
     .line 93
     .end local v5    # "backoffPolicy":I
-    :cond_1
+    :cond_5c
     invoke-virtual/range {p1 .. p1}, Landroidx/work/impl/model/WorkSpec;->calculateNextRunTime()J
 
     move-result-wide v9
@@ -439,29 +439,29 @@
 
     const/16 v15, 0x1c
 
-    if-gt v5, v15, :cond_2
+    if-gt v5, v15, :cond_76
 
     .line 101
     invoke-virtual {v3, v13, v14}, Landroid/app/job/JobInfo$Builder;->setMinimumLatency(J)Landroid/app/job/JobInfo$Builder;
 
-    goto :goto_1
+    goto :goto_86
 
     .line 103
-    :cond_2
+    :cond_76
     cmp-long v5, v13, v7
 
-    if-lez v5, :cond_3
+    if-lez v5, :cond_7e
 
     .line 105
     invoke-virtual {v3, v13, v14}, Landroid/app/job/JobInfo$Builder;->setMinimumLatency(J)Landroid/app/job/JobInfo$Builder;
 
-    goto :goto_1
+    goto :goto_86
 
     .line 106
-    :cond_3
+    :cond_7e
     iget-boolean v5, v0, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_86
 
     .line 108
     const/4 v5, 0x1
@@ -469,19 +469,19 @@
     invoke-virtual {v3, v5}, Landroid/app/job/JobInfo$Builder;->setImportantWhileForeground(Z)Landroid/app/job/JobInfo$Builder;
 
     .line 112
-    :cond_4
-    :goto_1
+    :cond_86
+    :goto_86
     sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v15, 0x18
 
-    if-lt v5, v15, :cond_6
+    if-lt v5, v15, :cond_be
 
     invoke-virtual {v1}, Landroidx/work/Constraints;->hasContentUriTriggers()Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_be
 
     .line 114
     invoke-virtual {v1}, Landroidx/work/Constraints;->getContentUriTriggers()Ljava/util/Set;
@@ -492,12 +492,12 @@
 
     move-result-object v5
 
-    :goto_2
+    :goto_9a
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v15
 
-    if-eqz v15, :cond_5
+    if-eqz v15, :cond_b0
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -517,10 +517,10 @@
     .end local v15    # "trigger":Landroidx/work/Constraints$ContentUriTrigger;
     const-wide/16 v7, 0x0
 
-    goto :goto_2
+    goto :goto_9a
 
     .line 117
-    :cond_5
+    :cond_b0
     invoke-virtual {v1}, Landroidx/work/Constraints;->getContentTriggerUpdateDelayMillis()J
 
     move-result-wide v7
@@ -535,7 +535,7 @@
     invoke-virtual {v3, v7, v8}, Landroid/app/job/JobInfo$Builder;->setTriggerContentMaxDelay(J)Landroid/app/job/JobInfo$Builder;
 
     .line 123
-    :cond_6
+    :cond_be
     const/4 v5, 0x0
 
     invoke-virtual {v3, v5}, Landroid/app/job/JobInfo$Builder;->setPersisted(Z)Landroid/app/job/JobInfo$Builder;
@@ -545,7 +545,7 @@
 
     const/16 v8, 0x1a
 
-    if-lt v7, v8, :cond_7
+    if-lt v7, v8, :cond_d6
 
     .line 125
     invoke-virtual {v1}, Landroidx/work/Constraints;->requiresBatteryNotLow()Z
@@ -562,19 +562,19 @@
     invoke-virtual {v3, v7}, Landroid/app/job/JobInfo$Builder;->setRequiresStorageNotLow(Z)Landroid/app/job/JobInfo$Builder;
 
     .line 129
-    :cond_7
+    :cond_d6
     iget v7, v0, Landroidx/work/impl/model/WorkSpec;->runAttemptCount:I
 
-    if-lez v7, :cond_8
+    if-lez v7, :cond_dd
 
     const/16 v16, 0x1
 
-    goto :goto_3
+    goto :goto_df
 
-    :cond_8
+    :cond_dd
     const/16 v16, 0x0
 
-    :goto_3
+    :goto_df
     move/from16 v7, v16
 
     .line 130
@@ -583,26 +583,26 @@
 
     cmp-long v8, v13, v15
 
-    if-lez v8, :cond_9
+    if-lez v8, :cond_e8
 
     const/4 v5, 0x1
 
     .line 131
     .local v5, "isDelayed":Z
-    :cond_9
+    :cond_e8
     sget v8, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v15, 0x1f
 
-    if-lt v8, v15, :cond_a
+    if-lt v8, v15, :cond_fa
 
     iget-boolean v8, v0, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
-    if-eqz v8, :cond_a
+    if-eqz v8, :cond_fa
 
-    if-nez v7, :cond_a
+    if-nez v7, :cond_fa
 
-    if-nez v5, :cond_a
+    if-nez v5, :cond_fa
 
     .line 133
     const/4 v8, 0x1
@@ -610,7 +610,7 @@
     invoke-virtual {v3, v8}, Landroid/app/job/JobInfo$Builder;->setExpedited(Z)Landroid/app/job/JobInfo$Builder;
 
     .line 135
-    :cond_a
+    :cond_fa
     invoke-virtual {v3}, Landroid/app/job/JobInfo$Builder;->build()Landroid/app/job/JobInfo;
 
     move-result-object v8

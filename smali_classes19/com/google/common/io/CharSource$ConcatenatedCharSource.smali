@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public isEmpty()Z
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -74,12 +74,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -93,7 +93,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     .line 634
     const/4 v0, 0x0
@@ -102,18 +102,18 @@
 
     .line 636
     .end local v1    # "source":Lcom/google/common/io/CharSource;
-    :cond_0
-    goto :goto_0
+    :cond_1a
+    goto :goto_6
 
     .line 637
-    :cond_1
+    :cond_1b
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public length()J
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -131,12 +131,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_8
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -154,15 +154,15 @@
 
     .line 658
     .end local v3    # "source":Lcom/google/common/io/CharSource;
-    goto :goto_0
+    goto :goto_8
 
     .line 659
-    :cond_0
+    :cond_1a
     return-wide v0
 .end method
 
 .method public lengthIfKnown()Lcom/google/common/base/Optional;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -183,12 +183,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_8
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -208,7 +208,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_23
 
     .line 646
     invoke-static {}, Lcom/google/common/base/Optional;->absent()Lcom/google/common/base/Optional;
@@ -218,7 +218,7 @@
     return-object v2
 
     .line 648
-    :cond_0
+    :cond_23
     invoke-virtual {v4}, Lcom/google/common/base/Optional;->get()Ljava/lang/Object;
 
     move-result-object v5
@@ -234,10 +234,10 @@
     .line 649
     .end local v3    # "source":Lcom/google/common/io/CharSource;
     .end local v4    # "lengthIfKnown":Lcom/google/common/base/Optional;, "Lcom/google/common/base/Optional<Ljava/lang/Long;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 650
-    :cond_1
+    :cond_2f
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v2
@@ -250,7 +250,7 @@
 .end method
 
 .method public openStream()Ljava/io/Reader;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -272,7 +272,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 664
     iget-object v0, p0, Lcom/google/common/io/CharSource$ConcatenatedCharSource;->sources:Ljava/lang/Iterable;

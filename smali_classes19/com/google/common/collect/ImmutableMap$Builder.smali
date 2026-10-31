@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 393
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$Builder;, "Lcom/google/common/collect/ImmutableMap$Builder<TK;TV;>;"
@@ -63,7 +63,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initialCapacity"    # I
 
     .line 397
@@ -90,7 +90,7 @@
 .end method
 
 .method private ensureCapacity(I)V
-    .locals 3
+    .registers 5
     .param p1, "minCapacity"    # I
 
     .line 404
@@ -101,7 +101,7 @@
 
     array-length v1, v1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_1b
 
     .line 405
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMap$Builder;->alternatingKeysAndValues:[Ljava/lang/Object;
@@ -130,14 +130,14 @@
     iput-boolean v0, p0, Lcom/google/common/collect/ImmutableMap$Builder;->entriesUsed:Z
 
     .line 412
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 
 # virtual methods
 .method public build()Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -156,7 +156,7 @@
 .end method
 
 .method public buildOrThrow()Lcom/google/common/collect/ImmutableMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -187,7 +187,7 @@
 .end method
 
 .method combine(Lcom/google/common/collect/ImmutableMap$Builder;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -243,7 +243,7 @@
 .end method
 
 .method public orderEntriesByValue(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -259,16 +259,16 @@
     .local p1, "valueComparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMap$Builder;->valueComparator:Ljava/util/Comparator;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string v1, "valueComparator was already set"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
@@ -289,7 +289,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)",
@@ -343,7 +343,7 @@
 .end method
 
 .method public put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -373,7 +373,7 @@
 .end method
 
 .method public putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -391,7 +391,7 @@
     .local p1, "entries":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Ljava/util/Map$Entry<+TK;+TV;>;>;"
     instance-of v0, p1, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 461
     iget v0, p0, Lcom/google/common/collect/ImmutableMap$Builder;->size:I
@@ -409,17 +409,17 @@
     invoke-direct {p0, v0}, Lcom/google/common/collect/ImmutableMap$Builder;->ensureCapacity(I)V
 
     .line 463
-    :cond_0
+    :cond_11
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -433,15 +433,15 @@
 
     .line 465
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    goto :goto_0
+    goto :goto_15
 
     .line 466
-    :cond_1
+    :cond_25
     return-object p0
 .end method
 
 .method public putAll(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -467,18 +467,18 @@
 .end method
 
 .method sortEntries()V
-    .locals 6
+    .registers 7
 
     .line 545
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$Builder;, "Lcom/google/common/collect/ImmutableMap$Builder<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMap$Builder;->valueComparator:Ljava/util/Comparator;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_73
 
     .line 546
     iget-boolean v0, p0, Lcom/google/common/collect/ImmutableMap$Builder;->entriesUsed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 547
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMap$Builder;->alternatingKeysAndValues:[Ljava/lang/Object;
@@ -494,7 +494,7 @@
     iput-object v0, p0, Lcom/google/common/collect/ImmutableMap$Builder;->alternatingKeysAndValues:[Ljava/lang/Object;
 
     .line 549
-    :cond_0
+    :cond_14
     iget v0, p0, Lcom/google/common/collect/ImmutableMap$Builder;->size:I
 
     new-array v0, v0, [Ljava/util/Map$Entry;
@@ -504,10 +504,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_19
     iget v2, p0, Lcom/google/common/collect/ImmutableMap$Builder;->size:I
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_3d
 
     .line 552
     new-instance v2, Ljava/util/AbstractMap$SimpleImmutableEntry;
@@ -543,11 +543,11 @@
     .line 550
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 557
     .end local v1    # "i":I
-    :cond_1
+    :cond_3d
     iget v1, p0, Lcom/google/common/collect/ImmutableMap$Builder;->size:I
 
     iget-object v2, p0, Lcom/google/common/collect/ImmutableMap$Builder;->valueComparator:Ljava/util/Comparator;
@@ -574,10 +574,10 @@
     const/4 v1, 0x0
 
     .restart local v1    # "i":I
-    :goto_1
+    :goto_52
     iget v2, p0, Lcom/google/common/collect/ImmutableMap$Builder;->size:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_73
 
     .line 560
     iget-object v2, p0, Lcom/google/common/collect/ImmutableMap$Builder;->alternatingKeysAndValues:[Ljava/lang/Object;
@@ -610,11 +610,11 @@
     .line 559
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_52
 
     .line 564
     .end local v0    # "entries":[Ljava/util/Map$Entry;, "[Ljava/util/Map$Entry<TK;TV;>;"
     .end local v1    # "i":I
-    :cond_2
+    :cond_73
     return-void
 .end method

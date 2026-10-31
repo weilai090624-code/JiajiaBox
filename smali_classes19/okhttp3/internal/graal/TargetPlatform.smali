@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public final findPlatform()Lokhttp3/internal/platform/Platform;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/oracle/svm/core/annotate/Substitute;
     .end annotation
 

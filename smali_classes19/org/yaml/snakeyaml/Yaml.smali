@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 6
+    .registers 7
 
     .line 66
     new-instance v1, Lorg/yaml/snakeyaml/constructor/Constructor;
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/DumperOptions;)V
-    .locals 2
+    .registers 4
     .param p1, "dumperOptions"    # Lorg/yaml/snakeyaml/DumperOptions;
 
     .line 75
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/LoaderOptions;)V
-    .locals 3
+    .registers 5
     .param p1, "loadingConfig"    # Lorg/yaml/snakeyaml/LoaderOptions;
 
     .line 84
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/BaseConstructor;)V
-    .locals 1
+    .registers 3
     .param p1, "constructor"    # Lorg/yaml/snakeyaml/constructor/BaseConstructor;
 
     .line 102
@@ -119,7 +119,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/BaseConstructor;Lorg/yaml/snakeyaml/representer/Representer;)V
-    .locals 1
+    .registers 4
     .param p1, "constructor"    # Lorg/yaml/snakeyaml/constructor/BaseConstructor;
     .param p2, "representer"    # Lorg/yaml/snakeyaml/representer/Representer;
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/BaseConstructor;Lorg/yaml/snakeyaml/representer/Representer;Lorg/yaml/snakeyaml/DumperOptions;)V
-    .locals 6
+    .registers 10
     .param p1, "constructor"    # Lorg/yaml/snakeyaml/constructor/BaseConstructor;
     .param p2, "representer"    # Lorg/yaml/snakeyaml/representer/Representer;
     .param p3, "dumperOptions"    # Lorg/yaml/snakeyaml/DumperOptions;
@@ -164,7 +164,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/BaseConstructor;Lorg/yaml/snakeyaml/representer/Representer;Lorg/yaml/snakeyaml/DumperOptions;Lorg/yaml/snakeyaml/LoaderOptions;)V
-    .locals 6
+    .registers 11
     .param p1, "constructor"    # Lorg/yaml/snakeyaml/constructor/BaseConstructor;
     .param p2, "representer"    # Lorg/yaml/snakeyaml/representer/Representer;
     .param p3, "dumperOptions"    # Lorg/yaml/snakeyaml/DumperOptions;
@@ -192,7 +192,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/BaseConstructor;Lorg/yaml/snakeyaml/representer/Representer;Lorg/yaml/snakeyaml/DumperOptions;Lorg/yaml/snakeyaml/LoaderOptions;Lorg/yaml/snakeyaml/resolver/Resolver;)V
-    .locals 2
+    .registers 8
     .param p1, "constructor"    # Lorg/yaml/snakeyaml/constructor/BaseConstructor;
     .param p2, "representer"    # Lorg/yaml/snakeyaml/representer/Representer;
     .param p3, "dumperOptions"    # Lorg/yaml/snakeyaml/DumperOptions;
@@ -207,7 +207,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 189
     invoke-virtual {p2}, Lorg/yaml/snakeyaml/representer/Representer;->getPropertyUtils()Lorg/yaml/snakeyaml/introspector/PropertyUtils;
@@ -216,15 +216,15 @@
 
     invoke-virtual {p1, v0}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->setPropertyUtils(Lorg/yaml/snakeyaml/introspector/PropertyUtils;)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 190
-    :cond_0
+    :cond_11
     invoke-virtual {p2}, Lorg/yaml/snakeyaml/representer/Representer;->isExplicitPropertyUtils()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     .line 191
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->getPropertyUtils()Lorg/yaml/snakeyaml/introspector/PropertyUtils;
@@ -234,8 +234,8 @@
     invoke-virtual {p2, v0}, Lorg/yaml/snakeyaml/representer/Representer;->setPropertyUtils(Lorg/yaml/snakeyaml/introspector/PropertyUtils;)V
 
     .line 193
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     iput-object p1, p0, Lorg/yaml/snakeyaml/Yaml;->constructor:Lorg/yaml/snakeyaml/constructor/BaseConstructor;
 
     .line 194
@@ -261,7 +261,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4b
 
     invoke-virtual {p3}, Lorg/yaml/snakeyaml/DumperOptions;->getIndent()I
 
@@ -271,12 +271,12 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_2
+    if-le v0, v1, :cond_43
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 197
-    :cond_2
+    :cond_43
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v1, "Indicator indent must be smaller then indent."
@@ -286,8 +286,8 @@
     throw v0
 
     .line 199
-    :cond_3
-    :goto_1
+    :cond_4b
+    :goto_4b
     invoke-virtual {p3}, Lorg/yaml/snakeyaml/DumperOptions;->getDefaultFlowStyle()Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     move-result-object v0
@@ -361,7 +361,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/BaseConstructor;Lorg/yaml/snakeyaml/representer/Representer;Lorg/yaml/snakeyaml/DumperOptions;Lorg/yaml/snakeyaml/resolver/Resolver;)V
-    .locals 6
+    .registers 11
     .param p1, "constructor"    # Lorg/yaml/snakeyaml/constructor/BaseConstructor;
     .param p2, "representer"    # Lorg/yaml/snakeyaml/representer/Representer;
     .param p3, "dumperOptions"    # Lorg/yaml/snakeyaml/DumperOptions;
@@ -389,7 +389,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/representer/Representer;)V
-    .locals 1
+    .registers 3
     .param p1, "representer"    # Lorg/yaml/snakeyaml/representer/Representer;
 
     .line 93
@@ -404,7 +404,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/representer/Representer;Lorg/yaml/snakeyaml/DumperOptions;)V
-    .locals 6
+    .registers 9
     .param p1, "representer"    # Lorg/yaml/snakeyaml/representer/Representer;
     .param p2, "dumperOptions"    # Lorg/yaml/snakeyaml/DumperOptions;
 
@@ -434,7 +434,7 @@
 .end method
 
 .method private dumpAll(Ljava/util/Iterator;Ljava/io/Writer;Lorg/yaml/snakeyaml/nodes/Tag;)V
-    .locals 4
+    .registers 8
     .param p2, "output"    # Ljava/io/Writer;
     .param p3, "rootTag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .annotation system Ldalvik/annotation/Signature;
@@ -468,16 +468,16 @@
 
     .line 273
     .local v0, "serializer":Lorg/yaml/snakeyaml/serializer/Serializer;
-    :try_start_0
+    :try_start_10
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/serializer/Serializer;->open()V
 
     .line 274
-    :goto_0
+    :goto_13
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     .line 275
     iget-object v1, p0, Lorg/yaml/snakeyaml/Yaml;->representer:Lorg/yaml/snakeyaml/representer/Representer;
@@ -496,13 +496,13 @@
 
     .line 277
     .end local v1    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_0
+    goto :goto_13
 
     .line 278
-    :cond_0
+    :cond_27
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/serializer/Serializer;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_2a} :catch_2c
 
     .line 281
     nop
@@ -511,7 +511,7 @@
     return-void
 
     .line 279
-    :catch_0
+    :catch_2c
     move-exception v1
 
     .line 280
@@ -524,7 +524,7 @@
 .end method
 
 .method private static initDumperOptions(Lorg/yaml/snakeyaml/representer/Representer;)Lorg/yaml/snakeyaml/DumperOptions;
-    .locals 2
+    .registers 3
     .param p0, "representer"    # Lorg/yaml/snakeyaml/representer/Representer;
 
     .line 116
@@ -570,7 +570,7 @@
 .end method
 
 .method private loadFromReader(Lorg/yaml/snakeyaml/reader/StreamReader;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "sreader"    # Lorg/yaml/snakeyaml/reader/StreamReader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -621,7 +621,7 @@
 
 # virtual methods
 .method public addImplicitResolver(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/util/regex/Pattern;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "regexp"    # Ljava/util/regex/Pattern;
     .param p3, "first"    # Ljava/lang/String;
@@ -636,7 +636,7 @@
 .end method
 
 .method public addTypeDescription(Lorg/yaml/snakeyaml/TypeDescription;)V
-    .locals 1
+    .registers 3
     .param p1, "td"    # Lorg/yaml/snakeyaml/TypeDescription;
 
     .line 717
@@ -654,7 +654,7 @@
 .end method
 
 .method public compose(Ljava/io/Reader;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 4
+    .registers 6
     .param p1, "yaml"    # Ljava/io/Reader;
 
     .line 573
@@ -690,7 +690,7 @@
 .end method
 
 .method public composeAll(Ljava/io/Reader;)Ljava/lang/Iterable;
-    .locals 4
+    .registers 6
     .param p1, "yaml"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -742,7 +742,7 @@
 .end method
 
 .method public dump(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 218
@@ -769,7 +769,7 @@
 .end method
 
 .method public dump(Ljava/lang/Object;Ljava/io/Writer;)V
-    .locals 3
+    .registers 6
     .param p1, "data"    # Ljava/lang/Object;
     .param p2, "output"    # Ljava/io/Writer;
 
@@ -798,7 +798,7 @@
 .end method
 
 .method public dumpAll(Ljava/util/Iterator;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -831,7 +831,7 @@
 .end method
 
 .method public dumpAll(Ljava/util/Iterator;Ljava/io/Writer;)V
-    .locals 1
+    .registers 4
     .param p2, "output"    # Ljava/io/Writer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -856,7 +856,7 @@
 .end method
 
 .method public dumpAs(Ljava/lang/Object;Lorg/yaml/snakeyaml/nodes/Tag;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)Ljava/lang/String;
-    .locals 4
+    .registers 8
     .param p1, "data"    # Ljava/lang/Object;
     .param p2, "rootTag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p3, "flowStyle"    # Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
@@ -870,7 +870,7 @@
 
     .line 322
     .local v0, "oldStyle":Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_d
 
     .line 323
     iget-object v1, p0, Lorg/yaml/snakeyaml/Yaml;->representer:Lorg/yaml/snakeyaml/representer/Representer;
@@ -878,7 +878,7 @@
     invoke-virtual {v1, p3}, Lorg/yaml/snakeyaml/representer/Representer;->setDefaultFlowStyle(Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
 
     .line 325
-    :cond_0
+    :cond_d
     new-instance v1, Ljava/util/ArrayList;
 
     const/4 v2, 0x1
@@ -916,7 +916,7 @@
 .end method
 
 .method public dumpAsMap(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 352
@@ -932,7 +932,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 652
     iget-object v0, p0, Lorg/yaml/snakeyaml/Yaml;->name:Ljava/lang/String;
@@ -941,7 +941,7 @@
 .end method
 
 .method public load(Ljava/io/InputStream;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "io"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -972,7 +972,7 @@
 .end method
 
 .method public load(Ljava/io/Reader;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "io"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -999,7 +999,7 @@
 .end method
 
 .method public load(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "yaml"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1026,7 +1026,7 @@
 .end method
 
 .method public loadAll(Ljava/io/InputStream;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 3
     .param p1, "yaml"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1052,7 +1052,7 @@
 .end method
 
 .method public loadAll(Ljava/io/Reader;)Ljava/lang/Iterable;
-    .locals 4
+    .registers 6
     .param p1, "yaml"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1109,7 +1109,7 @@
 .end method
 
 .method public loadAll(Ljava/lang/String;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 3
     .param p1, "yaml"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1135,7 +1135,7 @@
 .end method
 
 .method public loadAs(Ljava/io/InputStream;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1166,7 +1166,7 @@
 .end method
 
 .method public loadAs(Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "io"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1193,7 +1193,7 @@
 .end method
 
 .method public loadAs(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "yaml"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1220,7 +1220,7 @@
 .end method
 
 .method public parse(Ljava/io/Reader;)Ljava/lang/Iterable;
-    .locals 3
+    .registers 5
     .param p1, "yaml"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1264,7 +1264,7 @@
 .end method
 
 .method public represent(Ljava/lang/Object;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 1
+    .registers 3
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 232
@@ -1278,7 +1278,7 @@
 .end method
 
 .method public serialize(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p1, "data"    # Lorg/yaml/snakeyaml/nodes/Node;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1312,7 +1312,7 @@
 
     .line 384
     .local v1, "serializer":Lorg/yaml/snakeyaml/serializer/Serializer;
-    :try_start_0
+    :try_start_10
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/serializer/Serializer;->open()V
 
     .line 385
@@ -1320,8 +1320,8 @@
 
     .line 386
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/serializer/Serializer;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_19} :catch_1f
 
     .line 389
     nop
@@ -1334,7 +1334,7 @@
     return-object v2
 
     .line 387
-    :catch_0
+    :catch_1f
     move-exception v2
 
     .line 388
@@ -1347,7 +1347,7 @@
 .end method
 
 .method public serialize(Lorg/yaml/snakeyaml/nodes/Node;Ljava/io/Writer;)V
-    .locals 5
+    .registers 8
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .param p2, "output"    # Ljava/io/Writer;
 
@@ -1370,7 +1370,7 @@
 
     .line 365
     .local v0, "serializer":Lorg/yaml/snakeyaml/serializer/Serializer;
-    :try_start_0
+    :try_start_11
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/serializer/Serializer;->open()V
 
     .line 366
@@ -1378,8 +1378,8 @@
 
     .line 367
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/serializer/Serializer;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_1a} :catch_1c
 
     .line 370
     nop
@@ -1388,7 +1388,7 @@
     return-void
 
     .line 368
-    :catch_0
+    :catch_1c
     move-exception v1
 
     .line 369
@@ -1401,7 +1401,7 @@
 .end method
 
 .method public setBeanAccess(Lorg/yaml/snakeyaml/introspector/BeanAccess;)V
-    .locals 1
+    .registers 3
     .param p1, "beanAccess"    # Lorg/yaml/snakeyaml/introspector/BeanAccess;
 
     .line 712
@@ -1427,7 +1427,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "name"    # Ljava/lang/String;
 
     .line 661
@@ -1438,7 +1438,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 641
     iget-object v0, p0, Lorg/yaml/snakeyaml/Yaml;->name:Ljava/lang/String;

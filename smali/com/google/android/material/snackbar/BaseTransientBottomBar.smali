@@ -1214,7 +1214,7 @@
 
     new-array v1, v0, [F
 
-    fill-array-data v1, :array_36
+    fill-array-data v1, :array_38
 
     invoke-direct {p0, v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->getAlphaAnimator([F)Landroid/animation/ValueAnimator;
 
@@ -1224,7 +1224,7 @@
     .local v1, "alphaAnimator":Landroid/animation/ValueAnimator;
     new-array v2, v0, [F
 
-    fill-array-data v2, :array_3e
+    fill-array-data v2, :array_40
 
     invoke-direct {p0, v2}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->getScaleAnimator([F)Landroid/animation/ValueAnimator;
 
@@ -1266,20 +1266,19 @@
 
     .line 949
     invoke-static {v3}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v3}, Landroid/animation/AnimatorSet;->start()V
 
     .line 950
     return-void
 
-    nop
-
-    :array_36
+    :array_38
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_3e
+    :array_40
     .array-data 4
         0x3f4ccccd    # 0.8f
         0x3f800000    # 1.0f
@@ -1296,7 +1295,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_1c
+    fill-array-data v0, :array_20
 
     invoke-direct {p0, v0}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->getAlphaAnimator([F)Landroid/animation/ValueAnimator;
 
@@ -1319,12 +1318,15 @@
 
     .line 962
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
     .line 963
     return-void
 
-    :array_1c
+    nop
+
+    :array_20
     .array-data 4
         0x3f800000    # 1.0f
         0x0
@@ -1405,6 +1407,7 @@
 
     .line 1037
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
 
     .line 1038
@@ -1463,6 +1466,7 @@
 
     .line 1075
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
     .line 1076

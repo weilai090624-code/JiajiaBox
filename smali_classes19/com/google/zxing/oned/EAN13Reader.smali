@@ -13,20 +13,20 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 61
     const/16 v0, 0xa
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_a
 
     sput-object v0, Lcom/google/zxing/oned/EAN13Reader;->FIRST_DIGIT_ENCODINGS:[I
 
     return-void
 
-    :array_0
+    :array_a
     .array-data 4
         0x0
         0xb
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 67
     invoke-direct {p0}, Lcom/google/zxing/oned/UPCEANReader;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method private static determineFirstDigit(Ljava/lang/StringBuilder;I)V
-    .locals 3
+    .registers 5
     .param p0, "resultString"    # Ljava/lang/StringBuilder;
     .param p1, "lgPatternFound"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -72,17 +72,17 @@
     const/4 v0, 0x0
 
     .local v0, "d":I
-    :goto_0
+    :goto_1
     const/16 v1, 0xa
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_16
 
     .line 130
     sget-object v1, Lcom/google/zxing/oned/EAN13Reader;->FIRST_DIGIT_ENCODINGS:[I
 
     aget v1, v1, v0
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_13
 
     .line 131
     add-int/lit8 v1, v0, 0x30
@@ -97,14 +97,14 @@
     return-void
 
     .line 129
-    :cond_0
+    :cond_13
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 135
     .end local v0    # "d":I
-    :cond_1
+    :cond_16
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v0
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method protected decodeMiddle(Lcom/google/zxing/common/BitArray;[ILjava/lang/StringBuilder;)I
-    .locals 10
+    .registers 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/NotFoundException;
@@ -161,12 +161,12 @@
 
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_17
     const/4 v6, 0x6
 
-    if-ge v4, v6, :cond_2
+    if-ge v4, v6, :cond_40
 
-    if-ge p2, v3, :cond_2
+    if-ge p2, v3, :cond_40
 
     .line 86
     sget-object v6, Lcom/google/zxing/oned/EAN13Reader;->L_AND_G_PATTERNS:[[I
@@ -189,8 +189,8 @@
 
     const/4 v8, 0x0
 
-    :goto_1
-    if-ge v8, v7, :cond_0
+    :goto_2c
+    if-ge v8, v7, :cond_34
 
     aget v9, v0, v8
 
@@ -200,13 +200,13 @@
     .line 88
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 91
-    :cond_0
+    :cond_34
     const/16 v7, 0xa
 
-    if-lt v6, v7, :cond_1
+    if-lt v6, v7, :cond_3d
 
     .line 92
     rsub-int/lit8 v6, v4, 0x5
@@ -216,13 +216,13 @@
     or-int/2addr v5, v6
 
     .line 85
-    :cond_1
+    :cond_3d
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 96
-    :cond_2
+    :cond_40
     invoke-static {p3, v5}, Lcom/google/zxing/oned/EAN13Reader;->determineFirstDigit(Ljava/lang/StringBuilder;I)V
 
     .line 98
@@ -238,10 +238,10 @@
     .line 101
     const/4 v2, 0x0
 
-    :goto_2
-    if-ge v2, v6, :cond_4
+    :goto_4c
+    if-ge v2, v6, :cond_69
 
-    if-ge p2, v3, :cond_4
+    if-ge p2, v3, :cond_69
 
     .line 102
     sget-object v4, Lcom/google/zxing/oned/EAN13Reader;->L_PATTERNS:[[I
@@ -262,8 +262,8 @@
 
     const/4 v5, 0x0
 
-    :goto_3
-    if-ge v5, v4, :cond_3
+    :goto_5e
+    if-ge v5, v4, :cond_66
 
     aget v7, v0, v5
 
@@ -273,21 +273,21 @@
     .line 104
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_3
+    goto :goto_5e
 
     .line 101
-    :cond_3
+    :cond_66
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_4c
 
     .line 109
-    :cond_4
+    :cond_69
     return p2
 .end method
 
 .method getBarcodeFormat()Lcom/google/zxing/BarcodeFormat;
-    .locals 1
+    .registers 2
 
     .line 114
     sget-object v0, Lcom/google/zxing/BarcodeFormat;->EAN_13:Lcom/google/zxing/BarcodeFormat;

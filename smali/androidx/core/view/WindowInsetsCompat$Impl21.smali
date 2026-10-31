@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroid/view/WindowInsets;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroidx/core/view/WindowInsetsCompat;
     .param p2, "insets"    # Landroid/view/WindowInsets;
 
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat$Impl21;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroidx/core/view/WindowInsetsCompat;
     .param p2, "other"    # Landroidx/core/view/WindowInsetsCompat$Impl21;
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method consumeStableInsets()Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 2
 
     .line 1214
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
@@ -78,7 +78,7 @@
 .end method
 
 .method consumeSystemWindowInsets()Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 2
 
     .line 1220
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
@@ -95,12 +95,12 @@
 .end method
 
 .method final getStableInsets()Landroidx/core/graphics/Insets;
-    .locals 4
+    .registers 5
 
     .line 1226
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 1227
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
@@ -139,14 +139,14 @@
     iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
 
     .line 1233
-    :cond_0
+    :cond_22
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
 
     return-object v0
 .end method
 
 .method isConsumed()Z
-    .locals 1
+    .registers 2
 
     .line 1208
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
@@ -159,7 +159,7 @@
 .end method
 
 .method public setStableInsets(Landroidx/core/graphics/Insets;)V
-    .locals 0
+    .registers 2
     .param p1, "stableInsets"    # Landroidx/core/graphics/Insets;
 
     .line 1238

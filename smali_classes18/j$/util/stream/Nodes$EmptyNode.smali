@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 566
     .local p0, "this":Lj$/util/stream/Nodes$EmptyNode;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>;"
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public asArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,7 +79,7 @@
 .end method
 
 .method public copyInto(Ljava/lang/Object;I)V
-    .locals 0
+    .registers 3
     .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -94,7 +94,7 @@
 .end method
 
 .method public count()J
-    .locals 2
+    .registers 3
 
     .line 577
     .local p0, "this":Lj$/util/stream/Nodes$EmptyNode;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>;"
@@ -104,7 +104,7 @@
 .end method
 
 .method public forEach(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)V"
@@ -118,7 +118,7 @@
 .end method
 
 .method public synthetic getChild(I)Lj$/util/stream/Node;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Node$-CC;->$default$getChild(Lj$/util/stream/Node;I)Lj$/util/stream/Node;
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public synthetic getChildCount()I
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$-CC;->$default$getChildCount(Lj$/util/stream/Node;)I
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public synthetic getShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$-CC;->$default$getShape(Lj$/util/stream/Node;)Lj$/util/stream/StreamShape;
 
@@ -148,7 +148,7 @@
 .end method
 
 .method public synthetic truncate(JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/Node$-CC;->$default$truncate(Lj$/util/stream/Node;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
 

@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/ActionMode$Callback;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "supportCallback"    # Landroid/view/ActionMode$Callback;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method private getMenuWrapper(Landroid/view/Menu;)Landroid/view/Menu;
-    .locals 4
+    .registers 6
     .param p1, "menu"    # Landroid/view/Menu;
 
     .line 182
@@ -92,7 +92,7 @@
 
     .line 183
     .local v0, "wrapper":Landroid/view/Menu;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 184
     new-instance v1, Landroidx/appcompat/view/menu/MenuWrapperICS;
@@ -113,14 +113,14 @@
     invoke-virtual {v1, p1, v0}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 187
-    :cond_0
+    :cond_1a
     return-object v0
 .end method
 
 
 # virtual methods
 .method public getActionModeWrapper(Landroidx/appcompat/view/ActionMode;)Landroid/view/ActionMode;
-    .locals 4
+    .registers 6
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
 
     .line 192
@@ -134,8 +134,8 @@
     move-result v1
 
     .local v1, "count":I
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_7
+    if-ge v0, v1, :cond_1b
 
     .line 193
     iget-object v2, p0, Landroidx/appcompat/view/SupportActionModeWrapper$CallbackWrapper;->mActionModes:Ljava/util/ArrayList;
@@ -148,26 +148,26 @@
 
     .line 194
     .local v2, "wrapper":Landroidx/appcompat/view/SupportActionModeWrapper;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget-object v3, v2, Landroidx/appcompat/view/SupportActionModeWrapper;->mWrappedObject:Landroidx/appcompat/view/ActionMode;
 
-    if-ne v3, p1, :cond_0
+    if-ne v3, p1, :cond_18
 
     .line 196
     return-object v2
 
     .line 192
     .end local v2    # "wrapper":Landroidx/appcompat/view/SupportActionModeWrapper;
-    :cond_0
+    :cond_18
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 202
     .end local v0    # "i":I
     .end local v1    # "count":I
-    :cond_1
+    :cond_1b
     new-instance v0, Landroidx/appcompat/view/SupportActionModeWrapper;
 
     iget-object v1, p0, Landroidx/appcompat/view/SupportActionModeWrapper$CallbackWrapper;->mContext:Landroid/content/Context;
@@ -185,7 +185,7 @@
 .end method
 
 .method public onActionItemClicked(Landroidx/appcompat/view/ActionMode;Landroid/view/MenuItem;)Z
-    .locals 5
+    .registers 8
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
     .param p2, "item"    # Landroid/view/MenuItem;
 
@@ -214,7 +214,7 @@
 .end method
 
 .method public onCreateActionMode(Landroidx/appcompat/view/ActionMode;Landroid/view/Menu;)Z
-    .locals 3
+    .registers 6
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
     .param p2, "menu"    # Landroid/view/Menu;
 
@@ -239,7 +239,7 @@
 .end method
 
 .method public onDestroyActionMode(Landroidx/appcompat/view/ActionMode;)V
-    .locals 2
+    .registers 4
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
 
     .line 178
@@ -256,7 +256,7 @@
 .end method
 
 .method public onPrepareActionMode(Landroidx/appcompat/view/ActionMode;Landroid/view/Menu;)Z
-    .locals 3
+    .registers 6
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
     .param p2, "menu"    # Landroid/view/Menu;
 

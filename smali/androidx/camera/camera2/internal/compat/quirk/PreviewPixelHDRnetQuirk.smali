@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 42
     new-instance v0, Ljava/util/ArrayList;
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method static load()Z
-    .locals 3
+    .registers 3
 
     .line 46
     const-string v0, "Google"
@@ -69,7 +69,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     sget-object v0, Landroidx/camera/camera2/internal/compat/quirk/PreviewPixelHDRnetQuirk;->SUPPORTED_DEVICES:Ljava/util/List;
 
@@ -89,15 +89,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1f
     return v0
 .end method

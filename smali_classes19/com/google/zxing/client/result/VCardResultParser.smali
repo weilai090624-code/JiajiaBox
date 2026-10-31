@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 39
     const-string v0, "BEGIN:VCARD"
@@ -125,7 +125,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Lcom/google/zxing/client/result/ResultParser;-><init>()V
@@ -134,7 +134,7 @@
 .end method
 
 .method private static decodeQuotedPrintable(Ljava/lang/CharSequence;Ljava/lang/String;)Ljava/lang/String;
-    .locals 10
+    .registers 12
     .param p0, "value"    # Ljava/lang/CharSequence;
     .param p1, "charset"    # Ljava/lang/String;
 
@@ -164,8 +164,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v3, v0, :cond_3
+    :goto_11
+    if-ge v3, v0, :cond_54
 
     .line 228
     invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
@@ -176,7 +176,7 @@
     .local v4, "c":C
     move v4, v6
 
-    sparse-switch v6, :sswitch_data_0
+    sparse-switch v6, :sswitch_data_5c
 
     .line 248
     invoke-static {v2, p1, v1}, Lcom/google/zxing/client/result/VCardResultParser;->maybeAppendFragment(Ljava/io/ByteArrayOutputStream;Ljava/lang/String;Ljava/lang/StringBuilder;)V
@@ -184,13 +184,13 @@
     .line 249
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_51
 
     .line 234
-    :sswitch_0
+    :sswitch_22
     add-int/lit8 v6, v0, -0x2
 
-    if-ge v3, v6, :cond_2
+    if-ge v3, v6, :cond_51
 
     .line 235
     add-int/lit8 v6, v3, 0x1
@@ -205,11 +205,11 @@
 
     const/16 v7, 0xd
 
-    if-eq v6, v7, :cond_1
+    if-eq v6, v7, :cond_4f
 
     const/16 v6, 0xa
 
-    if-eq v5, v6, :cond_1
+    if-eq v5, v6, :cond_4f
 
     .line 237
     add-int/lit8 v6, v3, 0x2
@@ -232,9 +232,9 @@
 
     .line 240
     .local v8, "secondDigit":I
-    if-ltz v7, :cond_0
+    if-ltz v7, :cond_4d
 
-    if-ltz v8, :cond_0
+    if-ltz v8, :cond_4d
 
     .line 241
     shl-int/lit8 v9, v7, 0x4
@@ -244,7 +244,7 @@
     invoke-virtual {v2, v9}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
     .line 243
-    :cond_0
+    :cond_4d
     add-int/lit8 v3, v3, 0x2
 
     .line 245
@@ -252,24 +252,24 @@
     .end local v6    # "nextNextChar":C
     .end local v7    # "firstDigit":I
     .end local v8    # "secondDigit":I
-    :cond_1
-    goto :goto_1
+    :cond_4f
+    goto :goto_51
 
     .line 232
-    :sswitch_1
+    :sswitch_50
     nop
 
     .line 227
     .end local v4    # "c":C
-    :cond_2
-    :goto_1
+    :cond_51
+    :goto_51
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 252
     .end local v3    # "i":I
-    :cond_3
+    :cond_54
     invoke-static {v2, p1, v1}, Lcom/google/zxing/client/result/VCardResultParser;->maybeAppendFragment(Ljava/io/ByteArrayOutputStream;Ljava/lang/String;Ljava/lang/StringBuilder;)V
 
     .line 253
@@ -279,16 +279,16 @@
 
     return-object v3
 
-    :sswitch_data_0
+    :sswitch_data_5c
     .sparse-switch
-        0xa -> :sswitch_1
-        0xd -> :sswitch_1
-        0x3d -> :sswitch_0
+        0xa -> :sswitch_50
+        0xd -> :sswitch_50
+        0x3d -> :sswitch_22
     .end sparse-switch
 .end method
 
 .method private static formatNames(Ljava/lang/Iterable;)V
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -301,7 +301,7 @@
 
     .line 341
     .local p0, "names":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Ljava/util/List<Ljava/lang/String;>;>;"
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_62
 
     .line 342
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -310,12 +310,12 @@
 
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_62
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -351,10 +351,10 @@
 
     .line 348
     .local v6, "componentIndex":I
-    :goto_1
+    :goto_20
     const/4 v7, 0x4
 
-    if-ge v6, v7, :cond_0
+    if-ge v6, v7, :cond_37
 
     const/16 v8, 0x3b
 
@@ -365,7 +365,7 @@
     move v9, v8
 
     .local v9, "end":I
-    if-ltz v8, :cond_0
+    if-ltz v8, :cond_37
 
     .line 349
     invoke-virtual {v2, v5, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -380,11 +380,11 @@
     .line 351
     add-int/lit8 v5, v9, 0x1
 
-    goto :goto_1
+    goto :goto_20
 
     .line 353
     .end local v9    # "end":I
-    :cond_0
+    :cond_37
     invoke-virtual {v2, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v8
@@ -438,19 +438,19 @@
     .end local v5    # "start":I
     .end local v6    # "componentIndex":I
     .end local v8    # "newName":Ljava/lang/StringBuilder;
-    goto :goto_0
+    goto :goto_7
 
     .line 363
-    :cond_1
+    :cond_62
     return-void
 .end method
 
 .method private static isLikeVCardDate(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 2
     .param p0, "value"    # Ljava/lang/CharSequence;
 
     .line 331
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_11
 
     sget-object v0, Lcom/google/zxing/client/result/VCardResultParser;->VCARD_LIKE_DATE:Ljava/util/regex/Pattern;
 
@@ -462,24 +462,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     return v0
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method static matchSingleVCardPrefixedField(Ljava/lang/CharSequence;Ljava/lang/String;ZZ)Ljava/util/List;
-    .locals 2
+    .registers 6
     .param p0, "prefix"    # Ljava/lang/CharSequence;
     .param p1, "rawText"    # Ljava/lang/String;
     .param p2, "trim"    # Z
@@ -507,17 +507,17 @@
     .local v1, "values":Ljava/util/List;, "Ljava/util/List<Ljava/util/List<Ljava/lang/String;>;>;"
     move-object v1, v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -528,15 +528,15 @@
 
     return-object v0
 
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method static matchVCardPrefixedField(Ljava/lang/CharSequence;Ljava/lang/String;ZZ)Ljava/util/List;
-    .locals 16
+    .registers 20
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -568,8 +568,8 @@
     const/4 v5, 0x0
 
     .line 111
-    :goto_0
-    if-ge v0, v2, :cond_16
+    :goto_a
+    if-ge v0, v2, :cond_189
 
     .line 115
     new-instance v6, Ljava/lang/StringBuilder;
@@ -606,18 +606,18 @@
     move-result-object v6
 
     .line 117
-    if-lez v0, :cond_0
+    if-lez v0, :cond_30
 
     .line 118
     add-int/lit8 v0, v0, -0x1
 
     .line 120
-    :cond_0
+    :cond_30
     invoke-virtual {v6, v0}, Ljava/util/regex/Matcher;->find(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_189
 
     .line 123
     invoke-virtual {v6, v4}, Ljava/util/regex/Matcher;->end(I)I
@@ -644,7 +644,7 @@
     nop
 
     .line 130
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_97
 
     .line 131
     sget-object v10, Lcom/google/zxing/client/result/VCardResultParser;->SEMICOLON:Ljava/util/regex/Pattern;
@@ -665,13 +665,13 @@
 
     const/4 v15, 0x0
 
-    :goto_1
-    if-ge v11, v10, :cond_6
+    :goto_51
+    if-ge v11, v10, :cond_9b
 
     aget-object v3, v6, v11
 
     .line 132
-    if-nez v12, :cond_1
+    if-nez v12, :cond_5c
 
     .line 133
     new-instance v12, Ljava/util/ArrayList;
@@ -679,7 +679,7 @@
     invoke-direct {v12, v9}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 135
-    :cond_1
+    :cond_5c
     invoke-interface {v12, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 136
@@ -692,7 +692,7 @@
     .line 137
     array-length v4, v3
 
-    if-le v4, v9, :cond_4
+    if-le v4, v9, :cond_92
 
     .line 138
     const/4 v4, 0x0
@@ -709,7 +709,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_7f
 
     const-string v4, "QUOTED-PRINTABLE"
 
@@ -717,54 +717,54 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_7f
 
     .line 141
     const/4 v13, 0x1
 
-    goto :goto_2
+    goto :goto_92
 
     .line 142
-    :cond_2
+    :cond_7f
     const-string v4, "CHARSET"
 
     invoke-virtual {v4, v8}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_89
 
     .line 143
     move-object v14, v3
 
-    goto :goto_2
+    goto :goto_92
 
     .line 144
-    :cond_3
+    :cond_89
     const-string v4, "VALUE"
 
     invoke-virtual {v4, v8}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_92
 
     .line 145
     move-object v15, v3
 
     .line 131
-    :cond_4
-    :goto_2
+    :cond_92
+    :goto_92
     add-int/lit8 v11, v11, 0x1
 
     const/4 v4, 0x0
 
     const/4 v8, 0x2
 
-    goto :goto_1
+    goto :goto_51
 
     .line 130
-    :cond_5
+    :cond_97
     const/4 v12, 0x0
 
     const/4 v13, 0x0
@@ -774,18 +774,18 @@
     const/4 v15, 0x0
 
     .line 151
-    :cond_6
+    :cond_9b
     move v3, v0
 
     .line 153
-    :goto_3
+    :goto_9c
     const/16 v4, 0xa
 
     invoke-virtual {v1, v4, v3}, Ljava/lang/String;->indexOf(II)I
 
     move-result v3
 
-    if-ltz v3, :cond_b
+    if-ltz v3, :cond_df
 
     .line 154
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
@@ -794,7 +794,7 @@
 
     sub-int/2addr v4, v9
 
-    if-ge v3, v4, :cond_8
+    if-ge v3, v4, :cond_c0
 
     add-int/lit8 v4, v3, 0x1
 
@@ -805,7 +805,7 @@
 
     const/16 v8, 0x20
 
-    if-eq v6, v8, :cond_7
+    if-eq v6, v8, :cond_bd
 
     .line 156
     invoke-virtual {v1, v4}, Ljava/lang/String;->charAt(I)C
@@ -814,21 +814,21 @@
 
     const/16 v6, 0x9
 
-    if-ne v4, v6, :cond_8
+    if-ne v4, v6, :cond_c0
 
     .line 157
-    :cond_7
+    :cond_bd
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_3
+    goto :goto_9c
 
     .line 158
-    :cond_8
-    if-eqz v13, :cond_b
+    :cond_c0
+    if-eqz v13, :cond_df
 
     const/16 v4, 0x3d
 
-    if-lez v3, :cond_a
+    if-lez v3, :cond_d1
 
     add-int/lit8 v6, v3, -0x1
 
@@ -837,20 +837,20 @@
 
     move-result v6
 
-    if-eq v6, v4, :cond_9
+    if-eq v6, v4, :cond_cf
 
-    goto :goto_4
+    goto :goto_d1
 
-    :cond_9
+    :cond_cf
     const/4 v6, 0x2
 
-    goto :goto_5
+    goto :goto_dc
 
-    :cond_a
-    :goto_4
+    :cond_d1
+    :goto_d1
     const/4 v6, 0x2
 
-    if-lt v3, v6, :cond_b
+    if-lt v3, v6, :cond_df
 
     add-int/lit8 v8, v3, -0x2
 
@@ -859,31 +859,31 @@
 
     move-result v8
 
-    if-ne v8, v4, :cond_b
+    if-ne v8, v4, :cond_df
 
     .line 161
-    :goto_5
+    :goto_dc
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_9c
 
     .line 167
-    :cond_b
-    if-gez v3, :cond_c
+    :cond_df
+    if-gez v3, :cond_e5
 
     .line 169
     move v0, v2
 
     const/4 v4, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_a
 
     .line 170
-    :cond_c
-    if-le v3, v0, :cond_15
+    :cond_e5
+    if-le v3, v0, :cond_183
 
     .line 172
-    if-nez v5, :cond_d
+    if-nez v5, :cond_ef
 
     .line 173
     new-instance v4, Ljava/util/ArrayList;
@@ -893,8 +893,8 @@
     move-object v5, v4
 
     .line 175
-    :cond_d
-    if-lez v3, :cond_e
+    :cond_ef
+    if-lez v3, :cond_fd
 
     add-int/lit8 v4, v3, -0x1
 
@@ -904,19 +904,19 @@
 
     const/16 v6, 0xd
 
-    if-ne v4, v6, :cond_e
+    if-ne v4, v6, :cond_fd
 
     .line 176
     add-int/lit8 v3, v3, -0x1
 
     .line 178
-    :cond_e
+    :cond_fd
     invoke-virtual {v1, v0, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
     .line 179
-    if-eqz p2, :cond_f
+    if-eqz p2, :cond_107
 
     .line 180
     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -924,10 +924,10 @@
     move-result-object v0
 
     .line 182
-    :cond_f
+    :cond_107
     const-string v4, "\n"
 
-    if-eqz v13, :cond_11
+    if-eqz v13, :cond_123
 
     .line 183
     invoke-static {v0, v14}, Lcom/google/zxing/client/result/VCardResultParser;->decodeQuotedPrintable(Ljava/lang/CharSequence;Ljava/lang/String;)Ljava/lang/String;
@@ -935,7 +935,7 @@
     move-result-object v0
 
     .line 184
-    if-eqz p3, :cond_10
+    if-eqz p3, :cond_121
 
     .line 185
     sget-object v6, Lcom/google/zxing/client/result/VCardResultParser;->UNESCAPED_SEMICOLONS:Ljava/util/regex/Pattern;
@@ -954,17 +954,17 @@
 
     move-object v4, v0
 
-    goto :goto_6
+    goto :goto_156
 
     .line 184
-    :cond_10
+    :cond_121
     move-object v4, v0
 
-    goto :goto_6
+    goto :goto_156
 
     .line 188
-    :cond_11
-    if-eqz p3, :cond_12
+    :cond_123
+    if-eqz p3, :cond_133
 
     .line 189
     sget-object v6, Lcom/google/zxing/client/result/VCardResultParser;->UNESCAPED_SEMICOLONS:Ljava/util/regex/Pattern;
@@ -982,7 +982,7 @@
     move-result-object v0
 
     .line 191
-    :cond_12
+    :cond_133
     sget-object v6, Lcom/google/zxing/client/result/VCardResultParser;->CR_LF_SPACE_TAB:Ljava/util/regex/Pattern;
 
     invoke-virtual {v6, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -1022,17 +1022,17 @@
     move-object v4, v0
 
     .line 196
-    :goto_6
+    :goto_156
     const-string v0, "uri"
 
     invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_168
 
     .line 200
-    :try_start_0
+    :try_start_15e
     invoke-static {v4}, Ljava/net/URI;->create(Ljava/lang/String;)Ljava/net/URI;
 
     move-result-object v0
@@ -1040,20 +1040,20 @@
     invoke-virtual {v0}, Ljava/net/URI;->getSchemeSpecificPart()Ljava/lang/String;
 
     move-result-object v4
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_166
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_15e .. :try_end_166} :catch_167
 
     .line 203
-    goto :goto_7
+    goto :goto_168
 
     .line 201
-    :catch_0
+    :catch_167
     move-exception v0
 
     .line 205
-    :cond_13
-    :goto_7
-    if-nez v12, :cond_14
+    :cond_168
+    :goto_168
+    if-nez v12, :cond_177
 
     .line 206
     new-instance v0, Ljava/util/ArrayList;
@@ -1069,10 +1069,10 @@
     .line 209
     const/4 v6, 0x0
 
-    goto :goto_8
+    goto :goto_17e
 
     .line 210
-    :cond_14
+    :cond_177
     const/4 v6, 0x0
 
     invoke-interface {v12, v6, v4}, Ljava/util/List;->add(ILjava/lang/Object;)V
@@ -1081,16 +1081,16 @@
     invoke-interface {v5, v12}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 213
-    :goto_8
+    :goto_17e
     add-int/lit8 v0, v3, 0x1
 
     .line 214
     const/4 v4, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_a
 
     .line 215
-    :cond_15
+    :cond_183
     const/4 v6, 0x0
 
     add-int/lit8 v0, v3, 0x1
@@ -1098,15 +1098,15 @@
     .line 218
     const/4 v4, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_a
 
     .line 220
-    :cond_16
+    :cond_189
     return-object v5
 .end method
 
 .method private static maybeAppendComponent([Ljava/lang/String;ILjava/lang/StringBuilder;)V
-    .locals 1
+    .registers 4
     .param p0, "components"    # [Ljava/lang/String;
     .param p1, "i"    # I
     .param p2, "newName"    # Ljava/lang/StringBuilder;
@@ -1114,7 +1114,7 @@
     .line 366
     aget-object v0, p0, p1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     aget-object v0, p0, p1
 
@@ -1122,14 +1122,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     .line 367
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->length()I
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_17
 
     .line 368
     const/16 v0, 0x20
@@ -1137,18 +1137,18 @@
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 370
-    :cond_0
+    :cond_17
     aget-object v0, p0, p1
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 372
-    :cond_1
+    :cond_1c
     return-void
 .end method
 
 .method private static maybeAppendFragment(Ljava/io/ByteArrayOutputStream;Ljava/lang/String;Ljava/lang/StringBuilder;)V
-    .locals 3
+    .registers 6
     .param p0, "fragmentBuffer"    # Ljava/io/ByteArrayOutputStream;
     .param p1, "charset"    # Ljava/lang/String;
     .param p2, "result"    # Ljava/lang/StringBuilder;
@@ -1158,7 +1158,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_28
 
     .line 260
     invoke-virtual {p0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
@@ -1167,7 +1167,7 @@
 
     .line 262
     .local v0, "fragmentBytes":[B
-    if-nez p1, :cond_0
+    if-nez p1, :cond_14
 
     .line 263
     new-instance v1, Ljava/lang/String;
@@ -1177,25 +1177,25 @@
     invoke-direct {v1, v0, v2}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
 
     .local v1, "fragment":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_22
 
     .line 266
     .end local v1    # "fragment":Ljava/lang/String;
-    :cond_0
-    :try_start_0
+    :cond_14
+    :try_start_14
     new-instance v1, Ljava/lang/String;
 
     invoke-direct {v1, v0, p1}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_14 .. :try_end_19} :catch_1a
 
     .line 269
     .restart local v1    # "fragment":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_22
 
     .line 267
     .end local v1    # "fragment":Ljava/lang/String;
-    :catch_0
+    :catch_1a
     move-exception v1
 
     .line 268
@@ -1207,7 +1207,7 @@
 
     .line 271
     .restart local v1    # "fragment":Ljava/lang/String;
-    :goto_0
+    :goto_22
     invoke-virtual {p0}, Ljava/io/ByteArrayOutputStream;->reset()V
 
     .line 272
@@ -1216,12 +1216,12 @@
     .line 274
     .end local v0    # "fragmentBytes":[B
     .end local v1    # "fragment":Ljava/lang/String;
-    :cond_1
+    :cond_28
     return-void
 .end method
 
 .method private static toPrimaryValue(Ljava/util/List;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1234,17 +1234,17 @@
 
     .line 285
     .local p0, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_11
 
     invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1255,15 +1255,15 @@
 
     return-object v0
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private static toPrimaryValues(Ljava/util/Collection;)[Ljava/lang/String;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1277,18 +1277,18 @@
 
     .line 289
     .local p0, "lists":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/List<Ljava/lang/String;>;>;"
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_44
 
     invoke-interface {p0}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_1
+    goto :goto_44
 
     .line 292
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-interface {p0}, Ljava/util/Collection;->size()I
@@ -1305,12 +1305,12 @@
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_17
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_37
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1331,24 +1331,24 @@
     .local v2, "value":Ljava/lang/String;
     move-object v2, v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_36
 
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_36
 
     .line 296
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 298
     .end local v2    # "value":Ljava/lang/String;
-    :cond_1
-    goto :goto_0
+    :cond_36
+    goto :goto_17
 
     .line 299
-    :cond_2
+    :cond_37
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -1365,15 +1365,15 @@
 
     .line 290
     .end local v0    # "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :cond_3
-    :goto_1
+    :cond_44
+    :goto_44
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private static toTypes(Ljava/util/Collection;)[Ljava/lang/String;
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1387,18 +1387,18 @@
 
     .line 303
     .local p0, "lists":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/List<Ljava/lang/String;>;>;"
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_7a
 
     invoke-interface {p0}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
-    goto/16 :goto_3
+    goto/16 :goto_7a
 
     .line 306
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-interface {p0}, Ljava/util/Collection;->size()I
@@ -1423,12 +1423,12 @@
 
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_1c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1452,13 +1452,13 @@
     .local v3, "value":Ljava/lang/String;
     move-object v3, v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_6c
 
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_6c
 
     .line 310
     const/4 v6, 0x0
@@ -1468,12 +1468,12 @@
     const/4 v8, 0x1
 
     .local v8, "i":I
-    :goto_1
+    :goto_3b
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v9
 
-    if-ge v8, v9, :cond_3
+    if-ge v8, v9, :cond_69
 
     .line 312
     invoke-interface {v2, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1496,16 +1496,16 @@
     .local v5, "equals":I
     move v5, v9
 
-    if-gez v9, :cond_1
+    if-gez v9, :cond_53
 
     .line 316
     move-object v6, v4
 
     .line 317
-    goto :goto_2
+    goto :goto_69
 
     .line 319
-    :cond_1
+    :cond_53
     const-string v9, "TYPE"
 
     invoke-virtual {v4, v7, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -1516,7 +1516,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_66
 
     .line 320
     add-int/lit8 v7, v5, 0x1
@@ -1526,31 +1526,31 @@
     move-result-object v6
 
     .line 321
-    goto :goto_2
+    goto :goto_69
 
     .line 311
     .end local v4    # "metadatum":Ljava/lang/String;
     .end local v5    # "equals":I
-    :cond_2
+    :cond_66
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 324
     .end local v8    # "i":I
-    :cond_3
-    :goto_2
+    :cond_69
+    :goto_69
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 326
     .end local v2    # "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .end local v3    # "value":Ljava/lang/String;
     .end local v6    # "type":Ljava/lang/String;
-    :cond_4
-    goto :goto_0
+    :cond_6c
+    goto :goto_1c
 
     .line 327
-    :cond_5
+    :cond_6d
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -1567,8 +1567,8 @@
 
     .line 304
     .end local v0    # "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :cond_6
-    :goto_3
+    :cond_7a
+    :goto_7a
     const/4 v0, 0x0
 
     return-object v0
@@ -1577,7 +1577,7 @@
 
 # virtual methods
 .method public parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/AddressBookParsedResult;
-    .locals 34
+    .registers 36
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 55
@@ -1607,18 +1607,18 @@
 
     const/4 v4, 0x0
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_f6
 
     invoke-virtual {v3}, Ljava/util/regex/Matcher;->start()I
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
-    goto/16 :goto_3
+    goto/16 :goto_f6
 
     .line 60
-    :cond_0
+    :cond_1c
     const-string v1, "FN"
 
     const/4 v5, 0x1
@@ -1635,7 +1635,7 @@
     .local v7, "names":Ljava/util/List;, "Ljava/util/List<Ljava/util/List<Ljava/lang/String;>;>;"
     move-object v7, v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_32
 
     .line 63
     const-string v1, "N"
@@ -1650,7 +1650,7 @@
     invoke-static {v1}, Lcom/google/zxing/client/result/VCardResultParser;->formatNames(Ljava/lang/Iterable;)V
 
     .line 66
-    :cond_1
+    :cond_32
     const-string v1, "NICKNAME"
 
     invoke-static {v1, v0, v5, v6}, Lcom/google/zxing/client/result/VCardResultParser;->matchSingleVCardPrefixedField(Ljava/lang/CharSequence;Ljava/lang/String;ZZ)Ljava/util/List;
@@ -1663,13 +1663,13 @@
     .local v8, "nicknameString":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     move-object v8, v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3e
 
     move-object v11, v4
 
-    goto :goto_0
+    goto :goto_4b
 
-    :cond_2
+    :cond_3e
     sget-object v1, Lcom/google/zxing/client/result/VCardResultParser;->COMMA:Ljava/util/regex/Pattern;
 
     invoke-interface {v8, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1686,7 +1686,7 @@
 
     .line 68
     .local v11, "nicknames":[Ljava/lang/String;
-    :goto_0
+    :goto_4b
     const-string v1, "TEL"
 
     invoke-static {v1, v0, v5, v6}, Lcom/google/zxing/client/result/VCardResultParser;->matchVCardPrefixedField(Ljava/lang/CharSequence;Ljava/lang/String;ZZ)Ljava/util/List;
@@ -1739,7 +1739,7 @@
     .local v10, "birthday":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     move-object v10, v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_83
 
     invoke-interface {v10, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -1751,22 +1751,22 @@
 
     move-result v9
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_83
 
     .line 75
     const/4 v10, 0x0
 
     move-object/from16 v30, v10
 
-    goto :goto_1
+    goto :goto_85
 
     .line 77
-    :cond_3
+    :cond_83
     move-object/from16 v30, v10
 
     .end local v10    # "birthday":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .local v30, "birthday":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :goto_1
+    :goto_85
     const-string v9, "TITLE"
 
     invoke-static {v9, v0, v5, v6}, Lcom/google/zxing/client/result/VCardResultParser;->matchSingleVCardPrefixedField(Ljava/lang/CharSequence;Ljava/lang/String;ZZ)Ljava/util/List;
@@ -1805,11 +1805,11 @@
 
     .end local v9    # "geoString":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .local v12, "geoString":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    if-nez v5, :cond_4
+    if-nez v5, :cond_a2
 
-    goto :goto_2
+    goto :goto_ae
 
-    :cond_4
+    :cond_a2
     sget-object v4, Lcom/google/zxing/client/result/VCardResultParser;->SEMICOLON_OR_COMMA:Ljava/util/regex/Pattern;
 
     invoke-interface {v12, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1824,22 +1824,22 @@
 
     .line 82
     .local v2, "geo":[Ljava/lang/String;
-    :goto_2
+    :goto_ae
     move-object v2, v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_b6
 
     array-length v4, v2
 
     const/4 v5, 0x2
 
-    if-eq v4, v5, :cond_5
+    if-eq v4, v5, :cond_b6
 
     .line 83
     const/4 v2, 0x0
 
     .line 85
-    :cond_5
+    :cond_b6
     new-instance v4, Lcom/google/zxing/client/result/AddressBookParsedResult;
 
     move-object v9, v4
@@ -1938,13 +1938,13 @@
     .end local v31    # "title":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .end local v32    # "urls":Ljava/util/List;, "Ljava/util/List<Ljava/util/List<Ljava/lang/String;>;>;"
     .end local v33    # "instantMessenger":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :cond_6
-    :goto_3
+    :cond_f6
+    :goto_f6
     return-object v4
 .end method
 
 .method public bridge synthetic parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/ParsedResult;
-    .locals 0
+    .registers 2
 
     .line 37
     invoke-virtual {p0, p1}, Lcom/google/zxing/client/result/VCardResultParser;->parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/AddressBookParsedResult;

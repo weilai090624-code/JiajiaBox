@@ -113,7 +113,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -155,7 +155,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -190,7 +190,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -204,7 +204,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -233,7 +233,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 22
+    .registers 24
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -248,7 +248,7 @@
 
     const/4 v4, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_116
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -258,7 +258,7 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_15
     move-object/from16 v2, p0
 
     .local v2, "this":Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1;
@@ -294,26 +294,26 @@
     check-cast v7, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     .local v7, "launchedJob":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :try_start_0
+    :try_start_32
     invoke-static {v5}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_35
+    .catchall {:try_start_32 .. :try_end_35} :catchall_37
 
-    goto/16 :goto_0
+    goto/16 :goto_d6
 
     .line 128
     .end local v0    # "$i$f$suspendCancellableCoroutine":I
-    :catchall_0
+    :catchall_37
     move-exception v0
 
-    goto/16 :goto_1
+    goto/16 :goto_f9
 
     .line 84
     .end local v2    # "this":Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1;
     .end local v5    # "$result":Ljava/lang/Object;
     .end local v6    # "observer":Lkotlin/jvm/internal/Ref$ObjectRef;
     .end local v7    # "launchedJob":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :pswitch_1
+    :pswitch_3a
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p0
@@ -331,14 +331,14 @@
 
     sget-object v7, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_4e
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 90
-    :cond_0
+    :cond_4e
     new-instance v6, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     invoke-direct {v6}, Lkotlin/jvm/internal/Ref$ObjectRef;-><init>()V
@@ -356,7 +356,7 @@
     nop
 
     .line 97
-    :try_start_1
+    :try_start_5a
     iget-object v7, v2, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1;->$state:Landroidx/lifecycle/Lifecycle$State;
 
     iget-object v14, v2, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1;->$this_repeatOnLifecycle:Landroidx/lifecycle/Lifecycle;
@@ -497,24 +497,24 @@
 
     move-result-object v7
 
-    if-ne v3, v7, :cond_1
+    if-ne v3, v7, :cond_cf
 
     move-object v7, v2
 
     check-cast v7, Lkotlin/coroutines/Continuation;
 
     invoke-static {v7}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_cf
+    .catchall {:try_start_5a .. :try_end_cf} :catchall_f6
 
-    :cond_1
-    if-ne v3, v0, :cond_2
+    :cond_cf
+    if-ne v3, v0, :cond_d2
 
     .line 84
     return-object v0
 
     .line 166
-    :cond_2
+    :cond_d2
     move-object v7, v6
 
     move-object v6, v15
@@ -527,7 +527,7 @@
     .restart local v0    # "$i$f$suspendCancellableCoroutine":I
     .local v6, "observer":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v7    # "launchedJob":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :goto_0
+    :goto_d6
     nop
 
     .line 128
@@ -537,20 +537,20 @@
     check-cast v0, Lkotlinx/coroutines/Job;
 
     .end local v7    # "launchedJob":Lkotlin/jvm/internal/Ref$ObjectRef;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_e1
 
     const/4 v3, 0x1
 
     invoke-static {v0, v4, v3, v4}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 129
-    :cond_3
+    :cond_e1
     iget-object v0, v6, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     check-cast v0, Landroidx/lifecycle/LifecycleEventObserver;
 
     .end local v6    # "observer":Lkotlin/jvm/internal/Ref$ObjectRef;
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_f2
 
     iget-object v3, v2, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1;->$this_repeatOnLifecycle:Landroidx/lifecycle/Lifecycle;
 
@@ -574,7 +574,7 @@
     nop
 
     .line 132
-    :cond_4
+    :cond_f2
     nop
 
     .line 133
@@ -585,7 +585,7 @@
     .line 128
     .local v6, "launchedJob":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v15    # "observer":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :catchall_1
+    :catchall_f6
     move-exception v0
 
     move-object v7, v6
@@ -595,26 +595,26 @@
     .end local v15    # "observer":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local v6, "observer":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v7    # "launchedJob":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :goto_1
+    :goto_f9
     iget-object v3, v7, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     check-cast v3, Lkotlinx/coroutines/Job;
 
     .end local v7    # "launchedJob":Lkotlin/jvm/internal/Ref$ObjectRef;
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_103
 
     const/4 v7, 0x1
 
     invoke-static {v3, v4, v7, v4}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 129
-    :cond_5
+    :cond_103
     iget-object v3, v6, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     check-cast v3, Landroidx/lifecycle/LifecycleEventObserver;
 
     .end local v6    # "observer":Lkotlin/jvm/internal/Ref$ObjectRef;
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_114
 
     iget-object v4, v2, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1;->$this_repeatOnLifecycle:Landroidx/lifecycle/Lifecycle;
 
@@ -637,14 +637,14 @@
     .end local v6    # "$i$a$-let-RepeatOnLifecycleKt$repeatOnLifecycle$3$1$2":I
     nop
 
-    :cond_6
+    :cond_114
     throw v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_116
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3a
+        :pswitch_15
     .end packed-switch
 .end method

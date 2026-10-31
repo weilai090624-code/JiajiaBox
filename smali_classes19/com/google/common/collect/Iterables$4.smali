@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Iterable;Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 3
 
     .line 610
     iput-object p1, p0, Lcom/google/common/collect/Iterables$4;->val$unfiltered:Ljava/lang/Iterable;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

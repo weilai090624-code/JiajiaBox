@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 101
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/room/util/TableInfo$Companion;-><init>()V
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final read(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Landroidx/room/util/TableInfo;
-    .locals 1
+    .registers 4
     .param p1, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p2, "tableName"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;

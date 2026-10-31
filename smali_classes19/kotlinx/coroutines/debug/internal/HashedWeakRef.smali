@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
-    .locals 1
+    .registers 4
     .param p1, "ref"    # Ljava/lang/Object;
     .param p2, "queue"    # Ljava/lang/ref/ReferenceQueue;
     .annotation system Ldalvik/annotation/Signature;
@@ -61,18 +61,18 @@
     invoke-direct {p0, p1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
     .line 266
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     iput v0, p0, Lkotlinx/coroutines/debug/internal/HashedWeakRef;->hash:I
 
     .line 262

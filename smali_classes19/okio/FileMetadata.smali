@@ -86,7 +86,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 11
+    .registers 12
 
     const/16 v9, 0xff
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public constructor <init>(ZZLokio/Path;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/Map;)V
-    .locals 1
+    .registers 10
     .param p1, "isRegularFile"    # Z
     .param p2, "isDirectory"    # Z
     .param p3, "symlinkTarget"    # Lokio/Path;
@@ -181,7 +181,7 @@
 .end method
 
 .method public synthetic constructor <init>(ZZLokio/Path;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 9
+    .registers 20
 
     .line 55
     move/from16 v0, p9
@@ -190,116 +190,116 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     .line 57
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
     .line 55
-    :cond_0
+    :cond_9
     move v1, p1
 
-    :goto_0
+    :goto_a
     and-int/lit8 v3, v0, 0x2
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_f
 
     .line 66
-    goto :goto_1
+    goto :goto_10
 
     .line 55
-    :cond_1
+    :cond_f
     move v2, p2
 
-    :goto_1
+    :goto_10
     and-int/lit8 v3, v0, 0x4
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_17
 
     .line 72
     move-object v3, v4
 
-    goto :goto_2
+    goto :goto_18
 
     .line 55
-    :cond_2
+    :cond_17
     move-object v3, p3
 
-    :goto_2
+    :goto_18
     and-int/lit8 v5, v0, 0x8
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_1e
 
     .line 79
     move-object v5, v4
 
-    goto :goto_3
+    goto :goto_1f
 
     .line 55
-    :cond_3
+    :cond_1e
     move-object v5, p4
 
-    :goto_3
+    :goto_1f
     and-int/lit8 v6, v0, 0x10
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_25
 
     .line 86
     move-object v6, v4
 
-    goto :goto_4
+    goto :goto_26
 
     .line 55
-    :cond_4
+    :cond_25
     move-object v6, p5
 
-    :goto_4
+    :goto_26
     and-int/lit8 v7, v0, 0x20
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_2c
 
     .line 95
     move-object v7, v4
 
-    goto :goto_5
+    goto :goto_2d
 
     .line 55
-    :cond_5
+    :cond_2c
     move-object v7, p6
 
-    :goto_5
+    :goto_2d
     and-int/lit8 v8, v0, 0x40
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_32
 
     .line 104
-    goto :goto_6
+    goto :goto_34
 
     .line 55
-    :cond_6
+    :cond_32
     move-object/from16 v4, p7
 
-    :goto_6
+    :goto_34
     and-int/lit16 v0, v0, 0x80
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_3d
 
     .line 106
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
 
-    goto :goto_7
+    goto :goto_3f
 
     .line 55
-    :cond_7
+    :cond_3d
     move-object/from16 v0, p8
 
-    :goto_7
+    :goto_3f
     move-object p1, p0
 
     move p2, v1
@@ -325,7 +325,7 @@
 .end method
 
 .method public static synthetic copy$default(Lokio/FileMetadata;ZZLokio/Path;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/Map;ILjava/lang/Object;)Lokio/FileMetadata;
-    .locals 9
+    .registers 20
 
     .line 123
     move-object v0, p0
@@ -334,7 +334,7 @@
 
     and-int/lit8 v2, v1, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_b
 
     .line 124
     nop
@@ -342,15 +342,15 @@
     .line 123
     iget-boolean v2, v0, Lokio/FileMetadata;->isRegularFile:Z
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move v2, p1
 
-    :goto_0
+    :goto_c
     and-int/lit8 v3, v1, 0x2
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_14
 
     .line 125
     nop
@@ -358,15 +358,15 @@
     .line 123
     iget-boolean v3, v0, Lokio/FileMetadata;->isDirectory:Z
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     move v3, p2
 
-    :goto_1
+    :goto_15
     and-int/lit8 v4, v1, 0x4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1d
 
     .line 126
     nop
@@ -374,15 +374,15 @@
     .line 123
     iget-object v4, v0, Lokio/FileMetadata;->symlinkTarget:Lokio/Path;
 
-    goto :goto_2
+    goto :goto_1e
 
-    :cond_2
+    :cond_1d
     move-object v4, p3
 
-    :goto_2
+    :goto_1e
     and-int/lit8 v5, v1, 0x8
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_26
 
     .line 127
     nop
@@ -390,15 +390,15 @@
     .line 123
     iget-object v5, v0, Lokio/FileMetadata;->size:Ljava/lang/Long;
 
-    goto :goto_3
+    goto :goto_27
 
-    :cond_3
+    :cond_26
     move-object v5, p4
 
-    :goto_3
+    :goto_27
     and-int/lit8 v6, v1, 0x10
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_2f
 
     .line 128
     nop
@@ -406,15 +406,15 @@
     .line 123
     iget-object v6, v0, Lokio/FileMetadata;->createdAtMillis:Ljava/lang/Long;
 
-    goto :goto_4
+    goto :goto_30
 
-    :cond_4
+    :cond_2f
     move-object v6, p5
 
-    :goto_4
+    :goto_30
     and-int/lit8 v7, v1, 0x20
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_38
 
     .line 129
     nop
@@ -422,15 +422,15 @@
     .line 123
     iget-object v7, v0, Lokio/FileMetadata;->lastModifiedAtMillis:Ljava/lang/Long;
 
-    goto :goto_5
+    goto :goto_39
 
-    :cond_5
+    :cond_38
     move-object v7, p6
 
-    :goto_5
+    :goto_39
     and-int/lit8 v8, v1, 0x40
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_41
 
     .line 130
     nop
@@ -438,15 +438,15 @@
     .line 123
     iget-object v8, v0, Lokio/FileMetadata;->lastAccessedAtMillis:Ljava/lang/Long;
 
-    goto :goto_6
+    goto :goto_43
 
-    :cond_6
+    :cond_41
     move-object/from16 v8, p7
 
-    :goto_6
+    :goto_43
     and-int/lit16 v1, v1, 0x80
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_4b
 
     .line 131
     nop
@@ -454,12 +454,12 @@
     .line 123
     iget-object v1, v0, Lokio/FileMetadata;->extras:Ljava/util/Map;
 
-    goto :goto_7
+    goto :goto_4d
 
-    :cond_7
+    :cond_4b
     move-object/from16 v1, p8
 
-    :goto_7
+    :goto_4d
     move p1, v2
 
     move p2, v3
@@ -486,7 +486,7 @@
 
 # virtual methods
 .method public final copy(ZZLokio/Path;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/Map;)Lokio/FileMetadata;
-    .locals 11
+    .registers 20
     .param p1, "isRegularFile"    # Z
     .param p2, "isDirectory"    # Z
     .param p3, "symlinkTarget"    # Lokio/Path;
@@ -570,7 +570,7 @@
 .end method
 
 .method public final extra(Lkotlin/reflect/KClass;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "type"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -593,7 +593,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const/4 v0, 0x0
 
@@ -601,7 +601,7 @@
 
     .line 120
     .local v0, "value":Ljava/lang/Object;
-    :cond_0
+    :cond_f
     invoke-static {p1, v0}, Lkotlin/reflect/KClasses;->cast(Lkotlin/reflect/KClass;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -610,7 +610,7 @@
 .end method
 
 .method public final getCreatedAtMillis()Ljava/lang/Long;
-    .locals 1
+    .registers 2
 
     .line 86
     iget-object v0, p0, Lokio/FileMetadata;->createdAtMillis:Ljava/lang/Long;
@@ -619,7 +619,7 @@
 .end method
 
 .method public final getExtras()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -638,7 +638,7 @@
 .end method
 
 .method public final getLastAccessedAtMillis()Ljava/lang/Long;
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Lokio/FileMetadata;->lastAccessedAtMillis:Ljava/lang/Long;
@@ -647,7 +647,7 @@
 .end method
 
 .method public final getLastModifiedAtMillis()Ljava/lang/Long;
-    .locals 1
+    .registers 2
 
     .line 95
     iget-object v0, p0, Lokio/FileMetadata;->lastModifiedAtMillis:Ljava/lang/Long;
@@ -656,7 +656,7 @@
 .end method
 
 .method public final getSize()Ljava/lang/Long;
-    .locals 1
+    .registers 2
 
     .line 79
     iget-object v0, p0, Lokio/FileMetadata;->size:Ljava/lang/Long;
@@ -665,7 +665,7 @@
 .end method
 
 .method public final getSymlinkTarget()Lokio/Path;
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Lokio/FileMetadata;->symlinkTarget:Lokio/Path;
@@ -674,7 +674,7 @@
 .end method
 
 .method public final isDirectory()Z
-    .locals 1
+    .registers 2
 
     .line 66
     iget-boolean v0, p0, Lokio/FileMetadata;->isDirectory:Z
@@ -683,7 +683,7 @@
 .end method
 
 .method public final isRegularFile()Z
-    .locals 1
+    .registers 2
 
     .line 57
     iget-boolean v0, p0, Lokio/FileMetadata;->isRegularFile:Z
@@ -692,7 +692,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 12
+    .registers 13
 
     .line 146
     new-instance v0, Ljava/util/ArrayList;
@@ -705,7 +705,7 @@
     .local v0, "fields":Ljava/util/List;
     iget-boolean v1, p0, Lokio/FileMetadata;->isRegularFile:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     move-object v1, v0
 
@@ -716,10 +716,10 @@
     invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 148
-    :cond_0
+    :cond_13
     iget-boolean v1, p0, Lokio/FileMetadata;->isDirectory:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     move-object v1, v0
 
@@ -730,10 +730,10 @@
     invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 149
-    :cond_1
+    :cond_1f
     iget-object v1, p0, Lokio/FileMetadata;->size:Ljava/lang/Long;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_31
 
     move-object v1, v0
 
@@ -750,10 +750,10 @@
     invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 150
-    :cond_2
+    :cond_31
     iget-object v1, p0, Lokio/FileMetadata;->createdAtMillis:Ljava/lang/Long;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_43
 
     move-object v1, v0
 
@@ -770,10 +770,10 @@
     invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 151
-    :cond_3
+    :cond_43
     iget-object v1, p0, Lokio/FileMetadata;->lastModifiedAtMillis:Ljava/lang/Long;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_55
 
     move-object v1, v0
 
@@ -790,10 +790,10 @@
     invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 152
-    :cond_4
+    :cond_55
     iget-object v1, p0, Lokio/FileMetadata;->lastAccessedAtMillis:Ljava/lang/Long;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_67
 
     move-object v1, v0
 
@@ -810,14 +810,14 @@
     invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 153
-    :cond_5
+    :cond_67
     iget-object v1, p0, Lokio/FileMetadata;->extras:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_7d
 
     move-object v1, v0
 
@@ -834,7 +834,7 @@
     invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 154
-    :cond_6
+    :cond_7d
     move-object v3, v0
 
     check-cast v3, Ljava/lang/Iterable;

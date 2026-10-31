@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "handler"    # Landroid/os/Handler;
 
     .line 110
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 3
+    .registers 5
     .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 116
@@ -61,13 +61,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 119
     return-void
 
     .line 117
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/util/concurrent/RejectedExecutionException;
 
     new-instance v1, Ljava/lang/StringBuilder;

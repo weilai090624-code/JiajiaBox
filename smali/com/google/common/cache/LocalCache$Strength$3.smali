@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 410
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method defaultEquivalence()Lcom/google/common/base/Equivalence;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -48,7 +48,7 @@
 .end method
 
 .method referenceValue(Lcom/google/common/cache/LocalCache$Segment;Lcom/google/common/cache/ReferenceEntry;Ljava/lang/Object;I)Lcom/google/common/cache/LocalCache$ValueReference;
-    .locals 2
+    .registers 7
     .param p4, "weight"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,7 +72,7 @@
     .local p3, "value":Ljava/lang/Object;, "TV;"
     const/4 v0, 0x1
 
-    if-ne p4, v0, :cond_0
+    if-ne p4, v0, :cond_b
 
     .line 415
     new-instance v0, Lcom/google/common/cache/LocalCache$WeakValueReference;
@@ -81,10 +81,10 @@
 
     invoke-direct {v0, v1, p3, p2}, Lcom/google/common/cache/LocalCache$WeakValueReference;-><init>(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;Lcom/google/common/cache/ReferenceEntry;)V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 416
-    :cond_0
+    :cond_b
     new-instance v0, Lcom/google/common/cache/LocalCache$WeightedWeakValueReference;
 
     iget-object v1, p1, Lcom/google/common/cache/LocalCache$Segment;->valueReferenceQueue:Ljava/lang/ref/ReferenceQueue;
@@ -92,6 +92,6 @@
     invoke-direct {v0, v1, p3, p2, p4}, Lcom/google/common/cache/LocalCache$WeightedWeakValueReference;-><init>(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;Lcom/google/common/cache/ReferenceEntry;I)V
 
     .line 414
-    :goto_0
+    :goto_12
     return-object v0
 .end method

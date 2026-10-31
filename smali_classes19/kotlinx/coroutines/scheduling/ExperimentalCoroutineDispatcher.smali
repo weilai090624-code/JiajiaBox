@@ -77,7 +77,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(II)V
-    .locals 8
+    .registers 11
     .param p1, "corePoolSize"    # I
     .param p2, "maxPoolSize"    # I
     .annotation runtime Lkotlin/Deprecated;
@@ -106,27 +106,27 @@
 .end method
 
 .method public synthetic constructor <init>(IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 37
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     .line 38
     sget p1, Lkotlinx/coroutines/scheduling/TasksKt;->CORE_POOL_SIZE:I
 
     .line 37
-    :cond_0
+    :cond_6
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_c
 
     .line 39
     sget p2, Lkotlinx/coroutines/scheduling/TasksKt;->MAX_POOL_SIZE:I
 
     .line 37
-    :cond_1
+    :cond_c
     invoke-direct {p0, p1, p2}, Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;-><init>(II)V
 
     .line 40
@@ -134,7 +134,7 @@
 .end method
 
 .method public constructor <init>(IIJLjava/lang/String;)V
-    .locals 1
+    .registers 7
     .param p1, "corePoolSize"    # I
     .param p2, "maxPoolSize"    # I
     .param p3, "idleWorkerKeepAliveNs"    # J
@@ -167,25 +167,25 @@
 .end method
 
 .method public synthetic constructor <init>(IIJLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 6
+    .registers 14
 
     .line 24
     and-int/lit8 p6, p6, 0x8
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_8
 
     .line 28
     const-string p5, "CoroutineScheduler"
 
     move-object v5, p5
 
-    goto :goto_0
+    goto :goto_9
 
     .line 24
-    :cond_0
+    :cond_8
     move-object v5, p5
 
-    :goto_0
+    :goto_9
     move-object v0, p0
 
     move v1, p1
@@ -201,7 +201,7 @@
 .end method
 
 .method public constructor <init>(IILjava/lang/String;)V
-    .locals 6
+    .registers 10
     .param p1, "corePoolSize"    # I
     .param p2, "maxPoolSize"    # I
     .param p3, "schedulerName"    # Ljava/lang/String;
@@ -223,36 +223,36 @@
 .end method
 
 .method public synthetic constructor <init>(IILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 30
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     .line 31
     sget p1, Lkotlinx/coroutines/scheduling/TasksKt;->CORE_POOL_SIZE:I
 
     .line 30
-    :cond_0
+    :cond_6
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_c
 
     .line 32
     sget p2, Lkotlinx/coroutines/scheduling/TasksKt;->MAX_POOL_SIZE:I
 
     .line 30
-    :cond_1
+    :cond_c
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_12
 
     .line 33
     sget-object p3, Lkotlinx/coroutines/scheduling/TasksKt;->DEFAULT_SCHEDULER_NAME:Ljava/lang/String;
 
     .line 30
-    :cond_2
+    :cond_12
     invoke-direct {p0, p1, p2, p3}, Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;-><init>(IILjava/lang/String;)V
 
     .line 34
@@ -260,25 +260,25 @@
 .end method
 
 .method public static synthetic blocking$default(Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;IILjava/lang/Object;)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 0
+    .registers 4
 
     .line 79
-    if-nez p3, :cond_1
+    if-nez p3, :cond_d
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     const/16 p1, 0x10
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1}, Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;->blocking(I)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
+    :cond_d
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: blocking"
@@ -289,7 +289,7 @@
 .end method
 
 .method private final createScheduler()Lkotlinx/coroutines/scheduling/CoroutineScheduler;
-    .locals 7
+    .registers 8
 
     .line 108
     new-instance v6, Lkotlinx/coroutines/scheduling/CoroutineScheduler;
@@ -312,23 +312,23 @@
 
 # virtual methods
 .method public final blocking(I)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 3
+    .registers 5
     .param p1, "parallelism"    # I
 
     .line 80
     const/4 v0, 0x1
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_5
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_6
+    if-eqz v1, :cond_11
 
     .line 81
     new-instance v1, Lkotlinx/coroutines/scheduling/LimitingDispatcher;
@@ -342,7 +342,7 @@
     return-object v1
 
     .line 214
-    :cond_1
+    :cond_11
     const/4 v0, 0x0
 
     .line 80
@@ -378,7 +378,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;->coroutineScheduler:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
@@ -389,7 +389,7 @@
 .end method
 
 .method public dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -397,7 +397,7 @@
     nop
 
     .line 50
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;->coroutineScheduler:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
 
     const/4 v4, 0x6
@@ -411,13 +411,13 @@
     move-object v1, p2
 
     invoke-static/range {v0 .. v5}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->dispatch$default(Lkotlinx/coroutines/scheduling/CoroutineScheduler;Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;ZILjava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_1 .. :try_end_b} :catch_c
 
-    goto :goto_0
+    goto :goto_12
 
     .line 51
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 54
@@ -428,12 +428,12 @@
 
     .line 55
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_12
     return-void
 .end method
 
 .method public final dispatchWithContext$kotlinx_coroutines_core(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;Z)V
-    .locals 3
+    .registers 7
     .param p1, "block"    # Ljava/lang/Runnable;
     .param p2, "context"    # Lkotlinx/coroutines/scheduling/TaskContext;
     .param p3, "tailDispatch"    # Z
@@ -442,17 +442,17 @@
     nop
 
     .line 99
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;->coroutineScheduler:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
 
     invoke-virtual {v0, p1, p2, p3}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->dispatch(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;Z)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_1 .. :try_end_6} :catch_7
 
-    goto :goto_0
+    goto :goto_15
 
     .line 100
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 104
@@ -471,12 +471,12 @@
 
     .line 106
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public dispatchYield(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -484,7 +484,7 @@
     nop
 
     .line 59
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;->coroutineScheduler:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
 
     const/4 v4, 0x2
@@ -498,13 +498,13 @@
     move-object v1, p2
 
     invoke-static/range {v0 .. v5}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->dispatch$default(Lkotlinx/coroutines/scheduling/CoroutineScheduler;Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;ZILjava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_1 .. :try_end_b} :catch_c
 
-    goto :goto_0
+    goto :goto_12
 
     .line 60
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 63
@@ -515,12 +515,12 @@
 
     .line 64
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_12
     return-void
 .end method
 
 .method public getExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;->coroutineScheduler:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
@@ -531,7 +531,7 @@
 .end method
 
 .method public final limited(I)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 3
+    .registers 5
     .param p1, "parallelism"    # I
 
     .line 92
@@ -539,30 +539,30 @@
 
     const/4 v1, 0x0
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_3
+    :goto_7
+    if-eqz v2, :cond_44
 
     .line 93
     iget v2, p0, Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;->corePoolSize:I
 
-    if-gt p1, v2, :cond_1
+    if-gt p1, v2, :cond_e
 
-    goto :goto_1
+    goto :goto_f
 
-    :cond_1
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_f
+    if-eqz v0, :cond_1a
 
     .line 94
     new-instance v0, Lkotlinx/coroutines/scheduling/LimitingDispatcher;
@@ -576,7 +576,7 @@
     return-object v0
 
     .line 214
-    :cond_2
+    :cond_1a
     const/4 v0, 0x0
 
     .line 93
@@ -623,7 +623,7 @@
     throw v1
 
     .line 214
-    :cond_3
+    :cond_44
     const/4 v0, 0x0
 
     .line 92
@@ -659,7 +659,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 69
     new-instance v0, Ljava/lang/StringBuilder;

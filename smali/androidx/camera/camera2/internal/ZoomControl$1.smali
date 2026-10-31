@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/ZoomControl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/ZoomControl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onCaptureResult(Landroid/hardware/camera2/TotalCaptureResult;)Z
-    .locals 1
+    .registers 3
     .param p1, "captureResult"    # Landroid/hardware/camera2/TotalCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILandroid/content/ContentValues;)V
-    .locals 1
+    .registers 5
 
     iput-object p1, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase$insert$1;->$table:Ljava/lang/String;
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final invoke(Landroidx/sqlite/db/SupportSQLiteDatabase;)Ljava/lang/Long;
-    .locals 3
+    .registers 5
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -107,7 +107,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 270

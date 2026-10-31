@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/channels/BroadcastChannel;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lkotlinx/coroutines/flow/FlowKt__ChannelsKt$asFlow$$inlined$unsafeFlow$1;->$this_asFlow$inlined:Lkotlinx/coroutines/channels/BroadcastChannel;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "collector"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -112,12 +112,12 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_14
 
     return-object v3
 
     .line 115
-    :cond_0
+    :cond_14
     nop
 
     .line 109

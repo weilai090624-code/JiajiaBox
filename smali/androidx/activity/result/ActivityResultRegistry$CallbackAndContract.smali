@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/activity/result/ActivityResultCallback;Landroidx/activity/result/contract/ActivityResultContract;)V
-    .locals 1
+    .registers 4
     .param p1, "callback"    # Landroidx/activity/result/ActivityResultCallback;
     .param p2, "contract"    # Landroidx/activity/result/contract/ActivityResultContract;
     .annotation system Ldalvik/annotation/Signature;
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public final getCallback()Landroidx/activity/result/ActivityResultCallback;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -126,7 +126,7 @@
 .end method
 
 .method public final getContract()Landroidx/activity/result/contract/ActivityResultContract;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

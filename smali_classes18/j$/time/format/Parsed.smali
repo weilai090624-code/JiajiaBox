@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 162
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,12 +57,12 @@
 .end method
 
 .method private crossCheck()V
-    .locals 2
+    .registers 3
 
     .line 633
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 634
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
@@ -70,10 +70,10 @@
     invoke-direct {p0, v0}, Lj$/time/format/Parsed;->crossCheck(Lj$/time/temporal/TemporalAccessor;)V
 
     .line 636
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 637
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
@@ -83,7 +83,7 @@
     .line 638
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
@@ -91,7 +91,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_29
 
     .line 639
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
@@ -105,12 +105,12 @@
     invoke-direct {p0, v0}, Lj$/time/format/Parsed;->crossCheck(Lj$/time/temporal/TemporalAccessor;)V
 
     .line 642
-    :cond_1
+    :cond_29
     return-void
 .end method
 
 .method private crossCheck(Lj$/time/temporal/TemporalAccessor;)V
-    .locals 11
+    .registers 13
     .param p1, "target"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 645
@@ -125,12 +125,12 @@
     move-result-object v0
 
     .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;>;"
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_7b
 
     .line 646
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -153,15 +153,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_7a
 
     .line 651
-    :try_start_0
+    :try_start_22
     invoke-interface {p1, v2}, Lj$/time/temporal/TemporalAccessor;->getLong(Lj$/time/temporal/TemporalField;)J
 
     move-result-wide v3
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/lang/RuntimeException; {:try_start_22 .. :try_end_26} :catch_78
 
     .line 654
     .local v3, "val1":J
@@ -182,15 +182,15 @@
     .local v5, "val2":J
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_39
 
     .line 660
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_1
+    goto :goto_7a
 
     .line 657
-    :cond_0
+    :cond_39
     new-instance v7, Lj$/time/DateTimeException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -256,29 +256,29 @@
     .line 652
     .end local v3    # "val1":J
     .end local v5    # "val2":J
-    :catch_0
+    :catch_78
     move-exception v3
 
     .line 653
     .local v3, "ex":Ljava/lang/RuntimeException;
-    goto :goto_0
+    goto :goto_a
 
     .line 662
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;"
     .end local v2    # "field":Lj$/time/temporal/TemporalField;
     .end local v3    # "ex":Ljava/lang/RuntimeException;
-    :cond_1
-    :goto_1
-    goto :goto_0
+    :cond_7a
+    :goto_7a
+    goto :goto_a
 
     .line 663
     .end local v0    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;>;"
-    :cond_2
+    :cond_7b
     return-void
 .end method
 
 .method private resolveDateFields()V
-    .locals 3
+    .registers 4
 
     .line 360
     iget-object v0, p0, Lj$/time/format/Parsed;->chrono:Lj$/time/chrono/Chronology;
@@ -298,7 +298,7 @@
 .end method
 
 .method private resolveFields()V
-    .locals 9
+    .registers 10
 
     .line 265
     invoke-direct {p0}, Lj$/time/format/Parsed;->resolveInstantFields()V
@@ -316,17 +316,17 @@
 
     move-result v0
 
-    if-lez v0, :cond_b
+    if-lez v0, :cond_e0
 
     .line 272
     const/4 v0, 0x0
 
     .line 274
     .local v0, "changedCount":I
-    :goto_0
+    :goto_12
     const/16 v1, 0x32
 
-    if-ge v0, v1, :cond_9
+    if-ge v0, v1, :cond_ca
 
     .line 275
     iget-object v2, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -339,12 +339,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_20
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_c9
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -372,12 +372,12 @@
 
     .line 278
     .local v5, "resolvedObject":Lj$/time/temporal/TemporalAccessor;
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_bb
 
     .line 279
     instance-of v1, v5, Lj$/time/chrono/ChronoZonedDateTime;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_7a
 
     .line 280
     move-object v1, v5
@@ -388,7 +388,7 @@
     .local v1, "czdt":Lj$/time/chrono/ChronoZonedDateTime;, "Ljava/time/chrono/ChronoZonedDateTime<*>;"
     iget-object v2, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_4e
 
     .line 282
     invoke-interface {v1}, Lj$/time/chrono/ChronoZonedDateTime;->getZone()Lj$/time/ZoneId;
@@ -397,10 +397,10 @@
 
     iput-object v2, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
-    goto :goto_2
+    goto :goto_5a
 
     .line 283
-    :cond_0
+    :cond_4e
     iget-object v2, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
     invoke-interface {v1}, Lj$/time/chrono/ChronoZonedDateTime;->getZone()Lj$/time/ZoneId;
@@ -411,18 +411,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_5f
 
     .line 286
-    :goto_2
+    :goto_5a
     invoke-interface {v1}, Lj$/time/chrono/ChronoZonedDateTime;->toLocalDateTime()Lj$/time/chrono/ChronoLocalDateTime;
 
     move-result-object v5
 
-    goto :goto_3
+    goto :goto_7a
 
     .line 284
-    :cond_1
+    :cond_5f
     new-instance v2, Lj$/time/DateTimeException;
 
     iget-object v6, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
@@ -451,11 +451,11 @@
 
     .line 288
     .end local v1    # "czdt":Lj$/time/chrono/ChronoZonedDateTime;, "Ljava/time/chrono/ChronoZonedDateTime<*>;"
-    :cond_2
-    :goto_3
+    :cond_7a
+    :goto_7a
     instance-of v1, v5, Lj$/time/chrono/ChronoLocalDateTime;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_95
 
     .line 289
     move-object v1, v5
@@ -483,14 +483,14 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 293
-    goto/16 :goto_0
+    goto/16 :goto_12
 
     .line 295
     .end local v1    # "cldt":Lj$/time/chrono/ChronoLocalDateTime;, "Ljava/time/chrono/ChronoLocalDateTime<*>;"
-    :cond_3
+    :cond_95
     instance-of v1, v5, Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_a3
 
     .line 296
     move-object v1, v5
@@ -503,13 +503,13 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 298
-    goto/16 :goto_0
+    goto/16 :goto_12
 
     .line 300
-    :cond_4
+    :cond_a3
     instance-of v1, v5, Lj$/time/LocalTime;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_b3
 
     .line 301
     move-object v1, v5
@@ -524,10 +524,10 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 303
-    goto/16 :goto_0
+    goto/16 :goto_12
 
     .line 305
-    :cond_5
+    :cond_b3
     new-instance v1, Lj$/time/DateTimeException;
 
     const-string v2, "Method resolve() can only return ChronoZonedDateTime, ChronoLocalDateTime, ChronoLocalDate or LocalTime"
@@ -537,38 +537,38 @@
     throw v1
 
     .line 307
-    :cond_6
+    :cond_bb
     iget-object v6, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     invoke-interface {v6, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_c7
 
     .line 308
     add-int/lit8 v0, v0, 0x1
 
     .line 309
-    goto/16 :goto_0
+    goto/16 :goto_12
 
     .line 311
     .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;"
     .end local v4    # "targetField":Lj$/time/temporal/TemporalField;
     .end local v5    # "resolvedObject":Lj$/time/temporal/TemporalAccessor;
-    :cond_7
-    goto/16 :goto_1
+    :cond_c7
+    goto/16 :goto_20
 
     .line 312
-    :cond_8
+    :cond_c9
     nop
 
     .line 314
-    :cond_9
-    if-eq v0, v1, :cond_a
+    :cond_ca
+    if-eq v0, v1, :cond_d8
 
     .line 318
-    if-lez v0, :cond_b
+    if-lez v0, :cond_e0
 
     .line 319
     invoke-direct {p0}, Lj$/time/format/Parsed;->resolveInstantFields()V
@@ -579,10 +579,10 @@
     .line 321
     invoke-direct {p0}, Lj$/time/format/Parsed;->resolveTimeFields()V
 
-    goto :goto_4
+    goto :goto_e0
 
     .line 315
-    :cond_a
+    :cond_d8
     new-instance v1, Lj$/time/DateTimeException;
 
     const-string v2, "One of the parsed fields has an incorrectly implemented resolve method"
@@ -593,18 +593,18 @@
 
     .line 324
     .end local v0    # "changedCount":I
-    :cond_b
-    :goto_4
+    :cond_e0
+    :goto_e0
     return-void
 .end method
 
 .method private resolveFractional()V
-    .locals 6
+    .registers 7
 
     .line 579
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_7d
 
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
@@ -615,7 +615,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
@@ -626,7 +626,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
@@ -637,10 +637,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_7d
 
     .line 583
-    :cond_0
+    :cond_22
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v1, Lj$/time/temporal/ChronoField;->NANO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -649,7 +649,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5a
 
     .line 584
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -699,10 +699,10 @@
 
     .line 587
     .end local v0    # "nos":J
-    goto :goto_0
+    goto :goto_7d
 
     .line 588
-    :cond_1
+    :cond_5a
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v1, Lj$/time/temporal/ChronoField;->NANO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -738,22 +738,22 @@
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 593
-    :cond_2
-    :goto_0
+    :cond_7d
+    :goto_7d
     return-void
 .end method
 
 .method private resolveInstant()V
-    .locals 7
+    .registers 8
 
     .line 598
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_59
 
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_59
 
     .line 599
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -768,7 +768,7 @@
 
     .line 600
     .local v0, "offsetSecs":Ljava/lang/Long;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     .line 601
     invoke-virtual {v0}, Ljava/lang/Long;->intValue()I
@@ -812,13 +812,13 @@
     .line 604
     .end local v1    # "offset":Lj$/time/ZoneOffset;
     .end local v2    # "instant":J
-    goto :goto_0
+    goto :goto_59
 
     .line 605
-    :cond_0
+    :cond_38
     iget-object v1, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_59
 
     .line 606
     iget-object v1, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
@@ -854,13 +854,13 @@
     .line 611
     .end local v0    # "offsetSecs":Ljava/lang/Long;
     .end local v1    # "instant":J
-    :cond_1
-    :goto_0
+    :cond_59
+    :goto_59
     return-void
 .end method
 
 .method private resolveInstantFields()V
-    .locals 2
+    .registers 3
 
     .line 338
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -871,22 +871,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     .line 339
     iget-object v0, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 340
     iget-object v0, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
     invoke-direct {p0, v0}, Lj$/time/format/Parsed;->resolveInstantFields0(Lj$/time/ZoneId;)V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 342
-    :cond_0
+    :cond_14
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v1, Lj$/time/temporal/ChronoField;->OFFSET_SECONDS:Lj$/time/temporal/ChronoField;
@@ -899,7 +899,7 @@
 
     .line 343
     .local v0, "offsetSecs":Ljava/lang/Long;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     .line 344
     invoke-virtual {v0}, Ljava/lang/Long;->intValue()I
@@ -917,13 +917,13 @@
     .line 349
     .end local v0    # "offsetSecs":Ljava/lang/Long;
     .end local v1    # "offset":Lj$/time/ZoneOffset;
-    :cond_1
-    :goto_0
+    :cond_2b
+    :goto_2b
     return-void
 .end method
 
 .method private resolveInstantFields0(Lj$/time/ZoneId;)V
-    .locals 6
+    .registers 8
     .param p1, "selectedZone"    # Lj$/time/ZoneId;
 
     .line 352
@@ -987,16 +987,16 @@
 .end method
 
 .method private resolvePeriod()V
-    .locals 2
+    .registers 3
 
     .line 570
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     iget-object v0, p0, Lj$/time/format/Parsed;->excessDays:Lj$/time/Period;
 
@@ -1004,7 +1004,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 571
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
@@ -1023,12 +1023,12 @@
     iput-object v0, p0, Lj$/time/format/Parsed;->excessDays:Lj$/time/Period;
 
     .line 574
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method private resolveTime(JJJJ)V
-    .locals 7
+    .registers 16
     .param p1, "hod"    # J
     .param p3, "moh"    # J
     .param p5, "som"    # J
@@ -1039,7 +1039,7 @@
 
     sget-object v1, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_45
 
     .line 547
     const-wide v0, 0x34630b8a000L
@@ -1107,10 +1107,10 @@
     .end local v0    # "totalNanos":J
     .end local v2    # "nod":J
     .end local v5    # "excessDays":I
-    goto :goto_0
+    goto :goto_87
 
     .line 555
-    :cond_0
+    :cond_45
     sget-object v0, Lj$/time/temporal/ChronoField;->MINUTE_OF_HOUR:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v0, p3, p4}, Lj$/time/temporal/ChronoField;->checkValidIntValue(J)I
@@ -1131,23 +1131,23 @@
 
     sget-object v3, Lj$/time/format/ResolverStyle;->SMART:Lj$/time/format/ResolverStyle;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_72
 
     const-wide/16 v2, 0x18
 
     cmp-long v4, p1, v2
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_72
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_72
 
     const-wide/16 v2, 0x0
 
     cmp-long v4, p5, v2
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_72
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_72
 
     .line 559
     sget-object v2, Lj$/time/LocalTime;->MIDNIGHT:Lj$/time/LocalTime;
@@ -1160,10 +1160,10 @@
 
     invoke-direct {p0, v2, v3}, Lj$/time/format/Parsed;->updateCheckConflict(Lj$/time/LocalTime;Lj$/time/Period;)V
 
-    goto :goto_0
+    goto :goto_87
 
     .line 561
-    :cond_1
+    :cond_72
     sget-object v2, Lj$/time/temporal/ChronoField;->HOUR_OF_DAY:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v2, p1, p2}, Lj$/time/temporal/ChronoField;->checkValidIntValue(J)I
@@ -1193,12 +1193,12 @@
     .end local v1    # "nosVal":I
     .end local v2    # "hodVal":I
     .end local v3    # "somVal":I
-    :goto_0
+    :goto_87
     return-void
 .end method
 
 .method private resolveTimeFields()V
-    .locals 18
+    .registers 19
 
     .line 379
     move-object/from16 v9, p0
@@ -1213,7 +1213,7 @@
 
     const-wide/16 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_45
 
     .line 381
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -1236,26 +1236,26 @@
 
     sget-object v5, Lj$/time/format/ResolverStyle;->STRICT:Lj$/time/format/ResolverStyle;
 
-    if-eq v0, v5, :cond_0
+    if-eq v0, v5, :cond_2c
 
     iget-object v0, v9, Lj$/time/format/Parsed;->resolverStyle:Lj$/time/format/ResolverStyle;
 
     sget-object v5, Lj$/time/format/ResolverStyle;->SMART:Lj$/time/format/ResolverStyle;
 
-    if-ne v0, v5, :cond_1
+    if-ne v0, v5, :cond_31
 
     cmp-long v0, v3, v1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 383
-    :cond_0
+    :cond_2c
     sget-object v0, Lj$/time/temporal/ChronoField;->CLOCK_HOUR_OF_DAY:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v0, v3, v4}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 385
-    :cond_1
+    :cond_31
     sget-object v0, Lj$/time/temporal/ChronoField;->CLOCK_HOUR_OF_DAY:Lj$/time/temporal/ChronoField;
 
     sget-object v5, Lj$/time/temporal/ChronoField;->HOUR_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1264,16 +1264,16 @@
 
     cmp-long v8, v3, v6
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_3d
 
     move-wide v6, v1
 
-    goto :goto_0
+    goto :goto_3e
 
-    :cond_2
+    :cond_3d
     move-wide v6, v3
 
-    :goto_0
+    :goto_3e
     invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v6
@@ -1282,7 +1282,7 @@
 
     .line 387
     .end local v3    # "ch":J
-    :cond_3
+    :cond_45
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v3, Lj$/time/temporal/ChronoField;->CLOCK_HOUR_OF_AMPM:Lj$/time/temporal/ChronoField;
@@ -1293,7 +1293,7 @@
 
     const-wide/16 v3, 0xc
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_85
 
     .line 389
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -1316,40 +1316,40 @@
 
     sget-object v7, Lj$/time/format/ResolverStyle;->STRICT:Lj$/time/format/ResolverStyle;
 
-    if-eq v0, v7, :cond_4
+    if-eq v0, v7, :cond_6f
 
     iget-object v0, v9, Lj$/time/format/Parsed;->resolverStyle:Lj$/time/format/ResolverStyle;
 
     sget-object v7, Lj$/time/format/ResolverStyle;->SMART:Lj$/time/format/ResolverStyle;
 
-    if-ne v0, v7, :cond_5
+    if-ne v0, v7, :cond_74
 
     cmp-long v0, v5, v1
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_74
 
     .line 391
-    :cond_4
+    :cond_6f
     sget-object v0, Lj$/time/temporal/ChronoField;->CLOCK_HOUR_OF_AMPM:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v0, v5, v6}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 393
-    :cond_5
+    :cond_74
     sget-object v0, Lj$/time/temporal/ChronoField;->CLOCK_HOUR_OF_AMPM:Lj$/time/temporal/ChronoField;
 
     sget-object v7, Lj$/time/temporal/ChronoField;->HOUR_OF_AMPM:Lj$/time/temporal/ChronoField;
 
     cmp-long v8, v5, v3
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_7d
 
-    goto :goto_1
+    goto :goto_7e
 
-    :cond_6
+    :cond_7d
     move-wide v1, v5
 
-    :goto_1
+    :goto_7e
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v1
@@ -1358,7 +1358,7 @@
 
     .line 395
     .end local v5    # "ch":J
-    :cond_7
+    :cond_85
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v1, Lj$/time/temporal/ChronoField;->AMPM_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1367,7 +1367,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_e9
 
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
@@ -1377,7 +1377,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_e9
 
     .line 396
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -1416,7 +1416,7 @@
 
     sget-object v7, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-ne v2, v7, :cond_8
+    if-ne v2, v7, :cond_d1
 
     .line 399
     sget-object v2, Lj$/time/temporal/ChronoField;->AMPM_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1439,10 +1439,10 @@
 
     invoke-direct {v9, v2, v3, v4}, Lj$/time/format/Parsed;->updateCheckConflict(Lj$/time/temporal/TemporalField;Lj$/time/temporal/TemporalField;Ljava/lang/Long;)V
 
-    goto :goto_2
+    goto :goto_e9
 
     .line 401
-    :cond_8
+    :cond_d1
     sget-object v2, Lj$/time/temporal/ChronoField;->AMPM_OF_DAY:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v2, v0, v1}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
@@ -1470,8 +1470,8 @@
     .line 406
     .end local v0    # "ap":J
     .end local v5    # "hap":J
-    :cond_9
-    :goto_2
+    :cond_e9
+    :goto_e9
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v1, Lj$/time/temporal/ChronoField;->NANO_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1482,7 +1482,7 @@
 
     const-wide/16 v1, 0x3c
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_151
 
     .line 407
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -1505,7 +1505,7 @@
 
     sget-object v5, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-eq v0, v5, :cond_a
+    if-eq v0, v5, :cond_10e
 
     .line 409
     sget-object v0, Lj$/time/temporal/ChronoField;->NANO_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1513,7 +1513,7 @@
     invoke-virtual {v0, v3, v4}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 411
-    :cond_a
+    :cond_10e
     sget-object v0, Lj$/time/temporal/ChronoField;->NANO_OF_DAY:Lj$/time/temporal/ChronoField;
 
     sget-object v5, Lj$/time/temporal/ChronoField;->HOUR_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1577,7 +1577,7 @@
 
     .line 416
     .end local v3    # "nod":J
-    :cond_b
+    :cond_151
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v3, Lj$/time/temporal/ChronoField;->MICRO_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1588,7 +1588,7 @@
 
     const-wide/32 v3, 0xf4240
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_191
 
     .line 417
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -1611,7 +1611,7 @@
 
     sget-object v7, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-eq v0, v7, :cond_c
+    if-eq v0, v7, :cond_177
 
     .line 419
     sget-object v0, Lj$/time/temporal/ChronoField;->MICRO_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1619,7 +1619,7 @@
     invoke-virtual {v0, v5, v6}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 421
-    :cond_c
+    :cond_177
     sget-object v0, Lj$/time/temporal/ChronoField;->MICRO_OF_DAY:Lj$/time/temporal/ChronoField;
 
     sget-object v7, Lj$/time/temporal/ChronoField;->SECOND_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1647,7 +1647,7 @@
 
     .line 424
     .end local v5    # "cod":J
-    :cond_d
+    :cond_191
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v5, Lj$/time/temporal/ChronoField;->MILLI_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1658,7 +1658,7 @@
 
     const-wide/16 v5, 0x3e8
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_1d0
 
     .line 425
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -1681,7 +1681,7 @@
 
     sget-object v10, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-eq v0, v10, :cond_e
+    if-eq v0, v10, :cond_1b6
 
     .line 427
     sget-object v0, Lj$/time/temporal/ChronoField;->MILLI_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1689,7 +1689,7 @@
     invoke-virtual {v0, v7, v8}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 429
-    :cond_e
+    :cond_1b6
     sget-object v0, Lj$/time/temporal/ChronoField;->MILLI_OF_DAY:Lj$/time/temporal/ChronoField;
 
     sget-object v10, Lj$/time/temporal/ChronoField;->SECOND_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1717,7 +1717,7 @@
 
     .line 432
     .end local v7    # "lod":J
-    :cond_f
+    :cond_1d0
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v7, Lj$/time/temporal/ChronoField;->SECOND_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1726,7 +1726,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_21d
 
     .line 433
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -1749,7 +1749,7 @@
 
     sget-object v10, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-eq v0, v10, :cond_10
+    if-eq v0, v10, :cond_1f3
 
     .line 435
     sget-object v0, Lj$/time/temporal/ChronoField;->SECOND_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1757,7 +1757,7 @@
     invoke-virtual {v0, v7, v8}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 437
-    :cond_10
+    :cond_1f3
     sget-object v0, Lj$/time/temporal/ChronoField;->SECOND_OF_DAY:Lj$/time/temporal/ChronoField;
 
     sget-object v10, Lj$/time/temporal/ChronoField;->HOUR_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1802,7 +1802,7 @@
 
     .line 441
     .end local v7    # "sod":J
-    :cond_11
+    :cond_21d
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v7, Lj$/time/temporal/ChronoField;->MINUTE_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1811,7 +1811,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_25a
 
     .line 442
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -1834,7 +1834,7 @@
 
     sget-object v10, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-eq v0, v10, :cond_12
+    if-eq v0, v10, :cond_240
 
     .line 444
     sget-object v0, Lj$/time/temporal/ChronoField;->MINUTE_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1842,7 +1842,7 @@
     invoke-virtual {v0, v7, v8}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 446
-    :cond_12
+    :cond_240
     sget-object v0, Lj$/time/temporal/ChronoField;->MINUTE_OF_DAY:Lj$/time/temporal/ChronoField;
 
     sget-object v10, Lj$/time/temporal/ChronoField;->HOUR_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -1870,7 +1870,7 @@
 
     .line 451
     .end local v7    # "mod":J
-    :cond_13
+    :cond_25a
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v1, Lj$/time/temporal/ChronoField;->NANO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -1879,7 +1879,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_2e4
 
     .line 452
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -1902,7 +1902,7 @@
 
     sget-object v7, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-eq v2, v7, :cond_14
+    if-eq v2, v7, :cond_27d
 
     .line 454
     sget-object v2, Lj$/time/temporal/ChronoField;->NANO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -1910,7 +1910,7 @@
     invoke-virtual {v2, v0, v1}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 456
-    :cond_14
+    :cond_27d
     iget-object v2, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v7, Lj$/time/temporal/ChronoField;->MICRO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -1919,7 +1919,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_2b1
 
     .line 457
     iget-object v2, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -1942,7 +1942,7 @@
 
     sget-object v10, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-eq v2, v10, :cond_15
+    if-eq v2, v10, :cond_2a0
 
     .line 459
     sget-object v2, Lj$/time/temporal/ChronoField;->MICRO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -1950,7 +1950,7 @@
     invoke-virtual {v2, v7, v8}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 461
-    :cond_15
+    :cond_2a0
     mul-long v10, v7, v5
 
     rem-long v5, v0, v5
@@ -1970,7 +1970,7 @@
 
     .line 464
     .end local v7    # "cos":J
-    :cond_16
+    :cond_2b1
     iget-object v2, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v5, Lj$/time/temporal/ChronoField;->MILLI_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -1979,7 +1979,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_2e4
 
     .line 465
     iget-object v2, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -2002,7 +2002,7 @@
 
     sget-object v7, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-eq v2, v7, :cond_17
+    if-eq v2, v7, :cond_2d4
 
     .line 467
     sget-object v2, Lj$/time/temporal/ChronoField;->MILLI_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -2010,7 +2010,7 @@
     invoke-virtual {v2, v5, v6}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 469
-    :cond_17
+    :cond_2d4
     sget-object v2, Lj$/time/temporal/ChronoField;->MILLI_OF_SECOND:Lj$/time/temporal/ChronoField;
 
     sget-object v7, Lj$/time/temporal/ChronoField;->NANO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -2030,7 +2030,7 @@
     .line 474
     .end local v0    # "nos":J
     .end local v5    # "los":J
-    :cond_18
+    :cond_2e4
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v1, Lj$/time/temporal/ChronoField;->HOUR_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -2039,7 +2039,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_34e
 
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
@@ -2049,7 +2049,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_34e
 
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
@@ -2060,7 +2060,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_34e
 
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
@@ -2070,7 +2070,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_34e
 
     .line 476
     iget-object v0, v9, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -2154,17 +2154,17 @@
     .end local v12    # "moh":J
     .end local v14    # "som":J
     .end local v16    # "nos":J
-    :cond_19
+    :cond_34e
     return-void
 .end method
 
 .method private resolveTimeLenient()V
-    .locals 13
+    .registers 14
 
     .line 489
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_10b
 
     .line 491
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -2177,7 +2177,7 @@
 
     const-wide/16 v1, 0x3e8
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_6b
 
     .line 492
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -2204,7 +2204,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5a
 
     .line 495
     mul-long v5, v3, v1
@@ -2261,10 +2261,10 @@
 
     .line 499
     .end local v5    # "cos":J
-    goto :goto_0
+    goto :goto_91
 
     .line 501
-    :cond_0
+    :cond_5a
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v1, Lj$/time/temporal/ChronoField;->NANO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -2279,11 +2279,11 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_91
 
     .line 503
     .end local v3    # "los":J
-    :cond_1
+    :cond_6b
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v3, Lj$/time/temporal/ChronoField;->MICRO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -2292,7 +2292,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_91
 
     .line 505
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -2323,16 +2323,16 @@
 
     invoke-interface {v0, v5, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_92
 
     .line 503
     .end local v3    # "cos":J
-    :cond_2
-    :goto_0
+    :cond_91
+    :goto_91
     nop
 
     .line 510
-    :goto_1
+    :goto_92
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
     sget-object v1, Lj$/time/temporal/ChronoField;->HOUR_OF_DAY:Lj$/time/temporal/ChronoField;
@@ -2347,7 +2347,7 @@
 
     .line 511
     .local v9, "hod":Ljava/lang/Long;
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_10b
 
     .line 512
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -2392,28 +2392,28 @@
 
     .line 517
     .local v12, "nos":Ljava/lang/Long;
-    if-nez v10, :cond_3
+    if-nez v10, :cond_c6
 
-    if-nez v11, :cond_4
+    if-nez v11, :cond_cc
 
-    if-nez v12, :cond_4
+    if-nez v12, :cond_cc
 
-    :cond_3
-    if-eqz v10, :cond_5
+    :cond_c6
+    if-eqz v10, :cond_cd
 
-    if-nez v11, :cond_5
+    if-nez v11, :cond_cd
 
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_cd
 
     .line 519
-    :cond_4
+    :cond_cc
     return-void
 
     .line 523
-    :cond_5
+    :cond_cd
     const-wide/16 v0, 0x0
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_d7
 
     invoke-virtual {v10}, Ljava/lang/Long;->longValue()J
 
@@ -2421,35 +2421,35 @@
 
     move-wide v3, v2
 
-    goto :goto_2
+    goto :goto_d8
 
-    :cond_6
+    :cond_d7
     move-wide v3, v0
 
     .line 524
     .local v3, "mohVal":J
-    :goto_2
-    if-eqz v11, :cond_7
+    :goto_d8
+    if-eqz v11, :cond_df
 
     invoke-virtual {v11}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v5
 
-    goto :goto_3
+    goto :goto_e0
 
-    :cond_7
+    :cond_df
     move-wide v5, v0
 
     .line 525
     .local v5, "somVal":J
-    :goto_3
-    if-eqz v12, :cond_8
+    :goto_e0
+    if-eqz v12, :cond_e6
 
     invoke-virtual {v12}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
-    :cond_8
+    :cond_e6
     move-wide v7, v0
 
     .line 526
@@ -2498,12 +2498,12 @@
     .end local v10    # "moh":Ljava/lang/Long;
     .end local v11    # "som":Ljava/lang/Long;
     .end local v12    # "nos":Ljava/lang/Long;
-    :cond_9
+    :cond_10b
     iget-object v0, p0, Lj$/time/format/Parsed;->resolverStyle:Lj$/time/format/ResolverStyle;
 
     sget-object v1, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-eq v0, v1, :cond_b
+    if-eq v0, v1, :cond_150
 
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
 
@@ -2511,7 +2511,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_b
+    if-lez v0, :cond_150
 
     .line 536
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -2524,12 +2524,12 @@
 
     move-result-object v0
 
-    :goto_4
+    :goto_123
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_150
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2549,13 +2549,13 @@
     .local v2, "field":Lj$/time/temporal/TemporalField;
     instance-of v3, v2, Lj$/time/temporal/ChronoField;
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_14f
 
     invoke-interface {v2}, Lj$/time/temporal/TemporalField;->isTimeBased()Z
 
     move-result v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_14f
 
     .line 539
     move-object v3, v2
@@ -2577,23 +2577,23 @@
     .line 541
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;"
     .end local v2    # "field":Lj$/time/temporal/TemporalField;
-    :cond_a
-    goto :goto_4
+    :cond_14f
+    goto :goto_123
 
     .line 543
-    :cond_b
+    :cond_150
     return-void
 .end method
 
 .method private updateCheckConflict(Lj$/time/LocalTime;Lj$/time/Period;)V
-    .locals 5
+    .registers 8
     .param p1, "timeToSet"    # Lj$/time/LocalTime;
     .param p2, "periodToSet"    # Lj$/time/Period;
 
     .line 614
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_6e
 
     .line 615
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
@@ -2604,7 +2604,7 @@
 
     const-string v1, " "
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4b
 
     .line 618
     iget-object v0, p0, Lj$/time/format/Parsed;->excessDays:Lj$/time/Period;
@@ -2613,13 +2613,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_48
 
     invoke-virtual {p2}, Lj$/time/Period;->isZero()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_48
 
     iget-object v0, p0, Lj$/time/format/Parsed;->excessDays:Lj$/time/Period;
 
@@ -2627,12 +2627,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
-    goto :goto_0
+    goto :goto_48
 
     .line 619
-    :cond_0
+    :cond_25
     new-instance v0, Lj$/time/DateTimeException;
 
     iget-object v2, p0, Lj$/time/format/Parsed;->excessDays:Lj$/time/Period;
@@ -2668,14 +2668,14 @@
     throw v0
 
     .line 621
-    :cond_1
-    :goto_0
+    :cond_48
+    :goto_48
     iput-object p2, p0, Lj$/time/format/Parsed;->excessDays:Lj$/time/Period;
 
-    goto :goto_1
+    goto :goto_72
 
     .line 616
-    :cond_2
+    :cond_4b
     new-instance v0, Lj$/time/DateTimeException;
 
     iget-object v2, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
@@ -2711,28 +2711,28 @@
     throw v0
 
     .line 624
-    :cond_3
+    :cond_6e
     iput-object p1, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
     .line 625
     iput-object p2, p0, Lj$/time/format/Parsed;->excessDays:Lj$/time/Period;
 
     .line 627
-    :goto_1
+    :goto_72
     return-void
 .end method
 
 .method private updateCheckConflict(Lj$/time/chrono/ChronoLocalDate;)V
-    .locals 4
+    .registers 6
     .param p1, "cld"    # Lj$/time/chrono/ChronoLocalDate;
 
     .line 364
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_34
 
     .line 365
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_60
 
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
@@ -2740,12 +2740,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_60
 
     .line 366
-    :cond_0
+    :cond_f
     new-instance v0, Lj$/time/DateTimeException;
 
     iget-object v1, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
@@ -2783,8 +2783,8 @@
     throw v0
 
     .line 368
-    :cond_1
-    if-eqz p1, :cond_3
+    :cond_34
+    if-eqz p1, :cond_60
 
     .line 369
     iget-object v0, p0, Lj$/time/format/Parsed;->chrono:Lj$/time/chrono/Chronology;
@@ -2797,15 +2797,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_45
 
     .line 372
     iput-object p1, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    goto :goto_0
+    goto :goto_60
 
     .line 370
-    :cond_2
+    :cond_45
     new-instance v0, Lj$/time/DateTimeException;
 
     iget-object v1, p0, Lj$/time/format/Parsed;->chrono:Lj$/time/chrono/Chronology;
@@ -2833,13 +2833,13 @@
     throw v0
 
     .line 374
-    :cond_3
-    :goto_0
+    :cond_60
+    :goto_60
     return-void
 .end method
 
 .method private updateCheckConflict(Lj$/time/temporal/TemporalField;Lj$/time/temporal/TemporalField;Ljava/lang/Long;)V
-    .locals 6
+    .registers 10
     .param p1, "targetField"    # Lj$/time/temporal/TemporalField;
     .param p2, "changeField"    # Lj$/time/temporal/TemporalField;
     .param p3, "changeValue"    # Ljava/lang/Long;
@@ -2855,7 +2855,7 @@
 
     .line 328
     .local v0, "old":Ljava/lang/Long;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_56
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
@@ -2867,12 +2867,12 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_17
 
-    goto :goto_0
+    goto :goto_56
 
     .line 329
-    :cond_0
+    :cond_17
     new-instance v1, Lj$/time/DateTimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2936,15 +2936,15 @@
     throw v1
 
     .line 333
-    :cond_1
-    :goto_0
+    :cond_56
+    :goto_56
     return-void
 .end method
 
 
 # virtual methods
 .method copy()Lj$/time/format/Parsed;
-    .locals 3
+    .registers 4
 
     .line 170
     new-instance v0, Lj$/time/format/Parsed;
@@ -2979,7 +2979,7 @@
 .end method
 
 .method public synthetic get(Lj$/time/temporal/TemporalField;)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$get(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)I
 
@@ -2989,7 +2989,7 @@
 .end method
 
 .method public getLong(Lj$/time/temporal/TemporalField;)J
-    .locals 4
+    .registers 6
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 191
@@ -3008,7 +3008,7 @@
 
     .line 193
     .local v0, "value":Ljava/lang/Long;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 194
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
@@ -3018,10 +3018,10 @@
     return-wide v1
 
     .line 196
-    :cond_0
+    :cond_14
     iget-object v1, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     iget-object v1, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
@@ -3029,7 +3029,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     .line 197
     iget-object v1, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
@@ -3041,10 +3041,10 @@
     return-wide v1
 
     .line 199
-    :cond_1
+    :cond_27
     iget-object v1, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3a
 
     iget-object v1, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
@@ -3052,7 +3052,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3a
 
     .line 200
     iget-object v1, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
@@ -3064,10 +3064,10 @@
     return-wide v1
 
     .line 202
-    :cond_2
+    :cond_3a
     instance-of v1, p1, Lj$/time/temporal/ChronoField;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_43
 
     .line 205
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->getFrom(Lj$/time/temporal/TemporalAccessor;)J
@@ -3077,7 +3077,7 @@
     return-wide v1
 
     .line 203
-    :cond_3
+    :cond_43
     new-instance v1, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3104,7 +3104,7 @@
 .end method
 
 .method public isSupported(Lj$/time/temporal/TemporalField;)Z
-    .locals 2
+    .registers 4
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 181
@@ -3116,11 +3116,11 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_31
 
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
@@ -3129,12 +3129,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_31
 
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
@@ -3143,40 +3143,40 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
-    goto :goto_1
+    goto :goto_31
 
     .line 186
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_22
+    if-eqz p1, :cond_2f
 
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2f
 
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_2
+    :cond_2f
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_30
     return v1
 
     .line 184
-    :cond_3
-    :goto_1
+    :cond_31
+    :goto_31
     return v1
 .end method
 
 .method public query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -3193,7 +3193,7 @@
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     .line 212
     iget-object v0, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
@@ -3201,12 +3201,12 @@
     return-object v0
 
     .line 213
-    :cond_0
+    :cond_9
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->chronology()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_12
 
     .line 214
     iget-object v0, p0, Lj$/time/format/Parsed;->chrono:Lj$/time/chrono/Chronology;
@@ -3214,19 +3214,19 @@
     return-object v0
 
     .line 215
-    :cond_1
+    :cond_12
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->localDate()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_24
 
     .line 216
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_23
 
     iget-object v0, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
@@ -3234,16 +3234,16 @@
 
     move-result-object v1
 
-    :cond_2
+    :cond_23
     return-object v1
 
     .line 217
-    :cond_3
+    :cond_24
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->localTime()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_2d
 
     .line 218
     iget-object v0, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
@@ -3251,12 +3251,12 @@
     return-object v0
 
     .line 219
-    :cond_4
+    :cond_2d
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->offset()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_7
+    if-ne p1, v0, :cond_56
 
     .line 220
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -3271,7 +3271,7 @@
 
     .line 221
     .local v0, "offsetSecs":Ljava/lang/Long;
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_48
 
     .line 222
     invoke-virtual {v0}, Ljava/lang/Long;->intValue()I
@@ -3285,12 +3285,12 @@
     return-object v1
 
     .line 224
-    :cond_5
+    :cond_48
     iget-object v1, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
     instance-of v1, v1, Lj$/time/ZoneOffset;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_51
 
     .line 225
     iget-object v1, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
@@ -3298,7 +3298,7 @@
     return-object v1
 
     .line 227
-    :cond_6
+    :cond_51
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalQuery;->queryFrom(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Object;
 
     move-result-object v1
@@ -3307,12 +3307,12 @@
 
     .line 228
     .end local v0    # "offsetSecs":Ljava/lang/Long;
-    :cond_7
+    :cond_56
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->zone()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_8
+    if-ne p1, v0, :cond_61
 
     .line 229
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalQuery;->queryFrom(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Object;
@@ -3322,18 +3322,18 @@
     return-object v0
 
     .line 230
-    :cond_8
+    :cond_61
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->precision()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_9
+    if-ne p1, v0, :cond_68
 
     .line 231
     return-object v1
 
     .line 235
-    :cond_9
+    :cond_68
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalQuery;->queryFrom(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Object;
 
     move-result-object v0
@@ -3342,7 +3342,7 @@
 .end method
 
 .method public synthetic range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$range(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
 
@@ -3352,7 +3352,7 @@
 .end method
 
 .method resolve(Lj$/time/format/ResolverStyle;Ljava/util/Set;)Lj$/time/temporal/TemporalAccessor;
-    .locals 1
+    .registers 4
     .param p1, "resolverStyle"    # Lj$/time/format/ResolverStyle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3367,7 +3367,7 @@
 
     .line 249
     .local p2, "resolverFields":Ljava/util/Set;, "Ljava/util/Set<Ljava/time/temporal/TemporalField;>;"
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_b
 
     .line 250
     iget-object v0, p0, Lj$/time/format/Parsed;->fieldValues:Ljava/util/Map;
@@ -3379,7 +3379,7 @@
     invoke-interface {v0, p2}, Ljava/util/Set;->retainAll(Ljava/util/Collection;)Z
 
     .line 252
-    :cond_0
+    :cond_b
     iput-object p1, p0, Lj$/time/format/Parsed;->resolverStyle:Lj$/time/format/ResolverStyle;
 
     .line 253
@@ -3405,7 +3405,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 668
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3435,7 +3435,7 @@
     .line 670
     iget-object v1, p0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 671
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -3447,17 +3447,17 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 673
-    :cond_0
+    :cond_25
     iget-object v1, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2d
 
     iget-object v1, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_50
 
     .line 674
-    :cond_1
+    :cond_2d
     const-string v1, " resolved to "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3465,7 +3465,7 @@
     .line 675
     iget-object v1, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4b
 
     .line 676
     iget-object v1, p0, Lj$/time/format/Parsed;->date:Lj$/time/chrono/ChronoLocalDate;
@@ -3475,7 +3475,7 @@
     .line 677
     iget-object v1, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_50
 
     .line 678
     const/16 v1, 0x54
@@ -3488,17 +3488,17 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_50
 
     .line 681
-    :cond_2
+    :cond_4b
     iget-object v1, p0, Lj$/time/format/Parsed;->time:Lj$/time/LocalTime;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 684
-    :cond_3
-    :goto_0
+    :cond_50
+    :goto_50
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

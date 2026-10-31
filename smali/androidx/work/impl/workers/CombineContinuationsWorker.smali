@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "workerParams"    # Landroidx/work/WorkerParameters;
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public doWork()Landroidx/work/ListenableWorker$Result;
-    .locals 2
+    .registers 3
 
     .line 29
     invoke-virtual {p0}, Landroidx/work/impl/workers/CombineContinuationsWorker;->getInputData()Landroidx/work/Data;

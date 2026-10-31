@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 .end method
 
 .method private static getNewStaticMethod()Ljava/lang/reflect/Method;
-    .locals 5
+    .registers 5
 
     .line 54
     :try_start_0
@@ -96,26 +96,26 @@
     .line 56
     .local v0, "newStaticMethod":Ljava/lang/reflect/Method;
     invoke-virtual {v0, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_16} :catch_19
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_16} :catch_17
 
     .line 57
     return-object v0
 
     .line 59
     .end local v0    # "newStaticMethod":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_17
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :catch_1
+    :catch_19
     move-exception v0
 
     .line 60
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_1a
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -165,13 +165,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_1a} :catch_1b
 
     return-object v0
 
     .line 47
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 48

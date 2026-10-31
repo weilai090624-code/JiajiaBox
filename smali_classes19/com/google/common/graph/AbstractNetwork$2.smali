@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/AbstractNetwork;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/graph/AbstractNetwork;
 
     .line 189
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"

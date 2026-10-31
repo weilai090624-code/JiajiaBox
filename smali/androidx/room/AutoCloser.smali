@@ -129,7 +129,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$2bqU2AY0pACLcZVHaA6vI_33RZM(Landroidx/room/AutoCloser;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/AutoCloser;->executeAutoCloser$lambda$0(Landroidx/room/AutoCloser;)V
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$G2ZrHH8pFF9fWfG-_cMVTmkERIo(Landroidx/room/AutoCloser;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/AutoCloser;->autoCloser$lambda$3(Landroidx/room/AutoCloser;)V
 
@@ -145,7 +145,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/AutoCloser$Companion;
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public constructor <init>(JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 7
     .param p1, "autoCloseTimeoutAmount"    # J
     .param p3, "autoCloseTimeUnit"    # Ljava/util/concurrent/TimeUnit;
     .param p4, "autoCloseExecutor"    # Ljava/util/concurrent/Executor;
@@ -229,7 +229,7 @@
 .end method
 
 .method private static final autoCloser$lambda$3(Landroidx/room/AutoCloser;)V
-    .locals 7
+    .registers 8
     .param p0, "this$0"    # Landroidx/room/AutoCloser;
 
     const-string/jumbo v0, "this$0"
@@ -245,7 +245,7 @@
 
     .line 72
     .local v1, "$i$a$-synchronized-AutoCloser$autoCloser$1$1":I
-    :try_start_0
+    :try_start_a
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
@@ -256,12 +256,12 @@
 
     .line 73
     iget-wide v4, p0, Landroidx/room/AutoCloser;->autoCloseTimeoutInMs:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_a .. :try_end_13} :catchall_52
 
     cmp-long v6, v2, v4
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_1a
 
     .line 78
     nop
@@ -273,13 +273,13 @@
 
     .line 80
     .restart local v1    # "$i$a$-synchronized-AutoCloser$autoCloser$1$1":I
-    :cond_0
-    :try_start_1
+    :cond_1a
+    :try_start_1a
     iget v2, p0, Landroidx/room/AutoCloser;->refCount:I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_1a .. :try_end_1c} :catchall_52
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     .line 84
     nop
@@ -291,30 +291,30 @@
 
     .line 86
     .restart local v1    # "$i$a$-synchronized-AutoCloser$autoCloser$1$1":I
-    :cond_1
-    :try_start_2
+    :cond_21
+    :try_start_21
     iget-object v2, p0, Landroidx/room/AutoCloser;->onAutoCloseCallback:Ljava/lang/Runnable;
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2c
 
     invoke-interface {v2}, Ljava/lang/Runnable;->run()V
 
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_2
+    :cond_2c
     move-object v2, v3
 
-    :goto_0
-    if-eqz v2, :cond_5
+    :goto_2d
+    if-eqz v2, :cond_46
 
     .line 92
     iget-object v2, p0, Landroidx/room/AutoCloser;->delegateDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3e
 
     .local v2, "it":Landroidx/sqlite/db/SupportSQLiteDatabase;
     const/4 v4, 0x0
@@ -325,19 +325,19 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_3d
 
     .line 94
     invoke-interface {v2}, Landroidx/sqlite/db/SupportSQLiteDatabase;->close()V
 
     .line 96
-    :cond_3
+    :cond_3d
     nop
 
     .line 92
     .end local v2    # "it":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local v4    # "$i$a$-let-AutoCloser$autoCloser$1$1$1":I
-    :cond_4
+    :cond_3e
     nop
 
     .line 97
@@ -348,8 +348,8 @@
 
     .end local v1    # "$i$a$-synchronized-AutoCloser$autoCloser$1$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_44
+    .catchall {:try_start_21 .. :try_end_44} :catchall_52
 
     .line 71
     monitor-exit v0
@@ -359,8 +359,8 @@
 
     .line 86
     .restart local v1    # "$i$a$-synchronized-AutoCloser$autoCloser$1$1":I
-    :cond_5
-    :try_start_3
+    :cond_46
+    :try_start_46
     new-instance v2, Ljava/lang/IllegalStateException;
 
     .line 87
@@ -374,13 +374,13 @@
 
     .end local p0    # "this$0":Landroidx/room/AutoCloser;
     throw v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_52
+    .catchall {:try_start_46 .. :try_end_52} :catchall_52
 
     .line 71
     .end local v1    # "$i$a$-synchronized-AutoCloser$autoCloser$1$1":I
     .restart local p0    # "this$0":Landroidx/room/AutoCloser;
-    :catchall_0
+    :catchall_52
     move-exception v1
 
     monitor-exit v0
@@ -389,7 +389,7 @@
 .end method
 
 .method private static final executeAutoCloser$lambda$0(Landroidx/room/AutoCloser;)V
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Landroidx/room/AutoCloser;
 
     const-string/jumbo v0, "this$0"
@@ -409,7 +409,7 @@
 
 # virtual methods
 .method public final closeDatabaseIfOpen()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -427,18 +427,18 @@
     .local v1, "$i$a$-synchronized-AutoCloser$closeDatabaseIfOpen$1":I
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_5
     iput-boolean v2, p0, Landroidx/room/AutoCloser;->manuallyClosed:Z
 
     .line 187
     iget-object v2, p0, Landroidx/room/AutoCloser;->delegateDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     invoke-interface {v2}, Landroidx/sqlite/db/SupportSQLiteDatabase;->close()V
 
     .line 188
-    :cond_0
+    :cond_e
     const/4 v2, 0x0
 
     iput-object v2, p0, Landroidx/room/AutoCloser;->delegateDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
@@ -448,8 +448,8 @@
 
     .end local v1    # "$i$a$-synchronized-AutoCloser$closeDatabaseIfOpen$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_5 .. :try_end_14} :catchall_16
 
     .line 185
     monitor-exit v0
@@ -458,7 +458,7 @@
     return-void
 
     .line 185
-    :catchall_0
+    :catchall_16
     move-exception v1
 
     monitor-exit v0
@@ -467,7 +467,7 @@
 .end method
 
 .method public final decrementCountAndScheduleClose()V
-    .locals 6
+    .registers 7
 
     .line 160
     iget-object v0, p0, Landroidx/room/AutoCloser;->lock:Ljava/lang/Object;
@@ -478,20 +478,20 @@
 
     .line 161
     .local v1, "$i$a$-synchronized-AutoCloser$decrementCountAndScheduleClose$1":I
-    :try_start_0
+    :try_start_4
     iget v2, p0, Landroidx/room/AutoCloser;->refCount:I
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_a
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_3
+    :goto_b
+    if-eqz v2, :cond_2c
 
     .line 165
     iget v2, p0, Landroidx/room/AutoCloser;->refCount:I
@@ -503,14 +503,14 @@
     .line 168
     iget v2, p0, Landroidx/room/AutoCloser;->refCount:I
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_27
 
     .line 169
     iget-object v2, p0, Landroidx/room/AutoCloser;->delegateDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_4 .. :try_end_19} :catchall_39
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1e
 
     .line 171
     nop
@@ -522,8 +522,8 @@
 
     .line 173
     .restart local v1    # "$i$a$-synchronized-AutoCloser$decrementCountAndScheduleClose$1":I
-    :cond_1
-    :try_start_1
+    :cond_1e
+    :try_start_1e
     iget-object v2, p0, Landroidx/room/AutoCloser;->handler:Landroid/os/Handler;
 
     iget-object v3, p0, Landroidx/room/AutoCloser;->executeAutoCloser:Ljava/lang/Runnable;
@@ -533,13 +533,13 @@
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 175
-    :cond_2
+    :cond_27
     nop
 
     .end local v1    # "$i$a$-synchronized-AutoCloser$decrementCountAndScheduleClose$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_1e .. :try_end_2a} :catchall_39
 
     .line 160
     monitor-exit v0
@@ -549,12 +549,12 @@
 
     .line 161
     .restart local v1    # "$i$a$-synchronized-AutoCloser$decrementCountAndScheduleClose$1":I
-    :cond_3
+    :cond_2c
     const/4 v2, 0x0
 
     .line 162
     .local v2, "$i$a$-check-AutoCloser$decrementCountAndScheduleClose$1$1":I
-    :try_start_2
+    :try_start_2d
     const-string v3, "ref count is 0 or lower but we\'re supposed to decrement"
 
     .line 161
@@ -568,12 +568,12 @@
     invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_39
+    .catchall {:try_start_2d .. :try_end_39} :catchall_39
 
     .line 160
     .end local v1    # "$i$a$-synchronized-AutoCloser$decrementCountAndScheduleClose$1":I
-    :catchall_0
+    :catchall_39
     move-exception v1
 
     monitor-exit v0
@@ -582,7 +582,7 @@
 .end method
 
 .method public final executeRefCountingFunction(Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -604,7 +604,7 @@
     nop
 
     .line 120
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Landroidx/room/AutoCloser;->incrementCountAndEnsureDbIsOpen()Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     move-result-object v0
@@ -612,8 +612,8 @@
     invoke-interface {p1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_6 .. :try_end_e} :catchall_12
 
     .line 122
     invoke-virtual {p0}, Landroidx/room/AutoCloser;->decrementCountAndScheduleClose()V
@@ -622,7 +622,7 @@
     return-object v0
 
     .line 122
-    :catchall_0
+    :catchall_12
     move-exception v0
 
     invoke-virtual {p0}, Landroidx/room/AutoCloser;->decrementCountAndScheduleClose()V
@@ -631,7 +631,7 @@
 .end method
 
 .method public final getDelegateDatabase$room_runtime_release()Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Landroidx/room/AutoCloser;->delegateDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
@@ -640,16 +640,16 @@
 .end method
 
 .method public final getDelegateOpenHelper()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Landroidx/room/AutoCloser;->delegateOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "delegateOpenHelper"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -660,7 +660,7 @@
 .end method
 
 .method public final getLastDecrementRefCountTimeStamp$room_runtime_release()J
-    .locals 2
+    .registers 3
 
     .line 60
     iget-wide v0, p0, Landroidx/room/AutoCloser;->lastDecrementRefCountTimeStamp:J
@@ -669,7 +669,7 @@
 .end method
 
 .method public final getOnAutoCloseCallback$room_runtime_release()Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Landroidx/room/AutoCloser;->onAutoCloseCallback:Ljava/lang/Runnable;
@@ -678,7 +678,7 @@
 .end method
 
 .method public final getRefCount$room_runtime_release()I
-    .locals 1
+    .registers 2
 
     .line 57
     iget v0, p0, Landroidx/room/AutoCloser;->refCount:I
@@ -687,7 +687,7 @@
 .end method
 
 .method public final getRefCountForTest$room_runtime_release()I
-    .locals 3
+    .registers 4
 
     .line 210
     iget-object v0, p0, Landroidx/room/AutoCloser;->lock:Ljava/lang/Object;
@@ -699,17 +699,17 @@
 
     .line 210
     .local v1, "$i$a$-synchronized-AutoCloser$refCountForTest$1":I
-    :try_start_0
+    :try_start_4
     iget v2, p0, Landroidx/room/AutoCloser;->refCount:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_4 .. :try_end_6} :catchall_8
 
     .end local v1    # "$i$a$-synchronized-AutoCloser$refCountForTest$1":I
     monitor-exit v0
 
     return v2
 
-    :catchall_0
+    :catchall_8
     move-exception v1
 
     monitor-exit v0
@@ -718,7 +718,7 @@
 .end method
 
 .method public final incrementCountAndEnsureDbIsOpen()Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 5
+    .registers 6
 
     .line 139
     iget-object v0, p0, Landroidx/room/AutoCloser;->lock:Ljava/lang/Object;
@@ -729,7 +729,7 @@
 
     .line 142
     .local v1, "$i$a$-synchronized-AutoCloser$incrementCountAndEnsureDbIsOpen$1":I
-    :try_start_0
+    :try_start_4
     iget-object v2, p0, Landroidx/room/AutoCloser;->handler:Landroid/os/Handler;
 
     iget-object v3, p0, Landroidx/room/AutoCloser;->executeAutoCloser:Ljava/lang/Runnable;
@@ -746,12 +746,12 @@
     .line 144
     iget-boolean v2, p0, Landroidx/room/AutoCloser;->manuallyClosed:Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_33
 
     .line 145
     iget-object v2, p0, Landroidx/room/AutoCloser;->delegateDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_24
 
     .local v2, "it":Landroidx/sqlite/db/SupportSQLiteDatabase;
     const/4 v3, 0x0
@@ -761,10 +761,10 @@
     invoke-interface {v2}, Landroidx/sqlite/db/SupportSQLiteDatabase;->isOpen()Z
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_4 .. :try_end_1e} :catchall_40
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_23
 
     .line 147
     nop
@@ -780,17 +780,17 @@
     .restart local v1    # "$i$a$-synchronized-AutoCloser$incrementCountAndEnsureDbIsOpen$1":I
     .restart local v2    # "it":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local v3    # "$i$a$-let-AutoCloser$incrementCountAndEnsureDbIsOpen$1$2":I
-    :cond_0
+    :cond_23
     nop
 
     .line 145
     .end local v2    # "it":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local v3    # "$i$a$-let-AutoCloser$incrementCountAndEnsureDbIsOpen$1$2":I
-    :cond_1
+    :cond_24
     nop
 
     .line 150
-    :try_start_1
+    :try_start_25
     invoke-virtual {p0}, Landroidx/room/AutoCloser;->getDelegateOpenHelper()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     move-result-object v2
@@ -808,8 +808,8 @@
     .line 150
     .local v4, "$i$a$-also-AutoCloser$incrementCountAndEnsureDbIsOpen$1$3":I
     iput-object v3, p0, Landroidx/room/AutoCloser;->delegateDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_31
+    .catchall {:try_start_25 .. :try_end_31} :catchall_40
 
     .end local v1    # "$i$a$-synchronized-AutoCloser$incrementCountAndEnsureDbIsOpen$1":I
     .end local v3    # "it":Landroidx/sqlite/db/SupportSQLiteDatabase;
@@ -820,12 +820,12 @@
 
     .line 229
     .restart local v1    # "$i$a$-synchronized-AutoCloser$incrementCountAndEnsureDbIsOpen$1":I
-    :cond_2
+    :cond_33
     const/4 v2, 0x0
 
     .line 144
     .local v2, "$i$a$-check-AutoCloser$incrementCountAndEnsureDbIsOpen$1$1":I
-    :try_start_2
+    :try_start_34
     const-string v3, "Attempting to open already closed database."
 
     .end local v2    # "$i$a$-check-AutoCloser$incrementCountAndEnsureDbIsOpen$1$1":I
@@ -838,12 +838,12 @@
     invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_40
+    .catchall {:try_start_34 .. :try_end_40} :catchall_40
 
     .line 150
     .end local v1    # "$i$a$-synchronized-AutoCloser$incrementCountAndEnsureDbIsOpen$1":I
-    :catchall_0
+    :catchall_40
     move-exception v1
 
     monitor-exit v0
@@ -852,7 +852,7 @@
 .end method
 
 .method public final init(Landroidx/sqlite/db/SupportSQLiteOpenHelper;)V
-    .locals 1
+    .registers 3
     .param p1, "delegateOpenHelper"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     const-string v0, "delegateOpenHelper"
@@ -867,7 +867,7 @@
 .end method
 
 .method public final isActive()Z
-    .locals 1
+    .registers 2
 
     .line 200
     iget-boolean v0, p0, Landroidx/room/AutoCloser;->manuallyClosed:Z
@@ -878,7 +878,7 @@
 .end method
 
 .method public final setAutoCloseCallback(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "onAutoClose"    # Ljava/lang/Runnable;
 
     const-string v0, "onAutoClose"
@@ -893,7 +893,7 @@
 .end method
 
 .method public final setDelegateDatabase$room_runtime_release(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     .line 64
@@ -903,7 +903,7 @@
 .end method
 
 .method public final setDelegateOpenHelper(Landroidx/sqlite/db/SupportSQLiteOpenHelper;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     const-string v0, "<set-?>"
@@ -917,7 +917,7 @@
 .end method
 
 .method public final setLastDecrementRefCountTimeStamp$room_runtime_release(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 60
@@ -927,7 +927,7 @@
 .end method
 
 .method public final setOnAutoCloseCallback$room_runtime_release(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/Runnable;
 
     .line 48
@@ -937,7 +937,7 @@
 .end method
 
 .method public final setRefCount$room_runtime_release(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 57

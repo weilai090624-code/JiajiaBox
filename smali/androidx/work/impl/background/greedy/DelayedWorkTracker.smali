@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 40
     const-string v0, "DelayedWorkTracker"
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/background/greedy/GreedyScheduler;Landroidx/work/RunnableScheduler;)V
-    .locals 1
+    .registers 4
     .param p1, "scheduler"    # Landroidx/work/impl/background/greedy/GreedyScheduler;
     .param p2, "runnableScheduler"    # Landroidx/work/RunnableScheduler;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public schedule(Landroidx/work/impl/model/WorkSpec;)V
-    .locals 7
+    .registers 9
     .param p1, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -102,7 +102,7 @@
 
     .line 67
     .local v0, "existing":Ljava/lang/Runnable;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 68
     iget-object v1, p0, Landroidx/work/impl/background/greedy/DelayedWorkTracker;->mRunnableScheduler:Landroidx/work/RunnableScheduler;
@@ -110,7 +110,7 @@
     invoke-interface {v1, v0}, Landroidx/work/RunnableScheduler;->cancel(Ljava/lang/Runnable;)V
 
     .line 71
-    :cond_0
+    :cond_11
     new-instance v1, Landroidx/work/impl/background/greedy/DelayedWorkTracker$1;
 
     invoke-direct {v1, p0, p1}, Landroidx/work/impl/background/greedy/DelayedWorkTracker$1;-><init>(Landroidx/work/impl/background/greedy/DelayedWorkTracker;Landroidx/work/impl/model/WorkSpec;)V
@@ -147,7 +147,7 @@
 .end method
 
 .method public unschedule(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -169,7 +169,7 @@
 
     .line 92
     .local v0, "runnable":Ljava/lang/Runnable;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 93
     iget-object v1, p0, Landroidx/work/impl/background/greedy/DelayedWorkTracker;->mRunnableScheduler:Landroidx/work/RunnableScheduler;
@@ -177,6 +177,6 @@
     invoke-interface {v1, v0}, Landroidx/work/RunnableScheduler;->cancel(Ljava/lang/Runnable;)V
 
     .line 95
-    :cond_0
+    :cond_f
     return-void
 .end method

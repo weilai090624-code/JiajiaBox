@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 1
+    .registers 4
     .param p1, "width"    # I
     .param p2, "height"    # I
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>(IIF)V
-    .locals 1
+    .registers 5
     .param p1, "width"    # I
     .param p2, "height"    # I
     .param p3, "weight"    # F
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 4
+    .registers 7
     .param p1, "c"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -142,7 +142,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_32
 
     .line 1289
     sget v3, Lcom/google/android/material/R$styleable;->AppBarLayout_Layout_layout_scrollInterpolator:I
@@ -161,7 +161,7 @@
 
     .line 1292
     .end local v2    # "resId":I
-    :cond_0
+    :cond_32
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 1293
@@ -169,7 +169,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .line 1304
@@ -185,7 +185,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .line 1308
@@ -201,7 +201,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/LinearLayout$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/widget/LinearLayout$LayoutParams;
 
     .line 1314
@@ -217,7 +217,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;
 
     .line 1320
@@ -248,11 +248,11 @@
 .end method
 
 .method private createScrollEffectFromInt(I)Lcom/google/android/material/appbar/AppBarLayout$ChildScrollEffect;
-    .locals 1
+    .registers 3
     .param p1, "scrollEffectInt"    # I
 
     .line 1354
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_c
 
     .line 1358
     const/4 v0, 0x0
@@ -260,7 +260,7 @@
     return-object v0
 
     .line 1356
-    :pswitch_0
+    :pswitch_5
     new-instance v0, Lcom/google/android/material/appbar/AppBarLayout$CompressChildScrollEffect;
 
     invoke-direct {v0}, Lcom/google/android/material/appbar/AppBarLayout$CompressChildScrollEffect;-><init>()V
@@ -269,16 +269,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c
     .packed-switch 0x1
-        :pswitch_0
+        :pswitch_5
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public getScrollEffect()Lcom/google/android/material/appbar/AppBarLayout$ChildScrollEffect;
-    .locals 1
+    .registers 2
 
     .line 1367
     iget-object v0, p0, Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;->scrollEffect:Lcom/google/android/material/appbar/AppBarLayout$ChildScrollEffect;
@@ -287,7 +287,7 @@
 .end method
 
 .method public getScrollFlags()I
-    .locals 1
+    .registers 2
 
     .line 1349
     iget v0, p0, Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;->scrollFlags:I
@@ -296,7 +296,7 @@
 .end method
 
 .method public getScrollInterpolator()Landroid/view/animation/Interpolator;
-    .locals 1
+    .registers 2
 
     .line 1412
     iget-object v0, p0, Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;->scrollInterpolator:Landroid/view/animation/Interpolator;
@@ -305,7 +305,7 @@
 .end method
 
 .method isCollapsible()Z
-    .locals 2
+    .registers 3
 
     .line 1417
     iget v0, p0, Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;->scrollFlags:I
@@ -314,25 +314,25 @@
 
     and-int/2addr v0, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     iget v0, p0, Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;->scrollFlags:I
 
     and-int/lit8 v0, v0, 0xa
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method public setScrollEffect(I)V
-    .locals 1
+    .registers 3
     .param p1, "scrollEffect"    # I
 
     .line 1388
@@ -347,7 +347,7 @@
 .end method
 
 .method public setScrollEffect(Lcom/google/android/material/appbar/AppBarLayout$ChildScrollEffect;)V
-    .locals 0
+    .registers 2
     .param p1, "scrollEffect"    # Lcom/google/android/material/appbar/AppBarLayout$ChildScrollEffect;
 
     .line 1377
@@ -358,7 +358,7 @@
 .end method
 
 .method public setScrollFlags(I)V
-    .locals 0
+    .registers 2
     .param p1, "flags"    # I
 
     .line 1338
@@ -369,7 +369,7 @@
 .end method
 
 .method public setScrollInterpolator(Landroid/view/animation/Interpolator;)V
-    .locals 0
+    .registers 2
     .param p1, "interpolator"    # Landroid/view/animation/Interpolator;
 
     .line 1400

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 288
     invoke-direct {p0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle;-><init>()V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public setProperty(Landroid/view/View;FJLandroidx/constraintlayout/core/motion/utils/KeyCache;)Z
-    .locals 14
+    .registers 20
     .param p1, "view"    # Landroid/view/View;
     .param p2, "t"    # F
     .param p3, "time"    # J
@@ -67,7 +67,7 @@
 
     instance-of v0, v8, Landroidx/constraintlayout/motion/widget/MotionLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 294
     move-object v0, v8
@@ -90,28 +90,28 @@
 
     invoke-virtual {v0, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setProgress(F)V
 
-    goto :goto_2
+    goto :goto_62
 
     .line 296
-    :cond_0
+    :cond_1e
     iget-boolean v0, v7, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ProgressSet;->mNoMethod:Z
 
     const/4 v11, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 297
     return v11
 
     .line 299
-    :cond_1
+    :cond_24
     const/4 v1, 0x0
 
     .line 301
     .local v1, "method":Ljava/lang/reflect/Method;
     const/4 v12, 0x1
 
-    :try_start_0
+    :try_start_26
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -127,18 +127,18 @@
     invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_37
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_26 .. :try_end_37} :catch_3a
 
     move-object v1, v0
 
     .line 304
     move-object v13, v1
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 302
-    :catch_0
+    :catch_3a
     move-exception v0
 
     .line 303
@@ -151,8 +151,8 @@
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
     .end local v1    # "method":Ljava/lang/reflect/Method;
     .local v13, "method":Ljava/lang/reflect/Method;
-    :goto_0
-    if-eqz v13, :cond_2
+    :goto_3e
+    if-eqz v13, :cond_62
 
     .line 307
     move-object v1, p0
@@ -165,7 +165,7 @@
 
     move-object/from16 v6, p5
 
-    :try_start_1
+    :try_start_48
     invoke-virtual/range {v1 .. v6}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ProgressSet;->get(FJLandroid/view/View;Landroidx/constraintlayout/core/motion/utils/KeyCache;)F
 
     move-result v0
@@ -179,25 +179,25 @@
     aput-object v0, v1, v11
 
     invoke-virtual {v13, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_57
+    .catch Ljava/lang/IllegalAccessException; {:try_start_48 .. :try_end_57} :catch_5d
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_48 .. :try_end_57} :catch_58
 
-    goto :goto_1
+    goto :goto_61
 
     .line 310
-    :catch_1
+    :catch_58
     move-exception v0
 
     .line 311
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     invoke-static {v10, v9, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2
+    goto :goto_62
 
     .line 308
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_5d
     move-exception v0
 
     .line 309
@@ -206,13 +206,13 @@
 
     .line 312
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :goto_1
+    :goto_61
     nop
 
     .line 315
     .end local v13    # "method":Ljava/lang/reflect/Method;
-    :cond_2
-    :goto_2
+    :cond_62
+    :goto_62
     iget-boolean v0, v7, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ProgressSet;->mContinue:Z
 
     return v0

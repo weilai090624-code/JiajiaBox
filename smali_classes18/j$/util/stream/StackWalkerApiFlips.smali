@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public static flipFunctionStream(Ljava/util/function/Function;)Ljava/util/function/Function;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -5,11 +5,11 @@
 
 # direct methods
 .method public static synthetic forEach(Ljava/lang/Iterable;Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
 
     instance-of v0, p0, Lj$/lang/Iterable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     check-cast p0, Lj$/lang/Iterable;
 
@@ -17,10 +17,10 @@
 
     return-void
 
-    :cond_0
+    :cond_a
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     check-cast p0, Ljava/util/Collection;
 
@@ -28,18 +28,18 @@
 
     return-void
 
-    :cond_1
+    :cond_14
     invoke-static {p0, p1}, Lj$/lang/Iterable$-CC;->$default$forEach(Ljava/lang/Iterable;Ljava/util/function/Consumer;)V
 
     return-void
 .end method
 
 .method public static synthetic spliterator(Ljava/lang/Iterable;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     instance-of v0, p0, Lj$/lang/Iterable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/lang/Iterable;
 
@@ -49,10 +49,10 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     instance-of v0, p0, Ljava/util/LinkedHashSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     check-cast p0, Ljava/util/LinkedHashSet;
 
@@ -62,10 +62,10 @@
 
     return-object p0
 
-    :cond_1
+    :cond_16
     instance-of v0, p0, Ljava/util/SortedSet;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     check-cast p0, Ljava/util/SortedSet;
 
@@ -75,10 +75,10 @@
 
     return-object p0
 
-    :cond_2
+    :cond_21
     instance-of v0, p0, Ljava/util/Set;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2c
 
     check-cast p0, Ljava/util/Set;
 
@@ -88,10 +88,10 @@
 
     return-object p0
 
-    :cond_3
+    :cond_2c
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_37
 
     check-cast p0, Ljava/util/List;
 
@@ -101,10 +101,10 @@
 
     return-object p0
 
-    :cond_4
+    :cond_37
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_42
 
     check-cast p0, Ljava/util/Collection;
 
@@ -114,7 +114,7 @@
 
     return-object p0
 
-    :cond_5
+    :cond_42
     invoke-static {p0}, Lj$/lang/Iterable$-CC;->$default$spliterator(Ljava/lang/Iterable;)Lj$/util/Spliterator;
 
     move-result-object p0

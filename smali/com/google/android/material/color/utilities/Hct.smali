@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "argb"    # I
 
     .line 75
@@ -29,7 +29,7 @@
 .end method
 
 .method public static from(DDD)Lcom/google/android/material/color/utilities/Hct;
-    .locals 2
+    .registers 8
     .param p0, "hue"    # D
     .param p2, "chroma"    # D
     .param p4, "tone"    # D
@@ -49,7 +49,7 @@
 .end method
 
 .method public static fromInt(I)Lcom/google/android/material/color/utilities/Hct;
-    .locals 1
+    .registers 2
     .param p0, "argb"    # I
 
     .line 72
@@ -61,7 +61,7 @@
 .end method
 
 .method private setInternalState(I)V
-    .locals 3
+    .registers 5
     .param p1, "argb"    # I
 
     .line 126
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public getChroma()D
-    .locals 2
+    .registers 3
 
     .line 84
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Hct;->chroma:D
@@ -110,7 +110,7 @@
 .end method
 
 .method public getHue()D
-    .locals 2
+    .registers 3
 
     .line 80
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Hct;->hue:D
@@ -119,7 +119,7 @@
 .end method
 
 .method public getTone()D
-    .locals 2
+    .registers 3
 
     .line 88
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/Hct;->tone:D
@@ -128,7 +128,7 @@
 .end method
 
 .method public setChroma(D)V
-    .locals 6
+    .registers 9
     .param p1, "newChroma"    # D
 
     .line 112
@@ -149,7 +149,7 @@
 .end method
 
 .method public setHue(D)V
-    .locals 6
+    .registers 9
     .param p1, "newHue"    # D
 
     .line 102
@@ -170,7 +170,7 @@
 .end method
 
 .method public setTone(D)V
-    .locals 6
+    .registers 9
     .param p1, "newTone"    # D
 
     .line 122
@@ -191,7 +191,7 @@
 .end method
 
 .method public toInt()I
-    .locals 1
+    .registers 2
 
     .line 92
     iget v0, p0, Lcom/google/android/material/color/utilities/Hct;->argb:I

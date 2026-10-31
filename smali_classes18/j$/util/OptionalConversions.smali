@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static convert(Ljava/util/Optional;)Lj$/util/Optional;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -29,7 +29,7 @@
 
     .line 22
     .local p0, "optional":Ljava/util/Optional;, "Lj$/util/Optional<TT;>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 23
     const/4 v0, 0x0
@@ -37,12 +37,12 @@
     return-object v0
 
     .line 25
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/util/Optional;->isPresent()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 26
     invoke-virtual {p0}, Ljava/util/Optional;->get()Ljava/lang/Object;
@@ -56,7 +56,7 @@
     return-object v0
 
     .line 28
-    :cond_1
+    :cond_13
     invoke-static {}, Lj$/util/Optional;->empty()Lj$/util/Optional;
 
     move-result-object v0
@@ -65,11 +65,11 @@
 .end method
 
 .method public static convert(Ljava/util/OptionalDouble;)Lj$/util/OptionalDouble;
-    .locals 2
+    .registers 3
     .param p0, "optionalDouble"    # Ljava/util/OptionalDouble;
 
     .line 42
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 43
     const/4 v0, 0x0
@@ -77,12 +77,12 @@
     return-object v0
 
     .line 45
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/util/OptionalDouble;->isPresent()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 46
     invoke-virtual {p0}, Ljava/util/OptionalDouble;->getAsDouble()D
@@ -96,7 +96,7 @@
     return-object v0
 
     .line 48
-    :cond_1
+    :cond_13
     invoke-static {}, Lj$/util/OptionalDouble;->empty()Lj$/util/OptionalDouble;
 
     move-result-object v0
@@ -105,11 +105,11 @@
 .end method
 
 .method public static convert(Ljava/util/OptionalInt;)Lj$/util/OptionalInt;
-    .locals 1
+    .registers 2
     .param p0, "optionalInt"    # Ljava/util/OptionalInt;
 
     .line 82
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 83
     const/4 v0, 0x0
@@ -117,12 +117,12 @@
     return-object v0
 
     .line 85
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/util/OptionalInt;->isPresent()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 86
     invoke-virtual {p0}, Ljava/util/OptionalInt;->getAsInt()I
@@ -136,7 +136,7 @@
     return-object v0
 
     .line 88
-    :cond_1
+    :cond_13
     invoke-static {}, Lj$/util/OptionalInt;->empty()Lj$/util/OptionalInt;
 
     move-result-object v0
@@ -145,11 +145,11 @@
 .end method
 
 .method public static convert(Ljava/util/OptionalLong;)Lj$/util/OptionalLong;
-    .locals 2
+    .registers 3
     .param p0, "optionalLong"    # Ljava/util/OptionalLong;
 
     .line 62
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 63
     const/4 v0, 0x0
@@ -157,12 +157,12 @@
     return-object v0
 
     .line 65
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/util/OptionalLong;->isPresent()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 66
     invoke-virtual {p0}, Ljava/util/OptionalLong;->getAsLong()J
@@ -176,7 +176,7 @@
     return-object v0
 
     .line 68
-    :cond_1
+    :cond_13
     invoke-static {}, Lj$/util/OptionalLong;->empty()Lj$/util/OptionalLong;
 
     move-result-object v0
@@ -185,7 +185,7 @@
 .end method
 
 .method public static convert(Lj$/util/Optional;)Ljava/util/Optional;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -200,7 +200,7 @@
 
     .line 12
     .local p0, "optional":Lj$/util/Optional;, "Ljava/util/Optional<TT;>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 13
     const/4 v0, 0x0
@@ -208,12 +208,12 @@
     return-object v0
 
     .line 15
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Lj$/util/Optional;->isPresent()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 16
     invoke-virtual {p0}, Lj$/util/Optional;->get()Ljava/lang/Object;
@@ -227,7 +227,7 @@
     return-object v0
 
     .line 18
-    :cond_1
+    :cond_13
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
     move-result-object v0
@@ -236,11 +236,11 @@
 .end method
 
 .method public static convert(Lj$/util/OptionalDouble;)Ljava/util/OptionalDouble;
-    .locals 2
+    .registers 3
     .param p0, "optionalDouble"    # Lj$/util/OptionalDouble;
 
     .line 32
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 33
     const/4 v0, 0x0
@@ -248,12 +248,12 @@
     return-object v0
 
     .line 35
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Lj$/util/OptionalDouble;->isPresent()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 36
     invoke-virtual {p0}, Lj$/util/OptionalDouble;->getAsDouble()D
@@ -267,7 +267,7 @@
     return-object v0
 
     .line 38
-    :cond_1
+    :cond_13
     invoke-static {}, Ljava/util/OptionalDouble;->empty()Ljava/util/OptionalDouble;
 
     move-result-object v0
@@ -276,11 +276,11 @@
 .end method
 
 .method public static convert(Lj$/util/OptionalInt;)Ljava/util/OptionalInt;
-    .locals 1
+    .registers 2
     .param p0, "optionalInt"    # Lj$/util/OptionalInt;
 
     .line 72
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 73
     const/4 v0, 0x0
@@ -288,12 +288,12 @@
     return-object v0
 
     .line 75
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Lj$/util/OptionalInt;->isPresent()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 76
     invoke-virtual {p0}, Lj$/util/OptionalInt;->getAsInt()I
@@ -307,7 +307,7 @@
     return-object v0
 
     .line 78
-    :cond_1
+    :cond_13
     invoke-static {}, Ljava/util/OptionalInt;->empty()Ljava/util/OptionalInt;
 
     move-result-object v0
@@ -316,11 +316,11 @@
 .end method
 
 .method public static convert(Lj$/util/OptionalLong;)Ljava/util/OptionalLong;
-    .locals 2
+    .registers 3
     .param p0, "optionalLong"    # Lj$/util/OptionalLong;
 
     .line 52
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 53
     const/4 v0, 0x0
@@ -328,12 +328,12 @@
     return-object v0
 
     .line 55
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Lj$/util/OptionalLong;->isPresent()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 56
     invoke-virtual {p0}, Lj$/util/OptionalLong;->getAsLong()J
@@ -347,7 +347,7 @@
     return-object v0
 
     .line 58
-    :cond_1
+    :cond_13
     invoke-static {}, Ljava/util/OptionalLong;->empty()Ljava/util/OptionalLong;
 
     move-result-object v0

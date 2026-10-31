@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 55
     invoke-direct {p0}, Landroidx/work/impl/background/systemalarm/ConstraintProxy;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public bridge synthetic onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,

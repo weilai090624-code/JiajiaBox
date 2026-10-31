@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap;Lcom/google/common/collect/UnmodifiableIterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ImmutableMap;
 
     .line 777
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 780
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$1;, "Lcom/google/common/collect/ImmutableMap$1;"
@@ -56,7 +56,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"

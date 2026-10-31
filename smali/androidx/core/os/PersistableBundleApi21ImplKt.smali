@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/core/os/PersistableBundleApi21ImplKt;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final createPersistableBundle(I)Landroid/os/PersistableBundle;
-    .locals 1
+    .registers 2
     .param p0, "capacity"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -75,7 +75,7 @@
 .end method
 
 .method public static final putValue(Landroid/os/PersistableBundle;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 9
+    .registers 12
     .param p0, "persistableBundle"    # Landroid/os/PersistableBundle;
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Object;
@@ -93,28 +93,28 @@
     nop
 
     .line 82
-    if-nez p2, :cond_0
+    if-nez p2, :cond_b
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, p1, v2}, Landroid/os/PersistableBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_ed
 
     .line 85
-    :cond_0
+    :cond_b
     instance-of v2, p2, Ljava/lang/Boolean;
 
     const/16 v3, 0x16
 
     const/16 v4, 0x22
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_40
 
     .line 86
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_23
 
     .line 87
     move-object v2, p2
@@ -127,10 +127,10 @@
 
     invoke-static {v0, p1, v2}, Landroidx/core/os/PersistableBundleApi22ImplKt;->putBoolean(Landroid/os/PersistableBundle;Ljava/lang/String;Z)V
 
-    goto/16 :goto_0
+    goto/16 :goto_ed
 
     .line 89
-    :cond_1
+    :cond_23
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     .line 90
@@ -162,10 +162,10 @@
     throw v2
 
     .line 94
-    :cond_2
+    :cond_40
     instance-of v2, p2, Ljava/lang/Double;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_50
 
     move-object v2, p2
 
@@ -177,13 +177,13 @@
 
     invoke-virtual {v0, p1, v2, v3}, Landroid/os/PersistableBundle;->putDouble(Ljava/lang/String;D)V
 
-    goto/16 :goto_0
+    goto/16 :goto_ed
 
     .line 95
-    :cond_3
+    :cond_50
     instance-of v2, p2, Ljava/lang/Integer;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_60
 
     move-object v2, p2
 
@@ -195,13 +195,13 @@
 
     invoke-virtual {v0, p1, v2}, Landroid/os/PersistableBundle;->putInt(Ljava/lang/String;I)V
 
-    goto/16 :goto_0
+    goto/16 :goto_ed
 
     .line 96
-    :cond_4
+    :cond_60
     instance-of v2, p2, Ljava/lang/Long;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_70
 
     move-object v2, p2
 
@@ -213,13 +213,13 @@
 
     invoke-virtual {v0, p1, v2, v3}, Landroid/os/PersistableBundle;->putLong(Ljava/lang/String;J)V
 
-    goto/16 :goto_0
+    goto/16 :goto_ed
 
     .line 99
-    :cond_5
+    :cond_70
     instance-of v2, p2, Ljava/lang/String;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7c
 
     move-object v2, p2
 
@@ -227,18 +227,18 @@
 
     invoke-virtual {v0, p1, v2}, Landroid/os/PersistableBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_ed
 
     .line 102
-    :cond_6
+    :cond_7c
     instance-of v2, p2, [Z
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_a8
 
     .line 103
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v2, v3, :cond_7
+    if-lt v2, v3, :cond_8b
 
     .line 104
     move-object v2, p2
@@ -247,10 +247,10 @@
 
     invoke-static {v0, p1, v2}, Landroidx/core/os/PersistableBundleApi22ImplKt;->putBooleanArray(Landroid/os/PersistableBundle;Ljava/lang/String;[Z)V
 
-    goto :goto_0
+    goto :goto_ed
 
     .line 106
-    :cond_7
+    :cond_8b
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     .line 107
@@ -282,10 +282,10 @@
     throw v2
 
     .line 111
-    :cond_8
+    :cond_a8
     instance-of v2, p2, [D
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_b3
 
     move-object v2, p2
 
@@ -293,13 +293,13 @@
 
     invoke-virtual {v0, p1, v2}, Landroid/os/PersistableBundle;->putDoubleArray(Ljava/lang/String;[D)V
 
-    goto :goto_0
+    goto :goto_ed
 
     .line 112
-    :cond_9
+    :cond_b3
     instance-of v2, p2, [I
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_be
 
     move-object v2, p2
 
@@ -307,13 +307,13 @@
 
     invoke-virtual {v0, p1, v2}, Landroid/os/PersistableBundle;->putIntArray(Ljava/lang/String;[I)V
 
-    goto :goto_0
+    goto :goto_ed
 
     .line 113
-    :cond_a
+    :cond_be
     instance-of v2, p2, [J
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_c9
 
     move-object v2, p2
 
@@ -321,15 +321,15 @@
 
     invoke-virtual {v0, p1, v2}, Landroid/os/PersistableBundle;->putLongArray(Ljava/lang/String;[J)V
 
-    goto :goto_0
+    goto :goto_ed
 
     .line 116
-    :cond_b
+    :cond_c9
     instance-of v2, p2, [Ljava/lang/Object;
 
     const-string v3, " for key \""
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_119
 
     .line 117
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -351,7 +351,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_f0
 
     .line 121
     const-string v3, "null cannot be cast to non-null type kotlin.Array<kotlin.String>"
@@ -366,7 +366,7 @@
 
     .line 137
     .end local v2    # "componentType":Ljava/lang/Class;
-    :goto_0
+    :goto_ed
     nop
 
     .line 80
@@ -381,7 +381,7 @@
     .restart local v0    # "$this$putValue_u24lambda_u240":Landroid/os/PersistableBundle;
     .restart local v1    # "$i$a$-apply-PersistableBundleApi21ImplKt$putValue$1":I
     .restart local v2    # "componentType":Ljava/lang/Class;
-    :cond_c
+    :cond_f0
     invoke-virtual {v2}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
     move-result-object v5
@@ -429,7 +429,7 @@
     .line 133
     .end local v2    # "componentType":Ljava/lang/Class;
     .end local v5    # "valueType":Ljava/lang/String;
-    :cond_d
+    :cond_119
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2

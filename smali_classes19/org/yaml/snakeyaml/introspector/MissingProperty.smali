@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 29
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 46
@@ -28,7 +28,7 @@
 .end method
 
 .method public getActualTypeArguments()[Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()[",
@@ -46,7 +46,7 @@
 .end method
 
 .method public getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -65,7 +65,7 @@
 .end method
 
 .method public getAnnotations()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -84,7 +84,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;

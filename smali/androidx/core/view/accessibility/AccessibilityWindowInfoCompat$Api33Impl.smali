@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 655
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getDisplayId(Landroid/view/accessibility/AccessibilityWindowInfo;)I
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 661
@@ -38,7 +38,7 @@
 .end method
 
 .method static getRegionInScreen(Landroid/view/accessibility/AccessibilityWindowInfo;Landroid/graphics/Region;)V
-    .locals 0
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
     .param p1, "outRegion"    # Landroid/graphics/Region;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public static getRoot(Ljava/lang/Object;I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 1
+    .registers 3
     .param p0, "info"    # Ljava/lang/Object;
     .param p1, "prefetchingStrategy"    # I
 

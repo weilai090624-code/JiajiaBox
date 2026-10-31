@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultiset;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractMapBasedMultiset;
 
     .line 211
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method result(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "entryIndex"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation

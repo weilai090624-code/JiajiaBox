@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;Lkotlinx/coroutines/Job;)V
-    .locals 0
+    .registers 4
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "cause"    # Ljava/lang/Throwable;
     .param p3, "job"    # Lkotlinx/coroutines/Job;
@@ -78,12 +78,12 @@
     nop
 
     .line 36
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_b
 
     invoke-virtual {p0, p2}, Lkotlinx/coroutines/JobCancellationException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 37
-    :cond_0
+    :cond_b
     nop
 
     .line 29
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public bridge synthetic createCopy()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     .line 29
     invoke-virtual {p0}, Lkotlinx/coroutines/JobCancellationException;->createCopy()Lkotlinx/coroutines/JobCancellationException;
@@ -106,14 +106,14 @@
 .end method
 
 .method public createCopy()Lkotlinx/coroutines/JobCancellationException;
-    .locals 4
+    .registers 5
 
     .line 54
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getDEBUG()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 55
     new-instance v0, Lkotlinx/coroutines/JobCancellationException;
@@ -135,23 +135,23 @@
     return-object v0
 
     .line 61
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 67
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_38
 
     .line 68
     instance-of v0, p1, Lkotlinx/coroutines/JobCancellationException;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_36
 
     move-object v0, p1
 
@@ -169,7 +169,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_36
 
     move-object v0, p1
 
@@ -183,7 +183,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_36
 
     move-object v0, p1
 
@@ -201,32 +201,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_36
 
-    goto :goto_0
+    goto :goto_38
 
-    :cond_0
+    :cond_36
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_39
 
-    :cond_1
-    :goto_0
+    :cond_38
+    :goto_38
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_39
     return v0
 .end method
 
 .method public fillInStackTrace()Ljava/lang/Throwable;
-    .locals 2
+    .registers 3
 
     .line 40
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getDEBUG()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 41
     invoke-super {p0}, Ljava/util/concurrent/CancellationException;->fillInStackTrace()Ljava/lang/Throwable;
@@ -236,7 +236,7 @@
     return-object v0
 
     .line 44
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     .line 77
@@ -258,7 +258,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 70
     invoke-virtual {p0}, Lkotlinx/coroutines/JobCancellationException;->getMessage()Ljava/lang/String;
@@ -287,25 +287,25 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     invoke-virtual {v1}, Ljava/lang/Throwable;->hashCode()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_22
     add-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 64
     new-instance v0, Ljava/lang/StringBuilder;

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$putBoolean(Lcom/google/common/hash/Hasher;Z)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -17,7 +17,7 @@
 .end method
 
 .method public static bridge synthetic $default$putByte(Lcom/google/common/hash/Hasher;B)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -29,7 +29,7 @@
 .end method
 
 .method public static bridge synthetic $default$putBytes(Lcom/google/common/hash/Hasher;Ljava/nio/ByteBuffer;)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -41,7 +41,7 @@
 .end method
 
 .method public static bridge synthetic $default$putBytes(Lcom/google/common/hash/Hasher;[B)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -53,7 +53,7 @@
 .end method
 
 .method public static bridge synthetic $default$putBytes(Lcom/google/common/hash/Hasher;[BII)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 4
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -65,7 +65,7 @@
 .end method
 
 .method public static bridge synthetic $default$putChar(Lcom/google/common/hash/Hasher;C)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -77,7 +77,7 @@
 .end method
 
 .method public static bridge synthetic $default$putDouble(Lcom/google/common/hash/Hasher;D)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 3
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -89,7 +89,7 @@
 .end method
 
 .method public static bridge synthetic $default$putFloat(Lcom/google/common/hash/Hasher;F)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -101,7 +101,7 @@
 .end method
 
 .method public static bridge synthetic $default$putInt(Lcom/google/common/hash/Hasher;I)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -113,7 +113,7 @@
 .end method
 
 .method public static bridge synthetic $default$putLong(Lcom/google/common/hash/Hasher;J)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 3
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -125,7 +125,7 @@
 .end method
 
 .method public static bridge synthetic $default$putShort(Lcom/google/common/hash/Hasher;S)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -137,7 +137,7 @@
 .end method
 
 .method public static bridge synthetic $default$putString(Lcom/google/common/hash/Hasher;Ljava/lang/CharSequence;Ljava/nio/charset/Charset;)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 3
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56
@@ -149,7 +149,7 @@
 .end method
 
 .method public static bridge synthetic $default$putUnencodedChars(Lcom/google/common/hash/Hasher;Ljava/lang/CharSequence;)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/hash/Hasher;
 
     .line 56

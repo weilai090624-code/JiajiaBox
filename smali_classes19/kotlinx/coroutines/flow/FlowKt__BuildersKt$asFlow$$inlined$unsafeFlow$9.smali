@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/ranges/IntRange;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lkotlinx/coroutines/flow/FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9;->$this_asFlow$inlined:Lkotlin/ranges/IntRange;
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -102,7 +102,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9$1;->label:I
 
@@ -110,14 +110,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/flow/FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9$1;-><init>(Lkotlinx/coroutines/flow/FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     iget-object p2, v0, Lkotlinx/coroutines/flow/FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9$1;->result:Ljava/lang/Object;
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
@@ -127,7 +127,7 @@
     .line 106
     iget v2, v0, Lkotlinx/coroutines/flow/FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_70
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -137,7 +137,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_2c
     iget-object p1, v0, Lkotlinx/coroutines/flow/FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9$1;->L$1:Ljava/lang/Object;
 
     check-cast p1, Ljava/util/Iterator;
@@ -150,9 +150,9 @@
 
     move-object p2, v2
 
-    goto :goto_2
+    goto :goto_69
 
-    :pswitch_1
+    :pswitch_39
     invoke-static {p2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 109
@@ -176,12 +176,12 @@
 
     move-object p1, v4
 
-    :goto_1
+    :goto_4a
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_6b
 
     move-object v2, p1
 
@@ -208,21 +208,21 @@
 
     move-result-object v2
 
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_69
 
     .line 106
     return-object v1
 
     .line 117
-    :cond_1
-    :goto_2
+    :cond_69
+    :goto_69
     nop
 
     .line 115
-    goto :goto_1
+    goto :goto_4a
 
     .line 118
-    :cond_2
+    :cond_6b
     nop
 
     .line 119
@@ -234,9 +234,9 @@
     .line 110
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_70
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_39
+        :pswitch_2c
     .end packed-switch
 .end method

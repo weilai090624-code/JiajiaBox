@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Lj$/time/zone/ZoneRules;)V
-    .locals 0
+    .registers 3
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "rules"    # Lj$/time/zone/ZoneRules;
 
@@ -36,7 +36,7 @@
 .end method
 
 .method private static checkName(Ljava/lang/String;)V
-    .locals 6
+    .registers 7
     .param p0, "zoneId"    # Ljava/lang/String;
 
     .line 136
@@ -50,14 +50,14 @@
 
     const-string v2, "Invalid ID for region-based ZoneId, invalid format: "
 
-    if-lt v0, v1, :cond_a
+    if-lt v0, v1, :cond_71
 
     .line 140
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_9
+    :goto_a
+    if-ge v1, v0, :cond_70
 
     .line 141
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -68,108 +68,108 @@
     .local v3, "c":C
     const/16 v4, 0x61
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_19
 
     const/16 v4, 0x7a
 
-    if-gt v3, v4, :cond_0
+    if-gt v3, v4, :cond_19
 
-    goto :goto_1
+    goto :goto_56
 
     .line 143
-    :cond_0
+    :cond_19
     const/16 v4, 0x41
 
-    if-lt v3, v4, :cond_1
+    if-lt v3, v4, :cond_22
 
     const/16 v4, 0x5a
 
-    if-gt v3, v4, :cond_1
+    if-gt v3, v4, :cond_22
 
-    goto :goto_1
+    goto :goto_56
 
     .line 144
-    :cond_1
+    :cond_22
     const/16 v4, 0x2f
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_29
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_29
 
-    goto :goto_1
+    goto :goto_56
 
     .line 145
-    :cond_2
+    :cond_29
     const/16 v4, 0x30
 
-    if-lt v3, v4, :cond_3
+    if-lt v3, v4, :cond_34
 
     const/16 v4, 0x39
 
-    if-gt v3, v4, :cond_3
+    if-gt v3, v4, :cond_34
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_34
 
-    goto :goto_1
+    goto :goto_56
 
     .line 146
-    :cond_3
+    :cond_34
     const/16 v4, 0x7e
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_3b
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3b
 
-    goto :goto_1
+    goto :goto_56
 
     .line 147
-    :cond_4
+    :cond_3b
     const/16 v4, 0x2e
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_42
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_42
 
-    goto :goto_1
+    goto :goto_56
 
     .line 148
-    :cond_5
+    :cond_42
     const/16 v4, 0x5f
 
-    if-ne v3, v4, :cond_6
+    if-ne v3, v4, :cond_49
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_49
 
-    goto :goto_1
+    goto :goto_56
 
     .line 149
-    :cond_6
+    :cond_49
     const/16 v4, 0x2b
 
-    if-ne v3, v4, :cond_7
+    if-ne v3, v4, :cond_50
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_50
 
-    goto :goto_1
+    goto :goto_56
 
     .line 150
-    :cond_7
+    :cond_50
     const/16 v4, 0x2d
 
-    if-ne v3, v4, :cond_8
+    if-ne v3, v4, :cond_59
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_59
 
     .line 140
     .end local v3    # "c":C
-    :goto_1
+    :goto_56
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 151
     .restart local v3    # "c":C
-    :cond_8
+    :cond_59
     new-instance v4, Lj$/time/DateTimeException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -195,11 +195,11 @@
     .line 153
     .end local v1    # "i":I
     .end local v3    # "c":C
-    :cond_9
+    :cond_70
     return-void
 
     .line 138
-    :cond_a
+    :cond_71
     new-instance v1, Lj$/time/DateTimeException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -224,7 +224,7 @@
 .end method
 
 .method static ofId(Ljava/lang/String;Z)Lj$/time/ZoneRegion;
-    .locals 2
+    .registers 4
     .param p0, "zoneId"    # Ljava/lang/String;
     .param p1, "checkAvailable"    # Z
 
@@ -243,29 +243,29 @@
     .local v0, "rules":Lj$/time/zone/ZoneRules;
     const/4 v1, 0x1
 
-    :try_start_0
+    :try_start_a
     invoke-static {p0, v1}, Lj$/time/zone/ZoneRulesProvider;->getRules(Ljava/lang/String;Z)Lj$/time/zone/ZoneRules;
 
     move-result-object v1
-    :try_end_0
-    .catch Lj$/time/zone/ZoneRulesException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Lj$/time/zone/ZoneRulesException; {:try_start_a .. :try_end_e} :catch_10
 
     move-object v0, v1
 
     .line 125
-    goto :goto_0
+    goto :goto_13
 
     .line 121
-    :catch_0
+    :catch_10
     move-exception v1
 
     .line 122
     .local v1, "ex":Lj$/time/zone/ZoneRulesException;
-    if-nez p1, :cond_0
+    if-nez p1, :cond_19
 
     .line 126
     .end local v1    # "ex":Lj$/time/zone/ZoneRulesException;
-    :goto_0
+    :goto_13
     new-instance v1, Lj$/time/ZoneRegion;
 
     invoke-direct {v1, p0, v0}, Lj$/time/ZoneRegion;-><init>(Ljava/lang/String;Lj$/time/zone/ZoneRules;)V
@@ -274,12 +274,12 @@
 
     .line 123
     .restart local v1    # "ex":Lj$/time/zone/ZoneRulesException;
-    :cond_0
+    :cond_19
     throw v1
 .end method
 
 .method static readExternal(Ljava/io/DataInput;)Lj$/time/ZoneId;
-    .locals 2
+    .registers 3
     .param p0, "in"    # Ljava/io/DataInput;
 
     .line 217
@@ -299,7 +299,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 203
@@ -313,7 +313,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 193
     new-instance v0, Lj$/time/Ser;
@@ -328,7 +328,7 @@
 
 # virtual methods
 .method public getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 170
     iget-object v0, p0, Lj$/time/ZoneRegion;->id:Ljava/lang/String;
@@ -337,18 +337,18 @@
 .end method
 
 .method public getRules()Lj$/time/zone/ZoneRules;
-    .locals 2
+    .registers 3
 
     .line 177
     iget-object v0, p0, Lj$/time/ZoneRegion;->rules:Lj$/time/zone/ZoneRules;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Lj$/time/ZoneRegion;->rules:Lj$/time/zone/ZoneRules;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lj$/time/ZoneRegion;->id:Ljava/lang/String;
 
     const/4 v1, 0x0
@@ -357,12 +357,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method write(Ljava/io/DataOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "out"    # Ljava/io/DataOutput;
 
     .line 208
@@ -378,7 +378,7 @@
 .end method
 
 .method writeExternal(Ljava/io/DataOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "out"    # Ljava/io/DataOutput;
 
     .line 213

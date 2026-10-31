@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3215
     invoke-direct {p0}, Landroidx/core/app/NotificationCompat$Style;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/core/app/NotificationCompat$Builder;)V
-    .locals 0
+    .registers 2
     .param p1, "builder"    # Landroidx/core/app/NotificationCompat$Builder;
 
     .line 3218
@@ -63,23 +63,23 @@
 .end method
 
 .method private static asIconCompat(Landroid/os/Parcelable;)Landroidx/core/graphics/drawable/IconCompat;
-    .locals 2
+    .registers 3
     .param p0, "bitmapOrIcon"    # Landroid/os/Parcelable;
 
     .line 3396
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_20
 
     .line 3397
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_14
 
     .line 3398
     instance-of v0, p0, Landroid/graphics/drawable/Icon;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 3399
     move-object v0, p0
@@ -93,10 +93,10 @@
     return-object v0
 
     .line 3402
-    :cond_0
+    :cond_14
     instance-of v0, p0, Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 3403
     move-object v0, p0
@@ -110,25 +110,25 @@
     return-object v0
 
     .line 3406
-    :cond_1
+    :cond_20
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static getPictureIcon(Landroid/os/Bundle;)Landroidx/core/graphics/drawable/IconCompat;
-    .locals 2
+    .registers 3
     .param p0, "extras"    # Landroid/os/Bundle;
 
     .line 3382
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 3386
-    :cond_0
+    :cond_4
     const-string v0, "android.picture"
 
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -137,7 +137,7 @@
 
     .line 3387
     .local v0, "bitmapPicture":Landroid/os/Parcelable;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 3388
     invoke-static {v0}, Landroidx/core/app/NotificationCompat$BigPictureStyle;->asIconCompat(Landroid/os/Parcelable;)Landroidx/core/graphics/drawable/IconCompat;
@@ -147,7 +147,7 @@
     return-object v1
 
     .line 3390
-    :cond_1
+    :cond_11
     const-string v1, "android.pictureIcon"
 
     invoke-virtual {p0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -164,7 +164,7 @@
 
 # virtual methods
 .method public apply(Landroidx/core/app/NotificationBuilderWithBuilderAccessor;)V
-    .locals 8
+    .registers 10
     .param p1, "builder"    # Landroidx/core/app/NotificationBuilderWithBuilderAccessor;
 
     .line 3314
@@ -195,12 +195,12 @@
 
     const/16 v5, 0x1f
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_44
 
     .line 3322
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v3, v5, :cond_1
+    if-lt v3, v5, :cond_30
 
     .line 3323
     const/4 v3, 0x0
@@ -209,7 +209,7 @@
     .local v3, "context":Landroid/content/Context;
     instance-of v6, p1, Landroidx/core/app/NotificationCompatBuilder;
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_26
 
     .line 3325
     move-object v6, p1
@@ -221,7 +221,7 @@
     move-result-object v3
 
     .line 3327
-    :cond_0
+    :cond_26
     iget-object v6, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mPictureIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     invoke-virtual {v6, v3}, Landroidx/core/graphics/drawable/IconCompat;->toIcon(Landroid/content/Context;)Landroid/graphics/drawable/Icon;
@@ -231,17 +231,17 @@
     invoke-static {v2, v6}, Landroidx/core/app/NotificationCompat$BigPictureStyle$Api31Impl;->setBigPicture(Landroid/app/Notification$BigPictureStyle;Landroid/graphics/drawable/Icon;)V
 
     .end local v3    # "context":Landroid/content/Context;
-    goto :goto_0
+    goto :goto_43
 
     .line 3328
-    :cond_1
+    :cond_30
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mPictureIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     invoke-virtual {v3}, Landroidx/core/graphics/drawable/IconCompat;->getType()I
 
     move-result v3
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_43
 
     .line 3329
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mPictureIcon:Landroidx/core/graphics/drawable/IconCompat;
@@ -256,27 +256,27 @@
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_44
 
     .line 3328
     .end local v3    # "b":Landroid/graphics/Bitmap;
-    :cond_2
-    :goto_0
+    :cond_43
+    :goto_43
     nop
 
     .line 3334
-    :cond_3
-    :goto_1
+    :cond_44
+    :goto_44
     iget-boolean v3, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mBigLargeIconSet:Z
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_88
 
     .line 3335
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mBigLargeIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     const/4 v6, 0x0
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_54
 
     .line 3336
     move-object v3, v6
@@ -285,15 +285,15 @@
 
     invoke-virtual {v2, v6}, Landroid/app/Notification$BigPictureStyle;->bigLargeIcon(Landroid/graphics/Bitmap;)Landroid/app/Notification$BigPictureStyle;
 
-    goto :goto_2
+    goto :goto_88
 
     .line 3337
-    :cond_4
+    :cond_54
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v7, 0x17
 
-    if-lt v3, v7, :cond_6
+    if-lt v3, v7, :cond_70
 
     .line 3338
     const/4 v3, 0x0
@@ -302,7 +302,7 @@
     .local v3, "context":Landroid/content/Context;
     instance-of v4, p1, Landroidx/core/app/NotificationCompatBuilder;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_66
 
     .line 3340
     move-object v4, p1
@@ -314,7 +314,7 @@
     move-result-object v3
 
     .line 3342
-    :cond_5
+    :cond_66
     iget-object v4, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mBigLargeIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     invoke-virtual {v4, v3}, Landroidx/core/graphics/drawable/IconCompat;->toIcon(Landroid/content/Context;)Landroid/graphics/drawable/Icon;
@@ -325,16 +325,16 @@
 
     .line 3343
     .end local v3    # "context":Landroid/content/Context;
-    goto :goto_2
+    goto :goto_88
 
-    :cond_6
+    :cond_70
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mBigLargeIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     invoke-virtual {v3}, Landroidx/core/graphics/drawable/IconCompat;->getType()I
 
     move-result v3
 
-    if-ne v3, v4, :cond_7
+    if-ne v3, v4, :cond_82
 
     .line 3345
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mBigLargeIcon:Landroidx/core/graphics/drawable/IconCompat;
@@ -345,10 +345,10 @@
 
     invoke-virtual {v2, v3}, Landroid/app/Notification$BigPictureStyle;->bigLargeIcon(Landroid/graphics/Bitmap;)Landroid/app/Notification$BigPictureStyle;
 
-    goto :goto_2
+    goto :goto_88
 
     .line 3349
-    :cond_7
+    :cond_82
     move-object v3, v6
 
     check-cast v3, Landroid/graphics/Bitmap;
@@ -356,11 +356,11 @@
     invoke-virtual {v2, v6}, Landroid/app/Notification$BigPictureStyle;->bigLargeIcon(Landroid/graphics/Bitmap;)Landroid/app/Notification$BigPictureStyle;
 
     .line 3352
-    :cond_8
-    :goto_2
+    :cond_88
+    :goto_88
     iget-boolean v3, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mSummaryTextSet:Z
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_91
 
     .line 3353
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mSummaryText:Ljava/lang/CharSequence;
@@ -368,10 +368,10 @@
     invoke-virtual {v2, v3}, Landroid/app/Notification$BigPictureStyle;->setSummaryText(Ljava/lang/CharSequence;)Landroid/app/Notification$BigPictureStyle;
 
     .line 3355
-    :cond_9
+    :cond_91
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v3, v5, :cond_a
+    if-lt v3, v5, :cond_9f
 
     .line 3356
     iget-boolean v3, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mShowBigPictureWhenCollapsed:Z
@@ -384,27 +384,27 @@
     invoke-static {v2, v3}, Landroidx/core/app/NotificationCompat$BigPictureStyle$Api31Impl;->setContentDescription(Landroid/app/Notification$BigPictureStyle;Ljava/lang/CharSequence;)V
 
     .line 3359
-    :cond_a
+    :cond_9f
     return-void
 .end method
 
 .method public bigLargeIcon(Landroid/graphics/Bitmap;)Landroidx/core/app/NotificationCompat$BigPictureStyle;
-    .locals 1
+    .registers 3
     .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .line 3285
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-static {p1}, Landroidx/core/graphics/drawable/IconCompat;->createWithBitmap(Landroid/graphics/Bitmap;)Landroidx/core/graphics/drawable/IconCompat;
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mBigLargeIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     .line 3286
@@ -417,22 +417,22 @@
 .end method
 
 .method public bigLargeIcon(Landroid/graphics/drawable/Icon;)Landroidx/core/app/NotificationCompat$BigPictureStyle;
-    .locals 1
+    .registers 3
     .param p1, "i"    # Landroid/graphics/drawable/Icon;
 
     .line 3295
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-static {p1}, Landroidx/core/graphics/drawable/IconCompat;->createFromIcon(Landroid/graphics/drawable/Icon;)Landroidx/core/graphics/drawable/IconCompat;
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mBigLargeIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     .line 3296
@@ -445,22 +445,22 @@
 .end method
 
 .method public bigPicture(Landroid/graphics/Bitmap;)Landroidx/core/app/NotificationCompat$BigPictureStyle;
-    .locals 1
+    .registers 3
     .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .line 3255
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-static {p1}, Landroidx/core/graphics/drawable/IconCompat;->createWithBitmap(Landroid/graphics/Bitmap;)Landroidx/core/graphics/drawable/IconCompat;
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mPictureIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     .line 3256
@@ -468,7 +468,7 @@
 .end method
 
 .method public bigPicture(Landroid/graphics/drawable/Icon;)Landroidx/core/app/NotificationCompat$BigPictureStyle;
-    .locals 1
+    .registers 3
     .param p1, "i"    # Landroid/graphics/drawable/Icon;
 
     .line 3265
@@ -483,7 +483,7 @@
 .end method
 
 .method protected clearCompatExtraKeys(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 3414
@@ -514,7 +514,7 @@
 .end method
 
 .method protected getClassName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 3306
     const-string v0, "androidx.core.app.NotificationCompat$BigPictureStyle"
@@ -523,7 +523,7 @@
 .end method
 
 .method protected restoreFromCompatExtras(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 3367
@@ -536,7 +536,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 3370
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -555,7 +555,7 @@
     iput-boolean v0, p0, Landroidx/core/app/NotificationCompat$BigPictureStyle;->mBigLargeIconSet:Z
 
     .line 3373
-    :cond_0
+    :cond_18
     invoke-static {p1}, Landroidx/core/app/NotificationCompat$BigPictureStyle;->getPictureIcon(Landroid/os/Bundle;)Landroidx/core/graphics/drawable/IconCompat;
 
     move-result-object v0
@@ -576,7 +576,7 @@
 .end method
 
 .method public setBigContentTitle(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$BigPictureStyle;
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 3227
@@ -591,7 +591,7 @@
 .end method
 
 .method public setContentDescription(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$BigPictureStyle;
-    .locals 0
+    .registers 2
     .param p1, "contentDescription"    # Ljava/lang/CharSequence;
 
     .line 3247
@@ -602,7 +602,7 @@
 .end method
 
 .method public setSummaryText(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$BigPictureStyle;
-    .locals 1
+    .registers 3
     .param p1, "cs"    # Ljava/lang/CharSequence;
 
     .line 3235
@@ -622,7 +622,7 @@
 .end method
 
 .method public showBigPictureWhenCollapsed(Z)Landroidx/core/app/NotificationCompat$BigPictureStyle;
-    .locals 0
+    .registers 2
     .param p1, "show"    # Z
 
     .line 3277

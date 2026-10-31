@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ListMultimap;Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -67,7 +67,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -93,7 +93,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -109,7 +109,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -136,7 +136,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -152,7 +152,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -181,7 +181,7 @@
 .end method
 
 .method public unfiltered()Lcom/google/common/collect/ListMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -202,7 +202,7 @@
 .end method
 
 .method public bridge synthetic unfiltered()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"

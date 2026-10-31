@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 1082
     new-instance v0, Lcom/google/common/collect/Iterators$ArrayItr;
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>([Ljava/lang/Object;III)V
-    .locals 0
+    .registers 5
     .param p2, "offset"    # I
     .param p3, "length"    # I
     .param p4, "index"    # I
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method protected get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation

@@ -52,7 +52,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$aAa9nziIXaQ0SSpyvAYSsXci30g(Ljava/lang/StackTraceElement;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/utils/CrashHandler;->formatThrowable$lambda$1(Ljava/lang/StackTraceElement;)Ljava/lang/CharSequence;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/utils/CrashHandler;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -83,7 +83,7 @@
 .end method
 
 .method private static final formatThrowable$lambda$1(Ljava/lang/StackTraceElement;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 3
     .param p0, "it"    # Ljava/lang/StackTraceElement;
 
     .line 52
@@ -143,13 +143,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3e
 
     const-string v1, "native"
 
-    goto :goto_0
+    goto :goto_46
 
-    :cond_0
+    :cond_3e
     invoke-virtual {p0}, Ljava/lang/StackTraceElement;->getLineNumber()I
 
     move-result v1
@@ -158,7 +158,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_46
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -179,7 +179,7 @@
 .end method
 
 .method private final getCurrentMilliSecondUTCTimeStamp()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 169
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -215,7 +215,7 @@
 .end method
 
 .method private final getSystemProperties()Ljava/util/Properties;
-    .locals 13
+    .registers 14
 
     .line 116
     new-instance v0, Ljava/util/Properties;
@@ -235,7 +235,7 @@
     nop
 
     .line 127
-    :try_start_0
+    :try_start_c
     new-instance v2, Ljava/lang/ProcessBuilder;
 
     const/4 v3, 0x0
@@ -301,8 +301,8 @@
 
     .line 135
     .local v9, "value":Ljava/lang/String;
-    :cond_0
-    :goto_0
+    :cond_3b
+    :goto_3b
     invoke-virtual {v6}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v10
@@ -319,7 +319,7 @@
 
     .end local v11    # "it":Ljava/lang/String;
     .end local v12    # "$i$a$-also-CrashHandler$getSystemProperties$1":I
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_83
 
     .line 136
     move-object v10, v7
@@ -336,7 +336,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_3b
 
     .line 138
     invoke-virtual {v10, v4}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -355,9 +355,9 @@
     move-object v9, v11
 
     .line 140
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_3b
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_3b
 
     move-object v11, v8
 
@@ -367,17 +367,17 @@
 
     move-result v11
 
-    if-nez v11, :cond_1
+    if-nez v11, :cond_6b
 
     const/4 v11, 0x1
 
-    goto :goto_1
+    goto :goto_6c
 
-    :cond_1
+    :cond_6b
     const/4 v11, 0x0
 
-    :goto_1
-    if-nez v11, :cond_0
+    :goto_6c
+    if-nez v11, :cond_3b
 
     move-object v11, v9
 
@@ -387,17 +387,17 @@
 
     move-result v11
 
-    if-nez v11, :cond_2
+    if-nez v11, :cond_79
 
     const/4 v11, 0x1
 
-    goto :goto_2
+    goto :goto_7a
 
-    :cond_2
+    :cond_79
     const/4 v11, 0x0
 
-    :goto_2
-    if-nez v11, :cond_0
+    :goto_7a
+    if-nez v11, :cond_3b
 
     move-object v11, v0
 
@@ -405,17 +405,17 @@
 
     invoke-interface {v11, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 144
     .end local v10    # "matcher":Ljava/util/regex/Matcher;
-    :cond_3
+    :cond_83
     invoke-virtual {v6}, Ljava/io/BufferedReader;->close()V
 
     .line 145
     invoke-virtual {v2}, Ljava/lang/Process;->destroy()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_89
+    .catch Ljava/io/IOException; {:try_start_c .. :try_end_89} :catch_8a
 
     .end local v2    # "process":Ljava/lang/Process;
     .end local v5    # "inputStream":Ljava/io/InputStream;
@@ -423,10 +423,10 @@
     .end local v7    # "line":Ljava/lang/Object;
     .end local v8    # "key":Ljava/lang/String;
     .end local v9    # "value":Ljava/lang/String;
-    goto :goto_3
+    goto :goto_95
 
     .line 146
-    :catch_0
+    :catch_8a
     move-exception v2
 
     .line 147
@@ -445,29 +445,29 @@
 
     .line 155
     .end local v2    # "e":Ljava/io/IOException;
-    :goto_3
+    :goto_95
     return-object v0
 .end method
 
 .method private final getSystemPropertyWithAndroidAPI(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "property"    # Ljava/lang/String;
 
     .line 159
     nop
 
     .line 160
-    :try_start_0
+    :try_start_1
     invoke-static {p1}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_5} :catch_6
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 161
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 162
@@ -515,14 +515,14 @@
 
     .line 159
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_2f
     return-object v0
 .end method
 
 
 # virtual methods
 .method public final buildReportHeader()Ljava/lang/String;
-    .locals 18
+    .registers 19
 
     .line 64
     move-object/from16 v1, p0
@@ -679,7 +679,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_b1
 
     .line 70
     new-instance v5, Ljava/lang/StringBuilder;
@@ -702,10 +702,10 @@
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_c6
 
     .line 72
-    :cond_0
+    :cond_b1
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -727,7 +727,7 @@
     move-result-object v5
 
     .line 69
-    :goto_0
+    :goto_c6
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -1273,8 +1273,8 @@
 
     const/4 v12, 0x0
 
-    :goto_1
-    if-ge v12, v11, :cond_2
+    :goto_2da
+    if-ge v12, v11, :cond_2f5
 
     aget-object v13, v9, v12
 
@@ -1301,18 +1301,18 @@
     .line 176
     .end local v14    # "it":Ljava/lang/String;
     .end local v15    # "$i$a$-filter-CrashHandler$buildReportHeader$1":I
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2f2
 
     invoke-interface {v8, v13}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .end local v13    # "element$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_2f2
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_1
+    goto :goto_2da
 
     .line 177
-    :cond_2
+    :cond_2f5
     nop
 
     .end local v8    # "destination$iv$iv":Ljava/util/Collection;
@@ -1377,7 +1377,7 @@
     nop
 
     .line 101
-    :try_start_0
+    :try_start_31c
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1413,12 +1413,12 @@
 
     move-result-object v0
 
-    :goto_2
+    :goto_33e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_39c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1476,16 +1476,16 @@
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_37b
+    .catch Ljava/lang/Exception; {:try_start_31c .. :try_end_37b} :catch_37d
 
     move-object v5, v7
 
     .end local v6    # "pair":Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    goto :goto_2
+    goto :goto_33e
 
     .line 106
-    :catch_0
+    :catch_37d
     move-exception v0
 
     .line 107
@@ -1522,7 +1522,7 @@
 
     .line 110
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_3
+    :cond_39c
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1546,7 +1546,7 @@
 .end method
 
 .method public final formatThrowable(Ljava/lang/Throwable;)Ljava/lang/String;
-    .locals 14
+    .registers 16
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
     const-string v0, "throwable"
@@ -1574,27 +1574,27 @@
 
     check-cast v2, Ljava/lang/CharSequence;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     invoke-static {v2}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1d
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     const/4 v2, 0x1
 
-    :goto_1
-    if-nez v2, :cond_2
+    :goto_20
+    if-nez v2, :cond_39
 
     .line 47
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1620,7 +1620,7 @@
     move-result-object v0
 
     .line 49
-    :cond_2
+    :cond_39
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1701,7 +1701,7 @@
 
     .line 56
     .local v2, "cause":Ljava/lang/Throwable;
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_9f
 
     .line 57
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1731,12 +1731,12 @@
     move-result-object v0
 
     .line 60
-    :cond_3
+    :cond_9f
     return-object v0
 .end method
 
 .method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-    .locals 6
+    .registers 9
     .param p1, "thread"    # Ljava/lang/Thread;
     .param p2, "throwable"    # Ljava/lang/Throwable;
 
@@ -1752,7 +1752,7 @@
     nop
 
     .line 28
-    :try_start_0
+    :try_start_b
     invoke-virtual {p1}, Ljava/lang/Thread;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -1762,21 +1762,21 @@
     move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_16} :catch_17
 
-    goto :goto_0
+    goto :goto_18
 
     .line 29
-    :catch_0
+    :catch_17
     move-exception v0
 
     .line 32
-    :goto_0
+    :goto_18
     nop
 
     .line 33
-    :try_start_1
+    :try_start_19
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     invoke-virtual {p1}, Ljava/lang/Thread;->toString()Ljava/lang/String;
@@ -1797,17 +1797,17 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->e(Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_30
+    .catch Ljava/lang/Exception; {:try_start_19 .. :try_end_30} :catch_31
 
-    goto :goto_1
+    goto :goto_32
 
     .line 35
-    :catch_1
+    :catch_31
     move-exception v0
 
     .line 38
-    :goto_1
+    :goto_32
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
     move-result-object v0

@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method public static createManageUnusedAppRestrictionsIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "packageName"    # Ljava/lang/String;
 
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4e
 
     .line 176
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -59,7 +59,7 @@
 
     const-string v3, "package"
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_23
 
     .line 177
     new-instance v0, Landroid/content/Intent;
@@ -81,7 +81,7 @@
     return-object v0
 
     .line 181
-    :cond_0
+    :cond_23
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.AUTO_REVOKE_PERMISSIONS"
@@ -103,13 +103,13 @@
 
     const/16 v2, 0x1e
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_39
 
     .line 189
     return-object v0
 
     .line 192
-    :cond_1
+    :cond_39
     nop
 
     .line 193
@@ -142,7 +142,7 @@
     .line 169
     .end local v0    # "permissionRevocationSettingsIntent":Landroid/content/Intent;
     .end local v1    # "verifierPackageName":Ljava/lang/String;
-    :cond_2
+    :cond_4e
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Unused App Restriction features are not available on this device"
@@ -153,7 +153,7 @@
 .end method
 
 .method public static getParcelableArrayExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)[Landroid/os/Parcelable;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/content/Intent;
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -175,7 +175,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 257
     invoke-static {p0, p1, p2}, Landroidx/core/content/IntentCompat$Api33Impl;->getParcelableArrayExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)[Ljava/lang/Object;
@@ -187,7 +187,7 @@
     return-object v0
 
     .line 259
-    :cond_0
+    :cond_d
     invoke-virtual {p0, p1}, Landroid/content/Intent;->getParcelableArrayExtra(Ljava/lang/String;)[Landroid/os/Parcelable;
 
     move-result-object v0
@@ -196,7 +196,7 @@
 .end method
 
 .method public static getParcelableArrayListExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/ArrayList;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/content/Intent;
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -219,7 +219,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 290
     invoke-static {p0, p1, p2}, Landroidx/core/content/IntentCompat$Api33Impl;->getParcelableArrayListExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/ArrayList;
@@ -229,7 +229,7 @@
     return-object v0
 
     .line 292
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/content/Intent;->getParcelableArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -238,7 +238,7 @@
 .end method
 
 .method public static getParcelableExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/content/Intent;
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -259,7 +259,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 225
     invoke-static {p0, p1, p2}, Landroidx/core/content/IntentCompat$Api33Impl;->getParcelableExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
@@ -269,7 +269,7 @@
     return-object v0
 
     .line 227
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v0
@@ -280,21 +280,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_18
     return-object v1
 .end method
 
 .method public static getSerializableExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Ljava/io/Serializable;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/content/Intent;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -315,7 +315,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 321
     invoke-static {p0, p1, p2}, Landroidx/core/content/IntentCompat$Api33Impl;->getSerializableExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Ljava/io/Serializable;
@@ -325,7 +325,7 @@
     return-object v0
 
     .line 323
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/content/Intent;->getSerializableExtra(Ljava/lang/String;)Ljava/io/Serializable;
 
     move-result-object v0
@@ -336,21 +336,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_18
     return-object v1
 .end method
 
 .method public static makeMainSelectorActivity(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 1
+    .registers 3
     .param p0, "selectorAction"    # Ljava/lang/String;
     .param p1, "selectorCategory"    # Ljava/lang/String;
 

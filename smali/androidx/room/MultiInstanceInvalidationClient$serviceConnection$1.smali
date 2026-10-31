@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/room/MultiInstanceInvalidationClient;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/room/MultiInstanceInvalidationClient;
 
     iput-object p1, p0, Landroidx/room/MultiInstanceInvalidationClient$serviceConnection$1;->this$0:Landroidx/room/MultiInstanceInvalidationClient;
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 2
+    .registers 5
     .param p1, "name"    # Landroid/content/ComponentName;
     .param p2, "service"    # Landroid/os/IBinder;
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 2
+    .registers 4
     .param p1, "name"    # Landroid/content/ComponentName;
 
     const-string v0, "name"

@@ -55,7 +55,7 @@
 
 # direct methods
 .method public static final buildSingBoxOutboundStandardV2RayBean(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;)Lmoe/matsuri/nb4a/SingBoxOptions$Outbound;
-    .locals 13
+    .registers 14
     .param p0, "bean"    # Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     const-string v0, "bean"
@@ -68,7 +68,7 @@
     .line 628
     instance-of v0, p0, Lio/nekohasekai/sagernet/fmt/http/HttpBean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
     .line 629
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_HTTPOptions;
@@ -132,10 +132,10 @@
     return-object v0
 
     .line 639
-    :cond_0
+    :cond_35
     instance-of v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_127
 
     .line 640
     move-object v0, p0
@@ -158,7 +158,7 @@
 
     const/4 v6, 0x1
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_b3
 
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VLESSOptions;
 
@@ -203,7 +203,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_1
+    if-nez v9, :cond_7e
 
     iget-object v9, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->encryption:Ljava/lang/String;
 
@@ -211,7 +211,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_7e
 
     .line 646
     iget-object v5, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->encryption:Ljava/lang/String;
@@ -219,62 +219,62 @@
     iput-object v5, v7, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VLESSOptions;->flow:Ljava/lang/String;
 
     .line 648
-    :cond_1
+    :cond_7e
     iget-object v5, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->packetEncoding:Ljava/lang/Integer;
 
     .line 649
-    if-nez v5, :cond_2
+    if-nez v5, :cond_83
 
-    goto :goto_0
+    goto :goto_8c
 
-    :cond_2
+    :cond_83
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v9
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_8c
 
     iput-object v4, v7, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VLESSOptions;->packet_encoding:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_a3
 
     .line 650
-    :cond_3
-    :goto_0
-    if-nez v5, :cond_4
+    :cond_8c
+    :goto_8c
+    if-nez v5, :cond_8f
 
-    goto :goto_1
+    goto :goto_98
 
-    :cond_4
+    :cond_8f
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-ne v4, v6, :cond_5
+    if-ne v4, v6, :cond_98
 
     iput-object v2, v7, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VLESSOptions;->packet_encoding:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_a3
 
     .line 651
-    :cond_5
-    :goto_1
-    if-nez v5, :cond_6
+    :cond_98
+    :goto_98
+    if-nez v5, :cond_9b
 
-    goto :goto_2
+    goto :goto_a3
 
-    :cond_6
+    :cond_9b
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    if-ne v2, v3, :cond_7
+    if-ne v2, v3, :cond_a3
 
     iput-object v1, v7, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VLESSOptions;->packet_encoding:Ljava/lang/String;
 
     .line 653
-    :cond_7
-    :goto_2
+    :cond_a3
+    :goto_a3
     invoke-static {p0}, Lio/nekohasekai/sagernet/fmt/v2ray/V2RayFmtKt;->buildSingBoxOutboundTLS(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;)Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;
 
     move-result-object v1
@@ -299,7 +299,7 @@
     return-object v0
 
     .line 656
-    :cond_8
+    :cond_b3
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VMessOptions;
 
     invoke-direct {v0}, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VMessOptions;-><init>()V
@@ -372,80 +372,80 @@
 
     move-result v10
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_eb
 
-    goto :goto_3
+    goto :goto_ec
 
-    :cond_9
+    :cond_eb
     const/4 v9, 0x0
 
-    :goto_3
-    if-nez v9, :cond_a
+    :goto_ec
+    if-nez v9, :cond_ef
 
-    goto :goto_4
+    goto :goto_f0
 
-    :cond_a
+    :cond_ef
     move-object v5, v9
 
-    :goto_4
+    :goto_f0
     iput-object v5, v7, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VMessOptions;->security:Ljava/lang/String;
 
     .line 663
     iget-object v5, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->packetEncoding:Ljava/lang/Integer;
 
     .line 664
-    if-nez v5, :cond_b
+    if-nez v5, :cond_f7
 
-    goto :goto_5
+    goto :goto_100
 
-    :cond_b
+    :cond_f7
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v9
 
-    if-nez v9, :cond_c
+    if-nez v9, :cond_100
 
     iput-object v4, v7, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VMessOptions;->packet_encoding:Ljava/lang/String;
 
-    goto :goto_7
+    goto :goto_117
 
     .line 665
-    :cond_c
-    :goto_5
-    if-nez v5, :cond_d
+    :cond_100
+    :goto_100
+    if-nez v5, :cond_103
 
-    goto :goto_6
+    goto :goto_10c
 
-    :cond_d
+    :cond_103
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-ne v4, v6, :cond_e
+    if-ne v4, v6, :cond_10c
 
     iput-object v2, v7, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VMessOptions;->packet_encoding:Ljava/lang/String;
 
-    goto :goto_7
+    goto :goto_117
 
     .line 666
-    :cond_e
-    :goto_6
-    if-nez v5, :cond_f
+    :cond_10c
+    :goto_10c
+    if-nez v5, :cond_10f
 
-    goto :goto_7
+    goto :goto_117
 
-    :cond_f
+    :cond_10f
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    if-ne v2, v3, :cond_10
+    if-ne v2, v3, :cond_117
 
     iput-object v1, v7, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_VMessOptions;->packet_encoding:Ljava/lang/String;
 
     .line 668
-    :cond_10
-    :goto_7
+    :cond_117
+    :goto_117
     invoke-static {p0}, Lio/nekohasekai/sagernet/fmt/v2ray/V2RayFmtKt;->buildSingBoxOutboundTLS(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;)Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;
 
     move-result-object v1
@@ -470,10 +470,10 @@
     return-object v0
 
     .line 673
-    :cond_11
+    :cond_127
     instance-of v0, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_155
 
     .line 674
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_TrojanOptions;
@@ -535,7 +535,7 @@
     return-object v0
 
     .line 684
-    :cond_12
+    :cond_155
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "can\'t reach"
@@ -546,7 +546,7 @@
 .end method
 
 .method public static final buildSingBoxOutboundStreamSettings(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;)Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions;
-    .locals 13
+    .registers 14
     .param p0, "bean"    # Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     const-string v0, "bean"
@@ -558,7 +558,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_18f
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
@@ -568,23 +568,23 @@
 
     const-string v4, "host"
 
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_190
 
-    goto/16 :goto_3
+    goto/16 :goto_18f
 
-    :sswitch_0
+    :sswitch_17
     const-string v2, "quic"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
-    goto/16 :goto_3
+    goto/16 :goto_18f
 
     .line 568
-    :cond_0
+    :cond_21
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions;
 
     invoke-direct {v0}, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions;-><init>()V
@@ -607,19 +607,19 @@
     return-object v0
 
     .line 524
-    :sswitch_1
+    :sswitch_2c
     const-string v2, "http"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_36
 
-    goto/16 :goto_3
+    goto/16 :goto_18f
 
     .line 557
-    :cond_1
+    :cond_36
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_HTTPOptions;
 
     invoke-direct {v0}, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_HTTPOptions;-><init>()V
@@ -638,14 +638,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_49
 
     const-string v2, "GET"
 
     iput-object v2, v5, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_HTTPOptions;->method:Ljava/lang/String;
 
     .line 560
-    :cond_2
+    :cond_49
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->host:Ljava/lang/String;
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -656,7 +656,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_6e
 
     .line 561
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->host:Ljava/lang/String;
@@ -688,7 +688,7 @@
     iput-object v2, v5, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_HTTPOptions;->host:Ljava/util/List;
 
     .line 563
-    :cond_3
+    :cond_6e
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     .line 688
@@ -721,19 +721,19 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_89
 
     move-object v1, v2
 
-    :cond_4
-    if-nez v1, :cond_5
+    :cond_89
+    if-nez v1, :cond_8c
 
-    goto :goto_0
+    goto :goto_8d
 
-    :cond_5
+    :cond_8c
     move-object v3, v1
 
-    :goto_0
+    :goto_8d
     iput-object v3, v5, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_HTTPOptions;->path:Ljava/lang/String;
 
     .line 564
@@ -747,19 +747,19 @@
     return-object v0
 
     .line 524
-    :sswitch_2
+    :sswitch_93
     const-string v2, "grpc"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_9d
 
-    goto/16 :goto_3
+    goto/16 :goto_18f
 
     .line 574
-    :cond_6
+    :cond_9d
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_GRPCOptions;
 
     invoke-direct {v0}, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_GRPCOptions;-><init>()V
@@ -789,35 +789,35 @@
     return-object v0
 
     .line 524
-    :sswitch_3
+    :sswitch_ae
     const-string v2, "tcp"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_b8
 
-    goto/16 :goto_3
+    goto/16 :goto_18f
 
     .line 526
-    :cond_7
+    :cond_b8
     return-object v1
 
     .line 524
-    :sswitch_4
+    :sswitch_b9
     const-string v2, "ws"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_c3
 
-    goto/16 :goto_3
+    goto/16 :goto_18f
 
     .line 530
-    :cond_8
+    :cond_c3
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_WebsocketOptions;
 
     invoke-direct {v0}, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_WebsocketOptions;-><init>()V
@@ -851,7 +851,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_f0
 
     .line 535
     iget-object v2, v5, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_WebsocketOptions;->headers:Ljava/util/Map;
@@ -867,7 +867,7 @@
     invoke-interface {v2, v4, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 538
-    :cond_9
+    :cond_f0
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     const-string v4, "path"
@@ -890,7 +890,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_12d
 
     .line 539
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
@@ -916,7 +916,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_126
 
     const/16 v1, 0x800
 
@@ -924,7 +924,7 @@
 
     move-result-object v1
 
-    :cond_a
+    :cond_126
     iput-object v1, v5, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_WebsocketOptions;->max_early_data:Ljava/lang/Integer;
 
     .line 541
@@ -932,10 +932,10 @@
 
     iput-object v1, v5, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_WebsocketOptions;->early_data_header_name:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_14e
 
     .line 543
-    :cond_b
+    :cond_12d
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     .line 688
@@ -968,30 +968,30 @@
 
     move-result v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_148
 
     move-object v1, v2
 
-    :cond_c
-    if-nez v1, :cond_d
+    :cond_148
+    if-nez v1, :cond_14b
 
-    goto :goto_1
+    goto :goto_14c
 
-    :cond_d
+    :cond_14b
     move-object v3, v1
 
-    :goto_1
+    :goto_14c
     iput-object v3, v5, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_WebsocketOptions;->path:Ljava/lang/String;
 
     .line 546
-    :goto_2
+    :goto_14e
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->wsMaxEarlyData:Ljava/lang/Integer;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    if-lez v1, :cond_e
+    if-lez v1, :cond_15a
 
     .line 547
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->wsMaxEarlyData:Ljava/lang/Integer;
@@ -999,7 +999,7 @@
     iput-object v1, v5, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_WebsocketOptions;->max_early_data:Ljava/lang/Integer;
 
     .line 550
-    :cond_e
+    :cond_15a
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->earlyDataHeaderName:Ljava/lang/String;
 
     const-string v2, "earlyDataHeaderName"
@@ -1012,7 +1012,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_16d
 
     .line 551
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->earlyDataHeaderName:Ljava/lang/String;
@@ -1020,7 +1020,7 @@
     iput-object v1, v5, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_WebsocketOptions;->early_data_header_name:Ljava/lang/String;
 
     .line 553
-    :cond_f
+    :cond_16d
     nop
 
     .line 530
@@ -1031,19 +1031,19 @@
     return-object v0
 
     .line 524
-    :sswitch_5
+    :sswitch_171
     const-string v2, "httpupgrade"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_17a
 
-    goto :goto_3
+    goto :goto_18f
 
     .line 581
-    :cond_10
+    :cond_17a
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_HTTPUpgradeOptions;
 
     invoke-direct {v0}, Lmoe/matsuri/nb4a/SingBoxOptions$V2RayTransportOptions_HTTPUpgradeOptions;-><init>()V
@@ -1078,23 +1078,23 @@
     return-object v0
 
     .line 589
-    :cond_11
-    :goto_3
+    :cond_18f
+    :goto_18f
     return-object v1
 
-    :sswitch_data_0
+    :sswitch_data_190
     .sparse-switch
-        -0x3e11976c -> :sswitch_5
-        0xedc -> :sswitch_4
-        0x1bfe1 -> :sswitch_3
-        0x308c1e -> :sswitch_2
-        0x310888 -> :sswitch_1
-        0x35223e -> :sswitch_0
+        -0x3e11976c -> :sswitch_171
+        0xedc -> :sswitch_b9
+        0x1bfe1 -> :sswitch_ae
+        0x308c1e -> :sswitch_93
+        0x310888 -> :sswitch_2c
+        0x35223e -> :sswitch_17
     .end sparse-switch
 .end method
 
 .method public static final buildSingBoxOutboundTLS(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;)Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;
-    .locals 10
+    .registers 11
     .param p0, "bean"    # Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     const-string v0, "bean"
@@ -1110,14 +1110,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 594
-    :cond_0
+    :cond_11
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;
 
     invoke-direct {v0}, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;-><init>()V
@@ -1146,7 +1146,7 @@
 
     const/4 v5, 0x0
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_33
 
     sget-object v4, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -1154,20 +1154,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_31
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_1
+    :cond_31
     const/4 v4, 0x0
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_2
-    :goto_0
+    :cond_33
+    :goto_33
     const/4 v4, 0x1
 
-    :goto_1
+    :goto_34
     invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v4
@@ -1187,14 +1187,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4d
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->sni:Ljava/lang/String;
 
     iput-object v4, v1, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->server_name:Ljava/lang/String;
 
     .line 598
-    :cond_3
+    :cond_4d
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->alpn:Ljava/lang/String;
 
     const-string v6, "alpn"
@@ -1207,7 +1207,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_67
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->alpn:Ljava/lang/String;
 
@@ -1220,7 +1220,7 @@
     iput-object v4, v1, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->alpn:Ljava/util/List;
 
     .line 599
-    :cond_4
+    :cond_67
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->certificates:Ljava/lang/String;
 
     const-string v6, "certificates"
@@ -1233,14 +1233,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_7a
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->certificates:Ljava/lang/String;
 
     iput-object v4, v1, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->certificate:Ljava/lang/String;
 
     .line 600
-    :cond_5
+    :cond_7a
     const/4 v4, 0x0
 
     .local v4, "fp":Ljava/lang/Object;
@@ -1259,7 +1259,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_8
+    if-nez v6, :cond_b4
 
     .line 602
     new-instance v6, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundRealityOptions;
@@ -1302,24 +1302,24 @@
 
     check-cast v6, Ljava/lang/CharSequence;
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_af
 
     invoke-static {v6}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_b0
 
-    :cond_6
+    :cond_af
     const/4 v5, 0x1
 
-    :cond_7
-    if-eqz v5, :cond_8
+    :cond_b0
+    if-eqz v5, :cond_b4
 
     const-string v4, "chrome"
 
     .line 609
-    :cond_8
+    :cond_b4
     const-string v5, "element"
 
     invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1332,7 +1332,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_9
+    if-nez v5, :cond_d4
 
     .line 610
     new-instance v5, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundUTLSOptions;
@@ -1364,14 +1364,14 @@
     iput-object v5, v1, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->utls:Lmoe/matsuri/nb4a/SingBoxOptions$OutboundUTLSOptions;
 
     .line 615
-    :cond_9
+    :cond_d4
     iget-object v5, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->enableECH:Ljava/lang/Boolean;
 
     invoke-virtual {v5}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_108
 
     .line 616
     new-instance v5, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundECHOptions;
@@ -1404,7 +1404,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_a
+    if-nez v3, :cond_105
 
     .line 619
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->echConfig:Ljava/lang/String;
@@ -1420,7 +1420,7 @@
     iput-object v3, v6, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundECHOptions;->config:Ljava/util/List;
 
     .line 621
-    :cond_a
+    :cond_105
     nop
 
     .line 616
@@ -1429,7 +1429,7 @@
     iput-object v5, v1, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->ech:Lmoe/matsuri/nb4a/SingBoxOptions$OutboundECHOptions;
 
     .line 623
-    :cond_b
+    :cond_108
     nop
 
     .line 594
@@ -1440,7 +1440,7 @@
 .end method
 
 .method public static final isTLS(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isTLS"    # Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     const-string v0, "<this>"
@@ -1460,7 +1460,7 @@
 .end method
 
 .method private static final parseCsvVMess(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
-    .locals 14
+    .registers 15
     .param p0, "csv"    # Ljava/lang/String;
 
     .line 360
@@ -1583,12 +1583,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_5e
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_f9
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1613,16 +1613,16 @@
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_7b
 
     const-string v9, "tls"
 
     iput-object v9, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->security:Ljava/lang/String;
 
-    goto/16 :goto_2
+    goto/16 :goto_f5
 
     .line 373
-    :cond_0
+    :cond_7b
     const-string v9, "tls-host="
 
     const/4 v10, 0x0
@@ -1635,7 +1635,7 @@
 
     const-string v12, "="
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_8e
 
     invoke-static {v7, v12, v11, v2, v11}, Lkotlin/text/StringsKt;->substringAfter$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
 
@@ -1643,17 +1643,17 @@
 
     iput-object v9, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->host:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_f5
 
     .line 374
-    :cond_1
+    :cond_8e
     const-string v9, "obfs="
 
     invoke-static {v7, v9, v10, v2, v11}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_9d
 
     invoke-static {v7, v12, v11, v2, v11}, Lkotlin/text/StringsKt;->substringAfter$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
 
@@ -1661,10 +1661,10 @@
 
     iput-object v9, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->type:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_f5
 
     .line 375
-    :cond_2
+    :cond_9d
     const-string v9, "obfs-path="
 
     invoke-static {v7, v9, v10, v2, v11}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
@@ -1673,7 +1673,7 @@
 
     const-string v12, "Host:"
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_b3
 
     move-object v9, v7
 
@@ -1687,11 +1687,11 @@
 
     move-result v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_f5
 
     .line 376
-    :cond_3
-    :try_start_0
+    :cond_b3
+    :try_start_b3
     sget-object v9, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     const/4 v9, 0x0
@@ -1720,12 +1720,12 @@
 
     .line 376
     invoke-static {v9}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_ca
+    .catchall {:try_start_b3 .. :try_end_ca} :catchall_cb
 
-    goto :goto_1
+    goto :goto_d5
 
-    :catchall_0
+    :catchall_cb
     move-exception v9
 
     sget-object v10, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -1737,8 +1737,8 @@
     invoke-static {v9}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 379
-    :goto_1
-    :try_start_1
+    :goto_d5
+    :try_start_d5
     sget-object v9, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     const/4 v9, 0x0
@@ -1765,12 +1765,12 @@
 
     .line 379
     invoke-static {v9}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_ea
+    .catchall {:try_start_d5 .. :try_end_ea} :catchall_eb
 
-    goto :goto_2
+    goto :goto_f5
 
-    :catchall_1
+    :catchall_eb
     move-exception v9
 
     sget-object v10, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -1782,8 +1782,8 @@
     invoke-static {v9}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 387
-    :cond_4
-    :goto_2
+    :cond_f5
+    :goto_f5
     nop
 
     .line 689
@@ -1792,10 +1792,10 @@
     nop
 
     .end local v6    # "element$iv":Ljava/lang/Object;
-    goto/16 :goto_0
+    goto/16 :goto_5e
 
     .line 690
-    :cond_5
+    :cond_f9
     nop
 
     .line 389
@@ -1805,7 +1805,7 @@
 .end method
 
 .method public static final parseDuckSoft(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;Lokhttp3/HttpUrl;)V
-    .locals 12
+    .registers 14
     .param p0, "$this$parseDuckSoft"    # Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
     .param p1, "url"    # Lokhttp3/HttpUrl;
 
@@ -1845,7 +1845,7 @@
     .line 144
     instance-of v0, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     .line 145
     move-object v0, p0
@@ -1858,10 +1858,10 @@
 
     iput-object v1, v0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->password:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_34
 
     .line 147
-    :cond_0
+    :cond_2e
     invoke-virtual {p1}, Lokhttp3/HttpUrl;->username()Ljava/lang/String;
 
     move-result-object v0
@@ -1869,7 +1869,7 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->uuid:Ljava/lang/String;
 
     .line 151
-    :goto_0
+    :goto_34
     invoke-virtual {p1}, Lokhttp3/HttpUrl;->pathSegments()Ljava/util/List;
 
     move-result-object v0
@@ -1882,7 +1882,7 @@
 
     const/4 v2, 0x1
 
-    if-gt v0, v2, :cond_1
+    if-gt v0, v2, :cond_50
 
     invoke-virtual {p1}, Lokhttp3/HttpUrl;->pathSegments()Ljava/util/List;
 
@@ -1898,10 +1898,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_6a
 
     .line 152
-    :cond_1
+    :cond_50
     invoke-virtual {p1}, Lokhttp3/HttpUrl;->pathSegments()Ljava/util/List;
 
     move-result-object v0
@@ -1937,18 +1937,18 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     .line 155
-    :cond_2
+    :cond_6a
     const-string v0, "type"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_74
 
     const-string v0, "tcp"
 
-    :cond_3
+    :cond_74
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
     .line 156
@@ -1962,7 +1962,7 @@
 
     const-string v3, "http"
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_8e
 
     const-string v0, "headerType"
 
@@ -1974,13 +1974,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_90
 
-    :cond_4
+    :cond_8e
     iput-object v3, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
     .line 158
-    :cond_5
+    :cond_90
     const-string v0, "security"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
@@ -1994,47 +1994,47 @@
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_a7
 
     invoke-static {v0}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_a5
 
-    goto :goto_1
+    goto :goto_a7
 
-    :cond_6
+    :cond_a5
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto :goto_a8
 
-    :cond_7
-    :goto_1
+    :cond_a7
+    :goto_a7
     const/4 v0, 0x1
 
-    :goto_2
+    :goto_a8
     const-string v4, "tls"
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_b6
 
     .line 160
     instance-of v0, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_b2
 
     move-object v0, v4
 
-    goto :goto_3
+    goto :goto_b4
 
-    :cond_8
+    :cond_b2
     const-string v0, "none"
 
-    :goto_3
+    :goto_b4
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
     .line 163
-    :cond_9
+    :cond_b6
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
     .line 164
@@ -2044,7 +2044,7 @@
 
     const-string v6, "host"
 
-    if-nez v5, :cond_a
+    if-nez v5, :cond_c8
 
     const-string v5, "reality"
 
@@ -2052,10 +2052,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_14a
 
     .line 165
-    :cond_a
+    :cond_c8
     iput-object v4, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
     .line 166
@@ -2065,7 +2065,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_ef
 
     .local v0, "it":Ljava/lang/String;
     const/4 v4, 0x0
@@ -2078,7 +2078,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_c
+    if-nez v5, :cond_e6
 
     const-string v5, "true"
 
@@ -2086,20 +2086,20 @@
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_e4
 
-    goto :goto_4
+    goto :goto_e6
 
-    :cond_b
+    :cond_e4
     const/4 v5, 0x0
 
-    goto :goto_5
+    goto :goto_e7
 
-    :cond_c
-    :goto_4
+    :cond_e6
+    :goto_e6
     const/4 v5, 0x1
 
-    :goto_5
+    :goto_e7
     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v5
@@ -2115,14 +2115,14 @@
     nop
 
     .line 169
-    :cond_d
+    :cond_ef
     const-string v0, "sni"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_fc
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v4, 0x0
@@ -2140,12 +2140,12 @@
     nop
 
     .line 172
-    :cond_e
+    :cond_fc
     invoke-virtual {p1, v6}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_116
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v4, 0x0
@@ -2156,24 +2156,24 @@
 
     check-cast v5, Ljava/lang/CharSequence;
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_10f
 
     invoke-static {v5}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_110
 
-    :cond_f
+    :cond_10f
     const/4 v1, 0x1
 
-    :cond_10
-    if-eqz v1, :cond_11
+    :cond_110
+    if-eqz v1, :cond_114
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->sni:Ljava/lang/String;
 
     .line 174
-    :cond_11
+    :cond_114
     nop
 
     .line 172
@@ -2182,14 +2182,14 @@
     nop
 
     .line 175
-    :cond_12
+    :cond_116
     const-string v0, "alpn"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_123
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2207,14 +2207,14 @@
     nop
 
     .line 178
-    :cond_13
+    :cond_123
     const-string v0, "cert"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_130
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2232,14 +2232,14 @@
     nop
 
     .line 181
-    :cond_14
+    :cond_130
     const-string v0, "pbk"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_13d
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2257,14 +2257,14 @@
     nop
 
     .line 184
-    :cond_15
+    :cond_13d
     const-string v0, "sid"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_14a
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2282,10 +2282,10 @@
     nop
 
     .line 190
-    :cond_16
+    :cond_14a
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1ef
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
@@ -2293,26 +2293,26 @@
 
     const-string v4, "path"
 
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v1, :sswitch_data_25c
 
-    goto/16 :goto_6
+    goto/16 :goto_1ef
 
-    :sswitch_0
+    :sswitch_159
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_161
 
-    goto/16 :goto_6
+    goto/16 :goto_1ef
 
     .line 192
-    :cond_17
+    :cond_161
     invoke-virtual {p1, v6}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_16c
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2330,12 +2330,12 @@
     nop
 
     .line 195
-    :cond_18
+    :cond_16c
     invoke-virtual {p1, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1ef
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2350,29 +2350,29 @@
     .line 195
     .end local v0    # "it":Ljava/lang/String;
     .end local v1    # "$i$a$-let-V2RayFmtKt$parseDuckSoft$9":I
-    goto/16 :goto_6
+    goto/16 :goto_1ef
 
     .line 190
-    :sswitch_1
+    :sswitch_178
     const-string v1, "grpc"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_182
 
-    goto/16 :goto_6
+    goto/16 :goto_1ef
 
     .line 217
-    :cond_19
+    :cond_182
     const-string v0, "serviceName"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1ef
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2387,27 +2387,27 @@
     .line 217
     .end local v0    # "it":Ljava/lang/String;
     .end local v1    # "$i$a$-let-V2RayFmtKt$parseDuckSoft$13":I
-    goto :goto_6
+    goto :goto_1ef
 
     .line 190
-    :sswitch_2
+    :sswitch_18f
     const-string v1, "ws"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_198
 
-    goto :goto_6
+    goto :goto_1ef
 
     .line 201
-    :cond_1a
+    :cond_198
     invoke-virtual {p1, v6}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1a3
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2425,12 +2425,12 @@
     nop
 
     .line 204
-    :cond_1b
+    :cond_1a3
     invoke-virtual {p1, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_1ae
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2448,14 +2448,14 @@
     nop
 
     .line 207
-    :cond_1c
+    :cond_1ae
     const-string v0, "ed"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1ef
 
     .local v0, "ed":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2479,7 +2479,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_1d
+    if-eqz v3, :cond_1ce
 
     .local v3, "it":Ljava/lang/String;
     const/4 v4, 0x0
@@ -2497,33 +2497,33 @@
     nop
 
     .line 212
-    :cond_1d
+    :cond_1ce
     nop
 
     .line 207
     .end local v0    # "ed":Ljava/lang/String;
     .end local v1    # "$i$a$-let-V2RayFmtKt$parseDuckSoft$12":I
-    goto :goto_6
+    goto :goto_1ef
 
     .line 190
-    :sswitch_3
+    :sswitch_1d0
     const-string v1, "httpupgrade"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_1d9
 
-    goto :goto_6
+    goto :goto_1ef
 
     .line 223
-    :cond_1e
+    :cond_1d9
     invoke-virtual {p1, v6}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1e4
 
     .local v0, "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2541,12 +2541,12 @@
     nop
 
     .line 226
-    :cond_1f
+    :cond_1e4
     invoke-virtual {p1, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1ef
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2564,11 +2564,11 @@
     nop
 
     .line 233
-    :cond_20
-    :goto_6
+    :cond_1ef
+    :goto_1ef
     instance-of v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_209
 
     move-object v0, p0
 
@@ -2578,7 +2578,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_209
 
     .line 234
     const-string v0, "encryption"
@@ -2587,7 +2587,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_209
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2605,14 +2605,14 @@
     nop
 
     .line 239
-    :cond_21
+    :cond_209
     const-string v0, "packetEncoding"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_233
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2628,7 +2628,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_222
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -2636,17 +2636,17 @@
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->packetEncoding:Ljava/lang/Integer;
 
-    goto :goto_7
+    goto :goto_231
 
     .line 242
-    :cond_22
+    :cond_222
     const-string v2, "xudp"
 
     invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_231
 
     const/4 v2, 0x2
 
@@ -2657,8 +2657,8 @@
     iput-object v2, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->packetEncoding:Ljava/lang/Integer;
 
     .line 244
-    :cond_23
-    :goto_7
+    :cond_231
+    :goto_231
     nop
 
     .line 239
@@ -2667,14 +2667,14 @@
     nop
 
     .line 246
-    :cond_24
+    :cond_233
     const-string v0, "flow"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_24e
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2685,7 +2685,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_25
+    if-eqz v2, :cond_24c
 
     .line 248
     const-string v2, "-udp443"
@@ -2699,7 +2699,7 @@
     iput-object v2, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->encryption:Ljava/lang/String;
 
     .line 250
-    :cond_25
+    :cond_24c
     nop
 
     .line 246
@@ -2708,14 +2708,14 @@
     nop
 
     .line 252
-    :cond_26
+    :cond_24e
     const-string v0, "fp"
 
     invoke-virtual {p1, v0}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_25b
 
     .restart local v0    # "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -2733,20 +2733,20 @@
     nop
 
     .line 255
-    :cond_27
+    :cond_25b
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_25c
     .sparse-switch
-        -0x3e11976c -> :sswitch_3
-        0xedc -> :sswitch_2
-        0x308c1e -> :sswitch_1
-        0x310888 -> :sswitch_0
+        -0x3e11976c -> :sswitch_1d0
+        0xedc -> :sswitch_18f
+        0x308c1e -> :sswitch_178
+        0x310888 -> :sswitch_159
     .end sparse-switch
 .end method
 
 .method public static final parseV2Ray(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
-    .locals 18
+    .registers 19
     .param p0, "link"    # Ljava/lang/String;
 
     move-object/from16 v7, p0
@@ -2774,25 +2774,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3f
 
     .line 46
     nop
 
     .line 47
-    :try_start_0
+    :try_start_18
     invoke-static/range {p0 .. p0}, Lio/nekohasekai/sagernet/fmt/v2ray/V2RayFmtKt;->parseV2RayN(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
     move-result-object v0
 
     check-cast v0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/Exception; {:try_start_18 .. :try_end_1e} :catch_1f
 
     return-object v0
 
     .line 48
-    :catch_0
+    :catch_1f
     move-exception v0
 
     .line 49
@@ -2829,23 +2829,23 @@
 
     .line 53
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
+    :cond_3f
     nop
 
     .line 54
-    :try_start_1
+    :try_start_40
     invoke-static/range {p0 .. p0}, Lio/nekohasekai/sagernet/fmt/v2ray/V2RayFmtKt;->tryResolveVmess4Kitsunebi(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
     move-result-object v0
 
     check-cast v0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_46
+    .catch Ljava/lang/Exception; {:try_start_40 .. :try_end_46} :catch_47
 
     return-object v0
 
     .line 55
-    :catch_1
+    :catch_47
     move-exception v0
 
     .line 56
@@ -2900,7 +2900,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_7d
 
     const/4 v3, -0x1
 
@@ -2914,7 +2914,7 @@
     .end local v1    # "$this$parseV2Ray_u24lambda_u240":Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
     .end local v2    # "$i$a$-apply-V2RayFmtKt$parseV2Ray$bean$1":I
     .local v0, "bean":Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
-    :cond_1
+    :cond_7d
     sget-object v11, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
     const/4 v5, 0x4
@@ -2963,7 +2963,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_1bc
 
     .line 66
     invoke-virtual {v1}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
@@ -3038,7 +3038,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_115
 
     .line 76
     const-string v3, "tls"
@@ -3069,7 +3069,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_115
 
     .local v3, "it":Ljava/lang/String;
     const/4 v4, 0x0
@@ -3084,13 +3084,13 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_113
 
     .line 81
     iput-object v3, v0, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->sni:Ljava/lang/String;
 
     .line 83
-    :cond_2
+    :cond_113
     nop
 
     .line 79
@@ -3099,7 +3099,7 @@
     nop
 
     .line 86
-    :cond_3
+    :cond_115
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v3
@@ -3108,28 +3108,28 @@
 
     const-string v5, "path"
 
-    sparse-switch v3, :sswitch_data_0
+    sparse-switch v3, :sswitch_data_1c6
 
-    goto/16 :goto_1
+    goto/16 :goto_1bb
 
-    :sswitch_0
+    :sswitch_122
     const-string v3, "http"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_12c
 
-    goto/16 :goto_0
+    goto/16 :goto_1a4
 
     .line 98
-    :cond_4
+    :cond_12c
     invoke-virtual {v1, v5}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_137
 
     .restart local v3    # "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -3147,12 +3147,12 @@
     nop
 
     .line 101
-    :cond_5
+    :cond_137
     invoke-virtual {v1, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_1c2
 
     .restart local v3    # "it":Ljava/lang/String;
     const/4 v4, 0x0
@@ -3215,29 +3215,29 @@
     .line 101
     .end local v3    # "it":Ljava/lang/String;
     .end local v4    # "$i$a$-let-V2RayFmtKt$parseV2Ray$3":I
-    goto :goto_2
+    goto :goto_1c2
 
     .line 86
-    :sswitch_1
+    :sswitch_167
     const-string v3, "grpc"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_170
 
-    goto :goto_0
+    goto :goto_1a4
 
     .line 116
-    :cond_6
+    :cond_170
     const-string v3, "serviceName"
 
     invoke-virtual {v1, v3}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_1c2
 
     .restart local v3    # "it":Ljava/lang/String;
     const/4 v4, 0x0
@@ -3252,27 +3252,27 @@
     .line 116
     .end local v3    # "it":Ljava/lang/String;
     .end local v4    # "$i$a$-let-V2RayFmtKt$parseV2Ray$6":I
-    goto :goto_2
+    goto :goto_1c2
 
     .line 86
-    :sswitch_2
+    :sswitch_17d
     const-string v3, "ws"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_186
 
-    goto :goto_0
+    goto :goto_1a4
 
     .line 107
-    :cond_7
+    :cond_186
     invoke-virtual {v1, v5}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_191
 
     .restart local v3    # "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -3290,12 +3290,12 @@
     nop
 
     .line 110
-    :cond_8
+    :cond_191
     invoke-virtual {v1, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_1c2
 
     .restart local v3    # "it":Ljava/lang/String;
     const/4 v4, 0x0
@@ -3310,28 +3310,28 @@
     .line 110
     .end local v3    # "it":Ljava/lang/String;
     .end local v4    # "$i$a$-let-V2RayFmtKt$parseV2Ray$5":I
-    goto :goto_2
+    goto :goto_1c2
 
     .line 86
-    :sswitch_3
+    :sswitch_19c
     const-string v3, "httpupgrade"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_1a5
 
-    :goto_0
-    goto :goto_2
+    :goto_1a4
+    goto :goto_1c2
 
     .line 122
-    :cond_9
+    :cond_1a5
     invoke-virtual {v1, v5}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_1b0
 
     .restart local v3    # "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -3349,12 +3349,12 @@
     nop
 
     .line 125
-    :cond_a
+    :cond_1b0
     invoke-virtual {v1, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_1bb
 
     .restart local v3    # "it":Ljava/lang/String;
     const/4 v4, 0x0
@@ -3369,15 +3369,15 @@
     .line 125
     .end local v3    # "it":Ljava/lang/String;
     .end local v4    # "$i$a$-let-V2RayFmtKt$parseV2Ray$8":I
-    goto :goto_2
+    goto :goto_1c2
 
     .end local v2    # "protocol":Ljava/lang/String;
-    :cond_b
-    :goto_1
-    goto :goto_2
+    :cond_1bb
+    :goto_1bb
+    goto :goto_1c2
 
     .line 132
-    :cond_c
+    :cond_1bc
     move-object v2, v0
 
     check-cast v2, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
@@ -3385,25 +3385,25 @@
     invoke-static {v2, v1}, Lio/nekohasekai/sagernet/fmt/v2ray/V2RayFmtKt;->parseDuckSoft(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;Lokhttp3/HttpUrl;)V
 
     .line 135
-    :cond_d
-    :goto_2
+    :cond_1c2
+    :goto_1c2
     move-object v2, v0
 
     check-cast v2, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     return-object v2
 
-    :sswitch_data_0
+    :sswitch_data_1c6
     .sparse-switch
-        -0x3e11976c -> :sswitch_3
-        0xedc -> :sswitch_2
-        0x308c1e -> :sswitch_1
-        0x310888 -> :sswitch_0
+        -0x3e11976c -> :sswitch_19c
+        0xedc -> :sswitch_17d
+        0x308c1e -> :sswitch_167
+        0x310888 -> :sswitch_122
     .end sparse-switch
 .end method
 
 .method public static final parseV2RayN(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
-    .locals 8
+    .registers 9
     .param p0, "link"    # Ljava/lang/String;
 
     const-string v0, "link"
@@ -3441,7 +3441,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     .line 313
     invoke-static {v0}, Lio/nekohasekai/sagernet/fmt/v2ray/V2RayFmtKt;->parseCsvVMess(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
@@ -3451,7 +3451,7 @@
     return-object v1
 
     .line 315
-    :cond_0
+    :cond_24
     new-instance v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
     invoke-direct {v1}, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;-><init>()V
@@ -3482,7 +3482,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_f8
 
     .line 320
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->getPort()Ljava/lang/String;
@@ -3495,7 +3495,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_f8
 
     .line 321
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->getId()Ljava/lang/String;
@@ -3508,7 +3508,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_f8
 
     .line 322
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->getNet()Ljava/lang/String;
@@ -3521,7 +3521,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_f8
 
     .line 327
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->getPs()Ljava/lang/String;
@@ -3610,7 +3610,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_bc
 
     .line 340
     const-string v4, "http"
@@ -3619,13 +3619,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_bc
 
     .line 341
     iput-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->type:Ljava/lang/String;
 
     .line 345
-    :cond_1
+    :cond_bc
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->getTls()Ljava/lang/String;
 
     move-result-object v4
@@ -3637,7 +3637,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_d0
 
     const-string v7, "reality"
 
@@ -3645,10 +3645,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_f7
 
     .line 347
-    :cond_2
+    :cond_d0
     iput-object v6, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->security:Ljava/lang/String;
 
     .line 348
@@ -3663,26 +3663,26 @@
 
     check-cast v4, Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_e4
 
     invoke-static {v4}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_e5
 
-    :cond_3
+    :cond_e4
     const/4 v5, 0x1
 
-    :cond_4
-    if-eqz v5, :cond_5
+    :cond_e5
+    if-eqz v5, :cond_eb
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->host:Ljava/lang/String;
 
     iput-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->sni:Ljava/lang/String;
 
     .line 350
-    :cond_5
+    :cond_eb
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->getAlpn()Ljava/lang/String;
 
     move-result-object v4
@@ -3697,12 +3697,12 @@
     iput-object v4, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->utlsFingerprint:Ljava/lang/String;
 
     .line 355
-    :cond_6
+    :cond_f7
     return-object v1
 
     .line 324
     .end local v3    # "headerType":Ljava/lang/String;
-    :cond_7
+    :cond_f8
     new-instance v3, Ljava/lang/Exception;
 
     const-string v4, "invalid VmessQRCode"
@@ -3713,7 +3713,7 @@
 .end method
 
 .method public static final setTLS(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;Z)V
-    .locals 1
+    .registers 3
     .param p0, "$this$setTLS"    # Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
     .param p1, "boolean"    # Z
 
@@ -3722,16 +3722,16 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 39
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     const-string v0, "tls"
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     const-string v0, ""
 
-    :goto_0
+    :goto_c
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
     .line 40
@@ -3739,7 +3739,7 @@
 .end method
 
 .method public static final toUriVMessVLESSTrojan(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;Z)Ljava/lang/String;
-    .locals 10
+    .registers 12
     .param p0, "$this$toUriVMessVLESSTrojan"    # Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
     .param p1, "isTrojan"    # Z
 
@@ -3750,7 +3750,7 @@
     .line 433
     instance-of v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     move-object v0, p0
 
@@ -3760,7 +3760,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 434
     move-object v0, p0
@@ -3774,7 +3774,7 @@
     return-object v0
 
     .line 438
-    :cond_0
+    :cond_1a
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/NetsKt;->linkBuilder()Lokhttp3/HttpUrl$Builder;
 
     move-result-object v0
@@ -3782,7 +3782,7 @@
     .line 439
     instance-of v1, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     move-object v1, p0
 
@@ -3790,12 +3790,12 @@
 
     iget-object v1, v1, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->password:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_28
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->uuid:Ljava/lang/String;
 
-    :goto_0
+    :goto_2a
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->username(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
@@ -3850,7 +3850,7 @@
 
     const-string v3, "none"
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_74
 
     .line 445
     const-string v1, "encryption"
@@ -3866,7 +3866,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_74
 
     const-string v1, "flow"
 
@@ -3875,10 +3875,10 @@
     invoke-virtual {v0, v1, v4}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 449
-    :cond_2
+    :cond_74
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_135
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
@@ -3892,32 +3892,32 @@
 
     const-string v8, "http"
 
-    sparse-switch v4, :sswitch_data_0
+    sparse-switch v4, :sswitch_data_23a
 
-    goto/16 :goto_1
+    goto/16 :goto_135
 
-    :sswitch_0
+    :sswitch_89
     invoke-virtual {v1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_c7
 
-    goto/16 :goto_1
+    goto/16 :goto_135
 
-    :sswitch_1
+    :sswitch_91
     const-string v2, "grpc"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_9b
 
-    goto/16 :goto_1
+    goto/16 :goto_135
 
     .line 472
-    :cond_3
+    :cond_9b
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     invoke-static {v1, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -3928,7 +3928,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_135
 
     .line 473
     const-string v1, "serviceName"
@@ -3937,36 +3937,36 @@
 
     invoke-virtual {v0, v1, v2}, Lokhttp3/HttpUrl$Builder;->setQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
-    goto/16 :goto_1
+    goto/16 :goto_135
 
     .line 449
-    :sswitch_2
+    :sswitch_b1
     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_135
 
-    :sswitch_3
+    :sswitch_b6
     invoke-virtual {v1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_c7
 
-    goto/16 :goto_1
+    goto/16 :goto_135
 
-    :sswitch_4
+    :sswitch_be
     const-string v4, "httpupgrade"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_c7
 
-    goto :goto_1
+    goto :goto_135
 
     .line 452
-    :cond_4
+    :cond_c7
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->host:Ljava/lang/String;
 
     const-string v4, "host"
@@ -3979,7 +3979,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_db
 
     .line 453
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->host:Ljava/lang/String;
@@ -3987,7 +3987,7 @@
     invoke-virtual {v0, v4, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 455
-    :cond_5
+    :cond_db
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     invoke-static {v1, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -3998,7 +3998,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_ed
 
     .line 456
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
@@ -4006,14 +4006,14 @@
     invoke-virtual {v0, v7, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 458
-    :cond_6
+    :cond_ed
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
     invoke-static {v1, v6}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_11f
 
     .line 459
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->wsMaxEarlyData:Ljava/lang/Integer;
@@ -4022,7 +4022,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_8
+    if-lez v1, :cond_135
 
     .line 460
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->wsMaxEarlyData:Ljava/lang/Integer;
@@ -4048,7 +4048,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_135
 
     .line 462
     const-string v1, "eh"
@@ -4057,23 +4057,23 @@
 
     invoke-virtual {v0, v1, v2}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
-    goto :goto_1
+    goto :goto_135
 
     .line 465
-    :cond_7
+    :cond_11f
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
     invoke-static {v1, v8}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_135
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/fmt/v2ray/V2RayFmtKt;->isTLS(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;)Z
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_135
 
     .line 466
     invoke-virtual {v0, v2, v5}, Lokhttp3/HttpUrl$Builder;->setQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
@@ -4084,8 +4084,8 @@
     invoke-virtual {v0, v1, v8}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 478
-    :cond_8
-    :goto_1
+    :cond_135
+    :goto_135
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
     const-string v2, "security"
@@ -4098,7 +4098,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_1ee
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
@@ -4106,7 +4106,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_1ee
 
     .line 479
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
@@ -4123,7 +4123,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_1ee
 
     .line 482
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->sni:Ljava/lang/String;
@@ -4138,7 +4138,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_16f
 
     .line 483
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->sni:Ljava/lang/String;
@@ -4146,7 +4146,7 @@
     invoke-virtual {v0, v3, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 485
-    :cond_9
+    :cond_16f
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->alpn:Ljava/lang/String;
 
     const-string v3, "alpn"
@@ -4159,7 +4159,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_191
 
     .line 486
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->alpn:Ljava/lang/String;
@@ -4183,7 +4183,7 @@
     invoke-virtual {v0, v3, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 488
-    :cond_a
+    :cond_191
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->certificates:Ljava/lang/String;
 
     const-string v3, "certificates"
@@ -4196,7 +4196,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_1a7
 
     .line 489
     const-string v1, "cert"
@@ -4206,14 +4206,14 @@
     invoke-virtual {v0, v1, v3}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 491
-    :cond_b
+    :cond_1a7
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->allowInsecure:Ljava/lang/Boolean;
 
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_1b6
 
     .line 492
     const-string v1, "allowInsecure"
@@ -4223,7 +4223,7 @@
     invoke-virtual {v0, v1, v3}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 494
-    :cond_c
+    :cond_1b6
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->utlsFingerprint:Ljava/lang/String;
 
     const-string v3, "utlsFingerprint"
@@ -4236,7 +4236,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_1cc
 
     .line 495
     const-string v1, "fp"
@@ -4246,7 +4246,7 @@
     invoke-virtual {v0, v1, v3}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 497
-    :cond_d
+    :cond_1cc
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->realityPubKey:Ljava/lang/String;
 
     const-string v3, "realityPubKey"
@@ -4259,7 +4259,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_1ee
 
     .line 498
     const-string v1, "reality"
@@ -4281,7 +4281,7 @@
     invoke-virtual {v0, v1, v2}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 506
-    :cond_e
+    :cond_1ee
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->packetEncoding:Ljava/lang/Integer;
 
     .line 507
@@ -4289,39 +4289,39 @@
 
     const/4 v3, 0x2
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_1f6
 
-    goto :goto_2
+    goto :goto_203
 
-    :cond_f
+    :cond_1f6
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_10
+    if-ne v4, v5, :cond_203
 
     .line 508
     const-string v1, "packetaddr"
 
     invoke-virtual {v0, v2, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
-    goto :goto_3
+    goto :goto_211
 
     .line 511
-    :cond_10
-    :goto_2
-    if-nez v1, :cond_11
+    :cond_203
+    :goto_203
+    if-nez v1, :cond_206
 
-    goto :goto_3
+    goto :goto_211
 
-    :cond_11
+    :cond_206
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    if-ne v1, v3, :cond_12
+    if-ne v1, v3, :cond_211
 
     .line 512
     const-string v1, "xudp"
@@ -4329,8 +4329,8 @@
     invoke-virtual {v0, v2, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 516
-    :cond_12
-    :goto_3
+    :cond_211
+    :goto_211
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->name:Ljava/lang/String;
 
     const-string v2, "name"
@@ -4343,7 +4343,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_22c
 
     .line 517
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->name:Ljava/lang/String;
@@ -4357,17 +4357,17 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->encodedFragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 520
-    :cond_13
-    if-eqz p1, :cond_14
+    :cond_22c
+    if-eqz p1, :cond_231
 
     const-string v1, "trojan"
 
-    goto :goto_4
+    goto :goto_233
 
-    :cond_14
+    :cond_231
     const-string v1, "vless"
 
-    :goto_4
+    :goto_233
     const/4 v2, 0x0
 
     const/4 v4, 0x0
@@ -4378,18 +4378,18 @@
 
     return-object v1
 
-    :sswitch_data_0
+    :sswitch_data_23a
     .sparse-switch
-        -0x3e11976c -> :sswitch_4
-        0xedc -> :sswitch_3
-        0x1bfe1 -> :sswitch_2
-        0x308c1e -> :sswitch_1
-        0x310888 -> :sswitch_0
+        -0x3e11976c -> :sswitch_be
+        0xedc -> :sswitch_b6
+        0x1bfe1 -> :sswitch_b1
+        0x308c1e -> :sswitch_91
+        0x310888 -> :sswitch_89
     .end sparse-switch
 .end method
 
 .method public static final toV2rayN(Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;)Ljava/lang/String;
-    .locals 22
+    .registers 23
     .param p0, "$this$toV2rayN"    # Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
     move-object/from16 v0, p0
@@ -4522,7 +4522,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_84
 
     .line 408
     move-object v5, v0
@@ -4533,7 +4533,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_84
 
     .line 409
     invoke-virtual {v3, v6}, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->setType(Ljava/lang/String;)V
@@ -4544,7 +4544,7 @@
     invoke-virtual {v3, v5}, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->setNet(Ljava/lang/String;)V
 
     .line 415
-    :cond_0
+    :cond_84
     move-object v5, v0
 
     check-cast v5, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
@@ -4553,7 +4553,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_a6
 
     .line 416
     const-string v5, "tls"
@@ -4573,7 +4573,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_a6
 
     .line 418
     const-string v5, "reality"
@@ -4581,7 +4581,7 @@
     invoke-virtual {v3, v5}, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->setTls(Ljava/lang/String;)V
 
     .line 422
-    :cond_1
+    :cond_a6
     iget-object v5, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->encryption:Ljava/lang/String;
 
     invoke-virtual {v3, v5}, Lio/nekohasekai/sagernet/fmt/v2ray/VmessQRCode;->setScy(Ljava/lang/String;)V
@@ -4671,7 +4671,7 @@
 .end method
 
 .method private static final tryResolveVmess4Kitsunebi(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
-    .locals 29
+    .registers 30
     .param p0, "server"    # Ljava/lang/String;
 
     .line 262
@@ -4713,7 +4713,7 @@
     .local v1, "indexSplit":I
     const/4 v2, 0x0
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_26
 
     .line 265
     invoke-virtual {v0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -4727,7 +4727,7 @@
     move-object v0, v3
 
     .line 267
-    :cond_0
+    :cond_26
     sget-object v3, Lmoe/matsuri/nb4a/utils/NGUtil;->INSTANCE:Lmoe/matsuri/nb4a/utils/NGUtil;
 
     invoke-virtual {v3, v0}, Lmoe/matsuri/nb4a/utils/NGUtil;->decode(Ljava/lang/String;)Ljava/lang/String;
@@ -4773,7 +4773,7 @@
 
     const/4 v6, 0x2
 
-    if-ne v4, v6, :cond_e
+    if-ne v4, v6, :cond_1a4
 
     .line 273
     invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -4830,7 +4830,7 @@
 
     move-result v8
 
-    if-ne v8, v6, :cond_d
+    if-ne v8, v6, :cond_19c
 
     .line 279
     new-instance v5, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
@@ -4890,7 +4890,7 @@
     iput-object v11, v8, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->encryption:Ljava/lang/String;
 
     .line 284
-    if-ltz v1, :cond_c
+    if-ltz v1, :cond_195
 
     .line 286
     sget-object v11, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
@@ -4935,7 +4935,7 @@
 
     move-result-object v12
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_d7
 
     .line 688
     .local v12, "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2429":Ljava/lang/String;
@@ -4948,14 +4948,14 @@
     .line 288
     .end local v12    # "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2429":Ljava/lang/String;
     .end local v13    # "$i$a$-apply-V2RayFmtKt$tryResolveVmess4Kitsunebi$1$1":I
-    :cond_1
+    :cond_d7
     const-string v12, "alterId"
 
     invoke-virtual {v11, v12}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v12
 
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_ea
 
     .line 688
     .local v12, "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2430":Ljava/lang/String;
@@ -4976,14 +4976,14 @@
     .line 289
     .end local v12    # "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2430":Ljava/lang/String;
     .end local v13    # "$i$a$-apply-V2RayFmtKt$tryResolveVmess4Kitsunebi$1$2":I
-    :cond_2
+    :cond_ea
     const-string v2, "path"
 
     invoke-virtual {v11, v2}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_f5
 
     .line 688
     .local v2, "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2431":Ljava/lang/String;
@@ -4996,14 +4996,14 @@
     .line 290
     .end local v2    # "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2431":Ljava/lang/String;
     .end local v12    # "$i$a$-apply-V2RayFmtKt$tryResolveVmess4Kitsunebi$1$3":I
-    :cond_3
+    :cond_f5
     const-string v2, "tls"
 
     invoke-virtual {v11, v2}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v12
 
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_100
 
     .line 688
     .local v12, "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2432":Ljava/lang/String;
@@ -5016,7 +5016,7 @@
     .line 292
     .end local v12    # "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2432":Ljava/lang/String;
     .end local v13    # "$i$a$-apply-V2RayFmtKt$tryResolveVmess4Kitsunebi$1$4":I
-    :cond_4
+    :cond_100
     nop
 
     .line 291
@@ -5027,7 +5027,7 @@
     move-result-object v12
 
     .line 292
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_122
 
     .line 291
     nop
@@ -5047,7 +5047,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_11c
 
     const-string v6, "true"
 
@@ -5055,9 +5055,9 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_122
 
-    :cond_5
+    :cond_11c
     invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v6
@@ -5067,14 +5067,14 @@
     .line 293
     .end local v12    # "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2433":Ljava/lang/String;
     .end local v13    # "$i$a$-apply-V2RayFmtKt$tryResolveVmess4Kitsunebi$1$5":I
-    :cond_6
+    :cond_122
     const-string v6, "obfs"
 
     invoke-virtual {v11, v6}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v17
 
-    if-eqz v17, :cond_b
+    if-eqz v17, :cond_18f
 
     .local v17, "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2435":Ljava/lang/String;
     const/4 v6, 0x0
@@ -5120,7 +5120,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_189
 
     .line 296
     const-string v9, "obfsParam"
@@ -5129,7 +5129,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_184
 
     .local v9, "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2435_u24lambda_u2434":Ljava/lang/String;
     const/4 v12, 0x0
@@ -5154,7 +5154,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_178
 
     .line 298
     new-instance v0, Lorg/json/JSONObject;
@@ -5169,36 +5169,36 @@
 
     iput-object v0, v8, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->host:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_182
 
     .line 299
-    :cond_7
+    :cond_178
     iget-object v0, v8, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->security:Ljava/lang/String;
 
     invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_182
 
     .line 300
     iput-object v9, v8, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->sni:Ljava/lang/String;
 
     .line 302
-    :cond_8
-    :goto_0
+    :cond_182
+    :goto_182
     nop
 
     .end local v9    # "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2435_u24lambda_u2434":Ljava/lang/String;
     .end local v12    # "$i$a$-apply-V2RayFmtKt$tryResolveVmess4Kitsunebi$1$6$1":I
-    goto :goto_1
+    goto :goto_188
 
     .line 296
     .end local v16    # "indexSplit":I
     .end local v18    # "result":Ljava/lang/String;
     .restart local v0    # "result":Ljava/lang/String;
     .restart local v1    # "indexSplit":I
-    :cond_9
+    :cond_184
     move-object/from16 v18, v0
 
     move/from16 v16, v1
@@ -5207,15 +5207,15 @@
     .end local v1    # "indexSplit":I
     .restart local v16    # "indexSplit":I
     .restart local v18    # "result":Ljava/lang/String;
-    :goto_1
-    goto :goto_2
+    :goto_188
+    goto :goto_18d
 
     .line 295
     .end local v16    # "indexSplit":I
     .end local v18    # "result":Ljava/lang/String;
     .restart local v0    # "result":Ljava/lang/String;
     .restart local v1    # "indexSplit":I
-    :cond_a
+    :cond_189
     move-object/from16 v18, v0
 
     move/from16 v16, v1
@@ -5225,19 +5225,19 @@
     .end local v1    # "indexSplit":I
     .restart local v16    # "indexSplit":I
     .restart local v18    # "result":Ljava/lang/String;
-    :goto_2
+    :goto_18d
     nop
 
     .end local v6    # "$i$a$-apply-V2RayFmtKt$tryResolveVmess4Kitsunebi$1$6":I
     .end local v17    # "$this$tryResolveVmess4Kitsunebi_u24lambda_u2436_u24lambda_u2435":Ljava/lang/String;
-    goto :goto_3
+    goto :goto_193
 
     .line 293
     .end local v16    # "indexSplit":I
     .end local v18    # "result":Ljava/lang/String;
     .restart local v0    # "result":Ljava/lang/String;
     .restart local v1    # "indexSplit":I
-    :cond_b
+    :cond_18f
     move-object/from16 v18, v0
 
     move/from16 v16, v1
@@ -5246,11 +5246,11 @@
     .end local v1    # "indexSplit":I
     .restart local v16    # "indexSplit":I
     .restart local v18    # "result":Ljava/lang/String;
-    :goto_3
+    :goto_193
     nop
 
     .line 305
-    goto :goto_4
+    goto :goto_19b
 
     .line 284
     .end local v11    # "url":Lokhttp3/HttpUrl;
@@ -5258,7 +5258,7 @@
     .end local v18    # "result":Ljava/lang/String;
     .restart local v0    # "result":Ljava/lang/String;
     .restart local v1    # "indexSplit":I
-    :cond_c
+    :cond_195
     move-object/from16 v15, p0
 
     move-object/from16 v18, v0
@@ -5272,7 +5272,7 @@
     .end local v10    # "$i$a$-apply-V2RayFmtKt$tryResolveVmess4Kitsunebi$1":I
     .restart local v16    # "indexSplit":I
     .restart local v18    # "result":Ljava/lang/String;
-    :goto_4
+    :goto_19b
     return-object v5
 
     .line 276
@@ -5280,7 +5280,7 @@
     .end local v18    # "result":Ljava/lang/String;
     .restart local v0    # "result":Ljava/lang/String;
     .restart local v1    # "indexSplit":I
-    :cond_d
+    :cond_19c
     move-object/from16 v18, v0
 
     .end local v0    # "result":Ljava/lang/String;
@@ -5296,7 +5296,7 @@
     .end local v7    # "arr21":Ljava/util/List;
     .end local v18    # "result":Ljava/lang/String;
     .restart local v0    # "result":Ljava/lang/String;
-    :cond_e
+    :cond_1a4
     move-object/from16 v18, v0
 
     .end local v0    # "result":Ljava/lang/String;

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/ImmutableCollections$MapN;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lj$/util/ImmutableCollections$MapN;
 
     .line 939
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -65,7 +65,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 942
     .local p0, "this":Lj$/util/ImmutableCollections$MapN$1;, "Ljava/util/ImmutableCollections$MapN$1;"

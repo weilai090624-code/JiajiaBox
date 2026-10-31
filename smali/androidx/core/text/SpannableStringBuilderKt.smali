@@ -52,7 +52,7 @@
 
 # direct methods
 .method public static final backgroundColor(Landroid/text/SpannableStringBuilder;ILkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 7
+    .registers 10
     .param p0, "$this$backgroundColor"    # Landroid/text/SpannableStringBuilder;
     .param p1, "color"    # I
     .param p2, "builderAction"    # Lkotlin/jvm/functions/Function1;
@@ -115,7 +115,7 @@
 .end method
 
 .method public static final bold(Landroid/text/SpannableStringBuilder;Lkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 7
+    .registers 9
     .param p0, "$this$bold"    # Landroid/text/SpannableStringBuilder;
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -178,7 +178,7 @@
 .end method
 
 .method public static final buildSpannedString(Lkotlin/jvm/functions/Function1;)Landroid/text/SpannedString;
-    .locals 4
+    .registers 5
     .param p0, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -217,7 +217,7 @@
 .end method
 
 .method public static final color(Landroid/text/SpannableStringBuilder;ILkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 7
+    .registers 10
     .param p0, "$this$color"    # Landroid/text/SpannableStringBuilder;
     .param p1, "color"    # I
     .param p2, "builderAction"    # Lkotlin/jvm/functions/Function1;
@@ -280,7 +280,7 @@
 .end method
 
 .method public static final inSpans(Landroid/text/SpannableStringBuilder;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 4
+    .registers 7
     .param p0, "$this$inSpans"    # Landroid/text/SpannableStringBuilder;
     .param p1, "span"    # Ljava/lang/Object;
     .param p2, "builderAction"    # Lkotlin/jvm/functions/Function1;
@@ -324,7 +324,7 @@
 .end method
 
 .method public static final inSpans(Landroid/text/SpannableStringBuilder;[Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 7
+    .registers 10
     .param p0, "$this$inSpans"    # Landroid/text/SpannableStringBuilder;
     .param p1, "spans"    # [Ljava/lang/Object;
     .param p2, "builderAction"    # Lkotlin/jvm/functions/Function1;
@@ -360,8 +360,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_a
+    if-ge v3, v2, :cond_1a
 
     aget-object v4, p1, v3
 
@@ -377,15 +377,15 @@
     .end local v4    # "span":Ljava/lang/Object;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 60
-    :cond_0
+    :cond_1a
     return-object p0
 .end method
 
 .method public static final italic(Landroid/text/SpannableStringBuilder;Lkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 7
+    .registers 9
     .param p0, "$this$italic"    # Landroid/text/SpannableStringBuilder;
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -448,7 +448,7 @@
 .end method
 
 .method public static final scale(Landroid/text/SpannableStringBuilder;FLkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 7
+    .registers 10
     .param p0, "$this$scale"    # Landroid/text/SpannableStringBuilder;
     .param p1, "proportion"    # F
     .param p2, "builderAction"    # Lkotlin/jvm/functions/Function1;
@@ -511,7 +511,7 @@
 .end method
 
 .method public static final strikeThrough(Landroid/text/SpannableStringBuilder;Lkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 7
+    .registers 9
     .param p0, "$this$strikeThrough"    # Landroid/text/SpannableStringBuilder;
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -572,7 +572,7 @@
 .end method
 
 .method public static final subscript(Landroid/text/SpannableStringBuilder;Lkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 7
+    .registers 9
     .param p0, "$this$subscript"    # Landroid/text/SpannableStringBuilder;
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -633,7 +633,7 @@
 .end method
 
 .method public static final superscript(Landroid/text/SpannableStringBuilder;Lkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 7
+    .registers 9
     .param p0, "$this$superscript"    # Landroid/text/SpannableStringBuilder;
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -694,7 +694,7 @@
 .end method
 
 .method public static final underline(Landroid/text/SpannableStringBuilder;Lkotlin/jvm/functions/Function1;)Landroid/text/SpannableStringBuilder;
-    .locals 7
+    .registers 9
     .param p0, "$this$underline"    # Landroid/text/SpannableStringBuilder;
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;

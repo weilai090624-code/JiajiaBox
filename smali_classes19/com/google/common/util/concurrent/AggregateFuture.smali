@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 47
     const-class v0, Lcom/google/common/util/concurrent/AggregateFuture;
@@ -71,7 +71,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ImmutableCollection;ZZ)V
-    .locals 1
+    .registers 5
     .param p2, "allMustSucceed"    # Z
     .param p3, "collectsValues"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -113,7 +113,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/common/util/concurrent/AggregateFuture;Lcom/google/common/collect/ImmutableCollection;)Lcom/google/common/collect/ImmutableCollection;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AggregateFuture;
     .param p1, "x1"    # Lcom/google/common/collect/ImmutableCollection;
 
@@ -124,7 +124,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/util/concurrent/AggregateFuture;ILjava/util/concurrent/Future;)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AggregateFuture;
     .param p1, "x1"    # I
     .param p2, "x2"    # Ljava/util/concurrent/Future;
@@ -136,7 +136,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/util/concurrent/AggregateFuture;Lcom/google/common/collect/ImmutableCollection;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AggregateFuture;
     .param p1, "x1"    # Lcom/google/common/collect/ImmutableCollection;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method private static addCausalChain(Ljava/util/Set;Ljava/lang/Throwable;)Z
-    .locals 3
+    .registers 5
     .param p1, "param"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -166,8 +166,8 @@
 
     .line 352
     .local v0, "t":Ljava/lang/Throwable;
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_1
+    if-eqz v0, :cond_10
 
     .line 353
     invoke-interface {p0, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -176,7 +176,7 @@
 
     .line 354
     .local v1, "firstTimeSeen":Z
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
     .line 361
     const/4 v2, 0x0
@@ -185,22 +185,22 @@
 
     .line 352
     .end local v1    # "firstTimeSeen":Z
-    :cond_0
+    :cond_b
     invoke-virtual {v0}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1
 
     .line 364
-    :cond_1
+    :cond_10
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method private collectValueFromNonCancelledFuture(ILjava/util/concurrent/Future;)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -219,25 +219,25 @@
     move-result-object v0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/util/concurrent/AggregateFuture;->collectOneValue(ILjava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_7} :catch_d
+    .catchall {:try_start_0 .. :try_end_7} :catchall_8
 
-    goto :goto_0
+    goto :goto_15
 
     .line 270
-    :catchall_0
+    :catchall_8
     move-exception v0
 
     .line 271
     .local v0, "t":Ljava/lang/Throwable;
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/AggregateFuture;->handleException(Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_16
 
     .line 268
     .end local v0    # "t":Ljava/lang/Throwable;
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 269
@@ -250,16 +250,16 @@
 
     .line 272
     .end local v0    # "e":Ljava/util/concurrent/ExecutionException;
-    :goto_0
+    :goto_15
     nop
 
     .line 273
-    :goto_1
+    :goto_16
     return-void
 .end method
 
 .method private decrementCountAndMaybeComplete(Lcom/google/common/collect/ImmutableCollection;)V
-    .locals 3
+    .registers 5
     .param p1    # Lcom/google/common/collect/ImmutableCollection;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -283,33 +283,33 @@
 
     .line 280
     .local v0, "newRemaining":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_8
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     const-string v2, "Less than 0 remaining futures"
 
     invoke-static {v1, v2}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
 
     .line 281
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 282
     invoke-direct {p0, p1}, Lcom/google/common/util/concurrent/AggregateFuture;->processCompleted(Lcom/google/common/collect/ImmutableCollection;)V
 
     .line 284
-    :cond_1
+    :cond_13
     return-void
 .end method
 
 .method private handleException(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 204
@@ -319,7 +319,7 @@
     .line 206
     iget-boolean v0, p0, Lcom/google/common/util/concurrent/AggregateFuture;->allMustSucceed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 209
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/AggregateFuture;->setException(Ljava/lang/Throwable;)Z
@@ -328,7 +328,7 @@
 
     .line 210
     .local v0, "completedWithFailure":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 213
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AggregateFuture;->getOrInitSeenExceptions()Ljava/util/Set;
@@ -341,7 +341,7 @@
 
     .line 214
     .local v1, "firstTimeSeeingThisException":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 215
     invoke-static {p1}, Lcom/google/common/util/concurrent/AggregateFuture;->log(Ljava/lang/Throwable;)V
@@ -352,38 +352,38 @@
     .line 225
     .end local v0    # "completedWithFailure":Z
     .end local v1    # "firstTimeSeeingThisException":Z
-    :cond_0
+    :cond_1b
     instance-of v0, p1, Ljava/lang/Error;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 233
     invoke-static {p1}, Lcom/google/common/util/concurrent/AggregateFuture;->log(Ljava/lang/Throwable;)V
 
     .line 235
-    :cond_1
+    :cond_22
     return-void
 .end method
 
 .method private static log(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 4
     .param p0, "throwable"    # Ljava/lang/Throwable;
 
     .line 239
     instance-of v0, p0, Ljava/lang/Error;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 240
     const-string v0, "Input Future failed with Error"
 
-    goto :goto_0
+    goto :goto_9
 
     .line 241
-    :cond_0
+    :cond_7
     const-string v0, "Got more than one input Future failure. Logging failures after the first"
 
-    :goto_0
+    :goto_9
     nop
 
     .line 242
@@ -399,7 +399,7 @@
 .end method
 
 .method private processCompleted(Lcom/google/common/collect/ImmutableCollection;)V
-    .locals 4
+    .registers 6
     .param p1    # Lcom/google/common/collect/ImmutableCollection;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -417,7 +417,7 @@
     .line 290
     .local p0, "this":Lcom/google/common/util/concurrent/AggregateFuture;, "Lcom/google/common/util/concurrent/AggregateFuture<TInputT;TOutputT;>;"
     .local p1, "futuresIfNeedToCollectAtCompletion":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<+Ljava/util/concurrent/Future<+TInputT;>;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_20
 
     .line 291
     const/4 v0, 0x0
@@ -428,12 +428,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -447,24 +447,24 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1c
 
     .line 294
     invoke-direct {p0, v0, v2}, Lcom/google/common/util/concurrent/AggregateFuture;->collectValueFromNonCancelledFuture(ILjava/util/concurrent/Future;)V
 
     .line 296
-    :cond_0
+    :cond_1c
     nop
 
     .end local v2    # "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<+TInputT;>;"
     add-int/lit8 v0, v0, 0x1
 
     .line 297
-    goto :goto_0
+    goto :goto_7
 
     .line 299
     .end local v0    # "i":I
-    :cond_1
+    :cond_20
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AggregateFuture;->clearSeenExceptions()V
 
     .line 300
@@ -482,7 +482,7 @@
 
 # virtual methods
 .method final addInitialException(Ljava/util/Set;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -502,7 +502,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 256
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AggregateFuture;->tryInternalFastPathGetFailure()Ljava/lang/Throwable;
@@ -518,12 +518,12 @@
     invoke-static {p1, v0}, Lcom/google/common/util/concurrent/AggregateFuture;->addCausalChain(Ljava/util/Set;Ljava/lang/Throwable;)Z
 
     .line 258
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method protected final afterDone()V
-    .locals 4
+    .registers 5
 
     .line 76
     .local p0, "this":Lcom/google/common/util/concurrent/AggregateFuture;, "Lcom/google/common/util/concurrent/AggregateFuture<TInputT;TOutputT;>;"
@@ -543,19 +543,19 @@
 
     move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_13
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2e
 
     .line 82
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AggregateFuture;->wasInterrupted()Z
@@ -568,12 +568,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_1e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2e
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -587,11 +587,11 @@
 
     .line 85
     .end local v3    # "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
-    goto :goto_1
+    goto :goto_1e
 
     .line 91
     .end local v1    # "wasInterrupted":Z
-    :cond_1
+    :cond_2e
     return-void
 .end method
 
@@ -611,7 +611,7 @@
 .end method
 
 .method final init()V
-    .locals 6
+    .registers 7
 
     .line 116
     .local p0, "this":Lcom/google/common/util/concurrent/AggregateFuture;, "Lcom/google/common/util/concurrent/AggregateFuture<TInputT;TOutputT;>;"
@@ -626,7 +626,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 120
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AggregateFuture;->handleAllCompleted()V
@@ -635,10 +635,10 @@
     return-void
 
     .line 127
-    :cond_0
+    :cond_11
     iget-boolean v0, p0, Lcom/google/common/util/concurrent/AggregateFuture;->allMustSucceed:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_39
 
     .line 137
     const/4 v0, 0x0
@@ -651,12 +651,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_38
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -688,29 +688,29 @@
     .end local v2    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TInputT;>;"
     move v0, v3
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 165
     .end local v3    # "i":I
-    :cond_1
-    goto :goto_3
+    :cond_38
+    goto :goto_60
 
     .line 183
-    :cond_2
+    :cond_39
     iget-boolean v0, p0, Lcom/google/common/util/concurrent/AggregateFuture;->collectsValues:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_40
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/AggregateFuture;->futures:Lcom/google/common/collect/ImmutableCollection;
 
-    goto :goto_1
+    goto :goto_41
 
-    :cond_3
+    :cond_40
     const/4 v0, 0x0
 
     .line 184
     .local v0, "localFutures":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<+Ljava/util/concurrent/Future<+TInputT;>;>;"
-    :goto_1
+    :goto_41
     new-instance v1, Lcom/google/common/util/concurrent/AggregateFuture$2;
 
     invoke-direct {v1, p0, v0}, Lcom/google/common/util/concurrent/AggregateFuture$2;-><init>(Lcom/google/common/util/concurrent/AggregateFuture;Lcom/google/common/collect/ImmutableCollection;)V
@@ -723,12 +723,12 @@
 
     move-result-object v2
 
-    :goto_2
+    :goto_4c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_60
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -746,18 +746,18 @@
 
     .line 193
     .end local v3    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TInputT;>;"
-    goto :goto_2
+    goto :goto_4c
 
     .line 195
     .end local v0    # "localFutures":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<+Ljava/util/concurrent/Future<+TInputT;>;>;"
     .end local v1    # "listener":Ljava/lang/Runnable;
-    :cond_4
-    :goto_3
+    :cond_60
+    :goto_60
     return-void
 .end method
 
 .method protected final pendingToString()Ljava/lang/String;
-    .locals 4
+    .registers 5
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -767,7 +767,7 @@
 
     .line 97
     .local v0, "localFutures":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<+Ljava/util/concurrent/Future<*>;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 98
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -805,7 +805,7 @@
     return-object v1
 
     .line 100
-    :cond_0
+    :cond_26
     invoke-super {p0}, Lcom/google/common/util/concurrent/AggregateFutureState;->pendingToString()Ljava/lang/String;
 
     move-result-object v1
@@ -814,7 +814,7 @@
 .end method
 
 .method releaseResources(Lcom/google/common/util/concurrent/AggregateFuture$ReleaseResourcesReason;)V
-    .locals 1
+    .registers 3
     .param p1, "reason"    # Lcom/google/common/util/concurrent/AggregateFuture$ReleaseResourcesReason;
 
     .line 324

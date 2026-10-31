@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -63,12 +63,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_24
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -80,7 +80,7 @@
     .local v1, "callback":Landroid/hardware/camera2/CameraDevice$StateCallback;
     instance-of v2, v1, Landroidx/camera/camera2/internal/CameraDeviceStateCallbacks$NoOpDeviceStateCallback;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_23
 
     .line 90
     iget-object v2, p0, Landroidx/camera/camera2/internal/CameraDeviceStateCallbacks$ComboDeviceStateCallback;->mCallbacks:Ljava/util/List;
@@ -89,18 +89,18 @@
 
     .line 92
     .end local v1    # "callback":Landroid/hardware/camera2/CameraDevice$StateCallback;
-    :cond_0
-    goto :goto_0
+    :cond_23
+    goto :goto_e
 
     .line 93
-    :cond_1
+    :cond_24
     return-void
 .end method
 
 
 # virtual methods
 .method public onClosed(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 2
+    .registers 4
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -118,12 +118,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -137,15 +137,15 @@
 
     .line 106
     .end local v1    # "callback":Landroid/hardware/camera2/CameraDevice$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 107
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onDisconnected(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 2
+    .registers 4
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -163,12 +163,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -182,15 +182,15 @@
 
     .line 113
     .end local v1    # "callback":Landroid/hardware/camera2/CameraDevice$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 114
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onError(Landroid/hardware/camera2/CameraDevice;I)V
-    .locals 2
+    .registers 5
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .param p2, "error"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -211,12 +211,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -230,15 +230,15 @@
 
     .line 120
     .end local v1    # "callback":Landroid/hardware/camera2/CameraDevice$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 121
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onOpened(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 2
+    .registers 4
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -256,12 +256,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -275,9 +275,9 @@
 
     .line 99
     .end local v1    # "callback":Landroid/hardware/camera2/CameraDevice$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 100
-    :cond_0
+    :cond_16
     return-void
 .end method

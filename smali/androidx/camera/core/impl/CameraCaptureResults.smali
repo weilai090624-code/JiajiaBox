@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static retrieveCameraCaptureResult(Landroidx/camera/core/ImageInfo;)Landroidx/camera/core/impl/CameraCaptureResult;
-    .locals 1
+    .registers 2
     .param p0, "imageInfo"    # Landroidx/camera/core/ImageInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -29,7 +29,7 @@
     .line 37
     instance-of v0, p0, Landroidx/camera/core/internal/CameraCaptureResultImageInfo;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 38
     move-object v0, p0
@@ -43,7 +43,7 @@
     return-object v0
 
     .line 40
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     return-object v0

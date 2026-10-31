@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 45
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/Serializer;-><init>()V
@@ -39,13 +39,13 @@
 .end method
 
 .method private getCachedSerializer(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/serializers/JavaSerializer;
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 109
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->javaSerializerByType:Lcom/esotericsoftware/kryo/util/ObjectMap;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 110
     new-instance v0, Lcom/esotericsoftware/kryo/util/ObjectMap;
@@ -60,7 +60,7 @@
     return-object v0
 
     .line 113
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->javaSerializerByType:Lcom/esotericsoftware/kryo/util/ObjectMap;
 
     invoke-virtual {v0, p1}, Lcom/esotericsoftware/kryo/util/ObjectMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -73,7 +73,7 @@
 .end method
 
 .method private getJavaSerializerIfRequired(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/serializers/JavaSerializer;
-    .locals 2
+    .registers 4
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 103
@@ -83,13 +83,13 @@
 
     .line 104
     .local v0, "javaSerializer":Lcom/esotericsoftware/kryo/serializers/JavaSerializer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->isJavaSerializerRequired(Ljava/lang/Class;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     new-instance v1, Lcom/esotericsoftware/kryo/serializers/JavaSerializer;
 
@@ -98,19 +98,19 @@
     move-object v0, v1
 
     .line 105
-    :cond_0
+    :cond_12
     return-object v0
 .end method
 
 .method private getObjectInput(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;)Ljava/io/ObjectInput;
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
 
     .line 91
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->objectInput:Lcom/esotericsoftware/kryo/io/KryoObjectInput;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 92
     new-instance v0, Lcom/esotericsoftware/kryo/io/KryoObjectInput;
@@ -119,30 +119,30 @@
 
     iput-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->objectInput:Lcom/esotericsoftware/kryo/io/KryoObjectInput;
 
-    goto :goto_0
+    goto :goto_11
 
     .line 94
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->objectInput:Lcom/esotericsoftware/kryo/io/KryoObjectInput;
 
     invoke-virtual {v0, p2}, Lcom/esotericsoftware/kryo/io/KryoObjectInput;->setInput(Lcom/esotericsoftware/kryo/io/Input;)V
 
     .line 95
-    :goto_0
+    :goto_11
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->objectInput:Lcom/esotericsoftware/kryo/io/KryoObjectInput;
 
     return-object v0
 .end method
 
 .method private getObjectOutput(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;)Ljava/io/ObjectOutput;
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
 
     .line 83
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->objectOutput:Lcom/esotericsoftware/kryo/io/KryoObjectOutput;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 84
     new-instance v0, Lcom/esotericsoftware/kryo/io/KryoObjectOutput;
@@ -151,23 +151,23 @@
 
     iput-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->objectOutput:Lcom/esotericsoftware/kryo/io/KryoObjectOutput;
 
-    goto :goto_0
+    goto :goto_11
 
     .line 86
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->objectOutput:Lcom/esotericsoftware/kryo/io/KryoObjectOutput;
 
     invoke-virtual {v0, p2}, Lcom/esotericsoftware/kryo/io/KryoObjectOutput;->setOutput(Lcom/esotericsoftware/kryo/io/Output;)V
 
     .line 87
-    :goto_0
+    :goto_11
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->objectOutput:Lcom/esotericsoftware/kryo/io/KryoObjectOutput;
 
     return-object v0
 .end method
 
 .method private static hasInheritableReplaceMethod(Ljava/lang/Class;Ljava/lang/String;)Z
-    .locals 5
+    .registers 7
     .param p0, "type"    # Ljava/lang/Class;
     .param p1, "methodName"    # Ljava/lang/String;
 
@@ -180,28 +180,28 @@
 
     .line 124
     .local v1, "current":Ljava/lang/Class;
-    :goto_0
+    :goto_2
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 126
-    :try_start_0
+    :try_start_5
     new-array v3, v2, [Ljava/lang/Class;
 
     invoke-virtual {v1, p1, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_b} :catch_d
 
     move-object v0, v3
 
     .line 127
-    goto :goto_1
+    goto :goto_13
 
     .line 128
-    :catch_0
+    :catch_d
     move-exception v2
 
     .line 129
@@ -212,12 +212,12 @@
 
     .line 130
     .end local v2    # "ex":Ljava/lang/NoSuchMethodException;
-    goto :goto_0
+    goto :goto_2
 
     .line 132
-    :cond_0
-    :goto_1
-    if-eqz v0, :cond_1
+    :cond_13
+    :goto_13
+    if-eqz v0, :cond_1e
 
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
@@ -225,16 +225,16 @@
 
     const-class v4, Ljava/lang/Object;
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_1e
 
     const/4 v2, 0x1
 
-    :cond_1
+    :cond_1e
     return v2
 .end method
 
 .method private isJavaSerializerRequired(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 117
@@ -244,7 +244,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     const-string v0, "readResolve"
 
@@ -252,25 +252,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_15
     return v0
 .end method
 
 .method private readExternal(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p3, "type"    # Ljava/lang/Class;
@@ -290,15 +290,15 @@
     move-result-object v1
 
     invoke-interface {v0, v1}, Ljava/io/Externalizable;->readExternal(Ljava/io/ObjectInput;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_d} :catch_e
 
     .line 76
     return-object v0
 
     .line 77
     .end local v0    # "object":Ljava/io/Externalizable;
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 78
@@ -311,7 +311,7 @@
 .end method
 
 .method private writeExternal(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Ljava/lang/Object;
@@ -327,8 +327,8 @@
     move-result-object v1
 
     invoke-interface {v0, v1}, Ljava/io/Externalizable;->writeExternal(Ljava/io/ObjectOutput;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_a} :catch_c
 
     .line 69
     nop
@@ -337,7 +337,7 @@
     return-void
 
     .line 67
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 68
@@ -352,7 +352,7 @@
 
 # virtual methods
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p3, "type"    # Ljava/lang/Class;
@@ -364,7 +364,7 @@
 
     .line 60
     .local v0, "serializer":Lcom/esotericsoftware/kryo/serializers/JavaSerializer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-direct {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->readExternal(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
 
@@ -373,7 +373,7 @@
     return-object v1
 
     .line 61
-    :cond_0
+    :cond_b
     invoke-virtual {v0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/JavaSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
@@ -382,7 +382,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Ljava/lang/Object;
@@ -398,18 +398,18 @@
 
     .line 52
     .local v0, "serializer":Lcom/esotericsoftware/kryo/serializers/JavaSerializer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 53
     invoke-direct {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/ExternalizableSerializer;->writeExternal(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 55
-    :cond_0
+    :cond_e
     invoke-virtual {v0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/JavaSerializer;->write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
 
     .line 56
-    :goto_0
+    :goto_11
     return-void
 .end method

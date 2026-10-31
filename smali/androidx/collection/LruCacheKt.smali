@@ -53,7 +53,7 @@
 
 # direct methods
 .method public static final lruCache(ILkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function4;)Landroidx/collection/LruCache;
-    .locals 8
+    .registers 12
     .param p0, "maxSize"    # I
     .param p1, "sizeOf"    # Lkotlin/jvm/functions/Function2;
     .param p2, "create"    # Lkotlin/jvm/functions/Function1;
@@ -120,7 +120,7 @@
 .end method
 
 .method public static synthetic lruCache$default(ILkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function4;ILjava/lang/Object;)Landroidx/collection/LruCache;
-    .locals 6
+    .registers 12
     .param p0, "maxSize"    # I
     .param p1, "sizeOf"    # Lkotlin/jvm/functions/Function2;
     .param p2, "create"    # Lkotlin/jvm/functions/Function1;
@@ -128,7 +128,7 @@
 
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_9
 
     .line 38
     sget-object p5, Landroidx/collection/LruCacheKt$lruCache$1;->INSTANCE:Landroidx/collection/LruCacheKt$lruCache$1;
@@ -137,10 +137,10 @@
 
     check-cast p1, Lkotlin/jvm/functions/Function2;
 
-    :cond_0
+    :cond_9
     and-int/lit8 p5, p4, 0x4
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_12
 
     .line 40
     sget-object p5, Landroidx/collection/LruCacheKt$lruCache$2;->INSTANCE:Landroidx/collection/LruCacheKt$lruCache$2;
@@ -149,10 +149,10 @@
 
     check-cast p2, Lkotlin/jvm/functions/Function1;
 
-    :cond_1
+    :cond_12
     and-int/lit8 p4, p4, 0x8
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_1b
 
     .line 42
     sget-object p4, Landroidx/collection/LruCacheKt$lruCache$3;->INSTANCE:Landroidx/collection/LruCacheKt$lruCache$3;
@@ -161,7 +161,7 @@
 
     check-cast p3, Lkotlin/jvm/functions/Function4;
 
-    :cond_2
+    :cond_1b
     const/4 p4, 0x0
 
     .local p4, "$i$f$lruCache":I

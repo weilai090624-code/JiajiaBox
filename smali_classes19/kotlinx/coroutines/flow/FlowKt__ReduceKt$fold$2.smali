@@ -79,7 +79,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/jvm/functions/Function3;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -120,7 +120,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$2$emit$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -132,7 +132,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$2$emit$1;->label:I
 
@@ -140,14 +140,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$2$emit$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$2$emit$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$2$emit$1;-><init>(Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$2;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -161,7 +161,7 @@
     .line 44
     iget v2, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$2$emit$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_56
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -175,7 +175,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p1, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$2$emit$1;->L$0:Ljava/lang/Object;
 
     check-cast p1, Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -184,9 +184,9 @@
 
     move-object v1, v0
 
-    goto :goto_1
+    goto :goto_50
 
-    :pswitch_1
+    :pswitch_36
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v2, p0
@@ -214,19 +214,19 @@
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$fold$2;
     .end local p1    # "value":Ljava/lang/Object;
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_4e
 
     .line 44
     return-object v1
 
     .line 45
-    :cond_1
+    :cond_4e
     move-object v1, p1
 
     move-object p1, v3
 
     .line 44
-    :goto_1
+    :goto_50
     iput-object v1, p1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 46
@@ -236,15 +236,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_56
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_36
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public final emit$$forInline(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;

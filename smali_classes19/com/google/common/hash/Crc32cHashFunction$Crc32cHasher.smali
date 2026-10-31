@@ -38,33 +38,33 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 125
     const/16 v0, 0x100
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_36
 
     sput-object v1, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->BYTE_TABLE:[I
 
     .line 171
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_23a
 
     new-array v2, v0, [I
 
-    fill-array-data v2, :array_2
+    fill-array-data v2, :array_43e
 
     new-array v3, v0, [I
 
-    fill-array-data v3, :array_3
+    fill-array-data v3, :array_642
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_4
+    fill-array-data v0, :array_846
 
     const/4 v4, 0x4
 
@@ -99,7 +99,7 @@
 
     nop
 
-    :array_0
+    :array_36
     .array-data 4
         0x0
         -0xd947cfd
@@ -359,7 +359,7 @@
         -0x5282acaf
     .end array-data
 
-    :array_1
+    :array_23a
     .array-data 4
         0x0
         0x30d23865
@@ -619,7 +619,7 @@
         0x9ea433
     .end array-data
 
-    :array_2
+    :array_43e
     .array-data 4
         0x0
         0x54075546
@@ -879,7 +879,7 @@
         0x23b324e1
     .end array-data
 
-    :array_3
+    :array_642
     .array-data 4
         0x0
         0x678efd01
@@ -1139,7 +1139,7 @@
         0x1178983d
     .end array-data
 
-    :array_4
+    :array_846
     .array-data 4
         0x0
         -0xdf3f202
@@ -1401,7 +1401,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 60
     const/16 v0, 0x10
@@ -1432,7 +1432,7 @@
 .end method
 
 .method static combine(II)I
-    .locals 4
+    .registers 6
     .param p0, "csum"    # I
     .param p1, "crc"    # I
 
@@ -1443,10 +1443,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_2
     const/4 v1, 0x4
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_12
 
     .line 367
     ushr-int/lit8 v1, p0, 0x8
@@ -1462,16 +1462,16 @@
     .line 366
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 369
     .end local v0    # "i":I
-    :cond_0
+    :cond_12
     return p0
 .end method
 
 .method static computeForWord(I)I
-    .locals 3
+    .registers 4
     .param p0, "word"    # I
 
     .line 358
@@ -1531,12 +1531,12 @@
 
 # virtual methods
 .method protected makeHash()Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 2
 
     .line 117
     iget-boolean v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->finished:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 120
     sget-object v0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->EMPTY:Ljava/nio/ByteBuffer;
@@ -1544,7 +1544,7 @@
     invoke-virtual {p0, v0}, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->processRemaining(Ljava/nio/ByteBuffer;)V
 
     .line 122
-    :cond_0
+    :cond_9
     iget v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc0:I
 
     not-int v0, v0
@@ -1557,23 +1557,23 @@
 .end method
 
 .method protected process(Ljava/nio/ByteBuffer;)V
-    .locals 2
+    .registers 4
     .param p1, "bb"    # Ljava/nio/ByteBuffer;
 
     .line 84
     iget-boolean v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->finished:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_52
 
     .line 88
-    :goto_0
+    :goto_4
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v0
 
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_51
 
     .line 89
     iget v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc0:I
@@ -1655,14 +1655,14 @@
 
     iput v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc3:I
 
-    goto :goto_0
+    goto :goto_4
 
     .line 98
-    :cond_0
+    :cond_51
     return-void
 
     .line 85
-    :cond_1
+    :cond_52
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "The behavior of calling any method after calling hash() is undefined."
@@ -1673,19 +1673,19 @@
 .end method
 
 .method protected processRemaining(Ljava/nio/ByteBuffer;)V
-    .locals 4
+    .registers 6
     .param p1, "bb"    # Ljava/nio/ByteBuffer;
 
     .line 102
     iget-boolean v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->finished:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 103
     return-void
 
     .line 105
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     iget v1, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc0:I
@@ -1730,12 +1730,12 @@
     iput v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc0:I
 
     .line 109
-    :goto_0
+    :goto_2c
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     .line 110
     iget v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc0:I
@@ -1760,10 +1760,10 @@
 
     iput v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc0:I
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 112
-    :cond_1
+    :cond_47
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->finished:Z

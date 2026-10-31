@@ -15,14 +15,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 37
     const/4 v0, 0x6
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_20
 
     sput-object v0, Lcom/google/zxing/oned/UPCEReader;->MIDDLE_END_PATTERN:[I
 
@@ -31,11 +31,11 @@
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_30
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_2
+    fill-array-data v0, :array_48
 
     const/4 v2, 0x2
 
@@ -53,7 +53,7 @@
 
     return-void
 
-    :array_0
+    :array_20
     .array-data 4
         0x1
         0x1
@@ -63,7 +63,7 @@
         0x1
     .end array-data
 
-    :array_1
+    :array_30
     .array-data 4
         0x38
         0x34
@@ -77,7 +77,7 @@
         0x25
     .end array-data
 
-    :array_2
+    :array_48
     .array-data 4
         0x7
         0xb
@@ -93,7 +93,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 75
     invoke-direct {p0}, Lcom/google/zxing/oned/UPCEANReader;-><init>()V
@@ -110,7 +110,7 @@
 .end method
 
 .method public static convertUPCEtoUPCA(Ljava/lang/String;)Ljava/lang/String;
-    .locals 11
+    .registers 12
     .param p0, "upce"    # Ljava/lang/String;
 
     .line 145
@@ -166,7 +166,7 @@
 
     const/4 v10, 0x2
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_6a
 
     .line 170
     invoke-virtual {v4, v0, v3, v1}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
@@ -177,10 +177,10 @@
     .line 172
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_55
 
     .line 165
-    :pswitch_0
+    :pswitch_31
     const/4 v1, 0x4
 
     invoke-virtual {v4, v0, v3, v1}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
@@ -194,10 +194,10 @@
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 168
-    goto :goto_0
+    goto :goto_55
 
     .line 160
-    :pswitch_1
+    :pswitch_3e
     invoke-virtual {v4, v0, v3, v9}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
 
     .line 161
@@ -207,10 +207,10 @@
     invoke-virtual {v4, v0, v9, v10}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
 
     .line 163
-    goto :goto_0
+    goto :goto_55
 
     .line 154
-    :pswitch_2
+    :pswitch_48
     invoke-virtual {v4, v0, v3, v10}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
 
     .line 155
@@ -226,14 +226,14 @@
     nop
 
     .line 176
-    :goto_0
+    :goto_55
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
 
     const/16 v3, 0x8
 
-    if-lt v1, v3, :cond_0
+    if-lt v1, v3, :cond_64
 
     .line 177
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
@@ -243,7 +243,7 @@
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 179
-    :cond_0
+    :cond_64
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -252,18 +252,18 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6a
     .packed-switch 0x30
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_48
+        :pswitch_48
+        :pswitch_48
+        :pswitch_3e
+        :pswitch_31
     .end packed-switch
 .end method
 
 .method private static determineNumSysAndCheckDigit(Ljava/lang/StringBuilder;I)V
-    .locals 4
+    .registers 6
     .param p0, "resultString"    # Ljava/lang/StringBuilder;
     .param p1, "lgPatternFound"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -276,19 +276,19 @@
     const/4 v0, 0x0
 
     .local v0, "numSys":I
-    :goto_0
+    :goto_1
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_2
+    if-gt v0, v1, :cond_25
 
     .line 122
     const/4 v1, 0x0
 
     .local v1, "d":I
-    :goto_1
+    :goto_5
     const/16 v2, 0xa
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_22
 
     .line 123
     sget-object v2, Lcom/google/zxing/oned/UPCEReader;->NUMSYS_AND_CHECK_DIGIT_PATTERNS:[[I
@@ -297,7 +297,7 @@
 
     aget v2, v2, v1
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_1f
 
     .line 124
     add-int/lit8 v2, v0, 0x30
@@ -319,21 +319,21 @@
     return-void
 
     .line 122
-    :cond_0
+    :cond_1f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_5
 
     .line 121
     .end local v1    # "d":I
-    :cond_1
+    :cond_22
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 130
     .end local v0    # "numSys":I
-    :cond_2
+    :cond_25
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v0
@@ -344,7 +344,7 @@
 
 # virtual methods
 .method protected checkChecksum(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -365,7 +365,7 @@
 .end method
 
 .method protected decodeEnd(Lcom/google/zxing/common/BitArray;I)[I
-    .locals 2
+    .registers 5
     .param p1, "row"    # Lcom/google/zxing/common/BitArray;
     .param p2, "endStart"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -387,7 +387,7 @@
 .end method
 
 .method protected decodeMiddle(Lcom/google/zxing/common/BitArray;[ILjava/lang/StringBuilder;)I
-    .locals 11
+    .registers 15
     .param p1, "row"    # Lcom/google/zxing/common/BitArray;
     .param p2, "startRange"    # [I
     .param p3, "result"    # Ljava/lang/StringBuilder;
@@ -443,12 +443,12 @@
     const/4 v6, 0x0
 
     .local v6, "x":I
-    :goto_0
+    :goto_18
     const/4 v7, 0x6
 
-    if-ge v6, v7, :cond_2
+    if-ge v6, v7, :cond_41
 
-    if-ge v4, v3, :cond_2
+    if-ge v4, v3, :cond_41
 
     .line 93
     sget-object v7, Lcom/google/zxing/oned/UPCEReader;->L_AND_G_PATTERNS:[[I
@@ -472,8 +472,8 @@
 
     const/4 v9, 0x0
 
-    :goto_1
-    if-ge v9, v8, :cond_0
+    :goto_2d
+    if-ge v9, v8, :cond_35
 
     aget v10, v1, v9
 
@@ -485,13 +485,13 @@
     .end local v10    # "counter":I
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 98
-    :cond_0
+    :cond_35
     const/16 v8, 0xa
 
-    if-lt v7, v8, :cond_1
+    if-lt v7, v8, :cond_3e
 
     .line 99
     rsub-int/lit8 v8, v6, 0x5
@@ -502,14 +502,14 @@
 
     .line 92
     .end local v7    # "bestMatch":I
-    :cond_1
+    :cond_3e
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 103
     .end local v6    # "x":I
-    :cond_2
+    :cond_41
     invoke-static {p3, v5}, Lcom/google/zxing/oned/UPCEReader;->determineNumSysAndCheckDigit(Ljava/lang/StringBuilder;I)V
 
     .line 105
@@ -517,7 +517,7 @@
 .end method
 
 .method getBarcodeFormat()Lcom/google/zxing/BarcodeFormat;
-    .locals 1
+    .registers 2
 
     .line 135
     sget-object v0, Lcom/google/zxing/BarcodeFormat;->UPC_E:Lcom/google/zxing/BarcodeFormat;

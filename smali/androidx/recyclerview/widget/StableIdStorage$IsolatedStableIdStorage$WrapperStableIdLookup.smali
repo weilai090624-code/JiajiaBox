@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/StableIdStorage$IsolatedStableIdStorage;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/recyclerview/widget/StableIdStorage$IsolatedStableIdStorage;
 
     .line 92
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public localToGlobal(J)J
-    .locals 3
+    .registers 6
     .param p1, "localId"    # J
 
     .line 97
@@ -68,7 +68,7 @@
 
     .line 98
     .local v0, "globalId":Ljava/lang/Long;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 99
     iget-object v1, p0, Landroidx/recyclerview/widget/StableIdStorage$IsolatedStableIdStorage$WrapperStableIdLookup;->this$0:Landroidx/recyclerview/widget/StableIdStorage$IsolatedStableIdStorage;
@@ -87,7 +87,7 @@
     invoke-virtual {v1, p1, p2, v0}, Landroidx/collection/LongSparseArray;->put(JLjava/lang/Object;)V
 
     .line 102
-    :cond_0
+    :cond_19
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v1

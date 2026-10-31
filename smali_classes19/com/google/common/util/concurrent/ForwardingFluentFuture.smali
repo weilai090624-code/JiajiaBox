@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p1, "listener"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public cancel(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "mayInterruptIfRunning"    # Z
 
     .line 52
@@ -91,7 +91,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -154,7 +154,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingFluentFuture;, "Lcom/google/common/util/concurrent/ForwardingFluentFuture<TV;>;"
@@ -168,7 +168,7 @@
 .end method
 
 .method public isDone()Z
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingFluentFuture;, "Lcom/google/common/util/concurrent/ForwardingFluentFuture<TV;>;"
@@ -182,7 +182,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 80
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingFluentFuture;, "Lcom/google/common/util/concurrent/ForwardingFluentFuture<TV;>;"

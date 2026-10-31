@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/PreconditionsKt__AssertionsJVMKt;-><init>()V
 
@@ -52,20 +52,20 @@
 .end method
 
 .method private static final check(Z)V
-    .locals 2
+    .registers 3
     .param p0, "value"    # Z
 
     .line 80
     nop
 
     .line 83
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_4
 
     .line 84
     return-void
 
     .line 145
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 83
@@ -87,7 +87,7 @@
 .end method
 
 .method private static final check(ZLkotlin/jvm/functions/Function0;)V
-    .locals 3
+    .registers 5
     .param p0, "value"    # Z
     .param p1, "lazyMessage"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -108,13 +108,13 @@
     nop
 
     .line 96
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 100
     return-void
 
     .line 97
-    :cond_0
+    :cond_9
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0
@@ -133,7 +133,7 @@
 .end method
 
 .method private static final checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -147,12 +147,12 @@
     nop
 
     .line 113
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_4
 
     return-object p0
 
     .line 145
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 113
@@ -174,7 +174,7 @@
 .end method
 
 .method private static final checkNotNull(Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "value"    # Ljava/lang/Object;
     .param p1, "lazyMessage"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -197,13 +197,13 @@
     nop
 
     .line 128
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 132
     return-object p0
 
     .line 129
-    :cond_0
+    :cond_9
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0
@@ -222,7 +222,7 @@
 .end method
 
 .method private static final error(Ljava/lang/Object;)Ljava/lang/Void;
-    .locals 2
+    .registers 3
     .param p0, "message"    # Ljava/lang/Object;
 
     const-string v0, "message"
@@ -242,20 +242,20 @@
 .end method
 
 .method private static final require(Z)V
-    .locals 2
+    .registers 3
     .param p0, "value"    # Z
 
     .line 20
     nop
 
     .line 23
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_4
 
     .line 24
     return-void
 
     .line 145
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 23
@@ -277,7 +277,7 @@
 .end method
 
 .method private static final require(ZLkotlin/jvm/functions/Function0;)V
-    .locals 3
+    .registers 5
     .param p0, "value"    # Z
     .param p1, "lazyMessage"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -298,13 +298,13 @@
     nop
 
     .line 36
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 40
     return-void
 
     .line 37
-    :cond_0
+    :cond_9
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0
@@ -323,7 +323,7 @@
 .end method
 
 .method private static final requireNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -337,12 +337,12 @@
     nop
 
     .line 50
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_4
 
     return-object p0
 
     .line 145
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 50
@@ -364,7 +364,7 @@
 .end method
 
 .method private static final requireNotNull(Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "value"    # Ljava/lang/Object;
     .param p1, "lazyMessage"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -387,13 +387,13 @@
     nop
 
     .line 65
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 69
     return-object p0
 
     .line 66
-    :cond_0
+    :cond_9
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final whileSelect(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +57,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/selects/WhileSelectKt$whileSelect$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -69,7 +69,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/selects/WhileSelectKt$whileSelect$1;->label:I
 
@@ -77,14 +77,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/selects/WhileSelectKt$whileSelect$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/selects/WhileSelectKt$whileSelect$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/selects/WhileSelectKt$whileSelect$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -98,7 +98,7 @@
     .line 30
     iget v2, p1, Lkotlinx/coroutines/selects/WhileSelectKt$whileSelect$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_72
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -112,7 +112,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$whileSelect":I
@@ -137,13 +137,13 @@
 
     move-object v1, v0
 
-    goto :goto_2
+    goto :goto_62
 
     .end local v2    # "$i$f$select":I
     .end local v3    # "$i$a$-run-SelectKt$select$3$iv":I
     .end local v4    # "builder":Lkotlin/jvm/functions/Function1;
     .end local p0    # "$i$f$whileSelect":I
-    :pswitch_1
+    :pswitch_3c
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p0, "builder":Lkotlin/jvm/functions/Function1;
@@ -156,7 +156,7 @@
     .line 31
     .restart local v4    # "builder":Lkotlin/jvm/functions/Function1;
     .local p0, "$i$f$whileSelect":I
-    :goto_1
+    :goto_42
     const/4 v2, 0x0
 
     .line 34
@@ -191,13 +191,13 @@
     move-result-object v3
 
     .end local v3    # "$this$select_u24lambda_u241$iv":Lkotlinx/coroutines/selects/SelectImplementation;
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_5d
 
     .line 30
     return-object v1
 
     .line 41
-    :cond_1
+    :cond_5d
     move-object v7, v1
 
     move-object v1, v0
@@ -212,7 +212,7 @@
     .end local v2    # "$i$f$select":I
     .local v1, "$result":Ljava/lang/Object;
     .local v3, "$i$f$select":I
-    :goto_2
+    :goto_62
     nop
 
     .line 37
@@ -226,7 +226,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_6f
 
     .line 32
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -234,22 +234,22 @@
     return-object v0
 
     .line 37
-    :cond_2
+    :cond_6f
     move-object v0, v1
 
     move-object v1, v2
 
-    goto :goto_1
+    goto :goto_42
 
-    :pswitch_data_0
+    :pswitch_data_72
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3c
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method private static final whileSelect$$forInline(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;

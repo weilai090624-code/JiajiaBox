@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 23
+    .registers 23
 
     .line 53
     const-string v1, "kryo"
@@ -85,10 +85,10 @@
 
     .end local v2    # "tempUnsafe":Lsun/misc/Unsafe;
     .local v19, "tempUnsafe":Lsun/misc/Unsafe;
-    :try_start_0
+    :try_start_15
     sget-boolean v0, Lcom/esotericsoftware/kryo/util/Util;->isAndroid:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_86
 
     .line 65
     const-class v0, Lsun/misc/Unsafe;
@@ -113,8 +113,8 @@
     move-result-object v20
 
     check-cast v20, Lsun/misc/Unsafe;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
+    :try_end_2d
+    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_2d} :catch_92
 
     move-object/from16 v2, v20
 
@@ -125,26 +125,26 @@
 
     .end local v0    # "field":Ljava/lang/reflect/Field;
     .local v20, "field":Ljava/lang/reflect/Field;
-    :try_start_1
+    :try_start_31
     const-class v0, [B
 
     invoke-virtual {v2, v0}, Lsun/misc/Unsafe;->arrayBaseOffset(Ljava/lang/Class;)I
 
     move-result v0
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+    :try_end_37
+    .catch Ljava/lang/Exception; {:try_start_31 .. :try_end_37} :catch_82
 
     int-to-long v3, v0
 
     .line 69
-    :try_start_2
+    :try_start_38
     const-class v0, [C
 
     invoke-virtual {v2, v0}, Lsun/misc/Unsafe;->arrayBaseOffset(Ljava/lang/Class;)I
 
     move-result v0
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_3e
+    .catch Ljava/lang/Exception; {:try_start_38 .. :try_end_3e} :catch_7c
 
     move-wide/from16 v21, v3
 
@@ -155,7 +155,7 @@
     .line 70
     .end local v15    # "tempCharArrayBaseOffset":J
     .local v3, "tempCharArrayBaseOffset":J
-    :try_start_3
+    :try_start_41
     const-class v0, [S
 
     invoke-virtual {v2, v0}, Lsun/misc/Unsafe;->arrayBaseOffset(Ljava/lang/Class;)I
@@ -206,8 +206,8 @@
     invoke-virtual {v2, v0}, Lsun/misc/Unsafe;->arrayBaseOffset(Ljava/lang/Class;)I
 
     move-result v0
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_6a
+    .catch Ljava/lang/Exception; {:try_start_41 .. :try_end_6a} :catch_75
 
     move-object/from16 v19, v2
 
@@ -229,7 +229,7 @@
 
     move-wide/from16 v3, v21
 
-    goto :goto_0
+    goto :goto_91
 
     .line 79
     .end local v15    # "tempCharArrayBaseOffset":J
@@ -237,7 +237,7 @@
     .local v2, "tempUnsafe":Lsun/misc/Unsafe;
     .restart local v3    # "tempCharArrayBaseOffset":J
     .restart local v17    # "tempBooleanArrayBaseOffset":J
-    :catch_0
+    :catch_75
     move-exception v0
 
     move-object/from16 v19, v2
@@ -250,13 +250,13 @@
     .end local v3    # "tempCharArrayBaseOffset":J
     .restart local v15    # "tempCharArrayBaseOffset":J
     .restart local v19    # "tempUnsafe":Lsun/misc/Unsafe;
-    goto :goto_1
+    goto :goto_95
 
     .end local v19    # "tempUnsafe":Lsun/misc/Unsafe;
     .end local v21    # "tempByteArrayBaseOffset":J
     .restart local v2    # "tempUnsafe":Lsun/misc/Unsafe;
     .local v3, "tempByteArrayBaseOffset":J
-    :catch_1
+    :catch_7c
     move-exception v0
 
     move-object/from16 v19, v2
@@ -267,47 +267,47 @@
     .end local v3    # "tempByteArrayBaseOffset":J
     .restart local v19    # "tempUnsafe":Lsun/misc/Unsafe;
     .restart local v21    # "tempByteArrayBaseOffset":J
-    goto :goto_1
+    goto :goto_95
 
     .end local v19    # "tempUnsafe":Lsun/misc/Unsafe;
     .end local v21    # "tempByteArrayBaseOffset":J
     .restart local v2    # "tempUnsafe":Lsun/misc/Unsafe;
     .restart local v3    # "tempByteArrayBaseOffset":J
-    :catch_2
+    :catch_82
     move-exception v0
 
     move-object/from16 v19, v2
 
     .end local v2    # "tempUnsafe":Lsun/misc/Unsafe;
     .restart local v19    # "tempUnsafe":Lsun/misc/Unsafe;
-    goto :goto_1
+    goto :goto_95
 
     .line 77
-    :cond_0
-    :try_start_4
+    :cond_86
+    :try_start_86
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->DEBUG:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_8f
 
     const-string v0, "Unsafe is not available on Android."
 
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->debug(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_3
+    :try_end_8f
+    .catch Ljava/lang/Exception; {:try_start_86 .. :try_end_8f} :catch_92
 
     .line 81
-    :cond_1
+    :cond_8f
     move-object/from16 v2, v19
 
     .end local v19    # "tempUnsafe":Lsun/misc/Unsafe;
     .restart local v2    # "tempUnsafe":Lsun/misc/Unsafe;
-    :goto_0
-    goto :goto_3
+    :goto_91
+    goto :goto_a5
 
     .line 79
     .end local v2    # "tempUnsafe":Lsun/misc/Unsafe;
     .restart local v19    # "tempUnsafe":Lsun/misc/Unsafe;
-    :catch_3
+    :catch_92
     move-exception v0
 
     move-object/from16 v2, v19
@@ -316,10 +316,10 @@
     .end local v19    # "tempUnsafe":Lsun/misc/Unsafe;
     .local v0, "ex":Ljava/lang/Exception;
     .restart local v2    # "tempUnsafe":Lsun/misc/Unsafe;
-    :goto_1
+    :goto_95
     sget-boolean v19, Lcom/esotericsoftware/minlog/Log;->DEBUG:Z
 
-    if-eqz v19, :cond_2
+    if-eqz v19, :cond_a1
 
     move-object/from16 v19, v2
 
@@ -329,23 +329,23 @@
 
     invoke-static {v1, v2, v0}, Lcom/esotericsoftware/minlog/Log;->debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_2
+    goto :goto_a3
 
     .end local v19    # "tempUnsafe":Lsun/misc/Unsafe;
     .restart local v2    # "tempUnsafe":Lsun/misc/Unsafe;
-    :cond_2
+    :cond_a1
     move-object/from16 v19, v2
 
     .line 83
     .end local v0    # "ex":Ljava/lang/Exception;
     .end local v2    # "tempUnsafe":Lsun/misc/Unsafe;
     .restart local v19    # "tempUnsafe":Lsun/misc/Unsafe;
-    :goto_2
+    :goto_a3
     move-object/from16 v2, v19
 
     .end local v19    # "tempUnsafe":Lsun/misc/Unsafe;
     .restart local v2    # "tempUnsafe":Lsun/misc/Unsafe;
-    :goto_3
+    :goto_a5
     sput-wide v3, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->byteArrayBaseOffset:J
 
     .line 84
@@ -392,7 +392,7 @@
     .local v3, "buffer":Ljava/nio/ByteBuffer;
     const/4 v2, 0x0
 
-    :try_start_5
+    :try_start_bd
     invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -423,28 +423,28 @@
     const/4 v4, 0x1
 
     invoke-virtual {v0, v4}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_4
+    :try_end_d9
+    .catch Ljava/lang/Exception; {:try_start_bd .. :try_end_d9} :catch_da
 
     .line 104
-    goto :goto_4
+    goto :goto_e7
 
     .line 101
-    :catch_4
+    :catch_da
     move-exception v0
 
     .line 102
     .restart local v0    # "ex":Ljava/lang/Exception;
     sget-boolean v4, Lcom/esotericsoftware/minlog/Log;->DEBUG:Z
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_e4
 
     const-string v4, "No direct ByteBuffer constructor is available."
 
     invoke-static {v1, v4, v0}, Lcom/esotericsoftware/minlog/Log;->debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 103
-    :cond_3
+    :cond_e4
     const/4 v4, 0x0
 
     sput-object v4, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->directByteBufferConstructor:Ljava/lang/reflect/Constructor;
@@ -452,8 +452,8 @@
     .line 110
     .end local v0    # "ex":Ljava/lang/Exception;
     .end local v3    # "buffer":Ljava/nio/ByteBuffer;
-    :goto_4
-    :try_start_6
+    :goto_e7
+    :try_start_e7
     const-class v0, Lsun/nio/ch/DirectBuffer;
 
     const-string v3, "cleaner"
@@ -489,40 +489,40 @@
     move-result-object v0
 
     sput-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->cleanMethod:Ljava/lang/reflect/Method;
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_5
+    :try_end_109
+    .catch Ljava/lang/Exception; {:try_start_e7 .. :try_end_109} :catch_10a
 
     .line 116
-    goto :goto_5
+    goto :goto_117
 
     .line 113
-    :catch_5
+    :catch_10a
     move-exception v0
 
     .line 114
     .restart local v0    # "ex":Ljava/lang/Exception;
     sget-boolean v2, Lcom/esotericsoftware/minlog/Log;->DEBUG:Z
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_114
 
     const-string v2, "No direct ByteBuffer clean method is available."
 
     invoke-static {v1, v2, v0}, Lcom/esotericsoftware/minlog/Log;->debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 115
-    :cond_4
+    :cond_114
     const/4 v1, 0x0
 
     sput-object v1, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->cleanerMethod:Ljava/lang/reflect/Method;
 
     .line 117
     .end local v0    # "ex":Ljava/lang/Exception;
-    :goto_5
+    :goto_117
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -531,24 +531,24 @@
 .end method
 
 .method public static dispose(Ljava/nio/ByteBuffer;)V
-    .locals 4
+    .registers 5
     .param p0, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 140
     instance-of v0, p0, Lsun/nio/ch/DirectBuffer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 141
-    :cond_0
+    :cond_5
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->cleanerMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 143
-    :try_start_0
+    :try_start_9
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->cleanMethod:Ljava/lang/reflect/Method;
 
     sget-object v1, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->cleanerMethod:Ljava/lang/reflect/Method;
@@ -564,53 +564,53 @@
     new-array v2, v2, [Ljava/lang/Object;
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_9 .. :try_end_19} :catchall_1a
 
     .line 145
-    goto :goto_0
+    goto :goto_1b
 
     .line 144
-    :catchall_0
+    :catchall_1a
     move-exception v0
 
     .line 147
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     return-void
 .end method
 
 .method public static isNewDirectBufferAvailable()Z
-    .locals 1
+    .registers 1
 
     .line 135
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->directByteBufferConstructor:Ljava/lang/reflect/Constructor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public static newDirectBuffer(JI)Ljava/nio/ByteBuffer;
-    .locals 5
+    .registers 8
     .param p0, "address"    # J
     .param p2, "size"    # I
 
     .line 124
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->directByteBufferConstructor:Ljava/lang/reflect/Constructor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     .line 127
-    :try_start_0
+    :try_start_4
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->directByteBufferConstructor:Ljava/lang/reflect/Constructor;
 
     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -638,13 +638,13 @@
     move-result-object v0
 
     check-cast v0, Ljava/nio/ByteBuffer;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_1d} :catch_1e
 
     return-object v0
 
     .line 128
-    :catch_0
+    :catch_1e
     move-exception v0
 
     .line 129
@@ -675,7 +675,7 @@
 
     .line 125
     .end local v0    # "ex":Ljava/lang/Exception;
-    :cond_0
+    :cond_38
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "No direct ByteBuffer constructor is available."

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractIdleService$DelegateService;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/common/util/concurrent/AbstractIdleService$DelegateService;
 
     .line 57
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 61
     :try_start_0
@@ -51,14 +51,14 @@
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractIdleService$DelegateService$1;->this$1:Lcom/google/common/util/concurrent/AbstractIdleService$DelegateService;
 
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/AbstractIdleService$DelegateService;->notifyStarted()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_0 .. :try_end_c} :catchall_d
 
     .line 65
-    goto :goto_0
+    goto :goto_13
 
     .line 63
-    :catchall_0
+    :catchall_d
     move-exception v0
 
     .line 64
@@ -69,6 +69,6 @@
 
     .line 66
     .end local v0    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_13
     return-void
 .end method

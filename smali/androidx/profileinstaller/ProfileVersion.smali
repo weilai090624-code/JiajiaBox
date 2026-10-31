@@ -23,56 +23,56 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 28
     const/4 v0, 0x4
 
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_34
 
     sput-object v1, Landroidx/profileinstaller/ProfileVersion;->V015_S:[B
 
     .line 29
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_3a
 
     sput-object v1, Landroidx/profileinstaller/ProfileVersion;->V010_P:[B
 
     .line 30
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_2
+    fill-array-data v1, :array_40
 
     sput-object v1, Landroidx/profileinstaller/ProfileVersion;->V009_O_MR1:[B
 
     .line 31
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_3
+    fill-array-data v1, :array_46
 
     sput-object v1, Landroidx/profileinstaller/ProfileVersion;->V005_O:[B
 
     .line 32
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_4
+    fill-array-data v1, :array_4c
 
     sput-object v1, Landroidx/profileinstaller/ProfileVersion;->V001_N:[B
 
     .line 33
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_5
+    fill-array-data v1, :array_52
 
     sput-object v1, Landroidx/profileinstaller/ProfileVersion;->METADATA_V001_N:[B
 
     .line 34
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_6
+    fill-array-data v0, :array_58
 
     sput-object v0, Landroidx/profileinstaller/ProfileVersion;->METADATA_V002:[B
 
@@ -80,7 +80,7 @@
 
     nop
 
-    :array_0
+    :array_34
     .array-data 1
         0x30t
         0x31t
@@ -88,7 +88,7 @@
         0x0t
     .end array-data
 
-    :array_1
+    :array_3a
     .array-data 1
         0x30t
         0x31t
@@ -96,7 +96,7 @@
         0x0t
     .end array-data
 
-    :array_2
+    :array_40
     .array-data 1
         0x30t
         0x30t
@@ -104,7 +104,7 @@
         0x0t
     .end array-data
 
-    :array_3
+    :array_46
     .array-data 1
         0x30t
         0x30t
@@ -112,7 +112,7 @@
         0x0t
     .end array-data
 
-    :array_4
+    :array_4c
     .array-data 1
         0x30t
         0x30t
@@ -120,7 +120,7 @@
         0x0t
     .end array-data
 
-    :array_5
+    :array_52
     .array-data 1
         0x30t
         0x30t
@@ -128,7 +128,7 @@
         0x0t
     .end array-data
 
-    :array_6
+    :array_58
     .array-data 1
         0x30t
         0x30t
@@ -138,7 +138,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -147,7 +147,7 @@
 .end method
 
 .method static dexKeySeparator([B)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "version"    # [B
 
     .line 38
@@ -159,26 +159,26 @@
 
     const-string v1, ":"
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 39
     return-object v1
 
     .line 40
-    :cond_0
+    :cond_b
     sget-object v0, Landroidx/profileinstaller/ProfileVersion;->V005_O:[B
 
     invoke-static {p0, v0}, Ljava/util/Arrays;->equals([B[B)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 41
     return-object v1
 
     .line 43
-    :cond_1
+    :cond_14
     const-string v0, "!"
 
     return-object v0

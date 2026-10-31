@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 2490
     new-instance v0, Lj$/time/format/DateTimeFormatterBuilder$SettingsParser;
@@ -113,7 +113,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -127,7 +127,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/format/DateTimeFormatterBuilder$SettingsParser;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 2489
@@ -143,7 +143,7 @@
 .end method
 
 .method public static values()[Lj$/time/format/DateTimeFormatterBuilder$SettingsParser;
-    .locals 1
+    .registers 1
 
     .line 2489
     sget-object v0, Lj$/time/format/DateTimeFormatterBuilder$SettingsParser;->$VALUES:[Lj$/time/format/DateTimeFormatterBuilder$SettingsParser;
@@ -160,7 +160,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -171,7 +171,7 @@
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 3
+    .registers 7
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -185,54 +185,54 @@
 
     const/4 v2, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1a
 
-    goto :goto_0
+    goto :goto_19
 
     .line 2507
-    :pswitch_0
+    :pswitch_a
     invoke-virtual {p1, v1}, Lj$/time/format/DateTimeParseContext;->setStrict(Z)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 2506
-    :pswitch_1
+    :pswitch_e
     invoke-virtual {p1, v2}, Lj$/time/format/DateTimeParseContext;->setStrict(Z)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 2505
-    :pswitch_2
+    :pswitch_12
     invoke-virtual {p1, v1}, Lj$/time/format/DateTimeParseContext;->setCaseSensitive(Z)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 2504
-    :pswitch_3
+    :pswitch_16
     invoke-virtual {p1, v2}, Lj$/time/format/DateTimeParseContext;->setCaseSensitive(Z)V
 
     .line 2509
-    :goto_0
+    :goto_19
     return p3
 
-    :pswitch_data_0
+    :pswitch_data_1a
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_12
+        :pswitch_e
+        :pswitch_a
     .end packed-switch
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 2515
     invoke-virtual {p0}, Lj$/time/format/DateTimeFormatterBuilder$SettingsParser;->ordinal()I
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     .line 2521
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -244,36 +244,36 @@
     throw v0
 
     .line 2519
-    :pswitch_0
+    :pswitch_f
     const-string v0, "ParseStrict(false)"
 
     return-object v0
 
     .line 2518
-    :pswitch_1
+    :pswitch_12
     const-string v0, "ParseStrict(true)"
 
     return-object v0
 
     .line 2517
-    :pswitch_2
+    :pswitch_15
     const-string v0, "ParseCaseSensitive(false)"
 
     return-object v0
 
     .line 2516
-    :pswitch_3
+    :pswitch_18
     const-string v0, "ParseCaseSensitive(true)"
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_18
+        :pswitch_15
+        :pswitch_12
+        :pswitch_f
     .end packed-switch
 .end method

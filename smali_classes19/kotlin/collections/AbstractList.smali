@@ -91,7 +91,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/collections/AbstractList$Companion;
 
@@ -105,7 +105,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Lkotlin/collections/AbstractCollection;-><init>()V
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)V"
@@ -133,7 +133,7 @@
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -152,28 +152,28 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 65
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 66
-    :cond_0
+    :cond_4
     instance-of v0, p1, Ljava/util/List;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     const/4 v0, 0x0
 
     return v0
 
     .line 68
-    :cond_1
+    :cond_a
     sget-object v0, Lkotlin/collections/AbstractList;->Companion:Lkotlin/collections/AbstractList$Companion;
 
     move-object v1, p0
@@ -203,7 +203,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 74
     sget-object v0, Lkotlin/collections/AbstractList;->Companion:Lkotlin/collections/AbstractList$Companion;
@@ -220,7 +220,7 @@
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 7
+    .registers 9
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -246,12 +246,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_9
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_20
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -273,22 +273,22 @@
     .line 178
     .end local v5    # "it":Ljava/lang/Object;
     .end local v6    # "$i$a$-indexOfFirst-AbstractList$indexOf$1":I
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1c
 
     .line 179
-    goto :goto_1
+    goto :goto_22
 
     .line 180
-    :cond_0
+    :cond_1c
     nop
 
     .end local v4    # "item$iv":Ljava/lang/Object;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 182
-    :cond_1
+    :cond_20
     const/4 v3, -0x1
 
     const/4 v2, -0x1
@@ -297,12 +297,12 @@
     .end local v0    # "$this$indexOfFirst$iv":Ljava/util/List;
     .end local v1    # "$i$f$indexOfFirst":I
     .end local v2    # "index$iv":I
-    :goto_1
+    :goto_22
     return v2
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -322,7 +322,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 5
+    .registers 7
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -350,12 +350,12 @@
 
     .line 184
     .local v2, "iterator$iv":Ljava/util/ListIterator;
-    :cond_0
+    :cond_c
     invoke-interface {v2}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_22
 
     .line 185
     invoke-interface {v2}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -374,29 +374,29 @@
     .line 185
     .end local v3    # "it":Ljava/lang/Object;
     .end local v4    # "$i$a$-indexOfLast-AbstractList$lastIndexOf$1":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_c
 
     .line 186
     invoke-interface {v2}, Ljava/util/ListIterator;->nextIndex()I
 
     move-result v3
 
-    goto :goto_0
+    goto :goto_23
 
     .line 189
-    :cond_1
+    :cond_22
     const/4 v3, -0x1
 
     .line 29
     .end local v0    # "$this$indexOfLast$iv":Ljava/util/List;
     .end local v1    # "$i$f$indexOfLast":I
     .end local v2    # "iterator$iv":Ljava/util/ListIterator;
-    :goto_0
+    :goto_23
     return v3
 .end method
 
 .method public listIterator()Ljava/util/ListIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -418,7 +418,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -439,7 +439,7 @@
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
@@ -456,7 +456,7 @@
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)TE;"
@@ -473,7 +473,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1108
     new-instance v0, Lcom/google/common/base/CharMatcher$None;
@@ -33,7 +33,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1111
     const-string v0, "CharMatcher.none()"
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public and(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
-    .locals 0
+    .registers 2
     .param p1, "other"    # Lcom/google/common/base/CharMatcher;
 
     .line 1193
@@ -58,7 +58,7 @@
 .end method
 
 .method public collapseFrom(Ljava/lang/CharSequence;C)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "replacement"    # C
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public countIn(Ljava/lang/CharSequence;)I
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1187
@@ -84,7 +84,7 @@
 .end method
 
 .method public indexIn(Ljava/lang/CharSequence;)I
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1121
@@ -97,7 +97,7 @@
 .end method
 
 .method public indexIn(Ljava/lang/CharSequence;I)I
-    .locals 2
+    .registers 5
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
 
@@ -117,7 +117,7 @@
 .end method
 
 .method public lastIndexIn(Ljava/lang/CharSequence;)I
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1134
@@ -130,7 +130,7 @@
 .end method
 
 .method public matches(C)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
 
     .line 1116
@@ -140,7 +140,7 @@
 .end method
 
 .method public matchesAllOf(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1140
@@ -148,21 +148,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public matchesNoneOf(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1145
@@ -175,7 +175,7 @@
 .end method
 
 .method public negate()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
 
     .line 1204
     invoke-static {}, Lcom/google/common/base/CharMatcher$None;->any()Lcom/google/common/base/CharMatcher;
@@ -186,7 +186,7 @@
 .end method
 
 .method public or(Lcom/google/common/base/CharMatcher;)Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lcom/google/common/base/CharMatcher;
 
     .line 1199
@@ -200,7 +200,7 @@
 .end method
 
 .method public removeFrom(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1151
@@ -212,7 +212,7 @@
 .end method
 
 .method public replaceFrom(Ljava/lang/CharSequence;C)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "replacement"    # C
 
@@ -225,7 +225,7 @@
 .end method
 
 .method public replaceFrom(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "replacement"    # Ljava/lang/CharSequence;
 
@@ -241,7 +241,7 @@
 .end method
 
 .method public trimFrom(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1172
@@ -253,7 +253,7 @@
 .end method
 
 .method public trimLeadingFrom(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1177
@@ -265,7 +265,7 @@
 .end method
 
 .method public trimTrailingFrom(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1182

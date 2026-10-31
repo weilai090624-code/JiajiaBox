@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Maps$EntryTransformer;)V
-    .locals 0
+    .registers 2
 
     .line 1999
     iput-object p1, p0, Lcom/google/common/collect/Maps$11;->val$transformer:Lcom/google/common/collect/Maps$EntryTransformer;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public apply(Ljava/util/Map$Entry;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 

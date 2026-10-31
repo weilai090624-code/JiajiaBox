@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 288
     new-instance v0, Lcom/google/common/io/CharStreams$NullWriter;
@@ -33,7 +33,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 286
     invoke-direct {p0}, Ljava/io/Writer;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method static synthetic access$000()Lcom/google/common/io/CharStreams$NullWriter;
-    .locals 1
+    .registers 1
 
     .line 286
     sget-object v0, Lcom/google/common/io/CharStreams$NullWriter;->INSTANCE:Lcom/google/common/io/CharStreams$NullWriter;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public append(C)Ljava/io/Writer;
-    .locals 0
+    .registers 2
     .param p1, "c"    # C
 
     .line 326
@@ -61,7 +61,7 @@
 .end method
 
 .method public append(Ljava/lang/CharSequence;)Ljava/io/Writer;
-    .locals 0
+    .registers 2
     .param p1, "csq"    # Ljava/lang/CharSequence;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -72,7 +72,7 @@
 .end method
 
 .method public append(Ljava/lang/CharSequence;II)Ljava/io/Writer;
-    .locals 1
+    .registers 5
     .param p1, "csq"    # Ljava/lang/CharSequence;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -81,7 +81,7 @@
     .param p3, "end"    # I
 
     .line 320
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     const-string v0, "null"
 
@@ -89,14 +89,14 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_9
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    :goto_0
+    :goto_d
     invoke-static {p2, p3, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
 
     .line 321
@@ -104,7 +104,7 @@
 .end method
 
 .method public bridge synthetic append(C)Ljava/lang/Appendable;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -120,7 +120,7 @@
 .end method
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/CharSequence;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
-    .locals 0
+    .registers 4
     .param p1    # Ljava/lang/CharSequence;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -160,21 +160,21 @@
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
 
     .line 333
     return-void
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
 
     .line 330
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 337
     const-string v0, "CharStreams.nullWriter()"
@@ -183,7 +183,7 @@
 .end method
 
 .method public write(I)V
-    .locals 0
+    .registers 2
     .param p1, "c"    # I
 
     .line 291
@@ -191,7 +191,7 @@
 .end method
 
 .method public write(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "str"    # Ljava/lang/String;
 
     .line 305
@@ -202,7 +202,7 @@
 .end method
 
 .method public write(Ljava/lang/String;II)V
-    .locals 2
+    .registers 6
     .param p1, "str"    # Ljava/lang/String;
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -221,7 +221,7 @@
 .end method
 
 .method public write([C)V
-    .locals 0
+    .registers 2
     .param p1, "cbuf"    # [C
 
     .line 295
@@ -232,7 +232,7 @@
 .end method
 
 .method public write([CII)V
-    .locals 2
+    .registers 6
     .param p1, "cbuf"    # [C
     .param p2, "off"    # I
     .param p3, "len"    # I

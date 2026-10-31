@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 17
+    .registers 17
 
     .line 221
     new-instance v8, Lj$/time/temporal/JulianFields$Field;
@@ -146,7 +146,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;Lj$/time/temporal/TemporalUnit;Lj$/time/temporal/TemporalUnit;J)V
-    .locals 2
+    .registers 10
     .param p3, "name"    # Ljava/lang/String;
     .param p4, "baseUnit"    # Lj$/time/temporal/TemporalUnit;
     .param p5, "rangeUnit"    # Lj$/time/temporal/TemporalUnit;
@@ -196,7 +196,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/temporal/JulianFields$Field;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 220
@@ -212,7 +212,7 @@
 .end method
 
 .method public static values()[Lj$/time/temporal/JulianFields$Field;
-    .locals 1
+    .registers 1
 
     .line 220
     sget-object v0, Lj$/time/temporal/JulianFields$Field;->$VALUES:[Lj$/time/temporal/JulianFields$Field;
@@ -229,7 +229,7 @@
 
 # virtual methods
 .method public adjustInto(Lj$/time/temporal/Temporal;J)Lj$/time/temporal/Temporal;
-    .locals 4
+    .registers 8
     .param p2, "newValue"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -249,7 +249,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 292
     sget-object v0, Lj$/time/temporal/ChronoField;->EPOCH_DAY:Lj$/time/temporal/ChronoField;
@@ -267,7 +267,7 @@
     return-object v0
 
     .line 290
-    :cond_0
+    :cond_17
     new-instance v0, Lj$/time/DateTimeException;
 
     iget-object v1, p0, Lj$/time/temporal/JulianFields$Field;->name:Ljava/lang/String;
@@ -306,7 +306,7 @@
 .end method
 
 .method public getBaseUnit()Lj$/time/temporal/TemporalUnit;
-    .locals 1
+    .registers 2
 
     .line 244
     iget-object v0, p0, Lj$/time/temporal/JulianFields$Field;->baseUnit:Lj$/time/temporal/TemporalUnit;
@@ -315,7 +315,7 @@
 .end method
 
 .method public synthetic getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalField$-CC;->$default$getDisplayName(Lj$/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/String;
 
@@ -325,7 +325,7 @@
 .end method
 
 .method public getFrom(Lj$/time/temporal/TemporalAccessor;)J
-    .locals 4
+    .registers 6
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 283
@@ -343,7 +343,7 @@
 .end method
 
 .method public getRangeUnit()Lj$/time/temporal/TemporalUnit;
-    .locals 1
+    .registers 2
 
     .line 249
     iget-object v0, p0, Lj$/time/temporal/JulianFields$Field;->rangeUnit:Lj$/time/temporal/TemporalUnit;
@@ -352,7 +352,7 @@
 .end method
 
 .method public isDateBased()Z
-    .locals 1
+    .registers 2
 
     .line 254
     const/4 v0, 0x1
@@ -361,7 +361,7 @@
 .end method
 
 .method public isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 270
@@ -375,7 +375,7 @@
 .end method
 
 .method public isTimeBased()Z
-    .locals 1
+    .registers 2
 
     .line 259
     const/4 v0, 0x0
@@ -384,7 +384,7 @@
 .end method
 
 .method public range()Lj$/time/temporal/ValueRange;
-    .locals 1
+    .registers 2
 
     .line 264
     iget-object v0, p0, Lj$/time/temporal/JulianFields$Field;->range:Lj$/time/temporal/ValueRange;
@@ -393,7 +393,7 @@
 .end method
 
 .method public rangeRefinedBy(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
-    .locals 3
+    .registers 5
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 275
@@ -401,7 +401,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 278
     invoke-virtual {p0}, Lj$/time/temporal/JulianFields$Field;->range()Lj$/time/temporal/ValueRange;
@@ -411,7 +411,7 @@
     return-object v0
 
     .line 276
-    :cond_0
+    :cond_b
     new-instance v0, Lj$/time/DateTimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -438,7 +438,7 @@
 .end method
 
 .method public resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 5
+    .registers 9
     .param p2, "partialTemporal"    # Lj$/time/temporal/TemporalAccessor;
     .param p3, "resolverStyle"    # Lj$/time/format/ResolverStyle;
     .annotation system Ldalvik/annotation/Signature;
@@ -477,7 +477,7 @@
     .local v2, "chrono":Lj$/time/chrono/Chronology;
     sget-object v3, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-ne p3, v3, :cond_0
+    if-ne p3, v3, :cond_1d
 
     .line 302
     iget-wide v3, p0, Lj$/time/temporal/JulianFields$Field;->offset:J
@@ -493,7 +493,7 @@
     return-object v3
 
     .line 304
-    :cond_0
+    :cond_1d
     invoke-virtual {p0}, Lj$/time/temporal/JulianFields$Field;->range()Lj$/time/temporal/ValueRange;
 
     move-result-object v3
@@ -513,7 +513,7 @@
 .end method
 
 .method public bridge synthetic resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/temporal/TemporalAccessor;
-    .locals 0
+    .registers 4
 
     .line 220
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/temporal/JulianFields$Field;->resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
@@ -524,7 +524,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 311
     iget-object v0, p0, Lj$/time/temporal/JulianFields$Field;->name:Ljava/lang/String;

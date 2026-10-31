@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 151
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic run()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 151
     invoke-virtual {p0}, Lj$/sun/security/action/GetPropertyAction$1;->run()Ljava/util/Properties;
@@ -50,7 +50,7 @@
 .end method
 
 .method public run()Ljava/util/Properties;
-    .locals 1
+    .registers 2
 
     .line 153
     invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;

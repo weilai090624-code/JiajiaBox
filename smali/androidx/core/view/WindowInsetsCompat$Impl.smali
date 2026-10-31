@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 747
     new-instance v0, Landroidx/core/view/WindowInsetsCompat$Builder;
@@ -58,7 +58,7 @@
 .end method
 
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "host"    # Landroidx/core/view/WindowInsetsCompat;
 
     .line 755
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method consumeDisplayCutout()Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 2
 
     .line 784
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl;->mHost:Landroidx/core/view/WindowInsetsCompat;
@@ -83,7 +83,7 @@
 .end method
 
 .method consumeStableInsets()Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 2
 
     .line 774
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl;->mHost:Landroidx/core/view/WindowInsetsCompat;
@@ -92,7 +92,7 @@
 .end method
 
 .method consumeSystemWindowInsets()Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 2
 
     .line 769
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl;->mHost:Landroidx/core/view/WindowInsetsCompat;
@@ -101,7 +101,7 @@
 .end method
 
 .method copyRootViewBounds(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "rootView"    # Landroid/view/View;
 
     .line 864
@@ -109,7 +109,7 @@
 .end method
 
 .method copyWindowDataInto(Landroidx/core/view/WindowInsetsCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "other"    # Landroidx/core/view/WindowInsetsCompat;
 
     .line 867
@@ -117,28 +117,28 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 840
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 841
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/core/view/WindowInsetsCompat$Impl;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 842
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Landroidx/core/view/WindowInsetsCompat$Impl;
@@ -153,7 +153,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_4c
 
     .line 844
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$Impl;->isConsumed()Z
@@ -164,7 +164,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_4c
 
     .line 845
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$Impl;->getSystemWindowInsets()Landroidx/core/graphics/Insets;
@@ -179,7 +179,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4c
 
     .line 846
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$Impl;->getStableInsets()Landroidx/core/graphics/Insets;
@@ -194,7 +194,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4c
 
     .line 847
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$Impl;->getDisplayCutout()Landroidx/core/view/DisplayCutoutCompat;
@@ -209,20 +209,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4c
 
-    goto :goto_0
+    goto :goto_4d
 
-    :cond_2
+    :cond_4c
     const/4 v0, 0x0
 
     .line 843
-    :goto_0
+    :goto_4d
     return v0
 .end method
 
 .method getDisplayCutout()Landroidx/core/view/DisplayCutoutCompat;
-    .locals 1
+    .registers 2
 
     .line 779
     const/4 v0, 0x0
@@ -231,7 +231,7 @@
 .end method
 
 .method getInsets(I)Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 3
     .param p1, "typeMask"    # I
 
     .line 822
@@ -241,13 +241,13 @@
 .end method
 
 .method getInsetsIgnoringVisibility(I)Landroidx/core/graphics/Insets;
-    .locals 2
+    .registers 4
     .param p1, "typeMask"    # I
 
     .line 827
     and-int/lit8 v0, p1, 0x8
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 830
     sget-object v0, Landroidx/core/graphics/Insets;->NONE:Landroidx/core/graphics/Insets;
@@ -255,7 +255,7 @@
     return-object v0
 
     .line 828
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Unable to query the maximum insets for IME"
@@ -266,7 +266,7 @@
 .end method
 
 .method getMandatorySystemGestureInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 806
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$Impl;->getSystemWindowInsets()Landroidx/core/graphics/Insets;
@@ -277,7 +277,7 @@
 .end method
 
 .method getStableInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 794
     sget-object v0, Landroidx/core/graphics/Insets;->NONE:Landroidx/core/graphics/Insets;
@@ -286,7 +286,7 @@
 .end method
 
 .method getSystemGestureInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 800
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$Impl;->getSystemWindowInsets()Landroidx/core/graphics/Insets;
@@ -297,7 +297,7 @@
 .end method
 
 .method getSystemWindowInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 789
     sget-object v0, Landroidx/core/graphics/Insets;->NONE:Landroidx/core/graphics/Insets;
@@ -306,7 +306,7 @@
 .end method
 
 .method getTappableElementInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 812
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$Impl;->getSystemWindowInsets()Landroidx/core/graphics/Insets;
@@ -317,7 +317,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 7
+    .registers 8
 
     .line 853
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$Impl;->isRound()Z
@@ -382,7 +382,7 @@
 .end method
 
 .method inset(IIII)Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 6
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -395,7 +395,7 @@
 .end method
 
 .method isConsumed()Z
-    .locals 1
+    .registers 2
 
     .line 764
     const/4 v0, 0x0
@@ -404,7 +404,7 @@
 .end method
 
 .method isRound()Z
-    .locals 1
+    .registers 2
 
     .line 760
     const/4 v0, 0x0
@@ -413,7 +413,7 @@
 .end method
 
 .method isVisible(I)Z
-    .locals 1
+    .registers 3
     .param p1, "typeMask"    # I
 
     .line 834
@@ -423,7 +423,7 @@
 .end method
 
 .method public setOverriddenInsets([Landroidx/core/graphics/Insets;)V
-    .locals 0
+    .registers 2
     .param p1, "insetsTypeMask"    # [Landroidx/core/graphics/Insets;
 
     .line 870
@@ -431,7 +431,7 @@
 .end method
 
 .method setRootViewData(Landroidx/core/graphics/Insets;)V
-    .locals 0
+    .registers 2
     .param p1, "visibleInsets"    # Landroidx/core/graphics/Insets;
 
     .line 861
@@ -439,7 +439,7 @@
 .end method
 
 .method setRootWindowInsets(Landroidx/core/view/WindowInsetsCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "rootWindowInsets"    # Landroidx/core/view/WindowInsetsCompat;
 
     .line 858
@@ -447,7 +447,7 @@
 .end method
 
 .method public setStableInsets(Landroidx/core/graphics/Insets;)V
-    .locals 0
+    .registers 2
     .param p1, "stableInsets"    # Landroidx/core/graphics/Insets;
 
     .line 873

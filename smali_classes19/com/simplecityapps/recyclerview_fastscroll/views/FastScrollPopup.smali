@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/Resources;Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;)V
-    .locals 2
+    .registers 5
     .param p1, "resources"    # Landroid/content/res/Resources;
     .param p2, "recyclerView"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
@@ -160,7 +160,7 @@
 .end method
 
 .method private createRadii()[F
-    .locals 16
+    .registers 17
 
     .line 155
     move-object/from16 v0, p0
@@ -181,7 +181,7 @@
 
     const/4 v10, 0x1
 
-    if-ne v1, v10, :cond_0
+    if-ne v1, v10, :cond_3b
 
     .line 156
     iget v1, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mCornerRadius:I
@@ -241,7 +241,7 @@
     return-object v9
 
     .line 159
-    :cond_0
+    :cond_3b
     iget-object v1, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mRes:Landroid/content/res/Resources;
 
     invoke-static {v1}, Lcom/simplecityapps/recyclerview_fastscroll/utils/Utils;->isRtl(Landroid/content/res/Resources;)Z
@@ -250,7 +250,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_6b
 
     .line 160
     iget v1, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mCornerRadius:I
@@ -302,7 +302,7 @@
     return-object v9
 
     .line 162
-    :cond_1
+    :cond_6b
     iget v1, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mCornerRadius:I
 
     int-to-float v1, v1
@@ -355,13 +355,13 @@
 
 # virtual methods
 .method public animateVisibility(Z)V
-    .locals 3
+    .registers 5
     .param p1, "visible"    # Z
 
     .line 113
     iget-boolean v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mVisible:Z
 
-    if-eq v0, p1, :cond_3
+    if-eq v0, p1, :cond_37
 
     .line 114
     iput-boolean p1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mVisible:Z
@@ -369,7 +369,7 @@
     .line 115
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mAlphaAnimator:Landroid/animation/ObjectAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 116
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mAlphaAnimator:Landroid/animation/ObjectAnimator;
@@ -377,17 +377,17 @@
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
 
     .line 118
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_f
+    if-eqz p1, :cond_14
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     const/4 v1, 0x1
 
     new-array v1, v1, [F
@@ -407,31 +407,32 @@
     .line 119
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mAlphaAnimator:Landroid/animation/ObjectAnimator;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2a
 
     const-wide/16 v1, 0xc8
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_2
+    :cond_2a
     const-wide/16 v1, 0x96
 
-    :goto_1
+    :goto_2c
     invoke-virtual {v0, v1, v2}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
     .line 120
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mAlphaAnimator:Landroid/animation/ObjectAnimator;
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
 
     .line 122
-    :cond_3
+    :cond_37
     return-void
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 7
+    .registers 9
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 167
@@ -439,7 +440,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_a6
 
     .line 169
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -501,7 +502,7 @@
 
     const/high16 v4, 0x40000000    # 2.0f
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_50
 
     .line 180
     iget-object v2, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mTextPaint:Landroid/graphics/Paint;
@@ -533,11 +534,11 @@
     .line 182
     .end local v2    # "fontMetrics":Landroid/graphics/Paint$FontMetrics;
     .local v3, "baselinePosition":F
-    goto :goto_0
+    goto :goto_60
 
     .line 183
     .end local v3    # "baselinePosition":F
-    :cond_0
+    :cond_50
     iget-object v2, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBgBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
@@ -558,7 +559,7 @@
 
     .line 186
     .restart local v3    # "baselinePosition":F
-    :goto_0
+    :goto_60
     iget-object v2, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBackgroundPath:Landroid/graphics/Path;
 
     iget-object v5, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBackgroundRect:Landroid/graphics/RectF;
@@ -640,12 +641,12 @@
     .end local v0    # "restoreCount":I
     .end local v1    # "radii":[F
     .end local v3    # "baselinePosition":F
-    :cond_1
+    :cond_a6
     return-void
 .end method
 
 .method public getAlpha()F
-    .locals 1
+    .registers 2
 
     .line 133
     iget v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mAlpha:F
@@ -654,7 +655,7 @@
 .end method
 
 .method public getPopupPosition()I
-    .locals 1
+    .registers 2
 
     .line 151
     iget v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mPosition:I
@@ -663,7 +664,7 @@
 .end method
 
 .method public getPopupTextVerticalAlignmentMode()I
-    .locals 1
+    .registers 2
 
     .line 142
     iget v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mTextVerticalAlignmentMode:I
@@ -672,7 +673,7 @@
 .end method
 
 .method public isVisible()Z
-    .locals 2
+    .registers 3
 
     .line 250
     iget v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mAlpha:F
@@ -681,7 +682,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_11
 
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mSectionName:Ljava/lang/String;
 
@@ -689,21 +690,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     return v0
 .end method
 
 .method public setAlpha(F)V
-    .locals 2
+    .registers 4
     .param p1, "alpha"    # F
 
     .line 127
@@ -721,7 +722,7 @@
 .end method
 
 .method public setBackgroundSize(I)V
-    .locals 2
+    .registers 4
     .param p1, "size"    # I
 
     .line 99
@@ -746,7 +747,7 @@
 .end method
 
 .method public setBgColor(I)V
-    .locals 2
+    .registers 4
     .param p1, "color"    # I
 
     .line 83
@@ -769,7 +770,7 @@
 .end method
 
 .method public setPopupPosition(I)V
-    .locals 0
+    .registers 2
     .param p1, "position"    # I
 
     .line 146
@@ -780,7 +781,7 @@
 .end method
 
 .method public setPopupTextVerticalAlignmentMode(I)V
-    .locals 0
+    .registers 2
     .param p1, "mode"    # I
 
     .line 137
@@ -791,7 +792,7 @@
 .end method
 
 .method public setSectionName(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p1, "sectionName"    # Ljava/lang/String;
 
     .line 202
@@ -801,7 +802,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_27
 
     .line 203
     iput-object p1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mSectionName:Ljava/lang/String;
@@ -841,12 +842,12 @@
     iput v1, v0, Landroid/graphics/Rect;->right:I
 
     .line 208
-    :cond_0
+    :cond_27
     return-void
 .end method
 
 .method public setTextColor(I)V
-    .locals 2
+    .registers 4
     .param p1, "color"    # I
 
     .line 89
@@ -866,7 +867,7 @@
 .end method
 
 .method public setTextSize(I)V
-    .locals 2
+    .registers 4
     .param p1, "size"    # I
 
     .line 94
@@ -888,7 +889,7 @@
 .end method
 
 .method public setTypeface(Landroid/graphics/Typeface;)V
-    .locals 2
+    .registers 4
     .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .line 105
@@ -908,7 +909,7 @@
 .end method
 
 .method public updateFastScrollerBounds(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;I)Landroid/graphics/Rect;
-    .locals 9
+    .registers 12
     .param p1, "recyclerView"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
     .param p2, "thumbOffsetY"    # I
 
@@ -924,7 +925,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_ce
 
     .line 220
     invoke-virtual {p1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getScrollBarWidth()I
@@ -983,7 +984,7 @@
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_5a
 
     .line 225
     iget-object v4, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBgBounds:Landroid/graphics/Rect;
@@ -1022,17 +1023,17 @@
 
     iput v5, v4, Landroid/graphics/Rect;->top:I
 
-    goto :goto_1
+    goto :goto_c4
 
     .line 229
-    :cond_0
+    :cond_5a
     iget-object v4, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mRes:Landroid/content/res/Resources;
 
     invoke-static {v4}, Lcom/simplecityapps/recyclerview_fastscroll/utils/Utils;->isRtl(Landroid/content/res/Resources;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_76
 
     .line 230
     iget-object v4, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBgBounds:Landroid/graphics/Rect;
@@ -1056,10 +1057,10 @@
 
     iput v5, v4, Landroid/graphics/Rect;->right:I
 
-    goto :goto_0
+    goto :goto_8e
 
     .line 233
-    :cond_1
+    :cond_76
     iget-object v4, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBgBounds:Landroid/graphics/Rect;
 
     invoke-virtual {p1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getWidth()I
@@ -1088,7 +1089,7 @@
     iput v5, v4, Landroid/graphics/Rect;->left:I
 
     .line 236
-    :goto_0
+    :goto_8e
     iget-object v4, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBgBounds:Landroid/graphics/Rect;
 
     invoke-virtual {p1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getPaddingTop()I
@@ -1153,7 +1154,7 @@
     iput v5, v4, Landroid/graphics/Rect;->top:I
 
     .line 239
-    :goto_1
+    :goto_c4
     iget-object v4, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBgBounds:Landroid/graphics/Rect;
 
     iget-object v5, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBgBounds:Landroid/graphics/Rect;
@@ -1169,16 +1170,16 @@
     .end local v1    # "bgPadding":I
     .end local v2    # "bgHeight":I
     .end local v3    # "bgWidth":I
-    goto :goto_2
+    goto :goto_d3
 
     .line 241
-    :cond_2
+    :cond_ce
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBgBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
 
     .line 245
-    :goto_2
+    :goto_d3
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mInvalidateRect:Landroid/graphics/Rect;
 
     iget-object v1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->mBgBounds:Landroid/graphics/Rect;

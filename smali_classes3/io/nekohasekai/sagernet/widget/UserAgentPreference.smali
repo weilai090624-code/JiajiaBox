@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -107,21 +107,21 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 11
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 12
     const/4 p2, 0x0
 
     .line 11
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_15
 
     .line 12
     nop
@@ -139,7 +139,7 @@
     move-result p3
 
     .line 11
-    :cond_1
+    :cond_15
     invoke-direct {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/widget/UserAgentPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 15
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method public getSummary()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/widget/UserAgentPreference;->getText()Ljava/lang/String;
@@ -158,27 +158,27 @@
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     invoke-static {v0}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x1
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_12
+    if-eqz v0, :cond_19
 
     .line 23
     const-string v0, "NekoBox/Android/0.0.2 (Prefer ClashMeta Format)"
@@ -188,7 +188,7 @@
     return-object v0
 
     .line 25
-    :cond_2
+    :cond_19
     invoke-super {p0}, Landroidx/preference/EditTextPreference;->getSummary()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -197,7 +197,7 @@
 .end method
 
 .method public notifyChanged()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-super {p0}, Landroidx/preference/EditTextPreference;->notifyChanged()V

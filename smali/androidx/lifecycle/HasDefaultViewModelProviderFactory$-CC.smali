@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$getDefaultViewModelCreationExtras(Landroidx/lifecycle/HasDefaultViewModelProviderFactory;)Landroidx/lifecycle/viewmodel/CreationExtras;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/lifecycle/HasDefaultViewModelProviderFactory;
 
     .line 38

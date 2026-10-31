@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 66
@@ -102,7 +102,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-    .locals 5
+    .registers 7
     .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 67
@@ -110,7 +110,7 @@
 
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_3
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     const/4 v2, 0x0
@@ -137,7 +137,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2a
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
@@ -151,18 +151,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2a
 
     move-object v3, v1
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 74
-    :cond_0
+    :cond_2a
     move-object v3, v0
 
     .line 73
-    :goto_0
+    :goto_2b
     nop
 
     .line 67
@@ -171,12 +171,12 @@
     invoke-static {v3}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_30
+    .catchall {:try_start_3 .. :try_end_30} :catchall_31
 
-    goto :goto_1
+    goto :goto_3c
 
-    :catchall_0
+    :catchall_31
     move-exception v0
 
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -190,19 +190,19 @@
     move-result-object v0
 
     .line 75
-    :goto_1
+    :goto_3c
     invoke-static {v0}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_43
 
-    goto :goto_2
+    goto :goto_44
 
-    :cond_1
+    :cond_43
     move-object v1, v0
 
-    :goto_2
+    :goto_44
     check-cast v1, Ljava/lang/Throwable;
 
     return-object v1

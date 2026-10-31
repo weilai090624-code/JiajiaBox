@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static convertHandlerToExecutor(Landroid/os/Handler;)Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
     .param p0, "handler"    # Landroid/os/Handler;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -42,7 +42,7 @@
 .end method
 
 .method static createBackgroundPriorityExecutor(Ljava/lang/String;)Ljava/util/concurrent/ThreadPoolExecutor;
-    .locals 9
+    .registers 10
     .param p0, "name"    # Ljava/lang/String;
 
     .line 56
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic lambda$createBackgroundPriorityExecutor$0(Ljava/lang/String;Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 2
+    .registers 4
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
@@ -101,14 +101,14 @@
 .end method
 
 .method static mainHandlerAsync()Landroid/os/Handler;
-    .locals 2
+    .registers 2
 
     .line 77
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
     .line 78
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -122,7 +122,7 @@
     return-object v0
 
     .line 80
-    :cond_0
+    :cond_f
     new-instance v0, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;

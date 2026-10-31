@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/CoroutineDispatcher;Lkotlinx/coroutines/CancellableContinuation;)V
-    .locals 0
+    .registers 3
     .param p1, "dispatcher"    # Lkotlinx/coroutines/CoroutineDispatcher;
     .param p2, "continuation"    # Lkotlinx/coroutines/CancellableContinuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 193
     iget-object v0, p0, Lkotlinx/coroutines/ResumeUndispatchedRunnable;->continuation:Lkotlinx/coroutines/CancellableContinuation;

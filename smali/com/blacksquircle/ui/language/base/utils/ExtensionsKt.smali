@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final endsWith(Ljava/lang/String;[Ljava/lang/String;Z)Z
-    .locals 5
+    .registers 8
     .param p0, "$this$endsWith"    # Ljava/lang/String;
     .param p1, "suffixes"    # [Ljava/lang/String;
     .param p2, "ignoreCase"    # Z
@@ -50,8 +50,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_e
+    if-ge v2, v0, :cond_1d
 
     aget-object v3, p1, v2
 
@@ -61,7 +61,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1a
 
     .line 22
     const/4 v0, 0x1
@@ -70,27 +70,27 @@
 
     .line 20
     .end local v3    # "suffix":Ljava/lang/String;
-    :cond_0
+    :cond_1a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 25
-    :cond_1
+    :cond_1d
     return v1
 .end method
 
 .method public static synthetic endsWith$default(Ljava/lang/String;[Ljava/lang/String;ZILjava/lang/Object;)Z
-    .locals 0
+    .registers 5
 
     .line 19
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lcom/blacksquircle/ui/language/base/utils/ExtensionsKt;->endsWith(Ljava/lang/String;[Ljava/lang/String;Z)Z
 
     move-result p0

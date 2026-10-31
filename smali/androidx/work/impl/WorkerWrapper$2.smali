@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkerWrapper;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/WorkerWrapper;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 317
     :try_start_0
@@ -73,7 +73,7 @@
 
     .line 318
     .local v0, "result":Landroidx/work/ListenableWorker$Result;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2f
 
     .line 319
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -108,10 +108,10 @@
 
     invoke-virtual {v1, v2, v3}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_a3
 
     .line 322
-    :cond_0
+    :cond_2f
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
@@ -158,34 +158,34 @@
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper$2;->this$0:Landroidx/work/impl/WorkerWrapper;
 
     iput-object v0, v1, Landroidx/work/impl/WorkerWrapper;->mResult:Landroidx/work/ListenableWorker$Result;
-    :try_end_0
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5f
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_5f} :catch_84
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_5f} :catch_64
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_5f} :catch_62
+    .catchall {:try_start_0 .. :try_end_5f} :catchall_60
 
-    goto :goto_1
+    goto :goto_a3
 
     .line 335
     .end local v0    # "result":Landroidx/work/ListenableWorker$Result;
-    :catchall_0
+    :catchall_60
     move-exception v0
 
-    goto :goto_2
+    goto :goto_aa
 
     .line 330
-    :catch_0
+    :catch_62
     move-exception v0
 
-    goto :goto_0
+    goto :goto_65
 
-    :catch_1
+    :catch_64
     move-exception v0
 
     .line 331
     .local v0, "exception":Ljava/lang/Exception;
-    :goto_0
-    :try_start_1
+    :goto_65
+    :try_start_65
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
@@ -215,10 +215,10 @@
     invoke-virtual {v1, v2, v3, v0}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .end local v0    # "exception":Ljava/lang/Exception;
-    goto :goto_1
+    goto :goto_a3
 
     .line 326
-    :catch_2
+    :catch_84
     move-exception v0
 
     .line 329
@@ -250,12 +250,12 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v3, v0}, Landroidx/work/Logger;->info(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_a3
+    .catchall {:try_start_65 .. :try_end_a3} :catchall_60
 
     .line 335
     .end local v0    # "exception":Ljava/util/concurrent/CancellationException;
-    :goto_1
+    :goto_a3
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper$2;->this$0:Landroidx/work/impl/WorkerWrapper;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkerWrapper;->onWorkFinished()V
@@ -267,7 +267,7 @@
     return-void
 
     .line 335
-    :goto_2
+    :goto_aa
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper$2;->this$0:Landroidx/work/impl/WorkerWrapper;
 
     invoke-virtual {v1}, Landroidx/work/impl/WorkerWrapper;->onWorkFinished()V

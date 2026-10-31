@@ -77,7 +77,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/Job;Landroidx/work/impl/utils/futures/SettableFuture;)V
-    .locals 2
+    .registers 5
     .param p1, "job"    # Lkotlinx/coroutines/Job;
     .param p2, "underlying"    # Landroidx/work/impl/utils/futures/SettableFuture;
     .annotation system Ldalvik/annotation/Signature;
@@ -128,12 +128,12 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlinx/coroutines/Job;Landroidx/work/impl/utils/futures/SettableFuture;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 73
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_d
 
     .line 75
     invoke-static {}, Landroidx/work/impl/utils/futures/SettableFuture;->create()Landroidx/work/impl/utils/futures/SettableFuture;
@@ -145,7 +145,7 @@
     invoke-static {p2, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 73
-    :cond_0
+    :cond_d
     invoke-direct {p0, p1, p2}, Landroidx/work/JobListenableFuture;-><init>(Lkotlinx/coroutines/Job;Landroidx/work/impl/utils/futures/SettableFuture;)V
 
     .line 91
@@ -153,7 +153,7 @@
 .end method
 
 .method public static final synthetic access$getUnderlying$p(Landroidx/work/JobListenableFuture;)Landroidx/work/impl/utils/futures/SettableFuture;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/work/JobListenableFuture;
 
     .line 73
@@ -165,7 +165,7 @@
 
 # virtual methods
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Landroidx/work/JobListenableFuture;->underlying:Landroidx/work/impl/utils/futures/SettableFuture;
 
@@ -175,7 +175,7 @@
 .end method
 
 .method public cancel(Z)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/work/JobListenableFuture;->underlying:Landroidx/work/impl/utils/futures/SettableFuture;
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public final complete(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "result"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -205,7 +205,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -222,7 +222,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -241,7 +241,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/JobListenableFuture;->underlying:Landroidx/work/impl/utils/futures/SettableFuture;
 
@@ -253,7 +253,7 @@
 .end method
 
 .method public isDone()Z
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/JobListenableFuture;->underlying:Landroidx/work/impl/utils/futures/SettableFuture;
 

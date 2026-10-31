@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 254
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static newAutofillId(Landroid/view/contentcapture/ContentCaptureSession;Landroid/view/autofill/AutofillId;J)Landroid/view/autofill/AutofillId;
-    .locals 1
+    .registers 5
     .param p0, "contentCaptureSession"    # Landroid/view/contentcapture/ContentCaptureSession;
     .param p1, "hostId"    # Landroid/view/autofill/AutofillId;
     .param p2, "virtualChildId"    # J
@@ -40,7 +40,7 @@
 .end method
 
 .method static newViewStructure(Landroid/view/contentcapture/ContentCaptureSession;Landroid/view/View;)Landroid/view/ViewStructure;
-    .locals 1
+    .registers 3
     .param p0, "contentCaptureSession"    # Landroid/view/contentcapture/ContentCaptureSession;
     .param p1, "view"    # Landroid/view/View;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method static newVirtualViewStructure(Landroid/view/contentcapture/ContentCaptureSession;Landroid/view/autofill/AutofillId;J)Landroid/view/ViewStructure;
-    .locals 1
+    .registers 5
     .param p0, "contentCaptureSession"    # Landroid/view/contentcapture/ContentCaptureSession;
     .param p1, "parentId"    # Landroid/view/autofill/AutofillId;
     .param p2, "virtualId"    # J
@@ -67,7 +67,7 @@
 .end method
 
 .method static notifyViewAppeared(Landroid/view/contentcapture/ContentCaptureSession;Landroid/view/ViewStructure;)V
-    .locals 0
+    .registers 2
     .param p0, "contentCaptureSession"    # Landroid/view/contentcapture/ContentCaptureSession;
     .param p1, "node"    # Landroid/view/ViewStructure;
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public static notifyViewTextChanged(Landroid/view/contentcapture/ContentCaptureSession;Landroid/view/autofill/AutofillId;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 3
     .param p0, "contentCaptureSession"    # Landroid/view/contentcapture/ContentCaptureSession;
     .param p1, "id"    # Landroid/view/autofill/AutofillId;
     .param p2, "charSequence"    # Ljava/lang/CharSequence;
@@ -92,7 +92,7 @@
 .end method
 
 .method static notifyViewsDisappeared(Landroid/view/contentcapture/ContentCaptureSession;Landroid/view/autofill/AutofillId;[J)V
-    .locals 0
+    .registers 3
     .param p0, "contentCaptureSession"    # Landroid/view/contentcapture/ContentCaptureSession;
     .param p1, "hostId"    # Landroid/view/autofill/AutofillId;
     .param p2, "virtualIds"    # [J

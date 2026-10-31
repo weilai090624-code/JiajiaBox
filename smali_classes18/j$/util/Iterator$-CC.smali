@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$forEachRemaining(Ljava/util/Iterator;Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/Iterator;
 
     .line 131
@@ -13,12 +13,12 @@
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 132
-    :goto_0
+    :goto_3
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 133
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -27,15 +27,15 @@
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_3
 
     .line 134
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public static $default$remove(Ljava/util/Iterator;)V
-    .locals 2
+    .registers 3
     .param p0, "_this"    # Ljava/util/Iterator;
 
     .line 102

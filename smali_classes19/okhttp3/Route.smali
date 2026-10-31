@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/Address;Ljava/net/Proxy;Ljava/net/InetSocketAddress;)V
-    .locals 1
+    .registers 5
     .param p1, "address"    # Lokhttp3/Address;
     .param p2, "proxy"    # Ljava/net/Proxy;
     .param p3, "socketAddress"    # Ljava/net/InetSocketAddress;
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public final -deprecated_address()Lokhttp3/Address;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -107,7 +107,7 @@
 .end method
 
 .method public final -deprecated_proxy()Ljava/net/Proxy;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -124,7 +124,7 @@
 .end method
 
 .method public final -deprecated_socketAddress()Ljava/net/InetSocketAddress;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -141,7 +141,7 @@
 .end method
 
 .method public final address()Lokhttp3/Address;
-    .locals 1
+    .registers 2
 
     .line 35
     iget-object v0, p0, Lokhttp3/Route;->address:Lokhttp3/Address;
@@ -150,13 +150,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 76
     instance-of v0, p1, Lokhttp3/Route;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 77
     move-object v0, p1
@@ -171,7 +171,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 78
     move-object v0, p1
@@ -186,7 +186,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 79
     move-object v0, p1
@@ -201,22 +201,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_0
+    :cond_2d
     const/4 v0, 0x0
 
     .line 76
-    :goto_0
+    :goto_2e
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 83
     const/16 v0, 0x11
@@ -266,7 +266,7 @@
 .end method
 
 .method public final proxy()Ljava/net/Proxy;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Lokhttp3/Route;->proxy:Ljava/net/Proxy;
@@ -275,7 +275,7 @@
 .end method
 
 .method public final requiresTunnel()Z
-    .locals 2
+    .registers 3
 
     .line 73
     iget-object v0, p0, Lokhttp3/Route;->address:Lokhttp3/Address;
@@ -284,7 +284,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Lokhttp3/Route;->proxy:Ljava/net/Proxy;
 
@@ -294,21 +294,21 @@
 
     sget-object v1, Ljava/net/Proxy$Type;->HTTP:Ljava/net/Proxy$Type;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return v0
 .end method
 
 .method public final socketAddress()Ljava/net/InetSocketAddress;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Lokhttp3/Route;->socketAddress:Ljava/net/InetSocketAddress;
@@ -317,7 +317,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 90
     new-instance v0, Ljava/lang/StringBuilder;

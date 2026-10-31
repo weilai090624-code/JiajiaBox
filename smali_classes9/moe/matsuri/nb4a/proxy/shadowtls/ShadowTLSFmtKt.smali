@@ -27,7 +27,7 @@
 
 # direct methods
 .method public static final buildSingBoxOutboundShadowTLSBean(Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;)Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_ShadowTLSOptions;
-    .locals 4
+    .registers 5
     .param p0, "bean"    # Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;
 
     const-string v0, "bean"

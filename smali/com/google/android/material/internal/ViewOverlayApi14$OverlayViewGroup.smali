@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 99
     :try_start_0
@@ -74,23 +74,23 @@
     move-result-object v0
 
     sput-object v0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->invalidateChildInParentFastMethod:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_1a} :catch_1b
 
     .line 104
-    goto :goto_0
+    goto :goto_1c
 
     .line 102
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 105
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Landroid/view/View;Lcom/google/android/material/internal/ViewOverlayApi14;)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "hostView"    # Landroid/view/ViewGroup;
     .param p3, "requestingView"    # Landroid/view/View;
@@ -135,18 +135,18 @@
 .end method
 
 .method private assertNotDisposed()V
-    .locals 2
+    .registers 3
 
     .line 203
     iget-boolean v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->disposed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 208
     return-void
 
     .line 204
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This overlay was disposed already. Please use a new one via ViewGroupUtils.getOverlay()"
@@ -157,18 +157,18 @@
 .end method
 
 .method private disposeIfEmpty()V
-    .locals 1
+    .registers 2
 
     .line 211
     invoke-virtual {p0}, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->getChildCount()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
 
@@ -176,10 +176,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
     .line 212
-    :cond_0
+    :cond_12
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->disposed:Z
@@ -190,12 +190,12 @@
     invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 215
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method private getOffset([I)V
-    .locals 5
+    .registers 7
     .param p1, "offset"    # [I
 
     .line 255
@@ -247,7 +247,7 @@
 
 # virtual methods
 .method public add(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 140
@@ -256,7 +256,7 @@
     .line 141
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 143
     new-instance v0, Ljava/util/ArrayList;
@@ -266,14 +266,14 @@
     iput-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
 
     .line 145
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_25
 
     .line 147
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
@@ -291,12 +291,12 @@
     invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     .line 151
-    :cond_1
+    :cond_25
     return-void
 .end method
 
 .method public add(Landroid/view/View;)V
-    .locals 5
+    .registers 7
     .param p1, "child"    # Landroid/view/View;
 
     .line 169
@@ -309,7 +309,7 @@
 
     instance-of v0, v0, Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4c
 
     .line 171
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -322,21 +322,21 @@
     .local v0, "parent":Landroid/view/ViewGroup;
     iget-object v1, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->hostView:Landroid/view/ViewGroup;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_40
 
     .line 173
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_40
 
     .line 174
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_40
 
     .line 177
     const/4 v1, 0x2
@@ -381,7 +381,7 @@
     .line 184
     .end local v1    # "hostViewLocation":[I
     .end local v2    # "parentLocation":[I
-    :cond_0
+    :cond_40
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 190
@@ -389,14 +389,14 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4c
 
     .line 191
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 194
     .end local v0    # "parent":Landroid/view/ViewGroup;
-    :cond_1
+    :cond_4c
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 195
@@ -404,7 +404,7 @@
 .end method
 
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
-    .locals 6
+    .registers 8
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 225
@@ -475,11 +475,11 @@
     .line 234
     iget-object v3, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_3c
 
-    goto :goto_0
+    goto :goto_42
 
-    :cond_0
+    :cond_3c
     iget-object v2, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -488,12 +488,12 @@
 
     .line 235
     .local v2, "numDrawables":I
-    :goto_0
+    :goto_42
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v2, :cond_1
+    :goto_43
+    if-ge v3, v2, :cond_53
 
     .line 236
     iget-object v4, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
@@ -509,16 +509,16 @@
     .line 235
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_43
 
     .line 238
     .end local v3    # "i":I
-    :cond_1
+    :cond_53
     return-void
 .end method
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "ev"    # Landroid/view/MotionEvent;
 
     .line 135
@@ -528,14 +528,14 @@
 .end method
 
 .method public invalidateChildInParent([ILandroid/graphics/Rect;)Landroid/view/ViewParent;
-    .locals 4
+    .registers 7
     .param p1, "location"    # [I
     .param p2, "dirty"    # Landroid/graphics/Rect;
 
     .line 283
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->hostView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 284
     const/4 v0, 0x0
@@ -551,7 +551,7 @@
     .line 285
     iget-object v1, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->hostView:Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     .line 286
     aput v0, p1, v0
@@ -584,18 +584,18 @@
 
     .line 294
     .end local v1    # "offset":[I
-    :cond_0
+    :cond_27
     invoke-virtual {p0, p2}, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->invalidate(Landroid/graphics/Rect;)V
 
     .line 297
-    :cond_1
+    :cond_2a
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method protected invalidateChildInParentFast(IILandroid/graphics/Rect;)Landroid/view/ViewParent;
-    .locals 8
+    .registers 12
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "dirty"    # Landroid/graphics/Rect;
@@ -603,16 +603,16 @@
     .line 266
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->hostView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     sget-object v0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->invalidateChildInParentFastMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     .line 268
     const/4 v0, 0x2
 
-    :try_start_0
+    :try_start_9
     new-array v1, v0, [I
 
     .line 269
@@ -647,29 +647,29 @@
     aput-object p3, v6, v0
 
     invoke-virtual {v2, v3, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_28
+    .catch Ljava/lang/IllegalAccessException; {:try_start_9 .. :try_end_28} :catch_2f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_9 .. :try_end_28} :catch_2a
 
     .line 275
     nop
 
     .end local v1    # "offset":[I
-    goto :goto_0
+    goto :goto_34
 
     .line 273
-    :catch_0
+    :catch_2a
     move-exception v0
 
     .line 274
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
-    goto :goto_0
+    goto :goto_34
 
     .line 271
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_2f
     move-exception v0
 
     .line 272
@@ -681,15 +681,15 @@
     nop
 
     .line 277
-    :cond_0
-    :goto_0
+    :cond_34
+    :goto_34
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 220
@@ -704,7 +704,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 0
+    .registers 6
     .param p1, "changed"    # Z
     .param p2, "l"    # I
     .param p3, "t"    # I
@@ -716,13 +716,13 @@
 .end method
 
 .method public remove(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 155
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 156
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
@@ -745,12 +745,12 @@
     invoke-direct {p0}, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->disposeIfEmpty()V
 
     .line 161
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public remove(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 198
@@ -764,7 +764,7 @@
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
-    .locals 1
+    .registers 3
     .param p1, "who"    # Landroid/graphics/drawable/Drawable;
 
     .line 165
@@ -772,11 +772,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/google/android/material/internal/ViewOverlayApi14$OverlayViewGroup;->drawables:Ljava/util/ArrayList;
 
@@ -784,19 +784,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_16
     return v0
 .end method

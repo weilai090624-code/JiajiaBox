@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;I)V
-    .locals 2
+    .registers 6
     .param p1, "type"    # Ljava/lang/Class;
     .param p2, "serializer"    # Lcom/esotericsoftware/kryo/Serializer;
     .param p3, "id"    # I
@@ -26,10 +26,10 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 37
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_20
 
     .line 38
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_18
 
     .line 39
     iput-object p1, p0, Lcom/esotericsoftware/kryo/Registration;->type:Ljava/lang/Class;
@@ -55,7 +55,7 @@
     return-void
 
     .line 38
-    :cond_0
+    :cond_18
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "serializer cannot be null."
@@ -65,7 +65,7 @@
     throw v0
 
     .line 37
-    :cond_1
+    :cond_20
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "type cannot be null."
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public getId()I
-    .locals 1
+    .registers 2
 
     .line 56
     iget v0, p0, Lcom/esotericsoftware/kryo/Registration;->id:I
@@ -87,7 +87,7 @@
 .end method
 
 .method public getInstantiator()Lorg/objenesis/instantiator/ObjectInstantiator;
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Lcom/esotericsoftware/kryo/Registration;->instantiator:Lorg/objenesis/instantiator/ObjectInstantiator;
@@ -96,7 +96,7 @@
 .end method
 
 .method public getSerializer()Lcom/esotericsoftware/kryo/Serializer;
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Lcom/esotericsoftware/kryo/Registration;->serializer:Lcom/esotericsoftware/kryo/Serializer;
@@ -105,7 +105,7 @@
 .end method
 
 .method public getType()Ljava/lang/Class;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lcom/esotericsoftware/kryo/Registration;->type:Ljava/lang/Class;
@@ -114,7 +114,7 @@
 .end method
 
 .method public isTypeNameAscii()Z
-    .locals 1
+    .registers 2
 
     .line 50
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/Registration;->typeNameAscii:Z
@@ -123,11 +123,11 @@
 .end method
 
 .method public setInstantiator(Lorg/objenesis/instantiator/ObjectInstantiator;)V
-    .locals 2
+    .registers 4
     .param p1, "instantiator"    # Lorg/objenesis/instantiator/ObjectInstantiator;
 
     .line 76
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 77
     iput-object p1, p0, Lcom/esotericsoftware/kryo/Registration;->instantiator:Lorg/objenesis/instantiator/ObjectInstantiator;
@@ -136,7 +136,7 @@
     return-void
 
     .line 76
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "instantiator cannot be null."
@@ -147,11 +147,11 @@
 .end method
 
 .method public setSerializer(Lcom/esotericsoftware/kryo/Serializer;)V
-    .locals 2
+    .registers 4
     .param p1, "serializer"    # Lcom/esotericsoftware/kryo/Serializer;
 
     .line 64
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3f
 
     .line 65
     iput-object p1, p0, Lcom/esotericsoftware/kryo/Registration;->serializer:Lcom/esotericsoftware/kryo/Serializer;
@@ -159,7 +159,7 @@
     .line 66
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -214,11 +214,11 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 67
-    :cond_0
+    :cond_3e
     return-void
 
     .line 64
-    :cond_1
+    :cond_3f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "serializer cannot be null."
@@ -229,7 +229,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 81
     new-instance v0, Ljava/lang/StringBuilder;

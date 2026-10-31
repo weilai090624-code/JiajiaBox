@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 242
     const/4 v0, 0x1
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/String;)V
-    .locals 5
+    .registers 8
     .param p1, "realOwner"    # Ljava/lang/Object;
     .param p2, "methodName"    # Ljava/lang/String;
 
@@ -73,7 +73,7 @@
 
     .line 251
     .local v0, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :try_start_0
+    :try_start_9
     sget-object v1, Landroidx/appcompat/view/SupportMenuInflater$InflatedOnMenuItemClickListener;->PARAM_TYPES:[Ljava/lang/Class;
 
     invoke-virtual {v0, p2, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
@@ -81,8 +81,8 @@
     move-result-object v1
 
     iput-object v1, p0, Landroidx/appcompat/view/SupportMenuInflater$InflatedOnMenuItemClickListener;->mMethod:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_11} :catch_13
 
     .line 258
     nop
@@ -91,7 +91,7 @@
     return-void
 
     .line 252
-    :catch_0
+    :catch_13
     move-exception v1
 
     .line 253
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .locals 5
+    .registers 7
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 264
@@ -161,7 +161,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1f
 
     .line 265
     iget-object v0, p0, Landroidx/appcompat/view/SupportMenuInflater$InflatedOnMenuItemClickListener;->mMethod:Ljava/lang/reflect/Method;
@@ -185,7 +185,7 @@
     return v0
 
     .line 267
-    :cond_0
+    :cond_1f
     iget-object v0, p0, Landroidx/appcompat/view/SupportMenuInflater$InflatedOnMenuItemClickListener;->mMethod:Ljava/lang/reflect/Method;
 
     iget-object v1, p0, Landroidx/appcompat/view/SupportMenuInflater$InflatedOnMenuItemClickListener;->mRealOwner:Ljava/lang/Object;
@@ -195,14 +195,14 @@
     aput-object p1, v4, v2
 
     invoke-virtual {v0, v1, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_2a} :catch_2b
 
     .line 268
     return v3
 
     .line 270
-    :catch_0
+    :catch_2b
     move-exception v0
 
     .line 271

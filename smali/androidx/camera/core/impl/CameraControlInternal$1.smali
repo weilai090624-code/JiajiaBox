@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public addInteropConfig(Landroidx/camera/core/impl/Config;)V
-    .locals 0
+    .registers 2
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -46,7 +46,7 @@
 .end method
 
 .method public cancelAfAeTrigger(ZZ)V
-    .locals 0
+    .registers 3
     .param p1, "cancelAfTrigger"    # Z
     .param p2, "cancelAePrecaptureTrigger"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -65,7 +65,7 @@
 .end method
 
 .method public cancelFocusAndMetering()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -86,14 +86,14 @@
 .end method
 
 .method public clearInteropConfig()V
-    .locals 0
+    .registers 1
 
     .line 196
     return-void
 .end method
 
 .method public enableTorch(Z)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "torch"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -124,7 +124,7 @@
 .end method
 
 .method public getFlashMode()I
-    .locals 1
+    .registers 2
 
     .line 119
     const/4 v0, 0x2
@@ -133,7 +133,7 @@
 .end method
 
 .method public getInteropConfig()Landroidx/camera/core/impl/Config;
-    .locals 1
+    .registers 2
 
     .line 201
     const/4 v0, 0x0
@@ -142,7 +142,7 @@
 .end method
 
 .method public getSensorRect()Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
 
     .line 162
     new-instance v0, Landroid/graphics/Rect;
@@ -153,7 +153,7 @@
 .end method
 
 .method public setExposureCompensationIndex(I)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "exposure"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -188,7 +188,7 @@
 .end method
 
 .method public setFlashMode(I)V
-    .locals 0
+    .registers 2
     .param p1, "flashMode"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -204,7 +204,7 @@
 .end method
 
 .method public setLinearZoom(F)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "linearZoom"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -235,7 +235,7 @@
 .end method
 
 .method public setZoomRatio(F)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "ratio"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -266,7 +266,7 @@
 .end method
 
 .method public startFocusAndMetering(Landroidx/camera/core/FocusMeteringAction;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "action"    # Landroidx/camera/core/FocusMeteringAction;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -301,7 +301,7 @@
 .end method
 
 .method public submitCaptureRequests(Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -326,7 +326,7 @@
 .end method
 
 .method public triggerAePrecapture()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -349,7 +349,7 @@
 .end method
 
 .method public triggerAf()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

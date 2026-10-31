@@ -68,7 +68,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -94,31 +94,31 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 410
     .local p0, "this":Landroidx/arch/core/internal/SafeIterableMap$Entry;, "Landroidx/arch/core/internal/SafeIterableMap$Entry<TK;TV;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 411
     return v0
 
     .line 413
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/arch/core/internal/SafeIterableMap$Entry;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 414
     return v2
 
     .line 416
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Landroidx/arch/core/internal/SafeIterableMap$Entry;
@@ -133,7 +133,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_22
 
     iget-object v3, p0, Landroidx/arch/core/internal/SafeIterableMap$Entry;->mValue:Ljava/lang/Object;
 
@@ -143,19 +143,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_22
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_2
+    :cond_22
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_23
     return v0
 .end method
 
 .method public getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -170,7 +170,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -185,7 +185,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 422
     .local p0, "this":Landroidx/arch/core/internal/SafeIterableMap$Entry;, "Landroidx/arch/core/internal/SafeIterableMap$Entry<TK;TV;>;"
@@ -207,7 +207,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -227,7 +227,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 404
     .local p0, "this":Landroidx/arch/core/internal/SafeIterableMap$Entry;, "Landroidx/arch/core/internal/SafeIterableMap$Entry<TK;TV;>;"

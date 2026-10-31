@@ -50,7 +50,7 @@
 
 # direct methods
 .method public static final synthetic access$nextId(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;)I
-    .locals 1
+    .registers 3
     .param p0, "$receiver"    # Landroidx/work/impl/WorkDatabase;
     .param p1, "key"    # Ljava/lang/String;
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public static final synthetic access$updatePreference(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p0, "$receiver"    # Landroidx/work/impl/WorkDatabase;
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # I
@@ -75,7 +75,7 @@
 .end method
 
 .method public static final migrateLegacyIdGenerator(Landroid/content/Context;Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 10
+    .registers 12
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "sqLiteDatabase"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
@@ -106,17 +106,17 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_22
 
     .line 87
     invoke-interface {v1, v3}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_5f
 
     .line 89
-    :cond_0
+    :cond_22
     invoke-interface {v1, v3, v2}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
     move-result v4
@@ -137,7 +137,7 @@
     nop
 
     .line 93
-    :try_start_0
+    :try_start_30
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
@@ -184,8 +184,8 @@
 
     .line 99
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5b
+    .catchall {:try_start_30 .. :try_end_5b} :catchall_60
 
     .line 101
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->endTransaction()V
@@ -196,13 +196,13 @@
     .line 104
     .end local v4    # "nextJobId":I
     .end local v6    # "nextAlarmId":I
-    :cond_1
+    :cond_5f
     return-void
 
     .line 101
     .restart local v4    # "nextJobId":I
     .restart local v6    # "nextAlarmId":I
-    :catchall_0
+    :catchall_60
     move-exception v0
 
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->endTransaction()V
@@ -211,7 +211,7 @@
 .end method
 
 .method private static final nextId(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;)I
-    .locals 4
+    .registers 6
     .param p0, "$this$nextId"    # Landroidx/work/impl/WorkDatabase;
     .param p1, "key"    # Ljava/lang/String;
 
@@ -228,7 +228,7 @@
     .local v0, "value":Ljava/lang/Long;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
@@ -236,28 +236,28 @@
 
     long-to-int v3, v2
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_12
     move v2, v3
 
     .line 59
     .local v2, "id":I
     const v3, 0x7fffffff
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_19
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_19
     add-int/lit8 v1, v2, 0x1
 
     .line 60
     .local v1, "nextId":I
-    :goto_1
+    :goto_1b
     invoke-static {p0, p1, v1}, Landroidx/work/impl/utils/IdGeneratorKt;->updatePreference(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;I)V
 
     .line 61
@@ -265,7 +265,7 @@
 .end method
 
 .method private static final updatePreference(Landroidx/work/impl/WorkDatabase;Ljava/lang/String;I)V
-    .locals 4
+    .registers 7
     .param p0, "$this$updatePreference"    # Landroidx/work/impl/WorkDatabase;
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # I

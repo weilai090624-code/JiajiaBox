@@ -29,7 +29,7 @@
 
 # direct methods
 .method private static final compareTo(Ljava/lang/Comparable;Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p0, "$this$compareTo"    # Ljava/lang/Comparable;
     .param p1, "other"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

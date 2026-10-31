@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/http/StatusLine$Companion;-><init>()V
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final get(Lokhttp3/Response;)Lokhttp3/internal/http/StatusLine;
-    .locals 4
+    .registers 6
     .param p1, "response"    # Lokhttp3/Response;
 
     const-string v0, "response"
@@ -94,7 +94,7 @@
 .end method
 
 .method public final parse(Ljava/lang/String;)Lokhttp3/internal/http/StatusLine;
-    .locals 8
+    .registers 10
     .param p1, "statusLine"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -129,7 +129,7 @@
 
     const-string v7, "Unexpected status line: "
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4d
 
     .line 63
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -138,7 +138,7 @@
 
     const/16 v3, 0x9
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_43
 
     const/16 v2, 0x8
 
@@ -146,7 +146,7 @@
 
     move-result v2
 
-    if-ne v2, v6, :cond_0
+    if-ne v2, v6, :cond_43
 
     .line 66
     const/4 v2, 0x7
@@ -162,7 +162,7 @@
     const/16 v0, 0x9
 
     .line 68
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_c0
 
     .line 71
     new-instance v3, Ljava/net/ProtocolException;
@@ -176,24 +176,24 @@
     throw v3
 
     .line 70
-    :pswitch_0
+    :pswitch_3c
     sget-object v3, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
 
-    goto :goto_0
+    goto :goto_41
 
     .line 69
-    :pswitch_1
+    :pswitch_3f
     sget-object v3, Lokhttp3/Protocol;->HTTP_1_0:Lokhttp3/Protocol;
 
     .line 68
-    :goto_0
+    :goto_41
     move-object v1, v3
 
     .end local v2    # "httpMinorVersion":I
-    goto :goto_1
+    goto :goto_58
 
     .line 64
-    :cond_0
+    :cond_43
     new-instance v2, Ljava/net/ProtocolException;
 
     invoke-static {v7, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -205,14 +205,14 @@
     throw v2
 
     .line 73
-    :cond_1
+    :cond_4d
     const-string v2, "ICY "
 
     invoke-static {p1, v2, v3, v4, v5}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_b5
 
     .line 75
     sget-object v1, Lokhttp3/Protocol;->HTTP_1_0:Lokhttp3/Protocol;
@@ -221,14 +221,14 @@
     const/4 v0, 0x4
 
     .line 82
-    :goto_1
+    :goto_58
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
     add-int/lit8 v3, v0, 0x3
 
-    if-lt v2, v3, :cond_4
+    if-lt v2, v3, :cond_ab
 
     .line 85
     nop
@@ -236,7 +236,7 @@
     .line 86
     add-int/lit8 v2, v0, 0x3
 
-    :try_start_0
+    :try_start_63
     invoke-virtual {p1, v0, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
@@ -248,8 +248,8 @@
     invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_70
+    .catch Ljava/lang/NumberFormatException; {:try_start_63 .. :try_end_70} :catch_a0
 
     .line 85
     nop
@@ -266,7 +266,7 @@
 
     add-int/lit8 v5, v0, 0x3
 
-    if-le v4, v5, :cond_3
+    if-le v4, v5, :cond_9a
 
     .line 95
     add-int/lit8 v4, v0, 0x3
@@ -275,7 +275,7 @@
 
     move-result v4
 
-    if-ne v4, v6, :cond_2
+    if-ne v4, v6, :cond_90
 
     .line 98
     add-int/lit8 v4, v0, 0x4
@@ -290,10 +290,10 @@
 
     move-object v3, v4
 
-    goto :goto_2
+    goto :goto_9a
 
     .line 96
-    :cond_2
+    :cond_90
     new-instance v4, Ljava/net/ProtocolException;
 
     invoke-static {v7, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -305,8 +305,8 @@
     throw v4
 
     .line 101
-    :cond_3
-    :goto_2
+    :cond_9a
+    :goto_9a
     new-instance v4, Lokhttp3/internal/http/StatusLine;
 
     invoke-direct {v4, v1, v2, v3}, Lokhttp3/internal/http/StatusLine;-><init>(Lokhttp3/Protocol;ILjava/lang/String;)V
@@ -316,7 +316,7 @@
     .line 87
     .end local v2    # "code":I
     .end local v3    # "message":Ljava/lang/String;
-    :catch_0
+    :catch_a0
     move-exception v2
 
     .line 88
@@ -333,7 +333,7 @@
 
     .line 83
     .end local v2    # "_":Ljava/lang/NumberFormatException;
-    :cond_4
+    :cond_ab
     new-instance v2, Ljava/net/ProtocolException;
 
     invoke-static {v7, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -345,7 +345,7 @@
     throw v2
 
     .line 78
-    :cond_5
+    :cond_b5
     new-instance v2, Ljava/net/ProtocolException;
 
     invoke-static {v7, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -358,9 +358,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c0
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3f
+        :pswitch_3c
     .end packed-switch
 .end method

@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;
 
@@ -89,7 +89,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "description"    # Ljava/lang/String;
 
     .line 107
@@ -101,7 +101,7 @@
 .end method
 
 .method public static final synthetic access$getFOLD$cp()Landroidx/window/layout/HardwareFoldingFeature$Type;
-    .locals 1
+    .registers 1
 
     .line 107
     sget-object v0, Landroidx/window/layout/HardwareFoldingFeature$Type;->FOLD:Landroidx/window/layout/HardwareFoldingFeature$Type;
@@ -110,7 +110,7 @@
 .end method
 
 .method public static final synthetic access$getHINGE$cp()Landroidx/window/layout/HardwareFoldingFeature$Type;
-    .locals 1
+    .registers 1
 
     .line 107
     sget-object v0, Landroidx/window/layout/HardwareFoldingFeature$Type;->HINGE:Landroidx/window/layout/HardwareFoldingFeature$Type;
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 110
     iget-object v0, p0, Landroidx/window/layout/HardwareFoldingFeature$Type;->description:Ljava/lang/String;

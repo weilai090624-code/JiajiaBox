@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(JJJJ)V
-    .locals 3
+    .registers 12
     .param p1, "count"    # J
     .param p3, "min"    # J
     .param p5, "max"    # J
@@ -63,17 +63,17 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_2e
 
     .line 113
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_2d
 
     .line 114
     cmp-long v0, p3, p5
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_25
 
     .line 116
     iput-wide p1, p0, Lj$/util/LongSummaryStatistics;->count:J
@@ -87,10 +87,10 @@
     .line 119
     iput-wide p5, p0, Lj$/util/LongSummaryStatistics;->max:J
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 114
-    :cond_0
+    :cond_25
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Minimum greater than maximum"
@@ -100,12 +100,12 @@
     throw v0
 
     .line 122
-    :cond_1
-    :goto_0
+    :cond_2d
+    :goto_2d
     return-void
 
     .line 112
-    :cond_2
+    :cond_2e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Negative count value"
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
 
     .line 131
@@ -131,7 +131,7 @@
 .end method
 
 .method public accept(J)V
-    .locals 4
+    .registers 7
     .param p1, "value"    # J
 
     .line 141
@@ -173,7 +173,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 
@@ -183,7 +183,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/LongConsumer$-CC;->$default$andThen(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
 
@@ -193,7 +193,7 @@
 .end method
 
 .method public combine(Lj$/util/LongSummaryStatistics;)V
-    .locals 4
+    .registers 6
     .param p1, "other"    # Lj$/util/LongSummaryStatistics;
 
     .line 155
@@ -241,7 +241,7 @@
 .end method
 
 .method public final getAverage()D
-    .locals 5
+    .registers 6
 
     .line 207
     invoke-virtual {p0}, Lj$/util/LongSummaryStatistics;->getCount()J
@@ -252,7 +252,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_16
 
     invoke-virtual {p0}, Lj$/util/LongSummaryStatistics;->getSum()J
 
@@ -268,17 +268,17 @@
 
     div-double/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const-wide/16 v0, 0x0
 
-    :goto_0
+    :goto_18
     return-wide v0
 .end method
 
 .method public final getCount()J
-    .locals 2
+    .registers 3
 
     .line 167
     iget-wide v0, p0, Lj$/util/LongSummaryStatistics;->count:J
@@ -287,7 +287,7 @@
 .end method
 
 .method public final getMax()J
-    .locals 2
+    .registers 3
 
     .line 197
     iget-wide v0, p0, Lj$/util/LongSummaryStatistics;->max:J
@@ -296,7 +296,7 @@
 .end method
 
 .method public final getMin()J
-    .locals 2
+    .registers 3
 
     .line 187
     iget-wide v0, p0, Lj$/util/LongSummaryStatistics;->min:J
@@ -305,7 +305,7 @@
 .end method
 
 .method public final getSum()J
-    .locals 2
+    .registers 3
 
     .line 177
     iget-wide v0, p0, Lj$/util/LongSummaryStatistics;->sum:J
@@ -314,7 +314,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     .line 217
     nop

@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public static getPackageName(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,7 +43,7 @@
 .end method
 
 .method public static getPackageName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "classFullName"    # Ljava/lang/String;
 
     .line 48
@@ -55,25 +55,25 @@
 
     .line 49
     .local v0, "lastDot":I
-    if-gez v0, :cond_0
+    if-gez v0, :cond_b
 
     const-string v1, ""
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public static varargs initialize([Ljava/lang/Class;)V
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -88,14 +88,14 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_2
+    if-ge v1, v0, :cond_1d
 
     aget-object v2, p0, v1
 
     .line 66
     .local v2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :try_start_0
+    :try_start_6
     invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v3
@@ -107,8 +107,8 @@
     const/4 v5, 0x1
 
     invoke-static {v3, v5, v4}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_6 .. :try_end_12} :catch_16
 
     .line 69
     nop
@@ -117,11 +117,11 @@
     .end local v2    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 67
     .restart local v2    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :catch_0
+    :catch_16
     move-exception v0
 
     .line 68
@@ -135,12 +135,12 @@
     .line 71
     .end local v0    # "e":Ljava/lang/ClassNotFoundException;
     .end local v2    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public static newProxy(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "handler"    # Ljava/lang/reflect/InvocationHandler;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;Ljava/lang/reflect/Field;Ljava/lang/reflect/Field;)V
-    .locals 1
+    .registers 5
     .param p1, "hField"    # Ljava/lang/reflect/Field;
     .param p2, "servedViewField"    # Ljava/lang/reflect/Field;
     .param p3, "nextServedViewField"    # Ljava/lang/reflect/Field;
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public clearNextServedView(Landroid/view/inputmethod/InputMethodManager;)Z
-    .locals 2
+    .registers 4
     .param p1, "$this$clearNextServedView"    # Landroid/view/inputmethod/InputMethodManager;
 
     const-string v0, "<this>"
@@ -107,22 +107,22 @@
     nop
 
     .line 102
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Landroidx/activity/ImmLeaksCleaner$ValidCleaner;->nextServedViewField:Ljava/lang/reflect/Field;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_6 .. :try_end_c} :catch_e
 
     .line 103
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 104
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 105
@@ -133,12 +133,12 @@
 
     .line 106
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public getLock(Landroid/view/inputmethod/InputMethodManager;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "$this$lock"    # Landroid/view/inputmethod/InputMethodManager;
 
     const-string v0, "<this>"
@@ -149,19 +149,19 @@
     nop
 
     .line 85
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Landroidx/activity/ImmLeaksCleaner$ValidCleaner;->hField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_6 .. :try_end_c} :catch_d
 
-    goto :goto_0
+    goto :goto_10
 
     .line 86
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 87
@@ -172,12 +172,12 @@
 
     .line 88
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 .method public getServedView(Landroid/view/inputmethod/InputMethodManager;)Landroid/view/View;
-    .locals 2
+    .registers 4
     .param p1, "$this$servedView"    # Landroid/view/inputmethod/InputMethodManager;
 
     const-string v0, "<this>"
@@ -190,7 +190,7 @@
     .line 93
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_7
     iget-object v1, p0, Landroidx/activity/ImmLeaksCleaner$ValidCleaner;->servedViewField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -198,25 +198,25 @@
     move-result-object v1
 
     check-cast v1, Landroid/view/View;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/IllegalAccessException; {:try_start_7 .. :try_end_f} :catch_13
+    .catch Ljava/lang/ClassCastException; {:try_start_7 .. :try_end_f} :catch_11
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 96
-    :catch_0
+    :catch_11
     move-exception v1
 
     .line 97
     .local v1, "e":Ljava/lang/ClassCastException;
-    goto :goto_0
+    goto :goto_15
 
     .line 94
     .end local v1    # "e":Ljava/lang/ClassCastException;
-    :catch_1
+    :catch_13
     move-exception v1
 
     .line 95
@@ -225,6 +225,6 @@
 
     .line 98
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    :goto_0
+    :goto_15
     return-object v0
 .end method

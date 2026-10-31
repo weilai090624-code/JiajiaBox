@@ -106,7 +106,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 91
     const/16 v0, 0x2c
@@ -289,7 +289,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "specification"    # Ljava/lang/String;
 
     .line 129
@@ -303,7 +303,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Ljava/lang/String;
     .param p1, "x1"    # [Ljava/lang/Object;
 
@@ -316,7 +316,7 @@
 .end method
 
 .method public static disableCaching()Lcom/google/common/cache/CacheBuilderSpec;
-    .locals 1
+    .registers 1
 
     .line 165
     const-string v0, "maximumSize=0"
@@ -329,7 +329,7 @@
 .end method
 
 .method private static durationInNanos(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Long;
-    .locals 2
+    .registers 5
     .param p0, "duration"    # J
     .param p2, "unit"    # Ljava/util/concurrent/TimeUnit;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -339,13 +339,13 @@
     .end annotation
 
     .line 286
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_4
     invoke-virtual {p2, p0, p1}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
 
     move-result-wide v0
@@ -354,12 +354,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method private static varargs format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "format"    # Ljava/lang/String;
     .param p1, "args"    # [Ljava/lang/Object;
 
@@ -374,7 +374,7 @@
 .end method
 
 .method public static parse(Ljava/lang/String;)Lcom/google/common/cache/CacheBuilderSpec;
-    .locals 9
+    .registers 10
     .param p0, "cacheBuilderSpecification"    # Ljava/lang/String;
 
     .line 139
@@ -388,7 +388,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_70
 
     .line 141
     sget-object v1, Lcom/google/common/cache/CacheBuilderSpec;->KEYS_SPLITTER:Lcom/google/common/base/Splitter;
@@ -401,12 +401,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_15
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_70
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -452,17 +452,17 @@
 
     const/4 v7, 0x0
 
-    if-gt v4, v6, :cond_0
+    if-gt v4, v6, :cond_41
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_0
+    :cond_41
     const/4 v4, 0x0
 
     .line 144
-    :goto_1
+    :goto_42
     const-string v6, "key-value pair %s with more than one equals sign"
 
     invoke-static {v4, v6, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -486,11 +486,11 @@
 
     .line 152
     .local v6, "valueParser":Lcom/google/common/cache/CacheBuilderSpec$ValueParser;
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_58
 
     const/4 v7, 0x1
 
-    :cond_1
+    :cond_58
     const-string/jumbo v8, "unknown key %s"
 
     invoke-static {v7, v8, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -500,13 +500,13 @@
 
     move-result v7
 
-    if-ne v7, v5, :cond_2
+    if-ne v7, v5, :cond_66
 
     const/4 v5, 0x0
 
-    goto :goto_2
+    goto :goto_6c
 
-    :cond_2
+    :cond_66
     invoke-interface {v3, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -515,7 +515,7 @@
 
     .line 155
     .local v5, "value":Ljava/lang/String;
-    :goto_2
+    :goto_6c
     invoke-interface {v6, v0, v4, v5}, Lcom/google/common/cache/CacheBuilderSpec$ValueParser;->parse(Lcom/google/common/cache/CacheBuilderSpec;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 156
@@ -524,17 +524,17 @@
     .end local v4    # "key":Ljava/lang/String;
     .end local v5    # "value":Ljava/lang/String;
     .end local v6    # "valueParser":Lcom/google/common/cache/CacheBuilderSpec$ValueParser;
-    goto :goto_0
+    goto :goto_15
 
     .line 159
-    :cond_3
+    :cond_70
     return-object v0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -543,24 +543,24 @@
     .line 255
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 256
     return v0
 
     .line 258
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/cache/CacheBuilderSpec;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 259
     return v2
 
     .line 261
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/common/cache/CacheBuilderSpec;
@@ -575,7 +575,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
     iget-object v3, p0, Lcom/google/common/cache/CacheBuilderSpec;->maximumSize:Ljava/lang/Long;
 
@@ -586,7 +586,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
     iget-object v3, p0, Lcom/google/common/cache/CacheBuilderSpec;->maximumWeight:Ljava/lang/Long;
 
@@ -597,7 +597,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
     iget-object v3, p0, Lcom/google/common/cache/CacheBuilderSpec;->concurrencyLevel:Ljava/lang/Integer;
 
@@ -608,7 +608,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
     iget-object v3, p0, Lcom/google/common/cache/CacheBuilderSpec;->keyStrength:Lcom/google/common/cache/LocalCache$Strength;
 
@@ -619,7 +619,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
     iget-object v3, p0, Lcom/google/common/cache/CacheBuilderSpec;->valueStrength:Lcom/google/common/cache/LocalCache$Strength;
 
@@ -630,7 +630,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
     iget-object v3, p0, Lcom/google/common/cache/CacheBuilderSpec;->recordStats:Ljava/lang/Boolean;
 
@@ -641,7 +641,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
     iget-wide v3, p0, Lcom/google/common/cache/CacheBuilderSpec;->writeExpirationDuration:J
 
@@ -666,7 +666,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
     iget-wide v3, p0, Lcom/google/common/cache/CacheBuilderSpec;->accessExpirationDuration:J
 
@@ -691,7 +691,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
     iget-wide v3, p0, Lcom/google/common/cache/CacheBuilderSpec;->refreshDuration:J
 
@@ -716,20 +716,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_96
 
-    goto :goto_0
+    goto :goto_97
 
-    :cond_2
+    :cond_96
     const/4 v0, 0x0
 
     .line 262
-    :goto_0
+    :goto_97
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 12
+    .registers 13
 
     .line 240
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilderSpec;->initialCapacity:Ljava/lang/Integer;
@@ -826,7 +826,7 @@
 .end method
 
 .method toCacheBuilder()Lcom/google/common/cache/CacheBuilder;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -846,7 +846,7 @@
     .local v0, "builder":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<Ljava/lang/Object;Ljava/lang/Object;>;"
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->initialCapacity:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 172
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->initialCapacity:Ljava/lang/Integer;
@@ -858,10 +858,10 @@
     invoke-virtual {v0, v1}, Lcom/google/common/cache/CacheBuilder;->initialCapacity(I)Lcom/google/common/cache/CacheBuilder;
 
     .line 174
-    :cond_0
+    :cond_11
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->maximumSize:Ljava/lang/Long;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     .line 175
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->maximumSize:Ljava/lang/Long;
@@ -873,10 +873,10 @@
     invoke-virtual {v0, v1, v2}, Lcom/google/common/cache/CacheBuilder;->maximumSize(J)Lcom/google/common/cache/CacheBuilder;
 
     .line 177
-    :cond_1
+    :cond_1e
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->maximumWeight:Ljava/lang/Long;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2b
 
     .line 178
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->maximumWeight:Ljava/lang/Long;
@@ -888,10 +888,10 @@
     invoke-virtual {v0, v1, v2}, Lcom/google/common/cache/CacheBuilder;->maximumWeight(J)Lcom/google/common/cache/CacheBuilder;
 
     .line 180
-    :cond_2
+    :cond_2b
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->concurrencyLevel:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_38
 
     .line 181
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->concurrencyLevel:Ljava/lang/Integer;
@@ -903,10 +903,10 @@
     invoke-virtual {v0, v1}, Lcom/google/common/cache/CacheBuilder;->concurrencyLevel(I)Lcom/google/common/cache/CacheBuilder;
 
     .line 183
-    :cond_3
+    :cond_38
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->keyStrength:Lcom/google/common/cache/LocalCache$Strength;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_53
 
     .line 184
     sget-object v1, Lcom/google/common/cache/CacheBuilderSpec$1;->$SwitchMap$com$google$common$cache$LocalCache$Strength:[I
@@ -919,7 +919,7 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_a4
 
     .line 189
     new-instance v1, Ljava/lang/AssertionError;
@@ -929,17 +929,17 @@
     throw v1
 
     .line 186
-    :pswitch_0
+    :pswitch_4f
     invoke-virtual {v0}, Lcom/google/common/cache/CacheBuilder;->weakKeys()Lcom/google/common/cache/CacheBuilder;
 
     .line 187
     nop
 
     .line 192
-    :cond_4
+    :cond_53
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->valueStrength:Lcom/google/common/cache/LocalCache$Strength;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_72
 
     .line 193
     sget-object v1, Lcom/google/common/cache/CacheBuilderSpec$1;->$SwitchMap$com$google$common$cache$LocalCache$Strength:[I
@@ -952,7 +952,7 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_1
+    packed-switch v1, :pswitch_data_aa
 
     .line 201
     new-instance v1, Ljava/lang/AssertionError;
@@ -962,25 +962,25 @@
     throw v1
 
     .line 195
-    :pswitch_1
+    :pswitch_6a
     invoke-virtual {v0}, Lcom/google/common/cache/CacheBuilder;->softValues()Lcom/google/common/cache/CacheBuilder;
 
     .line 196
-    goto :goto_0
+    goto :goto_72
 
     .line 198
-    :pswitch_2
+    :pswitch_6e
     invoke-virtual {v0}, Lcom/google/common/cache/CacheBuilder;->weakValues()Lcom/google/common/cache/CacheBuilder;
 
     .line 199
     nop
 
     .line 204
-    :cond_5
-    :goto_0
+    :cond_72
+    :goto_72
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->recordStats:Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_81
 
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->recordStats:Ljava/lang/Boolean;
 
@@ -988,16 +988,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_81
 
     .line 205
     invoke-virtual {v0}, Lcom/google/common/cache/CacheBuilder;->recordStats()Lcom/google/common/cache/CacheBuilder;
 
     .line 207
-    :cond_6
+    :cond_81
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->writeExpirationTimeUnit:Ljava/util/concurrent/TimeUnit;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8c
 
     .line 208
     iget-wide v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->writeExpirationDuration:J
@@ -1007,10 +1007,10 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/google/common/cache/CacheBuilder;->expireAfterWrite(JLjava/util/concurrent/TimeUnit;)Lcom/google/common/cache/CacheBuilder;
 
     .line 210
-    :cond_7
+    :cond_8c
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->accessExpirationTimeUnit:Ljava/util/concurrent/TimeUnit;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_97
 
     .line 211
     iget-wide v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->accessExpirationDuration:J
@@ -1020,10 +1020,10 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/google/common/cache/CacheBuilder;->expireAfterAccess(JLjava/util/concurrent/TimeUnit;)Lcom/google/common/cache/CacheBuilder;
 
     .line 213
-    :cond_8
+    :cond_97
     iget-object v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->refreshTimeUnit:Ljava/util/concurrent/TimeUnit;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_a2
 
     .line 214
     iget-wide v1, p0, Lcom/google/common/cache/CacheBuilderSpec;->refreshDuration:J
@@ -1033,25 +1033,25 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/google/common/cache/CacheBuilder;->refreshAfterWrite(JLjava/util/concurrent/TimeUnit;)Lcom/google/common/cache/CacheBuilder;
 
     .line 217
-    :cond_9
+    :cond_a2
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a4
     .packed-switch 0x1
-        :pswitch_0
+        :pswitch_4f
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_aa
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
+        :pswitch_6e
+        :pswitch_6a
     .end packed-switch
 .end method
 
 .method public toParsableString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 226
     iget-object v0, p0, Lcom/google/common/cache/CacheBuilderSpec;->specification:Ljava/lang/String;
@@ -1060,7 +1060,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 235
     invoke-static {p0}, Lcom/google/common/base/MoreObjects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;

@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
 .end method
 
 .method private rank(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)I"
@@ -108,7 +108,7 @@
 
     .line 45
     .local v0, "rank":Ljava/lang/Integer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 48
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -118,7 +118,7 @@
     return v1
 
     .line 46
-    :cond_0
+    :cond_f
     new-instance v1, Lcom/google/common/collect/Ordering$IncomparableValueException;
 
     invoke-direct {v1, p1}, Lcom/google/common/collect/Ordering$IncomparableValueException;-><init>(Ljava/lang/Object;)V
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)I"
@@ -154,7 +154,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -164,7 +164,7 @@
     .local p0, "this":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<TT;>;"
     instance-of v0, p1, Lcom/google/common/collect/ExplicitOrdering;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 54
     move-object v0, p1
@@ -185,14 +185,14 @@
 
     .line 57
     .end local v0    # "that":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<TT;>;"
@@ -206,7 +206,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 67
     .local p0, "this":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<TT;>;"

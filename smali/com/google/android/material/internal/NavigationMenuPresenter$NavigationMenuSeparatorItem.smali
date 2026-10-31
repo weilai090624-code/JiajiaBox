@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "paddingTop"    # I
     .param p2, "paddingBottom"    # I
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getPaddingBottom()I
-    .locals 1
+    .registers 2
 
     .line 903
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuSeparatorItem;->paddingBottom:I
@@ -54,7 +54,7 @@
 .end method
 
 .method public getPaddingTop()I
-    .locals 1
+    .registers 2
 
     .line 899
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuSeparatorItem;->paddingTop:I

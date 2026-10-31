@@ -82,7 +82,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/sequences/Sequence;Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 5
     .param p1, "sequence1"    # Lkotlin/sequences/Sequence;
     .param p2, "sequence2"    # Lkotlin/sequences/Sequence;
     .param p3, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -127,7 +127,7 @@
 .end method
 
 .method public static final synthetic access$getSequence1$p(Lkotlin/sequences/MergingSequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/MergingSequence;
 
     .line 267
@@ -137,7 +137,7 @@
 .end method
 
 .method public static final synthetic access$getSequence2$p(Lkotlin/sequences/MergingSequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/MergingSequence;
 
     .line 267
@@ -147,7 +147,7 @@
 .end method
 
 .method public static final synthetic access$getTransform$p(Lkotlin/sequences/MergingSequence;)Lkotlin/jvm/functions/Function2;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/MergingSequence;
 
     .line 267
@@ -159,7 +159,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

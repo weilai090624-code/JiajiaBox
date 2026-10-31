@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/navigation/fragment/FragmentNavArgsLazyKt$navArgs$1;->$this_navArgs:Landroidx/fragment/app/Fragment;
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public final invoke()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 43
     iget-object v0, p0, Landroidx/navigation/fragment/FragmentNavArgsLazyKt$navArgs$1;->$this_navArgs:Landroidx/fragment/app/Fragment;
@@ -79,11 +79,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     return-object v0
 
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -118,7 +118,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 42
     invoke-virtual {p0}, Landroidx/navigation/fragment/FragmentNavArgsLazyKt$navArgs$1;->invoke()Landroid/os/Bundle;

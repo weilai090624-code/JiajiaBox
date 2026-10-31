@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/appcompat/widget/ListPopupWindow;
     .param p2, "src"    # Landroid/view/View;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public bridge synthetic getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
-    .locals 1
+    .registers 2
 
     .line 1143
     invoke-virtual {p0}, Landroidx/appcompat/widget/ListPopupWindow$1;->getPopup()Landroidx/appcompat/widget/ListPopupWindow;
@@ -46,7 +46,7 @@
 .end method
 
 .method public getPopup()Landroidx/appcompat/widget/ListPopupWindow;
-    .locals 1
+    .registers 2
 
     .line 1146
     iget-object v0, p0, Landroidx/appcompat/widget/ListPopupWindow$1;->this$0:Landroidx/appcompat/widget/ListPopupWindow;

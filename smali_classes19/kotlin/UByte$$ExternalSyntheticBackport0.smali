@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(II)I
-    .locals 4
+    .registers 6
 
     .line 0
     int-to-long v0, p0

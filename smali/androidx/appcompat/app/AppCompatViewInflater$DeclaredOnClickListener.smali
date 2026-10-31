@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "hostView"    # Landroid/view/View;
     .param p2, "methodName"    # Ljava/lang/String;
 
@@ -47,22 +47,22 @@
 .end method
 
 .method private resolveMethod(Landroid/content/Context;)V
-    .locals 5
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
 
     .line 479
     nop
 
-    :goto_0
-    if-eqz p1, :cond_2
+    :goto_1
+    if-eqz p1, :cond_32
 
     .line 481
-    :try_start_0
+    :try_start_3
     invoke-virtual {p1}, Landroid/content/Context;->isRestricted()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 482
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -87,33 +87,33 @@
 
     .line 483
     .local v0, "method":Ljava/lang/reflect/Method;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 484
     iput-object v0, p0, Landroidx/appcompat/app/AppCompatViewInflater$DeclaredOnClickListener;->mResolvedMethod:Ljava/lang/reflect/Method;
 
     .line 485
     iput-object p1, p0, Landroidx/appcompat/app/AppCompatViewInflater$DeclaredOnClickListener;->mResolvedContext:Landroid/content/Context;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_3 .. :try_end_21} :catch_23
 
     .line 486
     return-void
 
     .line 491
     .end local v0    # "method":Ljava/lang/reflect/Method;
-    :cond_0
-    goto :goto_1
+    :cond_22
+    goto :goto_24
 
     .line 489
-    :catch_0
+    :catch_23
     move-exception v0
 
     .line 493
-    :goto_1
+    :goto_24
     instance-of v0, p1, Landroid/content/ContextWrapper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     .line 494
     move-object v0, p1
@@ -124,16 +124,16 @@
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 497
-    :cond_1
+    :cond_30
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_1
 
     .line 501
-    :cond_2
+    :cond_32
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatViewInflater$DeclaredOnClickListener;->mHostView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getId()I
@@ -144,14 +144,14 @@
     .local v0, "id":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_3e
 
     const-string v1, ""
 
-    goto :goto_2
+    goto :goto_65
 
     .line 503
-    :cond_3
+    :cond_3e
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -190,7 +190,7 @@
 
     move-result-object v1
 
-    :goto_2
+    :goto_65
     nop
 
     .line 504
@@ -246,13 +246,13 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "v"    # Landroid/view/View;
 
     .line 463
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatViewInflater$DeclaredOnClickListener;->mResolvedMethod:Ljava/lang/reflect/Method;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 464
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatViewInflater$DeclaredOnClickListener;->mHostView:Landroid/view/View;
@@ -264,8 +264,8 @@
     invoke-direct {p0, v0}, Landroidx/appcompat/app/AppCompatViewInflater$DeclaredOnClickListener;->resolveMethod(Landroid/content/Context;)V
 
     .line 468
-    :cond_0
-    :try_start_0
+    :cond_d
+    :try_start_d
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatViewInflater$DeclaredOnClickListener;->mResolvedMethod:Ljava/lang/reflect/Method;
 
     iget-object v1, p0, Landroidx/appcompat/app/AppCompatViewInflater$DeclaredOnClickListener;->mResolvedContext:Landroid/content/Context;
@@ -279,9 +279,9 @@
     aput-object p1, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/IllegalAccessException; {:try_start_d .. :try_end_1a} :catch_25
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_d .. :try_end_1a} :catch_1c
 
     .line 475
     nop
@@ -290,7 +290,7 @@
     return-void
 
     .line 472
-    :catch_0
+    :catch_1c
     move-exception v0
 
     .line 473
@@ -305,7 +305,7 @@
 
     .line 469
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_25
     move-exception v0
 
     .line 470

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;)V
-    .locals 1
+    .registers 3
     .param p1, "textView"    # Landroid/widget/TextView;
 
     .line 232
@@ -38,7 +38,7 @@
 .end method
 
 .method private skipBecauseEmojiCompatNotInitialized()Z
-    .locals 1
+    .registers 2
 
     .line 237
     invoke-static {}, Landroidx/emoji2/text/EmojiCompat;->isConfigured()Z
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method getFilters([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
-    .locals 1
+    .registers 3
     .param p1, "filters"    # [Landroid/text/InputFilter;
 
     .line 261
@@ -61,13 +61,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 262
     return-object p1
 
     .line 264
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$SkippingHelper19;->mHelperDelegate:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;
 
     invoke-virtual {v0, p1}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->getFilters([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
@@ -78,7 +78,7 @@
 .end method
 
 .method public isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 312
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$SkippingHelper19;->mHelperDelegate:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;
@@ -91,7 +91,7 @@
 .end method
 
 .method setAllCaps(Z)V
-    .locals 1
+    .registers 3
     .param p1, "allCaps"    # Z
 
     .line 289
@@ -99,13 +99,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 290
     return-void
 
     .line 292
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$SkippingHelper19;->mHelperDelegate:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;
 
     invoke-virtual {v0, p1}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->setAllCaps(Z)V
@@ -115,7 +115,7 @@
 .end method
 
 .method setEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "processEmoji"    # Z
 
     .line 303
@@ -123,41 +123,41 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 304
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$SkippingHelper19;->mHelperDelegate:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;
 
     invoke-virtual {v0, p1}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->setEnabledUnsafe(Z)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 306
-    :cond_0
+    :cond_c
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$SkippingHelper19;->mHelperDelegate:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;
 
     invoke-virtual {v0, p1}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->setEnabled(Z)V
 
     .line 308
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method updateTransformationMethod()V
-    .locals 1
+    .registers 2
 
     .line 247
     invoke-direct {p0}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$SkippingHelper19;->skipBecauseEmojiCompatNotInitialized()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 248
     return-void
 
     .line 250
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$SkippingHelper19;->mHelperDelegate:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;
 
     invoke-virtual {v0}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->updateTransformationMethod()V
@@ -167,7 +167,7 @@
 .end method
 
 .method wrapTransformationMethod(Landroid/text/method/TransformationMethod;)Landroid/text/method/TransformationMethod;
-    .locals 1
+    .registers 3
     .param p1, "transformationMethod"    # Landroid/text/method/TransformationMethod;
 
     .line 276
@@ -175,13 +175,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 277
     return-object p1
 
     .line 279
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$SkippingHelper19;->mHelperDelegate:Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;
 
     invoke-virtual {v0, p1}, Landroidx/emoji2/viewsintegration/EmojiTextViewHelper$HelperInternal19;->wrapTransformationMethod(Landroid/text/method/TransformationMethod;)Landroid/text/method/TransformationMethod;

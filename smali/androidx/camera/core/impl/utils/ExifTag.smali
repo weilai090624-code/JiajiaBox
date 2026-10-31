@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;II)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "number"    # I
     .param p3, "format"    # I
@@ -54,7 +54,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;III)V
-    .locals 0
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "number"    # I
     .param p3, "primaryFormat"    # I
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method isFormatCompatible(I)Z
-    .locals 3
+    .registers 5
     .param p1, "format"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -114,96 +114,96 @@
 
     const/4 v2, 0x7
 
-    if-eq v0, v2, :cond_9
+    if-eq v0, v2, :cond_40
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_9
 
-    goto :goto_2
+    goto :goto_40
 
     .line 63
-    :cond_0
+    :cond_9
     iget v0, p0, Landroidx/camera/core/impl/utils/ExifTag;->primaryFormat:I
 
-    if-eq v0, p1, :cond_8
+    if-eq v0, p1, :cond_3f
 
     iget v0, p0, Landroidx/camera/core/impl/utils/ExifTag;->secondaryFormat:I
 
-    if-ne v0, p1, :cond_1
+    if-ne v0, p1, :cond_12
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 65
-    :cond_1
+    :cond_12
     iget v0, p0, Landroidx/camera/core/impl/utils/ExifTag;->primaryFormat:I
 
     const/4 v2, 0x4
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_1b
 
     iget v0, p0, Landroidx/camera/core/impl/utils/ExifTag;->secondaryFormat:I
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_1f
 
-    :cond_2
+    :cond_1b
     const/4 v0, 0x3
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_1f
 
     .line 67
     return v1
 
     .line 68
-    :cond_3
+    :cond_1f
     iget v0, p0, Landroidx/camera/core/impl/utils/ExifTag;->primaryFormat:I
 
     const/16 v2, 0x9
 
-    if-eq v0, v2, :cond_4
+    if-eq v0, v2, :cond_29
 
     iget v0, p0, Landroidx/camera/core/impl/utils/ExifTag;->secondaryFormat:I
 
-    if-ne v0, v2, :cond_5
+    if-ne v0, v2, :cond_2e
 
-    :cond_4
+    :cond_29
     const/16 v0, 0x8
 
-    if-ne p1, v0, :cond_5
+    if-ne p1, v0, :cond_2e
 
     .line 70
     return v1
 
     .line 71
-    :cond_5
+    :cond_2e
     iget v0, p0, Landroidx/camera/core/impl/utils/ExifTag;->primaryFormat:I
 
     const/16 v2, 0xc
 
-    if-eq v0, v2, :cond_6
+    if-eq v0, v2, :cond_38
 
     iget v0, p0, Landroidx/camera/core/impl/utils/ExifTag;->secondaryFormat:I
 
-    if-ne v0, v2, :cond_7
+    if-ne v0, v2, :cond_3d
 
-    :cond_6
+    :cond_38
     const/16 v0, 0xb
 
-    if-ne p1, v0, :cond_7
+    if-ne p1, v0, :cond_3d
 
-    goto :goto_0
+    goto :goto_3e
 
-    :cond_7
+    :cond_3d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_3e
     return v1
 
     .line 64
-    :cond_8
-    :goto_1
+    :cond_3f
+    :goto_3f
     return v1
 
     .line 62
-    :cond_9
-    :goto_2
+    :cond_40
+    :goto_40
     return v1
 .end method

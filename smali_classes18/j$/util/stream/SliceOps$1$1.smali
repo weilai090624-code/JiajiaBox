@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/SliceOps$1;Lj$/util/stream/Sink;)V
-    .locals 5
+    .registers 8
     .param p1, "this$0"    # Lj$/util/stream/SliceOps$1;
 
     .line 185
@@ -56,18 +56,18 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_1a
 
     iget-object v0, p0, Lj$/util/stream/SliceOps$1$1;->this$0:Lj$/util/stream/SliceOps$1;
 
     iget-wide v0, v0, Lj$/util/stream/SliceOps$1;->val$limit:J
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1a
     const-wide v0, 0x7fffffffffffffffL
 
-    :goto_0
+    :goto_1f
     iput-wide v0, p0, Lj$/util/stream/SliceOps$1$1;->m:J
 
     return-void
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -93,14 +93,14 @@
 
     cmp-long v6, v0, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1b
 
     .line 197
     iget-wide v0, p0, Lj$/util/stream/SliceOps$1$1;->m:J
 
     cmp-long v6, v0, v4
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_20
 
     .line 198
     iget-wide v0, p0, Lj$/util/stream/SliceOps$1$1;->m:J
@@ -114,10 +114,10 @@
 
     invoke-interface {v0, p1}, Lj$/util/stream/Sink;->accept(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 203
-    :cond_0
+    :cond_1b
     iget-wide v0, p0, Lj$/util/stream/SliceOps$1$1;->n:J
 
     sub-long/2addr v0, v2
@@ -125,13 +125,13 @@
     iput-wide v0, p0, Lj$/util/stream/SliceOps$1$1;->n:J
 
     .line 205
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     return-void
 .end method
 
 .method public begin(J)V
-    .locals 8
+    .registers 11
     .param p1, "size"    # J
 
     .line 191
@@ -156,7 +156,7 @@
 .end method
 
 .method public cancellationRequested()Z
-    .locals 5
+    .registers 6
 
     .line 209
     iget-wide v0, p0, Lj$/util/stream/SliceOps$1$1;->m:J
@@ -165,7 +165,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_13
 
     iget-object v0, p0, Lj$/util/stream/SliceOps$1$1;->downstream:Lj$/util/stream/Sink;
 
@@ -173,19 +173,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_14
     return v0
 .end method

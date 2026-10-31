@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 60
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_ShapeableImageView:I
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 88
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 5
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -361,7 +361,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/imageview/ShapeableImageView;)Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/imageview/ShapeableImageView;
 
     .line 58
@@ -371,7 +371,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/imageview/ShapeableImageView;)Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/imageview/ShapeableImageView;
 
     .line 58
@@ -381,7 +381,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/google/android/material/imageview/ShapeableImageView;Lcom/google/android/material/shape/MaterialShapeDrawable;)Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/imageview/ShapeableImageView;
     .param p1, "x1"    # Lcom/google/android/material/shape/MaterialShapeDrawable;
 
@@ -392,7 +392,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/imageview/ShapeableImageView;)Landroid/graphics/RectF;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/imageview/ShapeableImageView;
 
     .line 58
@@ -402,19 +402,19 @@
 .end method
 
 .method private drawStroke(Landroid/graphics/Canvas;)V
-    .locals 3
+    .registers 5
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 481
     iget-object v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->strokeColor:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 482
     return-void
 
     .line 485
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->borderPaint:Landroid/graphics/Paint;
 
     iget v1, p0, Lcom/google/android/material/imageview/ShapeableImageView;->strokeWidth:F
@@ -447,9 +447,9 @@
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_31
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 490
     iget-object v1, p0, Lcom/google/android/material/imageview/ShapeableImageView;->borderPaint:Landroid/graphics/Paint;
@@ -464,41 +464,41 @@
     invoke-virtual {p1, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     .line 493
-    :cond_1
+    :cond_31
     return-void
 .end method
 
 .method private isContentPaddingRelative()Z
-    .locals 2
+    .registers 3
 
     .line 252
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->startContentPadding:I
 
     const/high16 v1, -0x80000000
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_d
 
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->endContentPadding:I
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_e
     return v0
 .end method
 
 .method private isRtl()Z
-    .locals 2
+    .registers 3
 
     .line 342
     invoke-virtual {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->getLayoutDirection()I
@@ -507,19 +507,19 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     return v1
 .end method
 
 .method private updateShapeMask(II)V
-    .locals 5
+    .registers 8
     .param p1, "width"    # I
     .param p2, "height"    # I
 
@@ -610,7 +610,7 @@
 
 # virtual methods
 .method public getContentPaddingBottom()I
-    .locals 1
+    .registers 2
 
     .line 262
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->bottomContentPadding:I
@@ -619,14 +619,14 @@
 .end method
 
 .method public final getContentPaddingEnd()I
-    .locals 2
+    .registers 3
 
     .line 273
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->endContentPadding:I
 
     const/high16 v1, -0x80000000
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
     .line 274
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->endContentPadding:I
@@ -634,33 +634,33 @@
     return v0
 
     .line 276
-    :cond_0
+    :cond_9
     invoke-direct {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isRtl()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->leftContentPadding:I
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_12
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->rightContentPadding:I
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public getContentPaddingLeft()I
-    .locals 2
+    .registers 3
 
     .line 287
     invoke-direct {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isContentPaddingRelative()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 288
     invoke-direct {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isRtl()Z
@@ -669,11 +669,11 @@
 
     const/high16 v1, -0x80000000
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->endContentPadding:I
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_15
 
     .line 289
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->endContentPadding:I
@@ -681,16 +681,16 @@
     return v0
 
     .line 290
-    :cond_0
+    :cond_15
     invoke-direct {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isRtl()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->startContentPadding:I
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_22
 
     .line 291
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->startContentPadding:I
@@ -698,21 +698,21 @@
     return v0
 
     .line 295
-    :cond_1
+    :cond_22
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->leftContentPadding:I
 
     return v0
 .end method
 
 .method public getContentPaddingRight()I
-    .locals 2
+    .registers 3
 
     .line 305
     invoke-direct {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isContentPaddingRelative()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 306
     invoke-direct {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isRtl()Z
@@ -721,11 +721,11 @@
 
     const/high16 v1, -0x80000000
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->startContentPadding:I
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_15
 
     .line 307
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->startContentPadding:I
@@ -733,16 +733,16 @@
     return v0
 
     .line 308
-    :cond_0
+    :cond_15
     invoke-direct {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isRtl()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->endContentPadding:I
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_22
 
     .line 309
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->endContentPadding:I
@@ -750,21 +750,21 @@
     return v0
 
     .line 313
-    :cond_1
+    :cond_22
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->rightContentPadding:I
 
     return v0
 .end method
 
 .method public final getContentPaddingStart()I
-    .locals 2
+    .registers 3
 
     .line 324
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->startContentPadding:I
 
     const/high16 v1, -0x80000000
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
     .line 325
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->startContentPadding:I
@@ -772,26 +772,26 @@
     return v0
 
     .line 327
-    :cond_0
+    :cond_9
     invoke-direct {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isRtl()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->rightContentPadding:I
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_12
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->leftContentPadding:I
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public getContentPaddingTop()I
-    .locals 1
+    .registers 2
 
     .line 338
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->topContentPadding:I
@@ -800,7 +800,7 @@
 .end method
 
 .method public getPaddingBottom()I
-    .locals 2
+    .registers 3
 
     .line 391
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatImageView;->getPaddingBottom()I
@@ -817,7 +817,7 @@
 .end method
 
 .method public getPaddingEnd()I
-    .locals 2
+    .registers 3
 
     .line 402
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatImageView;->getPaddingEnd()I
@@ -834,7 +834,7 @@
 .end method
 
 .method public getPaddingLeft()I
-    .locals 2
+    .registers 3
 
     .line 413
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatImageView;->getPaddingLeft()I
@@ -851,7 +851,7 @@
 .end method
 
 .method public getPaddingRight()I
-    .locals 2
+    .registers 3
 
     .line 424
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatImageView;->getPaddingRight()I
@@ -868,7 +868,7 @@
 .end method
 
 .method public getPaddingStart()I
-    .locals 2
+    .registers 3
 
     .line 435
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatImageView;->getPaddingStart()I
@@ -885,7 +885,7 @@
 .end method
 
 .method public getPaddingTop()I
-    .locals 2
+    .registers 3
 
     .line 446
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatImageView;->getPaddingTop()I
@@ -902,7 +902,7 @@
 .end method
 
 .method public getShapeAppearanceModel()Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 1
+    .registers 2
 
     .line 465
     iget-object v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -911,7 +911,7 @@
 .end method
 
 .method public getStrokeColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 517
     iget-object v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->strokeColor:Landroid/content/res/ColorStateList;
@@ -920,7 +920,7 @@
 .end method
 
 .method public getStrokeWidth()F
-    .locals 1
+    .registers 2
 
     .line 559
     iget v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->strokeWidth:F
@@ -929,7 +929,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 2
+    .registers 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 188
@@ -950,7 +950,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 4
+    .registers 7
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -960,24 +960,24 @@
     .line 158
     iget-boolean v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->hasAdjustedPaddingAfterLayoutDirectionResolved:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 159
     return-void
 
     .line 162
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isLayoutDirectionResolved()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     .line 163
     return-void
 
     .line 166
-    :cond_1
+    :cond_f
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->hasAdjustedPaddingAfterLayoutDirectionResolved:Z
@@ -987,18 +987,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_34
 
     invoke-direct {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isContentPaddingRelative()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1f
 
-    goto :goto_0
+    goto :goto_34
 
     .line 179
-    :cond_2
+    :cond_1f
     nop
 
     .line 180
@@ -1028,8 +1028,8 @@
     return-void
 
     .line 171
-    :cond_3
-    :goto_0
+    :cond_34
+    :goto_34
     nop
 
     .line 172
@@ -1060,7 +1060,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "width"    # I
     .param p2, "height"    # I
     .param p3, "oldWidth"    # I
@@ -1077,7 +1077,7 @@
 .end method
 
 .method public setContentPadding(IIII)V
-    .locals 5
+    .registers 10
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -1158,7 +1158,7 @@
 .end method
 
 .method public setContentPaddingRelative(IIII)V
-    .locals 5
+    .registers 10
     .param p1, "start"    # I
     .param p2, "top"    # I
     .param p3, "end"    # I
@@ -1223,16 +1223,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_30
 
     move v0, p3
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_30
     move v0, p1
 
-    :goto_0
+    :goto_31
     iput v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->leftContentPadding:I
 
     .line 246
@@ -1243,16 +1243,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3d
 
     move v0, p1
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_1
+    :cond_3d
     move v0, p3
 
-    :goto_1
+    :goto_3e
     iput v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->rightContentPadding:I
 
     .line 248
@@ -1263,7 +1263,7 @@
 .end method
 
 .method public setPadding(IIII)V
-    .locals 4
+    .registers 9
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -1308,7 +1308,7 @@
 .end method
 
 .method public setPaddingRelative(IIII)V
-    .locals 4
+    .registers 9
     .param p1, "start"    # I
     .param p2, "top"    # I
     .param p3, "end"    # I
@@ -1353,7 +1353,7 @@
 .end method
 
 .method public setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 2
+    .registers 4
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 451
@@ -1362,7 +1362,7 @@
     .line 452
     iget-object v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->shadowDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 453
     iget-object v0, p0, Lcom/google/android/material/imageview/ShapeableImageView;->shadowDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1370,7 +1370,7 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     .line 455
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->getWidth()I
 
     move-result v0
@@ -1395,7 +1395,7 @@
 .end method
 
 .method public setStrokeColor(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1, "strokeColor"    # Landroid/content/res/ColorStateList;
 
     .line 563
@@ -1409,7 +1409,7 @@
 .end method
 
 .method public setStrokeColorResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "strokeColorResourceId"    # I
 
     .line 505
@@ -1428,7 +1428,7 @@
 .end method
 
 .method public setStrokeWidth(F)V
-    .locals 1
+    .registers 3
     .param p1, "strokeWidth"    # F
 
     .line 530
@@ -1436,7 +1436,7 @@
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 531
     iput p1, p0, Lcom/google/android/material/imageview/ShapeableImageView;->strokeWidth:F
@@ -1445,12 +1445,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->invalidate()V
 
     .line 534
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setStrokeWidthResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "strokeWidthResourceId"    # I
 
     .line 546

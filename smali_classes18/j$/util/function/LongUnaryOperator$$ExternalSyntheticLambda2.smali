@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public synthetic andThen(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/LongUnaryOperator$-CC;->$default$andThen(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public final applyAsLong(J)J
-    .locals 2
+    .registers 5
 
     iget-object v0, p0, Lj$/util/function/LongUnaryOperator$$ExternalSyntheticLambda2;->f$0:Ljava/util/function/LongUnaryOperator;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public synthetic compose(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/LongUnaryOperator$-CC;->$default$compose(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;
 

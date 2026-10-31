@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 659
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/MapSerializer;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method private createConcurrentSkipListMap(Ljava/lang/Class;Ljava/util/Comparator;)Ljava/util/concurrent/ConcurrentSkipListMap;
-    .locals 4
+    .registers 7
     .param p2, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -52,17 +52,17 @@
     .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/util/concurrent/ConcurrentSkipListMap;>;"
     const-class v0, Ljava/util/concurrent/ConcurrentSkipListMap;
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_30
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
-    goto :goto_1
+    goto :goto_30
 
     .line 683
-    :cond_0
+    :cond_7
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_8
     new-array v1, v0, [Ljava/lang/Class;
 
     const-class v2, Ljava/util/Comparator;
@@ -80,29 +80,29 @@
     invoke-virtual {v1}, Ljava/lang/reflect/Constructor;->isAccessible()Z
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_17
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_17} :catch_29
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1e
 
     .line 686
-    :try_start_1
+    :try_start_19
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
-    :try_end_1
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1c
+    .catch Ljava/lang/SecurityException; {:try_start_19 .. :try_end_1c} :catch_1d
+    .catch Ljava/lang/Exception; {:try_start_19 .. :try_end_1c} :catch_29
 
     .line 688
-    goto :goto_0
+    goto :goto_1e
 
     .line 687
-    :catch_0
+    :catch_1d
     move-exception v2
 
     .line 690
-    :cond_1
-    :goto_0
-    :try_start_2
+    :cond_1e
+    :goto_1e
+    :try_start_1e
     new-array v0, v0, [Ljava/lang/Object;
 
     aput-object p2, v0, v3
@@ -112,14 +112,14 @@
     move-result-object v0
 
     check-cast v0, Ljava/util/concurrent/ConcurrentSkipListMap;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_28
+    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_28} :catch_29
 
     return-object v0
 
     .line 691
     .end local v1    # "constructor":Ljava/lang/reflect/Constructor;
-    :catch_1
+    :catch_29
     move-exception v0
 
     .line 692
@@ -132,8 +132,8 @@
 
     .line 679
     .end local v0    # "ex":Ljava/lang/Exception;
-    :cond_2
-    :goto_1
+    :cond_30
+    :goto_30
     new-instance v0, Ljava/util/concurrent/ConcurrentSkipListMap;
 
     invoke-direct {v0, p2}, Ljava/util/concurrent/ConcurrentSkipListMap;-><init>(Ljava/util/Comparator;)V
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method protected bridge synthetic create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/Map;
-    .locals 0
+    .registers 5
 
     .line 659
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$ConcurrentSkipListMapSerializer;->create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/concurrent/ConcurrentSkipListMap;
@@ -155,7 +155,7 @@
 .end method
 
 .method protected create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/concurrent/ConcurrentSkipListMap;
-    .locals 1
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p4, "size"    # I
@@ -188,7 +188,7 @@
 .end method
 
 .method protected bridge synthetic createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Map;)Ljava/util/Map;
-    .locals 0
+    .registers 3
 
     .line 659
     check-cast p2, Ljava/util/concurrent/ConcurrentSkipListMap;
@@ -201,7 +201,7 @@
 .end method
 
 .method protected createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/concurrent/ConcurrentSkipListMap;)Ljava/util/concurrent/ConcurrentSkipListMap;
-    .locals 2
+    .registers 5
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "original"    # Ljava/util/concurrent/ConcurrentSkipListMap;
 
@@ -222,7 +222,7 @@
 .end method
 
 .method protected bridge synthetic writeHeader(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/Map;)V
-    .locals 0
+    .registers 4
 
     .line 659
     check-cast p3, Ljava/util/concurrent/ConcurrentSkipListMap;
@@ -233,7 +233,7 @@
 .end method
 
 .method protected writeHeader(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/concurrent/ConcurrentSkipListMap;)V
-    .locals 1
+    .registers 5
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "concurrentSkipListMap"    # Ljava/util/concurrent/ConcurrentSkipListMap;

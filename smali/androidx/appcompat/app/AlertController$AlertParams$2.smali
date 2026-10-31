@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AlertController$AlertParams;Landroid/content/Context;Landroid/database/Cursor;ZLandroidx/appcompat/app/AlertController$RecycleListView;Landroidx/appcompat/app/AlertController;)V
-    .locals 0
+    .registers 7
     .param p1, "this$0"    # Landroidx/appcompat/app/AlertController$AlertParams;
     .param p2, "arg0"    # Landroid/content/Context;
     .param p3, "arg1"    # Landroid/database/Cursor;
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
-    .locals 5
+    .registers 9
     .param p1, "view"    # Landroid/view/View;
     .param p2, "context"    # Landroid/content/Context;
     .param p3, "cursor"    # Landroid/database/Cursor;
@@ -119,15 +119,15 @@
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_22
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v4, 0x0
 
     .line 1024
-    :goto_0
+    :goto_23
     invoke-virtual {v1, v2, v4}, Landroidx/appcompat/app/AlertController$RecycleListView;->setItemChecked(IZ)V
 
     .line 1026
@@ -135,7 +135,7 @@
 .end method
 
 .method public newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cursor"    # Landroid/database/Cursor;
     .param p3, "parent"    # Landroid/view/ViewGroup;

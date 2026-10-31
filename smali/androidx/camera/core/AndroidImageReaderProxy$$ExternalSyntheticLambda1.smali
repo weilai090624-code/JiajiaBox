@@ -16,7 +16,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroidx/camera/core/AndroidImageReaderProxy;Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/ImageReaderProxy$OnImageAvailableListener;)V
-    .locals 0
+    .registers 4
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public final onImageAvailable(Landroid/media/ImageReader;)V
-    .locals 3
+    .registers 5
 
     .line 0
     iget-object v0, p0, Landroidx/camera/core/AndroidImageReaderProxy$$ExternalSyntheticLambda1;->f$0:Landroidx/camera/core/AndroidImageReaderProxy;

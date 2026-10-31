@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/DropDownListView;)V
-    .locals 0
+    .registers 2
 
     .line 721
     iput-object p1, p0, Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;->this$0:Landroidx/appcompat/widget/DropDownListView;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 2
+    .registers 3
 
     .line 732
     iget-object v0, p0, Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;->this$0:Landroidx/appcompat/widget/DropDownListView;
@@ -56,7 +56,7 @@
 .end method
 
 .method public post()V
-    .locals 1
+    .registers 2
 
     .line 737
     iget-object v0, p0, Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;->this$0:Landroidx/appcompat/widget/DropDownListView;
@@ -68,7 +68,7 @@
 .end method
 
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 727
     iget-object v0, p0, Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;->this$0:Landroidx/appcompat/widget/DropDownListView;

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroidx/work/impl/utils/futures/SettableFuture;Landroidx/work/impl/WorkManagerImpl;Landroidx/work/WorkRequest;)V
-    .locals 0
+    .registers 4
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .registers 4
 
     .line 0
     iget-object v0, p0, Landroidx/work/impl/WorkerUpdater$$ExternalSyntheticLambda1;->f$0:Landroidx/work/impl/utils/futures/SettableFuture;

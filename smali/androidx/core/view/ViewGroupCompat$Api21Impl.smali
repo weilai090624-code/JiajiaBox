@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 191
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getNestedScrollAxes(Landroid/view/ViewGroup;)I
-    .locals 1
+    .registers 2
     .param p0, "viewGroup"    # Landroid/view/ViewGroup;
 
     .line 207
@@ -38,7 +38,7 @@
 .end method
 
 .method static isTransitionGroup(Landroid/view/ViewGroup;)Z
-    .locals 1
+    .registers 2
     .param p0, "viewGroup"    # Landroid/view/ViewGroup;
 
     .line 202
@@ -50,7 +50,7 @@
 .end method
 
 .method static setTransitionGroup(Landroid/view/ViewGroup;Z)V
-    .locals 0
+    .registers 2
     .param p0, "viewGroup"    # Landroid/view/ViewGroup;
     .param p1, "isTransitionGroup"    # Z
 

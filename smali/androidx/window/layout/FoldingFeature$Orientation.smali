@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/layout/FoldingFeature$Orientation$Companion;
 
@@ -89,7 +89,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "description"    # Ljava/lang/String;
 
     .line 59
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 62
     iget-object v0, p0, Landroidx/window/layout/FoldingFeature$Orientation;->description:Ljava/lang/String;

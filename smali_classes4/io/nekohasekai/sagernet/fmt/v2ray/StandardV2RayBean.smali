@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 7
+    .registers 9
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -99,7 +99,7 @@
     .line 176
     instance-of v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     .line 177
     move-object v1, p0
@@ -117,7 +117,7 @@
     iput-object v2, v1, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;->alterId:Ljava/lang/Integer;
 
     .line 180
-    :cond_0
+    :cond_24
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -139,99 +139,99 @@
 
     const/4 v6, 0x2
 
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_184
 
-    :cond_1
-    goto :goto_0
+    :cond_37
+    goto :goto_74
 
-    :sswitch_0
+    :sswitch_38
     const-string v2, "quic"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_37
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_75
 
-    :sswitch_1
+    :sswitch_42
     const-string v2, "http"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_37
 
     const/4 v1, 0x3
 
-    goto :goto_1
+    goto :goto_75
 
-    :sswitch_2
+    :sswitch_4c
     const-string v2, "grpc"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_37
 
     const/4 v1, 0x5
 
-    goto :goto_1
+    goto :goto_75
 
-    :sswitch_3
+    :sswitch_56
     const-string v2, "tcp"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_37
 
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_75
 
-    :sswitch_4
+    :sswitch_60
     const-string v2, "ws"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_37
 
     const/4 v1, 0x2
 
-    goto :goto_1
+    goto :goto_75
 
-    :sswitch_5
+    :sswitch_6a
     const-string v2, "httpupgrade"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_37
 
     const/4 v1, 0x4
 
-    goto :goto_1
+    goto :goto_75
 
-    :goto_0
+    :goto_74
     const/4 v1, -0x1
 
-    :goto_1
-    packed-switch v1, :pswitch_data_0
+    :goto_75
+    packed-switch v1, :pswitch_data_19e
 
-    goto :goto_2
+    goto :goto_b3
 
     .line 200
-    :pswitch_0
+    :pswitch_79
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -239,7 +239,7 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     .line 201
-    if-ge v0, v4, :cond_2
+    if-ge v0, v4, :cond_b3
 
     .line 203
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
@@ -247,10 +247,10 @@
     .line 204
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_b3
 
     .line 195
-    :pswitch_1
+    :pswitch_88
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -265,10 +265,10 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     .line 197
-    goto :goto_2
+    goto :goto_b3
 
     .line 187
-    :pswitch_2
+    :pswitch_95
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -301,15 +301,15 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->earlyDataHeaderName:Ljava/lang/String;
 
     .line 191
-    goto :goto_2
+    goto :goto_b3
 
     .line 184
-    :pswitch_3
+    :pswitch_b2
     nop
 
     .line 210
-    :cond_2
-    :goto_2
+    :cond_b3
+    :goto_b3
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -325,7 +325,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_f1
 
     .line 212
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
@@ -381,8 +381,8 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->realityShortId:Ljava/lang/String;
 
     .line 221
-    :cond_3
-    if-lt v0, v5, :cond_5
+    :cond_f1
+    if-lt v0, v5, :cond_11b
 
     .line 222
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readBoolean()Z
@@ -396,7 +396,7 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->enableECH:Ljava/lang/Boolean;
 
     .line 223
-    if-lt v0, v3, :cond_4
+    if-lt v0, v3, :cond_106
 
     .line 224
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
@@ -405,17 +405,17 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->echConfig:Ljava/lang/String;
 
-    goto :goto_3
+    goto :goto_14e
 
     .line 226
-    :cond_4
+    :cond_106
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->enableECH:Ljava/lang/Boolean;
 
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_14e
 
     .line 227
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readBoolean()Z
@@ -430,11 +430,11 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->echConfig:Ljava/lang/String;
 
-    goto :goto_3
+    goto :goto_14e
 
     .line 232
-    :cond_5
-    if-nez v0, :cond_6
+    :cond_11b
+    if-nez v0, :cond_14e
 
     .line 234
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->getByteBuffer()Ljava/nio/ByteBuffer;
@@ -462,9 +462,9 @@
     invoke-virtual {p1, v1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->setPosition(I)V
 
     .line 241
-    if-eq v3, v5, :cond_6
+    if-eq v3, v5, :cond_14e
 
-    if-eq v3, v6, :cond_6
+    if-eq v3, v6, :cond_14e
 
     .line 242
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -480,7 +480,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_14e
 
     .line 244
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readBoolean()Z
@@ -499,8 +499,8 @@
     .end local v1    # "position":I
     .end local v2    # "tmpEnableECH":Z
     .end local v3    # "tmpPacketEncoding":I
-    :cond_6
-    :goto_3
+    :cond_14e
+    :goto_14e
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
 
     move-result v1
@@ -512,7 +512,7 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->packetEncoding:Ljava/lang/Integer;
 
     .line 253
-    if-lt v0, v6, :cond_7
+    if-lt v0, v6, :cond_182
 
     .line 254
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readBoolean()Z
@@ -559,34 +559,34 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->muxConcurrency:Ljava/lang/Integer;
 
     .line 259
-    :cond_7
+    :cond_182
     return-void
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_184
     .sparse-switch
-        -0x3e11976c -> :sswitch_5
-        0xedc -> :sswitch_4
-        0x1bfe1 -> :sswitch_3
-        0x308c1e -> :sswitch_2
-        0x310888 -> :sswitch_1
-        0x35223e -> :sswitch_0
+        -0x3e11976c -> :sswitch_6a
+        0xedc -> :sswitch_60
+        0x1bfe1 -> :sswitch_56
+        0x308c1e -> :sswitch_4c
+        0x310888 -> :sswitch_42
+        0x35223e -> :sswitch_38
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_19e
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_b2
+        :pswitch_b2
+        :pswitch_95
+        :pswitch_88
+        :pswitch_88
+        :pswitch_79
     .end packed-switch
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 3
+    .registers 4
 
     .line 71
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->initializeDefaultValues()V
@@ -600,28 +600,28 @@
 
     const-string v1, ""
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->uuid:Ljava/lang/String;
 
     .line 75
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     const-string v0, "tcp"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 76
-    :cond_1
+    :cond_1c
     const-string v0, "h2"
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
@@ -630,15 +630,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2a
 
     const-string v0, "http"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
     .line 78
-    :cond_2
-    :goto_0
+    :cond_2a
+    :goto_2a
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
@@ -654,118 +654,118 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3c
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->host:Ljava/lang/String;
 
     .line 81
-    :cond_3
+    :cond_3c
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_46
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     .line 83
-    :cond_4
+    :cond_46
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5b
 
     .line 84
     instance-of v0, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_57
 
     .line 85
     const-string v0, "tls"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_5b
 
     .line 87
-    :cond_5
+    :cond_57
     const-string v0, "none"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
     .line 90
-    :cond_6
-    :goto_1
+    :cond_5b
+    :goto_5b
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->sni:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_65
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->sni:Ljava/lang/String;
 
     .line 91
-    :cond_7
+    :cond_65
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->alpn:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_6f
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->alpn:Ljava/lang/String;
 
     .line 93
-    :cond_8
+    :cond_6f
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->certificates:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_79
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->certificates:Ljava/lang/String;
 
     .line 94
-    :cond_9
+    :cond_79
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->earlyDataHeaderName:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_83
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->earlyDataHeaderName:Ljava/lang/String;
 
     .line 95
-    :cond_a
+    :cond_83
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->utlsFingerprint:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_8d
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->utlsFingerprint:Ljava/lang/String;
 
     .line 97
-    :cond_b
+    :cond_8d
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->wsMaxEarlyData:Ljava/lang/Integer;
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_98
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -774,10 +774,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->wsMaxEarlyData:Ljava/lang/Integer;
 
     .line 98
-    :cond_c
+    :cond_98
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->allowInsecure:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_a2
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -786,10 +786,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->allowInsecure:Ljava/lang/Boolean;
 
     .line 99
-    :cond_d
+    :cond_a2
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->packetEncoding:Ljava/lang/Integer;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_ac
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -798,26 +798,26 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->packetEncoding:Ljava/lang/Integer;
 
     .line 101
-    :cond_e
+    :cond_ac
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->realityPubKey:Ljava/lang/String;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_b2
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->realityPubKey:Ljava/lang/String;
 
     .line 102
-    :cond_f
+    :cond_b2
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->realityShortId:Ljava/lang/String;
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_b8
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->realityShortId:Ljava/lang/String;
 
     .line 104
-    :cond_10
+    :cond_b8
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->enableECH:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_c2
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -826,22 +826,22 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->enableECH:Ljava/lang/Boolean;
 
     .line 105
-    :cond_11
+    :cond_c2
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->echConfig:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_cc
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->echConfig:Ljava/lang/String;
 
     .line 107
-    :cond_12
+    :cond_cc
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->enableMux:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_d6
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -850,10 +850,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->enableMux:Ljava/lang/Boolean;
 
     .line 108
-    :cond_13
+    :cond_d6
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->muxPadding:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_e0
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -862,10 +862,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->muxPadding:Ljava/lang/Boolean;
 
     .line 109
-    :cond_14
+    :cond_e0
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->muxType:Ljava/lang/Integer;
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_ea
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -874,10 +874,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->muxType:Ljava/lang/Integer;
 
     .line 110
-    :cond_15
+    :cond_ea
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->muxConcurrency:Ljava/lang/Integer;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_f5
 
     const/4 v0, 0x1
 
@@ -888,19 +888,19 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->muxConcurrency:Ljava/lang/Integer;
 
     .line 111
-    :cond_16
+    :cond_f5
     return-void
 .end method
 
 .method public isVLESS()Z
-    .locals 4
+    .registers 5
 
     .line 262
     instance-of v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 263
     move-object v0, p0
@@ -911,7 +911,7 @@
 
     .line 264
     .local v0, "aid":Ljava/lang/Integer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -919,21 +919,21 @@
 
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_14
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_14
     return v1
 
     .line 266
     .end local v0    # "aid":Ljava/lang/Integer;
-    :cond_1
+    :cond_15
     return v1
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 3
+    .registers 5
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -965,7 +965,7 @@
     .line 119
     instance-of v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/VMessBean;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 120
     move-object v1, p0
@@ -981,7 +981,7 @@
     invoke-virtual {p1, v1}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeInt(I)V
 
     .line 123
-    :cond_0
+    :cond_21
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->type:Ljava/lang/String;
 
     invoke-virtual {p1, v1}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
@@ -993,105 +993,105 @@
 
     move-result v2
 
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_10e
 
-    :cond_1
-    goto :goto_0
+    :cond_2f
+    goto :goto_6b
 
-    :sswitch_0
+    :sswitch_30
     const-string v0, "quic"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_6c
 
-    :sswitch_1
+    :sswitch_3a
     const-string v0, "http"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     const/4 v0, 0x3
 
-    goto :goto_1
+    goto :goto_6c
 
-    :sswitch_2
+    :sswitch_44
     const-string v0, "grpc"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     const/4 v0, 0x5
 
-    goto :goto_1
+    goto :goto_6c
 
-    :sswitch_3
+    :sswitch_4e
     const-string v0, "tcp"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_6c
 
-    :sswitch_4
+    :sswitch_58
     const-string v0, "ws"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     const/4 v0, 0x2
 
-    goto :goto_1
+    goto :goto_6c
 
-    :sswitch_5
+    :sswitch_62
     const-string v2, "httpupgrade"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2f
 
-    goto :goto_1
+    goto :goto_6c
 
-    :goto_0
+    :goto_6b
     const/4 v0, -0x1
 
-    :goto_1
-    packed-switch v0, :pswitch_data_0
+    :goto_6c
+    packed-switch v0, :pswitch_data_128
 
-    goto :goto_2
+    goto :goto_9b
 
     .line 143
-    :pswitch_0
+    :pswitch_70
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->path:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_9b
 
     .line 138
-    :pswitch_1
+    :pswitch_76
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->host:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
@@ -1102,10 +1102,10 @@
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
     .line 140
-    goto :goto_2
+    goto :goto_9b
 
     .line 130
-    :pswitch_2
+    :pswitch_81
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->host:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
@@ -1130,14 +1130,14 @@
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
     .line 134
-    goto :goto_2
+    goto :goto_9b
 
     .line 127
-    :pswitch_3
+    :pswitch_9a
     nop
 
     .line 148
-    :goto_2
+    :goto_9b
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->security:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
@@ -1151,7 +1151,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_d1
 
     .line 150
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->sni:Ljava/lang/String;
@@ -1193,7 +1193,7 @@
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
     .line 159
-    :cond_2
+    :cond_d1
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->enableECH:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -1257,23 +1257,23 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_10e
     .sparse-switch
-        -0x3e11976c -> :sswitch_5
-        0xedc -> :sswitch_4
-        0x1bfe1 -> :sswitch_3
-        0x308c1e -> :sswitch_2
-        0x310888 -> :sswitch_1
-        0x35223e -> :sswitch_0
+        -0x3e11976c -> :sswitch_62
+        0xedc -> :sswitch_58
+        0x1bfe1 -> :sswitch_4e
+        0x308c1e -> :sswitch_44
+        0x310888 -> :sswitch_3a
+        0x35223e -> :sswitch_30
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_128
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_9a
+        :pswitch_9a
+        :pswitch_81
+        :pswitch_76
+        :pswitch_76
+        :pswitch_70
     .end packed-switch
 .end method

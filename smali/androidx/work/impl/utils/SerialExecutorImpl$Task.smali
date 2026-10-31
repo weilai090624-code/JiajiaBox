@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/SerialExecutorImpl;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
     .param p1, "serialExecutor"    # Landroidx/work/impl/utils/SerialExecutorImpl;
     .param p2, "runnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -55,15 +55,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 96
     :try_start_0
     iget-object v0, p0, Landroidx/work/impl/utils/SerialExecutorImpl$Task;->mRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_5
+    .catchall {:try_start_0 .. :try_end_5} :catchall_15
 
     .line 98
     iget-object v0, p0, Landroidx/work/impl/utils/SerialExecutorImpl$Task;->mSerialExecutor:Landroidx/work/impl/utils/SerialExecutorImpl;
@@ -73,7 +73,7 @@
     monitor-enter v0
 
     .line 99
-    :try_start_1
+    :try_start_a
     iget-object v1, p0, Landroidx/work/impl/utils/SerialExecutorImpl$Task;->mSerialExecutor:Landroidx/work/impl/utils/SerialExecutorImpl;
 
     invoke-virtual {v1}, Landroidx/work/impl/utils/SerialExecutorImpl;->scheduleNext()V
@@ -88,17 +88,17 @@
     return-void
 
     .line 100
-    :catchall_0
+    :catchall_12
     move-exception v1
 
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_12
 
     throw v1
 
     .line 98
-    :catchall_1
+    :catchall_15
     move-exception v0
 
     iget-object v1, p0, Landroidx/work/impl/utils/SerialExecutorImpl$Task;->mSerialExecutor:Landroidx/work/impl/utils/SerialExecutorImpl;
@@ -108,27 +108,27 @@
     monitor-enter v1
 
     .line 99
-    :try_start_2
+    :try_start_1b
     iget-object v2, p0, Landroidx/work/impl/utils/SerialExecutorImpl$Task;->mSerialExecutor:Landroidx/work/impl/utils/SerialExecutorImpl;
 
     invoke-virtual {v2}, Landroidx/work/impl/utils/SerialExecutorImpl;->scheduleNext()V
 
     .line 100
     monitor-exit v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_21
+    .catchall {:try_start_1b .. :try_end_21} :catchall_22
 
     .line 101
     throw v0
 
     .line 100
-    :catchall_2
+    :catchall_22
     move-exception v0
 
-    :try_start_3
+    :try_start_23
     monitor-exit v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_24
+    .catchall {:try_start_23 .. :try_end_24} :catchall_22
 
     throw v0
 .end method

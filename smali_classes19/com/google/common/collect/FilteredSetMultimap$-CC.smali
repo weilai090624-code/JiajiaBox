@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$unfiltered(Lcom/google/common/collect/FilteredSetMultimap;)Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/FilteredSetMultimap;
 
     .line 27

@@ -105,7 +105,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 355
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -115,7 +115,7 @@
 .end method
 
 .method public static appendRecord(Landroid/view/accessibility/AccessibilityEvent;Landroidx/core/view/accessibility/AccessibilityRecordCompat;)V
-    .locals 1
+    .registers 3
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
     .param p1, "record"    # Landroidx/core/view/accessibility/AccessibilityRecordCompat;
     .annotation runtime Ljava/lang/Deprecated;
@@ -135,7 +135,7 @@
 .end method
 
 .method public static asRecord(Landroid/view/accessibility/AccessibilityEvent;)Landroidx/core/view/accessibility/AccessibilityRecordCompat;
-    .locals 1
+    .registers 2
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -149,7 +149,7 @@
 .end method
 
 .method public static getAction(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 1
+    .registers 2
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .line 507
@@ -161,7 +161,7 @@
 .end method
 
 .method public static getContentChangeTypes(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 1
+    .registers 2
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .line 455
@@ -173,7 +173,7 @@
 .end method
 
 .method public static getMovementGranularity(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 1
+    .registers 2
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .line 476
@@ -185,7 +185,7 @@
 .end method
 
 .method public static getRecord(Landroid/view/accessibility/AccessibilityEvent;I)Landroidx/core/view/accessibility/AccessibilityRecordCompat;
-    .locals 2
+    .registers 4
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
     .param p1, "index"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -204,7 +204,7 @@
 .end method
 
 .method public static getRecordCount(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 1
+    .registers 2
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -218,7 +218,7 @@
 .end method
 
 .method public static isAccessibilityDataSensitive(Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 2
+    .registers 3
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .line 526
@@ -226,7 +226,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 527
     invoke-static {p0}, Landroidx/core/view/accessibility/AccessibilityEventCompat$Api34Impl;->isAccessibilityDataSensitive(Landroid/view/accessibility/AccessibilityEvent;)Z
@@ -236,14 +236,14 @@
     return v0
 
     .line 530
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static setAccessibilityDataSensitive(Landroid/view/accessibility/AccessibilityEvent;Z)V
-    .locals 2
+    .registers 4
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
     .param p1, "accessibilityDataSensitive"    # Z
 
@@ -252,18 +252,18 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_9
 
     .line 555
     invoke-static {p0, p1}, Landroidx/core/view/accessibility/AccessibilityEventCompat$Api34Impl;->setAccessibilityDataSensitive(Landroid/view/accessibility/AccessibilityEvent;Z)V
 
     .line 557
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static setAction(Landroid/view/accessibility/AccessibilityEvent;I)V
-    .locals 0
+    .registers 2
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
     .param p1, "action"    # I
 
@@ -275,7 +275,7 @@
 .end method
 
 .method public static setContentChangeTypes(Landroid/view/accessibility/AccessibilityEvent;I)V
-    .locals 0
+    .registers 2
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
     .param p1, "changeTypes"    # I
 
@@ -287,7 +287,7 @@
 .end method
 
 .method public static setMovementGranularity(Landroid/view/accessibility/AccessibilityEvent;I)V
-    .locals 0
+    .registers 2
     .param p0, "event"    # Landroid/view/accessibility/AccessibilityEvent;
     .param p1, "granularity"    # I
 

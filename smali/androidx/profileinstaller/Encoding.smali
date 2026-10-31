@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method static bitsToBytes(I)I
-    .locals 1
+    .registers 2
     .param p0, "numberOfBits"    # I
 
     .line 74
@@ -40,7 +40,7 @@
 .end method
 
 .method static compress([B)[B
-    .locals 5
+    .registers 6
     .param p0, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -63,25 +63,25 @@
 
     .line 178
     .local v1, "out":Ljava/io/ByteArrayOutputStream;
-    :try_start_0
+    :try_start_b
     new-instance v2, Ljava/util/zip/DeflaterOutputStream;
 
     invoke-direct {v2, v1, v0}, Ljava/util/zip/DeflaterOutputStream;-><init>(Ljava/io/OutputStream;Ljava/util/zip/Deflater;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_10
+    .catchall {:try_start_b .. :try_end_10} :catchall_29
 
     .line 179
     .local v2, "deflater":Ljava/util/zip/DeflaterOutputStream;
-    :try_start_1
+    :try_start_10
     invoke-virtual {v2, p0}, Ljava/util/zip/DeflaterOutputStream;->write([B)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_13
+    .catchall {:try_start_10 .. :try_end_13} :catchall_1f
 
     .line 180
-    :try_start_2
+    :try_start_13
     invoke-virtual {v2}, Ljava/util/zip/DeflaterOutputStream;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_16
+    .catchall {:try_start_13 .. :try_end_16} :catchall_29
 
     .line 181
     .end local v2    # "deflater":Ljava/util/zip/DeflaterOutputStream;
@@ -99,36 +99,36 @@
 
     .line 178
     .restart local v2    # "deflater":Ljava/util/zip/DeflaterOutputStream;
-    :catchall_0
+    :catchall_1f
     move-exception v3
 
-    :try_start_3
+    :try_start_20
     invoke-virtual {v2}, Ljava/util/zip/DeflaterOutputStream;->close()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_23
+    .catchall {:try_start_20 .. :try_end_23} :catchall_24
 
-    goto :goto_0
+    goto :goto_28
 
-    :catchall_1
+    :catchall_24
     move-exception v4
 
-    :try_start_4
+    :try_start_25
     invoke-virtual {v3, v4}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     .end local v0    # "compressor":Ljava/util/zip/Deflater;
     .end local v1    # "out":Ljava/io/ByteArrayOutputStream;
     .end local p0    # "data":[B
-    :goto_0
+    :goto_28
     throw v3
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_29
+    .catchall {:try_start_25 .. :try_end_29} :catchall_29
 
     .line 181
     .end local v2    # "deflater":Ljava/util/zip/DeflaterOutputStream;
     .restart local v0    # "compressor":Ljava/util/zip/Deflater;
     .restart local v1    # "out":Ljava/io/ByteArrayOutputStream;
     .restart local p0    # "data":[B
-    :catchall_2
+    :catchall_29
     move-exception v2
 
     invoke-virtual {v0}, Ljava/util/zip/Deflater;->end()V
@@ -138,7 +138,7 @@
 .end method
 
 .method static error(Ljava/lang/String;)Ljava/lang/RuntimeException;
-    .locals 1
+    .registers 2
     .param p0, "message"    # Ljava/lang/String;
 
     .line 202
@@ -150,7 +150,7 @@
 .end method
 
 .method static read(Ljava/io/InputStream;I)[B
-    .locals 5
+    .registers 7
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -168,8 +168,8 @@
 
     .line 80
     .local v1, "offset":I
-    :goto_0
-    if-ge v1, p1, :cond_1
+    :goto_3
+    if-ge v1, p1, :cond_27
 
     .line 81
     sub-int v2, p1, v1
@@ -180,18 +180,18 @@
 
     .line 82
     .local v2, "result":I
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_f
 
     .line 85
     add-int/2addr v1, v2
 
     .line 86
     .end local v2    # "result":I
-    goto :goto_0
+    goto :goto_3
 
     .line 83
     .restart local v2    # "result":I
-    :cond_0
+    :cond_f
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -218,12 +218,12 @@
 
     .line 87
     .end local v2    # "result":I
-    :cond_1
+    :cond_27
     return-object v0
 .end method
 
 .method static readCompressed(Ljava/io/InputStream;II)[B
-    .locals 8
+    .registers 11
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "compressedDataSize"    # I
     .param p2, "uncompressedDataSize"    # I
@@ -240,7 +240,7 @@
 
     .line 124
     .local v0, "inf":Ljava/util/zip/Inflater;
-    :try_start_0
+    :try_start_5
     new-array v1, p2, [B
 
     .line 125
@@ -259,7 +259,7 @@
 
     .line 128
     .local v4, "input":[B
-    :goto_0
+    :goto_d
     nop
 
     .line 129
@@ -267,16 +267,16 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_58
 
     .line 130
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->needsDictionary()Z
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_58
 
-    if-ge v2, p1, :cond_1
+    if-ge v2, p1, :cond_58
 
     .line 133
     invoke-virtual {p0, v4}, Ljava/io/InputStream;->read([B)I
@@ -285,25 +285,25 @@
 
     .line 134
     .local v5, "bytesRead":I
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_3a
 
     .line 140
     const/4 v6, 0x0
 
     invoke-virtual {v0, v4, v6, v5}, Ljava/util/zip/Inflater;->setInput([BII)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_5 .. :try_end_26} :catchall_8e
 
     .line 142
     sub-int v6, p2, v3
 
-    :try_start_1
+    :try_start_28
     invoke-virtual {v0, v1, v3, v6}, Ljava/util/zip/Inflater;->inflate([BII)I
 
     move-result v6
-    :try_end_1
-    .catch Ljava/util/zip/DataFormatException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2c
+    .catch Ljava/util/zip/DataFormatException; {:try_start_28 .. :try_end_2c} :catch_30
+    .catchall {:try_start_28 .. :try_end_2c} :catchall_8e
 
     add-int/2addr v3, v6
 
@@ -315,16 +315,16 @@
 
     .line 151
     .end local v5    # "bytesRead":I
-    goto :goto_0
+    goto :goto_d
 
     .line 147
     .restart local v5    # "bytesRead":I
-    :catch_0
+    :catch_30
     move-exception v6
 
     .line 148
     .local v6, "e":Ljava/util/zip/DataFormatException;
-    :try_start_2
+    :try_start_31
     invoke-virtual {v6}, Ljava/util/zip/DataFormatException;->getMessage()Ljava/lang/String;
 
     move-result-object v7
@@ -345,7 +345,7 @@
     .restart local p0    # "is":Ljava/io/InputStream;
     .restart local p1    # "compressedDataSize":I
     .restart local p2    # "uncompressedDataSize":I
-    :cond_0
+    :cond_3a
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -386,17 +386,17 @@
     .restart local p0    # "is":Ljava/io/InputStream;
     .restart local p1    # "compressedDataSize":I
     .restart local p2    # "uncompressedDataSize":I
-    :cond_1
-    if-ne v2, p1, :cond_3
+    :cond_58
+    if-ne v2, p1, :cond_6c
 
     .line 159
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->finished()Z
 
     move-result v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_5e
+    .catchall {:try_start_31 .. :try_end_5e} :catchall_8e
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_65
 
     .line 162
     nop
@@ -408,8 +408,8 @@
     return-object v1
 
     .line 160
-    :cond_2
-    :try_start_3
+    :cond_65
+    :try_start_65
     const-string v5, "Inflater did not finish"
 
     invoke-static {v5}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -427,7 +427,7 @@
     .restart local p0    # "is":Ljava/io/InputStream;
     .restart local p1    # "compressedDataSize":I
     .restart local p2    # "uncompressedDataSize":I
-    :cond_3
+    :cond_6c
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -465,8 +465,8 @@
     .end local p1    # "compressedDataSize":I
     .end local p2    # "uncompressedDataSize":I
     throw v5
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_8e
+    .catchall {:try_start_65 .. :try_end_8e} :catchall_8e
 
     .line 164
     .end local v1    # "result":[B
@@ -477,7 +477,7 @@
     .restart local p0    # "is":Ljava/io/InputStream;
     .restart local p1    # "compressedDataSize":I
     .restart local p2    # "uncompressedDataSize":I
-    :catchall_0
+    :catchall_8e
     move-exception v1
 
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->end()V
@@ -487,7 +487,7 @@
 .end method
 
 .method static readString(Ljava/io/InputStream;I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -511,7 +511,7 @@
 .end method
 
 .method static readUInt(Ljava/io/InputStream;I)J
-    .locals 8
+    .registers 10
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "numberOfBytes"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -534,8 +534,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, p1, :cond_0
+    :goto_7
+    if-ge v3, p1, :cond_16
 
     .line 94
     aget-byte v4, v0, v3
@@ -556,16 +556,16 @@
     .end local v4    # "next":J
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 97
     .end local v3    # "i":I
-    :cond_0
+    :cond_16
     return-wide v1
 .end method
 
 .method static readUInt16(Ljava/io/InputStream;)I
-    .locals 2
+    .registers 3
     .param p0, "is"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -586,7 +586,7 @@
 .end method
 
 .method static readUInt32(Ljava/io/InputStream;)J
-    .locals 2
+    .registers 3
     .param p0, "is"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -605,7 +605,7 @@
 .end method
 
 .method static readUInt8(Ljava/io/InputStream;)I
-    .locals 2
+    .registers 3
     .param p0, "is"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -626,7 +626,7 @@
 .end method
 
 .method static utf8Length(Ljava/lang/String;)I
-    .locals 1
+    .registers 2
     .param p0, "s"    # Ljava/lang/String;
 
     .line 45
@@ -642,7 +642,7 @@
 .end method
 
 .method static writeAll(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/nio/channels/FileLock;)V
-    .locals 5
+    .registers 8
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "os"    # Ljava/io/OutputStream;
     .param p2, "lock"    # Ljava/nio/channels/FileLock;
@@ -655,25 +655,25 @@
     .line 190
     const/4 v0, 0x0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_b
 
     invoke-virtual {p2}, Ljava/nio/channels/FileLock;->isValid()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
     .line 191
     .local v1, "isValid":Z
-    :goto_0
-    if-eqz v1, :cond_2
+    :goto_c
+    if-eqz v1, :cond_1e
 
     .line 194
     const/16 v2, 0x200
@@ -682,7 +682,7 @@
 
     .line 196
     .local v2, "buf":[B
-    :goto_1
+    :goto_12
     invoke-virtual {p0, v2}, Ljava/io/InputStream;->read([B)I
 
     move-result v3
@@ -690,21 +690,21 @@
     move v4, v3
 
     .local v4, "length":I
-    if-lez v3, :cond_1
+    if-lez v3, :cond_1d
 
     .line 197
     invoke-virtual {p1, v2, v0, v4}, Ljava/io/OutputStream;->write([BII)V
 
-    goto :goto_1
+    goto :goto_12
 
     .line 199
-    :cond_1
+    :cond_1d
     return-void
 
     .line 192
     .end local v2    # "buf":[B
     .end local v4    # "length":I
-    :cond_2
+    :cond_1e
     new-instance v0, Ljava/io/IOException;
 
     const-string v2, "Unable to acquire a lock on the underlying file channel."
@@ -715,7 +715,7 @@
 .end method
 
 .method static writeCompressed(Ljava/io/OutputStream;[B)V
-    .locals 3
+    .registers 5
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
@@ -752,7 +752,7 @@
 .end method
 
 .method static writeString(Ljava/io/OutputStream;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -775,7 +775,7 @@
 .end method
 
 .method static writeUInt(Ljava/io/OutputStream;JI)V
-    .locals 6
+    .registers 10
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "value"    # J
     .param p3, "numberOfBytes"    # I
@@ -793,8 +793,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p3, :cond_0
+    :goto_3
+    if-ge v1, p3, :cond_13
 
     .line 52
     mul-int/lit8 v2, v1, 0x8
@@ -814,11 +814,11 @@
     .line 51
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 54
     .end local v1    # "i":I
-    :cond_0
+    :cond_13
     invoke-virtual {p0, v0}, Ljava/io/OutputStream;->write([B)V
 
     .line 55
@@ -826,7 +826,7 @@
 .end method
 
 .method static writeUInt16(Ljava/io/OutputStream;I)V
-    .locals 3
+    .registers 5
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -847,7 +847,7 @@
 .end method
 
 .method static writeUInt32(Ljava/io/OutputStream;J)V
-    .locals 1
+    .registers 4
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -866,7 +866,7 @@
 .end method
 
 .method static writeUInt8(Ljava/io/OutputStream;I)V
-    .locals 3
+    .registers 5
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;

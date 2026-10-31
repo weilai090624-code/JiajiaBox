@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Converter;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method correctedDoBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -98,7 +98,7 @@
 .end method
 
 .method correctedDoForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -125,7 +125,7 @@
 .end method
 
 .method protected doBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)TB;"
@@ -143,7 +143,7 @@
 .end method
 
 .method protected doForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TB;)TA;"
@@ -161,7 +161,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -171,7 +171,7 @@
     .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
     instance-of v0, p1, Lcom/google/common/base/Converter$ReverseConverter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 361
     move-object v0, p1
@@ -192,14 +192,14 @@
 
     .line 364
     .end local v0    # "that":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<**>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 369
     .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
@@ -215,7 +215,7 @@
 .end method
 
 .method public reverse()Lcom/google/common/base/Converter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -232,7 +232,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 374
     .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"

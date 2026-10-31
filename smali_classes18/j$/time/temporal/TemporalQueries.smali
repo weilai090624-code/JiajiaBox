@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 344
     new-instance v0, Lj$/time/temporal/TemporalQueries$1;
@@ -132,7 +132,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 127
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -142,7 +142,7 @@
 .end method
 
 .method public static chronology()Lj$/time/temporal/TemporalQuery;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -159,7 +159,7 @@
 .end method
 
 .method public static localDate()Lj$/time/temporal/TemporalQuery;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -176,7 +176,7 @@
 .end method
 
 .method public static localTime()Lj$/time/temporal/TemporalQuery;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -193,7 +193,7 @@
 .end method
 
 .method public static offset()Lj$/time/temporal/TemporalQuery;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -210,7 +210,7 @@
 .end method
 
 .method public static precision()Lj$/time/temporal/TemporalQuery;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -227,7 +227,7 @@
 .end method
 
 .method public static zone()Lj$/time/temporal/TemporalQuery;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -244,7 +244,7 @@
 .end method
 
 .method public static zoneId()Lj$/time/temporal/TemporalQuery;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

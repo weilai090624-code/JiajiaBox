@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "start"    # I
     .param p2, "top"    # I
     .param p3, "end"    # I
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/internal/ViewUtils$RelativePadding;)V
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lcom/google/android/material/internal/ViewUtils$RelativePadding;
 
     .line 210
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public applyToView(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
 
     .line 219

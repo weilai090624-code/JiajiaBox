@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 155
     new-instance v0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean$1;
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->clone()Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
@@ -70,7 +70,7 @@
 .end method
 
 .method public clone()Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
-    .locals 2
+    .registers 3
 
     .line 152
     new-instance v0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -107,7 +107,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 3
+    .registers 5
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -155,34 +155,34 @@
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_58
 
-    :cond_0
-    goto :goto_0
+    :cond_22
+    goto :goto_2d
 
-    :pswitch_0
+    :pswitch_23
     const-string v2, "ws"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_2e
 
-    :goto_0
+    :goto_2d
     const/4 v1, -0x1
 
-    :goto_1
-    packed-switch v1, :pswitch_data_1
+    :goto_2e
+    packed-switch v1, :pswitch_data_5e
 
-    goto :goto_2
+    goto :goto_3e
 
     .line 137
-    :pswitch_1
+    :pswitch_32
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -197,7 +197,7 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->path:Ljava/lang/String;
 
     .line 142
-    :goto_2
+    :goto_3e
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -214,7 +214,7 @@
     .line 144
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_57
 
     .line 145
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readBoolean()Z
@@ -228,22 +228,22 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->allowInsecure:Ljava/lang/Boolean;
 
     .line 147
-    :cond_1
+    :cond_57
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_58
     .packed-switch 0xedc
-        :pswitch_0
+        :pswitch_23
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_5e
     .packed-switch 0x0
-        :pswitch_1
+        :pswitch_32
     .end packed-switch
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 2
+    .registers 3
 
     .line 94
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->initializeDefaultValues()V
@@ -253,75 +253,75 @@
 
     const-string v1, ""
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->password:Ljava/lang/String;
 
     .line 97
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->sni:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->sni:Ljava/lang/String;
 
     .line 98
-    :cond_1
+    :cond_11
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->type:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1d
 
     const-string v0, "original"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->type:Ljava/lang/String;
 
     .line 99
-    :cond_2
+    :cond_1d
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->host:Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_23
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->host:Ljava/lang/String;
 
     .line 100
-    :cond_3
+    :cond_23
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->path:Ljava/lang/String;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_29
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->path:Ljava/lang/String;
 
     .line 101
-    :cond_4
+    :cond_29
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->encryption:Ljava/lang/String;
 
     invoke-static {v0}, Lmoe/matsuri/nb4a/utils/JavaUtil;->isNullOrBlank(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_35
 
     const-string v0, "none"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->encryption:Ljava/lang/String;
 
     .line 102
-    :cond_5
+    :cond_35
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->plugin:Ljava/lang/String;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_3b
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->plugin:Ljava/lang/String;
 
     .line 103
-    :cond_6
+    :cond_3b
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->allowInsecure:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_46
 
     const/4 v0, 0x0
 
@@ -332,12 +332,12 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->allowInsecure:Ljava/lang/Boolean;
 
     .line 104
-    :cond_7
+    :cond_46
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 2
+    .registers 4
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -378,34 +378,34 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_4e
 
-    :cond_0
-    goto :goto_0
+    :cond_1f
+    goto :goto_2a
 
-    :pswitch_0
+    :pswitch_20
     const-string v1, "ws"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_2b
 
-    :goto_0
+    :goto_2a
     const/4 v0, -0x1
 
-    :goto_1
-    packed-switch v0, :pswitch_data_1
+    :goto_2b
+    packed-switch v0, :pswitch_data_54
 
-    goto :goto_2
+    goto :goto_39
 
     .line 116
-    :pswitch_1
+    :pswitch_2f
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->host:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
@@ -416,7 +416,7 @@
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
 
     .line 121
-    :goto_2
+    :goto_39
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->encryption:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeString(Ljava/lang/String;)V
@@ -440,13 +440,13 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4e
     .packed-switch 0xedc
-        :pswitch_0
+        :pswitch_20
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_54
     .packed-switch 0x0
-        :pswitch_1
+        :pswitch_2f
     .end packed-switch
 .end method

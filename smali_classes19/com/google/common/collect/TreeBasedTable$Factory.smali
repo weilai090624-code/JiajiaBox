@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Comparator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeBasedTable$Factory;, "Lcom/google/common/collect/TreeBasedTable$Factory<TC;TV;>;"
@@ -86,7 +86,7 @@
 .end method
 
 .method public get()Ljava/util/TreeMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

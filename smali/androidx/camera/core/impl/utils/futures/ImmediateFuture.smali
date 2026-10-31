@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture<TV;>;"
@@ -43,7 +43,7 @@
 .end method
 
 .method public static nullFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 3
+    .registers 6
     .param p1, "listener"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -87,16 +87,16 @@
     invoke-static {p2}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 60
-    :try_start_0
+    :try_start_6
     invoke-interface {p2, p1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_9} :catch_a
 
     .line 66
-    goto :goto_0
+    goto :goto_2d
 
     .line 61
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 64
@@ -135,12 +135,12 @@
 
     .line 68
     .end local v0    # "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_2d
     return-void
 .end method
 
 .method public cancel(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "mayInterruptIfRunning"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -173,7 +173,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -214,7 +214,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 77
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture<TV;>;"
@@ -224,7 +224,7 @@
 .end method
 
 .method public isDone()Z
-    .locals 1
+    .registers 2
 
     .line 82
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture<TV;>;"

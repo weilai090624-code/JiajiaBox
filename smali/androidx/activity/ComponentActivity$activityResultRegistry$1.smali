@@ -50,7 +50,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$GPRYQhThGKvRdyPr7x-fDY1xENA(Landroidx/activity/ComponentActivity$activityResultRegistry$1;ILandroid/content/IntentSender$SendIntentException;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/activity/ComponentActivity$activityResultRegistry$1;->onLaunch$lambda$1(Landroidx/activity/ComponentActivity$activityResultRegistry$1;ILandroid/content/IntentSender$SendIntentException;)V
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Gga0ztmPNYcZ2Poj0VEtDPu4ouA(Landroidx/activity/ComponentActivity$activityResultRegistry$1;ILandroidx/activity/result/contract/ActivityResultContract$SynchronousResult;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/activity/ComponentActivity$activityResultRegistry$1;->onLaunch$lambda$0(Landroidx/activity/ComponentActivity$activityResultRegistry$1;ILandroidx/activity/result/contract/ActivityResultContract$SynchronousResult;)V
 
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>(Landroidx/activity/ComponentActivity;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/activity/ComponentActivity;
 
     iput-object p1, p0, Landroidx/activity/ComponentActivity$activityResultRegistry$1;->this$0:Landroidx/activity/ComponentActivity;
@@ -78,7 +78,7 @@
 .end method
 
 .method private static final onLaunch$lambda$0(Landroidx/activity/ComponentActivity$activityResultRegistry$1;ILandroidx/activity/result/contract/ActivityResultContract$SynchronousResult;)V
-    .locals 1
+    .registers 4
     .param p0, "this$0"    # Landroidx/activity/ComponentActivity$activityResultRegistry$1;
     .param p1, "$requestCode"    # I
     .param p2, "$synchronousResult"    # Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
@@ -95,7 +95,7 @@
 .end method
 
 .method private static final onLaunch$lambda$1(Landroidx/activity/ComponentActivity$activityResultRegistry$1;ILandroid/content/IntentSender$SendIntentException;)V
-    .locals 3
+    .registers 6
     .param p0, "this$0"    # Landroidx/activity/ComponentActivity$activityResultRegistry$1;
     .param p1, "$requestCode"    # I
     .param p2, "$e"    # Landroid/content/IntentSender$SendIntentException;
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method public onLaunch(ILandroidx/activity/result/contract/ActivityResultContract;Ljava/lang/Object;Landroidx/core/app/ActivityOptionsCompat;)V
-    .locals 18
+    .registers 23
     .param p1, "requestCode"    # I
     .param p2, "contract"    # Landroidx/activity/result/contract/ActivityResultContract;
     .param p3, "input"    # Ljava/lang/Object;
@@ -190,7 +190,7 @@
 
     .line 168
     .local v14, "synchronousResult":Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    if-eqz v14, :cond_0
+    if-eqz v14, :cond_2a
 
     .line 169
     new-instance v0, Landroid/os/Handler;
@@ -211,7 +211,7 @@
     return-void
 
     .line 176
-    :cond_0
+    :cond_2a
     move-object v0, v13
 
     check-cast v0, Landroid/content/Context;
@@ -230,7 +230,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4c
 
     invoke-virtual {v15}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -242,7 +242,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4c
 
     .line 180
     invoke-virtual {v13}, Landroidx/activity/ComponentActivity;->getClassLoader()Ljava/lang/ClassLoader;
@@ -252,14 +252,14 @@
     invoke-virtual {v15, v2}, Landroid/content/Intent;->setExtrasClassLoader(Ljava/lang/ClassLoader;)V
 
     .line 182
-    :cond_1
+    :cond_4c
     const-string v2, "androidx.activity.result.contract.extra.ACTIVITY_OPTIONS_BUNDLE"
 
     invoke-virtual {v15, v2}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_5d
 
     .line 183
     invoke-virtual {v15, v2}, Landroid/content/Intent;->getBundleExtra(Ljava/lang/String;)Landroid/os/Bundle;
@@ -271,11 +271,11 @@
 
     move-object v8, v0
 
-    goto :goto_0
+    goto :goto_66
 
     .line 185
-    :cond_2
-    if-eqz p4, :cond_3
+    :cond_5d
+    if-eqz p4, :cond_65
 
     .line 186
     invoke-virtual/range {p4 .. p4}, Landroidx/core/app/ActivityOptionsCompat;->toBundle()Landroid/os/Bundle;
@@ -284,16 +284,16 @@
 
     move-object v8, v0
 
-    goto :goto_0
+    goto :goto_66
 
     .line 185
-    :cond_3
+    :cond_65
     move-object v8, v0
 
     .line 188
     .end local v0    # "optionsBundle":Landroid/os/Bundle;
     .local v8, "optionsBundle":Landroid/os/Bundle;
-    :goto_0
+    :goto_66
     const-string v0, "androidx.activity.result.contract.action.REQUEST_PERMISSIONS"
 
     invoke-virtual {v15}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -304,7 +304,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_85
 
     .line 190
     const-string v0, "androidx.activity.result.contract.extra.PERMISSIONS"
@@ -315,7 +315,7 @@
 
     .line 191
     .local v0, "permissions":[Ljava/lang/String;
-    if-nez v0, :cond_4
+    if-nez v0, :cond_7d
 
     .line 192
     const/4 v2, 0x0
@@ -323,7 +323,7 @@
     new-array v0, v2, [Ljava/lang/String;
 
     .line 194
-    :cond_4
+    :cond_7d
     move-object v2, v13
 
     check-cast v2, Landroid/app/Activity;
@@ -333,10 +333,10 @@
     move-object v2, v8
 
     .end local v0    # "permissions":[Ljava/lang/String;
-    goto :goto_2
+    goto :goto_e9
 
     .line 195
-    :cond_5
+    :cond_85
     const-string v0, "androidx.activity.result.contract.action.INTENT_SENDER_REQUEST"
 
     invoke-virtual {v15}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -347,7 +347,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_dc
 
     .line 197
     const-string v0, "androidx.activity.result.contract.extra.INTENT_SENDER_REQUEST"
@@ -366,7 +366,7 @@
     nop
 
     .line 201
-    :try_start_0
+    :try_start_9c
     move-object v2, v13
 
     check-cast v2, Landroid/app/Activity;
@@ -395,8 +395,8 @@
     invoke-virtual/range {v16 .. v16}, Landroidx/activity/result/IntentSenderRequest;->getFlagsValues()I
 
     move-result v7
-    :try_end_0
-    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_b3
+    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_9c .. :try_end_b3} :catch_c5
 
     .line 207
     nop
@@ -417,24 +417,24 @@
 
     move-object/from16 v9, v17
 
-    :try_start_1
+    :try_start_bd
     invoke-static/range {v2 .. v9}, Landroidx/core/app/ActivityCompat;->startIntentSenderForResult(Landroid/app/Activity;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
-    :try_end_1
-    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_c0
+    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_bd .. :try_end_c0} :catch_c3
 
     move-object/from16 v2, v17
 
-    goto :goto_2
+    goto :goto_e9
 
     .line 210
-    :catch_0
+    :catch_c3
     move-exception v0
 
-    goto :goto_1
+    goto :goto_c8
 
     .end local v17    # "optionsBundle":Landroid/os/Bundle;
     .restart local v8    # "optionsBundle":Landroid/os/Bundle;
-    :catch_1
+    :catch_c5
     move-exception v0
 
     move-object/from16 v17, v8
@@ -443,7 +443,7 @@
     .end local v8    # "optionsBundle":Landroid/os/Bundle;
     .local v0, "e":Landroid/content/IntentSender$SendIntentException;
     .restart local v17    # "optionsBundle":Landroid/os/Bundle;
-    :goto_1
+    :goto_c8
     new-instance v2, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -460,14 +460,14 @@
 
     move-object/from16 v2, v17
 
-    goto :goto_2
+    goto :goto_e9
 
     .line 224
     .end local v0    # "e":Landroid/content/IntentSender$SendIntentException;
     .end local v16    # "request":Landroidx/activity/result/IntentSenderRequest;
     .end local v17    # "optionsBundle":Landroid/os/Bundle;
     .restart local v8    # "optionsBundle":Landroid/os/Bundle;
-    :cond_6
+    :cond_dc
     move-object/from16 v17, v8
 
     .end local v8    # "optionsBundle":Landroid/os/Bundle;
@@ -493,6 +493,6 @@
     invoke-static {v0, v15, v10, v2}, Landroidx/core/app/ActivityCompat;->startActivityForResult(Landroid/app/Activity;Landroid/content/Intent;ILandroid/os/Bundle;)V
 
     .line 230
-    :goto_2
+    :goto_e9
     return-void
 .end method

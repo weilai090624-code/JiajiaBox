@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Sink;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # I
 
     .line 516
@@ -55,7 +55,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 3
+    .registers 6
     .param p1, "size"    # J
 
     .line 491
@@ -63,7 +63,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_1a
 
     .line 493
     const-wide/16 v0, 0x0
@@ -72,25 +72,25 @@
 
     new-instance v0, Lj$/util/stream/SpinedBuffer$OfInt;
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_14
 
     long-to-int v1, p1
 
     invoke-direct {v0, v1}, Lj$/util/stream/SpinedBuffer$OfInt;-><init>(I)V
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_14
     invoke-direct {v0}, Lj$/util/stream/SpinedBuffer$OfInt;-><init>()V
 
-    :goto_0
+    :goto_17
     iput-object v0, p0, Lj$/util/stream/SortedOps$IntSortingSink;->b:Lj$/util/stream/SpinedBuffer$OfInt;
 
     .line 494
     return-void
 
     .line 492
-    :cond_1
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Stream size exceeds max array size"
@@ -101,7 +101,7 @@
 .end method
 
 .method public end()V
-    .locals 5
+    .registers 6
 
     .line 498
     iget-object v0, p0, Lj$/util/stream/SortedOps$IntSortingSink;->b:Lj$/util/stream/SpinedBuffer$OfInt;
@@ -130,13 +130,13 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_24
 
     .line 502
     array-length v1, v0
 
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_18
+    if-ge v2, v1, :cond_3a
 
     aget v3, v0, v2
 
@@ -150,14 +150,14 @@
     .end local v3    # "anInt":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 506
-    :cond_0
+    :cond_24
     array-length v1, v0
 
-    :goto_1
-    if-ge v2, v1, :cond_2
+    :goto_25
+    if-ge v2, v1, :cond_3a
 
     aget v3, v0, v2
 
@@ -169,12 +169,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_32
 
-    goto :goto_2
+    goto :goto_3a
 
     .line 508
-    :cond_1
+    :cond_32
     iget-object v4, p0, Lj$/util/stream/SortedOps$IntSortingSink;->downstream:Lj$/util/stream/Sink;
 
     invoke-interface {v4, v3}, Lj$/util/stream/Sink;->accept(I)V
@@ -183,11 +183,11 @@
     .end local v3    # "anInt":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_25
 
     .line 511
-    :cond_2
-    :goto_2
+    :cond_3a
+    :goto_3a
     iget-object v1, p0, Lj$/util/stream/SortedOps$IntSortingSink;->downstream:Lj$/util/stream/Sink;
 
     invoke-interface {v1}, Lj$/util/stream/Sink;->end()V

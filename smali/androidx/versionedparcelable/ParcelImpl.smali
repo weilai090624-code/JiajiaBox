@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 60
     new-instance v0, Landroidx/versionedparcelable/ParcelImpl$1;
@@ -37,7 +37,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 38
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/versionedparcelable/VersionedParcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "parcel"    # Landroidx/versionedparcelable/VersionedParcelable;
 
     .line 34
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 51
     const/4 v0, 0x0
@@ -84,7 +84,7 @@
 .end method
 
 .method public getVersionedParcel()Landroidx/versionedparcelable/VersionedParcelable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -100,7 +100,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+    .registers 5
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

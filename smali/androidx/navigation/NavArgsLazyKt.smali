@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 25
     const/4 v0, 0x1
@@ -90,7 +90,7 @@
 .end method
 
 .method public static final getMethodMap()Landroidx/collection/ArrayMap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -111,7 +111,7 @@
 .end method
 
 .method public static final getMethodSignature()[Ljava/lang/Class;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()[",

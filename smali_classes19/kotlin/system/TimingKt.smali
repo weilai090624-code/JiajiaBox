@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final measureNanoTime(Lkotlin/jvm/functions/Function0;)J
-    .locals 5
+    .registers 6
     .param p0, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final measureTimeMillis(Lkotlin/jvm/functions/Function0;)J
-    .locals 5
+    .registers 6
     .param p0, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {

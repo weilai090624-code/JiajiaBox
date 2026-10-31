@@ -48,7 +48,7 @@
 
 # direct methods
 .method public static final asSequence(Lj$/util/Optional;)Lkotlin/sequences/Sequence;
-    .locals 3
+    .registers 4
     .param p0, "$this$asSequence"    # Lj$/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,7 +71,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     invoke-virtual {p0}, Lj$/util/Optional;->get()Ljava/lang/Object;
 
@@ -89,19 +89,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1a
     invoke-static {}, Lkotlin/sequences/SequencesKt;->emptySequence()Lkotlin/sequences/Sequence;
 
     move-result-object v0
 
-    :goto_0
+    :goto_1e
     return-object v0
 .end method
 
 .method public static final getOrDefault(Lj$/util/Optional;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$getOrDefault"    # Lj$/util/Optional;
     .param p1, "defaultValue"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -123,23 +123,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {p0}, Lj$/util/Optional;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     move-object v0, p1
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 .method public static final getOrElse(Lj$/util/Optional;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$getOrElse"    # Lj$/util/Optional;
     .param p1, "defaultValue"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -173,25 +173,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     invoke-virtual {p0}, Lj$/util/Optional;->get()Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_17
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
+    :goto_1b
     return-object v1
 .end method
 
 .method public static final getOrNull(Lj$/util/Optional;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$getOrNull"    # Lj$/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -218,7 +218,7 @@
 .end method
 
 .method public static final toCollection(Lj$/util/Optional;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 2
+    .registers 4
     .param p0, "$this$toCollection"    # Lj$/util/Optional;
     .param p1, "destination"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -246,7 +246,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 44
     invoke-virtual {p0}, Lj$/util/Optional;->get()Ljava/lang/Object;
@@ -260,12 +260,12 @@
     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 46
-    :cond_0
+    :cond_1c
     return-object p1
 .end method
 
 .method public static final toList(Lj$/util/Optional;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$toList"    # Lj$/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -288,7 +288,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {p0}, Lj$/util/Optional;->get()Ljava/lang/Object;
 
@@ -298,19 +298,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_14
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    :goto_0
+    :goto_18
     return-object v0
 .end method
 
 .method public static final toSet(Lj$/util/Optional;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "$this$toSet"    # Lj$/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -333,7 +333,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {p0}, Lj$/util/Optional;->get()Ljava/lang/Object;
 
@@ -343,13 +343,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_14
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
-    :goto_0
+    :goto_18
     return-object v0
 .end method

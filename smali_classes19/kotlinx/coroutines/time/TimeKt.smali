@@ -52,7 +52,7 @@
 
 # direct methods
 .method private static final coerceToMillis(Lj$/time/Duration;)J
-    .locals 6
+    .registers 7
     .param p0, "$this$coerceToMillis"    # Lj$/time/Duration;
 
     .line 68
@@ -62,14 +62,14 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_b
 
     const-wide/16 v0, 0x0
 
     return-wide v0
 
     .line 69
-    :cond_0
+    :cond_b
     sget-object v0, Lj$/time/temporal/ChronoUnit;->MILLIS:Lj$/time/temporal/ChronoUnit;
 
     invoke-virtual {v0}, Lj$/time/temporal/ChronoUnit;->getDuration()Lj$/time/Duration;
@@ -80,14 +80,14 @@
 
     move-result v0
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_1a
 
     const-wide/16 v0, 0x1
 
     return-wide v0
 
     .line 72
-    :cond_1
+    :cond_1a
     const-wide v0, 0x20c49ba5e353f7L
 
     .line 73
@@ -102,7 +102,7 @@
 
     cmp-long v5, v3, v0
 
-    if-ltz v5, :cond_3
+    if-ltz v5, :cond_3f
 
     invoke-virtual {p0}, Lj$/time/Duration;->getSeconds()J
 
@@ -110,35 +110,35 @@
 
     cmp-long v5, v3, v0
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_39
 
     invoke-virtual {p0}, Lj$/time/Duration;->getNano()I
 
     move-result v3
 
-    if-ge v3, v2, :cond_2
+    if-ge v3, v2, :cond_39
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 75
-    :cond_2
+    :cond_39
     const-wide v3, 0x7fffffffffffffffL
 
-    goto :goto_1
+    goto :goto_43
 
     .line 74
-    :cond_3
-    :goto_0
+    :cond_3f
+    :goto_3f
     invoke-virtual {p0}, Lj$/time/Duration;->toMillis()J
 
     move-result-wide v3
 
-    :goto_1
+    :goto_43
     return-wide v3
 .end method
 
 .method public static final debounce(Lkotlinx/coroutines/flow/Flow;Lj$/time/Duration;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$debounce"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "timeout"    # Lj$/time/Duration;
     .annotation system Ldalvik/annotation/Signature;
@@ -168,7 +168,7 @@
 .end method
 
 .method public static final delay(Lj$/time/Duration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "duration"    # Lj$/time/Duration;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -196,18 +196,18 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     return-object v0
 
-    :cond_0
+    :cond_f
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method public static final onTimeout(Lkotlinx/coroutines/selects/SelectBuilder;Lj$/time/Duration;Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 5
     .param p0, "$this$onTimeout"    # Lkotlinx/coroutines/selects/SelectBuilder;
     .param p1, "duration"    # Lj$/time/Duration;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
@@ -239,7 +239,7 @@
 .end method
 
 .method public static final sample(Lkotlinx/coroutines/flow/Flow;Lj$/time/Duration;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$sample"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "period"    # Lj$/time/Duration;
     .annotation system Ldalvik/annotation/Signature;
@@ -269,7 +269,7 @@
 .end method
 
 .method public static final withTimeout(Lj$/time/Duration;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "duration"    # Lj$/time/Duration;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -309,7 +309,7 @@
 .end method
 
 .method public static final withTimeoutOrNull(Lj$/time/Duration;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "duration"    # Lj$/time/Duration;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;

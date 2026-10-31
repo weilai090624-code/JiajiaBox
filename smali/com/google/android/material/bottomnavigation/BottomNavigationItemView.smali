@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 34
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method protected getItemDefaultMarginResId()I
-    .locals 1
+    .registers 2
 
     .line 46
     sget v0, Lcom/google/android/material/R$dimen;->design_bottom_navigation_margin:I
@@ -27,7 +27,7 @@
 .end method
 
 .method protected getItemLayoutResId()I
-    .locals 1
+    .registers 2
 
     .line 40
     sget v0, Lcom/google/android/material/R$layout;->design_bottom_navigation_item:I

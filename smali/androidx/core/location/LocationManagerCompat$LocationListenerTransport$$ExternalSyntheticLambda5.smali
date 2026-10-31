@@ -18,7 +18,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroidx/core/location/LocationManagerCompat$LocationListenerTransport;Ljava/lang/String;ILandroid/os/Bundle;)V
-    .locals 0
+    .registers 5
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .registers 5
 
     .line 0
     iget-object v0, p0, Landroidx/core/location/LocationManagerCompat$LocationListenerTransport$$ExternalSyntheticLambda5;->f$0:Landroidx/core/location/LocationManagerCompat$LocationListenerTransport;

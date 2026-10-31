@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 61
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_MaterialDivider:I
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "orientation"    # I
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "orientation"    # I
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 7
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -198,7 +198,7 @@
 .end method
 
 .method private drawForHorizontalOrientation(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 8
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "parent"    # Landroidx/recyclerview/widget/RecyclerView;
 
@@ -210,7 +210,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 344
     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView;->getPaddingTop()I
@@ -251,12 +251,12 @@
     .line 346
     invoke-virtual {p1, v2, v0, v3, v1}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 349
     .end local v0    # "top":I
     .end local v1    # "bottom":I
-    :cond_0
+    :cond_28
     const/4 v0, 0x0
 
     .line 350
@@ -267,7 +267,7 @@
 
     .line 352
     .restart local v1    # "bottom":I
-    :goto_0
+    :goto_2d
     iget v2, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->insetStart:I
 
     add-int/2addr v0, v2
@@ -287,8 +287,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v2, :cond_2
+    :goto_38
+    if-ge v3, v2, :cond_67
 
     .line 357
     invoke-virtual {p2, v3}, Landroidx/recyclerview/widget/RecyclerView;->getChildAt(I)Landroid/view/View;
@@ -301,7 +301,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_64
 
     .line 359
     iget-object v5, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->tempRect:Landroid/graphics/Rect;
@@ -344,14 +344,14 @@
     .end local v4    # "child":Landroid/view/View;
     .end local v5    # "right":I
     .end local v6    # "left":I
-    :cond_1
+    :cond_64
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_38
 
     .line 367
     .end local v3    # "i":I
-    :cond_2
+    :cond_67
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 368
@@ -359,7 +359,7 @@
 .end method
 
 .method private drawForVerticalOrientation(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 9
+    .registers 12
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "parent"    # Landroidx/recyclerview/widget/RecyclerView;
 
@@ -371,7 +371,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 308
     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView;->getPaddingLeft()I
@@ -412,12 +412,12 @@
     .line 310
     invoke-virtual {p1, v0, v2, v1, v3}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 313
     .end local v0    # "left":I
     .end local v1    # "right":I
-    :cond_0
+    :cond_28
     const/4 v0, 0x0
 
     .line 314
@@ -428,48 +428,48 @@
 
     .line 316
     .restart local v1    # "right":I
-    :goto_0
+    :goto_2d
     invoke-static {p2}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v2
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_35
 
-    goto :goto_1
+    goto :goto_36
 
-    :cond_1
+    :cond_35
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_36
     move v2, v3
 
     .line 317
     .local v2, "isRtl":Z
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3c
 
     iget v3, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->insetEnd:I
 
-    goto :goto_2
+    goto :goto_3e
 
-    :cond_2
+    :cond_3c
     iget v3, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->insetStart:I
 
-    :goto_2
+    :goto_3e
     add-int/2addr v0, v3
 
     .line 318
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_44
 
     iget v3, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->insetStart:I
 
-    goto :goto_3
+    goto :goto_46
 
-    :cond_3
+    :cond_44
     iget v3, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->insetEnd:I
 
-    :goto_3
+    :goto_46
     sub-int/2addr v1, v3
 
     .line 320
@@ -482,8 +482,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_4
-    if-ge v4, v3, :cond_5
+    :goto_4c
+    if-ge v4, v3, :cond_7b
 
     .line 322
     invoke-virtual {p2, v4}, Landroidx/recyclerview/widget/RecyclerView;->getChildAt(I)Landroid/view/View;
@@ -496,7 +496,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_78
 
     .line 324
     iget-object v6, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->tempRect:Landroid/graphics/Rect;
@@ -539,14 +539,14 @@
     .end local v5    # "child":Landroid/view/View;
     .end local v6    # "bottom":I
     .end local v7    # "top":I
-    :cond_4
+    :cond_78
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_4
+    goto :goto_4c
 
     .line 332
     .end local v4    # "i":I
-    :cond_5
+    :cond_7b
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 333
@@ -554,7 +554,7 @@
 .end method
 
 .method private shouldDrawDivider(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;)Z
-    .locals 6
+    .registers 9
     .param p1, "parent"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "child"    # Landroid/view/View;
 
@@ -575,7 +575,7 @@
 
     const/4 v3, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     invoke-virtual {v1}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->getItemCount()I
 
@@ -583,52 +583,52 @@
 
     sub-int/2addr v4, v3
 
-    if-ne v0, v4, :cond_0
+    if-ne v0, v4, :cond_15
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v4, 0x0
 
     .line 392
     .local v4, "isLastItem":Z
-    :goto_0
+    :goto_16
     const/4 v5, -0x1
 
-    if-eq v0, v5, :cond_2
+    if-eq v0, v5, :cond_27
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1f
 
     iget-boolean v5, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->lastItemDecorated:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_27
 
     .line 394
-    :cond_1
+    :cond_1f
     invoke-virtual {p0, v0, v1}, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->shouldDrawDivider(ILandroidx/recyclerview/widget/RecyclerView$Adapter;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_27
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_2
+    :cond_27
     nop
 
     .line 392
-    :goto_1
+    :goto_28
     return v2
 .end method
 
 
 # virtual methods
 .method public getDividerColor()I
-    .locals 1
+    .registers 2
 
     .line 196
     iget v0, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->color:I
@@ -637,7 +637,7 @@
 .end method
 
 .method public getDividerInsetEnd()I
-    .locals 1
+    .registers 2
 
     .line 262
     iget v0, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->insetEnd:I
@@ -646,7 +646,7 @@
 .end method
 
 .method public getDividerInsetStart()I
-    .locals 1
+    .registers 2
 
     .line 229
     iget v0, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->insetStart:I
@@ -655,7 +655,7 @@
 .end method
 
 .method public getDividerThickness()I
-    .locals 1
+    .registers 2
 
     .line 161
     iget v0, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->thickness:I
@@ -664,7 +664,7 @@
 .end method
 
 .method public getItemOffsets(Landroid/graphics/Rect;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
-    .locals 2
+    .registers 7
     .param p1, "outRect"    # Landroid/graphics/Rect;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "parent"    # Landroidx/recyclerview/widget/RecyclerView;
@@ -680,36 +680,36 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 379
     iget v0, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->orientation:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     .line 380
     iget v0, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->thickness:I
 
     iput v0, p1, Landroid/graphics/Rect;->bottom:I
 
-    goto :goto_0
+    goto :goto_18
 
     .line 382
-    :cond_0
+    :cond_14
     iget v0, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->thickness:I
 
     iput v0, p1, Landroid/graphics/Rect;->right:I
 
     .line 385
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     return-void
 .end method
 
 .method public getOrientation()I
-    .locals 1
+    .registers 2
 
     .line 128
     iget v0, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->orientation:I
@@ -718,7 +718,7 @@
 .end method
 
 .method public isLastItemDecorated()Z
-    .locals 1
+    .registers 2
 
     .line 283
     iget-boolean v0, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->lastItemDecorated:Z
@@ -727,7 +727,7 @@
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
-    .locals 2
+    .registers 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "parent"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p3, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
@@ -737,35 +737,35 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 290
     return-void
 
     .line 292
-    :cond_0
+    :cond_7
     iget v0, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->orientation:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_10
 
     .line 293
     invoke-direct {p0, p1, p2}, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->drawForVerticalOrientation(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 295
-    :cond_1
+    :cond_10
     invoke-direct {p0, p1, p2}, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->drawForHorizontalOrientation(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;)V
 
     .line 297
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method public setDividerColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 172
@@ -790,7 +790,7 @@
 .end method
 
 .method public setDividerColorResource(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "colorId"    # I
 
@@ -806,7 +806,7 @@
 .end method
 
 .method public setDividerInsetEnd(I)V
-    .locals 0
+    .registers 2
     .param p1, "insetEnd"    # I
 
     .line 240
@@ -817,7 +817,7 @@
 .end method
 
 .method public setDividerInsetEndResource(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "insetEndId"    # I
 
@@ -837,7 +837,7 @@
 .end method
 
 .method public setDividerInsetStart(I)V
-    .locals 0
+    .registers 2
     .param p1, "insetStart"    # I
 
     .line 207
@@ -848,7 +848,7 @@
 .end method
 
 .method public setDividerInsetStartResource(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "insetStartId"    # I
 
@@ -868,7 +868,7 @@
 .end method
 
 .method public setDividerThickness(I)V
-    .locals 0
+    .registers 2
     .param p1, "thickness"    # I
 
     .line 139
@@ -879,7 +879,7 @@
 .end method
 
 .method public setDividerThicknessResource(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "thicknessId"    # I
 
@@ -899,7 +899,7 @@
 .end method
 
 .method public setLastItemDecorated(Z)V
-    .locals 0
+    .registers 2
     .param p1, "lastItemDecorated"    # Z
 
     .line 273
@@ -910,20 +910,20 @@
 .end method
 
 .method public setOrientation(I)V
-    .locals 3
+    .registers 5
     .param p1, "orientation"    # I
 
     .line 120
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_25
 
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_6
 
-    goto :goto_0
+    goto :goto_25
 
     .line 121
-    :cond_0
+    :cond_6
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -955,8 +955,8 @@
     throw v0
 
     .line 124
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     iput p1, p0, Lcom/google/android/material/divider/MaterialDividerItemDecoration;->orientation:I
 
     .line 125
@@ -964,7 +964,7 @@
 .end method
 
 .method protected shouldDrawDivider(ILandroidx/recyclerview/widget/RecyclerView$Adapter;)Z
-    .locals 1
+    .registers 4
     .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -113,7 +113,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokhttp3/internal/ws/WebSocketProtocol;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public final acceptHeader(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -168,75 +168,75 @@
 .end method
 
 .method public final closeCodeExceptionMessage(I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "code"    # I
 
     .line 123
     const/16 v0, 0x3e8
 
-    if-lt p1, v0, :cond_5
+    if-lt p1, v0, :cond_44
 
     const/16 v0, 0x1388
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_9
 
-    goto :goto_3
+    goto :goto_44
 
     .line 125
-    :cond_0
+    :cond_9
     const/16 v0, 0x3ec
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    if-gt v0, p1, :cond_1
+    if-gt v0, p1, :cond_15
 
     const/16 v0, 0x3ee
 
-    if-gt p1, v0, :cond_1
+    if-gt p1, v0, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_4
+    :goto_16
+    if-nez v0, :cond_2a
 
     const/16 v0, 0x3f7
 
-    if-gt v0, p1, :cond_2
+    if-gt v0, p1, :cond_21
 
     const/16 v0, 0xbb7
 
-    if-gt p1, v0, :cond_2
+    if-gt p1, v0, :cond_21
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     const/4 v1, 0x0
 
-    :goto_1
-    if-eqz v1, :cond_3
+    :goto_22
+    if-eqz v1, :cond_25
 
-    goto :goto_2
+    goto :goto_2a
 
     .line 128
-    :cond_3
+    :cond_25
     const/4 v0, 0x0
 
     move-object v1, v0
 
     check-cast v1, Ljava/lang/String;
 
-    goto :goto_4
+    goto :goto_4e
 
     .line 126
-    :cond_4
-    :goto_2
+    :cond_2a
+    :goto_2a
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -261,11 +261,11 @@
 
     move-result-object v0
 
-    goto :goto_4
+    goto :goto_4e
 
     .line 124
-    :cond_5
-    :goto_3
+    :cond_44
+    :goto_44
     const-string v0, "Code must be in range [1000,5000): "
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -277,12 +277,12 @@
     move-result-object v0
 
     .line 123
-    :goto_4
+    :goto_4e
     return-object v0
 .end method
 
 .method public final toggleMask(Lokio/Buffer$UnsafeCursor;[B)V
-    .locals 8
+    .registers 11
     .param p1, "cursor"    # Lokio/Buffer$UnsafeCursor;
     .param p2, "key"    # [B
 
@@ -303,7 +303,7 @@
 
     .line 102
     .local v1, "keyLength":I
-    :cond_0
+    :cond_c
     iget-object v2, p1, Lokio/Buffer$UnsafeCursor;->data:[B
 
     .line 103
@@ -316,11 +316,11 @@
 
     .line 105
     .local v4, "end":I
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_25
 
     .line 106
-    :goto_0
-    if-ge v3, v4, :cond_1
+    :goto_14
+    if-ge v3, v4, :cond_25
 
     .line 107
     rem-int/2addr v0, v1
@@ -348,17 +348,17 @@
 
     .end local v5    # "bufferInt":I
     .end local v6    # "keyInt":I
-    goto :goto_0
+    goto :goto_14
 
     .line 119
-    :cond_1
+    :cond_25
     invoke-virtual {p1}, Lokio/Buffer$UnsafeCursor;->next()I
 
     move-result v5
 
     const/4 v6, -0x1
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v6, :cond_c
 
     .line 120
     .end local v2    # "buffer":[B
@@ -368,7 +368,7 @@
 .end method
 
 .method public final validateCloseCode(I)V
-    .locals 3
+    .registers 5
     .param p1, "code"    # I
 
     .line 133
@@ -378,23 +378,23 @@
 
     .line 134
     .local v0, "message":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_9
+    if-eqz v1, :cond_c
 
     .line 135
     return-void
 
     .line 142
-    :cond_1
+    :cond_c
     const/4 v1, 0x0
 
     .line 134

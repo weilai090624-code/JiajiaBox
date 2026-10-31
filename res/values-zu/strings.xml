@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Ikholi engenayo</string>
     <string name="call_notification_ongoing_text">Ikholi eqhubekayo</string>
     <string name="call_notification_screening_text">Ukuveza ikholi engenayo</string>
-    <string name="character_counter_content_description" formatted="false">Izinhlamvu ezifakiwe ezingu-%1$d zokungu-%2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Umkhawulo wezinhlamvu udlule u-%1$d kokungu-%2$d</string>
+    <string name="character_counter_content_description">Izinhlamvu ezifakiwe ezingu-%1$d zokungu-%2$d</string>
+    <string name="character_counter_overflowed_content_description">Umkhawulo wezinhlamvu udlule u-%1$d kokungu-%2$d</string>
     <string name="clear_text_end_icon_content_description">Sula umbhalo</string>
     <string name="copy">Kopisha</string>
     <string name="copy_toast_msg">Isixhumanisi sikopishelwe ku-clipboard</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Ikude kubanga: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Idethi yokuqala – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Idethi yokuphela</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Khetha Ibanga</string>
     <string name="mtrl_picker_range_header_unselected">Idethi yokuqala – Idethi yokuphela</string>
     <string name="mtrl_picker_save">Londoloza</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" kukopishelwe kuklibhodi.</string>
     <string name="search_menu_title">Sesha</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">VALA</string>
     <string name="v7_preference_on">VULA</string>
 </resources>

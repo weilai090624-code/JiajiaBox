@@ -33,7 +33,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 61
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedMap;, "Lcom/google/common/collect/ForwardingSortedMap<TK;TV;>;"
@@ -43,7 +43,7 @@
 .end method
 
 .method static unsafeCompare(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p0    # Ljava/util/Comparator;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -69,7 +69,7 @@
 
     .line 118
     .local p0, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<*>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     .line 119
     move-object v0, p1
@@ -83,7 +83,7 @@
     return v0
 
     .line 121
-    :cond_0
+    :cond_a
     invoke-interface {p0, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v0
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -120,7 +120,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 54
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedMap;, "Lcom/google/common/collect/ForwardingSortedMap<TK;TV;>;"
@@ -132,7 +132,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 54
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedMap;, "Lcom/google/common/collect/ForwardingSortedMap<TK;TV;>;"
@@ -154,7 +154,7 @@
 .end method
 
 .method public firstKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -206,7 +206,7 @@
 .end method
 
 .method public lastKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -230,7 +230,7 @@
 .end method
 
 .method protected standardContainsKey(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -244,7 +244,7 @@
     .local v0, "self":Ljava/util/SortedMap;, "Ljava/util/SortedMap<Ljava/lang/Object;TV;>;"
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_2
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
     move-result-object v2
@@ -262,42 +262,42 @@
     invoke-static {v3, v2, p1}, Lcom/google/common/collect/ForwardingSortedMap;->unsafeCompare(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v3
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/ClassCastException; {:try_start_2 .. :try_end_12} :catch_1a
+    .catch Ljava/util/NoSuchElementException; {:try_start_2 .. :try_end_12} :catch_18
+    .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_12} :catch_16
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_15
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_15
     return v1
 
     .line 141
     .end local v0    # "self":Ljava/util/SortedMap;, "Ljava/util/SortedMap<Ljava/lang/Object;TV;>;"
     .end local v2    # "ceilingKey":Ljava/lang/Object;
-    :catch_0
+    :catch_16
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :catch_1
+    :catch_18
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :catch_2
+    :catch_1a
     move-exception v0
 
     .line 142
     .local v0, "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_1b
     return v1
 .end method
 
 .method protected standardSubMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TK;)",
@@ -318,16 +318,16 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     const-string v1, "fromKey must be <= toKey"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -345,7 +345,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -378,7 +378,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

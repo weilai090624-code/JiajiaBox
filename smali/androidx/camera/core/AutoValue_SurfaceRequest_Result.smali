@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/view/Surface;)V
-    .locals 2
+    .registers 5
     .param p1, "resultCode"    # I
     .param p2, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -32,7 +32,7 @@
     iput p1, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->resultCode:I
 
     .line 19
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     .line 22
     iput-object p2, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->surface:Landroid/view/Surface;
@@ -41,7 +41,7 @@
     return-void
 
     .line 20
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null surface"
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -68,18 +68,18 @@
     .line 47
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 48
     return v0
 
     .line 50
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/camera/core/SurfaceRequest$Result;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
     .line 51
     move-object v1, p1
@@ -94,7 +94,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_21
 
     iget-object v3, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->surface:Landroid/view/Surface;
 
@@ -107,25 +107,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v0, 0x0
 
     .line 52
-    :goto_0
+    :goto_22
     return v0
 
     .line 55
     .end local v1    # "that":Landroidx/camera/core/SurfaceRequest$Result;
-    :cond_2
+    :cond_23
     return v2
 .end method
 
 .method public getResultCode()I
-    .locals 1
+    .registers 2
 
     .line 28
     iget v0, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->resultCode:I
@@ -134,7 +134,7 @@
 .end method
 
 .method public getSurface()Landroid/view/Surface;
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->surface:Landroid/view/Surface;
@@ -143,7 +143,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 60
     const/4 v0, 0x1
@@ -176,7 +176,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 39
     new-instance v0, Ljava/lang/StringBuilder;

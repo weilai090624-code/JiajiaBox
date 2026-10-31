@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static anyMagicApiCall(I)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -31,7 +31,7 @@
 .end method
 
 .method public static anyMagicApiCall(IJJLjava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 7
     .param p0, "id"    # I
     .param p1, "longData1"    # J
     .param p3, "longData2"    # J
@@ -53,7 +53,7 @@
 .end method
 
 .method public static anyMagicApiCall(IJLjava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p0, "id"    # I
     .param p1, "longData"    # J
     .param p3, "anyData"    # Ljava/lang/Object;
@@ -74,7 +74,7 @@
 .end method
 
 .method public static anyMagicApiCall(ILjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "id"    # I
     .param p1, "anyData1"    # Ljava/lang/Object;
     .param p2, "anyData2"    # Ljava/lang/Object;
@@ -96,7 +96,7 @@
 .end method
 
 .method public static anyMagicApiCall(ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 6
     .param p0, "id"    # I
     .param p1, "anyData1"    # Ljava/lang/Object;
     .param p2, "anyData2"    # Ljava/lang/Object;
@@ -122,7 +122,7 @@
 .end method
 
 .method public static anyMagicApiCall(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "data"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -141,7 +141,7 @@
 .end method
 
 .method public static intMagicApiCall(I)I
-    .locals 1
+    .registers 2
     .param p0, "id"    # I
 
     .line 30
@@ -151,7 +151,7 @@
 .end method
 
 .method public static intMagicApiCall(IJJLjava/lang/Object;)I
-    .locals 1
+    .registers 7
     .param p0, "id"    # I
     .param p1, "longData1"    # J
     .param p3, "longData2"    # J
@@ -164,7 +164,7 @@
 .end method
 
 .method public static intMagicApiCall(IJLjava/lang/Object;)I
-    .locals 1
+    .registers 5
     .param p0, "id"    # I
     .param p1, "longData"    # J
     .param p3, "anyData"    # Ljava/lang/Object;
@@ -176,7 +176,7 @@
 .end method
 
 .method public static intMagicApiCall(ILjava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p0, "id"    # I
     .param p1, "anyData1"    # Ljava/lang/Object;
     .param p2, "anyData2"    # Ljava/lang/Object;
@@ -188,7 +188,7 @@
 .end method
 
 .method public static intMagicApiCall(ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 6
     .param p0, "id"    # I
     .param p1, "anyData1"    # Ljava/lang/Object;
     .param p2, "anyData2"    # Ljava/lang/Object;
@@ -202,7 +202,7 @@
 .end method
 
 .method public static intMagicApiCall(Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
     .param p0, "data"    # Ljava/lang/Object;
 
     .line 38
@@ -212,7 +212,7 @@
 .end method
 
 .method public static voidMagicApiCall(I)V
-    .locals 0
+    .registers 1
     .param p0, "id"    # I
 
     .line 27
@@ -220,7 +220,7 @@
 .end method
 
 .method public static voidMagicApiCall(Ljava/lang/Object;)V
-    .locals 0
+    .registers 1
     .param p0, "data"    # Ljava/lang/Object;
 
     .line 20

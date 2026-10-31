@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 42
     const v0, 0x10100d4
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -77,7 +77,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     .line 63
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -87,14 +87,14 @@
     invoke-virtual {p0, v1}, Landroidx/appcompat/view/menu/ExpandedMenuView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 65
-    :cond_0
+    :cond_1a
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_28
 
     .line 66
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -104,7 +104,7 @@
     invoke-virtual {p0, v1}, Landroidx/appcompat/view/menu/ExpandedMenuView;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
     .line 68
-    :cond_1
+    :cond_28
     invoke-virtual {v0}, Landroidx/appcompat/widget/TintTypedArray;->recycle()V
 
     .line 69
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public getWindowAnimations()I
-    .locals 1
+    .registers 2
 
     .line 97
     iget v0, p0, Landroidx/appcompat/view/menu/ExpandedMenuView;->mAnimations:I
@@ -123,7 +123,7 @@
 .end method
 
 .method public initialize(Landroidx/appcompat/view/menu/MenuBuilder;)V
-    .locals 0
+    .registers 2
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
     .line 73
@@ -134,7 +134,7 @@
 .end method
 
 .method public invokeItem(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
-    .locals 2
+    .registers 4
     .param p1, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
     .line 86
@@ -150,7 +150,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 1
+    .registers 2
 
     .line 78
     invoke-super {p0}, Landroid/widget/ListView;->onDetachedFromWindow()V
@@ -165,7 +165,7 @@
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 1
+    .registers 7
     .param p1, "parent"    # Landroid/widget/AdapterView;
     .param p2, "v"    # Landroid/view/View;
     .param p3, "position"    # I

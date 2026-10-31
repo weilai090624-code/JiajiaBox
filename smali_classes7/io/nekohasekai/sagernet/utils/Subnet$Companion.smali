@@ -42,7 +42,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/utils/Subnet$Companion;-><init>()V
 
@@ -59,16 +59,16 @@
 .end method
 
 .method public static synthetic fromString$default(Lio/nekohasekai/sagernet/utils/Subnet$Companion;Ljava/lang/String;IILjava/lang/Object;)Lio/nekohasekai/sagernet/utils/Subnet;
-    .locals 0
+    .registers 5
 
     .line 9
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, -0x1
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lio/nekohasekai/sagernet/utils/Subnet$Companion;->fromString(Ljava/lang/String;I)Lio/nekohasekai/sagernet/utils/Subnet;
 
     move-result-object p0
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public final fromString(Ljava/lang/String;I)Lio/nekohasekai/sagernet/utils/Subnet;
-    .locals 8
+    .registers 11
     .param p1, "value"    # Ljava/lang/String;
     .param p2, "lengthCheck"    # I
 
@@ -128,14 +128,14 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_26
 
     return-object v3
 
     .line 12
     .local v2, "addr":Ljava/net/InetAddress;
-    :cond_0
-    if-ltz p2, :cond_1
+    :cond_26
+    if-ltz p2, :cond_2f
 
     invoke-virtual {v2}, Ljava/net/InetAddress;->getAddress()[B
 
@@ -143,13 +143,13 @@
 
     array-length v4, v4
 
-    if-ne v4, p2, :cond_2
+    if-ne v4, p2, :cond_30
 
-    :cond_1
+    :cond_2f
     const/4 v7, 0x1
 
-    :cond_2
-    if-eqz v7, :cond_6
+    :cond_30
+    if-eqz v7, :cond_67
 
     .line 13
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -158,10 +158,10 @@
 
     const/4 v5, 0x2
 
-    if-ne v4, v5, :cond_5
+    if-ne v4, v5, :cond_5a
 
     .line 14
-    :try_start_0
+    :try_start_39
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -174,7 +174,7 @@
 
     .line 15
     .local v0, "prefixSize":I
-    if-ltz v0, :cond_4
+    if-ltz v0, :cond_59
 
     invoke-virtual {v2}, Ljava/net/InetAddress;->getAddress()[B
 
@@ -184,11 +184,11 @@
 
     shl-int/lit8 v4, v4, 0x3
 
-    if-le v0, v4, :cond_3
+    if-le v0, v4, :cond_4f
 
-    goto :goto_0
+    goto :goto_59
 
-    :cond_3
+    :cond_4f
     new-instance v4, Lio/nekohasekai/sagernet/utils/Subnet;
 
     .line 16
@@ -196,16 +196,16 @@
 
     .line 15
     invoke-direct {v4, v2, v0}, Lio/nekohasekai/sagernet/utils/Subnet;-><init>(Ljava/net/InetAddress;I)V
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_55
+    .catch Ljava/lang/NumberFormatException; {:try_start_39 .. :try_end_55} :catch_57
 
     move-object v3, v4
 
-    goto :goto_0
+    goto :goto_59
 
     .line 17
     .end local v0    # "prefixSize":I
-    :catch_0
+    :catch_57
     move-exception v0
 
     .line 18
@@ -213,12 +213,12 @@
     nop
 
     .end local v0    # "<unused var>":Ljava/lang/NumberFormatException;
-    :cond_4
-    :goto_0
-    goto :goto_1
+    :cond_59
+    :goto_59
+    goto :goto_66
 
     .line 19
-    :cond_5
+    :cond_5a
     new-instance v3, Lio/nekohasekai/sagernet/utils/Subnet;
 
     invoke-virtual {v2}, Ljava/net/InetAddress;->getAddress()[B
@@ -232,11 +232,11 @@
     invoke-direct {v3, v2, v0}, Lio/nekohasekai/sagernet/utils/Subnet;-><init>(Ljava/net/InetAddress;I)V
 
     .line 13
-    :goto_1
+    :goto_66
     return-object v3
 
     .line 12
-    :cond_6
+    :cond_67
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v3, "Check failed."

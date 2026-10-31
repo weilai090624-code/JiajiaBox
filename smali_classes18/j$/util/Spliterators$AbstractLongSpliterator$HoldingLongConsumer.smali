@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1513
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public accept(J)V
-    .locals 0
+    .registers 3
     .param p1, "value"    # J
 
     .line 1518
@@ -45,7 +45,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/LongConsumer$-CC;->$default$andThen(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
 

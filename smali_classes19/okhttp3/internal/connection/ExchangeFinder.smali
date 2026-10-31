@@ -93,7 +93,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/connection/RealConnectionPool;Lokhttp3/Address;Lokhttp3/internal/connection/RealCall;Lokhttp3/EventListener;)V
-    .locals 1
+    .registers 6
     .param p1, "connectionPool"    # Lokhttp3/internal/connection/RealConnectionPool;
     .param p2, "address"    # Lokhttp3/Address;
     .param p3, "call"    # Lokhttp3/internal/connection/RealCall;
@@ -135,7 +135,7 @@
 .end method
 
 .method private final findConnection(IIIIZ)Lokhttp3/internal/connection/RealConnection;
-    .locals 17
+    .registers 23
     .param p1, "connectTimeout"    # I
     .param p2, "readTimeout"    # I
     .param p3, "writeTimeout"    # I
@@ -156,7 +156,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_1b4
 
     .line 153
     iget-object v0, v1, Lokhttp3/internal/connection/ExchangeFinder;->call:Lokhttp3/internal/connection/RealCall;
@@ -171,7 +171,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_6d
 
     .line 155
     const/4 v4, 0x0
@@ -184,12 +184,12 @@
 
     .line 157
     .local v5, "$i$a$-synchronized-ExchangeFinder$findConnection$1":I
-    :try_start_0
+    :try_start_17
     invoke-virtual {v2}, Lokhttp3/internal/connection/RealConnection;->getNoNewExchanges()Z
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_2f
 
     invoke-virtual {v2}, Lokhttp3/internal/connection/RealConnection;->route()Lokhttp3/Route;
 
@@ -207,10 +207,10 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_36
 
     .line 158
-    :cond_0
+    :cond_2f
     iget-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->call:Lokhttp3/internal/connection/RealCall;
 
     invoke-virtual {v6}, Lokhttp3/internal/connection/RealCall;->releaseConnectionNoEvents$okhttp()Ljava/net/Socket;
@@ -220,13 +220,13 @@
     move-object v4, v6
 
     .line 160
-    :cond_1
+    :cond_36
     nop
 
     .end local v5    # "$i$a$-synchronized-ExchangeFinder$findConnection$1":I
     sget-object v5, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_39
+    .catchall {:try_start_17 .. :try_end_39} :catchall_6a
 
     .line 156
     monitor-exit v2
@@ -238,24 +238,24 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_57
 
     .line 165
-    if-nez v4, :cond_2
+    if-nez v4, :cond_45
 
-    goto :goto_0
+    goto :goto_46
 
-    :cond_2
+    :cond_45
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_46
+    if-eqz v0, :cond_49
 
     .line 166
     return-object v2
 
     .line 165
-    :cond_3
+    :cond_49
     const-string v0, "Check failed."
 
     new-instance v3, Ljava/lang/IllegalStateException;
@@ -271,16 +271,16 @@
     throw v3
 
     .line 170
-    :cond_4
-    if-nez v4, :cond_5
+    :cond_57
+    if-nez v4, :cond_5a
 
-    goto :goto_1
+    goto :goto_5d
 
-    :cond_5
+    :cond_5a
     invoke-static {v4}, Lokhttp3/internal/Util;->closeQuietly(Ljava/net/Socket;)V
 
     .line 171
-    :goto_1
+    :goto_5d
     iget-object v5, v1, Lokhttp3/internal/connection/ExchangeFinder;->eventListener:Lokhttp3/EventListener;
 
     iget-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->call:Lokhttp3/internal/connection/RealCall;
@@ -293,10 +293,10 @@
 
     invoke-virtual {v5, v6, v7}, Lokhttp3/EventListener;->connectionReleased(Lokhttp3/Call;Lokhttp3/Connection;)V
 
-    goto :goto_2
+    goto :goto_6d
 
     .line 156
-    :catchall_0
+    :catchall_6a
     move-exception v0
 
     monitor-exit v2
@@ -305,8 +305,8 @@
 
     .line 175
     .end local v4    # "toClose":Ljava/lang/Object;
-    :cond_6
-    :goto_2
+    :cond_6d
+    :goto_6d
     iput v3, v1, Lokhttp3/internal/connection/ExchangeFinder;->refusedStreamCount:I
 
     .line 176
@@ -328,7 +328,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_96
 
     .line 181
     iget-object v0, v1, Lokhttp3/internal/connection/ExchangeFinder;->call:Lokhttp3/internal/connection/RealCall;
@@ -357,7 +357,7 @@
     return-object v0
 
     .end local v0    # "result":Lokhttp3/internal/connection/RealConnection;
-    :cond_7
+    :cond_96
     const/4 v4, 0x0
 
     .local v4, "routes":Ljava/util/List;
@@ -367,7 +367,7 @@
     .local v5, "route":Lokhttp3/Route;
     iget-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->nextRouteToTry:Lokhttp3/Route;
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_a6
 
     .line 191
     const/4 v3, 0x0
@@ -384,16 +384,16 @@
     .local v4, "route":Lokhttp3/Route;
     iput-object v7, v1, Lokhttp3/internal/connection/ExchangeFinder;->nextRouteToTry:Lokhttp3/Route;
 
-    goto/16 :goto_3
+    goto/16 :goto_11b
 
     .line 194
     .end local v3    # "routes":Ljava/util/List;
     .local v4, "routes":Ljava/util/List;
     .restart local v5    # "route":Lokhttp3/Route;
-    :cond_8
+    :cond_a6
     iget-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->routeSelection:Lokhttp3/internal/connection/RouteSelector$Selection;
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_c0
 
     iget-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->routeSelection:Lokhttp3/internal/connection/RouteSelector$Selection;
 
@@ -403,7 +403,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_c0
 
     .line 196
     const/4 v3, 0x0
@@ -421,18 +421,18 @@
 
     .end local v5    # "route":Lokhttp3/Route;
     .local v4, "route":Lokhttp3/Route;
-    goto :goto_3
+    goto :goto_11b
 
     .line 200
     .end local v3    # "routes":Ljava/util/List;
     .local v4, "routes":Ljava/util/List;
     .restart local v5    # "route":Lokhttp3/Route;
-    :cond_9
+    :cond_c0
     iget-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->routeSelector:Lokhttp3/internal/connection/RouteSelector;
 
     .line 201
     .local v6, "localRouteSelector":Lokhttp3/internal/connection/RouteSelector;
-    if-nez v6, :cond_a
+    if-nez v6, :cond_de
 
     .line 202
     new-instance v8, Lokhttp3/internal/connection/RouteSelector;
@@ -463,7 +463,7 @@
     iput-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->routeSelector:Lokhttp3/internal/connection/RouteSelector;
 
     .line 205
-    :cond_a
+    :cond_de
     invoke-virtual {v6}, Lokhttp3/internal/connection/RouteSelector;->next()Lokhttp3/internal/connection/RouteSelector$Selection;
 
     move-result-object v8
@@ -484,7 +484,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_d
+    if-nez v9, :cond_1ac
 
     .line 213
     iget-object v9, v1, Lokhttp3/internal/connection/ExchangeFinder;->connectionPool:Lokhttp3/internal/connection/RealConnectionPool;
@@ -497,7 +497,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_112
 
     .line 214
     iget-object v0, v1, Lokhttp3/internal/connection/ExchangeFinder;->call:Lokhttp3/internal/connection/RealCall;
@@ -527,7 +527,7 @@
 
     .line 219
     .end local v0    # "result":Lokhttp3/internal/connection/RealConnection;
-    :cond_b
+    :cond_112
     invoke-virtual {v8}, Lokhttp3/internal/connection/RouteSelector$Selection;->next()Lokhttp3/Route;
 
     move-result-object v3
@@ -544,7 +544,7 @@
     .end local v8    # "localRouteSelection":Lokhttp3/internal/connection/RouteSelector$Selection;
     .restart local v3    # "routes":Ljava/util/List;
     .local v4, "route":Lokhttp3/Route;
-    :goto_3
+    :goto_11b
     new-instance v5, Lokhttp3/internal/connection/RealConnection;
 
     iget-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->connectionPool:Lokhttp3/internal/connection/RealConnectionPool;
@@ -579,7 +579,7 @@
     nop
 
     .line 232
-    :try_start_1
+    :try_start_12e
     iget-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->call:Lokhttp3/internal/connection/RealCall;
 
     move-object v14, v6
@@ -603,8 +603,8 @@
     move/from16 v13, p5
 
     invoke-virtual/range {v8 .. v15}, Lokhttp3/internal/connection/RealConnection;->connect(IIIIZLokhttp3/Call;Lokhttp3/EventListener;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    :try_end_143
+    .catchall {:try_start_12e .. :try_end_143} :catchall_1a5
 
     .line 236
     iget-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->call:Lokhttp3/internal/connection/RealCall;
@@ -642,7 +642,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_185
 
     .line 243
     iget-object v0, v1, Lokhttp3/internal/connection/ExchangeFinder;->call:Lokhttp3/internal/connection/RealCall;
@@ -682,14 +682,14 @@
 
     .line 250
     .end local v0    # "result":Lokhttp3/internal/connection/RealConnection;
-    :cond_c
+    :cond_185
     monitor-enter v5
 
     const/4 v0, 0x0
 
     .line 251
     .local v0, "$i$a$-synchronized-ExchangeFinder$findConnection$2":I
-    :try_start_2
+    :try_start_187
     iget-object v6, v1, Lokhttp3/internal/connection/ExchangeFinder;->connectionPool:Lokhttp3/internal/connection/RealConnectionPool;
 
     invoke-virtual {v6, v5}, Lokhttp3/internal/connection/RealConnectionPool;->put(Lokhttp3/internal/connection/RealConnection;)V
@@ -704,8 +704,8 @@
 
     .end local v0    # "$i$a$-synchronized-ExchangeFinder$findConnection$2":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_194
+    .catchall {:try_start_187 .. :try_end_194} :catchall_1a2
 
     .line 250
     monitor-exit v5
@@ -727,7 +727,7 @@
     return-object v5
 
     .line 250
-    :catchall_1
+    :catchall_1a2
     move-exception v0
 
     monitor-exit v5
@@ -735,7 +735,7 @@
     throw v0
 
     .line 237
-    :catchall_2
+    :catchall_1a5
     move-exception v0
 
     .line 236
@@ -751,7 +751,7 @@
     .local v5, "route":Lokhttp3/Route;
     .restart local v6    # "localRouteSelector":Lokhttp3/internal/connection/RouteSelector;
     .restart local v8    # "localRouteSelection":Lokhttp3/internal/connection/RouteSelector$Selection;
-    :cond_d
+    :cond_1ac
     new-instance v0, Ljava/io/IOException;
 
     const-string v3, "Canceled"
@@ -766,7 +766,7 @@
     .end local v5    # "route":Lokhttp3/Route;
     .end local v6    # "localRouteSelector":Lokhttp3/internal/connection/RouteSelector;
     .end local v8    # "localRouteSelection":Lokhttp3/internal/connection/RouteSelector$Selection;
-    :cond_e
+    :cond_1b4
     new-instance v0, Ljava/io/IOException;
 
     const-string v2, "Canceled"
@@ -777,7 +777,7 @@
 .end method
 
 .method private final findHealthyConnection(IIIIZZ)Lokhttp3/internal/connection/RealConnection;
-    .locals 5
+    .registers 12
     .param p1, "connectTimeout"    # I
     .param p2, "readTimeout"    # I
     .param p3, "writeTimeout"    # I
@@ -793,7 +793,7 @@
     .line 105
     nop
 
-    :goto_0
+    :goto_1
     nop
 
     .line 106
@@ -825,68 +825,68 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 116
     return-object v0
 
     .line 120
-    :cond_0
+    :cond_13
     invoke-virtual {v0}, Lokhttp3/internal/connection/RealConnection;->noNewExchanges$okhttp()V
 
     .line 124
     iget-object v1, p0, Lokhttp3/internal/connection/ExchangeFinder;->nextRouteToTry:Lokhttp3/Route;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
-    goto :goto_0
+    goto :goto_1
 
     .line 126
-    :cond_1
+    :cond_1b
     iget-object v1, p0, Lokhttp3/internal/connection/ExchangeFinder;->routeSelection:Lokhttp3/internal/connection/RouteSelector$Selection;
 
     const/4 v2, 0x1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_22
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_2
+    :cond_22
     invoke-virtual {v1}, Lokhttp3/internal/connection/RouteSelector$Selection;->hasNext()Z
 
     move-result v1
 
     .line 127
     .local v1, "routesLeft":Z
-    :goto_1
-    if-eqz v1, :cond_3
+    :goto_26
+    if-eqz v1, :cond_29
 
-    goto :goto_0
+    goto :goto_1
 
     .line 129
-    :cond_3
+    :cond_29
     iget-object v3, p0, Lokhttp3/internal/connection/ExchangeFinder;->routeSelector:Lokhttp3/internal/connection/RouteSelector;
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_2e
 
-    goto :goto_2
+    goto :goto_32
 
-    :cond_4
+    :cond_2e
     invoke-virtual {v3}, Lokhttp3/internal/connection/RouteSelector;->hasNext()Z
 
     move-result v2
 
     .line 130
     .local v2, "routesSelectionLeft":Z
-    :goto_2
-    if-eqz v2, :cond_5
+    :goto_32
+    if-eqz v2, :cond_35
 
-    goto :goto_0
+    goto :goto_1
 
     .line 132
-    :cond_5
+    :cond_35
     new-instance v3, Ljava/io/IOException;
 
     const-string v4, "exhausted all routes"
@@ -897,7 +897,7 @@
 .end method
 
 .method private final retryRoute()Lokhttp3/Route;
-    .locals 5
+    .registers 6
 
     .line 306
     iget v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->refusedStreamCount:I
@@ -906,47 +906,47 @@
 
     const/4 v2, 0x1
 
-    if-gt v0, v2, :cond_4
+    if-gt v0, v2, :cond_47
 
     iget v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->connectionShutdownCount:I
 
-    if-gt v0, v2, :cond_4
+    if-gt v0, v2, :cond_47
 
     iget v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->otherFailureCount:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_f
 
-    goto :goto_0
+    goto :goto_47
 
     .line 310
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->call:Lokhttp3/internal/connection/RealCall;
 
     invoke-virtual {v0}, Lokhttp3/internal/connection/RealCall;->getConnection()Lokhttp3/internal/connection/RealConnection;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     return-object v1
 
     .line 312
     .local v0, "connection":Lokhttp3/internal/connection/RealConnection;
-    :cond_1
+    :cond_18
     monitor-enter v0
 
     const/4 v2, 0x0
 
     .line 313
     .local v2, "$i$a$-synchronized-ExchangeFinder$retryRoute$1":I
-    :try_start_0
+    :try_start_1a
     invoke-virtual {v0}, Lokhttp3/internal/connection/RealConnection;->getRouteFailureCount$okhttp()I
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_1a .. :try_end_1e} :catchall_44
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_22
 
     .end local v2    # "$i$a$-synchronized-ExchangeFinder$retryRoute$1":I
     monitor-exit v0
@@ -955,8 +955,8 @@
 
     .line 314
     .restart local v2    # "$i$a$-synchronized-ExchangeFinder$retryRoute$1":I
-    :cond_2
-    :try_start_1
+    :cond_22
+    :try_start_22
     invoke-virtual {v0}, Lokhttp3/internal/connection/RealConnection;->route()Lokhttp3/Route;
 
     move-result-object v3
@@ -980,10 +980,10 @@
     invoke-static {v3, v4}, Lokhttp3/internal/Util;->canReuseConnectionFor(Lokhttp3/HttpUrl;Lokhttp3/HttpUrl;)Z
 
     move-result v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_22 .. :try_end_3a} :catchall_44
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_3e
 
     .end local v2    # "$i$a$-synchronized-ExchangeFinder$retryRoute$1":I
     monitor-exit v0
@@ -992,20 +992,20 @@
 
     .line 315
     .restart local v2    # "$i$a$-synchronized-ExchangeFinder$retryRoute$1":I
-    :cond_3
-    :try_start_2
+    :cond_3e
+    :try_start_3e
     invoke-virtual {v0}, Lokhttp3/internal/connection/RealConnection;->route()Lokhttp3/Route;
 
     move-result-object v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_42
+    .catchall {:try_start_3e .. :try_end_42} :catchall_44
 
     .end local v2    # "$i$a$-synchronized-ExchangeFinder$retryRoute$1":I
     monitor-exit v0
 
     return-object v1
 
-    :catchall_0
+    :catchall_44
     move-exception v1
 
     monitor-exit v0
@@ -1014,15 +1014,15 @@
 
     .line 307
     .end local v0    # "connection":Lokhttp3/internal/connection/RealConnection;
-    :cond_4
-    :goto_0
+    :cond_47
+    :goto_47
     return-object v1
 .end method
 
 
 # virtual methods
 .method public final find(Lokhttp3/OkHttpClient;Lokhttp3/internal/http/RealInterceptorChain;)Lokhttp3/internal/http/ExchangeCodec;
-    .locals 8
+    .registers 11
     .param p1, "client"    # Lokhttp3/OkHttpClient;
     .param p2, "chain"    # Lokhttp3/internal/http/RealInterceptorChain;
 
@@ -1041,7 +1041,7 @@
     nop
 
     .line 75
-    :try_start_0
+    :try_start_c
     invoke-virtual {p2}, Lokhttp3/internal/http/RealInterceptorChain;->getConnectTimeoutMillis$okhttp()I
 
     move-result v2
@@ -1081,21 +1081,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_33
 
     const/4 v0, 0x1
 
     const/4 v7, 0x1
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_0
+    :cond_33
     const/4 v0, 0x0
 
     const/4 v7, 0x0
 
     .line 74
-    :goto_0
+    :goto_35
     move-object v1, p0
 
     invoke-direct/range {v1 .. v7}, Lokhttp3/internal/connection/ExchangeFinder;->findHealthyConnection(IIIIZZ)Lokhttp3/internal/connection/RealConnection;
@@ -1107,15 +1107,15 @@
     invoke-virtual {v0, p1, p2}, Lokhttp3/internal/connection/RealConnection;->newCodec$okhttp(Lokhttp3/OkHttpClient;Lokhttp3/internal/http/RealInterceptorChain;)Lokhttp3/internal/http/ExchangeCodec;
 
     move-result-object v1
-    :try_end_0
-    .catch Lokhttp3/internal/connection/RouteException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3e
+    .catch Lokhttp3/internal/connection/RouteException; {:try_start_c .. :try_end_3e} :catch_49
+    .catch Ljava/io/IOException; {:try_start_c .. :try_end_3e} :catch_3f
 
     return-object v1
 
     .line 86
     .end local v0    # "resultConnection":Lokhttp3/internal/connection/RealConnection;
-    :catch_0
+    :catch_3f
     move-exception v0
 
     .line 87
@@ -1131,7 +1131,7 @@
 
     .line 83
     .end local v0    # "e":Ljava/io/IOException;
-    :catch_1
+    :catch_49
     move-exception v0
 
     .line 84
@@ -1147,7 +1147,7 @@
 .end method
 
 .method public final getAddress$okhttp()Lokhttp3/Address;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->address:Lokhttp3/Address;
@@ -1156,46 +1156,46 @@
 .end method
 
 .method public final retryAfterFailure()Z
-    .locals 4
+    .registers 5
 
     .line 275
     iget v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->refusedStreamCount:I
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     iget v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->connectionShutdownCount:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     iget v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->otherFailureCount:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 276
     return v1
 
     .line 279
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->nextRouteToTry:Lokhttp3/Route;
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 280
     return v2
 
     .line 283
-    :cond_1
+    :cond_14
     invoke-direct {p0}, Lokhttp3/internal/connection/ExchangeFinder;->retryRoute()Lokhttp3/Route;
 
     move-result-object v0
 
     .line 284
     .local v0, "retryRoute":Lokhttp3/Route;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1d
 
     .line 286
     iput-object v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->nextRouteToTry:Lokhttp3/Route;
@@ -1204,39 +1204,39 @@
     return v2
 
     .line 291
-    :cond_2
+    :cond_1d
     iget-object v3, p0, Lokhttp3/internal/connection/ExchangeFinder;->routeSelection:Lokhttp3/internal/connection/RouteSelector$Selection;
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_22
 
-    :cond_3
-    goto :goto_0
+    :cond_21
+    goto :goto_29
 
-    :cond_4
+    :cond_22
     invoke-virtual {v3}, Lokhttp3/internal/connection/RouteSelector$Selection;->hasNext()Z
 
     move-result v3
 
-    if-ne v3, v2, :cond_3
+    if-ne v3, v2, :cond_21
 
     const/4 v1, 0x1
 
-    :goto_0
-    if-eqz v1, :cond_5
+    :goto_29
+    if-eqz v1, :cond_2c
 
     return v2
 
     .line 294
-    :cond_5
+    :cond_2c
     iget-object v1, p0, Lokhttp3/internal/connection/ExchangeFinder;->routeSelector:Lokhttp3/internal/connection/RouteSelector;
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_31
 
     return v2
 
     .line 297
     .local v1, "localRouteSelector":Lokhttp3/internal/connection/RouteSelector;
-    :cond_6
+    :cond_31
     invoke-virtual {v1}, Lokhttp3/internal/connection/RouteSelector;->hasNext()Z
 
     move-result v2
@@ -1245,7 +1245,7 @@
 .end method
 
 .method public final sameHostAndPort(Lokhttp3/HttpUrl;)Z
-    .locals 3
+    .registers 5
     .param p1, "url"    # Lokhttp3/HttpUrl;
 
     const-string v0, "url"
@@ -1269,7 +1269,7 @@
 
     move-result v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_25
 
     invoke-virtual {p1}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
 
@@ -1283,21 +1283,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_25
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_26
     return v1
 .end method
 
 .method public final trackFailure(Ljava/io/IOException;)V
-    .locals 2
+    .registers 4
     .param p1, "e"    # Ljava/io/IOException;
 
     const-string v0, "e"
@@ -1312,7 +1312,7 @@
     .line 261
     instance-of v0, p1, Lokhttp3/internal/http2/StreamResetException;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     move-object v0, p1
 
@@ -1322,7 +1322,7 @@
 
     sget-object v1, Lokhttp3/internal/http2/ErrorCode;->REFUSED_STREAM:Lokhttp3/internal/http2/ErrorCode;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1c
 
     .line 262
     iget v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->refusedStreamCount:I
@@ -1331,13 +1331,13 @@
 
     iput v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->refusedStreamCount:I
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 263
-    :cond_0
+    :cond_1c
     instance-of v0, p1, Lokhttp3/internal/http2/ConnectionShutdownException;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 264
     iget v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->connectionShutdownCount:I
@@ -1346,10 +1346,10 @@
 
     iput v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->connectionShutdownCount:I
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 266
-    :cond_1
+    :cond_27
     iget v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->otherFailureCount:I
 
     add-int/lit8 v0, v0, 0x1
@@ -1357,6 +1357,6 @@
     iput v0, p0, Lokhttp3/internal/connection/ExchangeFinder;->otherFailureCount:I
 
     .line 268
-    :goto_0
+    :goto_2d
     return-void
 .end method

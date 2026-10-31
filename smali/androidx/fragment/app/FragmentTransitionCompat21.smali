@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Landroidx/fragment/app/FragmentTransitionImpl;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method private static hasSimpleTarget(Landroid/transition/Transition;)Z
-    .locals 1
+    .registers 2
     .param p0, "transition"    # Landroid/transition/Transition;
 
     .line 121
@@ -34,7 +34,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 122
     invoke-virtual {p0}, Landroid/transition/Transition;->getTargetNames()Ljava/util/List;
@@ -45,7 +45,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 123
     invoke-virtual {p0}, Landroid/transition/Transition;->getTargetTypes()Ljava/util/List;
@@ -56,33 +56,33 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_1f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
-    :goto_0
+    :cond_21
+    :goto_21
     const/4 v0, 0x1
 
     .line 121
-    :goto_1
+    :goto_22
     return v0
 .end method
 
 
 # virtual methods
 .method public addTarget(Ljava/lang/Object;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p1, "transitionObj"    # Ljava/lang/Object;
     .param p2, "view"    # Landroid/view/View;
 
     .line 331
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 332
     move-object v0, p1
@@ -95,12 +95,12 @@
 
     .line 335
     .end local v0    # "transition":Landroid/transition/Transition;
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method public addTargets(Ljava/lang/Object;Ljava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "transitionObj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -120,16 +120,16 @@
 
     .line 95
     .local v0, "transition":Landroid/transition/Transition;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 96
     return-void
 
     .line 98
-    :cond_0
+    :cond_6
     instance-of v1, v0, Landroid/transition/TransitionSet;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1f
 
     .line 99
     move-object v1, v0
@@ -147,8 +147,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_12
+    if-ge v3, v2, :cond_1e
 
     .line 102
     invoke-virtual {v1, v3}, Landroid/transition/TransitionSet;->getTransitionAt(I)Landroid/transition/Transition;
@@ -163,21 +163,21 @@
     .end local v4    # "child":Landroid/transition/Transition;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .end local v1    # "set":Landroid/transition/TransitionSet;
     .end local v2    # "numTransitions":I
     .end local v3    # "i":I
-    :cond_1
-    goto :goto_2
+    :cond_1e
+    goto :goto_42
 
     .line 105
-    :cond_2
+    :cond_1f
     invoke-static {v0}, Landroidx/fragment/app/FragmentTransitionCompat21;->hasSimpleTarget(Landroid/transition/Transition;)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_42
 
     .line 106
     invoke-virtual {v0}, Landroid/transition/Transition;->getTargets()Ljava/util/List;
@@ -190,7 +190,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_43
 
     .line 109
     invoke-virtual {p2}, Ljava/util/ArrayList;->size()I
@@ -202,8 +202,8 @@
     const/4 v3, 0x0
 
     .restart local v3    # "i":I
-    :goto_1
-    if-ge v3, v2, :cond_4
+    :goto_34
+    if-ge v3, v2, :cond_43
 
     .line 111
     invoke-virtual {p2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -217,23 +217,23 @@
     .line 110
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_34
 
     .line 105
     .end local v1    # "targets":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     .end local v2    # "numViews":I
     .end local v3    # "i":I
-    :cond_3
-    :goto_2
+    :cond_42
+    :goto_42
     nop
 
     .line 115
-    :cond_4
+    :cond_43
     return-void
 .end method
 
 .method public beginDelayedTransition(Landroid/view/ViewGroup;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "transition"    # Ljava/lang/Object;
 
@@ -249,7 +249,7 @@
 .end method
 
 .method public canHandle(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Ljava/lang/Object;
 
     .line 38
@@ -259,7 +259,7 @@
 .end method
 
 .method public cloneTransition(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Ljava/lang/Object;
 
     .line 43
@@ -267,7 +267,7 @@
 
     .line 44
     .local v0, "copy":Landroid/transition/Transition;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 45
     move-object v1, p1
@@ -279,12 +279,12 @@
     move-result-object v0
 
     .line 47
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public mergeTransitionsInSequence(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 10
     .param p1, "exitTransitionObj"    # Ljava/lang/Object;
     .param p2, "enterTransitionObj"    # Ljava/lang/Object;
     .param p3, "sharedElementTransitionObj"    # Ljava/lang/Object;
@@ -312,9 +312,9 @@
 
     .line 192
     .local v3, "sharedElementTransition":Landroid/transition/Transition;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     .line 193
     new-instance v4, Landroid/transition/TransitionSet;
@@ -338,28 +338,28 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_28
 
     .line 197
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_21
+    if-eqz v1, :cond_25
 
     .line 198
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 199
-    :cond_1
-    if-eqz v2, :cond_2
+    :cond_25
+    if-eqz v2, :cond_28
 
     .line 200
     move-object v0, v2
 
     .line 202
-    :cond_2
-    :goto_0
-    if-eqz v3, :cond_4
+    :cond_28
+    :goto_28
+    if-eqz v3, :cond_38
 
     .line 203
     new-instance v4, Landroid/transition/TransitionSet;
@@ -368,13 +368,13 @@
 
     .line 204
     .local v4, "together":Landroid/transition/TransitionSet;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_34
 
     .line 205
     invoke-virtual {v4, v0}, Landroid/transition/TransitionSet;->addTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
 
     .line 207
-    :cond_3
+    :cond_34
     invoke-virtual {v4, v3}, Landroid/transition/TransitionSet;->addTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
 
     .line 208
@@ -382,12 +382,12 @@
 
     .line 210
     .end local v4    # "together":Landroid/transition/TransitionSet;
-    :cond_4
+    :cond_38
     return-object v0
 .end method
 
 .method public mergeTransitionsTogether(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "transition1"    # Ljava/lang/Object;
     .param p2, "transition2"    # Ljava/lang/Object;
     .param p3, "transition3"    # Ljava/lang/Object;
@@ -399,7 +399,7 @@
 
     .line 130
     .local v0, "transitionSet":Landroid/transition/TransitionSet;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     .line 131
     move-object v1, p1
@@ -409,8 +409,8 @@
     invoke-virtual {v0, v1}, Landroid/transition/TransitionSet;->addTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
 
     .line 133
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_d
+    if-eqz p2, :cond_15
 
     .line 134
     move-object v1, p2
@@ -420,8 +420,8 @@
     invoke-virtual {v0, v1}, Landroid/transition/TransitionSet;->addTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
 
     .line 136
-    :cond_1
-    if-eqz p3, :cond_2
+    :cond_15
+    if-eqz p3, :cond_1d
 
     .line 137
     move-object v1, p3
@@ -431,17 +431,17 @@
     invoke-virtual {v0, v1}, Landroid/transition/TransitionSet;->addTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
 
     .line 139
-    :cond_2
+    :cond_1d
     return-object v0
 .end method
 
 .method public removeTarget(Ljava/lang/Object;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p1, "transitionObj"    # Ljava/lang/Object;
     .param p2, "view"    # Landroid/view/View;
 
     .line 339
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 340
     move-object v0, p1
@@ -454,12 +454,12 @@
 
     .line 343
     .end local v0    # "transition":Landroid/transition/Transition;
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method public replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
-    .locals 5
+    .registers 9
     .param p1, "transitionObj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -485,7 +485,7 @@
     .local v0, "transition":Landroid/transition/Transition;
     instance-of v1, v0, Landroid/transition/TransitionSet;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     .line 307
     move-object v1, v0
@@ -503,8 +503,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_f
+    if-ge v3, v2, :cond_1b
 
     .line 310
     invoke-virtual {v1, v3}, Landroid/transition/TransitionSet;->getTransitionAt(I)Landroid/transition/Transition;
@@ -519,21 +519,21 @@
     .end local v4    # "child":Landroid/transition/Transition;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .end local v1    # "set":Landroid/transition/TransitionSet;
     .end local v2    # "numTransitions":I
     .end local v3    # "i":I
-    :cond_0
-    goto :goto_4
+    :cond_1b
+    goto :goto_63
 
     .line 313
-    :cond_1
+    :cond_1c
     invoke-static {v0}, Landroidx/fragment/app/FragmentTransitionCompat21;->hasSimpleTarget(Landroid/transition/Transition;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_63
 
     .line 314
     invoke-virtual {v0}, Landroid/transition/Transition;->getTargets()Ljava/util/List;
@@ -542,7 +542,7 @@
 
     .line 315
     .local v1, "targets":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_64
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
@@ -552,35 +552,35 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_64
 
     .line 316
     invoke-interface {v1, p2}, Ljava/util/List;->containsAll(Ljava/util/Collection;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_64
 
     .line 318
-    if-nez p3, :cond_2
+    if-nez p3, :cond_3c
 
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_40
 
-    :cond_2
+    :cond_3c
     invoke-virtual {p3}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
     .line 319
     .local v2, "targetCount":I
-    :goto_1
+    :goto_40
     const/4 v3, 0x0
 
     .restart local v3    # "i":I
-    :goto_2
-    if-ge v3, v2, :cond_3
+    :goto_41
+    if-ge v3, v2, :cond_4f
 
     .line 320
     invoke-virtual {p3, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -594,11 +594,11 @@
     .line 319
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_41
 
     .line 322
     .end local v3    # "i":I
-    :cond_3
+    :cond_4f
     invoke-virtual {p2}, Ljava/util/ArrayList;->size()I
 
     move-result v3
@@ -606,8 +606,8 @@
     add-int/lit8 v3, v3, -0x1
 
     .restart local v3    # "i":I
-    :goto_3
-    if-ltz v3, :cond_5
+    :goto_55
+    if-ltz v3, :cond_64
 
     .line 323
     invoke-virtual {p2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -621,23 +621,23 @@
     .line 322
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_3
+    goto :goto_55
 
     .line 313
     .end local v1    # "targets":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     .end local v2    # "targetCount":I
     .end local v3    # "i":I
-    :cond_4
-    :goto_4
+    :cond_63
+    :goto_63
     nop
 
     .line 327
-    :cond_5
+    :cond_64
     return-void
 .end method
 
 .method public scheduleHideFragmentView(Ljava/lang/Object;Landroid/view/View;Ljava/util/ArrayList;)V
-    .locals 2
+    .registers 6
     .param p1, "exitTransitionObj"    # Ljava/lang/Object;
     .param p2, "fragmentView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
@@ -670,7 +670,7 @@
 .end method
 
 .method public scheduleRemoveTargets(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
-    .locals 10
+    .registers 18
     .param p1, "overallTransitionObj"    # Ljava/lang/Object;
     .param p2, "enterTransition"    # Ljava/lang/Object;
     .param p4, "exitTransition"    # Ljava/lang/Object;
@@ -731,12 +731,12 @@
 .end method
 
 .method public setEpicenter(Ljava/lang/Object;Landroid/graphics/Rect;)V
-    .locals 2
+    .registers 5
     .param p1, "transitionObj"    # Ljava/lang/Object;
     .param p2, "epicenter"    # Landroid/graphics/Rect;
 
     .line 347
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     .line 348
     move-object v0, p1
@@ -753,17 +753,17 @@
 
     .line 359
     .end local v0    # "transition":Landroid/transition/Transition;
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public setEpicenter(Ljava/lang/Object;Landroid/view/View;)V
-    .locals 3
+    .registers 6
     .param p1, "transitionObj"    # Ljava/lang/Object;
     .param p2, "view"    # Landroid/view/View;
 
     .line 78
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_15
 
     .line 79
     move-object v0, p1
@@ -790,12 +790,12 @@
     .line 90
     .end local v0    # "transition":Landroid/transition/Transition;
     .end local v1    # "epicenter":Landroid/graphics/Rect;
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public setListenerForTransitionEnd(Landroidx/fragment/app/Fragment;Ljava/lang/Object;Landroidx/core/os/CancellationSignal;Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 7
     .param p1, "outFragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "transition"    # Ljava/lang/Object;
     .param p3, "signal"    # Landroidx/core/os/CancellationSignal;
@@ -817,7 +817,7 @@
 .end method
 
 .method public setSharedElementTargets(Ljava/lang/Object;Landroid/view/View;Ljava/util/ArrayList;)V
-    .locals 5
+    .registers 9
     .param p1, "transitionObj"    # Ljava/lang/Object;
     .param p2, "nonExistentView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
@@ -857,8 +857,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_f
+    if-ge v3, v2, :cond_1d
 
     .line 68
     invoke-virtual {p3, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -875,11 +875,11 @@
     .end local v4    # "view":Landroid/view/View;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 71
     .end local v3    # "i":I
-    :cond_0
+    :cond_1d
     invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 72
@@ -893,7 +893,7 @@
 .end method
 
 .method public swapSharedElementTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
-    .locals 2
+    .registers 6
     .param p1, "sharedElementTransitionObj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -917,7 +917,7 @@
 
     .line 295
     .local v0, "sharedElementTransition":Landroid/transition/TransitionSet;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 296
     invoke-virtual {v0}, Landroid/transition/TransitionSet;->getTargets()Ljava/util/List;
@@ -937,16 +937,16 @@
     invoke-virtual {p0, v0, p2, p3}, Landroidx/fragment/app/FragmentTransitionCompat21;->replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
     .line 300
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public wrapTransitionInSet(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Ljava/lang/Object;
 
     .line 52
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 53
     const/4 v0, 0x0
@@ -954,7 +954,7 @@
     return-object v0
 
     .line 55
-    :cond_0
+    :cond_4
     new-instance v0, Landroid/transition/TransitionSet;
 
     invoke-direct {v0}, Landroid/transition/TransitionSet;-><init>()V

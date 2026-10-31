@@ -5,20 +5,20 @@
 
 # direct methods
 .method public static getInstance()Lcom/google/android/material/color/ColorResourcesOverride;
-    .locals 2
+    .registers 2
 
     .line 44
     const/16 v0, 0x1e
 
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_11
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x21
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_11
 
     .line 45
     invoke-static {}, Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride;->getInstance()Lcom/google/android/material/color/ColorResourcesOverride;
@@ -28,12 +28,12 @@
     return-object v0
 
     .line 46
-    :cond_0
+    :cond_11
     invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastU()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 49
     invoke-static {}, Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride;->getInstance()Lcom/google/android/material/color/ColorResourcesOverride;
@@ -43,7 +43,7 @@
     return-object v0
 
     .line 51
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
     return-object v0

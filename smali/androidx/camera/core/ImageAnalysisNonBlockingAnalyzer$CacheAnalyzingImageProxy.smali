@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageProxy;Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer;)V
-    .locals 1
+    .registers 4
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
     .param p2, "nonBlockingAnalyzer"    # Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method synthetic lambda$new$0$androidx-camera-core-ImageAnalysisNonBlockingAnalyzer$CacheAnalyzingImageProxy(Landroidx/camera/core/ImageProxy;)V
-    .locals 3
+    .registers 5
     .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
 
     .line 163
@@ -80,7 +80,7 @@
 
     .line 164
     .local v0, "analyzer":Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 165
     iget-object v1, v0, Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
@@ -94,6 +94,6 @@
     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     .line 167
-    :cond_0
+    :cond_17
     return-void
 .end method

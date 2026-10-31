@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/format/TextStyle;)V
-    .locals 0
+    .registers 2
     .param p1, "textStyle"    # Lj$/time/format/TextStyle;
 
     .line 4692
@@ -37,7 +37,7 @@
 .end method
 
 .method private getChronologyName(Lj$/time/chrono/Chronology;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "chrono"    # Lj$/time/chrono/Chronology;
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 2
+    .registers 5
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -69,7 +69,7 @@
 
     .line 4700
     .local v0, "chrono":Lj$/time/chrono/Chronology;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 4701
     const/4 v1, 0x0
@@ -77,10 +77,10 @@
     return v1
 
     .line 4703
-    :cond_0
+    :cond_e
     iget-object v1, p0, Lj$/time/format/DateTimeFormatterBuilder$ChronoPrinterParser;->textStyle:Lj$/time/format/TextStyle;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1a
 
     .line 4704
     invoke-interface {v0}, Lj$/time/chrono/Chronology;->getId()Ljava/lang/String;
@@ -89,10 +89,10 @@
 
     invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_25
 
     .line 4706
-    :cond_1
+    :cond_1a
     invoke-virtual {p1}, Lj$/time/format/DateTimePrintContext;->getLocale()Ljava/util/Locale;
 
     move-result-object v1
@@ -104,14 +104,14 @@
     invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 4708
-    :goto_0
+    :goto_25
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 15
+    .registers 19
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -121,13 +121,13 @@
 
     move/from16 v7, p3
 
-    if-ltz v7, :cond_4
+    if-ltz v7, :cond_5d
 
     invoke-interface/range {p2 .. p2}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
-    if-gt v7, v1, :cond_4
+    if-gt v7, v1, :cond_5d
 
     .line 4717
     invoke-static {}, Lj$/time/chrono/Chronology$-CC;->getAvailableChronologies()Ljava/util/Set;
@@ -156,12 +156,12 @@
     .end local v2    # "matchLen":I
     .local v10, "bestMatch":Lj$/time/chrono/Chronology;
     .local v11, "matchLen":I
-    :goto_0
+    :goto_17
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_51
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -175,7 +175,7 @@
     .local v12, "chrono":Lj$/time/chrono/Chronology;
     iget-object v1, v0, Lj$/time/format/DateTimeFormatterBuilder$ChronoPrinterParser;->textStyle:Lj$/time/format/TextStyle;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2e
 
     .line 4723
     invoke-interface {v12}, Lj$/time/chrono/Chronology;->getId()Ljava/lang/String;
@@ -185,11 +185,11 @@
     move-object v13, v1
 
     .local v1, "name":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_37
 
     .line 4725
     .end local v1    # "name":Ljava/lang/String;
-    :cond_0
+    :cond_2e
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->getLocale()Ljava/util/Locale;
 
     move-result-object v1
@@ -202,14 +202,14 @@
 
     .line 4727
     .local v13, "name":Ljava/lang/String;
-    :goto_1
+    :goto_37
     invoke-virtual {v13}, Ljava/lang/String;->length()I
 
     move-result v14
 
     .line 4728
     .local v14, "nameLen":I
-    if-le v14, v11, :cond_1
+    if-le v14, v11, :cond_50
 
     const/4 v5, 0x0
 
@@ -227,7 +227,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_50
 
     .line 4729
     move-object v1, v12
@@ -247,12 +247,12 @@
     .end local v13    # "name":Ljava/lang/String;
     .end local v14    # "nameLen":I
     .restart local v10    # "bestMatch":Lj$/time/chrono/Chronology;
-    :cond_1
-    goto :goto_0
+    :cond_50
+    goto :goto_17
 
     .line 4733
-    :cond_2
-    if-nez v10, :cond_3
+    :cond_51
+    if-nez v10, :cond_55
 
     .line 4734
     not-int v1, v7
@@ -260,7 +260,7 @@
     return v1
 
     .line 4736
-    :cond_3
+    :cond_55
     move-object/from16 v1, p1
 
     invoke-virtual {v1, v10}, Lj$/time/format/DateTimeParseContext;->setParsed(Lj$/time/chrono/Chronology;)V
@@ -274,7 +274,7 @@
     .end local v8    # "chronos":Ljava/util/Set;, "Ljava/util/Set<Ljava/time/chrono/Chronology;>;"
     .end local v10    # "bestMatch":Lj$/time/chrono/Chronology;
     .end local v11    # "matchLen":I
-    :cond_4
+    :cond_5d
     move-object/from16 v1, p1
 
     .line 4715

@@ -42,7 +42,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder$Companion;-><init>()V
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public final create(Landroid/view/ViewGroup;Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$OnKeyListener;)Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;
-    .locals 3
+    .registers 6
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "keyListener"    # Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$OnKeyListener;
 

@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "uCont"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -67,20 +67,20 @@
 
 # virtual methods
 .method public childCancelled(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 59
     instance-of v0, p1, Lkotlinx/coroutines/flow/internal/ChildCancelledException;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
     return v0
 
     .line 60
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1}, Lkotlinx/coroutines/flow/internal/FlowCoroutine;->cancelImpl$kotlinx_coroutines_core(Ljava/lang/Object;)Z
 
     move-result v0

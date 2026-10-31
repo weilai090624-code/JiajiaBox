@@ -83,7 +83,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 195
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -110,18 +110,18 @@
 .end method
 
 .method public static synthetic setPopUpTo$default(Landroidx/navigation/NavOptions$Builder;IZZILjava/lang/Object;)Landroidx/navigation/NavOptions$Builder;
-    .locals 0
+    .registers 6
 
     .line 261
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 264
     const/4 p3, 0x0
 
     .line 261
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2, p3}, Landroidx/navigation/NavOptions$Builder;->setPopUpTo(IZZ)Landroidx/navigation/NavOptions$Builder;
 
     move-result-object p0
@@ -130,18 +130,18 @@
 .end method
 
 .method public static synthetic setPopUpTo$default(Landroidx/navigation/NavOptions$Builder;Ljava/lang/String;ZZILjava/lang/Object;)Landroidx/navigation/NavOptions$Builder;
-    .locals 0
+    .registers 6
 
     .line 290
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 293
     const/4 p3, 0x0
 
     .line 290
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2, p3}, Landroidx/navigation/NavOptions$Builder;->setPopUpTo(Ljava/lang/String;ZZ)Landroidx/navigation/NavOptions$Builder;
 
     move-result-object p0
@@ -152,14 +152,14 @@
 
 # virtual methods
 .method public final build()Landroidx/navigation/NavOptions;
-    .locals 22
+    .registers 23
 
     .line 364
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroidx/navigation/NavOptions$Builder;->popUpToRoute:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     .line 365
     new-instance v1, Landroidx/navigation/NavOptions;
@@ -190,10 +190,10 @@
 
     invoke-direct/range {v2 .. v11}, Landroidx/navigation/NavOptions;-><init>(ZZLjava/lang/String;ZZIIII)V
 
-    goto :goto_0
+    goto :goto_43
 
     .line 371
-    :cond_0
+    :cond_1f
     new-instance v1, Landroidx/navigation/NavOptions;
 
     .line 372
@@ -235,12 +235,12 @@
     invoke-direct/range {v12 .. v21}, Landroidx/navigation/NavOptions;-><init>(ZZIZZIIII)V
 
     .line 364
-    :goto_0
+    :goto_43
     return-object v1
 .end method
 
 .method public final setEnterAnim(I)Landroidx/navigation/NavOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "enterAnim"    # I
 
     .line 312
@@ -251,7 +251,7 @@
 .end method
 
 .method public final setExitAnim(I)Landroidx/navigation/NavOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "exitAnim"    # I
 
     .line 326
@@ -262,7 +262,7 @@
 .end method
 
 .method public final setLaunchSingleTop(Z)Landroidx/navigation/NavOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "singleTop"    # Z
 
     .line 229
@@ -273,7 +273,7 @@
 .end method
 
 .method public final setPopEnterAnim(I)Landroidx/navigation/NavOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "popEnterAnim"    # I
 
     .line 341
@@ -284,7 +284,7 @@
 .end method
 
 .method public final setPopExitAnim(I)Landroidx/navigation/NavOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "popExitAnim"    # I
 
     .line 356
@@ -295,7 +295,7 @@
 .end method
 
 .method public final setPopUpTo(IZ)Landroidx/navigation/NavOptions$Builder;
-    .locals 6
+    .registers 9
 
     const/4 v4, 0x4
 
@@ -317,7 +317,7 @@
 .end method
 
 .method public final setPopUpTo(IZZ)Landroidx/navigation/NavOptions$Builder;
-    .locals 1
+    .registers 5
     .param p1, "destinationId"    # I
     .param p2, "inclusive"    # Z
     .param p3, "saveState"    # Z
@@ -341,7 +341,7 @@
 .end method
 
 .method public final setPopUpTo(Ljava/lang/String;Z)Landroidx/navigation/NavOptions$Builder;
-    .locals 6
+    .registers 9
 
     const/4 v4, 0x4
 
@@ -363,7 +363,7 @@
 .end method
 
 .method public final setPopUpTo(Ljava/lang/String;ZZ)Landroidx/navigation/NavOptions$Builder;
-    .locals 1
+    .registers 5
     .param p1, "route"    # Ljava/lang/String;
     .param p2, "inclusive"    # Z
     .param p3, "saveState"    # Z
@@ -387,7 +387,7 @@
 .end method
 
 .method public final setRestoreState(Z)Landroidx/navigation/NavOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "restoreState"    # Z
 
     .line 240

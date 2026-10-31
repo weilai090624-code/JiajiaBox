@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1175
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onFailed(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 1188
@@ -35,7 +35,7 @@
 .end method
 
 .method public onInitialized()V
-    .locals 0
+    .registers 1
 
     .line 1181
     return-void

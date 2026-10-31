@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 162
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public bridge synthetic build()Lcom/google/common/collect/ImmutableMultimap;
-    .locals 1
+    .registers 2
 
     .line 156
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -53,7 +53,7 @@
 .end method
 
 .method public build()Lcom/google/common/collect/ImmutableSetMultimap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -74,7 +74,7 @@
     .local v0, "mapEntries":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;>;"
     iget-object v1, p0, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->keyComparator:Ljava/util/Comparator;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 268
     iget-object v1, p0, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->keyComparator:Ljava/util/Comparator;
@@ -92,7 +92,7 @@
     move-result-object v0
 
     .line 270
-    :cond_0
+    :cond_18
     iget-object v1, p0, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->valueComparator:Ljava/util/Comparator;
 
     invoke-static {v0, v1}, Lcom/google/common/collect/ImmutableSetMultimap;->fromMapEntries(Ljava/util/Collection;Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSetMultimap;
@@ -103,7 +103,7 @@
 .end method
 
 .method bridge synthetic combine(Lcom/google/common/collect/ImmutableMultimap$Builder;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 0
+    .registers 2
 
     .line 156
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -115,7 +115,7 @@
 .end method
 
 .method combine(Lcom/google/common/collect/ImmutableMultimap$Builder;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,7 +136,7 @@
 .end method
 
 .method newMutableValueCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -155,7 +155,7 @@
 .end method
 
 .method public bridge synthetic orderKeysBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 0
+    .registers 2
 
     .line 156
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -167,7 +167,7 @@
 .end method
 
 .method public orderKeysBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -188,7 +188,7 @@
 .end method
 
 .method public bridge synthetic orderValuesBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 0
+    .registers 2
 
     .line 156
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -200,7 +200,7 @@
 .end method
 
 .method public orderValuesBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -221,7 +221,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 0
+    .registers 3
 
     .line 156
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -233,7 +233,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 0
+    .registers 2
 
     .line 156
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -245,7 +245,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)",
@@ -265,7 +265,7 @@
 .end method
 
 .method public put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -286,7 +286,7 @@
 .end method
 
 .method public bridge synthetic putAll(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 0
+    .registers 2
 
     .line 156
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -298,7 +298,7 @@
 .end method
 
 .method public bridge synthetic putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 0
+    .registers 2
 
     .line 156
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -310,7 +310,7 @@
 .end method
 
 .method public bridge synthetic putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 0
+    .registers 3
 
     .line 156
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -322,7 +322,7 @@
 .end method
 
 .method public bridge synthetic putAll(Ljava/lang/Object;[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 0
+    .registers 3
 
     .line 156
     .local p0, "this":Lcom/google/common/collect/ImmutableSetMultimap$Builder;, "Lcom/google/common/collect/ImmutableSetMultimap$Builder<TK;TV;>;"
@@ -334,7 +334,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -360,12 +360,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -389,15 +389,15 @@
 
     .line 222
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+Ljava/util/Collection<+TV;>;>;"
-    goto :goto_0
+    goto :goto_c
 
     .line 223
-    :cond_0
+    :cond_26
     return-object p0
 .end method
 
 .method public putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -420,7 +420,7 @@
 .end method
 
 .method public putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -442,7 +442,7 @@
 .end method
 
 .method public varargs putAll(Ljava/lang/Object;[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;[TV;)",

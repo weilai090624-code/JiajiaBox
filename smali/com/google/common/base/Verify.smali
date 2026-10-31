@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 511
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,17 +19,17 @@
 .end method
 
 .method public static verify(Z)V
-    .locals 1
+    .registers 2
     .param p0, "expression"    # Z
 
     .line 101
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 104
     return-void
 
     .line 102
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-direct {v0}, Lcom/google/common/base/VerifyException;-><init>()V
@@ -38,19 +38,19 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;C)V
-    .locals 4
+    .registers 7
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # C
 
     .line 139
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 142
     return-void
 
     .line 140
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -75,20 +75,20 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;CC)V
-    .locals 5
+    .registers 9
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # C
     .param p3, "p2"    # C
 
     .line 196
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 199
     return-void
 
     .line 197
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -121,20 +121,20 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;CI)V
-    .locals 5
+    .registers 9
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # C
     .param p3, "p2"    # I
 
     .line 253
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 256
     return-void
 
     .line 254
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -167,20 +167,20 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;CJ)V
-    .locals 5
+    .registers 10
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # C
     .param p3, "p2"    # J
 
     .line 310
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 313
     return-void
 
     .line 311
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -213,7 +213,7 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;CLjava/lang/Object;)V
-    .locals 4
+    .registers 8
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # C
@@ -223,13 +223,13 @@
     .end param
 
     .line 368
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 371
     return-void
 
     .line 369
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -258,19 +258,19 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;I)V
-    .locals 4
+    .registers 7
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # I
 
     .line 153
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 156
     return-void
 
     .line 154
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -295,20 +295,20 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;IC)V
-    .locals 5
+    .registers 9
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # I
     .param p3, "p2"    # C
 
     .line 210
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 213
     return-void
 
     .line 211
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -341,20 +341,20 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;II)V
-    .locals 5
+    .registers 9
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # I
     .param p3, "p2"    # I
 
     .line 267
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 270
     return-void
 
     .line 268
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -387,20 +387,20 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;IJ)V
-    .locals 5
+    .registers 10
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # I
     .param p3, "p2"    # J
 
     .line 324
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 327
     return-void
 
     .line 325
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -433,7 +433,7 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;ILjava/lang/Object;)V
-    .locals 4
+    .registers 8
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # I
@@ -443,13 +443,13 @@
     .end param
 
     .line 383
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 386
     return-void
 
     .line 384
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -478,19 +478,19 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;J)V
-    .locals 4
+    .registers 8
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # J
 
     .line 167
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 170
     return-void
 
     .line 168
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -515,20 +515,20 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;JC)V
-    .locals 5
+    .registers 10
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # J
     .param p4, "p2"    # C
 
     .line 224
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 227
     return-void
 
     .line 225
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -561,20 +561,20 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;JI)V
-    .locals 5
+    .registers 10
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # J
     .param p4, "p2"    # I
 
     .line 281
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 284
     return-void
 
     .line 282
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -607,20 +607,20 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;JJ)V
-    .locals 5
+    .registers 11
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # J
     .param p4, "p2"    # J
 
     .line 338
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 341
     return-void
 
     .line 339
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -653,7 +653,7 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;JLjava/lang/Object;)V
-    .locals 4
+    .registers 9
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # J
@@ -663,13 +663,13 @@
     .end param
 
     .line 398
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 401
     return-void
 
     .line 399
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -698,7 +698,7 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # Ljava/lang/Object;
@@ -707,13 +707,13 @@
     .end param
 
     .line 182
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 185
     return-void
 
     .line 183
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     const/4 v1, 0x1
@@ -734,7 +734,7 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;Ljava/lang/Object;C)V
-    .locals 4
+    .registers 8
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # Ljava/lang/Object;
@@ -744,13 +744,13 @@
     .param p3, "p2"    # C
 
     .line 239
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 242
     return-void
 
     .line 240
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p3}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -779,7 +779,7 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;Ljava/lang/Object;I)V
-    .locals 4
+    .registers 8
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # Ljava/lang/Object;
@@ -789,13 +789,13 @@
     .param p3, "p2"    # I
 
     .line 296
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 299
     return-void
 
     .line 297
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -824,7 +824,7 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;Ljava/lang/Object;J)V
-    .locals 4
+    .registers 9
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # Ljava/lang/Object;
@@ -834,13 +834,13 @@
     .param p3, "p2"    # J
 
     .line 353
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 356
     return-void
 
     .line 354
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p3, p4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -869,7 +869,7 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # Ljava/lang/Object;
@@ -882,13 +882,13 @@
     .end param
 
     .line 416
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 419
     return-void
 
     .line 417
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     const/4 v1, 0x2
@@ -913,7 +913,7 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 8
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # Ljava/lang/Object;
@@ -930,13 +930,13 @@
     .end param
 
     .line 435
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 438
     return-void
 
     .line 436
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     const/4 v1, 0x3
@@ -965,7 +965,7 @@
 .end method
 
 .method public static verify(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 9
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "p1"    # Ljava/lang/Object;
@@ -986,13 +986,13 @@
     .end param
 
     .line 455
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 458
     return-void
 
     .line 456
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     const/4 v1, 0x4
@@ -1025,7 +1025,7 @@
 .end method
 
 .method public static varargs verify(ZLjava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p0, "expression"    # Z
     .param p1, "errorMessageTemplate"    # Ljava/lang/String;
     .param p2, "errorMessageArgs"    # [Ljava/lang/Object;
@@ -1034,13 +1034,13 @@
     .end param
 
     .line 125
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 128
     return-void
 
     .line 126
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p1, p2}, Lcom/google/common/base/Strings;->lenientFormat(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
@@ -1053,7 +1053,7 @@
 .end method
 
 .method public static verifyNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public static varargs verifyNotNull(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1106,13 +1106,13 @@
 
     .line 502
     .local p0, "reference":Ljava/lang/Object;, "TT;"
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 505
     return-object p0
 
     .line 503
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/common/base/VerifyException;
 
     invoke-static {p1, p2}, Lcom/google/common/base/Strings;->lenientFormat(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;

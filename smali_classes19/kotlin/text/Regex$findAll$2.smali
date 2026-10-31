@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/text/Regex$findAll$2;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 6
+    .registers 7
 
     const-class v2, Lkotlin/text/MatchResult;
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 135
@@ -93,7 +93,7 @@
 .end method
 
 .method public final invoke(Lkotlin/text/MatchResult;)Lkotlin/text/MatchResult;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Lkotlin/text/MatchResult;
 
     const-string v0, "p0"

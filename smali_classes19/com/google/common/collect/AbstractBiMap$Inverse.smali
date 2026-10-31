@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Lcom/google/common/collect/AbstractBiMap;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -83,7 +83,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method checkKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -136,7 +136,7 @@
 .end method
 
 .method checkValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -163,7 +163,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 440
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$Inverse;, "Lcom/google/common/collect/AbstractBiMap$Inverse<TK;TV;>;"
@@ -175,7 +175,7 @@
 .end method
 
 .method readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 483
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$Inverse;, "Lcom/google/common/collect/AbstractBiMap$Inverse<TK;TV;>;"
@@ -191,7 +191,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 440
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap$Inverse;, "Lcom/google/common/collect/AbstractBiMap$Inverse<TK;TV;>;"

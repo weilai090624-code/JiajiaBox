@@ -96,7 +96,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "defaultValue"    # Lkotlin/jvm/functions/Function0;
     .param p3, "getter"    # Lkotlin/jvm/functions/Function2;
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public final getDefaultValue()Lkotlin/jvm/functions/Function0;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -174,7 +174,7 @@
 .end method
 
 .method public final getGetter()Lkotlin/jvm/functions/Function2;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -191,7 +191,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Lio/nekohasekai/sagernet/ktx/PreferenceProxy;->name:Ljava/lang/String;
@@ -200,7 +200,7 @@
 .end method
 
 .method public final getSetter()Lkotlin/jvm/functions/Function2;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -219,7 +219,7 @@
 .end method
 
 .method public final getValue(Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "thisObj"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
     .annotation system Ldalvik/annotation/Signature;
@@ -256,7 +256,7 @@
 .end method
 
 .method public final setValue(Ljava/lang/Object;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "thisObj"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
     .param p3, "value"    # Ljava/lang/Object;

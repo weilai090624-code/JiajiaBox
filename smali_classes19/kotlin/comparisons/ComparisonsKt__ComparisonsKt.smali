@@ -63,7 +63,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$75RqBHjEE2iU7zbZ3cBiUB4M5DE(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt;->nullsLast$lambda$4$ComparisonsKt__ComparisonsKt(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$OB0mUMQVuAc-U0wu9PhfvNNbqqs(Ljava/util/Comparator;Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt;->thenDescending$lambda$2$ComparisonsKt__ComparisonsKt(Ljava/util/Comparator;Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$W8AWSBCuy65sMGWfMo6pJ3RDjRw([Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt;->compareBy$lambda$0$ComparisonsKt__ComparisonsKt([Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ljava/lang/Object;)I
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$fFv4wzBXuBoGFl05zSxqQb7pKRU(Ljava/util/Comparator;Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt;->then$lambda$1$ComparisonsKt__ComparisonsKt(Ljava/util/Comparator;Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$tgO5p6pL1ym8xxzpZUrxHlIPkYM(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt;->nullsFirst$lambda$3$ComparisonsKt__ComparisonsKt(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -121,7 +121,7 @@
 .end method
 
 .method private static final compareBy(Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "comparator"    # Ljava/util/Comparator;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -159,7 +159,7 @@
 .end method
 
 .method private static final compareBy(Lkotlin/jvm/functions/Function1;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .param p0, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,7 +190,7 @@
 .end method
 
 .method public static final varargs compareBy([Lkotlin/jvm/functions/Function1;)Ljava/util/Comparator;
-    .locals 2
+    .registers 3
     .param p0, "selectors"    # [Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -213,17 +213,17 @@
     .line 90
     array-length v0, p0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_b
+    if-eqz v0, :cond_13
 
     .line 91
     new-instance v0, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt$$ExternalSyntheticLambda3;
@@ -233,7 +233,7 @@
     return-object v0
 
     .line 90
-    :cond_1
+    :cond_13
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."
@@ -248,7 +248,7 @@
 .end method
 
 .method private static final compareBy$lambda$0$ComparisonsKt__ComparisonsKt([Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p0, "$selectors"    # [Lkotlin/jvm/functions/Function1;
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
@@ -262,7 +262,7 @@
 .end method
 
 .method private static final compareByDescending(Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "comparator"    # Ljava/util/Comparator;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -300,7 +300,7 @@
 .end method
 
 .method private static final compareByDescending(Lkotlin/jvm/functions/Function1;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .param p0, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -331,7 +331,7 @@
 .end method
 
 .method public static final compareValues(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # Ljava/lang/Comparable;
     .param p1, "b"    # Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
@@ -343,30 +343,30 @@
     .end annotation
 
     .line 73
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x0
 
     return v0
 
     .line 74
-    :cond_0
-    if-nez p0, :cond_1
+    :cond_4
+    if-nez p0, :cond_8
 
     const/4 v0, -0x1
 
     return v0
 
     .line 75
-    :cond_1
-    if-nez p1, :cond_2
+    :cond_8
+    if-nez p1, :cond_c
 
     const/4 v0, 0x1
 
     return v0
 
     .line 78
-    :cond_2
+    :cond_c
     invoke-interface {p0, p1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
@@ -375,7 +375,7 @@
 .end method
 
 .method private static final compareValuesBy(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)I
-    .locals 2
+    .registers 6
     .param p0, "a"    # Ljava/lang/Object;
     .param p1, "b"    # Ljava/lang/Object;
     .param p2, "comparator"    # Ljava/util/Comparator;
@@ -419,7 +419,7 @@
 .end method
 
 .method private static final compareValuesBy(Ljava/lang/Object;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)I
-    .locals 2
+    .registers 5
     .param p0, "a"    # Ljava/lang/Object;
     .param p1, "b"    # Ljava/lang/Object;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -460,7 +460,7 @@
 .end method
 
 .method public static final varargs compareValuesBy(Ljava/lang/Object;Ljava/lang/Object;[Lkotlin/jvm/functions/Function1;)I
-    .locals 2
+    .registers 5
     .param p0, "a"    # Ljava/lang/Object;
     .param p1, "b"    # Ljava/lang/Object;
     .param p2, "selectors"    # [Lkotlin/jvm/functions/Function1;
@@ -483,17 +483,17 @@
     .line 19
     array-length v0, p2
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_b
+    if-eqz v0, :cond_12
 
     .line 20
     invoke-static {p0, p1, p2}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt;->compareValuesByImpl$ComparisonsKt__ComparisonsKt(Ljava/lang/Object;Ljava/lang/Object;[Lkotlin/jvm/functions/Function1;)I
@@ -503,7 +503,7 @@
     return v0
 
     .line 19
-    :cond_1
+    :cond_12
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."
@@ -518,7 +518,7 @@
 .end method
 
 .method private static final compareValuesByImpl$ComparisonsKt__ComparisonsKt(Ljava/lang/Object;Ljava/lang/Object;[Lkotlin/jvm/functions/Function1;)I
-    .locals 7
+    .registers 10
     .param p0, "a"    # Ljava/lang/Object;
     .param p1, "b"    # Ljava/lang/Object;
     .param p2, "selectors"    # [Lkotlin/jvm/functions/Function1;
@@ -541,8 +541,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_3
+    if-ge v2, v0, :cond_1d
 
     aget-object v3, p2, v2
 
@@ -570,7 +570,7 @@
 
     .line 28
     .local v6, "diff":I
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1a
 
     return v6
 
@@ -579,18 +579,18 @@
     .end local v4    # "v1":Ljava/lang/Comparable;
     .end local v5    # "v2":Ljava/lang/Comparable;
     .end local v6    # "diff":I
-    :cond_0
+    :cond_1a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 30
-    :cond_1
+    :cond_1d
     return v1
 .end method
 
 .method public static final naturalOrder()Ljava/util/Comparator;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -614,7 +614,7 @@
 .end method
 
 .method private static final nullsFirst()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -638,7 +638,7 @@
 .end method
 
 .method public static final nullsFirst(Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .param p0, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -666,7 +666,7 @@
 .end method
 
 .method private static final nullsFirst$lambda$3$ComparisonsKt__ComparisonsKt(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p0, "$comparator"    # Ljava/util/Comparator;
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
@@ -675,41 +675,41 @@
     nop
 
     .line 235
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_5
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
     .line 236
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_5
+    if-nez p1, :cond_9
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 237
-    :cond_1
-    if-nez p2, :cond_2
+    :cond_9
+    if-nez p2, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 238
-    :cond_2
+    :cond_d
     invoke-interface {p0, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v0
 
     .line 239
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method private static final nullsLast()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -733,7 +733,7 @@
 .end method
 
 .method public static final nullsLast(Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .param p0, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -761,7 +761,7 @@
 .end method
 
 .method private static final nullsLast$lambda$4$ComparisonsKt__ComparisonsKt(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p0, "$comparator"    # Ljava/util/Comparator;
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
@@ -770,41 +770,41 @@
     nop
 
     .line 262
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_5
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
     .line 263
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_5
+    if-nez p1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 264
-    :cond_1
-    if-nez p2, :cond_2
+    :cond_9
+    if-nez p2, :cond_d
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 265
-    :cond_2
+    :cond_d
     invoke-interface {p0, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v0
 
     .line 266
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public static final reverseOrder()Ljava/util/Comparator;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -828,7 +828,7 @@
 .end method
 
 .method public static final reversed(Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 2
+    .registers 3
     .param p0, "$this$reversed"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -852,7 +852,7 @@
     .line 304
     instance-of v0, p0, Lkotlin/comparisons/ReversedComparator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     move-object v0, p0
 
@@ -862,10 +862,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 305
-    :cond_0
+    :cond_12
     sget-object v0, Lkotlin/comparisons/NaturalOrderComparator;->INSTANCE:Lkotlin/comparisons/NaturalOrderComparator;
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -874,7 +874,7 @@
 
     const-string v1, "null cannot be cast to non-null type java.util.Comparator<T of kotlin.comparisons.ComparisonsKt__ComparisonsKt.reversed>{ kotlin.TypeAliasesKt.Comparator<T of kotlin.comparisons.ComparisonsKt__ComparisonsKt.reversed> }"
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     sget-object v0, Lkotlin/comparisons/ReverseOrderComparator;->INSTANCE:Lkotlin/comparisons/ReverseOrderComparator;
 
@@ -882,17 +882,17 @@
 
     check-cast v0, Ljava/util/Comparator;
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 306
-    :cond_1
+    :cond_24
     sget-object v0, Lkotlin/comparisons/ReverseOrderComparator;->INSTANCE:Lkotlin/comparisons/ReverseOrderComparator;
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
     sget-object v0, Lkotlin/comparisons/NaturalOrderComparator;->INSTANCE:Lkotlin/comparisons/NaturalOrderComparator;
 
@@ -900,10 +900,10 @@
 
     check-cast v0, Ljava/util/Comparator;
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 307
-    :cond_2
+    :cond_34
     new-instance v0, Lkotlin/comparisons/ReversedComparator;
 
     invoke-direct {v0, p0}, Lkotlin/comparisons/ReversedComparator;-><init>(Ljava/util/Comparator;)V
@@ -911,12 +911,12 @@
     check-cast v0, Ljava/util/Comparator;
 
     .line 308
-    :goto_0
+    :goto_3b
     return-object v0
 .end method
 
 .method public static final then(Ljava/util/Comparator;Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "$this$then"    # Ljava/util/Comparator;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -951,7 +951,7 @@
 .end method
 
 .method private static final then$lambda$1$ComparisonsKt__ComparisonsKt(Ljava/util/Comparator;Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 6
     .param p0, "$this_then"    # Ljava/util/Comparator;
     .param p1, "$comparator"    # Ljava/util/Comparator;
     .param p2, "a"    # Ljava/lang/Object;
@@ -964,23 +964,23 @@
 
     .line 209
     .local v0, "previousCompare":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     move v1, v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_8
     invoke-interface {p1, p2, p3}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v1
 
-    :goto_0
+    :goto_c
     return v1
 .end method
 
 .method private static final thenBy(Ljava/util/Comparator;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/util/Comparator;
-    .locals 1
+    .registers 4
     .param p0, "$this$thenBy"    # Ljava/util/Comparator;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -1026,7 +1026,7 @@
 .end method
 
 .method private static final thenBy(Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "$this$thenBy"    # Ljava/util/Comparator;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1065,7 +1065,7 @@
 .end method
 
 .method private static final thenByDescending(Ljava/util/Comparator;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/util/Comparator;
-    .locals 1
+    .registers 4
     .param p0, "$this$thenByDescending"    # Ljava/util/Comparator;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -1111,7 +1111,7 @@
 .end method
 
 .method private static final thenByDescending(Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "$this$thenByDescending"    # Ljava/util/Comparator;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1150,7 +1150,7 @@
 .end method
 
 .method private static final thenComparator(Ljava/util/Comparator;Lkotlin/jvm/functions/Function2;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "$this$thenComparator"    # Ljava/util/Comparator;
     .param p1, "comparison"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -1189,7 +1189,7 @@
 .end method
 
 .method public static final thenDescending(Ljava/util/Comparator;Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 3
     .param p0, "$this$thenDescending"    # Ljava/util/Comparator;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -1224,7 +1224,7 @@
 .end method
 
 .method private static final thenDescending$lambda$2$ComparisonsKt__ComparisonsKt(Ljava/util/Comparator;Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 6
     .param p0, "$this_thenDescending"    # Ljava/util/Comparator;
     .param p1, "$comparator"    # Ljava/util/Comparator;
     .param p2, "a"    # Ljava/lang/Object;
@@ -1237,17 +1237,17 @@
 
     .line 221
     .local v0, "previousCompare":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     move v1, v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_8
     invoke-interface {p1, p3, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v1
 
-    :goto_0
+    :goto_c
     return v1
 .end method

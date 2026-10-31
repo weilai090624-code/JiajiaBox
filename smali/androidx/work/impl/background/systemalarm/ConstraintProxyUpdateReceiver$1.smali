@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver;Landroid/content/Intent;Landroid/content/Context;Landroid/content/BroadcastReceiver$PendingResult;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .registers 8
 
     .line 98
     :try_start_0
@@ -206,8 +206,8 @@
     const-class v6, Landroidx/work/impl/background/systemalarm/ConstraintProxy$NetworkStateProxy;
 
     invoke-static {v5, v6, v2}, Landroidx/work/impl/utils/PackageManagerHelper;->setComponentEnabled(Landroid/content/Context;Ljava/lang/Class;Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7d
+    .catchall {:try_start_0 .. :try_end_7d} :catchall_84
 
     .line 124
     .end local v0    # "batteryNotLowProxyEnabled":Z
@@ -226,7 +226,7 @@
     return-void
 
     .line 124
-    :catchall_0
+    :catchall_84
     move-exception v0
 
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$pendingResult:Landroid/content/BroadcastReceiver$PendingResult;

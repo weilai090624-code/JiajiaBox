@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$containsOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Z
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/ReadableConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -32,7 +32,7 @@
 .end method
 
 .method public static $default$findOptions(Landroidx/camera/core/impl/ReadableConfig;Ljava/lang/String;Landroidx/camera/core/impl/Config$OptionMatcher;)V
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Landroidx/camera/core/impl/ReadableConfig;
     .param p1, "idSearchString"    # Ljava/lang/String;
     .param p2, "matcher"    # Landroidx/camera/core/impl/Config$OptionMatcher;
@@ -61,7 +61,7 @@
 .end method
 
 .method public static $default$getOptionPriority(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Landroidx/camera/core/impl/Config$OptionPriority;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/ReadableConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -88,7 +88,7 @@
 .end method
 
 .method public static $default$getPriorities(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/ReadableConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -115,7 +115,7 @@
 .end method
 
 .method public static $default$listOptions(Landroidx/camera/core/impl/ReadableConfig;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/ReadableConfig;
 
     .line 66
@@ -131,7 +131,7 @@
 .end method
 
 .method public static $default$retrieveOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/ReadableConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -158,7 +158,7 @@
 .end method
 
 .method public static $default$retrieveOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Landroidx/camera/core/impl/ReadableConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -188,7 +188,7 @@
 .end method
 
 .method public static $default$retrieveOptionWithPriority(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Landroidx/camera/core/impl/ReadableConfig;
     .param p2, "priority"    # Landroidx/camera/core/impl/Config$OptionPriority;
     .annotation system Ldalvik/annotation/MethodParameters;

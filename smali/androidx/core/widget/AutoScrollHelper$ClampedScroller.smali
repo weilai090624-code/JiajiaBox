@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 756
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -73,7 +73,7 @@
 .end method
 
 .method private getValueAt(J)F
-    .locals 8
+    .registers 11
     .param p1, "currentTime"    # J
 
     .line 800
@@ -83,13 +83,13 @@
 
     cmp-long v3, p1, v0
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_8
 
     .line 801
     return v2
 
     .line 802
-    :cond_0
+    :cond_8
     iget-wide v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
     const-wide/16 v3, 0x0
@@ -98,18 +98,18 @@
 
     cmp-long v6, v0, v3
 
-    if-ltz v6, :cond_2
+    if-ltz v6, :cond_30
 
     iget-wide v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
     cmp-long v3, p1, v0
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_19
 
-    goto :goto_0
+    goto :goto_30
 
     .line 806
-    :cond_1
+    :cond_19
     iget-wide v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
     sub-long v0, p1, v0
@@ -144,8 +144,8 @@
 
     .line 803
     .end local v0    # "elapsedSinceEnd":J
-    :cond_2
-    :goto_0
+    :cond_30
+    :goto_30
     iget-wide v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
     sub-long v0, p1, v0
@@ -172,7 +172,7 @@
 .end method
 
 .method private interpolateValue(F)F
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 820
@@ -194,7 +194,7 @@
 
 # virtual methods
 .method public computeScrollDelta()V
-    .locals 8
+    .registers 9
 
     .line 831
     iget-wide v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mDeltaTime:J
@@ -203,7 +203,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
     .line 835
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
@@ -266,7 +266,7 @@
     .end local v2    # "value":F
     .end local v3    # "scale":F
     .end local v4    # "elapsedSinceDelta":J
-    :cond_0
+    :cond_2f
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Cannot compute scroll delta before calling start()"
@@ -277,7 +277,7 @@
 .end method
 
 .method public getDeltaX()I
-    .locals 1
+    .registers 2
 
     .line 869
     iget v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mDeltaX:I
@@ -286,7 +286,7 @@
 .end method
 
 .method public getDeltaY()I
-    .locals 1
+    .registers 2
 
     .line 877
     iget v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mDeltaY:I
@@ -295,7 +295,7 @@
 .end method
 
 .method public getHorizontalDirection()I
-    .locals 2
+    .registers 3
 
     .line 857
     iget v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityX:F
@@ -314,7 +314,7 @@
 .end method
 
 .method public getVerticalDirection()I
-    .locals 2
+    .registers 3
 
     .line 861
     iget v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityY:F
@@ -333,7 +333,7 @@
 .end method
 
 .method public isFinished()Z
-    .locals 6
+    .registers 7
 
     .line 795
     iget-wide v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
@@ -342,7 +342,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_18
 
     .line 796
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
@@ -359,22 +359,22 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     .line 795
-    :goto_0
+    :goto_19
     return v0
 .end method
 
 .method public requestStop()V
-    .locals 5
+    .registers 6
 
     .line 788
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
@@ -414,7 +414,7 @@
 .end method
 
 .method public setRampDownDuration(I)V
-    .locals 0
+    .registers 2
     .param p1, "durationMillis"    # I
 
     .line 769
@@ -425,7 +425,7 @@
 .end method
 
 .method public setRampUpDuration(I)V
-    .locals 0
+    .registers 2
     .param p1, "durationMillis"    # I
 
     .line 765
@@ -436,7 +436,7 @@
 .end method
 
 .method public setTargetVelocity(FF)V
-    .locals 0
+    .registers 3
     .param p1, "x"    # F
     .param p2, "y"    # F
 
@@ -451,7 +451,7 @@
 .end method
 
 .method public start()V
-    .locals 2
+    .registers 3
 
     .line 776
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J

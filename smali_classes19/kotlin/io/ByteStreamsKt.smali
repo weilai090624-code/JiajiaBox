@@ -54,7 +54,7 @@
 
 # direct methods
 .method private static final buffered(Ljava/io/InputStream;I)Ljava/io/BufferedInputStream;
-    .locals 1
+    .registers 3
     .param p0, "$this$buffered"    # Ljava/io/InputStream;
     .param p1, "bufferSize"    # I
 
@@ -65,25 +65,25 @@
     .line 72
     instance-of v0, p0, Ljava/io/BufferedInputStream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     move-object v0, p0
 
     check-cast v0, Ljava/io/BufferedInputStream;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/io/BufferedInputStream;
 
     invoke-direct {v0, p0, p1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method private static final buffered(Ljava/io/OutputStream;I)Ljava/io/BufferedOutputStream;
-    .locals 1
+    .registers 3
     .param p0, "$this$buffered"    # Ljava/io/OutputStream;
     .param p1, "bufferSize"    # I
 
@@ -94,36 +94,36 @@
     .line 88
     instance-of v0, p0, Ljava/io/BufferedOutputStream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     move-object v0, p0
 
     check-cast v0, Ljava/io/BufferedOutputStream;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/io/BufferedOutputStream;
 
     invoke-direct {v0, p0, p1}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;I)V
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method static synthetic buffered$default(Ljava/io/InputStream;IILjava/lang/Object;)Ljava/io/BufferedInputStream;
-    .locals 0
+    .registers 4
     .param p0, "$this$buffered_u24default"    # Ljava/io/InputStream;
     .param p1, "bufferSize"    # I
 
     .line 71
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const/16 p1, 0x2000
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -131,36 +131,36 @@
     .line 72
     instance-of p2, p0, Ljava/io/BufferedInputStream;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_13
 
     move-object p2, p0
 
     check-cast p2, Ljava/io/BufferedInputStream;
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_13
     new-instance p2, Ljava/io/BufferedInputStream;
 
     invoke-direct {p2, p0, p1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V
 
-    :goto_0
+    :goto_18
     return-object p2
 .end method
 
 .method static synthetic buffered$default(Ljava/io/OutputStream;IILjava/lang/Object;)Ljava/io/BufferedOutputStream;
-    .locals 0
+    .registers 4
     .param p0, "$this$buffered_u24default"    # Ljava/io/OutputStream;
     .param p1, "bufferSize"    # I
 
     .line 87
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const/16 p1, 0x2000
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -168,25 +168,25 @@
     .line 88
     instance-of p2, p0, Ljava/io/BufferedOutputStream;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_13
 
     move-object p2, p0
 
     check-cast p2, Ljava/io/BufferedOutputStream;
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_13
     new-instance p2, Ljava/io/BufferedOutputStream;
 
     invoke-direct {p2, p0, p1}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;I)V
 
-    :goto_0
+    :goto_18
     return-object p2
 .end method
 
 .method private static final bufferedReader(Ljava/io/InputStream;Ljava/nio/charset/Charset;)Ljava/io/BufferedReader;
-    .locals 3
+    .registers 5
     .param p0, "$this$bufferedReader"    # Ljava/io/InputStream;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
@@ -207,13 +207,13 @@
 
     instance-of v1, v0, Ljava/io/BufferedReader;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     check-cast v0, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_18
     new-instance v1, Ljava/io/BufferedReader;
 
     const/16 v2, 0x2000
@@ -222,23 +222,23 @@
 
     move-object v0, v1
 
-    :goto_0
+    :goto_20
     return-object v0
 .end method
 
 .method static synthetic bufferedReader$default(Ljava/io/InputStream;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/io/BufferedReader;
-    .locals 1
+    .registers 5
     .param p0, "$this$bufferedReader_u24default"    # Ljava/io/InputStream;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 80
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -255,13 +255,13 @@
 
     instance-of p3, p2, Ljava/io/BufferedReader;
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_1e
 
     check-cast p2, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_1
+    :cond_1e
     new-instance p3, Ljava/io/BufferedReader;
 
     const/16 v0, 0x2000
@@ -270,12 +270,12 @@
 
     move-object p2, p3
 
-    :goto_0
+    :goto_26
     return-object p2
 .end method
 
 .method private static final bufferedWriter(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)Ljava/io/BufferedWriter;
-    .locals 3
+    .registers 5
     .param p0, "$this$bufferedWriter"    # Ljava/io/OutputStream;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
@@ -296,13 +296,13 @@
 
     instance-of v1, v0, Ljava/io/BufferedWriter;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     check-cast v0, Ljava/io/BufferedWriter;
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_18
     new-instance v1, Ljava/io/BufferedWriter;
 
     const/16 v2, 0x2000
@@ -311,23 +311,23 @@
 
     move-object v0, v1
 
-    :goto_0
+    :goto_20
     return-object v0
 .end method
 
 .method static synthetic bufferedWriter$default(Ljava/io/OutputStream;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/io/BufferedWriter;
-    .locals 1
+    .registers 5
     .param p0, "$this$bufferedWriter_u24default"    # Ljava/io/OutputStream;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 96
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -344,13 +344,13 @@
 
     instance-of p3, p2, Ljava/io/BufferedWriter;
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_1e
 
     check-cast p2, Ljava/io/BufferedWriter;
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_1
+    :cond_1e
     new-instance p3, Ljava/io/BufferedWriter;
 
     const/16 v0, 0x2000
@@ -359,12 +359,12 @@
 
     move-object p2, p3
 
-    :goto_0
+    :goto_26
     return-object p2
 .end method
 
 .method private static final byteInputStream(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/io/ByteArrayInputStream;
-    .locals 3
+    .registers 5
     .param p0, "$this$byteInputStream"    # Ljava/lang/String;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
@@ -393,18 +393,18 @@
 .end method
 
 .method static synthetic byteInputStream$default(Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/io/ByteArrayInputStream;
-    .locals 1
+    .registers 5
     .param p0, "$this$byteInputStream_u24default"    # Ljava/lang/String;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 50
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -429,7 +429,7 @@
 .end method
 
 .method public static final copyTo(Ljava/io/InputStream;Ljava/io/OutputStream;I)J
-    .locals 6
+    .registers 9
     .param p0, "$this$copyTo"    # Ljava/io/InputStream;
     .param p1, "out"    # Ljava/io/OutputStream;
     .param p2, "bufferSize"    # I
@@ -457,8 +457,8 @@
 
     .line 107
     .local v3, "bytes":I
-    :goto_0
-    if-ltz v3, :cond_0
+    :goto_12
+    if-ltz v3, :cond_1f
 
     .line 108
     const/4 v4, 0x0
@@ -475,24 +475,24 @@
 
     move-result v3
 
-    goto :goto_0
+    goto :goto_12
 
     .line 112
-    :cond_0
+    :cond_1f
     return-wide v0
 .end method
 
 .method public static synthetic copyTo$default(Ljava/io/InputStream;Ljava/io/OutputStream;IILjava/lang/Object;)J
-    .locals 0
+    .registers 5
 
     .line 103
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     const/16 p2, 0x2000
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2}, Lkotlin/io/ByteStreamsKt;->copyTo(Ljava/io/InputStream;Ljava/io/OutputStream;I)J
 
     move-result-wide p0
@@ -501,7 +501,7 @@
 .end method
 
 .method private static final inputStream([B)Ljava/io/ByteArrayInputStream;
-    .locals 1
+    .registers 2
     .param p0, "$this$inputStream"    # [B
 
     const-string v0, "<this>"
@@ -517,7 +517,7 @@
 .end method
 
 .method private static final inputStream([BII)Ljava/io/ByteArrayInputStream;
-    .locals 1
+    .registers 4
     .param p0, "$this$inputStream"    # [B
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -535,7 +535,7 @@
 .end method
 
 .method public static final iterator(Ljava/io/BufferedInputStream;)Lkotlin/collections/ByteIterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$iterator"    # Ljava/io/BufferedInputStream;
 
     const-string v0, "<this>"
@@ -554,7 +554,7 @@
 .end method
 
 .method public static final readBytes(Ljava/io/InputStream;)[B
-    .locals 5
+    .registers 6
     .param p0, "$this$readBytes"    # Ljava/io/InputStream;
 
     const-string v0, "<this>"
@@ -603,7 +603,7 @@
 .end method
 
 .method public static final readBytes(Ljava/io/InputStream;I)[B
-    .locals 5
+    .registers 7
     .param p0, "$this$readBytes"    # Ljava/io/InputStream;
     .param p1, "estimatedSize"    # I
     .annotation runtime Lkotlin/Deprecated;
@@ -663,16 +663,16 @@
 .end method
 
 .method public static synthetic readBytes$default(Ljava/io/InputStream;IILjava/lang/Object;)[B
-    .locals 0
+    .registers 4
 
     .line 122
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const/16 p1, 0x2000
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Lkotlin/io/ByteStreamsKt;->readBytes(Ljava/io/InputStream;I)[B
 
     move-result-object p0
@@ -681,7 +681,7 @@
 .end method
 
 .method private static final reader(Ljava/io/InputStream;Ljava/nio/charset/Charset;)Ljava/io/InputStreamReader;
-    .locals 1
+    .registers 3
     .param p0, "$this$reader"    # Ljava/io/InputStream;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
@@ -702,18 +702,18 @@
 .end method
 
 .method static synthetic reader$default(Ljava/io/InputStream;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/io/InputStreamReader;
-    .locals 0
+    .registers 4
     .param p0, "$this$reader_u24default"    # Ljava/io/InputStream;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 76
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -730,7 +730,7 @@
 .end method
 
 .method private static final writer(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)Ljava/io/OutputStreamWriter;
-    .locals 1
+    .registers 3
     .param p0, "$this$writer"    # Ljava/io/OutputStream;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
@@ -751,18 +751,18 @@
 .end method
 
 .method static synthetic writer$default(Ljava/io/OutputStream;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/io/OutputStreamWriter;
-    .locals 0
+    .registers 4
     .param p0, "$this$writer_u24default"    # Ljava/io/OutputStream;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 92
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

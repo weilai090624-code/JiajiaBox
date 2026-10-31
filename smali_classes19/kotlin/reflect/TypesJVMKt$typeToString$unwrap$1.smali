@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/reflect/TypesJVMKt$typeToString$unwrap$1;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 6
+    .registers 7
 
     const-class v2, Ljava/lang/Class;
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public final invoke(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -103,7 +103,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 226

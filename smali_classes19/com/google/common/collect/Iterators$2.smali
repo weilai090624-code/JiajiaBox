@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Iterable;)V
-    .locals 0
+    .registers 2
 
     .line 402
     iput-object p1, p0, Lcom/google/common/collect/Iterators$2;->val$iterable:Ljava/lang/Iterable;
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 416
     iget-object v0, p0, Lcom/google/common/collect/Iterators$2;->iterator:Ljava/util/Iterator;
@@ -69,7 +69,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     iget-object v0, p0, Lcom/google/common/collect/Iterators$2;->val$iterable:Ljava/lang/Iterable;
 
@@ -81,25 +81,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_18
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -116,7 +116,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     .line 423
     iget-object v0, p0, Lcom/google/common/collect/Iterators$2;->val$iterable:Ljava/lang/Iterable;
@@ -134,12 +134,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 425
-    :cond_0
+    :cond_19
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -147,8 +147,8 @@
     throw v0
 
     .line 428
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     iget-object v0, p0, Lcom/google/common/collect/Iterators$2;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -159,7 +159,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 433
     iget-object v0, p0, Lcom/google/common/collect/Iterators$2;->iterator:Ljava/util/Iterator;

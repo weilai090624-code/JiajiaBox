@@ -145,7 +145,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/http1/Http1ExchangeCodec$Companion;
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/OkHttpClient;Lokhttp3/internal/connection/RealConnection;Lokio/BufferedSource;Lokio/BufferedSink;)V
-    .locals 2
+    .registers 7
     .param p1, "client"    # Lokhttp3/OkHttpClient;
     .param p2, "connection"    # Lokhttp3/internal/connection/RealConnection;
     .param p3, "source"    # Lokio/BufferedSource;
@@ -206,7 +206,7 @@
 .end method
 
 .method public static final synthetic access$detachTimeout(Lokhttp3/internal/http1/Http1ExchangeCodec;Lokio/ForwardingTimeout;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
     .param p1, "timeout"    # Lokio/ForwardingTimeout;
 
@@ -217,7 +217,7 @@
 .end method
 
 .method public static final synthetic access$getClient$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokhttp3/OkHttpClient;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
 
     .line 64
@@ -227,7 +227,7 @@
 .end method
 
 .method public static final synthetic access$getHeadersReader$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokhttp3/internal/http1/HeadersReader;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
 
     .line 64
@@ -237,7 +237,7 @@
 .end method
 
 .method public static final synthetic access$getSink$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSink;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
 
     .line 64
@@ -247,7 +247,7 @@
 .end method
 
 .method public static final synthetic access$getSource$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokio/BufferedSource;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
 
     .line 64
@@ -257,7 +257,7 @@
 .end method
 
 .method public static final synthetic access$getState$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
 
     .line 64
@@ -267,7 +267,7 @@
 .end method
 
 .method public static final synthetic access$getTrailers$p(Lokhttp3/internal/http1/Http1ExchangeCodec;)Lokhttp3/Headers;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
 
     .line 64
@@ -277,7 +277,7 @@
 .end method
 
 .method public static final synthetic access$setState$p(Lokhttp3/internal/http1/Http1ExchangeCodec;I)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
     .param p1, "<set-?>"    # I
 
@@ -288,7 +288,7 @@
 .end method
 
 .method public static final synthetic access$setTrailers$p(Lokhttp3/internal/http1/Http1ExchangeCodec;Lokhttp3/Headers;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
     .param p1, "<set-?>"    # Lokhttp3/Headers;
 
@@ -299,7 +299,7 @@
 .end method
 
 .method private final detachTimeout(Lokio/ForwardingTimeout;)V
-    .locals 2
+    .registers 4
     .param p1, "timeout"    # Lokio/ForwardingTimeout;
 
     .line 245
@@ -324,7 +324,7 @@
 .end method
 
 .method private final isChunked(Lokhttp3/Request;)Z
-    .locals 3
+    .registers 5
     .param p1, "$this$isChunked"    # Lokhttp3/Request;
 
     .line 79
@@ -346,7 +346,7 @@
 .end method
 
 .method private final isChunked(Lokhttp3/Response;)Z
-    .locals 3
+    .registers 5
     .param p1, "$this$isChunked"    # Lokhttp3/Response;
 
     .line 76
@@ -372,22 +372,22 @@
 .end method
 
 .method private final newChunkedSink()Lokio/Sink;
-    .locals 3
+    .registers 4
 
     .line 209
     iget v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_7
+    if-eqz v1, :cond_14
 
     .line 210
     const/4 v0, 0x2
@@ -404,7 +404,7 @@
     return-object v0
 
     .line 500
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     .line 209
@@ -436,7 +436,7 @@
 .end method
 
 .method private final newChunkedSource(Lokhttp3/HttpUrl;)Lokio/Source;
-    .locals 3
+    .registers 5
     .param p1, "url"    # Lokhttp3/HttpUrl;
 
     .line 227
@@ -444,17 +444,17 @@
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_8
+    if-eqz v0, :cond_15
 
     .line 228
     const/4 v0, 0x5
@@ -471,7 +471,7 @@
     return-object v0
 
     .line 500
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
     .line 227
@@ -503,7 +503,7 @@
 .end method
 
 .method private final newFixedLengthSource(J)Lokio/Source;
-    .locals 3
+    .registers 6
     .param p1, "length"    # J
 
     .line 221
@@ -511,17 +511,17 @@
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_8
+    if-eqz v0, :cond_15
 
     .line 222
     const/4 v0, 0x5
@@ -538,7 +538,7 @@
     return-object v0
 
     .line 500
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
     .line 221
@@ -570,22 +570,22 @@
 .end method
 
 .method private final newKnownLengthSink()Lokio/Sink;
-    .locals 3
+    .registers 4
 
     .line 215
     iget v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_7
+    if-eqz v1, :cond_14
 
     .line 216
     const/4 v0, 0x2
@@ -602,7 +602,7 @@
     return-object v0
 
     .line 500
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     .line 215
@@ -634,24 +634,24 @@
 .end method
 
 .method private final newUnknownLengthSource()Lokio/Source;
-    .locals 3
+    .registers 4
 
     .line 233
     iget v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_8
+    if-eqz v0, :cond_1c
 
     .line 234
     const/4 v0, 0x5
@@ -675,7 +675,7 @@
     return-object v0
 
     .line 500
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
     .line 233
@@ -709,7 +709,7 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .registers 2
 
     .line 104
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->getConnection()Lokhttp3/internal/connection/RealConnection;
@@ -723,7 +723,7 @@
 .end method
 
 .method public createRequestBody(Lokhttp3/Request;J)Lokio/Sink;
-    .locals 3
+    .registers 7
     .param p1, "request"    # Lokhttp3/Request;
     .param p2, "contentLength"    # J
 
@@ -739,7 +739,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     invoke-virtual {p1}, Lokhttp3/Request;->body()Lokhttp3/RequestBody;
 
@@ -749,11 +749,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/net/ProtocolException;
 
     .line 94
@@ -767,38 +767,38 @@
     throw v0
 
     .line 95
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     invoke-direct {p0, p1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->isChunked(Lokhttp3/Request;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     invoke-direct {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->newChunkedSink()Lokio/Sink;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_35
 
     .line 96
-    :cond_2
+    :cond_2b
     const-wide/16 v0, -0x1
 
     cmp-long v2, p2, v0
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_36
 
     invoke-direct {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->newKnownLengthSink()Lokio/Sink;
 
     move-result-object v0
 
     .line 92
-    :goto_1
+    :goto_35
     return-object v0
 
     .line 98
-    :cond_3
+    :cond_36
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 99
@@ -813,7 +813,7 @@
 .end method
 
 .method public finishRequest()V
-    .locals 1
+    .registers 2
 
     .line 155
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
@@ -825,7 +825,7 @@
 .end method
 
 .method public flushRequest()V
-    .locals 1
+    .registers 2
 
     .line 151
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
@@ -837,7 +837,7 @@
 .end method
 
 .method public getConnection()Lokhttp3/internal/connection/RealConnection;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->connection:Lokhttp3/internal/connection/RealConnection;
@@ -846,28 +846,28 @@
 .end method
 
 .method public final isClosed()Z
-    .locals 2
+    .registers 3
 
     .line 89
     iget v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
 
     const/4 v1, 0x6
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public openResponseBodySource(Lokhttp3/Response;)Lokio/Source;
-    .locals 5
+    .registers 7
     .param p1, "response"    # Lokhttp3/Response;
 
     const-string v0, "response"
@@ -882,7 +882,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const-wide/16 v0, 0x0
 
@@ -890,15 +890,15 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 133
-    :cond_0
+    :cond_13
     invoke-direct {p0, p1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->isChunked(Lokhttp3/Response;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     invoke-virtual {p1}, Lokhttp3/Response;->request()Lokhttp3/Request;
 
@@ -912,10 +912,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 135
-    :cond_1
+    :cond_26
     invoke-static {p1}, Lokhttp3/internal/Util;->headersContentLength(Lokhttp3/Response;)J
 
     move-result-wide v0
@@ -926,7 +926,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_36
 
     .line 137
     invoke-direct {p0, v0, v1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->newFixedLengthSource(J)Lokio/Source;
@@ -935,10 +935,10 @@
 
     move-object v0, v2
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 139
-    :cond_2
+    :cond_36
     invoke-direct {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->newUnknownLengthSource()Lokio/Source;
 
     move-result-object v2
@@ -947,12 +947,12 @@
 
     .line 131
     .end local v0    # "contentLength":J
-    :goto_0
+    :goto_3b
     return-object v0
 .end method
 
 .method public readResponseHeaders(Z)Lokhttp3/Response$Builder;
-    .locals 5
+    .registers 7
     .param p1, "expectContinue"    # Z
 
     .line 173
@@ -962,40 +962,40 @@
 
     const/4 v2, 0x1
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_12
 
     .line 174
     iget v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
 
     const/4 v3, 0x2
 
-    if-eq v0, v3, :cond_1
+    if-eq v0, v3, :cond_12
 
     .line 175
     iget v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     nop
 
     .line 173
-    :goto_1
-    if-eqz v2, :cond_4
+    :goto_13
+    if-eqz v2, :cond_83
 
     .line 179
     nop
 
     .line 180
-    :try_start_0
+    :try_start_16
     sget-object v0, Lokhttp3/internal/http/StatusLine;->Companion:Lokhttp3/internal/http/StatusLine$Companion;
 
     iget-object v2, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->headersReader:Lokhttp3/internal/http1/HeadersReader;
@@ -1056,11 +1056,11 @@
     .line 189
     const/16 v3, 0x64
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_52
 
     iget v4, v0, Lokhttp3/internal/http/StatusLine;->code:I
 
-    if-ne v4, v3, :cond_2
+    if-ne v4, v3, :cond_52
 
     .line 190
     const/4 v1, 0x0
@@ -1069,42 +1069,42 @@
 
     check-cast v3, Lokhttp3/Response$Builder;
 
-    goto :goto_3
+    goto :goto_5e
 
     .line 192
-    :cond_2
+    :cond_52
     iget v4, v0, Lokhttp3/internal/http/StatusLine;->code:I
 
-    if-ne v4, v3, :cond_3
+    if-ne v4, v3, :cond_59
 
     .line 193
     iput v1, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
 
     .line 194
-    goto :goto_2
+    goto :goto_5d
 
     .line 197
-    :cond_3
+    :cond_59
     const/4 v1, 0x4
 
     iput v1, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
-    :try_end_0
-    .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5c
+    .catch Ljava/io/EOFException; {:try_start_16 .. :try_end_5c} :catch_5f
 
     .line 198
     nop
 
     .line 188
-    :goto_2
+    :goto_5d
     move-object v1, v2
 
-    :goto_3
+    :goto_5e
     return-object v1
 
     .line 201
     .end local v0    # "statusLine":Lokhttp3/internal/http/StatusLine;
     .end local v2    # "responseBuilder":Lokhttp3/Response$Builder;
-    :catch_0
+    :catch_5f
     move-exception v0
 
     .line 203
@@ -1150,7 +1150,7 @@
     .line 173
     .end local v0    # "e":Ljava/io/EOFException;
     .end local v1    # "address":Ljava/lang/String;
-    :cond_4
+    :cond_83
     const/4 v0, 0x0
 
     .line 176
@@ -1183,7 +1183,7 @@
 .end method
 
 .method public reportedContentLength(Lokhttp3/Response;)J
-    .locals 2
+    .registers 4
     .param p1, "response"    # Lokhttp3/Response;
 
     const-string v0, "response"
@@ -1198,37 +1198,37 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 125
-    :cond_0
+    :cond_f
     invoke-direct {p0, p1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->isChunked(Lokhttp3/Response;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     const-wide/16 v0, -0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 126
-    :cond_1
+    :cond_18
     invoke-static {p1}, Lokhttp3/internal/Util;->headersContentLength(Lokhttp3/Response;)J
 
     move-result-wide v0
 
     .line 123
-    :goto_0
+    :goto_1c
     return-wide v0
 .end method
 
 .method public final skipConnectBody(Lokhttp3/Response;)V
-    .locals 5
+    .registers 7
     .param p1, "response"    # Lokhttp3/Response;
 
     const-string v0, "response"
@@ -1246,12 +1246,12 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_10
 
     return-void
 
     .line 258
-    :cond_0
+    :cond_10
     invoke-direct {p0, v0, v1}, Lokhttp3/internal/http1/Http1ExchangeCodec;->newFixedLengthSource(J)Lokio/Source;
 
     move-result-object v2
@@ -1272,37 +1272,37 @@
 .end method
 
 .method public trailers()Lokhttp3/Headers;
-    .locals 2
+    .registers 3
 
     .line 146
     iget v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->state:I
 
     const/4 v1, 0x6
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_8
+    if-eqz v0, :cond_11
 
     .line 147
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->trailers:Lokhttp3/Headers;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     sget-object v0, Lokhttp3/internal/Util;->EMPTY_HEADERS:Lokhttp3/Headers;
 
-    :cond_1
+    :cond_10
     return-object v0
 
     .line 500
-    :cond_2
+    :cond_11
     const/4 v0, 0x0
 
     .line 146
@@ -1326,7 +1326,7 @@
 .end method
 
 .method public final writeRequest(Lokhttp3/Headers;Ljava/lang/String;)V
-    .locals 7
+    .registers 10
     .param p1, "headers"    # Lokhttp3/Headers;
     .param p2, "requestLine"    # Ljava/lang/String;
 
@@ -1345,17 +1345,17 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_13
+    if-eqz v0, :cond_4d
 
     .line 161
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
@@ -1373,9 +1373,9 @@
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_45
 
-    :cond_1
+    :cond_26
     move v4, v1
 
     .local v4, "i":I
@@ -1412,11 +1412,11 @@
     invoke-interface {v5, v3}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     .line 162
-    if-lt v1, v0, :cond_1
+    if-lt v1, v0, :cond_26
 
     .line 168
     .end local v4    # "i":I
-    :cond_2
+    :cond_45
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec;->sink:Lokio/BufferedSink;
 
     invoke-interface {v0, v3}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
@@ -1428,7 +1428,7 @@
     return-void
 
     .line 500
-    :cond_3
+    :cond_4d
     const/4 v0, 0x0
 
     .line 160
@@ -1460,7 +1460,7 @@
 .end method
 
 .method public writeRequestHeaders(Lokhttp3/Request;)V
-    .locals 3
+    .registers 5
     .param p1, "request"    # Lokhttp3/Request;
 
     const-string v0, "request"

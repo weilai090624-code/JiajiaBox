@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 733
     .local p0, "this":Lcom/google/common/collect/ImmutableList$Builder;, "Lcom/google/common/collect/ImmutableList$Builder<TE;>;"
@@ -39,7 +39,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "capacity"    # I
 
     .line 737
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public bridge synthetic add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder;
-    .locals 0
+    .registers 2
 
     .line 727
     .local p0, "this":Lcom/google/common/collect/ImmutableList$Builder;, "Lcom/google/common/collect/ImmutableList$Builder<TE;>;"
@@ -65,7 +65,7 @@
 .end method
 
 .method public bridge synthetic add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 0
+    .registers 2
 
     .line 727
     .local p0, "this":Lcom/google/common/collect/ImmutableList$Builder;, "Lcom/google/common/collect/ImmutableList$Builder<TE;>;"
@@ -77,7 +77,7 @@
 .end method
 
 .method public bridge synthetic add([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 0
+    .registers 2
 
     .line 727
     .local p0, "this":Lcom/google/common/collect/ImmutableList$Builder;, "Lcom/google/common/collect/ImmutableList$Builder<TE;>;"
@@ -89,7 +89,7 @@
 .end method
 
 .method public add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",
@@ -108,7 +108,7 @@
 .end method
 
 .method public varargs add([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TE;)",
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic addAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 0
+    .registers 2
 
     .line 727
     .local p0, "this":Lcom/google/common/collect/ImmutableList$Builder;, "Lcom/google/common/collect/ImmutableList$Builder<TE;>;"
@@ -139,7 +139,7 @@
 .end method
 
 .method public bridge synthetic addAll(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 0
+    .registers 2
 
     .line 727
     .local p0, "this":Lcom/google/common/collect/ImmutableList$Builder;, "Lcom/google/common/collect/ImmutableList$Builder<TE;>;"
@@ -151,7 +151,7 @@
 .end method
 
 .method public addAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -172,7 +172,7 @@
 .end method
 
 .method public addAll(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableList$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -193,7 +193,7 @@
 .end method
 
 .method public bridge synthetic build()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
 
     .line 727
     .local p0, "this":Lcom/google/common/collect/ImmutableList$Builder;, "Lcom/google/common/collect/ImmutableList$Builder<TE;>;"
@@ -205,7 +205,7 @@
 .end method
 
 .method public build()Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -233,7 +233,7 @@
 .end method
 
 .method combine(Lcom/google/common/collect/ImmutableList$Builder;)Lcom/google/common/collect/ImmutableList$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

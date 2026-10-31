@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 27
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method public cbSelectorUpdate(J)V
-    .locals 0
+    .registers 3
     .param p1, "id"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -61,7 +61,7 @@
 .end method
 
 .method public cbSpeedUpdate(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
-    .locals 0
+    .registers 2
     .param p1, "stats"    # Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -83,7 +83,7 @@
 .end method
 
 .method public cbTrafficUpdate(Lio/nekohasekai/sagernet/aidl/TrafficData;)V
-    .locals 0
+    .registers 2
     .param p1, "stats"    # Lio/nekohasekai/sagernet/aidl/TrafficData;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -105,7 +105,7 @@
 .end method
 
 .method public missingPlugin(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "profileName"    # Ljava/lang/String;
     .param p2, "pluginName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -130,7 +130,7 @@
 .end method
 
 .method public stateChanged(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "state"    # I
     .param p2, "profileName"    # Ljava/lang/String;
     .param p3, "msg"    # Ljava/lang/String;

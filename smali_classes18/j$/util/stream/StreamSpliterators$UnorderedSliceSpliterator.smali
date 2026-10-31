@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 902
     const-class v0, Lj$/util/stream/StreamSpliterators;
@@ -72,7 +72,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;JJ)V
-    .locals 4
+    .registers 10
     .param p2, "skip"    # J
     .param p4, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -96,31 +96,31 @@
 
     cmp-long v2, p4, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_e
     iput-boolean v2, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->unlimited:Z
 
     .line 915
     cmp-long v2, p4, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_16
 
     move-wide v2, p4
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     move-wide v2, v0
 
-    :goto_1
+    :goto_17
     iput-wide v2, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->skipThreshold:J
 
     .line 919
@@ -133,16 +133,16 @@
 
     cmp-long v3, p4, v0
 
-    if-ltz v3, :cond_2
+    if-ltz v3, :cond_26
 
     add-long v0, p2, p4
 
-    goto :goto_2
+    goto :goto_27
 
-    :cond_2
+    :cond_26
     move-wide v0, p2
 
-    :goto_2
+    :goto_27
     invoke-direct {v2, v0, v1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>(J)V
 
     iput-object v2, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->permits:Ljava/util/concurrent/atomic/AtomicLong;
@@ -152,7 +152,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_SP",
@@ -200,7 +200,7 @@
 
 # virtual methods
 .method protected final acquirePermits(J)J
-    .locals 9
+    .registers 12
     .param p1, "numElements"    # J
 
     .line 950
@@ -208,7 +208,7 @@
     nop
 
     .line 952
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->permits:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
@@ -221,20 +221,20 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_13
 
     .line 954
     iget-boolean v4, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->unlimited:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_12
 
     move-wide v2, p1
 
-    :cond_1
+    :cond_12
     return-wide v2
 
     .line 955
-    :cond_2
+    :cond_13
     invoke-static {v0, v1, p1, p2}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v4
@@ -243,7 +243,7 @@
     .local v4, "grabbing":J
     cmp-long v6, v4, v2
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_25
 
     iget-object v6, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->permits:Ljava/util/concurrent/atomic/AtomicLong;
 
@@ -254,13 +254,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1
 
     .line 959
-    :cond_3
+    :cond_25
     iget-boolean v6, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->unlimited:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_30
 
     .line 960
     sub-long v6, p1, v4
@@ -272,12 +272,12 @@
     return-wide v2
 
     .line 961
-    :cond_4
+    :cond_30
     iget-wide v6, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->skipThreshold:J
 
     cmp-long v8, v0, v6
 
-    if-lez v8, :cond_5
+    if-lez v8, :cond_41
 
     .line 962
     iget-wide v6, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->skipThreshold:J
@@ -293,12 +293,12 @@
     return-wide v2
 
     .line 964
-    :cond_5
+    :cond_41
     return-wide v4
 .end method
 
 .method public final characteristics()I
-    .locals 1
+    .registers 2
 
     .line 993
     .local p0, "this":Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>;"
@@ -314,7 +314,7 @@
 .end method
 
 .method public final estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 989
     .local p0, "this":Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>;"
@@ -339,7 +339,7 @@
 .end method
 
 .method protected final permitStatus()Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
-    .locals 5
+    .registers 6
 
     .line 971
     .local p0, "this":Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>;"
@@ -353,7 +353,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_f
 
     .line 972
     sget-object v0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;->MAYBE_MORE:Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
@@ -361,24 +361,24 @@
     return-object v0
 
     .line 974
-    :cond_0
+    :cond_f
     iget-boolean v0, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->unlimited:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     sget-object v0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;->UNLIMITED:Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_16
     sget-object v0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;->NO_MORE:Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
-    :goto_0
+    :goto_18
     return-object v0
 .end method
 
 .method public final trySplit()Lj$/util/Spliterator;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT_SP",
@@ -400,13 +400,13 @@
 
     cmp-long v5, v0, v2
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_e
 
     .line 980
     return-object v4
 
     .line 982
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->s:Lj$/util/Spliterator;
 
     invoke-interface {v0}, Lj$/util/Spliterator;->trySplit()Lj$/util/Spliterator;
@@ -415,15 +415,15 @@
 
     .line 983
     .local v0, "split":Lj$/util/Spliterator;, "TT_SPLITR;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_1
+    :cond_17
     invoke-virtual {p0, v0}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->makeSpliterator(Lj$/util/Spliterator;)Lj$/util/Spliterator;
 
     move-result-object v4
 
-    :goto_0
+    :goto_1b
     return-object v4
 .end method

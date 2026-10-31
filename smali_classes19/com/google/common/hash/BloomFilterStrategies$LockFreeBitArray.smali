@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(J)V
-    .locals 4
+    .registers 7
     .param p1, "bits"    # J
 
     .line 167
@@ -37,16 +37,16 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     const-string v1, "data length is zero!"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -83,7 +83,7 @@
 .end method
 
 .method constructor <init>([J)V
-    .locals 8
+    .registers 10
     .param p1, "data"    # [J
 
     .line 177
@@ -94,16 +94,16 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     const-string v2, "data length is zero!"
 
     invoke-static {v0, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -129,8 +129,8 @@
     .local v2, "bitCount":J
     array-length v0, p1
 
-    :goto_1
-    if-ge v1, v0, :cond_1
+    :goto_1f
+    if-ge v1, v0, :cond_2c
 
     aget-wide v4, p1, v1
 
@@ -148,10 +148,10 @@
     .end local v4    # "value":J
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 185
-    :cond_1
+    :cond_2c
     iget-object v0, p0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->bitCount:Lcom/google/common/hash/LongAddable;
 
     invoke-interface {v0, v2, v3}, Lcom/google/common/hash/LongAddable;->add(J)V
@@ -161,7 +161,7 @@
 .end method
 
 .method public static toPlainArray(Ljava/util/concurrent/atomic/AtomicLongArray;)[J
-    .locals 4
+    .registers 5
     .param p0, "atomicLongArray"    # Ljava/util/concurrent/atomic/AtomicLongArray;
 
     .line 222
@@ -176,10 +176,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_7
     array-length v2, v0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_13
 
     .line 224
     invoke-virtual {p0, v1}, Ljava/util/concurrent/atomic/AtomicLongArray;->get(I)J
@@ -191,18 +191,18 @@
     .line 223
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 226
     .end local v1    # "i":I
-    :cond_0
+    :cond_13
     return-object v0
 .end method
 
 
 # virtual methods
 .method bitCount()J
-    .locals 2
+    .registers 3
 
     .line 243
     iget-object v0, p0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->bitCount:Lcom/google/common/hash/LongAddable;
@@ -215,7 +215,7 @@
 .end method
 
 .method bitSize()J
-    .locals 4
+    .registers 5
 
     .line 231
     iget-object v0, p0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->data:Ljava/util/concurrent/atomic/AtomicLongArray;
@@ -234,7 +234,7 @@
 .end method
 
 .method copy()Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;
-    .locals 2
+    .registers 3
 
     .line 247
     new-instance v0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;
@@ -251,7 +251,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -260,7 +260,7 @@
     .line 289
     instance-of v0, p1, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 290
     move-object v0, p1
@@ -289,14 +289,14 @@
 
     .line 294
     .end local v0    # "lockFreeBitArray":Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method get(J)Z
-    .locals 5
+    .registers 8
     .param p1, "bitIndex"    # J
 
     .line 213
@@ -324,21 +324,21 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_17
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_18
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 300
     iget-object v0, p0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->data:Ljava/util/concurrent/atomic/AtomicLongArray;
@@ -355,7 +355,7 @@
 .end method
 
 .method putAll(Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;)V
-    .locals 14
+    .registers 16
     .param p1, "other"    # Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;
 
     .line 260
@@ -372,16 +372,16 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     iget-object v1, p0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->data:Ljava/util/concurrent/atomic/AtomicLongArray;
 
     .line 263
@@ -405,14 +405,14 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_1
+    :goto_23
     iget-object v1, p0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->data:Ljava/util/concurrent/atomic/AtomicLongArray;
 
     invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicLongArray;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_4
+    if-ge v0, v1, :cond_5f
 
     .line 266
     iget-object v1, p1, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->data:Ljava/util/concurrent/atomic/AtomicLongArray;
@@ -427,7 +427,7 @@
 
     .line 272
     .local v9, "changedAnyBits":Z
-    :cond_1
+    :cond_32
     iget-object v1, p0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->data:Ljava/util/concurrent/atomic/AtomicLongArray;
 
     invoke-virtual {v1, v0}, Ljava/util/concurrent/atomic/AtomicLongArray;->get(I)J
@@ -442,16 +442,16 @@
     .local v12, "ourLongNew":J
     cmp-long v1, v10, v12
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_40
 
     .line 275
     const/4 v9, 0x0
 
     .line 276
-    goto :goto_2
+    goto :goto_4b
 
     .line 278
-    :cond_2
+    :cond_40
     iget-object v1, p0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->data:Ljava/util/concurrent/atomic/AtomicLongArray;
 
     move v2, v0
@@ -464,11 +464,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_32
 
     .line 280
-    :goto_2
-    if-eqz v9, :cond_3
+    :goto_4b
+    if-eqz v9, :cond_5c
 
     .line 281
     invoke-static {v12, v13}, Ljava/lang/Long;->bitCount(J)I
@@ -495,19 +495,19 @@
     .end local v9    # "changedAnyBits":Z
     .end local v10    # "ourLongOld":J
     .end local v12    # "ourLongNew":J
-    :cond_3
+    :cond_5c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
     .line 285
     .end local v0    # "i":I
-    :cond_4
+    :cond_5f
     return-void
 .end method
 
 .method set(J)Z
-    .locals 17
+    .registers 20
     .param p1, "bitIndex"    # J
 
     .line 190
@@ -521,13 +521,13 @@
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_c
 
     .line 191
     return v4
 
     .line 194
-    :cond_0
+    :cond_c
     const/4 v3, 0x6
 
     ushr-long v5, v1, v3
@@ -544,7 +544,7 @@
 
     .line 200
     .local v5, "mask":J
-    :cond_1
+    :cond_14
     iget-object v7, v0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->data:Ljava/util/concurrent/atomic/AtomicLongArray;
 
     invoke-virtual {v7, v3}, Ljava/util/concurrent/atomic/AtomicLongArray;->get(I)J
@@ -559,13 +559,13 @@
     .local v15, "newValue":J
     cmp-long v7, v13, v15
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_21
 
     .line 203
     return v4
 
     .line 205
-    :cond_2
+    :cond_21
     iget-object v7, v0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->data:Ljava/util/concurrent/atomic/AtomicLongArray;
 
     move v8, v3
@@ -578,7 +578,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_14
 
     .line 208
     iget-object v4, v0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->bitCount:Lcom/google/common/hash/LongAddable;

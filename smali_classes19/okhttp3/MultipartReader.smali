@@ -93,7 +93,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     new-instance v0, Lokhttp3/MultipartReader$Companion;
 
@@ -182,7 +182,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/ResponseBody;)V
-    .locals 3
+    .registers 5
     .param p1, "response"    # Lokhttp3/ResponseBody;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -207,21 +207,21 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_12
     const-string v2, "boundary"
 
     invoke-virtual {v1, v2}, Lokhttp3/MediaType;->parameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_18
+    if-eqz v1, :cond_1e
 
     .line 84
     invoke-direct {p0, v0, v1}, Lokhttp3/MultipartReader;-><init>(Lokio/BufferedSource;Ljava/lang/String;)V
@@ -230,7 +230,7 @@
     return-void
 
     .line 87
-    :cond_1
+    :cond_1e
     new-instance v0, Ljava/net/ProtocolException;
 
     const-string v1, "expected the Content-Type to have a boundary parameter"
@@ -241,7 +241,7 @@
 .end method
 
 .method public constructor <init>(Lokio/BufferedSource;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Lokio/BufferedSource;
     .param p2, "boundary"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -330,7 +330,7 @@
 .end method
 
 .method public static final synthetic access$currentPartBytesRemaining(Lokhttp3/MultipartReader;J)J
-    .locals 2
+    .registers 5
     .param p0, "$this"    # Lokhttp3/MultipartReader;
     .param p1, "maxResult"    # J
 
@@ -343,7 +343,7 @@
 .end method
 
 .method public static final synthetic access$getAfterBoundaryOptions$cp()Lokio/Options;
-    .locals 1
+    .registers 1
 
     .line 57
     sget-object v0, Lokhttp3/MultipartReader;->afterBoundaryOptions:Lokio/Options;
@@ -352,7 +352,7 @@
 .end method
 
 .method public static final synthetic access$getCurrentPart$p(Lokhttp3/MultipartReader;)Lokhttp3/MultipartReader$PartSource;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/MultipartReader;
 
     .line 57
@@ -362,7 +362,7 @@
 .end method
 
 .method public static final synthetic access$getSource$p(Lokhttp3/MultipartReader;)Lokio/BufferedSource;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/MultipartReader;
 
     .line 57
@@ -372,7 +372,7 @@
 .end method
 
 .method public static final synthetic access$setCurrentPart$p(Lokhttp3/MultipartReader;Lokhttp3/MultipartReader$PartSource;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokhttp3/MultipartReader;
     .param p1, "<set-?>"    # Lokhttp3/MultipartReader$PartSource;
 
@@ -383,7 +383,7 @@
 .end method
 
 .method private final currentPartBytesRemaining(J)J
-    .locals 6
+    .registers 9
     .param p1, "maxResult"    # J
 
     .line 178
@@ -418,7 +418,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_38
 
     iget-object v2, p0, Lokhttp3/MultipartReader;->source:Lokio/BufferedSource;
 
@@ -448,24 +448,24 @@
 
     move-result-wide v2
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 182
-    :cond_0
+    :cond_38
     invoke-static {p1, p2, v0, v1}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v2
 
     .line 180
     .end local v0    # "delimiterIndex":J
-    :goto_0
+    :goto_3c
     return-wide v2
 .end method
 
 
 # virtual methods
 .method public final boundary()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lokhttp3/MultipartReader;->boundary:Ljava/lang/String;
@@ -474,7 +474,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -484,12 +484,12 @@
     .line 188
     iget-boolean v0, p0, Lokhttp3/MultipartReader;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 189
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lokhttp3/MultipartReader;->closed:Z
@@ -509,7 +509,7 @@
 .end method
 
 .method public final nextPart()Lokhttp3/MultipartReader$Part;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -519,24 +519,24 @@
     .line 92
     iget-boolean v0, p0, Lokhttp3/MultipartReader;->closed:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_99
 
     .line 94
     iget-boolean v0, p0, Lokhttp3/MultipartReader;->noMoreParts:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return-object v1
 
     .line 97
-    :cond_0
+    :cond_a
     iget v0, p0, Lokhttp3/MultipartReader;->partCount:I
 
     const-wide/16 v2, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_27
 
     iget-object v0, p0, Lokhttp3/MultipartReader;->source:Lokio/BufferedSource;
 
@@ -546,7 +546,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 99
     iget-object v0, p0, Lokhttp3/MultipartReader;->source:Lokio/BufferedSource;
@@ -561,11 +561,11 @@
 
     invoke-interface {v0, v2, v3}, Lokio/BufferedSource;->skip(J)V
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 102
-    :cond_1
-    :goto_0
+    :cond_27
+    :goto_27
     nop
 
     .line 103
@@ -579,7 +579,7 @@
     .local v4, "toSkip":J
     cmp-long v0, v4, v2
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_93
 
     .line 107
     .end local v4    # "toSkip":J
@@ -596,12 +596,12 @@
     invoke-interface {v0, v2, v3}, Lokio/BufferedSource;->skip(J)V
 
     .line 111
-    :goto_1
+    :goto_3e
     const/4 v0, 0x0
 
     .line 112
     .local v0, "whitespace":Z
-    :goto_2
+    :goto_3f
     nop
 
     .line 113
@@ -617,26 +617,26 @@
 
     const-string v4, "unexpected characters after boundary"
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_aa
 
     .line 134
-    goto :goto_2
+    goto :goto_3f
 
     .line 130
-    :pswitch_0
+    :pswitch_4f
     const/4 v0, 0x1
 
     .line 131
-    goto :goto_2
+    goto :goto_3f
 
     .line 122
-    :pswitch_1
-    if-nez v0, :cond_3
+    :pswitch_51
+    if-nez v0, :cond_62
 
     .line 123
     iget v2, p0, Lokhttp3/MultipartReader;->partCount:I
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_5a
 
     .line 124
     iput-boolean v3, p0, Lokhttp3/MultipartReader;->noMoreParts:Z
@@ -645,7 +645,7 @@
     return-object v1
 
     .line 123
-    :cond_2
+    :cond_5a
     new-instance v1, Ljava/net/ProtocolException;
 
     const-string v2, "expected at least 1 part"
@@ -655,7 +655,7 @@
     throw v1
 
     .line 122
-    :cond_3
+    :cond_62
     new-instance v1, Ljava/net/ProtocolException;
 
     invoke-direct {v1, v4}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
@@ -663,7 +663,7 @@
     throw v1
 
     .line 116
-    :pswitch_2
+    :pswitch_68
     iget v1, p0, Lokhttp3/MultipartReader;->partCount:I
 
     add-int/2addr v1, v3
@@ -712,7 +712,7 @@
     .line 134
     .end local v1    # "headers":Lokhttp3/Headers;
     .end local v2    # "partSource":Lokhttp3/MultipartReader$PartSource;
-    :pswitch_3
+    :pswitch_8d
     new-instance v1, Ljava/net/ProtocolException;
 
     invoke-direct {v1, v4}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
@@ -722,16 +722,16 @@
     .line 105
     .end local v0    # "whitespace":Z
     .restart local v4    # "toSkip":J
-    :cond_4
+    :cond_93
     iget-object v0, p0, Lokhttp3/MultipartReader;->source:Lokio/BufferedSource;
 
     invoke-interface {v0, v4, v5}, Lokio/BufferedSource;->skip(J)V
 
     .end local v4    # "toSkip":J
-    goto :goto_0
+    goto :goto_27
 
     .line 211
-    :cond_5
+    :cond_99
     const/4 v0, 0x0
 
     .line 92
@@ -755,12 +755,12 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_aa
     .packed-switch -0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_8d
+        :pswitch_68
+        :pswitch_51
+        :pswitch_4f
+        :pswitch_4f
     .end packed-switch
 .end method

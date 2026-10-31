@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Landroidx/transition/ViewUtilsApi23;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public getTransitionAlpha(Landroid/view/View;)F
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 36
@@ -28,7 +28,7 @@
 .end method
 
 .method public setAnimationMatrix(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
     .param p2, "matrix"    # Landroid/graphics/Matrix;
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public setLeftTopRightBottom(Landroid/view/View;IIII)V
-    .locals 0
+    .registers 6
     .param p1, "v"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -55,7 +55,7 @@
 .end method
 
 .method public setTransitionAlpha(Landroid/view/View;F)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
     .param p2, "alpha"    # F
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public setTransitionVisibility(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
     .param p2, "visibility"    # I
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public transformMatrixToGlobal(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
     .param p2, "matrix"    # Landroid/graphics/Matrix;
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public transformMatrixToLocal(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
     .param p2, "matrix"    # Landroid/graphics/Matrix;
 

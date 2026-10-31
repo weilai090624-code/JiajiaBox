@@ -43,7 +43,7 @@
 
 # direct methods
 .method public static final isIpAddress(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isIpAddress"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -57,7 +57,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     sget-object v0, Lmoe/matsuri/nb4a/utils/NGUtil;->INSTANCE:Lmoe/matsuri/nb4a/utils/NGUtil;
 
@@ -65,25 +65,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_19
     return v0
 .end method
 
 .method public static final isIpAddressV6(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isIpAddressV6"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -101,7 +101,7 @@
 .end method
 
 .method public static final linkBuilder()Lokhttp3/HttpUrl$Builder;
-    .locals 2
+    .registers 2
 
     .line 12
     new-instance v0, Lokhttp3/HttpUrl$Builder;
@@ -118,7 +118,7 @@
 .end method
 
 .method public static final mkPort()I
-    .locals 3
+    .registers 3
 
     .line 58
     new-instance v0, Ljava/net/Socket;
@@ -156,7 +156,7 @@
 .end method
 
 .method public static final toLink(Lokhttp3/HttpUrl$Builder;Ljava/lang/String;Z)Ljava/lang/String;
-    .locals 17
+    .registers 20
     .param p0, "$this$toLink"    # Lokhttp3/HttpUrl$Builder;
     .param p1, "scheme"    # Ljava/lang/String;
     .param p2, "appendDefaultPort"    # Z
@@ -196,13 +196,13 @@
 
     .line 18
     .local v4, "replace":Z
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_34
 
     invoke-virtual {v1}, Lokhttp3/HttpUrl;->port()I
 
     move-result v5
 
-    if-ne v5, v3, :cond_0
+    if-ne v5, v3, :cond_34
 
     .line 19
     invoke-virtual {v1}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
@@ -223,7 +223,7 @@
     const/4 v4, 0x1
 
     .line 22
-    :cond_0
+    :cond_34
     invoke-virtual {v1}, Lokhttp3/HttpUrl;->toString()Ljava/lang/String;
 
     move-result-object v5
@@ -281,7 +281,7 @@
 
     .line 23
     .local v6, "$i$a$-let-NetsKt$toLink$1":I
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_89
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -320,21 +320,21 @@
     .line 22
     .end local v5    # "it":Ljava/lang/String;
     .end local v6    # "$i$a$-let-NetsKt$toLink$1":I
-    :cond_1
+    :cond_89
     return-object v5
 .end method
 
 .method public static synthetic toLink$default(Lokhttp3/HttpUrl$Builder;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 14
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x1
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ktx/NetsKt;->toLink(Lokhttp3/HttpUrl$Builder;Ljava/lang/String;Z)Ljava/lang/String;
 
     move-result-object p0
@@ -343,7 +343,7 @@
 .end method
 
 .method public static final unwrapIPV6Host(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "$this$unwrapIPV6Host"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -363,7 +363,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     const-string v0, "]"
 
@@ -371,7 +371,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 38
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -397,12 +397,12 @@
     return-object v0
 
     .line 40
-    :cond_0
+    :cond_2c
     return-object p0
 .end method
 
 .method public static final wrapIPV6Host(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$wrapIPV6Host"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -420,7 +420,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     .line 47
     new-instance v1, Ljava/lang/StringBuilder;
@@ -450,12 +450,12 @@
     return-object v1
 
     .line 49
-    :cond_0
+    :cond_29
     return-object p0
 .end method
 
 .method public static final wrapUri(Lio/nekohasekai/sagernet/fmt/AbstractBean;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$wrapUri"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     const-string v0, "<this>"

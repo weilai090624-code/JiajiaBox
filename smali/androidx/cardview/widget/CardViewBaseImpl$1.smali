@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/cardview/widget/CardViewBaseImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/cardview/widget/CardViewBaseImpl;
 
     .line 38
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public drawRoundRect(Landroid/graphics/Canvas;Landroid/graphics/RectF;FLandroid/graphics/Paint;)V
-    .locals 16
+    .registers 21
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "bounds"    # Landroid/graphics/RectF;
     .param p3, "cornerRadius"    # F
@@ -80,7 +80,7 @@
     .local v12, "innerHeight":F
     cmpl-float v1, p3, v10
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_b9
 
     .line 47
     const/high16 v1, 0x3f000000    # 0.5f
@@ -262,7 +262,7 @@
     .line 74
     .end local v13    # "roundedCornerRadius":F
     .end local v14    # "saved":I
-    :cond_0
+    :cond_b9
     iget v2, v8, Landroid/graphics/RectF;->left:F
 
     iget v1, v8, Landroid/graphics/RectF;->top:F

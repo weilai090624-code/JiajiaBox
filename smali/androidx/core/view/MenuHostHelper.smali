@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "onInvalidateMenuCallback"    # Ljava/lang/Runnable;
 
     .line 66
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public addMenuProvider(Landroidx/core/view/MenuProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "provider"    # Landroidx/core/view/MenuProvider;
 
     .line 132
@@ -86,7 +86,7 @@
 .end method
 
 .method public addMenuProvider(Landroidx/core/view/MenuProvider;Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 5
+    .registers 8
     .param p1, "provider"    # Landroidx/core/view/MenuProvider;
     .param p2, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
@@ -110,13 +110,13 @@
 
     .line 149
     .local v1, "lifecycleContainer":Landroidx/core/view/MenuHostHelper$LifecycleContainer;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 150
     invoke-virtual {v1}, Landroidx/core/view/MenuHostHelper$LifecycleContainer;->clearObservers()V
 
     .line 152
-    :cond_0
+    :cond_14
     new-instance v2, Landroidx/core/view/MenuHostHelper$$ExternalSyntheticLambda1;
 
     invoke-direct {v2, p0, p1}, Landroidx/core/view/MenuHostHelper$$ExternalSyntheticLambda1;-><init>(Landroidx/core/view/MenuHostHelper;Landroidx/core/view/MenuProvider;)V
@@ -136,7 +136,7 @@
 .end method
 
 .method public addMenuProvider(Landroidx/core/view/MenuProvider;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;)V
-    .locals 5
+    .registers 9
     .param p1, "provider"    # Landroidx/core/view/MenuProvider;
     .param p2, "owner"    # Landroidx/lifecycle/LifecycleOwner;
     .param p3, "state"    # Landroidx/lifecycle/Lifecycle$State;
@@ -158,13 +158,13 @@
 
     .line 177
     .local v1, "lifecycleContainer":Landroidx/core/view/MenuHostHelper$LifecycleContainer;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 178
     invoke-virtual {v1}, Landroidx/core/view/MenuHostHelper$LifecycleContainer;->clearObservers()V
 
     .line 180
-    :cond_0
+    :cond_11
     new-instance v2, Landroidx/core/view/MenuHostHelper$$ExternalSyntheticLambda0;
 
     invoke-direct {v2, p0, p3, p1}, Landroidx/core/view/MenuHostHelper$$ExternalSyntheticLambda0;-><init>(Landroidx/core/view/MenuHostHelper;Landroidx/lifecycle/Lifecycle$State;Landroidx/core/view/MenuProvider;)V
@@ -184,7 +184,7 @@
 .end method
 
 .method synthetic lambda$addMenuProvider$0$androidx-core-view-MenuHostHelper(Landroidx/core/view/MenuProvider;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 1
+    .registers 5
     .param p1, "provider"    # Landroidx/core/view/MenuProvider;
     .param p2, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p3, "event"    # Landroidx/lifecycle/Lifecycle$Event;
@@ -192,18 +192,18 @@
     .line 153
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_7
 
     .line 154
     invoke-virtual {p0, p1}, Landroidx/core/view/MenuHostHelper;->removeMenuProvider(Landroidx/core/view/MenuProvider;)V
 
     .line 156
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method synthetic lambda$addMenuProvider$1$androidx-core-view-MenuHostHelper(Landroidx/lifecycle/Lifecycle$State;Landroidx/core/view/MenuProvider;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 1
+    .registers 6
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "provider"    # Landroidx/core/view/MenuProvider;
     .param p3, "source"    # Landroidx/lifecycle/LifecycleOwner;
@@ -214,31 +214,31 @@
 
     move-result-object v0
 
-    if-ne p4, v0, :cond_0
+    if-ne p4, v0, :cond_a
 
     .line 182
     invoke-virtual {p0, p2}, Landroidx/core/view/MenuHostHelper;->addMenuProvider(Landroidx/core/view/MenuProvider;)V
 
-    goto :goto_0
+    goto :goto_22
 
     .line 183
-    :cond_0
+    :cond_a
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p4, v0, :cond_1
+    if-ne p4, v0, :cond_12
 
     .line 184
     invoke-virtual {p0, p2}, Landroidx/core/view/MenuHostHelper;->removeMenuProvider(Landroidx/core/view/MenuProvider;)V
 
-    goto :goto_0
+    goto :goto_22
 
     .line 185
-    :cond_1
+    :cond_12
     invoke-static {p1}, Landroidx/lifecycle/Lifecycle$Event;->downFrom(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
 
     move-result-object v0
 
-    if-ne p4, v0, :cond_2
+    if-ne p4, v0, :cond_22
 
     .line 186
     iget-object v0, p0, Landroidx/core/view/MenuHostHelper;->mMenuProviders:Ljava/util/concurrent/CopyOnWriteArrayList;
@@ -251,13 +251,13 @@
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     .line 189
-    :cond_2
-    :goto_0
+    :cond_22
+    :goto_22
     return-void
 .end method
 
 .method public onCreateMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
-    .locals 2
+    .registers 5
     .param p1, "menu"    # Landroid/view/Menu;
     .param p2, "menuInflater"    # Landroid/view/MenuInflater;
 
@@ -268,12 +268,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -287,15 +287,15 @@
 
     .line 94
     .end local v1    # "menuProvider":Landroidx/core/view/MenuProvider;
-    goto :goto_0
+    goto :goto_6
 
     .line 95
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onMenuClosed(Landroid/view/Menu;)V
-    .locals 2
+    .registers 4
     .param p1, "menu"    # Landroid/view/Menu;
 
     .line 121
@@ -305,12 +305,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -324,15 +324,15 @@
 
     .line 123
     .end local v1    # "menuProvider":Landroidx/core/view/MenuProvider;
-    goto :goto_0
+    goto :goto_6
 
     .line 124
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onMenuItemSelected(Landroid/view/MenuItem;)Z
-    .locals 3
+    .registers 5
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 106
@@ -342,12 +342,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -361,7 +361,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     .line 108
     const/4 v0, 0x1
@@ -370,18 +370,18 @@
 
     .line 110
     .end local v1    # "menuProvider":Landroidx/core/view/MenuProvider;
-    :cond_0
-    goto :goto_0
+    :cond_1a
+    goto :goto_6
 
     .line 111
-    :cond_1
+    :cond_1b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onPrepareMenu(Landroid/view/Menu;)V
-    .locals 2
+    .registers 4
     .param p1, "menu"    # Landroid/view/Menu;
 
     .line 79
@@ -391,12 +391,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -410,15 +410,15 @@
 
     .line 81
     .end local v1    # "menuProvider":Landroidx/core/view/MenuProvider;
-    goto :goto_0
+    goto :goto_6
 
     .line 82
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public removeMenuProvider(Landroidx/core/view/MenuProvider;)V
-    .locals 2
+    .registers 4
     .param p1, "provider"    # Landroidx/core/view/MenuProvider;
 
     .line 199
@@ -437,13 +437,13 @@
 
     .line 201
     .local v0, "lifecycleContainer":Landroidx/core/view/MenuHostHelper$LifecycleContainer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 202
     invoke-virtual {v0}, Landroidx/core/view/MenuHostHelper$LifecycleContainer;->clearObservers()V
 
     .line 204
-    :cond_0
+    :cond_12
     iget-object v1, p0, Landroidx/core/view/MenuHostHelper;->mOnInvalidateMenuCallback:Ljava/lang/Runnable;
 
     invoke-interface {v1}, Ljava/lang/Runnable;->run()V

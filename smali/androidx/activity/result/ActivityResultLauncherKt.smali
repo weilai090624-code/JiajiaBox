@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final launch(Landroidx/activity/result/ActivityResultLauncher;Landroidx/core/app/ActivityOptionsCompat;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$launch"    # Landroidx/activity/result/ActivityResultLauncher;
     .param p1, "options"    # Landroidx/core/app/ActivityOptionsCompat;
     .annotation system Ldalvik/annotation/Signature;
@@ -58,23 +58,23 @@
 .end method
 
 .method public static synthetic launch$default(Landroidx/activity/result/ActivityResultLauncher;Landroidx/core/app/ActivityOptionsCompat;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 65
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Landroidx/activity/result/ActivityResultLauncherKt;->launch(Landroidx/activity/result/ActivityResultLauncher;Landroidx/core/app/ActivityOptionsCompat;)V
 
     return-void
 .end method
 
 .method public static final launchUnit(Landroidx/activity/result/ActivityResultLauncher;Landroidx/core/app/ActivityOptionsCompat;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$launch"    # Landroidx/activity/result/ActivityResultLauncher;
     .param p1, "options"    # Landroidx/core/app/ActivityOptionsCompat;
     .annotation system Ldalvik/annotation/Signature;
@@ -102,16 +102,16 @@
 .end method
 
 .method public static synthetic launchUnit$default(Landroidx/activity/result/ActivityResultLauncher;Landroidx/core/app/ActivityOptionsCompat;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 71
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Landroidx/activity/result/ActivityResultLauncherKt;->launchUnit(Landroidx/activity/result/ActivityResultLauncher;Landroidx/core/app/ActivityOptionsCompat;)V
 
     return-void

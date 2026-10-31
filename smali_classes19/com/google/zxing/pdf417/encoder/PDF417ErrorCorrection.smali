@@ -9,50 +9,50 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .registers 13
 
     .line 35
     const/16 v0, 0x8
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_66
 
     const/16 v2, 0x10
 
     new-array v2, v2, [I
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_7a
 
     const/16 v3, 0x20
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_9e
 
     const/16 v4, 0x40
 
     new-array v4, v4, [I
 
-    fill-array-data v4, :array_3
+    fill-array-data v4, :array_e2
 
     const/16 v5, 0x80
 
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_4
+    fill-array-data v5, :array_166
 
     const/16 v6, 0x100
 
     new-array v6, v6, [I
 
-    fill-array-data v6, :array_5
+    fill-array-data v6, :array_26a
 
     const/16 v7, 0x200
 
     new-array v7, v7, [I
 
-    fill-array-data v7, :array_6
+    fill-array-data v7, :array_46e
 
     const/16 v8, 0x9
 
@@ -116,7 +116,7 @@
 
     return-void
 
-    :array_0
+    :array_66
     .array-data 4
         0xed
         0x134
@@ -128,7 +128,7 @@
         0x17b
     .end array-data
 
-    :array_1
+    :array_7a
     .array-data 4
         0x112
         0x232
@@ -148,7 +148,7 @@
         0x41
     .end array-data
 
-    :array_2
+    :array_9e
     .array-data 4
         0x169
         0x23f
@@ -184,7 +184,7 @@
         0x19a
     .end array-data
 
-    :array_3
+    :array_e2
     .array-data 4
         0x21b
         0x1a6
@@ -252,7 +252,7 @@
         0x21f
     .end array-data
 
-    :array_4
+    :array_166
     .array-data 4
         0x209
         0x136
@@ -384,7 +384,7 @@
         0x21b
     .end array-data
 
-    :array_5
+    :array_26a
     .array-data 4
         0x20c
         0x37e
@@ -644,7 +644,7 @@
         0xa
     .end array-data
 
-    :array_6
+    :array_46e
     .array-data 4
         0x160
         0x4d
@@ -1162,7 +1162,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 127
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -1172,7 +1172,7 @@
 .end method
 
 .method static generateErrorCorrection(Ljava/lang/CharSequence;I)Ljava/lang/String;
-    .locals 9
+    .registers 11
     .param p0, "dataCodewords"    # Ljava/lang/CharSequence;
     .param p1, "errorCorrectionLevel"    # I
 
@@ -1200,8 +1200,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_d
+    if-ge v3, v2, :cond_4c
 
     .line 182
     invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1221,8 +1221,8 @@
     add-int/lit8 v5, v1, -0x1
 
     .local v5, "j":I
-    :goto_1
-    if-lez v5, :cond_0
+    :goto_1c
+    if-lez v5, :cond_37
 
     .line 186
     sget-object v6, Lcom/google/zxing/pdf417/encoder/PDF417ErrorCorrection;->EC_COEFFICIENTS:[[I
@@ -1256,13 +1256,13 @@
     .line 185
     add-int/lit8 v5, v5, -0x1
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 190
     .end local v5    # "j":I
     .end local v6    # "t2":I
     .end local v7    # "t3":I
-    :cond_0
+    :cond_37
     sget-object v5, Lcom/google/zxing/pdf417/encoder/PDF417ErrorCorrection;->EC_COEFFICIENTS:[[I
 
     aget-object v5, v5, p1
@@ -1293,11 +1293,11 @@
     .end local v7    # "t3":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 194
     .end local v3    # "i":I
-    :cond_1
+    :cond_4c
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3, v1}, Ljava/lang/StringBuilder;-><init>(I)V
@@ -1307,13 +1307,13 @@
     add-int/lit8 v4, v1, -0x1
 
     .local v4, "j":I
-    :goto_2
-    if-ltz v4, :cond_3
+    :goto_53
+    if-ltz v4, :cond_68
 
     .line 196
     aget-char v5, v0, v4
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_60
 
     .line 197
     aget-char v5, v0, v4
@@ -1325,7 +1325,7 @@
     aput-char v5, v0, v4
 
     .line 199
-    :cond_2
+    :cond_60
     aget-char v5, v0, v4
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -1333,11 +1333,11 @@
     .line 195
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_2
+    goto :goto_53
 
     .line 201
     .end local v4    # "j":I
-    :cond_3
+    :cond_68
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -1346,15 +1346,15 @@
 .end method
 
 .method static getErrorCorrectionCodewordCount(I)I
-    .locals 2
+    .registers 3
     .param p0, "errorCorrectionLevel"    # I
 
     .line 138
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_c
 
     const/16 v0, 0x8
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_c
 
     .line 141
     add-int/lit8 v0, p0, 0x1
@@ -1366,7 +1366,7 @@
     return v0
 
     .line 139
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Error correction level must be between 0 and 8!"
@@ -1377,7 +1377,7 @@
 .end method
 
 .method static getRecommendedMinimumErrorCorrectionLevel(I)I
-    .locals 2
+    .registers 3
     .param p0, "n"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1386,12 +1386,12 @@
     .end annotation
 
     .line 152
-    if-lez p0, :cond_4
+    if-lez p0, :cond_22
 
     .line 155
     const/16 v0, 0x28
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_8
 
     .line 156
     const/4 v0, 0x2
@@ -1399,10 +1399,10 @@
     return v0
 
     .line 158
-    :cond_0
+    :cond_8
     const/16 v0, 0xa0
 
-    if-gt p0, v0, :cond_1
+    if-gt p0, v0, :cond_e
 
     .line 159
     const/4 v0, 0x3
@@ -1410,10 +1410,10 @@
     return v0
 
     .line 161
-    :cond_1
+    :cond_e
     const/16 v0, 0x140
 
-    if-gt p0, v0, :cond_2
+    if-gt p0, v0, :cond_14
 
     .line 162
     const/4 v0, 0x4
@@ -1421,10 +1421,10 @@
     return v0
 
     .line 164
-    :cond_2
+    :cond_14
     const/16 v0, 0x35f
 
-    if-gt p0, v0, :cond_3
+    if-gt p0, v0, :cond_1a
 
     .line 165
     const/4 v0, 0x5
@@ -1432,7 +1432,7 @@
     return v0
 
     .line 167
-    :cond_3
+    :cond_1a
     new-instance v0, Lcom/google/zxing/WriterException;
 
     const-string v1, "No recommendation possible"
@@ -1442,7 +1442,7 @@
     throw v0
 
     .line 153
-    :cond_4
+    :cond_22
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "n must be > 0"

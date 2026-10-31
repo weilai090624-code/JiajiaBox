@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Lcom/google/android/material/floatingactionbutton/MotionStrategy;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
     .line 857
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 868
@@ -62,7 +62,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 874
@@ -73,7 +73,7 @@
     .line 875
     iget-boolean v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$5;->cancelled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 876
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$5;->val$strategy:Lcom/google/android/material/floatingactionbutton/MotionStrategy;
@@ -83,12 +83,12 @@
     invoke-interface {v0, v1}, Lcom/google/android/material/floatingactionbutton/MotionStrategy;->onChange(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;)V
 
     .line 878
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 862

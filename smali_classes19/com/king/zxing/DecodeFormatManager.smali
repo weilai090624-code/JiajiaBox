@@ -73,7 +73,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 23
     new-instance v0, Ljava/util/EnumMap;
@@ -170,7 +170,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -179,7 +179,7 @@
 .end method
 
 .method private static addDecodeHintTypes(Ljava/util/Map;Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -219,7 +219,7 @@
 .end method
 
 .method public static createDecodeHint(Lcom/google/zxing/BarcodeFormat;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "barcodeFormat"    # Lcom/google/zxing/BarcodeFormat;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -253,7 +253,7 @@
 .end method
 
 .method public static varargs createDecodeHints([Lcom/google/zxing/BarcodeFormat;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "barcodeFormats"    # [Lcom/google/zxing/BarcodeFormat;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -287,7 +287,7 @@
 .end method
 
 .method private static getAllFormats()Ljava/util/List;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -393,7 +393,7 @@
 .end method
 
 .method private static getDefaultFormats()Ljava/util/List;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -434,7 +434,7 @@
 .end method
 
 .method private static getOneDimensionalFormats()Ljava/util/List;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -515,7 +515,7 @@
 .end method
 
 .method private static getTwoDimensionalFormats()Ljava/util/List;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -561,7 +561,7 @@
 .end method
 
 .method private static singletonList(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

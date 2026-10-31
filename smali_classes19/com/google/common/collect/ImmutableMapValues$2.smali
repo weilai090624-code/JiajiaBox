@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMapValues;Lcom/google/common/collect/ImmutableList;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ImmutableMapValues;
 
     .line 75
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,7 +68,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 83
     .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$2;, "Lcom/google/common/collect/ImmutableMapValues$2;"
@@ -78,7 +78,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 88
     .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$2;, "Lcom/google/common/collect/ImmutableMapValues$2;"

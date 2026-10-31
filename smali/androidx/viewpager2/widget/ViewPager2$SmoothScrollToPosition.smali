@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(ILandroidx/recyclerview/widget/RecyclerView;)V
-    .locals 0
+    .registers 3
     .param p1, "position"    # I
     .param p2, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 1069
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$SmoothScrollToPosition;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;

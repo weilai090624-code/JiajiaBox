@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 3
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 128
@@ -45,7 +45,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 133
     iget-object v0, p0, Lcom/google/common/hash/Funnels$StringCharsetFunnel$SerializedForm;->charsetCanonicalName:Ljava/lang/String;

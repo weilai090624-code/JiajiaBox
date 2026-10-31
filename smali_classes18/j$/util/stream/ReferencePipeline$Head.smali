@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;IZ)V
-    .locals 0
+    .registers 4
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -49,7 +49,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/function/Supplier;IZ)V
-    .locals 0
+    .registers 4
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public forEach(Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 658
     invoke-virtual {p0}, Lj$/util/stream/ReferencePipeline$Head;->sourceStageSpliterator()Lj$/util/Spliterator;
@@ -99,19 +99,19 @@
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 661
-    :cond_0
+    :cond_e
     invoke-super {p0, p1}, Lj$/util/stream/ReferencePipeline;->forEach(Ljava/util/function/Consumer;)V
 
     .line 663
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public forEachOrdered(Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,7 +127,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 668
     invoke-virtual {p0}, Lj$/util/stream/ReferencePipeline$Head;->sourceStageSpliterator()Lj$/util/Spliterator;
@@ -136,19 +136,19 @@
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 671
-    :cond_0
+    :cond_e
     invoke-super {p0, p1}, Lj$/util/stream/ReferencePipeline;->forEachOrdered(Ljava/util/function/Consumer;)V
 
     .line 673
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method final opIsStateful()Z
-    .locals 1
+    .registers 2
 
     .line 645
     .local p0, "this":Lj$/util/stream/ReferencePipeline$Head;, "Ljava/util/stream/ReferencePipeline$Head<TE_IN;TE_OUT;>;"
@@ -160,7 +160,7 @@
 .end method
 
 .method final opWrapSink(ILj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 1
+    .registers 4
     .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -183,7 +183,7 @@
 .end method
 
 .method public bridge synthetic unordered()Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
     .line 617
     .local p0, "this":Lj$/util/stream/ReferencePipeline$Head;, "Ljava/util/stream/ReferencePipeline$Head<TE_IN;TE_OUT;>;"

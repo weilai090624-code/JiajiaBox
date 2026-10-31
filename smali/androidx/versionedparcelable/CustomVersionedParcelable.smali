@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,14 +19,14 @@
 
 # virtual methods
 .method public onPostParceling()V
-    .locals 0
+    .registers 1
 
     .line 45
     return-void
 .end method
 
 .method public onPreParceling(Z)V
-    .locals 0
+    .registers 2
     .param p1, "isStream"    # Z
 
     .line 36

@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/widget/ListListener;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 8
+    .registers 11
     .param p1, "view"    # Landroid/view/View;
     .param p2, "insets"    # Landroidx/core/view/WindowInsetsCompat;
 

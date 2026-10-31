@@ -7,7 +7,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;,
-        Lio/nekohasekai/sagernet/ui/RosePalette$State;
+        Lio/nekohasekai/sagernet/ui/RosePalette$State;,
+        Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;
     }
 .end annotation
 
@@ -15,15 +16,25 @@
 # static fields
 .field public static final ACCENT:I = -0x48b88f
 
+.field private static final ACCENT_TINT:Landroid/content/res/ColorStateList;
+
 .field public static final BACKGROUND:I = -0x1
 
 .field public static final BORDER:I = -0x131613
 
 .field public static final CONTROL:I = -0x1
 
+.field private static final CONTROL_TINT:Landroid/content/res/ColorStateList;
+
+.field private static final HIDDEN_DRAWER_TAG:I = 0x7f0a0faa
+
 .field public static final SELECTED:I = -0x30f0b
 
 .field public static final TEXT:I = -0xd6d4d1
+
+.field private static final TRACK_TINT:Landroid/content/res/ColorStateList;
+
+.field private static final WHITE_TINT:Landroid/content/res/ColorStateList;
 
 .field private static final activities:Ljava/util/WeakHashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -80,6 +91,18 @@
     .end annotation
 .end field
 
+.field private static final switchApis:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map<",
+            "Ljava/lang/Class<",
+            "*>;",
+            "Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -119,13 +142,53 @@
 
     sput-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->activities:Ljava/util/WeakHashMap;
 
+    const/4 v0, 0x0
+
+    .line 37
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/RosePalette;->createControls(Z)Landroid/content/res/ColorStateList;
+
+    move-result-object v0
+
+    sput-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->CONTROL_TINT:Landroid/content/res/ColorStateList;
+
+    const/4 v0, 0x1
+
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/RosePalette;->createControls(Z)Landroid/content/res/ColorStateList;
+
+    move-result-object v0
+
+    sput-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->TRACK_TINT:Landroid/content/res/ColorStateList;
+
+    const v0, -0x48b88f
+
+    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v0
+
+    sput-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->ACCENT_TINT:Landroid/content/res/ColorStateList;
+
+    const/4 v0, -0x1
+
+    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v0
+
+    sput-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->WHITE_TINT:Landroid/content/res/ColorStateList;
+
+    .line 105
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    sput-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->switchApis:Ljava/util/Map;
+
     return-void
 .end method
 
 .method private constructor <init>()V
     .registers 1
 
-    .line 119
+    .line 139
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -161,13 +224,13 @@
 .end method
 
 .method public static backdrop(Landroid/view/View;)V
-    .registers 7
+    .registers 8
 
     if-nez p0, :cond_3
 
     goto :goto_27
 
-    .line 93
+    .line 113
     :cond_3
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -177,7 +240,7 @@
 
     move-result v0
 
-    .line 94
+    .line 114
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -212,32 +275,34 @@
     :cond_28
     if-eqz v0, :cond_33
 
-    .line 95
+    .line 115
     new-instance v1, Landroid/graphics/drawable/ColorDrawable;
 
     const v3, -0xd6d4d1
 
     invoke-direct {v1, v3}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
-    goto :goto_41
+    goto :goto_46
 
     :cond_33
     new-instance v1, Landroid/graphics/drawable/GradientDrawable;
 
     sget-object v3, Landroid/graphics/drawable/GradientDrawable$Orientation;->TL_BR:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    const/16 v4, -0xb08
+    const v4, -0x10102
 
-    const/4 v5, -0x1
+    const/16 v5, -0xc09
 
-    filled-new-array {v5, v5, v4}, [I
+    const v6, -0x70906
+
+    filled-new-array {v6, v4, v5}, [I
 
     move-result-object v4
 
     invoke-direct {v1, v3, v4}, Landroid/graphics/drawable/GradientDrawable;-><init>(Landroid/graphics/drawable/GradientDrawable$Orientation;[I)V
 
-    .line 96
-    :goto_41
+    .line 116
+    :goto_46
     invoke-virtual {p0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     sget-object v3, Lio/nekohasekai/sagernet/ui/RosePalette;->backdrops:Ljava/util/WeakHashMap;
@@ -258,7 +323,7 @@
 .method private static brand(Landroid/view/View;Z)V
     .registers 8
 
-    .line 99
+    .line 119
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -277,7 +342,7 @@
 
     goto :goto_7a
 
-    .line 101
+    .line 121
     :cond_11
     :try_start_11
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -304,7 +369,7 @@
 
     if-eqz v0, :cond_7a
 
-    .line 102
+    .line 122
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -331,7 +396,7 @@
 
     goto :goto_7a
 
-    .line 103
+    .line 123
     :cond_40
     instance-of v0, v0, Landroid/text/Spanned;
 
@@ -355,7 +420,7 @@
 
     goto :goto_7a
 
-    .line 104
+    .line 124
     :cond_55
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -404,14 +469,14 @@
 .method public static brandTitle(Z)Ljava/lang/CharSequence;
     .registers 6
 
-    .line 108
+    .line 128
     new-instance v0, Landroid/text/SpannableString;
 
     const-string v1, "JiajiaBox."
 
     invoke-direct {v0, v1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 109
+    .line 129
     new-instance v1, Landroid/text/style/ForegroundColorSpan;
 
     if-eqz p0, :cond_f
@@ -434,7 +499,7 @@
 
     invoke-virtual {v0, v1, p0, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    .line 110
+    .line 130
     new-instance v1, Landroid/text/style/ForegroundColorSpan;
 
     const v4, -0x289570
@@ -445,7 +510,7 @@
 
     invoke-virtual {v0, v1, v2, v4, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    .line 111
+    .line 131
     new-instance v1, Landroid/text/style/StyleSpan;
 
     const/4 v2, 0x1
@@ -478,6 +543,22 @@
 .end method
 
 .method private static controls(Z)Landroid/content/res/ColorStateList;
+    .registers 1
+
+    if-eqz p0, :cond_5
+
+    .line 38
+    sget-object p0, Lio/nekohasekai/sagernet/ui/RosePalette;->TRACK_TINT:Landroid/content/res/ColorStateList;
+
+    return-object p0
+
+    :cond_5
+    sget-object p0, Lio/nekohasekai/sagernet/ui/RosePalette;->CONTROL_TINT:Landroid/content/res/ColorStateList;
+
+    return-object p0
+.end method
+
+.method private static createControls(Z)Landroid/content/res/ColorStateList;
     .registers 6
 
     .line 36
@@ -556,10 +637,23 @@
     return-object v0
 .end method
 
+.method public static hideDrawerParent(Landroid/view/View;)V
+    .registers 3
+
+    const v0, 0x7f0a0faa
+
+    .line 68
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    invoke-virtual {p0, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+
+    return-void
+.end method
+
 .method public static install(Landroid/app/Activity;)V
     .registers 3
 
-    .line 38
+    .line 40
     sget-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->activities:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->containsKey(Ljava/lang/Object;)Z
@@ -579,7 +673,7 @@
 
     invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 39
+    .line 41
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object p0
@@ -663,7 +757,7 @@
 
     return-void
 
-    .line 63
+    .line 65
     :cond_3
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -691,7 +785,7 @@
 
     if-nez p2, :cond_16
 
-    .line 64
+    .line 66
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -795,7 +889,7 @@
 
     goto :goto_f
 
-    .line 59
+    .line 61
     :cond_3
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/RosePalette;->prepare(Landroid/view/View;)V
 
@@ -810,13 +904,13 @@
     :goto_f
     return-void
 
-    .line 60
+    .line 62
     :cond_10
     new-instance v1, Lio/nekohasekai/sagernet/ui/RosePalette$1;
 
     invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/ui/RosePalette$1;-><init>(Landroid/view/View;)V
 
-    .line 61
+    .line 63
     invoke-virtual {p0, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -828,13 +922,107 @@
     return-void
 .end method
 
+.method public static revealDrawerParent(Landroid/view/View;)V
+    .registers 4
+
+    .line 70
+    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    const v1, 0x7f0a0faa
+
+    invoke-virtual {p0, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_16
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v1, v0}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/RosePalette;->prepareForDisplay(Landroid/view/View;)V
+
+    :cond_16
+    return-void
+.end method
+
+.method private static same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
+    .registers 2
+
+    if-eq p0, p1, :cond_d
+
+    if-eqz p0, :cond_b
+
+    .line 104
+    invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_b
+
+    goto :goto_d
+
+    :cond_b
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_d
+    :goto_d
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method private static switchApi(Ljava/lang/Class;)Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Class<",
+            "*>;)",
+            "Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ReflectiveOperationException;
+        }
+    .end annotation
+
+    .line 110
+    sget-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->switchApis:Ljava/util/Map;
+
+    invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;
+
+    if-nez v1, :cond_12
+
+    new-instance v1, Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;
+
+    invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;-><init>(Ljava/lang/Class;)V
+
+    invoke-interface {v0, p0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_12
+    return-object v1
+.end method
+
 .method private static toolbarAction(Landroid/view/View;)Z
     .registers 3
 
     :goto_0
     if-eqz p0, :cond_21
 
-    .line 116
+    .line 136
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -882,13 +1070,31 @@
 .method private static walk(Landroid/view/View;ZZ)V
     .registers 9
 
+    .line 73
+    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    const v1, 0x7f0a0faa
+
+    invoke-virtual {p0, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_10
+
+    goto :goto_52
+
+    :cond_10
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    if-nez p2, :cond_16
+    if-nez p2, :cond_26
 
-    .line 66
+    .line 74
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -903,80 +1109,81 @@
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_26
 
     const/4 v2, 0x1
 
-    goto :goto_17
+    goto :goto_27
 
-    :cond_16
+    :cond_26
     const/4 v2, 0x0
 
-    :goto_17
-    if-eqz v2, :cond_1c
+    :goto_27
+    if-eqz v2, :cond_2c
 
-    .line 67
+    .line 75
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/RosePalette;->brand(Landroid/view/View;Z)V
 
-    :cond_1c
-    if-nez v2, :cond_23
+    :cond_2c
+    if-nez v2, :cond_33
 
-    if-nez p2, :cond_23
+    if-nez p2, :cond_33
 
-    .line 68
+    .line 76
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/RosePalette;->widget(Landroid/view/View;Z)V
 
-    .line 69
-    :cond_23
+    .line 77
+    :cond_33
     instance-of v3, p0, Landroid/view/ViewGroup;
 
-    if-eqz v3, :cond_42
+    if-eqz v3, :cond_52
 
     check-cast p0, Landroid/view/ViewGroup;
 
     const/4 v3, 0x0
 
-    :goto_2a
+    :goto_3a
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_42
+    if-ge v3, v4, :cond_52
 
     invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
-    if-nez p2, :cond_3b
+    if-nez p2, :cond_4b
 
-    if-eqz v2, :cond_39
+    if-eqz v2, :cond_49
 
-    goto :goto_3b
+    goto :goto_4b
 
-    :cond_39
+    :cond_49
     const/4 v5, 0x0
 
-    goto :goto_3c
+    goto :goto_4c
 
-    :cond_3b
-    :goto_3b
+    :cond_4b
+    :goto_4b
     const/4 v5, 0x1
 
-    :goto_3c
+    :goto_4c
     invoke-static {v4, p1, v5}, Lio/nekohasekai/sagernet/ui/RosePalette;->walk(Landroid/view/View;ZZ)V
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2a
+    goto :goto_3a
 
-    :cond_42
+    :cond_52
+    :goto_52
     return-void
 .end method
 
 .method public static widget(Landroid/view/View;)V
     .registers 4
 
-    .line 72
+    .line 80
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1017,415 +1224,501 @@
 .end method
 
 .method private static widget(Landroid/view/View;Z)V
-    .registers 9
+    .registers 10
 
-    .line 75
-    sget-object v0, Lio/nekohasekai/sagernet/ui/RosePalette;->states:Ljava/util/WeakHashMap;
+    .line 85
+    instance-of v0, p0, Landroid/widget/TextView;
 
-    invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "Switch"
 
-    move-result-object v1
+    if-nez v0, :cond_1e
 
-    check-cast v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;
+    instance-of v2, p0, Landroid/widget/ImageButton;
 
-    .line 76
-    const-string v2, "Switch"
+    if-nez v2, :cond_1e
 
-    const/4 v3, 0x0
+    instance-of v2, p0, Landroid/widget/ProgressBar;
 
-    if-nez v1, :cond_ac
+    if-nez v2, :cond_1e
 
-    if-nez p1, :cond_11
+    .line 86
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    goto/16 :goto_1a3
+    move-result-object v2
 
-    :cond_11
-    new-instance v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;
+    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1e
+
+    goto/16 :goto_1fb
+
+    .line 87
+    :cond_1e
+    sget-object v2, Lio/nekohasekai/sagernet/ui/RosePalette;->states:Ljava/util/WeakHashMap;
+
+    invoke-virtual {v2, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;
 
     const/4 v4, 0x0
 
-    invoke-direct {v1, v4}, Lio/nekohasekai/sagernet/ui/RosePalette$State;-><init>(Lio/nekohasekai/sagernet/ui/RosePalette$1;)V
+    const/4 v5, 0x0
 
-    invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    if-nez v3, :cond_c6
 
-    .line 77
-    instance-of v0, p0, Landroid/widget/CompoundButton;
+    if-nez p1, :cond_2e
 
-    if-eqz v0, :cond_27
+    goto/16 :goto_1fb
 
-    move-object v5, p0
+    .line 88
+    :cond_2e
+    new-instance v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;
 
-    check-cast v5, Landroid/widget/CompoundButton;
+    invoke-direct {v3, v5}, Lio/nekohasekai/sagernet/ui/RosePalette$State;-><init>(Lio/nekohasekai/sagernet/ui/RosePalette$1;)V
 
-    invoke-virtual {v5}, Landroid/widget/CompoundButton;->getButtonTintList()Landroid/content/res/ColorStateList;
+    invoke-virtual {v2, p0, v3}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    .line 89
+    instance-of v2, p0, Landroid/widget/CompoundButton;
 
-    iput-object v5, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->button:Landroid/content/res/ColorStateList;
+    if-eqz v2, :cond_43
 
-    .line 78
-    :cond_27
-    instance-of v5, p0, Landroid/widget/TextView;
+    move-object v6, p0
 
-    if-eqz v5, :cond_46
+    check-cast v6, Landroid/widget/CompoundButton;
 
-    move-object v5, p0
-
-    check-cast v5, Landroid/widget/TextView;
-
-    invoke-virtual {v5}, Landroid/widget/TextView;->getLinkTextColors()Landroid/content/res/ColorStateList;
+    invoke-virtual {v6}, Landroid/widget/CompoundButton;->getButtonTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v6
 
-    iput-object v6, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->link:Landroid/content/res/ColorStateList;
+    iput-object v6, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->button:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {v5}, Landroid/widget/TextView;->getHighlightColor()I
+    :cond_43
+    if-eqz v0, :cond_60
+
+    .line 90
+    move-object v6, p0
+
+    check-cast v6, Landroid/widget/TextView;
+
+    invoke-virtual {v6}, Landroid/widget/TextView;->getLinkTextColors()Landroid/content/res/ColorStateList;
+
+    move-result-object v7
+
+    iput-object v7, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->link:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v6}, Landroid/widget/TextView;->getHighlightColor()I
+
+    move-result v7
+
+    iput v7, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->highlight:I
+
+    instance-of v7, p0, Landroid/widget/Button;
+
+    if-eqz v7, :cond_60
+
+    if-nez v2, :cond_60
+
+    invoke-virtual {v6}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
+
+    move-result-object v2
+
+    iput-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->text:Landroid/content/res/ColorStateList;
+
+    .line 91
+    :cond_60
+    instance-of v2, p0, Landroid/widget/ImageButton;
+
+    if-eqz v2, :cond_6d
+
+    move-object v2, p0
+
+    check-cast v2, Landroid/widget/ImageButton;
+
+    invoke-virtual {v2}, Landroid/widget/ImageButton;->getImageTintList()Landroid/content/res/ColorStateList;
+
+    move-result-object v2
+
+    iput-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->image:Landroid/content/res/ColorStateList;
+
+    .line 92
+    :cond_6d
+    instance-of v2, p0, Landroid/widget/ProgressBar;
+
+    if-eqz v2, :cond_80
+
+    move-object v2, p0
+
+    check-cast v2, Landroid/widget/ProgressBar;
+
+    invoke-virtual {v2}, Landroid/widget/ProgressBar;->getProgressTintList()Landroid/content/res/ColorStateList;
+
+    move-result-object v6
+
+    iput-object v6, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->progress:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v2}, Landroid/widget/ProgressBar;->getIndeterminateTintList()Landroid/content/res/ColorStateList;
+
+    move-result-object v2
+
+    iput-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->indeterminate:Landroid/content/res/ColorStateList;
+
+    .line 93
+    :cond_80
+    instance-of v2, p0, Landroid/widget/SeekBar;
+
+    if-eqz v2, :cond_8d
+
+    move-object v2, p0
+
+    check-cast v2, Landroid/widget/SeekBar;
+
+    invoke-virtual {v2}, Landroid/widget/SeekBar;->getThumbTintList()Landroid/content/res/ColorStateList;
+
+    move-result-object v2
+
+    iput-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->thumb:Landroid/content/res/ColorStateList;
+
+    .line 94
+    :cond_8d
+    :try_start_8d
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_cc
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    const-string v6, "getThumbTintList"
+
+    new-array v7, v4, [Ljava/lang/Class;
+
+    invoke-virtual {v2, v6, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/res/ColorStateList;
+
+    iput-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->thumb:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    const-string v6, "getTrackTintList"
+
+    new-array v7, v4, [Ljava/lang/Class;
+
+    invoke-virtual {v2, v6, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/res/ColorStateList;
+
+    iput-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->track:Landroid/content/res/ColorStateList;
+    :try_end_c3
+    .catch Ljava/lang/ReflectiveOperationException; {:try_start_8d .. :try_end_c3} :catch_c4
+
+    goto :goto_cc
+
+    :catch_c4
+    nop
+
+    goto :goto_cc
+
+    .line 95
+    :cond_c6
+    iget-boolean v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->light:Z
+
+    if-ne v2, p1, :cond_cc
+
+    goto/16 :goto_1fb
+
+    .line 96
+    :cond_cc
+    :goto_cc
+    iput-boolean p1, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->light:Z
+
+    .line 97
+    instance-of v2, p0, Landroid/widget/CompoundButton;
+
+    if-eqz v2, :cond_f4
+
+    move-object v2, p0
+
+    check-cast v2, Landroid/widget/CompoundButton;
+
+    if-eqz p1, :cond_dc
+
+    invoke-static {v4}, Lio/nekohasekai/sagernet/ui/RosePalette;->controls(Z)Landroid/content/res/ColorStateList;
+
+    move-result-object v6
+
+    goto :goto_e7
+
+    :cond_dc
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
 
     move-result v6
 
-    iput v6, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->highlight:I
+    if-eqz v6, :cond_e5
 
-    instance-of v6, p0, Landroid/widget/Button;
+    sget-object v6, Lio/nekohasekai/sagernet/ui/RosePalette;->WHITE_TINT:Landroid/content/res/ColorStateList;
 
-    if-eqz v6, :cond_46
+    goto :goto_e7
 
-    if-nez v0, :cond_46
+    :cond_e5
+    iget-object v6, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->button:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {v5}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
+    :goto_e7
+    invoke-virtual {v2}, Landroid/widget/CompoundButton;->getButtonTintList()Landroid/content/res/ColorStateList;
 
-    move-result-object v0
+    move-result-object v7
 
-    iput-object v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->text:Landroid/content/res/ColorStateList;
+    invoke-static {v7, v6}, Lio/nekohasekai/sagernet/ui/RosePalette;->same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
 
-    .line 79
-    :cond_46
-    instance-of v0, p0, Landroid/widget/ImageButton;
+    move-result v7
 
-    if-eqz v0, :cond_53
+    if-nez v7, :cond_f4
 
-    move-object v0, p0
+    invoke-virtual {v2, v6}, Landroid/widget/CompoundButton;->setButtonTintList(Landroid/content/res/ColorStateList;)V
 
-    check-cast v0, Landroid/widget/ImageButton;
+    :cond_f4
+    if-eqz v0, :cond_13f
 
-    invoke-virtual {v0}, Landroid/widget/ImageButton;->getImageTintList()Landroid/content/res/ColorStateList;
-
-    move-result-object v0
-
-    iput-object v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->image:Landroid/content/res/ColorStateList;
-
-    .line 80
-    :cond_53
-    instance-of v0, p0, Landroid/widget/ProgressBar;
-
-    if-eqz v0, :cond_66
-
-    move-object v0, p0
-
-    check-cast v0, Landroid/widget/ProgressBar;
-
-    invoke-virtual {v0}, Landroid/widget/ProgressBar;->getProgressTintList()Landroid/content/res/ColorStateList;
-
-    move-result-object v5
-
-    iput-object v5, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->progress:Landroid/content/res/ColorStateList;
-
-    invoke-virtual {v0}, Landroid/widget/ProgressBar;->getIndeterminateTintList()Landroid/content/res/ColorStateList;
-
-    move-result-object v0
-
-    iput-object v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->indeterminate:Landroid/content/res/ColorStateList;
-
-    .line 81
-    :cond_66
-    instance-of v0, p0, Landroid/widget/SeekBar;
-
-    if-eqz v0, :cond_73
-
-    move-object v0, p0
-
-    check-cast v0, Landroid/widget/SeekBar;
-
-    invoke-virtual {v0}, Landroid/widget/SeekBar;->getThumbTintList()Landroid/content/res/ColorStateList;
-
-    move-result-object v0
-
-    iput-object v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->thumb:Landroid/content/res/ColorStateList;
-
-    .line 82
-    :cond_73
-    :try_start_73
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_b2
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v0
-
-    const-string v5, "getThumbTintList"
-
-    new-array v6, v3, [Ljava/lang/Class;
-
-    invoke-virtual {v0, v5, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/content/res/ColorStateList;
-
-    iput-object v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->thumb:Landroid/content/res/ColorStateList;
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v0
-
-    const-string v5, "getTrackTintList"
-
-    new-array v6, v3, [Ljava/lang/Class;
-
-    invoke-virtual {v0, v5, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/content/res/ColorStateList;
-
-    iput-object v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->track:Landroid/content/res/ColorStateList;
-    :try_end_a9
-    .catch Ljava/lang/ReflectiveOperationException; {:try_start_73 .. :try_end_a9} :catch_aa
-
-    goto :goto_b2
-
-    :catch_aa
-    nop
-
-    goto :goto_b2
-
-    .line 83
-    :cond_ac
-    iget-boolean v0, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->light:Z
-
-    if-ne v0, p1, :cond_b2
-
-    goto/16 :goto_1a3
-
-    .line 84
-    :cond_b2
-    :goto_b2
-    iput-boolean p1, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->light:Z
-
-    .line 85
-    instance-of v0, p0, Landroid/widget/CompoundButton;
-
-    const/4 v4, -0x1
-
-    if-eqz v0, :cond_d3
-
-    move-object v0, p0
-
-    check-cast v0, Landroid/widget/CompoundButton;
-
-    if-eqz p1, :cond_c3
-
-    invoke-static {v3}, Lio/nekohasekai/sagernet/ui/RosePalette;->controls(Z)Landroid/content/res/ColorStateList;
-
-    move-result-object v5
-
-    goto :goto_d0
-
-    :cond_c3
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_ce
-
-    invoke-static {v4}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
-
-    move-result-object v5
-
-    goto :goto_d0
-
-    :cond_ce
-    iget-object v5, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->button:Landroid/content/res/ColorStateList;
-
-    :goto_d0
-    invoke-virtual {v0, v5}, Landroid/widget/CompoundButton;->setButtonTintList(Landroid/content/res/ColorStateList;)V
-
-    .line 86
-    :cond_d3
-    instance-of v0, p0, Landroid/widget/TextView;
-
-    const v5, -0x48b88f
-
-    if-eqz v0, :cond_10f
-
+    .line 98
     move-object v0, p0
 
     check-cast v0, Landroid/widget/TextView;
 
-    if-eqz p1, :cond_e4
+    if-eqz p1, :cond_fe
 
-    invoke-static {v5}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    sget-object v2, Lio/nekohasekai/sagernet/ui/RosePalette;->ACCENT_TINT:Landroid/content/res/ColorStateList;
+
+    goto :goto_100
+
+    :cond_fe
+    iget-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->link:Landroid/content/res/ColorStateList;
+
+    :goto_100
+    invoke-virtual {v0}, Landroid/widget/TextView;->getLinkTextColors()Landroid/content/res/ColorStateList;
 
     move-result-object v6
 
-    goto :goto_e6
-
-    :cond_e4
-    iget-object v6, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->link:Landroid/content/res/ColorStateList;
-
-    :goto_e6
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setLinkTextColor(Landroid/content/res/ColorStateList;)V
-
-    if-eqz p1, :cond_ef
-
-    const v6, 0x40d76a90
-
-    goto :goto_f1
-
-    :cond_ef
-    iget v6, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->highlight:I
-
-    :goto_f1
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setHighlightColor(I)V
-
-    iget-object v6, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->text:Landroid/content/res/ColorStateList;
-
-    if-eqz v6, :cond_10f
-
-    if-eqz p1, :cond_ff
-
-    invoke-static {v5}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
-
-    move-result-object v4
-
-    goto :goto_10c
-
-    :cond_ff
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
+    invoke-static {v6, v2}, Lio/nekohasekai/sagernet/ui/RosePalette;->same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_10a
+    if-nez v6, :cond_10d
 
-    invoke-static {v4}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setLinkTextColor(Landroid/content/res/ColorStateList;)V
 
-    move-result-object v4
+    :cond_10d
+    if-eqz p1, :cond_113
 
-    goto :goto_10c
+    const v2, 0x40d76a90
 
-    :cond_10a
-    iget-object v4, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->text:Landroid/content/res/ColorStateList;
+    goto :goto_115
 
-    :goto_10c
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
+    :cond_113
+    iget v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->highlight:I
 
-    .line 87
-    :cond_10f
+    :goto_115
+    invoke-virtual {v0}, Landroid/widget/TextView;->getHighlightColor()I
+
+    move-result v6
+
+    if-eq v6, v2, :cond_11e
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setHighlightColor(I)V
+
+    :cond_11e
+    iget-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->text:Landroid/content/res/ColorStateList;
+
+    if-eqz v2, :cond_13f
+
+    if-eqz p1, :cond_127
+
+    sget-object v2, Lio/nekohasekai/sagernet/ui/RosePalette;->ACCENT_TINT:Landroid/content/res/ColorStateList;
+
+    goto :goto_132
+
+    :cond_127
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_130
+
+    sget-object v2, Lio/nekohasekai/sagernet/ui/RosePalette;->WHITE_TINT:Landroid/content/res/ColorStateList;
+
+    goto :goto_132
+
+    :cond_130
+    iget-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->text:Landroid/content/res/ColorStateList;
+
+    :goto_132
+    invoke-virtual {v0}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
+
+    move-result-object v6
+
+    invoke-static {v6, v2}, Lio/nekohasekai/sagernet/ui/RosePalette;->same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_13f
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
+
+    .line 99
+    :cond_13f
     instance-of v0, p0, Landroid/widget/ImageButton;
 
-    if-eqz v0, :cond_122
+    if-eqz v0, :cond_15a
 
     move-object v0, p0
 
     check-cast v0, Landroid/widget/ImageButton;
 
-    if-eqz p1, :cond_11d
+    if-eqz p1, :cond_14b
 
-    invoke-static {v5}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    sget-object v2, Lio/nekohasekai/sagernet/ui/RosePalette;->ACCENT_TINT:Landroid/content/res/ColorStateList;
 
-    move-result-object v4
+    goto :goto_14d
 
-    goto :goto_11f
+    :cond_14b
+    iget-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->image:Landroid/content/res/ColorStateList;
 
-    :cond_11d
-    iget-object v4, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->image:Landroid/content/res/ColorStateList;
+    :goto_14d
+    invoke-virtual {v0}, Landroid/widget/ImageButton;->getImageTintList()Landroid/content/res/ColorStateList;
 
-    :goto_11f
-    invoke-virtual {v0, v4}, Landroid/widget/ImageButton;->setImageTintList(Landroid/content/res/ColorStateList;)V
+    move-result-object v6
 
-    .line 88
-    :cond_122
+    invoke-static {v6, v2}, Lio/nekohasekai/sagernet/ui/RosePalette;->same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_15a
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    .line 100
+    :cond_15a
     instance-of v0, p0, Landroid/widget/ProgressBar;
 
-    if-eqz v0, :cond_141
+    if-eqz v0, :cond_189
 
     move-object v0, p0
 
     check-cast v0, Landroid/widget/ProgressBar;
 
-    if-eqz p1, :cond_130
+    if-eqz p1, :cond_166
 
-    invoke-static {v5}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    sget-object v2, Lio/nekohasekai/sagernet/ui/RosePalette;->ACCENT_TINT:Landroid/content/res/ColorStateList;
 
-    move-result-object v4
+    goto :goto_168
 
-    goto :goto_132
+    :cond_166
+    iget-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->progress:Landroid/content/res/ColorStateList;
 
-    :cond_130
-    iget-object v4, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->progress:Landroid/content/res/ColorStateList;
+    :goto_168
+    invoke-virtual {v0}, Landroid/widget/ProgressBar;->getProgressTintList()Landroid/content/res/ColorStateList;
 
-    :goto_132
-    invoke-virtual {v0, v4}, Landroid/widget/ProgressBar;->setProgressTintList(Landroid/content/res/ColorStateList;)V
+    move-result-object v6
 
-    if-eqz p1, :cond_13c
+    invoke-static {v6, v2}, Lio/nekohasekai/sagernet/ui/RosePalette;->same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
 
-    invoke-static {v5}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    move-result v6
 
-    move-result-object v4
+    if-nez v6, :cond_175
 
-    goto :goto_13e
+    invoke-virtual {v0, v2}, Landroid/widget/ProgressBar;->setProgressTintList(Landroid/content/res/ColorStateList;)V
 
-    :cond_13c
-    iget-object v4, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->indeterminate:Landroid/content/res/ColorStateList;
+    :cond_175
+    if-eqz p1, :cond_17a
 
-    :goto_13e
-    invoke-virtual {v0, v4}, Landroid/widget/ProgressBar;->setIndeterminateTintList(Landroid/content/res/ColorStateList;)V
+    sget-object v2, Lio/nekohasekai/sagernet/ui/RosePalette;->ACCENT_TINT:Landroid/content/res/ColorStateList;
 
-    .line 89
-    :cond_141
+    goto :goto_17c
+
+    :cond_17a
+    iget-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->indeterminate:Landroid/content/res/ColorStateList;
+
+    :goto_17c
+    invoke-virtual {v0}, Landroid/widget/ProgressBar;->getIndeterminateTintList()Landroid/content/res/ColorStateList;
+
+    move-result-object v6
+
+    invoke-static {v6, v2}, Lio/nekohasekai/sagernet/ui/RosePalette;->same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_189
+
+    invoke-virtual {v0, v2}, Landroid/widget/ProgressBar;->setIndeterminateTintList(Landroid/content/res/ColorStateList;)V
+
+    .line 101
+    :cond_189
     instance-of v0, p0, Landroid/widget/SeekBar;
 
-    if-eqz v0, :cond_154
+    if-eqz v0, :cond_1a4
 
     move-object v0, p0
 
     check-cast v0, Landroid/widget/SeekBar;
 
-    if-eqz p1, :cond_14f
+    if-eqz p1, :cond_195
 
-    invoke-static {v5}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    sget-object v2, Lio/nekohasekai/sagernet/ui/RosePalette;->ACCENT_TINT:Landroid/content/res/ColorStateList;
 
-    move-result-object v4
+    goto :goto_197
 
-    goto :goto_151
+    :cond_195
+    iget-object v2, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->thumb:Landroid/content/res/ColorStateList;
 
-    :cond_14f
-    iget-object v4, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->thumb:Landroid/content/res/ColorStateList;
+    :goto_197
+    invoke-virtual {v0}, Landroid/widget/SeekBar;->getThumbTintList()Landroid/content/res/ColorStateList;
 
-    :goto_151
-    invoke-virtual {v0, v4}, Landroid/widget/SeekBar;->setThumbTintList(Landroid/content/res/ColorStateList;)V
+    move-result-object v6
 
-    .line 90
-    :cond_154
-    :try_start_154
+    invoke-static {v6, v2}, Lio/nekohasekai/sagernet/ui/RosePalette;->same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1a4
+
+    invoke-virtual {v0, v2}, Landroid/widget/SeekBar;->setThumbTintList(Landroid/content/res/ColorStateList;)V
+
+    .line 102
+    :cond_1a4
+    :try_start_1a4
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -1434,86 +1727,95 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1a3
+    if-eqz v0, :cond_1fb
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    const-string v2, "setThumbTintList"
-
-    const/4 v4, 0x1
-
-    new-array v5, v4, [Ljava/lang/Class;
-
-    const-class v6, Landroid/content/res/ColorStateList;
-
-    aput-object v6, v5, v3
-
-    invoke-virtual {v0, v2, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/RosePalette;->switchApi(Ljava/lang/Class;)Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;
 
     move-result-object v0
 
-    if-eqz p1, :cond_17a
-
-    invoke-static {v3}, Lio/nekohasekai/sagernet/ui/RosePalette;->controls(Z)Landroid/content/res/ColorStateList;
-
-    move-result-object v2
-
-    goto :goto_17c
-
-    :cond_17a
-    iget-object v2, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->thumb:Landroid/content/res/ColorStateList;
-
-    :goto_17c
-    new-array v5, v4, [Ljava/lang/Object;
-
-    aput-object v2, v5, v3
-
-    invoke-virtual {v0, p0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v0
-
-    const-string v2, "setTrackTintList"
-
-    new-array v5, v4, [Ljava/lang/Class;
-
-    const-class v6, Landroid/content/res/ColorStateList;
-
-    aput-object v6, v5, v3
-
-    invoke-virtual {v0, v2, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
-
-    if-eqz p1, :cond_19a
+    if-eqz p1, :cond_1c1
 
     invoke-static {v4}, Lio/nekohasekai/sagernet/ui/RosePalette;->controls(Z)Landroid/content/res/ColorStateList;
 
+    move-result-object v1
+
+    goto :goto_1c3
+
+    :cond_1c1
+    iget-object v1, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->thumb:Landroid/content/res/ColorStateList;
+
+    :goto_1c3
+    const/4 v2, 0x1
+
+    if-eqz p1, :cond_1cb
+
+    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/RosePalette;->controls(Z)Landroid/content/res/ColorStateList;
+
     move-result-object p1
 
-    goto :goto_19c
+    goto :goto_1cd
 
-    :cond_19a
-    iget-object p1, v1, Lio/nekohasekai/sagernet/ui/RosePalette$State;->track:Landroid/content/res/ColorStateList;
+    :cond_1cb
+    iget-object p1, v3, Lio/nekohasekai/sagernet/ui/RosePalette$State;->track:Landroid/content/res/ColorStateList;
 
-    :goto_19c
-    new-array v1, v4, [Ljava/lang/Object;
+    :goto_1cd
+    iget-object v3, v0, Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;->thumb:Ljava/lang/reflect/Method;
 
-    aput-object p1, v1, v3
+    invoke-virtual {v3, p0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/res/ColorStateList;
+
+    invoke-static {v3, v1}, Lio/nekohasekai/sagernet/ui/RosePalette;->same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1e4
+
+    iget-object v3, v0, Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;->setThumb:Ljava/lang/reflect/Method;
+
+    new-array v6, v2, [Ljava/lang/Object;
+
+    aput-object v1, v6, v4
+
+    invoke-virtual {v3, p0, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_1e4
+    iget-object v1, v0, Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;->track:Ljava/lang/reflect/Method;
+
+    invoke-virtual {v1, p0, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/res/ColorStateList;
+
+    invoke-static {v1, p1}, Lio/nekohasekai/sagernet/ui/RosePalette;->same(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1fb
+
+    iget-object v0, v0, Lio/nekohasekai/sagernet/ui/RosePalette$SwitchApi;->setTrack:Ljava/lang/reflect/Method;
+
+    new-array v1, v2, [Ljava/lang/Object;
+
+    aput-object p1, v1, v4
 
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1a3
-    .catch Ljava/lang/ReflectiveOperationException; {:try_start_154 .. :try_end_1a3} :catch_1a3
+    :try_end_1fb
+    .catch Ljava/lang/ReflectiveOperationException; {:try_start_1a4 .. :try_end_1fb} :catch_1fb
 
-    :catch_1a3
-    :cond_1a3
-    :goto_1a3
+    :catch_1fb
+    :cond_1fb
+    :goto_1fb
     return-void
 .end method

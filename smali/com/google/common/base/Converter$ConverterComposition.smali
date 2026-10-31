@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Converter;Lcom/google/common/base/Converter;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method correctedDoBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -121,7 +121,7 @@
 .end method
 
 .method correctedDoForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -154,7 +154,7 @@
 .end method
 
 .method protected doBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)TA;"
@@ -172,7 +172,7 @@
 .end method
 
 .method protected doForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)TC;"
@@ -190,7 +190,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -202,7 +202,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 438
     move-object v0, p1
@@ -219,7 +219,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     iget-object v2, p0, Lcom/google/common/base/Converter$ConverterComposition;->second:Lcom/google/common/base/Converter;
 
@@ -229,21 +229,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1d
     return v1
 
     .line 441
     .end local v0    # "that":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<***>;"
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 446
     .local p0, "this":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<TA;TB;TC;>;"
@@ -267,7 +267,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 451
     .local p0, "this":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<TA;TB;TC;>;"

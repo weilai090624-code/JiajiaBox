@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 49
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>(J)V
-    .locals 2
+    .registers 5
     .param p1, "allocatedUntil"    # J
 
     .line 38
@@ -98,12 +98,12 @@
 .end method
 
 .method public static synthetic bytesPerSecond$default(Lokio/Throttler;JJJILjava/lang/Object;)V
-    .locals 7
+    .registers 16
 
     .line 53
     and-int/lit8 p8, p7, 0x2
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_7
 
     .line 55
     nop
@@ -111,12 +111,12 @@
     .line 53
     iget-wide p3, p0, Lokio/Throttler;->waitByteCount:J
 
-    :cond_0
+    :cond_7
     move-wide v3, p3
 
     and-int/lit8 p3, p7, 0x4
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_f
 
     .line 56
     nop
@@ -124,7 +124,7 @@
     .line 53
     iget-wide p5, p0, Lokio/Throttler;->maxByteCount:J
 
-    :cond_1
+    :cond_f
     move-wide v5, p5
 
     move-object v0, p0
@@ -137,7 +137,7 @@
 .end method
 
 .method private final bytesToNanos(J)J
-    .locals 4
+    .registers 7
     .param p1, "$this$bytesToNanos"    # J
 
     .line 126
@@ -153,7 +153,7 @@
 .end method
 
 .method private final nanosToBytes(J)J
-    .locals 4
+    .registers 7
     .param p1, "$this$nanosToBytes"    # J
 
     .line 124
@@ -169,7 +169,7 @@
 .end method
 
 .method private final waitNanos(J)V
-    .locals 6
+    .registers 9
     .param p1, "nanosToWait"    # J
 
     .line 129
@@ -200,7 +200,7 @@
 
 # virtual methods
 .method public final byteCountOrWaitNanos$okio(JJ)J
-    .locals 11
+    .registers 16
     .param p1, "now"    # J
     .param p3, "byteCount"    # J
 
@@ -211,12 +211,12 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_9
 
     return-wide p3
 
     .line 96
-    :cond_0
+    :cond_9
     iget-wide v0, p0, Lokio/Throttler;->allocatedUntil:J
 
     sub-long/2addr v0, p1
@@ -239,7 +239,7 @@
     .local v4, "immediateBytes":J
     cmp-long v6, v4, p3
 
-    if-ltz v6, :cond_1
+    if-ltz v6, :cond_25
 
     .line 101
     add-long v2, p1, v0
@@ -256,12 +256,12 @@
     return-wide p3
 
     .line 106
-    :cond_1
+    :cond_25
     iget-wide v6, p0, Lokio/Throttler;->waitByteCount:J
 
     cmp-long v8, v4, v6
 
-    if-ltz v8, :cond_2
+    if-ltz v8, :cond_35
 
     .line 107
     iget-wide v2, p0, Lokio/Throttler;->maxByteCount:J
@@ -278,7 +278,7 @@
     return-wide v4
 
     .line 112
-    :cond_2
+    :cond_35
     iget-wide v6, p0, Lokio/Throttler;->waitByteCount:J
 
     invoke-static {v6, v7, p3, p4}, Ljava/lang/Math;->min(JJ)J
@@ -301,7 +301,7 @@
     .local v8, "minWaitNanos":J
     cmp-long v10, v8, v2
 
-    if-nez v10, :cond_3
+    if-nez v10, :cond_52
 
     .line 117
     iget-wide v2, p0, Lokio/Throttler;->maxByteCount:J
@@ -318,14 +318,14 @@
     return-wide v6
 
     .line 121
-    :cond_3
+    :cond_52
     neg-long v2, v8
 
     return-wide v2
 .end method
 
 .method public final bytesPerSecond(J)V
-    .locals 9
+    .registers 12
 
     const/4 v7, 0x6
 
@@ -345,7 +345,7 @@
 .end method
 
 .method public final bytesPerSecond(JJ)V
-    .locals 9
+    .registers 14
 
     const/4 v7, 0x4
 
@@ -365,7 +365,7 @@
 .end method
 
 .method public final bytesPerSecond(JJJ)V
-    .locals 7
+    .registers 14
     .param p1, "bytesPerSecond"    # J
     .param p3, "waitByteCount"    # J
     .param p5, "maxByteCount"    # J
@@ -389,48 +389,48 @@
 
     cmp-long v6, p1, v2
 
-    if-ltz v6, :cond_0
+    if-ltz v6, :cond_d
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v6, 0x0
 
-    :goto_0
-    if-eqz v6, :cond_5
+    :goto_e
+    if-eqz v6, :cond_4f
 
     .line 60
     cmp-long v6, p3, v2
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_16
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v2, 0x0
 
-    :goto_1
-    if-eqz v2, :cond_4
+    :goto_17
+    if-eqz v2, :cond_41
 
     .line 61
     cmp-long v2, p5, p3
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_1e
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_2
+    :cond_1e
     const/4 v4, 0x0
 
-    :goto_2
-    if-eqz v4, :cond_3
+    :goto_1f
+    if-eqz v4, :cond_33
 
     .line 63
-    :try_start_0
+    :try_start_21
     iput-wide p1, p0, Lokio/Throttler;->bytesPerSecond:J
 
     .line 64
@@ -451,8 +451,8 @@
 
     .end local v1    # "$i$a$-synchronized-Throttler$bytesPerSecond$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_30
+    .catchall {:try_start_21 .. :try_end_30} :catchall_5d
 
     monitor-exit p0
 
@@ -466,8 +466,8 @@
     .line 61
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-Throttler$bytesPerSecond$1":I
-    :cond_3
-    :try_start_1
+    :cond_33
+    :try_start_33
     const-string v2, "Failed requirement."
 
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -491,7 +491,7 @@
     .restart local p1    # "bytesPerSecond":J
     .restart local p3    # "waitByteCount":J
     .restart local p5    # "maxByteCount":J
-    :cond_4
+    :cond_41
     const-string v2, "Failed requirement."
 
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -515,7 +515,7 @@
     .restart local p1    # "bytesPerSecond":J
     .restart local p3    # "waitByteCount":J
     .restart local p5    # "maxByteCount":J
-    :cond_5
+    :cond_4f
     const-string v2, "Failed requirement."
 
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -533,8 +533,8 @@
     .end local p3    # "waitByteCount":J
     .end local p5    # "maxByteCount":J
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5d
+    .catchall {:try_start_33 .. :try_end_5d} :catchall_5d
 
     .line 67
     .end local v1    # "$i$a$-synchronized-Throttler$bytesPerSecond$1":I
@@ -542,7 +542,7 @@
     .restart local p1    # "bytesPerSecond":J
     .restart local p3    # "waitByteCount":J
     .restart local p5    # "maxByteCount":J
-    :catchall_0
+    :catchall_5d
     move-exception v1
 
     monitor-exit p0
@@ -551,7 +551,7 @@
 .end method
 
 .method public final sink(Lokio/Sink;)Lokio/Sink;
-    .locals 1
+    .registers 3
     .param p1, "sink"    # Lokio/Sink;
 
     const-string v0, "sink"
@@ -569,7 +569,7 @@
 .end method
 
 .method public final source(Lokio/Source;)Lokio/Source;
-    .locals 1
+    .registers 3
     .param p1, "source"    # Lokio/Source;
 
     const-string v0, "source"
@@ -587,7 +587,7 @@
 .end method
 
 .method public final take$okio(J)J
-    .locals 10
+    .registers 13
     .param p1, "byteCount"    # J
 
     .line 75
@@ -595,17 +595,17 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_8
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_9
+    if-eqz v2, :cond_25
 
     .line 77
     const/4 v2, 0x0
@@ -618,11 +618,11 @@
 
     .line 78
     .local v3, "$i$a$-synchronized-Throttler$take$1":I
-    :goto_1
+    :goto_e
     nop
 
     .line 79
-    :try_start_0
+    :try_start_f
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v4
@@ -632,14 +632,14 @@
     invoke-virtual {p0, v4, v5, p1, p2}, Lokio/Throttler;->byteCountOrWaitNanos$okio(JJ)J
 
     move-result-wide v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_f .. :try_end_17} :catchall_22
 
     .line 81
     .local v6, "byteCountOrWaitNanos":J
     cmp-long v8, v6, v0
 
-    if-ltz v8, :cond_1
+    if-ltz v8, :cond_1d
 
     .end local v2    # "$i$f$synchronized":I
     .end local v3    # "$i$a$-synchronized-Throttler$take$1":I
@@ -654,20 +654,20 @@
     .restart local v3    # "$i$a$-synchronized-Throttler$take$1":I
     .restart local v4    # "now":J
     .restart local v6    # "byteCountOrWaitNanos":J
-    :cond_1
+    :cond_1d
     neg-long v8, v6
 
-    :try_start_1
+    :try_start_1e
     invoke-direct {p0, v8, v9}, Lokio/Throttler;->waitNanos(J)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_21
+    .catchall {:try_start_1e .. :try_end_21} :catchall_22
 
     .end local v4    # "now":J
     .end local v6    # "byteCountOrWaitNanos":J
-    goto :goto_1
+    goto :goto_e
 
     .end local v3    # "$i$a$-synchronized-Throttler$take$1":I
-    :catchall_0
+    :catchall_22
     move-exception v0
 
     monitor-exit p0
@@ -676,7 +676,7 @@
 
     .line 75
     .end local v2    # "$i$f$synchronized":I
-    :cond_2
+    :cond_25
     const-string v0, "Failed requirement."
 
     new-instance v1, Ljava/lang/IllegalArgumentException;

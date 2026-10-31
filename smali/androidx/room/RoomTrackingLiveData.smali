@@ -108,7 +108,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$9vDfc5rdg-jEg_oDEiirCIAjDcM(Landroidx/room/RoomTrackingLiveData;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/RoomTrackingLiveData;->invalidationRunnable$lambda$1(Landroidx/room/RoomTrackingLiveData;)V
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$LoxQhNUdjL-YTm7h4N6PsLKEypI(Landroidx/room/RoomTrackingLiveData;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/RoomTrackingLiveData;->refreshRunnable$lambda$0(Landroidx/room/RoomTrackingLiveData;)V
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/room/RoomDatabase;Landroidx/room/InvalidationLiveDataContainer;ZLjava/util/concurrent/Callable;[Ljava/lang/String;)V
-    .locals 2
+    .registers 8
     .param p1, "database"    # Landroidx/room/RoomDatabase;
     .param p2, "container"    # Landroidx/room/InvalidationLiveDataContainer;
     .param p3, "inTransaction"    # Z
@@ -227,7 +227,7 @@
 .end method
 
 .method private static final invalidationRunnable$lambda$1(Landroidx/room/RoomTrackingLiveData;)V
-    .locals 4
+    .registers 5
     .param p0, "this$0"    # Landroidx/room/RoomTrackingLiveData;
 
     const-string/jumbo v0, "this$0"
@@ -251,10 +251,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     .line 101
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 102
     invoke-virtual {p0}, Landroidx/room/RoomTrackingLiveData;->getQueryExecutor()Ljava/util/concurrent/Executor;
@@ -266,12 +266,12 @@
     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     .line 105
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method private static final refreshRunnable$lambda$0(Landroidx/room/RoomTrackingLiveData;)V
-    .locals 7
+    .registers 8
     .param p0, "this$0"    # Landroidx/room/RoomTrackingLiveData;
 
     const-string/jumbo v0, "this$0"
@@ -289,7 +289,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 59
     iget-object v0, p0, Landroidx/room/RoomTrackingLiveData;->database:Landroidx/room/RoomDatabase;
@@ -302,12 +302,12 @@
 
     invoke-virtual {v0, v3}, Landroidx/room/InvalidationTracker;->addWeakObserver(Landroidx/room/InvalidationTracker$Observer;)V
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
     .line 63
     .local v0, "computed":Z
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
     .line 65
@@ -317,7 +317,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_57
 
     .line 67
     nop
@@ -327,17 +327,17 @@
 
     .line 69
     .local v3, "value":Ljava/lang/Object;
-    :goto_0
-    :try_start_0
+    :goto_27
+    :try_start_27
     iget-object v4, p0, Landroidx/room/RoomTrackingLiveData;->invalid:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v4, v2, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
 
     move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2d
+    .catchall {:try_start_27 .. :try_end_2d} :catchall_50
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_45
 
     .line 70
     const/4 v0, 0x1
@@ -346,27 +346,27 @@
     nop
 
     .line 72
-    :try_start_1
+    :try_start_31
     iget-object v4, p0, Landroidx/room/RoomTrackingLiveData;->computeFunction:Ljava/util/concurrent/Callable;
 
     invoke-interface {v4}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_37
+    .catch Ljava/lang/Exception; {:try_start_31 .. :try_end_37} :catch_39
+    .catchall {:try_start_31 .. :try_end_37} :catchall_50
 
     move-object v3, v4
 
-    goto :goto_0
+    goto :goto_27
 
     .line 73
-    :catch_0
+    :catch_39
     move-exception v2
 
     .line 74
     .local v2, "e":Ljava/lang/Exception;
-    :try_start_2
+    :try_start_3a
     new-instance v4, Ljava/lang/RuntimeException;
 
     .line 75
@@ -388,26 +388,26 @@
     .end local v2    # "e":Ljava/lang/Exception;
     .restart local v0    # "computed":Z
     .restart local p0    # "this$0":Landroidx/room/RoomTrackingLiveData;
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_45
+    if-eqz v0, :cond_4a
 
     .line 81
     invoke-virtual {p0, v3}, Landroidx/room/RoomTrackingLiveData;->postValue(Ljava/lang/Object;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_3a .. :try_end_4a} :catchall_50
 
     .line 85
     .end local v3    # "value":Ljava/lang/Object;
-    :cond_3
+    :cond_4a
     iget-object v3, p0, Landroidx/room/RoomTrackingLiveData;->computing:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v3, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 86
-    goto :goto_1
+    goto :goto_57
 
     .line 85
-    :catchall_0
+    :catchall_50
     move-exception v2
 
     iget-object v3, p0, Landroidx/room/RoomTrackingLiveData;->computing:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -417,9 +417,9 @@
     throw v2
 
     .line 95
-    :cond_4
-    :goto_1
-    if-eqz v0, :cond_5
+    :cond_57
+    :goto_57
+    if-eqz v0, :cond_61
 
     iget-object v3, p0, Landroidx/room/RoomTrackingLiveData;->invalid:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -427,17 +427,17 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_1c
 
     .line 96
-    :cond_5
+    :cond_61
     return-void
 .end method
 
 
 # virtual methods
 .method public final getComputeFunction()Ljava/util/concurrent/Callable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -453,7 +453,7 @@
 .end method
 
 .method public final getComputing()Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Landroidx/room/RoomTrackingLiveData;->computing:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -462,7 +462,7 @@
 .end method
 
 .method public final getDatabase()Landroidx/room/RoomDatabase;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Landroidx/room/RoomTrackingLiveData;->database:Landroidx/room/RoomDatabase;
@@ -471,7 +471,7 @@
 .end method
 
 .method public final getInTransaction()Z
-    .locals 1
+    .registers 2
 
     .line 45
     iget-boolean v0, p0, Landroidx/room/RoomTrackingLiveData;->inTransaction:Z
@@ -480,7 +480,7 @@
 .end method
 
 .method public final getInvalid()Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Landroidx/room/RoomTrackingLiveData;->invalid:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -489,7 +489,7 @@
 .end method
 
 .method public final getInvalidationRunnable()Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
 
     .line 98
     iget-object v0, p0, Landroidx/room/RoomTrackingLiveData;->invalidationRunnable:Ljava/lang/Runnable;
@@ -498,7 +498,7 @@
 .end method
 
 .method public final getObserver()Landroidx/room/InvalidationTracker$Observer;
-    .locals 1
+    .registers 2
 
     .line 49
     iget-object v0, p0, Landroidx/room/RoomTrackingLiveData;->observer:Landroidx/room/InvalidationTracker$Observer;
@@ -507,12 +507,12 @@
 .end method
 
 .method public final getQueryExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 121
     iget-boolean v0, p0, Landroidx/room/RoomTrackingLiveData;->inTransaction:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 122
     iget-object v0, p0, Landroidx/room/RoomTrackingLiveData;->database:Landroidx/room/RoomDatabase;
@@ -521,10 +521,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
     .line 124
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/room/RoomTrackingLiveData;->database:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->getQueryExecutor()Ljava/util/concurrent/Executor;
@@ -532,12 +532,12 @@
     move-result-object v0
 
     .line 125
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 .method public final getRefreshRunnable()Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/room/RoomTrackingLiveData;->refreshRunnable:Ljava/lang/Runnable;
@@ -546,7 +546,7 @@
 .end method
 
 .method public final getRegisteredObserver()Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Landroidx/room/RoomTrackingLiveData;->registeredObserver:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -555,7 +555,7 @@
 .end method
 
 .method protected onActive()V
-    .locals 2
+    .registers 3
 
     .line 109
     invoke-super {p0}, Landroidx/lifecycle/LiveData;->onActive()V
@@ -587,7 +587,7 @@
 .end method
 
 .method protected onInactive()V
-    .locals 2
+    .registers 3
 
     .line 116
     invoke-super {p0}, Landroidx/lifecycle/LiveData;->onInactive()V

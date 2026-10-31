@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 194
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static onSearchRequested(Landroid/view/Window$Callback;Landroid/view/SearchEvent;)Z
-    .locals 1
+    .registers 3
     .param p0, "callback"    # Landroid/view/Window$Callback;
     .param p1, "searchEvent"    # Landroid/view/SearchEvent;
 
@@ -39,7 +39,7 @@
 .end method
 
 .method static onWindowStartingActionMode(Landroid/view/Window$Callback;Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;
-    .locals 1
+    .registers 4
     .param p0, "windowCallback"    # Landroid/view/Window$Callback;
     .param p1, "actionModeCallback"    # Landroid/view/ActionMode$Callback;
     .param p2, "i"    # I

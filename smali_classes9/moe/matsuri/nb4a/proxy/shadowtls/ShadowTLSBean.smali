@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 49
     new-instance v0, Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean$1;
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;->clone()Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;
@@ -58,7 +58,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -74,7 +74,7 @@
 .end method
 
 .method public clone()Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;
-    .locals 2
+    .registers 3
 
     .line 46
     new-instance v0, Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;
@@ -95,7 +95,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -138,7 +138,7 @@
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 1
+    .registers 2
 
     .line 20
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->initializeDefaultValues()V
@@ -151,7 +151,7 @@
     .line 23
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;->version:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const/4 v0, 0x3
 
@@ -162,22 +162,22 @@
     iput-object v0, p0, Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;->version:Ljava/lang/Integer;
 
     .line 24
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;->password:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
     const-string v0, ""
 
     iput-object v0, p0, Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;->password:Ljava/lang/String;
 
     .line 25
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

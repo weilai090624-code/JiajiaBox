@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -123,7 +123,7 @@
 
     .line 196
     .local v0, "result":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     iget-object v1, p0, Lcom/google/common/base/Functions$ForMapWithDefault;->map:Ljava/util/Map;
 
@@ -131,30 +131,30 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
-    goto :goto_0
+    goto :goto_14
 
     .line 198
-    :cond_0
+    :cond_11
     iget-object v1, p0, Lcom/google/common/base/Functions$ForMapWithDefault;->defaultValue:Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_18
 
     .line 197
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     invoke-static {v0}, Lcom/google/common/base/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 196
-    :goto_1
+    :goto_18
     return-object v1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -166,7 +166,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 204
     move-object v0, p1
@@ -183,7 +183,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     iget-object v2, p0, Lcom/google/common/base/Functions$ForMapWithDefault;->defaultValue:Ljava/lang/Object;
 
@@ -193,21 +193,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1d
     return v1
 
     .line 207
     .end local v0    # "that":Lcom/google/common/base/Functions$ForMapWithDefault;, "Lcom/google/common/base/Functions$ForMapWithDefault<**>;"
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 212
     .local p0, "this":Lcom/google/common/base/Functions$ForMapWithDefault;, "Lcom/google/common/base/Functions$ForMapWithDefault<TK;TV;>;"
@@ -235,7 +235,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 218
     .local p0, "this":Lcom/google/common/base/Functions$ForMapWithDefault;, "Lcom/google/common/base/Functions$ForMapWithDefault<TK;TV;>;"

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/Class;II)V
-    .locals 0
+    .registers 5
     .param p1, "tagKey"    # I
     .param p3, "contentChangeType"    # I
     .param p4, "frameworkMinimumSdk"    # I
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method frameworkGet(Landroid/view/View;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 4732
@@ -51,7 +51,7 @@
 .end method
 
 .method bridge synthetic frameworkGet(Landroid/view/View;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 4727
     invoke-virtual {p0, p1}, Landroidx/core/view/ViewCompat$3;->frameworkGet(Landroid/view/View;)Ljava/lang/CharSequence;
@@ -62,7 +62,7 @@
 .end method
 
 .method frameworkSet(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
     .param p2, "value"    # Ljava/lang/CharSequence;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method bridge synthetic frameworkSet(Landroid/view/View;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 4727
     check-cast p2, Ljava/lang/CharSequence;
@@ -85,7 +85,7 @@
 .end method
 
 .method shouldUpdate(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 4
     .param p1, "oldValue"    # Ljava/lang/CharSequence;
     .param p2, "newValue"    # Ljava/lang/CharSequence;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method bridge synthetic shouldUpdate(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 4727
     check-cast p1, Ljava/lang/CharSequence;

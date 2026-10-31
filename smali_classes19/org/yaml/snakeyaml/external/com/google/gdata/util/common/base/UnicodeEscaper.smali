@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 56
     nop
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,13 +48,13 @@
 .end method
 
 .method protected static final codePointAt(Ljava/lang/CharSequence;II)I
-    .locals 7
+    .registers 10
     .param p0, "seq"    # Ljava/lang/CharSequence;
     .param p1, "index"    # I
     .param p2, "end"    # I
 
     .line 456
-    if-ge p1, p2, :cond_5
+    if-ge p1, p2, :cond_84
 
     .line 457
     add-int/lit8 v0, p1, 0x1
@@ -69,26 +69,26 @@
     .local p1, "c1":C
     const v1, 0xd800
 
-    if-lt p1, v1, :cond_4
+    if-lt p1, v1, :cond_83
 
     const v1, 0xdfff
 
-    if-le p1, v1, :cond_0
+    if-le p1, v1, :cond_13
 
-    goto :goto_0
+    goto :goto_83
 
     .line 461
-    :cond_0
+    :cond_13
     const v1, 0xdbff
 
     const-string v2, " at index "
 
     const-string v3, "\' with value "
 
-    if-gt p1, v1, :cond_3
+    if-gt p1, v1, :cond_58
 
     .line 464
-    if-ne v0, p2, :cond_1
+    if-ne v0, p2, :cond_20
 
     .line 465
     neg-int v1, p1
@@ -96,7 +96,7 @@
     return v1
 
     .line 468
-    :cond_1
+    :cond_20
     invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v1
@@ -107,7 +107,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2f
 
     .line 470
     invoke-static {p1, v1}, Ljava/lang/Character;->toCodePoint(CC)I
@@ -117,7 +117,7 @@
     return v2
 
     .line 472
-    :cond_2
+    :cond_2f
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -160,7 +160,7 @@
 
     .line 475
     .end local v1    # "c2":C
-    :cond_3
+    :cond_58
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -204,14 +204,14 @@
     throw v1
 
     .line 460
-    :cond_4
-    :goto_0
+    :cond_83
+    :goto_83
     return p1
 
     .line 479
     .end local v0    # "index":I
     .local p1, "index":I
-    :cond_5
+    :cond_84
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     const-string v1, "Index exceeds specified range"
@@ -222,7 +222,7 @@
 .end method
 
 .method private static final growBuffer([CII)[C
-    .locals 2
+    .registers 5
     .param p0, "dest"    # [C
     .param p1, "index"    # I
     .param p2, "size"    # I
@@ -232,7 +232,7 @@
 
     .line 489
     .local v0, "copy":[C
-    if-lez p1, :cond_0
+    if-lez p1, :cond_8
 
     .line 490
     const/4 v1, 0x0
@@ -240,18 +240,18 @@
     invoke-static {p0, v1, v0, v1, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 492
-    :cond_0
+    :cond_8
     return-object v0
 .end method
 
 
 # virtual methods
 .method public escape(Ljava/lang/Appendable;)Ljava/lang/Appendable;
-    .locals 1
+    .registers 3
     .param p1, "out"    # Ljava/lang/Appendable;
 
     .line 286
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 288
     new-instance v0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;
@@ -261,7 +261,7 @@
     return-object v0
 
     .line 286
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -270,7 +270,7 @@
 .end method
 
 .method public escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "string"    # Ljava/lang/String;
 
     .line 161
@@ -288,18 +288,18 @@
 
     .line 163
     .local v1, "index":I
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_d
 
     move-object v2, p1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-virtual {p0, p1, v1}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;->escapeSlow(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_0
+    :goto_11
     return-object v2
 .end method
 
@@ -307,7 +307,7 @@
 .end method
 
 .method protected final escapeSlow(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 10
+    .registers 13
     .param p1, "s"    # Ljava/lang/String;
     .param p2, "index"    # I
 
@@ -336,10 +336,10 @@
 
     .line 195
     .local v3, "unescapedChunkStart":I
-    :goto_0
+    :goto_e
     const/4 v4, 0x0
 
-    if-ge p2, v0, :cond_5
+    if-ge p2, v0, :cond_56
 
     .line 196
     invoke-static {p1, p2, v0}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;->codePointAt(Ljava/lang/CharSequence;II)I
@@ -348,7 +348,7 @@
 
     .line 197
     .local v5, "cp":I
-    if-ltz v5, :cond_4
+    if-ltz v5, :cond_4e
 
     .line 200
     invoke-virtual {p0, v5}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;->escape(I)[C
@@ -357,7 +357,7 @@
 
     .line 201
     .local v6, "escaped":[C
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3e
 
     .line 202
     sub-int v7, p2, v3
@@ -374,7 +374,7 @@
     .local v8, "sizeNeeded":I
     array-length v9, v1
 
-    if-ge v9, v8, :cond_0
+    if-ge v9, v8, :cond_2f
 
     .line 209
     sub-int v9, v0, p2
@@ -391,8 +391,8 @@
 
     .line 213
     .end local v9    # "destLength":I
-    :cond_0
-    if-lez v7, :cond_1
+    :cond_2f
+    if-lez v7, :cond_35
 
     .line 214
     invoke-virtual {p1, v3, p2, v1, v2}, Ljava/lang/String;->getChars(II[CI)V
@@ -401,10 +401,10 @@
     add-int/2addr v2, v7
 
     .line 217
-    :cond_1
+    :cond_35
     array-length v9, v6
 
-    if-lez v9, :cond_2
+    if-lez v9, :cond_3e
 
     .line 218
     array-length v9, v6
@@ -419,21 +419,21 @@
     .line 222
     .end local v7    # "charsSkipped":I
     .end local v8    # "sizeNeeded":I
-    :cond_2
+    :cond_3e
     invoke-static {v5}, Ljava/lang/Character;->isSupplementaryCodePoint(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_46
 
     const/4 v4, 0x2
 
-    goto :goto_1
+    goto :goto_47
 
-    :cond_3
+    :cond_46
     const/4 v4, 0x1
 
-    :goto_1
+    :goto_47
     add-int v3, p2, v4
 
     .line 223
@@ -444,11 +444,11 @@
     .line 224
     .end local v5    # "cp":I
     .end local v6    # "escaped":[C
-    goto :goto_0
+    goto :goto_e
 
     .line 198
     .restart local v5    # "cp":I
-    :cond_4
+    :cond_4e
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string v6, "Trailing high surrogate at end of input"
@@ -459,12 +459,12 @@
 
     .line 229
     .end local v5    # "cp":I
-    :cond_5
+    :cond_56
     sub-int v5, v0, v3
 
     .line 230
     .local v5, "charsSkipped":I
-    if-lez v5, :cond_7
+    if-lez v5, :cond_67
 
     .line 231
     add-int v6, v2, v5
@@ -473,7 +473,7 @@
     .local v6, "endIndex":I
     array-length v7, v1
 
-    if-ge v7, v6, :cond_6
+    if-ge v7, v6, :cond_63
 
     .line 233
     invoke-static {v1, v2, v6}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;->growBuffer([CII)[C
@@ -481,7 +481,7 @@
     move-result-object v1
 
     .line 235
-    :cond_6
+    :cond_63
     invoke-virtual {p1, v3, v0, v1, v2}, Ljava/lang/String;->getChars(II[CI)V
 
     .line 236
@@ -489,7 +489,7 @@
 
     .line 238
     .end local v6    # "endIndex":I
-    :cond_7
+    :cond_67
     new-instance v6, Ljava/lang/String;
 
     invoke-direct {v6, v1, v4, v2}, Ljava/lang/String;-><init>([CII)V
@@ -498,7 +498,7 @@
 .end method
 
 .method protected nextEscapeIndex(Ljava/lang/CharSequence;II)I
-    .locals 3
+    .registers 7
     .param p1, "csq"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -508,8 +508,8 @@
 
     .line 123
     .local v0, "index":I
-    :goto_0
-    if-ge v0, p3, :cond_2
+    :goto_1
+    if-ge v0, p3, :cond_1b
 
     .line 124
     invoke-static {p1, v0, p3}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;->codePointAt(Ljava/lang/CharSequence;II)I
@@ -518,41 +518,41 @@
 
     .line 125
     .local v1, "cp":I
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_1b
 
     invoke-virtual {p0, v1}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;->escape(I)[C
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
     .line 126
-    goto :goto_2
+    goto :goto_1b
 
     .line 128
-    :cond_0
+    :cond_10
     invoke-static {v1}, Ljava/lang/Character;->isSupplementaryCodePoint(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_18
 
     const/4 v2, 0x2
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_19
     add-int/2addr v0, v2
 
     .line 129
     .end local v1    # "cp":I
-    goto :goto_0
+    goto :goto_1
 
     .line 130
-    :cond_2
-    :goto_2
+    :cond_1b
+    :goto_1b
     return v0
 .end method

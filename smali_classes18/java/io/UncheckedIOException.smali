@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/IOException;)V
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/io/IOException;
 
     .line 62
@@ -26,7 +26,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/io/IOException;)V
-    .locals 1
+    .registers 4
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "cause"    # Ljava/io/IOException;
 
@@ -44,7 +44,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 3
+    .registers 5
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 85
@@ -59,13 +59,13 @@
     .local v0, "cause":Ljava/lang/Throwable;
     instance-of v1, v0, Ljava/io/IOException;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 89
     return-void
 
     .line 88
-    :cond_0
+    :cond_c
     new-instance v1, Ljava/io/InvalidObjectException;
 
     const-string v2, "Cause must be an IOException"
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public getCause()Ljava/io/IOException;
-    .locals 1
+    .registers 2
 
     .line 72
     invoke-super {p0}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic getCause()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     .line 34
     invoke-virtual {p0}, Ljava/io/UncheckedIOException;->getCause()Ljava/io/IOException;

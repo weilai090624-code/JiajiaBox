@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public getFingerprintsForPackage(Ljava/lang/String;Landroid/content/pm/PackageManager;)Ljava/util/List;
-    .locals 8
+    .registers 11
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "pm"    # Landroid/content/pm/PackageManager;
     .annotation system Ldalvik/annotation/Signature;
@@ -75,7 +75,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_27
 
     .line 96
     invoke-virtual {v2}, Landroid/content/pm/SigningInfo;->getApkContentsSigners()[Landroid/content/pm/Signature;
@@ -84,8 +84,8 @@
 
     array-length v5, v3
 
-    :goto_0
-    if-ge v4, v5, :cond_1
+    :goto_19
+    if-ge v4, v5, :cond_35
 
     aget-object v6, v3, v4
 
@@ -101,10 +101,10 @@
     .end local v6    # "signature":Landroid/content/pm/Signature;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 100
-    :cond_0
+    :cond_27
     nop
 
     .line 101
@@ -122,12 +122,12 @@
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 103
-    :cond_1
+    :cond_35
     return-object v1
 .end method
 
 .method public packageMatchesToken(Ljava/lang/String;Landroid/content/pm/PackageManager;Landroidx/browser/trusted/TokenContents;)Z
-    .locals 4
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "pm"    # Landroid/content/pm/PackageManager;
     .param p3, "token"    # Landroidx/browser/trusted/TokenContents;
@@ -149,31 +149,31 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     return v1
 
     .line 112
-    :cond_0
+    :cond_c
     invoke-virtual {p0, p1, p2}, Landroidx/browser/trusted/PackageIdentityUtils$Api28Implementation;->getFingerprintsForPackage(Ljava/lang/String;Landroid/content/pm/PackageManager;)Ljava/util/List;
 
     move-result-object v0
 
     .line 113
     .local v0, "fingerprints":Ljava/util/List;, "Ljava/util/List<[B>;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     return v1
 
     .line 115
-    :cond_1
+    :cond_13
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v2
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_23
 
     .line 116
     invoke-virtual {p3, v1}, Landroidx/browser/trusted/TokenContents;->getFingerprint(I)[B
@@ -187,7 +187,7 @@
     return v1
 
     .line 119
-    :cond_2
+    :cond_23
     invoke-static {p1, v0}, Landroidx/browser/trusted/TokenContents;->create(Ljava/lang/String;Ljava/util/List;)Landroidx/browser/trusted/TokenContents;
 
     move-result-object v1

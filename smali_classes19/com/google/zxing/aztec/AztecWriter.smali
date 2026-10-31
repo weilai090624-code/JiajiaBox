@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method private static encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/nio/charset/Charset;II)Lcom/google/zxing/common/BitMatrix;
-    .locals 3
+    .registers 10
     .param p0, "contents"    # Ljava/lang/String;
     .param p1, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p2, "width"    # I
@@ -29,7 +29,7 @@
     .line 62
     sget-object v0, Lcom/google/zxing/BarcodeFormat;->AZTEC:Lcom/google/zxing/BarcodeFormat;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_11
 
     .line 65
     invoke-virtual {p0, p4}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
@@ -48,7 +48,7 @@
     return-object v0
 
     .line 63
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Can only encode AZTEC, but got "
@@ -67,7 +67,7 @@
 .end method
 
 .method private static renderResult(Lcom/google/zxing/aztec/encoder/AztecCode;II)Lcom/google/zxing/common/BitMatrix;
-    .locals 16
+    .registers 19
     .param p0, "code"    # Lcom/google/zxing/aztec/encoder/AztecCode;
     .param p1, "width"    # I
     .param p2, "height"    # I
@@ -83,7 +83,7 @@
     .local v1, "input":Lcom/google/zxing/common/BitMatrix;
     move-object v1, v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4f
 
     .line 74
     invoke-virtual {v1}, Lcom/google/zxing/common/BitMatrix;->getWidth()I
@@ -152,8 +152,8 @@
     move v12, v9
 
     .local v12, "outputY":I
-    :goto_0
-    if-ge v11, v2, :cond_2
+    :goto_37
+    if-ge v11, v2, :cond_4e
 
     .line 87
     const/4 v13, 0x0
@@ -162,41 +162,41 @@
     move v14, v8
 
     .local v14, "outputX":I
-    :goto_1
-    if-ge v13, v0, :cond_1
+    :goto_3b
+    if-ge v13, v0, :cond_4a
 
     .line 88
     invoke-virtual {v1, v13, v11}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v15
 
-    if-eqz v15, :cond_0
+    if-eqz v15, :cond_46
 
     .line 89
     invoke-virtual {v10, v14, v12, v7, v7}, Lcom/google/zxing/common/BitMatrix;->setRegion(IIII)V
 
     .line 87
-    :cond_0
+    :cond_46
     add-int/lit8 v13, v13, 0x1
 
     add-int/2addr v14, v7
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 85
     .end local v13    # "inputX":I
     .end local v14    # "outputX":I
-    :cond_1
+    :cond_4a
     add-int/lit8 v11, v11, 0x1
 
     add-int/2addr v12, v7
 
-    goto :goto_0
+    goto :goto_37
 
     .line 93
     .end local v11    # "inputY":I
     .end local v12    # "outputY":I
-    :cond_2
+    :cond_4e
     return-object v10
 
     .line 72
@@ -208,7 +208,7 @@
     .end local v8    # "leftPadding":I
     .end local v9    # "topPadding":I
     .end local v10    # "output":Lcom/google/zxing/common/BitMatrix;
-    :cond_3
+    :cond_4f
     move/from16 v3, p1
 
     move/from16 v5, p2
@@ -223,7 +223,7 @@
 
 # virtual methods
 .method public encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;II)Lcom/google/zxing/common/BitMatrix;
-    .locals 6
+    .registers 11
     .param p1, "contents"    # Ljava/lang/String;
     .param p2, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p3, "width"    # I
@@ -250,7 +250,7 @@
 .end method
 
 .method public encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;)Lcom/google/zxing/common/BitMatrix;
-    .locals 10
+    .registers 16
     .param p1, "contents"    # Ljava/lang/String;
     .param p2, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p3, "width"    # I
@@ -282,7 +282,7 @@
 
     .line 45
     .local v2, "layers":I
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_49
 
     .line 46
     sget-object v3, Lcom/google/zxing/EncodeHintType;->CHARACTER_SET:Lcom/google/zxing/EncodeHintType;
@@ -291,7 +291,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1d
 
     .line 47
     sget-object v3, Lcom/google/zxing/EncodeHintType;->CHARACTER_SET:Lcom/google/zxing/EncodeHintType;
@@ -309,14 +309,14 @@
     move-result-object v0
 
     .line 49
-    :cond_0
+    :cond_1d
     sget-object v3, Lcom/google/zxing/EncodeHintType;->ERROR_CORRECTION:Lcom/google/zxing/EncodeHintType;
 
     invoke-interface {p5, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_33
 
     .line 50
     sget-object v3, Lcom/google/zxing/EncodeHintType;->ERROR_CORRECTION:Lcom/google/zxing/EncodeHintType;
@@ -334,14 +334,14 @@
     move-result v1
 
     .line 52
-    :cond_1
+    :cond_33
     sget-object v3, Lcom/google/zxing/EncodeHintType;->AZTEC_LAYERS:Lcom/google/zxing/EncodeHintType;
 
     invoke-interface {p5, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_49
 
     .line 53
     sget-object v3, Lcom/google/zxing/EncodeHintType;->AZTEC_LAYERS:Lcom/google/zxing/EncodeHintType;
@@ -359,7 +359,7 @@
     move-result v2
 
     .line 56
-    :cond_2
+    :cond_49
     move-object v3, p1
 
     move-object v4, p2

@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/lifecycle/LiveData;
     .param p2, "owner"    # Landroidx/lifecycle/LifecycleOwner;
     .annotation system Ldalvik/annotation/Signature;
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method detachObserver()V
-    .locals 1
+    .registers 2
 
     .line 452
     .local p0, "this":Landroidx/lifecycle/LiveData$LifecycleBoundObserver;, "Landroidx/lifecycle/LiveData<TT;>.LifecycleBoundObserver;"
@@ -80,28 +80,28 @@
 .end method
 
 .method isAttachedTo(Landroidx/lifecycle/LifecycleOwner;)Z
-    .locals 1
+    .registers 3
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
     .line 447
     .local p0, "this":Landroidx/lifecycle/LiveData$LifecycleBoundObserver;, "Landroidx/lifecycle/LiveData<TT;>.LifecycleBoundObserver;"
     iget-object v0, p0, Landroidx/lifecycle/LiveData$LifecycleBoundObserver;->mOwner:Landroidx/lifecycle/LifecycleOwner;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -121,7 +121,7 @@
     .local v0, "currentState":Landroidx/lifecycle/Lifecycle$State;
     sget-object v1, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     .line 434
     iget-object v1, p0, Landroidx/lifecycle/LiveData$LifecycleBoundObserver;->this$0:Landroidx/lifecycle/LiveData;
@@ -134,13 +134,13 @@
     return-void
 
     .line 437
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 438
     .local v1, "prevState":Landroidx/lifecycle/Lifecycle$State;
-    :goto_0
-    if-eq v1, v0, :cond_1
+    :goto_17
+    if-eq v1, v0, :cond_2c
 
     .line 439
     move-object v1, v0
@@ -163,15 +163,15 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 443
-    :cond_1
+    :cond_2c
     return-void
 .end method
 
 .method shouldBeActive()Z
-    .locals 2
+    .registers 3
 
     .line 426
     .local p0, "this":Landroidx/lifecycle/LiveData$LifecycleBoundObserver;, "Landroidx/lifecycle/LiveData<TT;>.LifecycleBoundObserver;"

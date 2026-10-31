@@ -87,7 +87,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
     .param p3, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
@@ -112,7 +112,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     .line 246
     const/4 v0, 0x0
@@ -123,22 +123,22 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_18
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v1, 0x0
 
     .end local v0    # "$i$a$-assert-ChannelFlow$1":I
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_19
+    if-eqz v1, :cond_1c
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_1c
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -146,8 +146,8 @@
     throw v0
 
     .line 56
-    :cond_2
-    :goto_1
+    :cond_22
+    :goto_22
     nop
 
     .line 46
@@ -155,7 +155,7 @@
 .end method
 
 .method static synthetic collect$suspendImpl(Lkotlinx/coroutines/flow/internal/ChannelFlow;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this"    # Lkotlinx/coroutines/flow/internal/ChannelFlow;
     .param p1, "collector"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -193,11 +193,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     return-object v0
 
-    :cond_0
+    :cond_13
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 124
@@ -207,7 +207,7 @@
 
 # virtual methods
 .method protected additionalToStringProps()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 126
     const/4 v0, 0x0
@@ -216,7 +216,7 @@
 .end method
 
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -267,7 +267,7 @@
 .end method
 
 .method public dropChannelOperators()Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -283,7 +283,7 @@
 .end method
 
 .method public fuse(Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 7
+    .registers 11
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
     .param p3, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
@@ -308,7 +308,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_18
 
     .line 246
     const/4 v0, 0x0
@@ -317,22 +317,22 @@
     .local v0, "$i$a$-assert-ChannelFlow$fuse$1":I
     const/4 v3, -0x1
 
-    if-eq p2, v3, :cond_0
+    if-eq p2, v3, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     .end local v0    # "$i$a$-assert-ChannelFlow$fuse$1":I
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_12
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_12
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -340,8 +340,8 @@
     throw v0
 
     .line 76
-    :cond_2
-    :goto_1
+    :cond_18
+    :goto_18
     iget-object v0, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->context:Lkotlin/coroutines/CoroutineContext;
 
     invoke-interface {p1, v0}, Lkotlin/coroutines/CoroutineContext;->plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
@@ -358,7 +358,7 @@
     .local v4, "newOverflow":Lkotlinx/coroutines/channels/BufferOverflow;
     sget-object v5, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-eq p3, v5, :cond_3
+    if-eq p3, v5, :cond_27
 
     .line 81
     move v1, p2
@@ -370,14 +370,14 @@
 
     .end local v4    # "newOverflow":Lkotlinx/coroutines/channels/BufferOverflow;
     .local v2, "newOverflow":Lkotlinx/coroutines/channels/BufferOverflow;
-    goto :goto_8
+    goto :goto_79
 
     .line 85
     .end local v1    # "newCapacity":I
     .end local v2    # "newOverflow":Lkotlinx/coroutines/channels/BufferOverflow;
     .restart local v3    # "newCapacity":I
     .restart local v4    # "newOverflow":Lkotlinx/coroutines/channels/BufferOverflow;
-    :cond_3
+    :cond_27
     nop
 
     .line 86
@@ -385,47 +385,47 @@
 
     const/4 v6, -0x3
 
-    if-ne v5, v6, :cond_4
+    if-ne v5, v6, :cond_2e
 
-    goto :goto_2
+    goto :goto_38
 
     .line 87
-    :cond_4
-    if-ne p2, v6, :cond_5
+    :cond_2e
+    if-ne p2, v6, :cond_33
 
     iget v1, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
-    goto :goto_7
+    goto :goto_76
 
     .line 88
-    :cond_5
+    :cond_33
     iget v5, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
     const/4 v6, -0x2
 
-    if-ne v5, v6, :cond_6
+    if-ne v5, v6, :cond_3a
 
     .line 85
-    :goto_2
+    :goto_38
     move v1, p2
 
-    goto :goto_7
+    goto :goto_76
 
     .line 89
-    :cond_6
-    if-ne p2, v6, :cond_7
+    :cond_3a
+    if-ne p2, v6, :cond_3f
 
     iget v1, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
-    goto :goto_7
+    goto :goto_76
 
     .line 92
-    :cond_7
+    :cond_3f
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getASSERTIONS_ENABLED()Z
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_56
 
     .line 246
     const/4 v5, 0x0
@@ -434,22 +434,22 @@
     .local v5, "$i$a$-assert-ChannelFlow$fuse$2":I
     iget v6, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
-    if-ltz v6, :cond_8
+    if-ltz v6, :cond_4c
 
     const/4 v5, 0x1
 
-    goto :goto_3
+    goto :goto_4d
 
-    :cond_8
+    :cond_4c
     const/4 v5, 0x0
 
     .end local v5    # "$i$a$-assert-ChannelFlow$fuse$2":I
-    :goto_3
-    if-eqz v5, :cond_9
+    :goto_4d
+    if-eqz v5, :cond_50
 
-    goto :goto_4
+    goto :goto_56
 
-    :cond_9
+    :cond_50
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
@@ -457,33 +457,33 @@
     throw v1
 
     .line 93
-    :cond_a
-    :goto_4
+    :cond_56
+    :goto_56
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getASSERTIONS_ENABLED()Z
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_6a
 
     .line 246
     const/4 v5, 0x0
 
     .line 93
     .local v5, "$i$a$-assert-ChannelFlow$fuse$3":I
-    if-ltz p2, :cond_b
+    if-ltz p2, :cond_60
 
-    goto :goto_5
+    goto :goto_61
 
-    :cond_b
+    :cond_60
     const/4 v1, 0x0
 
     .end local v5    # "$i$a$-assert-ChannelFlow$fuse$3":I
-    :goto_5
-    if-eqz v1, :cond_c
+    :goto_61
+    if-eqz v1, :cond_64
 
-    goto :goto_6
+    goto :goto_6a
 
-    :cond_c
+    :cond_64
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
@@ -491,26 +491,26 @@
     throw v1
 
     .line 95
-    :cond_d
-    :goto_6
+    :cond_6a
+    :goto_6a
     iget v1, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
     add-int/2addr v1, p2
 
     .line 96
     .local v1, "sum":I
-    if-ltz v1, :cond_e
+    if-ltz v1, :cond_70
 
-    goto :goto_7
+    goto :goto_76
 
-    :cond_e
+    :cond_70
     const v2, 0x7fffffff
 
     const v1, 0x7fffffff
 
     .line 85
     .end local v1    # "sum":I
-    :goto_7
+    :goto_76
     nop
 
     .line 99
@@ -521,22 +521,22 @@
     .line 101
     .end local v4    # "newOverflow":Lkotlinx/coroutines/channels/BufferOverflow;
     .restart local v2    # "newOverflow":Lkotlinx/coroutines/channels/BufferOverflow;
-    :goto_8
+    :goto_79
     iget-object v3, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->context:Lkotlin/coroutines/CoroutineContext;
 
     invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_8d
 
     iget v3, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
-    if-ne v1, v3, :cond_f
+    if-ne v1, v3, :cond_8d
 
     iget-object v3, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->onBufferOverflow:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne v2, v3, :cond_f
+    if-ne v2, v3, :cond_8d
 
     .line 102
     move-object v3, p0
@@ -546,7 +546,7 @@
     return-object v3
 
     .line 103
-    :cond_f
+    :cond_8d
     invoke-virtual {p0, v0, v1, v2}, Lkotlinx/coroutines/flow/internal/ChannelFlow;->create(Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/internal/ChannelFlow;
 
     move-result-object v3
@@ -557,7 +557,7 @@
 .end method
 
 .method public final getCollectToFun$kotlinx_coroutines_core()Lkotlin/jvm/functions/Function2;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -586,28 +586,28 @@
 .end method
 
 .method public final getProduceCapacity$kotlinx_coroutines_core()I
-    .locals 2
+    .registers 3
 
     .line 63
     iget v0, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
     const/4 v1, -0x3
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, -0x2
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     iget v0, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public produceImpl(Lkotlinx/coroutines/CoroutineScope;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 9
+    .registers 11
     .param p1, "scope"    # Lkotlinx/coroutines/CoroutineScope;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -650,7 +650,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 11
+    .registers 12
 
     .line 130
     new-instance v0, Ljava/util/ArrayList;
@@ -665,7 +665,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 246
     .local v1, "it":Ljava/lang/String;
@@ -678,12 +678,12 @@
     .line 132
     .end local v1    # "it":Ljava/lang/String;
     .end local v2    # "$i$a$-let-ChannelFlow$toString$1":I
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->context:Lkotlin/coroutines/CoroutineContext;
 
     sget-object v2, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_2e
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -708,12 +708,12 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 133
-    :cond_1
+    :cond_2e
     iget v1, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
     const/4 v2, -0x3
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_4b
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -738,12 +738,12 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 134
-    :cond_2
+    :cond_4b
     iget-object v1, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;->onBufferOverflow:Lkotlinx/coroutines/channels/BufferOverflow;
 
     sget-object v2, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_69
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -768,7 +768,7 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 135
-    :cond_3
+    :cond_69
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

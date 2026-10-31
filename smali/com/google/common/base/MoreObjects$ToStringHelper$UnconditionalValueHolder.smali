@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 455
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/base/MoreObjects$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/base/MoreObjects$1;
 
     .line 455

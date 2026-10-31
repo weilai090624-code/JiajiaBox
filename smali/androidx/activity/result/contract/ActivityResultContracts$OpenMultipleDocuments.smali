@@ -68,7 +68,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 478
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContract;-><init>()V
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public bridge synthetic createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public createIntent(Landroid/content/Context;[Ljava/lang/String;)Landroid/content/Intent;
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # [Ljava/lang/String;
 
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic getSynchronousResult(Landroid/content/Context;Ljava/lang/Object;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -165,7 +165,7 @@
 .end method
 
 .method public final getSynchronousResult(Landroid/content/Context;[Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -197,7 +197,7 @@
 .end method
 
 .method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -210,7 +210,7 @@
 .end method
 
 .method public final parseResult(ILandroid/content/Intent;)Ljava/util/List;
-    .locals 3
+    .registers 6
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
@@ -235,29 +235,29 @@
     .local v1, "$i$a$-takeIf-ActivityResultContracts$OpenMultipleDocuments$parseResult$1":I
     const/4 v2, -0x1
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_7
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v2, 0x0
 
     .end local v0    # "it":Landroid/content/Intent;
     .end local v1    # "$i$a$-takeIf-ActivityResultContracts$OpenMultipleDocuments$parseResult$1":I
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_8
+    if-eqz v2, :cond_c
 
     move-object v0, p2
 
-    goto :goto_1
+    goto :goto_d
 
-    :cond_1
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_d
+    if-eqz v0, :cond_17
 
     sget-object v1, Landroidx/activity/result/contract/ActivityResultContracts$GetMultipleContents;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$GetMultipleContents$Companion;
 
@@ -265,15 +265,15 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_1b
 
     .line 494
-    :cond_2
+    :cond_17
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     .line 493
-    :cond_3
+    :cond_1b
     return-object v0
 .end method

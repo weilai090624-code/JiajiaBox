@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/objenesis/strategy/InstantiatorStrategy;)V
-    .locals 1
+    .registers 3
     .param p1, "strategy"    # Lorg/objenesis/strategy/InstantiatorStrategy;
 
     .line 43
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(Lorg/objenesis/strategy/InstantiatorStrategy;Z)V
-    .locals 2
+    .registers 5
     .param p1, "strategy"    # Lorg/objenesis/strategy/InstantiatorStrategy;
     .param p2, "useCache"    # Z
 
@@ -44,31 +44,31 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_13
 
     .line 56
     iput-object p1, p0, Lorg/objenesis/ObjenesisBase;->strategy:Lorg/objenesis/strategy/InstantiatorStrategy;
 
     .line 57
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_f
 
     new-instance v0, Lj$/util/concurrent/ConcurrentHashMap;
 
     invoke-direct {v0}, Lj$/util/concurrent/ConcurrentHashMap;-><init>()V
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     iput-object v0, p0, Lorg/objenesis/ObjenesisBase;->cache:Lj$/util/concurrent/ConcurrentHashMap;
 
     .line 58
     return-void
 
     .line 54
-    :cond_1
+    :cond_13
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "A strategy can\'t be null"
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public getInstantiatorOf(Ljava/lang/Class;)Lorg/objenesis/instantiator/ObjectInstantiator;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -100,12 +100,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_36
 
     .line 89
     iget-object v0, p0, Lorg/objenesis/ObjenesisBase;->cache:Lj$/util/concurrent/ConcurrentHashMap;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 90
     iget-object v0, p0, Lorg/objenesis/ObjenesisBase;->strategy:Lorg/objenesis/strategy/InstantiatorStrategy;
@@ -117,7 +117,7 @@
     return-object v0
 
     .line 92
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lorg/objenesis/ObjenesisBase;->cache:Lj$/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -132,7 +132,7 @@
 
     .line 93
     .local v0, "instantiator":Lorg/objenesis/instantiator/ObjectInstantiator;, "Lorg/objenesis/instantiator/ObjectInstantiator<*>;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_35
 
     .line 94
     iget-object v1, p0, Lorg/objenesis/ObjenesisBase;->strategy:Lorg/objenesis/strategy/InstantiatorStrategy;
@@ -158,19 +158,19 @@
     check-cast v0, Lorg/objenesis/instantiator/ObjectInstantiator;
 
     .line 96
-    if-nez v0, :cond_1
+    if-nez v0, :cond_35
 
     .line 97
     move-object v0, v1
 
     .line 100
     .end local v1    # "newInstantiator":Lorg/objenesis/instantiator/ObjectInstantiator;, "Lorg/objenesis/instantiator/ObjectInstantiator<*>;"
-    :cond_1
+    :cond_35
     return-object v0
 
     .line 87
     .end local v0    # "instantiator":Lorg/objenesis/instantiator/ObjectInstantiator;, "Lorg/objenesis/instantiator/ObjectInstantiator<*>;"
-    :cond_2
+    :cond_36
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Primitive types can\'t be instantiated in Java"
@@ -181,7 +181,7 @@
 .end method
 
 .method public newInstance(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -206,7 +206,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 62
     new-instance v0, Ljava/lang/StringBuilder;
@@ -247,16 +247,16 @@
 
     iget-object v1, p0, Lorg/objenesis/ObjenesisBase;->cache:Lj$/util/concurrent/ConcurrentHashMap;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2c
 
     const-string v1, " without"
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_0
+    :cond_2c
     const-string v1, " with"
 
-    :goto_0
+    :goto_2e
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

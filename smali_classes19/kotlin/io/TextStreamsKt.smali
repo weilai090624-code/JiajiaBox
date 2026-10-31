@@ -58,7 +58,7 @@
 
 # direct methods
 .method private static final buffered(Ljava/io/Reader;I)Ljava/io/BufferedReader;
-    .locals 1
+    .registers 3
     .param p0, "$this$buffered"    # Ljava/io/Reader;
     .param p1, "bufferSize"    # I
 
@@ -69,25 +69,25 @@
     .line 22
     instance-of v0, p0, Ljava/io/BufferedReader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     move-object v0, p0
 
     check-cast v0, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/io/BufferedReader;
 
     invoke-direct {v0, p0, p1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method private static final buffered(Ljava/io/Writer;I)Ljava/io/BufferedWriter;
-    .locals 1
+    .registers 3
     .param p0, "$this$buffered"    # Ljava/io/Writer;
     .param p1, "bufferSize"    # I
 
@@ -98,36 +98,36 @@
     .line 27
     instance-of v0, p0, Ljava/io/BufferedWriter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     move-object v0, p0
 
     check-cast v0, Ljava/io/BufferedWriter;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/io/BufferedWriter;
 
     invoke-direct {v0, p0, p1}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;I)V
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method static synthetic buffered$default(Ljava/io/Reader;IILjava/lang/Object;)Ljava/io/BufferedReader;
-    .locals 0
+    .registers 4
     .param p0, "$this$buffered_u24default"    # Ljava/io/Reader;
     .param p1, "bufferSize"    # I
 
     .line 21
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const/16 p1, 0x2000
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -135,36 +135,36 @@
     .line 22
     instance-of p2, p0, Ljava/io/BufferedReader;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_13
 
     move-object p2, p0
 
     check-cast p2, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_13
     new-instance p2, Ljava/io/BufferedReader;
 
     invoke-direct {p2, p0, p1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
 
-    :goto_0
+    :goto_18
     return-object p2
 .end method
 
 .method static synthetic buffered$default(Ljava/io/Writer;IILjava/lang/Object;)Ljava/io/BufferedWriter;
-    .locals 0
+    .registers 4
     .param p0, "$this$buffered_u24default"    # Ljava/io/Writer;
     .param p1, "bufferSize"    # I
 
     .line 26
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const/16 p1, 0x2000
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -172,25 +172,25 @@
     .line 27
     instance-of p2, p0, Ljava/io/BufferedWriter;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_13
 
     move-object p2, p0
 
     check-cast p2, Ljava/io/BufferedWriter;
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_13
     new-instance p2, Ljava/io/BufferedWriter;
 
     invoke-direct {p2, p0, p1}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;I)V
 
-    :goto_0
+    :goto_18
     return-object p2
 .end method
 
 .method public static final copyTo(Ljava/io/Reader;Ljava/io/Writer;I)J
-    .locals 6
+    .registers 9
     .param p0, "$this$copyTo"    # Ljava/io/Reader;
     .param p1, "out"    # Ljava/io/Writer;
     .param p2, "bufferSize"    # I
@@ -218,8 +218,8 @@
 
     .line 129
     .local v3, "chars":I
-    :goto_0
-    if-ltz v3, :cond_0
+    :goto_12
+    if-ltz v3, :cond_1f
 
     .line 130
     const/4 v4, 0x0
@@ -236,24 +236,24 @@
 
     move-result v3
 
-    goto :goto_0
+    goto :goto_12
 
     .line 134
-    :cond_0
+    :cond_1f
     return-wide v0
 .end method
 
 .method public static synthetic copyTo$default(Ljava/io/Reader;Ljava/io/Writer;IILjava/lang/Object;)J
-    .locals 0
+    .registers 5
 
     .line 125
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     const/16 p2, 0x2000
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2}, Lkotlin/io/TextStreamsKt;->copyTo(Ljava/io/Reader;Ljava/io/Writer;I)J
 
     move-result-wide p0
@@ -262,7 +262,7 @@
 .end method
 
 .method public static final forEachLine(Ljava/io/Reader;Lkotlin/jvm/functions/Function1;)V
-    .locals 11
+    .registers 13
     .param p0, "$this$forEachLine"    # Ljava/io/Reader;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -298,25 +298,25 @@
     .line 161
     instance-of v2, v0, Ljava/io/BufferedReader;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     move-object v2, v0
 
     check-cast v2, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_15
     new-instance v2, Ljava/io/BufferedReader;
 
     const/16 v3, 0x2000
 
     invoke-direct {v2, v0, v3}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
 
-    :goto_0
+    :goto_1c
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_1e
     move-object v3, v2
 
     check-cast v3, Ljava/io/BufferedReader;
@@ -347,12 +347,12 @@
 
     move-result-object v9
 
-    :goto_1
+    :goto_2d
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_3b
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -361,11 +361,11 @@
     .local v10, "element$iv":Ljava/lang/Object;
     invoke-interface {p1, v10}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 164
     .end local v10    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_3b
     nop
 
     .line 35
@@ -376,8 +376,8 @@
     .end local v5    # "it":Lkotlin/sequences/Sequence;
     .end local v6    # "$i$a$-useLines-TextStreamsKt$forEachLine$1":I
     sget-object v5, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3f
+    .catchall {:try_start_1e .. :try_end_3f} :catchall_45
 
     .line 161
     nop
@@ -396,23 +396,23 @@
     .line 161
     .restart local v0    # "$this$useLines$iv":Ljava/io/Reader;
     .restart local v1    # "$i$f$useLines":I
-    :catchall_0
+    :catchall_45
     move-exception v3
 
     .end local v0    # "$this$useLines$iv":Ljava/io/Reader;
     .end local v1    # "$i$f$useLines":I
     .end local p0    # "$this$forEachLine":Ljava/io/Reader;
     .end local p1    # "action":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_46
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_47
+    .catchall {:try_start_46 .. :try_end_47} :catchall_47
 
     .restart local v0    # "$this$useLines$iv":Ljava/io/Reader;
     .restart local v1    # "$i$f$useLines":I
     .restart local p0    # "$this$forEachLine":Ljava/io/Reader;
     .restart local p1    # "action":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_47
     move-exception v4
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -421,7 +421,7 @@
 .end method
 
 .method public static final lineSequence(Ljava/io/BufferedReader;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$lineSequence"    # Ljava/io/BufferedReader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -453,7 +453,7 @@
 .end method
 
 .method public static final readBytes(Ljava/net/URL;)[B
-    .locals 4
+    .registers 5
     .param p0, "$this$readBytes"    # Ljava/net/URL;
 
     const-string v0, "<this>"
@@ -467,7 +467,7 @@
 
     check-cast v0, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_b
     move-object v1, v0
 
     check-cast v1, Ljava/io/InputStream;
@@ -483,8 +483,8 @@
     invoke-static {v1}, Lkotlin/io/ByteStreamsKt;->readBytes(Ljava/io/InputStream;)[B
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_b .. :try_end_16} :catchall_1b
 
     .end local v1    # "it":Ljava/io/InputStream;
     .end local v2    # "$i$a$-use-TextStreamsKt$readBytes$1":I
@@ -494,17 +494,17 @@
 
     return-object v3
 
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     .end local p0    # "$this$readBytes":Ljava/net/URL;
-    :try_start_1
+    :try_start_1c
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_1d
+    .catchall {:try_start_1c .. :try_end_1d} :catchall_1d
 
     .restart local p0    # "$this$readBytes":Ljava/net/URL;
-    :catchall_1
+    :catchall_1d
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -513,7 +513,7 @@
 .end method
 
 .method public static final readLines(Ljava/io/Reader;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "$this$readLines"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -554,7 +554,7 @@
 .end method
 
 .method public static final readText(Ljava/io/Reader;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$readText"    # Ljava/io/Reader;
 
     const-string v0, "<this>"
@@ -593,7 +593,7 @@
 .end method
 
 .method private static final readText(Ljava/net/URL;Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$readText"    # Ljava/net/URL;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
@@ -618,18 +618,18 @@
 .end method
 
 .method static synthetic readText$default(Ljava/net/URL;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
     .param p0, "$this$readText_u24default"    # Ljava/net/URL;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 146
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -650,7 +650,7 @@
 .end method
 
 .method private static final reader(Ljava/lang/String;)Ljava/io/StringReader;
-    .locals 1
+    .registers 2
     .param p0, "$this$reader"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -666,7 +666,7 @@
 .end method
 
 .method public static final useLines(Ljava/io/Reader;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p0, "$this$useLines"    # Ljava/io/Reader;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -700,29 +700,29 @@
     .line 57
     instance-of v1, p0, Ljava/io/BufferedReader;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     move-object v1, p0
 
     check-cast v1, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_14
     new-instance v1, Ljava/io/BufferedReader;
 
     const/16 v2, 0x2000
 
     invoke-direct {v1, p0, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
 
-    :goto_0
+    :goto_1b
     check-cast v1, Ljava/io/Closeable;
 
     const/4 v2, 0x0
 
     const/4 v3, 0x1
 
-    :try_start_0
+    :try_start_1f
     move-object v4, v1
 
     check-cast v4, Ljava/io/BufferedReader;
@@ -740,8 +740,8 @@
     invoke-interface {p1, v6}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_1f .. :try_end_2b} :catchall_3a
 
     .end local v4    # "it":Ljava/io/BufferedReader;
     .end local v5    # "$i$a$-use-TextStreamsKt$useLines$2":I
@@ -749,58 +749,58 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_36
 
     const/4 v2, 0x0
 
     invoke-static {v1, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_39
 
-    :cond_1
+    :cond_36
     invoke-interface {v1}, Ljava/io/Closeable;->close()V
 
-    :goto_1
+    :goto_39
     return-object v6
 
-    :catchall_0
+    :catchall_3a
     move-exception v4
 
     .end local v0    # "$i$f$useLines":I
     .end local p0    # "$this$useLines":Ljava/io/Reader;
     .end local p1    # "block":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_3b
     throw v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_3c
+    .catchall {:try_start_3b .. :try_end_3c} :catchall_3c
 
     .restart local v0    # "$i$f$useLines":I
     .restart local p0    # "$this$useLines":Ljava/io/Reader;
     .restart local p1    # "block":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_3c
     move-exception v5
 
     invoke-static {v3, v3, v2}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_49
 
-    :try_start_2
+    :try_start_43
     invoke-interface {v1}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_46
+    .catchall {:try_start_43 .. :try_end_46} :catchall_47
 
-    goto :goto_2
+    goto :goto_4c
 
-    :catchall_2
+    :catchall_47
     move-exception v1
 
-    goto :goto_2
+    goto :goto_4c
 
-    :cond_2
+    :cond_49
     invoke-static {v1, v4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    :goto_2
+    :goto_4c
     throw v5
 .end method

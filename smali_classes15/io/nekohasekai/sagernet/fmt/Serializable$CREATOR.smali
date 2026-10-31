@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lio/nekohasekai/sagernet/fmt/Serializable;
-    .locals 2
+    .registers 4
     .param p1, "source"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,7 +104,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Landroid/os/Parcel;
 
     .line 19

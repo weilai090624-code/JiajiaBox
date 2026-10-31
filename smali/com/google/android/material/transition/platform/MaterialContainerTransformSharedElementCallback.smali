@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-direct {p0}, Landroid/app/SharedElementCallback;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/view/Window;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Landroid/view/Window;
 
     .line 53
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/view/Window;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Landroid/view/Window;
 
     .line 53
@@ -87,7 +87,7 @@
 .end method
 
 .method static synthetic access$200()Ljava/lang/ref/WeakReference;
-    .locals 1
+    .registers 1
 
     .line 53
     sget-object v0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->capturedSharedElement:Ljava/lang/ref/WeakReference;
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$202(Ljava/lang/ref/WeakReference;)Ljava/lang/ref/WeakReference;
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Ljava/lang/ref/WeakReference;
 
     .line 53
@@ -106,7 +106,7 @@
 .end method
 
 .method private static getWindowBackground(Landroid/view/Window;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
     .param p0, "window"    # Landroid/view/Window;
 
     .line 328
@@ -122,7 +122,7 @@
 .end method
 
 .method private static removeWindowBackground(Landroid/view/Window;)V
-    .locals 4
+    .registers 5
     .param p0, "window"    # Landroid/view/Window;
 
     .line 302
@@ -132,13 +132,13 @@
 
     .line 303
     .local v0, "windowBackground":Landroid/graphics/drawable/Drawable;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 304
     return-void
 
     .line 306
-    :cond_0
+    :cond_7
     nop
 
     .line 307
@@ -163,7 +163,7 @@
 .end method
 
 .method private static restoreWindowBackground(Landroid/view/Window;)V
-    .locals 2
+    .registers 3
     .param p0, "window"    # Landroid/view/Window;
 
     .line 319
@@ -173,13 +173,13 @@
 
     .line 320
     .local v0, "windowBackground":Landroid/graphics/drawable/Drawable;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 321
     return-void
 
     .line 323
-    :cond_0
+    :cond_7
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
@@ -191,7 +191,7 @@
 .end method
 
 .method private setUpEnterTransform(Landroid/view/Window;)V
-    .locals 3
+    .registers 5
     .param p1, "window"    # Landroid/view/Window;
 
     .line 232
@@ -203,7 +203,7 @@
     .local v0, "transition":Landroid/transition/Transition;
     instance-of v1, v0, Lcom/google/android/material/transition/platform/MaterialContainerTransform;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_22
 
     .line 234
     move-object v1, v0
@@ -214,7 +214,7 @@
     .local v1, "transform":Lcom/google/android/material/transition/platform/MaterialContainerTransform;
     iget-boolean v2, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->sharedElementReenterTransitionEnabled:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_13
 
     .line 236
     const/4 v2, 0x0
@@ -222,10 +222,10 @@
     invoke-virtual {p1, v2}, Landroid/view/Window;->setSharedElementReenterTransition(Landroid/transition/Transition;)V
 
     .line 238
-    :cond_0
+    :cond_13
     iget-boolean v2, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->transparentWindowBackgroundEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_22
 
     .line 239
     invoke-static {p1, v1}, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->updateBackgroundFadeDuration(Landroid/view/Window;Lcom/google/android/material/transition/platform/MaterialContainerTransform;)V
@@ -239,12 +239,12 @@
 
     .line 254
     .end local v1    # "transform":Lcom/google/android/material/transition/platform/MaterialContainerTransform;
-    :cond_1
+    :cond_22
     return-void
 .end method
 
 .method private setUpReturnTransform(Landroid/app/Activity;Landroid/view/Window;)V
-    .locals 3
+    .registers 6
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "window"    # Landroid/view/Window;
 
@@ -257,7 +257,7 @@
     .local v0, "transition":Landroid/transition/Transition;
     instance-of v1, v0, Lcom/google/android/material/transition/platform/MaterialContainerTransform;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     .line 259
     move-object v1, v0
@@ -280,7 +280,7 @@
     .line 279
     iget-boolean v2, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->transparentWindowBackgroundEnabled:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     .line 280
     invoke-static {p2, v1}, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->updateBackgroundFadeDuration(Landroid/view/Window;Lcom/google/android/material/transition/platform/MaterialContainerTransform;)V
@@ -294,12 +294,12 @@
 
     .line 290
     .end local v1    # "transform":Lcom/google/android/material/transition/platform/MaterialContainerTransform;
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 .method private static updateBackgroundFadeDuration(Landroid/view/Window;Lcom/google/android/material/transition/platform/MaterialContainerTransform;)V
-    .locals 5
+    .registers 7
     .param p0, "window"    # Landroid/view/Window;
     .param p1, "transform"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform;
 
@@ -312,7 +312,7 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_11
 
     .line 338
     invoke-virtual {p1}, Lcom/google/android/material/transition/platform/MaterialContainerTransform;->getDuration()J
@@ -322,14 +322,14 @@
     invoke-virtual {p0, v0, v1}, Landroid/view/Window;->setTransitionBackgroundFadeDuration(J)V
 
     .line 340
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 
 # virtual methods
 .method public getShapeProvider()Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback$ShapeProvider;
-    .locals 1
+    .registers 2
 
     .line 173
     iget-object v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->shapeProvider:Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback$ShapeProvider;
@@ -338,7 +338,7 @@
 .end method
 
 .method public isSharedElementReenterTransitionEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 218
     iget-boolean v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->sharedElementReenterTransitionEnabled:Z
@@ -347,7 +347,7 @@
 .end method
 
 .method public isTransparentWindowBackgroundEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 194
     iget-boolean v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->transparentWindowBackgroundEnabled:Z
@@ -356,7 +356,7 @@
 .end method
 
 .method public onCaptureSharedElementSnapshot(Landroid/view/View;Landroid/graphics/Matrix;Landroid/graphics/RectF;)Landroid/os/Parcelable;
-    .locals 1
+    .registers 5
     .param p1, "sharedElement"    # Landroid/view/View;
     .param p2, "viewToGlobalMatrix"    # Landroid/graphics/Matrix;
     .param p3, "screenBounds"    # Landroid/graphics/RectF;
@@ -377,7 +377,7 @@
 .end method
 
 .method public onCreateSnapshotView(Landroid/content/Context;Landroid/os/Parcelable;)Landroid/view/View;
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "snapshot"    # Landroid/os/Parcelable;
 
@@ -388,15 +388,15 @@
 
     .line 97
     .local v0, "snapshotView":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     sget-object v1, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->capturedSharedElement:Ljava/lang/ref/WeakReference;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     iget-object v1, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->shapeProvider:Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback$ShapeProvider;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 98
     sget-object v1, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->capturedSharedElement:Ljava/lang/ref/WeakReference;
@@ -409,7 +409,7 @@
 
     .line 99
     .local v1, "sharedElement":Landroid/view/View;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 100
     iget-object v2, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->shapeProvider:Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback$ShapeProvider;
@@ -420,7 +420,7 @@
 
     .line 101
     .local v2, "shapeAppearanceModel":Lcom/google/android/material/shape/ShapeAppearanceModel;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_25
 
     .line 103
     sget v3, Lcom/google/android/material/R$id;->mtrl_motion_snapshot_view:I
@@ -430,12 +430,12 @@
     .line 107
     .end local v1    # "sharedElement":Landroid/view/View;
     .end local v2    # "shapeAppearanceModel":Lcom/google/android/material/shape/ShapeAppearanceModel;
-    :cond_0
+    :cond_25
     return-object v0
 .end method
 
 .method public onMapSharedElements(Ljava/util/List;Ljava/util/Map;)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -456,13 +456,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     invoke-interface {p2}, Ljava/util/Map;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     .line 114
     const/4 v0, 0x0
@@ -479,7 +479,7 @@
 
     .line 115
     .local v0, "sharedElement":Landroid/view/View;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 116
     invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -492,7 +492,7 @@
 
     .line 117
     .local v1, "activity":Landroid/app/Activity;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_32
 
     .line 118
     invoke-virtual {v1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
@@ -503,28 +503,28 @@
     .local v2, "window":Landroid/view/Window;
     iget-boolean v3, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->entering:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2f
 
     .line 120
     invoke-direct {p0, v2}, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->setUpEnterTransform(Landroid/view/Window;)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 122
-    :cond_0
+    :cond_2f
     invoke-direct {p0, v1, v2}, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->setUpReturnTransform(Landroid/app/Activity;Landroid/view/Window;)V
 
     .line 127
     .end local v0    # "sharedElement":Landroid/view/View;
     .end local v1    # "activity":Landroid/app/Activity;
     .end local v2    # "window":Landroid/view/Window;
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     return-void
 .end method
 
 .method public onSharedElementEnd(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -550,7 +550,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 158
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -567,7 +567,7 @@
 
     instance-of v0, v0, Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 160
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -583,16 +583,16 @@
     invoke-virtual {v0, v2, v3}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     .line 163
-    :cond_0
+    :cond_23
     iget-boolean v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->entering:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_39
 
     invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_39
 
     .line 164
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -608,7 +608,7 @@
     iput-object v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->returnEndBounds:Landroid/graphics/Rect;
 
     .line 167
-    :cond_1
+    :cond_39
     iput-boolean v1, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->entering:Z
 
     .line 168
@@ -616,7 +616,7 @@
 .end method
 
 .method public onSharedElementStart(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
-    .locals 7
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -642,13 +642,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     invoke-interface {p3}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 137
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -666,20 +666,20 @@
     invoke-virtual {v0, v2, v3}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     .line 140
-    :cond_0
+    :cond_1c
     iget-boolean v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->entering:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_5c
 
     invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_5c
 
     iget-object v0, p0, Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;->returnEndBounds:Landroid/graphics/Rect;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5c
 
     .line 143
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -741,12 +741,12 @@
     .end local v0    # "sharedElement":Landroid/view/View;
     .end local v1    # "widthSpec":I
     .end local v2    # "heightSpec":I
-    :cond_1
+    :cond_5c
     return-void
 .end method
 
 .method public setShapeProvider(Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback$ShapeProvider;)V
-    .locals 0
+    .registers 2
     .param p1, "shapeProvider"    # Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback$ShapeProvider;
 
     .line 184
@@ -757,7 +757,7 @@
 .end method
 
 .method public setSharedElementReenterTransitionEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "sharedElementReenterTransitionEnabled"    # Z
 
     .line 228
@@ -768,7 +768,7 @@
 .end method
 
 .method public setTransparentWindowBackgroundEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "transparentWindowBackgroundEnabled"    # Z
 
     .line 209

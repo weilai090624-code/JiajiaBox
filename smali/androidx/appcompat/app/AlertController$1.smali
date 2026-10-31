@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AlertController;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/app/AlertController;
 
     .line 126
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "v"    # Landroid/view/View;
 
     .line 130
@@ -45,13 +45,13 @@
 
     iget-object v0, v0, Landroidx/appcompat/app/AlertController;->mButtonPositive:Landroid/widget/Button;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_15
 
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$1;->this$0:Landroidx/appcompat/app/AlertController;
 
     iget-object v0, v0, Landroidx/appcompat/app/AlertController;->mButtonPositiveMessage:Landroid/os/Message;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 131
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$1;->this$0:Landroidx/appcompat/app/AlertController;
@@ -63,22 +63,22 @@
     move-result-object v0
 
     .local v0, "m":Landroid/os/Message;
-    goto :goto_0
+    goto :goto_40
 
     .line 132
     .end local v0    # "m":Landroid/os/Message;
-    :cond_0
+    :cond_15
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$1;->this$0:Landroidx/appcompat/app/AlertController;
 
     iget-object v0, v0, Landroidx/appcompat/app/AlertController;->mButtonNegative:Landroid/widget/Button;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_2a
 
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$1;->this$0:Landroidx/appcompat/app/AlertController;
 
     iget-object v0, v0, Landroidx/appcompat/app/AlertController;->mButtonNegativeMessage:Landroid/os/Message;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 133
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$1;->this$0:Landroidx/appcompat/app/AlertController;
@@ -90,22 +90,22 @@
     move-result-object v0
 
     .restart local v0    # "m":Landroid/os/Message;
-    goto :goto_0
+    goto :goto_40
 
     .line 134
     .end local v0    # "m":Landroid/os/Message;
-    :cond_1
+    :cond_2a
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$1;->this$0:Landroidx/appcompat/app/AlertController;
 
     iget-object v0, v0, Landroidx/appcompat/app/AlertController;->mButtonNeutral:Landroid/widget/Button;
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_3f
 
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$1;->this$0:Landroidx/appcompat/app/AlertController;
 
     iget-object v0, v0, Landroidx/appcompat/app/AlertController;->mButtonNeutralMessage:Landroid/os/Message;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3f
 
     .line 135
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$1;->this$0:Landroidx/appcompat/app/AlertController;
@@ -117,23 +117,23 @@
     move-result-object v0
 
     .restart local v0    # "m":Landroid/os/Message;
-    goto :goto_0
+    goto :goto_40
 
     .line 137
     .end local v0    # "m":Landroid/os/Message;
-    :cond_2
+    :cond_3f
     const/4 v0, 0x0
 
     .line 140
     .restart local v0    # "m":Landroid/os/Message;
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_40
+    if-eqz v0, :cond_45
 
     .line 141
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 145
-    :cond_3
+    :cond_45
     iget-object v1, p0, Landroidx/appcompat/app/AlertController$1;->this$0:Landroidx/appcompat/app/AlertController;
 
     iget-object v1, v1, Landroidx/appcompat/app/AlertController;->mHandler:Landroid/os/Handler;

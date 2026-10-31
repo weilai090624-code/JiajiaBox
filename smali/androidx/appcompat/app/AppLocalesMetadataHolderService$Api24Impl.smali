@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getDisabledComponentFlag()I
-    .locals 1
+    .registers 1
 
     .line 77
     const/16 v0, 0x200

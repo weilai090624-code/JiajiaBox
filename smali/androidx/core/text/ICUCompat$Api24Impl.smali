@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 154
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static addLikelySubtags(Ljava/lang/Object;)Landroid/icu/util/ULocale;
-    .locals 1
+    .registers 2
     .param p0, "loc"    # Ljava/lang/Object;
 
     .line 165
@@ -42,7 +42,7 @@
 .end method
 
 .method static forLocale(Ljava/util/Locale;)Landroid/icu/util/ULocale;
-    .locals 1
+    .registers 2
     .param p0, "loc"    # Ljava/util/Locale;
 
     .line 160
@@ -54,7 +54,7 @@
 .end method
 
 .method static getScript(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "uLocale"    # Ljava/lang/Object;
 
     .line 170

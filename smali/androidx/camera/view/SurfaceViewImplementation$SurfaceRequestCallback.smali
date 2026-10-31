@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/SurfaceViewImplementation;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/view/SurfaceViewImplementation;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -56,20 +56,20 @@
 .end method
 
 .method private canProvideSurface()Z
-    .locals 2
+    .registers 3
 
     .line 217
     iget-boolean v0, p0, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->mWasSurfaceProvided:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->mSurfaceRequest:Landroidx/camera/core/SurfaceRequest;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->mTargetSize:Landroid/util/Size;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->mTargetSize:Landroid/util/Size;
 
@@ -80,27 +80,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     .line 217
-    :goto_0
+    :goto_19
     return v0
 .end method
 
 .method private cancelPreviousRequest()V
-    .locals 2
+    .registers 3
 
     .line 224
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->mSurfaceRequest:Landroidx/camera/core/SurfaceRequest;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 225
     new-instance v0, Ljava/lang/StringBuilder;
@@ -133,17 +133,17 @@
     invoke-virtual {v0}, Landroidx/camera/core/SurfaceRequest;->willNotProvideSurface()Z
 
     .line 228
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method private invalidateSurface()V
-    .locals 2
+    .registers 3
 
     .line 233
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->mSurfaceRequest:Landroidx/camera/core/SurfaceRequest;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 234
     new-instance v0, Ljava/lang/StringBuilder;
@@ -180,12 +180,12 @@
     invoke-virtual {v0}, Landroidx/camera/core/impl/DeferrableSurface;->close()V
 
     .line 237
-    :cond_0
+    :cond_27
     return-void
 .end method
 
 .method private tryToComplete()Z
-    .locals 4
+    .registers 5
 
     .line 200
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->this$0:Landroidx/camera/view/SurfaceViewImplementation;
@@ -206,7 +206,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_38
 
     .line 202
     const-string v1, "SurfaceViewImpl"
@@ -252,7 +252,7 @@
     return v1
 
     .line 213
-    :cond_0
+    :cond_38
     const/4 v1, 0x0
 
     return v1
@@ -261,7 +261,7 @@
 
 # virtual methods
 .method synthetic lambda$tryToComplete$0$androidx-camera-view-SurfaceViewImplementation$SurfaceRequestCallback(Landroidx/camera/core/SurfaceRequest$Result;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Landroidx/camera/core/SurfaceRequest$Result;
 
     .line 206
@@ -281,7 +281,7 @@
 .end method
 
 .method setSurfaceRequest(Landroidx/camera/core/SurfaceRequest;)V
-    .locals 4
+    .registers 6
     .param p1, "surfaceRequest"    # Landroidx/camera/core/SurfaceRequest;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -317,7 +317,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2e
 
     .line 187
     const-string v1, "SurfaceViewImpl"
@@ -348,12 +348,12 @@
     invoke-interface {v1, v2, v3}, Landroid/view/SurfaceHolder;->setFixedSize(II)V
 
     .line 191
-    :cond_0
+    :cond_2e
     return-void
 .end method
 
 .method public surfaceChanged(Landroid/view/SurfaceHolder;III)V
-    .locals 2
+    .registers 7
     .param p1, "surfaceHolder"    # Landroid/view/SurfaceHolder;
     .param p2, "format"    # I
     .param p3, "width"    # I
@@ -421,7 +421,7 @@
 .end method
 
 .method public surfaceCreated(Landroid/view/SurfaceHolder;)V
-    .locals 2
+    .registers 4
     .param p1, "surfaceHolder"    # Landroid/view/SurfaceHolder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -444,7 +444,7 @@
 .end method
 
 .method public surfaceDestroyed(Landroid/view/SurfaceHolder;)V
-    .locals 2
+    .registers 4
     .param p1, "surfaceHolder"    # Landroid/view/SurfaceHolder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -465,19 +465,19 @@
     .line 259
     iget-boolean v0, p0, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->mWasSurfaceProvided:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 260
     invoke-direct {p0}, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->invalidateSurface()V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 262
-    :cond_0
+    :cond_f
     invoke-direct {p0}, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->cancelPreviousRequest()V
 
     .line 266
-    :goto_0
+    :goto_12
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroidx/camera/view/SurfaceViewImplementation$SurfaceRequestCallback;->mWasSurfaceProvided:Z

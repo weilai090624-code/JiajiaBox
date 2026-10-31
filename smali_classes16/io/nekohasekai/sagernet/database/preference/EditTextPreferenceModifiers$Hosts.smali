@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/database/preference/EditTextPreferenceModifiers$Hosts;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public onBindEditText(Landroid/widget/EditText;)V
-    .locals 1
+    .registers 3
     .param p1, "editText"    # Landroid/widget/EditText;
 
     const-string v0, "editText"

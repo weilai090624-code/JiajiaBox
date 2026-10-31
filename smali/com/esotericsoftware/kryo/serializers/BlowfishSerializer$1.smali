@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/serializers/BlowfishSerializer;Ljava/io/OutputStream;I)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/esotericsoftware/kryo/serializers/BlowfishSerializer;
     .param p2, "outputStream"    # Ljava/io/OutputStream;
     .param p3, "bufferSize"    # I
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;

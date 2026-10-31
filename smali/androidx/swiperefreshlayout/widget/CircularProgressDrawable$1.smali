@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;
 
     .line 571
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 4
+    .registers 6
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 574

@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 842
     .local p0, "this":Landroidx/recyclerview/widget/SortedList$Callback;, "Landroidx/recyclerview/widget/SortedList$Callback<TT2;>;"
@@ -68,7 +68,7 @@
 .end method
 
 .method public getChangePayload(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT2;TT2;)",
@@ -89,7 +89,7 @@
 .end method
 
 .method public onChanged(IILjava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "position"    # I
     .param p2, "count"    # I
     .param p3, "payload"    # Ljava/lang/Object;

@@ -36,7 +36,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 291
     .local p0, "this":Lj$/util/stream/Streams$AbstractStreamBuilderImpl;, "Ljava/util/stream/Streams$AbstractStreamBuilderImpl<TT;TS;>;"
@@ -46,7 +46,7 @@
 .end method
 
 .method synthetic constructor <init>(Lj$/util/stream/Streams-IA;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lj$/util/stream/Streams$AbstractStreamBuilderImpl;-><init>()V
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 314
     .local p0, "this":Lj$/util/stream/Streams$AbstractStreamBuilderImpl;, "Ljava/util/stream/Streams$AbstractStreamBuilderImpl<TT;TS;>;"
@@ -66,7 +66,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 309
     .local p0, "this":Lj$/util/stream/Streams$AbstractStreamBuilderImpl;, "Ljava/util/stream/Streams$AbstractStreamBuilderImpl<TT;TS;>;"
@@ -82,7 +82,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$forEachRemaining(Lj$/util/Spliterator;Ljava/util/function/Consumer;)V
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TS;"

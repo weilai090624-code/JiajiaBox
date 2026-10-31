@@ -97,7 +97,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;ILcom/google/common/collect/LinkedHashMultimap$ValueEntry;)V
-    .locals 0
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -137,7 +137,7 @@
 .end method
 
 .method static newHeader()Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -165,7 +165,7 @@
 
 # virtual methods
 .method public getPredecessorInMultimap()Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -188,7 +188,7 @@
 .end method
 
 .method public getPredecessorInValueSet()Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -211,7 +211,7 @@
 .end method
 
 .method public getSuccessorInMultimap()Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -234,7 +234,7 @@
 .end method
 
 .method public getSuccessorInValueSet()Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -257,7 +257,7 @@
 .end method
 
 .method matchesValue(Ljava/lang/Object;I)Z
-    .locals 1
+    .registers 4
     .param p1, "v"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -268,7 +268,7 @@
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;, "Lcom/google/common/collect/LinkedHashMultimap$ValueEntry<TK;TV;>;"
     iget v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->smearedValueHash:I
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_10
 
     invoke-virtual {p0}, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->getValue()Ljava/lang/Object;
 
@@ -278,21 +278,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public setPredecessorInMultimap(Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -311,7 +311,7 @@
 .end method
 
 .method public setPredecessorInValueSet(Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -330,7 +330,7 @@
 .end method
 
 .method public setSuccessorInMultimap(Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -349,7 +349,7 @@
 .end method
 
 .method public setSuccessorInValueSet(Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

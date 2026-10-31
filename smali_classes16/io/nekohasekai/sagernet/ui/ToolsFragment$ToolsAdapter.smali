@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/ToolsFragment;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/ToolsFragment;
     .param p2, "tools"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public createFragment(I)Landroidx/fragment/app/Fragment;
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 36
@@ -109,7 +109,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ToolsFragment$ToolsAdapter;->tools:Ljava/util/List;
@@ -122,7 +122,7 @@
 .end method
 
 .method public final getTools()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

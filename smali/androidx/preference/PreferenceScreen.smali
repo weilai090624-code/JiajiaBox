@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method protected isOnSameScreenAsChildren()Z
-    .locals 1
+    .registers 2
 
     .line 73
     const/4 v0, 0x0
@@ -45,31 +45,31 @@
 .end method
 
 .method protected onClick()V
-    .locals 1
+    .registers 2
 
     .line 61
     invoke-virtual {p0}, Landroidx/preference/PreferenceScreen;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_22
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceScreen;->getFragment()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_22
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceScreen;->getPreferenceCount()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    goto :goto_0
+    goto :goto_22
 
     .line 64
-    :cond_0
+    :cond_13
     nop
 
     .line 65
@@ -83,24 +83,24 @@
 
     .line 66
     .local v0, "listener":Landroidx/preference/PreferenceManager$OnNavigateToScreenListener;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 67
     invoke-interface {v0, p0}, Landroidx/preference/PreferenceManager$OnNavigateToScreenListener;->onNavigateToScreen(Landroidx/preference/PreferenceScreen;)V
 
     .line 69
-    :cond_1
+    :cond_21
     return-void
 
     .line 62
     .end local v0    # "listener":Landroidx/preference/PreferenceManager$OnNavigateToScreenListener;
-    :cond_2
-    :goto_0
+    :cond_22
+    :goto_22
     return-void
 .end method
 
 .method public setShouldUseGeneratedIds(Z)V
-    .locals 2
+    .registers 4
     .param p1, "shouldUseGeneratedIds"    # Z
 
     .line 102
@@ -108,7 +108,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 106
     iput-boolean p1, p0, Landroidx/preference/PreferenceScreen;->mShouldUseGeneratedIds:Z
@@ -117,7 +117,7 @@
     return-void
 
     .line 103
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot change the usage of generated IDs while attached to the preference hierarchy"
@@ -128,7 +128,7 @@
 .end method
 
 .method public shouldUseGeneratedIds()Z
-    .locals 1
+    .registers 2
 
     .line 83
     iget-boolean v0, p0, Landroidx/preference/PreferenceScreen;->mShouldUseGeneratedIds:Z

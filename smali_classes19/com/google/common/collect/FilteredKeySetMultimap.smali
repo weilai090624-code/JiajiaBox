@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/SetMultimap;Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method bridge synthetic createEntries()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 31
     .local p0, "this":Lcom/google/common/collect/FilteredKeySetMultimap;, "Lcom/google/common/collect/FilteredKeySetMultimap<TK;TV;>;"
@@ -69,7 +69,7 @@
 .end method
 
 .method createEntries()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,7 +89,7 @@
 .end method
 
 .method public bridge synthetic entries()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 31
     .local p0, "this":Lcom/google/common/collect/FilteredKeySetMultimap;, "Lcom/google/common/collect/FilteredKeySetMultimap<TK;TV;>;"
@@ -101,7 +101,7 @@
 .end method
 
 .method public entries()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,7 +123,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -139,7 +139,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -165,7 +165,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -181,7 +181,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -208,7 +208,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -224,7 +224,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -253,7 +253,7 @@
 .end method
 
 .method public bridge synthetic unfiltered()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
 
     .line 31
     .local p0, "this":Lcom/google/common/collect/FilteredKeySetMultimap;, "Lcom/google/common/collect/FilteredKeySetMultimap<TK;TV;>;"
@@ -265,7 +265,7 @@
 .end method
 
 .method public unfiltered()Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

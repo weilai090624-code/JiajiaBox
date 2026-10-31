@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/view/LayoutInflaterFactory;)V
-    .locals 0
+    .registers 2
     .param p1, "delegateFactory"    # Landroidx/core/view/LayoutInflaterFactory;
 
     .line 44
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
-    .locals 1
+    .registers 6
     .param p1, "parent"    # Landroid/view/View;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "context"    # Landroid/content/Context;
@@ -56,7 +56,7 @@
 .end method
 
 .method public onCreateView(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
-    .locals 2
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "context"    # Landroid/content/Context;
     .param p3, "attrs"    # Landroid/util/AttributeSet;
@@ -74,7 +74,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 62
     new-instance v0, Ljava/lang/StringBuilder;

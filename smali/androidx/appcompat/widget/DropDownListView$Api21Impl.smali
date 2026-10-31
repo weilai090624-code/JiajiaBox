@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 804
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static drawableHotspotChanged(Landroid/view/View;FF)V
-    .locals 0
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "x"    # F
     .param p2, "y"    # F

@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method private add([ILjava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "range"    # [I
     .param p2, "id"    # Ljava/lang/String;
 
@@ -68,21 +68,21 @@
 .end method
 
 .method private declared-synchronized initIfNeeded()V
-    .locals 2
+    .registers 3
 
     monitor-enter p0
 
     .line 60
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/google/zxing/oned/EANManufacturerOrgSupport;->ranges:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_4ce
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 61
     monitor-exit p0
@@ -90,12 +90,12 @@
     return-void
 
     .line 63
-    :cond_0
+    :cond_b
     const/16 v0, 0x13
 
     const/4 v1, 0x0
 
-    :try_start_1
+    :try_start_e
     filled-new-array {v1, v0}, [I
 
     move-result-object v0
@@ -1308,8 +1308,8 @@
     const-string v1, "MO"
 
     invoke-direct {p0, v0, v1}, Lcom/google/zxing/oned/EANManufacturerOrgSupport;->add([ILjava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4cc
+    .catchall {:try_start_e .. :try_end_4cc} :catchall_4ce
 
     .line 169
     monitor-exit p0
@@ -1318,13 +1318,13 @@
 
     .line 59
     .end local p0    # "this":Lcom/google/zxing/oned/EANManufacturerOrgSupport;
-    :catchall_0
+    :catchall_4ce
     move-exception v0
 
-    :try_start_2
+    :try_start_4cf
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4d0
+    .catchall {:try_start_4cf .. :try_end_4d0} :catchall_4ce
 
     throw v0
 .end method
@@ -1332,7 +1332,7 @@
 
 # virtual methods
 .method lookupCountryIdentifier(Ljava/lang/String;)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p1, "productCode"    # Ljava/lang/String;
 
     .line 37
@@ -1366,10 +1366,10 @@
     .local v3, "i":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_15
     const/4 v5, 0x0
 
-    if-ge v3, v2, :cond_3
+    if-ge v3, v2, :cond_3c
 
     .line 41
     iget-object v6, p0, Lcom/google/zxing/oned/EANManufacturerOrgSupport;->ranges:Ljava/util/List;
@@ -1388,30 +1388,30 @@
 
     .line 43
     .local v6, "start":I
-    if-ge v0, v6, :cond_0
+    if-ge v0, v6, :cond_26
 
     .line 44
     return-object v5
 
     .line 46
-    :cond_0
+    :cond_26
     array-length v5, v4
 
     const/4 v7, 0x1
 
-    if-ne v5, v7, :cond_1
+    if-ne v5, v7, :cond_2c
 
     move v5, v6
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_1
+    :cond_2c
     aget v5, v4, v7
 
     .line 47
     .local v5, "end":I
-    :goto_1
-    if-gt v0, v5, :cond_2
+    :goto_2e
+    if-gt v0, v5, :cond_39
 
     .line 48
     iget-object v1, p0, Lcom/google/zxing/oned/EANManufacturerOrgSupport;->countryIdentifiers:Ljava/util/List;
@@ -1428,13 +1428,13 @@
     .end local v4    # "range":[I
     .end local v5    # "end":I
     .end local v6    # "start":I
-    :cond_2
+    :cond_39
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 51
     .end local v3    # "i":I
-    :cond_3
+    :cond_3c
     return-object v5
 .end method

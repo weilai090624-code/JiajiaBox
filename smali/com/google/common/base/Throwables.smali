@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 462
     invoke-static {}, Lcom/google/common/base/Throwables;->getJLA()Ljava/lang/Object;
@@ -45,42 +45,42 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-static {}, Lcom/google/common/base/Throwables;->getGetMethod()Ljava/lang/reflect/Method;
 
     move-result-object v0
 
-    :goto_0
+    :goto_11
     sput-object v0, Lcom/google/common/base/Throwables;->getStackTraceElementMethod:Ljava/lang/reflect/Method;
 
     .line 478
     sget-object v0, Lcom/google/common/base/Throwables;->jla:Ljava/lang/Object;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
+    :cond_18
     sget-object v0, Lcom/google/common/base/Throwables;->jla:Ljava/lang/Object;
 
     invoke-static {v0}, Lcom/google/common/base/Throwables;->getSizeMethod(Ljava/lang/Object;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
-    :goto_1
+    :goto_1e
     sput-object v1, Lcom/google/common/base/Throwables;->getStackTraceDepthMethod:Ljava/lang/reflect/Method;
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -89,7 +89,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/reflect/Method;
-    .locals 1
+    .registers 1
 
     .line 50
     sget-object v0, Lcom/google/common/base/Throwables;->getStackTraceElementMethod:Ljava/lang/reflect/Method;
@@ -98,7 +98,7 @@
 .end method
 
 .method static synthetic access$100()Ljava/lang/Object;
-    .locals 1
+    .registers 1
 
     .line 50
     sget-object v0, Lcom/google/common/base/Throwables;->jla:Ljava/lang/Object;
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$200(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Ljava/lang/reflect/Method;
     .param p1, "x1"    # Ljava/lang/Object;
     .param p2, "x2"    # [Ljava/lang/Object;
@@ -121,7 +121,7 @@
 .end method
 
 .method static synthetic access$300()Ljava/lang/reflect/Method;
-    .locals 1
+    .registers 1
 
     .line 50
     sget-object v0, Lcom/google/common/base/Throwables;->getStackTraceDepthMethod:Ljava/lang/reflect/Method;
@@ -130,7 +130,7 @@
 .end method
 
 .method public static getCausalChain(Ljava/lang/Throwable;)Ljava/util/List;
-    .locals 6
+    .registers 7
     .param p0, "throwable"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -166,7 +166,7 @@
 
     .line 305
     .local v2, "advanceSlowPointer":Z
-    :goto_0
+    :goto_e
     invoke-virtual {p0}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
     move-result-object v3
@@ -174,7 +174,7 @@
     move-object v4, v3
 
     .local v4, "cause":Ljava/lang/Throwable;
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_30
 
     .line 306
     move-object p0, v4
@@ -183,10 +183,10 @@
     invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 309
-    if-eq p0, v1, :cond_2
+    if-eq p0, v1, :cond_28
 
     .line 312
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     .line 313
     invoke-virtual {v1}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
@@ -194,23 +194,23 @@
     move-result-object v1
 
     .line 315
-    :cond_0
-    if-nez v2, :cond_1
+    :cond_21
+    if-nez v2, :cond_25
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_26
     move v2, v3
 
-    goto :goto_0
+    goto :goto_e
 
     .line 310
-    :cond_2
+    :cond_28
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string v5, "Loop in causal chain detected."
@@ -220,7 +220,7 @@
     throw v3
 
     .line 317
-    :cond_3
+    :cond_30
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v3
@@ -229,7 +229,7 @@
 .end method
 
 .method public static getCauseAs(Ljava/lang/Throwable;Ljava/lang/Class;)Ljava/lang/Throwable;
-    .locals 1
+    .registers 3
     .param p0, "throwable"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -257,13 +257,13 @@
     move-result-object v0
 
     check-cast v0, Ljava/lang/Throwable;
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_a} :catch_b
 
     return-object v0
 
     .line 340
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 341
@@ -275,7 +275,7 @@
 .end method
 
 .method private static getGetMethod()Ljava/lang/reflect/Method;
-    .locals 3
+    .registers 3
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -306,14 +306,14 @@
 .end method
 
 .method private static getJLA()Ljava/lang/Object;
-    .locals 5
+    .registers 5
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
     .line 492
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     const-string/jumbo v1, "sun.misc.SharedSecrets"
 
     const/4 v2, 0x0
@@ -339,16 +339,16 @@
     invoke-virtual {v3, v0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ThreadDeath; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catch Ljava/lang/ThreadDeath; {:try_start_1 .. :try_end_17} :catch_1a
+    .catchall {:try_start_1 .. :try_end_17} :catchall_18
 
     return-object v0
 
     .line 497
     .end local v1    # "sharedSecrets":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v3    # "langAccess":Ljava/lang/reflect/Method;
-    :catchall_0
+    :catchall_18
     move-exception v1
 
     .line 502
@@ -357,7 +357,7 @@
 
     .line 495
     .end local v1    # "t":Ljava/lang/Throwable;
-    :catch_0
+    :catch_1a
     move-exception v0
 
     .line 496
@@ -366,7 +366,7 @@
 .end method
 
 .method private static varargs getJlaMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    .locals 3
+    .registers 5
     .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -392,7 +392,7 @@
     .local p1, "parameterTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     const-string/jumbo v1, "sun.misc.JavaLangAccess"
 
     const/4 v2, 0x0
@@ -404,14 +404,14 @@
     invoke-virtual {v1, p0, p1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ThreadDeath; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catch Ljava/lang/ThreadDeath; {:try_start_1 .. :try_end_d} :catch_10
+    .catchall {:try_start_1 .. :try_end_d} :catchall_e
 
     return-object v0
 
     .line 547
-    :catchall_0
+    :catchall_e
     move-exception v1
 
     .line 552
@@ -420,7 +420,7 @@
 
     .line 545
     .end local v1    # "t":Ljava/lang/Throwable;
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 546
@@ -429,7 +429,7 @@
 .end method
 
 .method public static getRootCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-    .locals 5
+    .registers 6
     .param p0, "throwable"    # Ljava/lang/Throwable;
 
     .line 259
@@ -441,7 +441,7 @@
 
     .line 263
     .local v1, "advanceSlowPointer":Z
-    :goto_0
+    :goto_2
     invoke-virtual {p0}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
     move-result-object v2
@@ -449,16 +449,16 @@
     move-object v3, v2
 
     .local v3, "cause":Ljava/lang/Throwable;
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_21
 
     .line 264
     move-object p0, v3
 
     .line 266
-    if-eq p0, v0, :cond_2
+    if-eq p0, v0, :cond_19
 
     .line 269
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 270
     invoke-virtual {v0}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
@@ -466,23 +466,23 @@
     move-result-object v0
 
     .line 272
-    :cond_0
-    if-nez v1, :cond_1
+    :cond_12
+    if-nez v1, :cond_16
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_17
     move v1, v2
 
-    goto :goto_0
+    goto :goto_2
 
     .line 267
-    :cond_2
+    :cond_19
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v4, "Loop in causal chain detected."
@@ -492,12 +492,12 @@
     throw v2
 
     .line 274
-    :cond_3
+    :cond_21
     return-object p0
 .end method
 
 .method private static getSizeMethod(Ljava/lang/Object;)Ljava/lang/reflect/Method;
-    .locals 6
+    .registers 7
     .param p0, "jla"    # Ljava/lang/Object;
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -505,7 +505,7 @@
     .line 529
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     const-string v1, "getStackTraceDepth"
 
     const/4 v2, 0x1
@@ -524,13 +524,13 @@
 
     .line 530
     .local v1, "getStackTraceDepth":Ljava/lang/reflect/Method;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 531
     return-object v0
 
     .line 533
-    :cond_0
+    :cond_12
     new-instance v3, Ljava/lang/Throwable;
 
     invoke-direct {v3}, Ljava/lang/Throwable;-><init>()V
@@ -540,37 +540,37 @@
     aput-object v3, v2, v5
 
     invoke-virtual {v1, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_1 .. :try_end_1e} :catch_23
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1e} :catch_21
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1e} :catch_1f
 
     .line 534
     return-object v1
 
     .line 535
     .end local v1    # "getStackTraceDepth":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_1f
     move-exception v1
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_1
+    :catch_21
     move-exception v1
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_2
+    :catch_23
     move-exception v1
 
     .line 536
     .local v1, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_24
     return-object v0
 .end method
 
 .method public static getStackTraceAsString(Ljava/lang/Throwable;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "throwable"    # Ljava/lang/Throwable;
 
     .line 354
@@ -595,7 +595,7 @@
 .end method
 
 .method private static varargs invokeAccessibleNonThrowingMethod(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "method"    # Ljava/lang/reflect/Method;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "params"    # [Ljava/lang/Object;
@@ -605,14 +605,14 @@
     invoke-virtual {p0, p1, p2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_4} :catch_f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 445
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 446
@@ -629,7 +629,7 @@
 
     .line 443
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_f
     move-exception v0
 
     .line 444
@@ -642,7 +642,7 @@
 .end method
 
 .method private static jlaStackTrace(Ljava/lang/Throwable;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -667,7 +667,7 @@
 .end method
 
 .method public static lazyStackTrace(Ljava/lang/Throwable;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "throwable"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -685,17 +685,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 392
     invoke-static {p0}, Lcom/google/common/base/Throwables;->jlaStackTrace(Ljava/lang/Throwable;)Ljava/util/List;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 393
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Ljava/lang/Throwable;->getStackTrace()[Ljava/lang/StackTraceElement;
 
     move-result-object v0
@@ -709,35 +709,35 @@
     move-result-object v0
 
     .line 391
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static lazyStackTraceIsLazy()Z
-    .locals 1
+    .registers 1
 
     .line 405
     sget-object v0, Lcom/google/common/base/Throwables;->getStackTraceElementMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     sget-object v0, Lcom/google/common/base/Throwables;->getStackTraceDepthMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public static propagate(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
-    .locals 1
+    .registers 2
     .param p0, "throwable"    # Ljava/lang/Throwable;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -754,7 +754,7 @@
 .end method
 
 .method public static propagateIfInstanceOf(Ljava/lang/Throwable;Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .param p0, "throwable"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -781,18 +781,18 @@
 
     .line 105
     .local p1, "declaredType":Ljava/lang/Class;, "Ljava/lang/Class<TX;>;"
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 106
     invoke-static {p0, p1}, Lcom/google/common/base/Throwables;->throwIfInstanceOf(Ljava/lang/Throwable;Ljava/lang/Class;)V
 
     .line 108
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public static propagateIfPossible(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 1
     .param p0, "throwable"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -801,18 +801,18 @@
     .end annotation
 
     .line 160
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 161
     invoke-static {p0}, Lcom/google/common/base/Throwables;->throwIfUnchecked(Ljava/lang/Throwable;)V
 
     .line 163
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public static propagateIfPossible(Ljava/lang/Throwable;Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .param p0, "throwable"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -846,7 +846,7 @@
 .end method
 
 .method public static propagateIfPossible(Ljava/lang/Throwable;Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
     .param p0, "throwable"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -889,7 +889,7 @@
 .end method
 
 .method public static throwIfInstanceOf(Ljava/lang/Throwable;Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .param p0, "throwable"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -917,13 +917,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 80
     return-void
 
     .line 78
-    :cond_0
+    :cond_a
     invoke-virtual {p1, p0}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -934,7 +934,7 @@
 .end method
 
 .method public static throwIfUnchecked(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 2
     .param p0, "throwable"    # Ljava/lang/Throwable;
 
     .line 130
@@ -943,18 +943,18 @@
     .line 131
     instance-of v0, p0, Ljava/lang/RuntimeException;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     .line 134
     instance-of v0, p0, Ljava/lang/Error;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 137
     return-void
 
     .line 135
-    :cond_0
+    :cond_c
     move-object v0, p0
 
     check-cast v0, Ljava/lang/Error;
@@ -962,7 +962,7 @@
     throw v0
 
     .line 132
-    :cond_1
+    :cond_10
     move-object v0, p0
 
     check-cast v0, Ljava/lang/RuntimeException;

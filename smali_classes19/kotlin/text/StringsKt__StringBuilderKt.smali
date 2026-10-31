@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/text/StringsKt__StringBuilderJVMKt;-><init>()V
 
@@ -57,7 +57,7 @@
 .end method
 
 .method private static final append(Ljava/lang/StringBuilder;Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 4
     .param p0, "$this$append"    # Ljava/lang/StringBuilder;
     .param p1, "obj"    # Ljava/lang/Object;
     .annotation runtime Lkotlin/Deprecated;
@@ -86,7 +86,7 @@
 .end method
 
 .method private static final append(Ljava/lang/StringBuilder;[CII)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 7
     .param p0, "$this$append"    # Ljava/lang/StringBuilder;
     .param p1, "str"    # [C
     .param p2, "offset"    # I
@@ -121,7 +121,7 @@
 .end method
 
 .method public static final varargs append(Ljava/lang/StringBuilder;[Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$append"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # [Ljava/lang/Object;
 
@@ -138,8 +138,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_c
+    if-ge v1, v0, :cond_16
 
     aget-object v2, p1, v1
 
@@ -151,15 +151,15 @@
     .end local v2    # "item":Ljava/lang/Object;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 532
-    :cond_0
+    :cond_16
     return-object p0
 .end method
 
 .method public static final varargs append(Ljava/lang/StringBuilder;[Ljava/lang/String;)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$append"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # [Ljava/lang/String;
 
@@ -176,8 +176,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_c
+    if-ge v1, v0, :cond_16
 
     aget-object v2, p1, v1
 
@@ -189,15 +189,15 @@
     .end local v2    # "item":Ljava/lang/String;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 523
-    :cond_0
+    :cond_16
     return-object p0
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 3
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
 
     const-string v0, "<this>"
@@ -219,7 +219,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;C)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # C
 
@@ -248,7 +248,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/CharSequence;
 
@@ -277,7 +277,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/Object;
 
@@ -306,7 +306,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Ljava/lang/String;
 
@@ -335,7 +335,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;Z)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # Z
 
@@ -364,7 +364,7 @@
 .end method
 
 .method private static final appendLine(Ljava/lang/StringBuilder;[C)Ljava/lang/StringBuilder;
-    .locals 3
+    .registers 5
     .param p0, "$this$appendLine"    # Ljava/lang/StringBuilder;
     .param p1, "value"    # [C
 
@@ -397,7 +397,7 @@
 .end method
 
 .method private static final buildString(ILkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "capacity"    # I
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -438,7 +438,7 @@
 .end method
 
 .method private static final buildString(Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

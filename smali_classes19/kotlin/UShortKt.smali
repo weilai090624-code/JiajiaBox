@@ -33,7 +33,7 @@
 
 # direct methods
 .method private static final toUShort(B)S
-    .locals 1
+    .registers 2
     .param p0, "$this$toUShort"    # B
 
     .line 370
@@ -47,7 +47,7 @@
 .end method
 
 .method private static final toUShort(I)S
-    .locals 1
+    .registers 2
     .param p0, "$this$toUShort"    # I
 
     .line 393
@@ -61,7 +61,7 @@
 .end method
 
 .method private static final toUShort(J)S
-    .locals 1
+    .registers 3
     .param p0, "$this$toUShort"    # J
 
     .line 405
@@ -77,7 +77,7 @@
 .end method
 
 .method private static final toUShort(S)S
-    .locals 1
+    .registers 2
     .param p0, "$this$toUShort"    # S
 
     .line 381

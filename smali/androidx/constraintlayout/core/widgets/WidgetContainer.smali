@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 35
     invoke-direct {p0}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 1
+    .registers 4
     .param p1, "width"    # I
     .param p2, "height"    # I
 
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(IIII)V
-    .locals 1
+    .registers 6
     .param p1, "x"    # I
     .param p2, "y"    # I
     .param p3, "width"    # I
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public add(Landroidx/constraintlayout/core/widgets/ConstraintWidget;)V
-    .locals 1
+    .registers 3
     .param p1, "widget"    # Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     .line 72
@@ -89,7 +89,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 74
     invoke-virtual {p1}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->getParent()Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -104,7 +104,7 @@
 
     .line 77
     .end local v0    # "container":Landroidx/constraintlayout/core/widgets/WidgetContainer;
-    :cond_0
+    :cond_14
     invoke-virtual {p1, p0}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->setParent(Landroidx/constraintlayout/core/widgets/ConstraintWidget;)V
 
     .line 78
@@ -112,7 +112,7 @@
 .end method
 
 .method public varargs add([Landroidx/constraintlayout/core/widgets/ConstraintWidget;)V
-    .locals 3
+    .registers 5
     .param p1, "widgets"    # [Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     .line 86
@@ -123,8 +123,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_2
+    if-ge v1, v0, :cond_c
 
     .line 88
     aget-object v2, p1, v1
@@ -134,16 +134,16 @@
     .line 87
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 90
     .end local v1    # "i":I
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public getChildren()Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -160,7 +160,7 @@
 .end method
 
 .method public getRootConstraintContainer()Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;
-    .locals 4
+    .registers 5
 
     .line 117
     move-object v0, p0
@@ -179,7 +179,7 @@
     .local v2, "container":Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;
     instance-of v3, v0, Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
     .line 121
     move-object v2, p0
@@ -187,9 +187,9 @@
     check-cast v2, Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;
 
     .line 123
-    :cond_0
-    :goto_0
-    if-eqz v1, :cond_1
+    :cond_d
+    :goto_d
+    if-eqz v1, :cond_1c
 
     .line 124
     move-object v0, v1
@@ -202,33 +202,33 @@
     .line 126
     instance-of v3, v0, Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
     .line 127
     move-object v2, v0
 
     check-cast v2, Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;
 
-    goto :goto_0
+    goto :goto_d
 
     .line 130
-    :cond_1
+    :cond_1c
     return-object v2
 .end method
 
 .method public layout()V
-    .locals 4
+    .registers 5
 
     .line 158
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 159
     return-void
 
     .line 161
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -240,8 +240,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_c
+    if-ge v1, v0, :cond_23
 
     .line 163
     iget-object v2, p0, Landroidx/constraintlayout/core/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -256,7 +256,7 @@
     .local v2, "widget":Landroidx/constraintlayout/core/widgets/ConstraintWidget;
     instance-of v3, v2, Landroidx/constraintlayout/core/widgets/WidgetContainer;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_20
 
     .line 165
     move-object v3, v2
@@ -267,19 +267,19 @@
 
     .line 162
     .end local v2    # "widget":Landroidx/constraintlayout/core/widgets/ConstraintWidget;
-    :cond_1
+    :cond_20
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 168
     .end local v1    # "i":I
-    :cond_2
+    :cond_23
     return-void
 .end method
 
 .method public remove(Landroidx/constraintlayout/core/widgets/ConstraintWidget;)V
-    .locals 1
+    .registers 3
     .param p1, "widget"    # Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     .line 98
@@ -295,7 +295,7 @@
 .end method
 
 .method public removeAllChildren()V
-    .locals 1
+    .registers 2
 
     .line 181
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -307,7 +307,7 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 62
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -322,7 +322,7 @@
 .end method
 
 .method public resetSolverVariables(Landroidx/constraintlayout/core/Cache;)V
-    .locals 3
+    .registers 5
     .param p1, "cache"    # Landroidx/constraintlayout/core/Cache;
 
     .line 172
@@ -340,8 +340,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_a
+    if-ge v1, v0, :cond_1a
 
     .line 175
     iget-object v2, p0, Landroidx/constraintlayout/core/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -360,16 +360,16 @@
     .end local v2    # "widget":Landroidx/constraintlayout/core/widgets/ConstraintWidget;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 178
     .end local v1    # "i":I
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public setOffset(II)V
-    .locals 5
+    .registers 8
     .param p1, "x"    # I
     .param p2, "y"    # I
 
@@ -388,8 +388,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_a
+    if-ge v1, v0, :cond_22
 
     .line 149
     iget-object v2, p0, Landroidx/constraintlayout/core/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -416,10 +416,10 @@
     .end local v2    # "widget":Landroidx/constraintlayout/core/widgets/ConstraintWidget;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 152
     .end local v1    # "i":I
-    :cond_0
+    :cond_22
     return-void
 .end method

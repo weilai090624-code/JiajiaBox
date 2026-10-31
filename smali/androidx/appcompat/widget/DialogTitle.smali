@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 50
@@ -16,7 +16,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method protected onMeasure(II)V
-    .locals 9
+    .registers 12
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -57,7 +57,7 @@
 
     .line 58
     .local v0, "layout":Landroid/text/Layout;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_42
 
     .line 59
     invoke-virtual {v0}, Landroid/text/Layout;->getLineCount()I
@@ -66,7 +66,7 @@
 
     .line 60
     .local v1, "lineCount":I
-    if-lez v1, :cond_1
+    if-lez v1, :cond_42
 
     .line 61
     add-int/lit8 v2, v1, -0x1
@@ -77,7 +77,7 @@
 
     .line 62
     .local v2, "ellipsisCount":I
-    if-lez v2, :cond_1
+    if-lez v2, :cond_42
 
     .line 63
     const/4 v3, 0x0
@@ -116,7 +116,7 @@
 
     .line 72
     .local v5, "textSize":I
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_3c
 
     .line 74
     int-to-float v6, v5
@@ -124,7 +124,7 @@
     invoke-virtual {p0, v3, v6}, Landroidx/appcompat/widget/DialogTitle;->setTextSize(IF)V
 
     .line 76
-    :cond_0
+    :cond_3c
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 78
@@ -135,6 +135,6 @@
     .end local v2    # "ellipsisCount":I
     .end local v4    # "a":Landroid/content/res/TypedArray;
     .end local v5    # "textSize":I
-    :cond_1
+    :cond_42
     return-void
 .end method

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 0
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method protected init(Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 3
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -138,7 +138,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 1
+    .registers 4
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -162,7 +162,7 @@
 .end method
 
 .method public onMeasure(Landroidx/constraintlayout/core/widgets/VirtualLayout;II)V
-    .locals 6
+    .registers 10
     .param p1, "layout"    # Landroidx/constraintlayout/core/widgets/VirtualLayout;
     .param p2, "widthMeasureSpec"    # I
     .param p3, "heightMeasureSpec"    # I
@@ -204,7 +204,7 @@
 
     .line 61
     .local v3, "heightSize":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_21
 
     .line 62
     invoke-virtual {p1, v0, v1, v2, v3}, Landroidx/constraintlayout/core/widgets/VirtualLayout;->measure(IIII)V
@@ -220,21 +220,21 @@
 
     invoke-virtual {p0, v4, v5}, Landroidx/constraintlayout/helper/widget/MotionPlaceholder;->setMeasuredDimension(II)V
 
-    goto :goto_0
+    goto :goto_25
 
     .line 65
-    :cond_0
+    :cond_21
     const/4 v4, 0x0
 
     invoke-virtual {p0, v4, v4}, Landroidx/constraintlayout/helper/widget/MotionPlaceholder;->setMeasuredDimension(II)V
 
     .line 67
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method public updatePreLayout(Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;Landroidx/constraintlayout/core/widgets/Helper;Landroid/util/SparseArray;)V
-    .locals 0
+    .registers 4
     .param p1, "container"    # Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;
     .param p2, "helper"    # Landroidx/constraintlayout/core/widgets/Helper;
     .annotation system Ldalvik/annotation/MethodParameters;

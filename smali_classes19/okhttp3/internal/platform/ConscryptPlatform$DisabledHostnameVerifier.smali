@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokhttp3/internal/platform/ConscryptPlatform$DisabledHostnameVerifier;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public final verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
-    .locals 1
+    .registers 4
     .param p1, "hostname"    # Ljava/lang/String;
     .param p2, "session"    # Ljavax/net/ssl/SSLSession;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public verify([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
-    .locals 1
+    .registers 5
     .param p1, "certs"    # [Ljava/security/cert/X509Certificate;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "session"    # Ljavax/net/ssl/SSLSession;

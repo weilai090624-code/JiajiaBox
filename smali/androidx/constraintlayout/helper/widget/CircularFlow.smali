@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 67
     const/4 v0, 0x0
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -117,7 +117,7 @@
 .end method
 
 .method private addAngle(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "angleString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -129,36 +129,36 @@
     .end annotation
 
     .line 428
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3b
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 431
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->myContext:Landroid/content/Context;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 432
     return-void
 
     .line 434
-    :cond_1
+    :cond_e
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_13
 
     .line 435
     return-void
 
     .line 438
-    :cond_2
+    :cond_13
     iget v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountAngle:I
 
     add-int/lit8 v0, v0, 0x1
@@ -167,7 +167,7 @@
 
     array-length v1, v1
 
-    if-le v0, v1, :cond_3
+    if-le v0, v1, :cond_29
 
     .line 439
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
@@ -185,7 +185,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
 
     .line 441
-    :cond_3
+    :cond_29
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
 
     iget v1, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountAngle:I
@@ -209,13 +209,13 @@
     return-void
 
     .line 429
-    :cond_4
-    :goto_0
+    :cond_3b
+    :goto_3b
     return-void
 .end method
 
 .method private addRadius(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p1, "radiusString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -227,36 +227,36 @@
     .end annotation
 
     .line 449
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_4a
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 452
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->myContext:Landroid/content/Context;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 453
     return-void
 
     .line 455
-    :cond_1
+    :cond_e
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_13
 
     .line 456
     return-void
 
     .line 459
-    :cond_2
+    :cond_13
     iget v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountRadius:I
 
     add-int/lit8 v0, v0, 0x1
@@ -265,7 +265,7 @@
 
     array-length v1, v1
 
-    if-le v0, v1, :cond_3
+    if-le v0, v1, :cond_29
 
     .line 460
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
@@ -283,7 +283,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
 
     .line 463
-    :cond_3
+    :cond_29
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
 
     iget v1, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountRadius:I
@@ -323,13 +323,13 @@
     return-void
 
     .line 450
-    :cond_4
-    :goto_0
+    :cond_4a
+    :goto_4a
     return-void
 .end method
 
 .method private anchorReferences()V
-    .locals 9
+    .registers 10
 
     .line 182
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->getParent()Landroid/view/ViewParent;
@@ -344,10 +344,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_9
     iget v1, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCount:I
 
-    if-ge v0, v1, :cond_7
+    if-ge v0, v1, :cond_f2
 
     .line 184
     iget-object v1, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
@@ -362,13 +362,13 @@
 
     .line 185
     .local v1, "view":Landroid/view/View;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 186
-    goto/16 :goto_3
+    goto/16 :goto_ee
 
     .line 188
-    :cond_0
+    :cond_1b
     sget v2, Landroidx/constraintlayout/helper/widget/CircularFlow;->DEFAULT_RADIUS:I
 
     .line 189
@@ -383,26 +383,26 @@
 
     const/4 v6, 0x1
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_30
 
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
 
     array-length v4, v4
 
-    if-ge v0, v4, :cond_1
+    if-ge v0, v4, :cond_30
 
     .line 192
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
 
     aget v2, v4, v0
 
-    goto :goto_1
+    goto :goto_7e
 
     .line 193
-    :cond_1
+    :cond_30
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mReferenceDefaultRadius:Ljava/lang/Integer;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_58
 
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mReferenceDefaultRadius:Ljava/lang/Integer;
 
@@ -412,7 +412,7 @@
 
     const/4 v7, -0x1
 
-    if-eq v4, v7, :cond_3
+    if-eq v4, v7, :cond_58
 
     .line 194
     iget v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountRadius:I
@@ -424,7 +424,7 @@
     .line 195
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_4a
 
     .line 196
     new-array v4, v6, [I
@@ -432,7 +432,7 @@
     iput-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
 
     .line 198
-    :cond_2
+    :cond_4a
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->getRadius()[I
 
     move-result-object v4
@@ -448,10 +448,10 @@
 
     aput v2, v4, v7
 
-    goto :goto_1
+    goto :goto_7e
 
     .line 201
-    :cond_3
+    :cond_58
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -489,29 +489,29 @@
     invoke-static {v5, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 204
-    :goto_1
+    :goto_7e
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_8c
 
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
 
     array-length v4, v4
 
-    if-ge v0, v4, :cond_4
+    if-ge v0, v4, :cond_8c
 
     .line 205
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
 
     aget v3, v4, v0
 
-    goto :goto_2
+    goto :goto_dd
 
     .line 206
-    :cond_4
+    :cond_8c
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mReferenceDefaultAngle:Ljava/lang/Float;
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_b7
 
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mReferenceDefaultAngle:Ljava/lang/Float;
 
@@ -523,7 +523,7 @@
 
     cmpl-float v4, v4, v7
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_b7
 
     .line 207
     iget v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountAngle:I
@@ -535,7 +535,7 @@
     .line 208
     iget-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_a9
 
     .line 209
     new-array v4, v6, [F
@@ -543,7 +543,7 @@
     iput-object v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
 
     .line 211
-    :cond_5
+    :cond_a9
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->getAngles()[F
 
     move-result-object v4
@@ -559,10 +559,10 @@
 
     aput v3, v4, v5
 
-    goto :goto_2
+    goto :goto_dd
 
     .line 214
-    :cond_6
+    :cond_b7
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -600,7 +600,7 @@
     invoke-static {v5, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 216
-    :goto_2
+    :goto_dd
     invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v4
@@ -627,14 +627,14 @@
     .end local v2    # "radius":I
     .end local v3    # "angle":F
     .end local v4    # "params":Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
-    :goto_3
+    :goto_ee
     add-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 222
     .end local v0    # "i":I
-    :cond_7
+    :cond_f2
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->applyLayoutFeatures()V
 
     .line 223
@@ -642,7 +642,7 @@
 .end method
 
 .method private removeAngle([FI)[F
-    .locals 1
+    .registers 4
     .param p1, "angles"    # [F
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -657,18 +657,18 @@
     .end annotation
 
     .line 362
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_e
 
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_e
 
     iget v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountAngle:I
 
-    if-lt p2, v0, :cond_0
+    if-lt p2, v0, :cond_9
 
-    goto :goto_0
+    goto :goto_e
 
     .line 368
-    :cond_0
+    :cond_9
     invoke-static {p1, p2}, Landroidx/constraintlayout/helper/widget/CircularFlow;->removeElementFromArray([FI)[F
 
     move-result-object v0
@@ -676,13 +676,13 @@
     return-object v0
 
     .line 365
-    :cond_1
-    :goto_0
+    :cond_e
+    :goto_e
     return-object p1
 .end method
 
 .method public static removeElementFromArray([FI)[F
-    .locals 5
+    .registers 7
     .param p0, "array"    # [F
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -711,19 +711,19 @@
     const/4 v2, 0x0
 
     .local v2, "k":I
-    :goto_0
+    :goto_7
     array-length v3, p0
 
-    if-ge v1, v3, :cond_1
+    if-ge v1, v3, :cond_17
 
     .line 483
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_d
 
     .line 484
-    goto :goto_1
+    goto :goto_14
 
     .line 486
-    :cond_0
+    :cond_d
     add-int/lit8 v3, v2, 0x1
 
     .end local v2    # "k":I
@@ -737,20 +737,20 @@
     .line 482
     .end local v3    # "k":I
     .restart local v2    # "k":I
-    :goto_1
+    :goto_14
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 488
     .end local v1    # "i":I
     .end local v2    # "k":I
-    :cond_1
+    :cond_17
     return-object v0
 .end method
 
 .method public static removeElementFromArray([II)[I
-    .locals 5
+    .registers 7
     .param p0, "array"    # [I
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -779,19 +779,19 @@
     const/4 v2, 0x0
 
     .local v2, "k":I
-    :goto_0
+    :goto_7
     array-length v3, p0
 
-    if-ge v1, v3, :cond_1
+    if-ge v1, v3, :cond_17
 
     .line 471
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_d
 
     .line 472
-    goto :goto_1
+    goto :goto_14
 
     .line 474
-    :cond_0
+    :cond_d
     add-int/lit8 v3, v2, 0x1
 
     .end local v2    # "k":I
@@ -805,20 +805,20 @@
     .line 470
     .end local v3    # "k":I
     .restart local v2    # "k":I
-    :goto_1
+    :goto_14
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 476
     .end local v1    # "i":I
     .end local v2    # "k":I
-    :cond_1
+    :cond_17
     return-object v0
 .end method
 
 .method private removeRadius([II)[I
-    .locals 1
+    .registers 4
     .param p1, "radius"    # [I
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -833,18 +833,18 @@
     .end annotation
 
     .line 375
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_e
 
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_e
 
     iget v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountRadius:I
 
-    if-lt p2, v0, :cond_0
+    if-lt p2, v0, :cond_9
 
-    goto :goto_0
+    goto :goto_e
 
     .line 381
-    :cond_0
+    :cond_9
     invoke-static {p1, p2}, Landroidx/constraintlayout/helper/widget/CircularFlow;->removeElementFromArray([II)[I
 
     move-result-object v0
@@ -852,13 +852,13 @@
     return-object v0
 
     .line 378
-    :cond_1
-    :goto_0
+    :cond_e
+    :goto_e
     return-object p1
 .end method
 
 .method private setAngles(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "idList"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -870,13 +870,13 @@
     .end annotation
 
     .line 388
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 389
     return-void
 
     .line 391
-    :cond_0
+    :cond_3
     const/4 v0, 0x0
 
     .line 392
@@ -886,7 +886,7 @@
     iput v1, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountAngle:I
 
     .line 394
-    :goto_0
+    :goto_7
     const/16 v1, 0x2c
 
     invoke-virtual {p1, v1, v0}, Ljava/lang/String;->indexOf(II)I
@@ -897,7 +897,7 @@
     .local v1, "end":I
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1d
 
     .line 396
     invoke-virtual {p1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -919,7 +919,7 @@
 
     .line 399
     .restart local v1    # "end":I
-    :cond_1
+    :cond_1d
     invoke-virtual {p1, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
@@ -935,11 +935,11 @@
 
     .line 401
     .end local v1    # "end":I
-    goto :goto_0
+    goto :goto_7
 .end method
 
 .method private setRadius(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "idList"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -951,13 +951,13 @@
     .end annotation
 
     .line 408
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 409
     return-void
 
     .line 411
-    :cond_0
+    :cond_3
     const/4 v0, 0x0
 
     .line 412
@@ -967,7 +967,7 @@
     iput v1, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountRadius:I
 
     .line 414
-    :goto_0
+    :goto_7
     const/16 v1, 0x2c
 
     invoke-virtual {p1, v1, v0}, Ljava/lang/String;->indexOf(II)I
@@ -978,7 +978,7 @@
     .local v1, "end":I
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1d
 
     .line 416
     invoke-virtual {p1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -1000,7 +1000,7 @@
 
     .line 419
     .restart local v1    # "end":I
-    :cond_1
+    :cond_1d
     invoke-virtual {p1, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
@@ -1016,13 +1016,13 @@
 
     .line 421
     .end local v1    # "end":I
-    goto :goto_0
+    goto :goto_7
 .end method
 
 
 # virtual methods
 .method public addViewToCircularFlow(Landroid/view/View;IF)V
-    .locals 4
+    .registers 8
     .param p1, "view"    # Landroid/view/View;
     .param p2, "radius"    # I
     .param p3, "angle"    # F
@@ -1048,13 +1048,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 236
     return-void
 
     .line 238
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroidx/constraintlayout/helper/widget/CircularFlow;->addView(Landroid/view/View;)V
 
     .line 239
@@ -1129,7 +1129,7 @@
 .end method
 
 .method public getAngles()[F
-    .locals 2
+    .registers 3
 
     .line 128
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
@@ -1144,7 +1144,7 @@
 .end method
 
 .method public getRadius()[I
-    .locals 2
+    .registers 3
 
     .line 123
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
@@ -1159,7 +1159,7 @@
 .end method
 
 .method protected init(Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 7
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1174,7 +1174,7 @@
     invoke-super {p0, p1}, Landroidx/constraintlayout/widget/VirtualLayout;->init(Landroid/util/AttributeSet;)V
 
     .line 135
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_7f
 
     .line 136
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->getContext()Landroid/content/Context;
@@ -1198,8 +1198,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_5
+    :goto_14
+    if-ge v2, v1, :cond_7c
 
     .line 140
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -1210,7 +1210,7 @@
     .local v3, "attr":I
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_circularflow_viewCenter:I
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_26
 
     .line 142
     const/4 v4, 0x0
@@ -1221,13 +1221,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mViewCenter:I
 
-    goto :goto_1
+    goto :goto_79
 
     .line 143
-    :cond_0
+    :cond_26
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_circularflow_angles:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_36
 
     .line 144
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -1241,13 +1241,13 @@
 
     invoke-direct {p0, v4}, Landroidx/constraintlayout/helper/widget/CircularFlow;->setAngles(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_79
 
     .line 146
-    :cond_1
+    :cond_36
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_circularflow_radiusInDP:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_46
 
     .line 147
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -1261,13 +1261,13 @@
 
     invoke-direct {p0, v4}, Landroidx/constraintlayout/helper/widget/CircularFlow;->setRadius(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_79
 
     .line 149
-    :cond_2
+    :cond_46
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_circularflow_defaultAngle:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_60
 
     .line 150
     sget v4, Landroidx/constraintlayout/helper/widget/CircularFlow;->DEFAULT_ANGLE:F
@@ -1291,13 +1291,13 @@
 
     invoke-virtual {p0, v4}, Landroidx/constraintlayout/helper/widget/CircularFlow;->setDefaultAngle(F)V
 
-    goto :goto_1
+    goto :goto_79
 
     .line 152
-    :cond_3
+    :cond_60
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_circularflow_defaultRadius:I
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_79
 
     .line 153
     sget v4, Landroidx/constraintlayout/helper/widget/CircularFlow;->DEFAULT_RADIUS:I
@@ -1323,26 +1323,26 @@
 
     .line 139
     .end local v3    # "attr":I
-    :cond_4
-    :goto_1
+    :cond_79
+    :goto_79
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 157
     .end local v2    # "i":I
-    :cond_5
+    :cond_7c
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 159
     .end local v0    # "a":Landroid/content/res/TypedArray;
     .end local v1    # "N":I
-    :cond_6
+    :cond_7f
     return-void
 .end method
 
 .method public isUpdatable(Landroid/view/View;)Z
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1364,13 +1364,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 493
     return v1
 
     .line 495
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -1383,16 +1383,16 @@
     .local v0, "indexView":I
     const/4 v2, -0x1
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_18
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_18
     return v1
 .end method
 
 .method public onAttachedToWindow()V
-    .locals 2
+    .registers 3
 
     .line 163
     invoke-super {p0}, Landroidx/constraintlayout/widget/VirtualLayout;->onAttachedToWindow()V
@@ -1402,7 +1402,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 165
     new-array v0, v1, [F
@@ -1415,10 +1415,10 @@
     invoke-direct {p0, v0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->setAngles(Ljava/lang/String;)V
 
     .line 168
-    :cond_0
+    :cond_11
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mReferenceRadius:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 169
     new-array v0, v1, [I
@@ -1431,10 +1431,10 @@
     invoke-direct {p0, v0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->setRadius(Ljava/lang/String;)V
 
     .line 172
-    :cond_1
+    :cond_1e
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mReferenceDefaultAngle:Ljava/lang/Float;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     .line 173
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mReferenceDefaultAngle:Ljava/lang/Float;
@@ -1446,10 +1446,10 @@
     invoke-virtual {p0, v0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->setDefaultAngle(F)V
 
     .line 175
-    :cond_2
+    :cond_2b
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mReferenceDefaultRadius:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_38
 
     .line 176
     iget-object v0, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mReferenceDefaultRadius:Ljava/lang/Integer;
@@ -1461,7 +1461,7 @@
     invoke-virtual {p0, v0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->setDefaultRadius(I)V
 
     .line 178
-    :cond_3
+    :cond_38
     invoke-direct {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->anchorReferences()V
 
     .line 179
@@ -1469,7 +1469,7 @@
 .end method
 
 .method public removeView(Landroid/view/View;)I
-    .locals 4
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1489,13 +1489,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 339
     return v0
 
     .line 341
-    :cond_0
+    :cond_8
     new-instance v1, Landroidx/constraintlayout/widget/ConstraintSet;
 
     invoke-direct {v1}, Landroidx/constraintlayout/widget/ConstraintSet;-><init>()V
@@ -1525,7 +1525,7 @@
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_33
 
     .line 347
     iget-object v2, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mAngles:[F
@@ -1544,12 +1544,12 @@
     iput v2, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountAngle:I
 
     .line 350
-    :cond_1
+    :cond_33
     iget-object v2, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_2
+    if-ge v0, v2, :cond_46
 
     .line 351
     iget-object v2, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mRadius:[I
@@ -1568,7 +1568,7 @@
     iput v2, p0, Landroidx/constraintlayout/helper/widget/CircularFlow;->mCountRadius:I
 
     .line 354
-    :cond_2
+    :cond_46
     invoke-direct {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->anchorReferences()V
 
     .line 355
@@ -1576,7 +1576,7 @@
 .end method
 
 .method public setDefaultAngle(F)V
-    .locals 0
+    .registers 2
     .param p1, "angle"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1595,7 +1595,7 @@
 .end method
 
 .method public setDefaultRadius(I)V
-    .locals 0
+    .registers 2
     .param p1, "radius"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1614,7 +1614,7 @@
 .end method
 
 .method public updateAngle(Landroid/view/View;F)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "angle"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1633,7 +1633,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 278
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1666,7 +1666,7 @@
     return-void
 
     .line 281
-    :cond_0
+    :cond_23
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -1681,13 +1681,13 @@
 
     array-length v1, v1
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_31
 
     .line 283
     return-void
 
     .line 285
-    :cond_1
+    :cond_31
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->getAngles()[F
 
     move-result-object v1
@@ -1707,7 +1707,7 @@
 .end method
 
 .method public updateRadius(Landroid/view/View;I)V
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "radius"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1726,7 +1726,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 257
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1759,7 +1759,7 @@
     return-void
 
     .line 260
-    :cond_0
+    :cond_23
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -1774,13 +1774,13 @@
 
     array-length v1, v1
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_31
 
     .line 262
     return-void
 
     .line 264
-    :cond_1
+    :cond_31
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->getRadius()[I
 
     move-result-object v1
@@ -1818,7 +1818,7 @@
 .end method
 
 .method public updateReference(Landroid/view/View;IF)V
-    .locals 4
+    .registers 8
     .param p1, "view"    # Landroid/view/View;
     .param p2, "radius"    # I
     .param p3, "angle"    # F
@@ -1840,7 +1840,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 300
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1873,7 +1873,7 @@
     return-void
 
     .line 303
-    :cond_0
+    :cond_23
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -1890,7 +1890,7 @@
 
     array-length v1, v1
 
-    if-le v1, v0, :cond_1
+    if-le v1, v0, :cond_3c
 
     .line 305
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->getAngles()[F
@@ -1905,14 +1905,14 @@
     aput p3, v1, v0
 
     .line 308
-    :cond_1
+    :cond_3c
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->getRadius()[I
 
     move-result-object v1
 
     array-length v1, v1
 
-    if-le v1, v0, :cond_2
+    if-le v1, v0, :cond_5d
 
     .line 309
     invoke-virtual {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->getRadius()[I
@@ -1945,7 +1945,7 @@
     aput v2, v1, v0
 
     .line 312
-    :cond_2
+    :cond_5d
     invoke-direct {p0}, Landroidx/constraintlayout/helper/widget/CircularFlow;->anchorReferences()V
 
     .line 313

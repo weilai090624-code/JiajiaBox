@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/PreviewStreamStateObserver;Ljava/util/List;Landroidx/camera/core/CameraInfo;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/camera/view/PreviewStreamStateObserver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -91,7 +91,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2c
 
     .line 146
     iget-object v0, p0, Landroidx/camera/view/PreviewStreamStateObserver$1;->val$callbacksToClear:Ljava/util/List;
@@ -100,12 +100,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_13
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -123,21 +123,21 @@
 
     .line 149
     .end local v1    # "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
-    goto :goto_0
+    goto :goto_13
 
     .line 150
-    :cond_0
+    :cond_27
     iget-object v0, p0, Landroidx/camera/view/PreviewStreamStateObserver$1;->val$callbacksToClear:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
     .line 152
-    :cond_1
+    :cond_2c
     return-void
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -156,7 +156,7 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Void;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Ljava/lang/Void;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

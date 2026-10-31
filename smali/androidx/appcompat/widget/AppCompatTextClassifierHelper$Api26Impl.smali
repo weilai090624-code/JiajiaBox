@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getTextClassifier(Landroid/widget/TextView;)Landroid/view/textclassifier/TextClassifier;
-    .locals 2
+    .registers 3
     .param p0, "textView"    # Landroid/widget/TextView;
 
     .line 78
@@ -47,7 +47,7 @@
 
     .line 80
     .local v0, "tcm":Landroid/view/textclassifier/TextClassificationManager;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 81
     invoke-virtual {v0}, Landroid/view/textclassifier/TextClassificationManager;->getTextClassifier()Landroid/view/textclassifier/TextClassifier;
@@ -57,7 +57,7 @@
     return-object v1
 
     .line 83
-    :cond_0
+    :cond_14
     sget-object v1, Landroid/view/textclassifier/TextClassifier;->NO_OP:Landroid/view/textclassifier/TextClassifier;
 
     return-object v1

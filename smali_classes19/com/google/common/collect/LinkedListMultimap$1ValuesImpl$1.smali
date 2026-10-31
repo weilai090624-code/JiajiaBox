@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;Ljava/util/ListIterator;Lcom/google/common/collect/LinkedListMultimap$NodeIterator;)V
-    .locals 0
+    .registers 4
     .param p1, "this$1"    # Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;
 
     .line 786
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public set(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -67,7 +67,7 @@
 .end method
 
 .method bridge synthetic transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -83,7 +83,7 @@
 .end method
 
 .method transform(Ljava/util/Map$Entry;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 

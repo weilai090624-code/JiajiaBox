@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 149
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public final getInclusive()Z
-    .locals 1
+    .registers 2
 
     .line 154
     iget-boolean v0, p0, Landroidx/navigation/PopUpToBuilder;->inclusive:Z
@@ -66,7 +66,7 @@
 .end method
 
 .method public final getSaveState()Z
-    .locals 1
+    .registers 2
 
     .line 165
     iget-boolean v0, p0, Landroidx/navigation/PopUpToBuilder;->saveState:Z
@@ -75,7 +75,7 @@
 .end method
 
 .method public final setInclusive(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 154
@@ -85,7 +85,7 @@
 .end method
 
 .method public final setSaveState(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 165

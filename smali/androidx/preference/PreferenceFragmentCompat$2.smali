@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/PreferenceFragmentCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/PreferenceFragmentCompat;
 
     .line 133
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 136
     iget-object v0, p0, Landroidx/preference/PreferenceFragmentCompat$2;->this$0:Landroidx/preference/PreferenceFragmentCompat;

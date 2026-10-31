@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/CancellableContinuation;Lkotlinx/coroutines/android/HandlerContext;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Lkotlinx/coroutines/android/HandlerContext$scheduleResumeAfterDelay$$inlined$Runnable$1;->$continuation$inlined:Lkotlinx/coroutines/CancellableContinuation;
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .registers 6
 
     .line 17
     const/4 v0, 0x0

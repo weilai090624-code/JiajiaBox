@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 101
     sget-object v0, Landroidx/camera/view/PreviewView$ScaleType;->FILL_CENTER:Landroidx/camera/view/PreviewView$ScaleType;
@@ -38,7 +38,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 120
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method private static flipHorizontally(Landroid/graphics/RectF;F)Landroid/graphics/RectF;
-    .locals 5
+    .registers 7
     .param p0, "original"    # Landroid/graphics/RectF;
     .param p1, "flipLineX"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -92,7 +92,7 @@
 .end method
 
 .method private getCorrectedCropRect(Landroid/graphics/Rect;)Landroid/graphics/Rect;
-    .locals 7
+    .registers 9
     .param p1, "surfaceCropRect"    # Landroid/graphics/Rect;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -114,7 +114,7 @@
 
     .line 284
     .local v0, "quirk":Landroidx/camera/view/internal/compat/quirk/PreviewOneThirdWiderQuirk;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     .line 286
     new-instance v1, Landroid/graphics/RectF;
@@ -174,12 +174,12 @@
     .end local v1    # "cropRectF":Landroid/graphics/RectF;
     .end local v2    # "correction":Landroid/graphics/Matrix;
     .end local v3    # "correctRect":Landroid/graphics/Rect;
-    :cond_0
+    :cond_34
     return-object p1
 .end method
 
 .method private getRotatedViewportSize()Landroid/util/Size;
-    .locals 3
+    .registers 4
 
     .line 380
     iget v0, p0, Landroidx/camera/view/PreviewTransformation;->mPreviewRotationDegrees:I
@@ -188,7 +188,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 381
     new-instance v0, Landroid/util/Size;
@@ -210,7 +210,7 @@
     return-object v0
 
     .line 383
-    :cond_0
+    :cond_1a
     new-instance v0, Landroid/util/Size;
 
     iget-object v1, p0, Landroidx/camera/view/PreviewTransformation;->mViewportRect:Landroid/graphics/Rect;
@@ -231,7 +231,7 @@
 .end method
 
 .method private getTransformedSurfaceRect(Landroid/util/Size;I)Landroid/graphics/RectF;
-    .locals 5
+    .registers 8
     .param p1, "previewViewSize"    # Landroid/util/Size;
     .param p2, "layoutDirection"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -293,30 +293,30 @@
 .end method
 
 .method private isTransformationInfoReady()Z
-    .locals 1
+    .registers 2
 
     .line 471
     iget-object v0, p0, Landroidx/camera/view/PreviewTransformation;->mSurfaceCropRect:Landroid/graphics/Rect;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     iget-object v0, p0, Landroidx/camera/view/PreviewTransformation;->mResolution:Landroid/util/Size;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method private static setMatrixRectToRect(Landroid/graphics/Matrix;Landroid/graphics/RectF;Landroid/graphics/RectF;Landroidx/camera/view/PreviewView$ScaleType;)V
-    .locals 2
+    .registers 6
     .param p0, "matrix"    # Landroid/graphics/Matrix;
     .param p1, "source"    # Landroid/graphics/RectF;
     .param p2, "destination"    # Landroid/graphics/RectF;
@@ -345,7 +345,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_4c
 
     .line 350
     new-instance v0, Ljava/lang/StringBuilder;
@@ -374,29 +374,29 @@
     sget-object v0, Landroid/graphics/Matrix$ScaleToFit;->FILL:Landroid/graphics/Matrix$ScaleToFit;
 
     .local v0, "matrixScaleType":Landroid/graphics/Matrix$ScaleToFit;
-    goto :goto_0
+    goto :goto_2f
 
     .line 347
     .end local v0    # "matrixScaleType":Landroid/graphics/Matrix$ScaleToFit;
-    :pswitch_0
+    :pswitch_26
     sget-object v0, Landroid/graphics/Matrix$ScaleToFit;->START:Landroid/graphics/Matrix$ScaleToFit;
 
     .line 348
     .restart local v0    # "matrixScaleType":Landroid/graphics/Matrix$ScaleToFit;
-    goto :goto_0
+    goto :goto_2f
 
     .line 342
     .end local v0    # "matrixScaleType":Landroid/graphics/Matrix$ScaleToFit;
-    :pswitch_1
+    :pswitch_29
     sget-object v0, Landroid/graphics/Matrix$ScaleToFit;->END:Landroid/graphics/Matrix$ScaleToFit;
 
     .line 343
     .restart local v0    # "matrixScaleType":Landroid/graphics/Matrix$ScaleToFit;
-    goto :goto_0
+    goto :goto_2f
 
     .line 337
     .end local v0    # "matrixScaleType":Landroid/graphics/Matrix$ScaleToFit;
-    :pswitch_2
+    :pswitch_2c
     sget-object v0, Landroid/graphics/Matrix$ScaleToFit;->CENTER:Landroid/graphics/Matrix$ScaleToFit;
 
     .line 338
@@ -404,66 +404,66 @@
     nop
 
     .line 353
-    :goto_0
+    :goto_2f
     sget-object v1, Landroidx/camera/view/PreviewView$ScaleType;->FIT_CENTER:Landroidx/camera/view/PreviewView$ScaleType;
 
-    if-eq p3, v1, :cond_1
+    if-eq p3, v1, :cond_3e
 
     sget-object v1, Landroidx/camera/view/PreviewView$ScaleType;->FIT_START:Landroidx/camera/view/PreviewView$ScaleType;
 
-    if-eq p3, v1, :cond_1
+    if-eq p3, v1, :cond_3e
 
     sget-object v1, Landroidx/camera/view/PreviewView$ScaleType;->FIT_END:Landroidx/camera/view/PreviewView$ScaleType;
 
-    if-ne p3, v1, :cond_0
+    if-ne p3, v1, :cond_3c
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_0
+    :cond_3c
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_3f
 
-    :cond_1
-    :goto_1
+    :cond_3e
+    :goto_3e
     const/4 v1, 0x1
 
     .line 355
     .local v1, "isFitTypes":Z
-    :goto_2
-    if-eqz v1, :cond_2
+    :goto_3f
+    if-eqz v1, :cond_45
 
     .line 356
     invoke-virtual {p0, p1, p2, v0}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
 
-    goto :goto_3
+    goto :goto_4b
 
     .line 360
-    :cond_2
+    :cond_45
     invoke-virtual {p0, p2, p1, v0}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
 
     .line 361
     invoke-virtual {p0, p0}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
 
     .line 363
-    :goto_3
+    :goto_4b
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_4c
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_2c
+        :pswitch_2c
+        :pswitch_29
+        :pswitch_29
+        :pswitch_26
+        :pswitch_26
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method createTransformedBitmap(Landroid/graphics/Bitmap;Landroid/util/Size;I)Landroid/graphics/Bitmap;
-    .locals 8
+    .registers 12
     .param p1, "original"    # Landroid/graphics/Bitmap;
     .param p2, "previewViewSize"    # Landroid/util/Size;
     .param p3, "layoutDirection"    # I
@@ -485,13 +485,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 421
     return-object p1
 
     .line 423
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Landroidx/camera/view/PreviewTransformation;->getTextureViewCorrectionMatrix()Landroid/graphics/Matrix;
 
     move-result-object v0
@@ -594,7 +594,7 @@
 .end method
 
 .method getPreviewViewToNormalizedSurfaceMatrix(Landroid/util/Size;I)Landroid/graphics/Matrix;
-    .locals 6
+    .registers 9
     .param p1, "previewViewSize"    # Landroid/util/Size;
     .param p2, "layoutDirection"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -613,7 +613,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 453
     const/4 v0, 0x0
@@ -621,7 +621,7 @@
     return-object v0
 
     .line 455
-    :cond_0
+    :cond_8
     new-instance v0, Landroid/graphics/Matrix;
 
     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
@@ -683,7 +683,7 @@
 .end method
 
 .method getPreviewViewViewportRectForMismatchedAspectRatios(Landroid/util/Size;I)Landroid/graphics/RectF;
-    .locals 6
+    .registers 9
     .param p1, "previewViewSize"    # Landroid/util/Size;
     .param p2, "layoutDirection"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -760,7 +760,7 @@
     .line 318
     const/4 v4, 0x1
 
-    if-ne p2, v4, :cond_0
+    if-ne p2, v4, :cond_40
 
     .line 319
     invoke-virtual {p1}, Landroid/util/Size;->getWidth()I
@@ -780,12 +780,12 @@
     return-object v4
 
     .line 321
-    :cond_0
+    :cond_40
     return-object v2
 .end method
 
 .method getScaleType()Landroidx/camera/view/PreviewView$ScaleType;
-    .locals 1
+    .registers 2
 
     .line 215
     iget-object v0, p0, Landroidx/camera/view/PreviewTransformation;->mScaleType:Landroidx/camera/view/PreviewView$ScaleType;
@@ -794,7 +794,7 @@
 .end method
 
 .method getSurfaceCropRect()Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
 
     .line 407
     iget-object v0, p0, Landroidx/camera/view/PreviewTransformation;->mSurfaceCropRect:Landroid/graphics/Rect;
@@ -803,7 +803,7 @@
 .end method
 
 .method getSurfaceToPreviewViewMatrix(Landroid/util/Size;I)Landroid/graphics/Matrix;
-    .locals 6
+    .registers 9
     .param p1, "previewViewSize"    # Landroid/util/Size;
     .param p2, "layoutDirection"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -829,7 +829,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 248
     new-instance v0, Landroid/graphics/RectF;
@@ -852,18 +852,18 @@
     invoke-direct {v0, v3, v3, v1, v2}, Landroid/graphics/RectF;-><init>(FFFF)V
 
     .local v0, "previewViewCropRect":Landroid/graphics/RectF;
-    goto :goto_0
+    goto :goto_22
 
     .line 253
     .end local v0    # "previewViewCropRect":Landroid/graphics/RectF;
-    :cond_0
+    :cond_1e
     invoke-virtual {p0, p1, p2}, Landroidx/camera/view/PreviewTransformation;->getPreviewViewViewportRectForMismatchedAspectRatios(Landroid/util/Size;I)Landroid/graphics/RectF;
 
     move-result-object v0
 
     .line 256
     .restart local v0    # "previewViewCropRect":Landroid/graphics/RectF;
-    :goto_0
+    :goto_22
     new-instance v1, Landroid/graphics/RectF;
 
     iget-object v2, p0, Landroidx/camera/view/PreviewTransformation;->mSurfaceCropRect:Landroid/graphics/Rect;
@@ -880,7 +880,7 @@
     .local v1, "matrix":Landroid/graphics/Matrix;
     iget-boolean v2, p0, Landroidx/camera/view/PreviewTransformation;->mIsFrontCamera:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_62
 
     .line 262
     iget v2, p0, Landroidx/camera/view/PreviewTransformation;->mPreviewRotationDegrees:I
@@ -893,7 +893,7 @@
 
     const/high16 v4, -0x40800000    # -1.0f
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_51
 
     .line 267
     iget-object v2, p0, Landroidx/camera/view/PreviewTransformation;->mSurfaceCropRect:Landroid/graphics/Rect;
@@ -914,10 +914,10 @@
 
     invoke-virtual {v1, v3, v4, v2, v5}, Landroid/graphics/Matrix;->preScale(FFFF)Z
 
-    goto :goto_1
+    goto :goto_62
 
     .line 273
-    :cond_1
+    :cond_51
     iget-object v2, p0, Landroidx/camera/view/PreviewTransformation;->mSurfaceCropRect:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->centerX()I
@@ -937,13 +937,13 @@
     invoke-virtual {v1, v4, v3, v2, v5}, Landroid/graphics/Matrix;->preScale(FFFF)Z
 
     .line 276
-    :cond_2
-    :goto_1
+    :cond_62
+    :goto_62
     return-object v1
 .end method
 
 .method getTextureViewCorrectionMatrix()Landroid/graphics/Matrix;
-    .locals 4
+    .registers 5
 
     .line 154
     invoke-direct {p0}, Landroidx/camera/view/PreviewTransformation;->isTransformationInfoReady()Z
@@ -998,7 +998,7 @@
 
     .line 160
     .local v2, "textureViewRotationQuirk":Landroidx/camera/view/internal/compat/quirk/TextureViewRotationQuirk;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_33
 
     .line 161
     iget-boolean v3, p0, Landroidx/camera/view/PreviewTransformation;->mIsFrontCamera:Z
@@ -1010,7 +1010,7 @@
     add-int/2addr v1, v3
 
     .line 163
-    :cond_0
+    :cond_33
     invoke-static {v0, v0, v1}, Landroidx/camera/view/TransformUtils;->getRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;I)Landroid/graphics/Matrix;
 
     move-result-object v3
@@ -1019,7 +1019,7 @@
 .end method
 
 .method isViewportAspectRatioMatchPreviewView(Landroid/util/Size;)Z
-    .locals 3
+    .registers 5
     .param p1, "previewViewSize"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1049,7 +1049,7 @@
 .end method
 
 .method setScaleType(Landroidx/camera/view/PreviewView$ScaleType;)V
-    .locals 0
+    .registers 2
     .param p1, "scaleType"    # Landroidx/camera/view/PreviewView$ScaleType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1068,7 +1068,7 @@
 .end method
 
 .method setTransformationInfo(Landroidx/camera/core/SurfaceRequest$TransformationInfo;Landroid/util/Size;Z)V
-    .locals 2
+    .registers 6
     .param p1, "transformationInfo"    # Landroidx/camera/core/SurfaceRequest$TransformationInfo;
     .param p2, "resolution"    # Landroid/util/Size;
     .param p3, "isFrontCamera"    # Z
@@ -1169,7 +1169,7 @@
 .end method
 
 .method transformView(Landroid/util/Size;ILandroid/view/View;)V
-    .locals 4
+    .registers 8
     .param p1, "previewViewSize"    # Landroid/util/Size;
     .param p2, "layoutDirection"    # I
     .param p3, "preview"    # Landroid/view/View;
@@ -1193,32 +1193,32 @@
 
     const-string v1, "PreviewTransform"
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_78
 
     invoke-virtual {p1}, Landroid/util/Size;->getWidth()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
-    goto :goto_1
+    goto :goto_78
 
     .line 178
-    :cond_0
+    :cond_f
     invoke-direct {p0}, Landroidx/camera/view/PreviewTransformation;->isTransformationInfoReady()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
     .line 179
     return-void
 
     .line 182
-    :cond_1
+    :cond_16
     instance-of v0, p3, Landroid/view/TextureView;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_25
 
     .line 184
     move-object v0, p3
@@ -1231,17 +1231,17 @@
 
     invoke-virtual {v0, v1}, Landroid/view/TextureView;->setTransform(Landroid/graphics/Matrix;)V
 
-    goto :goto_0
+    goto :goto_38
 
     .line 187
-    :cond_2
+    :cond_25
     invoke-virtual {p3}, Landroid/view/View;->getDisplay()Landroid/view/Display;
 
     move-result-object v0
 
     .line 188
     .local v0, "display":Landroid/view/Display;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_38
 
     invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
 
@@ -1249,7 +1249,7 @@
 
     iget v3, p0, Landroidx/camera/view/PreviewTransformation;->mTargetRotation:I
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_38
 
     .line 189
     const-string v2, "Non-display rotation not supported with SurfaceView / PERFORMANCE mode."
@@ -1258,8 +1258,8 @@
 
     .line 194
     .end local v0    # "display":Landroid/view/Display;
-    :cond_3
-    :goto_0
+    :cond_38
+    :goto_38
     invoke-direct {p0, p1, p2}, Landroidx/camera/view/PreviewTransformation;->getTransformedSurfaceRect(Landroid/util/Size;I)Landroid/graphics/RectF;
 
     move-result-object v0
@@ -1338,8 +1338,8 @@
 
     .line 175
     .end local v0    # "surfaceRectInPreviewView":Landroid/graphics/RectF;
-    :cond_4
-    :goto_1
+    :cond_78
+    :goto_78
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

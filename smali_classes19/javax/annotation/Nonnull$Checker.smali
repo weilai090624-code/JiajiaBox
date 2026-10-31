@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic forConstantValue(Ljava/lang/annotation/Annotation;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 0
+    .registers 3
 
     .line 24
     check-cast p1, Ljavax/annotation/Nonnull;
@@ -52,12 +52,12 @@
 .end method
 
 .method public forConstantValue(Ljavax/annotation/Nonnull;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 1
+    .registers 4
     .param p1, "qualifierArgument"    # Ljavax/annotation/Nonnull;
     .param p2, "value"    # Ljava/lang/Object;
 
     .line 27
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
     .line 28
     sget-object v0, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
@@ -65,7 +65,7 @@
     return-object v0
 
     .line 29
-    :cond_0
+    :cond_5
     sget-object v0, Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
 
     return-object v0

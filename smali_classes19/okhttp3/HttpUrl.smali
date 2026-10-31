@@ -171,7 +171,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/HttpUrl$Companion;
 
@@ -186,13 +186,13 @@
 
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_12
 
     sput-object v0, Lokhttp3/HttpUrl;->HEX_DIGITS:[C
 
     return-void
 
-    :array_0
+    :array_12
     .array-data 2
         0x30s
         0x31s
@@ -214,7 +214,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 12
     .param p1, "scheme"    # Ljava/lang/String;
     .param p2, "username"    # Ljava/lang/String;
     .param p3, "password"    # Ljava/lang/String;
@@ -314,7 +314,7 @@
 .end method
 
 .method public static final synthetic access$getHEX_DIGITS$cp()[C
-    .locals 1
+    .registers 1
 
     .line 288
     sget-object v0, Lokhttp3/HttpUrl;->HEX_DIGITS:[C
@@ -323,7 +323,7 @@
 .end method
 
 .method public static final defaultPort(Ljava/lang/String;)I
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -337,7 +337,7 @@
 .end method
 
 .method public static final get(Ljava/lang/String;)Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -351,7 +351,7 @@
 .end method
 
 .method public static final get(Ljava/net/URI;)Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -365,7 +365,7 @@
 .end method
 
 .method public static final get(Ljava/net/URL;)Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -379,7 +379,7 @@
 .end method
 
 .method public static final parse(Ljava/lang/String;)Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -395,7 +395,7 @@
 
 # virtual methods
 .method public final -deprecated_encodedFragment()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -414,7 +414,7 @@
 .end method
 
 .method public final -deprecated_encodedPassword()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -433,7 +433,7 @@
 .end method
 
 .method public final -deprecated_encodedPath()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -452,7 +452,7 @@
 .end method
 
 .method public final -deprecated_encodedPathSegments()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -480,7 +480,7 @@
 .end method
 
 .method public final -deprecated_encodedQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -499,7 +499,7 @@
 .end method
 
 .method public final -deprecated_encodedUsername()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -518,7 +518,7 @@
 .end method
 
 .method public final -deprecated_fragment()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -535,7 +535,7 @@
 .end method
 
 .method public final -deprecated_host()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -552,7 +552,7 @@
 .end method
 
 .method public final -deprecated_password()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -569,7 +569,7 @@
 .end method
 
 .method public final -deprecated_pathSegments()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -595,7 +595,7 @@
 .end method
 
 .method public final -deprecated_pathSize()I
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -614,7 +614,7 @@
 .end method
 
 .method public final -deprecated_port()I
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -631,7 +631,7 @@
 .end method
 
 .method public final -deprecated_query()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -650,7 +650,7 @@
 .end method
 
 .method public final -deprecated_queryParameterNames()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -678,7 +678,7 @@
 .end method
 
 .method public final -deprecated_querySize()I
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -697,7 +697,7 @@
 .end method
 
 .method public final -deprecated_scheme()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -714,7 +714,7 @@
 .end method
 
 .method public final -deprecated_uri()Ljava/net/URI;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to toUri()"
@@ -733,7 +733,7 @@
 .end method
 
 .method public final -deprecated_url()Ljava/net/URL;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to toUrl()"
@@ -752,7 +752,7 @@
 .end method
 
 .method public final -deprecated_username()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -769,19 +769,19 @@
 .end method
 
 .method public final encodedFragment()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 689
     iget-object v0, p0, Lokhttp3/HttpUrl;->fragment:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 690
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
 
     move-object v1, v0
@@ -808,7 +808,7 @@
     .local v0, "fragmentStart":I
     iget-object v1, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
@@ -820,7 +820,7 @@
 
     return-object v1
 
-    :cond_1
+    :cond_25
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type java.lang.String"
@@ -831,7 +831,7 @@
 .end method
 
 .method public final encodedPassword()Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     .line 453
     iget-object v0, p0, Lokhttp3/HttpUrl;->password:Ljava/lang/String;
@@ -844,24 +844,24 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_13
 
     const-string v0, ""
 
     return-object v0
 
     .line 454
-    :cond_1
+    :cond_13
     iget-object v0, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
 
     move-object v2, v0
@@ -912,7 +912,7 @@
     .local v1, "passwordEnd":I
     iget-object v2, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_45
 
     invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -924,7 +924,7 @@
 
     return-object v2
 
-    :cond_2
+    :cond_45
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v3, "null cannot be cast to non-null type java.lang.String"
@@ -935,7 +935,7 @@
 .end method
 
 .method public final encodedPath()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 483
     iget-object v0, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
@@ -984,7 +984,7 @@
     .local v1, "pathEnd":I
     iget-object v2, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_32
 
     invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -996,7 +996,7 @@
 
     return-object v2
 
-    :cond_0
+    :cond_32
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v3, "null cannot be cast to non-null type java.lang.String"
@@ -1007,7 +1007,7 @@
 .end method
 
 .method public final encodedPathSegments()Ljava/util/List;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1074,8 +1074,8 @@
 
     .line 504
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_2c
+    if-ge v3, v1, :cond_52
 
     .line 505
     add-int/lit8 v3, v3, 0x1
@@ -1093,7 +1093,7 @@
     .local v4, "segmentEnd":I
     iget-object v5, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_4a
 
     invoke-virtual {v5, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -1109,11 +1109,11 @@
     move v3, v4
 
     .end local v4    # "segmentEnd":I
-    goto :goto_0
+    goto :goto_2c
 
     .line 507
     .restart local v4    # "segmentEnd":I
-    :cond_0
+    :cond_4a
     new-instance v5, Ljava/lang/NullPointerException;
 
     const-string v6, "null cannot be cast to non-null type java.lang.String"
@@ -1124,24 +1124,24 @@
 
     .line 510
     .end local v4    # "segmentEnd":I
-    :cond_1
+    :cond_52
     return-object v2
 .end method
 
 .method public final encodedQuery()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 527
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 528
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
 
     move-object v1, v0
@@ -1184,7 +1184,7 @@
     .local v1, "queryEnd":I
     iget-object v2, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_33
 
     invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -1196,7 +1196,7 @@
 
     return-object v2
 
-    :cond_1
+    :cond_33
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v3, "null cannot be cast to non-null type java.lang.String"
@@ -1207,7 +1207,7 @@
 .end method
 
 .method public final encodedUsername()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 435
     iget-object v0, p0, Lokhttp3/HttpUrl;->username:Ljava/lang/String;
@@ -1218,24 +1218,24 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_d
+    if-eqz v0, :cond_12
 
     const-string v0, ""
 
     return-object v0
 
     .line 436
-    :cond_1
+    :cond_12
     iget-object v0, p0, Lokhttp3/HttpUrl;->scheme:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -1264,7 +1264,7 @@
     .local v1, "usernameEnd":I
     iget-object v2, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_36
 
     invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -1276,7 +1276,7 @@
 
     return-object v2
 
-    :cond_2
+    :cond_36
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v3, "null cannot be cast to non-null type java.lang.String"
@@ -1287,13 +1287,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 744
     instance-of v0, p1, Lokhttp3/HttpUrl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p1
 
@@ -1307,21 +1307,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public final fragment()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 379
     iget-object v0, p0, Lokhttp3/HttpUrl;->fragment:Ljava/lang/String;
@@ -1330,7 +1330,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 747
     iget-object v0, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
@@ -1343,7 +1343,7 @@
 .end method
 
 .method public final host()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 334
     iget-object v0, p0, Lokhttp3/HttpUrl;->host:Ljava/lang/String;
@@ -1352,7 +1352,7 @@
 .end method
 
 .method public final isHttps()Z
-    .locals 1
+    .registers 2
 
     .line 384
     iget-boolean v0, p0, Lokhttp3/HttpUrl;->isHttps:Z
@@ -1361,7 +1361,7 @@
 .end method
 
 .method public final newBuilder()Lokhttp3/HttpUrl$Builder;
-    .locals 4
+    .registers 5
 
     .line 717
     new-instance v0, Lokhttp3/HttpUrl$Builder;
@@ -1404,16 +1404,16 @@
 
     move-result v2
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_2c
 
     iget v1, p0, Lokhttp3/HttpUrl;->port:I
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_2c
     const/4 v1, -0x1
 
-    :goto_0
+    :goto_2d
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->setPort$okhttp(I)V
 
     .line 724
@@ -1455,7 +1455,7 @@
 .end method
 
 .method public final newBuilder(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 3
+    .registers 5
     .param p1, "link"    # Ljava/lang/String;
 
     const-string v0, "link"
@@ -1466,7 +1466,7 @@
     nop
 
     .line 737
-    :try_start_0
+    :try_start_6
     new-instance v0, Lokhttp3/HttpUrl$Builder;
 
     invoke-direct {v0}, Lokhttp3/HttpUrl$Builder;-><init>()V
@@ -1474,13 +1474,13 @@
     invoke-virtual {v0, p0, p1}, Lokhttp3/HttpUrl$Builder;->parse$okhttp(Lokhttp3/HttpUrl;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_6 .. :try_end_f} :catch_10
 
-    goto :goto_0
+    goto :goto_16
 
     .line 738
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 739
@@ -1495,12 +1495,12 @@
 
     .line 736
     .end local v0    # "_":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_16
     return-object v0
 .end method
 
 .method public final password()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 314
     iget-object v0, p0, Lokhttp3/HttpUrl;->password:Ljava/lang/String;
@@ -1509,7 +1509,7 @@
 .end method
 
 .method public final pathSegments()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1526,7 +1526,7 @@
 .end method
 
 .method public final pathSize()I
-    .locals 1
+    .registers 2
 
     .line 469
     iget-object v0, p0, Lokhttp3/HttpUrl;->pathSegments:Ljava/util/List;
@@ -1539,7 +1539,7 @@
 .end method
 
 .method public final port()I
-    .locals 1
+    .registers 2
 
     .line 347
     iget v0, p0, Lokhttp3/HttpUrl;->port:I
@@ -1548,19 +1548,19 @@
 .end method
 
 .method public final query()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 548
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 549
-    :cond_0
+    :cond_6
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1582,7 +1582,7 @@
 .end method
 
 .method public final queryParameter(Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -1594,12 +1594,12 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     return-object v1
 
     .line 586
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -1632,16 +1632,16 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2d
 
-    if-le v2, v3, :cond_2
+    if-le v2, v3, :cond_31
 
-    :cond_1
-    if-gez v0, :cond_4
+    :cond_2d
+    if-gez v0, :cond_4c
 
-    if-gt v3, v2, :cond_4
+    if-gt v3, v2, :cond_4c
 
-    :cond_2
+    :cond_31
     move v4, v2
 
     .local v4, "i":I
@@ -1658,7 +1658,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4a
 
     .line 588
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
@@ -1674,23 +1674,23 @@
     return-object v0
 
     .line 586
-    :cond_3
-    if-ne v4, v3, :cond_2
+    :cond_4a
+    if-ne v4, v3, :cond_31
 
     .line 591
     .end local v4    # "i":I
-    :cond_4
+    :cond_4c
     return-object v1
 .end method
 
 .method public final queryParameterName(I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 654
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 655
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
@@ -1708,7 +1708,7 @@
     return-object v0
 
     .line 654
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -1717,7 +1717,7 @@
 .end method
 
 .method public final queryParameterNames()Ljava/util/Set;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1730,7 +1730,7 @@
     .line 608
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
@@ -1739,7 +1739,7 @@
     return-object v0
 
     .line 609
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/util/LinkedHashSet;
 
     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
@@ -1778,16 +1778,16 @@
 
     move-result v1
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_30
 
-    if-le v2, v3, :cond_2
+    if-le v2, v3, :cond_34
 
-    :cond_1
-    if-gez v1, :cond_3
+    :cond_30
+    if-gez v1, :cond_44
 
-    if-gt v3, v2, :cond_3
+    if-gt v3, v2, :cond_44
 
-    :cond_2
+    :cond_34
     move v4, v2
 
     .local v4, "i":I
@@ -1805,11 +1805,11 @@
     invoke-virtual {v0, v5}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
     .line 610
-    if-ne v4, v3, :cond_2
+    if-ne v4, v3, :cond_34
 
     .line 613
     .end local v4    # "i":I
-    :cond_3
+    :cond_44
     move-object v1, v0
 
     check-cast v1, Ljava/util/Set;
@@ -1826,13 +1826,13 @@
 .end method
 
 .method public final queryParameterValue(I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 672
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 673
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
@@ -1850,7 +1850,7 @@
     return-object v0
 
     .line 672
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -1859,7 +1859,7 @@
 .end method
 
 .method public final queryParameterValues(Ljava/lang/String;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1879,7 +1879,7 @@
     .line 630
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -1888,7 +1888,7 @@
     return-object v0
 
     .line 631
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -1929,16 +1929,16 @@
 
     move-result v1
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_37
 
-    if-le v2, v3, :cond_2
+    if-le v2, v3, :cond_3b
 
-    :cond_1
-    if-gez v1, :cond_4
+    :cond_37
+    if-gez v1, :cond_56
 
-    if-gt v3, v2, :cond_4
+    if-gt v3, v2, :cond_56
 
-    :cond_2
+    :cond_3b
     move v4, v2
 
     .local v4, "i":I
@@ -1955,7 +1955,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_54
 
     .line 634
     iget-object v5, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
@@ -1969,12 +1969,12 @@
     invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 632
-    :cond_3
-    if-ne v4, v3, :cond_2
+    :cond_54
+    if-ne v4, v3, :cond_3b
 
     .line 637
     .end local v4    # "i":I
-    :cond_4
+    :cond_56
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v1
@@ -1987,12 +1987,12 @@
 .end method
 
 .method public final querySize()I
-    .locals 1
+    .registers 2
 
     .line 569
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lokhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
@@ -2002,17 +2002,17 @@
 
     div-int/lit8 v0, v0, 0x2
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method public final redact()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 700
     const-string v0, "/..."
@@ -2050,7 +2050,7 @@
 .end method
 
 .method public final resolve(Ljava/lang/String;)Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 3
     .param p1, "link"    # Ljava/lang/String;
 
     const-string v0, "link"
@@ -2062,23 +2062,23 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-virtual {v0}, Lokhttp3/HttpUrl$Builder;->build()Lokhttp3/HttpUrl;
 
     move-result-object v0
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 .method public final scheme()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 290
     iget-object v0, p0, Lokhttp3/HttpUrl;->scheme:Ljava/lang/String;
@@ -2087,7 +2087,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 749
     iget-object v0, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
@@ -2096,7 +2096,7 @@
 .end method
 
 .method public final topPrivateDomain()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 769
     iget-object v0, p0, Lokhttp3/HttpUrl;->host:Ljava/lang/String;
@@ -2105,7 +2105,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 770
     const/4 v0, 0x0
@@ -2114,10 +2114,10 @@
 
     check-cast v1, Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 772
-    :cond_0
+    :cond_d
     sget-object v0, Lokhttp3/internal/publicsuffix/PublicSuffixDatabase;->Companion:Lokhttp3/internal/publicsuffix/PublicSuffixDatabase$Companion;
 
     invoke-virtual {v0}, Lokhttp3/internal/publicsuffix/PublicSuffixDatabase$Companion;->get()Lokhttp3/internal/publicsuffix/PublicSuffixDatabase;
@@ -2131,12 +2131,12 @@
     move-result-object v0
 
     .line 769
-    :goto_0
+    :goto_19
     return-object v0
 .end method
 
 .method public final uri()Ljava/net/URI;
-    .locals 5
+    .registers 6
 
     .line 409
     invoke-virtual {p0}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
@@ -2156,17 +2156,17 @@
     nop
 
     .line 411
-    :try_start_0
+    :try_start_d
     new-instance v1, Ljava/net/URI;
 
     invoke-direct {v1, v0}, Ljava/net/URI;-><init>(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/net/URISyntaxException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/net/URISyntaxException; {:try_start_d .. :try_end_12} :catch_13
 
-    goto :goto_0
+    goto :goto_30
 
     .line 412
-    :catch_0
+    :catch_13
     move-exception v1
 
     .line 414
@@ -2174,7 +2174,7 @@
     nop
 
     .line 415
-    :try_start_1
+    :try_start_15
     move-object v2, v0
 
     check-cast v2, Ljava/lang/CharSequence;
@@ -2196,8 +2196,8 @@
     invoke-static {v2}, Ljava/net/URI;->create(Ljava/lang/String;)Ljava/net/URI;
 
     move-result-object v3
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_29
+    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_29} :catch_31
 
     .line 412
     .end local v2    # "stripped":Ljava/lang/String;
@@ -2212,12 +2212,12 @@
 
     .line 410
     .end local v1    # "e":Ljava/net/URISyntaxException;
-    :goto_0
+    :goto_30
     return-object v1
 
     .line 417
     .restart local v1    # "e":Ljava/net/URISyntaxException;
-    :catch_1
+    :catch_31
     move-exception v2
 
     .line 418
@@ -2234,25 +2234,25 @@
 .end method
 
 .method public final url()Ljava/net/URL;
-    .locals 3
+    .registers 4
 
     .line 388
     nop
 
     .line 389
-    :try_start_0
+    :try_start_1
     new-instance v0, Ljava/net/URL;
 
     iget-object v1, p0, Lokhttp3/HttpUrl;->url:Ljava/lang/String;
 
     invoke-direct {v0, v1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/net/MalformedURLException; {:try_start_1 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 390
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 391
@@ -2269,7 +2269,7 @@
 .end method
 
 .method public final username()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 302
     iget-object v0, p0, Lokhttp3/HttpUrl;->username:Ljava/lang/String;

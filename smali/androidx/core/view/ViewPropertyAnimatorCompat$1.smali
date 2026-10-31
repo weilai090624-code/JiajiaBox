@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/view/ViewPropertyAnimatorCompat;Landroidx/core/view/ViewPropertyAnimatorListener;Landroid/view/View;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/core/view/ViewPropertyAnimatorCompat;
 
     .line 681
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 684
@@ -57,7 +57,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 689
@@ -72,7 +72,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 694

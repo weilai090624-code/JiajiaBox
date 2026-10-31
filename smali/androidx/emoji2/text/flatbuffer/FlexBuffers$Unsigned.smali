@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1087
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static byteToUnsignedInt(B)I
-    .locals 1
+    .registers 2
     .param p0, "x"    # B
 
     .line 1090
@@ -35,7 +35,7 @@
 .end method
 
 .method static intToUnsignedLong(I)J
-    .locals 4
+    .registers 5
     .param p0, "x"    # I
 
     .line 1098
@@ -49,7 +49,7 @@
 .end method
 
 .method static shortToUnsignedInt(S)I
-    .locals 1
+    .registers 2
     .param p0, "x"    # S
 
     .line 1094

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static invoke(Lkotlinx/coroutines/selects/SelectBuilder;Lkotlinx/coroutines/selects/SelectClause2;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Lkotlinx/coroutines/selects/SelectBuilder;
     .param p1, "$receiver"    # Lkotlinx/coroutines/selects/SelectClause2;
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
@@ -61,7 +61,7 @@
 .end method
 
 .method public static onTimeout(Lkotlinx/coroutines/selects/SelectBuilder;JLkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 4
     .param p0, "$this"    # Lkotlinx/coroutines/selects/SelectBuilder;
     .param p1, "timeMillis"    # J
     .param p3, "block"    # Lkotlin/jvm/functions/Function1;

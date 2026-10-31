@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 479
     const-string v0, "RemoteWMgr.Connection"
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/multiprocess/RemoteWorkManagerClient;)V
-    .locals 1
+    .registers 3
     .param p1, "client"    # Landroidx/work/multiprocess/RemoteWorkManagerClient;
 
     .line 484
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public onBindingDied()V
-    .locals 3
+    .registers 4
 
     .line 514
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -107,7 +107,7 @@
 .end method
 
 .method public onBindingDied(Landroid/content/ComponentName;)V
-    .locals 0
+    .registers 2
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .line 507
@@ -118,7 +118,7 @@
 .end method
 
 .method public onNullBinding(Landroid/content/ComponentName;)V
-    .locals 4
+    .registers 6
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .line 521
@@ -164,7 +164,7 @@
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 3
+    .registers 6
     .param p1, "componentName"    # Landroid/content/ComponentName;
     .param p2, "iBinder"    # Landroid/os/IBinder;
 
@@ -195,7 +195,7 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 3
+    .registers 5
     .param p1, "componentName"    # Landroid/content/ComponentName;
 
     .line 500

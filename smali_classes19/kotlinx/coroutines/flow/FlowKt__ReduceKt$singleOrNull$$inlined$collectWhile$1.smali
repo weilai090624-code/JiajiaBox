@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/internal/Ref$ObjectRef;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$$inlined$collectWhile$1;->$result$inlined:Lkotlin/jvm/internal/Ref$ObjectRef;
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -101,7 +101,7 @@
 
     sget-object v4, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_11
 
     .line 143
     iget-object v3, p0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$$inlined$collectWhile$1;->$result$inlined:Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -111,10 +111,10 @@
     .line 144
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 147
-    :cond_0
+    :cond_11
     iget-object v3, p0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$singleOrNull$$inlined$collectWhile$1;->$result$inlined:Lkotlin/jvm/internal/Ref$ObjectRef;
 
     sget-object v4, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
@@ -125,14 +125,14 @@
     const/4 v3, 0x0
 
     .line 142
-    :goto_0
+    :goto_18
     nop
 
     .line 130
     .end local v0    # "it":Ljava/lang/Object;
     .end local v1    # "$completion":Lkotlin/coroutines/Continuation;
     .end local v2    # "$i$a$-collectWhile-FlowKt__ReduceKt$singleOrNull$2":I
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1e
 
     .line 133
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -140,7 +140,7 @@
     return-object v0
 
     .line 131
-    :cond_1
+    :cond_1e
     new-instance v0, Lkotlinx/coroutines/flow/internal/AbortFlowException;
 
     move-object v1, p0

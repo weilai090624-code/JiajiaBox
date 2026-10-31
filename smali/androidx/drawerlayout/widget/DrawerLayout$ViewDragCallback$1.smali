@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;
 
     .line 2221
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 2223
     iget-object v0, p0, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback$1;->this$1:Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;

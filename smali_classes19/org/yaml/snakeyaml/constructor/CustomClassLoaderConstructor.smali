@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/ClassLoader;)V
-    .locals 2
+    .registers 5
     .param p2, "theLoader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -37,7 +37,7 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/constructor/CustomClassLoaderConstructor;->loader:Ljava/lang/ClassLoader;
 
     .line 30
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_10
 
     .line 33
     iput-object p2, p0, Lorg/yaml/snakeyaml/constructor/CustomClassLoaderConstructor;->loader:Ljava/lang/ClassLoader;
@@ -46,7 +46,7 @@
     return-void
 
     .line 31
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Loader must be provided."
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 3
     .param p1, "cLoader"    # Ljava/lang/ClassLoader;
 
     .line 25
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method protected getClassForName(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {

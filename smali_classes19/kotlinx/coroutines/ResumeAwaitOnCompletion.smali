@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/CancellableContinuationImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "continuation"    # Lkotlinx/coroutines/CancellableContinuationImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 1394
@@ -96,7 +96,7 @@
 .end method
 
 .method public invoke(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 1398
@@ -114,7 +114,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     .line 1455
     const/4 v1, 0x0
@@ -124,11 +124,11 @@
     instance-of v2, v0, Lkotlinx/coroutines/Incomplete;
 
     .end local v1    # "$i$a$-assert-ResumeAwaitOnCompletion$invoke$1":I
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_14
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
@@ -136,11 +136,11 @@
     throw v1
 
     .line 1400
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     instance-of v1, v0, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_35
 
     .line 1402
     iget-object v1, p0, Lkotlinx/coroutines/ResumeAwaitOnCompletion;->continuation:Lkotlinx/coroutines/CancellableContinuationImpl;
@@ -165,10 +165,10 @@
 
     invoke-interface {v1, v2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_46
 
     .line 1406
-    :cond_2
+    :cond_35
     iget-object v1, p0, Lkotlinx/coroutines/ResumeAwaitOnCompletion;->continuation:Lkotlinx/coroutines/CancellableContinuationImpl;
 
     check-cast v1, Lkotlin/coroutines/Continuation;
@@ -186,6 +186,6 @@
     invoke-interface {v1, v2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 1408
-    :goto_1
+    :goto_46
     return-void
 .end method

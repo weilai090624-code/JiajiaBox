@@ -64,7 +64,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$sfgetSYNCHRONIZED_COLLECTION_CONSTRUCTOR()Ljava/lang/reflect/Constructor;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lj$/util/DesugarCollections;->SYNCHRONIZED_COLLECTION_CONSTRUCTOR:Ljava/lang/reflect/Constructor;
 
@@ -72,7 +72,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$sfgetSYNCHRONIZED_SET_CONSTRUCTOR()Ljava/lang/reflect/Constructor;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lj$/util/DesugarCollections;->SYNCHRONIZED_SET_CONSTRUCTOR:Ljava/lang/reflect/Constructor;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 100
     new-instance v0, Ljava/util/ArrayList;
@@ -128,7 +128,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
     .line 104
     sget-object v0, Lj$/util/DesugarCollections;->MUTEX_FIELD:Ljava/lang/reflect/Field;
@@ -136,7 +136,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
     .line 106
-    :cond_0
+    :cond_32
     sget-object v0, Lj$/util/DesugarCollections;->SYNCHRONIZED_COLLECTION:Ljava/lang/Class;
 
     const-string v2, "c"
@@ -150,7 +150,7 @@
     .line 107
     sget-object v0, Lj$/util/DesugarCollections;->COLLECTION_FIELD:Ljava/lang/reflect/Field;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_45
 
     .line 108
     sget-object v0, Lj$/util/DesugarCollections;->COLLECTION_FIELD:Ljava/lang/reflect/Field;
@@ -158,7 +158,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
     .line 110
-    :cond_1
+    :cond_45
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
@@ -196,7 +196,7 @@
     .line 112
     sget-object v3, Lj$/util/DesugarCollections;->SYNCHRONIZED_SET_CONSTRUCTOR:Ljava/lang/reflect/Constructor;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_6d
 
     .line 113
     sget-object v3, Lj$/util/DesugarCollections;->SYNCHRONIZED_SET_CONSTRUCTOR:Ljava/lang/reflect/Constructor;
@@ -204,7 +204,7 @@
     invoke-virtual {v3, v1}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
 
     .line 115
-    :cond_2
+    :cond_6d
     sget-object v3, Lj$/util/DesugarCollections;->SYNCHRONIZED_COLLECTION:Ljava/lang/Class;
 
     new-array v2, v2, [Ljava/lang/Class;
@@ -227,7 +227,7 @@
     .line 117
     sget-object v2, Lj$/util/DesugarCollections;->SYNCHRONIZED_COLLECTION_CONSTRUCTOR:Ljava/lang/reflect/Constructor;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_88
 
     .line 118
     sget-object v2, Lj$/util/DesugarCollections;->SYNCHRONIZED_COLLECTION_CONSTRUCTOR:Ljava/lang/reflect/Constructor;
@@ -236,12 +236,12 @@
 
     .line 120
     .end local v0    # "synchronizedSet":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/util/Set;>;"
-    :cond_3
+    :cond_88
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -250,7 +250,7 @@
 .end method
 
 .method public static forEach(Ljava/lang/Iterable;Ljava/util/function/Consumer;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -268,10 +268,10 @@
     .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
     sget-object v0, Lj$/util/DesugarCollections;->MUTEX_FIELD:Ljava/lang/reflect/Field;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 166
-    :try_start_0
+    :try_start_4
     sget-object v0, Lj$/util/DesugarCollections;->COLLECTION_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -281,14 +281,14 @@
     check-cast v0, Ljava/util/Collection;
 
     invoke-static {v0, p1}, Lj$/util/Collection$-EL;->forEach(Ljava/util/Collection;Ljava/util/function/Consumer;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_f} :catch_10
 
     .line 167
     return-void
 
     .line 168
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 169
@@ -303,8 +303,8 @@
 
     .line 173
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :cond_0
-    :try_start_1
+    :cond_19
+    :try_start_19
     sget-object v0, Lj$/util/DesugarCollections;->MUTEX_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -312,11 +312,11 @@
     move-result-object v0
 
     monitor-enter v0
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_20
+    .catch Ljava/lang/IllegalAccessException; {:try_start_19 .. :try_end_20} :catch_31
 
     .line 174
-    :try_start_2
+    :try_start_20
     sget-object v1, Lj$/util/DesugarCollections;->COLLECTION_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -337,24 +337,24 @@
     return-void
 
     .line 175
-    :catchall_0
+    :catchall_2e
     move-exception v1
 
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_30
+    .catchall {:try_start_20 .. :try_end_30} :catchall_2e
 
     .end local p0    # "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     .end local p1    # "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
-    :try_start_3
+    :try_start_30
     throw v1
-    :try_end_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_31
+    .catch Ljava/lang/IllegalAccessException; {:try_start_30 .. :try_end_31} :catch_31
 
     .line 176
     .restart local p0    # "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     .restart local p1    # "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
-    :catch_1
+    :catch_31
     move-exception v0
 
     .line 177
@@ -369,7 +369,7 @@
 .end method
 
 .method public static forEachIterable(Ljava/lang/Iterable;Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -392,12 +392,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_7
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -409,15 +409,15 @@
 
     .line 185
     .end local v1    # "t":Ljava/lang/Object;, "TE;"
-    goto :goto_0
+    goto :goto_7
 
     .line 186
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method private static varargs getConstructor(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -439,13 +439,13 @@
     invoke-virtual {p0, p1}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 135
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 137
@@ -456,7 +456,7 @@
 .end method
 
 .method private static getField(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Field;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -475,13 +475,13 @@
     invoke-virtual {p0, p1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 125
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 127
@@ -492,7 +492,7 @@
 .end method
 
 .method static removeIf(Ljava/util/Collection;Ljava/util/function/Predicate;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -510,10 +510,10 @@
     .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
     sget-object v0, Lj$/util/DesugarCollections;->MUTEX_FIELD:Ljava/lang/reflect/Field;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 147
-    :try_start_0
+    :try_start_4
     sget-object v0, Lj$/util/DesugarCollections;->COLLECTION_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -525,13 +525,13 @@
     invoke-static {v0, p1}, Lj$/util/Collection$-EL;->removeIf(Ljava/util/Collection;Ljava/util/function/Predicate;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_10} :catch_11
 
     return v0
 
     .line 148
-    :catch_0
+    :catch_11
     move-exception v0
 
     .line 149
@@ -546,8 +546,8 @@
 
     .line 153
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :cond_0
-    :try_start_1
+    :cond_1a
+    :try_start_1a
     sget-object v0, Lj$/util/DesugarCollections;->MUTEX_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -555,11 +555,11 @@
     move-result-object v0
 
     monitor-enter v0
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_21
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1a .. :try_end_21} :catch_32
 
     .line 154
-    :try_start_2
+    :try_start_21
     sget-object v1, Lj$/util/DesugarCollections;->COLLECTION_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -577,24 +577,24 @@
     return v1
 
     .line 155
-    :catchall_0
+    :catchall_2f
     move-exception v1
 
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_31
+    .catchall {:try_start_21 .. :try_end_31} :catchall_2f
 
     .end local p0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     .end local p1    # "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
-    :try_start_3
+    :try_start_31
     throw v1
-    :try_end_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_32
+    .catch Ljava/lang/IllegalAccessException; {:try_start_31 .. :try_end_32} :catch_32
 
     .line 156
     .restart local p0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     .restart local p1    # "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
-    :catch_1
+    :catch_32
     move-exception v0
 
     .line 157
@@ -609,7 +609,7 @@
 .end method
 
 .method static replaceAll(Ljava/util/List;Ljava/util/function/UnaryOperator;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -627,10 +627,10 @@
     .local p1, "operator":Ljava/util/function/UnaryOperator;, "Ljava/util/function/UnaryOperator<TE;>;"
     sget-object v0, Lj$/util/DesugarCollections;->MUTEX_FIELD:Ljava/lang/reflect/Field;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 193
-    :try_start_0
+    :try_start_4
     sget-object v0, Lj$/util/DesugarCollections;->COLLECTION_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -640,14 +640,14 @@
     check-cast v0, Ljava/util/List;
 
     invoke-static {v0, p1}, Lj$/util/List$-EL;->replaceAll(Ljava/util/List;Ljava/util/function/UnaryOperator;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_f} :catch_10
 
     .line 194
     return-void
 
     .line 195
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 196
@@ -662,8 +662,8 @@
 
     .line 200
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :cond_0
-    :try_start_1
+    :cond_19
+    :try_start_19
     sget-object v0, Lj$/util/DesugarCollections;->MUTEX_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -671,11 +671,11 @@
     move-result-object v0
 
     monitor-enter v0
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_20
+    .catch Ljava/lang/IllegalAccessException; {:try_start_19 .. :try_end_20} :catch_31
 
     .line 201
-    :try_start_2
+    :try_start_20
     sget-object v1, Lj$/util/DesugarCollections;->COLLECTION_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -696,24 +696,24 @@
     return-void
 
     .line 202
-    :catchall_0
+    :catchall_2e
     move-exception v1
 
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_30
+    .catchall {:try_start_20 .. :try_end_30} :catchall_2e
 
     .end local p0    # "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
     .end local p1    # "operator":Ljava/util/function/UnaryOperator;, "Ljava/util/function/UnaryOperator<TE;>;"
-    :try_start_3
+    :try_start_30
     throw v1
-    :try_end_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_31
+    .catch Ljava/lang/IllegalAccessException; {:try_start_30 .. :try_end_31} :catch_31
 
     .line 203
     .restart local p0    # "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
     .restart local p1    # "operator":Ljava/util/function/UnaryOperator;, "Ljava/util/function/UnaryOperator<TE;>;"
-    :catch_1
+    :catch_31
     move-exception v0
 
     .line 204
@@ -728,7 +728,7 @@
 .end method
 
 .method static sort(Ljava/util/List;Ljava/util/Comparator;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -746,10 +746,10 @@
     .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     sget-object v0, Lj$/util/DesugarCollections;->MUTEX_FIELD:Ljava/lang/reflect/Field;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 213
-    :try_start_0
+    :try_start_4
     sget-object v0, Lj$/util/DesugarCollections;->COLLECTION_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -759,14 +759,14 @@
     check-cast v0, Ljava/util/List;
 
     invoke-static {v0, p1}, Lj$/util/List$-EL;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_f} :catch_10
 
     .line 214
     return-void
 
     .line 215
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 216
@@ -781,8 +781,8 @@
 
     .line 220
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :cond_0
-    :try_start_1
+    :cond_19
+    :try_start_19
     sget-object v0, Lj$/util/DesugarCollections;->MUTEX_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -790,11 +790,11 @@
     move-result-object v0
 
     monitor-enter v0
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_20
+    .catch Ljava/lang/IllegalAccessException; {:try_start_19 .. :try_end_20} :catch_31
 
     .line 221
-    :try_start_2
+    :try_start_20
     sget-object v1, Lj$/util/DesugarCollections;->COLLECTION_FIELD:Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -815,24 +815,24 @@
     return-void
 
     .line 222
-    :catchall_0
+    :catchall_2e
     move-exception v1
 
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_30
+    .catchall {:try_start_20 .. :try_end_30} :catchall_2e
 
     .end local p0    # "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
     .end local p1    # "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
-    :try_start_3
+    :try_start_30
     throw v1
-    :try_end_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_31
+    .catch Ljava/lang/IllegalAccessException; {:try_start_30 .. :try_end_31} :catch_31
 
     .line 223
     .restart local p0    # "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
     .restart local p1    # "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
-    :catch_1
+    :catch_31
     move-exception v0
 
     .line 224
@@ -847,7 +847,7 @@
 .end method
 
 .method public static synchronizedMap(Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -872,7 +872,7 @@
 .end method
 
 .method public static synchronizedSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",

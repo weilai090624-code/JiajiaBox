@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/function/Supplier;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/util/function/LongConsumer;)V
-    .locals 0
+    .registers 2
 
     .line 586
     invoke-super {p0, p1}, Lj$/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive;->forEachRemaining(Ljava/lang/Object;)V
@@ -60,7 +60,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/util/function/LongConsumer;)Z
-    .locals 0
+    .registers 2
 
     .line 586
     invoke-super {p0, p1}, Lj$/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive;->tryAdvance(Ljava/lang/Object;)Z
@@ -71,7 +71,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 2
 
     .line 586
     invoke-super {p0}, Lj$/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive;->trySplit()Lj$/util/Spliterator;

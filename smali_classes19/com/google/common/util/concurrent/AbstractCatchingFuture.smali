@@ -74,7 +74,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -122,7 +122,7 @@
 .end method
 
 .method static create(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Lcom/google/common/base/Function;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 6
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -165,7 +165,7 @@
 .end method
 
 .method static create(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Lcom/google/common/util/concurrent/AsyncFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 6
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -210,7 +210,7 @@
 
 # virtual methods
 .method protected final afterDone()V
-    .locals 1
+    .registers 2
 
     .line 180
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractCatchingFuture;, "Lcom/google/common/util/concurrent/AbstractCatchingFuture<TV;TX;TF;TT;>;"
@@ -251,7 +251,7 @@
 .end method
 
 .method protected pendingToString()Ljava/lang/String;
-    .locals 9
+    .registers 10
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -279,7 +279,7 @@
 
     .line 153
     .local v4, "resultString":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
     .line 154
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -321,10 +321,10 @@
     move-result-object v4
 
     .line 156
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_35
+    if-eqz v1, :cond_85
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_85
 
     .line 157
     invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -406,8 +406,8 @@
     return-object v5
 
     .line 163
-    :cond_1
-    if-eqz v3, :cond_3
+    :cond_85
+    if-eqz v3, :cond_a1
 
     .line 164
     invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -422,33 +422,33 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_9a
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_a0
 
-    :cond_2
+    :cond_9a
     new-instance v6, Ljava/lang/String;
 
     invoke-direct {v6, v5}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
     move-object v5, v6
 
-    :goto_0
+    :goto_a0
     return-object v5
 
     .line 166
-    :cond_3
+    :cond_a1
     const/4 v5, 0x0
 
     return-object v5
 .end method
 
 .method public final run()V
-    .locals 12
+    .registers 13
 
     .line 77
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractCatchingFuture;, "Lcom/google/common/util/concurrent/AbstractCatchingFuture<TV;TX;TF;TT;>;"
@@ -468,51 +468,51 @@
 
     const/4 v4, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v5, 0x0
 
-    :goto_0
-    if-nez v1, :cond_1
+    :goto_d
+    if-nez v1, :cond_11
 
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
+    :cond_11
     const/4 v6, 0x0
 
-    :goto_1
+    :goto_12
     or-int/2addr v5, v6
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_16
 
-    goto :goto_2
+    goto :goto_17
 
-    :cond_2
+    :cond_16
     const/4 v3, 0x0
 
-    :goto_2
+    :goto_17
     or-int/2addr v3, v5
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_c3
 
     .line 82
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->isCancelled()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_22
 
-    goto/16 :goto_5
+    goto/16 :goto_c3
 
     .line 85
-    :cond_3
+    :cond_22
     const/4 v3, 0x0
 
     iput-object v3, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
@@ -526,10 +526,10 @@
 
     .line 91
     .local v5, "throwable":Ljava/lang/Throwable;
-    :try_start_0
+    :try_start_27
     instance-of v6, v0, Lcom/google/common/util/concurrent/internal/InternalFutureFailureAccess;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_33
 
     .line 92
     move-object v6, v0
@@ -544,34 +544,34 @@
     move-object v5, v6
 
     .line 96
-    :cond_4
-    if-nez v5, :cond_5
+    :cond_33
+    if-nez v5, :cond_91
 
     .line 97
     invoke-static {v0}, Lcom/google/common/util/concurrent/Futures;->getDone(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v6
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_39
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_27 .. :try_end_39} :catch_3e
+    .catchall {:try_start_27 .. :try_end_39} :catchall_3b
 
     move-object v4, v6
 
-    goto :goto_3
+    goto :goto_91
 
     .line 110
-    :catchall_0
+    :catchall_3b
     move-exception v6
 
     .line 111
     .local v6, "e":Ljava/lang/Throwable;
     move-object v5, v6
 
-    goto :goto_4
+    goto :goto_92
 
     .line 99
     .end local v6    # "e":Ljava/lang/Throwable;
-    :catch_0
+    :catch_3e
     move-exception v6
 
     .line 100
@@ -581,7 +581,7 @@
     move-result-object v5
 
     .line 101
-    if-nez v5, :cond_5
+    if-nez v5, :cond_91
 
     .line 102
     new-instance v7, Ljava/lang/NullPointerException;
@@ -664,13 +664,13 @@
 
     .line 112
     .end local v6    # "e":Ljava/util/concurrent/ExecutionException;
-    :cond_5
-    :goto_3
+    :cond_91
+    :goto_91
     nop
 
     .line 114
-    :goto_4
-    if-nez v5, :cond_6
+    :goto_92
+    if-nez v5, :cond_9c
 
     .line 119
     invoke-static {v4}, Lcom/google/common/util/concurrent/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
@@ -683,12 +683,12 @@
     return-void
 
     .line 123
-    :cond_6
+    :cond_9c
     invoke-static {v5, v1}, Lcom/google/common/util/concurrent/Platform;->isInstanceOfThrowableClass(Ljava/lang/Throwable;Ljava/lang/Class;)Z
 
     move-result v6
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_a6
 
     .line 124
     invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
@@ -697,17 +697,17 @@
     return-void
 
     .line 130
-    :cond_7
+    :cond_a6
     move-object v6, v5
 
     .line 133
     .local v6, "castThrowable":Ljava/lang/Throwable;, "TX;"
-    :try_start_1
+    :try_start_a7
     invoke-virtual {p0, v2, v6}, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->doFallback(Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/lang/Object;
 
     move-result-object v7
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_ab
+    .catchall {:try_start_a7 .. :try_end_ab} :catchall_b4
 
     .line 138
     .local v7, "fallbackResult":Ljava/lang/Object;, "TT;"
@@ -727,15 +727,15 @@
 
     .line 134
     .end local v7    # "fallbackResult":Ljava/lang/Object;, "TT;"
-    :catchall_1
+    :catchall_b4
     move-exception v7
 
     .line 135
     .local v7, "t":Ljava/lang/Throwable;
-    :try_start_2
+    :try_start_b5
     invoke-virtual {p0, v7}, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->setException(Ljava/lang/Throwable;)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_b8
+    .catchall {:try_start_b5 .. :try_end_b8} :catchall_bd
 
     .line 138
     iput-object v3, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->exceptionType:Ljava/lang/Class;
@@ -748,7 +748,7 @@
 
     .line 138
     .end local v7    # "t":Ljava/lang/Throwable;
-    :catchall_2
+    :catchall_bd
     move-exception v7
 
     iput-object v3, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->exceptionType:Ljava/lang/Class;
@@ -763,8 +763,8 @@
     .end local v4    # "sourceResult":Ljava/lang/Object;, "TV;"
     .end local v5    # "throwable":Ljava/lang/Throwable;
     .end local v6    # "castThrowable":Ljava/lang/Throwable;, "TX;"
-    :cond_8
-    :goto_5
+    :cond_c3
+    :goto_c3
     return-void
 .end method
 

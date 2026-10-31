@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 226
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static onPointerCaptureChanged(Landroid/view/Window$Callback;Z)V
-    .locals 0
+    .registers 2
     .param p0, "callback"    # Landroid/view/Window$Callback;
     .param p1, "hasCapture"    # Z
 

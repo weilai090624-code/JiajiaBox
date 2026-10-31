@@ -86,7 +86,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$N1MOtQH1lxOHlyXXIKl1hONOASc(Lmoe/matsuri/nb4a/proxy/PreferenceBinding;)Landroidx/preference/Preference;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->preference_delegate$lambda$0(Lmoe/matsuri/nb4a/proxy/PreferenceBinding;)Landroidx/preference/Preference;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/Object;Landroidx/preference/PreferenceFragmentCompat;)V
-    .locals 1
+    .registers 6
     .param p1, "type"    # I
     .param p2, "fieldName"    # Ljava/lang/String;
     .param p3, "bean"    # Ljava/lang/Object;
@@ -142,38 +142,38 @@
 .end method
 
 .method public synthetic constructor <init>(ILjava/lang/String;Ljava/lang/Object;Landroidx/preference/PreferenceFragmentCompat;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
+    .registers 8
 
     .line 16
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     .line 17
     const/4 p1, 0x0
 
     .line 16
-    :cond_0
+    :cond_5
     and-int/lit8 p6, p5, 0x4
 
     const/4 v0, 0x0
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_b
 
     .line 19
     move-object p3, v0
 
     .line 16
-    :cond_1
+    :cond_b
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_10
 
     .line 20
     move-object p4, v0
 
     .line 16
-    :cond_2
+    :cond_10
     invoke-direct {p0, p1, p2, p3, p4}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;-><init>(ILjava/lang/String;Ljava/lang/Object;Landroidx/preference/PreferenceFragmentCompat;)V
 
     .line 21
@@ -181,7 +181,7 @@
 .end method
 
 .method private static final preference_delegate$lambda$0(Lmoe/matsuri/nb4a/proxy/PreferenceBinding;)Landroidx/preference/Preference;
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
 
     .line 96
@@ -205,21 +205,21 @@
 
 # virtual methods
 .method public final fromCache()V
-    .locals 4
+    .registers 5
 
     .line 45
     iget-boolean v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->disable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 46
-    :cond_0
+    :cond_5
     nop
 
     .line 47
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->bean:Ljava/lang/Object;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -233,8 +233,8 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_15} :catch_50
 
     .line 46
     nop
@@ -243,12 +243,12 @@
     .local v0, "f":Ljava/lang/reflect/Field;
     iget v1, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->type:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_72
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 56
-    :pswitch_0
+    :pswitch_1c
     iget-object v1, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->bean:Ljava/lang/Object;
 
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->readBoolFromCache()Z
@@ -261,10 +261,10 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 55
-    :pswitch_1
+    :pswitch_2a
     iget-object v1, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->bean:Ljava/lang/Object;
 
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->readIntFromCache()I
@@ -277,10 +277,10 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 54
-    :pswitch_2
+    :pswitch_38
     iget-object v1, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->bean:Ljava/lang/Object;
 
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->readStringToIntFromCache()I
@@ -293,10 +293,10 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 53
-    :pswitch_3
+    :pswitch_46
     iget-object v1, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->bean:Ljava/lang/Object;
 
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->readStringFromCache()Ljava/lang/String;
@@ -306,12 +306,12 @@
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 58
-    :goto_0
+    :goto_4f
     return-void
 
     .line 48
     .end local v0    # "f":Ljava/lang/reflect/Field;
-    :catch_0
+    :catch_50
     move-exception v0
 
     .line 49
@@ -351,17 +351,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_72
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_46
+        :pswitch_38
+        :pswitch_2a
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method public final getBean()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 19
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->bean:Ljava/lang/Object;
@@ -370,7 +370,7 @@
 .end method
 
 .method public final getCacheName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->cacheName:Ljava/lang/String;
@@ -379,7 +379,7 @@
 .end method
 
 .method public final getDisable()Z
-    .locals 1
+    .registers 2
 
     .line 24
     iget-boolean v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->disable:Z
@@ -388,7 +388,7 @@
 .end method
 
 .method public final getFieldName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 18
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->fieldName:Ljava/lang/String;
@@ -397,7 +397,7 @@
 .end method
 
 .method public final getPf()Landroidx/preference/PreferenceFragmentCompat;
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->pf:Landroidx/preference/PreferenceFragmentCompat;
@@ -406,7 +406,7 @@
 .end method
 
 .method public final getPreference()Landroidx/preference/Preference;
-    .locals 1
+    .registers 2
 
     .line 95
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->preference$delegate:Lkotlin/Lazy;
@@ -421,7 +421,7 @@
 .end method
 
 .method public final getType()I
-    .locals 1
+    .registers 2
 
     .line 17
     iget v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->type:I
@@ -430,7 +430,7 @@
 .end method
 
 .method public final readBoolFromCache()Z
-    .locals 3
+    .registers 4
 
     .line 31
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -451,7 +451,7 @@
 .end method
 
 .method public final readIntFromCache()I
-    .locals 3
+    .registers 4
 
     .line 35
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -472,7 +472,7 @@
 .end method
 
 .method public final readStringFromCache()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 27
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -487,16 +487,16 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const-string v0, ""
 
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method public final readStringToIntFromCache()I
-    .locals 2
+    .registers 3
 
     .line 39
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -511,31 +511,31 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-static {v0}, Lkotlin/text/StringsKt;->toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
     .line 41
     .local v0, "value":I
-    :goto_0
+    :goto_1a
     return v0
 .end method
 
 .method public final setBean(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/Object;
 
     .line 19
@@ -545,7 +545,7 @@
 .end method
 
 .method public final setCacheName(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -559,7 +559,7 @@
 .end method
 
 .method public final setDisable(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 24
@@ -569,7 +569,7 @@
 .end method
 
 .method public final setFieldName(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -583,7 +583,7 @@
 .end method
 
 .method public final setPf(Landroidx/preference/PreferenceFragmentCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroidx/preference/PreferenceFragmentCompat;
 
     .line 20
@@ -593,21 +593,21 @@
 .end method
 
 .method public final writeToCache()V
-    .locals 5
+    .registers 6
 
     .line 61
     iget-boolean v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->disable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 62
-    :cond_0
+    :cond_5
     nop
 
     .line 63
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->bean:Ljava/lang/Object;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -621,15 +621,15 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_15} :catch_81
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     return-void
 
     .line 62
-    :cond_1
+    :cond_18
     nop
 
     .line 68
@@ -644,15 +644,15 @@
     .local v1, "value":Ljava/lang/Object;
     iget v2, p0, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->type:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_a2
 
-    goto :goto_0
+    goto :goto_80
 
     .line 88
-    :pswitch_0
+    :pswitch_25
     instance-of v2, v1, Ljava/lang/Boolean;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_80
 
     .line 89
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -673,13 +673,13 @@
 
     invoke-virtual {v2, v3, v4}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putBoolean(Ljava/lang/String;Z)V
 
-    goto :goto_0
+    goto :goto_80
 
     .line 83
-    :pswitch_1
+    :pswitch_3c
     instance-of v2, v1, Ljava/lang/Integer;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_80
 
     .line 84
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -700,13 +700,13 @@
 
     invoke-virtual {v2, v3, v4}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putInt(Ljava/lang/String;I)V
 
-    goto :goto_0
+    goto :goto_80
 
     .line 77
-    :pswitch_2
+    :pswitch_53
     instance-of v2, v1, Ljava/lang/Integer;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_80
 
     .line 79
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -731,13 +731,13 @@
 
     invoke-virtual {v2, v3, v4}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_80
 
     .line 71
-    :pswitch_3
+    :pswitch_6e
     instance-of v2, v1, Ljava/lang/String;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_80
 
     .line 73
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -755,14 +755,14 @@
     invoke-virtual {v2, v3, v4}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 93
-    :cond_2
-    :goto_0
+    :cond_80
+    :goto_80
     return-void
 
     .line 64
     .end local v0    # "f":Ljava/lang/reflect/Field;
     .end local v1    # "value":Ljava/lang/Object;
-    :catch_0
+    :catch_81
     move-exception v0
 
     .line 65
@@ -800,11 +800,11 @@
     .line 66
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_a2
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6e
+        :pswitch_53
+        :pswitch_3c
+        :pswitch_25
     .end packed-switch
 .end method

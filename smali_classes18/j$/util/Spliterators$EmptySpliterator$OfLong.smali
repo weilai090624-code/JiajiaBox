@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 876
     invoke-direct {p0}, Lj$/util/Spliterators$EmptySpliterator;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfLong$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfLong;Ljava/util/function/Consumer;)V
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/util/function/LongConsumer;)V
-    .locals 0
+    .registers 2
 
     .line 873
     invoke-super {p0, p1}, Lj$/util/Spliterators$EmptySpliterator;->forEachRemaining(Ljava/lang/Object;)V
@@ -58,7 +58,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfLong$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfLong;Ljava/util/function/Consumer;)Z
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/util/function/LongConsumer;)Z
-    .locals 0
+    .registers 2
 
     .line 873
     invoke-super {p0, p1}, Lj$/util/Spliterators$EmptySpliterator;->tryAdvance(Ljava/lang/Object;)Z
@@ -109,7 +109,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 2
 
     .line 873
     invoke-super {p0}, Lj$/util/Spliterators$EmptySpliterator;->trySplit()Lj$/util/Spliterator;
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 873
     invoke-super {p0}, Lj$/util/Spliterators$EmptySpliterator;->trySplit()Lj$/util/Spliterator;

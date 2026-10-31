@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeTraverser;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 254
     .local p0, "this":Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;, "Lcom/google/common/collect/TreeTraverser<TT;>.BreadthFirstIterator;"
@@ -90,7 +90,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -122,7 +122,7 @@
 .end method
 
 .method public peek()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"

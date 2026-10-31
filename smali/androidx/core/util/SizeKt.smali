@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final component1(Landroid/util/SizeF;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component1"    # Landroid/util/SizeF;
 
     const/4 v0, 0x0
@@ -45,7 +45,7 @@
 .end method
 
 .method public static final component1(Landroidx/core/util/SizeFCompat;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component1"    # Landroidx/core/util/SizeFCompat;
 
     const/4 v0, 0x0
@@ -60,7 +60,7 @@
 .end method
 
 .method public static final component1(Landroid/util/Size;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$component1"    # Landroid/util/Size;
 
     const/4 v0, 0x0
@@ -75,7 +75,7 @@
 .end method
 
 .method public static final component2(Landroid/util/SizeF;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component2"    # Landroid/util/SizeF;
 
     const/4 v0, 0x0
@@ -90,7 +90,7 @@
 .end method
 
 .method public static final component2(Landroidx/core/util/SizeFCompat;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component2"    # Landroidx/core/util/SizeFCompat;
 
     const/4 v0, 0x0
@@ -105,7 +105,7 @@
 .end method
 
 .method public static final component2(Landroid/util/Size;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$component2"    # Landroid/util/Size;
 
     const/4 v0, 0x0

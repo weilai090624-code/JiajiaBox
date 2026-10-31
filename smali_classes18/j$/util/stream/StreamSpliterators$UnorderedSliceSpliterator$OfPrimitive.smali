@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator$OfPrimitive;JJ)V
-    .locals 0
+    .registers 6
     .param p2, "skip"    # J
     .param p4, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator$OfPrimitive;Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_SP",
@@ -105,7 +105,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/lang/Object;)V
-    .locals 10
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)V"
@@ -122,7 +122,7 @@
 
     .line 1109
     .local v0, "sb":Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive;, "TT_BUFF;"
-    :goto_0
+    :goto_4
     invoke-virtual {p0}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->permitStatus()Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
     move-result-object v1
@@ -132,15 +132,15 @@
     .local v2, "permitStatus":Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
     sget-object v3, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;->NO_MORE:Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
-    if-eq v1, v3, :cond_5
+    if-eq v1, v3, :cond_4c
 
     .line 1110
     sget-object v1, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;->MAYBE_MORE:Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
-    if-ne v2, v1, :cond_4
+    if-ne v2, v1, :cond_44
 
     .line 1112
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 1113
     iget v1, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->chunkSize:I
@@ -149,14 +149,14 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 1115
-    :cond_0
+    :cond_1a
     invoke-virtual {v0}, Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive;->reset()V
 
     .line 1117
-    :goto_1
+    :goto_1d
     move-object v1, v0
 
     .line 1118
@@ -165,7 +165,7 @@
 
     .line 1119
     .local v3, "permitsRequested":J
-    :cond_1
+    :cond_20
     iget-object v5, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->s:Lj$/util/Spliterator;
 
     check-cast v5, Lj$/util/Spliterator$OfPrimitive;
@@ -174,7 +174,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_35
 
     const-wide/16 v5, 0x1
 
@@ -188,21 +188,21 @@
 
     cmp-long v9, v5, v7
 
-    if-ltz v9, :cond_1
+    if-ltz v9, :cond_20
 
     .line 1120
-    :cond_2
+    :cond_35
     const-wide/16 v5, 0x0
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_3
+    if-nez v7, :cond_3c
 
     .line 1121
     return-void
 
     .line 1122
-    :cond_3
+    :cond_3c
     invoke-virtual {p0, v3, v4}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->acquirePermits(J)J
 
     move-result-wide v5
@@ -212,10 +212,10 @@
     .line 1123
     .end local v1    # "sbc":Ljava/lang/Object;, "TT_CONS;"
     .end local v3    # "permitsRequested":J
-    goto :goto_0
+    goto :goto_4
 
     .line 1126
-    :cond_4
+    :cond_44
     iget-object v1, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->s:Lj$/util/Spliterator;
 
     check-cast v1, Lj$/util/Spliterator$OfPrimitive;
@@ -226,12 +226,12 @@
     return-void
 
     .line 1130
-    :cond_5
+    :cond_4c
     return-void
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$forEachRemaining(Lj$/util/Spliterator;Ljava/util/function/Consumer;)V
 
@@ -239,7 +239,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -249,7 +249,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -259,7 +259,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -269,7 +269,7 @@
 .end method
 
 .method public tryAdvance(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)Z"
@@ -286,7 +286,7 @@
 
     .line 1090
     .local v0, "consumer":Ljava/lang/Object;, "TT_CONS;"
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->permitStatus()Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
     move-result-object v1
@@ -295,7 +295,7 @@
 
     const/4 v3, 0x0
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_27
 
     .line 1091
     iget-object v1, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->s:Lj$/util/Spliterator;
@@ -306,13 +306,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_18
 
     .line 1092
     return v3
 
     .line 1093
-    :cond_1
+    :cond_18
     const-wide/16 v1, 0x1
 
     invoke-virtual {p0, v1, v2}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->acquirePermits(J)J
@@ -321,7 +321,7 @@
 
     cmp-long v5, v3, v1
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_4
 
     .line 1094
     invoke-virtual {p0, p1}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->acceptConsumed(Ljava/lang/Object;)V
@@ -332,12 +332,12 @@
     return v1
 
     .line 1098
-    :cond_2
+    :cond_27
     return v3
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 1069
     .local p0, "this":Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive<TT;TT_CONS;TT_BUFF;TT_SPLITR;>;"

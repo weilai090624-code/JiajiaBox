@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method constructor <init>(BLjava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "type"    # B
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method static read(Ljava/io/ObjectInput;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "in"    # Ljava/io/ObjectInput;
 
     .line 250
@@ -92,12 +92,12 @@
 .end method
 
 .method private static readInternal(BLjava/io/ObjectInput;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "type"    # B
     .param p1, "in"    # Ljava/io/ObjectInput;
 
     .line 255
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_52
 
     .line 271
     new-instance v0, Ljava/io/StreamCorruptedException;
@@ -109,7 +109,7 @@
     throw v0
 
     .line 269
-    :pswitch_0
+    :pswitch_b
     invoke-static {p1}, Lj$/time/Period;->readExternal(Ljava/io/DataInput;)Lj$/time/Period;
 
     move-result-object v0
@@ -117,7 +117,7 @@
     return-object v0
 
     .line 268
-    :pswitch_1
+    :pswitch_10
     invoke-static {p1}, Lj$/time/MonthDay;->readExternal(Ljava/io/DataInput;)Lj$/time/MonthDay;
 
     move-result-object v0
@@ -125,7 +125,7 @@
     return-object v0
 
     .line 267
-    :pswitch_2
+    :pswitch_15
     invoke-static {p1}, Lj$/time/YearMonth;->readExternal(Ljava/io/DataInput;)Lj$/time/YearMonth;
 
     move-result-object v0
@@ -133,7 +133,7 @@
     return-object v0
 
     .line 266
-    :pswitch_3
+    :pswitch_1a
     invoke-static {p1}, Lj$/time/Year;->readExternal(Ljava/io/DataInput;)Lj$/time/Year;
 
     move-result-object v0
@@ -141,7 +141,7 @@
     return-object v0
 
     .line 265
-    :pswitch_4
+    :pswitch_1f
     invoke-static {p1}, Lj$/time/OffsetDateTime;->readExternal(Ljava/io/ObjectInput;)Lj$/time/OffsetDateTime;
 
     move-result-object v0
@@ -149,7 +149,7 @@
     return-object v0
 
     .line 264
-    :pswitch_5
+    :pswitch_24
     invoke-static {p1}, Lj$/time/OffsetTime;->readExternal(Ljava/io/ObjectInput;)Lj$/time/OffsetTime;
 
     move-result-object v0
@@ -157,7 +157,7 @@
     return-object v0
 
     .line 262
-    :pswitch_6
+    :pswitch_29
     invoke-static {p1}, Lj$/time/ZoneOffset;->readExternal(Ljava/io/DataInput;)Lj$/time/ZoneOffset;
 
     move-result-object v0
@@ -165,7 +165,7 @@
     return-object v0
 
     .line 263
-    :pswitch_7
+    :pswitch_2e
     invoke-static {p1}, Lj$/time/ZoneRegion;->readExternal(Ljava/io/DataInput;)Lj$/time/ZoneId;
 
     move-result-object v0
@@ -173,7 +173,7 @@
     return-object v0
 
     .line 261
-    :pswitch_8
+    :pswitch_33
     invoke-static {p1}, Lj$/time/ZonedDateTime;->readExternal(Ljava/io/ObjectInput;)Lj$/time/ZonedDateTime;
 
     move-result-object v0
@@ -181,7 +181,7 @@
     return-object v0
 
     .line 259
-    :pswitch_9
+    :pswitch_38
     invoke-static {p1}, Lj$/time/LocalDateTime;->readExternal(Ljava/io/DataInput;)Lj$/time/LocalDateTime;
 
     move-result-object v0
@@ -189,7 +189,7 @@
     return-object v0
 
     .line 260
-    :pswitch_a
+    :pswitch_3d
     invoke-static {p1}, Lj$/time/LocalTime;->readExternal(Ljava/io/DataInput;)Lj$/time/LocalTime;
 
     move-result-object v0
@@ -197,7 +197,7 @@
     return-object v0
 
     .line 258
-    :pswitch_b
+    :pswitch_42
     invoke-static {p1}, Lj$/time/LocalDate;->readExternal(Ljava/io/DataInput;)Lj$/time/LocalDate;
 
     move-result-object v0
@@ -205,7 +205,7 @@
     return-object v0
 
     .line 257
-    :pswitch_c
+    :pswitch_47
     invoke-static {p1}, Lj$/time/Instant;->readExternal(Ljava/io/DataInput;)Lj$/time/Instant;
 
     move-result-object v0
@@ -213,7 +213,7 @@
     return-object v0
 
     .line 256
-    :pswitch_d
+    :pswitch_4c
     invoke-static {p1}, Lj$/time/Duration;->readExternal(Ljava/io/DataInput;)Lj$/time/Duration;
 
     move-result-object v0
@@ -222,27 +222,27 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_52
     .packed-switch 0x1
-        :pswitch_d
-        :pswitch_c
+        :pswitch_4c
+        :pswitch_47
+        :pswitch_42
+        :pswitch_3d
+        :pswitch_38
+        :pswitch_33
+        :pswitch_2e
+        :pswitch_29
+        :pswitch_24
+        :pswitch_1f
+        :pswitch_1a
+        :pswitch_15
+        :pswitch_10
         :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
     .end packed-switch
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 281
     iget-object v0, p0, Lj$/time/Ser;->object:Ljava/lang/Object;
@@ -251,7 +251,7 @@
 .end method
 
 .method static writeInternal(BLjava/lang/Object;Ljava/io/ObjectOutput;)V
-    .locals 2
+    .registers 5
     .param p0, "type"    # B
     .param p1, "object"    # Ljava/lang/Object;
     .param p2, "out"    # Ljava/io/ObjectOutput;
@@ -260,7 +260,7 @@
     invoke-interface {p2, p0}, Ljava/io/ObjectOutput;->writeByte(I)V
 
     .line 167
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_72
 
     .line 211
     new-instance v0, Ljava/io/InvalidClassException;
@@ -272,7 +272,7 @@
     throw v0
 
     .line 208
-    :pswitch_0
+    :pswitch_e
     move-object v0, p1
 
     check-cast v0, Lj$/time/Period;
@@ -280,10 +280,10 @@
     invoke-virtual {v0, p2}, Lj$/time/Period;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 209
-    goto :goto_0
+    goto :goto_70
 
     .line 205
-    :pswitch_1
+    :pswitch_15
     move-object v0, p1
 
     check-cast v0, Lj$/time/MonthDay;
@@ -291,10 +291,10 @@
     invoke-virtual {v0, p2}, Lj$/time/MonthDay;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 206
-    goto :goto_0
+    goto :goto_70
 
     .line 202
-    :pswitch_2
+    :pswitch_1c
     move-object v0, p1
 
     check-cast v0, Lj$/time/YearMonth;
@@ -302,10 +302,10 @@
     invoke-virtual {v0, p2}, Lj$/time/YearMonth;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 203
-    goto :goto_0
+    goto :goto_70
 
     .line 199
-    :pswitch_3
+    :pswitch_23
     move-object v0, p1
 
     check-cast v0, Lj$/time/Year;
@@ -313,10 +313,10 @@
     invoke-virtual {v0, p2}, Lj$/time/Year;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 200
-    goto :goto_0
+    goto :goto_70
 
     .line 196
-    :pswitch_4
+    :pswitch_2a
     move-object v0, p1
 
     check-cast v0, Lj$/time/OffsetDateTime;
@@ -324,10 +324,10 @@
     invoke-virtual {v0, p2}, Lj$/time/OffsetDateTime;->writeExternal(Ljava/io/ObjectOutput;)V
 
     .line 197
-    goto :goto_0
+    goto :goto_70
 
     .line 193
-    :pswitch_5
+    :pswitch_31
     move-object v0, p1
 
     check-cast v0, Lj$/time/OffsetTime;
@@ -335,10 +335,10 @@
     invoke-virtual {v0, p2}, Lj$/time/OffsetTime;->writeExternal(Ljava/io/ObjectOutput;)V
 
     .line 194
-    goto :goto_0
+    goto :goto_70
 
     .line 187
-    :pswitch_6
+    :pswitch_38
     move-object v0, p1
 
     check-cast v0, Lj$/time/ZoneOffset;
@@ -346,10 +346,10 @@
     invoke-virtual {v0, p2}, Lj$/time/ZoneOffset;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 188
-    goto :goto_0
+    goto :goto_70
 
     .line 184
-    :pswitch_7
+    :pswitch_3f
     move-object v0, p1
 
     check-cast v0, Lj$/time/ZoneRegion;
@@ -357,10 +357,10 @@
     invoke-virtual {v0, p2}, Lj$/time/ZoneRegion;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 185
-    goto :goto_0
+    goto :goto_70
 
     .line 190
-    :pswitch_8
+    :pswitch_46
     move-object v0, p1
 
     check-cast v0, Lj$/time/ZonedDateTime;
@@ -368,10 +368,10 @@
     invoke-virtual {v0, p2}, Lj$/time/ZonedDateTime;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 191
-    goto :goto_0
+    goto :goto_70
 
     .line 178
-    :pswitch_9
+    :pswitch_4d
     move-object v0, p1
 
     check-cast v0, Lj$/time/LocalDateTime;
@@ -379,10 +379,10 @@
     invoke-virtual {v0, p2}, Lj$/time/LocalDateTime;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 179
-    goto :goto_0
+    goto :goto_70
 
     .line 181
-    :pswitch_a
+    :pswitch_54
     move-object v0, p1
 
     check-cast v0, Lj$/time/LocalTime;
@@ -390,10 +390,10 @@
     invoke-virtual {v0, p2}, Lj$/time/LocalTime;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 182
-    goto :goto_0
+    goto :goto_70
 
     .line 175
-    :pswitch_b
+    :pswitch_5b
     move-object v0, p1
 
     check-cast v0, Lj$/time/LocalDate;
@@ -401,10 +401,10 @@
     invoke-virtual {v0, p2}, Lj$/time/LocalDate;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 176
-    goto :goto_0
+    goto :goto_70
 
     .line 172
-    :pswitch_c
+    :pswitch_62
     move-object v0, p1
 
     check-cast v0, Lj$/time/Instant;
@@ -412,10 +412,10 @@
     invoke-virtual {v0, p2}, Lj$/time/Instant;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 173
-    goto :goto_0
+    goto :goto_70
 
     .line 169
-    :pswitch_d
+    :pswitch_69
     move-object v0, p1
 
     check-cast v0, Lj$/time/Duration;
@@ -426,34 +426,34 @@
     nop
 
     .line 213
-    :goto_0
+    :goto_70
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_72
     .packed-switch 0x1
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_69
+        :pswitch_62
+        :pswitch_5b
+        :pswitch_54
+        :pswitch_4d
+        :pswitch_46
+        :pswitch_3f
+        :pswitch_38
+        :pswitch_31
+        :pswitch_2a
+        :pswitch_23
+        :pswitch_1c
+        :pswitch_15
+        :pswitch_e
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public readExternal(Ljava/io/ObjectInput;)V
-    .locals 1
+    .registers 3
     .param p1, "in"    # Ljava/io/ObjectInput;
 
     .line 245
@@ -477,7 +477,7 @@
 .end method
 
 .method public writeExternal(Ljava/io/ObjectOutput;)V
-    .locals 2
+    .registers 4
     .param p1, "out"    # Ljava/io/ObjectOutput;
 
     .line 162

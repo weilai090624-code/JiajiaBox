@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 47
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
@@ -87,35 +87,35 @@
 
 # virtual methods
 .method protected cleanUpSession(Landroidx/browser/customtabs/CustomTabsSessionToken;)Z
-    .locals 5
+    .registers 7
     .param p1, "sessionToken"    # Landroidx/browser/customtabs/CustomTabsSessionToken;
 
     .line 290
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     iget-object v1, p0, Landroidx/browser/customtabs/CustomTabsService;->mDeathRecipientMap:Landroidx/collection/SimpleArrayMap;
 
     monitor-enter v1
-    :try_end_0
-    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/util/NoSuchElementException; {:try_start_1 .. :try_end_4} :catch_24
 
     .line 291
-    :try_start_1
+    :try_start_4
     invoke-virtual {p1}, Landroidx/browser/customtabs/CustomTabsSessionToken;->getCallbackBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     .line 292
     .local v2, "binder":Landroid/os/IBinder;
-    if-nez v2, :cond_0
+    if-nez v2, :cond_c
 
     monitor-exit v1
 
     return v0
 
     .line 293
-    :cond_0
+    :cond_c
     iget-object v3, p0, Landroidx/browser/customtabs/CustomTabsService;->mDeathRecipientMap:Landroidx/collection/SimpleArrayMap;
 
     invoke-virtual {v3, v2}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -149,22 +149,22 @@
     return v0
 
     .line 296
-    :catchall_0
+    :catchall_21
     move-exception v2
 
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_23
+    .catchall {:try_start_4 .. :try_end_23} :catchall_21
 
     .end local p1    # "sessionToken":Landroidx/browser/customtabs/CustomTabsSessionToken;
-    :try_start_2
+    :try_start_23
     throw v2
-    :try_end_2
-    .catch Ljava/util/NoSuchElementException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_24
+    .catch Ljava/util/NoSuchElementException; {:try_start_23 .. :try_end_24} :catch_24
 
     .line 297
     .restart local p1    # "sessionToken":Landroidx/browser/customtabs/CustomTabsSessionToken;
-    :catch_0
+    :catch_24
     move-exception v1
 
     .line 298
@@ -193,7 +193,7 @@
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
+    .registers 3
     .param p1, "intent"    # Landroid/content/Intent;
 
     .line 276

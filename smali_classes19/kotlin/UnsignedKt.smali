@@ -63,7 +63,7 @@
 
 # direct methods
 .method public static final doubleToUInt(D)I
-    .locals 4
+    .registers 6
     .param p0, "value"    # D
 
     .line 89
@@ -76,24 +76,24 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 91
-    :cond_0
+    :cond_9
     invoke-static {v1}, Lkotlin/UnsignedKt;->uintToDouble(I)D
 
     move-result-wide v2
 
     cmpg-double v0, p0, v2
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_12
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 92
-    :cond_1
+    :cond_12
     const/4 v1, -0x1
 
     invoke-static {v1}, Lkotlin/UnsignedKt;->uintToDouble(I)D
@@ -102,17 +102,17 @@
 
     cmpl-double v0, p0, v2
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_1c
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 93
-    :cond_2
+    :cond_1c
     const-wide v0, 0x41dfffffffc00000L    # 2.147483647E9
 
     cmpg-double v2, p0, v0
 
-    if-gtz v2, :cond_3
+    if-gtz v2, :cond_2b
 
     double-to-int v0, p0
 
@@ -120,10 +120,10 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 94
-    :cond_3
+    :cond_2b
     const v0, 0x7fffffff
 
     int-to-double v1, v0
@@ -147,12 +147,12 @@
     move-result v1
 
     .line 95
-    :goto_0
+    :goto_3f
     return v1
 .end method
 
 .method public static final doubleToULong(D)J
-    .locals 5
+    .registers 7
     .param p0, "value"    # D
 
     .line 109
@@ -165,24 +165,24 @@
 
     const-wide/16 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
-    goto :goto_0
+    goto :goto_38
 
     .line 111
-    :cond_0
+    :cond_a
     invoke-static {v1, v2}, Lkotlin/UnsignedKt;->ulongToDouble(J)D
 
     move-result-wide v3
 
     cmpg-double v0, p0, v3
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_13
 
-    goto :goto_0
+    goto :goto_38
 
     .line 112
-    :cond_1
+    :cond_13
     const-wide/16 v1, -0x1
 
     invoke-static {v1, v2}, Lkotlin/UnsignedKt;->ulongToDouble(J)D
@@ -191,17 +191,17 @@
 
     cmpl-double v0, p0, v3
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_1e
 
-    goto :goto_0
+    goto :goto_38
 
     .line 113
-    :cond_2
+    :cond_1e
     const-wide/high16 v0, 0x43e0000000000000L    # 9.223372036854776E18
 
     cmpg-double v2, p0, v0
 
-    if-gez v2, :cond_3
+    if-gez v2, :cond_2a
 
     double-to-long v0, p0
 
@@ -209,10 +209,10 @@
 
     move-result-wide v1
 
-    goto :goto_0
+    goto :goto_38
 
     .line 116
-    :cond_3
+    :cond_2a
     sub-double v0, p0, v0
 
     double-to-long v0, v0
@@ -230,12 +230,12 @@
     move-result-wide v1
 
     .line 117
-    :goto_0
+    :goto_38
     return-wide v1
 .end method
 
 .method private static final floatToUInt(F)I
-    .locals 2
+    .registers 3
     .param p0, "value"    # F
 
     .line 83
@@ -249,7 +249,7 @@
 .end method
 
 .method private static final floatToULong(F)J
-    .locals 2
+    .registers 3
     .param p0, "value"    # F
 
     .line 103
@@ -263,7 +263,7 @@
 .end method
 
 .method public static final uintCompare(II)I
-    .locals 2
+    .registers 4
     .param p0, "v1"    # I
     .param p1, "v2"    # I
 
@@ -282,7 +282,7 @@
 .end method
 
 .method public static final uintDivide-J1ME1BU(II)I
-    .locals 6
+    .registers 8
     .param p0, "v1"    # I
     .param p1, "v2"    # I
 
@@ -309,7 +309,7 @@
 .end method
 
 .method public static final uintRemainder-J1ME1BU(II)I
-    .locals 6
+    .registers 8
     .param p0, "v1"    # I
     .param p1, "v2"    # I
 
@@ -336,7 +336,7 @@
 .end method
 
 .method public static final uintToDouble(I)D
-    .locals 6
+    .registers 7
     .param p0, "value"    # I
 
     .line 86
@@ -364,7 +364,7 @@
 .end method
 
 .method private static final uintToFloat(I)F
-    .locals 2
+    .registers 3
     .param p0, "value"    # I
 
     .line 79
@@ -378,7 +378,7 @@
 .end method
 
 .method private static final uintToLong(I)J
-    .locals 4
+    .registers 5
     .param p0, "value"    # I
 
     .line 75
@@ -392,7 +392,7 @@
 .end method
 
 .method private static final uintToString(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "value"    # I
 
     .line 120
@@ -410,7 +410,7 @@
 .end method
 
 .method private static final uintToString(II)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "value"    # I
     .param p1, "base"    # I
 
@@ -429,7 +429,7 @@
 .end method
 
 .method private static final uintToULong(I)J
-    .locals 4
+    .registers 5
     .param p0, "value"    # I
 
     .line 71
@@ -447,7 +447,7 @@
 .end method
 
 .method public static final ulongCompare(JJ)I
-    .locals 4
+    .registers 8
     .param p0, "v1"    # J
     .param p2, "v2"    # J
 
@@ -466,7 +466,7 @@
 .end method
 
 .method public static final ulongDivide-eb3DHEI(JJ)J
-    .locals 13
+    .registers 17
     .param p0, "v1"    # J
     .param p2, "v2"    # J
 
@@ -483,21 +483,21 @@
 
     cmp-long v6, v2, v4
 
-    if-gez v6, :cond_1
+    if-gez v6, :cond_16
 
     .line 25
     invoke-static/range {p0 .. p3}, Lkotlin/UByte$$ExternalSyntheticBackport4;->m(JJ)I
 
     move-result v6
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const-wide/16 v4, 0x1
 
-    :goto_0
+    :goto_11
     invoke-static {v4, v5}, Lkotlin/ULong;->constructor-impl(J)J
 
     move-result-wide v4
@@ -505,10 +505,10 @@
     return-wide v4
 
     .line 29
-    :cond_1
+    :cond_16
     cmp-long v6, v0, v4
 
-    if-ltz v6, :cond_2
+    if-ltz v6, :cond_21
 
     .line 30
     div-long v4, v0, v2
@@ -520,7 +520,7 @@
     return-wide v4
 
     .line 34
-    :cond_2
+    :cond_21
     const/4 v4, 0x1
 
     ushr-long v5, v0, v4
@@ -549,14 +549,14 @@
 
     move-result v9
 
-    if-ltz v9, :cond_3
+    if-ltz v9, :cond_39
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_3
+    :cond_39
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_3a
     int-to-long v9, v4
 
     add-long/2addr v9, v5
@@ -569,7 +569,7 @@
 .end method
 
 .method public static final ulongRemainder-eb3DHEI(JJ)J
-    .locals 14
+    .registers 18
     .param p0, "v1"    # J
     .param p2, "v2"    # J
 
@@ -586,22 +586,22 @@
 
     cmp-long v6, v2, v4
 
-    if-gez v6, :cond_1
+    if-gez v6, :cond_18
 
     .line 45
     invoke-static/range {p0 .. p3}, Lkotlin/UByte$$ExternalSyntheticBackport4;->m(JJ)I
 
     move-result v4
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_11
 
     .line 46
     move-wide v4, p0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 48
-    :cond_0
+    :cond_11
     sub-long v4, p0, p2
 
     invoke-static {v4, v5}, Lkotlin/ULong;->constructor-impl(J)J
@@ -609,14 +609,14 @@
     move-result-wide v4
 
     .line 45
-    :goto_0
+    :goto_17
     return-wide v4
 
     .line 53
-    :cond_1
+    :cond_18
     cmp-long v6, v0, v4
 
-    if-ltz v6, :cond_2
+    if-ltz v6, :cond_23
 
     .line 54
     rem-long v4, v0, v2
@@ -628,7 +628,7 @@
     return-wide v4
 
     .line 58
-    :cond_2
+    :cond_23
     const/4 v6, 0x1
 
     ushr-long v7, v0, v6
@@ -657,11 +657,11 @@
 
     move-result v10
 
-    if-ltz v10, :cond_3
+    if-ltz v10, :cond_3c
 
     move-wide v4, v2
 
-    :cond_3
+    :cond_3c
     sub-long v4, v8, v4
 
     invoke-static {v4, v5}, Lkotlin/ULong;->constructor-impl(J)J
@@ -672,7 +672,7 @@
 .end method
 
 .method public static final ulongToDouble(J)D
-    .locals 4
+    .registers 6
     .param p0, "value"    # J
 
     .line 106
@@ -700,7 +700,7 @@
 .end method
 
 .method private static final ulongToFloat(J)F
-    .locals 2
+    .registers 4
     .param p0, "value"    # J
 
     .line 99
@@ -714,7 +714,7 @@
 .end method
 
 .method private static final ulongToString(J)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "value"    # J
 
     .line 126
@@ -728,7 +728,7 @@
 .end method
 
 .method public static final ulongToString(JI)Ljava/lang/String;
-    .locals 8
+    .registers 11
     .param p0, "value"    # J
     .param p2, "base"    # I
 
@@ -739,7 +739,7 @@
 
     cmp-long v3, p0, v0
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_14
 
     invoke-static {p2}, Lkotlin/text/CharsKt;->checkRadix(I)I
 
@@ -754,7 +754,7 @@
     return-object v0
 
     .line 131
-    :cond_0
+    :cond_14
     const/4 v0, 0x1
 
     ushr-long v3, p0, v0
@@ -779,7 +779,7 @@
 
     cmp-long v7, v3, v5
 
-    if-ltz v7, :cond_1
+    if-ltz v7, :cond_2a
 
     .line 134
     int-to-long v5, p2
@@ -792,7 +792,7 @@
     add-long/2addr v0, v5
 
     .line 137
-    :cond_1
+    :cond_2a
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V

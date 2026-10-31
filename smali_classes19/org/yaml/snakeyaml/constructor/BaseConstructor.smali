@@ -143,7 +143,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 92
     new-instance v0, Lorg/yaml/snakeyaml/LoaderOptions;
@@ -157,7 +157,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/LoaderOptions;)V
-    .locals 6
+    .registers 8
     .param p1, "loadingConfig"    # Lorg/yaml/snakeyaml/LoaderOptions;
 
     .line 95
@@ -291,7 +291,7 @@
 .end method
 
 .method private fillRecursive()V
-    .locals 6
+    .registers 7
 
     .line 194
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->maps2fill:Ljava/util/ArrayList;
@@ -300,7 +300,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_37
 
     .line 195
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->maps2fill:Ljava/util/ArrayList;
@@ -310,12 +310,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_32
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -352,24 +352,24 @@
     .line 198
     .end local v1    # "entry":Lorg/yaml/snakeyaml/constructor/BaseConstructor$RecursiveTuple;, "Lorg/yaml/snakeyaml/constructor/BaseConstructor$RecursiveTuple<Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;Lorg/yaml/snakeyaml/constructor/BaseConstructor$RecursiveTuple<Ljava/lang/Object;Ljava/lang/Object;>;>;"
     .end local v2    # "key_value":Lorg/yaml/snakeyaml/constructor/BaseConstructor$RecursiveTuple;, "Lorg/yaml/snakeyaml/constructor/BaseConstructor$RecursiveTuple<Ljava/lang/Object;Ljava/lang/Object;>;"
-    goto :goto_0
+    goto :goto_e
 
     .line 199
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_32
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->maps2fill:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     .line 201
-    :cond_1
+    :cond_37
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->sets2fill:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_64
 
     .line 202
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->sets2fill:Ljava/util/ArrayList;
@@ -379,12 +379,12 @@
     move-result-object v0
 
     .restart local v0    # "i$":Ljava/util/Iterator;
-    :goto_1
+    :goto_45
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -408,28 +408,28 @@
 
     .line 204
     .end local v1    # "value":Lorg/yaml/snakeyaml/constructor/BaseConstructor$RecursiveTuple;, "Lorg/yaml/snakeyaml/constructor/BaseConstructor$RecursiveTuple<Ljava/util/Set<Ljava/lang/Object;>;Ljava/lang/Object;>;"
-    goto :goto_1
+    goto :goto_45
 
     .line 205
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_2
+    :cond_5f
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->sets2fill:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     .line 207
-    :cond_3
+    :cond_64
     return-void
 .end method
 
 
 # virtual methods
 .method public addTypeDescription(Lorg/yaml/snakeyaml/TypeDescription;)Lorg/yaml/snakeyaml/TypeDescription;
-    .locals 3
+    .registers 5
     .param p1, "definition"    # Lorg/yaml/snakeyaml/TypeDescription;
 
     .line 560
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_23
 
     .line 563
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/TypeDescription;->getTag()Lorg/yaml/snakeyaml/nodes/Tag;
@@ -470,7 +470,7 @@
 
     .line 561
     .end local v0    # "tag":Lorg/yaml/snakeyaml/nodes/Tag;
-    :cond_0
+    :cond_23
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "TypeDescription is required."
@@ -481,7 +481,7 @@
 .end method
 
 .method public checkData()Z
-    .locals 1
+    .registers 2
 
     .line 124
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->composer:Lorg/yaml/snakeyaml/composer/Composer;
@@ -494,7 +494,7 @@
 .end method
 
 .method protected constructArray(Lorg/yaml/snakeyaml/nodes/SequenceNode;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/SequenceNode;
 
     .line 386
@@ -522,7 +522,7 @@
 .end method
 
 .method protected constructArrayStep2(Lorg/yaml/snakeyaml/nodes/SequenceNode;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/SequenceNode;
     .param p2, "array"    # Ljava/lang/Object;
 
@@ -550,12 +550,12 @@
     move-result-object v2
 
     .local v2, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_11
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_f8
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -571,13 +571,13 @@
 
     const-class v5, Ljava/lang/Object;
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_28
 
     .line 402
     invoke-virtual {v3, v0}, Lorg/yaml/snakeyaml/nodes/Node;->setType(Ljava/lang/Class;)V
 
     .line 405
-    :cond_0
+    :cond_28
     invoke-virtual {p0, v3}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->constructObject(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
 
     move-result-object v4
@@ -588,10 +588,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_f0
 
     .line 409
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_d7
 
     .line 415
     sget-object v5, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
@@ -600,7 +600,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_48
 
     .line 416
     move-object v5, v4
@@ -613,17 +613,17 @@
 
     invoke-static {p2, v1, v5}, Ljava/lang/reflect/Array;->setByte(Ljava/lang/Object;IB)V
 
-    goto/16 :goto_1
+    goto/16 :goto_f3
 
     .line 418
-    :cond_1
+    :cond_48
     sget-object v5, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {v5, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_5c
 
     .line 419
     move-object v5, v4
@@ -636,17 +636,17 @@
 
     invoke-static {p2, v1, v5}, Ljava/lang/reflect/Array;->setShort(Ljava/lang/Object;IS)V
 
-    goto/16 :goto_1
+    goto/16 :goto_f3
 
     .line 421
-    :cond_2
+    :cond_5c
     sget-object v5, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {v5, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_70
 
     .line 422
     move-object v5, v4
@@ -659,17 +659,17 @@
 
     invoke-static {p2, v1, v5}, Ljava/lang/reflect/Array;->setInt(Ljava/lang/Object;II)V
 
-    goto/16 :goto_1
+    goto/16 :goto_f3
 
     .line 424
-    :cond_3
+    :cond_70
     sget-object v5, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {v5, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_83
 
     .line 425
     move-object v5, v4
@@ -682,17 +682,17 @@
 
     invoke-static {p2, v1, v5, v6}, Ljava/lang/reflect/Array;->setLong(Ljava/lang/Object;IJ)V
 
-    goto :goto_1
+    goto :goto_f3
 
     .line 427
-    :cond_4
+    :cond_83
     sget-object v5, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {v5, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_96
 
     .line 428
     move-object v5, v4
@@ -705,17 +705,17 @@
 
     invoke-static {p2, v1, v5}, Ljava/lang/reflect/Array;->setFloat(Ljava/lang/Object;IF)V
 
-    goto :goto_1
+    goto :goto_f3
 
     .line 430
-    :cond_5
+    :cond_96
     sget-object v5, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {v5, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_a9
 
     .line 431
     move-object v5, v4
@@ -728,17 +728,17 @@
 
     invoke-static {p2, v1, v5, v6}, Ljava/lang/reflect/Array;->setDouble(Ljava/lang/Object;ID)V
 
-    goto :goto_1
+    goto :goto_f3
 
     .line 433
-    :cond_6
+    :cond_a9
     sget-object v5, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {v5, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_bc
 
     .line 434
     move-object v5, v4
@@ -751,17 +751,17 @@
 
     invoke-static {p2, v1, v5}, Ljava/lang/reflect/Array;->setChar(Ljava/lang/Object;IC)V
 
-    goto :goto_1
+    goto :goto_f3
 
     .line 436
-    :cond_7
+    :cond_bc
     sget-object v5, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {v5, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_cf
 
     .line 437
     move-object v5, v4
@@ -774,10 +774,10 @@
 
     invoke-static {p2, v1, v5}, Ljava/lang/reflect/Array;->setBoolean(Ljava/lang/Object;IZ)V
 
-    goto :goto_1
+    goto :goto_f3
 
     .line 440
-    :cond_8
+    :cond_cf
     new-instance v5, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v6, "unexpected primitive type"
@@ -787,7 +787,7 @@
     throw v5
 
     .line 410
-    :cond_9
+    :cond_d7
     new-instance v5, Ljava/lang/NullPointerException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -813,11 +813,11 @@
     throw v5
 
     .line 445
-    :cond_a
+    :cond_f0
     invoke-static {p2, v1, v4}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
 
     .line 448
-    :goto_1
+    :goto_f3
     nop
 
     .end local v3    # "child":Lorg/yaml/snakeyaml/nodes/Node;
@@ -825,16 +825,16 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 449
-    goto/16 :goto_0
+    goto/16 :goto_11
 
     .line 450
     .end local v2    # "i$":Ljava/util/Iterator;
-    :cond_b
+    :cond_f8
     return-object p2
 .end method
 
 .method protected final constructDocument(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 174
@@ -846,9 +846,9 @@
     .line 175
     .local v0, "data":Ljava/lang/Object;
     invoke-direct {p0}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->fillRecursive()V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_7} :catch_15
+    .catchall {:try_start_0 .. :try_end_7} :catchall_13
 
     .line 176
     nop
@@ -867,25 +867,25 @@
 
     .line 185
     .end local v0    # "data":Ljava/lang/Object;
-    :catchall_0
+    :catchall_13
     move-exception v0
 
-    goto :goto_0
+    goto :goto_26
 
     .line 177
-    :catch_0
+    :catch_15
     move-exception v0
 
     .line 178
     .local v0, "e":Ljava/lang/RuntimeException;
-    :try_start_1
+    :try_start_16
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->wrappedToRootException:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     instance-of v1, v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_24
 
     .line 179
     new-instance v1, Lorg/yaml/snakeyaml/error/YAMLException;
@@ -897,18 +897,18 @@
 
     .line 181
     .restart local p1    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_0
+    :cond_24
     nop
 
     .end local p1    # "node":Lorg/yaml/snakeyaml/nodes/Node;
     throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_26
+    .catchall {:try_start_16 .. :try_end_26} :catchall_13
 
     .line 185
     .end local v0    # "e":Ljava/lang/RuntimeException;
     .restart local p1    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :goto_0
+    :goto_26
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->constructedObjects:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->clear()V
@@ -922,7 +922,7 @@
 .end method
 
 .method protected constructMapping(Lorg/yaml/snakeyaml/nodes/MappingNode;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -950,7 +950,7 @@
 .end method
 
 .method protected constructMapping2ndStep(Lorg/yaml/snakeyaml/nodes/MappingNode;Ljava/util/Map;)V
-    .locals 13
+    .registers 16
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -976,12 +976,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_71
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1009,19 +1009,19 @@
 
     .line 471
     .local v5, "key":Ljava/lang/Object;
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_4f
 
     .line 473
-    :try_start_0
+    :try_start_22
     invoke-virtual {v5}, Ljava/lang/Object;->hashCode()I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/Exception; {:try_start_22 .. :try_end_25} :catch_26
 
     .line 478
-    goto :goto_1
+    goto :goto_4f
 
     .line 474
-    :catch_0
+    :catch_26
     move-exception v11
 
     .line 475
@@ -1068,8 +1068,8 @@
 
     .line 480
     .end local v11    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_1
+    :cond_4f
+    :goto_4f
     invoke-virtual {p0, v4}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->constructObject(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
 
     move-result-object v6
@@ -1080,7 +1080,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_6d
 
     .line 482
     iget-object v7, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->loadingConfig:Lorg/yaml/snakeyaml/LoaderOptions;
@@ -1089,15 +1089,15 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_65
 
     .line 483
     invoke-virtual {p0, p2, v5, v6}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->postponeMapFilling(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_70
 
     .line 485
-    :cond_1
+    :cond_65
     new-instance v7, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v8, "Recursive key for mapping is detected but it is not configured to be allowed."
@@ -1107,7 +1107,7 @@
     throw v7
 
     .line 488
-    :cond_2
+    :cond_6d
     invoke-interface {p2, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 490
@@ -1116,17 +1116,17 @@
     .end local v4    # "valueNode":Lorg/yaml/snakeyaml/nodes/Node;
     .end local v5    # "key":Ljava/lang/Object;
     .end local v6    # "value":Ljava/lang/Object;
-    :goto_2
-    goto :goto_0
+    :goto_70
+    goto :goto_8
 
     .line 491
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_3
+    :cond_71
     return-void
 .end method
 
 .method protected constructObject(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 217
@@ -1136,7 +1136,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 218
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->constructedObjects:Ljava/util/Map;
@@ -1148,7 +1148,7 @@
     return-object v0
 
     .line 220
-    :cond_0
+    :cond_f
     invoke-virtual {p0, p1}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->constructObjectNoCheck(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
 
     move-result-object v0
@@ -1157,7 +1157,7 @@
 .end method
 
 .method protected constructObjectNoCheck(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 224
@@ -1167,7 +1167,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3b
 
     .line 228
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->recursiveObjects:Ljava/util/Set;
@@ -1187,7 +1187,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->constructedObjects:Ljava/util/Map;
 
@@ -1195,16 +1195,16 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_20
     invoke-interface {v0, p1}, Lorg/yaml/snakeyaml/constructor/Construct;->construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 233
     .local v1, "data":Ljava/lang/Object;
-    :goto_0
+    :goto_24
     invoke-virtual {p0, p1, v1}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->finalizeConstruction(Lorg/yaml/snakeyaml/nodes/Node;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 234
@@ -1222,19 +1222,19 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3a
 
     .line 237
     invoke-interface {v0, p1, v1}, Lorg/yaml/snakeyaml/constructor/Construct;->construct2ndStep(Lorg/yaml/snakeyaml/nodes/Node;Ljava/lang/Object;)V
 
     .line 239
-    :cond_1
+    :cond_3a
     return-object v1
 
     .line 225
     .end local v0    # "constructor":Lorg/yaml/snakeyaml/constructor/Construct;
     .end local v1    # "data":Ljava/lang/Object;
-    :cond_2
+    :cond_3b
     new-instance v0, Lorg/yaml/snakeyaml/constructor/ConstructorException;
 
     const-string v1, "found unconstructable recursive node"
@@ -1251,7 +1251,7 @@
 .end method
 
 .method protected constructScalar(Lorg/yaml/snakeyaml/nodes/ScalarNode;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
     .line 268
@@ -1263,7 +1263,7 @@
 .end method
 
 .method protected constructSequence(Lorg/yaml/snakeyaml/nodes/SequenceNode;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/SequenceNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1291,7 +1291,7 @@
 .end method
 
 .method protected constructSequenceStep2(Lorg/yaml/snakeyaml/nodes/SequenceNode;Ljava/util/Collection;)V
-    .locals 3
+    .registers 6
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/SequenceNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1314,12 +1314,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1337,16 +1337,16 @@
 
     .line 392
     .end local v1    # "child":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_0
+    goto :goto_8
 
     .line 393
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method protected constructSet(Lorg/yaml/snakeyaml/nodes/MappingNode;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1373,7 +1373,7 @@
 .end method
 
 .method protected constructSet(Lorg/yaml/snakeyaml/nodes/SequenceNode;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/SequenceNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1401,7 +1401,7 @@
 .end method
 
 .method protected constructSet2ndStep(Lorg/yaml/snakeyaml/nodes/MappingNode;Ljava/util/Set;)V
-    .locals 12
+    .registers 15
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1426,12 +1426,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_59
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1453,19 +1453,19 @@
 
     .line 508
     .local v4, "key":Ljava/lang/Object;
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_4b
 
     .line 510
-    :try_start_0
+    :try_start_1e
     invoke-virtual {v4}, Ljava/lang/Object;->hashCode()I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_21} :catch_22
 
     .line 514
-    goto :goto_1
+    goto :goto_4b
 
     .line 511
-    :catch_0
+    :catch_22
     move-exception v10
 
     .line 512
@@ -1512,38 +1512,38 @@
 
     .line 516
     .end local v10    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_1
+    :cond_4b
+    :goto_4b
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/nodes/Node;->isTwoStepsConstruction()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_55
 
     .line 517
     invoke-virtual {p0, p2, v4}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->postponeSetFilling(Ljava/util/Set;Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_58
 
     .line 519
-    :cond_1
+    :cond_55
     invoke-interface {p2, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 521
     .end local v2    # "tuple":Lorg/yaml/snakeyaml/nodes/NodeTuple;
     .end local v3    # "keyNode":Lorg/yaml/snakeyaml/nodes/Node;
     .end local v4    # "key":Ljava/lang/Object;
-    :goto_2
-    goto :goto_0
+    :goto_58
+    goto :goto_8
 
     .line 522
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_2
+    :cond_59
     return-void
 .end method
 
 .method protected createArray(Ljava/lang/Class;I)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1568,7 +1568,7 @@
 .end method
 
 .method protected createDefaultList(I)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "initSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1588,7 +1588,7 @@
 .end method
 
 .method protected createDefaultMap(I)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p1, "initSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1609,7 +1609,7 @@
 .end method
 
 .method protected createDefaultSet(I)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p1, "initSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1629,7 +1629,7 @@
 .end method
 
 .method protected finalizeConstruction(Lorg/yaml/snakeyaml/nodes/Node;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .param p2, "data"    # Ljava/lang/Object;
 
@@ -1646,7 +1646,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 294
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->typeDefinitions:Ljava/util/Map;
@@ -1664,12 +1664,12 @@
     return-object v1
 
     .line 296
-    :cond_0
+    :cond_19
     return-object p2
 .end method
 
 .method protected getConstructor(Lorg/yaml/snakeyaml/nodes/Node;)Lorg/yaml/snakeyaml/constructor/Construct;
-    .locals 4
+    .registers 6
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 251
@@ -1677,7 +1677,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 252
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->yamlClassConstructors:Ljava/util/Map;
@@ -1695,7 +1695,7 @@
     return-object v0
 
     .line 254
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->yamlConstructors:Ljava/util/Map;
 
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/nodes/Node;->getTag()Lorg/yaml/snakeyaml/nodes/Tag;
@@ -1710,7 +1710,7 @@
 
     .line 255
     .local v0, "constructor":Lorg/yaml/snakeyaml/constructor/Construct;
-    if-nez v0, :cond_3
+    if-nez v0, :cond_55
 
     .line 256
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->yamlMultiConstructors:Ljava/util/Map;
@@ -1724,12 +1724,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_2b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1747,7 +1747,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_4a
 
     .line 258
     iget-object v3, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->yamlMultiConstructors:Ljava/util/Map;
@@ -1762,12 +1762,12 @@
 
     .line 260
     .end local v2    # "prefix":Ljava/lang/String;
-    :cond_1
-    goto :goto_0
+    :cond_4a
+    goto :goto_2b
 
     .line 261
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_2
+    :cond_4b
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->yamlConstructors:Ljava/util/Map;
 
     const/4 v2, 0x0
@@ -1781,12 +1781,12 @@
     return-object v1
 
     .line 263
-    :cond_3
+    :cond_55
     return-object v0
 .end method
 
 .method public getData()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/NoSuchElementException;
@@ -1800,7 +1800,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 135
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->composer:Lorg/yaml/snakeyaml/composer/Composer;
@@ -1813,7 +1813,7 @@
     .local v0, "node":Lorg/yaml/snakeyaml/nodes/Node;
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->rootTag:Lorg/yaml/snakeyaml/nodes/Tag;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 137
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->rootTag:Lorg/yaml/snakeyaml/nodes/Tag;
@@ -1821,7 +1821,7 @@
     invoke-virtual {v0, v1}, Lorg/yaml/snakeyaml/nodes/Node;->setTag(Lorg/yaml/snakeyaml/nodes/Tag;)V
 
     .line 139
-    :cond_0
+    :cond_17
     invoke-virtual {p0, v0}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->constructDocument(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
 
     move-result-object v1
@@ -1830,7 +1830,7 @@
 
     .line 134
     .end local v0    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_1
+    :cond_1c
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "No document is available."
@@ -1841,12 +1841,12 @@
 .end method
 
 .method public final getPropertyUtils()Lorg/yaml/snakeyaml/introspector/PropertyUtils;
-    .locals 1
+    .registers 2
 
     .line 544
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->propertyUtils:Lorg/yaml/snakeyaml/introspector/PropertyUtils;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 545
     new-instance v0, Lorg/yaml/snakeyaml/introspector/PropertyUtils;
@@ -1856,14 +1856,14 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->propertyUtils:Lorg/yaml/snakeyaml/introspector/PropertyUtils;
 
     .line 547
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->propertyUtils:Lorg/yaml/snakeyaml/introspector/PropertyUtils;
 
     return-object v0
 .end method
 
 .method public getSingleData(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1883,7 +1883,7 @@
 
     .line 152
     .local v0, "node":Lorg/yaml/snakeyaml/nodes/Node;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     sget-object v1, Lorg/yaml/snakeyaml/nodes/Tag;->NULL:Lorg/yaml/snakeyaml/nodes/Tag;
 
@@ -1895,12 +1895,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2f
 
     .line 153
     const-class v1, Ljava/lang/Object;
 
-    if-eq v1, p1, :cond_0
+    if-eq v1, p1, :cond_21
 
     .line 154
     new-instance v1, Lorg/yaml/snakeyaml/nodes/Tag;
@@ -1909,13 +1909,13 @@
 
     invoke-virtual {v0, v1}, Lorg/yaml/snakeyaml/nodes/Node;->setTag(Lorg/yaml/snakeyaml/nodes/Tag;)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 155
-    :cond_0
+    :cond_21
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->rootTag:Lorg/yaml/snakeyaml/nodes/Tag;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2a
 
     .line 156
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->rootTag:Lorg/yaml/snakeyaml/nodes/Tag;
@@ -1923,8 +1923,8 @@
     invoke-virtual {v0, v1}, Lorg/yaml/snakeyaml/nodes/Node;->setTag(Lorg/yaml/snakeyaml/nodes/Tag;)V
 
     .line 158
-    :cond_1
-    :goto_0
+    :cond_2a
+    :goto_2a
     invoke-virtual {p0, v0}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->constructDocument(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
 
     move-result-object v1
@@ -1932,7 +1932,7 @@
     return-object v1
 
     .line 160
-    :cond_2
+    :cond_2f
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->yamlConstructors:Ljava/util/Map;
 
     sget-object v2, Lorg/yaml/snakeyaml/nodes/Tag;->NULL:Lorg/yaml/snakeyaml/nodes/Tag;
@@ -1953,7 +1953,7 @@
 .end method
 
 .method public isAllowDuplicateKeys()Z
-    .locals 1
+    .registers 2
 
     .line 592
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->allowDuplicateKeys:Z
@@ -1962,7 +1962,7 @@
 .end method
 
 .method public isEnumCaseSensitive()Z
-    .locals 1
+    .registers 2
 
     .line 608
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->enumCaseSensitive:Z
@@ -1971,7 +1971,7 @@
 .end method
 
 .method public final isExplicitPropertyUtils()Z
-    .locals 1
+    .registers 2
 
     .line 588
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->explicitPropertyUtils:Z
@@ -1980,7 +1980,7 @@
 .end method
 
 .method public isWrappedToRootException()Z
-    .locals 1
+    .registers 2
 
     .line 600
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->wrappedToRootException:Z
@@ -1989,7 +1989,7 @@
 .end method
 
 .method protected final newInstance(Ljava/lang/Class;Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p2, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2020,7 +2020,7 @@
 .end method
 
 .method protected newInstance(Ljava/lang/Class;Lorg/yaml/snakeyaml/nodes/Node;Z)Ljava/lang/Object;
-    .locals 5
+    .registers 9
     .param p2, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .param p3, "tryDefault"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -2054,7 +2054,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 316
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->typeDefinitions:Ljava/util/Map;
@@ -2073,7 +2073,7 @@
 
     .line 318
     .local v2, "instance":Ljava/lang/Object;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     .line 319
     return-object v2
@@ -2081,15 +2081,15 @@
     .line 322
     .end local v1    # "td":Lorg/yaml/snakeyaml/TypeDescription;
     .end local v2    # "instance":Ljava/lang/Object;
-    :cond_0
-    if-eqz p3, :cond_1
+    :cond_1b
+    if-eqz p3, :cond_64
 
     .line 327
     invoke-virtual {p1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_64
 
     invoke-virtual {v0}, Ljava/lang/Class;->getModifiers()I
 
@@ -2099,12 +2099,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_64
 
     .line 329
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_2e
     new-array v2, v1, [Ljava/lang/Class;
 
     invoke-virtual {v0, v2}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
@@ -2123,15 +2123,15 @@
     invoke-virtual {v2, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3e
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_2e .. :try_end_3e} :catch_46
+    .catch Ljava/lang/Exception; {:try_start_2e .. :try_end_3e} :catch_3f
 
     return-object v1
 
     .line 335
     .end local v2    # "c":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
-    :catch_0
+    :catch_3f
     move-exception v1
 
     .line 336
@@ -2144,7 +2144,7 @@
 
     .line 332
     .end local v1    # "e":Ljava/lang/Exception;
-    :catch_1
+    :catch_46
     move-exception v1
 
     .line 333
@@ -2179,7 +2179,7 @@
 
     .line 340
     .end local v1    # "e":Ljava/lang/NoSuchMethodException;
-    :cond_1
+    :cond_64
     new-instance v1, Ljava/lang/InstantiationException;
 
     invoke-direct {v1}, Ljava/lang/InstantiationException;-><init>()V
@@ -2188,7 +2188,7 @@
 .end method
 
 .method protected newInstance(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 302
@@ -2198,13 +2198,13 @@
     invoke-virtual {p0, v0, p1}, Lorg/yaml/snakeyaml/constructor/BaseConstructor;->newInstance(Ljava/lang/Class;Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
     .line 303
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 304
@@ -2217,7 +2217,7 @@
 .end method
 
 .method protected newList(Lorg/yaml/snakeyaml/nodes/SequenceNode;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/SequenceNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2239,13 +2239,13 @@
     move-result-object v0
 
     check-cast v0, Ljava/util/List;
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 356
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 357
@@ -2266,7 +2266,7 @@
 .end method
 
 .method protected newMap(Lorg/yaml/snakeyaml/nodes/MappingNode;)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2289,13 +2289,13 @@
     move-result-object v0
 
     check-cast v0, Ljava/util/Map;
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 365
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 366
@@ -2316,7 +2316,7 @@
 .end method
 
 .method protected newSet(Lorg/yaml/snakeyaml/nodes/CollectionNode;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2338,13 +2338,13 @@
     move-result-object v0
 
     check-cast v0, Ljava/util/Set;
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 347
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 348
@@ -2365,7 +2365,7 @@
 .end method
 
 .method protected postponeMapFilling(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .param p2, "key"    # Ljava/lang/Object;
     .param p3, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -2402,7 +2402,7 @@
 .end method
 
 .method protected postponeSetFilling(Ljava/util/Set;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p2, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2432,7 +2432,7 @@
 .end method
 
 .method public setAllowDuplicateKeys(Z)V
-    .locals 0
+    .registers 2
     .param p1, "allowDuplicateKeys"    # Z
 
     .line 596
@@ -2443,7 +2443,7 @@
 .end method
 
 .method public setComposer(Lorg/yaml/snakeyaml/composer/Composer;)V
-    .locals 0
+    .registers 2
     .param p1, "composer"    # Lorg/yaml/snakeyaml/composer/Composer;
 
     .line 114
@@ -2454,7 +2454,7 @@
 .end method
 
 .method public setEnumCaseSensitive(Z)V
-    .locals 0
+    .registers 2
     .param p1, "enumCaseSensitive"    # Z
 
     .line 612
@@ -2465,7 +2465,7 @@
 .end method
 
 .method public setPropertyUtils(Lorg/yaml/snakeyaml/introspector/PropertyUtils;)V
-    .locals 3
+    .registers 5
     .param p1, "propertyUtils"    # Lorg/yaml/snakeyaml/introspector/PropertyUtils;
 
     .line 535
@@ -2490,12 +2490,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2509,16 +2509,16 @@
 
     .line 540
     .end local v2    # "typeDescription":Lorg/yaml/snakeyaml/TypeDescription;
-    goto :goto_0
+    goto :goto_f
 
     .line 541
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method public setWrappedToRootException(Z)V
-    .locals 0
+    .registers 2
     .param p1, "wrappedToRootException"    # Z
 
     .line 604

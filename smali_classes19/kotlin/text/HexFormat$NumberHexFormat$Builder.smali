@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 548
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -137,7 +137,7 @@
 .end method
 
 .method public static synthetic getMinLength$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public final build$kotlin_stdlib()Lkotlin/text/HexFormat$NumberHexFormat;
-    .locals 5
+    .registers 6
 
     .line 617
     new-instance v0, Lkotlin/text/HexFormat$NumberHexFormat;
@@ -164,7 +164,7 @@
 .end method
 
 .method public final getMinLength()I
-    .locals 1
+    .registers 2
 
     .line 610
     iget v0, p0, Lkotlin/text/HexFormat$NumberHexFormat$Builder;->minLength:I
@@ -173,7 +173,7 @@
 .end method
 
 .method public final getPrefix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 561
     iget-object v0, p0, Lkotlin/text/HexFormat$NumberHexFormat$Builder;->prefix:Ljava/lang/String;
@@ -182,7 +182,7 @@
 .end method
 
 .method public final getRemoveLeadingZeros()Z
-    .locals 1
+    .registers 2
 
     .line 595
     iget-boolean v0, p0, Lkotlin/text/HexFormat$NumberHexFormat$Builder;->removeLeadingZeros:Z
@@ -191,7 +191,7 @@
 .end method
 
 .method public final getSuffix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 580
     iget-object v0, p0, Lkotlin/text/HexFormat$NumberHexFormat$Builder;->suffix:Ljava/lang/String;
@@ -200,21 +200,21 @@
 .end method
 
 .method public final setMinLength(I)V
-    .locals 3
+    .registers 5
     .param p1, "value"    # I
 
     .line 612
-    if-lez p1, :cond_0
+    if-lez p1, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_5
+    if-eqz v0, :cond_a
 
     .line 613
     iput p1, p0, Lkotlin/text/HexFormat$NumberHexFormat$Builder;->minLength:I
@@ -223,7 +223,7 @@
     return-void
 
     .line 845
-    :cond_1
+    :cond_a
     const/4 v0, 0x0
 
     .line 612
@@ -259,7 +259,7 @@
 .end method
 
 .method public final setPrefix(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -283,7 +283,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     move-object v0, p1
 
@@ -295,7 +295,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 565
     iput-object p1, p0, Lkotlin/text/HexFormat$NumberHexFormat$Builder;->prefix:Ljava/lang/String;
@@ -304,7 +304,7 @@
     return-void
 
     .line 564
-    :cond_0
+    :cond_21
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -331,7 +331,7 @@
 .end method
 
 .method public final setRemoveLeadingZeros(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 595
@@ -341,7 +341,7 @@
 .end method
 
 .method public final setSuffix(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -365,7 +365,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     move-object v0, p1
 
@@ -377,7 +377,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 584
     iput-object p1, p0, Lkotlin/text/HexFormat$NumberHexFormat$Builder;->suffix:Ljava/lang/String;
@@ -386,7 +386,7 @@
     return-void
 
     .line 583
-    :cond_0
+    :cond_21
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;

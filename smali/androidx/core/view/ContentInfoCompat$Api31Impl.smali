@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 330
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static partition(Landroid/view/ContentInfo;Ljava/util/function/Predicate;)Landroid/util/Pair;
-    .locals 5
+    .registers 7
     .param p0, "payload"    # Landroid/view/ContentInfo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +57,7 @@
 
     const/4 v3, 0x0
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_23
 
     .line 338
     const/4 v1, 0x0
@@ -72,24 +72,24 @@
 
     .line 339
     .local v1, "matched":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     move-object v2, p0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     move-object v2, v3
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_1a
+    if-eqz v1, :cond_1d
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     move-object v3, p0
 
-    :goto_1
+    :goto_1e
     invoke-static {v2, v3}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
 
     move-result-object v2
@@ -98,7 +98,7 @@
 
     .line 341
     .end local v1    # "matched":Z
-    :cond_2
+    :cond_23
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v1, Landroidx/core/view/ContentInfoCompat$Api31Impl$$ExternalSyntheticLambda0;
@@ -113,7 +113,7 @@
     .local v1, "split":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/content/ClipData;Landroid/content/ClipData;>;"
     iget-object v2, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_38
 
     .line 343
     invoke-static {v3, p0}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
@@ -123,10 +123,10 @@
     return-object v2
 
     .line 344
-    :cond_3
+    :cond_38
     iget-object v2, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_41
 
     .line 345
     invoke-static {p0, v3}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
@@ -136,7 +136,7 @@
     return-object v2
 
     .line 347
-    :cond_4
+    :cond_41
     new-instance v2, Landroid/view/ContentInfo$Builder;
 
     invoke-direct {v2, p0}, Landroid/view/ContentInfo$Builder;-><init>(Landroid/view/ContentInfo;)V

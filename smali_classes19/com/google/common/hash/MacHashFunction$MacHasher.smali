@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Ljavax/crypto/Mac;)V
-    .locals 0
+    .registers 2
     .param p1, "mac"    # Ljavax/crypto/Mac;
 
     .line 102
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljavax/crypto/Mac;Lcom/google/common/hash/MacHashFunction$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljavax/crypto/Mac;
     .param p2, "x1"    # Lcom/google/common/hash/MacHashFunction$1;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method private checkNotDone()V
-    .locals 2
+    .registers 3
 
     .line 132
     iget-boolean v0, p0, Lcom/google/common/hash/MacHashFunction$MacHasher;->done:Z
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public hash()Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 2
 
     .line 137
     invoke-direct {p0}, Lcom/google/common/hash/MacHashFunction$MacHasher;->checkNotDone()V
@@ -90,7 +90,7 @@
 .end method
 
 .method protected update(B)V
-    .locals 1
+    .registers 3
     .param p1, "b"    # B
 
     .line 108
@@ -106,7 +106,7 @@
 .end method
 
 .method protected update(Ljava/nio/ByteBuffer;)V
-    .locals 1
+    .registers 3
     .param p1, "bytes"    # Ljava/nio/ByteBuffer;
 
     .line 126
@@ -125,7 +125,7 @@
 .end method
 
 .method protected update([B)V
-    .locals 1
+    .registers 3
     .param p1, "b"    # [B
 
     .line 114
@@ -141,7 +141,7 @@
 .end method
 
 .method protected update([BII)V
-    .locals 1
+    .registers 5
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I

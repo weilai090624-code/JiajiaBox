@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt;-><init>()V
 
@@ -56,7 +56,7 @@
 .end method
 
 .method private static final maxOf(BB)B
-    .locals 1
+    .registers 3
     .param p0, "a"    # B
     .param p1, "b"    # B
 
@@ -71,7 +71,7 @@
 .end method
 
 .method private static final maxOf(BBB)B
-    .locals 1
+    .registers 4
     .param p0, "a"    # B
     .param p1, "b"    # B
     .param p2, "c"    # B
@@ -91,7 +91,7 @@
 .end method
 
 .method public static final varargs maxOf(B[B)B
-    .locals 5
+    .registers 7
     .param p0, "a"    # B
     .param p1, "other"    # [B
 
@@ -108,8 +108,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_8
+    if-ge v2, v1, :cond_14
 
     aget-byte v3, p1, v2
 
@@ -123,15 +123,15 @@
     .end local v3    # "e":B
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 172
-    :cond_0
+    :cond_14
     return v0
 .end method
 
 .method private static final maxOf(DD)D
-    .locals 2
+    .registers 6
     .param p0, "a"    # D
     .param p2, "b"    # D
 
@@ -144,7 +144,7 @@
 .end method
 
 .method private static final maxOf(DDD)D
-    .locals 2
+    .registers 8
     .param p0, "a"    # D
     .param p2, "b"    # D
     .param p4, "c"    # D
@@ -162,7 +162,7 @@
 .end method
 
 .method public static final varargs maxOf(D[D)D
-    .locals 6
+    .registers 9
     .param p0, "a"    # D
     .param p2, "other"    # [D
 
@@ -179,8 +179,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_8
+    if-ge v3, v2, :cond_13
 
     aget-wide v4, p2, v3
 
@@ -192,15 +192,15 @@
     .end local v4    # "e":D
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 226
-    :cond_0
+    :cond_13
     return-wide v0
 .end method
 
 .method private static final maxOf(FF)F
-    .locals 1
+    .registers 3
     .param p0, "a"    # F
     .param p1, "b"    # F
 
@@ -213,7 +213,7 @@
 .end method
 
 .method private static final maxOf(FFF)F
-    .locals 1
+    .registers 4
     .param p0, "a"    # F
     .param p1, "b"    # F
     .param p2, "c"    # F
@@ -231,7 +231,7 @@
 .end method
 
 .method public static final varargs maxOf(F[F)F
-    .locals 4
+    .registers 6
     .param p0, "a"    # F
     .param p1, "other"    # [F
 
@@ -248,8 +248,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_8
+    if-ge v2, v1, :cond_13
 
     aget v3, p1, v2
 
@@ -261,15 +261,15 @@
     .end local v3    # "e":F
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 214
-    :cond_0
+    :cond_13
     return v0
 .end method
 
 .method private static final maxOf(II)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -282,7 +282,7 @@
 .end method
 
 .method private static final maxOf(III)I
-    .locals 1
+    .registers 4
     .param p0, "a"    # I
     .param p1, "b"    # I
     .param p2, "c"    # I
@@ -300,7 +300,7 @@
 .end method
 
 .method public static final varargs maxOf(I[I)I
-    .locals 4
+    .registers 6
     .param p0, "a"    # I
     .param p1, "other"    # [I
 
@@ -317,8 +317,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_8
+    if-ge v2, v1, :cond_13
 
     aget v3, p1, v2
 
@@ -330,15 +330,15 @@
     .end local v3    # "e":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 192
-    :cond_0
+    :cond_13
     return v0
 .end method
 
 .method private static final maxOf(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -351,7 +351,7 @@
 .end method
 
 .method private static final maxOf(JJJ)J
-    .locals 2
+    .registers 8
     .param p0, "a"    # J
     .param p2, "b"    # J
     .param p4, "c"    # J
@@ -369,7 +369,7 @@
 .end method
 
 .method public static final varargs maxOf(J[J)J
-    .locals 6
+    .registers 9
     .param p0, "a"    # J
     .param p2, "other"    # [J
 
@@ -386,8 +386,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_8
+    if-ge v3, v2, :cond_13
 
     aget-wide v4, p2, v3
 
@@ -399,15 +399,15 @@
     .end local v4    # "e":J
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 202
-    :cond_0
+    :cond_13
     return-wide v0
 .end method
 
 .method public static final maxOf(Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .param p0, "a"    # Ljava/lang/Comparable;
     .param p1, "b"    # Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
@@ -431,21 +431,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_12
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     move-object v0, p1
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public static final maxOf(Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 4
     .param p0, "a"    # Ljava/lang/Comparable;
     .param p1, "b"    # Ljava/lang/Comparable;
     .param p2, "c"    # Ljava/lang/Comparable;
@@ -482,7 +482,7 @@
 .end method
 
 .method public static final varargs maxOf(Ljava/lang/Comparable;[Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 4
+    .registers 6
     .param p0, "a"    # Ljava/lang/Comparable;
     .param p1, "other"    # [Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
@@ -510,8 +510,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_d
+    if-ge v2, v1, :cond_18
 
     aget-object v3, p1, v2
 
@@ -523,15 +523,15 @@
     .end local v3    # "e":Ljava/lang/Comparable;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 162
-    :cond_0
+    :cond_18
     return-object v0
 .end method
 
 .method private static final maxOf(SS)S
-    .locals 1
+    .registers 3
     .param p0, "a"    # S
     .param p1, "b"    # S
 
@@ -546,7 +546,7 @@
 .end method
 
 .method private static final maxOf(SSS)S
-    .locals 1
+    .registers 4
     .param p0, "a"    # S
     .param p1, "b"    # S
     .param p2, "c"    # S
@@ -566,7 +566,7 @@
 .end method
 
 .method public static final varargs maxOf(S[S)S
-    .locals 5
+    .registers 7
     .param p0, "a"    # S
     .param p1, "other"    # [S
 
@@ -583,8 +583,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_8
+    if-ge v2, v1, :cond_14
 
     aget-short v3, p1, v2
 
@@ -598,15 +598,15 @@
     .end local v3    # "e":S
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 182
-    :cond_0
+    :cond_14
     return v0
 .end method
 
 .method private static final minOf(BB)B
-    .locals 1
+    .registers 3
     .param p0, "a"    # B
     .param p1, "b"    # B
 
@@ -621,7 +621,7 @@
 .end method
 
 .method private static final minOf(BBB)B
-    .locals 1
+    .registers 4
     .param p0, "a"    # B
     .param p1, "b"    # B
     .param p2, "c"    # B
@@ -641,7 +641,7 @@
 .end method
 
 .method public static final varargs minOf(B[B)B
-    .locals 5
+    .registers 7
     .param p0, "a"    # B
     .param p1, "other"    # [B
 
@@ -658,8 +658,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_8
+    if-ge v2, v1, :cond_14
 
     aget-byte v3, p1, v2
 
@@ -673,15 +673,15 @@
     .end local v3    # "e":B
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 384
-    :cond_0
+    :cond_14
     return v0
 .end method
 
 .method private static final minOf(DD)D
-    .locals 2
+    .registers 6
     .param p0, "a"    # D
     .param p2, "b"    # D
 
@@ -694,7 +694,7 @@
 .end method
 
 .method private static final minOf(DDD)D
-    .locals 2
+    .registers 8
     .param p0, "a"    # D
     .param p2, "b"    # D
     .param p4, "c"    # D
@@ -712,7 +712,7 @@
 .end method
 
 .method public static final varargs minOf(D[D)D
-    .locals 6
+    .registers 9
     .param p0, "a"    # D
     .param p2, "other"    # [D
 
@@ -729,8 +729,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_8
+    if-ge v3, v2, :cond_13
 
     aget-wide v4, p2, v3
 
@@ -742,15 +742,15 @@
     .end local v4    # "e":D
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 438
-    :cond_0
+    :cond_13
     return-wide v0
 .end method
 
 .method private static final minOf(FF)F
-    .locals 1
+    .registers 3
     .param p0, "a"    # F
     .param p1, "b"    # F
 
@@ -763,7 +763,7 @@
 .end method
 
 .method private static final minOf(FFF)F
-    .locals 1
+    .registers 4
     .param p0, "a"    # F
     .param p1, "b"    # F
     .param p2, "c"    # F
@@ -781,7 +781,7 @@
 .end method
 
 .method public static final varargs minOf(F[F)F
-    .locals 4
+    .registers 6
     .param p0, "a"    # F
     .param p1, "other"    # [F
 
@@ -798,8 +798,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_8
+    if-ge v2, v1, :cond_13
 
     aget v3, p1, v2
 
@@ -811,15 +811,15 @@
     .end local v3    # "e":F
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 426
-    :cond_0
+    :cond_13
     return v0
 .end method
 
 .method private static final minOf(II)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -832,7 +832,7 @@
 .end method
 
 .method private static final minOf(III)I
-    .locals 1
+    .registers 4
     .param p0, "a"    # I
     .param p1, "b"    # I
     .param p2, "c"    # I
@@ -850,7 +850,7 @@
 .end method
 
 .method public static final varargs minOf(I[I)I
-    .locals 4
+    .registers 6
     .param p0, "a"    # I
     .param p1, "other"    # [I
 
@@ -867,8 +867,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_8
+    if-ge v2, v1, :cond_13
 
     aget v3, p1, v2
 
@@ -880,15 +880,15 @@
     .end local v3    # "e":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 404
-    :cond_0
+    :cond_13
     return v0
 .end method
 
 .method private static final minOf(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -901,7 +901,7 @@
 .end method
 
 .method private static final minOf(JJJ)J
-    .locals 2
+    .registers 8
     .param p0, "a"    # J
     .param p2, "b"    # J
     .param p4, "c"    # J
@@ -919,7 +919,7 @@
 .end method
 
 .method public static final varargs minOf(J[J)J
-    .locals 6
+    .registers 9
     .param p0, "a"    # J
     .param p2, "other"    # [J
 
@@ -936,8 +936,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_8
+    if-ge v3, v2, :cond_13
 
     aget-wide v4, p2, v3
 
@@ -949,15 +949,15 @@
     .end local v4    # "e":J
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 414
-    :cond_0
+    :cond_13
     return-wide v0
 .end method
 
 .method public static final minOf(Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .param p0, "a"    # Ljava/lang/Comparable;
     .param p1, "b"    # Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
@@ -981,21 +981,21 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_12
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     move-object v0, p1
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public static final minOf(Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 4
     .param p0, "a"    # Ljava/lang/Comparable;
     .param p1, "b"    # Ljava/lang/Comparable;
     .param p2, "c"    # Ljava/lang/Comparable;
@@ -1032,7 +1032,7 @@
 .end method
 
 .method public static final varargs minOf(Ljava/lang/Comparable;[Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 4
+    .registers 6
     .param p0, "a"    # Ljava/lang/Comparable;
     .param p1, "other"    # [Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
@@ -1060,8 +1060,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_d
+    if-ge v2, v1, :cond_18
 
     aget-object v3, p1, v2
 
@@ -1073,15 +1073,15 @@
     .end local v3    # "e":Ljava/lang/Comparable;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 374
-    :cond_0
+    :cond_18
     return-object v0
 .end method
 
 .method private static final minOf(SS)S
-    .locals 1
+    .registers 3
     .param p0, "a"    # S
     .param p1, "b"    # S
 
@@ -1096,7 +1096,7 @@
 .end method
 
 .method private static final minOf(SSS)S
-    .locals 1
+    .registers 4
     .param p0, "a"    # S
     .param p1, "b"    # S
     .param p2, "c"    # S
@@ -1116,7 +1116,7 @@
 .end method
 
 .method public static final varargs minOf(S[S)S
-    .locals 5
+    .registers 7
     .param p0, "a"    # S
     .param p1, "other"    # [S
 
@@ -1133,8 +1133,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_8
+    if-ge v2, v1, :cond_14
 
     aget-short v3, p1, v2
 
@@ -1148,9 +1148,9 @@
     .end local v3    # "e":S
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 394
-    :cond_0
+    :cond_14
     return v0
 .end method

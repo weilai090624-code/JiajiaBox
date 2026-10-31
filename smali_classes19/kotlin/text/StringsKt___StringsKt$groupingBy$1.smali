@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 3
     .param p1, "$receiver"    # Ljava/lang/CharSequence;
     .param p2, "$keySelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public keyOf(C)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "element"    # C
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -116,7 +116,7 @@
 .end method
 
 .method public bridge synthetic keyOf(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 962
@@ -136,7 +136,7 @@
 .end method
 
 .method public sourceIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

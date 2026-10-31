@@ -83,7 +83,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/bg/BaseService$Interface;)V
-    .locals 2
+    .registers 5
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "service"    # Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
@@ -121,16 +121,16 @@
 .end method
 
 .method public synthetic constructor <init>(Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/bg/BaseService$Interface;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 12
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;-><init>(Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/bg/BaseService$Interface;)V
 
     return-void
@@ -139,7 +139,7 @@
 
 # virtual methods
 .method protected buildConfig()V
-    .locals 3
+    .registers 4
 
     .line 24
     invoke-super {p0}, Lio/nekohasekai/sagernet/bg/proto/BoxInstance;->buildConfig()V
@@ -158,7 +158,7 @@
     .line 27
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->notTmp:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
@@ -173,14 +173,14 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 28
-    :cond_0
+    :cond_1e
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->notTmp:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3e
 
     sget-boolean v0, Lio/nekohasekai/sagernet/BuildConfig;->DEBUG:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3e
 
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
@@ -205,12 +205,12 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 29
-    :cond_1
+    :cond_3e
     return-void
 .end method
 
 .method public final buildConfigTmp()V
-    .locals 1
+    .registers 2
 
     .line 33
     const/4 v0, 0x0
@@ -225,7 +225,7 @@
 .end method
 
 .method public close()V
-    .locals 3
+    .registers 4
 
     .line 59
     invoke-super {p0}, Lio/nekohasekai/sagernet/bg/proto/BoxInstance;->close()V
@@ -248,7 +248,7 @@
 .end method
 
 .method public final getDisplayProfileName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 18
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->displayProfileName:Ljava/lang/String;
@@ -257,7 +257,7 @@
 .end method
 
 .method public final getLastSelectorGroupId()J
-    .locals 2
+    .registers 3
 
     .line 17
     iget-wide v0, p0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->lastSelectorGroupId:J
@@ -266,7 +266,7 @@
 .end method
 
 .method public final getLooper()Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
-    .locals 1
+    .registers 2
 
     .line 21
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->looper:Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
@@ -275,7 +275,7 @@
 .end method
 
 .method public final getNotTmp()Z
-    .locals 1
+    .registers 2
 
     .line 15
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->notTmp:Z
@@ -284,7 +284,7 @@
 .end method
 
 .method public final getService()Lio/nekohasekai/sagernet/bg/BaseService$Interface;
-    .locals 1
+    .registers 2
 
     .line 12
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->service:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
@@ -293,7 +293,7 @@
 .end method
 
 .method public init(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -308,7 +308,7 @@
 
     instance-of v0, p1, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance$init$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -320,7 +320,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance$init$1;->label:I
 
@@ -328,15 +328,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance$init$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance$init$1;
 
     invoke-direct {v0, p0, p1}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance$init$1;-><init>(Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance$init$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -347,7 +347,7 @@
     .line 37
     iget v3, v0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance$init$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_7a
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -361,7 +361,7 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     iget-object v2, v0, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance$init$1;->L$0:Ljava/lang/Object;
 
     check-cast v2, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
@@ -369,10 +369,10 @@
     .local v2, "this":Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_45
 
     .end local v2    # "this":Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
-    :pswitch_1
+    :pswitch_34
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v3, p0
@@ -389,19 +389,19 @@
 
     move-result-object v4
 
-    if-ne v4, v2, :cond_1
+    if-ne v4, v2, :cond_44
 
     .line 37
     return-object v2
 
     .line 38
-    :cond_1
+    :cond_44
     move-object v2, v3
 
     .line 39
     .end local v3    # "this":Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
     .restart local v2    # "this":Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
-    :goto_1
+    :goto_45
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->getPluginConfigs()Ljava/util/HashMap;
 
     move-result-object v3
@@ -424,12 +424,12 @@
     move-result-object v2
 
     .end local v2    # "$this$forEach$iv":Ljava/util/Map;
-    :goto_2
+    :goto_55
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_75
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -470,10 +470,10 @@
     .end local v4    # "element$iv":Ljava/util/Map$Entry;
     .end local v5    # "$i$a$-forEach-ProxyInstance$init$2":I
     .end local v6    # "plugin":Lkotlin/Pair;
-    goto :goto_2
+    goto :goto_55
 
     .line 68
-    :cond_2
+    :cond_75
     nop
 
     .line 43
@@ -484,15 +484,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_7a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_34
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public launch()V
-    .locals 2
+    .registers 3
 
     .line 50
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->getBox()Llibcore/BoxInstance;
@@ -520,7 +520,7 @@
 .end method
 
 .method protected loadConfig(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -542,11 +542,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     return-object v0
 
-    :cond_0
+    :cond_b
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 47
@@ -554,7 +554,7 @@
 .end method
 
 .method public final setDisplayProfileName(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -568,7 +568,7 @@
 .end method
 
 .method public final setLastSelectorGroupId(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 17
@@ -578,7 +578,7 @@
 .end method
 
 .method public final setLooper(Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;
 
     .line 21
@@ -588,7 +588,7 @@
 .end method
 
 .method public final setNotTmp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 15
@@ -598,7 +598,7 @@
 .end method
 
 .method public final setService(Lio/nekohasekai/sagernet/bg/BaseService$Interface;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     .line 12

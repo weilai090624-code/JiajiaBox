@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/io/File;)V
-    .locals 1
+    .registers 3
     .param p1, "file"    # Ljava/io/File;
 
     .line 127
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/io/File;Lcom/google/common/io/Files$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/io/File;
     .param p2, "x1"    # Lcom/google/common/io/Files$1;
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public openStream()Ljava/io/FileInputStream;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -71,7 +71,7 @@
 .end method
 
 .method public bridge synthetic openStream()Ljava/io/InputStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -87,7 +87,7 @@
 .end method
 
 .method public read()[B
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -101,7 +101,7 @@
 
     .line 157
     .local v0, "closer":Lcom/google/common/io/Closer;
-    :try_start_0
+    :try_start_4
     invoke-virtual {p0}, Lcom/google/common/io/Files$FileByteSource;->openStream()Ljava/io/FileInputStream;
 
     move-result-object v1
@@ -125,8 +125,8 @@
     invoke-static {v1, v2, v3}, Lcom/google/common/io/ByteStreams;->toByteArray(Ljava/io/InputStream;J)[B
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_4 .. :try_end_1a} :catchall_1e
 
     .line 162
     invoke-virtual {v0}, Lcom/google/common/io/Closer;->close()V
@@ -136,25 +136,25 @@
 
     .line 159
     .end local v1    # "in":Ljava/io/FileInputStream;
-    :catchall_0
+    :catchall_1e
     move-exception v1
 
     .line 160
     .local v1, "e":Ljava/lang/Throwable;
-    :try_start_1
+    :try_start_1f
     invoke-virtual {v0, v1}, Lcom/google/common/io/Closer;->rethrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
     move-result-object v2
 
     .end local v0    # "closer":Lcom/google/common/io/Closer;
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_24
+    .catchall {:try_start_1f .. :try_end_24} :catchall_24
 
     .line 162
     .end local v1    # "e":Ljava/lang/Throwable;
     .restart local v0    # "closer":Lcom/google/common/io/Closer;
-    :catchall_1
+    :catchall_24
     move-exception v1
 
     invoke-virtual {v0}, Lcom/google/common/io/Closer;->close()V
@@ -164,7 +164,7 @@
 .end method
 
 .method public size()J
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -178,7 +178,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 150
     iget-object v0, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;
@@ -190,7 +190,7 @@
     return-wide v0
 
     .line 148
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/io/FileNotFoundException;
 
     iget-object v1, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;
@@ -205,7 +205,7 @@
 .end method
 
 .method public sizeIfKnown()Lcom/google/common/base/Optional;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -222,7 +222,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 139
     iget-object v0, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;
@@ -242,7 +242,7 @@
     return-object v0
 
     .line 141
-    :cond_0
+    :cond_17
     invoke-static {}, Lcom/google/common/base/Optional;->absent()Lcom/google/common/base/Optional;
 
     move-result-object v0
@@ -251,7 +251,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 168
     iget-object v0, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;

@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/work/impl/utils/Api28Impl;
 
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public final getProcessName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 86
     invoke-static {}, Landroid/app/Application;->getProcessName()Ljava/lang/String;

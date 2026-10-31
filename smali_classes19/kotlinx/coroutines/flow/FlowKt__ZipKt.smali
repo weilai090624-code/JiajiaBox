@@ -85,7 +85,7 @@
 
 # direct methods
 .method public static final synthetic access$nullArrayFactory()Lkotlin/jvm/functions/Function0;
-    .locals 1
+    .registers 1
 
     .line 1
     invoke-static {}, Lkotlinx/coroutines/flow/FlowKt__ZipKt;->nullArrayFactory$FlowKt__ZipKt()Lkotlin/jvm/functions/Function0;
@@ -96,7 +96,7 @@
 .end method
 
 .method public static final synthetic combine(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 5
+    .registers 7
     .param p0, "flows"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -174,7 +174,7 @@
 .end method
 
 .method public static final combine(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 4
     .param p0, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow2"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function3;
@@ -211,7 +211,7 @@
 .end method
 
 .method public static final combine(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function4;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 8
     .param p0, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow2"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "flow3"    # Lkotlinx/coroutines/flow/Flow;
@@ -287,7 +287,7 @@
 .end method
 
 .method public static final combine(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function5;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 9
     .param p0, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow2"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "flow3"    # Lkotlinx/coroutines/flow/Flow;
@@ -372,7 +372,7 @@
 .end method
 
 .method public static final combine(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function6;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 10
     .param p0, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow2"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "flow3"    # Lkotlinx/coroutines/flow/Flow;
@@ -466,7 +466,7 @@
 .end method
 
 .method public static final synthetic combine([Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 5
     .param p0, "flows"    # [Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -511,7 +511,7 @@
 .end method
 
 .method public static final synthetic combineTransform(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 5
+    .registers 7
     .param p0, "flows"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -593,7 +593,7 @@
 .end method
 
 .method public static final combineTransform(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function4;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 7
     .param p0, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow2"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function4;
@@ -665,7 +665,7 @@
 .end method
 
 .method public static final combineTransform(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function5;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 8
     .param p0, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow2"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "flow3"    # Lkotlinx/coroutines/flow/Flow;
@@ -746,7 +746,7 @@
 .end method
 
 .method public static final combineTransform(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function6;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 9
     .param p0, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow2"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "flow3"    # Lkotlinx/coroutines/flow/Flow;
@@ -836,7 +836,7 @@
 .end method
 
 .method public static final combineTransform(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function7;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 10
     .param p0, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow2"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "flow3"    # Lkotlinx/coroutines/flow/Flow;
@@ -935,7 +935,7 @@
 .end method
 
 .method public static final synthetic combineTransform([Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 5
     .param p0, "flows"    # [Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -985,7 +985,7 @@
 .end method
 
 .method private static final synthetic combineTransformUnsafe$FlowKt__ZipKt([Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 5
     .param p0, "flows"    # [Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -1035,7 +1035,7 @@
 .end method
 
 .method private static final synthetic combineUnsafe$FlowKt__ZipKt([Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 5
     .param p0, "flows"    # [Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -1080,7 +1080,7 @@
 .end method
 
 .method public static final flowCombine(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "$this$combine"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function3;
@@ -1125,7 +1125,7 @@
 .end method
 
 .method public static final flowCombineTransform(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function4;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 7
     .param p0, "$this$combineTransform"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function4;
@@ -1197,7 +1197,7 @@
 .end method
 
 .method private static final nullArrayFactory$FlowKt__ZipKt()Lkotlin/jvm/functions/Function0;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1217,7 +1217,7 @@
 .end method
 
 .method public static final zip(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 4
     .param p0, "$this$zip"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "other"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function3;

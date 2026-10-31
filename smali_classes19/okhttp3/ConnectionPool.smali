@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 4
+    .registers 5
 
     .line 47
     const-wide/16 v0, 0x5
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(IJLjava/util/concurrent/TimeUnit;)V
-    .locals 7
+    .registers 12
     .param p1, "maxIdleConnections"    # I
     .param p2, "keepAliveDuration"    # J
     .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -103,7 +103,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/internal/connection/RealConnectionPool;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lokhttp3/internal/connection/RealConnectionPool;
 
     const-string v0, "delegate"
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public final connectionCount()I
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Lokhttp3/ConnectionPool;->delegate:Lokhttp3/internal/connection/RealConnectionPool;
@@ -136,7 +136,7 @@
 .end method
 
 .method public final evictAll()V
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Lokhttp3/ConnectionPool;->delegate:Lokhttp3/internal/connection/RealConnectionPool;
@@ -148,7 +148,7 @@
 .end method
 
 .method public final getDelegate$okhttp()Lokhttp3/internal/connection/RealConnectionPool;
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Lokhttp3/ConnectionPool;->delegate:Lokhttp3/internal/connection/RealConnectionPool;
@@ -157,7 +157,7 @@
 .end method
 
 .method public final idleConnectionCount()I
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Lokhttp3/ConnectionPool;->delegate:Lokhttp3/internal/connection/RealConnectionPool;

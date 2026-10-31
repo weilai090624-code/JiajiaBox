@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Lcom/google/common/base/Supplier;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,7 +80,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -118,7 +118,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method createAsMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -170,7 +170,7 @@
 .end method
 
 .method protected bridge synthetic createCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 311
     .local p0, "this":Lcom/google/common/collect/Multimaps$CustomSetMultimap;, "Lcom/google/common/collect/Multimaps$CustomSetMultimap<TK;TV;>;"
@@ -182,7 +182,7 @@
 .end method
 
 .method protected createCollection()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -205,7 +205,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -224,7 +224,7 @@
 .end method
 
 .method unmodifiableCollectionSubclass(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -242,7 +242,7 @@
     .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     instance-of v0, p1, Ljava/util/NavigableSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 339
     move-object v0, p1
@@ -256,10 +256,10 @@
     return-object v0
 
     .line 340
-    :cond_0
+    :cond_c
     instance-of v0, p1, Ljava/util/SortedSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 341
     move-object v0, p1
@@ -273,7 +273,7 @@
     return-object v0
 
     .line 343
-    :cond_1
+    :cond_18
     move-object v0, p1
 
     check-cast v0, Ljava/util/Set;
@@ -286,7 +286,7 @@
 .end method
 
 .method wrapCollection(Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -309,7 +309,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 350
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;
@@ -323,10 +323,10 @@
     return-object v0
 
     .line 351
-    :cond_0
+    :cond_e
     instance-of v0, p2, Ljava/util/SortedSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 352
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;
@@ -340,7 +340,7 @@
     return-object v0
 
     .line 354
-    :cond_1
+    :cond_1b
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSet;
 
     move-object v1, p2

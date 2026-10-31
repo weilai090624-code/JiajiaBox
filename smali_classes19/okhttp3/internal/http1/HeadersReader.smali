@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/http1/HeadersReader$Companion;
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Lokio/BufferedSource;)V
-    .locals 2
+    .registers 4
     .param p1, "source"    # Lokio/BufferedSource;
 
     const-string v0, "source"
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public final getSource()Lokio/BufferedSource;
-    .locals 1
+    .registers 2
 
     .line 24
     iget-object v0, p0, Lokhttp3/internal/http1/HeadersReader;->source:Lokio/BufferedSource;
@@ -102,7 +102,7 @@
 .end method
 
 .method public final readHeaders()Lokhttp3/Headers;
-    .locals 3
+    .registers 4
 
     .line 36
     new-instance v0, Lokhttp3/Headers$Builder;
@@ -111,7 +111,7 @@
 
     .line 37
     .local v0, "result":Lokhttp3/Headers$Builder;
-    :goto_0
+    :goto_5
     nop
 
     .line 38
@@ -129,17 +129,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v2, 0x0
 
-    :goto_1
-    if-eqz v2, :cond_1
+    :goto_16
+    if-eqz v2, :cond_1d
 
     .line 42
     .end local v1    # "line":Ljava/lang/String;
@@ -151,14 +151,14 @@
 
     .line 40
     .restart local v1    # "line":Ljava/lang/String;
-    :cond_1
+    :cond_1d
     invoke-virtual {v0, v1}, Lokhttp3/Headers$Builder;->addLenient$okhttp(Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
-    goto :goto_0
+    goto :goto_5
 .end method
 
 .method public final readLine()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 29
     iget-object v0, p0, Lokhttp3/internal/http1/HeadersReader;->source:Lokio/BufferedSource;

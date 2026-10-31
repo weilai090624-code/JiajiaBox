@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 776
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getCompoundDrawablesRelative(Landroid/widget/TextView;)[Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
     .param p0, "textView"    # Landroid/widget/TextView;
 
     .line 793
@@ -38,7 +38,7 @@
 .end method
 
 .method static setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 5
     .param p0, "textView"    # Landroid/widget/TextView;
     .param p1, "start"    # Landroid/graphics/drawable/Drawable;
     .param p2, "top"    # Landroid/graphics/drawable/Drawable;
@@ -53,7 +53,7 @@
 .end method
 
 .method static setTextLocale(Landroid/widget/TextView;Ljava/util/Locale;)V
-    .locals 0
+    .registers 2
     .param p0, "textView"    # Landroid/widget/TextView;
     .param p1, "locale"    # Ljava/util/Locale;
 

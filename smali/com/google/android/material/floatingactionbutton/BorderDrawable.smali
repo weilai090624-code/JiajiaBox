@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 2
+    .registers 4
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 83
@@ -131,7 +131,7 @@
 .end method
 
 .method private createGradientShader()Landroid/graphics/Shader;
-    .locals 13
+    .registers 14
 
     .line 223
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->rect:Landroid/graphics/Rect;
@@ -309,13 +309,13 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 5
+    .registers 7
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 126
     iget-boolean v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->invalidateShader:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 127
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->paint:Landroid/graphics/Paint;
@@ -332,7 +332,7 @@
     iput-boolean v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->invalidateShader:Z
 
     .line 131
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->paint:Landroid/graphics/Paint;
 
     invoke-virtual {v0}, Landroid/graphics/Paint;->getStrokeWidth()F
@@ -398,7 +398,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_56
 
     .line 141
     iget-object v3, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->rectF:Landroid/graphics/RectF;
@@ -413,12 +413,12 @@
     invoke-virtual {p1, v3, v1, v1, v4}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
     .line 144
-    :cond_1
+    :cond_56
     return-void
 .end method
 
 .method protected getBoundsAsRectF()Landroid/graphics/RectF;
-    .locals 2
+    .registers 3
 
     .line 172
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->boundsRectF:Landroid/graphics/RectF;
@@ -436,7 +436,7 @@
 .end method
 
 .method public getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
-    .locals 1
+    .registers 2
 
     .line 255
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->state:Lcom/google/android/material/floatingactionbutton/BorderDrawable$BorderState;
@@ -445,7 +445,7 @@
 .end method
 
 .method public getOpacity()I
-    .locals 2
+    .registers 3
 
     .line 193
     iget v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->borderWidth:F
@@ -454,21 +454,21 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_9
 
     const/4 v0, -0x3
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, -0x2
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public getOutline(Landroid/graphics/Outline;)V
-    .locals 5
+    .registers 7
     .param p1, "outline"    # Landroid/graphics/Outline;
 
     .line 149
@@ -482,7 +482,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 150
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -512,7 +512,7 @@
 
     .line 155
     .end local v0    # "radius":F
-    :cond_0
+    :cond_22
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->rect:Landroid/graphics/Rect;
 
     invoke-virtual {p0, v0}, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->copyBounds(Landroid/graphics/Rect;)V
@@ -547,7 +547,7 @@
 .end method
 
 .method public getPadding(Landroid/graphics/Rect;)Z
-    .locals 2
+    .registers 4
     .param p1, "padding"    # Landroid/graphics/Rect;
 
     .line 163
@@ -561,7 +561,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 164
     iget v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->borderWidth:F
@@ -576,14 +576,14 @@
 
     .line 167
     .end local v0    # "borderWidth":I
-    :cond_0
+    :cond_15
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public getShapeAppearanceModel()Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 1
+    .registers 2
 
     .line 177
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -592,12 +592,12 @@
 .end method
 
 .method public isStateful()Z
-    .locals 1
+    .registers 2
 
     .line 203
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->borderTint:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->borderTint:Landroid/content/res/ColorStateList;
 
@@ -605,29 +605,29 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
-    :cond_0
+    :cond_c
     invoke-super {p0}, Landroid/graphics/drawable/Drawable;->isStateful()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_14
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_2
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return v0
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
-    .locals 1
+    .registers 3
     .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 198
@@ -640,13 +640,13 @@
 .end method
 
 .method protected onStateChange([I)Z
-    .locals 2
+    .registers 4
     .param p1, "state"    # [I
 
     .line 208
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->borderTint:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 209
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->borderTint:Landroid/content/res/ColorStateList;
@@ -661,7 +661,7 @@
     .local v0, "newColor":I
     iget v1, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->currentBorderTintColor:I
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_15
 
     .line 211
     const/4 v1, 0x1
@@ -673,23 +673,23 @@
 
     .line 215
     .end local v0    # "newColor":I
-    :cond_0
+    :cond_15
     iget-boolean v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->invalidateShader:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 216
     invoke-virtual {p0}, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->invalidateSelf()V
 
     .line 218
-    :cond_1
+    :cond_1c
     iget-boolean v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->invalidateShader:Z
 
     return v0
 .end method
 
 .method public setAlpha(I)V
-    .locals 1
+    .registers 3
     .param p1, "alpha"    # I
 
     .line 187
@@ -705,11 +705,11 @@
 .end method
 
 .method setBorderTint(Landroid/content/res/ColorStateList;)V
-    .locals 2
+    .registers 4
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
     .line 99
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 100
     invoke-virtual {p0}, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->getState()[I
@@ -725,7 +725,7 @@
     iput v0, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->currentBorderTintColor:I
 
     .line 102
-    :cond_0
+    :cond_e
     iput-object p1, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->borderTint:Landroid/content/res/ColorStateList;
 
     .line 103
@@ -741,7 +741,7 @@
 .end method
 
 .method public setBorderWidth(F)V
-    .locals 2
+    .registers 4
     .param p1, "width"    # F
 
     .line 90
@@ -749,7 +749,7 @@
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 91
     iput p1, p0, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->borderWidth:F
@@ -772,12 +772,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/floatingactionbutton/BorderDrawable;->invalidateSelf()V
 
     .line 96
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 1
+    .registers 3
     .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
     .line 109
@@ -793,7 +793,7 @@
 .end method
 
 .method setGradientColors(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "topOuterStrokeColor"    # I
     .param p2, "topInnerStrokeColor"    # I
     .param p3, "bottomOuterStrokeColor"    # I
@@ -816,7 +816,7 @@
 .end method
 
 .method public setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 0
+    .registers 2
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 181

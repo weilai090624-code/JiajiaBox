@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "theProp"    # Ljava/lang/String;
 
     .line 63
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "theProp"    # Ljava/lang/String;
     .param p2, "defaultVal"    # Ljava/lang/String;
 
@@ -57,14 +57,14 @@
 .end method
 
 .method public static privilegedGetProperties()Ljava/util/Properties;
-    .locals 1
+    .registers 1
 
     .line 147
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 148
     invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
@@ -74,7 +74,7 @@
     return-object v0
 
     .line 150
-    :cond_0
+    :cond_b
     new-instance v0, Lj$/sun/security/action/GetPropertyAction$1;
 
     invoke-direct {v0}, Lj$/sun/security/action/GetPropertyAction$1;-><init>()V
@@ -89,7 +89,7 @@
 .end method
 
 .method public static privilegedGetProperty(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "theProp"    # Ljava/lang/String;
 
     .line 104
@@ -97,7 +97,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 105
     invoke-static {p0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -107,7 +107,7 @@
     return-object v0
 
     .line 107
-    :cond_0
+    :cond_b
     new-instance v0, Lj$/sun/security/action/GetPropertyAction;
 
     invoke-direct {v0, p0}, Lj$/sun/security/action/GetPropertyAction;-><init>(Ljava/lang/String;)V
@@ -122,7 +122,7 @@
 .end method
 
 .method public static privilegedGetProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "theProp"    # Ljava/lang/String;
     .param p1, "defaultVal"    # Ljava/lang/String;
 
@@ -131,7 +131,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 128
     invoke-static {p0, p1}, Ljava/lang/System;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -141,7 +141,7 @@
     return-object v0
 
     .line 130
-    :cond_0
+    :cond_b
     new-instance v0, Lj$/sun/security/action/GetPropertyAction;
 
     invoke-direct {v0, p0, p1}, Lj$/sun/security/action/GetPropertyAction;-><init>(Ljava/lang/String;Ljava/lang/String;)V
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public bridge synthetic run()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-virtual {p0}, Lj$/sun/security/action/GetPropertyAction;->run()Ljava/lang/String;
@@ -169,7 +169,7 @@
 .end method
 
 .method public run()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 87
     iget-object v0, p0, Lj$/sun/security/action/GetPropertyAction;->theProp:Ljava/lang/String;
@@ -180,15 +180,15 @@
 
     .line 88
     .local v0, "value":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     iget-object v1, p0, Lj$/sun/security/action/GetPropertyAction;->defaultVal:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method

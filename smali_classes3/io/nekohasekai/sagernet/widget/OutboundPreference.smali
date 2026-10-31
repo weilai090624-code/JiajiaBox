@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -123,27 +123,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 11
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 12
     const/4 p2, 0x0
 
     .line 11
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 12
     const p3, 0x7f040190
 
     .line 11
-    :cond_1
+    :cond_c
     invoke-direct {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/widget/OutboundPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 13
@@ -153,7 +153,7 @@
 
 # virtual methods
 .method public getSummary()Ljava/lang/CharSequence;
-    .locals 5
+    .registers 6
 
     .line 21
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/widget/OutboundPreference;->getValue()Ljava/lang/String;
@@ -166,7 +166,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4e
 
     .line 22
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -203,23 +203,23 @@
 
     const-wide/16 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_36
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v3
 
-    goto :goto_0
+    goto :goto_37
 
-    :cond_0
+    :cond_36
     move-wide v3, v1
 
     .line 23
     .local v3, "routeOutbound":J
-    :goto_0
+    :goto_37
     cmp-long v0, v3, v1
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_4e
 
     .line 24
     sget-object v0, Lio/nekohasekai/sagernet/database/ProfileManager;->INSTANCE:Lio/nekohasekai/sagernet/database/ProfileManager;
@@ -228,13 +228,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4e
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/ProxyEntity;->displayName()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4e
 
     .local v0, "it":Ljava/lang/String;
     const/4 v1, 0x0
@@ -251,7 +251,7 @@
     .end local v0    # "it":Ljava/lang/String;
     .end local v1    # "$i$a$-let-OutboundPreference$getSummary$1":I
     .end local v3    # "routeOutbound":J
-    :cond_1
+    :cond_4e
     invoke-super {p0}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->getSummary()Ljava/lang/CharSequence;
 
     move-result-object v0

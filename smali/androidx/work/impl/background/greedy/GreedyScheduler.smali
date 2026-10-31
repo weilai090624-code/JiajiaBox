@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 59
     const-string v0, "GreedyScheduler"
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/constraints/trackers/Trackers;Landroidx/work/impl/WorkManagerImpl;)V
-    .locals 2
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "configuration"    # Landroidx/work/Configuration;
     .param p3, "trackers"    # Landroidx/work/impl/constraints/trackers/Trackers;
@@ -130,7 +130,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/WorkManagerImpl;Landroidx/work/impl/constraints/WorkConstraintsTracker;)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p3, "workConstraintsTracker"    # Landroidx/work/impl/constraints/WorkConstraintsTracker;
@@ -185,7 +185,7 @@
 .end method
 
 .method private checkDefaultProcess()V
-    .locals 2
+    .registers 3
 
     .line 176
     iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -213,12 +213,12 @@
 .end method
 
 .method private registerExecutionListenerIfNeeded()V
-    .locals 1
+    .registers 2
 
     .line 253
     iget-boolean v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mRegisteredExecutionListener:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 254
     iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -235,12 +235,12 @@
     iput-boolean v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mRegisteredExecutionListener:Z
 
     .line 257
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method private removeConstraintTrackingFor(Landroidx/work/impl/model/WorkGenerationalId;)V
-    .locals 6
+    .registers 8
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -257,19 +257,19 @@
     monitor-enter v0
 
     .line 239
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mConstrainedWorkSpecs:Ljava/util/Set;
 
     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_49
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -287,7 +287,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_48
 
     .line 241
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -329,28 +329,28 @@
     invoke-interface {v1, v3}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->replace(Ljava/lang/Iterable;)V
 
     .line 244
-    goto :goto_1
+    goto :goto_49
 
     .line 246
     .end local v2    # "constrainedWorkSpec":Landroidx/work/impl/model/WorkSpec;
-    :cond_0
-    goto :goto_0
+    :cond_48
+    goto :goto_9
 
     .line 247
-    :cond_1
-    :goto_1
+    :cond_49
+    :goto_49
     monitor-exit v0
 
     .line 248
     return-void
 
     .line 247
-    :catchall_0
+    :catchall_4b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4d
+    .catchall {:try_start_3 .. :try_end_4d} :catchall_4b
 
     throw v1
 .end method
@@ -358,7 +358,7 @@
 
 # virtual methods
 .method public cancel(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -372,20 +372,20 @@
     .line 182
     iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mInDefaultProcess:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 183
     invoke-direct {p0}, Landroidx/work/impl/background/greedy/GreedyScheduler;->checkDefaultProcess()V
 
     .line 186
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mInDefaultProcess:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     .line 187
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -402,7 +402,7 @@
     return-void
 
     .line 191
-    :cond_1
+    :cond_1b
     invoke-direct {p0}, Landroidx/work/impl/background/greedy/GreedyScheduler;->registerExecutionListenerIfNeeded()V
 
     .line 192
@@ -435,7 +435,7 @@
     .line 193
     iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mDelayedWorkTracker:Landroidx/work/impl/background/greedy/DelayedWorkTracker;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_43
 
     .line 194
     iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mDelayedWorkTracker:Landroidx/work/impl/background/greedy/DelayedWorkTracker;
@@ -443,7 +443,7 @@
     invoke-virtual {v0, p1}, Landroidx/work/impl/background/greedy/DelayedWorkTracker;->unschedule(Ljava/lang/String;)V
 
     .line 197
-    :cond_2
+    :cond_43
     iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mStartStopTokens:Landroidx/work/impl/StartStopTokens;
 
     invoke-virtual {v0, p1}, Landroidx/work/impl/StartStopTokens;->remove(Ljava/lang/String;)Ljava/util/List;
@@ -454,12 +454,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -475,15 +475,15 @@
 
     .line 199
     .end local v1    # "id":Landroidx/work/impl/StartStopToken;
-    goto :goto_0
+    goto :goto_4d
 
     .line 200
-    :cond_3
+    :cond_5f
     return-void
 .end method
 
 .method public hasLimitedSchedulingSlots()Z
-    .locals 1
+    .registers 2
 
     .line 103
     const/4 v0, 0x0
@@ -492,7 +492,7 @@
 .end method
 
 .method public onAllConstraintsMet(Ljava/util/List;)V
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -517,12 +517,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_44
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -544,7 +544,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_43
 
     .line 208
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -587,16 +587,16 @@
     .line 211
     .end local v1    # "workSpec":Landroidx/work/impl/model/WorkSpec;
     .end local v2    # "id":Landroidx/work/impl/model/WorkGenerationalId;
-    :cond_0
-    goto :goto_0
+    :cond_43
+    goto :goto_4
 
     .line 212
-    :cond_1
+    :cond_44
     return-void
 .end method
 
 .method public onAllConstraintsNotMet(Ljava/util/List;)V
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -621,12 +621,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -677,7 +677,7 @@
 
     .line 220
     .local v3, "runId":Landroidx/work/impl/StartStopToken;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3d
 
     .line 221
     iget-object v4, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -688,16 +688,16 @@
     .end local v1    # "workSpec":Landroidx/work/impl/model/WorkSpec;
     .end local v2    # "id":Landroidx/work/impl/model/WorkGenerationalId;
     .end local v3    # "runId":Landroidx/work/impl/StartStopToken;
-    :cond_0
-    goto :goto_0
+    :cond_3d
+    goto :goto_4
 
     .line 224
-    :cond_1
+    :cond_3e
     return-void
 .end method
 
 .method public onExecuted(Landroidx/work/impl/model/WorkGenerationalId;Z)V
-    .locals 1
+    .registers 4
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -724,7 +724,7 @@
 .end method
 
 .method public varargs schedule([Landroidx/work/impl/model/WorkSpec;)V
-    .locals 14
+    .registers 16
     .param p1, "workSpecs"    # [Landroidx/work/impl/model/WorkSpec;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -738,20 +738,20 @@
     .line 108
     iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mInDefaultProcess:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 109
     invoke-direct {p0}, Landroidx/work/impl/background/greedy/GreedyScheduler;->checkDefaultProcess()V
 
     .line 112
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mInDefaultProcess:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     .line 113
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -768,7 +768,7 @@
     return-void
 
     .line 117
-    :cond_1
+    :cond_1b
     invoke-direct {p0}, Landroidx/work/impl/background/greedy/GreedyScheduler;->registerExecutionListenerIfNeeded()V
 
     .line 123
@@ -788,8 +788,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_8
+    :goto_2a
+    if-ge v3, v2, :cond_103
 
     aget-object v4, p1, v3
 
@@ -807,13 +807,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3c
 
     .line 130
-    goto/16 :goto_1
+    goto/16 :goto_ff
 
     .line 132
-    :cond_2
+    :cond_3c
     invoke-virtual {v4}, Landroidx/work/impl/model/WorkSpec;->calculateNextRunTime()J
 
     move-result-wide v6
@@ -830,39 +830,39 @@
 
     sget-object v11, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
-    if-ne v10, v11, :cond_7
+    if-ne v10, v11, :cond_ff
 
     .line 135
     cmp-long v10, v8, v6
 
-    if-gez v10, :cond_3
+    if-gez v10, :cond_59
 
     .line 137
     iget-object v10, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mDelayedWorkTracker:Landroidx/work/impl/background/greedy/DelayedWorkTracker;
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_ff
 
     .line 138
     iget-object v10, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mDelayedWorkTracker:Landroidx/work/impl/background/greedy/DelayedWorkTracker;
 
     invoke-virtual {v10, v4}, Landroidx/work/impl/background/greedy/DelayedWorkTracker;->schedule(Landroidx/work/impl/model/WorkSpec;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_ff
 
     .line 140
-    :cond_3
+    :cond_59
     invoke-virtual {v4}, Landroidx/work/impl/model/WorkSpec;->hasConstraints()Z
 
     move-result v10
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_ca
 
     .line 141
     sget v10, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v11, 0x17
 
-    if-lt v10, v11, :cond_4
+    if-lt v10, v11, :cond_90
 
     iget-object v10, v4, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
 
@@ -870,7 +870,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_90
 
     .line 143
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -905,15 +905,15 @@
 
     invoke-virtual {v10, v11, v12}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_ff
 
     .line 145
-    :cond_4
+    :cond_90
     sget v10, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v11, 0x18
 
-    if-lt v10, v11, :cond_5
+    if-lt v10, v11, :cond_c1
 
     iget-object v10, v4, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
 
@@ -921,7 +921,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_c1
 
     .line 147
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -956,10 +956,10 @@
 
     invoke-virtual {v10, v11, v12}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_ff
 
     .line 150
-    :cond_5
+    :cond_c1
     invoke-interface {v0, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 151
@@ -967,10 +967,10 @@
 
     invoke-interface {v1, v10}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_ff
 
     .line 155
-    :cond_6
+    :cond_ca
     iget-object v10, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mStartStopTokens:Landroidx/work/impl/StartStopTokens;
 
     invoke-static {v4}, Landroidx/work/impl/model/WorkSpecKt;->generationalId(Landroidx/work/impl/model/WorkSpec;)Landroidx/work/impl/model/WorkGenerationalId;
@@ -981,7 +981,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_7
+    if-nez v10, :cond_ff
 
     .line 156
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -1028,25 +1028,25 @@
     .end local v5    # "id":Landroidx/work/impl/model/WorkGenerationalId;
     .end local v6    # "nextRunTime":J
     .end local v8    # "now":J
-    :cond_7
-    :goto_1
+    :cond_ff
+    :goto_ff
     add-int/lit8 v3, v3, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_2a
 
     .line 165
-    :cond_8
+    :cond_103
     iget-object v2, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
     .line 166
-    :try_start_0
+    :try_start_106
     invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_13a
 
     .line 167
     const-string v3, ","
@@ -1097,25 +1097,25 @@
 
     .line 172
     .end local v3    # "formattedIds":Ljava/lang/String;
-    :cond_9
+    :cond_13a
     monitor-exit v2
 
     .line 173
     return-void
 
     .line 172
-    :catchall_0
+    :catchall_13c
     move-exception v3
 
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13e
+    .catchall {:try_start_106 .. :try_end_13e} :catchall_13c
 
     throw v3
 .end method
 
 .method public setDelayedWorkTracker(Landroidx/work/impl/background/greedy/DelayedWorkTracker;)V
-    .locals 0
+    .registers 2
     .param p1, "delayedWorkTracker"    # Landroidx/work/impl/background/greedy/DelayedWorkTracker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

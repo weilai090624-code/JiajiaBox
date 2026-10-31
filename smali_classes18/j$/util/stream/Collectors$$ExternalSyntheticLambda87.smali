@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/function/ToLongFunction;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Lj$/util/stream/Collectors$$ExternalSyntheticLambda87;->f$0:Ljava/util/function/ToLongFunction;
 
@@ -36,7 +36,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/BiConsumer;)Ljava/util/function/BiConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/BiConsumer$-CC;->$default$andThen(Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)Ljava/util/function/BiConsumer;
 

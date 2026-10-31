@@ -43,7 +43,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$sfgetCOMPARATOR()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lj$/time/format/DateTimeTextProvider;->COMPARATOR:Ljava/util/Comparator;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smcreateEntry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/format/DateTimeTextProvider;->createEntry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 102
     new-instance v0, Lj$/util/concurrent/ConcurrentHashMap;
@@ -94,7 +94,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -103,7 +103,7 @@
 .end method
 
 .method private static createEntry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -127,7 +127,7 @@
 .end method
 
 .method private createStore(Lj$/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;
-    .locals 21
+    .registers 24
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -142,7 +142,7 @@
     .local v1, "styleMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/time/format/TextStyle;Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;>;"
     sget-object v2, Lj$/time/temporal/ChronoField;->ERA:Lj$/time/temporal/ChronoField;
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_5f
 
     .line 354
     invoke-static/range {p2 .. p2}, Ljava/text/DateFormatSymbols;->getInstance(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;
@@ -172,10 +172,10 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_0
+    :goto_1e
     array-length v7, v5
 
-    if-ge v6, v7, :cond_1
+    if-ge v6, v7, :cond_44
 
     .line 359
     aget-object v7, v5, v6
@@ -184,7 +184,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_41
 
     .line 360
     int-to-long v7, v6
@@ -213,19 +213,19 @@
     invoke-interface {v4, v7, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 358
-    :cond_0
+    :cond_41
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 364
     .end local v6    # "i":I
-    :cond_1
+    :cond_44
     invoke-interface {v3}, Ljava/util/Map;->isEmpty()Z
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_59
 
     .line 365
     sget-object v6, Lj$/time/format/TextStyle;->FULL:Lj$/time/format/TextStyle;
@@ -243,7 +243,7 @@
     invoke-interface {v1, v6, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 369
-    :cond_2
+    :cond_59
     new-instance v6, Lj$/time/format/DateTimeTextProvider$LocaleStore;
 
     invoke-direct {v6, v1}, Lj$/time/format/DateTimeTextProvider$LocaleStore;-><init>(Ljava/util/Map;)V
@@ -255,12 +255,12 @@
     .end local v3    # "fullMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;"
     .end local v4    # "narrowMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;"
     .end local v5    # "eraSymbols":[Ljava/lang/String;
-    :cond_3
+    :cond_5f
     sget-object v2, Lj$/time/temporal/ChronoField;->MONTH_OF_YEAR:Lj$/time/temporal/ChronoField;
 
     const-wide/16 v3, 0x1
 
-    if-ne v0, v2, :cond_a
+    if-ne v0, v2, :cond_e4
 
     .line 401
     invoke-static/range {p2 .. p2}, Ljava/text/DateFormatSymbols;->getInstance(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;
@@ -290,10 +290,10 @@
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_1
+    :goto_78
     array-length v9, v7
 
-    if-ge v8, v9, :cond_5
+    if-ge v8, v9, :cond_a0
 
     .line 406
     aget-object v9, v7, v8
@@ -302,7 +302,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_4
+    if-nez v9, :cond_9d
 
     .line 407
     int-to-long v9, v8
@@ -335,19 +335,19 @@
     invoke-interface {v6, v9, v10}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 405
-    :cond_4
+    :cond_9d
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_78
 
     .line 411
     .end local v8    # "i":I
-    :cond_5
+    :cond_a0
     invoke-interface {v5}, Ljava/util/Map;->isEmpty()Z
 
     move-result v8
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_b0
 
     .line 412
     sget-object v8, Lj$/time/format/TextStyle;->FULL:Lj$/time/format/TextStyle;
@@ -360,7 +360,7 @@
     invoke-interface {v1, v8, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 416
-    :cond_6
+    :cond_b0
     new-instance v8, Ljava/util/HashMap;
 
     invoke-direct {v8}, Ljava/util/HashMap;-><init>()V
@@ -376,10 +376,10 @@
     const/4 v10, 0x0
 
     .local v10, "i":I
-    :goto_2
+    :goto_ba
     array-length v11, v9
 
-    if-ge v10, v11, :cond_8
+    if-ge v10, v11, :cond_d3
 
     .line 419
     aget-object v11, v9, v10
@@ -388,7 +388,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_7
+    if-nez v11, :cond_d0
 
     .line 420
     int-to-long v11, v10
@@ -404,19 +404,19 @@
     invoke-interface {v8, v11, v12}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 418
-    :cond_7
+    :cond_d0
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_2
+    goto :goto_ba
 
     .line 423
     .end local v10    # "i":I
-    :cond_8
+    :cond_d3
     invoke-interface {v8}, Ljava/util/Map;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_de
 
     .line 424
     sget-object v3, Lj$/time/format/TextStyle;->SHORT:Lj$/time/format/TextStyle;
@@ -424,7 +424,7 @@
     invoke-interface {v1, v3, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 426
-    :cond_9
+    :cond_de
     new-instance v3, Lj$/time/format/DateTimeTextProvider$LocaleStore;
 
     invoke-direct {v3, v1}, Lj$/time/format/DateTimeTextProvider$LocaleStore;-><init>(Ljava/util/Map;)V
@@ -438,10 +438,10 @@
     .end local v7    # "longMonths":[Ljava/lang/String;
     .end local v8    # "shortMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;"
     .end local v9    # "shortMonths":[Ljava/lang/String;
-    :cond_a
+    :cond_e4
     sget-object v2, Lj$/time/temporal/ChronoField;->DAY_OF_WEEK:Lj$/time/temporal/ChronoField;
 
-    if-ne v0, v2, :cond_b
+    if-ne v0, v2, :cond_219
 
     .line 458
     invoke-static/range {p2 .. p2}, Ljava/text/DateFormatSymbols;->getInstance(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;
@@ -769,10 +769,10 @@
     .end local v7    # "narrowMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;"
     .end local v8    # "shortMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;"
     .end local v15    # "shortSymbols":[Ljava/lang/String;
-    :cond_b
+    :cond_219
     sget-object v2, Lj$/time/temporal/ChronoField;->AMPM_OF_DAY:Lj$/time/temporal/ChronoField;
 
-    if-ne v0, v2, :cond_f
+    if-ne v0, v2, :cond_271
 
     .line 514
     invoke-static/range {p2 .. p2}, Ljava/text/DateFormatSymbols;->getInstance(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;
@@ -802,10 +802,10 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_3
+    :goto_230
     array-length v7, v5
 
-    if-ge v6, v7, :cond_d
+    if-ge v6, v7, :cond_256
 
     .line 519
     aget-object v7, v5, v6
@@ -814,7 +814,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_c
+    if-nez v7, :cond_253
 
     .line 520
     int-to-long v7, v6
@@ -843,19 +843,19 @@
     invoke-interface {v4, v7, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 518
-    :cond_c
+    :cond_253
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3
+    goto :goto_230
 
     .line 524
     .end local v6    # "i":I
-    :cond_d
+    :cond_256
     invoke-interface {v3}, Ljava/util/Map;->isEmpty()Z
 
     move-result v6
 
-    if-nez v6, :cond_e
+    if-nez v6, :cond_26b
 
     .line 525
     sget-object v6, Lj$/time/format/TextStyle;->FULL:Lj$/time/format/TextStyle;
@@ -873,7 +873,7 @@
     invoke-interface {v1, v6, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 529
-    :cond_e
+    :cond_26b
     new-instance v6, Lj$/time/format/DateTimeTextProvider$LocaleStore;
 
     invoke-direct {v6, v1}, Lj$/time/format/DateTimeTextProvider$LocaleStore;-><init>(Ljava/util/Map;)V
@@ -885,14 +885,14 @@
     .end local v3    # "fullMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;"
     .end local v4    # "narrowMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;"
     .end local v5    # "amPmSymbols":[Ljava/lang/String;
-    :cond_f
+    :cond_271
     const-string v2, ""
 
     return-object v2
 .end method
 
 .method private findStore(Lj$/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -911,7 +911,7 @@
 
     .line 316
     .local v1, "store":Ljava/lang/Object;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 317
     invoke-direct {p0, p1, p2}, Lj$/time/format/DateTimeTextProvider;->createStore(Lj$/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;
@@ -931,12 +931,12 @@
     move-result-object v1
 
     .line 321
-    :cond_0
+    :cond_1b
     return-object v1
 .end method
 
 .method private static firstCodePoint(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "string"    # Ljava/lang/String;
 
     .line 562
@@ -958,7 +958,7 @@
 .end method
 
 .method static getInstance()Lj$/time/format/DateTimeTextProvider;
-    .locals 1
+    .registers 1
 
     .line 122
     sget-object v0, Lj$/time/format/DateTimeTextProvider;->INSTANCE:Lj$/time/format/DateTimeTextProvider;
@@ -967,13 +967,13 @@
 .end method
 
 .method private static toWeekDay(I)I
-    .locals 1
+    .registers 2
     .param p0, "calWeekDay"    # I
 
     .line 325
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_5
 
     .line 326
     const/4 v0, 0x7
@@ -981,7 +981,7 @@
     return v0
 
     .line 328
-    :cond_0
+    :cond_5
     add-int/lit8 v0, p0, -0x1
 
     return v0
@@ -990,7 +990,7 @@
 
 # virtual methods
 .method public getText(Lj$/time/chrono/Chronology;Lj$/time/temporal/TemporalField;JLj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 6
+    .registers 13
     .param p1, "chrono"    # Lj$/time/chrono/Chronology;
     .param p2, "field"    # Lj$/time/temporal/TemporalField;
     .param p3, "value"    # J
@@ -1000,23 +1000,23 @@
     .line 164
     sget-object v0, Lj$/time/chrono/IsoChronology;->INSTANCE:Lj$/time/chrono/IsoChronology;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_b
 
     instance-of v0, p2, Lj$/time/temporal/ChronoField;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
     .line 171
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return-object v0
 
     .line 166
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     move-object v0, p0
 
     move-object v1, p2
@@ -1035,7 +1035,7 @@
 .end method
 
 .method public getText(Lj$/time/temporal/TemporalField;JLj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 8
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "value"    # J
     .param p4, "style"    # Lj$/time/format/TextStyle;
@@ -1050,7 +1050,7 @@
     .local v0, "store":Ljava/lang/Object;
     instance-of v1, v0, Lj$/time/format/DateTimeTextProvider$LocaleStore;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 142
     move-object v1, v0
@@ -1064,14 +1064,14 @@
     return-object v1
 
     .line 144
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public getTextIterator(Lj$/time/chrono/Chronology;Lj$/time/temporal/TemporalField;Lj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;
-    .locals 1
+    .registers 6
     .param p1, "chrono"    # Lj$/time/chrono/Chronology;
     .param p2, "field"    # Lj$/time/temporal/TemporalField;
     .param p3, "style"    # Lj$/time/format/TextStyle;
@@ -1095,23 +1095,23 @@
     .line 247
     sget-object v0, Lj$/time/chrono/IsoChronology;->INSTANCE:Lj$/time/chrono/IsoChronology;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_b
 
     instance-of v0, p2, Lj$/time/temporal/ChronoField;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
     .line 254
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return-object v0
 
     .line 249
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     invoke-virtual {p0, p2, p3, p4}, Lj$/time/format/DateTimeTextProvider;->getTextIterator(Lj$/time/temporal/TemporalField;Lj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;
 
     move-result-object v0
@@ -1120,7 +1120,7 @@
 .end method
 
 .method public getTextIterator(Lj$/time/temporal/TemporalField;Lj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;
-    .locals 2
+    .registers 6
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "style"    # Lj$/time/format/TextStyle;
     .param p3, "locale"    # Ljava/util/Locale;
@@ -1148,7 +1148,7 @@
     .local v0, "store":Ljava/lang/Object;
     instance-of v1, v0, Lj$/time/format/DateTimeTextProvider$LocaleStore;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 223
     move-object v1, v0
@@ -1162,7 +1162,7 @@
     return-object v1
 
     .line 225
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
     return-object v1

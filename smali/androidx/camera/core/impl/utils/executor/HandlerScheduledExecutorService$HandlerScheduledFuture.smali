@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/Handler;JLjava/util/concurrent/Callable;)V
-    .locals 2
+    .registers 7
     .param p1, "handler"    # Landroid/os/Handler;
     .param p2, "runAtMillis"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public cancel(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "mayInterruptIfRunning"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -149,7 +149,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -171,7 +171,7 @@
 .end method
 
 .method public compareTo(Ljava/util/concurrent/Delayed;)I
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/util/concurrent/Delayed;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -204,7 +204,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -230,7 +230,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -272,7 +272,7 @@
 .end method
 
 .method public getDelay(Ljava/util/concurrent/TimeUnit;)J
-    .locals 4
+    .registers 6
     .param p1, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -303,7 +303,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 257
     .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
@@ -317,7 +317,7 @@
 .end method
 
 .method public isDone()Z
-    .locals 1
+    .registers 2
 
     .line 262
     .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
@@ -331,7 +331,7 @@
 .end method
 
 .method public isPeriodic()Z
-    .locals 1
+    .registers 2
 
     .line 223
     .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
@@ -341,7 +341,7 @@
 .end method
 
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 240
     .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
@@ -357,10 +357,10 @@
 
     .line 241
     .local v0, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 243
-    :try_start_0
+    :try_start_b
     iget-object v1, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mTask:Ljava/util/concurrent/Callable;
 
     invoke-interface {v1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
@@ -368,14 +368,14 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_14} :catch_15
 
     .line 246
-    goto :goto_0
+    goto :goto_19
 
     .line 244
-    :catch_0
+    :catch_15
     move-exception v1
 
     .line 245
@@ -384,7 +384,7 @@
 
     .line 248
     .end local v1    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_19
+    :goto_19
     return-void
 .end method

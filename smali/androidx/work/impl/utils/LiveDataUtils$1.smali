@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Ljava/lang/Object;Landroidx/arch/core/util/Function;Landroidx/lifecycle/MediatorLiveData;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public onChanged(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10

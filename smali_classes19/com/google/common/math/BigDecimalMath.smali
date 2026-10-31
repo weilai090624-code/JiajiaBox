@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static roundToDouble(Ljava/math/BigDecimal;Ljava/math/RoundingMode;)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # Ljava/math/BigDecimal;
     .param p1, "mode"    # Ljava/math/RoundingMode;
 

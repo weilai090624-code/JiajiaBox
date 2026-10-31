@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 314
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroidx/fragment/app/Fragment$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Landroidx/fragment/app/Fragment$1;
 
     .line 314

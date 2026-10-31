@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/RoomDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "__db"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -51,7 +51,7 @@
 .end method
 
 .method public static getRequiredConverters()Ljava/util/List;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public getDependentWorkIds(Ljava/lang/String;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p1, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -113,19 +113,19 @@
 
     .line 122
     .local v2, "_argIndex":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 123
     invoke-virtual {v1, v2}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 125
-    :cond_0
+    :cond_10
     invoke-virtual {v1, v2, p1}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
 
     .line 127
-    :goto_0
+    :goto_13
     iget-object v3, p0, Landroidx/work/impl/model/DependencyDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
@@ -143,7 +143,7 @@
 
     .line 130
     .local v3, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_20
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-interface {v3}, Landroid/database/Cursor;->getCount()I
@@ -154,48 +154,48 @@
 
     .line 131
     .local v4, "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :goto_1
+    :goto_29
     invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_40
 
     .line 133
     invoke-interface {v3, v5}, Landroid/database/Cursor;->isNull(I)Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_37
 
     .line 134
     const/4 v6, 0x0
 
     .local v6, "_item":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_3b
 
     .line 136
     .end local v6    # "_item":Ljava/lang/String;
-    :cond_1
+    :cond_37
     invoke-interface {v3, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
     .line 138
     .restart local v6    # "_item":Ljava/lang/String;
-    :goto_2
+    :goto_3b
     invoke-interface {v4, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3e
+    .catchall {:try_start_20 .. :try_end_3e} :catchall_48
 
     .line 139
     nop
 
     .end local v6    # "_item":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_29
 
     .line 140
-    :cond_2
+    :cond_40
     nop
 
     .line 142
@@ -209,7 +209,7 @@
 
     .line 142
     .end local v4    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :catchall_0
+    :catchall_48
     move-exception v4
 
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
@@ -222,7 +222,7 @@
 .end method
 
 .method public getPrerequisites(Ljava/lang/String;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p1, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -263,19 +263,19 @@
 
     .line 92
     .local v2, "_argIndex":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 93
     invoke-virtual {v1, v2}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 95
-    :cond_0
+    :cond_10
     invoke-virtual {v1, v2, p1}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
 
     .line 97
-    :goto_0
+    :goto_13
     iget-object v3, p0, Landroidx/work/impl/model/DependencyDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
@@ -293,7 +293,7 @@
 
     .line 100
     .local v3, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_20
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-interface {v3}, Landroid/database/Cursor;->getCount()I
@@ -304,48 +304,48 @@
 
     .line 101
     .local v4, "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :goto_1
+    :goto_29
     invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_40
 
     .line 103
     invoke-interface {v3, v5}, Landroid/database/Cursor;->isNull(I)Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_37
 
     .line 104
     const/4 v6, 0x0
 
     .local v6, "_item":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_3b
 
     .line 106
     .end local v6    # "_item":Ljava/lang/String;
-    :cond_1
+    :cond_37
     invoke-interface {v3, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
     .line 108
     .restart local v6    # "_item":Ljava/lang/String;
-    :goto_2
+    :goto_3b
     invoke-interface {v4, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3e
+    .catchall {:try_start_20 .. :try_end_3e} :catchall_48
 
     .line 109
     nop
 
     .end local v6    # "_item":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_29
 
     .line 110
-    :cond_2
+    :cond_40
     nop
 
     .line 112
@@ -359,7 +359,7 @@
 
     .line 112
     .end local v4    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :catchall_0
+    :catchall_48
     move-exception v4
 
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
@@ -372,7 +372,7 @@
 .end method
 
 .method public hasCompletedAllPrerequisites(Ljava/lang/String;)Z
-    .locals 7
+    .registers 9
     .param p1, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -402,19 +402,19 @@
 
     .line 64
     .local v3, "_argIndex":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 65
     invoke-virtual {v1, v3}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 67
-    :cond_0
+    :cond_10
     invoke-virtual {v1, v3, p1}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
 
     .line 69
-    :goto_0
+    :goto_13
     iget-object v4, p0, Landroidx/work/impl/model/DependencyDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v4}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
@@ -432,43 +432,43 @@
 
     .line 73
     .local v4, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_20
     invoke-interface {v4}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_2f
 
     .line 75
     invoke-interface {v4, v6}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_20 .. :try_end_2a} :catchall_38
 
     .line 76
     .local v5, "_tmp":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2d
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     const/4 v2, 0x0
 
     .line 77
     .end local v5    # "_tmp":I
     .local v2, "_result":Z
-    :goto_1
-    goto :goto_2
+    :goto_2e
+    goto :goto_30
 
     .line 78
     .end local v2    # "_result":Z
-    :cond_2
+    :cond_2f
     const/4 v2, 0x0
 
     .line 80
     .restart local v2    # "_result":Z
-    :goto_2
+    :goto_30
     nop
 
     .line 82
@@ -482,7 +482,7 @@
 
     .line 82
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_38
     move-exception v2
 
     invoke-interface {v4}, Landroid/database/Cursor;->close()V
@@ -495,7 +495,7 @@
 .end method
 
 .method public hasDependents(Ljava/lang/String;)Z
-    .locals 7
+    .registers 9
     .param p1, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -525,19 +525,19 @@
 
     .line 152
     .local v3, "_argIndex":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 153
     invoke-virtual {v1, v3}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 155
-    :cond_0
+    :cond_10
     invoke-virtual {v1, v3, p1}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
 
     .line 157
-    :goto_0
+    :goto_13
     iget-object v4, p0, Landroidx/work/impl/model/DependencyDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v4}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
@@ -555,43 +555,43 @@
 
     .line 161
     .local v4, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_20
     invoke-interface {v4}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_2f
 
     .line 163
     invoke-interface {v4, v6}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_20 .. :try_end_2a} :catchall_38
 
     .line 164
     .local v5, "_tmp":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2d
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     const/4 v2, 0x0
 
     .line 165
     .end local v5    # "_tmp":I
     .local v2, "_result":Z
-    :goto_1
-    goto :goto_2
+    :goto_2e
+    goto :goto_30
 
     .line 166
     .end local v2    # "_result":Z
-    :cond_2
+    :cond_2f
     const/4 v2, 0x0
 
     .line 168
     .restart local v2    # "_result":Z
-    :goto_2
+    :goto_30
     nop
 
     .line 170
@@ -605,7 +605,7 @@
 
     .line 170
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_38
     move-exception v2
 
     invoke-interface {v4}, Landroid/database/Cursor;->close()V
@@ -618,7 +618,7 @@
 .end method
 
 .method public insertDependency(Landroidx/work/impl/model/Dependency;)V
-    .locals 2
+    .registers 4
     .param p1, "dependency"    # Landroidx/work/impl/model/Dependency;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -640,7 +640,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 52
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Landroidx/work/impl/model/DependencyDao_Impl;->__insertionAdapterOfDependency:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityInsertionAdapter;->insert(Ljava/lang/Object;)V
@@ -649,8 +649,8 @@
     iget-object v0, p0, Landroidx/work/impl/model/DependencyDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_1b
 
     .line 55
     iget-object v0, p0, Landroidx/work/impl/model/DependencyDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -664,7 +664,7 @@
     return-void
 
     .line 55
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     iget-object v1, p0, Landroidx/work/impl/model/DependencyDao_Impl;->__db:Landroidx/room/RoomDatabase;

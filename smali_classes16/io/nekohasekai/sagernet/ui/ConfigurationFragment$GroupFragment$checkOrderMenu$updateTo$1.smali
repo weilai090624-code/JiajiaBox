@@ -71,7 +71,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;ILkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +125,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,7 +168,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -177,7 +177,7 @@
     .line 1155
     iget v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$checkOrderMenu$updateTo$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_3c
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -188,13 +188,13 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_38
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 1156
@@ -230,23 +230,23 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_38
 
     .line 1155
     return-object v0
 
     .line 1158
-    :cond_0
-    :goto_0
+    :cond_38
+    :goto_38
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

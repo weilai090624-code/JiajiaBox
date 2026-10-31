@@ -46,7 +46,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$V1U5ZLoDnyE-ZUJSLfNt5DmRlBU(Landroidx/preference/EditTextPreference;Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/PreferenceFragmentCompat;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 7
 
     invoke-static/range {p0 .. p6}, Lio/nekohasekai/sagernet/ui/profile/HysteriaSettingsActivity;->createPreferences$lambda$1(Landroidx/preference/EditTextPreference;Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/PreferenceFragmentCompat;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$VVIMuzsfkTUZ9eeKJp7wPN0uxv0(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/profile/HysteriaSettingsActivity;->createPreferences$lambda$0(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 15
     const/4 v0, 0x1
@@ -81,7 +81,7 @@
 .end method
 
 .method private static final createPreferences$lambda$0(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "$authPayload"    # Landroidx/preference/EditTextPreference;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -107,7 +107,7 @@
 .end method
 
 .method private static final createPreferences$lambda$1(Landroidx/preference/EditTextPreference;Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/PreferenceFragmentCompat;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 7
+    .registers 14
     .param p0, "$authPayload"    # Landroidx/preference/EditTextPreference;
     .param p1, "$authType"    # Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
     .param p2, "$protocol"    # Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
@@ -130,7 +130,7 @@
 
     const/4 v0, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_16
 
     invoke-virtual {p5}, Ljava/lang/Integer;->intValue()I
 
@@ -138,12 +138,12 @@
 
     move v6, p5
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v6, 0x1
 
-    :goto_0
+    :goto_17
     move-object v1, p0
 
     move-object v2, p1
@@ -161,7 +161,7 @@
 .end method
 
 .method private static final createPreferences$updateVersion(Landroidx/preference/EditTextPreference;Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/PreferenceFragmentCompat;I)V
-    .locals 5
+    .registers 11
     .param p0, "authPayload"    # Landroidx/preference/EditTextPreference;
     .param p1, "authType"    # Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
     .param p2, "protocol"    # Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
@@ -180,7 +180,7 @@
 
     const/4 v4, 0x1
 
-    if-ne p5, v0, :cond_0
+    if-ne p5, v0, :cond_55
 
     .line 80
     invoke-virtual {p0, v4}, Landroidx/preference/EditTextPreference;->setVisible(Z)V
@@ -262,10 +262,10 @@
 
     invoke-virtual {p0, v0}, Landroidx/preference/EditTextPreference;->setTitle(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto :goto_9e
 
     .line 95
-    :cond_0
+    :cond_55
     invoke-virtual {p1, v4}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->setVisible(Z)V
 
     .line 96
@@ -344,14 +344,14 @@
     invoke-virtual {p0, v0}, Landroidx/preference/EditTextPreference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 109
-    :goto_0
+    :goto_9e
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/HysteriaSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
@@ -364,7 +364,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
-    .locals 1
+    .registers 2
 
     .line 17
     new-instance v0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
@@ -383,7 +383,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 14
+    .registers 18
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -766,7 +766,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 15
@@ -780,7 +780,7 @@
 .end method
 
 .method public init(Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;)V
-    .locals 2
+    .registers 4
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
 
     const-string v0, "<this>"
@@ -958,7 +958,7 @@
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 15
@@ -972,7 +972,7 @@
 .end method
 
 .method public serialize(Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
 
     const-string v0, "<this>"

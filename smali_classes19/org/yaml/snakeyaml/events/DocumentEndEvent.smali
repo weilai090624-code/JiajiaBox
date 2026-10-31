@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Z)V
-    .locals 0
+    .registers 4
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p2, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "explicit"    # Z
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getEventId()Lorg/yaml/snakeyaml/events/Event$ID;
-    .locals 1
+    .registers 2
 
     .line 40
     sget-object v0, Lorg/yaml/snakeyaml/events/Event$ID;->DocumentEnd:Lorg/yaml/snakeyaml/events/Event$ID;
@@ -36,7 +36,7 @@
 .end method
 
 .method public getExplicit()Z
-    .locals 1
+    .registers 2
 
     .line 35
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/events/DocumentEndEvent;->explicit:Z

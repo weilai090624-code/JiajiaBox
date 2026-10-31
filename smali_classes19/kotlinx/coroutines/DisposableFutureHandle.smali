@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/concurrent/Future;)V
-    .locals 0
+    .registers 2
     .param p1, "future"    # Ljava/util/concurrent/Future;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public dispose()V
-    .locals 2
+    .registers 3
 
     .line 203
     iget-object v0, p0, Lkotlinx/coroutines/DisposableFutureHandle;->future:Ljava/util/concurrent/Future;
@@ -81,7 +81,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 205
     new-instance v0, Ljava/lang/StringBuilder;

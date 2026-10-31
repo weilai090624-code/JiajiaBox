@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function1;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .registers 3
 
     .line 81
     iget-object v0, p0, Landroidx/core/view/ViewKt$doOnPreDraw$1;->$action:Lkotlin/jvm/functions/Function1;

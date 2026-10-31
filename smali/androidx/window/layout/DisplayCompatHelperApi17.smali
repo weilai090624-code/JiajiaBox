@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/layout/DisplayCompatHelperApi17;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public final getRealSize(Landroid/view/Display;Landroid/graphics/Point;)V
-    .locals 1
+    .registers 4
     .param p1, "display"    # Landroid/view/Display;
     .param p2, "point"    # Landroid/graphics/Point;
 

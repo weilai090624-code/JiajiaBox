@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;
 
     .line 3035
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 3038
@@ -55,7 +55,7 @@
 
     iget-object v0, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mActionModePopup:Landroid/widget/PopupWindow;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 3040
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9$1;->this$1:Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;
@@ -66,10 +66,10 @@
 
     invoke-virtual {v0}, Landroid/widget/PopupWindow;->dismiss()V
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 3041
-    :cond_0
+    :cond_1d
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9$1;->this$1:Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;
 
     iget-object v0, v0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -82,7 +82,7 @@
 
     instance-of v0, v0, Landroid/view/View;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     .line 3042
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9$1;->this$1:Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;
@@ -100,8 +100,8 @@
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V
 
     .line 3044
-    :cond_1
-    :goto_0
+    :cond_3a
+    :goto_3a
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9$1;->this$1:Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;
 
     iget-object v0, v0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;

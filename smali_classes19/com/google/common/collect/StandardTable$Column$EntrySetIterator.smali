@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/StandardTable$Column;)V
-    .locals 0
+    .registers 2
 
     .line 544
     .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySetIterator;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.EntrySetIterator;"
@@ -69,7 +69,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/StandardTable$Column;Lcom/google/common/collect/StandardTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/StandardTable$Column;
     .param p2, "x1"    # Lcom/google/common/collect/StandardTable$1;
 
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -97,7 +97,7 @@
 .end method
 
 .method protected computeNext()Ljava/util/Map$Entry;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -113,14 +113,14 @@
     .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySetIterator;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.EntrySetIterator;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$Column$EntrySetIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     .line 551
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$Column$EntrySetIterator;->iterator:Ljava/util/Iterator;
@@ -147,7 +147,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     .line 585
     new-instance v1, Lcom/google/common/collect/StandardTable$Column$EntrySetIterator$1EntryImpl;
@@ -158,11 +158,11 @@
 
     .line 587
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TR;Ljava/util/Map<TC;TV;>;>;"
-    :cond_0
-    goto :goto_0
+    :cond_27
+    goto :goto_1
 
     .line 588
-    :cond_1
+    :cond_28
     invoke-virtual {p0}, Lcom/google/common/collect/StandardTable$Column$EntrySetIterator;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/AbstractBaseGraph;Lcom/google/common/graph/BaseGraph;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/graph/AbstractBaseGraph;
 
     .line 110
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -56,7 +56,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_45
 
     .line 114
     iget-object v0, p0, Lcom/google/common/graph/AbstractBaseGraph$2;->graph:Lcom/google/common/graph/BaseGraph;
@@ -126,7 +126,7 @@
     return-object v0
 
     .line 134
-    :cond_0
+    :cond_45
     iget-object v0, p0, Lcom/google/common/graph/AbstractBaseGraph$2;->graph:Lcom/google/common/graph/BaseGraph;
 
     iget-object v1, p0, Lcom/google/common/graph/AbstractBaseGraph$2;->node:Ljava/lang/Object;
@@ -158,7 +158,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 110
     .local p0, "this":Lcom/google/common/graph/AbstractBaseGraph$2;, "Lcom/google/common/graph/AbstractBaseGraph$2;"

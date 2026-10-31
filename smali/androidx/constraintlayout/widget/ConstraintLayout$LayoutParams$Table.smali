@@ -140,7 +140,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 2806
     new-instance v0, Landroid/util/SparseIntArray;
@@ -685,7 +685,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 2732
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

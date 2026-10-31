@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/base/Supplier;)V
-    .locals 0
+    .registers 3
 
     .line 888
     iput-object p1, p0, Lcom/google/common/util/concurrent/MoreExecutors$2;->val$executor:Ljava/util/concurrent/Executor;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 4
     .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 891

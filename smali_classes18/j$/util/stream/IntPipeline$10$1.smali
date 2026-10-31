@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/IntPipeline$10;Lj$/util/stream/Sink;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lj$/util/stream/IntPipeline$10;
 
     .line 383
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # I
 
     .line 386

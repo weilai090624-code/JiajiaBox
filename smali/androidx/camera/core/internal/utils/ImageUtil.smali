@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 .end method
 
 .method public static computeCropRectFromAspectRatio(Landroid/util/Size;Landroid/util/Rational;)Landroid/graphics/Rect;
-    .locals 12
+    .registers 14
     .param p0, "sourceSize"    # Landroid/util/Size;
     .param p1, "aspectRatio"    # Landroid/util/Rational;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -46,7 +46,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 207
     const-string v0, "ImageUtil"
@@ -61,7 +61,7 @@
     return-object v0
 
     .line 211
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Landroid/util/Size;->getWidth()I
 
     move-result v0
@@ -116,7 +116,7 @@
 
     cmpl-float v9, v9, v2
 
-    if-lez v9, :cond_1
+    if-lez v9, :cond_3d
 
     .line 222
     int-to-float v9, v0
@@ -138,10 +138,10 @@
 
     div-int/lit8 v4, v9, 0x2
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 225
-    :cond_1
+    :cond_3d
     int-to-float v9, v1
 
     int-to-float v10, v8
@@ -162,7 +162,7 @@
     div-int/lit8 v3, v9, 0x2
 
     .line 229
-    :goto_0
+    :goto_4b
     new-instance v9, Landroid/graphics/Rect;
 
     add-int v10, v3, v5
@@ -175,7 +175,7 @@
 .end method
 
 .method public static cropByteArray([BLandroid/graphics/Rect;)[B
-    .locals 6
+    .registers 8
     .param p0, "data"    # [B
     .param p1, "cropRect"    # Landroid/graphics/Rect;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -198,18 +198,18 @@
     .line 151
     const-string v0, "Decode byte array failed."
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     .line 152
     return-object p0
 
     .line 155
-    :cond_0
+    :cond_5
     const/4 v1, 0x0
 
     .line 157
     .local v1, "bitmap":Landroid/graphics/Bitmap;
-    :try_start_0
+    :try_start_6
     array-length v2, p0
 
     const/4 v3, 0x0
@@ -232,16 +232,16 @@
 
     .line 160
     invoke-virtual {v2}, Landroid/graphics/BitmapRegionDecoder;->recycle()V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_6 .. :try_end_19} :catch_4e
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_19} :catch_45
 
     .line 167
     .end local v2    # "decoder":Landroid/graphics/BitmapRegionDecoder;
     nop
 
     .line 169
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3d
 
     .line 174
     new-instance v0, Ljava/io/ByteArrayOutputStream;
@@ -260,7 +260,7 @@
 
     .line 176
     .local v2, "success":Z
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_33
 
     .line 180
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
@@ -273,7 +273,7 @@
     return-object v3
 
     .line 177
-    :cond_1
+    :cond_33
     new-instance v3, Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException;
 
     const-string v4, "Encode bitmap failed."
@@ -287,7 +287,7 @@
     .line 170
     .end local v0    # "out":Ljava/io/ByteArrayOutputStream;
     .end local v2    # "success":Z
-    :cond_2
+    :cond_3d
     new-instance v2, Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException;
 
     sget-object v3, Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;->DECODE_FAILED:Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;
@@ -297,7 +297,7 @@
     throw v2
 
     .line 164
-    :catch_0
+    :catch_45
     move-exception v2
 
     .line 165
@@ -312,7 +312,7 @@
 
     .line 161
     .end local v2    # "e":Ljava/io/IOException;
-    :catch_1
+    :catch_4e
     move-exception v0
 
     .line 162
@@ -345,7 +345,7 @@
 .end method
 
 .method public static getRotatedAspectRatio(ILandroid/util/Rational;)Landroid/util/Rational;
-    .locals 3
+    .registers 5
     .param p0, "rotationDegrees"    # I
     .param p1, "aspectRatio"    # Landroid/util/Rational;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -362,16 +362,16 @@
     .line 70
     const/16 v0, 0x5a
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_17
 
     const/16 v0, 0x10e
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_9
 
-    goto :goto_0
+    goto :goto_17
 
     .line 74
-    :cond_0
+    :cond_9
     new-instance v0, Landroid/util/Rational;
 
     invoke-virtual {p1}, Landroid/util/Rational;->getNumerator()I
@@ -387,8 +387,8 @@
     return-object v0
 
     .line 71
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     invoke-static {p1}, Landroidx/camera/core/internal/utils/ImageUtil;->inverseRational(Landroid/util/Rational;)Landroid/util/Rational;
 
     move-result-object v0
@@ -397,7 +397,7 @@
 .end method
 
 .method public static imageToJpegByteArray(Landroidx/camera/core/ImageProxy;)[B
-    .locals 3
+    .registers 4
     .param p0, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -425,34 +425,34 @@
 
     const/16 v2, 0x100
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_e
 
     .line 83
     invoke-static {p0}, Landroidx/camera/core/internal/utils/ImageUtil;->jpegImageToJpegByteArray(Landroidx/camera/core/ImageProxy;)[B
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_37
 
     .line 84
-    :cond_0
+    :cond_e
     invoke-interface {p0}, Landroidx/camera/core/ImageProxy;->getFormat()I
 
     move-result v1
 
     const/16 v2, 0x23
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1b
 
     .line 85
     invoke-static {p0}, Landroidx/camera/core/internal/utils/ImageUtil;->yuvImageToJpegByteArray(Landroidx/camera/core/ImageProxy;)[B
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_37
 
     .line 87
-    :cond_1
+    :cond_1b
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -480,12 +480,12 @@
     invoke-static {v2, v1}, Landroidx/camera/core/Logger;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 89
-    :goto_0
+    :goto_37
     return-object v0
 .end method
 
 .method private static inverseRational(Landroid/util/Rational;)Landroid/util/Rational;
-    .locals 3
+    .registers 4
     .param p0, "rational"    # Landroid/util/Rational;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -497,13 +497,13 @@
     .end annotation
 
     .line 257
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 258
     return-object p0
 
     .line 260
-    :cond_0
+    :cond_3
     new-instance v0, Landroid/util/Rational;
 
     .line 261
@@ -523,7 +523,7 @@
 .end method
 
 .method public static isAspectRatioValid(Landroid/util/Rational;)Z
-    .locals 2
+    .registers 3
     .param p0, "aspectRatio"    # Landroid/util/Rational;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -535,7 +535,7 @@
     .end annotation
 
     .line 187
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_13
 
     invoke-virtual {p0}, Landroid/util/Rational;->floatValue()F
 
@@ -545,27 +545,27 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_13
 
     invoke-virtual {p0}, Landroid/util/Rational;->isNaN()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public static isAspectRatioValid(Landroid/util/Size;Landroid/util/Rational;)Z
-    .locals 2
+    .registers 4
     .param p0, "sourceSize"    # Landroid/util/Size;
     .param p1, "aspectRatio"    # Landroid/util/Rational;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -580,7 +580,7 @@
     .end annotation
 
     .line 193
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_19
 
     .line 194
     invoke-virtual {p1}, Landroid/util/Rational;->floatValue()F
@@ -591,36 +591,36 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_19
 
     .line 195
     invoke-static {p0, p1}, Landroidx/camera/core/internal/utils/ImageUtil;->isCropAspectRatioHasEffect(Landroid/util/Size;Landroid/util/Rational;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 196
     invoke-virtual {p1}, Landroid/util/Rational;->isNaN()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
     .line 193
-    :goto_0
+    :goto_1a
     return v0
 .end method
 
 .method private static isCropAspectRatioHasEffect(Landroid/util/Size;Landroid/util/Rational;)Z
-    .locals 6
+    .registers 8
     .param p0, "sourceSize"    # Landroid/util/Size;
     .param p1, "aspectRatio"    # Landroid/util/Rational;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -673,7 +673,7 @@
 
     move-result v4
 
-    if-ne v1, v4, :cond_1
+    if-ne v1, v4, :cond_2b
 
     int-to-float v4, v1
 
@@ -690,26 +690,26 @@
 
     move-result v4
 
-    if-eq v0, v4, :cond_0
+    if-eq v0, v4, :cond_29
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_29
     const/4 v4, 0x0
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_1
-    :goto_0
+    :cond_2b
+    :goto_2b
     const/4 v4, 0x1
 
     .line 252
-    :goto_1
+    :goto_2c
     return v4
 .end method
 
 .method private static jpegImageToJpegByteArray(Landroidx/camera/core/ImageProxy;)[B
-    .locals 4
+    .registers 5
     .param p0, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -761,7 +761,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_25
 
     .line 279
     invoke-interface {p0}, Landroidx/camera/core/ImageProxy;->getCropRect()Landroid/graphics/Rect;
@@ -773,12 +773,12 @@
     move-result-object v2
 
     .line 281
-    :cond_0
+    :cond_25
     return-object v2
 .end method
 
 .method public static min(FFFF)F
-    .locals 2
+    .registers 6
     .param p0, "value1"    # F
     .param p1, "value2"    # F
     .param p2, "value3"    # F
@@ -815,7 +815,7 @@
 .end method
 
 .method private static nv21ToJpeg([BIILandroid/graphics/Rect;)[B
-    .locals 8
+    .registers 12
     .param p0, "nv21"    # [B
     .param p1, "width"    # I
     .param p2, "height"    # I
@@ -869,7 +869,7 @@
     nop
 
     .line 238
-    if-nez p3, :cond_0
+    if-nez p3, :cond_1b
 
     new-instance v2, Landroid/graphics/Rect;
 
@@ -877,13 +877,13 @@
 
     invoke-direct {v2, v3, v3, p1, p2}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     move-object v2, p3
 
     .line 237
-    :goto_0
+    :goto_1c
     const/16 v3, 0x64
 
     invoke-virtual {v1, v2, v3, v0}, Landroid/graphics/YuvImage;->compressToJpeg(Landroid/graphics/Rect;ILjava/io/OutputStream;)Z
@@ -892,7 +892,7 @@
 
     .line 239
     .local v2, "success":Z
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 243
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
@@ -902,7 +902,7 @@
     return-object v3
 
     .line 240
-    :cond_1
+    :cond_29
     new-instance v3, Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException;
 
     const-string v4, "YuvImage failed to encode jpeg."
@@ -915,7 +915,7 @@
 .end method
 
 .method private static shouldCropImage(Landroidx/camera/core/ImageProxy;)Z
-    .locals 4
+    .registers 5
     .param p0, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -973,7 +973,7 @@
 .end method
 
 .method public static sizeToVertexes(Landroid/util/Size;)[F
-    .locals 7
+    .registers 8
     .param p0, "size"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1053,7 +1053,7 @@
 .end method
 
 .method private static yuvImageToJpegByteArray(Landroidx/camera/core/ImageProxy;)[B
-    .locals 4
+    .registers 5
     .param p0, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1093,19 +1093,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
     invoke-interface {p0}, Landroidx/camera/core/ImageProxy;->getCropRect()Landroid/graphics/Rect;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v3, 0x0
 
     .line 286
-    :goto_0
+    :goto_19
     invoke-static {v0, v1, v2, v3}, Landroidx/camera/core/internal/utils/ImageUtil;->nv21ToJpeg([BIILandroid/graphics/Rect;)[B
 
     move-result-object v0
@@ -1114,7 +1114,7 @@
 .end method
 
 .method public static yuv_420_888toNv21(Landroidx/camera/core/ImageProxy;)[B
-    .locals 25
+    .registers 26
     .param p0, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1214,12 +1214,12 @@
     const/4 v11, 0x0
 
     .local v11, "row":I
-    :goto_0
+    :goto_3e
     invoke-interface/range {p0 .. p0}, Landroidx/camera/core/ImageProxy;->getHeight()I
 
     move-result v12
 
-    if-ge v11, v12, :cond_0
+    if-ge v11, v12, :cond_69
 
     .line 114
     invoke-interface/range {p0 .. p0}, Landroidx/camera/core/ImageProxy;->getWidth()I
@@ -1265,11 +1265,11 @@
     .line 113
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 120
     .end local v11    # "row":I
-    :cond_0
+    :cond_69
     invoke-interface/range {p0 .. p0}, Landroidx/camera/core/ImageProxy;->getHeight()I
 
     move-result v11
@@ -1332,8 +1332,8 @@
 
     .local v2, "row":I
     .local v18, "uPlane":Landroidx/camera/core/ImageProxy$PlaneProxy;
-    :goto_1
-    if-ge v2, v11, :cond_2
+    :goto_91
+    if-ge v2, v11, :cond_d0
 
     .line 132
     move-object/from16 v19, v3
@@ -1381,8 +1381,8 @@
     move/from16 v4, v21
 
     .local v4, "col":I
-    :goto_2
-    if-ge v4, v12, :cond_1
+    :goto_b5
+    if-ge v4, v12, :cond_c9
 
     .line 137
     add-int/lit8 v22, v9, 0x1
@@ -1411,20 +1411,20 @@
     .line 136
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_b5
 
     .line 131
     .end local v3    # "vLineBufferPosition":I
     .end local v4    # "col":I
     .end local v16    # "uLineBufferPosition":I
-    :cond_1
+    :cond_c9
     add-int/lit8 v2, v2, 0x1
 
     move-object/from16 v3, v19
 
     move/from16 v4, v20
 
-    goto :goto_1
+    goto :goto_91
 
     .line 144
     .end local v2    # "row":I
@@ -1432,6 +1432,6 @@
     .end local v20    # "vRowStride":I
     .local v3, "vPlane":Landroidx/camera/core/ImageProxy$PlaneProxy;
     .local v4, "vRowStride":I
-    :cond_2
+    :cond_d0
     return-object v10
 .end method

@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lmoe/matsuri/nb4a/utils/WebViewUtil;
 
@@ -57,7 +57,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public final interceptRequest(Lkotlin/jvm/functions/Function1;Landroid/webkit/WebView;Landroid/webkit/WebResourceRequest;)Landroid/webkit/WebResourceResponse;
-    .locals 8
+    .registers 12
     .param p1, "res"    # Lkotlin/jvm/functions/Function1;
     .param p2, "view"    # Landroid/webkit/WebView;
     .param p3, "request"    # Landroid/webkit/WebResourceRequest;
@@ -93,26 +93,26 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 25
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_13
 
     invoke-interface {p3}, Landroid/webkit/WebResourceRequest;->getUrl()Landroid/net/Uri;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     invoke-virtual {v0}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
-    :cond_0
+    :cond_13
     const-string v0, "404"
 
     .line 26
     .local v0, "path":Ljava/lang/String;
-    :cond_1
+    :cond_15
     invoke-interface {p1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -137,37 +137,37 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2a
 
     const-string v2, "application/javascript"
 
     .line 29
-    :cond_2
+    :cond_2a
     const-string v3, ".html"
 
     invoke-static {v0, v3, v4, v5, v6}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_34
 
     const-string v2, "text/html"
 
     .line 30
-    :cond_3
+    :cond_34
     const-string v3, "UTF-8"
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3e
 
     .line 31
     new-instance v4, Landroid/webkit/WebResourceResponse;
 
     invoke-direct {v4, v2, v3, v1}, Landroid/webkit/WebResourceResponse;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)V
 
-    goto :goto_0
+    goto :goto_59
 
     .line 33
-    :cond_4
+    :cond_3e
     new-instance v4, Landroid/webkit/WebResourceResponse;
 
     .line 34
@@ -195,12 +195,12 @@
     invoke-direct {v4, v6, v3, v5}, Landroid/webkit/WebResourceResponse;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)V
 
     .line 30
-    :goto_0
+    :goto_59
     return-object v4
 .end method
 
 .method public final onReceivedError(Landroid/webkit/WebView;Landroid/webkit/WebResourceRequest;Landroid/webkit/WebResourceError;)V
-    .locals 3
+    .registers 7
     .param p1, "view"    # Landroid/webkit/WebView;
     .param p2, "request"    # Landroid/webkit/WebResourceRequest;
     .param p3, "error"    # Landroid/webkit/WebResourceError;
@@ -210,9 +210,9 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_24
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_24
 
     .line 17
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -242,7 +242,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->e(Ljava/lang/String;)V
 
     .line 19
-    :cond_0
+    :cond_24
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v1, Ljava/lang/StringBuilder;

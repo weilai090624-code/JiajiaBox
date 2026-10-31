@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;Z)V
-    .locals 2
+    .registers 5
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "isVisibleToUser"    # Z
 
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public final isVisibleToUser()Z
-    .locals 1
+    .registers 2
 
     .line 29
     iget-boolean v0, p0, Landroidx/fragment/app/strictmode/SetUserVisibleHintViolation;->isVisibleToUser:Z

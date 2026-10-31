@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/CollectionsKt__IteratorsKt;-><init>()V
 
@@ -50,7 +50,7 @@
 .end method
 
 .method private static final fill(Ljava/util/List;Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$fill"    # Ljava/util/List;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -75,7 +75,7 @@
 .end method
 
 .method private static final shuffle(Ljava/util/List;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$shuffle"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -99,7 +99,7 @@
 .end method
 
 .method private static final shuffle(Ljava/util/List;Ljava/util/Random;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$shuffle"    # Ljava/util/List;
     .param p1, "random"    # Ljava/util/Random;
     .annotation system Ldalvik/annotation/Signature;
@@ -130,7 +130,7 @@
 .end method
 
 .method public static final sort(Ljava/util/List;)V
-    .locals 2
+    .registers 3
     .param p0, "$this$sort"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -153,17 +153,17 @@
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_f
 
     invoke-static {p0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
     .line 32
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method private static final sort(Ljava/util/List;Ljava/util/Comparator;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$sort"    # Ljava/util/List;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -208,7 +208,7 @@
 .end method
 
 .method private static final sort(Ljava/util/List;Lkotlin/jvm/functions/Function2;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$sort"    # Ljava/util/List;
     .param p1, "comparison"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -255,7 +255,7 @@
 .end method
 
 .method public static final sortWith(Ljava/util/List;Ljava/util/Comparator;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$sortWith"    # Ljava/util/List;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -285,11 +285,11 @@
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_14
 
     invoke-static {p0, p1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
     .line 43
-    :cond_0
+    :cond_14
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ActionMenuView;)V
-    .locals 0
+    .registers 2
 
     .line 775
     iput-object p1, p0, Landroidx/appcompat/widget/ActionMenuView$MenuBuilderCallback;->this$0:Landroidx/appcompat/widget/ActionMenuView;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "item"    # Landroid/view/MenuItem;
 
@@ -46,7 +46,7 @@
 
     iget-object v0, v0, Landroidx/appcompat/widget/ActionMenuView;->mOnMenuItemClickListener:Landroidx/appcompat/widget/ActionMenuView$OnMenuItemClickListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Landroidx/appcompat/widget/ActionMenuView$MenuBuilderCallback;->this$0:Landroidx/appcompat/widget/ActionMenuView;
 
@@ -57,22 +57,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     .line 780
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public onMenuModeChange(Landroidx/appcompat/view/menu/MenuBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
     .line 786
@@ -80,7 +80,7 @@
 
     iget-object v0, v0, Landroidx/appcompat/widget/ActionMenuView;->mMenuBuilderCallback:Landroidx/appcompat/view/menu/MenuBuilder$Callback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 787
     iget-object v0, p0, Landroidx/appcompat/widget/ActionMenuView$MenuBuilderCallback;->this$0:Landroidx/appcompat/widget/ActionMenuView;
@@ -90,6 +90,6 @@
     invoke-interface {v0, p1}, Landroidx/appcompat/view/menu/MenuBuilder$Callback;->onMenuModeChange(Landroidx/appcompat/view/menu/MenuBuilder;)V
 
     .line 789
-    :cond_0
+    :cond_d
     return-void
 .end method

@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Příchozí hovor</string>
     <string name="call_notification_ongoing_text">Probíhající hovor</string>
     <string name="call_notification_screening_text">Prověřování příchozího hovoru</string>
-    <string name="character_counter_content_description" formatted="false">Zadané znaky: %1$d z %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Byl překročen povolený počet znaků (%1$d z %2$d)</string>
+    <string name="character_counter_content_description">Zadané znaky: %1$d z %2$d</string>
+    <string name="character_counter_overflowed_content_description">Byl překročen povolený počet znaků (%1$d z %2$d)</string>
     <string name="clear_text_end_icon_content_description">Vymazat text</string>
     <string name="copy">Kopírovat</string>
     <string name="copy_toast_msg">Odkaz zkopírován do schránky</string>
@@ -90,7 +90,7 @@
     <string name="mtrl_picker_out_of_range">Mimo rozsah: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Datum zahájení – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – datum ukončení</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Vyberte rozsah</string>
     <string name="mtrl_picker_range_header_unselected">Datum zahájení – datum ukončení</string>
     <string name="mtrl_picker_save">Uložit</string>
@@ -113,7 +113,7 @@
     <string name="preference_copied">Položka %1$s byla zkopírována do schránky.</string>
     <string name="search_menu_title">Hledat</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">Vypnuto</string>
     <string name="v7_preference_on">Zapnuto</string>
 </resources>

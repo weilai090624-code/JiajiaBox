@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILandroid/app/Notification;Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p1, "platformTag"    # Ljava/lang/String;
     .param p2, "platformId"    # I
     .param p3, "notification"    # Landroid/app/Notification;
@@ -52,7 +52,7 @@
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;
-    .locals 5
+    .registers 6
     .param p0, "bundle"    # Landroid/os/Bundle;
 
     .line 204
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method public toBundle()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 216
     new-instance v0, Landroid/os/Bundle;

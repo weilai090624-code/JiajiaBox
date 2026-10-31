@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 268
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getApkContentsSigners(Landroid/content/pm/SigningInfo;)[Landroid/content/pm/Signature;
-    .locals 1
+    .registers 2
     .param p0, "signingInfo"    # Landroid/content/pm/SigningInfo;
 
     .line 286
@@ -38,7 +38,7 @@
 .end method
 
 .method static getLongVersionCode(Landroid/content/pm/PackageInfo;)J
-    .locals 2
+    .registers 3
     .param p0, "packageInfo"    # Landroid/content/pm/PackageInfo;
 
     .line 297
@@ -50,7 +50,7 @@
 .end method
 
 .method static getSigningCertificateHistory(Landroid/content/pm/SigningInfo;)[Landroid/content/pm/Signature;
-    .locals 1
+    .registers 2
     .param p0, "signingInfo"    # Landroid/content/pm/SigningInfo;
 
     .line 292
@@ -62,7 +62,7 @@
 .end method
 
 .method static hasMultipleSigners(Landroid/content/pm/SigningInfo;)Z
-    .locals 1
+    .registers 2
     .param p0, "signingInfo"    # Landroid/content/pm/SigningInfo;
 
     .line 280
@@ -74,7 +74,7 @@
 .end method
 
 .method static hasSigningCertificate(Landroid/content/pm/PackageManager;Ljava/lang/String;[BI)Z
-    .locals 1
+    .registers 5
     .param p0, "packageManager"    # Landroid/content/pm/PackageManager;
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "bytes"    # [B

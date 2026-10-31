@@ -55,7 +55,7 @@
 
 # direct methods
 .method public static final toString-JSWoG40(JI)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this$toString_u2dJSWoG40"    # J
     .param p2, "radix"    # I
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public static final toString-LxnNnR4(BI)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$toString_u2dLxnNnR4"    # B
     .param p1, "radix"    # I
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public static final toString-V7xB4Y4(II)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0, "$this$toString_u2dV7xB4Y4"    # I
     .param p1, "radix"    # I
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public static final toString-olVBNx4(SI)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$toString_u2dolVBNx4"    # S
     .param p1, "radix"    # I
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public static final toUByte(Ljava/lang/String;)B
-    .locals 1
+    .registers 2
     .param p0, "$this$toUByte"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -155,7 +155,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lkotlin/UByte;->unbox-impl()B
 
@@ -163,7 +163,7 @@
 
     return v0
 
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lkotlin/text/StringsKt;->numberFormatError(Ljava/lang/String;)Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -174,7 +174,7 @@
 .end method
 
 .method public static final toUByte(Ljava/lang/String;I)B
-    .locals 1
+    .registers 3
     .param p0, "$this$toUByte"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -187,7 +187,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lkotlin/UByte;->unbox-impl()B
 
@@ -195,7 +195,7 @@
 
     return v0
 
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lkotlin/text/StringsKt;->numberFormatError(Ljava/lang/String;)Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -206,7 +206,7 @@
 .end method
 
 .method public static final toUByteOrNull(Ljava/lang/String;)Lkotlin/UByte;
-    .locals 1
+    .registers 2
     .param p0, "$this$toUByteOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -224,7 +224,7 @@
 .end method
 
 .method public static final toUByteOrNull(Ljava/lang/String;I)Lkotlin/UByte;
-    .locals 3
+    .registers 5
     .param p0, "$this$toUByteOrNull"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -239,7 +239,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     invoke-virtual {v0}, Lkotlin/UInt;->unbox-impl()I
 
@@ -257,12 +257,12 @@
 
     move-result v2
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_1d
 
     return-object v1
 
     .line 143
-    :cond_0
+    :cond_1d
     int-to-byte v1, v0
 
     invoke-static {v1}, Lkotlin/UByte;->constructor-impl(B)B
@@ -277,12 +277,12 @@
 
     .line 141
     .end local v0    # "int":I
-    :cond_1
+    :cond_27
     return-object v1
 .end method
 
 .method public static final toUInt(Ljava/lang/String;)I
-    .locals 1
+    .registers 2
     .param p0, "$this$toUInt"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -294,7 +294,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lkotlin/UInt;->unbox-impl()I
 
@@ -302,7 +302,7 @@
 
     return v0
 
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lkotlin/text/StringsKt;->numberFormatError(Ljava/lang/String;)Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -313,7 +313,7 @@
 .end method
 
 .method public static final toUInt(Ljava/lang/String;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$toUInt"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -326,7 +326,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lkotlin/UInt;->unbox-impl()I
 
@@ -334,7 +334,7 @@
 
     return v0
 
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lkotlin/text/StringsKt;->numberFormatError(Ljava/lang/String;)Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -345,7 +345,7 @@
 .end method
 
 .method public static final toUIntOrNull(Ljava/lang/String;)Lkotlin/UInt;
-    .locals 1
+    .registers 2
     .param p0, "$this$toUIntOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -363,7 +363,7 @@
 .end method
 
 .method public static final toUIntOrNull(Ljava/lang/String;I)Lkotlin/UInt;
-    .locals 13
+    .registers 15
     .param p0, "$this$toUIntOrNull"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -383,12 +383,12 @@
     .local v0, "length":I
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     return-object v1
 
     .line 190
-    :cond_0
+    :cond_10
     const/4 v2, -0x1
 
     .line 191
@@ -411,36 +411,36 @@
 
     move-result v5
 
-    if-gez v5, :cond_3
+    if-gez v5, :cond_2a
 
     .line 195
     const/4 v5, 0x1
 
-    if-eq v0, v5, :cond_2
+    if-eq v0, v5, :cond_29
 
     const/16 v5, 0x2b
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_27
 
-    goto :goto_0
+    goto :goto_29
 
     .line 196
-    :cond_1
+    :cond_27
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 195
-    :cond_2
-    :goto_0
+    :cond_29
+    :goto_29
     return-object v1
 
     .line 198
-    :cond_3
+    :cond_2a
     const/4 v3, 0x0
 
     .line 201
-    :goto_1
+    :goto_2b
     const v5, 0x71c71c7
 
     .line 203
@@ -462,8 +462,8 @@
     move v9, v3
 
     .local v9, "i":I
-    :goto_2
-    if-ge v9, v0, :cond_8
+    :goto_35
+    if-ge v9, v0, :cond_70
 
     .line 207
     invoke-virtual {p0, v9}, Ljava/lang/String;->charAt(I)C
@@ -476,20 +476,20 @@
 
     .line 209
     .local v10, "digit":I
-    if-gez v10, :cond_4
+    if-gez v10, :cond_42
 
     return-object v1
 
     .line 210
-    :cond_4
+    :cond_42
     invoke-static {v8, v6}, Lkotlin/UByte$$ExternalSyntheticBackport5;->m(II)I
 
     move-result v11
 
-    if-lez v11, :cond_6
+    if-lez v11, :cond_56
 
     .line 211
-    if-ne v6, v5, :cond_5
+    if-ne v6, v5, :cond_55
 
     .line 212
     invoke-static {v2, v7}, Lkotlin/UByte$$ExternalSyntheticBackport0;->m(II)I
@@ -501,17 +501,17 @@
 
     move-result v11
 
-    if-lez v11, :cond_6
+    if-lez v11, :cond_56
 
     .line 215
     return-object v1
 
     .line 218
-    :cond_5
+    :cond_55
     return-object v1
 
     .line 222
-    :cond_6
+    :cond_56
     mul-int v11, v8, v7
 
     invoke-static {v11}, Lkotlin/UInt;->constructor-impl(I)I
@@ -538,21 +538,21 @@
 
     move-result v12
 
-    if-gez v12, :cond_7
+    if-gez v12, :cond_6d
 
     return-object v1
 
     .line 206
     .end local v10    # "digit":I
     .end local v11    # "beforeAdding":I
-    :cond_7
+    :cond_6d
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_2
+    goto :goto_35
 
     .line 229
     .end local v9    # "i":I
-    :cond_8
+    :cond_70
     invoke-static {v8}, Lkotlin/UInt;->box-impl(I)Lkotlin/UInt;
 
     move-result-object v1
@@ -561,7 +561,7 @@
 .end method
 
 .method public static final toULong(Ljava/lang/String;)J
-    .locals 2
+    .registers 3
     .param p0, "$this$toULong"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -573,7 +573,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lkotlin/ULong;->unbox-impl()J
 
@@ -581,7 +581,7 @@
 
     return-wide v0
 
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lkotlin/text/StringsKt;->numberFormatError(Ljava/lang/String;)Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -592,7 +592,7 @@
 .end method
 
 .method public static final toULong(Ljava/lang/String;I)J
-    .locals 2
+    .registers 4
     .param p0, "$this$toULong"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -605,7 +605,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lkotlin/ULong;->unbox-impl()J
 
@@ -613,7 +613,7 @@
 
     return-wide v0
 
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lkotlin/text/StringsKt;->numberFormatError(Ljava/lang/String;)Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -624,7 +624,7 @@
 .end method
 
 .method public static final toULongOrNull(Ljava/lang/String;)Lkotlin/ULong;
-    .locals 1
+    .registers 2
     .param p0, "$this$toULongOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -642,7 +642,7 @@
 .end method
 
 .method public static final toULongOrNull(Ljava/lang/String;I)Lkotlin/ULong;
-    .locals 22
+    .registers 24
     .param p0, "$this$toULongOrNull"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -666,12 +666,12 @@
     .local v2, "length":I
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     return-object v3
 
     .line 254
-    :cond_0
+    :cond_14
     const-wide/16 v4, -0x1
 
     .line 255
@@ -694,36 +694,36 @@
 
     move-result v8
 
-    if-gez v8, :cond_3
+    if-gez v8, :cond_2f
 
     .line 259
     const/4 v8, 0x1
 
-    if-eq v2, v8, :cond_2
+    if-eq v2, v8, :cond_2e
 
     const/16 v8, 0x2b
 
-    if-eq v7, v8, :cond_1
+    if-eq v7, v8, :cond_2c
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 260
-    :cond_1
+    :cond_2c
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_30
 
     .line 259
-    :cond_2
-    :goto_0
+    :cond_2e
+    :goto_2e
     return-object v3
 
     .line 262
-    :cond_3
+    :cond_2f
     const/4 v6, 0x0
 
     .line 266
-    :goto_1
+    :goto_30
     const-wide v8, 0x71c71c71c71c71cL
 
     .line 268
@@ -749,8 +749,8 @@
     move/from16 v3, v16
 
     .local v3, "i":I
-    :goto_2
-    if-ge v3, v2, :cond_9
+    :goto_41
+    if-ge v3, v2, :cond_a2
 
     .line 272
     move/from16 v17, v2
@@ -767,24 +767,24 @@
 
     .line 274
     .local v2, "digit":I
-    if-gez v2, :cond_4
+    if-gez v2, :cond_52
 
     const/16 v16, 0x0
 
     return-object v16
 
     .line 275
-    :cond_4
+    :cond_52
     invoke-static {v14, v15, v10, v11}, Lkotlin/UByte$$ExternalSyntheticBackport4;->m(JJ)I
 
     move-result v18
 
-    if-lez v18, :cond_7
+    if-lez v18, :cond_6f
 
     .line 276
     cmp-long v18, v10, v8
 
-    if-nez v18, :cond_6
+    if-nez v18, :cond_6c
 
     .line 277
     invoke-static {v4, v5, v12, v13}, Lkotlin/UByte$$ExternalSyntheticBackport3;->m(JJ)J
@@ -796,7 +796,7 @@
 
     move-result v18
 
-    if-lez v18, :cond_5
+    if-lez v18, :cond_69
 
     .line 280
     const/16 v16, 0x0
@@ -804,20 +804,20 @@
     return-object v16
 
     .line 279
-    :cond_5
+    :cond_69
     const/16 v16, 0x0
 
-    goto :goto_3
+    goto :goto_6f
 
     .line 283
-    :cond_6
+    :cond_6c
     const/16 v16, 0x0
 
     return-object v16
 
     .line 287
-    :cond_7
-    :goto_3
+    :cond_6f
+    :goto_6f
     mul-long v18, v14, v12
 
     invoke-static/range {v18 .. v19}, Lkotlin/ULong;->constructor-impl(J)J
@@ -858,13 +858,13 @@
 
     move-result v18
 
-    if-gez v18, :cond_8
+    if-gez v18, :cond_97
 
     const/16 v16, 0x0
 
     return-object v16
 
-    :cond_8
+    :cond_97
     const/16 v16, 0x0
 
     .line 271
@@ -878,13 +878,13 @@
 
     move/from16 v2, v17
 
-    goto :goto_2
+    goto :goto_41
 
     .line 294
     .end local v3    # "i":I
     .end local v17    # "length":I
     .local v2, "length":I
-    :cond_9
+    :cond_a2
     invoke-static {v14, v15}, Lkotlin/ULong;->box-impl(J)Lkotlin/ULong;
 
     move-result-object v0
@@ -893,7 +893,7 @@
 .end method
 
 .method public static final toUShort(Ljava/lang/String;)S
-    .locals 1
+    .registers 2
     .param p0, "$this$toUShort"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -905,7 +905,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lkotlin/UShort;->unbox-impl()S
 
@@ -913,7 +913,7 @@
 
     return v0
 
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lkotlin/text/StringsKt;->numberFormatError(Ljava/lang/String;)Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -924,7 +924,7 @@
 .end method
 
 .method public static final toUShort(Ljava/lang/String;I)S
-    .locals 1
+    .registers 3
     .param p0, "$this$toUShort"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -937,7 +937,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lkotlin/UShort;->unbox-impl()S
 
@@ -945,7 +945,7 @@
 
     return v0
 
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lkotlin/text/StringsKt;->numberFormatError(Ljava/lang/String;)Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -956,7 +956,7 @@
 .end method
 
 .method public static final toUShortOrNull(Ljava/lang/String;)Lkotlin/UShort;
-    .locals 1
+    .registers 2
     .param p0, "$this$toUShortOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -974,7 +974,7 @@
 .end method
 
 .method public static final toUShortOrNull(Ljava/lang/String;I)Lkotlin/UShort;
-    .locals 3
+    .registers 5
     .param p0, "$this$toUShortOrNull"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -989,7 +989,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     invoke-virtual {v0}, Lkotlin/UInt;->unbox-impl()I
 
@@ -1007,12 +1007,12 @@
 
     move-result v2
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_1e
 
     return-object v1
 
     .line 165
-    :cond_0
+    :cond_1e
     int-to-short v1, v0
 
     invoke-static {v1}, Lkotlin/UShort;->constructor-impl(S)S
@@ -1027,6 +1027,6 @@
 
     .line 163
     .end local v0    # "int":I
-    :cond_1
+    :cond_28
     return-object v1
 .end method

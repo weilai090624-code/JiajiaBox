@@ -21,7 +21,7 @@
 
 # direct methods
 .method public varargs constructor <init>([Landroidx/camera/camera2/impl/CameraEventCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "callbacks"    # [Landroidx/camera/camera2/impl/CameraEventCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -47,7 +47,7 @@
 .end method
 
 .method public static createEmptyCallback()Landroidx/camera/camera2/impl/CameraEventCallbacks;
-    .locals 2
+    .registers 2
 
     .line 46
     new-instance v0, Landroidx/camera/camera2/impl/CameraEventCallbacks;
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public clone()Landroidx/camera/core/impl/MultiValueSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -108,7 +108,7 @@
 .end method
 
 .method public createComboCallback()Landroidx/camera/camera2/impl/CameraEventCallbacks$ComboCameraEventCallback;
-    .locals 2
+    .registers 3
 
     .line 40
     new-instance v0, Landroidx/camera/camera2/impl/CameraEventCallbacks$ComboCameraEventCallback;

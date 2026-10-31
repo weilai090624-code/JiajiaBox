@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 782
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static setAllowSystemGeneratedContextualActions(Landroid/app/Notification$Builder;Z)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "allowed"    # Z
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static setBubbleMetadata(Landroid/app/Notification$Builder;Landroid/app/Notification$BubbleMetadata;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "data"    # Landroid/app/Notification$BubbleMetadata;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static setContextual(Landroid/app/Notification$Action$Builder;Z)Landroid/app/Notification$Action$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Action$Builder;
     .param p1, "isContextual"    # Z
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static setLocusId(Landroid/app/Notification$Builder;Ljava/lang/Object;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "locusId"    # Ljava/lang/Object;
 

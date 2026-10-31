@@ -91,7 +91,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;)V
-    .locals 0
+    .registers 4
     .param p1, "upstream"    # Lkotlinx/coroutines/flow/Flow;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .param p3, "areEquivalent"    # Lkotlin/jvm/functions/Function2;
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "collector"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -174,11 +174,11 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1d
 
     return-object v1
 
-    :cond_0
+    :cond_1d
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 80

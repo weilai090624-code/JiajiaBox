@@ -122,7 +122,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;ILokhttp3/Dns;Ljavax/net/SocketFactory;Ljavax/net/ssl/SSLSocketFactory;Ljavax/net/ssl/HostnameVerifier;Lokhttp3/CertificatePinner;Lokhttp3/Authenticator;Ljava/net/Proxy;Ljava/util/List;Ljava/util/List;Ljava/net/ProxySelector;)V
-    .locals 2
+    .registers 15
     .param p1, "uriHost"    # Ljava/lang/String;
     .param p2, "uriPort"    # I
     .param p3, "dns"    # Lokhttp3/Dns;
@@ -225,16 +225,16 @@
     .line 75
     iget-object v1, p0, Lokhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_43
 
     const-string v1, "https"
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_0
+    :cond_43
     const-string v1, "http"
 
-    :goto_0
+    :goto_45
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->scheme(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     move-result-object v0
@@ -277,7 +277,7 @@
 
 # virtual methods
 .method public final -deprecated_certificatePinner()Lokhttp3/CertificatePinner;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -294,7 +294,7 @@
 .end method
 
 .method public final -deprecated_connectionSpecs()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -320,7 +320,7 @@
 .end method
 
 .method public final -deprecated_dns()Lokhttp3/Dns;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -337,7 +337,7 @@
 .end method
 
 .method public final -deprecated_hostnameVerifier()Ljavax/net/ssl/HostnameVerifier;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -354,7 +354,7 @@
 .end method
 
 .method public final -deprecated_protocols()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -380,7 +380,7 @@
 .end method
 
 .method public final -deprecated_proxy()Ljava/net/Proxy;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -397,7 +397,7 @@
 .end method
 
 .method public final -deprecated_proxyAuthenticator()Lokhttp3/Authenticator;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -414,7 +414,7 @@
 .end method
 
 .method public final -deprecated_proxySelector()Ljava/net/ProxySelector;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -431,7 +431,7 @@
 .end method
 
 .method public final -deprecated_socketFactory()Ljavax/net/SocketFactory;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -448,7 +448,7 @@
 .end method
 
 .method public final -deprecated_sslSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -465,7 +465,7 @@
 .end method
 
 .method public final -deprecated_url()Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -482,7 +482,7 @@
 .end method
 
 .method public final certificatePinner()Lokhttp3/CertificatePinner;
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Lokhttp3/Address;->certificatePinner:Lokhttp3/CertificatePinner;
@@ -491,7 +491,7 @@
 .end method
 
 .method public final connectionSpecs()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -508,7 +508,7 @@
 .end method
 
 .method public final dns()Lokhttp3/Dns;
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Lokhttp3/Address;->dns:Lokhttp3/Dns;
@@ -517,13 +517,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 167
     instance-of v0, p1, Lokhttp3/Address;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 168
     iget-object v0, p0, Lokhttp3/Address;->url:Lokhttp3/HttpUrl;
@@ -538,7 +538,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 169
     move-object v0, p1
@@ -549,22 +549,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
     .line 167
-    :goto_0
+    :goto_1d
     return v0
 .end method
 
 .method public final equalsNonHost$okhttp(Lokhttp3/Address;)Z
-    .locals 2
+    .registers 4
     .param p1, "that"    # Lokhttp3/Address;
 
     const-string v0, "that"
@@ -580,7 +580,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6f
 
     .line 189
     iget-object v0, p0, Lokhttp3/Address;->proxyAuthenticator:Lokhttp3/Authenticator;
@@ -591,7 +591,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6f
 
     .line 190
     iget-object v0, p0, Lokhttp3/Address;->protocols:Ljava/util/List;
@@ -602,7 +602,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6f
 
     .line 191
     iget-object v0, p0, Lokhttp3/Address;->connectionSpecs:Ljava/util/List;
@@ -613,7 +613,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6f
 
     .line 192
     iget-object v0, p0, Lokhttp3/Address;->proxySelector:Ljava/net/ProxySelector;
@@ -624,7 +624,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6f
 
     .line 193
     iget-object v0, p0, Lokhttp3/Address;->proxy:Ljava/net/Proxy;
@@ -635,7 +635,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6f
 
     .line 194
     iget-object v0, p0, Lokhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
@@ -646,7 +646,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6f
 
     .line 195
     iget-object v0, p0, Lokhttp3/Address;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
@@ -657,7 +657,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6f
 
     .line 196
     iget-object v0, p0, Lokhttp3/Address;->certificatePinner:Lokhttp3/CertificatePinner;
@@ -668,7 +668,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6f
 
     .line 197
     iget-object v0, p0, Lokhttp3/Address;->url:Lokhttp3/HttpUrl;
@@ -683,22 +683,22 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_70
 
-    :cond_0
+    :cond_6f
     const/4 v0, 0x0
 
     .line 188
-    :goto_0
+    :goto_70
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 173
     const/16 v0, 0x11
@@ -839,7 +839,7 @@
 .end method
 
 .method public final hostnameVerifier()Ljavax/net/ssl/HostnameVerifier;
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Lokhttp3/Address;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
@@ -848,7 +848,7 @@
 .end method
 
 .method public final protocols()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -865,7 +865,7 @@
 .end method
 
 .method public final proxy()Ljava/net/Proxy;
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lokhttp3/Address;->proxy:Ljava/net/Proxy;
@@ -874,7 +874,7 @@
 .end method
 
 .method public final proxyAuthenticator()Lokhttp3/Authenticator;
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Lokhttp3/Address;->proxyAuthenticator:Lokhttp3/Authenticator;
@@ -883,7 +883,7 @@
 .end method
 
 .method public final proxySelector()Ljava/net/ProxySelector;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lokhttp3/Address;->proxySelector:Ljava/net/ProxySelector;
@@ -892,7 +892,7 @@
 .end method
 
 .method public final socketFactory()Ljavax/net/SocketFactory;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Lokhttp3/Address;->socketFactory:Ljavax/net/SocketFactory;
@@ -901,7 +901,7 @@
 .end method
 
 .method public final sslSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
-    .locals 1
+    .registers 2
 
     .line 44
     iget-object v0, p0, Lokhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
@@ -910,7 +910,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 201
     new-instance v0, Ljava/lang/StringBuilder;
@@ -966,20 +966,20 @@
     .line 203
     iget-object v1, p0, Lokhttp3/Address;->proxy:Ljava/net/Proxy;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_35
 
     const-string v1, "proxy="
 
     iget-object v2, p0, Lokhttp3/Address;->proxy:Ljava/net/Proxy;
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
+    :cond_35
     const-string v1, "proxySelector="
 
     iget-object v2, p0, Lokhttp3/Address;->proxySelector:Ljava/net/ProxySelector;
 
-    :goto_0
+    :goto_39
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -1003,7 +1003,7 @@
 .end method
 
 .method public final url()Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 2
 
     .line 74
     iget-object v0, p0, Lokhttp3/Address;->url:Lokhttp3/HttpUrl;

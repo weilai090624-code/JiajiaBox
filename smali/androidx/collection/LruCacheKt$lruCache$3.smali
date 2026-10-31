@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/collection/LruCacheKt$lruCache$3;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x4
 
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 5
 
     check-cast p1, Ljava/lang/Boolean;
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public final invoke(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 6
     .param p1, "$noName_0"    # Z
     .param p2, "$noName_1"    # Ljava/lang/Object;
     .param p3, "$noName_2"    # Ljava/lang/Object;

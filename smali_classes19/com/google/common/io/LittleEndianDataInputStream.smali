@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "in"    # Ljava/io/InputStream;
 
     .line 53
@@ -30,7 +30,7 @@
 .end method
 
 .method private readAndCheckByte()B
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -49,7 +49,7 @@
     .local v0, "b1":I
     const/4 v1, -0x1
 
-    if-eq v1, v0, :cond_0
+    if-eq v1, v0, :cond_b
 
     .line 238
     int-to-byte v1, v0
@@ -57,7 +57,7 @@
     return v1
 
     .line 235
-    :cond_0
+    :cond_b
     new-instance v1, Ljava/io/EOFException;
 
     invoke-direct {v1}, Ljava/io/EOFException;-><init>()V
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public readBoolean()Z
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -80,21 +80,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public readByte()B
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -112,7 +112,7 @@
 .end method
 
 .method public readChar()C
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -130,7 +130,7 @@
 .end method
 
 .method public readDouble()D
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -150,7 +150,7 @@
 .end method
 
 .method public readFloat()F
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -170,7 +170,7 @@
 .end method
 
 .method public readFully([B)V
-    .locals 0
+    .registers 2
     .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -186,7 +186,7 @@
 .end method
 
 .method public readFully([BII)V
-    .locals 0
+    .registers 4
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -204,7 +204,7 @@
 .end method
 
 .method public readInt()I
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -244,7 +244,7 @@
 .end method
 
 .method public readLine()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 61
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -257,7 +257,7 @@
 .end method
 
 .method public readLong()J
-    .locals 16
+    .registers 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -337,7 +337,7 @@
 .end method
 
 .method public readShort()S
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -355,7 +355,7 @@
 .end method
 
 .method public readUTF()Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -377,7 +377,7 @@
 .end method
 
 .method public readUnsignedByte()I
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -393,13 +393,13 @@
 
     .line 83
     .local v0, "b1":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_9
 
     .line 87
     return v0
 
     .line 84
-    :cond_0
+    :cond_9
     new-instance v1, Ljava/io/EOFException;
 
     invoke-direct {v1}, Ljava/io/EOFException;-><init>()V
@@ -408,7 +408,7 @@
 .end method
 
 .method public readUnsignedShort()I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -438,7 +438,7 @@
 .end method
 
 .method public skipBytes(I)I
-    .locals 3
+    .registers 5
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -1,6 +1,9 @@
 .class Lio/nekohasekai/sagernet/ui/DrawerMorph$State$1;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "DrawerMorph.java"
+
+# interfaces
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
@@ -30,43 +33,23 @@
         }
     .end annotation
 
-    .line 100
+    .line 195
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/DrawerMorph$State$1;->this$0:Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .registers 3
 
-    .line 101
-    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/DrawerMorph$State$1;->this$0:Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
+    .line 198
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerMorph$State$1;->this$0:Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
 
-    const/4 v0, 0x0
+    invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->m31lambda$new$0$ionekohasekaisagernetuiDrawerMorph$State(Landroid/animation/ValueAnimator;)V
 
-    invoke-virtual {p1, v0}, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->stop(Z)V
-
-    return-void
-.end method
-
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .registers 2
-
-    .line 102
-    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/DrawerMorph$State$1;->this$0:Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
-
-    iget-boolean p1, p1, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->stopped:Z
-
-    if-nez p1, :cond_b
-
-    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/DrawerMorph$State$1;->this$0:Lio/nekohasekai/sagernet/ui/DrawerMorph$State;
-
-    invoke-virtual {p1}, Lio/nekohasekai/sagernet/ui/DrawerMorph$State;->finish()V
-
-    :cond_b
     return-void
 .end method

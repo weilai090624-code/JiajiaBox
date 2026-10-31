@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public final apply(J)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p1, p2}, Lj$/util/stream/Nodes;->intBuilder(J)Lj$/util/stream/Node$Builder$OfInt;
 

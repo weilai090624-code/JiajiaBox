@@ -58,7 +58,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 12
     const-class v0, Lkotlin/time/Duration;
@@ -72,8 +72,8 @@
 
     new-array v2, v1, [Ljava/lang/ThreadLocal;
 
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_8
+    if-ge v0, v1, :cond_14
 
     new-instance v3, Ljava/lang/ThreadLocal;
 
@@ -83,16 +83,16 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_14
     sput-object v2, Lkotlin/time/DurationJvmKt;->precisionFormats:[Ljava/lang/ThreadLocal;
 
     return-void
 .end method
 
 .method private static final createFormatForDecimals(I)Ljava/text/DecimalFormat;
-    .locals 4
+    .registers 5
     .param p0, "decimals"    # I
 
     .line 16
@@ -109,12 +109,12 @@
 
     .line 17
     .local v2, "$i$a$-apply-DurationJvmKt$createFormatForDecimals$1":I
-    if-lez p0, :cond_0
+    if-lez p0, :cond_e
 
     invoke-virtual {v1, p0}, Ljava/text/DecimalFormat;->setMinimumFractionDigits(I)V
 
     .line 18
-    :cond_0
+    :cond_e
     sget-object v3, Ljava/math/RoundingMode;->HALF_UP:Ljava/math/RoundingMode;
 
     invoke-virtual {v1, v3}, Ljava/text/DecimalFormat;->setRoundingMode(Ljava/math/RoundingMode;)V
@@ -132,7 +132,7 @@
 .end method
 
 .method public static final formatToExactDecimals(DI)Ljava/lang/String;
-    .locals 3
+    .registers 6
     .param p0, "value"    # D
     .param p2, "decimals"    # I
 
@@ -141,7 +141,7 @@
 
     array-length v0, v0
 
-    if-ge p2, v0, :cond_1
+    if-ge p2, v0, :cond_1e
 
     .line 23
     sget-object v0, Lkotlin/time/DurationJvmKt;->precisionFormats:[Ljava/lang/ThreadLocal;
@@ -152,7 +152,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 29
     const/4 v1, 0x0
@@ -166,24 +166,24 @@
     .end local v1    # "$i$a$-getOrSet-DurationJvmKt$formatToExactDecimals$format$1":I
     invoke-virtual {v0, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_18
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_1b
     check-cast v1, Ljava/text/DecimalFormat;
 
-    goto :goto_1
+    goto :goto_22
 
     .line 25
-    :cond_1
+    :cond_1e
     invoke-static {p2}, Lkotlin/time/DurationJvmKt;->createFormatForDecimals(I)Ljava/text/DecimalFormat;
 
     move-result-object v1
 
     .line 22
-    :goto_1
+    :goto_22
     move-object v0, v1
 
     .line 26
@@ -200,7 +200,7 @@
 .end method
 
 .method public static final getDurationAssertionsEnabled()Z
-    .locals 1
+    .registers 1
 
     .line 12
     sget-boolean v0, Lkotlin/time/DurationJvmKt;->durationAssertionsEnabled:Z

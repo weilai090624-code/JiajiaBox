@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$onStartTrackingTouch(Lcom/google/android/material/slider/Slider$OnSliderTouchListener;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/android/material/slider/Slider$OnSliderTouchListener;
 
     .line 54
@@ -17,7 +17,7 @@
 .end method
 
 .method public static bridge synthetic $default$onStopTrackingTouch(Lcom/google/android/material/slider/Slider$OnSliderTouchListener;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/android/material/slider/Slider$OnSliderTouchListener;
 
     .line 54

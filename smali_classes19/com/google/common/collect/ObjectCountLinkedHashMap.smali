@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 77
     .local p0, "this":Lcom/google/common/collect/ObjectCountLinkedHashMap;, "Lcom/google/common/collect/ObjectCountLinkedHashMap<TK;>;"
@@ -45,7 +45,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "expectedSize"    # I
 
     .line 81
@@ -59,7 +59,7 @@
 .end method
 
 .method constructor <init>(IF)V
-    .locals 0
+    .registers 3
     .param p1, "expectedSize"    # I
     .param p2, "loadFactor"    # F
 
@@ -72,7 +72,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ObjectCountHashMap;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,10 +101,10 @@
     move-result v0
 
     .local v0, "i":I
-    :goto_0
+    :goto_10
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_23
 
     .line 91
     invoke-virtual {p1, v0}, Lcom/google/common/collect/ObjectCountHashMap;->getKey(I)Ljava/lang/Object;
@@ -122,16 +122,16 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_10
 
     .line 93
     .end local v0    # "i":I
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method static create()Lcom/google/common/collect/ObjectCountLinkedHashMap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -151,7 +151,7 @@
 .end method
 
 .method static createWithExpectedSize(I)Lcom/google/common/collect/ObjectCountLinkedHashMap;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -172,7 +172,7 @@
 .end method
 
 .method private getPredecessor(I)I
-    .locals 3
+    .registers 5
     .param p1, "entry"    # I
 
     .line 121
@@ -191,7 +191,7 @@
 .end method
 
 .method private getSuccessor(I)I
-    .locals 3
+    .registers 5
     .param p1, "entry"    # I
 
     .line 125
@@ -206,7 +206,7 @@
 .end method
 
 .method private setPredecessor(II)V
-    .locals 8
+    .registers 11
     .param p1, "entry"    # I
     .param p2, "pred"    # I
 
@@ -241,7 +241,7 @@
 .end method
 
 .method private setSucceeds(II)V
-    .locals 1
+    .registers 4
     .param p1, "pred"    # I
     .param p2, "succ"    # I
 
@@ -249,37 +249,37 @@
     .local p0, "this":Lcom/google/common/collect/ObjectCountLinkedHashMap;, "Lcom/google/common/collect/ObjectCountLinkedHashMap<TK;>;"
     const/4 v0, -0x2
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_6
 
     .line 140
     iput p2, p0, Lcom/google/common/collect/ObjectCountLinkedHashMap;->firstEntry:I
 
-    goto :goto_0
+    goto :goto_9
 
     .line 142
-    :cond_0
+    :cond_6
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/ObjectCountLinkedHashMap;->setSuccessor(II)V
 
     .line 144
-    :goto_0
-    if-ne p2, v0, :cond_1
+    :goto_9
+    if-ne p2, v0, :cond_e
 
     .line 145
     iput p1, p0, Lcom/google/common/collect/ObjectCountLinkedHashMap;->lastEntry:I
 
-    goto :goto_1
+    goto :goto_11
 
     .line 147
-    :cond_1
+    :cond_e
     invoke-direct {p0, p2, p1}, Lcom/google/common/collect/ObjectCountLinkedHashMap;->setPredecessor(II)V
 
     .line 149
-    :goto_1
+    :goto_11
     return-void
 .end method
 
 .method private setSuccessor(II)V
-    .locals 8
+    .registers 11
     .param p1, "entry"    # I
     .param p2, "succ"    # I
 
@@ -314,7 +314,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 179
     .local p0, "this":Lcom/google/common/collect/ObjectCountLinkedHashMap;, "Lcom/google/common/collect/ObjectCountLinkedHashMap<TK;>;"
@@ -333,7 +333,7 @@
 .end method
 
 .method firstIndex()I
-    .locals 2
+    .registers 3
 
     .line 106
     .local p0, "this":Lcom/google/common/collect/ObjectCountLinkedHashMap;, "Lcom/google/common/collect/ObjectCountLinkedHashMap<TK;>;"
@@ -341,21 +341,21 @@
 
     const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     iget v0, p0, Lcom/google/common/collect/ObjectCountLinkedHashMap;->firstEntry:I
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method init(IF)V
-    .locals 3
+    .registers 6
     .param p1, "expectedSize"    # I
     .param p2, "loadFactor"    # F
 
@@ -388,7 +388,7 @@
 .end method
 
 .method insertEntry(ILjava/lang/Object;II)V
-    .locals 1
+    .registers 6
     .param p1, "entryIndex"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -422,7 +422,7 @@
 .end method
 
 .method moveLastEntry(I)V
-    .locals 3
+    .registers 5
     .param p1, "dstIndex"    # I
 
     .line 160
@@ -446,7 +446,7 @@
     invoke-direct {p0, v1, v2}, Lcom/google/common/collect/ObjectCountLinkedHashMap;->setSucceeds(II)V
 
     .line 162
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_21
 
     .line 163
     invoke-direct {p0, v0}, Lcom/google/common/collect/ObjectCountLinkedHashMap;->getPredecessor(I)I
@@ -463,7 +463,7 @@
     invoke-direct {p0, p1, v1}, Lcom/google/common/collect/ObjectCountLinkedHashMap;->setSucceeds(II)V
 
     .line 166
-    :cond_0
+    :cond_21
     invoke-super {p0, p1}, Lcom/google/common/collect/ObjectCountHashMap;->moveLastEntry(I)V
 
     .line 167
@@ -471,7 +471,7 @@
 .end method
 
 .method nextIndex(I)I
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 111
@@ -484,21 +484,21 @@
     .local v0, "result":I
     const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v1, -0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     move v1, v0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method nextIndexAfterRemove(II)I
-    .locals 1
+    .registers 4
     .param p1, "oldNextIndex"    # I
     .param p2, "removedIndex"    # I
 
@@ -508,21 +508,21 @@
 
     move-result v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_8
 
     move v0, p2
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move v0, p1
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method resizeEntries(I)V
-    .locals 4
+    .registers 6
     .param p1, "newCapacity"    # I
 
     .line 171

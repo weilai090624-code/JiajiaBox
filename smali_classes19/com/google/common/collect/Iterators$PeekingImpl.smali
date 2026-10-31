@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Iterator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,13 +84,13 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 1190
     .local p0, "this":Lcom/google/common/collect/Iterators$PeekingImpl;, "Lcom/google/common/collect/Iterators$PeekingImpl<TE;>;"
     iget-boolean v0, p0, Lcom/google/common/collect/Iterators$PeekingImpl;->hasPeeked:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     iget-object v0, p0, Lcom/google/common/collect/Iterators$PeekingImpl;->iterator:Ljava/util/Iterator;
 
@@ -98,25 +98,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -130,7 +130,7 @@
     .local p0, "this":Lcom/google/common/collect/Iterators$PeekingImpl;, "Lcom/google/common/collect/Iterators$PeekingImpl<TE;>;"
     iget-boolean v0, p0, Lcom/google/common/collect/Iterators$PeekingImpl;->hasPeeked:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 1197
     iget-object v0, p0, Lcom/google/common/collect/Iterators$PeekingImpl;->iterator:Ljava/util/Iterator;
@@ -142,7 +142,7 @@
     return-object v0
 
     .line 1200
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/google/common/collect/Iterators$PeekingImpl;->peekedElement:Ljava/lang/Object;
 
     invoke-static {v0}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
@@ -165,7 +165,7 @@
 .end method
 
 .method public peek()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -179,7 +179,7 @@
     .local p0, "this":Lcom/google/common/collect/Iterators$PeekingImpl;, "Lcom/google/common/collect/Iterators$PeekingImpl<TE;>;"
     iget-boolean v0, p0, Lcom/google/common/collect/Iterators$PeekingImpl;->hasPeeked:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 1216
     iget-object v0, p0, Lcom/google/common/collect/Iterators$PeekingImpl;->iterator:Ljava/util/Iterator;
@@ -196,7 +196,7 @@
     iput-boolean v0, p0, Lcom/google/common/collect/Iterators$PeekingImpl;->hasPeeked:Z
 
     .line 1220
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/google/common/collect/Iterators$PeekingImpl;->peekedElement:Ljava/lang/Object;
 
     invoke-static {v0}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
@@ -207,7 +207,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     .line 1208
     .local p0, "this":Lcom/google/common/collect/Iterators$PeekingImpl;, "Lcom/google/common/collect/Iterators$PeekingImpl<TE;>;"

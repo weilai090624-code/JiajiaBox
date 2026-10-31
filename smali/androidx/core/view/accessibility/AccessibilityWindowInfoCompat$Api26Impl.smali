@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 631
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static isInPictureInPictureMode(Landroid/view/accessibility/AccessibilityWindowInfo;)Z
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityWindowInfo;
 
     .line 637

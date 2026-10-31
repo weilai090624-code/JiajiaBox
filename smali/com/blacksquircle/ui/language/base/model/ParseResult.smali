@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/blacksquircle/ui/language/base/exception/ParseException;)V
-    .locals 0
+    .registers 2
     .param p1, "exception"    # Lcom/blacksquircle/ui/language/base/exception/ParseException;
 
     .line 21
@@ -57,15 +57,15 @@
 .end method
 
 .method public static synthetic copy$default(Lcom/blacksquircle/ui/language/base/model/ParseResult;Lcom/blacksquircle/ui/language/base/exception/ParseException;ILjava/lang/Object;)Lcom/blacksquircle/ui/language/base/model/ParseResult;
-    .locals 0
+    .registers 4
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     iget-object p1, p0, Lcom/blacksquircle/ui/language/base/model/ParseResult;->exception:Lcom/blacksquircle/ui/language/base/exception/ParseException;
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1}, Lcom/blacksquircle/ui/language/base/model/ParseResult;->copy(Lcom/blacksquircle/ui/language/base/exception/ParseException;)Lcom/blacksquircle/ui/language/base/model/ParseResult;
 
     move-result-object p0
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final component1()Lcom/blacksquircle/ui/language/base/exception/ParseException;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/ParseResult;->exception:Lcom/blacksquircle/ui/language/base/exception/ParseException;
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public final copy(Lcom/blacksquircle/ui/language/base/exception/ParseException;)Lcom/blacksquircle/ui/language/base/model/ParseResult;
-    .locals 1
+    .registers 3
 
     new-instance v0, Lcom/blacksquircle/ui/language/base/model/ParseResult;
 
@@ -94,24 +94,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/blacksquircle/ui/language/base/model/ParseResult;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/blacksquircle/ui/language/base/model/ParseResult;
@@ -124,16 +124,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     return v0
 .end method
 
 .method public final getException()Lcom/blacksquircle/ui/language/base/exception/ParseException;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/ParseResult;->exception:Lcom/blacksquircle/ui/language/base/exception/ParseException;
@@ -142,29 +142,29 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/ParseResult;->exception:Lcom/blacksquircle/ui/language/base/exception/ParseException;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/ParseResult;->exception:Lcom/blacksquircle/ui/language/base/exception/ParseException;
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/language/base/exception/ParseException;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

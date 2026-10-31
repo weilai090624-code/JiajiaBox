@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 47
     const/16 v0, 0x352
@@ -99,7 +99,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "spec"    # Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;
 
@@ -173,7 +173,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;
 
     .line 42
@@ -183,7 +183,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;
     .param p1, "x1"    # I
 
@@ -194,7 +194,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;)Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;
 
     .line 42
@@ -204,7 +204,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;
     .param p1, "x1"    # Z
 
@@ -215,7 +215,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;
 
     .line 42
@@ -227,7 +227,7 @@
 .end method
 
 .method private getAnimationFraction()F
-    .locals 1
+    .registers 2
 
     .line 201
     iget v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->animationFraction:F
@@ -236,7 +236,7 @@
 .end method
 
 .method private maybeInitializeAnimators()V
-    .locals 7
+    .registers 8
 
     .line 94
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->animator:Landroid/animation/ObjectAnimator;
@@ -245,7 +245,7 @@
 
     const-wide/16 v2, 0x708
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2f
 
     .line 96
     sget-object v0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->ANIMATION_FRACTION:Landroid/util/Property;
@@ -254,7 +254,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_0
+    fill-array-data v4, :array_58
 
     invoke-static {p0, v0, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
@@ -289,10 +289,10 @@
     invoke-virtual {v0, v4}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     .line 110
-    :cond_0
+    :cond_2f
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->completeEndAnimator:Landroid/animation/ObjectAnimator;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_57
 
     .line 111
     sget-object v0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->ANIMATION_FRACTION:Landroid/util/Property;
@@ -333,10 +333,10 @@
     invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     .line 126
-    :cond_1
+    :cond_57
     return-void
 
-    :array_0
+    :array_58
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -344,12 +344,12 @@
 .end method
 
 .method private maybeUpdateSegmentColors()V
-    .locals 3
+    .registers 4
 
     .line 180
     iget-boolean v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->dirtyColors:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 181
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->segmentColors:[I
@@ -383,22 +383,22 @@
     iput-boolean v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->dirtyColors:Z
 
     .line 187
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method private updateSegmentPositions(I)V
-    .locals 6
+    .registers 8
     .param p1, "playtime"    # I
 
     .line 169
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     const/4 v1, 0x4
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_2a
 
     .line 170
     sget-object v1, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->DELAY_TO_MOVE_SEGMENT_ENDS:[I
@@ -447,23 +447,23 @@
     .end local v2    # "segmentPosition":F
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 176
     .end local v0    # "i":I
-    :cond_0
+    :cond_2a
     return-void
 .end method
 
 
 # virtual methods
 .method public cancelAnimatorImmediately()V
-    .locals 1
+    .registers 2
 
     .line 130
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->animator:Landroid/animation/ObjectAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 131
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->animator:Landroid/animation/ObjectAnimator;
@@ -471,12 +471,12 @@
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
 
     .line 133
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public invalidateSpecValues()V
-    .locals 0
+    .registers 1
 
     .line 152
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->resetPropertiesForNewStart()V
@@ -486,7 +486,7 @@
 .end method
 
 .method public registerAnimatorsCompleteCallback(Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "callback"    # Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;
 
     .line 157
@@ -497,12 +497,12 @@
 .end method
 
 .method public requestCancelAnimatorAfterCurrentCycle()V
-    .locals 4
+    .registers 5
 
     .line 138
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->completeEndAnimator:Landroid/animation/ObjectAnimator;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3d
 
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->completeEndAnimator:Landroid/animation/ObjectAnimator;
 
@@ -510,12 +510,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 142
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->cancelAnimatorImmediately()V
 
     .line 143
@@ -525,7 +525,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3c
 
     .line 144
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->completeEndAnimator:Landroid/animation/ObjectAnimator;
@@ -569,17 +569,17 @@
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
 
     .line 148
-    :cond_1
+    :cond_3c
     return-void
 
     .line 139
-    :cond_2
-    :goto_0
+    :cond_3d
+    :goto_3d
     return-void
 .end method
 
 .method resetPropertiesForNewStart()V
-    .locals 3
+    .registers 4
 
     .line 191
     const/4 v0, 0x0
@@ -622,7 +622,7 @@
 .end method
 
 .method setAnimationFraction(F)V
-    .locals 2
+    .registers 4
     .param p1, "fraction"    # F
 
     .line 206
@@ -654,7 +654,7 @@
 .end method
 
 .method public startAnimator()V
-    .locals 1
+    .registers 2
 
     .line 87
     invoke-direct {p0}, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;->maybeInitializeAnimators()V
@@ -672,7 +672,7 @@
 .end method
 
 .method public unregisterAnimatorsCompleteCallback()V
-    .locals 1
+    .registers 2
 
     .line 162
     const/4 v0, 0x0

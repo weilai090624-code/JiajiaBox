@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/AsyncListUtil;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/AsyncListUtil;
 
     .line 212
@@ -44,7 +44,7 @@
 .end method
 
 .method private isRequestedGeneration(I)Z
-    .locals 1
+    .registers 3
     .param p1, "generation"    # I
 
     .line 289
@@ -53,28 +53,28 @@
 
     iget v0, v0, Landroidx/recyclerview/widget/AsyncListUtil;->mRequestedGeneration:I
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method private recycleAllTiles()V
-    .locals 3
+    .registers 4
 
     .line 282
     .local p0, "this":Landroidx/recyclerview/widget/AsyncListUtil$1;, "Landroidx/recyclerview/widget/AsyncListUtil$1;"
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
 
     iget-object v1, v1, Landroidx/recyclerview/widget/AsyncListUtil;->mTileList:Landroidx/recyclerview/widget/TileList;
@@ -83,7 +83,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1d
 
     .line 283
     iget-object v1, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
@@ -103,11 +103,11 @@
     .line 282
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 285
     .end local v0    # "i":I
-    :cond_0
+    :cond_1d
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/AsyncListUtil;->mTileList:Landroidx/recyclerview/widget/TileList;
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public addTile(ILandroidx/recyclerview/widget/TileList$Tile;)V
-    .locals 5
+    .registers 8
     .param p1, "generation"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -138,7 +138,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 237
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
@@ -151,7 +151,7 @@
     return-void
 
     .line 240
-    :cond_0
+    :cond_e
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/AsyncListUtil;->mTileList:Landroidx/recyclerview/widget/TileList;
@@ -162,7 +162,7 @@
 
     .line 241
     .local v0, "duplicate":Landroidx/recyclerview/widget/TileList$Tile;, "Landroidx/recyclerview/widget/TileList$Tile<TT;>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_39
 
     .line 242
     new-instance v1, Ljava/lang/StringBuilder;
@@ -197,7 +197,7 @@
     invoke-interface {v1, v0}, Landroidx/recyclerview/widget/ThreadUtil$BackgroundCallback;->recycleTile(Landroidx/recyclerview/widget/TileList$Tile;)V
 
     .line 249
-    :cond_1
+    :cond_39
     iget v1, p2, Landroidx/recyclerview/widget/TileList$Tile;->mStartPosition:I
 
     iget v2, p2, Landroidx/recyclerview/widget/TileList$Tile;->mItemCount:I
@@ -210,7 +210,7 @@
 
     .line 251
     .local v2, "index":I
-    :goto_0
+    :goto_3f
     iget-object v3, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
 
     iget-object v3, v3, Landroidx/recyclerview/widget/AsyncListUtil;->mMissingPositions:Landroid/util/SparseIntArray;
@@ -219,7 +219,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_69
 
     .line 252
     iget-object v3, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
@@ -234,9 +234,9 @@
     .local v3, "position":I
     iget v4, p2, Landroidx/recyclerview/widget/TileList$Tile;->mStartPosition:I
 
-    if-gt v4, v3, :cond_2
+    if-gt v4, v3, :cond_66
 
-    if-ge v3, v1, :cond_2
+    if-ge v3, v1, :cond_66
 
     .line 254
     iget-object v4, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
@@ -252,24 +252,24 @@
 
     invoke-virtual {v4, v3}, Landroidx/recyclerview/widget/AsyncListUtil$ViewCallback;->onItemLoaded(I)V
 
-    goto :goto_1
+    goto :goto_68
 
     .line 257
-    :cond_2
+    :cond_66
     add-int/lit8 v2, v2, 0x1
 
     .line 259
     .end local v3    # "position":I
-    :goto_1
-    goto :goto_0
+    :goto_68
+    goto :goto_3f
 
     .line 260
-    :cond_3
+    :cond_69
     return-void
 .end method
 
 .method public removeTile(II)V
-    .locals 3
+    .registers 6
     .param p1, "generation"    # I
     .param p2, "position"    # I
 
@@ -279,13 +279,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 265
     return-void
 
     .line 267
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/AsyncListUtil;->mTileList:Landroidx/recyclerview/widget/TileList;
@@ -296,7 +296,7 @@
 
     .line 268
     .local v0, "tile":Landroidx/recyclerview/widget/TileList$Tile;, "Landroidx/recyclerview/widget/TileList$Tile<TT;>;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2b
 
     .line 269
     new-instance v1, Ljava/lang/StringBuilder;
@@ -325,7 +325,7 @@
     return-void
 
     .line 275
-    :cond_1
+    :cond_2b
     iget-object v1, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
 
     iget-object v1, v1, Landroidx/recyclerview/widget/AsyncListUtil;->mBackgroundProxy:Landroidx/recyclerview/widget/ThreadUtil$BackgroundCallback;
@@ -337,7 +337,7 @@
 .end method
 
 .method public updateItemCount(II)V
-    .locals 2
+    .registers 5
     .param p1, "generation"    # I
     .param p2, "itemCount"    # I
 
@@ -347,13 +347,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 219
     return-void
 
     .line 221
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil$1;->this$0:Landroidx/recyclerview/widget/AsyncListUtil;
 
     iput p2, v0, Landroidx/recyclerview/widget/AsyncListUtil;->mItemCount:I

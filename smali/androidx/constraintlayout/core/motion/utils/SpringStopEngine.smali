@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method private compute(D)V
-    .locals 23
+    .registers 26
     .param p1, "dt"    # D
 
     .line 101
@@ -112,8 +112,8 @@
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_0
-    if-ge v8, v5, :cond_2
+    :goto_21
+    if-ge v8, v5, :cond_b2
 
     .line 108
     iget v9, v0, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;->mPos:F
@@ -250,7 +250,7 @@
     .line 119
     iget v13, v0, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;->mBoundaryMode:I
 
-    if-lez v13, :cond_1
+    if-lez v13, :cond_aa
 
     .line 120
     iget v13, v0, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;->mPos:F
@@ -259,7 +259,7 @@
 
     cmpg-float v13, v13, v14
 
-    if-gez v13, :cond_0
+    if-gez v13, :cond_90
 
     iget v13, v0, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;->mBoundaryMode:I
 
@@ -267,7 +267,7 @@
 
     and-int/2addr v13, v14
 
-    if-ne v13, v14, :cond_0
+    if-ne v13, v14, :cond_90
 
     .line 121
     iget v13, v0, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;->mPos:F
@@ -284,14 +284,14 @@
     iput v13, v0, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;->mV:F
 
     .line 124
-    :cond_0
+    :cond_90
     iget v13, v0, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;->mPos:F
 
     const/high16 v14, 0x3f800000    # 1.0f
 
     cmpl-float v13, v13, v14
 
-    if-lez v13, :cond_1
+    if-lez v13, :cond_aa
 
     iget v13, v0, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;->mBoundaryMode:I
 
@@ -299,7 +299,7 @@
 
     and-int/2addr v13, v14
 
-    if-ne v13, v14, :cond_1
+    if-ne v13, v14, :cond_aa
 
     .line 125
     const/high16 v13, 0x40000000    # 2.0f
@@ -323,14 +323,14 @@
     .end local v9    # "avgX":D
     .end local v11    # "a":D
     .end local p1    # "x":D
-    :cond_1
+    :cond_aa
     add-int/lit8 v8, v8, 0x1
 
     move-wide/from16 v1, v19
 
     move-wide/from16 v3, v21
 
-    goto/16 :goto_0
+    goto/16 :goto_21
 
     .line 130
     .end local v8    # "i":I
@@ -338,14 +338,14 @@
     .end local v21    # "c":D
     .local v1, "k":D
     .local v3, "c":D
-    :cond_2
+    :cond_b2
     return-void
 .end method
 
 
 # virtual methods
 .method public debug(Ljava/lang/String;F)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "desc"    # Ljava/lang/String;
     .param p2, "time"    # F
 
@@ -356,7 +356,7 @@
 .end method
 
 .method public getAcceleration()F
-    .locals 10
+    .registers 11
 
     .line 77
     iget-wide v0, p0, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;->mStiffness:D
@@ -399,7 +399,7 @@
 .end method
 
 .method public getInterpolation(F)F
-    .locals 2
+    .registers 4
     .param p1, "time"    # F
 
     .line 71
@@ -421,7 +421,7 @@
 .end method
 
 .method public getVelocity()F
-    .locals 1
+    .registers 2
 
     .line 85
     const/4 v0, 0x0
@@ -430,7 +430,7 @@
 .end method
 
 .method public getVelocity(F)F
-    .locals 1
+    .registers 3
     .param p1, "t"    # F
 
     .line 66
@@ -440,7 +440,7 @@
 .end method
 
 .method public isStopped()Z
-    .locals 15
+    .registers 16
 
     .line 90
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;->mPos:F
@@ -495,21 +495,21 @@
 
     cmpg-double v14, v10, v12
 
-    if-gtz v14, :cond_0
+    if-gtz v14, :cond_26
 
     const/4 v12, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_26
     const/4 v12, 0x0
 
-    :goto_0
+    :goto_27
     return v12
 .end method
 
 .method log(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p1, "str"    # Ljava/lang/String;
 
     .line 45
@@ -610,7 +610,7 @@
 .end method
 
 .method public springConfig(FFFFFFFI)V
-    .locals 2
+    .registers 11
     .param p1, "currentPos"    # F
     .param p2, "target"    # F
     .param p3, "currentVelocity"    # F

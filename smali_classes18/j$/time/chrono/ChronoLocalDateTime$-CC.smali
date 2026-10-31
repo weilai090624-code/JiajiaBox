@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$adjustInto(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 4
+    .registers 6
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public static $default$compareTo(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/chrono/ChronoLocalDateTime;)I
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 507
@@ -64,7 +64,7 @@
 
     .line 508
     .local v0, "cmp":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_28
 
     .line 509
     invoke-interface {p0}, Lj$/time/chrono/ChronoLocalDateTime;->toLocalTime()Lj$/time/LocalTime;
@@ -80,7 +80,7 @@
     move-result v0
 
     .line 510
-    if-nez v0, :cond_0
+    if-nez v0, :cond_28
 
     .line 511
     invoke-interface {p0}, Lj$/time/chrono/ChronoLocalDateTime;->getChronology()Lj$/time/chrono/Chronology;
@@ -96,12 +96,12 @@
     move-result v0
 
     .line 514
-    :cond_0
+    :cond_28
     return v0
 .end method
 
 .method public static bridge synthetic $default$compareTo(Lj$/time/chrono/ChronoLocalDateTime;Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 121
@@ -115,7 +115,7 @@
 .end method
 
 .method public static $default$format(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/format/DateTimeFormatter;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
     .param p1, "formatter"    # Lj$/time/format/DateTimeFormatter;
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public static $default$getChronology(Lj$/time/chrono/ChronoLocalDateTime;)Lj$/time/chrono/Chronology;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 193
@@ -149,7 +149,7 @@
 .end method
 
 .method public static $default$isAfter(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/chrono/ChronoLocalDateTime;)Z
-    .locals 9
+    .registers 11
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 532
@@ -176,11 +176,11 @@
     .local v2, "otherEpDay":J
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_1
+    if-gtz v4, :cond_2f
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2d
 
     .line 535
     invoke-interface {p0}, Lj$/time/chrono/ChronoLocalDateTime;->toLocalTime()Lj$/time/LocalTime;
@@ -201,26 +201,26 @@
 
     cmp-long v8, v4, v6
 
-    if-lez v8, :cond_0
+    if-lez v8, :cond_2d
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_2d
     const/4 v4, 0x0
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     const/4 v4, 0x1
 
     .line 534
-    :goto_1
+    :goto_30
     return v4
 .end method
 
 .method public static $default$isBefore(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/chrono/ChronoLocalDateTime;)Z
-    .locals 9
+    .registers 11
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 553
@@ -247,11 +247,11 @@
     .local v2, "otherEpDay":J
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_2f
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2d
 
     .line 556
     invoke-interface {p0}, Lj$/time/chrono/ChronoLocalDateTime;->toLocalTime()Lj$/time/LocalTime;
@@ -272,26 +272,26 @@
 
     cmp-long v8, v4, v6
 
-    if-gez v8, :cond_0
+    if-gez v8, :cond_2d
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_2d
     const/4 v4, 0x0
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     const/4 v4, 0x1
 
     .line 555
-    :goto_1
+    :goto_30
     return v4
 .end method
 
 .method public static $default$isEqual(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/chrono/ChronoLocalDateTime;)Z
-    .locals 5
+    .registers 7
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 575
@@ -314,7 +314,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2a
 
     .line 576
     invoke-interface {p0}, Lj$/time/chrono/ChronoLocalDateTime;->toLocalDate()Lj$/time/chrono/ChronoLocalDate;
@@ -335,22 +335,22 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_2a
     const/4 v0, 0x0
 
     .line 575
-    :goto_0
+    :goto_2b
     return v0
 .end method
 
 .method public static $default$isSupported(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/temporal/TemporalUnit;)Z
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
     .param p1, "unit"    # Lj$/time/temporal/TemporalUnit;
 
@@ -361,42 +361,42 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 259
     sget-object v0, Lj$/time/temporal/ChronoUnit;->FOREVER:Lj$/time/temporal/ChronoUnit;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_b
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     return v1
 
     .line 261
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_d
+    if-eqz p1, :cond_16
 
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalUnit;->isSupportedBy(Lj$/time/temporal/Temporal;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_16
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_2
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_17
     return v1
 .end method
 
 .method public static $default$minus(Lj$/time/chrono/ChronoLocalDateTime;JLj$/time/temporal/TemporalUnit;)Lj$/time/chrono/ChronoLocalDateTime;
-    .locals 2
+    .registers 6
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
     .param p1, "amountToSubtract"    # J
     .param p3, "unit"    # Lj$/time/temporal/TemporalUnit;
@@ -418,7 +418,7 @@
 .end method
 
 .method public static $default$minus(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoLocalDateTime;
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
     .param p1, "amount"    # Lj$/time/temporal/TemporalAmount;
 
@@ -439,7 +439,7 @@
 .end method
 
 .method public static bridge synthetic $default$minus(Lj$/time/chrono/ChronoLocalDateTime;JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 121
@@ -451,7 +451,7 @@
 .end method
 
 .method public static bridge synthetic $default$minus(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 121
@@ -463,7 +463,7 @@
 .end method
 
 .method public static $default$plus(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoLocalDateTime;
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
     .param p1, "amount"    # Lj$/time/temporal/TemporalAmount;
 
@@ -484,7 +484,7 @@
 .end method
 
 .method public static bridge synthetic $default$plus(Lj$/time/chrono/ChronoLocalDateTime;JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 121
@@ -496,7 +496,7 @@
 .end method
 
 .method public static bridge synthetic $default$plus(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 121
@@ -508,7 +508,7 @@
 .end method
 
 .method public static $default$query(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 344
@@ -517,29 +517,29 @@
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_37
 
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->zone()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_37
 
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->offset()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_13
 
-    goto :goto_0
+    goto :goto_37
 
     .line 346
-    :cond_0
+    :cond_13
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->localTime()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_1e
 
     .line 347
     invoke-interface {p0}, Lj$/time/chrono/ChronoLocalDateTime;->toLocalTime()Lj$/time/LocalTime;
@@ -549,12 +549,12 @@
     return-object v0
 
     .line 348
-    :cond_1
+    :cond_1e
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->chronology()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_29
 
     .line 349
     invoke-interface {p0}, Lj$/time/chrono/ChronoLocalDateTime;->getChronology()Lj$/time/chrono/Chronology;
@@ -564,12 +564,12 @@
     return-object v0
 
     .line 350
-    :cond_2
+    :cond_29
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->precision()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_32
 
     .line 351
     sget-object v0, Lj$/time/temporal/ChronoUnit;->NANOS:Lj$/time/temporal/ChronoUnit;
@@ -577,7 +577,7 @@
     return-object v0
 
     .line 355
-    :cond_3
+    :cond_32
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalQuery;->queryFrom(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Object;
 
     move-result-object v0
@@ -585,15 +585,15 @@
     return-object v0
 
     .line 345
-    :cond_4
-    :goto_0
+    :cond_37
+    :goto_37
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static $default$toEpochSecond(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/ZoneOffset;)J
-    .locals 6
+    .registers 8
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
     .param p1, "offset"    # Lj$/time/ZoneOffset;
 
@@ -644,7 +644,7 @@
 .end method
 
 .method public static $default$toInstant(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/ZoneOffset;)Lj$/time/Instant;
-    .locals 4
+    .registers 6
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
     .param p1, "offset"    # Lj$/time/ZoneOffset;
 
@@ -671,7 +671,7 @@
 .end method
 
 .method public static $default$with(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/temporal/TemporalAdjuster;)Lj$/time/chrono/ChronoLocalDateTime;
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
     .param p1, "adjuster"    # Lj$/time/temporal/TemporalAdjuster;
 
@@ -692,7 +692,7 @@
 .end method
 
 .method public static bridge synthetic $default$with(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/temporal/TemporalAdjuster;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 121
@@ -704,7 +704,7 @@
 .end method
 
 .method public static bridge synthetic $default$with(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/temporal/TemporalField;J)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
     .param p0, "_this"    # Lj$/time/chrono/ChronoLocalDateTime;
 
     .line 121
@@ -716,7 +716,7 @@
 .end method
 
 .method public static from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ChronoLocalDateTime;
-    .locals 5
+    .registers 6
     .param p0, "temporal"    # Lj$/time/temporal/TemporalAccessor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -731,7 +731,7 @@
     .line 172
     instance-of v0, p0, Lj$/time/chrono/ChronoLocalDateTime;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 173
     move-object v0, p0
@@ -741,7 +741,7 @@
     return-object v0
 
     .line 175
-    :cond_0
+    :cond_8
     const-string v0, "temporal"
 
     invoke-static {p0, v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
@@ -759,7 +759,7 @@
 
     .line 177
     .local v0, "chrono":Lj$/time/chrono/Chronology;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 180
     invoke-interface {v0, p0}, Lj$/time/chrono/Chronology;->localDateTime(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ChronoLocalDateTime;
@@ -769,7 +769,7 @@
     return-object v1
 
     .line 178
-    :cond_1
+    :cond_1e
     new-instance v1, Lj$/time/DateTimeException;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -800,7 +800,7 @@
 .end method
 
 .method public static synthetic lambda$timeLineOrder$b9959cb5$1(Lj$/time/chrono/ChronoLocalDateTime;Lj$/time/chrono/ChronoLocalDateTime;)I
-    .locals 5
+    .registers 7
     .param p0, "dateTime1"    # Lj$/time/chrono/ChronoLocalDateTime;
     .param p1, "dateTime2"    # Lj$/time/chrono/ChronoLocalDateTime;
 
@@ -827,7 +827,7 @@
 
     .line 142
     .local v0, "cmp":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     .line 143
     invoke-interface {p0}, Lj$/time/chrono/ChronoLocalDateTime;->toLocalTime()Lj$/time/LocalTime;
@@ -851,12 +851,12 @@
     move-result v0
 
     .line 145
-    :cond_0
+    :cond_2a
     return v0
 .end method
 
 .method public static timeLineOrder()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;Lj$/util/stream/PipelineHelper;[J)V
-    .locals 1
+    .registers 5
     .param p3, "array"    # [J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/Nodes$SizedCollectorTask$OfLong;Lj$/util/Spliterator;JJ)V
-    .locals 9
+    .registers 16
     .param p3, "offset"    # J
     .param p5, "length"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public accept(J)V
-    .locals 3
+    .registers 6
     .param p1, "value"    # J
 
     .line 1992
@@ -121,7 +121,7 @@
 
     iget v1, p0, Lj$/util/stream/Nodes$SizedCollectorTask$OfLong;->fence:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_11
 
     .line 1995
     iget-object v0, p0, Lj$/util/stream/Nodes$SizedCollectorTask$OfLong;->array:[J
@@ -138,7 +138,7 @@
     return-void
 
     .line 1993
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     iget v1, p0, Lj$/util/stream/Nodes$SizedCollectorTask$OfLong;->index:I
@@ -153,7 +153,7 @@
 .end method
 
 .method public synthetic accept(Ljava/lang/Long;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfLong$-CC;->$default$accept(Lj$/util/stream/Sink$OfLong;Ljava/lang/Long;)V
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfLong$-CC;->$default$accept(Lj$/util/stream/Sink$OfLong;Ljava/lang/Object;)V
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/LongConsumer$-CC;->$default$andThen(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
 
@@ -179,7 +179,7 @@
 .end method
 
 .method makeChild(Lj$/util/Spliterator;JJ)Lj$/util/stream/Nodes$SizedCollectorTask$OfLong;
-    .locals 8
+    .registers 14
     .param p2, "offset"    # J
     .param p4, "size"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -213,7 +213,7 @@
 .end method
 
 .method bridge synthetic makeChild(Lj$/util/Spliterator;JJ)Lj$/util/stream/Nodes$SizedCollectorTask;
-    .locals 0
+    .registers 6
 
     .line 1967
     .local p0, "this":Lj$/util/stream/Nodes$SizedCollectorTask$OfLong;, "Ljava/util/stream/Nodes$SizedCollectorTask$OfLong<TP_IN;>;"

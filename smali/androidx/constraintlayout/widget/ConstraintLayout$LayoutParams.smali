@@ -224,7 +224,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 8
+    .registers 11
     .param p1, "width"    # I
     .param p2, "height"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -484,7 +484,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 12
+    .registers 15
     .param p1, "c"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -757,8 +757,8 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_0
-    if-ge v6, v5, :cond_5
+    :goto_b0
+    if-ge v6, v5, :cond_3d7
 
     .line 2950
     invoke-virtual {v1, v6}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -781,13 +781,13 @@
 
     const/4 v11, -0x2
 
-    packed-switch v8, :pswitch_data_0
+    packed-switch v8, :pswitch_data_3de
 
-    :pswitch_0
-    goto/16 :goto_1
+    :pswitch_c3
+    goto/16 :goto_3d3
 
     .line 3105
-    :pswitch_1
+    :pswitch_c5
     iget-boolean v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guidelineUseRtl:Z
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -797,10 +797,10 @@
     iput-boolean v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guidelineUseRtl:Z
 
     .line 3106
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 2984
-    :pswitch_2
+    :pswitch_cf
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->wrapBehaviorInParent:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -810,30 +810,30 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->wrapBehaviorInParent:I
 
     .line 2985
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 2963
-    :pswitch_3
+    :pswitch_d9
     invoke-static {p0, v1, v7, v2}, Landroidx/constraintlayout/widget/ConstraintSet;->parseDimensionConstraints(Ljava/lang/Object;Landroid/content/res/TypedArray;II)V
 
     .line 2964
     iput-boolean v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->heightSet:Z
 
     .line 2965
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 2958
-    :pswitch_4
+    :pswitch_e0
     invoke-static {p0, v1, v7, v3}, Landroidx/constraintlayout/widget/ConstraintSet;->parseDimensionConstraints(Ljava/lang/Object;Landroid/content/res/TypedArray;II)V
 
     .line 2959
     iput-boolean v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widthSet:Z
 
     .line 2960
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3167
-    :pswitch_5
+    :pswitch_e7
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneBaselineMargin:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -843,10 +843,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneBaselineMargin:I
 
     .line 3168
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3171
-    :pswitch_6
+    :pswitch_f1
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineMargin:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -856,10 +856,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineMargin:I
 
     .line 3172
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3058
-    :pswitch_7
+    :pswitch_fb
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBottom:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -871,7 +871,7 @@
     .line 3059
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBottom:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3060
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -880,10 +880,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBottom:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3051
-    :pswitch_8
+    :pswitch_10f
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToTop:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -895,7 +895,7 @@
     .line 3052
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToTop:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3053
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -904,10 +904,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToTop:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3327
-    :pswitch_9
+    :pswitch_123
     invoke-virtual {v1, v7}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v9
@@ -915,10 +915,10 @@
     iput-object v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constraintTag:Ljava/lang/String;
 
     .line 3328
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3087
-    :pswitch_a
+    :pswitch_12b
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->editorAbsoluteY:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -928,10 +928,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->editorAbsoluteY:I
 
     .line 3088
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3083
-    :pswitch_b
+    :pswitch_135
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->editorAbsoluteX:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -941,10 +941,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->editorAbsoluteX:I
 
     .line 3084
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3245
-    :pswitch_c
+    :pswitch_13f
     invoke-virtual {v1, v7, v3}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v9
@@ -952,10 +952,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->verticalChainStyle:I
 
     .line 3246
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3241
-    :pswitch_d
+    :pswitch_147
     invoke-virtual {v1, v7, v3}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v9
@@ -963,10 +963,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->horizontalChainStyle:I
 
     .line 3242
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3237
-    :pswitch_e
+    :pswitch_14f
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->verticalWeight:F
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -976,10 +976,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->verticalWeight:F
 
     .line 3238
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3233
-    :pswitch_f
+    :pswitch_159
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->horizontalWeight:F
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -989,10 +989,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->horizontalWeight:F
 
     .line 3234
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3229
-    :pswitch_10
+    :pswitch_163
     invoke-virtual {v1, v7}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v9
@@ -1000,26 +1000,26 @@
     invoke-static {p0, v9}, Landroidx/constraintlayout/widget/ConstraintSet;->parseDimensionRatioString(Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;Ljava/lang/String;)V
 
     .line 3230
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3343
-    :pswitch_11
-    goto/16 :goto_1
+    :pswitch_16c
+    goto/16 :goto_3d3
 
     .line 3339
-    :pswitch_12
-    goto/16 :goto_1
+    :pswitch_16e
+    goto/16 :goto_3d3
 
     .line 3335
-    :pswitch_13
-    goto/16 :goto_1
+    :pswitch_170
+    goto/16 :goto_3d3
 
     .line 3331
-    :pswitch_14
-    goto/16 :goto_1
+    :pswitch_172
+    goto/16 :goto_3d3
 
     .line 3322
-    :pswitch_15
+    :pswitch_174
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintPercentHeight:F
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1036,11 +1036,11 @@
     iput v10, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintDefaultHeight:I
 
     .line 3324
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3312
-    :pswitch_16
-    :try_start_0
+    :pswitch_184
+    :try_start_184
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMaxHeight:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1048,14 +1048,14 @@
     move-result v9
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMaxHeight:I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18c
+    .catch Ljava/lang/Exception; {:try_start_184 .. :try_end_18c} :catch_18e
 
     .line 3318
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3313
-    :catch_0
+    :catch_18e
     move-exception v9
 
     .line 3314
@@ -1068,7 +1068,7 @@
 
     .line 3315
     .local v10, "value":I
-    if-ne v10, v11, :cond_0
+    if-ne v10, v11, :cond_199
 
     .line 3316
     iput v11, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMaxHeight:I
@@ -1076,12 +1076,12 @@
     .line 3319
     .end local v9    # "e":Ljava/lang/Exception;
     .end local v10    # "value":I
-    :cond_0
-    goto/16 :goto_1
+    :cond_199
+    goto/16 :goto_3d3
 
     .line 3301
-    :pswitch_17
-    :try_start_1
+    :pswitch_19b
+    :try_start_19b
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMinHeight:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1089,14 +1089,14 @@
     move-result v9
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMinHeight:I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1a3
+    .catch Ljava/lang/Exception; {:try_start_19b .. :try_end_1a3} :catch_1a5
 
     .line 3307
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3302
-    :catch_1
+    :catch_1a5
     move-exception v9
 
     .line 3303
@@ -1109,7 +1109,7 @@
 
     .line 3304
     .restart local v10    # "value":I
-    if-ne v10, v11, :cond_1
+    if-ne v10, v11, :cond_1b0
 
     .line 3305
     iput v11, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMinHeight:I
@@ -1117,11 +1117,11 @@
     .line 3308
     .end local v9    # "e":Ljava/lang/Exception;
     .end local v10    # "value":I
-    :cond_1
-    goto/16 :goto_1
+    :cond_1b0
+    goto/16 :goto_3d3
 
     .line 3295
-    :pswitch_18
+    :pswitch_1b2
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintPercentWidth:F
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1138,11 +1138,11 @@
     iput v10, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintDefaultWidth:I
 
     .line 3297
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3285
-    :pswitch_19
-    :try_start_2
+    :pswitch_1c2
+    :try_start_1c2
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMaxWidth:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1150,14 +1150,14 @@
     move-result v9
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMaxWidth:I
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_1ca
+    .catch Ljava/lang/Exception; {:try_start_1c2 .. :try_end_1ca} :catch_1cc
 
     .line 3291
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3286
-    :catch_2
+    :catch_1cc
     move-exception v9
 
     .line 3287
@@ -1170,7 +1170,7 @@
 
     .line 3288
     .restart local v10    # "value":I
-    if-ne v10, v11, :cond_2
+    if-ne v10, v11, :cond_1d7
 
     .line 3289
     iput v11, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMaxWidth:I
@@ -1178,12 +1178,12 @@
     .line 3292
     .end local v9    # "e":Ljava/lang/Exception;
     .end local v10    # "value":I
-    :cond_2
-    goto/16 :goto_1
+    :cond_1d7
+    goto/16 :goto_3d3
 
     .line 3274
-    :pswitch_1a
-    :try_start_3
+    :pswitch_1d9
+    :try_start_1d9
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMinWidth:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1191,14 +1191,14 @@
     move-result v9
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMinWidth:I
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_1e1
+    .catch Ljava/lang/Exception; {:try_start_1d9 .. :try_end_1e1} :catch_1e3
 
     .line 3280
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3275
-    :catch_3
+    :catch_1e3
     move-exception v9
 
     .line 3276
@@ -1211,7 +1211,7 @@
 
     .line 3277
     .restart local v10    # "value":I
-    if-ne v10, v11, :cond_3
+    if-ne v10, v11, :cond_1ee
 
     .line 3278
     iput v11, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintMinWidth:I
@@ -1219,11 +1219,11 @@
     .line 3281
     .end local v9    # "e":Ljava/lang/Exception;
     .end local v10    # "value":I
-    :cond_3
-    goto/16 :goto_1
+    :cond_1ee
+    goto/16 :goto_3d3
 
     .line 3265
-    :pswitch_1b
+    :pswitch_1f0
     invoke-virtual {v1, v7, v3}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v10
@@ -1233,17 +1233,17 @@
     .line 3266
     iget v10, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintDefaultHeight:I
 
-    if-ne v10, v2, :cond_4
+    if-ne v10, v2, :cond_3d3
 
     .line 3267
     const-string v10, "layout_constraintHeight_default=\"wrap\" is deprecated.\nUse layout_height=\"WRAP_CONTENT\" and layout_constrainedHeight=\"true\" instead."
 
     invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3257
-    :pswitch_1c
+    :pswitch_201
     invoke-virtual {v1, v7, v3}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v10
@@ -1253,17 +1253,17 @@
     .line 3258
     iget v10, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintDefaultWidth:I
 
-    if-ne v10, v2, :cond_4
+    if-ne v10, v2, :cond_3d3
 
     .line 3259
     const-string v10, "layout_constraintWidth_default=\"wrap\" is deprecated.\nUse layout_width=\"WRAP_CONTENT\" and layout_constrainedWidth=\"true\" instead."
 
     invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3225
-    :pswitch_1d
+    :pswitch_212
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->verticalBias:F
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1273,10 +1273,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->verticalBias:F
 
     .line 3226
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3221
-    :pswitch_1e
+    :pswitch_21c
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->horizontalBias:F
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1286,10 +1286,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->horizontalBias:F
 
     .line 3222
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3253
-    :pswitch_1f
+    :pswitch_226
     iget-boolean v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constrainedHeight:Z
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -1299,10 +1299,10 @@
     iput-boolean v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constrainedHeight:Z
 
     .line 3254
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3249
-    :pswitch_20
+    :pswitch_230
     iget-boolean v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constrainedWidth:Z
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -1312,10 +1312,10 @@
     iput-boolean v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constrainedWidth:Z
 
     .line 3250
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3163
-    :pswitch_21
+    :pswitch_23a
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneEndMargin:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1325,10 +1325,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneEndMargin:I
 
     .line 3164
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3159
-    :pswitch_22
+    :pswitch_244
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneStartMargin:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1338,10 +1338,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneStartMargin:I
 
     .line 3160
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3155
-    :pswitch_23
+    :pswitch_24e
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneBottomMargin:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1351,10 +1351,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneBottomMargin:I
 
     .line 3156
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3151
-    :pswitch_24
+    :pswitch_258
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneRightMargin:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1364,10 +1364,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneRightMargin:I
 
     .line 3152
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3147
-    :pswitch_25
+    :pswitch_262
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneTopMargin:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1377,10 +1377,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneTopMargin:I
 
     .line 3148
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3143
-    :pswitch_26
+    :pswitch_26c
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneLeftMargin:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1390,10 +1390,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneLeftMargin:I
 
     .line 3144
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3136
-    :pswitch_27
+    :pswitch_276
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToEnd:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1405,7 +1405,7 @@
     .line 3137
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToEnd:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3138
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1414,10 +1414,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToEnd:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3129
-    :pswitch_28
+    :pswitch_28a
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToStart:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1429,7 +1429,7 @@
     .line 3130
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToStart:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3131
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1438,10 +1438,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToStart:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3122
-    :pswitch_29
+    :pswitch_29e
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToStart:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1453,7 +1453,7 @@
     .line 3123
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToStart:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3124
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1462,10 +1462,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToStart:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3115
-    :pswitch_2a
+    :pswitch_2b2
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1477,7 +1477,7 @@
     .line 3116
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3117
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1486,10 +1486,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3044
-    :pswitch_2b
+    :pswitch_2c6
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1501,7 +1501,7 @@
     .line 3045
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3046
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1510,10 +1510,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3037
-    :pswitch_2c
+    :pswitch_2da
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1525,7 +1525,7 @@
     .line 3038
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3039
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1534,10 +1534,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3030
-    :pswitch_2d
+    :pswitch_2ee
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->bottomToTop:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1549,7 +1549,7 @@
     .line 3031
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->bottomToTop:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3032
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1558,10 +1558,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->bottomToTop:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3023
-    :pswitch_2e
+    :pswitch_302
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToBottom:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1573,7 +1573,7 @@
     .line 3024
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToBottom:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3025
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1582,10 +1582,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToBottom:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3016
-    :pswitch_2f
+    :pswitch_316
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToTop:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1597,7 +1597,7 @@
     .line 3017
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToTop:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3018
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1606,10 +1606,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToTop:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3009
-    :pswitch_30
+    :pswitch_32a
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToRight:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1621,7 +1621,7 @@
     .line 3010
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToRight:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3011
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1630,10 +1630,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToRight:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 3002
-    :pswitch_31
+    :pswitch_33e
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToLeft:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1645,7 +1645,7 @@
     .line 3003
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToLeft:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3004
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1654,10 +1654,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToLeft:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 2995
-    :pswitch_32
+    :pswitch_352
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToRight:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1669,7 +1669,7 @@
     .line 2996
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToRight:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 2997
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1678,10 +1678,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToRight:I
 
-    goto/16 :goto_1
+    goto/16 :goto_3d3
 
     .line 2988
-    :pswitch_33
+    :pswitch_366
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToLeft:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1693,7 +1693,7 @@
     .line 2989
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToLeft:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 2990
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1702,10 +1702,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToLeft:I
 
-    goto :goto_1
+    goto :goto_3d3
 
     .line 3101
-    :pswitch_34
+    :pswitch_379
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guidePercent:F
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1715,10 +1715,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guidePercent:F
 
     .line 3102
-    goto :goto_1
+    goto :goto_3d3
 
     .line 3096
-    :pswitch_35
+    :pswitch_382
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideEnd:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -1728,10 +1728,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideEnd:I
 
     .line 3097
-    goto :goto_1
+    goto :goto_3d3
 
     .line 3091
-    :pswitch_36
+    :pswitch_38b
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideBegin:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -1741,10 +1741,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideBegin:I
 
     .line 3092
-    goto :goto_1
+    goto :goto_3d3
 
     .line 3076
-    :pswitch_37
+    :pswitch_394
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->circleAngle:F
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1762,7 +1762,7 @@
 
     cmpg-float v9, v9, v4
 
-    if-gez v9, :cond_4
+    if-gez v9, :cond_3d3
 
     .line 3078
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->circleAngle:F
@@ -1773,10 +1773,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->circleAngle:F
 
-    goto :goto_1
+    goto :goto_3d3
 
     .line 3072
-    :pswitch_38
+    :pswitch_3ad
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->circleRadius:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1786,10 +1786,10 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->circleRadius:I
 
     .line 3073
-    goto :goto_1
+    goto :goto_3d3
 
     .line 3065
-    :pswitch_39
+    :pswitch_3b6
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->circleConstraint:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1801,7 +1801,7 @@
     .line 3066
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->circleConstraint:I
 
-    if-ne v9, v0, :cond_4
+    if-ne v9, v0, :cond_3d3
 
     .line 3067
     invoke-virtual {v1, v7, v0}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1810,10 +1810,10 @@
 
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->circleConstraint:I
 
-    goto :goto_1
+    goto :goto_3d3
 
     .line 3110
-    :pswitch_3a
+    :pswitch_3c9
     iget v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->orientation:I
 
     invoke-virtual {v1, v7, v9}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1823,24 +1823,24 @@
     iput v9, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->orientation:I
 
     .line 3111
-    goto :goto_1
+    goto :goto_3d3
 
     .line 2955
-    :pswitch_3b
+    :pswitch_3d2
     nop
 
     .line 2949
     .end local v7    # "attr":I
     .end local v8    # "look":I
-    :cond_4
-    :goto_1
+    :cond_3d3
+    :goto_3d3
     add-int/lit8 v6, v6, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_b0
 
     .line 3363
     .end local v6    # "i":I
-    :cond_5
+    :cond_3d7
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 3364
@@ -1849,81 +1849,81 @@
     .line 3365
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_3de
     .packed-switch 0x0
-        :pswitch_3b
-        :pswitch_3a
-        :pswitch_39
-        :pswitch_38
-        :pswitch_37
-        :pswitch_36
-        :pswitch_35
-        :pswitch_34
-        :pswitch_33
-        :pswitch_32
-        :pswitch_31
-        :pswitch_30
-        :pswitch_2f
-        :pswitch_2e
-        :pswitch_2d
-        :pswitch_2c
-        :pswitch_2b
-        :pswitch_2a
-        :pswitch_29
-        :pswitch_28
-        :pswitch_27
-        :pswitch_26
-        :pswitch_25
-        :pswitch_24
-        :pswitch_23
-        :pswitch_22
-        :pswitch_21
-        :pswitch_20
-        :pswitch_1f
-        :pswitch_1e
-        :pswitch_1d
-        :pswitch_1c
-        :pswitch_1b
-        :pswitch_1a
-        :pswitch_19
-        :pswitch_18
-        :pswitch_17
-        :pswitch_16
-        :pswitch_15
-        :pswitch_14
-        :pswitch_13
-        :pswitch_12
-        :pswitch_11
-        :pswitch_0
-        :pswitch_10
-        :pswitch_f
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_3d2
+        :pswitch_3c9
+        :pswitch_3b6
+        :pswitch_3ad
+        :pswitch_394
+        :pswitch_38b
+        :pswitch_382
+        :pswitch_379
+        :pswitch_366
+        :pswitch_352
+        :pswitch_33e
+        :pswitch_32a
+        :pswitch_316
+        :pswitch_302
+        :pswitch_2ee
+        :pswitch_2da
+        :pswitch_2c6
+        :pswitch_2b2
+        :pswitch_29e
+        :pswitch_28a
+        :pswitch_276
+        :pswitch_26c
+        :pswitch_262
+        :pswitch_258
+        :pswitch_24e
+        :pswitch_244
+        :pswitch_23a
+        :pswitch_230
+        :pswitch_226
+        :pswitch_21c
+        :pswitch_212
+        :pswitch_201
+        :pswitch_1f0
+        :pswitch_1d9
+        :pswitch_1c2
+        :pswitch_1b2
+        :pswitch_19b
+        :pswitch_184
+        :pswitch_174
+        :pswitch_172
+        :pswitch_170
+        :pswitch_16e
+        :pswitch_16c
+        :pswitch_c3
+        :pswitch_163
+        :pswitch_159
+        :pswitch_14f
+        :pswitch_147
+        :pswitch_13f
+        :pswitch_135
+        :pswitch_12b
+        :pswitch_123
+        :pswitch_10f
+        :pswitch_fb
+        :pswitch_f1
+        :pswitch_e7
+        :pswitch_c3
+        :pswitch_c3
+        :pswitch_c3
+        :pswitch_c3
+        :pswitch_c3
+        :pswitch_c3
+        :pswitch_c3
+        :pswitch_c3
+        :pswitch_e0
+        :pswitch_d9
+        :pswitch_cf
+        :pswitch_c5
     .end packed-switch
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 8
+    .registers 10
     .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2180,7 +2180,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;)V
-    .locals 8
+    .registers 10
     .param p1, "source"    # Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2779,7 +2779,7 @@
 
 # virtual methods
 .method public getConstraintTag()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 3595
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constraintTag:Ljava/lang/String;
@@ -2788,7 +2788,7 @@
 .end method
 
 .method public getConstraintWidget()Landroidx/constraintlayout/core/widgets/ConstraintWidget;
-    .locals 1
+    .registers 2
 
     .line 2620
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -2797,12 +2797,12 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 2632
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 2633
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -2810,12 +2810,12 @@
     invoke-virtual {v0}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->reset()V
 
     .line 2635
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public resolveLayoutDirection(I)V
-    .locals 8
+    .registers 10
     .param p1, "layoutDirection"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2851,16 +2851,16 @@
 
     const/4 v4, 0x1
 
-    if-ne v4, v3, :cond_0
+    if-ne v4, v3, :cond_12
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_13
     move v2, v3
 
     .line 3481
@@ -2916,7 +2916,7 @@
     .line 3497
     const/high16 v5, -0x80000000
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_b5
 
     .line 3498
     const/4 v6, 0x0
@@ -2925,7 +2925,7 @@
     .local v6, "startEndDefined":Z
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
 
-    if-eq v7, v3, :cond_1
+    if-eq v7, v3, :cond_48
 
     .line 3500
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
@@ -2935,13 +2935,13 @@
     .line 3501
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_51
 
     .line 3502
-    :cond_1
+    :cond_48
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToStart:I
 
-    if-eq v7, v3, :cond_2
+    if-eq v7, v3, :cond_51
 
     .line 3503
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToStart:I
@@ -2952,11 +2952,11 @@
     const/4 v6, 0x1
 
     .line 3506
-    :cond_2
-    :goto_1
+    :cond_51
+    :goto_51
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToStart:I
 
-    if-eq v7, v3, :cond_3
+    if-eq v7, v3, :cond_5a
 
     .line 3507
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToStart:I
@@ -2967,10 +2967,10 @@
     const/4 v6, 0x1
 
     .line 3510
-    :cond_3
+    :cond_5a
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToEnd:I
 
-    if-eq v7, v3, :cond_4
+    if-eq v7, v3, :cond_63
 
     .line 3511
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToEnd:I
@@ -2981,10 +2981,10 @@
     const/4 v6, 0x1
 
     .line 3514
-    :cond_4
+    :cond_63
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneStartMargin:I
 
-    if-eq v7, v5, :cond_5
+    if-eq v7, v5, :cond_6b
 
     .line 3515
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneStartMargin:I
@@ -2992,10 +2992,10 @@
     iput v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolveGoneRightMargin:I
 
     .line 3517
-    :cond_5
+    :cond_6b
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneEndMargin:I
 
-    if-eq v7, v5, :cond_6
+    if-eq v7, v5, :cond_73
 
     .line 3518
     iget v5, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneEndMargin:I
@@ -3003,10 +3003,10 @@
     iput v5, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolveGoneLeftMargin:I
 
     .line 3520
-    :cond_6
+    :cond_73
     const/high16 v5, 0x3f800000    # 1.0f
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_7d
 
     .line 3521
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->horizontalBias:F
@@ -3016,18 +3016,18 @@
     iput v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolvedHorizontalBias:F
 
     .line 3525
-    :cond_7
+    :cond_7d
     iget-boolean v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->isGuideline:Z
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_b4
 
     iget v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->orientation:I
 
-    if-ne v7, v4, :cond_a
+    if-ne v7, v4, :cond_b4
 
     iget-boolean v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guidelineUseRtl:Z
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b4
 
     .line 3526
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guidePercent:F
@@ -3036,7 +3036,7 @@
 
     cmpl-float v4, v4, v7
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9b
 
     .line 3527
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guidePercent:F
@@ -3051,13 +3051,13 @@
     .line 3529
     iput v3, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolvedGuideEnd:I
 
-    goto :goto_2
+    goto :goto_b4
 
     .line 3530
-    :cond_8
+    :cond_9b
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideBegin:I
 
-    if-eq v4, v3, :cond_9
+    if-eq v4, v3, :cond_a8
 
     .line 3531
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideBegin:I
@@ -3070,13 +3070,13 @@
     .line 3533
     iput v7, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolvedGuidePercent:F
 
-    goto :goto_2
+    goto :goto_b4
 
     .line 3534
-    :cond_9
+    :cond_a8
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideEnd:I
 
-    if-eq v4, v3, :cond_a
+    if-eq v4, v3, :cond_b4
 
     .line 3535
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideEnd:I
@@ -3091,15 +3091,15 @@
 
     .line 3540
     .end local v6    # "startEndDefined":Z
-    :cond_a
-    :goto_2
-    goto :goto_3
+    :cond_b4
+    :goto_b4
+    goto :goto_e5
 
     .line 3541
-    :cond_b
+    :cond_b5
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
 
-    if-eq v4, v3, :cond_c
+    if-eq v4, v3, :cond_bd
 
     .line 3542
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
@@ -3107,10 +3107,10 @@
     iput v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolvedLeftToRight:I
 
     .line 3544
-    :cond_c
+    :cond_bd
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToStart:I
 
-    if-eq v4, v3, :cond_d
+    if-eq v4, v3, :cond_c5
 
     .line 3545
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToStart:I
@@ -3118,10 +3118,10 @@
     iput v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolvedLeftToLeft:I
 
     .line 3547
-    :cond_d
+    :cond_c5
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToStart:I
 
-    if-eq v4, v3, :cond_e
+    if-eq v4, v3, :cond_cd
 
     .line 3548
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToStart:I
@@ -3129,10 +3129,10 @@
     iput v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolvedRightToLeft:I
 
     .line 3550
-    :cond_e
+    :cond_cd
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToEnd:I
 
-    if-eq v4, v3, :cond_f
+    if-eq v4, v3, :cond_d5
 
     .line 3551
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToEnd:I
@@ -3140,10 +3140,10 @@
     iput v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolvedRightToRight:I
 
     .line 3553
-    :cond_f
+    :cond_d5
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneStartMargin:I
 
-    if-eq v4, v5, :cond_10
+    if-eq v4, v5, :cond_dd
 
     .line 3554
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneStartMargin:I
@@ -3151,10 +3151,10 @@
     iput v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolveGoneLeftMargin:I
 
     .line 3556
-    :cond_10
+    :cond_dd
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneEndMargin:I
 
-    if-eq v4, v5, :cond_11
+    if-eq v4, v5, :cond_e5
 
     .line 3557
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneEndMargin:I
@@ -3162,28 +3162,28 @@
     iput v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolveGoneRightMargin:I
 
     .line 3561
-    :cond_11
-    :goto_3
+    :cond_e5
+    :goto_e5
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToStart:I
 
-    if-ne v4, v3, :cond_15
+    if-ne v4, v3, :cond_137
 
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToEnd:I
 
-    if-ne v4, v3, :cond_15
+    if-ne v4, v3, :cond_137
 
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToStart:I
 
-    if-ne v4, v3, :cond_15
+    if-ne v4, v3, :cond_137
 
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
 
-    if-ne v4, v3, :cond_15
+    if-ne v4, v3, :cond_137
 
     .line 3563
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToLeft:I
 
-    if-eq v4, v3, :cond_12
+    if-eq v4, v3, :cond_106
 
     .line 3564
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToLeft:I
@@ -3193,20 +3193,20 @@
     .line 3565
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightMargin:I
 
-    if-gtz v4, :cond_13
+    if-gtz v4, :cond_116
 
-    if-lez v1, :cond_13
+    if-lez v1, :cond_116
 
     .line 3566
     iput v1, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightMargin:I
 
-    goto :goto_4
+    goto :goto_116
 
     .line 3568
-    :cond_12
+    :cond_106
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToRight:I
 
-    if-eq v4, v3, :cond_13
+    if-eq v4, v3, :cond_116
 
     .line 3569
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToRight:I
@@ -3216,19 +3216,19 @@
     .line 3570
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightMargin:I
 
-    if-gtz v4, :cond_13
+    if-gtz v4, :cond_116
 
-    if-lez v1, :cond_13
+    if-lez v1, :cond_116
 
     .line 3571
     iput v1, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightMargin:I
 
     .line 3574
-    :cond_13
-    :goto_4
+    :cond_116
+    :goto_116
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToLeft:I
 
-    if-eq v4, v3, :cond_14
+    if-eq v4, v3, :cond_127
 
     .line 3575
     iget v3, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToLeft:I
@@ -3238,20 +3238,20 @@
     .line 3576
     iget v3, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftMargin:I
 
-    if-gtz v3, :cond_15
+    if-gtz v3, :cond_137
 
-    if-lez v0, :cond_15
+    if-lez v0, :cond_137
 
     .line 3577
     iput v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftMargin:I
 
-    goto :goto_5
+    goto :goto_137
 
     .line 3579
-    :cond_14
+    :cond_127
     iget v4, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToRight:I
 
-    if-eq v4, v3, :cond_15
+    if-eq v4, v3, :cond_137
 
     .line 3580
     iget v3, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToRight:I
@@ -3261,21 +3261,21 @@
     .line 3581
     iget v3, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftMargin:I
 
-    if-gtz v3, :cond_15
+    if-gtz v3, :cond_137
 
-    if-lez v0, :cond_15
+    if-lez v0, :cond_137
 
     .line 3582
     iput v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftMargin:I
 
     .line 3586
-    :cond_15
-    :goto_5
+    :cond_137
+    :goto_137
     return-void
 .end method
 
 .method public setWidgetDebugName(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -3296,7 +3296,7 @@
 .end method
 
 .method public validate()V
-    .locals 5
+    .registers 6
 
     .line 3368
     const/4 v0, 0x0
@@ -3316,11 +3316,11 @@
 
     const/4 v3, -0x2
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_19
 
     iget-boolean v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constrainedWidth:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 3383
     iput-boolean v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->horizontalDimensionFixed:Z
@@ -3328,20 +3328,20 @@
     .line 3384
     iget v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintDefaultWidth:I
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_19
 
     .line 3385
     iput v1, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintDefaultWidth:I
 
     .line 3388
-    :cond_0
+    :cond_19
     iget v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->height:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_29
 
     iget-boolean v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constrainedHeight:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 3389
     iput-boolean v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->verticalDimensionFixed:Z
@@ -3349,35 +3349,35 @@
     .line 3390
     iget v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintDefaultHeight:I
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_29
 
     .line 3391
     iput v1, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintDefaultHeight:I
 
     .line 3394
-    :cond_1
+    :cond_29
     iget v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->width:I
 
     const/4 v4, -0x1
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_32
 
     iget v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->width:I
 
-    if-ne v2, v4, :cond_3
+    if-ne v2, v4, :cond_40
 
     .line 3395
-    :cond_2
+    :cond_32
     iput-boolean v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->horizontalDimensionFixed:Z
 
     .line 3399
     iget v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->width:I
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_40
 
     iget v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintDefaultWidth:I
 
-    if-ne v2, v1, :cond_3
+    if-ne v2, v1, :cond_40
 
     .line 3400
     iput v3, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->width:I
@@ -3386,27 +3386,27 @@
     iput-boolean v1, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constrainedWidth:Z
 
     .line 3404
-    :cond_3
+    :cond_40
     iget v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->height:I
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_48
 
     iget v2, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->height:I
 
-    if-ne v2, v4, :cond_5
+    if-ne v2, v4, :cond_56
 
     .line 3405
-    :cond_4
+    :cond_48
     iput-boolean v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->verticalDimensionFixed:Z
 
     .line 3409
     iget v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->height:I
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_56
 
     iget v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->matchConstraintDefaultHeight:I
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_56
 
     .line 3410
     iput v3, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->height:I
@@ -3415,25 +3415,25 @@
     iput-boolean v1, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constrainedHeight:Z
 
     .line 3414
-    :cond_5
+    :cond_56
     iget v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guidePercent:F
 
     const/high16 v2, -0x40800000    # -1.0f
 
     cmpl-float v0, v0, v2
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_66
 
     iget v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideBegin:I
 
-    if-ne v0, v4, :cond_6
+    if-ne v0, v4, :cond_66
 
     iget v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->guideEnd:I
 
-    if-eq v0, v4, :cond_8
+    if-eq v0, v4, :cond_82
 
     .line 3415
-    :cond_6
+    :cond_66
     iput-boolean v1, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->isGuideline:Z
 
     .line 3416
@@ -3447,7 +3447,7 @@
 
     instance-of v0, v0, Landroidx/constraintlayout/core/widgets/Guideline;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_79
 
     .line 3419
     new-instance v0, Landroidx/constraintlayout/core/widgets/Guideline;
@@ -3457,7 +3457,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     .line 3421
-    :cond_7
+    :cond_79
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     check-cast v0, Landroidx/constraintlayout/core/widgets/Guideline;
@@ -3467,6 +3467,6 @@
     invoke-virtual {v0, v1}, Landroidx/constraintlayout/core/widgets/Guideline;->setOrientation(I)V
 
     .line 3423
-    :cond_8
+    :cond_82
     return-void
 .end method

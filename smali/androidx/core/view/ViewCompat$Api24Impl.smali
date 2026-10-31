@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5592
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static cancelDragAndDrop(Landroid/view/View;)V
-    .locals 0
+    .registers 1
     .param p0, "view"    # Landroid/view/View;
 
     .line 5610
@@ -37,7 +37,7 @@
 .end method
 
 .method static dispatchFinishTemporaryDetach(Landroid/view/View;)V
-    .locals 0
+    .registers 1
     .param p0, "view"    # Landroid/view/View;
 
     .line 5626
@@ -48,7 +48,7 @@
 .end method
 
 .method static dispatchStartTemporaryDetach(Landroid/view/View;)V
-    .locals 0
+    .registers 1
     .param p0, "view"    # Landroid/view/View;
 
     .line 5621
@@ -59,7 +59,7 @@
 .end method
 
 .method static setPointerIcon(Landroid/view/View;Landroid/view/PointerIcon;)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "pointerIcon"    # Landroid/view/PointerIcon;
 
@@ -71,7 +71,7 @@
 .end method
 
 .method static startDragAndDrop(Landroid/view/View;Landroid/content/ClipData;Landroid/view/View$DragShadowBuilder;Ljava/lang/Object;I)Z
-    .locals 1
+    .registers 6
     .param p0, "view"    # Landroid/view/View;
     .param p1, "data"    # Landroid/content/ClipData;
     .param p2, "shadowBuilder"    # Landroid/view/View$DragShadowBuilder;
@@ -87,7 +87,7 @@
 .end method
 
 .method static updateDragShadow(Landroid/view/View;Landroid/view/View$DragShadowBuilder;)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "shadowBuilder"    # Landroid/view/View$DragShadowBuilder;
 

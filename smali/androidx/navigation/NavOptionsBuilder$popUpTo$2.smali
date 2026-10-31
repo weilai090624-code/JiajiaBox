@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/navigation/NavOptionsBuilder$popUpTo$2;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 113
@@ -92,7 +92,7 @@
 .end method
 
 .method public final invoke(Landroidx/navigation/PopUpToBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$null"    # Landroidx/navigation/PopUpToBuilder;
 
     const-string v0, "$this$null"

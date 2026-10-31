@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/SnapHelper;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/recyclerview/widget/SnapHelper;
     .param p2, "context"    # Landroid/content/Context;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method protected calculateSpeedPerPixel(Landroid/util/DisplayMetrics;)F
-    .locals 2
+    .registers 4
     .param p1, "displayMetrics"    # Landroid/util/DisplayMetrics;
 
     .line 250
@@ -51,7 +51,7 @@
 .end method
 
 .method protected onTargetFound(Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$Action;)V
-    .locals 5
+    .registers 9
     .param p1, "targetView"    # Landroid/view/View;
     .param p2, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
     .param p3, "action"    # Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$Action;
@@ -61,13 +61,13 @@
 
     iget-object v0, v0, Landroidx/recyclerview/widget/SnapHelper;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 236
     return-void
 
     .line 238
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/recyclerview/widget/SnapHelper$2;->this$0:Landroidx/recyclerview/widget/SnapHelper;
 
     iget-object v1, p0, Landroidx/recyclerview/widget/SnapHelper$2;->this$0:Landroidx/recyclerview/widget/SnapHelper;
@@ -114,7 +114,7 @@
 
     .line 243
     .local v3, "time":I
-    if-lez v3, :cond_1
+    if-lez v3, :cond_32
 
     .line 244
     iget-object v4, p0, Landroidx/recyclerview/widget/SnapHelper$2;->mDecelerateInterpolator:Landroid/view/animation/DecelerateInterpolator;
@@ -122,6 +122,6 @@
     invoke-virtual {p3, v1, v2, v3, v4}, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$Action;->update(IIILandroid/view/animation/Interpolator;)V
 
     .line 246
-    :cond_1
+    :cond_32
     return-void
 .end method

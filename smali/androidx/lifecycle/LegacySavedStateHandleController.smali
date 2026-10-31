@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/lifecycle/LegacySavedStateHandleController;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -76,7 +76,7 @@
 .end method
 
 .method public static final attachHandleIfNeeded(Landroidx/lifecycle/ViewModel;Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/Lifecycle;)V
-    .locals 2
+    .registers 5
     .param p0, "viewModel"    # Landroidx/lifecycle/ViewModel;
     .param p1, "registry"    # Landroidx/savedstate/SavedStateRegistry;
     .param p2, "lifecycle"    # Landroidx/lifecycle/Lifecycle;
@@ -112,13 +112,13 @@
 
     .line 50
     .local v0, "controller":Landroidx/lifecycle/SavedStateHandleController;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     invoke-virtual {v0}, Landroidx/lifecycle/SavedStateHandleController;->isAttached()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2a
 
     .line 51
     invoke-virtual {v0, p1, p2}, Landroidx/lifecycle/SavedStateHandleController;->attachToLifecycle(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/Lifecycle;)V
@@ -129,12 +129,12 @@
     invoke-direct {v1, p1, p2}, Landroidx/lifecycle/LegacySavedStateHandleController;->tryToAddRecreator(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/Lifecycle;)V
 
     .line 54
-    :cond_0
+    :cond_2a
     return-void
 .end method
 
 .method public static final create(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/Lifecycle;Ljava/lang/String;Landroid/os/Bundle;)Landroidx/lifecycle/SavedStateHandleController;
-    .locals 4
+    .registers 8
     .param p0, "registry"    # Landroidx/savedstate/SavedStateRegistry;
     .param p1, "lifecycle"    # Landroidx/lifecycle/Lifecycle;
     .param p2, "key"    # Ljava/lang/String;
@@ -185,7 +185,7 @@
 .end method
 
 .method private final tryToAddRecreator(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/Lifecycle;)V
-    .locals 2
+    .registers 5
     .param p1, "registry"    # Landroidx/savedstate/SavedStateRegistry;
     .param p2, "lifecycle"    # Landroidx/lifecycle/Lifecycle;
 
@@ -198,7 +198,7 @@
     .local v0, "currentState":Landroidx/lifecycle/Lifecycle$State;
     sget-object v1, Landroidx/lifecycle/Lifecycle$State;->INITIALIZED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1c
 
     .line 59
     sget-object v1, Landroidx/lifecycle/Lifecycle$State;->STARTED:Landroidx/lifecycle/Lifecycle$State;
@@ -207,12 +207,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 62
-    :cond_0
+    :cond_11
     new-instance v1, Landroidx/lifecycle/LegacySavedStateHandleController$tryToAddRecreator$1;
 
     invoke-direct {v1, p2, p1}, Landroidx/lifecycle/LegacySavedStateHandleController$tryToAddRecreator$1;-><init>(Landroidx/lifecycle/Lifecycle;Landroidx/savedstate/SavedStateRegistry;)V
@@ -221,16 +221,16 @@
 
     invoke-virtual {p2, v1}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
-    goto :goto_1
+    goto :goto_21
 
     .line 60
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     const-class v1, Landroidx/lifecycle/LegacySavedStateHandleController$OnRecreation;
 
     invoke-virtual {p1, v1}, Landroidx/savedstate/SavedStateRegistry;->runOnNextRecreation(Ljava/lang/Class;)V
 
     .line 74
-    :goto_1
+    :goto_21
     return-void
 .end method

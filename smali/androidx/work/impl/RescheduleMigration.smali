@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;II)V
-    .locals 1
+    .registers 5
     .param p1, "mContext"    # Landroid/content/Context;
     .param p2, "startVersion"    # I
     .param p3, "endVersion"    # I
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final getMContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 227
     iget-object v0, p0, Landroidx/work/impl/RescheduleMigration;->mContext:Landroid/content/Context;
@@ -71,7 +71,7 @@
 .end method
 
 .method public migrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 5
+    .registers 7
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -89,7 +89,7 @@
 
     const/4 v4, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_22
 
     .line 231
     nop
@@ -115,10 +115,10 @@
 
     invoke-interface {p1, v0, v1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 236
-    :cond_0
+    :cond_22
     iget-object v0, p0, Landroidx/work/impl/RescheduleMigration;->mContext:Landroid/content/Context;
 
     .line 237
@@ -150,6 +150,6 @@
 
     .line 247
     .end local v0    # "preferences":Landroid/content/SharedPreferences;
-    :goto_0
+    :goto_37
     return-void
 .end method

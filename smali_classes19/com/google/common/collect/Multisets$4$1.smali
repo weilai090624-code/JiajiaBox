@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multisets$4;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Multisets$4;
 
     .line 614
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method protected computeNext()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -58,14 +58,14 @@
     .line 618
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/Multisets$4$1;->val$iterator1:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     .line 619
     iget-object v0, p0, Lcom/google/common/collect/Multisets$4$1;->val$iterator1:Ljava/util/Iterator;
@@ -96,7 +96,7 @@
 
     move-result v3
 
-    if-le v2, v3, :cond_0
+    if-le v2, v3, :cond_24
 
     .line 622
     return-object v1
@@ -104,11 +104,11 @@
     .line 624
     .end local v0    # "entry1":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<TE;>;"
     .end local v1    # "element":Ljava/lang/Object;, "TE;"
-    :cond_0
-    goto :goto_0
+    :cond_24
+    goto :goto_1
 
     .line 625
-    :cond_1
+    :cond_25
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$4$1;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

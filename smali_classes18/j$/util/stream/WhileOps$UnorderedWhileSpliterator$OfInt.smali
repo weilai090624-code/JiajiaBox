@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator$OfInt;Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt;)V
-    .locals 1
+    .registers 4
     .param p1, "s"    # Lj$/util/Spliterator$OfInt;
     .param p2, "parent"    # Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator$OfInt;ZLjava/util/function/IntPredicate;)V
-    .locals 0
+    .registers 4
     .param p1, "s"    # Lj$/util/Spliterator$OfInt;
     .param p2, "noSplitting"    # Z
     .param p3, "p"    # Ljava/util/function/IntPredicate;
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # I
 
     .line 839
@@ -99,7 +99,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/lang/Object;)V
 
@@ -117,7 +117,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)V
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/IntConsumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/util/function/IntConsumer;)V
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfInt;Ljava/lang/Object;)Z
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)Z
 
@@ -153,7 +153,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 2
 
     .line 823
     invoke-super {p0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;->trySplit()Lj$/util/Spliterator;
@@ -166,7 +166,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 823
     invoke-super {p0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;->trySplit()Lj$/util/Spliterator;

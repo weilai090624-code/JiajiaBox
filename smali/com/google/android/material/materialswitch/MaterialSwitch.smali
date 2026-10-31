@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 48
     sget v0, Lcom/google/android/material/R$style;->Widget_Material3_CompoundButton_MaterialSwitch:I
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 68
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 7
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -251,7 +251,7 @@
 .end method
 
 .method private refreshThumbDrawable()V
-    .locals 3
+    .registers 4
 
     .line 363
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbDrawable:Landroid/graphics/drawable/Drawable;
@@ -308,7 +308,7 @@
 .end method
 
 .method private refreshTrackDrawable()V
-    .locals 5
+    .registers 6
 
     .line 379
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
@@ -347,11 +347,11 @@
     .line 389
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     .line 390
     new-instance v0, Landroid/graphics/drawable/LayerDrawable;
@@ -375,30 +375,30 @@
     invoke-direct {v0, v3}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
 
     .local v0, "finalTrackDrawable":Landroid/graphics/drawable/Drawable;
-    goto :goto_0
+    goto :goto_41
 
     .line 392
     .end local v0    # "finalTrackDrawable":Landroid/graphics/drawable/Drawable;
-    :cond_0
+    :cond_38
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3f
 
     .line 393
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
 
     .restart local v0    # "finalTrackDrawable":Landroid/graphics/drawable/Drawable;
-    goto :goto_0
+    goto :goto_41
 
     .line 395
     .end local v0    # "finalTrackDrawable":Landroid/graphics/drawable/Drawable;
-    :cond_1
+    :cond_3f
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 397
     .restart local v0    # "finalTrackDrawable":Landroid/graphics/drawable/Drawable;
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_41
+    if-eqz v0, :cond_4a
 
     .line 398
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -408,7 +408,7 @@
     invoke-virtual {p0, v1}, Lcom/google/android/material/materialswitch/MaterialSwitch;->setSwitchMinWidth(I)V
 
     .line 400
-    :cond_2
+    :cond_4a
     invoke-super {p0, v0}, Landroidx/appcompat/widget/SwitchCompat;->setTrackDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 401
@@ -416,7 +416,7 @@
 .end method
 
 .method private static setInterpolatedDrawableTintIfPossible(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
-    .locals 2
+    .registers 7
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
     .param p2, "stateUnchecked"    # [I
@@ -424,14 +424,14 @@
     .param p4, "thumbPosition"    # F
 
     .line 454
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_17
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
-    goto :goto_0
+    goto :goto_17
 
     .line 458
-    :cond_0
+    :cond_5
     nop
 
     .line 461
@@ -458,36 +458,36 @@
     return-void
 
     .line 455
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     return-void
 .end method
 
 .method private updateDrawableTints()V
-    .locals 5
+    .registers 6
 
     .line 404
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbTintList:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintList:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackTintList:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintList:Landroid/content/res/ColorStateList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 409
     return-void
 
     .line 412
-    :cond_0
+    :cond_11
     invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->getThumbPosition()F
 
     move-result v0
@@ -496,7 +496,7 @@
     .local v0, "thumbPosition":F
     iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_24
 
     .line 415
     iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbDrawable:Landroid/graphics/drawable/Drawable;
@@ -510,10 +510,10 @@
     invoke-static {v1, v2, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->setInterpolatedDrawableTintIfPossible(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
 
     .line 419
-    :cond_1
+    :cond_24
     iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_33
 
     .line 420
     iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
@@ -527,10 +527,10 @@
     invoke-static {v1, v2, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->setInterpolatedDrawableTintIfPossible(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
 
     .line 428
-    :cond_2
+    :cond_33
     iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_42
 
     .line 429
     iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
@@ -544,10 +544,10 @@
     invoke-static {v1, v2, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->setInterpolatedDrawableTintIfPossible(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
 
     .line 433
-    :cond_3
+    :cond_42
     iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_51
 
     .line 434
     iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
@@ -561,14 +561,14 @@
     invoke-static {v1, v2, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->setInterpolatedDrawableTintIfPossible(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
 
     .line 441
-    :cond_4
+    :cond_51
     return-void
 .end method
 
 
 # virtual methods
 .method public getThumbDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 143
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbDrawable:Landroid/graphics/drawable/Drawable;
@@ -577,7 +577,7 @@
 .end method
 
 .method public getThumbIconDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 194
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
@@ -586,7 +586,7 @@
 .end method
 
 .method public getThumbIconTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 221
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintList:Landroid/content/res/ColorStateList;
@@ -595,7 +595,7 @@
 .end method
 
 .method public getThumbIconTintMode()Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
 
     .line 245
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -604,7 +604,7 @@
 .end method
 
 .method public getThumbTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 155
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbTintList:Landroid/content/res/ColorStateList;
@@ -613,7 +613,7 @@
 .end method
 
 .method public getTrackDecorationDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 308
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
@@ -622,7 +622,7 @@
 .end method
 
 .method public getTrackDecorationTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 335
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintList:Landroid/content/res/ColorStateList;
@@ -631,7 +631,7 @@
 .end method
 
 .method public getTrackDecorationTintMode()Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
 
     .line 359
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -640,7 +640,7 @@
 .end method
 
 .method public getTrackDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 257
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
@@ -649,7 +649,7 @@
 .end method
 
 .method public getTrackTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 269
     iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackTintList:Landroid/content/res/ColorStateList;
@@ -658,7 +658,7 @@
 .end method
 
 .method public invalidate()V
-    .locals 0
+    .registers 1
 
     .line 116
     invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->updateDrawableTints()V
@@ -671,7 +671,7 @@
 .end method
 
 .method protected onCreateDrawableState(I)[I
-    .locals 2
+    .registers 4
     .param p1, "extraSpace"    # I
 
     .line 122
@@ -685,7 +685,7 @@
     .local v0, "drawableState":[I
     iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 125
     sget-object v1, Lcom/google/android/material/materialswitch/MaterialSwitch;->STATE_SET_WITH_ICON:[I
@@ -693,7 +693,7 @@
     invoke-static {v0, v1}, Lcom/google/android/material/materialswitch/MaterialSwitch;->mergeDrawableStates([I[I)[I
 
     .line 128
-    :cond_0
+    :cond_f
     invoke-static {v0}, Lcom/google/android/material/drawable/DrawableUtils;->getUncheckedState([I)[I
 
     move-result-object v1
@@ -712,7 +712,7 @@
 .end method
 
 .method public setThumbDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 136
@@ -726,7 +726,7 @@
 .end method
 
 .method public setThumbIconDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 183
@@ -740,7 +740,7 @@
 .end method
 
 .method public setThumbIconResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 172
@@ -759,7 +759,7 @@
 .end method
 
 .method public setThumbIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1, "tintList"    # Landroid/content/res/ColorStateList;
 
     .line 210
@@ -773,7 +773,7 @@
 .end method
 
 .method public setThumbIconTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 234
@@ -787,7 +787,7 @@
 .end method
 
 .method public setThumbTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1, "tintList"    # Landroid/content/res/ColorStateList;
 
     .line 148
@@ -801,7 +801,7 @@
 .end method
 
 .method public setThumbTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 160
@@ -815,7 +815,7 @@
 .end method
 
 .method public setTrackDecorationDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1, "trackDecoration"    # Landroid/graphics/drawable/Drawable;
 
     .line 297
@@ -829,7 +829,7 @@
 .end method
 
 .method public setTrackDecorationResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 286
@@ -848,7 +848,7 @@
 .end method
 
 .method public setTrackDecorationTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1, "tintList"    # Landroid/content/res/ColorStateList;
 
     .line 324
@@ -862,7 +862,7 @@
 .end method
 
 .method public setTrackDecorationTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 348
@@ -876,7 +876,7 @@
 .end method
 
 .method public setTrackDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1, "track"    # Landroid/graphics/drawable/Drawable;
 
     .line 250
@@ -890,7 +890,7 @@
 .end method
 
 .method public setTrackTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1, "tintList"    # Landroid/content/res/ColorStateList;
 
     .line 262
@@ -904,7 +904,7 @@
 .end method
 
 .method public setTrackTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 274

@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public final execute(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-static {p1}, Landroidx/arch/core/executor/ArchTaskExecutor;->lambda$static$0(Ljava/lang/Runnable;)V

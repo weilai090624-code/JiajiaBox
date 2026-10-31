@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public concurrencyLevel(I)Lcom/google/common/collect/MapMaker;
-    .locals 5
+    .registers 7
     .param p1, "concurrencyLevel"    # I
 
     .line 179
@@ -87,16 +87,16 @@
 
     const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     const-string v1, "concurrency level was already set to %s"
 
     iget v4, p0, Lcom/google/common/collect/MapMaker;->concurrencyLevel:I
@@ -104,14 +104,14 @@
     invoke-static {v0, v1, v4}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/String;I)V
 
     .line 183
-    if-lez p1, :cond_1
+    if-lez p1, :cond_14
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_15
     invoke-static {v2}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 184
@@ -122,49 +122,49 @@
 .end method
 
 .method getConcurrencyLevel()I
-    .locals 2
+    .registers 3
 
     .line 189
     iget v0, p0, Lcom/google/common/collect/MapMaker;->concurrencyLevel:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x4
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     iget v0, p0, Lcom/google/common/collect/MapMaker;->concurrencyLevel:I
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method getInitialCapacity()I
-    .locals 2
+    .registers 3
 
     .line 155
     iget v0, p0, Lcom/google/common/collect/MapMaker;->initialCapacity:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/16 v0, 0x10
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_8
     iget v0, p0, Lcom/google/common/collect/MapMaker;->initialCapacity:I
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method getKeyEquivalence()Lcom/google/common/base/Equivalence;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -195,7 +195,7 @@
 .end method
 
 .method getKeyStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
-    .locals 2
+    .registers 3
 
     .line 220
     iget-object v0, p0, Lcom/google/common/collect/MapMaker;->keyStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
@@ -212,7 +212,7 @@
 .end method
 
 .method getValueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
-    .locals 2
+    .registers 3
 
     .line 266
     iget-object v0, p0, Lcom/google/common/collect/MapMaker;->valueStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
@@ -229,7 +229,7 @@
 .end method
 
 .method public initialCapacity(I)Lcom/google/common/collect/MapMaker;
-    .locals 5
+    .registers 7
     .param p1, "initialCapacity"    # I
 
     .line 145
@@ -241,16 +241,16 @@
 
     const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     const-string v1, "initial capacity was already set to %s"
 
     iget v4, p0, Lcom/google/common/collect/MapMaker;->initialCapacity:I
@@ -258,14 +258,14 @@
     invoke-static {v0, v1, v4}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/String;I)V
 
     .line 149
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_14
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_15
     invoke-static {v2}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 150
@@ -276,7 +276,7 @@
 .end method
 
 .method keyEquivalence(Lcom/google/common/base/Equivalence;)Lcom/google/common/collect/MapMaker;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -293,16 +293,16 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     const-string v2, "key equivalence was already set to %s"
 
     iget-object v3, p0, Lcom/google/common/collect/MapMaker;->keyEquivalence:Lcom/google/common/base/Equivalence;
@@ -326,7 +326,7 @@
 .end method
 
 .method public makeMap()Ljava/util/concurrent/ConcurrentMap;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -342,7 +342,7 @@
     .line 281
     iget-boolean v0, p0, Lcom/google/common/collect/MapMaker;->useCustomMap:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 282
     new-instance v0, Lj$/util/concurrent/ConcurrentHashMap;
@@ -362,7 +362,7 @@
     return-object v0
 
     .line 284
-    :cond_0
+    :cond_14
     invoke-static {p0}, Lcom/google/common/collect/MapMakerInternalMap;->create(Lcom/google/common/collect/MapMaker;)Lcom/google/common/collect/MapMakerInternalMap;
 
     move-result-object v0
@@ -371,7 +371,7 @@
 .end method
 
 .method setKeyStrength(Lcom/google/common/collect/MapMakerInternalMap$Strength;)Lcom/google/common/collect/MapMaker;
-    .locals 4
+    .registers 6
     .param p1, "strength"    # Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     .line 210
@@ -379,16 +379,16 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     const-string v2, "Key strength was already set to %s"
 
     iget-object v3, p0, Lcom/google/common/collect/MapMaker;->keyStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
@@ -407,18 +407,18 @@
     .line 212
     sget-object v0, Lcom/google/common/collect/MapMakerInternalMap$Strength;->STRONG:Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_1d
 
     .line 214
     iput-boolean v1, p0, Lcom/google/common/collect/MapMaker;->useCustomMap:Z
 
     .line 216
-    :cond_1
+    :cond_1d
     return-object p0
 .end method
 
 .method setValueStrength(Lcom/google/common/collect/MapMakerInternalMap$Strength;)Lcom/google/common/collect/MapMaker;
-    .locals 4
+    .registers 6
     .param p1, "strength"    # Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     .line 256
@@ -426,16 +426,16 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     const-string v2, "Value strength was already set to %s"
 
     iget-object v3, p0, Lcom/google/common/collect/MapMaker;->valueStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
@@ -454,18 +454,18 @@
     .line 258
     sget-object v0, Lcom/google/common/collect/MapMakerInternalMap$Strength;->STRONG:Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_1d
 
     .line 260
     iput-boolean v1, p0, Lcom/google/common/collect/MapMaker;->useCustomMap:Z
 
     .line 262
-    :cond_1
+    :cond_1d
     return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 293
     invoke-static {p0}, Lcom/google/common/base/MoreObjects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
@@ -478,7 +478,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_10
 
     .line 295
     const-string v1, "initialCapacity"
@@ -488,10 +488,10 @@
     invoke-virtual {v0, v1, v3}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;I)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 297
-    :cond_0
+    :cond_10
     iget v1, p0, Lcom/google/common/collect/MapMaker;->concurrencyLevel:I
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_1b
 
     .line 298
     const-string v1, "concurrencyLevel"
@@ -501,10 +501,10 @@
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;I)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 300
-    :cond_1
+    :cond_1b
     iget-object v1, p0, Lcom/google/common/collect/MapMaker;->keyStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2e
 
     .line 301
     iget-object v1, p0, Lcom/google/common/collect/MapMaker;->keyStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
@@ -522,10 +522,10 @@
     invoke-virtual {v0, v2, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 303
-    :cond_2
+    :cond_2e
     iget-object v1, p0, Lcom/google/common/collect/MapMaker;->valueStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_41
 
     .line 304
     iget-object v1, p0, Lcom/google/common/collect/MapMaker;->valueStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
@@ -543,10 +543,10 @@
     invoke-virtual {v0, v2, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 306
-    :cond_3
+    :cond_41
     iget-object v1, p0, Lcom/google/common/collect/MapMaker;->keyEquivalence:Lcom/google/common/base/Equivalence;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4a
 
     .line 307
     const-string v1, "keyEquivalence"
@@ -554,7 +554,7 @@
     invoke-virtual {v0, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->addValue(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 309
-    :cond_4
+    :cond_4a
     invoke-virtual {v0}, Lcom/google/common/base/MoreObjects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -563,7 +563,7 @@
 .end method
 
 .method public weakKeys()Lcom/google/common/collect/MapMaker;
-    .locals 1
+    .registers 2
 
     .line 206
     sget-object v0, Lcom/google/common/collect/MapMakerInternalMap$Strength;->WEAK:Lcom/google/common/collect/MapMakerInternalMap$Strength;
@@ -576,7 +576,7 @@
 .end method
 
 .method public weakValues()Lcom/google/common/collect/MapMaker;
-    .locals 1
+    .registers 2
 
     .line 242
     sget-object v0, Lcom/google/common/collect/MapMakerInternalMap$Strength;->WEAK:Lcom/google/common/collect/MapMakerInternalMap$Strength;

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static synthetic cancel(Lkotlinx/coroutines/Job;)V
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/Job;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -42,23 +42,23 @@
 .end method
 
 .method public static synthetic cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 199
-    if-nez p3, :cond_1
+    if-nez p3, :cond_b
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_7
     invoke-interface {p0, p1}, Lkotlinx/coroutines/Job;->cancel(Ljava/util/concurrent/CancellationException;)V
 
     return-void
 
-    :cond_1
+    :cond_b
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: cancel"
@@ -69,25 +69,25 @@
 .end method
 
 .method public static synthetic cancel$default(Lkotlinx/coroutines/Job;Ljava/lang/Throwable;ILjava/lang/Object;)Z
-    .locals 0
+    .registers 4
 
     .line 211
-    if-nez p3, :cond_1
+    if-nez p3, :cond_c
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_7
     invoke-interface {p0, p1}, Lkotlinx/coroutines/Job;->cancel(Ljava/lang/Throwable;)Z
 
     move-result p0
 
     return p0
 
-    :cond_1
+    :cond_c
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: cancel"
@@ -98,7 +98,7 @@
 .end method
 
 .method public static fold(Lkotlinx/coroutines/Job;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Lkotlinx/coroutines/Job;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -130,7 +130,7 @@
 .end method
 
 .method public static get(Lkotlinx/coroutines/Job;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/Job;
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
@@ -158,42 +158,42 @@
 .end method
 
 .method public static synthetic getParent$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic invokeOnCompletion$default(Lkotlinx/coroutines/Job;ZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/DisposableHandle;
-    .locals 0
+    .registers 6
 
     .line 357
-    if-nez p5, :cond_2
+    if-nez p5, :cond_11
 
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_7
 
     .line 358
     const/4 p1, 0x0
 
     .line 357
-    :cond_0
+    :cond_7
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 359
     const/4 p2, 0x1
 
     .line 357
-    :cond_1
+    :cond_c
     invoke-interface {p0, p1, p2, p3}, Lkotlinx/coroutines/Job;->invokeOnCompletion(ZZLkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/DisposableHandle;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_2
+    :cond_11
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: invokeOnCompletion"
@@ -204,7 +204,7 @@
 .end method
 
 .method public static minusKey(Lkotlinx/coroutines/Job;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/Job;
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
@@ -231,7 +231,7 @@
 .end method
 
 .method public static plus(Lkotlinx/coroutines/Job;Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/Job;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
@@ -249,7 +249,7 @@
 .end method
 
 .method public static plus(Lkotlinx/coroutines/Job;Lkotlinx/coroutines/Job;)Lkotlinx/coroutines/Job;
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/Job;
     .param p1, "other"    # Lkotlinx/coroutines/Job;
     .annotation runtime Lkotlin/Deprecated;

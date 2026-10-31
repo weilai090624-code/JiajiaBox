@@ -69,7 +69,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/navigation/NavGraph;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Landroidx/navigation/NavGraph;
 
     iput-object p1, p0, Landroidx/navigation/NavGraph$iterator$1;->this$0:Landroidx/navigation/NavGraph;
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 3
+    .registers 4
 
     .line 208
     iget v0, p0, Landroidx/navigation/NavGraph$iterator$1;->index:I
@@ -108,26 +108,26 @@
 
     move-result v2
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_11
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     return v1
 .end method
 
 .method public next()Landroidx/navigation/NavDestination;
-    .locals 3
+    .registers 4
 
     .line 212
     invoke-virtual {p0}, Landroidx/navigation/NavGraph$iterator$1;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 215
     const/4 v0, 0x1
@@ -162,7 +162,7 @@
     return-object v0
 
     .line 213
-    :cond_0
+    :cond_22
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -171,7 +171,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 204
     invoke-virtual {p0}, Landroidx/navigation/NavGraph$iterator$1;->next()Landroidx/navigation/NavDestination;
@@ -182,12 +182,12 @@
 .end method
 
 .method public remove()V
-    .locals 4
+    .registers 5
 
     .line 220
     iget-boolean v0, p0, Landroidx/navigation/NavGraph$iterator$1;->wentToNext:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 221
     iget-object v0, p0, Landroidx/navigation/NavGraph$iterator$1;->this$0:Landroidx/navigation/NavGraph;
@@ -242,7 +242,7 @@
     return-void
 
     .line 476
-    :cond_0
+    :cond_28
     const/4 v0, 0x0
 
     .line 220

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/dynamicanimation/animation/AnimationHandler;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/dynamicanimation/animation/AnimationHandler;
 
     .line 58
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method dispatchAnimationFrame()V
-    .locals 3
+    .registers 4
 
     .line 60
     iget-object v0, p0, Landroidx/dynamicanimation/animation/AnimationHandler$AnimationCallbackDispatcher;->this$0:Landroidx/dynamicanimation/animation/AnimationHandler;
@@ -63,7 +63,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_24
 
     .line 63
     iget-object v0, p0, Landroidx/dynamicanimation/animation/AnimationHandler$AnimationCallbackDispatcher;->this$0:Landroidx/dynamicanimation/animation/AnimationHandler;
@@ -75,6 +75,6 @@
     invoke-virtual {v0}, Landroidx/dynamicanimation/animation/AnimationHandler$AnimationFrameCallbackProvider;->postFrameCallback()V
 
     .line 65
-    :cond_0
+    :cond_24
     return-void
 .end method

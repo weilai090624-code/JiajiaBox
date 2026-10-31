@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/channels/BufferedChannel;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
     .param p3, "p3"    # Ljava/lang/Object;
@@ -112,7 +112,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 5
     .param p1, "select"    # Lkotlinx/coroutines/selects/SelectInstance;
     .param p3, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

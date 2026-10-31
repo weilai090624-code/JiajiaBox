@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/textscroller/TextScrollerPlugin$Companion;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 24
     const-string/jumbo v0, "text-scroller-1821"
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public final getScroller()Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/textscroller/TextScrollerPlugin;->scroller:Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
@@ -90,7 +90,7 @@
 .end method
 
 .method public onAttached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 2
+    .registers 4
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -103,7 +103,7 @@
     .line 30
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/textscroller/TextScrollerPlugin;->scroller:Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     move-object v1, p1
 
@@ -112,7 +112,7 @@
     invoke-virtual {v0, v1}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->attachTo(Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;)V
 
     .line 31
-    :cond_0
+    :cond_12
     const-string/jumbo v0, "text-scroller-1821"
 
     const-string v1, "TextScroller plugin loaded successfully!"
@@ -124,7 +124,7 @@
 .end method
 
 .method public onDetached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 1
+    .registers 3
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -137,12 +137,12 @@
     .line 36
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/textscroller/TextScrollerPlugin;->scroller:Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->detach()V
 
     .line 37
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/textscroller/TextScrollerPlugin;->scroller:Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
@@ -152,7 +152,7 @@
 .end method
 
 .method public final setScroller(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
     .line 26

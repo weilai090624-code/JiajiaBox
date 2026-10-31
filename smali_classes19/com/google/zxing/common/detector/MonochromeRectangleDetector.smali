@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/zxing/common/BitMatrix;)V
-    .locals 0
+    .registers 2
     .param p1, "image"    # Lcom/google/zxing/common/BitMatrix;
 
     .line 38
@@ -32,7 +32,7 @@
 .end method
 
 .method private blackWhiteRange(IIIIZ)[I
-    .locals 5
+    .registers 11
     .param p1, "fixedDimension"    # I
     .param p2, "maxWhiteRun"    # I
     .param p3, "minDim"    # I
@@ -52,91 +52,91 @@
 
     .line 176
     .local v0, "start":I
-    :goto_0
-    if-lt v0, p3, :cond_7
+    :goto_6
+    if-lt v0, p3, :cond_3c
 
     .line 177
     iget-object v2, p0, Lcom/google/zxing/common/detector/MonochromeRectangleDetector;->image:Lcom/google/zxing/common/BitMatrix;
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_13
 
     invoke-virtual {v2, v0, p1}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_0
+    :cond_13
     invoke-virtual {v2, p1, v0}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     .line 178
-    :goto_1
+    :goto_19
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 180
-    :cond_1
+    :cond_1c
     move v2, v0
 
     .line 182
     .local v2, "whiteRunStart":I
-    :cond_2
+    :cond_1d
     add-int/lit8 v0, v0, -0x1
 
     .line 183
-    if-lt v0, p3, :cond_4
+    if-lt v0, p3, :cond_32
 
     iget-object v3, p0, Lcom/google/zxing/common/detector/MonochromeRectangleDetector;->image:Lcom/google/zxing/common/BitMatrix;
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_2c
 
     invoke-virtual {v3, v0, p1}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1d
 
-    goto :goto_2
+    goto :goto_32
 
     .line 184
-    :cond_3
+    :cond_2c
     invoke-virtual {v3, p1, v0}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1d
 
     .line 185
-    :cond_4
-    :goto_2
+    :cond_32
+    :goto_32
     sub-int v3, v2, v0
 
     .line 186
     .local v3, "whiteRunSize":I
-    if-lt v0, p3, :cond_6
+    if-lt v0, p3, :cond_3a
 
-    if-le v3, p2, :cond_5
+    if-le v3, p2, :cond_39
 
-    goto :goto_3
+    goto :goto_3a
 
     .line 190
     .end local v2    # "whiteRunStart":I
     .end local v3    # "whiteRunSize":I
-    :cond_5
-    goto :goto_0
+    :cond_39
+    goto :goto_6
 
     .line 187
     .restart local v2    # "whiteRunStart":I
     .restart local v3    # "whiteRunSize":I
-    :cond_6
-    :goto_3
+    :cond_3a
+    :goto_3a
     move v0, v2
 
     .line 188
@@ -145,7 +145,7 @@
     .line 192
     .end local v2    # "whiteRunStart":I
     .end local v3    # "whiteRunSize":I
-    :cond_7
+    :cond_3c
     add-int/lit8 v0, v0, 0x1
 
     .line 195
@@ -153,91 +153,91 @@
 
     .line 196
     .local v2, "end":I
-    :goto_4
-    if-ge v2, p4, :cond_f
+    :goto_3f
+    if-ge v2, p4, :cond_75
 
     .line 197
     iget-object v3, p0, Lcom/google/zxing/common/detector/MonochromeRectangleDetector;->image:Lcom/google/zxing/common/BitMatrix;
 
-    if-eqz p5, :cond_8
+    if-eqz p5, :cond_4c
 
     invoke-virtual {v3, v2, p1}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_55
 
-    goto :goto_5
+    goto :goto_52
 
-    :cond_8
+    :cond_4c
     invoke-virtual {v3, p1, v2}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_55
 
     .line 198
-    :goto_5
+    :goto_52
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4
+    goto :goto_3f
 
     .line 200
-    :cond_9
+    :cond_55
     move v3, v2
 
     .line 202
     .local v3, "whiteRunStart":I
-    :cond_a
+    :cond_56
     add-int/lit8 v2, v2, 0x1
 
     .line 203
-    if-ge v2, p4, :cond_c
+    if-ge v2, p4, :cond_6b
 
     iget-object v4, p0, Lcom/google/zxing/common/detector/MonochromeRectangleDetector;->image:Lcom/google/zxing/common/BitMatrix;
 
-    if-eqz p5, :cond_b
+    if-eqz p5, :cond_65
 
     invoke-virtual {v4, v2, p1}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_56
 
-    goto :goto_6
+    goto :goto_6b
 
     .line 204
-    :cond_b
+    :cond_65
     invoke-virtual {v4, p1, v2}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_56
 
     .line 205
-    :cond_c
-    :goto_6
+    :cond_6b
+    :goto_6b
     sub-int v4, v2, v3
 
     .line 206
     .local v4, "whiteRunSize":I
-    if-ge v2, p4, :cond_e
+    if-ge v2, p4, :cond_73
 
-    if-le v4, p2, :cond_d
+    if-le v4, p2, :cond_72
 
-    goto :goto_7
+    goto :goto_73
 
     .line 210
     .end local v3    # "whiteRunStart":I
     .end local v4    # "whiteRunSize":I
-    :cond_d
-    goto :goto_4
+    :cond_72
+    goto :goto_3f
 
     .line 207
     .restart local v3    # "whiteRunStart":I
     .restart local v4    # "whiteRunSize":I
-    :cond_e
-    :goto_7
+    :cond_73
+    :goto_73
     move v2, v3
 
     .line 208
@@ -246,11 +246,11 @@
     .line 212
     .end local v3    # "whiteRunStart":I
     .end local v4    # "whiteRunSize":I
-    :cond_f
+    :cond_75
     add-int/lit8 v2, v2, -0x1
 
     .line 214
-    if-le v2, v0, :cond_10
+    if-le v2, v0, :cond_7e
 
     filled-new-array {v0, v2}, [I
 
@@ -258,14 +258,14 @@
 
     return-object v3
 
-    :cond_10
+    :cond_7e
     const/4 v3, 0x0
 
     return-object v3
 .end method
 
 .method private findCornerFromCenter(IIIIIIIII)Lcom/google/zxing/ResultPoint;
-    .locals 15
+    .registers 25
     .param p1, "centerX"    # I
     .param p2, "deltaX"    # I
     .param p3, "left"    # I
@@ -303,25 +303,25 @@
     .end local v3    # "y":I
     .local v9, "y":I
     .local v10, "x":I
-    :goto_0
+    :goto_b
     move/from16 v11, p8
 
-    if-ge v9, v11, :cond_c
+    if-ge v9, v11, :cond_aa
 
     move/from16 v12, p7
 
-    if-lt v9, v12, :cond_b
+    if-lt v9, v12, :cond_a5
 
     move/from16 v13, p4
 
-    if-ge v10, v13, :cond_a
+    if-ge v10, v13, :cond_a2
 
     move/from16 v14, p3
 
-    if-lt v10, v14, :cond_d
+    if-lt v10, v14, :cond_b0
 
     .line 116
-    if-nez p2, :cond_0
+    if-nez p2, :cond_2b
 
     .line 118
     const/4 v8, 0x1
@@ -341,11 +341,11 @@
     move-result-object v3
 
     .local v3, "range":[I
-    goto :goto_1
+    goto :goto_38
 
     .line 121
     .end local v3    # "range":[I
-    :cond_0
+    :cond_2b
     const/4 v8, 0x0
 
     move-object v3, p0
@@ -364,18 +364,18 @@
 
     .line 123
     .restart local v3    # "range":[I
-    :goto_1
-    if-nez v3, :cond_9
+    :goto_38
+    if-nez v3, :cond_9b
 
     .line 124
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_96
 
     .line 128
     const/4 v4, 0x1
 
     const/4 v5, 0x0
 
-    if-nez p2, :cond_4
+    if-nez p2, :cond_6b
 
     .line 129
     sub-int v6, v9, p6
@@ -384,21 +384,21 @@
     .local v6, "lastY":I
     aget v7, v2, v5
 
-    if-ge v7, v0, :cond_3
+    if-ge v7, v0, :cond_61
 
     .line 131
     aget v7, v2, v4
 
-    if-le v7, v0, :cond_2
+    if-le v7, v0, :cond_57
 
     .line 133
     new-instance v7, Lcom/google/zxing/ResultPoint;
 
-    if-lez p6, :cond_1
+    if-lez p6, :cond_4f
 
     const/4 v4, 0x0
 
-    :cond_1
+    :cond_4f
     aget v4, v2, v4
 
     int-to-float v4, v4
@@ -410,7 +410,7 @@
     return-object v7
 
     .line 135
-    :cond_2
+    :cond_57
     new-instance v4, Lcom/google/zxing/ResultPoint;
 
     aget v5, v2, v5
@@ -424,7 +424,7 @@
     return-object v4
 
     .line 137
-    :cond_3
+    :cond_61
     new-instance v5, Lcom/google/zxing/ResultPoint;
 
     aget v4, v2, v4
@@ -439,30 +439,30 @@
 
     .line 140
     .end local v6    # "lastY":I
-    :cond_4
+    :cond_6b
     sub-int v6, v10, p2
 
     .line 141
     .local v6, "lastX":I
     aget v7, v2, v5
 
-    if-ge v7, v1, :cond_7
+    if-ge v7, v1, :cond_8c
 
     .line 142
     aget v7, v2, v4
 
-    if-le v7, v1, :cond_6
+    if-le v7, v1, :cond_82
 
     .line 143
     new-instance v7, Lcom/google/zxing/ResultPoint;
 
     int-to-float v8, v6
 
-    if-gez p2, :cond_5
+    if-gez p2, :cond_7b
 
     const/4 v4, 0x0
 
-    :cond_5
+    :cond_7b
     aget v4, v2, v4
 
     int-to-float v4, v4
@@ -472,7 +472,7 @@
     return-object v7
 
     .line 145
-    :cond_6
+    :cond_82
     new-instance v4, Lcom/google/zxing/ResultPoint;
 
     int-to-float v7, v6
@@ -486,7 +486,7 @@
     return-object v4
 
     .line 147
-    :cond_7
+    :cond_8c
     new-instance v5, Lcom/google/zxing/ResultPoint;
 
     int-to-float v7, v6
@@ -501,7 +501,7 @@
 
     .line 125
     .end local v6    # "lastX":I
-    :cond_8
+    :cond_96
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v4
@@ -509,7 +509,7 @@
     throw v4
 
     .line 151
-    :cond_9
+    :cond_9b
     move-object v2, v3
 
     .line 114
@@ -518,22 +518,22 @@
 
     add-int v10, v10, p2
 
-    goto/16 :goto_0
+    goto/16 :goto_b
 
     .line 113
-    :cond_a
+    :cond_a2
     move/from16 v14, p3
 
-    goto :goto_2
+    goto :goto_b0
 
-    :cond_b
+    :cond_a5
     move/from16 v14, p3
 
     move/from16 v13, p4
 
-    goto :goto_2
+    goto :goto_b0
 
-    :cond_c
+    :cond_aa
     move/from16 v14, p3
 
     move/from16 v13, p4
@@ -543,8 +543,8 @@
     .line 153
     .end local v9    # "y":I
     .end local v10    # "x":I
-    :cond_d
-    :goto_2
+    :cond_b0
+    :goto_b0
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v3
@@ -555,7 +555,7 @@
 
 # virtual methods
 .method public detect()[Lcom/google/zxing/ResultPoint;
-    .locals 27
+    .registers 28
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/NotFoundException;

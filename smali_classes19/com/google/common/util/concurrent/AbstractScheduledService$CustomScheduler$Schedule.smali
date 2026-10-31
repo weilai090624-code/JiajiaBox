@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(JLjava/util/concurrent/TimeUnit;)V
-    .locals 1
+    .registers 5
     .param p1, "delay"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -46,7 +46,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$Schedule;)Ljava/util/concurrent/TimeUnit;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$Schedule;
 
     .line 671
@@ -56,7 +56,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$Schedule;)J
-    .locals 2
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$Schedule;
 
     .line 671

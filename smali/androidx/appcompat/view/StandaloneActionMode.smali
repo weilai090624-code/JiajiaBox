@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/appcompat/widget/ActionBarContextView;Landroidx/appcompat/view/ActionMode$Callback;Z)V
-    .locals 2
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "view"    # Landroidx/appcompat/widget/ActionBarContextView;
     .param p3, "callback"    # Landroidx/appcompat/view/ActionMode$Callback;
@@ -82,18 +82,18 @@
 
 # virtual methods
 .method public finish()V
-    .locals 1
+    .registers 2
 
     .line 105
     iget-boolean v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mFinished:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 106
     return-void
 
     .line 108
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mFinished:Z
@@ -108,12 +108,12 @@
 .end method
 
 .method public getCustomView()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 130
     iget-object v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mCustomView:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mCustomView:Ljava/lang/ref/WeakReference;
 
@@ -123,17 +123,17 @@
 
     check-cast v0, Landroid/view/View;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public getMenu()Landroid/view/Menu;
-    .locals 1
+    .registers 2
 
     .line 115
     iget-object v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -142,7 +142,7 @@
 .end method
 
 .method public getMenuInflater()Landroid/view/MenuInflater;
-    .locals 2
+    .registers 3
 
     .line 135
     new-instance v0, Landroidx/appcompat/view/SupportMenuInflater;
@@ -159,7 +159,7 @@
 .end method
 
 .method public getSubtitle()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 125
     iget-object v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
@@ -172,7 +172,7 @@
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 120
     iget-object v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
@@ -185,7 +185,7 @@
 .end method
 
 .method public invalidate()V
-    .locals 2
+    .registers 3
 
     .line 100
     iget-object v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mCallback:Landroidx/appcompat/view/ActionMode$Callback;
@@ -199,7 +199,7 @@
 .end method
 
 .method public isTitleOptional()Z
-    .locals 1
+    .registers 2
 
     .line 89
     iget-object v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
@@ -212,7 +212,7 @@
 .end method
 
 .method public isUiFocusable()Z
-    .locals 1
+    .registers 2
 
     .line 166
     iget-boolean v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mFocusable:Z
@@ -221,7 +221,7 @@
 .end method
 
 .method public onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
-    .locals 0
+    .registers 3
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "allMenusAreClosing"    # Z
 
@@ -230,7 +230,7 @@
 .end method
 
 .method public onCloseSubMenu(Landroidx/appcompat/view/menu/SubMenuBuilder;)V
-    .locals 0
+    .registers 2
     .param p1, "menu"    # Landroidx/appcompat/view/menu/SubMenuBuilder;
 
     .line 156
@@ -238,7 +238,7 @@
 .end method
 
 .method public onMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "item"    # Landroid/view/MenuItem;
 
@@ -253,7 +253,7 @@
 .end method
 
 .method public onMenuModeChange(Landroidx/appcompat/view/menu/MenuBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
     .line 160
@@ -269,7 +269,7 @@
 .end method
 
 .method public onSubMenuSelected(Landroidx/appcompat/view/menu/SubMenuBuilder;)Z
-    .locals 3
+    .registers 5
     .param p1, "subMenu"    # Landroidx/appcompat/view/menu/SubMenuBuilder;
 
     .line 147
@@ -279,13 +279,13 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 148
     return v1
 
     .line 151
-    :cond_0
+    :cond_8
     new-instance v0, Landroidx/appcompat/view/menu/MenuPopupHelper;
 
     iget-object v2, p0, Landroidx/appcompat/view/StandaloneActionMode;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
@@ -303,7 +303,7 @@
 .end method
 
 .method public setCustomView(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 94
@@ -312,18 +312,18 @@
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/ActionBarContextView;->setCustomView(Landroid/view/View;)V
 
     .line 95
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     iput-object v0, p0, Landroidx/appcompat/view/StandaloneActionMode;->mCustomView:Ljava/lang/ref/WeakReference;
 
     .line 96
@@ -331,7 +331,7 @@
 .end method
 
 .method public setSubtitle(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 78
@@ -348,7 +348,7 @@
 .end method
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "subtitle"    # Ljava/lang/CharSequence;
 
     .line 68
@@ -361,7 +361,7 @@
 .end method
 
 .method public setTitle(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 73
@@ -378,7 +378,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 63
@@ -391,7 +391,7 @@
 .end method
 
 .method public setTitleOptionalHint(Z)V
-    .locals 1
+    .registers 3
     .param p1, "titleOptional"    # Z
 
     .line 83

@@ -156,7 +156,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$iNB94HBekiPmaELCcZL3PMsC1kY()Lkotlin/Unit;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/utils/PackageCache;->register$lambda$0()Lkotlin/Unit;
 
@@ -166,7 +166,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/utils/PackageCache;
 
@@ -212,7 +212,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -221,7 +221,7 @@
 .end method
 
 .method private static final register$lambda$0()Lkotlin/Unit;
-    .locals 1
+    .registers 1
 
     .line 31
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->INSTANCE:Lio/nekohasekai/sagernet/utils/PackageCache;
@@ -242,25 +242,25 @@
 
 # virtual methods
 .method public final awaitLoadSync()V
-    .locals 3
+    .registers 4
 
     .line 71
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->packageMap:Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 72
     return-void
 
     .line 74
-    :cond_0
+    :cond_5
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->registerd:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     .line 75
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/utils/PackageCache;->register()V
@@ -269,7 +269,7 @@
     return-void
 
     .line 78
-    :cond_1
+    :cond_11
     new-instance v0, Lio/nekohasekai/sagernet/utils/PackageCache$awaitLoadSync$1;
 
     const/4 v1, 0x0
@@ -287,7 +287,7 @@
 .end method
 
 .method public final get(Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p1, "packageName"    # Ljava/lang/String;
 
     const-string v0, "packageName"
@@ -309,7 +309,7 @@
 .end method
 
 .method public final get(I)Ljava/util/HashSet;
-    .locals 2
+    .registers 4
     .param p1, "uid"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -337,7 +337,7 @@
 .end method
 
 .method public final getInstalledApps()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -351,11 +351,11 @@
     .line 20
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->installedApps:Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "installedApps"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -366,7 +366,7 @@
 .end method
 
 .method public final getInstalledPackages()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -380,11 +380,11 @@
     .line 18
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->installedPackages:Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "installedPackages"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -395,7 +395,7 @@
 .end method
 
 .method public final getInstalledPluginPackages()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -409,11 +409,11 @@
     .line 19
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->installedPluginPackages:Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "installedPluginPackages"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -424,7 +424,7 @@
 .end method
 
 .method public final getLoaded()Lkotlinx/coroutines/sync/Mutex;
-    .locals 1
+    .registers 2
 
     .line 23
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->loaded:Lkotlinx/coroutines/sync/Mutex;
@@ -433,7 +433,7 @@
 .end method
 
 .method public final getPackageMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -447,11 +447,11 @@
     .line 21
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->packageMap:Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "packageMap"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -462,7 +462,7 @@
 .end method
 
 .method public final getRegisterd()Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
+    .registers 2
 
     .line 24
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->registerd:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -471,7 +471,7 @@
 .end method
 
 .method public final getUidMap()Ljava/util/HashMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -490,7 +490,7 @@
 .end method
 
 .method public final loadLabel(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "packageName"    # Ljava/lang/String;
 
     const-string v0, "packageName"
@@ -508,12 +508,12 @@
 
     .line 88
     .local v0, "label":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     return-object v0
 
     .line 89
-    :cond_0
+    :cond_10
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/utils/PackageCache;->getInstalledApps()Ljava/util/Map;
 
     move-result-object v1
@@ -524,13 +524,13 @@
 
     check-cast v1, Landroid/content/pm/ApplicationInfo;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1d
 
     return-object p1
 
     .line 90
     .local v1, "info":Landroid/content/pm/ApplicationInfo;
-    :cond_1
+    :cond_1d
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
     move-result-object v2
@@ -557,7 +557,7 @@
 .end method
 
 .method public final register()V
-    .locals 4
+    .registers 5
 
     .line 28
     sget-object v0, Lio/nekohasekai/sagernet/utils/PackageCache;->registerd:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -568,12 +568,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return-void
 
     .line 29
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/utils/PackageCache;->reload()V
 
     .line 30
@@ -603,7 +603,7 @@
 .end method
 
 .method public final reload()V
-    .locals 16
+    .registers 17
 
     .line 39
     move-object/from16 v0, p0
@@ -659,13 +659,13 @@
 
     move-result-object v7
 
-    :cond_0
-    :goto_0
+    :cond_27
+    :goto_27
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_5f
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -689,30 +689,30 @@
 
     const/4 v13, 0x1
 
-    packed-switch v12, :pswitch_data_0
+    packed-switch v12, :pswitch_data_1e2
 
-    :cond_1
-    goto :goto_1
+    :cond_3f
+    goto :goto_49
 
-    :pswitch_0
+    :pswitch_40
     const-string v12, "android"
 
     invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_3f
 
     .line 48
-    goto :goto_2
+    goto :goto_58
 
     .line 49
-    :goto_1
+    :goto_49
     iget-object v11, v9, Landroid/content/pm/PackageInfo;->requestedPermissions:[Ljava/lang/String;
 
     const/4 v12, 0x0
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_57
 
     const-string v14, "android.permission.INTERNET"
 
@@ -720,29 +720,29 @@
 
     move-result v11
 
-    if-ne v11, v13, :cond_2
+    if-ne v11, v13, :cond_57
 
-    goto :goto_2
+    goto :goto_58
 
-    :cond_2
+    :cond_57
     const/4 v13, 0x0
 
     .line 50
-    :goto_2
+    :goto_58
     nop
 
     .line 97
     .end local v9    # "it":Landroid/content/pm/PackageInfo;
     .end local v10    # "$i$a$-filter-PackageCache$reload$1":I
-    if-eqz v13, :cond_0
+    if-eqz v13, :cond_27
 
     invoke-interface {v4, v8}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_27
 
     .line 98
     .end local v8    # "element$iv$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_5f
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;
@@ -801,14 +801,14 @@
 
     move-result-object v10
 
-    :goto_3
+    :goto_84
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
     const-string v12, "packageName"
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_9d
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -834,11 +834,11 @@
     .end local v14    # "$i$a$-associateBy-PackageCache$reload$2":I
     invoke-interface {v7, v15, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_84
 
     .line 104
     .end local v11    # "element$iv$iv":Ljava/lang/Object;
-    :cond_4
+    :cond_9d
     nop
 
     .line 100
@@ -881,13 +881,13 @@
 
     move-result-object v9
 
-    :cond_5
-    :goto_4
+    :cond_b3
+    :goto_b3
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_d0
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -914,15 +914,15 @@
     .line 106
     .end local v11    # "it":Landroid/content/pm/PackageInfo;
     .end local v13    # "$i$a$-filter-PackageCache$reload$3":I
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_b3
 
     invoke-interface {v5, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_4
+    goto :goto_b3
 
     .line 107
     .end local v10    # "element$iv$iv":Ljava/lang/Object;
-    :cond_6
+    :cond_d0
     nop
 
     .end local v5    # "destination$iv$iv":Ljava/util/Collection;
@@ -977,12 +977,12 @@
 
     move-result-object v10
 
-    :goto_5
+    :goto_f1
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_108
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1008,11 +1008,11 @@
     .end local v14    # "$i$a$-associateBy-PackageCache$reload$4":I
     invoke-interface {v7, v15, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_5
+    goto :goto_f1
 
     .line 113
     .end local v11    # "element$iv$iv":Ljava/lang/Object;
-    :cond_7
+    :cond_108
     nop
 
     .line 109
@@ -1089,12 +1089,12 @@
 
     move-result-object v11
 
-    :goto_6
+    :goto_13d
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_8
+    if-eqz v13, :cond_156
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1122,11 +1122,11 @@
 
     const/16 v6, 0x10
 
-    goto :goto_6
+    goto :goto_13d
 
     .line 119
     .end local v13    # "element$iv$iv":Ljava/lang/Object;
-    :cond_8
+    :cond_156
     nop
 
     .line 115
@@ -1185,12 +1185,12 @@
 
     move-result-object v9
 
-    :goto_7
+    :goto_17a
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_1a0
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1232,11 +1232,11 @@
 
     invoke-interface {v6, v12, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_7
+    goto :goto_17a
 
     .line 125
     .end local v10    # "element$iv$iv":Ljava/lang/Object;
-    :cond_9
+    :cond_1a0
     nop
 
     .line 121
@@ -1261,12 +1261,12 @@
 
     move-result-object v3
 
-    :goto_8
+    :goto_1ae
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_1e1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1300,7 +1300,7 @@
 
     .line 127
     .local v9, "value$iv":Ljava/lang/Object;
-    if-nez v9, :cond_a
+    if-nez v9, :cond_1d7
 
     .line 128
     const/4 v10, 0x0
@@ -1323,14 +1323,14 @@
     nop
 
     .end local v10    # "answer$iv":Ljava/lang/Object;
-    goto :goto_9
+    goto :goto_1d8
 
     .line 132
-    :cond_a
+    :cond_1d7
     move-object v10, v9
 
     .line 127
-    :goto_9
+    :goto_1d8
     nop
 
     .end local v6    # "$this$getOrPut$iv":Ljava/util/Map;
@@ -1345,21 +1345,21 @@
     invoke-virtual {v10, v6}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     .end local v5    # "uid":I
-    goto :goto_8
+    goto :goto_1ae
 
     .line 65
     .end local v4    # "info":Landroid/content/pm/ApplicationInfo;
-    :cond_b
+    :cond_1e1
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_1e2
     .packed-switch -0x3357c991
-        :pswitch_0
+        :pswitch_40
     .end packed-switch
 .end method
 
 .method public final setInstalledApps(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1383,7 +1383,7 @@
 .end method
 
 .method public final setInstalledPackages(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1407,7 +1407,7 @@
 .end method
 
 .method public final setInstalledPluginPackages(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1431,7 +1431,7 @@
 .end method
 
 .method public final setPackageMap(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1454,7 +1454,7 @@
 .end method
 
 .method public final setRegisterd(Ljava/util/concurrent/atomic/AtomicBoolean;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const-string v0, "<set-?>"

@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
-    .locals 1
+    .registers 3
     .param p1, "tracker"    # Landroidx/work/impl/constraints/trackers/ConstraintTracker;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public hasConstraint(Landroidx/work/impl/model/WorkSpec;)Z
-    .locals 3
+    .registers 5
     .param p1, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
 
     const-string/jumbo v0, "workSpec"
@@ -86,37 +86,37 @@
     .local v0, "requiredNetworkType":Landroidx/work/NetworkType;
     sget-object v1, Landroidx/work/NetworkType;->UNMETERED:Landroidx/work/NetworkType;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     .line 57
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1e
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_1b
 
     sget-object v1, Landroidx/work/NetworkType;->TEMPORARILY_UNMETERED:Landroidx/work/NetworkType;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
-    :goto_0
+    :cond_1d
+    :goto_1d
     const/4 v1, 0x1
 
     .line 56
-    :goto_1
+    :goto_1e
     return v1
 .end method
 
 .method public isConstrained(Landroidx/work/impl/constraints/NetworkState;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Landroidx/work/impl/constraints/NetworkState;
 
     const-string/jumbo v0, "value"
@@ -128,31 +128,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     invoke-virtual {p1}, Landroidx/work/impl/constraints/NetworkState;->isMetered()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_16
     return v0
 .end method
 
 .method public bridge synthetic isConstrained(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 52

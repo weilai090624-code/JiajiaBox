@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     .local p0, "this":Lcom/google/common/reflect/TypeCapture;, "Lcom/google/common/reflect/TypeCapture<TT;>;"
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method final capture()Ljava/lang/reflect/Type;
-    .locals 3
+    .registers 4
 
     .line 32
     .local p0, "this":Lcom/google/common/reflect/TypeCapture;, "Lcom/google/common/reflect/TypeCapture<TT;>;"

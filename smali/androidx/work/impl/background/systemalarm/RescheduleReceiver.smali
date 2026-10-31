@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     const-string v0, "RescheduleReceiver"
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -81,10 +81,10 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_3b
 
     .line 39
-    :try_start_0
+    :try_start_22
     invoke-static {p1}, Landroidx/work/impl/WorkManagerImpl;->getInstance(Landroid/content/Context;)Landroidx/work/impl/WorkManagerImpl;
 
     move-result-object v0
@@ -98,15 +98,15 @@
     .line 41
     .local v1, "pendingResult":Landroid/content/BroadcastReceiver$PendingResult;
     invoke-virtual {v0, v1}, Landroidx/work/impl/WorkManagerImpl;->setReschedulePendingResult(Landroid/content/BroadcastReceiver$PendingResult;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2d
+    .catch Ljava/lang/IllegalStateException; {:try_start_22 .. :try_end_2d} :catch_2e
 
     .end local v0    # "workManager":Landroidx/work/impl/WorkManagerImpl;
     .end local v1    # "pendingResult":Landroid/content/BroadcastReceiver$PendingResult;
-    goto :goto_0
+    goto :goto_3a
 
     .line 42
-    :catch_0
+    :catch_2e
     move-exception v0
 
     .line 44
@@ -123,11 +123,11 @@
 
     .line 47
     .end local v0    # "e":Ljava/lang/IllegalStateException;
-    :goto_0
-    goto :goto_1
+    :goto_3a
+    goto :goto_42
 
     .line 49
-    :cond_0
+    :cond_3b
     invoke-static {p1}, Landroidx/work/impl/background/systemalarm/CommandHandler;->createRescheduleIntent(Landroid/content/Context;)Landroid/content/Intent;
 
     move-result-object v0
@@ -138,6 +138,6 @@
 
     .line 52
     .end local v0    # "reschedule":Landroid/content/Intent;
-    :goto_1
+    :goto_42
     return-void
 .end method

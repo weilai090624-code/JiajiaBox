@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 18
+    .registers 18
 
     .line 39
     nop
@@ -106,7 +106,7 @@
 .end method
 
 .method private constructor <init>(DDDDDD[DDDD)V
-    .locals 16
+    .registers 36
     .param p1, "n"    # D
     .param p3, "aw"    # D
     .param p5, "nbb"    # D
@@ -178,7 +178,7 @@
 .end method
 
 .method static make([DDDDZ)Lcom/google/android/material/color/utilities/ViewingConditions;
-    .locals 62
+    .registers 70
     .param p0, "whitePoint"    # [D
     .param p1, "adaptingLuminance"    # D
     .param p3, "backgroundLstar"    # D
@@ -306,7 +306,7 @@
 
     cmpl-double v21, v15, v19
 
-    if-ltz v21, :cond_0
+    if-ltz v21, :cond_80
 
     .line 135
     sub-double v17, v15, v19
@@ -323,10 +323,10 @@
 
     move-wide/from16 v28, v13
 
-    goto :goto_0
+    goto :goto_94
 
     .line 136
-    :cond_0
+    :cond_80
     sub-double v17, v15, v17
 
     mul-double v23, v17, v13
@@ -341,22 +341,22 @@
 
     move-wide/from16 v28, v13
 
-    :goto_0
+    :goto_94
     nop
 
     .line 138
     .local v28, "c":D
     const-wide/high16 v13, 0x3ff0000000000000L    # 1.0
 
-    if-eqz p7, :cond_1
+    if-eqz p7, :cond_9c
 
     .line 139
     move-wide/from16 v23, v13
 
-    goto :goto_1
+    goto :goto_b6
 
     .line 140
-    :cond_1
+    :cond_9c
     neg-double v7, v0
 
     const-wide/high16 v19, 0x4045000000000000L    # 42.0
@@ -381,7 +381,7 @@
 
     move-wide/from16 v23, v7
 
-    :goto_1
+    :goto_b6
     nop
 
     .line 141
@@ -712,7 +712,7 @@
 
 # virtual methods
 .method public getAw()D
-    .locals 2
+    .registers 3
 
     .line 63
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/ViewingConditions;->aw:D
@@ -721,7 +721,7 @@
 .end method
 
 .method getC()D
-    .locals 2
+    .registers 3
 
     .line 79
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/ViewingConditions;->c:D
@@ -730,7 +730,7 @@
 .end method
 
 .method getFl()D
-    .locals 2
+    .registers 3
 
     .line 91
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/ViewingConditions;->fl:D
@@ -739,7 +739,7 @@
 .end method
 
 .method public getFlRoot()D
-    .locals 2
+    .registers 3
 
     .line 95
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/ViewingConditions;->flRoot:D
@@ -748,7 +748,7 @@
 .end method
 
 .method public getN()D
-    .locals 2
+    .registers 3
 
     .line 67
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/ViewingConditions;->n:D
@@ -757,7 +757,7 @@
 .end method
 
 .method public getNbb()D
-    .locals 2
+    .registers 3
 
     .line 71
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/ViewingConditions;->nbb:D
@@ -766,7 +766,7 @@
 .end method
 
 .method getNc()D
-    .locals 2
+    .registers 3
 
     .line 83
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/ViewingConditions;->nc:D
@@ -775,7 +775,7 @@
 .end method
 
 .method getNcb()D
-    .locals 2
+    .registers 3
 
     .line 75
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/ViewingConditions;->ncb:D
@@ -784,7 +784,7 @@
 .end method
 
 .method public getRgbD()[D
-    .locals 1
+    .registers 2
 
     .line 87
     iget-object v0, p0, Lcom/google/android/material/color/utilities/ViewingConditions;->rgbD:[D
@@ -793,7 +793,7 @@
 .end method
 
 .method getZ()D
-    .locals 2
+    .registers 3
 
     .line 99
     iget-wide v0, p0, Lcom/google/android/material/color/utilities/ViewingConditions;->z:D

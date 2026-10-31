@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkerWrapper;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/WorkerWrapper;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 294
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper$1;->this$0:Landroidx/work/impl/WorkerWrapper;
@@ -68,14 +68,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 295
     return-void
 
     .line 298
-    :cond_0
-    :try_start_0
+    :cond_b
+    :try_start_b
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper$1;->val$runExpedited:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
@@ -127,14 +127,14 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_41
+    .catchall {:try_start_b .. :try_end_41} :catchall_42
 
     .line 305
-    goto :goto_0
+    goto :goto_4a
 
     .line 303
-    :catchall_0
+    :catchall_42
     move-exception v0
 
     .line 304
@@ -147,6 +147,6 @@
 
     .line 306
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_4a
     return-void
 .end method

@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 42
     new-instance v0, Ljava/lang/ThreadLocal;
@@ -45,7 +45,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method public static hasGlyph(Landroid/graphics/Paint;Ljava/lang/String;)Z
-    .locals 11
+    .registers 13
     .param p0, "paint"    # Landroid/graphics/Paint;
     .param p1, "string"    # Ljava/lang/String;
 
@@ -64,7 +64,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 54
     invoke-static {p0, p1}, Landroidx/core/graphics/PaintCompat$Api23Impl;->hasGlyph(Landroid/graphics/Paint;Ljava/lang/String;)Z
@@ -74,7 +74,7 @@
     return v0
 
     .line 56
-    :cond_0
+    :cond_b
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -85,7 +85,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1e
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
@@ -95,13 +95,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1e
 
     .line 60
     return v1
 
     .line 63
-    :cond_1
+    :cond_1e
     const-string/jumbo v3, "\udb3f\udffd"
 
     invoke-virtual {p0, v3}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
@@ -128,13 +128,13 @@
 
     cmpl-float v7, v6, v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_35
 
     .line 70
     return v2
 
     .line 73
-    :cond_2
+    :cond_35
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v7
@@ -143,7 +143,7 @@
 
     move-result v7
 
-    if-le v7, v1, :cond_5
+    if-le v7, v1, :cond_62
 
     .line 76
     const/high16 v7, 0x40000000    # 2.0f
@@ -152,13 +152,13 @@
 
     cmpl-float v7, v6, v7
 
-    if-lez v7, :cond_3
+    if-lez v7, :cond_48
 
     .line 77
     return v2
 
     .line 90
-    :cond_3
+    :cond_48
     const/4 v7, 0x0
 
     .line 91
@@ -167,8 +167,8 @@
 
     .line 92
     .local v8, "i":I
-    :goto_0
-    if-ge v8, v0, :cond_4
+    :goto_4a
+    if-ge v8, v0, :cond_5d
 
     .line 93
     invoke-virtual {p1, v8}, Ljava/lang/String;->codePointAt(I)I
@@ -194,13 +194,13 @@
 
     .line 96
     .end local v9    # "charCount":I
-    goto :goto_0
+    goto :goto_4a
 
     .line 97
-    :cond_4
+    :cond_5d
     cmpl-float v9, v6, v7
 
-    if-ltz v9, :cond_5
+    if-ltz v9, :cond_62
 
     .line 98
     return v2
@@ -208,16 +208,16 @@
     .line 102
     .end local v7    # "sumWidth":F
     .end local v8    # "i":I
-    :cond_5
+    :cond_62
     cmpl-float v7, v6, v4
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_67
 
     .line 104
     return v1
 
     .line 109
-    :cond_6
+    :cond_67
     invoke-static {}, Landroidx/core/graphics/PaintCompat;->obtainEmptyRects()Landroidx/core/util/Pair;
 
     move-result-object v7
@@ -258,7 +258,7 @@
 .end method
 
 .method private static obtainEmptyRects()Landroidx/core/util/Pair;
-    .locals 4
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -280,7 +280,7 @@
 
     .line 150
     .local v0, "rects":Landroidx/core/util/Pair;, "Landroidx/core/util/Pair<Landroid/graphics/Rect;Landroid/graphics/Rect;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 151
     new-instance v1, Landroidx/core/util/Pair;
@@ -302,10 +302,10 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 154
-    :cond_0
+    :cond_20
     iget-object v1, v0, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v1, Landroid/graphics/Rect;
@@ -320,12 +320,12 @@
     invoke-virtual {v1}, Landroid/graphics/Rect;->setEmpty()V
 
     .line 157
-    :goto_0
+    :goto_2e
     return-object v0
 .end method
 
 .method public static setBlendMode(Landroid/graphics/Paint;Landroidx/core/graphics/BlendModeCompat;)Z
-    .locals 4
+    .registers 6
     .param p0, "paint"    # Landroid/graphics/Paint;
     .param p1, "blendMode"    # Landroidx/core/graphics/BlendModeCompat;
 
@@ -338,22 +338,22 @@
 
     const/4 v3, 0x0
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_15
 
     .line 129
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 130
     invoke-static {p1}, Landroidx/core/graphics/BlendModeUtils$Api29Impl;->obtainBlendModeFromCompat(Landroidx/core/graphics/BlendModeCompat;)Ljava/lang/Object;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     nop
 
-    :goto_0
+    :goto_10
     move-object v0, v3
 
     .line 131
@@ -365,8 +365,8 @@
 
     .line 134
     .end local v0    # "blendModePlatform":Ljava/lang/Object;
-    :cond_1
-    if-eqz p1, :cond_4
+    :cond_15
+    if-eqz p1, :cond_2a
 
     .line 135
     invoke-static {p1}, Landroidx/core/graphics/BlendModeUtils;->obtainPorterDuffFromCompat(Landroidx/core/graphics/BlendModeCompat;)Landroid/graphics/PorterDuff$Mode;
@@ -375,29 +375,29 @@
 
     .line 136
     .local v0, "mode":Landroid/graphics/PorterDuff$Mode;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     new-instance v3, Landroid/graphics/PorterDuffXfermode;
 
     invoke-direct {v3, v0}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
 
-    :cond_2
+    :cond_22
     invoke-virtual {p0, v3}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 139
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_28
 
-    goto :goto_1
+    goto :goto_29
 
-    :cond_3
+    :cond_28
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_29
     return v2
 
     .line 143
     .end local v0    # "mode":Landroid/graphics/PorterDuff$Mode;
-    :cond_4
+    :cond_2a
     invoke-virtual {p0, v3}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 144

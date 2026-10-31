@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 401
     const/16 v0, 0x25
@@ -57,10 +57,10 @@
     const/4 v1, 0x2
 
     .local v1, "i":I
-    :goto_0
+    :goto_18
     const/16 v2, 0x24
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_42
 
     .line 408
     sget-object v2, Lcom/google/common/primitives/UnsignedLongs$ParseOverflowDetection;->maxValueDivs:[J
@@ -106,17 +106,17 @@
     .line 407
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 412
     .end local v0    # "overflow":Ljava/math/BigInteger;
     .end local v1    # "i":I
-    :cond_0
+    :cond_42
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 398
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -125,7 +125,7 @@
 .end method
 
 .method static overflowInParse(JII)Z
-    .locals 5
+    .registers 9
     .param p0, "current"    # J
     .param p2, "digit"    # I
     .param p3, "radix"    # I
@@ -137,7 +137,7 @@
 
     cmp-long v3, p0, v0
 
-    if-ltz v3, :cond_3
+    if-ltz v3, :cond_23
 
     .line 422
     sget-object v0, Lcom/google/common/primitives/UnsignedLongs$ParseOverflowDetection;->maxValueDivs:[J
@@ -148,41 +148,41 @@
 
     cmp-long v1, p0, v3
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_11
 
     .line 423
     return v0
 
     .line 425
-    :cond_0
+    :cond_11
     sget-object v1, Lcom/google/common/primitives/UnsignedLongs$ParseOverflowDetection;->maxValueDivs:[J
 
     aget-wide v3, v1, p3
 
     cmp-long v1, p0, v3
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_1a
 
     .line 426
     return v2
 
     .line 429
-    :cond_1
+    :cond_1a
     sget-object v1, Lcom/google/common/primitives/UnsignedLongs$ParseOverflowDetection;->maxValueMods:[I
 
     aget v1, v1, p3
 
-    if-le p2, v1, :cond_2
+    if-le p2, v1, :cond_21
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_22
     return v2
 
     .line 433
-    :cond_3
+    :cond_23
     return v2
 .end method

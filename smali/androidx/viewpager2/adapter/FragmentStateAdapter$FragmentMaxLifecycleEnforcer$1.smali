@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;
 
     .line 629
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onPageScrollStateChanged(I)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # I
 
     .line 632
@@ -49,7 +49,7 @@
 .end method
 
 .method public onPageSelected(I)V
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 637

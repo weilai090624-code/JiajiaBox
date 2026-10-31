@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/BufferedSource;Lokhttp3/internal/cache/CacheRequest;Lokio/BufferedSink;)V
-    .locals 0
+    .registers 4
     .param p1, "$source"    # Lokio/BufferedSource;
     .param p2, "$cacheRequest"    # Lokhttp3/internal/cache/CacheRequest;
     .param p3, "$cacheBody"    # Lokio/BufferedSink;
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -88,7 +88,7 @@
     .line 205
     iget-boolean v0, p0, Lokhttp3/internal/cache/CacheInterceptor$cacheWritingResponse$cacheWritingSource$1;->cacheRequestClosed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 206
     move-object v0, p0
@@ -103,7 +103,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 207
     const/4 v0, 0x1
@@ -116,7 +116,7 @@
     invoke-interface {v0}, Lokhttp3/internal/cache/CacheRequest;->abort()V
 
     .line 210
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$cacheWritingResponse$cacheWritingSource$1;->$source:Lokio/BufferedSource;
 
     invoke-interface {v0}, Lokio/BufferedSource;->close()V
@@ -126,7 +126,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 11
+    .registers 15
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -148,14 +148,14 @@
     .line 179
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_9
     iget-object v3, p0, Lokhttp3/internal/cache/CacheInterceptor$cacheWritingResponse$cacheWritingSource$1;->$source:Lokio/BufferedSource;
 
     invoke-interface {v3, p1, p2, p3}, Lokio/BufferedSource;->read(Lokio/Buffer;J)J
 
     move-result-wide v3
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_f} :catch_39
 
     move-wide v0, v3
 
@@ -164,12 +164,12 @@
 
     cmp-long v5, v0, v3
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_22
 
     .line 189
     iget-boolean v5, p0, Lokhttp3/internal/cache/CacheInterceptor$cacheWritingResponse$cacheWritingSource$1;->cacheRequestClosed:Z
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_21
 
     .line 190
     iput-boolean v2, p0, Lokhttp3/internal/cache/CacheInterceptor$cacheWritingResponse$cacheWritingSource$1;->cacheRequestClosed:Z
@@ -180,11 +180,11 @@
     invoke-interface {v2}, Lokio/BufferedSink;->close()V
 
     .line 193
-    :cond_0
+    :cond_21
     return-wide v3
 
     .line 196
-    :cond_1
+    :cond_22
     iget-object v2, p0, Lokhttp3/internal/cache/CacheInterceptor$cacheWritingResponse$cacheWritingSource$1;->$cacheBody:Lokio/BufferedSink;
 
     invoke-interface {v2}, Lokio/BufferedSink;->getBuffer()Lokio/Buffer;
@@ -212,14 +212,14 @@
     return-wide v0
 
     .line 180
-    :catch_0
+    :catch_39
     move-exception v3
 
     .line 181
     .local v3, "e":Ljava/io/IOException;
     iget-boolean v4, p0, Lokhttp3/internal/cache/CacheInterceptor$cacheWritingResponse$cacheWritingSource$1;->cacheRequestClosed:Z
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_45
 
     .line 182
     iput-boolean v2, p0, Lokhttp3/internal/cache/CacheInterceptor$cacheWritingResponse$cacheWritingSource$1;->cacheRequestClosed:Z
@@ -230,12 +230,12 @@
     invoke-interface {v2}, Lokhttp3/internal/cache/CacheRequest;->abort()V
 
     .line 185
-    :cond_2
+    :cond_45
     throw v3
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 201
     iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$cacheWritingResponse$cacheWritingSource$1;->$source:Lokio/BufferedSource;

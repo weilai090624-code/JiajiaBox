@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 33
     const/4 v0, 0x0
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,15 +80,15 @@
 .end method
 
 .method private static initialize()V
-    .locals 5
+    .registers 5
 
     .line 42
     sget-object v0, Lorg/objenesis/instantiator/gcj/GCJInstantiatorBase;->newObjectMethod:Ljava/lang/reflect/Method;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_31
 
     .line 44
-    :try_start_0
+    :try_start_4
     const-class v0, Ljava/io/ObjectInputStream;
 
     const-string v1, "newObject"
@@ -124,31 +124,31 @@
     invoke-direct {v0}, Lorg/objenesis/instantiator/gcj/GCJInstantiatorBase$DummyStream;-><init>()V
 
     sput-object v0, Lorg/objenesis/instantiator/gcj/GCJInstantiatorBase;->dummyStream:Ljava/io/ObjectInputStream;
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/RuntimeException; {:try_start_4 .. :try_end_25} :catch_2a
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_4 .. :try_end_25} :catch_28
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_25} :catch_26
 
     .line 50
-    goto :goto_1
+    goto :goto_31
 
     .line 48
-    :catch_0
+    :catch_26
     move-exception v0
 
-    goto :goto_0
+    goto :goto_2b
 
-    :catch_1
+    :catch_28
     move-exception v0
 
-    goto :goto_0
+    goto :goto_2b
 
-    :catch_2
+    :catch_2a
     move-exception v0
 
     .line 49
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_2b
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -157,8 +157,8 @@
 
     .line 52
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_1
+    :cond_31
+    :goto_31
     return-void
 .end method
 

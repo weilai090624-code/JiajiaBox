@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$and(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)Ljava/util/function/Predicate;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/Predicate;
 
     .line 68
@@ -21,7 +21,7 @@
 .end method
 
 .method public static $default$negate(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Ljava/util/function/Predicate;
 
     .line 80
@@ -33,7 +33,7 @@
 .end method
 
 .method public static $default$or(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)Ljava/util/function/Predicate;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/Predicate;
 
     .line 100
@@ -49,7 +49,7 @@
 .end method
 
 .method public static synthetic $private$lambda$and$0(Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/Predicate;
     .param p1, "other"    # Ljava/util/function/Predicate;
     .param p2, "t"    # Ljava/lang/Object;
@@ -59,27 +59,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-interface {p1, p2}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public static synthetic $private$lambda$negate$1(Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/Predicate;
     .param p1, "t"    # Ljava/lang/Object;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public static synthetic $private$lambda$or$2(Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/Predicate;
     .param p1, "other"    # Ljava/util/function/Predicate;
     .param p2, "t"    # Ljava/lang/Object;
@@ -104,31 +104,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-interface {p1, p2}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public static isEqual(Ljava/lang/Object;)Ljava/util/function/Predicate;
-    .locals 1
+    .registers 2
     .param p0, "targetRef"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -143,28 +143,28 @@
     .end annotation
 
     .line 115
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
     .line 116
     new-instance v0, Lj$/util/function/Predicate$$ExternalSyntheticLambda3;
 
     invoke-direct {v0}, Lj$/util/function/Predicate$$ExternalSyntheticLambda3;-><init>()V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 117
-    :cond_0
+    :cond_8
     new-instance v0, Lj$/util/function/Predicate$$ExternalSyntheticLambda4;
 
     invoke-direct {v0, p0}, Lj$/util/function/Predicate$$ExternalSyntheticLambda4;-><init>(Ljava/lang/Object;)V
 
     .line 115
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 .method public static synthetic lambda$isEqual$3(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "targetRef"    # Ljava/lang/Object;
     .param p1, "object"    # Ljava/lang/Object;
 
@@ -177,7 +177,7 @@
 .end method
 
 .method public static not(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

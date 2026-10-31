@@ -25,7 +25,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedSet;, "Lcom/google/common/collect/ForwardingSortedSet<TE;>;"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -63,7 +63,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedSet;, "Lcom/google/common/collect/ForwardingSortedSet<TE;>;"
@@ -75,7 +75,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedSet;, "Lcom/google/common/collect/ForwardingSortedSet<TE;>;"
@@ -87,7 +87,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedSet;, "Lcom/google/common/collect/ForwardingSortedSet<TE;>;"
@@ -109,7 +109,7 @@
 .end method
 
 .method public first()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -161,7 +161,7 @@
 .end method
 
 .method public last()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -185,7 +185,7 @@
 .end method
 
 .method protected standardContains(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -199,7 +199,7 @@
     .local v0, "self":Ljava/util/SortedSet;, "Ljava/util/SortedSet<Ljava/lang/Object;>;"
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_2
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
     move-result-object v2
@@ -217,42 +217,42 @@
     invoke-static {v3, v2, p1}, Lcom/google/common/collect/ForwardingSortedMap;->unsafeCompare(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v3
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/ClassCastException; {:try_start_2 .. :try_end_12} :catch_1a
+    .catch Ljava/util/NoSuchElementException; {:try_start_2 .. :try_end_12} :catch_18
+    .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_12} :catch_16
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_15
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_15
     return v1
 
     .line 117
     .end local v0    # "self":Ljava/util/SortedSet;, "Ljava/util/SortedSet<Ljava/lang/Object;>;"
     .end local v2    # "ceiling":Ljava/lang/Object;
-    :catch_0
+    :catch_16
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :catch_1
+    :catch_18
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :catch_2
+    :catch_1a
     move-exception v0
 
     .line 118
     .local v0, "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_1b
     return v1
 .end method
 
 .method protected standardRemove(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -266,7 +266,7 @@
     .local v0, "self":Ljava/util/SortedSet;, "Ljava/util/SortedSet<Ljava/lang/Object;>;"
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_2
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
     move-result-object v2
@@ -281,7 +281,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
     .line 138
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -298,13 +298,13 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_23
 
     .line 140
     invoke-interface {v2}, Ljava/util/Iterator;->remove()V
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/lang/ClassCastException; {:try_start_2 .. :try_end_21} :catch_27
+    .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_21} :catch_25
 
     .line 141
     const/4 v1, 0x1
@@ -315,29 +315,29 @@
     .end local v0    # "self":Ljava/util/SortedSet;, "Ljava/util/SortedSet<Ljava/lang/Object;>;"
     .end local v2    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<*>;"
     .end local v3    # "ceiling":Ljava/lang/Object;
-    :cond_0
+    :cond_23
     nop
 
     .line 147
     return v1
 
     .line 144
-    :catch_0
+    :catch_25
     move-exception v0
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_1
+    :catch_27
     move-exception v0
 
     .line 145
     .local v0, "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_28
     return v1
 .end method
 
 .method protected standardSubSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -370,7 +370,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -403,7 +403,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

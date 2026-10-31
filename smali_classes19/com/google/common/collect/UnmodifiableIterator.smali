@@ -24,7 +24,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     .local p0, "this":Lcom/google/common/collect/UnmodifiableIterator;, "Lcom/google/common/collect/UnmodifiableIterator<TE;>;"
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public final remove()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

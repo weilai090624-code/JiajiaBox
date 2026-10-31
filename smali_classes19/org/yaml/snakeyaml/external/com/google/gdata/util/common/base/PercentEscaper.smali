@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 90
     const/4 v0, 0x1
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Z)V
-    .locals 2
+    .registers 5
     .param p1, "safeChars"    # Ljava/lang/String;
     .param p2, "plusForSpace"    # Z
 
@@ -65,10 +65,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_37
 
     .line 129
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_1e
 
     const-string v0, " "
 
@@ -76,12 +76,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 130
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "plusForSpace cannot be specified when space is a \'safe\' character"
@@ -91,15 +91,15 @@
     throw v0
 
     .line 133
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     const-string v0, "%"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2f
 
     .line 136
     iput-boolean p2, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper;->plusForSpace:Z
@@ -115,7 +115,7 @@
     return-void
 
     .line 134
-    :cond_2
+    :cond_2f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The \'%\' character cannot be specified as \'safe\'"
@@ -125,7 +125,7 @@
     throw v0
 
     .line 123
-    :cond_3
+    :cond_37
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Alphanumeric characters are always \'safe\' and should not be explicitly specified"
@@ -136,7 +136,7 @@
 .end method
 
 .method private static createSafeOctets(Ljava/lang/String;)[Z
-    .locals 8
+    .registers 9
     .param p0, "safeChars"    # Ljava/lang/String;
 
     .line 146
@@ -159,8 +159,8 @@
     const/4 v4, 0x0
 
     .local v4, "i$":I
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_9
+    if-ge v4, v3, :cond_14
 
     aget-char v5, v2, v4
 
@@ -174,13 +174,13 @@
     .end local v5    # "c":C
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 151
     .end local v2    # "arr$":[C
     .end local v3    # "len$":I
     .end local v4    # "i$":I
-    :cond_0
+    :cond_14
     add-int/lit8 v2, v0, 0x1
 
     new-array v2, v2, [Z
@@ -190,12 +190,12 @@
     const/16 v3, 0x30
 
     .local v3, "c":I
-    :goto_1
+    :goto_1a
     const/16 v4, 0x39
 
     const/4 v5, 0x1
 
-    if-gt v3, v4, :cond_1
+    if-gt v3, v4, :cond_24
 
     .line 153
     aput-boolean v5, v2, v3
@@ -203,18 +203,18 @@
     .line 152
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 155
     .end local v3    # "c":I
-    :cond_1
+    :cond_24
     const/16 v3, 0x41
 
     .restart local v3    # "c":I
-    :goto_2
+    :goto_26
     const/16 v4, 0x5a
 
-    if-gt v3, v4, :cond_2
+    if-gt v3, v4, :cond_2f
 
     .line 156
     aput-boolean v5, v2, v3
@@ -222,18 +222,18 @@
     .line 155
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_26
 
     .line 158
     .end local v3    # "c":I
-    :cond_2
+    :cond_2f
     const/16 v3, 0x61
 
     .restart local v3    # "c":I
-    :goto_3
+    :goto_31
     const/16 v4, 0x7a
 
-    if-gt v3, v4, :cond_3
+    if-gt v3, v4, :cond_3a
 
     .line 159
     aput-boolean v5, v2, v3
@@ -241,11 +241,11 @@
     .line 158
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_31
 
     .line 161
     .end local v3    # "c":I
-    :cond_3
+    :cond_3a
     move-object v3, v1
 
     .local v3, "arr$":[C
@@ -255,8 +255,8 @@
     const/4 v6, 0x0
 
     .local v6, "i$":I
-    :goto_4
-    if-ge v6, v4, :cond_4
+    :goto_3d
+    if-ge v6, v4, :cond_46
 
     aget-char v7, v3, v6
 
@@ -268,20 +268,20 @@
     .end local v7    # "c":C
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_4
+    goto :goto_3d
 
     .line 164
     .end local v3    # "arr$":[C
     .end local v4    # "len$":I
     .end local v6    # "i$":I
-    :cond_4
+    :cond_46
     return-object v2
 .end method
 
 
 # virtual methods
 .method public escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "s"    # Ljava/lang/String;
 
     .line 190
@@ -294,8 +294,8 @@
     const/4 v1, 0x0
 
     .local v1, "index":I
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_5
+    if-ge v1, v0, :cond_1f
 
     .line 192
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
@@ -308,27 +308,27 @@
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_1a
 
     iget-object v3, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper;->safeOctets:[Z
 
     aget-boolean v3, v3, v2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_17
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 191
     .end local v2    # "c":C
-    :cond_0
+    :cond_17
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 194
     .restart local v2    # "c":C
-    :cond_1
-    :goto_1
+    :cond_1a
+    :goto_1a
     invoke-virtual {p0, p1, v1}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper;->escapeSlow(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v3
@@ -338,12 +338,12 @@
     .line 197
     .end local v1    # "index":I
     .end local v2    # "c":C
-    :cond_2
+    :cond_1f
     return-object p1
 .end method
 
 .method protected escape(I)[C
-    .locals 12
+    .registers 14
     .param p1, "cp"    # I
 
     .line 208
@@ -351,13 +351,13 @@
 
     array-length v0, v0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_d
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper;->safeOctets:[Z
 
     aget-boolean v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 209
     const/4 v0, 0x0
@@ -365,14 +365,14 @@
     return-object v0
 
     .line 210
-    :cond_0
+    :cond_d
     const/16 v0, 0x20
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_18
 
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper;->plusForSpace:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 211
     sget-object v0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper;->URI_ESCAPED_SPACE:[C
@@ -380,7 +380,7 @@
     return-object v0
 
     .line 212
-    :cond_1
+    :cond_18
     const/16 v0, 0x7f
 
     const/4 v1, 0x1
@@ -393,7 +393,7 @@
 
     const/4 v5, 0x3
 
-    if-gt p1, v0, :cond_2
+    if-gt p1, v0, :cond_37
 
     .line 215
     new-array v0, v5, [C
@@ -425,7 +425,7 @@
 
     .line 220
     .end local v0    # "dest":[C
-    :cond_2
+    :cond_37
     const/16 v0, 0x7ff
 
     const/4 v6, 0x5
@@ -436,7 +436,7 @@
 
     const/4 v9, 0x4
 
-    if-gt p1, v0, :cond_3
+    if-gt p1, v0, :cond_6b
 
     .line 223
     new-array v0, v7, [C
@@ -500,14 +500,14 @@
 
     .line 234
     .end local v0    # "dest":[C
-    :cond_3
+    :cond_6b
     const v0, 0xffff
 
     const/16 v10, 0x9
 
     const/4 v11, 0x7
 
-    if-gt p1, v0, :cond_4
+    if-gt p1, v0, :cond_ac
 
     .line 237
     new-array v0, v10, [C
@@ -591,10 +591,10 @@
 
     .line 252
     .end local v0    # "dest":[C
-    :cond_4
+    :cond_ac
     const v0, 0x10ffff
 
-    if-gt p1, v0, :cond_5
+    if-gt p1, v0, :cond_107
 
     .line 253
     const/16 v0, 0xc
@@ -715,7 +715,7 @@
 
     .line 278
     .end local v0    # "dest":[C
-    :cond_5
+    :cond_107
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -742,7 +742,7 @@
 .end method
 
 .method protected nextEscapeIndex(Ljava/lang/CharSequence;II)I
-    .locals 2
+    .registers 6
     .param p1, "csq"    # Ljava/lang/CharSequence;
     .param p2, "index"    # I
     .param p3, "end"    # I
@@ -750,8 +750,8 @@
     .line 174
     nop
 
-    :goto_0
-    if-ge p2, p3, :cond_1
+    :goto_1
+    if-ge p2, p3, :cond_16
 
     .line 175
     invoke-interface {p1, p2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -764,26 +764,26 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_16
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/PercentEscaper;->safeOctets:[Z
 
     aget-boolean v1, v1, v0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
     .line 177
-    goto :goto_1
+    goto :goto_16
 
     .line 174
     .end local v0    # "c":C
-    :cond_0
+    :cond_13
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 180
-    :cond_1
-    :goto_1
+    :cond_16
+    :goto_16
     return p2
 .end method

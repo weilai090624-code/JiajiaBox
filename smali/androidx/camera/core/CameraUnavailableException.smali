@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "reason"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "reason"    # I
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 4
     .param p1, "reason"    # I
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "cause"    # Ljava/lang/Throwable;
@@ -108,7 +108,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/Throwable;)V
-    .locals 0
+    .registers 3
     .param p1, "reason"    # I
     .param p2, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public getReason()I
-    .locals 1
+    .registers 2
 
     .line 121
     iget v0, p0, Landroidx/camera/core/CameraUnavailableException;->mReason:I

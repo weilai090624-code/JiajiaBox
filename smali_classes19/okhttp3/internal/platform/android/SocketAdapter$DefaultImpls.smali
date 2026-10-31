@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static matchesSocketFactory(Lokhttp3/internal/platform/android/SocketAdapter;Ljavax/net/ssl/SSLSocketFactory;)Z
-    .locals 1
+    .registers 3
     .param p0, "this"    # Lokhttp3/internal/platform/android/SocketAdapter;
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public static trustManager(Lokhttp3/internal/platform/android/SocketAdapter;Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .registers 3
     .param p0, "this"    # Lokhttp3/internal/platform/android/SocketAdapter;
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 

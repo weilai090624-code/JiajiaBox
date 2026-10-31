@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-direct {p0}, Lcom/google/gson/JsonElement;-><init>()V
@@ -36,23 +36,23 @@
 
 # virtual methods
 .method public add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
-    .locals 2
+    .registers 5
     .param p1, "property"    # Ljava/lang/String;
     .param p2, "value"    # Lcom/google/gson/JsonElement;
 
     .line 58
     iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_7
 
     sget-object v1, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     move-object v1, p2
 
-    :goto_0
+    :goto_8
     invoke-virtual {v0, p1, v1}, Lcom/google/gson/internal/LinkedTreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 59
@@ -60,23 +60,23 @@
 .end method
 
 .method public addProperty(Ljava/lang/String;Ljava/lang/Boolean;)V
-    .locals 1
+    .registers 4
     .param p1, "property"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Boolean;
 
     .line 102
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
     sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/gson/JsonPrimitive;
 
     invoke-direct {v0, p2}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/Boolean;)V
 
-    :goto_0
+    :goto_a
     invoke-virtual {p0, p1, v0}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
 
     .line 103
@@ -84,23 +84,23 @@
 .end method
 
 .method public addProperty(Ljava/lang/String;Ljava/lang/Character;)V
-    .locals 1
+    .registers 4
     .param p1, "property"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Character;
 
     .line 113
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
     sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/gson/JsonPrimitive;
 
     invoke-direct {v0, p2}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/Character;)V
 
-    :goto_0
+    :goto_a
     invoke-virtual {p0, p1, v0}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
 
     .line 114
@@ -108,23 +108,23 @@
 .end method
 
 .method public addProperty(Ljava/lang/String;Ljava/lang/Number;)V
-    .locals 1
+    .registers 4
     .param p1, "property"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Number;
 
     .line 91
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
     sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/gson/JsonPrimitive;
 
     invoke-direct {v0, p2}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/Number;)V
 
-    :goto_0
+    :goto_a
     invoke-virtual {p0, p1, v0}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
 
     .line 92
@@ -132,23 +132,23 @@
 .end method
 
 .method public addProperty(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "property"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
     .line 80
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
     sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/gson/JsonPrimitive;
 
     invoke-direct {v0, p2}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_a
     invoke-virtual {p0, p1, v0}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
 
     .line 81
@@ -156,7 +156,7 @@
 .end method
 
 .method public bridge synthetic deepCopy()Lcom/google/gson/JsonElement;
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-virtual {p0}, Lcom/google/gson/JsonObject;->deepCopy()Lcom/google/gson/JsonObject;
@@ -167,7 +167,7 @@
 .end method
 
 .method public deepCopy()Lcom/google/gson/JsonObject;
-    .locals 5
+    .registers 6
 
     .line 42
     new-instance v0, Lcom/google/gson/JsonObject;
@@ -186,12 +186,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -221,15 +221,15 @@
 
     .line 45
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/google/gson/JsonElement;>;"
-    goto :goto_0
+    goto :goto_f
 
     .line 46
-    :cond_0
+    :cond_2f
     return-object v0
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -252,15 +252,15 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 197
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_16
 
     instance-of v0, p1, Lcom/google/gson/JsonObject;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -275,26 +275,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     const/4 v0, 0x1
 
     .line 197
-    :goto_1
+    :goto_17
     return v0
 .end method
 
 .method public get(Ljava/lang/String;)Lcom/google/gson/JsonElement;
-    .locals 1
+    .registers 3
     .param p1, "memberName"    # Ljava/lang/String;
 
     .line 162
@@ -310,7 +310,7 @@
 .end method
 
 .method public getAsJsonArray(Ljava/lang/String;)Lcom/google/gson/JsonArray;
-    .locals 1
+    .registers 3
     .param p1, "memberName"    # Ljava/lang/String;
 
     .line 182
@@ -326,7 +326,7 @@
 .end method
 
 .method public getAsJsonObject(Ljava/lang/String;)Lcom/google/gson/JsonObject;
-    .locals 1
+    .registers 3
     .param p1, "memberName"    # Ljava/lang/String;
 
     .line 192
@@ -342,7 +342,7 @@
 .end method
 
 .method public getAsJsonPrimitive(Ljava/lang/String;)Lcom/google/gson/JsonPrimitive;
-    .locals 1
+    .registers 3
     .param p1, "memberName"    # Ljava/lang/String;
 
     .line 172
@@ -358,7 +358,7 @@
 .end method
 
 .method public has(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "memberName"    # Ljava/lang/String;
 
     .line 152
@@ -372,7 +372,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 203
     iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
@@ -385,7 +385,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -406,7 +406,7 @@
 .end method
 
 .method public remove(Ljava/lang/String;)Lcom/google/gson/JsonElement;
-    .locals 1
+    .registers 3
     .param p1, "property"    # Ljava/lang/String;
 
     .line 69
@@ -422,7 +422,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 142
     iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;

@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/CertificatePinner;Lokhttp3/Handshake;Lokhttp3/Address;)V
-    .locals 1
+    .registers 5
 
     iput-object p1, p0, Lokhttp3/internal/connection/RealConnection$connectTls$1;->$certificatePinner:Lokhttp3/CertificatePinner;
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 403
     invoke-virtual {p0}, Lokhttp3/internal/connection/RealConnection$connectTls$1;->invoke()Ljava/util/List;
@@ -85,7 +85,7 @@
 .end method
 
 .method public final invoke()Ljava/util/List;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

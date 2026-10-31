@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1352
     const/4 v0, 0x0
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method getInterfaces(Ljava/lang/Class;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,7 +64,7 @@
 .end method
 
 .method bridge synthetic getInterfaces(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     .line 1352
     check-cast p1, Ljava/lang/Class;
@@ -77,7 +77,7 @@
 .end method
 
 .method getRawType(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,7 +94,7 @@
 .end method
 
 .method bridge synthetic getRawType(Ljava/lang/Object;)Ljava/lang/Class;
-    .locals 0
+    .registers 2
 
     .line 1352
     check-cast p1, Ljava/lang/Class;
@@ -107,7 +107,7 @@
 .end method
 
 .method getSuperclass(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -131,7 +131,7 @@
 .end method
 
 .method bridge synthetic getSuperclass(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 

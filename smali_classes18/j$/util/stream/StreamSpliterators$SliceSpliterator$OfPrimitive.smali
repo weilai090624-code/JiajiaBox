@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator$OfPrimitive;JJ)V
-    .locals 14
+    .registers 20
     .param p2, "sliceOrigin"    # J
     .param p4, "sliceFence"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -82,7 +82,7 @@
 .end method
 
 .method private constructor <init>(Lj$/util/Spliterator$OfPrimitive;JJJJ)V
-    .locals 0
+    .registers 10
     .param p2, "sliceOrigin"    # J
     .param p4, "sliceFence"    # J
     .param p6, "origin"    # J
@@ -105,7 +105,7 @@
 .end method
 
 .method synthetic constructor <init>(Lj$/util/Spliterator$OfPrimitive;JJJJLj$/util/stream/StreamSpliterators-IA;)V
-    .locals 0
+    .registers 11
 
     invoke-direct/range {p0 .. p9}, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;-><init>(Lj$/util/Spliterator$OfPrimitive;JJJJ)V
 
@@ -123,7 +123,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/lang/Object;)V
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)V"
@@ -142,33 +142,33 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_c
 
     .line 795
     return-void
 
     .line 797
-    :cond_0
+    :cond_c
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->fence:J
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_15
 
     .line 798
     return-void
 
     .line 800
-    :cond_1
+    :cond_15
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->sliceOrigin:J
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_3a
 
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
 
@@ -186,7 +186,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_2
+    if-gtz v4, :cond_3a
 
     .line 802
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->s:Lj$/util/Spliterator;
@@ -200,11 +200,11 @@
 
     iput-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
 
-    goto :goto_2
+    goto :goto_6a
 
     .line 806
-    :cond_2
-    :goto_0
+    :cond_3a
+    :goto_3a
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->sliceOrigin:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
@@ -213,7 +213,7 @@
 
     cmp-long v6, v0, v2
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_55
 
     .line 807
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->s:Lj$/util/Spliterator;
@@ -233,18 +233,18 @@
 
     iput-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 811
-    :cond_3
-    :goto_1
+    :cond_55
+    :goto_55
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->fence:J
 
     cmp-long v6, v0, v2
 
-    if-gez v6, :cond_4
+    if-gez v6, :cond_6a
 
     .line 812
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->s:Lj$/util/Spliterator;
@@ -260,16 +260,16 @@
 
     iput-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
 
-    goto :goto_1
+    goto :goto_55
 
     .line 815
-    :cond_4
-    :goto_2
+    :cond_6a
+    :goto_6a
     return-void
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$forEachRemaining(Lj$/util/Spliterator;Ljava/util/function/Consumer;)V
 
@@ -277,7 +277,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -287,7 +287,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -297,7 +297,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -307,7 +307,7 @@
 .end method
 
 .method public tryAdvance(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)Z"
@@ -328,14 +328,14 @@
 
     cmp-long v5, v0, v2
 
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_d
 
     .line 776
     return v4
 
     .line 778
-    :cond_0
-    :goto_0
+    :cond_d
+    :goto_d
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->sliceOrigin:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
@@ -344,7 +344,7 @@
 
     cmp-long v7, v0, v2
 
-    if-lez v7, :cond_1
+    if-lez v7, :cond_28
 
     .line 779
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->s:Lj$/util/Spliterator;
@@ -364,23 +364,23 @@
 
     iput-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
 
-    goto :goto_0
+    goto :goto_d
 
     .line 783
-    :cond_1
+    :cond_28
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->fence:J
 
     cmp-long v7, v0, v2
 
-    if-ltz v7, :cond_2
+    if-ltz v7, :cond_31
 
     .line 784
     return v4
 
     .line 786
-    :cond_2
+    :cond_31
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;->index:J
 
     add-long/2addr v0, v5
@@ -400,7 +400,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 756
     .local p0, "this":Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive;, "Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfPrimitive<TT;TT_SPLITR;TT_CONS;>;"

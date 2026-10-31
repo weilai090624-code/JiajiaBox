@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,25 +68,25 @@
     .end annotation
 
     .line 102
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     invoke-interface {p1}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     invoke-direct {p0, p1, v0}, Lkotlin/coroutines/jvm/internal/ContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 0
+    .registers 3
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .param p2, "_context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 105
     iget-object v0, p0, Lkotlin/coroutines/jvm/internal/ContinuationImpl;->_context:Lkotlin/coroutines/CoroutineContext;
@@ -124,7 +124,7 @@
 .end method
 
 .method public final intercepted()Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -137,7 +137,7 @@
     .line 111
     iget-object v0, p0, Lkotlin/coroutines/jvm/internal/ContinuationImpl;->intercepted:Lkotlin/coroutines/Continuation;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_24
 
     .line 112
     invoke-virtual {p0}, Lkotlin/coroutines/jvm/internal/ContinuationImpl;->getContext()Lkotlin/coroutines/CoroutineContext;
@@ -154,7 +154,7 @@
 
     check-cast v0, Lkotlin/coroutines/ContinuationInterceptor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     move-object v1, p0
 
@@ -164,15 +164,15 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_20
 
-    :cond_0
+    :cond_1d
     move-object v0, p0
 
     check-cast v0, Lkotlin/coroutines/Continuation;
 
     .line 113
-    :cond_1
+    :cond_20
     move-object v1, v0
 
     .line 169
@@ -185,21 +185,21 @@
 
     .end local v1    # "it":Lkotlin/coroutines/Continuation;
     .end local v2    # "$i$a$-also-ContinuationImpl$intercepted$1":I
-    :cond_2
+    :cond_24
     return-object v0
 .end method
 
 .method protected releaseIntercepted()V
-    .locals 3
+    .registers 4
 
     .line 116
     iget-object v0, p0, Lkotlin/coroutines/jvm/internal/ContinuationImpl;->intercepted:Lkotlin/coroutines/Continuation;
 
     .line 117
     .local v0, "intercepted":Lkotlin/coroutines/Continuation;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_1a
 
     .line 118
     invoke-virtual {p0}, Lkotlin/coroutines/jvm/internal/ContinuationImpl;->getContext()Lkotlin/coroutines/CoroutineContext;
@@ -221,7 +221,7 @@
     invoke-interface {v1, v0}, Lkotlin/coroutines/ContinuationInterceptor;->releaseInterceptedContinuation(Lkotlin/coroutines/Continuation;)V
 
     .line 120
-    :cond_0
+    :cond_1a
     sget-object v1, Lkotlin/coroutines/jvm/internal/CompletedContinuation;->INSTANCE:Lkotlin/coroutines/jvm/internal/CompletedContinuation;
 
     check-cast v1, Lkotlin/coroutines/Continuation;

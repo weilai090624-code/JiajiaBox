@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/sqlite/db/SupportSQLiteCompat$Api16Impl;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -89,7 +89,7 @@
 .end method
 
 .method public static final cancel(Landroid/os/CancellationSignal;)V
-    .locals 1
+    .registers 2
     .param p0, "cancellationSignal"    # Landroid/os/CancellationSignal;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -106,7 +106,7 @@
 .end method
 
 .method public static final createCancellationSignal()Landroid/os/CancellationSignal;
-    .locals 1
+    .registers 1
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public static final deleteDatabase(Ljava/io/File;)Z
-    .locals 1
+    .registers 2
     .param p0, "file"    # Ljava/io/File;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -137,7 +137,7 @@
 .end method
 
 .method public static final disableWriteAheadLogging(Landroid/database/sqlite/SQLiteDatabase;)V
-    .locals 1
+    .registers 2
     .param p0, "sQLiteDatabase"    # Landroid/database/sqlite/SQLiteDatabase;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -154,7 +154,7 @@
 .end method
 
 .method public static final isWriteAheadLoggingEnabled(Landroid/database/sqlite/SQLiteDatabase;)Z
-    .locals 1
+    .registers 2
     .param p0, "sQLiteDatabase"    # Landroid/database/sqlite/SQLiteDatabase;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -172,7 +172,7 @@
 .end method
 
 .method public static final rawQueryWithFactory(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;)Landroid/database/Cursor;
-    .locals 6
+    .registers 12
     .param p0, "sQLiteDatabase"    # Landroid/database/sqlite/SQLiteDatabase;
     .param p1, "sql"    # Ljava/lang/String;
     .param p2, "selectionArgs"    # [Ljava/lang/String;
@@ -236,7 +236,7 @@
 .end method
 
 .method public static final setForeignKeyConstraintsEnabled(Landroid/database/sqlite/SQLiteDatabase;Z)V
-    .locals 1
+    .registers 3
     .param p0, "sQLiteDatabase"    # Landroid/database/sqlite/SQLiteDatabase;
     .param p1, "enable"    # Z
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -254,7 +254,7 @@
 .end method
 
 .method public static final setWriteAheadLoggingEnabled(Landroid/database/sqlite/SQLiteOpenHelper;Z)V
-    .locals 1
+    .registers 3
     .param p0, "sQLiteOpenHelper"    # Landroid/database/sqlite/SQLiteOpenHelper;
     .param p1, "enabled"    # Z
     .annotation runtime Lkotlin/jvm/JvmStatic;

@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/function/DoubleBinaryOperator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -58,13 +58,13 @@
 
 # virtual methods
 .method public accept(D)V
-    .locals 3
+    .registers 6
     .param p1, "t"    # D
 
     .line 688
     iget-boolean v0, p0, Lj$/util/stream/ReduceOps$12ReducingSink;->empty:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 689
     const/4 v0, 0x0
@@ -74,10 +74,10 @@
     .line 690
     iput-wide p1, p0, Lj$/util/stream/ReduceOps$12ReducingSink;->state:D
 
-    goto :goto_0
+    goto :goto_14
 
     .line 693
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lj$/util/stream/ReduceOps$12ReducingSink;->val$operator:Ljava/util/function/DoubleBinaryOperator;
 
     iget-wide v1, p0, Lj$/util/stream/ReduceOps$12ReducingSink;->state:D
@@ -89,12 +89,12 @@
     iput-wide v0, p0, Lj$/util/stream/ReduceOps$12ReducingSink;->state:D
 
     .line 695
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method public synthetic accept(I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;I)V
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public synthetic accept(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;J)V
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public synthetic accept(Ljava/lang/Double;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfDouble$-CC;->$default$accept(Lj$/util/stream/Sink$OfDouble;Ljava/lang/Double;)V
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfDouble$-CC;->$default$accept(Lj$/util/stream/Sink$OfDouble;Ljava/lang/Object;)V
 
@@ -126,7 +126,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -136,7 +136,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/DoubleConsumer$-CC;->$default$andThen(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
 
@@ -146,7 +146,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 2
+    .registers 5
     .param p1, "size"    # J
 
     .line 682
@@ -164,7 +164,7 @@
 .end method
 
 .method public synthetic cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$cancellationRequested(Lj$/util/stream/Sink;)Z
 
@@ -174,13 +174,13 @@
 .end method
 
 .method public combine(Lj$/util/stream/ReduceOps$12ReducingSink;)V
-    .locals 2
+    .registers 4
     .param p1, "other"    # Lj$/util/stream/ReduceOps$12ReducingSink;
 
     .line 704
     iget-boolean v0, p1, Lj$/util/stream/ReduceOps$12ReducingSink;->empty:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 705
     iget-wide v0, p1, Lj$/util/stream/ReduceOps$12ReducingSink;->state:D
@@ -188,12 +188,12 @@
     invoke-virtual {p0, v0, v1}, Lj$/util/stream/ReduceOps$12ReducingSink;->accept(D)V
 
     .line 706
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public bridge synthetic combine(Lj$/util/stream/ReduceOps$AccumulatingSink;)V
-    .locals 0
+    .registers 2
 
     .line 676
     check-cast p1, Lj$/util/stream/ReduceOps$12ReducingSink;
@@ -204,7 +204,7 @@
 .end method
 
 .method public synthetic end()V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$end(Lj$/util/stream/Sink;)V
 
@@ -212,32 +212,32 @@
 .end method
 
 .method public get()Lj$/util/OptionalDouble;
-    .locals 2
+    .registers 3
 
     .line 699
     iget-boolean v0, p0, Lj$/util/stream/ReduceOps$12ReducingSink;->empty:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-static {}, Lj$/util/OptionalDouble;->empty()Lj$/util/OptionalDouble;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_9
     iget-wide v0, p0, Lj$/util/stream/ReduceOps$12ReducingSink;->state:D
 
     invoke-static {v0, v1}, Lj$/util/OptionalDouble;->of(D)Lj$/util/OptionalDouble;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 676
     invoke-virtual {p0}, Lj$/util/stream/ReduceOps$12ReducingSink;->get()Lj$/util/OptionalDouble;

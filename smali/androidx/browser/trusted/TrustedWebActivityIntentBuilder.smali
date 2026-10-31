@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;)V
-    .locals 1
+    .registers 3
     .param p1, "uri"    # Landroid/net/Uri;
 
     .line 106
@@ -80,11 +80,11 @@
 
 # virtual methods
 .method public build(Landroidx/browser/customtabs/CustomTabsSession;)Landroidx/browser/trusted/TrustedWebActivityIntent;
-    .locals 4
+    .registers 6
     .param p1, "session"    # Landroidx/browser/customtabs/CustomTabsSession;
 
     .line 283
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_79
 
     .line 287
     iget-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mIntentBuilder:Landroidx/browser/customtabs/CustomTabsIntent$Builder;
@@ -116,7 +116,7 @@
     .line 291
     iget-object v1, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mAdditionalTrustedOrigins:Ljava/util/List;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2a
 
     .line 292
     new-instance v1, Ljava/util/ArrayList;
@@ -130,10 +130,10 @@
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
     .line 296
-    :cond_0
+    :cond_2a
     iget-object v1, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mSplashScreenParams:Landroid/os/Bundle;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_35
 
     .line 297
     const-string v1, "androidx.browser.trusted.EXTRA_SPLASH_SCREEN_PARAMS"
@@ -143,7 +143,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
     .line 299
-    :cond_1
+    :cond_35
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v1
@@ -152,11 +152,11 @@
     .local v1, "sharedUris":Ljava/util/List;, "Ljava/util/List<Landroid/net/Uri;>;"
     iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mShareTarget:Landroidx/browser/trusted/sharing/ShareTarget;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_61
 
     iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mShareData:Landroidx/browser/trusted/sharing/ShareData;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_61
 
     .line 301
     iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mShareTarget:Landroidx/browser/trusted/sharing/ShareTarget;
@@ -185,7 +185,7 @@
 
     iget-object v2, v2, Landroidx/browser/trusted/sharing/ShareData;->uris:Ljava/util/List;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_61
 
     .line 304
     iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mShareData:Landroidx/browser/trusted/sharing/ShareData;
@@ -193,7 +193,7 @@
     iget-object v1, v2, Landroidx/browser/trusted/sharing/ShareData;->uris:Ljava/util/List;
 
     .line 307
-    :cond_2
+    :cond_61
     iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mDisplayMode:Landroidx/browser/trusted/TrustedWebActivityDisplayMode;
 
     invoke-interface {v2}, Landroidx/browser/trusted/TrustedWebActivityDisplayMode;->toBundle()Landroid/os/Bundle;
@@ -221,7 +221,7 @@
     .line 284
     .end local v0    # "intent":Landroid/content/Intent;
     .end local v1    # "sharedUris":Ljava/util/List;, "Ljava/util/List<Landroid/net/Uri;>;"
-    :cond_3
+    :cond_79
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "CustomTabsSession is required for launching a TWA"
@@ -232,7 +232,7 @@
 .end method
 
 .method public buildCustomTabsIntent()Landroidx/browser/customtabs/CustomTabsIntent;
-    .locals 1
+    .registers 2
 
     .line 319
     iget-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mIntentBuilder:Landroidx/browser/customtabs/CustomTabsIntent$Builder;
@@ -245,7 +245,7 @@
 .end method
 
 .method public getDisplayMode()Landroidx/browser/trusted/TrustedWebActivityDisplayMode;
-    .locals 1
+    .registers 2
 
     .line 335
     iget-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mDisplayMode:Landroidx/browser/trusted/TrustedWebActivityDisplayMode;
@@ -254,7 +254,7 @@
 .end method
 
 .method public getUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 327
     iget-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;->mUri:Landroid/net/Uri;
@@ -263,7 +263,7 @@
 .end method
 
 .method public setAdditionalTrustedOrigins(Ljava/util/List;)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -283,7 +283,7 @@
 .end method
 
 .method public setColorScheme(I)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 1
+    .registers 3
     .param p1, "colorScheme"    # I
 
     .line 161
@@ -296,7 +296,7 @@
 .end method
 
 .method public setColorSchemeParams(ILandroidx/browser/customtabs/CustomTabColorSchemeParams;)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 1
+    .registers 4
     .param p1, "colorScheme"    # I
     .param p2, "params"    # Landroidx/browser/customtabs/CustomTabColorSchemeParams;
 
@@ -310,7 +310,7 @@
 .end method
 
 .method public setDefaultColorSchemeParams(Landroidx/browser/customtabs/CustomTabColorSchemeParams;)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 1
+    .registers 3
     .param p1, "params"    # Landroidx/browser/customtabs/CustomTabColorSchemeParams;
 
     .line 190
@@ -323,7 +323,7 @@
 .end method
 
 .method public setDisplayMode(Landroidx/browser/trusted/TrustedWebActivityDisplayMode;)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 0
+    .registers 2
     .param p1, "displayMode"    # Landroidx/browser/trusted/TrustedWebActivityDisplayMode;
 
     .line 258
@@ -334,7 +334,7 @@
 .end method
 
 .method public setNavigationBarColor(I)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 133
@@ -347,7 +347,7 @@
 .end method
 
 .method public setNavigationBarDividerColor(I)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 145
@@ -360,7 +360,7 @@
 .end method
 
 .method public setScreenOrientation(I)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 0
+    .registers 2
     .param p1, "orientation"    # I
 
     .line 272
@@ -371,7 +371,7 @@
 .end method
 
 .method public setShareParams(Landroidx/browser/trusted/sharing/ShareTarget;Landroidx/browser/trusted/sharing/ShareData;)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 0
+    .registers 3
     .param p1, "shareTarget"    # Landroidx/browser/trusted/sharing/ShareTarget;
     .param p2, "shareData"    # Landroidx/browser/trusted/sharing/ShareData;
 
@@ -386,7 +386,7 @@
 .end method
 
 .method public setSplashScreenParams(Landroid/os/Bundle;)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 0
+    .registers 2
     .param p1, "splashScreenParams"    # Landroid/os/Bundle;
 
     .line 231
@@ -397,7 +397,7 @@
 .end method
 
 .method public setToolbarColor(I)Landroidx/browser/trusted/TrustedWebActivityIntentBuilder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 122

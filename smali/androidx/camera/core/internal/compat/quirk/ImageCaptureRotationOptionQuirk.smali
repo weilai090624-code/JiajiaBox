@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method private static isHonor9X()Z
-    .locals 2
+    .registers 2
 
     .line 49
     const-string v0, "HONOR"
@@ -28,7 +28,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const-string v0, "STK-LX1"
 
@@ -38,21 +38,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method private static isHuaweiMate20Lite()Z
-    .locals 2
+    .registers 2
 
     .line 45
     const-string v0, "HUAWEI"
@@ -63,7 +63,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const-string v0, "SNE-LX1"
 
@@ -73,54 +73,54 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method static load()Z
-    .locals 1
+    .registers 1
 
     .line 41
     invoke-static {}, Landroidx/camera/core/internal/compat/quirk/ImageCaptureRotationOptionQuirk;->isHuaweiMate20Lite()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-static {}, Landroidx/camera/core/internal/compat/quirk/ImageCaptureRotationOptionQuirk;->isHonor9X()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 
 # virtual methods
 .method public isSupported(Landroidx/camera/core/impl/Config$Option;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -142,15 +142,15 @@
     .local p1, "option":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
     sget-object v0, Landroidx/camera/core/impl/CaptureConfig;->OPTION_ROTATION:Landroidx/camera/core/impl/Config$Option;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method

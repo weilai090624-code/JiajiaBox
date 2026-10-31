@@ -54,7 +54,7 @@
 
 # direct methods
 .method public static final synthetic access$computeJavaType(Lkotlin/reflect/KType;Z)Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 3
     .param p0, "$receiver"    # Lkotlin/reflect/KType;
     .param p1, "forceWrapper"    # Z
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public static final synthetic access$typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "type"    # Ljava/lang/reflect/Type;
 
     .line 1
@@ -79,7 +79,7 @@
 .end method
 
 .method private static final computeJavaType(Lkotlin/reflect/KType;Z)Ljava/lang/reflect/Type;
-    .locals 8
+    .registers 10
     .param p0, "$this$computeJavaType"    # Lkotlin/reflect/KType;
     .param p1, "forceWrapper"    # Z
 
@@ -92,7 +92,7 @@
     .local v0, "classifier":Lkotlin/reflect/KClassifier;
     instance-of v1, v0, Lkotlin/reflect/KTypeParameter;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     new-instance v1, Lkotlin/reflect/TypeVariableImpl;
 
@@ -107,32 +107,32 @@
     return-object v1
 
     .line 40
-    :cond_0
+    :cond_13
     instance-of v1, v0, Lkotlin/reflect/KClass;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_a8
 
     .line 41
     move-object v1, v0
 
     check-cast v1, Lkotlin/reflect/KClass;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_21
 
     invoke-static {v1}, Lkotlin/jvm/JvmClassMappingKt;->getJavaObjectType(Lkotlin/reflect/KClass;)Ljava/lang/Class;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_21
     invoke-static {v1}, Lkotlin/jvm/JvmClassMappingKt;->getJavaClass(Lkotlin/reflect/KClass;)Ljava/lang/Class;
 
     move-result-object v1
 
     .line 42
     .local v1, "jClass":Ljava/lang/Class;
-    :goto_0
+    :goto_25
     invoke-interface {p0}, Lkotlin/reflect/KType;->getArguments()Ljava/util/List;
 
     move-result-object v2
@@ -143,7 +143,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_33
 
     move-object v3, v1
 
@@ -152,12 +152,12 @@
     return-object v3
 
     .line 45
-    :cond_2
+    :cond_33
     invoke-virtual {v1}, Ljava/lang/Class;->isArray()Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_a3
 
     .line 46
     invoke-virtual {v1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
@@ -168,7 +168,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_47
 
     move-object v3, v1
 
@@ -177,14 +177,14 @@
     return-object v3
 
     .line 48
-    :cond_3
+    :cond_47
     invoke-static {v2}, Lkotlin/collections/CollectionsKt;->singleOrNull(Ljava/util/List;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lkotlin/reflect/KTypeProjection;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_8a
 
     invoke-virtual {v3}, Lkotlin/reflect/KTypeProjection;->component1()Lkotlin/reflect/KVariance;
 
@@ -197,13 +197,13 @@
 
     .line 50
     .local v3, "elementType":Lkotlin/reflect/KType;
-    if-nez v4, :cond_4
+    if-nez v4, :cond_5b
 
     const/4 v5, -0x1
 
-    goto :goto_1
+    goto :goto_63
 
-    :cond_4
+    :cond_5b
     sget-object v5, Lkotlin/reflect/TypesJVMKt$WhenMappings;->$EnumSwitchMapping$0:[I
 
     invoke-virtual {v4}, Lkotlin/reflect/KVariance;->ordinal()I
@@ -212,11 +212,11 @@
 
     aget v5, v5, v6
 
-    :goto_1
-    packed-switch v5, :pswitch_data_0
+    :goto_63
+    packed-switch v5, :pswitch_data_c2
 
     .line 55
-    :pswitch_0
+    :pswitch_66
     new-instance v5, Lkotlin/NoWhenBranchMatchedException;
 
     invoke-direct {v5}, Lkotlin/NoWhenBranchMatchedException;-><init>()V
@@ -224,7 +224,7 @@
     throw v5
 
     .line 54
-    :pswitch_1
+    :pswitch_6c
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     const/4 v5, 0x1
@@ -241,15 +241,15 @@
     .local v5, "javaElementType":Ljava/lang/reflect/Type;
     instance-of v6, v5, Ljava/lang/Class;
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_7e
 
     move-object v6, v1
 
     check-cast v6, Ljava/lang/reflect/Type;
 
-    goto :goto_2
+    goto :goto_89
 
-    :cond_5
+    :cond_7e
     new-instance v6, Lkotlin/reflect/GenericArrayTypeImpl;
 
     invoke-direct {v6, v5}, Lkotlin/reflect/GenericArrayTypeImpl;-><init>(Ljava/lang/reflect/Type;)V
@@ -257,22 +257,22 @@
     check-cast v6, Ljava/lang/reflect/Type;
 
     .end local v5    # "javaElementType":Ljava/lang/reflect/Type;
-    goto :goto_2
+    goto :goto_89
 
     .line 52
-    :pswitch_2
+    :pswitch_86
     move-object v6, v1
 
     check-cast v6, Ljava/lang/reflect/Type;
 
     .line 50
-    :goto_2
+    :goto_89
     return-object v6
 
     .line 49
     .end local v3    # "elementType":Lkotlin/reflect/KType;
     .end local v4    # "variance":Lkotlin/reflect/KVariance;
-    :cond_6
+    :cond_8a
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -298,7 +298,7 @@
     throw v3
 
     .line 60
-    :cond_7
+    :cond_a3
     invoke-static {v1, v2}, Lkotlin/reflect/TypesJVMKt;->createPossiblyInnerType(Ljava/lang/Class;Ljava/util/List;)Ljava/lang/reflect/Type;
 
     move-result-object v3
@@ -308,7 +308,7 @@
     .line 62
     .end local v1    # "jClass":Ljava/lang/Class;
     .end local v2    # "arguments":Ljava/util/List;
-    :cond_8
+    :cond_a8
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -335,27 +335,27 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c2
     .packed-switch -0x1
-        :pswitch_2
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
+        :pswitch_86
+        :pswitch_66
+        :pswitch_86
+        :pswitch_6c
+        :pswitch_6c
     .end packed-switch
 .end method
 
 .method static synthetic computeJavaType$default(Lkotlin/reflect/KType;ZILjava/lang/Object;)Ljava/lang/reflect/Type;
-    .locals 0
+    .registers 4
 
     .line 37
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lkotlin/reflect/TypesJVMKt;->computeJavaType(Lkotlin/reflect/KType;Z)Ljava/lang/reflect/Type;
 
     move-result-object p0
@@ -364,7 +364,7 @@
 .end method
 
 .method private static final createPossiblyInnerType(Ljava/lang/Class;Ljava/util/List;)Ljava/lang/reflect/Type;
-    .locals 12
+    .registers 14
     .param p0, "jClass"    # Ljava/lang/Class;
     .param p1, "arguments"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -386,7 +386,7 @@
 
     const/16 v1, 0xa
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_41
 
     .line 69
     move-object v0, p1
@@ -422,12 +422,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_1e
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_34
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -453,11 +453,11 @@
     .end local v8    # "$i$a$-map-TypesJVMKt$createPossiblyInnerType$ownerClass$1":I
     invoke-interface {v1, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 235
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_34
     nop
 
     .end local v1    # "destination$iv$iv":Ljava/util/Collection;
@@ -483,7 +483,7 @@
 
     .line 70
     .local v0, "ownerClass":Ljava/lang/Class;
-    :cond_1
+    :cond_41
     invoke-virtual {p0}, Ljava/lang/Class;->getModifiers()I
 
     move-result v2
@@ -492,7 +492,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_86
 
     .line 71
     move-object v2, v0
@@ -532,12 +532,12 @@
 
     move-result-object v7
 
-    :goto_1
+    :goto_64
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_7a
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -563,11 +563,11 @@
     .end local v10    # "$i$a$-map-TypesJVMKt$createPossiblyInnerType$1":I
     invoke-interface {v1, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_64
 
     .line 239
     .end local v8    # "item$iv$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_7a
     nop
 
     .end local v1    # "destination$iv$iv":Ljava/util/Collection;
@@ -590,7 +590,7 @@
     return-object v3
 
     .line 73
-    :cond_3
+    :cond_86
     invoke-virtual {p0}, Ljava/lang/Class;->getTypeParameters()[Ljava/lang/reflect/TypeVariable;
 
     move-result-object v2
@@ -655,12 +655,12 @@
 
     move-result-object v8
 
-    :goto_2
+    :goto_b3
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_c9
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -686,11 +686,11 @@
     .end local v11    # "$i$a$-map-TypesJVMKt$createPossiblyInnerType$2":I
     invoke-interface {v1, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_b3
 
     .line 243
     .end local v9    # "item$iv$iv":Ljava/lang/Object;
-    :cond_4
+    :cond_c9
     nop
 
     .end local v1    # "destination$iv$iv":Ljava/util/Collection;
@@ -714,7 +714,7 @@
 .end method
 
 .method public static final getJavaType(Lkotlin/reflect/KType;)Ljava/lang/reflect/Type;
-    .locals 3
+    .registers 4
     .param p0, "$this$javaType"    # Lkotlin/reflect/KType;
 
     const-string v0, "<this>"
@@ -724,7 +724,7 @@
     .line 28
     instance-of v0, p0, Lkotlin/jvm/internal/KTypeBase;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 30
     move-object v0, p0
@@ -735,7 +735,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 231
     .local v0, "it":Ljava/lang/reflect/Type;
@@ -748,7 +748,7 @@
     .line 33
     .end local v0    # "it":Ljava/lang/reflect/Type;
     .end local v1    # "$i$a$-let-TypesJVMKt$javaType$1":I
-    :cond_0
+    :cond_14
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -763,7 +763,7 @@
 .end method
 
 .method private static final getJavaType(Lkotlin/reflect/KTypeProjection;)Ljava/lang/reflect/Type;
-    .locals 5
+    .registers 6
     .param p0, "$this$javaType"    # Lkotlin/reflect/KTypeProjection;
 
     .line 84
@@ -771,7 +771,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     sget-object v0, Lkotlin/reflect/WildcardTypeImpl;->Companion:Lkotlin/reflect/WildcardTypeImpl$Companion;
 
@@ -785,7 +785,7 @@
 
     .line 85
     .local v0, "variance":Lkotlin/reflect/KVariance;
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Lkotlin/reflect/KTypeProjection;->getType()Lkotlin/reflect/KType;
 
     move-result-object v1
@@ -806,7 +806,7 @@
 
     const/4 v4, 0x1
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_46
 
     .line 93
     new-instance v2, Lkotlin/NoWhenBranchMatchedException;
@@ -815,7 +815,7 @@
 
     throw v2
 
-    :pswitch_0
+    :pswitch_29
     new-instance v2, Lkotlin/reflect/WildcardTypeImpl;
 
     invoke-static {v1, v4}, Lkotlin/reflect/TypesJVMKt;->computeJavaType(Lkotlin/reflect/KType;Z)Ljava/lang/reflect/Type;
@@ -826,18 +826,18 @@
 
     check-cast v2, Ljava/lang/reflect/Type;
 
-    goto :goto_0
+    goto :goto_45
 
     .line 90
-    :pswitch_1
+    :pswitch_35
     invoke-static {v1, v4}, Lkotlin/reflect/TypesJVMKt;->computeJavaType(Lkotlin/reflect/KType;Z)Ljava/lang/reflect/Type;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_45
 
     .line 92
-    :pswitch_2
+    :pswitch_3a
     new-instance v2, Lkotlin/reflect/WildcardTypeImpl;
 
     invoke-static {v1, v4}, Lkotlin/reflect/TypesJVMKt;->computeJavaType(Lkotlin/reflect/KType;Z)Ljava/lang/reflect/Type;
@@ -849,37 +849,37 @@
     check-cast v2, Ljava/lang/reflect/Type;
 
     .line 87
-    :goto_0
+    :goto_45
     return-object v2
 
-    :pswitch_data_0
+    :pswitch_data_46
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3a
+        :pswitch_35
+        :pswitch_29
     .end packed-switch
 .end method
 
 .method public static synthetic getJavaType$annotations(Lkotlin/reflect/KType;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method private static synthetic getJavaType$annotations(Lkotlin/reflect/KTypeProjection;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method private static final typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "type"    # Ljava/lang/reflect/Type;
 
     .line 224
     instance-of v0, p0, Ljava/lang/Class;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     .line 225
     move-object v0, p0
@@ -890,7 +890,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3d
 
     .line 226
     sget-object v0, Lkotlin/reflect/TypesJVMKt$typeToString$unwrap$1;->INSTANCE:Lkotlin/reflect/TypesJVMKt$typeToString$unwrap$1;
@@ -942,10 +942,10 @@
     move-result-object v0
 
     .end local v0    # "unwrap":Lkotlin/sequences/Sequence;
-    goto :goto_0
+    goto :goto_44
 
     .line 228
-    :cond_0
+    :cond_3d
     move-object v0, p0
 
     check-cast v0, Ljava/lang/Class;
@@ -955,20 +955,20 @@
     move-result-object v0
 
     .line 224
-    :goto_0
+    :goto_44
     nop
 
     .line 228
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 229
-    :cond_1
+    :cond_49
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_1
+    :goto_4d
     return-object v0
 .end method

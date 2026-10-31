@@ -149,7 +149,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;
 
@@ -192,7 +192,7 @@
 .end method
 
 .method public constructor <init>(IZ)V
-    .locals 5
+    .registers 8
     .param p1, "capacity"    # I
     .param p2, "singleConsumer"    # Z
 
@@ -233,19 +233,19 @@
 
     const/4 v3, 0x0
 
-    if-gt v0, v2, :cond_0
+    if-gt v0, v2, :cond_21
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_22
     const-string v2, "Check failed."
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3d
 
     .line 87
     iget v0, p0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->capacity:I
@@ -254,15 +254,15 @@
 
     and-int/2addr v0, v4
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2e
 
-    goto :goto_1
+    goto :goto_2f
 
-    :cond_1
+    :cond_2e
     const/4 v1, 0x0
 
-    :goto_1
-    if-eqz v1, :cond_2
+    :goto_2f
+    if-eqz v1, :cond_33
 
     .line 88
     nop
@@ -271,7 +271,7 @@
     return-void
 
     .line 87
-    :cond_2
+    :cond_33
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -283,7 +283,7 @@
     throw v0
 
     .line 86
-    :cond_3
+    :cond_3d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -296,7 +296,7 @@
 .end method
 
 .method private final allocateNextCopy(J)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
-    .locals 19
+    .registers 22
     .param p1, "state"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -369,7 +369,7 @@
 
     .line 233
     .local v11, "index":I
-    :goto_0
+    :goto_27
     iget v12, v0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->mask:I
 
     and-int/2addr v12, v11
@@ -378,7 +378,7 @@
 
     and-int/2addr v13, v9
 
-    if-eq v12, v13, :cond_1
+    if-eq v12, v13, :cond_4b
 
     .line 235
     iget-object v12, v0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->array:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -391,7 +391,7 @@
 
     move-result-object v12
 
-    if-nez v12, :cond_0
+    if-nez v12, :cond_3f
 
     new-instance v12, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Placeholder;
 
@@ -399,7 +399,7 @@
 
     .line 236
     .local v12, "value":Ljava/lang/Object;
-    :cond_0
+    :cond_3f
     iget-object v13, v1, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->array:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     iget v14, v1, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->mask:I
@@ -414,9 +414,9 @@
     .end local v12    # "value":Ljava/lang/Object;
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_1
+    :cond_4b
     sget-object v12, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->_state$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     .line 239
@@ -460,7 +460,7 @@
 .end method
 
 .method private final allocateOrGetNextCopy(J)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
-    .locals 8
+    .registers 11
     .param p1, "state"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -479,7 +479,7 @@
     const/4 v2, 0x0
 
     .local v2, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_4
     invoke-virtual {v0, p0}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -491,11 +491,11 @@
 
     .line 224
     .local v4, "$i$a$-loop$atomicfu-LockFreeTaskQueueCore$allocateOrGetNextCopy$1":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_e
 
     return-object v3
 
-    :cond_0
+    :cond_e
     sget-object v5, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->_next$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 225
@@ -512,11 +512,11 @@
 
     .end local v3    # "next":Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
     .end local v4    # "$i$a$-loop$atomicfu-LockFreeTaskQueueCore$allocateOrGetNextCopy$1":I
-    goto :goto_0
+    goto :goto_4
 .end method
 
 .method private final fillPlaceholder(ILjava/lang/Object;)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
-    .locals 3
+    .registers 6
     .param p1, "index"    # I
     .param p2, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -542,7 +542,7 @@
     .local v0, "old":Ljava/lang/Object;
     instance-of v1, v0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Placeholder;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     move-object v1, v0
 
@@ -550,7 +550,7 @@
 
     iget v1, v1, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Placeholder;->index:I
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_1d
 
     .line 155
     iget-object v1, p0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->array:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -565,14 +565,14 @@
     return-object p0
 
     .line 160
-    :cond_0
+    :cond_1d
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method private final loop$atomicfu(Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -589,7 +589,7 @@
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v1
@@ -600,11 +600,11 @@
 
     invoke-interface {p2, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private final loop$atomicfu(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -620,18 +620,18 @@
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     invoke-interface {p2, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private final markFrozen()J
-    .locals 15
+    .registers 16
 
     sget-object v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->_state$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
@@ -642,7 +642,7 @@
     const/4 v8, 0x0
 
     .local v8, "$i$f$updateAndGet$atomicfu":I
-    :cond_0
+    :cond_4
     invoke-virtual {v6, p0}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v2
@@ -662,12 +662,12 @@
 
     cmp-long v5, v11, v13
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_15
 
     return-wide v0
 
     .line 219
-    :cond_1
+    :cond_15
     or-long/2addr v9, v0
 
     .end local v0    # "state":J
@@ -682,7 +682,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4
 
     .line 220
     .end local v6    # "atomicfu$handler$iv":Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
@@ -692,7 +692,7 @@
 .end method
 
 .method private final removeSlowPath(II)Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
-    .locals 24
+    .registers 27
     .param p1, "oldHead"    # I
     .param p2, "newHead"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -714,7 +714,7 @@
     const/4 v9, 0x0
 
     .local v9, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_7
     invoke-virtual {v7, v6}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v10
@@ -773,7 +773,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3b
 
     .line 324
     const/4 v0, 0x0
@@ -782,28 +782,28 @@
     .local v0, "$i$a$-assert-LockFreeTaskQueueCore$removeSlowPath$1$1$1":I
     move/from16 v1, p1
 
-    if-ne v3, v1, :cond_0
+    if-ne v3, v1, :cond_32
 
     const/4 v2, 0x1
 
     .end local v0    # "$i$a$-assert-LockFreeTaskQueueCore$removeSlowPath$1$1$1":I
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_32
+    if-eqz v2, :cond_35
 
-    goto :goto_1
+    goto :goto_3d
 
-    :cond_1
+    :cond_35
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
     throw v0
 
-    :cond_2
+    :cond_3b
     move/from16 v1, p1
 
     .line 202
-    :goto_1
+    :goto_3d
     const-wide/high16 v18, 0x1000000000000000L
 
     and-long v18, v10, v18
@@ -812,7 +812,7 @@
 
     cmp-long v0, v18, v20
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4c
 
     .line 204
     invoke-virtual/range {p0 .. p0}, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->next()Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
@@ -822,7 +822,7 @@
     return-object v0
 
     .line 206
-    :cond_3
+    :cond_4c
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->_state$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
     sget-object v2, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->Companion:Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;
@@ -859,7 +859,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_74
 
     .line 207
     iget-object v0, v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->array:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -876,7 +876,7 @@
     return-object v2
 
     .line 210
-    :cond_4
+    :cond_74
     nop
 
     .line 323
@@ -894,11 +894,11 @@
 
     .end local v10    # "state":J
     .end local v12    # "$i$a$-loop$atomicfu-LockFreeTaskQueueCore$removeSlowPath$1":I
-    goto :goto_0
+    goto :goto_7
 .end method
 
 .method private final update$atomicfu(Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 7
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -915,7 +915,7 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v3
@@ -942,13 +942,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     return-void
 .end method
 
 .method private final updateAndGet$atomicfu(Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)J
-    .locals 8
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -965,7 +965,7 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v3
@@ -994,7 +994,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {v7}, Ljava/lang/Number;->longValue()J
 
@@ -1006,7 +1006,7 @@
 
 # virtual methods
 .method public final addLast(Ljava/lang/Object;)I
-    .locals 28
+    .registers 30
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1031,7 +1031,7 @@
     const/4 v10, 0x0
 
     .local v10, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_a
     invoke-virtual {v9, v6}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v11
@@ -1049,7 +1049,7 @@
 
     cmp-long v2, v0, v14
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->Companion:Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;
 
@@ -1060,7 +1060,7 @@
     return v0
 
     .line 107
-    :cond_0
+    :cond_1f
     sget-object v16, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->Companion:Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;
 
     .local v16, "this_$iv":Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;
@@ -1121,17 +1121,17 @@
 
     const/16 v23, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_4c
 
     return v23
 
     .line 114
-    :cond_1
+    :cond_4c
     iget-boolean v0, v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->singleConsumer:Z
 
     const v1, 0x3fffffff    # 1.9999999f
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_6f
 
     iget-object v0, v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->array:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
@@ -1141,14 +1141,14 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6f
 
     .line 120
     iget v0, v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->capacity:I
 
     const/16 v14, 0x400
 
-    if-lt v0, v14, :cond_3
+    if-lt v0, v14, :cond_6e
 
     sub-int v0, v2, v21
 
@@ -1158,21 +1158,21 @@
 
     shr-int/lit8 v1, v1, 0x1
 
-    if-le v0, v1, :cond_2
+    if-le v0, v1, :cond_6d
 
-    goto :goto_1
+    goto :goto_6e
 
     .line 124
-    :cond_2
-    goto :goto_0
+    :cond_6d
+    goto :goto_a
 
     .line 121
-    :cond_3
-    :goto_1
+    :cond_6e
+    :goto_6e
     return v23
 
     .line 126
-    :cond_4
+    :cond_6f
     add-int/lit8 v0, v2, 0x1
 
     and-int v14, v0, v1
@@ -1213,7 +1213,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_b4
 
     .line 129
     iget-object v0, v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->array:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -1227,7 +1227,7 @@
 
     .line 132
     .local v0, "cur":Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
-    :goto_2
+    :goto_96
     nop
 
     .line 133
@@ -1245,7 +1245,7 @@
 
     cmp-long v5, v1, v3
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_b3
 
     .line 134
     invoke-virtual {v0}, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->next()Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
@@ -1256,23 +1256,23 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_b1
 
-    goto :goto_3
+    goto :goto_b3
 
-    :cond_5
+    :cond_b1
     move-object v0, v1
 
-    goto :goto_2
+    goto :goto_96
 
     .line 136
-    :cond_6
-    :goto_3
+    :cond_b3
+    :goto_b3
     return v20
 
     .line 138
     .end local v0    # "cur":Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
-    :cond_7
+    :cond_b4
     nop
 
     .line 317
@@ -1293,11 +1293,11 @@
 
     .end local v11    # "state":J
     .end local v13    # "$i$a$-loop$atomicfu-LockFreeTaskQueueCore$addLast$1":I
-    goto/16 :goto_0
+    goto/16 :goto_a
 .end method
 
 .method public final close()Z
-    .locals 17
+    .registers 18
 
     sget-object v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->_state$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
@@ -1310,7 +1310,7 @@
     move-object/from16 v9, p0
 
     .local v8, "$i$f$update$atomicfu":I
-    :cond_0
+    :cond_7
     invoke-virtual {v6, v9}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v2
@@ -1332,26 +1332,26 @@
 
     cmp-long v5, v12, v15
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_19
 
     return v14
 
     .line 97
-    :cond_1
+    :cond_19
     const-wide/high16 v12, 0x1000000000000000L
 
     and-long/2addr v12, v0
 
     cmp-long v5, v12, v15
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_22
 
     const/4 v2, 0x0
 
     return v2
 
     .line 98
-    :cond_2
+    :cond_22
     or-long v4, v0, v10
 
     .end local v0    # "state":J
@@ -1364,7 +1364,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 100
     .end local v6    # "atomicfu$handler$iv":Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
@@ -1374,7 +1374,7 @@
 .end method
 
 .method public final getSize()I
-    .locals 11
+    .registers 12
 
     .line 92
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->Companion:Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;
@@ -1447,7 +1447,7 @@
 .end method
 
 .method public final isClosed()Z
-    .locals 5
+    .registers 6
 
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->_state$FU:Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;
 
@@ -1464,21 +1464,21 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     return v0
 .end method
 
 .method public final isEmpty()Z
-    .locals 10
+    .registers 11
 
     .line 91
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->Companion:Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;
@@ -1529,7 +1529,7 @@
 
     .line 91
     .local v9, "$i$a$-withState-LockFreeTaskQueueCore$isEmpty$1":I
-    if-ne v7, v8, :cond_0
+    if-ne v7, v8, :cond_20
 
     const/4 v6, 0x1
 
@@ -1537,7 +1537,7 @@
     .end local v7    # "head":I
     .end local v8    # "tail":I
     .end local v9    # "$i$a$-withState-LockFreeTaskQueueCore$isEmpty$1":I
-    :cond_0
+    :cond_20
     nop
 
     .line 91
@@ -1550,7 +1550,7 @@
 .end method
 
 .method public final map(Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 13
+    .registers 15
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1625,7 +1625,7 @@
 
     .line 249
     .local v10, "index":I
-    :goto_0
+    :goto_25
     iget v11, p0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->mask:I
 
     and-int/2addr v11, v10
@@ -1634,7 +1634,7 @@
 
     and-int/2addr v12, v8
 
-    if-eq v11, v12, :cond_1
+    if-eq v11, v12, :cond_47
 
     .line 251
     iget-object v11, p0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->array:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -1649,11 +1649,11 @@
 
     .line 253
     .local v11, "element":Ljava/lang/Object;
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_43
 
     instance-of v12, v11, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Placeholder;
 
-    if-nez v12, :cond_0
+    if-nez v12, :cond_43
 
     invoke-interface {p1, v11}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1662,16 +1662,16 @@
     invoke-virtual {v0, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 254
-    :cond_0
+    :cond_43
     nop
 
     .end local v11    # "element":Ljava/lang/Object;
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
     .line 256
-    :cond_1
+    :cond_47
     nop
 
     .line 330
@@ -1695,7 +1695,7 @@
 .end method
 
 .method public final next()Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1717,7 +1717,7 @@
 .end method
 
 .method public final removeFirstOrNull()Ljava/lang/Object;
-    .locals 27
+    .registers 28
 
     move-object/from16 v6, p0
 
@@ -1730,7 +1730,7 @@
     const/4 v9, 0x0
 
     .local v9, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_7
     invoke-virtual {v7, v6}, Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;->get(Ljava/lang/Object;)J
 
     move-result-wide v10
@@ -1748,14 +1748,14 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_18
 
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->REMOVE_FROZEN:Lkotlinx/coroutines/internal/Symbol;
 
     return-object v0
 
     .line 167
-    :cond_0
+    :cond_18
     sget-object v13, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->Companion:Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;
 
     .local v13, "this_$iv":Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Companion;
@@ -1810,12 +1810,12 @@
 
     const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_3e
 
     return-object v3
 
     .line 169
-    :cond_1
+    :cond_3e
     iget-object v0, v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->array:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     iget v1, v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->mask:I
@@ -1828,29 +1828,29 @@
 
     .line 170
     .local v1, "element":Ljava/lang/Object;
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4f
 
     .line 172
     iget-boolean v0, v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->singleConsumer:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4e
 
     return-object v3
 
     .line 174
-    :cond_2
-    goto :goto_0
+    :cond_4e
+    goto :goto_7
 
     .line 177
-    :cond_3
+    :cond_4f
     instance-of v0, v1, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore$Placeholder;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_54
 
     return-object v3
 
     .line 179
-    :cond_4
+    :cond_54
     add-int/lit8 v0, v2, 0x1
 
     const v19, 0x3fffffff    # 1.9999999f
@@ -1915,7 +1915,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_89
 
     .line 183
     iget-object v0, v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->array:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -1930,17 +1930,17 @@
     return-object v19
 
     .line 187
-    :cond_5
+    :cond_89
     iget-boolean v0, v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->singleConsumer:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_99
 
     .line 189
     move-object/from16 v0, p0
 
     .line 190
     .local v0, "cur":Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
-    :goto_1
+    :goto_8f
     nop
 
     .line 192
@@ -1948,23 +1948,23 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_97
 
     return-object v19
 
-    :cond_6
+    :cond_97
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_8f
 
     .line 187
     .end local v0    # "cur":Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
-    :cond_7
+    :cond_99
     move-object/from16 v8, v20
 
     move-object/from16 v7, v23
 
     move/from16 v9, v24
 
-    goto/16 :goto_0
+    goto/16 :goto_7
 .end method

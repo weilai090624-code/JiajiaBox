@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 8
+    .registers 9
 
     const/16 v6, 0x1f
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(IZZZZ)V
-    .locals 0
+    .registers 6
     .param p1, "color"    # I
     .param p2, "bold"    # Z
     .param p3, "italic"    # Z
@@ -117,74 +117,74 @@
 .end method
 
 .method public synthetic constructor <init>(IZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 3
+    .registers 11
 
     .line 22
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_5
 
     .line 24
     const/4 p1, -0x1
 
     .line 22
-    :cond_0
+    :cond_5
     and-int/lit8 p7, p6, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p7, :cond_1
+    if-eqz p7, :cond_c
 
     .line 25
     const/4 p7, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
     .line 22
-    :cond_1
+    :cond_c
     move p7, p2
 
-    :goto_0
+    :goto_d
     and-int/lit8 p2, p6, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_13
 
     .line 26
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
     .line 22
-    :cond_2
+    :cond_13
     move v1, p3
 
-    :goto_1
+    :goto_14
     and-int/lit8 p2, p6, 0x8
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_1a
 
     .line 27
     const/4 v2, 0x0
 
-    goto :goto_2
+    goto :goto_1b
 
     .line 22
-    :cond_3
+    :cond_1a
     move v2, p4
 
-    :goto_2
+    :goto_1b
     and-int/lit8 p2, p6, 0x10
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_20
 
     .line 28
-    goto :goto_3
+    goto :goto_21
 
     .line 22
-    :cond_4
+    :cond_20
     move v0, p5
 
-    :goto_3
+    :goto_21
     move-object p2, p0
 
     move p3, p1
@@ -204,49 +204,49 @@
 .end method
 
 .method public static synthetic copy$default(Lcom/blacksquircle/ui/editorkit/model/StyleSpan;IZZZZILjava/lang/Object;)Lcom/blacksquircle/ui/editorkit/model/StyleSpan;
-    .locals 3
+    .registers 11
 
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_6
 
     iget p1, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->color:I
 
-    :cond_0
+    :cond_6
     and-int/lit8 p7, p6, 0x2
 
-    if-eqz p7, :cond_1
+    if-eqz p7, :cond_c
 
     iget-boolean p2, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->bold:Z
 
-    :cond_1
+    :cond_c
     move p7, p2
 
     and-int/lit8 p2, p6, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_13
 
     iget-boolean p3, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->italic:Z
 
-    :cond_2
+    :cond_13
     move v0, p3
 
     and-int/lit8 p2, p6, 0x8
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_1a
 
     iget-boolean p4, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->underline:Z
 
-    :cond_3
+    :cond_1a
     move v1, p4
 
     and-int/lit8 p2, p6, 0x10
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_21
 
     iget-boolean p5, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->strikethrough:Z
 
-    :cond_4
+    :cond_21
     move v2, p5
 
     move-object p2, p0
@@ -271,7 +271,7 @@
 
 # virtual methods
 .method public final component1()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->color:I
 
@@ -279,7 +279,7 @@
 .end method
 
 .method public final component2()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->bold:Z
 
@@ -287,7 +287,7 @@
 .end method
 
 .method public final component3()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->italic:Z
 
@@ -295,7 +295,7 @@
 .end method
 
 .method public final component4()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->underline:Z
 
@@ -303,7 +303,7 @@
 .end method
 
 .method public final component5()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->strikethrough:Z
 
@@ -311,7 +311,7 @@
 .end method
 
 .method public final copy(IZZZZ)Lcom/blacksquircle/ui/editorkit/model/StyleSpan;
-    .locals 7
+    .registers 13
 
     new-instance v6, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;
 
@@ -333,24 +333,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;
@@ -359,52 +359,52 @@
 
     iget v4, v1, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->color:I
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_14
 
     return v2
 
-    :cond_2
+    :cond_14
     iget-boolean v3, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->bold:Z
 
     iget-boolean v4, v1, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->bold:Z
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     return v2
 
-    :cond_3
+    :cond_1b
     iget-boolean v3, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->italic:Z
 
     iget-boolean v4, v1, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->italic:Z
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_22
 
     return v2
 
-    :cond_4
+    :cond_22
     iget-boolean v3, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->underline:Z
 
     iget-boolean v4, v1, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->underline:Z
 
-    if-eq v3, v4, :cond_5
+    if-eq v3, v4, :cond_29
 
     return v2
 
-    :cond_5
+    :cond_29
     iget-boolean v3, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->strikethrough:Z
 
     iget-boolean v1, v1, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->strikethrough:Z
 
-    if-eq v3, v1, :cond_6
+    if-eq v3, v1, :cond_30
 
     return v2
 
-    :cond_6
+    :cond_30
     return v0
 .end method
 
 .method public final getBold()Z
-    .locals 1
+    .registers 2
 
     .line 25
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->bold:Z
@@ -413,7 +413,7 @@
 .end method
 
 .method public final getColor()I
-    .locals 1
+    .registers 2
 
     .line 24
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->color:I
@@ -422,7 +422,7 @@
 .end method
 
 .method public final getItalic()Z
-    .locals 1
+    .registers 2
 
     .line 26
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->italic:Z
@@ -431,7 +431,7 @@
 .end method
 
 .method public final getStrikethrough()Z
-    .locals 1
+    .registers 2
 
     .line 28
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->strikethrough:Z
@@ -440,7 +440,7 @@
 .end method
 
 .method public final getUnderline()Z
-    .locals 1
+    .registers 2
 
     .line 27
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->underline:Z
@@ -449,7 +449,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->color:I
 
@@ -459,54 +459,54 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_a
 
     const/4 v2, 0x1
 
-    :cond_0
+    :cond_a
     add-int/2addr v1, v2
 
     mul-int/lit8 v0, v1, 0x1f
 
     iget-boolean v2, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->italic:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_12
 
     const/4 v2, 0x1
 
-    :cond_1
+    :cond_12
     add-int/2addr v0, v2
 
     mul-int/lit8 v1, v0, 0x1f
 
     iget-boolean v2, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->underline:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1a
 
     const/4 v2, 0x1
 
-    :cond_2
+    :cond_1a
     add-int/2addr v1, v2
 
     mul-int/lit8 v0, v1, 0x1f
 
     iget-boolean v2, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->strikethrough:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_22
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_3
+    :cond_22
     move v3, v2
 
-    :goto_0
+    :goto_23
     add-int/2addr v0, v3
 
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;->color:I
 

@@ -78,7 +78,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lkotlin/text/RegexOption;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x7
 
@@ -130,7 +130,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 15
+    .registers 15
 
     .line 33
     new-instance v7, Lkotlin/text/RegexOption;
@@ -273,7 +273,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;III)V
-    .locals 0
+    .registers 5
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .param p3, "value"    # I
@@ -295,23 +295,23 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 7
 
     .line 29
     and-int/lit8 p5, p5, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     move p4, p3
 
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2, p3, p4}, Lkotlin/text/RegexOption;-><init>(Ljava/lang/String;III)V
 
     return-void
 .end method
 
 .method public static getEntries()Lkotlin/enums/EnumEntries;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -327,7 +327,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lkotlin/text/RegexOption;
-    .locals 1
+    .registers 2
 
     const-class v0, Lkotlin/text/RegexOption;
 
@@ -341,7 +341,7 @@
 .end method
 
 .method public static values()[Lkotlin/text/RegexOption;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lkotlin/text/RegexOption;->$VALUES:[Lkotlin/text/RegexOption;
 
@@ -357,7 +357,7 @@
 
 # virtual methods
 .method public getMask()I
-    .locals 1
+    .registers 2
 
     .line 29
     iget v0, p0, Lkotlin/text/RegexOption;->mask:I
@@ -366,7 +366,7 @@
 .end method
 
 .method public getValue()I
-    .locals 1
+    .registers 2
 
     .line 29
     iget v0, p0, Lkotlin/text/RegexOption;->value:I

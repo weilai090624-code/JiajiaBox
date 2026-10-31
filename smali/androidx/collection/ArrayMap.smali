@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 57
     .local p0, "this":Landroidx/collection/ArrayMap;, "Landroidx/collection/ArrayMap<TK;TV;>;"
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "capacity"    # I
 
     .line 64
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/collection/SimpleArrayMap;)V
-    .locals 0
+    .registers 2
     .param p1, "map"    # Landroidx/collection/SimpleArrayMap;
 
     .line 71
@@ -72,7 +72,7 @@
 .end method
 
 .method private getCollection()Landroidx/collection/MapCollections;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -85,7 +85,7 @@
     .local p0, "this":Landroidx/collection/ArrayMap;, "Landroidx/collection/ArrayMap<TK;TV;>;"
     iget-object v0, p0, Landroidx/collection/ArrayMap;->mCollections:Landroidx/collection/MapCollections;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 76
     new-instance v0, Landroidx/collection/ArrayMap$1;
@@ -95,7 +95,7 @@
     iput-object v0, p0, Landroidx/collection/ArrayMap;->mCollections:Landroidx/collection/MapCollections;
 
     .line 123
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/collection/ArrayMap;->mCollections:Landroidx/collection/MapCollections;
 
     return-object v0
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public synthetic compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/Map$-CC;->$default$compute(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public synthetic computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/Map$-CC;->$default$computeIfAbsent(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public synthetic computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/Map$-CC;->$default$computeIfPresent(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -134,7 +134,7 @@
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -154,7 +154,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -178,7 +178,7 @@
 .end method
 
 .method public synthetic forEach(Ljava/util/function/BiConsumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Map$-CC;->$default$forEach(Ljava/util/Map;Ljava/util/function/BiConsumer;)V
 
@@ -186,7 +186,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -209,7 +209,7 @@
 .end method
 
 .method public synthetic merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lj$/util/Map$-CC;->$default$merge(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -219,7 +219,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -250,12 +250,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_12
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -277,15 +277,15 @@
 
     .line 145
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    goto :goto_0
+    goto :goto_12
 
     .line 146
-    :cond_0
+    :cond_2a
     return-void
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -305,7 +305,7 @@
 .end method
 
 .method public synthetic replaceAll(Ljava/util/function/BiFunction;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Map$-CC;->$default$replaceAll(Ljava/util/Map;Ljava/util/function/BiFunction;)V
 
@@ -313,7 +313,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -333,7 +333,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

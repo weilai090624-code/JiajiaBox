@@ -30,7 +30,7 @@
 
 # direct methods
 .method private varargs constructor <init>(Ljava/io/File;[Lcom/google/common/io/FileWriteMode;)V
-    .locals 1
+    .registers 4
     .param p1, "file"    # Ljava/io/File;
     .param p2, "modes"    # [Lcom/google/common/io/FileWriteMode;
 
@@ -58,7 +58,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/io/File;[Lcom/google/common/io/FileWriteMode;Lcom/google/common/io/Files$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/io/File;
     .param p2, "x1"    # [Lcom/google/common/io/FileWriteMode;
     .param p3, "x2"    # Lcom/google/common/io/Files$1;
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public openStream()Ljava/io/FileOutputStream;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -98,7 +98,7 @@
 .end method
 
 .method public bridge synthetic openStream()Ljava/io/OutputStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -114,7 +114,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 201
     iget-object v0, p0, Lcom/google/common/io/Files$FileByteSink;->file:Ljava/io/File;

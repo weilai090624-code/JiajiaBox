@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -83,14 +83,14 @@
 .end method
 
 .method private final buildCache(Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;)Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
-    .locals 8
+    .registers 10
     .param p1, "continuation"    # Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;
 
     .line 76
     nop
 
     .line 77
-    :try_start_0
+    :try_start_1
     const-class v0, Ljava/lang/Class;
 
     const-string v1, "getModule"
@@ -170,8 +170,8 @@
     .line 82
     .local v7, "$i$a$-also-ModuleNameRetriever$buildCache$1":I
     sput-object v6, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever;->cache:Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_41
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_41} :catch_42
 
     .end local v6    # "it":Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
     .end local v7    # "$i$a$-also-ModuleNameRetriever$buildCache$1":I
@@ -183,7 +183,7 @@
     .end local v2    # "nameMethod":Ljava/lang/reflect/Method;
     .end local v3    # "getDescriptorMethod":Ljava/lang/reflect/Method;
     .end local v4    # "moduleDescriptorClass":Ljava/lang/Class;
-    :catch_0
+    :catch_42
     move-exception v0
 
     .line 84
@@ -208,7 +208,7 @@
 
 # virtual methods
 .method public final getModuleName(Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p1, "continuation"    # Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;
 
     const-string v0, "continuation"
@@ -218,7 +218,7 @@
     .line 66
     sget-object v0, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever;->cache:Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     invoke-direct {p0, p1}, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever;->buildCache(Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;)Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
 
@@ -226,23 +226,23 @@
 
     .line 67
     .local v0, "cache":Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
-    :cond_0
+    :cond_d
     sget-object v1, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever;->notOnJava9:Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_13
 
     .line 68
     return-object v2
 
     .line 70
-    :cond_1
+    :cond_13
     iget-object v1, v0, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;->getModuleMethod:Ljava/lang/reflect/Method;
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -254,22 +254,22 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_2
+    :cond_23
     move-object v1, v2
 
-    :goto_0
-    if-nez v1, :cond_3
+    :goto_24
+    if-nez v1, :cond_27
 
     return-object v2
 
     .line 71
     .local v1, "module":Ljava/lang/Object;
-    :cond_3
+    :cond_27
     iget-object v4, v0, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;->getDescriptorMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_32
 
     new-array v5, v3, [Ljava/lang/Object;
 
@@ -277,22 +277,22 @@
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_4
+    :cond_32
     move-object v4, v2
 
-    :goto_1
-    if-nez v4, :cond_5
+    :goto_33
+    if-nez v4, :cond_36
 
     return-object v2
 
     .line 72
     .local v4, "descriptor":Ljava/lang/Object;
-    :cond_5
+    :cond_36
     iget-object v5, v0, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;->nameMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_41
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -300,20 +300,20 @@
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_42
 
-    :cond_6
+    :cond_41
     move-object v3, v2
 
-    :goto_2
+    :goto_42
     instance-of v5, v3, Ljava/lang/String;
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_49
 
     move-object v2, v3
 
     check-cast v2, Ljava/lang/String;
 
-    :cond_7
+    :cond_49
     return-object v2
 .end method

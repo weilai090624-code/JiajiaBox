@@ -120,8 +120,8 @@ Copyright (C) 2021 by nekohasekai &lt;contact-sagernet@sekai.icu>"</string>
     <string name="call_notification_screening_text">正在过滤来电</string>
     <string name="certificates">证书 (链)</string>
     <string name="chain_settings">链设置</string>
-    <string name="character_counter_content_description" formatted="false">输入了 %1$d 个字符（上限为 %2$d 个）</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">超出字符数限制（共 %1$d 个，上限为 %2$d 个）</string>
+    <string name="character_counter_content_description">输入了 %1$d 个字符（上限为 %2$d 个）</string>
+    <string name="character_counter_overflowed_content_description">超出字符数限制（共 %1$d 个，上限为 %2$d 个）</string>
     <string name="check_update_no">检查成功，但没有更新。</string>
     <string name="check_update_preview">检查预览版更新</string>
     <string name="check_update_release">检查正式版更新</string>
@@ -295,7 +295,9 @@ Copyright (C) 2021 by nekohasekai &lt;contact-sagernet@sekai.icu>"</string>
     <string name="item_view_role_description">标签页</string>
     <string name="jj_add_subscription">添加订阅</string>
     <string name="jj_empty_hint">点击右上角刷新按钮获取订阅节点</string>
-    <string name="jj_empty_hint_add">点击右上角“+”添加订阅或导入节点链接\n点击“⇄”切换分组</string>
+    <string name="jj_empty_hint_add">"点击右上角“+”添加订阅或导入节点链接
+点击“⇄”切换分组
+左滑进入扩展页"</string>
     <string name="jj_empty_nodes">还没有可用节点</string>
     <string name="jj_group_delete_confirm">确认删除此分组？</string>
     <string name="jj_group_delete_failed">删除失败，请重试</string>
@@ -387,7 +389,7 @@ Copyright (C) 2021 by nekohasekai &lt;contact-sagernet@sekai.icu>"</string>
     <string name="mtrl_picker_out_of_range">不在允许的范围内：%1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">开始日期 – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – 结束日期</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
     <string name="mtrl_picker_range_header_title">请选择范围</string>
     <string name="mtrl_picker_range_header_unselected">开始日期 - 结束日期</string>
     <string name="mtrl_picker_save">保存</string>
@@ -556,7 +558,7 @@ Copyright (C) 2021 by nekohasekai &lt;contact-sagernet@sekai.icu>"</string>
     <string name="sniff_override">探测结果用于目标地址</string>
     <string name="sniff_routing">探测结果用于路由判断</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"代理： %1$s↑ %2$s↓ 
+    <string name="speed_detail">"代理： %1$s↑ %2$s↓ 
 直连： %3$s↑ %4$s↓"</string>
     <string name="speed_interval">速度通知更新间隔</string>
     <string name="ss_cat">Shadowsocks 设置</string>
@@ -584,7 +586,7 @@ Copyright (C) 2021 by nekohasekai &lt;contact-sagernet@sekai.icu>"</string>
     <string name="subscription_used">已用 %s</string>
     <string name="subscription_user_agent">用户代理</string>
     <string name="subscriptions">订阅</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s、%2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s、%2$s</string>
     <string name="tcp_connections">%d TCP 连接</string>
     <string name="tcp_keep_alive_interval">TCP 保持活跃数据包发送间隔</string>
     <string name="telegram">Telegram 更新频道</string>
@@ -594,7 +596,7 @@ Copyright (C) 2021 by nekohasekai &lt;contact-sagernet@sekai.icu>"</string>
     <string name="tls">使用 TLS</string>
     <string name="tls_camouflage_settings">TLS 伪装设置</string>
     <string name="tools_network">网络</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="traffic_sniffing">启用流量探测</string>
     <string name="translate_platform">翻译平台</string>
     <string name="transproxy_mode">透明代理模式</string>
@@ -610,7 +612,7 @@ Copyright (C) 2021 by nekohasekai &lt;contact-sagernet@sekai.icu>"</string>
     <string name="unsaved_changes_prompt">是否要保存修改？</string>
     <string name="update_all_subscription">更新所有订阅</string>
     <string name="update_current_subscription">更新当前组订阅</string>
-    <string name="update_dialog_message" formatted="false">"当前版本：%1$s
+    <string name="update_dialog_message">"当前版本：%1$s
 可升级版本：%2$s
 是否前往下载？"</string>
     <string name="update_dialog_title">发现新版本</string>

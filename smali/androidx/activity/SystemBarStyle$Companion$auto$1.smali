@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/activity/SystemBarStyle$Companion$auto$1;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public final invoke(Landroid/content/res/Resources;)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .param p1, "resources"    # Landroid/content/res/Resources;
 
     const-string v0, "resources"
@@ -100,16 +100,16 @@
     .line 143
     const/16 v1, 0x20
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -119,7 +119,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 142

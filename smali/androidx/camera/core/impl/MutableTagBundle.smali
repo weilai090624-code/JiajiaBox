@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -34,7 +34,7 @@
 .end method
 
 .method public static create()Landroidx/camera/core/impl/MutableTagBundle;
-    .locals 2
+    .registers 2
 
     .line 41
     new-instance v0, Landroidx/camera/core/impl/MutableTagBundle;
@@ -49,7 +49,7 @@
 .end method
 
 .method public static from(Landroidx/camera/core/impl/TagBundle;)Landroidx/camera/core/impl/MutableTagBundle;
-    .locals 4
+    .registers 5
     .param p0, "otherTagBundle"    # Landroidx/camera/core/impl/TagBundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -75,12 +75,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -98,10 +98,10 @@
 
     .line 55
     .end local v2    # "key":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_d
 
     .line 57
-    :cond_0
+    :cond_21
     new-instance v1, Landroidx/camera/core/impl/MutableTagBundle;
 
     invoke-direct {v1, v0}, Landroidx/camera/core/impl/MutableTagBundle;-><init>(Ljava/util/Map;)V
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public addTagBundle(Landroidx/camera/core/impl/TagBundle;)V
-    .locals 2
+    .registers 4
     .param p1, "bundle"    # Landroidx/camera/core/impl/TagBundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -126,11 +126,11 @@
     .line 68
     iget-object v0, p0, Landroidx/camera/core/impl/MutableTagBundle;->mTagMap:Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p1, Landroidx/camera/core/impl/TagBundle;->mTagMap:Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 69
     iget-object v0, p0, Landroidx/camera/core/impl/MutableTagBundle;->mTagMap:Ljava/util/Map;
@@ -140,12 +140,12 @@
     invoke-interface {v0, v1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
     .line 71
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public putTag(Ljava/lang/String;Ljava/lang/Integer;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Integer;
     .annotation system Ldalvik/annotation/MethodParameters;

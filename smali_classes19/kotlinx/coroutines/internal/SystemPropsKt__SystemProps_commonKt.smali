@@ -33,7 +33,7 @@
 
 # direct methods
 .method public static final systemProp(Ljava/lang/String;III)I
-    .locals 7
+    .registers 11
     .param p0, "propertyName"    # Ljava/lang/String;
     .param p1, "defaultValue"    # I
     .param p2, "minValue"    # I
@@ -58,7 +58,7 @@
 .end method
 
 .method public static final systemProp(Ljava/lang/String;JJJ)J
-    .locals 7
+    .registers 14
     .param p0, "propertyName"    # Ljava/lang/String;
     .param p1, "defaultValue"    # J
     .param p3, "minValue"    # J
@@ -69,13 +69,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-wide p1
 
     .line 51
     .local v0, "value":Ljava/lang/String;
-    :cond_0
+    :cond_7
     invoke-static {v0}, Lkotlin/text/StringsKt;->toLongOrNull(Ljava/lang/String;)Ljava/lang/Long;
 
     move-result-object v1
@@ -84,7 +84,7 @@
 
     const-string v3, "System property \'"
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5f
 
     invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
 
@@ -96,22 +96,22 @@
 
     cmp-long v6, p3, v4
 
-    if-gtz v6, :cond_1
+    if-gtz v6, :cond_1f
 
     cmp-long v6, v4, p5
 
-    if-gtz v6, :cond_1
+    if-gtz v6, :cond_1f
 
     const/4 v1, 0x1
 
-    :cond_1
-    if-eqz v1, :cond_2
+    :cond_1f
+    if-eqz v1, :cond_22
 
     .line 56
     return-wide v4
 
     .line 53
-    :cond_2
+    :cond_22
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 54
@@ -175,7 +175,7 @@
 
     .line 51
     .end local v4    # "parsed":J
-    :cond_3
+    :cond_5f
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 52
@@ -219,7 +219,7 @@
 .end method
 
 .method public static final systemProp(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "propertyName"    # Ljava/lang/String;
     .param p1, "defaultValue"    # Ljava/lang/String;
 
@@ -228,16 +228,16 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     move-object v0, p1
 
-    :cond_0
+    :cond_7
     return-object v0
 .end method
 
 .method public static final systemProp(Ljava/lang/String;Z)Z
-    .locals 1
+    .registers 3
     .param p0, "propertyName"    # Ljava/lang/String;
     .param p1, "defaultValue"    # Z
 
@@ -246,43 +246,43 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move v0, p1
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method public static synthetic systemProp$default(Ljava/lang/String;IIIILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 30
     and-int/lit8 p5, p4, 0x4
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 33
     const/4 p2, 0x1
 
     .line 30
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x8
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 34
     const p3, 0x7fffffff
 
     .line 30
-    :cond_1
+    :cond_c
     invoke-static {p0, p1, p2, p3}, Lkotlinx/coroutines/internal/SystemPropsKt;->systemProp(Ljava/lang/String;III)I
 
     move-result p0
@@ -291,41 +291,41 @@
 .end method
 
 .method public static synthetic systemProp$default(Ljava/lang/String;JJJILjava/lang/Object;)J
-    .locals 7
+    .registers 16
 
     .line 44
     and-int/lit8 p8, p7, 0x4
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_8
 
     .line 47
     const-wide/16 p3, 0x1
 
     move-wide v3, p3
 
-    goto :goto_0
+    goto :goto_9
 
     .line 44
-    :cond_0
+    :cond_8
     move-wide v3, p3
 
-    :goto_0
+    :goto_9
     and-int/lit8 p3, p7, 0x8
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_14
 
     .line 48
     const-wide p5, 0x7fffffffffffffffL
 
     move-wide v5, p5
 
-    goto :goto_1
+    goto :goto_15
 
     .line 44
-    :cond_1
+    :cond_14
     move-wide v5, p5
 
-    :goto_1
+    :goto_15
     move-object v0, p0
 
     move-wide v1, p1

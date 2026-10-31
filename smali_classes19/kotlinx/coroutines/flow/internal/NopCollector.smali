@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/flow/internal/NopCollector;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;

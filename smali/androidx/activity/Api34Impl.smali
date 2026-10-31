@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/activity/Api34Impl;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 93
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final createOnBackEvent(FFFI)Landroid/window/BackEvent;
-    .locals 1
+    .registers 6
     .param p1, "touchX"    # F
     .param p2, "touchY"    # F
     .param p3, "progress"    # F
@@ -77,7 +77,7 @@
 .end method
 
 .method public final progress(Landroid/window/BackEvent;)F
-    .locals 1
+    .registers 3
     .param p1, "backEvent"    # Landroid/window/BackEvent;
 
     const-string v0, "backEvent"
@@ -93,7 +93,7 @@
 .end method
 
 .method public final swipeEdge(Landroid/window/BackEvent;)I
-    .locals 1
+    .registers 3
     .param p1, "backEvent"    # Landroid/window/BackEvent;
 
     const-string v0, "backEvent"
@@ -109,7 +109,7 @@
 .end method
 
 .method public final touchX(Landroid/window/BackEvent;)F
-    .locals 1
+    .registers 3
     .param p1, "backEvent"    # Landroid/window/BackEvent;
 
     const-string v0, "backEvent"
@@ -125,7 +125,7 @@
 .end method
 
 .method public final touchY(Landroid/window/BackEvent;)F
-    .locals 1
+    .registers 3
     .param p1, "backEvent"    # Landroid/window/BackEvent;
 
     const-string v0, "backEvent"

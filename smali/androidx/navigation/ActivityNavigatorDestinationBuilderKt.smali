@@ -38,7 +38,7 @@
 
 # direct methods
 .method public static final activity(Landroidx/navigation/NavGraphBuilder;ILkotlin/jvm/functions/Function1;)V
-    .locals 5
+    .registers 8
     .param p0, "$this$activity"    # Landroidx/navigation/NavGraphBuilder;
     .param p1, "id"    # I
     .param p2, "builder"    # Lkotlin/jvm/functions/Function1;
@@ -121,7 +121,7 @@
 .end method
 
 .method public static final activity(Landroidx/navigation/NavGraphBuilder;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
-    .locals 5
+    .registers 8
     .param p0, "$this$activity"    # Landroidx/navigation/NavGraphBuilder;
     .param p1, "route"    # Ljava/lang/String;
     .param p2, "builder"    # Lkotlin/jvm/functions/Function1;

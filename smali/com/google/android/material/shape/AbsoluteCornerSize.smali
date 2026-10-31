@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(F)V
-    .locals 0
+    .registers 2
     .param p1, "size"    # F
 
     .line 28
@@ -28,30 +28,30 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 46
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 47
     return v0
 
     .line 49
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/android/material/shape/AbsoluteCornerSize;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 50
     return v2
 
     .line 52
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/android/material/shape/AbsoluteCornerSize;
@@ -64,19 +64,19 @@
 
     cmpl-float v3, v3, v4
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_16
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_2
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public getCornerSize()F
-    .locals 1
+    .registers 2
 
     .line 41
     iget v0, p0, Lcom/google/android/material/shape/AbsoluteCornerSize;->size:F
@@ -85,7 +85,7 @@
 .end method
 
 .method public getCornerSize(Landroid/graphics/RectF;)F
-    .locals 1
+    .registers 3
     .param p1, "bounds"    # Landroid/graphics/RectF;
 
     .line 34
@@ -95,7 +95,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 58
     iget v0, p0, Lcom/google/android/material/shape/AbsoluteCornerSize;->size:F

@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 149
     const/16 v0, 0x18
@@ -88,14 +88,14 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_7
     sget-object v1, Lj$/time/LocalTime;->HOURS:[Lj$/time/LocalTime;
 
     array-length v1, v1
 
     const/4 v2, 0x0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_19
 
     .line 152
     sget-object v1, Lj$/time/LocalTime;->HOURS:[Lj$/time/LocalTime;
@@ -109,11 +109,11 @@
     .line 151
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 154
     .end local v0    # "i":I
-    :cond_0
+    :cond_19
     sget-object v0, Lj$/time/LocalTime;->HOURS:[Lj$/time/LocalTime;
 
     aget-object v0, v0, v2
@@ -154,7 +154,7 @@
 .end method
 
 .method private constructor <init>(IIII)V
-    .locals 1
+    .registers 6
     .param p1, "hour"    # I
     .param p2, "minute"    # I
     .param p3, "second"    # I
@@ -186,7 +186,7 @@
 .end method
 
 .method private static create(IIII)Lj$/time/LocalTime;
-    .locals 1
+    .registers 5
     .param p0, "hour"    # I
     .param p1, "minute"    # I
     .param p2, "second"    # I
@@ -197,7 +197,7 @@
 
     or-int/2addr v0, p3
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 480
     sget-object v0, Lj$/time/LocalTime;->HOURS:[Lj$/time/LocalTime;
@@ -207,7 +207,7 @@
     return-object v0
 
     .line 482
-    :cond_0
+    :cond_a
     new-instance v0, Lj$/time/LocalTime;
 
     invoke-direct {v0, p0, p1, p2, p3}, Lj$/time/LocalTime;-><init>(IIII)V
@@ -216,7 +216,7 @@
 .end method
 
 .method public static from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/LocalTime;
-    .locals 5
+    .registers 6
     .param p0, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 427
@@ -237,13 +237,13 @@
 
     .line 429
     .local v0, "time":Lj$/time/LocalTime;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 433
     return-object v0
 
     .line 430
-    :cond_0
+    :cond_12
     new-instance v1, Lj$/time/DateTimeException;
 
     .line 431
@@ -289,7 +289,7 @@
 .end method
 
 .method private get0(Lj$/time/temporal/TemporalField;)I
-    .locals 4
+    .registers 6
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 684
@@ -307,7 +307,7 @@
 
     const/16 v1, 0xc
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_84
 
     .line 701
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
@@ -335,7 +335,7 @@
     throw v0
 
     .line 699
-    :pswitch_0
+    :pswitch_29
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
     div-int/2addr v0, v1
@@ -343,29 +343,29 @@
     return v0
 
     .line 698
-    :pswitch_1
+    :pswitch_2d
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_34
 
     const/16 v0, 0x18
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_0
+    :cond_34
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
-    :goto_0
+    :goto_36
     return v0
 
     .line 697
-    :pswitch_2
+    :pswitch_37
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
     return v0
 
     .line 696
-    :pswitch_3
+    :pswitch_3a
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
     rem-int/2addr v0, v1
@@ -373,19 +373,19 @@
     .local v0, "ham":I
     rem-int/lit8 v2, v0, 0xc
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_42
 
-    goto :goto_1
+    goto :goto_43
 
-    :cond_1
+    :cond_42
     move v1, v0
 
-    :goto_1
+    :goto_43
     return v1
 
     .line 695
     .end local v0    # "ham":I
-    :pswitch_4
+    :pswitch_44
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
     rem-int/2addr v0, v1
@@ -393,7 +393,7 @@
     return v0
 
     .line 694
-    :pswitch_5
+    :pswitch_48
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
     mul-int/lit8 v0, v0, 0x3c
@@ -405,13 +405,13 @@
     return v0
 
     .line 693
-    :pswitch_6
+    :pswitch_50
     iget-byte v0, p0, Lj$/time/LocalTime;->minute:B
 
     return v0
 
     .line 692
-    :pswitch_7
+    :pswitch_53
     invoke-virtual {p0}, Lj$/time/LocalTime;->toSecondOfDay()I
 
     move-result v0
@@ -419,13 +419,13 @@
     return v0
 
     .line 691
-    :pswitch_8
+    :pswitch_58
     iget-byte v0, p0, Lj$/time/LocalTime;->second:B
 
     return v0
 
     .line 690
-    :pswitch_9
+    :pswitch_5b
     invoke-virtual {p0}, Lj$/time/LocalTime;->toNanoOfDay()J
 
     move-result-wide v0
@@ -439,7 +439,7 @@
     return v1
 
     .line 689
-    :pswitch_a
+    :pswitch_65
     iget v0, p0, Lj$/time/LocalTime;->nano:I
 
     const v1, 0xf4240
@@ -449,7 +449,7 @@
     return v0
 
     .line 688
-    :pswitch_b
+    :pswitch_6c
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v1, "Invalid field \'MicroOfDay\' for get() method, use getLong() instead"
@@ -459,7 +459,7 @@
     throw v0
 
     .line 687
-    :pswitch_c
+    :pswitch_74
     iget v0, p0, Lj$/time/LocalTime;->nano:I
 
     div-int/lit16 v0, v0, 0x3e8
@@ -467,7 +467,7 @@
     return v0
 
     .line 686
-    :pswitch_d
+    :pswitch_79
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v1, "Invalid field \'NanoOfDay\' for get() method, use getLong() instead"
@@ -477,33 +477,33 @@
     throw v0
 
     .line 685
-    :pswitch_e
+    :pswitch_81
     iget v0, p0, Lj$/time/LocalTime;->nano:I
 
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_84
     .packed-switch 0x1
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_81
+        :pswitch_79
+        :pswitch_74
+        :pswitch_6c
+        :pswitch_65
+        :pswitch_5b
+        :pswitch_58
+        :pswitch_53
+        :pswitch_50
+        :pswitch_48
+        :pswitch_44
+        :pswitch_3a
+        :pswitch_37
+        :pswitch_2d
+        :pswitch_29
     .end packed-switch
 .end method
 
 .method public static now()Lj$/time/LocalTime;
-    .locals 1
+    .registers 1
 
     .line 248
     invoke-static {}, Lj$/time/Clock;->systemDefaultZone()Lj$/time/Clock;
@@ -518,7 +518,7 @@
 .end method
 
 .method public static now(Lj$/time/Clock;)Lj$/time/LocalTime;
-    .locals 2
+    .registers 3
     .param p0, "clock"    # Lj$/time/Clock;
 
     .line 278
@@ -545,7 +545,7 @@
 .end method
 
 .method public static now(Lj$/time/ZoneId;)Lj$/time/LocalTime;
-    .locals 1
+    .registers 2
     .param p0, "zone"    # Lj$/time/ZoneId;
 
     .line 264
@@ -561,7 +561,7 @@
 .end method
 
 .method public static of(II)Lj$/time/LocalTime;
-    .locals 3
+    .registers 5
     .param p0, "hour"    # I
     .param p1, "minute"    # I
 
@@ -573,7 +573,7 @@
     invoke-virtual {v0, v1, v2}, Lj$/time/temporal/ChronoField;->checkValidValue(J)J
 
     .line 297
-    if-nez p1, :cond_0
+    if-nez p1, :cond_d
 
     .line 298
     sget-object v0, Lj$/time/LocalTime;->HOURS:[Lj$/time/LocalTime;
@@ -583,7 +583,7 @@
     return-object v0
 
     .line 300
-    :cond_0
+    :cond_d
     sget-object v0, Lj$/time/temporal/ChronoField;->MINUTE_OF_HOUR:Lj$/time/temporal/ChronoField;
 
     int-to-long v1, p1
@@ -601,7 +601,7 @@
 .end method
 
 .method public static of(III)Lj$/time/LocalTime;
-    .locals 3
+    .registers 6
     .param p0, "hour"    # I
     .param p1, "minute"    # I
     .param p2, "second"    # I
@@ -616,7 +616,7 @@
     .line 318
     or-int v0, p1, p2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 319
     sget-object v0, Lj$/time/LocalTime;->HOURS:[Lj$/time/LocalTime;
@@ -626,7 +626,7 @@
     return-object v0
 
     .line 321
-    :cond_0
+    :cond_f
     sget-object v0, Lj$/time/temporal/ChronoField;->MINUTE_OF_HOUR:Lj$/time/temporal/ChronoField;
 
     int-to-long v1, p1
@@ -651,7 +651,7 @@
 .end method
 
 .method public static of(IIII)Lj$/time/LocalTime;
-    .locals 3
+    .registers 7
     .param p0, "hour"    # I
     .param p1, "minute"    # I
     .param p2, "second"    # I
@@ -694,7 +694,7 @@
 .end method
 
 .method public static ofInstant(Lj$/time/Instant;Lj$/time/ZoneId;)Lj$/time/LocalTime;
-    .locals 8
+    .registers 10
     .param p0, "instant"    # Lj$/time/Instant;
     .param p1, "zone"    # Lj$/time/ZoneId;
 
@@ -763,7 +763,7 @@
 .end method
 
 .method public static ofNanoOfDay(J)Lj$/time/LocalTime;
-    .locals 8
+    .registers 10
     .param p0, "nanoOfDay"    # J
 
     .line 398
@@ -827,7 +827,7 @@
 .end method
 
 .method public static ofSecondOfDay(J)Lj$/time/LocalTime;
-    .locals 4
+    .registers 6
     .param p0, "secondOfDay"    # J
 
     .line 380
@@ -878,7 +878,7 @@
 .end method
 
 .method public static parse(Ljava/lang/CharSequence;)Lj$/time/LocalTime;
-    .locals 1
+    .registers 2
     .param p0, "text"    # Ljava/lang/CharSequence;
 
     .line 448
@@ -892,7 +892,7 @@
 .end method
 
 .method public static parse(Ljava/lang/CharSequence;Lj$/time/format/DateTimeFormatter;)Lj$/time/LocalTime;
-    .locals 1
+    .registers 3
     .param p0, "text"    # Ljava/lang/CharSequence;
     .param p1, "formatter"    # Lj$/time/format/DateTimeFormatter;
 
@@ -916,7 +916,7 @@
 .end method
 
 .method static readExternal(Ljava/io/DataInput;)Lj$/time/LocalTime;
-    .locals 5
+    .registers 6
     .param p0, "in"    # Ljava/io/DataInput;
 
     .line 1714
@@ -938,49 +938,49 @@
 
     .line 1718
     .local v3, "nano":I
-    if-gez v0, :cond_0
+    if-gez v0, :cond_b
 
     .line 1719
     not-int v0, v0
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 1721
-    :cond_0
+    :cond_b
     invoke-interface {p0}, Ljava/io/DataInput;->readByte()B
 
     move-result v1
 
     .line 1722
-    if-gez v1, :cond_1
+    if-gez v1, :cond_13
 
     .line 1723
     not-int v1, v1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 1725
-    :cond_1
+    :cond_13
     invoke-interface {p0}, Ljava/io/DataInput;->readByte()B
 
     move-result v2
 
     .line 1726
-    if-gez v2, :cond_2
+    if-gez v2, :cond_1b
 
     .line 1727
     not-int v2, v2
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 1729
-    :cond_2
+    :cond_1b
     invoke-interface {p0}, Ljava/io/DataInput;->readInt()I
 
     move-result v3
 
     .line 1733
-    :goto_0
+    :goto_1f
     invoke-static {v0, v1, v2, v3}, Lj$/time/LocalTime;->of(IIII)Lj$/time/LocalTime;
 
     move-result-object v4
@@ -989,7 +989,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 1688
@@ -1003,7 +1003,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 1678
     new-instance v0, Lj$/time/Ser;
@@ -1018,7 +1018,7 @@
 
 # virtual methods
 .method public adjustInto(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 3
+    .registers 5
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 1355
@@ -1036,7 +1036,7 @@
 .end method
 
 .method public atDate(Lj$/time/LocalDate;)Lj$/time/LocalDateTime;
-    .locals 1
+    .registers 3
     .param p1, "date"    # Lj$/time/LocalDate;
 
     .line 1449
@@ -1048,7 +1048,7 @@
 .end method
 
 .method public atOffset(Lj$/time/ZoneOffset;)Lj$/time/OffsetTime;
-    .locals 1
+    .registers 3
     .param p1, "offset"    # Lj$/time/ZoneOffset;
 
     .line 1462
@@ -1060,7 +1060,7 @@
 .end method
 
 .method public compareTo(Lj$/time/LocalTime;)I
-    .locals 3
+    .registers 5
     .param p1, "other"    # Lj$/time/LocalTime;
 
     .line 1529
@@ -1074,7 +1074,7 @@
 
     .line 1530
     .local v0, "cmp":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_26
 
     .line 1531
     iget-byte v1, p0, Lj$/time/LocalTime;->minute:B
@@ -1086,7 +1086,7 @@
     move-result v0
 
     .line 1532
-    if-nez v0, :cond_0
+    if-nez v0, :cond_26
 
     .line 1533
     iget-byte v1, p0, Lj$/time/LocalTime;->second:B
@@ -1098,7 +1098,7 @@
     move-result v0
 
     .line 1534
-    if-nez v0, :cond_0
+    if-nez v0, :cond_26
 
     .line 1535
     iget v1, p0, Lj$/time/LocalTime;->nano:I
@@ -1110,12 +1110,12 @@
     move-result v0
 
     .line 1539
-    :cond_0
+    :cond_26
     return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 125
     check-cast p1, Lj$/time/LocalTime;
@@ -1128,24 +1128,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 1581
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 1582
     return v0
 
     .line 1584
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/time/LocalTime;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_27
 
     .line 1585
     move-object v1, p1
@@ -1158,42 +1158,42 @@
 
     iget-byte v4, v1, Lj$/time/LocalTime;->hour:B
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_25
 
     iget-byte v3, p0, Lj$/time/LocalTime;->minute:B
 
     iget-byte v4, v1, Lj$/time/LocalTime;->minute:B
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_25
 
     iget-byte v3, p0, Lj$/time/LocalTime;->second:B
 
     iget-byte v4, v1, Lj$/time/LocalTime;->second:B
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_25
 
     iget v3, p0, Lj$/time/LocalTime;->nano:I
 
     iget v4, v1, Lj$/time/LocalTime;->nano:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_25
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_26
     return v0
 
     .line 1589
     .end local v1    # "other":Lj$/time/LocalTime;
-    :cond_2
+    :cond_27
     return v2
 .end method
 
 .method public format(Lj$/time/format/DateTimeFormatter;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "formatter"    # Lj$/time/format/DateTimeFormatter;
 
     .line 1434
@@ -1210,13 +1210,13 @@
 .end method
 
 .method public get(Lj$/time/temporal/TemporalField;)I
-    .locals 1
+    .registers 3
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 640
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 641
     invoke-direct {p0, p1}, Lj$/time/LocalTime;->get0(Lj$/time/temporal/TemporalField;)I
@@ -1226,7 +1226,7 @@
     return v0
 
     .line 643
-    :cond_0
+    :cond_9
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$get(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)I
 
     move-result v0
@@ -1235,7 +1235,7 @@
 .end method
 
 .method public getHour()I
-    .locals 1
+    .registers 2
 
     .line 711
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
@@ -1244,18 +1244,18 @@
 .end method
 
 .method public getLong(Lj$/time/temporal/TemporalField;)J
-    .locals 4
+    .registers 6
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 671
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1f
 
     .line 672
     sget-object v0, Lj$/time/temporal/ChronoField;->NANO_OF_DAY:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_d
 
     .line 673
     invoke-virtual {p0}, Lj$/time/LocalTime;->toNanoOfDay()J
@@ -1265,10 +1265,10 @@
     return-wide v0
 
     .line 675
-    :cond_0
+    :cond_d
     sget-object v0, Lj$/time/temporal/ChronoField;->MICRO_OF_DAY:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_19
 
     .line 676
     invoke-virtual {p0}, Lj$/time/LocalTime;->toNanoOfDay()J
@@ -1282,7 +1282,7 @@
     return-wide v0
 
     .line 678
-    :cond_1
+    :cond_19
     invoke-direct {p0, p1}, Lj$/time/LocalTime;->get0(Lj$/time/temporal/TemporalField;)I
 
     move-result v0
@@ -1292,7 +1292,7 @@
     return-wide v0
 
     .line 680
-    :cond_2
+    :cond_1f
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->getFrom(Lj$/time/temporal/TemporalAccessor;)J
 
     move-result-wide v0
@@ -1301,7 +1301,7 @@
 .end method
 
 .method public getMinute()I
-    .locals 1
+    .registers 2
 
     .line 720
     iget-byte v0, p0, Lj$/time/LocalTime;->minute:B
@@ -1310,7 +1310,7 @@
 .end method
 
 .method public getNano()I
-    .locals 1
+    .registers 2
 
     .line 738
     iget v0, p0, Lj$/time/LocalTime;->nano:I
@@ -1319,7 +1319,7 @@
 .end method
 
 .method public getSecond()I
-    .locals 1
+    .registers 2
 
     .line 729
     iget-byte v0, p0, Lj$/time/LocalTime;->second:B
@@ -1328,7 +1328,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 1599
     invoke-virtual {p0}, Lj$/time/LocalTime;->toNanoOfDay()J
@@ -1349,7 +1349,7 @@
 .end method
 
 .method public isAfter(Lj$/time/LocalTime;)Z
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lj$/time/LocalTime;
 
     .line 1551
@@ -1357,21 +1357,21 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public isBefore(Lj$/time/LocalTime;)Z
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lj$/time/LocalTime;
 
     .line 1563
@@ -1379,27 +1379,27 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public isSupported(Lj$/time/temporal/TemporalField;)Z
-    .locals 1
+    .registers 3
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 540
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 541
     invoke-interface {p1}, Lj$/time/temporal/TemporalField;->isTimeBased()Z
@@ -1409,34 +1409,34 @@
     return v0
 
     .line 543
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_9
+    if-eqz p1, :cond_13
 
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public isSupported(Lj$/time/temporal/TemporalUnit;)Z
-    .locals 1
+    .registers 3
     .param p1, "unit"    # Lj$/time/temporal/TemporalUnit;
 
     .line 576
     instance-of v0, p1, Lj$/time/temporal/ChronoUnit;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 577
     invoke-interface {p1}, Lj$/time/temporal/TemporalUnit;->isTimeBased()Z
@@ -1446,28 +1446,28 @@
     return v0
 
     .line 579
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_9
+    if-eqz p1, :cond_13
 
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalUnit;->isSupportedBy(Lj$/time/temporal/Temporal;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public minus(JLj$/time/temporal/TemporalUnit;)Lj$/time/LocalTime;
-    .locals 3
+    .registers 7
     .param p1, "amountToSubtract"    # J
     .param p3, "unit"    # Lj$/time/temporal/TemporalUnit;
 
@@ -1476,7 +1476,7 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_16
 
     const-wide v0, 0x7fffffffffffffffL
 
@@ -1490,21 +1490,21 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_16
     neg-long v0, p1
 
     invoke-virtual {p0, v0, v1, p3}, Lj$/time/LocalTime;->plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/LocalTime;
 
     move-result-object v0
 
-    :goto_0
+    :goto_1b
     return-object v0
 .end method
 
 .method public minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/LocalTime;
-    .locals 1
+    .registers 3
     .param p1, "amountToSubtract"    # Lj$/time/temporal/TemporalAmount;
 
     .line 1204
@@ -1518,7 +1518,7 @@
 .end method
 
 .method public bridge synthetic minus(JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
 
     .line 125
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/LocalTime;->minus(JLj$/time/temporal/TemporalUnit;)Lj$/time/LocalTime;
@@ -1529,7 +1529,7 @@
 .end method
 
 .method public bridge synthetic minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     .line 125
     invoke-virtual {p0, p1}, Lj$/time/LocalTime;->minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/LocalTime;
@@ -1540,7 +1540,7 @@
 .end method
 
 .method public minusHours(J)Lj$/time/LocalTime;
-    .locals 2
+    .registers 5
     .param p1, "hoursToSubtract"    # J
 
     .line 1244
@@ -1558,7 +1558,7 @@
 .end method
 
 .method public minusMinutes(J)Lj$/time/LocalTime;
-    .locals 2
+    .registers 5
     .param p1, "minutesToSubtract"    # J
 
     .line 1259
@@ -1576,7 +1576,7 @@
 .end method
 
 .method public minusNanos(J)Lj$/time/LocalTime;
-    .locals 2
+    .registers 5
     .param p1, "nanosToSubtract"    # J
 
     .line 1289
@@ -1594,7 +1594,7 @@
 .end method
 
 .method public minusSeconds(J)Lj$/time/LocalTime;
-    .locals 2
+    .registers 5
     .param p1, "secondsToSubtract"    # J
 
     .line 1274
@@ -1612,14 +1612,14 @@
 .end method
 
 .method public plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/LocalTime;
-    .locals 4
+    .registers 8
     .param p1, "amountToAdd"    # J
     .param p3, "unit"    # Lj$/time/temporal/TemporalUnit;
 
     .line 1067
     instance-of v0, p3, Lj$/time/temporal/ChronoUnit;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6b
 
     .line 1068
     sget-object v0, Lj$/time/LocalTime$1;->$SwitchMap$java$time$temporal$ChronoUnit:[I
@@ -1634,7 +1634,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_72
 
     .line 1077
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
@@ -1662,7 +1662,7 @@
     throw v0
 
     .line 1075
-    :pswitch_0
+    :pswitch_2b
     const-wide/16 v0, 0x2
 
     rem-long v0, p1, v0
@@ -1678,7 +1678,7 @@
     return-object v0
 
     .line 1074
-    :pswitch_1
+    :pswitch_38
     invoke-virtual {p0, p1, p2}, Lj$/time/LocalTime;->plusHours(J)Lj$/time/LocalTime;
 
     move-result-object v0
@@ -1686,7 +1686,7 @@
     return-object v0
 
     .line 1073
-    :pswitch_2
+    :pswitch_3d
     invoke-virtual {p0, p1, p2}, Lj$/time/LocalTime;->plusMinutes(J)Lj$/time/LocalTime;
 
     move-result-object v0
@@ -1694,7 +1694,7 @@
     return-object v0
 
     .line 1072
-    :pswitch_3
+    :pswitch_42
     invoke-virtual {p0, p1, p2}, Lj$/time/LocalTime;->plusSeconds(J)Lj$/time/LocalTime;
 
     move-result-object v0
@@ -1702,7 +1702,7 @@
     return-object v0
 
     .line 1071
-    :pswitch_4
+    :pswitch_47
     const-wide/32 v0, 0x5265c00
 
     rem-long v0, p1, v0
@@ -1718,7 +1718,7 @@
     return-object v0
 
     .line 1070
-    :pswitch_5
+    :pswitch_56
     const-wide v0, 0x141dd76000L
 
     rem-long v0, p1, v0
@@ -1734,7 +1734,7 @@
     return-object v0
 
     .line 1069
-    :pswitch_6
+    :pswitch_66
     invoke-virtual {p0, p1, p2}, Lj$/time/LocalTime;->plusNanos(J)Lj$/time/LocalTime;
 
     move-result-object v0
@@ -1742,7 +1742,7 @@
     return-object v0
 
     .line 1079
-    :cond_0
+    :cond_6b
     invoke-interface {p3, p0, p1, p2}, Lj$/time/temporal/TemporalUnit;->addTo(Lj$/time/temporal/Temporal;J)Lj$/time/temporal/Temporal;
 
     move-result-object v0
@@ -1751,20 +1751,20 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_72
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_66
+        :pswitch_56
+        :pswitch_47
+        :pswitch_42
+        :pswitch_3d
+        :pswitch_38
+        :pswitch_2b
     .end packed-switch
 .end method
 
 .method public plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/LocalTime;
-    .locals 1
+    .registers 3
     .param p1, "amountToAdd"    # Lj$/time/temporal/TemporalAmount;
 
     .line 1010
@@ -1778,7 +1778,7 @@
 .end method
 
 .method public bridge synthetic plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
 
     .line 125
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/LocalTime;->plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/LocalTime;
@@ -1789,7 +1789,7 @@
 .end method
 
 .method public bridge synthetic plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     .line 125
     invoke-virtual {p0, p1}, Lj$/time/LocalTime;->plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/LocalTime;
@@ -1800,7 +1800,7 @@
 .end method
 
 .method public plusHours(J)Lj$/time/LocalTime;
-    .locals 4
+    .registers 7
     .param p1, "hoursToAdd"    # J
 
     .line 1095
@@ -1808,13 +1808,13 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_7
 
     .line 1096
     return-object p0
 
     .line 1098
-    :cond_0
+    :cond_7
     const-wide/16 v0, 0x18
 
     rem-long v0, p1, v0
@@ -1845,7 +1845,7 @@
 .end method
 
 .method public plusMinutes(J)Lj$/time/LocalTime;
-    .locals 6
+    .registers 9
     .param p1, "minutesToAdd"    # J
 
     .line 1114
@@ -1853,13 +1853,13 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_7
 
     .line 1115
     return-object p0
 
     .line 1117
-    :cond_0
+    :cond_7
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
     mul-int/lit8 v0, v0, 0x3c
@@ -1884,13 +1884,13 @@
 
     .line 1119
     .local v2, "newMofd":I
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_1b
 
     .line 1120
     return-object p0
 
     .line 1122
-    :cond_1
+    :cond_1b
     div-int/lit8 v1, v2, 0x3c
 
     .line 1123
@@ -1911,7 +1911,7 @@
 .end method
 
 .method public plusNanos(J)Lj$/time/LocalTime;
-    .locals 12
+    .registers 15
     .param p1, "nanosToAdd"    # J
 
     .line 1166
@@ -1919,13 +1919,13 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_7
 
     .line 1167
     return-object p0
 
     .line 1169
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lj$/time/LocalTime;->toNanoOfDay()J
 
     move-result-wide v0
@@ -1946,13 +1946,13 @@
     .local v4, "newNofd":J
     cmp-long v2, v0, v4
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1a
 
     .line 1172
     return-object p0
 
     .line 1174
-    :cond_1
+    :cond_1a
     const-wide v2, 0x34630b8a000L
 
     div-long v2, v4, v2
@@ -1997,7 +1997,7 @@
 .end method
 
 .method public plusSeconds(J)Lj$/time/LocalTime;
-    .locals 6
+    .registers 9
     .param p1, "secondstoAdd"    # J
 
     .line 1139
@@ -2005,13 +2005,13 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_7
 
     .line 1140
     return-object p0
 
     .line 1142
-    :cond_0
+    :cond_7
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
     mul-int/lit16 v0, v0, 0xe10
@@ -2044,13 +2044,13 @@
 
     .line 1145
     .local v2, "newSofd":I
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_22
 
     .line 1146
     return-object p0
 
     .line 1148
-    :cond_1
+    :cond_22
     div-int/lit16 v1, v2, 0xe10
 
     .line 1149
@@ -2075,7 +2075,7 @@
 .end method
 
 .method public query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -2094,58 +2094,58 @@
 
     const/4 v1, 0x0
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_36
 
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->zoneId()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_36
 
     .line 1315
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->zone()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_36
 
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->offset()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1a
 
-    goto :goto_0
+    goto :goto_36
 
     .line 1317
-    :cond_0
+    :cond_1a
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->localTime()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_21
 
     .line 1318
     return-object p0
 
     .line 1319
-    :cond_1
+    :cond_21
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->localDate()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_28
 
     .line 1320
     return-object v1
 
     .line 1321
-    :cond_2
+    :cond_28
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->precision()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_31
 
     .line 1322
     sget-object v0, Lj$/time/temporal/ChronoUnit;->NANOS:Lj$/time/temporal/ChronoUnit;
@@ -2153,7 +2153,7 @@
     return-object v0
 
     .line 1326
-    :cond_3
+    :cond_31
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalQuery;->queryFrom(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Object;
 
     move-result-object v0
@@ -2161,13 +2161,13 @@
     return-object v0
 
     .line 1316
-    :cond_4
-    :goto_0
+    :cond_36
+    :goto_36
     return-object v1
 .end method
 
 .method public range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 1
+    .registers 3
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 608
@@ -2179,7 +2179,7 @@
 .end method
 
 .method public toEpochSecond(Lj$/time/LocalDate;Lj$/time/ZoneOffset;)J
-    .locals 6
+    .registers 9
     .param p1, "date"    # Lj$/time/LocalDate;
     .param p2, "offset"    # Lj$/time/ZoneOffset;
 
@@ -2227,7 +2227,7 @@
 .end method
 
 .method public toNanoOfDay()J
-    .locals 6
+    .registers 7
 
     .line 1486
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
@@ -2273,7 +2273,7 @@
 .end method
 
 .method public toSecondOfDay()I
-    .locals 2
+    .registers 3
 
     .line 1473
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
@@ -2298,7 +2298,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 10
+    .registers 11
 
     .line 1622
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2327,16 +2327,16 @@
     .local v4, "nanoValue":I
     const/16 v5, 0xa
 
-    if-ge v1, v5, :cond_0
+    if-ge v1, v5, :cond_16
 
     const-string v6, "0"
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const-string v6, ""
 
-    :goto_0
+    :goto_18
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
@@ -2350,16 +2350,16 @@
 
     const-string v8, ":"
 
-    if-ge v2, v5, :cond_1
+    if-ge v2, v5, :cond_28
 
     move-object v9, v7
 
-    goto :goto_1
+    goto :goto_29
 
-    :cond_1
+    :cond_28
     move-object v9, v8
 
-    :goto_1
+    :goto_29
     invoke-virtual {v6, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
@@ -2367,20 +2367,20 @@
     invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 1629
-    if-gtz v3, :cond_2
+    if-gtz v3, :cond_34
 
-    if-lez v4, :cond_6
+    if-lez v4, :cond_80
 
     .line 1630
-    :cond_2
-    if-ge v3, v5, :cond_3
+    :cond_34
+    if-ge v3, v5, :cond_37
 
-    goto :goto_2
+    goto :goto_38
 
-    :cond_3
+    :cond_37
     move-object v7, v8
 
-    :goto_2
+    :goto_38
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -2388,7 +2388,7 @@
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 1631
-    if-lez v4, :cond_6
+    if-lez v4, :cond_80
 
     .line 1632
     const/16 v5, 0x2e
@@ -2402,7 +2402,7 @@
 
     const/4 v7, 0x1
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_5e
 
     .line 1634
     div-int v5, v4, v5
@@ -2419,13 +2419,13 @@
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_3
+    goto :goto_80
 
     .line 1635
-    :cond_4
+    :cond_5e
     rem-int/lit16 v6, v4, 0x3e8
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_71
 
     .line 1636
     div-int/lit16 v6, v4, 0x3e8
@@ -2442,10 +2442,10 @@
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_3
+    goto :goto_80
 
     .line 1638
-    :cond_5
+    :cond_71
     const v5, 0x3b9aca00
 
     add-int/2addr v5, v4
@@ -2461,8 +2461,8 @@
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1642
-    :cond_6
-    :goto_3
+    :cond_80
+    :goto_80
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
@@ -2471,19 +2471,19 @@
 .end method
 
 .method public truncatedTo(Lj$/time/temporal/TemporalUnit;)Lj$/time/LocalTime;
-    .locals 8
+    .registers 10
     .param p1, "unit"    # Lj$/time/temporal/TemporalUnit;
 
     .line 972
     sget-object v0, Lj$/time/temporal/ChronoUnit;->NANOS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 973
     return-object p0
 
     .line 975
-    :cond_0
+    :cond_5
     invoke-interface {p1}, Lj$/time/temporal/TemporalUnit;->getDuration()Lj$/time/Duration;
 
     move-result-object v0
@@ -2498,7 +2498,7 @@
 
     cmp-long v5, v1, v3
 
-    if-gtz v5, :cond_2
+    if-gtz v5, :cond_39
 
     .line 979
     invoke-virtual {v0}, Lj$/time/Duration;->toNanos()J
@@ -2515,7 +2515,7 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_31
 
     .line 983
     invoke-virtual {p0}, Lj$/time/LocalTime;->toNanoOfDay()J
@@ -2536,7 +2536,7 @@
 
     .line 981
     .end local v3    # "nod":J
-    :cond_1
+    :cond_31
     new-instance v3, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v4, "Unit must divide into a standard day without remainder"
@@ -2547,7 +2547,7 @@
 
     .line 977
     .end local v1    # "dur":J
-    :cond_2
+    :cond_39
     new-instance v1, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v2, "Unit is too large to be used for truncation"
@@ -2558,7 +2558,7 @@
 .end method
 
 .method public until(Lj$/time/temporal/Temporal;Lj$/time/temporal/TemporalUnit;)J
-    .locals 6
+    .registers 9
     .param p1, "endExclusive"    # Lj$/time/temporal/Temporal;
     .param p2, "unit"    # Lj$/time/temporal/TemporalUnit;
 
@@ -2571,7 +2571,7 @@
     .local v0, "end":Lj$/time/LocalTime;
     instance-of v1, p2, Lj$/time/temporal/ChronoUnit;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_62
 
     .line 1409
     invoke-virtual {v0}, Lj$/time/LocalTime;->toNanoOfDay()J
@@ -2598,7 +2598,7 @@
 
     aget v3, v3, v4
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_68
 
     .line 1419
     new-instance v3, Lj$/time/temporal/UnsupportedTemporalTypeException;
@@ -2626,7 +2626,7 @@
     throw v3
 
     .line 1417
-    :pswitch_0
+    :pswitch_38
     const-wide v3, 0x274a48a78000L
 
     div-long v3, v1, v3
@@ -2634,7 +2634,7 @@
     return-wide v3
 
     .line 1416
-    :pswitch_1
+    :pswitch_40
     const-wide v3, 0x34630b8a000L
 
     div-long v3, v1, v3
@@ -2642,7 +2642,7 @@
     return-wide v3
 
     .line 1415
-    :pswitch_2
+    :pswitch_48
     const-wide v3, 0xdf8475800L
 
     div-long v3, v1, v3
@@ -2650,7 +2650,7 @@
     return-wide v3
 
     .line 1414
-    :pswitch_3
+    :pswitch_50
     const-wide/32 v3, 0x3b9aca00
 
     div-long v3, v1, v3
@@ -2658,7 +2658,7 @@
     return-wide v3
 
     .line 1413
-    :pswitch_4
+    :pswitch_56
     const-wide/32 v3, 0xf4240
 
     div-long v3, v1, v3
@@ -2666,7 +2666,7 @@
     return-wide v3
 
     .line 1412
-    :pswitch_5
+    :pswitch_5c
     const-wide/16 v3, 0x3e8
 
     div-long v3, v1, v3
@@ -2674,12 +2674,12 @@
     return-wide v3
 
     .line 1411
-    :pswitch_6
+    :pswitch_61
     return-wide v1
 
     .line 1421
     .end local v1    # "nanosUntil":J
-    :cond_0
+    :cond_62
     invoke-interface {p2, p0, v0}, Lj$/time/temporal/TemporalUnit;->between(Lj$/time/temporal/Temporal;Lj$/time/temporal/Temporal;)J
 
     move-result-wide v1
@@ -2688,26 +2688,26 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_68
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_61
+        :pswitch_5c
+        :pswitch_56
+        :pswitch_50
+        :pswitch_48
+        :pswitch_40
+        :pswitch_38
     .end packed-switch
 .end method
 
 .method public with(Lj$/time/temporal/TemporalAdjuster;)Lj$/time/LocalTime;
-    .locals 1
+    .registers 3
     .param p1, "adjuster"    # Lj$/time/temporal/TemporalAdjuster;
 
     .line 766
     instance-of v0, p1, Lj$/time/LocalTime;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 767
     move-object v0, p1
@@ -2717,7 +2717,7 @@
     return-object v0
 
     .line 769
-    :cond_0
+    :cond_8
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalAdjuster;->adjustInto(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
 
     move-result-object v0
@@ -2728,14 +2728,14 @@
 .end method
 
 .method public with(Lj$/time/temporal/TemporalField;J)Lj$/time/LocalTime;
-    .locals 6
+    .registers 10
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "newValue"    # J
 
     .line 856
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_c9
 
     .line 857
     move-object v0, p1
@@ -2759,7 +2759,7 @@
 
     const-wide/16 v4, 0xc
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_d0
 
     .line 876
     new-instance v1, Lj$/time/temporal/UnsupportedTemporalTypeException;
@@ -2787,7 +2787,7 @@
     throw v1
 
     .line 874
-    :pswitch_0
+    :pswitch_32
     iget-byte v1, p0, Lj$/time/LocalTime;->hour:B
 
     div-int/lit8 v1, v1, 0xc
@@ -2805,19 +2805,19 @@
     return-object v1
 
     .line 873
-    :pswitch_1
+    :pswitch_40
     const-wide/16 v4, 0x18
 
     cmp-long v1, p2, v4
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_47
 
-    goto :goto_0
+    goto :goto_48
 
-    :cond_0
+    :cond_47
     move-wide v2, p2
 
-    :goto_0
+    :goto_48
     long-to-int v1, v2
 
     invoke-virtual {p0, v1}, Lj$/time/LocalTime;->withHour(I)Lj$/time/LocalTime;
@@ -2827,7 +2827,7 @@
     return-object v1
 
     .line 872
-    :pswitch_2
+    :pswitch_4e
     long-to-int v1, p2
 
     invoke-virtual {p0, v1}, Lj$/time/LocalTime;->withHour(I)Lj$/time/LocalTime;
@@ -2837,17 +2837,17 @@
     return-object v1
 
     .line 871
-    :pswitch_3
+    :pswitch_54
     cmp-long v1, p2, v4
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_59
 
-    goto :goto_1
+    goto :goto_5a
 
-    :cond_1
+    :cond_59
     move-wide v2, p2
 
-    :goto_1
+    :goto_5a
     iget-byte v1, p0, Lj$/time/LocalTime;->hour:B
 
     rem-int/lit8 v1, v1, 0xc
@@ -2863,7 +2863,7 @@
     return-object v1
 
     .line 870
-    :pswitch_4
+    :pswitch_65
     iget-byte v1, p0, Lj$/time/LocalTime;->hour:B
 
     rem-int/lit8 v1, v1, 0xc
@@ -2879,7 +2879,7 @@
     return-object v1
 
     .line 869
-    :pswitch_5
+    :pswitch_71
     iget-byte v1, p0, Lj$/time/LocalTime;->hour:B
 
     mul-int/lit8 v1, v1, 0x3c
@@ -2899,7 +2899,7 @@
     return-object v1
 
     .line 868
-    :pswitch_6
+    :pswitch_80
     long-to-int v1, p2
 
     invoke-virtual {p0, v1}, Lj$/time/LocalTime;->withMinute(I)Lj$/time/LocalTime;
@@ -2909,7 +2909,7 @@
     return-object v1
 
     .line 867
-    :pswitch_7
+    :pswitch_86
     invoke-virtual {p0}, Lj$/time/LocalTime;->toSecondOfDay()I
 
     move-result v1
@@ -2925,7 +2925,7 @@
     return-object v1
 
     .line 866
-    :pswitch_8
+    :pswitch_92
     long-to-int v1, p2
 
     invoke-virtual {p0, v1}, Lj$/time/LocalTime;->withSecond(I)Lj$/time/LocalTime;
@@ -2935,7 +2935,7 @@
     return-object v1
 
     .line 865
-    :pswitch_9
+    :pswitch_98
     const-wide/32 v1, 0xf4240
 
     mul-long v1, v1, p2
@@ -2947,7 +2947,7 @@
     return-object v1
 
     .line 864
-    :pswitch_a
+    :pswitch_a2
     long-to-int v1, p2
 
     const v2, 0xf4240
@@ -2961,7 +2961,7 @@
     return-object v1
 
     .line 863
-    :pswitch_b
+    :pswitch_ad
     const-wide/16 v1, 0x3e8
 
     mul-long v1, v1, p2
@@ -2973,7 +2973,7 @@
     return-object v1
 
     .line 862
-    :pswitch_c
+    :pswitch_b6
     long-to-int v1, p2
 
     mul-int/lit16 v1, v1, 0x3e8
@@ -2985,7 +2985,7 @@
     return-object v1
 
     .line 861
-    :pswitch_d
+    :pswitch_be
     invoke-static {p2, p3}, Lj$/time/LocalTime;->ofNanoOfDay(J)Lj$/time/LocalTime;
 
     move-result-object v1
@@ -2993,7 +2993,7 @@
     return-object v1
 
     .line 860
-    :pswitch_e
+    :pswitch_c3
     long-to-int v1, p2
 
     invoke-virtual {p0, v1}, Lj$/time/LocalTime;->withNano(I)Lj$/time/LocalTime;
@@ -3004,7 +3004,7 @@
 
     .line 878
     .end local v0    # "f":Lj$/time/temporal/ChronoField;
-    :cond_2
+    :cond_c9
     invoke-interface {p1, p0, p2, p3}, Lj$/time/temporal/TemporalField;->adjustInto(Lj$/time/temporal/Temporal;J)Lj$/time/temporal/Temporal;
 
     move-result-object v0
@@ -3013,28 +3013,28 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_d0
     .packed-switch 0x1
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_c3
+        :pswitch_be
+        :pswitch_b6
+        :pswitch_ad
+        :pswitch_a2
+        :pswitch_98
+        :pswitch_92
+        :pswitch_86
+        :pswitch_80
+        :pswitch_71
+        :pswitch_65
+        :pswitch_54
+        :pswitch_4e
+        :pswitch_40
+        :pswitch_32
     .end packed-switch
 .end method
 
 .method public bridge synthetic with(Lj$/time/temporal/TemporalAdjuster;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     .line 125
     invoke-virtual {p0, p1}, Lj$/time/LocalTime;->with(Lj$/time/temporal/TemporalAdjuster;)Lj$/time/LocalTime;
@@ -3045,7 +3045,7 @@
 .end method
 
 .method public bridge synthetic with(Lj$/time/temporal/TemporalField;J)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 4
 
     .line 125
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/LocalTime;->with(Lj$/time/temporal/TemporalField;J)Lj$/time/LocalTime;
@@ -3056,19 +3056,19 @@
 .end method
 
 .method public withHour(I)Lj$/time/LocalTime;
-    .locals 3
+    .registers 5
     .param p1, "hour"    # I
 
     .line 892
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 893
     return-object p0
 
     .line 895
-    :cond_0
+    :cond_5
     sget-object v0, Lj$/time/temporal/ChronoField;->HOUR_OF_DAY:Lj$/time/temporal/ChronoField;
 
     int-to-long v1, p1
@@ -3090,19 +3090,19 @@
 .end method
 
 .method public withMinute(I)Lj$/time/LocalTime;
-    .locals 3
+    .registers 5
     .param p1, "minute"    # I
 
     .line 909
     iget-byte v0, p0, Lj$/time/LocalTime;->minute:B
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 910
     return-object p0
 
     .line 912
-    :cond_0
+    :cond_5
     sget-object v0, Lj$/time/temporal/ChronoField;->MINUTE_OF_HOUR:Lj$/time/temporal/ChronoField;
 
     int-to-long v1, p1
@@ -3124,19 +3124,19 @@
 .end method
 
 .method public withNano(I)Lj$/time/LocalTime;
-    .locals 3
+    .registers 5
     .param p1, "nanoOfSecond"    # I
 
     .line 943
     iget v0, p0, Lj$/time/LocalTime;->nano:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 944
     return-object p0
 
     .line 946
-    :cond_0
+    :cond_5
     sget-object v0, Lj$/time/temporal/ChronoField;->NANO_OF_SECOND:Lj$/time/temporal/ChronoField;
 
     int-to-long v1, p1
@@ -3158,19 +3158,19 @@
 .end method
 
 .method public withSecond(I)Lj$/time/LocalTime;
-    .locals 3
+    .registers 5
     .param p1, "second"    # I
 
     .line 926
     iget-byte v0, p0, Lj$/time/LocalTime;->second:B
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 927
     return-object p0
 
     .line 929
-    :cond_0
+    :cond_5
     sget-object v0, Lj$/time/temporal/ChronoField;->SECOND_OF_MINUTE:Lj$/time/temporal/ChronoField;
 
     int-to-long v1, p1
@@ -3192,23 +3192,23 @@
 .end method
 
 .method writeExternal(Ljava/io/DataOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "out"    # Ljava/io/DataOutput;
 
     .line 1692
     iget v0, p0, Lj$/time/LocalTime;->nano:I
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_30
 
     .line 1693
     iget-byte v0, p0, Lj$/time/LocalTime;->second:B
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     .line 1694
     iget-byte v0, p0, Lj$/time/LocalTime;->minute:B
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 1695
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
@@ -3217,10 +3217,10 @@
 
     invoke-interface {p1, v0}, Ljava/io/DataOutput;->writeByte(I)V
 
-    goto :goto_0
+    goto :goto_44
 
     .line 1697
-    :cond_0
+    :cond_13
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
     invoke-interface {p1, v0}, Ljava/io/DataOutput;->writeByte(I)V
@@ -3232,10 +3232,10 @@
 
     invoke-interface {p1, v0}, Ljava/io/DataOutput;->writeByte(I)V
 
-    goto :goto_0
+    goto :goto_44
 
     .line 1701
-    :cond_1
+    :cond_1f
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
     invoke-interface {p1, v0}, Ljava/io/DataOutput;->writeByte(I)V
@@ -3252,10 +3252,10 @@
 
     invoke-interface {p1, v0}, Ljava/io/DataOutput;->writeByte(I)V
 
-    goto :goto_0
+    goto :goto_44
 
     .line 1706
-    :cond_2
+    :cond_30
     iget-byte v0, p0, Lj$/time/LocalTime;->hour:B
 
     invoke-interface {p1, v0}, Ljava/io/DataOutput;->writeByte(I)V
@@ -3276,6 +3276,6 @@
     invoke-interface {p1, v0}, Ljava/io/DataOutput;->writeInt(I)V
 
     .line 1711
-    :goto_0
+    :goto_44
     return-void
 .end method

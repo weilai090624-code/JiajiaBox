@@ -26,79 +26,79 @@
 
 # direct methods
 .method public static synthetic getSealedSubclasses$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getSupertypes$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getTypeParameters$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getVisibility$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isAbstract$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isCompanion$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isData$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isFinal$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isFun$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isInner$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isOpen$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isSealed$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isValue$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

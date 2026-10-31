@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 97
     invoke-direct {p0}, Landroidx/work/Operation$State;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroidx/work/Operation$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Landroidx/work/Operation$1;
 
     .line 95
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 103
     const-string v0, "SUCCESS"

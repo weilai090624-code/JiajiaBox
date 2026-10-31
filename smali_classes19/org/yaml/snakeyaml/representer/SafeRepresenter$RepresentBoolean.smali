@@ -23,7 +23,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/yaml/snakeyaml/representer/SafeRepresenter;)V
-    .locals 0
+    .registers 2
 
     .line 150
     iput-object p1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentBoolean;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public representData(Ljava/lang/Object;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 3
+    .registers 5
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 153
@@ -46,22 +46,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 154
     const-string v0, "true"
 
     .local v0, "value":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_d
 
     .line 156
     .end local v0    # "value":Ljava/lang/String;
-    :cond_0
+    :cond_b
     const-string v0, "false"
 
     .line 158
     .restart local v0    # "value":Ljava/lang/String;
-    :goto_0
+    :goto_d
     iget-object v1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentBoolean;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
 
     sget-object v2, Lorg/yaml/snakeyaml/nodes/Tag;->BOOL:Lorg/yaml/snakeyaml/nodes/Tag;

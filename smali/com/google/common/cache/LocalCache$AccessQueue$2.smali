@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/LocalCache$AccessQueue;Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/cache/LocalCache$AccessQueue;
 
     .line 3777
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method protected computeNext(Lcom/google/common/cache/ReferenceEntry;)Lcom/google/common/cache/ReferenceEntry;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,21 +68,21 @@
 
     iget-object v1, v1, Lcom/google/common/cache/LocalCache$AccessQueue;->head:Lcom/google/common/cache/ReferenceEntry;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move-object v1, v0
 
-    :goto_0
+    :goto_d
     return-object v1
 .end method
 
 .method protected bridge synthetic computeNext(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 3777
     .local p0, "this":Lcom/google/common/cache/LocalCache$AccessQueue$2;, "Lcom/google/common/cache/LocalCache$AccessQueue$2;"

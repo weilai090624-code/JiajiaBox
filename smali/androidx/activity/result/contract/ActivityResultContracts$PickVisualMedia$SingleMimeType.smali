@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "mimeType"    # Ljava/lang/String;
 
     const-string v0, "mimeType"
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final getMimeType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 757
     iget-object v0, p0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$SingleMimeType;->mimeType:Ljava/lang/String;

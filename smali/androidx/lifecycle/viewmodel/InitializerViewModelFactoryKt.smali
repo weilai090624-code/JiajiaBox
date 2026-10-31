@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final synthetic initializer(Landroidx/lifecycle/viewmodel/InitializerViewModelFactoryBuilder;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$initializer"    # Landroidx/lifecycle/viewmodel/InitializerViewModelFactoryBuilder;
     .param p1, "initializer"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -81,7 +81,7 @@
 .end method
 
 .method public static final viewModelFactory(Lkotlin/jvm/functions/Function1;)Landroidx/lifecycle/ViewModelProvider$Factory;
-    .locals 2
+    .registers 3
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

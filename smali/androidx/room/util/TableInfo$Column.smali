@@ -82,7 +82,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/util/TableInfo$Column$Companion;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZI)V
-    .locals 8
+    .registers 13
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # Ljava/lang/String;
     .param p3, "notNull"    # Z
@@ -156,7 +156,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/String;I)V
-    .locals 1
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # Ljava/lang/String;
     .param p3, "notNull"    # Z
@@ -207,7 +207,7 @@
 .end method
 
 .method public static final defaultValueEquals(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -221,19 +221,19 @@
 .end method
 
 .method private final findAffinity(Ljava/lang/String;)I
-    .locals 7
+    .registers 9
     .param p1, "type"    # Ljava/lang/String;
 
     .line 191
     const/4 v0, 0x5
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 192
     return v0
 
     .line 194
-    :cond_0
+    :cond_4
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string v2, "US"
@@ -268,7 +268,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     .line 196
     const/4 v0, 0x3
@@ -276,7 +276,7 @@
     return v0
 
     .line 198
-    :cond_1
+    :cond_27
     move-object v2, v1
 
     check-cast v2, Ljava/lang/CharSequence;
@@ -289,7 +289,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_89
 
     .line 199
     move-object v2, v1
@@ -304,7 +304,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_89
 
     .line 200
     move-object v2, v1
@@ -319,12 +319,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4f
 
-    goto :goto_1
+    goto :goto_89
 
     .line 204
-    :cond_2
+    :cond_4f
     move-object v2, v1
 
     check-cast v2, Ljava/lang/CharSequence;
@@ -337,13 +337,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5d
 
     .line 205
     return v0
 
     .line 207
-    :cond_3
+    :cond_5d
     move-object v0, v1
 
     check-cast v0, Ljava/lang/CharSequence;
@@ -356,7 +356,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_87
 
     .line 208
     move-object v0, v1
@@ -371,7 +371,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_87
 
     .line 209
     move-object v0, v1
@@ -386,31 +386,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_85
 
-    goto :goto_0
+    goto :goto_87
 
     .line 215
-    :cond_4
+    :cond_85
     const/4 v0, 0x1
 
     return v0
 
     .line 211
-    :cond_5
-    :goto_0
+    :cond_87
+    :goto_87
     const/4 v0, 0x4
 
     return v0
 
     .line 202
-    :cond_6
-    :goto_1
+    :cond_89
+    :goto_89
     return v5
 .end method
 
 .method public static synthetic getAffinity$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -418,28 +418,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 268
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 269
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/room/util/TableInfo$Column;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 270
-    :cond_1
+    :cond_a
     nop
 
     .line 271
@@ -451,12 +451,12 @@
 
     iget v3, v3, Landroidx/room/util/TableInfo$Column;->primaryKeyPosition:I
 
-    if-eq v1, v3, :cond_2
+    if-eq v1, v3, :cond_15
 
     return v2
 
     .line 275
-    :cond_2
+    :cond_15
     iget-object v1, p0, Landroidx/room/util/TableInfo$Column;->name:Ljava/lang/String;
 
     move-object v3, p1
@@ -469,12 +469,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_23
 
     return v2
 
     .line 276
-    :cond_3
+    :cond_23
     iget-boolean v1, p0, Landroidx/room/util/TableInfo$Column;->notNull:Z
 
     move-object v3, p1
@@ -483,12 +483,12 @@
 
     iget-boolean v3, v3, Landroidx/room/util/TableInfo$Column;->notNull:Z
 
-    if-eq v1, v3, :cond_4
+    if-eq v1, v3, :cond_2d
 
     return v2
 
     .line 279
-    :cond_4
+    :cond_2d
     nop
 
     .line 280
@@ -496,7 +496,7 @@
 
     const/4 v3, 0x2
 
-    if-ne v1, v0, :cond_5
+    if-ne v1, v0, :cond_4e
 
     .line 281
     move-object v1, p1
@@ -505,12 +505,12 @@
 
     iget v1, v1, Landroidx/room/util/TableInfo$Column;->createdFrom:I
 
-    if-ne v1, v3, :cond_5
+    if-ne v1, v3, :cond_4e
 
     .line 282
     iget-object v1, p0, Landroidx/room/util/TableInfo$Column;->defaultValue:Ljava/lang/String;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4e
 
     .line 283
     sget-object v1, Landroidx/room/util/TableInfo$Column;->Companion:Landroidx/room/util/TableInfo$Column$Companion;
@@ -527,16 +527,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_4e
 
     .line 285
     return v2
 
     .line 287
-    :cond_5
+    :cond_4e
     iget v1, p0, Landroidx/room/util/TableInfo$Column;->createdFrom:I
 
-    if-ne v1, v3, :cond_6
+    if-ne v1, v3, :cond_70
 
     .line 288
     move-object v1, p1
@@ -545,7 +545,7 @@
 
     iget v1, v1, Landroidx/room/util/TableInfo$Column;->createdFrom:I
 
-    if-ne v1, v0, :cond_6
+    if-ne v1, v0, :cond_70
 
     .line 289
     move-object v1, p1
@@ -554,7 +554,7 @@
 
     iget-object v1, v1, Landroidx/room/util/TableInfo$Column;->defaultValue:Ljava/lang/String;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_70
 
     .line 290
     sget-object v1, Landroidx/room/util/TableInfo$Column;->Companion:Landroidx/room/util/TableInfo$Column$Companion;
@@ -571,16 +571,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_70
 
     .line 292
     return v2
 
     .line 294
-    :cond_6
+    :cond_70
     iget v1, p0, Landroidx/room/util/TableInfo$Column;->createdFrom:I
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_a1
 
     .line 295
     iget v1, p0, Landroidx/room/util/TableInfo$Column;->createdFrom:I
@@ -591,12 +591,12 @@
 
     iget v3, v3, Landroidx/room/util/TableInfo$Column;->createdFrom:I
 
-    if-ne v1, v3, :cond_a
+    if-ne v1, v3, :cond_a1
 
     .line 296
     iget-object v1, p0, Landroidx/room/util/TableInfo$Column;->defaultValue:Ljava/lang/String;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_94
 
     .line 297
     sget-object v1, Landroidx/room/util/TableInfo$Column;->Companion:Landroidx/room/util/TableInfo$Column$Companion;
@@ -613,42 +613,42 @@
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_92
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_9e
 
-    :cond_7
+    :cond_92
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_9e
 
     .line 298
-    :cond_8
+    :cond_94
     move-object v1, p1
 
     check-cast v1, Landroidx/room/util/TableInfo$Column;
 
     iget-object v1, v1, Landroidx/room/util/TableInfo$Column;->defaultValue:Ljava/lang/String;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_9d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_9e
 
-    :cond_9
+    :cond_9d
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_a
+    :goto_9e
+    if-eqz v1, :cond_a1
 
     .line 300
     return v2
 
     .line 302
-    :cond_a
+    :cond_a1
     iget v1, p0, Landroidx/room/util/TableInfo$Column;->affinity:I
 
     move-object v3, p1
@@ -657,19 +657,19 @@
 
     iget v3, v3, Landroidx/room/util/TableInfo$Column;->affinity:I
 
-    if-ne v1, v3, :cond_b
+    if-ne v1, v3, :cond_ab
 
-    goto :goto_1
+    goto :goto_ac
 
-    :cond_b
+    :cond_ab
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_ac
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 314
     iget-object v0, p0, Landroidx/room/util/TableInfo$Column;->name:Ljava/lang/String;
@@ -693,16 +693,16 @@
 
     iget-boolean v2, p0, Landroidx/room/util/TableInfo$Column;->notNull:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     const/16 v2, 0x4cf
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/16 v2, 0x4d5
 
-    :goto_0
+    :goto_16
     add-int/2addr v0, v2
 
     .line 317
@@ -721,26 +721,26 @@
 .end method
 
 .method public final isPrimaryKey()Z
-    .locals 1
+    .registers 2
 
     .line 311
     iget v0, p0, Landroidx/room/util/TableInfo$Column;->primaryKeyPosition:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 325
     new-instance v0, Ljava/lang/StringBuilder;
@@ -828,12 +828,12 @@
     .line 327
     iget-object v1, p0, Landroidx/room/util/TableInfo$Column;->defaultValue:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_50
 
     const-string/jumbo v1, "undefined"
 
     .line 325
-    :cond_0
+    :cond_50
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

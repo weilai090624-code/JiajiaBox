@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/concurrent/ConcurrentHashMap$BulkTask;III[Lj$/util/concurrent/ConcurrentHashMap$Node;Ljava/util/function/Function;Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 8
     .param p2, "b"    # I
     .param p3, "i"    # I
     .param p4, "f"    # I
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public final compute()V
-    .locals 13
+    .registers 14
 
     .line 5129
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ForEachTransformedValueTask;, "Ljava/util/concurrent/ConcurrentHashMap$ForEachTransformedValueTask<TK;TV;TU;>;"
@@ -99,23 +99,23 @@
     move-object v9, v0
 
     .local v9, "transformer":Ljava/util/function/Function;, "Ljava/util/function/Function<-TV;+TU;>;"
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4b
 
     iget-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$ForEachTransformedValueTask;->action:Ljava/util/function/Consumer;
 
     move-object v10, v0
 
     .local v10, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TU;>;"
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4b
 
     .line 5131
     iget v0, p0, Lj$/util/concurrent/ConcurrentHashMap$ForEachTransformedValueTask;->baseIndex:I
 
     .local v0, "i":I
-    :goto_0
+    :goto_c
     iget v1, p0, Lj$/util/concurrent/ConcurrentHashMap$ForEachTransformedValueTask;->batch:I
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_34
 
     iget v1, p0, Lj$/util/concurrent/ConcurrentHashMap$ForEachTransformedValueTask;->baseLimit:I
 
@@ -131,7 +131,7 @@
     move v11, v1
 
     .local v11, "h":I
-    if-le v1, v0, :cond_0
+    if-le v1, v0, :cond_34
 
     .line 5133
     invoke-virtual {p0, v2}, Lj$/util/concurrent/ConcurrentHashMap$ForEachTransformedValueTask;->addToPendingCount(I)V
@@ -164,14 +164,14 @@
     .line 5136
     invoke-virtual {v12}, Lj$/util/concurrent/ConcurrentHashMap$ForEachTransformedValueTask;->fork()Ljava/util/concurrent/ForkJoinTask;
 
-    goto :goto_0
+    goto :goto_c
 
     .line 5138
     .end local v0    # "i":I
     .end local v5    # "f":I
     .end local v11    # "h":I
-    :cond_0
-    :goto_1
+    :cond_34
+    :goto_34
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$ForEachTransformedValueTask;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
 
     move-result-object v0
@@ -179,7 +179,7 @@
     move-object v1, v0
 
     .local v1, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_48
 
     .line 5140
     iget-object v0, v1, Lj$/util/concurrent/ConcurrentHashMap$Node;->val:Ljava/lang/Object;
@@ -191,23 +191,23 @@
     move-object v2, v0
 
     .local v2, "u":Ljava/lang/Object;, "TU;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     .line 5141
     invoke-interface {v10, v2}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
     .line 5142
     .end local v2    # "u":Ljava/lang/Object;, "TU;"
-    :cond_1
-    goto :goto_1
+    :cond_47
+    goto :goto_34
 
     .line 5143
     .end local v1    # "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    :cond_2
+    :cond_48
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$ForEachTransformedValueTask;->propagateCompletion()V
 
     .line 5145
     .end local v10    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TU;>;"
-    :cond_3
+    :cond_4b
     return-void
 .end method

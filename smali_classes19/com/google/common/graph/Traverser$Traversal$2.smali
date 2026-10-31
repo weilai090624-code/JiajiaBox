@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/SuccessorsFunction;)V
-    .locals 0
+    .registers 2
 
     .line 413
     .local p1, "successorFunction":Lcom/google/common/graph/SuccessorsFunction;, "Lcom/google/common/graph/SuccessorsFunction<TN;>;"
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method visitNext(Ljava/util/Deque;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +62,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 419
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -76,7 +76,7 @@
     return-object v1
 
     .line 421
-    :cond_0
+    :cond_15
     invoke-interface {p1}, Ljava/util/Deque;->removeFirst()Ljava/lang/Object;
 
     .line 422

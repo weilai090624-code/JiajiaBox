@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/ToolbarActionBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/app/ToolbarActionBar;
 
     .line 63
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .locals 2
+    .registers 4
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 66

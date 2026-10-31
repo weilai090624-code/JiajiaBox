@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 204
     new-instance v0, Landroidx/work/impl/utils/futures/AbstractFuture$Listener;
@@ -43,7 +43,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 3
     .param p1, "task"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;

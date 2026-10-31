@@ -91,7 +91,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -144,7 +144,7 @@
 .end method
 
 .method public final invoke(Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -173,7 +173,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 11
+    .registers 13
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -196,7 +196,7 @@
     .line 177
     iget v1, p0, Lio/nekohasekai/sagernet/database/ProfileManager$deleteRules$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_64
 
     .end local p0    # "this":Lio/nekohasekai/sagernet/database/ProfileManager$deleteRules$2;
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -209,7 +209,7 @@
 
     .restart local p0    # "this":Lio/nekohasekai/sagernet/database/ProfileManager$deleteRules$2;
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     const/4 v1, 0x0
 
     .local v1, "$i$f$forEach":I
@@ -233,13 +233,13 @@
 
     move-object v3, p0
 
-    goto :goto_1
+    goto :goto_5a
 
     .end local v1    # "$i$f$forEach":I
     .end local v2    # "$i$a$-forEach-ProfileManager$deleteRules$2$1":I
     .end local v4    # "$this$ruleIterator":Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_22
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -277,12 +277,12 @@
     .local v1, "$i$f$forEach":I
     .local v2, "this":Lio/nekohasekai/sagernet/database/ProfileManager$deleteRules$2;
     .restart local v4    # "$this$ruleIterator":Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;
-    :goto_0
+    :goto_37
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_5f
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -313,13 +313,13 @@
     move-result-object v5
 
     .end local v5    # "it":Lio/nekohasekai/sagernet/database/RuleEntity;
-    if-ne v5, v0, :cond_0
+    if-ne v5, v0, :cond_56
 
     .line 177
     return-object v0
 
     .line 179
-    :cond_0
+    :cond_56
     move-object v5, v4
 
     move-object v4, v3
@@ -334,7 +334,7 @@
     .local v2, "$i$a$-forEach-ProfileManager$deleteRules$2$1":I
     .local v3, "this":Lio/nekohasekai/sagernet/database/ProfileManager$deleteRules$2;
     .local v5, "$this$ruleIterator":Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;
-    :goto_1
+    :goto_5a
     nop
 
     .line 241
@@ -345,14 +345,14 @@
 
     move-object v4, v5
 
-    goto :goto_0
+    goto :goto_37
 
     .line 242
     .end local v3    # "this":Lio/nekohasekai/sagernet/database/ProfileManager$deleteRules$2;
     .end local v5    # "$this$ruleIterator":Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;
     .local v2, "this":Lio/nekohasekai/sagernet/database/ProfileManager$deleteRules$2;
     .restart local v4    # "$this$ruleIterator":Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;
-    :cond_1
+    :cond_5f
     nop
 
     .line 181
@@ -363,9 +363,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_64
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_22
+        :pswitch_11
     .end packed-switch
 .end method

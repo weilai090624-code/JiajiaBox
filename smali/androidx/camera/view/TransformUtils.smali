@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 45
     new-instance v0, Landroid/graphics/RectF;
@@ -26,7 +26,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 .end method
 
 .method public static getExifTransform(III)Landroid/graphics/Matrix;
-    .locals 8
+    .registers 11
     .param p0, "exifOrientation"    # I
     .param p1, "width"    # I
     .param p2, "height"    # I
@@ -91,22 +91,22 @@
 
     const/high16 v7, -0x40800000    # -1.0f
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_64
 
-    goto :goto_0
+    goto :goto_49
 
     .line 269
-    :pswitch_0
+    :pswitch_21
     invoke-virtual {v0, v5}, Landroid/graphics/Matrix;->postRotate(F)Z
 
     .line 270
     const/4 v2, 0x1
 
     .line 271
-    goto :goto_0
+    goto :goto_49
 
     .line 264
-    :pswitch_1
+    :pswitch_26
     invoke-virtual {v0, v7, v6}, Landroid/graphics/Matrix;->postScale(FF)Z
 
     .line 265
@@ -116,20 +116,20 @@
     const/4 v2, 0x1
 
     .line 267
-    goto :goto_0
+    goto :goto_49
 
     .line 258
-    :pswitch_2
+    :pswitch_2e
     invoke-virtual {v0, v3}, Landroid/graphics/Matrix;->postRotate(F)Z
 
     .line 259
     const/4 v2, 0x1
 
     .line 260
-    goto :goto_0
+    goto :goto_49
 
     .line 253
-    :pswitch_3
+    :pswitch_33
     invoke-virtual {v0, v7, v6}, Landroid/graphics/Matrix;->postScale(FF)Z
 
     .line 254
@@ -139,34 +139,34 @@
     const/4 v2, 0x1
 
     .line 256
-    goto :goto_0
+    goto :goto_49
 
     .line 248
-    :pswitch_4
+    :pswitch_3b
     invoke-virtual {v0, v6, v7}, Landroid/graphics/Matrix;->postScale(FF)Z
 
     .line 249
-    goto :goto_0
+    goto :goto_49
 
     .line 245
-    :pswitch_5
+    :pswitch_3f
     const/high16 v3, 0x43340000    # 180.0f
 
     invoke-virtual {v0, v3}, Landroid/graphics/Matrix;->postRotate(F)Z
 
     .line 246
-    goto :goto_0
+    goto :goto_49
 
     .line 242
-    :pswitch_6
+    :pswitch_45
     invoke-virtual {v0, v7, v6}, Landroid/graphics/Matrix;->postScale(FF)Z
 
     .line 243
     nop
 
     .line 281
-    :goto_0
-    if-eqz v2, :cond_0
+    :goto_49
+    if-eqz v2, :cond_53
 
     new-instance v3, Landroid/graphics/RectF;
 
@@ -176,14 +176,14 @@
 
     invoke-direct {v3, v4, v4, v5, v6}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    goto :goto_1
+    goto :goto_54
 
-    :cond_0
+    :cond_53
     move-object v3, v1
 
     .line 282
     .local v3, "restoredRect":Landroid/graphics/RectF;
-    :goto_1
+    :goto_54
     new-instance v4, Landroid/graphics/Matrix;
 
     invoke-direct {v4}, Landroid/graphics/Matrix;-><init>()V
@@ -202,20 +202,20 @@
     .line 286
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_64
     .packed-switch 0x2
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_45
+        :pswitch_3f
+        :pswitch_3b
+        :pswitch_33
+        :pswitch_2e
+        :pswitch_26
+        :pswitch_21
     .end packed-switch
 .end method
 
 .method public static getNormalizedToBuffer(Landroid/graphics/Rect;)Landroid/graphics/Matrix;
-    .locals 1
+    .registers 2
     .param p0, "viewPortRect"    # Landroid/graphics/Rect;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -239,7 +239,7 @@
 .end method
 
 .method private static getNormalizedToBuffer(Landroid/graphics/RectF;)Landroid/graphics/Matrix;
-    .locals 3
+    .registers 4
     .param p0, "viewPortRect"    # Landroid/graphics/RectF;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -268,7 +268,7 @@
 .end method
 
 .method public static getRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;I)Landroid/graphics/Matrix;
-    .locals 3
+    .registers 6
     .param p0, "source"    # Landroid/graphics/RectF;
     .param p1, "target"    # Landroid/graphics/RectF;
     .param p2, "rotationDegrees"    # I
@@ -315,7 +315,7 @@
 .end method
 
 .method public static is90or270(I)Z
-    .locals 3
+    .registers 4
     .param p0, "rotationDegrees"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -329,26 +329,26 @@
     .line 107
     const/16 v0, 0x5a
 
-    if-eq p0, v0, :cond_3
+    if-eq p0, v0, :cond_2b
 
     const/16 v0, 0x10e
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_9
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 110
-    :cond_0
-    if-eqz p0, :cond_2
+    :cond_9
+    if-eqz p0, :cond_29
 
     const/16 v0, 0xb4
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_10
 
-    goto :goto_0
+    goto :goto_29
 
     .line 113
-    :cond_1
+    :cond_10
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -374,22 +374,22 @@
     throw v0
 
     .line 111
-    :cond_2
-    :goto_0
+    :cond_29
+    :goto_29
     const/4 v0, 0x0
 
     return v0
 
     .line 108
-    :cond_3
-    :goto_1
+    :cond_2b
+    :goto_2b
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static isAspectRatioMatchingWithRoundingError(Landroid/util/Size;ZLandroid/util/Size;Z)Z
-    .locals 7
+    .registers 11
     .param p0, "size1"    # Landroid/util/Size;
     .param p1, "isAccurate1"    # Z
     .param p2, "size2"    # Landroid/util/Size;
@@ -412,7 +412,7 @@
     .line 158
     const/high16 v0, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     .line 159
     invoke-virtual {p0}, Landroid/util/Size;->getWidth()I
@@ -434,12 +434,12 @@
     move v2, v1
 
     .local v2, "ratio1LowerBound":F
-    goto :goto_0
+    goto :goto_2b
 
     .line 162
     .end local v1    # "ratio1UpperBound":F
     .end local v2    # "ratio1LowerBound":F
-    :cond_0
+    :cond_11
     invoke-virtual {p0}, Landroid/util/Size;->getWidth()I
 
     move-result v1
@@ -480,8 +480,8 @@
 
     .line 167
     .restart local v2    # "ratio1LowerBound":F
-    :goto_0
-    if-eqz p3, :cond_1
+    :goto_2b
+    if-eqz p3, :cond_3a
 
     .line 168
     invoke-virtual {p2}, Landroid/util/Size;->getWidth()I
@@ -503,12 +503,12 @@
     move v3, v0
 
     .local v3, "ratio2LowerBound":F
-    goto :goto_1
+    goto :goto_58
 
     .line 171
     .end local v0    # "ratio2UpperBound":F
     .end local v3    # "ratio2LowerBound":F
-    :cond_1
+    :cond_3a
     invoke-virtual {p2}, Landroid/util/Size;->getWidth()I
 
     move-result v3
@@ -556,28 +556,28 @@
     .line 175
     .restart local v0    # "ratio2UpperBound":F
     .local v3, "ratio2LowerBound":F
-    :goto_1
+    :goto_58
     cmpl-float v4, v1, v3
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_62
 
     cmpl-float v4, v0, v2
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_62
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_63
 
-    :cond_2
+    :cond_62
     const/4 v4, 0x0
 
-    :goto_2
+    :goto_63
     return v4
 .end method
 
 .method public static max(FFFF)F
-    .locals 2
+    .registers 6
     .param p0, "value1"    # F
     .param p1, "value2"    # F
     .param p2, "value3"    # F
@@ -614,7 +614,7 @@
 .end method
 
 .method public static min(FFFF)F
-    .locals 2
+    .registers 6
     .param p0, "value1"    # F
     .param p1, "value2"    # F
     .param p2, "value3"    # F
@@ -651,7 +651,7 @@
 .end method
 
 .method public static rectToSize(Landroid/graphics/Rect;)Landroid/util/Size;
-    .locals 3
+    .registers 4
     .param p0, "rect"    # Landroid/graphics/Rect;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -679,7 +679,7 @@
 .end method
 
 .method public static rectToVertices(Landroid/graphics/RectF;)[F
-    .locals 10
+    .registers 11
     .param p0, "rectF"    # Landroid/graphics/RectF;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -747,7 +747,7 @@
 .end method
 
 .method public static sizeToVertices(Landroid/util/Size;)[F
-    .locals 7
+    .registers 8
     .param p0, "size"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -827,7 +827,7 @@
 .end method
 
 .method public static surfaceRotationToRotationDegrees(I)I
-    .locals 3
+    .registers 4
     .param p0, "rotationValue"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -839,7 +839,7 @@
     .end annotation
 
     .line 89
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_28
 
     .line 99
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -867,42 +867,42 @@
     throw v0
 
     .line 97
-    :pswitch_0
+    :pswitch_1c
     const/16 v0, 0x10e
 
     return v0
 
     .line 95
-    :pswitch_1
+    :pswitch_1f
     const/16 v0, 0xb4
 
     return v0
 
     .line 93
-    :pswitch_2
+    :pswitch_22
     const/16 v0, 0x5a
 
     return v0
 
     .line 91
-    :pswitch_3
+    :pswitch_25
     const/4 v0, 0x0
 
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_25
+        :pswitch_22
+        :pswitch_1f
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method public static verticesToRect([F)Landroid/graphics/RectF;
-    .locals 14
+    .registers 15
     .param p0, "vertices"    # [F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

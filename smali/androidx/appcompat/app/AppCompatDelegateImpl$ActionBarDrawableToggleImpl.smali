@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;)V
-    .locals 0
+    .registers 2
 
     .line 3744
     iput-object p1, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionBarDrawableToggleImpl;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public getActionBarThemedContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 3758
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionBarDrawableToggleImpl;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -50,7 +50,7 @@
 .end method
 
 .method public getThemeUpIndicator()Landroid/graphics/drawable/Drawable;
-    .locals 3
+    .registers 4
 
     .line 3749
     nop
@@ -90,7 +90,7 @@
 .end method
 
 .method public isNavigationVisible()Z
-    .locals 2
+    .registers 3
 
     .line 3763
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionBarDrawableToggleImpl;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -101,7 +101,7 @@
 
     .line 3764
     .local v0, "ab":Landroidx/appcompat/app/ActionBar;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Landroidx/appcompat/app/ActionBar;->getDisplayOptions()I
 
@@ -109,21 +109,21 @@
 
     and-int/lit8 v1, v1, 0x4
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_13
     return v1
 .end method
 
 .method public setActionBarDescription(I)V
-    .locals 1
+    .registers 3
     .param p1, "contentDescRes"    # I
 
     .line 3778
@@ -135,18 +135,18 @@
 
     .line 3779
     .local v0, "ab":Landroidx/appcompat/app/ActionBar;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 3780
     invoke-virtual {v0, p1}, Landroidx/appcompat/app/ActionBar;->setHomeActionContentDescription(I)V
 
     .line 3782
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setActionBarUpIndicator(Landroid/graphics/drawable/Drawable;I)V
-    .locals 1
+    .registers 4
     .param p1, "upDrawable"    # Landroid/graphics/drawable/Drawable;
     .param p2, "contentDescRes"    # I
 
@@ -159,7 +159,7 @@
 
     .line 3770
     .local v0, "ab":Landroidx/appcompat/app/ActionBar;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 3771
     invoke-virtual {v0, p1}, Landroidx/appcompat/app/ActionBar;->setHomeAsUpIndicator(Landroid/graphics/drawable/Drawable;)V
@@ -168,6 +168,6 @@
     invoke-virtual {v0, p2}, Landroidx/appcompat/app/ActionBar;->setHomeActionContentDescription(I)V
 
     .line 3774
-    :cond_0
+    :cond_e
     return-void
 .end method

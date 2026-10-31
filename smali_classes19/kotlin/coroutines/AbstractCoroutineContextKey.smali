@@ -78,7 +78,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext$Key;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 4
     .param p1, "baseKey"    # Lkotlin/coroutines/CoroutineContext$Key;
     .param p2, "safeCast"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -110,7 +110,7 @@
     .line 52
     instance-of v0, p1, Lkotlin/coroutines/AbstractCoroutineContextKey;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     move-object v0, p1
 
@@ -118,12 +118,12 @@
 
     iget-object v0, v0, Lkotlin/coroutines/AbstractCoroutineContextKey;->topmostKey:Lkotlin/coroutines/CoroutineContext$Key;
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     move-object v0, p1
 
-    :goto_0
+    :goto_1a
     iput-object v0, p0, Lkotlin/coroutines/AbstractCoroutineContextKey;->topmostKey:Lkotlin/coroutines/CoroutineContext$Key;
 
     .line 48
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public final isSubKey$kotlin_stdlib(Lkotlin/coroutines/CoroutineContext$Key;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -148,29 +148,29 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 55
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_e
 
     iget-object v0, p0, Lkotlin/coroutines/AbstractCoroutineContextKey;->topmostKey:Lkotlin/coroutines/CoroutineContext$Key;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_c
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_f
 
-    :cond_1
-    :goto_0
+    :cond_e
+    :goto_e
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_f
     return v0
 .end method
 
 .method public final tryCast$kotlin_stdlib(Lkotlin/coroutines/CoroutineContext$Element;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 1
+    .registers 3
     .param p1, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
     .annotation system Ldalvik/annotation/Signature;
         value = {

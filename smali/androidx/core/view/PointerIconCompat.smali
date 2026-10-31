@@ -65,7 +65,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/PointerIcon;)V
-    .locals 0
+    .registers 2
     .param p1, "pointerIcon"    # Landroid/view/PointerIcon;
 
     .line 110
@@ -79,7 +79,7 @@
 .end method
 
 .method public static create(Landroid/graphics/Bitmap;FF)Landroidx/core/view/PointerIconCompat;
-    .locals 2
+    .registers 5
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
     .param p1, "hotSpotX"    # F
     .param p2, "hotSpotY"    # F
@@ -89,7 +89,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     .line 155
     new-instance v0, Landroidx/core/view/PointerIconCompat;
@@ -103,7 +103,7 @@
     return-object v0
 
     .line 157
-    :cond_0
+    :cond_10
     new-instance v0, Landroidx/core/view/PointerIconCompat;
 
     const/4 v1, 0x0
@@ -114,7 +114,7 @@
 .end method
 
 .method public static getSystemIcon(Landroid/content/Context;I)Landroidx/core/view/PointerIconCompat;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "style"    # I
 
@@ -123,7 +123,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     .line 133
     new-instance v0, Landroidx/core/view/PointerIconCompat;
@@ -137,7 +137,7 @@
     return-object v0
 
     .line 135
-    :cond_0
+    :cond_10
     new-instance v0, Landroidx/core/view/PointerIconCompat;
 
     const/4 v1, 0x0
@@ -148,7 +148,7 @@
 .end method
 
 .method public static load(Landroid/content/res/Resources;I)Landroidx/core/view/PointerIconCompat;
-    .locals 2
+    .registers 4
     .param p0, "resources"    # Landroid/content/res/Resources;
     .param p1, "resourceId"    # I
 
@@ -157,7 +157,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     .line 184
     new-instance v0, Landroidx/core/view/PointerIconCompat;
@@ -171,7 +171,7 @@
     return-object v0
 
     .line 186
-    :cond_0
+    :cond_10
     new-instance v0, Landroidx/core/view/PointerIconCompat;
 
     const/4 v1, 0x0
@@ -184,7 +184,7 @@
 
 # virtual methods
 .method public getPointerIcon()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 119
     iget-object v0, p0, Landroidx/core/view/PointerIconCompat;->mPointerIcon:Landroid/view/PointerIcon;

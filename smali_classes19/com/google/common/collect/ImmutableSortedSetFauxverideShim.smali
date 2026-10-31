@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSetFauxverideShim;, "Lcom/google/common/collect/ImmutableSortedSetFauxverideShim<TE;>;"
@@ -30,7 +30,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -53,7 +53,7 @@
 .end method
 
 .method public static builderWithExpectedSize(I)Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -77,7 +77,7 @@
 .end method
 
 .method public static copyOf([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -101,7 +101,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -125,7 +125,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -150,7 +150,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -176,7 +176,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -203,7 +203,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -231,7 +231,7 @@
 .end method
 
 .method public static varargs of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",

@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 3
     .param p1, "$context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "$resumeWith"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lkotlin/coroutines/ContinuationKt$Continuation$1;->$context:Lkotlin/coroutines/CoroutineContext;
@@ -108,7 +108,7 @@
 .end method
 
 .method public resumeWith(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 71

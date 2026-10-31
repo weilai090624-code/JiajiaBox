@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/Preference;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/Preference;
 
     .line 179
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 182

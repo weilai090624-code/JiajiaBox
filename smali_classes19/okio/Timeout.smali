@@ -73,7 +73,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokio/Timeout$Companion;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public clearDeadline()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 85
     const/4 v0, 0x0
@@ -119,7 +119,7 @@
 .end method
 
 .method public clearTimeout()Lokio/Timeout;
-    .locals 2
+    .registers 3
 
     .line 79
     const-wide/16 v0, 0x0
@@ -131,7 +131,7 @@
 .end method
 
 .method public final deadline(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
-    .locals 4
+    .registers 8
     .param p1, "duration"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -144,17 +144,17 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_1e
 
     .line 74
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -174,7 +174,7 @@
     return-object v0
 
     .line 235
-    :cond_1
+    :cond_1e
     const/4 v0, 0x0
 
     .line 73
@@ -204,12 +204,12 @@
 .end method
 
 .method public deadlineNanoTime()J
-    .locals 2
+    .registers 3
 
     .line 56
     iget-boolean v0, p0, Lokio/Timeout;->hasDeadline:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 57
     iget-wide v0, p0, Lokio/Timeout;->deadlineNanoTime:J
@@ -217,7 +217,7 @@
     return-wide v0
 
     .line 235
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     .line 56
@@ -241,7 +241,7 @@
 .end method
 
 .method public deadlineNanoTime(J)Lokio/Timeout;
-    .locals 1
+    .registers 4
     .param p1, "deadlineNanoTime"    # J
 
     .line 66
@@ -257,7 +257,7 @@
 .end method
 
 .method public hasDeadline()Z
-    .locals 1
+    .registers 2
 
     .line 48
     iget-boolean v0, p0, Lokio/Timeout;->hasDeadline:Z
@@ -266,7 +266,7 @@
 .end method
 
 .method public final intersectWith(Lokio/Timeout;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 9
+    .registers 12
     .param p1, "other"    # Lokio/Timeout;
     .param p2, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -321,7 +321,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_66
 
     .line 190
     invoke-virtual {p0}, Lokio/Timeout;->deadlineNanoTime()J
@@ -334,7 +334,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_41
 
     .line 192
     invoke-virtual {p0}, Lokio/Timeout;->deadlineNanoTime()J
@@ -352,16 +352,16 @@
     invoke-virtual {p0, v5, v6}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 194
-    :cond_0
+    :cond_41
     nop
 
     .line 195
-    :try_start_0
+    :try_start_42
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_46
+    .catchall {:try_start_42 .. :try_end_46} :catchall_56
 
     .line 197
     sget-object v6, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -373,18 +373,18 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_54
 
     .line 199
     invoke-virtual {p0, v3, v4}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
-    :cond_1
+    :cond_54
     nop
 
     .line 195
     return-object v5
 
-    :catchall_0
+    :catchall_56
     move-exception v5
 
     .line 197
@@ -397,22 +397,22 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_65
 
     .line 199
     invoke-virtual {p0, v3, v4}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
-    :cond_2
+    :cond_65
     throw v5
 
     .line 203
     .end local v3    # "originalDeadline":J
-    :cond_3
+    :cond_66
     invoke-virtual {p1}, Lokio/Timeout;->hasDeadline()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_73
 
     .line 204
     invoke-virtual {p1}, Lokio/Timeout;->deadlineNanoTime()J
@@ -422,16 +422,16 @@
     invoke-virtual {p0, v3, v4}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 206
-    :cond_4
+    :cond_73
     nop
 
     .line 207
-    :try_start_1
+    :try_start_74
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_78
+    .catchall {:try_start_74 .. :try_end_78} :catchall_88
 
     .line 209
     sget-object v4, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -443,18 +443,18 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_86
 
     .line 211
     invoke-virtual {p0}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
-    :cond_5
+    :cond_86
     nop
 
     .line 207
     return-object v3
 
-    :catchall_1
+    :catchall_88
     move-exception v3
 
     .line 209
@@ -467,17 +467,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_97
 
     .line 211
     invoke-virtual {p0}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
-    :cond_6
+    :cond_97
     throw v3
 .end method
 
 .method public throwIfReached()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -493,12 +493,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_25
 
     .line 101
     iget-boolean v0, p0, Lokio/Timeout;->hasDeadline:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     iget-wide v0, p0, Lokio/Timeout;->deadlineNanoTime:J
 
@@ -512,12 +512,12 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_1c
 
-    goto :goto_0
+    goto :goto_24
 
     .line 102
-    :cond_0
+    :cond_1c
     new-instance v0, Ljava/io/InterruptedIOException;
 
     const-string v1, "deadline reached"
@@ -527,12 +527,12 @@
     throw v0
 
     .line 104
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     return-void
 
     .line 98
-    :cond_2
+    :cond_25
     new-instance v0, Ljava/io/InterruptedIOException;
 
     const-string v1, "interrupted"
@@ -543,7 +543,7 @@
 .end method
 
 .method public timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
-    .locals 3
+    .registers 7
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -556,17 +556,17 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_17
 
     .line 40
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
@@ -579,7 +579,7 @@
     return-object p0
 
     .line 235
-    :cond_1
+    :cond_17
     const/4 v0, 0x0
 
     .line 39
@@ -609,7 +609,7 @@
 .end method
 
 .method public timeoutNanos()J
-    .locals 2
+    .registers 3
 
     .line 45
     iget-wide v0, p0, Lokio/Timeout;->timeoutNanos:J
@@ -618,7 +618,7 @@
 .end method
 
 .method public final waitUntilNotified(Ljava/lang/Object;)V
-    .locals 13
+    .registers 15
     .param p1, "monitor"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -634,7 +634,7 @@
     nop
 
     .line 144
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Lokio/Timeout;->hasDeadline()Z
 
     move-result v0
@@ -649,11 +649,11 @@
     .local v1, "timeoutNanos":J
     const-wide/16 v3, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1a
 
     .line 148
     invoke-virtual {p1}, Ljava/lang/Object;->wait()V
@@ -662,18 +662,18 @@
     return-void
 
     .line 153
-    :cond_0
+    :cond_1a
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v5
 
     .line 154
     .local v5, "start":J
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     cmp-long v7, v1, v3
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_2e
 
     .line 155
     invoke-virtual {p0}, Lokio/Timeout;->deadlineNanoTime()J
@@ -689,11 +689,11 @@
     move-result-wide v9
 
     .end local v7    # "deadlineNanos":J
-    goto :goto_0
+    goto :goto_38
 
     .line 157
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_2e
+    if-eqz v0, :cond_37
 
     .line 158
     invoke-virtual {p0}, Lokio/Timeout;->deadlineNanoTime()J
@@ -702,14 +702,14 @@
 
     sub-long v9, v7, v5
 
-    goto :goto_0
+    goto :goto_38
 
     .line 160
-    :cond_2
+    :cond_37
     move-wide v9, v1
 
     .line 154
-    :goto_0
+    :goto_38
     move-wide v7, v9
 
     .line 164
@@ -720,14 +720,14 @@
     .local v9, "elapsedNanos":J
     cmp-long v11, v7, v3
 
-    if-lez v11, :cond_3
+    if-lez v11, :cond_55
 
     .line 166
     const-wide/32 v3, 0xf4240
 
     div-long v11, v7, v3
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_44
+    .catch Ljava/lang/InterruptedException; {:try_start_6 .. :try_end_44} :catch_62
 
     .line 167
     .local v11, "waitMillis":J
@@ -739,7 +739,7 @@
 
     long-to-int v4, v3
 
-    :try_start_1
+    :try_start_4c
     invoke-virtual {p1, v11, v12, v4}, Ljava/lang/Object;->wait(JI)V
 
     .line 168
@@ -751,10 +751,10 @@
 
     .line 172
     .end local v11    # "waitMillis":J
-    :cond_3
+    :cond_55
     cmp-long v3, v9, v7
 
-    if-gez v3, :cond_4
+    if-gez v3, :cond_5a
 
     .line 179
     .end local v0    # "hasDeadline":Z
@@ -770,7 +770,7 @@
     .restart local v5    # "start":J
     .restart local v7    # "waitNanos":J
     .restart local v9    # "elapsedNanos":J
-    :cond_4
+    :cond_5a
     new-instance v3, Ljava/io/InterruptedIOException;
 
     const-string v4, "timeout"
@@ -779,8 +779,8 @@
 
     .end local p1    # "monitor":Ljava/lang/Object;
     throw v3
-    :try_end_1
-    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_62
+    .catch Ljava/lang/InterruptedException; {:try_start_4c .. :try_end_62} :catch_62
 
     .line 175
     .end local v0    # "hasDeadline":Z
@@ -789,7 +789,7 @@
     .end local v7    # "waitNanos":J
     .end local v9    # "elapsedNanos":J
     .restart local p1    # "monitor":Ljava/lang/Object;
-    :catch_0
+    :catch_62
     move-exception v0
 
     .line 176

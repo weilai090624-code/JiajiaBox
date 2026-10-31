@@ -101,7 +101,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lkotlin/coroutines/SafeContinuation$Companion;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -155,7 +155,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/coroutines/Continuation;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "delegate"    # Lkotlin/coroutines/Continuation;
     .param p2, "initialResult"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -188,28 +188,28 @@
 
 # virtual methods
 .method public getCallerFrame()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    .locals 2
+    .registers 3
 
     .line 66
     iget-object v0, p0, Lkotlin/coroutines/SafeContinuation;->delegate:Lkotlin/coroutines/Continuation;
 
     instance-of v1, v0, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     check-cast v0, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return-object v0
 .end method
 
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lkotlin/coroutines/SafeContinuation;->delegate:Lkotlin/coroutines/Continuation;
@@ -222,7 +222,7 @@
 .end method
 
 .method public final getOrThrow()Ljava/lang/Object;
-    .locals 4
+    .registers 5
 
     .line 51
     iget-object v0, p0, Lkotlin/coroutines/SafeContinuation;->result:Ljava/lang/Object;
@@ -231,7 +231,7 @@
     .local v0, "result":Ljava/lang/Object;
     sget-object v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->UNDECIDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1b
 
     .line 53
     sget-object v1, Lkotlin/coroutines/SafeContinuation;->RESULT:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
@@ -246,7 +246,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -255,39 +255,39 @@
     return-object v1
 
     .line 54
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lkotlin/coroutines/SafeContinuation;->result:Ljava/lang/Object;
 
     .line 56
-    :cond_1
+    :cond_1b
     nop
 
     .line 57
     sget-object v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->RESUMED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_25
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 58
-    :cond_2
+    :cond_25
     instance-of v1, v0, Lkotlin/Result$Failure;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2b
 
     .line 59
     move-object v1, v0
 
     .line 56
-    :goto_0
+    :goto_2a
     return-object v1
 
     .line 58
-    :cond_3
+    :cond_2b
     move-object v1, v0
 
     check-cast v1, Lkotlin/Result$Failure;
@@ -298,7 +298,7 @@
 .end method
 
 .method public getStackTraceElement()Ljava/lang/StackTraceElement;
-    .locals 1
+    .registers 2
 
     .line 69
     const/4 v0, 0x0
@@ -307,13 +307,13 @@
 .end method
 
 .method public resumeWith(Ljava/lang/Object;)V
-    .locals 4
+    .registers 6
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 36
     nop
 
-    :cond_0
+    :cond_1
     nop
 
     .line 37
@@ -326,7 +326,7 @@
     .line 39
     sget-object v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->UNDECIDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_14
 
     sget-object v1, Lkotlin/coroutines/SafeContinuation;->RESULT:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -336,17 +336,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     return-void
 
     .line 40
-    :cond_1
+    :cond_14
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2e
 
     sget-object v1, Lkotlin/coroutines/SafeContinuation;->RESULT:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -360,7 +360,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 41
     iget-object v1, p0, Lkotlin/coroutines/SafeContinuation;->delegate:Lkotlin/coroutines/Continuation;
@@ -371,7 +371,7 @@
     return-void
 
     .line 44
-    :cond_2
+    :cond_2e
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Already resumed"
@@ -382,7 +382,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 72
     new-instance v0, Ljava/lang/StringBuilder;

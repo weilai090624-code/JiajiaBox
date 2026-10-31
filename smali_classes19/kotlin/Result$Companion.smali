@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/Result$Companion;-><init>()V
 
@@ -61,7 +61,7 @@
 .end method
 
 .method private final failure(Ljava/lang/Throwable;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -91,7 +91,7 @@
 .end method
 
 .method private final success(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

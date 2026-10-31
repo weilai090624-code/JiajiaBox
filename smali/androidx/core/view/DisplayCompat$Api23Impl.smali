@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 230
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getMode(Landroid/content/Context;Landroid/view/Display;)Landroidx/core/view/DisplayCompat$ModeCompat;
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "display"    # Landroid/view/Display;
 
@@ -42,27 +42,27 @@
 
     .line 238
     .local v1, "workaroundSize":Landroid/graphics/Point;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     invoke-static {v0, v1}, Landroidx/core/view/DisplayCompat$Api23Impl;->physicalSizeEquals(Landroid/view/Display$Mode;Landroid/graphics/Point;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
-    goto :goto_0
+    goto :goto_17
 
     .line 240
-    :cond_0
+    :cond_11
     new-instance v2, Landroidx/core/view/DisplayCompat$ModeCompat;
 
     invoke-direct {v2, v0, v1}, Landroidx/core/view/DisplayCompat$ModeCompat;-><init>(Landroid/view/Display$Mode;Landroid/graphics/Point;)V
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 239
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     new-instance v2, Landroidx/core/view/DisplayCompat$ModeCompat;
 
     const/4 v3, 0x1
@@ -70,12 +70,12 @@
     invoke-direct {v2, v0, v3}, Landroidx/core/view/DisplayCompat$ModeCompat;-><init>(Landroid/view/Display$Mode;Z)V
 
     .line 238
-    :goto_1
+    :goto_1d
     return-object v2
 .end method
 
 .method public static getSupportedModes(Landroid/content/Context;Landroid/view/Display;)[Landroidx/core/view/DisplayCompat$ModeCompat;
-    .locals 8
+    .registers 10
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "display"    # Landroid/view/Display;
 
@@ -104,25 +104,25 @@
 
     .line 254
     .local v3, "workaroundSize":Landroid/graphics/Point;
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_39
 
     invoke-static {v2, v3}, Landroidx/core/view/DisplayCompat$Api23Impl;->physicalSizeEquals(Landroid/view/Display$Mode;Landroid/graphics/Point;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_18
 
-    goto :goto_2
+    goto :goto_39
 
     .line 262
-    :cond_0
+    :cond_18
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_19
     array-length v5, v0
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_4f
 
     .line 264
     aget-object v5, v0, v4
@@ -131,7 +131,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2c
 
     .line 265
     new-instance v5, Landroidx/core/view/DisplayCompat$ModeCompat;
@@ -140,10 +140,10 @@
 
     invoke-direct {v5, v6, v3}, Landroidx/core/view/DisplayCompat$ModeCompat;-><init>(Landroid/view/Display$Mode;Landroid/graphics/Point;)V
 
-    goto :goto_1
+    goto :goto_34
 
     .line 266
-    :cond_1
+    :cond_2c
     new-instance v5, Landroidx/core/view/DisplayCompat$ModeCompat;
 
     aget-object v6, v0, v4
@@ -152,25 +152,25 @@
 
     invoke-direct {v5, v6, v7}, Landroidx/core/view/DisplayCompat$ModeCompat;-><init>(Landroid/view/Display$Mode;Z)V
 
-    :goto_1
+    :goto_34
     aput-object v5, v1, v4
 
     .line 262
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 256
     .end local v4    # "i":I
-    :cond_2
-    :goto_2
+    :cond_39
+    :goto_39
     const/4 v4, 0x0
 
     .restart local v4    # "i":I
-    :goto_3
+    :goto_3a
     array-length v5, v0
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_4f
 
     .line 257
     aget-object v5, v0, v4
@@ -193,16 +193,16 @@
     .end local v5    # "isNative":Z
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_3a
 
     .line 269
     .end local v4    # "i":I
-    :cond_3
+    :cond_4f
     return-object v1
 .end method
 
 .method static isCurrentModeTheLargestMode(Landroid/view/Display;)Z
-    .locals 8
+    .registers 9
     .param p0, "display"    # Landroid/view/Display;
 
     .line 273
@@ -224,8 +224,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_2
+    :goto_b
+    if-ge v4, v2, :cond_28
 
     aget-object v5, v1, v4
 
@@ -239,7 +239,7 @@
 
     move-result v7
 
-    if-lt v6, v7, :cond_1
+    if-lt v6, v7, :cond_27
 
     .line 277
     invoke-virtual {v0}, Landroid/view/Display$Mode;->getPhysicalWidth()I
@@ -250,33 +250,33 @@
 
     move-result v7
 
-    if-ge v6, v7, :cond_0
+    if-ge v6, v7, :cond_24
 
-    goto :goto_1
+    goto :goto_27
 
     .line 275
     .end local v5    # "supportedMode":Landroid/view/Display$Mode;
-    :cond_0
+    :cond_24
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 278
     .restart local v5    # "supportedMode":Landroid/view/Display$Mode;
-    :cond_1
-    :goto_1
+    :cond_27
+    :goto_27
     return v3
 
     .line 281
     .end local v5    # "supportedMode":Landroid/view/Display$Mode;
-    :cond_2
+    :cond_28
     const/4 v2, 0x1
 
     return v2
 .end method
 
 .method static physicalSizeEquals(Landroid/view/Display$Mode;Landroid/graphics/Point;)Z
-    .locals 2
+    .registers 4
     .param p0, "mode"    # Landroid/view/Display$Mode;
     .param p1, "size"    # Landroid/graphics/Point;
 
@@ -287,7 +287,7 @@
 
     iget v1, p1, Landroid/graphics/Point;->x:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     invoke-virtual {p0}, Landroid/view/Display$Mode;->getPhysicalHeight()I
 
@@ -295,17 +295,17 @@
 
     iget v1, p1, Landroid/graphics/Point;->y:I
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_20
 
     .line 290
-    :cond_0
+    :cond_10
     invoke-virtual {p0}, Landroid/view/Display$Mode;->getPhysicalWidth()I
 
     move-result v0
 
     iget v1, p1, Landroid/graphics/Point;->y:I
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_22
 
     invoke-virtual {p0}, Landroid/view/Display$Mode;->getPhysicalHeight()I
 
@@ -313,23 +313,23 @@
 
     iget v1, p1, Landroid/graphics/Point;->x:I
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_22
 
-    :cond_1
+    :cond_20
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_2
+    :cond_22
     const/4 v0, 0x0
 
     .line 289
-    :goto_0
+    :goto_23
     return v0
 .end method
 
 .method static physicalSizeEquals(Landroid/view/Display$Mode;Landroid/view/Display$Mode;)Z
-    .locals 2
+    .registers 4
     .param p0, "mode"    # Landroid/view/Display$Mode;
     .param p1, "otherMode"    # Landroid/view/Display$Mode;
 
@@ -342,7 +342,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     .line 299
     invoke-virtual {p0}, Landroid/view/Display$Mode;->getPhysicalHeight()I
@@ -353,16 +353,16 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     .line 298
-    :goto_0
+    :goto_17
     return v0
 .end method

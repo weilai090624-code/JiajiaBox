@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final getQualifiedOrSimpleName(Lkotlin/reflect/KClass;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "$this$qualifiedOrSimpleName"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {

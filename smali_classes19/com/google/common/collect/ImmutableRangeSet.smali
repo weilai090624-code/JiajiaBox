@@ -83,7 +83,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 54
     new-instance v0, Lcom/google/common/collect/ImmutableRangeSet;
@@ -118,7 +118,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ImmutableList;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,7 +141,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableRangeSet;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,7 +170,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/ImmutableRangeSet;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/ImmutableRangeSet;
 
     .line 51
@@ -180,7 +180,7 @@
 .end method
 
 .method static all()Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -198,7 +198,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/collect/ImmutableRangeSet$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -218,7 +218,7 @@
 .end method
 
 .method public static copyOf(Lcom/google/common/collect/RangeSet;)Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -240,7 +240,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 95
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->of()Lcom/google/common/collect/ImmutableRangeSet;
@@ -250,7 +250,7 @@
     return-object v0
 
     .line 96
-    :cond_0
+    :cond_e
     invoke-static {}, Lcom/google/common/collect/Range;->all()Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -259,7 +259,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 97
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->all()Lcom/google/common/collect/ImmutableRangeSet;
@@ -269,10 +269,10 @@
     return-object v0
 
     .line 100
-    :cond_1
+    :cond_1d
     instance-of v0, p0, Lcom/google/common/collect/ImmutableRangeSet;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     .line 101
     move-object v0, p0
@@ -285,14 +285,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2b
 
     .line 103
     return-object v0
 
     .line 106
     .end local v0    # "immutableRangeSet":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
-    :cond_2
+    :cond_2b
     new-instance v0, Lcom/google/common/collect/ImmutableRangeSet;
 
     invoke-interface {p0}, Lcom/google/common/collect/RangeSet;->asRanges()Ljava/util/Set;
@@ -309,7 +309,7 @@
 .end method
 
 .method public static copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -341,7 +341,7 @@
 .end method
 
 .method private intersectRanges(Lcom/google/common/collect/Range;)Lcom/google/common/collect/ImmutableList;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -362,18 +362,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_60
 
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_2
+    goto :goto_60
 
     .line 423
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeSet;->span()Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -382,7 +382,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 424
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
@@ -390,12 +390,12 @@
     return-object v0
 
     .line 428
-    :cond_1
+    :cond_1c
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->hasLowerBound()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_33
 
     .line 429
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
@@ -417,21 +417,21 @@
     move-result v0
 
     .local v0, "fromIndex":I
-    goto :goto_0
+    goto :goto_34
 
     .line 437
     .end local v0    # "fromIndex":I
-    :cond_2
+    :cond_33
     const/4 v0, 0x0
 
     .line 441
     .restart local v0    # "fromIndex":I
-    :goto_0
+    :goto_34
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->hasUpperBound()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4b
 
     .line 442
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
@@ -453,11 +453,11 @@
     move-result v1
 
     .local v1, "toIndex":I
-    goto :goto_1
+    goto :goto_51
 
     .line 450
     .end local v1    # "toIndex":I
-    :cond_3
+    :cond_4b
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v1}, Lcom/google/common/collect/ImmutableList;->size()I
@@ -466,12 +466,12 @@
 
     .line 452
     .restart local v1    # "toIndex":I
-    :goto_1
+    :goto_51
     sub-int v2, v1, v0
 
     .line 453
     .local v2, "length":I
-    if-nez v2, :cond_4
+    if-nez v2, :cond_5a
 
     .line 454
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
@@ -481,7 +481,7 @@
     return-object v3
 
     .line 456
-    :cond_4
+    :cond_5a
     new-instance v3, Lcom/google/common/collect/ImmutableRangeSet$1;
 
     invoke-direct {v3, p0, v2, v0, p1}, Lcom/google/common/collect/ImmutableRangeSet$1;-><init>(Lcom/google/common/collect/ImmutableRangeSet;IILcom/google/common/collect/Range;)V
@@ -492,8 +492,8 @@
     .end local v0    # "fromIndex":I
     .end local v1    # "toIndex":I
     .end local v2    # "length":I
-    :cond_5
-    :goto_2
+    :cond_60
+    :goto_60
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -502,7 +502,7 @@
 .end method
 
 .method public static of()Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -520,7 +520,7 @@
 .end method
 
 .method public static of(Lcom/google/common/collect/Range;)Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -542,7 +542,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 77
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->of()Lcom/google/common/collect/ImmutableRangeSet;
@@ -552,7 +552,7 @@
     return-object v0
 
     .line 78
-    :cond_0
+    :cond_e
     invoke-static {}, Lcom/google/common/collect/Range;->all()Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -561,7 +561,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 79
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->all()Lcom/google/common/collect/ImmutableRangeSet;
@@ -571,7 +571,7 @@
     return-object v0
 
     .line 81
-    :cond_1
+    :cond_1d
     new-instance v0, Lcom/google/common/collect/ImmutableRangeSet;
 
     invoke-static {p0}, Lcom/google/common/collect/ImmutableList;->of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
@@ -584,7 +584,7 @@
 .end method
 
 .method public static unionOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -614,7 +614,7 @@
 
 # virtual methods
 .method public add(Lcom/google/common/collect/Range;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -637,7 +637,7 @@
 .end method
 
 .method public addAll(Lcom/google/common/collect/RangeSet;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -660,7 +660,7 @@
 .end method
 
 .method public addAll(Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -684,7 +684,7 @@
 .end method
 
 .method public asDescendingSetOfRanges()Lcom/google/common/collect/ImmutableSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -702,7 +702,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 297
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
@@ -712,7 +712,7 @@
     return-object v0
 
     .line 299
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/collect/RegularImmutableSortedSet;
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
@@ -735,7 +735,7 @@
 .end method
 
 .method public bridge synthetic asDescendingSetOfRanges()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
@@ -747,7 +747,7 @@
 .end method
 
 .method public asRanges()Lcom/google/common/collect/ImmutableSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -765,7 +765,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 289
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
@@ -775,7 +775,7 @@
     return-object v0
 
     .line 291
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/collect/RegularImmutableSortedSet;
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
@@ -790,7 +790,7 @@
 .end method
 
 .method public bridge synthetic asRanges()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
@@ -802,7 +802,7 @@
 .end method
 
 .method public asSet(Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -823,7 +823,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 516
     invoke-static {}, Lcom/google/common/collect/ImmutableSortedSet;->of()Lcom/google/common/collect/ImmutableSortedSet;
@@ -833,7 +833,7 @@
     return-object v0
 
     .line 518
-    :cond_0
+    :cond_e
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeSet;->span()Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -848,26 +848,26 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_35
 
     .line 524
     invoke-virtual {v0}, Lcom/google/common/collect/Range;->hasUpperBound()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2f
 
     .line 526
-    :try_start_0
+    :try_start_22
     invoke-virtual {p1}, Lcom/google/common/collect/DiscreteDomain;->maxValue()Ljava/lang/Comparable;
-    :try_end_0
-    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/util/NoSuchElementException; {:try_start_22 .. :try_end_25} :catch_26
 
     .line 530
-    goto :goto_0
+    goto :goto_2f
 
     .line 527
-    :catch_0
+    :catch_26
     move-exception v1
 
     .line 528
@@ -882,8 +882,8 @@
 
     .line 533
     .end local v1    # "e":Ljava/util/NoSuchElementException;
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     new-instance v1, Lcom/google/common/collect/ImmutableRangeSet$AsSet;
 
     invoke-direct {v1, p0, p1}, Lcom/google/common/collect/ImmutableRangeSet$AsSet;-><init>(Lcom/google/common/collect/ImmutableRangeSet;Lcom/google/common/collect/DiscreteDomain;)V
@@ -891,7 +891,7 @@
     return-object v1
 
     .line 522
-    :cond_2
+    :cond_35
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Neither the DiscreteDomain nor this range set are bounded below"
@@ -902,7 +902,7 @@
 .end method
 
 .method public bridge synthetic clear()V
-    .locals 0
+    .registers 1
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
@@ -912,7 +912,7 @@
 .end method
 
 .method public complement()Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -927,20 +927,20 @@
 
     .line 362
     .local v0, "result":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 363
     return-object v0
 
     .line 364
-    :cond_0
+    :cond_5
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v1}, Lcom/google/common/collect/ImmutableList;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     .line 365
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->all()Lcom/google/common/collect/ImmutableRangeSet;
@@ -952,7 +952,7 @@
     return-object v1
 
     .line 366
-    :cond_1
+    :cond_14
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v1}, Lcom/google/common/collect/ImmutableList;->size()I
@@ -961,7 +961,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_37
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
 
@@ -981,7 +981,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_37
 
     .line 367
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->of()Lcom/google/common/collect/ImmutableRangeSet;
@@ -993,7 +993,7 @@
     return-object v1
 
     .line 369
-    :cond_2
+    :cond_37
     new-instance v1, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;
 
     invoke-direct {v1, p0}, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;-><init>(Lcom/google/common/collect/ImmutableRangeSet;)V
@@ -1014,7 +1014,7 @@
 .end method
 
 .method public bridge synthetic complement()Lcom/google/common/collect/RangeSet;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
@@ -1026,7 +1026,7 @@
 .end method
 
 .method public bridge synthetic contains(Ljava/lang/Comparable;)Z
-    .locals 0
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
@@ -1038,7 +1038,7 @@
 .end method
 
 .method public difference(Lcom/google/common/collect/RangeSet;)Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1069,7 +1069,7 @@
 .end method
 
 .method public encloses(Lcom/google/common/collect/Range;)Z
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1108,7 +1108,7 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_27
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
 
@@ -1122,21 +1122,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_28
     return v1
 .end method
 
 .method public bridge synthetic enclosesAll(Lcom/google/common/collect/RangeSet;)Z
-    .locals 0
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
@@ -1148,7 +1148,7 @@
 .end method
 
 .method public bridge synthetic enclosesAll(Ljava/lang/Iterable;)Z
-    .locals 0
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
@@ -1160,7 +1160,7 @@
 .end method
 
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1176,7 +1176,7 @@
 .end method
 
 .method public intersection(Lcom/google/common/collect/RangeSet;)Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1211,7 +1211,7 @@
 .end method
 
 .method public intersects(Lcom/google/common/collect/Range;)Z
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1256,7 +1256,7 @@
 
     const/4 v2, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_3e
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
 
@@ -1271,7 +1271,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3e
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
 
@@ -1290,14 +1290,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_3e
 
     .line 157
     return v2
 
     .line 159
-    :cond_0
-    if-lez v0, :cond_1
+    :cond_3e
+    if-lez v0, :cond_65
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
 
@@ -1314,7 +1314,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_65
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
 
@@ -1335,20 +1335,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_65
 
-    goto :goto_0
+    goto :goto_66
 
-    :cond_1
+    :cond_65
     const/4 v2, 0x0
 
     .line 159
-    :goto_0
+    :goto_66
     return v2
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 205
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
@@ -1362,7 +1362,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 706
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
@@ -1376,7 +1376,7 @@
 .end method
 
 .method public rangeContaining(Ljava/lang/Comparable;)Lcom/google/common/collect/Range;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)",
@@ -1423,7 +1423,7 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_2a
 
     .line 189
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
@@ -1440,21 +1440,21 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     move-object v2, v1
 
-    :cond_0
+    :cond_29
     return-object v2
 
     .line 192
     .end local v1    # "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    :cond_1
+    :cond_2a
     return-object v2
 .end method
 
 .method public remove(Lcom/google/common/collect/Range;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1477,7 +1477,7 @@
 .end method
 
 .method public removeAll(Lcom/google/common/collect/RangeSet;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1500,7 +1500,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1524,7 +1524,7 @@
 .end method
 
 .method public span()Lcom/google/common/collect/Range;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1541,7 +1541,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     .line 200
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
@@ -1581,7 +1581,7 @@
     return-object v0
 
     .line 198
-    :cond_0
+    :cond_2a
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -1590,7 +1590,7 @@
 .end method
 
 .method public subRangeSet(Lcom/google/common/collect/Range;)Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1608,7 +1608,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 484
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeSet;->span()Lcom/google/common/collect/Range;
@@ -1621,18 +1621,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 486
     return-object p0
 
     .line 487
-    :cond_0
+    :cond_11
     invoke-virtual {p1, v0}, Lcom/google/common/collect/Range;->isConnected(Lcom/google/common/collect/Range;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     .line 488
     new-instance v1, Lcom/google/common/collect/ImmutableRangeSet;
@@ -1647,7 +1647,7 @@
 
     .line 491
     .end local v0    # "span":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    :cond_1
+    :cond_21
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->of()Lcom/google/common/collect/ImmutableRangeSet;
 
     move-result-object v0
@@ -1656,7 +1656,7 @@
 .end method
 
 .method public bridge synthetic subRangeSet(Lcom/google/common/collect/Range;)Lcom/google/common/collect/RangeSet;
-    .locals 0
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"
@@ -1668,7 +1668,7 @@
 .end method
 
 .method public union(Lcom/google/common/collect/RangeSet;)Lcom/google/common/collect/ImmutableRangeSet;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1702,7 +1702,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 830
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>;"

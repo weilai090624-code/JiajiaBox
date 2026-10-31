@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/ReduceOps$ReduceOp;Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,7 +73,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/ReduceOps$ReduceTask;Lj$/util/Spliterator;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method protected doLeaf()Lj$/util/stream/ReduceOps$AccumulatingSink;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TS;"
@@ -131,7 +131,7 @@
 .end method
 
 .method protected bridge synthetic doLeaf()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 926
     .local p0, "this":Lj$/util/stream/ReduceOps$ReduceTask;, "Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;"
@@ -143,7 +143,7 @@
 .end method
 
 .method protected bridge synthetic makeChild(Lj$/util/Spliterator;)Lj$/util/stream/AbstractTask;
-    .locals 0
+    .registers 2
 
     .line 926
     .local p0, "this":Lj$/util/stream/ReduceOps$ReduceTask;, "Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;"
@@ -155,7 +155,7 @@
 .end method
 
 .method protected makeChild(Lj$/util/Spliterator;)Lj$/util/stream/ReduceOps$ReduceTask;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -177,7 +177,7 @@
 .end method
 
 .method public onCompletion(Ljava/util/concurrent/CountedCompleter;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -193,7 +193,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 958
     iget-object v0, p0, Lj$/util/stream/ReduceOps$ReduceTask;->leftChild:Lj$/util/stream/AbstractTask;
@@ -225,7 +225,7 @@
 
     .line 963
     .end local v0    # "leftResult":Lj$/util/stream/ReduceOps$AccumulatingSink;, "TS;"
-    :cond_0
+    :cond_20
     invoke-super {p0, p1}, Lj$/util/stream/AbstractTask;->onCompletion(Ljava/util/concurrent/CountedCompleter;)V
 
     .line 964

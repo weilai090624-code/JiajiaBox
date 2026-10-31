@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     invoke-static {}, Landroidx/window/core/SpecificationComputer$VerificationMode;->values()[Landroidx/window/core/SpecificationComputer$VerificationMode;
 

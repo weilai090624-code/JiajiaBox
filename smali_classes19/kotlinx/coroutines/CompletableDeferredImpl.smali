@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/Job;)V
-    .locals 1
+    .registers 3
     .param p1, "parent"    # Lkotlinx/coroutines/Job;
 
     .line 82
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public await(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -102,7 +102,7 @@
 .end method
 
 .method public complete(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -119,7 +119,7 @@
 .end method
 
 .method public completeExceptionally(Ljava/lang/Throwable;)Z
-    .locals 4
+    .registers 6
     .param p1, "exception"    # Ljava/lang/Throwable;
 
     .line 92
@@ -141,7 +141,7 @@
 .end method
 
 .method public getCompleted()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -157,7 +157,7 @@
 .end method
 
 .method public getOnAwait()Lkotlinx/coroutines/selects/SelectClause1;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -179,7 +179,7 @@
 .end method
 
 .method public getOnCancelComplete$kotlinx_coroutines_core()Z
-    .locals 1
+    .registers 2
 
     .line 84
     const/4 v0, 0x1

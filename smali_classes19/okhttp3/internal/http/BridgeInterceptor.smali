@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/CookieJar;)V
-    .locals 1
+    .registers 3
     .param p1, "cookieJar"    # Lokhttp3/CookieJar;
 
     const-string v0, "cookieJar"
@@ -64,7 +64,7 @@
 .end method
 
 .method private final cookieHeader(Ljava/util/List;)Ljava/lang/String;
-    .locals 13
+    .registers 15
     .param p1, "cookies"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -105,12 +105,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_10
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_43
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -121,11 +121,11 @@
 
     .end local v5    # "index$iv":I
     .local v8, "index$iv":I
-    if-gez v5, :cond_0
+    if-gez v5, :cond_21
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    :cond_0
+    :cond_21
     move-object v9, v7
 
     check-cast v9, Lokhttp3/Cookie;
@@ -136,14 +136,14 @@
 
     .line 112
     .local v10, "$i$a$-forEachIndexed-BridgeInterceptor$cookieHeader$1$1":I
-    if-lez v5, :cond_1
+    if-lez v5, :cond_2c
 
     const-string v11, "; "
 
     invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 113
-    :cond_1
+    :cond_2c
     invoke-virtual {v9}, Lokhttp3/Cookie;->name()Ljava/lang/String;
 
     move-result-object v11
@@ -171,12 +171,12 @@
     .end local v7    # "item$iv":Ljava/lang/Object;
     .end local v9    # "cookie":Lokhttp3/Cookie;
     .end local v10    # "$i$a$-forEachIndexed-BridgeInterceptor$cookieHeader$1$1":I
-    goto :goto_0
+    goto :goto_10
 
     .line 120
     .end local v8    # "index$iv":I
     .local v5, "index$iv":I
-    :cond_2
+    :cond_43
     nop
 
     .line 115
@@ -203,7 +203,7 @@
 
 # virtual methods
 .method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
-    .locals 16
+    .registers 18
     .param p1, "chain"    # Lokhttp3/Interceptor$Chain;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -244,7 +244,7 @@
 
     const-string v8, "Content-Length"
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_47
 
     .line 43
     invoke-virtual {v4}, Lokhttp3/RequestBody;->contentType()Lokhttp3/MediaType;
@@ -253,7 +253,7 @@
 
     .line 44
     .local v9, "contentType":Lokhttp3/MediaType;
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_2a
 
     .line 45
     invoke-virtual {v9}, Lokhttp3/MediaType;->toString()Ljava/lang/String;
@@ -263,7 +263,7 @@
     invoke-virtual {v3, v5, v10}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 48
-    :cond_0
+    :cond_2a
     invoke-virtual {v4}, Lokhttp3/RequestBody;->contentLength()J
 
     move-result-wide v10
@@ -274,7 +274,7 @@
 
     cmp-long v13, v10, v6
 
-    if-eqz v13, :cond_1
+    if-eqz v13, :cond_3f
 
     .line 50
     invoke-static {v10, v11}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
@@ -286,10 +286,10 @@
     .line 51
     invoke-virtual {v3, v12}, Lokhttp3/Request$Builder;->removeHeader(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    goto :goto_0
+    goto :goto_47
 
     .line 53
-    :cond_1
+    :cond_3f
     const-string v13, "chunked"
 
     invoke-virtual {v3, v12, v13}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
@@ -300,8 +300,8 @@
     .line 58
     .end local v9    # "contentType":Lokhttp3/MediaType;
     .end local v10    # "contentLength":J
-    :cond_2
-    :goto_0
+    :cond_47
+    :goto_47
     const-string v9, "Host"
 
     invoke-virtual {v2, v9}, Lokhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
@@ -312,7 +312,7 @@
 
     const/4 v12, 0x0
 
-    if-nez v10, :cond_3
+    if-nez v10, :cond_5d
 
     .line 59
     invoke-virtual {v2}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
@@ -328,14 +328,14 @@
     invoke-virtual {v3, v9, v10}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 62
-    :cond_3
+    :cond_5d
     const-string v9, "Connection"
 
     invoke-virtual {v2, v9}, Lokhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v10
 
-    if-nez v10, :cond_4
+    if-nez v10, :cond_6a
 
     .line 63
     const-string v10, "Keep-Alive"
@@ -343,7 +343,7 @@
     invoke-virtual {v3, v9, v10}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 68
-    :cond_4
+    :cond_6a
     const/4 v9, 0x0
 
     .line 69
@@ -356,7 +356,7 @@
 
     const-string v14, "gzip"
 
-    if-nez v13, :cond_5
+    if-nez v13, :cond_81
 
     const-string v13, "Range"
 
@@ -364,7 +364,7 @@
 
     move-result-object v13
 
-    if-nez v13, :cond_5
+    if-nez v13, :cond_81
 
     .line 70
     const/4 v9, 0x1
@@ -373,7 +373,7 @@
     invoke-virtual {v3, v10, v14}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 74
-    :cond_5
+    :cond_81
     iget-object v10, v0, Lokhttp3/internal/http/BridgeInterceptor;->cookieJar:Lokhttp3/CookieJar;
 
     invoke-virtual {v2}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
@@ -394,7 +394,7 @@
 
     move-result v13
 
-    if-nez v13, :cond_6
+    if-nez v13, :cond_9d
 
     .line 76
     const-string v13, "Cookie"
@@ -406,14 +406,14 @@
     invoke-virtual {v3, v13, v15}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 79
-    :cond_6
+    :cond_9d
     const-string v13, "User-Agent"
 
     invoke-virtual {v2, v13}, Lokhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v15
 
-    if-nez v15, :cond_7
+    if-nez v15, :cond_aa
 
     .line 80
     const-string v15, "okhttp/5.0.0-alpha.3"
@@ -421,7 +421,7 @@
     invoke-virtual {v3, v13, v15}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 83
-    :cond_7
+    :cond_aa
     invoke-virtual {v3}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
     move-result-object v13
@@ -459,7 +459,7 @@
 
     .line 90
     .local v6, "responseBuilder":Lokhttp3/Response$Builder;
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_11d
 
     .line 91
     const-string v7, "Content-Encoding"
@@ -474,14 +474,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_11d
 
     .line 92
     invoke-static {v13}, Lokhttp3/internal/http/HttpHeaders;->promisesBody(Lokhttp3/Response;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_11d
 
     .line 93
     invoke-virtual {v13}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
@@ -490,7 +490,7 @@
 
     .line 94
     .local v0, "responseBody":Lokhttp3/ResponseBody;
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_11d
 
     .line 95
     new-instance v11, Lokio/GzipSource;
@@ -565,7 +565,7 @@
     .end local v5    # "contentType":Ljava/lang/String;
     .end local v7    # "strippedHeaders":Lokhttp3/Headers;
     .end local v11    # "gzipSource":Lokio/GzipSource;
-    :cond_8
+    :cond_11d
     invoke-virtual {v6}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
 
     move-result-object v0

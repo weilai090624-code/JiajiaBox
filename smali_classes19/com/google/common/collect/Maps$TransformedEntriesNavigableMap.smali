@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/NavigableMap;Lcom/google/common/collect/Maps$EntryTransformer;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +57,7 @@
 .end method
 
 .method private transformEntry(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/util/Map$Entry;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -78,27 +78,27 @@
     .line 2291
     .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     .local p1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV1;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->transformer:Lcom/google/common/collect/Maps$EntryTransformer;
 
     invoke-static {v0, p1}, Lcom/google/common/collect/Maps;->transformEntry(Lcom/google/common/collect/Maps$EntryTransformer;Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     return-object v0
 .end method
 
 
 # virtual methods
 .method public ceilingEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -133,7 +133,7 @@
 .end method
 
 .method public ceilingKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -162,7 +162,7 @@
 .end method
 
 .method public descendingKeySet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -185,7 +185,7 @@
 .end method
 
 .method public descendingMap()Ljava/util/NavigableMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -214,7 +214,7 @@
 .end method
 
 .method public firstEntry()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -244,7 +244,7 @@
 .end method
 
 .method public floorEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -279,7 +279,7 @@
 .end method
 
 .method public floorKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -308,7 +308,7 @@
 .end method
 
 .method protected fromMap()Ljava/util/NavigableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -329,7 +329,7 @@
 .end method
 
 .method protected bridge synthetic fromMap()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
 
     .line 2157
     .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
@@ -341,7 +341,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/NavigableMap;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -367,7 +367,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -402,7 +402,7 @@
 .end method
 
 .method public bridge synthetic headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -418,7 +418,7 @@
 .end method
 
 .method public higherEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -453,7 +453,7 @@
 .end method
 
 .method public higherKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -482,7 +482,7 @@
 .end method
 
 .method public lastEntry()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -512,7 +512,7 @@
 .end method
 
 .method public lowerEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -547,7 +547,7 @@
 .end method
 
 .method public lowerKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -576,7 +576,7 @@
 .end method
 
 .method public navigableKeySet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -599,7 +599,7 @@
 .end method
 
 .method public pollFirstEntry()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -629,7 +629,7 @@
 .end method
 
 .method public pollLastEntry()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -659,7 +659,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -692,7 +692,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -737,7 +737,7 @@
 .end method
 
 .method public bridge synthetic subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -757,7 +757,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/NavigableMap;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -783,7 +783,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -818,7 +818,7 @@
 .end method
 
 .method public bridge synthetic tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

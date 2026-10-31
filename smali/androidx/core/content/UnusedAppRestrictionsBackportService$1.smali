@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/content/UnusedAppRestrictionsBackportService;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/core/content/UnusedAppRestrictionsBackportService;
 
     .line 51
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public isPermissionRevocationEnabledForApp(Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportCallback;)V
-    .locals 2
+    .registers 4
     .param p1, "callback"    # Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -43,13 +43,13 @@
     .end annotation
 
     .line 55
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 56
     return-void
 
     .line 59
-    :cond_0
+    :cond_3
     new-instance v0, Landroidx/core/content/UnusedAppRestrictionsBackportCallback;
 
     invoke-direct {v0, p1}, Landroidx/core/content/UnusedAppRestrictionsBackportCallback;-><init>(Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportCallback;)V

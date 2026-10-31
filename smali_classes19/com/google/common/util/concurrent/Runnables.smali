@@ -14,7 +14,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 30
     new-instance v0, Lcom/google/common/util/concurrent/Runnables$1;
@@ -27,7 +27,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 .end method
 
 .method public static doNothing()Ljava/lang/Runnable;
-    .locals 1
+    .registers 1
 
     .line 38
     sget-object v0, Lcom/google/common/util/concurrent/Runnables;->EMPTY_RUNNABLE:Ljava/lang/Runnable;

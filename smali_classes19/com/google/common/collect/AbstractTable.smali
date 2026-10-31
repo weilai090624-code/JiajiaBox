@@ -68,7 +68,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     .local p0, "this":Lcom/google/common/collect/AbstractTable;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>;"
@@ -91,7 +91,7 @@
 .end method
 
 .method public cellSet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -107,7 +107,7 @@
 
     .line 122
     .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<Lcom/google/common/collect/Table$Cell<TR;TC;TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractTable;->createCellSet()Ljava/util/Set;
 
@@ -115,17 +115,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractTable;->cellSet:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 91
     .local p0, "this":Lcom/google/common/collect/AbstractTable;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>;"
@@ -144,7 +144,7 @@
 .end method
 
 .method public columnKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -167,7 +167,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -191,27 +191,27 @@
 
     .line 74
     .local v0, "row":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-static {v0, p2}, Lcom/google/common/collect/Maps;->safeContainsKey(Ljava/util/Map;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_15
     return v1
 .end method
 
 .method public containsColumn(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "columnKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -231,7 +231,7 @@
 .end method
 
 .method public containsRow(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -251,7 +251,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -271,12 +271,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -290,7 +290,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 65
     const/4 v0, 0x1
@@ -299,18 +299,18 @@
 
     .line 67
     .end local v1    # "row":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_c
 
     .line 68
-    :cond_1
+    :cond_21
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method createCellSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -330,7 +330,7 @@
 .end method
 
 .method createValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -349,7 +349,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -365,7 +365,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -400,23 +400,23 @@
 
     .line 81
     .local v0, "row":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_e
     invoke-static {v0, p2}, Lcom/google/common/collect/Maps;->safeGet(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     return-object v1
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 225
     .local p0, "this":Lcom/google/common/collect/AbstractTable;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>;"
@@ -432,7 +432,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 86
     .local p0, "this":Lcom/google/common/collect/AbstractTable;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>;"
@@ -440,21 +440,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -493,7 +493,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/Table;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -513,12 +513,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -544,15 +544,15 @@
 
     .line 114
     .end local v1    # "cell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<+TR;+TC;+TV;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 115
-    :cond_0
+    :cond_24
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -587,23 +587,23 @@
 
     .line 99
     .local v0, "row":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_e
     invoke-static {v0, p2}, Lcom/google/common/collect/Maps;->safeRemove(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     return-object v1
 .end method
 
 .method public rowKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -626,7 +626,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 231
     .local p0, "this":Lcom/google/common/collect/AbstractTable;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>;"
@@ -642,7 +642,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -657,7 +657,7 @@
 
     .line 178
     .local v0, "result":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractTable;->createValues()Ljava/util/Collection;
 
@@ -665,17 +665,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractTable;->values:Ljava/util/Collection;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method valuesIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

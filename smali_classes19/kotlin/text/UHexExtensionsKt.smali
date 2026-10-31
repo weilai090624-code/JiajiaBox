@@ -57,7 +57,7 @@
 
 # direct methods
 .method private static final hexToUByte(Ljava/lang/String;Lkotlin/text/HexFormat;)B
-    .locals 1
+    .registers 3
     .param p0, "$this$hexToUByte"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -82,14 +82,14 @@
 .end method
 
 .method static synthetic hexToUByte$default(Ljava/lang/String;Lkotlin/text/HexFormat;ILjava/lang/Object;)B
-    .locals 0
+    .registers 4
     .param p0, "$this$hexToUByte_u24default"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
     .line 152
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p2, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -97,7 +97,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -118,7 +118,7 @@
 .end method
 
 .method private static final hexToUByteArray(Ljava/lang/String;Lkotlin/text/HexFormat;)[B
-    .locals 1
+    .registers 3
     .param p0, "$this$hexToUByteArray"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -143,14 +143,14 @@
 .end method
 
 .method static synthetic hexToUByteArray$default(Ljava/lang/String;Lkotlin/text/HexFormat;ILjava/lang/Object;)[B
-    .locals 0
+    .registers 4
     .param p0, "$this$hexToUByteArray_u24default"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
     .line 97
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p2, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -158,7 +158,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -180,7 +180,7 @@
 .end method
 
 .method private static final hexToUInt(Ljava/lang/String;Lkotlin/text/HexFormat;)I
-    .locals 1
+    .registers 3
     .param p0, "$this$hexToUInt"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -205,14 +205,14 @@
 .end method
 
 .method static synthetic hexToUInt$default(Ljava/lang/String;Lkotlin/text/HexFormat;ILjava/lang/Object;)I
-    .locals 0
+    .registers 4
     .param p0, "$this$hexToUInt_u24default"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
     .line 260
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p2, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -220,7 +220,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -241,7 +241,7 @@
 .end method
 
 .method private static final hexToULong(Ljava/lang/String;Lkotlin/text/HexFormat;)J
-    .locals 2
+    .registers 4
     .param p0, "$this$hexToULong"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -266,14 +266,14 @@
 .end method
 
 .method static synthetic hexToULong$default(Ljava/lang/String;Lkotlin/text/HexFormat;ILjava/lang/Object;)J
-    .locals 0
+    .registers 4
     .param p0, "$this$hexToULong_u24default"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
     .line 314
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p2, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -281,7 +281,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -302,7 +302,7 @@
 .end method
 
 .method private static final hexToUShort(Ljava/lang/String;Lkotlin/text/HexFormat;)S
-    .locals 1
+    .registers 3
     .param p0, "$this$hexToUShort"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -327,14 +327,14 @@
 .end method
 
 .method static synthetic hexToUShort$default(Ljava/lang/String;Lkotlin/text/HexFormat;ILjava/lang/Object;)S
-    .locals 0
+    .registers 4
     .param p0, "$this$hexToUShort_u24default"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
     .line 206
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p2, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -342,7 +342,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -363,7 +363,7 @@
 .end method
 
 .method private static final toHexString-8M7LxHw(ILkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this$toHexString_u2d8M7LxHw"    # I
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -380,14 +380,14 @@
 .end method
 
 .method static synthetic toHexString-8M7LxHw$default(ILkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
     .param p0, "$this$toHexString_u2d8M7LxHw_u24default"    # I
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
     .line 233
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p2, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -395,7 +395,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     const-string p2, "format"
 
     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -408,7 +408,7 @@
 .end method
 
 .method private static final toHexString-8UJCm-I(JLkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this$toHexString_u2d8UJCm_u2dI"    # J
     .param p2, "format"    # Lkotlin/text/HexFormat;
 
@@ -425,14 +425,14 @@
 .end method
 
 .method static synthetic toHexString-8UJCm-I$default(JLkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
     .param p0, "$this$toHexString_u2d8UJCm_u2dI_u24default"    # J
     .param p2, "format"    # Lkotlin/text/HexFormat;
 
     .line 287
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_a
 
     sget-object p3, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -440,7 +440,7 @@
 
     move-result-object p2
 
-    :cond_0
+    :cond_a
     const-string p3, "format"
 
     invoke-static {p2, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -453,7 +453,7 @@
 .end method
 
 .method private static final toHexString-ZQbaR00(BLkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this$toHexString_u2dZQbaR00"    # B
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -470,14 +470,14 @@
 .end method
 
 .method static synthetic toHexString-ZQbaR00$default(BLkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
     .param p0, "$this$toHexString_u2dZQbaR00_u24default"    # B
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
     .line 125
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p2, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -485,7 +485,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     const-string p2, "format"
 
     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -498,7 +498,7 @@
 .end method
 
 .method private static final toHexString-lZCiFrA([BIILkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 1
+    .registers 5
     .param p0, "$this$toHexString_u2dlZCiFrA"    # [B
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -521,7 +521,7 @@
 .end method
 
 .method static synthetic toHexString-lZCiFrA$default([BIILkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
     .param p0, "$this$toHexString_u2dlZCiFrA_u24default"    # [B
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -530,16 +530,16 @@
     .line 68
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 69
     const/4 p1, 0x0
 
     .line 68
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_d
 
     .line 70
     invoke-static {p0}, Lkotlin/UByteArray;->getSize-impl([B)I
@@ -547,10 +547,10 @@
     move-result p2
 
     .line 68
-    :cond_1
+    :cond_d
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_17
 
     .line 71
     sget-object p4, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
@@ -560,7 +560,7 @@
     move-result-object p3
 
     .line 68
-    :cond_2
+    :cond_17
     const-string p4, "$this$toHexString"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -578,7 +578,7 @@
 .end method
 
 .method private static final toHexString-r3ox_E0(SLkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this$toHexString_u2dr3ox_E0"    # S
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -595,14 +595,14 @@
 .end method
 
 .method static synthetic toHexString-r3ox_E0$default(SLkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
     .param p0, "$this$toHexString_u2dr3ox_E0_u24default"    # S
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
     .line 179
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p2, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -610,7 +610,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     const-string p2, "format"
 
     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -623,7 +623,7 @@
 .end method
 
 .method private static final toHexString-zHuV2wU([BLkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this$toHexString_u2dzHuV2wU"    # [B
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -644,14 +644,14 @@
 .end method
 
 .method static synthetic toHexString-zHuV2wU$default([BLkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
     .param p0, "$this$toHexString_u2dzHuV2wU_u24default"    # [B
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
     .line 37
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p2, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -659,7 +659,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     const-string p2, "$this$toHexString"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

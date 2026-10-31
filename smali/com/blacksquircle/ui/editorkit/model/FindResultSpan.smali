@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/blacksquircle/ui/editorkit/model/StyleSpan;)V
-    .locals 1
+    .registers 3
     .param p1, "span"    # Lcom/blacksquircle/ui/editorkit/model/StyleSpan;
 
     const-string/jumbo v0, "span"

@@ -18,7 +18,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroidx/camera/view/TextureViewImplementation;Landroid/view/Surface;Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/camera/core/SurfaceRequest;)V
-    .locals 0
+    .registers 5
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .registers 5
 
     .line 0
     iget-object v0, p0, Landroidx/camera/view/TextureViewImplementation$$ExternalSyntheticLambda4;->f$0:Landroidx/camera/view/TextureViewImplementation;

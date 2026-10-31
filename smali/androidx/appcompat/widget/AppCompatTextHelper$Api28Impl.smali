@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 812
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static create(Landroid/graphics/Typeface;IZ)Landroid/graphics/Typeface;
-    .locals 1
+    .registers 4
     .param p0, "family"    # Landroid/graphics/Typeface;
     .param p1, "weight"    # I
     .param p2, "italic"    # Z

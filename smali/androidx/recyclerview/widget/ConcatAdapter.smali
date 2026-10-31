@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/recyclerview/widget/ConcatAdapter$Config;Ljava/util/List;)V
-    .locals 2
+    .registers 5
     .param p1, "config"    # Landroidx/recyclerview/widget/ConcatAdapter$Config;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,12 +60,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -79,10 +79,10 @@
 
     .line 130
     .end local v1    # "adapter":Landroidx/recyclerview/widget/RecyclerView$Adapter;, "Landroidx/recyclerview/widget/RecyclerView$Adapter<+Landroidx/recyclerview/widget/RecyclerView$ViewHolder;>;"
-    goto :goto_0
+    goto :goto_e
 
     .line 132
-    :cond_0
+    :cond_1e
     iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/ConcatAdapterController;->hasStableIds()Z
@@ -96,7 +96,7 @@
 .end method
 
 .method public varargs constructor <init>(Landroidx/recyclerview/widget/ConcatAdapter$Config;[Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 1
+    .registers 4
     .param p1, "config"    # Landroidx/recyclerview/widget/ConcatAdapter$Config;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -126,7 +126,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -150,7 +150,7 @@
 .end method
 
 .method public varargs constructor <init>([Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -177,7 +177,7 @@
 
 # virtual methods
 .method public addAdapter(ILandroidx/recyclerview/widget/RecyclerView$Adapter;)Z
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -201,7 +201,7 @@
 .end method
 
 .method public addAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -224,7 +224,7 @@
 .end method
 
 .method public findRelativeAdapterPositionIn(Landroidx/recyclerview/widget/RecyclerView$Adapter;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)I
-    .locals 1
+    .registers 5
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p3, "localPosition"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -251,7 +251,7 @@
 .end method
 
 .method public getAdapters()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -279,7 +279,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 239
     iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
@@ -292,7 +292,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 227
@@ -306,7 +306,7 @@
 .end method
 
 .method public getItemViewType(I)I
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 178
@@ -320,7 +320,7 @@
 .end method
 
 .method public getWrappedAdapterAndPosition(I)Landroid/util/Pair;
-    .locals 1
+    .registers 3
     .param p1, "globalPosition"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -346,7 +346,7 @@
 .end method
 
 .method internalSetStateRestorationPolicy(Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;)V
-    .locals 0
+    .registers 2
     .param p1, "strategy"    # Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
     .line 234
@@ -357,7 +357,7 @@
 .end method
 
 .method public onAttachedToRecyclerView(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 1
+    .registers 3
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 264
@@ -370,7 +370,7 @@
 .end method
 
 .method public onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 1
+    .registers 4
     .param p1, "holder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "position"    # I
 
@@ -384,7 +384,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 1
+    .registers 4
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -399,7 +399,7 @@
 .end method
 
 .method public onDetachedFromRecyclerView(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 1
+    .registers 3
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 269
@@ -412,7 +412,7 @@
 .end method
 
 .method public onFailedToRecycleView(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
-    .locals 1
+    .registers 3
     .param p1, "holder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 244
@@ -426,7 +426,7 @@
 .end method
 
 .method public onViewAttachedToWindow(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 1
+    .registers 3
     .param p1, "holder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 249
@@ -439,7 +439,7 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 1
+    .registers 3
     .param p1, "holder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 254
@@ -452,7 +452,7 @@
 .end method
 
 .method public onViewRecycled(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 1
+    .registers 3
     .param p1, "holder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 259
@@ -465,7 +465,7 @@
 .end method
 
 .method public removeAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -488,7 +488,7 @@
 .end method
 
 .method public setHasStableIds(Z)V
-    .locals 2
+    .registers 4
     .param p1, "hasStableIds"    # Z
 
     .line 201
@@ -502,7 +502,7 @@
 .end method
 
 .method public setStateRestorationPolicy(Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;)V
-    .locals 2
+    .registers 4
     .param p1, "strategy"    # Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
     .line 220

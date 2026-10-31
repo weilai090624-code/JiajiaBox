@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/navigation/fragment/DialogFragmentNavigator;ILkotlin/reflect/KClass;)V
-    .locals 1
+    .registers 5
     .param p1, "navigator"    # Landroidx/navigation/fragment/DialogFragmentNavigator;
     .param p2, "id"    # I
     .param p3, "fragmentClass"    # Lkotlin/reflect/KClass;
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/navigation/fragment/DialogFragmentNavigator;Ljava/lang/String;Lkotlin/reflect/KClass;)V
-    .locals 1
+    .registers 5
     .param p1, "navigator"    # Landroidx/navigation/fragment/DialogFragmentNavigator;
     .param p2, "route"    # Ljava/lang/String;
     .param p3, "fragmentClass"    # Lkotlin/reflect/KClass;
@@ -154,7 +154,7 @@
 
 # virtual methods
 .method public bridge synthetic build()Landroidx/navigation/NavDestination;
-    .locals 1
+    .registers 2
 
     .line 91
     invoke-virtual {p0}, Landroidx/navigation/fragment/DialogFragmentNavigatorDestinationBuilder;->build()Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;
@@ -167,7 +167,7 @@
 .end method
 
 .method public build()Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;
-    .locals 5
+    .registers 6
 
     .line 139
     invoke-super {p0}, Landroidx/navigation/NavDestinationBuilder;->build()Landroidx/navigation/NavDestination;

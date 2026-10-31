@@ -15,28 +15,28 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 26
     const/4 v0, 0x4
 
     new-array v1, v0, [C
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_1e
 
     sput-object v1, Lcom/google/zxing/oned/CodaBarWriter;->START_END_CHARS:[C
 
     .line 27
     new-array v1, v0, [C
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_26
 
     sput-object v1, Lcom/google/zxing/oned/CodaBarWriter;->ALT_START_END_CHARS:[C
 
     .line 28
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_2
+    fill-array-data v0, :array_2e
 
     sput-object v0, Lcom/google/zxing/oned/CodaBarWriter;->CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED:[C
 
@@ -51,7 +51,7 @@
 
     return-void
 
-    :array_0
+    :array_1e
     .array-data 2
         0x41s
         0x42s
@@ -59,7 +59,7 @@
         0x44s
     .end array-data
 
-    :array_1
+    :array_26
     .array-data 2
         0x54s
         0x4es
@@ -67,7 +67,7 @@
         0x45s
     .end array-data
 
-    :array_2
+    :array_2e
     .array-data 2
         0x2fs
         0x3as
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Lcom/google/zxing/oned/OneDimensionalCodeWriter;-><init>()V
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public encode(Ljava/lang/String;)[Z
-    .locals 12
+    .registers 14
     .param p1, "contents"    # Ljava/lang/String;
 
     .line 34
@@ -102,7 +102,7 @@
 
     const/4 v3, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_23
 
     .line 36
     new-instance v0, Ljava/lang/StringBuilder;
@@ -129,10 +129,10 @@
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_95
 
     .line 39
-    :cond_0
+    :cond_23
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
@@ -193,15 +193,15 @@
     .local v7, "endsAlt":Z
     const-string v8, "Invalid start/end guards: "
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_65
 
     .line 46
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_57
 
-    goto :goto_0
+    goto :goto_95
 
     .line 47
-    :cond_1
+    :cond_57
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -217,16 +217,16 @@
     throw v2
 
     .line 50
-    :cond_2
-    if-eqz v6, :cond_4
+    :cond_65
+    if-eqz v6, :cond_78
 
     .line 51
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_6a
 
-    goto :goto_0
+    goto :goto_95
 
     .line 52
-    :cond_3
+    :cond_6a
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -242,10 +242,10 @@
     throw v2
 
     .line 57
-    :cond_4
-    if-nez v5, :cond_13
+    :cond_78
+    if-nez v5, :cond_163
 
-    if-nez v7, :cond_13
+    if-nez v7, :cond_163
 
     .line 61
     new-instance v8, Ljava/lang/StringBuilder;
@@ -279,7 +279,7 @@
     .end local v5    # "endsNormal":Z
     .end local v6    # "startsAlt":Z
     .end local v7    # "endsAlt":Z
-    :goto_0
+    :goto_95
     const/16 v0, 0x14
 
     .line 67
@@ -287,14 +287,14 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_1
+    :goto_98
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v4
 
     sub-int/2addr v4, v3
 
-    if-ge v1, v4, :cond_8
+    if-ge v1, v4, :cond_ed
 
     .line 68
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
@@ -305,7 +305,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_e8
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
@@ -313,7 +313,7 @@
 
     const/16 v5, 0x2d
 
-    if-eq v4, v5, :cond_7
+    if-eq v4, v5, :cond_e8
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
@@ -321,12 +321,12 @@
 
     const/16 v5, 0x24
 
-    if-ne v4, v5, :cond_5
+    if-ne v4, v5, :cond_ba
 
-    goto :goto_2
+    goto :goto_e8
 
     .line 70
-    :cond_5
+    :cond_ba
     sget-object v4, Lcom/google/zxing/oned/CodaBarWriter;->CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED:[C
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
@@ -337,15 +337,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_c9
 
     .line 71
     add-int/lit8 v0, v0, 0xa
 
-    goto :goto_3
+    goto :goto_ea
 
     .line 73
-    :cond_6
+    :cond_c9
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -377,19 +377,19 @@
     throw v2
 
     .line 69
-    :cond_7
-    :goto_2
+    :cond_e8
+    :goto_e8
     add-int/lit8 v0, v0, 0x9
 
     .line 67
-    :goto_3
+    :goto_ea
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_98
 
     .line 77
     .end local v1    # "i":I
-    :cond_8
+    :cond_ed
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -410,12 +410,12 @@
     const/4 v5, 0x0
 
     .local v5, "index":I
-    :goto_4
+    :goto_f7
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_12
+    if-ge v5, v6, :cond_162
 
     .line 82
     invoke-virtual {p1, v5}, Ljava/lang/String;->charAt(I)C
@@ -428,7 +428,7 @@
 
     .line 83
     .local v6, "c":C
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_10e
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -436,44 +436,44 @@
 
     sub-int/2addr v7, v3
 
-    if-ne v5, v7, :cond_a
+    if-ne v5, v7, :cond_11e
 
     .line 85
-    :cond_9
-    sparse-switch v6, :sswitch_data_0
+    :cond_10e
+    sparse-switch v6, :sswitch_data_172
 
-    goto :goto_5
+    goto :goto_11e
 
     .line 87
-    :sswitch_0
+    :sswitch_112
     const/16 v6, 0x41
 
     .line 88
-    goto :goto_5
+    goto :goto_11e
 
     .line 90
-    :sswitch_1
+    :sswitch_115
     const/16 v6, 0x42
 
     .line 91
-    goto :goto_5
+    goto :goto_11e
 
     .line 96
-    :sswitch_2
+    :sswitch_118
     const/16 v6, 0x44
 
-    goto :goto_5
+    goto :goto_11e
 
     .line 93
-    :sswitch_3
+    :sswitch_11b
     const/16 v6, 0x43
 
     .line 94
     nop
 
     .line 100
-    :cond_a
-    :goto_5
+    :cond_11e
+    :goto_11e
     const/4 v7, 0x0
 
     .line 101
@@ -481,19 +481,19 @@
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_6
+    :goto_120
     sget-object v9, Lcom/google/zxing/oned/CodaBarReader;->ALPHABET:[C
 
     array-length v9, v9
 
-    if-ge v8, v9, :cond_c
+    if-ge v8, v9, :cond_133
 
     .line 103
     sget-object v9, Lcom/google/zxing/oned/CodaBarReader;->ALPHABET:[C
 
     aget-char v9, v9, v8
 
-    if-ne v6, v9, :cond_b
+    if-ne v6, v9, :cond_130
 
     .line 104
     sget-object v9, Lcom/google/zxing/oned/CodaBarReader;->CHARACTER_ENCODINGS:[I
@@ -501,18 +501,18 @@
     aget v7, v9, v8
 
     .line 105
-    goto :goto_7
+    goto :goto_133
 
     .line 101
-    :cond_b
+    :cond_130
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_6
+    goto :goto_120
 
     .line 108
     .end local v8    # "i":I
-    :cond_c
-    :goto_7
+    :cond_133
+    :goto_133
     const/4 v8, 0x1
 
     .line 109
@@ -525,10 +525,10 @@
 
     .line 111
     .local v10, "bit":I
-    :goto_8
+    :goto_136
     const/4 v11, 0x7
 
-    if-ge v10, v11, :cond_10
+    if-ge v10, v11, :cond_154
 
     .line 112
     aput-boolean v8, v1, v4
@@ -543,31 +543,31 @@
 
     and-int/2addr v11, v3
 
-    if-eqz v11, :cond_e
+    if-eqz v11, :cond_14a
 
-    if-ne v9, v3, :cond_d
+    if-ne v9, v3, :cond_147
 
-    goto :goto_9
+    goto :goto_14a
 
     .line 119
-    :cond_d
+    :cond_147
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_8
+    goto :goto_136
 
     .line 115
-    :cond_e
-    :goto_9
-    if-nez v8, :cond_f
+    :cond_14a
+    :goto_14a
+    if-nez v8, :cond_14e
 
     const/4 v11, 0x1
 
-    goto :goto_a
+    goto :goto_14f
 
-    :cond_f
+    :cond_14e
     const/4 v11, 0x0
 
-    :goto_a
+    :goto_14f
     move v8, v11
 
     .line 116
@@ -576,17 +576,17 @@
     .line 117
     const/4 v9, 0x0
 
-    goto :goto_8
+    goto :goto_136
 
     .line 122
-    :cond_10
+    :cond_154
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v11
 
     sub-int/2addr v11, v3
 
-    if-ge v5, v11, :cond_11
+    if-ge v5, v11, :cond_15f
 
     .line 123
     aput-boolean v2, v1, v4
@@ -600,14 +600,14 @@
     .end local v8    # "color":Z
     .end local v9    # "counter":I
     .end local v10    # "bit":I
-    :cond_11
+    :cond_15f
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_4
+    goto :goto_f7
 
     .line 127
     .end local v5    # "index":I
-    :cond_12
+    :cond_162
     return-object v1
 
     .line 58
@@ -617,7 +617,7 @@
     .local v5, "endsNormal":Z
     .local v6, "startsAlt":Z
     .local v7, "endsAlt":Z
-    :cond_13
+    :cond_163
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -634,11 +634,11 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_172
     .sparse-switch
-        0x2a -> :sswitch_3
-        0x45 -> :sswitch_2
-        0x4e -> :sswitch_1
-        0x54 -> :sswitch_0
+        0x2a -> :sswitch_11b
+        0x45 -> :sswitch_118
+        0x4e -> :sswitch_115
+        0x54 -> :sswitch_112
     .end sparse-switch
 .end method

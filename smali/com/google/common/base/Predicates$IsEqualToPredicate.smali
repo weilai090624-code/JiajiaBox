@@ -38,7 +38,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "target"    # Ljava/lang/Object;
 
     .line 453
@@ -52,7 +52,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Object;Lcom/google/common/base/Predicates$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/lang/Object;
     .param p2, "x1"    # Lcom/google/common/base/Predicates$1;
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -82,7 +82,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -91,7 +91,7 @@
     .line 469
     instance-of v0, p1, Lcom/google/common/base/Predicates$IsEqualToPredicate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 470
     move-object v0, p1
@@ -112,14 +112,14 @@
 
     .line 473
     .end local v0    # "that":Lcom/google/common/base/Predicates$IsEqualToPredicate;
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 464
     iget-object v0, p0, Lcom/google/common/base/Predicates$IsEqualToPredicate;->target:Ljava/lang/Object;
@@ -132,7 +132,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 478
     iget-object v0, p0, Lcom/google/common/base/Predicates$IsEqualToPredicate;->target:Ljava/lang/Object;
@@ -179,7 +179,7 @@
 .end method
 
 .method withNarrowedType()Lcom/google/common/base/Predicate;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

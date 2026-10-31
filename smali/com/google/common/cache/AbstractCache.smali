@@ -33,7 +33,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     .local p0, "this":Lcom/google/common/cache/AbstractCache;, "Lcom/google/common/cache/AbstractCache<TK;TV;>;"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public asMap()Ljava/util/concurrent/ConcurrentMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -64,7 +64,7 @@
 .end method
 
 .method public cleanUp()V
-    .locals 0
+    .registers 1
 
     .line 97
     .local p0, "this":Lcom/google/common/cache/AbstractCache;, "Lcom/google/common/cache/AbstractCache<TK;TV;>;"
@@ -72,7 +72,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/util/concurrent/Callable;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -99,7 +99,7 @@
 .end method
 
 .method public getAllPresent(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,12 +125,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_23
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -142,7 +142,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_22
 
     .line 72
     move-object v3, v2
@@ -155,7 +155,7 @@
 
     .line 74
     .local v4, "value":Ljava/lang/Object;, "TV;"
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_22
 
     .line 75
     invoke-interface {v0, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -164,11 +164,11 @@
     .end local v2    # "key":Ljava/lang/Object;
     .end local v3    # "castKey":Ljava/lang/Object;, "TK;"
     .end local v4    # "value":Ljava/lang/Object;, "TV;"
-    :cond_0
-    goto :goto_0
+    :cond_22
+    goto :goto_8
 
     .line 79
-    :cond_1
+    :cond_23
     invoke-static {v0}, Lcom/google/common/collect/ImmutableMap;->copyOf(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v1
@@ -177,7 +177,7 @@
 .end method
 
 .method public invalidate(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 106
@@ -190,7 +190,7 @@
 .end method
 
 .method public invalidateAll()V
-    .locals 1
+    .registers 2
 
     .line 120
     .local p0, "this":Lcom/google/common/cache/AbstractCache;, "Lcom/google/common/cache/AbstractCache<TK;TV;>;"
@@ -202,7 +202,7 @@
 .end method
 
 .method public invalidateAll(Ljava/lang/Iterable;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -220,12 +220,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -237,15 +237,15 @@
 
     .line 115
     .end local v1    # "key":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_4
 
     .line 116
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -264,7 +264,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -284,12 +284,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -311,15 +311,15 @@
 
     .line 93
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 94
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public size()J
-    .locals 1
+    .registers 2
 
     .line 101
     .local p0, "this":Lcom/google/common/cache/AbstractCache;, "Lcom/google/common/cache/AbstractCache<TK;TV;>;"
@@ -331,7 +331,7 @@
 .end method
 
 .method public stats()Lcom/google/common/cache/CacheStats;
-    .locals 1
+    .registers 2
 
     .line 125
     .local p0, "this":Lcom/google/common/cache/AbstractCache;, "Lcom/google/common/cache/AbstractCache<TK;TV;>;"

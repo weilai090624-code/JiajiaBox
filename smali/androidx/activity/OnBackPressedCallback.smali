@@ -80,7 +80,7 @@
 
 # direct methods
 .method public constructor <init>(Z)V
-    .locals 1
+    .registers 3
     .param p1, "enabled"    # Z
 
     .line 39
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public final addCancellable(Landroidx/activity/Cancellable;)V
-    .locals 1
+    .registers 3
     .param p1, "cancellable"    # Landroidx/activity/Cancellable;
 
     const-string v0, "cancellable"
@@ -120,7 +120,7 @@
 .end method
 
 .method public final getEnabledChangedCallback$activity_release()Lkotlin/jvm/functions/Function0;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -137,7 +137,7 @@
 .end method
 
 .method public handleOnBackCancelled()V
-    .locals 0
+    .registers 1
 
     .line 93
     return-void
@@ -147,7 +147,7 @@
 .end method
 
 .method public handleOnBackProgressed(Landroidx/activity/BackEventCompat;)V
-    .locals 1
+    .registers 3
     .param p1, "backEvent"    # Landroidx/activity/BackEventCompat;
 
     const-string v0, "backEvent"
@@ -159,7 +159,7 @@
 .end method
 
 .method public handleOnBackStarted(Landroidx/activity/BackEventCompat;)V
-    .locals 1
+    .registers 3
     .param p1, "backEvent"    # Landroidx/activity/BackEventCompat;
 
     const-string v0, "backEvent"
@@ -171,7 +171,7 @@
 .end method
 
 .method public final isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 50
     iget-boolean v0, p0, Landroidx/activity/OnBackPressedCallback;->isEnabled:Z
@@ -180,7 +180,7 @@
 .end method
 
 .method public final remove()V
-    .locals 6
+    .registers 7
 
     .line 60
     iget-object v0, p0, Landroidx/activity/OnBackPressedCallback;->cancellables:Ljava/util/concurrent/CopyOnWriteArrayList;
@@ -196,12 +196,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_9
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -225,10 +225,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_9
 
     .line 107
-    :cond_0
+    :cond_1c
     nop
 
     .line 60
@@ -238,7 +238,7 @@
 .end method
 
 .method public final removeCancellable(Landroidx/activity/Cancellable;)V
-    .locals 1
+    .registers 3
     .param p1, "cancellable"    # Landroidx/activity/Cancellable;
 
     const-string v0, "cancellable"
@@ -255,7 +255,7 @@
 .end method
 
 .method public final setEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Z
 
     .line 52
@@ -264,17 +264,17 @@
     .line 53
     iget-object v0, p0, Landroidx/activity/OnBackPressedCallback;->enabledChangedCallback:Lkotlin/jvm/functions/Function0;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-interface {v0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     .line 54
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public final setEnabledChangedCallback$activity_release(Lkotlin/jvm/functions/Function0;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {

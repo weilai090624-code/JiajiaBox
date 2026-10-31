@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function4;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1;->$this_retryWhen$inlined:Lkotlinx/coroutines/flow/Flow;
 
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 13
+    .registers 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,7 +91,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -103,7 +103,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1$1;->label:I
 
@@ -111,14 +111,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1$1;-><init>(Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -132,7 +132,7 @@
     .line 106
     iget v2, p2, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_ca
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -146,7 +146,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p1, 0x0
 
     .local p1, "$i$a$-unsafeFlow-FlowKt__ErrorsKt$retryWhen$1":I
@@ -182,14 +182,14 @@
 
     move-object v1, v0
 
-    goto/16 :goto_2
+    goto/16 :goto_a7
 
     .end local v2    # "attempt":J
     .end local v4    # "cause":Ljava/lang/Throwable;
     .end local v5    # "$this$retryWhen_u24lambda_u242":Lkotlinx/coroutines/flow/FlowCollector;
     .end local v6    # "this":Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1;
     .end local p1    # "$i$a$-unsafeFlow-FlowKt__ErrorsKt$retryWhen$1":I
-    :pswitch_1
+    :pswitch_47
     const/4 p1, 0x0
 
     .restart local p1    # "$i$a$-unsafeFlow-FlowKt__ErrorsKt$retryWhen$1":I
@@ -219,14 +219,14 @@
 
     move-object v1, v0
 
-    goto :goto_1
+    goto :goto_87
 
     .end local v2    # "shallRetry":Z
     .end local v3    # "attempt":J
     .end local v5    # "$this$retryWhen_u24lambda_u242":Lkotlinx/coroutines/flow/FlowCollector;
     .end local v6    # "this":Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1;
     .end local p1    # "$i$a$-unsafeFlow-FlowKt__ErrorsKt$retryWhen$1":I
-    :pswitch_2
+    :pswitch_5c
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v2, p0
@@ -247,7 +247,7 @@
 
     .line 117
     .local v4, "attempt":J
-    :cond_1
+    :cond_66
     const/4 v6, 0x0
 
     .line 118
@@ -274,13 +274,13 @@
 
     move-result-object v7
 
-    if-ne v7, v1, :cond_2
+    if-ne v7, v1, :cond_7e
 
     .line 106
     return-object v1
 
     .line 118
-    :cond_2
+    :cond_7e
     move-wide v10, v4
 
     move-object v5, p1
@@ -308,12 +308,12 @@
     .restart local v5    # "$this$retryWhen_u24lambda_u242":Lkotlinx/coroutines/flow/FlowCollector;
     .local v7, "this":Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1;
     .local p1, "$i$a$-unsafeFlow-FlowKt__ErrorsKt$retryWhen$1":I
-    :goto_1
+    :goto_87
     check-cast v0, Ljava/lang/Throwable;
 
     .line 119
     .local v0, "cause":Ljava/lang/Throwable;
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_bd
 
     .line 120
     .end local v6    # "shallRetry":Z
@@ -339,13 +339,13 @@
 
     move-result-object v6
 
-    if-ne v6, v2, :cond_3
+    if-ne v6, v2, :cond_a3
 
     .line 106
     return-object v2
 
     .line 120
-    :cond_3
+    :cond_a3
     move-object v10, v5
 
     move-object v5, v0
@@ -357,14 +357,14 @@
     .end local v0    # "cause":Ljava/lang/Throwable;
     .local v5, "cause":Ljava/lang/Throwable;
     .local v6, "$this$retryWhen_u24lambda_u242":Lkotlinx/coroutines/flow/FlowCollector;
-    :goto_2
+    :goto_a7
     check-cast v0, Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_bc
 
     .line 121
     const/4 v0, 0x1
@@ -393,14 +393,14 @@
     move-object v2, v7
 
     .restart local v3    # "attempt":J
-    goto :goto_3
+    goto :goto_c4
 
     .line 124
     .end local v0    # "shallRetry":Z
     .end local v3    # "attempt":J
     .end local v6    # "$this$retryWhen_u24lambda_u242":Lkotlinx/coroutines/flow/FlowCollector;
     .end local v7    # "this":Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1;
-    :cond_4
+    :cond_bc
     throw v5
 
     .line 119
@@ -409,7 +409,7 @@
     .local v5, "$this$retryWhen_u24lambda_u242":Lkotlinx/coroutines/flow/FlowCollector;
     .local v6, "shallRetry":Z
     .restart local v7    # "this":Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retryWhen$$inlined$unsafeFlow$1;
-    :cond_5
+    :cond_bd
     move-object v0, v1
 
     move-object v1, v2
@@ -433,8 +433,8 @@
     .local v3, "$i$a$-unsafeFlow-FlowKt__ErrorsKt$retryWhen$1":I
     .restart local v4    # "attempt":J
     .local p1, "$this$retryWhen_u24lambda_u242":Lkotlinx/coroutines/flow/FlowCollector;
-    :goto_3
-    if-nez v6, :cond_1
+    :goto_c4
+    if-nez v6, :cond_66
 
     .line 128
     nop
@@ -449,10 +449,10 @@
     .line 110
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_ca
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5c
+        :pswitch_47
+        :pswitch_2d
     .end packed-switch
 .end method

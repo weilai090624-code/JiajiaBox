@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator$OfLong;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public accept(J)V
-    .locals 1
+    .registers 4
     .param p1, "t"    # J
 
     .line 764
@@ -68,7 +68,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/LongConsumer$-CC;->$default$andThen(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/PrimitiveIterator$OfLong$-CC;->$default$forEachRemaining(Lj$/util/PrimitiveIterator$OfLong;Ljava/lang/Object;)V
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/PrimitiveIterator$OfLong$-CC;->$default$forEachRemaining(Lj$/util/PrimitiveIterator$OfLong;Ljava/util/function/Consumer;)V
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/LongConsumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/PrimitiveIterator$OfLong$-CC;->$default$forEachRemaining(Lj$/util/PrimitiveIterator$OfLong;Ljava/util/function/LongConsumer;)V
 
@@ -102,12 +102,12 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 770
     iget-boolean v0, p0, Lj$/util/Spliterators$3Adapter;->valueReady:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 771
     iget-object v0, p0, Lj$/util/Spliterators$3Adapter;->val$spliterator:Lj$/util/Spliterator$OfLong;
@@ -115,14 +115,14 @@
     invoke-interface {v0, p0}, Lj$/util/Spliterator$OfLong;->tryAdvance(Ljava/util/function/LongConsumer;)Z
 
     .line 772
-    :cond_0
+    :cond_9
     iget-boolean v0, p0, Lj$/util/Spliterators$3Adapter;->valueReady:Z
 
     return v0
 .end method
 
 .method public synthetic next()Ljava/lang/Long;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/PrimitiveIterator$OfLong$-CC;->$default$next(Lj$/util/PrimitiveIterator$OfLong;)Ljava/lang/Long;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/PrimitiveIterator$OfLong$-CC;->$default$next(Lj$/util/PrimitiveIterator$OfLong;)Ljava/lang/Object;
 
@@ -142,23 +142,23 @@
 .end method
 
 .method public nextLong()J
-    .locals 2
+    .registers 3
 
     .line 777
     iget-boolean v0, p0, Lj$/util/Spliterators$3Adapter;->valueReady:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     invoke-virtual {p0}, Lj$/util/Spliterators$3Adapter;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
-    goto :goto_0
+    goto :goto_11
 
     .line 778
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -166,8 +166,8 @@
     throw v0
 
     .line 780
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lj$/util/Spliterators$3Adapter;->valueReady:Z

@@ -1,4 +1,4 @@
-.class final Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
+.class public final Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;
 .super Ljava/lang/Object;
 .source "DrawerNavigator.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "FragmentApi"
 .end annotation
 
@@ -53,7 +53,7 @@
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
+    .line 33
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
@@ -84,13 +84,14 @@
     move-result-object v3
 
     .line 43
+    new-array v4, v2, [Ljava/lang/Class;
+
+    .line 44
     const-string v4, "androidx.fragment.app.FragmentActivity"
 
     invoke-static {v4, v2, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v4
-
-    new-array v5, v2, [Ljava/lang/Class;
 
     const-string v5, "getSupportFragmentManager"
 
@@ -104,7 +105,7 @@
 
     const/4 v4, 0x1
 
-    .line 44
+    .line 45
     new-array v5, v4, [Ljava/lang/Class;
 
     const-class v7, Landroid/os/Bundle;
@@ -119,8 +120,10 @@
 
     iput-object v5, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->setArguments:Ljava/lang/reflect/Method;
 
+    .line 46
     new-array v5, v2, [Ljava/lang/Class;
 
+    .line 47
     const-string v5, "getView"
 
     invoke-virtual {v1, v5, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
@@ -129,14 +132,15 @@
 
     iput-object v5, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->getView:Ljava/lang/reflect/Method;
 
-    .line 45
+    .line 48
+    new-array v5, v2, [Ljava/lang/Class;
+
+    .line 49
     const-string v5, "androidx.fragment.app.FragmentManager"
 
     invoke-static {v5, v2, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v0
-
-    new-array v5, v2, [Ljava/lang/Class;
 
     const-string v5, "beginTransaction"
 
@@ -148,7 +152,7 @@
 
     const/4 v0, 0x2
 
-    .line 46
+    .line 50
     new-array v0, v0, [Ljava/lang/Class;
 
     sget-object v5, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
@@ -165,6 +169,7 @@
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->add:Ljava/lang/reflect/Method;
 
+    .line 51
     new-array v0, v4, [Ljava/lang/Class;
 
     aput-object v1, v0, v2
@@ -177,9 +182,10 @@
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->remove:Ljava/lang/reflect/Method;
 
-    .line 47
+    .line 52
     new-array v0, v2, [Ljava/lang/Class;
 
+    .line 53
     const-string v0, "commitNowAllowingStateLoss"
 
     invoke-virtual {v3, v0, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
@@ -211,7 +217,7 @@
         }
     .end annotation
 
-    .line 50
+    .line 57
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->constructors:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -224,21 +230,22 @@
 
     return-object v0
 
-    .line 51
     :cond_b
-    const-class v0, Lio/nekohasekai/sagernet/ui/DrawerNavigator;
+    const/4 v0, 0x0
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    .line 61
+    new-array v1, v0, [Ljava/lang/Class;
+
+    .line 62
+    const-class v1, Lio/nekohasekai/sagernet/ui/DrawerNavigator;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v1
+
+    invoke-static {p1, v0, v1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-static {p1, v1, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
-
-    move-result-object v0
-
-    new-array v1, v1, [Ljava/lang/Class;
 
     const/4 v1, 0x0
 
@@ -246,7 +253,7 @@
 
     move-result-object v0
 
-    .line 52
+    .line 63
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/DrawerNavigator$FragmentApi;->constructors:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/concurrent/ConcurrentHashMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;

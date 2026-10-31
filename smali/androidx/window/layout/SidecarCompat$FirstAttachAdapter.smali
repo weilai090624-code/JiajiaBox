@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/window/layout/SidecarCompat;Landroid/app/Activity;)V
-    .locals 1
+    .registers 4
     .param p1, "sidecarCompat"    # Landroidx/window/layout/SidecarCompat;
     .param p2, "activity"    # Landroid/app/Activity;
 
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     const-string/jumbo v0, "view"
@@ -129,7 +129,7 @@
 
     .line 311
     .local v1, "token":Landroid/os/IBinder;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 312
     nop
@@ -138,8 +138,8 @@
     return-void
 
     .line 317
-    :cond_0
-    if-nez v1, :cond_1
+    :cond_1e
+    if-nez v1, :cond_22
 
     .line 318
     nop
@@ -148,7 +148,7 @@
     return-void
 
     .line 323
-    :cond_1
+    :cond_22
     iget-object v2, p0, Landroidx/window/layout/SidecarCompat$FirstAttachAdapter;->sidecarCompat:Landroidx/window/layout/SidecarCompat;
 
     invoke-virtual {v2, v1, v0}, Landroidx/window/layout/SidecarCompat;->register(Landroid/os/IBinder;Landroid/app/Activity;)V
@@ -158,7 +158,7 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     const-string/jumbo v0, "view"

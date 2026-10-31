@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/Traverser;Lcom/google/common/collect/ImmutableSet;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/graph/Traverser;
 
     .line 298
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

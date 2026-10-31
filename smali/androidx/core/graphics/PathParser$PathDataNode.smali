@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(C[F)V
-    .locals 0
+    .registers 3
     .param p1, "type"    # C
     .param p2, "params"    # [F
 
@@ -40,7 +40,7 @@
 .end method
 
 .method constructor <init>(Landroidx/core/graphics/PathParser$PathDataNode;)V
-    .locals 3
+    .registers 5
     .param p1, "n"    # Landroidx/core/graphics/PathParser$PathDataNode;
 
     .line 419
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$000(Landroidx/core/graphics/PathParser$PathDataNode;)C
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/core/graphics/PathParser$PathDataNode;
 
     .line 395
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$002(Landroidx/core/graphics/PathParser$PathDataNode;C)C
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Landroidx/core/graphics/PathParser$PathDataNode;
     .param p1, "x1"    # C
 
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$100(Landroidx/core/graphics/PathParser$PathDataNode;)[F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/core/graphics/PathParser$PathDataNode;
 
     .line 395
@@ -102,7 +102,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/graphics/Path;[FCC[F)V
-    .locals 0
+    .registers 5
     .param p0, "x0"    # Landroid/graphics/Path;
     .param p1, "x1"    # [F
     .param p2, "x2"    # C
@@ -116,7 +116,7 @@
 .end method
 
 .method private static addCommand(Landroid/graphics/Path;[FCC[F)V
-    .locals 25
+    .registers 30
     .param p0, "path"    # Landroid/graphics/Path;
     .param p1, "current"    # [F
     .param p2, "previousCmd"    # C
@@ -168,14 +168,14 @@
 
     .line 472
     .local v6, "currentSegmentStartY":F
-    sparse-switch p3, :sswitch_data_0
+    sparse-switch p3, :sswitch_data_3ea
 
     move/from16 v18, v0
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 475
-    :sswitch_0
+    :sswitch_1f
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Path;->close()V
 
     .line 479
@@ -196,46 +196,46 @@
     .line 484
     move/from16 v18, v0
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 507
-    :sswitch_1
+    :sswitch_2c
     const/4 v0, 0x4
 
     .line 508
     move/from16 v18, v0
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 491
-    :sswitch_2
+    :sswitch_30
     const/4 v0, 0x2
 
     .line 492
     move/from16 v18, v0
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 497
-    :sswitch_3
+    :sswitch_34
     const/4 v0, 0x1
 
     .line 498
     move/from16 v18, v0
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 501
-    :sswitch_4
+    :sswitch_38
     const/4 v0, 0x6
 
     .line 502
     move/from16 v18, v0
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 511
-    :sswitch_5
+    :sswitch_3c
     const/4 v0, 0x7
 
     move/from16 v18, v0
@@ -243,7 +243,7 @@
     .line 515
     .end local v0    # "incr":I
     .local v18, "incr":I
-    :goto_0
+    :goto_3f
     const/4 v0, 0x0
 
     move/from16 v9, p2
@@ -276,10 +276,10 @@
     .local v20, "ctrlPointY":F
     .local v21, "currentSegmentStartX":F
     .local v22, "currentSegmentStartY":F
-    :goto_1
+    :goto_4d
     array-length v0, v11
 
-    if-ge v8, v0, :cond_e
+    if-ge v8, v0, :cond_3d6
 
     .line 516
     const/16 v0, 0x54
@@ -302,7 +302,7 @@
 
     const/4 v13, 0x0
 
-    sparse-switch p3, :sswitch_data_1
+    sparse-switch p3, :sswitch_data_43c
 
     move v12, v6
 
@@ -320,7 +320,7 @@
     .local v14, "currentX":F
     .local v15, "previousCmd":C
     .local v24, "k":I
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 564
     .end local v12    # "currentY":F
@@ -331,7 +331,7 @@
     .restart local v7    # "currentX":F
     .restart local v8    # "k":I
     .restart local v9    # "previousCmd":C
-    :sswitch_6
+    :sswitch_6d
     add-int/lit8 v0, v8, 0x0
 
     aget v0, v11, v0
@@ -350,10 +350,10 @@
 
     move v15, v9
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 636
-    :sswitch_7
+    :sswitch_7e
     const/4 v1, 0x0
 
     .line 637
@@ -362,23 +362,23 @@
 
     .line 638
     .local v3, "reflectiveCtrlPointY":F
-    if-eq v9, v15, :cond_0
+    if-eq v9, v15, :cond_88
 
-    if-eq v9, v4, :cond_0
+    if-eq v9, v4, :cond_88
 
-    if-eq v9, v2, :cond_0
+    if-eq v9, v2, :cond_88
 
-    if-ne v9, v0, :cond_1
+    if-ne v9, v0, :cond_8c
 
     .line 640
-    :cond_0
+    :cond_88
     sub-float v1, v7, v19
 
     .line 641
     sub-float v3, v6, v20
 
     .line 643
-    :cond_1
+    :cond_8c
     add-int/lit8 v0, v8, 0x0
 
     aget v0, v11, v0
@@ -422,7 +422,7 @@
 
     move v15, v9
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 590
     .end local v0    # "ctrlPointX":F
@@ -431,7 +431,7 @@
     .end local v3    # "reflectiveCtrlPointY":F
     .restart local v19    # "ctrlPointX":F
     .restart local v20    # "ctrlPointY":F
-    :sswitch_8
+    :sswitch_ae
     const/4 v0, 0x0
 
     .line 591
@@ -440,26 +440,26 @@
 
     .line 592
     .local v2, "reflectiveCtrlPointY":F
-    if-eq v9, v14, :cond_3
+    if-eq v9, v14, :cond_bc
 
-    if-eq v9, v5, :cond_3
+    if-eq v9, v5, :cond_bc
 
-    if-eq v9, v3, :cond_3
+    if-eq v9, v3, :cond_bc
 
-    if-ne v9, v1, :cond_2
+    if-ne v9, v1, :cond_b9
 
-    goto :goto_2
+    goto :goto_bc
 
-    :cond_2
+    :cond_b9
     move v13, v0
 
     move v14, v2
 
-    goto :goto_3
+    goto :goto_c2
 
     .line 594
-    :cond_3
-    :goto_2
+    :cond_bc
+    :goto_bc
     sub-float v0, v7, v19
 
     .line 595
@@ -474,7 +474,7 @@
     .end local v2    # "reflectiveCtrlPointY":F
     .local v13, "reflectiveCtrlPointX":F
     .local v14, "reflectiveCtrlPointY":F
-    :goto_3
+    :goto_c2
     add-int/lit8 v0, v8, 0x0
 
     aget v3, v11, v0
@@ -550,7 +550,7 @@
 
     move v6, v1
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 622
     .end local v0    # "ctrlPointX":F
@@ -560,7 +560,7 @@
     .local v6, "currentY":F
     .restart local v19    # "ctrlPointX":F
     .restart local v20    # "ctrlPointY":F
-    :sswitch_9
+    :sswitch_fa
     move v12, v6
 
     .end local v6    # "currentY":F
@@ -628,7 +628,7 @@
 
     move v6, v1
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 518
     .end local v0    # "ctrlPointX":F
@@ -636,7 +636,7 @@
     .local v6, "currentY":F
     .restart local v19    # "ctrlPointX":F
     .restart local v20    # "ctrlPointY":F
-    :sswitch_a
+    :sswitch_12d
     move v12, v6
 
     .end local v6    # "currentY":F
@@ -657,7 +657,7 @@
     .line 520
     .end local v12    # "currentY":F
     .restart local v6    # "currentY":F
-    if-lez v8, :cond_4
+    if-lez v8, :cond_14b
 
     .line 524
     add-int/lit8 v0, v8, 0x0
@@ -674,10 +674,10 @@
 
     move v15, v9
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 526
-    :cond_4
+    :cond_14b
     add-int/lit8 v0, v8, 0x0
 
     aget v0, v11, v0
@@ -707,14 +707,14 @@
 
     move v15, v9
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 546
     .end local v0    # "currentSegmentStartX":F
     .end local v1    # "currentSegmentStartY":F
     .restart local v21    # "currentSegmentStartX":F
     .restart local v22    # "currentSegmentStartY":F
-    :sswitch_b
+    :sswitch_161
     move v12, v6
 
     .end local v6    # "currentY":F
@@ -750,10 +750,10 @@
 
     move v15, v9
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 556
-    :sswitch_c
+    :sswitch_17d
     move v12, v6
 
     .end local v6    # "currentY":F
@@ -776,12 +776,12 @@
 
     move v15, v9
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 572
     .end local v12    # "currentY":F
     .restart local v6    # "currentY":F
-    :sswitch_d
+    :sswitch_18f
     move v12, v6
 
     .end local v6    # "currentY":F
@@ -859,7 +859,7 @@
 
     move v6, v1
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 667
     .end local v0    # "ctrlPointX":F
@@ -867,7 +867,7 @@
     .local v6, "currentY":F
     .restart local v19    # "ctrlPointX":F
     .restart local v20    # "ctrlPointY":F
-    :sswitch_e
+    :sswitch_1cc
     move v12, v6
 
     .end local v6    # "currentY":F
@@ -902,32 +902,32 @@
 
     cmpl-float v0, v0, v13
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_1ef
 
     const/4 v15, 0x1
 
-    goto :goto_4
+    goto :goto_1f0
 
-    :cond_5
+    :cond_1ef
     const/4 v15, 0x0
 
-    :goto_4
+    :goto_1f0
     add-int/lit8 v0, v8, 0x4
 
     aget v0, v11, v0
 
     cmpl-float v0, v0, v13
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_1fa
 
     const/4 v13, 0x1
 
-    goto :goto_5
+    goto :goto_1fb
 
-    :cond_6
+    :cond_1fa
     const/4 v13, 0x0
 
-    :goto_5
+    :goto_1fb
     move-object/from16 v0, p0
 
     move v1, v7
@@ -991,7 +991,7 @@
 
     move v15, v14
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 568
     .end local v0    # "ctrlPointX":F
@@ -1002,7 +1002,7 @@
     .restart local v9    # "previousCmd":C
     .restart local v19    # "ctrlPointX":F
     .restart local v20    # "ctrlPointY":F
-    :sswitch_f
+    :sswitch_220
     move v12, v6
 
     move v10, v7
@@ -1045,7 +1045,7 @@
 
     move v15, v14
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 651
     .end local v0    # "currentY":F
@@ -1055,7 +1055,7 @@
     .restart local v7    # "currentX":F
     .restart local v8    # "k":I
     .local v9, "previousCmd":C
-    :sswitch_10
+    :sswitch_238
     move v12, v6
 
     move/from16 v24, v8
@@ -1079,16 +1079,16 @@
 
     .line 653
     .restart local v3    # "reflectiveCtrlPointY":F
-    if-eq v14, v15, :cond_7
+    if-eq v14, v15, :cond_247
 
-    if-eq v14, v4, :cond_7
+    if-eq v14, v4, :cond_247
 
-    if-eq v14, v2, :cond_7
+    if-eq v14, v2, :cond_247
 
-    if-ne v14, v0, :cond_8
+    if-ne v14, v0, :cond_24f
 
     .line 655
-    :cond_7
+    :cond_247
     mul-float v7, v9, v23
 
     sub-float v1, v7, v19
@@ -1099,7 +1099,7 @@
     sub-float v3, v6, v20
 
     .line 658
-    :cond_8
+    :cond_24f
     add-int/lit8 v8, v24, 0x0
 
     aget v0, v11, v8
@@ -1145,7 +1145,7 @@
 
     move v15, v14
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 607
     .end local v0    # "ctrlPointX":F
@@ -1162,7 +1162,7 @@
     .local v9, "previousCmd":C
     .restart local v19    # "ctrlPointX":F
     .restart local v20    # "ctrlPointY":F
-    :sswitch_11
+    :sswitch_26d
     move v12, v6
 
     move/from16 v24, v8
@@ -1186,26 +1186,26 @@
 
     .line 609
     .local v2, "reflectiveCtrlPointY":F
-    if-eq v15, v14, :cond_a
+    if-eq v15, v14, :cond_280
 
-    if-eq v15, v5, :cond_a
+    if-eq v15, v5, :cond_280
 
-    if-eq v15, v3, :cond_a
+    if-eq v15, v3, :cond_280
 
-    if-ne v15, v1, :cond_9
+    if-ne v15, v1, :cond_27d
 
-    goto :goto_6
+    goto :goto_280
 
-    :cond_9
+    :cond_27d
     move v7, v0
 
     move v8, v2
 
-    goto :goto_7
+    goto :goto_28a
 
     .line 611
-    :cond_a
-    :goto_6
+    :cond_280
+    :goto_280
     mul-float v7, v9, v23
 
     sub-float v0, v7, v19
@@ -1224,7 +1224,7 @@
     .end local v2    # "reflectiveCtrlPointY":F
     .local v7, "reflectiveCtrlPointX":F
     .local v8, "reflectiveCtrlPointY":F
-    :goto_7
+    :goto_28a
     add-int/lit8 v0, v24, 0x0
 
     aget v3, v11, v0
@@ -1286,7 +1286,7 @@
 
     move v6, v3
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 629
     .end local v0    # "ctrlPointX":F
@@ -1301,7 +1301,7 @@
     .local v9, "previousCmd":C
     .restart local v19    # "ctrlPointX":F
     .restart local v20    # "ctrlPointY":F
-    :sswitch_12
+    :sswitch_2b9
     move v12, v6
 
     move/from16 v24, v8
@@ -1372,7 +1372,7 @@
 
     move v6, v3
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 532
     .end local v0    # "ctrlPointX":F
@@ -1387,7 +1387,7 @@
     .local v9, "previousCmd":C
     .restart local v19    # "ctrlPointX":F
     .restart local v20    # "ctrlPointY":F
-    :sswitch_13
+    :sswitch_2e9
     move v12, v6
 
     move/from16 v24, v8
@@ -1417,7 +1417,7 @@
     .line 534
     .end local v12    # "currentY":F
     .local v1, "currentY":F
-    if-lez v24, :cond_b
+    if-lez v24, :cond_307
 
     .line 538
     add-int/lit8 v8, v24, 0x0
@@ -1434,10 +1434,10 @@
 
     move v6, v1
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 540
-    :cond_b
+    :cond_307
     add-int/lit8 v8, v24, 0x0
 
     aget v2, v11, v8
@@ -1467,7 +1467,7 @@
 
     move/from16 v22, v3
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 551
     .end local v0    # "currentX":F
@@ -1482,7 +1482,7 @@
     .local v9, "previousCmd":C
     .restart local v21    # "currentSegmentStartX":F
     .restart local v22    # "currentSegmentStartY":F
-    :sswitch_14
+    :sswitch_31c
     move v12, v6
 
     move/from16 v24, v8
@@ -1527,7 +1527,7 @@
 
     move v6, v1
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 560
     .end local v0    # "currentX":F
@@ -1538,7 +1538,7 @@
     .restart local v7    # "currentX":F
     .restart local v8    # "k":I
     .local v9, "previousCmd":C
-    :sswitch_15
+    :sswitch_338
     move v12, v6
 
     move/from16 v24, v8
@@ -1570,7 +1570,7 @@
     .restart local v0    # "currentX":F
     move v7, v0
 
-    goto/16 :goto_a
+    goto/16 :goto_3cc
 
     .line 582
     .end local v0    # "currentX":F
@@ -1581,7 +1581,7 @@
     .restart local v7    # "currentX":F
     .restart local v8    # "k":I
     .local v9, "previousCmd":C
-    :sswitch_16
+    :sswitch_34b
     move v12, v6
 
     move/from16 v24, v8
@@ -1662,7 +1662,7 @@
 
     move/from16 v20, v3
 
-    goto :goto_a
+    goto :goto_3cc
 
     .line 683
     .end local v0    # "currentX":F
@@ -1677,7 +1677,7 @@
     .local v9, "previousCmd":C
     .restart local v19    # "ctrlPointX":F
     .restart local v20    # "ctrlPointY":F
-    :sswitch_17
+    :sswitch_384
     move v12, v6
 
     move/from16 v24, v8
@@ -1719,32 +1719,32 @@
 
     cmpl-float v0, v0, v13
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_3a7
 
     const/4 v8, 0x1
 
-    goto :goto_8
+    goto :goto_3a8
 
-    :cond_c
+    :cond_3a7
     const/4 v8, 0x0
 
-    :goto_8
+    :goto_3a8
     add-int/lit8 v0, v24, 0x4
 
     aget v0, v11, v0
 
     cmpl-float v0, v0, v13
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_3b2
 
     const/4 v13, 0x1
 
-    goto :goto_9
+    goto :goto_3b3
 
-    :cond_d
+    :cond_3b2
     const/4 v13, 0x0
 
-    :goto_9
+    :goto_3b3
     move-object/from16 v0, p0
 
     move v1, v9
@@ -1796,7 +1796,7 @@
     .restart local v6    # "currentY":F
     .restart local v7    # "currentX":F
     .restart local v19    # "ctrlPointX":F
-    :goto_a
+    :goto_3cc
     move/from16 v9, p3
 
     .line 515
@@ -1814,9 +1814,9 @@
 
     .end local v24    # "k":I
     .restart local v8    # "k":I
-    goto/16 :goto_1
+    goto/16 :goto_4d
 
-    :cond_e
+    :cond_3d6
     move v12, v6
 
     move v14, v7
@@ -1857,55 +1857,55 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_3ea
     .sparse-switch
-        0x41 -> :sswitch_5
-        0x43 -> :sswitch_4
-        0x48 -> :sswitch_3
-        0x4c -> :sswitch_2
-        0x4d -> :sswitch_2
-        0x51 -> :sswitch_1
-        0x53 -> :sswitch_1
-        0x54 -> :sswitch_2
-        0x56 -> :sswitch_3
-        0x5a -> :sswitch_0
-        0x61 -> :sswitch_5
-        0x63 -> :sswitch_4
-        0x68 -> :sswitch_3
-        0x6c -> :sswitch_2
-        0x6d -> :sswitch_2
-        0x71 -> :sswitch_1
-        0x73 -> :sswitch_1
-        0x74 -> :sswitch_2
-        0x76 -> :sswitch_3
-        0x7a -> :sswitch_0
+        0x41 -> :sswitch_3c
+        0x43 -> :sswitch_38
+        0x48 -> :sswitch_34
+        0x4c -> :sswitch_30
+        0x4d -> :sswitch_30
+        0x51 -> :sswitch_2c
+        0x53 -> :sswitch_2c
+        0x54 -> :sswitch_30
+        0x56 -> :sswitch_34
+        0x5a -> :sswitch_1f
+        0x61 -> :sswitch_3c
+        0x63 -> :sswitch_38
+        0x68 -> :sswitch_34
+        0x6c -> :sswitch_30
+        0x6d -> :sswitch_30
+        0x71 -> :sswitch_2c
+        0x73 -> :sswitch_2c
+        0x74 -> :sswitch_30
+        0x76 -> :sswitch_34
+        0x7a -> :sswitch_1f
     .end sparse-switch
 
-    :sswitch_data_1
+    :sswitch_data_43c
     .sparse-switch
-        0x41 -> :sswitch_17
-        0x43 -> :sswitch_16
-        0x48 -> :sswitch_15
-        0x4c -> :sswitch_14
-        0x4d -> :sswitch_13
-        0x51 -> :sswitch_12
-        0x53 -> :sswitch_11
-        0x54 -> :sswitch_10
-        0x56 -> :sswitch_f
-        0x61 -> :sswitch_e
-        0x63 -> :sswitch_d
-        0x68 -> :sswitch_c
-        0x6c -> :sswitch_b
-        0x6d -> :sswitch_a
-        0x71 -> :sswitch_9
-        0x73 -> :sswitch_8
-        0x74 -> :sswitch_7
-        0x76 -> :sswitch_6
+        0x41 -> :sswitch_384
+        0x43 -> :sswitch_34b
+        0x48 -> :sswitch_338
+        0x4c -> :sswitch_31c
+        0x4d -> :sswitch_2e9
+        0x51 -> :sswitch_2b9
+        0x53 -> :sswitch_26d
+        0x54 -> :sswitch_238
+        0x56 -> :sswitch_220
+        0x61 -> :sswitch_1cc
+        0x63 -> :sswitch_18f
+        0x68 -> :sswitch_17d
+        0x6c -> :sswitch_161
+        0x6d -> :sswitch_12d
+        0x71 -> :sswitch_fa
+        0x73 -> :sswitch_ae
+        0x74 -> :sswitch_7e
+        0x76 -> :sswitch_6d
     .end sparse-switch
 .end method
 
 .method private static arcToBezier(Landroid/graphics/Path;DDDDDDDDD)V
-    .locals 62
+    .registers 81
     .param p0, "p"    # Landroid/graphics/Path;
     .param p1, "cx"    # D
     .param p3, "cy"    # D
@@ -2029,8 +2029,8 @@
     .local v17, "e1y":D
     .local v21, "ep1x":D
     .local v23, "eta1":D
-    :goto_0
-    if-ge v15, v4, :cond_0
+    :goto_50
+    if-ge v15, v4, :cond_115
 
     .line 826
     add-double v27, v23, v2
@@ -2313,7 +2313,7 @@
 
     .end local v43    # "i":I
     .local v0, "i":I
-    goto/16 :goto_0
+    goto/16 :goto_50
 
     .line 856
     .end local v0    # "i":I
@@ -2329,12 +2329,12 @@
     .restart local v9    # "sinTheta":D
     .local v11, "cosEta1":D
     .local v13, "sinEta1":D
-    :cond_0
+    :cond_115
     return-void
 .end method
 
 .method private static drawArc(Landroid/graphics/Path;FFFFFFFZZ)V
-    .locals 73
+    .registers 83
     .param p0, "p"    # Landroid/graphics/Path;
     .param p1, "x0"    # F
     .param p2, "y0"    # F
@@ -2485,7 +2485,7 @@
 
     cmpl-double v3, v7, v1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_67
 
     .line 740
     const-string v1, " Points are coincident"
@@ -2496,7 +2496,7 @@
     return-void
 
     .line 743
-    :cond_0
+    :cond_67
     const-wide/high16 v3, 0x3ff0000000000000L    # 1.0
 
     div-double/2addr v3, v7
@@ -2509,7 +2509,7 @@
     .local v57, "disc":D
     cmpg-double v3, v57, v1
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_b3
 
     .line 745
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2586,7 +2586,7 @@
     .end local v17    # "adjust":F
     .end local v59    # "dsq":D
     .restart local v7    # "dsq":D
-    :cond_1
+    :cond_b3
     move/from16 v12, p9
 
     move-wide/from16 v59, v7
@@ -2609,7 +2609,7 @@
     .local v7, "sdy":D
     move/from16 v0, p8
 
-    if-ne v0, v12, :cond_2
+    if-ne v0, v12, :cond_c8
 
     .line 757
     sub-double v16, v53, v7
@@ -2619,12 +2619,12 @@
     add-double v18, v55, v5
 
     .local v18, "cy":D
-    goto :goto_0
+    goto :goto_cc
 
     .line 760
     .end local v16    # "cx":D
     .end local v18    # "cy":D
-    :cond_2
+    :cond_c8
     add-double v16, v53, v7
 
     .line 761
@@ -2633,7 +2633,7 @@
 
     .line 764
     .restart local v18    # "cy":D
-    :goto_0
+    :goto_cc
     sub-double v1, v43, v18
 
     move-wide/from16 v61, v3
@@ -2670,17 +2670,17 @@
 
     cmpl-double v9, v5, v20
 
-    if-ltz v9, :cond_3
+    if-ltz v9, :cond_ea
 
     const/4 v9, 0x1
 
-    goto :goto_1
+    goto :goto_eb
 
-    :cond_3
+    :cond_ea
     const/4 v9, 0x0
 
-    :goto_1
-    if-eq v12, v9, :cond_5
+    :goto_eb
+    if-eq v12, v9, :cond_fd
 
     .line 770
     const-wide v22, 0x401921fb54442d18L    # 6.283185307179586
@@ -2689,20 +2689,20 @@
 
     cmpl-double v9, v5, v20
 
-    if-lez v9, :cond_4
+    if-lez v9, :cond_fb
 
     .line 771
     sub-double v5, v5, v22
 
-    goto :goto_2
+    goto :goto_fd
 
     .line 773
-    :cond_4
+    :cond_fb
     add-double v5, v5, v22
 
     .line 777
-    :cond_5
-    :goto_2
+    :cond_fd
+    :goto_fd
     move-wide/from16 v65, v3
 
     .end local v3    # "eta1":D
@@ -2778,7 +2778,7 @@
 .end method
 
 .method public static nodesToPath([Landroidx/core/graphics/PathParser$PathDataNode;Landroid/graphics/Path;)V
-    .locals 0
+    .registers 2
     .param p0, "node"    # [Landroidx/core/graphics/PathParser$PathDataNode;
     .param p1, "path"    # Landroid/graphics/Path;
     .annotation runtime Ljava/lang/Deprecated;
@@ -2794,7 +2794,7 @@
 
 # virtual methods
 .method public getParams()[F
-    .locals 1
+    .registers 2
 
     .line 411
     iget-object v0, p0, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
@@ -2803,7 +2803,7 @@
 .end method
 
 .method public getType()C
-    .locals 1
+    .registers 2
 
     .line 406
     iget-char v0, p0, Landroidx/core/graphics/PathParser$PathDataNode;->mType:C
@@ -2812,7 +2812,7 @@
 .end method
 
 .method public interpolatePathDataNode(Landroidx/core/graphics/PathParser$PathDataNode;Landroidx/core/graphics/PathParser$PathDataNode;F)V
-    .locals 4
+    .registers 8
     .param p1, "nodeFrom"    # Landroidx/core/graphics/PathParser$PathDataNode;
     .param p2, "nodeTo"    # Landroidx/core/graphics/PathParser$PathDataNode;
     .param p3, "fraction"    # F
@@ -2826,12 +2826,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_5
     iget-object v1, p1, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_21
 
     .line 454
     iget-object v1, p0, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
@@ -2859,10 +2859,10 @@
     .line 453
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 457
     .end local v0    # "i":I
-    :cond_0
+    :cond_21
     return-void
 .end method

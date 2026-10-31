@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(ZI)V
-    .locals 0
+    .registers 3
     .param p1, "isSticky"    # Z
     .param p2, "layoutInDisplayCutoutMode"    # I
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/TrustedWebActivityDisplayMode;
-    .locals 3
+    .registers 4
     .param p0, "bundle"    # Landroid/os/Bundle;
 
     .line 105
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public isSticky()Z
-    .locals 1
+    .registers 2
 
     .line 121
     iget-boolean v0, p0, Landroidx/browser/trusted/TrustedWebActivityDisplayMode$ImmersiveMode;->mIsSticky:Z
@@ -88,7 +88,7 @@
 .end method
 
 .method public layoutInDisplayCutoutMode()I
-    .locals 1
+    .registers 2
 
     .line 126
     iget v0, p0, Landroidx/browser/trusted/TrustedWebActivityDisplayMode$ImmersiveMode;->mLayoutInDisplayCutoutMode:I
@@ -97,7 +97,7 @@
 .end method
 
 .method public toBundle()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 112
     new-instance v0, Landroid/os/Bundle;

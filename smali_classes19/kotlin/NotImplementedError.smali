@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
 
     const-string v0, "message"
@@ -55,16 +55,16 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 15
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const-string p1, "An operation is not implemented."
 
-    :cond_0
+    :cond_6
     invoke-direct {p0, p1}, Lkotlin/NotImplementedError;-><init>(Ljava/lang/String;)V
 
     return-void

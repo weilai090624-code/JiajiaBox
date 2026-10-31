@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(IILkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 4
     .param p1, "startVersion"    # I
     .param p2, "endVersion"    # I
     .param p3, "migrateCallback"    # Lkotlin/jvm/functions/Function1;
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public final getMigrateCallback()Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -96,7 +96,7 @@
 .end method
 
 .method public migrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     .line 52

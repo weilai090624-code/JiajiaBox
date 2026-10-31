@@ -125,7 +125,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$8EhMoZj1auLXpzyRsc1_jfcsFYQ(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->builder$lambda$1(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroid/content/DialogInterface;I)V
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$gmDuuy0L0O0g_tpYhK-rQW-zuMU(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->builder$lambda$0(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroid/content/DialogInterface;I)V
 
@@ -141,7 +141,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
-    .locals 3
+    .registers 5
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -264,7 +264,7 @@
 .end method
 
 .method private static final builder$lambda$0(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
 
     .line 621
@@ -279,7 +279,7 @@
 .end method
 
 .method private static final builder$lambda$1(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
 
     .line 624
@@ -296,7 +296,7 @@
 
 # virtual methods
 .method public final getBinding()Lio/nekohasekai/sagernet/databinding/LayoutProgressListBinding;
-    .locals 1
+    .registers 2
 
     .line 618
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->binding:Lio/nekohasekai/sagernet/databinding/LayoutProgressListBinding;
@@ -305,7 +305,7 @@
 .end method
 
 .method public final getBuilder()Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
-    .locals 1
+    .registers 2
 
     .line 619
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->builder:Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -314,7 +314,7 @@
 .end method
 
 .method public final getCancel()Lkotlin/jvm/functions/Function0;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -327,11 +327,11 @@
     .line 628
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->cancel:Lkotlin/jvm/functions/Function0;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "cancel"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -342,7 +342,7 @@
 .end method
 
 .method public final getDialogStatus()Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 1
+    .registers 2
 
     .line 631
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->dialogStatus:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -351,7 +351,7 @@
 .end method
 
 .method public final getFinishedN()Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 1
+    .registers 2
 
     .line 636
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->finishedN:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -360,7 +360,7 @@
 .end method
 
 .method public final getMinimize()Lkotlin/jvm/functions/Function0;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -373,11 +373,11 @@
     .line 629
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->minimize:Lkotlin/jvm/functions/Function0;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "minimize"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -388,7 +388,7 @@
 .end method
 
 .method public final getNotification()Lmoe/matsuri/nb4a/ui/ConnectionTestNotification;
-    .locals 1
+    .registers 2
 
     .line 632
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->notification:Lmoe/matsuri/nb4a/ui/ConnectionTestNotification;
@@ -397,7 +397,7 @@
 .end method
 
 .method public final getProxyN()I
-    .locals 1
+    .registers 2
 
     .line 635
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->proxyN:I
@@ -406,7 +406,7 @@
 .end method
 
 .method public final getResults()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -423,7 +423,7 @@
 .end method
 
 .method public final setCancel(Lkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -445,7 +445,7 @@
 .end method
 
 .method public final setMinimize(Lkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -467,7 +467,7 @@
 .end method
 
 .method public final setNotification(Lmoe/matsuri/nb4a/ui/ConnectionTestNotification;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lmoe/matsuri/nb4a/ui/ConnectionTestNotification;
 
     .line 632
@@ -477,7 +477,7 @@
 .end method
 
 .method public final setProxyN(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 635
@@ -487,7 +487,7 @@
 .end method
 
 .method public final update(Lio/nekohasekai/sagernet/database/ProxyEntity;)V
-    .locals 3
+    .registers 5
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     const-string v0, "profile"
@@ -503,7 +503,7 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_13
 
     .line 640
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->results:Ljava/util/Set;
@@ -511,7 +511,7 @@
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 642
-    :cond_0
+    :cond_13
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;

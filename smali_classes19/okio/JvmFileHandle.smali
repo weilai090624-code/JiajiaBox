@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(ZLjava/io/RandomAccessFile;)V
-    .locals 1
+    .registers 4
     .param p1, "readWrite"    # Z
     .param p2, "randomAccessFile"    # Ljava/io/RandomAccessFile;
 
@@ -70,17 +70,17 @@
 
 # virtual methods
 .method protected declared-synchronized protectedClose()V
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 78
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokio/JvmFileHandle;->randomAccessFile:Ljava/io/RandomAccessFile;
 
     invoke-virtual {v0}, Ljava/io/RandomAccessFile;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_1 .. :try_end_6} :catchall_8
 
     .line 79
     monitor-exit p0
@@ -89,24 +89,24 @@
 
     .line 77
     .end local p0    # "this":Lokio/JvmFileHandle;
-    :catchall_0
+    :catchall_8
     move-exception v0
 
-    :try_start_1
+    :try_start_9
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_a
+    .catchall {:try_start_9 .. :try_end_a} :catchall_8
 
     throw v0
 .end method
 
 .method protected declared-synchronized protectedFlush()V
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 73
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokio/JvmFileHandle;->randomAccessFile:Ljava/io/RandomAccessFile;
 
     invoke-virtual {v0}, Ljava/io/RandomAccessFile;->getFD()Ljava/io/FileDescriptor;
@@ -114,8 +114,8 @@
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/io/FileDescriptor;->sync()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_1 .. :try_end_a} :catchall_c
 
     .line 74
     monitor-exit p0
@@ -124,19 +124,19 @@
 
     .line 72
     .end local p0    # "this":Lokio/JvmFileHandle;
-    :catchall_0
+    :catchall_c
     move-exception v0
 
-    :try_start_1
+    :try_start_d
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_e
+    .catchall {:try_start_d .. :try_end_e} :catchall_c
 
     throw v0
 .end method
 
 .method protected declared-synchronized protectedRead(J[BII)I
-    .locals 3
+    .registers 9
     .param p1, "fileOffset"    # J
     .param p3, "array"    # [B
     .param p4, "arrayOffset"    # I
@@ -144,7 +144,7 @@
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "array"
 
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -159,8 +159,8 @@
 
     .line 49
     .local v0, "bytesRead":I
-    :goto_0
-    if-ge v0, p5, :cond_2
+    :goto_c
+    if-ge v0, p5, :cond_20
 
     .line 50
     iget-object v1, p0, Lokio/JvmFileHandle;->randomAccessFile:Ljava/io/RandomAccessFile;
@@ -170,37 +170,37 @@
     invoke-virtual {v1, p3, p4, v2}, Ljava/io/RandomAccessFile;->read([BII)I
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_1 .. :try_end_16} :catchall_22
 
     .line 51
     .local v1, "readResult":I
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1e
 
     .line 52
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     monitor-exit p0
 
     return v2
 
     .line 53
-    :cond_0
-    goto :goto_1
+    :cond_1d
+    goto :goto_20
 
     .line 55
-    :cond_1
+    :cond_1e
     add-int/2addr v0, v1
 
     .end local v1    # "readResult":I
-    goto :goto_0
+    goto :goto_c
 
     .line 57
     .end local p0    # "this":Lokio/JvmFileHandle;
-    :cond_2
-    :goto_1
+    :cond_20
+    :goto_20
     monitor-exit p0
 
     return v0
@@ -211,25 +211,25 @@
     .end local p3    # "array":[B
     .end local p4    # "arrayOffset":I
     .end local p5    # "byteCount":I
-    :catchall_0
+    :catchall_22
     move-exception p1
 
-    :try_start_1
+    :try_start_23
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_24
+    .catchall {:try_start_23 .. :try_end_24} :catchall_22
 
     throw p1
 .end method
 
 .method protected declared-synchronized protectedResize(J)V
-    .locals 10
+    .registers 13
     .param p1, "size"    # J
 
     monitor-enter p0
 
     .line 26
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lokio/JvmFileHandle;->size()J
 
     move-result-wide v0
@@ -244,7 +244,7 @@
 
     cmp-long v4, v8, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_18
 
     .line 29
     long-to-int v2, v8
@@ -261,19 +261,19 @@
 
     invoke-virtual/range {v2 .. v7}, Lokio/JvmFileHandle;->protectedWrite(J[BII)V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 31
     .end local p0    # "this":Lokio/JvmFileHandle;
-    :cond_0
+    :cond_18
     iget-object v2, p0, Lokio/JvmFileHandle;->randomAccessFile:Ljava/io/RandomAccessFile;
 
     invoke-virtual {v2, p1, p2}, Ljava/io/RandomAccessFile;->setLength(J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_1 .. :try_end_1d} :catchall_1f
 
     .line 33
-    :goto_0
+    :goto_1d
     monitor-exit p0
 
     return-void
@@ -282,31 +282,31 @@
     .end local v0    # "currentSize":J
     .end local v8    # "delta":J
     .end local p1    # "size":J
-    :catchall_0
+    :catchall_1f
     move-exception p1
 
-    :try_start_1
+    :try_start_20
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_21
+    .catchall {:try_start_20 .. :try_end_21} :catchall_1f
 
     throw p1
 .end method
 
 .method protected declared-synchronized protectedSize()J
-    .locals 2
+    .registers 3
 
     monitor-enter p0
 
     .line 37
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokio/JvmFileHandle;->randomAccessFile:Ljava/io/RandomAccessFile;
 
     invoke-virtual {v0}, Ljava/io/RandomAccessFile;->length()J
 
     move-result-wide v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     monitor-exit p0
 
@@ -314,19 +314,19 @@
 
     .line 37
     .end local p0    # "this":Lokio/JvmFileHandle;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method
 
 .method protected declared-synchronized protectedWrite(J[BII)V
-    .locals 1
+    .registers 7
     .param p1, "fileOffset"    # J
     .param p3, "array"    # [B
     .param p4, "arrayOffset"    # I
@@ -334,7 +334,7 @@
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "array"
 
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -348,8 +348,8 @@
     iget-object v0, p0, Lokio/JvmFileHandle;->randomAccessFile:Ljava/io/RandomAccessFile;
 
     invoke-virtual {v0, p3, p4, p5}, Ljava/io/RandomAccessFile;->write([BII)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_1 .. :try_end_10} :catchall_12
 
     .line 69
     monitor-exit p0
@@ -362,13 +362,13 @@
     .end local p3    # "array":[B
     .end local p4    # "arrayOffset":I
     .end local p5    # "byteCount":I
-    :catchall_0
+    :catchall_12
     move-exception p1
 
-    :try_start_1
+    :try_start_13
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_14
+    .catchall {:try_start_13 .. :try_end_14} :catchall_12
 
     throw p1
 .end method

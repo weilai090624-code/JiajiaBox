@@ -89,7 +89,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 83
     const v0, 0x10100a0
@@ -120,7 +120,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     .line 134
@@ -302,7 +302,7 @@
     .line 157
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a8
 
     .line 158
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
@@ -314,12 +314,12 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
     .line 177
-    :cond_0
+    :cond_a8
     return-void
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/navigation/NavigationBarItemView;)Landroid/widget/ImageView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/navigation/NavigationBarItemView;
 
     .line 81
@@ -329,7 +329,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/navigation/NavigationBarItemView;Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/navigation/NavigationBarItemView;
     .param p1, "x1"    # Landroid/view/View;
 
@@ -340,7 +340,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/android/material/navigation/NavigationBarItemView;I)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/navigation/NavigationBarItemView;
     .param p1, "x1"    # I
 
@@ -351,7 +351,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/android/material/navigation/NavigationBarItemView;FF)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Lcom/google/android/material/navigation/NavigationBarItemView;
     .param p1, "x1"    # F
     .param p2, "x2"    # F
@@ -363,7 +363,7 @@
 .end method
 
 .method private calculateTextScaleFactors(FF)V
-    .locals 2
+    .registers 5
     .param p1, "smallLabelSize"    # F
     .param p2, "largeLabelSize"    # F
 
@@ -393,7 +393,7 @@
 .end method
 
 .method private static createItemBackgroundCompat(Landroid/content/res/ColorStateList;)Landroid/graphics/drawable/Drawable;
-    .locals 3
+    .registers 4
     .param p0, "rippleColor"    # Landroid/content/res/ColorStateList;
 
     .line 745
@@ -418,7 +418,7 @@
 .end method
 
 .method private getCustomParentForBadge(Landroid/view/View;)Landroid/widget/FrameLayout;
-    .locals 2
+    .registers 4
     .param p1, "anchorView"    # Landroid/view/View;
 
     .line 956
@@ -426,12 +426,12 @@
 
     const/4 v1, 0x0
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_13
 
     .line 957
     sget-boolean v0, Lcom/google/android/material/badge/BadgeUtils;->USE_COMPAT_PARENT:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
 
@@ -443,35 +443,35 @@
 
     check-cast v1, Landroid/widget/FrameLayout;
 
-    :cond_0
+    :cond_12
     return-object v1
 
     .line 960
-    :cond_1
+    :cond_13
     return-object v1
 .end method
 
 .method private getIconOrContainer()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 246
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->iconContainer:Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->iconContainer:Landroid/widget/FrameLayout;
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method
 
 .method private getItemVisiblePosition()I
-    .locals 6
+    .registers 7
 
     .line 525
     invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->getParent()Landroid/view/ViewParent;
@@ -495,8 +495,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_c
+    if-ge v3, v1, :cond_21
 
     .line 529
     invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -507,32 +507,32 @@
     .local v4, "child":Landroid/view/View;
     instance-of v5, v4, Lcom/google/android/material/navigation/NavigationBarItemView;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1e
 
     invoke-virtual {v4}, Landroid/view/View;->getVisibility()I
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1e
 
     .line 531
     add-int/lit8 v2, v2, 0x1
 
     .line 528
     .end local v4    # "child":Landroid/view/View;
-    :cond_0
+    :cond_1e
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 534
     .end local v3    # "i":I
-    :cond_1
+    :cond_21
     return v2
 .end method
 
 .method private getSuggestedIconHeight()I
-    .locals 4
+    .registers 5
 
     .line 978
     const/4 v0, 0x0
@@ -541,7 +541,7 @@
     .local v0, "badgeHeight":I
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     .line 980
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
@@ -553,7 +553,7 @@
     div-int/lit8 v0, v1, 0x2
 
     .line 986
-    :cond_0
+    :cond_d
     invoke-direct {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->getIconOrContainer()Landroid/view/View;
 
     move-result-object v1
@@ -586,20 +586,20 @@
 .end method
 
 .method private getSuggestedIconWidth()I
-    .locals 4
+    .registers 5
 
     .line 965
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 966
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_13
 
     .line 967
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
     invoke-virtual {v0}, Lcom/google/android/material/badge/BadgeDrawable;->getMinimumWidth()I
@@ -614,7 +614,7 @@
 
     sub-int/2addr v0, v1
 
-    :goto_0
+    :goto_13
     nop
 
     .line 971
@@ -660,75 +660,75 @@
 .end method
 
 .method private hasBadge()Z
-    .locals 1
+    .registers 2
 
     .line 915
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method private isActiveIndicatorResizeableAndUnlabeled()Z
-    .locals 2
+    .registers 3
 
     .line 829
     iget-boolean v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorResizeable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->labelVisibilityMode:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method private maybeAnimateActiveIndicatorToProgress(F)V
-    .locals 5
+    .registers 7
     .param p1, "newProgress"    # F
 
     .line 349
     iget-boolean v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorEnabled:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_6a
 
     iget-boolean v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->initialized:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_6a
 
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
-    goto :goto_0
+    goto :goto_6a
 
     .line 354
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 355
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorAnimator:Landroid/animation/ValueAnimator;
@@ -741,7 +741,7 @@
     iput-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorAnimator:Landroid/animation/ValueAnimator;
 
     .line 358
-    :cond_1
+    :cond_1b
     iget v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorProgress:F
 
     const/4 v1, 0x2
@@ -826,14 +826,15 @@
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorAnimator:Landroid/animation/ValueAnimator;
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
     .line 378
     return-void
 
     .line 350
-    :cond_2
-    :goto_0
+    :cond_6a
+    :goto_6a
     invoke-direct {p0, p1, p1}, Lcom/google/android/material/navigation/NavigationBarItemView;->setActiveIndicatorProgress(FF)V
 
     .line 351
@@ -841,12 +842,12 @@
 .end method
 
 .method private refreshChecked()V
-    .locals 1
+    .registers 2
 
     .line 387
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 388
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -858,12 +859,12 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/navigation/NavigationBarItemView;->setChecked(Z)V
 
     .line 390
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method private refreshItemBackground()V
-    .locals 7
+    .registers 8
 
     .line 701
     const/4 v0, 0x0
@@ -880,7 +881,7 @@
     .local v2, "defaultHighlightEnabled":Z
     iget-object v3, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemRippleColor:Landroid/content/res/ColorStateList;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_33
 
     .line 706
     invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->getActiveIndicatorDrawable()Landroid/graphics/drawable/Drawable;
@@ -891,20 +892,20 @@
     .local v3, "maskDrawable":Landroid/graphics/drawable/Drawable;
     iget-boolean v4, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorEnabled:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2b
 
     .line 709
     invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->getActiveIndicatorDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2b
 
     iget-object v4, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->iconContainer:Landroid/widget/FrameLayout;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2b
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2b
 
     .line 715
     const/4 v2, 0x0
@@ -925,11 +926,11 @@
 
     move-object v0, v4
 
-    goto :goto_0
+    goto :goto_33
 
     .line 721
-    :cond_0
-    if-nez v1, :cond_1
+    :cond_2b
+    if-nez v1, :cond_33
 
     .line 724
     iget-object v4, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemRippleColor:Landroid/content/res/ColorStateList;
@@ -940,11 +941,11 @@
 
     .line 729
     .end local v3    # "maskDrawable":Landroid/graphics/drawable/Drawable;
-    :cond_1
-    :goto_0
+    :cond_33
+    :goto_33
     iget-object v3, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->iconContainer:Landroid/widget/FrameLayout;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3c
 
     .line 730
     iget-object v3, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->iconContainer:Landroid/widget/FrameLayout;
@@ -952,7 +953,7 @@
     invoke-static {v3, v0}, Landroidx/core/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
     .line 732
-    :cond_2
+    :cond_3c
     invoke-static {p0, v1}, Landroidx/core/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
     .line 733
@@ -960,25 +961,25 @@
 
     const/16 v4, 0x1a
 
-    if-lt v3, v4, :cond_3
+    if-lt v3, v4, :cond_48
 
     .line 734
     invoke-virtual {p0, v2}, Lcom/google/android/material/navigation/NavigationBarItemView;->setDefaultFocusHighlightEnabled(Z)V
 
     .line 736
-    :cond_3
+    :cond_48
     return-void
 .end method
 
 .method private setActiveIndicatorProgress(FF)V
-    .locals 2
+    .registers 5
     .param p1, "progress"    # F
     .param p2, "target"    # F
 
     .line 338
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 339
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorTransform:Lcom/google/android/material/navigation/NavigationBarItemView$ActiveIndicatorTransform;
@@ -988,7 +989,7 @@
     invoke-virtual {v0, p1, p2, v1}, Lcom/google/android/material/navigation/NavigationBarItemView$ActiveIndicatorTransform;->updateForProgress(FFLandroid/view/View;)V
 
     .line 341
-    :cond_0
+    :cond_b
     iput p1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorProgress:F
 
     .line 342
@@ -996,7 +997,7 @@
 .end method
 
 .method private static setTextAppearanceWithoutFontScaling(Landroid/widget/TextView;I)V
-    .locals 3
+    .registers 5
     .param p0, "textView"    # Landroid/widget/TextView;
     .param p1, "textAppearance"    # I
 
@@ -1019,7 +1020,7 @@
 
     .line 656
     .local v0, "unscaledSize":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 657
     int-to-float v2, v0
@@ -1027,12 +1028,12 @@
     invoke-virtual {p0, v1, v2}, Landroid/widget/TextView;->setTextSize(IF)V
 
     .line 659
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method private static setViewScaleValues(Landroid/view/View;FFI)V
-    .locals 0
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "scaleX"    # F
     .param p2, "scaleY"    # F
@@ -1052,7 +1053,7 @@
 .end method
 
 .method private static setViewTopMarginAndGravity(Landroid/view/View;II)V
-    .locals 1
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "topMargin"    # I
     .param p2, "gravity"    # I
@@ -1082,7 +1083,7 @@
 .end method
 
 .method private tryAttachBadgeToAnchor(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "anchorView"    # Landroid/view/View;
 
     .line 927
@@ -1090,14 +1091,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 928
     return-void
 
     .line 930
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_7
+    if-eqz p1, :cond_19
 
     .line 932
     const/4 v0, 0x0
@@ -1119,12 +1120,12 @@
     invoke-static {v0, p1, v1}, Lcom/google/android/material/badge/BadgeUtils;->attachBadgeDrawable(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;Landroid/widget/FrameLayout;)V
 
     .line 938
-    :cond_1
+    :cond_19
     return-void
 .end method
 
 .method private tryRemoveBadgeFromAnchor(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "anchorView"    # Landroid/view/View;
 
     .line 941
@@ -1132,14 +1133,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 942
     return-void
 
     .line 944
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_7
+    if-eqz p1, :cond_15
 
     .line 946
     const/4 v0, 0x1
@@ -1155,7 +1156,7 @@
     invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeUtils;->detachBadgeDrawable(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;)V
 
     .line 951
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
@@ -1165,7 +1166,7 @@
 .end method
 
 .method private tryUpdateBadgeBounds(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "anchorView"    # Landroid/view/View;
 
     .line 919
@@ -1173,13 +1174,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 920
     return-void
 
     .line 922
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
     .line 923
@@ -1195,19 +1196,19 @@
 .end method
 
 .method private updateActiveIndicatorLayoutParams(I)V
-    .locals 3
+    .registers 5
     .param p1, "availableWidth"    # I
 
     .line 813
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorView:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 814
     return-void
 
     .line 817
-    :cond_0
+    :cond_5
     iget v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorDesiredWidth:I
 
     iget v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorMarginHorizontal:I
@@ -1240,16 +1241,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_22
 
     move v2, v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_22
     iget v2, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorDesiredHeight:I
 
-    :goto_0
+    :goto_24
     iput v2, v1, Landroid/widget/FrameLayout$LayoutParams;->height:I
 
     .line 824
@@ -1265,35 +1266,35 @@
 .end method
 
 .method private updateActiveIndicatorTransform()V
-    .locals 1
+    .registers 2
 
     .line 320
     invoke-direct {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->isActiveIndicatorResizeableAndUnlabeled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 321
     sget-object v0, Lcom/google/android/material/navigation/NavigationBarItemView;->ACTIVE_INDICATOR_UNLABELED_TRANSFORM:Lcom/google/android/material/navigation/NavigationBarItemView$ActiveIndicatorTransform;
 
     iput-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorTransform:Lcom/google/android/material/navigation/NavigationBarItemView$ActiveIndicatorTransform;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 323
-    :cond_0
+    :cond_b
     sget-object v0, Lcom/google/android/material/navigation/NavigationBarItemView;->ACTIVE_INDICATOR_LABELED_TRANSFORM:Lcom/google/android/material/navigation/NavigationBarItemView$ActiveIndicatorTransform;
 
     iput-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorTransform:Lcom/google/android/material/navigation/NavigationBarItemView$ActiveIndicatorTransform;
 
     .line 325
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method private static updateViewPaddingBottom(Landroid/view/View;I)V
-    .locals 3
+    .registers 5
     .param p0, "view"    # Landroid/view/View;
     .param p1, "paddingBottom"    # I
 
@@ -1323,7 +1324,7 @@
 
 # virtual methods
 .method clear()V
-    .locals 1
+    .registers 2
 
     .line 232
     invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->removeBadge()V
@@ -1348,17 +1349,17 @@
 .end method
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "ev"    # Landroid/view/MotionEvent;
 
     .line 880
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->iconContainer:Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-boolean v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 881
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->iconContainer:Landroid/widget/FrameLayout;
@@ -1366,7 +1367,7 @@
     invoke-virtual {v0, p1}, Landroid/widget/FrameLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     .line 883
-    :cond_0
+    :cond_d
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -1375,12 +1376,12 @@
 .end method
 
 .method public getActiveIndicatorDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 860
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorView:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 861
     const/4 v0, 0x0
@@ -1388,7 +1389,7 @@
     return-object v0
 
     .line 864
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -1399,7 +1400,7 @@
 .end method
 
 .method public getBadge()Lcom/google/android/material/badge/BadgeDrawable;
-    .locals 1
+    .registers 2
 
     .line 907
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
@@ -1408,7 +1409,7 @@
 .end method
 
 .method protected getItemBackgroundResId()I
-    .locals 1
+    .registers 2
 
     .line 997
     sget v0, Lcom/google/android/material/R$drawable;->mtrl_navigation_bar_item_background:I
@@ -1417,7 +1418,7 @@
 .end method
 
 .method public getItemData()Landroidx/appcompat/view/menu/MenuItemImpl;
-    .locals 1
+    .registers 2
 
     .line 276
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -1426,7 +1427,7 @@
 .end method
 
 .method protected getItemDefaultMarginResId()I
-    .locals 1
+    .registers 2
 
     .line 1007
     sget v0, Lcom/google/android/material/R$dimen;->mtrl_navigation_bar_item_default_margin:I
@@ -1438,7 +1439,7 @@
 .end method
 
 .method public getItemPosition()I
-    .locals 1
+    .registers 2
 
     .line 254
     iget v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemPosition:I
@@ -1447,7 +1448,7 @@
 .end method
 
 .method protected getSuggestedMinimumHeight()I
-    .locals 3
+    .registers 4
 
     .line 190
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->labelGroup:Landroid/view/ViewGroup;
@@ -1486,7 +1487,7 @@
 .end method
 
 .method protected getSuggestedMinimumWidth()I
-    .locals 3
+    .registers 4
 
     .line 181
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->labelGroup:Landroid/view/ViewGroup;
@@ -1528,7 +1529,7 @@
 .end method
 
 .method public initialize(Landroidx/appcompat/view/menu/MenuItemImpl;I)V
-    .locals 3
+    .registers 6
     .param p1, "itemData"    # Landroidx/appcompat/view/menu/MenuItemImpl;
     .param p2, "menuType"    # I
 
@@ -1586,7 +1587,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3d
 
     .line 207
     invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->getContentDescription()Ljava/lang/CharSequence;
@@ -1596,7 +1597,7 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/navigation/NavigationBarItemView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 211
-    :cond_0
+    :cond_3d
     invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->getTooltipText()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -1605,22 +1606,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_4c
 
     .line 212
     invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->getTooltipText()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_50
 
     .line 213
-    :cond_1
+    :cond_4c
     invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    :goto_0
+    :goto_50
     nop
 
     .line 216
@@ -1629,27 +1630,27 @@
 
     const/16 v2, 0x17
 
-    if-le v1, v2, :cond_2
+    if-le v1, v2, :cond_5a
 
     .line 217
     invoke-static {p0, v0}, Landroidx/appcompat/widget/TooltipCompat;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
     .line 219
-    :cond_2
+    :cond_5a
     invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->isVisible()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_62
 
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_64
 
-    :cond_3
+    :cond_62
     const/16 v1, 0x8
 
-    :goto_1
+    :goto_64
     invoke-virtual {p0, v1}, Lcom/google/android/material/navigation/NavigationBarItemView;->setVisibility(I)V
 
     .line 220
@@ -1662,7 +1663,7 @@
 .end method
 
 .method public onCreateDrawableState(I)[I
-    .locals 2
+    .registers 4
     .param p1, "extraSpace"    # I
 
     .line 577
@@ -1676,7 +1677,7 @@
     .local v0, "drawableState":[I
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -1684,7 +1685,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -1692,7 +1693,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     .line 579
     sget-object v1, Lcom/google/android/material/navigation/NavigationBarItemView;->CHECKED_STATE_SET:[I
@@ -1700,12 +1701,12 @@
     invoke-static {v0, v1}, Lcom/google/android/material/navigation/NavigationBarItemView;->mergeDrawableStates([I[I)[I
 
     .line 581
-    :cond_0
+    :cond_1f
     return-object v0
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 7
+    .registers 9
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 493
@@ -1714,7 +1715,7 @@
     .line 494
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
@@ -1722,7 +1723,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     .line 495
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -1743,7 +1744,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_27
 
     .line 497
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -1753,7 +1754,7 @@
     move-result-object v0
 
     .line 499
-    :cond_0
+    :cond_27
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1788,7 +1789,7 @@
 
     .line 502
     .end local v0    # "customContentDescription":Ljava/lang/CharSequence;
-    :cond_1
+    :cond_47
     invoke-static {p1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->wrap(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
     move-result-object v0
@@ -1828,7 +1829,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_6e
 
     .line 512
     const/4 v1, 0x0
@@ -1841,7 +1842,7 @@
     invoke-virtual {v0, v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->removeAction(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)Z
 
     .line 515
-    :cond_2
+    :cond_6e
     invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -1859,7 +1860,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 2
+    .registers 7
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -1884,7 +1885,7 @@
 .end method
 
 .method public prefersCondensedTitle()Z
-    .locals 1
+    .registers 2
 
     .line 609
     const/4 v0, 0x0
@@ -1893,7 +1894,7 @@
 .end method
 
 .method removeBadge()V
-    .locals 1
+    .registers 2
 
     .line 911
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
@@ -1905,19 +1906,19 @@
 .end method
 
 .method public setActiveIndicatorDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "activeIndicatorDrawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 869
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorView:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 870
     return-void
 
     .line 873
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -1930,7 +1931,7 @@
 .end method
 
 .method public setActiveIndicatorEnabled(Z)V
-    .locals 2
+    .registers 4
     .param p1, "enabled"    # Z
 
     .line 782
@@ -1942,33 +1943,33 @@
     .line 784
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorView:Landroid/view/View;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 785
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->activeIndicatorView:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/16 v1, 0x8
 
-    :goto_0
+    :goto_11
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 786
     invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->requestLayout()V
 
     .line 788
-    :cond_1
+    :cond_17
     return-void
 .end method
 
 .method public setActiveIndicatorHeight(I)V
-    .locals 1
+    .registers 3
     .param p1, "height"    # I
 
     .line 841
@@ -1986,7 +1987,7 @@
 .end method
 
 .method public setActiveIndicatorMarginHorizontal(I)V
-    .locals 1
+    .registers 3
     .param p1, "marginHorizontal"    # I
 
     .line 853
@@ -2004,7 +2005,7 @@
 .end method
 
 .method public setActiveIndicatorResizeable(Z)V
-    .locals 0
+    .registers 2
     .param p1, "resizeable"    # Z
 
     .line 888
@@ -2015,7 +2016,7 @@
 .end method
 
 .method public setActiveIndicatorWidth(I)V
-    .locals 1
+    .registers 3
     .param p1, "width"    # I
 
     .line 800
@@ -2033,28 +2034,28 @@
 .end method
 
 .method setBadge(Lcom/google/android/material/badge/BadgeDrawable;)V
-    .locals 2
+    .registers 4
     .param p1, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
 
     .line 892
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 893
     return-void
 
     .line 895
-    :cond_0
+    :cond_5
     invoke-direct {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->hasBadge()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 896
     const-string v0, "NavigationBar"
@@ -2069,13 +2070,13 @@
     invoke-direct {p0, v0}, Lcom/google/android/material/navigation/NavigationBarItemView;->tryRemoveBadgeFromAnchor(Landroid/view/View;)V
 
     .line 899
-    :cond_1
+    :cond_1b
     iput-object p1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
     .line 900
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     .line 901
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
@@ -2083,12 +2084,12 @@
     invoke-direct {p0, v0}, Lcom/google/android/material/navigation/NavigationBarItemView;->tryAttachBadgeToAnchor(Landroid/view/View;)V
 
     .line 903
-    :cond_2
+    :cond_26
     return-void
 .end method
 
 .method public setCheckable(Z)V
-    .locals 0
+    .registers 2
     .param p1, "checkable"    # Z
 
     .line 299
@@ -2099,7 +2100,7 @@
 .end method
 
 .method public setChecked(Z)V
-    .locals 8
+    .registers 10
     .param p1, "checked"    # Z
 
     .line 394
@@ -2161,18 +2162,18 @@
     .line 399
     const/high16 v0, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_3b
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_0
+    :cond_3b
     const/4 v1, 0x0
 
     .line 400
     .local v1, "newIndicatorProgress":F
-    :goto_0
+    :goto_3c
     invoke-direct {p0, v1}, Lcom/google/android/material/navigation/NavigationBarItemView;->maybeAnimateActiveIndicatorToProgress(F)V
 
     .line 402
@@ -2186,12 +2187,12 @@
 
     const/4 v6, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_156
 
-    goto/16 :goto_3
+    goto/16 :goto_14e
 
     .line 475
-    :pswitch_0
+    :pswitch_4c
     invoke-direct {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->getIconOrContainer()Landroid/view/View;
 
     move-result-object v0
@@ -2213,10 +2214,10 @@
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 478
-    goto/16 :goto_3
+    goto/16 :goto_14e
 
     .line 455
-    :pswitch_1
+    :pswitch_63
     iget-object v2, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->labelGroup:Landroid/view/ViewGroup;
 
     iget v3, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemPaddingBottom:I
@@ -2224,7 +2225,7 @@
     invoke-static {v2, v3}, Lcom/google/android/material/navigation/NavigationBarItemView;->updateViewPaddingBottom(Landroid/view/View;I)V
 
     .line 456
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_8b
 
     .line 458
     nop
@@ -2261,10 +2262,10 @@
 
     invoke-static {v0, v2, v3, v5}, Lcom/google/android/material/navigation/NavigationBarItemView;->setViewScaleValues(Landroid/view/View;FFI)V
 
-    goto/16 :goto_3
+    goto/16 :goto_14e
 
     .line 466
-    :cond_1
+    :cond_8b
     nop
 
     .line 467
@@ -2292,11 +2293,11 @@
     invoke-static {v2, v0, v0, v6}, Lcom/google/android/material/navigation/NavigationBarItemView;->setViewScaleValues(Landroid/view/View;FFI)V
 
     .line 471
-    goto/16 :goto_3
+    goto/16 :goto_14e
 
     .line 439
-    :pswitch_2
-    if-eqz p1, :cond_2
+    :pswitch_a5
+    if-eqz p1, :cond_be
 
     .line 441
     nop
@@ -2323,10 +2324,10 @@
 
     invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_d1
 
     .line 447
-    :cond_2
+    :cond_be
     invoke-direct {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->getIconOrContainer()Landroid/view/View;
 
     move-result-object v0
@@ -2346,22 +2347,22 @@
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 451
-    :goto_1
+    :goto_d1
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->smallLabel:Landroid/widget/TextView;
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 452
-    goto/16 :goto_3
+    goto/16 :goto_14e
 
     .line 404
-    :pswitch_3
+    :pswitch_d8
     iget-boolean v2, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->isShifting:Z
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_10e
 
     .line 405
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_f5
 
     .line 407
     nop
@@ -2388,10 +2389,10 @@
 
     invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_2
+    goto :goto_108
 
     .line 413
-    :cond_3
+    :cond_f5
     invoke-direct {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->getIconOrContainer()Landroid/view/View;
 
     move-result-object v0
@@ -2411,15 +2412,15 @@
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 417
-    :goto_2
+    :goto_108
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->smallLabel:Landroid/widget/TextView;
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_3
+    goto :goto_14e
 
     .line 419
-    :cond_4
+    :cond_10e
     iget-object v2, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->labelGroup:Landroid/view/ViewGroup;
 
     iget v3, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemPaddingBottom:I
@@ -2427,7 +2428,7 @@
     invoke-static {v2, v3}, Lcom/google/android/material/navigation/NavigationBarItemView;->updateViewPaddingBottom(Landroid/view/View;I)V
 
     .line 420
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_135
 
     .line 422
     nop
@@ -2464,10 +2465,10 @@
 
     invoke-static {v0, v2, v3, v5}, Lcom/google/android/material/navigation/NavigationBarItemView;->setViewScaleValues(Landroid/view/View;FFI)V
 
-    goto :goto_3
+    goto :goto_14e
 
     .line 430
-    :cond_5
+    :cond_135
     nop
 
     .line 431
@@ -2498,7 +2499,7 @@
     nop
 
     .line 484
-    :goto_3
+    :goto_14e
     invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->refreshDrawableState()V
 
     .line 488
@@ -2509,17 +2510,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_156
     .packed-switch -0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_d8
+        :pswitch_a5
+        :pswitch_63
+        :pswitch_4c
     .end packed-switch
 .end method
 
 .method public setEnabled(Z)V
-    .locals 2
+    .registers 4
     .param p1, "enabled"    # Z
 
     .line 561
@@ -2541,7 +2542,7 @@
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setEnabled(Z)V
 
     .line 566
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_23
 
     .line 567
     nop
@@ -2560,37 +2561,37 @@
     .line 567
     invoke-static {p0, v0}, Landroidx/core/view/ViewCompat;->setPointerIcon(Landroid/view/View;Landroidx/core/view/PointerIconCompat;)V
 
-    goto :goto_0
+    goto :goto_27
 
     .line 570
-    :cond_0
+    :cond_23
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Landroidx/core/view/ViewCompat;->setPointerIcon(Landroid/view/View;Landroidx/core/view/PointerIconCompat;)V
 
     .line 572
-    :goto_0
+    :goto_27
     return-void
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
+    .registers 5
     .param p1, "iconDrawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 589
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->originalIconDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 590
     return-void
 
     .line 594
-    :cond_0
+    :cond_5
     iput-object p1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->originalIconDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 595
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2a
 
     .line 596
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
@@ -2599,18 +2600,18 @@
 
     .line 598
     .local v0, "state":Landroid/graphics/drawable/Drawable$ConstantState;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     move-object v1, p1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_11
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    :goto_0
+    :goto_15
     invoke-static {v1}, Landroidx/core/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
@@ -2625,7 +2626,7 @@
     .line 600
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->iconTint:Landroid/content/res/ColorStateList;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2a
 
     .line 601
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->wrappedIconDrawable:Landroid/graphics/drawable/Drawable;
@@ -2636,7 +2637,7 @@
 
     .line 604
     .end local v0    # "state":Landroid/graphics/drawable/Drawable$ConstantState;
-    :cond_2
+    :cond_2a
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->icon:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -2646,7 +2647,7 @@
 .end method
 
 .method public setIconSize(I)V
-    .locals 2
+    .registers 4
     .param p1, "iconSize"    # I
 
     .line 626
@@ -2675,7 +2676,7 @@
 .end method
 
 .method public setIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 2
+    .registers 4
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
     .line 618
@@ -2684,11 +2685,11 @@
     .line 619
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->wrappedIconDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 620
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->wrappedIconDrawable:Landroid/graphics/drawable/Drawable;
@@ -2703,22 +2704,22 @@
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     .line 623
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public setItemBackground(I)V
-    .locals 1
+    .registers 3
     .param p1, "background"    # I
 
     .line 676
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -2729,7 +2730,7 @@
 
     .line 677
     .local v0, "backgroundDrawable":Landroid/graphics/drawable/Drawable;
-    :goto_0
+    :goto_c
     invoke-virtual {p0, v0}, Lcom/google/android/material/navigation/NavigationBarItemView;->setItemBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 678
@@ -2737,17 +2738,17 @@
 .end method
 
 .method public setItemBackground(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "background"    # Landroid/graphics/drawable/Drawable;
 
     .line 681
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 682
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
@@ -2763,7 +2764,7 @@
     move-result-object p1
 
     .line 684
-    :cond_0
+    :cond_14
     iput-object p1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemBackground:Landroid/graphics/drawable/Drawable;
 
     .line 685
@@ -2774,13 +2775,13 @@
 .end method
 
 .method public setItemPaddingBottom(I)V
-    .locals 1
+    .registers 3
     .param p1, "paddingBottom"    # I
 
     .line 774
     iget v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemPaddingBottom:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 775
     iput p1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemPaddingBottom:I
@@ -2789,18 +2790,18 @@
     invoke-direct {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->refreshChecked()V
 
     .line 778
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setItemPaddingTop(I)V
-    .locals 1
+    .registers 3
     .param p1, "paddingTop"    # I
 
     .line 766
     iget v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemPaddingTop:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 767
     iput p1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemPaddingTop:I
@@ -2809,12 +2810,12 @@
     invoke-direct {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->refreshChecked()V
 
     .line 770
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setItemPosition(I)V
-    .locals 0
+    .registers 2
     .param p1, "position"    # I
 
     .line 250
@@ -2825,7 +2826,7 @@
 .end method
 
 .method public setItemRippleColor(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1, "itemRippleColor"    # Landroid/content/res/ColorStateList;
 
     .line 689
@@ -2839,13 +2840,13 @@
 .end method
 
 .method public setLabelVisibilityMode(I)V
-    .locals 1
+    .registers 3
     .param p1, "mode"    # I
 
     .line 265
     iget v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->labelVisibilityMode:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_13
 
     .line 266
     iput p1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->labelVisibilityMode:I
@@ -2864,18 +2865,18 @@
     invoke-direct {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->refreshChecked()V
 
     .line 271
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public setShifting(Z)V
-    .locals 1
+    .registers 3
     .param p1, "shifting"    # Z
 
     .line 258
     iget-boolean v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->isShifting:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 259
     iput-boolean p1, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->isShifting:Z
@@ -2884,12 +2885,12 @@
     invoke-direct {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->refreshChecked()V
 
     .line 262
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setShortcut(ZC)V
-    .locals 0
+    .registers 3
     .param p1, "showShortcut"    # Z
     .param p2, "shortcutKey"    # C
 
@@ -2898,7 +2899,7 @@
 .end method
 
 .method public setTextAppearanceActive(I)V
-    .locals 3
+    .registers 5
     .param p1, "activeTextAppearance"    # I
 
     .line 638
@@ -2939,7 +2940,7 @@
 .end method
 
 .method public setTextAppearanceInactive(I)V
-    .locals 2
+    .registers 4
     .param p1, "inactiveTextAppearance"    # I
 
     .line 633
@@ -2967,11 +2968,11 @@
 .end method
 
 .method public setTextColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # Landroid/content/res/ColorStateList;
 
     .line 662
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 663
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->smallLabel:Landroid/widget/TextView;
@@ -2984,12 +2985,12 @@
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 666
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .locals 3
+    .registers 5
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 281
@@ -3005,7 +3006,7 @@
     .line 283
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -3017,17 +3018,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 284
-    :cond_0
+    :cond_1a
     invoke-virtual {p0, p1}, Lcom/google/android/material/navigation/NavigationBarItemView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 288
-    :cond_1
+    :cond_1d
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_35
 
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -3039,27 +3040,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2e
 
-    goto :goto_0
+    goto :goto_35
 
     .line 290
-    :cond_2
+    :cond_2e
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarItemView;->itemData:Landroidx/appcompat/view/menu/MenuItemImpl;
 
     invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuItemImpl;->getTooltipText()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_36
 
     .line 289
-    :cond_3
-    :goto_0
+    :cond_35
+    :goto_35
     move-object v0, p1
 
     .line 290
-    :goto_1
+    :goto_36
     nop
 
     .line 292
@@ -3068,18 +3069,18 @@
 
     const/16 v2, 0x17
 
-    if-le v1, v2, :cond_4
+    if-le v1, v2, :cond_40
 
     .line 293
     invoke-static {p0, v0}, Landroidx/appcompat/widget/TooltipCompat;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
     .line 295
-    :cond_4
+    :cond_40
     return-void
 .end method
 
 .method public showsIcon()Z
-    .locals 1
+    .registers 2
 
     .line 614
     const/4 v0, 0x1

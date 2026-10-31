@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/ranges/IntRange;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p1, "resultRange"    # Lkotlin/ranges/IntRange;
     .param p2, "resultIndices"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public final getResultIndices()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -112,7 +112,7 @@
 .end method
 
 .method public final getResultRange()Lkotlin/ranges/IntRange;
-    .locals 1
+    .registers 2
 
     .line 198
     iget-object v0, p0, Landroidx/room/AmbiguousColumnResolver$Match;->resultRange:Lkotlin/ranges/IntRange;

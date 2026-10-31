@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "out"    # Ljava/io/OutputStream;
 
     .line 42
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -50,7 +50,7 @@
 .end method
 
 .method public getCount()J
-    .locals 2
+    .registers 3
 
     .line 47
     iget-wide v0, p0, Lcom/google/common/io/CountingOutputStream;->count:J
@@ -59,7 +59,7 @@
 .end method
 
 .method public write(I)V
-    .locals 4
+    .registers 6
     .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -86,7 +86,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 4
+    .registers 8
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I

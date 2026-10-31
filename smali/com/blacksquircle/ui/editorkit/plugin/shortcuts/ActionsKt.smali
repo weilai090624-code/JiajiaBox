@@ -38,7 +38,7 @@
 
 # direct methods
 .method public static final getOnShortcutListener(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginContainer;)Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
-    .locals 1
+    .registers 2
     .param p0, "$this$onShortcutListener"    # Lcom/blacksquircle/ui/editorkit/plugin/base/PluginContainer;
 
     const-string v0, "<this>"
@@ -54,23 +54,23 @@
 
     check-cast v0, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ShortcutsPlugin;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ShortcutsPlugin;->getOnShortcutListener()Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_16
     return-object v0
 .end method
 
 .method public static final setOnShortcutListener(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginContainer;Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$onShortcutListener"    # Lcom/blacksquircle/ui/editorkit/plugin/base/PluginContainer;
     .param p1, "value"    # Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
 
@@ -87,20 +87,20 @@
 
     check-cast v0, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ShortcutsPlugin;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_11
     invoke-virtual {v0, p1}, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ShortcutsPlugin;->setOnShortcutListener(Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;)V
 
     .line 26
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method public static final shortcuts(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$shortcuts"    # Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -139,18 +139,18 @@
 .end method
 
 .method public static synthetic shortcuts$default(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 28
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     sget-object p1, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ActionsKt$shortcuts$1;->INSTANCE:Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ActionsKt$shortcuts$1;
 
     check-cast p1, Lkotlin/jvm/functions/Function1;
 
-    :cond_0
+    :cond_8
     invoke-static {p0, p1}, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ActionsKt;->shortcuts(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;Lkotlin/jvm/functions/Function1;)V
 
     return-void

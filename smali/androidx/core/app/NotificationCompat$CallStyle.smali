@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4584
     invoke-direct {p0}, Landroidx/core/app/NotificationCompat$Style;-><init>()V
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructor <init>(ILandroidx/core/app/Person;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .locals 2
+    .registers 8
     .param p1, "callType"    # I
     .param p2, "person"    # Landroidx/core/app/Person;
     .param p3, "hangUpIntent"    # Landroid/app/PendingIntent;
@@ -85,7 +85,7 @@
     invoke-direct {p0}, Landroidx/core/app/NotificationCompat$Style;-><init>()V
 
     .line 4670
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1a
 
     invoke-virtual {p2}, Landroidx/core/app/Person;->getName()Ljava/lang/CharSequence;
 
@@ -95,7 +95,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 4673
     iput p1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mCallType:I
@@ -116,7 +116,7 @@
     return-void
 
     .line 4671
-    :cond_0
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "person must have a non-empty a name"
@@ -127,7 +127,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/core/app/NotificationCompat$Builder;)V
-    .locals 0
+    .registers 2
     .param p1, "builder"    # Landroidx/core/app/NotificationCompat$Builder;
 
     .line 4592
@@ -141,7 +141,7 @@
 .end method
 
 .method public static forIncomingCall(Landroidx/core/app/Person;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$CallStyle;
-    .locals 7
+    .registers 10
     .param p0, "person"    # Landroidx/core/app/Person;
     .param p1, "declineIntent"    # Landroid/app/PendingIntent;
     .param p2, "answerIntent"    # Landroid/app/PendingIntent;
@@ -186,7 +186,7 @@
 .end method
 
 .method public static forOngoingCall(Landroidx/core/app/Person;Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$CallStyle;
-    .locals 7
+    .registers 9
     .param p0, "person"    # Landroidx/core/app/Person;
     .param p1, "hangUpIntent"    # Landroid/app/PendingIntent;
 
@@ -221,7 +221,7 @@
 .end method
 
 .method public static forScreeningCall(Landroidx/core/app/Person;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$CallStyle;
-    .locals 7
+    .registers 10
     .param p0, "person"    # Landroidx/core/app/Person;
     .param p1, "hangUpIntent"    # Landroid/app/PendingIntent;
     .param p2, "answerIntent"    # Landroid/app/PendingIntent;
@@ -266,12 +266,12 @@
 .end method
 
 .method private getDefaultText()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 4934
     iget v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mCallType:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_34
 
     .line 4945
     const/4 v0, 0x0
@@ -279,7 +279,7 @@
     return-object v0
 
     .line 4942
-    :pswitch_0
+    :pswitch_7
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mBuilder:Landroidx/core/app/NotificationCompat$Builder;
 
     iget-object v0, v0, Landroidx/core/app/NotificationCompat$Builder;->mContext:Landroid/content/Context;
@@ -297,7 +297,7 @@
     return-object v0
 
     .line 4939
-    :pswitch_1
+    :pswitch_16
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mBuilder:Landroidx/core/app/NotificationCompat$Builder;
 
     iget-object v0, v0, Landroidx/core/app/NotificationCompat$Builder;->mContext:Landroid/content/Context;
@@ -315,7 +315,7 @@
     return-object v0
 
     .line 4936
-    :pswitch_2
+    :pswitch_25
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mBuilder:Landroidx/core/app/NotificationCompat$Builder;
 
     iget-object v0, v0, Landroidx/core/app/NotificationCompat$Builder;->mContext:Landroid/content/Context;
@@ -332,20 +332,20 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_34
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_25
+        :pswitch_16
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method private isActionAddedByCallStyle(Landroidx/core/app/NotificationCompat$Action;)Z
-    .locals 2
+    .registers 4
     .param p1, "action"    # Landroidx/core/app/NotificationCompat$Action;
 
     .line 5008
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     invoke-virtual {p1}, Landroidx/core/app/NotificationCompat$Action;->getExtras()Landroid/os/Bundle;
 
@@ -357,21 +357,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method private makeAction(IILjava/lang/Integer;ILandroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$Action;
-    .locals 5
+    .registers 11
     .param p1, "icon"    # I
     .param p2, "title"    # I
     .param p3, "colorInt"    # Ljava/lang/Integer;
@@ -379,7 +379,7 @@
     .param p5, "intent"    # Landroid/app/PendingIntent;
 
     .line 4990
-    if-nez p3, :cond_0
+    if-nez p3, :cond_e
 
     .line 4991
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mBuilder:Landroidx/core/app/NotificationCompat$Builder;
@@ -395,7 +395,7 @@
     move-result-object p3
 
     .line 4993
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/text/SpannableStringBuilder;
 
     invoke-direct {v0}, Landroid/text/SpannableStringBuilder;-><init>()V
@@ -471,7 +471,7 @@
 .end method
 
 .method private makeAnswerAction()Landroidx/core/app/NotificationCompat$Action;
-    .locals 9
+    .registers 10
 
     .line 4971
     sget v0, Landroidx/core/R$drawable;->ic_call_answer_video_low:I
@@ -493,44 +493,44 @@
     .line 4978
     iget-object v2, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mAnswerIntent:Landroid/app/PendingIntent;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_f
 
     const/4 v2, 0x0
 
-    goto :goto_2
+    goto :goto_2c
 
     .line 4979
-    :cond_0
+    :cond_f
     iget-boolean v2, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mIsVideo:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_15
 
     move v4, v0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     move v4, v1
 
     .line 4980
-    :goto_0
+    :goto_16
     iget-boolean v2, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mIsVideo:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1e
 
     sget v2, Landroidx/core/R$string;->call_notification_answer_video_action:I
 
     move v5, v2
 
-    goto :goto_1
+    goto :goto_21
 
     .line 4981
-    :cond_2
+    :cond_1e
     sget v2, Landroidx/core/R$string;->call_notification_answer_action:I
 
     move v5, v2
 
-    :goto_1
+    :goto_21
     iget-object v6, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mAnswerButtonColor:Ljava/lang/Integer;
 
     sget v7, Landroidx/core/R$color;->call_notification_answer_color:I
@@ -544,12 +544,12 @@
 
     move-result-object v2
 
-    :goto_2
+    :goto_2c
     return-object v2
 .end method
 
 .method private makeNegativeAction()Landroidx/core/app/NotificationCompat$Action;
-    .locals 7
+    .registers 8
 
     .line 4951
     sget v0, Landroidx/core/R$drawable;->ic_call_decline_low:I
@@ -564,7 +564,7 @@
     .line 4955
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mDeclineIntent:Landroid/app/PendingIntent;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 4956
     sget v3, Landroidx/core/R$string;->call_notification_hang_up_action:I
@@ -586,7 +586,7 @@
     return-object v1
 
     .line 4961
-    :cond_0
+    :cond_18
     sget v3, Landroidx/core/R$string;->call_notification_decline_action:I
 
     iget-object v4, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mDeclineButtonColor:Ljava/lang/Integer;
@@ -609,7 +609,7 @@
 
 # virtual methods
 .method public addCompatExtras(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 4796
@@ -632,14 +632,14 @@
     .line 4802
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     .line 4803
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_2b
 
     .line 4804
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
@@ -658,10 +658,10 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 4807
-    :cond_0
+    :cond_2b
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
 
     invoke-virtual {v0}, Landroidx/core/app/Person;->toBundle()Landroid/os/Bundle;
@@ -673,18 +673,18 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 4810
-    :cond_1
-    :goto_0
+    :cond_36
+    :goto_36
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mVerificationIcon:Landroidx/core/graphics/drawable/IconCompat;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5f
 
     .line 4811
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_54
 
     .line 4812
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mVerificationIcon:Landroidx/core/graphics/drawable/IconCompat;
@@ -707,10 +707,10 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    goto :goto_1
+    goto :goto_5f
 
     .line 4815
-    :cond_2
+    :cond_54
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mVerificationIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     .line 4816
@@ -724,8 +724,8 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 4819
-    :cond_3
-    :goto_1
+    :cond_5f
+    :goto_5f
     const-string v0, "android.verificationText"
 
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mVerificationText:Ljava/lang/CharSequence;
@@ -756,7 +756,7 @@
     .line 4823
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mAnswerButtonColor:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_8a
 
     .line 4824
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mAnswerButtonColor:Ljava/lang/Integer;
@@ -770,10 +770,10 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 4826
-    :cond_4
+    :cond_8a
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mDeclineButtonColor:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_99
 
     .line 4827
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mDeclineButtonColor:Ljava/lang/Integer;
@@ -787,12 +787,12 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 4829
-    :cond_5
+    :cond_99
     return-void
 .end method
 
 .method public apply(Landroidx/core/app/NotificationBuilderWithBuilderAccessor;)V
-    .locals 5
+    .registers 7
     .param p1, "builderAccessor"    # Landroidx/core/app/NotificationBuilderWithBuilderAccessor;
 
     .line 4845
@@ -800,7 +800,7 @@
 
     const/16 v1, 0x1f
 
-    if-lt v0, v1, :cond_5
+    if-lt v0, v1, :cond_9d
 
     .line 4846
     const/4 v0, 0x0
@@ -809,7 +809,7 @@
     .local v0, "style":Landroid/app/Notification$CallStyle;
     iget v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mCallType:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_11a
 
     .line 4861
     const/4 v1, 0x3
@@ -820,7 +820,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5d
 
     .line 4862
     new-instance v1, Ljava/lang/StringBuilder;
@@ -851,10 +851,10 @@
     .line 4862
     invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_5d
 
     .line 4857
-    :pswitch_0
+    :pswitch_32
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
 
     invoke-virtual {v1}, Landroidx/core/app/Person;->toAndroidPerson()Landroid/app/Person;
@@ -870,10 +870,10 @@
     move-result-object v0
 
     .line 4859
-    goto :goto_0
+    goto :goto_5d
 
     .line 4853
-    :pswitch_1
+    :pswitch_41
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
 
     invoke-virtual {v1}, Landroidx/core/app/Person;->toAndroidPerson()Landroid/app/Person;
@@ -887,10 +887,10 @@
     move-result-object v0
 
     .line 4855
-    goto :goto_0
+    goto :goto_5d
 
     .line 4849
-    :pswitch_2
+    :pswitch_4e
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
 
     invoke-virtual {v1}, Landroidx/core/app/Person;->toAndroidPerson()Landroid/app/Person;
@@ -909,9 +909,9 @@
     nop
 
     .line 4867
-    :cond_0
-    :goto_0
-    if-eqz v0, :cond_4
+    :cond_5d
+    :goto_5d
+    if-eqz v0, :cond_9b
 
     .line 4868
     invoke-interface {p1}, Landroidx/core/app/NotificationBuilderWithBuilderAccessor;->getBuilder()Landroid/app/Notification$Builder;
@@ -923,7 +923,7 @@
     .line 4869
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mAnswerButtonColor:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_73
 
     .line 4870
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mAnswerButtonColor:Ljava/lang/Integer;
@@ -935,10 +935,10 @@
     invoke-static {v0, v1}, Landroidx/core/app/NotificationCompat$CallStyle$Api31Impl;->setAnswerButtonColorHint(Landroid/app/Notification$CallStyle;I)Landroid/app/Notification$CallStyle;
 
     .line 4872
-    :cond_1
+    :cond_73
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mDeclineButtonColor:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_80
 
     .line 4873
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mDeclineButtonColor:Ljava/lang/Integer;
@@ -950,7 +950,7 @@
     invoke-static {v0, v1}, Landroidx/core/app/NotificationCompat$CallStyle$Api31Impl;->setDeclineButtonColorHint(Landroid/app/Notification$CallStyle;I)Landroid/app/Notification$CallStyle;
 
     .line 4875
-    :cond_2
+    :cond_80
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mVerificationText:Ljava/lang/CharSequence;
 
     invoke-static {v0, v1}, Landroidx/core/app/NotificationCompat$CallStyle$Api31Impl;->setVerificationText(Landroid/app/Notification$CallStyle;Ljava/lang/CharSequence;)Landroid/app/Notification$CallStyle;
@@ -958,7 +958,7 @@
     .line 4876
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mVerificationIcon:Landroidx/core/graphics/drawable/IconCompat;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_96
 
     .line 4877
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mVerificationIcon:Landroidx/core/graphics/drawable/IconCompat;
@@ -976,18 +976,18 @@
     invoke-static {v0, v1}, Landroidx/core/app/NotificationCompat$CallStyle$Api31Impl;->setVerificationIcon(Landroid/app/Notification$CallStyle;Landroid/graphics/drawable/Icon;)Landroid/app/Notification$CallStyle;
 
     .line 4880
-    :cond_3
+    :cond_96
     iget-boolean v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mIsVideo:Z
 
     invoke-static {v0, v1}, Landroidx/core/app/NotificationCompat$CallStyle$Api31Impl;->setIsVideo(Landroid/app/Notification$CallStyle;Z)Landroid/app/Notification$CallStyle;
 
     .line 4882
     .end local v0    # "style":Landroid/app/Notification$CallStyle;
-    :cond_4
-    goto/16 :goto_4
+    :cond_9b
+    goto/16 :goto_119
 
     .line 4887
-    :cond_5
+    :cond_9d
     invoke-interface {p1}, Landroidx/core/app/NotificationBuilderWithBuilderAccessor;->getBuilder()Landroid/app/Notification$Builder;
 
     move-result-object v0
@@ -998,7 +998,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_ad
 
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
 
@@ -1006,14 +1006,14 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_ae
 
-    :cond_6
+    :cond_ad
     move-object v1, v2
 
     .line 4891
     .local v1, "title":Ljava/lang/CharSequence;
-    :goto_1
+    :goto_ae
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     .line 4896
@@ -1021,7 +1021,7 @@
 
     iget-object v3, v3, Landroidx/core/app/NotificationCompat$Builder;->mExtras:Landroid/os/Bundle;
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_cc
 
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mBuilder:Landroidx/core/app/NotificationCompat$Builder;
 
@@ -1033,7 +1033,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_cc
 
     .line 4897
     iget-object v2, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mBuilder:Landroidx/core/app/NotificationCompat$Builder;
@@ -1044,15 +1044,15 @@
 
     move-result-object v2
 
-    goto :goto_2
+    goto :goto_cd
 
-    :cond_7
+    :cond_cc
     nop
 
     .line 4898
     .local v2, "text":Ljava/lang/CharSequence;
-    :goto_2
-    if-nez v2, :cond_8
+    :goto_cd
+    if-nez v2, :cond_d3
 
     .line 4899
     invoke-direct {p0}, Landroidx/core/app/NotificationCompat$CallStyle;->getDefaultText()Ljava/lang/String;
@@ -1060,20 +1060,20 @@
     move-result-object v2
 
     .line 4901
-    :cond_8
+    :cond_d3
     invoke-virtual {v0, v2}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     .line 4904
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_113
 
     .line 4906
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v4, 0x17
 
-    if-lt v3, v4, :cond_9
+    if-lt v3, v4, :cond_f9
 
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
 
@@ -1081,7 +1081,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_f9
 
     .line 4907
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
@@ -1103,12 +1103,12 @@
     invoke-static {v0, v3}, Landroidx/core/app/NotificationCompat$CallStyle$Api23Impl;->setLargeIcon(Landroid/app/Notification$Builder;Landroid/graphics/drawable/Icon;)V
 
     .line 4912
-    :cond_9
+    :cond_f9
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v4, 0x1c
 
-    if-lt v3, v4, :cond_a
+    if-lt v3, v4, :cond_109
 
     .line 4913
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
@@ -1119,10 +1119,10 @@
 
     invoke-static {v0, v3}, Landroidx/core/app/NotificationCompat$CallStyle$Api28Impl;->addPerson(Landroid/app/Notification$Builder;Landroid/app/Person;)Landroid/app/Notification$Builder;
 
-    goto :goto_3
+    goto :goto_113
 
     .line 4914
-    :cond_a
+    :cond_109
     nop
 
     .line 4915
@@ -1135,8 +1135,8 @@
     invoke-static {v0, v3}, Landroidx/core/app/NotificationCompat$CallStyle$Api21Impl;->addPerson(Landroid/app/Notification$Builder;Ljava/lang/String;)Landroid/app/Notification$Builder;
 
     .line 4922
-    :cond_b
-    :goto_3
+    :cond_113
+    :goto_113
     nop
 
     .line 4923
@@ -1148,19 +1148,19 @@
     .end local v0    # "builder":Landroid/app/Notification$Builder;
     .end local v1    # "title":Ljava/lang/CharSequence;
     .end local v2    # "text":Ljava/lang/CharSequence;
-    :goto_4
+    :goto_119
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_11a
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4e
+        :pswitch_41
+        :pswitch_32
     .end packed-switch
 .end method
 
 .method public displayCustomViewInline()Z
-    .locals 1
+    .registers 2
 
     .line 4752
     const/4 v0, 0x1
@@ -1169,7 +1169,7 @@
 .end method
 
 .method public getActionsListWithSystemActions()Ljava/util/ArrayList;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1204,7 +1204,7 @@
 
     .line 5028
     .local v3, "resultActions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/core/app/NotificationCompat$Action;>;"
-    if-lez v2, :cond_0
+    if-lez v2, :cond_16
 
     .line 5029
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1213,7 +1213,7 @@
     add-int/lit8 v2, v2, -0x1
 
     .line 5034
-    :cond_0
+    :cond_16
     iget-object v4, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mBuilder:Landroidx/core/app/NotificationCompat$Builder;
 
     iget-object v4, v4, Landroidx/core/app/NotificationCompat$Builder;->mActions:Ljava/util/ArrayList;
@@ -1222,19 +1222,19 @@
     .local v4, "existingActions":Ljava/util/List;, "Ljava/util/List<Landroidx/core/app/NotificationCompat$Action;>;"
     const/4 v5, 0x1
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_4f
 
     .line 5036
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
-    :goto_0
+    :goto_21
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_4f
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1248,26 +1248,26 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_37
 
     .line 5039
     invoke-virtual {v3, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_45
 
     .line 5040
-    :cond_1
+    :cond_37
     invoke-direct {p0, v7}, Landroidx/core/app/NotificationCompat$CallStyle;->isActionAddedByCallStyle(Landroidx/core/app/NotificationCompat$Action;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_3e
 
-    goto :goto_1
+    goto :goto_45
 
     .line 5046
-    :cond_2
-    if-le v2, v5, :cond_3
+    :cond_3e
+    if-le v2, v5, :cond_45
 
     .line 5047
     invoke-virtual {v3, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1276,11 +1276,11 @@
     add-int/lit8 v2, v2, -0x1
 
     .line 5052
-    :cond_3
-    :goto_1
-    if-eqz v1, :cond_4
+    :cond_45
+    :goto_45
+    if-eqz v1, :cond_4e
 
-    if-ne v2, v5, :cond_4
+    if-ne v2, v5, :cond_4e
 
     .line 5053
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1290,25 +1290,25 @@
 
     .line 5056
     .end local v7    # "action":Landroidx/core/app/NotificationCompat$Action;
-    :cond_4
-    goto :goto_0
+    :cond_4e
+    goto :goto_21
 
     .line 5059
-    :cond_5
-    if-eqz v1, :cond_6
+    :cond_4f
+    if-eqz v1, :cond_56
 
-    if-lt v2, v5, :cond_6
+    if-lt v2, v5, :cond_56
 
     .line 5060
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 5062
-    :cond_6
+    :cond_56
     return-object v3
 .end method
 
 .method protected getClassName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 4837
     const-string v0, "androidx.core.app.NotificationCompat$CallStyle"
@@ -1317,7 +1317,7 @@
 .end method
 
 .method protected restoreFromCompatExtras(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 4761
@@ -1346,7 +1346,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_2f
 
     .line 4766
     const-string v0, "android.callPerson"
@@ -1355,7 +1355,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2f
 
     .line 4767
     nop
@@ -1374,17 +1374,17 @@
 
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
 
-    goto :goto_0
+    goto :goto_41
 
     .line 4770
-    :cond_0
+    :cond_2f
     const-string v0, "android.callPersonCompat"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_41
 
     .line 4771
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
@@ -1398,13 +1398,13 @@
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mPerson:Landroidx/core/app/Person;
 
     .line 4773
-    :cond_1
-    :goto_0
+    :cond_41
+    :goto_41
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_5c
 
     const-string v0, "android.verificationIcon"
 
@@ -1412,7 +1412,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5c
 
     .line 4774
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -1427,17 +1427,17 @@
 
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mVerificationIcon:Landroidx/core/graphics/drawable/IconCompat;
 
-    goto :goto_1
+    goto :goto_6f
 
     .line 4776
-    :cond_2
+    :cond_5c
     const-string v0, "android.verificationIconCompat"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6f
 
     .line 4777
     nop
@@ -1455,8 +1455,8 @@
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mVerificationIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     .line 4781
-    :cond_3
-    :goto_1
+    :cond_6f
+    :goto_6f
     const-string v0, "android.verificationText"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
@@ -1507,7 +1507,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_a7
 
     .line 4786
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -1518,12 +1518,12 @@
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_a8
 
-    :cond_4
+    :cond_a7
     move-object v0, v2
 
-    :goto_2
+    :goto_a8
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mAnswerButtonColor:Ljava/lang/Integer;
 
     .line 4787
@@ -1533,7 +1533,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_bb
 
     .line 4788
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -1544,12 +1544,12 @@
 
     move-result-object v2
 
-    goto :goto_3
+    goto :goto_bc
 
-    :cond_5
+    :cond_bb
     nop
 
-    :goto_3
+    :goto_bc
     iput-object v2, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mDeclineButtonColor:Ljava/lang/Integer;
 
     .line 4789
@@ -1557,7 +1557,7 @@
 .end method
 
 .method public setAnswerButtonColorHint(I)Landroidx/core/app/NotificationCompat$CallStyle;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 4729
@@ -1572,7 +1572,7 @@
 .end method
 
 .method public setDeclineButtonColorHint(I)Landroidx/core/app/NotificationCompat$CallStyle;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 4741
@@ -1587,7 +1587,7 @@
 .end method
 
 .method public setIsVideo(Z)Landroidx/core/app/NotificationCompat$CallStyle;
-    .locals 0
+    .registers 2
     .param p1, "isVideo"    # Z
 
     .line 4686
@@ -1598,7 +1598,7 @@
 .end method
 
 .method public setVerificationIcon(Landroid/graphics/Bitmap;)Landroidx/core/app/NotificationCompat$CallStyle;
-    .locals 1
+    .registers 3
     .param p1, "verificationIcon"    # Landroid/graphics/Bitmap;
 
     .line 4708
@@ -1613,23 +1613,23 @@
 .end method
 
 .method public setVerificationIcon(Landroid/graphics/drawable/Icon;)Landroidx/core/app/NotificationCompat$CallStyle;
-    .locals 1
+    .registers 3
     .param p1, "verificationIcon"    # Landroid/graphics/drawable/Icon;
 
     .line 4697
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 4698
-    :cond_0
+    :cond_4
     invoke-static {p1}, Landroidx/core/graphics/drawable/IconCompat;->createFromIcon(Landroid/graphics/drawable/Icon;)Landroidx/core/graphics/drawable/IconCompat;
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$CallStyle;->mVerificationIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     .line 4699
@@ -1637,7 +1637,7 @@
 .end method
 
 .method public setVerificationText(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$CallStyle;
-    .locals 0
+    .registers 2
     .param p1, "verificationText"    # Ljava/lang/CharSequence;
 
     .line 4718

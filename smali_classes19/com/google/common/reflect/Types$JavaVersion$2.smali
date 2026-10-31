@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 575
     const/4 v0, 0x0
@@ -29,13 +29,13 @@
 
 # virtual methods
 .method newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 3
     .param p1, "componentType"    # Ljava/lang/reflect/Type;
 
     .line 578
     instance-of v0, p1, Ljava/lang/Class;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 579
     move-object v0, p1
@@ -49,7 +49,7 @@
     return-object v0
 
     .line 581
-    :cond_0
+    :cond_c
     new-instance v0, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;
 
     invoke-direct {v0, p1}, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;-><init>(Ljava/lang/reflect/Type;)V
@@ -58,7 +58,7 @@
 .end method
 
 .method usedInGenericType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/reflect/Type;
 
     .line 587

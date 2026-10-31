@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method static parkNanos(Ljava/lang/Object;J)V
-    .locals 2
+    .registers 5
     .param p0, "blocker"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation

@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 2273
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$CleanupMapTask;->mapReference:Ljava/lang/ref/WeakReference;
@@ -71,7 +71,7 @@
 
     .line 2274
     .local v0, "map":Lcom/google/common/collect/MapMakerInternalMap;, "Lcom/google/common/collect/MapMakerInternalMap<****>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 2278
     iget-object v1, v0, Lcom/google/common/collect/MapMakerInternalMap;->segments:[Lcom/google/common/collect/MapMakerInternalMap$Segment;
@@ -80,8 +80,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_e
+    if-ge v3, v2, :cond_18
 
     aget-object v4, v1, v3
 
@@ -93,14 +93,14 @@
     .end local v4    # "segment":Lcom/google/common/collect/MapMakerInternalMap$Segment;, "Lcom/google/common/collect/MapMakerInternalMap$Segment<****>;"
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 2281
-    :cond_0
+    :cond_18
     return-void
 
     .line 2275
-    :cond_1
+    :cond_19
     new-instance v1, Ljava/util/concurrent/CancellationException;
 
     invoke-direct {v1}, Ljava/util/concurrent/CancellationException;-><init>()V

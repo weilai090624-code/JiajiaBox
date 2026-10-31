@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/random/Random$Default;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,7 +96,7 @@
 .end method
 
 .method public static final synthetic access$getDefaultRandom$cp()Lkotlin/random/Random;
-    .locals 1
+    .registers 1
 
     .line 19
     sget-object v0, Lkotlin/random/Random;->defaultRandom:Lkotlin/random/Random;
@@ -105,32 +105,32 @@
 .end method
 
 .method public static synthetic nextBytes$default(Lkotlin/random/Random;[BIIILjava/lang/Object;)[B
-    .locals 0
+    .registers 6
 
     .line 221
-    if-nez p5, :cond_2
+    if-nez p5, :cond_11
 
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_7
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_7
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     array-length p3, p1
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2, p3}, Lkotlin/random/Random;->nextBytes([BII)[B
 
     move-result-object p0
 
     return-object p0
 
-    :cond_2
+    :cond_11
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: nextBytes"
@@ -146,7 +146,7 @@
 .end method
 
 .method public nextBoolean()Z
-    .locals 2
+    .registers 3
 
     .line 163
     const/4 v0, 0x1
@@ -155,19 +155,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public nextBytes(I)[B
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 260
@@ -181,7 +181,7 @@
 .end method
 
 .method public nextBytes([B)[B
-    .locals 2
+    .registers 4
     .param p1, "array"    # [B
 
     const-string v0, "array"
@@ -201,7 +201,7 @@
 .end method
 
 .method public nextBytes([BII)[B
-    .locals 8
+    .registers 12
     .param p1, "array"    # [B
     .param p2, "fromIndex"    # I
     .param p3, "toIndex"    # I
@@ -215,60 +215,60 @@
 
     const/4 v1, 0x0
 
-    if-ltz p2, :cond_0
+    if-ltz p2, :cond_e
 
     array-length v2, p1
 
-    if-gt p2, v2, :cond_0
+    if-gt p2, v2, :cond_e
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_f
+    if-eqz v2, :cond_1d
 
-    if-ltz p3, :cond_1
+    if-ltz p3, :cond_18
 
     array-length v2, p1
 
-    if-gt p3, v2, :cond_1
+    if-gt p3, v2, :cond_18
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v2, 0x0
 
-    :goto_1
-    if-eqz v2, :cond_2
+    :goto_19
+    if-eqz v2, :cond_1d
 
     const/4 v2, 0x1
 
-    goto :goto_2
+    goto :goto_1e
 
-    :cond_2
+    :cond_1d
     const/4 v2, 0x0
 
-    :goto_2
+    :goto_1e
     const-string v3, "fromIndex ("
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_99
 
     .line 223
-    if-gt p2, p3, :cond_3
+    if-gt p2, p3, :cond_25
 
-    goto :goto_3
+    goto :goto_26
 
-    :cond_3
+    :cond_25
     const/4 v0, 0x0
 
-    :goto_3
-    if-eqz v0, :cond_6
+    :goto_26
+    if-eqz v0, :cond_6d
 
     .line 225
     sub-int v0, p3, p2
@@ -285,8 +285,8 @@
     .line 228
     nop
 
-    :goto_4
-    if-ge v1, v0, :cond_4
+    :goto_2f
+    if-ge v1, v0, :cond_55
 
     move v3, v1
 
@@ -344,10 +344,10 @@
     .end local v5    # "v":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_2f
 
     .line 237
-    :cond_4
+    :cond_55
     sub-int v1, p3, v2
 
     .line 238
@@ -363,8 +363,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_5
-    if-ge v4, v1, :cond_5
+    :goto_5e
+    if-ge v4, v1, :cond_6c
 
     .line 240
     add-int v5, v2, v4
@@ -380,11 +380,11 @@
     .line 239
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_5
+    goto :goto_5e
 
     .line 243
     .end local v4    # "i":I
-    :cond_5
+    :cond_6c
     return-object p1
 
     .line 384
@@ -392,7 +392,7 @@
     .end local v1    # "remainder":I
     .end local v2    # "position":I
     .end local v3    # "vr":I
-    :cond_6
+    :cond_6d
     const/4 v0, 0x0
 
     .line 223
@@ -441,7 +441,7 @@
     throw v1
 
     .line 384
-    :cond_7
+    :cond_99
     const/4 v0, 0x0
 
     .line 222
@@ -503,7 +503,7 @@
 .end method
 
 .method public nextDouble()D
-    .locals 2
+    .registers 3
 
     .line 170
     const/16 v0, 0x1a
@@ -526,7 +526,7 @@
 .end method
 
 .method public nextDouble(D)D
-    .locals 2
+    .registers 5
     .param p1, "until"    # D
 
     .line 181
@@ -540,7 +540,7 @@
 .end method
 
 .method public nextDouble(DD)D
-    .locals 8
+    .registers 13
     .param p1, "from"    # D
     .param p3, "until"    # D
 
@@ -556,7 +556,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3f
 
     invoke-static {p1, p2}, Ljava/lang/Double;->isInfinite(D)Z
 
@@ -566,43 +566,43 @@
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     invoke-static {p1, p2}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_1c
+    if-eqz v2, :cond_3f
 
     invoke-static {p3, p4}, Ljava/lang/Double;->isInfinite(D)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2b
 
     invoke-static {p3, p4}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2b
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_1
+    :cond_2b
     const/4 v3, 0x0
 
-    :goto_1
-    if-eqz v3, :cond_2
+    :goto_2c
+    if-eqz v3, :cond_3f
 
     .line 198
     invoke-virtual {p0}, Lkotlin/random/Random;->nextDouble()D
@@ -628,10 +628,10 @@
     add-double/2addr v4, v2
 
     .end local v2    # "r1":D
-    goto :goto_2
+    goto :goto_47
 
     .line 201
-    :cond_2
+    :cond_3f
     invoke-virtual {p0}, Lkotlin/random/Random;->nextDouble()D
 
     move-result-wide v2
@@ -641,14 +641,14 @@
     add-double v4, p1, v2
 
     .line 197
-    :goto_2
+    :goto_47
     move-wide v2, v4
 
     .line 203
     .local v2, "r":D
     cmpl-double v4, v2, p3
 
-    if-ltz v4, :cond_3
+    if-ltz v4, :cond_53
 
     const-wide/high16 v4, -0x10000000000000L    # Double.NEGATIVE_INFINITY
 
@@ -656,17 +656,17 @@
 
     move-result-wide v4
 
-    goto :goto_3
+    goto :goto_54
 
-    :cond_3
+    :cond_53
     move-wide v4, v2
 
-    :goto_3
+    :goto_54
     return-wide v4
 .end method
 
 .method public nextFloat()F
-    .locals 2
+    .registers 3
 
     .line 211
     const/16 v0, 0x18
@@ -685,7 +685,7 @@
 .end method
 
 .method public nextInt()I
-    .locals 1
+    .registers 2
 
     .line 40
     const/16 v0, 0x20
@@ -698,7 +698,7 @@
 .end method
 
 .method public nextInt(I)I
-    .locals 1
+    .registers 3
     .param p1, "until"    # I
 
     .line 53
@@ -712,7 +712,7 @@
 .end method
 
 .method public nextInt(II)I
-    .locals 6
+    .registers 9
     .param p1, "from"    # I
     .param p2, "until"    # I
 
@@ -726,16 +726,16 @@
     .local v0, "n":I
     const/4 v1, 0x1
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_1b
 
     const/high16 v2, -0x80000000
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_d
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 81
-    :cond_0
+    :cond_d
     nop
 
     .line 82
@@ -747,26 +747,26 @@
     .local v2, "rnd":I
     const/4 v3, 0x0
 
-    if-gt p1, v2, :cond_1
+    if-gt p1, v2, :cond_18
 
-    if-ge v2, p2, :cond_1
+    if-ge v2, p2, :cond_18
 
     const/4 v3, 0x1
 
-    :cond_1
-    if-eqz v3, :cond_0
+    :cond_18
+    if-eqz v3, :cond_d
 
     return v2
 
     .line 68
     .end local v2    # "rnd":I
-    :cond_2
-    :goto_0
+    :cond_1b
+    :goto_1b
     neg-int v2, v0
 
     and-int/2addr v2, v0
 
-    if-ne v2, v0, :cond_3
+    if-ne v2, v0, :cond_28
 
     .line 69
     invoke-static {v0}, Lkotlin/random/RandomKt;->fastLog2(I)I
@@ -780,15 +780,15 @@
     move-result v1
 
     .end local v1    # "bitCount":I
-    goto :goto_1
+    goto :goto_38
 
     .line 72
-    :cond_3
+    :cond_28
     const/4 v2, 0x0
 
     .line 74
     .local v2, "v":I
-    :cond_4
+    :cond_29
     invoke-virtual {p0}, Lkotlin/random/Random;->nextInt()I
 
     move-result v3
@@ -806,7 +806,7 @@
 
     add-int/2addr v4, v5
 
-    if-ltz v4, :cond_4
+    if-ltz v4, :cond_29
 
     .line 77
     .end local v3    # "bits":I
@@ -814,7 +814,7 @@
 
     .line 68
     .end local v2    # "v":I
-    :goto_1
+    :goto_38
     nop
 
     .line 79
@@ -825,7 +825,7 @@
 .end method
 
 .method public nextLong()J
-    .locals 4
+    .registers 5
 
     .line 95
     invoke-virtual {p0}, Lkotlin/random/Random;->nextInt()I
@@ -850,7 +850,7 @@
 .end method
 
 .method public nextLong(J)J
-    .locals 2
+    .registers 5
     .param p1, "until"    # J
 
     .line 108
@@ -864,7 +864,7 @@
 .end method
 
 .method public nextLong(JJ)J
-    .locals 16
+    .registers 21
     .param p1, "from"    # J
     .param p3, "until"    # J
 
@@ -884,7 +884,7 @@
 
     cmp-long v6, v1, v4
 
-    if-lez v6, :cond_4
+    if-lez v6, :cond_63
 
     .line 123
     const-wide/16 v6, 0x0
@@ -897,7 +897,7 @@
 
     cmp-long v10, v8, v1
 
-    if-nez v10, :cond_2
+    if-nez v10, :cond_4b
 
     .line 125
     long-to-int v4, v1
@@ -917,7 +917,7 @@
     .line 128
     const-wide v10, 0xffffffffL
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
     .line 129
     invoke-static {v4}, Lkotlin/random/RandomKt;->fastLog2(I)I
@@ -935,11 +935,11 @@
     and-long/2addr v10, v12
 
     .end local v3    # "bitCount":I
-    goto :goto_0
+    goto :goto_49
 
     .line 133
-    :cond_0
-    if-ne v9, v3, :cond_1
+    :cond_2f
+    if-ne v9, v3, :cond_38
 
     .line 135
     invoke-virtual/range {p0 .. p0}, Lkotlin/random/Random;->nextInt()I
@@ -950,10 +950,10 @@
 
     and-long/2addr v10, v12
 
-    goto :goto_0
+    goto :goto_49
 
     .line 137
-    :cond_1
+    :cond_38
     invoke-static {v9}, Lkotlin/random/RandomKt;->fastLog2(I)I
 
     move-result v3
@@ -980,24 +980,24 @@
 
     .line 127
     .end local v3    # "bitCount":I
-    :goto_0
+    :goto_49
     move-wide v3, v10
 
     .end local v4    # "nLow":I
     .end local v6    # "rnd":J
     .end local v9    # "nHigh":I
     .local v3, "rnd":J
-    goto :goto_1
+    goto :goto_60
 
     .line 142
     .end local v3    # "rnd":J
     .restart local v6    # "rnd":J
-    :cond_2
+    :cond_4b
     const-wide/16 v8, 0x0
 
     .line 144
     .local v8, "v":J
-    :cond_3
+    :cond_4d
     invoke-virtual/range {p0 .. p0}, Lkotlin/random/Random;->nextLong()J
 
     move-result-wide v10
@@ -1019,7 +1019,7 @@
 
     cmp-long v14, v12, v4
 
-    if-ltz v14, :cond_3
+    if-ltz v14, :cond_4d
 
     .line 147
     .end local v10    # "bits":J
@@ -1029,14 +1029,14 @@
     .end local v6    # "rnd":J
     .end local v8    # "v":J
     .restart local v3    # "rnd":J
-    :goto_1
+    :goto_60
     add-long v5, p1, v3
 
     return-wide v5
 
     .line 151
     .end local v3    # "rnd":J
-    :cond_4
+    :cond_63
     nop
 
     .line 152
@@ -1050,16 +1050,16 @@
 
     cmp-long v7, p1, v4
 
-    if-gtz v7, :cond_5
+    if-gtz v7, :cond_72
 
     cmp-long v7, v4, p3
 
-    if-gez v7, :cond_5
+    if-gez v7, :cond_72
 
     const/4 v6, 0x1
 
-    :cond_5
-    if-eqz v6, :cond_4
+    :cond_72
+    if-eqz v6, :cond_63
 
     return-wide v4
 .end method

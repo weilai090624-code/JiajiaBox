@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final getViewModelScope(Landroidx/lifecycle/ViewModel;)Lkotlinx/coroutines/CoroutineScope;
-    .locals 5
+    .registers 6
     .param p0, "$this$viewModelScope"    # Landroidx/lifecycle/ViewModel;
 
     const-string v0, "<this>"
@@ -52,13 +52,13 @@
 
     .line 38
     .local v1, "scope":Lkotlinx/coroutines/CoroutineScope;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 39
     return-object v1
 
     .line 41
-    :cond_0
+    :cond_10
     nop
 
     .line 42

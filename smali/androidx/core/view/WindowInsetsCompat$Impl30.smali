@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1350
     sget-object v0, Landroid/view/WindowInsets;->CONSUMED:Landroid/view/WindowInsets;
@@ -35,7 +35,7 @@
 .end method
 
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroid/view/WindowInsets;)V
-    .locals 0
+    .registers 3
     .param p1, "host"    # Landroidx/core/view/WindowInsetsCompat;
     .param p2, "insets"    # Landroid/view/WindowInsets;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat$Impl30;)V
-    .locals 0
+    .registers 3
     .param p1, "host"    # Landroidx/core/view/WindowInsetsCompat;
     .param p2, "other"    # Landroidx/core/view/WindowInsetsCompat$Impl30;
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method final copyRootViewBounds(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "rootView"    # Landroid/view/View;
 
     .line 1387
@@ -69,7 +69,7 @@
 .end method
 
 .method public getInsets(I)Landroidx/core/graphics/Insets;
-    .locals 2
+    .registers 4
     .param p1, "typeMask"    # I
 
     .line 1363
@@ -93,7 +93,7 @@
 .end method
 
 .method public getInsetsIgnoringVisibility(I)Landroidx/core/graphics/Insets;
-    .locals 2
+    .registers 4
     .param p1, "typeMask"    # I
 
     .line 1371
@@ -117,7 +117,7 @@
 .end method
 
 .method public isVisible(I)Z
-    .locals 2
+    .registers 4
     .param p1, "typeMask"    # I
 
     .line 1378

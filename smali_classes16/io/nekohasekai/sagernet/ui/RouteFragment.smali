@@ -93,7 +93,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$btZIiUWyJs_6R_CYIg_pQtKoZG8(Lio/nekohasekai/sagernet/ui/RouteFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/RouteFragment;->onMenuItemClick$lambda$0(Lio/nekohasekai/sagernet/ui/RouteFragment;Landroid/content/DialogInterface;I)V
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 24
     const v0, 0x7f0d0058
@@ -112,7 +112,7 @@
 .end method
 
 .method private static final onMenuItemClick$lambda$0(Lio/nekohasekai/sagernet/ui/RouteFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment;
 
     .line 112
@@ -133,16 +133,16 @@
 
 # virtual methods
 .method public final getActivity()Lio/nekohasekai/sagernet/ui/MainActivity;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment;->activity:Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "activity"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -153,16 +153,16 @@
 .end method
 
 .method public final getRuleAdapter()Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
-    .locals 1
+    .registers 2
 
     .line 28
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment;->ruleAdapter:Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "ruleAdapter"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -173,16 +173,16 @@
 .end method
 
 .method public final getRuleListView()Landroidx/recyclerview/widget/RecyclerView;
-    .locals 1
+    .registers 2
 
     .line 27
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment;->ruleListView:Landroidx/recyclerview/widget/RecyclerView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "ruleListView"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -193,7 +193,7 @@
 .end method
 
 .method public final getUndoManager()Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -206,11 +206,11 @@
     .line 29
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment;->undoManager:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "undoManager"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -221,12 +221,12 @@
 .end method
 
 .method public onDestroy()V
-    .locals 2
+    .registers 3
 
     .line 97
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment;->ruleAdapter:Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 98
     sget-object v0, Lio/nekohasekai/sagernet/database/ProfileManager;->INSTANCE:Lio/nekohasekai/sagernet/database/ProfileManager;
@@ -240,7 +240,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/ProfileManager;->removeListener(Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;)V
 
     .line 100
-    :cond_0
+    :cond_f
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ToolbarFragment;->onDestroy()V
 
     .line 101
@@ -248,7 +248,7 @@
 .end method
 
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .locals 3
+    .registers 5
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -260,12 +260,12 @@
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_5e
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 109
-    :sswitch_0
+    :sswitch_d
     new-instance v0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/RouteFragment;->getActivity()Lio/nekohasekai/sagernet/ui/MainActivity;
@@ -312,10 +312,10 @@
     .line 119
     invoke-virtual {v0}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->show()Landroidx/appcompat/app/AlertDialog;
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 106
-    :sswitch_1
+    :sswitch_3e
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/RouteFragment;->getContext()Landroid/content/Context;
@@ -328,10 +328,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/RouteFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 122
-    :sswitch_2
+    :sswitch_4d
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/RouteFragment;->requireContext()Landroid/content/Context;
@@ -345,23 +345,23 @@
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/RouteFragment;->startActivity(Landroid/content/Intent;)V
 
     .line 125
-    :goto_0
+    :goto_5b
     const/4 v0, 0x1
 
     return v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_5e
     .sparse-switch
-        0x7f0a005a -> :sswitch_2
-        0x7f0a006a -> :sswitch_1
-        0x7f0a007c -> :sswitch_0
+        0x7f0a005a -> :sswitch_4d
+        0x7f0a006a -> :sswitch_3e
+        0x7f0a007c -> :sswitch_d
     .end sparse-switch
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 3
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -522,7 +522,7 @@
 .end method
 
 .method public final setActivity(Lio/nekohasekai/sagernet/ui/MainActivity;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/ui/MainActivity;
 
     const-string v0, "<set-?>"
@@ -536,7 +536,7 @@
 .end method
 
 .method public final setRuleAdapter(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
 
     const-string v0, "<set-?>"
@@ -550,7 +550,7 @@
 .end method
 
 .method public final setRuleListView(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/recyclerview/widget/RecyclerView;
 
     const-string v0, "<set-?>"
@@ -564,7 +564,7 @@
 .end method
 
 .method public final setUndoManager(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {

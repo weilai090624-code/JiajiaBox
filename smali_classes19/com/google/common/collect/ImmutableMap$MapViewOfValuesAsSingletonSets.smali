@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
-    .locals 0
+    .registers 2
 
     .line 829
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets;, "Lcom/google/common/collect/ImmutableMap<TK;TV;>.MapViewOfValuesAsSingletonSets;"
@@ -41,7 +41,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ImmutableMap;Lcom/google/common/collect/ImmutableMap$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/ImmutableMap;
     .param p2, "x1"    # Lcom/google/common/collect/ImmutableMap$1;
 
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -73,7 +73,7 @@
 .end method
 
 .method createKeySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -94,7 +94,7 @@
 .end method
 
 .method entryIterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -128,7 +128,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -156,23 +156,23 @@
 
     .line 851
     .local v0, "outerValue":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-static {v0}, Lcom/google/common/collect/ImmutableSet;->of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v1
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -190,7 +190,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 862
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets;, "Lcom/google/common/collect/ImmutableMap<TK;TV;>.MapViewOfValuesAsSingletonSets;"
@@ -204,7 +204,7 @@
 .end method
 
 .method isHashCodeFast()Z
-    .locals 1
+    .registers 2
 
     .line 867
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets;, "Lcom/google/common/collect/ImmutableMap<TK;TV;>.MapViewOfValuesAsSingletonSets;"
@@ -218,7 +218,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 856
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets;, "Lcom/google/common/collect/ImmutableMap<TK;TV;>.MapViewOfValuesAsSingletonSets;"
@@ -232,7 +232,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 834
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets;, "Lcom/google/common/collect/ImmutableMap<TK;TV;>.MapViewOfValuesAsSingletonSets;"

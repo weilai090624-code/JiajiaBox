@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 125
     new-instance v0, Lio/nekohasekai/sagernet/database/SubscriptionBean$1;
@@ -72,7 +72,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/Serializable;-><init>()V
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public deserializeFromBuffer(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -204,7 +204,7 @@
 .end method
 
 .method public deserializeFromShare(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -284,7 +284,7 @@
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 6
+    .registers 7
 
     .line 106
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->type:Ljava/lang/Integer;
@@ -301,73 +301,73 @@
     move-result-object v1
 
     .line 106
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->type:Ljava/lang/Integer;
 
     .line 107
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->link:Ljava/lang/String;
 
     const-string v3, ""
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     iput-object v3, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->link:Ljava/lang/String;
 
     .line 108
-    :cond_1
+    :cond_17
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->token:Ljava/lang/String;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1d
 
     iput-object v3, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->token:Ljava/lang/String;
 
     .line 109
-    :cond_2
+    :cond_1d
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->forceResolve:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_23
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->forceResolve:Ljava/lang/Boolean;
 
     .line 110
-    :cond_3
+    :cond_23
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->deduplication:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_29
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->deduplication:Ljava/lang/Boolean;
 
     .line 111
-    :cond_4
+    :cond_29
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->updateWhenConnectedOnly:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_2f
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->updateWhenConnectedOnly:Ljava/lang/Boolean;
 
     .line 112
-    :cond_5
+    :cond_2f
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->customUserAgent:Ljava/lang/String;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_35
 
     iput-object v3, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->customUserAgent:Ljava/lang/String;
 
     .line 113
-    :cond_6
+    :cond_35
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->autoUpdate:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_3b
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->autoUpdate:Ljava/lang/Boolean;
 
     .line 114
-    :cond_7
+    :cond_3b
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->autoUpdateDelay:Ljava/lang/Integer;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_47
 
     const/16 v0, 0x5a0
 
@@ -378,20 +378,20 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->autoUpdateDelay:Ljava/lang/Integer;
 
     .line 115
-    :cond_8
+    :cond_47
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->lastUpdated:Ljava/lang/Integer;
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_4d
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->lastUpdated:Ljava/lang/Integer;
 
     .line 117
-    :cond_9
+    :cond_4d
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->bytesUsed:Ljava/lang/Long;
 
     const-wide/16 v4, 0x0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_59
 
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -400,10 +400,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->bytesUsed:Ljava/lang/Long;
 
     .line 118
-    :cond_a
+    :cond_59
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->bytesRemaining:Ljava/lang/Long;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_63
 
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -412,26 +412,26 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->bytesRemaining:Ljava/lang/Long;
 
     .line 120
-    :cond_b
+    :cond_63
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->username:Ljava/lang/String;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_69
 
     iput-object v3, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->username:Ljava/lang/String;
 
     .line 121
-    :cond_c
+    :cond_69
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->expiryDate:Ljava/lang/Integer;
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_6f
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->expiryDate:Ljava/lang/Integer;
 
     .line 122
-    :cond_d
+    :cond_6f
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->protocols:Ljava/util/List;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_7a
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -440,12 +440,12 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->protocols:Ljava/util/List;
 
     .line 123
-    :cond_e
+    :cond_7a
     return-void
 .end method
 
 .method public serializeForShare(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -512,7 +512,7 @@
 .end method
 
 .method public serializeToBuffer(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

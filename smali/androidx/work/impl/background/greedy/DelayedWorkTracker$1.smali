@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/background/greedy/DelayedWorkTracker;Landroidx/work/impl/model/WorkSpec;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/background/greedy/DelayedWorkTracker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 74
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;

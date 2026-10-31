@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Lkotlinx/coroutines/CoroutineDispatcher;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public limitedParallelism(I)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 3
     .param p1, "parallelism"    # I
 
     .line 57
@@ -64,14 +64,14 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 54
     invoke-virtual {p0}, Lkotlinx/coroutines/MainCoroutineDispatcher;->toStringInternalImpl()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -103,12 +103,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_25
     return-object v0
 .end method
 
 .method protected final toStringInternalImpl()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 69
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getMain()Lkotlinx/coroutines/MainCoroutineDispatcher;
@@ -117,33 +117,33 @@
 
     .line 70
     .local v0, "main":Lkotlinx/coroutines/MainCoroutineDispatcher;
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_9
 
     const-string v1, "Dispatchers.Main"
 
     return-object v1
 
     .line 72
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_a
     invoke-virtual {v0}, Lkotlinx/coroutines/MainCoroutineDispatcher;->getImmediate()Lkotlinx/coroutines/MainCoroutineDispatcher;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_a .. :try_end_e} :catch_f
 
-    goto :goto_0
+    goto :goto_11
 
     .line 73
-    :catch_0
+    :catch_f
     move-exception v2
 
     move-object v2, v1
 
     .line 72
-    :goto_0
+    :goto_11
     nop
 
     .line 71
@@ -151,13 +151,13 @@
 
     .line 74
     .local v2, "immediate":Lkotlinx/coroutines/MainCoroutineDispatcher;
-    if-ne p0, v2, :cond_1
+    if-ne p0, v2, :cond_18
 
     const-string v1, "Dispatchers.Main.immediate"
 
     return-object v1
 
     .line 75
-    :cond_1
+    :cond_18
     return-object v1
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method private static final enumEntriesIntrinsic()Lkotlin/enums/EnumEntries;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

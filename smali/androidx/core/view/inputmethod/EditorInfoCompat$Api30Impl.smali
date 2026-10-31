@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 571
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getInitialSelectedText(Landroid/view/inputmethod/EditorInfo;I)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p0, "editorInfo"    # Landroid/view/inputmethod/EditorInfo;
     .param p1, "flags"    # I
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static getInitialTextAfterCursor(Landroid/view/inputmethod/EditorInfo;II)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 4
     .param p0, "editorInfo"    # Landroid/view/inputmethod/EditorInfo;
     .param p1, "length"    # I
     .param p2, "flags"    # I
@@ -52,7 +52,7 @@
 .end method
 
 .method static getInitialTextBeforeCursor(Landroid/view/inputmethod/EditorInfo;II)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 4
     .param p0, "editorInfo"    # Landroid/view/inputmethod/EditorInfo;
     .param p1, "length"    # I
     .param p2, "flags"    # I
@@ -66,7 +66,7 @@
 .end method
 
 .method static setInitialSurroundingSubText(Landroid/view/inputmethod/EditorInfo;Ljava/lang/CharSequence;I)V
-    .locals 0
+    .registers 3
     .param p0, "editorInfo"    # Landroid/view/inputmethod/EditorInfo;
     .param p1, "sourceText"    # Ljava/lang/CharSequence;
     .param p2, "subTextStart"    # I

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(D)I
-    .locals 2
+    .registers 4
 
     invoke-static {p0, p1}, Ljava/lang/Double;->doubleToLongBits(D)J
 

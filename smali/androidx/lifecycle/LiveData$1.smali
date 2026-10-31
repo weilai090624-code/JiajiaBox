@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/LiveData;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/lifecycle/LiveData;
 
     .line 84
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 89
     .local p0, "this":Landroidx/lifecycle/LiveData$1;, "Landroidx/lifecycle/LiveData$1;"
@@ -49,7 +49,7 @@
     monitor-enter v0
 
     .line 90
-    :try_start_0
+    :try_start_5
     iget-object v1, p0, Landroidx/lifecycle/LiveData$1;->this$0:Landroidx/lifecycle/LiveData;
 
     iget-object v1, v1, Landroidx/lifecycle/LiveData;->mPendingData:Ljava/lang/Object;
@@ -64,8 +64,8 @@
 
     .line 92
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_5 .. :try_end_10} :catchall_16
 
     .line 93
     iget-object v0, p0, Landroidx/lifecycle/LiveData$1;->this$0:Landroidx/lifecycle/LiveData;
@@ -77,13 +77,13 @@
 
     .line 92
     .end local v1    # "newValue":Ljava/lang/Object;
-    :catchall_0
+    :catchall_16
     move-exception v1
 
-    :try_start_1
+    :try_start_17
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_18
+    .catchall {:try_start_17 .. :try_end_18} :catchall_16
 
     throw v1
 .end method

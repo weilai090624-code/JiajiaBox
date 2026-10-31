@@ -33,7 +33,7 @@
 
 # direct methods
 .method public static final buildNaiveConfig(Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;I)Ljava/lang/String;
-    .locals 13
+    .registers 15
     .param p0, "$this$buildNaiveConfig"    # Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
     .param p1, "port"    # I
 
@@ -97,7 +97,7 @@
 
     const-string v7, "host-resolver-rules"
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_60
 
     .line 65
     new-instance v3, Ljava/lang/StringBuilder;
@@ -135,10 +135,10 @@
 
     iput-object v3, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->finalAddress:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_8f
 
     .line 68
-    :cond_0
+    :cond_60
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->serverAddress:Ljava/lang/String;
 
     invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -147,7 +147,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_8f
 
     .line 73
     new-instance v3, Ljava/lang/StringBuilder;
@@ -186,8 +186,8 @@
     iput-object v3, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->finalAddress:Ljava/lang/String;
 
     .line 78
-    :cond_1
-    :goto_0
+    :cond_8f
+    :goto_8f
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -234,7 +234,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_ed
 
     .line 81
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->extraHeaders:Ljava/lang/String;
@@ -292,14 +292,14 @@
     invoke-virtual {v1, v4, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 83
-    :cond_2
+    :cond_ed
     sget-object v3, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/database/DataStore;->getLogLevel()I
 
     move-result v3
 
-    if-lez v3, :cond_3
+    if-lez v3, :cond_fc
 
     .line 84
     const-string v3, "log"
@@ -309,14 +309,14 @@
     invoke-virtual {v1, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 86
-    :cond_3
+    :cond_fc
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->insecureConcurrency:Ljava/lang/Integer;
 
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
-    if-lez v3, :cond_4
+    if-lez v3, :cond_116
 
     .line 87
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->insecureConcurrency:Ljava/lang/Integer;
@@ -336,7 +336,7 @@
     invoke-virtual {v1, v4, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 89
-    :cond_4
+    :cond_116
     nop
 
     .line 58
@@ -354,7 +354,7 @@
 .end method
 
 .method public static final parseNaive(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
-    .locals 13
+    .registers 14
     .param p0, "link"    # Ljava/lang/String;
 
     const-string v0, "link"
@@ -410,7 +410,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_a4
 
     .line 13
     .local v2, "url":Lokhttp3/HttpUrl;
@@ -499,13 +499,13 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_87
 
     invoke-static {v6}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->unUrlSafe(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_87
 
     const/4 v11, 0x4
 
@@ -521,12 +521,12 @@
 
     move-result-object v6
 
-    goto :goto_0
+    goto :goto_88
 
-    :cond_0
+    :cond_87
     move-object v6, v1
 
-    :goto_0
+    :goto_88
     iput-object v6, v4, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->extraHeaders:Ljava/lang/String;
 
     .line 23
@@ -536,13 +536,13 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_96
 
     invoke-static {v6}, Lkotlin/text/StringsKt;->toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v1
 
-    :cond_1
+    :cond_96
     iput-object v1, v4, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->insecureConcurrency:Ljava/lang/Integer;
 
     .line 24
@@ -568,7 +568,7 @@
 
     .line 11
     .end local v2    # "url":Lokhttp3/HttpUrl;
-    :cond_2
+    :cond_a4
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 12
@@ -600,7 +600,7 @@
 .end method
 
 .method public static final toUri(Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;Z)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "$this$toUri"    # Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
     .param p1, "proxyOnly"    # Z
 
@@ -643,7 +643,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_48
 
     .line 32
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->username:Ljava/lang/String;
@@ -665,7 +665,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_48
 
     .line 34
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->password:Ljava/lang/String;
@@ -675,8 +675,8 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->password(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 37
-    :cond_0
-    if-nez p1, :cond_5
+    :cond_48
+    if-nez p1, :cond_b8
 
     .line 38
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->sni:Ljava/lang/String;
@@ -691,7 +691,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_5e
 
     .line 39
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->sni:Ljava/lang/String;
@@ -699,7 +699,7 @@
     invoke-virtual {v0, v2, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 41
-    :cond_1
+    :cond_5e
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->certificates:Ljava/lang/String;
 
     const-string v2, "certificates"
@@ -712,7 +712,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_74
 
     .line 42
     const-string v1, "cert"
@@ -722,7 +722,7 @@
     invoke-virtual {v0, v1, v2}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 44
-    :cond_2
+    :cond_74
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->extraHeaders:Ljava/lang/String;
 
     const-string v2, "extraHeaders"
@@ -735,7 +735,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_8a
 
     .line 45
     const-string v1, "extra-headers"
@@ -745,7 +745,7 @@
     invoke-virtual {v0, v1, v2}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 47
-    :cond_3
+    :cond_8a
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->name:Ljava/lang/String;
 
     const-string v2, "name"
@@ -758,7 +758,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_a5
 
     .line 48
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->name:Ljava/lang/String;
@@ -772,14 +772,14 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->encodedFragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 50
-    :cond_4
+    :cond_a5
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->insecureConcurrency:Ljava/lang/Integer;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    if-lez v1, :cond_5
+    if-lez v1, :cond_b8
 
     .line 51
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->insecureConcurrency:Ljava/lang/Integer;
@@ -793,14 +793,14 @@
     invoke-virtual {v0, v2, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 54
-    :cond_5
-    if-eqz p1, :cond_6
+    :cond_b8
+    if-eqz p1, :cond_bd
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->proto:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_d2
 
-    :cond_6
+    :cond_bd
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -821,7 +821,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d2
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     const/4 v2, 0x0
@@ -834,16 +834,16 @@
 .end method
 
 .method public static synthetic toUri$default(Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;ZILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 29
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/fmt/naive/NaiveFmtKt;->toUri(Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;Z)Ljava/lang/String;
 
     move-result-object p0

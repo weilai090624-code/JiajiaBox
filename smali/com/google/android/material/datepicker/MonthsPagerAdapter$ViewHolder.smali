@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/LinearLayout;Z)V
-    .locals 2
+    .registers 5
     .param p1, "container"    # Landroid/widget/LinearLayout;
     .param p2, "showLabel"    # Z
 
@@ -59,7 +59,7 @@
     iput-object v0, p0, Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;->monthGrid:Lcom/google/android/material/datepicker/MaterialCalendarGridView;
 
     .line 86
-    if-nez p2, :cond_0
+    if-nez p2, :cond_26
 
     .line 87
     iget-object v0, p0, Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;->monthTitle:Landroid/widget/TextView;
@@ -69,6 +69,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 89
-    :cond_0
+    :cond_26
     return-void
 .end method

@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(IIIIIIIIIIIIIIIIIIIIIIIIIIIII)V
-    .locals 16
+    .registers 46
     .param p1, "primary"    # I
     .param p2, "onPrimary"    # I
     .param p3, "primaryContainer"    # I
@@ -265,7 +265,7 @@
 .end method
 
 .method public static dark(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 1
+    .registers 2
     .param p0, "argb"    # I
 
     .line 133
@@ -281,7 +281,7 @@
 .end method
 
 .method public static darkContent(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 1
+    .registers 2
     .param p0, "argb"    # I
 
     .line 141
@@ -297,7 +297,7 @@
 .end method
 
 .method private static darkFromCorePalette(Lcom/google/android/material/color/utilities/CorePalette;)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 7
+    .registers 8
     .param p0, "core"    # Lcom/google/android/material/color/utilities/CorePalette;
 
     .line 178
@@ -645,7 +645,7 @@
 .end method
 
 .method public static light(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 1
+    .registers 2
     .param p0, "argb"    # I
 
     .line 129
@@ -661,7 +661,7 @@
 .end method
 
 .method public static lightContent(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 1
+    .registers 2
     .param p0, "argb"    # I
 
     .line 137
@@ -677,7 +677,7 @@
 .end method
 
 .method private static lightFromCorePalette(Lcom/google/android/material/color/utilities/CorePalette;)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 6
+    .registers 7
     .param p0, "core"    # Lcom/google/android/material/color/utilities/CorePalette;
 
     .line 145
@@ -1033,41 +1033,41 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 682
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 683
     return v0
 
     .line 685
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/android/material/color/utilities/Scheme;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 686
     return v2
 
     .line 688
-    :cond_1
+    :cond_a
     invoke-super {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_11
 
     .line 689
     return v2
 
     .line 692
-    :cond_2
+    :cond_11
     move-object v1, p1
 
     check-cast v1, Lcom/google/android/material/color/utilities/Scheme;
@@ -1078,326 +1078,326 @@
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->primary:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     .line 695
     return v2
 
     .line 697
-    :cond_3
+    :cond_1b
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onPrimary:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onPrimary:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_22
 
     .line 698
     return v2
 
     .line 700
-    :cond_4
+    :cond_22
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->primaryContainer:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->primaryContainer:I
 
-    if-eq v3, v4, :cond_5
+    if-eq v3, v4, :cond_29
 
     .line 701
     return v2
 
     .line 703
-    :cond_5
+    :cond_29
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onPrimaryContainer:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onPrimaryContainer:I
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_30
 
     .line 704
     return v2
 
     .line 706
-    :cond_6
+    :cond_30
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->secondary:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->secondary:I
 
-    if-eq v3, v4, :cond_7
+    if-eq v3, v4, :cond_37
 
     .line 707
     return v2
 
     .line 709
-    :cond_7
+    :cond_37
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onSecondary:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onSecondary:I
 
-    if-eq v3, v4, :cond_8
+    if-eq v3, v4, :cond_3e
 
     .line 710
     return v2
 
     .line 712
-    :cond_8
+    :cond_3e
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->secondaryContainer:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->secondaryContainer:I
 
-    if-eq v3, v4, :cond_9
+    if-eq v3, v4, :cond_45
 
     .line 713
     return v2
 
     .line 715
-    :cond_9
+    :cond_45
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onSecondaryContainer:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onSecondaryContainer:I
 
-    if-eq v3, v4, :cond_a
+    if-eq v3, v4, :cond_4c
 
     .line 716
     return v2
 
     .line 718
-    :cond_a
+    :cond_4c
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->tertiary:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->tertiary:I
 
-    if-eq v3, v4, :cond_b
+    if-eq v3, v4, :cond_53
 
     .line 719
     return v2
 
     .line 721
-    :cond_b
+    :cond_53
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onTertiary:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onTertiary:I
 
-    if-eq v3, v4, :cond_c
+    if-eq v3, v4, :cond_5a
 
     .line 722
     return v2
 
     .line 724
-    :cond_c
+    :cond_5a
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->tertiaryContainer:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->tertiaryContainer:I
 
-    if-eq v3, v4, :cond_d
+    if-eq v3, v4, :cond_61
 
     .line 725
     return v2
 
     .line 727
-    :cond_d
+    :cond_61
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onTertiaryContainer:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onTertiaryContainer:I
 
-    if-eq v3, v4, :cond_e
+    if-eq v3, v4, :cond_68
 
     .line 728
     return v2
 
     .line 730
-    :cond_e
+    :cond_68
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->error:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->error:I
 
-    if-eq v3, v4, :cond_f
+    if-eq v3, v4, :cond_6f
 
     .line 731
     return v2
 
     .line 733
-    :cond_f
+    :cond_6f
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onError:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onError:I
 
-    if-eq v3, v4, :cond_10
+    if-eq v3, v4, :cond_76
 
     .line 734
     return v2
 
     .line 736
-    :cond_10
+    :cond_76
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->errorContainer:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->errorContainer:I
 
-    if-eq v3, v4, :cond_11
+    if-eq v3, v4, :cond_7d
 
     .line 737
     return v2
 
     .line 739
-    :cond_11
+    :cond_7d
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onErrorContainer:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onErrorContainer:I
 
-    if-eq v3, v4, :cond_12
+    if-eq v3, v4, :cond_84
 
     .line 740
     return v2
 
     .line 742
-    :cond_12
+    :cond_84
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->background:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->background:I
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_8b
 
     .line 743
     return v2
 
     .line 745
-    :cond_13
+    :cond_8b
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onBackground:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onBackground:I
 
-    if-eq v3, v4, :cond_14
+    if-eq v3, v4, :cond_92
 
     .line 746
     return v2
 
     .line 748
-    :cond_14
+    :cond_92
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->surface:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->surface:I
 
-    if-eq v3, v4, :cond_15
+    if-eq v3, v4, :cond_99
 
     .line 749
     return v2
 
     .line 751
-    :cond_15
+    :cond_99
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onSurface:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onSurface:I
 
-    if-eq v3, v4, :cond_16
+    if-eq v3, v4, :cond_a0
 
     .line 752
     return v2
 
     .line 754
-    :cond_16
+    :cond_a0
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->surfaceVariant:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->surfaceVariant:I
 
-    if-eq v3, v4, :cond_17
+    if-eq v3, v4, :cond_a7
 
     .line 755
     return v2
 
     .line 757
-    :cond_17
+    :cond_a7
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->onSurfaceVariant:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->onSurfaceVariant:I
 
-    if-eq v3, v4, :cond_18
+    if-eq v3, v4, :cond_ae
 
     .line 758
     return v2
 
     .line 760
-    :cond_18
+    :cond_ae
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->outline:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->outline:I
 
-    if-eq v3, v4, :cond_19
+    if-eq v3, v4, :cond_b5
 
     .line 761
     return v2
 
     .line 763
-    :cond_19
+    :cond_b5
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->outlineVariant:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->outlineVariant:I
 
-    if-eq v3, v4, :cond_1a
+    if-eq v3, v4, :cond_bc
 
     .line 764
     return v2
 
     .line 766
-    :cond_1a
+    :cond_bc
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->shadow:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->shadow:I
 
-    if-eq v3, v4, :cond_1b
+    if-eq v3, v4, :cond_c3
 
     .line 767
     return v2
 
     .line 769
-    :cond_1b
+    :cond_c3
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->scrim:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->scrim:I
 
-    if-eq v3, v4, :cond_1c
+    if-eq v3, v4, :cond_ca
 
     .line 770
     return v2
 
     .line 772
-    :cond_1c
+    :cond_ca
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->inverseSurface:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->inverseSurface:I
 
-    if-eq v3, v4, :cond_1d
+    if-eq v3, v4, :cond_d1
 
     .line 773
     return v2
 
     .line 775
-    :cond_1d
+    :cond_d1
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->inverseOnSurface:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->inverseOnSurface:I
 
-    if-eq v3, v4, :cond_1e
+    if-eq v3, v4, :cond_d8
 
     .line 776
     return v2
 
     .line 778
-    :cond_1e
+    :cond_d8
     iget v3, p0, Lcom/google/android/material/color/utilities/Scheme;->inversePrimary:I
 
     iget v4, v1, Lcom/google/android/material/color/utilities/Scheme;->inversePrimary:I
 
-    if-eq v3, v4, :cond_1f
+    if-eq v3, v4, :cond_df
 
     .line 779
     return v2
 
     .line 782
-    :cond_1f
+    :cond_df
     return v0
 .end method
 
 .method public getBackground()I
-    .locals 1
+    .registers 2
 
     .line 435
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->background:I
@@ -1406,7 +1406,7 @@
 .end method
 
 .method public getError()I
-    .locals 1
+    .registers 2
 
     .line 379
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->error:I
@@ -1415,7 +1415,7 @@
 .end method
 
 .method public getErrorContainer()I
-    .locals 1
+    .registers 2
 
     .line 407
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->errorContainer:I
@@ -1424,7 +1424,7 @@
 .end method
 
 .method public getInverseOnSurface()I
-    .locals 1
+    .registers 2
 
     .line 589
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->inverseOnSurface:I
@@ -1433,7 +1433,7 @@
 .end method
 
 .method public getInversePrimary()I
-    .locals 1
+    .registers 2
 
     .line 603
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->inversePrimary:I
@@ -1442,7 +1442,7 @@
 .end method
 
 .method public getInverseSurface()I
-    .locals 1
+    .registers 2
 
     .line 575
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->inverseSurface:I
@@ -1451,7 +1451,7 @@
 .end method
 
 .method public getOnBackground()I
-    .locals 1
+    .registers 2
 
     .line 449
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onBackground:I
@@ -1460,7 +1460,7 @@
 .end method
 
 .method public getOnError()I
-    .locals 1
+    .registers 2
 
     .line 393
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onError:I
@@ -1469,7 +1469,7 @@
 .end method
 
 .method public getOnErrorContainer()I
-    .locals 1
+    .registers 2
 
     .line 421
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onErrorContainer:I
@@ -1478,7 +1478,7 @@
 .end method
 
 .method public getOnPrimary()I
-    .locals 1
+    .registers 2
 
     .line 225
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onPrimary:I
@@ -1487,7 +1487,7 @@
 .end method
 
 .method public getOnPrimaryContainer()I
-    .locals 1
+    .registers 2
 
     .line 253
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onPrimaryContainer:I
@@ -1496,7 +1496,7 @@
 .end method
 
 .method public getOnSecondary()I
-    .locals 1
+    .registers 2
 
     .line 281
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onSecondary:I
@@ -1505,7 +1505,7 @@
 .end method
 
 .method public getOnSecondaryContainer()I
-    .locals 1
+    .registers 2
 
     .line 309
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onSecondaryContainer:I
@@ -1514,7 +1514,7 @@
 .end method
 
 .method public getOnSurface()I
-    .locals 1
+    .registers 2
 
     .line 477
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onSurface:I
@@ -1523,7 +1523,7 @@
 .end method
 
 .method public getOnSurfaceVariant()I
-    .locals 1
+    .registers 2
 
     .line 505
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onSurfaceVariant:I
@@ -1532,7 +1532,7 @@
 .end method
 
 .method public getOnTertiary()I
-    .locals 1
+    .registers 2
 
     .line 337
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onTertiary:I
@@ -1541,7 +1541,7 @@
 .end method
 
 .method public getOnTertiaryContainer()I
-    .locals 1
+    .registers 2
 
     .line 365
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->onTertiaryContainer:I
@@ -1550,7 +1550,7 @@
 .end method
 
 .method public getOutline()I
-    .locals 1
+    .registers 2
 
     .line 519
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->outline:I
@@ -1559,7 +1559,7 @@
 .end method
 
 .method public getOutlineVariant()I
-    .locals 1
+    .registers 2
 
     .line 533
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->outlineVariant:I
@@ -1568,7 +1568,7 @@
 .end method
 
 .method public getPrimary()I
-    .locals 1
+    .registers 2
 
     .line 211
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->primary:I
@@ -1577,7 +1577,7 @@
 .end method
 
 .method public getPrimaryContainer()I
-    .locals 1
+    .registers 2
 
     .line 239
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->primaryContainer:I
@@ -1586,7 +1586,7 @@
 .end method
 
 .method public getScrim()I
-    .locals 1
+    .registers 2
 
     .line 561
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->scrim:I
@@ -1595,7 +1595,7 @@
 .end method
 
 .method public getSecondary()I
-    .locals 1
+    .registers 2
 
     .line 267
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->secondary:I
@@ -1604,7 +1604,7 @@
 .end method
 
 .method public getSecondaryContainer()I
-    .locals 1
+    .registers 2
 
     .line 295
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->secondaryContainer:I
@@ -1613,7 +1613,7 @@
 .end method
 
 .method public getShadow()I
-    .locals 1
+    .registers 2
 
     .line 547
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->shadow:I
@@ -1622,7 +1622,7 @@
 .end method
 
 .method public getSurface()I
-    .locals 1
+    .registers 2
 
     .line 463
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->surface:I
@@ -1631,7 +1631,7 @@
 .end method
 
 .method public getSurfaceVariant()I
-    .locals 1
+    .registers 2
 
     .line 491
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->surfaceVariant:I
@@ -1640,7 +1640,7 @@
 .end method
 
 .method public getTertiary()I
-    .locals 1
+    .registers 2
 
     .line 323
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->tertiary:I
@@ -1649,7 +1649,7 @@
 .end method
 
 .method public getTertiaryContainer()I
-    .locals 1
+    .registers 2
 
     .line 351
     iget v0, p0, Lcom/google/android/material/color/utilities/Scheme;->tertiaryContainer:I
@@ -1658,7 +1658,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 787
     invoke-super {p0}, Ljava/lang/Object;->hashCode()I
@@ -1932,7 +1932,7 @@
 .end method
 
 .method public setBackground(I)V
-    .locals 0
+    .registers 2
     .param p1, "background"    # I
 
     .line 439
@@ -1943,7 +1943,7 @@
 .end method
 
 .method public setError(I)V
-    .locals 0
+    .registers 2
     .param p1, "error"    # I
 
     .line 383
@@ -1954,7 +1954,7 @@
 .end method
 
 .method public setErrorContainer(I)V
-    .locals 0
+    .registers 2
     .param p1, "errorContainer"    # I
 
     .line 411
@@ -1965,7 +1965,7 @@
 .end method
 
 .method public setInverseOnSurface(I)V
-    .locals 0
+    .registers 2
     .param p1, "inverseOnSurface"    # I
 
     .line 593
@@ -1976,7 +1976,7 @@
 .end method
 
 .method public setInversePrimary(I)V
-    .locals 0
+    .registers 2
     .param p1, "inversePrimary"    # I
 
     .line 607
@@ -1987,7 +1987,7 @@
 .end method
 
 .method public setInverseSurface(I)V
-    .locals 0
+    .registers 2
     .param p1, "inverseSurface"    # I
 
     .line 579
@@ -1998,7 +1998,7 @@
 .end method
 
 .method public setOnBackground(I)V
-    .locals 0
+    .registers 2
     .param p1, "onBackground"    # I
 
     .line 453
@@ -2009,7 +2009,7 @@
 .end method
 
 .method public setOnError(I)V
-    .locals 0
+    .registers 2
     .param p1, "onError"    # I
 
     .line 397
@@ -2020,7 +2020,7 @@
 .end method
 
 .method public setOnErrorContainer(I)V
-    .locals 0
+    .registers 2
     .param p1, "onErrorContainer"    # I
 
     .line 425
@@ -2031,7 +2031,7 @@
 .end method
 
 .method public setOnPrimary(I)V
-    .locals 0
+    .registers 2
     .param p1, "onPrimary"    # I
 
     .line 229
@@ -2042,7 +2042,7 @@
 .end method
 
 .method public setOnPrimaryContainer(I)V
-    .locals 0
+    .registers 2
     .param p1, "onPrimaryContainer"    # I
 
     .line 257
@@ -2053,7 +2053,7 @@
 .end method
 
 .method public setOnSecondary(I)V
-    .locals 0
+    .registers 2
     .param p1, "onSecondary"    # I
 
     .line 285
@@ -2064,7 +2064,7 @@
 .end method
 
 .method public setOnSecondaryContainer(I)V
-    .locals 0
+    .registers 2
     .param p1, "onSecondaryContainer"    # I
 
     .line 313
@@ -2075,7 +2075,7 @@
 .end method
 
 .method public setOnSurface(I)V
-    .locals 0
+    .registers 2
     .param p1, "onSurface"    # I
 
     .line 481
@@ -2086,7 +2086,7 @@
 .end method
 
 .method public setOnSurfaceVariant(I)V
-    .locals 0
+    .registers 2
     .param p1, "onSurfaceVariant"    # I
 
     .line 509
@@ -2097,7 +2097,7 @@
 .end method
 
 .method public setOnTertiary(I)V
-    .locals 0
+    .registers 2
     .param p1, "onTertiary"    # I
 
     .line 341
@@ -2108,7 +2108,7 @@
 .end method
 
 .method public setOnTertiaryContainer(I)V
-    .locals 0
+    .registers 2
     .param p1, "onTertiaryContainer"    # I
 
     .line 369
@@ -2119,7 +2119,7 @@
 .end method
 
 .method public setOutline(I)V
-    .locals 0
+    .registers 2
     .param p1, "outline"    # I
 
     .line 523
@@ -2130,7 +2130,7 @@
 .end method
 
 .method public setOutlineVariant(I)V
-    .locals 0
+    .registers 2
     .param p1, "outlineVariant"    # I
 
     .line 537
@@ -2141,7 +2141,7 @@
 .end method
 
 .method public setPrimary(I)V
-    .locals 0
+    .registers 2
     .param p1, "primary"    # I
 
     .line 215
@@ -2152,7 +2152,7 @@
 .end method
 
 .method public setPrimaryContainer(I)V
-    .locals 0
+    .registers 2
     .param p1, "primaryContainer"    # I
 
     .line 243
@@ -2163,7 +2163,7 @@
 .end method
 
 .method public setScrim(I)V
-    .locals 0
+    .registers 2
     .param p1, "scrim"    # I
 
     .line 565
@@ -2174,7 +2174,7 @@
 .end method
 
 .method public setSecondary(I)V
-    .locals 0
+    .registers 2
     .param p1, "secondary"    # I
 
     .line 271
@@ -2185,7 +2185,7 @@
 .end method
 
 .method public setSecondaryContainer(I)V
-    .locals 0
+    .registers 2
     .param p1, "secondaryContainer"    # I
 
     .line 299
@@ -2196,7 +2196,7 @@
 .end method
 
 .method public setShadow(I)V
-    .locals 0
+    .registers 2
     .param p1, "shadow"    # I
 
     .line 551
@@ -2207,7 +2207,7 @@
 .end method
 
 .method public setSurface(I)V
-    .locals 0
+    .registers 2
     .param p1, "surface"    # I
 
     .line 467
@@ -2218,7 +2218,7 @@
 .end method
 
 .method public setSurfaceVariant(I)V
-    .locals 0
+    .registers 2
     .param p1, "surfaceVariant"    # I
 
     .line 495
@@ -2229,7 +2229,7 @@
 .end method
 
 .method public setTertiary(I)V
-    .locals 0
+    .registers 2
     .param p1, "tertiary"    # I
 
     .line 327
@@ -2240,7 +2240,7 @@
 .end method
 
 .method public setTertiaryContainer(I)V
-    .locals 0
+    .registers 2
     .param p1, "tertiaryContainer"    # I
 
     .line 355
@@ -2251,7 +2251,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 618
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2620,7 +2620,7 @@
 .end method
 
 .method public withBackground(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "background"    # I
 
     .line 444
@@ -2631,7 +2631,7 @@
 .end method
 
 .method public withError(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "error"    # I
 
     .line 388
@@ -2642,7 +2642,7 @@
 .end method
 
 .method public withErrorContainer(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "errorContainer"    # I
 
     .line 416
@@ -2653,7 +2653,7 @@
 .end method
 
 .method public withInverseOnSurface(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "inverseOnSurface"    # I
 
     .line 598
@@ -2664,7 +2664,7 @@
 .end method
 
 .method public withInversePrimary(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "inversePrimary"    # I
 
     .line 612
@@ -2675,7 +2675,7 @@
 .end method
 
 .method public withInverseSurface(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "inverseSurface"    # I
 
     .line 584
@@ -2686,7 +2686,7 @@
 .end method
 
 .method public withOnBackground(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onBackground"    # I
 
     .line 458
@@ -2697,7 +2697,7 @@
 .end method
 
 .method public withOnError(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onError"    # I
 
     .line 402
@@ -2708,7 +2708,7 @@
 .end method
 
 .method public withOnErrorContainer(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onErrorContainer"    # I
 
     .line 430
@@ -2719,7 +2719,7 @@
 .end method
 
 .method public withOnPrimary(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onPrimary"    # I
 
     .line 234
@@ -2730,7 +2730,7 @@
 .end method
 
 .method public withOnPrimaryContainer(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onPrimaryContainer"    # I
 
     .line 262
@@ -2741,7 +2741,7 @@
 .end method
 
 .method public withOnSecondary(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onSecondary"    # I
 
     .line 290
@@ -2752,7 +2752,7 @@
 .end method
 
 .method public withOnSecondaryContainer(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onSecondaryContainer"    # I
 
     .line 318
@@ -2763,7 +2763,7 @@
 .end method
 
 .method public withOnSurface(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onSurface"    # I
 
     .line 486
@@ -2774,7 +2774,7 @@
 .end method
 
 .method public withOnSurfaceVariant(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onSurfaceVariant"    # I
 
     .line 514
@@ -2785,7 +2785,7 @@
 .end method
 
 .method public withOnTertiary(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onTertiary"    # I
 
     .line 346
@@ -2796,7 +2796,7 @@
 .end method
 
 .method public withOnTertiaryContainer(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "onTertiaryContainer"    # I
 
     .line 374
@@ -2807,7 +2807,7 @@
 .end method
 
 .method public withOutline(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "outline"    # I
 
     .line 528
@@ -2818,7 +2818,7 @@
 .end method
 
 .method public withOutlineVariant(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "outlineVariant"    # I
 
     .line 542
@@ -2829,7 +2829,7 @@
 .end method
 
 .method public withPrimary(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "primary"    # I
 
     .line 220
@@ -2840,7 +2840,7 @@
 .end method
 
 .method public withPrimaryContainer(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "primaryContainer"    # I
 
     .line 248
@@ -2851,7 +2851,7 @@
 .end method
 
 .method public withScrim(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "scrim"    # I
 
     .line 570
@@ -2862,7 +2862,7 @@
 .end method
 
 .method public withSecondary(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "secondary"    # I
 
     .line 276
@@ -2873,7 +2873,7 @@
 .end method
 
 .method public withSecondaryContainer(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "secondaryContainer"    # I
 
     .line 304
@@ -2884,7 +2884,7 @@
 .end method
 
 .method public withShadow(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "shadow"    # I
 
     .line 556
@@ -2895,7 +2895,7 @@
 .end method
 
 .method public withSurface(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "surface"    # I
 
     .line 472
@@ -2906,7 +2906,7 @@
 .end method
 
 .method public withSurfaceVariant(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "surfaceVariant"    # I
 
     .line 500
@@ -2917,7 +2917,7 @@
 .end method
 
 .method public withTertiary(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "tertiary"    # I
 
     .line 332
@@ -2928,7 +2928,7 @@
 .end method
 
 .method public withTertiaryContainer(I)Lcom/google/android/material/color/utilities/Scheme;
-    .locals 0
+    .registers 2
     .param p1, "tertiaryContainer"    # I
 
     .line 360

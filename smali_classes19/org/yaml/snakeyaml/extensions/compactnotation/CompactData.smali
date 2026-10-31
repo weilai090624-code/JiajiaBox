@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "prefix"    # Ljava/lang/String;
 
     .line 28
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public getArguments()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -77,7 +77,7 @@
 .end method
 
 .method public getPrefix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactData;->prefix:Ljava/lang/String;
@@ -86,7 +86,7 @@
 .end method
 
 .method public getProperties()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -104,7 +104,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 46
     new-instance v0, Ljava/lang/StringBuilder;

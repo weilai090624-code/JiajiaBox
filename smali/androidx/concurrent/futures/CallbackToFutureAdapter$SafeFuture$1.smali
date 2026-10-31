@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 
     .line 147
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method protected pendingToString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 151
     .local p0, "this":Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;"
@@ -58,7 +58,7 @@
 
     .line 152
     .local v0, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<TT;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 153
     const-string v1, "Completer object has been garbage collected, future will fail soon"
@@ -66,7 +66,7 @@
     return-object v1
 
     .line 155
-    :cond_0
+    :cond_f
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

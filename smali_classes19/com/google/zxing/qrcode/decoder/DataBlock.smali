@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>(I[B)V
-    .locals 0
+    .registers 3
     .param p1, "numDataCodewords"    # I
     .param p2, "codewords"    # [B
 
@@ -29,7 +29,7 @@
 .end method
 
 .method static getDataBlocks([BLcom/google/zxing/qrcode/decoder/Version;Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;)[Lcom/google/zxing/qrcode/decoder/DataBlock;
-    .locals 12
+    .registers 15
 
     .line 51
     array-length v0, p0
@@ -38,7 +38,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_b3
 
     .line 57
     invoke-virtual {p1, p2}, Lcom/google/zxing/qrcode/decoder/Version;->getECBlocksForLevel(Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;)Lcom/google/zxing/qrcode/decoder/Version$ECBlocks;
@@ -62,8 +62,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_14
+    if-ge v2, v0, :cond_20
 
     aget-object v4, p2, v2
 
@@ -77,10 +77,10 @@
     .line 62
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 67
-    :cond_0
+    :cond_20
     new-array v0, v3, [Lcom/google/zxing/qrcode/decoder/DataBlock;
 
     .line 68
@@ -93,20 +93,20 @@
 
     const/4 v5, 0x0
 
-    :goto_1
-    if-ge v4, v2, :cond_2
+    :goto_26
+    if-ge v4, v2, :cond_4c
 
     aget-object v6, p2, v4
 
     .line 70
     const/4 v7, 0x0
 
-    :goto_2
+    :goto_2b
     invoke-virtual {v6}, Lcom/google/zxing/qrcode/decoder/Version$ECB;->getCount()I
 
     move-result v8
 
-    if-ge v7, v8, :cond_1
+    if-ge v7, v8, :cond_49
 
     .line 71
     invoke-virtual {v6}, Lcom/google/zxing/qrcode/decoder/Version$ECB;->getDataCodewords()I
@@ -136,16 +136,16 @@
 
     move v5, v10
 
-    goto :goto_2
+    goto :goto_2b
 
     .line 69
-    :cond_1
+    :cond_49
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
     .line 79
-    :cond_2
+    :cond_4c
     aget-object p2, v0, v1
 
     iget-object p2, p2, Lcom/google/zxing/qrcode/decoder/DataBlock;->codewords:[B
@@ -156,8 +156,8 @@
     add-int/lit8 v3, v3, -0x1
 
     .line 81
-    :goto_3
-    if-ltz v3, :cond_3
+    :goto_53
+    if-ltz v3, :cond_5f
 
     .line 82
     aget-object v2, v0, v3
@@ -167,16 +167,16 @@
     array-length v2, v2
 
     .line 83
-    if-eq v2, p2, :cond_3
+    if-eq v2, p2, :cond_5f
 
     .line 86
     add-int/lit8 v3, v3, -0x1
 
     .line 87
-    goto :goto_3
+    goto :goto_53
 
     .line 88
-    :cond_3
+    :cond_5f
     add-int/lit8 v3, v3, 0x1
 
     .line 90
@@ -194,14 +194,14 @@
 
     const/4 v2, 0x0
 
-    :goto_4
-    if-ge p1, p2, :cond_5
+    :goto_69
+    if-ge p1, p2, :cond_7f
 
     .line 95
     const/4 v4, 0x0
 
-    :goto_5
-    if-ge v4, v5, :cond_4
+    :goto_6c
+    if-ge v4, v5, :cond_7c
 
     .line 96
     aget-object v6, v0, v4
@@ -219,20 +219,20 @@
 
     move v2, v7
 
-    goto :goto_5
+    goto :goto_6c
 
     .line 94
-    :cond_4
+    :cond_7c
     add-int/lit8 p1, p1, 0x1
 
-    goto :goto_4
+    goto :goto_69
 
     .line 100
-    :cond_5
+    :cond_7f
     move p1, v3
 
-    :goto_6
-    if-ge p1, v5, :cond_6
+    :goto_80
+    if-ge p1, v5, :cond_90
 
     .line 101
     aget-object v4, v0, p1
@@ -250,10 +250,10 @@
 
     move v2, v6
 
-    goto :goto_6
+    goto :goto_80
 
     .line 104
-    :cond_6
+    :cond_90
     aget-object p1, v0, v1
 
     iget-object p1, p1, Lcom/google/zxing/qrcode/decoder/DataBlock;->codewords:[B
@@ -263,27 +263,27 @@
     .line 105
     nop
 
-    :goto_7
-    if-ge p2, p1, :cond_9
+    :goto_96
+    if-ge p2, p1, :cond_b2
 
     .line 106
     const/4 v4, 0x0
 
-    :goto_8
-    if-ge v4, v5, :cond_8
+    :goto_99
+    if-ge v4, v5, :cond_af
 
     .line 107
-    if-ge v4, v3, :cond_7
+    if-ge v4, v3, :cond_9f
 
     move v6, p2
 
-    goto :goto_9
+    goto :goto_a1
 
-    :cond_7
+    :cond_9f
     add-int/lit8 v6, p2, 0x1
 
     .line 108
-    :goto_9
+    :goto_a1
     aget-object v7, v0, v4
 
     iget-object v7, v7, Lcom/google/zxing/qrcode/decoder/DataBlock;->codewords:[B
@@ -299,20 +299,20 @@
 
     move v2, v8
 
-    goto :goto_8
+    goto :goto_99
 
     .line 105
-    :cond_8
+    :cond_af
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_7
+    goto :goto_96
 
     .line 111
-    :cond_9
+    :cond_b2
     return-object v0
 
     .line 52
-    :cond_a
+    :cond_b3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -323,7 +323,7 @@
 
 # virtual methods
 .method getCodewords()[B
-    .locals 1
+    .registers 2
 
     .line 119
     iget-object v0, p0, Lcom/google/zxing/qrcode/decoder/DataBlock;->codewords:[B
@@ -332,7 +332,7 @@
 .end method
 
 .method getNumDataCodewords()I
-    .locals 1
+    .registers 2
 
     .line 115
     iget v0, p0, Lcom/google/zxing/qrcode/decoder/DataBlock;->numDataCodewords:I

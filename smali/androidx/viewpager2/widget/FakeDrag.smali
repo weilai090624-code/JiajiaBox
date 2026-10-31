@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;Landroidx/viewpager2/widget/ScrollEventAdapter;Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 0
+    .registers 4
     .param p1, "viewPager"    # Landroidx/viewpager2/widget/ViewPager2;
     .param p2, "scrollEventAdapter"    # Landroidx/viewpager2/widget/ScrollEventAdapter;
     .param p3, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
@@ -45,7 +45,7 @@
 .end method
 
 .method private addFakeMotionEvent(JIFF)V
-    .locals 8
+    .registers 14
     .param p1, "time"    # J
     .param p3, "action"    # I
     .param p4, "x"    # F
@@ -82,12 +82,12 @@
 .end method
 
 .method private beginFakeVelocityTracker()V
-    .locals 2
+    .registers 3
 
     .line 124
     iget-object v0, p0, Landroidx/viewpager2/widget/FakeDrag;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 125
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -117,23 +117,23 @@
 
     .line 128
     .end local v0    # "configuration":Landroid/view/ViewConfiguration;
-    goto :goto_0
+    goto :goto_20
 
     .line 129
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Landroidx/viewpager2/widget/FakeDrag;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v0}, Landroid/view/VelocityTracker;->clear()V
 
     .line 131
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 
 # virtual methods
 .method beginFakeDrag()Z
-    .locals 7
+    .registers 8
 
     .line 56
     iget-object v0, p0, Landroidx/viewpager2/widget/FakeDrag;->mScrollEventAdapter:Landroidx/viewpager2/widget/ScrollEventAdapter;
@@ -144,13 +144,13 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 57
     return v1
 
     .line 59
-    :cond_0
+    :cond_a
     iput v1, p0, Landroidx/viewpager2/widget/FakeDrag;->mActualDraggedDistance:I
 
     int-to-float v0, v1
@@ -179,7 +179,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2a
 
     .line 66
     iget-object v0, p0, Landroidx/viewpager2/widget/FakeDrag;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
@@ -187,7 +187,7 @@
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->stopScroll()V
 
     .line 68
-    :cond_1
+    :cond_2a
     iget-wide v2, p0, Landroidx/viewpager2/widget/FakeDrag;->mFakeDragBeginTime:J
 
     const/4 v5, 0x0
@@ -207,7 +207,7 @@
 .end method
 
 .method endFakeDrag()Z
-    .locals 5
+    .registers 6
 
     .line 102
     iget-object v0, p0, Landroidx/viewpager2/widget/FakeDrag;->mScrollEventAdapter:Landroidx/viewpager2/widget/ScrollEventAdapter;
@@ -216,7 +216,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 104
     const/4 v0, 0x0
@@ -224,7 +224,7 @@
     return v0
 
     .line 107
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/viewpager2/widget/FakeDrag;->mScrollEventAdapter:Landroidx/viewpager2/widget/ScrollEventAdapter;
 
     invoke-virtual {v0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->notifyEndFakeDrag()V
@@ -269,7 +269,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_32
 
     .line 118
     iget-object v4, p0, Landroidx/viewpager2/widget/FakeDrag;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
@@ -277,14 +277,14 @@
     invoke-virtual {v4}, Landroidx/viewpager2/widget/ViewPager2;->snapToPage()V
 
     .line 120
-    :cond_1
+    :cond_32
     const/4 v4, 0x1
 
     return v4
 .end method
 
 .method fakeDragBy(F)Z
-    .locals 13
+    .registers 15
     .param p1, "offsetPxFloat"    # F
 
     .line 74
@@ -296,13 +296,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 77
     return v1
 
     .line 80
-    :cond_0
+    :cond_a
     iget v0, p0, Landroidx/viewpager2/widget/FakeDrag;->mRequestedDragDistance:F
 
     sub-float/2addr v0, p1
@@ -345,72 +345,72 @@
 
     const/4 v11, 0x1
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     const/4 v2, 0x0
 
     .line 89
     .local v2, "isHorizontal":Z
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_2e
+    if-eqz v2, :cond_32
 
     move v3, v0
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_2
+    :cond_32
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_33
     move v12, v3
 
     .line 90
     .local v12, "offsetX":I
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_37
 
-    goto :goto_2
+    goto :goto_38
 
-    :cond_3
+    :cond_37
     move v1, v0
 
     .line 92
     .local v1, "offsetY":I
-    :goto_2
+    :goto_38
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3f
 
     iget v4, p0, Landroidx/viewpager2/widget/FakeDrag;->mRequestedDragDistance:F
 
     move v7, v4
 
-    goto :goto_3
+    goto :goto_40
 
-    :cond_4
+    :cond_3f
     const/4 v7, 0x0
 
     .line 93
     .local v7, "x":F
-    :goto_3
-    if-eqz v2, :cond_5
+    :goto_40
+    if-eqz v2, :cond_44
 
     const/4 v8, 0x0
 
-    goto :goto_4
+    goto :goto_47
 
-    :cond_5
+    :cond_44
     iget v3, p0, Landroidx/viewpager2/widget/FakeDrag;->mRequestedDragDistance:F
 
     move v8, v3
 
     .line 95
     .local v8, "y":F
-    :goto_4
+    :goto_47
     iget-object v3, p0, Landroidx/viewpager2/widget/FakeDrag;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
     invoke-virtual {v3, v12, v1}, Landroidx/recyclerview/widget/RecyclerView;->scrollBy(II)V
@@ -429,7 +429,7 @@
 .end method
 
 .method isFakeDragging()Z
-    .locals 1
+    .registers 2
 
     .line 51
     iget-object v0, p0, Landroidx/viewpager2/widget/FakeDrag;->mScrollEventAdapter:Landroidx/viewpager2/widget/ScrollEventAdapter;

@@ -116,7 +116,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;ILandroidx/recyclerview/widget/AsyncListUtil$DataCallback;Landroidx/recyclerview/widget/AsyncListUtil$ViewCallback;)V
-    .locals 2
+    .registers 7
     .param p2, "tileSize"    # I
     .param p4, "viewCallback"    # Landroidx/recyclerview/widget/AsyncListUtil$ViewCallback;
     .annotation system Ldalvik/annotation/Signature;
@@ -244,7 +244,7 @@
 .end method
 
 .method private isRefreshPending()Z
-    .locals 2
+    .registers 3
 
     .line 107
     .local p0, "this":Landroidx/recyclerview/widget/AsyncListUtil;, "Landroidx/recyclerview/widget/AsyncListUtil<TT;>;"
@@ -252,23 +252,23 @@
 
     iget v1, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mDisplayedGeneration:I
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 
 # virtual methods
 .method public getItem(I)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -278,11 +278,11 @@
 
     .line 155
     .local p0, "this":Landroidx/recyclerview/widget/AsyncListUtil;, "Landroidx/recyclerview/widget/AsyncListUtil<TT;>;"
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_1b
 
     iget v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mItemCount:I
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v0, :cond_1b
 
     .line 158
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mTileList:Landroidx/recyclerview/widget/TileList;
@@ -293,13 +293,13 @@
 
     .line 159
     .local v0, "item":Ljava/lang/Object;, "TT;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/AsyncListUtil;->isRefreshPending()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     .line 160
     iget-object v1, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mMissingPositions:Landroid/util/SparseIntArray;
@@ -309,12 +309,12 @@
     invoke-virtual {v1, p1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
     .line 162
-    :cond_0
+    :cond_1a
     return-object v0
 
     .line 156
     .end local v0    # "item":Ljava/lang/Object;, "TT;"
-    :cond_1
+    :cond_1b
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -347,7 +347,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 175
     .local p0, "this":Landroidx/recyclerview/widget/AsyncListUtil;, "Landroidx/recyclerview/widget/AsyncListUtil<TT;>;"
@@ -357,7 +357,7 @@
 .end method
 
 .method varargs log(Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "s"    # Ljava/lang/String;
     .param p2, "args"    # [Ljava/lang/Object;
 
@@ -394,7 +394,7 @@
 .end method
 
 .method public onRangeChanged()V
-    .locals 1
+    .registers 2
 
     .line 119
     .local p0, "this":Landroidx/recyclerview/widget/AsyncListUtil;, "Landroidx/recyclerview/widget/AsyncListUtil<TT;>;"
@@ -402,13 +402,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 120
     return-void
 
     .line 122
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Landroidx/recyclerview/widget/AsyncListUtil;->updateRange()V
 
     .line 123
@@ -421,7 +421,7 @@
 .end method
 
 .method public refresh()V
-    .locals 2
+    .registers 3
 
     .line 133
     .local p0, "this":Landroidx/recyclerview/widget/AsyncListUtil;, "Landroidx/recyclerview/widget/AsyncListUtil<TT;>;"
@@ -445,7 +445,7 @@
 .end method
 
 .method updateRange()V
-    .locals 10
+    .registers 11
 
     .line 179
     .local p0, "this":Landroidx/recyclerview/widget/AsyncListUtil;, "Landroidx/recyclerview/widget/AsyncListUtil<TT;>;"
@@ -468,42 +468,42 @@
 
     aget v2, v2, v3
 
-    if-gt v0, v2, :cond_7
+    if-gt v0, v2, :cond_bb
 
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mTmpRange:[I
 
     aget v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1b
 
-    goto/16 :goto_2
+    goto/16 :goto_bb
 
     .line 183
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mTmpRange:[I
 
     aget v0, v0, v3
 
     iget v2, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mItemCount:I
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_24
 
     .line 185
     return-void
 
     .line 188
-    :cond_1
+    :cond_24
     iget-boolean v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mAllowScrollHints:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2b
 
     .line 189
     iput v1, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mScrollHint:I
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 190
-    :cond_2
+    :cond_2b
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mTmpRange:[I
 
     aget v0, v0, v1
@@ -512,7 +512,7 @@
 
     aget v2, v2, v3
 
-    if-gt v0, v2, :cond_5
+    if-gt v0, v2, :cond_5b
 
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mPrevRange:[I
 
@@ -522,12 +522,12 @@
 
     aget v2, v2, v3
 
-    if-le v0, v2, :cond_3
+    if-le v0, v2, :cond_40
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 193
-    :cond_3
+    :cond_40
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mTmpRange:[I
 
     aget v0, v0, v1
@@ -536,15 +536,15 @@
 
     aget v2, v2, v1
 
-    if-ge v0, v2, :cond_4
+    if-ge v0, v2, :cond_4d
 
     .line 194
     iput v3, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mScrollHint:I
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 195
-    :cond_4
+    :cond_4d
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mTmpRange:[I
 
     aget v0, v0, v1
@@ -553,23 +553,23 @@
 
     aget v2, v2, v1
 
-    if-le v0, v2, :cond_6
+    if-le v0, v2, :cond_5d
 
     .line 196
     const/4 v0, 0x2
 
     iput v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mScrollHint:I
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 192
-    :cond_5
-    :goto_0
+    :cond_5b
+    :goto_5b
     iput v1, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mScrollHint:I
 
     .line 199
-    :cond_6
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mPrevRange:[I
 
     iget-object v2, p0, Landroidx/recyclerview/widget/AsyncListUtil;->mTmpRange:[I
@@ -672,7 +672,7 @@
     return-void
 
     .line 181
-    :cond_7
-    :goto_2
+    :cond_bb
+    :goto_bb
     return-void
 .end method

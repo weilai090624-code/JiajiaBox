@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 425
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public queryFrom(Lj$/time/temporal/TemporalAccessor;)Lj$/time/LocalDate;
-    .locals 2
+    .registers 4
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 428
@@ -49,7 +49,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 429
     sget-object v0, Lj$/time/temporal/ChronoField;->EPOCH_DAY:Lj$/time/temporal/ChronoField;
@@ -65,14 +65,14 @@
     return-object v0
 
     .line 431
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public bridge synthetic queryFrom(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 425
     invoke-virtual {p0, p1}, Lj$/time/temporal/TemporalQueries$6;->queryFrom(Lj$/time/temporal/TemporalAccessor;)Lj$/time/LocalDate;
@@ -83,7 +83,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 436
     const-string v0, "LocalDate"

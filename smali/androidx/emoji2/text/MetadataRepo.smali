@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/graphics/Typeface;Landroidx/emoji2/text/flatbuffer/MetadataList;)V
-    .locals 2
+    .registers 5
     .param p1, "typeface"    # Landroid/graphics/Typeface;
     .param p2, "metadataList"    # Landroidx/emoji2/text/flatbuffer/MetadataList;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructIndex(Landroidx/emoji2/text/flatbuffer/MetadataList;)V
-    .locals 6
+    .registers 8
     .param p1, "metadataList"    # Landroidx/emoji2/text/flatbuffer/MetadataList;
 
     .line 160
@@ -87,8 +87,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_5
+    if-ge v1, v0, :cond_1d
 
     .line 162
     new-instance v2, Landroidx/emoji2/text/EmojiMetadata;
@@ -114,16 +114,16 @@
     .end local v2    # "metadata":Landroidx/emoji2/text/EmojiMetadata;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 169
     .end local v1    # "i":I
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public static create(Landroid/content/res/AssetManager;Ljava/lang/String;)Landroidx/emoji2/text/MetadataRepo;
-    .locals 3
+    .registers 5
     .param p0, "assetManager"    # Landroid/content/res/AssetManager;
     .param p1, "assetPath"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -153,8 +153,8 @@
     move-result-object v2
 
     invoke-direct {v1, v0, v2}, Landroidx/emoji2/text/MetadataRepo;-><init>(Landroid/graphics/Typeface;Landroidx/emoji2/text/flatbuffer/MetadataList;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_0 .. :try_end_12} :catchall_16
 
     .line 152
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
@@ -164,7 +164,7 @@
 
     .line 152
     .end local v0    # "typeface":Landroid/graphics/Typeface;
-    :catchall_0
+    :catchall_16
     move-exception v0
 
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
@@ -174,7 +174,7 @@
 .end method
 
 .method public static create(Landroid/graphics/Typeface;)Landroidx/emoji2/text/MetadataRepo;
-    .locals 2
+    .registers 3
     .param p0, "typeface"    # Landroid/graphics/Typeface;
 
     .line 93
@@ -191,8 +191,8 @@
     invoke-direct {v1}, Landroidx/emoji2/text/flatbuffer/MetadataList;-><init>()V
 
     invoke-direct {v0, p0, v1}, Landroidx/emoji2/text/MetadataRepo;-><init>(Landroid/graphics/Typeface;Landroidx/emoji2/text/flatbuffer/MetadataList;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_0 .. :try_end_f} :catchall_13
 
     .line 96
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
@@ -201,7 +201,7 @@
     return-object v0
 
     .line 96
-    :catchall_0
+    :catchall_13
     move-exception v0
 
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
@@ -211,7 +211,7 @@
 .end method
 
 .method public static create(Landroid/graphics/Typeface;Ljava/io/InputStream;)Landroidx/emoji2/text/MetadataRepo;
-    .locals 2
+    .registers 4
     .param p0, "typeface"    # Landroid/graphics/Typeface;
     .param p1, "inputStream"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
@@ -234,8 +234,8 @@
     move-result-object v1
 
     invoke-direct {v0, p0, v1}, Landroidx/emoji2/text/MetadataRepo;-><init>(Landroid/graphics/Typeface;Landroidx/emoji2/text/flatbuffer/MetadataList;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_0 .. :try_end_e} :catchall_12
 
     .line 114
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
@@ -244,7 +244,7 @@
     return-object v0
 
     .line 114
-    :catchall_0
+    :catchall_12
     move-exception v0
 
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
@@ -254,7 +254,7 @@
 .end method
 
 .method public static create(Landroid/graphics/Typeface;Ljava/nio/ByteBuffer;)Landroidx/emoji2/text/MetadataRepo;
-    .locals 2
+    .registers 4
     .param p0, "typeface"    # Landroid/graphics/Typeface;
     .param p1, "byteBuffer"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
@@ -277,8 +277,8 @@
     move-result-object v1
 
     invoke-direct {v0, p0, v1}, Landroidx/emoji2/text/MetadataRepo;-><init>(Landroid/graphics/Typeface;Landroidx/emoji2/text/flatbuffer/MetadataList;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_0 .. :try_end_e} :catchall_12
 
     .line 132
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
@@ -287,7 +287,7 @@
     return-object v0
 
     .line 132
-    :catchall_0
+    :catchall_12
     move-exception v0
 
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
@@ -299,7 +299,7 @@
 
 # virtual methods
 .method public getEmojiCharArray()[C
-    .locals 1
+    .registers 2
 
     .line 203
     iget-object v0, p0, Landroidx/emoji2/text/MetadataRepo;->mEmojiCharArray:[C
@@ -308,7 +308,7 @@
 .end method
 
 .method public getMetadataList()Landroidx/emoji2/text/flatbuffer/MetadataList;
-    .locals 1
+    .registers 2
 
     .line 212
     iget-object v0, p0, Landroidx/emoji2/text/MetadataRepo;->mMetadataList:Landroidx/emoji2/text/flatbuffer/MetadataList;
@@ -317,7 +317,7 @@
 .end method
 
 .method getMetadataVersion()I
-    .locals 1
+    .registers 2
 
     .line 185
     iget-object v0, p0, Landroidx/emoji2/text/MetadataRepo;->mMetadataList:Landroidx/emoji2/text/flatbuffer/MetadataList;
@@ -330,7 +330,7 @@
 .end method
 
 .method getRootNode()Landroidx/emoji2/text/MetadataRepo$Node;
-    .locals 1
+    .registers 2
 
     .line 194
     iget-object v0, p0, Landroidx/emoji2/text/MetadataRepo;->mRootNode:Landroidx/emoji2/text/MetadataRepo$Node;
@@ -339,7 +339,7 @@
 .end method
 
 .method getTypeface()Landroid/graphics/Typeface;
-    .locals 1
+    .registers 2
 
     .line 177
     iget-object v0, p0, Landroidx/emoji2/text/MetadataRepo;->mTypeface:Landroid/graphics/Typeface;
@@ -348,7 +348,7 @@
 .end method
 
 .method put(Landroidx/emoji2/text/EmojiMetadata;)V
-    .locals 4
+    .registers 6
     .param p1, "data"    # Landroidx/emoji2/text/EmojiMetadata;
 
     .line 223
@@ -365,16 +365,16 @@
 
     const/4 v2, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     const-string v3, "invalid metadata codepoint length"
 
     invoke-static {v0, v3}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V

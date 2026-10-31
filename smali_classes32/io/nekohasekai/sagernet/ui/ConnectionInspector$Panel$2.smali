@@ -33,7 +33,7 @@
         }
     .end annotation
 
-    .line 138
+    .line 141
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel$2;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .registers 5
 
-    .line 138
+    .line 141
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel$2;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;->render()V

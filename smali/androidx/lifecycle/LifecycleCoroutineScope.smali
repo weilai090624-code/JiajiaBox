@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 318
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method public final launchWhenCreated(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
-    .locals 7
+    .registers 9
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -115,7 +115,7 @@
 .end method
 
 .method public final launchWhenResumed(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
-    .locals 7
+    .registers 9
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -172,7 +172,7 @@
 .end method
 
 .method public final launchWhenStarted(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
-    .locals 7
+    .registers 9
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {

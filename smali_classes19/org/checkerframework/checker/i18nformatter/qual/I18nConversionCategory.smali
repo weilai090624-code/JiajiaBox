@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 36
     new-instance v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
@@ -163,7 +163,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I[Ljava/lang/Class;[Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p4, "strings"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,7 +190,7 @@
 .end method
 
 .method private static arrayToSet([Ljava/lang/Object;)Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -215,47 +215,47 @@
 .end method
 
 .method public static intersect(Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;)Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
-    .locals 8
+    .registers 10
     .param p0, "a"    # Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
     .param p1, "b"    # Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
     .line 118
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->UNUSED:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_5
 
     .line 119
     return-object p1
 
     .line 121
-    :cond_0
+    :cond_5
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->UNUSED:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_a
 
     .line 122
     return-object p0
 
     .line 124
-    :cond_1
+    :cond_a
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->GENERAL:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_f
 
     .line 125
     return-object p1
 
     .line 127
-    :cond_2
+    :cond_f
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->GENERAL:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_14
 
     .line 128
     return-object p0
 
     .line 134
-    :cond_3
+    :cond_14
     iget-object v0, p0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->types:[Ljava/lang/Class;
 
     invoke-static {v0}, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->arrayToSet([Ljava/lang/Object;)Ljava/util/Set;
@@ -291,8 +291,8 @@
 
     aput-object v4, v3, v6
 
-    :goto_0
-    if-ge v5, v2, :cond_5
+    :goto_30
+    if-ge v5, v2, :cond_44
 
     aget-object v4, v3, v5
 
@@ -310,7 +310,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_41
 
     .line 145
     return-object v4
@@ -318,13 +318,13 @@
     .line 140
     .end local v4    # "v":Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
     .end local v6    # "vs":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
-    :cond_4
+    :cond_41
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
     .line 148
-    :cond_5
+    :cond_44
     new-instance v2, Ljava/lang/RuntimeException;
 
     invoke-direct {v2}, Ljava/lang/RuntimeException;-><init>()V
@@ -333,7 +333,7 @@
 .end method
 
 .method public static isSubsetOf(Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;)Z
-    .locals 1
+    .registers 3
     .param p0, "a"    # Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
     .param p1, "b"    # Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
@@ -342,21 +342,21 @@
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static stringToI18nConversionCategory(Ljava/lang/String;)Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
-    .locals 10
+    .registers 11
     .param p0, "string"    # Ljava/lang/String;
 
     .line 81
@@ -373,8 +373,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_2
+    :goto_9
+    if-ge v3, v1, :cond_22
 
     aget-object v4, v0, v3
 
@@ -386,8 +386,8 @@
 
     const/4 v7, 0x0
 
-    :goto_1
-    if-ge v7, v6, :cond_1
+    :goto_11
+    if-ge v7, v6, :cond_1f
 
     aget-object v8, v5, v7
 
@@ -397,27 +397,27 @@
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_1c
 
     .line 85
     return-object v4
 
     .line 83
     .end local v8    # "s":Ljava/lang/String;
-    :cond_0
+    :cond_1c
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_11
 
     .line 82
     .end local v4    # "v":Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
-    :cond_1
+    :cond_1f
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 89
-    :cond_2
+    :cond_22
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -444,75 +444,75 @@
 .end method
 
 .method public static union(Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;)Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
-    .locals 1
+    .registers 3
     .param p0, "a"    # Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
     .param p1, "b"    # Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
     .line 159
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->UNUSED:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
-    if-eq p0, v0, :cond_5
+    if-eq p0, v0, :cond_24
 
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->UNUSED:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
-    goto :goto_2
+    goto :goto_24
 
     .line 162
-    :cond_0
+    :cond_9
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->GENERAL:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
-    if-eq p0, v0, :cond_4
+    if-eq p0, v0, :cond_21
 
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->GENERAL:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_12
 
-    goto :goto_1
+    goto :goto_21
 
     .line 165
-    :cond_1
+    :cond_12
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->DATE:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
-    if-eq p0, v0, :cond_3
+    if-eq p0, v0, :cond_1e
 
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->DATE:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_1b
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 168
-    :cond_2
+    :cond_1b
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->NUMBER:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
     return-object v0
 
     .line 166
-    :cond_3
-    :goto_0
+    :cond_1e
+    :goto_1e
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->DATE:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
     return-object v0
 
     .line 163
-    :cond_4
-    :goto_1
+    :cond_21
+    :goto_21
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->GENERAL:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
     return-object v0
 
     .line 160
-    :cond_5
-    :goto_2
+    :cond_24
+    :goto_24
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->UNUSED:Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
 
     return-object v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 24
@@ -528,7 +528,7 @@
 .end method
 
 .method public static values()[Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
-    .locals 1
+    .registers 1
 
     .line 24
     sget-object v0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->$VALUES:[Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;
@@ -545,7 +545,7 @@
 
 # virtual methods
 .method public isAssignableFrom(Ljava/lang/Class;)Z
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -560,22 +560,22 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 179
     return v1
 
     .line 181
-    :cond_0
+    :cond_6
     sget-object v0, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_b
 
     .line 182
     return v1
 
     .line 184
-    :cond_1
+    :cond_b
     iget-object v0, p0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->types:[Ljava/lang/Class;
 
     array-length v2, v0
@@ -584,8 +584,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_3
+    :goto_10
+    if-ge v4, v2, :cond_1e
 
     aget-object v5, v0, v4
 
@@ -595,25 +595,25 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_1b
 
     .line 186
     return v1
 
     .line 184
     .end local v5    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_2
+    :cond_1b
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 189
-    :cond_3
+    :cond_1e
     return v3
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 195
     new-instance v0, Ljava/lang/StringBuilder;
@@ -628,17 +628,17 @@
     .local v0, "sb":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lorg/checkerframework/checker/i18nformatter/qual/I18nConversionCategory;->types:[Ljava/lang/Class;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
     .line 197
     const-string v1, " conversion category (all types)"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_33
 
     .line 199
-    :cond_0
+    :cond_13
     new-instance v1, Lj$/util/StringJoiner;
 
     const-string v2, " conversion category (one of: "
@@ -657,8 +657,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_22
+    if-ge v4, v3, :cond_30
 
     aget-object v5, v2, v4
 
@@ -674,15 +674,15 @@
     .end local v5    # "cls":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 203
-    :cond_1
+    :cond_30
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 205
     .end local v1    # "sj":Lj$/util/StringJoiner;
-    :goto_1
+    :goto_33
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

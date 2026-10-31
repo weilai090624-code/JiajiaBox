@@ -807,7 +807,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$1VPYO0s0HjVMh-4i0QVTC6fKH4Y()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->serviceMode_delegate$lambda$5()Ljava/lang/String;
 
@@ -817,7 +817,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$1qeQsKN1Wf-ASOngilX20URdlh4()I
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->mtu_delegate$lambda$7()I
 
@@ -827,7 +827,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$23_3jnzDZAp71fTcA88V6T0lpOQ()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->globalCustomConfig_delegate$lambda$8()Ljava/lang/String;
 
@@ -837,7 +837,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$5HkivjcsTpOzQPgZ3gAqsCAyiaw()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->yacdURL_delegate$lambda$23()Ljava/lang/String;
 
@@ -847,7 +847,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$D1Quq-E8ognKiWRrViZVf_N36YU()Z
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->globalAllowInsecure_delegate$lambda$24()Z
 
@@ -857,7 +857,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$EsmGTfv8ssUA08F1NjgU7aMsRf0()Z
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->enableDnsRouting_delegate$lambda$11()Z
 
@@ -867,7 +867,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$FZrJGbh6i-BqogAEbydxHfX1zV4()Z
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->persistAcrossReboot_delegate$lambda$18()Z
 
@@ -877,7 +877,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$FjSeqtOSEgc6KMZbbukZ2EvIuzw()I
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->logBufSize_delegate$lambda$13()I
 
@@ -887,7 +887,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$LdGY6zAHSQUxVTS-z0KRcbQIq3g()I
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->protocolVersion_delegate$lambda$26()I
 
@@ -897,7 +897,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Qnmun8O74FTJPk5wu1VN0YOFBcA()J
-    .locals 2
+    .registers 2
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->selectedGroup_delegate$lambda$0()J
 
@@ -907,7 +907,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$UAKYLHEAm7x_mdrfZDEcxBjNr4U()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->directDns_delegate$lambda$10()Ljava/lang/String;
 
@@ -917,7 +917,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$VRpYs5iqVUWk8_Y_9o-Bk5rAM58()I
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->connectionTestConcurrent_delegate$lambda$20()I
 
@@ -927,7 +927,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$VS5Bi4VcOxRgeTNns6ahR_QrfUU()Z
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->profileTrafficStatistics_delegate$lambda$22()Z
 
@@ -937,7 +937,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$VxGNxAePkV6sBWAXtoZik9Up7Ms()I
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->tunImplementation_delegate$lambda$21()I
 
@@ -947,7 +947,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Wz81FWqKUb6AjgOYoX0WC8VMLUA()Z
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->networkChangeResetConnections_delegate$lambda$4()Z
 
@@ -957,7 +957,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$XZ9pJOIPF7cyTKD7j0kh1T0Q44U()I
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->subscriptionAutoUpdateDelay_delegate$lambda$27()I
 
@@ -967,7 +967,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$f4TsTPD1MFXGQ_q1vzVR0A2HKI4()I
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->serverHopInterval_delegate$lambda$25()I
 
@@ -977,7 +977,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$hC7axUrHvuFCwb689r3f1B01Lbw()I
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->ipv6Mode_delegate$lambda$15()I
 
@@ -987,7 +987,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$ho-rwpRi64P6HmDSFxnXUfKWlbQ()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->connectionTestURL_delegate$lambda$19()Ljava/lang/String;
 
@@ -997,7 +997,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$l0azRXt10UIW86itzPHKaApVRtc()Z
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->bypass_delegate$lambda$16()Z
 
@@ -1007,7 +1007,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$mOLAnLiZAtbye8TWiJl_82D1wBc()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->remoteDns_delegate$lambda$9()Ljava/lang/String;
 
@@ -1017,7 +1017,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$qu6c_plDZLjfjKj7A7IlbGAkfHM()Z
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->showDirectSpeed_delegate$lambda$17()Z
 
@@ -1027,7 +1027,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$sG7-Px0ZAnXBFmBoVac865io6E4()I
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->userIndex_delegate$lambda$14()I
 
@@ -1037,7 +1037,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$tmSGMMInuYkM-EK52-wKHb5icxM()Z
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->enableFakeDns_delegate$lambda$12()Z
 
@@ -1047,7 +1047,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$uJbAjsHMDJBvBJT_Z3oJORb1NbI()I
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/database/DataStore;->trafficSniffing_delegate$lambda$6()I
 
@@ -1057,7 +1057,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 24
+    .registers 24
 
     const/16 v0, 0x72
 
@@ -4887,7 +4887,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -4896,7 +4896,7 @@
 .end method
 
 .method private static final bypass_delegate$lambda$16()Z
-    .locals 1
+    .registers 1
 
     .line 153
     const/4 v0, 0x1
@@ -4905,7 +4905,7 @@
 .end method
 
 .method private static final connectionTestConcurrent_delegate$lambda$20()I
-    .locals 1
+    .registers 1
 
     .line 161
     const/4 v0, 0x5
@@ -4914,7 +4914,7 @@
 .end method
 
 .method private static final connectionTestURL_delegate$lambda$19()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 160
     const-string v0, "http://cp.cloudflare.com/"
@@ -4923,7 +4923,7 @@
 .end method
 
 .method private static final directDns_delegate$lambda$10()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 119
     const-string v0, "https://223.5.5.5/dns-query"
@@ -4932,7 +4932,7 @@
 .end method
 
 .method private static final enableDnsRouting_delegate$lambda$11()Z
-    .locals 1
+    .registers 1
 
     .line 120
     const/4 v0, 0x1
@@ -4941,7 +4941,7 @@
 .end method
 
 .method private static final enableFakeDns_delegate$lambda$12()Z
-    .locals 1
+    .registers 1
 
     .line 121
     const/4 v0, 0x1
@@ -4950,7 +4950,7 @@
 .end method
 
 .method private final getLocalPort(Ljava/lang/String;I)I
-    .locals 5
+    .registers 8
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "default"    # I
 
@@ -4981,7 +4981,7 @@
 .end method
 
 .method private final getUserIndex()I
-    .locals 1
+    .registers 2
 
     .line 129
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->userIndex$delegate:Lkotlin/Lazy;
@@ -5000,7 +5000,7 @@
 .end method
 
 .method private static final globalAllowInsecure_delegate$lambda$24()Z
-    .locals 1
+    .registers 1
 
     .line 171
     const/4 v0, 0x0
@@ -5009,7 +5009,7 @@
 .end method
 
 .method private static final globalCustomConfig_delegate$lambda$8()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 116
     const-string v0, ""
@@ -5018,7 +5018,7 @@
 .end method
 
 .method private static final ipv6Mode_delegate$lambda$15()I
-    .locals 1
+    .registers 1
 
     .line 149
     const/4 v0, 0x1
@@ -5027,7 +5027,7 @@
 .end method
 
 .method private static final logBufSize_delegate$lambda$13()I
-    .locals 1
+    .registers 1
 
     .line 125
     const/4 v0, 0x0
@@ -5036,7 +5036,7 @@
 .end method
 
 .method private static final mtu_delegate$lambda$7()I
-    .locals 1
+    .registers 1
 
     .line 107
     const/16 v0, 0x2328
@@ -5045,7 +5045,7 @@
 .end method
 
 .method private static final networkChangeResetConnections_delegate$lambda$4()Z
-    .locals 1
+    .registers 1
 
     .line 94
     const/4 v0, 0x1
@@ -5054,7 +5054,7 @@
 .end method
 
 .method private static final persistAcrossReboot_delegate$lambda$18()Z
-    .locals 1
+    .registers 1
 
     .line 157
     const/4 v0, 0x0
@@ -5063,7 +5063,7 @@
 .end method
 
 .method private static final profileTrafficStatistics_delegate$lambda$22()Z
-    .locals 1
+    .registers 1
 
     .line 165
     const/4 v0, 0x1
@@ -5072,7 +5072,7 @@
 .end method
 
 .method private static final protocolVersion_delegate$lambda$26()I
-    .locals 1
+    .registers 1
 
     .line 211
     const/4 v0, 0x2
@@ -5081,7 +5081,7 @@
 .end method
 
 .method private static final remoteDns_delegate$lambda$9()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 118
     const-string v0, "https://dns.google/dns-query"
@@ -5090,7 +5090,7 @@
 .end method
 
 .method private final saveLocalPort(Ljava/lang/String;I)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # I
 
@@ -5108,7 +5108,7 @@
 .end method
 
 .method private static final selectedGroup_delegate$lambda$0()J
-    .locals 2
+    .registers 2
 
     .line 37
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -5121,7 +5121,7 @@
 .end method
 
 .method private static final serverHopInterval_delegate$lambda$25()I
-    .locals 1
+    .registers 1
 
     .line 209
     const/16 v0, 0xa
@@ -5130,7 +5130,7 @@
 .end method
 
 .method private static final serviceMode_delegate$lambda$5()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 102
     const-string v0, "vpn"
@@ -5139,7 +5139,7 @@
 .end method
 
 .method private static final showDirectSpeed_delegate$lambda$17()Z
-    .locals 1
+    .registers 1
 
     .line 155
     const/4 v0, 0x1
@@ -5148,7 +5148,7 @@
 .end method
 
 .method private static final subscriptionAutoUpdateDelay_delegate$lambda$27()I
-    .locals 1
+    .registers 1
 
     .line 254
     const/16 v0, 0x168
@@ -5157,7 +5157,7 @@
 .end method
 
 .method private static final trafficSniffing_delegate$lambda$6()I
-    .locals 1
+    .registers 1
 
     .line 104
     const/4 v0, 0x1
@@ -5166,7 +5166,7 @@
 .end method
 
 .method private static final tunImplementation_delegate$lambda$21()I
-    .locals 1
+    .registers 1
 
     .line 164
     const/4 v0, 0x0
@@ -5175,7 +5175,7 @@
 .end method
 
 .method private static final userIndex_delegate$lambda$14()I
-    .locals 1
+    .registers 1
 
     .line 129
     invoke-static {}, Landroid/os/Binder;->getCallingUserHandle()Landroid/os/UserHandle;
@@ -5190,7 +5190,7 @@
 .end method
 
 .method private static final yacdURL_delegate$lambda$23()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 167
     const-string v0, "http://127.0.0.1:9090/ui"
@@ -5201,7 +5201,7 @@
 
 # virtual methods
 .method public final currentGroup()Lio/nekohasekai/sagernet/database/ProxyGroup;
-    .locals 22
+    .registers 23
 
     .line 62
     const/4 v0, 0x0
@@ -5224,7 +5224,7 @@
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_1b
 
     .line 65
     sget-object v3, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
@@ -5238,13 +5238,13 @@
     move-result-object v0
 
     .line 67
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_1b
+    if-eqz v0, :cond_1e
 
     return-object v0
 
     .line 68
-    :cond_1
+    :cond_1e
     sget-object v3, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getGroupDao()Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
@@ -5261,7 +5261,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_57
 
     .line 70
     new-instance v4, Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -5319,10 +5319,10 @@
     .end local v6    # "$i$a$-apply-DataStore$currentGroup$1":I
     move-object v0, v4
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 74
-    :cond_2
+    :cond_57
     const/4 v4, 0x0
 
     invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -5334,7 +5334,7 @@
     check-cast v0, Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     .line 76
-    :goto_0
+    :goto_5f
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getId()J
 
     move-result-wide v4
@@ -5348,7 +5348,7 @@
 .end method
 
 .method public final currentGroupId()J
-    .locals 23
+    .registers 24
 
     .line 48
     move-object/from16 v0, p0
@@ -5369,12 +5369,12 @@
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_13
 
     return-wide v1
 
     .line 50
-    :cond_0
+    :cond_13
     sget-object v3, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getGroupDao()Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
@@ -5395,7 +5395,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_35
 
     .line 52
     const/4 v4, 0x0
@@ -5419,7 +5419,7 @@
 
     .line 56
     .end local v4    # "groupId":J
-    :cond_1
+    :cond_35
     sget-object v4, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v4}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getGroupDao()Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
@@ -5475,7 +5475,7 @@
 .end method
 
 .method public final getAcquireWakeLock()Z
-    .locals 3
+    .registers 4
 
     .line 126
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->acquireWakeLock$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5500,7 +5500,7 @@
 .end method
 
 .method public final getAllowAccess()Z
-    .locals 3
+    .registers 4
 
     .line 112
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->allowAccess$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5525,7 +5525,7 @@
 .end method
 
 .method public final getAllowInsecureOnRequest()Z
-    .locals 3
+    .registers 4
 
     .line 93
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->allowInsecureOnRequest$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5550,7 +5550,7 @@
 .end method
 
 .method public final getAlwaysShowAddress()Z
-    .locals 3
+    .registers 4
 
     .line 162
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->alwaysShowAddress$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5575,7 +5575,7 @@
 .end method
 
 .method public final getAppTLSVersion()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 89
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->appTLSVersion$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5596,7 +5596,7 @@
 .end method
 
 .method public final getAppTheme()I
-    .locals 3
+    .registers 4
 
     .line 100
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->appTheme$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5621,7 +5621,7 @@
 .end method
 
 .method public final getAppendHttpProxy()Z
-    .locals 3
+    .registers 4
 
     .line 159
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->appendHttpProxy$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5646,7 +5646,7 @@
 .end method
 
 .method public final getBaseService()Lio/nekohasekai/sagernet/bg/BaseService$Interface;
-    .locals 1
+    .registers 2
 
     .line 41
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->baseService:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
@@ -5655,7 +5655,7 @@
 .end method
 
 .method public final getBypass()Z
-    .locals 3
+    .registers 4
 
     .line 153
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->bypass$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5680,7 +5680,7 @@
 .end method
 
 .method public final getBypassLan()Z
-    .locals 3
+    .registers 4
 
     .line 109
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->bypassLan$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5705,7 +5705,7 @@
 .end method
 
 .method public final getBypassLanInCore()Z
-    .locals 3
+    .registers 4
 
     .line 110
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->bypassLanInCore$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5730,7 +5730,7 @@
 .end method
 
 .method public final getConfigurationStore()Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;
-    .locals 1
+    .registers 2
 
     .line 30
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->configurationStore:Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;
@@ -5739,7 +5739,7 @@
 .end method
 
 .method public final getConnectionTestConcurrent()I
-    .locals 3
+    .registers 4
 
     .line 161
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->connectionTestConcurrent$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5764,7 +5764,7 @@
 .end method
 
 .method public final getConnectionTestURL()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 160
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->connectionTestURL$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5785,7 +5785,7 @@
 .end method
 
 .method public final getCurrentProfile()J
-    .locals 3
+    .registers 4
 
     .line 34
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->currentProfile$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5810,7 +5810,7 @@
 .end method
 
 .method public final getDirectDns()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 119
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->directDns$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5831,7 +5831,7 @@
 .end method
 
 .method public final getDirty()Z
-    .locals 3
+    .registers 4
 
     .line 175
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->dirty$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5856,7 +5856,7 @@
 .end method
 
 .method public final getEditingGroup()J
-    .locals 3
+    .registers 4
 
     .line 177
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->editingGroup$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5881,7 +5881,7 @@
 .end method
 
 .method public final getEditingId()J
-    .locals 3
+    .registers 4
 
     .line 176
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->editingId$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5906,7 +5906,7 @@
 .end method
 
 .method public final getEnableClashAPI()Z
-    .locals 3
+    .registers 4
 
     .line 90
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->enableClashAPI$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5931,7 +5931,7 @@
 .end method
 
 .method public final getEnableDnsRouting()Z
-    .locals 3
+    .registers 4
 
     .line 120
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->enableDnsRouting$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5956,7 +5956,7 @@
 .end method
 
 .method public final getEnableFakeDns()Z
-    .locals 3
+    .registers 4
 
     .line 121
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->enableFakeDns$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -5981,7 +5981,7 @@
 .end method
 
 .method public final getFrontProxy()J
-    .locals 3
+    .registers 4
 
     .line 234
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->frontProxy$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6006,7 +6006,7 @@
 .end method
 
 .method public final getFrontProxyTmp()I
-    .locals 3
+    .registers 4
 
     .line 236
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->frontProxyTmp$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6031,7 +6031,7 @@
 .end method
 
 .method public final getGlobalAllowInsecure()Z
-    .locals 3
+    .registers 4
 
     .line 171
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->globalAllowInsecure$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6056,7 +6056,7 @@
 .end method
 
 .method public final getGlobalCustomConfig()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 116
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->globalCustomConfig$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6077,7 +6077,7 @@
 .end method
 
 .method public final getGroupIsSelector()Z
-    .locals 3
+    .registers 4
 
     .line 246
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->groupIsSelector$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6102,7 +6102,7 @@
 .end method
 
 .method public final getGroupName()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 243
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->groupName$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6123,7 +6123,7 @@
 .end method
 
 .method public final getGroupOrder()I
-    .locals 3
+    .registers 4
 
     .line 245
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->groupOrder$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6148,7 +6148,7 @@
 .end method
 
 .method public final getGroupType()I
-    .locals 3
+    .registers 4
 
     .line 244
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->groupType$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6173,7 +6173,7 @@
 .end method
 
 .method public final getIndividual()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 154
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->individual$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6194,7 +6194,7 @@
 .end method
 
 .method public final getIpv6Mode()I
-    .locals 3
+    .registers 4
 
     .line 149
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->ipv6Mode$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6223,7 +6223,7 @@
 .end method
 
 .method public final getLandingProxy()J
-    .locals 3
+    .registers 4
 
     .line 235
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->landingProxy$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6248,7 +6248,7 @@
 .end method
 
 .method public final getLandingProxyTmp()I
-    .locals 3
+    .registers 4
 
     .line 237
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->landingProxyTmp$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6273,7 +6273,7 @@
 .end method
 
 .method public final getLogBufSize()I
-    .locals 3
+    .registers 4
 
     .line 125
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->logBufSize$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6298,7 +6298,7 @@
 .end method
 
 .method public final getLogLevel()I
-    .locals 3
+    .registers 4
 
     .line 124
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->logLevel$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6323,7 +6323,7 @@
 .end method
 
 .method public final getMeteredNetwork()Z
-    .locals 3
+    .registers 4
 
     .line 151
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->meteredNetwork$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6348,7 +6348,7 @@
 .end method
 
 .method public final getMixedPort()I
-    .locals 2
+    .registers 3
 
     .line 131
     const-string v0, "mixedPort"
@@ -6363,7 +6363,7 @@
 .end method
 
 .method public final getMtu()I
-    .locals 3
+    .registers 4
 
     .line 107
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->mtu$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6388,7 +6388,7 @@
 .end method
 
 .method public final getNetworkChangeResetConnections()Z
-    .locals 3
+    .registers 4
 
     .line 94
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->networkChangeResetConnections$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6413,7 +6413,7 @@
 .end method
 
 .method public final getNightTheme()I
-    .locals 3
+    .registers 4
 
     .line 101
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->nightTheme$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6438,7 +6438,7 @@
 .end method
 
 .method public final getPersistAcrossReboot()Z
-    .locals 3
+    .registers 4
 
     .line 157
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->persistAcrossReboot$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6463,7 +6463,7 @@
 .end method
 
 .method public final getProfileCacheStore()Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;
-    .locals 1
+    .registers 2
 
     .line 31
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->profileCacheStore:Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;
@@ -6472,7 +6472,7 @@
 .end method
 
 .method public final getProfileName()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 178
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->profileName$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6493,7 +6493,7 @@
 .end method
 
 .method public final getProfileTrafficStatistics()Z
-    .locals 3
+    .registers 4
 
     .line 165
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->profileTrafficStatistics$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6518,7 +6518,7 @@
 .end method
 
 .method public final getProtocolVersion()I
-    .locals 3
+    .registers 4
 
     .line 211
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->protocolVersion$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6543,7 +6543,7 @@
 .end method
 
 .method public final getProxyApps()Z
-    .locals 3
+    .registers 4
 
     .line 152
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->proxyApps$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6568,7 +6568,7 @@
 .end method
 
 .method public final getRemoteDns()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 118
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->remoteDns$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6589,7 +6589,7 @@
 .end method
 
 .method public final getResolveDestination()Z
-    .locals 3
+    .registers 4
 
     .line 105
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->resolveDestination$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6614,7 +6614,7 @@
 .end method
 
 .method public final getRouteDomain()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 223
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routeDomain$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6635,7 +6635,7 @@
 .end method
 
 .method public final getRouteIP()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 224
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routeIP$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6656,7 +6656,7 @@
 .end method
 
 .method public final getRouteName()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 222
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routeName$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6677,7 +6677,7 @@
 .end method
 
 .method public final getRouteNetwork()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 227
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routeNetwork$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6698,7 +6698,7 @@
 .end method
 
 .method public final getRouteOutbound()I
-    .locals 3
+    .registers 4
 
     .line 230
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routeOutbound$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6723,7 +6723,7 @@
 .end method
 
 .method public final getRouteOutboundRule()J
-    .locals 3
+    .registers 4
 
     .line 231
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routeOutboundRule$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6748,7 +6748,7 @@
 .end method
 
 .method public final getRoutePackages()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 232
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routePackages$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6769,7 +6769,7 @@
 .end method
 
 .method public final getRoutePort()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 225
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routePort$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6790,7 +6790,7 @@
 .end method
 
 .method public final getRouteProtocol()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 229
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routeProtocol$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6811,7 +6811,7 @@
 .end method
 
 .method public final getRouteSource()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 228
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routeSource$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6832,7 +6832,7 @@
 .end method
 
 .method public final getRouteSourcePort()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 226
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->routeSourcePort$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6853,7 +6853,7 @@
 .end method
 
 .method public final getRulesFirstCreate()Z
-    .locals 3
+    .registers 4
 
     .line 256
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->rulesFirstCreate$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6878,7 +6878,7 @@
 .end method
 
 .method public final getRulesProvider()I
-    .locals 3
+    .registers 4
 
     .line 123
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->rulesProvider$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6903,7 +6903,7 @@
 .end method
 
 .method public final getRunningTest()Z
-    .locals 1
+    .registers 2
 
     .line 45
     sget-boolean v0, Lio/nekohasekai/sagernet/database/DataStore;->runningTest:Z
@@ -6912,7 +6912,7 @@
 .end method
 
 .method public final getSelectedGroup()J
-    .locals 3
+    .registers 4
 
     .line 37
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->selectedGroup$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6937,7 +6937,7 @@
 .end method
 
 .method public final getSelectedProxy()J
-    .locals 3
+    .registers 4
 
     .line 36
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->selectedProxy$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6962,7 +6962,7 @@
 .end method
 
 .method public final getServerALPN()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 197
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverALPN$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -6983,7 +6983,7 @@
 .end method
 
 .method public final getServerAddress()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 179
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverAddress$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7004,7 +7004,7 @@
 .end method
 
 .method public final getServerAllowInsecure()Z
-    .locals 3
+    .registers 4
 
     .line 201
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverAllowInsecure$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7029,7 +7029,7 @@
 .end method
 
 .method public final getServerAuthType()I
-    .locals 3
+    .registers 4
 
     .line 203
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverAuthType$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7054,7 +7054,7 @@
 .end method
 
 .method public final getServerCertificates()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 198
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverCertificates$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7075,7 +7075,7 @@
 .end method
 
 .method public final getServerConfig()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 239
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverConfig$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7096,7 +7096,7 @@
 .end method
 
 .method public final getServerCongestionController()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 218
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverCongestionController$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7117,7 +7117,7 @@
 .end method
 
 .method public final getServerConnectionReceiveWindow()I
-    .locals 3
+    .registers 4
 
     .line 207
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverConnectionReceiveWindow$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7142,7 +7142,7 @@
 .end method
 
 .method public final getServerCustom()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 240
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverCustom$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7163,7 +7163,7 @@
 .end method
 
 .method public final getServerCustomOutbound()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 241
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverCustomOutbound$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7184,7 +7184,7 @@
 .end method
 
 .method public final getServerDisableMtuDiscovery()Z
-    .locals 3
+    .registers 4
 
     .line 208
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverDisableMtuDiscovery$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7209,7 +7209,7 @@
 .end method
 
 .method public final getServerDisableSNI()Z
-    .locals 3
+    .registers 4
 
     .line 219
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverDisableSNI$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7234,7 +7234,7 @@
 .end method
 
 .method public final getServerDownloadSpeed()I
-    .locals 3
+    .registers 4
 
     .line 205
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverDownloadSpeed$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7259,7 +7259,7 @@
 .end method
 
 .method public final getServerEncryption()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 196
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverEncryption$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7280,7 +7280,7 @@
 .end method
 
 .method public final getServerHeaders()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 200
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverHeaders$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7301,7 +7301,7 @@
 .end method
 
 .method public final getServerHopInterval()I
-    .locals 3
+    .registers 4
 
     .line 209
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverHopInterval$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7326,7 +7326,7 @@
 .end method
 
 .method public final getServerHost()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 193
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverHost$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7347,7 +7347,7 @@
 .end method
 
 .method public final getServerInsecureConcurrency()I
-    .locals 3
+    .registers 4
 
     .line 215
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverInsecureConcurrency$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7372,7 +7372,7 @@
 .end method
 
 .method public final getServerMTU()I
-    .locals 3
+    .registers 4
 
     .line 199
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverMTU$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7397,7 +7397,7 @@
 .end method
 
 .method public final getServerMethod()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 185
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverMethod$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7418,7 +7418,7 @@
 .end method
 
 .method public final getServerNetwork()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 192
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverNetwork$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7439,7 +7439,7 @@
 .end method
 
 .method public final getServerObfs()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 190
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverObfs$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7460,7 +7460,7 @@
 .end method
 
 .method public final getServerPassword()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 183
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverPassword$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7481,7 +7481,7 @@
 .end method
 
 .method public final getServerPassword1()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 184
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverPassword1$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7502,7 +7502,7 @@
 .end method
 
 .method public final getServerPath()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 194
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverPath$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7523,7 +7523,7 @@
 .end method
 
 .method public final getServerPort()I
-    .locals 3
+    .registers 4
 
     .line 180
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverPort$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7548,7 +7548,7 @@
 .end method
 
 .method public final getServerPorts()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 181
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverPorts$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7569,7 +7569,7 @@
 .end method
 
 .method public final getServerPrivateKey()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 214
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverPrivateKey$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7590,7 +7590,7 @@
 .end method
 
 .method public final getServerProtocol()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 189
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverProtocol$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7611,7 +7611,7 @@
 .end method
 
 .method public final getServerProtocolInt()I
-    .locals 3
+    .registers 4
 
     .line 213
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverProtocolInt$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7636,7 +7636,7 @@
 .end method
 
 .method public final getServerReduceRTT()Z
-    .locals 3
+    .registers 4
 
     .line 220
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverReduceRTT$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7661,7 +7661,7 @@
 .end method
 
 .method public final getServerSNI()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 195
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverSNI$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7682,7 +7682,7 @@
 .end method
 
 .method public final getServerStreamReceiveWindow()I
-    .locals 3
+    .registers 4
 
     .line 206
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverStreamReceiveWindow$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7707,7 +7707,7 @@
 .end method
 
 .method public final getServerUDPRelayMode()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 217
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverUDPRelayMode$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7728,7 +7728,7 @@
 .end method
 
 .method public final getServerUploadSpeed()I
-    .locals 3
+    .registers 4
 
     .line 204
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverUploadSpeed$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7753,7 +7753,7 @@
 .end method
 
 .method public final getServerUsername()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 182
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serverUsername$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7774,7 +7774,7 @@
 .end method
 
 .method public final getServiceMode()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 102
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serviceMode$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7795,7 +7795,7 @@
 .end method
 
 .method public final getServiceState()Lio/nekohasekai/sagernet/bg/BaseService$State;
-    .locals 1
+    .registers 2
 
     .line 27
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->serviceState:Lio/nekohasekai/sagernet/bg/BaseService$State;
@@ -7804,7 +7804,7 @@
 .end method
 
 .method public final getSharedStorage()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 187
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->sharedStorage$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7825,7 +7825,7 @@
 .end method
 
 .method public final getShowBottomBar()Z
-    .locals 3
+    .registers 4
 
     .line 91
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->showBottomBar$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7850,7 +7850,7 @@
 .end method
 
 .method public final getShowDirectSpeed()Z
-    .locals 3
+    .registers 4
 
     .line 155
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->showDirectSpeed$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7875,7 +7875,7 @@
 .end method
 
 .method public final getShowGroupInNotification()Z
-    .locals 3
+    .registers 4
 
     .line 114
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->showGroupInNotification$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7900,7 +7900,7 @@
 .end method
 
 .method public final getSpeedInterval()I
-    .locals 1
+    .registers 2
 
     const/16 v0, 0x3e8
 
@@ -7908,7 +7908,7 @@
 .end method
 
 .method public final getSubscriptionAutoUpdate()Z
-    .locals 3
+    .registers 4
 
     .line 253
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->subscriptionAutoUpdate$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7933,7 +7933,7 @@
 .end method
 
 .method public final getSubscriptionAutoUpdateDelay()I
-    .locals 3
+    .registers 4
 
     .line 254
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->subscriptionAutoUpdateDelay$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7958,7 +7958,7 @@
 .end method
 
 .method public final getSubscriptionDeduplication()Z
-    .locals 3
+    .registers 4
 
     .line 250
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->subscriptionDeduplication$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -7983,7 +7983,7 @@
 .end method
 
 .method public final getSubscriptionForceResolve()Z
-    .locals 3
+    .registers 4
 
     .line 249
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->subscriptionForceResolve$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -8008,7 +8008,7 @@
 .end method
 
 .method public final getSubscriptionLink()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 248
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->subscriptionLink$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -8029,7 +8029,7 @@
 .end method
 
 .method public final getSubscriptionUpdateWhenConnectedOnly()Z
-    .locals 3
+    .registers 4
 
     .line 251
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->subscriptionUpdateWhenConnectedOnly$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -8054,7 +8054,7 @@
 .end method
 
 .method public final getSubscriptionUserAgent()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 252
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->subscriptionUserAgent$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -8075,7 +8075,7 @@
 .end method
 
 .method public final getTrafficSniffing()I
-    .locals 3
+    .registers 4
 
     .line 104
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->trafficSniffing$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -8100,7 +8100,7 @@
 .end method
 
 .method public final getTunImplementation()I
-    .locals 3
+    .registers 4
 
     .line 164
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->tunImplementation$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -8125,7 +8125,7 @@
 .end method
 
 .method public final getVpnService()Lio/nekohasekai/sagernet/bg/VpnService;
-    .locals 1
+    .registers 2
 
     .line 40
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->vpnService:Lio/nekohasekai/sagernet/bg/VpnService;
@@ -8134,7 +8134,7 @@
 .end method
 
 .method public final getWakeResetConnections()Z
-    .locals 3
+    .registers 4
 
     .line 95
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->wakeResetConnections$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -8159,7 +8159,7 @@
 .end method
 
 .method public final getYacdURL()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 167
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->yacdURL$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -8180,7 +8180,7 @@
 .end method
 
 .method public final initGlobal()V
-    .locals 2
+    .registers 3
 
     .line 135
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->configurationStore:Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;
@@ -8191,7 +8191,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 136
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/DataStore;->getMixedPort()I
@@ -8201,12 +8201,12 @@
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/database/DataStore;->setMixedPort(I)V
 
     .line 138
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public final isExpert()Z
-    .locals 3
+    .registers 4
 
     .line 99
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->isExpert$delegate:Lio/nekohasekai/sagernet/ktx/PreferenceProxy;
@@ -8231,7 +8231,7 @@
 .end method
 
 .method public onPreferenceDataStoreChanged(Landroidx/preference/PreferenceDataStore;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "store"    # Landroidx/preference/PreferenceDataStore;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -8248,7 +8248,7 @@
 .end method
 
 .method public final selectedGroupForImport()J
-    .locals 21
+    .registers 22
 
     .line 81
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/database/DataStore;->currentGroup()Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -8261,7 +8261,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getId()J
 
@@ -8270,7 +8270,7 @@
     return-wide v1
 
     .line 83
-    :cond_0
+    :cond_f
     sget-object v1, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getGroupDao()Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
@@ -8291,12 +8291,12 @@
 
     move-result-object v2
 
-    :cond_1
+    :cond_20
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_3a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8316,29 +8316,29 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_36
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_37
 
-    :cond_2
+    :cond_36
     const/4 v6, 0x0
 
     .end local v4    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v5    # "$i$a$-find-DataStore$selectedGroupForImport$1":I
-    :goto_0
-    if-eqz v6, :cond_1
+    :goto_37
+    if-eqz v6, :cond_20
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_3
+    :cond_3a
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_3b
     check-cast v3, Lio/nekohasekai/sagernet/database/ProxyGroup;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_46
 
     move-object v2, v3
 
@@ -8357,7 +8357,7 @@
     .line 86
     .end local v2    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v3    # "$i$a$-let-DataStore$selectedGroupForImport$2":I
-    :cond_4
+    :cond_46
     sget-object v2, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getGroupDao()Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
@@ -8408,7 +8408,7 @@
 .end method
 
 .method public final setAcquireWakeLock(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 126
@@ -8430,7 +8430,7 @@
 .end method
 
 .method public final setAllowAccess(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 112
@@ -8452,7 +8452,7 @@
 .end method
 
 .method public final setAllowInsecureOnRequest(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 93
@@ -8474,7 +8474,7 @@
 .end method
 
 .method public final setAlwaysShowAddress(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 162
@@ -8496,7 +8496,7 @@
 .end method
 
 .method public final setAppTLSVersion(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -8518,7 +8518,7 @@
 .end method
 
 .method public final setAppTheme(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 100
@@ -8540,7 +8540,7 @@
 .end method
 
 .method public final setAppendHttpProxy(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 159
@@ -8562,7 +8562,7 @@
 .end method
 
 .method public final setBaseService(Lio/nekohasekai/sagernet/bg/BaseService$Interface;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     .line 41
@@ -8572,7 +8572,7 @@
 .end method
 
 .method public final setBypass(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 153
@@ -8594,7 +8594,7 @@
 .end method
 
 .method public final setBypassLan(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 109
@@ -8616,7 +8616,7 @@
 .end method
 
 .method public final setBypassLanInCore(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 110
@@ -8638,7 +8638,7 @@
 .end method
 
 .method public final setConnectionTestConcurrent(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 161
@@ -8660,7 +8660,7 @@
 .end method
 
 .method public final setConnectionTestURL(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -8682,7 +8682,7 @@
 .end method
 
 .method public final setCurrentProfile(J)V
-    .locals 3
+    .registers 6
     .param p1, "<set-?>"    # J
 
     .line 34
@@ -8704,7 +8704,7 @@
 .end method
 
 .method public final setDirectDns(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -8726,7 +8726,7 @@
 .end method
 
 .method public final setDirty(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 175
@@ -8748,7 +8748,7 @@
 .end method
 
 .method public final setEditingGroup(J)V
-    .locals 3
+    .registers 6
     .param p1, "<set-?>"    # J
 
     .line 177
@@ -8770,7 +8770,7 @@
 .end method
 
 .method public final setEditingId(J)V
-    .locals 3
+    .registers 6
     .param p1, "<set-?>"    # J
 
     .line 176
@@ -8792,7 +8792,7 @@
 .end method
 
 .method public final setEnableClashAPI(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 90
@@ -8814,7 +8814,7 @@
 .end method
 
 .method public final setEnableDnsRouting(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 120
@@ -8836,7 +8836,7 @@
 .end method
 
 .method public final setEnableFakeDns(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 121
@@ -8858,7 +8858,7 @@
 .end method
 
 .method public final setExpert(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 99
@@ -8880,7 +8880,7 @@
 .end method
 
 .method public final setFrontProxy(J)V
-    .locals 3
+    .registers 6
     .param p1, "<set-?>"    # J
 
     .line 234
@@ -8902,7 +8902,7 @@
 .end method
 
 .method public final setFrontProxyTmp(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 236
@@ -8924,7 +8924,7 @@
 .end method
 
 .method public final setGlobalAllowInsecure(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 171
@@ -8946,7 +8946,7 @@
 .end method
 
 .method public final setGlobalCustomConfig(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -8968,7 +8968,7 @@
 .end method
 
 .method public final setGroupIsSelector(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 246
@@ -8990,7 +8990,7 @@
 .end method
 
 .method public final setGroupName(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9012,7 +9012,7 @@
 .end method
 
 .method public final setGroupOrder(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 245
@@ -9034,7 +9034,7 @@
 .end method
 
 .method public final setGroupType(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 244
@@ -9056,7 +9056,7 @@
 .end method
 
 .method public final setIndividual(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9078,7 +9078,7 @@
 .end method
 
 .method public final setIpv6Mode(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 149
@@ -9100,7 +9100,7 @@
 .end method
 
 .method public final setLandingProxy(J)V
-    .locals 3
+    .registers 6
     .param p1, "<set-?>"    # J
 
     .line 235
@@ -9122,7 +9122,7 @@
 .end method
 
 .method public final setLandingProxyTmp(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 237
@@ -9144,7 +9144,7 @@
 .end method
 
 .method public final setLogBufSize(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 125
@@ -9166,7 +9166,7 @@
 .end method
 
 .method public final setLogLevel(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 124
@@ -9188,7 +9188,7 @@
 .end method
 
 .method public final setMeteredNetwork(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 151
@@ -9210,7 +9210,7 @@
 .end method
 
 .method public final setMixedPort(I)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
 
     .line 132
@@ -9222,7 +9222,7 @@
 .end method
 
 .method public final setMtu(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 107
@@ -9244,7 +9244,7 @@
 .end method
 
 .method public final setNetworkChangeResetConnections(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 94
@@ -9266,7 +9266,7 @@
 .end method
 
 .method public final setNightTheme(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 101
@@ -9288,7 +9288,7 @@
 .end method
 
 .method public final setProfileName(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9310,7 +9310,7 @@
 .end method
 
 .method public final setProfileTrafficStatistics(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 165
@@ -9332,7 +9332,7 @@
 .end method
 
 .method public final setProtocolVersion(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 211
@@ -9354,7 +9354,7 @@
 .end method
 
 .method public final setProxyApps(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 152
@@ -9376,7 +9376,7 @@
 .end method
 
 .method public final setRemoteDns(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9398,7 +9398,7 @@
 .end method
 
 .method public final setResolveDestination(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 105
@@ -9420,7 +9420,7 @@
 .end method
 
 .method public final setRouteDomain(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9442,7 +9442,7 @@
 .end method
 
 .method public final setRouteIP(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9464,7 +9464,7 @@
 .end method
 
 .method public final setRouteName(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9486,7 +9486,7 @@
 .end method
 
 .method public final setRouteNetwork(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9508,7 +9508,7 @@
 .end method
 
 .method public final setRouteOutbound(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 230
@@ -9530,7 +9530,7 @@
 .end method
 
 .method public final setRouteOutboundRule(J)V
-    .locals 3
+    .registers 6
     .param p1, "<set-?>"    # J
 
     .line 231
@@ -9552,7 +9552,7 @@
 .end method
 
 .method public final setRoutePackages(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9574,7 +9574,7 @@
 .end method
 
 .method public final setRoutePort(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9596,7 +9596,7 @@
 .end method
 
 .method public final setRouteProtocol(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9618,7 +9618,7 @@
 .end method
 
 .method public final setRouteSource(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9640,7 +9640,7 @@
 .end method
 
 .method public final setRouteSourcePort(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9662,7 +9662,7 @@
 .end method
 
 .method public final setRulesFirstCreate(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 256
@@ -9684,7 +9684,7 @@
 .end method
 
 .method public final setRulesProvider(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 123
@@ -9706,7 +9706,7 @@
 .end method
 
 .method public final setRunningTest(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 45
@@ -9716,7 +9716,7 @@
 .end method
 
 .method public final setSelectedGroup(J)V
-    .locals 3
+    .registers 6
     .param p1, "<set-?>"    # J
 
     .line 37
@@ -9738,7 +9738,7 @@
 .end method
 
 .method public final setSelectedProxy(J)V
-    .locals 3
+    .registers 6
     .param p1, "<set-?>"    # J
 
     .line 36
@@ -9760,7 +9760,7 @@
 .end method
 
 .method public final setServerALPN(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9782,7 +9782,7 @@
 .end method
 
 .method public final setServerAddress(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9804,7 +9804,7 @@
 .end method
 
 .method public final setServerAllowInsecure(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 201
@@ -9826,7 +9826,7 @@
 .end method
 
 .method public final setServerAuthType(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 203
@@ -9848,7 +9848,7 @@
 .end method
 
 .method public final setServerCertificates(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9870,7 +9870,7 @@
 .end method
 
 .method public final setServerConfig(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9892,7 +9892,7 @@
 .end method
 
 .method public final setServerCongestionController(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9914,7 +9914,7 @@
 .end method
 
 .method public final setServerConnectionReceiveWindow(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 207
@@ -9936,7 +9936,7 @@
 .end method
 
 .method public final setServerCustom(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9958,7 +9958,7 @@
 .end method
 
 .method public final setServerCustomOutbound(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -9980,7 +9980,7 @@
 .end method
 
 .method public final setServerDisableMtuDiscovery(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 208
@@ -10002,7 +10002,7 @@
 .end method
 
 .method public final setServerDisableSNI(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 219
@@ -10024,7 +10024,7 @@
 .end method
 
 .method public final setServerDownloadSpeed(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 205
@@ -10046,7 +10046,7 @@
 .end method
 
 .method public final setServerEncryption(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10068,7 +10068,7 @@
 .end method
 
 .method public final setServerHeaders(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10090,7 +10090,7 @@
 .end method
 
 .method public final setServerHopInterval(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 209
@@ -10112,7 +10112,7 @@
 .end method
 
 .method public final setServerHost(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10134,7 +10134,7 @@
 .end method
 
 .method public final setServerInsecureConcurrency(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 215
@@ -10156,7 +10156,7 @@
 .end method
 
 .method public final setServerMTU(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 199
@@ -10178,7 +10178,7 @@
 .end method
 
 .method public final setServerMethod(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10200,7 +10200,7 @@
 .end method
 
 .method public final setServerNetwork(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10222,7 +10222,7 @@
 .end method
 
 .method public final setServerObfs(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10244,7 +10244,7 @@
 .end method
 
 .method public final setServerPassword(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10266,7 +10266,7 @@
 .end method
 
 .method public final setServerPassword1(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10288,7 +10288,7 @@
 .end method
 
 .method public final setServerPath(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10310,7 +10310,7 @@
 .end method
 
 .method public final setServerPort(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 180
@@ -10332,7 +10332,7 @@
 .end method
 
 .method public final setServerPorts(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10354,7 +10354,7 @@
 .end method
 
 .method public final setServerPrivateKey(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10376,7 +10376,7 @@
 .end method
 
 .method public final setServerProtocol(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10398,7 +10398,7 @@
 .end method
 
 .method public final setServerProtocolInt(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 213
@@ -10420,7 +10420,7 @@
 .end method
 
 .method public final setServerReduceRTT(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 220
@@ -10442,7 +10442,7 @@
 .end method
 
 .method public final setServerSNI(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10464,7 +10464,7 @@
 .end method
 
 .method public final setServerStreamReceiveWindow(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 206
@@ -10486,7 +10486,7 @@
 .end method
 
 .method public final setServerUDPRelayMode(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10508,7 +10508,7 @@
 .end method
 
 .method public final setServerUploadSpeed(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 204
@@ -10530,7 +10530,7 @@
 .end method
 
 .method public final setServerUsername(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10552,7 +10552,7 @@
 .end method
 
 .method public final setServiceMode(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10574,7 +10574,7 @@
 .end method
 
 .method public final setServiceState(Lio/nekohasekai/sagernet/bg/BaseService$State;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/bg/BaseService$State;
 
     const-string v0, "<set-?>"
@@ -10589,7 +10589,7 @@
 .end method
 
 .method public final setSharedStorage(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10611,7 +10611,7 @@
 .end method
 
 .method public final setShowBottomBar(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 91
@@ -10633,7 +10633,7 @@
 .end method
 
 .method public final setShowDirectSpeed(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 155
@@ -10655,7 +10655,7 @@
 .end method
 
 .method public final setShowGroupInNotification(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 114
@@ -10677,7 +10677,7 @@
 .end method
 
 .method public final setSpeedInterval(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 113
@@ -10699,7 +10699,7 @@
 .end method
 
 .method public final setSubscriptionAutoUpdate(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 253
@@ -10721,7 +10721,7 @@
 .end method
 
 .method public final setSubscriptionAutoUpdateDelay(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 254
@@ -10743,7 +10743,7 @@
 .end method
 
 .method public final setSubscriptionDeduplication(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 250
@@ -10765,7 +10765,7 @@
 .end method
 
 .method public final setSubscriptionForceResolve(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 249
@@ -10787,7 +10787,7 @@
 .end method
 
 .method public final setSubscriptionLink(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10809,7 +10809,7 @@
 .end method
 
 .method public final setSubscriptionUpdateWhenConnectedOnly(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 251
@@ -10831,7 +10831,7 @@
 .end method
 
 .method public final setSubscriptionUserAgent(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -10853,7 +10853,7 @@
 .end method
 
 .method public final setTrafficSniffing(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 104
@@ -10875,7 +10875,7 @@
 .end method
 
 .method public final setTunImplementation(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 164
@@ -10897,7 +10897,7 @@
 .end method
 
 .method public final setVpnService(Lio/nekohasekai/sagernet/bg/VpnService;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/bg/VpnService;
 
     .line 40
@@ -10907,7 +10907,7 @@
 .end method
 
 .method public final setWakeResetConnections(Z)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Z
 
     .line 95
@@ -10929,7 +10929,7 @@
 .end method
 
 .method public final setYacdURL(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"

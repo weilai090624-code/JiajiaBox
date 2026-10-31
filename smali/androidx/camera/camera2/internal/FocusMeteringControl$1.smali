@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/FocusMeteringControl;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/FocusMeteringControl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -48,12 +48,12 @@
 
 # virtual methods
 .method public onCaptureCancelled()V
-    .locals 3
+    .registers 4
 
     .line 429
     iget-object v0, p0, Landroidx/camera/camera2/internal/FocusMeteringControl$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 430
     iget-object v0, p0, Landroidx/camera/camera2/internal/FocusMeteringControl$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -67,12 +67,12 @@
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
     .line 433
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 1
+    .registers 3
     .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -86,7 +86,7 @@
     .line 414
     iget-object v0, p0, Landroidx/camera/camera2/internal/FocusMeteringControl$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 415
     iget-object v0, p0, Landroidx/camera/camera2/internal/FocusMeteringControl$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -94,12 +94,12 @@
     invoke-virtual {v0, p1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
     .line 417
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public onCaptureFailed(Landroidx/camera/core/impl/CameraCaptureFailure;)V
-    .locals 2
+    .registers 4
     .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -113,7 +113,7 @@
     .line 421
     iget-object v0, p0, Landroidx/camera/camera2/internal/FocusMeteringControl$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 422
     iget-object v0, p0, Landroidx/camera/camera2/internal/FocusMeteringControl$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -125,6 +125,6 @@
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
     .line 425
-    :cond_0
+    :cond_e
     return-void
 .end method

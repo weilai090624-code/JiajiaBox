@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/multiprocess/RemoteCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "callback"    # Landroidx/work/multiprocess/RemoteCallback;
 
     .line 114
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 2
+    .registers 3
 
     .line 120
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteCallback$DeathRecipient;->mCallback:Landroidx/work/multiprocess/RemoteCallback;

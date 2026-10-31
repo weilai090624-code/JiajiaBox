@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 181
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 .end method
 
 .method public static fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
-    .locals 2
+    .registers 4
     .param p0, "source"    # Ljava/lang/String;
     .param p1, "flags"    # I
 
@@ -56,7 +56,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 148
     invoke-static {p0, p1}, Landroidx/core/text/HtmlCompat$Api24Impl;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
@@ -66,7 +66,7 @@
     return-object v0
 
     .line 150
-    :cond_0
+    :cond_b
     invoke-static {p0}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
 
     move-result-object v0
@@ -75,7 +75,7 @@
 .end method
 
 .method public static fromHtml(Ljava/lang/String;ILandroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
-    .locals 2
+    .registers 6
     .param p0, "source"    # Ljava/lang/String;
     .param p1, "flags"    # I
     .param p2, "imageGetter"    # Landroid/text/Html$ImageGetter;
@@ -86,7 +86,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 163
     invoke-static {p0, p1, p2, p3}, Landroidx/core/text/HtmlCompat$Api24Impl;->fromHtml(Ljava/lang/String;ILandroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
@@ -96,7 +96,7 @@
     return-object v0
 
     .line 165
-    :cond_0
+    :cond_b
     invoke-static {p0, p2, p3}, Landroid/text/Html;->fromHtml(Ljava/lang/String;Landroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
 
     move-result-object v0
@@ -105,7 +105,7 @@
 .end method
 
 .method public static toHtml(Landroid/text/Spanned;I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "text"    # Landroid/text/Spanned;
     .param p1, "options"    # I
 
@@ -114,7 +114,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 176
     invoke-static {p0, p1}, Landroidx/core/text/HtmlCompat$Api24Impl;->toHtml(Landroid/text/Spanned;I)Ljava/lang/String;
@@ -124,7 +124,7 @@
     return-object v0
 
     .line 178
-    :cond_0
+    :cond_b
     invoke-static {p0}, Landroid/text/Html;->toHtml(Landroid/text/Spanned;)Ljava/lang/String;
 
     move-result-object v0

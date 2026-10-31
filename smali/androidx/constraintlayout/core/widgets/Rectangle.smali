@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,14 +26,14 @@
 
 # virtual methods
 .method public contains(II)Z
-    .locals 2
+    .registers 5
     .param p1, "x"    # I
     .param p2, "y"    # I
 
     .line 46
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Rectangle;->x:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_18
 
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Rectangle;->x:I
 
@@ -41,11 +41,11 @@
 
     add-int/2addr v0, v1
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_18
 
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Rectangle;->y:I
 
-    if-lt p2, v0, :cond_0
+    if-lt p2, v0, :cond_18
 
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Rectangle;->y:I
 
@@ -53,21 +53,21 @@
 
     add-int/2addr v0, v1
 
-    if-ge p2, v0, :cond_0
+    if-ge p2, v0, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_19
     return v0
 .end method
 
 .method public getCenterX()I
-    .locals 2
+    .registers 3
 
     .line 50
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Rectangle;->x:I
@@ -82,7 +82,7 @@
 .end method
 
 .method public getCenterY()I
-    .locals 2
+    .registers 3
 
     .line 51
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Rectangle;->y:I
@@ -97,7 +97,7 @@
 .end method
 
 .method grow(II)V
-    .locals 2
+    .registers 5
     .param p1, "w"    # I
     .param p2, "h"    # I
 
@@ -138,7 +138,7 @@
 .end method
 
 .method intersects(Landroidx/constraintlayout/core/widgets/Rectangle;)Z
-    .locals 3
+    .registers 5
     .param p1, "bounds"    # Landroidx/constraintlayout/core/widgets/Rectangle;
 
     .line 41
@@ -146,7 +146,7 @@
 
     iget v1, p1, Landroidx/constraintlayout/core/widgets/Rectangle;->x:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_20
 
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Rectangle;->x:I
 
@@ -156,13 +156,13 @@
 
     add-int/2addr v1, v2
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_20
 
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Rectangle;->y:I
 
     iget v1, p1, Landroidx/constraintlayout/core/widgets/Rectangle;->y:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_20
 
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Rectangle;->y:I
 
@@ -172,21 +172,21 @@
 
     add-int/2addr v1, v2
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_20
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_21
     return v0
 .end method
 
 .method public setBounds(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "x"    # I
     .param p2, "y"    # I
     .param p3, "width"    # I

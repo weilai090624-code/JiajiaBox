@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;ILcom/google/common/cache/ReferenceEntry;)V
-    .locals 1
+    .registers 5
     .param p2, "hash"    # I
     .param p3    # Lcom/google/common/cache/ReferenceEntry;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public getHash()I
-    .locals 1
+    .registers 2
 
     .line 971
     .local p0, "this":Lcom/google/common/cache/LocalCache$StrongEntry;, "Lcom/google/common/cache/LocalCache$StrongEntry<TK;TV;>;"
@@ -114,7 +114,7 @@
 .end method
 
 .method public getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -129,7 +129,7 @@
 .end method
 
 .method public getNext()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -146,7 +146,7 @@
 .end method
 
 .method public getValueReference()Lcom/google/common/cache/LocalCache$ValueReference;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -163,7 +163,7 @@
 .end method
 
 .method public setValueReference(Lcom/google/common/cache/LocalCache$ValueReference;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

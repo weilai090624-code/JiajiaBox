@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method public static makeCustomSpline(Ljava/lang/String;Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomArray;)Landroidx/constraintlayout/core/motion/utils/SplineSet;
-    .locals 1
+    .registers 3
     .param p0, "str"    # Ljava/lang/String;
     .param p1, "attrList"    # Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomArray;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public static makeCustomSplineSet(Ljava/lang/String;Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;)Landroidx/constraintlayout/core/motion/utils/SplineSet;
-    .locals 1
+    .registers 3
     .param p0, "str"    # Ljava/lang/String;
     .param p1, "attrList"    # Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public static makeSpline(Ljava/lang/String;J)Landroidx/constraintlayout/core/motion/utils/SplineSet;
-    .locals 1
+    .registers 4
     .param p0, "str"    # Ljava/lang/String;
     .param p1, "currentTime"    # J
 
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public get(F)F
-    .locals 4
+    .registers 6
     .param p1, "t"    # F
 
     .line 61
@@ -114,7 +114,7 @@
 .end method
 
 .method public getCurveFit()Landroidx/constraintlayout/core/motion/utils/CurveFit;
-    .locals 1
+    .registers 2
 
     .line 69
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->mCurveFit:Landroidx/constraintlayout/core/motion/utils/CurveFit;
@@ -123,7 +123,7 @@
 .end method
 
 .method public getSlope(F)F
-    .locals 4
+    .registers 6
     .param p1, "t"    # F
 
     .line 65
@@ -143,7 +143,7 @@
 .end method
 
 .method public setPoint(IF)V
-    .locals 2
+    .registers 5
     .param p1, "position"    # I
     .param p2, "value"    # F
 
@@ -156,7 +156,7 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_23
 
     .line 75
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->mTimePoints:[I
@@ -189,7 +189,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->mValues:[F
 
     .line 78
-    :cond_0
+    :cond_23
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->mTimePoints:[I
 
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->count:I
@@ -215,7 +215,7 @@
 .end method
 
 .method public setProperty(Landroidx/constraintlayout/core/motion/utils/TypedValues;F)V
-    .locals 2
+    .registers 5
     .param p1, "widget"    # Landroidx/constraintlayout/core/motion/utils/TypedValues;
     .param p2, "t"    # F
 
@@ -237,7 +237,7 @@
 .end method
 
 .method public setType(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "type"    # Ljava/lang/String;
 
     .line 57
@@ -248,19 +248,19 @@
 .end method
 
 .method public setup(I)V
-    .locals 10
+    .registers 12
     .param p1, "curveType"    # I
 
     .line 84
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->count:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 85
     return-void
 
     .line 88
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->mTimePoints:[I
 
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->mValues:[F
@@ -283,10 +283,10 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_13
     iget v2, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->count:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_28
 
     .line 93
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->mTimePoints:[I
@@ -299,20 +299,20 @@
 
     aget v5, v5, v1
 
-    if-eq v2, v5, :cond_1
+    if-eq v2, v5, :cond_25
 
     .line 94
     add-int/lit8 v0, v0, 0x1
 
     .line 92
-    :cond_1
+    :cond_25
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 98
     .end local v1    # "i":I
-    :cond_2
+    :cond_28
     new-array v1, v0, [D
 
     .line 99
@@ -342,13 +342,13 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_1
+    :goto_3b
     iget v6, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->count:I
 
-    if-ge v5, v6, :cond_4
+    if-ge v5, v6, :cond_6a
 
     .line 102
-    if-lez v5, :cond_3
+    if-lez v5, :cond_4e
 
     iget-object v6, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->mTimePoints:[I
 
@@ -360,13 +360,13 @@
 
     aget v7, v7, v8
 
-    if-ne v6, v7, :cond_3
+    if-ne v6, v7, :cond_4e
 
     .line 103
-    goto :goto_2
+    goto :goto_67
 
     .line 106
-    :cond_3
+    :cond_4e
     iget-object v6, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->mTimePoints:[I
 
     aget v6, v6, v5
@@ -394,14 +394,14 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 101
-    :goto_2
+    :goto_67
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 110
     .end local v5    # "i":I
-    :cond_4
+    :cond_6a
     invoke-static {p1, v1, v2}, Landroidx/constraintlayout/core/motion/utils/CurveFit;->get(I[D[[D)Landroidx/constraintlayout/core/motion/utils/CurveFit;
 
     move-result-object v4
@@ -413,7 +413,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 47
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->mType:Ljava/lang/String;
@@ -431,10 +431,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_a
     iget v3, p0, Landroidx/constraintlayout/core/motion/utils/SplineSet;->count:I
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_45
 
     .line 50
     new-instance v3, Ljava/lang/StringBuilder;
@@ -492,10 +492,10 @@
     .line 49
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 53
     .end local v2    # "i":I
-    :cond_0
+    :cond_45
     return-object v0
 .end method

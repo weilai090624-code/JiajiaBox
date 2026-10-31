@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 1109
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method private plusMod(JJJ)J
-    .locals 3
+    .registers 10
     .param p1, "a"    # J
     .param p3, "b"    # J
     .param p5, "m"    # J
@@ -39,16 +39,16 @@
 
     add-long v0, p1, p3
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_9
 
     sub-long/2addr v0, p5
 
-    :cond_0
+    :cond_9
     return-wide v0
 .end method
 
 .method private times2ToThe32Mod(JJ)J
-    .locals 4
+    .registers 9
     .param p1, "a"    # J
     .param p3, "m"    # J
 
@@ -57,7 +57,7 @@
 
     .line 1119
     .local v0, "remainingPowersOf2":I
-    :cond_0
+    :cond_2
     invoke-static {p1, p2}, Ljava/lang/Long;->numberOfLeadingZeros(J)I
 
     move-result v1
@@ -79,7 +79,7 @@
 
     .line 1124
     .end local v1    # "shift":I
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_2
 
     .line 1125
     return-wide p1
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method mulMod(JJJ)J
-    .locals 20
+    .registers 27
     .param p1, "a"    # J
     .param p3, "b"    # J
     .param p5, "m"    # J
@@ -135,7 +135,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_26
 
     .line 1146
     invoke-static {v0, v1, v8, v9}, Lcom/google/common/primitives/UnsignedLongs;->remainder(JJ)J
@@ -143,7 +143,7 @@
     move-result-wide v0
 
     .line 1149
-    :cond_0
+    :cond_26
     invoke-static {v14, v15}, Ljava/lang/Long;->signum(J)I
 
     mul-long v2, v14, v12
@@ -178,7 +178,7 @@
 .end method
 
 .method squareMod(JJ)J
-    .locals 18
+    .registers 23
     .param p1, "a"    # J
     .param p3, "m"    # J
 
@@ -219,7 +219,7 @@
 
     cmp-long v6, v2, v4
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_27
 
     .line 1169
     invoke-static {v2, v3, v8, v9}, Lcom/google/common/primitives/UnsignedLongs;->remainder(JJ)J
@@ -228,16 +228,16 @@
 
     move-wide v14, v2
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1168
-    :cond_0
+    :cond_27
     move-wide v14, v2
 
     .line 1172
     .end local v2    # "hiLo":J
     .local v14, "hiLo":J
-    :goto_0
+    :goto_28
     add-long/2addr v0, v14
 
     .line 1173

@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder$$ExternalSyntheticLambda2;->f$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;

@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroid/view/ViewTreeObserver$OnScrollChangedListener;Landroid/view/View$OnLayoutChangeListener;Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1$attachStateChangeListener$1;)V
-    .locals 1
+    .registers 6
 
     iput-object p1, p0, Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1$1;->$view:Landroid/view/View;
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 86
     invoke-virtual {p0}, Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1$1;->invoke()V
@@ -87,7 +87,7 @@
 .end method
 
 .method public final invoke()V
-    .locals 2
+    .registers 3
 
     .line 87
     iget-object v0, p0, Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$flow$1$1;->$view:Landroid/view/View;

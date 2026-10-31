@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 183
     invoke-static {}, Lcom/google/zxing/pdf417/encoder/Compaction;->values()[Lcom/google/zxing/pdf417/encoder/Compaction;
@@ -33,7 +33,7 @@
 
     sput-object v0, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder$1;->$SwitchMap$com$google$zxing$pdf417$encoder$Compaction:[I
 
-    :try_start_0
+    :try_start_9
     sget-object v0, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder$1;->$SwitchMap$com$google$zxing$pdf417$encoder$Compaction:[I
 
     sget-object v1, Lcom/google/zxing/pdf417/encoder/Compaction;->TEXT:Lcom/google/zxing/pdf417/encoder/Compaction;
@@ -45,16 +45,16 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_15
 
-    goto :goto_0
+    goto :goto_16
 
-    :catch_0
+    :catch_15
     move-exception v0
 
-    :goto_0
-    :try_start_1
+    :goto_16
+    :try_start_16
     sget-object v0, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder$1;->$SwitchMap$com$google$zxing$pdf417$encoder$Compaction:[I
 
     sget-object v1, Lcom/google/zxing/pdf417/encoder/Compaction;->BYTE:Lcom/google/zxing/pdf417/encoder/Compaction;
@@ -66,16 +66,16 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_21
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_16 .. :try_end_21} :catch_22
 
-    goto :goto_1
+    goto :goto_23
 
-    :catch_1
+    :catch_22
     move-exception v0
 
-    :goto_1
-    :try_start_2
+    :goto_23
+    :try_start_23
     sget-object v0, Lcom/google/zxing/pdf417/encoder/PDF417HighLevelEncoder$1;->$SwitchMap$com$google$zxing$pdf417$encoder$Compaction:[I
 
     sget-object v1, Lcom/google/zxing/pdf417/encoder/Compaction;->NUMERIC:Lcom/google/zxing/pdf417/encoder/Compaction;
@@ -87,12 +87,12 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_2e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_23 .. :try_end_2e} :catch_2f
 
     return-void
 
-    :catch_2
+    :catch_2f
     move-exception v0
 
     return-void

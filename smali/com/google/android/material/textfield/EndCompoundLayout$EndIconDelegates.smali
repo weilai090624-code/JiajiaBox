@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/EndCompoundLayout;Landroidx/appcompat/widget/TintTypedArray;)V
-    .locals 2
+    .registers 5
     .param p1, "endLayout"    # Lcom/google/android/material/textfield/EndCompoundLayout;
     .param p2, "a"    # Landroidx/appcompat/widget/TintTypedArray;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;
 
     .line 798
@@ -87,11 +87,11 @@
 .end method
 
 .method private create(I)Lcom/google/android/material/textfield/EndIconDelegate;
-    .locals 3
+    .registers 5
     .param p1, "endIconMode"    # I
 
     .line 822
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_46
 
     .line 834
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -119,7 +119,7 @@
     throw v0
 
     .line 828
-    :pswitch_0
+    :pswitch_1c
     new-instance v0, Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;
 
     iget-object v1, p0, Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;->endLayout:Lcom/google/android/material/textfield/EndCompoundLayout;
@@ -129,7 +129,7 @@
     return-object v0
 
     .line 826
-    :pswitch_1
+    :pswitch_24
     new-instance v0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;
 
     iget-object v1, p0, Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;->endLayout:Lcom/google/android/material/textfield/EndCompoundLayout;
@@ -139,7 +139,7 @@
     return-object v0
 
     .line 824
-    :pswitch_2
+    :pswitch_2c
     new-instance v0, Lcom/google/android/material/textfield/PasswordToggleEndIconDelegate;
 
     iget-object v1, p0, Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;->endLayout:Lcom/google/android/material/textfield/EndCompoundLayout;
@@ -151,7 +151,7 @@
     return-object v0
 
     .line 832
-    :pswitch_3
+    :pswitch_36
     new-instance v0, Lcom/google/android/material/textfield/NoEndIconDelegate;
 
     iget-object v1, p0, Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;->endLayout:Lcom/google/android/material/textfield/EndCompoundLayout;
@@ -161,7 +161,7 @@
     return-object v0
 
     .line 830
-    :pswitch_4
+    :pswitch_3e
     new-instance v0, Lcom/google/android/material/textfield/CustomEndIconDelegate;
 
     iget-object v1, p0, Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;->endLayout:Lcom/google/android/material/textfield/EndCompoundLayout;
@@ -170,20 +170,20 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_46
     .packed-switch -0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3e
+        :pswitch_36
+        :pswitch_2c
+        :pswitch_24
+        :pswitch_1c
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method get(I)Lcom/google/android/material/textfield/EndIconDelegate;
-    .locals 2
+    .registers 4
     .param p1, "endIconMode"    # I
 
     .line 813
@@ -197,7 +197,7 @@
 
     .line 814
     .local v0, "delegate":Lcom/google/android/material/textfield/EndIconDelegate;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 815
     invoke-direct {p0, p1}, Lcom/google/android/material/textfield/EndCompoundLayout$EndIconDelegates;->create(I)Lcom/google/android/material/textfield/EndIconDelegate;
@@ -210,6 +210,6 @@
     invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
     .line 818
-    :cond_0
+    :cond_13
     return-object v0
 .end method

@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/random/PlatformRandom$Companion;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Random;)V
-    .locals 1
+    .registers 3
     .param p1, "impl"    # Ljava/util/Random;
 
     const-string v0, "impl"
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public getImpl()Ljava/util/Random;
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lkotlin/random/PlatformRandom;->impl:Ljava/util/Random;

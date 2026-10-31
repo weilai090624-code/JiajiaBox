@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/zxing/Reader;)V
-    .locals 0
+    .registers 2
     .param p1, "delegate"    # Lcom/google/zxing/Reader;
 
     .line 52
@@ -32,7 +32,7 @@
 .end method
 
 .method private doDecodeMultiple(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;Ljava/util/List;III)V
-    .locals 22
+    .registers 29
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,16 +57,16 @@
 
     const/4 v1, 0x4
 
-    if-le v10, v1, :cond_0
+    if-le v10, v1, :cond_c
 
     .line 79
     return-void
 
     .line 84
-    :cond_0
+    :cond_c
     move-object/from16 v11, p0
 
-    :try_start_0
+    :try_start_e
     iget-object v1, v11, Lcom/google/zxing/multi/GenericMultipleBarcodeReader;->delegate:Lcom/google/zxing/Reader;
 
     move-object/from16 v12, p2
@@ -74,8 +74,8 @@
     invoke-interface {v1, v0, v12}, Lcom/google/zxing/Reader;->decode(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;)Lcom/google/zxing/Result;
 
     move-result-object v1
-    :try_end_0
-    .catch Lcom/google/zxing/ReaderException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Lcom/google/zxing/ReaderException; {:try_start_e .. :try_end_16} :catch_124
 
     .line 87
     nop
@@ -88,12 +88,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -114,7 +114,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_39
 
     .line 91
     nop
@@ -122,19 +122,19 @@
     .line 92
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 94
-    :cond_1
-    goto :goto_0
+    :cond_39
+    goto :goto_1c
 
     .line 89
-    :cond_2
+    :cond_3a
     const/4 v2, 0x0
 
     .line 95
-    :goto_1
-    if-nez v2, :cond_3
+    :goto_3b
+    if-nez v2, :cond_47
 
     .line 96
     invoke-static {v1, v8, v9}, Lcom/google/zxing/multi/GenericMultipleBarcodeReader;->translateResultPoints(Lcom/google/zxing/Result;II)Lcom/google/zxing/Result;
@@ -145,29 +145,29 @@
 
     invoke-interface {v15, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_49
 
     .line 95
-    :cond_3
+    :cond_47
     move-object/from16 v15, p3
 
     .line 98
-    :goto_2
+    :goto_49
     invoke-virtual {v1}, Lcom/google/zxing/Result;->getResultPoints()[Lcom/google/zxing/ResultPoint;
 
     move-result-object v1
 
     .line 99
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_123
 
     array-length v2, v1
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_54
 
-    goto/16 :goto_7
+    goto/16 :goto_123
 
     .line 102
-    :cond_4
+    :cond_54
     invoke-virtual/range {p1 .. p1}, Lcom/google/zxing/BinaryBitmap;->getWidth()I
 
     move-result v7
@@ -202,13 +202,13 @@
 
     const/4 v14, 0x0
 
-    :goto_3
-    if-ge v14, v4, :cond_9
+    :goto_66
+    if-ge v14, v4, :cond_8f
 
     aget-object v16, v1, v14
 
     .line 109
-    if-eqz v16, :cond_8
+    if-eqz v16, :cond_8c
 
     .line 112
     invoke-virtual/range {v16 .. v16}, Lcom/google/zxing/ResultPoint;->getX()F
@@ -223,51 +223,51 @@
     .line 114
     cmpg-float v18, v17, v2
 
-    if-gez v18, :cond_5
+    if-gez v18, :cond_7a
 
     .line 115
     move/from16 v2, v17
 
     .line 117
-    :cond_5
+    :cond_7a
     cmpg-float v18, v16, v5
 
-    if-gez v18, :cond_6
+    if-gez v18, :cond_80
 
     .line 118
     move/from16 v5, v16
 
     .line 120
-    :cond_6
+    :cond_80
     cmpl-float v18, v17, v3
 
-    if-lez v18, :cond_7
+    if-lez v18, :cond_86
 
     .line 121
     move/from16 v3, v17
 
     .line 123
-    :cond_7
+    :cond_86
     cmpl-float v17, v16, v13
 
-    if-lez v17, :cond_8
+    if-lez v17, :cond_8c
 
     .line 124
     move/from16 v13, v16
 
     .line 108
-    :cond_8
+    :cond_8c
     add-int/lit8 v14, v14, 0x1
 
-    goto :goto_3
+    goto :goto_66
 
     .line 129
-    :cond_9
+    :cond_8f
     const/high16 v14, 0x42c80000    # 100.0f
 
     cmpl-float v1, v2, v14
 
-    if-lez v1, :cond_a
+    if-lez v1, :cond_b6
 
     .line 130
     float-to-int v1, v2
@@ -306,10 +306,10 @@
 
     invoke-direct/range {v1 .. v7}, Lcom/google/zxing/multi/GenericMultipleBarcodeReader;->doDecodeMultiple(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;Ljava/util/List;III)V
 
-    goto :goto_4
+    goto :goto_bd
 
     .line 129
-    :cond_a
+    :cond_b6
     move/from16 v19, v3
 
     move v11, v5
@@ -319,10 +319,10 @@
     move/from16 v21, v7
 
     .line 136
-    :goto_4
+    :goto_bd
     cmpl-float v1, v11, v14
 
-    if-lez v1, :cond_b
+    if-lez v1, :cond_da
 
     .line 137
     float-to-int v1, v11
@@ -351,14 +351,14 @@
 
     invoke-direct/range {v1 .. v7}, Lcom/google/zxing/multi/GenericMultipleBarcodeReader;->doDecodeMultiple(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;Ljava/util/List;III)V
 
-    goto :goto_5
+    goto :goto_dc
 
     .line 136
-    :cond_b
+    :cond_da
     move/from16 v11, v21
 
     .line 143
-    :goto_5
+    :goto_dc
     add-int/lit8 v7, v11, -0x64
 
     int-to-float v1, v7
@@ -367,7 +367,7 @@
 
     cmpg-float v1, v3, v1
 
-    if-gez v1, :cond_c
+    if-gez v1, :cond_100
 
     .line 144
     float-to-int v1, v3
@@ -398,21 +398,21 @@
 
     invoke-direct/range {v1 .. v7}, Lcom/google/zxing/multi/GenericMultipleBarcodeReader;->doDecodeMultiple(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;Ljava/util/List;III)V
 
-    goto :goto_6
+    goto :goto_102
 
     .line 143
-    :cond_c
+    :cond_100
     move/from16 v14, v20
 
     .line 150
-    :goto_6
+    :goto_102
     add-int/lit8 v6, v14, -0x64
 
     int-to-float v1, v6
 
     cmpg-float v1, v13, v1
 
-    if-gez v1, :cond_d
+    if-gez v1, :cond_122
 
     .line 151
     float-to-int v1, v13
@@ -444,16 +444,16 @@
     invoke-direct/range {v0 .. v6}, Lcom/google/zxing/multi/GenericMultipleBarcodeReader;->doDecodeMultiple(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;Ljava/util/List;III)V
 
     .line 156
-    :cond_d
+    :cond_122
     return-void
 
     .line 100
-    :cond_e
-    :goto_7
+    :cond_123
+    :goto_123
     return-void
 
     .line 85
-    :catch_0
+    :catch_124
     move-exception v0
 
     .line 86
@@ -461,7 +461,7 @@
 .end method
 
 .method private static translateResultPoints(Lcom/google/zxing/Result;II)Lcom/google/zxing/Result;
-    .locals 12
+    .registers 15
     .param p0, "result"    # Lcom/google/zxing/Result;
     .param p1, "xOffset"    # I
     .param p2, "yOffset"    # I
@@ -479,13 +479,13 @@
     .local v2, "oldResultPoints":[Lcom/google/zxing/ResultPoint;
     move-object v2, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 161
     return-object p0
 
     .line 163
-    :cond_0
+    :cond_a
     array-length v0, v2
 
     new-array v0, v0, [Lcom/google/zxing/ResultPoint;
@@ -497,10 +497,10 @@
     move v11, v3
 
     .local v11, "i":I
-    :goto_0
+    :goto_f
     array-length v3, v2
 
-    if-ge v11, v3, :cond_2
+    if-ge v11, v3, :cond_2d
 
     .line 165
     aget-object v3, v2, v11
@@ -509,7 +509,7 @@
     .local v1, "oldPoint":Lcom/google/zxing/ResultPoint;
     move-object v1, v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
     .line 167
     new-instance v3, Lcom/google/zxing/ResultPoint;
@@ -536,14 +536,14 @@
 
     .line 164
     .end local v1    # "oldPoint":Lcom/google/zxing/ResultPoint;
-    :cond_1
+    :cond_2a
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 170
     .end local v11    # "i":I
-    :cond_2
+    :cond_2d
     new-instance v1, Lcom/google/zxing/Result;
 
     invoke-virtual {p0}, Lcom/google/zxing/Result;->getText()Ljava/lang/String;
@@ -595,7 +595,7 @@
 
 # virtual methods
 .method public decodeMultiple(Lcom/google/zxing/BinaryBitmap;)[Lcom/google/zxing/Result;
-    .locals 1
+    .registers 3
     .param p1, "image"    # Lcom/google/zxing/BinaryBitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -614,7 +614,7 @@
 .end method
 
 .method public decodeMultiple(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;)[Lcom/google/zxing/Result;
-    .locals 8
+    .registers 11
     .param p1, "image"    # Lcom/google/zxing/BinaryBitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -662,7 +662,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_22
 
     .line 69
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -680,7 +680,7 @@
     return-object v1
 
     .line 67
-    :cond_0
+    :cond_22
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v1

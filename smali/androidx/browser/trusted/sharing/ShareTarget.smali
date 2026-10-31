@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroidx/browser/trusted/sharing/ShareTarget$Params;)V
-    .locals 0
+    .registers 5
     .param p1, "action"    # Ljava/lang/String;
     .param p2, "method"    # Ljava/lang/String;
     .param p3, "encodingType"    # Ljava/lang/String;
@@ -70,7 +70,7 @@
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/sharing/ShareTarget;
-    .locals 5
+    .registers 6
     .param p0, "bundle"    # Landroid/os/Bundle;
 
     .line 151
@@ -110,14 +110,14 @@
 
     .line 155
     .local v3, "params":Landroidx/browser/trusted/sharing/ShareTarget$Params;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_21
 
-    goto :goto_0
+    goto :goto_27
 
     .line 158
-    :cond_0
+    :cond_21
     new-instance v4, Landroidx/browser/trusted/sharing/ShareTarget;
 
     invoke-direct {v4, v0, v1, v2, v3}, Landroidx/browser/trusted/sharing/ShareTarget;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroidx/browser/trusted/sharing/ShareTarget$Params;)V
@@ -125,8 +125,8 @@
     return-object v4
 
     .line 156
-    :cond_1
-    :goto_0
+    :cond_27
+    :goto_27
     const/4 v4, 0x0
 
     return-object v4
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public toBundle()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 140
     new-instance v0, Landroid/os/Bundle;

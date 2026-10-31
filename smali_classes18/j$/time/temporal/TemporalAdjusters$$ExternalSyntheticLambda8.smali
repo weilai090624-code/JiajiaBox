@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final adjustInto(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 1
+    .registers 3
 
     iget v0, p0, Lj$/time/temporal/TemporalAdjusters$$ExternalSyntheticLambda8;->f$0:I
 

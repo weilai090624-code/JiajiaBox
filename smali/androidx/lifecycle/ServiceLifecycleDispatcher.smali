@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p1, "provider"    # Landroidx/lifecycle/LifecycleOwner;
 
     const-string v0, "provider"
@@ -96,18 +96,18 @@
 .end method
 
 .method private final postDispatchRunnable(Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
+    .registers 4
     .param p1, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     .line 40
     iget-object v0, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher;->lastDispatchRunnable:Landroidx/lifecycle/ServiceLifecycleDispatcher$DispatchRunnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     invoke-virtual {v0}, Landroidx/lifecycle/ServiceLifecycleDispatcher$DispatchRunnable;->run()V
 
     .line 41
-    :cond_0
+    :cond_7
     new-instance v0, Landroidx/lifecycle/ServiceLifecycleDispatcher$DispatchRunnable;
 
     iget-object v1, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher;->registry:Landroidx/lifecycle/LifecycleRegistry;
@@ -134,7 +134,7 @@
 
 # virtual methods
 .method public getLifecycle()Landroidx/lifecycle/Lifecycle;
-    .locals 1
+    .registers 2
 
     .line 82
     iget-object v0, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher;->registry:Landroidx/lifecycle/LifecycleRegistry;
@@ -145,7 +145,7 @@
 .end method
 
 .method public onServicePreSuperOnBind()V
-    .locals 1
+    .registers 2
 
     .line 57
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
@@ -157,7 +157,7 @@
 .end method
 
 .method public onServicePreSuperOnCreate()V
-    .locals 1
+    .registers 2
 
     .line 49
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_CREATE:Landroidx/lifecycle/Lifecycle$Event;
@@ -169,7 +169,7 @@
 .end method
 
 .method public onServicePreSuperOnDestroy()V
-    .locals 1
+    .registers 2
 
     .line 74
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
@@ -186,7 +186,7 @@
 .end method
 
 .method public onServicePreSuperOnStart()V
-    .locals 1
+    .registers 2
 
     .line 66
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;

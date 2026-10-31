@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5205
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static buildCollectionItemInfoCompat(ZIIIIZLjava/lang/String;Ljava/lang/String;)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;
-    .locals 2
+    .registers 10
     .param p0, "heading"    # Z
     .param p1, "columnIndex"    # I
     .param p2, "rowIndex"    # I
@@ -94,7 +94,7 @@
 .end method
 
 .method public static getChild(Landroid/view/accessibility/AccessibilityNodeInfo;II)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 1
+    .registers 4
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "index"    # I
     .param p2, "prefetchingStrategy"    # I
@@ -112,7 +112,7 @@
 .end method
 
 .method public static getCollectionItemColumnTitle(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "info"    # Ljava/lang/Object;
 
     .line 5273
@@ -128,7 +128,7 @@
 .end method
 
 .method public static getCollectionItemRowTitle(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "info"    # Ljava/lang/Object;
 
     .line 5267
@@ -144,7 +144,7 @@
 .end method
 
 .method public static getExtraRenderingInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo$ExtraRenderingInfo;
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 5212
@@ -156,7 +156,7 @@
 .end method
 
 .method public static getParent(Landroid/view/accessibility/AccessibilityNodeInfo;I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 1
+    .registers 3
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "prefetchingStrategy"    # I
 
@@ -173,7 +173,7 @@
 .end method
 
 .method public static getUniqueId(Landroid/view/accessibility/AccessibilityNodeInfo;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 5257
@@ -185,7 +185,7 @@
 .end method
 
 .method public static isTextSelectable(Landroid/view/accessibility/AccessibilityNodeInfo;)Z
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 5217
@@ -197,7 +197,7 @@
 .end method
 
 .method public static setTextSelectable(Landroid/view/accessibility/AccessibilityNodeInfo;Z)V
-    .locals 0
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "selectable"    # Z
 
@@ -209,7 +209,7 @@
 .end method
 
 .method public static setUniqueId(Landroid/view/accessibility/AccessibilityNodeInfo;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "uniqueId"    # Ljava/lang/String;
 

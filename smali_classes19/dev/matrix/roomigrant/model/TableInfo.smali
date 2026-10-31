@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>(Ldev/matrix/roomigrant/model/SchemeInfo;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
-    .locals 1
+    .registers 6
     .param p1, "scheme"    # Ldev/matrix/roomigrant/model/SchemeInfo;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "createSql"    # Ljava/lang/String;
@@ -124,36 +124,36 @@
 .end method
 
 .method public static synthetic copy$default(Ldev/matrix/roomigrant/model/TableInfo;Ldev/matrix/roomigrant/model/SchemeInfo;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Ldev/matrix/roomigrant/model/TableInfo;
-    .locals 0
+    .registers 7
 
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_6
 
     iget-object p1, p0, Ldev/matrix/roomigrant/model/TableInfo;->scheme:Ldev/matrix/roomigrant/model/SchemeInfo;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_c
 
     iget-object p2, p0, Ldev/matrix/roomigrant/model/TableInfo;->name:Ljava/lang/String;
 
-    :cond_1
+    :cond_c
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_12
 
     iget-object p3, p0, Ldev/matrix/roomigrant/model/TableInfo;->createSql:Ljava/lang/String;
 
-    :cond_2
+    :cond_12
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_18
 
     iget-object p4, p0, Ldev/matrix/roomigrant/model/TableInfo;->indices:Ljava/util/Map;
 
-    :cond_3
+    :cond_18
     invoke-virtual {p0, p1, p2, p3, p4}, Ldev/matrix/roomigrant/model/TableInfo;->copy(Ldev/matrix/roomigrant/model/SchemeInfo;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Ldev/matrix/roomigrant/model/TableInfo;
 
     move-result-object p0
@@ -164,7 +164,7 @@
 
 # virtual methods
 .method public final component1()Ldev/matrix/roomigrant/model/SchemeInfo;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Ldev/matrix/roomigrant/model/TableInfo;->scheme:Ldev/matrix/roomigrant/model/SchemeInfo;
 
@@ -172,7 +172,7 @@
 .end method
 
 .method public final component2()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Ldev/matrix/roomigrant/model/TableInfo;->name:Ljava/lang/String;
 
@@ -180,7 +180,7 @@
 .end method
 
 .method public final component3()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Ldev/matrix/roomigrant/model/TableInfo;->createSql:Ljava/lang/String;
 
@@ -188,7 +188,7 @@
 .end method
 
 .method public final component4()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -205,7 +205,7 @@
 .end method
 
 .method public final copy(Ldev/matrix/roomigrant/model/SchemeInfo;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Ldev/matrix/roomigrant/model/TableInfo;
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -244,13 +244,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_33
 
     instance-of v0, p1, Ldev/matrix/roomigrant/model/TableInfo;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     check-cast p1, Ldev/matrix/roomigrant/model/TableInfo;
 
@@ -262,7 +262,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     iget-object v0, p0, Ldev/matrix/roomigrant/model/TableInfo;->name:Ljava/lang/String;
 
@@ -272,7 +272,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     iget-object v0, p0, Ldev/matrix/roomigrant/model/TableInfo;->createSql:Ljava/lang/String;
 
@@ -282,7 +282,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     iget-object v0, p0, Ldev/matrix/roomigrant/model/TableInfo;->indices:Ljava/util/Map;
 
@@ -292,24 +292,24 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_31
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_0
+    :cond_31
     const/4 p1, 0x0
 
     return p1
 
-    :cond_1
-    :goto_0
+    :cond_33
+    :goto_33
     const/4 p1, 0x1
 
     return p1
 .end method
 
 .method public final getCreateSql()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 9
     iget-object v0, p0, Ldev/matrix/roomigrant/model/TableInfo;->createSql:Ljava/lang/String;
@@ -318,7 +318,7 @@
 .end method
 
 .method public final getIndices()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -336,7 +336,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 8
     iget-object v0, p0, Ldev/matrix/roomigrant/model/TableInfo;->name:Ljava/lang/String;
@@ -345,7 +345,7 @@
 .end method
 
 .method public final getScheme()Ldev/matrix/roomigrant/model/SchemeInfo;
-    .locals 1
+    .registers 2
 
     .line 7
     iget-object v0, p0, Ldev/matrix/roomigrant/model/TableInfo;->scheme:Ldev/matrix/roomigrant/model/SchemeInfo;
@@ -354,78 +354,78 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Ldev/matrix/roomigrant/model/TableInfo;->scheme:Ldev/matrix/roomigrant/model/SchemeInfo;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     mul-int/lit8 v0, v0, 0x1f
 
     iget-object v2, p0, Ldev/matrix/roomigrant/model/TableInfo;->name:Ljava/lang/String;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_16
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_17
     add-int/2addr v0, v2
 
     mul-int/lit8 v0, v0, 0x1f
 
     iget-object v2, p0, Ldev/matrix/roomigrant/model/TableInfo;->createSql:Ljava/lang/String;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_23
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    goto :goto_2
+    goto :goto_24
 
-    :cond_2
+    :cond_23
     const/4 v2, 0x0
 
-    :goto_2
+    :goto_24
     add-int/2addr v0, v2
 
     mul-int/lit8 v0, v0, 0x1f
 
     iget-object v2, p0, Ldev/matrix/roomigrant/model/TableInfo;->indices:Ljava/util/Map;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2f
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    :cond_3
+    :cond_2f
     add-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/work/impl/model/WorkTypeConverters;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -90,7 +90,7 @@
 .end method
 
 .method public static final backoffPolicyToInt(Landroidx/work/BackoffPolicy;)I
-    .locals 2
+    .registers 3
     .param p0, "backoffPolicy"    # Landroidx/work/BackoffPolicy;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -108,7 +108,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1a
 
     .line 129
     new-instance v0, Lkotlin/NoWhenBranchMatchedException;
@@ -117,28 +117,28 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_16
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 128
-    :pswitch_1
+    :pswitch_18
     const/4 v0, 0x0
 
     .line 127
-    :goto_0
+    :goto_19
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_1a
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_18
+        :pswitch_16
     .end packed-switch
 .end method
 
 .method public static final byteArrayToSetOfTriggers([B)Ljava/util/Set;
-    .locals 17
+    .registers 18
     .param p0, "bytes"    # [B
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -173,23 +173,23 @@
 
     const/4 v3, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_16
+    if-eqz v0, :cond_19
 
     .line 264
     return-object v2
 
     .line 266
-    :cond_1
+    :cond_19
     new-instance v0, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v0, v1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
@@ -202,12 +202,12 @@
 
     check-cast v5, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_22
     move-object v0, v5
 
     check-cast v0, Ljava/io/ByteArrayInputStream;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_25
+    .catchall {:try_start_22 .. :try_end_25} :catchall_7f
 
     move-object v6, v0
 
@@ -219,7 +219,7 @@
     nop
 
     .line 269
-    :try_start_1
+    :try_start_28
     new-instance v0, Ljava/io/ObjectInputStream;
 
     move-object v9, v4
@@ -231,11 +231,11 @@
     move-object v9, v0
 
     check-cast v9, Ljava/io/Closeable;
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    :try_end_33
+    .catch Ljava/io/IOException; {:try_start_28 .. :try_end_33} :catch_73
+    .catchall {:try_start_28 .. :try_end_33} :catchall_7f
 
-    :try_start_2
+    :try_start_33
     move-object v0, v9
 
     check-cast v0, Ljava/io/ObjectInputStream;
@@ -249,8 +249,8 @@
 
     move-result v11
 
-    :goto_1
-    if-ge v3, v11, :cond_2
+    :goto_3b
+    if-ge v3, v11, :cond_61
 
     move v12, v3
 
@@ -301,32 +301,32 @@
 
     move-object/from16 v0, v16
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 275
     .end local v16    # "objectInputStream":Ljava/io/ObjectInputStream;
     .restart local v0    # "objectInputStream":Ljava/io/ObjectInputStream;
-    :cond_2
+    :cond_61
     move-object/from16 v16, v0
 
     .end local v0    # "objectInputStream":Ljava/io/ObjectInputStream;
     .end local v10    # "$i$a$-use-WorkTypeConverters$byteArrayToSetOfTriggers$1$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_65
+    .catchall {:try_start_33 .. :try_end_65} :catchall_6a
 
     .line 269
     const/4 v3, 0x0
 
-    :try_start_3
+    :try_start_66
     invoke-static {v9, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_69
+    .catch Ljava/io/IOException; {:try_start_66 .. :try_end_69} :catch_73
+    .catchall {:try_start_66 .. :try_end_69} :catchall_7f
 
-    goto :goto_2
+    goto :goto_77
 
-    :catchall_0
+    :catchall_6a
     move-exception v0
 
     move-object v3, v0
@@ -336,22 +336,22 @@
     .end local v6    # "it":Ljava/io/ByteArrayInputStream;
     .end local v7    # "$i$a$-use-WorkTypeConverters$byteArrayToSetOfTriggers$1":I
     .end local p0    # "bytes":[B
-    :try_start_4
+    :try_start_6c
     throw v3
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_6d
+    .catchall {:try_start_6c .. :try_end_6d} :catchall_6d
 
     .restart local v2    # "triggers":Ljava/util/Set;
     .restart local v4    # "inputStream":Ljava/io/ByteArrayInputStream;
     .restart local v6    # "it":Ljava/io/ByteArrayInputStream;
     .restart local v7    # "$i$a$-use-WorkTypeConverters$byteArrayToSetOfTriggers$1":I
     .restart local p0    # "bytes":[B
-    :catchall_1
+    :catchall_6d
     move-exception v0
 
     move-object v8, v0
 
-    :try_start_5
+    :try_start_6f
     invoke-static {v9, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local v2    # "triggers":Ljava/util/Set;
@@ -360,9 +360,9 @@
     .end local v7    # "$i$a$-use-WorkTypeConverters$byteArrayToSetOfTriggers$1":I
     .end local p0    # "bytes":[B
     throw v8
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :try_end_73
+    .catch Ljava/io/IOException; {:try_start_6f .. :try_end_73} :catch_73
+    .catchall {:try_start_6f .. :try_end_73} :catchall_7f
 
     .line 276
     .restart local v2    # "triggers":Ljava/util/Set;
@@ -370,24 +370,24 @@
     .restart local v6    # "it":Ljava/io/ByteArrayInputStream;
     .restart local v7    # "$i$a$-use-WorkTypeConverters$byteArrayToSetOfTriggers$1":I
     .restart local p0    # "bytes":[B
-    :catch_0
+    :catch_73
     move-exception v0
 
     .line 277
     .local v0, "e":Ljava/io/IOException;
-    :try_start_6
+    :try_start_74
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     .line 279
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_2
+    :goto_77
     nop
 
     .end local v6    # "it":Ljava/io/ByteArrayInputStream;
     .end local v7    # "$i$a$-use-WorkTypeConverters$byteArrayToSetOfTriggers$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+    :try_end_7a
+    .catchall {:try_start_74 .. :try_end_7a} :catchall_7f
 
     .line 267
     const/4 v3, 0x0
@@ -398,7 +398,7 @@
     return-object v2
 
     .line 267
-    :catchall_2
+    :catchall_7f
     move-exception v0
 
     move-object v3, v0
@@ -406,15 +406,15 @@
     .end local v2    # "triggers":Ljava/util/Set;
     .end local v4    # "inputStream":Ljava/io/ByteArrayInputStream;
     .end local p0    # "bytes":[B
-    :try_start_7
+    :try_start_81
     throw v3
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_3
+    :try_end_82
+    .catchall {:try_start_81 .. :try_end_82} :catchall_82
 
     .restart local v2    # "triggers":Ljava/util/Set;
     .restart local v4    # "inputStream":Ljava/io/ByteArrayInputStream;
     .restart local p0    # "bytes":[B
-    :catchall_3
+    :catchall_82
     move-exception v0
 
     move-object v6, v0
@@ -425,13 +425,13 @@
 .end method
 
 .method public static final intToBackoffPolicy(I)Landroidx/work/BackoffPolicy;
-    .locals 3
+    .registers 4
     .param p0, "value"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
     .line 142
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_28
 
     .line 145
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -465,45 +465,45 @@
     throw v0
 
     .line 144
-    :pswitch_0
+    :pswitch_22
     sget-object v0, Landroidx/work/BackoffPolicy;->LINEAR:Landroidx/work/BackoffPolicy;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 143
-    :pswitch_1
+    :pswitch_25
     sget-object v0, Landroidx/work/BackoffPolicy;->EXPONENTIAL:Landroidx/work/BackoffPolicy;
 
     .line 142
-    :goto_0
+    :goto_27
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_25
+        :pswitch_22
     .end packed-switch
 .end method
 
 .method public static final intToNetworkType(I)Landroidx/work/NetworkType;
-    .locals 3
+    .registers 4
     .param p0, "value"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
     .line 182
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_3e
 
     .line 189
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1e
 
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_1e
 
     .line 190
     sget-object v0, Landroidx/work/NetworkType;->TEMPORARILY_UNMETERED:Landroidx/work/NetworkType;
@@ -511,39 +511,39 @@
     return-object v0
 
     .line 187
-    :pswitch_0
+    :pswitch_f
     sget-object v0, Landroidx/work/NetworkType;->METERED:Landroidx/work/NetworkType;
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 186
-    :pswitch_1
+    :pswitch_12
     sget-object v0, Landroidx/work/NetworkType;->NOT_ROAMING:Landroidx/work/NetworkType;
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 185
-    :pswitch_2
+    :pswitch_15
     sget-object v0, Landroidx/work/NetworkType;->UNMETERED:Landroidx/work/NetworkType;
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 184
-    :pswitch_3
+    :pswitch_18
     sget-object v0, Landroidx/work/NetworkType;->CONNECTED:Landroidx/work/NetworkType;
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 183
-    :pswitch_4
+    :pswitch_1b
     sget-object v0, Landroidx/work/NetworkType;->NOT_REQUIRED:Landroidx/work/NetworkType;
 
     .line 182
-    :goto_0
+    :goto_1d
     return-object v0
 
     .line 191
-    :cond_0
+    :cond_1e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -576,24 +576,24 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3e
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_18
+        :pswitch_15
+        :pswitch_12
+        :pswitch_f
     .end packed-switch
 .end method
 
 .method public static final intToOutOfQuotaPolicy(I)Landroidx/work/OutOfQuotaPolicy;
-    .locals 3
+    .registers 4
     .param p0, "value"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
     .line 221
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_28
 
     .line 225
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -627,34 +627,34 @@
     throw v0
 
     .line 224
-    :pswitch_0
+    :pswitch_22
     sget-object v0, Landroidx/work/OutOfQuotaPolicy;->DROP_WORK_REQUEST:Landroidx/work/OutOfQuotaPolicy;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 223
-    :pswitch_1
+    :pswitch_25
     sget-object v0, Landroidx/work/OutOfQuotaPolicy;->RUN_AS_NON_EXPEDITED_WORK_REQUEST:Landroidx/work/OutOfQuotaPolicy;
 
     .line 221
-    :goto_0
+    :goto_27
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_25
+        :pswitch_22
     .end packed-switch
 .end method
 
 .method public static final intToState(I)Landroidx/work/WorkInfo$State;
-    .locals 3
+    .registers 4
     .param p0, "value"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
     .line 107
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_34
 
     .line 114
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -688,56 +688,56 @@
     throw v0
 
     .line 113
-    :pswitch_0
+    :pswitch_22
     sget-object v0, Landroidx/work/WorkInfo$State;->CANCELLED:Landroidx/work/WorkInfo$State;
 
-    goto :goto_0
+    goto :goto_33
 
     .line 112
-    :pswitch_1
+    :pswitch_25
     sget-object v0, Landroidx/work/WorkInfo$State;->BLOCKED:Landroidx/work/WorkInfo$State;
 
-    goto :goto_0
+    goto :goto_33
 
     .line 111
-    :pswitch_2
+    :pswitch_28
     sget-object v0, Landroidx/work/WorkInfo$State;->FAILED:Landroidx/work/WorkInfo$State;
 
-    goto :goto_0
+    goto :goto_33
 
     .line 110
-    :pswitch_3
+    :pswitch_2b
     sget-object v0, Landroidx/work/WorkInfo$State;->SUCCEEDED:Landroidx/work/WorkInfo$State;
 
-    goto :goto_0
+    goto :goto_33
 
     .line 109
-    :pswitch_4
+    :pswitch_2e
     sget-object v0, Landroidx/work/WorkInfo$State;->RUNNING:Landroidx/work/WorkInfo$State;
 
-    goto :goto_0
+    goto :goto_33
 
     .line 108
-    :pswitch_5
+    :pswitch_31
     sget-object v0, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
     .line 107
-    :goto_0
+    :goto_33
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_34
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_31
+        :pswitch_2e
+        :pswitch_2b
+        :pswitch_28
+        :pswitch_25
+        :pswitch_22
     .end packed-switch
 .end method
 
 .method public static final networkTypeToInt(Landroidx/work/NetworkType;)I
-    .locals 3
+    .registers 4
     .param p0, "networkType"    # Landroidx/work/NetworkType;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -755,58 +755,58 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_46
 
     .line 165
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_26
 
     sget-object v0, Landroidx/work/NetworkType;->TEMPORARILY_UNMETERED:Landroidx/work/NetworkType;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_26
 
     .line 166
     const/4 v0, 0x5
 
-    goto :goto_0
+    goto :goto_25
 
     .line 163
-    :pswitch_0
+    :pswitch_1c
     const/4 v0, 0x4
 
-    goto :goto_0
+    goto :goto_25
 
     .line 162
-    :pswitch_1
+    :pswitch_1e
     const/4 v0, 0x3
 
-    goto :goto_0
+    goto :goto_25
 
     .line 161
-    :pswitch_2
+    :pswitch_20
     const/4 v0, 0x2
 
-    goto :goto_0
+    goto :goto_25
 
     .line 160
-    :pswitch_3
+    :pswitch_22
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
     .line 159
-    :pswitch_4
+    :pswitch_24
     const/4 v0, 0x0
 
     .line 158
-    :goto_0
+    :goto_25
     return v0
 
     .line 168
-    :cond_0
+    :cond_26
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -839,18 +839,18 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_46
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_24
+        :pswitch_22
+        :pswitch_20
+        :pswitch_1e
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method public static final outOfQuotaPolicyToInt(Landroidx/work/OutOfQuotaPolicy;)I
-    .locals 2
+    .registers 3
     .param p0, "policy"    # Landroidx/work/OutOfQuotaPolicy;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -868,7 +868,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1a
 
     .line 208
     new-instance v0, Lkotlin/NoWhenBranchMatchedException;
@@ -877,28 +877,28 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_16
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 207
-    :pswitch_1
+    :pswitch_18
     const/4 v0, 0x0
 
     .line 205
-    :goto_0
+    :goto_19
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_1a
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_18
+        :pswitch_16
     .end packed-switch
 .end method
 
 .method public static final setOfTriggersToByteArray(Ljava/util/Set;)[B
-    .locals 10
+    .registers 11
     .param p0, "triggers"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -921,7 +921,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 238
     const/4 v0, 0x0
@@ -931,7 +931,7 @@
     return-object v0
 
     .line 240
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
@@ -942,7 +942,7 @@
 
     check-cast v1, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_18
     move-object v2, v1
 
     check-cast v2, Ljava/io/ByteArrayOutputStream;
@@ -961,10 +961,10 @@
     invoke-direct {v4, v5}, Ljava/io/ObjectOutputStream;-><init>(Ljava/io/OutputStream;)V
 
     check-cast v4, Ljava/io/Closeable;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_26
+    .catchall {:try_start_18 .. :try_end_26} :catchall_72
 
-    :try_start_1
+    :try_start_26
     move-object v5, v4
 
     check-cast v5, Ljava/io/ObjectOutputStream;
@@ -985,12 +985,12 @@
 
     move-result-object v7
 
-    :goto_0
+    :goto_35
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_54
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1018,22 +1018,22 @@
     invoke-virtual {v5, v9}, Ljava/io/ObjectOutputStream;->writeBoolean(Z)V
 
     .end local v8    # "trigger":Landroidx/work/Constraints$ContentUriTrigger;
-    goto :goto_0
+    goto :goto_35
 
     .line 248
-    :cond_1
+    :cond_54
     nop
 
     .end local v5    # "objectOutputStream":Ljava/io/ObjectOutputStream;
     .end local v6    # "$i$a$-use-WorkTypeConverters$setOfTriggersToByteArray$1$1":I
     sget-object v5, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_57
+    .catchall {:try_start_26 .. :try_end_57} :catchall_6b
 
     .line 242
     const/4 v5, 0x0
 
-    :try_start_2
+    :try_start_58
     invoke-static {v4, v5}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .line 249
@@ -1042,8 +1042,8 @@
     .end local v2    # "it":Ljava/io/ByteArrayOutputStream;
     .end local v3    # "$i$a$-use-WorkTypeConverters$setOfTriggersToByteArray$1":I
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_5e
+    .catchall {:try_start_58 .. :try_end_5e} :catchall_72
 
     .line 241
     invoke-static {v1, v5}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -1062,52 +1062,52 @@
     .line 242
     .restart local v2    # "it":Ljava/io/ByteArrayOutputStream;
     .restart local v3    # "$i$a$-use-WorkTypeConverters$setOfTriggersToByteArray$1":I
-    :catchall_0
+    :catchall_6b
     move-exception v5
 
     .end local v0    # "outputStream":Ljava/io/ByteArrayOutputStream;
     .end local v2    # "it":Ljava/io/ByteArrayOutputStream;
     .end local v3    # "$i$a$-use-WorkTypeConverters$setOfTriggersToByteArray$1":I
     .end local p0    # "triggers":Ljava/util/Set;
-    :try_start_3
+    :try_start_6c
     throw v5
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_6d
+    .catchall {:try_start_6c .. :try_end_6d} :catchall_6d
 
     .restart local v0    # "outputStream":Ljava/io/ByteArrayOutputStream;
     .restart local v2    # "it":Ljava/io/ByteArrayOutputStream;
     .restart local v3    # "$i$a$-use-WorkTypeConverters$setOfTriggersToByteArray$1":I
     .restart local p0    # "triggers":Ljava/util/Set;
-    :catchall_1
+    :catchall_6d
     move-exception v6
 
-    :try_start_4
+    :try_start_6e
     invoke-static {v4, v5}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local v0    # "outputStream":Ljava/io/ByteArrayOutputStream;
     .end local p0    # "triggers":Ljava/util/Set;
     throw v6
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_72
+    .catchall {:try_start_6e .. :try_end_72} :catchall_72
 
     .line 241
     .end local v2    # "it":Ljava/io/ByteArrayOutputStream;
     .end local v3    # "$i$a$-use-WorkTypeConverters$setOfTriggersToByteArray$1":I
     .restart local v0    # "outputStream":Ljava/io/ByteArrayOutputStream;
     .restart local p0    # "triggers":Ljava/util/Set;
-    :catchall_2
+    :catchall_72
     move-exception v2
 
     .end local v0    # "outputStream":Ljava/io/ByteArrayOutputStream;
     .end local p0    # "triggers":Ljava/util/Set;
-    :try_start_5
+    :try_start_73
     throw v2
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_74
+    .catchall {:try_start_73 .. :try_end_74} :catchall_74
 
     .restart local v0    # "outputStream":Ljava/io/ByteArrayOutputStream;
     .restart local p0    # "triggers":Ljava/util/Set;
-    :catchall_3
+    :catchall_74
     move-exception v3
 
     invoke-static {v1, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -1116,7 +1116,7 @@
 .end method
 
 .method public static final stateToInt(Landroidx/work/WorkInfo$State;)I
-    .locals 2
+    .registers 3
     .param p0, "state"    # Landroidx/work/WorkInfo$State;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -1134,7 +1134,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     .line 94
     new-instance v0, Lkotlin/NoWhenBranchMatchedException;
@@ -1143,52 +1143,52 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_17
     const/4 v0, 0x5
 
-    goto :goto_0
+    goto :goto_22
 
     .line 93
-    :pswitch_1
+    :pswitch_19
     const/4 v0, 0x4
 
-    goto :goto_0
+    goto :goto_22
 
     .line 92
-    :pswitch_2
+    :pswitch_1b
     const/4 v0, 0x3
 
-    goto :goto_0
+    goto :goto_22
 
     .line 91
-    :pswitch_3
+    :pswitch_1d
     const/4 v0, 0x2
 
-    goto :goto_0
+    goto :goto_22
 
     .line 90
-    :pswitch_4
+    :pswitch_1f
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 89
-    :pswitch_5
+    :pswitch_21
     const/4 v0, 0x0
 
     .line 88
-    :goto_0
+    :goto_22
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x1
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_21
+        :pswitch_1f
+        :pswitch_1d
+        :pswitch_1b
+        :pswitch_19
+        :pswitch_17
     .end packed-switch
 .end method

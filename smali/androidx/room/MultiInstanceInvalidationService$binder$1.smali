@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/room/MultiInstanceInvalidationService;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/room/MultiInstanceInvalidationService;
 
     iput-object p1, p0, Landroidx/room/MultiInstanceInvalidationService$binder$1;->this$0:Landroidx/room/MultiInstanceInvalidationService;
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public broadcastInvalidation(I[Ljava/lang/String;)V
-    .locals 12
+    .registers 15
     .param p1, "clientId"    # I
     .param p2, "tables"    # [Ljava/lang/String;
 
@@ -88,7 +88,7 @@
 
     .line 91
     .local v2, "$i$a$-synchronized-MultiInstanceInvalidationService$binder$1$broadcastInvalidation$1":I
-    :try_start_0
+    :try_start_10
     invoke-virtual {v1}, Landroidx/room/MultiInstanceInvalidationService;->getClientNames$room_runtime_release()Ljava/util/Map;
 
     move-result-object v3
@@ -105,7 +105,7 @@
 
     .line 92
     .local v3, "name":Ljava/lang/String;
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2a
 
     .line 93
     const-string v1, "ROOM"
@@ -113,8 +113,8 @@
     const-string v4, "Remote invalidation client ID not registered"
 
     invoke-static {v1, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_27
+    .catchall {:try_start_10 .. :try_end_27} :catchall_95
 
     .line 94
     nop
@@ -128,8 +128,8 @@
     .line 96
     .restart local v2    # "$i$a$-synchronized-MultiInstanceInvalidationService$binder$1$broadcastInvalidation$1":I
     .restart local v3    # "name":Ljava/lang/String;
-    :cond_0
-    :try_start_1
+    :cond_2a
+    :try_start_2a
     invoke-virtual {v1}, Landroidx/room/MultiInstanceInvalidationService;->getCallbackList$room_runtime_release()Landroid/os/RemoteCallbackList;
 
     move-result-object v4
@@ -137,8 +137,8 @@
     invoke-virtual {v4}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
 
     move-result v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_32
+    .catchall {:try_start_2a .. :try_end_32} :catchall_95
 
     .line 97
     .local v4, "count":I
@@ -148,11 +148,11 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_0
-    if-ge v5, v4, :cond_3
+    :goto_34
+    if-ge v5, v4, :cond_88
 
     .line 99
-    :try_start_2
+    :try_start_36
     invoke-virtual {v1}, Landroidx/room/MultiInstanceInvalidationService;->getCallbackList$room_runtime_release()Landroid/os/RemoteCallbackList;
 
     move-result-object v6
@@ -189,24 +189,24 @@
 
     .line 101
     .local v7, "targetName":Ljava/lang/String;
-    if-eq p1, v6, :cond_2
+    if-eq p1, v6, :cond_7b
 
     invoke-static {v3, v7}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v8
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_5d
+    .catchall {:try_start_36 .. :try_end_5d} :catchall_7f
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_60
 
-    goto :goto_1
+    goto :goto_7b
 
     .line 106
-    :cond_1
+    :cond_60
     nop
 
     .line 107
-    :try_start_3
+    :try_start_61
     invoke-virtual {v1}, Landroidx/room/MultiInstanceInvalidationService;->getCallbackList$room_runtime_release()Landroid/os/RemoteCallbackList;
 
     move-result-object v8
@@ -218,19 +218,19 @@
     check-cast v8, Landroidx/room/IMultiInstanceInvalidationCallback;
 
     invoke-interface {v8, p2}, Landroidx/room/IMultiInstanceInvalidationCallback;->onInvalidation([Ljava/lang/String;)V
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_6e
+    .catch Landroid/os/RemoteException; {:try_start_61 .. :try_end_6e} :catch_6f
+    .catchall {:try_start_61 .. :try_end_6e} :catchall_7f
 
-    goto :goto_2
+    goto :goto_7c
 
     .line 108
-    :catch_0
+    :catch_6f
     move-exception v8
 
     .line 109
     .local v8, "e":Landroid/os/RemoteException;
-    :try_start_4
+    :try_start_70
     const-string v9, "ROOM"
 
     const-string v10, "Error invoking a remote callback"
@@ -240,31 +240,31 @@
     check-cast v11, Ljava/lang/Throwable;
 
     invoke-static {v9, v10, v11}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_7a
+    .catchall {:try_start_70 .. :try_end_7a} :catchall_7f
 
-    goto :goto_2
+    goto :goto_7c
 
     .line 104
     .end local v8    # "e":Landroid/os/RemoteException;
-    :cond_2
-    :goto_1
+    :cond_7b
+    :goto_7b
     nop
 
     .line 98
     .end local v6    # "targetClientId":I
     .end local v7    # "targetName":Ljava/lang/String;
-    :goto_2
+    :goto_7c
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_34
 
     .line 113
     .end local v5    # "i":I
-    :catchall_0
+    :catchall_7f
     move-exception v5
 
-    :try_start_5
+    :try_start_80
     invoke-virtual {v1}, Landroidx/room/MultiInstanceInvalidationService;->getCallbackList$room_runtime_release()Landroid/os/RemoteCallbackList;
 
     move-result-object v1
@@ -277,7 +277,7 @@
 
     .restart local p1    # "clientId":I
     .restart local p2    # "tables":[Ljava/lang/String;
-    :cond_3
+    :cond_88
     invoke-virtual {v1}, Landroidx/room/MultiInstanceInvalidationService;->getCallbackList$room_runtime_release()Landroid/os/RemoteCallbackList;
 
     move-result-object v1
@@ -294,8 +294,8 @@
     .end local v3    # "name":Ljava/lang/String;
     .end local v4    # "count":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_93
+    .catchall {:try_start_80 .. :try_end_93} :catchall_95
 
     .line 90
     monitor-exit v0
@@ -304,7 +304,7 @@
     return-void
 
     .line 90
-    :catchall_1
+    :catchall_95
     move-exception v1
 
     monitor-exit v0
@@ -313,7 +313,7 @@
 .end method
 
 .method public registerCallback(Landroidx/room/IMultiInstanceInvalidationCallback;Ljava/lang/String;)I
-    .locals 8
+    .registers 11
     .param p1, "callback"    # Landroidx/room/IMultiInstanceInvalidationCallback;
     .param p2, "name"    # Ljava/lang/String;
 
@@ -324,13 +324,13 @@
     .line 58
     const/4 v0, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_9
 
     .line 59
     return v0
 
     .line 61
-    :cond_0
+    :cond_9
     iget-object v1, p0, Landroidx/room/MultiInstanceInvalidationService$binder$1;->this$0:Landroidx/room/MultiInstanceInvalidationService;
 
     invoke-virtual {v1}, Landroidx/room/MultiInstanceInvalidationService;->getCallbackList$room_runtime_release()Landroid/os/RemoteCallbackList;
@@ -345,7 +345,7 @@
 
     .line 62
     .local v3, "$i$a$-synchronized-MultiInstanceInvalidationService$binder$1$registerCallback$1":I
-    :try_start_0
+    :try_start_13
     invoke-virtual {v2}, Landroidx/room/MultiInstanceInvalidationService;->getMaxClientId$room_runtime_release()I
 
     move-result v4
@@ -376,7 +376,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3e
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -392,10 +392,10 @@
     .line 66
     move v0, v4
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 68
-    :cond_1
+    :cond_3e
     invoke-virtual {v2}, Landroidx/room/MultiInstanceInvalidationService;->getMaxClientId$room_runtime_release()I
 
     move-result v5
@@ -405,8 +405,8 @@
     invoke-virtual {v2, v5}, Landroidx/room/MultiInstanceInvalidationService;->setMaxClientId$room_runtime_release(I)V
 
     invoke-virtual {v2}, Landroidx/room/MultiInstanceInvalidationService;->getMaxClientId$room_runtime_release()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_13 .. :try_end_4a} :catchall_4d
 
     .line 69
     nop
@@ -414,12 +414,12 @@
     .line 64
     .end local v3    # "$i$a$-synchronized-MultiInstanceInvalidationService$binder$1$registerCallback$1":I
     .end local v4    # "clientId":I
-    :goto_0
+    :goto_4b
     monitor-exit v1
 
     return v0
 
-    :catchall_0
+    :catchall_4d
     move-exception v0
 
     monitor-exit v1
@@ -428,7 +428,7 @@
 .end method
 
 .method public unregisterCallback(Landroidx/room/IMultiInstanceInvalidationCallback;I)V
-    .locals 5
+    .registers 8
     .param p1, "callback"    # Landroidx/room/IMultiInstanceInvalidationCallback;
     .param p2, "clientId"    # I
 
@@ -451,7 +451,7 @@
 
     .line 82
     .local v2, "$i$a$-synchronized-MultiInstanceInvalidationService$binder$1$unregisterCallback$1":I
-    :try_start_0
+    :try_start_f
     invoke-virtual {v1}, Landroidx/room/MultiInstanceInvalidationService;->getCallbackList$room_runtime_release()Landroid/os/RemoteCallbackList;
 
     move-result-object v3
@@ -476,8 +476,8 @@
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_f .. :try_end_27} :catchall_29
 
     .line 81
     .end local v2    # "$i$a$-synchronized-MultiInstanceInvalidationService$binder$1$unregisterCallback$1":I
@@ -487,7 +487,7 @@
     return-void
 
     .line 81
-    :catchall_0
+    :catchall_29
     move-exception v1
 
     monitor-exit v0

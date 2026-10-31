@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService;)V
-    .locals 0
+    .registers 2
 
     .line 176
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->this$0:Lcom/google/common/util/concurrent/AbstractScheduledService;
@@ -65,7 +65,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService;Lcom/google/common/util/concurrent/AbstractScheduledService$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/AbstractScheduledService$1;
 
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;)Ljava/util/concurrent/locks/ReentrantLock;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     .line 176
@@ -86,7 +86,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;)Lcom/google/common/util/concurrent/AbstractScheduledService$Cancellable;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     .line 176
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;Lcom/google/common/util/concurrent/AbstractScheduledService$Cancellable;)Lcom/google/common/util/concurrent/AbstractScheduledService$Cancellable;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
     .param p1, "x1"    # Lcom/google/common/util/concurrent/AbstractScheduledService$Cancellable;
 
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;)Ljava/util/concurrent/ScheduledExecutorService;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     .line 176
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;)Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     .line 176
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method protected final doStart()V
-    .locals 2
+    .registers 3
 
     .line 226
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->this$0:Lcom/google/common/util/concurrent/AbstractScheduledService;
@@ -164,7 +164,7 @@
 .end method
 
 .method protected final doStop()V
-    .locals 2
+    .registers 3
 
     .line 260
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->runningTask:Lcom/google/common/util/concurrent/AbstractScheduledService$Cancellable;
@@ -197,7 +197,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 291
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->this$0:Lcom/google/common/util/concurrent/AbstractScheduledService;

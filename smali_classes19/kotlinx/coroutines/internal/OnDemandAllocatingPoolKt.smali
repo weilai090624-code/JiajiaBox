@@ -34,7 +34,7 @@
 
 # direct methods
 .method private static final loop(Lkotlin/jvm/functions/Function0;)Ljava/lang/Void;
-    .locals 1
+    .registers 2
     .param p0, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,11 +50,11 @@
 
     .line 101
     .local v0, "$i$f$loop":I
-    :goto_0
+    :goto_1
     nop
 
     .line 102
     invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1
 .end method

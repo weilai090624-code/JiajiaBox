@@ -38,7 +38,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$9WXDoX2gBykKwHPQ-28IAKVFVbE(Lkotlin/jvm/functions/Function2;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/fragment/app/FragmentKt;->setFragmentResultListener$lambda-0(Lkotlin/jvm/functions/Function2;Ljava/lang/String;Landroid/os/Bundle;)V
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public static final clearFragmentResult(Landroidx/fragment/app/Fragment;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$clearFragmentResult"    # Landroidx/fragment/app/Fragment;
     .param p1, "requestKey"    # Ljava/lang/String;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final clearFragmentResultListener(Landroidx/fragment/app/Fragment;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$clearFragmentResultListener"    # Landroidx/fragment/app/Fragment;
     .param p1, "requestKey"    # Ljava/lang/String;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public static final setFragmentResult(Landroidx/fragment/app/Fragment;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p0, "$this$setFragmentResult"    # Landroidx/fragment/app/Fragment;
     .param p1, "requestKey"    # Ljava/lang/String;
     .param p2, "result"    # Landroid/os/Bundle;
@@ -123,7 +123,7 @@
 .end method
 
 .method public static final setFragmentResultListener(Landroidx/fragment/app/Fragment;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)V
-    .locals 3
+    .registers 6
     .param p0, "$this$setFragmentResultListener"    # Landroidx/fragment/app/Fragment;
     .param p1, "requestKey"    # Ljava/lang/String;
     .param p2, "listener"    # Lkotlin/jvm/functions/Function2;
@@ -174,7 +174,7 @@
 .end method
 
 .method private static final setFragmentResultListener$lambda-0(Lkotlin/jvm/functions/Function2;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p0, "$tmp0"    # Lkotlin/jvm/functions/Function2;
     .param p1, "p0"    # Ljava/lang/String;
     .param p2, "p1"    # Landroid/os/Bundle;

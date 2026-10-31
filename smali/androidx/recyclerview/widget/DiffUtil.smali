@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 87
     new-instance v0, Landroidx/recyclerview/widget/DiffUtil$1;
@@ -45,7 +45,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method private static backward(Landroidx/recyclerview/widget/DiffUtil$Range;Landroidx/recyclerview/widget/DiffUtil$Callback;Landroidx/recyclerview/widget/DiffUtil$CenteredArray;Landroidx/recyclerview/widget/DiffUtil$CenteredArray;I)Landroidx/recyclerview/widget/DiffUtil$Snake;
-    .locals 11
+    .registers 16
     .param p0, "range"    # Landroidx/recyclerview/widget/DiffUtil$Range;
     .param p1, "cb"    # Landroidx/recyclerview/widget/DiffUtil$Callback;
     .param p2, "forward"    # Landroidx/recyclerview/widget/DiffUtil$CenteredArray;
@@ -77,18 +77,18 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     .line 275
     .local v0, "checkForSnake":Z
-    :goto_0
+    :goto_11
     invoke-virtual {p0}, Landroidx/recyclerview/widget/DiffUtil$Range;->oldSize()I
 
     move-result v2
@@ -104,15 +104,15 @@
     neg-int v3, p4
 
     .local v3, "k":I
-    :goto_1
-    if-gt v3, p4, :cond_7
+    :goto_1b
+    if-gt v3, p4, :cond_8f
 
     .line 287
     neg-int v4, p4
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_3a
 
-    if-eq v3, p4, :cond_1
+    if-eq v3, p4, :cond_31
 
     add-int/lit8 v4, v3, 0x1
 
@@ -126,12 +126,12 @@
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_31
 
-    goto :goto_2
+    goto :goto_3a
 
     .line 292
-    :cond_1
+    :cond_31
     add-int/lit8 v4, v3, -0x1
 
     invoke-virtual {p3, v4}, Landroidx/recyclerview/widget/DiffUtil$CenteredArray;->get(I)I
@@ -143,13 +143,13 @@
     add-int/lit8 v5, v4, -0x1
 
     .local v5, "x":I
-    goto :goto_3
+    goto :goto_43
 
     .line 289
     .end local v4    # "startX":I
     .end local v5    # "x":I
-    :cond_2
-    :goto_2
+    :cond_3a
+    :goto_3a
     add-int/lit8 v4, v3, 0x1
 
     invoke-virtual {p3, v4}, Landroidx/recyclerview/widget/DiffUtil$CenteredArray;->get(I)I
@@ -166,7 +166,7 @@
     .line 295
     .restart local v4    # "startX":I
     .local v5, "x":I
-    :goto_3
+    :goto_43
     iget v6, p0, Landroidx/recyclerview/widget/DiffUtil$Range;->newListEnd:I
 
     iget v7, p0, Landroidx/recyclerview/widget/DiffUtil$Range;->oldListEnd:I
@@ -179,31 +179,31 @@
 
     .line 296
     .local v6, "y":I
-    if-eqz p4, :cond_4
+    if-eqz p4, :cond_52
 
-    if-eq v5, v4, :cond_3
+    if-eq v5, v4, :cond_4f
 
-    goto :goto_4
+    goto :goto_52
 
-    :cond_3
+    :cond_4f
     add-int/lit8 v7, v6, 0x1
 
-    goto :goto_5
+    goto :goto_53
 
-    :cond_4
-    :goto_4
+    :cond_52
+    :goto_52
     move v7, v6
 
     .line 298
     .local v7, "startY":I
-    :goto_5
+    :goto_53
     iget v8, p0, Landroidx/recyclerview/widget/DiffUtil$Range;->oldListStart:I
 
-    if-le v5, v8, :cond_5
+    if-le v5, v8, :cond_6a
 
     iget v8, p0, Landroidx/recyclerview/widget/DiffUtil$Range;->newListStart:I
 
-    if-le v6, v8, :cond_5
+    if-le v6, v8, :cond_6a
 
     add-int/lit8 v8, v5, -0x1
 
@@ -214,7 +214,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_6a
 
     .line 301
     add-int/lit8 v5, v5, -0x1
@@ -222,14 +222,14 @@
     .line 302
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_5
+    goto :goto_53
 
     .line 305
-    :cond_5
+    :cond_6a
     invoke-virtual {p3, v3, v5}, Landroidx/recyclerview/widget/DiffUtil$CenteredArray;->set(II)V
 
     .line 306
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8c
 
     .line 309
     sub-int v8, v2, v3
@@ -238,16 +238,16 @@
     .local v8, "forwardsK":I
     neg-int v9, p4
 
-    if-lt v8, v9, :cond_6
+    if-lt v8, v9, :cond_8c
 
-    if-gt v8, p4, :cond_6
+    if-gt v8, p4, :cond_8c
 
     .line 313
     invoke-virtual {p2, v8}, Landroidx/recyclerview/widget/DiffUtil$CenteredArray;->get(I)I
 
     move-result v9
 
-    if-lt v9, v5, :cond_6
+    if-lt v9, v5, :cond_8c
 
     .line 315
     new-instance v9, Landroidx/recyclerview/widget/DiffUtil$Snake;
@@ -280,21 +280,21 @@
     .end local v7    # "startY":I
     .end local v8    # "forwardsK":I
     .end local v9    # "snake":Landroidx/recyclerview/widget/DiffUtil$Snake;
-    :cond_6
+    :cond_8c
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_1
+    goto :goto_1b
 
     .line 326
     .end local v3    # "k":I
-    :cond_7
+    :cond_8f
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static calculateDiff(Landroidx/recyclerview/widget/DiffUtil$Callback;)Landroidx/recyclerview/widget/DiffUtil$DiffResult;
-    .locals 1
+    .registers 2
     .param p0, "cb"    # Landroidx/recyclerview/widget/DiffUtil$Callback;
 
     .line 106
@@ -308,7 +308,7 @@
 .end method
 
 .method public static calculateDiff(Landroidx/recyclerview/widget/DiffUtil$Callback;Z)Landroidx/recyclerview/widget/DiffUtil$DiffResult;
-    .locals 16
+    .registers 18
     .param p0, "cb"    # Landroidx/recyclerview/widget/DiffUtil$Callback;
     .param p1, "detectMoves"    # Z
 
@@ -388,12 +388,12 @@
 
     .line 144
     .local v13, "rangePool":Ljava/util/List;, "Ljava/util/List<Landroidx/recyclerview/widget/DiffUtil$Range;>;"
-    :goto_0
+    :goto_3c
     invoke-interface {v9}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_a7
 
     .line 145
     invoke-interface {v9}, Ljava/util/List;->size()I
@@ -418,14 +418,14 @@
 
     .line 147
     .local v4, "snake":Landroidx/recyclerview/widget/DiffUtil$Snake;
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_a3
 
     .line 149
     invoke-virtual {v4}, Landroidx/recyclerview/widget/DiffUtil$Snake;->diagonalSize()I
 
     move-result v5
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_63
 
     .line 150
     invoke-virtual {v4}, Landroidx/recyclerview/widget/DiffUtil$Snake;->toDiagonal()Landroidx/recyclerview/widget/DiffUtil$Diagonal;
@@ -435,21 +435,21 @@
     invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 153
-    :cond_0
+    :cond_63
     invoke-interface {v13}, Ljava/util/List;->isEmpty()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_6f
 
     new-instance v5, Landroidx/recyclerview/widget/DiffUtil$Range;
 
     invoke-direct {v5}, Landroidx/recyclerview/widget/DiffUtil$Range;-><init>()V
 
-    goto :goto_1
+    goto :goto_7b
 
     .line 154
-    :cond_1
+    :cond_6f
     invoke-interface {v13}, Ljava/util/List;->size()I
 
     move-result v5
@@ -465,7 +465,7 @@
 
     .line 155
     .local v5, "left":Landroidx/recyclerview/widget/DiffUtil$Range;
-    :goto_1
+    :goto_7b
     iget v6, v3, Landroidx/recyclerview/widget/DiffUtil$Range;->oldListStart:I
 
     iput v6, v5, Landroidx/recyclerview/widget/DiffUtil$Range;->oldListStart:I
@@ -518,20 +518,20 @@
     .line 169
     .end local v5    # "left":Landroidx/recyclerview/widget/DiffUtil$Range;
     .end local v6    # "right":Landroidx/recyclerview/widget/DiffUtil$Range;
-    goto :goto_2
+    goto :goto_a6
 
     .line 170
-    :cond_2
+    :cond_a3
     invoke-interface {v13, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 173
     .end local v3    # "range":Landroidx/recyclerview/widget/DiffUtil$Range;
     .end local v4    # "snake":Landroidx/recyclerview/widget/DiffUtil$Snake;
-    :goto_2
-    goto :goto_0
+    :goto_a6
+    goto :goto_3c
 
     .line 175
-    :cond_3
+    :cond_a7
     move-object/from16 v14, p0
 
     sget-object v3, Landroidx/recyclerview/widget/DiffUtil;->DIAGONAL_COMPARATOR:Ljava/util/Comparator;
@@ -565,7 +565,7 @@
 .end method
 
 .method private static forward(Landroidx/recyclerview/widget/DiffUtil$Range;Landroidx/recyclerview/widget/DiffUtil$Callback;Landroidx/recyclerview/widget/DiffUtil$CenteredArray;Landroidx/recyclerview/widget/DiffUtil$CenteredArray;I)Landroidx/recyclerview/widget/DiffUtil$Snake;
-    .locals 17
+    .registers 22
     .param p0, "range"    # Landroidx/recyclerview/widget/DiffUtil$Range;
     .param p1, "cb"    # Landroidx/recyclerview/widget/DiffUtil$Callback;
     .param p2, "forward"    # Landroidx/recyclerview/widget/DiffUtil$CenteredArray;
@@ -599,18 +599,18 @@
 
     const/4 v5, 0x1
 
-    if-ne v3, v5, :cond_0
+    if-ne v3, v5, :cond_1b
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v3, 0x0
 
     .line 218
     .local v3, "checkForSnake":Z
-    :goto_0
+    :goto_1c
     invoke-virtual/range {p0 .. p0}, Landroidx/recyclerview/widget/DiffUtil$Range;->oldSize()I
 
     move-result v6
@@ -626,15 +626,15 @@
     neg-int v7, v2
 
     .local v7, "k":I
-    :goto_1
-    if-gt v7, v2, :cond_a
+    :goto_26
+    if-gt v7, v2, :cond_a8
 
     .line 226
     neg-int v8, v2
 
-    if-eq v7, v8, :cond_2
+    if-eq v7, v8, :cond_45
 
-    if-eq v7, v2, :cond_1
+    if-eq v7, v2, :cond_3c
 
     add-int/lit8 v8, v7, 0x1
 
@@ -648,12 +648,12 @@
 
     move-result v9
 
-    if-le v8, v9, :cond_1
+    if-le v8, v9, :cond_3c
 
-    goto :goto_2
+    goto :goto_45
 
     .line 231
-    :cond_1
+    :cond_3c
     add-int/lit8 v8, v7, -0x1
 
     invoke-virtual {v1, v8}, Landroidx/recyclerview/widget/DiffUtil$CenteredArray;->get(I)I
@@ -665,13 +665,13 @@
     add-int/lit8 v9, v8, 0x1
 
     .local v9, "x":I
-    goto :goto_3
+    goto :goto_50
 
     .line 228
     .end local v8    # "startX":I
     .end local v9    # "x":I
-    :cond_2
-    :goto_2
+    :cond_45
+    :goto_45
     add-int/lit8 v8, v7, 0x1
 
     invoke-virtual {v1, v8}, Landroidx/recyclerview/widget/DiffUtil$CenteredArray;->get(I)I
@@ -688,7 +688,7 @@
     .line 234
     .restart local v8    # "startX":I
     .local v9, "x":I
-    :goto_3
+    :goto_50
     iget v10, v0, Landroidx/recyclerview/widget/DiffUtil$Range;->newListStart:I
 
     iget v11, v0, Landroidx/recyclerview/widget/DiffUtil$Range;->oldListStart:I
@@ -701,31 +701,31 @@
 
     .line 235
     .local v10, "y":I
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_60
 
-    if-eq v9, v8, :cond_3
+    if-eq v9, v8, :cond_5d
 
-    goto :goto_4
+    goto :goto_60
 
-    :cond_3
+    :cond_5d
     add-int/lit8 v11, v10, -0x1
 
-    goto :goto_5
+    goto :goto_61
 
-    :cond_4
-    :goto_4
+    :cond_60
+    :goto_60
     move v11, v10
 
     .line 237
     .local v11, "startY":I
-    :goto_5
+    :goto_61
     iget v12, v0, Landroidx/recyclerview/widget/DiffUtil$Range;->oldListEnd:I
 
-    if-ge v9, v12, :cond_5
+    if-ge v9, v12, :cond_76
 
     iget v12, v0, Landroidx/recyclerview/widget/DiffUtil$Range;->newListEnd:I
 
-    if-ge v10, v12, :cond_5
+    if-ge v10, v12, :cond_76
 
     .line 239
     move-object/from16 v12, p1
@@ -734,7 +734,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_6
+    if-eqz v13, :cond_78
 
     .line 240
     add-int/lit8 v9, v9, 0x1
@@ -742,18 +742,18 @@
     .line 241
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_5
+    goto :goto_61
 
     .line 237
-    :cond_5
+    :cond_76
     move-object/from16 v12, p1
 
     .line 244
-    :cond_6
+    :cond_78
     invoke-virtual {v1, v7, v9}, Landroidx/recyclerview/widget/DiffUtil$CenteredArray;->set(II)V
 
     .line 245
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_a2
 
     .line 248
     sub-int v13, v6, v7
@@ -764,11 +764,11 @@
 
     add-int/2addr v14, v5
 
-    if-lt v13, v14, :cond_7
+    if-lt v13, v14, :cond_9f
 
     add-int/lit8 v14, v2, -0x1
 
-    if-gt v13, v14, :cond_7
+    if-gt v13, v14, :cond_9f
 
     .line 252
     move-object/from16 v14, p3
@@ -777,7 +777,7 @@
 
     move-result v15
 
-    if-gt v15, v9, :cond_9
+    if-gt v15, v9, :cond_a4
 
     .line 254
     new-instance v5, Landroidx/recyclerview/widget/DiffUtil$Snake;
@@ -805,14 +805,14 @@
 
     .line 250
     .end local v5    # "snake":Landroidx/recyclerview/widget/DiffUtil$Snake;
-    :cond_7
+    :cond_9f
     move-object/from16 v14, p3
 
-    goto :goto_6
+    goto :goto_a4
 
     .line 245
     .end local v13    # "backwardsK":I
-    :cond_8
+    :cond_a2
     move-object/from16 v14, p3
 
     .line 219
@@ -820,13 +820,13 @@
     .end local v9    # "x":I
     .end local v10    # "y":I
     .end local v11    # "startY":I
-    :cond_9
-    :goto_6
+    :cond_a4
+    :goto_a4
     add-int/lit8 v7, v7, 0x2
 
-    goto/16 :goto_1
+    goto/16 :goto_26
 
-    :cond_a
+    :cond_a8
     move-object/from16 v12, p1
 
     move-object/from16 v14, p3
@@ -839,7 +839,7 @@
 .end method
 
 .method private static midPoint(Landroidx/recyclerview/widget/DiffUtil$Range;Landroidx/recyclerview/widget/DiffUtil$Callback;Landroidx/recyclerview/widget/DiffUtil$CenteredArray;Landroidx/recyclerview/widget/DiffUtil$CenteredArray;)Landroidx/recyclerview/widget/DiffUtil$Snake;
-    .locals 4
+    .registers 8
     .param p0, "range"    # Landroidx/recyclerview/widget/DiffUtil$Range;
     .param p1, "cb"    # Landroidx/recyclerview/widget/DiffUtil$Callback;
     .param p2, "forward"    # Landroidx/recyclerview/widget/DiffUtil$CenteredArray;
@@ -854,18 +854,18 @@
 
     const/4 v2, 0x1
 
-    if-lt v0, v2, :cond_4
+    if-lt v0, v2, :cond_3a
 
     invoke-virtual {p0}, Landroidx/recyclerview/widget/DiffUtil$Range;->newSize()I
 
     move-result v0
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_f
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 194
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Landroidx/recyclerview/widget/DiffUtil$Range;->oldSize()I
 
     move-result v0
@@ -895,8 +895,8 @@
     const/4 v2, 0x0
 
     .local v2, "d":I
-    :goto_0
-    if-ge v2, v0, :cond_3
+    :goto_26
+    if-ge v2, v0, :cond_39
 
     .line 198
     invoke-static {p0, p1, p2, p3, v2}, Landroidx/recyclerview/widget/DiffUtil;->forward(Landroidx/recyclerview/widget/DiffUtil$Range;Landroidx/recyclerview/widget/DiffUtil$Callback;Landroidx/recyclerview/widget/DiffUtil$CenteredArray;Landroidx/recyclerview/widget/DiffUtil$CenteredArray;I)Landroidx/recyclerview/widget/DiffUtil$Snake;
@@ -905,38 +905,38 @@
 
     .line 199
     .local v3, "snake":Landroidx/recyclerview/widget/DiffUtil$Snake;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2f
 
     .line 200
     return-object v3
 
     .line 202
-    :cond_1
+    :cond_2f
     invoke-static {p0, p1, p2, p3, v2}, Landroidx/recyclerview/widget/DiffUtil;->backward(Landroidx/recyclerview/widget/DiffUtil$Range;Landroidx/recyclerview/widget/DiffUtil$Callback;Landroidx/recyclerview/widget/DiffUtil$CenteredArray;Landroidx/recyclerview/widget/DiffUtil$CenteredArray;I)Landroidx/recyclerview/widget/DiffUtil$Snake;
 
     move-result-object v3
 
     .line 203
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_36
 
     .line 204
     return-object v3
 
     .line 197
     .end local v3    # "snake":Landroidx/recyclerview/widget/DiffUtil$Snake;
-    :cond_2
+    :cond_36
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 207
     .end local v2    # "d":I
-    :cond_3
+    :cond_39
     return-object v1
 
     .line 192
     .end local v0    # "max":I
-    :cond_4
-    :goto_1
+    :cond_3a
+    :goto_3a
     return-object v1
 .end method

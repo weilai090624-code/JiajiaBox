@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 .end method
 
 .method static addAllImpl(Ljava/util/List;ILjava/lang/Iterable;)Z
-    .locals 4
+    .registers 7
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,12 +67,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_9
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -87,15 +87,15 @@
 
     .line 1010
     .end local v3    # "e":Ljava/lang/Object;, "TE;"
-    goto :goto_0
+    goto :goto_9
 
     .line 1011
-    :cond_0
+    :cond_18
     return v0
 .end method
 
 .method public static asList(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -126,7 +126,7 @@
 .end method
 
 .method public static asList(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -152,7 +152,7 @@
 .end method
 
 .method public static cartesianProduct(Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -178,7 +178,7 @@
 .end method
 
 .method public static varargs cartesianProduct([Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -209,7 +209,7 @@
 .end method
 
 .method static cast(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -232,7 +232,7 @@
 .end method
 
 .method public static charactersOf(Ljava/lang/String;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .param p0, "string"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -260,7 +260,7 @@
 .end method
 
 .method public static charactersOf(Ljava/lang/CharSequence;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "sequence"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -288,7 +288,7 @@
 .end method
 
 .method static computeArrayListCapacity(I)I
-    .locals 4
+    .registers 5
     .param p0, "arraySize"    # I
 
     .line 152
@@ -317,7 +317,7 @@
 .end method
 
 .method static equalsImpl(Ljava/util/List;Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "other"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -340,24 +340,24 @@
 
     const/4 v1, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_8
 
     .line 979
     return v1
 
     .line 981
-    :cond_0
+    :cond_8
     instance-of v0, p1, Ljava/util/List;
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 982
     return v2
 
     .line 984
-    :cond_1
+    :cond_e
     move-object v0, p1
 
     check-cast v0, Ljava/util/List;
@@ -374,27 +374,27 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_1c
 
     .line 987
     return v2
 
     .line 989
-    :cond_2
+    :cond_1c
     instance-of v4, p0, Ljava/util/RandomAccess;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_3a
 
     instance-of v4, v0, Ljava/util/RandomAccess;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_3a
 
     .line 991
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v3, :cond_4
+    :goto_25
+    if-ge v4, v3, :cond_39
 
     .line 992
     invoke-interface {p0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -409,24 +409,24 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_36
 
     .line 993
     return v2
 
     .line 991
-    :cond_3
+    :cond_36
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
     .line 996
     .end local v4    # "i":I
-    :cond_4
+    :cond_39
     return v1
 
     .line 998
-    :cond_5
+    :cond_3a
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -443,7 +443,7 @@
 .end method
 
 .method static hashCodeImpl(Ljava/util/List;)I
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -462,12 +462,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_5
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -477,18 +477,18 @@
     .local v2, "o":Ljava/lang/Object;
     mul-int/lit8 v3, v0, 0x1f
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     const/4 v4, 0x0
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_0
+    :cond_15
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v4
 
-    :goto_1
+    :goto_19
     add-int/2addr v3, v4
 
     .line 970
@@ -502,15 +502,15 @@
     .end local v2    # "o":Ljava/lang/Object;
     .end local v3    # "hashCode":I
     .restart local v0    # "hashCode":I
-    goto :goto_0
+    goto :goto_5
 
     .line 973
-    :cond_1
+    :cond_1d
     return v0
 .end method
 
 .method static indexOfImpl(Ljava/util/List;Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -529,7 +529,7 @@
     .local p0, "list":Ljava/util/List;, "Ljava/util/List<*>;"
     instance-of v0, p0, Ljava/util/RandomAccess;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1017
     invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->indexOfRandomAccess(Ljava/util/List;Ljava/lang/Object;)I
@@ -539,19 +539,19 @@
     return v0
 
     .line 1019
-    :cond_0
+    :cond_9
     invoke-interface {p0}, Ljava/util/List;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v0
 
     .line 1020
     .local v0, "listIterator":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
-    :cond_1
+    :cond_d
     invoke-interface {v0}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_22
 
     .line 1021
     invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -562,7 +562,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_d
 
     .line 1022
     invoke-interface {v0}, Ljava/util/ListIterator;->previousIndex()I
@@ -572,14 +572,14 @@
     return v1
 
     .line 1025
-    :cond_2
+    :cond_22
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method private static indexOfRandomAccess(Ljava/util/List;Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -602,42 +602,42 @@
 
     .line 1031
     .local v0, "size":I
-    if-nez p1, :cond_2
+    if-nez p1, :cond_14
 
     .line 1032
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_7
+    if-ge v1, v0, :cond_13
 
     .line 1033
     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_10
 
     .line 1034
     return v1
 
     .line 1032
-    :cond_0
+    :cond_10
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .end local v1    # "i":I
-    :cond_1
-    goto :goto_2
+    :cond_13
+    goto :goto_25
 
     .line 1038
-    :cond_2
+    :cond_14
     const/4 v1, 0x0
 
     .restart local v1    # "i":I
-    :goto_1
-    if-ge v1, v0, :cond_4
+    :goto_15
+    if-ge v1, v0, :cond_25
 
     .line 1039
     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -648,28 +648,28 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_22
 
     .line 1040
     return v1
 
     .line 1038
-    :cond_3
+    :cond_22
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_15
 
     .line 1044
     .end local v1    # "i":I
-    :cond_4
-    :goto_2
+    :cond_25
+    :goto_25
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method static lastIndexOfImpl(Ljava/util/List;Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -688,7 +688,7 @@
     .local p0, "list":Ljava/util/List;, "Ljava/util/List<*>;"
     instance-of v0, p0, Ljava/util/RandomAccess;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1050
     invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->lastIndexOfRandomAccess(Ljava/util/List;Ljava/lang/Object;)I
@@ -698,7 +698,7 @@
     return v0
 
     .line 1052
-    :cond_0
+    :cond_9
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v0
@@ -709,12 +709,12 @@
 
     .line 1053
     .local v0, "listIterator":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
-    :cond_1
+    :cond_11
     invoke-interface {v0}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_26
 
     .line 1054
     invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -725,7 +725,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_11
 
     .line 1055
     invoke-interface {v0}, Ljava/util/ListIterator;->nextIndex()I
@@ -735,14 +735,14 @@
     return v1
 
     .line 1058
-    :cond_2
+    :cond_26
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method private static lastIndexOfRandomAccess(Ljava/util/List;Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -759,7 +759,7 @@
 
     .line 1063
     .local p0, "list":Ljava/util/List;, "Ljava/util/List<*>;"
-    if-nez p1, :cond_2
+    if-nez p1, :cond_15
 
     .line 1064
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -769,31 +769,31 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_8
+    if-ltz v0, :cond_14
 
     .line 1065
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     .line 1066
     return v0
 
     .line 1064
-    :cond_0
+    :cond_11
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .end local v0    # "i":I
-    :cond_1
-    goto :goto_2
+    :cond_14
+    goto :goto_2b
 
     .line 1070
-    :cond_2
+    :cond_15
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v0
@@ -801,8 +801,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .restart local v0    # "i":I
-    :goto_1
-    if-ltz v0, :cond_4
+    :goto_1b
+    if-ltz v0, :cond_2b
 
     .line 1071
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -813,28 +813,28 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_28
 
     .line 1072
     return v0
 
     .line 1070
-    :cond_3
+    :cond_28
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_1
+    goto :goto_1b
 
     .line 1076
     .end local v0    # "i":I
-    :cond_4
-    :goto_2
+    :cond_2b
+    :goto_2b
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method static listIteratorImpl(Ljava/util/List;I)Ljava/util/ListIterator;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -862,7 +862,7 @@
 .end method
 
 .method public static newArrayList()Ljava/util/ArrayList;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -882,7 +882,7 @@
 .end method
 
 .method public static newArrayList(Ljava/lang/Iterable;)Ljava/util/ArrayList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -902,7 +902,7 @@
     .line 130
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 131
     new-instance v0, Ljava/util/ArrayList;
@@ -913,10 +913,10 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 132
-    :cond_0
+    :cond_10
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -926,12 +926,12 @@
     move-result-object v0
 
     .line 130
-    :goto_0
+    :goto_18
     return-object v0
 .end method
 
 .method public static newArrayList(Ljava/util/Iterator;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -959,7 +959,7 @@
 .end method
 
 .method public static varargs newArrayList([Ljava/lang/Object;)Ljava/util/ArrayList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -999,7 +999,7 @@
 .end method
 
 .method public static newArrayListWithCapacity(I)Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .param p0, "initialArraySize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1025,7 +1025,7 @@
 .end method
 
 .method public static newArrayListWithExpectedSize(I)Ljava/util/ArrayList;
-    .locals 2
+    .registers 3
     .param p0, "estimatedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1050,7 +1050,7 @@
 .end method
 
 .method public static newCopyOnWriteArrayList()Ljava/util/concurrent/CopyOnWriteArrayList;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1070,7 +1070,7 @@
 .end method
 
 .method public static newCopyOnWriteArrayList(Ljava/lang/Iterable;)Ljava/util/concurrent/CopyOnWriteArrayList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1087,22 +1087,22 @@
     .local p0, "elements":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 275
     move-object v0, p0
 
     check-cast v0, Ljava/util/Collection;
 
-    goto :goto_0
+    goto :goto_c
 
     .line 276
-    :cond_0
+    :cond_8
     invoke-static {p0}, Lcom/google/common/collect/Lists;->newArrayList(Ljava/lang/Iterable;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     nop
 
     .line 277
@@ -1115,7 +1115,7 @@
 .end method
 
 .method public static newLinkedList()Ljava/util/LinkedList;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1135,7 +1135,7 @@
 .end method
 
 .method public static newLinkedList(Ljava/lang/Iterable;)Ljava/util/LinkedList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1163,7 +1163,7 @@
 .end method
 
 .method public static partition(Ljava/util/List;I)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1183,43 +1183,43 @@
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 661
-    if-lez p1, :cond_0
+    if-lez p1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 662
     instance-of v0, p0, Ljava/util/RandomAccess;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 663
     new-instance v0, Lcom/google/common/collect/Lists$RandomAccessPartition;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Lists$RandomAccessPartition;-><init>(Ljava/util/List;I)V
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 664
-    :cond_1
+    :cond_15
     new-instance v0, Lcom/google/common/collect/Lists$Partition;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Lists$Partition;-><init>(Ljava/util/List;I)V
 
     .line 662
-    :goto_1
+    :goto_1a
     return-object v0
 .end method
 
 .method public static reverse(Ljava/util/List;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1236,7 +1236,7 @@
     .local p0, "list":Ljava/util/List;, "Ljava/util/List<TT;>;"
     instance-of v0, p0, Lcom/google/common/collect/ImmutableList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 800
     move-object v0, p0
@@ -1258,10 +1258,10 @@
     .line 804
     .end local v0    # "reversed":Ljava/util/List;, "Ljava/util/List<*>;"
     .end local v1    # "result":Ljava/util/List;, "Ljava/util/List<TT;>;"
-    :cond_0
+    :cond_d
     instance-of v0, p0, Lcom/google/common/collect/Lists$ReverseList;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 805
     move-object v0, p0
@@ -1275,10 +1275,10 @@
     return-object v0
 
     .line 806
-    :cond_1
+    :cond_19
     instance-of v0, p0, Ljava/util/RandomAccess;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_23
 
     .line 807
     new-instance v0, Lcom/google/common/collect/Lists$RandomAccessReverseList;
@@ -1288,7 +1288,7 @@
     return-object v0
 
     .line 809
-    :cond_2
+    :cond_23
     new-instance v0, Lcom/google/common/collect/Lists$ReverseList;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Lists$ReverseList;-><init>(Ljava/util/List;)V
@@ -1297,7 +1297,7 @@
 .end method
 
 .method static subListImpl(Ljava/util/List;II)Ljava/util/List;
-    .locals 2
+    .registers 5
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1316,7 +1316,7 @@
     .local p0, "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
     instance-of v0, p0, Ljava/util/RandomAccess;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 1089
     new-instance v0, Lcom/google/common/collect/Lists$1;
@@ -1324,18 +1324,18 @@
     invoke-direct {v0, p0}, Lcom/google/common/collect/Lists$1;-><init>(Ljava/util/List;)V
 
     .local v0, "wrapper":Ljava/util/List;, "Ljava/util/List<TE;>;"
-    goto :goto_0
+    goto :goto_f
 
     .line 1099
     .end local v0    # "wrapper":Ljava/util/List;, "Ljava/util/List<TE;>;"
-    :cond_0
+    :cond_a
     new-instance v0, Lcom/google/common/collect/Lists$2;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Lists$2;-><init>(Ljava/util/List;)V
 
     .line 1109
     .restart local v0    # "wrapper":Ljava/util/List;, "Ljava/util/List<TE;>;"
-    :goto_0
+    :goto_f
     invoke-interface {v0, p1, p2}, Ljava/util/List;->subList(II)Ljava/util/List;
 
     move-result-object v1
@@ -1344,7 +1344,7 @@
 .end method
 
 .method public static transform(Ljava/util/List;Lcom/google/common/base/Function;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<F:",
@@ -1366,22 +1366,22 @@
     .local p1, "function":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<-TF;+TT;>;"
     instance-of v0, p0, Ljava/util/RandomAccess;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 534
     new-instance v0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Lists$TransformingRandomAccessList;-><init>(Ljava/util/List;Lcom/google/common/base/Function;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 535
-    :cond_0
+    :cond_a
     new-instance v0, Lcom/google/common/collect/Lists$TransformingSequentialList;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Lists$TransformingSequentialList;-><init>(Ljava/util/List;Lcom/google/common/base/Function;)V
 
     .line 533
-    :goto_0
+    :goto_f
     return-object v0
 .end method

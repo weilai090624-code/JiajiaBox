@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     .line 1417
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 1428
@@ -65,7 +65,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 1420
@@ -88,7 +88,7 @@
 
     instance-of v0, v0, Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 1422
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$7;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -104,6 +104,6 @@
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V
 
     .line 1424
-    :cond_0
+    :cond_21
     return-void
 .end method

@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Z)V
-    .locals 1
+    .registers 3
     .param p1, "directed"    # Z
 
     .line 41

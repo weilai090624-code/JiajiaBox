@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 0
+    .registers 2
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 268
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public isStateful()Z
-    .locals 1
+    .registers 2
 
     .line 273
     const/4 v0, 0x1

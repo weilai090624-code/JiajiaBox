@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
     .param p1, "remote"    # Landroid/os/IBinder;
 
     .line 135
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 140
     iget-object v0, p0, Landroidx/room/IMultiInstanceInvalidationService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -48,7 +48,7 @@
 .end method
 
 .method public broadcastInvalidation(I[Ljava/lang/String;)V
-    .locals 5
+    .registers 8
     .param p1, "clientId"    # I
     .param p2, "tables"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -64,7 +64,7 @@
 
     .line 212
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     sget-object v1, Landroidx/room/IMultiInstanceInvalidationService$Stub$Proxy;->DESCRIPTOR:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -85,8 +85,8 @@
     const/4 v4, 0x3
 
     invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_4 .. :try_end_17} :catchall_1c
 
     .line 218
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -98,7 +98,7 @@
     return-void
 
     .line 218
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -108,7 +108,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 144
     sget-object v0, Landroidx/room/IMultiInstanceInvalidationService$Stub$Proxy;->DESCRIPTOR:Ljava/lang/String;
@@ -117,7 +117,7 @@
 .end method
 
 .method public registerCallback(Landroidx/room/IMultiInstanceInvalidationCallback;Ljava/lang/String;)I
-    .locals 5
+    .registers 8
     .param p1, "callback"    # Landroidx/room/IMultiInstanceInvalidationCallback;
     .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -139,7 +139,7 @@
 
     .line 160
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     sget-object v2, Landroidx/room/IMultiInstanceInvalidationService$Stub$Proxy;->DESCRIPTOR:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -169,8 +169,8 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_8 .. :try_end_22} :catchall_2b
 
     move v2, v3
 
@@ -189,7 +189,7 @@
 
     .line 168
     .end local v2    # "_result":I
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -202,7 +202,7 @@
 .end method
 
 .method public unregisterCallback(Landroidx/room/IMultiInstanceInvalidationCallback;I)V
-    .locals 5
+    .registers 8
     .param p1, "callback"    # Landroidx/room/IMultiInstanceInvalidationCallback;
     .param p2, "clientId"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -224,7 +224,7 @@
 
     .line 187
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     sget-object v2, Landroidx/room/IMultiInstanceInvalidationService$Stub$Proxy;->DESCRIPTOR:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -249,8 +249,8 @@
     .line 191
     .local v2, "_status":Z
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
 
     .line 194
     .end local v2    # "_status":Z
@@ -266,7 +266,7 @@
     return-void
 
     .line 194
-    :catchall_0
+    :catchall_26
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

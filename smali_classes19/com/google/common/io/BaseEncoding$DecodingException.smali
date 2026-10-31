@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
 
     .line 139
@@ -27,7 +27,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 143

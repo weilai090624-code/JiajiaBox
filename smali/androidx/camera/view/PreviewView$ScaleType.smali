@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 695
     new-instance v0, Landroidx/camera/view/PreviewView$ScaleType;
@@ -147,7 +147,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .param p3, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -179,7 +179,7 @@
 .end method
 
 .method static fromId(I)Landroidx/camera/view/PreviewView$ScaleType;
-    .locals 5
+    .registers 6
     .param p0, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -199,8 +199,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_12
 
     aget-object v3, v0, v2
 
@@ -208,20 +208,20 @@
     .local v3, "scaleType":Landroidx/camera/view/PreviewView$ScaleType;
     iget v4, v3, Landroidx/camera/view/PreviewView$ScaleType;->mId:I
 
-    if-ne v4, p0, :cond_0
+    if-ne v4, p0, :cond_f
 
     .line 759
     return-object v3
 
     .line 757
     .end local v3    # "scaleType":Landroidx/camera/view/PreviewView$ScaleType;
-    :cond_0
+    :cond_f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 762
-    :cond_1
+    :cond_12
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -248,7 +248,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/camera/view/PreviewView$ScaleType;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -272,7 +272,7 @@
 .end method
 
 .method public static values()[Landroidx/camera/view/PreviewView$ScaleType;
-    .locals 1
+    .registers 1
 
     .line 685
     sget-object v0, Landroidx/camera/view/PreviewView$ScaleType;->$VALUES:[Landroidx/camera/view/PreviewView$ScaleType;
@@ -289,7 +289,7 @@
 
 # virtual methods
 .method getId()I
-    .locals 1
+    .registers 2
 
     .line 753
     iget v0, p0, Landroidx/camera/view/PreviewView$ScaleType;->mId:I

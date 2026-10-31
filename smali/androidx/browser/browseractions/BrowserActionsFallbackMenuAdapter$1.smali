@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;Ljava/lang/String;Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$ViewHolderItem;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 103
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$1;->val$titleText:Ljava/lang/String;
@@ -71,17 +71,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     return-void
 
     .line 105
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 107
     .local v0, "bitmap":Landroid/graphics/Bitmap;
-    :try_start_0
+    :try_start_12
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$1;->val$bitmapFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v1}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
@@ -89,27 +89,27 @@
     move-result-object v1
 
     check-cast v1, Landroid/graphics/Bitmap;
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_12 .. :try_end_1a} :catch_1e
+    .catch Ljava/lang/InterruptedException; {:try_start_12 .. :try_end_1a} :catch_1c
 
     move-object v0, v1
 
     .line 110
-    goto :goto_0
+    goto :goto_1f
 
     .line 108
-    :catch_0
+    :catch_1c
     move-exception v1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :catch_1
+    :catch_1e
     move-exception v1
 
     .line 112
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_1f
+    if-eqz v0, :cond_31
 
     .line 113
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$1;->val$viewHolder:Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$ViewHolderItem;
@@ -127,10 +127,10 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    goto :goto_1
+    goto :goto_41
 
     .line 116
-    :cond_1
+    :cond_31
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$1;->val$viewHolder:Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$ViewHolderItem;
 
     iget-object v1, v1, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$ViewHolderItem;->mIcon:Landroid/widget/ImageView;
@@ -149,6 +149,6 @@
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
     .line 119
-    :goto_1
+    :goto_41
     return-void
 .end method

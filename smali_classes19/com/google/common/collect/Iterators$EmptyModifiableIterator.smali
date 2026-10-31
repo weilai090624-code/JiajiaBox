@@ -36,7 +36,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/collect/Iterators$EmptyModifiableIterator;
-    .locals 3
+    .registers 3
 
     .line 99
     const/4 v0, 0x1
@@ -53,7 +53,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 100
     new-instance v0, Lcom/google/common/collect/Iterators$EmptyModifiableIterator;
@@ -77,7 +77,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -91,7 +91,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/collect/Iterators$EmptyModifiableIterator;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 99
@@ -107,7 +107,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/collect/Iterators$EmptyModifiableIterator;
-    .locals 1
+    .registers 1
 
     .line 99
     sget-object v0, Lcom/google/common/collect/Iterators$EmptyModifiableIterator;->$VALUES:[Lcom/google/common/collect/Iterators$EmptyModifiableIterator;
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 104
     const/4 v0, 0x0
@@ -133,7 +133,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 109
     new-instance v0, Ljava/util/NoSuchElementException;
@@ -144,7 +144,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 114
     const/4 v0, 0x0

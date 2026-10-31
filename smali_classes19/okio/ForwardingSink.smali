@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/Sink;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lokio/Sink;
 
     const-string v0, "delegate"
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public final -deprecated_delegate()Lokio/Sink;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -85,7 +85,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -101,7 +101,7 @@
 .end method
 
 .method public final delegate()Lokio/Sink;
-    .locals 1
+    .registers 2
 
     .line 24
     iget-object v0, p0, Lokio/ForwardingSink;->delegate:Lokio/Sink;
@@ -110,7 +110,7 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -126,7 +126,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Lokio/ForwardingSink;->delegate:Lokio/Sink;
@@ -139,7 +139,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 39
     new-instance v0, Ljava/lang/StringBuilder;
@@ -184,7 +184,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 1
+    .registers 5
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;

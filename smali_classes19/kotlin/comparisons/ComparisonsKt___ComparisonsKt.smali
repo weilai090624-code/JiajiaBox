@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/comparisons/ComparisonsKt___ComparisonsJvmKt;-><init>()V
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public static final maxOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p0, "a"    # Ljava/lang/Object;
     .param p1, "b"    # Ljava/lang/Object;
     .param p2, "c"    # Ljava/lang/Object;
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final maxOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "a"    # Ljava/lang/Object;
     .param p1, "b"    # Ljava/lang/Object;
     .param p2, "comparator"    # Ljava/util/Comparator;
@@ -101,21 +101,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_d
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v0, p1
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public static final maxOf(Ljava/lang/Object;[Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "a"    # Ljava/lang/Object;
     .param p1, "other"    # [Ljava/lang/Object;
     .param p2, "comparator"    # Ljava/util/Comparator;
@@ -146,8 +146,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_d
+    if-ge v2, v1, :cond_1b
 
     aget-object v3, p1, v2
 
@@ -156,23 +156,23 @@
 
     move-result v4
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_18
 
     move-object v0, v3
 
     .end local v3    # "e":Ljava/lang/Object;
-    :cond_0
+    :cond_18
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 198
-    :cond_1
+    :cond_1b
     return-object v0
 .end method
 
 .method public static final minOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p0, "a"    # Ljava/lang/Object;
     .param p1, "b"    # Ljava/lang/Object;
     .param p2, "c"    # Ljava/lang/Object;
@@ -204,7 +204,7 @@
 .end method
 
 .method public static final minOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "a"    # Ljava/lang/Object;
     .param p1, "b"    # Ljava/lang/Object;
     .param p2, "comparator"    # Ljava/util/Comparator;
@@ -227,21 +227,21 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_d
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v0, p1
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public static final minOf(Ljava/lang/Object;[Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "a"    # Ljava/lang/Object;
     .param p1, "other"    # [Ljava/lang/Object;
     .param p2, "comparator"    # Ljava/util/Comparator;
@@ -272,8 +272,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_d
+    if-ge v2, v1, :cond_1b
 
     aget-object v3, p1, v2
 
@@ -282,17 +282,17 @@
 
     move-result v4
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_18
 
     move-object v0, v3
 
     .end local v3    # "e":Ljava/lang/Object;
-    :cond_0
+    :cond_18
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 380
-    :cond_1
+    :cond_1b
     return-object v0
 .end method

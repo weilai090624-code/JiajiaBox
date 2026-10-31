@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .param p1, "funInterface"    # Ljava/lang/Class;
 
     .line 31
@@ -30,28 +30,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 37
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 38
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lkotlin/jvm/internal/FunInterfaceConstructorReference;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     const/4 v0, 0x0
 
     return v0
 
     .line 39
-    :cond_1
+    :cond_a
     move-object v0, p1
 
     check-cast v0, Lkotlin/jvm/internal/FunInterfaceConstructorReference;
@@ -70,7 +70,7 @@
 .end method
 
 .method protected bridge synthetic getReflected()Lkotlin/reflect/KCallable;
-    .locals 1
+    .registers 2
 
     .line 25
     invoke-virtual {p0}, Lkotlin/jvm/internal/FunInterfaceConstructorReference;->getReflected()Lkotlin/reflect/KFunction;
@@ -81,7 +81,7 @@
 .end method
 
 .method protected getReflected()Lkotlin/reflect/KFunction;
-    .locals 2
+    .registers 3
 
     .line 55
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -94,7 +94,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Lkotlin/jvm/internal/FunInterfaceConstructorReference;->funInterface:Ljava/lang/Class;
@@ -107,7 +107,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 50
     new-instance v0, Ljava/lang/StringBuilder;

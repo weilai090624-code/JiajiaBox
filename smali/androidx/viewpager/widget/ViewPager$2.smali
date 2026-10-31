@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 147
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,6 +33,8 @@
     .registers 2
 
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->ease(F)F
+
     move-result p1
+
     return p1
 .end method

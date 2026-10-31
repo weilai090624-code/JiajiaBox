@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final probeCoroutineCreated(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 2
     .param p0, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -56,7 +56,7 @@
 .end method
 
 .method public static final probeCoroutineResumed(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 2
     .param p0, "frame"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -75,7 +75,7 @@
 .end method
 
 .method public static final probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 2
     .param p0, "frame"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {

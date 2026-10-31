@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1334
     new-instance v0, Lcom/google/android/material/button/MaterialButton$SavedState$1;
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -53,7 +53,7 @@
     invoke-direct {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
     .line 1318
-    if-nez p2, :cond_0
+    if-nez p2, :cond_d
 
     .line 1319
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -65,7 +65,7 @@
     move-result-object p2
 
     .line 1321
-    :cond_0
+    :cond_d
     invoke-direct {p0, p1}, Lcom/google/android/material/button/MaterialButton$SavedState;->readFromParcel(Landroid/os/Parcel;)V
 
     .line 1322
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 1313
@@ -84,7 +84,7 @@
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 1331
@@ -94,14 +94,14 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     iput-boolean v1, p0, Lcom/google/android/material/button/MaterialButton$SavedState;->checked:Z
 
     .line 1332
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Set;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -72,7 +72,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 1492
     .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableEntrySet;, "Lcom/google/common/collect/Maps$UnmodifiableEntrySet<TK;TV;>;"

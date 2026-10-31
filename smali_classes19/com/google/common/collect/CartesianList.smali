@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableList;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,7 +77,7 @@
     aput v1, v0, v2
 
     .line 56
-    :try_start_0
+    :try_start_13
     invoke-virtual {p1}, Lcom/google/common/collect/ImmutableList;->size()I
 
     move-result v2
@@ -85,8 +85,8 @@
     sub-int/2addr v2, v1
 
     .local v2, "i":I
-    :goto_0
-    if-ltz v2, :cond_0
+    :goto_18
+    if-ltz v2, :cond_31
 
     .line 57
     add-int/lit8 v1, v2, 0x1
@@ -108,17 +108,17 @@
     move-result v1
 
     aput v1, v0, v2
-    :try_end_0
-    .catch Ljava/lang/ArithmeticException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Ljava/lang/ArithmeticException; {:try_start_13 .. :try_end_2e} :catch_35
 
     .line 56
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 62
     .end local v2    # "i":I
-    :cond_0
+    :cond_31
     nop
 
     .line 63
@@ -128,7 +128,7 @@
     return-void
 
     .line 59
-    :catch_0
+    :catch_35
     move-exception v1
 
     .line 60
@@ -143,7 +143,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/CartesianList;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/CartesianList;
 
     .line 34
@@ -153,7 +153,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/collect/CartesianList;II)I
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Lcom/google/common/collect/CartesianList;
     .param p1, "x1"    # I
     .param p2, "x2"    # I
@@ -167,7 +167,7 @@
 .end method
 
 .method static create(Ljava/util/List;)Ljava/util/List;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -199,12 +199,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -224,7 +224,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_28
 
     .line 44
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
@@ -234,16 +234,16 @@
     return-object v1
 
     .line 46
-    :cond_0
+    :cond_28
     invoke-virtual {v0, v3}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
 
     .line 47
     .end local v2    # "list":Ljava/util/List;, "Ljava/util/List<+TE;>;"
     .end local v3    # "copy":Ljava/util/List;, "Ljava/util/List<TE;>;"
-    goto :goto_0
+    goto :goto_d
 
     .line 48
-    :cond_1
+    :cond_2c
     new-instance v1, Lcom/google/common/collect/CartesianList;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
@@ -256,7 +256,7 @@
 .end method
 
 .method private getAxisIndexForProductIndex(II)I
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "axis"    # I
 
@@ -290,7 +290,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -302,13 +302,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 146
     return v1
 
     .line 148
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/util/List;
@@ -325,13 +325,13 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_16
 
     .line 150
     return v1
 
     .line 152
-    :cond_1
+    :cond_16
     const/4 v2, 0x0
 
     .line 153
@@ -340,12 +340,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1b
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_38
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -365,30 +365,30 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_34
 
     .line 155
     return v1
 
     .line 157
-    :cond_2
+    :cond_34
     nop
 
     .end local v4    # "o":Ljava/lang/Object;
     add-int/lit8 v2, v2, 0x1
 
     .line 158
-    goto :goto_0
+    goto :goto_1b
 
     .line 159
-    :cond_3
+    :cond_38
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method public get(I)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -415,7 +415,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 32
     .local p0, "this":Lcom/google/common/collect/CartesianList;, "Lcom/google/common/collect/CartesianList<TE;>;"
@@ -427,7 +427,7 @@
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 8
+    .registers 10
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -439,13 +439,13 @@
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 73
     return v1
 
     .line 75
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/util/List;
@@ -462,13 +462,13 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_16
 
     .line 77
     return v1
 
     .line 79
-    :cond_1
+    :cond_16
     invoke-interface {v0}, Ljava/util/List;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v2
@@ -479,12 +479,12 @@
 
     .line 81
     .local v3, "computedIndex":I
-    :goto_0
+    :goto_1b
     invoke-interface {v2}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_42
 
     .line 82
     invoke-interface {v2}, Ljava/util/ListIterator;->nextIndex()I
@@ -511,13 +511,13 @@
 
     .line 84
     .local v5, "elemIndex":I
-    if-ne v5, v1, :cond_2
+    if-ne v5, v1, :cond_38
 
     .line 85
     return v1
 
     .line 87
-    :cond_2
+    :cond_38
     iget-object v6, p0, Lcom/google/common/collect/CartesianList;->axesSizeProduct:[I
 
     add-int/lit8 v7, v4, 0x1
@@ -531,15 +531,15 @@
     .line 88
     .end local v4    # "axisIndex":I
     .end local v5    # "elemIndex":I
-    goto :goto_0
+    goto :goto_1b
 
     .line 89
-    :cond_3
+    :cond_42
     return v3
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 8
+    .registers 10
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -551,13 +551,13 @@
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 95
     return v1
 
     .line 97
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/util/List;
@@ -574,13 +574,13 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_16
 
     .line 99
     return v1
 
     .line 101
-    :cond_1
+    :cond_16
     invoke-interface {v0}, Ljava/util/List;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v2
@@ -591,12 +591,12 @@
 
     .line 103
     .local v3, "computedIndex":I
-    :goto_0
+    :goto_1b
     invoke-interface {v2}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_42
 
     .line 104
     invoke-interface {v2}, Ljava/util/ListIterator;->nextIndex()I
@@ -623,13 +623,13 @@
 
     .line 106
     .local v5, "elemIndex":I
-    if-ne v5, v1, :cond_2
+    if-ne v5, v1, :cond_38
 
     .line 107
     return v1
 
     .line 109
-    :cond_2
+    :cond_38
     iget-object v6, p0, Lcom/google/common/collect/CartesianList;->axesSizeProduct:[I
 
     add-int/lit8 v7, v4, 0x1
@@ -643,15 +643,15 @@
     .line 110
     .end local v4    # "axisIndex":I
     .end local v5    # "elemIndex":I
-    goto :goto_0
+    goto :goto_1b
 
     .line 111
-    :cond_3
+    :cond_42
     return v3
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 140
     .local p0, "this":Lcom/google/common/collect/CartesianList;, "Lcom/google/common/collect/CartesianList<TE;>;"

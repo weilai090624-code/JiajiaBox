@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method static load(Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)Z
-    .locals 3
+    .registers 4
     .param p0, "cameraCharacteristicsCompat"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -39,7 +39,7 @@
 
     .line 41
     .local v0, "level":Ljava/lang/Integer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -47,29 +47,29 @@
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_19
 
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x15
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_19
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1a
     return v1
 .end method
 
 
 # virtual methods
 .method public getCorrectedAspectRatio()I
-    .locals 1
+    .registers 2
 
     .line 50
     const/4 v0, 0x2

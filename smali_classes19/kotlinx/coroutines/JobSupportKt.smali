@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 1289
     new-instance v0, Lkotlinx/coroutines/internal/Symbol;
@@ -130,7 +130,7 @@
 .end method
 
 .method public static final synthetic access$getCOMPLETING_ALREADY$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/JobSupportKt;->COMPLETING_ALREADY:Lkotlinx/coroutines/internal/Symbol;
@@ -139,7 +139,7 @@
 .end method
 
 .method public static final synthetic access$getCOMPLETING_RETRY$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/JobSupportKt;->COMPLETING_RETRY:Lkotlinx/coroutines/internal/Symbol;
@@ -148,7 +148,7 @@
 .end method
 
 .method public static final synthetic access$getEMPTY_ACTIVE$p()Lkotlinx/coroutines/Empty;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/JobSupportKt;->EMPTY_ACTIVE:Lkotlinx/coroutines/Empty;
@@ -157,7 +157,7 @@
 .end method
 
 .method public static final synthetic access$getEMPTY_NEW$p()Lkotlinx/coroutines/Empty;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/JobSupportKt;->EMPTY_NEW:Lkotlinx/coroutines/Empty;
@@ -166,7 +166,7 @@
 .end method
 
 .method public static final synthetic access$getSEALED$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/JobSupportKt;->SEALED:Lkotlinx/coroutines/internal/Symbol;
@@ -175,7 +175,7 @@
 .end method
 
 .method public static final synthetic access$getTOO_LATE_TO_CANCEL$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/JobSupportKt;->TOO_LATE_TO_CANCEL:Lkotlinx/coroutines/internal/Symbol;
@@ -184,13 +184,13 @@
 .end method
 
 .method public static final boxIncomplete(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$boxIncomplete"    # Ljava/lang/Object;
 
     .line 1284
     instance-of v0, p0, Lkotlinx/coroutines/Incomplete;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     new-instance v0, Lkotlinx/coroutines/IncompleteStateBox;
 
@@ -200,43 +200,43 @@
 
     invoke-direct {v0, v1}, Lkotlinx/coroutines/IncompleteStateBox;-><init>(Lkotlinx/coroutines/Incomplete;)V
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v0, p0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public static final unboxState(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$unboxState"    # Ljava/lang/Object;
 
     .line 1285
     instance-of v0, p0, Lkotlinx/coroutines/IncompleteStateBox;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     move-object v0, p0
 
     check-cast v0, Lkotlinx/coroutines/IncompleteStateBox;
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_9
+    if-eqz v0, :cond_f
 
     iget-object v0, v0, Lkotlinx/coroutines/IncompleteStateBox;->state:Lkotlinx/coroutines/Incomplete;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_10
 
-    :cond_1
+    :cond_f
     move-object v0, p0
 
-    :cond_2
+    :cond_10
     return-object v0
 .end method

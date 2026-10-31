@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 46
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/CollectionSerializer;-><init>()V
@@ -40,7 +40,7 @@
 .end method
 
 .method static addDefaultSerializers(Lcom/esotericsoftware/kryo/Kryo;)V
-    .locals 7
+    .registers 8
     .param p0, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
 
     .line 76
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public bridge synthetic copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 44
     check-cast p2, Ljava/util/List;
@@ -143,7 +143,7 @@
 .end method
 
 .method public bridge synthetic copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
 
     .line 44
     check-cast p2, Ljava/util/List;
@@ -156,7 +156,7 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/List;)Ljava/util/List;
-    .locals 2
+    .registers 5
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -189,7 +189,7 @@
 .end method
 
 .method protected bridge synthetic create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/Collection;
-    .locals 0
+    .registers 5
 
     .line 44
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/esotericsoftware/kryo/serializers/ImmutableCollectionsSerializers$JdkImmutableListSerializer;->create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/List;
@@ -200,7 +200,7 @@
 .end method
 
 .method protected create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/List;
-    .locals 1
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p4, "size"    # I
@@ -230,7 +230,7 @@
 .end method
 
 .method protected bridge synthetic createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
 
     .line 44
     check-cast p2, Ljava/util/List;
@@ -243,7 +243,7 @@
 .end method
 
 .method protected createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/List;)Ljava/util/List;
-    .locals 2
+    .registers 5
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -272,7 +272,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 44
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/ImmutableCollectionsSerializers$JdkImmutableListSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/List;
@@ -283,7 +283,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Collection;
-    .locals 0
+    .registers 4
 
     .line 44
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/ImmutableCollectionsSerializers$JdkImmutableListSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/List;
@@ -294,7 +294,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/List;
-    .locals 2
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -323,7 +323,7 @@
 
     .line 63
     .local v0, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 64
     const/4 v1, 0x0
@@ -331,7 +331,7 @@
     return-object v1
 
     .line 66
-    :cond_0
+    :cond_a
     invoke-interface {v0}, Ljava/util/List;->toArray()[Ljava/lang/Object;
 
     move-result-object v1

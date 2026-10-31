@@ -91,7 +91,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/util/TableInfo$Index$Companion;
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ZLjava/util/List;)V
-    .locals 6
+    .registers 10
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "unique"    # Z
     .param p3, "columns"    # Ljava/util/List;
@@ -155,8 +155,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_18
+    if-ge v2, v0, :cond_28
 
     .line 647
     move v3, v2
@@ -178,9 +178,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_28
     check-cast v1, Ljava/util/List;
 
     .line 421
@@ -191,7 +191,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ZLjava/util/List;Ljava/util/List;)V
-    .locals 7
+    .registers 12
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "unique"    # Z
     .param p3, "columns"    # Ljava/util/List;
@@ -249,7 +249,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_46
 
     const/4 v0, 0x0
 
@@ -267,8 +267,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_32
+    if-ge v3, v1, :cond_42
 
     .line 647
     move v4, v3
@@ -290,9 +290,9 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_42
     move-object v1, v2
 
     check-cast v1, Ljava/util/List;
@@ -301,7 +301,7 @@
     .end local v0    # "$i$a$-ifEmpty-TableInfo$Index$1":I
     move-object v0, v1
 
-    :cond_1
+    :cond_46
     check-cast v0, Ljava/util/List;
 
     iput-object v0, p0, Landroidx/room/util/TableInfo$Index;->orders:Ljava/util/List;
@@ -316,28 +316,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 429
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 430
-    :cond_0
+    :cond_4
     instance-of v0, p1, Landroidx/room/util/TableInfo$Index;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     return v1
 
     .line 431
-    :cond_1
+    :cond_a
     iget-boolean v0, p0, Landroidx/room/util/TableInfo$Index;->unique:Z
 
     move-object v2, p1
@@ -346,13 +346,13 @@
 
     iget-boolean v2, v2, Landroidx/room/util/TableInfo$Index;->unique:Z
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_14
 
     .line 432
     return v1
 
     .line 434
-    :cond_2
+    :cond_14
     iget-object v0, p0, Landroidx/room/util/TableInfo$Index;->columns:Ljava/util/List;
 
     move-object v2, p1
@@ -365,13 +365,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_22
 
     .line 435
     return v1
 
     .line 437
-    :cond_3
+    :cond_22
     iget-object v0, p0, Landroidx/room/util/TableInfo$Index;->orders:Ljava/util/List;
 
     move-object v2, p1
@@ -384,13 +384,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_30
 
     .line 438
     return v1
 
     .line 440
-    :cond_4
+    :cond_30
     iget-object v0, p0, Landroidx/room/util/TableInfo$Index;->name:Ljava/lang/String;
 
     const-string v2, "index_"
@@ -403,7 +403,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_46
 
     .line 441
     move-object v0, p1
@@ -416,10 +416,10 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_51
 
     .line 443
-    :cond_5
+    :cond_46
     iget-object v0, p0, Landroidx/room/util/TableInfo$Index;->name:Ljava/lang/String;
 
     move-object v1, p1
@@ -433,12 +433,12 @@
     move-result v0
 
     .line 440
-    :goto_0
+    :goto_51
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .registers 6
 
     .line 448
     iget-object v0, p0, Landroidx/room/util/TableInfo$Index;->name:Ljava/lang/String;
@@ -455,17 +455,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 449
     invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_18
 
     .line 451
-    :cond_0
+    :cond_12
     iget-object v0, p0, Landroidx/room/util/TableInfo$Index;->name:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
@@ -473,7 +473,7 @@
     move-result v0
 
     .line 448
-    :goto_0
+    :goto_18
     nop
 
     .line 453
@@ -517,7 +517,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 460
     new-instance v0, Ljava/lang/StringBuilder;

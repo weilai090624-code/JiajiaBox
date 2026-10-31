@@ -69,7 +69,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lkotlin/time/DurationUnit;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x7
 
@@ -121,7 +121,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 19
     new-instance v0, Lkotlin/time/DurationUnit;
@@ -234,7 +234,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/util/concurrent/TimeUnit;)V
-    .locals 0
+    .registers 4
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -256,7 +256,7 @@
 .end method
 
 .method public static getEntries()Lkotlin/enums/EnumEntries;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -272,7 +272,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lkotlin/time/DurationUnit;
-    .locals 1
+    .registers 2
 
     const-class v0, Lkotlin/time/DurationUnit;
 
@@ -286,7 +286,7 @@
 .end method
 
 .method public static values()[Lkotlin/time/DurationUnit;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lkotlin/time/DurationUnit;->$VALUES:[Lkotlin/time/DurationUnit;
 
@@ -302,7 +302,7 @@
 
 # virtual methods
 .method public final getTimeUnit$kotlin_stdlib()Ljava/util/concurrent/TimeUnit;
-    .locals 1
+    .registers 2
 
     .line 15
     iget-object v0, p0, Lkotlin/time/DurationUnit;->timeUnit:Ljava/util/concurrent/TimeUnit;

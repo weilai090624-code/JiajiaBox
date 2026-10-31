@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/platform/android/AndroidCertificateChainCleaner$Companion;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Ljavax/net/ssl/X509TrustManager;Landroid/net/http/X509TrustManagerExtensions;)V
-    .locals 1
+    .registers 4
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
     .param p2, "x509TrustManagerExtensions"    # Landroid/net/http/X509TrustManagerExtensions;
 
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public clean(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
-    .locals 6
+    .registers 9
     .param p1, "chain"    # Ljava/util/List;
     .param p2, "hostname"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -159,7 +159,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3f
 
     .line 42
     .end local v0    # "$this$toTypedArray$iv":Ljava/util/Collection;
@@ -174,7 +174,7 @@
     nop
 
     .line 44
-    :try_start_0
+    :try_start_1c
     iget-object v1, p0, Lokhttp3/internal/platform/android/AndroidCertificateChainCleaner;->x509TrustManagerExtensions:Landroid/net/http/X509TrustManagerExtensions;
 
     const-string v2, "RSA"
@@ -186,13 +186,13 @@
     const-string v2, "x509TrustManagerExtensio\u2026ficates, \"RSA\", hostname)"
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/security/cert/CertificateException; {:try_start_1c .. :try_end_29} :catch_2a
 
     return-object v1
 
     .line 45
-    :catch_0
+    :catch_2a
     move-exception v1
 
     .line 46
@@ -229,7 +229,7 @@
     .local v0, "$this$toTypedArray$iv":Ljava/util/Collection;
     .local v1, "$i$f$toTypedArray":I
     .restart local v2    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_0
+    :cond_3f
     new-instance v3, Ljava/lang/NullPointerException;
 
     const-string v4, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -240,13 +240,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 51
     instance-of v0, p1, Lokhttp3/internal/platform/android/AndroidCertificateChainCleaner;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 52
     move-object v0, p1
@@ -257,21 +257,21 @@
 
     iget-object v1, p0, Lokhttp3/internal/platform/android/AndroidCertificateChainCleaner;->trustManager:Ljavax/net/ssl/X509TrustManager;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lokhttp3/internal/platform/android/AndroidCertificateChainCleaner;->trustManager:Ljavax/net/ssl/X509TrustManager;

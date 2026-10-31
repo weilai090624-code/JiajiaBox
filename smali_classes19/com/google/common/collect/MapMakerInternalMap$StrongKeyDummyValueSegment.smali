@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;II)V
-    .locals 0
+    .registers 4
     .param p2, "initialCapacity"    # I
     .param p3, "maxSegmentSize"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public bridge synthetic castForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
-    .locals 0
+    .registers 2
 
     .line 2092
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$StrongKeyDummyValueSegment;, "Lcom/google/common/collect/MapMakerInternalMap$StrongKeyDummyValueSegment<TK;>;"
@@ -71,7 +71,7 @@
 .end method
 
 .method public castForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$StrongKeyDummyValueEntry;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,7 +95,7 @@
 .end method
 
 .method bridge synthetic self()Lcom/google/common/collect/MapMakerInternalMap$Segment;
-    .locals 1
+    .registers 2
 
     .line 2092
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$StrongKeyDummyValueSegment;, "Lcom/google/common/collect/MapMakerInternalMap$StrongKeyDummyValueSegment<TK;>;"
@@ -107,7 +107,7 @@
 .end method
 
 .method self()Lcom/google/common/collect/MapMakerInternalMap$StrongKeyDummyValueSegment;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

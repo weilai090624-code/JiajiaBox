@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 73
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -109,7 +109,7 @@
 .end method
 
 .method private addConstraints(Ljava/util/List;Landroidx/constraintlayout/widget/ConstraintSet;I)V
-    .locals 5
+    .registers 9
     .param p2, "constraintSet"    # Landroidx/constraintlayout/widget/ConstraintSet;
     .param p3, "leveledRadius"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -133,12 +133,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_5
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_24
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -171,15 +171,15 @@
 
     .line 169
     .end local v2    # "view":Landroid/view/View;
-    goto :goto_0
+    goto :goto_5
 
     .line 170
-    :cond_0
+    :cond_24
     return-void
 .end method
 
 .method private createBackground()Landroid/graphics/drawable/Drawable;
-    .locals 3
+    .registers 4
 
     .line 93
     new-instance v0, Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -217,7 +217,7 @@
 .end method
 
 .method private static shouldSkipView(Landroid/view/View;)Z
-    .locals 2
+    .registers 3
     .param p0, "child"    # Landroid/view/View;
 
     .line 188
@@ -235,7 +235,7 @@
 .end method
 
 .method private updateLayoutParamsAsync()V
-    .locals 2
+    .registers 3
 
     .line 123
     invoke-virtual {p0}, Lcom/google/android/material/timepicker/RadialViewGroup;->getHandler()Landroid/os/Handler;
@@ -244,7 +244,7 @@
 
     .line 124
     .local v0, "handler":Landroid/os/Handler;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 125
     iget-object v1, p0, Lcom/google/android/material/timepicker/RadialViewGroup;->updateLayoutParametersRunnable:Ljava/lang/Runnable;
@@ -257,14 +257,14 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     .line 128
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 
 # virtual methods
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
-    .locals 2
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
     .param p2, "index"    # I
     .param p3, "params"    # Landroid/view/ViewGroup$LayoutParams;
@@ -279,7 +279,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 109
     invoke-static {}, Landroidx/core/view/ViewCompat;->generateViewId()I
@@ -289,7 +289,7 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->setId(I)V
 
     .line 111
-    :cond_0
+    :cond_11
     invoke-direct {p0}, Lcom/google/android/material/timepicker/RadialViewGroup;->updateLayoutParamsAsync()V
 
     .line 112
@@ -297,13 +297,13 @@
 .end method
 
 .method getLeveledRadius(I)I
-    .locals 2
+    .registers 4
     .param p1, "level"    # I
 
     .line 184
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_10
 
     iget v0, p0, Lcom/google/android/material/timepicker/RadialViewGroup;->radius:I
 
@@ -317,17 +317,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     iget v0, p0, Lcom/google/android/material/timepicker/RadialViewGroup;->radius:I
 
-    :goto_0
+    :goto_12
     return v0
 .end method
 
 .method public getRadius()I
-    .locals 1
+    .registers 2
 
     .line 179
     iget v0, p0, Lcom/google/android/material/timepicker/RadialViewGroup;->radius:I
@@ -336,7 +336,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 0
+    .registers 1
 
     .line 132
     invoke-super {p0}, Landroidx/constraintlayout/widget/ConstraintLayout;->onFinishInflate()V
@@ -349,7 +349,7 @@
 .end method
 
 .method public onViewRemoved(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 116
@@ -363,7 +363,7 @@
 .end method
 
 .method public setBackgroundColor(I)V
-    .locals 2
+    .registers 4
     .param p1, "color"    # I
 
     .line 102
@@ -380,7 +380,7 @@
 .end method
 
 .method public setRadius(I)V
-    .locals 0
+    .registers 2
     .param p1, "radius"    # I
 
     .line 173
@@ -394,7 +394,7 @@
 .end method
 
 .method protected updateLayoutParams()V
-    .locals 6
+    .registers 7
 
     .line 137
     new-instance v0, Landroidx/constraintlayout/widget/ConstraintSet;
@@ -415,12 +415,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_e
     invoke-virtual {p0}, Lcom/google/android/material/timepicker/RadialViewGroup;->getChildCount()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_4
+    if-ge v2, v3, :cond_50
 
     .line 141
     invoke-virtual {p0, v2}, Lcom/google/android/material/timepicker/RadialViewGroup;->getChildAt(I)Landroid/view/View;
@@ -435,19 +435,19 @@
 
     sget v5, Lcom/google/android/material/R$id;->circle_center:I
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_4d
 
     invoke-static {v3}, Lcom/google/android/material/timepicker/RadialViewGroup;->shouldSkipView(Landroid/view/View;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_27
 
     .line 143
-    goto :goto_1
+    goto :goto_4d
 
     .line 146
-    :cond_0
+    :cond_27
     sget v4, Lcom/google/android/material/R$id;->material_clock_level:I
 
     invoke-virtual {v3, v4}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
@@ -458,7 +458,7 @@
 
     .line 147
     .local v4, "level":Ljava/lang/Integer;
-    if-nez v4, :cond_1
+    if-nez v4, :cond_36
 
     .line 148
     const/4 v5, 0x1
@@ -468,12 +468,12 @@
     move-result-object v4
 
     .line 150
-    :cond_1
+    :cond_36
     invoke-interface {v1, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_44
 
     .line 151
     new-instance v5, Ljava/util/ArrayList;
@@ -483,7 +483,7 @@
     invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 153
-    :cond_2
+    :cond_44
     invoke-interface {v1, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
@@ -495,15 +495,15 @@
     .line 140
     .end local v3    # "childAt":Landroid/view/View;
     .end local v4    # "level":Ljava/lang/Integer;
-    :cond_3
-    :goto_1
+    :cond_4d
+    :goto_4d
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 156
     .end local v2    # "i":I
-    :cond_4
+    :cond_50
     invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v2
@@ -512,12 +512,12 @@
 
     move-result-object v2
 
-    :goto_2
+    :goto_58
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_7c
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -551,10 +551,10 @@
 
     .line 158
     .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/util/List<Landroid/view/View;>;>;"
-    goto :goto_2
+    goto :goto_58
 
     .line 160
-    :cond_5
+    :cond_7c
     invoke-virtual {v0, p0}, Landroidx/constraintlayout/widget/ConstraintSet;->applyTo(Landroidx/constraintlayout/widget/ConstraintLayout;)V
 
     .line 161

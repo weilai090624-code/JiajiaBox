@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/ExecutionListener;Landroidx/work/impl/model/WorkGenerationalId;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 4
     .param p1, "executionListener"    # Landroidx/work/impl/ExecutionListener;
     .param p2, "workGenerationalId"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 479
     :try_start_0
@@ -97,34 +97,34 @@
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_c} :catch_f
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_c} :catch_d
 
     .line 483
     .local v0, "needsReschedule":Z
-    goto :goto_1
+    goto :goto_12
 
     .line 480
     .end local v0    # "needsReschedule":Z
-    :catch_0
+    :catch_d
     move-exception v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :catch_1
+    :catch_f
     move-exception v0
 
     .line 482
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_10
     const/4 v1, 0x1
 
     move v0, v1
 
     .line 484
     .local v0, "needsReschedule":Z
-    :goto_1
+    :goto_12
     iget-object v1, p0, Landroidx/work/impl/Processor$FutureListener;->mExecutionListener:Landroidx/work/impl/ExecutionListener;
 
     iget-object v2, p0, Landroidx/work/impl/Processor$FutureListener;->mWorkGenerationalId:Landroidx/work/impl/model/WorkGenerationalId;

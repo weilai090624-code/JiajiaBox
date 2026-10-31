@@ -68,7 +68,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "resourceId"    # I
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public static final synthetic access$getSuggestionProvider$p(Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;)Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
 
     .line 27
@@ -94,7 +94,7 @@
 .end method
 
 .method public static final synthetic access$setQueryText$p(Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
     .param p1, "<set-?>"    # Ljava/lang/String;
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public getFilter()Landroid/widget/Filter;
-    .locals 1
+    .registers 2
 
     .line 43
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter$getFilter$1;
@@ -124,7 +124,7 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 3
+    .registers 7
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
@@ -148,11 +148,11 @@
 
     iget-object v2, p0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;->queryText:Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     const-string v2, ""
 
-    :cond_0
+    :cond_15
     invoke-virtual {v0, v1, v2}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter$SuggestionViewHolder;->bind(Lcom/blacksquircle/ui/language/base/model/Suggestion;Ljava/lang/String;)V
 
     .line 40
@@ -164,7 +164,7 @@
 .end method
 
 .method public final setSuggestionProvider(Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "suggestionProvider"    # Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
 
     const-string/jumbo v0, "suggestionProvider"

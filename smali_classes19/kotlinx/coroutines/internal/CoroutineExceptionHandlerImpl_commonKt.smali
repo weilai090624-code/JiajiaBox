@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final handleUncaughtCoroutineException(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Throwable;)V
-    .locals 4
+    .registers 6
     .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "exception"    # Ljava/lang/Throwable;
 
@@ -42,12 +42,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -60,16 +60,16 @@
     nop
 
     .line 38
-    :try_start_0
+    :try_start_15
     invoke-interface {v1, p0, p1}, Lkotlinx/coroutines/CoroutineExceptionHandler;->handleException(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Throwable;)V
-    :try_end_0
-    .catch Lkotlinx/coroutines/internal/ExceptionSuccessfullyProcessed; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catch Lkotlinx/coroutines/internal/ExceptionSuccessfullyProcessed; {:try_start_15 .. :try_end_18} :catch_22
+    .catchall {:try_start_15 .. :try_end_18} :catchall_19
 
-    goto :goto_0
+    goto :goto_8
 
     .line 41
-    :catchall_0
+    :catchall_19
     move-exception v2
 
     .line 42
@@ -82,11 +82,11 @@
 
     .end local v1    # "handler":Lkotlinx/coroutines/CoroutineExceptionHandler;
     .end local v2    # "t":Ljava/lang/Throwable;
-    goto :goto_0
+    goto :goto_8
 
     .line 39
     .restart local v1    # "handler":Lkotlinx/coroutines/CoroutineExceptionHandler;
-    :catch_0
+    :catch_22
     move-exception v0
 
     .line 40
@@ -96,11 +96,11 @@
     .line 46
     .end local v0    # "_":Lkotlinx/coroutines/internal/ExceptionSuccessfullyProcessed;
     .end local v1    # "handler":Lkotlinx/coroutines/CoroutineExceptionHandler;
-    :cond_0
+    :cond_24
     nop
 
     .line 47
-    :try_start_1
+    :try_start_25
     new-instance v0, Lkotlinx/coroutines/internal/DiagnosticCoroutineContextException;
 
     invoke-direct {v0, p0}, Lkotlinx/coroutines/internal/DiagnosticCoroutineContextException;-><init>(Lkotlin/coroutines/CoroutineContext;)V
@@ -108,17 +108,17 @@
     check-cast v0, Ljava/lang/Throwable;
 
     invoke-static {p1, v0}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2f
+    .catchall {:try_start_25 .. :try_end_2f} :catchall_30
 
-    goto :goto_1
+    goto :goto_31
 
     .line 48
-    :catchall_1
+    :catchall_30
     move-exception v0
 
     .line 52
-    :goto_1
+    :goto_31
     invoke-static {p1}, Lkotlinx/coroutines/internal/CoroutineExceptionHandlerImplKt;->propagateExceptionFinalResort(Ljava/lang/Throwable;)V
 
     .line 53

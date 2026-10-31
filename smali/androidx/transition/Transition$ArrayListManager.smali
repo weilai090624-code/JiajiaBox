@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 2369
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static add(Ljava/util/ArrayList;Ljava/lang/Object;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -41,7 +41,7 @@
     .line 2380
     .local p0, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     .local p1, "item":Ljava/lang/Object;, "TT;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
     .line 2381
     new-instance v0, Ljava/util/ArrayList;
@@ -51,23 +51,23 @@
     move-object p0, v0
 
     .line 2383
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     .line 2384
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 2386
-    :cond_1
+    :cond_11
     return-object p0
 .end method
 
 .method static remove(Ljava/util/ArrayList;Ljava/lang/Object;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -83,7 +83,7 @@
     .line 2395
     .local p0, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     .local p1, "item":Ljava/lang/Object;, "TT;"
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_c
 
     .line 2396
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
@@ -93,12 +93,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 2398
     const/4 p0, 0x0
 
     .line 2401
-    :cond_0
+    :cond_c
     return-object p0
 .end method

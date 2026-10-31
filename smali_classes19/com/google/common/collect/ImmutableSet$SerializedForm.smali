@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "elements"    # [Ljava/lang/Object;
 
     .line 371
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 376
     iget-object v0, p0, Lcom/google/common/collect/ImmutableSet$SerializedForm;->elements:[Ljava/lang/Object;

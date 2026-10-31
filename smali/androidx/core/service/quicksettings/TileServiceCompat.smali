@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method public static clearTileServiceWrapper()V
-    .locals 1
+    .registers 1
 
     .line 65
     const/4 v0, 0x0
@@ -41,7 +41,7 @@
 .end method
 
 .method public static setTileServiceWrapper(Landroidx/core/service/quicksettings/TileServiceCompat$TileServiceWrapper;)V
-    .locals 0
+    .registers 1
     .param p0, "serviceWrapper"    # Landroidx/core/service/quicksettings/TileServiceCompat$TileServiceWrapper;
 
     .line 60
@@ -52,7 +52,7 @@
 .end method
 
 .method public static startActivityAndCollapse(Landroid/service/quicksettings/TileService;Landroidx/core/service/quicksettings/PendingIntentActivityWrapper;)V
-    .locals 2
+    .registers 4
     .param p0, "tileService"    # Landroid/service/quicksettings/TileService;
     .param p1, "wrapper"    # Landroidx/core/service/quicksettings/PendingIntentActivityWrapper;
 
@@ -61,12 +61,12 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1c
 
     .line 44
     sget-object v0, Landroidx/core/service/quicksettings/TileServiceCompat;->sTileServiceWrapper:Landroidx/core/service/quicksettings/TileServiceCompat$TileServiceWrapper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 45
     sget-object v0, Landroidx/core/service/quicksettings/TileServiceCompat;->sTileServiceWrapper:Landroidx/core/service/quicksettings/TileServiceCompat$TileServiceWrapper;
@@ -77,30 +77,30 @@
 
     invoke-interface {v0, v1}, Landroidx/core/service/quicksettings/TileServiceCompat$TileServiceWrapper;->startActivityAndCollapse(Landroid/app/PendingIntent;)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 47
-    :cond_0
+    :cond_14
     invoke-virtual {p1}, Landroidx/core/service/quicksettings/PendingIntentActivityWrapper;->getPendingIntent()Landroid/app/PendingIntent;
 
     move-result-object v0
 
     invoke-static {p0, v0}, Landroidx/core/service/quicksettings/TileServiceCompat$Api34Impl;->startActivityAndCollapse(Landroid/service/quicksettings/TileService;Landroid/app/PendingIntent;)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 49
-    :cond_1
+    :cond_1c
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_37
 
     .line 50
     sget-object v0, Landroidx/core/service/quicksettings/TileServiceCompat;->sTileServiceWrapper:Landroidx/core/service/quicksettings/TileServiceCompat$TileServiceWrapper;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_30
 
     .line 51
     sget-object v0, Landroidx/core/service/quicksettings/TileServiceCompat;->sTileServiceWrapper:Landroidx/core/service/quicksettings/TileServiceCompat$TileServiceWrapper;
@@ -111,10 +111,10 @@
 
     invoke-interface {v0, v1}, Landroidx/core/service/quicksettings/TileServiceCompat$TileServiceWrapper;->startActivityAndCollapse(Landroid/content/Intent;)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 53
-    :cond_2
+    :cond_30
     invoke-virtual {p1}, Landroidx/core/service/quicksettings/PendingIntentActivityWrapper;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -122,7 +122,7 @@
     invoke-static {p0, v0}, Landroidx/core/service/quicksettings/TileServiceCompat$Api24Impl;->startActivityAndCollapse(Landroid/service/quicksettings/TileService;Landroid/content/Intent;)V
 
     .line 56
-    :cond_3
-    :goto_0
+    :cond_37
+    :goto_37
     return-void
 .end method

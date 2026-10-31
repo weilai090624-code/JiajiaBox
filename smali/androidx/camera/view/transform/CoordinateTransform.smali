@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/view/transform/OutputTransform;Landroidx/camera/view/transform/OutputTransform;)V
-    .locals 4
+    .registers 7
     .param p1, "source"    # Landroidx/camera/view/transform/OutputTransform;
     .param p2, "target"    # Landroidx/camera/view/transform/OutputTransform;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -52,7 +52,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2e
 
     .line 88
     invoke-virtual {p1}, Landroidx/camera/view/transform/OutputTransform;->getViewPortSize()Landroid/util/Size;
@@ -86,7 +86,7 @@
     invoke-static {v1, v0}, Landroidx/camera/core/Logger;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 93
-    :cond_0
+    :cond_2e
     new-instance v0, Landroid/graphics/Matrix;
 
     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public mapPoint(Landroid/graphics/PointF;)V
-    .locals 4
+    .registers 6
     .param p1, "point"    # Landroid/graphics/PointF;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -175,7 +175,7 @@
 .end method
 
 .method public mapPoints([F)V
-    .locals 1
+    .registers 3
     .param p1, "points"    # [F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -196,7 +196,7 @@
 .end method
 
 .method public mapRect(Landroid/graphics/RectF;)V
-    .locals 1
+    .registers 3
     .param p1, "rect"    # Landroid/graphics/RectF;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -217,7 +217,7 @@
 .end method
 
 .method public transform(Landroid/graphics/Matrix;)V
-    .locals 1
+    .registers 3
     .param p1, "outMatrix"    # Landroid/graphics/Matrix;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

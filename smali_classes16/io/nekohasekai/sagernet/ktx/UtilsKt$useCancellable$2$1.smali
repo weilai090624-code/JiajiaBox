@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/net/HttpURLConnection;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ktx/UtilsKt$useCancellable$2$1;->$this_useCancellable:Ljava/net/HttpURLConnection;
 
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 92
@@ -71,7 +71,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 7
+    .registers 9
     .param p1, "it"    # Ljava/lang/Throwable;
 
     .line 93
@@ -79,15 +79,15 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_c
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ktx/UtilsKt$useCancellable$2$1;->$this_useCancellable:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_c
     sget-object v0, Lkotlinx/coroutines/GlobalScope;->INSTANCE:Lkotlinx/coroutines/GlobalScope;
 
     move-object v1, v0
@@ -123,6 +123,6 @@
     invoke-static/range {v1 .. v6}, Lkotlinx/coroutines/BuildersKt;->launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
 
     .line 94
-    :goto_0
+    :goto_29
     return-void
 .end method

@@ -66,7 +66,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 50
     new-instance v0, Lcom/google/common/collect/RegularImmutableMap;
@@ -85,7 +85,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/Object;[Ljava/lang/Object;I)V
-    .locals 0
+    .registers 4
     .param p1, "hashTable"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -111,7 +111,7 @@
 .end method
 
 .method static create(I[Ljava/lang/Object;)Lcom/google/common/collect/RegularImmutableMap;
-    .locals 3
+    .registers 5
     .param p0, "n"    # I
     .param p1, "alternatingKeysAndValues"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -129,7 +129,7 @@
     .end annotation
 
     .line 77
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     .line 78
     sget-object v0, Lcom/google/common/collect/RegularImmutableMap;->EMPTY:Lcom/google/common/collect/ImmutableMap;
@@ -139,12 +139,12 @@
     return-object v0
 
     .line 79
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_21
 
     .line 81
     aget-object v0, p1, v0
@@ -173,7 +173,7 @@
     return-object v0
 
     .line 85
-    :cond_1
+    :cond_21
     array-length v2, p1
 
     shr-int/lit8 v1, v2, 0x1
@@ -201,7 +201,7 @@
 .end method
 
 .method static createHashTable([Ljava/lang/Object;III)Ljava/lang/Object;
-    .locals 10
+    .registers 14
     .param p0, "alternatingKeysAndValues"    # [Ljava/lang/Object;
     .param p1, "n"    # I
     .param p2, "tableSize"    # I
@@ -212,7 +212,7 @@
     .line 98
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_16
 
     .line 101
     aget-object v0, p0, p3
@@ -240,7 +240,7 @@
     return-object v0
 
     .line 106
-    :cond_0
+    :cond_16
     add-int/lit8 v0, p2, -0x1
 
     .line 107
@@ -249,7 +249,7 @@
 
     const/4 v2, -0x1
 
-    if-gt p2, v1, :cond_4
+    if-gt p2, v1, :cond_61
 
     .line 114
     new-array v1, p2, [B
@@ -262,8 +262,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, p1, :cond_3
+    :goto_23
+    if-ge v2, p1, :cond_60
 
     .line 118
     mul-int/lit8 v3, v2, 0x2
@@ -303,7 +303,7 @@
 
     .line 124
     .local v6, "h":I
-    :goto_1
+    :goto_41
     and-int/2addr v6, v0
 
     .line 125
@@ -315,7 +315,7 @@
 
     .line 126
     .local v7, "previousKeyIndex":I
-    if-ne v7, v8, :cond_1
+    if-ne v7, v8, :cond_50
 
     .line 127
     int-to-byte v8, v3
@@ -333,7 +333,7 @@
     .end local v7    # "previousKeyIndex":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 129
     .restart local v3    # "keyIndex":I
@@ -341,24 +341,24 @@
     .restart local v5    # "value":Ljava/lang/Object;
     .restart local v6    # "h":I
     .restart local v7    # "previousKeyIndex":I
-    :cond_1
+    :cond_50
     aget-object v8, p0, v7
 
     invoke-virtual {v4, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_5b
 
     .line 123
     .end local v7    # "previousKeyIndex":I
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_41
 
     .line 130
     .restart local v7    # "previousKeyIndex":I
-    :cond_2
+    :cond_5b
     invoke-static {v4, v5, p0, v7}, Lcom/google/common/collect/RegularImmutableMap;->duplicateKeyException(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;I)Ljava/lang/IllegalArgumentException;
 
     move-result-object v8
@@ -372,15 +372,15 @@
     .end local v5    # "value":Ljava/lang/Object;
     .end local v6    # "h":I
     .end local v7    # "previousKeyIndex":I
-    :cond_3
+    :cond_60
     return-object v1
 
     .line 135
     .end local v1    # "hashTable":[B
-    :cond_4
+    :cond_61
     const v1, 0x8000
 
-    if-gt p2, v1, :cond_8
+    if-gt p2, v1, :cond_ab
 
     .line 142
     new-array v1, p2, [S
@@ -393,8 +393,8 @@
     const/4 v2, 0x0
 
     .restart local v2    # "i":I
-    :goto_2
-    if-ge v2, p1, :cond_7
+    :goto_6c
+    if-ge v2, p1, :cond_aa
 
     .line 146
     mul-int/lit8 v3, v2, 0x2
@@ -434,7 +434,7 @@
 
     .line 152
     .restart local v6    # "h":I
-    :goto_3
+    :goto_8a
     and-int/2addr v6, v0
 
     .line 153
@@ -446,7 +446,7 @@
 
     .line 154
     .restart local v7    # "previousKeyIndex":I
-    if-ne v7, v8, :cond_5
+    if-ne v7, v8, :cond_9a
 
     .line 155
     int-to-short v8, v3
@@ -464,7 +464,7 @@
     .end local v7    # "previousKeyIndex":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_6c
 
     .line 157
     .restart local v3    # "keyIndex":I
@@ -472,24 +472,24 @@
     .restart local v5    # "value":Ljava/lang/Object;
     .restart local v6    # "h":I
     .restart local v7    # "previousKeyIndex":I
-    :cond_5
+    :cond_9a
     aget-object v8, p0, v7
 
     invoke-virtual {v4, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_a5
 
     .line 151
     .end local v7    # "previousKeyIndex":I
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3
+    goto :goto_8a
 
     .line 158
     .restart local v7    # "previousKeyIndex":I
-    :cond_6
+    :cond_a5
     invoke-static {v4, v5, p0, v7}, Lcom/google/common/collect/RegularImmutableMap;->duplicateKeyException(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;I)Ljava/lang/IllegalArgumentException;
 
     move-result-object v8
@@ -503,12 +503,12 @@
     .end local v5    # "value":Ljava/lang/Object;
     .end local v6    # "h":I
     .end local v7    # "previousKeyIndex":I
-    :cond_7
+    :cond_aa
     return-object v1
 
     .line 167
     .end local v1    # "hashTable":[S
-    :cond_8
+    :cond_ab
     new-array v1, p2, [I
 
     .line 168
@@ -519,8 +519,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_4
-    if-ge v3, p1, :cond_b
+    :goto_b1
+    if-ge v3, p1, :cond_ea
 
     .line 171
     mul-int/lit8 v4, v3, 0x2
@@ -560,7 +560,7 @@
 
     .line 177
     .local v7, "h":I
-    :goto_5
+    :goto_cf
     and-int/2addr v7, v0
 
     .line 178
@@ -568,7 +568,7 @@
 
     .line 179
     .local v8, "previousKeyIndex":I
-    if-ne v8, v2, :cond_9
+    if-ne v8, v2, :cond_da
 
     .line 180
     aput v4, v1, v7
@@ -584,7 +584,7 @@
     .end local v8    # "previousKeyIndex":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_4
+    goto :goto_b1
 
     .line 182
     .restart local v4    # "keyIndex":I
@@ -592,24 +592,24 @@
     .restart local v6    # "value":Ljava/lang/Object;
     .restart local v7    # "h":I
     .restart local v8    # "previousKeyIndex":I
-    :cond_9
+    :cond_da
     aget-object v9, p0, v8
 
     invoke-virtual {v5, v9}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-nez v9, :cond_a
+    if-nez v9, :cond_e5
 
     .line 176
     .end local v8    # "previousKeyIndex":I
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_5
+    goto :goto_cf
 
     .line 183
     .restart local v8    # "previousKeyIndex":I
-    :cond_a
+    :cond_e5
     invoke-static {v5, v6, p0, v8}, Lcom/google/common/collect/RegularImmutableMap;->duplicateKeyException(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;I)Ljava/lang/IllegalArgumentException;
 
     move-result-object v2
@@ -623,12 +623,12 @@
     .end local v6    # "value":Ljava/lang/Object;
     .end local v7    # "h":I
     .end local v8    # "previousKeyIndex":I
-    :cond_b
+    :cond_ea
     return-object v1
 .end method
 
 .method private static duplicateKeyException(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;I)Ljava/lang/IllegalArgumentException;
-    .locals 7
+    .registers 11
     .param p0, "key"    # Ljava/lang/Object;
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "alternatingKeysAndValues"    # [Ljava/lang/Object;
@@ -751,7 +751,7 @@
 .end method
 
 .method static get(Ljava/lang/Object;[Ljava/lang/Object;IILjava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 11
     .param p0, "hashTableObject"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -769,16 +769,16 @@
     .line 239
     const/4 v0, 0x0
 
-    if-nez p4, :cond_0
+    if-nez p4, :cond_4
 
     .line 240
     return-object v0
 
     .line 241
-    :cond_0
+    :cond_4
     const/4 v1, 0x1
 
-    if-ne p2, v1, :cond_2
+    if-ne p2, v1, :cond_1e
 
     .line 243
     aget-object v1, p1, p3
@@ -791,7 +791,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     .line 244
     xor-int/lit8 v0, p3, 0x1
@@ -802,28 +802,28 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 245
-    :cond_1
+    :cond_1c
     nop
 
     .line 243
-    :goto_0
+    :goto_1d
     return-object v0
 
     .line 246
-    :cond_2
-    if-nez p0, :cond_3
+    :cond_1e
+    if-nez p0, :cond_21
 
     .line 247
     return-object v0
 
     .line 249
-    :cond_3
+    :cond_21
     instance-of v2, p0, [B
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_4b
 
     .line 250
     move-object v2, p0
@@ -848,7 +848,7 @@
 
     .line 253
     .local v1, "h":I
-    :goto_1
+    :goto_32
     and-int/2addr v1, v3
 
     .line 254
@@ -860,20 +860,20 @@
 
     .line 255
     .local v4, "keyIndex":I
-    if-ne v4, v5, :cond_4
+    if-ne v4, v5, :cond_3b
 
     .line 256
     return-object v0
 
     .line 257
-    :cond_4
+    :cond_3b
     aget-object v5, p1, v4
 
     invoke-virtual {p4, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_48
 
     .line 258
     xor-int/lit8 v0, v4, 0x1
@@ -884,19 +884,19 @@
 
     .line 252
     .end local v4    # "keyIndex":I
-    :cond_5
+    :cond_48
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_32
 
     .line 261
     .end local v1    # "h":I
     .end local v2    # "hashTable":[B
     .end local v3    # "mask":I
-    :cond_6
+    :cond_4b
     instance-of v2, p0, [S
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_76
 
     .line 262
     move-object v2, p0
@@ -921,7 +921,7 @@
 
     .line 265
     .restart local v1    # "h":I
-    :goto_2
+    :goto_5c
     and-int/2addr v1, v3
 
     .line 266
@@ -933,20 +933,20 @@
 
     .line 267
     .restart local v4    # "keyIndex":I
-    if-ne v4, v5, :cond_7
+    if-ne v4, v5, :cond_66
 
     .line 268
     return-object v0
 
     .line 269
-    :cond_7
+    :cond_66
     aget-object v5, p1, v4
 
     invoke-virtual {p4, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_73
 
     .line 270
     xor-int/lit8 v0, v4, 0x1
@@ -957,16 +957,16 @@
 
     .line 264
     .end local v4    # "keyIndex":I
-    :cond_8
+    :cond_73
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_5c
 
     .line 274
     .end local v1    # "h":I
     .end local v2    # "hashTable":[S
     .end local v3    # "mask":I
-    :cond_9
+    :cond_76
     move-object v2, p0
 
     check-cast v2, [I
@@ -989,7 +989,7 @@
 
     .line 277
     .restart local v1    # "h":I
-    :goto_3
+    :goto_83
     and-int/2addr v1, v3
 
     .line 278
@@ -999,20 +999,20 @@
     .restart local v4    # "keyIndex":I
     const/4 v5, -0x1
 
-    if-ne v4, v5, :cond_a
+    if-ne v4, v5, :cond_8a
 
     .line 280
     return-object v0
 
     .line 281
-    :cond_a
+    :cond_8a
     aget-object v5, p1, v4
 
     invoke-virtual {p4, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_97
 
     .line 282
     xor-int/lit8 v0, v4, 0x1
@@ -1023,16 +1023,16 @@
 
     .line 276
     .end local v4    # "keyIndex":I
-    :cond_b
+    :cond_97
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
+    goto :goto_83
 .end method
 
 
 # virtual methods
 .method createEntrySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1058,7 +1058,7 @@
 .end method
 
 .method createKeySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1089,7 +1089,7 @@
 .end method
 
 .method createValues()Lcom/google/common/collect/ImmutableCollection;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1114,7 +1114,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1146,7 +1146,7 @@
 
     .line 225
     .local v0, "result":Ljava/lang/Object;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 226
     const/4 v1, 0x0
@@ -1154,12 +1154,12 @@
     return-object v1
 
     .line 228
-    :cond_0
+    :cond_f
     return-object v0
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 456
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMap;, "Lcom/google/common/collect/RegularImmutableMap<TK;TV;>;"
@@ -1169,7 +1169,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 213
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMap;, "Lcom/google/common/collect/RegularImmutableMap<TK;TV;>;"

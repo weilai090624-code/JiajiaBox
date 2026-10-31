@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/TlsVersion$Companion;-><init>()V
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final forJavaName(Ljava/lang/String;)Lokhttp3/TlsVersion;
-    .locals 2
+    .registers 4
     .param p1, "javaName"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -72,89 +72,89 @@
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_50
 
-    :cond_0
-    goto :goto_1
+    :cond_c
+    goto :goto_44
 
-    :sswitch_0
+    :sswitch_d
     const-string v0, "TLSv1"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 45
     sget-object v0, Lokhttp3/TlsVersion;->TLS_1_0:Lokhttp3/TlsVersion;
 
-    goto :goto_0
+    goto :goto_43
 
     .line 41
-    :sswitch_1
+    :sswitch_18
     const-string v0, "SSLv3"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 46
     sget-object v0, Lokhttp3/TlsVersion;->SSL_3_0:Lokhttp3/TlsVersion;
 
-    goto :goto_0
+    goto :goto_43
 
     .line 41
-    :sswitch_2
+    :sswitch_23
     const-string v0, "TLSv1.3"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 42
     sget-object v0, Lokhttp3/TlsVersion;->TLS_1_3:Lokhttp3/TlsVersion;
 
-    goto :goto_0
+    goto :goto_43
 
     .line 41
-    :sswitch_3
+    :sswitch_2e
     const-string v0, "TLSv1.2"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 43
     sget-object v0, Lokhttp3/TlsVersion;->TLS_1_2:Lokhttp3/TlsVersion;
 
-    goto :goto_0
+    goto :goto_43
 
     .line 41
-    :sswitch_4
+    :sswitch_39
     const-string v0, "TLSv1.1"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 44
     sget-object v0, Lokhttp3/TlsVersion;->TLS_1_1:Lokhttp3/TlsVersion;
 
     .line 41
-    :goto_0
+    :goto_43
     return-object v0
 
     .line 47
-    :goto_1
+    :goto_44
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Unexpected TLS version: "
@@ -167,12 +167,12 @@
 
     throw v0
 
-    :sswitch_data_0
+    :sswitch_data_50
     .sparse-switch
-        -0x1dfc3f27 -> :sswitch_4
-        -0x1dfc3f26 -> :sswitch_3
-        -0x1dfc3f25 -> :sswitch_2
-        0x4b88569 -> :sswitch_1
-        0x4c38896 -> :sswitch_0
+        -0x1dfc3f27 -> :sswitch_39
+        -0x1dfc3f26 -> :sswitch_2e
+        -0x1dfc3f25 -> :sswitch_23
+        0x4b88569 -> :sswitch_18
+        0x4c38896 -> :sswitch_d
     .end sparse-switch
 .end method

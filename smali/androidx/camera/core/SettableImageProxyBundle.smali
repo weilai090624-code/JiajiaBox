@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p2, "tagBundleKey"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -138,7 +138,7 @@
 .end method
 
 .method private setup()V
-    .locals 5
+    .registers 6
 
     .line 158
     iget-object v0, p0, Landroidx/camera/core/SettableImageProxyBundle;->mLock:Ljava/lang/Object;
@@ -146,19 +146,19 @@
     monitor-enter v0
 
     .line 159
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/SettableImageProxyBundle;->mCaptureIdList:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -189,22 +189,22 @@
     .line 175
     .end local v2    # "captureId":I
     .end local v3    # "futureResult":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/camera/core/ImageProxy;>;"
-    goto :goto_0
+    goto :goto_9
 
     .line 176
-    :cond_0
+    :cond_28
     monitor-exit v0
 
     .line 177
     return-void
 
     .line 176
-    :catchall_0
+    :catchall_2a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_3 .. :try_end_2c} :catchall_2a
 
     throw v1
 .end method
@@ -212,7 +212,7 @@
 
 # virtual methods
 .method addImageProxy(Landroidx/camera/core/ImageProxy;)V
-    .locals 6
+    .registers 8
     .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -229,10 +229,10 @@
     monitor-enter v0
 
     .line 99
-    :try_start_0
+    :try_start_3
     iget-boolean v1, p0, Landroidx/camera/core/SettableImageProxyBundle;->mClosed:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     .line 100
     monitor-exit v0
@@ -240,7 +240,7 @@
     return-void
 
     .line 103
-    :cond_0
+    :cond_9
     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getImageInfo()Landroidx/camera/core/ImageInfo;
 
     move-result-object v1
@@ -257,7 +257,7 @@
 
     .line 104
     .local v1, "captureId":Ljava/lang/Integer;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4a
 
     .line 110
     iget-object v2, p0, Landroidx/camera/core/SettableImageProxyBundle;->mCompleters:Landroid/util/SparseArray;
@@ -274,7 +274,7 @@
 
     .line 111
     .local v2, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Landroidx/camera/core/ImageProxy;>;"
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_31
 
     .line 112
     iget-object v3, p0, Landroidx/camera/core/SettableImageProxyBundle;->mOwnedImageProxies:Ljava/util/List;
@@ -295,7 +295,7 @@
     .line 115
     .restart local v1    # "captureId":Ljava/lang/Integer;
     .restart local v2    # "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Landroidx/camera/core/ImageProxy;>;"
-    :cond_1
+    :cond_31
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -324,7 +324,7 @@
     .line 105
     .end local v2    # "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Landroidx/camera/core/ImageProxy;>;"
     .restart local p1    # "imageProxy":Landroidx/camera/core/ImageProxy;
-    :cond_2
+    :cond_4a
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "CaptureId is null."
@@ -337,18 +337,18 @@
     .line 118
     .end local v1    # "captureId":Ljava/lang/Integer;
     .restart local p1    # "imageProxy":Landroidx/camera/core/ImageProxy;
-    :catchall_0
+    :catchall_52
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_54
+    .catchall {:try_start_3 .. :try_end_54} :catchall_52
 
     throw v1
 .end method
 
 .method close()V
-    .locals 3
+    .registers 4
 
     .line 125
     iget-object v0, p0, Landroidx/camera/core/SettableImageProxyBundle;->mLock:Ljava/lang/Object;
@@ -356,10 +356,10 @@
     monitor-enter v0
 
     .line 126
-    :try_start_0
+    :try_start_3
     iget-boolean v1, p0, Landroidx/camera/core/SettableImageProxyBundle;->mClosed:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     .line 127
     monitor-exit v0
@@ -367,19 +367,19 @@
     return-void
 
     .line 129
-    :cond_0
+    :cond_9
     iget-object v1, p0, Landroidx/camera/core/SettableImageProxyBundle;->mOwnedImageProxies:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -393,10 +393,10 @@
 
     .line 131
     .end local v2    # "imageProxy":Landroidx/camera/core/ImageProxy;
-    goto :goto_0
+    goto :goto_f
 
     .line 132
-    :cond_1
+    :cond_1f
     iget-object v1, p0, Landroidx/camera/core/SettableImageProxyBundle;->mOwnedImageProxies:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->clear()V
@@ -423,18 +423,18 @@
     return-void
 
     .line 136
-    :catchall_0
+    :catchall_33
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_35
+    .catchall {:try_start_3 .. :try_end_35} :catchall_33
 
     throw v1
 .end method
 
 .method public getCaptureIds()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -455,7 +455,7 @@
 .end method
 
 .method public getImageProxy(I)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 5
+    .registers 7
     .param p1, "captureId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -481,10 +481,10 @@
     monitor-enter v0
 
     .line 73
-    :try_start_0
+    :try_start_3
     iget-boolean v1, p0, Landroidx/camera/core/SettableImageProxyBundle;->mClosed:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2c
 
     .line 78
     iget-object v1, p0, Landroidx/camera/core/SettableImageProxyBundle;->mFutureResults:Landroid/util/SparseArray;
@@ -497,7 +497,7 @@
 
     .line 79
     .local v1, "result":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/camera/core/ImageProxy;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 84
     monitor-exit v0
@@ -505,7 +505,7 @@
     return-object v1
 
     .line 80
-    :cond_0
+    :cond_13
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -534,7 +534,7 @@
     .line 74
     .end local v1    # "result":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/camera/core/ImageProxy;>;"
     .restart local p1    # "captureId":I
-    :cond_1
+    :cond_2c
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "ImageProxyBundle already closed."
@@ -546,18 +546,18 @@
 
     .line 85
     .restart local p1    # "captureId":I
-    :catchall_0
+    :catchall_34
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_36
+    .catchall {:try_start_3 .. :try_end_36} :catchall_34
 
     throw v1
 .end method
 
 .method reset()V
-    .locals 3
+    .registers 4
 
     .line 143
     iget-object v0, p0, Landroidx/camera/core/SettableImageProxyBundle;->mLock:Ljava/lang/Object;
@@ -565,10 +565,10 @@
     monitor-enter v0
 
     .line 144
-    :try_start_0
+    :try_start_3
     iget-boolean v1, p0, Landroidx/camera/core/SettableImageProxyBundle;->mClosed:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     .line 145
     monitor-exit v0
@@ -576,19 +576,19 @@
     return-void
 
     .line 147
-    :cond_0
+    :cond_9
     iget-object v1, p0, Landroidx/camera/core/SettableImageProxyBundle;->mOwnedImageProxies:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -602,10 +602,10 @@
 
     .line 149
     .end local v2    # "imageProxy":Landroidx/camera/core/ImageProxy;
-    goto :goto_0
+    goto :goto_f
 
     .line 150
-    :cond_1
+    :cond_1f
     iget-object v1, p0, Landroidx/camera/core/SettableImageProxyBundle;->mOwnedImageProxies:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->clear()V
@@ -630,12 +630,12 @@
     return-void
 
     .line 154
-    :catchall_0
+    :catchall_33
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_35
+    .catchall {:try_start_3 .. :try_end_35} :catchall_33
 
     throw v1
 .end method

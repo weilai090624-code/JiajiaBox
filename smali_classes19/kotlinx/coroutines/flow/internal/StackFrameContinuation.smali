@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 0
+    .registers 3
     .param p1, "uCont"    # Lkotlin/coroutines/Continuation;
     .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
@@ -102,28 +102,28 @@
 
 # virtual methods
 .method public getCallerFrame()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    .locals 2
+    .registers 3
 
     .line 237
     iget-object v0, p0, Lkotlinx/coroutines/flow/internal/StackFrameContinuation;->uCont:Lkotlin/coroutines/Continuation;
 
     instance-of v1, v0, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     check-cast v0, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return-object v0
 .end method
 
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 233
     iget-object v0, p0, Lkotlinx/coroutines/flow/internal/StackFrameContinuation;->context:Lkotlin/coroutines/CoroutineContext;
@@ -132,7 +132,7 @@
 .end method
 
 .method public getStackTraceElement()Ljava/lang/StackTraceElement;
-    .locals 1
+    .registers 2
 
     .line 243
     const/4 v0, 0x0
@@ -141,7 +141,7 @@
 .end method
 
 .method public resumeWith(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 240

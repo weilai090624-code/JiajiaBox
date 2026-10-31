@@ -63,7 +63,7 @@
 
 # direct methods
 .method public static final createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "exception"    # Ljava/lang/Throwable;
 
     const-string v0, "exception"
@@ -79,7 +79,7 @@
 .end method
 
 .method private static final fold(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$fold"    # Ljava/lang/Object;
     .param p1, "onSuccess"    # Lkotlin/jvm/functions/Function1;
     .param p2, "onFailure"    # Lkotlin/jvm/functions/Function1;
@@ -118,28 +118,28 @@
 
     .line 228
     .local v0, "exception":Ljava/lang/Throwable;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 229
-    :cond_0
+    :cond_16
     invoke-interface {p2, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 227
     .end local v0    # "exception":Ljava/lang/Throwable;
-    :goto_0
+    :goto_1a
     return-object v1
 .end method
 
 .method private static final getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$getOrDefault"    # Ljava/lang/Object;
     .param p1, "defaultValue"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -157,17 +157,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-object p1
 
     .line 208
-    :cond_0
+    :cond_7
     return-object p0
 .end method
 
 .method private static final getOrElse(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$getOrElse"    # Ljava/lang/Object;
     .param p1, "onFailure"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -197,26 +197,26 @@
 
     .line 193
     .local v0, "exception":Ljava/lang/Throwable;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_12
 
     .line 194
-    :cond_0
+    :cond_e
     invoke-interface {p1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 192
     .end local v0    # "exception":Ljava/lang/Throwable;
-    :goto_0
+    :goto_12
     return-object v1
 .end method
 
 .method private static final getOrThrow(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .param p0, "$this$getOrThrow"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -236,7 +236,7 @@
 .end method
 
 .method private static final map(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$map"    # Ljava/lang/Object;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -268,7 +268,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
@@ -280,21 +280,21 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 251
-    :cond_0
+    :cond_18
     invoke-static {p0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 249
-    :goto_0
+    :goto_1c
     return-object v0
 .end method
 
 .method private static final mapCatching(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "$this$mapCatching"    # Ljava/lang/Object;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -323,9 +323,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
-    :try_start_0
+    :try_start_c
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -345,12 +345,12 @@
     invoke-static {v2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_c .. :try_end_18} :catchall_19
 
-    goto :goto_0
+    goto :goto_29
 
-    :catchall_0
+    :catchall_19
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -363,21 +363,21 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_29
 
     .line 268
-    :cond_0
+    :cond_25
     invoke-static {p0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 266
-    :goto_0
+    :goto_29
     return-object v0
 .end method
 
 .method private static final onFailure(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$onFailure"    # Ljava/lang/Object;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -407,7 +407,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 341
     .local v0, "it":Ljava/lang/Throwable;
@@ -420,12 +420,12 @@
     .line 322
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-let-ResultKt$onFailure$2":I
-    :cond_0
+    :cond_10
     return-object p0
 .end method
 
 .method private static final onSuccess(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$onSuccess"    # Ljava/lang/Object;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -454,17 +454,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 336
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method private static final recover(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$recover"    # Ljava/lang/Object;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -495,14 +495,14 @@
 
     .line 287
     .local v0, "exception":Ljava/lang/Throwable;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_18
 
     .line 288
-    :cond_0
+    :cond_e
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-interface {p1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -515,12 +515,12 @@
 
     .line 286
     .end local v0    # "exception":Ljava/lang/Throwable;
-    :goto_0
+    :goto_18
     return-object v1
 .end method
 
 .method private static final recoverCatching(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$recoverCatching"    # Ljava/lang/Object;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -548,15 +548,15 @@
 
     .line 304
     .local v0, "exception":Ljava/lang/Throwable;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_25
 
     .line 305
-    :cond_0
-    :try_start_0
+    :cond_d
+    :try_start_d
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v1, p0
@@ -576,12 +576,12 @@
     invoke-static {v3}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_d .. :try_end_19} :catchall_1a
 
-    goto :goto_0
+    goto :goto_25
 
-    :catchall_0
+    :catchall_1a
     move-exception v1
 
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -596,12 +596,12 @@
 
     .line 303
     .end local v0    # "exception":Ljava/lang/Throwable;
-    :goto_0
+    :goto_25
     return-object v1
 .end method
 
 .method private static final runCatching(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$runCatching"    # Ljava/lang/Object;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -625,7 +625,7 @@
     nop
 
     .line 157
-    :try_start_0
+    :try_start_6
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -635,13 +635,13 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_6 .. :try_end_10} :catchall_11
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 158
-    :catchall_0
+    :catchall_11
     move-exception v0
 
     .line 159
@@ -660,12 +660,12 @@
 
     .line 156
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_1d
     return-object v0
 .end method
 
 .method private static final runCatching(Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -686,7 +686,7 @@
     nop
 
     .line 143
-    :try_start_0
+    :try_start_6
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
@@ -696,13 +696,13 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_6 .. :try_end_10} :catchall_11
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 144
-    :catchall_0
+    :catchall_11
     move-exception v0
 
     .line 145
@@ -721,24 +721,24 @@
 
     .line 142
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_1d
     return-object v0
 .end method
 
 .method public static final throwOnFailure(Ljava/lang/Object;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$throwOnFailure"    # Ljava/lang/Object;
 
     .line 132
     instance-of v0, p0, Lkotlin/Result$Failure;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 133
     return-void
 
     .line 132
-    :cond_0
+    :cond_5
     move-object v0, p0
 
     check-cast v0, Lkotlin/Result$Failure;

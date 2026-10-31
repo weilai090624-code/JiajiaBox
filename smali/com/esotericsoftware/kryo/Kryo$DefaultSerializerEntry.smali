@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Lcom/esotericsoftware/kryo/SerializerFactory;)V
-    .locals 0
+    .registers 3
     .param p1, "type"    # Ljava/lang/Class;
     .param p2, "serializerFactory"    # Lcom/esotericsoftware/kryo/SerializerFactory;
 

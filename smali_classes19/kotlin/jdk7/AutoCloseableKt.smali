@@ -42,7 +42,7 @@
 
 # direct methods
 .method private static final AutoCloseable(Lkotlin/jvm/functions/Function0;)Ljava/lang/AutoCloseable;
-    .locals 1
+    .registers 2
     .param p0, "closeAction"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -69,13 +69,13 @@
 .end method
 
 .method public static synthetic AutoCloseable$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final closeFinally(Ljava/lang/AutoCloseable;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$closeFinally"    # Ljava/lang/AutoCloseable;
     .param p1, "cause"    # Ljava/lang/Throwable;
 
@@ -83,29 +83,29 @@
     nop
 
     .line 47
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_12
 
     .line 48
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     invoke-interface {p0}, Ljava/lang/AutoCloseable;->close()V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 50
-    :cond_0
+    :cond_9
     nop
 
     .line 51
-    :try_start_0
+    :try_start_a
     invoke-interface {p0}, Ljava/lang/AutoCloseable;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_a .. :try_end_d} :catchall_e
 
-    goto :goto_0
+    goto :goto_12
 
     .line 52
-    :catchall_0
+    :catchall_e
     move-exception v0
 
     .line 53
@@ -114,13 +114,13 @@
 
     .line 55
     .end local v0    # "closeException":Ljava/lang/Throwable;
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     return-void
 .end method
 
 .method private static final use(Ljava/lang/AutoCloseable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$use"    # Ljava/lang/AutoCloseable;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -150,12 +150,12 @@
     nop
 
     .line 35
-    :try_start_0
+    :try_start_8
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_8 .. :try_end_c} :catchall_10
 
     .line 40
     invoke-static {p0, v0}, Lkotlin/jdk7/AutoCloseableKt;->closeFinally(Ljava/lang/AutoCloseable;Ljava/lang/Throwable;)V
@@ -164,7 +164,7 @@
     return-object v1
 
     .line 36
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     .line 37
@@ -177,17 +177,17 @@
     .end local v0    # "exception":Ljava/lang/Throwable;
     .end local p0    # "$this$use":Ljava/lang/AutoCloseable;
     .end local p1    # "block":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_13
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_14
+    .catchall {:try_start_13 .. :try_end_14} :catchall_14
 
     .line 40
     .end local v1    # "e":Ljava/lang/Throwable;
     .restart local v0    # "exception":Ljava/lang/Throwable;
     .restart local p0    # "$this$use":Ljava/lang/AutoCloseable;
     .restart local p1    # "block":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_14
     move-exception v1
 
     invoke-static {p0, v0}, Lkotlin/jdk7/AutoCloseableKt;->closeFinally(Ljava/lang/AutoCloseable;Ljava/lang/Throwable;)V

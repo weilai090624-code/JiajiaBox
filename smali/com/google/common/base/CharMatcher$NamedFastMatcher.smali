@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "description"    # Ljava/lang/String;
 
     .line 957
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public final toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 963
     iget-object v0, p0, Lcom/google/common/base/CharMatcher$NamedFastMatcher;->description:Ljava/lang/String;

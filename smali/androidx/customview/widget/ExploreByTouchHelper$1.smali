@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 336
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public obtainBounds(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 3
     .param p1, "node"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
     .param p2, "outBounds"    # Landroid/graphics/Rect;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public bridge synthetic obtainBounds(Ljava/lang/Object;Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 3
 
     .line 336
     check-cast p1, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;

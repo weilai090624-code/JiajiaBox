@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public copyFor(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;Lcom/google/common/cache/ReferenceEntry;)Lcom/google/common/cache/LocalCache$ValueReference;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 .end method
 
 .method public getEntry()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -115,7 +115,7 @@
 .end method
 
 .method public getWeight()I
-    .locals 1
+    .registers 2
 
     .line 1459
     .local p0, "this":Lcom/google/common/cache/LocalCache$WeakValueReference;, "Lcom/google/common/cache/LocalCache$WeakValueReference<TK;TV;>;"
@@ -125,7 +125,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 1483
     .local p0, "this":Lcom/google/common/cache/LocalCache$WeakValueReference;, "Lcom/google/common/cache/LocalCache$WeakValueReference<TK;TV;>;"
@@ -135,7 +135,7 @@
 .end method
 
 .method public isLoading()Z
-    .locals 1
+    .registers 2
 
     .line 1478
     .local p0, "this":Lcom/google/common/cache/LocalCache$WeakValueReference;, "Lcom/google/common/cache/LocalCache$WeakValueReference<TK;TV;>;"
@@ -145,7 +145,7 @@
 .end method
 
 .method public notifyNewValue(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)V"
@@ -159,7 +159,7 @@
 .end method
 
 .method public waitForValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

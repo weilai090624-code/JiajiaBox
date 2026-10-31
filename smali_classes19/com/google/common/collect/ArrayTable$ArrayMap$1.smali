@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ArrayTable$ArrayMap;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ArrayTable$ArrayMap;
 
     .line 227
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getKey()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -67,7 +67,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

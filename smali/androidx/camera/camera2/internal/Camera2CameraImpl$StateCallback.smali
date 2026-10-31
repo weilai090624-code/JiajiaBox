@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/Camera2CameraImpl;Ljava/util/concurrent/Executor;Ljava/util/concurrent/ScheduledExecutorService;)V
-    .locals 1
+    .registers 5
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/Camera2CameraImpl;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "scheduler"    # Ljava/util/concurrent/ScheduledExecutorService;
@@ -88,7 +88,7 @@
 .end method
 
 .method private handleErrorOnOpen(Landroid/hardware/camera2/CameraDevice;I)V
-    .locals 6
+    .registers 9
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .param p2, "error"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -113,7 +113,7 @@
 
     const/4 v3, 0x0
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
 
@@ -121,7 +121,7 @@
 
     sget-object v1, Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;->OPENED:Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
 
@@ -129,20 +129,20 @@
 
     sget-object v1, Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;->REOPENING:Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
-    :goto_0
+    :cond_1d
+    :goto_1d
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_1e
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -170,10 +170,10 @@
     .line 1413
     const-string v0, "Camera2CameraImpl"
 
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_96
 
     .line 1427
-    :pswitch_0
+    :pswitch_3d
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -233,10 +233,10 @@
 
     invoke-virtual {v0, v3}, Landroidx/camera/camera2/internal/Camera2CameraImpl;->closeCamera(Z)V
 
-    goto :goto_2
+    goto :goto_95
 
     .line 1421
-    :pswitch_1
+    :pswitch_78
     nop
 
     .line 1422
@@ -272,20 +272,20 @@
     nop
 
     .line 1438
-    :goto_2
+    :goto_95
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_96
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_78
+        :pswitch_78
+        :pswitch_3d
+        :pswitch_78
     .end packed-switch
 .end method
 
 .method private reopenCameraAfterError()V
-    .locals 3
+    .registers 4
 
     .line 1446
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
@@ -294,16 +294,16 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     const-string v2, "Can only reopen camera device after error if the camera device is actually in an error state."
 
     invoke-static {v0, v2}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
@@ -327,7 +327,7 @@
 
 # virtual methods
 .method cancelScheduledReopen()Z
-    .locals 4
+    .registers 5
 
     .line 1484
     const/4 v0, 0x0
@@ -336,7 +336,7 @@
     .local v0, "cancelled":Z
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->mScheduledReopenHandle:Ljava/util/concurrent/ScheduledFuture;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_30
 
     .line 1487
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
@@ -387,12 +387,12 @@
     const/4 v0, 0x1
 
     .line 1501
-    :cond_0
+    :cond_30
     return v0
 .end method
 
 .method public onClosed(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 4
+    .registers 6
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -417,16 +417,16 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -460,7 +460,7 @@
 
     aget v0, v0, v2
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_94
 
     .line 1363
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -492,12 +492,12 @@
     throw v0
 
     .line 1354
-    :sswitch_0
+    :sswitch_53
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
 
     iget v0, v0, Landroidx/camera/camera2/internal/Camera2CameraImpl;->mCameraDeviceError:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_7d
 
     .line 1355
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
@@ -533,19 +533,19 @@
     .line 1357
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->scheduleCameraReopen()V
 
-    goto :goto_1
+    goto :goto_92
 
     .line 1359
-    :cond_1
+    :cond_7d
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
 
     invoke-virtual {v0, v1}, Landroidx/camera/camera2/internal/Camera2CameraImpl;->openCameraDevice(Z)V
 
     .line 1361
-    goto :goto_1
+    goto :goto_92
 
     .line 1350
-    :sswitch_1
+    :sswitch_83
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
 
     invoke-virtual {v0}, Landroidx/camera/camera2/internal/Camera2CameraImpl;->isSessionCloseComplete()Z
@@ -563,21 +563,21 @@
     nop
 
     .line 1365
-    :goto_1
+    :goto_92
     return-void
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_94
     .sparse-switch
-        0x2 -> :sswitch_1
-        0x5 -> :sswitch_0
-        0x7 -> :sswitch_1
+        0x2 -> :sswitch_83
+        0x5 -> :sswitch_53
+        0x7 -> :sswitch_83
     .end sparse-switch
 .end method
 
 .method public onDisconnected(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 2
+    .registers 4
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -605,7 +605,7 @@
 .end method
 
 .method public onError(Landroid/hardware/camera2/CameraDevice;I)V
-    .locals 8
+    .registers 11
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .param p2, "error"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -652,10 +652,10 @@
 
     const/4 v5, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_8a
 
     .line 1402
-    :pswitch_0
+    :pswitch_1d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -685,7 +685,7 @@
     throw v0
 
     .line 1396
-    :pswitch_1
+    :pswitch_3a
     nop
 
     .line 1398
@@ -726,10 +726,10 @@
     invoke-direct {p0, p1, p2}, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->handleErrorOnOpen(Landroid/hardware/camera2/CameraDevice;I)V
 
     .line 1400
-    goto :goto_0
+    goto :goto_88
 
     .line 1388
-    :pswitch_2
+    :pswitch_60
     nop
 
     .line 1390
@@ -775,24 +775,24 @@
     nop
 
     .line 1405
-    :goto_0
+    :goto_88
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_8a
     .packed-switch 0x2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_2
+        :pswitch_60
+        :pswitch_3a
+        :pswitch_3a
+        :pswitch_3a
+        :pswitch_1d
+        :pswitch_60
     .end packed-switch
 .end method
 
 .method public onOpened(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 3
+    .registers 5
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -840,10 +840,10 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_66
 
     .line 1336
-    :pswitch_0
+    :pswitch_24
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -873,7 +873,7 @@
     throw v0
 
     .line 1332
-    :pswitch_1
+    :pswitch_41
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
 
     sget-object v1, Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;->OPENED:Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;
@@ -886,10 +886,10 @@
     invoke-virtual {v0}, Landroidx/camera/camera2/internal/Camera2CameraImpl;->openCaptureSession()V
 
     .line 1334
-    goto :goto_0
+    goto :goto_64
 
     .line 1326
-    :pswitch_2
+    :pswitch_4e
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->this$0:Landroidx/camera/camera2/internal/Camera2CameraImpl;
 
     invoke-virtual {v0}, Landroidx/camera/camera2/internal/Camera2CameraImpl;->isSessionCloseComplete()Z
@@ -916,24 +916,24 @@
     nop
 
     .line 1339
-    :goto_0
+    :goto_64
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_66
     .packed-switch 0x2
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_2
+        :pswitch_4e
+        :pswitch_24
+        :pswitch_41
+        :pswitch_41
+        :pswitch_24
+        :pswitch_4e
     .end packed-switch
 .end method
 
 .method resetReopenMonitor()V
-    .locals 1
+    .registers 2
 
     .line 1510
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->mCameraReopenMonitor:Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$CameraReopenMonitor;
@@ -945,7 +945,7 @@
 .end method
 
 .method scheduleCameraReopen()V
-    .locals 5
+    .registers 6
 
     .line 1455
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->mScheduledReopenRunnable:Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen;
@@ -954,29 +954,29 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     invoke-static {v0}, Landroidx/core/util/Preconditions;->checkState(Z)V
 
     .line 1456
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->mScheduledReopenHandle:Ljava/util/concurrent/ScheduledFuture;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_12
     invoke-static {v1}, Landroidx/core/util/Preconditions;->checkState(Z)V
 
     .line 1458
@@ -986,7 +986,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4f
 
     .line 1459
     new-instance v0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen;
@@ -1037,10 +1037,10 @@
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;->mScheduledReopenHandle:Ljava/util/concurrent/ScheduledFuture;
 
-    goto :goto_2
+    goto :goto_5d
 
     .line 1466
-    :cond_2
+    :cond_4f
     const-string v0, "Camera2CameraImpl"
 
     const-string v1, "Camera reopening attempted for 10000ms without success."
@@ -1055,6 +1055,6 @@
     invoke-virtual {v0, v1}, Landroidx/camera/camera2/internal/Camera2CameraImpl;->setState(Landroidx/camera/camera2/internal/Camera2CameraImpl$InternalState;)V
 
     .line 1472
-    :goto_2
+    :goto_5d
     return-void
 .end method

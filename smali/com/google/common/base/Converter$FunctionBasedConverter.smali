@@ -52,7 +52,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/base/Function;Lcom/google/common/base/Function;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,7 +92,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/base/Function;Lcom/google/common/base/Function;Lcom/google/common/base/Converter$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Lcom/google/common/base/Function;
     .param p2, "x1"    # Lcom/google/common/base/Function;
     .param p3, "x2"    # Lcom/google/common/base/Converter$1;
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method protected doBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TB;)TA;"
@@ -127,7 +127,7 @@
 .end method
 
 .method protected doForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)TB;"
@@ -147,7 +147,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -159,7 +159,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 562
     move-object v0, p1
@@ -176,7 +176,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     iget-object v2, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/Function;
 
@@ -187,27 +187,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     nop
 
     .line 563
-    :goto_0
+    :goto_1f
     return v1
 
     .line 566
     .end local v0    # "that":Lcom/google/common/base/Converter$FunctionBasedConverter;, "Lcom/google/common/base/Converter$FunctionBasedConverter<**>;"
-    :cond_1
+    :cond_20
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 571
     .local p0, "this":Lcom/google/common/base/Converter$FunctionBasedConverter;, "Lcom/google/common/base/Converter$FunctionBasedConverter<TA;TB;>;"
@@ -231,7 +231,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 576
     .local p0, "this":Lcom/google/common/base/Converter$FunctionBasedConverter;, "Lcom/google/common/base/Converter$FunctionBasedConverter<TA;TB;>;"

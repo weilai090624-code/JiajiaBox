@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/AppCompatSpinner;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/widget/AppCompatSpinner;
 
     .line 640
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onGlobalLayout()V
-    .locals 1
+    .registers 2
 
     .line 643
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatSpinner$2;->this$0:Landroidx/appcompat/widget/AppCompatSpinner;
@@ -50,7 +50,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 644
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatSpinner$2;->this$0:Landroidx/appcompat/widget/AppCompatSpinner;
@@ -58,7 +58,7 @@
     invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatSpinner;->showPopup()V
 
     .line 646
-    :cond_0
+    :cond_11
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatSpinner$2;->this$0:Landroidx/appcompat/widget/AppCompatSpinner;
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatSpinner;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -67,7 +67,7 @@
 
     .line 647
     .local v0, "vto":Landroid/view/ViewTreeObserver;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 648
     nop
@@ -76,6 +76,6 @@
     invoke-static {v0, p0}, Landroidx/appcompat/widget/AppCompatSpinner$Api16Impl;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     .line 654
-    :cond_1
+    :cond_1d
     return-void
 .end method

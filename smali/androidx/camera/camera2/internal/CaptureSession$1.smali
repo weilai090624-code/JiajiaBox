@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/CaptureSession;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/CaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
-    .locals 0
+    .registers 4
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "result"    # Landroid/hardware/camera2/TotalCaptureResult;

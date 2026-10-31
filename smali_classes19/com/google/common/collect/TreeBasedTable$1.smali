@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeBasedTable;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/TreeBasedTable;
 
     .line 322
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 322
     .local p0, "this":Lcom/google/common/collect/TreeBasedTable$1;, "Lcom/google/common/collect/TreeBasedTable$1;"
@@ -57,7 +57,7 @@
 .end method
 
 .method public apply(Ljava/util/Map;)Ljava/util/Iterator;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -30,7 +30,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/collect/BoundType;
-    .locals 3
+    .registers 3
 
     .line 26
     const/4 v0, 0x2
@@ -53,7 +53,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 30
     new-instance v0, Lcom/google/common/collect/BoundType;
@@ -88,7 +88,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZ)V
-    .locals 0
+    .registers 4
     .param p3, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -107,25 +107,25 @@
 .end method
 
 .method static forBoolean(Z)Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 2
     .param p0, "inclusive"    # Z
 
     .line 41
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     sget-object v0, Lcom/google/common/collect/BoundType;->CLOSED:Lcom/google/common/collect/BoundType;
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     sget-object v0, Lcom/google/common/collect/BoundType;->OPEN:Lcom/google/common/collect/BoundType;
 
-    :goto_0
+    :goto_7
     return-object v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 26
@@ -141,7 +141,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 1
 
     .line 26
     sget-object v0, Lcom/google/common/collect/BoundType;->$VALUES:[Lcom/google/common/collect/BoundType;

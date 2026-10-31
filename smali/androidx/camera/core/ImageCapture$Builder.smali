@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 2427
     invoke-static {}, Landroidx/camera/core/impl/MutableOptionsBundle;->create()Landroidx/camera/core/impl/MutableOptionsBundle;
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>(Landroidx/camera/core/impl/MutableOptionsBundle;)V
-    .locals 4
+    .registers 6
     .param p1, "mutableConfig"    # Landroidx/camera/core/impl/MutableOptionsBundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -87,7 +87,7 @@
 
     .line 2435
     .local v0, "oldConfigClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3c
 
     const-class v1, Landroidx/camera/core/ImageCapture;
 
@@ -95,12 +95,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 2436
-    :cond_0
+    :cond_19
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -136,8 +136,8 @@
     throw v1
 
     .line 2443
-    :cond_1
-    :goto_0
+    :cond_3c
+    :goto_3c
     const-class v1, Landroidx/camera/core/ImageCapture;
 
     invoke-virtual {p0, v1}, Landroidx/camera/core/ImageCapture$Builder;->setTargetClass(Ljava/lang/Class;)Landroidx/camera/core/ImageCapture$Builder;
@@ -147,7 +147,7 @@
 .end method
 
 .method public static fromConfig(Landroidx/camera/core/impl/Config;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 3
     .param p0, "configuration"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -171,7 +171,7 @@
 .end method
 
 .method static fromConfig(Landroidx/camera/core/impl/ImageCaptureConfig;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 3
     .param p0, "configuration"    # Landroidx/camera/core/impl/ImageCaptureConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -197,7 +197,7 @@
 
 # virtual methods
 .method public build()Landroidx/camera/core/ImageCapture;
-    .locals 9
+    .registers 10
 
     .line 2508
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
@@ -212,7 +212,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 2509
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
@@ -225,12 +225,12 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
-    goto :goto_0
+    goto :goto_22
 
     .line 2510
-    :cond_0
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Cannot use both setTargetResolution and setTargetAspectRatio on the same config."
@@ -240,8 +240,8 @@
     throw v0
 
     .line 2517
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
 
     move-result-object v0
@@ -260,7 +260,7 @@
 
     const/4 v3, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_51
 
     .line 2519
     nop
@@ -276,17 +276,17 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_41
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_2
+    :cond_41
     const/4 v4, 0x0
 
     .line 2519
-    :goto_1
+    :goto_42
     const-string v5, "Cannot set buffer format with CaptureProcessor defined."
 
     invoke-static {v4, v5}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -300,10 +300,10 @@
 
     invoke-interface {v4, v5, v0}, Landroidx/camera/core/impl/MutableConfig;->insertOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_7c
 
     .line 2524
-    :cond_3
+    :cond_51
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
 
     move-result-object v4
@@ -314,7 +314,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_6d
 
     .line 2525
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
@@ -331,10 +331,10 @@
 
     invoke-interface {v4, v5, v6}, Landroidx/camera/core/impl/MutableConfig;->insertOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_7c
 
     .line 2527
-    :cond_4
+    :cond_6d
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
 
     move-result-object v4
@@ -350,7 +350,7 @@
     invoke-interface {v4, v5, v6}, Landroidx/camera/core/impl/MutableConfig;->insertOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)V
 
     .line 2531
-    :goto_2
+    :goto_7c
     new-instance v4, Landroidx/camera/core/ImageCapture;
 
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$Builder;->getUseCaseConfig()Landroidx/camera/core/impl/ImageCaptureConfig;
@@ -375,7 +375,7 @@
 
     .line 2539
     .local v2, "targetResolution":Landroid/util/Size;
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_a3
 
     .line 2540
     new-instance v5, Landroid/util/Rational;
@@ -395,7 +395,7 @@
     invoke-virtual {v4, v5}, Landroidx/camera/core/ImageCapture;->setCropAspectRatio(Landroid/util/Rational;)V
 
     .line 2544
-    :cond_5
+    :cond_a3
     nop
 
     .line 2545
@@ -421,12 +421,12 @@
 
     move-result v5
 
-    if-lt v5, v3, :cond_6
+    if-lt v5, v3, :cond_bc
 
     const/4 v1, 0x1
 
     .line 2544
-    :cond_6
+    :cond_bc
     const-string v5, "Maximum outstanding image count must be at least 1"
 
     invoke-static {v1, v5}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -465,7 +465,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_112
 
     .line 2552
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
@@ -486,16 +486,16 @@
 
     .line 2554
     .local v1, "flashMode":I
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_112
 
-    if-eq v1, v3, :cond_8
+    if-eq v1, v3, :cond_112
 
-    if-ne v1, v7, :cond_7
+    if-ne v1, v7, :cond_f9
 
-    goto :goto_3
+    goto :goto_112
 
     .line 2556
-    :cond_7
+    :cond_f9
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -522,13 +522,13 @@
 
     .line 2561
     .end local v1    # "flashMode":I
-    :cond_8
-    :goto_3
+    :cond_112
+    :goto_112
     return-object v4
 .end method
 
 .method public bridge synthetic build()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 2418
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$Builder;->build()Landroidx/camera/core/ImageCapture;
@@ -539,7 +539,7 @@
 .end method
 
 .method public getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
-    .locals 1
+    .registers 2
 
     .line 2481
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$Builder;->mMutableConfig:Landroidx/camera/core/impl/MutableOptionsBundle;
@@ -548,7 +548,7 @@
 .end method
 
 .method public getUseCaseConfig()Landroidx/camera/core/impl/ImageCaptureConfig;
-    .locals 2
+    .registers 3
 
     .line 2493
     new-instance v0, Landroidx/camera/core/impl/ImageCaptureConfig;
@@ -565,7 +565,7 @@
 .end method
 
 .method public bridge synthetic getUseCaseConfig()Landroidx/camera/core/impl/UseCaseConfig;
-    .locals 1
+    .registers 2
 
     .line 2418
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$Builder;->getUseCaseConfig()Landroidx/camera/core/impl/ImageCaptureConfig;
@@ -576,7 +576,7 @@
 .end method
 
 .method public setBufferFormat(I)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 3
+    .registers 5
     .param p1, "bufferImageFormat"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -605,7 +605,7 @@
 .end method
 
 .method public setCameraSelector(Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "cameraSelector"    # Landroidx/camera/core/CameraSelector;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -630,7 +630,7 @@
 .end method
 
 .method public bridge synthetic setCameraSelector(Landroidx/camera/core/CameraSelector;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -649,7 +649,7 @@
 .end method
 
 .method public setCaptureBundle(Landroidx/camera/core/impl/CaptureBundle;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "captureBundle"    # Landroidx/camera/core/impl/CaptureBundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -674,7 +674,7 @@
 .end method
 
 .method public setCaptureMode(I)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 3
+    .registers 5
     .param p1, "captureMode"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -703,7 +703,7 @@
 .end method
 
 .method public setCaptureOptionUnpacker(Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "optionUnpacker"    # Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -728,7 +728,7 @@
 .end method
 
 .method public bridge synthetic setCaptureOptionUnpacker(Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -747,7 +747,7 @@
 .end method
 
 .method public setCaptureProcessor(Landroidx/camera/core/impl/CaptureProcessor;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "captureProcessor"    # Landroidx/camera/core/impl/CaptureProcessor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -772,7 +772,7 @@
 .end method
 
 .method public setDefaultCaptureConfig(Landroidx/camera/core/impl/CaptureConfig;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "captureConfig"    # Landroidx/camera/core/impl/CaptureConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -797,7 +797,7 @@
 .end method
 
 .method public bridge synthetic setDefaultCaptureConfig(Landroidx/camera/core/impl/CaptureConfig;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -816,7 +816,7 @@
 .end method
 
 .method public setDefaultResolution(Landroid/util/Size;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "resolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -841,7 +841,7 @@
 .end method
 
 .method public bridge synthetic setDefaultResolution(Landroid/util/Size;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -860,7 +860,7 @@
 .end method
 
 .method public setDefaultSessionConfig(Landroidx/camera/core/impl/SessionConfig;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -885,7 +885,7 @@
 .end method
 
 .method public bridge synthetic setDefaultSessionConfig(Landroidx/camera/core/impl/SessionConfig;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -904,7 +904,7 @@
 .end method
 
 .method public setFlashMode(I)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 3
+    .registers 5
     .param p1, "flashMode"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -933,7 +933,7 @@
 .end method
 
 .method public setImageReaderProxyProvider(Landroidx/camera/core/ImageReaderProxyProvider;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "imageReaderProxyProvider"    # Landroidx/camera/core/ImageReaderProxyProvider;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -958,7 +958,7 @@
 .end method
 
 .method public setIoExecutor(Ljava/util/concurrent/Executor;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -983,7 +983,7 @@
 .end method
 
 .method public bridge synthetic setIoExecutor(Ljava/util/concurrent/Executor;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1002,7 +1002,7 @@
 .end method
 
 .method public setMaxCaptureStages(I)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 3
+    .registers 5
     .param p1, "maxCaptureStages"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1031,7 +1031,7 @@
 .end method
 
 .method public setMaxResolution(Landroid/util/Size;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "resolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1056,7 +1056,7 @@
 .end method
 
 .method public bridge synthetic setMaxResolution(Landroid/util/Size;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1075,7 +1075,7 @@
 .end method
 
 .method public setSessionOptionUnpacker(Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "optionUnpacker"    # Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1100,7 +1100,7 @@
 .end method
 
 .method public bridge synthetic setSessionOptionUnpacker(Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1119,7 +1119,7 @@
 .end method
 
 .method public setSoftwareJpegEncoderRequested(Z)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 3
+    .registers 5
     .param p1, "requestSoftwareJpeg"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1150,7 +1150,7 @@
 .end method
 
 .method public setSupportedResolutions(Ljava/util/List;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1188,7 +1188,7 @@
 .end method
 
 .method public bridge synthetic setSupportedResolutions(Ljava/util/List;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1207,7 +1207,7 @@
 .end method
 
 .method public setSurfaceOccupancyPriority(I)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 3
+    .registers 5
     .param p1, "priority"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1236,7 +1236,7 @@
 .end method
 
 .method public bridge synthetic setSurfaceOccupancyPriority(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1255,7 +1255,7 @@
 .end method
 
 .method public setTargetAspectRatio(I)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 3
+    .registers 5
     .param p1, "aspectRatio"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1284,7 +1284,7 @@
 .end method
 
 .method public bridge synthetic setTargetAspectRatio(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1303,7 +1303,7 @@
 .end method
 
 .method public setTargetClass(Ljava/lang/Class;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1346,7 +1346,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_38
 
     .line 2685
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1385,12 +1385,12 @@
 
     .line 2689
     .end local v0    # "targetName":Ljava/lang/String;
-    :cond_0
+    :cond_38
     return-object p0
 .end method
 
 .method public bridge synthetic setTargetClass(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1409,7 +1409,7 @@
 .end method
 
 .method public setTargetName(Ljava/lang/String;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "targetName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1434,7 +1434,7 @@
 .end method
 
 .method public bridge synthetic setTargetName(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1453,7 +1453,7 @@
 .end method
 
 .method public setTargetResolution(Landroid/util/Size;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "resolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1478,7 +1478,7 @@
 .end method
 
 .method public bridge synthetic setTargetResolution(Landroid/util/Size;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1497,7 +1497,7 @@
 .end method
 
 .method public setTargetRotation(I)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 3
+    .registers 5
     .param p1, "rotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1526,7 +1526,7 @@
 .end method
 
 .method public bridge synthetic setTargetRotation(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1545,7 +1545,7 @@
 .end method
 
 .method public setUseCaseEventCallback(Landroidx/camera/core/UseCase$EventCallback;)Landroidx/camera/core/ImageCapture$Builder;
-    .locals 2
+    .registers 4
     .param p1, "useCaseEventCallback"    # Landroidx/camera/core/UseCase$EventCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1570,7 +1570,7 @@
 .end method
 
 .method public bridge synthetic setUseCaseEventCallback(Landroidx/camera/core/UseCase$EventCallback;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000

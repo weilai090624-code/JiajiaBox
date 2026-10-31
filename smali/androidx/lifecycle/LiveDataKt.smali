@@ -32,7 +32,7 @@
 
 # direct methods
 .method public static final observe(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function1;)Landroidx/lifecycle/Observer;
-    .locals 2
+    .registers 5
     .param p0, "$this$observe"    # Landroidx/lifecycle/LiveData;
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "onChanged"    # Lkotlin/jvm/functions/Function1;

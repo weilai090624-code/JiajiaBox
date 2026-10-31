@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Maps$FilteredEntrySortedMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/Maps$FilteredEntrySortedMap;
 
     .line 3054
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -75,7 +75,7 @@
 .end method
 
 .method public first()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -129,7 +129,7 @@
 .end method
 
 .method public last()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -188,7 +188,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

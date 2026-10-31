@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/Incomplete;)V
-    .locals 0
+    .registers 2
     .param p1, "state"    # Lkotlinx/coroutines/Incomplete;
 
     .line 1283

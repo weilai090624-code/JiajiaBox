@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Future;)V
-    .locals 0
+    .registers 2
 
     .line 236
     iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$1;->val$scheduled:Ljava/util/concurrent/Future;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 240
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$1;->val$scheduled:Ljava/util/concurrent/Future;

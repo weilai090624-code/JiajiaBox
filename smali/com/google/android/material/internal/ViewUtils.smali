@@ -18,7 +18,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,12 +27,12 @@
 .end method
 
 .method public static addOnGlobalLayoutListener(Landroid/view/View;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "victim"    # Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
     .line 401
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 402
     invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -42,12 +42,12 @@
     invoke-virtual {v0, p1}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     .line 404
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static calculateRectFromBounds(Landroid/view/View;)Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 115
@@ -61,7 +61,7 @@
 .end method
 
 .method public static calculateRectFromBounds(Landroid/view/View;I)Landroid/graphics/Rect;
-    .locals 5
+    .registers 7
     .param p0, "view"    # Landroid/view/View;
     .param p1, "offsetY"    # I
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public static doOnApplyWindowInsets(Landroid/view/View;Landroid/util/AttributeSet;II)V
-    .locals 1
+    .registers 5
     .param p0, "view"    # Landroid/view/View;
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyleAttr"    # I
@@ -112,7 +112,7 @@
 .end method
 
 .method public static doOnApplyWindowInsets(Landroid/view/View;Landroid/util/AttributeSet;IILcom/google/android/material/internal/ViewUtils$OnApplyWindowInsetsListener;)V
-    .locals 5
+    .registers 10
     .param p0, "view"    # Landroid/view/View;
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyleAttr"    # I
@@ -179,7 +179,7 @@
 .end method
 
 .method public static doOnApplyWindowInsets(Landroid/view/View;Lcom/google/android/material/internal/ViewUtils$OnApplyWindowInsetsListener;)V
-    .locals 5
+    .registers 7
     .param p0, "view"    # Landroid/view/View;
     .param p1, "listener"    # Lcom/google/android/material/internal/ViewUtils$OnApplyWindowInsetsListener;
 
@@ -224,7 +224,7 @@
 .end method
 
 .method public static dpToPx(Landroid/content/Context;I)F
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "dp"    # I
 
@@ -251,7 +251,7 @@
 .end method
 
 .method public static getBackgroundColor(Landroid/view/View;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 428
@@ -261,7 +261,7 @@
 
     instance-of v0, v0, Landroid/graphics/drawable/ColorDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 429
     invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -278,19 +278,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
     .line 430
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     .line 428
-    :goto_0
+    :goto_18
     return-object v0
 .end method
 
 .method public static getChildren(Landroid/view/View;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .param p0, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -312,7 +312,7 @@
     .local v0, "children":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     instance-of v1, p0, Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 128
     move-object v1, p0
@@ -324,12 +324,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_d
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1d
 
     .line 130
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -341,29 +341,29 @@
     .line 129
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 133
     .end local v1    # "viewGroup":Landroid/view/ViewGroup;
     .end local v2    # "i":I
-    :cond_0
+    :cond_1d
     return-object v0
 .end method
 
 .method public static getContentView(Landroid/view/View;)Landroid/view/ViewGroup;
-    .locals 4
+    .registers 5
     .param p0, "view"    # Landroid/view/View;
 
     .line 370
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 371
     return-object v0
 
     .line 374
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Landroid/view/View;->getRootView()Landroid/view/View;
 
     move-result-object v1
@@ -380,18 +380,18 @@
 
     .line 376
     .local v2, "contentView":Landroid/view/ViewGroup;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_14
 
     .line 377
     return-object v2
 
     .line 384
-    :cond_1
-    if-eq v1, p0, :cond_2
+    :cond_14
+    if-eq v1, p0, :cond_1e
 
     instance-of v3, v1, Landroid/view/ViewGroup;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1e
 
     .line 385
     move-object v0, v1
@@ -401,12 +401,12 @@
     return-object v0
 
     .line 388
-    :cond_2
+    :cond_1e
     return-object v0
 .end method
 
 .method public static getContentViewOverlay(Landroid/view/View;)Lcom/google/android/material/internal/ViewOverlayImpl;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 396
@@ -422,7 +422,7 @@
 .end method
 
 .method private static getInputMethodManager(Landroid/view/View;)Landroid/view/inputmethod/InputMethodManager;
-    .locals 2
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
 
     .line 103
@@ -442,11 +442,11 @@
 .end method
 
 .method public static getOverlay(Landroid/view/View;)Lcom/google/android/material/internal/ViewOverlayImpl;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 358
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 359
     const/4 v0, 0x0
@@ -454,7 +454,7 @@
     return-object v0
 
     .line 361
-    :cond_0
+    :cond_4
     nop
 
     .line 362
@@ -466,7 +466,7 @@
 .end method
 
 .method public static getParentAbsoluteElevation(Landroid/view/View;)F
-    .locals 3
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
 
     .line 343
@@ -480,10 +480,10 @@
 
     .line 345
     .local v1, "viewParent":Landroid/view/ViewParent;
-    :goto_0
+    :goto_5
     instance-of v2, v1, Landroid/view/View;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     .line 346
     move-object v2, v1
@@ -501,15 +501,15 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 349
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method public static hideKeyboard(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 84
@@ -522,12 +522,12 @@
 .end method
 
 .method public static hideKeyboard(Landroid/view/View;Z)V
-    .locals 3
+    .registers 5
     .param p0, "view"    # Landroid/view/View;
     .param p1, "useWindowInsetsController"    # Z
 
     .line 88
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     .line 89
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->getWindowInsetsController(Landroid/view/View;)Landroidx/core/view/WindowInsetsControllerCompat;
@@ -536,7 +536,7 @@
 
     .line 90
     .local v0, "windowController":Landroidx/core/view/WindowInsetsControllerCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 91
     invoke-static {}, Landroidx/core/view/WindowInsetsCompat$Type;->ime()I
@@ -550,14 +550,14 @@
 
     .line 95
     .end local v0    # "windowController":Landroidx/core/view/WindowInsetsControllerCompat;
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->getInputMethodManager(Landroid/view/View;)Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 
     .line 96
     .local v0, "imm":Landroid/view/inputmethod/InputMethodManager;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 97
     invoke-virtual {p0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
@@ -569,12 +569,12 @@
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
     .line 99
-    :cond_1
+    :cond_1e
     return-void
 .end method
 
 .method public static isLayoutRtl(Landroid/view/View;)Z
-    .locals 2
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
 
     .line 156
@@ -584,82 +584,82 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     return v1
 .end method
 
 .method public static parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 3
     .param p0, "value"    # I
     .param p1, "defaultMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 137
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_16
 
     .line 151
     return-object p1
 
     .line 149
-    :sswitch_0
+    :sswitch_4
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->ADD:Landroid/graphics/PorterDuff$Mode;
 
     return-object v0
 
     .line 147
-    :sswitch_1
+    :sswitch_7
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->SCREEN:Landroid/graphics/PorterDuff$Mode;
 
     return-object v0
 
     .line 145
-    :sswitch_2
+    :sswitch_a
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
     return-object v0
 
     .line 143
-    :sswitch_3
+    :sswitch_d
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
     return-object v0
 
     .line 141
-    :sswitch_4
+    :sswitch_10
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
     return-object v0
 
     .line 139
-    :sswitch_5
+    :sswitch_13
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->SRC_OVER:Landroid/graphics/PorterDuff$Mode;
 
     return-object v0
 
-    :sswitch_data_0
+    :sswitch_data_16
     .sparse-switch
-        0x3 -> :sswitch_5
-        0x5 -> :sswitch_4
-        0x9 -> :sswitch_3
-        0xe -> :sswitch_2
-        0xf -> :sswitch_1
-        0x10 -> :sswitch_0
+        0x3 -> :sswitch_13
+        0x5 -> :sswitch_10
+        0x9 -> :sswitch_d
+        0xe -> :sswitch_a
+        0xf -> :sswitch_7
+        0x10 -> :sswitch_4
     .end sparse-switch
 .end method
 
 .method public static removeOnGlobalLayoutListener(Landroid/view/View;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "victim"    # Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
     .line 408
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 409
     invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -669,12 +669,12 @@
     invoke-static {v0, p1}, Lcom/google/android/material/internal/ViewUtils;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     .line 411
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-    .locals 0
+    .registers 2
     .param p0, "viewTreeObserver"    # Landroid/view/ViewTreeObserver;
     .param p1, "victim"    # Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
@@ -689,7 +689,7 @@
 .end method
 
 .method public static requestApplyInsetsWhenAttached(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 319
@@ -697,15 +697,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 321
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 324
-    :cond_0
+    :cond_a
     new-instance v0, Lcom/google/android/material/internal/ViewUtils$4;
 
     invoke-direct {v0}, Lcom/google/android/material/internal/ViewUtils$4;-><init>()V
@@ -713,12 +713,12 @@
     invoke-virtual {p0, v0}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     .line 336
-    :goto_0
+    :goto_12
     return-void
 .end method
 
 .method public static requestFocusAndShowKeyboard(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 165
@@ -736,7 +736,7 @@
 .end method
 
 .method public static setBoundsFromRect(Landroid/view/View;Landroid/graphics/Rect;)V
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "rect"    # Landroid/graphics/Rect;
 
@@ -765,7 +765,7 @@
 .end method
 
 .method public static showKeyboard(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 69
@@ -778,12 +778,12 @@
 .end method
 
 .method public static showKeyboard(Landroid/view/View;Z)V
-    .locals 2
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "useWindowInsetsController"    # Z
 
     .line 73
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     .line 74
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->getWindowInsetsController(Landroid/view/View;)Landroidx/core/view/WindowInsetsControllerCompat;
@@ -792,7 +792,7 @@
 
     .line 75
     .local v0, "windowController":Landroidx/core/view/WindowInsetsControllerCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 76
     invoke-static {}, Landroidx/core/view/WindowInsetsCompat$Type;->ime()I
@@ -806,7 +806,7 @@
 
     .line 80
     .end local v0    # "windowController":Landroidx/core/view/WindowInsetsControllerCompat;
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->getInputMethodManager(Landroid/view/View;)Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0

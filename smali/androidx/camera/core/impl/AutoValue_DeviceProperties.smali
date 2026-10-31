@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 2
+    .registers 6
     .param p1, "manufacturer"    # Ljava/lang/String;
     .param p2, "model"    # Ljava/lang/String;
     .param p3, "sdkVersion"    # I
@@ -34,13 +34,13 @@
     invoke-direct {p0}, Landroidx/camera/core/impl/DeviceProperties;-><init>()V
 
     .line 20
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_16
 
     .line 23
     iput-object p1, p0, Landroidx/camera/core/impl/AutoValue_DeviceProperties;->manufacturer:Ljava/lang/String;
 
     .line 24
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_e
 
     .line 27
     iput-object p2, p0, Landroidx/camera/core/impl/AutoValue_DeviceProperties;->model:Ljava/lang/String;
@@ -52,7 +52,7 @@
     return-void
 
     .line 25
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null model"
@@ -62,7 +62,7 @@
     throw v0
 
     .line 21
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null manufacturer"
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -89,18 +89,18 @@
     .line 59
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 60
     return v0
 
     .line 62
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/camera/core/impl/DeviceProperties;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     .line 63
     move-object v1, p1
@@ -119,7 +119,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
     iget-object v3, p0, Landroidx/camera/core/impl/AutoValue_DeviceProperties;->model:Ljava/lang/String;
 
@@ -132,7 +132,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
     iget v3, p0, Landroidx/camera/core/impl/AutoValue_DeviceProperties;->sdkVersion:I
 
@@ -141,25 +141,25 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_2d
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     const/4 v0, 0x0
 
     .line 64
-    :goto_0
+    :goto_2e
     return v0
 
     .line 68
     .end local v1    # "that":Landroidx/camera/core/impl/DeviceProperties;
-    :cond_2
+    :cond_2f
     return v2
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 73
     const/4 v0, 0x1
@@ -204,7 +204,7 @@
 .end method
 
 .method public manufacturer()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Landroidx/camera/core/impl/AutoValue_DeviceProperties;->manufacturer:Ljava/lang/String;
@@ -213,7 +213,7 @@
 .end method
 
 .method public model()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 40
     iget-object v0, p0, Landroidx/camera/core/impl/AutoValue_DeviceProperties;->model:Ljava/lang/String;
@@ -222,7 +222,7 @@
 .end method
 
 .method public sdkVersion()I
-    .locals 1
+    .registers 2
 
     .line 45
     iget v0, p0, Landroidx/camera/core/impl/AutoValue_DeviceProperties;->sdkVersion:I
@@ -231,7 +231,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 50
     new-instance v0, Ljava/lang/StringBuilder;

@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Node;I)V
-    .locals 0
+    .registers 3
     .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -77,7 +77,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/Nodes$ToArrayTask;Lj$/util/stream/Node;I)V
-    .locals 0
+    .registers 4
     .param p3, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public compute()V
-    .locals 8
+    .registers 9
 
     .line 2056
     .local p0, "this":Lj$/util/stream/Nodes$ToArrayTask;, "Ljava/util/stream/Nodes$ToArrayTask<TT;TT_NODE;TK;>;"
@@ -112,14 +112,14 @@
 
     .line 2058
     .local v0, "task":Lj$/util/stream/Nodes$ToArrayTask;, "Ljava/util/stream/Nodes$ToArrayTask<TT;TT_NODE;TK;>;"
-    :goto_0
+    :goto_1
     iget-object v1, v0, Lj$/util/stream/Nodes$ToArrayTask;->node:Lj$/util/stream/Node;
 
     invoke-interface {v1}, Lj$/util/stream/Node;->getChildCount()I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 2059
     invoke-virtual {v0}, Lj$/util/stream/Nodes$ToArrayTask;->copyNodeToArray()V
@@ -131,7 +131,7 @@
     return-void
 
     .line 2064
-    :cond_0
+    :cond_10
     iget-object v1, v0, Lj$/util/stream/Nodes$ToArrayTask;->node:Lj$/util/stream/Node;
 
     invoke-interface {v1}, Lj$/util/stream/Node;->getChildCount()I
@@ -151,7 +151,7 @@
 
     .line 2068
     .local v2, "i":I
-    :goto_1
+    :goto_1d
     iget-object v3, v0, Lj$/util/stream/Nodes$ToArrayTask;->node:Lj$/util/stream/Node;
 
     invoke-interface {v3}, Lj$/util/stream/Node;->getChildCount()I
@@ -160,7 +160,7 @@
 
     add-int/lit8 v3, v3, -0x1
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_3d
 
     .line 2069
     iget v3, v0, Lj$/util/stream/Nodes$ToArrayTask;->offset:I
@@ -192,10 +192,10 @@
     .end local v3    # "leftTask":Lj$/util/stream/Nodes$ToArrayTask;, "TK;"
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 2073
-    :cond_1
+    :cond_3d
     iget v3, v0, Lj$/util/stream/Nodes$ToArrayTask;->offset:I
 
     add-int/2addr v3, v1
@@ -207,7 +207,7 @@
     .line 2074
     .end local v1    # "size":I
     .end local v2    # "i":I
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method abstract copyNodeToArray()V

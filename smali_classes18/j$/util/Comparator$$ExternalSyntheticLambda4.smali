@@ -13,7 +13,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/function/ToLongFunction;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Lj$/util/Comparator$$ExternalSyntheticLambda4;->f$0:Ljava/util/function/ToLongFunction;
 

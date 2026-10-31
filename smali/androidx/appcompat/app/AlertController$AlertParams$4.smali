@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AlertController$AlertParams;Landroidx/appcompat/app/AlertController$RecycleListView;Landroidx/appcompat/app/AlertController;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/appcompat/app/AlertController$AlertParams;
 
     .line 1075
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 3
+    .registers 9
     .param p2, "v"    # Landroid/view/View;
     .param p3, "position"    # I
     .param p4, "id"    # J
@@ -65,7 +65,7 @@
 
     iget-object v0, v0, Landroidx/appcompat/app/AlertController$AlertParams;->mCheckedItems:[Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 1079
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$AlertParams$4;->this$0:Landroidx/appcompat/app/AlertController$AlertParams;
@@ -81,7 +81,7 @@
     aput-boolean v1, v0, p3
 
     .line 1081
-    :cond_0
+    :cond_12
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$AlertParams$4;->this$0:Landroidx/appcompat/app/AlertController$AlertParams;
 
     iget-object v0, v0, Landroidx/appcompat/app/AlertController$AlertParams;->mOnCheckboxClickListener:Landroid/content/DialogInterface$OnMultiChoiceClickListener;

@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "that"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -55,7 +55,7 @@
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Pred;, "Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Pred<TN;>;"
     instance-of v0, p1, Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Pred;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 88
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Pred;->node:Ljava/lang/Object;
@@ -73,14 +73,14 @@
     return v0
 
     .line 90
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 97
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Pred;, "Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Pred<TN;>;"

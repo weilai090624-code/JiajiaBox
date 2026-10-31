@@ -54,7 +54,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/CartesianList;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,7 +83,7 @@
 .end method
 
 .method static create(Ljava/util/List;)Ljava/util/Set;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -115,12 +115,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -140,7 +140,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_28
 
     .line 1344
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
@@ -150,16 +150,16 @@
     return-object v1
 
     .line 1346
-    :cond_0
+    :cond_28
     invoke-virtual {v0, v3}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
 
     .line 1347
     .end local v2    # "set":Ljava/util/Set;, "Ljava/util/Set<+TE;>;"
     .end local v3    # "copy":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<TE;>;"
-    goto :goto_0
+    goto :goto_d
 
     .line 1348
-    :cond_1
+    :cond_2c
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v1
@@ -186,7 +186,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -198,13 +198,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 1382
     return v1
 
     .line 1384
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/util/List;
@@ -221,13 +221,13 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_16
 
     .line 1386
     return v1
 
     .line 1388
-    :cond_1
+    :cond_16
     const/4 v2, 0x0
 
     .line 1389
@@ -236,12 +236,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1b
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_38
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -261,30 +261,30 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_34
 
     .line 1391
     return v1
 
     .line 1393
-    :cond_2
+    :cond_34
     nop
 
     .end local v4    # "o":Ljava/lang/Object;
     add-int/lit8 v2, v2, 0x1
 
     .line 1394
-    goto :goto_0
+    goto :goto_1b
 
     .line 1395
-    :cond_3
+    :cond_38
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1334
     .local p0, "this":Lcom/google/common/collect/Sets$CartesianSet;, "Lcom/google/common/collect/Sets$CartesianSet<TE;>;"
@@ -296,7 +296,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -314,7 +314,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -324,7 +324,7 @@
     .local p0, "this":Lcom/google/common/collect/Sets$CartesianSet;, "Lcom/google/common/collect/Sets$CartesianSet<TE;>;"
     instance-of v0, p1, Lcom/google/common/collect/Sets$CartesianSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 1403
     move-object v0, p1
@@ -345,7 +345,7 @@
 
     .line 1406
     .end local v0    # "that":Lcom/google/common/collect/Sets$CartesianSet;, "Lcom/google/common/collect/Sets$CartesianSet<*>;"
-    :cond_0
+    :cond_10
     invoke-super {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -354,7 +354,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 7
+    .registers 8
 
     .line 1415
     .local p0, "this":Lcom/google/common/collect/Sets$CartesianSet;, "Lcom/google/common/collect/Sets$CartesianSet<TE;>;"
@@ -369,14 +369,14 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_7
     iget-object v2, p0, Lcom/google/common/collect/Sets$CartesianSet;->axes:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v2}, Lcom/google/common/collect/ImmutableList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_16
 
     .line 1417
     mul-int/lit8 v0, v0, 0x1f
@@ -389,11 +389,11 @@
     .line 1416
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 1421
     .end local v1    # "i":I
-    :cond_0
+    :cond_16
     const/4 v1, 0x1
 
     .line 1422
@@ -404,12 +404,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_1d
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3e
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -450,10 +450,10 @@
     .end local v3    # "axis":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     .end local v4    # "hash":I
     .restart local v1    # "hash":I
-    goto :goto_1
+    goto :goto_1d
 
     .line 1427
-    :cond_1
+    :cond_3e
     add-int/2addr v1, v0
 
     .line 1428

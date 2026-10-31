@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/TextureViewImplementation$1;Landroid/graphics/SurfaceTexture;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Landroidx/camera/view/TextureViewImplementation$1;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -82,7 +82,7 @@
 .end method
 
 .method public onSuccess(Landroidx/camera/core/SurfaceRequest$Result;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Landroidx/camera/core/SurfaceRequest$Result;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -100,16 +100,16 @@
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     const-string v1, "Unexpected result from SurfaceRequest. Surface was provided twice."
 
     invoke-static {v0, v1}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
@@ -133,7 +133,7 @@
 
     iget-object v0, v0, Landroidx/camera/view/TextureViewImplementation;->mDetachedSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 170
     iget-object v0, p0, Landroidx/camera/view/TextureViewImplementation$1$1;->this$1:Landroidx/camera/view/TextureViewImplementation$1;
@@ -145,12 +145,12 @@
     iput-object v1, v0, Landroidx/camera/view/TextureViewImplementation;->mDetachedSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
     .line 172
-    :cond_1
+    :cond_2a
     return-void
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000

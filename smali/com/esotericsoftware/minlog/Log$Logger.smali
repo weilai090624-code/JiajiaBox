@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 165
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public log(ILjava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 15
+    .registers 20
     .param p1, "level"    # I
     .param p2, "category"    # Ljava/lang/String;
     .param p3, "message"    # Ljava/lang/String;
@@ -91,12 +91,12 @@
 
     cmp-long v14, v7, v12
 
-    if-gtz v14, :cond_0
+    if-gtz v14, :cond_2a
 
     invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 175
-    :cond_0
+    :cond_2a
     invoke-virtual {v3, v7, v8}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     .line 176
@@ -107,64 +107,64 @@
     .line 177
     cmp-long v14, v9, v12
 
-    if-gtz v14, :cond_1
+    if-gtz v14, :cond_39
 
     invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 178
-    :cond_1
+    :cond_39
     invoke-virtual {v3, v9, v10}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     .line 180
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_9a
 
-    goto :goto_0
+    goto :goto_5d
 
     .line 182
-    :pswitch_0
+    :pswitch_40
     const-string v11, " ERROR: "
 
     invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 183
-    goto :goto_0
+    goto :goto_5d
 
     .line 185
-    :pswitch_1
+    :pswitch_46
     const-string v11, "  WARN: "
 
     invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 186
-    goto :goto_0
+    goto :goto_5d
 
     .line 188
-    :pswitch_2
+    :pswitch_4c
     const-string v11, "  INFO: "
 
     invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 189
-    goto :goto_0
+    goto :goto_5d
 
     .line 191
-    :pswitch_3
+    :pswitch_52
     const-string v11, " DEBUG: "
 
     invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 192
-    goto :goto_0
+    goto :goto_5d
 
     .line 194
-    :pswitch_4
+    :pswitch_58
     const-string v11, " TRACE: "
 
     invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 198
-    :goto_0
-    if-eqz v1, :cond_2
+    :goto_5d
+    if-eqz v1, :cond_6c
 
     .line 199
     const/16 v11, 0x5b
@@ -180,13 +180,13 @@
     invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 204
-    :cond_2
+    :cond_6c
     move-object/from16 v11, p3
 
     invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 206
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_91
 
     .line 207
     new-instance v12, Ljava/io/StringWriter;
@@ -221,7 +221,7 @@
 
     .line 213
     .end local v4    # "writer":Ljava/io/StringWriter;
-    :cond_3
+    :cond_91
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -233,18 +233,18 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_9a
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_58
+        :pswitch_52
+        :pswitch_4c
+        :pswitch_46
+        :pswitch_40
     .end packed-switch
 .end method
 
 .method protected print(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
 
     .line 218

@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 98
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 4
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -106,7 +106,7 @@
     .line 60
     iget-object v1, p0, Landroidx/preference/DialogPreference;->mDialogTitle:Ljava/lang/CharSequence;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1d
 
     .line 63
     invoke-virtual {p0}, Landroidx/preference/DialogPreference;->getTitle()Ljava/lang/CharSequence;
@@ -116,7 +116,7 @@
     iput-object v1, p0, Landroidx/preference/DialogPreference;->mDialogTitle:Ljava/lang/CharSequence;
 
     .line 66
-    :cond_0
+    :cond_1d
     sget v1, Landroidx/preference/R$styleable;->DialogPreference_dialogMessage:I
 
     sget v2, Landroidx/preference/R$styleable;->DialogPreference_android_dialogMessage:I
@@ -183,7 +183,7 @@
 
 # virtual methods
 .method public getDialogIcon()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 185
     iget-object v0, p0, Landroidx/preference/DialogPreference;->mDialogIcon:Landroid/graphics/drawable/Drawable;
@@ -192,7 +192,7 @@
 .end method
 
 .method public getDialogLayoutResource()I
-    .locals 1
+    .registers 2
 
     .line 259
     iget v0, p0, Landroidx/preference/DialogPreference;->mDialogLayoutResId:I
@@ -201,7 +201,7 @@
 .end method
 
 .method public getDialogMessage()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 157
     iget-object v0, p0, Landroidx/preference/DialogPreference;->mDialogMessage:Ljava/lang/CharSequence;
@@ -210,7 +210,7 @@
 .end method
 
 .method public getDialogTitle()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 125
     iget-object v0, p0, Landroidx/preference/DialogPreference;->mDialogTitle:Ljava/lang/CharSequence;
@@ -219,7 +219,7 @@
 .end method
 
 .method public getNegativeButtonText()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 239
     iget-object v0, p0, Landroidx/preference/DialogPreference;->mNegativeButtonText:Ljava/lang/CharSequence;
@@ -228,7 +228,7 @@
 .end method
 
 .method public getPositiveButtonText()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 212
     iget-object v0, p0, Landroidx/preference/DialogPreference;->mPositiveButtonText:Ljava/lang/CharSequence;
@@ -237,7 +237,7 @@
 .end method
 
 .method protected onClick()V
-    .locals 1
+    .registers 2
 
     .line 264
     invoke-virtual {p0}, Landroidx/preference/DialogPreference;->getPreferenceManager()Landroidx/preference/PreferenceManager;
@@ -251,7 +251,7 @@
 .end method
 
 .method public setDialogIcon(I)V
-    .locals 1
+    .registers 3
     .param p1, "dialogIconRes"    # I
 
     .line 175
@@ -270,7 +270,7 @@
 .end method
 
 .method public setDialogIcon(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1, "dialogIcon"    # Landroid/graphics/drawable/Drawable;
 
     .line 166
@@ -281,7 +281,7 @@
 .end method
 
 .method public setDialogLayoutResource(I)V
-    .locals 0
+    .registers 2
     .param p1, "dialogLayoutResId"    # I
 
     .line 250
@@ -292,7 +292,7 @@
 .end method
 
 .method public setDialogMessage(I)V
-    .locals 1
+    .registers 3
     .param p1, "dialogMessageResId"    # I
 
     .line 147
@@ -311,7 +311,7 @@
 .end method
 
 .method public setDialogMessage(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "dialogMessage"    # Ljava/lang/CharSequence;
 
     .line 139
@@ -322,7 +322,7 @@
 .end method
 
 .method public setDialogTitle(I)V
-    .locals 1
+    .registers 3
     .param p1, "dialogTitleResId"    # I
 
     .line 115
@@ -341,7 +341,7 @@
 .end method
 
 .method public setDialogTitle(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "dialogTitle"    # Ljava/lang/CharSequence;
 
     .line 107
@@ -352,7 +352,7 @@
 .end method
 
 .method public setNegativeButtonText(I)V
-    .locals 1
+    .registers 3
     .param p1, "negativeButtonTextResId"    # I
 
     .line 229
@@ -371,7 +371,7 @@
 .end method
 
 .method public setNegativeButtonText(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "negativeButtonText"    # Ljava/lang/CharSequence;
 
     .line 221
@@ -382,7 +382,7 @@
 .end method
 
 .method public setPositiveButtonText(I)V
-    .locals 1
+    .registers 3
     .param p1, "positiveButtonTextResId"    # I
 
     .line 202
@@ -401,7 +401,7 @@
 .end method
 
 .method public setPositiveButtonText(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "positiveButtonText"    # Ljava/lang/CharSequence;
 
     .line 194

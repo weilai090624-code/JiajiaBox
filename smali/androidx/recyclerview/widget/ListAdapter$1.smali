@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/ListAdapter;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/ListAdapter;
 
     .line 98
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onCurrentListChanged(Ljava/util/List;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(JJ)V
-    .locals 2
+    .registers 7
     .param p1, "delay"    # J
     .param p3, "duration"    # J
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(JJLandroid/animation/TimeInterpolator;)V
-    .locals 2
+    .registers 8
     .param p1, "delay"    # J
     .param p3, "duration"    # J
     .param p5, "interpolator"    # Landroid/animation/TimeInterpolator;
@@ -107,7 +107,7 @@
 .end method
 
 .method static createFromAnimator(Landroid/animation/ValueAnimator;)Lcom/google/android/material/animation/MotionTiming;
-    .locals 7
+    .registers 8
     .param p0, "animator"    # Landroid/animation/ValueAnimator;
 
     .line 83
@@ -150,7 +150,7 @@
 .end method
 
 .method private static getInterpolatorCompat(Landroid/animation/ValueAnimator;)Landroid/animation/TimeInterpolator;
-    .locals 2
+    .registers 3
     .param p0, "animator"    # Landroid/animation/ValueAnimator;
 
     .line 102
@@ -162,17 +162,17 @@
     .local v0, "interpolator":Landroid/animation/TimeInterpolator;
     instance-of v1, v0, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_1a
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 105
-    :cond_0
+    :cond_b
     instance-of v1, v0, Landroid/view/animation/AccelerateInterpolator;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_12
 
     .line 106
     sget-object v1, Lcom/google/android/material/animation/AnimationUtils;->FAST_OUT_LINEAR_IN_INTERPOLATOR:Landroid/animation/TimeInterpolator;
@@ -180,10 +180,10 @@
     return-object v1
 
     .line 107
-    :cond_1
+    :cond_12
     instance-of v1, v0, Landroid/view/animation/DecelerateInterpolator;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_19
 
     .line 108
     sget-object v1, Lcom/google/android/material/animation/AnimationUtils;->LINEAR_OUT_SLOW_IN_INTERPOLATOR:Landroid/animation/TimeInterpolator;
@@ -191,12 +191,12 @@
     return-object v1
 
     .line 110
-    :cond_2
+    :cond_19
     return-object v0
 
     .line 104
-    :cond_3
-    :goto_0
+    :cond_1a
+    :goto_1a
     sget-object v1, Lcom/google/android/material/animation/AnimationUtils;->FAST_OUT_SLOW_IN_INTERPOLATOR:Landroid/animation/TimeInterpolator;
 
     return-object v1
@@ -205,7 +205,7 @@
 
 # virtual methods
 .method public apply(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 51
@@ -232,7 +232,7 @@
     .line 54
     instance-of v0, p1, Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 55
     move-object v0, p1
@@ -257,16 +257,16 @@
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
 
     .line 58
-    :cond_0
+    :cond_2d
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 116
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 117
     const/4 v0, 0x1
@@ -274,18 +274,18 @@
     return v0
 
     .line 119
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/android/material/animation/MotionTiming;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     .line 120
     return v1
 
     .line 123
-    :cond_1
+    :cond_a
     move-object v0, p1
 
     check-cast v0, Lcom/google/android/material/animation/MotionTiming;
@@ -302,13 +302,13 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_1a
 
     .line 126
     return v1
 
     .line 128
-    :cond_2
+    :cond_1a
     invoke-virtual {p0}, Lcom/google/android/material/animation/MotionTiming;->getDuration()J
 
     move-result-wide v2
@@ -319,13 +319,13 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_27
 
     .line 129
     return v1
 
     .line 131
-    :cond_3
+    :cond_27
     invoke-virtual {p0}, Lcom/google/android/material/animation/MotionTiming;->getRepeatCount()I
 
     move-result v2
@@ -334,13 +334,13 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_4
+    if-eq v2, v3, :cond_32
 
     .line 132
     return v1
 
     .line 134
-    :cond_4
+    :cond_32
     invoke-virtual {p0}, Lcom/google/android/material/animation/MotionTiming;->getRepeatMode()I
 
     move-result v2
@@ -349,13 +349,13 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_5
+    if-eq v2, v3, :cond_3d
 
     .line 135
     return v1
 
     .line 137
-    :cond_5
+    :cond_3d
     invoke-virtual {p0}, Lcom/google/android/material/animation/MotionTiming;->getInterpolator()Landroid/animation/TimeInterpolator;
 
     move-result-object v1
@@ -380,7 +380,7 @@
 .end method
 
 .method public getDelay()J
-    .locals 2
+    .registers 3
 
     .line 61
     iget-wide v0, p0, Lcom/google/android/material/animation/MotionTiming;->delay:J
@@ -389,7 +389,7 @@
 .end method
 
 .method public getDuration()J
-    .locals 2
+    .registers 3
 
     .line 65
     iget-wide v0, p0, Lcom/google/android/material/animation/MotionTiming;->duration:J
@@ -398,26 +398,26 @@
 .end method
 
 .method public getInterpolator()Landroid/animation/TimeInterpolator;
-    .locals 1
+    .registers 2
 
     .line 70
     iget-object v0, p0, Lcom/google/android/material/animation/MotionTiming;->interpolator:Landroid/animation/TimeInterpolator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Lcom/google/android/material/animation/MotionTiming;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     sget-object v0, Lcom/google/android/material/animation/AnimationUtils;->FAST_OUT_SLOW_IN_INTERPOLATOR:Landroid/animation/TimeInterpolator;
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method
 
 .method public getRepeatCount()I
-    .locals 1
+    .registers 2
 
     .line 74
     iget v0, p0, Lcom/google/android/material/animation/MotionTiming;->repeatCount:I
@@ -426,7 +426,7 @@
 .end method
 
 .method public getRepeatMode()I
-    .locals 1
+    .registers 2
 
     .line 78
     iget v0, p0, Lcom/google/android/material/animation/MotionTiming;->repeatMode:I
@@ -435,7 +435,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 7
+    .registers 8
 
     .line 142
     invoke-virtual {p0}, Lcom/google/android/material/animation/MotionTiming;->getDelay()J
@@ -522,7 +522,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 153
     new-instance v0, Ljava/lang/StringBuilder;

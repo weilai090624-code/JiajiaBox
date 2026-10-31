@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -76,7 +76,7 @@
 .end method
 
 .method private brightness(F)V
-    .locals 4
+    .registers 6
     .param p1, "brightness"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -236,7 +236,7 @@
 .end method
 
 .method private saturation(F)V
-    .locals 13
+    .registers 15
     .param p1, "saturationStrength"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -434,7 +434,7 @@
 .end method
 
 .method private warmth(F)V
-    .locals 21
+    .registers 23
     .param p1, "warmth"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -456,23 +456,23 @@
 
     cmpg-float v3, p1, v2
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_e
 
     const v3, 0x3c23d70a    # 0.01f
 
     .end local p1    # "warmth":F
     .local v3, "warmth":F
-    goto :goto_0
+    goto :goto_10
 
     .end local v3    # "warmth":F
     .restart local p1    # "warmth":F
-    :cond_0
+    :cond_e
     move/from16 v3, p1
 
     .line 141
     .end local p1    # "warmth":F
     .restart local v3    # "warmth":F
-    :goto_0
+    :goto_10
     div-float v4, v1, v3
 
     .line 143
@@ -501,7 +501,7 @@
 
     cmpl-float v17, v6, v16
 
-    if-lez v17, :cond_1
+    if-lez v17, :cond_49
 
     .line 146
     sub-float v5, v6, v13
@@ -537,13 +537,13 @@
     .line 150
     .end local v5    # "tmp":F
     .local v3, "colorG":F
-    goto :goto_1
+    goto :goto_57
 
     .line 151
     .end local v2    # "colorR":F
     .end local v18    # "warmth":F
     .local v3, "warmth":F
-    :cond_1
+    :cond_49
     move/from16 v18, v3
 
     .end local v3    # "warmth":F
@@ -566,7 +566,7 @@
 
     .line 154
     .restart local v2    # "colorR":F
-    :goto_1
+    :goto_57
     const v5, 0x439885bc
 
     const/high16 v10, 0x41200000    # 10.0f
@@ -577,12 +577,12 @@
 
     cmpg-float v20, v6, v16
 
-    if-gez v20, :cond_3
+    if-gez v20, :cond_77
 
     .line 155
     cmpl-float v20, v6, v19
 
-    if-lez v20, :cond_2
+    if-lez v20, :cond_75
 
     .line 156
     sub-float v14, v6, v10
@@ -600,24 +600,24 @@
     sub-float/2addr v9, v5
 
     .local v9, "colorB":F
-    goto :goto_2
+    goto :goto_79
 
     .line 158
     .end local v9    # "colorB":F
-    :cond_2
+    :cond_75
     const/4 v9, 0x0
 
     .restart local v9    # "colorB":F
-    goto :goto_2
+    goto :goto_79
 
     .line 161
     .end local v9    # "colorB":F
-    :cond_3
+    :cond_77
     const/high16 v9, 0x437f0000    # 255.0f
 
     .line 163
     .restart local v9    # "colorB":F
-    :goto_2
+    :goto_79
     const/4 v10, 0x0
 
     invoke-static {v2, v10}, Ljava/lang/Math;->max(FF)F
@@ -678,7 +678,7 @@
     .local v10, "centiKelvin":F
     cmpl-float v15, v10, v16
 
-    if-lez v15, :cond_4
+    if-lez v15, :cond_c3
 
     .line 176
     sub-float v13, v10, v13
@@ -728,7 +728,7 @@
     .line 180
     .end local v13    # "tmp":F
     .local v1, "colorG":F
-    goto :goto_3
+    goto :goto_d7
 
     .line 181
     .end local v5    # "colorR":F
@@ -738,7 +738,7 @@
     .local v1, "baseTemperature":F
     .restart local v2    # "tmpColor_b":F
     .restart local v6    # "color_g":F
-    :cond_4
+    :cond_c3
     move v8, v1
 
     move v12, v2
@@ -773,15 +773,15 @@
 
     .line 184
     .restart local v5    # "colorR":F
-    :goto_3
+    :goto_d7
     cmpg-float v2, v10, v16
 
-    if-gez v2, :cond_6
+    if-gez v2, :cond_f5
 
     .line 185
     cmpl-float v2, v10, v19
 
-    if-lez v2, :cond_5
+    if-lez v2, :cond_f3
 
     .line 186
     const/high16 v2, 0x41200000    # 10.0f
@@ -805,24 +805,24 @@
     sub-float/2addr v2, v6
 
     .local v2, "colorB":F
-    goto :goto_4
+    goto :goto_f7
 
     .line 188
     .end local v2    # "colorB":F
-    :cond_5
+    :cond_f3
     const/4 v2, 0x0
 
     .restart local v2    # "colorB":F
-    goto :goto_4
+    goto :goto_f7
 
     .line 191
     .end local v2    # "colorB":F
-    :cond_6
+    :cond_f5
     const/high16 v2, 0x437f0000    # 255.0f
 
     .line 193
     .restart local v2    # "colorB":F
-    :goto_4
+    :goto_f7
     const/4 v6, 0x0
 
     invoke-static {v5, v6}, Ljava/lang/Math;->max(FF)F
@@ -1022,7 +1022,7 @@
 
 # virtual methods
 .method updateMatrix(Landroid/widget/ImageView;)V
-    .locals 6
+    .registers 8
     .param p1, "view"    # Landroid/widget/ImageView;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1049,7 +1049,7 @@
 
     cmpl-float v1, v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 257
     iget v1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mSaturation:F
@@ -1067,12 +1067,12 @@
     const/4 v0, 0x1
 
     .line 261
-    :cond_0
+    :cond_1b
     iget v1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mContrast:F
 
     cmpl-float v1, v1, v2
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_34
 
     .line 262
     iget-object v1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
@@ -1096,12 +1096,12 @@
     const/4 v0, 0x1
 
     .line 266
-    :cond_1
+    :cond_34
     iget v1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mWarmth:F
 
     cmpl-float v1, v1, v2
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4e
 
     .line 267
     iget v1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mWarmth:F
@@ -1126,12 +1126,12 @@
     const/4 v0, 0x1
 
     .line 272
-    :cond_2
+    :cond_4e
     iget v1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mBrightness:F
 
     cmpl-float v1, v1, v2
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_68
 
     .line 273
     iget v1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mBrightness:F
@@ -1156,8 +1156,8 @@
     const/4 v0, 0x1
 
     .line 279
-    :cond_3
-    if-eqz v0, :cond_4
+    :cond_68
+    if-eqz v0, :cond_75
 
     .line 280
     new-instance v1, Landroid/graphics/ColorMatrixColorFilter;
@@ -1168,13 +1168,13 @@
 
     invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    goto :goto_0
+    goto :goto_78
 
     .line 282
-    :cond_4
+    :cond_75
     invoke-virtual {p1}, Landroid/widget/ImageView;->clearColorFilter()V
 
     .line 284
-    :goto_0
+    :goto_78
     return-void
 .end method

@@ -78,7 +78,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/collections/AbstractList;II)V
-    .locals 3
+    .registers 7
     .param p1, "list"    # Lkotlin/collections/AbstractList;
     .param p2, "fromIndex"    # I
     .param p3, "toIndex"    # I
@@ -134,7 +134,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,7 +164,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 51
     iget v0, p0, Lkotlin/collections/AbstractList$SubList;->_size:I

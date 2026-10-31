@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/SearchView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/widget/SearchView;
 
     .line 1730
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 0
+    .registers 2
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 1742
@@ -45,7 +45,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
@@ -56,7 +56,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I

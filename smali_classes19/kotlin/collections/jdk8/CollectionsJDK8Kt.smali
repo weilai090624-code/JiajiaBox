@@ -37,7 +37,7 @@
 
 # direct methods
 .method private static final getOrDefault(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getOrDefault"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "defaultValue"    # Ljava/lang/Object;
@@ -66,7 +66,7 @@
 .end method
 
 .method private static final remove(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "$this$remove"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;

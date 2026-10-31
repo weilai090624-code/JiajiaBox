@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/AppCompatTextHelper;Landroid/widget/TextView;Landroid/graphics/Typeface;I)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/appcompat/widget/AppCompatTextHelper;
 
     .line 446
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 449
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextHelper$2;->val$textView:Landroid/widget/TextView;

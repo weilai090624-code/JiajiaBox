@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Iterator;Lcom/google/common/base/Function;)V
-    .locals 0
+    .registers 3
 
     .line 822
     .local p1, "backingIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TF;>;"
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

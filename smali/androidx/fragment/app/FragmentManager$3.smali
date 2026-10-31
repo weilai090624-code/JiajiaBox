@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentManager;
 
     .line 502
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public instantiate(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroidx/fragment/app/Fragment;
-    .locals 3
+    .registers 6
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
 

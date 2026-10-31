@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$create(Landroidx/lifecycle/ViewModelProvider$Factory;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Landroidx/lifecycle/ViewModelProvider$Factory;
     .param p1, "modelClass"    # Ljava/lang/Class;
 
@@ -29,7 +29,7 @@
 .end method
 
 .method public static $default$create(Landroidx/lifecycle/ViewModelProvider$Factory;Ljava/lang/Class;Landroidx/lifecycle/viewmodel/CreationExtras;)Landroidx/lifecycle/ViewModel;
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Landroidx/lifecycle/ViewModelProvider$Factory;
     .param p1, "modelClass"    # Ljava/lang/Class;
     .param p2, "extras"    # Landroidx/lifecycle/viewmodel/CreationExtras;
@@ -52,7 +52,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     sget-object v0, Landroidx/lifecycle/ViewModelProvider$Factory;->Companion:Landroidx/lifecycle/ViewModelProvider$Factory$Companion;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public static varargs from([Landroidx/lifecycle/viewmodel/ViewModelInitializer;)Landroidx/lifecycle/ViewModelProvider$Factory;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",

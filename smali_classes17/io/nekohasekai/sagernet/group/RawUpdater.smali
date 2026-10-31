@@ -332,7 +332,7 @@
 
     const/4 v7, 0x0
 
-    packed-switch v3, :pswitch_data_866
+    packed-switch v3, :pswitch_data_870
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v12    # "$result":Ljava/lang/Object;
@@ -351,7 +351,7 @@
 
     move-object/from16 v24, v12
 
-    goto/16 :goto_84a
+    goto/16 :goto_853
 
     :pswitch_40
     iget v3, v1, Lio/nekohasekai/sagernet/group/RawUpdater$doUpdate$1;->I$0:I
@@ -404,7 +404,7 @@
 
     move-object v3, v11
 
-    goto/16 :goto_824
+    goto/16 :goto_82d
 
     .end local v3    # "changed":I
     .end local v4    # "byUser":Z
@@ -440,7 +440,7 @@
     .local v9, "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
     invoke-static {v12}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_33c
+    goto/16 :goto_342
 
     .end local v3    # "byUser":Z
     .end local v4    # "proxies":Ljava/util/List;
@@ -484,7 +484,7 @@
 
     const/4 v0, 0x2
 
-    goto/16 :goto_219
+    goto/16 :goto_21f
 
     .end local v3    # "byUser":Z
     .end local v4    # "response":Llibcore/HTTPResponse;
@@ -523,7 +523,7 @@
 
     move-object v0, v12
 
-    goto/16 :goto_146
+    goto/16 :goto_149
 
     .end local v3    # "$i$a$-let-RawUpdater$doUpdate$2":I
     .end local v4    # "byUser":Z
@@ -567,7 +567,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_171
+    if-eqz v0, :cond_174
 
     .line 52
     nop
@@ -656,7 +656,7 @@
 
     .line 55
     .local v0, "contentText":Ljava/lang/String;
-    if-eqz v0, :cond_152
+    if-eqz v0, :cond_155
 
     .line 813
     const/4 v10, 0x0
@@ -717,18 +717,20 @@
     .local p3, "contentText":Ljava/lang/String;
     move-object/from16 v8, v20
 
+    invoke-static {v10, v4}, Lio/nekohasekai/sagernet/ui/SubscriptionDns;->stage(Ljava/lang/Object;Ljava/lang/String;)V
+
     invoke-static/range {v3 .. v8}, Lio/nekohasekai/sagernet/group/RawUpdater;->parseRaw$default(Lio/nekohasekai/sagernet/group/RawUpdater;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
     .end local p3    # "contentText":Ljava/lang/String;
-    if-ne v3, v13, :cond_13d
+    if-ne v3, v13, :cond_140
 
     .line 40
     return-object v13
 
     .line 55
-    :cond_13d
+    :cond_140
     move-object v6, v0
 
     move-object v0, v3
@@ -754,11 +756,11 @@
     .local v6, "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
     .local v8, "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .local v10, "this":Lio/nekohasekai/sagernet/group/RawUpdater;
-    :goto_146
+    :goto_149
     check-cast v0, Ljava/util/List;
 
     .end local v3    # "$i$a$-let-RawUpdater$doUpdate$2":I
-    if-eqz v0, :cond_159
+    if-eqz v0, :cond_15c
 
     move v3, v4
 
@@ -773,7 +775,7 @@
     const/4 v15, 0x0
 
     .local v0, "proxies":Ljava/util/List;
-    goto/16 :goto_26a
+    goto/16 :goto_270
 
     .end local v10    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .local v0, "contentText":Ljava/lang/String;
@@ -782,7 +784,7 @@
     .local v6, "byUser":Z
     .local v8, "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
     .restart local v11    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
-    :cond_152
+    :cond_155
     move-object/from16 p3, v0
 
     move-object v15, v4
@@ -800,7 +802,7 @@
     .end local v6    # "byUser":Z
     .end local v8    # "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
     .end local v11    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
-    :cond_159
+    :cond_15c
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
     move-result-object v0
@@ -830,7 +832,7 @@
     .restart local v6    # "byUser":Z
     .restart local v8    # "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
     .restart local v11    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
-    :cond_171
+    :cond_174
     move-object v15, v4
 
     move-object v10, v5
@@ -887,13 +889,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_19a
+    if-eqz v6, :cond_19d
 
     invoke-interface {v4}, Llibcore/HTTPClient;->restrictedTLS()V
 
     .line 65
     .end local v4    # "$this$doUpdate_u24lambda_u241":Llibcore/HTTPClient;
-    :cond_19a
+    :cond_19d
     nop
 
     .line 59
@@ -918,13 +920,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1ad
+    if-eqz v6, :cond_1b0
 
     .line 67
     invoke-interface {v4}, Llibcore/HTTPRequest;->allowInsecure()V
 
     .line 69
-    :cond_1ad
+    :cond_1b0
     iget-object v6, v0, Lio/nekohasekai/sagernet/database/SubscriptionBean;->link:Ljava/lang/String;
 
     invoke-interface {v4, v6}, Llibcore/HTTPRequest;->setURL(Ljava/lang/String;)V
@@ -951,18 +953,18 @@
 
     move-result v20
 
-    if-nez v20, :cond_1c6
+    if-nez v20, :cond_1c9
 
     const/4 v6, 0x1
 
-    goto :goto_1c7
+    goto :goto_1ca
 
-    :cond_1c6
+    :cond_1c9
     const/4 v6, 0x0
 
     .end local v6    # "it":Ljava/lang/String;
     .end local v19    # "$i$a$-takeIf-RawUpdater$doUpdate$response$2$1":I
-    :goto_1c7
+    :goto_1ca
     invoke-static {v6}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
     move-result-object v6
@@ -971,19 +973,19 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1d2
+    if-eqz v6, :cond_1d5
 
-    goto :goto_1d3
+    goto :goto_1d6
 
-    :cond_1d2
+    :cond_1d5
     const/4 v7, 0x0
 
-    :goto_1d3
-    if-nez v7, :cond_1d7
+    :goto_1d6
+    if-nez v7, :cond_1da
 
-    const-string v7, "NekoBox/Android/0.0.2 (Prefer ClashMeta Format)"
+    const-string v7, "JiajiaBox/Android/0.0.5"
 
-    :cond_1d7
+    :cond_1da
     invoke-interface {v4, v7}, Llibcore/HTTPRequest;->setUserAgent(Ljava/lang/String;)V
 
     .line 71
@@ -1057,17 +1059,19 @@
     .local v19, "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
     move-object/from16 v8, v20
 
+    invoke-static {v10, v4}, Lio/nekohasekai/sagernet/ui/SubscriptionDns;->stage(Ljava/lang/Object;Ljava/lang/String;)V
+
     invoke-static/range {v3 .. v8}, Lio/nekohasekai/sagernet/group/RawUpdater;->parseRaw$default(Lio/nekohasekai/sagernet/group/RawUpdater;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    if-ne v3, v13, :cond_212
+    if-ne v3, v13, :cond_218
 
     .line 40
     return-object v13
 
     .line 72
-    :cond_212
+    :cond_218
     move-object v8, v11
 
     move-object v5, v15
@@ -1087,10 +1091,10 @@
     .local v6, "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
     .local v8, "this":Lio/nekohasekai/sagernet/group/RawUpdater;
     .local v11, "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :goto_219
+    :goto_21f
     check-cast v3, Ljava/util/List;
 
-    if-eqz v3, :cond_84e
+    if-eqz v3, :cond_857
 
     .line 75
     .local v3, "proxies":Ljava/util/List;
@@ -1117,7 +1121,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_23f
+    if-eqz v7, :cond_245
 
     const-string v9, "Subscription #"
 
@@ -1131,24 +1135,24 @@
 
     const/4 v7, 0x1
 
-    if-ne v0, v7, :cond_242
+    if-ne v0, v7, :cond_248
 
     const/4 v0, 0x1
 
-    goto :goto_243
+    goto :goto_249
 
-    :cond_23f
+    :cond_245
     const/4 v7, 0x1
 
     const/4 v10, 0x0
 
     const/4 v15, 0x0
 
-    :cond_242
+    :cond_248
     const/4 v0, 0x0
 
-    :goto_243
-    if-eqz v0, :cond_266
+    :goto_249
+    if-eqz v0, :cond_26c
 
     .line 80
     sget-object v0, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
@@ -1168,7 +1172,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_266
+    if-nez v4, :cond_26c
 
     .line 82
     sget-object v4, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
@@ -1186,14 +1190,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_266
+    if-nez v4, :cond_26c
 
     .line 84
     invoke-virtual {v11, v0}, Lio/nekohasekai/sagernet/database/ProxyGroup;->setName(Ljava/lang/String;)V
 
     .line 90
     .end local v0    # "remoteName":Ljava/lang/String;
-    :cond_266
+    :cond_26c
     move-object v0, v3
 
     move-object v9, v11
@@ -1205,7 +1209,7 @@
     .local v0, "proxies":Ljava/util/List;
     .local v3, "byUser":Z
     .restart local v9    # "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :goto_26a
+    :goto_270
     new-instance v4, Ljava/util/LinkedHashMap;
 
     invoke-direct {v4}, Ljava/util/LinkedHashMap;-><init>()V
@@ -1217,12 +1221,12 @@
     move-result-object v11
 
     .end local v0    # "proxies":Ljava/util/List;
-    :goto_273
+    :goto_279
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_306
+    if-eqz v0, :cond_30c
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1244,12 +1248,12 @@
 
     .line 94
     .local v7, "name":Ljava/lang/String;
-    :goto_287
+    :goto_28d
     invoke-virtual {v4, v7}, Ljava/util/LinkedHashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v18
 
-    if-eqz v18, :cond_2f5
+    if-eqz v18, :cond_2fb
 
     .line 95
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1362,12 +1366,12 @@
 
     const/4 v15, 0x0
 
-    goto :goto_287
+    goto :goto_28d
 
     .line 101
     .end local v10    # "index":I
     .restart local v17    # "index":I
-    :cond_2f5
+    :cond_2fb
     move-object v2, v4
 
     check-cast v2, Ljava/util/Map;
@@ -1386,13 +1390,13 @@
 
     const/4 v15, 0x0
 
-    goto/16 :goto_273
+    goto/16 :goto_279
 
     .line 103
     .end local v0    # "proxy":Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .end local v7    # "name":Ljava/lang/String;
     .end local v17    # "index":I
-    :cond_306
+    :cond_30c
     invoke-virtual {v4}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
 
     move-result-object v0
@@ -1416,7 +1420,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33d
+    if-eqz v0, :cond_343
 
     invoke-virtual {v9}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getId()J
 
@@ -1449,17 +1453,17 @@
     move-result-object v0
 
     .end local v8    # "this":Lio/nekohasekai/sagernet/group/RawUpdater;
-    if-ne v0, v13, :cond_33c
+    if-ne v0, v13, :cond_342
 
     .line 40
     return-object v13
 
     .line 107
-    :cond_33c
-    :goto_33c
+    :cond_342
+    :goto_342
     nop
 
-    :cond_33d
+    :cond_343
     sget-object v0, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getProxyDao()Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
@@ -1490,7 +1494,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4a5
+    if-eqz v2, :cond_4ab
 
     .line 110
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1537,12 +1541,12 @@
     move-result-object v11
 
     .end local v4    # "proxies":Ljava/util/List;
-    :goto_383
+    :goto_389
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_45b
+    if-eqz v4, :cond_461
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1578,7 +1582,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_445
+    if-nez v11, :cond_44b
 
     .line 116
     move-object v11, v2
@@ -1595,7 +1599,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_41c
+    if-eqz v15, :cond_422
 
     .line 118
     invoke-virtual {v8, v7}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1656,7 +1660,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_419
+    if-nez v15, :cond_41f
 
     .line 120
     new-instance v15, Ljava/lang/StringBuilder;
@@ -1701,29 +1705,29 @@
 
     invoke-interface {v12, v7, v15}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_41e
+    goto :goto_424
 
     .line 119
     .restart local v12    # "name":Ljava/lang/String;
-    :cond_419
+    :cond_41f
     move-object/from16 v18, v12
 
     .end local v12    # "name":Ljava/lang/String;
     .restart local v18    # "name":Ljava/lang/String;
-    goto :goto_41e
+    goto :goto_424
 
     .line 117
     .end local v18    # "name":Ljava/lang/String;
     .end local v24    # "$result":Ljava/lang/Object;
     .local v12, "$result":Ljava/lang/Object;
-    :cond_41c
+    :cond_422
     move-object/from16 v24, v12
 
     .line 124
     .end local v7    # "proxy":Lmoe/matsuri/nb4a/Protocols$Deduplication;
     .end local v12    # "$result":Ljava/lang/Object;
     .restart local v24    # "$result":Ljava/lang/Object;
-    :goto_41e
+    :goto_424
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1762,14 +1766,14 @@
     .end local v11    # "index":I
     invoke-static {v4}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
-    goto :goto_455
+    goto :goto_45b
 
     .line 126
     .end local v24    # "$result":Ljava/lang/Object;
     .restart local v4    # "_proxy":Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .restart local v7    # "proxy":Lmoe/matsuri/nb4a/Protocols$Deduplication;
     .restart local v12    # "$result":Ljava/lang/Object;
-    :cond_445
+    :cond_44b
     move-object/from16 v24, v12
 
     const/16 v12, 0x29
@@ -1790,17 +1794,17 @@
 
     .end local v4    # "_proxy":Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .end local v7    # "proxy":Lmoe/matsuri/nb4a/Protocols$Deduplication;
-    :goto_455
+    :goto_45b
     move-object/from16 v11, v17
 
     move-object/from16 v12, v24
 
-    goto/16 :goto_383
+    goto/16 :goto_389
 
     .line 129
     .end local v24    # "$result":Ljava/lang/Object;
     .restart local v12    # "$result":Ljava/lang/Object;
-    :cond_45b
+    :cond_461
     move-object/from16 v24, v12
 
     .end local v12    # "$result":Ljava/lang/Object;
@@ -1859,12 +1863,12 @@
     move-result-object v11
 
     .end local v2    # "$this$mapTo$iv$iv":Ljava/lang/Iterable;
-    :goto_488
+    :goto_48e
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_49e
+    if-eqz v2, :cond_4a4
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1890,11 +1894,11 @@
     .end local v14    # "$i$a$-map-RawUpdater$doUpdate$3":I
     invoke-interface {v7, v12}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_488
+    goto :goto_48e
 
     .line 817
     .end local v2    # "item$iv$iv":Ljava/lang/Object;
-    :cond_49e
+    :cond_4a4
     nop
 
     .end local v7    # "destination$iv$iv":Ljava/util/Collection;
@@ -1911,18 +1915,18 @@
     move-object v4, v2
 
     .local v4, "proxies":Ljava/util/List;
-    goto :goto_4a7
+    goto :goto_4ad
 
     .line 109
     .end local v24    # "$result":Ljava/lang/Object;
     .local v12, "$result":Ljava/lang/Object;
-    :cond_4a5
+    :cond_4ab
     move-object/from16 v24, v12
 
     .line 133
     .end local v12    # "$result":Ljava/lang/Object;
     .restart local v24    # "$result":Ljava/lang/Object;
-    :goto_4a7
+    :goto_4ad
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1996,12 +2000,12 @@
     move-result-object v12
 
     .end local v2    # "$this$associateByTo$iv$iv":Ljava/lang/Iterable;
-    :goto_4e4
+    :goto_4ea
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4fa
+    if-eqz v2, :cond_500
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2027,11 +2031,11 @@
     .end local v15    # "$i$a$-associateBy-RawUpdater$doUpdate$nameMap$1":I
     invoke-interface {v8, v14, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_4e4
+    goto :goto_4ea
 
     .line 823
     .end local v2    # "element$iv$iv":Ljava/lang/Object;
-    :cond_4fa
+    :cond_500
     nop
 
     .line 819
@@ -2109,12 +2113,12 @@
     move-result-object v15
 
     .end local v0    # "$this$forEach$iv$iv$iv":Ljava/lang/Iterable;
-    :goto_52f
+    :goto_535
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_563
+    if-eqz v0, :cond_569
 
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2146,16 +2150,16 @@
 
     move-result v19
 
-    if-eqz v19, :cond_550
+    if-eqz v19, :cond_556
 
     invoke-static {v8, v0}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
 
     move-result-object v19
 
-    goto :goto_557
+    goto :goto_55d
 
     .end local v8    # "name":Ljava/lang/String;
-    :cond_550
+    :cond_556
     const/4 v8, 0x0
 
     .line 145
@@ -2171,12 +2175,12 @@
     const/16 v19, 0x0
 
     .line 147
-    :goto_557
+    :goto_55d
     nop
 
     .line 832
     .end local v17    # "$i$a$-mapNotNull-RawUpdater$doUpdate$toReplace$1":I
-    if-eqz v19, :cond_560
+    if-eqz v19, :cond_566
 
     move-object/from16 v0, v19
 
@@ -2192,15 +2196,15 @@
     .end local v0    # "it$iv$iv":Ljava/lang/Object;
     .end local v8    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
     .end local v16    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
-    :cond_560
+    :cond_566
     move/from16 v8, v18
 
-    goto :goto_52f
+    goto :goto_535
 
     .line 835
     .end local v18    # "$i$f$mapNotNull":I
     .local v8, "$i$f$mapNotNull":I
-    :cond_563
+    :cond_569
     move/from16 v18, v8
 
     .line 836
@@ -2347,12 +2351,12 @@
     move-result-object v18
 
     .end local v14    # "$this$mapTo$iv$iv":Ljava/lang/Iterable;
-    :goto_5d7
+    :goto_5dd
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_5f1
+    if-eqz v14, :cond_5f7
 
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2382,11 +2386,11 @@
     .end local v20    # "$i$a$-map-RawUpdater$doUpdate$deleted$1":I
     invoke-interface {v13, v14}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_5d7
+    goto :goto_5dd
 
     .line 840
     .end local p4    # "item$iv$iv":Ljava/lang/Object;
-    :cond_5f1
+    :cond_5f7
     nop
 
     .end local v13    # "destination$iv$iv":Ljava/util/Collection;
@@ -2424,12 +2428,12 @@
 
     .end local v16    # "changed":I
     .local v2, "changed":I
-    :goto_606
+    :goto_60c
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v16
 
-    if-eqz v16, :cond_749
+    if-eqz v16, :cond_74f
 
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2468,7 +2472,7 @@
 
     move-result v16
 
-    if-eqz v16, :cond_6be
+    if-eqz v16, :cond_6c4
 
     .line 162
     invoke-interface {v0, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2519,7 +2523,7 @@
     move-result v5
 
     .end local v10    # "existsBean":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    if-nez v5, :cond_679
+    if-nez v5, :cond_67f
 
     .line 169
     add-int/lit8 v2, v2, 0x1
@@ -2562,19 +2566,19 @@
 
     invoke-virtual {v0, v5}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
-    goto/16 :goto_738
+    goto/16 :goto_73e
 
     .line 177
     .restart local v0    # "entity":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .restart local v13    # "bean":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    :cond_679
+    :cond_67f
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getUserOrder()J
 
     move-result-wide v22
 
     cmp-long v5, v22, v14
 
-    if-eqz v5, :cond_6a4
+    if-eqz v5, :cond_6aa
 
     .line 178
     invoke-virtual {v0, v13}, Lio/nekohasekai/sagernet/database/ProxyEntity;->putBean(Lio/nekohasekai/sagernet/fmt/AbstractBean;)Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -2610,10 +2614,10 @@
 
     invoke-virtual {v0, v5}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
-    goto/16 :goto_738
+    goto/16 :goto_73e
 
     .line 186
-    :cond_6a4
+    :cond_6aa
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2637,7 +2641,7 @@
     invoke-virtual {v0, v5}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .end local v3    # "name":Ljava/lang/String;
-    goto/16 :goto_738
+    goto/16 :goto_73e
 
     .line 190
     .end local v16    # "duplicate":Ljava/util/ArrayList;
@@ -2648,7 +2652,7 @@
     .restart local v5    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
     .local v10, "duplicate":Ljava/util/ArrayList;
     .restart local v13    # "bean":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    :cond_6be
+    :cond_6c4
     move-object/from16 v19, v0
 
     move-object/from16 v21, v5
@@ -2795,7 +2799,7 @@
 
     .line 200
     .end local v3    # "name":Ljava/lang/String;
-    :goto_738
+    :goto_73e
     nop
 
     .end local v14    # "userOrder":J
@@ -2814,7 +2818,7 @@
     move-object/from16 v5, v21
 
     .restart local v14    # "userOrder":J
-    goto/16 :goto_606
+    goto/16 :goto_60c
 
     .line 160
     .end local v16    # "duplicate":Ljava/util/ArrayList;
@@ -2827,7 +2831,7 @@
     .restart local v5    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
     .local v10, "duplicate":Ljava/util/ArrayList;
     .local v13, "deleted":Ljava/util/List;
-    :cond_749
+    :cond_74f
     move-object/from16 v19, v0
 
     move/from16 v20, v3
@@ -2973,7 +2977,7 @@
 
     move-result v3
 
-    if-eq v0, v3, :cond_7de
+    if-eq v0, v3, :cond_7e4
 
     .line 214
     sget-object v3, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -3015,7 +3019,7 @@
     .line 217
     .end local v0    # "existCount":I
     .end local v4    # "proxies":Ljava/util/List;
-    :cond_7de
+    :cond_7e4
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
@@ -3043,6 +3047,8 @@
     move-result-object v0
 
     invoke-interface {v0, v9}, Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;->updateGroup(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
+
+    invoke-static {v9}, Lio/nekohasekai/sagernet/ui/SubscriptionDns;->commit(Ljava/lang/Object;)V
 
     .line 219
     sget-object v0, Lio/nekohasekai/sagernet/group/GroupUpdater;->Companion:Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;
@@ -3089,13 +3095,13 @@
 
     move-object/from16 v13, v17
 
-    if-ne v0, v13, :cond_81c
+    if-ne v0, v13, :cond_825
 
     .line 40
     return-object v13
 
     .line 219
-    :cond_81c
+    :cond_825
     move-object v10, v3
 
     move-object v8, v4
@@ -3125,10 +3131,10 @@
     .local v8, "deleted":Ljava/util/List;
     .restart local v10    # "duplicate":Ljava/util/ArrayList;
     .local v14, "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :goto_824
+    :goto_82d
     invoke-static {v14, v6, v7, v8, v4}, Lio/nekohasekai/sagernet/ui/SubscriptionUpdates;->success(Ljava/lang/Object;Ljava/util/List;Ljava/util/Map;Ljava/util/List;Z)V
 
-    if-eqz v3, :cond_84d
+    if-eqz v3, :cond_856
 
     .line 222
     .end local v3    # "userInterface":Lio/nekohasekai/sagernet/database/GroupManager$Interface;
@@ -3136,13 +3142,13 @@
 
     check-cast v9, Ljava/util/List;
 
-    if-eqz v4, :cond_830
+    if-eqz v4, :cond_839
 
     const/4 v10, 0x1
 
-    goto :goto_831
+    goto :goto_83a
 
-    :cond_830
+    :cond_839
     const/4 v10, 0x0
 
     .line 221
@@ -3153,7 +3159,7 @@
     .end local v8    # "deleted":Ljava/util/List;
     .end local v10    # "duplicate":Ljava/util/ArrayList;
     .end local v14    # "proxyGroup":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :goto_831
+    :goto_83a
     const/4 v0, 0x0
 
     iput-object v0, v1, Lio/nekohasekai/sagernet/group/RawUpdater$doUpdate$1;->L$0:Ljava/lang/Object;
@@ -3180,26 +3186,26 @@
 
     move-result-object v0
 
-    if-ne v0, v13, :cond_84a
+    if-ne v0, v13, :cond_853
 
     .line 40
     return-object v13
 
     .line 224
-    :cond_84a
-    :goto_84a
+    :cond_853
+    :goto_853
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 221
-    :cond_84d
-    goto :goto_84a
+    :cond_856
+    goto :goto_853
 
     .line 73
     .end local v24    # "$result":Ljava/lang/Object;
     .local v12, "$result":Ljava/lang/Object;
-    :cond_84e
+    :cond_857
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
     move-result-object v0
@@ -3222,7 +3228,9 @@
 
     throw v2
 
-    :pswitch_data_866
+    nop
+
+    :pswitch_data_870
     .packed-switch 0x0
         :pswitch_b7
         :pswitch_9e

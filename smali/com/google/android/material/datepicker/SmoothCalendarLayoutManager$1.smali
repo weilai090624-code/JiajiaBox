@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager;
     .param p2, "arg0"    # Landroid/content/Context;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method protected calculateSpeedPerPixel(Landroid/util/DisplayMetrics;)F
-    .locals 2
+    .registers 4
     .param p1, "displayMetrics"    # Landroid/util/DisplayMetrics;
 
     .line 45

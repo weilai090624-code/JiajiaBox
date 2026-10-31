@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method static createColorResourcesIdsToColorValues(Lcom/google/android/material/color/utilities/Scheme;)Ljava/util/Map;
-    .locals 3
+    .registers 4
     .param p0, "colorScheme"    # Lcom/google/android/material/color/utilities/Scheme;
     .annotation system Ldalvik/annotation/Signature;
         value = {

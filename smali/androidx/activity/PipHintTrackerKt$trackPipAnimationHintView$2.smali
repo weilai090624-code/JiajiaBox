@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Landroidx/activity/PipHintTrackerKt$trackPipAnimationHintView$2;->$this_trackPipAnimationHintView:Landroid/app/Activity;
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final emit(Landroid/graphics/Rect;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "hint"    # Landroid/graphics/Rect;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -94,7 +94,7 @@
 .end method
 
 .method public bridge synthetic emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
 

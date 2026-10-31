@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 464
@@ -63,13 +63,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 465
     instance-of v0, p1, Lkotlinx/coroutines/channels/ChannelResult$Closed;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lkotlinx/coroutines/channels/ChannelResult$Closed;->cause:Ljava/lang/Throwable;
 
@@ -83,42 +83,42 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 466
     iget-object v0, p0, Lkotlinx/coroutines/channels/ChannelResult$Closed;->cause:Ljava/lang/Throwable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 467
     new-instance v0, Ljava/lang/StringBuilder;

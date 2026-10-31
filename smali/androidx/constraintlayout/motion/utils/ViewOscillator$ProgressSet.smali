@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 178
     invoke-direct {p0}, Landroidx/constraintlayout/motion/utils/ViewOscillator;-><init>()V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public setProperty(Landroid/view/View;F)V
-    .locals 9
+    .registers 12
     .param p1, "view"    # Landroid/view/View;
     .param p2, "t"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -57,7 +57,7 @@
 
     instance-of v2, p1, Landroidx/constraintlayout/motion/widget/MotionLayout;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     .line 184
     move-object v0, p1
@@ -70,19 +70,19 @@
 
     invoke-virtual {v0, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setProgress(F)V
 
-    goto :goto_2
+    goto :goto_4e
 
     .line 186
-    :cond_0
+    :cond_14
     iget-boolean v2, p0, Landroidx/constraintlayout/motion/utils/ViewOscillator$ProgressSet;->mNoMethod:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_19
 
     .line 187
     return-void
 
     .line 189
-    :cond_1
+    :cond_19
     const/4 v2, 0x0
 
     .line 191
@@ -91,7 +91,7 @@
 
     const/4 v4, 0x1
 
-    :try_start_0
+    :try_start_1c
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v5
@@ -107,16 +107,16 @@
     invoke-virtual {v5, v6, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v5
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2d
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1c .. :try_end_2d} :catch_2f
 
     move-object v2, v5
 
     .line 194
-    goto :goto_0
+    goto :goto_32
 
     .line 192
-    :catch_0
+    :catch_2f
     move-exception v5
 
     .line 193
@@ -125,11 +125,11 @@
 
     .line 195
     .end local v5    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_32
+    if-eqz v2, :cond_4e
 
     .line 197
-    :try_start_1
+    :try_start_34
     invoke-virtual {p0, p2}, Landroidx/constraintlayout/motion/utils/ViewOscillator$ProgressSet;->get(F)F
 
     move-result v5
@@ -143,25 +143,25 @@
     aput-object v5, v4, v3
 
     invoke-virtual {v2, p1, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_43
+    .catch Ljava/lang/IllegalAccessException; {:try_start_34 .. :try_end_43} :catch_49
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_34 .. :try_end_43} :catch_44
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 200
-    :catch_1
+    :catch_44
     move-exception v3
 
     .line 201
     .local v3, "e":Ljava/lang/reflect/InvocationTargetException;
     invoke-static {v1, v0, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2
+    goto :goto_4e
 
     .line 198
     .end local v3    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_49
     move-exception v3
 
     .line 199
@@ -170,12 +170,12 @@
 
     .line 202
     .end local v3    # "e":Ljava/lang/IllegalAccessException;
-    :goto_1
+    :goto_4d
     nop
 
     .line 205
     .end local v2    # "method":Ljava/lang/reflect/Method;
-    :cond_2
-    :goto_2
+    :cond_4e
+    :goto_4e
     return-void
 .end method

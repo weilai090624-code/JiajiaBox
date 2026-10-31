@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/beans/PropertyDescriptor;)V
-    .locals 3
+    .registers 5
     .param p1, "property"    # Ljava/beans/PropertyDescriptor;
 
     .line 64
@@ -43,16 +43,16 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1c
     iput-boolean v0, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->readable:Z
 
     .line 68
@@ -60,14 +60,14 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_26
     iput-boolean v1, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->writable:Z
 
     .line 69
@@ -75,7 +75,7 @@
 .end method
 
 .method private static discoverGenericType(Ljava/beans/PropertyDescriptor;)Ljava/lang/reflect/Type;
-    .locals 4
+    .registers 5
     .param p0, "property"    # Ljava/beans/PropertyDescriptor;
 
     .line 43
@@ -85,7 +85,7 @@
 
     .line 44
     .local v0, "readMethod":Ljava/lang/reflect/Method;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 45
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->getGenericReturnType()Ljava/lang/reflect/Type;
@@ -95,14 +95,14 @@
     return-object v1
 
     .line 48
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Ljava/beans/PropertyDescriptor;->getWriteMethod()Ljava/lang/reflect/Method;
 
     move-result-object v1
 
     .line 49
     .local v1, "writeMethod":Ljava/lang/reflect/Method;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     .line 50
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->getGenericParameterTypes()[Ljava/lang/reflect/Type;
@@ -113,7 +113,7 @@
     .local v2, "paramTypes":[Ljava/lang/reflect/Type;
     array-length v3, v2
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_1c
 
     .line 52
     const/4 v3, 0x0
@@ -124,7 +124,7 @@
 
     .line 60
     .end local v2    # "paramTypes":[Ljava/lang/reflect/Type;
-    :cond_1
+    :cond_1c
     const/4 v2, 0x0
 
     return-object v2
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 83
@@ -162,13 +162,13 @@
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_17} :catch_18
 
     return-object v0
 
     .line 85
-    :catch_0
+    :catch_18
     move-exception v0
 
     .line 86
@@ -225,7 +225,7 @@
 .end method
 
 .method public getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -246,7 +246,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 121
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->property:Ljava/beans/PropertyDescriptor;
@@ -260,14 +260,14 @@
     move-result-object v0
 
     .line 123
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_11
+    if-nez v0, :cond_23
 
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/introspector/MethodProperty;->isWritable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     .line 124
     iget-object v1, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->property:Ljava/beans/PropertyDescriptor;
@@ -281,12 +281,12 @@
     move-result-object v0
 
     .line 126
-    :cond_1
+    :cond_23
     return-object v0
 .end method
 
 .method public getAnnotations()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -301,13 +301,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/introspector/MethodProperty;->isWritable()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 101
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->property:Ljava/beans/PropertyDescriptor;
@@ -335,16 +335,16 @@
     move-result-object v0
 
     .local v0, "annotations":Ljava/util/List;, "Ljava/util/List<Ljava/lang/annotation/Annotation;>;"
-    goto :goto_0
+    goto :goto_48
 
     .line 102
     .end local v0    # "annotations":Ljava/util/List;, "Ljava/util/List<Ljava/lang/annotation/Annotation;>;"
-    :cond_0
+    :cond_25
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/introspector/MethodProperty;->isReadable()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     .line 103
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->property:Ljava/beans/PropertyDescriptor;
@@ -362,11 +362,11 @@
     move-result-object v0
 
     .restart local v0    # "annotations":Ljava/util/List;, "Ljava/util/List<Ljava/lang/annotation/Annotation;>;"
-    goto :goto_0
+    goto :goto_48
 
     .line 105
     .end local v0    # "annotations":Ljava/util/List;, "Ljava/util/List<Ljava/lang/annotation/Annotation;>;"
-    :cond_1
+    :cond_3a
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->property:Ljava/beans/PropertyDescriptor;
 
     invoke-virtual {v0}, Ljava/beans/PropertyDescriptor;->getWriteMethod()Ljava/lang/reflect/Method;
@@ -383,12 +383,12 @@
 
     .line 107
     .restart local v0    # "annotations":Ljava/util/List;, "Ljava/util/List<Ljava/lang/annotation/Annotation;>;"
-    :goto_0
+    :goto_48
     return-object v0
 .end method
 
 .method public isReadable()Z
-    .locals 1
+    .registers 2
 
     .line 136
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->readable:Z
@@ -397,7 +397,7 @@
 .end method
 
 .method public isWritable()Z
-    .locals 1
+    .registers 2
 
     .line 131
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->writable:Z
@@ -406,7 +406,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
@@ -418,7 +418,7 @@
     .line 73
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->writable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 77
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/MethodProperty;->property:Ljava/beans/PropertyDescriptor;
@@ -441,7 +441,7 @@
     return-void
 
     .line 74
-    :cond_0
+    :cond_14
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v1, Ljava/lang/StringBuilder;

@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static classNameToInternalClassName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "className"    # Ljava/lang/String;
 
     .line 37
@@ -30,7 +30,7 @@
 .end method
 
 .method public static classNameToResource(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "className"    # Ljava/lang/String;
 
     .line 48
@@ -60,7 +60,7 @@
 .end method
 
 .method public static getExistingClass(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
+    .registers 4
     .param p0, "classLoader"    # Ljava/lang/ClassLoader;
     .param p1, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -79,17 +79,17 @@
     .line 62
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_1
     invoke-static {p1, v0, p0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_5} :catch_6
 
     return-object v0
 
     .line 64
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 65
@@ -100,7 +100,7 @@
 .end method
 
 .method public static newInstance(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -117,24 +117,24 @@
     invoke-virtual {p0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_4} :catch_7
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 73
-    :catch_0
+    :catch_5
     move-exception v0
 
-    goto :goto_0
+    goto :goto_8
 
-    :catch_1
+    :catch_7
     move-exception v0
 
     .line 74
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_8
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V

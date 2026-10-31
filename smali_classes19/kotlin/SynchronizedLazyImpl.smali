@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "initializer"    # Lkotlin/jvm/functions/Function0;
     .param p2, "lock"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -102,16 +102,16 @@
     iput-object v0, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
 
     .line 59
-    if-nez p2, :cond_0
+    if-nez p2, :cond_12
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     move-object v0, p2
 
-    :goto_0
+    :goto_13
     iput-object v0, p0, Lkotlin/SynchronizedLazyImpl;->lock:Ljava/lang/Object;
 
     .line 55
@@ -119,23 +119,23 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/functions/Function0;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 55
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Lkotlin/SynchronizedLazyImpl;-><init>(Lkotlin/jvm/functions/Function0;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method private final writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 86
     new-instance v0, Lkotlin/InitializedLazyImpl;
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public getValue()Ljava/lang/Object;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -166,13 +166,13 @@
     .local v0, "_v1":Ljava/lang/Object;
     sget-object v1, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_7
 
     .line 66
     return-object v0
 
     .line 69
-    :cond_0
+    :cond_7
     iget-object v1, p0, Lkotlin/SynchronizedLazyImpl;->lock:Ljava/lang/Object;
 
     monitor-enter v1
@@ -181,22 +181,22 @@
 
     .line 70
     .local v2, "$i$a$-synchronized-SynchronizedLazyImpl$value$1":I
-    :try_start_0
+    :try_start_b
     iget-object v3, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
 
     .line 71
     .local v3, "_v2":Ljava/lang/Object;
     sget-object v4, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_13
 
     .line 72
     move-object v4, v3
 
-    goto :goto_0
+    goto :goto_22
 
     .line 74
-    :cond_1
+    :cond_13
     iget-object v4, p0, Lkotlin/SynchronizedLazyImpl;->initializer:Lkotlin/jvm/functions/Function0;
 
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -213,15 +213,15 @@
     const/4 v5, 0x0
 
     iput-object v5, p0, Lkotlin/SynchronizedLazyImpl;->initializer:Lkotlin/jvm/functions/Function0;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_b .. :try_end_21} :catchall_25
 
     .line 77
     nop
 
     .line 78
     .end local v4    # "typedValue":Ljava/lang/Object;
-    :goto_0
+    :goto_22
     nop
 
     .line 69
@@ -231,7 +231,7 @@
 
     return-object v4
 
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     monitor-exit v1
@@ -240,35 +240,35 @@
 .end method
 
 .method public isInitialized()Z
-    .locals 2
+    .registers 3
 
     .line 82
     iget-object v0, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
 
     sget-object v1, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 84
     invoke-virtual {p0}, Lkotlin/SynchronizedLazyImpl;->isInitialized()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {p0}, Lkotlin/SynchronizedLazyImpl;->getValue()Ljava/lang/Object;
 
@@ -278,11 +278,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const-string v0, "Lazy value not initialized yet."
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/SafeConstructor;)V
-    .locals 0
+    .registers 2
 
     .line 498
     iput-object p1, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlSet;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 501
@@ -44,7 +44,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     .line 502
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlSet;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -55,7 +55,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlSet;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
 
@@ -65,9 +65,9 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlSet;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
 
     move-object v1, p1
@@ -86,11 +86,11 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_2a
     return-object v0
 
     .line 505
-    :cond_1
+    :cond_2b
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlSet;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
 
     move-object v1, p1
@@ -105,7 +105,7 @@
 .end method
 
 .method public construct2ndStep(Lorg/yaml/snakeyaml/nodes/Node;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -114,7 +114,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 513
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlSet;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -133,7 +133,7 @@
     return-void
 
     .line 515
-    :cond_0
+    :cond_12
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v1, Ljava/lang/StringBuilder;

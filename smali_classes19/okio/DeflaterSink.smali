@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/BufferedSink;Ljava/util/zip/Deflater;)V
-    .locals 1
+    .registers 4
     .param p1, "sink"    # Lokio/BufferedSink;
     .param p2, "deflater"    # Ljava/util/zip/Deflater;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Lokio/Sink;Ljava/util/zip/Deflater;)V
-    .locals 1
+    .registers 4
     .param p1, "sink"    # Lokio/Sink;
     .param p2, "deflater"    # Ljava/util/zip/Deflater;
 
@@ -111,7 +111,7 @@
 .end method
 
 .method private final deflate(Z)V
-    .locals 7
+    .registers 9
     .param p1, "syncFlush"    # Z
 
     .line 80
@@ -123,8 +123,8 @@
 
     .line 81
     .local v0, "buffer":Lokio/Buffer;
-    :cond_0
-    :goto_0
+    :cond_6
+    :goto_6
     nop
 
     .line 82
@@ -136,7 +136,7 @@
 
     .line 88
     .local v1, "s":Lokio/Segment;
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1e
 
     .line 89
     iget-object v2, p0, Lokio/DeflaterSink;->deflater:Ljava/util/zip/Deflater;
@@ -155,10 +155,10 @@
 
     move-result v2
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 91
-    :cond_1
+    :cond_1e
     iget-object v2, p0, Lokio/DeflaterSink;->deflater:Ljava/util/zip/Deflater;
 
     iget-object v3, v1, Lokio/Segment;->data:[B
@@ -174,12 +174,12 @@
     move-result v2
 
     .line 88
-    :goto_1
+    :goto_2c
     nop
 
     .line 94
     .local v2, "deflated":I
-    if-lez v2, :cond_2
+    if-lez v2, :cond_43
 
     .line 95
     iget v3, v1, Lokio/Segment;->limit:I
@@ -204,24 +204,24 @@
 
     invoke-interface {v3}, Lokio/BufferedSink;->emitCompleteSegments()Lokio/BufferedSink;
 
-    goto :goto_0
+    goto :goto_6
 
     .line 98
-    :cond_2
+    :cond_43
     iget-object v3, p0, Lokio/DeflaterSink;->deflater:Ljava/util/zip/Deflater;
 
     invoke-virtual {v3}, Ljava/util/zip/Deflater;->needsInput()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_6
 
     .line 99
     iget v3, v1, Lokio/Segment;->pos:I
 
     iget v4, v1, Lokio/Segment;->limit:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_5a
 
     .line 101
     invoke-virtual {v1}, Lokio/Segment;->pop()Lokio/Segment;
@@ -234,14 +234,14 @@
     invoke-static {v1}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     .line 104
-    :cond_3
+    :cond_5a
     return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -251,12 +251,12 @@
     .line 122
     iget-boolean v0, p0, Lokio/DeflaterSink;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 126
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     .line 127
@@ -264,15 +264,15 @@
     nop
 
     .line 128
-    :try_start_0
+    :try_start_7
     invoke-virtual {p0}, Lokio/DeflaterSink;->finishDeflate$okio()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_7 .. :try_end_a} :catchall_b
 
-    goto :goto_0
+    goto :goto_d
 
     .line 129
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     .line 130
@@ -281,76 +281,76 @@
 
     .line 133
     .end local v1    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_d
     nop
 
     .line 134
-    :try_start_1
+    :try_start_e
     iget-object v1, p0, Lokio/DeflaterSink;->deflater:Ljava/util/zip/Deflater;
 
     invoke-virtual {v1}, Ljava/util/zip/Deflater;->end()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_13
+    .catchall {:try_start_e .. :try_end_13} :catchall_14
 
-    goto :goto_1
+    goto :goto_18
 
     .line 135
-    :catchall_1
+    :catchall_14
     move-exception v1
 
     .line 136
     .restart local v1    # "e":Ljava/lang/Throwable;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     move-object v0, v1
 
     .line 139
     .end local v1    # "e":Ljava/lang/Throwable;
-    :cond_1
-    :goto_1
+    :cond_18
+    :goto_18
     nop
 
     .line 140
-    :try_start_2
+    :try_start_19
     iget-object v1, p0, Lokio/DeflaterSink;->sink:Lokio/BufferedSink;
 
     invoke-interface {v1}, Lokio/BufferedSink;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_1e
+    .catchall {:try_start_19 .. :try_end_1e} :catchall_1f
 
-    goto :goto_2
+    goto :goto_23
 
     .line 141
-    :catchall_2
+    :catchall_1f
     move-exception v1
 
     .line 142
     .restart local v1    # "e":Ljava/lang/Throwable;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_23
 
     move-object v0, v1
 
     .line 145
     .end local v1    # "e":Ljava/lang/Throwable;
-    :cond_2
-    :goto_2
+    :cond_23
+    :goto_23
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lokio/DeflaterSink;->closed:Z
 
     .line 147
-    if-nez v0, :cond_3
+    if-nez v0, :cond_29
 
     .line 148
     return-void
 
     .line 147
-    :cond_3
+    :cond_29
     throw v0
 .end method
 
 .method public final finishDeflate$okio()V
-    .locals 1
+    .registers 2
 
     .line 116
     iget-object v0, p0, Lokio/DeflaterSink;->deflater:Ljava/util/zip/Deflater;
@@ -367,7 +367,7 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -389,7 +389,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 150
     iget-object v0, p0, Lokio/DeflaterSink;->sink:Lokio/BufferedSink;
@@ -402,7 +402,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 152
     new-instance v0, Ljava/lang/StringBuilder;
@@ -435,7 +435,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 8
+    .registers 12
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -464,12 +464,12 @@
 
     .line 57
     .local v0, "remaining":J
-    :goto_0
+    :goto_10
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_54
 
     .line 59
     iget-object v2, p1, Lokio/Buffer;->head:Lokio/Segment;
@@ -538,7 +538,7 @@
 
     iget v5, v2, Lokio/Segment;->limit:I
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_51
 
     .line 70
     invoke-virtual {v2}, Lokio/Segment;->pop()Lokio/Segment;
@@ -551,16 +551,16 @@
     invoke-static {v2}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     .line 74
-    :cond_0
+    :cond_51
     int-to-long v4, v3
 
     sub-long/2addr v0, v4
 
     .end local v2    # "head":Lokio/Segment;
     .end local v3    # "toDeflate":I
-    goto :goto_0
+    goto :goto_10
 
     .line 76
-    :cond_1
+    :cond_54
     return-void
 .end method

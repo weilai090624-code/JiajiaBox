@@ -101,7 +101,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$Companion;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;)V
-    .locals 9
+    .registers 13
 
     const-string v0, "context"
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;Z)V
-    .locals 9
+    .registers 14
 
     const-string v0, "context"
 
@@ -179,7 +179,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;ZZ)V
-    .locals 1
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "callback"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;
@@ -233,39 +233,39 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 7
+    .registers 15
 
     .line 33
     and-int/lit8 p7, p6, 0x8
 
     const/4 v0, 0x0
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_7
 
     .line 37
     const/4 v5, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 33
-    :cond_0
+    :cond_7
     move v5, p4
 
-    :goto_0
+    :goto_8
     and-int/lit8 p4, p6, 0x10
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_e
 
     .line 38
     const/4 v6, 0x0
 
-    goto :goto_1
+    goto :goto_f
 
     .line 33
-    :cond_1
+    :cond_e
     move v6, p5
 
-    :goto_1
+    :goto_f
     move-object v1, p0
 
     move-object v2, p1
@@ -281,7 +281,7 @@
 .end method
 
 .method public static final synthetic access$getAllowDataLossOnRecovery$p(Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;
 
     .line 33
@@ -291,7 +291,7 @@
 .end method
 
 .method public static final synthetic access$getCallback$p(Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;)Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;
 
     .line 33
@@ -301,7 +301,7 @@
 .end method
 
 .method public static final synthetic access$getContext$p(Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;)Landroid/content/Context;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;
 
     .line 33
@@ -311,7 +311,7 @@
 .end method
 
 .method public static final synthetic access$getName$p(Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;
 
     .line 33
@@ -321,7 +321,7 @@
 .end method
 
 .method public static final synthetic access$getUseNoBackupDirectory$p(Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;
 
     .line 33
@@ -331,7 +331,7 @@
 .end method
 
 .method public static final synthetic access$getWriteAheadLoggingEnabled$p(Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;
 
     .line 33
@@ -341,7 +341,7 @@
 .end method
 
 .method private final getDelegate()Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper;
-    .locals 1
+    .registers 2
 
     .line 89
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;->lazyDelegate:Lkotlin/Lazy;
@@ -356,7 +356,7 @@
 .end method
 
 .method private static getDelegate$delegate(Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "<this>"    # Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;
 
     .line 89
@@ -368,7 +368,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 110
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;->lazyDelegate:Lkotlin/Lazy;
@@ -377,7 +377,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 111
     invoke-direct {p0}, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;->getDelegate()Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper;
@@ -387,12 +387,12 @@
     invoke-virtual {v0}, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper;->close()V
 
     .line 113
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public getDatabaseName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 92
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;->name:Ljava/lang/String;
@@ -401,7 +401,7 @@
 .end method
 
 .method public getReadableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 2
+    .registers 3
 
     .line 107
     invoke-direct {p0}, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;->getDelegate()Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper;
@@ -418,7 +418,7 @@
 .end method
 
 .method public getWritableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 2
+    .registers 3
 
     .line 104
     invoke-direct {p0}, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;->getDelegate()Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper;
@@ -435,7 +435,7 @@
 .end method
 
 .method public setWriteAheadLoggingEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "enabled"    # Z
 
     .line 96
@@ -445,7 +445,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 98
     invoke-direct {p0}, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;->getDelegate()Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper;
@@ -457,7 +457,7 @@
     invoke-static {v0, p1}, Landroidx/sqlite/db/SupportSQLiteCompat$Api16Impl;->setWriteAheadLoggingEnabled(Landroid/database/sqlite/SQLiteOpenHelper;Z)V
 
     .line 100
-    :cond_0
+    :cond_11
     iput-boolean p1, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper;->writeAheadLoggingEnabled:Z
 
     .line 101

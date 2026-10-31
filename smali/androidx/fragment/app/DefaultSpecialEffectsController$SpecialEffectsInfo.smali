@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/SpecialEffectsController$Operation;Landroidx/core/os/CancellationSignal;)V
-    .locals 0
+    .registers 3
     .param p1, "operation"    # Landroidx/fragment/app/SpecialEffectsController$Operation;
     .param p2, "signal"    # Landroidx/core/os/CancellationSignal;
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method completeSpecialEffect()V
-    .locals 2
+    .registers 3
 
     .line 877
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mOperation:Landroidx/fragment/app/SpecialEffectsController$Operation;
@@ -56,7 +56,7 @@
 .end method
 
 .method getOperation()Landroidx/fragment/app/SpecialEffectsController$Operation;
-    .locals 1
+    .registers 2
 
     .line 860
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mOperation:Landroidx/fragment/app/SpecialEffectsController$Operation;
@@ -65,7 +65,7 @@
 .end method
 
 .method getSignal()Landroidx/core/os/CancellationSignal;
-    .locals 1
+    .registers 2
 
     .line 865
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mSignal:Landroidx/core/os/CancellationSignal;
@@ -74,7 +74,7 @@
 .end method
 
 .method isVisibilityUnchanged()Z
-    .locals 3
+    .registers 4
 
     .line 869
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mOperation:Landroidx/fragment/app/SpecialEffectsController$Operation;
@@ -101,27 +101,27 @@
 
     .line 872
     .local v1, "finalState":Landroidx/fragment/app/SpecialEffectsController$Operation$State;
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1f
 
     sget-object v2, Landroidx/fragment/app/SpecialEffectsController$Operation$State;->VISIBLE:Landroidx/fragment/app/SpecialEffectsController$Operation$State;
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_1d
 
     sget-object v2, Landroidx/fragment/app/SpecialEffectsController$Operation$State;->VISIBLE:Landroidx/fragment/app/SpecialEffectsController$Operation$State;
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_1d
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1d
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_20
     return v2
 .end method

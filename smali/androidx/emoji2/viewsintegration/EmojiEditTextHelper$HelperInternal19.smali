@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/EditText;Z)V
-    .locals 2
+    .registers 5
     .param p1, "editText"    # Landroid/widget/EditText;
     .param p2, "expectInitializedEmojiCompat"    # Z
 
@@ -64,20 +64,20 @@
 
 # virtual methods
 .method getKeyListener(Landroid/text/method/KeyListener;)Landroid/text/method/KeyListener;
-    .locals 1
+    .registers 3
     .param p1, "keyListener"    # Landroid/text/method/KeyListener;
 
     .line 284
     instance-of v0, p1, Landroidx/emoji2/viewsintegration/EmojiKeyListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 285
     return-object p1
 
     .line 287
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_5
+    if-nez p1, :cond_9
 
     .line 291
     const/4 v0, 0x0
@@ -85,16 +85,16 @@
     return-object v0
 
     .line 293
-    :cond_1
+    :cond_9
     instance-of v0, p1, Landroid/text/method/NumberKeyListener;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_e
 
     .line 296
     return-object p1
 
     .line 299
-    :cond_2
+    :cond_e
     new-instance v0, Landroidx/emoji2/viewsintegration/EmojiKeyListener;
 
     invoke-direct {v0, p1}, Landroidx/emoji2/viewsintegration/EmojiKeyListener;-><init>(Landroid/text/method/KeyListener;)V
@@ -103,7 +103,7 @@
 .end method
 
 .method isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 324
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiEditTextHelper$HelperInternal19;->mTextWatcher:Landroidx/emoji2/viewsintegration/EmojiTextWatcher;
@@ -116,20 +116,20 @@
 .end method
 
 .method onCreateInputConnection(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
-    .locals 2
+    .registers 5
     .param p1, "inputConnection"    # Landroid/view/inputmethod/InputConnection;
     .param p2, "outAttrs"    # Landroid/view/inputmethod/EditorInfo;
 
     .line 305
     instance-of v0, p1, Landroidx/emoji2/viewsintegration/EmojiInputConnection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 306
     return-object p1
 
     .line 310
-    :cond_0
+    :cond_5
     new-instance v0, Landroidx/emoji2/viewsintegration/EmojiInputConnection;
 
     iget-object v1, p0, Landroidx/emoji2/viewsintegration/EmojiEditTextHelper$HelperInternal19;->mEditText:Landroid/widget/EditText;
@@ -140,7 +140,7 @@
 .end method
 
 .method setEmojiReplaceStrategy(I)V
-    .locals 1
+    .registers 3
     .param p1, "replaceStrategy"    # I
 
     .line 279
@@ -153,7 +153,7 @@
 .end method
 
 .method setEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "isEnabled"    # Z
 
     .line 315
@@ -166,7 +166,7 @@
 .end method
 
 .method setMaxEmojiCount(I)V
-    .locals 1
+    .registers 3
     .param p1, "maxEmojiCount"    # I
 
     .line 274

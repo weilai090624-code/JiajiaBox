@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Z)V
-    .locals 0
+    .registers 4
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -53,7 +53,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)V
-    .locals 0
+    .registers 4
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,11 +93,11 @@
     .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TP_OUT;>;"
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$WrappingSpliterator;->buffer:Lj$/util/stream/AbstractSpinedBuffer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     iget-boolean v0, p0, Lj$/util/stream/StreamSpliterators$WrappingSpliterator;->finished:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 309
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -123,23 +123,23 @@
 
     iput-boolean v0, p0, Lj$/util/stream/StreamSpliterators$WrappingSpliterator;->finished:Z
 
-    goto :goto_0
+    goto :goto_27
 
     .line 316
-    :cond_0
+    :cond_21
     invoke-virtual {p0, p1}, Lj$/util/stream/StreamSpliterators$WrappingSpliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 318
-    :goto_0
+    :goto_27
     return-void
 .end method
 
 .method initPartialTraversalState()V
-    .locals 3
+    .registers 4
 
     .line 291
     .local p0, "this":Lj$/util/stream/StreamSpliterators$WrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$WrappingSpliterator<TP_IN;TP_OUT;>;"
@@ -178,7 +178,7 @@
 .end method
 
 .method synthetic lambda$initPartialTraversalState$0$java-util-stream-StreamSpliterators$WrappingSpliterator()Z
-    .locals 2
+    .registers 3
 
     .line 294
     .local p0, "this":Lj$/util/stream/StreamSpliterators$WrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$WrappingSpliterator<TP_IN;TP_OUT;>;"
@@ -194,7 +194,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -215,7 +215,7 @@
 
     .line 301
     .local v0, "hasNext":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 302
     iget-object v1, p0, Lj$/util/stream/StreamSpliterators$WrappingSpliterator;->buffer:Lj$/util/stream/AbstractSpinedBuffer;
@@ -231,12 +231,12 @@
     invoke-interface {p1, v1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
     .line 303
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method bridge synthetic wrap(Lj$/util/Spliterator;)Lj$/util/stream/StreamSpliterators$AbstractWrappingSpliterator;
-    .locals 0
+    .registers 2
 
     .line 269
     .local p0, "this":Lj$/util/stream/StreamSpliterators$WrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$WrappingSpliterator<TP_IN;TP_OUT;>;"
@@ -248,7 +248,7 @@
 .end method
 
 .method wrap(Lj$/util/Spliterator;)Lj$/util/stream/StreamSpliterators$WrappingSpliterator;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

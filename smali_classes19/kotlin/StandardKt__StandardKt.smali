@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -59,7 +59,7 @@
 .end method
 
 .method private static final TODO()Ljava/lang/Void;
-    .locals 3
+    .registers 3
 
     .line 22
     new-instance v0, Lkotlin/NotImplementedError;
@@ -74,7 +74,7 @@
 .end method
 
 .method private static final TODO(Ljava/lang/String;)Ljava/lang/Void;
-    .locals 3
+    .registers 4
     .param p0, "reason"    # Ljava/lang/String;
 
     const-string v0, "reason"
@@ -108,7 +108,7 @@
 .end method
 
 .method private static final also(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$also"    # Ljava/lang/Object;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -138,7 +138,7 @@
 .end method
 
 .method private static final apply(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$apply"    # Ljava/lang/Object;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -168,7 +168,7 @@
 .end method
 
 .method private static final let(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$let"    # Ljava/lang/Object;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -199,7 +199,7 @@
 .end method
 
 .method private static final repeat(ILkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 4
     .param p0, "times"    # I
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -224,8 +224,8 @@
     const/4 v0, 0x0
 
     .local v0, "index":I
-    :goto_0
-    if-ge v0, p0, :cond_0
+    :goto_7
+    if-ge v0, p0, :cond_13
 
     .line 155
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -237,16 +237,16 @@
     .line 154
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 157
     .end local v0    # "index":I
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method private static final run(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$run"    # Ljava/lang/Object;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -277,7 +277,7 @@
 .end method
 
 .method private static final run(Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -305,7 +305,7 @@
 .end method
 
 .method private static final takeIf(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$takeIf"    # Ljava/lang/Object;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -338,21 +338,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method private static final takeUnless(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$takeUnless"    # Ljava/lang/Object;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -385,21 +385,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method private static final with(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "receiver"    # Ljava/lang/Object;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;

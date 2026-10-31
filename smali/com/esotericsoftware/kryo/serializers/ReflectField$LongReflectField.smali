@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;)V
-    .locals 0
+    .registers 2
     .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 398
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public copy(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "original"    # Ljava/lang/Object;
     .param p2, "copy"    # Ljava/lang/Object;
 
@@ -44,8 +44,8 @@
     move-result-wide v1
 
     invoke-virtual {v0, p2, v1, v2}, Ljava/lang/reflect/Field;->setLong(Ljava/lang/Object;J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_0 .. :try_end_b} :catchall_d
 
     .line 434
     nop
@@ -54,7 +54,7 @@
     return-void
 
     .line 430
-    :catchall_0
+    :catchall_d
     move-exception v0
 
     .line 431
@@ -92,7 +92,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -100,7 +100,7 @@
     :try_start_0
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$LongReflectField;->varEncoding:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 417
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$LongReflectField;->field:Ljava/lang/reflect/Field;
@@ -113,10 +113,10 @@
 
     invoke-virtual {v0, p2, v1, v2}, Ljava/lang/reflect/Field;->setLong(Ljava/lang/Object;J)V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 419
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$LongReflectField;->field:Ljava/lang/reflect/Field;
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/Input;->readLong()J
@@ -124,18 +124,18 @@
     move-result-wide v1
 
     invoke-virtual {v0, p2, v1, v2}, Ljava/lang/reflect/Field;->setLong(Ljava/lang/Object;J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_0 .. :try_end_18} :catchall_1a
 
     .line 424
-    :goto_0
+    :goto_18
     nop
 
     .line 425
     return-void
 
     .line 420
-    :catchall_0
+    :catchall_1a
     move-exception v0
 
     .line 421
@@ -173,7 +173,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -181,7 +181,7 @@
     :try_start_0
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$LongReflectField;->varEncoding:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 404
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$LongReflectField;->field:Ljava/lang/reflect/Field;
@@ -194,10 +194,10 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
 
-    goto :goto_0
+    goto :goto_18
 
     .line 406
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$LongReflectField;->field:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p2}, Ljava/lang/reflect/Field;->getLong(Ljava/lang/Object;)J
@@ -205,18 +205,18 @@
     move-result-wide v0
 
     invoke-virtual {p1, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeLong(J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_0 .. :try_end_18} :catchall_1a
 
     .line 411
-    :goto_0
+    :goto_18
     nop
 
     .line 412
     return-void
 
     .line 407
-    :catchall_0
+    :catchall_1a
     move-exception v0
 
     .line 408

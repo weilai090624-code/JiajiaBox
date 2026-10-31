@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService;Ljava/util/concurrent/ScheduledExecutorService;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/AbstractScheduledService;
 
     .line 356
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public failed(Lcom/google/common/util/concurrent/Service$State;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 4
     .param p1, "from"    # Lcom/google/common/util/concurrent/Service$State;
     .param p2, "failure"    # Ljava/lang/Throwable;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public terminated(Lcom/google/common/util/concurrent/Service$State;)V
-    .locals 1
+    .registers 3
     .param p1, "from"    # Lcom/google/common/util/concurrent/Service$State;
 
     .line 359

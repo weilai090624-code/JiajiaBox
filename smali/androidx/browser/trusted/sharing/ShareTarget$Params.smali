@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
-    .locals 0
+    .registers 4
     .param p1, "title"    # Ljava/lang/String;
     .param p2, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -72,11 +72,11 @@
 .end method
 
 .method static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/sharing/ShareTarget$Params;
-    .locals 5
+    .registers 6
     .param p0, "bundle"    # Landroid/os/Bundle;
 
     .line 225
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 226
     const/4 v0, 0x0
@@ -84,7 +84,7 @@
     return-object v0
 
     .line 228
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 229
@@ -97,7 +97,7 @@
 
     .line 230
     .local v1, "fileBundles":Ljava/util/List;, "Ljava/util/List<Landroid/os/Bundle;>;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2b
 
     .line 231
     new-instance v2, Ljava/util/ArrayList;
@@ -111,12 +111,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_17
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -134,10 +134,10 @@
 
     .line 234
     .end local v3    # "fileBundle":Landroid/os/Bundle;
-    goto :goto_0
+    goto :goto_17
 
     .line 236
-    :cond_1
+    :cond_2b
     new-instance v2, Landroidx/browser/trusted/sharing/ShareTarget$Params;
 
     const-string v3, "androidx.browser.trusted.sharing.KEY_TITLE"
@@ -160,7 +160,7 @@
 
 # virtual methods
 .method toBundle()Landroid/os/Bundle;
-    .locals 5
+    .registers 6
 
     .line 207
     new-instance v0, Landroid/os/Bundle;
@@ -185,7 +185,7 @@
     .line 210
     iget-object v1, p0, Landroidx/browser/trusted/sharing/ShareTarget$Params;->files:Ljava/util/List;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3b
 
     .line 211
     new-instance v1, Ljava/util/ArrayList;
@@ -200,12 +200,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_22
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_36
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -223,16 +223,16 @@
 
     .line 214
     .end local v3    # "file":Landroidx/browser/trusted/sharing/ShareTarget$FileFormField;
-    goto :goto_0
+    goto :goto_22
 
     .line 215
-    :cond_0
+    :cond_36
     const-string v2, "androidx.browser.trusted.sharing.KEY_FILES"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
     .line 218
     .end local v1    # "fileBundles":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/Bundle;>;"
-    :cond_1
+    :cond_3b
     return-object v0
 .end method

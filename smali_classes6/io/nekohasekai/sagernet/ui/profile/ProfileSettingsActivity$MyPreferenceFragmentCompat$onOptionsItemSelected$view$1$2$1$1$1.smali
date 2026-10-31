@@ -101,7 +101,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,7 +161,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -175,7 +175,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -204,7 +204,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -213,7 +213,7 @@
     .line 348
     iget v1, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$view$1$2$1$1$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_86
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -224,25 +224,25 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     iget-wide v0, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$view$1$2$1$1$1;->J$0:J
 
     .local v0, "newGroupId":J
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_71
 
     .end local v0    # "newGroupId":J
-    :pswitch_1
+    :pswitch_17
     iget-wide v1, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$view$1$2$1$1$1;->J$0:J
 
     .local v1, "newGroupId":J
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_5f
 
     .end local v1    # "newGroupId":J
-    :pswitch_2
+    :pswitch_1d
     iget-wide v1, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$view$1$2$1$1$1;->J$1:J
 
     .restart local v1    # "newGroupId":J
@@ -251,12 +251,12 @@
     .local v3, "oldGroupId":J
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_4e
 
     .end local v1    # "newGroupId":J
     .end local v3    # "oldGroupId":J
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_25
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 349
@@ -302,14 +302,14 @@
 
     move-result-object v5
 
-    if-ne v5, v0, :cond_0
+    if-ne v5, v0, :cond_4e
 
     .line 348
     return-object v0
 
     .line 353
-    :cond_0
-    :goto_0
+    :cond_4e
+    :goto_4e
     sget-object v5, Lio/nekohasekai/sagernet/database/GroupManager;->INSTANCE:Lio/nekohasekai/sagernet/database/GroupManager;
 
     move-object v6, p0
@@ -327,14 +327,14 @@
     move-result-object v3
 
     .end local v3    # "oldGroupId":J
-    if-ne v3, v0, :cond_1
+    if-ne v3, v0, :cond_5f
 
     .line 348
     return-object v0
 
     .line 354
-    :cond_1
-    :goto_1
+    :cond_5f
+    :goto_5f
     sget-object v3, Lio/nekohasekai/sagernet/database/GroupManager;->INSTANCE:Lio/nekohasekai/sagernet/database/GroupManager;
 
     move-object v4, p0
@@ -351,19 +351,19 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_2
+    if-ne v3, v0, :cond_70
 
     .line 348
     return-object v0
 
     .line 354
-    :cond_2
+    :cond_70
     move-wide v0, v1
 
     .line 355
     .end local v1    # "newGroupId":J
     .restart local v0    # "newGroupId":J
-    :goto_2
+    :goto_71
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v2, v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setEditingGroup(J)V
@@ -386,11 +386,11 @@
 
     return-object v2
 
-    :pswitch_data_0
+    :pswitch_data_86
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_25
+        :pswitch_1d
+        :pswitch_17
+        :pswitch_11
     .end packed-switch
 .end method

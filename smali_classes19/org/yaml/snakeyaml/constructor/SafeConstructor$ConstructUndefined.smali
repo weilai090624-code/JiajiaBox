@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 571
     invoke-direct {p0}, Lorg/yaml/snakeyaml/constructor/AbstractConstruct;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 574

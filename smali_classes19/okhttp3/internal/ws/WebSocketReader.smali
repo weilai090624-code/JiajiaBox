@@ -109,7 +109,7 @@
 
 # direct methods
 .method public constructor <init>(ZLokio/BufferedSource;Lokhttp3/internal/ws/WebSocketReader$FrameCallback;ZZ)V
-    .locals 2
+    .registers 8
     .param p1, "isClient"    # Z
     .param p2, "source"    # Lokio/BufferedSource;
     .param p3, "frameCallback"    # Lokhttp3/internal/ws/WebSocketReader$FrameCallback;
@@ -161,33 +161,33 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_2c
     const/4 v0, 0x4
 
     new-array v0, v0, [B
 
-    :goto_0
+    :goto_2f
     iput-object v0, p0, Lokhttp3/internal/ws/WebSocketReader;->maskKey:[B
 
     .line 78
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketReader;->isClient:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_1
+    :cond_36
     new-instance v1, Lokio/Buffer$UnsafeCursor;
 
     invoke-direct {v1}, Lokio/Buffer$UnsafeCursor;-><init>()V
 
-    :goto_1
+    :goto_3b
     iput-object v1, p0, Lokhttp3/internal/ws/WebSocketReader;->maskCursor:Lokio/Buffer$UnsafeCursor;
 
     .line 54
@@ -195,7 +195,7 @@
 .end method
 
 .method private final readControlFrame()V
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -209,7 +209,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_35
 
     .line 191
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketReader;->source:Lokio/BufferedSource;
@@ -223,7 +223,7 @@
     .line 193
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketReader;->isClient:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_35
 
     .line 194
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketReader;->controlFrameBuffer:Lokio/Buffer;
@@ -256,10 +256,10 @@
     invoke-virtual {v0}, Lokio/Buffer$UnsafeCursor;->close()V
 
     .line 201
-    :cond_0
+    :cond_35
     iget v0, p0, Lokhttp3/internal/ws/WebSocketReader;->opcode:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_a4
 
     .line 224
     new-instance v0, Ljava/net/ProtocolException;
@@ -281,7 +281,7 @@
     throw v0
 
     .line 206
-    :pswitch_0
+    :pswitch_4c
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketReader;->frameCallback:Lokhttp3/internal/ws/WebSocketReader$FrameCallback;
 
     iget-object v1, p0, Lokhttp3/internal/ws/WebSocketReader;->controlFrameBuffer:Lokio/Buffer;
@@ -292,10 +292,10 @@
 
     invoke-interface {v0, v1}, Lokhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadPong(Lokio/ByteString;)V
 
-    goto :goto_1
+    goto :goto_9b
 
     .line 203
-    :pswitch_1
+    :pswitch_58
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketReader;->frameCallback:Lokhttp3/internal/ws/WebSocketReader$FrameCallback;
 
     iget-object v1, p0, Lokhttp3/internal/ws/WebSocketReader;->controlFrameBuffer:Lokio/Buffer;
@@ -306,10 +306,10 @@
 
     invoke-interface {v0, v1}, Lokhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadPing(Lokio/ByteString;)V
 
-    goto :goto_1
+    goto :goto_9b
 
     .line 209
-    :pswitch_2
+    :pswitch_64
     const/16 v0, 0x3ed
 
     .line 210
@@ -330,12 +330,12 @@
 
     cmp-long v8, v4, v6
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_9c
 
     .line 214
     cmp-long v6, v4, v2
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_93
 
     .line 215
     iget-object v2, p0, Lokhttp3/internal/ws/WebSocketReader;->controlFrameBuffer:Lokio/Buffer;
@@ -360,11 +360,11 @@
 
     .line 218
     .local v2, "codeExceptionMessage":Ljava/lang/String;
-    if-nez v2, :cond_1
+    if-nez v2, :cond_8d
 
-    goto :goto_0
+    goto :goto_93
 
-    :cond_1
+    :cond_8d
     new-instance v3, Ljava/net/ProtocolException;
 
     invoke-direct {v3, v2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
@@ -373,8 +373,8 @@
 
     .line 220
     .end local v2    # "codeExceptionMessage":Ljava/lang/String;
-    :cond_2
-    :goto_0
+    :cond_93
+    :goto_93
     iget-object v2, p0, Lokhttp3/internal/ws/WebSocketReader;->frameCallback:Lokhttp3/internal/ws/WebSocketReader$FrameCallback;
 
     invoke-interface {v2, v0, v1}, Lokhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadClose(ILjava/lang/String;)V
@@ -388,14 +388,14 @@
     .end local v0    # "code":I
     .end local v1    # "reason":Ljava/lang/String;
     .end local v4    # "bufferSize":J
-    :goto_1
+    :goto_9b
     return-void
 
     .line 213
     .restart local v0    # "code":I
     .restart local v1    # "reason":Ljava/lang/String;
     .restart local v4    # "bufferSize":J
-    :cond_3
+    :cond_9c
     new-instance v2, Ljava/net/ProtocolException;
 
     const-string v3, "Malformed close payload length of 1."
@@ -404,16 +404,16 @@
 
     throw v2
 
-    :pswitch_data_0
+    :pswitch_data_a4
     .packed-switch 0x8
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_64
+        :pswitch_58
+        :pswitch_4c
     .end packed-switch
 .end method
 
 .method private final readHeader()V
-    .locals 13
+    .registers 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -424,7 +424,7 @@
     .line 112
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketReader;->closed:Z
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_153
 
     const/4 v0, 0x0
 
@@ -454,7 +454,7 @@
     nop
 
     .line 119
-    :try_start_0
+    :try_start_19
     iget-object v3, p0, Lokhttp3/internal/ws/WebSocketReader;->source:Lokio/BufferedSource;
 
     invoke-interface {v3}, Lokio/BufferedSource;->readByte()B
@@ -466,8 +466,8 @@
     invoke-static {v3, v4}, Lokhttp3/internal/Util;->and(BI)I
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_19 .. :try_end_25} :catchall_146
 
     move v0, v3
 
@@ -497,46 +497,46 @@
 
     const/4 v6, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3e
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_3f
 
-    :cond_0
+    :cond_3e
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_3f
     iput-boolean v3, p0, Lokhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
 
     .line 126
     and-int/lit8 v3, v0, 0x8
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_47
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_1
+    :cond_47
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_48
     iput-boolean v3, p0, Lokhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
 
     .line 129
     iget-boolean v3, p0, Lokhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_5b
 
     iget-boolean v3, p0, Lokhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_53
 
-    goto :goto_2
+    goto :goto_5b
 
     .line 130
-    :cond_2
+    :cond_53
     new-instance v3, Ljava/net/ProtocolException;
 
     const-string v4, "Control frames must be final."
@@ -546,49 +546,49 @@
     throw v3
 
     .line 133
-    :cond_3
-    :goto_2
+    :cond_5b
+    :goto_5b
     and-int/lit8 v3, v0, 0x40
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_61
 
     const/4 v3, 0x1
 
-    goto :goto_3
+    goto :goto_62
 
-    :cond_4
+    :cond_61
     const/4 v3, 0x0
 
     .line 134
     .local v3, "reservedFlag1":Z
-    :goto_3
+    :goto_62
     iget v7, p0, Lokhttp3/internal/ws/WebSocketReader;->opcode:I
 
     const-string v8, "Unexpected rsv1 flag"
 
-    packed-switch v7, :pswitch_data_0
+    packed-switch v7, :pswitch_data_15c
 
     .line 144
-    if-nez v3, :cond_14
+    if-nez v3, :cond_140
 
-    goto :goto_5
+    goto :goto_7d
 
     .line 136
-    :pswitch_0
-    if-eqz v3, :cond_6
+    :pswitch_6c
+    if-eqz v3, :cond_7a
 
     .line 137
     iget-boolean v7, p0, Lokhttp3/internal/ws/WebSocketReader;->perMessageDeflate:Z
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_74
 
     .line 138
     const/4 v7, 0x1
 
-    goto :goto_4
+    goto :goto_7b
 
     .line 137
-    :cond_5
+    :cond_74
     new-instance v4, Ljava/net/ProtocolException;
 
     invoke-direct {v4, v8}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
@@ -596,47 +596,47 @@
     throw v4
 
     .line 140
-    :cond_6
+    :cond_7a
     const/4 v7, 0x0
 
     .line 136
-    :goto_4
+    :goto_7b
     iput-boolean v7, p0, Lokhttp3/internal/ws/WebSocketReader;->readingCompressedMessage:Z
 
     .line 148
-    :goto_5
+    :goto_7d
     and-int/lit8 v7, v0, 0x20
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_83
 
     const/4 v7, 0x1
 
-    goto :goto_6
+    goto :goto_84
 
-    :cond_7
+    :cond_83
     const/4 v7, 0x0
 
     .line 149
     .local v7, "reservedFlag2":Z
-    :goto_6
-    if-nez v7, :cond_13
+    :goto_84
+    if-nez v7, :cond_138
 
     .line 151
     and-int/lit8 v8, v0, 0x10
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_8c
 
     const/4 v8, 0x1
 
-    goto :goto_7
+    goto :goto_8d
 
-    :cond_8
+    :cond_8c
     const/4 v8, 0x0
 
     .line 152
     .local v8, "reservedFlag3":Z
-    :goto_7
-    if-nez v8, :cond_12
+    :goto_8d
+    if-nez v8, :cond_130
 
     .line 154
     iget-object v9, p0, Lokhttp3/internal/ws/WebSocketReader;->source:Lokio/BufferedSource;
@@ -653,44 +653,44 @@
     .local v4, "b1":I
     and-int/lit16 v9, v4, 0x80
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_9e
 
-    goto :goto_8
+    goto :goto_9f
 
-    :cond_9
+    :cond_9e
     const/4 v5, 0x0
 
     .line 157
     .local v5, "isMasked":Z
-    :goto_8
+    :goto_9f
     iget-boolean v6, p0, Lokhttp3/internal/ws/WebSocketReader;->isClient:Z
 
-    if-ne v5, v6, :cond_b
+    if-ne v5, v6, :cond_b2
 
     .line 159
     new-instance v6, Ljava/net/ProtocolException;
 
     iget-boolean v9, p0, Lokhttp3/internal/ws/WebSocketReader;->isClient:Z
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_ac
 
     .line 160
     const-string v9, "Server-sent frames must not be masked."
 
-    goto :goto_9
+    goto :goto_ae
 
     .line 162
-    :cond_a
+    :cond_ac
     const-string v9, "Client-sent frames must be masked."
 
     .line 159
-    :goto_9
+    :goto_ae
     invoke-direct {v6, v9}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
     throw v6
 
     .line 167
-    :cond_b
+    :cond_b2
     and-int/lit8 v6, v4, 0x7f
 
     int-to-long v9, v6
@@ -704,7 +704,7 @@
 
     cmp-long v6, v9, v11
 
-    if-nez v6, :cond_c
+    if-nez v6, :cond_d0
 
     .line 169
     iget-object v6, p0, Lokhttp3/internal/ws/WebSocketReader;->source:Lokio/BufferedSource;
@@ -723,17 +723,17 @@
 
     iput-wide v9, p0, Lokhttp3/internal/ws/WebSocketReader;->frameLength:J
 
-    goto :goto_a
+    goto :goto_10e
 
     .line 170
-    :cond_c
+    :cond_d0
     iget-wide v9, p0, Lokhttp3/internal/ws/WebSocketReader;->frameLength:J
 
     const-wide/16 v11, 0x7f
 
     cmp-long v6, v9, v11
 
-    if-nez v6, :cond_e
+    if-nez v6, :cond_10e
 
     .line 171
     iget-object v6, p0, Lokhttp3/internal/ws/WebSocketReader;->source:Lokio/BufferedSource;
@@ -751,12 +751,12 @@
 
     cmp-long v6, v9, v11
 
-    if-ltz v6, :cond_d
+    if-ltz v6, :cond_e9
 
-    goto :goto_a
+    goto :goto_10e
 
     .line 173
-    :cond_d
+    :cond_e9
     new-instance v6, Ljava/net/ProtocolException;
 
     .line 174
@@ -796,11 +796,11 @@
     throw v6
 
     .line 178
-    :cond_e
-    :goto_a
+    :cond_10e
+    :goto_10e
     iget-boolean v6, p0, Lokhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
 
-    if-eqz v6, :cond_10
+    if-eqz v6, :cond_123
 
     iget-wide v9, p0, Lokhttp3/internal/ws/WebSocketReader;->frameLength:J
 
@@ -808,12 +808,12 @@
 
     cmp-long v6, v9, v11
 
-    if-gtz v6, :cond_f
+    if-gtz v6, :cond_11b
 
-    goto :goto_b
+    goto :goto_123
 
     .line 179
-    :cond_f
+    :cond_11b
     new-instance v6, Ljava/net/ProtocolException;
 
     const-string v9, "Control frame must be less than 125B."
@@ -823,9 +823,9 @@
     throw v6
 
     .line 182
-    :cond_10
-    :goto_b
-    if-eqz v5, :cond_11
+    :cond_123
+    :goto_123
+    if-eqz v5, :cond_12f
 
     .line 184
     iget-object v6, p0, Lokhttp3/internal/ws/WebSocketReader;->source:Lokio/BufferedSource;
@@ -837,13 +837,13 @@
     invoke-interface {v6, v9}, Lokio/BufferedSource;->readFully([B)V
 
     .line 186
-    :cond_11
+    :cond_12f
     return-void
 
     .line 152
     .end local v4    # "b1":I
     .end local v5    # "isMasked":Z
-    :cond_12
+    :cond_130
     new-instance v4, Ljava/net/ProtocolException;
 
     const-string v5, "Unexpected rsv3 flag"
@@ -854,7 +854,7 @@
 
     .line 149
     .end local v8    # "reservedFlag3":Z
-    :cond_13
+    :cond_138
     new-instance v4, Ljava/net/ProtocolException;
 
     const-string v5, "Unexpected rsv2 flag"
@@ -865,7 +865,7 @@
 
     .line 144
     .end local v7    # "reservedFlag2":Z
-    :cond_14
+    :cond_140
     new-instance v4, Ljava/net/ProtocolException;
 
     invoke-direct {v4, v8}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
@@ -874,7 +874,7 @@
 
     .line 122
     .end local v3    # "reservedFlag1":Z
-    :catchall_0
+    :catchall_146
     move-exception v3
 
     .line 121
@@ -893,7 +893,7 @@
     .line 112
     .end local v0    # "b0":I
     .end local v1    # "timeoutBefore":J
-    :cond_15
+    :cond_153
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -904,15 +904,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_15c
     .packed-switch 0x1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_6c
+        :pswitch_6c
     .end packed-switch
 .end method
 
 .method private final readMessage()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -922,13 +922,13 @@
     .line 270
     nop
 
-    :goto_0
+    :goto_1
     nop
 
     .line 271
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketReader;->closed:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_63
 
     .line 273
     iget-wide v0, p0, Lokhttp3/internal/ws/WebSocketReader;->frameLength:J
@@ -937,7 +937,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_44
 
     .line 274
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketReader;->source:Lokio/BufferedSource;
@@ -951,7 +951,7 @@
     .line 276
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketReader;->isClient:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_44
 
     .line 277
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketReader;->messageFrameBuffer:Lokio/Buffer;
@@ -994,27 +994,27 @@
     invoke-virtual {v0}, Lokio/Buffer$UnsafeCursor;->close()V
 
     .line 284
-    :cond_0
+    :cond_44
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     .line 291
     return-void
 
     .line 286
-    :cond_1
+    :cond_49
     invoke-direct {p0}, Lokhttp3/internal/ws/WebSocketReader;->readUntilNonControlFrame()V
 
     .line 287
     iget v0, p0, Lokhttp3/internal/ws/WebSocketReader;->opcode:I
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_51
 
-    goto :goto_0
+    goto :goto_1
 
     .line 288
-    :cond_2
+    :cond_51
     new-instance v0, Ljava/net/ProtocolException;
 
     iget v1, p0, Lokhttp3/internal/ws/WebSocketReader;->opcode:I
@@ -1034,7 +1034,7 @@
     throw v0
 
     .line 271
-    :cond_3
+    :cond_63
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "closed"
@@ -1045,7 +1045,7 @@
 .end method
 
 .method private final readMessageFrame()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1059,16 +1059,16 @@
     .local v0, "opcode":I
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_19
 
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_9
 
-    goto :goto_0
+    goto :goto_19
 
     .line 233
-    :cond_0
+    :cond_9
     new-instance v1, Ljava/net/ProtocolException;
 
     const-string v2, "Unknown opcode: "
@@ -1086,19 +1086,19 @@
     throw v1
 
     .line 236
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     invoke-direct {p0}, Lokhttp3/internal/ws/WebSocketReader;->readMessage()V
 
     .line 238
     iget-boolean v2, p0, Lokhttp3/internal/ws/WebSocketReader;->readingCompressedMessage:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_35
 
     .line 239
     iget-object v2, p0, Lokhttp3/internal/ws/WebSocketReader;->messageInflater:Lokhttp3/internal/ws/MessageInflater;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2f
 
     .line 240
     new-instance v2, Lokhttp3/internal/ws/MessageInflater;
@@ -1120,7 +1120,7 @@
     .line 239
     .end local v3    # "it":Lokhttp3/internal/ws/MessageInflater;
     .end local v4    # "$i$a$-also-WebSocketReader$readMessageFrame$messageInflater$1":I
-    :cond_2
+    :cond_2f
     nop
 
     .line 241
@@ -1131,8 +1131,8 @@
 
     .line 244
     .end local v2    # "messageInflater":Lokhttp3/internal/ws/MessageInflater;
-    :cond_3
-    if-ne v0, v1, :cond_4
+    :cond_35
+    if-ne v0, v1, :cond_43
 
     .line 245
     iget-object v1, p0, Lokhttp3/internal/ws/WebSocketReader;->frameCallback:Lokhttp3/internal/ws/WebSocketReader$FrameCallback;
@@ -1145,10 +1145,10 @@
 
     invoke-interface {v1, v2}, Lokhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadMessage(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_4e
 
     .line 247
-    :cond_4
+    :cond_43
     iget-object v1, p0, Lokhttp3/internal/ws/WebSocketReader;->frameCallback:Lokhttp3/internal/ws/WebSocketReader$FrameCallback;
 
     iget-object v2, p0, Lokhttp3/internal/ws/WebSocketReader;->messageFrameBuffer:Lokio/Buffer;
@@ -1160,12 +1160,12 @@
     invoke-interface {v1, v2}, Lokhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadMessage(Lokio/ByteString;)V
 
     .line 249
-    :goto_1
+    :goto_4e
     return-void
 .end method
 
 .method private final readUntilNonControlFrame()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1175,10 +1175,10 @@
     .line 254
     nop
 
-    :goto_0
+    :goto_1
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketReader;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     .line 255
     invoke-direct {p0}, Lokhttp3/internal/ws/WebSocketReader;->readHeader()V
@@ -1186,27 +1186,27 @@
     .line 256
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 257
-    goto :goto_1
+    goto :goto_11
 
     .line 259
-    :cond_0
+    :cond_d
     invoke-direct {p0}, Lokhttp3/internal/ws/WebSocketReader;->readControlFrame()V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 261
-    :cond_1
-    :goto_1
+    :cond_11
+    :goto_11
     return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1216,20 +1216,20 @@
     .line 295
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketReader;->messageInflater:Lokhttp3/internal/ws/MessageInflater;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_5
     invoke-virtual {v0}, Lokhttp3/internal/ws/MessageInflater;->close()V
 
     .line 296
-    :goto_0
+    :goto_8
     return-void
 .end method
 
 .method public final getSource()Lokio/BufferedSource;
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketReader;->source:Lokio/BufferedSource;
@@ -1238,7 +1238,7 @@
 .end method
 
 .method public final processNextFrame()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1251,18 +1251,18 @@
     .line 103
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 104
     invoke-direct {p0}, Lokhttp3/internal/ws/WebSocketReader;->readControlFrame()V
 
-    goto :goto_0
+    goto :goto_e
 
     .line 106
-    :cond_0
+    :cond_b
     invoke-direct {p0}, Lokhttp3/internal/ws/WebSocketReader;->readMessageFrame()V
 
     .line 108
-    :goto_0
+    :goto_e
     return-void
 .end method

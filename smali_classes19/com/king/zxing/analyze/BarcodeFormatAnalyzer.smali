@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/king/zxing/DecodeConfig;)V
-    .locals 0
+    .registers 2
     .param p1, "config"    # Lcom/king/zxing/DecodeConfig;
 
     .line 30
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,7 +51,7 @@
 .end method
 
 .method private decodeInternal(Lcom/google/zxing/LuminanceSource;Z)Lcom/google/zxing/Result;
-    .locals 4
+    .registers 7
     .param p1, "source"    # Lcom/google/zxing/LuminanceSource;
     .param p2, "isMultiDecode"    # Z
 
@@ -60,7 +60,7 @@
 
     .line 81
     .local v0, "result":Lcom/google/zxing/Result;
-    :try_start_0
+    :try_start_1
     iget-object v1, p0, Lcom/king/zxing/analyze/BarcodeFormatAnalyzer;->mReader:Lcom/google/zxing/Reader;
 
     new-instance v2, Lcom/google/zxing/BinaryBitmap;
@@ -76,26 +76,26 @@
     invoke-interface {v1, v2, v3}, Lcom/google/zxing/Reader;->decode(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;)Lcom/google/zxing/Result;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_13} :catch_15
 
     move-object v0, v1
 
     .line 84
-    goto :goto_0
+    goto :goto_16
 
     .line 82
-    :catch_0
+    :catch_15
     move-exception v1
 
     .line 85
-    :goto_0
-    if-eqz p2, :cond_0
+    :goto_16
+    if-eqz p2, :cond_30
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_30
 
     .line 87
-    :try_start_1
+    :try_start_1a
     iget-object v1, p0, Lcom/king/zxing/analyze/BarcodeFormatAnalyzer;->mReader:Lcom/google/zxing/Reader;
 
     new-instance v2, Lcom/google/zxing/BinaryBitmap;
@@ -111,31 +111,31 @@
     invoke-interface {v1, v2, v3}, Lcom/google/zxing/Reader;->decode(Lcom/google/zxing/BinaryBitmap;Ljava/util/Map;)Lcom/google/zxing/Result;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_2c
+    .catch Ljava/lang/Exception; {:try_start_1a .. :try_end_2c} :catch_2e
 
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_30
 
     .line 89
-    :catch_1
+    :catch_2e
     move-exception v1
 
-    goto :goto_2
+    goto :goto_31
 
     .line 91
-    :cond_0
-    :goto_1
+    :cond_30
+    :goto_30
     nop
 
     .line 92
-    :goto_2
+    :goto_31
     return-object v0
 .end method
 
 .method private initReader()V
-    .locals 1
+    .registers 2
 
     .line 35
     invoke-virtual {p0}, Lcom/king/zxing/analyze/BarcodeFormatAnalyzer;->createReader()Lcom/google/zxing/Reader;
@@ -151,7 +151,7 @@
 
 # virtual methods
 .method public analyze([BIIIIII)Lcom/google/zxing/Result;
-    .locals 19
+    .registers 27
     .param p1, "data"    # [B
     .param p2, "dataWidth"    # I
     .param p3, "dataHeight"    # I
@@ -175,10 +175,10 @@
     .local v14, "rawResult":Lcom/google/zxing/Result;
     iget-object v0, v1, Lcom/king/zxing/analyze/BarcodeFormatAnalyzer;->mReader:Lcom/google/zxing/Reader;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_ca
 
     .line 44
-    :try_start_0
+    :try_start_d
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -220,14 +220,14 @@
     move-object v14, v2
 
     .line 48
-    if-nez v14, :cond_3
+    if-nez v14, :cond_97
 
     iget-object v2, v1, Lcom/king/zxing/analyze/BarcodeFormatAnalyzer;->mDecodeConfig:Lcom/king/zxing/DecodeConfig;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_97
 
     .line 49
-    if-nez v14, :cond_2
+    if-nez v14, :cond_80
 
     iget-object v2, v1, Lcom/king/zxing/analyze/BarcodeFormatAnalyzer;->mDecodeConfig:Lcom/king/zxing/DecodeConfig;
 
@@ -235,7 +235,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_80
 
     .line 50
     array-length v2, v11
@@ -249,15 +249,15 @@
     const/4 v2, 0x0
 
     .local v2, "y":I
-    :goto_0
-    if-ge v2, v13, :cond_1
+    :goto_44
+    if-ge v2, v13, :cond_5c
 
     .line 52
     const/4 v3, 0x0
 
     .local v3, "x":I
-    :goto_1
-    if-ge v3, v12, :cond_0
+    :goto_47
+    if-ge v3, v12, :cond_59
 
     .line 53
     mul-int v4, v3, v13
@@ -279,18 +279,18 @@
     .line 52
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_47
 
     .line 51
     .end local v3    # "x":I
-    :cond_0
+    :cond_59
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_44
 
     .line 56
     .end local v2    # "y":I
-    :cond_1
+    :cond_5c
     new-instance v10, Lcom/google/zxing/PlanarYUVLuminanceSource;
 
     const/16 v18, 0x0
@@ -331,14 +331,14 @@
 
     .line 59
     .end local v17    # "rotatedData":[B
-    :cond_2
+    :cond_80
     iget-object v2, v1, Lcom/king/zxing/analyze/BarcodeFormatAnalyzer;->mDecodeConfig:Lcom/king/zxing/DecodeConfig;
 
     invoke-virtual {v2}, Lcom/king/zxing/DecodeConfig;->isSupportLuminanceInvert()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_97
 
     .line 60
     invoke-virtual {v0}, Lcom/google/zxing/PlanarYUVLuminanceSource;->invert()Lcom/google/zxing/LuminanceSource;
@@ -358,8 +358,8 @@
     move-object v14, v2
 
     .line 63
-    :cond_3
-    if-eqz v14, :cond_4
+    :cond_97
+    if-eqz v14, :cond_c4
 
     .line 64
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -395,17 +395,17 @@
     move-result-object v4
 
     invoke-static {v4}, Lcom/king/zxing/util/LogUtils;->d(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_bb
+    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_bb} :catch_c3
+    .catchall {:try_start_d .. :try_end_bb} :catchall_bc
 
-    goto :goto_2
+    goto :goto_c4
 
     .line 70
     .end local v0    # "source":Lcom/google/zxing/PlanarYUVLuminanceSource;
     .end local v2    # "end":J
     .end local v15    # "start":J
-    :catchall_0
+    :catchall_bc
     move-exception v0
 
     iget-object v2, v1, Lcom/king/zxing/analyze/BarcodeFormatAnalyzer;->mReader:Lcom/google/zxing/Reader;
@@ -416,12 +416,12 @@
     throw v0
 
     .line 67
-    :catch_0
+    :catch_c3
     move-exception v0
 
     .line 70
-    :cond_4
-    :goto_2
+    :cond_c4
+    :goto_c4
     iget-object v0, v1, Lcom/king/zxing/analyze/BarcodeFormatAnalyzer;->mReader:Lcom/google/zxing/Reader;
 
     invoke-interface {v0}, Lcom/google/zxing/Reader;->reset()V
@@ -430,7 +430,7 @@
     nop
 
     .line 73
-    :cond_5
+    :cond_ca
     return-object v14
 .end method
 

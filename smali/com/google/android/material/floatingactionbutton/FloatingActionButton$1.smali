@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     .line 733
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onHidden()V
-    .locals 2
+    .registers 3
 
     .line 741
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$1;->val$listener:Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;
@@ -55,7 +55,7 @@
 .end method
 
 .method public onShown()V
-    .locals 2
+    .registers 3
 
     .line 736
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$1;->val$listener:Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;

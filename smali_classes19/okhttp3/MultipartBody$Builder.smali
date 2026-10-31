@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "boundary"    # Ljava/lang/String;
 
     const-string v0, "boundary"
@@ -126,12 +126,12 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 231
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_11
 
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
@@ -145,7 +145,7 @@
 
     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_0
+    :cond_11
     invoke-direct {p0, p1}, Lokhttp3/MultipartBody$Builder;-><init>(Ljava/lang/String;)V
 
     .line 275
@@ -155,7 +155,7 @@
 
 # virtual methods
 .method public final addFormDataPart(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/MultipartBody$Builder;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -200,7 +200,7 @@
 .end method
 
 .method public final addFormDataPart(Ljava/lang/String;Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$Builder;
-    .locals 3
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "filename"    # Ljava/lang/String;
     .param p3, "body"    # Lokhttp3/RequestBody;
@@ -246,7 +246,7 @@
 .end method
 
 .method public final addPart(Lokhttp3/Headers;Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$Builder;
-    .locals 3
+    .registers 6
     .param p1, "headers"    # Lokhttp3/Headers;
     .param p2, "body"    # Lokhttp3/RequestBody;
 
@@ -287,7 +287,7 @@
 .end method
 
 .method public final addPart(Lokhttp3/MultipartBody$Part;)Lokhttp3/MultipartBody$Builder;
-    .locals 3
+    .registers 5
     .param p1, "part"    # Lokhttp3/MultipartBody$Part;
 
     const-string v0, "part"
@@ -325,7 +325,7 @@
 .end method
 
 .method public final addPart(Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$Builder;
-    .locals 3
+    .registers 5
     .param p1, "body"    # Lokhttp3/RequestBody;
 
     const-string v0, "body"
@@ -365,7 +365,7 @@
 .end method
 
 .method public final build()Lokhttp3/MultipartBody;
-    .locals 4
+    .registers 5
 
     .line 272
     iget-object v0, p0, Lokhttp3/MultipartBody$Builder;->parts:Ljava/util/List;
@@ -376,7 +376,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 273
     new-instance v0, Lokhttp3/MultipartBody;
@@ -396,7 +396,7 @@
     return-object v0
 
     .line 346
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
     .line 272
@@ -420,7 +420,7 @@
 .end method
 
 .method public final setType(Lokhttp3/MediaType;)Lokhttp3/MultipartBody$Builder;
-    .locals 4
+    .registers 6
     .param p1, "type"    # Lokhttp3/MediaType;
 
     const-string v0, "type"
@@ -447,7 +447,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 242
     iput-object p1, v0, Lokhttp3/MultipartBody$Builder;->type:Lokhttp3/MediaType;
@@ -468,7 +468,7 @@
     .line 346
     .restart local v0    # "$this$setType_u24lambda_u2d1":Lokhttp3/MultipartBody$Builder;
     .restart local v1    # "$i$a$-apply-MultipartBody$Builder$setType$1":I
-    :cond_0
+    :cond_1c
     const/4 v2, 0x0
 
     .line 241

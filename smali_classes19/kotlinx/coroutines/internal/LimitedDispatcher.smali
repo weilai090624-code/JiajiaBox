@@ -106,7 +106,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/internal/LimitedDispatcher;
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public constructor <init>(Lkotlinx/coroutines/CoroutineDispatcher;I)V
-    .locals 2
+    .registers 5
     .param p1, "dispatcher"    # Lkotlinx/coroutines/CoroutineDispatcher;
     .param p2, "parallelism"    # I
 
@@ -138,25 +138,25 @@
     .line 29
     instance-of v0, p1, Lkotlinx/coroutines/Delay;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     move-object v0, p1
 
     check-cast v0, Lkotlinx/coroutines/Delay;
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_10
+    if-nez v0, :cond_16
 
     invoke-static {}, Lkotlinx/coroutines/DefaultExecutorKt;->getDefaultDelay()Lkotlinx/coroutines/Delay;
 
     move-result-object v0
 
-    :cond_1
+    :cond_16
     iput-object v0, p0, Lkotlinx/coroutines/internal/LimitedDispatcher;->$$delegate_0:Lkotlinx/coroutines/Delay;
 
     .line 35
@@ -180,7 +180,7 @@
 .end method
 
 .method public static final synthetic access$getDispatcher$p(Lkotlinx/coroutines/internal/LimitedDispatcher;)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/internal/LimitedDispatcher;
 
     .line 26
@@ -190,7 +190,7 @@
 .end method
 
 .method public static final synthetic access$obtainTaskOrDeallocateWorker(Lkotlinx/coroutines/internal/LimitedDispatcher;)Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/internal/LimitedDispatcher;
 
     .line 26
@@ -202,7 +202,7 @@
 .end method
 
 .method private final dispatchInternal(Ljava/lang/Runnable;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 6
     .param p1, "block"    # Ljava/lang/Runnable;
     .param p2, "startWorker"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -234,33 +234,33 @@
 
     iget v2, p0, Lkotlinx/coroutines/internal/LimitedDispatcher;->parallelism:I
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_11
 
     return-void
 
     .line 70
-    :cond_0
+    :cond_11
     invoke-direct {p0}, Lkotlinx/coroutines/internal/LimitedDispatcher;->tryAllocateWorker()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_18
 
     return-void
 
     .line 71
-    :cond_1
+    :cond_18
     invoke-direct {p0}, Lkotlinx/coroutines/internal/LimitedDispatcher;->obtainTaskOrDeallocateWorker()Ljava/lang/Runnable;
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1f
 
     return-void
 
     .line 72
     .local v1, "task":Ljava/lang/Runnable;
-    :cond_2
+    :cond_1f
     new-instance v2, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;
 
     invoke-direct {v2, p0, v1}, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;-><init>(Lkotlinx/coroutines/internal/LimitedDispatcher;Ljava/lang/Runnable;)V
@@ -272,12 +272,12 @@
 .end method
 
 .method private final obtainTaskOrDeallocateWorker()Ljava/lang/Runnable;
-    .locals 6
+    .registers 7
 
     .line 90
     nop
 
-    :goto_0
+    :goto_1
     nop
 
     .line 91
@@ -291,7 +291,7 @@
 
     .line 92
     .local v0, "nextTask":Ljava/lang/Runnable;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2e
 
     iget-object v1, p0, Lkotlinx/coroutines/internal/LimitedDispatcher;->workerAllocationLock:Ljava/lang/Object;
 
@@ -312,7 +312,7 @@
     const/4 v4, 0x0
 
     .local v4, "$i$a$-synchronized-LimitedDispatcher$obtainTaskOrDeallocateWorker$1":I
-    :try_start_0
+    :try_start_13
     sget-object v5, Lkotlinx/coroutines/internal/LimitedDispatcher;->runningWorkers$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     .line 93
@@ -324,10 +324,10 @@
     invoke-virtual {v5}, Lkotlinx/coroutines/internal/LockFreeTaskQueue;->getSize()I
 
     move-result v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_13 .. :try_end_1e} :catchall_2b
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_23
 
     .end local v1    # "lock$iv":Ljava/lang/Object;
     .end local v2    # "$i$f$synchronized":I
@@ -343,14 +343,14 @@
     .restart local v2    # "$i$f$synchronized":I
     .restart local v3    # "$i$f$synchronizedImpl":I
     .restart local v4    # "$i$a$-synchronized-LimitedDispatcher$obtainTaskOrDeallocateWorker$1":I
-    :cond_0
-    :try_start_1
+    :cond_23
+    :try_start_23
     sget-object v5, Lkotlinx/coroutines/internal/LimitedDispatcher;->runningWorkers$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     .line 95
     invoke-virtual {v5, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->incrementAndGet(Ljava/lang/Object;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_28
+    .catchall {:try_start_23 .. :try_end_28} :catchall_2b
 
     .line 160
     .end local v4    # "$i$a$-synchronized-LimitedDispatcher$obtainTaskOrDeallocateWorker$1":I
@@ -362,13 +362,13 @@
 
     .end local v1    # "lock$iv":Ljava/lang/Object;
     .end local v2    # "$i$f$synchronized":I
-    goto :goto_0
+    goto :goto_1
 
     .line 160
     .restart local v1    # "lock$iv":Ljava/lang/Object;
     .restart local v2    # "$i$f$synchronized":I
     .restart local v3    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_2b
     move-exception v4
 
     monitor-exit v1
@@ -379,12 +379,12 @@
     .end local v1    # "lock$iv":Ljava/lang/Object;
     .end local v2    # "$i$f$synchronized":I
     .end local v3    # "$i$f$synchronizedImpl":I
-    :cond_1
+    :cond_2e
     return-object v0
 .end method
 
 .method private final tryAllocateWorker()Z
-    .locals 6
+    .registers 7
 
     .line 79
     iget-object v0, p0, Lkotlinx/coroutines/internal/LimitedDispatcher;->workerAllocationLock:Ljava/lang/Object;
@@ -407,7 +407,7 @@
 
     .line 80
     .local v3, "$i$a$-synchronized-LimitedDispatcher$tryAllocateWorker$1":I
-    :try_start_0
+    :try_start_7
     sget-object v4, Lkotlinx/coroutines/internal/LimitedDispatcher;->runningWorkers$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     invoke-virtual {v4, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
@@ -415,10 +415,10 @@
     move-result v4
 
     iget v5, p0, Lkotlinx/coroutines/internal/LimitedDispatcher;->parallelism:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_7 .. :try_end_f} :catchall_1d
 
-    if-lt v4, v5, :cond_0
+    if-lt v4, v5, :cond_14
 
     .end local v0    # "lock$iv":Ljava/lang/Object;
     .end local v1    # "$i$f$synchronized":I
@@ -434,14 +434,14 @@
     .restart local v1    # "$i$f$synchronized":I
     .restart local v2    # "$i$f$synchronizedImpl":I
     .restart local v3    # "$i$a$-synchronized-LimitedDispatcher$tryAllocateWorker$1":I
-    :cond_0
-    :try_start_1
+    :cond_14
+    :try_start_14
     sget-object v4, Lkotlinx/coroutines/internal/LimitedDispatcher;->runningWorkers$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     .line 81
     invoke-virtual {v4, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->incrementAndGet(Ljava/lang/Object;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_19
+    .catchall {:try_start_14 .. :try_end_19} :catchall_1d
 
     .line 82
     nop
@@ -459,7 +459,7 @@
     .restart local v0    # "lock$iv":Ljava/lang/Object;
     .restart local v1    # "$i$f$synchronized":I
     .restart local v2    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_1d
     move-exception v3
 
     monitor-exit v0
@@ -470,7 +470,7 @@
 
 # virtual methods
 .method public delay(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -497,7 +497,7 @@
 .end method
 
 .method public dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 8
+    .registers 11
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -522,27 +522,27 @@
 
     iget v3, v0, Lkotlinx/coroutines/internal/LimitedDispatcher;->parallelism:I
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_32
 
     .line 139
     invoke-direct {v0}, Lkotlinx/coroutines/internal/LimitedDispatcher;->tryAllocateWorker()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_32
 
     .line 140
     invoke-direct {v0}, Lkotlinx/coroutines/internal/LimitedDispatcher;->obtainTaskOrDeallocateWorker()Ljava/lang/Runnable;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1e
 
-    goto :goto_0
+    goto :goto_32
 
     .line 141
     .local v2, "task$iv":Ljava/lang/Runnable;
-    :cond_0
+    :cond_1e
     new-instance v3, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;
 
     invoke-direct {v3, v0, v2}, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;-><init>(Lkotlinx/coroutines/internal/LimitedDispatcher;Ljava/lang/Runnable;)V
@@ -579,13 +579,13 @@
     .end local v0    # "this_$iv":Lkotlinx/coroutines/internal/LimitedDispatcher;
     .end local v1    # "$i$f$dispatchInternal":I
     .end local v2    # "task$iv":Ljava/lang/Runnable;
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     return-void
 .end method
 
 .method public dispatchYield(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 8
+    .registers 11
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -610,27 +610,27 @@
 
     iget v3, v0, Lkotlinx/coroutines/internal/LimitedDispatcher;->parallelism:I
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_32
 
     .line 147
     invoke-direct {v0}, Lkotlinx/coroutines/internal/LimitedDispatcher;->tryAllocateWorker()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_32
 
     .line 148
     invoke-direct {v0}, Lkotlinx/coroutines/internal/LimitedDispatcher;->obtainTaskOrDeallocateWorker()Ljava/lang/Runnable;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1e
 
-    goto :goto_0
+    goto :goto_32
 
     .line 149
     .local v2, "task$iv":Ljava/lang/Runnable;
-    :cond_0
+    :cond_1e
     new-instance v3, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;
 
     invoke-direct {v3, v0, v2}, Lkotlinx/coroutines/internal/LimitedDispatcher$Worker;-><init>(Lkotlinx/coroutines/internal/LimitedDispatcher;Ljava/lang/Runnable;)V
@@ -667,13 +667,13 @@
     .end local v0    # "this_$iv":Lkotlinx/coroutines/internal/LimitedDispatcher;
     .end local v1    # "$i$f$dispatchInternal":I
     .end local v2    # "task$iv":Ljava/lang/Runnable;
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     return-void
 .end method
 
 .method public invokeOnTimeout(JLjava/lang/Runnable;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/DisposableHandle;
-    .locals 1
+    .registers 6
 
     iget-object v0, p0, Lkotlinx/coroutines/internal/LimitedDispatcher;->$$delegate_0:Lkotlinx/coroutines/Delay;
 
@@ -685,7 +685,7 @@
 .end method
 
 .method public limitedParallelism(I)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 3
     .param p1, "parallelism"    # I
 
     .line 42
@@ -694,7 +694,7 @@
     .line 43
     iget v0, p0, Lkotlinx/coroutines/internal/LimitedDispatcher;->parallelism:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_b
 
     move-object v0, p0
 
@@ -703,7 +703,7 @@
     return-object v0
 
     .line 44
-    :cond_0
+    :cond_b
     invoke-super {p0, p1}, Lkotlinx/coroutines/CoroutineDispatcher;->limitedParallelism(I)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v0
@@ -712,7 +712,7 @@
 .end method
 
 .method public scheduleResumeAfterDelay(JLkotlinx/coroutines/CancellableContinuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",

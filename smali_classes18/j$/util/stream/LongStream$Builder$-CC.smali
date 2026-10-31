@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$add(Lj$/util/stream/LongStream$Builder;J)Lj$/util/stream/LongStream$Builder;
-    .locals 0
+    .registers 3
     .param p0, "_this"    # Lj$/util/stream/LongStream$Builder;
     .param p1, "t"    # J
 

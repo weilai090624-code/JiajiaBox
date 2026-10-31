@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic forConstantValue(Ljava/lang/annotation/Annotation;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 0
+    .registers 3
 
     .line 26
     check-cast p1, Ljavax/annotation/RegEx;
@@ -52,14 +52,14 @@
 .end method
 
 .method public forConstantValue(Ljavax/annotation/RegEx;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 2
+    .registers 5
     .param p1, "annotation"    # Ljavax/annotation/RegEx;
     .param p2, "value"    # Ljava/lang/Object;
 
     .line 29
     instance-of v0, p2, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 30
     sget-object v0, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
@@ -67,15 +67,15 @@
     return-object v0
 
     .line 33
-    :cond_0
-    :try_start_0
+    :cond_7
+    :try_start_7
     move-object v0, p2
 
     check-cast v0, Ljava/lang/String;
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
-    :try_end_0
-    .catch Ljava/util/regex/PatternSyntaxException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/util/regex/PatternSyntaxException; {:try_start_7 .. :try_end_d} :catch_11
 
     .line 36
     nop
@@ -86,7 +86,7 @@
     return-object v0
 
     .line 34
-    :catch_0
+    :catch_11
     move-exception v0
 
     .line 35

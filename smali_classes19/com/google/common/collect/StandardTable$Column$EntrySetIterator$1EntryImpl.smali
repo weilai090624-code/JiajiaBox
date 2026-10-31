@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/StandardTable$Column$EntrySetIterator;Ljava/util/Map$Entry;)V
-    .locals 0
+    .registers 3
     .param p1, "this$2"    # Lcom/google/common/collect/StandardTable$Column$EntrySetIterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -70,7 +70,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -101,7 +101,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"

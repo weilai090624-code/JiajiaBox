@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/MeteringPoint;)V
-    .locals 1
+    .registers 3
     .param p1, "point"    # Landroidx/camera/core/MeteringPoint;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/camera/core/MeteringPoint;I)V
-    .locals 2
+    .registers 5
     .param p1, "point"    # Landroidx/camera/core/MeteringPoint;
     .param p2, "meteringMode"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public addPoint(Landroidx/camera/core/MeteringPoint;)Landroidx/camera/core/FocusMeteringAction$Builder;
-    .locals 1
+    .registers 3
     .param p1, "point"    # Landroidx/camera/core/MeteringPoint;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -146,7 +146,7 @@
 .end method
 
 .method public addPoint(Landroidx/camera/core/MeteringPoint;I)Landroidx/camera/core/FocusMeteringAction$Builder;
-    .locals 4
+    .registers 7
     .param p1, "point"    # Landroidx/camera/core/MeteringPoint;
     .param p2, "meteringMode"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -165,30 +165,30 @@
 
     const/4 v1, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_7
     const-string v3, "Point cannot be null."
 
     invoke-static {v2, v3}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 233
-    if-lt p2, v1, :cond_1
+    if-lt p2, v1, :cond_12
 
     const/4 v2, 0x7
 
-    if-gt p2, v2, :cond_1
+    if-gt p2, v2, :cond_12
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_12
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -212,7 +212,7 @@
     .line 237
     and-int/lit8 v0, p2, 0x1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_31
 
     .line 238
     iget-object v0, p0, Landroidx/camera/core/FocusMeteringAction$Builder;->mMeteringPointsAf:Ljava/util/List;
@@ -220,10 +220,10 @@
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 240
-    :cond_2
+    :cond_31
     and-int/lit8 v0, p2, 0x2
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3a
 
     .line 241
     iget-object v0, p0, Landroidx/camera/core/FocusMeteringAction$Builder;->mMeteringPointsAe:Ljava/util/List;
@@ -231,10 +231,10 @@
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 243
-    :cond_3
+    :cond_3a
     and-int/lit8 v0, p2, 0x4
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_43
 
     .line 244
     iget-object v0, p0, Landroidx/camera/core/FocusMeteringAction$Builder;->mMeteringPointsAwb:Ljava/util/List;
@@ -242,12 +242,12 @@
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 246
-    :cond_4
+    :cond_43
     return-object p0
 .end method
 
 .method public build()Landroidx/camera/core/FocusMeteringAction;
-    .locals 1
+    .registers 2
 
     .line 277
     new-instance v0, Landroidx/camera/core/FocusMeteringAction;
@@ -258,7 +258,7 @@
 .end method
 
 .method public disableAutoCancel()Landroidx/camera/core/FocusMeteringAction$Builder;
-    .locals 2
+    .registers 3
 
     .line 268
     const-wide/16 v0, 0x0
@@ -270,7 +270,7 @@
 .end method
 
 .method public setAutoCancelDuration(JLjava/util/concurrent/TimeUnit;)Landroidx/camera/core/FocusMeteringAction$Builder;
-    .locals 3
+    .registers 7
     .param p1, "duration"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -289,16 +289,16 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     const-string v1, "autoCancelDuration must be at least 1"
 
     invoke-static {v0, v1}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V

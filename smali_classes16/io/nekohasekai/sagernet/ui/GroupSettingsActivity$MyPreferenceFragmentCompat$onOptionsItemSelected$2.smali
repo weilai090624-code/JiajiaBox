@@ -69,7 +69,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -118,7 +118,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,7 +161,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -170,7 +170,7 @@
     .line 335
     iget v1, p0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_32
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -181,13 +181,13 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_2d
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 336
@@ -198,7 +198,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2d
 
     move-object v2, p0
 
@@ -212,14 +212,14 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_2d
 
     .line 335
     return-object v0
 
     .line 336
-    :cond_0
-    :goto_0
+    :cond_2d
+    :goto_2d
     nop
 
     .line 337
@@ -229,9 +229,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_32
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

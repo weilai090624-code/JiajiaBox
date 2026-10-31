@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1010
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,14 +41,14 @@
 
 # virtual methods
 .method public clear()V
-    .locals 0
+    .registers 1
 
     .line 1017
     return-void
 .end method
 
 .method public copyFor(Ljava/lang/ref/ReferenceQueue;Lcom/google/common/collect/MapMakerInternalMap$DummyInternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
-    .locals 0
+    .registers 3
     .param p2, "entry"    # Lcom/google/common/collect/MapMakerInternalMap$DummyInternalEntry;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,7 +72,7 @@
 .end method
 
 .method public bridge synthetic copyFor(Ljava/lang/ref/ReferenceQueue;Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
-    .locals 0
+    .registers 3
 
     .line 1010
     check-cast p2, Lcom/google/common/collect/MapMakerInternalMap$DummyInternalEntry;
@@ -85,7 +85,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1021
     const/4 v0, 0x0
@@ -94,7 +94,7 @@
 .end method
 
 .method public getEntry()Lcom/google/common/collect/MapMakerInternalMap$DummyInternalEntry;
-    .locals 1
+    .registers 2
 
     .line 1013
     const/4 v0, 0x0
@@ -103,7 +103,7 @@
 .end method
 
 .method public bridge synthetic getEntry()Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
-    .locals 1
+    .registers 2
 
     .line 1010
     invoke-virtual {p0}, Lcom/google/common/collect/MapMakerInternalMap$1;->getEntry()Lcom/google/common/collect/MapMakerInternalMap$DummyInternalEntry;

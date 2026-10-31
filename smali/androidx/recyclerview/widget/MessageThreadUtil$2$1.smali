@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/MessageThreadUtil$2;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Landroidx/recyclerview/widget/MessageThreadUtil$2;
 
     .line 136
@@ -38,13 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .registers 9
 
     .line 140
     .local p0, "this":Landroidx/recyclerview/widget/MessageThreadUtil$2$1;, "Landroidx/recyclerview/widget/MessageThreadUtil$2$1;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Landroidx/recyclerview/widget/MessageThreadUtil$2$1;->this$1:Landroidx/recyclerview/widget/MessageThreadUtil$2;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/MessageThreadUtil$2;->mQueue:Landroidx/recyclerview/widget/MessageThreadUtil$MessageQueue;
@@ -55,7 +55,7 @@
 
     .line 141
     .local v0, "msg":Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 142
     nop
@@ -75,10 +75,10 @@
 
     .line 144
     .restart local v0    # "msg":Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    :cond_0
+    :cond_15
     iget v1, v0, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->what:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_84
 
     .line 164
     new-instance v1, Ljava/lang/StringBuilder;
@@ -105,10 +105,10 @@
 
     invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_81
 
     .line 160
-    :pswitch_0
+    :pswitch_35
     iget-object v1, v0, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->data:Ljava/lang/Object;
 
     check-cast v1, Landroidx/recyclerview/widget/TileList$Tile;
@@ -122,11 +122,11 @@
     invoke-interface {v2, v1}, Landroidx/recyclerview/widget/ThreadUtil$BackgroundCallback;->recycleTile(Landroidx/recyclerview/widget/TileList$Tile;)V
 
     .line 162
-    goto :goto_1
+    goto :goto_81
 
     .line 156
     .end local v1    # "tile":Landroidx/recyclerview/widget/TileList$Tile;, "Landroidx/recyclerview/widget/TileList$Tile<TT;>;"
-    :pswitch_1
+    :pswitch_41
     iget-object v1, p0, Landroidx/recyclerview/widget/MessageThreadUtil$2$1;->this$1:Landroidx/recyclerview/widget/MessageThreadUtil$2;
 
     iget-object v1, v1, Landroidx/recyclerview/widget/MessageThreadUtil$2;->val$callback:Landroidx/recyclerview/widget/ThreadUtil$BackgroundCallback;
@@ -138,10 +138,10 @@
     invoke-interface {v1, v2, v3}, Landroidx/recyclerview/widget/ThreadUtil$BackgroundCallback;->loadTile(II)V
 
     .line 157
-    goto :goto_1
+    goto :goto_81
 
     .line 150
-    :pswitch_2
+    :pswitch_4d
     iget-object v1, p0, Landroidx/recyclerview/widget/MessageThreadUtil$2$1;->this$1:Landroidx/recyclerview/widget/MessageThreadUtil$2;
 
     iget-object v1, v1, Landroidx/recyclerview/widget/MessageThreadUtil$2;->mQueue:Landroidx/recyclerview/widget/MessageThreadUtil$MessageQueue;
@@ -177,10 +177,10 @@
     invoke-interface/range {v2 .. v7}, Landroidx/recyclerview/widget/ThreadUtil$BackgroundCallback;->updateRange(IIIII)V
 
     .line 154
-    goto :goto_1
+    goto :goto_81
 
     .line 146
-    :pswitch_3
+    :pswitch_6f
     iget-object v1, p0, Landroidx/recyclerview/widget/MessageThreadUtil$2$1;->this$1:Landroidx/recyclerview/widget/MessageThreadUtil$2;
 
     iget-object v1, v1, Landroidx/recyclerview/widget/MessageThreadUtil$2;->mQueue:Landroidx/recyclerview/widget/MessageThreadUtil$MessageQueue;
@@ -203,16 +203,16 @@
 
     .line 166
     .end local v0    # "msg":Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    :goto_1
-    goto/16 :goto_0
+    :goto_81
+    goto/16 :goto_1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_84
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6f
+        :pswitch_4d
+        :pswitch_41
+        :pswitch_35
     .end packed-switch
 .end method

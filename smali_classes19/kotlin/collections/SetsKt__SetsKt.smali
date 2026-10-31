@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/SetsKt__SetsJVMKt;-><init>()V
 
@@ -63,7 +63,7 @@
 .end method
 
 .method private static final buildSet(ILkotlin/jvm/functions/Function1;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p0, "capacity"    # I
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -104,7 +104,7 @@
 .end method
 
 .method private static final buildSet(Lkotlin/jvm/functions/Function1;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -144,7 +144,7 @@
 .end method
 
 .method public static final emptySet()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -164,7 +164,7 @@
 .end method
 
 .method private static final hashSetOf()Ljava/util/HashSet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -184,7 +184,7 @@
 .end method
 
 .method public static final varargs hashSetOf([Ljava/lang/Object;)Ljava/util/HashSet;
-    .locals 2
+    .registers 3
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -223,7 +223,7 @@
 .end method
 
 .method private static final linkedSetOf()Ljava/util/LinkedHashSet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -243,7 +243,7 @@
 .end method
 
 .method public static final varargs linkedSetOf([Ljava/lang/Object;)Ljava/util/LinkedHashSet;
-    .locals 2
+    .registers 3
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -282,7 +282,7 @@
 .end method
 
 .method private static final mutableSetOf()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -304,7 +304,7 @@
 .end method
 
 .method public static final varargs mutableSetOf([Ljava/lang/Object;)Ljava/util/Set;
-    .locals 2
+    .registers 3
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -343,7 +343,7 @@
 .end method
 
 .method public static final optimizeReadOnlySet(Ljava/util/Set;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "$this$optimizeReadOnlySet"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -366,15 +366,15 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_20
 
     .line 188
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 187
-    :pswitch_0
+    :pswitch_e
     invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -387,27 +387,27 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 186
-    :pswitch_1
+    :pswitch_1b
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
     .line 189
-    :goto_0
+    :goto_1f
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_20
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method private static final orEmpty(Ljava/util/Set;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "$this$orEmpty"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -422,23 +422,23 @@
     .end annotation
 
     .line 183
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     move-object v0, p0
 
-    :goto_0
+    :goto_8
     return-object v0
 .end method
 
 .method private static final setOf()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -458,7 +458,7 @@
 .end method
 
 .method public static final varargs setOf([Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -483,7 +483,7 @@
 .end method
 
 .method public static final setOfNotNull(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -496,25 +496,25 @@
     .end annotation
 
     .line 109
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_7
 
     invoke-static {p0}, Lkotlin/collections/SetsKt;->setOf(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_7
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
-    :goto_0
+    :goto_b
     return-object v0
 .end method
 
 .method public static final varargs setOfNotNull([Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

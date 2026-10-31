@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;Lcom/google/common/util/concurrent/Service;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
 
     .line 697
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public call(Lcom/google/common/util/concurrent/ServiceManager$Listener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/common/util/concurrent/ServiceManager$Listener;
 
     .line 700
@@ -59,7 +59,7 @@
 .end method
 
 .method public bridge synthetic call(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 697
     check-cast p1, Lcom/google/common/util/concurrent/ServiceManager$Listener;
@@ -70,7 +70,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 705
     iget-object v0, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState$2;->val$service:Lcom/google/common/util/concurrent/Service;

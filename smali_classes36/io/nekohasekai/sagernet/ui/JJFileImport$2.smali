@@ -66,6 +66,14 @@
 
     move-result-object v0
 
+    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJFileImport$2;->val$context:Landroid/content/Context;
+
+    iget-object v2, p0, Lio/nekohasekai/sagernet/ui/JJFileImport$2;->val$uri:Landroid/net/Uri;
+
+    invoke-static {v1, v2, v0}, Lio/nekohasekai/sagernet/ui/FileImportGroup;->wrap(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
     .line 138
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/JJFileImport$2;->val$activity:Landroid/app/Activity;
 
@@ -74,12 +82,12 @@
     invoke-direct {v2, p0, v0}, Lio/nekohasekai/sagernet/ui/JJFileImport$2$1;-><init>(Lio/nekohasekai/sagernet/ui/JJFileImport$2;Ljava/lang/String;)V
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
-    :try_end_12
-    .catchall {:try_start_0 .. :try_end_12} :catchall_13
+    :try_end_1a
+    .catchall {:try_start_0 .. :try_end_1a} :catchall_1b
 
     return-void
 
-    :catchall_13
+    :catchall_1b
     move-exception v0
 
     .line 145

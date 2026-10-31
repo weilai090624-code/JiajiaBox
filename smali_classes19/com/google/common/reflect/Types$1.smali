@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 61
     check-cast p1, Ljava/lang/reflect/Type;
@@ -53,7 +53,7 @@
 .end method
 
 .method public apply(Ljava/lang/reflect/Type;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "from"    # Ljava/lang/reflect/Type;
 
     .line 64

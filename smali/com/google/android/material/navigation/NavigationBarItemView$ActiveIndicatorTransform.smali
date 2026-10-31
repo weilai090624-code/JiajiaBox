@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1027
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/navigation/NavigationBarItemView$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/android/material/navigation/NavigationBarItemView$1;
 
     .line 1027
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method protected calculateAlpha(FF)F
-    .locals 4
+    .registers 7
     .param p1, "progress"    # F
     .param p2, "targetValue"    # F
 
@@ -54,34 +54,34 @@
 
     cmpl-float v1, p2, v0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const v1, 0x3f4ccccd    # 0.8f
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
     .line 1045
     .local v1, "startAlphaFraction":F
-    :goto_0
+    :goto_a
     const/high16 v2, 0x3f800000    # 1.0f
 
     cmpl-float v3, p2, v0
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_13
 
     const/high16 v3, 0x3f800000    # 1.0f
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_13
     const v3, 0x3e4ccccd    # 0.2f
 
     .line 1046
     .local v3, "endAlphaFraction":F
-    :goto_1
+    :goto_16
     invoke-static {v0, v2, v1, v3, p1}, Lcom/google/android/material/animation/AnimationUtils;->lerp(FFFFF)F
 
     move-result v0
@@ -90,7 +90,7 @@
 .end method
 
 .method protected calculateScaleX(FF)F
-    .locals 2
+    .registers 5
     .param p1, "progress"    # F
     .param p2, "targetValue"    # F
 
@@ -107,7 +107,7 @@
 .end method
 
 .method protected calculateScaleY(FF)F
-    .locals 1
+    .registers 4
     .param p1, "progress"    # F
     .param p2, "targetValue"    # F
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public updateForProgress(FFLandroid/view/View;)V
-    .locals 1
+    .registers 5
     .param p1, "progress"    # F
     .param p2, "targetValue"    # F
     .param p3, "indicator"    # Landroid/view/View;

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static isApplicationUid(I)Z
-    .locals 1
+    .registers 2
     .param p0, "uid"    # I
 
     .line 69

@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 88
     new-instance v0, Landroidx/fragment/app/BackStackState$1;
@@ -55,7 +55,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 41
@@ -82,7 +82,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/List;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 79
     const/4 v0, 0x0
@@ -122,7 +122,7 @@
 .end method
 
 .method instantiate(Landroidx/fragment/app/FragmentManager;Ljava/util/Map;)Ljava/util/List;
-    .locals 7
+    .registers 10
     .param p1, "fm"    # Landroidx/fragment/app/FragmentManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -158,12 +158,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_50
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -181,7 +181,7 @@
 
     .line 54
     .local v3, "existingFragment":Landroidx/fragment/app/Fragment;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2b
 
     .line 57
     iget-object v4, v3, Landroidx/fragment/app/Fragment;->mWho:Ljava/lang/String;
@@ -189,10 +189,10 @@
     invoke-virtual {v0, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 58
-    goto :goto_0
+    goto :goto_11
 
     .line 61
-    :cond_0
+    :cond_2b
     invoke-virtual {p1}, Landroidx/fragment/app/FragmentManager;->getFragmentStore()Landroidx/fragment/app/FragmentStore;
 
     move-result-object v4
@@ -205,7 +205,7 @@
 
     .line 62
     .local v4, "fragmentState":Landroidx/fragment/app/FragmentState;
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4f
 
     .line 63
     invoke-virtual {p1}, Landroidx/fragment/app/FragmentManager;->getFragmentFactory()Landroidx/fragment/app/FragmentFactory;
@@ -241,11 +241,11 @@
     .end local v3    # "existingFragment":Landroidx/fragment/app/Fragment;
     .end local v4    # "fragmentState":Landroidx/fragment/app/FragmentState;
     .end local v5    # "fragment":Landroidx/fragment/app/Fragment;
-    :cond_1
-    goto :goto_0
+    :cond_4f
+    goto :goto_11
 
     .line 70
-    :cond_2
+    :cond_50
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -258,12 +258,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_5b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_6f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -281,15 +281,15 @@
 
     .line 73
     .end local v3    # "backStackRecordState":Landroidx/fragment/app/BackStackRecordState;
-    goto :goto_1
+    goto :goto_5b
 
     .line 74
-    :cond_3
+    :cond_6f
     return-object v1
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

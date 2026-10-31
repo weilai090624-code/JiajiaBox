@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public bridge synthetic call()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -76,7 +76,7 @@
 .end method
 
 .method public call()Ljava/lang/Void;
-    .locals 1
+    .registers 2
 
     .line 98
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$2;->val$command:Ljava/lang/Runnable;

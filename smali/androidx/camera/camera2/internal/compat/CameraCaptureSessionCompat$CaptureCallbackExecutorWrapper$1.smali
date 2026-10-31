@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$CaptureCallbackExecutorWrapper;Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;JJ)V
-    .locals 0
+    .registers 8
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$CaptureCallbackExecutorWrapper;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .registers 9
 
     .line 326
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$CaptureCallbackExecutorWrapper$1;->this$0:Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$CaptureCallbackExecutorWrapper;

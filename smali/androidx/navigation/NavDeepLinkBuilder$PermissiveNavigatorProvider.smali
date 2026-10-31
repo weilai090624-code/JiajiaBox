@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 368
     invoke-direct {p0}, Landroidx/navigation/NavigatorProvider;-><init>()V
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public getNavigator(Ljava/lang/String;)Landroidx/navigation/Navigator;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -117,17 +117,17 @@
     nop
 
     .line 395
-    :try_start_0
+    :try_start_6
     invoke-super {p0, p1}, Landroidx/navigation/NavigatorProvider;->getNavigator(Ljava/lang/String;)Landroidx/navigation/Navigator;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/IllegalStateException; {:try_start_6 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_f
 
     .line 396
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 397
@@ -138,6 +138,6 @@
 
     .line 394
     .end local v0    # "e":Ljava/lang/IllegalStateException;
-    :goto_0
+    :goto_f
     return-object v0
 .end method

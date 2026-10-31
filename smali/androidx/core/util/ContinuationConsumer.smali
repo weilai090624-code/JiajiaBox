@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .param p1, "continuation"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -103,7 +103,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 68
     iget-object v0, p0, Landroidx/core/util/ContinuationConsumer;->continuation:Lkotlin/coroutines/Continuation;
@@ -117,12 +117,12 @@
     invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 70
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 72
     new-instance v0, Ljava/lang/StringBuilder;

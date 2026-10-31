@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroidx/camera/camera2/interop/Camera2CameraFilter$Camera2Filter;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public final filter(Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 3
 
     .line 0
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraFilter$$ExternalSyntheticLambda0;->f$0:Landroidx/camera/camera2/interop/Camera2CameraFilter$Camera2Filter;

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/Serializer;)V
-    .locals 1
+    .registers 3
     .param p1, "serializer"    # Lcom/esotericsoftware/kryo/Serializer;
 
     .line 41
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "original"    # Ljava/lang/Object;
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 5
+    .registers 9
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p3, "type"    # Ljava/lang/Class;
@@ -68,7 +68,7 @@
 
     .line 66
     .local v0, "inflater":Ljava/util/zip/Inflater;
-    :try_start_0
+    :try_start_7
     new-instance v1, Ljava/util/zip/InflaterInputStream;
 
     new-instance v2, Lcom/esotericsoftware/kryo/io/InputChunked;
@@ -90,8 +90,8 @@
     invoke-virtual {v2, p1, v4, p3}, Lcom/esotericsoftware/kryo/Serializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_7 .. :try_end_1e} :catchall_22
 
     .line 69
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->end()V
@@ -101,7 +101,7 @@
 
     .line 69
     .end local v1    # "inflaterStream":Ljava/util/zip/InflaterInputStream;
-    :catchall_0
+    :catchall_22
     move-exception v1
 
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->end()V
@@ -111,7 +111,7 @@
 .end method
 
 .method public setCompressionLevel(I)V
-    .locals 0
+    .registers 2
     .param p1, "compressionLevel"    # I
 
     .line 80
@@ -122,7 +122,7 @@
 .end method
 
 .method public setNoHeaders(Z)V
-    .locals 0
+    .registers 2
     .param p1, "noHeaders"    # Z
 
     .line 74
@@ -133,7 +133,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 5
+    .registers 9
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Ljava/lang/Object;
@@ -157,7 +157,7 @@
 
     .line 49
     .local v2, "deflater":Ljava/util/zip/Deflater;
-    :try_start_0
+    :try_start_10
     new-instance v3, Ljava/util/zip/DeflaterOutputStream;
 
     invoke-direct {v3, v0, v2}, Ljava/util/zip/DeflaterOutputStream;-><init>(Ljava/io/OutputStream;Ljava/util/zip/Deflater;)V
@@ -181,9 +181,9 @@
 
     .line 53
     invoke-virtual {v3}, Ljava/util/zip/DeflaterOutputStream;->finish()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_26} :catch_30
+    .catchall {:try_start_10 .. :try_end_26} :catchall_2e
 
     .line 57
     .end local v1    # "deflaterOutput":Lcom/esotericsoftware/kryo/io/Output;
@@ -200,18 +200,18 @@
     return-void
 
     .line 57
-    :catchall_0
+    :catchall_2e
     move-exception v1
 
-    goto :goto_0
+    goto :goto_37
 
     .line 54
-    :catch_0
+    :catch_30
     move-exception v1
 
     .line 55
     .local v1, "ex":Ljava/io/IOException;
-    :try_start_1
+    :try_start_31
     new-instance v3, Lcom/esotericsoftware/kryo/KryoException;
 
     invoke-direct {v3, v1}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/Throwable;)V
@@ -222,8 +222,8 @@
     .end local p2    # "output":Lcom/esotericsoftware/kryo/io/Output;
     .end local p3    # "object":Ljava/lang/Object;
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_37
+    .catchall {:try_start_31 .. :try_end_37} :catchall_2e
 
     .line 57
     .end local v1    # "ex":Ljava/io/IOException;
@@ -232,7 +232,7 @@
     .restart local p1    # "kryo":Lcom/esotericsoftware/kryo/Kryo;
     .restart local p2    # "output":Lcom/esotericsoftware/kryo/io/Output;
     .restart local p3    # "object":Ljava/lang/Object;
-    :goto_0
+    :goto_37
     invoke-virtual {v2}, Ljava/util/zip/Deflater;->end()V
 
     .line 58

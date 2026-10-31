@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 95
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public getAnalyzeAreaRect()Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
 
     .line 223
     iget-object v0, p0, Lcom/king/zxing/DecodeConfig;->analyzeAreaRect:Landroid/graphics/Rect;
@@ -83,7 +83,7 @@
 .end method
 
 .method public getAreaRectHorizontalOffset()I
-    .locals 1
+    .registers 2
 
     .line 327
     iget v0, p0, Lcom/king/zxing/DecodeConfig;->areaRectHorizontalOffset:I
@@ -92,7 +92,7 @@
 .end method
 
 .method public getAreaRectRatio()F
-    .locals 1
+    .registers 2
 
     .line 280
     iget v0, p0, Lcom/king/zxing/DecodeConfig;->areaRectRatio:F
@@ -101,7 +101,7 @@
 .end method
 
 .method public getAreaRectVerticalOffset()I
-    .locals 1
+    .registers 2
 
     .line 309
     iget v0, p0, Lcom/king/zxing/DecodeConfig;->areaRectVerticalOffset:I
@@ -110,7 +110,7 @@
 .end method
 
 .method public getHints()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -128,7 +128,7 @@
 .end method
 
 .method public isFullAreaScan()Z
-    .locals 1
+    .registers 2
 
     .line 252
     iget-boolean v0, p0, Lcom/king/zxing/DecodeConfig;->isFullAreaScan:Z
@@ -137,7 +137,7 @@
 .end method
 
 .method public isMultiDecode()Z
-    .locals 1
+    .registers 2
 
     .line 166
     iget-boolean v0, p0, Lcom/king/zxing/DecodeConfig;->isMultiDecode:Z
@@ -146,7 +146,7 @@
 .end method
 
 .method public isSupportLuminanceInvert()Z
-    .locals 1
+    .registers 2
 
     .line 130
     iget-boolean v0, p0, Lcom/king/zxing/DecodeConfig;->isSupportLuminanceInvert:Z
@@ -155,7 +155,7 @@
 .end method
 
 .method public isSupportLuminanceInvertMultiDecode()Z
-    .locals 1
+    .registers 2
 
     .line 185
     iget-boolean v0, p0, Lcom/king/zxing/DecodeConfig;->isSupportLuminanceInvertMultiDecode:Z
@@ -164,7 +164,7 @@
 .end method
 
 .method public isSupportVerticalCode()Z
-    .locals 1
+    .registers 2
 
     .line 148
     iget-boolean v0, p0, Lcom/king/zxing/DecodeConfig;->isSupportVerticalCode:Z
@@ -173,7 +173,7 @@
 .end method
 
 .method public isSupportVerticalCodeMultiDecode()Z
-    .locals 1
+    .registers 2
 
     .line 204
     iget-boolean v0, p0, Lcom/king/zxing/DecodeConfig;->isSupportVerticalCodeMultiDecode:Z
@@ -182,7 +182,7 @@
 .end method
 
 .method public setAnalyzeAreaRect(Landroid/graphics/Rect;)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .param p1, "analyzeAreaRect"    # Landroid/graphics/Rect;
 
     .line 243
@@ -193,7 +193,7 @@
 .end method
 
 .method public setAreaRectHorizontalOffset(I)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .param p1, "areaRectHorizontalOffset"    # I
 
     .line 336
@@ -204,7 +204,7 @@
 .end method
 
 .method public setAreaRectRatio(F)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .param p1, "areaRectRatio"    # F
 
     .line 300
@@ -215,7 +215,7 @@
 .end method
 
 .method public setAreaRectVerticalOffset(I)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .param p1, "areaRectVerticalOffset"    # I
 
     .line 318
@@ -226,7 +226,7 @@
 .end method
 
 .method public setFullAreaScan(Z)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .param p1, "fullAreaScan"    # Z
 
     .line 271
@@ -237,7 +237,7 @@
 .end method
 
 .method public setHints(Ljava/util/Map;)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -258,7 +258,7 @@
 .end method
 
 .method public setMultiDecode(Z)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .param p1, "multiDecode"    # Z
 
     .line 176
@@ -269,7 +269,7 @@
 .end method
 
 .method public setSupportLuminanceInvert(Z)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .param p1, "supportLuminanceInvert"    # Z
 
     .line 139
@@ -280,7 +280,7 @@
 .end method
 
 .method public setSupportLuminanceInvertMultiDecode(Z)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .param p1, "supportLuminanceInvertMultiDecode"    # Z
 
     .line 195
@@ -291,7 +291,7 @@
 .end method
 
 .method public setSupportVerticalCode(Z)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .param p1, "supportVerticalCode"    # Z
 
     .line 157
@@ -302,7 +302,7 @@
 .end method
 
 .method public setSupportVerticalCodeMultiDecode(Z)Lcom/king/zxing/DecodeConfig;
-    .locals 0
+    .registers 2
     .param p1, "supportVerticalCodeMultiDecode"    # Z
 
     .line 214
@@ -313,7 +313,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 342
     new-instance v0, Ljava/lang/StringBuilder;

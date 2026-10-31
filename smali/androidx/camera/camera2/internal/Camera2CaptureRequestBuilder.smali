@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method private static applyImplementationOptionToCaptureBuilder(Landroid/hardware/camera2/CaptureRequest$Builder;Landroidx/camera/core/impl/Config;)V
-    .locals 7
+    .registers 9
     .param p0, "builder"    # Landroid/hardware/camera2/CaptureRequest$Builder;
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -52,12 +52,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_44
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -75,20 +75,20 @@
 
     .line 84
     .local v3, "key":Landroid/hardware/camera2/CaptureRequest$Key;, "Landroid/hardware/camera2/CaptureRequest$Key<Ljava/lang/Object;>;"
-    :try_start_0
+    :try_start_22
     invoke-virtual {v0, v2}, Landroidx/camera/camera2/interop/CaptureRequestOptions;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
 
     move-result-object v4
 
     invoke-virtual {p0, v3, v4}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_22 .. :try_end_29} :catch_2a
 
     .line 87
-    goto :goto_1
+    goto :goto_43
 
     .line 85
-    :catch_0
+    :catch_2a
     move-exception v4
 
     .line 86
@@ -119,16 +119,16 @@
     .end local v2    # "option":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
     .end local v3    # "key":Landroid/hardware/camera2/CaptureRequest$Key;, "Landroid/hardware/camera2/CaptureRequest$Key<Ljava/lang/Object;>;"
     .end local v4    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_1
-    goto :goto_0
+    :goto_43
+    goto :goto_10
 
     .line 89
-    :cond_0
+    :cond_44
     return-void
 .end method
 
 .method public static build(Landroidx/camera/core/impl/CaptureConfig;Landroid/hardware/camera2/CameraDevice;Ljava/util/Map;)Landroid/hardware/camera2/CaptureRequest;
-    .locals 5
+    .registers 8
     .param p0, "captureConfig"    # Landroidx/camera/core/impl/CaptureConfig;
     .param p1, "device"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -167,13 +167,13 @@
     .local p2, "configuredSurfaceMap":Ljava/util/Map;, "Ljava/util/Map<Landroidx/camera/core/impl/DeferrableSurface;Landroid/view/Surface;>;"
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 107
     return-object v0
 
     .line 110
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Landroidx/camera/core/impl/CaptureConfig;->getSurfaces()Ljava/util/List;
 
     move-result-object v1
@@ -188,13 +188,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_13
 
     .line 113
     return-object v0
 
     .line 116
-    :cond_1
+    :cond_13
     nop
 
     .line 117
@@ -230,7 +230,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_41
 
     .line 124
     sget-object v2, Landroid/hardware/camera2/CaptureRequest;->JPEG_ORIENTATION:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -252,7 +252,7 @@
     invoke-virtual {v0, v2, v3}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
     .line 129
-    :cond_2
+    :cond_41
     invoke-virtual {p0}, Landroidx/camera/core/impl/CaptureConfig;->getImplementationOptions()Landroidx/camera/core/impl/Config;
 
     move-result-object v2
@@ -263,7 +263,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_66
 
     .line 131
     sget-object v2, Landroid/hardware/camera2/CaptureRequest;->JPEG_QUALITY:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -295,17 +295,17 @@
     invoke-virtual {v0, v2, v3}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
     .line 136
-    :cond_3
+    :cond_66
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_0
+    :goto_6a
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_7a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -319,10 +319,10 @@
 
     .line 138
     .end local v3    # "surface":Landroid/view/Surface;
-    goto :goto_0
+    goto :goto_6a
 
     .line 140
-    :cond_4
+    :cond_7a
     invoke-virtual {p0}, Landroidx/camera/core/impl/CaptureConfig;->getTagBundle()Landroidx/camera/core/impl/TagBundle;
 
     move-result-object v2
@@ -338,7 +338,7 @@
 .end method
 
 .method public static buildWithoutTarget(Landroidx/camera/core/impl/CaptureConfig;Landroid/hardware/camera2/CameraDevice;)Landroid/hardware/camera2/CaptureRequest;
-    .locals 2
+    .registers 4
     .param p0, "captureConfig"    # Landroidx/camera/core/impl/CaptureConfig;
     .param p1, "device"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -359,7 +359,7 @@
     .end annotation
 
     .line 155
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 156
     const/4 v0, 0x0
@@ -367,7 +367,7 @@
     return-object v0
 
     .line 158
-    :cond_0
+    :cond_4
     nop
 
     .line 159
@@ -401,7 +401,7 @@
 .end method
 
 .method private static getConfiguredSurfaces(Ljava/util/List;Ljava/util/Map;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -442,12 +442,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -465,7 +465,7 @@
 
     .line 62
     .local v3, "surface":Landroid/view/Surface;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_21
 
     .line 66
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -473,12 +473,12 @@
     .line 67
     .end local v2    # "deferrableSurface":Landroidx/camera/core/impl/DeferrableSurface;
     .end local v3    # "surface":Landroid/view/Surface;
-    goto :goto_0
+    goto :goto_9
 
     .line 63
     .restart local v2    # "deferrableSurface":Landroidx/camera/core/impl/DeferrableSurface;
     .restart local v3    # "surface":Landroid/view/Surface;
-    :cond_0
+    :cond_21
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v4, "DeferrableSurface not in configuredSurfaceMap"
@@ -490,6 +490,6 @@
     .line 69
     .end local v2    # "deferrableSurface":Landroidx/camera/core/impl/DeferrableSurface;
     .end local v3    # "surface":Landroid/view/Surface;
-    :cond_1
+    :cond_29
     return-object v0
 .end method

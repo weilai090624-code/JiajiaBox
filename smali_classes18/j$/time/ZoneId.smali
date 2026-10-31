@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 30
+    .registers 30
 
     .line 225
     nop
@@ -433,7 +433,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 473
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -445,7 +445,7 @@
 
     const-class v1, Lj$/time/ZoneOffset;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1c
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -453,12 +453,12 @@
 
     const-class v1, Lj$/time/ZoneRegion;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 475
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "Invalid subclass"
@@ -468,13 +468,13 @@
     throw v0
 
     .line 477
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     return-void
 .end method
 
 .method public static from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/ZoneId;
-    .locals 5
+    .registers 6
     .param p0, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 461
@@ -490,13 +490,13 @@
 
     .line 462
     .local v0, "obj":Lj$/time/ZoneId;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 466
     return-object v0
 
     .line 463
-    :cond_0
+    :cond_d
     new-instance v1, Lj$/time/DateTimeException;
 
     .line 464
@@ -542,7 +542,7 @@
 .end method
 
 .method public static getAvailableZoneIds()Ljava/util/Set;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -565,7 +565,7 @@
 .end method
 
 .method public static of(Ljava/lang/String;)Lj$/time/ZoneId;
-    .locals 1
+    .registers 2
     .param p0, "zoneId"    # Ljava/lang/String;
 
     .line 357
@@ -579,7 +579,7 @@
 .end method
 
 .method public static of(Ljava/lang/String;Ljava/util/Map;)Lj$/time/ZoneId;
-    .locals 2
+    .registers 4
     .param p0, "zoneId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -627,7 +627,7 @@
 .end method
 
 .method static of(Ljava/lang/String;Z)Lj$/time/ZoneId;
-    .locals 2
+    .registers 4
     .param p0, "zoneId"    # Ljava/lang/String;
     .param p1, "checkAvailable"    # Z
 
@@ -643,7 +643,7 @@
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_4
+    if-le v0, v1, :cond_47
 
     const-string v0, "+"
 
@@ -651,7 +651,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_47
 
     const-string v0, "-"
 
@@ -659,19 +659,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
-    goto :goto_1
+    goto :goto_47
 
     .line 404
-    :cond_0
+    :cond_1d
     const-string v0, "UTC"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_41
 
     const-string v0, "GMT"
 
@@ -679,19 +679,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
-    goto :goto_0
+    goto :goto_41
 
     .line 406
-    :cond_1
+    :cond_2e
     const-string v0, "UT"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3c
 
     .line 407
     const/4 v0, 0x2
@@ -703,7 +703,7 @@
     return-object v0
 
     .line 409
-    :cond_2
+    :cond_3c
     invoke-static {p0, p1}, Lj$/time/ZoneRegion;->ofId(Ljava/lang/String;Z)Lj$/time/ZoneRegion;
 
     move-result-object v0
@@ -711,8 +711,8 @@
     return-object v0
 
     .line 405
-    :cond_3
-    :goto_0
+    :cond_41
+    :goto_41
     const/4 v0, 0x3
 
     invoke-static {p0, v0, p1}, Lj$/time/ZoneId;->ofWithPrefix(Ljava/lang/String;IZ)Lj$/time/ZoneId;
@@ -722,8 +722,8 @@
     return-object v0
 
     .line 403
-    :cond_4
-    :goto_1
+    :cond_47
+    :goto_47
     invoke-static {p0}, Lj$/time/ZoneOffset;->of(Ljava/lang/String;)Lj$/time/ZoneOffset;
 
     move-result-object v0
@@ -732,7 +732,7 @@
 .end method
 
 .method public static ofOffset(Ljava/lang/String;Lj$/time/ZoneOffset;)Lj$/time/ZoneId;
-    .locals 3
+    .registers 5
     .param p0, "prefix"    # Ljava/lang/String;
     .param p1, "offset"    # Lj$/time/ZoneOffset;
 
@@ -751,20 +751,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 377
     return-object p1
 
     .line 380
-    :cond_0
+    :cond_11
     const-string v0, "GMT"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_43
 
     const-string v0, "UTC"
 
@@ -772,7 +772,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_43
 
     const-string v0, "UT"
 
@@ -780,12 +780,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
-    goto :goto_0
+    goto :goto_43
 
     .line 381
-    :cond_1
+    :cond_2a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -811,13 +811,13 @@
     throw v0
 
     .line 384
-    :cond_2
-    :goto_0
+    :cond_43
+    :goto_43
     invoke-virtual {p1}, Lj$/time/ZoneOffset;->getTotalSeconds()I
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_51
 
     .line 385
     invoke-virtual {p1}, Lj$/time/ZoneOffset;->getId()Ljava/lang/String;
@@ -829,7 +829,7 @@
     move-result-object p0
 
     .line 387
-    :cond_3
+    :cond_51
     new-instance v0, Lj$/time/ZoneRegion;
 
     invoke-virtual {p1}, Lj$/time/ZoneOffset;->getRules()Lj$/time/zone/ZoneRules;
@@ -842,7 +842,7 @@
 .end method
 
 .method private static ofWithPrefix(Ljava/lang/String;IZ)Lj$/time/ZoneId;
-    .locals 5
+    .registers 8
     .param p0, "zoneId"    # Ljava/lang/String;
     .param p1, "prefixLength"    # I
     .param p2, "checkAvailable"    # Z
@@ -860,7 +860,7 @@
 
     move-result v1
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_12
 
     .line 423
     sget-object v1, Lj$/time/ZoneOffset;->UTC:Lj$/time/ZoneOffset;
@@ -872,14 +872,14 @@
     return-object v1
 
     .line 425
-    :cond_0
+    :cond_12
     invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
     const/16 v2, 0x2b
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_27
 
     invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
 
@@ -887,7 +887,7 @@
 
     const/16 v2, 0x2d
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_27
 
     .line 426
     invoke-static {p0, p2}, Lj$/time/ZoneRegion;->ofId(Ljava/lang/String;Z)Lj$/time/ZoneRegion;
@@ -897,8 +897,8 @@
     return-object v1
 
     .line 429
-    :cond_1
-    :try_start_0
+    :cond_27
+    :try_start_27
     invoke-virtual {p0, p1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
@@ -911,7 +911,7 @@
     .local v1, "offset":Lj$/time/ZoneOffset;
     sget-object v2, Lj$/time/ZoneOffset;->UTC:Lj$/time/ZoneOffset;
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_38
 
     .line 431
     invoke-static {v0, v1}, Lj$/time/ZoneId;->ofOffset(Ljava/lang/String;Lj$/time/ZoneOffset;)Lj$/time/ZoneId;
@@ -921,18 +921,18 @@
     return-object v2
 
     .line 433
-    :cond_2
+    :cond_38
     invoke-static {v0, v1}, Lj$/time/ZoneId;->ofOffset(Ljava/lang/String;Lj$/time/ZoneOffset;)Lj$/time/ZoneId;
 
     move-result-object v2
-    :try_end_0
-    .catch Lj$/time/DateTimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3c
+    .catch Lj$/time/DateTimeException; {:try_start_27 .. :try_end_3c} :catch_3d
 
     return-object v2
 
     .line 434
     .end local v1    # "offset":Lj$/time/ZoneOffset;
-    :catch_0
+    :catch_3d
     move-exception v1
 
     .line 435
@@ -963,7 +963,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 629
@@ -977,7 +977,7 @@
 .end method
 
 .method public static systemDefault()Lj$/time/ZoneId;
-    .locals 1
+    .registers 1
 
     .line 273
     invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
@@ -992,7 +992,7 @@
 .end method
 
 .method private toTemporal()Lj$/time/temporal/TemporalAccessor;
-    .locals 1
+    .registers 2
 
     .line 522
     new-instance v0, Lj$/time/ZoneId$1;
@@ -1003,7 +1003,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 660
     new-instance v0, Lj$/time/Ser;
@@ -1018,11 +1018,11 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 601
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 602
     const/4 v0, 0x1
@@ -1030,10 +1030,10 @@
     return v0
 
     .line 604
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lj$/time/ZoneId;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 605
     move-object v0, p1
@@ -1058,14 +1058,14 @@
 
     .line 608
     .end local v0    # "other":Lj$/time/ZoneId;
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public getDisplayName(Lj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "style"    # Lj$/time/format/TextStyle;
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -1100,7 +1100,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 618
     invoke-virtual {p0}, Lj$/time/ZoneId;->getId()Ljava/lang/String;
@@ -1115,7 +1115,7 @@
 .end method
 
 .method public normalized()Lj$/time/ZoneId;
-    .locals 2
+    .registers 3
 
     .line 580
     :try_start_0
@@ -1129,7 +1129,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 582
     sget-object v1, Lj$/time/Instant;->EPOCH:Lj$/time/Instant;
@@ -1137,27 +1137,27 @@
     invoke-virtual {v0, v1}, Lj$/time/zone/ZoneRules;->getOffset(Lj$/time/Instant;)Lj$/time/ZoneOffset;
 
     move-result-object v1
-    :try_end_0
-    .catch Lj$/time/zone/ZoneRulesException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Lj$/time/zone/ZoneRulesException; {:try_start_0 .. :try_end_10} :catch_12
 
     return-object v1
 
     .line 586
     .end local v0    # "rules":Lj$/time/zone/ZoneRules;
-    :cond_0
-    goto :goto_0
+    :cond_11
+    goto :goto_13
 
     .line 584
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 587
-    :goto_0
+    :goto_13
     return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 639
     invoke-virtual {p0}, Lj$/time/ZoneId;->getId()Ljava/lang/String;

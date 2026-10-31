@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Lkotlin/random/AbstractPlatformRandom;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getImpl()Ljava/util/Random;
-    .locals 2
+    .registers 3
 
     .line 13
     invoke-static {}, Lj$/util/concurrent/ThreadLocalRandom;->current()Lj$/util/concurrent/ThreadLocalRandom;
@@ -66,7 +66,7 @@
 .end method
 
 .method public nextDouble(D)D
-    .locals 2
+    .registers 5
     .param p1, "until"    # D
 
     .line 18
@@ -82,7 +82,7 @@
 .end method
 
 .method public nextInt(II)I
-    .locals 1
+    .registers 4
     .param p1, "from"    # I
     .param p2, "until"    # I
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public nextLong(J)J
-    .locals 2
+    .registers 5
     .param p1, "until"    # J
 
     .line 16
@@ -115,7 +115,7 @@
 .end method
 
 .method public nextLong(JJ)J
-    .locals 2
+    .registers 7
     .param p1, "from"    # J
     .param p3, "until"    # J
 

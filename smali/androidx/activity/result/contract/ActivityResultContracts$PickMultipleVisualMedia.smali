@@ -80,7 +80,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/activity/result/contract/ActivityResultContracts$PickMultipleVisualMedia$Companion;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -108,7 +108,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "maxItems"    # I
 
     .line 867
@@ -125,15 +125,15 @@
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_c
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_d
+    if-eqz v1, :cond_11
 
     .line 871
     nop
@@ -142,7 +142,7 @@
     return-void
 
     .line 963
-    :cond_1
+    :cond_11
     const/4 v0, 0x0
 
     .line 870
@@ -164,12 +164,12 @@
 .end method
 
 .method public synthetic constructor <init>(IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 866
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Landroidx/activity/result/contract/ActivityResultContracts$PickMultipleVisualMedia;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$PickMultipleVisualMedia$Companion;
 
@@ -177,7 +177,7 @@
 
     move-result p1
 
-    :cond_0
+    :cond_a
     invoke-direct {p0, p1}, Landroidx/activity/result/contract/ActivityResultContracts$PickMultipleVisualMedia;-><init>(I)V
 
     return-void
@@ -186,7 +186,7 @@
 
 # virtual methods
 .method public createIntent(Landroid/content/Context;Landroidx/activity/result/PickVisualMediaRequest;)Landroid/content/Intent;
-    .locals 9
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Landroidx/activity/result/PickVisualMediaRequest;
 
@@ -209,7 +209,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_7b
 
     .line 878
     new-instance v0, Landroid/content/Intent;
@@ -250,19 +250,19 @@
 
     .line 883
     .local v5, "currentMaxItems":I
-    if-le v5, v2, :cond_0
+    if-le v5, v2, :cond_3d
 
     invoke-static {}, Landroid/provider/MediaStore;->getPickImagesMaxLimit()I
 
     move-result v6
 
-    if-gt v5, v6, :cond_0
+    if-gt v5, v6, :cond_3d
 
     const/4 v1, 0x1
 
     .line 882
-    :cond_0
-    if-eqz v1, :cond_2
+    :cond_3d
+    if-eqz v1, :cond_6c
 
     .line 889
     const-string v1, "android.provider.extra.PICK_IMAGES_MAX"
@@ -296,7 +296,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_69
 
     .line 894
     const-string v1, "android.provider.extra.PICK_IMAGES_ACCENT_COLOR"
@@ -308,20 +308,20 @@
     invoke-virtual {v3, v1, v6, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
     .line 896
-    :cond_1
+    :cond_69
     nop
 
     .line 878
     .end local v3    # "$this$createIntent_u24lambda_u242":Landroid/content/Intent;
     .end local v4    # "$i$a$-apply-ActivityResultContracts$PickMultipleVisualMedia$createIntent$1":I
     .end local v5    # "currentMaxItems":I
-    goto/16 :goto_0
+    goto/16 :goto_138
 
     .line 882
     .restart local v3    # "$this$createIntent_u24lambda_u242":Landroid/content/Intent;
     .restart local v4    # "$i$a$-apply-ActivityResultContracts$PickMultipleVisualMedia$createIntent$1":I
     .restart local v5    # "currentMaxItems":I
-    :cond_2
+    :cond_6c
     const/4 v0, 0x0
 
     .line 885
@@ -349,14 +349,14 @@
     .end local v3    # "$this$createIntent_u24lambda_u242":Landroid/content/Intent;
     .end local v4    # "$i$a$-apply-ActivityResultContracts$PickMultipleVisualMedia$createIntent$1":I
     .end local v5    # "currentMaxItems":I
-    :cond_3
+    :cond_7b
     sget-object v0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$Companion;
 
     invoke-virtual {v0, p1}, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$Companion;->isSystemFallbackPickerAvailable$activity_release(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_102
 
     .line 898
     sget-object v0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$Companion;
@@ -365,7 +365,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_f6
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -418,12 +418,12 @@
 
     .line 904
     .local v6, "currentMaxItems":I
-    if-le v6, v2, :cond_4
+    if-le v6, v2, :cond_b9
 
     const/4 v1, 0x1
 
-    :cond_4
-    if-eqz v1, :cond_6
+    :cond_b9
+    if-eqz v1, :cond_e8
 
     .line 906
     const-string v1, "androidx.activity.result.contract.extra.PICK_IMAGES_MAX"
@@ -457,7 +457,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_e5
 
     .line 911
     const-string v1, "androidx.activity.result.contract.extra.PICK_IMAGES_ACCENT_COLOR"
@@ -469,7 +469,7 @@
     invoke-virtual {v4, v1, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
     .line 913
-    :cond_5
+    :cond_e5
     nop
 
     .line 899
@@ -479,14 +479,14 @@
     move-object v0, v3
 
     .end local v0    # "fallbackPicker":Landroid/content/pm/ActivityInfo;
-    goto :goto_0
+    goto :goto_138
 
     .line 963
     .restart local v0    # "fallbackPicker":Landroid/content/pm/ActivityInfo;
     .restart local v4    # "$this$createIntent_u24lambda_u244":Landroid/content/Intent;
     .restart local v5    # "$i$a$-apply-ActivityResultContracts$PickMultipleVisualMedia$createIntent$2":I
     .restart local v6    # "currentMaxItems":I
-    :cond_6
+    :cond_e8
     const/4 v1, 0x0
 
     .line 904
@@ -511,7 +511,7 @@
     .end local v4    # "$this$createIntent_u24lambda_u244":Landroid/content/Intent;
     .end local v5    # "$i$a$-apply-ActivityResultContracts$PickMultipleVisualMedia$createIntent$2":I
     .end local v6    # "currentMaxItems":I
-    :cond_7
+    :cond_f6
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Required value was null."
@@ -525,7 +525,7 @@
     throw v0
 
     .line 918
-    :cond_8
+    :cond_102
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.OPEN_DOCUMENT"
@@ -561,7 +561,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_136
 
     .line 925
     const-string v2, "*/*"
@@ -582,7 +582,7 @@
     invoke-virtual {v1, v4, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
 
     .line 928
-    :cond_9
+    :cond_136
     nop
 
     .line 918
@@ -591,12 +591,12 @@
     nop
 
     .line 877
-    :goto_0
+    :goto_138
     return-object v0
 .end method
 
 .method public bridge synthetic createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -613,7 +613,7 @@
 .end method
 
 .method public final getSynchronousResult(Landroid/content/Context;Landroidx/activity/result/PickVisualMediaRequest;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Landroidx/activity/result/PickVisualMediaRequest;
     .annotation system Ldalvik/annotation/Signature;
@@ -644,7 +644,7 @@
 .end method
 
 .method public bridge synthetic getSynchronousResult(Landroid/content/Context;Ljava/lang/Object;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -661,7 +661,7 @@
 .end method
 
 .method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -674,7 +674,7 @@
 .end method
 
 .method public final parseResult(ILandroid/content/Intent;)Ljava/util/List;
-    .locals 3
+    .registers 6
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
@@ -699,29 +699,29 @@
     .local v1, "$i$a$-takeIf-ActivityResultContracts$PickMultipleVisualMedia$parseResult$1":I
     const/4 v2, -0x1
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_7
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v2, 0x0
 
     .end local v0    # "it":Landroid/content/Intent;
     .end local v1    # "$i$a$-takeIf-ActivityResultContracts$PickMultipleVisualMedia$parseResult$1":I
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_8
+    if-eqz v2, :cond_c
 
     move-object v0, p2
 
-    goto :goto_1
+    goto :goto_d
 
-    :cond_1
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_d
+    if-eqz v0, :cond_17
 
     sget-object v1, Landroidx/activity/result/contract/ActivityResultContracts$GetMultipleContents;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$GetMultipleContents$Companion;
 
@@ -729,15 +729,15 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_1b
 
     .line 940
-    :cond_2
+    :cond_17
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     .line 939
-    :cond_3
+    :cond_1b
     return-object v0
 .end method

@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,7 +80,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;Ljava/util/Comparator;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public opEvaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Ljava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -158,11 +158,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-boolean v0, p0, Lj$/util/stream/SortedOps$OfRef;->isNaturalSort:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 153
     const/4 v0, 0x0
@@ -174,7 +174,7 @@
     return-object v0
 
     .line 157
-    :cond_0
+    :cond_16
     const/4 v0, 0x1
 
     invoke-virtual {p1, p2, v0, p3}, Lj$/util/stream/PipelineHelper;->evaluate(Lj$/util/Spliterator;ZLjava/util/function/IntFunction;)Lj$/util/stream/Node;
@@ -200,7 +200,7 @@
 .end method
 
 .method public opWrapSink(ILj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 2
+    .registers 5
     .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -224,24 +224,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-boolean v0, p0, Lj$/util/stream/SortedOps$OfRef;->isNaturalSort:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 139
     return-object p2
 
     .line 140
-    :cond_0
+    :cond_10
     sget-object v0, Lj$/util/stream/StreamOpFlag;->SIZED:Lj$/util/stream/StreamOpFlag;
 
     invoke-virtual {v0, p1}, Lj$/util/stream/StreamOpFlag;->isKnown(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 141
     new-instance v0, Lj$/util/stream/SortedOps$SizedRefSortingSink;
@@ -253,7 +253,7 @@
     return-object v0
 
     .line 143
-    :cond_1
+    :cond_20
     new-instance v0, Lj$/util/stream/SortedOps$RefSortingSink;
 
     iget-object v1, p0, Lj$/util/stream/SortedOps$OfRef;->comparator:Ljava/util/Comparator;

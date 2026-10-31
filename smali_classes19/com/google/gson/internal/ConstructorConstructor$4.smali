@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;Ljava/lang/reflect/Constructor;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/gson/internal/ConstructorConstructor;
 
     .line 136
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public construct()Ljava/lang/Object;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -61,7 +61,7 @@
 
     const-string v1, "Failed to invoke "
 
-    :try_start_0
+    :try_start_4
     iget-object v2, p0, Lcom/google/gson/internal/ConstructorConstructor$4;->val$constructor:Ljava/lang/reflect/Constructor;
 
     const/4 v3, 0x0
@@ -71,10 +71,10 @@
     invoke-virtual {v2, v3}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/InstantiationException; {:try_start_4 .. :try_end_d} :catch_37
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_4 .. :try_end_d} :catch_15
+    .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_d} :catch_e
 
     .line 141
     .local v0, "newInstance":Ljava/lang/Object;, "TT;"
@@ -82,7 +82,7 @@
 
     .line 150
     .end local v0    # "newInstance":Ljava/lang/Object;, "TT;"
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 151
@@ -95,7 +95,7 @@
 
     .line 145
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :catch_1
+    :catch_15
     move-exception v2
 
     .line 148
@@ -135,7 +135,7 @@
 
     .line 142
     .end local v2    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_37
     move-exception v2
 
     .line 144

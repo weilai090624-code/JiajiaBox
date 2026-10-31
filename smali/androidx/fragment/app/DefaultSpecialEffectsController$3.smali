@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/DefaultSpecialEffectsController;Landroid/animation/Animator;Landroidx/fragment/app/SpecialEffectsController$Operation;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/fragment/app/DefaultSpecialEffectsController;
 
     .line 234
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onCancel()V
-    .locals 2
+    .registers 3
 
     .line 237
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$3;->val$animator:Landroid/animation/Animator;
@@ -59,7 +59,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 239
     new-instance v0, Ljava/lang/StringBuilder;
@@ -93,6 +93,6 @@
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 242
-    :cond_0
+    :cond_2c
     return-void
 .end method

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 233
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public get()Lcom/google/common/cache/AbstractCache$StatsCounter;
-    .locals 1
+    .registers 2
 
     .line 236
     new-instance v0, Lcom/google/common/cache/AbstractCache$SimpleStatsCounter;
@@ -50,7 +50,7 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 233
     invoke-virtual {p0}, Lcom/google/common/cache/CacheBuilder$2;->get()Lcom/google/common/cache/AbstractCache$StatsCounter;

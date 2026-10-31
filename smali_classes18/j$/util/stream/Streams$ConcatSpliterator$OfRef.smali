@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;Lj$/util/Spliterator;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

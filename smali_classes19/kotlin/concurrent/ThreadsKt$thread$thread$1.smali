@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function0;)V
-    .locals 0
+    .registers 2
     .param p1, "$block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 30
     iget-object v0, p0, Lkotlin/concurrent/ThreadsKt$thread$thread$1;->$block:Lkotlin/jvm/functions/Function0;

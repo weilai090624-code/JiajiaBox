@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final ActivityNavigatorExtras(Landroidx/core/app/ActivityOptionsCompat;I)Landroidx/navigation/ActivityNavigator$Extras;
-    .locals 3
+    .registers 5
     .param p0, "activityOptions"    # Landroidx/core/app/ActivityOptionsCompat;
     .param p1, "flags"    # I
 
@@ -45,13 +45,13 @@
 
     .line 34
     .local v2, "$i$a$-apply-ActivityNavigatorExtrasKt$ActivityNavigatorExtras$1":I
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_c
 
     .line 35
     invoke-virtual {v1, p0}, Landroidx/navigation/ActivityNavigator$Extras$Builder;->setActivityOptions(Landroidx/core/app/ActivityOptionsCompat;)Landroidx/navigation/ActivityNavigator$Extras$Builder;
 
     .line 37
-    :cond_0
+    :cond_c
     invoke-virtual {v1, p1}, Landroidx/navigation/ActivityNavigator$Extras$Builder;->addFlags(I)Landroidx/navigation/ActivityNavigator$Extras$Builder;
 
     .line 38
@@ -71,27 +71,27 @@
 .end method
 
 .method public static synthetic ActivityNavigatorExtras$default(Landroidx/core/app/ActivityOptionsCompat;IILjava/lang/Object;)Landroidx/navigation/ActivityNavigator$Extras;
-    .locals 0
+    .registers 4
 
     .line 30
     and-int/lit8 p3, p2, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 31
     const/4 p0, 0x0
 
     .line 30
-    :cond_0
+    :cond_5
     and-int/lit8 p2, p2, 0x2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_a
 
     .line 32
     const/4 p1, 0x0
 
     .line 30
-    :cond_1
+    :cond_a
     invoke-static {p0, p1}, Landroidx/navigation/ActivityNavigatorExtrasKt;->ActivityNavigatorExtras(Landroidx/core/app/ActivityOptionsCompat;I)Landroidx/navigation/ActivityNavigator$Extras;
 
     move-result-object p0

@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,7 +87,7 @@
 .end method
 
 .method public final getInternalScopeRef()Ljava/util/concurrent/atomic/AtomicReference;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -107,7 +107,7 @@
 .end method
 
 .method public final setInternalScopeRef(Ljava/util/concurrent/atomic/AtomicReference;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/concurrent/atomic/AtomicReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {

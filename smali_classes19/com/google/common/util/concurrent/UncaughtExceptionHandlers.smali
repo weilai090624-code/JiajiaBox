@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static systemExit()Ljava/lang/Thread$UncaughtExceptionHandler;
-    .locals 2
+    .registers 2
 
     .line 53
     new-instance v0, Lcom/google/common/util/concurrent/UncaughtExceptionHandlers$Exiter;

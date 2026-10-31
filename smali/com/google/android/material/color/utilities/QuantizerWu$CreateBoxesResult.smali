@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "requestedCount"    # I
     .param p2, "resultCount"    # I
 

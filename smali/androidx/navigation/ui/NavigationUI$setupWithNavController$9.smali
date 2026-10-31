@@ -63,7 +63,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/ref/WeakReference;Landroidx/navigation/NavController;)V
-    .locals 0
+    .registers 3
     .param p1, "$weakReference"    # Ljava/lang/ref/WeakReference;
     .param p2, "$navController"    # Landroidx/navigation/NavController;
     .annotation system Ldalvik/annotation/Signature;
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public onDestinationChanged(Landroidx/navigation/NavController;Landroidx/navigation/NavDestination;Landroid/os/Bundle;)V
-    .locals 8
+    .registers 12
     .param p1, "controller"    # Landroidx/navigation/NavController;
     .param p2, "destination"    # Landroidx/navigation/NavDestination;
     .param p3, "arguments"    # Landroid/os/Bundle;
@@ -114,7 +114,7 @@
 
     .line 616
     .local v0, "view":Lcom/google/android/material/navigation/NavigationBarView;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     .line 617
     iget-object v1, p0, Landroidx/navigation/ui/NavigationUI$setupWithNavController$9;->$navController:Landroidx/navigation/NavController;
@@ -129,7 +129,7 @@
     return-void
 
     .line 620
-    :cond_0
+    :cond_1d
     invoke-virtual {v0}, Lcom/google/android/material/navigation/NavigationBarView;->getMenu()Landroid/view/Menu;
 
     move-result-object v1
@@ -149,8 +149,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_2
+    :goto_2d
+    if-ge v4, v3, :cond_4c
 
     .line 702
     .local v4, "index$iv":I
@@ -175,7 +175,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_47
 
     .line 622
     const/4 v7, 0x1
@@ -183,7 +183,7 @@
     invoke-interface {v5, v7}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
     .line 624
-    :cond_1
+    :cond_47
     nop
 
     .line 701
@@ -194,10 +194,10 @@
     .end local v4    # "index$iv":I
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 704
-    :cond_2
+    :cond_4c
     nop
 
     .line 625

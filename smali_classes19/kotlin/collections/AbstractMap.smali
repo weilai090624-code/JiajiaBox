@@ -117,7 +117,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/collections/AbstractMap$Companion;
 
@@ -131,7 +131,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -141,7 +141,7 @@
 .end method
 
 .method public static final synthetic access$toString(Lkotlin/collections/AbstractMap;Ljava/util/Map$Entry;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/collections/AbstractMap;
     .param p1, "entry"    # Ljava/util/Map$Entry;
 
@@ -154,7 +154,7 @@
 .end method
 
 .method private final implFindEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 7
+    .registers 9
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -180,12 +180,12 @@
 
     move-result-object v2
 
-    :cond_0
+    :cond_b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_24
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -212,18 +212,18 @@
     .line 160
     .end local v4    # "it":Ljava/util/Map$Entry;
     .end local v5    # "$i$a$-firstOrNull-AbstractMap$implFindEntry$1":I
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_b
 
-    goto :goto_0
+    goto :goto_25
 
     .line 161
     .end local v3    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_24
     const/4 v3, 0x0
 
     .end local v0    # "$this$firstOrNull$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$firstOrNull":I
-    :goto_0
+    :goto_25
     check-cast v3, Ljava/util/Map$Entry;
 
     .line 141
@@ -231,27 +231,27 @@
 .end method
 
 .method private final toString(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 110
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_5
 
     const-string v0, "(this Map)"
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_5
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method
 
 .method private final toString(Ljava/util/Map$Entry;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "entry"    # Ljava/util/Map$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -307,7 +307,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -319,7 +319,7 @@
 .end method
 
 .method public final containsEntry$kotlin_stdlib(Ljava/util/Map$Entry;)Z
-    .locals 6
+    .registers 8
     .param p1, "entry"    # Ljava/util/Map$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -332,12 +332,12 @@
     .line 32
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     return v0
 
     .line 33
-    :cond_0
+    :cond_4
     invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
@@ -368,14 +368,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_1f
 
     .line 38
     return v0
 
     .line 42
-    :cond_1
-    if-nez v3, :cond_2
+    :cond_1f
+    if-nez v3, :cond_30
 
     move-object v4, p0
 
@@ -389,20 +389,20 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_30
 
     .line 43
     return v0
 
     .line 46
-    :cond_2
+    :cond_30
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 25
@@ -410,21 +410,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 28
@@ -443,7 +443,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     move-object v2, v0
 
@@ -453,22 +453,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
-    goto :goto_0
+    goto :goto_35
 
     .line 155
-    :cond_0
+    :cond_16
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_1a
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_34
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -495,26 +495,26 @@
     .line 155
     .end local v5    # "it":Ljava/util/Map$Entry;
     .end local v6    # "$i$a$-any-AbstractMap$containsValue$1":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_1a
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_35
 
     .line 156
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_34
     nop
 
     .line 28
     .end local v0    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$any":I
-    :goto_0
+    :goto_35
     return v3
 .end method
 
 .method public final bridge entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -533,28 +533,28 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 56
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 57
-    :cond_0
+    :cond_4
     instance-of v1, p1, Ljava/util/Map;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 58
-    :cond_1
+    :cond_a
     invoke-virtual {p0}, Lkotlin/collections/AbstractMap;->size()I
 
     move-result v1
@@ -567,12 +567,12 @@
 
     move-result v3
 
-    if-eq v1, v3, :cond_2
+    if-eq v1, v3, :cond_18
 
     return v2
 
     .line 60
-    :cond_2
+    :cond_18
     move-object v1, p1
 
     check-cast v1, Ljava/util/Map;
@@ -590,7 +590,7 @@
     .local v3, "$i$f$all":I
     instance-of v4, v1, Ljava/util/Collection;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_30
 
     move-object v4, v1
 
@@ -600,22 +600,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_30
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 158
-    :cond_3
+    :cond_30
     invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :cond_4
+    :cond_34
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_4a
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -638,26 +638,26 @@
     .line 158
     .end local v6    # "it":Ljava/util/Map$Entry;
     .end local v7    # "$i$a$-all-AbstractMap$equals$1":I
-    if-nez v6, :cond_4
+    if-nez v6, :cond_34
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 159
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_5
+    :cond_4a
     nop
 
     .line 60
     .end local v1    # "$this$all$iv":Ljava/lang/Iterable;
     .end local v3    # "$i$f$all":I
-    :goto_0
+    :goto_4b
     return v0
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -672,18 +672,18 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
@@ -691,7 +691,7 @@
 .end method
 
 .method public getKeys()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -703,7 +703,7 @@
     .line 84
     iget-object v0, p0, Lkotlin/collections/AbstractMap;->_keys:Ljava/util/Set;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 85
     new-instance v0, Lkotlin/collections/AbstractMap$keys$1;
@@ -715,7 +715,7 @@
     iput-object v0, p0, Lkotlin/collections/AbstractMap;->_keys:Ljava/util/Set;
 
     .line 99
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lkotlin/collections/AbstractMap;->_keys:Ljava/util/Set;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -724,7 +724,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 74
     invoke-virtual {p0}, Lkotlin/collections/AbstractMap;->entrySet()Ljava/util/Set;
@@ -739,7 +739,7 @@
 .end method
 
 .method public getValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -751,7 +751,7 @@
     .line 120
     iget-object v0, p0, Lkotlin/collections/AbstractMap;->_values:Ljava/util/Collection;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 121
     new-instance v0, Lkotlin/collections/AbstractMap$values$1;
@@ -763,7 +763,7 @@
     iput-object v0, p0, Lkotlin/collections/AbstractMap;->_values:Ljava/util/Collection;
 
     .line 135
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lkotlin/collections/AbstractMap;->_values:Ljava/util/Collection;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -772,7 +772,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 71
     invoke-virtual {p0}, Lkotlin/collections/AbstractMap;->entrySet()Ljava/util/Set;
@@ -787,28 +787,28 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 73
     invoke-virtual {p0}, Lkotlin/collections/AbstractMap;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public final bridge keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -826,7 +826,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -843,7 +843,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -862,7 +862,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -881,7 +881,7 @@
 .end method
 
 .method public final bridge size()I
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-virtual {p0}, Lkotlin/collections/AbstractMap;->getSize()I
@@ -892,7 +892,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 10
+    .registers 11
 
     .line 106
     invoke-virtual {p0}, Lkotlin/collections/AbstractMap;->entrySet()Ljava/util/Set;
@@ -945,7 +945,7 @@
 .end method
 
 .method public final bridge values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

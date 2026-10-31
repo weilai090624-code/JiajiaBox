@@ -46,7 +46,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$BKaqoC2psCgH6vcCMGLQk5bfz9s(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/profile/MieruSettingsActivity;->createPreferences$lambda$2(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 33
     const/4 v0, 0x1
@@ -71,7 +71,7 @@
 .end method
 
 .method private static final createPreferences$lambda$2(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "$mtu"    # Landroidx/preference/EditTextPreference;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/MieruSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/mieru/MieruBean;
@@ -110,7 +110,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/mieru/MieruBean;
-    .locals 1
+    .registers 2
 
     .line 35
     new-instance v0, Lio/nekohasekai/sagernet/fmt/mieru/MieruBean;
@@ -129,7 +129,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 4
+    .registers 8
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -260,7 +260,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 33
@@ -274,7 +274,7 @@
 .end method
 
 .method public init(Lio/nekohasekai/sagernet/fmt/mieru/MieruBean;)V
-    .locals 2
+    .registers 4
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/mieru/MieruBean;
 
     const-string v0, "<this>"
@@ -343,7 +343,7 @@
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 33
@@ -357,7 +357,7 @@
 .end method
 
 .method public serialize(Lio/nekohasekai/sagernet/fmt/mieru/MieruBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/mieru/MieruBean;
 
     const-string v0, "<this>"

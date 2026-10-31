@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 29
     nop
@@ -25,16 +25,16 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     sput-boolean v0, Lcom/google/zxing/ReaderException;->isStackTrace:Z
 
     .line 31
@@ -46,7 +46,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Exception;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 38
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public final declared-synchronized fillInStackTrace()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 

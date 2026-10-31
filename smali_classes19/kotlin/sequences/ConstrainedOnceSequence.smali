@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/sequences/Sequence;)V
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -110,7 +110,7 @@
 
     check-cast v0, Lkotlin/sequences/Sequence;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 24
     .local v0, "sequence":Lkotlin/sequences/Sequence;
@@ -122,7 +122,7 @@
 
     .line 23
     .end local v0    # "sequence":Lkotlin/sequences/Sequence;
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This sequence can be consumed only once."

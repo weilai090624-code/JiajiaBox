@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -133,7 +133,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -179,7 +179,7 @@
 .end method
 
 .method private init(Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 7
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -201,7 +201,7 @@
     iput v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mContentId:I
 
     .line 73
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_3e
 
     .line 74
     invoke-virtual {p0}, Landroidx/constraintlayout/widget/Placeholder;->getContext()Landroid/content/Context;
@@ -225,8 +225,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_19
+    if-ge v2, v1, :cond_3b
 
     .line 77
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -237,7 +237,7 @@
     .local v3, "attr":I
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_placeholder_content:I
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_2c
 
     .line 79
     iget v4, p0, Landroidx/constraintlayout/widget/Placeholder;->mContentId:I
@@ -248,13 +248,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/Placeholder;->mContentId:I
 
-    goto :goto_1
+    goto :goto_38
 
     .line 81
-    :cond_0
+    :cond_2c
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_placeholder_placeholder_emptyVisibility:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_38
 
     .line 82
     iget v4, p0, Landroidx/constraintlayout/widget/Placeholder;->mEmptyVisibility:I
@@ -267,28 +267,28 @@
 
     .line 76
     .end local v3    # "attr":I
-    :cond_1
-    :goto_1
+    :cond_38
+    :goto_38
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 86
     .end local v2    # "i":I
-    :cond_2
+    :cond_3b
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 88
     .end local v0    # "a":Landroid/content/res/TypedArray;
     .end local v1    # "N":I
-    :cond_3
+    :cond_3e
     return-void
 .end method
 
 
 # virtual methods
 .method public getContent()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 114
     iget-object v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mContent:Landroid/view/View;
@@ -297,7 +297,7 @@
 .end method
 
 .method public getEmptyVisibility()I
-    .locals 1
+    .registers 2
 
     .line 106
     iget v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mEmptyVisibility:I
@@ -306,7 +306,7 @@
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;)V
-    .locals 9
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -322,7 +322,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6b
 
     .line 126
     const/16 v0, 0xdf
@@ -461,12 +461,12 @@
     .end local v4    # "cWidth":I
     .end local v5    # "text":Ljava/lang/String;
     .end local v7    # "y":F
-    :cond_0
+    :cond_6b
     return-void
 .end method
 
 .method public setContentId(I)V
-    .locals 2
+    .registers 4
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -480,16 +480,16 @@
     .line 176
     iget v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mContentId:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 177
     return-void
 
     .line 179
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mContent:Landroid/view/View;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 180
     iget-object v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mContent:Landroid/view/View;
@@ -519,13 +519,13 @@
 
     .line 187
     .end local v0    # "layoutParamsContent":Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
-    :cond_1
+    :cond_1c
     iput p1, p0, Landroidx/constraintlayout/widget/Placeholder;->mContentId:I
 
     .line 188
     const/4 v0, -0x1
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_32
 
     .line 189
     invoke-virtual {p0}, Landroidx/constraintlayout/widget/Placeholder;->getParent()Landroid/view/ViewParent;
@@ -540,7 +540,7 @@
 
     .line 190
     .local v0, "v":Landroid/view/View;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_32
 
     .line 191
     const/16 v1, 0x8
@@ -549,12 +549,12 @@
 
     .line 194
     .end local v0    # "v":Landroid/view/View;
-    :cond_2
+    :cond_32
     return-void
 .end method
 
 .method public setEmptyVisibility(I)V
-    .locals 0
+    .registers 2
     .param p1, "visibility"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -573,7 +573,7 @@
 .end method
 
 .method public updatePostMeasure(Landroidx/constraintlayout/widget/ConstraintLayout;)V
-    .locals 4
+    .registers 6
     .param p1, "container"    # Landroidx/constraintlayout/widget/ConstraintLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -587,13 +587,13 @@
     .line 201
     iget-object v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mContent:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 202
     return-void
 
     .line 204
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Landroidx/constraintlayout/widget/Placeholder;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
@@ -628,7 +628,7 @@
 
     sget-object v3, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_2e
 
     .line 209
     iget-object v2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -642,7 +642,7 @@
     invoke-virtual {v2, v3}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->setWidth(I)V
 
     .line 211
-    :cond_1
+    :cond_2e
     iget-object v2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     invoke-virtual {v2}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->getVerticalDimensionBehaviour()Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
@@ -651,7 +651,7 @@
 
     sget-object v3, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_43
 
     .line 212
     iget-object v2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -665,7 +665,7 @@
     invoke-virtual {v2, v3}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->setHeight(I)V
 
     .line 214
-    :cond_2
+    :cond_43
     iget-object v2, v1, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
     const/16 v3, 0x8
@@ -677,7 +677,7 @@
 .end method
 
 .method public updatePreLayout(Landroidx/constraintlayout/widget/ConstraintLayout;)V
-    .locals 3
+    .registers 5
     .param p1, "container"    # Landroidx/constraintlayout/widget/ConstraintLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -693,14 +693,14 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 155
     invoke-virtual {p0}, Landroidx/constraintlayout/widget/Placeholder;->isInEditMode()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 156
     iget v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mEmptyVisibility:I
@@ -708,7 +708,7 @@
     invoke-virtual {p0, v0}, Landroidx/constraintlayout/widget/Placeholder;->setVisibility(I)V
 
     .line 160
-    :cond_0
+    :cond_10
     iget v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mContentId:I
 
     invoke-virtual {p1, v0}, Landroidx/constraintlayout/widget/ConstraintLayout;->findViewById(I)Landroid/view/View;
@@ -720,7 +720,7 @@
     .line 161
     iget-object v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mContent:Landroid/view/View;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     .line 162
     iget-object v0, p0, Landroidx/constraintlayout/widget/Placeholder;->mContent:Landroid/view/View;
@@ -750,6 +750,6 @@
 
     .line 168
     .end local v0    # "layoutParamsContent":Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
-    :cond_1
+    :cond_30
     return-void
 .end method

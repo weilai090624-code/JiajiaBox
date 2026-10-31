@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Lcom/google/common/base/Function;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 560
     .local p0, "this":Lcom/google/common/collect/Lists$TransformingSequentialList;, "Lcom/google/common/collect/Lists$TransformingSequentialList<TF;TT;>;"
@@ -111,7 +111,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -137,7 +137,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 565
     .local p0, "this":Lcom/google/common/collect/Lists$TransformingSequentialList;, "Lcom/google/common/collect/Lists$TransformingSequentialList<TF;TT;>;"

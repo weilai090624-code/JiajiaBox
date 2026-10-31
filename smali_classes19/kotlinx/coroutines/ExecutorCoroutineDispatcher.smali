@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/ExecutorCoroutineDispatcher$Key;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Lkotlinx/coroutines/CoroutineDispatcher;-><init>()V

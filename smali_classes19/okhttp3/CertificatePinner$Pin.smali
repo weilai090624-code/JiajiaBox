@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 11
+    .registers 14
     .param p1, "pattern"    # Ljava/lang/String;
     .param p2, "pin"    # Ljava/lang/String;
 
@@ -98,7 +98,7 @@
 
     const/4 v4, -0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     move-object v5, p1
 
@@ -118,17 +118,17 @@
 
     move-result v0
 
-    if-eq v0, v4, :cond_2
+    if-eq v0, v4, :cond_4f
 
     .line 255
-    :cond_0
+    :cond_29
     const-string v0, "**."
 
     invoke-static {p1, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_40
 
     move-object v5, p1
 
@@ -148,10 +148,10 @@
 
     move-result v0
 
-    if-eq v0, v4, :cond_2
+    if-eq v0, v4, :cond_4f
 
     .line 256
-    :cond_1
+    :cond_40
     move-object v5, p1
 
     check-cast v5, Ljava/lang/CharSequence;
@@ -170,19 +170,19 @@
 
     move-result v0
 
-    if-ne v0, v4, :cond_3
+    if-ne v0, v4, :cond_51
 
-    :cond_2
+    :cond_4f
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_52
 
-    :cond_3
+    :cond_51
     const/4 v0, 0x0
 
     .line 254
-    :goto_0
-    if-eqz v0, :cond_9
+    :goto_52
+    if-eqz v0, :cond_d3
 
     .line 260
     nop
@@ -192,7 +192,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_c7
 
     .line 260
     iput-object v0, p0, Lokhttp3/CertificatePinner$Pin;->pattern:Ljava/lang/String;
@@ -211,7 +211,7 @@
 
     const-string v6, "(this as java.lang.String).substring(startIndex)"
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_8e
 
     .line 265
     const-string v1, "sha1"
@@ -235,13 +235,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_84
 
     iput-object v0, p0, Lokhttp3/CertificatePinner$Pin;->hash:Lokio/ByteString;
 
-    goto :goto_1
+    goto :goto_af
 
-    :cond_4
+    :cond_84
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {v5, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -253,14 +253,14 @@
     throw v0
 
     .line 268
-    :cond_5
+    :cond_8e
     const-string v0, "sha256/"
 
     invoke-static {p2, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_bb
 
     .line 269
     const-string v1, "sha256"
@@ -284,19 +284,19 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_b1
 
     iput-object v0, p0, Lokhttp3/CertificatePinner$Pin;->hash:Lokio/ByteString;
 
     .line 274
-    :goto_1
+    :goto_af
     nop
 
     .line 243
     return-void
 
     .line 270
-    :cond_6
+    :cond_b1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {v5, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -308,7 +308,7 @@
     throw v0
 
     .line 272
-    :cond_7
+    :cond_bb
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "pins must start with \'sha256/\' or \'sha1/\': "
@@ -322,7 +322,7 @@
     throw v0
 
     .line 261
-    :cond_8
+    :cond_c7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid pattern: "
@@ -336,7 +336,7 @@
     throw v0
 
     .line 254
-    :cond_9
+    :cond_d3
     const/4 v0, 0x0
 
     .line 257
@@ -365,28 +365,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 307
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 308
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lokhttp3/CertificatePinner$Pin;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 310
-    :cond_1
+    :cond_a
     iget-object v1, p0, Lokhttp3/CertificatePinner$Pin;->pattern:Ljava/lang/String;
 
     move-object v3, p1
@@ -399,12 +399,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
     .line 311
-    :cond_2
+    :cond_18
     iget-object v1, p0, Lokhttp3/CertificatePinner$Pin;->hashAlgorithm:Ljava/lang/String;
 
     move-object v3, p1
@@ -417,12 +417,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_26
 
     return v2
 
     .line 312
-    :cond_3
+    :cond_26
     iget-object v1, p0, Lokhttp3/CertificatePinner$Pin;->hash:Lokio/ByteString;
 
     move-object v3, p1
@@ -435,17 +435,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_34
 
     return v2
 
     .line 314
-    :cond_4
+    :cond_34
     return v0
 .end method
 
 .method public final getHash()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     .line 251
     iget-object v0, p0, Lokhttp3/CertificatePinner$Pin;->hash:Lokio/ByteString;
@@ -454,7 +454,7 @@
 .end method
 
 .method public final getHashAlgorithm()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 248
     iget-object v0, p0, Lokhttp3/CertificatePinner$Pin;->hashAlgorithm:Ljava/lang/String;
@@ -463,7 +463,7 @@
 .end method
 
 .method public final getPattern()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 245
     iget-object v0, p0, Lokhttp3/CertificatePinner$Pin;->pattern:Ljava/lang/String;
@@ -472,7 +472,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 318
     iget-object v0, p0, Lokhttp3/CertificatePinner$Pin;->pattern:Ljava/lang/String;
@@ -513,7 +513,7 @@
 .end method
 
 .method public final matchesCertificate(Ljava/security/cert/X509Certificate;)Z
-    .locals 2
+    .registers 4
     .param p1, "certificate"    # Ljava/security/cert/X509Certificate;
 
     const-string v0, "certificate"
@@ -530,7 +530,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     iget-object v0, p0, Lokhttp3/CertificatePinner$Pin;->hash:Lokio/ByteString;
 
@@ -544,17 +544,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_32
 
     .line 299
-    :cond_0
+    :cond_1c
     const-string v1, "sha1"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     iget-object v0, p0, Lokhttp3/CertificatePinner$Pin;->hash:Lokio/ByteString;
 
@@ -568,19 +568,19 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_32
 
     .line 300
-    :cond_1
+    :cond_31
     const/4 v0, 0x0
 
     .line 297
-    :goto_0
+    :goto_32
     return v0
 .end method
 
 .method public final matchesHostname(Ljava/lang/String;)Z
-    .locals 12
+    .registers 14
     .param p1, "hostname"    # Ljava/lang/String;
 
     const-string v0, "hostname"
@@ -607,7 +607,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_47
 
     .line 280
     iget-object v0, p0, Lokhttp3/CertificatePinner$Pin;->pattern:Ljava/lang/String;
@@ -652,10 +652,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_45
 
     .line 283
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_43
 
     add-int/lit8 v3, v11, -0x1
 
@@ -665,22 +665,22 @@
 
     const/16 v4, 0x2e
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_45
 
-    :cond_0
+    :cond_43
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_8e
 
-    :cond_1
+    :cond_45
     nop
 
     .end local v0    # "suffixLength":I
     .end local v11    # "prefixLength":I
-    goto :goto_0
+    goto :goto_8e
 
     .line 285
-    :cond_2
+    :cond_47
     iget-object v0, p0, Lokhttp3/CertificatePinner$Pin;->pattern:Ljava/lang/String;
 
     const-string v5, "*."
@@ -689,7 +689,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_88
 
     .line 287
     iget-object v0, p0, Lokhttp3/CertificatePinner$Pin;->pattern:Ljava/lang/String;
@@ -734,7 +734,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_86
 
     .line 290
     move-object v4, p1
@@ -757,21 +757,21 @@
 
     const/4 v4, -0x1
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_86
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_8e
 
-    :cond_3
+    :cond_86
     nop
 
     .end local v0    # "suffixLength":I
     .end local v11    # "prefixLength":I
-    goto :goto_0
+    goto :goto_8e
 
     .line 292
-    :cond_4
+    :cond_88
     iget-object v0, p0, Lokhttp3/CertificatePinner$Pin;->pattern:Ljava/lang/String;
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -779,12 +779,12 @@
     move-result v2
 
     .line 277
-    :goto_0
+    :goto_8e
     return v2
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 304
     new-instance v0, Ljava/lang/StringBuilder;

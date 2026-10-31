@@ -119,7 +119,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     new-instance v0, Lokhttp3/internal/concurrent/TaskRunner$Companion;
 
@@ -179,7 +179,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/internal/concurrent/TaskRunner$Backend;Ljava/util/logging/Logger;)V
-    .locals 1
+    .registers 4
     .param p1, "backend"    # Lokhttp3/internal/concurrent/TaskRunner$Backend;
     .param p2, "logger"    # Ljava/util/logging/Logger;
 
@@ -237,18 +237,18 @@
 .end method
 
 .method public synthetic constructor <init>(Lokhttp3/internal/concurrent/TaskRunner$Backend;Ljava/util/logging/Logger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 42
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     .line 44
     sget-object p2, Lokhttp3/internal/concurrent/TaskRunner;->logger:Ljava/util/logging/Logger;
 
     .line 42
-    :cond_0
+    :cond_6
     invoke-direct {p0, p1, p2}, Lokhttp3/internal/concurrent/TaskRunner;-><init>(Lokhttp3/internal/concurrent/TaskRunner$Backend;Ljava/util/logging/Logger;)V
 
     .line 315
@@ -256,7 +256,7 @@
 .end method
 
 .method public static final synthetic access$getLogger$cp()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 1
 
     .line 42
     sget-object v0, Lokhttp3/internal/concurrent/TaskRunner;->logger:Ljava/util/logging/Logger;
@@ -265,7 +265,7 @@
 .end method
 
 .method public static final synthetic access$runTask(Lokhttp3/internal/concurrent/TaskRunner;Lokhttp3/internal/concurrent/Task;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/concurrent/TaskRunner;
     .param p1, "task"    # Lokhttp3/internal/concurrent/Task;
 
@@ -276,7 +276,7 @@
 .end method
 
 .method private final afterRun(Lokhttp3/internal/concurrent/Task;J)V
-    .locals 6
+    .registers 10
     .param p1, "task"    # Lokhttp3/internal/concurrent/Task;
     .param p2, "delayNanos"    # J
 
@@ -290,18 +290,18 @@
     .local v1, "$i$f$assertThreadHoldsLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_38
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_d
 
-    goto :goto_0
+    goto :goto_38
 
     .line 330
-    :cond_0
+    :cond_d
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -345,8 +345,8 @@
     throw v2
 
     .line 332
-    :cond_1
-    :goto_0
+    :cond_38
+    :goto_38
     nop
 
     .line 129
@@ -368,17 +368,17 @@
 
     const/4 v3, 0x0
 
-    if-ne v1, p1, :cond_2
+    if-ne v1, p1, :cond_4a
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_2
+    :cond_4a
     const/4 v1, 0x0
 
-    :goto_1
-    if-eqz v1, :cond_5
+    :goto_4b
+    if-eqz v1, :cond_80
 
     .line 132
     invoke-virtual {v0}, Lokhttp3/internal/concurrent/TaskQueue;->getCancelActiveTask$okhttp()Z
@@ -404,21 +404,21 @@
 
     cmp-long v5, p2, v3
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_6e
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_6e
 
     invoke-virtual {v0}, Lokhttp3/internal/concurrent/TaskQueue;->getShutdown$okhttp()Z
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_6e
 
     .line 138
     invoke-virtual {v0, p1, p2, p3, v2}, Lokhttp3/internal/concurrent/TaskQueue;->scheduleAndDecide$okhttp(Lokhttp3/internal/concurrent/Task;JZ)Z
 
     .line 141
-    :cond_3
+    :cond_6e
     invoke-virtual {v0}, Lokhttp3/internal/concurrent/TaskQueue;->getFutureTasks$okhttp()Ljava/util/List;
 
     move-result-object v2
@@ -429,7 +429,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_7f
 
     .line 142
     iget-object v2, p0, Lokhttp3/internal/concurrent/TaskRunner;->readyQueues:Ljava/util/List;
@@ -437,12 +437,12 @@
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 144
-    :cond_4
+    :cond_7f
     return-void
 
     .line 130
     .end local v1    # "cancelActiveTask":Z
-    :cond_5
+    :cond_80
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Check failed."
@@ -459,7 +459,7 @@
 .end method
 
 .method private final beforeRun(Lokhttp3/internal/concurrent/Task;)V
-    .locals 5
+    .registers 7
     .param p1, "task"    # Lokhttp3/internal/concurrent/Task;
 
     .line 98
@@ -472,18 +472,18 @@
     .local v1, "$i$f$assertThreadHoldsLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_38
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_d
 
-    goto :goto_0
+    goto :goto_38
 
     .line 322
-    :cond_0
+    :cond_d
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -527,8 +527,8 @@
     throw v2
 
     .line 324
-    :cond_1
-    :goto_0
+    :cond_38
+    :goto_38
     nop
 
     .line 100
@@ -571,7 +571,7 @@
 .end method
 
 .method private final runTask(Lokhttp3/internal/concurrent/Task;)V
-    .locals 6
+    .registers 8
     .param p1, "task"    # Lokhttp3/internal/concurrent/Task;
 
     .line 109
@@ -584,18 +584,18 @@
     .local v1, "$i$f$assertThreadDoesntHoldLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_38
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_d
 
-    goto :goto_0
+    goto :goto_38
 
     .line 326
-    :cond_0
+    :cond_d
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -639,8 +639,8 @@
     throw v2
 
     .line 328
-    :cond_1
-    :goto_0
+    :cond_38
+    :goto_38
     nop
 
     .line 111
@@ -674,12 +674,12 @@
     nop
 
     .line 117
-    :try_start_0
+    :try_start_4d
     invoke-virtual {p1}, Lokhttp3/internal/concurrent/Task;->runOnce()J
 
     move-result-wide v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_51
+    .catchall {:try_start_4d .. :try_end_51} :catchall_63
 
     move-wide v2, v4
 
@@ -690,7 +690,7 @@
 
     .line 120
     .local v4, "$i$a$-synchronized-TaskRunner$runTask$1":I
-    :try_start_1
+    :try_start_54
     invoke-direct {p0, p1, v2, v3}, Lokhttp3/internal/concurrent/TaskRunner;->afterRun(Lokhttp3/internal/concurrent/Task;J)V
 
     .line 121
@@ -698,8 +698,8 @@
 
     .end local v4    # "$i$a$-synchronized-TaskRunner$runTask$1":I
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5a
+    .catchall {:try_start_54 .. :try_end_5a} :catchall_60
 
     .line 119
     monitor-exit p0
@@ -714,7 +714,7 @@
     return-void
 
     .line 119
-    :catchall_0
+    :catchall_60
     move-exception v4
 
     monitor-exit p0
@@ -722,7 +722,7 @@
     throw v4
 
     .line 123
-    :catchall_1
+    :catchall_63
     move-exception v4
 
     .line 119
@@ -732,7 +732,7 @@
 
     .line 120
     .local v5, "$i$a$-synchronized-TaskRunner$runTask$1":I
-    :try_start_2
+    :try_start_66
     invoke-direct {p0, p1, v2, v3}, Lokhttp3/internal/concurrent/TaskRunner;->afterRun(Lokhttp3/internal/concurrent/Task;J)V
 
     .line 121
@@ -740,8 +740,8 @@
 
     .end local v5    # "$i$a$-synchronized-TaskRunner$runTask$1":I
     sget-object v5, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_6c
+    .catchall {:try_start_66 .. :try_end_6c} :catchall_71
 
     .line 119
     monitor-exit p0
@@ -752,7 +752,7 @@
     throw v4
 
     .line 119
-    :catchall_2
+    :catchall_71
     move-exception v4
 
     monitor-exit p0
@@ -763,7 +763,7 @@
 
 # virtual methods
 .method public final activeQueues()Ljava/util/List;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -780,7 +780,7 @@
 
     .line 242
     .local v0, "$i$a$-synchronized-TaskRunner$activeQueues$1":I
-    :try_start_0
+    :try_start_2
     iget-object v1, p0, Lokhttp3/internal/concurrent/TaskRunner;->busyQueues:Ljava/util/List;
 
     check-cast v1, Ljava/util/Collection;
@@ -792,15 +792,15 @@
     invoke-static {v1, v2}, Lkotlin/collections/CollectionsKt;->plus(Ljava/util/Collection;Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_2 .. :try_end_e} :catchall_10
 
     .end local v0    # "$i$a$-synchronized-TaskRunner$activeQueues$1":I
     monitor-exit p0
 
     return-object v1
 
-    :catchall_0
+    :catchall_10
     move-exception v0
 
     monitor-exit p0
@@ -809,7 +809,7 @@
 .end method
 
 .method public final awaitTaskToRun()Lokhttp3/internal/concurrent/Task;
-    .locals 17
+    .registers 18
 
     .line 153
     move-object/from16 v1, p0
@@ -823,18 +823,18 @@
     .local v2, "$i$f$assertThreadHoldsLock":I
     sget-boolean v3, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3b
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_10
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 334
-    :cond_0
+    :cond_10
     new-instance v3, Ljava/lang/AssertionError;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -878,14 +878,14 @@
     throw v3
 
     .line 336
-    :cond_1
-    :goto_0
+    :cond_3b
+    :goto_3b
     nop
 
     .line 155
     .end local v0    # "$this$assertThreadHoldsLock$iv":Ljava/lang/Object;
     .end local v2    # "$i$f$assertThreadHoldsLock":I
-    :goto_1
+    :goto_3c
     nop
 
     .line 156
@@ -897,13 +897,13 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_47
 
     .line 157
     return-object v2
 
     .line 160
-    :cond_2
+    :cond_47
     iget-object v0, v1, Lokhttp3/internal/concurrent/TaskRunner;->backend:Lokhttp3/internal/concurrent/TaskRunner$Backend;
 
     invoke-interface {v0}, Lokhttp3/internal/concurrent/TaskRunner$Backend;->nanoTime()J
@@ -937,14 +937,14 @@
     .end local v0    # "readyTask":Lokhttp3/internal/concurrent/Task;
     .local v5, "readyTask":Lokhttp3/internal/concurrent/Task;
     .local v9, "minDelayNanos":J
-    :goto_2
+    :goto_5c
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
     const/4 v6, 0x0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8e
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -985,7 +985,7 @@
     .line 174
     cmp-long v16, v12, v14
 
-    if-lez v16, :cond_3
+    if-lez v16, :cond_88
 
     .line 175
     invoke-static {v12, v13, v9, v10}, Ljava/lang/Math;->min(JJ)J
@@ -993,44 +993,44 @@
     move-result-wide v9
 
     .line 176
-    goto :goto_2
+    goto :goto_5c
 
     .line 180
-    :cond_3
-    if-eqz v5, :cond_4
+    :cond_88
+    if-eqz v5, :cond_8c
 
     .line 181
     const/4 v7, 0x1
 
     .line 182
-    goto :goto_3
+    goto :goto_8e
 
     .line 187
-    :cond_4
+    :cond_8c
     move-object v5, v11
 
     .end local v0    # "queue":Lokhttp3/internal/concurrent/TaskQueue;
     .end local v11    # "candidate":Lokhttp3/internal/concurrent/Task;
     .end local v12    # "candidateDelay":J
-    goto :goto_2
+    goto :goto_5c
 
     .line 193
-    :cond_5
-    :goto_3
+    :cond_8e
+    :goto_8e
     nop
 
     .line 195
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_ac
 
     .line 196
     invoke-direct {v1, v5}, Lokhttp3/internal/concurrent/TaskRunner;->beforeRun(Lokhttp3/internal/concurrent/Task;)V
 
     .line 199
-    if-nez v7, :cond_6
+    if-nez v7, :cond_a4
 
     iget-boolean v0, v1, Lokhttp3/internal/concurrent/TaskRunner;->coordinatorWaiting:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_ab
 
     iget-object v0, v1, Lokhttp3/internal/concurrent/TaskRunner;->readyQueues:Ljava/util/List;
 
@@ -1040,10 +1040,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_ab
 
     .line 200
-    :cond_6
+    :cond_a4
     iget-object v0, v1, Lokhttp3/internal/concurrent/TaskRunner;->backend:Lokhttp3/internal/concurrent/TaskRunner$Backend;
 
     iget-object v2, v1, Lokhttp3/internal/concurrent/TaskRunner;->runnable:Ljava/lang/Runnable;
@@ -1051,14 +1051,14 @@
     invoke-interface {v0, v2}, Lokhttp3/internal/concurrent/TaskRunner$Backend;->execute(Ljava/lang/Runnable;)V
 
     .line 203
-    :cond_7
+    :cond_ab
     return-object v5
 
     .line 207
-    :cond_8
+    :cond_ac
     iget-boolean v0, v1, Lokhttp3/internal/concurrent/TaskRunner;->coordinatorWaiting:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_bd
 
     .line 208
     iget-wide v11, v1, Lokhttp3/internal/concurrent/TaskRunner;->coordinatorWakeUpAt:J
@@ -1067,7 +1067,7 @@
 
     cmp-long v0, v9, v11
 
-    if-gez v0, :cond_9
+    if-gez v0, :cond_bc
 
     .line 209
     iget-object v0, v1, Lokhttp3/internal/concurrent/TaskRunner;->backend:Lokhttp3/internal/concurrent/TaskRunner$Backend;
@@ -1075,11 +1075,11 @@
     invoke-interface {v0, v1}, Lokhttp3/internal/concurrent/TaskRunner$Backend;->coordinatorNotify(Lokhttp3/internal/concurrent/TaskRunner;)V
 
     .line 211
-    :cond_9
+    :cond_bc
     return-object v2
 
     .line 216
-    :cond_a
+    :cond_bd
     const/4 v0, 0x1
 
     iput-boolean v0, v1, Lokhttp3/internal/concurrent/TaskRunner;->coordinatorWaiting:Z
@@ -1093,49 +1093,49 @@
     nop
 
     .line 219
-    :try_start_0
+    :try_start_c5
     iget-object v0, v1, Lokhttp3/internal/concurrent/TaskRunner;->backend:Lokhttp3/internal/concurrent/TaskRunner$Backend;
 
     invoke-interface {v0, v1, v9, v10}, Lokhttp3/internal/concurrent/TaskRunner$Backend;->coordinatorWait(Lokhttp3/internal/concurrent/TaskRunner;J)V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_ca
+    .catch Ljava/lang/InterruptedException; {:try_start_c5 .. :try_end_ca} :catch_d0
+    .catchall {:try_start_c5 .. :try_end_ca} :catchall_ce
 
     .line 224
-    :goto_4
+    :goto_ca
     iput-boolean v6, v1, Lokhttp3/internal/concurrent/TaskRunner;->coordinatorWaiting:Z
 
     .line 225
-    goto/16 :goto_1
+    goto/16 :goto_3c
 
-    :catchall_0
+    :catchall_ce
     move-exception v0
 
-    goto :goto_5
+    goto :goto_d5
 
     .line 220
-    :catch_0
+    :catch_d0
     move-exception v0
 
     .line 222
     .local v0, "_":Ljava/lang/InterruptedException;
-    :try_start_1
+    :try_start_d1
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/concurrent/TaskRunner;->cancelAll()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_d4
+    .catchall {:try_start_d1 .. :try_end_d4} :catchall_ce
 
     .end local v0    # "_":Ljava/lang/InterruptedException;
-    goto :goto_4
+    goto :goto_ca
 
     .line 224
-    :goto_5
+    :goto_d5
     iput-boolean v6, v1, Lokhttp3/internal/concurrent/TaskRunner;->coordinatorWaiting:Z
 
     throw v0
 .end method
 
 .method public final cancelAll()V
-    .locals 5
+    .registers 6
 
     .line 247
     move-object v0, p0
@@ -1147,18 +1147,18 @@
     .local v1, "$i$f$assertThreadHoldsLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_38
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_d
 
-    goto :goto_0
+    goto :goto_38
 
     .line 339
-    :cond_0
+    :cond_d
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1202,8 +1202,8 @@
     throw v2
 
     .line 341
-    :cond_1
-    :goto_0
+    :cond_38
+    :goto_38
     nop
 
     .line 248
@@ -1217,9 +1217,9 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-ltz v0, :cond_3
+    if-ltz v0, :cond_53
 
-    :cond_2
+    :cond_43
     move v1, v0
 
     .local v1, "i":I
@@ -1237,11 +1237,11 @@
     invoke-virtual {v2}, Lokhttp3/internal/concurrent/TaskQueue;->cancelAllAndDecide$okhttp()Z
 
     .line 248
-    if-gez v0, :cond_2
+    if-gez v0, :cond_43
 
     .line 251
     .end local v1    # "i":I
-    :cond_3
+    :cond_53
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskRunner;->readyQueues:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -1250,9 +1250,9 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-ltz v0, :cond_6
+    if-ltz v0, :cond_7c
 
-    :cond_4
+    :cond_5d
     move v1, v0
 
     .restart local v1    # "i":I
@@ -1280,7 +1280,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_7a
 
     .line 255
     iget-object v3, p0, Lokhttp3/internal/concurrent/TaskRunner;->readyQueues:Ljava/util/List;
@@ -1289,17 +1289,17 @@
 
     .line 251
     .end local v2    # "queue":Lokhttp3/internal/concurrent/TaskQueue;
-    :cond_5
-    if-gez v0, :cond_4
+    :cond_7a
+    if-gez v0, :cond_5d
 
     .line 258
     .end local v1    # "i":I
-    :cond_6
+    :cond_7c
     return-void
 .end method
 
 .method public final getBackend()Lokhttp3/internal/concurrent/TaskRunner$Backend;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskRunner;->backend:Lokhttp3/internal/concurrent/TaskRunner$Backend;
@@ -1308,7 +1308,7 @@
 .end method
 
 .method public final getLogger$okhttp()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 2
 
     .line 44
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskRunner;->logger$1:Ljava/util/logging/Logger;
@@ -1317,7 +1317,7 @@
 .end method
 
 .method public final kickCoordinator$okhttp(Lokhttp3/internal/concurrent/TaskQueue;)V
-    .locals 5
+    .registers 7
     .param p1, "taskQueue"    # Lokhttp3/internal/concurrent/TaskQueue;
 
     const-string v0, "taskQueue"
@@ -1334,18 +1334,18 @@
     .local v1, "$i$f$assertThreadHoldsLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3d
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_12
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 318
-    :cond_0
+    :cond_12
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1389,8 +1389,8 @@
     throw v2
 
     .line 320
-    :cond_1
-    :goto_0
+    :cond_3d
+    :goto_3d
     nop
 
     .line 82
@@ -1400,7 +1400,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5b
 
     .line 83
     invoke-virtual {p1}, Lokhttp3/internal/concurrent/TaskQueue;->getFutureTasks$okhttp()Ljava/util/List;
@@ -1413,37 +1413,37 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_56
 
     .line 84
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskRunner;->readyQueues:Ljava/util/List;
 
     invoke-static {v0, p1}, Lokhttp3/internal/Util;->addIfAbsent(Ljava/util/List;Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_5b
 
     .line 86
-    :cond_2
+    :cond_56
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskRunner;->readyQueues:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     .line 90
-    :cond_3
-    :goto_1
+    :cond_5b
+    :goto_5b
     iget-boolean v0, p0, Lokhttp3/internal/concurrent/TaskRunner;->coordinatorWaiting:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_65
 
     .line 91
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskRunner;->backend:Lokhttp3/internal/concurrent/TaskRunner$Backend;
 
     invoke-interface {v0, p0}, Lokhttp3/internal/concurrent/TaskRunner$Backend;->coordinatorNotify(Lokhttp3/internal/concurrent/TaskRunner;)V
 
-    goto :goto_2
+    goto :goto_6c
 
     .line 93
-    :cond_4
+    :cond_65
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskRunner;->backend:Lokhttp3/internal/concurrent/TaskRunner$Backend;
 
     iget-object v1, p0, Lokhttp3/internal/concurrent/TaskRunner;->runnable:Ljava/lang/Runnable;
@@ -1451,12 +1451,12 @@
     invoke-interface {v0, v1}, Lokhttp3/internal/concurrent/TaskRunner$Backend;->execute(Ljava/lang/Runnable;)V
 
     .line 95
-    :goto_2
+    :goto_6c
     return-void
 .end method
 
 .method public final newQueue()Lokhttp3/internal/concurrent/TaskQueue;
-    .locals 4
+    .registers 5
 
     .line 232
     monitor-enter p0
@@ -1466,14 +1466,14 @@
 
     .line 232
     .local v0, "$i$a$-synchronized-TaskRunner$newQueue$name$1":I
-    :try_start_0
+    :try_start_2
     iget v1, p0, Lokhttp3/internal/concurrent/TaskRunner;->nextQueueName:I
 
     add-int/lit8 v2, v1, 0x1
 
     iput v2, p0, Lokhttp3/internal/concurrent/TaskRunner;->nextQueueName:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_2 .. :try_end_8} :catchall_1a
 
     .end local v0    # "$i$a$-synchronized-TaskRunner$newQueue$name$1":I
     monitor-exit p0
@@ -1500,7 +1500,7 @@
 
     .line 232
     .end local v0    # "name":I
-    :catchall_0
+    :catchall_1a
     move-exception v0
 
     monitor-exit p0

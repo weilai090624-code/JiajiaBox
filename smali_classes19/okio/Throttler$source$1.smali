@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Throttler;Lokio/Source;)V
-    .locals 0
+    .registers 3
     .param p1, "$receiver"    # Lokio/Throttler;
     .param p2, "$source"    # Lokio/Source;
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public read(Lokio/Buffer;J)J
-    .locals 4
+    .registers 8
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -74,7 +74,7 @@
     nop
 
     .line 139
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Lokio/Throttler$source$1;->this$0:Lokio/Throttler;
 
     invoke-virtual {v0, p2, p3}, Lokio/Throttler;->take$okio(J)J
@@ -86,14 +86,14 @@
     invoke-super {p0, p1, v0, v1}, Lokio/ForwardingSource;->read(Lokio/Buffer;J)J
 
     move-result-wide v2
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/InterruptedException; {:try_start_6 .. :try_end_10} :catch_11
 
     return-wide v2
 
     .line 141
     .end local v0    # "toRead":J
-    :catch_0
+    :catch_11
     move-exception v0
 
     .line 142

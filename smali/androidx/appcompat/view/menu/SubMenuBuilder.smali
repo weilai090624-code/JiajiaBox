@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/view/menu/MenuItemImpl;)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parentMenu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p3, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public collapseItemActionView(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
-    .locals 1
+    .registers 3
     .param p1, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
     .line 138
@@ -49,7 +49,7 @@
 .end method
 
 .method dispatchMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "item"    # Landroid/view/MenuItem;
 
@@ -58,7 +58,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
@@ -67,26 +67,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x1
 
     .line 90
-    :goto_1
+    :goto_12
     return v0
 .end method
 
 .method public expandItemActionView(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
-    .locals 1
+    .registers 3
     .param p1, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
     .line 133
@@ -100,12 +100,12 @@
 .end method
 
 .method public getActionViewStatesKey()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 143
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -113,15 +113,15 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     .line 144
     .local v0, "itemId":I
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_c
+    if-nez v0, :cond_10
 
     .line 145
     const/4 v1, 0x0
@@ -129,7 +129,7 @@
     return-object v1
 
     .line 147
-    :cond_1
+    :cond_10
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -160,7 +160,7 @@
 .end method
 
 .method public getItem()Landroid/view/MenuItem;
-    .locals 1
+    .registers 2
 
     .line 75
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -169,7 +169,7 @@
 .end method
 
 .method public getParentMenu()Landroid/view/Menu;
-    .locals 1
+    .registers 2
 
     .line 70
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -178,7 +178,7 @@
 .end method
 
 .method public getRootMenu()Landroidx/appcompat/view/menu/MenuBuilder;
-    .locals 1
+    .registers 2
 
     .line 85
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -191,7 +191,7 @@
 .end method
 
 .method public isGroupDividerEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 157
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -204,7 +204,7 @@
 .end method
 
 .method public isQwertyMode()Z
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -217,7 +217,7 @@
 .end method
 
 .method public isShortcutsVisible()Z
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -230,7 +230,7 @@
 .end method
 
 .method public setCallback(Landroidx/appcompat/view/menu/MenuBuilder$Callback;)V
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Landroidx/appcompat/view/menu/MenuBuilder$Callback;
 
     .line 80
@@ -243,7 +243,7 @@
 .end method
 
 .method public setGroupDividerEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "groupDividerEnabled"    # Z
 
     .line 152
@@ -256,7 +256,7 @@
 .end method
 
 .method public setHeaderIcon(I)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "iconRes"    # I
 
     .line 113
@@ -270,7 +270,7 @@
 .end method
 
 .method public setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 108
@@ -284,7 +284,7 @@
 .end method
 
 .method public setHeaderTitle(I)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "titleRes"    # I
 
     .line 123
@@ -298,7 +298,7 @@
 .end method
 
 .method public setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 118
@@ -312,7 +312,7 @@
 .end method
 
 .method public setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 128
@@ -326,7 +326,7 @@
 .end method
 
 .method public setIcon(I)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "iconRes"    # I
 
     .line 102
@@ -339,7 +339,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 96
@@ -352,7 +352,7 @@
 .end method
 
 .method public setQwertyMode(Z)V
-    .locals 1
+    .registers 3
     .param p1, "isQwerty"    # Z
 
     .line 51
@@ -365,7 +365,7 @@
 .end method
 
 .method public setShortcutsVisible(Z)V
-    .locals 1
+    .registers 3
     .param p1, "shortcutsVisible"    # Z
 
     .line 61

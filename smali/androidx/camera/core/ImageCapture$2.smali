@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture;Landroidx/camera/core/ImageCapture$OnImageSavedCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/ImageCapture;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public onError(Landroidx/camera/core/ImageSaver$SaveError;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 7
     .param p1, "error"    # Landroidx/camera/core/ImageSaver$SaveError;
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "cause"    # Ljava/lang/Throwable;
@@ -81,19 +81,19 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_1a
 
-    goto :goto_0
+    goto :goto_f
 
     .line 833
-    :pswitch_0
+    :pswitch_d
     const/4 v0, 0x1
 
     .line 834
     nop
 
     .line 840
-    :goto_0
+    :goto_f
     iget-object v1, p0, Landroidx/camera/core/ImageCapture$2;->val$imageSavedCallback:Landroidx/camera/core/ImageCapture$OnImageSavedCallback;
 
     new-instance v2, Landroidx/camera/core/ImageCaptureException;
@@ -105,14 +105,14 @@
     .line 842
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_1a
     .packed-switch 0x1
-        :pswitch_0
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method public onImageSaved(Landroidx/camera/core/ImageCapture$OutputFileResults;)V
-    .locals 1
+    .registers 3
     .param p1, "outputFileResults"    # Landroidx/camera/core/ImageCapture$OutputFileResults;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

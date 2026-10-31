@@ -44,7 +44,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/base/CaseFormat;
-    .locals 3
+    .registers 3
 
     .line 31
     const/4 v0, 0x5
@@ -85,7 +85,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 35
     new-instance v0, Lcom/google/common/base/CaseFormat$1;
@@ -187,7 +187,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p3, "wordBoundary"    # Lcom/google/common/base/CharMatcher;
     .param p4, "wordSeparator"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -213,7 +213,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;Lcom/google/common/base/CaseFormat$1;)V
-    .locals 0
+    .registers 6
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # I
     .param p3, "x2"    # Lcom/google/common/base/CharMatcher;
@@ -227,7 +227,7 @@
 .end method
 
 .method static synthetic access$100(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/lang/String;
 
     .line 33
@@ -239,7 +239,7 @@
 .end method
 
 .method private static firstCharOnlyToUpper(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "word"    # Ljava/lang/String;
 
     .line 212
@@ -247,15 +247,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 213
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_34
 
     .line 214
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
@@ -303,12 +303,12 @@
     move-result-object v0
 
     .line 212
-    :goto_0
+    :goto_34
     return-object v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/base/CaseFormat;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 31
@@ -324,7 +324,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/base/CaseFormat;
-    .locals 1
+    .registers 1
 
     .line 31
     sget-object v0, Lcom/google/common/base/CaseFormat;->$VALUES:[Lcom/google/common/base/CaseFormat;
@@ -341,7 +341,7 @@
 
 # virtual methods
 .method convert(Lcom/google/common/base/CaseFormat;Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 9
     .param p1, "format"    # Lcom/google/common/base/CaseFormat;
     .param p2, "s"    # Ljava/lang/String;
 
@@ -358,7 +358,7 @@
 
     .line 137
     .local v2, "j":I
-    :goto_0
+    :goto_3
     iget-object v3, p0, Lcom/google/common/base/CaseFormat;->wordBoundary:Lcom/google/common/base/CharMatcher;
 
     add-int/lit8 v2, v2, 0x1
@@ -371,10 +371,10 @@
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_4f
 
     .line 138
-    if-nez v1, :cond_0
+    if-nez v1, :cond_30
 
     .line 140
     new-instance v3, Ljava/lang/StringBuilder;
@@ -408,10 +408,10 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_41
 
     .line 143
-    :cond_0
+    :cond_30
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -429,7 +429,7 @@
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 145
-    :goto_1
+    :goto_41
     iget-object v3, p1, Lcom/google/common/base/CaseFormat;->wordSeparator:Ljava/lang/String;
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -443,21 +443,21 @@
 
     add-int v1, v2, v3
 
-    goto :goto_0
+    goto :goto_3
 
     .line 148
-    :cond_1
-    if-nez v1, :cond_2
+    :cond_4f
+    if-nez v1, :cond_56
 
     .line 149
     invoke-virtual {p1, p2}, Lcom/google/common/base/CaseFormat;->normalizeFirstWord(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_6c
 
     .line 150
-    :cond_2
+    :cond_56
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -481,12 +481,12 @@
     move-result-object v3
 
     .line 148
-    :goto_2
+    :goto_6c
     return-object v3
 .end method
 
 .method public converterTo(Lcom/google/common/base/CaseFormat;)Lcom/google/common/base/Converter;
-    .locals 1
+    .registers 3
     .param p1, "targetFormat"    # Lcom/google/common/base/CaseFormat;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -509,7 +509,7 @@
 .end method
 
 .method normalizeFirstWord(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "word"    # Ljava/lang/String;
 
     .line 208
@@ -524,7 +524,7 @@
 .end method
 
 .method public final to(Lcom/google/common/base/CaseFormat;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "format"    # Lcom/google/common/base/CaseFormat;
     .param p2, "str"    # Ljava/lang/String;
 
@@ -535,17 +535,17 @@
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 128
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_a
 
     move-object v0, p2
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-virtual {p0, p1, p2}, Lcom/google/common/base/CaseFormat;->convert(Lcom/google/common/base/CaseFormat;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method

@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableCollection;ZLjava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AsyncCallable;)V
-    .locals 1
+    .registers 6
     .param p2, "allMustSucceed"    # Z
     .param p3, "listenerExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
@@ -82,7 +82,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ImmutableCollection;ZLjava/util/concurrent/Executor;Ljava/util/concurrent/Callable;)V
-    .locals 1
+    .registers 6
     .param p2, "allMustSucceed"    # Z
     .param p3, "listenerExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
@@ -121,7 +121,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/common/util/concurrent/CombinedFuture;Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;)Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/CombinedFuture;
     .param p1, "x1"    # Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;
 
@@ -134,7 +134,7 @@
 
 # virtual methods
 .method collectOneValue(ILjava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "index"    # I
     .param p2, "returnValue"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -147,7 +147,7 @@
 .end method
 
 .method handleAllCompleted()V
-    .locals 1
+    .registers 2
 
     .line 63
     .local p0, "this":Lcom/google/common/util/concurrent/CombinedFuture;, "Lcom/google/common/util/concurrent/CombinedFuture<TV;>;"
@@ -155,18 +155,18 @@
 
     .line 64
     .local v0, "localTask":Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;, "Lcom/google/common/util/concurrent/CombinedFuture<TV;>.CombinedFutureInterruptibleTask<*>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 65
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;->execute()V
 
     .line 67
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method protected interruptTask()V
-    .locals 1
+    .registers 2
 
     .line 86
     .local p0, "this":Lcom/google/common/util/concurrent/CombinedFuture;, "Lcom/google/common/util/concurrent/CombinedFuture<TV;>;"
@@ -174,18 +174,18 @@
 
     .line 87
     .local v0, "localTask":Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;, "Lcom/google/common/util/concurrent/CombinedFuture<TV;>.CombinedFutureInterruptibleTask<*>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 88
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;->interruptTask()V
 
     .line 90
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method releaseResources(Lcom/google/common/util/concurrent/AggregateFuture$ReleaseResourcesReason;)V
-    .locals 1
+    .registers 3
     .param p1, "reason"    # Lcom/google/common/util/concurrent/AggregateFuture$ReleaseResourcesReason;
 
     .line 71
@@ -195,7 +195,7 @@
     .line 79
     sget-object v0, Lcom/google/common/util/concurrent/AggregateFuture$ReleaseResourcesReason;->OUTPUT_FUTURE_DONE:Lcom/google/common/util/concurrent/AggregateFuture$ReleaseResourcesReason;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     .line 80
     const/4 v0, 0x0
@@ -203,6 +203,6 @@
     iput-object v0, p0, Lcom/google/common/util/concurrent/CombinedFuture;->task:Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;
 
     .line 82
-    :cond_0
+    :cond_a
     return-void
 .end method

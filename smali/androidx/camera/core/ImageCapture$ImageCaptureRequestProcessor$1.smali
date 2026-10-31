@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;Landroidx/camera/core/ImageCapture$ImageCaptureRequest;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 4
+    .registers 6
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -79,15 +79,15 @@
     monitor-enter v0
 
     .line 1151
-    :try_start_0
+    :try_start_5
     instance-of v1, p1, Ljava/util/concurrent/CancellationException;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 1155
-    :cond_0
+    :cond_a
     iget-object v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor$1;->val$imageCaptureRequest:Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
 
     invoke-static {p1}, Landroidx/camera/core/ImageCapture;->getError(Ljava/lang/Throwable;)I
@@ -95,23 +95,23 @@
     move-result v2
 
     .line 1156
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_17
 
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_17
     const-string v3, "Unknown error"
 
     .line 1155
-    :goto_0
+    :goto_19
     invoke-virtual {v1, v2, v3, p1}, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->notifyCallbackError(ILjava/lang/String;Ljava/lang/Throwable;)V
 
     .line 1159
-    :goto_1
+    :goto_1c
     iget-object v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor$1;->this$0:Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;
 
     const/4 v2, 0x0
@@ -135,18 +135,18 @@
     return-void
 
     .line 1162
-    :catchall_0
+    :catchall_2c
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_5 .. :try_end_2e} :catchall_2c
 
     throw v1
 .end method
 
 .method public onSuccess(Landroidx/camera/core/ImageProxy;)V
-    .locals 4
+    .registers 6
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -165,7 +165,7 @@
     monitor-enter v0
 
     .line 1136
-    :try_start_0
+    :try_start_5
     invoke-static {p1}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1137
@@ -218,18 +218,18 @@
     return-void
 
     .line 1145
-    :catchall_0
+    :catchall_2f
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_31
+    .catchall {:try_start_5 .. :try_end_31} :catchall_2f
 
     throw v1
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000

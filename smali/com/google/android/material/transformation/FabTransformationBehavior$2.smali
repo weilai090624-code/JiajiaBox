@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/transformation/FabTransformationBehavior;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/transformation/FabTransformationBehavior;
 
     .line 342
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 345

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;)V
-    .locals 2
+    .registers 7
     .param p1, "formatHint"    # Ljava/lang/String;
     .param p2, "dateFormat"    # Ljava/text/DateFormat;
     .param p3, "textInputLayout"    # Lcom/google/android/material/textfield/TextInputLayout;
@@ -66,7 +66,7 @@
 .end method
 
 .method private createRangeErrorCallback(J)Ljava/lang/Runnable;
-    .locals 1
+    .registers 4
     .param p1, "milliseconds"    # J
 
     .line 106
@@ -78,7 +78,7 @@
 .end method
 
 .method private sanitizeDateString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "dateString"    # Ljava/lang/String;
 
     .line 115
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method synthetic lambda$createRangeErrorCallback$1$com-google-android-material-datepicker-DateFormatTextWatcher(J)V
-    .locals 6
+    .registers 9
     .param p1, "milliseconds"    # J
 
     .line 107
@@ -136,7 +136,7 @@
 .end method
 
 .method synthetic lambda$new$0$com-google-android-material-datepicker-DateFormatTextWatcher(Ljava/lang/String;)V
-    .locals 11
+    .registers 13
     .param p1, "formatHint"    # Ljava/lang/String;
 
     .line 56
@@ -269,14 +269,14 @@
 .end method
 
 .method onInvalidDate()V
-    .locals 0
+    .registers 1
 
     .line 76
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 5
+    .registers 10
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
@@ -311,14 +311,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 85
     return-void
 
     .line 89
-    :cond_0
-    :try_start_0
+    :cond_1e
+    :try_start_1e
     iget-object v0, p0, Lcom/google/android/material/datepicker/DateFormatTextWatcher;->dateFormat:Ljava/text/DateFormat;
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
@@ -352,7 +352,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_51
 
     iget-object v3, p0, Lcom/google/android/material/datepicker/DateFormatTextWatcher;->constraints:Lcom/google/android/material/datepicker/CalendarConstraints;
 
@@ -361,7 +361,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_51
 
     .line 94
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
@@ -378,7 +378,7 @@
     return-void
 
     .line 98
-    :cond_1
+    :cond_51
     invoke-direct {p0, v1, v2}, Lcom/google/android/material/datepicker/DateFormatTextWatcher;->createRangeErrorCallback(J)Ljava/lang/Runnable;
 
     move-result-object v3
@@ -391,16 +391,16 @@
     iget-object v4, p0, Lcom/google/android/material/datepicker/DateFormatTextWatcher;->setRangeErrorCallback:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v3, v4}, Lcom/google/android/material/datepicker/DateFormatTextWatcher;->runValidation(Landroid/view/View;Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5e
+    .catch Ljava/text/ParseException; {:try_start_1e .. :try_end_5e} :catch_5f
 
     .line 102
     .end local v0    # "date":Ljava/util/Date;
     .end local v1    # "milliseconds":J
-    goto :goto_0
+    goto :goto_67
 
     .line 100
-    :catch_0
+    :catch_5f
     move-exception v0
 
     .line 101
@@ -413,7 +413,7 @@
 
     .line 103
     .end local v0    # "e":Ljava/text/ParseException;
-    :goto_0
+    :goto_67
     return-void
 .end method
 
@@ -421,7 +421,7 @@
 .end method
 
 .method public runValidation(Landroid/view/View;Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "validation"    # Ljava/lang/Runnable;
 

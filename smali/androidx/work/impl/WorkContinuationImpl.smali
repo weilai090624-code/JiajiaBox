@@ -62,7 +62,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 53
     const-string v0, "WorkContinuationImpl"
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)V
-    .locals 6
+    .registers 11
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
@@ -130,7 +130,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;Ljava/util/List;)V
-    .locals 4
+    .registers 10
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
@@ -208,19 +208,19 @@
     iput-object v0, p0, Landroidx/work/impl/WorkContinuationImpl;->mAllIds:Ljava/util/List;
 
     .line 143
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_3b
 
     .line 144
     invoke-interface {p5}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_27
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -238,19 +238,19 @@
 
     .line 146
     .end local v1    # "parent":Landroidx/work/impl/WorkContinuationImpl;
-    goto :goto_0
+    goto :goto_27
 
     .line 148
-    :cond_0
+    :cond_3b
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_1
+    :goto_3c
     invoke-interface {p4}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_59
 
     .line 149
     invoke-interface {p4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -278,16 +278,16 @@
     .end local v1    # "id":Ljava/lang/String;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 153
     .end local v0    # "i":I
-    :cond_1
+    :cond_59
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/WorkManagerImpl;Ljava/util/List;)V
-    .locals 6
+    .registers 9
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -332,7 +332,7 @@
 .end method
 
 .method private static hasCycles(Landroidx/work/impl/WorkContinuationImpl;Ljava/util/Set;)Z
-    .locals 6
+    .registers 8
     .param p0, "continuation"    # Landroidx/work/impl/WorkContinuationImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -374,14 +374,14 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_24
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -395,43 +395,43 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_23
 
     .line 250
     return v3
 
     .line 252
     .end local v2    # "id":Ljava/lang/String;
-    :cond_0
-    goto :goto_0
+    :cond_23
+    goto :goto_f
 
     .line 254
-    :cond_1
+    :cond_24
     invoke-virtual {p0}, Landroidx/work/impl/WorkContinuationImpl;->getParents()Ljava/util/List;
 
     move-result-object v1
 
     .line 255
     .local v1, "parents":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/WorkContinuationImpl;>;"
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_48
 
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_48
 
     .line 256
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_1
+    :goto_34
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_48
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -445,18 +445,18 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_47
 
     .line 259
     return v3
 
     .line 261
     .end local v4    # "parent":Landroidx/work/impl/WorkContinuationImpl;
-    :cond_2
-    goto :goto_1
+    :cond_47
+    goto :goto_34
 
     .line 268
-    :cond_3
+    :cond_48
     invoke-virtual {p0}, Landroidx/work/impl/WorkContinuationImpl;->getIds()Ljava/util/List;
 
     move-result-object v2
@@ -470,7 +470,7 @@
 .end method
 
 .method public static prerequisitesFor(Landroidx/work/impl/WorkContinuationImpl;)Ljava/util/Set;
-    .locals 5
+    .registers 6
     .param p0, "continuation"    # Landroidx/work/impl/WorkContinuationImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -505,25 +505,25 @@
 
     .line 282
     .local v1, "parents":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/WorkContinuationImpl;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_29
 
     .line 283
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_0
+    :goto_15
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -541,17 +541,17 @@
 
     .line 285
     .end local v3    # "parent":Landroidx/work/impl/WorkContinuationImpl;
-    goto :goto_0
+    goto :goto_15
 
     .line 287
-    :cond_0
+    :cond_29
     return-object v0
 .end method
 
 
 # virtual methods
 .method protected combineInternal(Ljava/util/List;)Landroidx/work/WorkContinuation;
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -609,12 +609,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_20
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_33
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -632,10 +632,10 @@
 
     .line 210
     .end local v3    # "continuation":Landroidx/work/WorkContinuation;
-    goto :goto_0
+    goto :goto_20
 
     .line 212
-    :cond_0
+    :cond_33
     new-instance v2, Landroidx/work/impl/WorkContinuationImpl;
 
     iget-object v4, p0, Landroidx/work/impl/WorkContinuationImpl;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -660,12 +660,12 @@
 .end method
 
 .method public enqueue()Landroidx/work/Operation;
-    .locals 5
+    .registers 6
 
     .line 186
     iget-boolean v0, p0, Landroidx/work/impl/WorkContinuationImpl;->mEnqueued:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 189
     new-instance v0, Landroidx/work/impl/utils/EnqueueRunnable;
@@ -691,10 +691,10 @@
 
     .line 192
     .end local v0    # "runnable":Landroidx/work/impl/utils/EnqueueRunnable;
-    goto :goto_0
+    goto :goto_43
 
     .line 193
-    :cond_0
+    :cond_19
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
@@ -738,14 +738,14 @@
     invoke-virtual {v0, v1, v2}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 196
-    :goto_0
+    :goto_43
     iget-object v0, p0, Landroidx/work/impl/WorkContinuationImpl;->mOperation:Landroidx/work/Operation;
 
     return-object v0
 .end method
 
 .method public getAllIds()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -762,7 +762,7 @@
 .end method
 
 .method public getExistingWorkPolicy()Landroidx/work/ExistingWorkPolicy;
-    .locals 1
+    .registers 2
 
     .line 78
     iget-object v0, p0, Landroidx/work/impl/WorkContinuationImpl;->mExistingWorkPolicy:Landroidx/work/ExistingWorkPolicy;
@@ -771,7 +771,7 @@
 .end method
 
 .method public getIds()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -788,7 +788,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 73
     iget-object v0, p0, Landroidx/work/impl/WorkContinuationImpl;->mName:Ljava/lang/String;
@@ -797,7 +797,7 @@
 .end method
 
 .method public getParents()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -814,7 +814,7 @@
 .end method
 
 .method public getWork()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -832,7 +832,7 @@
 .end method
 
 .method public getWorkInfos()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -872,7 +872,7 @@
 .end method
 
 .method public getWorkInfosLiveData()Landroidx/lifecycle/LiveData;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -896,7 +896,7 @@
 .end method
 
 .method public getWorkManagerImpl()Landroidx/work/impl/WorkManagerImpl;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Landroidx/work/impl/WorkContinuationImpl;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -905,7 +905,7 @@
 .end method
 
 .method public hasCycles()Z
-    .locals 1
+    .registers 2
 
     .line 226
     new-instance v0, Ljava/util/HashSet;
@@ -920,7 +920,7 @@
 .end method
 
 .method public isEnqueued()Z
-    .locals 1
+    .registers 2
 
     .line 97
     iget-boolean v0, p0, Landroidx/work/impl/WorkContinuationImpl;->mEnqueued:Z
@@ -929,7 +929,7 @@
 .end method
 
 .method public markEnqueued()V
-    .locals 1
+    .registers 2
 
     .line 104
     const/4 v0, 0x1
@@ -941,7 +941,7 @@
 .end method
 
 .method public then(Ljava/util/List;)Landroidx/work/WorkContinuation;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -967,13 +967,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 158
     return-object p0
 
     .line 160
-    :cond_0
+    :cond_7
     new-instance v0, Landroidx/work/impl/WorkContinuationImpl;
 
     iget-object v2, p0, Landroidx/work/impl/WorkContinuationImpl;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;

@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;
 
     .line 1406
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public bridge synthetic transformEntry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -68,7 +68,7 @@
 .end method
 
 .method public transformEntry(Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

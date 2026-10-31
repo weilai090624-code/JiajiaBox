@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$executeOnTaskThread(Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;

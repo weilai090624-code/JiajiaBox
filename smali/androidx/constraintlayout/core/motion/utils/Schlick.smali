@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "configString"    # Ljava/lang/String;
 
     .line 29
@@ -89,7 +89,7 @@
 .end method
 
 .method private dfunc(D)D
-    .locals 10
+    .registers 13
     .param p1, "x"    # D
 
     .line 48
@@ -97,7 +97,7 @@
 
     cmpg-double v2, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_24
 
     .line 49
     iget-wide v0, p0, Landroidx/constraintlayout/core/motion/utils/Schlick;->mS:D
@@ -137,7 +137,7 @@
     return-wide v0
 
     .line 51
-    :cond_0
+    :cond_24
     iget-wide v0, p0, Landroidx/constraintlayout/core/motion/utils/Schlick;->mS:D
 
     iget-wide v2, p0, Landroidx/constraintlayout/core/motion/utils/Schlick;->mT:D
@@ -190,7 +190,7 @@
 .end method
 
 .method private func(D)D
-    .locals 8
+    .registers 11
     .param p1, "x"    # D
 
     .line 41
@@ -198,7 +198,7 @@
 
     cmpg-double v2, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_14
 
     .line 42
     iget-wide v0, p0, Landroidx/constraintlayout/core/motion/utils/Schlick;->mT:D
@@ -220,7 +220,7 @@
     return-wide v0
 
     .line 44
-    :cond_0
+    :cond_14
     iget-wide v0, p0, Landroidx/constraintlayout/core/motion/utils/Schlick;->mT:D
 
     const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
@@ -251,7 +251,7 @@
 
 # virtual methods
 .method public get(D)D
-    .locals 2
+    .registers 5
     .param p1, "x"    # D
 
     .line 59
@@ -263,7 +263,7 @@
 .end method
 
 .method public getDiff(D)D
-    .locals 2
+    .registers 5
     .param p1, "x"    # D
 
     .line 55

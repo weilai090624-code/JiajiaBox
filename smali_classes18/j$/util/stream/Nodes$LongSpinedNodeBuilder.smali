@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1706
     const-class v0, Lj$/util/stream/Nodes;
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1711
     invoke-direct {p0}, Lj$/util/stream/SpinedBuffer$OfLong;-><init>()V
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public synthetic accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;D)V
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public synthetic accept(I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;I)V
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public accept(J)V
-    .locals 0
+    .registers 3
     .param p1, "i"    # J
 
     .line 1736
@@ -84,7 +84,7 @@
 .end method
 
 .method public synthetic accept(Ljava/lang/Long;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfLong$-CC;->$default$accept(Lj$/util/stream/Sink$OfLong;Ljava/lang/Long;)V
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfLong$-CC;->$default$accept(Lj$/util/stream/Sink$OfLong;Ljava/lang/Object;)V
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public synthetic asArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Node$OfPrimitive$-CC;->$default$asArray(Lj$/util/stream/Node$OfPrimitive;Ljava/util/function/IntFunction;)[Ljava/lang/Object;
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public bridge synthetic asPrimitiveArray()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1706
     invoke-virtual {p0}, Lj$/util/stream/Nodes$LongSpinedNodeBuilder;->asPrimitiveArray()[J
@@ -131,7 +131,7 @@
 .end method
 
 .method public asPrimitiveArray()[J
-    .locals 1
+    .registers 2
 
     .line 1755
     nop
@@ -147,7 +147,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 1
+    .registers 4
     .param p1, "size"    # J
 
     .line 1728
@@ -169,7 +169,7 @@
 .end method
 
 .method public build()Lj$/util/stream/Node$OfLong;
-    .locals 0
+    .registers 1
 
     .line 1761
     nop
@@ -179,7 +179,7 @@
 .end method
 
 .method public bridge synthetic build()Lj$/util/stream/Node;
-    .locals 1
+    .registers 2
 
     .line 1706
     invoke-virtual {p0}, Lj$/util/stream/Nodes$LongSpinedNodeBuilder;->build()Lj$/util/stream/Node$OfLong;
@@ -190,7 +190,7 @@
 .end method
 
 .method public synthetic cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$cancellationRequested(Lj$/util/stream/Sink;)Z
 
@@ -200,7 +200,7 @@
 .end method
 
 .method public bridge synthetic copyInto(Ljava/lang/Object;I)V
-    .locals 0
+    .registers 3
 
     .line 1706
     check-cast p1, [J
@@ -211,7 +211,7 @@
 .end method
 
 .method public copyInto([JI)V
-    .locals 0
+    .registers 3
     .param p1, "array"    # [J
     .param p2, "offset"    # I
 
@@ -226,7 +226,7 @@
 .end method
 
 .method public synthetic copyInto([Ljava/lang/Long;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Node$OfLong$-CC;->$default$copyInto(Lj$/util/stream/Node$OfLong;[Ljava/lang/Long;I)V
 
@@ -234,7 +234,7 @@
 .end method
 
 .method public bridge synthetic copyInto([Ljava/lang/Object;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Node$OfLong$-CC;->$default$copyInto(Lj$/util/stream/Node$OfLong;[Ljava/lang/Object;I)V
 
@@ -242,7 +242,7 @@
 .end method
 
 .method public end()V
-    .locals 1
+    .registers 2
 
     .line 1742
     nop
@@ -257,7 +257,7 @@
 .end method
 
 .method public bridge synthetic forEach(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 1706
     check-cast p1, Ljava/util/function/LongConsumer;
@@ -268,7 +268,7 @@
 .end method
 
 .method public forEach(Ljava/util/function/LongConsumer;)V
-    .locals 0
+    .registers 2
     .param p1, "consumer"    # Ljava/util/function/LongConsumer;
 
     .line 1721
@@ -282,7 +282,7 @@
 .end method
 
 .method public synthetic getChild(I)Lj$/util/stream/Node$OfPrimitive;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Node$OfPrimitive$-CC;->$default$getChild(Lj$/util/stream/Node$OfPrimitive;I)Lj$/util/stream/Node$OfPrimitive;
 
@@ -292,7 +292,7 @@
 .end method
 
 .method public bridge synthetic getChild(I)Lj$/util/stream/Node;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Node$OfPrimitive$-CC;->$default$getChild(Lj$/util/stream/Node$OfPrimitive;I)Lj$/util/stream/Node;
 
@@ -302,7 +302,7 @@
 .end method
 
 .method public synthetic getChildCount()I
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$-CC;->$default$getChildCount(Lj$/util/stream/Node;)I
 
@@ -312,7 +312,7 @@
 .end method
 
 .method public synthetic getShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$OfLong$-CC;->$default$getShape(Lj$/util/stream/Node$OfLong;)Lj$/util/stream/StreamShape;
 
@@ -322,7 +322,7 @@
 .end method
 
 .method public spliterator()Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 2
 
     .line 1715
     nop
@@ -336,7 +336,7 @@
 .end method
 
 .method public bridge synthetic spliterator()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 1706
     invoke-virtual {p0}, Lj$/util/stream/Nodes$LongSpinedNodeBuilder;->spliterator()Lj$/util/Spliterator$OfLong;
@@ -347,7 +347,7 @@
 .end method
 
 .method public bridge synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 1706
     invoke-virtual {p0}, Lj$/util/stream/Nodes$LongSpinedNodeBuilder;->spliterator()Lj$/util/Spliterator$OfLong;
@@ -358,7 +358,7 @@
 .end method
 
 .method public synthetic truncate(JJLjava/util/function/IntFunction;)Lj$/util/stream/Node$OfLong;
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/Node$OfLong$-CC;->$default$truncate(Lj$/util/stream/Node$OfLong;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node$OfLong;
 
@@ -368,7 +368,7 @@
 .end method
 
 .method public bridge synthetic truncate(JJLjava/util/function/IntFunction;)Lj$/util/stream/Node$OfPrimitive;
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/Node$OfLong$-CC;->$default$truncate(Lj$/util/stream/Node$OfLong;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node$OfPrimitive;
 
@@ -378,7 +378,7 @@
 .end method
 
 .method public bridge synthetic truncate(JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/Node$OfLong$-CC;->$default$truncate(Lj$/util/stream/Node$OfLong;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
 

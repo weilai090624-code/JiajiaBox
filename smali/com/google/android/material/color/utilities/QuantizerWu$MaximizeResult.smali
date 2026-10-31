@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(ID)V
-    .locals 0
+    .registers 4
     .param p1, "cut"    # I
     .param p2, "max"    # D
 

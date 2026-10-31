@@ -79,7 +79,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,7 +176,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 11
+    .registers 13
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -189,7 +189,7 @@
 
     const/4 v3, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_d6
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -200,52 +200,52 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_13
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_ad
 
-    :pswitch_1
+    :pswitch_18
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_d1
 
-    :pswitch_2
-    :try_start_0
+    :pswitch_1d
+    :try_start_1d
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_84
 
-    :pswitch_3
+    :pswitch_22
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_73
 
-    :pswitch_4
+    :pswitch_26
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_1d .. :try_end_29} :catch_2e
+    .catch Ljava/lang/Exception; {:try_start_1d .. :try_end_29} :catch_2b
 
     move-object v1, p1
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 384
-    :catch_0
+    :catch_2b
     move-exception v1
 
-    goto/16 :goto_4
+    goto/16 :goto_8f
 
     .line 382
-    :catch_1
+    :catch_2e
     move-exception v1
 
-    goto/16 :goto_6
+    goto/16 :goto_ae
 
     .line 376
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_5
+    :pswitch_31
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 377
@@ -253,7 +253,7 @@
     nop
 
     .line 378
-    :try_start_1
+    :try_start_35
     sget-object v4, Lio/nekohasekai/sagernet/group/RawUpdater;->INSTANCE:Lio/nekohasekai/sagernet/group/RawUpdater;
 
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$1;->$text:Ljava/lang/String;
@@ -273,17 +273,17 @@
     invoke-static/range {v4 .. v9}, Lio/nekohasekai/sagernet/group/RawUpdater;->parseRaw$default(Lio/nekohasekai/sagernet/group/RawUpdater;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_1
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_45
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_35 .. :try_end_45} :catch_2e
+    .catch Ljava/lang/Exception; {:try_start_35 .. :try_end_45} :catch_2b
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_48
 
     .line 376
     return-object v0
 
     .line 378
-    :cond_0
+    :cond_48
     move-object v10, v1
 
     move-object v1, p1
@@ -293,8 +293,8 @@
     .line 376
     .end local p1    # "$result":Ljava/lang/Object;
     .local v1, "$result":Ljava/lang/Object;
-    :goto_0
-    :try_start_2
+    :goto_4b
+    :try_start_4b
     check-cast p1, Ljava/util/List;
 
     .line 379
@@ -303,22 +303,22 @@
 
     check-cast v4, Ljava/util/Collection;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_5a
 
     invoke-interface {v4}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_59
 
-    goto :goto_1
+    goto :goto_5a
 
-    :cond_1
+    :cond_59
     const/4 v2, 0x0
 
-    :cond_2
-    :goto_1
-    if-eqz v2, :cond_4
+    :cond_5a
+    :goto_5a
+    if-eqz v2, :cond_74
 
     new-instance v2, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$1$1;
 
@@ -341,24 +341,24 @@
     move-result-object v2
 
     .end local p1    # "proxies":Ljava/util/List;
-    if-ne v2, v0, :cond_3
+    if-ne v2, v0, :cond_72
 
     .line 376
     return-object v0
 
     .line 379
-    :cond_3
+    :cond_72
     move-object p1, v1
 
     .end local v1    # "$result":Ljava/lang/Object;
     .local p1, "$result":Ljava/lang/Object;
-    :goto_2
-    goto :goto_8
+    :goto_73
+    goto :goto_d2
 
     .line 381
     .restart local v1    # "$result":Ljava/lang/Object;
     .local p1, "proxies":Ljava/util/List;
-    :cond_4
+    :cond_74
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$1;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     move-object v4, p0
@@ -372,29 +372,29 @@
     invoke-virtual {v2, p1, v4}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->import(Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_2
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_2 .. :try_end_2} :catch_3
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_80
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_4b .. :try_end_80} :catch_8a
+    .catch Ljava/lang/Exception; {:try_start_4b .. :try_end_80} :catch_85
 
     .end local p1    # "proxies":Ljava/util/List;
-    if-ne v2, v0, :cond_5
+    if-ne v2, v0, :cond_83
 
     .line 376
     return-object v0
 
     .line 381
-    :cond_5
+    :cond_83
     move-object p1, v1
 
     .end local v1    # "$result":Ljava/lang/Object;
     .local p1, "$result":Ljava/lang/Object;
-    :goto_3
-    goto :goto_8
+    :goto_84
+    goto :goto_d2
 
     .line 384
     .end local p1    # "$result":Ljava/lang/Object;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :catch_2
+    :catch_85
     move-exception p1
 
     move-object v10, v1
@@ -403,10 +403,10 @@
 
     move-object p1, v10
 
-    goto :goto_4
+    goto :goto_8f
 
     .line 382
-    :catch_3
+    :catch_8a
     move-exception p1
 
     move-object v10, v1
@@ -415,12 +415,12 @@
 
     move-object p1, v10
 
-    goto :goto_6
+    goto :goto_ae
 
     .line 385
     .local v1, "e":Ljava/lang/Exception;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :goto_4
+    :goto_8f
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v4, v1
@@ -451,19 +451,19 @@
     move-result-object v1
 
     .end local v1    # "e":Ljava/lang/Exception;
-    if-ne v1, v0, :cond_6
+    if-ne v1, v0, :cond_ad
 
     .line 376
     return-object v0
 
     .line 391
-    :cond_6
-    :goto_5
-    goto :goto_8
+    :cond_ad
+    :goto_ad
+    goto :goto_d2
 
     .line 383
     .local v1, "e":Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException;
-    :goto_6
+    :goto_ae
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$1;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -504,31 +504,31 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_7
+    if-ne v1, v0, :cond_d1
 
     .line 376
     return-object v0
 
     .line 383
-    :cond_7
-    :goto_7
+    :cond_d1
+    :goto_d1
     nop
 
     .line 391
-    :goto_8
+    :goto_d2
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_d6
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_31
+        :pswitch_26
+        :pswitch_22
+        :pswitch_1d
+        :pswitch_18
+        :pswitch_13
     .end packed-switch
 .end method

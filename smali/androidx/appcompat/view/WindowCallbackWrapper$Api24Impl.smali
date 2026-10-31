@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 212
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static onProvideKeyboardShortcuts(Landroid/view/Window$Callback;Ljava/util/List;Landroid/view/Menu;I)V
-    .locals 0
+    .registers 4
     .param p0, "callback"    # Landroid/view/Window$Callback;
     .param p2, "menu"    # Landroid/view/Menu;
     .param p3, "deviceId"    # I

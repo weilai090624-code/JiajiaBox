@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 250
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;-><init>()V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public clone()Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer$CompatibleFieldSerializerConfig;
-    .locals 1
+    .registers 2
 
     .line 255
     invoke-super {p0}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->clone()Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;
@@ -58,7 +58,7 @@
 .end method
 
 .method public bridge synthetic clone()Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;
-    .locals 1
+    .registers 2
 
     .line 250
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer$CompatibleFieldSerializerConfig;->clone()Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer$CompatibleFieldSerializerConfig;
@@ -69,7 +69,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -85,7 +85,7 @@
 .end method
 
 .method public getChunkSize()I
-    .locals 1
+    .registers 2
 
     .line 296
     iget v0, p0, Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer$CompatibleFieldSerializerConfig;->chunkSize:I
@@ -94,7 +94,7 @@
 .end method
 
 .method public getChunkedEncoding()Z
-    .locals 1
+    .registers 2
 
     .line 286
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer$CompatibleFieldSerializerConfig;->chunked:Z
@@ -103,7 +103,7 @@
 .end method
 
 .method public getReadUnknownTagData()Z
-    .locals 1
+    .registers 2
 
     .line 275
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer$CompatibleFieldSerializerConfig;->readUnknownFieldData:Z
@@ -112,7 +112,7 @@
 .end method
 
 .method public setChunkSize(I)V
-    .locals 2
+    .registers 4
     .param p1, "chunkSize"    # I
 
     .line 291
@@ -121,7 +121,7 @@
     .line 292
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -146,12 +146,12 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 293
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setChunkedEncoding(Z)V
-    .locals 2
+    .registers 4
     .param p1, "chunked"    # Z
 
     .line 281
@@ -160,7 +160,7 @@
     .line 282
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -185,12 +185,12 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 283
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setReadUnknownFieldData(Z)V
-    .locals 0
+    .registers 2
     .param p1, "readUnknownTagData"    # Z
 
     .line 271

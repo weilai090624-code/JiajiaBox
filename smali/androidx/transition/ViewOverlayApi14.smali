@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "hostView"    # Landroid/view/ViewGroup;
     .param p3, "requestingView"    # Landroid/view/View;
@@ -40,7 +40,7 @@
 .end method
 
 .method static createFrom(Landroid/view/View;)Landroidx/transition/ViewOverlayApi14;
-    .locals 5
+    .registers 6
     .param p0, "view"    # Landroid/view/View;
 
     .line 65
@@ -50,7 +50,7 @@
 
     .line 66
     .local v0, "contentView":Landroid/view/ViewGroup;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     .line 67
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
@@ -62,8 +62,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_b
+    if-ge v2, v1, :cond_1e
 
     .line 69
     invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -74,7 +74,7 @@
     .local v3, "child":Landroid/view/View;
     instance-of v4, v3, Landroidx/transition/ViewOverlayApi14$OverlayViewGroup;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1b
 
     .line 71
     move-object v4, v3
@@ -87,14 +87,14 @@
 
     .line 68
     .end local v3    # "child":Landroid/view/View;
-    :cond_0
+    :cond_1b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 74
     .end local v2    # "i":I
-    :cond_1
+    :cond_1e
     new-instance v2, Landroidx/transition/ViewGroupOverlayApi14;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -107,14 +107,14 @@
 
     .line 76
     .end local v1    # "numChildren":I
-    :cond_2
+    :cond_28
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method static getContentView(Landroid/view/View;)Landroid/view/ViewGroup;
-    .locals 3
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
 
     .line 52
@@ -122,9 +122,9 @@
 
     .line 53
     .local v0, "parent":Landroid/view/View;
-    :cond_0
-    :goto_0
-    if-eqz v0, :cond_2
+    :cond_1
+    :goto_1
+    if-eqz v0, :cond_24
 
     .line 54
     invoke-virtual {v0}, Landroid/view/View;->getId()I
@@ -133,11 +133,11 @@
 
     const v2, 0x1020002
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_14
 
     instance-of v1, v0, Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     .line 55
     move-object v1, v0
@@ -147,14 +147,14 @@
     return-object v1
 
     .line 57
-    :cond_1
+    :cond_14
     invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
 
     instance-of v1, v1, Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 58
     invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -165,10 +165,10 @@
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    goto :goto_0
+    goto :goto_1
 
     .line 61
-    :cond_2
+    :cond_24
     const/4 v1, 0x0
 
     return-object v1
@@ -177,7 +177,7 @@
 
 # virtual methods
 .method public add(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 81
@@ -190,7 +190,7 @@
 .end method
 
 .method public remove(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 86

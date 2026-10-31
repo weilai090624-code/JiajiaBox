@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 84
     new-instance v0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean$1;
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->clone()Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
@@ -70,7 +70,7 @@
 .end method
 
 .method public clone()Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
-    .locals 2
+    .registers 3
 
     .line 81
     new-instance v0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -107,7 +107,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -158,7 +158,7 @@
     .line 66
     const/4 v1, 0x2
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_2e
 
     .line 67
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
@@ -175,10 +175,10 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->sni:Ljava/lang/String;
 
     .line 70
-    :cond_0
+    :cond_2e
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_3b
 
     .line 71
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
@@ -192,10 +192,10 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->insecureConcurrency:Ljava/lang/Integer;
 
     .line 73
-    :cond_1
+    :cond_3b
     const/4 v1, 0x3
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_48
 
     .line 74
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readBoolean()Z
@@ -209,17 +209,17 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->sUoT:Ljava/lang/Boolean;
 
     .line 76
-    :cond_2
+    :cond_48
     return-void
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 2
+    .registers 3
 
     .line 31
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->serverPort:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/16 v0, 0x1bb
 
@@ -230,67 +230,67 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->serverPort:Ljava/lang/Integer;
 
     .line 32
-    :cond_0
+    :cond_c
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->initializeDefaultValues()V
 
     .line 33
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->proto:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     const-string v0, "https"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->proto:Ljava/lang/String;
 
     .line 34
-    :cond_1
+    :cond_17
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->username:Ljava/lang/String;
 
     const-string v1, ""
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1f
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->username:Ljava/lang/String;
 
     .line 35
-    :cond_2
+    :cond_1f
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->password:Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_25
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->password:Ljava/lang/String;
 
     .line 36
-    :cond_3
+    :cond_25
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->extraHeaders:Ljava/lang/String;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_2b
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->extraHeaders:Ljava/lang/String;
 
     .line 37
-    :cond_4
+    :cond_2b
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->certificates:Ljava/lang/String;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_31
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->certificates:Ljava/lang/String;
 
     .line 38
-    :cond_5
+    :cond_31
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->sni:Ljava/lang/String;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_37
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->sni:Ljava/lang/String;
 
     .line 39
-    :cond_6
+    :cond_37
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->insecureConcurrency:Ljava/lang/Integer;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_42
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -299,10 +299,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->insecureConcurrency:Ljava/lang/Integer;
 
     .line 40
-    :cond_7
+    :cond_42
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->sUoT:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_4c
 
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -311,12 +311,12 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/naive/NaiveBean;->sUoT:Ljava/lang/Boolean;
 
     .line 41
-    :cond_8
+    :cond_4c
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

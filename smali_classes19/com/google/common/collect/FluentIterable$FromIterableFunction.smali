@@ -33,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 868
     .local p0, "this":Lcom/google/common/collect/FluentIterable$FromIterableFunction;, "Lcom/google/common/collect/FluentIterable$FromIterableFunction<TE;>;"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Iterable;)Lcom/google/common/collect/FluentIterable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 868
     .local p0, "this":Lcom/google/common/collect/FluentIterable$FromIterableFunction;, "Lcom/google/common/collect/FluentIterable$FromIterableFunction<TE;>;"

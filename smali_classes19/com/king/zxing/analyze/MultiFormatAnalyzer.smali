@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 27
     const/4 v0, 0x0
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Lcom/king/zxing/DecodeConfig;)V
-    .locals 0
+    .registers 2
     .param p1, "config"    # Lcom/king/zxing/DecodeConfig;
 
     .line 35
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 .end method
 
 .method private decodeInternal(Lcom/google/zxing/LuminanceSource;Z)Lcom/google/zxing/Result;
-    .locals 4
+    .registers 7
     .param p1, "source"    # Lcom/google/zxing/LuminanceSource;
     .param p2, "isMultiDecode"    # Z
 
@@ -76,7 +76,7 @@
 
     .line 86
     .local v0, "result":Lcom/google/zxing/Result;
-    :try_start_0
+    :try_start_1
     iget-object v1, p0, Lcom/king/zxing/analyze/MultiFormatAnalyzer;->mReader:Lcom/google/zxing/MultiFormatReader;
 
     new-instance v2, Lcom/google/zxing/BinaryBitmap;
@@ -90,26 +90,26 @@
     invoke-virtual {v1, v2}, Lcom/google/zxing/MultiFormatReader;->decodeWithState(Lcom/google/zxing/BinaryBitmap;)Lcom/google/zxing/Result;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_11} :catch_13
 
     move-object v0, v1
 
     .line 89
-    goto :goto_0
+    goto :goto_14
 
     .line 87
-    :catch_0
+    :catch_13
     move-exception v1
 
     .line 90
-    :goto_0
-    if-eqz p2, :cond_0
+    :goto_14
+    if-eqz p2, :cond_2c
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2c
 
     .line 92
-    :try_start_1
+    :try_start_18
     iget-object v1, p0, Lcom/king/zxing/analyze/MultiFormatAnalyzer;->mReader:Lcom/google/zxing/MultiFormatReader;
 
     new-instance v2, Lcom/google/zxing/BinaryBitmap;
@@ -123,31 +123,31 @@
     invoke-virtual {v1, v2}, Lcom/google/zxing/MultiFormatReader;->decodeWithState(Lcom/google/zxing/BinaryBitmap;)Lcom/google/zxing/Result;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_28
+    .catch Ljava/lang/Exception; {:try_start_18 .. :try_end_28} :catch_2a
 
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 94
-    :catch_1
+    :catch_2a
     move-exception v1
 
-    goto :goto_2
+    goto :goto_2d
 
     .line 96
-    :cond_0
-    :goto_1
+    :cond_2c
+    :goto_2c
     nop
 
     .line 97
-    :goto_2
+    :goto_2d
     return-object v0
 .end method
 
 .method private initReader()V
-    .locals 1
+    .registers 2
 
     .line 40
     new-instance v0, Lcom/google/zxing/MultiFormatReader;
@@ -163,7 +163,7 @@
 
 # virtual methods
 .method public analyze([BIIIIII)Lcom/google/zxing/Result;
-    .locals 19
+    .registers 27
     .param p1, "data"    # [B
     .param p2, "dataWidth"    # I
     .param p3, "dataHeight"    # I
@@ -185,7 +185,7 @@
 
     .line 48
     .local v14, "rawResult":Lcom/google/zxing/Result;
-    :try_start_0
+    :try_start_9
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -234,14 +234,14 @@
     move-object v14, v2
 
     .line 53
-    if-nez v14, :cond_3
+    if-nez v14, :cond_9c
 
     iget-object v2, v1, Lcom/king/zxing/analyze/MultiFormatAnalyzer;->mDecodeConfig:Lcom/king/zxing/DecodeConfig;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_9c
 
     .line 54
-    if-nez v14, :cond_2
+    if-nez v14, :cond_83
 
     iget-object v2, v1, Lcom/king/zxing/analyze/MultiFormatAnalyzer;->mDecodeConfig:Lcom/king/zxing/DecodeConfig;
 
@@ -249,7 +249,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_83
 
     .line 55
     array-length v2, v11
@@ -263,15 +263,15 @@
     const/4 v2, 0x0
 
     .local v2, "y":I
-    :goto_0
-    if-ge v2, v13, :cond_1
+    :goto_47
+    if-ge v2, v13, :cond_5f
 
     .line 57
     const/4 v3, 0x0
 
     .local v3, "x":I
-    :goto_1
-    if-ge v3, v12, :cond_0
+    :goto_4a
+    if-ge v3, v12, :cond_5c
 
     .line 58
     mul-int v4, v3, v13
@@ -293,18 +293,18 @@
     .line 57
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 56
     .end local v3    # "x":I
-    :cond_0
+    :cond_5c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_47
 
     .line 61
     .end local v2    # "y":I
-    :cond_1
+    :cond_5f
     new-instance v10, Lcom/google/zxing/PlanarYUVLuminanceSource;
 
     const/16 v18, 0x0
@@ -345,8 +345,8 @@
 
     .line 64
     .end local v17    # "rotatedData":[B
-    :cond_2
-    if-nez v14, :cond_3
+    :cond_83
+    if-nez v14, :cond_9c
 
     iget-object v2, v1, Lcom/king/zxing/analyze/MultiFormatAnalyzer;->mDecodeConfig:Lcom/king/zxing/DecodeConfig;
 
@@ -354,7 +354,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_9c
 
     .line 65
     invoke-virtual {v0}, Lcom/google/zxing/PlanarYUVLuminanceSource;->invert()Lcom/google/zxing/LuminanceSource;
@@ -374,8 +374,8 @@
     move-object v14, v2
 
     .line 68
-    :cond_3
-    if-eqz v14, :cond_4
+    :cond_9c
+    if-eqz v14, :cond_c9
 
     .line 69
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -411,17 +411,17 @@
     move-result-object v4
 
     invoke-static {v4}, Lcom/king/zxing/util/LogUtils;->d(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c0
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_c0} :catch_c8
+    .catchall {:try_start_9 .. :try_end_c0} :catchall_c1
 
-    goto :goto_2
+    goto :goto_c9
 
     .line 75
     .end local v0    # "source":Lcom/google/zxing/PlanarYUVLuminanceSource;
     .end local v2    # "end":J
     .end local v15    # "start":J
-    :catchall_0
+    :catchall_c1
     move-exception v0
 
     iget-object v2, v1, Lcom/king/zxing/analyze/MultiFormatAnalyzer;->mReader:Lcom/google/zxing/MultiFormatReader;
@@ -432,12 +432,12 @@
     throw v0
 
     .line 72
-    :catch_0
+    :catch_c8
     move-exception v0
 
     .line 75
-    :cond_4
-    :goto_2
+    :cond_c9
+    :goto_c9
     iget-object v0, v1, Lcom/king/zxing/analyze/MultiFormatAnalyzer;->mReader:Lcom/google/zxing/MultiFormatReader;
 
     invoke-virtual {v0}, Lcom/google/zxing/MultiFormatReader;->reset()V

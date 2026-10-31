@@ -114,7 +114,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 18
+    .registers 18
 
     new-instance v0, Lokhttp3/internal/http2/Http2;
 
@@ -192,10 +192,10 @@
 
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_3c
     const/4 v4, 0x1
 
-    if-ge v3, v0, :cond_0
+    if-ge v3, v0, :cond_62
 
     .line 60
     invoke-static {v3}, Ljava/lang/Integer;->toBinaryString(I)Ljava/lang/String;
@@ -235,9 +235,9 @@
     .line 59
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_0
+    :cond_62
     sput-object v1, Lokhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
 
     .line 63
@@ -277,10 +277,10 @@
 
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_7f
     const-string v6, "|PADDED"
 
-    if-ge v3, v1, :cond_1
+    if-ge v3, v1, :cond_96
 
     aget v7, v0, v3
 
@@ -302,11 +302,11 @@
 
     aput-object v6, v8, v9
 
-    goto :goto_1
+    goto :goto_7f
 
     .line 74
     .end local v7    # "prefixFlag":I
-    :cond_1
+    :cond_96
     sget-object v1, Lokhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
     const-string v3, "END_HEADERS"
@@ -344,8 +344,8 @@
 
     const/4 v7, 0x0
 
-    :goto_2
-    if-ge v7, v3, :cond_3
+    :goto_b3
+    if-ge v7, v3, :cond_112
 
     aget v8, v1, v7
 
@@ -357,8 +357,8 @@
 
     const/4 v10, 0x0
 
-    :goto_3
-    if-ge v10, v9, :cond_2
+    :goto_bb
+    if-ge v10, v9, :cond_110
 
     aget v11, v0, v10
 
@@ -446,29 +446,29 @@
 
     const/4 v2, 0x0
 
-    goto :goto_3
+    goto :goto_bb
 
     .line 80
     .end local v11    # "prefixFlag":I
-    :cond_2
+    :cond_110
     const/4 v2, 0x0
 
-    goto :goto_2
+    goto :goto_b3
 
     .line 87
     .end local v8    # "frameFlag":I
-    :cond_3
+    :cond_112
     sget-object v2, Lokhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
     array-length v2, v2
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ltz v2, :cond_6
+    if-ltz v2, :cond_133
 
     const/16 v17, 0x0
 
-    :goto_4
+    :goto_11b
     move/from16 v3, v17
 
     .local v3, "i":I
@@ -479,7 +479,7 @@
 
     aget-object v6, v6, v3
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_12d
 
     sget-object v6, Lokhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
@@ -490,27 +490,27 @@
     aput-object v7, v6, v3
 
     .line 87
-    :cond_4
-    if-le v5, v2, :cond_5
+    :cond_12d
+    if-le v5, v2, :cond_130
 
-    goto :goto_5
+    goto :goto_133
 
-    :cond_5
+    :cond_130
     move/from16 v17, v5
 
-    goto :goto_4
+    goto :goto_11b
 
     .line 90
     .end local v0    # "prefixFlags":[I
     .end local v1    # "frameFlags":[I
     .end local v3    # "i":I
-    :cond_6
-    :goto_5
+    :cond_133
+    :goto_133
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -521,28 +521,28 @@
 
 # virtual methods
 .method public final formatFlags(II)Ljava/lang/String;
-    .locals 8
+    .registers 11
     .param p1, "type"    # I
     .param p2, "flags"    # I
 
     .line 131
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
     const-string v0, ""
 
     return-object v0
 
     .line 132
-    :cond_0
-    packed-switch p1, :pswitch_data_0
+    :cond_5
+    packed-switch p1, :pswitch_data_54
 
     .line 137
-    :pswitch_0
+    :pswitch_8
     sget-object v0, Lokhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
     array-length v0, v0
 
-    if-ge p2, v0, :cond_2
+    if-ge p2, v0, :cond_25
 
     sget-object v0, Lokhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
@@ -550,28 +550,28 @@
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_29
 
     .line 134
-    :pswitch_1
+    :pswitch_15
     const/4 v0, 0x1
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_1b
 
     const-string v0, "ACK"
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_1
+    :cond_1b
     sget-object v0, Lokhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
 
     aget-object v0, v0, p2
 
-    :goto_0
+    :goto_1f
     return-object v0
 
     .line 135
-    :pswitch_2
+    :pswitch_20
     sget-object v0, Lokhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
 
     aget-object v0, v0, p2
@@ -579,12 +579,12 @@
     return-object v0
 
     .line 137
-    :cond_2
+    :cond_25
     sget-object v0, Lokhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
 
     aget-object v0, v0, p2
 
-    :goto_1
+    :goto_29
     move-object v1, v0
 
     .line 139
@@ -594,11 +594,11 @@
     .line 140
     const/4 v0, 0x5
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_3e
 
     and-int/lit8 v0, p2, 0x4
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3e
 
     .line 141
     const/4 v5, 0x4
@@ -615,15 +615,15 @@
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_52
 
     .line 143
-    :cond_3
-    if-nez p1, :cond_4
+    :cond_3e
+    if-nez p1, :cond_51
 
     and-int/lit8 v0, p2, 0x20
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_51
 
     .line 144
     const/4 v6, 0x4
@@ -642,32 +642,32 @@
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_52
 
     .line 146
-    :cond_4
+    :cond_51
     move-object v0, v1
 
     .line 139
-    :goto_2
+    :goto_52
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_54
     .packed-switch 0x2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-        :pswitch_2
+        :pswitch_20
+        :pswitch_20
+        :pswitch_15
+        :pswitch_8
+        :pswitch_15
+        :pswitch_20
+        :pswitch_20
     .end packed-switch
 .end method
 
 .method public final formattedType$okhttp(I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "type"    # I
 
     .line 123
@@ -675,15 +675,15 @@
 
     array-length v0, v0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_a
 
     sget-object v0, Lokhttp3/internal/http2/Http2;->FRAME_NAMES:[Ljava/lang/String;
 
     aget-object v0, v0, p1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_a
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -702,12 +702,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1a
     return-object v0
 .end method
 
 .method public final frameLog(ZIIII)Ljava/lang/String;
-    .locals 7
+    .registers 13
     .param p1, "inbound"    # Z
     .param p2, "streamId"    # I
     .param p3, "length"    # I
@@ -727,18 +727,18 @@
 
     .line 117
     .local v1, "formattedFlags":Ljava/lang/String;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     const-string v2, "<<"
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const-string v2, ">>"
 
     .line 118
     .local v2, "direction":Ljava/lang/String;
-    :goto_0
+    :goto_f
     nop
 
     .line 119

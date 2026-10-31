@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 55
     const/4 v0, 0x0
@@ -21,7 +21,7 @@
 .end method
 
 .method public constructor <init>(Landroid/util/Rational;)V
-    .locals 0
+    .registers 2
     .param p1, "surfaceAspectRatio"    # Landroid/util/Rational;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -43,7 +43,7 @@
 .end method
 
 .method public static getDefaultPointSize()F
-    .locals 1
+    .registers 1
 
     .line 78
     const v0, 0x3e19999a    # 0.15f
@@ -67,7 +67,7 @@
 .end method
 
 .method public final createPoint(FF)Landroidx/camera/core/MeteringPoint;
-    .locals 1
+    .registers 4
     .param p1, "x"    # F
     .param p2, "y"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -94,7 +94,7 @@
 .end method
 
 .method public final createPoint(FFF)Landroidx/camera/core/MeteringPoint;
-    .locals 5
+    .registers 9
     .param p1, "x"    # F
     .param p2, "y"    # F
     .param p3, "size"    # F

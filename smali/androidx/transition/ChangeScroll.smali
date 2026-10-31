@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 39
     const-string v0, "android:changeScroll:x"
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Landroidx/transition/Transition;-><init>()V
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method private captureValues(Landroidx/transition/TransitionValues;)V
-    .locals 3
+    .registers 5
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 67
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public captureEndValues(Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 57
@@ -106,7 +106,7 @@
 .end method
 
 .method public captureStartValues(Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 52
@@ -117,20 +117,20 @@
 .end method
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 9
+    .registers 13
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "startValues"    # Landroidx/transition/TransitionValues;
     .param p3, "endValues"    # Landroidx/transition/TransitionValues;
 
     .line 75
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_60
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_5
 
-    goto :goto_0
+    goto :goto_60
 
     .line 78
-    :cond_0
+    :cond_5
     iget-object v0, p3, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
 
     .line 79
@@ -203,7 +203,7 @@
 
     .line 85
     .local v6, "scrollYAnimator":Landroid/animation/Animator;
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_4c
 
     .line 86
     invoke-virtual {v0, v1}, Landroid/view/View;->setScrollX(I)V
@@ -220,8 +220,8 @@
     move-result-object v5
 
     .line 89
-    :cond_1
-    if-eq v3, v4, :cond_2
+    :cond_4c
+    if-eq v3, v4, :cond_5b
 
     .line 90
     invoke-virtual {v0, v3}, Landroid/view/View;->setScrollY(I)V
@@ -238,7 +238,7 @@
     move-result-object v6
 
     .line 93
-    :cond_2
+    :cond_5b
     invoke-static {v5, v6}, Landroidx/transition/TransitionUtils;->mergeAnimators(Landroid/animation/Animator;Landroid/animation/Animator;)Landroid/animation/Animator;
 
     move-result-object v7
@@ -253,15 +253,15 @@
     .end local v4    # "endY":I
     .end local v5    # "scrollXAnimator":Landroid/animation/Animator;
     .end local v6    # "scrollYAnimator":Landroid/animation/Animator;
-    :cond_3
-    :goto_0
+    :cond_60
+    :goto_60
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public getTransitionProperties()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 63
     sget-object v0, Landroidx/transition/ChangeScroll;->PROPERTIES:[Ljava/lang/String;

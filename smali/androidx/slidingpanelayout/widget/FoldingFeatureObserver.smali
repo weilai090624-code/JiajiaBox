@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/window/layout/WindowInfoTracker;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p1, "windowInfoTracker"    # Landroidx/window/layout/WindowInfoTracker;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public static final synthetic access$getFoldingFeature(Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;Landroidx/window/layout/WindowLayoutInfo;)Landroidx/window/layout/FoldingFeature;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;
     .param p1, "windowLayoutInfo"    # Landroidx/window/layout/WindowLayoutInfo;
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public static final synthetic access$getOnFoldingFeatureChangeListener$p(Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;)Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$OnFoldingFeatureChangeListener;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;
 
     .line 36
@@ -114,7 +114,7 @@
 .end method
 
 .method public static final synthetic access$getWindowInfoTracker$p(Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;)Landroidx/window/layout/WindowInfoTracker;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;
 
     .line 36
@@ -124,7 +124,7 @@
 .end method
 
 .method private final getFoldingFeature(Landroidx/window/layout/WindowLayoutInfo;)Landroidx/window/layout/FoldingFeature;
-    .locals 7
+    .registers 9
     .param p1, "windowLayoutInfo"    # Landroidx/window/layout/WindowLayoutInfo;
 
     .line 88
@@ -146,14 +146,14 @@
 
     move-result-object v2
 
-    :cond_0
+    :cond_c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_20
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -173,38 +173,38 @@
 
     .end local v5    # "feature":Landroidx/window/layout/DisplayFeature;
     .end local v6    # "$i$a$-firstOrNull-FoldingFeatureObserver$getFoldingFeature$1":I
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_c
 
-    goto :goto_0
+    goto :goto_21
 
     .line 93
     .end local v3    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_20
     move-object v3, v4
 
     .line 89
     .end local v0    # "$this$firstOrNull$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$firstOrNull":I
-    :goto_0
+    :goto_21
     nop
 
     .line 88
     instance-of v0, v3, Landroidx/window/layout/FoldingFeature;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
     move-object v4, v3
 
     check-cast v4, Landroidx/window/layout/FoldingFeature;
 
-    :cond_2
+    :cond_29
     return-object v4
 .end method
 
 
 # virtual methods
 .method public final registerLayoutStateChangeCallback(Landroid/app/Activity;)V
-    .locals 8
+    .registers 10
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -216,17 +216,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     const/4 v2, 0x1
 
     invoke-static {v0, v1, v2, v1}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 70
-    :goto_0
+    :goto_f
     iget-object v0, p0, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;->executor:Ljava/util/concurrent/Executor;
 
     invoke-static {v0}, Lkotlinx/coroutines/ExecutorsKt;->from(Ljava/util/concurrent/Executor;)Lkotlinx/coroutines/CoroutineDispatcher;
@@ -266,7 +266,7 @@
 .end method
 
 .method public final setOnFoldingFeatureChangeListener(Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$OnFoldingFeatureChangeListener;)V
-    .locals 1
+    .registers 3
     .param p1, "onFoldingFeatureChangeListener"    # Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$OnFoldingFeatureChangeListener;
 
     const-string v0, "onFoldingFeatureChangeListener"
@@ -281,16 +281,16 @@
 .end method
 
 .method public final unregisterLayoutStateChangeCallback()V
-    .locals 3
+    .registers 4
 
     .line 84
     iget-object v0, p0, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;->job:Lkotlinx/coroutines/Job;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_5
     const/4 v1, 0x1
 
     const/4 v2, 0x0
@@ -298,6 +298,6 @@
     invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 85
-    :goto_0
+    :goto_a
     return-void
 .end method

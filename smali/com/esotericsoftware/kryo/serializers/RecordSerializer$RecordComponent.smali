@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Class;I)V
-    .locals 0
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p3, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method index()I
-    .locals 1
+    .registers 2
 
     .line 175
     iget v0, p0, Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;->index:I
@@ -72,7 +72,7 @@
 .end method
 
 .method name()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 167
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;->name:Ljava/lang/String;
@@ -81,7 +81,7 @@
 .end method
 
 .method type()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

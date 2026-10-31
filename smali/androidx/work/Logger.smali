@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 34
     new-instance v0, Ljava/lang/Object;
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "loggingLevel"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -68,7 +68,7 @@
 .end method
 
 .method public static get()Landroidx/work/Logger;
-    .locals 3
+    .registers 3
 
     .line 80
     sget-object v0, Landroidx/work/Logger;->sLock:Ljava/lang/Object;
@@ -76,10 +76,10 @@
     monitor-enter v0
 
     .line 81
-    :try_start_0
+    :try_start_3
     sget-object v1, Landroidx/work/Logger;->sLogger:Landroidx/work/Logger;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 82
     new-instance v1, Landroidx/work/Logger$LogcatLogger;
@@ -91,7 +91,7 @@
     sput-object v1, Landroidx/work/Logger;->sLogger:Landroidx/work/Logger;
 
     .line 84
-    :cond_0
+    :cond_f
     sget-object v1, Landroidx/work/Logger;->sLogger:Landroidx/work/Logger;
 
     monitor-exit v0
@@ -99,18 +99,18 @@
     return-object v1
 
     .line 85
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method public static setLogger(Landroidx/work/Logger;)V
-    .locals 2
+    .registers 3
     .param p0, "logger"    # Landroidx/work/Logger;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -127,7 +127,7 @@
     monitor-enter v0
 
     .line 47
-    :try_start_0
+    :try_start_3
     sput-object p0, Landroidx/work/Logger;->sLogger:Landroidx/work/Logger;
 
     .line 48
@@ -137,18 +137,18 @@
     return-void
 
     .line 48
-    :catchall_0
+    :catchall_7
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_3 .. :try_end_9} :catchall_7
 
     throw v1
 .end method
 
 .method public static tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -181,7 +181,7 @@
     .line 60
     sget v2, Landroidx/work/Logger;->MAX_PREFIXED_TAG_LENGTH:I
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_1f
 
     .line 62
     const/4 v2, 0x0
@@ -194,14 +194,14 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_22
 
     .line 64
-    :cond_0
+    :cond_1f
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 66
-    :goto_0
+    :goto_22
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2

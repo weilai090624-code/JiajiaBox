@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 759
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static forLanguageTags(Ljava/lang/String;)Landroid/os/LocaleList;
-    .locals 1
+    .registers 2
     .param p0, "list"    # Ljava/lang/String;
 
     .line 770
@@ -38,7 +38,7 @@
 .end method
 
 .method static setTextLocales(Landroid/widget/TextView;Landroid/os/LocaleList;)V
-    .locals 0
+    .registers 2
     .param p0, "textView"    # Landroid/widget/TextView;
     .param p1, "locales"    # Landroid/os/LocaleList;
 

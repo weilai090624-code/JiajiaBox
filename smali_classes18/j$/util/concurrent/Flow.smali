@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 168
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method public static defaultBufferSize()I
-    .locals 1
+    .registers 1
 
     .line 316
     const/16 v0, 0x100

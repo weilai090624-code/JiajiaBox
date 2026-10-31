@@ -40,23 +40,23 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 51
     new-instance v0, Lkotlin/internal/jdk8/JDK8PlatformImplementations;
 
     invoke-direct {v0}, Lkotlin/internal/jdk8/JDK8PlatformImplementations;-><init>()V
 
-    :try_start_0
+    :try_start_5
     check-cast v0, Lkotlin/internal/PlatformImplementations;
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/ClassCastException; {:try_start_5 .. :try_end_7} :catch_a
 
     sput-object v0, Lkotlin/internal/PlatformImplementationsKt;->IMPLEMENTATIONS:Lkotlin/internal/PlatformImplementations;
 
     return-void
 
-    :catch_0
+    :catch_a
     move-exception v1
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -77,7 +77,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_44
 
     new-instance v3, Ljava/lang/ClassNotFoundException;
 
@@ -115,12 +115,12 @@
 
     throw v3
 
-    :cond_0
+    :cond_44
     throw v1
 .end method
 
 .method public static final apiVersionIsAtLeast(III)Z
-    .locals 1
+    .registers 4
     .param p0, "major"    # I
     .param p1, "minor"    # I
     .param p2, "patch"    # I
@@ -136,7 +136,7 @@
 .end method
 
 .method private static final synthetic castToBaseType(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 7
     .param p0, "instance"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -154,19 +154,19 @@
     .line 56
     const/4 v1, 0x1
 
-    :try_start_0
+    :try_start_3
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
     move-object v1, p0
 
     check-cast v1, Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/ClassCastException; {:try_start_3 .. :try_end_9} :catch_a
 
     return-object v1
 
     .line 57
-    :catch_0
+    :catch_a
     move-exception v1
 
     .line 58
@@ -201,7 +201,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_4c
 
     .line 61
     new-instance v3, Ljava/lang/ClassNotFoundException;
@@ -243,6 +243,6 @@
     throw v3
 
     .line 63
-    :cond_0
+    :cond_4c
     throw v1
 .end method

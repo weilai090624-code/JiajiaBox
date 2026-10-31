@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/collections/AbstractList;I)V
-    .locals 2
+    .registers 5
     .param p1, "this$0"    # Lkotlin/collections/AbstractList;
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -128,28 +128,28 @@
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 98
     invoke-virtual {p0}, Lkotlin/collections/AbstractList$ListIteratorImpl;->getIndex()I
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public nextIndex()I
-    .locals 1
+    .registers 2
 
     .line 100
     invoke-virtual {p0}, Lkotlin/collections/AbstractList$ListIteratorImpl;->getIndex()I
@@ -160,7 +160,7 @@
 .end method
 
 .method public previous()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -172,7 +172,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 104
     iget-object v0, p0, Lkotlin/collections/AbstractList$ListIteratorImpl;->this$0:Lkotlin/collections/AbstractList;
@@ -196,7 +196,7 @@
     return-object v0
 
     .line 103
-    :cond_0
+    :cond_1a
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -205,7 +205,7 @@
 .end method
 
 .method public previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 107
     invoke-virtual {p0}, Lkotlin/collections/AbstractList$ListIteratorImpl;->getIndex()I
@@ -218,7 +218,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"

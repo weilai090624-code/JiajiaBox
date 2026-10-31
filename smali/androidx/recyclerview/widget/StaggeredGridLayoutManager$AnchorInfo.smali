@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/StaggeredGridLayoutManager;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
 
     .line 3243
@@ -50,12 +50,12 @@
 
 # virtual methods
 .method assignCoordinateFromPadding()V
-    .locals 1
+    .registers 2
 
     .line 3270
     iget-boolean v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mLayoutFromEnd:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
 
@@ -65,10 +65,10 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_15
 
     .line 3271
-    :cond_0
+    :cond_d
     iget-object v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager;->mPrimaryOrientation:Landroidx/recyclerview/widget/OrientationHelper;
@@ -77,7 +77,7 @@
 
     move-result v0
 
-    :goto_0
+    :goto_15
     iput v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mOffset:I
 
     .line 3272
@@ -85,13 +85,13 @@
 .end method
 
 .method assignCoordinateFromPadding(I)V
-    .locals 1
+    .registers 3
     .param p1, "addedDistance"    # I
 
     .line 3275
     iget-boolean v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mLayoutFromEnd:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 3276
     iget-object v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
@@ -106,10 +106,10 @@
 
     iput v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mOffset:I
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 3278
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager;->mPrimaryOrientation:Landroidx/recyclerview/widget/OrientationHelper;
@@ -123,12 +123,12 @@
     iput v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mOffset:I
 
     .line 3280
-    :goto_0
+    :goto_1b
     return-void
 .end method
 
 .method reset()V
-    .locals 2
+    .registers 3
 
     .line 3248
     const/4 v0, -0x1
@@ -154,7 +154,7 @@
     .line 3253
     iget-object v1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 3254
     iget-object v1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
@@ -162,12 +162,12 @@
     invoke-static {v1, v0}, Ljava/util/Arrays;->fill([II)V
 
     .line 3256
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method saveSpanReferenceLines([Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;)V
-    .locals 5
+    .registers 7
     .param p1, "spans"    # [Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;
 
     .line 3259
@@ -177,16 +177,16 @@
     .local v0, "spanCount":I
     iget-object v1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     iget-object v1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
 
     array-length v1, v1
 
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_13
 
     .line 3261
-    :cond_0
+    :cond_a
     iget-object v1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
 
     iget-object v1, v1, Landroidx/recyclerview/widget/StaggeredGridLayoutManager;->mSpans:[Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;
@@ -198,12 +198,12 @@
     iput-object v1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
 
     .line 3263
-    :cond_1
+    :cond_13
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_14
+    if-ge v1, v0, :cond_25
 
     .line 3265
     iget-object v2, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
@@ -221,10 +221,10 @@
     .line 3263
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 3267
     .end local v1    # "i":I
-    :cond_2
+    :cond_25
     return-void
 .end method

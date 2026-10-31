@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$getUseCaseEventCallback(Landroidx/camera/core/internal/UseCaseEventConfig;)Landroidx/camera/core/UseCase$EventCallback;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/internal/UseCaseEventConfig;
 
     .line 56
@@ -21,7 +21,7 @@
 .end method
 
 .method public static $default$getUseCaseEventCallback(Landroidx/camera/core/internal/UseCaseEventConfig;Landroidx/camera/core/UseCase$EventCallback;)Landroidx/camera/core/UseCase$EventCallback;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/internal/UseCaseEventConfig;
     .param p1, "valueIfMissing"    # Landroidx/camera/core/UseCase$EventCallback;
     .annotation system Ldalvik/annotation/MethodParameters;

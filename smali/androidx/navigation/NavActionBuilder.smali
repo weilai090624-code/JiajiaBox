@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 174
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public final build$navigation_common_release()Landroidx/navigation/NavAction;
-    .locals 7
+    .registers 8
 
     .line 201
     new-instance v0, Landroidx/navigation/NavAction;
@@ -109,15 +109,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_10
 
     .line 204
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_31
 
     .line 206
-    :cond_0
+    :cond_10
     iget-object v3, p0, Landroidx/navigation/NavActionBuilder;->defaultArguments:Ljava/util/Map;
 
     invoke-static {v3}, Lkotlin/collections/MapsKt;->toList(Ljava/util/Map;)Ljava/util/List;
@@ -146,7 +146,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_35
 
     .line 206
     .end local v3    # "$this$toTypedArray$iv":Ljava/util/Collection;
@@ -167,7 +167,7 @@
     move-result-object v3
 
     .line 201
-    :goto_0
+    :goto_31
     invoke-direct {v0, v1, v2, v3}, Landroidx/navigation/NavAction;-><init>(ILandroidx/navigation/NavOptions;Landroid/os/Bundle;)V
 
     .line 207
@@ -177,7 +177,7 @@
     .restart local v3    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v4    # "$i$f$toTypedArray":I
     .restart local v5    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_1
+    :cond_35
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>"
@@ -188,7 +188,7 @@
 .end method
 
 .method public final getDefaultArguments()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -206,7 +206,7 @@
 .end method
 
 .method public final getDestinationId()I
-    .locals 1
+    .registers 2
 
     .line 179
     iget v0, p0, Landroidx/navigation/NavActionBuilder;->destinationId:I
@@ -215,7 +215,7 @@
 .end method
 
 .method public final navOptions(Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 3
     .param p1, "optionsBuilder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -250,7 +250,7 @@
 .end method
 
 .method public final setDestinationId(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 179

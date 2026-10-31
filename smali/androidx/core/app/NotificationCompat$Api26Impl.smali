@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9513
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getBadgeIconType(Landroid/app/Notification;)I
-    .locals 1
+    .registers 2
     .param p0, "notification"    # Landroid/app/Notification;
 
     .line 9532
@@ -37,7 +37,7 @@
 .end method
 
 .method static getChannelId(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "notification"    # Landroid/app/Notification;
 
     .line 9542
@@ -49,7 +49,7 @@
 .end method
 
 .method static getGroupAlertBehavior(Landroid/app/Notification;)I
-    .locals 1
+    .registers 2
     .param p0, "notification"    # Landroid/app/Notification;
 
     .line 9517
@@ -61,7 +61,7 @@
 .end method
 
 .method static getSettingsText(Landroid/app/Notification;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "notification"    # Landroid/app/Notification;
 
     .line 9522
@@ -73,7 +73,7 @@
 .end method
 
 .method static getShortcutId(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "notification"    # Landroid/app/Notification;
 
     .line 9527
@@ -85,7 +85,7 @@
 .end method
 
 .method static getTimeoutAfter(Landroid/app/Notification;)J
-    .locals 2
+    .registers 3
     .param p0, "notification"    # Landroid/app/Notification;
 
     .line 9537

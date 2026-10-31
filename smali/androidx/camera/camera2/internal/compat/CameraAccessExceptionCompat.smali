@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 12
+    .registers 12
 
     .line 97
     new-instance v0, Ljava/util/HashSet;
@@ -162,7 +162,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "reason"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -194,19 +194,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 158
     new-instance v0, Landroid/hardware/camera2/CameraAccessException;
 
     invoke-direct {v0, p1}, Landroid/hardware/camera2/CameraAccessException;-><init>(I)V
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1c
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->mCameraAccessException:Landroid/hardware/camera2/CameraAccessException;
 
     .line 159
@@ -214,7 +214,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "reason"    # I
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -249,19 +249,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 165
     new-instance v0, Landroid/hardware/camera2/CameraAccessException;
 
     invoke-direct {v0, p1, p2}, Landroid/hardware/camera2/CameraAccessException;-><init>(ILjava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1c
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->mCameraAccessException:Landroid/hardware/camera2/CameraAccessException;
 
     .line 166
@@ -269,7 +269,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 6
     .param p1, "reason"    # I
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "cause"    # Ljava/lang/Throwable;
@@ -307,19 +307,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 173
     new-instance v0, Landroid/hardware/camera2/CameraAccessException;
 
     invoke-direct {v0, p1, p2, p3}, Landroid/hardware/camera2/CameraAccessException;-><init>(ILjava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1c
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->mCameraAccessException:Landroid/hardware/camera2/CameraAccessException;
 
     .line 174
@@ -327,7 +327,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/Throwable;)V
-    .locals 2
+    .registers 5
     .param p1, "reason"    # I
     .param p2, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -364,7 +364,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 180
     new-instance v0, Landroid/hardware/camera2/CameraAccessException;
@@ -373,12 +373,12 @@
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     nop
 
-    :goto_0
+    :goto_1e
     iput-object v1, p0, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->mCameraAccessException:Landroid/hardware/camera2/CameraAccessException;
 
     .line 181
@@ -386,7 +386,7 @@
 .end method
 
 .method private constructor <init>(Landroid/hardware/camera2/CameraAccessException;)V
-    .locals 2
+    .registers 4
     .param p1, "e"    # Landroid/hardware/camera2/CameraAccessException;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -423,7 +423,7 @@
 .end method
 
 .method private static getCombinedMessage(ILjava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "problem"    # I
     .param p1, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -474,7 +474,7 @@
 .end method
 
 .method private static getDefaultMessage(I)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "problem"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -486,7 +486,7 @@
     .end annotation
 
     .line 224
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_1a
 
     .line 250
     const/4 v0, 0x0
@@ -494,61 +494,61 @@
     return-object v0
 
     .line 248
-    :sswitch_0
+    :sswitch_5
     const-string v0, "Failed to create CameraCharacteristics."
 
     return-object v0
 
     .line 243
-    :sswitch_1
+    :sswitch_8
     const-string v0, "Some API 28 devices cannot access the camera when the device is in \"Do Not Disturb\" mode. The camera will not be accessible until \"Do Not Disturb\" mode is disabled."
 
     return-object v0
 
     .line 228
-    :sswitch_2
+    :sswitch_b
     const-string v0, "The system-wide limit for number of open cameras has been reached, and more camera devices cannot be opened until previous instances are closed."
 
     return-object v0
 
     .line 226
-    :sswitch_3
+    :sswitch_e
     const-string v0, "The camera device is in use already"
 
     return-object v0
 
     .line 238
-    :sswitch_4
+    :sswitch_11
     const-string v0, "The camera device is currently in the error state; no further calls to it will succeed."
 
     return-object v0
 
     .line 232
-    :sswitch_5
+    :sswitch_14
     const-string v0, "The camera device is removable and has been disconnected from the Android device, or the camera service has shut down the connection due to a higher-priority access request for the camera device."
 
     return-object v0
 
     .line 236
-    :sswitch_6
+    :sswitch_17
     const-string v0, "The camera is disabled due to a device policy, and cannot be opened."
 
     return-object v0
 
-    :sswitch_data_0
+    :sswitch_data_1a
     .sparse-switch
-        0x1 -> :sswitch_6
-        0x2 -> :sswitch_5
-        0x3 -> :sswitch_4
-        0x4 -> :sswitch_3
-        0x5 -> :sswitch_2
-        0x2711 -> :sswitch_1
-        0x2712 -> :sswitch_0
+        0x1 -> :sswitch_17
+        0x2 -> :sswitch_14
+        0x3 -> :sswitch_11
+        0x4 -> :sswitch_e
+        0x5 -> :sswitch_b
+        0x2711 -> :sswitch_8
+        0x2712 -> :sswitch_5
     .end sparse-switch
 .end method
 
 .method private static getProblemString(I)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "problem"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -560,80 +560,80 @@
     .end annotation
 
     .line 261
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_20
 
     .line 289
     const-string v0, "<UNKNOWN ERROR>"
 
     .local v0, "problemString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1e
 
     .line 286
     .end local v0    # "problemString":Ljava/lang/String;
-    :sswitch_0
+    :sswitch_6
     const-string v0, "CAMERA_CHARACTERISTICS_CREATION_ERROR"
 
     .line 287
     .restart local v0    # "problemString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1e
 
     .line 283
     .end local v0    # "problemString":Ljava/lang/String;
-    :sswitch_1
+    :sswitch_9
     const-string v0, "CAMERA_UNAVAILABLE_DO_NOT_DISTURB"
 
     .line 284
     .restart local v0    # "problemString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1e
 
     .line 278
     .end local v0    # "problemString":Ljava/lang/String;
-    :sswitch_2
+    :sswitch_c
     const-string v0, "CAMERA_DEPRECATED_HAL"
 
     .line 279
     .restart local v0    # "problemString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1e
 
     .line 266
     .end local v0    # "problemString":Ljava/lang/String;
-    :sswitch_3
+    :sswitch_f
     const-string v0, "MAX_CAMERAS_IN_USE"
 
     .line 267
     .restart local v0    # "problemString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1e
 
     .line 263
     .end local v0    # "problemString":Ljava/lang/String;
-    :sswitch_4
+    :sswitch_12
     const-string v0, "CAMERA_IN_USE"
 
     .line 264
     .restart local v0    # "problemString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1e
 
     .line 275
     .end local v0    # "problemString":Ljava/lang/String;
-    :sswitch_5
+    :sswitch_15
     const-string v0, "CAMERA_ERROR"
 
     .line 276
     .restart local v0    # "problemString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1e
 
     .line 269
     .end local v0    # "problemString":Ljava/lang/String;
-    :sswitch_6
+    :sswitch_18
     const-string v0, "CAMERA_DISCONNECTED"
 
     .line 270
     .restart local v0    # "problemString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1e
 
     .line 272
     .end local v0    # "problemString":Ljava/lang/String;
-    :sswitch_7
+    :sswitch_1b
     const-string v0, "CAMERA_DISABLED"
 
     .line 273
@@ -641,26 +641,26 @@
     nop
 
     .line 291
-    :goto_0
+    :goto_1e
     return-object v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_20
     .sparse-switch
-        0x1 -> :sswitch_7
-        0x2 -> :sswitch_6
-        0x3 -> :sswitch_5
-        0x4 -> :sswitch_4
-        0x5 -> :sswitch_3
-        0x3e8 -> :sswitch_2
-        0x2711 -> :sswitch_1
-        0x2712 -> :sswitch_0
+        0x1 -> :sswitch_1b
+        0x2 -> :sswitch_18
+        0x3 -> :sswitch_15
+        0x4 -> :sswitch_12
+        0x5 -> :sswitch_f
+        0x3e8 -> :sswitch_c
+        0x2711 -> :sswitch_9
+        0x2712 -> :sswitch_6
     .end sparse-switch
 .end method
 
 .method public static toCameraAccessExceptionCompat(Landroid/hardware/camera2/CameraAccessException;)Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;
-    .locals 2
+    .registers 3
     .param p0, "cameraAccessException"    # Landroid/hardware/camera2/CameraAccessException;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -672,7 +672,7 @@
     .end annotation
 
     .line 216
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     .line 219
     new-instance v0, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;
@@ -682,7 +682,7 @@
     return-object v0
 
     .line 217
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "cameraAccessException should not be null"
@@ -695,7 +695,7 @@
 
 # virtual methods
 .method public final getReason()I
-    .locals 1
+    .registers 2
 
     .line 194
     iget v0, p0, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->mReason:I
@@ -704,7 +704,7 @@
 .end method
 
 .method public toCameraAccessException()Landroid/hardware/camera2/CameraAccessException;
-    .locals 1
+    .registers 2
 
     .line 204
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->mCameraAccessException:Landroid/hardware/camera2/CameraAccessException;

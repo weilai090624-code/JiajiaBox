@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Iterator;)V
-    .locals 0
+    .registers 2
 
     .line 1163
     iput-object p1, p0, Lcom/google/common/collect/Iterators$11;->val$iterator:Ljava/util/Iterator;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public hasMoreElements()Z
-    .locals 1
+    .registers 2
 
     .line 1166
     iget-object v0, p0, Lcom/google/common/collect/Iterators$11;->val$iterator:Ljava/util/Iterator;
@@ -57,7 +57,7 @@
 .end method
 
 .method public nextElement()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 

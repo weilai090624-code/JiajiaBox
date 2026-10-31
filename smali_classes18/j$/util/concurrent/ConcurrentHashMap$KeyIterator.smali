@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>([Lj$/util/concurrent/ConcurrentHashMap$Node;IIILj$/util/concurrent/ConcurrentHashMap;)V
-    .locals 0
+    .registers 6
     .param p2, "size"    # I
     .param p3, "index"    # I
     .param p4, "limit"    # I
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public final next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -77,7 +77,7 @@
     move-object v1, v0
 
     .local v1, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 3457
     iget-object v0, v1, Lj$/util/concurrent/ConcurrentHashMap$Node;->key:Ljava/lang/Object;
@@ -94,7 +94,7 @@
 
     .line 3456
     .end local v0    # "k":Ljava/lang/Object;, "TK;"
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -103,7 +103,7 @@
 .end method
 
 .method public final nextElement()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"

@@ -80,7 +80,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     new-instance v0, Lkotlin/ranges/ULongRange$Companion;
 
@@ -109,7 +109,7 @@
 .end method
 
 .method private constructor <init>(JJ)V
-    .locals 8
+    .registers 13
     .param p1, "start"    # J
     .param p3, "endInclusive"    # J
 
@@ -130,7 +130,7 @@
 .end method
 
 .method public synthetic constructor <init>(JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     invoke-direct {p0, p1, p2, p3, p4}, Lkotlin/ranges/ULongRange;-><init>(JJ)V
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public static final synthetic access$getEMPTY$cp()Lkotlin/ranges/ULongRange;
-    .locals 1
+    .registers 1
 
     .line 18
     sget-object v0, Lkotlin/ranges/ULongRange;->EMPTY:Lkotlin/ranges/ULongRange;
@@ -147,7 +147,7 @@
 .end method
 
 .method public static synthetic getEndExclusive-s-VKNKU$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Can throw an exception when it\'s impossible to represent the value with ULong type, for example, when the range includes MAX_VALUE. It\'s recommended to use \'endInclusive\' property that doesn\'t throw."
     .end annotation
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public bridge synthetic contains(Ljava/lang/Comparable;)Z
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Comparable;
 
     .line 18
@@ -178,7 +178,7 @@
 .end method
 
 .method public contains-VKZWuLQ(J)Z
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
 
     .line 32
@@ -190,7 +190,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_16
 
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getLast-s-VKNKU()J
 
@@ -200,33 +200,33 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 42
     instance-of v0, p1, Lkotlin/ranges/ULongRange;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_33
 
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p1
 
@@ -236,10 +236,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_31
 
     .line 43
-    :cond_0
+    :cond_13
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getFirst-s-VKNKU()J
 
     move-result-wide v0
@@ -254,7 +254,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_33
 
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getLast-s-VKNKU()J
 
@@ -270,22 +270,22 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_33
 
-    :cond_1
+    :cond_31
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_2
+    :cond_33
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_34
     return v0
 .end method
 
 .method public bridge synthetic getEndExclusive()Ljava/lang/Comparable;
-    .locals 2
+    .registers 3
 
     .line 18
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getEndExclusive-s-VKNKU()J
@@ -300,7 +300,7 @@
 .end method
 
 .method public getEndExclusive-s-VKNKU()J
-    .locals 6
+    .registers 7
 
     .line 28
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getLast-s-VKNKU()J
@@ -311,7 +311,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_20
 
     .line 29
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getLast-s-VKNKU()J
@@ -339,7 +339,7 @@
     return-wide v0
 
     .line 28
-    :cond_0
+    :cond_20
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot return the exclusive upper bound of a range that includes MAX_VALUE."
@@ -354,7 +354,7 @@
 .end method
 
 .method public bridge synthetic getEndInclusive()Ljava/lang/Comparable;
-    .locals 2
+    .registers 3
 
     .line 18
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getEndInclusive-s-VKNKU()J
@@ -369,7 +369,7 @@
 .end method
 
 .method public getEndInclusive-s-VKNKU()J
-    .locals 2
+    .registers 3
 
     .line 22
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getLast-s-VKNKU()J
@@ -380,7 +380,7 @@
 .end method
 
 .method public bridge synthetic getStart()Ljava/lang/Comparable;
-    .locals 2
+    .registers 3
 
     .line 18
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getStart-s-VKNKU()J
@@ -395,7 +395,7 @@
 .end method
 
 .method public getStart-s-VKNKU()J
-    .locals 2
+    .registers 3
 
     .line 21
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getFirst-s-VKNKU()J
@@ -406,20 +406,20 @@
 .end method
 
 .method public hashCode()I
-    .locals 7
+    .registers 8
 
     .line 46
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getFirst-s-VKNKU()J
 
     move-result-wide v0
@@ -470,12 +470,12 @@
 
     add-int/2addr v0, v1
 
-    :goto_0
+    :goto_34
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 4
+    .registers 5
 
     .line 39
     invoke-virtual {p0}, Lkotlin/ranges/ULongRange;->getFirst-s-VKNKU()J
@@ -490,21 +490,21 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 48
     new-instance v0, Ljava/lang/StringBuilder;

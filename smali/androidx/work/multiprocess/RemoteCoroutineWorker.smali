@@ -63,7 +63,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$Q_YW_3s6mMGbzirkDiF2Sf0Zjxo(Landroidx/work/multiprocess/RemoteCoroutineWorker;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/work/multiprocess/RemoteCoroutineWorker;->_init_$lambda$0(Landroidx/work/multiprocess/RemoteCoroutineWorker;)V
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parameters"    # Landroidx/work/WorkerParameters;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method private static final _init_$lambda$0(Landroidx/work/multiprocess/RemoteCoroutineWorker;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/work/multiprocess/RemoteCoroutineWorker;
 
     const-string/jumbo v0, "this$0"
@@ -154,7 +154,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 53
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteCoroutineWorker;->job:Lkotlinx/coroutines/CompletableJob;
@@ -168,12 +168,12 @@
     invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 55
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public static final synthetic access$getFuture$p(Landroidx/work/multiprocess/RemoteCoroutineWorker;)Landroidx/work/impl/utils/futures/SettableFuture;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/work/multiprocess/RemoteCoroutineWorker;
 
     .line 43
@@ -198,7 +198,7 @@
 .end method
 
 .method public final onStopped()V
-    .locals 2
+    .registers 3
 
     .line 95
     invoke-super {p0}, Landroidx/work/multiprocess/RemoteListenableWorker;->onStopped()V
@@ -215,7 +215,7 @@
 .end method
 
 .method public final setProgress(Landroidx/work/Data;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 13
     .param p1, "data"    # Landroidx/work/Data;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -248,21 +248,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     .line 101
     nop
 
     .line 102
-    :try_start_0
+    :try_start_12
     invoke-interface {v0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_12 .. :try_end_15} :catch_16
 
-    goto :goto_0
+    goto :goto_65
 
     .line 103
-    :catch_0
+    :catch_16
     move-exception v2
 
     .line 104
@@ -271,18 +271,18 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_20
 
     move-object v3, v2
 
     check-cast v3, Ljava/lang/Throwable;
 
-    :cond_0
+    :cond_20
     throw v3
 
     .line 107
     .end local v2    # "e$iv":Ljava/util/concurrent/ExecutionException;
-    :cond_1
+    :cond_21
     const/4 v2, 0x0
 
     .line 108
@@ -362,21 +362,21 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5c
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_2
+    :cond_5c
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_63
 
     return-object v3
 
     .line 126
-    :cond_3
+    :cond_63
     nop
 
     .line 107
@@ -385,7 +385,7 @@
 
     .end local v0    # "$this$await$iv":Lcom/google/common/util/concurrent/ListenableFuture;
     .end local v1    # "$i$f$await":I
-    :goto_0
+    :goto_65
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 92
@@ -393,7 +393,7 @@
 .end method
 
 .method public startRemoteWork()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

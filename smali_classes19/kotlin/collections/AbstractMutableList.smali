@@ -55,7 +55,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
@@ -77,7 +77,7 @@
 .end method
 
 .method public final bridge remove(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -110,7 +110,7 @@
 .end method
 
 .method public final bridge size()I
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-virtual {p0}, Lkotlin/collections/AbstractMutableList;->getSize()I

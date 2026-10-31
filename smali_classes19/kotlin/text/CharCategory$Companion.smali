@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 164
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/text/CharCategory$Companion;-><init>()V
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final valueOf(I)Lkotlin/text/CharCategory;
-    .locals 3
+    .registers 5
     .param p1, "category"    # I
 
     .line 171
@@ -69,21 +69,21 @@
 
     const/4 v1, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_b
 
     const/16 v2, 0x11
 
-    if-ge p1, v2, :cond_0
+    if-ge p1, v2, :cond_b
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_c
+    if-eqz v2, :cond_19
 
     invoke-static {}, Lkotlin/text/CharCategory;->getEntries()Lkotlin/enums/EnumEntries;
 
@@ -95,25 +95,25 @@
 
     check-cast v0, Lkotlin/text/CharCategory;
 
-    goto :goto_2
+    goto :goto_31
 
     .line 173
-    :cond_1
+    :cond_19
     const/16 v2, 0x12
 
-    if-gt v2, p1, :cond_2
+    if-gt v2, p1, :cond_22
 
     const/16 v2, 0x1f
 
-    if-ge p1, v2, :cond_2
+    if-ge p1, v2, :cond_22
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_2
+    :cond_22
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_3
+    :goto_23
+    if-eqz v0, :cond_32
 
     invoke-static {}, Lkotlin/text/CharCategory;->getEntries()Lkotlin/enums/EnumEntries;
 
@@ -128,11 +128,11 @@
     check-cast v0, Lkotlin/text/CharCategory;
 
     .line 175
-    :goto_2
+    :goto_31
     return-object v0
 
     .line 174
-    :cond_3
+    :cond_32
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;

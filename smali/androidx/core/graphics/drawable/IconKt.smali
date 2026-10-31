@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final toAdaptiveIcon(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
-    .locals 2
+    .registers 3
     .param p0, "$this$toAdaptiveIcon"    # Landroid/graphics/Bitmap;
 
     const/4 v0, 0x0
@@ -44,7 +44,7 @@
 .end method
 
 .method public static final toIcon(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
-    .locals 2
+    .registers 3
     .param p0, "$this$toIcon"    # Landroid/graphics/Bitmap;
 
     const/4 v0, 0x0
@@ -59,7 +59,7 @@
 .end method
 
 .method public static final toIcon(Landroid/net/Uri;)Landroid/graphics/drawable/Icon;
-    .locals 2
+    .registers 3
     .param p0, "$this$toIcon"    # Landroid/net/Uri;
 
     const/4 v0, 0x0
@@ -74,7 +74,7 @@
 .end method
 
 .method public static final toIcon([B)Landroid/graphics/drawable/Icon;
-    .locals 3
+    .registers 4
     .param p0, "$this$toIcon"    # [B
 
     const/4 v0, 0x0

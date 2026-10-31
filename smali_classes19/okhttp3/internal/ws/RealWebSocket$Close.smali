@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(ILokio/ByteString;J)V
-    .locals 0
+    .registers 5
     .param p1, "code"    # I
     .param p2, "reason"    # Lokio/ByteString;
     .param p3, "cancelAfterCloseMillis"    # J
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public final getCancelAfterCloseMillis()J
-    .locals 2
+    .registers 3
 
     .line 608
     iget-wide v0, p0, Lokhttp3/internal/ws/RealWebSocket$Close;->cancelAfterCloseMillis:J
@@ -88,7 +88,7 @@
 .end method
 
 .method public final getCode()I
-    .locals 1
+    .registers 2
 
     .line 606
     iget v0, p0, Lokhttp3/internal/ws/RealWebSocket$Close;->code:I
@@ -97,7 +97,7 @@
 .end method
 
 .method public final getReason()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     .line 607
     iget-object v0, p0, Lokhttp3/internal/ws/RealWebSocket$Close;->reason:Lokio/ByteString;

@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroid/widget/EditText;Lio/nekohasekai/sagernet/ui/WebviewFragment;)V
-    .locals 0
+    .registers 3
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .registers 5
 
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/WebviewFragment$$ExternalSyntheticLambda0;->f$0:Landroid/widget/EditText;

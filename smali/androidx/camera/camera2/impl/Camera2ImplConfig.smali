@@ -78,7 +78,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 51
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
@@ -155,7 +155,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/camera/core/impl/Config;)V
-    .locals 0
+    .registers 2
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -174,7 +174,7 @@
 .end method
 
 .method public static createCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;)Landroidx/camera/core/impl/Config$Option;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -231,7 +231,7 @@
 
 # virtual methods
 .method public getCameraEventCallback(Landroidx/camera/camera2/impl/CameraEventCallbacks;)Landroidx/camera/camera2/impl/CameraEventCallbacks;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Landroidx/camera/camera2/impl/CameraEventCallbacks;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -259,7 +259,7 @@
 .end method
 
 .method public getCaptureRequestOptions()Landroidx/camera/camera2/interop/CaptureRequestOptions;
-    .locals 1
+    .registers 2
 
     .line 110
     invoke-virtual {p0}, Landroidx/camera/camera2/impl/Camera2ImplConfig;->getConfig()Landroidx/camera/core/impl/Config;
@@ -278,7 +278,7 @@
 .end method
 
 .method public getCaptureRequestTag(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -304,7 +304,7 @@
 .end method
 
 .method public getCaptureRequestTemplate(I)I
-    .locals 3
+    .registers 5
     .param p1, "valueIfMissing"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -340,7 +340,7 @@
 .end method
 
 .method public getDeviceStateCallback(Landroid/hardware/camera2/CameraDevice$StateCallback;)Landroid/hardware/camera2/CameraDevice$StateCallback;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Landroid/hardware/camera2/CameraDevice$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -368,7 +368,7 @@
 .end method
 
 .method public getSessionCaptureCallback(Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -396,7 +396,7 @@
 .end method
 
 .method public getSessionStateCallback(Landroid/hardware/camera2/CameraCaptureSession$StateCallback;)Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

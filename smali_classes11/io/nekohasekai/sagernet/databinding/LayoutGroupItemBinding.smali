@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/card/MaterialCardView;Lcom/google/android/material/card/MaterialCardView;Landroidx/appcompat/widget/AppCompatImageView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Lcom/google/android/material/button/MaterialButton;Landroid/widget/TextView;Landroidx/appcompat/widget/AppCompatImageView;Lcom/google/android/material/progressindicator/LinearProgressIndicator;)V
-    .locals 0
+    .registers 11
     .param p1, "rootView"    # Lcom/google/android/material/card/MaterialCardView;
     .param p2, "content"    # Lcom/google/android/material/card/MaterialCardView;
     .param p3, "edit"    # Landroidx/appcompat/widget/AppCompatImageView;
@@ -106,7 +106,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutGroupItemBinding;
-    .locals 23
+    .registers 24
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -140,7 +140,7 @@
 
     .line 101
     .local v13, "edit":Landroidx/appcompat/widget/AppCompatImageView;
-    if-eqz v13, :cond_7
+    if-eqz v13, :cond_90
 
     .line 105
     const v1, 0x7f0a0142
@@ -156,7 +156,7 @@
 
     .line 107
     .local v14, "groupName":Landroid/widget/TextView;
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_8f
 
     .line 111
     const v1, 0x7f0a0145
@@ -172,7 +172,7 @@
 
     .line 113
     .local v15, "groupStatus":Landroid/widget/TextView;
-    if-eqz v15, :cond_5
+    if-eqz v15, :cond_8e
 
     .line 117
     const v1, 0x7f0a0148
@@ -188,7 +188,7 @@
 
     .line 119
     .local v16, "groupTraffic":Landroid/widget/TextView;
-    if-eqz v16, :cond_4
+    if-eqz v16, :cond_8d
 
     .line 123
     const v1, 0x7f0a0149
@@ -204,7 +204,7 @@
 
     .line 125
     .local v17, "groupUpdate":Lcom/google/android/material/button/MaterialButton;
-    if-eqz v17, :cond_3
+    if-eqz v17, :cond_8c
 
     .line 129
     const v1, 0x7f0a014a
@@ -220,7 +220,7 @@
 
     .line 131
     .local v18, "groupUser":Landroid/widget/TextView;
-    if-eqz v18, :cond_2
+    if-eqz v18, :cond_8b
 
     .line 135
     const v1, 0x7f0a0204
@@ -236,7 +236,7 @@
 
     .line 137
     .local v19, "options":Landroidx/appcompat/widget/AppCompatImageView;
-    if-eqz v19, :cond_1
+    if-eqz v19, :cond_8a
 
     .line 141
     const v11, 0x7f0a0292
@@ -254,7 +254,7 @@
 
     .line 143
     .local v20, "subscriptionUpdateProgress":Lcom/google/android/material/progressindicator/LinearProgressIndicator;
-    if-eqz v20, :cond_0
+    if-eqz v20, :cond_85
 
     .line 147
     new-instance v21, Lio/nekohasekai/sagernet/databinding/LayoutGroupItemBinding;
@@ -294,56 +294,56 @@
     .line 144
     .end local v22    # "id":I
     .restart local v11    # "id":I
-    :cond_0
+    :cond_85
     move/from16 v22, v11
 
     .end local v11    # "id":I
     .restart local v22    # "id":I
     move/from16 v1, v22
 
-    goto :goto_0
+    goto :goto_91
 
     .line 138
     .end local v20    # "subscriptionUpdateProgress":Lcom/google/android/material/progressindicator/LinearProgressIndicator;
     .end local v22    # "id":I
     .restart local v1    # "id":I
-    :cond_1
-    goto :goto_0
+    :cond_8a
+    goto :goto_91
 
     .line 132
     .end local v19    # "options":Landroidx/appcompat/widget/AppCompatImageView;
-    :cond_2
-    goto :goto_0
+    :cond_8b
+    goto :goto_91
 
     .line 126
     .end local v18    # "groupUser":Landroid/widget/TextView;
-    :cond_3
-    goto :goto_0
+    :cond_8c
+    goto :goto_91
 
     .line 120
     .end local v17    # "groupUpdate":Lcom/google/android/material/button/MaterialButton;
-    :cond_4
-    goto :goto_0
+    :cond_8d
+    goto :goto_91
 
     .line 114
     .end local v16    # "groupTraffic":Landroid/widget/TextView;
-    :cond_5
-    goto :goto_0
+    :cond_8e
+    goto :goto_91
 
     .line 108
     .end local v15    # "groupStatus":Landroid/widget/TextView;
-    :cond_6
-    goto :goto_0
+    :cond_8f
+    goto :goto_91
 
     .line 102
     .end local v14    # "groupName":Landroid/widget/TextView;
-    :cond_7
+    :cond_90
     nop
 
     .line 150
     .end local v12    # "content":Lcom/google/android/material/card/MaterialCardView;
     .end local v13    # "edit":Landroidx/appcompat/widget/AppCompatImageView;
-    :goto_0
+    :goto_91
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -368,7 +368,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutGroupItemBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -392,7 +392,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutGroupItemBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -420,13 +420,13 @@
 
     .line 85
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 86
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 88
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutGroupItemBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutGroupItemBinding;
 
     move-result-object v1
@@ -437,7 +437,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutGroupItemBinding;->getRoot()Lcom/google/android/material/card/MaterialCardView;
@@ -448,7 +448,7 @@
 .end method
 
 .method public getRoot()Lcom/google/android/material/card/MaterialCardView;
-    .locals 1
+    .registers 2
 
     .line 73
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutGroupItemBinding;->rootView:Lcom/google/android/material/card/MaterialCardView;

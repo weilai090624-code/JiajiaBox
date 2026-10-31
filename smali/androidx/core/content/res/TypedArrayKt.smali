@@ -57,7 +57,7 @@
 
 # direct methods
 .method private static final checkAttribute(Landroid/content/res/TypedArray;I)V
-    .locals 2
+    .registers 4
     .param p0, "$this$checkAttribute"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -66,13 +66,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 34
     return-void
 
     .line 32
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Attribute not defined in set."
@@ -83,7 +83,7 @@
 .end method
 
 .method public static final getBooleanOrThrow(Landroid/content/res/TypedArray;I)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$getBooleanOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public static final getColorOrThrow(Landroid/content/res/TypedArray;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$getColorOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public static final getColorStateListOrThrow(Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
-    .locals 2
+    .registers 4
     .param p0, "$this$getColorStateListOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -131,11 +131,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return-object v0
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 71
@@ -158,7 +158,7 @@
 .end method
 
 .method public static final getDimensionOrThrow(Landroid/content/res/TypedArray;I)F
-    .locals 1
+    .registers 3
     .param p0, "$this$getDimensionOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -176,7 +176,7 @@
 .end method
 
 .method public static final getDimensionPixelOffsetOrThrow(Landroid/content/res/TypedArray;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$getDimensionPixelOffsetOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -194,7 +194,7 @@
 .end method
 
 .method public static final getDimensionPixelSizeOrThrow(Landroid/content/res/TypedArray;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$getDimensionPixelSizeOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -212,7 +212,7 @@
 .end method
 
 .method public static final getDrawableOrThrow(Landroid/content/res/TypedArray;I)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p0, "$this$getDrawableOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -230,7 +230,7 @@
 .end method
 
 .method public static final getFloatOrThrow(Landroid/content/res/TypedArray;I)F
-    .locals 1
+    .registers 3
     .param p0, "$this$getFloatOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -248,7 +248,7 @@
 .end method
 
 .method public static final getFontOrThrow(Landroid/content/res/TypedArray;I)Landroid/graphics/Typeface;
-    .locals 1
+    .registers 3
     .param p0, "$this$getFontOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -264,7 +264,7 @@
 .end method
 
 .method public static final getIntOrThrow(Landroid/content/res/TypedArray;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$getIntOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -282,7 +282,7 @@
 .end method
 
 .method public static final getIntegerOrThrow(Landroid/content/res/TypedArray;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$getIntegerOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -300,7 +300,7 @@
 .end method
 
 .method public static final getResourceIdOrThrow(Landroid/content/res/TypedArray;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$getResourceIdOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -318,7 +318,7 @@
 .end method
 
 .method public static final getStringOrThrow(Landroid/content/res/TypedArray;I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$getStringOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -330,11 +330,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return-object v0
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 197
@@ -357,7 +357,7 @@
 .end method
 
 .method public static final getTextArrayOrThrow(Landroid/content/res/TypedArray;I)[Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p0, "$this$getTextArrayOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -373,7 +373,7 @@
 .end method
 
 .method public static final getTextOrThrow(Landroid/content/res/TypedArray;I)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 4
     .param p0, "$this$getTextOrThrow"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
 
@@ -385,11 +385,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return-object v0
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 211
@@ -412,7 +412,7 @@
 .end method
 
 .method public static final use(Landroid/content/res/TypedArray;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$use"    # Landroid/content/res/TypedArray;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;

@@ -46,7 +46,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Ljava/lang/Class;
     .param p1, "x1"    # Ljava/lang/Object;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method private static cast(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -121,7 +121,7 @@
 .end method
 
 .method static checkedEntry(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -146,7 +146,7 @@
 .end method
 
 .method public static create()Lcom/google/common/collect/MutableClassToInstanceMap;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -170,7 +170,7 @@
 .end method
 
 .method public static create(Ljava/util/Map;)Lcom/google/common/collect/MutableClassToInstanceMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -194,7 +194,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 172
     .local p0, "this":Lcom/google/common/collect/MutableClassToInstanceMap;, "Lcom/google/common/collect/MutableClassToInstanceMap<TB;>;"
@@ -212,7 +212,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 47
     .local p0, "this":Lcom/google/common/collect/MutableClassToInstanceMap;, "Lcom/google/common/collect/MutableClassToInstanceMap<TB;>;"
@@ -224,7 +224,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -242,7 +242,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -263,7 +263,7 @@
 .end method
 
 .method public getInstance(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -290,7 +290,7 @@
 .end method
 
 .method public put(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -318,7 +318,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -334,7 +334,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -362,12 +362,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_27
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -391,10 +391,10 @@
 
     .line 148
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+Ljava/lang/Class<+TB;>;TB;>;"
-    goto :goto_0
+    goto :goto_d
 
     .line 149
-    :cond_0
+    :cond_27
     invoke-super {p0, v0}, Lcom/google/common/collect/ForwardingMap;->putAll(Ljava/util/Map;)V
 
     .line 150
@@ -402,7 +402,7 @@
 .end method
 
 .method public putInstance(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",

@@ -109,7 +109,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/navigation/fragment/NavHostFragment$Companion;
 
@@ -123,7 +123,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 78
     invoke-direct {p0}, Landroidx/fragment/app/Fragment;-><init>()V
@@ -132,7 +132,7 @@
 .end method
 
 .method public static final synthetic access$getNavHostController$p(Landroidx/navigation/fragment/NavHostFragment;)Landroidx/navigation/NavHostController;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/navigation/fragment/NavHostFragment;
 
     .line 78
@@ -142,7 +142,7 @@
 .end method
 
 .method public static final create(I)Landroidx/navigation/fragment/NavHostFragment;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -156,7 +156,7 @@
 .end method
 
 .method public static final create(ILandroid/os/Bundle;)Landroidx/navigation/fragment/NavHostFragment;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -170,7 +170,7 @@
 .end method
 
 .method public static final findNavController(Landroidx/fragment/app/Fragment;)Landroidx/navigation/NavController;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -184,7 +184,7 @@
 .end method
 
 .method private final getContainerId()I
-    .locals 2
+    .registers 3
 
     .line 264
     invoke-virtual {p0}, Landroidx/navigation/fragment/NavHostFragment;->getId()I
@@ -193,30 +193,30 @@
 
     .line 265
     .local v0, "id":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_b
 
     .line 266
     move v1, v0
 
-    goto :goto_0
+    goto :goto_d
 
     .line 267
-    :cond_0
+    :cond_b
     sget v1, Landroidx/navigation/fragment/R$id;->nav_host_fragment_container:I
 
     .line 265
-    :goto_0
+    :goto_d
     return v1
 .end method
 
 
 # virtual methods
 .method protected createFragmentNavigator()Landroidx/navigation/Navigator;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -262,23 +262,23 @@
 .end method
 
 .method public final getNavController()Landroidx/navigation/NavController;
-    .locals 2
+    .registers 3
 
     .line 97
     iget-object v0, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 98
     iget-object v0, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast v0, Landroidx/navigation/NavController;
 
     return-object v0
 
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type androidx.navigation.NavHostController"
@@ -288,7 +288,7 @@
     throw v0
 
     .line 430
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
     .line 97
@@ -310,7 +310,7 @@
 .end method
 
 .method public onAttach(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -323,7 +323,7 @@
     .line 107
     iget-boolean v0, p0, Landroidx/navigation/fragment/NavHostFragment;->defaultNavHost:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 108
     invoke-virtual {p0}, Landroidx/navigation/fragment/NavHostFragment;->getParentFragmentManager()Landroidx/fragment/app/FragmentManager;
@@ -347,12 +347,12 @@
     invoke-virtual {v0}, Landroidx/fragment/app/FragmentTransaction;->commit()I
 
     .line 112
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .registers 9
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 116
@@ -384,15 +384,15 @@
     invoke-virtual {v1, v2}, Landroidx/navigation/NavHostController;->setLifecycleOwner(Landroidx/lifecycle/LifecycleOwner;)V
 
     .line 119
-    :goto_0
+    :goto_1b
     instance-of v1, v0, Landroid/content/ContextWrapper;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_46
 
     .line 120
     instance-of v1, v0, Landroidx/activity/OnBackPressedDispatcherOwner;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_38
 
     .line 121
     iget-object v1, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
@@ -416,10 +416,10 @@
     invoke-virtual {v1, v2}, Landroidx/navigation/NavHostController;->setOnBackPressedDispatcher(Landroidx/activity/OnBackPressedDispatcher;)V
 
     .line 126
-    goto :goto_1
+    goto :goto_46
 
     .line 128
-    :cond_0
+    :cond_38
     move-object v1, v0
 
     check-cast v1, Landroid/content/ContextWrapper;
@@ -434,11 +434,11 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 132
-    :cond_1
-    :goto_1
+    :cond_46
+    :goto_46
     iget-object v1, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -450,23 +450,23 @@
 
     const/4 v4, 0x0
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_65
 
     iget-object v2, p0, Landroidx/navigation/fragment/NavHostFragment;->isPrimaryBeforeOnCreate:Ljava/lang/Boolean;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_5d
 
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_65
 
     const/4 v2, 0x1
 
-    goto :goto_2
+    goto :goto_66
 
-    :cond_2
+    :cond_5d
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type kotlin.Boolean"
@@ -475,11 +475,11 @@
 
     throw v1
 
-    :cond_3
+    :cond_65
     const/4 v2, 0x0
 
     .line 132
-    :goto_2
+    :goto_66
     invoke-virtual {v1, v2}, Landroidx/navigation/NavHostController;->enableOnBackPressed(Z)V
 
     .line 135
@@ -516,7 +516,7 @@
     .local v2, "navState":Landroid/os/Bundle;
     const-string v5, "android-support-nav:fragment:graphId"
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_b3
 
     .line 140
     const-string v6, "android-support-nav:fragment:navControllerState"
@@ -532,7 +532,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_ad
 
     .line 142
     iput-boolean v3, p0, Landroidx/navigation/fragment/NavHostFragment;->defaultNavHost:Z
@@ -559,7 +559,7 @@
     invoke-virtual {v3}, Landroidx/fragment/app/FragmentTransaction;->commit()I
 
     .line 147
-    :cond_4
+    :cond_ad
     invoke-virtual {p1, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v3
@@ -567,8 +567,8 @@
     iput v3, p0, Landroidx/navigation/fragment/NavHostFragment;->graphId:I
 
     .line 149
-    :cond_5
-    if-eqz v2, :cond_6
+    :cond_b3
+    if-eqz v2, :cond_bd
 
     .line 151
     iget-object v3, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
@@ -578,10 +578,10 @@
     invoke-virtual {v3, v2}, Landroidx/navigation/NavHostController;->restoreState(Landroid/os/Bundle;)V
 
     .line 153
-    :cond_6
+    :cond_bd
     iget v3, p0, Landroidx/navigation/fragment/NavHostFragment;->graphId:I
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_cc
 
     .line 155
     iget-object v1, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
@@ -592,17 +592,17 @@
 
     invoke-virtual {v1, v3}, Landroidx/navigation/NavHostController;->setGraph(I)V
 
-    goto :goto_3
+    goto :goto_e8
 
     .line 158
-    :cond_7
+    :cond_cc
     invoke-virtual {p0}, Landroidx/navigation/fragment/NavHostFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v3
 
     .line 159
     .local v3, "args":Landroid/os/Bundle;
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_d6
 
     invoke-virtual {v3, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -610,8 +610,8 @@
 
     .line 160
     .local v4, "graphId":I
-    :cond_8
-    if-eqz v3, :cond_9
+    :cond_d6
+    if-eqz v3, :cond_de
 
     const-string v1, "android-support-nav:fragment:startDestinationArgs"
 
@@ -621,8 +621,8 @@
 
     .line 161
     .local v1, "startDestinationArgs":Landroid/os/Bundle;
-    :cond_9
-    if-eqz v4, :cond_a
+    :cond_de
+    if-eqz v4, :cond_e8
 
     .line 162
     iget-object v5, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
@@ -635,8 +635,8 @@
     .end local v1    # "startDestinationArgs":Landroid/os/Bundle;
     .end local v3    # "args":Landroid/os/Bundle;
     .end local v4    # "graphId":I
-    :cond_a
-    :goto_3
+    :cond_e8
+    :goto_e8
     invoke-super {p0, p1}, Landroidx/fragment/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 170
@@ -644,7 +644,7 @@
 .end method
 
 .method protected onCreateNavController(Landroidx/navigation/NavController;)V
-    .locals 5
+    .registers 7
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .annotation runtime Lkotlin/Deprecated;
         message = "Override {@link #onCreateNavHostController(NavHostController)} to gain\n      access to the full {@link NavHostController} that is created by this NavHostFragment."
@@ -715,7 +715,7 @@
 .end method
 
 .method protected onCreateNavHostController(Landroidx/navigation/NavHostController;)V
-    .locals 1
+    .registers 3
     .param p1, "navHostController"    # Landroidx/navigation/NavHostController;
 
     const-string v0, "navHostController"
@@ -734,7 +734,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 3
+    .registers 7
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -773,7 +773,7 @@
 .end method
 
 .method public onDestroyView()V
-    .locals 5
+    .registers 6
 
     .line 328
     invoke-super {p0}, Landroidx/fragment/app/Fragment;->onDestroyView()V
@@ -783,7 +783,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .local v0, "it":Landroid/view/View;
     const/4 v2, 0x0
@@ -796,13 +796,13 @@
 
     iget-object v4, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_14
 
     .line 331
     invoke-static {v0, v1}, Landroidx/navigation/Navigation;->setViewNavController(Landroid/view/View;Landroidx/navigation/NavController;)V
 
     .line 333
-    :cond_0
+    :cond_14
     nop
 
     .line 329
@@ -811,7 +811,7 @@
     nop
 
     .line 334
-    :cond_1
+    :cond_16
     iput-object v1, p0, Landroidx/navigation/fragment/NavHostFragment;->viewParent:Landroid/view/View;
 
     .line 335
@@ -819,7 +819,7 @@
 .end method
 
 .method public onInflate(Landroid/content/Context;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
-    .locals 6
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -882,13 +882,13 @@
 
     .line 300
     .local v4, "graphId":I
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2a
 
     .line 301
     iput v4, p0, Landroidx/navigation/fragment/NavHostFragment;->graphId:I
 
     .line 303
-    :cond_0
+    :cond_2a
     nop
 
     .end local v2    # "navHost":Landroid/content/res/TypedArray;
@@ -944,7 +944,7 @@
 
     .line 306
     .local v4, "defaultHost":Z
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4c
 
     .line 307
     const/4 v5, 0x1
@@ -952,7 +952,7 @@
     iput-boolean v5, p0, Landroidx/navigation/fragment/NavHostFragment;->defaultNavHost:Z
 
     .line 309
-    :cond_1
+    :cond_4c
     nop
 
     .end local v2    # "array":Landroid/content/res/TypedArray;
@@ -982,25 +982,25 @@
 .end method
 
 .method public onPrimaryNavigationFragmentChanged(Z)V
-    .locals 1
+    .registers 3
     .param p1, "isPrimaryNavigationFragment"    # Z
 
     .line 221
     iget-object v0, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 222
     iget-object v0, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0, p1}, Landroidx/navigation/NavHostController;->enableOnBackPressed(Z)V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 224
-    :cond_0
+    :cond_c
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -1008,13 +1008,13 @@
     iput-object v0, p0, Landroidx/navigation/fragment/NavHostFragment;->isPrimaryBeforeOnCreate:Ljava/lang/Boolean;
 
     .line 226
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     return-void
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "outState"    # Landroid/os/Bundle;
 
     const-string v0, "outState"
@@ -1035,7 +1035,7 @@
 
     .line 316
     .local v0, "navState":Landroid/os/Bundle;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 317
     const-string v1, "android-support-nav:fragment:navControllerState"
@@ -1043,10 +1043,10 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 319
-    :cond_0
+    :cond_18
     iget-boolean v1, p0, Landroidx/navigation/fragment/NavHostFragment;->defaultNavHost:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_22
 
     .line 320
     const-string v1, "android-support-nav:fragment:defaultHost"
@@ -1056,10 +1056,10 @@
     invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     .line 322
-    :cond_1
+    :cond_22
     iget v1, p0, Landroidx/navigation/fragment/NavHostFragment;->graphId:I
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2d
 
     .line 323
     const-string v1, "android-support-nav:fragment:graphId"
@@ -1069,12 +1069,12 @@
     invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 325
-    :cond_2
+    :cond_2d
     return-void
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 3
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -1088,7 +1088,7 @@
     .line 274
     instance-of v0, p1, Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_49
 
     .line 275
     iget-object v0, p0, Landroidx/navigation/fragment/NavHostFragment;->navHostController:Landroidx/navigation/NavHostController;
@@ -1102,14 +1102,14 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_48
 
     .line 279
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_40
 
     check-cast v0, Landroid/view/View;
 
@@ -1128,7 +1128,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_48
 
     .line 281
     iget-object v0, p0, Landroidx/navigation/fragment/NavHostFragment;->viewParent:Landroid/view/View;
@@ -1141,10 +1141,10 @@
 
     invoke-static {v0, v1}, Landroidx/navigation/Navigation;->setViewNavController(Landroid/view/View;Landroidx/navigation/NavController;)V
 
-    goto :goto_0
+    goto :goto_48
 
     .line 279
-    :cond_0
+    :cond_40
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type android.view.View"
@@ -1154,12 +1154,12 @@
     throw v0
 
     .line 284
-    :cond_1
-    :goto_0
+    :cond_48
+    :goto_48
     return-void
 
     .line 430
-    :cond_2
+    :cond_49
     const/4 v0, 0x0
 
     .line 274

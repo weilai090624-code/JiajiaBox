@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FilteredEntryMultimap$Keys$1;Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 3
     .param p1, "this$2"    # Lcom/google/common/collect/FilteredEntryMultimap$Keys$1;
 
     .line 401
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 401
     .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$Keys$1$1;, "Lcom/google/common/collect/FilteredEntryMultimap$Keys$1$1;"
@@ -63,7 +63,7 @@
 .end method
 
 .method public apply(Ljava/util/Map$Entry;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

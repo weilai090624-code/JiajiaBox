@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$adjustInto(Lj$/time/chrono/Era;Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/time/chrono/Era;
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
@@ -26,14 +26,14 @@
 .end method
 
 .method public static $default$get(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)I
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/time/chrono/Era;
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 209
     sget-object v0, Lj$/time/temporal/ChronoField;->ERA:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     .line 210
     invoke-interface {p0}, Lj$/time/chrono/Era;->getValue()I
@@ -43,7 +43,7 @@
     return v0
 
     .line 212
-    :cond_0
+    :cond_9
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$get(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)I
 
     move-result v0
@@ -52,7 +52,7 @@
 .end method
 
 .method public static $default$getDisplayName(Lj$/time/chrono/Era;Lj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p0, "_this"    # Lj$/time/chrono/Era;
     .param p1, "style"    # Lj$/time/format/TextStyle;
     .param p2, "locale"    # Ljava/util/Locale;
@@ -80,14 +80,14 @@
 .end method
 
 .method public static $default$getLong(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)J
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/time/chrono/Era;
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 239
     sget-object v0, Lj$/time/temporal/ChronoField;->ERA:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     .line 240
     invoke-interface {p0}, Lj$/time/chrono/Era;->getValue()I
@@ -99,10 +99,10 @@
     return-wide v0
 
     .line 241
-    :cond_0
+    :cond_a
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 244
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->getFrom(Lj$/time/temporal/TemporalAccessor;)J
@@ -112,7 +112,7 @@
     return-wide v0
 
     .line 242
-    :cond_1
+    :cond_13
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -139,7 +139,7 @@
 .end method
 
 .method public static $default$isSupported(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)Z
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/time/chrono/Era;
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
@@ -150,42 +150,42 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 147
     sget-object v0, Lj$/time/temporal/ChronoField;->ERA:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_b
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     return v1
 
     .line 149
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_d
+    if-eqz p1, :cond_16
 
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_16
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_2
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_17
     return v1
 .end method
 
 .method public static $default$query(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/time/chrono/Era;
 
     .line 269
@@ -194,7 +194,7 @@
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     .line 270
     sget-object v0, Lj$/time/temporal/ChronoUnit;->ERAS:Lj$/time/temporal/ChronoUnit;
@@ -202,7 +202,7 @@
     return-object v0
 
     .line 272
-    :cond_0
+    :cond_9
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$query(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
     move-result-object v0
@@ -211,7 +211,7 @@
 .end method
 
 .method public static $default$range(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/time/chrono/Era;
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 

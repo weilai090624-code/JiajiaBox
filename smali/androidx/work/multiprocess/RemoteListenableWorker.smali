@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 55
     const-string v0, "RemoteListenableWorker"
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 2
+    .registers 5
     .param p1, "appContext"    # Landroid/content/Context;
     .param p2, "workerParams"    # Landroidx/work/WorkerParameters;
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public onStopped()V
-    .locals 3
+    .registers 4
 
     .line 186
     invoke-super {p0}, Landroidx/work/ListenableWorker;->onStopped()V
@@ -74,7 +74,7 @@
     .line 188
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteListenableWorker;->mComponentName:Landroid/content/ComponentName;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 189
     iget-object v0, p0, Landroidx/work/multiprocess/RemoteListenableWorker;->mClient:Landroidx/work/multiprocess/ListenableWorkerImplClient;
@@ -88,7 +88,7 @@
     invoke-virtual {v0, v1, v2}, Landroidx/work/multiprocess/ListenableWorkerImplClient;->execute(Landroid/content/ComponentName;Landroidx/work/multiprocess/RemoteDispatcher;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 203
-    :cond_0
+    :cond_13
     return-void
 .end method
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public final startWork()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -159,7 +159,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_38
 
     .line 108
     const-string v5, "Need to specify a package name for the Remote Service."
@@ -186,12 +186,12 @@
 
     .line 114
     .end local v5    # "message":Ljava/lang/String;
-    :cond_0
+    :cond_38
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_52
 
     .line 115
     const-string v5, "Need to specify a class name for the Remote Service."
@@ -218,7 +218,7 @@
 
     .line 121
     .end local v5    # "message":Ljava/lang/String;
-    :cond_1
+    :cond_52
     new-instance v5, Landroid/content/ComponentName;
 
     invoke-direct {v5, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V

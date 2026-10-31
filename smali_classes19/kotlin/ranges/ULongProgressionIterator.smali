@@ -62,7 +62,7 @@
 
 # direct methods
 .method private constructor <init>(JJJ)V
-    .locals 5
+    .registers 12
     .param p1, "first"    # J
     .param p3, "last"    # J
     .param p5, "step"    # J
@@ -82,30 +82,30 @@
 
     cmp-long v4, p5, v0
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_14
 
     invoke-static {p1, p2, p3, p4}, Lkotlin/UByte$$ExternalSyntheticBackport4;->m(JJ)I
 
     move-result v0
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_1b
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_14
     invoke-static {p1, p2, p3, p4}, Lkotlin/UByte$$ExternalSyntheticBackport4;->m(JJ)I
 
     move-result v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_1b
 
-    :goto_0
-    goto :goto_1
+    :goto_1a
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_1c
     iput-boolean v2, p0, Lkotlin/ranges/ULongProgressionIterator;->hasNext:Z
 
     .line 128
@@ -118,16 +118,16 @@
     .line 129
     iget-boolean v0, p0, Lkotlin/ranges/ULongProgressionIterator;->hasNext:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2a
 
     move-wide v0, p1
 
-    goto :goto_2
+    goto :goto_2c
 
-    :cond_2
+    :cond_2a
     iget-wide v0, p0, Lkotlin/ranges/ULongProgressionIterator;->finalElement:J
 
-    :goto_2
+    :goto_2c
     iput-wide v0, p0, Lkotlin/ranges/ULongProgressionIterator;->next:J
 
     .line 125
@@ -135,7 +135,7 @@
 .end method
 
 .method public synthetic constructor <init>(JJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 8
 
     invoke-direct/range {p0 .. p6}, Lkotlin/ranges/ULongProgressionIterator;-><init>(JJJ)V
 
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 131
     iget-boolean v0, p0, Lkotlin/ranges/ULongProgressionIterator;->hasNext:Z
@@ -154,7 +154,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 124
     invoke-virtual {p0}, Lkotlin/ranges/ULongProgressionIterator;->next-s-VKNKU()J
@@ -169,7 +169,7 @@
 .end method
 
 .method public next-s-VKNKU()J
-    .locals 6
+    .registers 7
 
     .line 134
     iget-wide v0, p0, Lkotlin/ranges/ULongProgressionIterator;->next:J
@@ -180,22 +180,22 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_16
 
     .line 136
     iget-boolean v2, p0, Lkotlin/ranges/ULongProgressionIterator;->hasNext:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
     .line 137
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lkotlin/ranges/ULongProgressionIterator;->hasNext:Z
 
-    goto :goto_0
+    goto :goto_21
 
     .line 136
-    :cond_0
+    :cond_10
     new-instance v2, Ljava/util/NoSuchElementException;
 
     invoke-direct {v2}, Ljava/util/NoSuchElementException;-><init>()V
@@ -203,7 +203,7 @@
     throw v2
 
     .line 139
-    :cond_1
+    :cond_16
     iget-wide v2, p0, Lkotlin/ranges/ULongProgressionIterator;->next:J
 
     iget-wide v4, p0, Lkotlin/ranges/ULongProgressionIterator;->step:J
@@ -217,12 +217,12 @@
     iput-wide v2, p0, Lkotlin/ranges/ULongProgressionIterator;->next:J
 
     .line 141
-    :goto_0
+    :goto_21
     return-wide v0
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

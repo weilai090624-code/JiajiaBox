@@ -109,7 +109,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/debug/internal/StackTraceFrame;J)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "creationStackBottom"    # Lkotlinx/coroutines/debug/internal/StackTraceFrame;
     .param p3, "sequenceNumber"    # J
@@ -140,7 +140,7 @@
 .end method
 
 .method public static final synthetic access$yieldFrames(Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;Lkotlin/sequences/SequenceScope;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p0, "$this"    # Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;
     .param p1, "$receiver"    # Lkotlin/sequences/SequenceScope;
     .param p2, "frame"    # Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
@@ -155,7 +155,7 @@
 .end method
 
 .method private final creationStackTrace()Ljava/util/List;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -168,7 +168,7 @@
     .line 164
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->creationStackBottom:Lkotlinx/coroutines/debug/internal/StackTraceFrame;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -178,7 +178,7 @@
 
     .line 166
     .local v0, "bottom":Lkotlinx/coroutines/debug/internal/StackTraceFrame;
-    :cond_0
+    :cond_9
     new-instance v1, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl$creationStackTrace$1;
 
     const/4 v2, 0x0
@@ -199,7 +199,7 @@
 .end method
 
 .method private final yieldFrames(Lkotlin/sequences/SequenceScope;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -218,7 +218,7 @@
 
     instance-of v0, p3, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl$yieldFrames$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p3
 
@@ -230,7 +230,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p3, v0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl$yieldFrames$1;->label:I
 
@@ -238,14 +238,14 @@
 
     iput p3, v0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl$yieldFrames$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl$yieldFrames$1;
 
     invoke-direct {v0, p0, p3}, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl$yieldFrames$1;-><init>(Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p3, v0
 
     .local p3, "$continuation":Lkotlin/coroutines/Continuation;
@@ -259,7 +259,7 @@
     .line 169
     iget v2, p3, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl$yieldFrames$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_70
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p3    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -273,7 +273,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p3    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p1, 0x0
 
     .local p1, "$i$a$-let-DebugCoroutineInfoImpl$yieldFrames$2":I
@@ -294,13 +294,13 @@
     .local v3, "this":Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_61
 
     .end local v2    # "$this$yieldFrames":Lkotlin/sequences/SequenceScope;
     .end local v3    # "this":Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;
     .end local p1    # "$i$a$-let-DebugCoroutineInfoImpl$yieldFrames$2":I
     .end local p2    # "frame":Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    :pswitch_1
+    :pswitch_3e
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v2, p0
@@ -314,20 +314,20 @@
     .line 170
     .local v2, "$this$yieldFrames":Lkotlin/sequences/SequenceScope;
     .restart local v3    # "this":Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;
-    :goto_1
-    if-nez p2, :cond_1
+    :goto_44
+    if-nez p2, :cond_49
 
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     .line 171
-    :cond_1
+    :cond_49
     invoke-interface {p2}, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;->getStackTraceElement()Ljava/lang/StackTraceElement;
 
     move-result-object p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_62
 
     .line 181
     .local p1, "it":Ljava/lang/StackTraceElement;
@@ -350,23 +350,23 @@
     move-result-object p1
 
     .end local p1    # "it":Ljava/lang/StackTraceElement;
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_60
 
     .line 169
     return-object v1
 
     .line 171
-    :cond_2
+    :cond_60
     move p1, v4
 
     .end local v4    # "$i$a$-let-DebugCoroutineInfoImpl$yieldFrames$2":I
     .local p1, "$i$a$-let-DebugCoroutineInfoImpl$yieldFrames$2":I
-    :goto_2
+    :goto_61
     nop
 
     .line 172
     .end local p1    # "$i$a$-let-DebugCoroutineInfoImpl$yieldFrames$2":I
-    :cond_3
+    :cond_62
     invoke-interface {p2}, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;->getCallerFrame()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
     move-result-object p1
@@ -374,7 +374,7 @@
     .line 173
     .end local p2    # "frame":Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
     .local p1, "caller":Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_6b
 
     .line 174
     nop
@@ -385,14 +385,14 @@
 
     .restart local v2    # "$this$yieldFrames":Lkotlin/sequences/SequenceScope;
     .restart local p2    # "frame":Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    goto :goto_1
+    goto :goto_44
 
     .line 169
     .end local v2    # "$this$yieldFrames":Lkotlin/sequences/SequenceScope;
     .end local v3    # "this":Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;
     .end local p2    # "frame":Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
     .restart local p1    # "caller":Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    :cond_4
+    :cond_6b
     nop
 
     .line 176
@@ -403,17 +403,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_70
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3e
+        :pswitch_2d
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public final getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 37
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->_context:Ljava/lang/ref/WeakReference;
@@ -428,7 +428,7 @@
 .end method
 
 .method public final getCreationStackBottom$kotlinx_coroutines_core()Lkotlinx/coroutines/debug/internal/StackTraceFrame;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->creationStackBottom:Lkotlinx/coroutines/debug/internal/StackTraceFrame;
@@ -437,7 +437,7 @@
 .end method
 
 .method public final getCreationStackTrace()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -456,12 +456,12 @@
 .end method
 
 .method public final getLastObservedFrame$kotlinx_coroutines_core()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    .locals 1
+    .registers 2
 
     .line 143
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->_lastObservedFrame:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
@@ -469,17 +469,17 @@
 
     check-cast v0, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public final getState$kotlinx_coroutines_core()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->_state:Ljava/lang/String;
@@ -488,7 +488,7 @@
 .end method
 
 .method public final lastObservedStackTrace$kotlinx_coroutines_core()Ljava/util/List;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -503,7 +503,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -513,22 +513,22 @@
 
     .line 155
     .local v0, "frame":Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    :cond_0
+    :cond_b
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 156
     .local v1, "result":Ljava/util/ArrayList;
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_10
+    if-eqz v0, :cond_21
 
     .line 157
     invoke-interface {v0}, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;->getStackTraceElement()Ljava/lang/StackTraceElement;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     .line 181
     .local v2, "it":Ljava/lang/StackTraceElement;
@@ -541,15 +541,15 @@
     .line 158
     .end local v2    # "it":Ljava/lang/StackTraceElement;
     .end local v3    # "$i$a$-let-DebugCoroutineInfoImpl$lastObservedStackTrace$1":I
-    :cond_1
+    :cond_1c
     invoke-interface {v0}, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;->getCallerFrame()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_10
 
     .line 160
-    :cond_2
+    :cond_21
     move-object v2, v1
 
     check-cast v2, Ljava/util/List;
@@ -558,11 +558,11 @@
 .end method
 
 .method public final setLastObservedFrame$kotlinx_coroutines_core(Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)V
-    .locals 3
+    .registers 5
     .param p1, "value"    # Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
     .line 145
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 181
     move-object v0, p1
@@ -578,12 +578,12 @@
 
     .end local v0    # "it":Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
     .end local v1    # "$i$a$-let-DebugCoroutineInfoImpl$lastObservedFrame$1":I
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_b
     iput-object v2, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->_lastObservedFrame:Ljava/lang/ref/WeakReference;
 
     .line 146
@@ -591,7 +591,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 178
     new-instance v0, Ljava/lang/StringBuilder;
@@ -640,7 +640,7 @@
 .end method
 
 .method public final declared-synchronized updateState$kotlinx_coroutines_core(Ljava/lang/String;Lkotlin/coroutines/Continuation;Z)V
-    .locals 2
+    .registers 6
     .param p1, "state"    # Ljava/lang/String;
     .param p2, "frame"    # Lkotlin/coroutines/Continuation;
     .param p3, "shouldBeMatched"    # Z
@@ -656,7 +656,7 @@
     monitor-enter p0
 
     .line 91
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->_state:Ljava/lang/String;
 
     const-string v1, "RUNNING"
@@ -665,7 +665,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     const-string v0, "RUNNING"
 
@@ -673,9 +673,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1c
 
     .line 92
     iget v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->unmatchedResume:I
@@ -684,14 +684,14 @@
 
     iput v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->unmatchedResume:I
 
-    goto :goto_0
+    goto :goto_30
 
     .line 93
     .end local p0    # "this":Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;
-    :cond_0
+    :cond_1c
     iget v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->unmatchedResume:I
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_30
 
     const-string v0, "SUSPENDED"
 
@@ -699,7 +699,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     .line 112
     iget v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->unmatchedResume:I
@@ -707,8 +707,8 @@
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->unmatchedResume:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_1 .. :try_end_2e} :catchall_69
 
     .line 113
     monitor-exit p0
@@ -716,16 +716,16 @@
     return-void
 
     .line 117
-    :cond_1
-    :goto_0
-    :try_start_1
+    :cond_30
+    :goto_30
+    :try_start_30
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->_state:Ljava/lang/String;
 
     invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_48
 
     const-string v0, "SUSPENDED"
 
@@ -733,23 +733,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_48
 
     invoke-virtual {p0}, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->getLastObservedFrame$kotlinx_coroutines_core()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
     move-result-object v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_44
+    .catchall {:try_start_30 .. :try_end_44} :catchall_69
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_48
 
     monitor-exit p0
 
     return-void
 
     .line 119
-    :cond_2
-    :try_start_2
+    :cond_48
+    :try_start_48
     iput-object p1, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->_state:Ljava/lang/String;
 
     .line 120
@@ -757,18 +757,18 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_53
 
     move-object v0, p2
 
     check-cast v0, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    goto :goto_1
+    goto :goto_54
 
-    :cond_3
+    :cond_53
     move-object v0, v1
 
-    :goto_1
+    :goto_54
     invoke-virtual {p0, v0}, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->setLastObservedFrame$kotlinx_coroutines_core(Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)V
 
     .line 121
@@ -778,24 +778,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_64
 
     .line 122
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v1
 
-    goto :goto_2
+    goto :goto_65
 
     .line 124
-    :cond_4
+    :cond_64
     nop
 
     .line 121
-    :goto_2
+    :goto_65
     iput-object v1, p0, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->lastObservedThread:Ljava/lang/Thread;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_67
+    .catchall {:try_start_48 .. :try_end_67} :catchall_69
 
     .line 126
     monitor-exit p0
@@ -806,13 +806,13 @@
     .end local p1    # "state":Ljava/lang/String;
     .end local p2    # "frame":Lkotlin/coroutines/Continuation;
     .end local p3    # "shouldBeMatched":Z
-    :catchall_0
+    :catchall_69
     move-exception p1
 
-    :try_start_3
+    :try_start_6a
     monitor-exit p0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_6b
+    .catchall {:try_start_6a .. :try_end_6b} :catchall_69
 
     throw p1
 .end method

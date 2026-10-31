@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4483
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static createMessagingStyle(Landroid/app/Person;)Landroid/app/Notification$MessagingStyle;
-    .locals 1
+    .registers 2
     .param p0, "user"    # Landroid/app/Person;
 
     .line 4487
@@ -37,7 +37,7 @@
 .end method
 
 .method static setGroupConversation(Landroid/app/Notification$MessagingStyle;Z)Landroid/app/Notification$MessagingStyle;
-    .locals 1
+    .registers 3
     .param p0, "messagingStyle"    # Landroid/app/Notification$MessagingStyle;
     .param p1, "isGroupConversation"    # Z
 

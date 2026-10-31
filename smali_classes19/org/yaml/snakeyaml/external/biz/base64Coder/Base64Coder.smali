@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 35
     const-string v0, "line.separator"
@@ -39,10 +39,10 @@
     const/16 v2, 0x41
 
     .local v2, "c":C
-    :goto_0
+    :goto_11
     const/16 v3, 0x5a
 
-    if-gt v2, v3, :cond_0
+    if-gt v2, v3, :cond_20
 
     .line 42
     sget-object v3, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->map1:[C
@@ -60,20 +60,20 @@
 
     move v1, v4
 
-    goto :goto_0
+    goto :goto_11
 
     .line 43
     .end local v2    # "c":C
     .end local v4    # "i":I
     .restart local v1    # "i":I
-    :cond_0
+    :cond_20
     const/16 v2, 0x61
 
     .restart local v2    # "c":C
-    :goto_1
+    :goto_22
     const/16 v3, 0x7a
 
-    if-gt v2, v3, :cond_1
+    if-gt v2, v3, :cond_31
 
     .line 44
     sget-object v3, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->map1:[C
@@ -91,20 +91,20 @@
 
     move v1, v4
 
-    goto :goto_1
+    goto :goto_22
 
     .line 45
     .end local v2    # "c":C
     .end local v4    # "i":I
     .restart local v1    # "i":I
-    :cond_1
+    :cond_31
     const/16 v2, 0x30
 
     .restart local v2    # "c":C
-    :goto_2
+    :goto_33
     const/16 v3, 0x39
 
-    if-gt v2, v3, :cond_2
+    if-gt v2, v3, :cond_42
 
     .line 46
     sget-object v3, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->map1:[C
@@ -122,13 +122,13 @@
 
     move v1, v4
 
-    goto :goto_2
+    goto :goto_33
 
     .line 47
     .end local v2    # "c":C
     .end local v4    # "i":I
     .restart local v1    # "i":I
-    :cond_2
+    :cond_42
     sget-object v2, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->map1:[C
 
     add-int/lit8 v3, v1, 0x1
@@ -162,12 +162,12 @@
     const/4 v1, 0x0
 
     .restart local v1    # "i":I
-    :goto_3
+    :goto_59
     sget-object v2, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->map2:[B
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_66
 
     .line 55
     sget-object v2, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->map2:[B
@@ -179,16 +179,16 @@
     .line 54
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
+    goto :goto_59
 
     .line 56
     .end local v1    # "i":I
-    :cond_3
+    :cond_66
     const/4 v1, 0x0
 
     .restart local v1    # "i":I
-    :goto_4
-    if-ge v1, v0, :cond_4
+    :goto_67
+    if-ge v1, v0, :cond_75
 
     .line 57
     sget-object v2, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->map2:[B
@@ -204,16 +204,16 @@
     .line 56
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_67
 
     .line 58
     .end local v1    # "i":I
-    :cond_4
+    :cond_75
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 302
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -223,7 +223,7 @@
 .end method
 
 .method public static decode(Ljava/lang/String;)[B
-    .locals 1
+    .registers 2
     .param p0, "s"    # Ljava/lang/String;
 
     .line 232
@@ -239,7 +239,7 @@
 .end method
 
 .method public static decode([C)[B
-    .locals 2
+    .registers 3
     .param p0, "in"    # [C
 
     .line 246
@@ -255,7 +255,7 @@
 .end method
 
 .method public static decode([CII)[B
-    .locals 18
+    .registers 21
     .param p0, "in"    # [C
     .param p1, "iOff"    # I
     .param p2, "iLen"    # I
@@ -263,15 +263,15 @@
     .line 266
     rem-int/lit8 v0, p2, 0x4
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_b3
 
     move/from16 v0, p2
 
     .line 269
     .end local p2    # "iLen":I
     .local v0, "iLen":I
-    :goto_0
-    if-lez v0, :cond_0
+    :goto_6
+    if-lez v0, :cond_15
 
     add-int v1, p1, v0
 
@@ -281,15 +281,15 @@
 
     const/16 v2, 0x3d
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_15
 
     .line 270
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 271
-    :cond_0
+    :cond_15
     mul-int/lit8 v1, v0, 0x3
 
     div-int/lit8 v1, v1, 0x4
@@ -312,8 +312,8 @@
 
     .line 276
     .local v5, "op":I
-    :goto_1
-    if-ge v3, v4, :cond_7
+    :goto_20
+    if-ge v3, v4, :cond_b2
 
     .line 277
     add-int/lit8 v6, v3, 0x1
@@ -334,7 +334,7 @@
     .local v6, "i1":I
     const/16 v8, 0x41
 
-    if-ge v7, v4, :cond_1
+    if-ge v7, v4, :cond_33
 
     add-int/lit8 v9, v7, 0x1
 
@@ -342,11 +342,11 @@
     .local v9, "ip":I
     aget-char v7, p0, v7
 
-    goto :goto_2
+    goto :goto_36
 
     .end local v9    # "ip":I
     .restart local v7    # "ip":I
-    :cond_1
+    :cond_33
     move v9, v7
 
     const/16 v7, 0x41
@@ -354,8 +354,8 @@
     .line 280
     .local v7, "i2":I
     .restart local v9    # "ip":I
-    :goto_2
-    if-ge v9, v4, :cond_2
+    :goto_36
+    if-ge v9, v4, :cond_3d
 
     add-int/lit8 v8, v9, 0x1
 
@@ -363,11 +363,11 @@
     .local v8, "ip":I
     aget-char v9, p0, v9
 
-    goto :goto_3
+    goto :goto_40
 
     .end local v8    # "ip":I
     .restart local v9    # "ip":I
-    :cond_2
+    :cond_3d
     move v8, v9
 
     const/16 v9, 0x41
@@ -375,18 +375,18 @@
     .line 281
     .restart local v8    # "ip":I
     .local v9, "i3":I
-    :goto_3
+    :goto_40
     const-string v10, "Illegal character in Base64 encoded data."
 
     const/16 v11, 0x7f
 
-    if-gt v3, v11, :cond_6
+    if-gt v3, v11, :cond_a6
 
-    if-gt v6, v11, :cond_6
+    if-gt v6, v11, :cond_a6
 
-    if-gt v7, v11, :cond_6
+    if-gt v7, v11, :cond_a6
 
-    if-gt v9, v11, :cond_6
+    if-gt v9, v11, :cond_a6
 
     .line 283
     sget-object v11, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->map2:[B
@@ -413,13 +413,13 @@
 
     .line 287
     .local v14, "b3":I
-    if-ltz v11, :cond_5
+    if-ltz v11, :cond_9a
 
-    if-ltz v12, :cond_5
+    if-ltz v12, :cond_9a
 
-    if-ltz v13, :cond_5
+    if-ltz v13, :cond_9a
 
-    if-ltz v14, :cond_5
+    if-ltz v14, :cond_9a
 
     .line 289
     shl-int/lit8 v10, v11, 0x2
@@ -469,7 +469,7 @@
     aput-byte v4, v2, v5
 
     .line 293
-    if-ge v3, v1, :cond_3
+    if-ge v3, v1, :cond_8a
 
     .line 294
     add-int/lit8 v4, v3, 0x1
@@ -485,8 +485,8 @@
     .line 295
     .end local v4    # "op":I
     .restart local v3    # "op":I
-    :cond_3
-    if-ge v3, v1, :cond_4
+    :cond_8a
+    if-ge v3, v1, :cond_93
 
     .line 296
     add-int/lit8 v4, v3, 0x1
@@ -499,12 +499,12 @@
 
     move v5, v4
 
-    goto :goto_4
+    goto :goto_94
 
     .line 295
     .end local v4    # "op":I
     .restart local v3    # "op":I
-    :cond_4
+    :cond_93
     move v5, v3
 
     .line 297
@@ -521,14 +521,14 @@
     .end local v15    # "o1":I
     .end local v16    # "i0":I
     .restart local v5    # "op":I
-    :goto_4
+    :goto_94
     move/from16 v0, p2
 
     move v3, v8
 
     move/from16 v4, v17
 
-    goto :goto_1
+    goto :goto_20
 
     .line 287
     .end local v17    # "iEnd":I
@@ -543,7 +543,7 @@
     .restart local v12    # "b1":I
     .restart local v13    # "b2":I
     .restart local v14    # "b3":I
-    :cond_5
+    :cond_9a
     move/from16 p2, v0
 
     move/from16 v16, v3
@@ -574,7 +574,7 @@
     .restart local v0    # "iLen":I
     .restart local v3    # "i0":I
     .restart local v4    # "iEnd":I
-    :cond_6
+    :cond_a6
     move/from16 p2, v0
 
     move/from16 v16, v3
@@ -605,7 +605,7 @@
     .restart local v0    # "iLen":I
     .local v3, "ip":I
     .restart local v4    # "iEnd":I
-    :cond_7
+    :cond_b2
     return-object v2
 
     .line 267
@@ -616,7 +616,7 @@
     .end local v4    # "iEnd":I
     .end local v5    # "op":I
     .restart local p2    # "iLen":I
-    :cond_8
+    :cond_b3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Length of Base64 encoded input string is not a multiple of 4."
@@ -627,7 +627,7 @@
 .end method
 
 .method public static decodeLines(Ljava/lang/String;)[B
-    .locals 5
+    .registers 6
     .param p0, "s"    # Ljava/lang/String;
 
     .line 211
@@ -646,12 +646,12 @@
     const/4 v2, 0x0
 
     .local v2, "ip":I
-    :goto_0
+    :goto_8
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_2a
 
     .line 214
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
@@ -662,19 +662,19 @@
     .local v3, "c":C
     const/16 v4, 0x20
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_27
 
     const/16 v4, 0xd
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_27
 
     const/16 v4, 0xa
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_27
 
     const/16 v4, 0x9
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_27
 
     .line 216
     add-int/lit8 v4, v1, 0x1
@@ -689,14 +689,14 @@
     .end local v3    # "c":C
     .end local v4    # "p":I
     .restart local v1    # "p":I
-    :cond_0
+    :cond_27
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 218
     .end local v2    # "ip":I
-    :cond_1
+    :cond_2a
     const/4 v2, 0x0
 
     invoke-static {v0, v2, v1}, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->decode([CII)[B
@@ -707,7 +707,7 @@
 .end method
 
 .method public static decodeString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "s"    # Ljava/lang/String;
 
     .line 195
@@ -723,7 +723,7 @@
 .end method
 
 .method public static encode([B)[C
-    .locals 2
+    .registers 3
     .param p0, "in"    # [B
 
     .line 129
@@ -739,7 +739,7 @@
 .end method
 
 .method public static encode([BI)[C
-    .locals 1
+    .registers 3
     .param p0, "in"    # [B
     .param p1, "iLen"    # I
 
@@ -754,7 +754,7 @@
 .end method
 
 .method public static encode([BII)[C
-    .locals 15
+    .registers 18
     .param p0, "in"    # [B
     .param p1, "iOff"    # I
     .param p2, "iLen"    # I
@@ -792,8 +792,8 @@
 
     .line 166
     .local v5, "op":I
-    :goto_0
-    if-ge v3, v4, :cond_4
+    :goto_13
+    if-ge v3, v4, :cond_70
 
     .line 167
     add-int/lit8 v6, v3, 0x1
@@ -808,7 +808,7 @@
     .local v3, "i0":I
     const/4 v7, 0x0
 
-    if-ge v6, v4, :cond_0
+    if-ge v6, v4, :cond_25
 
     add-int/lit8 v8, v6, 0x1
 
@@ -818,11 +818,11 @@
 
     and-int/lit16 v6, v6, 0xff
 
-    goto :goto_1
+    goto :goto_27
 
     .end local v8    # "ip":I
     .restart local v6    # "ip":I
-    :cond_0
+    :cond_25
     move v8, v6
 
     const/4 v6, 0x0
@@ -830,8 +830,8 @@
     .line 169
     .local v6, "i1":I
     .restart local v8    # "ip":I
-    :goto_1
-    if-ge v8, v4, :cond_1
+    :goto_27
+    if-ge v8, v4, :cond_30
 
     add-int/lit8 v7, v8, 0x1
 
@@ -841,11 +841,11 @@
 
     and-int/lit16 v8, v8, 0xff
 
-    goto :goto_2
+    goto :goto_32
 
     .end local v7    # "ip":I
     .restart local v8    # "ip":I
-    :cond_1
+    :cond_30
     move v7, v8
 
     const/4 v8, 0x0
@@ -853,7 +853,7 @@
     .line 170
     .restart local v7    # "ip":I
     .local v8, "i2":I
-    :goto_2
+    :goto_32
     ushr-int/lit8 v9, v3, 0x2
 
     .line 171
@@ -906,31 +906,31 @@
     .line 176
     const/16 v13, 0x3d
 
-    if-ge v5, v0, :cond_2
+    if-ge v5, v0, :cond_5d
 
     sget-object v14, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->map1:[C
 
     aget-char v14, v14, v11
 
-    goto :goto_3
+    goto :goto_5f
 
-    :cond_2
+    :cond_5d
     const/16 v14, 0x3d
 
-    :goto_3
+    :goto_5f
     aput-char v14, v2, v5
 
     .line 177
     add-int/lit8 v5, v5, 0x1
 
     .line 178
-    if-ge v5, v0, :cond_3
+    if-ge v5, v0, :cond_69
 
     sget-object v13, Lorg/yaml/snakeyaml/external/biz/base64Coder/Base64Coder;->map1:[C
 
     aget-char v13, v13, v12
 
-    :cond_3
+    :cond_69
     aput-char v13, v2, v5
 
     .line 179
@@ -948,17 +948,17 @@
     .line 180
     move v3, v7
 
-    goto :goto_0
+    goto :goto_13
 
     .line 181
     .end local v7    # "ip":I
     .local v3, "ip":I
-    :cond_4
+    :cond_70
     return-object v2
 .end method
 
 .method public static encodeLines([B)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "in"    # [B
 
     .line 82
@@ -978,7 +978,7 @@
 .end method
 
 .method public static encodeLines([BIIILjava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 12
     .param p0, "in"    # [B
     .param p1, "iOff"    # I
     .param p2, "iLen"    # I
@@ -992,7 +992,7 @@
 
     .line 105
     .local v0, "blockLen":I
-    if-lez v0, :cond_1
+    if-lez v0, :cond_39
 
     .line 107
     add-int v1, p2, v0
@@ -1029,8 +1029,8 @@
 
     .line 111
     .local v4, "ip":I
-    :goto_0
-    if-ge v4, p2, :cond_0
+    :goto_1e
+    if-ge v4, p2, :cond_34
 
     .line 112
     sub-int v5, p2, v4
@@ -1057,10 +1057,10 @@
 
     .line 116
     .end local v5    # "l":I
-    goto :goto_0
+    goto :goto_1e
 
     .line 117
-    :cond_0
+    :cond_34
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
@@ -1072,7 +1072,7 @@
     .end local v2    # "bufLen":I
     .end local v3    # "buf":Ljava/lang/StringBuilder;
     .end local v4    # "ip":I
-    :cond_1
+    :cond_39
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -1081,7 +1081,7 @@
 .end method
 
 .method public static encodeString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "s"    # Ljava/lang/String;
 
     .line 69

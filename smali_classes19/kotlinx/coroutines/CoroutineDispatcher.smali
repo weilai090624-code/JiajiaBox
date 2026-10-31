@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/CoroutineDispatcher$Key;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 32
     sget-object v0, Lkotlin/coroutines/ContinuationInterceptor;->Key:Lkotlin/coroutines/ContinuationInterceptor$Key;
@@ -96,7 +96,7 @@
 .end method
 
 .method public dispatchYield(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -128,7 +128,7 @@
 .end method
 
 .method public final interceptContinuation(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 3
     .param p1, "continuation"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -153,7 +153,7 @@
 .end method
 
 .method public isDispatchNeeded(Lkotlin/coroutines/CoroutineContext;)Z
-    .locals 1
+    .registers 3
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 68
@@ -163,7 +163,7 @@
 .end method
 
 .method public limitedParallelism(I)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 3
     .param p1, "parallelism"    # I
 
     .line 106
@@ -180,7 +180,7 @@
 .end method
 
 .method public minusKey(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -200,7 +200,7 @@
 .end method
 
 .method public final plus(Lkotlinx/coroutines/CoroutineDispatcher;)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 0
+    .registers 2
     .param p1, "other"    # Lkotlinx/coroutines/CoroutineDispatcher;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -212,7 +212,7 @@
 .end method
 
 .method public final releaseInterceptedContinuation(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .param p1, "continuation"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -240,7 +240,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 185
     new-instance v0, Ljava/lang/StringBuilder;

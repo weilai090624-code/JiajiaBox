@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 10
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,12 +86,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_17
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_81
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -121,12 +121,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_36
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_60
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -162,18 +162,18 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_5f
 
     .line 627
-    goto :goto_1
+    goto :goto_36
 
     .line 629
     .end local v6    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Long;Ljava/lang/String;>;"
-    :cond_0
-    goto :goto_1
+    :cond_5f
+    goto :goto_36
 
     .line 630
-    :cond_1
+    :cond_60
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-interface {v4}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -211,10 +211,10 @@
     .end local v3    # "vtmEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/time/format/TextStyle;Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;>;"
     .end local v4    # "reverse":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;"
     .end local v5    # "list":Ljava/util/List;, "Ljava/util/List<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    goto :goto_0
+    goto :goto_17
 
     .line 636
-    :cond_2
+    :cond_81
     invoke-static {}, Lj$/time/format/DateTimeTextProvider;->-$$Nest$sfgetCOMPARATOR()Ljava/util/Comparator;
 
     move-result-object v2
@@ -231,7 +231,7 @@
 
 # virtual methods
 .method getText(JLj$/time/format/TextStyle;)Ljava/lang/String;
-    .locals 2
+    .registers 6
     .param p1, "value"    # J
     .param p3, "style"    # Lj$/time/format/TextStyle;
 
@@ -246,7 +246,7 @@
 
     .line 650
     .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -258,17 +258,17 @@
 
     check-cast v1, Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     return-object v1
 .end method
 
 .method getTextIterator(Lj$/time/format/TextStyle;)Ljava/util/Iterator;
-    .locals 2
+    .registers 4
     .param p1, "style"    # Lj$/time/format/TextStyle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -294,17 +294,17 @@
 
     .line 664
     .local v0, "list":Ljava/util/List;, "Ljava/util/List<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method

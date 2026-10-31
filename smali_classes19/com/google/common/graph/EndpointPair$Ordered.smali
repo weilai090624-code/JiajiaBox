@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TN;)V"
@@ -46,7 +46,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Object;Ljava/lang/Object;Lcom/google/common/graph/EndpointPair$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/lang/Object;
     .param p2, "x1"    # Ljava/lang/Object;
     .param p3, "x2"    # Lcom/google/common/graph/EndpointPair$1;
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -71,24 +71,24 @@
     .local p0, "this":Lcom/google/common/graph/EndpointPair$Ordered;, "Lcom/google/common/graph/EndpointPair$Ordered<TN;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 170
     return v0
 
     .line 172
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/graph/EndpointPair;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 173
     return v2
 
     .line 176
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/common/graph/EndpointPair;
@@ -103,13 +103,13 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_18
 
     .line 178
     return v2
 
     .line 181
-    :cond_2
+    :cond_18
     invoke-virtual {p0}, Lcom/google/common/graph/EndpointPair$Ordered;->source()Ljava/lang/Object;
 
     move-result-object v3
@@ -122,7 +122,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_35
 
     invoke-virtual {p0}, Lcom/google/common/graph/EndpointPair$Ordered;->target()Ljava/lang/Object;
 
@@ -136,19 +136,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_35
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_3
+    :cond_35
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_36
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 186
     .local p0, "this":Lcom/google/common/graph/EndpointPair$Ordered;, "Lcom/google/common/graph/EndpointPair$Ordered<TN;>;"
@@ -180,7 +180,7 @@
 .end method
 
 .method public isOrdered()Z
-    .locals 1
+    .registers 2
 
     .line 164
     .local p0, "this":Lcom/google/common/graph/EndpointPair$Ordered;, "Lcom/google/common/graph/EndpointPair$Ordered<TN;>;"
@@ -190,7 +190,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 147
     .local p0, "this":Lcom/google/common/graph/EndpointPair$Ordered;, "Lcom/google/common/graph/EndpointPair$Ordered<TN;>;"
@@ -202,7 +202,7 @@
 .end method
 
 .method public source()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TN;"
@@ -219,7 +219,7 @@
 .end method
 
 .method public target()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TN;"
@@ -236,7 +236,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 191
     .local p0, "this":Lcom/google/common/graph/EndpointPair$Ordered;, "Lcom/google/common/graph/EndpointPair$Ordered<TN;>;"

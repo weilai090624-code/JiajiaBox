@@ -83,7 +83,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/BiMap;Lcom/google/common/collect/BiMap;)V
-    .locals 1
+    .registers 4
     .param p2    # Lcom/google/common/collect/BiMap;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1607
     .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableBiMap;, "Lcom/google/common/collect/Maps$UnmodifiableBiMap<TK;TV;>;"
@@ -136,7 +136,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -153,7 +153,7 @@
 .end method
 
 .method public forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -183,7 +183,7 @@
 .end method
 
 .method public inverse()Lcom/google/common/collect/BiMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -198,7 +198,7 @@
 
     .line 1634
     .local v0, "result":Lcom/google/common/collect/BiMap;, "Lcom/google/common/collect/BiMap<TV;TK;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 1635
     new-instance v1, Lcom/google/common/collect/Maps$UnmodifiableBiMap;
@@ -213,19 +213,19 @@
 
     iput-object v1, p0, Lcom/google/common/collect/Maps$UnmodifiableBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
-    goto :goto_0
+    goto :goto_13
 
     .line 1636
-    :cond_0
+    :cond_12
     move-object v1, v0
 
     .line 1634
-    :goto_0
+    :goto_13
     return-object v1
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 1607
     .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableBiMap;, "Lcom/google/common/collect/Maps$UnmodifiableBiMap<TK;TV;>;"
@@ -237,7 +237,7 @@
 .end method
 
 .method public values()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -252,7 +252,7 @@
 
     .line 1642
     .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     iget-object v1, p0, Lcom/google/common/collect/Maps$UnmodifiableBiMap;->delegate:Lcom/google/common/collect/BiMap;
 
@@ -266,11 +266,11 @@
 
     iput-object v1, p0, Lcom/google/common/collect/Maps$UnmodifiableBiMap;->values:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     move-object v1, v0
 
-    :goto_0
+    :goto_12
     return-object v1
 .end method

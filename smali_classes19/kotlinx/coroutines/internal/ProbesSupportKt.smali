@@ -27,7 +27,7 @@
 
 # direct methods
 .method public static final probeCoroutineCreated(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 3
     .param p0, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -46,7 +46,7 @@
 
 # direct methods
 .method public static final block(Lkotlin/jvm/functions/Function2;)Lkotlin/jvm/functions/Function2;
-    .locals 1
+    .registers 2
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -81,7 +81,7 @@
 .end method
 
 .method public static final onDefaultDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -118,7 +118,7 @@
 .end method
 
 .method public static final onIoDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -155,7 +155,7 @@
 .end method
 
 .method public static final onMainDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -196,7 +196,7 @@
 .end method
 
 .method public static final runBlockingOnMainDispatcher(Lkotlin/jvm/functions/Function2;)V
-    .locals 3
+    .registers 4
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -236,7 +236,7 @@
 .end method
 
 .method public static final runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
-    .locals 7
+    .registers 8
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -290,7 +290,7 @@
 .end method
 
 .method public static final runOnIoDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
-    .locals 7
+    .registers 8
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -344,7 +344,7 @@
 .end method
 
 .method public static final runOnLifecycleDispatcher(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
-    .locals 7
+    .registers 9
     .param p0, "$this$runOnLifecycleDispatcher"    # Landroidx/fragment/app/Fragment;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -410,7 +410,7 @@
 .end method
 
 .method public static final runOnMainDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
-    .locals 7
+    .registers 8
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 412
     new-instance v0, Landroidx/viewpager2/widget/ViewPager2$SavedState$1;
@@ -49,7 +49,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/os/Parcel;
 
     .line 390
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 0
+    .registers 3
     .param p1, "source"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 395
@@ -91,7 +91,7 @@
 .end method
 
 .method private readValues(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

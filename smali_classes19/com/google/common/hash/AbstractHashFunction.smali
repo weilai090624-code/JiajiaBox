@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public hashBytes(Ljava/nio/ByteBuffer;)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/nio/ByteBuffer;
 
     .line 73
@@ -51,7 +51,7 @@
 .end method
 
 .method public hashBytes([B)Lcom/google/common/hash/HashCode;
-    .locals 2
+    .registers 4
     .param p1, "input"    # [B
 
     .line 62
@@ -67,7 +67,7 @@
 .end method
 
 .method public hashBytes([BII)Lcom/google/common/hash/HashCode;
-    .locals 2
+    .registers 6
     .param p1, "input"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -96,7 +96,7 @@
 .end method
 
 .method public hashInt(I)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 3
     .param p1, "input"    # I
 
     .line 52
@@ -118,7 +118,7 @@
 .end method
 
 .method public hashLong(J)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 4
     .param p1, "input"    # J
 
     .line 57
@@ -140,7 +140,7 @@
 .end method
 
 .method public hashObject(Ljava/lang/Object;Lcom/google/common/hash/Funnel;)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/hash/ParametricNullness;
         .end annotation
@@ -175,7 +175,7 @@
 .end method
 
 .method public hashString(Ljava/lang/CharSequence;Ljava/nio/charset/Charset;)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 4
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public hashUnencodedChars(Ljava/lang/CharSequence;)Lcom/google/common/hash/HashCode;
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/lang/CharSequence;
 
     .line 41
@@ -224,20 +224,20 @@
 .end method
 
 .method public newHasher(I)Lcom/google/common/hash/Hasher;
-    .locals 2
+    .registers 4
     .param p1, "expectedInputSize"    # I
 
     .line 78
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     const-string v1, "expectedInputSize must be >= 0 but was %s"
 
     invoke-static {v0, v1, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V

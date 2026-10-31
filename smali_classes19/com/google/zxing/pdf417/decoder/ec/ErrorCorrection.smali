@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method private findErrorLocations(Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;)[I
-    .locals 5
+    .registers 7
     .param p1, "errorLocator"    # Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -54,23 +54,23 @@
     const/4 v3, 0x1
 
     .local v3, "i":I
-    :goto_0
+    :goto_a
     iget-object v4, p0, Lcom/google/zxing/pdf417/decoder/ec/ErrorCorrection;->field:Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;
 
     invoke-virtual {v4}, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->getSize()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_27
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_27
 
     .line 154
     invoke-virtual {p1, v3}, Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;->evaluateAt(I)I
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_24
 
     .line 155
     iget-object v4, p0, Lcom/google/zxing/pdf417/decoder/ec/ErrorCorrection;->field:Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;
@@ -85,21 +85,21 @@
     add-int/lit8 v2, v2, 0x1
 
     .line 153
-    :cond_0
+    :cond_24
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 159
     .end local v3    # "i":I
-    :cond_1
-    if-ne v2, v1, :cond_2
+    :cond_27
+    if-ne v2, v1, :cond_2a
 
     .line 162
     return-object v0
 
     .line 160
-    :cond_2
+    :cond_2a
     invoke-static {}, Lcom/google/zxing/ChecksumException;->getChecksumInstance()Lcom/google/zxing/ChecksumException;
 
     move-result-object v3
@@ -108,7 +108,7 @@
 .end method
 
 .method private findErrorMagnitudes(Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;[I)[I
-    .locals 10
+    .registers 14
     .param p1, "errorEvaluator"    # Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
     .param p2, "errorLocator"    # Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
     .param p3, "errorLocations"    # [I
@@ -133,8 +133,8 @@
     const/4 v3, 0x1
 
     .local v3, "i":I
-    :goto_0
-    if-gt v3, v2, :cond_0
+    :goto_a
+    if-gt v3, v2, :cond_1d
 
     .line 171
     sub-int v4, v2, v3
@@ -155,11 +155,11 @@
     .line 170
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 174
     .end local v3    # "i":I
-    :cond_0
+    :cond_1d
     new-instance v3, Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
 
     iget-object v4, p0, Lcom/google/zxing/pdf417/decoder/ec/ErrorCorrection;->field:Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;
@@ -181,8 +181,8 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_1
-    if-ge v5, v1, :cond_1
+    :goto_29
+    if-ge v5, v1, :cond_53
 
     .line 180
     iget-object v6, p0, Lcom/google/zxing/pdf417/decoder/ec/ErrorCorrection;->field:Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;
@@ -235,16 +235,16 @@
     .end local v8    # "denominator":I
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_29
 
     .line 185
     .end local v5    # "i":I
-    :cond_1
+    :cond_53
     return-object v4
 .end method
 
 .method private runEuclideanAlgorithm(Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;I)[Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
-    .locals 9
+    .registers 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/ChecksumException;
@@ -260,7 +260,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_f
 
     .line 101
     nop
@@ -276,7 +276,7 @@
     move-object p1, v7
 
     .line 106
-    :cond_0
+    :cond_f
     nop
 
     .line 107
@@ -309,7 +309,7 @@
     move-object v0, v8
 
     .line 112
-    :goto_0
+    :goto_23
     invoke-virtual {p1}, Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;->getDegree()I
 
     move-result v2
@@ -318,7 +318,7 @@
 
     div-int/lit8 v4, p3, 0x2
 
-    if-lt v2, v4, :cond_3
+    if-lt v2, v4, :cond_9d
 
     .line 113
     nop
@@ -337,7 +337,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_98
 
     .line 123
     nop
@@ -366,7 +366,7 @@
     move-result v3
 
     .line 127
-    :goto_1
+    :goto_4b
     invoke-virtual {p2}, Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;->getDegree()I
 
     move-result v4
@@ -375,13 +375,13 @@
 
     move-result v5
 
-    if-lt v4, v5, :cond_1
+    if-lt v4, v5, :cond_85
 
     invoke-virtual {p2}, Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;->isZero()Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_85
 
     .line 128
     invoke-virtual {p2}, Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;->getDegree()I
@@ -430,10 +430,10 @@
     move-result-object p2
 
     .line 132
-    goto :goto_1
+    goto :goto_4b
 
     .line 134
-    :cond_1
+    :cond_85
     invoke-virtual {v2, v0}, Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;->multiply(Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;)Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
 
     move-result-object v2
@@ -459,10 +459,10 @@
 
     move-object v0, v8
 
-    goto :goto_0
+    goto :goto_23
 
     .line 121
-    :cond_2
+    :cond_98
     invoke-static {}, Lcom/google/zxing/ChecksumException;->getChecksumInstance()Lcom/google/zxing/ChecksumException;
 
     move-result-object p1
@@ -470,7 +470,7 @@
     throw p1
 
     .line 137
-    :cond_3
+    :cond_9d
     const/4 p2, 0x0
 
     invoke-virtual {v0, p2}, Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;->getCoefficient(I)I
@@ -478,7 +478,7 @@
     move-result p3
 
     .line 138
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_ba
 
     .line 142
     iget-object v1, p0, Lcom/google/zxing/pdf417/decoder/ec/ErrorCorrection;->field:Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;
@@ -509,7 +509,7 @@
     return-object p3
 
     .line 139
-    :cond_4
+    :cond_ba
     invoke-static {}, Lcom/google/zxing/ChecksumException;->getChecksumInstance()Lcom/google/zxing/ChecksumException;
 
     move-result-object p1
@@ -520,7 +520,7 @@
 
 # virtual methods
 .method public decode([II[I)I
-    .locals 10
+    .registers 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/ChecksumException;
@@ -547,10 +547,10 @@
 
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_d
     const/4 v5, 0x1
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_24
 
     .line 53
     iget-object v6, p0, Lcom/google/zxing/pdf417/decoder/ec/ErrorCorrection;->field:Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;
@@ -569,26 +569,26 @@
     aput v6, v1, v7
 
     .line 55
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_21
 
     .line 56
     const/4 v4, 0x1
 
     .line 52
-    :cond_0
+    :cond_21
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 60
-    :cond_1
-    if-nez v4, :cond_2
+    :cond_24
+    if-nez v4, :cond_27
 
     .line 61
     return v2
 
     .line 64
-    :cond_2
+    :cond_27
     iget-object v0, p0, Lcom/google/zxing/pdf417/decoder/ec/ErrorCorrection;->field:Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;
 
     invoke-virtual {v0}, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->getOne()Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
@@ -596,15 +596,15 @@
     move-result-object v0
 
     .line 65
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_56
 
     .line 66
     array-length v3, p3
 
     const/4 v4, 0x0
 
-    :goto_1
-    if-ge v4, v3, :cond_3
+    :goto_31
+    if-ge v4, v3, :cond_56
 
     aget v6, p3, v4
 
@@ -646,10 +646,10 @@
     .line 66
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
     .line 74
-    :cond_3
+    :cond_56
     new-instance p3, Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
 
     iget-object v0, p0, Lcom/google/zxing/pdf417/decoder/ec/ErrorCorrection;->field:Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;
@@ -687,10 +687,10 @@
     .line 87
     nop
 
-    :goto_2
+    :goto_74
     array-length p3, v0
 
-    if-ge v2, p3, :cond_5
+    if-ge v2, p3, :cond_98
 
     .line 88
     array-length p3, p1
@@ -708,7 +708,7 @@
     sub-int/2addr p3, v1
 
     .line 89
-    if-ltz p3, :cond_4
+    if-ltz p3, :cond_93
 
     .line 92
     iget-object v1, p0, Lcom/google/zxing/pdf417/decoder/ec/ErrorCorrection;->field:Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;
@@ -726,10 +726,10 @@
     .line 87
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_74
 
     .line 90
-    :cond_4
+    :cond_93
     invoke-static {}, Lcom/google/zxing/ChecksumException;->getChecksumInstance()Lcom/google/zxing/ChecksumException;
 
     move-result-object p1
@@ -737,7 +737,7 @@
     throw p1
 
     .line 94
-    :cond_5
+    :cond_98
     array-length p1, v0
 
     return p1

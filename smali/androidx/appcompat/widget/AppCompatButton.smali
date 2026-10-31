@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 72
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -108,12 +108,12 @@
 .end method
 
 .method private getEmojiTextViewHelper()Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
-    .locals 1
+    .registers 2
 
     .line 456
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 457
     new-instance v0, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
@@ -123,7 +123,7 @@
     iput-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     .line 459
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     return-object v0
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method protected drawableStateChanged()V
-    .locals 1
+    .registers 2
 
     .line 170
     invoke-super {p0}, Landroid/widget/Button;->drawableStateChanged()V
@@ -140,7 +140,7 @@
     .line 171
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 172
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
@@ -148,10 +148,10 @@
     invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->applySupportBackgroundTint()V
 
     .line 174
-    :cond_0
+    :cond_c
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 175
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -159,17 +159,17 @@
     invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
     .line 177
-    :cond_1
+    :cond_15
     return-void
 .end method
 
 .method public getAutoSizeMaxTextSize()I
-    .locals 1
+    .registers 2
 
     .line 340
     sget-boolean v0, Landroidx/appcompat/widget/ViewUtils;->SDK_LEVEL_SUPPORTS_AUTOSIZE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 341
     invoke-super {p0}, Landroid/widget/Button;->getAutoSizeMaxTextSize()I
@@ -179,10 +179,10 @@
     return v0
 
     .line 343
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 344
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -194,19 +194,19 @@
     return v0
 
     .line 347
-    :cond_1
+    :cond_14
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public getAutoSizeMinTextSize()I
-    .locals 1
+    .registers 2
 
     .line 324
     sget-boolean v0, Landroidx/appcompat/widget/ViewUtils;->SDK_LEVEL_SUPPORTS_AUTOSIZE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 325
     invoke-super {p0}, Landroid/widget/Button;->getAutoSizeMinTextSize()I
@@ -216,10 +216,10 @@
     return v0
 
     .line 327
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 328
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -231,19 +231,19 @@
     return v0
 
     .line 331
-    :cond_1
+    :cond_14
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public getAutoSizeStepGranularity()I
-    .locals 1
+    .registers 2
 
     .line 308
     sget-boolean v0, Landroidx/appcompat/widget/ViewUtils;->SDK_LEVEL_SUPPORTS_AUTOSIZE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 309
     invoke-super {p0}, Landroid/widget/Button;->getAutoSizeStepGranularity()I
@@ -253,10 +253,10 @@
     return v0
 
     .line 311
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 312
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -268,19 +268,19 @@
     return v0
 
     .line 315
-    :cond_1
+    :cond_14
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public getAutoSizeTextAvailableSizes()[I
-    .locals 1
+    .registers 2
 
     .line 356
     sget-boolean v0, Landroidx/appcompat/widget/ViewUtils;->SDK_LEVEL_SUPPORTS_AUTOSIZE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 357
     invoke-super {p0}, Landroid/widget/Button;->getAutoSizeTextAvailableSizes()[I
@@ -290,10 +290,10 @@
     return-object v0
 
     .line 359
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 360
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -305,7 +305,7 @@
     return-object v0
 
     .line 363
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     new-array v0, v0, [I
@@ -314,14 +314,14 @@
 .end method
 
 .method public getAutoSizeTextType()I
-    .locals 3
+    .registers 4
 
     .line 290
     sget-boolean v0, Landroidx/appcompat/widget/ViewUtils;->SDK_LEVEL_SUPPORTS_AUTOSIZE:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 291
     invoke-super {p0}, Landroid/widget/Button;->getAutoSizeTextType()I
@@ -330,26 +330,26 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_e
 
     .line 292
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 293
-    :cond_0
+    :cond_e
     nop
 
     .line 291
-    :goto_0
+    :goto_f
     return v1
 
     .line 295
-    :cond_1
+    :cond_10
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1b
 
     .line 296
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -361,12 +361,12 @@
     return v0
 
     .line 299
-    :cond_2
+    :cond_1b
     return v1
 .end method
 
 .method public getCustomSelectionActionModeCallback()Landroid/view/ActionMode$Callback;
-    .locals 1
+    .registers 2
 
     .line 395
     nop
@@ -385,12 +385,12 @@
 .end method
 
 .method public getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 136
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 137
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
@@ -399,23 +399,23 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     .line 136
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
 
     .line 164
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 165
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
@@ -424,18 +424,18 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     .line 164
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public getSupportCompoundDrawablesTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 418
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -448,7 +448,7 @@
 .end method
 
 .method public getSupportCompoundDrawablesTintMode()Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
 
     .line 440
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -461,7 +461,7 @@
 .end method
 
 .method public isEmojiCompatEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 476
     invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatButton;->getEmojiTextViewHelper()Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
@@ -476,7 +476,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .line 189
@@ -496,7 +496,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 1
+    .registers 3
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 195
@@ -516,7 +516,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 7
+    .registers 13
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -529,7 +529,7 @@
     .line 202
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 203
     iget-object v1, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -547,12 +547,12 @@
     invoke-virtual/range {v1 .. v6}, Landroidx/appcompat/widget/AppCompatTextHelper;->onLayout(ZIIII)V
 
     .line 205
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method protected onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 2
+    .registers 7
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "lengthBefore"    # I
@@ -564,11 +564,11 @@
     .line 221
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     sget-boolean v0, Landroidx/appcompat/widget/ViewUtils;->SDK_LEVEL_SUPPORTS_AUTOSIZE:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
@@ -577,19 +577,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
     .line 223
     .local v0, "useTextHelper":Z
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_16
+    if-eqz v0, :cond_1d
 
     .line 224
     iget-object v1, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -597,12 +597,12 @@
     invoke-virtual {v1}, Landroidx/appcompat/widget/AppCompatTextHelper;->autoSizeText()V
 
     .line 226
-    :cond_1
+    :cond_1d
     return-void
 .end method
 
 .method public setAllCaps(Z)V
-    .locals 1
+    .registers 3
     .param p1, "allCaps"    # Z
 
     .line 464
@@ -620,7 +620,7 @@
 .end method
 
 .method public setAutoSizeTextTypeUniformWithConfiguration(IIII)V
-    .locals 1
+    .registers 6
     .param p1, "autoSizeMinTextSize"    # I
     .param p2, "autoSizeMaxTextSize"    # I
     .param p3, "autoSizeStepGranularity"    # I
@@ -634,18 +634,18 @@
     .line 254
     sget-boolean v0, Landroidx/appcompat/widget/ViewUtils;->SDK_LEVEL_SUPPORTS_AUTOSIZE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 255
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/Button;->setAutoSizeTextTypeUniformWithConfiguration(IIII)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 258
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 259
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -653,13 +653,13 @@
     invoke-virtual {v0, p1, p2, p3, p4}, Landroidx/appcompat/widget/AppCompatTextHelper;->setAutoSizeTextTypeUniformWithConfiguration(IIII)V
 
     .line 263
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     return-void
 .end method
 
 .method public setAutoSizeTextTypeUniformWithPresetSizes([II)V
-    .locals 1
+    .registers 4
     .param p1, "presetSizes"    # [I
     .param p2, "unit"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -671,18 +671,18 @@
     .line 272
     sget-boolean v0, Landroidx/appcompat/widget/ViewUtils;->SDK_LEVEL_SUPPORTS_AUTOSIZE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 273
     invoke-super {p0, p1, p2}, Landroid/widget/Button;->setAutoSizeTextTypeUniformWithPresetSizes([II)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 275
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 276
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -690,30 +690,30 @@
     invoke-virtual {v0, p1, p2}, Landroidx/appcompat/widget/AppCompatTextHelper;->setAutoSizeTextTypeUniformWithPresetSizes([II)V
 
     .line 279
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     return-void
 .end method
 
 .method public setAutoSizeTextTypeWithDefaults(I)V
-    .locals 1
+    .registers 3
     .param p1, "autoSizeTextType"    # I
 
     .line 235
     sget-boolean v0, Landroidx/appcompat/widget/ViewUtils;->SDK_LEVEL_SUPPORTS_AUTOSIZE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 236
     invoke-super {p0, p1}, Landroid/widget/Button;->setAutoSizeTextTypeWithDefaults(I)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 238
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 239
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -721,13 +721,13 @@
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->setAutoSizeTextTypeWithDefaults(I)V
 
     .line 242
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     return-void
 .end method
 
 .method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "background"    # Landroid/graphics/drawable/Drawable;
 
     .line 106
@@ -736,7 +736,7 @@
     .line 107
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 108
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
@@ -744,12 +744,12 @@
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->onSetBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 110
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setBackgroundResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 98
@@ -758,7 +758,7 @@
     .line 99
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 100
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
@@ -766,12 +766,12 @@
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->onSetBackgroundResource(I)V
 
     .line 102
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
-    .locals 1
+    .registers 3
     .param p1, "actionModeCallback"    # Landroid/view/ActionMode$Callback;
 
     .line 388
@@ -790,7 +790,7 @@
 .end method
 
 .method public setEmojiCompatEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "enabled"    # Z
 
     .line 471
@@ -805,7 +805,7 @@
 .end method
 
 .method public setFilters([Landroid/text/InputFilter;)V
-    .locals 1
+    .registers 3
     .param p1, "filters"    # [Landroid/text/InputFilter;
 
     .line 446
@@ -824,13 +824,13 @@
 .end method
 
 .method public setSupportAllCaps(Z)V
-    .locals 1
+    .registers 3
     .param p1, "allCaps"    # Z
 
     .line 376
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 377
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -838,18 +838,18 @@
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->setAllCaps(Z)V
 
     .line 379
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
     .line 121
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 122
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
@@ -857,18 +857,18 @@
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
     .line 124
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 1
+    .registers 3
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 149
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 150
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
@@ -876,12 +876,12 @@
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
     .line 152
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setSupportCompoundDrawablesTintList(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
     .line 406
@@ -899,7 +899,7 @@
 .end method
 
 .method public setSupportCompoundDrawablesTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 1
+    .registers 3
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 428
@@ -917,7 +917,7 @@
 .end method
 
 .method public setTextAppearance(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "resId"    # I
 
@@ -927,7 +927,7 @@
     .line 182
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 183
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -935,30 +935,30 @@
     invoke-virtual {v0, p1, p2}, Landroidx/appcompat/widget/AppCompatTextHelper;->onSetTextAppearance(Landroid/content/Context;I)V
 
     .line 185
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setTextSize(IF)V
-    .locals 1
+    .registers 4
     .param p1, "unit"    # I
     .param p2, "size"    # F
 
     .line 209
     sget-boolean v0, Landroidx/appcompat/widget/ViewUtils;->SDK_LEVEL_SUPPORTS_AUTOSIZE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 210
     invoke-super {p0, p1, p2}, Landroid/widget/Button;->setTextSize(IF)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 212
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 213
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
@@ -966,7 +966,7 @@
     invoke-virtual {v0, p1, p2}, Landroidx/appcompat/widget/AppCompatTextHelper;->setTextSize(IF)V
 
     .line 216
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     return-void
 .end method

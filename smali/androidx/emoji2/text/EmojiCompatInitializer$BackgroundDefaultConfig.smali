@@ -16,7 +16,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 150

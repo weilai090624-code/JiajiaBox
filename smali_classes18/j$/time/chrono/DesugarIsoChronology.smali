@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 104
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public static epochSecond(Lj$/time/chrono/IsoChronology;IIIIIILj$/time/ZoneOffset;)J
-    .locals 16
+    .registers 24
     .param p0, "receiver"    # Lj$/time/chrono/IsoChronology;
     .param p1, "prolepticYear"    # I
     .param p2, "month"    # I
@@ -92,7 +92,7 @@
     .line 135
     const/16 v6, 0x1c
 
-    if-le v2, v6, :cond_1
+    if-le v2, v6, :cond_95
 
     .line 136
     invoke-static/range {p1 .. p2}, Lj$/time/chrono/DesugarIsoChronology;->numberOfDaysOfMonth(II)I
@@ -101,12 +101,12 @@
 
     .line 137
     .local v6, "dom":I
-    if-le v2, v6, :cond_1
+    if-le v2, v6, :cond_95
 
     .line 138
     const/16 v8, 0x1d
 
-    if-ne v2, v8, :cond_0
+    if-ne v2, v8, :cond_64
 
     .line 139
     new-instance v8, Lj$/time/DateTimeException;
@@ -140,7 +140,7 @@
     throw v8
 
     .line 141
-    :cond_0
+    :cond_64
     new-instance v8, Lj$/time/DateTimeException;
 
     invoke-static/range {p2 .. p2}, Lj$/time/Month;->of(I)Lj$/time/Month;
@@ -191,7 +191,7 @@
 
     .line 146
     .end local v6    # "dom":I
-    :cond_1
+    :cond_95
     const-wide/16 v8, 0x0
 
     .line 147
@@ -209,7 +209,7 @@
     add-long/2addr v8, v12
 
     .line 149
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_b9
 
     .line 150
     int-to-long v10, v0
@@ -248,10 +248,10 @@
 
     add-long/2addr v8, v10
 
-    goto :goto_0
+    goto :goto_c3
 
     .line 152
-    :cond_2
+    :cond_b9
     div-int/lit8 v10, v0, -0x4
 
     div-int/lit8 v11, v0, -0x64
@@ -267,7 +267,7 @@
     sub-long/2addr v8, v10
 
     .line 154
-    :goto_0
+    :goto_c3
     mul-int/lit16 v10, v1, 0x16f
 
     add-int/lit16 v10, v10, -0x16a
@@ -288,7 +288,7 @@
     .line 156
     const/4 v10, 0x2
 
-    if-le v1, v10, :cond_3
+    if-le v1, v10, :cond_df
 
     .line 157
     const-wide/16 v10, 0x1
@@ -304,13 +304,13 @@
 
     move-result v12
 
-    if-nez v12, :cond_3
+    if-nez v12, :cond_df
 
     .line 159
     sub-long/2addr v8, v10
 
     .line 162
-    :cond_3
+    :cond_df
     const-wide/32 v10, 0xafaa8
 
     sub-long/2addr v8, v10
@@ -349,31 +349,31 @@
 .end method
 
 .method private static numberOfDaysOfMonth(II)I
-    .locals 3
+    .registers 5
     .param p0, "year"    # I
     .param p1, "month"    # I
 
     .line 176
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_1a
 
     .line 187
     const/16 v0, 0x1f
 
     .local v0, "dom":I
-    goto :goto_1
+    goto :goto_18
 
     .line 184
     .end local v0    # "dom":I
-    :sswitch_0
+    :sswitch_6
     const/16 v0, 0x1e
 
     .line 185
     .restart local v0    # "dom":I
-    goto :goto_1
+    goto :goto_18
 
     .line 178
     .end local v0    # "dom":I
-    :sswitch_1
+    :sswitch_9
     sget-object v0, Lj$/time/chrono/IsoChronology;->INSTANCE:Lj$/time/chrono/IsoChronology;
 
     int-to-long v1, p0
@@ -382,32 +382,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     const/16 v0, 0x1d
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/16 v0, 0x1c
 
     .line 179
     .restart local v0    # "dom":I
-    :goto_0
+    :goto_17
     nop
 
     .line 190
-    :goto_1
+    :goto_18
     return v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_1a
     .sparse-switch
-        0x2 -> :sswitch_1
-        0x4 -> :sswitch_0
-        0x6 -> :sswitch_0
-        0x9 -> :sswitch_0
-        0xb -> :sswitch_0
+        0x2 -> :sswitch_9
+        0x4 -> :sswitch_6
+        0x6 -> :sswitch_6
+        0x9 -> :sswitch_6
+        0xb -> :sswitch_6
     .end sparse-switch
 .end method

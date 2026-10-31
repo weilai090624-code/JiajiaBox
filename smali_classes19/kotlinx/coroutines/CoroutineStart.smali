@@ -75,7 +75,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lkotlinx/coroutines/CoroutineStart;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x4
 
@@ -109,7 +109,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 37
     new-instance v0, Lkotlinx/coroutines/CoroutineStart;
@@ -165,7 +165,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -181,13 +181,13 @@
 .end method
 
 .method public static synthetic isLazy$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lkotlinx/coroutines/CoroutineStart;
-    .locals 1
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/CoroutineStart;
 
@@ -201,7 +201,7 @@
 .end method
 
 .method public static values()[Lkotlinx/coroutines/CoroutineStart;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lkotlinx/coroutines/CoroutineStart;->$VALUES:[Lkotlinx/coroutines/CoroutineStart;
 
@@ -217,7 +217,7 @@
 
 # virtual methods
 .method public final invoke(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
-    .locals 2
+    .registers 5
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .param p2, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -245,7 +245,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1e
 
     .line 94
     new-instance v0, Lkotlin/NoWhenBranchMatchedException;
@@ -254,40 +254,40 @@
 
     throw v0
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_11
+    goto :goto_1d
 
     .line 93
-    :pswitch_1
+    :pswitch_12
     invoke-static {p1, p2}, Lkotlinx/coroutines/intrinsics/UndispatchedKt;->startCoroutineUndispatched(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 92
-    :pswitch_2
+    :pswitch_16
     invoke-static {p1, p2}, Lkotlin/coroutines/ContinuationKt;->startCoroutine(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 91
-    :pswitch_3
+    :pswitch_1a
     invoke-static {p1, p2}, Lkotlinx/coroutines/intrinsics/CancellableKt;->startCoroutineCancellable(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
 
     .line 95
-    :goto_0
+    :goto_1d
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_16
+        :pswitch_12
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public final invoke(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
-    .locals 7
+    .registers 11
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "receiver"    # Ljava/lang/Object;
     .param p3, "completion"    # Lkotlin/coroutines/Continuation;
@@ -318,7 +318,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     .line 113
     new-instance v0, Lkotlin/NoWhenBranchMatchedException;
@@ -327,23 +327,23 @@
 
     throw v0
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_11
+    goto :goto_23
 
     .line 112
-    :pswitch_1
+    :pswitch_12
     invoke-static {p1, p2, p3}, Lkotlinx/coroutines/intrinsics/UndispatchedKt;->startCoroutineUndispatched(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 111
-    :pswitch_2
+    :pswitch_16
     invoke-static {p1, p2, p3}, Lkotlin/coroutines/ContinuationKt;->startCoroutine(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 110
-    :pswitch_3
+    :pswitch_1a
     const/4 v5, 0x4
 
     const/4 v6, 0x0
@@ -359,33 +359,33 @@
     invoke-static/range {v1 .. v6}, Lkotlinx/coroutines/intrinsics/CancellableKt;->startCoroutineCancellable$default(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 
     .line 114
-    :goto_0
+    :goto_23
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_16
+        :pswitch_12
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public final isLazy()Z
-    .locals 1
+    .registers 2
 
     .line 122
     sget-object v0, Lkotlinx/coroutines/CoroutineStart;->LAZY:Lkotlinx/coroutines/CoroutineStart;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method

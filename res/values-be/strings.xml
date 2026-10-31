@@ -50,8 +50,8 @@
     <string name="call_notification_incoming_text">Уваходны выклік</string>
     <string name="call_notification_ongoing_text">Бягучы выклік</string>
     <string name="call_notification_screening_text">Фільтраванне ўваходнага выкліку</string>
-    <string name="character_counter_content_description" formatted="false">Уведзена сімвалаў: %1$d з %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Абмежаванне колькасці сімвалаў перавышана: %1$d з %2$d</string>
+    <string name="character_counter_content_description">Уведзена сімвалаў: %1$d з %2$d</string>
+    <string name="character_counter_overflowed_content_description">Абмежаванне колькасці сімвалаў перавышана: %1$d з %2$d</string>
     <string name="clear_text_end_icon_content_description">Ачысціць тэкст</string>
     <string name="connection_test_available">Поспех: поціск рукі HTTPS заняў %dms</string>
     <string name="connection_test_available_http">Поспех: поціск рукі HTTP заняў %dms</string>
@@ -147,7 +147,7 @@
     <string name="mtrl_picker_out_of_range">Па-за межамі дыяпазону: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Дата пачатку – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – дата заканчэння</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Выберыце дыяпазон дат</string>
     <string name="mtrl_picker_range_header_unselected">Дата пачатку – дата заканчэння</string>
     <string name="mtrl_picker_save">Захаваць</string>
@@ -200,11 +200,11 @@
     <string name="show_stop">Паказаць кнопку прыпынку</string>
     <string name="show_stop_sum">Калі вы не хочаце выкарыстоўваць кнопку панэлі апавяшчэнняў у якасці пераключальніка злучэння</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"Проксі : %1$s↑ %2$s↓ 
+    <string name="speed_detail">"Проксі : %1$s↑ %2$s↓ 
 Прамая : %3$s↑ %4$s↓"</string>
     <string name="speed_interval">Інтэрвал абнаўлення апавяшчэнняў аб хуткасці</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="telegram">Канал абнаўлення тэлеграм</string>
     <string name="theme">Тэма</string>
     <string name="tile_title">Перамыкач</string>

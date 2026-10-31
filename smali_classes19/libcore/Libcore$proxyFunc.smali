@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public final incRefnum()I
-    .locals 1
+    .registers 2
 
     .line 45
     iget v0, p0, Llibcore/Libcore$proxyFunc;->refnum:I

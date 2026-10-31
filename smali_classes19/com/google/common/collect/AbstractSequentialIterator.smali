@@ -33,7 +33,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -70,27 +70,27 @@
 .end method
 
 .method public final hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 65
     .local p0, "this":Lcom/google/common/collect/AbstractSequentialIterator;, "Lcom/google/common/collect/AbstractSequentialIterator<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractSequentialIterator;->nextOrNull:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public final next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -101,7 +101,7 @@
     .local p0, "this":Lcom/google/common/collect/AbstractSequentialIterator;, "Lcom/google/common/collect/AbstractSequentialIterator<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractSequentialIterator;->nextOrNull:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 73
     iget-object v0, p0, Lcom/google/common/collect/AbstractSequentialIterator;->nextOrNull:Ljava/lang/Object;
@@ -119,7 +119,7 @@
 
     .line 71
     .end local v0    # "oldNext":Ljava/lang/Object;, "TT;"
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

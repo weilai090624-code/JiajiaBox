@@ -27,7 +27,7 @@
 
 # direct methods
 .method public static final buildSingBoxOutboundSSHBean(Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;)Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_SSHOptions;
-    .locals 5
+    .registers 6
     .param p0, "bean"    # Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;
 
     const-string v0, "bean"
@@ -78,7 +78,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_36
 
     .line 13
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->publicKey:Ljava/lang/String;
@@ -92,22 +92,22 @@
     iput-object v3, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_SSHOptions;->host_key:Ljava/util/List;
 
     .line 15
-    :cond_0
+    :cond_36
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->authType:Ljava/lang/Integer;
 
     .line 16
-    if-nez v3, :cond_1
+    if-nez v3, :cond_3b
 
-    goto :goto_0
+    goto :goto_4b
 
-    :cond_1
+    :cond_3b
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_4b
 
     .line 17
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->privateKey:Ljava/lang/String;
@@ -119,17 +119,17 @@
 
     iput-object v3, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_SSHOptions;->private_key_passphrase:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 21
-    :cond_2
-    :goto_0
+    :cond_4b
+    :goto_4b
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->password:Ljava/lang/String;
 
     iput-object v3, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_SSHOptions;->password:Ljava/lang/String;
 
     .line 24
-    :goto_1
+    :goto_4f
     nop
 
     .line 7

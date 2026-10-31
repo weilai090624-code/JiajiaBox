@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 102
+    .registers 102
 
     .line 65
     const/16 v0, 0x651
@@ -12594,12 +12594,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_30e7
     sget-object v1, Lj$/time/format/ZoneName;->zidMap:[Ljava/lang/String;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_310f
 
     .line 998
     sget-object v1, Lj$/time/format/ZoneName;->zidToMzone:Ljava/util/Map;
@@ -12636,20 +12636,20 @@
     .line 997
     add-int/lit8 v0, v0, 0x3
 
-    goto :goto_0
+    goto :goto_30e7
 
     .line 1002
     .end local v0    # "i":I
-    :cond_0
+    :cond_310f
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_1
+    :goto_3110
     sget-object v1, Lj$/time/format/ZoneName;->mzoneMap:[Ljava/lang/String;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_3140
 
     .line 1003
     sget-object v1, Lj$/time/format/ZoneName;->mzoneMap:[Ljava/lang/String;
@@ -12668,7 +12668,7 @@
 
     .line 1005
     .local v2, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    if-nez v2, :cond_1
+    if-nez v2, :cond_312e
 
     .line 1006
     new-instance v3, Ljava/util/HashMap;
@@ -12683,7 +12683,7 @@
     invoke-interface {v3, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1009
-    :cond_1
+    :cond_312e
     sget-object v3, Lj$/time/format/ZoneName;->mzoneMap:[Ljava/lang/String;
 
     add-int/lit8 v4, v0, 0x1
@@ -12703,20 +12703,20 @@
     .end local v2    # "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     add-int/lit8 v0, v0, 0x3
 
-    goto :goto_1
+    goto :goto_3110
 
     .line 1012
     .end local v0    # "i":I
-    :cond_2
+    :cond_3140
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_2
+    :goto_3141
     sget-object v1, Lj$/time/format/ZoneName;->aliasMap:[Ljava/lang/String;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_3158
 
     .line 1013
     sget-object v1, Lj$/time/format/ZoneName;->aliases:Ljava/util/Map;
@@ -12736,16 +12736,16 @@
     .line 1012
     add-int/lit8 v0, v0, 0x2
 
-    goto :goto_2
+    goto :goto_3141
 
     .line 1015
     .end local v0    # "i":I
-    :cond_3
+    :cond_3158
     return-void
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -12754,7 +12754,7 @@
 .end method
 
 .method public static getSystemCanonicalID(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "zid"    # Ljava/lang/String;
 
     .line 1019
@@ -12768,7 +12768,7 @@
 .end method
 
 .method public static toZid(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "zid"    # Ljava/lang/String;
 
     .line 59
@@ -12778,7 +12778,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 60
     sget-object v0, Lj$/time/format/ZoneName;->aliases:Ljava/util/Map;
@@ -12792,12 +12792,12 @@
     return-object v0
 
     .line 62
-    :cond_0
+    :cond_11
     return-object p0
 .end method
 
 .method public static toZid(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "zid"    # Ljava/lang/String;
     .param p1, "locale"    # Ljava/util/Locale;
 
@@ -12812,7 +12812,7 @@
 
     .line 43
     .local v0, "mzone":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_24
 
     sget-object v1, Lj$/time/format/ZoneName;->aliases:Ljava/util/Map;
 
@@ -12820,7 +12820,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     .line 44
     sget-object v1, Lj$/time/format/ZoneName;->aliases:Ljava/util/Map;
@@ -12845,8 +12845,8 @@
     check-cast v0, Ljava/lang/String;
 
     .line 47
-    :cond_0
-    if-eqz v0, :cond_2
+    :cond_24
+    if-eqz v0, :cond_4f
 
     .line 48
     sget-object v1, Lj$/time/format/ZoneName;->mzoneToZidL:Ljava/util/Map;
@@ -12859,7 +12859,7 @@
 
     .line 49
     .local v1, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_46
 
     invoke-virtual {p1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
@@ -12869,7 +12869,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_46
 
     .line 50
     invoke-virtual {p1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
@@ -12884,10 +12884,10 @@
 
     check-cast p0, Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 52
-    :cond_1
+    :cond_46
     sget-object v2, Lj$/time/format/ZoneName;->mzoneToZid:Ljava/util/Map;
 
     invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -12900,8 +12900,8 @@
 
     .line 55
     .end local v1    # "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    :cond_2
-    :goto_0
+    :cond_4f
+    :goto_4f
     invoke-static {p0}, Lj$/time/format/ZoneName;->toZid(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1

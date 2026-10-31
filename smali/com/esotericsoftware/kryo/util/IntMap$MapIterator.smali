@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/IntMap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method findNextIndex()V
-    .locals 4
+    .registers 5
 
     .line 498
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;, "Lcom/esotericsoftware/kryo/util/IntMap$MapIterator<TV;>;"
@@ -95,7 +95,7 @@
     array-length v1, v0
 
     .local v1, "n":I
-    :cond_0
+    :cond_5
     iget v2, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->nextIndex:I
 
     const/4 v3, 0x1
@@ -104,14 +104,14 @@
 
     iput v2, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->nextIndex:I
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_16
 
     .line 500
     iget v2, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->nextIndex:I
 
     aget v2, v0, v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_5
 
     .line 501
     iput-boolean v3, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->hasNext:Z
@@ -121,7 +121,7 @@
 
     .line 505
     .end local v1    # "n":I
-    :cond_1
+    :cond_16
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->hasNext:Z
@@ -131,7 +131,7 @@
 .end method
 
 .method public remove()V
-    .locals 10
+    .registers 11
 
     .line 509
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;, "Lcom/esotericsoftware/kryo/util/IntMap$MapIterator<TV;>;"
@@ -143,24 +143,24 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->map:Lcom/esotericsoftware/kryo/util/IntMap;
 
     iget-boolean v1, v1, Lcom/esotericsoftware/kryo/util/IntMap;->hasZeroValue:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 511
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->map:Lcom/esotericsoftware/kryo/util/IntMap;
 
     iput-boolean v2, v1, Lcom/esotericsoftware/kryo/util/IntMap;->hasZeroValue:Z
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 512
-    :cond_0
-    if-ltz v0, :cond_4
+    :cond_11
+    if-ltz v0, :cond_59
 
     .line 515
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->map:Lcom/esotericsoftware/kryo/util/IntMap;
@@ -186,13 +186,13 @@
 
     .line 518
     .local v5, "next":I
-    :goto_0
+    :goto_22
     aget v6, v1, v5
 
     move v7, v6
 
     .local v7, "key":I
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_41
 
     .line 519
     iget-object v6, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->map:Lcom/esotericsoftware/kryo/util/IntMap;
@@ -211,7 +211,7 @@
 
     and-int/2addr v9, v4
 
-    if-le v8, v9, :cond_1
+    if-le v8, v9, :cond_3c
 
     .line 521
     aput v7, v1, v0
@@ -225,23 +225,23 @@
     move v0, v5
 
     .line 525
-    :cond_1
+    :cond_3c
     add-int/lit8 v8, v5, 0x1
 
     and-int v5, v8, v4
 
     .line 526
     .end local v6    # "placement":I
-    goto :goto_0
+    goto :goto_22
 
     .line 527
-    :cond_2
+    :cond_41
     aput v2, v1, v0
 
     .line 528
     iget v2, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->currentIndex:I
 
-    if-eq v0, v2, :cond_3
+    if-eq v0, v2, :cond_4d
 
     iget v2, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->nextIndex:I
 
@@ -255,8 +255,8 @@
     .end local v4    # "mask":I
     .end local v5    # "next":I
     .end local v7    # "key":I
-    :cond_3
-    :goto_1
+    :cond_4d
+    :goto_4d
     const/4 v1, -0x2
 
     iput v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->currentIndex:I
@@ -274,7 +274,7 @@
     return-void
 
     .line 513
-    :cond_4
+    :cond_59
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "next must be called before remove."
@@ -285,7 +285,7 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 489
     .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;, "Lcom/esotericsoftware/kryo/util/IntMap$MapIterator<TV;>;"
@@ -303,20 +303,20 @@
 
     iget-boolean v0, v0, Lcom/esotericsoftware/kryo/util/IntMap;->hasZeroValue:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 492
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->hasNext:Z
 
-    goto :goto_0
+    goto :goto_13
 
     .line 494
-    :cond_0
+    :cond_10
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->findNextIndex()V
 
     .line 495
-    :goto_0
+    :goto_13
     return-void
 .end method

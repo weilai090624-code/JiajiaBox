@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 593
     new-instance v0, Lj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;
@@ -92,7 +92,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -106,7 +106,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 591
@@ -122,7 +122,7 @@
 .end method
 
 .method public static values()[Lj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;
-    .locals 1
+    .registers 1
 
     .line 591
     sget-object v0, Lj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;->$VALUES:[Lj$/time/zone/ZoneOffsetTransitionRule$TimeDefinition;
@@ -139,7 +139,7 @@
 
 # virtual methods
 .method public createDateTime(Lj$/time/LocalDateTime;Lj$/time/ZoneOffset;Lj$/time/ZoneOffset;)Lj$/time/LocalDateTime;
-    .locals 3
+    .registers 7
     .param p1, "dateTime"    # Lj$/time/LocalDateTime;
     .param p2, "standardOffset"    # Lj$/time/ZoneOffset;
     .param p3, "wallOffset"    # Lj$/time/ZoneOffset;
@@ -153,13 +153,13 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2c
 
     .line 627
     return-object p1
 
     .line 623
-    :pswitch_0
+    :pswitch_c
     invoke-virtual {p3}, Lj$/time/ZoneOffset;->getTotalSeconds()I
 
     move-result v0
@@ -182,7 +182,7 @@
 
     .line 619
     .end local v0    # "difference":I
-    :pswitch_1
+    :pswitch_1b
     invoke-virtual {p3}, Lj$/time/ZoneOffset;->getTotalSeconds()I
 
     move-result v0
@@ -205,9 +205,9 @@
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_c
     .end packed-switch
 .end method

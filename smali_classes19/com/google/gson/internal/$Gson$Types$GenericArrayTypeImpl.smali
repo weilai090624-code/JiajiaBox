@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Type;)V
-    .locals 1
+    .registers 3
     .param p1, "componentType"    # Ljava/lang/reflect/Type;
 
     .line 551
@@ -48,13 +48,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 560
     instance-of v0, p1, Ljava/lang/reflect/GenericArrayType;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     move-object v0, p1
 
@@ -65,22 +65,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     .line 560
-    :goto_0
+    :goto_10
     return v0
 .end method
 
 .method public getGenericComponentType()Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 556
     iget-object v0, p0, Lcom/google/gson/internal/$Gson$Types$GenericArrayTypeImpl;->componentType:Ljava/lang/reflect/Type;
@@ -89,7 +89,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 565
     iget-object v0, p0, Lcom/google/gson/internal/$Gson$Types$GenericArrayTypeImpl;->componentType:Ljava/lang/reflect/Type;
@@ -102,7 +102,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 569
     new-instance v0, Ljava/lang/StringBuilder;

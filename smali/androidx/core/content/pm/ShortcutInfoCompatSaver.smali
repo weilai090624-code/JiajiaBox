@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     .local p0, "this":Landroidx/core/content/pm/ShortcutInfoCompatSaver;, "Landroidx/core/content/pm/ShortcutInfoCompatSaver<TT;>;"
@@ -45,7 +45,7 @@
 .end method
 
 .method public getShortcuts()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

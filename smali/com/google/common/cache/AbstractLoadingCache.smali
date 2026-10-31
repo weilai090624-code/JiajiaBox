@@ -27,7 +27,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 46
     .local p0, "this":Lcom/google/common/cache/AbstractLoadingCache;, "Lcom/google/common/cache/AbstractLoadingCache<TK;TV;>;"
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -57,7 +57,7 @@
 .end method
 
 .method public getAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,12 +87,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -104,7 +104,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1f
 
     .line 62
     invoke-virtual {p0, v2}, Lcom/google/common/cache/AbstractLoadingCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -115,11 +115,11 @@
 
     .line 64
     .end local v2    # "key":Ljava/lang/Object;, "TK;"
-    :cond_0
-    goto :goto_0
+    :cond_1f
+    goto :goto_8
 
     .line 65
-    :cond_1
+    :cond_20
     invoke-static {v0}, Lcom/google/common/collect/ImmutableMap;->copyOf(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v1
@@ -128,7 +128,7 @@
 .end method
 
 .method public getUnchecked(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -142,13 +142,13 @@
     invoke-virtual {p0, p1}, Lcom/google/common/cache/AbstractLoadingCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 52
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 53
@@ -165,7 +165,7 @@
 .end method
 
 .method public refresh(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)V"

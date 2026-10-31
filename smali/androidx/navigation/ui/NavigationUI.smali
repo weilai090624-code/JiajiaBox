@@ -72,7 +72,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$1sqJbtlWBAAC0HXGgbrjLlGWgSA(Landroidx/navigation/NavController;Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/navigation/ui/NavigationUI;->setupWithNavController$lambda-6(Landroidx/navigation/NavController;Landroid/view/MenuItem;)Z
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$IRzLwRnBBGHwah2fsYlzmdIJYZY(Landroidx/navigation/NavController;Lcom/google/android/material/navigation/NavigationView;Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/navigation/ui/NavigationUI;->setupWithNavController$lambda-3(Landroidx/navigation/NavController;Lcom/google/android/material/navigation/NavigationView;Landroid/view/MenuItem;)Z
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$QcYBOrsob1nifGtsZCMWoN3tgHk(Landroidx/navigation/NavController;ZLcom/google/android/material/navigation/NavigationView;Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Landroidx/navigation/ui/NavigationUI;->setupWithNavController$lambda-5(Landroidx/navigation/NavController;ZLcom/google/android/material/navigation/NavigationView;Landroid/view/MenuItem;)Z
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$TnTLNFUJDuafYGNp4J_-mRG_txw(Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/navigation/ui/NavigationUI;->setupWithNavController$lambda-2(Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;Landroid/view/View;)V
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$cE5oTznTJ0FC0ZLTvYnUIo28B44(Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/navigation/ui/NavigationUI;->setupWithNavController$lambda-1(Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;Landroid/view/View;)V
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$mKrxDVb8L23ibWH1wlfxt4sLIEk(Landroidx/navigation/NavController;ZLandroid/view/MenuItem;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/navigation/ui/NavigationUI;->setupWithNavController$lambda-8(Landroidx/navigation/NavController;ZLandroid/view/MenuItem;)Z
 
@@ -128,7 +128,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/navigation/ui/NavigationUI;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -149,7 +149,7 @@
 .end method
 
 .method public static final findBottomSheetBehavior(Landroid/view/View;)Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-    .locals 4
+    .registers 5
     .param p0, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -179,7 +179,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_21
 
     .line 570
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -190,7 +190,7 @@
     .local v1, "parent":Landroid/view/ViewParent;
     instance-of v3, v1, Landroid/view/View;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1f
 
     .line 572
     move-object v2, v1
@@ -201,19 +201,19 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_20
 
     .line 573
-    :cond_0
+    :cond_1f
     nop
 
     .line 571
-    :goto_0
+    :goto_20
     return-object v2
 
     .line 575
     .end local v1    # "parent":Landroid/view/ViewParent;
-    :cond_1
+    :cond_21
     move-object v1, v0
 
     check-cast v1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
@@ -230,28 +230,28 @@
     .local v1, "behavior":Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;
     instance-of v3, v1, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_31
 
     .line 579
     move-object v3, v2
 
     check-cast v3, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
-    goto :goto_1
+    goto :goto_34
 
     .line 580
-    :cond_2
+    :cond_31
     move-object v2, v1
 
     check-cast v2, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     .line 577
-    :goto_1
+    :goto_34
     return-object v2
 .end method
 
 .method public static final matchDestination$navigation_ui_release(Landroidx/navigation/NavDestination;I)Z
-    .locals 9
+    .registers 11
     .param p0, "$this$matchDestination"    # Landroidx/navigation/NavDestination;
     .param p1, "destId"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -277,14 +277,14 @@
 
     move-result-object v2
 
-    :cond_0
+    :cond_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -306,33 +306,33 @@
 
     const/4 v8, 0x1
 
-    if-ne v7, p1, :cond_1
+    if-ne v7, p1, :cond_27
 
     const/4 v4, 0x1
 
     .end local v5    # "it":Landroidx/navigation/NavDestination;
     .end local v6    # "$i$a$-any-NavigationUI$matchDestination$1":I
-    :cond_1
-    if-eqz v4, :cond_0
+    :cond_27
+    if-eqz v4, :cond_10
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 702
     .end local v3    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_2b
     nop
 
     .line 689
     .end local v0    # "$this$any$iv":Lkotlin/sequences/Sequence;
     .end local v1    # "$i$f$any":I
-    :goto_0
+    :goto_2c
     return v4
 .end method
 
 .method public static final matchDestinations$navigation_ui_release(Landroidx/navigation/NavDestination;Ljava/util/Set;)Z
-    .locals 7
+    .registers 9
     .param p0, "$this$matchDestinations"    # Landroidx/navigation/NavDestination;
     .param p1, "destinationIds"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -372,12 +372,12 @@
 
     move-result-object v2
 
-    :cond_0
+    :cond_15
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_33
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -407,26 +407,26 @@
 
     .end local v4    # "it":Landroidx/navigation/NavDestination;
     .end local v5    # "$i$a$-any-NavigationUI$matchDestinations$1":I
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_15
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_34
 
     .line 704
     .end local v3    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_33
     const/4 v2, 0x0
 
     .line 698
     .end local v0    # "$this$any$iv":Lkotlin/sequences/Sequence;
     .end local v1    # "$i$f$any":I
-    :goto_0
+    :goto_34
     return v2
 .end method
 
 .method public static final navigateUp(Landroidx/navigation/NavController;Landroidx/customview/widget/Openable;)Z
-    .locals 2
+    .registers 4
     .param p0, "navController"    # Landroidx/navigation/NavController;
     .param p1, "openableLayout"    # Landroidx/customview/widget/Openable;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -471,7 +471,7 @@
 .end method
 
 .method public static final navigateUp(Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)Z
-    .locals 5
+    .registers 7
     .param p0, "navController"    # Landroidx/navigation/NavController;
     .param p1, "configuration"    # Landroidx/navigation/ui/AppBarConfiguration;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -506,16 +506,16 @@
     .local v2, "topLevelDestinations":Ljava/util/Set;
     const/4 v3, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     .line 209
     invoke-static {v1, v2}, Landroidx/navigation/ui/NavigationUI;->matchDestinations$navigation_ui_release(Landroidx/navigation/NavDestination;Ljava/util/Set;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_26
 
     .line 211
     invoke-interface {v0}, Landroidx/customview/widget/Openable;->open()V
@@ -527,40 +527,40 @@
     return v3
 
     .line 214
-    :cond_0
+    :cond_26
     invoke-virtual {p0}, Landroidx/navigation/NavController;->navigateUp()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2d
 
     .line 215
-    goto :goto_0
+    goto :goto_39
 
     .line 216
-    :cond_1
+    :cond_2d
     invoke-virtual {p1}, Landroidx/navigation/ui/AppBarConfiguration;->getFallbackOnNavigateUpListener()Landroidx/navigation/ui/AppBarConfiguration$OnNavigateUpListener;
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_38
 
     invoke-interface {v3}, Landroidx/navigation/ui/AppBarConfiguration$OnNavigateUpListener;->onNavigateUp()Z
 
     move-result v3
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_2
+    :cond_38
     const/4 v3, 0x0
 
     .line 214
-    :goto_0
+    :goto_39
     return v3
 .end method
 
 .method public static final onNavDestinationSelected(Landroid/view/MenuItem;Landroidx/navigation/NavController;)Z
-    .locals 6
+    .registers 8
     .param p0, "item"    # Landroid/view/MenuItem;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -616,7 +616,7 @@
 
     instance-of v2, v2, Landroidx/navigation/ActivityNavigator$Destination;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4b
 
     .line 72
     sget v2, Landroidx/navigation/ui/R$anim;->nav_default_enter_anim:I
@@ -644,10 +644,10 @@
 
     invoke-virtual {v2, v3}, Landroidx/navigation/NavOptions$Builder;->setPopExitAnim(I)Landroidx/navigation/NavOptions$Builder;
 
-    goto :goto_0
+    goto :goto_62
 
     .line 77
-    :cond_0
+    :cond_4b
     sget v2, Landroidx/navigation/ui/R$animator;->nav_default_enter_anim:I
 
     invoke-virtual {v0, v2}, Landroidx/navigation/NavOptions$Builder;->setEnterAnim(I)Landroidx/navigation/NavOptions$Builder;
@@ -674,7 +674,7 @@
     invoke-virtual {v2, v3}, Landroidx/navigation/NavOptions$Builder;->setPopExitAnim(I)Landroidx/navigation/NavOptions$Builder;
 
     .line 82
-    :goto_0
+    :goto_62
     invoke-interface {p0}, Landroid/view/MenuItem;->getOrder()I
 
     move-result v2
@@ -685,7 +685,7 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_80
 
     .line 83
     nop
@@ -715,7 +715,7 @@
     invoke-virtual {v0, v2, v3, v1}, Landroidx/navigation/NavOptions$Builder;->setPopUpTo(IZZ)Landroidx/navigation/NavOptions$Builder;
 
     .line 89
-    :cond_1
+    :cond_80
     invoke-virtual {v0}, Landroidx/navigation/NavOptions$Builder;->build()Landroidx/navigation/NavOptions;
 
     move-result-object v2
@@ -725,7 +725,7 @@
     nop
 
     .line 92
-    :try_start_0
+    :try_start_85
     invoke-interface {p0}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v4
@@ -739,7 +739,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_9e
 
     invoke-interface {p0}, Landroid/view/MenuItem;->getItemId()I
 
@@ -748,23 +748,23 @@
     invoke-static {v4, v5}, Landroidx/navigation/ui/NavigationUI;->matchDestination$navigation_ui_release(Landroidx/navigation/NavDestination;I)Z
 
     move-result v4
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9b
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_85 .. :try_end_9b} :catch_a1
 
-    if-ne v4, v1, :cond_2
+    if-ne v4, v1, :cond_9e
 
-    goto :goto_1
+    goto :goto_9f
 
-    :cond_2
+    :cond_9e
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_9f
     move v3, v1
 
-    goto :goto_2
+    goto :goto_a3
 
     .line 95
-    :catch_0
+    :catch_a1
     move-exception v1
 
     .line 96
@@ -773,12 +773,12 @@
 
     .line 90
     .end local v1    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_2
+    :goto_a3
     return v3
 .end method
 
 .method public static final onNavDestinationSelected(Landroid/view/MenuItem;Landroidx/navigation/NavController;Z)Z
-    .locals 8
+    .registers 11
     .param p0, "item"    # Landroid/view/MenuItem;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .param p2, "saveState"    # Z
@@ -797,7 +797,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 128
-    if-nez p2, :cond_3
+    if-nez p2, :cond_a6
 
     .line 132
     new-instance v0, Landroidx/navigation/NavOptions$Builder;
@@ -837,7 +837,7 @@
 
     instance-of v2, v2, Landroidx/navigation/ActivityNavigator$Destination;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_49
 
     .line 137
     sget v2, Landroidx/navigation/ui/R$anim;->nav_default_enter_anim:I
@@ -865,10 +865,10 @@
 
     invoke-virtual {v2, v3}, Landroidx/navigation/NavOptions$Builder;->setPopExitAnim(I)Landroidx/navigation/NavOptions$Builder;
 
-    goto :goto_0
+    goto :goto_60
 
     .line 142
-    :cond_0
+    :cond_49
     sget v2, Landroidx/navigation/ui/R$animator;->nav_default_enter_anim:I
 
     invoke-virtual {v0, v2}, Landroidx/navigation/NavOptions$Builder;->setEnterAnim(I)Landroidx/navigation/NavOptions$Builder;
@@ -895,7 +895,7 @@
     invoke-virtual {v2, v3}, Landroidx/navigation/NavOptions$Builder;->setPopExitAnim(I)Landroidx/navigation/NavOptions$Builder;
 
     .line 147
-    :goto_0
+    :goto_60
     invoke-interface {p0}, Landroid/view/MenuItem;->getOrder()I
 
     move-result v2
@@ -904,7 +904,7 @@
 
     and-int/2addr v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_81
 
     .line 148
     nop
@@ -941,7 +941,7 @@
     invoke-static/range {v2 .. v7}, Landroidx/navigation/NavOptions$Builder;->setPopUpTo$default(Landroidx/navigation/NavOptions$Builder;IZZILjava/lang/Object;)Landroidx/navigation/NavOptions$Builder;
 
     .line 153
-    :cond_1
+    :cond_81
     invoke-virtual {v0}, Landroidx/navigation/NavOptions$Builder;->build()Landroidx/navigation/NavOptions;
 
     move-result-object v2
@@ -953,7 +953,7 @@
     .line 156
     const/4 v3, 0x0
 
-    :try_start_0
+    :try_start_87
     invoke-interface {p0}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v4
@@ -967,7 +967,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_a0
 
     invoke-interface {p0}, Landroid/view/MenuItem;->getItemId()I
 
@@ -976,23 +976,23 @@
     invoke-static {v4, v5}, Landroidx/navigation/ui/NavigationUI;->matchDestination$navigation_ui_release(Landroidx/navigation/NavDestination;I)Z
 
     move-result v4
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9d
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_87 .. :try_end_9d} :catch_a3
 
-    if-ne v4, v1, :cond_2
+    if-ne v4, v1, :cond_a0
 
-    goto :goto_1
+    goto :goto_a1
 
-    :cond_2
+    :cond_a0
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_a1
     move v3, v1
 
-    goto :goto_2
+    goto :goto_a5
 
     .line 159
-    :catch_0
+    :catch_a3
     move-exception v1
 
     .line 160
@@ -1001,13 +1001,13 @@
 
     .line 154
     .end local v1    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_2
+    :goto_a5
     return v3
 
     .line 128
     .end local v0    # "builder":Landroidx/navigation/NavOptions$Builder;
     .end local v2    # "options":Landroidx/navigation/NavOptions;
-    :cond_3
+    :cond_a6
     const/4 v0, 0x0
 
     .line 129
@@ -1030,7 +1030,7 @@
 .end method
 
 .method public static final setupActionBarWithNavController(Landroidx/appcompat/app/AppCompatActivity;Landroidx/navigation/NavController;)V
-    .locals 2
+    .registers 4
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -1052,7 +1052,7 @@
 .end method
 
 .method public static final setupActionBarWithNavController(Landroidx/appcompat/app/AppCompatActivity;Landroidx/navigation/NavController;Landroidx/customview/widget/Openable;)V
-    .locals 2
+    .registers 5
     .param p0, "activity"    # Landroidx/appcompat/app/AppCompatActivity;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .param p2, "openableLayout"    # Landroidx/customview/widget/Openable;
@@ -1103,7 +1103,7 @@
 .end method
 
 .method public static final setupActionBarWithNavController(Landroidx/appcompat/app/AppCompatActivity;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)V
-    .locals 1
+    .registers 4
     .param p0, "activity"    # Landroidx/appcompat/app/AppCompatActivity;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .param p2, "configuration"    # Landroidx/navigation/ui/AppBarConfiguration;
@@ -1140,12 +1140,12 @@
 .end method
 
 .method public static synthetic setupActionBarWithNavController$default(Landroidx/appcompat/app/AppCompatActivity;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 278
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_11
 
     .line 282
     new-instance p2, Landroidx/navigation/ui/AppBarConfiguration$Builder;
@@ -1161,14 +1161,14 @@
     move-result-object p2
 
     .line 278
-    :cond_0
+    :cond_11
     invoke-static {p0, p1, p2}, Landroidx/navigation/ui/NavigationUI;->setupActionBarWithNavController(Landroidx/appcompat/app/AppCompatActivity;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)V
 
     return-void
 .end method
 
 .method public static final setupWithNavController(Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;)V
-    .locals 2
+    .registers 4
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -1190,7 +1190,7 @@
 .end method
 
 .method public static final setupWithNavController(Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/customview/widget/Openable;)V
-    .locals 2
+    .registers 5
     .param p0, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .param p2, "openableLayout"    # Landroidx/customview/widget/Openable;
@@ -1241,7 +1241,7 @@
 .end method
 
 .method public static final setupWithNavController(Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)V
-    .locals 1
+    .registers 4
     .param p0, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .param p2, "configuration"    # Landroidx/navigation/ui/AppBarConfiguration;
@@ -1285,7 +1285,7 @@
 .end method
 
 .method public static final setupWithNavController(Lcom/google/android/material/appbar/CollapsingToolbarLayout;Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;)V
-    .locals 7
+    .registers 10
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -1319,7 +1319,7 @@
 .end method
 
 .method public static final setupWithNavController(Lcom/google/android/material/appbar/CollapsingToolbarLayout;Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/customview/widget/Openable;)V
-    .locals 2
+    .registers 6
     .param p0, "collapsingToolbarLayout"    # Lcom/google/android/material/appbar/CollapsingToolbarLayout;
     .param p1, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p2, "navController"    # Landroidx/navigation/NavController;
@@ -1372,7 +1372,7 @@
 .end method
 
 .method public static final setupWithNavController(Lcom/google/android/material/appbar/CollapsingToolbarLayout;Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)V
-    .locals 1
+    .registers 5
     .param p0, "collapsingToolbarLayout"    # Lcom/google/android/material/appbar/CollapsingToolbarLayout;
     .param p1, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p2, "navController"    # Landroidx/navigation/NavController;
@@ -1425,7 +1425,7 @@
 .end method
 
 .method public static final setupWithNavController(Lcom/google/android/material/navigation/NavigationBarView;Landroidx/navigation/NavController;)V
-    .locals 2
+    .registers 4
     .param p0, "navigationBarView"    # Lcom/google/android/material/navigation/NavigationBarView;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -1470,7 +1470,7 @@
 .end method
 
 .method public static final setupWithNavController(Lcom/google/android/material/navigation/NavigationBarView;Landroidx/navigation/NavController;Z)V
-    .locals 2
+    .registers 5
     .param p0, "navigationBarView"    # Lcom/google/android/material/navigation/NavigationBarView;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .param p2, "saveState"    # Z
@@ -1489,7 +1489,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 653
-    if-nez p2, :cond_0
+    if-nez p2, :cond_25
 
     .line 657
     new-instance v0, Landroidx/navigation/ui/NavigationUI$$ExternalSyntheticLambda0;
@@ -1522,7 +1522,7 @@
 
     .line 653
     .end local v0    # "weakReference":Ljava/lang/ref/WeakReference;
-    :cond_0
+    :cond_25
     const/4 v0, 0x0
 
     .line 654
@@ -1545,7 +1545,7 @@
 .end method
 
 .method public static final setupWithNavController(Lcom/google/android/material/navigation/NavigationView;Landroidx/navigation/NavController;)V
-    .locals 2
+    .registers 4
     .param p0, "navigationView"    # Lcom/google/android/material/navigation/NavigationView;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -1590,7 +1590,7 @@
 .end method
 
 .method public static final setupWithNavController(Lcom/google/android/material/navigation/NavigationView;Landroidx/navigation/NavController;Z)V
-    .locals 2
+    .registers 5
     .param p0, "navigationView"    # Lcom/google/android/material/navigation/NavigationView;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .param p2, "saveState"    # Z
@@ -1609,7 +1609,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 521
-    if-nez p2, :cond_0
+    if-nez p2, :cond_25
 
     .line 525
     new-instance v0, Landroidx/navigation/ui/NavigationUI$$ExternalSyntheticLambda2;
@@ -1642,7 +1642,7 @@
 
     .line 521
     .end local v0    # "weakReference":Ljava/lang/ref/WeakReference;
-    :cond_0
+    :cond_25
     const/4 v0, 0x0
 
     .line 522
@@ -1665,12 +1665,12 @@
 .end method
 
 .method public static synthetic setupWithNavController$default(Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 343
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_11
 
     .line 347
     new-instance p2, Landroidx/navigation/ui/AppBarConfiguration$Builder;
@@ -1686,19 +1686,19 @@
     move-result-object p2
 
     .line 343
-    :cond_0
+    :cond_11
     invoke-static {p0, p1, p2}, Landroidx/navigation/ui/NavigationUI;->setupWithNavController(Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)V
 
     return-void
 .end method
 
 .method public static synthetic setupWithNavController$default(Lcom/google/android/material/appbar/CollapsingToolbarLayout;Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;ILjava/lang/Object;)V
-    .locals 0
+    .registers 6
 
     .line 417
     and-int/lit8 p4, p4, 0x8
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_11
 
     .line 422
     new-instance p3, Landroidx/navigation/ui/AppBarConfiguration$Builder;
@@ -1714,14 +1714,14 @@
     move-result-object p3
 
     .line 417
-    :cond_0
+    :cond_11
     invoke-static {p0, p1, p2, p3}, Landroidx/navigation/ui/NavigationUI;->setupWithNavController(Lcom/google/android/material/appbar/CollapsingToolbarLayout;Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)V
 
     return-void
 .end method
 
 .method private static final setupWithNavController$lambda-1(Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p0, "$navController"    # Landroidx/navigation/NavController;
     .param p1, "$configuration"    # Landroidx/navigation/ui/AppBarConfiguration;
     .param p2, "it"    # Landroid/view/View;
@@ -1741,7 +1741,7 @@
 .end method
 
 .method private static final setupWithNavController$lambda-2(Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p0, "$navController"    # Landroidx/navigation/NavController;
     .param p1, "$configuration"    # Landroidx/navigation/ui/AppBarConfiguration;
     .param p2, "it"    # Landroid/view/View;
@@ -1761,7 +1761,7 @@
 .end method
 
 .method private static final setupWithNavController$lambda-3(Landroidx/navigation/NavController;Lcom/google/android/material/navigation/NavigationView;Landroid/view/MenuItem;)Z
-    .locals 4
+    .registers 7
     .param p0, "$navController"    # Landroidx/navigation/NavController;
     .param p1, "$navigationView"    # Lcom/google/android/material/navigation/NavigationView;
     .param p2, "item"    # Landroid/view/MenuItem;
@@ -1785,7 +1785,7 @@
 
     .line 458
     .local v0, "handled":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 459
     invoke-virtual {p1}, Lcom/google/android/material/navigation/NavigationView;->getParent()Landroid/view/ViewParent;
@@ -1796,7 +1796,7 @@
     .local v1, "parent":Landroid/view/ViewParent;
     instance-of v2, v1, Landroidx/customview/widget/Openable;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_24
 
     .line 461
     move-object v2, v1
@@ -1805,10 +1805,10 @@
 
     invoke-interface {v2}, Landroidx/customview/widget/Openable;->close()V
 
-    goto :goto_0
+    goto :goto_31
 
     .line 463
-    :cond_0
+    :cond_24
     move-object v2, p1
 
     check-cast v2, Landroid/view/View;
@@ -1819,7 +1819,7 @@
 
     .line 464
     .local v2, "bottomSheetBehavior":Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_31
 
     .line 465
     const/4 v3, 0x5
@@ -1829,13 +1829,13 @@
     .line 469
     .end local v1    # "parent":Landroid/view/ViewParent;
     .end local v2    # "bottomSheetBehavior":Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-    :cond_1
-    :goto_0
+    :cond_31
+    :goto_31
     return v0
 .end method
 
 .method private static final setupWithNavController$lambda-5(Landroidx/navigation/NavController;ZLcom/google/android/material/navigation/NavigationView;Landroid/view/MenuItem;)Z
-    .locals 4
+    .registers 8
     .param p0, "$navController"    # Landroidx/navigation/NavController;
     .param p1, "$saveState"    # Z
     .param p2, "$navigationView"    # Lcom/google/android/material/navigation/NavigationView;
@@ -1860,7 +1860,7 @@
 
     .line 527
     .local v0, "handled":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 528
     invoke-virtual {p2}, Lcom/google/android/material/navigation/NavigationView;->getParent()Landroid/view/ViewParent;
@@ -1871,7 +1871,7 @@
     .local v1, "parent":Landroid/view/ViewParent;
     instance-of v2, v1, Landroidx/customview/widget/Openable;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_24
 
     .line 530
     move-object v2, v1
@@ -1880,10 +1880,10 @@
 
     invoke-interface {v2}, Landroidx/customview/widget/Openable;->close()V
 
-    goto :goto_0
+    goto :goto_31
 
     .line 532
-    :cond_0
+    :cond_24
     move-object v2, p2
 
     check-cast v2, Landroid/view/View;
@@ -1894,7 +1894,7 @@
 
     .line 533
     .local v2, "bottomSheetBehavior":Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_31
 
     .line 534
     const/4 v3, 0x5
@@ -1904,13 +1904,13 @@
     .line 538
     .end local v1    # "parent":Landroid/view/ViewParent;
     .end local v2    # "bottomSheetBehavior":Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-    :cond_1
-    :goto_0
+    :cond_31
+    :goto_31
     return v0
 .end method
 
 .method private static final setupWithNavController$lambda-6(Landroidx/navigation/NavController;Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 3
     .param p0, "$navController"    # Landroidx/navigation/NavController;
     .param p1, "item"    # Landroid/view/MenuItem;
 
@@ -1937,7 +1937,7 @@
 .end method
 
 .method private static final setupWithNavController$lambda-8(Landroidx/navigation/NavController;ZLandroid/view/MenuItem;)Z
-    .locals 1
+    .registers 4
     .param p0, "$navController"    # Landroidx/navigation/NavController;
     .param p1, "$saveState"    # Z
     .param p2, "item"    # Landroid/view/MenuItem;

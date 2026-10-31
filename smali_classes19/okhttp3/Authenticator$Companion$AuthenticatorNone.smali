@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 131
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public authenticate(Lokhttp3/Route;Lokhttp3/Response;)Lokhttp3/Request;
-    .locals 1
+    .registers 4
     .param p1, "route"    # Lokhttp3/Route;
     .param p2, "response"    # Lokhttp3/Response;
 

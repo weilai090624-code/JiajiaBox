@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1386
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getNotificationChannel(Landroid/app/NotificationManager;Ljava/lang/String;Ljava/lang/String;)Landroid/app/NotificationChannel;
-    .locals 1
+    .registers 4
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .param p1, "channelId"    # Ljava/lang/String;
     .param p2, "conversationId"    # Ljava/lang/String;
@@ -39,7 +39,7 @@
 .end method
 
 .method static getParentChannelId(Landroid/app/NotificationChannel;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "notificationChannel"    # Landroid/app/NotificationChannel;
 
     .line 1390

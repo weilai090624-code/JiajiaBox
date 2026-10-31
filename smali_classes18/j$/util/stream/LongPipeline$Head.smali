@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;IZ)V
-    .locals 0
+    .registers 4
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -48,7 +48,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/function/Supplier;IZ)V
-    .locals 0
+    .registers 4
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public forEach(Ljava/util/function/LongConsumer;)V
-    .locals 1
+    .registers 3
     .param p1, "action"    # Ljava/util/function/LongConsumer;
 
     .line 576
@@ -83,7 +83,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 577
     invoke-virtual {p0}, Lj$/util/stream/LongPipeline$Head;->sourceStageSpliterator()Lj$/util/Spliterator;
@@ -96,19 +96,19 @@
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator$OfLong;->forEachRemaining(Ljava/util/function/LongConsumer;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 579
-    :cond_0
+    :cond_12
     invoke-super {p0, p1}, Lj$/util/stream/LongPipeline;->forEach(Ljava/util/function/LongConsumer;)V
 
     .line 581
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public forEachOrdered(Ljava/util/function/LongConsumer;)V
-    .locals 1
+    .registers 3
     .param p1, "action"    # Ljava/util/function/LongConsumer;
 
     .line 585
@@ -117,7 +117,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 586
     invoke-virtual {p0}, Lj$/util/stream/LongPipeline$Head;->sourceStageSpliterator()Lj$/util/Spliterator;
@@ -130,19 +130,19 @@
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator$OfLong;->forEachRemaining(Ljava/util/function/LongConsumer;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 588
-    :cond_0
+    :cond_12
     invoke-super {p0, p1}, Lj$/util/stream/LongPipeline;->forEachOrdered(Ljava/util/function/LongConsumer;)V
 
     .line 590
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 534
     .local p0, "this":Lj$/util/stream/LongPipeline$Head;, "Ljava/util/stream/LongPipeline$Head<TE_IN;>;"
@@ -154,7 +154,7 @@
 .end method
 
 .method bridge synthetic lazySpliterator(Ljava/util/function/Supplier;)Lj$/util/Spliterator;
-    .locals 0
+    .registers 2
 
     .line 534
     .local p0, "this":Lj$/util/stream/LongPipeline$Head;, "Ljava/util/stream/LongPipeline$Head<TE_IN;>;"
@@ -166,7 +166,7 @@
 .end method
 
 .method final opIsStateful()Z
-    .locals 1
+    .registers 2
 
     .line 564
     .local p0, "this":Lj$/util/stream/LongPipeline$Head;, "Ljava/util/stream/LongPipeline$Head<TE_IN;>;"
@@ -178,7 +178,7 @@
 .end method
 
 .method final opWrapSink(ILj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 1
+    .registers 4
     .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -202,7 +202,7 @@
 .end method
 
 .method public bridge synthetic parallel()Lj$/util/stream/LongStream;
-    .locals 1
+    .registers 2
 
     .line 534
     .local p0, "this":Lj$/util/stream/LongPipeline$Head;, "Ljava/util/stream/LongPipeline$Head<TE_IN;>;"
@@ -216,7 +216,7 @@
 .end method
 
 .method public bridge synthetic sequential()Lj$/util/stream/LongStream;
-    .locals 1
+    .registers 2
 
     .line 534
     .local p0, "this":Lj$/util/stream/LongPipeline$Head;, "Ljava/util/stream/LongPipeline$Head<TE_IN;>;"
@@ -230,7 +230,7 @@
 .end method
 
 .method public bridge synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 534
     .local p0, "this":Lj$/util/stream/LongPipeline$Head;, "Ljava/util/stream/LongPipeline$Head<TE_IN;>;"
@@ -242,7 +242,7 @@
 .end method
 
 .method public bridge synthetic unordered()Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
     .line 534
     .local p0, "this":Lj$/util/stream/LongPipeline$Head;, "Ljava/util/stream/LongPipeline$Head<TE_IN;>;"

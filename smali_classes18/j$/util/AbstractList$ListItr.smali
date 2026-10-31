@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/AbstractList;I)V
-    .locals 1
+    .registers 4
     .param p2, "index"    # I
 
     .line 404
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -66,7 +66,7 @@
     invoke-virtual {p0}, Lj$/util/AbstractList$ListItr;->checkForComodification()V
 
     .line 450
-    :try_start_0
+    :try_start_3
     iget v0, p0, Lj$/util/AbstractList$ListItr;->cursor:I
 
     .line 451
@@ -91,8 +91,8 @@
     iget v1, v1, Lj$/util/AbstractList;->modCount:I
 
     iput v1, p0, Lj$/util/AbstractList$ListItr;->expectedModCount:I
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_3 .. :try_end_17} :catch_19
 
     .line 457
     .end local v0    # "i":I
@@ -102,7 +102,7 @@
     return-void
 
     .line 455
-    :catch_0
+    :catch_19
     move-exception v0
 
     .line 456
@@ -115,27 +115,27 @@
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 409
     .local p0, "this":Lj$/util/AbstractList$ListItr;, "Ljava/util/AbstractList<TE;>.ListItr;"
     iget v0, p0, Lj$/util/AbstractList$ListItr;->cursor:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public nextIndex()I
-    .locals 1
+    .registers 2
 
     .line 426
     .local p0, "this":Lj$/util/AbstractList$ListItr;, "Ljava/util/AbstractList<TE;>.ListItr;"
@@ -145,7 +145,7 @@
 .end method
 
 .method public previous()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -157,7 +157,7 @@
     invoke-virtual {p0}, Lj$/util/AbstractList$ListItr;->checkForComodification()V
 
     .line 415
-    :try_start_0
+    :try_start_3
     iget v0, p0, Lj$/util/AbstractList$ListItr;->cursor:I
 
     add-int/lit8 v0, v0, -0x1
@@ -175,8 +175,8 @@
     iput v0, p0, Lj$/util/AbstractList$ListItr;->cursor:I
 
     iput v0, p0, Lj$/util/AbstractList$ListItr;->lastRet:I
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_3 .. :try_end_11} :catch_12
 
     .line 418
     return-object v1
@@ -184,7 +184,7 @@
     .line 419
     .end local v0    # "i":I
     .end local v1    # "previous":Ljava/lang/Object;, "TE;"
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 420
@@ -200,7 +200,7 @@
 .end method
 
 .method public previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 430
     .local p0, "this":Lj$/util/AbstractList$ListItr;, "Ljava/util/AbstractList<TE;>.ListItr;"
@@ -212,7 +212,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -224,13 +224,13 @@
     .local p1, "e":Ljava/lang/Object;, "TE;"
     iget v0, p0, Lj$/util/AbstractList$ListItr;->lastRet:I
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1d
 
     .line 436
     invoke-virtual {p0}, Lj$/util/AbstractList$ListItr;->checkForComodification()V
 
     .line 439
-    :try_start_0
+    :try_start_7
     iget-object v0, p0, Lj$/util/AbstractList$ListItr;->this$0:Lj$/util/AbstractList;
 
     iget v1, p0, Lj$/util/AbstractList$ListItr;->lastRet:I
@@ -243,8 +243,8 @@
     iget v0, v0, Lj$/util/AbstractList;->modCount:I
 
     iput v0, p0, Lj$/util/AbstractList$ListItr;->expectedModCount:I
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_7 .. :try_end_14} :catch_16
 
     .line 443
     nop
@@ -253,7 +253,7 @@
     return-void
 
     .line 441
-    :catch_0
+    :catch_16
     move-exception v0
 
     .line 442
@@ -266,7 +266,7 @@
 
     .line 435
     .end local v0    # "ex":Ljava/lang/IndexOutOfBoundsException;
-    :cond_0
+    :cond_1d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     .local p0, "this":Lcom/google/common/collect/BaseImmutableMultimap;, "Lcom/google/common/collect/BaseImmutableMultimap<TK;TV;>;"

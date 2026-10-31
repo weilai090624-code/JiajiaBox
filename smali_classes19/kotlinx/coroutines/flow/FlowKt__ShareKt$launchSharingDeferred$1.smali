@@ -89,7 +89,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CompletableDeferred;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -191,7 +191,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -200,7 +200,7 @@
     .line 337
     iget v1, p0, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharingDeferred$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_4e
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -210,28 +210,28 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharingDeferred$1;
     .local p1, "$result":Ljava/lang/Object;
-    :try_start_0
+    :try_start_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_12 .. :try_end_15} :catchall_16
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 347
-    :catchall_0
+    :catchall_16
     move-exception v1
 
-    goto :goto_1
+    goto :goto_47
 
     .line 337
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharingDeferred$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_18
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -247,7 +247,7 @@
     nop
 
     .line 339
-    :try_start_1
+    :try_start_21
     new-instance v3, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     invoke-direct {v3}, Lkotlin/jvm/internal/Ref$ObjectRef;-><init>()V
@@ -275,23 +275,23 @@
     invoke-interface {v4, v5, v6}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_3b
+    .catchall {:try_start_21 .. :try_end_3b} :catchall_43
 
     .end local v2    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .end local v3    # "state":Lkotlin/jvm/internal/Ref$ObjectRef;
-    if-ne v4, v0, :cond_0
+    if-ne v4, v0, :cond_3e
 
     .line 337
     return-object v0
 
     .line 340
-    :cond_0
+    :cond_3e
     move-object v0, v1
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharingDeferred$1;
     .restart local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharingDeferred$1;
-    :goto_0
+    :goto_3f
     nop
 
     .line 353
@@ -302,7 +302,7 @@
     .line 347
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharingDeferred$1;
     .restart local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharingDeferred$1;
-    :catchall_1
+    :catchall_43
     move-exception v0
 
     move-object v8, v1
@@ -314,7 +314,7 @@
     .line 349
     .restart local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharingDeferred$1;
     .local v1, "e":Ljava/lang/Throwable;
-    :goto_1
+    :goto_47
     iget-object v2, v0, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharingDeferred$1;->$result:Lkotlinx/coroutines/CompletableDeferred;
 
     invoke-interface {v2, v1}, Lkotlinx/coroutines/CompletableDeferred;->completeExceptionally(Ljava/lang/Throwable;)Z
@@ -324,9 +324,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_18
+        :pswitch_11
     .end packed-switch
 .end method

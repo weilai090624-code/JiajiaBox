@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/time/AbstractLongTimeSource;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lkotlin/time/AbstractLongTimeSource$zero$2;->this$0:Lkotlin/time/AbstractLongTimeSource;
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public final invoke()Ljava/lang/Long;
-    .locals 2
+    .registers 3
 
     .line 40
     iget-object v0, p0, Lkotlin/time/AbstractLongTimeSource$zero$2;->this$0:Lkotlin/time/AbstractLongTimeSource;
@@ -82,7 +82,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 40
     invoke-virtual {p0}, Lkotlin/time/AbstractLongTimeSource$zero$2;->invoke()Ljava/lang/Long;

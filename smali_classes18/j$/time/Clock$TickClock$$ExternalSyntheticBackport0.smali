@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(JJ)J
-    .locals 6
+    .registers 10
 
     rem-long v0, p0, p2
 
@@ -13,11 +13,11 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_9
 
     return-wide v2
 
-    :cond_0
+    :cond_9
     xor-long/2addr p0, p2
 
     const/16 v4, 0x3f
@@ -30,13 +30,13 @@
 
     cmp-long v4, p0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_15
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     add-long/2addr v0, p2
 
-    :goto_0
+    :goto_16
     return-wide v0
 .end method

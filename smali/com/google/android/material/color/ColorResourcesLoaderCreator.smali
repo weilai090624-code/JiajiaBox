@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 40
     const-class v0, Lcom/google/android/material/color/ColorResourcesLoaderCreator;
@@ -24,7 +24,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method static create(Landroid/content/Context;Ljava/util/Map;)Landroid/content/res/loader/ResourcesLoader;
-    .locals 7
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -51,7 +51,7 @@
     .local p1, "colorMapping":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-static {p0, p1}, Lcom/google/android/material/color/ColorResourcesTableCreator;->create(Landroid/content/Context;Ljava/util/Map;)[B
 
     move-result-object v1
@@ -84,21 +84,21 @@
 
     .line 48
     array-length v2, v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1f} :catch_72
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_22
 
     .line 49
     return-object v0
 
     .line 51
-    :cond_0
+    :cond_22
     const/4 v2, 0x0
 
     .line 53
     .local v2, "arscFile":Ljava/io/FileDescriptor;
-    :try_start_1
+    :try_start_23
     const-string/jumbo v3, "temp.arsc"
 
     const/4 v4, 0x0
@@ -113,24 +113,24 @@
     new-instance v3, Ljava/io/FileOutputStream;
 
     invoke-direct {v3, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_4
+    :try_end_31
+    .catchall {:try_start_23 .. :try_end_31} :catchall_6a
 
     .line 56
     .local v3, "pipeWriter":Ljava/io/OutputStream;
-    :try_start_2
+    :try_start_31
     invoke-virtual {v3, v1}, Ljava/io/OutputStream;->write([B)V
 
     .line 58
     invoke-static {v2}, Landroid/os/ParcelFileDescriptor;->dup(Ljava/io/FileDescriptor;)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v4
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_38
+    .catchall {:try_start_31 .. :try_end_38} :catchall_60
 
     .line 59
     .local v4, "pfd":Landroid/os/ParcelFileDescriptor;
-    :try_start_3
+    :try_start_38
     new-instance v5, Landroid/content/res/loader/ResourcesLoader;
 
     invoke-direct {v5}, Landroid/content/res/loader/ResourcesLoader;-><init>()V
@@ -146,58 +146,58 @@
 
     .line 60
     invoke-virtual {v5, v6}, Landroid/content/res/loader/ResourcesLoader;->addProvider(Landroid/content/res/loader/ResourcesProvider;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_45
+    .catchall {:try_start_38 .. :try_end_45} :catchall_54
 
     .line 62
     nop
 
     .line 63
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4b
 
-    :try_start_4
+    :try_start_48
     invoke-virtual {v4}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_4b
+    .catchall {:try_start_48 .. :try_end_4b} :catchall_60
 
     .line 64
-    :cond_1
-    :try_start_5
+    :cond_4b
+    :try_start_4b
     invoke-virtual {v3}, Ljava/io/OutputStream;->close()V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_4
+    :try_end_4e
+    .catchall {:try_start_4b .. :try_end_4e} :catchall_6a
 
     .line 66
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_53
 
     .line 67
-    :try_start_6
+    :try_start_50
     invoke-static {v2}, Landroid/system/Os;->close(Ljava/io/FileDescriptor;)V
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
+    :try_end_53
+    .catch Ljava/lang/Exception; {:try_start_50 .. :try_end_53} :catch_72
 
     .line 62
-    :cond_2
+    :cond_53
     return-object v5
 
     .line 58
     .end local v5    # "colorsLoader":Landroid/content/res/loader/ResourcesLoader;
-    :catchall_0
+    :catchall_54
     move-exception v5
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_5f
 
-    :try_start_7
+    :try_start_57
     invoke-virtual {v4}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+    :try_end_5a
+    .catchall {:try_start_57 .. :try_end_5a} :catchall_5b
 
-    goto :goto_0
+    goto :goto_5f
 
-    :catchall_1
+    :catchall_5b
     move-exception v6
 
-    :try_start_8
+    :try_start_5c
     invoke-virtual {v5, v6}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     .end local v1    # "contentBytes":[B
@@ -205,11 +205,11 @@
     .end local v3    # "pipeWriter":Ljava/io/OutputStream;
     .end local p0    # "context":Landroid/content/Context;
     .end local p1    # "colorMapping":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    :cond_3
-    :goto_0
+    :cond_5f
+    :goto_5f
     throw v5
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_2
+    :try_end_60
+    .catchall {:try_start_5c .. :try_end_60} :catchall_60
 
     .line 55
     .end local v4    # "pfd":Landroid/os/ParcelFileDescriptor;
@@ -218,30 +218,30 @@
     .restart local v3    # "pipeWriter":Ljava/io/OutputStream;
     .restart local p0    # "context":Landroid/content/Context;
     .restart local p1    # "colorMapping":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    :catchall_2
+    :catchall_60
     move-exception v4
 
-    :try_start_9
+    :try_start_61
     invoke-virtual {v3}, Ljava/io/OutputStream;->close()V
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_3
+    :try_end_64
+    .catchall {:try_start_61 .. :try_end_64} :catchall_65
 
-    goto :goto_1
+    goto :goto_69
 
-    :catchall_3
+    :catchall_65
     move-exception v5
 
-    :try_start_a
+    :try_start_66
     invoke-virtual {v4, v5}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     .end local v1    # "contentBytes":[B
     .end local v2    # "arscFile":Ljava/io/FileDescriptor;
     .end local p0    # "context":Landroid/content/Context;
     .end local p1    # "colorMapping":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    :goto_1
+    :goto_69
     throw v4
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_4
+    :try_end_6a
+    .catchall {:try_start_66 .. :try_end_6a} :catchall_6a
 
     .line 66
     .end local v3    # "pipeWriter":Ljava/io/OutputStream;
@@ -249,31 +249,31 @@
     .restart local v2    # "arscFile":Ljava/io/FileDescriptor;
     .restart local p0    # "context":Landroid/content/Context;
     .restart local p1    # "colorMapping":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    :catchall_4
+    :catchall_6a
     move-exception v3
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_70
 
     .line 67
-    :try_start_b
+    :try_start_6d
     invoke-static {v2}, Landroid/system/Os;->close(Ljava/io/FileDescriptor;)V
 
     .line 69
-    :cond_4
+    :cond_70
     nop
 
     .end local p0    # "context":Landroid/content/Context;
     .end local p1    # "colorMapping":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     throw v3
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_0
+    :try_end_72
+    .catch Ljava/lang/Exception; {:try_start_6d .. :try_end_72} :catch_72
 
     .line 70
     .end local v1    # "contentBytes":[B
     .end local v2    # "arscFile":Ljava/io/FileDescriptor;
     .restart local p0    # "context":Landroid/content/Context;
     .restart local p1    # "colorMapping":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    :catch_0
+    :catch_72
     move-exception v1
 
     .line 71

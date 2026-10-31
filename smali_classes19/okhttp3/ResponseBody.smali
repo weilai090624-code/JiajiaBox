@@ -79,7 +79,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/ResponseBody$Companion;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 100
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -102,37 +102,37 @@
 .end method
 
 .method private final charset()Ljava/nio/charset/Charset;
-    .locals 2
+    .registers 3
 
     .line 190
     invoke-virtual {p0}, Lokhttp3/ResponseBody;->contentType()Lokhttp3/MediaType;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_8
     sget-object v1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
     invoke-virtual {v0, v1}, Lokhttp3/MediaType;->charset(Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
 
     move-result-object v0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_e
+    if-nez v0, :cond_12
 
     sget-object v0, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_1
+    :cond_12
     return-object v0
 .end method
 
 .method private final consumeSource(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .param p1, "consumer"    # Lkotlin/jvm/functions/Function1;
     .param p2, "sizeMapper"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -165,7 +165,7 @@
 
     cmp-long v5, v1, v3
 
-    if-gtz v5, :cond_2
+    if-gtz v5, :cond_65
 
     .line 145
     invoke-virtual {p0}, Lokhttp3/ResponseBody;->source()Lokio/BufferedSource;
@@ -180,12 +180,12 @@
 
     check-cast v5, Ljava/lang/Throwable;
 
-    :try_start_0
+    :try_start_16
     invoke-interface {p1, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_16 .. :try_end_1a} :catchall_5e
 
     invoke-static {v3, v4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
@@ -209,18 +209,18 @@
 
     cmp-long v7, v1, v5
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_5d
 
     int-to-long v5, v4
 
     cmp-long v7, v1, v5
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_34
 
-    goto :goto_0
+    goto :goto_5d
 
     .line 148
-    :cond_0
+    :cond_34
     new-instance v5, Ljava/io/IOException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -262,30 +262,30 @@
     throw v5
 
     .line 150
-    :cond_1
-    :goto_0
+    :cond_5d
+    :goto_5d
     return-object v3
 
     .line 145
     .end local v3    # "bytes":Ljava/lang/Object;
     .end local v4    # "size":I
-    :catchall_0
+    :catchall_5e
     move-exception v4
 
     .end local v0    # "$i$f$consumeSource":I
     .end local v1    # "contentLength":J
     .end local p1    # "consumer":Lkotlin/jvm/functions/Function1;
     .end local p2    # "sizeMapper":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_5f
     throw v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_60
+    .catchall {:try_start_5f .. :try_end_60} :catchall_60
 
     .restart local v0    # "$i$f$consumeSource":I
     .restart local v1    # "contentLength":J
     .restart local p1    # "consumer":Lkotlin/jvm/functions/Function1;
     .restart local p2    # "sizeMapper":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_60
     move-exception v5
 
     invoke-static {v3, v4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -293,7 +293,7 @@
     throw v5
 
     .line 142
-    :cond_2
+    :cond_65
     new-instance v3, Ljava/io/IOException;
 
     const-string v4, "Cannot buffer entire body for content length: "
@@ -312,7 +312,7 @@
 .end method
 
 .method public static final create(Ljava/lang/String;Lokhttp3/MediaType;)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -326,7 +326,7 @@
 .end method
 
 .method public static final create(Lokhttp3/MediaType;JLokio/BufferedSource;)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 5
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -351,7 +351,7 @@
 .end method
 
 .method public static final create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -376,7 +376,7 @@
 .end method
 
 .method public static final create(Lokhttp3/MediaType;Lokio/ByteString;)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -401,7 +401,7 @@
 .end method
 
 .method public static final create(Lokhttp3/MediaType;[B)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -426,7 +426,7 @@
 .end method
 
 .method public static final create(Lokio/BufferedSource;Lokhttp3/MediaType;J)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 5
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -440,7 +440,7 @@
 .end method
 
 .method public static final create(Lokio/ByteString;Lokhttp3/MediaType;)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -454,7 +454,7 @@
 .end method
 
 .method public static final create([BLokhttp3/MediaType;)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -470,7 +470,7 @@
 
 # virtual methods
 .method public final byteStream()Ljava/io/InputStream;
-    .locals 1
+    .registers 2
 
     .line 112
     invoke-virtual {p0}, Lokhttp3/ResponseBody;->source()Lokio/BufferedSource;
@@ -485,7 +485,7 @@
 .end method
 
 .method public final byteString()Lokio/ByteString;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -510,7 +510,7 @@
 
     cmp-long v6, v2, v4
 
-    if-gtz v6, :cond_2
+    if-gtz v6, :cond_67
 
     .line 338
     invoke-virtual {v0}, Lokhttp3/ResponseBody;->source()Lokio/BufferedSource;
@@ -525,7 +525,7 @@
 
     check-cast v6, Ljava/lang/Throwable;
 
-    :try_start_0
+    :try_start_17
     move-object v6, v4
 
     check-cast v6, Lokio/BufferedSource;
@@ -538,8 +538,8 @@
     invoke-interface {v6}, Lokio/BufferedSource;->readByteString()Lokio/ByteString;
 
     move-result-object v8
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_17 .. :try_end_1f} :catchall_60
 
     .end local v6    # "p0":Lokio/BufferedSource;
     .end local v7    # "$i$a$-consumeSource-ResponseBody$byteString$1":I
@@ -568,18 +568,18 @@
 
     cmp-long v8, v2, v6
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_5e
 
     int-to-long v6, v5
 
     cmp-long v8, v2, v6
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_35
 
-    goto :goto_0
+    goto :goto_5e
 
     .line 341
-    :cond_0
+    :cond_35
     new-instance v6, Ljava/io/IOException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -621,8 +621,8 @@
     throw v6
 
     .line 343
-    :cond_1
-    :goto_0
+    :cond_5e
+    :goto_5e
     nop
 
     .line 134
@@ -636,21 +636,21 @@
     .restart local v0    # "this_$iv":Lokhttp3/ResponseBody;
     .restart local v1    # "$i$f$consumeSource":I
     .restart local v2    # "contentLength$iv":J
-    :catchall_0
+    :catchall_60
     move-exception v5
 
     .end local v0    # "this_$iv":Lokhttp3/ResponseBody;
     .end local v1    # "$i$f$consumeSource":I
     .end local v2    # "contentLength$iv":J
-    :try_start_1
+    :try_start_61
     throw v5
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_62
+    .catchall {:try_start_61 .. :try_end_62} :catchall_62
 
     .restart local v0    # "this_$iv":Lokhttp3/ResponseBody;
     .restart local v1    # "$i$f$consumeSource":I
     .restart local v2    # "contentLength$iv":J
-    :catchall_1
+    :catchall_62
     move-exception v6
 
     invoke-static {v4, v5}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -658,7 +658,7 @@
     throw v6
 
     .line 335
-    :cond_2
+    :cond_67
     new-instance v4, Ljava/io/IOException;
 
     const-string v5, "Cannot buffer entire body for content length: "
@@ -677,7 +677,7 @@
 .end method
 
 .method public final bytes()[B
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -702,7 +702,7 @@
 
     cmp-long v6, v2, v4
 
-    if-gtz v6, :cond_2
+    if-gtz v6, :cond_64
 
     .line 327
     invoke-virtual {v0}, Lokhttp3/ResponseBody;->source()Lokio/BufferedSource;
@@ -717,7 +717,7 @@
 
     check-cast v6, Ljava/lang/Throwable;
 
-    :try_start_0
+    :try_start_17
     move-object v6, v4
 
     check-cast v6, Lokio/BufferedSource;
@@ -730,8 +730,8 @@
     invoke-interface {v6}, Lokio/BufferedSource;->readByteArray()[B
 
     move-result-object v8
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_17 .. :try_end_1f} :catchall_5d
 
     .end local v6    # "p0":Lokio/BufferedSource;
     .end local v7    # "$i$a$-consumeSource-ResponseBody$bytes$1":I
@@ -758,18 +758,18 @@
 
     cmp-long v8, v2, v6
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_5b
 
     int-to-long v6, v5
 
     cmp-long v8, v2, v6
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_32
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 330
-    :cond_0
+    :cond_32
     new-instance v6, Ljava/io/IOException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -811,8 +811,8 @@
     throw v6
 
     .line 332
-    :cond_1
-    :goto_0
+    :cond_5b
+    :goto_5b
     nop
 
     .line 124
@@ -826,21 +826,21 @@
     .restart local v0    # "this_$iv":Lokhttp3/ResponseBody;
     .restart local v1    # "$i$f$consumeSource":I
     .restart local v2    # "contentLength$iv":J
-    :catchall_0
+    :catchall_5d
     move-exception v5
 
     .end local v0    # "this_$iv":Lokhttp3/ResponseBody;
     .end local v1    # "$i$f$consumeSource":I
     .end local v2    # "contentLength$iv":J
-    :try_start_1
+    :try_start_5e
     throw v5
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_5f
+    .catchall {:try_start_5e .. :try_end_5f} :catchall_5f
 
     .restart local v0    # "this_$iv":Lokhttp3/ResponseBody;
     .restart local v1    # "$i$f$consumeSource":I
     .restart local v2    # "contentLength$iv":J
-    :catchall_1
+    :catchall_5f
     move-exception v6
 
     invoke-static {v4, v5}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -848,7 +848,7 @@
     throw v6
 
     .line 324
-    :cond_2
+    :cond_64
     new-instance v4, Ljava/io/IOException;
 
     const-string v5, "Cannot buffer entire body for content length: "
@@ -867,12 +867,12 @@
 .end method
 
 .method public final charStream()Ljava/io/Reader;
-    .locals 4
+    .registers 5
 
     .line 165
     iget-object v0, p0, Lokhttp3/ResponseBody;->reader:Ljava/io/Reader;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     new-instance v0, Lokhttp3/ResponseBody$BomAwareReader;
 
@@ -908,12 +908,12 @@
     check-cast v0, Ljava/io/Reader;
 
     .line 167
-    :cond_0
+    :cond_1b
     return-object v0
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 192
     invoke-virtual {p0}, Lokhttp3/ResponseBody;->source()Lokio/BufferedSource;
@@ -937,7 +937,7 @@
 .end method
 
 .method public final string()Ljava/lang/String;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -957,7 +957,7 @@
 
     check-cast v2, Ljava/lang/Throwable;
 
-    :try_start_0
+    :try_start_a
     move-object v2, v0
 
     check-cast v2, Lokio/BufferedSource;
@@ -978,8 +978,8 @@
     invoke-interface {v2, v4}, Lokio/BufferedSource;->readString(Ljava/nio/charset/Charset;)Ljava/lang/String;
 
     move-result-object v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_a .. :try_end_1a} :catchall_1e
 
     .line 186
     .end local v2    # "source":Lokio/BufferedSource;
@@ -990,15 +990,15 @@
     return-object v4
 
     .line 186
-    :catchall_0
+    :catchall_1e
     move-exception v1
 
-    :try_start_1
+    :try_start_1f
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_20
+    .catchall {:try_start_1f .. :try_end_20} :catchall_20
 
-    :catchall_1
+    :catchall_20
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V

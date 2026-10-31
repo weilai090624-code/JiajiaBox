@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 5
+    .registers 7
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

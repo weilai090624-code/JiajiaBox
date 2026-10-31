@@ -37,7 +37,7 @@
 
 # direct methods
 .method public static final onTimeout(Lkotlinx/coroutines/selects/SelectBuilder;JLkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 5
     .param p0, "$this$onTimeout"    # Lkotlinx/coroutines/selects/SelectBuilder;
     .param p1, "timeMillis"    # J
     .param p3, "block"    # Lkotlin/jvm/functions/Function1;
@@ -72,7 +72,7 @@
 .end method
 
 .method public static final onTimeout-8Mi8wO0(Lkotlinx/coroutines/selects/SelectBuilder;JLkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 6
     .param p0, "$this$onTimeout_u2d8Mi8wO0"    # Lkotlinx/coroutines/selects/SelectBuilder;
     .param p1, "timeout"    # J
     .param p3, "block"    # Lkotlin/jvm/functions/Function1;

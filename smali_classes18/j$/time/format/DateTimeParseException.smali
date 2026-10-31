@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
-    .locals 1
+    .registers 5
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "parsedData"    # Ljava/lang/CharSequence;
     .param p3, "errorIndex"    # I
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;ILjava/lang/Throwable;)V
-    .locals 1
+    .registers 6
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "parsedData"    # Ljava/lang/CharSequence;
     .param p3, "errorIndex"    # I
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public getErrorIndex()I
-    .locals 1
+    .registers 2
 
     .line 135
     iget v0, p0, Lj$/time/format/DateTimeParseException;->errorIndex:I
@@ -73,7 +73,7 @@
 .end method
 
 .method public getParsedString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 126
     iget-object v0, p0, Lj$/time/format/DateTimeParseException;->parsedString:Ljava/lang/String;

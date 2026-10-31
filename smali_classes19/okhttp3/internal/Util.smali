@@ -205,7 +205,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$I0ugdNeD8ukX5wZ78GMIzB6svEc(Ljava/lang/String;ZLjava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lokhttp3/internal/Util;->threadFactory$lambda-1(Ljava/lang/String;ZLjava/lang/Runnable;)Ljava/lang/Thread;
 
@@ -215,7 +215,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$axE76qkBaw0kHFTAwPF_6zUWBjE(Lokhttp3/EventListener;Lokhttp3/Call;)Lokhttp3/EventListener;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lokhttp3/internal/Util;->asFactory$lambda-8(Lokhttp3/EventListener;Lokhttp3/Call;)Lokhttp3/EventListener;
 
@@ -225,7 +225,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 12
+    .registers 12
 
     .line 61
     const/4 v0, 0x0
@@ -426,7 +426,7 @@
 .end method
 
 .method public static final addIfAbsent(Ljava/util/List;Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$addIfAbsent"    # Ljava/util/List;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -448,17 +448,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 629
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public static final and(BI)I
-    .locals 1
+    .registers 3
     .param p0, "$this$and"    # B
     .param p1, "mask"    # I
 
@@ -469,7 +469,7 @@
 .end method
 
 .method public static final and(SI)I
-    .locals 1
+    .registers 3
     .param p0, "$this$and"    # S
     .param p1, "mask"    # I
 
@@ -480,7 +480,7 @@
 .end method
 
 .method public static final and(IJ)J
-    .locals 2
+    .registers 5
     .param p0, "$this$and"    # I
     .param p1, "mask"    # J
 
@@ -493,7 +493,7 @@
 .end method
 
 .method public static final asFactory(Lokhttp3/EventListener;)Lokhttp3/EventListener$Factory;
-    .locals 1
+    .registers 2
     .param p0, "$this$asFactory"    # Lokhttp3/EventListener;
 
     const-string v0, "<this>"
@@ -509,7 +509,7 @@
 .end method
 
 .method private static final asFactory$lambda-8(Lokhttp3/EventListener;Lokhttp3/Call;)Lokhttp3/EventListener;
-    .locals 1
+    .registers 3
     .param p0, "$this_asFactory"    # Lokhttp3/EventListener;
     .param p1, "it"    # Lokhttp3/Call;
 
@@ -526,7 +526,7 @@
 .end method
 
 .method public static final assertThreadDoesntHoldLock(Ljava/lang/Object;)V
-    .locals 4
+    .registers 5
     .param p0, "$this$assertThreadDoesntHoldLock"    # Ljava/lang/Object;
 
     const-string v0, "<this>"
@@ -539,18 +539,18 @@
     .local v0, "$i$f$assertThreadDoesntHoldLock":I
     sget-boolean v1, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3c
 
     invoke-static {p0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 654
-    :cond_0
+    :cond_11
     new-instance v1, Ljava/lang/AssertionError;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -594,13 +594,13 @@
     throw v1
 
     .line 656
-    :cond_1
-    :goto_0
+    :cond_3c
+    :goto_3c
     return-void
 .end method
 
 .method public static final assertThreadHoldsLock(Ljava/lang/Object;)V
-    .locals 4
+    .registers 5
     .param p0, "$this$assertThreadHoldsLock"    # Ljava/lang/Object;
 
     const-string v0, "<this>"
@@ -613,18 +613,18 @@
     .local v0, "$i$f$assertThreadHoldsLock":I
     sget-boolean v1, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3c
 
     invoke-static {p0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 647
-    :cond_0
+    :cond_11
     new-instance v1, Ljava/lang/AssertionError;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -668,13 +668,13 @@
     throw v1
 
     .line 649
-    :cond_1
-    :goto_0
+    :cond_3c
+    :goto_3c
     return-void
 .end method
 
 .method public static final canParseAsIpAddress(Ljava/lang/String;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$canParseAsIpAddress"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -696,7 +696,7 @@
 .end method
 
 .method public static final canReuseConnectionFor(Lokhttp3/HttpUrl;Lokhttp3/HttpUrl;)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$canReuseConnectionFor"    # Lokhttp3/HttpUrl;
     .param p1, "other"    # Lokhttp3/HttpUrl;
 
@@ -721,7 +721,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
     .line 307
     invoke-virtual {p0}, Lokhttp3/HttpUrl;->port()I
@@ -732,7 +732,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_32
 
     .line 308
     invoke-virtual {p0}, Lokhttp3/HttpUrl;->scheme()Ljava/lang/String;
@@ -747,21 +747,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_0
+    :cond_32
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_33
     return v0
 .end method
 
 .method public static final checkDuration(Ljava/lang/String;JLjava/util/concurrent/TimeUnit;)I
-    .locals 9
+    .registers 13
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "duration"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -779,30 +779,30 @@
 
     cmp-long v4, p1, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_f
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v4, 0x0
 
-    :goto_0
-    if-eqz v4, :cond_8
+    :goto_10
+    if-eqz v4, :cond_6d
 
     .line 279
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_16
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v4, 0x0
 
-    :goto_1
-    if-eqz v4, :cond_7
+    :goto_17
+    if-eqz v4, :cond_5d
 
     .line 280
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
@@ -815,35 +815,35 @@
 
     cmp-long v8, v4, v6
 
-    if-gtz v8, :cond_2
+    if-gtz v8, :cond_26
 
     const/4 v6, 0x1
 
-    goto :goto_2
+    goto :goto_27
 
-    :cond_2
+    :cond_26
     const/4 v6, 0x0
 
-    :goto_2
-    if-eqz v6, :cond_6
+    :goto_27
+    if-eqz v6, :cond_4a
 
     .line 282
     cmp-long v6, v4, v2
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_33
 
     cmp-long v6, p1, v2
 
-    if-gtz v6, :cond_3
+    if-gtz v6, :cond_32
 
-    goto :goto_3
+    goto :goto_33
 
-    :cond_3
+    :cond_32
     const/4 v0, 0x0
 
-    :cond_4
-    :goto_3
-    if-eqz v0, :cond_5
+    :cond_33
+    :goto_33
+    if-eqz v0, :cond_37
 
     .line 283
     long-to-int v0, v4
@@ -851,7 +851,7 @@
     return v0
 
     .line 683
-    :cond_5
+    :cond_37
     const/4 v0, 0x0
 
     .line 282
@@ -876,7 +876,7 @@
     throw v1
 
     .line 683
-    :cond_6
+    :cond_4a
     const/4 v0, 0x0
 
     .line 281
@@ -902,7 +902,7 @@
 
     .line 683
     .end local v4    # "millis":J
-    :cond_7
+    :cond_5d
     const/4 v0, 0x0
 
     .line 279
@@ -925,7 +925,7 @@
     throw v0
 
     .line 683
-    :cond_8
+    :cond_6d
     const/4 v0, 0x0
 
     .line 278
@@ -951,7 +951,7 @@
 .end method
 
 .method public static final checkOffsetAndCount(JJJ)V
-    .locals 5
+    .registers 11
     .param p0, "arrayLength"    # J
     .param p2, "offset"    # J
     .param p4, "count"    # J
@@ -963,23 +963,23 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_13
 
     cmp-long v0, p2, p0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_13
 
     sub-long v0, p0, p2
 
     cmp-long v2, v0, p4
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_13
 
     .line 100
     return-void
 
     .line 98
-    :cond_0
+    :cond_13
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
@@ -988,7 +988,7 @@
 .end method
 
 .method public static final closeQuietly(Ljava/io/Closeable;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$closeQuietly"    # Ljava/io/Closeable;
 
     const-string v0, "<this>"
@@ -999,24 +999,24 @@
     nop
 
     .line 496
-    :try_start_0
+    :try_start_6
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_9} :catch_c
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_9} :catch_a
 
-    goto :goto_0
+    goto :goto_b
 
     .line 499
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 501
-    :goto_0
+    :goto_b
     return-void
 
     .line 497
-    :catch_1
+    :catch_c
     move-exception v0
 
     .line 498
@@ -1025,7 +1025,7 @@
 .end method
 
 .method public static final closeQuietly(Ljava/net/ServerSocket;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$closeQuietly"    # Ljava/net/ServerSocket;
 
     const-string v0, "<this>"
@@ -1036,24 +1036,24 @@
     nop
 
     .line 523
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Ljava/net/ServerSocket;->close()V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_9} :catch_c
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_9} :catch_a
 
-    goto :goto_0
+    goto :goto_b
 
     .line 526
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 528
-    :goto_0
+    :goto_b
     return-void
 
     .line 524
-    :catch_1
+    :catch_c
     move-exception v0
 
     .line 525
@@ -1062,7 +1062,7 @@
 .end method
 
 .method public static final closeQuietly(Ljava/net/Socket;)V
-    .locals 3
+    .registers 4
     .param p0, "$this$closeQuietly"    # Ljava/net/Socket;
 
     const-string v0, "<this>"
@@ -1073,25 +1073,25 @@
     nop
 
     .line 506
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Ljava/net/Socket;->close()V
-    :try_end_0
-    .catch Ljava/lang/AssertionError; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/AssertionError; {:try_start_6 .. :try_end_9} :catch_1b
+    .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_9} :catch_c
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_9} :catch_a
 
-    goto :goto_0
+    goto :goto_b
 
     .line 516
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 518
-    :goto_0
+    :goto_b
     return-void
 
     .line 509
-    :catch_1
+    :catch_c
     move-exception v0
 
     .line 510
@@ -1106,18 +1106,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 513
     return-void
 
     .line 515
-    :cond_0
+    :cond_1a
     throw v0
 
     .line 507
     .end local v0    # "rethrown":Ljava/lang/RuntimeException;
-    :catch_2
+    :catch_1b
     move-exception v0
 
     .line 508
@@ -1126,7 +1126,7 @@
 .end method
 
 .method public static final concat([Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$concat"    # [Ljava/lang/String;
     .param p1, "value"    # Ljava/lang/String;
 
@@ -1166,7 +1166,7 @@
 .end method
 
 .method public static final deleteContents(Lokio/FileSystem;Lokio/Path;)V
-    .locals 5
+    .registers 7
     .param p0, "$this$deleteContents"    # Lokio/FileSystem;
     .param p1, "directory"    # Lokio/Path;
 
@@ -1186,12 +1186,12 @@
     nop
 
     .line 568
-    :try_start_0
+    :try_start_c
     invoke-virtual {p0, p1}, Lokio/FileSystem;->list(Lokio/Path;)Ljava/util/List;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_10
+    .catch Ljava/io/FileNotFoundException; {:try_start_c .. :try_end_10} :catch_3c
 
     .line 567
     nop
@@ -1202,13 +1202,13 @@
 
     move-result-object v2
 
-    :cond_0
-    :goto_0
+    :cond_15
+    :goto_15
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_38
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1221,7 +1221,7 @@
     nop
 
     .line 574
-    :try_start_1
+    :try_start_22
     invoke-virtual {p0, v3}, Lokio/FileSystem;->metadata(Lokio/Path;)Lokio/FileMetadata;
 
     move-result-object v4
@@ -1230,48 +1230,48 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2f
 
     .line 575
     invoke-static {p0, v3}, Lokhttp3/internal/Util;->deleteContents(Lokio/FileSystem;Lokio/Path;)V
 
     .line 578
-    :cond_1
+    :cond_2f
     invoke-virtual {p0, v3}, Lokio/FileSystem;->delete(Lokio/Path;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_32
+    .catch Ljava/io/IOException; {:try_start_22 .. :try_end_32} :catch_33
 
-    goto :goto_0
+    goto :goto_15
 
     .line 579
-    :catch_0
+    :catch_33
     move-exception v4
 
     .line 580
     .local v4, "ioe":Ljava/io/IOException;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 581
     move-object v0, v4
 
     .end local v3    # "file":Lokio/Path;
     .end local v4    # "ioe":Ljava/io/IOException;
-    goto :goto_0
+    goto :goto_15
 
     .line 585
-    :cond_2
-    if-nez v0, :cond_3
+    :cond_38
+    if-nez v0, :cond_3b
 
     .line 588
     return-void
 
     .line 586
-    :cond_3
+    :cond_3b
     throw v0
 
     .line 569
     .end local v1    # "files":Ljava/util/List;
-    :catch_1
+    :catch_3c
     move-exception v1
 
     .line 570
@@ -1280,7 +1280,7 @@
 .end method
 
 .method public static final deleteIfExists(Lokio/FileSystem;Lokio/Path;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$deleteIfExists"    # Lokio/FileSystem;
     .param p1, "path"    # Lokio/Path;
 
@@ -1296,16 +1296,16 @@
     nop
 
     .line 556
-    :try_start_0
+    :try_start_b
     invoke-virtual {p0, p1}, Lokio/FileSystem;->delete(Lokio/Path;)V
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/io/FileNotFoundException; {:try_start_b .. :try_end_e} :catch_f
 
     .line 560
     return-void
 
     .line 557
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 558
@@ -1314,7 +1314,7 @@
 .end method
 
 .method public static final delimiterOffset(Ljava/lang/String;CII)I
-    .locals 3
+    .registers 7
     .param p0, "$this$delimiterOffset"    # Ljava/lang/String;
     .param p1, "delimiter"    # C
     .param p2, "startIndex"    # I
@@ -1325,11 +1325,11 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 226
-    if-ge p2, p3, :cond_2
+    if-ge p2, p3, :cond_14
 
     move v0, p2
 
-    :cond_0
+    :cond_8
     move v1, v0
 
     .local v1, "i":I
@@ -1340,22 +1340,22 @@
 
     move-result v2
 
-    if-ne v2, p1, :cond_1
+    if-ne v2, p1, :cond_12
 
     return v1
 
     .line 226
-    :cond_1
-    if-lt v0, p3, :cond_0
+    :cond_12
+    if-lt v0, p3, :cond_8
 
     .line 229
     .end local v1    # "i":I
-    :cond_2
+    :cond_14
     return p3
 .end method
 
 .method public static final delimiterOffset(Ljava/lang/String;Ljava/lang/String;II)I
-    .locals 7
+    .registers 11
     .param p0, "$this$delimiterOffset"    # Ljava/lang/String;
     .param p1, "delimiters"    # Ljava/lang/String;
     .param p2, "startIndex"    # I
@@ -1370,11 +1370,11 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 215
-    if-ge p2, p3, :cond_2
+    if-ge p2, p3, :cond_23
 
     move v0, p2
 
-    :cond_0
+    :cond_d
     move v1, v0
 
     .local v1, "i":I
@@ -1399,40 +1399,40 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     return v1
 
     .line 215
-    :cond_1
-    if-lt v0, p3, :cond_0
+    :cond_21
+    if-lt v0, p3, :cond_d
 
     .line 218
     .end local v1    # "i":I
-    :cond_2
+    :cond_23
     return p3
 .end method
 
 .method public static synthetic delimiterOffset$default(Ljava/lang/String;CIIILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 225
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p3
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lokhttp3/internal/Util;->delimiterOffset(Ljava/lang/String;CII)I
 
     move-result p0
@@ -1441,25 +1441,25 @@
 .end method
 
 .method public static synthetic delimiterOffset$default(Ljava/lang/String;Ljava/lang/String;IIILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 214
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p3
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lokhttp3/internal/Util;->delimiterOffset(Ljava/lang/String;Ljava/lang/String;II)I
 
     move-result p0
@@ -1468,7 +1468,7 @@
 .end method
 
 .method public static final discard(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
-    .locals 2
+    .registers 5
     .param p0, "$this$discard"    # Lokio/Source;
     .param p1, "timeout"    # I
     .param p2, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -1485,17 +1485,17 @@
     nop
 
     .line 366
-    :try_start_0
+    :try_start_b
     invoke-static {p0, p1, p2}, Lokhttp3/internal/Util;->skipAll(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_f} :catch_10
 
-    goto :goto_0
+    goto :goto_13
 
     .line 367
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 368
@@ -1506,12 +1506,12 @@
 
     .line 369
     .end local v0    # "_":Ljava/io/IOException;
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public static final filterList(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p0, "$this$filterList"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1552,13 +1552,13 @@
 
     move-result-object v2
 
-    :cond_0
-    :goto_0
+    :cond_13
+    :goto_13
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1576,14 +1576,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_13
 
     .line 666
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_37
 
     new-instance v4, Ljava/util/ArrayList;
 
@@ -1594,23 +1594,23 @@
     check-cast v1, Ljava/util/List;
 
     .line 667
-    :cond_1
+    :cond_37
     invoke-static {v1}, Lkotlin/jvm/internal/TypeIntrinsics;->asMutableList(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v4
 
     invoke-interface {v4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_13
 
     .line 670
     .end local v3    # "i":Ljava/lang/Object;
-    :cond_2
+    :cond_3f
     return-object v1
 .end method
 
 .method public static final varargs format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "format"    # Ljava/lang/String;
     .param p1, "args"    # [Ljava/lang/Object;
 
@@ -1651,7 +1651,7 @@
 .end method
 
 .method public static final hasIntersection([Ljava/lang/String;[Ljava/lang/String;Ljava/util/Comparator;)Z
-    .locals 8
+    .registers 11
     .param p0, "$this$hasIntersection"    # [Ljava/lang/String;
     .param p1, "other"    # [Ljava/lang/String;
     .param p2, "comparator"    # Ljava/util/Comparator;
@@ -1683,44 +1683,44 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_6
+    :goto_12
+    if-nez v0, :cond_3f
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_3f
 
     array-length v0, p1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_1c
+    if-eqz v0, :cond_1f
 
-    goto :goto_2
+    goto :goto_3f
 
     .line 144
-    :cond_2
+    :cond_1f
     array-length v0, p0
 
     const/4 v3, 0x0
 
-    :cond_3
-    if-ge v3, v0, :cond_5
+    :cond_21
+    if-ge v3, v0, :cond_3e
 
     aget-object v4, p0, v3
 
@@ -1732,12 +1732,12 @@
 
     move-result-object v5
 
-    :cond_4
+    :cond_2b
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_21
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1751,7 +1751,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_2b
 
     .line 147
     return v1
@@ -1759,17 +1759,17 @@
     .line 151
     .end local v4    # "a":Ljava/lang/String;
     .end local v6    # "b":Ljava/lang/String;
-    :cond_5
+    :cond_3e
     return v2
 
     .line 142
-    :cond_6
-    :goto_2
+    :cond_3f
+    :goto_3f
     return v2
 .end method
 
 .method public static final headersContentLength(Lokhttp3/Response;)J
-    .locals 3
+    .registers 4
     .param p0, "$this$headersContentLength"    # Lokhttp3/Response;
 
     const-string v0, "<this>"
@@ -1789,21 +1789,21 @@
 
     const-wide/16 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_14
     invoke-static {v0, v1, v2}, Lokhttp3/internal/Util;->toLongOrDefault(Ljava/lang/String;J)J
 
     move-result-wide v1
 
-    :goto_0
+    :goto_18
     return-wide v1
 .end method
 
 .method public static final ignoreIoExceptions(Lkotlin/jvm/functions/Function0;)V
-    .locals 2
+    .registers 3
     .param p0, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1825,24 +1825,24 @@
     nop
 
     .line 404
-    :try_start_0
+    :try_start_7
     invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_c
 
     .line 405
-    :catch_0
+    :catch_b
     move-exception v1
 
     .line 407
-    :goto_0
+    :goto_c
     return-void
 .end method
 
 .method public static final varargs immutableListOf([Ljava/lang/Object;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1890,7 +1890,7 @@
 .end method
 
 .method public static final indexOf([Ljava/lang/String;Ljava/lang/String;Ljava/util/Comparator;)I
-    .locals 8
+    .registers 11
     .param p0, "$this$indexOf"    # [Ljava/lang/String;
     .param p1, "value"    # Ljava/lang/String;
     .param p2, "comparator"    # Ljava/util/Comparator;
@@ -1931,8 +1931,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_2
+    :goto_14
+    if-ge v4, v2, :cond_29
 
     .line 678
     .local v4, "index$iv":I
@@ -1947,45 +1947,45 @@
 
     move-result v7
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_21
 
     const/4 v7, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     const/4 v7, 0x0
 
     .end local v5    # "it":Ljava/lang/String;
     .end local v6    # "$i$a$-indexOfFirst-Util$indexOf$1":I
-    :goto_1
-    if-eqz v7, :cond_1
+    :goto_22
+    if-eqz v7, :cond_25
 
     .line 679
-    goto :goto_2
+    goto :goto_2a
 
     .line 677
-    :cond_1
+    :cond_25
     nop
 
     .end local v4    # "index$iv":I
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 682
-    :cond_2
+    :cond_29
     const/4 v4, -0x1
 
     .line 168
     .end local v0    # "$this$indexOfFirst$iv":[Ljava/lang/Object;
     .end local v1    # "$i$f$indexOfFirst":I
-    :goto_2
+    :goto_2a
     return v4
 .end method
 
 .method public static final indexOfControlOrNonAscii(Ljava/lang/String;)I
-    .locals 5
+    .registers 6
     .param p0, "$this$indexOfControlOrNonAscii"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -1997,11 +1997,11 @@
 
     move-result v0
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_28
 
     const/4 v1, 0x0
 
-    :cond_0
+    :cond_c
     move v2, v1
 
     .local v2, "i":I
@@ -2020,7 +2020,7 @@
 
     move-result v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_27
 
     const/16 v4, 0x7f
 
@@ -2028,35 +2028,35 @@
 
     move-result v4
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_24
 
-    goto :goto_0
+    goto :goto_27
 
     .line 237
     .end local v3    # "c":C
-    :cond_1
-    if-lt v1, v0, :cond_0
+    :cond_24
+    if-lt v1, v0, :cond_c
 
-    goto :goto_1
+    goto :goto_28
 
     .line 240
     .restart local v3    # "c":C
-    :cond_2
-    :goto_0
+    :cond_27
+    :goto_27
     return v2
 
     .line 243
     .end local v2    # "i":I
     .end local v3    # "c":C
-    :cond_3
-    :goto_1
+    :cond_28
+    :goto_28
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public static final indexOfFirstNonAsciiWhitespace(Ljava/lang/String;II)I
-    .locals 6
+    .registers 9
     .param p0, "$this$indexOfFirstNonAsciiWhitespace"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -2066,11 +2066,11 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 181
-    if-ge p1, p2, :cond_a
+    if-ge p1, p2, :cond_3f
 
     move v0, p1
 
-    :cond_0
+    :cond_8
     move v1, v0
 
     .local v1, "i":I
@@ -2088,114 +2088,114 @@
 
     const/4 v5, 0x0
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_16
 
-    :goto_0
+    :goto_14
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
+    :cond_16
     const/16 v4, 0xa
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_1b
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_2
+    :cond_1b
     const/4 v4, 0x0
 
-    :goto_1
-    if-eqz v4, :cond_3
+    :goto_1c
+    if-eqz v4, :cond_20
 
-    :goto_2
+    :goto_1e
     const/4 v4, 0x1
 
-    goto :goto_3
+    goto :goto_26
 
-    :cond_3
+    :cond_20
     const/16 v4, 0xc
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_25
 
-    goto :goto_2
+    goto :goto_1e
 
-    :cond_4
+    :cond_25
     const/4 v4, 0x0
 
-    :goto_3
-    if-eqz v4, :cond_5
+    :goto_26
+    if-eqz v4, :cond_2a
 
-    :goto_4
+    :goto_28
     const/4 v4, 0x1
 
-    goto :goto_5
+    goto :goto_30
 
-    :cond_5
+    :cond_2a
     const/16 v4, 0xd
 
-    if-ne v3, v4, :cond_6
+    if-ne v3, v4, :cond_2f
 
-    goto :goto_4
+    goto :goto_28
 
-    :cond_6
+    :cond_2f
     const/4 v4, 0x0
 
-    :goto_5
-    if-eqz v4, :cond_7
+    :goto_30
+    if-eqz v4, :cond_33
 
-    :goto_6
-    goto :goto_7
+    :goto_32
+    goto :goto_39
 
-    :cond_7
+    :cond_33
     const/16 v4, 0x20
 
-    if-ne v3, v4, :cond_8
+    if-ne v3, v4, :cond_38
 
-    goto :goto_6
+    goto :goto_32
 
-    :cond_8
+    :cond_38
     const/4 v2, 0x0
 
-    :goto_7
-    if-eqz v2, :cond_9
+    :goto_39
+    if-eqz v2, :cond_3e
 
     .line 181
-    if-lt v0, p2, :cond_0
+    if-lt v0, p2, :cond_8
 
-    goto :goto_8
+    goto :goto_3f
 
     .line 184
-    :cond_9
+    :cond_3e
     return v1
 
     .line 187
     .end local v1    # "i":I
-    :cond_a
-    :goto_8
+    :cond_3f
+    :goto_3f
     return p2
 .end method
 
 .method public static synthetic indexOfFirstNonAsciiWhitespace$default(Ljava/lang/String;IIILjava/lang/Object;)I
-    .locals 0
+    .registers 5
 
     .line 180
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p2
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2}, Lokhttp3/internal/Util;->indexOfFirstNonAsciiWhitespace(Ljava/lang/String;II)I
 
     move-result p0
@@ -2204,7 +2204,7 @@
 .end method
 
 .method public static final indexOfLastNonAsciiWhitespace(Ljava/lang/String;II)I
-    .locals 6
+    .registers 9
     .param p0, "$this$indexOfLastNonAsciiWhitespace"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -2216,9 +2216,9 @@
     .line 194
     add-int/lit8 v0, p2, -0x1
 
-    if-gt p1, v0, :cond_a
+    if-gt p1, v0, :cond_43
 
-    :cond_0
+    :cond_9
     move v1, v0
 
     .local v1, "i":I
@@ -2236,116 +2236,116 @@
 
     const/4 v5, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_18
 
-    :goto_0
+    :goto_16
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
+    :cond_18
     const/16 v3, 0xa
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_1d
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_2
+    :cond_1d
     const/4 v3, 0x0
 
-    :goto_1
-    if-eqz v3, :cond_3
+    :goto_1e
+    if-eqz v3, :cond_22
 
-    :goto_2
+    :goto_20
     const/4 v3, 0x1
 
-    goto :goto_3
+    goto :goto_28
 
-    :cond_3
+    :cond_22
     const/16 v3, 0xc
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_27
 
-    goto :goto_2
+    goto :goto_20
 
-    :cond_4
+    :cond_27
     const/4 v3, 0x0
 
-    :goto_3
-    if-eqz v3, :cond_5
+    :goto_28
+    if-eqz v3, :cond_2c
 
-    :goto_4
+    :goto_2a
     const/4 v3, 0x1
 
-    goto :goto_5
+    goto :goto_32
 
-    :cond_5
+    :cond_2c
     const/16 v3, 0xd
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_31
 
-    goto :goto_4
+    goto :goto_2a
 
-    :cond_6
+    :cond_31
     const/4 v3, 0x0
 
-    :goto_5
-    if-eqz v3, :cond_7
+    :goto_32
+    if-eqz v3, :cond_36
 
-    :goto_6
+    :goto_34
     const/4 v4, 0x1
 
-    goto :goto_7
+    goto :goto_3b
 
-    :cond_7
+    :cond_36
     const/16 v3, 0x20
 
-    if-ne v2, v3, :cond_8
+    if-ne v2, v3, :cond_3b
 
-    goto :goto_6
+    goto :goto_34
 
-    :cond_8
-    :goto_7
-    if-eqz v4, :cond_9
+    :cond_3b
+    :goto_3b
+    if-eqz v4, :cond_40
 
     .line 194
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_9
 
-    goto :goto_8
+    goto :goto_43
 
     .line 197
-    :cond_9
+    :cond_40
     add-int/lit8 v0, v1, 0x1
 
     return v0
 
     .line 200
     .end local v1    # "i":I
-    :cond_a
-    :goto_8
+    :cond_43
+    :goto_43
     return p1
 .end method
 
 .method public static synthetic indexOfLastNonAsciiWhitespace$default(Ljava/lang/String;IIILjava/lang/Object;)I
-    .locals 0
+    .registers 5
 
     .line 193
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p2
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2}, Lokhttp3/internal/Util;->indexOfLastNonAsciiWhitespace(Ljava/lang/String;II)I
 
     move-result p0
@@ -2354,7 +2354,7 @@
 .end method
 
 .method public static final indexOfNonWhitespace(Ljava/lang/String;I)I
-    .locals 5
+    .registers 7
     .param p0, "$this$indexOfNonWhitespace"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
 
@@ -2367,11 +2367,11 @@
 
     move-result v0
 
-    if-ge p1, v0, :cond_2
+    if-ge p1, v0, :cond_1e
 
     move v1, p1
 
-    :cond_0
+    :cond_c
     move v2, v1
 
     .local v2, "i":I
@@ -2386,23 +2386,23 @@
     .local v3, "c":C
     const/16 v4, 0x20
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_1c
 
     const/16 v4, 0x9
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_1c
 
     .line 437
     return v2
 
     .line 434
     .end local v3    # "c":C
-    :cond_1
-    if-lt v1, v0, :cond_0
+    :cond_1c
+    if-lt v1, v0, :cond_c
 
     .line 440
     .end local v2    # "i":I
-    :cond_2
+    :cond_1e
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -2411,16 +2411,16 @@
 .end method
 
 .method public static synthetic indexOfNonWhitespace$default(Ljava/lang/String;IILjava/lang/Object;)I
-    .locals 0
+    .registers 4
 
     .line 433
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lokhttp3/internal/Util;->indexOfNonWhitespace(Ljava/lang/String;I)I
 
     move-result p0
@@ -2429,7 +2429,7 @@
 .end method
 
 .method public static final intersect([Ljava/lang/String;[Ljava/lang/String;Ljava/util/Comparator;)[Ljava/lang/String;
-    .locals 9
+    .registers 12
     .param p0, "$this$intersect"    # [Ljava/lang/String;
     .param p1, "other"    # [Ljava/lang/String;
     .param p2, "comparator"    # Ljava/util/Comparator;
@@ -2474,9 +2474,9 @@
 
     const/4 v3, 0x0
 
-    :cond_0
-    :goto_0
-    if-ge v3, v1, :cond_2
+    :cond_19
+    :goto_19
+    if-ge v3, v1, :cond_31
 
     aget-object v4, p0, v3
 
@@ -2488,8 +2488,8 @@
 
     const/4 v6, 0x0
 
-    :cond_1
-    if-ge v6, v5, :cond_0
+    :cond_21
+    if-ge v6, v5, :cond_19
 
     aget-object v7, p1, v6
 
@@ -2501,18 +2501,18 @@
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_21
 
     .line 123
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 124
-    goto :goto_0
+    goto :goto_19
 
     .line 128
     .end local v4    # "a":Ljava/lang/String;
     .end local v7    # "b":Ljava/lang/String;
-    :cond_2
+    :cond_31
     move-object v1, v0
 
     check-cast v1, Ljava/util/Collection;
@@ -2532,7 +2532,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_41
 
     .end local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v3    # "$i$f$toTypedArray":I
@@ -2546,7 +2546,7 @@
     .restart local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v3    # "$i$f$toTypedArray":I
     .restart local v4    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_3
+    :cond_41
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v5, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -2557,7 +2557,7 @@
 .end method
 
 .method public static final isCivilized(Lokio/FileSystem;Lokio/Path;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$isCivilized"    # Lokio/FileSystem;
     .param p1, "file"    # Lokio/Path;
 
@@ -2582,12 +2582,12 @@
 
     check-cast v2, Ljava/lang/Throwable;
 
-    :try_start_0
+    :try_start_14
     move-object v2, v0
 
     check-cast v2, Lokio/Sink;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_14 .. :try_end_17} :catchall_2e
 
     .local v2, "it":Lokio/Sink;
     const/4 v3, 0x0
@@ -2597,11 +2597,11 @@
     nop
 
     .line 544
-    :try_start_1
+    :try_start_19
     invoke-virtual {p0, p1}, Lokio/FileSystem;->delete(Lokio/Path;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1c
+    .catch Ljava/io/IOException; {:try_start_19 .. :try_end_1c} :catch_22
+    .catchall {:try_start_19 .. :try_end_1c} :catchall_2e
 
     .line 545
     nop
@@ -2617,7 +2617,7 @@
     .line 546
     .restart local v2    # "it":Lokio/Sink;
     .restart local v3    # "$i$a$-use-Util$isCivilized$1":I
-    :catch_0
+    :catch_22
     move-exception v4
 
     .line 548
@@ -2625,10 +2625,10 @@
 
     .end local v2    # "it":Lokio/Sink;
     .end local v3    # "$i$a$-use-Util$isCivilized$1":I
-    :try_start_2
+    :try_start_24
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_26
+    .catchall {:try_start_24 .. :try_end_26} :catchall_2e
 
     .line 542
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -2642,19 +2642,19 @@
     return v0
 
     .line 542
-    :catchall_0
+    :catchall_2e
     move-exception v1
 
     .end local p0    # "$this$isCivilized":Lokio/FileSystem;
     .end local p1    # "file":Lokio/Path;
-    :try_start_3
+    :try_start_2f
     throw v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_30
+    .catchall {:try_start_2f .. :try_end_30} :catchall_30
 
     .restart local p0    # "$this$isCivilized":Lokio/FileSystem;
     .restart local p1    # "file":Lokio/Path;
-    :catchall_1
+    :catchall_30
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -2663,7 +2663,7 @@
 .end method
 
 .method public static final isHealthy(Ljava/net/Socket;Lokio/BufferedSource;)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$isHealthy"    # Ljava/net/Socket;
     .param p1, "source"    # Lokio/BufferedSource;
 
@@ -2681,33 +2681,33 @@
     .line 387
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_c
     invoke-virtual {p0}, Ljava/net/Socket;->getSoTimeout()I
 
     move-result v1
-    :try_end_0
-    .catch Ljava/net/SocketTimeoutException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/net/SocketTimeoutException; {:try_start_c .. :try_end_10} :catch_28
+    .catch Ljava/io/IOException; {:try_start_c .. :try_end_10} :catch_24
 
     .line 388
     .local v1, "readTimeout":I
     nop
 
     .line 389
-    :try_start_1
+    :try_start_11
     invoke-virtual {p0, v0}, Ljava/net/Socket;->setSoTimeout(I)V
 
     .line 390
     invoke-interface {p1}, Lokio/BufferedSource;->exhausted()Z
 
     move-result v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_18
+    .catchall {:try_start_11 .. :try_end_18} :catchall_1f
 
     xor-int/2addr v2, v0
 
     .line 392
-    :try_start_2
+    :try_start_19
     invoke-virtual {p0, v1}, Ljava/net/Socket;->setSoTimeout(I)V
 
     .line 393
@@ -2717,11 +2717,11 @@
     move v0, v2
 
     .end local v1    # "readTimeout":I
-    goto :goto_0
+    goto :goto_2a
 
     .line 393
     .restart local v1    # "readTimeout":I
-    :catchall_0
+    :catchall_1f
     move-exception v2
 
     .line 392
@@ -2730,15 +2730,15 @@
     .end local p0    # "$this$isHealthy":Ljava/net/Socket;
     .end local p1    # "source":Lokio/BufferedSource;
     throw v2
-    :try_end_2
-    .catch Ljava/net/SocketTimeoutException; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_24
+    .catch Ljava/net/SocketTimeoutException; {:try_start_19 .. :try_end_24} :catch_28
+    .catch Ljava/io/IOException; {:try_start_19 .. :try_end_24} :catch_24
 
     .line 396
     .end local v1    # "readTimeout":I
     .restart local p0    # "$this$isHealthy":Ljava/net/Socket;
     .restart local p1    # "source":Lokio/BufferedSource;
-    :catch_0
+    :catch_24
     move-exception v0
 
     .line 397
@@ -2747,11 +2747,11 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 394
     .end local v0    # "_":Ljava/io/IOException;
-    :catch_1
+    :catch_28
     move-exception v1
 
     .line 395
@@ -2760,12 +2760,12 @@
 
     .line 386
     .end local v1    # "_":Ljava/net/SocketTimeoutException;
-    :goto_0
+    :goto_2a
     return v0
 .end method
 
 .method public static final isSensitiveHeader(Ljava/lang/String;)Z
-    .locals 2
+    .registers 3
     .param p0, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -2781,7 +2781,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 254
     const-string v0, "Cookie"
@@ -2790,7 +2790,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 255
     const-string v0, "Proxy-Authorization"
@@ -2799,7 +2799,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 256
     const-string v0, "Set-Cookie"
@@ -2808,26 +2808,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_27
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     nop
 
     .line 253
-    :goto_1
+    :goto_2a
     return v1
 .end method
 
 .method public static final notify(Ljava/lang/Object;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$notify"    # Ljava/lang/Object;
 
     const-string v0, "<this>"
@@ -2844,7 +2844,7 @@
 .end method
 
 .method public static final notifyAll(Ljava/lang/Object;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$notifyAll"    # Ljava/lang/Object;
 
     const-string v0, "<this>"
@@ -2861,7 +2861,7 @@
 .end method
 
 .method public static final parseHexDigit(C)I
-    .locals 3
+    .registers 4
     .param p0, "$this$parseHexDigit"    # C
 
     .line 286
@@ -2874,87 +2874,87 @@
 
     const/4 v2, 0x0
 
-    if-gt v0, p0, :cond_0
+    if-gt v0, p0, :cond_d
 
     const/16 v0, 0x39
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_13
 
     add-int/lit8 v0, p0, -0x30
 
-    goto :goto_3
+    goto :goto_37
 
     .line 288
-    :cond_1
+    :cond_13
     const/16 v0, 0x61
 
-    if-gt v0, p0, :cond_2
+    if-gt v0, p0, :cond_1d
 
     const/16 v0, 0x66
 
-    if-gt p0, v0, :cond_2
+    if-gt p0, v0, :cond_1d
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_2
+    :cond_1d
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_3
+    :goto_1e
+    if-eqz v0, :cond_25
 
     add-int/lit8 v0, p0, -0x61
 
     add-int/lit8 v0, v0, 0xa
 
-    goto :goto_3
+    goto :goto_37
 
     .line 289
-    :cond_3
+    :cond_25
     const/16 v0, 0x41
 
-    if-gt v0, p0, :cond_4
+    if-gt v0, p0, :cond_2e
 
     const/16 v0, 0x46
 
-    if-gt p0, v0, :cond_4
+    if-gt p0, v0, :cond_2e
 
-    goto :goto_2
+    goto :goto_2f
 
-    :cond_4
+    :cond_2e
     const/4 v1, 0x0
 
-    :goto_2
-    if-eqz v1, :cond_5
+    :goto_2f
+    if-eqz v1, :cond_36
 
     add-int/lit8 v0, p0, -0x41
 
     add-int/lit8 v0, v0, 0xa
 
-    goto :goto_3
+    goto :goto_37
 
     .line 290
-    :cond_5
+    :cond_36
     const/4 v0, -0x1
 
     .line 291
-    :goto_3
+    :goto_37
     return v0
 .end method
 
 .method public static final peerName(Ljava/net/Socket;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$peerName"    # Ljava/net/Socket;
 
     const-string v0, "<this>"
@@ -2970,7 +2970,7 @@
     .local v0, "address":Ljava/net/SocketAddress;
     instance-of v1, v0, Ljava/net/InetSocketAddress;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     move-object v1, v0
 
@@ -2984,19 +2984,19 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1a
     invoke-virtual {v0}, Ljava/net/SocketAddress;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_1e
     return-object v1
 .end method
 
 .method public static final readBomAsCharset(Lokio/BufferedSource;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
-    .locals 2
+    .registers 4
     .param p0, "$this$readBomAsCharset"    # Lokio/BufferedSource;
     .param p1, "default"    # Ljava/nio/charset/Charset;
     .annotation system Ldalvik/annotation/Throws;
@@ -3020,7 +3020,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_42
 
     .line 273
     new-instance v0, Ljava/lang/AssertionError;
@@ -3030,78 +3030,78 @@
     throw v0
 
     .line 271
-    :pswitch_0
+    :pswitch_19
     sget-object v0, Lkotlin/text/Charsets;->INSTANCE:Lkotlin/text/Charsets;
 
     invoke-virtual {v0}, Lkotlin/text/Charsets;->UTF32_LE()Ljava/nio/charset/Charset;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_40
 
     .line 270
-    :pswitch_1
+    :pswitch_20
     sget-object v0, Lkotlin/text/Charsets;->INSTANCE:Lkotlin/text/Charsets;
 
     invoke-virtual {v0}, Lkotlin/text/Charsets;->UTF32_BE()Ljava/nio/charset/Charset;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_40
 
     .line 269
-    :pswitch_2
+    :pswitch_27
     sget-object v0, Ljava/nio/charset/StandardCharsets;->UTF_16LE:Ljava/nio/charset/Charset;
 
     const-string v1, "UTF_16LE"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_40
 
     .line 268
-    :pswitch_3
+    :pswitch_2f
     sget-object v0, Ljava/nio/charset/StandardCharsets;->UTF_16BE:Ljava/nio/charset/Charset;
 
     const-string v1, "UTF_16BE"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_40
 
     .line 267
-    :pswitch_4
+    :pswitch_37
     sget-object v0, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
     const-string v1, "UTF_8"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_40
 
     .line 272
-    :pswitch_5
+    :pswitch_3f
     move-object v0, p1
 
     .line 266
-    :goto_0
+    :goto_40
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_42
     .packed-switch -0x1
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3f
+        :pswitch_37
+        :pswitch_2f
+        :pswitch_27
+        :pswitch_20
+        :pswitch_19
     .end packed-switch
 .end method
 
 .method public static final readFieldOrNull(Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "instance"    # Ljava/lang/Object;
     .param p1, "fieldType"    # Ljava/lang/Class;
     .param p2, "fieldName"    # Ljava/lang/String;
@@ -3137,7 +3137,7 @@
 
     .line 605
     .local v0, "c":Ljava/lang/Class;
-    :goto_0
+    :goto_13
     const-class v1, Ljava/lang/Object;
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -3146,13 +3146,13 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_41
 
     .line 606
     nop
 
     .line 607
-    :try_start_0
+    :try_start_1d
     invoke-virtual {v0, p2}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v1
@@ -3174,24 +3174,24 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_30
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_0
+    :cond_30
     invoke-virtual {p1, v3}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_34
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_1d .. :try_end_34} :catch_35
 
-    :goto_1
+    :goto_34
     return-object v2
 
     .line 611
     .end local v1    # "field":Ljava/lang/reflect/Field;
     .end local v3    # "value":Ljava/lang/Object;
-    :catch_0
+    :catch_35
     move-exception v1
 
     .line 614
@@ -3205,17 +3205,17 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 619
-    :cond_1
+    :cond_41
     const-string v1, "delegate"
 
     invoke-static {p2, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_56
 
     .line 620
     const-class v3, Ljava/lang/Object;
@@ -3226,7 +3226,7 @@
 
     .line 621
     .local v1, "delegate":Ljava/lang/Object;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_56
 
     invoke-static {v1, p1, p2}, Lokhttp3/internal/Util;->readFieldOrNull(Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
 
@@ -3236,12 +3236,12 @@
 
     .line 624
     .end local v1    # "delegate":Ljava/lang/Object;
-    :cond_2
+    :cond_56
     return-object v2
 .end method
 
 .method public static final readMedium(Lokio/BufferedSource;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$readMedium"    # Lokio/BufferedSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3296,7 +3296,7 @@
 .end method
 
 .method public static final skipAll(Lokio/Buffer;B)I
-    .locals 3
+    .registers 5
     .param p0, "$this$skipAll"    # Lokio/Buffer;
     .param p1, "b"    # B
 
@@ -3309,12 +3309,12 @@
 
     .line 422
     .local v0, "count":I
-    :goto_0
+    :goto_6
     invoke-virtual {p0}, Lokio/Buffer;->exhausted()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     const-wide/16 v1, 0x0
 
@@ -3322,7 +3322,7 @@
 
     move-result v1
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_1a
 
     .line 423
     add-int/lit8 v0, v0, 0x1
@@ -3330,15 +3330,15 @@
     .line 424
     invoke-virtual {p0}, Lokio/Buffer;->readByte()B
 
-    goto :goto_0
+    goto :goto_6
 
     .line 426
-    :cond_0
+    :cond_1a
     return v0
 .end method
 
 .method public static final skipAll(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
-    .locals 12
+    .registers 15
     .param p0, "$this$skipAll"    # Lokio/Source;
     .param p1, "duration"    # I
     .param p2, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -3373,7 +3373,7 @@
 
     const-wide v3, 0x7fffffffffffffffL
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_27
 
     .line 338
     invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
@@ -3386,14 +3386,14 @@
 
     sub-long/2addr v5, v0
 
-    goto :goto_0
+    goto :goto_28
 
     .line 340
-    :cond_0
+    :cond_27
     move-wide v5, v3
 
     .line 337
-    :goto_0
+    :goto_28
     nop
 
     .line 342
@@ -3420,14 +3420,14 @@
     nop
 
     .line 344
-    :try_start_0
+    :try_start_3b
     new-instance v2, Lokio/Buffer;
 
     invoke-direct {v2}, Lokio/Buffer;-><init>()V
 
     .line 345
     .local v2, "skipBuffer":Lokio/Buffer;
-    :goto_1
+    :goto_40
     const-wide/16 v7, 0x2000
 
     invoke-interface {p0, v2, v7, v8}, Lokio/Source;->read(Lokio/Buffer;J)J
@@ -3438,25 +3438,25 @@
 
     cmp-long v11, v7, v9
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_50
 
     .line 346
     invoke-virtual {v2}, Lokio/Buffer;->clear()V
-    :try_end_0
-    .catch Ljava/io/InterruptedIOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4f
+    .catch Ljava/io/InterruptedIOException; {:try_start_3b .. :try_end_4f} :catch_7f
+    .catchall {:try_start_3b .. :try_end_4f} :catchall_68
 
-    goto :goto_1
+    goto :goto_40
 
     .line 348
-    :cond_1
+    :cond_50
     nop
 
     .line 352
     .end local v2    # "skipBuffer":Lokio/Buffer;
     cmp-long v2, v5, v3
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_5d
 
     .line 353
     invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
@@ -3465,10 +3465,10 @@
 
     invoke-virtual {v2}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
-    goto :goto_2
+    goto :goto_66
 
     .line 355
-    :cond_2
+    :cond_5d
     invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object v2
@@ -3478,18 +3478,18 @@
     invoke-virtual {v2, v3, v4}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 357
-    :goto_2
+    :goto_66
     const/4 v2, 0x1
 
-    goto :goto_5
+    goto :goto_97
 
-    :catchall_0
+    :catchall_68
     move-exception v2
 
     .line 352
     cmp-long v7, v5, v3
 
-    if-nez v7, :cond_3
+    if-nez v7, :cond_75
 
     .line 353
     invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
@@ -3498,10 +3498,10 @@
 
     invoke-virtual {v3}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
-    goto :goto_3
+    goto :goto_7e
 
     .line 355
-    :cond_3
+    :cond_75
     invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object v3
@@ -3510,11 +3510,11 @@
 
     invoke-virtual {v3, v7, v8}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
-    :goto_3
+    :goto_7e
     throw v2
 
     .line 349
-    :catch_0
+    :catch_7f
     move-exception v2
 
     .line 350
@@ -3525,7 +3525,7 @@
     .end local v2    # "_":Ljava/io/InterruptedIOException;
     cmp-long v2, v5, v3
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_8d
 
     .line 353
     invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
@@ -3534,10 +3534,10 @@
 
     invoke-virtual {v2}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
-    goto :goto_4
+    goto :goto_96
 
     .line 355
-    :cond_4
+    :cond_8d
     invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object v2
@@ -3547,16 +3547,16 @@
     invoke-virtual {v2, v3, v4}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 357
-    :goto_4
+    :goto_96
     const/4 v2, 0x0
 
     .line 343
-    :goto_5
+    :goto_97
     return v2
 .end method
 
 .method public static final threadFactory(Ljava/lang/String;Z)Ljava/util/concurrent/ThreadFactory;
-    .locals 1
+    .registers 3
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "daemon"    # Z
 
@@ -3574,7 +3574,7 @@
 .end method
 
 .method private static final threadFactory$lambda-1(Ljava/lang/String;ZLjava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 3
+    .registers 6
     .param p0, "$name"    # Ljava/lang/String;
     .param p1, "$daemon"    # Z
     .param p2, "runnable"    # Ljava/lang/Runnable;
@@ -3607,7 +3607,7 @@
 .end method
 
 .method public static final threadName(Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
-    .locals 4
+    .registers 6
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -3650,10 +3650,10 @@
     nop
 
     .line 414
-    :try_start_0
+    :try_start_17
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_17 .. :try_end_1a} :catchall_1f
 
     .line 416
     invoke-virtual {v1, v2}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
@@ -3665,7 +3665,7 @@
     return-void
 
     .line 417
-    :catchall_0
+    :catchall_1f
     move-exception v3
 
     .line 416
@@ -3675,7 +3675,7 @@
 .end method
 
 .method public static final toHeaderList(Lokhttp3/Headers;)Ljava/util/List;
-    .locals 12
+    .registers 13
     .param p0, "$this$toHeaderList"    # Lokhttp3/Headers;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3734,12 +3734,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_24
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_44
 
     move-object v6, v5
 
@@ -3776,10 +3776,10 @@
 
     .line 685
     .end local v6    # "item$iv$iv":I
-    goto :goto_0
+    goto :goto_24
 
     .line 687
-    :cond_0
+    :cond_44
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -3797,7 +3797,7 @@
 .end method
 
 .method public static final toHeaders(Ljava/util/List;)Lokhttp3/Headers;
-    .locals 6
+    .registers 7
     .param p0, "$this$toHeaders"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3824,12 +3824,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2e
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3858,12 +3858,12 @@
 
     invoke-virtual {v0, v4, v5}, Lokhttp3/Headers$Builder;->addLenient$okhttp(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
-    goto :goto_0
+    goto :goto_e
 
     .line 298
     .end local v2    # "value":Lokio/ByteString;
     .end local v3    # "name":Lokio/ByteString;
-    :cond_0
+    :cond_2e
     invoke-virtual {v0}, Lokhttp3/Headers$Builder;->build()Lokhttp3/Headers;
 
     move-result-object v1
@@ -3872,7 +3872,7 @@
 .end method
 
 .method public static final toHexString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "$this$toHexString"    # I
 
     .line 592
@@ -3888,7 +3888,7 @@
 .end method
 
 .method public static final toHexString(J)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$toHexString"    # J
 
     .line 590
@@ -3904,7 +3904,7 @@
 .end method
 
 .method public static final toHostHeader(Lokhttp3/HttpUrl;Z)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0, "$this$toHostHeader"    # Lokhttp3/HttpUrl;
     .param p1, "includeDefaultPort"    # Z
 
@@ -3933,7 +3933,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_36
 
     .line 156
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3964,21 +3964,21 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 158
-    :cond_0
+    :cond_36
     invoke-virtual {p0}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
 
     move-result-object v0
 
     .line 155
-    :goto_0
+    :goto_3a
     nop
 
     .line 160
     .local v0, "host":Ljava/lang/String;
-    if-nez p1, :cond_2
+    if-nez p1, :cond_50
 
     invoke-virtual {p0}, Lokhttp3/HttpUrl;->port()I
 
@@ -3994,19 +3994,19 @@
 
     move-result v2
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_4e
 
-    goto :goto_1
+    goto :goto_50
 
     .line 163
-    :cond_1
+    :cond_4e
     move-object v1, v0
 
-    goto :goto_2
+    goto :goto_6b
 
     .line 161
-    :cond_2
-    :goto_1
+    :cond_50
+    :goto_50
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -4034,21 +4034,21 @@
     move-result-object v1
 
     .line 160
-    :goto_2
+    :goto_6b
     return-object v1
 .end method
 
 .method public static synthetic toHostHeader$default(Lokhttp3/HttpUrl;ZILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 154
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lokhttp3/internal/Util;->toHostHeader(Lokhttp3/HttpUrl;Z)Ljava/lang/String;
 
     move-result-object p0
@@ -4057,7 +4057,7 @@
 .end method
 
 .method public static final toImmutableList(Ljava/util/List;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "$this$toImmutableList"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -4096,7 +4096,7 @@
 .end method
 
 .method public static final toImmutableMap(Ljava/util/Map;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "$this$toImmutableMap"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -4121,17 +4121,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 487
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_20
 
     .line 489
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0, p0}, Ljava/util/LinkedHashMap;-><init>(Ljava/util/Map;)V
@@ -4148,12 +4148,12 @@
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 486
-    :goto_0
+    :goto_20
     return-object v0
 .end method
 
 .method public static final toLongOrDefault(Ljava/lang/String;J)J
-    .locals 2
+    .registers 5
     .param p0, "$this$toLongOrDefault"    # Ljava/lang/String;
     .param p1, "defaultValue"    # J
 
@@ -4165,17 +4165,17 @@
     nop
 
     .line 450
-    :try_start_0
+    :try_start_6
     invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_d
 
     .line 451
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 452
@@ -4184,12 +4184,12 @@
 
     .line 449
     .end local v0    # "_":Ljava/lang/NumberFormatException;
-    :goto_0
+    :goto_d
     return-wide v0
 .end method
 
 .method public static final toNonNegativeInt(Ljava/lang/String;I)I
-    .locals 5
+    .registers 7
     .param p0, "$this$toNonNegativeInt"    # Ljava/lang/String;
     .param p1, "defaultValue"    # I
 
@@ -4197,14 +4197,14 @@
     nop
 
     .line 462
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
-    :try_start_0
+    :cond_5
+    :try_start_5
     invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
@@ -4213,17 +4213,17 @@
 
     move-result-object v0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_d
+    if-nez v0, :cond_10
 
     return p1
 
-    :cond_1
+    :cond_10
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NumberFormatException; {:try_start_5 .. :try_end_14} :catch_2a
 
     .line 463
     .local v0, "value":J
@@ -4234,35 +4234,35 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_20
 
     const v2, 0x7fffffff
 
-    goto :goto_1
+    goto :goto_29
 
     .line 465
-    :cond_2
+    :cond_20
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_3
+    if-gez v4, :cond_28
 
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_29
 
     .line 466
-    :cond_3
+    :cond_28
     long-to-int v2, v0
 
     .line 463
-    :goto_1
+    :goto_29
     return v2
 
     .line 468
     .end local v0    # "value":J
-    :catch_0
+    :catch_2a
     move-exception v0
 
     .line 469
@@ -4271,7 +4271,7 @@
 .end method
 
 .method public static final trimSubstring(Ljava/lang/String;II)Ljava/lang/String;
-    .locals 4
+    .registers 7
     .param p0, "$this$trimSubstring"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -4305,25 +4305,25 @@
 .end method
 
 .method public static synthetic trimSubstring$default(Ljava/lang/String;IIILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 204
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p2
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2}, Lokhttp3/internal/Util;->trimSubstring(Ljava/lang/String;II)Ljava/lang/String;
 
     move-result-object p0
@@ -4332,7 +4332,7 @@
 .end method
 
 .method public static final wait(Ljava/lang/Object;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$wait"    # Ljava/lang/Object;
 
     const-string v0, "<this>"
@@ -4349,7 +4349,7 @@
 .end method
 
 .method public static final withSuppressed(Ljava/lang/Exception;Ljava/util/List;)Ljava/lang/Throwable;
-    .locals 6
+    .registers 8
     .param p0, "$this$withSuppressed"    # Ljava/lang/Exception;
     .param p1, "suppressed"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -4384,12 +4384,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4409,10 +4409,10 @@
     invoke-static {v4, v5}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .end local v3    # "e":Ljava/lang/Exception;
-    goto :goto_0
+    goto :goto_10
 
     .line 660
-    :cond_0
+    :cond_26
     nop
 
     .line 658
@@ -4427,7 +4427,7 @@
 .end method
 
 .method public static final writeMedium(Lokio/BufferedSink;I)V
-    .locals 1
+    .registers 3
     .param p0, "$this$writeMedium"    # Lokio/BufferedSink;
     .param p1, "medium"    # I
     .annotation system Ldalvik/annotation/Throws;

@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 235
     new-instance v0, Landroidx/core/text/TextDirectionHeuristicsCompat$AnyStrong;
@@ -42,7 +42,7 @@
 .end method
 
 .method private constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "lookForRtl"    # Z
 
     .line 231
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public checkRtl(Ljava/lang/CharSequence;II)I
-    .locals 4
+    .registers 8
     .param p1, "cs"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -74,8 +74,8 @@
     add-int v2, p2, p3
 
     .local v2, "e":I
-    :goto_0
-    if-ge v1, v2, :cond_2
+    :goto_4
+    if-ge v1, v2, :cond_29
 
     .line 208
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -90,15 +90,15 @@
 
     move-result v3
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_30
 
-    goto :goto_1
+    goto :goto_26
 
     .line 216
-    :pswitch_0
+    :pswitch_16
     iget-boolean v3, p0, Landroidx/core/text/TextDirectionHeuristicsCompat$AnyStrong;->mLookForRtl:Z
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1c
 
     .line 217
     const/4 v3, 0x1
@@ -106,17 +106,17 @@
     return v3
 
     .line 219
-    :cond_0
+    :cond_1c
     const/4 v0, 0x1
 
     .line 220
-    goto :goto_1
+    goto :goto_26
 
     .line 210
-    :pswitch_1
+    :pswitch_1e
     iget-boolean v3, p0, Landroidx/core/text/TextDirectionHeuristicsCompat$AnyStrong;->mLookForRtl:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_24
 
     .line 211
     const/4 v3, 0x0
@@ -124,23 +124,23 @@
     return v3
 
     .line 213
-    :cond_1
+    :cond_24
     const/4 v0, 0x1
 
     .line 214
     nop
 
     .line 207
-    :goto_1
+    :goto_26
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 225
     .end local v1    # "i":I
     .end local v2    # "e":I
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_29
+    if-eqz v0, :cond_2e
 
     .line 226
     iget-boolean v1, p0, Landroidx/core/text/TextDirectionHeuristicsCompat$AnyStrong;->mLookForRtl:Z
@@ -148,14 +148,14 @@
     return v1
 
     .line 228
-    :cond_3
+    :cond_2e
     const/4 v1, 0x2
 
     return v1
 
-    :pswitch_data_0
+    :pswitch_data_30
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1e
+        :pswitch_16
     .end packed-switch
 .end method

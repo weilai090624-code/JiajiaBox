@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 167
     iput-object p1, p0, Lcom/google/android/material/internal/ViewUtils$1;->val$view:Landroid/view/View;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 170
     iget-object v0, p0, Lcom/google/android/material/internal/ViewUtils$1;->val$view:Landroid/view/View;

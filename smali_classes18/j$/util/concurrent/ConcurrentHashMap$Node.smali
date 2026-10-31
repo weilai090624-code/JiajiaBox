@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "hash"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,7 +89,7 @@
 .end method
 
 .method constructor <init>(ILjava/lang/Object;Ljava/lang/Object;Lj$/util/concurrent/ConcurrentHashMap$Node;)V
-    .locals 0
+    .registers 5
     .param p1, "hash"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -116,14 +116,14 @@
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 654
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     move-object v0, p1
 
@@ -140,7 +140,7 @@
     move-object v2, v0
 
     .local v2, "k":Ljava/lang/Object;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     .line 656
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -150,11 +150,11 @@
     move-object v3, v0
 
     .local v3, "v":Ljava/lang/Object;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     iget-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$Node;->key:Ljava/lang/Object;
 
-    if-eq v2, v0, :cond_0
+    if-eq v2, v0, :cond_22
 
     iget-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$Node;->key:Ljava/lang/Object;
 
@@ -163,42 +163,42 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
-    :cond_0
+    :cond_22
     iget-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$Node;->val:Ljava/lang/Object;
 
     move-object v4, v0
 
     .local v4, "u":Ljava/lang/Object;
-    if-eq v3, v0, :cond_1
+    if-eq v3, v0, :cond_2d
 
     .line 658
     invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
-    :cond_1
+    :cond_2d
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
     .end local v1    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     .end local v2    # "k":Ljava/lang/Object;
     .end local v3    # "v":Ljava/lang/Object;
     .end local v4    # "u":Ljava/lang/Object;
-    :cond_2
+    :cond_2f
     const/4 v0, 0x0
 
     .line 654
-    :goto_0
+    :goto_30
     return v0
 .end method
 
 .method find(ILjava/lang/Object;)Lj$/util/concurrent/ConcurrentHashMap$Node;
-    .locals 3
+    .registers 6
     .param p1, "h"    # I
     .param p2, "k"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -217,52 +217,52 @@
 
     .line 666
     .local v0, "e":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_1a
 
     .line 669
-    :cond_0
+    :cond_3
     iget v1, v0, Lj$/util/concurrent/ConcurrentHashMap$Node;->hash:I
 
-    if-ne v1, p1, :cond_2
+    if-ne v1, p1, :cond_15
 
     iget-object v1, v0, Lj$/util/concurrent/ConcurrentHashMap$Node;->key:Ljava/lang/Object;
 
     move-object v2, v1
 
     .local v2, "ek":Ljava/lang/Object;, "TK;"
-    if-eq v1, p2, :cond_1
+    if-eq v1, p2, :cond_14
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_15
 
     .line 670
     invoke-virtual {p2, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_15
 
     .line 671
-    :cond_1
+    :cond_14
     return-object v0
 
     .line 672
     .end local v2    # "ek":Ljava/lang/Object;, "TK;"
-    :cond_2
+    :cond_15
     iget-object v1, v0, Lj$/util/concurrent/ConcurrentHashMap$Node;->next:Lj$/util/concurrent/ConcurrentHashMap$Node;
 
     move-object v0, v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_3
 
     .line 674
-    :cond_3
+    :cond_1a
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public final getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -277,7 +277,7 @@
 .end method
 
 .method public final getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -292,7 +292,7 @@
 .end method
 
 .method public final hashCode()I
-    .locals 2
+    .registers 3
 
     .line 644
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
@@ -314,7 +314,7 @@
 .end method
 
 .method public final setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -332,7 +332,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 646
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"

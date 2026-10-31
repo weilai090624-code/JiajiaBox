@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "accent"    # I
     .param p2, "onAccent"    # I
     .param p3, "accentContainer"    # I
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public getAccent()I
-    .locals 1
+    .registers 2
 
     .line 47
     iget v0, p0, Lcom/google/android/material/color/ColorRoles;->accent:I
@@ -52,7 +52,7 @@
 .end method
 
 .method public getAccentContainer()I
-    .locals 1
+    .registers 2
 
     .line 62
     iget v0, p0, Lcom/google/android/material/color/ColorRoles;->accentContainer:I
@@ -61,7 +61,7 @@
 .end method
 
 .method public getOnAccent()I
-    .locals 1
+    .registers 2
 
     .line 56
     iget v0, p0, Lcom/google/android/material/color/ColorRoles;->onAccent:I
@@ -70,7 +70,7 @@
 .end method
 
 .method public getOnAccentContainer()I
-    .locals 1
+    .registers 2
 
     .line 71
     iget v0, p0, Lcom/google/android/material/color/ColorRoles;->onAccentContainer:I

@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method static findService(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -44,13 +44,13 @@
     invoke-virtual {p0, v0}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_c} :catch_d
 
     return-object v0
 
     .line 63
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 65
@@ -101,7 +101,7 @@
 .end method
 
 .method static findServiceClass(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -146,33 +146,33 @@
 
     .line 77
     .local v2, "ret":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_46
 
     .line 81
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
-    :try_start_0
+    :try_start_15
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1a
     invoke-virtual {v0, v1}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_15 .. :try_end_1e} :catch_20
 
-    :goto_0
+    :goto_1e
     move-object v2, v3
 
     .line 86
-    goto :goto_1
+    goto :goto_46
 
     .line 83
-    :catch_0
+    :catch_20
     move-exception v3
 
     .line 85
@@ -215,13 +215,13 @@
 
     .line 89
     .end local v3    # "x":Ljava/lang/ClassNotFoundException;
-    :cond_1
-    :goto_1
+    :cond_46
+    :goto_46
     return-object v2
 .end method
 
 .method static findServiceClassName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "serviceId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -234,32 +234,32 @@
 
     .line 99
     .local v0, "serviceClassName":Ljava/lang/String;
-    :try_start_0
+    :try_start_1
     invoke-static {p0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_5} :catch_9
 
     .line 101
     .local v1, "systemProp":Ljava/lang/String;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8
 
     .line 103
     move-object v0, v1
 
     .line 109
     .end local v1    # "systemProp":Ljava/lang/String;
-    :cond_0
-    goto :goto_0
+    :cond_8
+    goto :goto_a
 
     .line 106
-    :catch_0
+    :catch_9
     move-exception v1
 
     .line 111
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_a
+    if-nez v0, :cond_23
 
     .line 113
     new-instance v1, Ljava/lang/StringBuilder;
@@ -285,12 +285,12 @@
     move-result-object v0
 
     .line 116
-    :cond_1
+    :cond_23
     return-object v0
 .end method
 
 .method private static loadLine(Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 8
     .param p0, "servicePath"    # Ljava/lang/String;
 
     .line 121
@@ -302,7 +302,7 @@
 
     .line 127
     .local v1, "is":Ljava/io/InputStream;
-    :try_start_0
+    :try_start_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
@@ -313,7 +313,7 @@
 
     .line 129
     .local v2, "classLoader":Ljava/lang/ClassLoader;
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
     .line 131
     invoke-static {p0}, Ljava/lang/ClassLoader;->getSystemResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
@@ -322,10 +322,10 @@
 
     move-object v1, v3
 
-    goto :goto_0
+    goto :goto_17
 
     .line 135
-    :cond_0
+    :cond_12
     invoke-virtual {v2, p0}, Ljava/lang/ClassLoader;->getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
 
     move-result-object v3
@@ -333,8 +333,8 @@
     move-object v1, v3
 
     .line 138
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_17
+    if-eqz v1, :cond_43
 
     .line 140
     new-instance v3, Ljava/io/BufferedReader;
@@ -358,7 +358,7 @@
     invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
 
     .line 144
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_43
 
     .line 146
     invoke-virtual {v4}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -372,7 +372,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_43
 
     .line 149
     const-string v5, "\\s|#"
@@ -384,8 +384,8 @@
     const/4 v6, 0x0
 
     aget-object v5, v5, v6
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_42
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_42} :catch_44
 
     move-object v0, v5
 
@@ -394,14 +394,14 @@
     .end local v2    # "classLoader":Ljava/lang/ClassLoader;
     .end local v3    # "rd":Ljava/io/BufferedReader;
     .end local v4    # "line":Ljava/lang/String;
-    :cond_1
-    goto :goto_1
+    :cond_43
+    goto :goto_45
 
     .line 154
-    :catch_0
+    :catch_44
     move-exception v1
 
     .line 159
-    :goto_1
+    :goto_45
     return-object v0
 .end method

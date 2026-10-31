@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Handler;)V
-    .locals 0
+    .registers 2
     .param p1, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public cancel(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -78,7 +78,7 @@
 .end method
 
 .method public getHandler()Landroid/os/Handler;
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Landroidx/work/impl/DefaultRunnableScheduler;->mHandler:Landroid/os/Handler;
@@ -87,7 +87,7 @@
 .end method
 
 .method public scheduleWithDelay(JLjava/lang/Runnable;)V
-    .locals 1
+    .registers 5
     .param p1, "delayInMillis"    # J
     .param p3, "runnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;

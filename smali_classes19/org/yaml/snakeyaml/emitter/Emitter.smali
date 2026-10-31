@@ -178,7 +178,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 74
     const/4 v0, 0x1
@@ -522,7 +522,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;Lorg/yaml/snakeyaml/DumperOptions;)V
-    .locals 6
+    .registers 9
     .param p1, "stream"    # Ljava/io/Writer;
     .param p2, "opts"    # Lorg/yaml/snakeyaml/DumperOptions;
 
@@ -636,13 +636,13 @@
 
     move-result v5
 
-    if-le v5, v3, :cond_0
+    if-le v5, v3, :cond_69
 
     invoke-virtual {p2}, Lorg/yaml/snakeyaml/DumperOptions;->getIndent()I
 
     move-result v5
 
-    if-ge v5, v1, :cond_0
+    if-ge v5, v1, :cond_69
 
     .line 220
     invoke-virtual {p2}, Lorg/yaml/snakeyaml/DumperOptions;->getIndent()I
@@ -652,7 +652,7 @@
     iput v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->bestIndent:I
 
     .line 222
-    :cond_0
+    :cond_69
     invoke-virtual {p2}, Lorg/yaml/snakeyaml/DumperOptions;->getIndicatorIndent()I
 
     move-result v1
@@ -680,7 +680,7 @@
 
     mul-int/lit8 v5, v5, 0x2
 
-    if-le v1, v5, :cond_1
+    if-le v1, v5, :cond_89
 
     .line 226
     invoke-virtual {p2}, Lorg/yaml/snakeyaml/DumperOptions;->getWidth()I
@@ -690,7 +690,7 @@
     iput v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->bestWidth:I
 
     .line 228
-    :cond_1
+    :cond_89
     invoke-virtual {p2}, Lorg/yaml/snakeyaml/DumperOptions;->getLineBreak()Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
 
     move-result-object v1
@@ -784,7 +784,7 @@
 .end method
 
 .method static synthetic access$100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/events/Event;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -794,7 +794,7 @@
 .end method
 
 .method static synthetic access$1000(Lorg/yaml/snakeyaml/emitter/Emitter;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -804,7 +804,7 @@
 .end method
 
 .method static synthetic access$102(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/events/Event;)Lorg/yaml/snakeyaml/events/Event;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/events/Event;
 
@@ -815,7 +815,7 @@
 .end method
 
 .method static synthetic access$1100(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -827,7 +827,7 @@
 .end method
 
 .method static synthetic access$1400(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -837,7 +837,7 @@
 .end method
 
 .method static synthetic access$1500(Lorg/yaml/snakeyaml/emitter/Emitter;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -852,7 +852,7 @@
 .end method
 
 .method static synthetic access$1700(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/util/ArrayStack;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -862,7 +862,7 @@
 .end method
 
 .method static synthetic access$1800(Lorg/yaml/snakeyaml/emitter/Emitter;ZZZ)V
-    .locals 0
+    .registers 4
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Z
     .param p2, "x2"    # Z
@@ -880,7 +880,7 @@
 .end method
 
 .method static synthetic access$2000(Lorg/yaml/snakeyaml/emitter/Emitter;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -890,7 +890,7 @@
 .end method
 
 .method static synthetic access$2002(Lorg/yaml/snakeyaml/emitter/Emitter;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -901,7 +901,7 @@
 .end method
 
 .method static synthetic access$202(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/EmitterState;)Lorg/yaml/snakeyaml/emitter/EmitterState;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/emitter/EmitterState;
 
@@ -912,7 +912,7 @@
 .end method
 
 .method static synthetic access$2100(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/util/ArrayStack;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -922,7 +922,7 @@
 .end method
 
 .method static synthetic access$2210(Lorg/yaml/snakeyaml/emitter/Emitter;)I
-    .locals 2
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -936,7 +936,7 @@
 .end method
 
 .method static synthetic access$2300(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -946,7 +946,7 @@
 .end method
 
 .method static synthetic access$2400(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -963,7 +963,7 @@
 .end method
 
 .method static synthetic access$2500(Lorg/yaml/snakeyaml/emitter/Emitter;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -973,7 +973,7 @@
 .end method
 
 .method static synthetic access$2600(Lorg/yaml/snakeyaml/emitter/Emitter;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -983,7 +983,7 @@
 .end method
 
 .method static synthetic access$2700(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -993,7 +993,7 @@
 .end method
 
 .method static synthetic access$2800(Lorg/yaml/snakeyaml/emitter/Emitter;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -1003,7 +1003,7 @@
 .end method
 
 .method static synthetic access$3100(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -1015,7 +1015,7 @@
 .end method
 
 .method static synthetic access$3600(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -1025,7 +1025,7 @@
 .end method
 
 .method static synthetic access$3700(Lorg/yaml/snakeyaml/emitter/Emitter;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -1035,7 +1035,7 @@
 .end method
 
 .method static synthetic access$3800(Lorg/yaml/snakeyaml/emitter/Emitter;I)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -1051,7 +1051,7 @@
 .end method
 
 .method static synthetic access$3900(Lorg/yaml/snakeyaml/emitter/Emitter;ZZ)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Z
     .param p2, "x2"    # Z
@@ -1063,7 +1063,7 @@
 .end method
 
 .method static synthetic access$400(Lorg/yaml/snakeyaml/emitter/Emitter;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -1073,7 +1073,7 @@
 .end method
 
 .method static synthetic access$4000(Lorg/yaml/snakeyaml/emitter/Emitter;)Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -1083,7 +1083,7 @@
 .end method
 
 .method static synthetic access$4002(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;)Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
@@ -1094,7 +1094,7 @@
 .end method
 
 .method static synthetic access$4100(Lorg/yaml/snakeyaml/emitter/Emitter;Ljava/lang/String;)Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Ljava/lang/String;
 
@@ -1107,7 +1107,7 @@
 .end method
 
 .method static synthetic access$4500(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/events/Event;)Z
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/events/Event;
 
@@ -1120,7 +1120,7 @@
 .end method
 
 .method static synthetic access$500(Lorg/yaml/snakeyaml/emitter/Emitter;Lorg/yaml/snakeyaml/DumperOptions$Version;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/DumperOptions$Version;
 
@@ -1133,7 +1133,7 @@
 .end method
 
 .method static synthetic access$600(Lorg/yaml/snakeyaml/emitter/Emitter;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
 
     .line 71
@@ -1143,7 +1143,7 @@
 .end method
 
 .method static synthetic access$602(Lorg/yaml/snakeyaml/emitter/Emitter;Ljava/util/Map;)Ljava/util/Map;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Ljava/util/Map;
 
@@ -1154,7 +1154,7 @@
 .end method
 
 .method static synthetic access$700()Ljava/util/Map;
-    .locals 1
+    .registers 1
 
     .line 71
     sget-object v0, Lorg/yaml/snakeyaml/emitter/Emitter;->DEFAULT_TAG_PREFIXES:Ljava/util/Map;
@@ -1163,7 +1163,7 @@
 .end method
 
 .method static synthetic access$800(Lorg/yaml/snakeyaml/emitter/Emitter;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Ljava/lang/String;
 
@@ -1176,7 +1176,7 @@
 .end method
 
 .method static synthetic access$900(Lorg/yaml/snakeyaml/emitter/Emitter;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/emitter/Emitter;
     .param p1, "x1"    # Ljava/lang/String;
 
@@ -1189,7 +1189,7 @@
 .end method
 
 .method private analyzeScalar(Ljava/lang/String;)Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
-    .locals 29
+    .registers 31
     .param p1, "scalar"    # Ljava/lang/String;
 
     .line 1059
@@ -1199,7 +1199,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 1060
     new-instance v9, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
@@ -1225,7 +1225,7 @@
     return-object v9
 
     .line 1063
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     .line 1064
@@ -1272,7 +1272,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_1
+    if-nez v11, :cond_31
 
     const-string v11, "..."
 
@@ -1280,17 +1280,17 @@
 
     move-result v11
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_33
 
     .line 1078
-    :cond_1
+    :cond_31
     const/4 v0, 0x1
 
     .line 1079
     const/4 v1, 0x1
 
     .line 1082
-    :cond_2
+    :cond_33
     const/4 v11, 0x1
 
     .line 1083
@@ -1303,7 +1303,7 @@
 
     const/4 v14, 0x1
 
-    if-eq v12, v14, :cond_4
+    if-eq v12, v14, :cond_4b
 
     sget-object v12, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -1315,22 +1315,22 @@
 
     move-result v12
 
-    if-eqz v12, :cond_3
+    if-eqz v12, :cond_49
 
-    goto :goto_0
+    goto :goto_4b
 
-    :cond_3
+    :cond_49
     const/4 v12, 0x0
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_4
-    :goto_0
+    :cond_4b
+    :goto_4b
     const/4 v12, 0x1
 
     .line 1085
     .local v12, "followedByWhitespace":Z
-    :goto_1
+    :goto_4c
     const/4 v15, 0x0
 
     .line 1088
@@ -1394,12 +1394,12 @@
     .local v22, "followedByWhitespace":Z
     .local v23, "previousSpace":Z
     .local v24, "previousBreak":Z
-    :goto_2
+    :goto_6a
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-ge v7, v0, :cond_22
+    if-ge v7, v0, :cond_17c
 
     .line 1093
     invoke-virtual {v8, v7}, Ljava/lang/String;->codePointAt(I)I
@@ -1412,7 +1412,7 @@
 
     const/4 v2, -0x1
 
-    if-nez v7, :cond_8
+    if-nez v7, :cond_98
 
     .line 1097
     const-string v3, "#,[]{}&*!|>\'\"%@`"
@@ -1421,7 +1421,7 @@
 
     move-result v3
 
-    if-eq v3, v2, :cond_5
+    if-eq v3, v2, :cond_83
 
     .line 1098
     const/4 v10, 0x1
@@ -1430,30 +1430,30 @@
     const/4 v9, 0x1
 
     .line 1101
-    :cond_5
+    :cond_83
     const/16 v2, 0x3f
 
-    if-eq v0, v2, :cond_6
+    if-eq v0, v2, :cond_89
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_8d
 
     .line 1102
-    :cond_6
+    :cond_89
     const/4 v10, 0x1
 
     .line 1103
-    if-eqz v22, :cond_7
+    if-eqz v22, :cond_8d
 
     .line 1104
     const/4 v9, 0x1
 
     .line 1107
-    :cond_7
+    :cond_8d
     const/16 v1, 0x2d
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_b1
 
-    if-eqz v22, :cond_b
+    if-eqz v22, :cond_b1
 
     .line 1108
     const/4 v1, 0x1
@@ -1469,45 +1469,45 @@
 
     .end local v9    # "blockIndicators":Z
     .local v2, "blockIndicators":Z
-    goto :goto_3
+    goto :goto_b1
 
     .line 1113
     .end local v1    # "flowIndicators":Z
     .end local v2    # "blockIndicators":Z
     .restart local v9    # "blockIndicators":Z
     .restart local v10    # "flowIndicators":Z
-    :cond_8
+    :cond_98
     const-string v3, ",?[]{}"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->indexOf(I)I
 
     move-result v3
 
-    if-eq v3, v2, :cond_9
+    if-eq v3, v2, :cond_a1
 
     .line 1114
     const/4 v10, 0x1
 
     .line 1116
-    :cond_9
-    if-ne v0, v1, :cond_a
+    :cond_a1
+    if-ne v0, v1, :cond_a7
 
     .line 1117
     const/4 v10, 0x1
 
     .line 1118
-    if-eqz v22, :cond_a
+    if-eqz v22, :cond_a7
 
     .line 1119
     const/4 v9, 0x1
 
     .line 1122
-    :cond_a
+    :cond_a7
     const/16 v1, 0x23
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_b1
 
-    if-eqz v21, :cond_b
+    if-eqz v21, :cond_b1
 
     .line 1123
     const/4 v1, 0x1
@@ -1524,8 +1524,8 @@
     .line 1128
     .end local v1    # "flowIndicators":Z
     .restart local v10    # "flowIndicators":Z
-    :cond_b
-    :goto_3
+    :cond_b1
+    :goto_b1
     sget-object v1, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     invoke-virtual {v1, v0}, Lorg/yaml/snakeyaml/scanner/Constant;->has(I)Z
@@ -1534,7 +1534,7 @@
 
     .line 1129
     .local v1, "isLineBreak":Z
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_bb
 
     .line 1130
     const/4 v2, 0x1
@@ -1542,63 +1542,63 @@
     move v11, v2
 
     .line 1132
-    :cond_c
+    :cond_bb
     const/16 v2, 0xa
 
     const/16 v3, 0x20
 
-    if-eq v0, v2, :cond_13
+    if-eq v0, v2, :cond_fa
 
-    if-gt v3, v0, :cond_e
+    if-gt v3, v0, :cond_cb
 
     const/16 v2, 0x7e
 
-    if-le v0, v2, :cond_d
+    if-le v0, v2, :cond_c8
 
-    goto :goto_4
+    goto :goto_cb
 
-    :cond_d
+    :cond_c8
     move-object/from16 v6, p0
 
-    goto :goto_6
+    goto :goto_fc
 
     .line 1133
-    :cond_e
-    :goto_4
+    :cond_cb
+    :goto_cb
     const/16 v2, 0x85
 
-    if-eq v0, v2, :cond_12
+    if-eq v0, v2, :cond_f1
 
     const/16 v2, 0xa0
 
-    if-lt v0, v2, :cond_f
+    if-lt v0, v2, :cond_d8
 
     const v2, 0xd7ff
 
-    if-le v0, v2, :cond_12
+    if-le v0, v2, :cond_f1
 
-    :cond_f
+    :cond_d8
     const v2, 0xe000
 
-    if-lt v0, v2, :cond_10
+    if-lt v0, v2, :cond_e2
 
     const v2, 0xfffd
 
-    if-le v0, v2, :cond_12
+    if-le v0, v2, :cond_f1
 
-    :cond_10
+    :cond_e2
     const/high16 v2, 0x10000
 
-    if-lt v0, v2, :cond_11
+    if-lt v0, v2, :cond_ec
 
     const v2, 0x10ffff
 
-    if-gt v0, v2, :cond_11
+    if-gt v0, v2, :cond_ec
 
-    goto :goto_5
+    goto :goto_f1
 
     .line 1141
-    :cond_11
+    :cond_ec
     const/4 v2, 0x1
 
     move-object/from16 v6, p0
@@ -1607,18 +1607,18 @@
 
     .end local v12    # "specialCharacters":Z
     .local v2, "specialCharacters":Z
-    goto :goto_6
+    goto :goto_fc
 
     .line 1137
     .end local v2    # "specialCharacters":Z
     .restart local v12    # "specialCharacters":Z
-    :cond_12
-    :goto_5
+    :cond_f1
+    :goto_f1
     move-object/from16 v6, p0
 
     iget-boolean v2, v6, Lorg/yaml/snakeyaml/emitter/Emitter;->allowUnicode:Z
 
-    if-nez v2, :cond_14
+    if-nez v2, :cond_fc
 
     .line 1138
     const/4 v2, 0x1
@@ -1627,47 +1627,47 @@
 
     .end local v12    # "specialCharacters":Z
     .restart local v2    # "specialCharacters":Z
-    goto :goto_6
+    goto :goto_fc
 
     .line 1132
     .end local v2    # "specialCharacters":Z
     .restart local v12    # "specialCharacters":Z
-    :cond_13
+    :cond_fa
     move-object/from16 v6, p0
 
     .line 1145
-    :cond_14
-    :goto_6
-    if-ne v0, v3, :cond_18
+    :cond_fc
+    :goto_fc
+    if-ne v0, v3, :cond_115
 
     .line 1146
-    if-nez v7, :cond_15
+    if-nez v7, :cond_101
 
     .line 1147
     const/4 v15, 0x1
 
     .line 1149
-    :cond_15
+    :cond_101
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
     sub-int/2addr v2, v14
 
-    if-ne v7, v2, :cond_16
+    if-ne v7, v2, :cond_10a
 
     .line 1150
     const/16 v17, 0x1
 
     .line 1152
-    :cond_16
-    if-eqz v24, :cond_17
+    :cond_10a
+    if-eqz v24, :cond_10e
 
     .line 1153
     const/16 v19, 0x1
 
     .line 1155
-    :cond_17
+    :cond_10e
     const/4 v2, 0x1
 
     .line 1156
@@ -1681,44 +1681,44 @@
 
     .end local v24    # "previousBreak":Z
     .local v3, "previousBreak":Z
-    goto :goto_7
+    goto :goto_135
 
     .line 1157
     .end local v2    # "previousSpace":Z
     .end local v3    # "previousBreak":Z
     .restart local v23    # "previousSpace":Z
     .restart local v24    # "previousBreak":Z
-    :cond_18
-    if-eqz v1, :cond_1c
+    :cond_115
+    if-eqz v1, :cond_12f
 
     .line 1158
-    if-nez v7, :cond_19
+    if-nez v7, :cond_11b
 
     .line 1159
     const/16 v16, 0x1
 
     .line 1161
-    :cond_19
+    :cond_11b
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
     sub-int/2addr v2, v14
 
-    if-ne v7, v2, :cond_1a
+    if-ne v7, v2, :cond_124
 
     .line 1162
     const/16 v18, 0x1
 
     .line 1164
-    :cond_1a
-    if-eqz v23, :cond_1b
+    :cond_124
+    if-eqz v23, :cond_128
 
     .line 1165
     const/16 v20, 0x1
 
     .line 1167
-    :cond_1b
+    :cond_128
     const/4 v2, 0x0
 
     .line 1168
@@ -1732,14 +1732,14 @@
 
     .end local v24    # "previousBreak":Z
     .restart local v3    # "previousBreak":Z
-    goto :goto_7
+    goto :goto_135
 
     .line 1170
     .end local v2    # "previousSpace":Z
     .end local v3    # "previousBreak":Z
     .restart local v23    # "previousSpace":Z
     .restart local v24    # "previousBreak":Z
-    :cond_1c
+    :cond_12f
     const/4 v2, 0x0
 
     .line 1171
@@ -1754,7 +1754,7 @@
     .line 1175
     .end local v2    # "previousSpace":Z
     .restart local v23    # "previousSpace":Z
-    :goto_7
+    :goto_135
     invoke-static {v0}, Ljava/lang/Character;->charCount(I)I
 
     move-result v2
@@ -1768,22 +1768,22 @@
 
     move-result v2
 
-    if-nez v2, :cond_1e
+    if-nez v2, :cond_147
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_145
 
-    goto :goto_8
+    goto :goto_147
 
-    :cond_1d
+    :cond_145
     const/4 v2, 0x0
 
-    goto :goto_9
+    goto :goto_148
 
-    :cond_1e
-    :goto_8
+    :cond_147
+    :goto_147
     const/4 v2, 0x1
 
-    :goto_9
+    :goto_148
     move/from16 v21, v2
 
     .line 1177
@@ -1798,7 +1798,7 @@
 
     move-result v4
 
-    if-ge v3, v4, :cond_21
+    if-ge v3, v4, :cond_178
 
     .line 1179
     invoke-virtual {v8, v7}, Ljava/lang/String;->codePointAt(I)I
@@ -1817,7 +1817,7 @@
 
     move-result v4
 
-    if-ge v3, v4, :cond_21
+    if-ge v3, v4, :cond_178
 
     .line 1181
     sget-object v4, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T:Lorg/yaml/snakeyaml/scanner/Constant;
@@ -1830,42 +1830,42 @@
 
     move-result v4
 
-    if-nez v4, :cond_20
+    if-nez v4, :cond_173
 
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_171
 
-    goto :goto_a
+    goto :goto_173
 
-    :cond_1f
+    :cond_171
     const/4 v4, 0x0
 
-    goto :goto_b
+    goto :goto_174
 
-    :cond_20
-    :goto_a
+    :cond_173
+    :goto_173
     const/4 v4, 0x1
 
-    :goto_b
+    :goto_174
     move v2, v4
 
     move/from16 v22, v2
 
-    goto :goto_c
+    goto :goto_17a
 
     .line 1184
     .end local v0    # "c":I
     .end local v1    # "isLineBreak":Z
     .end local v3    # "nextIndex":I
-    :cond_21
+    :cond_178
     move/from16 v22, v2
 
     .end local v2    # "followedByWhitespace":Z
     .restart local v22    # "followedByWhitespace":Z
-    :goto_c
-    goto/16 :goto_2
+    :goto_17a
+    goto/16 :goto_6a
 
     .line 1186
-    :cond_22
+    :cond_17c
     move-object/from16 v6, p0
 
     const/4 v0, 0x1
@@ -1884,30 +1884,30 @@
 
     .line 1191
     .local v3, "allowBlock":Z
-    if-nez v15, :cond_23
+    if-nez v15, :cond_18a
 
-    if-nez v16, :cond_23
+    if-nez v16, :cond_18a
 
-    if-nez v17, :cond_23
+    if-nez v17, :cond_18a
 
-    if-eqz v18, :cond_24
+    if-eqz v18, :cond_18c
 
     .line 1192
-    :cond_23
+    :cond_18a
     move v1, v13
 
     move v0, v13
 
     .line 1195
-    :cond_24
-    if-eqz v17, :cond_25
+    :cond_18c
+    if-eqz v17, :cond_18f
 
     .line 1196
     const/4 v3, 0x0
 
     .line 1200
-    :cond_25
-    if-eqz v19, :cond_26
+    :cond_18f
+    if-eqz v19, :cond_194
 
     .line 1201
     move v2, v13
@@ -1917,23 +1917,23 @@
     move v0, v13
 
     .line 1205
-    :cond_26
-    if-nez v20, :cond_28
+    :cond_194
+    if-nez v20, :cond_19c
 
-    if-eqz v12, :cond_27
+    if-eqz v12, :cond_199
 
-    goto :goto_d
+    goto :goto_19c
 
-    :cond_27
+    :cond_199
     move v13, v2
 
     move v14, v3
 
-    goto :goto_e
+    goto :goto_1a1
 
     .line 1206
-    :cond_28
-    :goto_d
+    :cond_19c
+    :goto_19c
     move v3, v13
 
     move v2, v13
@@ -1949,48 +1949,48 @@
     .end local v3    # "allowBlock":Z
     .local v13, "allowSingleQuoted":Z
     .local v14, "allowBlock":Z
-    :goto_e
-    if-eqz v11, :cond_29
+    :goto_1a1
+    if-eqz v11, :cond_1a4
 
     .line 1211
     const/4 v0, 0x0
 
     .line 1214
-    :cond_29
-    if-eqz v10, :cond_2a
+    :cond_1a4
+    if-eqz v10, :cond_1aa
 
     .line 1215
     const/4 v0, 0x0
 
     move/from16 v25, v0
 
-    goto :goto_f
+    goto :goto_1ac
 
     .line 1214
-    :cond_2a
+    :cond_1aa
     move/from16 v25, v0
 
     .line 1218
     .end local v0    # "allowFlowPlain":Z
     .local v25, "allowFlowPlain":Z
-    :goto_f
-    if-eqz v9, :cond_2b
+    :goto_1ac
+    if-eqz v9, :cond_1b2
 
     .line 1219
     const/4 v1, 0x0
 
     move/from16 v26, v1
 
-    goto :goto_10
+    goto :goto_1b4
 
     .line 1218
-    :cond_2b
+    :cond_1b2
     move/from16 v26, v1
 
     .line 1222
     .end local v1    # "allowBlockPlain":Z
     .local v26, "allowBlockPlain":Z
-    :goto_10
+    :goto_1b4
     new-instance v27, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
     const/4 v2, 0x0
@@ -2019,7 +2019,7 @@
 .end method
 
 .method private checkEmptyDocument()Z
-    .locals 4
+    .registers 5
 
     .line 817
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
@@ -2028,7 +2028,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3e
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->events:Ljava/util/Queue;
 
@@ -2036,12 +2036,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 820
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->events:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->peek()Ljava/lang/Object;
@@ -2054,7 +2054,7 @@
     .local v0, "event":Lorg/yaml/snakeyaml/events/Event;
     instance-of v2, v0, Lorg/yaml/snakeyaml/events/ScalarEvent;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3d
 
     .line 822
     move-object v2, v0
@@ -2067,19 +2067,19 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_3c
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getTag()Ljava/lang/String;
 
     move-result-object v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_3c
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getImplicit()Lorg/yaml/snakeyaml/events/ImplicitTuple;
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3c
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getValue()Ljava/lang/String;
 
@@ -2089,34 +2089,34 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_3c
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_3c
     return v1
 
     .line 826
     .end local v2    # "e":Lorg/yaml/snakeyaml/events/ScalarEvent;
-    :cond_2
+    :cond_3d
     return v1
 
     .line 818
     .end local v0    # "event":Lorg/yaml/snakeyaml/events/Event;
-    :cond_3
-    :goto_0
+    :cond_3e
+    :goto_3e
     return v1
 .end method
 
 .method private checkEmptyMapping()Z
-    .locals 1
+    .registers 2
 
     .line 813
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/MappingStartEvent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->events:Ljava/util/Queue;
 
@@ -2124,7 +2124,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->events:Ljava/util/Queue;
 
@@ -2134,28 +2134,28 @@
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/MappingEndEvent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method private checkEmptySequence()Z
-    .locals 1
+    .registers 2
 
     .line 809
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/SequenceStartEvent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->events:Ljava/util/Queue;
 
@@ -2163,7 +2163,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->events:Ljava/util/Queue;
 
@@ -2173,21 +2173,21 @@
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/SequenceEndEvent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method private checkSimpleKey()Z
-    .locals 3
+    .registers 4
 
     .line 830
     const/4 v0, 0x0
@@ -2198,7 +2198,7 @@
 
     instance-of v1, v1, Lorg/yaml/snakeyaml/events/NodeEvent;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2a
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
@@ -2208,12 +2208,12 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2a
 
     .line 832
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedAnchor:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_23
 
     .line 833
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
@@ -2231,7 +2231,7 @@
     iput-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedAnchor:Ljava/lang/String;
 
     .line 835
-    :cond_0
+    :cond_23
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedAnchor:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -2241,7 +2241,7 @@
     add-int/2addr v0, v1
 
     .line 837
-    :cond_1
+    :cond_2a
     const/4 v1, 0x0
 
     .line 838
@@ -2250,7 +2250,7 @@
 
     instance-of v2, v2, Lorg/yaml/snakeyaml/events/ScalarEvent;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3a
 
     .line 839
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
@@ -2261,15 +2261,15 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_48
 
     .line 840
-    :cond_2
+    :cond_3a
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
     instance-of v2, v2, Lorg/yaml/snakeyaml/events/CollectionStartEvent;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_48
 
     .line 841
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
@@ -2281,14 +2281,14 @@
     move-result-object v1
 
     .line 843
-    :cond_3
-    :goto_0
-    if-eqz v1, :cond_5
+    :cond_48
+    :goto_48
+    if-eqz v1, :cond_5b
 
     .line 844
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedTag:Ljava/lang/String;
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_54
 
     .line 845
     invoke-direct {p0, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->prepareTag(Ljava/lang/String;)Ljava/lang/String;
@@ -2298,7 +2298,7 @@
     iput-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedTag:Ljava/lang/String;
 
     .line 847
-    :cond_4
+    :cond_54
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedTag:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
@@ -2308,17 +2308,17 @@
     add-int/2addr v0, v2
 
     .line 849
-    :cond_5
+    :cond_5b
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
     instance-of v2, v2, Lorg/yaml/snakeyaml/events/ScalarEvent;
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_7e
 
     .line 850
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_73
 
     .line 851
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
@@ -2336,7 +2336,7 @@
     iput-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
     .line 853
-    :cond_6
+    :cond_73
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->getScalar()Ljava/lang/String;
@@ -2350,22 +2350,22 @@
     add-int/2addr v0, v2
 
     .line 855
-    :cond_7
+    :cond_7e
     iget v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->maxSimpleKeyLength:I
 
-    if-ge v0, v2, :cond_a
+    if-ge v0, v2, :cond_ac
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
     instance-of v2, v2, Lorg/yaml/snakeyaml/events/AliasEvent;
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_aa
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
     instance-of v2, v2, Lorg/yaml/snakeyaml/events/ScalarEvent;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9e
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
@@ -2373,7 +2373,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_9e
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
@@ -2381,35 +2381,35 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_aa
 
-    :cond_8
+    :cond_9e
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->checkEmptySequence()Z
 
     move-result v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_aa
 
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->checkEmptyMapping()Z
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_ac
 
-    :cond_9
+    :cond_aa
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_ad
 
-    :cond_a
+    :cond_ac
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_ad
     return v2
 .end method
 
 .method private chooseScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
-    .locals 3
+    .registers 4
 
     .line 912
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
@@ -2420,7 +2420,7 @@
     .local v0, "ev":Lorg/yaml/snakeyaml/events/ScalarEvent;
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 914
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getValue()Ljava/lang/String;
@@ -2434,12 +2434,12 @@
     iput-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
     .line 916
-    :cond_0
+    :cond_12
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->isPlain()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_20
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
@@ -2447,30 +2447,30 @@
 
     sget-object v2, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->DOUBLE_QUOTED:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_28
 
-    :cond_1
+    :cond_20
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->canonical:Ljava/lang/Boolean;
 
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2b
 
     .line 917
-    :cond_2
+    :cond_28
     sget-object v1, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->DOUBLE_QUOTED:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     return-object v1
 
     .line 919
-    :cond_3
+    :cond_2b
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->isPlain()Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_69
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getImplicit()Lorg/yaml/snakeyaml/events/ImplicitTuple;
 
@@ -2480,12 +2480,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_69
 
     .line 920
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->simpleKeyContext:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4f
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
@@ -2493,7 +2493,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_69
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
@@ -2501,12 +2501,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_69
 
-    :cond_4
+    :cond_4f
     iget v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->flowLevel:I
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_5b
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
@@ -2514,12 +2514,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_67
 
-    :cond_5
+    :cond_5b
     iget v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->flowLevel:I
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_69
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
@@ -2527,21 +2527,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_69
 
     .line 922
-    :cond_6
+    :cond_67
     const/4 v1, 0x0
 
     return-object v1
 
     .line 925
-    :cond_7
+    :cond_69
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->isPlain()Z
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_94
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
@@ -2549,7 +2549,7 @@
 
     sget-object v2, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->LITERAL:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-eq v1, v2, :cond_8
+    if-eq v1, v2, :cond_7f
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
@@ -2557,17 +2557,17 @@
 
     sget-object v2, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->FOLDED:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-ne v1, v2, :cond_9
+    if-ne v1, v2, :cond_94
 
     .line 926
-    :cond_8
+    :cond_7f
     iget v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->flowLevel:I
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_94
 
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->simpleKeyContext:Z
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_94
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
@@ -2575,7 +2575,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_94
 
     .line 927
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -2585,12 +2585,12 @@
     return-object v1
 
     .line 930
-    :cond_9
+    :cond_94
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->isPlain()Z
 
     move-result v1
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_a2
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
@@ -2598,21 +2598,21 @@
 
     sget-object v2, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->SINGLE_QUOTED:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-ne v1, v2, :cond_c
+    if-ne v1, v2, :cond_b9
 
     .line 931
-    :cond_a
+    :cond_a2
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->isAllowSingleQuoted()Z
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_b9
 
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->simpleKeyContext:Z
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_b6
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
@@ -2620,23 +2620,23 @@
 
     move-result v1
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_b9
 
     .line 932
-    :cond_b
+    :cond_b6
     sget-object v1, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->SINGLE_QUOTED:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     return-object v1
 
     .line 935
-    :cond_c
+    :cond_b9
     sget-object v1, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->DOUBLE_QUOTED:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     return-object v1
 .end method
 
 .method private determineBlockHints(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "text"    # Ljava/lang/String;
 
     .line 1486
@@ -2660,7 +2660,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 1488
     iget v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->bestIndent:I
@@ -2668,7 +2668,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 1490
-    :cond_0
+    :cond_19
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -2689,22 +2689,22 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_31
 
     .line 1492
     const-string v2, "-"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 1493
-    :cond_1
+    :cond_31
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-eq v3, v2, :cond_2
+    if-eq v3, v2, :cond_49
 
     sget-object v2, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -2722,17 +2722,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4e
 
     .line 1494
-    :cond_2
+    :cond_49
     const-string v2, "+"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1496
-    :cond_3
-    :goto_0
+    :cond_4e
+    :goto_4e
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -2741,7 +2741,7 @@
 .end method
 
 .method private expectAlias()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2753,7 +2753,7 @@
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/AliasEvent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 481
     const-string v0, "*"
@@ -2775,7 +2775,7 @@
     return-void
 
     .line 479
-    :cond_0
+    :cond_16
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     const-string v1, "Alias must be provided"
@@ -2786,7 +2786,7 @@
 .end method
 
 .method private expectBlockMapping()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2812,7 +2812,7 @@
 .end method
 
 .method private expectBlockSequence()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2824,22 +2824,22 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->indention:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     .line 667
     .local v0, "indentless":Z
-    :goto_0
+    :goto_c
     invoke-direct {p0, v1, v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->increaseIndent(ZZ)V
 
     .line 668
@@ -2856,7 +2856,7 @@
 .end method
 
 .method private expectFlowMapping()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2889,13 +2889,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 569
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
     .line 571
-    :cond_0
+    :cond_1a
     new-instance v0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFirstFlowMappingKey;
 
     const/4 v1, 0x0
@@ -2909,7 +2909,7 @@
 .end method
 
 .method private expectFlowSequence()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2942,13 +2942,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 499
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
     .line 501
-    :cond_0
+    :cond_1a
     new-instance v0, Lorg/yaml/snakeyaml/emitter/Emitter$ExpectFirstFlowSequenceItem;
 
     const/4 v1, 0x0
@@ -2962,7 +2962,7 @@
 .end method
 
 .method private expectNode(ZZZ)V
-    .locals 3
+    .registers 7
     .param p1, "root"    # Z
     .param p2, "mapping"    # Z
     .param p3, "simpleKey"    # Z
@@ -2986,31 +2986,31 @@
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/AliasEvent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 451
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->expectAlias()V
 
-    goto/16 :goto_3
+    goto/16 :goto_9a
 
     .line 452
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/ScalarEvent;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_39
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/CollectionStartEvent;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
-    goto :goto_0
+    goto :goto_39
 
     .line 473
-    :cond_1
+    :cond_1e
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3038,8 +3038,8 @@
     throw v0
 
     .line 453
-    :cond_2
-    :goto_0
+    :cond_39
+    :goto_39
     const-string v0, "&"
 
     invoke-direct {p0, v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->processAnchor(Ljava/lang/String;)V
@@ -3052,25 +3052,25 @@
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/ScalarEvent;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4b
 
     .line 456
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->expectScalar()V
 
-    goto :goto_3
+    goto :goto_9a
 
     .line 457
-    :cond_3
+    :cond_4b
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
     instance-of v0, v0, Lorg/yaml/snakeyaml/events/SequenceStartEvent;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_76
 
     .line 458
     iget v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->flowLevel:I
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_72
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->canonical:Ljava/lang/Boolean;
 
@@ -3078,7 +3078,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_72
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
@@ -3088,34 +3088,34 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_72
 
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->checkEmptySequence()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6e
 
-    goto :goto_1
+    goto :goto_72
 
     .line 462
-    :cond_4
+    :cond_6e
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->expectBlockSequence()V
 
-    goto :goto_3
+    goto :goto_9a
 
     .line 460
-    :cond_5
-    :goto_1
+    :cond_72
+    :goto_72
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->expectFlowSequence()V
 
-    goto :goto_3
+    goto :goto_9a
 
     .line 465
-    :cond_6
+    :cond_76
     iget v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->flowLevel:I
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_97
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->canonical:Ljava/lang/Boolean;
 
@@ -3123,7 +3123,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_97
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
@@ -3133,34 +3133,34 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_97
 
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->checkEmptyMapping()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_93
 
-    goto :goto_2
+    goto :goto_97
 
     .line 469
-    :cond_7
+    :cond_93
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->expectBlockMapping()V
 
-    goto :goto_3
+    goto :goto_9a
 
     .line 467
-    :cond_8
-    :goto_2
+    :cond_97
+    :goto_97
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->expectFlowMapping()V
 
     .line 475
-    :goto_3
+    :goto_9a
     return-void
 .end method
 
 .method private expectScalar()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3204,7 +3204,7 @@
 .end method
 
 .method private increaseIndent(ZZ)V
-    .locals 2
+    .registers 5
     .param p1, "flow"    # Z
     .param p2, "indentless"    # Z
 
@@ -3218,10 +3218,10 @@
     .line 317
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->indent:Ljava/lang/Integer;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     .line 318
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
     .line 319
     iget v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->bestIndent:I
@@ -3232,10 +3232,10 @@
 
     iput-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->indent:Ljava/lang/Integer;
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 321
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -3244,11 +3244,11 @@
 
     iput-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->indent:Ljava/lang/Integer;
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 323
-    :cond_1
-    if-nez p2, :cond_2
+    :cond_1e
+    if-nez p2, :cond_2f
 
     .line 324
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->indent:Ljava/lang/Integer;
@@ -3268,13 +3268,13 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->indent:Ljava/lang/Integer;
 
     .line 326
-    :cond_2
-    :goto_0
+    :cond_2f
+    :goto_2f
     return-void
 .end method
 
 .method private isFoldedOrLiteral(Lorg/yaml/snakeyaml/events/Event;)Z
-    .locals 4
+    .registers 6
     .param p1, "event"    # Lorg/yaml/snakeyaml/events/Event;
 
     .line 758
@@ -3286,13 +3286,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 759
     return v1
 
     .line 761
-    :cond_0
+    :cond_a
     move-object v0, p1
 
     check-cast v0, Lorg/yaml/snakeyaml/events/ScalarEvent;
@@ -3307,21 +3307,21 @@
     .local v2, "style":Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
     sget-object v3, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->FOLDED:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_19
 
     sget-object v3, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->LITERAL:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_1a
 
-    :cond_1
+    :cond_19
     const/4 v1, 0x1
 
-    :cond_2
+    :cond_1a
     return v1
 .end method
 
 .method private needEvents(Ljava/util/Iterator;I)Z
-    .locals 5
+    .registers 8
     .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3342,14 +3342,14 @@
 
     .line 295
     .local v1, "actualCount":I
-    :goto_0
+    :goto_2
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_37
 
     .line 296
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -3362,86 +3362,86 @@
     .local v2, "event":Lorg/yaml/snakeyaml/events/Event;
     instance-of v4, v2, Lorg/yaml/snakeyaml/events/CommentEvent;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_14
 
     .line 298
-    goto :goto_0
+    goto :goto_2
 
     .line 300
-    :cond_0
+    :cond_14
     add-int/lit8 v1, v1, 0x1
 
     .line 301
     instance-of v4, v2, Lorg/yaml/snakeyaml/events/DocumentStartEvent;
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_31
 
     instance-of v4, v2, Lorg/yaml/snakeyaml/events/CollectionStartEvent;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1f
 
-    goto :goto_2
+    goto :goto_31
 
     .line 303
-    :cond_1
+    :cond_1f
     instance-of v4, v2, Lorg/yaml/snakeyaml/events/DocumentEndEvent;
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_2e
 
     instance-of v4, v2, Lorg/yaml/snakeyaml/events/CollectionEndEvent;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_28
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 305
-    :cond_2
+    :cond_28
     instance-of v4, v2, Lorg/yaml/snakeyaml/events/StreamEndEvent;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_33
 
     .line 306
     const/4 v0, -0x1
 
-    goto :goto_3
+    goto :goto_33
 
     .line 304
-    :cond_3
-    :goto_1
+    :cond_2e
+    :goto_2e
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_3
+    goto :goto_33
 
     .line 302
-    :cond_4
-    :goto_2
+    :cond_31
+    :goto_31
     add-int/lit8 v0, v0, 0x1
 
     .line 308
-    :cond_5
-    :goto_3
-    if-gez v0, :cond_6
+    :cond_33
+    :goto_33
+    if-gez v0, :cond_36
 
     .line 309
     return v3
 
     .line 311
     .end local v2    # "event":Lorg/yaml/snakeyaml/events/Event;
-    :cond_6
-    goto :goto_0
+    :cond_36
+    goto :goto_2
 
     .line 312
-    :cond_7
-    if-ge v1, p2, :cond_8
+    :cond_37
+    if-ge v1, p2, :cond_3a
 
     const/4 v3, 0x1
 
-    :cond_8
+    :cond_3a
     return v3
 .end method
 
 .method private needMoreEvents()Z
-    .locals 5
+    .registers 6
 
     .line 263
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->events:Ljava/util/Queue;
@@ -3452,13 +3452,13 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 264
     return v1
 
     .line 267
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->events:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->iterator()Ljava/util/Iterator;
@@ -3475,23 +3475,23 @@
 
     .line 269
     .local v2, "event":Lorg/yaml/snakeyaml/events/Event;
-    :goto_0
+    :goto_16
     instance-of v3, v2, Lorg/yaml/snakeyaml/events/CommentEvent;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_29
 
     .line 270
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_21
 
     .line 271
     return v1
 
     .line 273
-    :cond_1
+    :cond_21
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
@@ -3500,13 +3500,13 @@
 
     check-cast v2, Lorg/yaml/snakeyaml/events/Event;
 
-    goto :goto_0
+    goto :goto_16
 
     .line 276
-    :cond_2
+    :cond_29
     instance-of v3, v2, Lorg/yaml/snakeyaml/events/DocumentStartEvent;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_32
 
     .line 277
     invoke-direct {p0, v0, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->needEvents(Ljava/util/Iterator;I)Z
@@ -3516,12 +3516,12 @@
     return v1
 
     .line 278
-    :cond_3
+    :cond_32
     instance-of v3, v2, Lorg/yaml/snakeyaml/events/SequenceStartEvent;
 
     const/4 v4, 0x2
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3c
 
     .line 279
     invoke-direct {p0, v0, v4}, Lorg/yaml/snakeyaml/emitter/Emitter;->needEvents(Ljava/util/Iterator;I)Z
@@ -3531,10 +3531,10 @@
     return v1
 
     .line 280
-    :cond_4
+    :cond_3c
     instance-of v3, v2, Lorg/yaml/snakeyaml/events/MappingStartEvent;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_46
 
     .line 281
     const/4 v1, 0x3
@@ -3546,10 +3546,10 @@
     return v1
 
     .line 282
-    :cond_5
+    :cond_46
     instance-of v3, v2, Lorg/yaml/snakeyaml/events/StreamStartEvent;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_4f
 
     .line 283
     invoke-direct {p0, v0, v4}, Lorg/yaml/snakeyaml/emitter/Emitter;->needEvents(Ljava/util/Iterator;I)Z
@@ -3559,21 +3559,21 @@
     return v1
 
     .line 284
-    :cond_6
+    :cond_4f
     instance-of v3, v2, Lorg/yaml/snakeyaml/events/StreamEndEvent;
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_55
 
     .line 285
     return v4
 
     .line 286
-    :cond_7
+    :cond_55
     iget-boolean v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->emitComments:Z
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_5e
 
     .line 287
     invoke-direct {p0, v0, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->needEvents(Ljava/util/Iterator;I)Z
@@ -3583,12 +3583,12 @@
     return v1
 
     .line 289
-    :cond_8
+    :cond_5e
     return v4
 .end method
 
 .method static prepareAnchor(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "anchor"    # Ljava/lang/String;
 
     .line 1042
@@ -3596,7 +3596,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_6d
 
     .line 1045
     sget-object v0, Lorg/yaml/snakeyaml/emitter/Emitter;->INVALID_ANCHOR:Ljava/util/Set;
@@ -3606,12 +3606,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_47
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3631,15 +3631,15 @@
 
     const/4 v3, -0x1
 
-    if-gt v2, v3, :cond_0
+    if-gt v2, v3, :cond_24
 
     .line 1049
     .end local v1    # "invalid":Ljava/lang/Character;
-    goto :goto_0
+    goto :goto_c
 
     .line 1047
     .restart local v1    # "invalid":Ljava/lang/Character;
-    :cond_0
+    :cond_24
     new-instance v2, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3677,7 +3677,7 @@
     .line 1050
     .end local v0    # "i$":Ljava/util/Iterator;
     .end local v1    # "invalid":Ljava/lang/Character;
-    :cond_1
+    :cond_47
     sget-object v0, Lorg/yaml/snakeyaml/emitter/Emitter;->SPACES_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -3690,13 +3690,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_54
 
     .line 1054
     return-object p0
 
     .line 1052
-    :cond_2
+    :cond_54
     new-instance v1, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3723,7 +3723,7 @@
 
     .line 1043
     .end local v0    # "matcher":Ljava/util/regex/Matcher;
-    :cond_3
+    :cond_6d
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     const-string v1, "anchor must not be empty"
@@ -3734,7 +3734,7 @@
 .end method
 
 .method private prepareTag(Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "tag"    # Ljava/lang/String;
 
     .line 1013
@@ -3742,7 +3742,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8e
 
     .line 1016
     const-string v0, "!"
@@ -3751,13 +3751,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 1017
     return-object p1
 
     .line 1019
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     .line 1020
@@ -3777,12 +3777,12 @@
     move-result-object v3
 
     .local v3, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_1b
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_3f
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3796,13 +3796,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3e
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_3d
 
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
@@ -3812,21 +3812,21 @@
 
     move-result v6
 
-    if-ge v5, v6, :cond_2
+    if-ge v5, v6, :cond_3e
 
     .line 1024
-    :cond_1
+    :cond_3d
     move-object v1, v4
 
     .line 1026
     .end local v4    # "prefix":Ljava/lang/String;
-    :cond_2
-    goto :goto_0
+    :cond_3e
+    goto :goto_1b
 
     .line 1027
     .end local v3    # "i$":Ljava/util/Iterator;
-    :cond_3
-    if-eqz v1, :cond_4
+    :cond_3f
+    if-eqz v1, :cond_52
 
     .line 1028
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -3849,14 +3849,14 @@
     check-cast v1, Ljava/lang/String;
 
     .line 1032
-    :cond_4
+    :cond_52
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v0
 
     .line 1033
     .local v0, "end":I
-    if-lez v0, :cond_5
+    if-lez v0, :cond_5e
 
     const/4 v3, 0x0
 
@@ -3864,15 +3864,15 @@
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_60
 
-    :cond_5
+    :cond_5e
     const-string v3, ""
 
     .line 1035
     .local v3, "suffixText":Ljava/lang/String;
-    :goto_1
-    if-eqz v1, :cond_6
+    :goto_60
+    if-eqz v1, :cond_74
 
     .line 1036
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3894,7 +3894,7 @@
     return-object v4
 
     .line 1038
-    :cond_6
+    :cond_74
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -3926,7 +3926,7 @@
     .end local v1    # "handle":Ljava/lang/String;
     .end local v2    # "suffix":Ljava/lang/String;
     .end local v3    # "suffixText":Ljava/lang/String;
-    :cond_7
+    :cond_8e
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     const-string v1, "tag must not be empty"
@@ -3937,7 +3937,7 @@
 .end method
 
 .method private prepareTagHandle(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "handle"    # Ljava/lang/String;
 
     .line 983
@@ -3945,7 +3945,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_63
 
     .line 985
     const/4 v0, 0x0
@@ -3956,7 +3956,7 @@
 
     const/16 v1, 0x21
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_4a
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -3968,7 +3968,7 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_4a
 
     .line 987
     const-string v0, "!"
@@ -3977,7 +3977,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_49
 
     sget-object v0, Lorg/yaml/snakeyaml/emitter/Emitter;->HANDLE_FORMAT:Ljava/util/regex/Pattern;
 
@@ -3989,12 +3989,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_30
 
-    goto :goto_0
+    goto :goto_49
 
     .line 988
-    :cond_0
+    :cond_30
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -4020,12 +4020,12 @@
     throw v0
 
     .line 990
-    :cond_1
-    :goto_0
+    :cond_49
+    :goto_49
     return-object p1
 
     .line 986
-    :cond_2
+    :cond_4a
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -4051,7 +4051,7 @@
     throw v0
 
     .line 984
-    :cond_3
+    :cond_63
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     const-string v1, "tag handle must not be empty"
@@ -4062,7 +4062,7 @@
 .end method
 
 .method private prepareTagPrefix(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "prefix"    # Ljava/lang/String;
 
     .line 994
@@ -4070,7 +4070,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2a
 
     .line 997
     new-instance v0, Ljava/lang/StringBuilder;
@@ -4095,34 +4095,34 @@
 
     const/16 v4, 0x21
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_17
 
     .line 1001
     const/4 v2, 0x1
 
     .line 1003
-    :cond_0
-    :goto_0
+    :cond_17
+    :goto_17
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_20
 
     .line 1004
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 1006
-    :cond_1
-    if-ge v1, v2, :cond_2
+    :cond_20
+    if-ge v1, v2, :cond_25
 
     .line 1007
     invoke-virtual {v0, p1, v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
 
     .line 1009
-    :cond_2
+    :cond_25
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -4133,7 +4133,7 @@
     .end local v0    # "chunks":Ljava/lang/StringBuilder;
     .end local v1    # "start":I
     .end local v2    # "end":I
-    :cond_3
+    :cond_2a
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     const-string v1, "tag prefix must not be empty"
@@ -4144,7 +4144,7 @@
 .end method
 
 .method private prepareVersion(Lorg/yaml/snakeyaml/DumperOptions$Version;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "version"    # Lorg/yaml/snakeyaml/DumperOptions$Version;
 
     .line 974
@@ -4154,7 +4154,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     .line 977
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/DumperOptions$Version;->getRepresentation()Ljava/lang/String;
@@ -4164,7 +4164,7 @@
     return-object v0
 
     .line 975
-    :cond_0
+    :cond_c
     new-instance v0, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -4191,7 +4191,7 @@
 .end method
 
 .method private processAnchor(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "indicator"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4212,7 +4212,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 865
     iput-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedAnchor:Ljava/lang/String;
@@ -4221,10 +4221,10 @@
     return-void
 
     .line 868
-    :cond_0
+    :cond_e
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedAnchor:Ljava/lang/String;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1c
 
     .line 869
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/NodeEvent;->getAnchor()Ljava/lang/String;
@@ -4238,7 +4238,7 @@
     iput-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedAnchor:Ljava/lang/String;
 
     .line 871
-    :cond_1
+    :cond_1c
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -4271,7 +4271,7 @@
 .end method
 
 .method private processScalar()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4287,7 +4287,7 @@
     .local v0, "ev":Lorg/yaml/snakeyaml/events/ScalarEvent;
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 941
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getValue()Ljava/lang/String;
@@ -4301,10 +4301,10 @@
     iput-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
     .line 943
-    :cond_0
+    :cond_12
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1c
 
     .line 944
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->chooseScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -4314,28 +4314,28 @@
     iput-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     .line 946
-    :cond_1
+    :cond_1c
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->simpleKeyContext:Z
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_26
 
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->splitLines:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_26
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_2
+    :cond_26
     const/4 v1, 0x0
 
     .line 947
     .local v1, "split":Z
-    :goto_0
+    :goto_27
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_35
 
     .line 948
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
@@ -4346,10 +4346,10 @@
 
     invoke-virtual {p0, v2, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->writePlain(Ljava/lang/String;Z)V
 
-    goto :goto_1
+    goto :goto_85
 
     .line 950
-    :cond_3
+    :cond_35
     sget-object v2, Lorg/yaml/snakeyaml/emitter/Emitter$1;->$SwitchMap$org$yaml$snakeyaml$DumperOptions$ScalarStyle:[I
 
     iget-object v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -4360,7 +4360,7 @@
 
     aget v2, v2, v3
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_8c
 
     .line 964
     new-instance v2, Lorg/yaml/snakeyaml/error/YAMLException;
@@ -4390,7 +4390,7 @@
     throw v2
 
     .line 961
-    :pswitch_0
+    :pswitch_5d
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->getScalar()Ljava/lang/String;
@@ -4400,10 +4400,10 @@
     invoke-virtual {p0, v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLiteral(Ljava/lang/String;)V
 
     .line 962
-    goto :goto_1
+    goto :goto_85
 
     .line 958
-    :pswitch_1
+    :pswitch_67
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->getScalar()Ljava/lang/String;
@@ -4413,10 +4413,10 @@
     invoke-virtual {p0, v2, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeFolded(Ljava/lang/String;Z)V
 
     .line 959
-    goto :goto_1
+    goto :goto_85
 
     .line 955
-    :pswitch_2
+    :pswitch_71
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->getScalar()Ljava/lang/String;
@@ -4426,10 +4426,10 @@
     invoke-direct {p0, v2, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeSingleQuoted(Ljava/lang/String;Z)V
 
     .line 956
-    goto :goto_1
+    goto :goto_85
 
     .line 952
-    :pswitch_3
+    :pswitch_7b
     iget-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->getScalar()Ljava/lang/String;
@@ -4442,7 +4442,7 @@
     nop
 
     .line 967
-    :goto_1
+    :goto_85
     const/4 v2, 0x0
 
     iput-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->analysis:Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;
@@ -4455,17 +4455,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_8c
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_7b
+        :pswitch_71
+        :pswitch_67
+        :pswitch_5d
     .end packed-switch
 .end method
 
 .method private processTag()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4483,7 +4483,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_54
 
     .line 878
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
@@ -4499,7 +4499,7 @@
     .line 880
     iget-object v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1a
 
     .line 881
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->chooseScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -4509,21 +4509,21 @@
     iput-object v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     .line 883
-    :cond_0
+    :cond_1a
     iget-object v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->canonical:Ljava/lang/Boolean;
 
     invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_24
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_43
 
-    :cond_1
+    :cond_24
     iget-object v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_32
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getImplicit()Lorg/yaml/snakeyaml/events/ImplicitTuple;
 
@@ -4533,12 +4533,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_40
 
-    :cond_2
+    :cond_32
     iget-object v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_43
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getImplicit()Lorg/yaml/snakeyaml/events/ImplicitTuple;
 
@@ -4548,17 +4548,17 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_43
 
     .line 886
-    :cond_3
+    :cond_40
     iput-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedTag:Ljava/lang/String;
 
     .line 887
     return-void
 
     .line 889
-    :cond_4
+    :cond_43
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getImplicit()Lorg/yaml/snakeyaml/events/ImplicitTuple;
 
     move-result-object v3
@@ -4567,9 +4567,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_53
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_53
 
     .line 890
     const-string v0, "!"
@@ -4579,11 +4579,11 @@
 
     .line 893
     .end local v1    # "ev":Lorg/yaml/snakeyaml/events/ScalarEvent;
-    :cond_5
-    goto :goto_0
+    :cond_53
+    goto :goto_6f
 
     .line 894
-    :cond_6
+    :cond_54
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
     check-cast v1, Lorg/yaml/snakeyaml/events/CollectionStartEvent;
@@ -4601,16 +4601,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_66
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_6f
 
-    :cond_7
+    :cond_66
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/events/CollectionStartEvent;->getImplicit()Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_6f
 
     .line 897
     iput-object v2, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedTag:Ljava/lang/String;
@@ -4620,14 +4620,14 @@
 
     .line 901
     .end local v1    # "ev":Lorg/yaml/snakeyaml/events/CollectionStartEvent;
-    :cond_8
-    :goto_0
-    if-eqz v0, :cond_a
+    :cond_6f
+    :goto_6f
+    if-eqz v0, :cond_85
 
     .line 904
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedTag:Ljava/lang/String;
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_7b
 
     .line 905
     invoke-direct {p0, v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->prepareTag(Ljava/lang/String;)Ljava/lang/String;
@@ -4637,7 +4637,7 @@
     iput-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedTag:Ljava/lang/String;
 
     .line 907
-    :cond_9
+    :cond_7b
     iget-object v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->preparedTag:Ljava/lang/String;
 
     const/4 v3, 0x1
@@ -4653,7 +4653,7 @@
     return-void
 
     .line 902
-    :cond_a
+    :cond_85
     new-instance v1, Lorg/yaml/snakeyaml/emitter/EmitterException;
 
     const-string v2, "tag is not specified"
@@ -4664,7 +4664,7 @@
 .end method
 
 .method private writeBlockComment()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4678,7 +4678,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 1476
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
@@ -4693,12 +4693,12 @@
     invoke-direct {p0, v0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeCommentLines(Ljava/util/List;)Z
 
     .line 1479
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method private writeCommentLines(Ljava/util/List;)Z
-    .locals 11
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4722,7 +4722,7 @@
     .local v0, "wroteComment":Z
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->emitComments:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5a
 
     .line 1450
     const/4 v1, 0x0
@@ -4738,12 +4738,12 @@
     move-result-object v3
 
     .local v3, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_b
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5a
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4761,14 +4761,14 @@
 
     const/4 v7, 0x0
 
-    if-eq v5, v6, :cond_3
+    if-eq v5, v6, :cond_52
 
     .line 1454
     const-string v5, "#"
 
     const/4 v6, 0x0
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3f
 
     .line 1455
     const/4 v2, 0x0
@@ -4782,41 +4782,41 @@
 
     const/4 v10, 0x1
 
-    if-ne v8, v9, :cond_0
+    if-ne v8, v9, :cond_31
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_0
+    :cond_31
     const/4 v8, 0x0
 
-    :goto_1
+    :goto_32
     invoke-virtual {p0, v5, v8, v6, v6}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndicator(Ljava/lang/String;ZZZ)V
 
     .line 1457
     iget v5, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
-    if-lez v5, :cond_1
+    if-lez v5, :cond_3d
 
     iget v5, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
     add-int/lit8 v6, v5, -0x1
 
-    :cond_1
+    :cond_3d
     move v1, v6
 
-    goto :goto_2
+    goto :goto_45
 
     .line 1459
-    :cond_2
+    :cond_3f
     invoke-direct {p0, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeWhitespace(I)V
 
     .line 1460
     invoke-virtual {p0, v5, v6, v6, v6}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndicator(Ljava/lang/String;ZZZ)V
 
     .line 1462
-    :goto_2
+    :goto_45
     iget-object v5, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->stream:Ljava/io/Writer;
 
     invoke-virtual {v4}, Lorg/yaml/snakeyaml/comments/CommentLine;->getValue()Ljava/lang/String;
@@ -4828,33 +4828,33 @@
     .line 1463
     invoke-direct {p0, v7}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_58
 
     .line 1465
-    :cond_3
+    :cond_52
     invoke-direct {p0, v7}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
     .line 1466
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
     .line 1468
-    :goto_3
+    :goto_58
     const/4 v0, 0x1
 
     .line 1469
     .end local v4    # "commentLine":Lorg/yaml/snakeyaml/comments/CommentLine;
-    goto :goto_0
+    goto :goto_b
 
     .line 1471
     .end local v1    # "indentColumns":I
     .end local v2    # "firstComment":Z
     .end local v3    # "i$":Ljava/util/Iterator;
-    :cond_4
+    :cond_5a
     return v0
 .end method
 
 .method private writeDoubleQuoted(Ljava/lang/String;Z)V
-    .locals 13
+    .registers 16
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "split"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -4881,12 +4881,12 @@
 
     .line 1376
     .local v4, "end":I
-    :goto_0
+    :goto_9
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v5
 
-    if-gt v4, v5, :cond_e
+    if-gt v4, v5, :cond_217
 
     .line 1377
     const/4 v5, 0x0
@@ -4897,7 +4897,7 @@
 
     move-result v6
 
-    if-ge v4, v6, :cond_0
+    if-ge v4, v6, :cond_1e
 
     .line 1379
     invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
@@ -4909,12 +4909,12 @@
     move-result-object v5
 
     .line 1381
-    :cond_0
+    :cond_1e
     const-string v6, "\\"
 
     const/16 v7, 0x20
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3f
 
     const-string v8, "\"\\\u0085\u2028\u2029\ufeff"
 
@@ -4928,13 +4928,13 @@
 
     const/4 v9, -0x1
 
-    if-ne v8, v9, :cond_1
+    if-ne v8, v9, :cond_3f
 
     invoke-virtual {v5}, Ljava/lang/Character;->charValue()C
 
     move-result v8
 
-    if-gt v7, v8, :cond_1
+    if-gt v7, v8, :cond_3f
 
     invoke-virtual {v5}, Ljava/lang/Character;->charValue()C
 
@@ -4942,11 +4942,11 @@
 
     const/16 v9, 0x7e
 
-    if-le v8, v9, :cond_9
+    if-le v8, v9, :cond_1ae
 
     .line 1383
-    :cond_1
-    if-ge v3, v4, :cond_2
+    :cond_3f
+    if-ge v3, v4, :cond_4e
 
     .line 1384
     sub-int v8, v4, v3
@@ -4969,8 +4969,8 @@
 
     .line 1389
     .end local v8    # "len":I
-    :cond_2
-    if-eqz v5, :cond_9
+    :cond_4e
+    if-eqz v5, :cond_1ae
 
     .line 1391
     sget-object v8, Lorg/yaml/snakeyaml/emitter/Emitter;->ESCAPE_REPLACEMENTS:Ljava/util/Map;
@@ -4979,7 +4979,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_73
 
     .line 1392
     new-instance v8, Ljava/lang/StringBuilder;
@@ -5007,14 +5007,14 @@
     move-result-object v8
 
     .local v8, "data":Ljava/lang/String;
-    goto/16 :goto_2
+    goto/16 :goto_19e
 
     .line 1393
     .end local v8    # "data":Ljava/lang/String;
-    :cond_3
+    :cond_73
     iget-boolean v8, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->allowUnicode:Z
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_88
 
     invoke-virtual {v5}, Ljava/lang/Character;->charValue()C
 
@@ -5024,23 +5024,23 @@
 
     move-result v8
 
-    if-nez v8, :cond_4
+    if-nez v8, :cond_82
 
-    goto :goto_1
+    goto :goto_88
 
     .line 1413
-    :cond_4
+    :cond_82
     invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v8
 
     .restart local v8    # "data":Ljava/lang/String;
-    goto/16 :goto_2
+    goto/16 :goto_19e
 
     .line 1396
     .end local v8    # "data":Ljava/lang/String;
-    :cond_5
-    :goto_1
+    :cond_88
+    :goto_88
     invoke-virtual {v5}, Ljava/lang/Character;->charValue()C
 
     move-result v8
@@ -5049,7 +5049,7 @@
 
     const/16 v10, 0x10
 
-    if-gt v8, v9, :cond_6
+    if-gt v8, v9, :cond_cc
 
     .line 1397
     new-instance v8, Ljava/lang/StringBuilder;
@@ -5110,10 +5110,10 @@
 
     .line 1399
     .local v8, "data":Ljava/lang/String;
-    goto/16 :goto_2
+    goto/16 :goto_19e
 
     .end local v8    # "data":Ljava/lang/String;
-    :cond_6
+    :cond_cc
     invoke-virtual {v5}, Ljava/lang/Character;->charValue()C
 
     move-result v8
@@ -5124,7 +5124,7 @@
 
     const-string v12, "000"
 
-    if-lt v8, v9, :cond_8
+    if-lt v8, v9, :cond_169
 
     invoke-virtual {v5}, Ljava/lang/Character;->charValue()C
 
@@ -5132,7 +5132,7 @@
 
     const v9, 0xdbff
 
-    if-gt v8, v9, :cond_8
+    if-gt v8, v9, :cond_169
 
     .line 1400
     add-int/lit8 v8, v4, 0x1
@@ -5141,7 +5141,7 @@
 
     move-result v9
 
-    if-ge v8, v9, :cond_7
+    if-ge v8, v9, :cond_134
 
     .line 1401
     add-int/lit8 v4, v4, 0x1
@@ -5223,11 +5223,11 @@
     .line 1404
     .end local v9    # "s":Ljava/lang/String;
     .local v8, "data":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_19e
 
     .line 1405
     .end local v8    # "data":Ljava/lang/String;
-    :cond_7
+    :cond_134
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -5282,11 +5282,11 @@
 
     .line 1407
     .local v8, "data":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_19e
 
     .line 1409
     .end local v8    # "data":Ljava/lang/String;
-    :cond_8
+    :cond_169
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -5344,7 +5344,7 @@
     nop
 
     .line 1415
-    :goto_2
+    :goto_19e
     iget v9, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
     invoke-virtual {v8}, Ljava/lang/String;->length()I
@@ -5365,8 +5365,8 @@
 
     .line 1420
     .end local v8    # "data":Ljava/lang/String;
-    :cond_9
-    if-lez v4, :cond_d
+    :cond_1ae
+    if-lez v4, :cond_212
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -5374,17 +5374,17 @@
 
     sub-int/2addr v8, v1
 
-    if-ge v4, v8, :cond_d
+    if-ge v4, v8, :cond_212
 
     invoke-virtual {v5}, Ljava/lang/Character;->charValue()C
 
     move-result v8
 
-    if-eq v8, v7, :cond_a
+    if-eq v8, v7, :cond_1bf
 
-    if-lt v3, v4, :cond_d
+    if-lt v3, v4, :cond_212
 
-    :cond_a
+    :cond_1bf
     iget v8, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
     sub-int v9, v4, v3
@@ -5393,22 +5393,22 @@
 
     iget v9, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->bestWidth:I
 
-    if-le v8, v9, :cond_d
+    if-le v8, v9, :cond_212
 
-    if-eqz p2, :cond_d
+    if-eqz p2, :cond_212
 
     .line 1423
-    if-lt v3, v4, :cond_b
+    if-lt v3, v4, :cond_1cf
 
     .line 1424
     const-string v6, "\\"
 
     .local v6, "data":Ljava/lang/String;
-    goto :goto_3
+    goto :goto_1e4
 
     .line 1426
     .end local v6    # "data":Ljava/lang/String;
-    :cond_b
+    :cond_1cf
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -5431,14 +5431,14 @@
 
     .line 1428
     .restart local v6    # "data":Ljava/lang/String;
-    :goto_3
-    if-ge v3, v4, :cond_c
+    :goto_1e4
+    if-ge v3, v4, :cond_1e7
 
     .line 1429
     move v3, v4
 
     .line 1431
-    :cond_c
+    :cond_1e7
     iget v8, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
     invoke-virtual {v6}, Ljava/lang/String;->length()I
@@ -5468,7 +5468,7 @@
 
     move-result v8
 
-    if-ne v8, v7, :cond_d
+    if-ne v8, v7, :cond_212
 
     .line 1437
     const-string v6, "\\"
@@ -5491,17 +5491,17 @@
 
     .line 1442
     .end local v6    # "data":Ljava/lang/String;
-    :cond_d
+    :cond_212
     nop
 
     .end local v5    # "ch":Ljava/lang/Character;
     add-int/lit8 v4, v4, 0x1
 
     .line 1443
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 1444
-    :cond_e
+    :cond_217
     invoke-virtual {p0, v0, v2, v2, v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndicator(Ljava/lang/String;ZZZ)V
 
     .line 1445
@@ -5509,7 +5509,7 @@
 .end method
 
 .method private writeInlineComments()Z
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -5531,7 +5531,7 @@
 .end method
 
 .method private writeLineBreak(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "data"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5553,7 +5553,7 @@
     iput v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
     .line 1285
-    if-nez p1, :cond_0
+    if-nez p1, :cond_12
 
     .line 1286
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->stream:Ljava/io/Writer;
@@ -5562,21 +5562,21 @@
 
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write([C)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 1288
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->stream:Ljava/io/Writer;
 
     invoke-virtual {v0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 1290
-    :goto_0
+    :goto_17
     return-void
 .end method
 
 .method private writeSingleQuoted(Ljava/lang/String;Z)V
-    .locals 17
+    .registers 20
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "split"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -5614,12 +5614,12 @@
 
     .line 1315
     .local v8, "end":I
-    :goto_0
+    :goto_f
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v9
 
-    if-gt v8, v9, :cond_d
+    if-gt v8, v9, :cond_d0
 
     .line 1316
     const/4 v9, 0x0
@@ -5630,7 +5630,7 @@
 
     move-result v10
 
-    if-ge v8, v10, :cond_0
+    if-ge v8, v10, :cond_20
 
     .line 1318
     invoke-virtual {v1, v8}, Ljava/lang/String;->charAt(I)C
@@ -5638,45 +5638,45 @@
     move-result v9
 
     .line 1320
-    :cond_0
+    :cond_20
     const/16 v10, 0x20
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4e
 
     .line 1321
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_28
 
-    if-eq v9, v10, :cond_9
+    if-eq v9, v10, :cond_a7
 
     .line 1322
-    :cond_1
+    :cond_28
     add-int/lit8 v11, v7, 0x1
 
-    if-ne v11, v8, :cond_2
+    if-ne v11, v8, :cond_40
 
     iget v11, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
     iget v12, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->bestWidth:I
 
-    if-le v11, v12, :cond_2
+    if-le v11, v12, :cond_40
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_40
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_40
 
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v11
 
-    if-eq v8, v11, :cond_2
+    if-eq v8, v11, :cond_40
 
     .line 1324
     invoke-virtual/range {p0 .. p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
-    goto :goto_1
+    goto :goto_4c
 
     .line 1326
-    :cond_2
+    :cond_40
     sub-int v11, v8, v7
 
     .line 1327
@@ -5694,17 +5694,17 @@
 
     .line 1330
     .end local v11    # "len":I
-    :goto_1
+    :goto_4c
     move v7, v8
 
-    goto :goto_4
+    goto :goto_a7
 
     .line 1332
-    :cond_3
-    if-eqz v6, :cond_8
+    :cond_4e
+    if-eqz v6, :cond_8e
 
     .line 1333
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_5a
 
     sget-object v11, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -5712,10 +5712,10 @@
 
     move-result v11
 
-    if-eqz v11, :cond_9
+    if-eqz v11, :cond_a7
 
     .line 1334
-    :cond_4
+    :cond_5a
     invoke-virtual {v1, v7}, Ljava/lang/String;->charAt(I)C
 
     move-result v11
@@ -5724,13 +5724,13 @@
 
     const/16 v13, 0xa
 
-    if-ne v11, v13, :cond_5
+    if-ne v11, v13, :cond_66
 
     .line 1335
     invoke-direct {v0, v12}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
     .line 1337
-    :cond_5
+    :cond_66
     invoke-virtual {v1, v7, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v11
@@ -5750,22 +5750,22 @@
     move/from16 v3, v16
 
     .local v3, "i$":I
-    :goto_2
-    if-ge v3, v15, :cond_7
+    :goto_73
+    if-ge v3, v15, :cond_89
 
     aget-char v4, v14, v3
 
     .line 1339
     .local v4, "br":C
-    if-ne v4, v13, :cond_6
+    if-ne v4, v13, :cond_7d
 
     .line 1340
     invoke-direct {v0, v12}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_84
 
     .line 1342
-    :cond_6
+    :cond_7d
     invoke-static {v4}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
 
     move-result-object v12
@@ -5774,20 +5774,20 @@
 
     .line 1338
     .end local v4    # "br":C
-    :goto_3
+    :goto_84
     add-int/lit8 v3, v3, 0x1
 
     const/4 v4, 0x0
 
     const/4 v12, 0x0
 
-    goto :goto_2
+    goto :goto_73
 
     .line 1345
     .end local v3    # "i$":I
     .end local v14    # "arr$":[C
     .end local v15    # "len$":I
-    :cond_7
+    :cond_89
     invoke-virtual/range {p0 .. p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
     .line 1346
@@ -5795,10 +5795,10 @@
 
     .line 1347
     .end local v11    # "data":Ljava/lang/String;
-    goto :goto_4
+    goto :goto_a7
 
     .line 1349
-    :cond_8
+    :cond_8e
     sget-object v3, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     const-string v4, "\u0000 \'"
@@ -5807,10 +5807,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_a7
 
     .line 1350
-    if-ge v7, v8, :cond_9
+    if-ge v7, v8, :cond_a7
 
     .line 1351
     sub-int v3, v8, v7
@@ -5833,11 +5833,11 @@
 
     .line 1358
     .end local v3    # "len":I
-    :cond_9
-    :goto_4
+    :cond_a7
+    :goto_a7
     const/16 v3, 0x27
 
-    if-ne v9, v3, :cond_a
+    if-ne v9, v3, :cond_bb
 
     .line 1359
     iget v3, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
@@ -5859,23 +5859,23 @@
     move v7, v3
 
     .line 1363
-    :cond_a
-    if-eqz v9, :cond_c
+    :cond_bb
+    if-eqz v9, :cond_ca
 
     .line 1364
-    if-ne v9, v10, :cond_b
+    if-ne v9, v10, :cond_c1
 
     const/4 v3, 0x1
 
-    goto :goto_5
+    goto :goto_c2
 
-    :cond_b
+    :cond_c1
     const/4 v3, 0x0
 
     .line 1365
     .end local v5    # "spaces":Z
     .local v3, "spaces":Z
-    :goto_5
+    :goto_c2
     sget-object v4, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     invoke-virtual {v4, v9}, Lorg/yaml/snakeyaml/scanner/Constant;->has(I)Z
@@ -5889,18 +5889,18 @@
     .line 1367
     .end local v3    # "spaces":Z
     .restart local v5    # "spaces":Z
-    :cond_c
+    :cond_ca
     add-int/lit8 v8, v8, 0x1
 
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_f
 
     .line 1369
     .end local v9    # "ch":C
-    :cond_d
+    :cond_d0
     const/4 v3, 0x0
 
     invoke-virtual {v0, v2, v3, v3, v3}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndicator(Ljava/lang/String;ZZZ)V
@@ -5910,7 +5910,7 @@
 .end method
 
 .method private writeWhitespace(I)V
-    .locals 3
+    .registers 5
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5919,13 +5919,13 @@
     .end annotation
 
     .line 1269
-    if-gtz p1, :cond_0
+    if-gtz p1, :cond_3
 
     .line 1270
     return-void
 
     .line 1272
-    :cond_0
+    :cond_3
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->whitespace:Z
@@ -5938,10 +5938,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_9
     array-length v2, v0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_13
 
     .line 1275
     const/16 v2, 0x20
@@ -5951,11 +5951,11 @@
     .line 1274
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1277
     .end local v1    # "i":I
-    :cond_1
+    :cond_13
     iget v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
     add-int/2addr v1, p1
@@ -5974,7 +5974,7 @@
 
 # virtual methods
 .method public emit(Lorg/yaml/snakeyaml/events/Event;)V
-    .locals 1
+    .registers 3
     .param p1, "event"    # Lorg/yaml/snakeyaml/events/Event;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5988,12 +5988,12 @@
     invoke-interface {v0, p1}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
 
     .line 253
-    :goto_0
+    :goto_5
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->needMoreEvents()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 254
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->events:Ljava/util/Queue;
@@ -6016,15 +6016,15 @@
 
     iput-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->event:Lorg/yaml/snakeyaml/events/Event;
 
-    goto :goto_0
+    goto :goto_5
 
     .line 258
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method flushStream()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6041,7 +6041,7 @@
 .end method
 
 .method writeFolded(Ljava/lang/String;Z)V
-    .locals 17
+    .registers 20
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "split"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -6090,7 +6090,7 @@
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_35
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
@@ -6104,26 +6104,26 @@
 
     const/16 v6, 0x2b
 
-    if-ne v3, v6, :cond_0
+    if-ne v3, v6, :cond_35
 
     .line 1503
     iput-boolean v4, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->openEnded:Z
 
     .line 1505
-    :cond_0
+    :cond_35
     invoke-direct/range {p0 .. p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeInlineComments()Z
 
     move-result v3
 
     const/4 v6, 0x0
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_3f
 
     .line 1506
     invoke-direct {v0, v6}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
     .line 1508
-    :cond_1
+    :cond_3f
     const/4 v3, 0x1
 
     .line 1509
@@ -6143,12 +6143,12 @@
 
     .line 1512
     .local v10, "end":I
-    :goto_0
+    :goto_44
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v11
 
-    if-gt v10, v11, :cond_10
+    if-gt v10, v11, :cond_101
 
     .line 1513
     const/4 v11, 0x0
@@ -6159,7 +6159,7 @@
 
     move-result v12
 
-    if-ge v10, v12, :cond_2
+    if-ge v10, v12, :cond_55
 
     .line 1515
     invoke-virtual {v1, v10}, Ljava/lang/String;->charAt(I)C
@@ -6167,13 +6167,13 @@
     move-result v11
 
     .line 1517
-    :cond_2
+    :cond_55
     const/16 v12, 0x20
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_a7
 
     .line 1518
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_63
 
     sget-object v13, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -6181,39 +6181,39 @@
 
     move-result v13
 
-    if-eqz v13, :cond_d
+    if-eqz v13, :cond_e9
 
     .line 1519
-    :cond_3
+    :cond_63
     const/16 v13, 0xa
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_74
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_74
 
-    if-eq v11, v12, :cond_4
+    if-eq v11, v12, :cond_74
 
     invoke-virtual {v1, v9}, Ljava/lang/String;->charAt(I)C
 
     move-result v14
 
-    if-ne v14, v13, :cond_4
+    if-ne v14, v13, :cond_74
 
     .line 1520
     invoke-direct {v0, v6}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
     .line 1522
-    :cond_4
-    if-ne v11, v12, :cond_5
+    :cond_74
+    if-ne v11, v12, :cond_78
 
     const/4 v14, 0x1
 
-    goto :goto_1
+    goto :goto_79
 
-    :cond_5
+    :cond_78
     const/4 v14, 0x0
 
-    :goto_1
+    :goto_79
     move v3, v14
 
     .line 1523
@@ -6236,22 +6236,22 @@
     move/from16 v5, v16
 
     .local v5, "i$":I
-    :goto_2
-    if-ge v5, v4, :cond_7
+    :goto_87
+    if-ge v5, v4, :cond_9f
 
     aget-char v12, v15, v5
 
     .line 1525
     .local v12, "br":C
-    if-ne v12, v13, :cond_6
+    if-ne v12, v13, :cond_91
 
     .line 1526
     invoke-direct {v0, v6}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_98
 
     .line 1528
-    :cond_6
+    :cond_91
     invoke-static {v12}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
 
     move-result-object v13
@@ -6260,27 +6260,27 @@
 
     .line 1524
     .end local v12    # "br":C
-    :goto_3
+    :goto_98
     add-int/lit8 v5, v5, 0x1
 
     const/16 v12, 0x20
 
     const/16 v13, 0xa
 
-    goto :goto_2
+    goto :goto_87
 
     .line 1531
     .end local v4    # "len$":I
     .end local v5    # "i$":I
     .end local v15    # "arr$":[C
-    :cond_7
-    if-eqz v11, :cond_8
+    :cond_9f
+    if-eqz v11, :cond_a4
 
     .line 1532
     invoke-virtual/range {p0 .. p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
     .line 1534
-    :cond_8
+    :cond_a4
     move v4, v10
 
     .line 1535
@@ -6289,39 +6289,39 @@
     .local v4, "start":I
     move v9, v4
 
-    goto :goto_5
+    goto :goto_e9
 
     .line 1536
     .end local v4    # "start":I
     .restart local v9    # "start":I
-    :cond_9
-    if-eqz v7, :cond_b
+    :cond_a7
+    if-eqz v7, :cond_cc
 
     .line 1537
     const/16 v4, 0x20
 
-    if-eq v11, v4, :cond_d
+    if-eq v11, v4, :cond_e9
 
     .line 1538
     add-int/lit8 v4, v9, 0x1
 
-    if-ne v4, v10, :cond_a
+    if-ne v4, v10, :cond_bd
 
     iget v4, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
     iget v5, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->bestWidth:I
 
-    if-le v4, v5, :cond_a
+    if-le v4, v5, :cond_bd
 
-    if-eqz p2, :cond_a
+    if-eqz p2, :cond_bd
 
     .line 1539
     invoke-virtual/range {p0 .. p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
-    goto :goto_4
+    goto :goto_c9
 
     .line 1541
-    :cond_a
+    :cond_bd
     sub-int v4, v10, v9
 
     .line 1542
@@ -6339,19 +6339,19 @@
 
     .line 1545
     .end local v4    # "len":I
-    :goto_4
+    :goto_c9
     move v4, v10
 
     move v9, v4
 
     .end local v9    # "start":I
     .local v4, "start":I
-    goto :goto_5
+    goto :goto_e9
 
     .line 1548
     .end local v4    # "start":I
     .restart local v9    # "start":I
-    :cond_b
+    :cond_cc
     sget-object v4, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     const-string v5, "\u0000 "
@@ -6360,7 +6360,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_e9
 
     .line 1549
     sub-int v4, v10, v9
@@ -6379,22 +6379,22 @@
     invoke-virtual {v5, v1, v9, v4}, Ljava/io/Writer;->write(Ljava/lang/String;II)V
 
     .line 1552
-    if-nez v11, :cond_c
+    if-nez v11, :cond_e7
 
     .line 1553
     invoke-direct {v0, v6}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
     .line 1555
-    :cond_c
+    :cond_e7
     move v5, v10
 
     move v9, v5
 
     .line 1558
     .end local v4    # "len":I
-    :cond_d
-    :goto_5
-    if-eqz v11, :cond_f
+    :cond_e9
+    :goto_e9
+    if-eqz v11, :cond_fa
 
     .line 1559
     sget-object v4, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
@@ -6408,16 +6408,16 @@
     .local v4, "breaks":Z
     const/16 v5, 0x20
 
-    if-ne v11, v5, :cond_e
+    if-ne v11, v5, :cond_f7
 
     const/4 v5, 0x1
 
-    goto :goto_6
+    goto :goto_f8
 
-    :cond_e
+    :cond_f7
     const/4 v5, 0x0
 
-    :goto_6
+    :goto_f8
     move v8, v4
 
     move v7, v5
@@ -6425,7 +6425,7 @@
     .line 1562
     .end local v4    # "breaks":Z
     .restart local v8    # "breaks":Z
-    :cond_f
+    :cond_fa
     nop
 
     .end local v11    # "ch":C
@@ -6436,15 +6436,15 @@
 
     const/4 v5, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_44
 
     .line 1564
-    :cond_10
+    :cond_101
     return-void
 .end method
 
 .method writeIndent()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6454,7 +6454,7 @@
     .line 1255
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->indent:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1256
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->indent:Ljava/lang/Integer;
@@ -6464,40 +6464,40 @@
     move-result v0
 
     .local v0, "indent":I
-    goto :goto_0
+    goto :goto_c
 
     .line 1258
     .end local v0    # "indent":I
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     .line 1261
     .restart local v0    # "indent":I
-    :goto_0
+    :goto_c
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->indention:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     iget v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
-    if-gt v1, v0, :cond_1
+    if-gt v1, v0, :cond_1c
 
     iget v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_20
 
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->whitespace:Z
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_20
 
     .line 1262
-    :cond_1
+    :cond_1c
     const/4 v1, 0x0
 
     invoke-direct {p0, v1}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
     .line 1265
-    :cond_2
+    :cond_20
     iget v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
     sub-int v1, v0, v1
@@ -6509,7 +6509,7 @@
 .end method
 
 .method writeIndicator(Ljava/lang/String;ZZZ)V
-    .locals 3
+    .registers 8
     .param p1, "indicator"    # Ljava/lang/String;
     .param p2, "needWhitespace"    # Z
     .param p3, "whitespace"    # Z
@@ -6525,9 +6525,9 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_13
 
     .line 1243
     iget v0, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
@@ -6544,7 +6544,7 @@
     invoke-virtual {v0, v2}, Ljava/io/Writer;->write([C)V
 
     .line 1246
-    :cond_0
+    :cond_13
     iput-boolean p3, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->whitespace:Z
 
     .line 1247
@@ -6552,16 +6552,16 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1e
     iput-boolean v1, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->indention:Z
 
     .line 1248
@@ -6588,7 +6588,7 @@
 .end method
 
 .method writeLiteral(Ljava/lang/String;)V
-    .locals 12
+    .registers 14
     .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -6632,7 +6632,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_31
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -6646,26 +6646,26 @@
 
     const/16 v2, 0x2b
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_31
 
     .line 1570
     iput-boolean v3, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->openEnded:Z
 
     .line 1572
-    :cond_0
+    :cond_31
     invoke-direct {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeInlineComments()Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3b
 
     .line 1573
     invoke-direct {p0, v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
     .line 1575
-    :cond_1
+    :cond_3b
     const/4 v1, 0x1
 
     .line 1576
@@ -6677,12 +6677,12 @@
 
     .line 1577
     .local v4, "end":I
-    :goto_0
+    :goto_3e
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v5
 
-    if-gt v4, v5, :cond_c
+    if-gt v4, v5, :cond_a5
 
     .line 1578
     const/4 v5, 0x0
@@ -6693,7 +6693,7 @@
 
     move-result v6
 
-    if-ge v4, v6, :cond_2
+    if-ge v4, v6, :cond_4f
 
     .line 1580
     invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
@@ -6701,11 +6701,11 @@
     move-result v5
 
     .line 1582
-    :cond_2
-    if-eqz v1, :cond_7
+    :cond_4f
+    if-eqz v1, :cond_82
 
     .line 1583
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_5b
 
     sget-object v6, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -6713,10 +6713,10 @@
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_99
 
     .line 1584
-    :cond_3
+    :cond_5b
     invoke-virtual {p1, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v6
@@ -6734,8 +6734,8 @@
     const/4 v9, 0x0
 
     .local v9, "i$":I
-    :goto_1
-    if-ge v9, v8, :cond_5
+    :goto_65
+    if-ge v9, v8, :cond_7b
 
     aget-char v10, v7, v9
 
@@ -6743,15 +6743,15 @@
     .local v10, "br":C
     const/16 v11, 0xa
 
-    if-ne v10, v11, :cond_4
+    if-ne v10, v11, :cond_71
 
     .line 1587
     invoke-direct {p0, v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_78
 
     .line 1589
-    :cond_4
+    :cond_71
     invoke-static {v10}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
 
     move-result-object v11
@@ -6760,32 +6760,32 @@
 
     .line 1585
     .end local v10    # "br":C
-    :goto_2
+    :goto_78
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_65
 
     .line 1592
     .end local v7    # "arr$":[C
     .end local v8    # "len$":I
     .end local v9    # "i$":I
-    :cond_5
-    if-eqz v5, :cond_6
+    :cond_7b
+    if-eqz v5, :cond_80
 
     .line 1593
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
     .line 1595
-    :cond_6
+    :cond_80
     move v3, v4
 
     .line 1596
     .end local v6    # "data":Ljava/lang/String;
-    goto :goto_3
+    goto :goto_99
 
     .line 1598
-    :cond_7
-    if-eqz v5, :cond_8
+    :cond_82
+    if-eqz v5, :cond_8c
 
     sget-object v6, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -6793,10 +6793,10 @@
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_99
 
     .line 1599
-    :cond_8
+    :cond_8c
     iget-object v6, p0, Lorg/yaml/snakeyaml/emitter/Emitter;->stream:Ljava/io/Writer;
 
     sub-int v7, v4, v3
@@ -6804,19 +6804,19 @@
     invoke-virtual {v6, p1, v3, v7}, Ljava/io/Writer;->write(Ljava/lang/String;II)V
 
     .line 1600
-    if-nez v5, :cond_9
+    if-nez v5, :cond_98
 
     .line 1601
     invoke-direct {p0, v2}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
     .line 1603
-    :cond_9
+    :cond_98
     move v3, v4
 
     .line 1606
-    :cond_a
-    :goto_3
-    if-eqz v5, :cond_b
+    :cond_99
+    :goto_99
+    if-eqz v5, :cond_a1
 
     .line 1607
     sget-object v6, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
@@ -6826,22 +6826,22 @@
     move-result v1
 
     .line 1609
-    :cond_b
+    :cond_a1
     nop
 
     .end local v5    # "ch":C
     add-int/lit8 v4, v4, 0x1
 
     .line 1610
-    goto :goto_0
+    goto :goto_3e
 
     .line 1611
-    :cond_c
+    :cond_a5
     return-void
 .end method
 
 .method writePlain(Ljava/lang/String;Z)V
-    .locals 16
+    .registers 19
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "split"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -6859,27 +6859,27 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_b
 
     .line 1615
     iput-boolean v3, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->openEnded:Z
 
     .line 1617
-    :cond_0
+    :cond_b
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_12
 
     .line 1618
     return-void
 
     .line 1620
-    :cond_1
+    :cond_12
     iget-boolean v2, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->whitespace:Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_22
 
     .line 1621
     iget v2, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
@@ -6896,7 +6896,7 @@
     invoke-virtual {v2, v4}, Ljava/io/Writer;->write([C)V
 
     .line 1624
-    :cond_2
+    :cond_22
     const/4 v2, 0x0
 
     iput-boolean v2, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->whitespace:Z
@@ -6920,12 +6920,12 @@
 
     .line 1629
     .local v7, "end":I
-    :goto_0
+    :goto_2b
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v8
 
-    if-gt v7, v8, :cond_d
+    if-gt v7, v8, :cond_d0
 
     .line 1630
     const/4 v8, 0x0
@@ -6936,7 +6936,7 @@
 
     move-result v9
 
-    if-ge v7, v9, :cond_3
+    if-ge v7, v9, :cond_3c
 
     .line 1632
     invoke-virtual {v1, v7}, Ljava/lang/String;->charAt(I)C
@@ -6944,26 +6944,26 @@
     move-result v8
 
     .line 1634
-    :cond_3
+    :cond_3c
     const/16 v9, 0x20
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_64
 
     .line 1635
-    if-eq v8, v9, :cond_a
+    if-eq v8, v9, :cond_bb
 
     .line 1636
     add-int/lit8 v10, v6, 0x1
 
-    if-ne v10, v7, :cond_4
+    if-ne v10, v7, :cond_56
 
     iget v10, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->column:I
 
     iget v11, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->bestWidth:I
 
-    if-le v10, v11, :cond_4
+    if-le v10, v11, :cond_56
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_56
 
     .line 1637
     invoke-virtual/range {p0 .. p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
@@ -6974,10 +6974,10 @@
     .line 1639
     iput-boolean v2, v0, Lorg/yaml/snakeyaml/emitter/Emitter;->indention:Z
 
-    goto :goto_1
+    goto :goto_62
 
     .line 1641
-    :cond_4
+    :cond_56
     sub-int v10, v7, v6
 
     .line 1642
@@ -6995,14 +6995,14 @@
 
     .line 1645
     .end local v10    # "len":I
-    :goto_1
+    :goto_62
     move v6, v7
 
-    goto :goto_4
+    goto :goto_bb
 
     .line 1647
-    :cond_5
-    if-eqz v5, :cond_9
+    :cond_64
+    if-eqz v5, :cond_a4
 
     .line 1648
     sget-object v10, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
@@ -7011,7 +7011,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_bb
 
     .line 1649
     invoke-virtual {v1, v6}, Ljava/lang/String;->charAt(I)C
@@ -7022,13 +7022,13 @@
 
     const/16 v12, 0xa
 
-    if-ne v10, v12, :cond_6
+    if-ne v10, v12, :cond_7a
 
     .line 1650
     invoke-direct {v0, v11}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
     .line 1652
-    :cond_6
+    :cond_7a
     invoke-virtual {v1, v6, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v10
@@ -7046,22 +7046,22 @@
     const/4 v15, 0x0
 
     .local v15, "i$":I
-    :goto_2
-    if-ge v15, v14, :cond_8
+    :goto_84
+    if-ge v15, v14, :cond_9a
 
     aget-char v3, v13, v15
 
     .line 1654
     .local v3, "br":C
-    if-ne v3, v12, :cond_7
+    if-ne v3, v12, :cond_8e
 
     .line 1655
     invoke-direct {v0, v11}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeLineBreak(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_95
 
     .line 1657
-    :cond_7
+    :cond_8e
     invoke-static {v3}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
 
     move-result-object v11
@@ -7070,20 +7070,20 @@
 
     .line 1653
     .end local v3    # "br":C
-    :goto_3
+    :goto_95
     add-int/lit8 v15, v15, 0x1
 
     const/4 v3, 0x1
 
     const/4 v11, 0x0
 
-    goto :goto_2
+    goto :goto_84
 
     .line 1660
     .end local v13    # "arr$":[C
     .end local v14    # "len$":I
     .end local v15    # "i$":I
-    :cond_8
+    :cond_9a
     invoke-virtual/range {p0 .. p0}, Lorg/yaml/snakeyaml/emitter/Emitter;->writeIndent()V
 
     .line 1661
@@ -7101,12 +7101,12 @@
     .local v3, "start":I
     move v6, v3
 
-    goto :goto_4
+    goto :goto_bb
 
     .line 1666
     .end local v3    # "start":I
     .restart local v6    # "start":I
-    :cond_9
+    :cond_a4
     sget-object v3, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     const-string v10, "\u0000 "
@@ -7115,7 +7115,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_bb
 
     .line 1667
     sub-int v3, v7, v6
@@ -7138,24 +7138,24 @@
 
     .line 1673
     .end local v3    # "len":I
-    :cond_a
-    :goto_4
-    if-eqz v8, :cond_c
+    :cond_bb
+    :goto_bb
+    if-eqz v8, :cond_ca
 
     .line 1674
-    if-ne v8, v9, :cond_b
+    if-ne v8, v9, :cond_c1
 
     const/4 v3, 0x1
 
-    goto :goto_5
+    goto :goto_c2
 
-    :cond_b
+    :cond_c1
     const/4 v3, 0x0
 
     .line 1675
     .end local v4    # "spaces":Z
     .local v3, "spaces":Z
-    :goto_5
+    :goto_c2
     sget-object v4, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     invoke-virtual {v4, v8}, Lorg/yaml/snakeyaml/scanner/Constant;->has(I)Z
@@ -7169,7 +7169,7 @@
     .line 1677
     .end local v3    # "spaces":Z
     .restart local v4    # "spaces":Z
-    :cond_c
+    :cond_ca
     nop
 
     .end local v8    # "ch":C
@@ -7178,15 +7178,15 @@
     .line 1678
     const/4 v3, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_2b
 
     .line 1679
-    :cond_d
+    :cond_d0
     return-void
 .end method
 
 .method writeStreamEnd()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -7201,14 +7201,14 @@
 .end method
 
 .method writeStreamStart()V
-    .locals 0
+    .registers 1
 
     .line 1234
     return-void
 .end method
 
 .method writeTagDirective(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "handleText"    # Ljava/lang/String;
     .param p2, "prefixText"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -7251,7 +7251,7 @@
 .end method
 
 .method writeVersionDirective(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "versionText"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {

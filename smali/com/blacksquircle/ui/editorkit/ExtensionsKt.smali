@@ -62,7 +62,7 @@
 
 # direct methods
 .method public static final copy(Landroid/widget/EditText;)V
-    .locals 3
+    .registers 4
     .param p0, "$this$copy"    # Landroid/widget/EditText;
 
     const-string v0, "<this>"
@@ -73,7 +73,7 @@
     nop
 
     .line 59
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Landroid/widget/EditText;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -116,18 +116,18 @@
 
     .line 61
     .local v1, "clipData":Landroid/content/ClipData;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2f
 
     invoke-virtual {v0, v1}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_2a} :catch_2b
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 62
     .end local v0    # "clipboardManager":Landroid/content/ClipboardManager;
     .end local v1    # "clipData":Landroid/content/ClipData;
-    :catch_0
+    :catch_2b
     move-exception v0
 
     .line 63
@@ -136,13 +136,13 @@
 
     .line 65
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_2f
+    :goto_2f
     return-void
 .end method
 
 .method public static final cut(Landroid/widget/EditText;)V
-    .locals 6
+    .registers 7
     .param p0, "$this$cut"    # Landroid/widget/EditText;
 
     const-string v0, "<this>"
@@ -153,7 +153,7 @@
     nop
 
     .line 48
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Landroid/widget/EditText;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -196,12 +196,12 @@
 
     .line 50
     .local v1, "clipData":Landroid/content/ClipData;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     invoke-virtual {v0, v1}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
 
     .line 51
-    :cond_0
+    :cond_2a
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v2
@@ -219,15 +219,15 @@
     check-cast v5, Ljava/lang/CharSequence;
 
     invoke-interface {v2, v3, v4, v5}, Landroid/text/Editable;->replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3d
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_3d} :catch_3e
 
-    goto :goto_0
+    goto :goto_42
 
     .line 52
     .end local v0    # "clipboardManager":Landroid/content/ClipboardManager;
     .end local v1    # "clipData":Landroid/content/ClipData;
-    :catch_0
+    :catch_3e
     move-exception v0
 
     .line 53
@@ -236,12 +236,12 @@
 
     .line 55
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_42
     return-void
 .end method
 
 .method public static final deleteLine(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 4
+    .registers 5
     .param p0, "$this$deleteLine"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "<this>"
@@ -298,7 +298,7 @@
 .end method
 
 .method public static final duplicateLine(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 7
+    .registers 8
     .param p0, "$this$duplicateLine"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "<this>"
@@ -310,7 +310,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_51
 
     .line 107
     move-object v0, p0
@@ -392,10 +392,10 @@
 
     .end local v0    # "end":I
     .end local v1    # "selectedText":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_94
 
     .line 112
-    :cond_0
+    :cond_51
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getStructure()Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
     move-result-object v0
@@ -475,12 +475,12 @@
     .end local v1    # "lineStart":I
     .end local v2    # "lineEnd":I
     .end local v3    # "lineText":Ljava/lang/CharSequence;
-    :goto_0
+    :goto_94
     return-void
 .end method
 
 .method private static final getSelEnd(Landroid/widget/EditText;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$selEnd"    # Landroid/widget/EditText;
 
     .line 33
@@ -499,7 +499,7 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_18
 
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
@@ -509,33 +509,33 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_24
 
     .line 35
-    :cond_0
+    :cond_18
     invoke-virtual {p0}, Landroid/widget/EditText;->getSelectionEnd()I
 
     move-result v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_20
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_24
 
     .line 36
-    :cond_1
+    :cond_20
     invoke-virtual {p0}, Landroid/widget/EditText;->getSelectionEnd()I
 
     move-result v0
 
     .line 37
-    :goto_0
+    :goto_24
     return v0
 .end method
 
 .method private static final getSelStart(Landroid/widget/EditText;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$selStart"    # Landroid/widget/EditText;
 
     .line 27
@@ -554,7 +554,7 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_18
 
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
@@ -564,33 +564,33 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_24
 
     .line 29
-    :cond_0
+    :cond_18
     invoke-virtual {p0}, Landroid/widget/EditText;->getSelectionStart()I
 
     move-result v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_20
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_24
 
     .line 30
-    :cond_1
+    :cond_20
     invoke-virtual {p0}, Landroid/widget/EditText;->getSelectionStart()I
 
     move-result v0
 
     .line 31
-    :goto_0
+    :goto_24
     return v0
 .end method
 
 .method public static final getSelectedText(Landroid/widget/EditText;)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 4
     .param p0, "$this$selectedText"    # Landroid/widget/EditText;
 
     const-string v0, "<this>"
@@ -618,7 +618,7 @@
 .end method
 
 .method public static final gotoLine(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;I)V
-    .locals 3
+    .registers 5
     .param p0, "$this$gotoLine"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
     .param p1, "lineNumber"    # I
 
@@ -631,7 +631,7 @@
 
     .line 196
     .local v0, "line":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_24
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getStructure()Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
@@ -643,7 +643,7 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_24
 
     .line 199
     move-object v1, p0
@@ -664,7 +664,7 @@
     return-void
 
     .line 197
-    :cond_0
+    :cond_24
     new-instance v1, Lcom/blacksquircle/ui/editorkit/exception/LineException;
 
     invoke-direct {v1, p1}, Lcom/blacksquircle/ui/editorkit/exception/LineException;-><init>(I)V
@@ -673,7 +673,7 @@
 .end method
 
 .method public static final hasPrimaryClip(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)Z
-    .locals 3
+    .registers 4
     .param p0, "$this$hasPrimaryClip"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "<this>"
@@ -707,23 +707,23 @@
 
     .line 204
     .local v0, "clipboardManager":Landroid/content/ClipboardManager;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     invoke-virtual {v0}, Landroid/content/ClipboardManager;->hasPrimaryClip()Z
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1f
     return v1
 .end method
 
 .method public static final insert(Landroid/widget/EditText;Ljava/lang/CharSequence;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$insert"    # Landroid/widget/EditText;
     .param p1, "delta"    # Ljava/lang/CharSequence;
 
@@ -755,7 +755,7 @@
 .end method
 
 .method public static final moveCaretToEndOfLine(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 3
+    .registers 4
     .param p0, "$this$moveCaretToEndOfLine"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "<this>"
@@ -802,7 +802,7 @@
 .end method
 
 .method public static final moveCaretToNextWord(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)Z
-    .locals 8
+    .registers 9
     .param p0, "$this$moveCaretToNextWord"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "<this>"
@@ -824,7 +824,7 @@
 
     const/4 v2, 0x1
 
-    if-ge v0, v1, :cond_6
+    if-ge v0, v1, :cond_81
 
     .line 171
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getText()Landroid/text/Editable;
@@ -847,25 +847,25 @@
 
     const/16 v3, 0x5f
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2d
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_2b
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_2b
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_1
-    :goto_0
+    :cond_2d
+    :goto_2d
     const/4 v1, 0x1
 
     .line 173
     .local v1, "isLetterDigitOrUnderscore":Z
-    :goto_1
-    if-eqz v1, :cond_3
+    :goto_2e
+    if-eqz v1, :cond_58
 
     .line 174
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getSelectionStart()I
@@ -881,8 +881,8 @@
 
     move-result v5
 
-    :goto_2
-    if-ge v4, v5, :cond_6
+    :goto_3c
+    if-ge v4, v5, :cond_81
 
     .line 175
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getText()Landroid/text/Editable;
@@ -899,9 +899,9 @@
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_55
 
-    if-eq v6, v3, :cond_2
+    if-eq v6, v3, :cond_55
 
     .line 177
     move-object v3, p0
@@ -911,18 +911,18 @@
     invoke-static {v3, v4}, Lcom/blacksquircle/ui/editorkit/ExtensionsKt;->setSelectionIndex(Landroid/widget/EditText;I)V
 
     .line 178
-    goto :goto_5
+    goto :goto_81
 
     .line 174
     .end local v6    # "char":C
-    :cond_2
+    :cond_55
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_3c
 
     .line 182
     .end local v4    # "i":I
-    :cond_3
+    :cond_58
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getSelectionStart()I
 
     move-result v4
@@ -936,8 +936,8 @@
 
     move-result v5
 
-    :goto_3
-    if-ge v4, v5, :cond_6
+    :goto_64
+    if-ge v4, v5, :cond_81
 
     .line 183
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getText()Landroid/text/Editable;
@@ -954,23 +954,23 @@
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_7a
 
-    if-ne v6, v3, :cond_4
+    if-ne v6, v3, :cond_77
 
-    goto :goto_4
+    goto :goto_7a
 
     .line 182
     .end local v6    # "char":C
-    :cond_4
+    :cond_77
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_64
 
     .line 185
     .restart local v6    # "char":C
-    :cond_5
-    :goto_4
+    :cond_7a
+    :goto_7a
     move-object v3, p0
 
     check-cast v3, Landroid/widget/EditText;
@@ -985,13 +985,13 @@
     .end local v1    # "isLetterDigitOrUnderscore":Z
     .end local v4    # "i":I
     .end local v6    # "char":C
-    :cond_6
-    :goto_5
+    :cond_81
+    :goto_81
     return v2
 .end method
 
 .method public static final moveCaretToPrevWord(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)Z
-    .locals 8
+    .registers 9
     .param p0, "$this$moveCaretToPrevWord"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "<this>"
@@ -1005,7 +1005,7 @@
 
     const/4 v1, 0x1
 
-    if-lez v0, :cond_6
+    if-lez v0, :cond_6f
 
     .line 146
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getText()Landroid/text/Editable;
@@ -1030,27 +1030,27 @@
 
     const/16 v3, 0x5f
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_26
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_24
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_24
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_27
 
-    :cond_1
-    :goto_0
+    :cond_26
+    :goto_26
     const/4 v2, 0x1
 
     .line 148
     .local v2, "isLetterDigitOrUnderscore":Z
-    :goto_1
+    :goto_27
     const/4 v4, -0x1
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4c
 
     .line 149
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getSelectionStart()I
@@ -1058,8 +1058,8 @@
     move-result v5
 
     .local v5, "i":I
-    :goto_2
-    if-ge v4, v5, :cond_6
+    :goto_2e
+    if-ge v4, v5, :cond_6f
 
     .line 150
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getText()Landroid/text/Editable;
@@ -1078,9 +1078,9 @@
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_49
 
-    if-eq v6, v3, :cond_2
+    if-eq v6, v3, :cond_49
 
     .line 152
     move-object v3, p0
@@ -1090,25 +1090,25 @@
     invoke-static {v3, v5}, Lcom/blacksquircle/ui/editorkit/ExtensionsKt;->setSelectionIndex(Landroid/widget/EditText;I)V
 
     .line 153
-    goto :goto_5
+    goto :goto_6f
 
     .line 149
     .end local v6    # "char":C
-    :cond_2
+    :cond_49
     add-int/lit8 v5, v5, -0x1
 
-    goto :goto_2
+    goto :goto_2e
 
     .line 157
     .end local v5    # "i":I
-    :cond_3
+    :cond_4c
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getSelectionStart()I
 
     move-result v5
 
     .restart local v5    # "i":I
-    :goto_3
-    if-ge v4, v5, :cond_6
+    :goto_50
+    if-ge v4, v5, :cond_6f
 
     .line 158
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getText()Landroid/text/Editable;
@@ -1127,23 +1127,23 @@
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_68
 
-    if-ne v6, v3, :cond_4
+    if-ne v6, v3, :cond_65
 
-    goto :goto_4
+    goto :goto_68
 
     .line 157
     .end local v6    # "char":C
-    :cond_4
+    :cond_65
     add-int/lit8 v5, v5, -0x1
 
-    goto :goto_3
+    goto :goto_50
 
     .line 160
     .restart local v6    # "char":C
-    :cond_5
-    :goto_4
+    :cond_68
+    :goto_68
     move-object v3, p0
 
     check-cast v3, Landroid/widget/EditText;
@@ -1158,13 +1158,13 @@
     .end local v2    # "isLetterDigitOrUnderscore":Z
     .end local v5    # "i":I
     .end local v6    # "char":C
-    :cond_6
-    :goto_5
+    :cond_6f
+    :goto_6f
     return v1
 .end method
 
 .method public static final moveCaretToStartOfLine(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 3
+    .registers 4
     .param p0, "$this$moveCaretToStartOfLine"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "<this>"
@@ -1211,7 +1211,7 @@
 .end method
 
 .method public static final paste(Landroid/widget/EditText;)V
-    .locals 6
+    .registers 7
     .param p0, "$this$paste"    # Landroid/widget/EditText;
 
     const-string v0, "<this>"
@@ -1222,7 +1222,7 @@
     nop
 
     .line 69
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Landroid/widget/EditText;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1253,13 +1253,13 @@
     .local v0, "clipboardManager":Landroid/content/ClipboardManager;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     invoke-virtual {v0}, Landroid/content/ClipboardManager;->getPrimaryClip()Landroid/content/ClipData;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     const/4 v3, 0x0
 
@@ -1267,15 +1267,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     move-object v2, v1
 
     .line 71
     .local v2, "clipData":Landroid/content/ClipData$Item;
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_29
+    if-eqz v2, :cond_33
 
     invoke-virtual {p0}, Landroid/widget/EditText;->getContext()Landroid/content/Context;
 
@@ -1287,7 +1287,7 @@
 
     .line 72
     .local v1, "clipText":Ljava/lang/CharSequence;
-    :cond_1
+    :cond_33
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v3
@@ -1301,16 +1301,16 @@
     move-result v5
 
     invoke-interface {v3, v4, v5, v1}, Landroid/text/Editable;->replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_42
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_42} :catch_43
 
-    goto :goto_1
+    goto :goto_47
 
     .line 73
     .end local v0    # "clipboardManager":Landroid/content/ClipboardManager;
     .end local v1    # "clipText":Ljava/lang/CharSequence;
     .end local v2    # "clipData":Landroid/content/ClipData$Item;
-    :catch_0
+    :catch_43
     move-exception v0
 
     .line 74
@@ -1319,12 +1319,12 @@
 
     .line 76
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_47
     return-void
 .end method
 
 .method public static final selectLine(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 4
+    .registers 5
     .param p0, "$this$selectLine"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "<this>"
@@ -1381,7 +1381,7 @@
 .end method
 
 .method public static final setSelectionIndex(Landroid/widget/EditText;I)V
-    .locals 1
+    .registers 3
     .param p0, "$this$setSelectionIndex"    # Landroid/widget/EditText;
     .param p1, "index"    # I
 
@@ -1401,7 +1401,7 @@
 
     move-result v0
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_19
 
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
@@ -1411,13 +1411,13 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     move v0, p1
 
     .line 86
-    :goto_0
+    :goto_1a
     invoke-virtual {p0, v0}, Landroid/widget/EditText;->setSelection(I)V
 
     .line 89
@@ -1425,7 +1425,7 @@
 .end method
 
 .method public static final setSelectionRange(Landroid/widget/EditText;II)V
-    .locals 2
+    .registers 5
     .param p0, "$this$setSelectionRange"    # Landroid/widget/EditText;
     .param p1, "start"    # I
     .param p2, "end"    # I
@@ -1446,7 +1446,7 @@
 
     move-result v0
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_19
 
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
@@ -1456,13 +1456,13 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     move v0, p1
 
     .line 81
-    :goto_0
+    :goto_1a
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v1
@@ -1471,7 +1471,7 @@
 
     move-result v1
 
-    if-le p2, v1, :cond_1
+    if-le p2, v1, :cond_2d
 
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
@@ -1481,13 +1481,13 @@
 
     move-result v1
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     move v1, p2
 
     .line 79
-    :goto_1
+    :goto_2e
     invoke-virtual {p0, v0, v1}, Landroid/widget/EditText;->setSelection(II)V
 
     .line 83
@@ -1495,7 +1495,7 @@
 .end method
 
 .method public static final toggleCase(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 9
+    .registers 10
     .param p0, "$this$toggleCase"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "<this>"
@@ -1540,12 +1540,12 @@
 
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_1d
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_33
 
     invoke-interface {v2, v5}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -1566,25 +1566,25 @@
     .line 209
     .end local v7    # "p0":C
     .end local v8    # "$i$a$-all-ExtensionsKt$toggleCase$replacedText$1":I
-    if-nez v7, :cond_0
+    if-nez v7, :cond_30
 
-    goto :goto_1
+    goto :goto_34
 
     .end local v6    # "element$iv":C
-    :cond_0
+    :cond_30
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 210
-    :cond_1
+    :cond_33
     const/4 v4, 0x1
 
     .line 123
     .end local v2    # "$this$all$iv":Ljava/lang/CharSequence;
     .end local v3    # "$i$f$all":I
-    :goto_1
-    if-eqz v4, :cond_2
+    :goto_34
+    if-eqz v4, :cond_43
 
     .line 124
     sget-object v2, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
@@ -1597,10 +1597,10 @@
 
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_4f
 
     .line 126
-    :cond_2
+    :cond_43
     sget-object v2, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
@@ -1612,7 +1612,7 @@
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 123
-    :goto_2
+    :goto_4f
     nop
 
     .line 128

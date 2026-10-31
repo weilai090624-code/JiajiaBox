@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;D)V
-    .locals 0
+    .registers 4
 
     check-cast p1, [D
 

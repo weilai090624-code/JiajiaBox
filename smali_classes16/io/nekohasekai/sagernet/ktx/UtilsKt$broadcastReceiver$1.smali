@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function2;)V
-    .locals 0
+    .registers 2
     .param p1, "$callback"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 

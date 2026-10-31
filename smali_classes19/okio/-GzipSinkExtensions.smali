@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static final gzip(Lokio/Sink;)Lokio/GzipSink;
-    .locals 2
+    .registers 3
     .param p0, "$this$gzip"    # Lokio/Sink;
 
     const-string v0, "<this>"

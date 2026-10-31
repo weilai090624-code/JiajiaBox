@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 861
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static isSelectedChildViewEnabled(Landroid/widget/AbsListView;)Z
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/widget/AbsListView;
 
     .line 867
@@ -38,7 +38,7 @@
 .end method
 
 .method static setSelectedChildViewEnabled(Landroid/widget/AbsListView;Z)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/widget/AbsListView;
     .param p1, "enabled"    # Z
 

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IIFF)V
-    .locals 0
+    .registers 6
     .param p1, "target"    # Ljava/lang/String;
     .param p2, "frame"    # I
     .param p3, "type"    # I

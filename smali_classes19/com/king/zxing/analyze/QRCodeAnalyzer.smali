@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 19
     const/4 v0, 0x0
@@ -21,7 +21,7 @@
 .end method
 
 .method public constructor <init>(Lcom/king/zxing/DecodeConfig;)V
-    .locals 0
+    .registers 2
     .param p1, "config"    # Lcom/king/zxing/DecodeConfig;
 
     .line 27
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public createReader()Lcom/google/zxing/Reader;
-    .locals 1
+    .registers 2
 
     .line 32
     new-instance v0, Lcom/google/zxing/qrcode/QRCodeReader;

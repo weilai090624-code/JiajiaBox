@@ -38,7 +38,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 104
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/escape/Escapers$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/escape/Escapers$1;
 
     .line 97
@@ -80,7 +80,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/escape/Escapers$Builder;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/escape/Escapers$Builder;
 
     .line 97
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public addEscape(CLjava/lang/String;)Lcom/google/common/escape/Escapers$Builder;
-    .locals 2
+    .registers 5
     .param p1, "c"    # C
     .param p2, "replacement"    # Ljava/lang/String;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public build()Lcom/google/common/escape/Escaper;
-    .locals 4
+    .registers 5
 
     .line 156
     new-instance v0, Lcom/google/common/escape/Escapers$Builder$1;
@@ -130,7 +130,7 @@
 .end method
 
 .method public setSafeRange(CC)Lcom/google/common/escape/Escapers$Builder;
-    .locals 0
+    .registers 3
     .param p1, "safeMin"    # C
     .param p2, "safeMax"    # C
 
@@ -145,7 +145,7 @@
 .end method
 
 .method public setUnsafeReplacement(Ljava/lang/String;)Lcom/google/common/escape/Escapers$Builder;
-    .locals 0
+    .registers 2
     .param p1, "unsafeReplacement"    # Ljava/lang/String;
 
     .line 132

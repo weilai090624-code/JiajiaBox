@@ -71,7 +71,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -130,7 +130,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -173,14 +173,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 12
+    .registers 14
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 642
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_184
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -190,7 +190,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 643
@@ -201,7 +201,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
@@ -209,7 +209,7 @@
 
     .line 644
     .local v0, "context":Landroid/content/Context;
-    :cond_0
+    :cond_1e
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->this$1:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->getFinishedN()Ljava/util/concurrent/atomic/AtomicInteger;
@@ -244,7 +244,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_55
 
     .line 647
     nop
@@ -263,30 +263,30 @@
 
     move-result v7
 
-    if-ge v1, v7, :cond_2
+    if-ge v1, v7, :cond_51
 
     const/4 v7, 0x2
 
-    if-ne v3, v7, :cond_1
+    if-ne v3, v7, :cond_4f
 
-    goto :goto_0
+    goto :goto_51
 
-    :cond_1
+    :cond_4f
     const/4 v7, 0x0
 
-    goto :goto_1
+    goto :goto_52
 
-    :cond_2
-    :goto_0
+    :cond_51
+    :goto_51
     const/4 v7, 0x1
 
     .line 646
-    :goto_1
+    :goto_52
     invoke-virtual {v4, v1, v6, v7}, Lmoe/matsuri/nb4a/ui/ConnectionTestNotification;->updateNotification(IIZ)V
 
     .line 651
-    :cond_3
-    if-lt v3, v2, :cond_4
+    :cond_55
+    if-lt v3, v2, :cond_5a
 
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
@@ -294,21 +294,21 @@
 
     .line 652
     .end local v3    # "status":I
-    :cond_4
+    :cond_5a
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->isAdded()Z
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_65
 
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
 
     .line 656
-    :cond_5
+    :cond_65
     const/4 v3, 0x0
 
     .line 657
@@ -327,25 +327,25 @@
 
     const v8, 0x1010038
 
-    packed-switch v6, :pswitch_data_1
+    packed-switch v6, :pswitch_data_18a
 
-    goto :goto_3
+    goto :goto_e4
 
     .line 681
-    :pswitch_1
+    :pswitch_77
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->$profile:Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getError()Ljava/lang/String;
 
     move-result-object v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_81
 
     const-string v2, ""
 
     .line 682
     .local v2, "err":Ljava/lang/String;
-    :cond_6
+    :cond_81
     sget-object v5, Lmoe/matsuri/nb4a/Protocols;->INSTANCE:Lmoe/matsuri/nb4a/Protocols;
 
     invoke-virtual {v5, v2}, Lmoe/matsuri/nb4a/Protocols;->genFriendlyMsg(Ljava/lang/String;)Ljava/lang/String;
@@ -358,13 +358,13 @@
 
     move-result v6
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_8e
 
-    goto :goto_2
+    goto :goto_9c
 
     .end local v2    # "err":Ljava/lang/String;
     .end local v5    # "msg":Ljava/lang/String;
-    :cond_7
+    :cond_8e
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     const v5, 0x7f1302be
@@ -377,7 +377,7 @@
 
     invoke-static {v5, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_2
+    :goto_9c
     move-object v3, v5
 
     .line 684
@@ -385,10 +385,10 @@
 
     move-result v4
 
-    goto :goto_3
+    goto :goto_e4
 
     .line 676
-    :pswitch_2
+    :pswitch_a2
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->$profile:Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getError()Ljava/lang/String;
@@ -400,10 +400,10 @@
 
     move-result v4
 
-    goto :goto_3
+    goto :goto_e4
 
     .line 671
-    :pswitch_3
+    :pswitch_ad
     iget-object v6, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     iget-object v7, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->$profile:Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -433,10 +433,10 @@
 
     move-result v4
 
-    goto :goto_3
+    goto :goto_e4
 
     .line 666
-    :pswitch_4
+    :pswitch_cc
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     const v5, 0x7f1300af
@@ -450,10 +450,10 @@
 
     move-result v4
 
-    goto :goto_3
+    goto :goto_e4
 
     .line 661
-    :pswitch_5
+    :pswitch_da
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog$update$1;->$profile:Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getError()Ljava/lang/String;
@@ -466,7 +466,7 @@
     move-result v4
 
     .line 688
-    :goto_3
+    :goto_e4
     new-instance v2, Landroid/text/SpannableStringBuilder;
 
     invoke-direct {v2}, Landroid/text/SpannableStringBuilder;-><init>()V
@@ -651,17 +651,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_184
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_18a
     .packed-switch -0x1
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_da
+        :pswitch_cc
+        :pswitch_ad
+        :pswitch_a2
+        :pswitch_77
     .end packed-switch
 .end method

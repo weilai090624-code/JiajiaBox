@@ -13,7 +13,7 @@
 
 
 # static fields
-.field private static final DEFAULT_UA:Ljava/lang/String; = "NekoBox/Android/0.0.2 (Prefer ClashMeta Format)"
+.field private static final DEFAULT_UA:Ljava/lang/String; = "JiajiaBox/Android/0.0.5"
 
 .field private static final MAX_BYTES:I = 0x4000000
 
@@ -333,7 +333,7 @@
     if-eqz v3, :cond_1b
 
     :cond_19
-    const-string v0, "NekoBox/Android/0.0.2 (Prefer ClashMeta Format)"
+    const-string v0, "JiajiaBox/Android/0.0.5"
 
     .line 42
     :cond_1b

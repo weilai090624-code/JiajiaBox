@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method static persistLocales(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 7
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "locales"    # Ljava/lang/String;
 
@@ -52,7 +52,7 @@
 
     const-string v3, "androidx.appcompat.app.AppCompatDelegate.application_locales_record_file"
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_12
 
     .line 121
     invoke-virtual {p0, v3}, Landroid/content/Context;->deleteFile(Ljava/lang/String;)Z
@@ -61,17 +61,17 @@
     return-void
 
     .line 127
-    :cond_0
+    :cond_12
     const/4 v2, 0x1
 
     const/4 v4, 0x0
 
-    :try_start_0
+    :try_start_14
     invoke-virtual {p0, v3, v4}, Landroid/content/Context;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_3
+    :try_end_18
+    .catch Ljava/io/FileNotFoundException; {:try_start_14 .. :try_end_18} :catch_85
 
     .line 132
     .local v3, "fos":Ljava/io/FileOutputStream;
@@ -86,7 +86,7 @@
     .local v4, "serializer":Lorg/xmlpull/v1/XmlSerializer;
     const/4 v5, 0x0
 
-    :try_start_1
+    :try_start_1e
     invoke-interface {v4, v3, v5}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
     .line 136
@@ -138,34 +138,34 @@
     move-result-object v0
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_54
+    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_54} :catch_5c
+    .catchall {:try_start_1e .. :try_end_54} :catchall_5a
 
     .line 147
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_7c
 
     .line 149
-    :try_start_2
+    :try_start_56
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_59
+    .catch Ljava/io/IOException; {:try_start_56 .. :try_end_59} :catch_7a
 
-    goto :goto_0
+    goto :goto_79
 
     .line 147
-    :catchall_0
+    :catchall_5a
     move-exception v0
 
-    goto :goto_2
+    goto :goto_7d
 
     .line 143
-    :catch_0
+    :catch_5c
     move-exception v0
 
     .line 144
     .local v0, "e":Ljava/lang/Exception;
-    :try_start_3
+    :try_start_5d
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -185,62 +185,62 @@
     move-result-object v2
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_73
+    .catchall {:try_start_5d .. :try_end_73} :catchall_5a
 
     .line 147
     nop
 
     .end local v0    # "e":Ljava/lang/Exception;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_7c
 
     .line 149
-    :try_start_4
+    :try_start_76
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+    :try_end_79
+    .catch Ljava/io/IOException; {:try_start_76 .. :try_end_79} :catch_7a
 
     .line 152
-    :goto_0
-    goto :goto_1
+    :goto_79
+    goto :goto_7c
 
     .line 150
-    :catch_1
+    :catch_7a
     move-exception v0
 
-    goto :goto_0
+    goto :goto_79
 
     .line 155
-    :cond_1
-    :goto_1
+    :cond_7c
+    :goto_7c
     return-void
 
     .line 147
-    :goto_2
-    if-eqz v3, :cond_2
+    :goto_7d
+    if-eqz v3, :cond_84
 
     .line 149
-    :try_start_5
+    :try_start_7f
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
+    :try_end_82
+    .catch Ljava/io/IOException; {:try_start_7f .. :try_end_82} :catch_83
 
     .line 152
-    goto :goto_3
+    goto :goto_84
 
     .line 150
-    :catch_2
+    :catch_83
     move-exception v1
 
     .line 154
-    :cond_2
-    :goto_3
+    :cond_84
+    :goto_84
     throw v0
 
     .line 128
     .end local v3    # "fos":Ljava/io/FileOutputStream;
     .end local v4    # "serializer":Lorg/xmlpull/v1/XmlSerializer;
-    :catch_3
+    :catch_85
     move-exception v0
 
     .line 129
@@ -262,7 +262,7 @@
 .end method
 
 .method static readLocales(Landroid/content/Context;)Ljava/lang/String;
-    .locals 10
+    .registers 11
     .param p0, "context"    # Landroid/content/Context;
 
     .line 63
@@ -274,19 +274,19 @@
 
     .line 67
     .local v2, "appLocales":Ljava/lang/String;
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0, v0}, Landroid/content/Context;->openFileInput(Ljava/lang/String;)Ljava/io/FileInputStream;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_4
+    :try_end_a
+    .catch Ljava/io/FileNotFoundException; {:try_start_6 .. :try_end_a} :catch_87
 
     .line 72
     .local v3, "fis":Ljava/io/FileInputStream;
     nop
 
     .line 74
-    :try_start_1
+    :try_start_b
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v4
@@ -304,8 +304,8 @@
 
     .line 78
     .local v5, "outerDepth":I
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v6
@@ -315,32 +315,32 @@
     .local v7, "type":I
     const/4 v8, 0x1
 
-    if-eq v6, v8, :cond_4
+    if-eq v6, v8, :cond_45
 
     const/4 v6, 0x3
 
-    if-ne v7, v6, :cond_1
+    if-ne v7, v6, :cond_29
 
     .line 79
     invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v8
 
-    if-le v8, v5, :cond_4
+    if-le v8, v5, :cond_45
 
     .line 80
-    :cond_1
-    if-eq v7, v6, :cond_0
+    :cond_29
+    if-eq v7, v6, :cond_18
 
     const/4 v6, 0x4
 
-    if-ne v7, v6, :cond_2
+    if-ne v7, v6, :cond_2f
 
     .line 81
-    goto :goto_0
+    goto :goto_18
 
     .line 84
-    :cond_2
+    :cond_2f
     invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v6
@@ -353,7 +353,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_44
 
     .line 86
     const-string v8, "application_locales"
@@ -363,92 +363,92 @@
     invoke-interface {v4, v9, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
-    :try_end_1
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_42
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_b .. :try_end_42} :catch_51
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_42} :catch_4f
+    .catchall {:try_start_b .. :try_end_42} :catchall_4d
 
     move-object v2, v8
 
     .line 88
-    goto :goto_1
+    goto :goto_45
 
     .line 90
     .end local v6    # "tagName":Ljava/lang/String;
-    :cond_3
-    goto :goto_0
+    :cond_44
+    goto :goto_18
 
     .line 96
     .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .end local v5    # "outerDepth":I
     .end local v7    # "type":I
-    :cond_4
-    :goto_1
-    if-eqz v3, :cond_5
+    :cond_45
+    :goto_45
+    if-eqz v3, :cond_5e
 
     .line 98
-    :try_start_2
+    :try_start_47
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_4a
+    .catch Ljava/io/IOException; {:try_start_47 .. :try_end_4a} :catch_4b
 
     .line 101
-    :goto_2
-    goto :goto_4
+    :goto_4a
+    goto :goto_5e
 
     .line 99
-    :catch_0
+    :catch_4b
     move-exception v4
 
-    goto :goto_2
+    goto :goto_4a
 
     .line 96
-    :catchall_0
+    :catchall_4d
     move-exception v0
 
-    goto :goto_6
+    goto :goto_7f
 
     .line 91
-    :catch_1
+    :catch_4f
     move-exception v4
 
-    goto :goto_3
+    goto :goto_52
 
-    :catch_2
+    :catch_51
     move-exception v4
 
     .line 92
     .local v4, "e":Ljava/lang/Exception;
-    :goto_3
-    :try_start_3
+    :goto_52
+    :try_start_52
     const-string v5, "Reading app Locales : Unable to parse through file :androidx.appcompat.app.AppCompatDelegate.application_locales_record_file"
 
     invoke-static {v1, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_57
+    .catchall {:try_start_52 .. :try_end_57} :catchall_4d
 
     .line 96
     nop
 
     .end local v4    # "e":Ljava/lang/Exception;
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_5e
 
     .line 98
-    :try_start_4
+    :try_start_5a
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_5d
+    .catch Ljava/io/IOException; {:try_start_5a .. :try_end_5d} :catch_4b
 
-    goto :goto_2
+    goto :goto_4a
 
     .line 105
-    :cond_5
-    :goto_4
+    :cond_5e
+    :goto_5e
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_7b
 
     .line 106
     new-instance v0, Ljava/lang/StringBuilder;
@@ -471,41 +471,41 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_7e
 
     .line 111
-    :cond_6
+    :cond_7b
     invoke-virtual {p0, v0}, Landroid/content/Context;->deleteFile(Ljava/lang/String;)Z
 
     .line 113
-    :goto_5
+    :goto_7e
     return-object v2
 
     .line 96
-    :goto_6
-    if-eqz v3, :cond_7
+    :goto_7f
+    if-eqz v3, :cond_86
 
     .line 98
-    :try_start_5
+    :try_start_81
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
+    :try_end_84
+    .catch Ljava/io/IOException; {:try_start_81 .. :try_end_84} :catch_85
 
     .line 101
-    goto :goto_7
+    goto :goto_86
 
     .line 99
-    :catch_3
+    :catch_85
     move-exception v1
 
     .line 103
-    :cond_7
-    :goto_7
+    :cond_86
+    :goto_86
     throw v0
 
     .line 68
     .end local v3    # "fis":Ljava/io/FileInputStream;
-    :catch_4
+    :catch_87
     move-exception v0
 
     .line 69
@@ -519,7 +519,7 @@
 .end method
 
 .method static syncLocalesToFramework(Landroid/content/Context;)V
-    .locals 5
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
 
     .line 166
@@ -527,7 +527,7 @@
 
     const/16 v1, 0x21
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_3d
 
     .line 167
     new-instance v0, Landroid/content/ComponentName;
@@ -548,7 +548,7 @@
 
     const/4 v2, 0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_3d
 
     .line 175
     invoke-static {}, Landroidx/appcompat/app/AppCompatDelegate;->getApplicationLocales()Landroidx/core/os/LocaleListCompat;
@@ -559,7 +559,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_36
 
     .line 181
     invoke-static {p0}, Landroidx/appcompat/app/AppLocalesStorageHelper;->readLocales(Landroid/content/Context;)Ljava/lang/String;
@@ -576,7 +576,7 @@
 
     .line 186
     .local v3, "localeManager":Ljava/lang/Object;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_36
 
     .line 187
     nop
@@ -592,7 +592,7 @@
     .line 198
     .end local v1    # "appLocales":Ljava/lang/String;
     .end local v3    # "localeManager":Ljava/lang/Object;
-    :cond_0
+    :cond_36
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -601,6 +601,6 @@
 
     .line 202
     .end local v0    # "app_locales_component":Landroid/content/ComponentName;
-    :cond_1
+    :cond_3d
     return-void
 .end method

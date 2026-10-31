@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/MapsKt__MapsKt;-><init>()V
 
@@ -47,7 +47,7 @@
 .end method
 
 .method private static final synthetic maxBy(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map$Entry;
-    .locals 6
+    .registers 8
     .param p0, "$this$maxBy"    # Ljava/util/Map;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -107,13 +107,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_47
 
-    :cond_0
+    :cond_1c
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -122,21 +122,21 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_28
 
-    :goto_0
+    :goto_26
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_47
 
-    :cond_1
+    :cond_28
     invoke-interface {p1, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/Comparable;
 
-    :cond_2
+    :cond_2e
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
@@ -151,29 +151,29 @@
 
     move-result v5
 
-    if-gez v5, :cond_3
+    if-gez v5, :cond_40
 
     move-object v1, v3
 
     move-object v2, v4
 
-    :cond_3
+    :cond_40
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_2e
 
-    goto :goto_0
+    goto :goto_26
 
-    :goto_1
+    :goto_47
     check-cast v0, Ljava/util/Map$Entry;
 
     return-object v0
 .end method
 
 .method private static final synthetic maxWith(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .param p0, "$this$maxWith"    # Ljava/util/Map;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -233,7 +233,7 @@
 .end method
 
 .method public static final synthetic minBy(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map$Entry;
-    .locals 7
+    .registers 9
     .param p0, "$this$minBy"    # Ljava/util/Map;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -296,13 +296,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1d
 
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_0
+    :cond_1d
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -311,21 +311,21 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_29
 
-    :goto_0
+    :goto_27
     move-object v1, v2
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_1
+    :cond_29
     invoke-interface {p1, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/Comparable;
 
-    :cond_2
+    :cond_2f
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -340,29 +340,29 @@
 
     move-result v6
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_41
 
     move-object v2, v4
 
     move-object v3, v5
 
-    :cond_3
+    :cond_41
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_2f
 
-    goto :goto_0
+    goto :goto_27
 
-    :goto_1
+    :goto_48
     check-cast v1, Ljava/util/Map$Entry;
 
     return-object v1
 .end method
 
 .method public static final synthetic minWith(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .param p0, "$this$minWith"    # Ljava/util/Map;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation runtime Lkotlin/Deprecated;

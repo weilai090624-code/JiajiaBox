@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/CacheBuilder;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/cache/LocalCache;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,7 +96,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/cache/LocalCache;Lcom/google/common/cache/LocalCache$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/cache/LocalCache;
     .param p2, "x1"    # Lcom/google/common/cache/LocalCache$1;
 
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public asMap()Ljava/util/concurrent/ConcurrentMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -127,7 +127,7 @@
 .end method
 
 .method public cleanUp()V
-    .locals 1
+    .registers 2
 
     .line 4754
     .local p0, "this":Lcom/google/common/cache/LocalCache$LocalManualCache;, "Lcom/google/common/cache/LocalCache$LocalManualCache<TK;TV;>;"
@@ -140,7 +140,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/util/concurrent/Callable;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -176,7 +176,7 @@
 .end method
 
 .method public getAllPresent(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -200,7 +200,7 @@
 .end method
 
 .method public getIfPresent(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -225,7 +225,7 @@
 .end method
 
 .method public invalidate(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 4718
@@ -242,7 +242,7 @@
 .end method
 
 .method public invalidateAll()V
-    .locals 1
+    .registers 2
 
     .line 4729
     .local p0, "this":Lcom/google/common/cache/LocalCache$LocalManualCache;, "Lcom/google/common/cache/LocalCache$LocalManualCache<TK;TV;>;"
@@ -255,7 +255,7 @@
 .end method
 
 .method public invalidateAll(Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -276,7 +276,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -296,7 +296,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -317,7 +317,7 @@
 .end method
 
 .method public size()J
-    .locals 2
+    .registers 3
 
     .line 4734
     .local p0, "this":Lcom/google/common/cache/LocalCache$LocalManualCache;, "Lcom/google/common/cache/LocalCache$LocalManualCache<TK;TV;>;"
@@ -331,7 +331,7 @@
 .end method
 
 .method public stats()Lcom/google/common/cache/CacheStats;
-    .locals 6
+    .registers 7
 
     .line 4744
     .local p0, "this":Lcom/google/common/cache/LocalCache$LocalManualCache;, "Lcom/google/common/cache/LocalCache$LocalManualCache<TK;TV;>;"
@@ -356,8 +356,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_12
+    if-ge v3, v2, :cond_1e
 
     aget-object v4, v1, v3
 
@@ -371,10 +371,10 @@
     .end local v4    # "segment":Lcom/google/common/cache/LocalCache$Segment;, "Lcom/google/common/cache/LocalCache$Segment<TK;TV;>;"
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 4749
-    :cond_0
+    :cond_1e
     invoke-virtual {v0}, Lcom/google/common/cache/AbstractCache$SimpleStatsCounter;->snapshot()Lcom/google/common/cache/CacheStats;
 
     move-result-object v1
@@ -383,7 +383,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 4762
     .local p0, "this":Lcom/google/common/cache/LocalCache$LocalManualCache;, "Lcom/google/common/cache/LocalCache$LocalManualCache<TK;TV;>;"

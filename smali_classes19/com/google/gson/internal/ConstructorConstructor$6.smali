@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;Ljava/lang/reflect/Type;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/gson/internal/ConstructorConstructor;
 
     .line 172
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public construct()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -63,7 +63,7 @@
 
     const-string v1, "Invalid EnumSet type: "
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3c
 
     .line 176
     iget-object v0, p0, Lcom/google/gson/internal/ConstructorConstructor$6;->val$type:Ljava/lang/reflect/Type;
@@ -82,7 +82,7 @@
     .local v0, "elementType":Ljava/lang/reflect/Type;
     instance-of v2, v0, Ljava/lang/Class;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     .line 178
     move-object v1, v0
@@ -96,7 +96,7 @@
     return-object v1
 
     .line 180
-    :cond_0
+    :cond_1f
     new-instance v2, Lcom/google/gson/JsonIOException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -127,7 +127,7 @@
 
     .line 183
     .end local v0    # "elementType":Ljava/lang/reflect/Type;
-    :cond_1
+    :cond_3c
     new-instance v0, Lcom/google/gson/JsonIOException;
 
     new-instance v2, Ljava/lang/StringBuilder;

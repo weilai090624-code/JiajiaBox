@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$observer$1;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$2$1;->$this_suspendWithStateAtLeastUnchecked:Landroidx/lifecycle/Lifecycle;
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .registers 3
 
     .line 201
     iget-object v0, p0, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$2$1;->$this_suspendWithStateAtLeastUnchecked:Landroidx/lifecycle/Lifecycle;

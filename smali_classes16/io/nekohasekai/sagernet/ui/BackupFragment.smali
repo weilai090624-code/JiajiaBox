@@ -87,7 +87,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$1xO9EcByp1iOc53KajheZPplplA(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/net/Uri;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/BackupFragment;->importFile$lambda$15(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/net/Uri;)V
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$55tl8gnBXaD7Xr1tBjq10OsrOSg(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/net/Uri;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/BackupFragment;->exportSettings$lambda$0(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/net/Uri;)V
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$6Zbh3-bhKDQbf43IGfMf-xUYOk0(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/BackupFragment;->onViewCreated$lambda$2$lambda$1(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/content/DialogInterface;I)V
 
@@ -111,7 +111,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$YvroAfr-YL964fw6qmq44Gnjmtw(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/BackupFragment;->onViewCreated$lambda$2(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/view/View;)V
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$abO-pSJtvmYMvXyD2R2VOJnVquc(Lio/nekohasekai/sagernet/ui/BackupFragment;Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/BackupFragment;->onViewCreated$lambda$4(Lio/nekohasekai/sagernet/ui/BackupFragment;Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;Landroid/view/View;)V
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$mTkj1ci-6JRNUzchNKzFon-8KWE(Lio/nekohasekai/sagernet/ui/BackupFragment;Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/BackupFragment;->onViewCreated$lambda$3(Lio/nekohasekai/sagernet/ui/BackupFragment;Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;Landroid/view/View;)V
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$rKhydB_TAhvRfzRjrdLf9uZbMJw(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/BackupFragment;->onViewCreated$lambda$5(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/view/View;)V
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 34
     const v0, 0x7f0d003d
@@ -200,7 +200,7 @@
 .end method
 
 .method public static final synthetic access$getExportSettings$p(Lio/nekohasekai/sagernet/ui/BackupFragment;)Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
 
     .line 34
@@ -210,7 +210,7 @@
 .end method
 
 .method public static final synthetic access$startImport$invalid(Lio/nekohasekai/sagernet/ui/BackupFragment;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
 
@@ -223,12 +223,12 @@
 .end method
 
 .method private static final exportSettings$lambda$0(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/net/Uri;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
     .param p1, "data"    # Landroid/net/Uri;
 
     .line 41
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     .line 42
     new-instance v0, Lio/nekohasekai/sagernet/ui/BackupFragment$exportSettings$1$1;
@@ -242,17 +242,17 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 60
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method private static final importFile$lambda$15(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/net/Uri;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
     .param p1, "file"    # Landroid/net/Uri;
 
     .line 172
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     .line 173
     new-instance v0, Lio/nekohasekai/sagernet/ui/BackupFragment$importFile$1$1;
@@ -266,12 +266,12 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 177
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method private static final onViewCreated$lambda$2(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
     .param p1, "it"    # Landroid/view/View;
 
@@ -337,7 +337,7 @@
 .end method
 
 .method private static final onViewCreated$lambda$2$lambda$1(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
 
     .line 72
@@ -365,7 +365,7 @@
 .end method
 
 .method private static final onViewCreated$lambda$3(Lio/nekohasekai/sagernet/ui/BackupFragment;Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;Landroid/view/View;)V
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
     .param p1, "$binding"    # Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;
     .param p2, "it"    # Landroid/view/View;
@@ -386,7 +386,7 @@
 .end method
 
 .method private static final onViewCreated$lambda$4(Lio/nekohasekai/sagernet/ui/BackupFragment;Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;Landroid/view/View;)V
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
     .param p1, "$binding"    # Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;
     .param p2, "it"    # Landroid/view/View;
@@ -407,7 +407,7 @@
 .end method
 
 .method private static final onViewCreated$lambda$5(Lio/nekohasekai/sagernet/ui/BackupFragment;Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
     .param p1, "it"    # Landroid/view/View;
 
@@ -427,7 +427,7 @@
 .end method
 
 .method private static final startImport$invalid(Lio/nekohasekai/sagernet/ui/BackupFragment;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -459,11 +459,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     return-object v0
 
-    :cond_0
+    :cond_13
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 200
@@ -473,7 +473,7 @@
 
 # virtual methods
 .method public final doBackup(ZZZ)Ljava/lang/String;
-    .locals 14
+    .registers 18
     .param p1, "profile"    # Z
     .param p2, "rule"    # Z
     .param p3, "setting"    # Z
@@ -499,7 +499,7 @@
     invoke-virtual {v2, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 140
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_88
 
     .line 141
     new-instance v4, Lorg/json/JSONArray;
@@ -534,12 +534,12 @@
 
     move-result-object v9
 
-    :goto_0
+    :goto_28
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_43
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -574,10 +574,10 @@
     nop
 
     .end local v10    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_28
 
     .line 327
-    :cond_0
+    :cond_43
     nop
 
     .line 145
@@ -627,12 +627,12 @@
 
     move-result-object v9
 
-    :goto_1
+    :goto_64
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_7f
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -667,10 +667,10 @@
     nop
 
     .end local v10    # "element$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_64
 
     .line 329
-    :cond_1
+    :cond_7f
     nop
 
     .line 151
@@ -688,8 +688,8 @@
     invoke-virtual {v2, v5, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 153
-    :cond_2
-    if-eqz p2, :cond_4
+    :cond_88
+    if-eqz p2, :cond_c6
 
     .line 154
     new-instance v4, Lorg/json/JSONArray;
@@ -724,12 +724,12 @@
 
     move-result-object v9
 
-    :goto_2
+    :goto_a2
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_bd
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -764,10 +764,10 @@
     nop
 
     .end local v10    # "element$iv":Ljava/lang/Object;
-    goto :goto_2
+    goto :goto_a2
 
     .line 331
-    :cond_3
+    :cond_bd
     nop
 
     .line 158
@@ -785,8 +785,8 @@
     invoke-virtual {v2, v5, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 160
-    :cond_4
-    if-eqz p3, :cond_6
+    :cond_c6
+    if-eqz p3, :cond_104
 
     .line 161
     new-instance v4, Lorg/json/JSONArray;
@@ -821,12 +821,12 @@
 
     move-result-object v9
 
-    :goto_3
+    :goto_e0
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_fb
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -861,10 +861,10 @@
     nop
 
     .end local v10    # "element$iv":Ljava/lang/Object;
-    goto :goto_3
+    goto :goto_e0
 
     .line 333
-    :cond_5
+    :cond_fb
     nop
 
     .line 165
@@ -882,7 +882,7 @@
     invoke-virtual {v2, v5, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 167
-    :cond_6
+    :cond_104
     nop
 
     .line 138
@@ -900,7 +900,7 @@
 .end method
 
 .method public final finishImport(Lorg/json/JSONObject;ZZZ)V
-    .locals 13
+    .registers 18
     .param p1, "content"    # Lorg/json/JSONObject;
     .param p2, "profile"    # Z
     .param p3, "rule"    # Z
@@ -919,7 +919,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_b7
 
     const-string v4, "profiles"
 
@@ -927,7 +927,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_b7
 
     .line 269
     new-instance v5, Ljava/util/ArrayList;
@@ -951,8 +951,8 @@
 
     move-result v7
 
-    :goto_0
-    if-ge v6, v7, :cond_0
+    :goto_25
+    if-ge v6, v7, :cond_53
 
     .line 272
     sget-object v8, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
@@ -1003,11 +1003,11 @@
     .end local v9    # "parcel":Landroid/os/Parcel;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
     .line 279
     .end local v6    # "i":I
-    :cond_0
+    :cond_53
     sget-object v6, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getProxyDao()Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
@@ -1049,8 +1049,8 @@
 
     move-result v9
 
-    :goto_1
-    if-ge v8, v9, :cond_1
+    :goto_77
+    if-ge v8, v9, :cond_a5
 
     .line 285
     sget-object v10, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
@@ -1101,11 +1101,11 @@
     .end local v11    # "parcel":Landroid/os/Parcel;
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_77
 
     .line 292
     .end local v8    # "i":I
-    :cond_1
+    :cond_a5
     sget-object v8, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v8}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getGroupDao()Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
@@ -1128,8 +1128,8 @@
     .end local v5    # "profiles":Ljava/util/List;
     .end local v6    # "groups":Ljava/util/List;
     .end local v7    # "jsonGroups":Lorg/json/JSONArray;
-    :cond_2
-    if-eqz p3, :cond_4
+    :cond_b7
+    if-eqz p3, :cond_114
 
     const-string v4, "rules"
 
@@ -1137,7 +1137,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_114
 
     .line 296
     new-instance v5, Ljava/util/ArrayList;
@@ -1161,8 +1161,8 @@
 
     move-result v7
 
-    :goto_2
-    if-ge v6, v7, :cond_3
+    :goto_d1
+    if-ge v6, v7, :cond_102
 
     .line 299
     sget-object v8, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
@@ -1215,11 +1215,11 @@
     .end local v9    # "parcel":Landroid/os/Parcel;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_d1
 
     .line 306
     .end local v6    # "i":I
-    :cond_3
+    :cond_102
     sget-object v6, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getRulesDao()Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
@@ -1240,8 +1240,8 @@
     .line 309
     .end local v4    # "jsonRules":Lorg/json/JSONArray;
     .end local v5    # "rules":Ljava/util/List;
-    :cond_4
-    if-eqz p4, :cond_6
+    :cond_114
+    if-eqz p4, :cond_173
 
     const-string v4, "settings"
 
@@ -1249,7 +1249,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_173
 
     .line 310
     new-instance v5, Ljava/util/ArrayList;
@@ -1273,8 +1273,8 @@
 
     move-result v7
 
-    :goto_3
-    if-ge v6, v7, :cond_5
+    :goto_12e
+    if-ge v6, v7, :cond_161
 
     .line 313
     sget-object v8, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
@@ -1329,11 +1329,11 @@
     .end local v9    # "parcel":Landroid/os/Parcel;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3
+    goto :goto_12e
 
     .line 320
     .end local v6    # "i":I
-    :cond_5
+    :cond_161
     sget-object v1, Lio/nekohasekai/sagernet/database/preference/PublicDatabase;->Companion:Lio/nekohasekai/sagernet/database/preference/PublicDatabase$Companion;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/preference/PublicDatabase$Companion;->getKvPairDao()Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
@@ -1354,12 +1354,12 @@
     .line 323
     .end local v4    # "jsonSettings":Lorg/json/JSONArray;
     .end local v5    # "settings":Ljava/util/List;
-    :cond_6
+    :cond_173
     return-void
 .end method
 
 .method public final getContent()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/BackupFragment;->content:Ljava/lang/String;
@@ -1368,7 +1368,7 @@
 .end method
 
 .method public final getImportFile()Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1385,7 +1385,7 @@
 .end method
 
 .method protected name0()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 36
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
@@ -1406,7 +1406,7 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 3
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -1470,7 +1470,7 @@
 .end method
 
 .method public final setContent(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -1484,7 +1484,7 @@
 .end method
 
 .method public final startImport(Landroid/net/Uri;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 12
     .param p1, "file"    # Landroid/net/Uri;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1533,13 +1533,13 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     .line 180
     check-cast v0, Ljava/io/Closeable;
 
     .line 181
-    :try_start_0
+    :try_start_19
     move-object v3, v0
 
     check-cast v3, Landroid/database/Cursor;
@@ -1570,8 +1570,8 @@
     invoke-interface {v3, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v8
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_19 .. :try_end_2c} :catchall_42
 
     .line 181
     .end local v3    # "cursor":Landroid/database/Cursor;
@@ -1582,7 +1582,7 @@
     invoke-static {v0, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .line 185
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_49
 
     .line 180
     nop
@@ -1606,33 +1606,33 @@
 
     .end local v0    # "it":Ljava/lang/String;
     .end local v3    # "$i$a$-takeIf-BackupFragment$startImport$fileName$2":I
-    if-nez v4, :cond_0
+    if-nez v4, :cond_3e
 
-    goto :goto_0
+    goto :goto_3f
 
-    :cond_0
+    :cond_3e
     move-object v8, v2
 
     .line 180
-    :goto_0
-    if-eqz v8, :cond_1
+    :goto_3f
+    if-eqz v8, :cond_49
 
-    goto :goto_1
+    goto :goto_69
 
     .line 181
-    :catchall_0
+    :catchall_42
     move-exception v1
 
     .end local p1    # "file":Landroid/net/Uri;
     .end local p2    # "$completion":Lkotlin/coroutines/Continuation;
-    :try_start_1
+    :try_start_43
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_44
+    .catchall {:try_start_43 .. :try_end_44} :catchall_44
 
     .restart local p1    # "file":Landroid/net/Uri;
     .restart local p2    # "$completion":Lkotlin/coroutines/Continuation;
-    :catchall_1
+    :catchall_44
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -1640,7 +1640,7 @@
     throw v2
 
     .line 185
-    :cond_1
+    :cond_49
     invoke-virtual {p1}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
 
     move-result-object v0
@@ -1674,7 +1674,7 @@
     move-result-object v8
 
     .line 180
-    :goto_1
+    :goto_69
     move-object v0, v8
 
     .line 189
@@ -1687,7 +1687,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_88
 
     .line 190
     new-instance v1, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$2;
@@ -1704,22 +1704,22 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_85
 
     return-object v1
 
     .line 193
-    :cond_2
+    :cond_85
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 202
-    :cond_3
+    :cond_88
     nop
 
     .line 203
-    :try_start_2
+    :try_start_89
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/BackupFragment;->requireContext()Landroid/content/Context;
 
     move-result-object v1
@@ -1732,18 +1732,18 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_9a
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
-    :cond_4
+    :cond_9a
     check-cast v1, Ljava/io/Closeable;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_9c
+    .catch Ljava/lang/Exception; {:try_start_89 .. :try_end_9c} :catch_fd
 
-    :try_start_3
+    :try_start_9c
     move-object v3, v1
 
     check-cast v3, Ljava/io/InputStream;
@@ -1763,13 +1763,13 @@
 
     instance-of v6, v7, Ljava/io/BufferedReader;
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_b0
 
     check-cast v7, Ljava/io/BufferedReader;
 
-    goto :goto_2
+    goto :goto_b8
 
-    :cond_5
+    :cond_b0
     new-instance v6, Ljava/io/BufferedReader;
 
     const/16 v8, 0x2000
@@ -1778,26 +1778,26 @@
 
     move-object v7, v6
 
-    :goto_2
+    :goto_b8
     check-cast v7, Ljava/io/Reader;
 
     invoke-static {v7}, Lkotlin/io/TextStreamsKt;->readText(Ljava/io/Reader;)Ljava/lang/String;
 
     move-result-object v6
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_be
+    .catchall {:try_start_9c .. :try_end_be} :catchall_f6
 
     .line 203
     .end local v3    # "it":Ljava/io/InputStream;
     .end local v5    # "$i$a$-use-BackupFragment$startImport$content$1":I
-    :try_start_4
+    :try_start_be
     invoke-static {v1, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     new-instance v1, Lorg/json/JSONObject;
 
     invoke-direct {v1, v6}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_c6
+    .catch Ljava/lang/Exception; {:try_start_be .. :try_end_c6} :catch_fd
 
     .line 202
     nop
@@ -1814,14 +1814,14 @@
     .local v3, "version":I
     const/4 v4, 0x1
 
-    if-lt v3, v4, :cond_8
+    if-lt v3, v4, :cond_e8
 
-    if-le v3, v4, :cond_6
+    if-le v3, v4, :cond_d3
 
-    goto :goto_3
+    goto :goto_e8
 
     .line 217
-    :cond_6
+    :cond_d3
     new-instance v4, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3;
 
     invoke-direct {v4, p0, v1, v2}, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3;-><init>(Lio/nekohasekai/sagernet/ui/BackupFragment;Lorg/json/JSONObject;Lkotlin/coroutines/Continuation;)V
@@ -1836,19 +1836,19 @@
 
     move-result-object v4
 
-    if-ne v2, v4, :cond_7
+    if-ne v2, v4, :cond_e5
 
     return-object v2
 
-    :cond_7
+    :cond_e5
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 263
     return-object v2
 
     .line 213
-    :cond_8
-    :goto_3
+    :cond_e8
+    :goto_e8
     invoke-static {p0, p2}, Lio/nekohasekai/sagernet/ui/BackupFragment;->startImport$invalid(Lio/nekohasekai/sagernet/ui/BackupFragment;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v2
@@ -1857,12 +1857,12 @@
 
     move-result-object v4
 
-    if-ne v2, v4, :cond_9
+    if-ne v2, v4, :cond_f3
 
     return-object v2
 
     .line 214
-    :cond_9
+    :cond_f3
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
@@ -1870,38 +1870,38 @@
     .line 203
     .end local v1    # "content":Lorg/json/JSONObject;
     .end local v3    # "version":I
-    :catchall_2
+    :catchall_f6
     move-exception v2
 
     .end local v0    # "fileName":Ljava/lang/String;
     .end local p1    # "file":Landroid/net/Uri;
     .end local p2    # "$completion":Lkotlin/coroutines/Continuation;
-    :try_start_5
+    :try_start_f7
     throw v2
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_f8
+    .catchall {:try_start_f7 .. :try_end_f8} :catchall_f8
 
     .restart local v0    # "fileName":Ljava/lang/String;
     .restart local p1    # "file":Landroid/net/Uri;
     .restart local p2    # "$completion":Lkotlin/coroutines/Continuation;
-    :catchall_3
+    :catchall_f8
     move-exception v3
 
-    :try_start_6
+    :try_start_f9
     invoke-static {v1, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local v0    # "fileName":Ljava/lang/String;
     .end local p1    # "file":Landroid/net/Uri;
     .end local p2    # "$completion":Lkotlin/coroutines/Continuation;
     throw v3
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
+    :try_end_fd
+    .catch Ljava/lang/Exception; {:try_start_f9 .. :try_end_fd} :catch_fd
 
     .line 206
     .restart local v0    # "fileName":Ljava/lang/String;
     .restart local p1    # "file":Landroid/net/Uri;
     .restart local p2    # "$completion":Lkotlin/coroutines/Continuation;
-    :catch_0
+    :catch_fd
     move-exception v1
 
     .line 207
@@ -1923,19 +1923,19 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_a
+    if-ne v2, v3, :cond_111
 
     return-object v2
 
     .line 209
-    :cond_a
+    :cond_111
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
 .end method
 
 .method public final toBase64Str(Landroid/os/Parcelable;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "$this$toBase64Str"    # Landroid/os/Parcelable;
 
     const-string v0, "<this>"
@@ -1961,7 +1961,7 @@
     nop
 
     .line 131
-    :try_start_0
+    :try_start_13
     sget-object v1, Lmoe/matsuri/nb4a/utils/Util;->INSTANCE:Lmoe/matsuri/nb4a/utils/Util;
 
     invoke-virtual {v0}, Landroid/os/Parcel;->marshall()[B
@@ -1975,8 +1975,8 @@
     invoke-virtual {v1, v2}, Lmoe/matsuri/nb4a/utils/Util;->b64EncodeUrlSafe([B)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_13 .. :try_end_22} :catchall_26
 
     .line 133
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -1985,7 +1985,7 @@
     return-object v1
 
     .line 133
-    :catchall_0
+    :catchall_26
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

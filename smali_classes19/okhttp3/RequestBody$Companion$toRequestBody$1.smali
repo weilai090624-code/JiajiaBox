@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/MediaType;Lokio/ByteString;)V
-    .locals 0
+    .registers 3
     .param p1, "$contentType"    # Lokhttp3/MediaType;
     .param p2, "$receiver"    # Lokio/ByteString;
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public contentLength()J
-    .locals 2
+    .registers 3
 
     .line 130
     iget-object v0, p0, Lokhttp3/RequestBody$Companion$toRequestBody$1;->$this_toRequestBody:Lokio/ByteString;
@@ -80,7 +80,7 @@
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .registers 2
 
     .line 128
     iget-object v0, p0, Lokhttp3/RequestBody$Companion$toRequestBody$1;->$contentType:Lokhttp3/MediaType;
@@ -89,7 +89,7 @@
 .end method
 
 .method public writeTo(Lokio/BufferedSink;)V
-    .locals 1
+    .registers 3
     .param p1, "sink"    # Lokio/BufferedSink;
 
     const-string v0, "sink"

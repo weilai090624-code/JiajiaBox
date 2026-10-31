@@ -40,7 +40,7 @@
 
 # direct methods
 .method public static final createGraph(Landroidx/navigation/NavHost;IILkotlin/jvm/functions/Function1;)Landroidx/navigation/NavGraph;
-    .locals 6
+    .registers 10
     .param p0, "$this$createGraph"    # Landroidx/navigation/NavHost;
     .param p1, "id"    # I
     .param p2, "startDestination"    # I
@@ -119,7 +119,7 @@
 .end method
 
 .method public static final createGraph(Landroidx/navigation/NavHost;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Landroidx/navigation/NavGraph;
-    .locals 6
+    .registers 10
     .param p0, "$this$createGraph"    # Landroidx/navigation/NavHost;
     .param p1, "startDestination"    # Ljava/lang/String;
     .param p2, "route"    # Ljava/lang/String;
@@ -196,7 +196,7 @@
 .end method
 
 .method public static synthetic createGraph$default(Landroidx/navigation/NavHost;IILkotlin/jvm/functions/Function1;ILjava/lang/Object;)Landroidx/navigation/NavGraph;
-    .locals 4
+    .registers 10
     .param p0, "$this$createGraph_u24default"    # Landroidx/navigation/NavHost;
     .param p1, "id"    # I
     .param p2, "startDestination"    # I
@@ -205,13 +205,13 @@
     .line 64
     and-int/lit8 p4, p4, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 65
     const/4 p1, 0x0
 
     .line 64
-    :cond_0
+    :cond_5
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -264,7 +264,7 @@
 .end method
 
 .method public static synthetic createGraph$default(Landroidx/navigation/NavHost;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Landroidx/navigation/NavGraph;
-    .locals 4
+    .registers 10
     .param p0, "$this$createGraph_u24default"    # Landroidx/navigation/NavHost;
     .param p1, "startDestination"    # Ljava/lang/String;
     .param p2, "route"    # Ljava/lang/String;
@@ -273,13 +273,13 @@
     .line 73
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 75
     const/4 p2, 0x0
 
     .line 73
-    :cond_0
+    :cond_5
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

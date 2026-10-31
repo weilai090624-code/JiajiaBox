@@ -30,10 +30,12 @@
 
 .field final synthetic val$resultTypes:Lorg/json/JSONObject;
 
+.field final synthetic val$signature:J
+
 
 # direct methods
-.method constructor <init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;)V
-    .registers 7
+.method constructor <init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;J)V
+    .registers 9
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -41,9 +43,11 @@
             0x1010,
             0x1010,
             0x1010,
+            0x1010,
             0x1010
         }
         names = {
+            null,
             null,
             null,
             null,
@@ -59,7 +63,7 @@
         }
     .end annotation
 
-    .line 83
+    .line 84
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     iput p2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$generation:I
@@ -72,6 +76,8 @@
 
     iput-object p6, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$problem:Ljava/lang/String;
 
+    iput-wide p7, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$signature:J
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -82,7 +88,7 @@
 .method public run()V
     .registers 5
 
-    .line 84
+    .line 85
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$generation:I
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
@@ -96,7 +102,7 @@
 
     const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_4c
+    if-ne v0, v1, :cond_53
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
@@ -107,9 +113,9 @@
 
     if-nez v0, :cond_15
 
-    goto :goto_4c
+    goto :goto_53
 
-    .line 85
+    .line 86
     :cond_15
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
@@ -162,14 +168,21 @@
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
+    iget-wide v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->val$signature:J
+
+    # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->dataSignature:J
+    invoke-static {v0, v1, v2}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1302(Lio/nekohasekai/sagernet/ui/ConnectionCard;J)J
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
+
     # invokes: Lio/nekohasekai/sagernet/ui/ConnectionCard;->render()V
-    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1300(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
+    invoke-static {v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->access$1400(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
 
     return-void
 
-    .line 84
-    :cond_4c
-    :goto_4c
+    .line 85
+    :cond_53
+    :goto_53
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     # setter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->publication:Ljava/lang/Runnable;

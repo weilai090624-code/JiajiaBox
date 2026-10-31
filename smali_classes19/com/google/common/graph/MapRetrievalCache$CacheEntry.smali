@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"

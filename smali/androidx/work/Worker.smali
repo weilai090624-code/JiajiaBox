@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "workerParams"    # Landroidx/work/WorkerParameters;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -44,7 +44,7 @@
 .end method
 
 .method public getForegroundInfo()Landroidx/work/ForegroundInfo;
-    .locals 2
+    .registers 3
 
     .line 127
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -57,7 +57,7 @@
 .end method
 
 .method public getForegroundInfoAsync()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,7 +89,7 @@
 .end method
 
 .method public final startWork()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

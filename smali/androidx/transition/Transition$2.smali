@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/Transition;Landroidx/collection/ArrayMap;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/transition/Transition;
 
     .line 895
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 903
@@ -58,7 +58,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 898

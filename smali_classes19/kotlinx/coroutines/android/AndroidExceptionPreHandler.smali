@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 13
     sget-object v0, Lkotlinx/coroutines/CoroutineExceptionHandler;->Key:Lkotlinx/coroutines/CoroutineExceptionHandler$Key;
@@ -61,14 +61,14 @@
 .end method
 
 .method private final preHandler()Ljava/lang/reflect/Method;
-    .locals 7
+    .registers 8
 
     .line 20
     iget-object v0, p0, Lkotlinx/coroutines/android/AndroidExceptionPreHandler;->_preHandler:Ljava/lang/Object;
 
     .line 21
     .local v0, "current":Ljava/lang/Object;
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_8
 
     move-object v1, v0
 
@@ -77,10 +77,10 @@
     return-object v1
 
     .line 22
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_9
     const-class v2, Ljava/lang/Thread;
 
     .line 23
@@ -109,7 +109,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2b
 
     invoke-virtual {v3}, Ljava/lang/reflect/Method;->getModifiers()I
 
@@ -118,25 +118,25 @@
     invoke-static {v6}, Ljava/lang/reflect/Modifier;->isStatic(I)Z
 
     move-result v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_9 .. :try_end_28} :catchall_2f
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2b
 
     const/4 v4, 0x1
 
     .line 23
     .end local v3    # "it":Ljava/lang/reflect/Method;
     .end local v5    # "$i$a$-takeIf-AndroidExceptionPreHandler$preHandler$declared$1":I
-    :cond_1
-    if-eqz v4, :cond_2
+    :cond_2b
+    if-eqz v4, :cond_31
 
     move-object v1, v2
 
-    goto :goto_0
+    goto :goto_31
 
     .line 26
-    :catchall_0
+    :catchall_2f
     move-exception v2
 
     .line 27
@@ -145,8 +145,8 @@
 
     .line 22
     .end local v2    # "e":Ljava/lang/Throwable;
-    :cond_2
-    :goto_0
+    :cond_31
+    :goto_31
     nop
 
     .line 29
@@ -160,7 +160,7 @@
 
 # virtual methods
 .method public handleException(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "exception"    # Ljava/lang/Throwable;
 
@@ -171,21 +171,21 @@
 
     const/4 v2, 0x0
 
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_d
 
     const/16 v1, 0x1c
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_e
+    if-eqz v0, :cond_31
 
     .line 49
     nop
@@ -197,7 +197,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -205,23 +205,23 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     move-object v0, v1
 
-    :goto_1
+    :goto_20
     instance-of v2, v0, Ljava/lang/Thread$UncaughtExceptionHandler;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_27
 
     move-object v1, v0
 
     check-cast v1, Ljava/lang/Thread$UncaughtExceptionHandler;
 
     .line 49
-    :cond_2
-    if-eqz v1, :cond_3
+    :cond_27
+    if-eqz v1, :cond_31
 
     .line 48
     nop
@@ -234,6 +234,6 @@
     invoke-interface {v1, v0, p2}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
 
     .line 51
-    :cond_3
+    :cond_31
     return-void
 .end method

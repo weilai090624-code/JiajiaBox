@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "this$1"    # Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;
 
     .line 1359
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 1
+    .registers 2
 
     .line 1362
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider$3;->this$1:Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;

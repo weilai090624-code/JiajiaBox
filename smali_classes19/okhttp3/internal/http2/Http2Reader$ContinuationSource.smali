@@ -82,7 +82,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/BufferedSource;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Lokio/BufferedSource;
 
     const-string v0, "source"
@@ -100,7 +100,7 @@
 .end method
 
 .method private final readContinuationHeader()V
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -165,7 +165,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4b
 
     sget-object v2, Lokhttp3/internal/http2/Http2Reader;->Companion:Lokhttp3/internal/http2/Http2Reader$Companion;
 
@@ -192,7 +192,7 @@
     invoke-virtual {v2, v3}, Ljava/util/logging/Logger;->fine(Ljava/lang/String;)V
 
     .line 365
-    :cond_0
+    :cond_4b
     iget-object v2, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->source:Lokio/BufferedSource;
 
     invoke-interface {v2}, Lokio/BufferedSource;->readInt()I
@@ -208,18 +208,18 @@
     .line 366
     const/16 v2, 0x9
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_68
 
     .line 367
     iget v2, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->streamId:I
 
-    if-ne v2, v0, :cond_1
+    if-ne v2, v0, :cond_60
 
     .line 368
     return-void
 
     .line 367
-    :cond_1
+    :cond_60
     new-instance v2, Ljava/io/IOException;
 
     const-string v3, "TYPE_CONTINUATION streamId changed"
@@ -229,7 +229,7 @@
     throw v2
 
     .line 366
-    :cond_2
+    :cond_68
     new-instance v2, Ljava/io/IOException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -258,7 +258,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -270,7 +270,7 @@
 .end method
 
 .method public final getFlags()I
-    .locals 1
+    .registers 2
 
     .line 328
     iget v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->flags:I
@@ -279,7 +279,7 @@
 .end method
 
 .method public final getLeft()I
-    .locals 1
+    .registers 2
 
     .line 331
     iget v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->left:I
@@ -288,7 +288,7 @@
 .end method
 
 .method public final getLength()I
-    .locals 1
+    .registers 2
 
     .line 327
     iget v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->length:I
@@ -297,7 +297,7 @@
 .end method
 
 .method public final getPadding()I
-    .locals 1
+    .registers 2
 
     .line 332
     iget v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->padding:I
@@ -306,7 +306,7 @@
 .end method
 
 .method public final getStreamId()I
-    .locals 1
+    .registers 2
 
     .line 329
     iget v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->streamId:I
@@ -315,7 +315,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 5
+    .registers 9
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -329,12 +329,12 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 336
-    :goto_0
+    :goto_5
     iget v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->left:I
 
     const-wide/16 v1, -0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 337
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->source:Lokio/BufferedSource;
@@ -355,18 +355,18 @@
 
     and-int/lit8 v0, v0, 0x4
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     return-wide v1
 
     .line 340
-    :cond_0
+    :cond_1d
     invoke-direct {p0}, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->readContinuationHeader()V
 
-    goto :goto_0
+    goto :goto_5
 
     .line 344
-    :cond_1
+    :cond_21
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->source:Lokio/BufferedSource;
 
     iget v3, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->left:I
@@ -385,12 +385,12 @@
     .local v3, "read":J
     cmp-long v0, v3, v1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_33
 
     return-wide v1
 
     .line 346
-    :cond_2
+    :cond_33
     iget v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->left:I
 
     long-to-int v1, v3
@@ -404,7 +404,7 @@
 .end method
 
 .method public final setFlags(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 328
@@ -414,7 +414,7 @@
 .end method
 
 .method public final setLeft(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 331
@@ -424,7 +424,7 @@
 .end method
 
 .method public final setLength(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 327
@@ -434,7 +434,7 @@
 .end method
 
 .method public final setPadding(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 332
@@ -444,7 +444,7 @@
 .end method
 
 .method public final setStreamId(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 329
@@ -454,7 +454,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 350
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->source:Lokio/BufferedSource;

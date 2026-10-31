@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 49
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method wasEvicted()Z
-    .locals 1
+    .registers 2
 
     .line 52
     const/4 v0, 0x0

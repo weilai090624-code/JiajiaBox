@@ -86,7 +86,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/arch/core/util/Function;Landroidx/lifecycle/MediatorLiveData;)V
-    .locals 0
+    .registers 3
     .param p1, "$switchMapFunction"    # Landroidx/arch/core/util/Function;
     .param p2, "$result"    # Landroidx/lifecycle/MediatorLiveData;
     .annotation system Ldalvik/annotation/Signature;
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public final getLiveData()Landroidx/lifecycle/LiveData;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -130,7 +130,7 @@
 .end method
 
 .method public onChanged(Ljava/lang/Object;)V
-    .locals 5
+    .registers 7
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -151,16 +151,16 @@
     .local v0, "newLiveData":Landroidx/lifecycle/LiveData;
     iget-object v1, p0, Landroidx/lifecycle/Transformations$switchMap$2;->liveData:Landroidx/lifecycle/LiveData;
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_d
 
     .line 155
     return-void
 
     .line 157
-    :cond_0
+    :cond_d
     iget-object v1, p0, Landroidx/lifecycle/Transformations$switchMap$2;->liveData:Landroidx/lifecycle/LiveData;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     .line 158
     iget-object v1, p0, Landroidx/lifecycle/Transformations$switchMap$2;->$result:Landroidx/lifecycle/MediatorLiveData;
@@ -172,13 +172,13 @@
     invoke-virtual {v1, v2}, Landroidx/lifecycle/MediatorLiveData;->removeSource(Landroidx/lifecycle/LiveData;)V
 
     .line 160
-    :cond_1
+    :cond_1b
     iput-object v0, p0, Landroidx/lifecycle/Transformations$switchMap$2;->liveData:Landroidx/lifecycle/LiveData;
 
     .line 161
     iget-object v1, p0, Landroidx/lifecycle/Transformations$switchMap$2;->liveData:Landroidx/lifecycle/LiveData;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3b
 
     .line 162
     iget-object v1, p0, Landroidx/lifecycle/Transformations$switchMap$2;->$result:Landroidx/lifecycle/MediatorLiveData;
@@ -204,12 +204,12 @@
     invoke-virtual {v1, v2, v4}, Landroidx/lifecycle/MediatorLiveData;->addSource(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
 
     .line 164
-    :cond_2
+    :cond_3b
     return-void
 .end method
 
 .method public final setLiveData(Landroidx/lifecycle/LiveData;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroidx/lifecycle/LiveData;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "channelName"    # Ljava/lang/String;
 
     .line 292
@@ -34,7 +34,7 @@
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotificationsEnabledArgs;
-    .locals 2
+    .registers 3
     .param p0, "bundle"    # Landroid/os/Bundle;
 
     .line 297
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public toBundle()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 302
     new-instance v0, Landroid/os/Bundle;

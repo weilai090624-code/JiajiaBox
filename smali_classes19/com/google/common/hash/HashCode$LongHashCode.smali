@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "hash"    # J
 
     .line 179
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public asBytes()[B
-    .locals 11
+    .registers 12
 
     .line 190
     iget-wide v0, p0, Lcom/google/common/hash/HashCode$LongHashCode;->hash:J
@@ -160,7 +160,7 @@
 .end method
 
 .method public asInt()I
-    .locals 2
+    .registers 3
 
     .line 204
     iget-wide v0, p0, Lcom/google/common/hash/HashCode$LongHashCode;->hash:J
@@ -171,7 +171,7 @@
 .end method
 
 .method public asLong()J
-    .locals 2
+    .registers 3
 
     .line 209
     iget-wide v0, p0, Lcom/google/common/hash/HashCode$LongHashCode;->hash:J
@@ -180,7 +180,7 @@
 .end method
 
 .method public bits()I
-    .locals 1
+    .registers 2
 
     .line 185
     const/16 v0, 0x40
@@ -189,7 +189,7 @@
 .end method
 
 .method equalsSameBits(Lcom/google/common/hash/HashCode;)Z
-    .locals 5
+    .registers 7
     .param p1, "that"    # Lcom/google/common/hash/HashCode;
 
     .line 226
@@ -201,21 +201,21 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public padToLong()J
-    .locals 2
+    .registers 3
 
     .line 214
     iget-wide v0, p0, Lcom/google/common/hash/HashCode$LongHashCode;->hash:J
@@ -224,7 +224,7 @@
 .end method
 
 .method writeBytesToImpl([BII)V
-    .locals 5
+    .registers 9
     .param p1, "dest"    # [B
     .param p2, "offset"    # I
     .param p3, "maxLength"    # I
@@ -233,8 +233,8 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p3, :cond_0
+    :goto_1
+    if-ge v0, p3, :cond_11
 
     .line 220
     add-int v1, p2, v0
@@ -254,10 +254,10 @@
     .line 219
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 222
     .end local v0    # "i":I
-    :cond_0
+    :cond_11
     return-void
 .end method

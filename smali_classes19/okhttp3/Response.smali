@@ -137,7 +137,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/Request;Lokhttp3/Protocol;Ljava/lang/String;ILokhttp3/Handshake;Lokhttp3/Headers;Lokhttp3/ResponseBody;Lokhttp3/Response;Lokhttp3/Response;Lokhttp3/Response;JJLokhttp3/internal/connection/Exchange;)V
-    .locals 16
+    .registers 32
     .param p1, "request"    # Lokhttp3/Request;
     .param p2, "protocol"    # Lokhttp3/Protocol;
     .param p3, "message"    # Ljava/lang/String;
@@ -243,16 +243,16 @@
 .end method
 
 .method public static synthetic header$default(Lokhttp3/Response;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 166
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokhttp3/Response;->header(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -263,7 +263,7 @@
 
 # virtual methods
 .method public final -deprecated_body()Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -280,7 +280,7 @@
 .end method
 
 .method public final -deprecated_cacheControl()Lokhttp3/CacheControl;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -299,7 +299,7 @@
 .end method
 
 .method public final -deprecated_cacheResponse()Lokhttp3/Response;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -316,7 +316,7 @@
 .end method
 
 .method public final -deprecated_code()I
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -333,7 +333,7 @@
 .end method
 
 .method public final -deprecated_handshake()Lokhttp3/Handshake;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -350,7 +350,7 @@
 .end method
 
 .method public final -deprecated_headers()Lokhttp3/Headers;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -367,7 +367,7 @@
 .end method
 
 .method public final -deprecated_message()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -384,7 +384,7 @@
 .end method
 
 .method public final -deprecated_networkResponse()Lokhttp3/Response;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -401,7 +401,7 @@
 .end method
 
 .method public final -deprecated_priorResponse()Lokhttp3/Response;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -418,7 +418,7 @@
 .end method
 
 .method public final -deprecated_protocol()Lokhttp3/Protocol;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -435,7 +435,7 @@
 .end method
 
 .method public final -deprecated_receivedResponseAtMillis()J
-    .locals 2
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -452,7 +452,7 @@
 .end method
 
 .method public final -deprecated_request()Lokhttp3/Request;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -469,7 +469,7 @@
 .end method
 
 .method public final -deprecated_sentRequestAtMillis()J
-    .locals 2
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -486,7 +486,7 @@
 .end method
 
 .method public final body()Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 2
 
     .line 78
     iget-object v0, p0, Lokhttp3/Response;->body:Lokhttp3/ResponseBody;
@@ -495,14 +495,14 @@
 .end method
 
 .method public final cacheControl()Lokhttp3/CacheControl;
-    .locals 3
+    .registers 4
 
     .line 266
     iget-object v0, p0, Lokhttp3/Response;->lazyCacheControl:Lokhttp3/CacheControl;
 
     .line 267
     .local v0, "result":Lokhttp3/CacheControl;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 268
     sget-object v1, Lokhttp3/CacheControl;->Companion:Lokhttp3/CacheControl$Companion;
@@ -517,12 +517,12 @@
     iput-object v0, p0, Lokhttp3/Response;->lazyCacheControl:Lokhttp3/CacheControl;
 
     .line 271
-    :cond_0
+    :cond_e
     return-object v0
 .end method
 
 .method public final cacheResponse()Lokhttp3/Response;
-    .locals 1
+    .registers 2
 
     .line 92
     iget-object v0, p0, Lokhttp3/Response;->cacheResponse:Lokhttp3/Response;
@@ -531,7 +531,7 @@
 .end method
 
 .method public final challenges()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -547,7 +547,7 @@
     .line 252
     iget v1, p0, Lokhttp3/Response;->code:I
 
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v1, :sswitch_data_16
 
     .line 255
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
@@ -557,37 +557,37 @@
     return-object v0
 
     .line 254
-    :sswitch_0
+    :sswitch_c
     const-string v1, "Proxy-Authenticate"
 
-    goto :goto_0
+    goto :goto_11
 
     .line 253
-    :sswitch_1
+    :sswitch_f
     const-string v1, "WWW-Authenticate"
 
     .line 251
-    :goto_0
+    :goto_11
     invoke-static {v0, v1}, Lokhttp3/internal/http/HttpHeaders;->parseChallenges(Lokhttp3/Headers;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
 
     return-object v0
 
-    :sswitch_data_0
+    :sswitch_data_16
     .sparse-switch
-        0x191 -> :sswitch_1
-        0x197 -> :sswitch_0
+        0x191 -> :sswitch_f
+        0x197 -> :sswitch_c
     .end sparse-switch
 .end method
 
 .method public close()V
-    .locals 2
+    .registers 3
 
     .line 302
     iget-object v0, p0, Lokhttp3/Response;->body:Lokhttp3/ResponseBody;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     invoke-virtual {v0}, Lokhttp3/ResponseBody;->close()V
 
@@ -595,7 +595,7 @@
     return-void
 
     .line 456
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     .line 302
@@ -619,7 +619,7 @@
 .end method
 
 .method public final code()I
-    .locals 1
+    .registers 2
 
     .line 59
     iget v0, p0, Lokhttp3/Response;->code:I
@@ -628,7 +628,7 @@
 .end method
 
 .method public final exchange()Lokhttp3/internal/connection/Exchange;
-    .locals 1
+    .registers 2
 
     .line 116
     iget-object v0, p0, Lokhttp3/Response;->exchange:Lokhttp3/internal/connection/Exchange;
@@ -637,7 +637,7 @@
 .end method
 
 .method public final handshake()Lokhttp3/Handshake;
-    .locals 1
+    .registers 2
 
     .line 65
     iget-object v0, p0, Lokhttp3/Response;->handshake:Lokhttp3/Handshake;
@@ -646,7 +646,7 @@
 .end method
 
 .method public final header(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
 
     const-string v0, "name"
 
@@ -664,7 +664,7 @@
 .end method
 
 .method public final header(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "defaultValue"    # Ljava/lang/String;
 
@@ -679,16 +679,16 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     move-object v0, p2
 
-    :cond_0
+    :cond_e
     return-object v0
 .end method
 
 .method public final headers(Ljava/lang/String;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -716,7 +716,7 @@
 .end method
 
 .method public final headers()Lokhttp3/Headers;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lokhttp3/Response;->headers:Lokhttp3/Headers;
@@ -725,45 +725,45 @@
 .end method
 
 .method public final isRedirect()Z
-    .locals 1
+    .registers 2
 
     .line 213
     iget v0, p0, Lokhttp3/Response;->code:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_a
 
     .line 215
-    :pswitch_0
+    :pswitch_5
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 214
-    :pswitch_1
+    :pswitch_7
     const/4 v0, 0x1
 
     .line 216
-    :goto_0
+    :goto_8
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a
     .packed-switch 0x12c
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_1
+        :pswitch_7
+        :pswitch_7
+        :pswitch_7
+        :pswitch_7
+        :pswitch_5
+        :pswitch_5
+        :pswitch_5
+        :pswitch_7
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method public final isSuccessful()Z
-    .locals 3
+    .registers 4
 
     .line 147
     iget v0, p0, Lokhttp3/Response;->code:I
@@ -772,20 +772,20 @@
 
     const/4 v2, 0x0
 
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_c
 
     const/16 v1, 0x12b
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_c
 
     const/4 v2, 0x1
 
-    :cond_0
+    :cond_c
     return v2
 .end method
 
 .method public final message()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Lokhttp3/Response;->message:Ljava/lang/String;
@@ -794,7 +794,7 @@
 .end method
 
 .method public final networkResponse()Lokhttp3/Response;
-    .locals 1
+    .registers 2
 
     .line 85
     iget-object v0, p0, Lokhttp3/Response;->networkResponse:Lokhttp3/Response;
@@ -803,7 +803,7 @@
 .end method
 
 .method public final newBuilder()Lokhttp3/Response$Builder;
-    .locals 1
+    .registers 2
 
     .line 209
     new-instance v0, Lokhttp3/Response$Builder;
@@ -814,7 +814,7 @@
 .end method
 
 .method public final peekBody(J)Lokhttp3/ResponseBody;
-    .locals 7
+    .registers 10
     .param p1, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -889,7 +889,7 @@
 .end method
 
 .method public final priorResponse()Lokhttp3/Response;
-    .locals 1
+    .registers 2
 
     .line 100
     iget-object v0, p0, Lokhttp3/Response;->priorResponse:Lokhttp3/Response;
@@ -898,7 +898,7 @@
 .end method
 
 .method public final protocol()Lokhttp3/Protocol;
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Lokhttp3/Response;->protocol:Lokhttp3/Protocol;
@@ -907,7 +907,7 @@
 .end method
 
 .method public final receivedResponseAtMillis()J
-    .locals 2
+    .registers 3
 
     .line 114
     iget-wide v0, p0, Lokhttp3/Response;->receivedResponseAtMillis:J
@@ -916,7 +916,7 @@
 .end method
 
 .method public final request()Lokhttp3/Request;
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Lokhttp3/Response;->request:Lokhttp3/Request;
@@ -925,7 +925,7 @@
 .end method
 
 .method public final sentRequestAtMillis()J
-    .locals 2
+    .registers 3
 
     .line 107
     iget-wide v0, p0, Lokhttp3/Response;->sentRequestAtMillis:J
@@ -934,7 +934,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 306
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1007,7 +1007,7 @@
 .end method
 
 .method public final trailers()Lokhttp3/Headers;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1017,7 +1017,7 @@
     .line 180
     iget-object v0, p0, Lokhttp3/Response;->exchange:Lokhttp3/internal/connection/Exchange;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lokhttp3/internal/connection/Exchange;->trailers()Lokhttp3/Headers;
 
@@ -1026,7 +1026,7 @@
     return-object v0
 
     .line 456
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     .line 180

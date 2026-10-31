@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static startActivityAndCollapse(Landroid/service/quicksettings/TileService;Landroid/content/Intent;)V
-    .locals 0
+    .registers 2
     .param p0, "service"    # Landroid/service/quicksettings/TileService;
     .param p1, "intent"    # Landroid/content/Intent;
 

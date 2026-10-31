@@ -71,7 +71,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/collections/EmptyMap;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -92,7 +92,7 @@
 .end method
 
 .method private final readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 31
     sget-object v0, Lkotlin/collections/EmptyMap;->INSTANCE:Lkotlin/collections/EmptyMap;
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 24
@@ -125,19 +125,19 @@
 .end method
 
 .method public final bridge containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 14
     instance-of v0, p1, Ljava/lang/Void;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Void;
@@ -150,7 +150,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Void;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Void;
 
     const-string v0, "value"
@@ -164,7 +164,7 @@
 .end method
 
 .method public final bridge entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -183,13 +183,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 17
     instance-of v0, p1, Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     move-object v0, p1
 
@@ -199,21 +199,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     return v0
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 14
@@ -225,7 +225,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Void;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 26
@@ -235,7 +235,7 @@
 .end method
 
 .method public getEntries()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -254,7 +254,7 @@
 .end method
 
 .method public getKeys()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -273,7 +273,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 21
     const/4 v0, 0x0
@@ -282,7 +282,7 @@
 .end method
 
 .method public getValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 29
     sget-object v0, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
@@ -293,7 +293,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 18
     const/4 v0, 0x0
@@ -302,7 +302,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 22
     const/4 v0, 0x1
@@ -311,7 +311,7 @@
 .end method
 
 .method public final bridge keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -330,7 +330,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -342,7 +342,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 2
+    .registers 5
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -354,7 +354,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -366,7 +366,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 14
@@ -378,7 +378,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Void;
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -390,7 +390,7 @@
 .end method
 
 .method public final bridge size()I
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-virtual {p0}, Lkotlin/collections/EmptyMap;->getSize()I
@@ -401,7 +401,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 19
     const-string v0, "{}"
@@ -410,7 +410,7 @@
 .end method
 
 .method public final bridge values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-virtual {p0}, Lkotlin/collections/EmptyMap;->getValues()Ljava/util/Collection;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/SafeConstructor;)V
-    .locals 0
+    .registers 2
 
     .line 311
     iput-object p1, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlFloat;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 16
+    .registers 18
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 314
@@ -79,7 +79,7 @@
 
     const/4 v5, 0x1
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_29
 
     .line 318
     const/4 v2, -0x1
@@ -89,13 +89,13 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_31
 
     .line 320
-    :cond_0
+    :cond_29
     const/16 v4, 0x2b
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_31
 
     .line 321
     invoke-virtual {v1, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -103,8 +103,8 @@
     move-result-object v1
 
     .line 323
-    :cond_1
-    :goto_0
+    :cond_31
+    :goto_31
     invoke-virtual {v1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v4
@@ -119,19 +119,19 @@
 
     const/4 v7, -0x1
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4a
 
     .line 325
-    if-ne v2, v7, :cond_2
+    if-ne v2, v7, :cond_43
 
     const-wide/high16 v5, -0x10000000000000L    # Double.NEGATIVE_INFINITY
 
-    goto :goto_1
+    goto :goto_45
 
-    :cond_2
+    :cond_43
     const-wide/high16 v5, 0x7ff0000000000000L    # Double.POSITIVE_INFINITY
 
-    :goto_1
+    :goto_45
     invoke-static {v5, v6}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v5
@@ -139,14 +139,14 @@
     return-object v5
 
     .line 327
-    :cond_3
+    :cond_4a
     const-string v6, ".nan"
 
     invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_59
 
     .line 328
     const-wide/high16 v5, 0x7ff8000000000000L    # Double.NaN
@@ -158,14 +158,14 @@
     return-object v5
 
     .line 329
-    :cond_4
+    :cond_59
     const/16 v6, 0x3a
 
     invoke-virtual {v1, v6}, Ljava/lang/String;->indexOf(I)I
 
     move-result v6
 
-    if-eq v6, v7, :cond_6
+    if-eq v6, v7, :cond_88
 
     .line 330
     const-string v6, ":"
@@ -190,8 +190,8 @@
     array-length v11, v6
 
     .local v11, "j":I
-    :goto_2
-    if-ge v10, v11, :cond_5
+    :goto_6c
+    if-ge v10, v11, :cond_80
 
     .line 334
     sub-int v12, v11, v10
@@ -216,12 +216,12 @@
     .line 333
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_2
+    goto :goto_6c
 
     .line 337
     .end local v10    # "i":I
     .end local v11    # "j":I
-    :cond_5
+    :cond_80
     int-to-double v10, v2
 
     mul-double v10, v10, v8
@@ -236,7 +236,7 @@
     .end local v6    # "digits":[Ljava/lang/String;
     .end local v7    # "bes":I
     .end local v8    # "val":D
-    :cond_6
+    :cond_88
     invoke-static {v1}, Ljava/lang/Double;->valueOf(Ljava/lang/String;)Ljava/lang/Double;
 
     move-result-object v5

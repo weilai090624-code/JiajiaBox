@@ -30,13 +30,13 @@
 
 # direct methods
 .method public static synthetic CommonThreadLocal$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final commonThreadLocal(Lkotlinx/coroutines/internal/Symbol;)Ljava/lang/ThreadLocal;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Lkotlinx/coroutines/internal/Symbol;
     .annotation system Ldalvik/annotation/Signature;
         value = {

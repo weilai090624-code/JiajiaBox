@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public lookup(Ljava/lang/String;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p1, "hostname"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -75,7 +75,7 @@
     nop
 
     .line 49
-    :try_start_0
+    :try_start_6
     invoke-static {p1}, Ljava/net/InetAddress;->getAllByName(Ljava/lang/String;)[Ljava/net/InetAddress;
 
     move-result-object v0
@@ -89,13 +89,13 @@
     invoke-static {v0}, Lkotlin/collections/ArraysKt;->toList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/NullPointerException; {:try_start_6 .. :try_end_15} :catch_16
 
     return-object v0
 
     .line 50
-    :catch_0
+    :catch_16
     move-exception v0
 
     .line 51

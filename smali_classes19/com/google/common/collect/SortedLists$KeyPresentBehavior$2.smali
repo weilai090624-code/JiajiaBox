@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 63
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method resultIndex(Ljava/util/Comparator;Ljava/lang/Object;Ljava/util/List;I)I
-    .locals 4
+    .registers 9
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -63,8 +63,8 @@
 
     .line 75
     .local v1, "upper":I
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_7
+    if-ge v0, v1, :cond_1e
 
     .line 76
     add-int v2, v0, v1
@@ -85,24 +85,24 @@
 
     .line 78
     .local v3, "c":I
-    if-lez v3, :cond_0
+    if-lez v3, :cond_1c
 
     .line 79
     add-int/lit8 v1, v2, -0x1
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 81
-    :cond_0
+    :cond_1c
     move v0, v2
 
     .line 83
     .end local v2    # "middle":I
     .end local v3    # "c":I
-    :goto_1
-    goto :goto_0
+    :goto_1d
+    goto :goto_7
 
     .line 84
-    :cond_1
+    :cond_1e
     return v0
 .end method

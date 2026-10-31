@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;Lcom/google/android/material/progressindicator/DrawingDelegate;Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;)V
-    .locals 0
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "baseSpec"    # Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
     .annotation system Ldalvik/annotation/Signature;
@@ -70,7 +70,7 @@
 .end method
 
 .method public static createCircularDrawable(Landroid/content/Context;Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;)Lcom/google/android/material/progressindicator/IndeterminateDrawable;
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "spec"    # Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
     .annotation system Ldalvik/annotation/Signature;
@@ -102,7 +102,7 @@
 .end method
 
 .method public static createLinearDrawable(Landroid/content/Context;Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;)Lcom/google/android/material/progressindicator/IndeterminateDrawable;
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "spec"    # Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;
     .annotation system Ldalvik/annotation/Signature;
@@ -127,22 +127,22 @@
     .line 61
     iget v2, p1, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->indeterminateAnimationType:I
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_11
 
     .line 62
     new-instance v2, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;
 
     invoke-direct {v2, p1}, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;-><init>(Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;)V
 
-    goto :goto_0
+    goto :goto_16
 
     .line 63
-    :cond_0
+    :cond_11
     new-instance v2, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;
 
     invoke-direct {v2, p0, p1}, Lcom/google/android/material/progressindicator/LinearIndeterminateDisjointAnimatorDelegate;-><init>(Landroid/content/Context;Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;)V
 
-    :goto_0
+    :goto_16
     invoke-direct {v0, p0, p1, v1, v2}, Lcom/google/android/material/progressindicator/IndeterminateDrawable;-><init>(Landroid/content/Context;Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;Lcom/google/android/material/progressindicator/DrawingDelegate;Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;)V
 
     .line 56
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public bridge synthetic clearAnimationCallbacks()V
-    .locals 0
+    .registers 1
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -162,7 +162,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 9
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 133
@@ -181,24 +181,24 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_62
 
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->isVisible()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_62
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->getClipBounds(Landroid/graphics/Rect;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
-    goto :goto_1
+    goto :goto_62
 
     .line 140
-    :cond_0
+    :cond_1c
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 141
@@ -226,14 +226,14 @@
 
     .line 147
     .local v1, "segmentIndex":I
-    :goto_0
+    :goto_34
     iget-object v2, p0, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->animatorDelegate:Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;
 
     iget-object v2, v2, Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;->segmentColors:[I
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_5e
 
     .line 149
     iget-object v3, p0, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->drawingDelegate:Lcom/google/android/material/progressindicator/DrawingDelegate;
@@ -271,24 +271,24 @@
     .line 148
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_34
 
     .line 156
     .end local v1    # "segmentIndex":I
-    :cond_1
+    :cond_5e
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 157
     return-void
 
     .line 137
-    :cond_2
-    :goto_1
+    :cond_62
+    :goto_62
     return-void
 .end method
 
 .method public bridge synthetic getAlpha()I
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -300,7 +300,7 @@
 .end method
 
 .method getAnimatorDelegate()Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -318,7 +318,7 @@
 .end method
 
 .method getDrawingDelegate()Lcom/google/android/material/progressindicator/DrawingDelegate;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -335,7 +335,7 @@
 .end method
 
 .method public getIntrinsicHeight()I
-    .locals 1
+    .registers 2
 
     .line 125
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -349,7 +349,7 @@
 .end method
 
 .method public getIntrinsicWidth()I
-    .locals 1
+    .registers 2
 
     .line 120
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -363,7 +363,7 @@
 .end method
 
 .method public bridge synthetic getOpacity()I
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -375,7 +375,7 @@
 .end method
 
 .method public bridge synthetic hideNow()Z
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -387,7 +387,7 @@
 .end method
 
 .method public bridge synthetic isHiding()Z
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -399,7 +399,7 @@
 .end method
 
 .method public bridge synthetic isRunning()Z
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -411,7 +411,7 @@
 .end method
 
 .method public bridge synthetic isShowing()Z
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -423,7 +423,7 @@
 .end method
 
 .method public bridge synthetic registerAnimationCallback(Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;)V
-    .locals 0
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -433,7 +433,7 @@
 .end method
 
 .method public bridge synthetic setAlpha(I)V
-    .locals 0
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -443,7 +443,7 @@
 .end method
 
 .method setAnimatorDelegate(Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -466,7 +466,7 @@
 .end method
 
 .method public bridge synthetic setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 0
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -476,7 +476,7 @@
 .end method
 
 .method setDrawingDelegate(Lcom/google/android/material/progressindicator/DrawingDelegate;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -498,7 +498,7 @@
 .end method
 
 .method public bridge synthetic setVisible(ZZ)Z
-    .locals 0
+    .registers 3
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -510,7 +510,7 @@
 .end method
 
 .method public bridge synthetic setVisible(ZZZ)Z
-    .locals 0
+    .registers 4
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -522,7 +522,7 @@
 .end method
 
 .method setVisibleInternal(ZZZ)Z
-    .locals 4
+    .registers 8
     .param p1, "visible"    # Z
     .param p2, "restart"    # Z
     .param p3, "animate"    # Z
@@ -539,7 +539,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 103
     iget-object v1, p0, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->animatorDelegate:Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;
@@ -547,7 +547,7 @@
     invoke-virtual {v1}, Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;->cancelAnimatorImmediately()V
 
     .line 106
-    :cond_0
+    :cond_f
     iget-object v1, p0, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->animatorDurationScaleProvider:Lcom/google/android/material/progressindicator/AnimatorDurationScaleProvider;
 
     iget-object v2, p0, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->context:Landroid/content/Context;
@@ -563,35 +563,35 @@
 
     .line 108
     .local v1, "systemAnimatorDurationScale":F
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2f
 
-    if-nez p3, :cond_1
+    if-nez p3, :cond_2a
 
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x16
 
-    if-gt v2, v3, :cond_2
+    if-gt v2, v3, :cond_2f
 
     const/4 v2, 0x0
 
     cmpl-float v2, v1, v2
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_2f
 
     .line 112
-    :cond_1
+    :cond_2a
     iget-object v2, p0, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->animatorDelegate:Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;
 
     invoke-virtual {v2}, Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;->startAnimator()V
 
     .line 115
-    :cond_2
+    :cond_2f
     return v0
 .end method
 
 .method public bridge synthetic start()V
-    .locals 0
+    .registers 1
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -601,7 +601,7 @@
 .end method
 
 .method public bridge synthetic stop()V
-    .locals 0
+    .registers 1
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"
@@ -611,7 +611,7 @@
 .end method
 
 .method public bridge synthetic unregisterAnimationCallback(Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;)Z
-    .locals 0
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/google/android/material/progressindicator/IndeterminateDrawable;, "Lcom/google/android/material/progressindicator/IndeterminateDrawable<TS;>;"

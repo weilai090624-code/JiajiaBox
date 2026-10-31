@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .param p1, "continuation"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 60
     const/4 v0, 0x0
@@ -86,7 +86,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 61
     iget-object v0, p0, Landroidx/core/util/ContinuationRunnable;->continuation:Lkotlin/coroutines/Continuation;
@@ -102,12 +102,12 @@
     invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 63
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 65
     new-instance v0, Ljava/lang/StringBuilder;

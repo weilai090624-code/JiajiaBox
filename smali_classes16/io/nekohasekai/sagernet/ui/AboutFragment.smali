@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 21
     const v0, 0x7f0d0034
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 

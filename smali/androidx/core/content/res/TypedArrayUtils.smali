@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 361
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public static getAttr(Landroid/content/Context;II)I
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attr"    # I
     .param p2, "fallbackAttr"    # I
@@ -42,18 +42,18 @@
     .line 355
     iget v1, v0, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 356
     return p1
 
     .line 358
-    :cond_0
+    :cond_12
     return p2
 .end method
 
 .method public static getBoolean(Landroid/content/res/TypedArray;IIZ)Z
-    .locals 2
+    .registers 6
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
     .param p2, "fallbackIndex"    # I
@@ -74,7 +74,7 @@
 .end method
 
 .method public static getDrawable(Landroid/content/res/TypedArray;II)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 4
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
     .param p2, "fallbackIndex"    # I
@@ -86,7 +86,7 @@
 
     .line 275
     .local v0, "val":Landroid/graphics/drawable/Drawable;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 276
     invoke-virtual {p0, p2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -94,12 +94,12 @@
     move-result-object v0
 
     .line 278
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public static getInt(Landroid/content/res/TypedArray;III)I
-    .locals 2
+    .registers 6
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
     .param p2, "fallbackIndex"    # I
@@ -120,7 +120,7 @@
 .end method
 
 .method public static getNamedBoolean(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IZ)Z
-    .locals 2
+    .registers 7
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p2, "attrName"    # Ljava/lang/String;
@@ -134,13 +134,13 @@
 
     .line 87
     .local v0, "hasAttr":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 88
     return p4
 
     .line 90
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p3, p4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v1
@@ -149,7 +149,7 @@
 .end method
 
 .method public static getNamedColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
-    .locals 2
+    .registers 7
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p2, "attrName"    # Ljava/lang/String;
@@ -163,13 +163,13 @@
 
     .line 122
     .local v0, "hasAttr":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 123
     return p4
 
     .line 125
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p3, p4}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result v1
@@ -178,7 +178,7 @@
 .end method
 
 .method public static getNamedColorStateList(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources$Theme;Ljava/lang/String;I)Landroid/content/res/ColorStateList;
-    .locals 4
+    .registers 9
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p2, "theme"    # Landroid/content/res/Resources$Theme;
@@ -190,7 +190,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_55
 
     .line 168
     new-instance v0, Landroid/util/TypedValue;
@@ -206,20 +206,20 @@
 
     const/4 v2, 0x2
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_32
 
     .line 173
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/16 v2, 0x1c
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_24
 
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/16 v2, 0x1f
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_24
 
     .line 176
     invoke-static {v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedColorStateListFromInt(Landroid/util/TypedValue;)Landroid/content/res/ColorStateList;
@@ -229,7 +229,7 @@
     return-object v1
 
     .line 178
-    :cond_0
+    :cond_24
     invoke-virtual {p0}, Landroid/content/res/TypedArray;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -249,7 +249,7 @@
     return-object v1
 
     .line 171
-    :cond_1
+    :cond_32
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -286,14 +286,14 @@
 
     .line 181
     .end local v0    # "value":Landroid/util/TypedValue;
-    :cond_2
+    :cond_55
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private static getNamedColorStateListFromInt(Landroid/util/TypedValue;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
     .param p0, "value"    # Landroid/util/TypedValue;
 
     .line 189
@@ -307,7 +307,7 @@
 .end method
 
 .method public static getNamedComplexColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources$Theme;Ljava/lang/String;II)Landroidx/core/content/res/ComplexColorCompat;
-    .locals 3
+    .registers 9
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p2, "theme"    # Landroid/content/res/Resources$Theme;
@@ -320,7 +320,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 141
     new-instance v0, Landroid/util/TypedValue;
@@ -336,13 +336,13 @@
 
     const/16 v2, 0x1c
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_21
 
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/16 v2, 0x1f
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_21
 
     .line 145
     iget v1, v0, Landroid/util/TypedValue;->data:I
@@ -354,7 +354,7 @@
     return-object v1
 
     .line 149
-    :cond_0
+    :cond_21
     invoke-virtual {p0}, Landroid/content/res/TypedArray;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -373,14 +373,14 @@
 
     .line 151
     .local v1, "complexColor":Landroidx/core/content/res/ComplexColorCompat;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_31
 
     return-object v1
 
     .line 153
     .end local v0    # "value":Landroid/util/TypedValue;
     .end local v1    # "complexColor":Landroidx/core/content/res/ComplexColorCompat;
-    :cond_1
+    :cond_31
     invoke-static {p5}, Landroidx/core/content/res/ComplexColorCompat;->from(I)Landroidx/core/content/res/ComplexColorCompat;
 
     move-result-object v0
@@ -389,7 +389,7 @@
 .end method
 
 .method public static getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
-    .locals 2
+    .registers 7
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p2, "attrName"    # Ljava/lang/String;
@@ -403,13 +403,13 @@
 
     .line 70
     .local v0, "hasAttr":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 71
     return p4
 
     .line 73
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p3, p4}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
     move-result v1
@@ -418,7 +418,7 @@
 .end method
 
 .method public static getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
-    .locals 2
+    .registers 7
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p2, "attrName"    # Ljava/lang/String;
@@ -432,13 +432,13 @@
 
     .line 104
     .local v0, "hasAttr":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 105
     return p4
 
     .line 107
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p3, p4}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
@@ -447,7 +447,7 @@
 .end method
 
 .method public static getNamedResourceId(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
-    .locals 2
+    .registers 7
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p2, "attrName"    # Ljava/lang/String;
@@ -461,13 +461,13 @@
 
     .line 203
     .local v0, "hasAttr":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 204
     return p4
 
     .line 206
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p3, p4}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
@@ -476,7 +476,7 @@
 .end method
 
 .method public static getNamedString(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)Ljava/lang/String;
-    .locals 2
+    .registers 6
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p2, "attrName"    # Ljava/lang/String;
@@ -489,7 +489,7 @@
 
     .line 221
     .local v0, "hasAttr":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 222
     const/4 v1, 0x0
@@ -497,7 +497,7 @@
     return-object v1
 
     .line 224
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p3}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -506,7 +506,7 @@
 .end method
 
 .method public static getResourceId(Landroid/content/res/TypedArray;III)I
-    .locals 2
+    .registers 6
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
     .param p2, "fallbackIndex"    # I
@@ -527,7 +527,7 @@
 .end method
 
 .method public static getString(Landroid/content/res/TypedArray;II)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
     .param p2, "fallbackIndex"    # I
@@ -539,7 +539,7 @@
 
     .line 310
     .local v0, "val":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 311
     invoke-virtual {p0, p2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -547,12 +547,12 @@
     move-result-object v0
 
     .line 313
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public static getText(Landroid/content/res/TypedArray;II)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 4
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
     .param p2, "fallbackIndex"    # I
@@ -564,7 +564,7 @@
 
     .line 326
     .local v0, "val":Ljava/lang/CharSequence;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 327
     invoke-virtual {p0, p2}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
@@ -572,12 +572,12 @@
     move-result-object v0
 
     .line 329
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public static getTextArray(Landroid/content/res/TypedArray;II)[Ljava/lang/CharSequence;
-    .locals 1
+    .registers 4
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "index"    # I
     .param p2, "fallbackIndex"    # I
@@ -589,7 +589,7 @@
 
     .line 342
     .local v0, "val":[Ljava/lang/CharSequence;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 343
     invoke-virtual {p0, p2}, Landroid/content/res/TypedArray;->getTextArray(I)[Ljava/lang/CharSequence;
@@ -597,12 +597,12 @@
     move-result-object v0
 
     .line 345
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public static hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p0, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p1, "attrName"    # Ljava/lang/String;
 
@@ -613,28 +613,28 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public static obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-    .locals 1
+    .registers 5
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "theme"    # Landroid/content/res/Resources$Theme;
     .param p2, "set"    # Landroid/util/AttributeSet;
     .param p3, "attrs"    # [I
 
     .line 251
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 252
     invoke-virtual {p0, p2, p3}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
@@ -644,7 +644,7 @@
     return-object v0
 
     .line 254
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     invoke-virtual {p1, p2, p3, v0, v0}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
@@ -655,7 +655,7 @@
 .end method
 
 .method public static peekNamedValue(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)Landroid/util/TypedValue;
-    .locals 2
+    .registers 6
     .param p0, "a"    # Landroid/content/res/TypedArray;
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p2, "attrName"    # Ljava/lang/String;
@@ -668,7 +668,7 @@
 
     .line 237
     .local v0, "hasAttr":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 238
     const/4 v1, 0x0
@@ -676,7 +676,7 @@
     return-object v1
 
     .line 240
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p3}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object v1

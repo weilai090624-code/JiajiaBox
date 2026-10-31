@@ -53,7 +53,7 @@
 
 # direct methods
 .method public static final broadcast(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/BroadcastChannel;
-    .locals 4
+    .registers 10
     .param p0, "$this$broadcast"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
@@ -111,7 +111,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     .line 127
     new-instance v2, Lkotlinx/coroutines/channels/LazyBroadcastCoroutine;
@@ -120,10 +120,10 @@
 
     check-cast v2, Lkotlinx/coroutines/channels/BroadcastCoroutine;
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 128
-    :cond_0
+    :cond_16
     new-instance v2, Lkotlinx/coroutines/channels/BroadcastCoroutine;
 
     const/4 v3, 0x1
@@ -131,17 +131,17 @@
     invoke-direct {v2, v0, v1, v3}, Lkotlinx/coroutines/channels/BroadcastCoroutine;-><init>(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/BroadcastChannel;Z)V
 
     .line 126
-    :goto_0
+    :goto_1c
     nop
 
     .line 129
     .local v2, "coroutine":Lkotlinx/coroutines/channels/BroadcastCoroutine;
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_22
 
     invoke-virtual {v2, p4}, Lkotlinx/coroutines/channels/BroadcastCoroutine;->invokeOnCompletion(Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/DisposableHandle;
 
     .line 130
-    :cond_1
+    :cond_22
     invoke-virtual {v2, p3, v2, p5}, Lkotlinx/coroutines/channels/BroadcastCoroutine;->start(Lkotlinx/coroutines/CoroutineStart;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V
 
     .line 131
@@ -153,7 +153,7 @@
 .end method
 
 .method public static final broadcast(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlinx/coroutines/CoroutineStart;)Lkotlinx/coroutines/channels/BroadcastChannel;
-    .locals 12
+    .registers 15
     .param p0, "$this$broadcast"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "capacity"    # I
     .param p2, "start"    # Lkotlinx/coroutines/CoroutineStart;
@@ -258,12 +258,12 @@
 .end method
 
 .method public static synthetic broadcast$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/BroadcastChannel;
-    .locals 6
+    .registers 14
 
     .line 117
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_a
 
     .line 118
     sget-object p1, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -272,61 +272,61 @@
 
     move-object v1, p1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 117
-    :cond_0
+    :cond_a
     move-object v1, p1
 
-    :goto_0
+    :goto_b
     and-int/lit8 p1, p6, 0x2
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
     .line 119
     const/4 p2, 0x1
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_13
 
     .line 117
-    :cond_1
+    :cond_12
     move v2, p2
 
-    :goto_1
+    :goto_13
     and-int/lit8 p1, p6, 0x4
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1b
 
     .line 120
     sget-object p3, Lkotlinx/coroutines/CoroutineStart;->LAZY:Lkotlinx/coroutines/CoroutineStart;
 
     move-object v3, p3
 
-    goto :goto_2
+    goto :goto_1c
 
     .line 117
-    :cond_2
+    :cond_1b
     move-object v3, p3
 
-    :goto_2
+    :goto_1c
     and-int/lit8 p1, p6, 0x8
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_23
 
     .line 121
     const/4 p4, 0x0
 
     move-object v4, p4
 
-    goto :goto_3
+    goto :goto_24
 
     .line 117
-    :cond_3
+    :cond_23
     move-object v4, p4
 
-    :goto_3
+    :goto_24
     move-object v0, p0
 
     move-object v5, p5
@@ -339,27 +339,27 @@
 .end method
 
 .method public static synthetic broadcast$default(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlinx/coroutines/CoroutineStart;ILjava/lang/Object;)Lkotlinx/coroutines/channels/BroadcastChannel;
-    .locals 0
+    .registers 5
 
     .line 47
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 48
     const/4 p1, 0x1
 
     .line 47
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_b
 
     .line 49
     sget-object p2, Lkotlinx/coroutines/CoroutineStart;->LAZY:Lkotlinx/coroutines/CoroutineStart;
 
     .line 47
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/channels/BroadcastKt;->broadcast(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlinx/coroutines/CoroutineStart;)Lkotlinx/coroutines/channels/BroadcastChannel;
 
     move-result-object p0

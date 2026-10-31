@@ -33,7 +33,7 @@
 
 # direct methods
 .method public static final copy(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/channels/FileChannel;)V
-    .locals 9
+    .registers 11
     .param p0, "input"    # Ljava/nio/channels/ReadableByteChannel;
     .param p1, "output"    # Ljava/nio/channels/FileChannel;
     .annotation system Ldalvik/annotation/Throws;
@@ -54,14 +54,14 @@
     nop
 
     .line 40
-    :try_start_0
+    :try_start_b
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
     const/4 v2, 0x0
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_1f
 
     .line 41
     const-wide/16 v5, 0x0
@@ -74,10 +74,10 @@
 
     invoke-virtual/range {v3 .. v8}, Ljava/nio/channels/FileChannel;->transferFrom(Ljava/nio/channels/ReadableByteChannel;JJ)J
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 43
-    :cond_0
+    :cond_1f
     invoke-static {p0}, Ljava/nio/channels/Channels;->newInputStream(Ljava/nio/channels/ReadableByteChannel;)Ljava/io/InputStream;
 
     move-result-object v0
@@ -104,7 +104,7 @@
 
     .line 49
     .local v4, "buffer":[B
-    :goto_0
+    :goto_2f
     invoke-virtual {v0, v4}, Ljava/io/InputStream;->read([B)I
 
     move-result v5
@@ -121,23 +121,23 @@
 
     .end local v6    # "it":I
     .end local v7    # "$i$a$-also-FileUtil$copy$1":I
-    if-lez v5, :cond_1
+    if-lez v5, :cond_3c
 
     .line 50
     invoke-virtual {v1, v4, v2, v3}, Ljava/io/OutputStream;->write([BII)V
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 53
     .end local v0    # "inputStream":Ljava/io/InputStream;
     .end local v1    # "outputStream":Ljava/io/OutputStream;
     .end local v3    # "length":I
     .end local v4    # "buffer":[B
-    :cond_1
-    :goto_1
+    :cond_3c
+    :goto_3c
     invoke-virtual {p1, v2}, Ljava/nio/channels/FileChannel;->force(Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3f
+    .catchall {:try_start_b .. :try_end_3f} :catchall_47
 
     .line 55
     invoke-interface {p0}, Ljava/nio/channels/ReadableByteChannel;->close()V
@@ -152,7 +152,7 @@
     return-void
 
     .line 55
-    :catchall_0
+    :catchall_47
     move-exception v0
 
     invoke-interface {p0}, Ljava/nio/channels/ReadableByteChannel;->close()V

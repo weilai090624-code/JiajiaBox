@@ -68,7 +68,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/CertificatePinner;Ljava/util/List;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 150
     invoke-virtual {p0}, Lokhttp3/CertificatePinner$check$1;->invoke()Ljava/util/List;
@@ -109,7 +109,7 @@
 .end method
 
 .method public final invoke()Ljava/util/List;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -126,13 +126,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_a
     iget-object v1, p0, Lokhttp3/CertificatePinner$check$1;->$peerCertificates:Ljava/util/List;
 
     iget-object v2, p0, Lokhttp3/CertificatePinner$check$1;->$hostname:Ljava/lang/String;
@@ -141,12 +141,12 @@
 
     move-result-object v0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_12
+    if-nez v0, :cond_16
 
     iget-object v0, p0, Lokhttp3/CertificatePinner$check$1;->$peerCertificates:Ljava/util/List;
 
-    :cond_1
+    :cond_16
     check-cast v0, Ljava/lang/Iterable;
 
     .line 152
@@ -181,12 +181,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_2d
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_41
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -211,10 +211,10 @@
 
     .line 372
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_2d
 
     .line 374
-    :cond_2
+    :cond_41
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;

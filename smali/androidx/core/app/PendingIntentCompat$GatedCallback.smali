@@ -27,7 +27,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$-_JLK_p2qvpYOAwGjpaXu2HJ864(Landroidx/core/app/PendingIntentCompat$GatedCallback;Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 6
 
     invoke-direct/range {p0 .. p5}, Landroidx/core/app/PendingIntentCompat$GatedCallback;->onSendFinished(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
 
@@ -35,7 +35,7 @@
 .end method
 
 .method constructor <init>(Landroid/app/PendingIntent$OnFinished;)V
-    .locals 2
+    .registers 4
     .param p1, "callback"    # Landroid/app/PendingIntent$OnFinished;
 
     .line 339
@@ -63,7 +63,7 @@
 .end method
 
 .method private onSendFinished(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
-    .locals 8
+    .registers 14
     .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
     .param p2, "intent"    # Landroid/content/Intent;
     .param p3, "resultCode"    # I
@@ -75,20 +75,20 @@
 
     .line 375
     .local v0, "interrupted":Z
-    :goto_0
-    :try_start_0
+    :goto_1
+    :try_start_1
     iget-object v1, p0, Landroidx/core/app/PendingIntentCompat$GatedCallback;->mComplete:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->await()V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_6} :catch_2d
+    .catchall {:try_start_1 .. :try_end_6} :catchall_22
 
     .line 376
     nop
 
     .line 382
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 383
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -98,10 +98,10 @@
     invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
 
     .line 387
-    :cond_0
+    :cond_10
     iget-object v1, p0, Landroidx/core/app/PendingIntentCompat$GatedCallback;->mCallback:Landroid/app/PendingIntent$OnFinished;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     .line 388
     iget-object v2, p0, Landroidx/core/app/PendingIntentCompat$GatedCallback;->mCallback:Landroid/app/PendingIntent$OnFinished;
@@ -124,14 +124,14 @@
     iput-object v1, p0, Landroidx/core/app/PendingIntentCompat$GatedCallback;->mCallback:Landroid/app/PendingIntent$OnFinished;
 
     .line 396
-    :cond_1
+    :cond_21
     return-void
 
     .line 382
-    :catchall_0
+    :catchall_22
     move-exception v1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     .line 383
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -141,11 +141,11 @@
     invoke-virtual {v2}, Ljava/lang/Thread;->interrupt()V
 
     .line 385
-    :cond_2
+    :cond_2c
     throw v1
 
     .line 377
-    :catch_0
+    :catch_2d
     move-exception v1
 
     .line 378
@@ -154,18 +154,18 @@
 
     .line 379
     .end local v1    # "e":Ljava/lang/InterruptedException;
-    goto :goto_0
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 359
     iget-boolean v0, p0, Landroidx/core/app/PendingIntentCompat$GatedCallback;->mSuccess:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 360
     const/4 v0, 0x0
@@ -173,7 +173,7 @@
     iput-object v0, p0, Landroidx/core/app/PendingIntentCompat$GatedCallback;->mCallback:Landroid/app/PendingIntent$OnFinished;
 
     .line 362
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/core/app/PendingIntentCompat$GatedCallback;->mComplete:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
@@ -183,7 +183,7 @@
 .end method
 
 .method public complete()V
-    .locals 1
+    .registers 2
 
     .line 354
     const/4 v0, 0x1
@@ -195,12 +195,12 @@
 .end method
 
 .method public getCallback()Landroid/app/PendingIntent$OnFinished;
-    .locals 1
+    .registers 2
 
     .line 346
     iget-object v0, p0, Landroidx/core/app/PendingIntentCompat$GatedCallback;->mCallback:Landroid/app/PendingIntent$OnFinished;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 347
     const/4 v0, 0x0
@@ -208,7 +208,7 @@
     return-object v0
 
     .line 349
-    :cond_0
+    :cond_6
     new-instance v0, Landroidx/core/app/PendingIntentCompat$GatedCallback$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p0}, Landroidx/core/app/PendingIntentCompat$GatedCallback$$ExternalSyntheticLambda0;-><init>(Landroidx/core/app/PendingIntentCompat$GatedCallback;)V

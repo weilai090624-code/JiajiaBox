@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(Landroidx/drawerlayout/widget/DrawerLayout;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroidx/drawerlayout/widget/DrawerLayout;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lio/nekohasekai/sagernet/ui/JJNavButton;Lio/nekohasekai/sagernet/ui/JJGlassCapsule;Landroid/widget/FrameLayout;Landroid/widget/FrameLayout;Landroid/widget/FrameLayout;Lcom/google/android/material/navigation/NavigationView;)V
-    .locals 0
+    .registers 11
     .param p1, "rootView"    # Landroidx/drawerlayout/widget/DrawerLayout;
     .param p2, "coordinator"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "drawerLayout"    # Landroidx/drawerlayout/widget/DrawerLayout;
@@ -106,7 +106,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutMainBinding;
-    .locals 23
+    .registers 24
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -132,7 +132,7 @@
 
     .line 99
     .local v2, "coordinator":Landroidx/coordinatorlayout/widget/CoordinatorLayout;
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8b
 
     .line 103
     move-object v14, v0
@@ -154,7 +154,7 @@
 
     .line 107
     .local v15, "fragmentHolder":Landroidx/coordinatorlayout/widget/CoordinatorLayout;
-    if-eqz v15, :cond_6
+    if-eqz v15, :cond_8a
 
     .line 111
     const v1, 0x7f0a0176
@@ -170,7 +170,7 @@
 
     .line 113
     .local v16, "jjNavButton":Lio/nekohasekai/sagernet/ui/JJNavButton;
-    if-eqz v16, :cond_5
+    if-eqz v16, :cond_89
 
     .line 117
     const v1, 0x7f0a01e0
@@ -186,7 +186,7 @@
 
     .line 119
     .local v17, "navGlassLight":Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
-    if-eqz v17, :cond_4
+    if-eqz v17, :cond_88
 
     .line 123
     const v1, 0x7f0a01e1
@@ -202,7 +202,7 @@
 
     .line 125
     .local v18, "navGlassOverlay":Landroid/widget/FrameLayout;
-    if-eqz v18, :cond_3
+    if-eqz v18, :cond_87
 
     .line 129
     const v1, 0x7f0a01e2
@@ -218,7 +218,7 @@
 
     .line 131
     .local v19, "navGlassPageHost":Landroid/widget/FrameLayout;
-    if-eqz v19, :cond_2
+    if-eqz v19, :cond_86
 
     .line 135
     const v1, 0x7f0a01e5
@@ -234,7 +234,7 @@
 
     .line 137
     .local v20, "navLightContainer":Landroid/widget/FrameLayout;
-    if-eqz v20, :cond_1
+    if-eqz v20, :cond_85
 
     .line 141
     const v1, 0x7f0a01ea
@@ -250,7 +250,7 @@
 
     .line 143
     .local v21, "navViewBlack":Lcom/google/android/material/navigation/NavigationView;
-    if-eqz v21, :cond_0
+    if-eqz v21, :cond_84
 
     .line 147
     new-instance v22, Lio/nekohasekai/sagernet/databinding/LayoutMainBinding;
@@ -284,48 +284,48 @@
     return-object v22
 
     .line 144
-    :cond_0
-    goto :goto_0
+    :cond_84
+    goto :goto_8c
 
     .line 138
     .end local v21    # "navViewBlack":Lcom/google/android/material/navigation/NavigationView;
-    :cond_1
-    goto :goto_0
+    :cond_85
+    goto :goto_8c
 
     .line 132
     .end local v20    # "navLightContainer":Landroid/widget/FrameLayout;
-    :cond_2
-    goto :goto_0
+    :cond_86
+    goto :goto_8c
 
     .line 126
     .end local v19    # "navGlassPageHost":Landroid/widget/FrameLayout;
-    :cond_3
-    goto :goto_0
+    :cond_87
+    goto :goto_8c
 
     .line 120
     .end local v18    # "navGlassOverlay":Landroid/widget/FrameLayout;
-    :cond_4
-    goto :goto_0
+    :cond_88
+    goto :goto_8c
 
     .line 114
     .end local v17    # "navGlassLight":Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
-    :cond_5
-    goto :goto_0
+    :cond_89
+    goto :goto_8c
 
     .line 108
     .end local v16    # "jjNavButton":Lio/nekohasekai/sagernet/ui/JJNavButton;
-    :cond_6
-    goto :goto_0
+    :cond_8a
+    goto :goto_8c
 
     .line 100
     .end local v14    # "drawerLayout":Landroidx/drawerlayout/widget/DrawerLayout;
     .end local v15    # "fragmentHolder":Landroidx/coordinatorlayout/widget/CoordinatorLayout;
-    :cond_7
+    :cond_8b
     nop
 
     .line 151
     .end local v2    # "coordinator":Landroidx/coordinatorlayout/widget/CoordinatorLayout;
-    :goto_0
+    :goto_8c
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -350,7 +350,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutMainBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -374,7 +374,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutMainBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -402,13 +402,13 @@
 
     .line 85
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 86
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 88
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutMainBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutMainBinding;
 
     move-result-object v1
@@ -419,7 +419,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutMainBinding;->getRoot()Landroidx/drawerlayout/widget/DrawerLayout;
@@ -430,7 +430,7 @@
 .end method
 
 .method public getRoot()Landroidx/drawerlayout/widget/DrawerLayout;
-    .locals 1
+    .registers 2
 
     .line 73
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutMainBinding;->rootView:Landroidx/drawerlayout/widget/DrawerLayout;

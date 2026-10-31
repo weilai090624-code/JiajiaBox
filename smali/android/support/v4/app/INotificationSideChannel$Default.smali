@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 30
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method public cancel(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "id"    # I
     .param p3, "tag"    # Ljava/lang/String;
@@ -54,7 +54,7 @@
 .end method
 
 .method public cancelAll(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -67,7 +67,7 @@
 .end method
 
 .method public notify(Ljava/lang/String;ILjava/lang/String;Landroid/app/Notification;)V
-    .locals 0
+    .registers 5
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "id"    # I
     .param p3, "tag"    # Ljava/lang/String;

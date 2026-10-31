@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 249
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method defaultEquivalence()Lcom/google/common/base/Equivalence;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

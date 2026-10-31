@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/net/Uri;Landroidx/concurrent/futures/ResolvableFuture;)V
-    .locals 1
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "filename"    # Ljava/lang/String;
     .param p3, "bitmap"    # Landroid/graphics/Bitmap;
@@ -92,7 +92,7 @@
 .end method
 
 .method private saveFileBlocking(Ljava/io/File;)V
-    .locals 5
+    .registers 7
     .param p1, "img"    # Ljava/io/File;
 
     .line 182
@@ -106,7 +106,7 @@
 
     const/16 v3, 0x64
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_32
 
     .line 184
     new-instance v1, Landroidx/core/util/AtomicFile;
@@ -115,7 +115,7 @@
 
     .line 186
     .local v1, "atomicFile":Landroidx/core/util/AtomicFile;
-    :try_start_0
+    :try_start_e
     invoke-virtual {v1}, Landroidx/core/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
 
     move-result-object v2
@@ -141,14 +141,14 @@
     iget-object v3, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$FileSaveTask;->mFileUri:Landroid/net/Uri;
 
     invoke-virtual {v2, v3}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/io/IOException; {:try_start_e .. :try_end_27} :catch_28
 
     .line 196
-    goto :goto_0
+    goto :goto_31
 
     .line 192
-    :catch_0
+    :catch_28
     move-exception v2
 
     .line 193
@@ -163,12 +163,12 @@
     .line 197
     .end local v1    # "atomicFile":Landroidx/core/util/AtomicFile;
     .end local v2    # "e":Ljava/io/IOException;
-    :goto_0
-    goto :goto_1
+    :goto_31
+    goto :goto_50
 
     .line 199
-    :cond_0
-    :try_start_1
+    :cond_32
+    :try_start_32
     new-instance v1, Ljava/io/FileOutputStream;
 
     invoke-direct {v1, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
@@ -191,14 +191,14 @@
     iget-object v2, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$FileSaveTask;->mFileUri:Landroid/net/Uri;
 
     invoke-virtual {v1, v2}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_49
+    .catch Ljava/io/IOException; {:try_start_32 .. :try_end_49} :catch_4a
 
     .line 206
-    goto :goto_1
+    goto :goto_50
 
     .line 204
-    :catch_1
+    :catch_4a
     move-exception v1
 
     .line 205
@@ -209,12 +209,12 @@
 
     .line 208
     .end local v1    # "e":Ljava/io/IOException;
-    :goto_1
+    :goto_50
     return-void
 .end method
 
 .method private saveFileIfNeededBlocking()V
-    .locals 5
+    .registers 6
 
     .line 163
     new-instance v0, Ljava/io/File;
@@ -236,18 +236,18 @@
     monitor-enter v1
 
     .line 165
-    :try_start_0
+    :try_start_10
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2a
 
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2a
 
     .line 166
     iget-object v2, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$FileSaveTask;->mResultFuture:Landroidx/concurrent/futures/ResolvableFuture;
@@ -266,7 +266,7 @@
     return-void
 
     .line 169
-    :cond_0
+    :cond_2a
     new-instance v2, Ljava/io/File;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -297,7 +297,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_52
 
     .line 172
     iget-object v3, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$FileSaveTask;->mResultFuture:Landroidx/concurrent/futures/ResolvableFuture;
@@ -306,14 +306,14 @@
 
     invoke-virtual {v3, v4}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_55
 
     .line 174
-    :cond_1
+    :cond_52
     invoke-direct {p0, v2}, Landroidx/browser/browseractions/BrowserServiceFileProvider$FileSaveTask;->saveFileBlocking(Ljava/io/File;)V
 
     .line 177
-    :goto_0
+    :goto_55
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
@@ -330,12 +330,12 @@
     return-void
 
     .line 178
-    :catchall_0
+    :catchall_5f
     move-exception v2
 
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_61
+    .catchall {:try_start_10 .. :try_end_61} :catchall_5f
 
     throw v2
 .end method
@@ -343,7 +343,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 133
     check-cast p1, [Ljava/lang/String;
@@ -356,7 +356,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/String;)Ljava/lang/Void;
-    .locals 1
+    .registers 3
     .param p1, "params"    # [Ljava/lang/String;
 
     .line 152
@@ -369,7 +369,7 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 133
     check-cast p1, Ljava/lang/Void;
@@ -380,7 +380,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Void;)V
-    .locals 3
+    .registers 5
     .param p1, "result"    # Ljava/lang/Void;
 
     .line 158

@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final synthetic isHandlerOf(Lkotlin/jvm/functions/Function1;)Z
-    .locals 3
+    .registers 4
     .param p0, "$this$isHandlerOf"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

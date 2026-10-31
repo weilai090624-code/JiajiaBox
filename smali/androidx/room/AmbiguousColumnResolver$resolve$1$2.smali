@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;I)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 129
@@ -114,7 +114,7 @@
 .end method
 
 .method public final invoke(Ljava/util/List;)V
-    .locals 5
+    .registers 7
     .param p1, "indices"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -142,7 +142,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_84
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -164,13 +164,13 @@
 
     .end local v1    # "it":I
     .end local v2    # "$i$a$-minOf-AmbiguousColumnResolver$resolve$1$2$first$1":I
-    :cond_0
-    :goto_0
+    :cond_1e
+    :goto_1e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_34
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -192,13 +192,13 @@
 
     .end local v2    # "it":I
     .end local v3    # "$i$a$-minOf-AmbiguousColumnResolver$resolve$1$2$first$1":I
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_1e
 
     move v1, v2
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_34
     move v0, v1
 
     .line 131
@@ -215,7 +215,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_7e
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -237,13 +237,13 @@
 
     .end local v2    # "it":I
     .end local v3    # "$i$a$-maxOf-AmbiguousColumnResolver$resolve$1$2$last$1":I
-    :cond_2
-    :goto_1
+    :cond_4e
+    :goto_4e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_64
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -265,13 +265,13 @@
 
     .end local v3    # "it":I
     .end local v4    # "$i$a$-maxOf-AmbiguousColumnResolver$resolve$1$2$last$1":I
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_4e
 
     move v2, v3
 
-    goto :goto_1
+    goto :goto_4e
 
-    :cond_3
+    :cond_64
     move v1, v2
 
     .line 132
@@ -308,7 +308,7 @@
 
     .line 131
     .end local v1    # "last":I
-    :cond_4
+    :cond_7e
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -317,7 +317,7 @@
 
     .line 130
     .end local v0    # "first":I
-    :cond_5
+    :cond_84
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

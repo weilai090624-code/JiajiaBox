@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/util/SparseArray;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public final getIndex()I
-    .locals 1
+    .registers 2
 
     .line 83
     iget v0, p0, Landroidx/core/util/SparseArrayKt$keyIterator$1;->index:I
@@ -86,7 +86,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 84
     iget v0, p0, Landroidx/core/util/SparseArrayKt$keyIterator$1;->index:I
@@ -97,21 +97,21 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public nextInt()I
-    .locals 3
+    .registers 4
 
     .line 85
     iget-object v0, p0, Landroidx/core/util/SparseArrayKt$keyIterator$1;->$this_keyIterator:Landroid/util/SparseArray;
@@ -130,7 +130,7 @@
 .end method
 
 .method public final setIndex(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 83

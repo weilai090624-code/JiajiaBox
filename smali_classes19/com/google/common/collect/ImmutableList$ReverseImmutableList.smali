@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableList;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,7 +59,7 @@
 .end method
 
 .method private reverseIndex(I)I
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 584
@@ -76,7 +76,7 @@
 .end method
 
 .method private reversePosition(I)I
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 588
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -111,7 +111,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -142,7 +142,7 @@
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -158,23 +158,23 @@
 
     .line 604
     .local v0, "index":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_d
 
     invoke-direct {p0, v0}, Lcom/google/common/collect/ImmutableList$ReverseImmutableList;->reverseIndex(I)I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, -0x1
 
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 632
     .local p0, "this":Lcom/google/common/collect/ImmutableList$ReverseImmutableList;, "Lcom/google/common/collect/ImmutableList$ReverseImmutableList<TE;>;"
@@ -188,7 +188,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 576
     .local p0, "this":Lcom/google/common/collect/ImmutableList$ReverseImmutableList;, "Lcom/google/common/collect/ImmutableList$ReverseImmutableList<TE;>;"
@@ -200,7 +200,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -216,23 +216,23 @@
 
     .line 610
     .local v0, "index":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_d
 
     invoke-direct {p0, v0}, Lcom/google/common/collect/ImmutableList$ReverseImmutableList;->reverseIndex(I)I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, -0x1
 
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method public bridge synthetic listIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
 
     .line 576
     .local p0, "this":Lcom/google/common/collect/ImmutableList$ReverseImmutableList;, "Lcom/google/common/collect/ImmutableList$ReverseImmutableList<TE;>;"
@@ -244,7 +244,7 @@
 .end method
 
 .method public bridge synthetic listIterator(I)Ljava/util/ListIterator;
-    .locals 0
+    .registers 2
 
     .line 576
     .local p0, "this":Lcom/google/common/collect/ImmutableList$ReverseImmutableList;, "Lcom/google/common/collect/ImmutableList$ReverseImmutableList<TE;>;"
@@ -256,7 +256,7 @@
 .end method
 
 .method public reverse()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -273,7 +273,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 627
     .local p0, "this":Lcom/google/common/collect/ImmutableList$ReverseImmutableList;, "Lcom/google/common/collect/ImmutableList$ReverseImmutableList<TE;>;"
@@ -287,7 +287,7 @@
 .end method
 
 .method public subList(II)Lcom/google/common/collect/ImmutableList;
-    .locals 3
+    .registers 6
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -329,7 +329,7 @@
 .end method
 
 .method public bridge synthetic subList(II)Ljava/util/List;
-    .locals 0
+    .registers 3
 
     .line 576
     .local p0, "this":Lcom/google/common/collect/ImmutableList$ReverseImmutableList;, "Lcom/google/common/collect/ImmutableList$ReverseImmutableList<TE;>;"

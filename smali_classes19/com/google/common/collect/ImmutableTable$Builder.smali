@@ -68,7 +68,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 151
     .local p0, "this":Lcom/google/common/collect/ImmutableTable$Builder;, "Lcom/google/common/collect/ImmutableTable$Builder<TR;TC;TV;>;"
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public build()Lcom/google/common/collect/ImmutableTable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -107,7 +107,7 @@
 .end method
 
 .method public buildOrThrow()Lcom/google/common/collect/ImmutableTable;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -126,7 +126,7 @@
 
     .line 238
     .local v0, "size":I
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_28
 
     .line 244
     iget-object v1, p0, Lcom/google/common/collect/ImmutableTable$Builder;->cells:Ljava/util/List;
@@ -142,7 +142,7 @@
     return-object v1
 
     .line 242
-    :pswitch_0
+    :pswitch_14
     new-instance v1, Lcom/google/common/collect/SingletonImmutableTable;
 
     iget-object v2, p0, Lcom/google/common/collect/ImmutableTable$Builder;->cells:Ljava/util/List;
@@ -158,7 +158,7 @@
     return-object v1
 
     .line 240
-    :pswitch_1
+    :pswitch_22
     invoke-static {}, Lcom/google/common/collect/ImmutableTable;->of()Lcom/google/common/collect/ImmutableTable;
 
     move-result-object v1
@@ -167,15 +167,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_22
+        :pswitch_14
     .end packed-switch
 .end method
 
 .method combine(Lcom/google/common/collect/ImmutableTable$Builder;)Lcom/google/common/collect/ImmutableTable$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -200,7 +200,7 @@
 .end method
 
 .method public orderColumnsBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableTable$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -229,7 +229,7 @@
 .end method
 
 .method public orderRowsBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableTable$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -258,7 +258,7 @@
 .end method
 
 .method public put(Lcom/google/common/collect/Table$Cell;)Lcom/google/common/collect/ImmutableTable$Builder;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -274,7 +274,7 @@
     .local p1, "cell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<+TR;+TC;+TV;>;"
     instance-of v0, p1, Lcom/google/common/collect/Tables$ImmutableCell;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 184
     invoke-interface {p1}, Lcom/google/common/collect/Table$Cell;->getRowKey()Ljava/lang/Object;
@@ -314,10 +314,10 @@
 
     .line 190
     .end local v0    # "immutableCell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<TR;TC;TV;>;"
-    goto :goto_0
+    goto :goto_35
 
     .line 191
-    :cond_0
+    :cond_26
     invoke-interface {p1}, Lcom/google/common/collect/Table$Cell;->getRowKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -333,12 +333,12 @@
     invoke-virtual {p0, v0, v1, v2}, Lcom/google/common/collect/ImmutableTable$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableTable$Builder;
 
     .line 193
-    :goto_0
+    :goto_35
     return-object p0
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableTable$Builder;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;TC;TV;)",
@@ -365,7 +365,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/Table;)Lcom/google/common/collect/ImmutableTable$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -387,12 +387,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -406,9 +406,9 @@
 
     .line 206
     .end local v1    # "cell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<+TR;+TC;+TV;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 207
-    :cond_0
+    :cond_18
     return-object p0
 .end method

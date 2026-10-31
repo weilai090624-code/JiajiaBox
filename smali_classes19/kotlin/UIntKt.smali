@@ -37,7 +37,7 @@
 
 # direct methods
 .method private static final toUInt(B)I
-    .locals 1
+    .registers 2
     .param p0, "$this$toUInt"    # B
 
     .line 391
@@ -49,7 +49,7 @@
 .end method
 
 .method private static final toUInt(D)I
-    .locals 1
+    .registers 3
     .param p0, "$this$toUInt"    # D
 
     .line 447
@@ -61,7 +61,7 @@
 .end method
 
 .method private static final toUInt(F)I
-    .locals 2
+    .registers 3
     .param p0, "$this$toUInt"    # F
 
     .line 437
@@ -75,7 +75,7 @@
 .end method
 
 .method private static final toUInt(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$toUInt"    # I
 
     .line 414
@@ -87,7 +87,7 @@
 .end method
 
 .method private static final toUInt(J)I
-    .locals 1
+    .registers 3
     .param p0, "$this$toUInt"    # J
 
     .line 426
@@ -101,7 +101,7 @@
 .end method
 
 .method private static final toUInt(S)I
-    .locals 1
+    .registers 2
     .param p0, "$this$toUInt"    # S
 
     .line 403

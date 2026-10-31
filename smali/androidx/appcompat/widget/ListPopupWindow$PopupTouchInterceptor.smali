@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
-    .locals 0
+    .registers 2
 
     .line 1389
     iput-object p1, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupTouchInterceptor;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 7
+    .registers 10
     .param p1, "v"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 
@@ -64,13 +64,13 @@
 
     .line 1398
     .local v2, "y":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_46
 
     iget-object v3, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupTouchInterceptor;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
     iget-object v3, v3, Landroidx/appcompat/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_46
 
     iget-object v3, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupTouchInterceptor;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
@@ -81,9 +81,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_46
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_46
 
     iget-object v3, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupTouchInterceptor;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
@@ -94,9 +94,9 @@
 
     move-result v3
 
-    if-ge v1, v3, :cond_0
+    if-ge v1, v3, :cond_46
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_46
 
     iget-object v3, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupTouchInterceptor;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
@@ -106,7 +106,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_46
 
     .line 1401
     iget-object v3, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupTouchInterceptor;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -121,13 +121,13 @@
 
     invoke-virtual {v3, v4, v5, v6}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_0
+    goto :goto_54
 
     .line 1402
-    :cond_0
+    :cond_46
     const/4 v3, 0x1
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v3, :cond_54
 
     .line 1403
     iget-object v3, p0, Landroidx/appcompat/widget/ListPopupWindow$PopupTouchInterceptor;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -141,8 +141,8 @@
     invoke-virtual {v3, v4}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 1405
-    :cond_1
-    :goto_0
+    :cond_54
+    :goto_54
     const/4 v3, 0x0
 
     return v3

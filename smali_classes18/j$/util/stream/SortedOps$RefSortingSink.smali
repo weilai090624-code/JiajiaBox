@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Sink;Ljava/util/Comparator;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -80,7 +80,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 3
+    .registers 6
     .param p1, "size"    # J
 
     .line 393
@@ -89,7 +89,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_1a
 
     .line 395
     const-wide/16 v0, 0x0
@@ -98,25 +98,25 @@
 
     new-instance v0, Ljava/util/ArrayList;
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_14
 
     long-to-int v1, p1
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_14
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    :goto_0
+    :goto_17
     iput-object v0, p0, Lj$/util/stream/SortedOps$RefSortingSink;->list:Ljava/util/ArrayList;
 
     .line 396
     return-void
 
     .line 394
-    :cond_1
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Stream size exceeds max array size"
@@ -127,7 +127,7 @@
 .end method
 
 .method public end()V
-    .locals 3
+    .registers 4
 
     .line 400
     .local p0, "this":Lj$/util/stream/SortedOps$RefSortingSink;, "Ljava/util/stream/SortedOps$RefSortingSink<TT;>;"
@@ -153,7 +153,7 @@
     .line 402
     iget-boolean v0, p0, Lj$/util/stream/SortedOps$RefSortingSink;->cancellationRequestedCalled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_27
 
     .line 403
     iget-object v0, p0, Lj$/util/stream/SortedOps$RefSortingSink;->list:Ljava/util/ArrayList;
@@ -168,22 +168,22 @@
 
     invoke-static {v0, v2}, Lj$/util/Collection$-EL;->forEach(Ljava/util/Collection;Ljava/util/function/Consumer;)V
 
-    goto :goto_1
+    goto :goto_46
 
     .line 406
-    :cond_0
+    :cond_27
     iget-object v0, p0, Lj$/util/stream/SortedOps$RefSortingSink;->list:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_2d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_46
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -197,23 +197,23 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_40
 
-    goto :goto_1
+    goto :goto_46
 
     .line 408
-    :cond_1
+    :cond_40
     iget-object v2, p0, Lj$/util/stream/SortedOps$RefSortingSink;->downstream:Lj$/util/stream/Sink;
 
     invoke-interface {v2, v1}, Lj$/util/stream/Sink;->accept(Ljava/lang/Object;)V
 
     .line 409
     .end local v1    # "t":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_2d
 
     .line 411
-    :cond_2
-    :goto_1
+    :cond_46
+    :goto_46
     iget-object v0, p0, Lj$/util/stream/SortedOps$RefSortingSink;->downstream:Lj$/util/stream/Sink;
 
     invoke-interface {v0}, Lj$/util/stream/Sink;->end()V

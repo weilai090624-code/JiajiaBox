@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public get()Lcom/google/common/hash/LongAddable;
-    .locals 2
+    .registers 3
 
     .line 45
     new-instance v0, Lcom/google/common/hash/LongAddables$PureJavaLongAddable;
@@ -52,7 +52,7 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 42
     invoke-virtual {p0}, Lcom/google/common/hash/LongAddables$2;->get()Lcom/google/common/hash/LongAddable;

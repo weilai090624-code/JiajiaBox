@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method protected __element(I)I
-    .locals 2
+    .registers 4
     .param p1, "j"    # I
 
     .line 52
@@ -42,7 +42,7 @@
 .end method
 
 .method protected __reset(IILjava/nio/ByteBuffer;)V
-    .locals 2
+    .registers 6
     .param p1, "_vector"    # I
     .param p2, "_element_size"    # I
     .param p3, "_bb"    # Ljava/nio/ByteBuffer;
@@ -53,7 +53,7 @@
     .line 64
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/BaseVector;->bb:Ljava/nio/ByteBuffer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 65
     iput p1, p0, Landroidx/emoji2/text/flatbuffer/BaseVector;->vector:I
@@ -72,10 +72,10 @@
     .line 67
     iput p2, p0, Landroidx/emoji2/text/flatbuffer/BaseVector;->element_size:I
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 69
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
     iput v0, p0, Landroidx/emoji2/text/flatbuffer/BaseVector;->vector:I
@@ -87,12 +87,12 @@
     iput v0, p0, Landroidx/emoji2/text/flatbuffer/BaseVector;->element_size:I
 
     .line 73
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method protected __vector()I
-    .locals 1
+    .registers 2
 
     .line 42
     iget v0, p0, Landroidx/emoji2/text/flatbuffer/BaseVector;->vector:I
@@ -101,7 +101,7 @@
 .end method
 
 .method public length()I
-    .locals 1
+    .registers 2
 
     .line 92
     iget v0, p0, Landroidx/emoji2/text/flatbuffer/BaseVector;->length:I
@@ -110,7 +110,7 @@
 .end method
 
 .method public reset()V
-    .locals 2
+    .registers 3
 
     .line 83
     const/4 v0, 0x0

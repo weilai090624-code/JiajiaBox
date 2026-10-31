@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageProxy;[Landroidx/camera/core/ImageProxy$PlaneProxy;II)V
-    .locals 0
+    .registers 5
     .param p1, "originalImage"    # Landroidx/camera/core/ImageProxy;
     .param p2, "downsampledPlanes"    # [Landroidx/camera/core/ImageProxy$PlaneProxy;
     .param p3, "downsampledWidth"    # I
@@ -63,15 +63,15 @@
 
 # virtual methods
 .method public declared-synchronized getHeight()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 244
-    :try_start_0
+    :try_start_1
     iget v0, p0, Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;->mDownsampledHeight:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
@@ -79,27 +79,27 @@
 
     .line 244
     .end local p0    # "this":Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;
-    :catchall_0
+    :catchall_5
     move-exception v0
 
-    :try_start_1
+    :try_start_6
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_6 .. :try_end_7} :catchall_5
 
     throw v0
 .end method
 
 .method public declared-synchronized getPlanes()[Landroidx/camera/core/ImageProxy$PlaneProxy;
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 250
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;->mDownsampledPlanes:[Landroidx/camera/core/ImageProxy$PlaneProxy;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
@@ -107,27 +107,27 @@
 
     .line 250
     .end local p0    # "this":Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;
-    :catchall_0
+    :catchall_5
     move-exception v0
 
-    :try_start_1
+    :try_start_6
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_6 .. :try_end_7} :catchall_5
 
     throw v0
 .end method
 
 .method public declared-synchronized getWidth()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 239
-    :try_start_0
+    :try_start_1
     iget v0, p0, Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;->mDownsampledWidth:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
@@ -135,13 +135,13 @@
 
     .line 239
     .end local p0    # "this":Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;
-    :catchall_0
+    :catchall_5
     move-exception v0
 
-    :try_start_1
+    :try_start_6
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_6 .. :try_end_7} :catchall_5
 
     throw v0
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public executeOnMainThread(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 54
@@ -27,19 +27,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 55
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 57
-    :cond_0
+    :cond_a
     invoke-virtual {p0, p1}, Landroidx/arch/core/executor/TaskExecutor;->postToMainThread(Ljava/lang/Runnable;)V
 
     .line 59
-    :goto_0
+    :goto_d
     return-void
 .end method
 

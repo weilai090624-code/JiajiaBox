@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$andThen(Ljava/util/function/DoubleUnaryOperator;Ljava/util/function/DoubleUnaryOperator;)Ljava/util/function/DoubleUnaryOperator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/DoubleUnaryOperator;
     .param p1, "after"    # Ljava/util/function/DoubleUnaryOperator;
 
@@ -21,7 +21,7 @@
 .end method
 
 .method public static $default$compose(Ljava/util/function/DoubleUnaryOperator;Ljava/util/function/DoubleUnaryOperator;)Ljava/util/function/DoubleUnaryOperator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/DoubleUnaryOperator;
     .param p1, "before"    # Ljava/util/function/DoubleUnaryOperator;
 
@@ -37,7 +37,7 @@
 .end method
 
 .method public static synthetic $private$lambda$andThen$1(Ljava/util/function/DoubleUnaryOperator;Ljava/util/function/DoubleUnaryOperator;D)D
-    .locals 2
+    .registers 6
     .param p0, "_this"    # Ljava/util/function/DoubleUnaryOperator;
     .param p1, "after"    # Ljava/util/function/DoubleUnaryOperator;
     .param p2, "t"    # D
@@ -55,7 +55,7 @@
 .end method
 
 .method public static synthetic $private$lambda$compose$0(Ljava/util/function/DoubleUnaryOperator;Ljava/util/function/DoubleUnaryOperator;D)D
-    .locals 2
+    .registers 6
     .param p0, "_this"    # Ljava/util/function/DoubleUnaryOperator;
     .param p1, "before"    # Ljava/util/function/DoubleUnaryOperator;
     .param p2, "v"    # D
@@ -73,7 +73,7 @@
 .end method
 
 .method public static identity()Ljava/util/function/DoubleUnaryOperator;
-    .locals 1
+    .registers 1
 
     .line 93
     new-instance v0, Lj$/util/function/DoubleUnaryOperator$$ExternalSyntheticLambda1;
@@ -84,7 +84,7 @@
 .end method
 
 .method public static synthetic lambda$identity$2(D)D
-    .locals 0
+    .registers 2
     .param p0, "t"    # D
 
     .line 93

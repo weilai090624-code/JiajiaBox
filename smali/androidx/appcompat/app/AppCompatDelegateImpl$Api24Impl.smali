@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3951
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static generateConfigDelta_locale(Landroid/content/res/Configuration;Landroid/content/res/Configuration;Landroid/content/res/Configuration;)V
-    .locals 3
+    .registers 6
     .param p0, "base"    # Landroid/content/res/Configuration;
     .param p1, "change"    # Landroid/content/res/Configuration;
     .param p2, "delta"    # Landroid/content/res/Configuration;
@@ -47,7 +47,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     .line 3961
     invoke-virtual {p2, v1}, Landroid/content/res/Configuration;->setLocales(Landroid/os/LocaleList;)V
@@ -58,12 +58,12 @@
     iput-object v2, p2, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     .line 3964
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method static getLocales(Landroid/content/res/Configuration;)Landroidx/core/os/LocaleListCompat;
-    .locals 1
+    .registers 2
     .param p0, "configuration"    # Landroid/content/res/Configuration;
 
     .line 3968
@@ -83,7 +83,7 @@
 .end method
 
 .method public static setDefaultLocales(Landroidx/core/os/LocaleListCompat;)V
-    .locals 1
+    .registers 2
     .param p0, "locales"    # Landroidx/core/os/LocaleListCompat;
 
     .line 3978
@@ -102,7 +102,7 @@
 .end method
 
 .method static setLocales(Landroid/content/res/Configuration;Landroidx/core/os/LocaleListCompat;)V
-    .locals 1
+    .registers 3
     .param p0, "configuration"    # Landroid/content/res/Configuration;
     .param p1, "locales"    # Landroidx/core/os/LocaleListCompat;
 

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZLorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Boolean;)V
-    .locals 7
+    .registers 14
     .param p1, "anchor"    # Ljava/lang/String;
     .param p2, "tag"    # Ljava/lang/String;
     .param p3, "implicit"    # Z
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZLorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
-    .locals 0
+    .registers 7
     .param p1, "anchor"    # Ljava/lang/String;
     .param p2, "tag"    # Ljava/lang/String;
     .param p3, "implicit"    # Z
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public getEventId()Lorg/yaml/snakeyaml/events/Event$ID;
-    .locals 1
+    .registers 2
 
     .line 54
     sget-object v0, Lorg/yaml/snakeyaml/events/Event$ID;->MappingStart:Lorg/yaml/snakeyaml/events/Event$ID;

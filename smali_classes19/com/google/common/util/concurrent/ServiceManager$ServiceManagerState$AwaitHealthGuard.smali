@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
 
     .line 440
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public isSatisfied()Z
-    .locals 2
+    .registers 3
 
     .line 448
     iget-object v0, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState$AwaitHealthGuard;->this$0:Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
@@ -55,7 +55,7 @@
 
     iget v1, v1, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;->numberOfServices:I
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_37
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState$AwaitHealthGuard;->this$0:Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
 
@@ -68,7 +68,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_37
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState$AwaitHealthGuard;->this$0:Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
 
@@ -81,7 +81,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_37
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState$AwaitHealthGuard;->this$0:Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
 
@@ -94,20 +94,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
-    goto :goto_0
+    goto :goto_37
 
-    :cond_0
+    :cond_35
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_1
-    :goto_0
+    :cond_37
+    :goto_37
     const/4 v0, 0x1
 
     .line 448
-    :goto_1
+    :goto_38
     return v0
 .end method

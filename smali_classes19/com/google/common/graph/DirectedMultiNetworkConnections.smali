@@ -56,7 +56,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Map;Ljava/util/Map;I)V
-    .locals 0
+    .registers 4
     .param p3, "selfLoopCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -79,7 +79,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/graph/DirectedMultiNetworkConnections;)Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/DirectedMultiNetworkConnections;
 
     .line 43
@@ -91,7 +91,7 @@
 .end method
 
 .method private static getReference(Ljava/lang/ref/Reference;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0    # Ljava/lang/ref/Reference;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -111,23 +111,23 @@
 
     .line 145
     .local p0, "reference":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<TT;>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     return-object v0
 .end method
 
 .method static of()Lcom/google/common/graph/DirectedMultiNetworkConnections;
-    .locals 5
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -163,7 +163,7 @@
 .end method
 
 .method static ofImmutable(Ljava/util/Map;Ljava/util/Map;I)Lcom/google/common/graph/DirectedMultiNetworkConnections;
-    .locals 3
+    .registers 6
     .param p2, "selfLoopCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -202,7 +202,7 @@
 .end method
 
 .method private predecessorsMultiset()Lcom/google/common/collect/Multiset;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -223,7 +223,7 @@
 
     .line 72
     .local v0, "predecessors":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TN;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 73
     iget-object v1, p0, Lcom/google/common/graph/DirectedMultiNetworkConnections;->inEdgeMap:Ljava/util/Map;
@@ -244,12 +244,12 @@
     iput-object v1, p0, Lcom/google/common/graph/DirectedMultiNetworkConnections;->predecessorsReference:Ljava/lang/ref/Reference;
 
     .line 76
-    :cond_0
+    :cond_1b
     return-object v0
 .end method
 
 .method private successorsMultiset()Lcom/google/common/collect/Multiset;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -270,7 +270,7 @@
 
     .line 88
     .local v0, "successors":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TN;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 89
     iget-object v1, p0, Lcom/google/common/graph/DirectedMultiNetworkConnections;->outEdgeMap:Ljava/util/Map;
@@ -291,14 +291,14 @@
     iput-object v1, p0, Lcom/google/common/graph/DirectedMultiNetworkConnections;->successorsReference:Ljava/lang/ref/Reference;
 
     .line 92
-    :cond_0
+    :cond_1b
     return-object v0
 .end method
 
 
 # virtual methods
 .method public addInEdge(Ljava/lang/Object;Ljava/lang/Object;Z)V
-    .locals 2
+    .registers 6
     .param p3, "isSelfLoop"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -323,7 +323,7 @@
 
     .line 129
     .local v0, "predecessors":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TN;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 130
     invoke-interface {v0, p2}, Lcom/google/common/collect/Multiset;->add(Ljava/lang/Object;)Z
@@ -333,12 +333,12 @@
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 132
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public addOutEdge(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TN;)V"
@@ -362,7 +362,7 @@
 
     .line 138
     .local v0, "successors":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TN;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 139
     invoke-interface {v0, p2}, Lcom/google/common/collect/Multiset;->add(Ljava/lang/Object;)Z
@@ -372,12 +372,12 @@
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 141
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public edgesConnecting(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -399,7 +399,7 @@
 .end method
 
 .method public predecessors()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -426,7 +426,7 @@
 .end method
 
 .method public removeInEdge(Ljava/lang/Object;Z)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p2, "isSelfLoop"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -453,7 +453,7 @@
 
     .line 109
     .local v1, "predecessors":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TN;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 110
     invoke-interface {v1, v0}, Lcom/google/common/collect/Multiset;->remove(Ljava/lang/Object;)Z
@@ -463,12 +463,12 @@
     invoke-static {v2}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 112
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method public removeOutEdge(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TN;"
@@ -494,7 +494,7 @@
 
     .line 119
     .local v1, "successors":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TN;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 120
     invoke-interface {v1, v0}, Lcom/google/common/collect/Multiset;->remove(Ljava/lang/Object;)Z
@@ -504,12 +504,12 @@
     invoke-static {v2}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 122
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method public successors()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

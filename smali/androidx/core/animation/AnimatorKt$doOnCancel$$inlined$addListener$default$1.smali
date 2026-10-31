@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 2
     .param p1, "$onCancel"    # Lkotlin/jvm/functions/Function1;
 
     iput-object p1, p0, Landroidx/core/animation/AnimatorKt$doOnCancel$$inlined$addListener$default$1;->$onCancel:Lkotlin/jvm/functions/Function1;
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 100
@@ -78,7 +78,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 99
@@ -98,7 +98,7 @@
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 98
@@ -118,7 +118,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 101

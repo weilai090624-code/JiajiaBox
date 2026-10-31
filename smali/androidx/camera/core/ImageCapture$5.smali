@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture;)V
-    .locals 2
+    .registers 4
     .param p1, "this$0"    # Landroidx/camera/core/ImageCapture;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 3
+    .registers 5
     .param p1, "r"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 1
+    .registers 3
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 51
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public getItemDelegate()Landroidx/core/view/AccessibilityDelegateCompat;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Landroidx/preference/PreferenceRecyclerViewAccessibilityDelegate;->mItemDelegate:Landroidx/core/view/AccessibilityDelegateCompat;

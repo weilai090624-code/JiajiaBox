@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public createKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-    .locals 1
+    .registers 3
     .param p1, "javaClass"    # Ljava/lang/Class;
 
     .line 18
@@ -32,7 +32,7 @@
 .end method
 
 .method public createKotlinClass(Ljava/lang/Class;Ljava/lang/String;)Lkotlin/reflect/KClass;
-    .locals 1
+    .registers 4
     .param p1, "javaClass"    # Ljava/lang/Class;
     .param p2, "internalName"    # Ljava/lang/String;
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public function(Lkotlin/jvm/internal/FunctionReference;)Lkotlin/reflect/KFunction;
-    .locals 0
+    .registers 2
     .param p1, "f"    # Lkotlin/jvm/internal/FunctionReference;
 
     .line 51
@@ -53,7 +53,7 @@
 .end method
 
 .method public getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-    .locals 1
+    .registers 3
     .param p1, "javaClass"    # Ljava/lang/Class;
 
     .line 30
@@ -65,7 +65,7 @@
 .end method
 
 .method public getOrCreateKotlinClass(Ljava/lang/Class;Ljava/lang/String;)Lkotlin/reflect/KClass;
-    .locals 1
+    .registers 4
     .param p1, "javaClass"    # Ljava/lang/Class;
     .param p2, "internalName"    # Ljava/lang/String;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public getOrCreateKotlinPackage(Ljava/lang/Class;Ljava/lang/String;)Lkotlin/reflect/KDeclarationContainer;
-    .locals 1
+    .registers 4
     .param p1, "javaClass"    # Ljava/lang/Class;
     .param p2, "moduleName"    # Ljava/lang/String;
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public mutableCollectionType(Lkotlin/reflect/KType;)Lkotlin/reflect/KType;
-    .locals 6
+    .registers 8
     .param p1, "type"    # Lkotlin/reflect/KType;
 
     .line 107
@@ -130,7 +130,7 @@
 .end method
 
 .method public mutableProperty0(Lkotlin/jvm/internal/MutablePropertyReference0;)Lkotlin/reflect/KMutableProperty0;
-    .locals 0
+    .registers 2
     .param p1, "p"    # Lkotlin/jvm/internal/MutablePropertyReference0;
 
     .line 61
@@ -138,7 +138,7 @@
 .end method
 
 .method public mutableProperty1(Lkotlin/jvm/internal/MutablePropertyReference1;)Lkotlin/reflect/KMutableProperty1;
-    .locals 0
+    .registers 2
     .param p1, "p"    # Lkotlin/jvm/internal/MutablePropertyReference1;
 
     .line 69
@@ -146,7 +146,7 @@
 .end method
 
 .method public mutableProperty2(Lkotlin/jvm/internal/MutablePropertyReference2;)Lkotlin/reflect/KMutableProperty2;
-    .locals 0
+    .registers 2
     .param p1, "p"    # Lkotlin/jvm/internal/MutablePropertyReference2;
 
     .line 77
@@ -154,7 +154,7 @@
 .end method
 
 .method public nothingType(Lkotlin/reflect/KType;)Lkotlin/reflect/KType;
-    .locals 6
+    .registers 8
     .param p1, "type"    # Lkotlin/reflect/KType;
 
     .line 116
@@ -193,7 +193,7 @@
 .end method
 
 .method public platformType(Lkotlin/reflect/KType;Lkotlin/reflect/KType;)Lkotlin/reflect/KType;
-    .locals 4
+    .registers 7
     .param p1, "lowerBound"    # Lkotlin/reflect/KType;
     .param p2, "upperBound"    # Lkotlin/reflect/KType;
 
@@ -225,7 +225,7 @@
 .end method
 
 .method public property0(Lkotlin/jvm/internal/PropertyReference0;)Lkotlin/reflect/KProperty0;
-    .locals 0
+    .registers 2
     .param p1, "p"    # Lkotlin/jvm/internal/PropertyReference0;
 
     .line 57
@@ -233,7 +233,7 @@
 .end method
 
 .method public property1(Lkotlin/jvm/internal/PropertyReference1;)Lkotlin/reflect/KProperty1;
-    .locals 0
+    .registers 2
     .param p1, "p"    # Lkotlin/jvm/internal/PropertyReference1;
 
     .line 65
@@ -241,7 +241,7 @@
 .end method
 
 .method public property2(Lkotlin/jvm/internal/PropertyReference2;)Lkotlin/reflect/KProperty2;
-    .locals 0
+    .registers 2
     .param p1, "p"    # Lkotlin/jvm/internal/PropertyReference2;
 
     .line 73
@@ -249,7 +249,7 @@
 .end method
 
 .method public renderLambdaToString(Lkotlin/jvm/internal/FunctionBase;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "lambda"    # Lkotlin/jvm/internal/FunctionBase;
 
     .line 44
@@ -277,7 +277,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
@@ -287,17 +287,17 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     move-object v1, v0
 
-    :goto_0
+    :goto_21
     return-object v1
 .end method
 
 .method public renderLambdaToString(Lkotlin/jvm/internal/Lambda;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "lambda"    # Lkotlin/jvm/internal/Lambda;
 
     .line 39
@@ -309,7 +309,7 @@
 .end method
 
 .method public setUpperBounds(Lkotlin/reflect/KTypeParameter;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p1, "typeParameter"    # Lkotlin/reflect/KTypeParameter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -334,7 +334,7 @@
 .end method
 
 .method public typeOf(Lkotlin/reflect/KClassifier;Ljava/util/List;Z)Lkotlin/reflect/KType;
-    .locals 1
+    .registers 5
     .param p1, "klass"    # Lkotlin/reflect/KClassifier;
     .param p3, "isMarkedNullable"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -358,7 +358,7 @@
 .end method
 
 .method public typeParameter(Ljava/lang/Object;Ljava/lang/String;Lkotlin/reflect/KVariance;Z)Lkotlin/reflect/KTypeParameter;
-    .locals 1
+    .registers 6
     .param p1, "container"    # Ljava/lang/Object;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "variance"    # Lkotlin/reflect/KVariance;

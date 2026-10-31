@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 0
+    .registers 3
 
     .line 173
     iput-object p1, p0, Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$3;->val$c:Landroid/content/Context;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onClick()V
-    .locals 5
+    .registers 6
 
     .line 177
     :try_start_0
@@ -49,14 +49,14 @@
     iget-object v1, p0, Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$3;->val$goToMarket:Landroid/content/Intent;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_7} :catch_8
 
     .line 181
-    goto :goto_0
+    goto :goto_32
 
     .line 178
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 179
@@ -103,6 +103,6 @@
 
     .line 182
     .end local v0    # "e":Landroid/content/ActivityNotFoundException;
-    :goto_0
+    :goto_32
     return-void
 .end method

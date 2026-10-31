@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public addWrittenObject(Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 42
@@ -75,7 +75,7 @@
 .end method
 
 .method public getReadObject(Ljava/lang/Class;I)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "type"    # Ljava/lang/Class;
     .param p2, "id"    # I
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public getWrittenId(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 48
@@ -104,14 +104,14 @@
 
     .line 49
     .local v0, "id":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v1, -0x1
 
     return v1
 
     .line 50
-    :cond_0
+    :cond_c
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
@@ -120,7 +120,7 @@
 .end method
 
 .method public nextReadId(Ljava/lang/Class;)I
-    .locals 3
+    .registers 5
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 54
@@ -143,7 +143,7 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/HashMapReferenceResolver;->readObjects:Ljava/util/ArrayList;
@@ -160,7 +160,7 @@
 .end method
 
 .method public setKryo(Lcom/esotericsoftware/kryo/Kryo;)V
-    .locals 0
+    .registers 2
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
 
     .line 38
@@ -171,7 +171,7 @@
 .end method
 
 .method public setReadObject(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "id"    # I
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -185,7 +185,7 @@
 .end method
 
 .method public useReferences(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 74
@@ -193,21 +193,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     invoke-static {p1}, Lcom/esotericsoftware/kryo/util/Util;->isEnum(Ljava/lang/Class;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method

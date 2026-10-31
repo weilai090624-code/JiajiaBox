@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public canDetectOrientation()Z
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object v0, p0, Landroidx/camera/view/RotationReceiver;->mOrientationEventListener:Landroid/view/OrientationEventListener;
@@ -61,7 +61,7 @@
 .end method
 
 .method public disable()V
-    .locals 1
+    .registers 2
 
     .line 117
     iget-object v0, p0, Landroidx/camera/view/RotationReceiver;->mOrientationEventListener:Landroid/view/OrientationEventListener;
@@ -73,7 +73,7 @@
 .end method
 
 .method public enable()V
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Landroidx/camera/view/RotationReceiver;->mOrientationEventListener:Landroid/view/OrientationEventListener;

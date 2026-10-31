@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public final queryFrom(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p1}, Lj$/time/YearMonth;->from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/YearMonth;
 

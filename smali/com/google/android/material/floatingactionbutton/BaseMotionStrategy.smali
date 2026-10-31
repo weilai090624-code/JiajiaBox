@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Lcom/google/android/material/floatingactionbutton/AnimatorTracker;)V
-    .locals 1
+    .registers 4
     .param p1, "fab"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
     .param p2, "tracker"    # Lcom/google/android/material/floatingactionbutton/AnimatorTracker;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;)Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;
 
     .line 40
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public final addAnimationListener(Landroid/animation/Animator$AnimatorListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/animation/Animator$AnimatorListener;
 
     .line 76
@@ -87,7 +87,7 @@
 .end method
 
 .method public createAnimator()Landroid/animation/AnimatorSet;
-    .locals 1
+    .registers 2
 
     .line 116
     invoke-virtual {p0}, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->getCurrentMotionSpec()Lcom/google/android/material/animation/MotionSpec;
@@ -102,7 +102,7 @@
 .end method
 
 .method createAnimator(Lcom/google/android/material/animation/MotionSpec;)Landroid/animation/AnimatorSet;
-    .locals 6
+    .registers 8
     .param p1, "spec"    # Lcom/google/android/material/animation/MotionSpec;
 
     .line 121
@@ -118,7 +118,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     .line 124
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->fab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -132,14 +132,14 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 127
-    :cond_0
+    :cond_18
     const-string v1, "scale"
 
     invoke-virtual {p1, v1}, Lcom/google/android/material/animation/MotionSpec;->hasPropertyValues(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_36
 
     .line 128
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->fab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -164,14 +164,14 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 132
-    :cond_1
+    :cond_36
     const-string/jumbo v1, "width"
 
     invoke-virtual {p1, v1}, Lcom/google/android/material/animation/MotionSpec;->hasPropertyValues(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4a
 
     .line 133
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->fab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -185,14 +185,14 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 136
-    :cond_2
+    :cond_4a
     const-string v1, "height"
 
     invoke-virtual {p1, v1}, Lcom/google/android/material/animation/MotionSpec;->hasPropertyValues(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5d
 
     .line 137
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->fab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -206,14 +206,14 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 140
-    :cond_3
+    :cond_5d
     const-string v1, "paddingStart"
 
     invoke-virtual {p1, v1}, Lcom/google/android/material/animation/MotionSpec;->hasPropertyValues(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_70
 
     .line 141
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->fab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -229,14 +229,14 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 145
-    :cond_4
+    :cond_70
     const-string v1, "paddingEnd"
 
     invoke-virtual {p1, v1}, Lcom/google/android/material/animation/MotionSpec;->hasPropertyValues(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_83
 
     .line 146
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->fab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -250,14 +250,14 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 149
-    :cond_5
+    :cond_83
     const-string v1, "labelOpacity"
 
     invoke-virtual {p1, v1}, Lcom/google/android/material/animation/MotionSpec;->hasPropertyValues(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_9d
 
     .line 151
     iget-object v2, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->fab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -281,7 +281,7 @@
 
     .line 205
     .end local v1    # "animator":Landroid/animation/ObjectAnimator;
-    :cond_6
+    :cond_9d
     new-instance v1, Landroid/animation/AnimatorSet;
 
     invoke-direct {v1}, Landroid/animation/AnimatorSet;-><init>()V
@@ -295,12 +295,12 @@
 .end method
 
 .method public final getCurrentMotionSpec()Lcom/google/android/material/animation/MotionSpec;
-    .locals 2
+    .registers 3
 
     .line 63
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->motionSpec:Lcom/google/android/material/animation/MotionSpec;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 64
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->motionSpec:Lcom/google/android/material/animation/MotionSpec;
@@ -308,10 +308,10 @@
     return-object v0
 
     .line 67
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->defaultMotionSpec:Lcom/google/android/material/animation/MotionSpec;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     .line 68
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->context:Landroid/content/Context;
@@ -327,7 +327,7 @@
     iput-object v0, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->defaultMotionSpec:Lcom/google/android/material/animation/MotionSpec;
 
     .line 71
-    :cond_1
+    :cond_17
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->defaultMotionSpec:Lcom/google/android/material/animation/MotionSpec;
 
     invoke-static {v0}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -340,7 +340,7 @@
 .end method
 
 .method public final getListeners()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -357,7 +357,7 @@
 .end method
 
 .method public getMotionSpec()Lcom/google/android/material/animation/MotionSpec;
-    .locals 1
+    .registers 2
 
     .line 93
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->motionSpec:Lcom/google/android/material/animation/MotionSpec;
@@ -366,7 +366,7 @@
 .end method
 
 .method public onAnimationCancel()V
-    .locals 1
+    .registers 2
 
     .line 111
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->tracker:Lcom/google/android/material/floatingactionbutton/AnimatorTracker;
@@ -378,7 +378,7 @@
 .end method
 
 .method public onAnimationEnd()V
-    .locals 1
+    .registers 2
 
     .line 105
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;->tracker:Lcom/google/android/material/floatingactionbutton/AnimatorTracker;
@@ -390,7 +390,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 99
@@ -403,7 +403,7 @@
 .end method
 
 .method public final removeAnimationListener(Landroid/animation/Animator$AnimatorListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/animation/Animator$AnimatorListener;
 
     .line 81
@@ -416,7 +416,7 @@
 .end method
 
 .method public final setMotionSpec(Lcom/google/android/material/animation/MotionSpec;)V
-    .locals 0
+    .registers 2
     .param p1, "motionSpec"    # Lcom/google/android/material/animation/MotionSpec;
 
     .line 58

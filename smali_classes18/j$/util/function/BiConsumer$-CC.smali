@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$andThen(Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)Ljava/util/function/BiConsumer;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/BiConsumer;
 
     .line 68
@@ -21,7 +21,7 @@
 .end method
 
 .method public static synthetic $private$lambda$andThen$0(Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/BiConsumer;
     .param p1, "after"    # Ljava/util/function/BiConsumer;
     .param p2, "l"    # Ljava/lang/Object;

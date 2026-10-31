@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/circularreveal/CircularRevealWidget;)V
-    .locals 0
+    .registers 2
 
     .line 123
     iput-object p1, p0, Lcom/google/android/material/circularreveal/CircularRevealCompat$1;->val$view:Lcom/google/android/material/circularreveal/CircularRevealWidget;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 131
@@ -46,7 +46,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 126

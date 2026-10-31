@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$sendDegradedPingLater$2;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 554
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection$sendDegradedPingLater$2;->invoke()V
@@ -74,7 +74,7 @@
 .end method
 
 .method public final invoke()V
-    .locals 3
+    .registers 4
 
     .line 555
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$sendDegradedPingLater$2;->this$0:Lokhttp3/internal/http2/Http2Connection;

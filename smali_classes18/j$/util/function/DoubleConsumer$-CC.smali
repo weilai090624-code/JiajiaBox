@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$andThen(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/DoubleConsumer;
     .param p1, "after"    # Ljava/util/function/DoubleConsumer;
 
@@ -21,7 +21,7 @@
 .end method
 
 .method public static synthetic $private$lambda$andThen$0(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;D)V
-    .locals 0
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/DoubleConsumer;
     .param p1, "after"    # Ljava/util/function/DoubleConsumer;
     .param p2, "t"    # D

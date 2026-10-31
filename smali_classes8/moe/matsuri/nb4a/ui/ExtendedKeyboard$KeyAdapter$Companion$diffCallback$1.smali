@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-direct {p0}, Landroidx/recyclerview/widget/DiffUtil$ItemCallback;-><init>()V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public bridge synthetic areContentsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/lang/Object;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public areContentsTheSame(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p1, "oldItem"    # Ljava/lang/String;
     .param p2, "newItem"    # Ljava/lang/String;
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public bridge synthetic areItemsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/lang/Object;
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public areItemsTheSame(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p1, "oldItem"    # Ljava/lang/String;
     .param p2, "newItem"    # Ljava/lang/String;
 

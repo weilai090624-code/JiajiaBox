@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final navOptions(Lkotlin/jvm/functions/Function1;)Landroidx/navigation/NavOptions;
-    .locals 1
+    .registers 2
     .param p0, "optionsBuilder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

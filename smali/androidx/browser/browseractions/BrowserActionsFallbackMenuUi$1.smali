@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi;
 
     .line 124
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 127
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi$1;->this$0:Landroidx/browser/browseractions/BrowserActionsFallbackMenuUi;

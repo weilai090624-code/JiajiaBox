@@ -91,7 +91,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlin/Unit;
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public final invoke(Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -191,7 +191,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -200,7 +200,7 @@
     .line 296
     iget v1, p0, Lkotlinx/coroutines/flow/FlowKt__DelayKt$sample$2$1$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_42
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -210,18 +210,18 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$sample$2$1$2;
     .local p1, "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_3f
 
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$sample$2$1$2;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_16
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -233,7 +233,7 @@
 
     iget-object v2, v2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_23
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
@@ -241,7 +241,7 @@
 
     .line 298
     .local v2, "value":Ljava/lang/Object;
-    :cond_0
+    :cond_23
     iget-object v3, v1, Lkotlinx/coroutines/flow/FlowKt__DelayKt$sample$2$1$2;->$lastValue:Lkotlin/jvm/internal/Ref$ObjectRef;
 
     const/4 v4, 0x0
@@ -258,7 +258,7 @@
 
     .line 416
     .local v6, "$i$f$unbox":I
-    if-ne v2, v5, :cond_1
+    if-ne v2, v5, :cond_31
 
     move-object v2, v4
 
@@ -267,7 +267,7 @@
     .end local v2    # "value":Ljava/lang/Object;
     .end local v5    # "this_$iv":Lkotlinx/coroutines/internal/Symbol;
     .end local v6    # "$i$f$unbox":I
-    :cond_1
+    :cond_31
     move-object v4, v1
 
     check-cast v4, Lkotlin/coroutines/Continuation;
@@ -281,26 +281,26 @@
 
     move-result-object v2
 
-    if-ne v2, v0, :cond_2
+    if-ne v2, v0, :cond_3e
 
     .line 296
     return-object v0
 
     .line 299
-    :cond_2
+    :cond_3e
     move-object v0, v1
 
     .line 300
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$sample$2$1$2;
     .restart local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$sample$2$1$2;
-    :goto_0
+    :goto_3f
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_42
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_11
     .end packed-switch
 .end method

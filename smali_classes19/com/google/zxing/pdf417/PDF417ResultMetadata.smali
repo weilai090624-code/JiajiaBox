@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public getAddressee()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 112
     iget-object v0, p0, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->addressee:Ljava/lang/String;
@@ -65,7 +65,7 @@
 .end method
 
 .method public getChecksum()I
-    .locals 1
+    .registers 2
 
     .line 151
     iget v0, p0, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->checksum:I
@@ -74,7 +74,7 @@
 .end method
 
 .method public getFileId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->fileId:Ljava/lang/String;
@@ -83,7 +83,7 @@
 .end method
 
 .method public getFileName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 125
     iget-object v0, p0, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->fileName:Ljava/lang/String;
@@ -92,7 +92,7 @@
 .end method
 
 .method public getFileSize()J
-    .locals 2
+    .registers 3
 
     .line 138
     iget-wide v0, p0, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->fileSize:J
@@ -101,7 +101,7 @@
 .end method
 
 .method public getOptionalData()[I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public getSegmentCount()I
-    .locals 1
+    .registers 2
 
     .line 96
     iget v0, p0, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->segmentCount:I
@@ -121,7 +121,7 @@
 .end method
 
 .method public getSegmentIndex()I
-    .locals 1
+    .registers 2
 
     .line 42
     iget v0, p0, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->segmentIndex:I
@@ -130,7 +130,7 @@
 .end method
 
 .method public getSender()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->sender:Ljava/lang/String;
@@ -139,7 +139,7 @@
 .end method
 
 .method public getTimestamp()J
-    .locals 2
+    .registers 3
 
     .line 164
     iget-wide v0, p0, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->timestamp:J
@@ -148,7 +148,7 @@
 .end method
 
 .method public isLastSegment()Z
-    .locals 1
+    .registers 2
 
     .line 85
     iget-boolean v0, p0, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->lastSegment:Z
@@ -157,7 +157,7 @@
 .end method
 
 .method public setAddressee(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "addressee"    # Ljava/lang/String;
 
     .line 116
@@ -168,7 +168,7 @@
 .end method
 
 .method public setChecksum(I)V
-    .locals 0
+    .registers 2
     .param p1, "checksum"    # I
 
     .line 155
@@ -179,7 +179,7 @@
 .end method
 
 .method public setFileId(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "fileId"    # Ljava/lang/String;
 
     .line 59
@@ -190,7 +190,7 @@
 .end method
 
 .method public setFileName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "fileName"    # Ljava/lang/String;
 
     .line 129
@@ -201,7 +201,7 @@
 .end method
 
 .method public setFileSize(J)V
-    .locals 0
+    .registers 3
     .param p1, "fileSize"    # J
 
     .line 142
@@ -212,7 +212,7 @@
 .end method
 
 .method public setLastSegment(Z)V
-    .locals 0
+    .registers 2
     .param p1, "lastSegment"    # Z
 
     .line 89
@@ -223,7 +223,7 @@
 .end method
 
 .method public setOptionalData([I)V
-    .locals 0
+    .registers 2
     .param p1, "optionalData"    # [I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -236,7 +236,7 @@
 .end method
 
 .method public setSegmentCount(I)V
-    .locals 0
+    .registers 2
     .param p1, "segmentCount"    # I
 
     .line 100
@@ -247,7 +247,7 @@
 .end method
 
 .method public setSegmentIndex(I)V
-    .locals 0
+    .registers 2
     .param p1, "segmentIndex"    # I
 
     .line 46
@@ -258,7 +258,7 @@
 .end method
 
 .method public setSender(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "sender"    # Ljava/lang/String;
 
     .line 108
@@ -269,7 +269,7 @@
 .end method
 
 .method public setTimestamp(J)V
-    .locals 0
+    .registers 3
     .param p1, "timestamp"    # J
 
     .line 168

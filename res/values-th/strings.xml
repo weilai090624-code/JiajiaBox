@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">สายเรียกเข้า</string>
     <string name="call_notification_ongoing_text">สายที่สนทนาอยู่</string>
     <string name="call_notification_screening_text">กำลังสกรีนสายเรียกเข้า</string>
-    <string name="character_counter_content_description" formatted="false">ป้อนอักขระแล้ว %1$d จาก %2$d ตัว</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">เกินจำนวนอักขระสูงสุด %1$d จาก %2$d</string>
+    <string name="character_counter_content_description">ป้อนอักขระแล้ว %1$d จาก %2$d ตัว</string>
+    <string name="character_counter_overflowed_content_description">เกินจำนวนอักขระสูงสุด %1$d จาก %2$d</string>
     <string name="clear_text_end_icon_content_description">ล้างข้อความ</string>
     <string name="copy">คัดลอก</string>
     <string name="copy_toast_msg">คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">วันที่ไม่อยู่ในช่วงที่อนุญาต: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">วันที่เริ่มต้น – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – วันที่สิ้นสุด</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">เลือกช่วง</string>
     <string name="mtrl_picker_range_header_unselected">วันที่เริ่มต้น – วันที่สิ้นสุด</string>
     <string name="mtrl_picker_save">บันทึก</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">คัดลอก \"%1$s\" ไปยังคลิปบอร์ดแล้ว</string>
     <string name="search_menu_title">ค้นหา</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s %2$s</string>
     <string name="v7_preference_off">ปิด</string>
     <string name="v7_preference_on">เปิด</string>
 </resources>

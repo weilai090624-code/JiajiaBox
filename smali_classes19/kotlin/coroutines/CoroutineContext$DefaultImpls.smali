@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static plus(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
@@ -37,14 +37,14 @@
     .line 31
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_b
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_15
 
     .line 32
-    :cond_0
+    :cond_b
     sget-object v0, Lkotlin/coroutines/CoroutineContext$plus$1;->INSTANCE:Lkotlin/coroutines/CoroutineContext$plus$1;
 
     check-cast v0, Lkotlin/jvm/functions/Function2;
@@ -56,6 +56,6 @@
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
     .line 43
-    :goto_0
+    :goto_15
     return-object v0
 .end method

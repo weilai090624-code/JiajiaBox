@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 40
     const-string v0, "WorkTimer"
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/RunnableScheduler;)V
-    .locals 1
+    .registers 3
     .param p1, "scheduler"    # Landroidx/work/RunnableScheduler;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public getListeners()Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,7 +123,7 @@
     monitor-enter v0
 
     .line 107
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/utils/WorkTimer;->mListeners:Ljava/util/Map;
 
     monitor-exit v0
@@ -131,18 +131,18 @@
     return-object v1
 
     .line 108
-    :catchall_0
+    :catchall_7
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_3 .. :try_end_9} :catchall_7
 
     throw v1
 .end method
 
 .method public getTimerMap()Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -159,7 +159,7 @@
     monitor-enter v0
 
     .line 99
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/utils/WorkTimer;->mTimerMap:Ljava/util/Map;
 
     monitor-exit v0
@@ -167,18 +167,18 @@
     return-object v1
 
     .line 100
-    :catchall_0
+    :catchall_7
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_3 .. :try_end_9} :catchall_7
 
     throw v1
 .end method
 
 .method public startTimer(Landroidx/work/impl/model/WorkGenerationalId;JLandroidx/work/impl/utils/WorkTimer$TimeLimitExceededListener;)V
-    .locals 5
+    .registers 10
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "processingTimeMillis"    # J
     .param p4, "listener"    # Landroidx/work/impl/utils/WorkTimer$TimeLimitExceededListener;
@@ -201,7 +201,7 @@
     monitor-enter v0
 
     .line 70
-    :try_start_0
+    :try_start_3
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
@@ -260,18 +260,18 @@
     return-void
 
     .line 77
-    :catchall_0
+    :catchall_38
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_3 .. :try_end_3a} :catchall_38
 
     throw v1
 .end method
 
 .method public stopTimer(Landroidx/work/impl/model/WorkGenerationalId;)V
-    .locals 6
+    .registers 8
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -288,7 +288,7 @@
     monitor-enter v0
 
     .line 87
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/impl/utils/WorkTimer;->mTimerMap:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -299,7 +299,7 @@
 
     .line 88
     .local v1, "removed":Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2e
 
     .line 89
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -335,19 +335,19 @@
 
     .line 92
     .end local v1    # "removed":Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;
-    :cond_0
+    :cond_2e
     monitor-exit v0
 
     .line 93
     return-void
 
     .line 92
-    :catchall_0
+    :catchall_30
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_3 .. :try_end_32} :catchall_30
 
     throw v1
 .end method

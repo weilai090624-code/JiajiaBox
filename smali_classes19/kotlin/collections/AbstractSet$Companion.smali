@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/collections/AbstractSet$Companion;-><init>()V
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final setEquals$kotlin_stdlib(Ljava/util/Set;Ljava/util/Set;)Z
-    .locals 2
+    .registers 5
     .param p1, "c"    # Ljava/util/Set;
     .param p2, "other"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -94,14 +94,14 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_16
 
     const/4 v0, 0x0
 
     return v0
 
     .line 44
-    :cond_0
+    :cond_16
     move-object v0, p1
 
     check-cast v0, Ljava/util/Collection;
@@ -118,7 +118,7 @@
 .end method
 
 .method public final unorderedHashCode$kotlin_stdlib(Ljava/util/Collection;)I
-    .locals 4
+    .registers 6
     .param p1, "c"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -141,12 +141,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1e
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -154,24 +154,24 @@
 
     .line 37
     .local v2, "element":Ljava/lang/Object;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_1c
     add-int/2addr v0, v3
 
     .end local v2    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_a
 
     .line 39
-    :cond_1
+    :cond_1e
     return v0
 .end method

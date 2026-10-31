@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function4;II)V
-    .locals 0
+    .registers 6
     .param p1, "$captured_local_variable$0"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$captured_local_variable$1"    # Lkotlin/jvm/functions/Function1;
     .param p3, "$captured_local_variable$2"    # Lkotlin/jvm/functions/Function4;
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method protected create(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -120,7 +120,7 @@
 .end method
 
 .method protected entryRemoved(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 7
     .param p1, "evicted"    # Z
     .param p2, "key"    # Ljava/lang/Object;
     .param p3, "oldValue"    # Ljava/lang/Object;
@@ -153,7 +153,7 @@
 .end method
 
 .method protected sizeOf(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

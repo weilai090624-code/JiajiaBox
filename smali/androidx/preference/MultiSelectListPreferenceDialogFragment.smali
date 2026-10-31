@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -57,7 +57,7 @@
 .end method
 
 .method private getListPreference()Landroidx/preference/MultiSelectListPreference;
-    .locals 1
+    .registers 2
 
     .line 106
     invoke-virtual {p0}, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->getPreference()Landroidx/preference/DialogPreference;
@@ -70,7 +70,7 @@
 .end method
 
 .method public static newInstance(Ljava/lang/String;)Landroidx/preference/MultiSelectListPreferenceDialogFragment;
-    .locals 3
+    .registers 4
     .param p0, "key"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .registers 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 71
@@ -113,7 +113,7 @@
     .line 73
     const/4 v0, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_3b
 
     .line 74
     invoke-direct {p0}, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->getListPreference()Landroidx/preference/MultiSelectListPreference;
@@ -126,13 +126,13 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_33
 
     invoke-virtual {v1}, Landroidx/preference/MultiSelectListPreference;->getEntryValues()[Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_33
 
     .line 82
     iget-object v2, p0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mNewValues:Ljava/util/Set;
@@ -167,11 +167,11 @@
 
     .line 87
     .end local v1    # "preference":Landroidx/preference/MultiSelectListPreference;
-    goto :goto_0
+    goto :goto_63
 
     .line 77
     .restart local v1    # "preference":Landroidx/preference/MultiSelectListPreference;
-    :cond_0
+    :cond_33
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v2, "MultiSelectListPreference requires an entries array and an entryValues array."
@@ -182,7 +182,7 @@
 
     .line 88
     .end local v1    # "preference":Landroidx/preference/MultiSelectListPreference;
-    :cond_1
+    :cond_3b
     iget-object v1, p0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mNewValues:Ljava/util/Set;
 
     invoke-interface {v1}, Ljava/util/Set;->clear()V
@@ -226,12 +226,12 @@
     iput-object v0, p0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mEntryValues:[Ljava/lang/CharSequence;
 
     .line 94
-    :goto_0
+    :goto_63
     return-void
 .end method
 
 .method public onDialogClosed(Z)V
-    .locals 3
+    .registers 5
     .param p1, "positiveResult"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -243,11 +243,11 @@
 
     .line 140
     .local v0, "preference":Landroidx/preference/MultiSelectListPreference;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     iget-boolean v1, p0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mPreferenceChanged:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 141
     iget-object v1, p0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mNewValues:Ljava/util/Set;
@@ -258,14 +258,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     .line 143
     invoke-virtual {v0, v1}, Landroidx/preference/MultiSelectListPreference;->setValues(Ljava/util/Set;)V
 
     .line 146
     .end local v1    # "values":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mPreferenceChanged:Z
@@ -275,7 +275,7 @@
 .end method
 
 .method protected onPrepareDialogBuilder(Landroid/app/AlertDialog$Builder;)V
-    .locals 5
+    .registers 7
     .param p1, "builder"    # Landroid/app/AlertDialog$Builder;
 
     .line 111
@@ -295,8 +295,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_9
+    if-ge v2, v0, :cond_1e
 
     .line 116
     iget-object v3, p0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mNewValues:Ljava/util/Set;
@@ -318,11 +318,11 @@
     .line 115
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 118
     .end local v2    # "i":I
-    :cond_0
+    :cond_1e
     iget-object v2, p0, Landroidx/preference/MultiSelectListPreferenceDialogFragment;->mEntries:[Ljava/lang/CharSequence;
 
     new-instance v3, Landroidx/preference/MultiSelectListPreferenceDialogFragment$1;
@@ -336,7 +336,7 @@
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "outState"    # Landroid/os/Bundle;
 
     .line 98

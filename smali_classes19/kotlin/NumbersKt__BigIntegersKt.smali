@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/NumbersKt__BigDecimalsKt;-><init>()V
 
@@ -57,7 +57,7 @@
 .end method
 
 .method private static final and(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$and"    # Ljava/math/BigInteger;
     .param p1, "other"    # Ljava/math/BigInteger;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method private static final dec(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 3
     .param p0, "$this$dec"    # Ljava/math/BigInteger;
 
     const-string v0, "<this>"
@@ -104,7 +104,7 @@
 .end method
 
 .method private static final div(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$div"    # Ljava/math/BigInteger;
     .param p1, "other"    # Ljava/math/BigInteger;
 
@@ -129,7 +129,7 @@
 .end method
 
 .method private static final inc(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 3
     .param p0, "$this$inc"    # Ljava/math/BigInteger;
 
     const-string v0, "<this>"
@@ -151,7 +151,7 @@
 .end method
 
 .method private static final inv(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 3
     .param p0, "$this$inv"    # Ljava/math/BigInteger;
 
     const-string v0, "<this>"
@@ -171,7 +171,7 @@
 .end method
 
 .method private static final minus(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$minus"    # Ljava/math/BigInteger;
     .param p1, "other"    # Ljava/math/BigInteger;
 
@@ -196,7 +196,7 @@
 .end method
 
 .method private static final or(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$or"    # Ljava/math/BigInteger;
     .param p1, "other"    # Ljava/math/BigInteger;
 
@@ -221,7 +221,7 @@
 .end method
 
 .method private static final plus(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Ljava/math/BigInteger;
     .param p1, "other"    # Ljava/math/BigInteger;
 
@@ -246,7 +246,7 @@
 .end method
 
 .method private static final rem(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$rem"    # Ljava/math/BigInteger;
     .param p1, "other"    # Ljava/math/BigInteger;
 
@@ -271,7 +271,7 @@
 .end method
 
 .method private static final shl(Ljava/math/BigInteger;I)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$shl"    # Ljava/math/BigInteger;
     .param p1, "n"    # I
 
@@ -292,7 +292,7 @@
 .end method
 
 .method private static final shr(Ljava/math/BigInteger;I)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$shr"    # Ljava/math/BigInteger;
     .param p1, "n"    # I
 
@@ -313,7 +313,7 @@
 .end method
 
 .method private static final times(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$times"    # Ljava/math/BigInteger;
     .param p1, "other"    # Ljava/math/BigInteger;
 
@@ -338,7 +338,7 @@
 .end method
 
 .method private static final toBigDecimal(Ljava/math/BigInteger;)Ljava/math/BigDecimal;
-    .locals 1
+    .registers 2
     .param p0, "$this$toBigDecimal"    # Ljava/math/BigInteger;
 
     const-string v0, "<this>"
@@ -354,7 +354,7 @@
 .end method
 
 .method private static final toBigDecimal(Ljava/math/BigInteger;ILjava/math/MathContext;)Ljava/math/BigDecimal;
-    .locals 1
+    .registers 4
     .param p0, "$this$toBigDecimal"    # Ljava/math/BigInteger;
     .param p1, "scale"    # I
     .param p2, "mathContext"    # Ljava/math/MathContext;
@@ -376,7 +376,7 @@
 .end method
 
 .method static synthetic toBigDecimal$default(Ljava/math/BigInteger;ILjava/math/MathContext;ILjava/lang/Object;)Ljava/math/BigDecimal;
-    .locals 0
+    .registers 5
     .param p0, "$this$toBigDecimal_u24default"    # Ljava/math/BigInteger;
     .param p1, "scale"    # I
     .param p2, "mathContext"    # Ljava/math/MathContext;
@@ -384,14 +384,14 @@
     .line 127
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_11
 
     sget-object p3, Ljava/math/MathContext;->UNLIMITED:Ljava/math/MathContext;
 
@@ -401,7 +401,7 @@
 
     move-object p2, p3
 
-    :cond_1
+    :cond_11
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -419,7 +419,7 @@
 .end method
 
 .method private static final toBigInteger(I)Ljava/math/BigInteger;
-    .locals 2
+    .registers 3
     .param p0, "$this$toBigInteger"    # I
 
     .line 102
@@ -437,7 +437,7 @@
 .end method
 
 .method private static final toBigInteger(J)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$toBigInteger"    # J
 
     .line 109
@@ -453,7 +453,7 @@
 .end method
 
 .method private static final unaryMinus(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 3
     .param p0, "$this$unaryMinus"    # Ljava/math/BigInteger;
 
     const-string v0, "<this>"
@@ -473,7 +473,7 @@
 .end method
 
 .method private static final xor(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 2
+    .registers 4
     .param p0, "$this$xor"    # Ljava/math/BigInteger;
     .param p1, "other"    # Ljava/math/BigInteger;
 

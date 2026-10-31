@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$spliterator(Ljava/util/Set;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Ljava/util/Set;
 
     .line 439
@@ -19,7 +19,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Collection;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -36,7 +36,7 @@
     .local p0, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     instance-of v0, p0, Lj$/util/ImmutableCollections$AbstractImmutableSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 725
     move-object v0, p0
@@ -46,7 +46,7 @@
     return-object v0
 
     .line 727
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0, p0}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
@@ -63,7 +63,7 @@
 .end method
 
 .method public static of()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -83,7 +83,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -104,7 +104,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -126,7 +126,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -165,7 +165,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -209,7 +209,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -258,7 +258,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -312,7 +312,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -371,7 +371,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -435,7 +435,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -504,7 +504,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -578,7 +578,7 @@
 .end method
 
 .method public static varargs of([Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -595,7 +595,7 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     .line 701
     new-instance v0, Lj$/util/ImmutableCollections$SetN;
@@ -605,7 +605,7 @@
     return-object v0
 
     .line 699
-    :pswitch_0
+    :pswitch_b
     new-instance v0, Lj$/util/ImmutableCollections$Set12;
 
     aget-object v1, p0, v1
@@ -619,7 +619,7 @@
     return-object v0
 
     .line 697
-    :pswitch_1
+    :pswitch_16
     new-instance v0, Lj$/util/ImmutableCollections$Set12;
 
     aget-object v1, p0, v1
@@ -629,7 +629,7 @@
     return-object v0
 
     .line 695
-    :pswitch_2
+    :pswitch_1e
     invoke-static {}, Lj$/util/ImmutableCollections;->emptySet()Ljava/util/Set;
 
     move-result-object v0
@@ -638,10 +638,10 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1e
+        :pswitch_16
+        :pswitch_b
     .end packed-switch
 .end method

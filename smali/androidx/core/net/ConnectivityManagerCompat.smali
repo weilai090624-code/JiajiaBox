@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method public static getNetworkInfoFromBroadcast(Landroid/net/ConnectivityManager;Landroid/content/Intent;)Landroid/net/NetworkInfo;
-    .locals 2
+    .registers 4
     .param p0, "cm"    # Landroid/net/ConnectivityManager;
     .param p1, "intent"    # Landroid/content/Intent;
 
@@ -46,7 +46,7 @@
 
     .line 110
     .local v0, "info":Landroid/net/NetworkInfo;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 111
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I
@@ -60,14 +60,14 @@
     return-object v1
 
     .line 113
-    :cond_0
+    :cond_13
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static getRestrictBackgroundStatus(Landroid/net/ConnectivityManager;)I
-    .locals 2
+    .registers 3
     .param p0, "cm"    # Landroid/net/ConnectivityManager;
 
     .line 127
@@ -75,7 +75,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 128
     invoke-static {p0}, Landroidx/core/net/ConnectivityManagerCompat$Api24Impl;->getRestrictBackgroundStatus(Landroid/net/ConnectivityManager;)I
@@ -85,14 +85,14 @@
     return v0
 
     .line 130
-    :cond_0
+    :cond_b
     const/4 v0, 0x3
 
     return v0
 .end method
 
 .method public static isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
-    .locals 1
+    .registers 2
     .param p0, "cm"    # Landroid/net/ConnectivityManager;
 
     .line 93

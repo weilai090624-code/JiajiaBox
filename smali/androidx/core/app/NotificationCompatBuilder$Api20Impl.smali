@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 538
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static addAction(Landroid/app/Notification$Builder;Landroid/app/Notification$Action;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "action"    # Landroid/app/Notification$Action;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static addExtras(Landroid/app/Notification$Action$Builder;Landroid/os/Bundle;)Landroid/app/Notification$Action$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Action$Builder;
     .param p1, "extras"    # Landroid/os/Bundle;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static addRemoteInput(Landroid/app/Notification$Action$Builder;Landroid/app/RemoteInput;)Landroid/app/Notification$Action$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Action$Builder;
     .param p1, "remoteInput"    # Landroid/app/RemoteInput;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static build(Landroid/app/Notification$Action$Builder;)Landroid/app/Notification$Action;
-    .locals 1
+    .registers 2
     .param p0, "builder"    # Landroid/app/Notification$Action$Builder;
 
     .line 567
@@ -76,7 +76,7 @@
 .end method
 
 .method static createBuilder(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)Landroid/app/Notification$Action$Builder;
-    .locals 1
+    .registers 4
     .param p0, "icon"    # I
     .param p1, "title"    # Ljava/lang/CharSequence;
     .param p2, "intent"    # Landroid/app/PendingIntent;
@@ -90,7 +90,7 @@
 .end method
 
 .method static getGroup(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "notification"    # Landroid/app/Notification;
 
     .line 572
@@ -102,7 +102,7 @@
 .end method
 
 .method static setGroup(Landroid/app/Notification$Builder;Ljava/lang/String;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "groupKey"    # Ljava/lang/String;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method static setGroupSummary(Landroid/app/Notification$Builder;Z)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "isGroupSummary"    # Z
 
@@ -128,7 +128,7 @@
 .end method
 
 .method static setLocalOnly(Landroid/app/Notification$Builder;Z)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "localOnly"    # Z
 
@@ -141,7 +141,7 @@
 .end method
 
 .method static setSortKey(Landroid/app/Notification$Builder;Ljava/lang/String;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "sortKey"    # Ljava/lang/String;
 

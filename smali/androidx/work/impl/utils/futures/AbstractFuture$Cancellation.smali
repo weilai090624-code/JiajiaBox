@@ -28,14 +28,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 245
     sget-boolean v0, Landroidx/work/impl/utils/futures/AbstractFuture;->GENERATE_CANCELLATION_CAUSES:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 246
     sput-object v1, Landroidx/work/impl/utils/futures/AbstractFuture$Cancellation;->CAUSELESS_CANCELLED:Landroidx/work/impl/utils/futures/AbstractFuture$Cancellation;
@@ -43,10 +43,10 @@
     .line 247
     sput-object v1, Landroidx/work/impl/utils/futures/AbstractFuture$Cancellation;->CAUSELESS_INTERRUPTED:Landroidx/work/impl/utils/futures/AbstractFuture$Cancellation;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 249
-    :cond_0
+    :cond_a
     new-instance v0, Landroidx/work/impl/utils/futures/AbstractFuture$Cancellation;
 
     const/4 v2, 0x0
@@ -65,12 +65,12 @@
     sput-object v0, Landroidx/work/impl/utils/futures/AbstractFuture$Cancellation;->CAUSELESS_INTERRUPTED:Landroidx/work/impl/utils/futures/AbstractFuture$Cancellation;
 
     .line 252
-    :goto_0
+    :goto_1a
     return-void
 .end method
 
 .method constructor <init>(ZLjava/lang/Throwable;)V
-    .locals 0
+    .registers 3
     .param p1, "wasInterrupted"    # Z
     .param p2, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;

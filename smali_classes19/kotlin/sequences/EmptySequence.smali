@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/sequences/EmptySequence;
 
@@ -54,7 +54,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public drop(I)Lkotlin/sequences/EmptySequence;
-    .locals 1
+    .registers 3
     .param p1, "n"    # I
 
     .line 46
@@ -75,7 +75,7 @@
 .end method
 
 .method public bridge synthetic drop(I)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 3
     .param p1, "n"    # I
 
     .line 44
@@ -89,7 +89,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 45
     sget-object v0, Lkotlin/collections/EmptyIterator;->INSTANCE:Lkotlin/collections/EmptyIterator;
@@ -100,7 +100,7 @@
 .end method
 
 .method public take(I)Lkotlin/sequences/EmptySequence;
-    .locals 1
+    .registers 3
     .param p1, "n"    # I
 
     .line 47
@@ -110,7 +110,7 @@
 .end method
 
 .method public bridge synthetic take(I)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 3
     .param p1, "n"    # I
 
     .line 44

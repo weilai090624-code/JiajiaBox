@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "uCont"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public childCancelled(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 73

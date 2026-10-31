@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 211
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,7 +85,7 @@
 .end method
 
 .method private static negativeToMaxValue(J)J
-    .locals 3
+    .registers 5
     .param p0, "value"    # J
 
     .line 257
@@ -93,23 +93,23 @@
 
     cmp-long v2, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_8
 
     move-wide v0, p0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_8
     const-wide v0, 0x7fffffffffffffffL
 
-    :goto_0
+    :goto_d
     return-wide v0
 .end method
 
 
 # virtual methods
 .method public incrementBy(Lcom/google/common/cache/AbstractCache$StatsCounter;)V
-    .locals 4
+    .registers 6
     .param p1, "other"    # Lcom/google/common/cache/AbstractCache$StatsCounter;
 
     .line 262
@@ -177,7 +177,7 @@
 .end method
 
 .method public recordEviction()V
-    .locals 1
+    .registers 2
 
     .line 241
     iget-object v0, p0, Lcom/google/common/cache/AbstractCache$SimpleStatsCounter;->evictionCount:Lcom/google/common/cache/LongAddable;
@@ -189,7 +189,7 @@
 .end method
 
 .method public recordHits(I)V
-    .locals 3
+    .registers 5
     .param p1, "count"    # I
 
     .line 216
@@ -204,7 +204,7 @@
 .end method
 
 .method public recordLoadException(J)V
-    .locals 1
+    .registers 4
     .param p1, "loadTime"    # J
 
     .line 235
@@ -222,7 +222,7 @@
 .end method
 
 .method public recordLoadSuccess(J)V
-    .locals 1
+    .registers 4
     .param p1, "loadTime"    # J
 
     .line 228
@@ -240,7 +240,7 @@
 .end method
 
 .method public recordMisses(I)V
-    .locals 3
+    .registers 5
     .param p1, "count"    # I
 
     .line 222
@@ -255,7 +255,7 @@
 .end method
 
 .method public snapshot()Lcom/google/common/cache/CacheStats;
-    .locals 14
+    .registers 15
 
     .line 246
     new-instance v13, Lcom/google/common/cache/CacheStats;

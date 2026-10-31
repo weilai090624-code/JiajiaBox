@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/flow/internal/NoOpContinuation;
 
@@ -73,7 +73,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 149
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 150
     sget-object v0, Lkotlinx/coroutines/flow/internal/NoOpContinuation;->context:Lkotlin/coroutines/CoroutineContext;
@@ -93,7 +93,7 @@
 .end method
 
 .method public resumeWith(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 154

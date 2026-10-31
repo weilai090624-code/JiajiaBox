@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8047
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static addExtras(Landroid/app/RemoteInput$Builder;Landroid/os/Bundle;)Landroid/app/RemoteInput$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/RemoteInput$Builder;
     .param p1, "extras"    # Landroid/os/Bundle;
 
@@ -39,7 +39,7 @@
 .end method
 
 .method static build(Landroid/app/RemoteInput$Builder;)Landroid/app/RemoteInput;
-    .locals 1
+    .registers 2
     .param p0, "builder"    # Landroid/app/RemoteInput$Builder;
 
     .line 8058
@@ -51,7 +51,7 @@
 .end method
 
 .method static castToParcelable(Landroid/app/RemoteInput;)Landroid/os/Parcelable;
-    .locals 0
+    .registers 1
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 8112
@@ -59,7 +59,7 @@
 .end method
 
 .method static createBuilder(Ljava/lang/String;)Landroid/app/RemoteInput$Builder;
-    .locals 1
+    .registers 2
     .param p0, "resultKey"    # Ljava/lang/String;
 
     .line 8053
@@ -71,7 +71,7 @@
 .end method
 
 .method static getAllowFreeFormInput(Landroid/app/RemoteInput;)Z
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 8090
@@ -83,7 +83,7 @@
 .end method
 
 .method static getChoices(Landroid/app/RemoteInput;)[Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 8068
@@ -95,7 +95,7 @@
 .end method
 
 .method static getExtras(Landroid/app/RemoteInput;)Landroid/os/Bundle;
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 8101
@@ -107,7 +107,7 @@
 .end method
 
 .method static getLabel(Landroid/app/RemoteInput;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 8079
@@ -119,7 +119,7 @@
 .end method
 
 .method static getResultKey(Landroid/app/RemoteInput;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Landroid/app/RemoteInput;
 
     .line 8063
@@ -131,7 +131,7 @@
 .end method
 
 .method static setAllowFreeFormInput(Landroid/app/RemoteInput$Builder;Z)Landroid/app/RemoteInput$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/RemoteInput$Builder;
     .param p1, "allowFreeFormInput"    # Z
 
@@ -144,7 +144,7 @@
 .end method
 
 .method static setChoices(Landroid/app/RemoteInput$Builder;[Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/RemoteInput$Builder;
     .param p1, "choices"    # [Ljava/lang/CharSequence;
 
@@ -157,7 +157,7 @@
 .end method
 
 .method static setLabel(Landroid/app/RemoteInput$Builder;Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/RemoteInput$Builder;
     .param p1, "label"    # Ljava/lang/CharSequence;
 

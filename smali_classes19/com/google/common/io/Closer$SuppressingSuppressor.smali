@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/reflect/Method;)V
-    .locals 0
+    .registers 2
     .param p1, "addSuppressed"    # Ljava/lang/reflect/Method;
 
     .line 278
@@ -37,7 +37,7 @@
 .end method
 
 .method static tryCreate()Lcom/google/common/io/Closer$SuppressingSuppressor;
-    .locals 5
+    .registers 5
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -60,8 +60,8 @@
     invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_0 .. :try_end_10} :catchall_17
 
     .line 272
     .local v0, "addSuppressed":Ljava/lang/reflect/Method;
@@ -76,7 +76,7 @@
 
     .line 270
     .end local v0    # "addSuppressed":Ljava/lang/reflect/Method;
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     .line 271
@@ -89,20 +89,20 @@
 
 # virtual methods
 .method public suppress(Ljava/io/Closeable;Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 7
     .param p1, "closeable"    # Ljava/io/Closeable;
     .param p2, "thrown"    # Ljava/lang/Throwable;
     .param p3, "suppressed"    # Ljava/lang/Throwable;
 
     .line 285
-    if-ne p2, p3, :cond_0
+    if-ne p2, p3, :cond_3
 
     .line 286
     return-void
 
     .line 289
-    :cond_0
-    :try_start_0
+    :cond_3
+    :try_start_3
     iget-object v0, p0, Lcom/google/common/io/Closer$SuppressingSuppressor;->addSuppressed:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x1
@@ -114,14 +114,14 @@
     aput-object p3, v1, v2
 
     invoke-virtual {v0, p2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_3 .. :try_end_e} :catchall_f
 
     .line 293
-    goto :goto_0
+    goto :goto_15
 
     .line 290
-    :catchall_0
+    :catchall_f
     move-exception v0
 
     .line 292
@@ -132,6 +132,6 @@
 
     .line 294
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_15
     return-void
 .end method

@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 3659
     .local p0, "this":Lcom/google/common/cache/LocalCache$AccessQueue;, "Lcom/google/common/cache/LocalCache$AccessQueue<TK;TV;>;"
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 3
+    .registers 4
 
     .line 3764
     .local p0, "this":Lcom/google/common/cache/LocalCache$AccessQueue;, "Lcom/google/common/cache/LocalCache$AccessQueue<TK;TV;>;"
@@ -71,10 +71,10 @@
 
     .line 3765
     .local v0, "e":Lcom/google/common/cache/ReferenceEntry;, "Lcom/google/common/cache/ReferenceEntry<TK;TV;>;"
-    :goto_0
+    :goto_6
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$AccessQueue;->head:Lcom/google/common/cache/ReferenceEntry;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_13
 
     .line 3766
     invoke-interface {v0}, Lcom/google/common/cache/ReferenceEntry;->getNextInAccessQueue()Lcom/google/common/cache/ReferenceEntry;
@@ -90,10 +90,10 @@
 
     .line 3769
     .end local v1    # "next":Lcom/google/common/cache/ReferenceEntry;, "Lcom/google/common/cache/ReferenceEntry<TK;TV;>;"
-    goto :goto_0
+    goto :goto_6
 
     .line 3771
-    :cond_0
+    :cond_13
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$AccessQueue;->head:Lcom/google/common/cache/ReferenceEntry;
 
     iget-object v2, p0, Lcom/google/common/cache/LocalCache$AccessQueue;->head:Lcom/google/common/cache/ReferenceEntry;
@@ -112,7 +112,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 3742
@@ -129,21 +129,21 @@
 
     sget-object v2, Lcom/google/common/cache/LocalCache$NullEntry;->INSTANCE:Lcom/google/common/cache/LocalCache$NullEntry;
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 3748
     .local p0, "this":Lcom/google/common/cache/LocalCache$AccessQueue;, "Lcom/google/common/cache/LocalCache$AccessQueue<TK;TV;>;"
@@ -155,21 +155,21 @@
 
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$AccessQueue;->head:Lcom/google/common/cache/ReferenceEntry;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -193,7 +193,7 @@
 .end method
 
 .method public offer(Lcom/google/common/cache/ReferenceEntry;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -236,7 +236,7 @@
 .end method
 
 .method public bridge synthetic offer(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 3659
     .local p0, "this":Lcom/google/common/cache/LocalCache$AccessQueue;, "Lcom/google/common/cache/LocalCache$AccessQueue<TK;TV;>;"
@@ -250,7 +250,7 @@
 .end method
 
 .method public peek()Lcom/google/common/cache/ReferenceEntry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -271,21 +271,21 @@
     .local v0, "next":Lcom/google/common/cache/ReferenceEntry;, "Lcom/google/common/cache/ReferenceEntry<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$AccessQueue;->head:Lcom/google/common/cache/ReferenceEntry;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move-object v1, v0
 
-    :goto_0
+    :goto_d
     return-object v1
 .end method
 
 .method public bridge synthetic peek()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 3659
     .local p0, "this":Lcom/google/common/cache/LocalCache$AccessQueue;, "Lcom/google/common/cache/LocalCache$AccessQueue<TK;TV;>;"
@@ -297,7 +297,7 @@
 .end method
 
 .method public poll()Lcom/google/common/cache/ReferenceEntry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -318,7 +318,7 @@
     .local v0, "next":Lcom/google/common/cache/ReferenceEntry;, "Lcom/google/common/cache/ReferenceEntry<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$AccessQueue;->head:Lcom/google/common/cache/ReferenceEntry;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     .line 3720
     const/4 v1, 0x0
@@ -326,7 +326,7 @@
     return-object v1
 
     .line 3723
-    :cond_0
+    :cond_c
     invoke-virtual {p0, v0}, Lcom/google/common/cache/LocalCache$AccessQueue;->remove(Ljava/lang/Object;)Z
 
     .line 3724
@@ -334,7 +334,7 @@
 .end method
 
 .method public bridge synthetic poll()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 3659
     .local p0, "this":Lcom/google/common/cache/LocalCache$AccessQueue;, "Lcom/google/common/cache/LocalCache$AccessQueue<TK;TV;>;"
@@ -346,7 +346,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 3730
@@ -377,21 +377,21 @@
     .line 3736
     sget-object v3, Lcom/google/common/cache/LocalCache$NullEntry;->INSTANCE:Lcom/google/common/cache/LocalCache$NullEntry;
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_17
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_18
     return v3
 .end method
 
 .method public size()I
-    .locals 3
+    .registers 4
 
     .line 3753
     .local p0, "this":Lcom/google/common/cache/LocalCache$AccessQueue;, "Lcom/google/common/cache/LocalCache$AccessQueue<TK;TV;>;"
@@ -407,10 +407,10 @@
 
     .line 3755
     .local v1, "e":Lcom/google/common/cache/ReferenceEntry;, "Lcom/google/common/cache/ReferenceEntry<TK;TV;>;"
-    :goto_0
+    :goto_7
     iget-object v2, p0, Lcom/google/common/cache/LocalCache$AccessQueue;->head:Lcom/google/common/cache/ReferenceEntry;
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_12
 
     .line 3757
     add-int/lit8 v0, v0, 0x1
@@ -420,10 +420,10 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 3759
     .end local v1    # "e":Lcom/google/common/cache/ReferenceEntry;, "Lcom/google/common/cache/ReferenceEntry<TK;TV;>;"
-    :cond_0
+    :cond_12
     return v0
 .end method

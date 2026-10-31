@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
     .param p2, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public getCount()I
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;->mMenuItems:Ljava/util/List;
@@ -73,7 +73,7 @@
 .end method
 
 .method public getItem(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 62
@@ -87,7 +87,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 67
@@ -97,7 +97,7 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 6
+    .registers 10
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
@@ -115,7 +115,7 @@
     .local v0, "menuItem":Landroidx/browser/browseractions/BrowserActionItem;
     const/4 v1, 0x0
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_3c
 
     .line 75
     iget-object v2, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;->mContext:Landroid/content/Context;
@@ -151,9 +151,9 @@
 
     .line 79
     .local v3, "text":Landroid/widget/TextView;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_34
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_34
 
     .line 83
     new-instance v4, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$ViewHolderItem;
@@ -167,13 +167,13 @@
     .line 85
     .end local v2    # "icon":Landroid/widget/ImageView;
     .end local v3    # "text":Landroid/widget/TextView;
-    goto :goto_0
+    goto :goto_43
 
     .line 80
     .end local v4    # "viewHolder":Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$ViewHolderItem;
     .restart local v2    # "icon":Landroid/widget/ImageView;
     .restart local v3    # "text":Landroid/widget/TextView;
-    :cond_0
+    :cond_34
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v4, "Browser Actions fallback UI does not contain necessary Views."
@@ -185,7 +185,7 @@
     .line 86
     .end local v2    # "icon":Landroid/widget/ImageView;
     .end local v3    # "text":Landroid/widget/TextView;
-    :cond_1
+    :cond_3c
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v2
@@ -196,7 +196,7 @@
 
     .line 89
     .restart local v4    # "viewHolder":Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$ViewHolderItem;
-    :goto_0
+    :goto_43
     invoke-virtual {v0}, Landroidx/browser/browseractions/BrowserActionItem;->getTitle()Ljava/lang/String;
 
     move-result-object v2
@@ -212,7 +212,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_66
 
     .line 92
     iget-object v3, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;->mContext:Landroid/content/Context;
@@ -239,14 +239,14 @@
 
     .line 95
     .end local v1    # "drawable":Landroid/graphics/drawable/Drawable;
-    goto :goto_1
+    goto :goto_93
 
-    :cond_2
+    :cond_66
     invoke-virtual {v0}, Landroidx/browser/browseractions/BrowserActionItem;->getIconUri()Landroid/net/Uri;
 
     move-result-object v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_88
 
     .line 96
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;->mContext:Landroid/content/Context;
@@ -278,10 +278,10 @@
 
     .line 127
     .end local v1    # "bitmapFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroid/graphics/Bitmap;>;"
-    goto :goto_1
+    goto :goto_93
 
     .line 128
-    :cond_3
+    :cond_88
     iget-object v3, v4, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$ViewHolderItem;->mIcon:Landroid/widget/ImageView;
 
     invoke-virtual {v3, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
@@ -294,6 +294,6 @@
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 131
-    :goto_1
+    :goto_93
     return-object p2
 .end method

@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,13 +61,13 @@
 
 # virtual methods
 .method hasMore(Landroidx/recyclerview/widget/RecyclerView$State;)Z
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
 
     .line 88
     iget v0, p0, Landroidx/recyclerview/widget/LayoutState;->mCurrentPosition:I
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_e
 
     iget v0, p0, Landroidx/recyclerview/widget/LayoutState;->mCurrentPosition:I
 
@@ -75,21 +75,21 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method next(Landroidx/recyclerview/widget/RecyclerView$Recycler;)Landroid/view/View;
-    .locals 3
+    .registers 5
     .param p1, "recycler"    # Landroidx/recyclerview/widget/RecyclerView$Recycler;
 
     .line 98
@@ -114,7 +114,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 105
     new-instance v0, Ljava/lang/StringBuilder;

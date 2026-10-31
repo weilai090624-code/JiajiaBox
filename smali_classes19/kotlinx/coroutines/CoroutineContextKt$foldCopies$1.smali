@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/CoroutineContextKt$foldCopies$1;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -100,14 +100,14 @@
 .end method
 
 .method public final invoke(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext$Element;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 4
     .param p1, "result"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
 
     .line 82
     instance-of v0, p2, Lkotlinx/coroutines/CopyableThreadContextElement;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 83
     move-object v0, p2
@@ -127,7 +127,7 @@
     return-object v0
 
     .line 85
-    :cond_0
+    :cond_12
     move-object v0, p2
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;

@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab$AlbumsTab;
 
@@ -57,7 +57,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 772
     const/4 v0, 0x0
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 1
+    .registers 2
 
     .line 773
     sget v0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab$AlbumsTab;->value:I

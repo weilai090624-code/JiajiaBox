@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/language/json/parser/JsonParser$Companion;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lcom/blacksquircle/ui/language/json/parser/JsonParser;-><init>()V
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public static final synthetic access$getJsonParser$cp()Lcom/blacksquircle/ui/language/json/parser/JsonParser;
-    .locals 1
+    .registers 1
 
     .line 23
     sget-object v0, Lcom/blacksquircle/ui/language/json/parser/JsonParser;->jsonParser:Lcom/blacksquircle/ui/language/json/parser/JsonParser;
@@ -86,7 +86,7 @@
 .end method
 
 .method public static final synthetic access$setJsonParser$cp(Lcom/blacksquircle/ui/language/json/parser/JsonParser;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Lcom/blacksquircle/ui/language/json/parser/JsonParser;
 
     .line 23
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public execute(Lcom/blacksquircle/ui/language/base/model/TextStructure;)Lcom/blacksquircle/ui/language/base/model/ParseResult;
-    .locals 3
+    .registers 5
     .param p1, "structure"    # Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
     const-string/jumbo v0, "structure"

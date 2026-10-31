@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Landroidx/constraintlayout/core/motion/utils/TimeCycleSplineSet;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method public static makeCustomSpline(Ljava/lang/String;Landroid/util/SparseArray;)Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    .locals 1
+    .registers 3
     .param p0, "str"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -72,7 +72,7 @@
 .end method
 
 .method public static makeSpline(Ljava/lang/String;J)Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    .locals 1
+    .registers 4
     .param p0, "str"    # Ljava/lang/String;
     .param p1, "currentTime"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -91,172 +91,172 @@
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_de
 
-    :cond_0
-    goto/16 :goto_0
+    :cond_7
+    goto/16 :goto_8b
 
-    :sswitch_0
+    :sswitch_9
     const-string v0, "alpha"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x0
 
-    goto/16 :goto_1
+    goto/16 :goto_8c
 
-    :sswitch_1
+    :sswitch_14
     const-string/jumbo v0, "transitionPathRotate"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x5
 
-    goto/16 :goto_1
+    goto/16 :goto_8c
 
-    :sswitch_2
+    :sswitch_20
     const-string v0, "elevation"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_8c
 
-    :sswitch_3
+    :sswitch_2a
     const-string v0, "rotation"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x2
 
-    goto :goto_1
+    goto :goto_8c
 
-    :sswitch_4
+    :sswitch_34
     const-string v0, "scaleY"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x7
 
-    goto :goto_1
+    goto :goto_8c
 
-    :sswitch_5
+    :sswitch_3e
     const-string v0, "scaleX"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x6
 
-    goto :goto_1
+    goto :goto_8c
 
-    :sswitch_6
+    :sswitch_48
     const-string v0, "progress"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/16 v0, 0xb
 
-    goto :goto_1
+    goto :goto_8c
 
-    :sswitch_7
+    :sswitch_53
     const-string/jumbo v0, "translationZ"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/16 v0, 0xa
 
-    goto :goto_1
+    goto :goto_8c
 
-    :sswitch_8
+    :sswitch_5f
     const-string/jumbo v0, "translationY"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/16 v0, 0x9
 
-    goto :goto_1
+    goto :goto_8c
 
-    :sswitch_9
+    :sswitch_6b
     const-string/jumbo v0, "translationX"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/16 v0, 0x8
 
-    goto :goto_1
+    goto :goto_8c
 
-    :sswitch_a
+    :sswitch_77
     const-string v0, "rotationY"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x4
 
-    goto :goto_1
+    goto :goto_8c
 
-    :sswitch_b
+    :sswitch_81
     const-string v0, "rotationX"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x3
 
-    goto :goto_1
+    goto :goto_8c
 
-    :goto_0
+    :goto_8b
     const/4 v0, -0x1
 
-    :goto_1
-    packed-switch v0, :pswitch_data_0
+    :goto_8c
+    packed-switch v0, :pswitch_data_110
 
     .line 112
     const/4 v0, 0x0
@@ -264,128 +264,128 @@
     return-object v0
 
     .line 109
-    :pswitch_0
+    :pswitch_91
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ProgressSet;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ProgressSet;-><init>()V
 
     .line 110
     .local v0, "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 106
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_1
+    :pswitch_97
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$TranslationZset;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$TranslationZset;-><init>()V
 
     .line 107
     .restart local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 103
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_2
+    :pswitch_9d
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$TranslationYset;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$TranslationYset;-><init>()V
 
     .line 104
     .restart local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 100
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_3
+    :pswitch_a3
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$TranslationXset;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$TranslationXset;-><init>()V
 
     .line 101
     .restart local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 97
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_4
+    :pswitch_a9
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ScaleYset;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ScaleYset;-><init>()V
 
     .line 98
     .restart local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 94
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_5
+    :pswitch_af
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ScaleXset;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ScaleXset;-><init>()V
 
     .line 95
     .restart local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 91
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_6
+    :pswitch_b5
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$PathRotate;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$PathRotate;-><init>()V
 
     .line 92
     .restart local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 88
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_7
+    :pswitch_bb
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$RotationYset;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$RotationYset;-><init>()V
 
     .line 89
     .restart local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 85
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_8
+    :pswitch_c1
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$RotationXset;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$RotationXset;-><init>()V
 
     .line 86
     .restart local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 82
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_9
+    :pswitch_c7
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$RotationSet;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$RotationSet;-><init>()V
 
     .line 83
     .restart local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 79
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_a
+    :pswitch_cd
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ElevationSet;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$ElevationSet;-><init>()V
 
     .line 80
     .restart local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    goto :goto_2
+    goto :goto_d9
 
     .line 76
     .end local v0    # "timeCycle":Landroidx/constraintlayout/motion/utils/ViewTimeCycle;
-    :pswitch_b
+    :pswitch_d3
     new-instance v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$AlphaSet;
 
     invoke-direct {v0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$AlphaSet;-><init>()V
@@ -395,7 +395,7 @@
     nop
 
     .line 114
-    :goto_2
+    :goto_d9
     invoke-virtual {v0, p1, p2}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle;->setStartTime(J)V
 
     .line 115
@@ -403,43 +403,43 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_de
     .sparse-switch
-        -0x4a771f66 -> :sswitch_b
-        -0x4a771f65 -> :sswitch_a
-        -0x490b9c39 -> :sswitch_9
-        -0x490b9c38 -> :sswitch_8
-        -0x490b9c37 -> :sswitch_7
-        -0x3bab3dd3 -> :sswitch_6
-        -0x3621dfb2 -> :sswitch_5
-        -0x3621dfb1 -> :sswitch_4
-        -0x266f082 -> :sswitch_3
-        -0x42d1a3 -> :sswitch_2
-        0x2382115 -> :sswitch_1
-        0x589b15e -> :sswitch_0
+        -0x4a771f66 -> :sswitch_81
+        -0x4a771f65 -> :sswitch_77
+        -0x490b9c39 -> :sswitch_6b
+        -0x490b9c38 -> :sswitch_5f
+        -0x490b9c37 -> :sswitch_53
+        -0x3bab3dd3 -> :sswitch_48
+        -0x3621dfb2 -> :sswitch_3e
+        -0x3621dfb1 -> :sswitch_34
+        -0x266f082 -> :sswitch_2a
+        -0x42d1a3 -> :sswitch_20
+        0x2382115 -> :sswitch_14
+        0x589b15e -> :sswitch_9
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_110
     .packed-switch 0x0
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_d3
+        :pswitch_cd
+        :pswitch_c7
+        :pswitch_c1
+        :pswitch_bb
+        :pswitch_b5
+        :pswitch_af
+        :pswitch_a9
+        :pswitch_a3
+        :pswitch_9d
+        :pswitch_97
+        :pswitch_91
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public get(FJLandroid/view/View;Landroidx/constraintlayout/core/motion/utils/KeyCache;)F
-    .locals 19
+    .registers 25
     .param p1, "pos"    # F
     .param p2, "time"    # J
     .param p4, "view"    # Landroid/view/View;
@@ -495,7 +495,7 @@
 
     cmpl-float v11, v5, v10
 
-    if-nez v11, :cond_0
+    if-nez v11, :cond_25
 
     .line 47
     iput-boolean v9, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle;->mContinue:Z
@@ -508,14 +508,14 @@
     return v7
 
     .line 50
-    :cond_0
+    :cond_25
     iget v11, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle;->last_cycle:F
 
     invoke-static {v11}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v11
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_3f
 
     .line 51
     iget-object v11, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle;->mType:Ljava/lang/String;
@@ -533,13 +533,13 @@
 
     move-result v11
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_3f
 
     .line 53
     iput v10, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle;->last_cycle:F
 
     .line 56
-    :cond_1
+    :cond_3f
     iget-wide v11, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle;->last_time:J
 
     sub-long v11, v1, v11
@@ -617,24 +617,24 @@
 
     cmpl-float v13, v7, v12
 
-    if-nez v13, :cond_3
+    if-nez v13, :cond_81
 
     cmpl-float v12, v5, v12
 
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_7f
 
-    goto :goto_0
+    goto :goto_81
 
-    :cond_2
+    :cond_7f
     const/4 v15, 0x0
 
-    goto :goto_1
+    goto :goto_82
 
-    :cond_3
-    :goto_0
+    :cond_81
+    :goto_81
     const/4 v15, 0x1
 
-    :goto_1
+    :goto_82
     iput-boolean v15, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle;->mContinue:Z
 
     .line 65

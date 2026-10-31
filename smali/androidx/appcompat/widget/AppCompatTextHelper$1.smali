@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/AppCompatTextHelper;IILjava/lang/ref/WeakReference;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/appcompat/widget/AppCompatTextHelper;
 
     .line 365
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onFontRetrievalFailed(I)V
-    .locals 0
+    .registers 2
     .param p1, "reason"    # I
 
     .line 380
@@ -54,7 +54,7 @@
 .end method
 
 .method public onFontRetrieved(Landroid/graphics/Typeface;)V
-    .locals 2
+    .registers 4
     .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .line 368
@@ -62,14 +62,14 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1a
 
     .line 369
     iget v0, p0, Landroidx/appcompat/widget/AppCompatTextHelper$1;->val$fontWeight:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1a
 
     .line 370
     iget v0, p0, Landroidx/appcompat/widget/AppCompatTextHelper$1;->val$fontWeight:I
@@ -78,22 +78,22 @@
 
     and-int/lit8 v1, v1, 0x2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     invoke-static {p1, v0, v1}, Landroidx/appcompat/widget/AppCompatTextHelper$Api28Impl;->create(Landroid/graphics/Typeface;IZ)Landroid/graphics/Typeface;
 
     move-result-object p1
 
     .line 374
-    :cond_1
+    :cond_1a
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextHelper$1;->this$0:Landroidx/appcompat/widget/AppCompatTextHelper;
 
     iget-object v1, p0, Landroidx/appcompat/widget/AppCompatTextHelper$1;->val$textViewWeak:Ljava/lang/ref/WeakReference;

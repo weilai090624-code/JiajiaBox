@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 55
     invoke-static {}, Lj$/sun/misc/DesugarUnsafe;->getUnsafeField()Ljava/lang/reflect/Field;
@@ -27,7 +27,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
     .line 58
-    :try_start_0
+    :try_start_8
     new-instance v1, Lj$/sun/misc/DesugarUnsafe;
 
     const/4 v2, 0x0
@@ -41,8 +41,8 @@
     invoke-direct {v1, v2}, Lj$/sun/misc/DesugarUnsafe;-><init>(Lsun/misc/Unsafe;)V
 
     sput-object v1, Lj$/sun/misc/DesugarUnsafe;->theUnsafeWrapper:Lj$/sun/misc/DesugarUnsafe;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/IllegalAccessException; {:try_start_8 .. :try_end_16} :catch_18
 
     .line 61
     nop
@@ -53,7 +53,7 @@
 
     .line 59
     .restart local v0    # "field":Ljava/lang/reflect/Field;
-    :catch_0
+    :catch_18
     move-exception v1
 
     .line 60
@@ -68,7 +68,7 @@
 .end method
 
 .method constructor <init>(Lsun/misc/Unsafe;)V
-    .locals 0
+    .registers 2
     .param p1, "theUnsafe"    # Lsun/misc/Unsafe;
 
     .line 68
@@ -82,7 +82,7 @@
 .end method
 
 .method public static getUnsafe()Lj$/sun/misc/DesugarUnsafe;
-    .locals 1
+    .registers 1
 
     .line 114
     sget-object v0, Lj$/sun/misc/DesugarUnsafe;->theUnsafeWrapper:Lj$/sun/misc/DesugarUnsafe;
@@ -91,7 +91,7 @@
 .end method
 
 .method private static getUnsafeField()Ljava/lang/reflect/Field;
-    .locals 7
+    .registers 7
 
     .line 74
     :try_start_0
@@ -102,13 +102,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 75
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 76
@@ -123,8 +123,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_12
+    if-ge v3, v2, :cond_30
 
     aget-object v4, v1, v3
 
@@ -138,7 +138,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2d
 
     const-class v5, Lsun/misc/Unsafe;
 
@@ -151,20 +151,20 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2d
 
     .line 79
     return-object v4
 
     .line 76
     .end local v4    # "f":Ljava/lang/reflect/Field;
-    :cond_0
+    :cond_2d
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 82
-    :cond_1
+    :cond_30
     new-instance v1, Ljava/lang/AssertionError;
 
     const-string v2, "Couldn\'t find the Unsafe"
@@ -177,7 +177,7 @@
 
 # virtual methods
 .method public addressSize()I
-    .locals 1
+    .registers 2
 
     .line 698
     iget-object v0, p0, Lj$/sun/misc/DesugarUnsafe;->theUnsafe:Lsun/misc/Unsafe;
@@ -190,7 +190,7 @@
 .end method
 
 .method public allocateInstance(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -212,7 +212,7 @@
 .end method
 
 .method public allocateMemory(J)J
-    .locals 2
+    .registers 5
     .param p1, "bytes"    # J
 
     .line 355
@@ -226,7 +226,7 @@
 .end method
 
 .method public arrayBaseOffset(Ljava/lang/Class;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -247,7 +247,7 @@
 .end method
 
 .method public arrayIndexScale(Ljava/lang/Class;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -268,7 +268,7 @@
 .end method
 
 .method public compareAndSetInt(Ljava/lang/Object;JII)Z
-    .locals 6
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "expected"    # I
@@ -293,7 +293,7 @@
 .end method
 
 .method public compareAndSetLong(Ljava/lang/Object;JJJ)Z
-    .locals 8
+    .registers 16
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "expected"    # J
@@ -318,7 +318,7 @@
 .end method
 
 .method public compareAndSetObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z
-    .locals 6
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "expected"    # Ljava/lang/Object;
@@ -343,7 +343,7 @@
 .end method
 
 .method public compareAndSwapInt(Ljava/lang/Object;JII)Z
-    .locals 6
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "expected"    # I
@@ -368,7 +368,7 @@
 .end method
 
 .method public compareAndSwapLong(Ljava/lang/Object;JJJ)Z
-    .locals 8
+    .registers 16
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "expected"    # J
@@ -393,7 +393,7 @@
 .end method
 
 .method public compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z
-    .locals 6
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "expected"    # Ljava/lang/Object;
@@ -418,7 +418,7 @@
 .end method
 
 .method public copyMemory(JJJ)V
-    .locals 7
+    .registers 14
     .param p1, "srcAddr"    # J
     .param p3, "dstAddr"    # J
     .param p5, "bytes"    # J
@@ -439,7 +439,7 @@
 .end method
 
 .method public copyMemory(Ljava/lang/Object;JLjava/lang/Object;JJ)V
-    .locals 4
+    .registers 13
     .param p1, "srcBase"    # Ljava/lang/Object;
     .param p2, "srcOffset"    # J
     .param p4, "destBase"    # Ljava/lang/Object;
@@ -450,35 +450,35 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     int-to-long v1, v0
 
     cmp-long v3, v1, p7
 
-    if-gez v3, :cond_2
+    if-gez v3, :cond_23
 
     .line 412
     int-to-long v1, v0
 
     add-long/2addr v1, p2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_f
 
     invoke-virtual {p0, v1, v2}, Lj$/sun/misc/DesugarUnsafe;->getByte(J)B
 
     move-result v1
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_0
+    :cond_f
     invoke-virtual {p0, p1, v1, v2}, Lj$/sun/misc/DesugarUnsafe;->getByte(Ljava/lang/Object;J)B
 
     move-result v1
 
     .line 413
     .local v1, "value":B
-    :goto_1
-    if-nez p4, :cond_1
+    :goto_13
+    if-nez p4, :cond_1b
 
     .line 414
     int-to-long v2, v0
@@ -487,10 +487,10 @@
 
     invoke-virtual {p0, v2, v3, v1}, Lj$/sun/misc/DesugarUnsafe;->putByte(JB)V
 
-    goto :goto_2
+    goto :goto_20
 
     .line 416
-    :cond_1
+    :cond_1b
     int-to-long v2, v0
 
     add-long/2addr v2, p5
@@ -499,19 +499,19 @@
 
     .line 411
     .end local v1    # "value":B
-    :goto_2
+    :goto_20
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 419
     .end local v0    # "i":I
-    :cond_2
+    :cond_23
     return-void
 .end method
 
 .method public ensureClassInitialized(Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -528,8 +528,8 @@
     move-result-object v0
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_7} :catch_9
 
     .line 864
     nop
@@ -538,7 +538,7 @@
     return-void
 
     .line 861
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 863
@@ -551,7 +551,7 @@
 .end method
 
 .method public freeMemory(J)V
-    .locals 1
+    .registers 4
     .param p1, "address"    # J
 
     .line 366
@@ -564,7 +564,7 @@
 .end method
 
 .method public getAndAddInt(Ljava/lang/Object;JI)I
-    .locals 7
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "delta"    # I
@@ -572,7 +572,7 @@
     .line 134
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lj$/sun/misc/DesugarUnsafe;->theUnsafe:Lsun/misc/Unsafe;
 
     invoke-virtual {v0, p1, p2, p3}, Lsun/misc/Unsafe;->getIntVolatile(Ljava/lang/Object;J)I
@@ -595,14 +595,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 136
     return v0
 .end method
 
 .method public getAndAddLong(Ljava/lang/Object;JJ)J
-    .locals 15
+    .registers 21
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "delta"    # J
@@ -610,7 +610,7 @@
     .line 154
     move-object v0, p0
 
-    :cond_0
+    :cond_1
     iget-object v1, v0, Lj$/sun/misc/DesugarUnsafe;->theUnsafe:Lsun/misc/Unsafe;
 
     move-object/from16 v10, p1
@@ -637,14 +637,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 156
     return-wide v13
 .end method
 
 .method public getAndSetInt(Ljava/lang/Object;JI)I
-    .locals 7
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "newValue"    # I
@@ -652,7 +652,7 @@
     .line 174
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lj$/sun/misc/DesugarUnsafe;->theUnsafe:Lsun/misc/Unsafe;
 
     invoke-virtual {v0, p1, p2, p3}, Lsun/misc/Unsafe;->getIntVolatile(Ljava/lang/Object;J)I
@@ -675,14 +675,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 176
     return v0
 .end method
 
 .method public getAndSetLong(Ljava/lang/Object;JJ)J
-    .locals 15
+    .registers 21
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "newValue"    # J
@@ -690,7 +690,7 @@
     .line 194
     move-object v0, p0
 
-    :cond_0
+    :cond_1
     iget-object v1, v0, Lj$/sun/misc/DesugarUnsafe;->theUnsafe:Lsun/misc/Unsafe;
 
     move-object/from16 v10, p1
@@ -717,14 +717,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 196
     return-wide v13
 .end method
 
 .method public getAndSetObject(Ljava/lang/Object;JLjava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "newValue"    # Ljava/lang/Object;
@@ -732,7 +732,7 @@
     .line 214
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lj$/sun/misc/DesugarUnsafe;->theUnsafe:Lsun/misc/Unsafe;
 
     invoke-virtual {v0, p1, p2, p3}, Lsun/misc/Unsafe;->getObjectVolatile(Ljava/lang/Object;J)Ljava/lang/Object;
@@ -755,14 +755,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 216
     return-object v0
 .end method
 
 .method public getBoolean(Ljava/lang/Object;J)Z
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -777,7 +777,7 @@
 .end method
 
 .method public getByte(J)B
-    .locals 1
+    .registers 4
     .param p1, "address"    # J
 
     .line 605
@@ -791,7 +791,7 @@
 .end method
 
 .method public getByte(Ljava/lang/Object;J)B
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -806,7 +806,7 @@
 .end method
 
 .method public getChar(J)C
-    .locals 1
+    .registers 4
     .param p1, "address"    # J
 
     .line 634
@@ -820,7 +820,7 @@
 .end method
 
 .method public getChar(Ljava/lang/Object;J)C
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -835,7 +835,7 @@
 .end method
 
 .method public getDouble(J)D
-    .locals 2
+    .registers 5
     .param p1, "address"    # J
 
     .line 682
@@ -849,7 +849,7 @@
 .end method
 
 .method public getDouble(Ljava/lang/Object;J)D
-    .locals 2
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -864,7 +864,7 @@
 .end method
 
 .method public getFloat(J)F
-    .locals 1
+    .registers 4
     .param p1, "address"    # J
 
     .line 670
@@ -878,7 +878,7 @@
 .end method
 
 .method public getFloat(Ljava/lang/Object;J)F
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -893,7 +893,7 @@
 .end method
 
 .method public getInt(J)I
-    .locals 1
+    .registers 4
     .param p1, "address"    # J
 
     .line 646
@@ -907,7 +907,7 @@
 .end method
 
 .method public getInt(Ljava/lang/Object;J)I
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -922,7 +922,7 @@
 .end method
 
 .method public getIntVolatile(Ljava/lang/Object;J)I
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -937,7 +937,7 @@
 .end method
 
 .method public getLong(J)J
-    .locals 2
+    .registers 5
     .param p1, "address"    # J
 
     .line 658
@@ -951,7 +951,7 @@
 .end method
 
 .method public getLong(Ljava/lang/Object;J)J
-    .locals 2
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -966,7 +966,7 @@
 .end method
 
 .method public getLongVolatile(Ljava/lang/Object;J)J
-    .locals 2
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -981,7 +981,7 @@
 .end method
 
 .method public getObject(Ljava/lang/Object;J)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -996,7 +996,7 @@
 .end method
 
 .method public getObjectAcquire(Ljava/lang/Object;J)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -1011,7 +1011,7 @@
 .end method
 
 .method public getObjectVolatile(Ljava/lang/Object;J)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -1026,7 +1026,7 @@
 .end method
 
 .method public getShort(J)S
-    .locals 1
+    .registers 4
     .param p1, "address"    # J
 
     .line 622
@@ -1040,7 +1040,7 @@
 .end method
 
 .method public getShort(Ljava/lang/Object;J)S
-    .locals 1
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
 
@@ -1055,7 +1055,7 @@
 .end method
 
 .method public objectFieldOffset(Ljava/lang/Class;Ljava/lang/String;)J
-    .locals 3
+    .registers 6
     .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1069,12 +1069,12 @@
 
     .line 253
     .local p1, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_16
 
     .line 258
-    :try_start_0
+    :try_start_4
     invoke-virtual {p1, p2}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v0
@@ -1082,13 +1082,13 @@
     invoke-virtual {p0, v0}, Lj$/sun/misc/DesugarUnsafe;->objectFieldOffset(Ljava/lang/reflect/Field;)J
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_4 .. :try_end_c} :catch_d
 
     return-wide v0
 
     .line 259
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 260
@@ -1103,7 +1103,7 @@
 
     .line 254
     .end local v0    # "e":Ljava/lang/NoSuchFieldException;
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -1112,7 +1112,7 @@
 .end method
 
 .method public objectFieldOffset(Ljava/lang/reflect/Field;)J
-    .locals 2
+    .registers 4
     .param p1, "f"    # Ljava/lang/reflect/Field;
 
     .line 238
@@ -1126,7 +1126,7 @@
 .end method
 
 .method public pageSize()I
-    .locals 1
+    .registers 2
 
     .line 707
     iget-object v0, p0, Lj$/sun/misc/DesugarUnsafe;->theUnsafe:Lsun/misc/Unsafe;
@@ -1139,7 +1139,7 @@
 .end method
 
 .method public park(ZJ)V
-    .locals 1
+    .registers 5
     .param p1, "isAbsolute"    # Z
     .param p2, "time"    # J
 
@@ -1153,7 +1153,7 @@
 .end method
 
 .method public putBoolean(Ljava/lang/Object;JZ)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # Z
@@ -1168,7 +1168,7 @@
 .end method
 
 .method public putByte(JB)V
-    .locals 1
+    .registers 5
     .param p1, "address"    # J
     .param p3, "x"    # B
 
@@ -1182,7 +1182,7 @@
 .end method
 
 .method public putByte(Ljava/lang/Object;JB)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # B
@@ -1197,7 +1197,7 @@
 .end method
 
 .method public putChar(JC)V
-    .locals 1
+    .registers 5
     .param p1, "address"    # J
     .param p3, "x"    # C
 
@@ -1211,7 +1211,7 @@
 .end method
 
 .method public putChar(Ljava/lang/Object;JC)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # C
@@ -1226,7 +1226,7 @@
 .end method
 
 .method public putDouble(JD)V
-    .locals 1
+    .registers 6
     .param p1, "address"    # J
     .param p3, "x"    # D
 
@@ -1240,7 +1240,7 @@
 .end method
 
 .method public putDouble(Ljava/lang/Object;JD)V
-    .locals 6
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # D
@@ -1261,7 +1261,7 @@
 .end method
 
 .method public putFloat(JF)V
-    .locals 1
+    .registers 5
     .param p1, "address"    # J
     .param p3, "x"    # F
 
@@ -1275,7 +1275,7 @@
 .end method
 
 .method public putFloat(Ljava/lang/Object;JF)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # F
@@ -1290,7 +1290,7 @@
 .end method
 
 .method public putInt(JI)V
-    .locals 1
+    .registers 5
     .param p1, "address"    # J
     .param p3, "x"    # I
 
@@ -1304,7 +1304,7 @@
 .end method
 
 .method public putInt(Ljava/lang/Object;JI)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # I
@@ -1319,7 +1319,7 @@
 .end method
 
 .method public putIntVolatile(Ljava/lang/Object;JI)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # I
@@ -1334,7 +1334,7 @@
 .end method
 
 .method public putLong(JJ)V
-    .locals 1
+    .registers 6
     .param p1, "address"    # J
     .param p3, "x"    # J
 
@@ -1348,7 +1348,7 @@
 .end method
 
 .method public putLong(Ljava/lang/Object;JJ)V
-    .locals 6
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # J
@@ -1369,7 +1369,7 @@
 .end method
 
 .method public putLongVolatile(Ljava/lang/Object;JJ)V
-    .locals 6
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # J
@@ -1390,7 +1390,7 @@
 .end method
 
 .method public putObject(Ljava/lang/Object;JLjava/lang/Object;)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # Ljava/lang/Object;
@@ -1405,7 +1405,7 @@
 .end method
 
 .method public putObjectRelease(Ljava/lang/Object;JLjava/lang/Object;)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # Ljava/lang/Object;
@@ -1420,7 +1420,7 @@
 .end method
 
 .method public putObjectVolatile(Ljava/lang/Object;JLjava/lang/Object;)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # Ljava/lang/Object;
@@ -1435,7 +1435,7 @@
 .end method
 
 .method public putOrderedInt(Ljava/lang/Object;JI)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # I
@@ -1450,7 +1450,7 @@
 .end method
 
 .method public putOrderedLong(Ljava/lang/Object;JJ)V
-    .locals 6
+    .registers 12
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # J
@@ -1471,7 +1471,7 @@
 .end method
 
 .method public putOrderedObject(Ljava/lang/Object;JLjava/lang/Object;)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # Ljava/lang/Object;
@@ -1486,7 +1486,7 @@
 .end method
 
 .method public putShort(JS)V
-    .locals 1
+    .registers 5
     .param p1, "address"    # J
     .param p3, "x"    # S
 
@@ -1500,7 +1500,7 @@
 .end method
 
 .method public putShort(Ljava/lang/Object;JS)V
-    .locals 1
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "x"    # S
@@ -1515,7 +1515,7 @@
 .end method
 
 .method public setMemory(JJB)V
-    .locals 6
+    .registers 12
     .param p1, "address"    # J
     .param p3, "bytes"    # J
     .param p5, "value"    # B
@@ -1536,7 +1536,7 @@
 .end method
 
 .method public unpark(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "thread"    # Ljava/lang/Object;
 
     .line 836

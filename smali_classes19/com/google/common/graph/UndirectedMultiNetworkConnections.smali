@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,7 +59,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/graph/UndirectedMultiNetworkConnections;)Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/UndirectedMultiNetworkConnections;
 
     .line 43
@@ -71,7 +71,7 @@
 .end method
 
 .method private adjacentNodesMultiset()Lcom/google/common/collect/Multiset;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -92,7 +92,7 @@
 
     .line 68
     .local v0, "adjacentNodes":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TN;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 69
     iget-object v1, p0, Lcom/google/common/graph/UndirectedMultiNetworkConnections;->incidentEdgeMap:Ljava/util/Map;
@@ -113,12 +113,12 @@
     iput-object v1, p0, Lcom/google/common/graph/UndirectedMultiNetworkConnections;->adjacentNodesReference:Ljava/lang/ref/Reference;
 
     .line 72
-    :cond_0
+    :cond_1b
     return-object v0
 .end method
 
 .method private static getReference(Ljava/lang/ref/Reference;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0    # Ljava/lang/ref/Reference;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -138,23 +138,23 @@
 
     .line 122
     .local p0, "reference":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<TT;>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     return-object v0
 .end method
 
 .method static of()Lcom/google/common/graph/UndirectedMultiNetworkConnections;
-    .locals 4
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -184,7 +184,7 @@
 .end method
 
 .method static ofImmutable(Ljava/util/Map;)Lcom/google/common/graph/UndirectedMultiNetworkConnections;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -215,7 +215,7 @@
 
 # virtual methods
 .method public addInEdge(Ljava/lang/Object;Ljava/lang/Object;Z)V
-    .locals 0
+    .registers 4
     .param p3, "isSelfLoop"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -227,18 +227,18 @@
     .local p0, "this":Lcom/google/common/graph/UndirectedMultiNetworkConnections;, "Lcom/google/common/graph/UndirectedMultiNetworkConnections<TN;TE;>;"
     .local p1, "edge":Ljava/lang/Object;, "TE;"
     .local p2, "node":Ljava/lang/Object;, "TN;"
-    if-nez p3, :cond_0
+    if-nez p3, :cond_5
 
     .line 107
     invoke-virtual {p0, p1, p2}, Lcom/google/common/graph/UndirectedMultiNetworkConnections;->addOutEdge(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 109
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public addOutEdge(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TN;)V"
@@ -262,7 +262,7 @@
 
     .line 115
     .local v0, "adjacentNodes":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TN;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 116
     invoke-interface {v0, p2}, Lcom/google/common/collect/Multiset;->add(Ljava/lang/Object;)Z
@@ -272,12 +272,12 @@
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 118
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public adjacentNodes()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -304,7 +304,7 @@
 .end method
 
 .method public edgesConnecting(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -326,7 +326,7 @@
 .end method
 
 .method public removeInEdge(Ljava/lang/Object;Z)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p2, "isSelfLoop"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -340,7 +340,7 @@
     .line 88
     .local p0, "this":Lcom/google/common/graph/UndirectedMultiNetworkConnections;, "Lcom/google/common/graph/UndirectedMultiNetworkConnections<TN;TE;>;"
     .local p1, "edge":Ljava/lang/Object;, "TE;"
-    if-nez p2, :cond_0
+    if-nez p2, :cond_7
 
     .line 89
     invoke-virtual {p0, p1}, Lcom/google/common/graph/UndirectedMultiNetworkConnections;->removeOutEdge(Ljava/lang/Object;)Ljava/lang/Object;
@@ -350,14 +350,14 @@
     return-object v0
 
     .line 91
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public removeOutEdge(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TN;"
@@ -383,7 +383,7 @@
 
     .line 98
     .local v1, "adjacentNodes":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TN;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 99
     invoke-interface {v1, v0}, Lcom/google/common/collect/Multiset;->remove(Ljava/lang/Object;)Z
@@ -393,6 +393,6 @@
     invoke-static {v2}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 101
-    :cond_0
+    :cond_15
     return-object v0
 .end method

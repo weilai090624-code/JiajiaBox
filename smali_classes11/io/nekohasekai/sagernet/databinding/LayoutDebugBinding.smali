@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/Button;Landroid/widget/Button;)V
-    .locals 0
+    .registers 4
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "debugCrash"    # Landroid/widget/Button;
     .param p3, "resetSettings"    # Landroid/widget/Button;
@@ -50,7 +50,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutDebugBinding;
-    .locals 5
+    .registers 6
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -74,7 +74,7 @@
 
     .line 64
     .local v1, "debugCrash":Landroid/widget/Button;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     .line 68
     const v0, 0x7f0a022b
@@ -88,7 +88,7 @@
 
     .line 70
     .local v2, "resetSettings":Landroid/widget/Button;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     .line 74
     new-instance v3, Lio/nekohasekai/sagernet/databinding/LayoutDebugBinding;
@@ -102,17 +102,17 @@
     return-object v3
 
     .line 71
-    :cond_0
-    goto :goto_0
+    :cond_1f
+    goto :goto_21
 
     .line 65
     .end local v2    # "resetSettings":Landroid/widget/Button;
-    :cond_1
+    :cond_20
     nop
 
     .line 76
     .end local v1    # "debugCrash":Landroid/widget/Button;
-    :goto_0
+    :goto_21
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -137,7 +137,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutDebugBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -161,7 +161,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutDebugBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -189,13 +189,13 @@
 
     .line 50
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 51
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 53
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutDebugBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutDebugBinding;
 
     move-result-object v1
@@ -206,7 +206,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 18
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutDebugBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -217,7 +217,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutDebugBinding;->rootView:Landroid/widget/LinearLayout;

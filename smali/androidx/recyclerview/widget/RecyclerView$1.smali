@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 422
@@ -37,14 +37,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 425
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$1;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     iget-boolean v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mFirstLayoutComplete:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2d
 
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$1;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -52,17 +52,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 429
-    :cond_0
+    :cond_f
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$1;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     iget-boolean v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mIsAttached:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     .line 430
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$1;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -73,12 +73,12 @@
     return-void
 
     .line 434
-    :cond_1
+    :cond_1b
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$1;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     iget-boolean v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mLayoutSuppressed:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_27
 
     .line 435
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$1;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -91,7 +91,7 @@
     return-void
 
     .line 438
-    :cond_2
+    :cond_27
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$1;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->consumePendingUpdateOperations()V
@@ -100,7 +100,7 @@
     return-void
 
     .line 427
-    :cond_3
-    :goto_0
+    :cond_2d
+    :goto_2d
     return-void
 .end method

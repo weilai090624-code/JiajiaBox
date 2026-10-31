@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$dropWhile(Lj$/util/stream/DoubleStream;Ljava/util/function/DoublePredicate;)Lj$/util/stream/DoubleStream;
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/DoubleStream;
     .param p1, "predicate"    # Ljava/util/function/DoublePredicate;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public static bridge synthetic $default$iterator(Lj$/util/stream/DoubleStream;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/DoubleStream;
 
     .line 72
@@ -62,7 +62,7 @@
 .end method
 
 .method public static bridge synthetic $default$parallel(Lj$/util/stream/DoubleStream;)Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/DoubleStream;
 
     .line 72
@@ -74,7 +74,7 @@
 .end method
 
 .method public static bridge synthetic $default$sequential(Lj$/util/stream/DoubleStream;)Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/DoubleStream;
 
     .line 72
@@ -86,7 +86,7 @@
 .end method
 
 .method public static bridge synthetic $default$spliterator(Lj$/util/stream/DoubleStream;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/DoubleStream;
 
     .line 72
@@ -98,7 +98,7 @@
 .end method
 
 .method public static $default$takeWhile(Lj$/util/stream/DoubleStream;Ljava/util/function/DoublePredicate;)Lj$/util/stream/DoubleStream;
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/DoubleStream;
     .param p1, "predicate"    # Ljava/util/function/DoublePredicate;
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public static builder()Lj$/util/stream/DoubleStream$Builder;
-    .locals 1
+    .registers 1
 
     .line 911
     new-instance v0, Lj$/util/stream/Streams$DoubleStreamBuilderImpl;
@@ -154,7 +154,7 @@
 .end method
 
 .method public static concat(Lj$/util/stream/DoubleStream;Lj$/util/stream/DoubleStream;)Lj$/util/stream/DoubleStream;
-    .locals 3
+    .registers 5
     .param p0, "a"    # Lj$/util/stream/DoubleStream;
     .param p1, "b"    # Lj$/util/stream/DoubleStream;
 
@@ -184,26 +184,26 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_22
 
     invoke-interface {p1}, Lj$/util/stream/DoubleStream;->isParallel()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_23
     invoke-static {v0, v1}, Lj$/util/stream/StreamSupport;->doubleStream(Lj$/util/Spliterator$OfDouble;Z)Lj$/util/stream/DoubleStream;
 
     move-result-object v1
@@ -224,7 +224,7 @@
 .end method
 
 .method public static empty()Lj$/util/stream/DoubleStream;
-    .locals 2
+    .registers 2
 
     .line 920
     invoke-static {}, Lj$/util/Spliterators;->emptyDoubleSpliterator()Lj$/util/Spliterator$OfDouble;
@@ -241,7 +241,7 @@
 .end method
 
 .method public static generate(Ljava/util/function/DoubleSupplier;)Lj$/util/stream/DoubleStream;
-    .locals 3
+    .registers 4
     .param p0, "s"    # Ljava/util/function/DoubleSupplier;
 
     .line 1079
@@ -264,7 +264,7 @@
 .end method
 
 .method public static iterate(DLjava/util/function/DoublePredicate;Ljava/util/function/DoubleUnaryOperator;)Lj$/util/stream/DoubleStream;
-    .locals 9
+    .registers 13
     .param p0, "seed"    # D
     .param p2, "hasNext"    # Ljava/util/function/DoublePredicate;
     .param p3, "next"    # Ljava/util/function/DoubleUnaryOperator;
@@ -304,7 +304,7 @@
 .end method
 
 .method public static iterate(DLjava/util/function/DoubleUnaryOperator;)Lj$/util/stream/DoubleStream;
-    .locals 8
+    .registers 11
     .param p0, "seed"    # D
     .param p2, "f"    # Ljava/util/function/DoubleUnaryOperator;
 
@@ -338,7 +338,7 @@
 .end method
 
 .method public static of(D)Lj$/util/stream/DoubleStream;
-    .locals 2
+    .registers 4
     .param p0, "t"    # D
 
     .line 930
@@ -356,7 +356,7 @@
 .end method
 
 .method public static varargs of([D)Lj$/util/stream/DoubleStream;
-    .locals 1
+    .registers 2
     .param p0, "values"    # [D
 
     .line 940

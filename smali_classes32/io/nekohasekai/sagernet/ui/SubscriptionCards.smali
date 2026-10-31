@@ -28,7 +28,7 @@
 .method static constructor <clinit>()V
     .registers 1
 
-    .line 9
+    .line 23
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
@@ -41,7 +41,7 @@
 .method public constructor <init>()V
     .registers 1
 
-    .line 8
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -50,7 +50,7 @@
 .method static synthetic access$000()Ljava/util/WeakHashMap;
     .registers 1
 
-    .line 8
+    .line 22
     sget-object v0, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->meters:Ljava/util/WeakHashMap;
 
     return-object v0
@@ -59,7 +59,7 @@
 .method private static addMeter(Landroid/widget/LinearLayout;Ljava/lang/String;D)V
     .registers 9
 
-    .line 42
+    .line 56
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -94,7 +94,7 @@
 
     invoke-virtual {p0, v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 43
+    .line 57
     new-instance v1, Lio/nekohasekai/sagernet/ui/SubscriptionCards$Meter;
 
     invoke-direct {v1, v0, p2, p3}, Lio/nekohasekai/sagernet/ui/SubscriptionCards$Meter;-><init>(Landroid/content/Context;D)V
@@ -103,7 +103,7 @@
 
     new-instance p1, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/high16 p2, 0x40000000    # 2.0f
+    const/high16 p2, 0x40400000    # 3.0f
 
     invoke-static {v0, p2}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
@@ -130,7 +130,7 @@
         }
     .end annotation
 
-    .line 11
+    .line 25
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -169,7 +169,7 @@
 
     const-string v6, "\u5269\u4f59\u6d41\u91cf "
 
-    .line 15
+    .line 29
     :try_start_e
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
@@ -181,7 +181,7 @@
 
     move-result-object v8
 
-    .line 16
+    .line 30
     const-string v9, "displayName"
 
     invoke-static {v1, v9}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->call(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
@@ -192,7 +192,7 @@
 
     move-result-object v9
 
-    .line 17
+    .line 31
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v10
@@ -223,7 +223,7 @@
 
     move-result-object v9
 
-    .line 18
+    .line 32
     :cond_3f
     invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
 
@@ -237,7 +237,7 @@
 
     const/high16 v13, 0x41600000    # 14.0f
 
-    .line 19
+    .line 33
     invoke-static {v7, v13}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v13
@@ -256,7 +256,7 @@
 
     const/16 v13, 0xf
 
-    .line 20
+    .line 34
     invoke-static {v7, v9, v13}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->text(Landroid/content/Context;Ljava/lang/String;I)Landroid/widget/TextView;
 
     move-result-object v9
@@ -285,14 +285,14 @@
 
     invoke-virtual {v10, v9, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    if-nez v8, :cond_98
+    const/16 v9, 0xb
 
-    .line 21
+    if-nez v8, :cond_99
+
+    .line 35
     const-string v1, "\u672c\u5730\u5206\u7ec4"
 
-    const/16 v2, 0xb
-
-    invoke-static {v7, v1, v2}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->text(Landroid/content/Context;Ljava/lang/String;I)Landroid/widget/TextView;
+    invoke-static {v7, v1, v9}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->text(Landroid/content/Context;Ljava/lang/String;I)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -306,13 +306,15 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setMinimumHeight(I)V
 
-    :goto_95
+    move-object v12, v10
+
+    :goto_96
     const/4 v1, 0x0
 
-    goto/16 :goto_1ac
+    goto/16 :goto_1b2
 
-    .line 23
-    :cond_98
+    .line 37
+    :cond_99
     invoke-static {v8}, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->from(Ljava/lang/Object;)Lio/nekohasekai/sagernet/ui/SubscriptionInfo;
 
     move-result-object v8
@@ -325,178 +327,186 @@
 
     div-long v14, v16, v18
 
-    .line 24
+    .line 38
     iget-wide v11, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->remaining:J
-    :try_end_a6
-    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_a6} :catch_1c5
+    :try_end_a7
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_a7} :catch_1cb
 
-    const-string v9, ""
+    const-string v13, ""
 
     const-wide/16 v20, 0x0
 
     cmp-long v22, v11, v20
 
-    if-ltz v22, :cond_e0
+    if-ltz v22, :cond_e2
 
-    :try_start_ae
+    :try_start_af
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-wide/from16 v22, v14
+    move-object v12, v10
 
-    iget-wide v13, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->remaining:J
+    iget-wide v9, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->remaining:J
 
-    invoke-static {v13, v14}, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->formatBytes(J)Ljava/lang/String;
+    invoke-static {v9, v10}, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->formatBytes(J)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v9
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v12, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->total:J
+    iget-wide v9, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->total:J
 
-    cmp-long v14, v12, v20
+    cmp-long v22, v9, v20
 
-    if-lez v14, :cond_d7
+    if-lez v22, :cond_d8
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v9, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-wide v13, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->total:J
+    move-object v5, v7
 
-    invoke-static {v13, v14}, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->formatBytes(J)Ljava/lang/String;
+    iget-wide v6, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->total:J
 
-    move-result-object v5
+    invoke-static {v6, v7}, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->formatBytes(J)Ljava/lang/String;
 
-    invoke-virtual {v12, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    goto :goto_d8
+    move-result-object v6
 
-    :cond_d7
-    move-object v5, v9
+    goto :goto_da
 
-    :goto_d8
-    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_d8
+    move-object v5, v7
+
+    move-object v6, v13
+
+    :goto_da
+    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    goto :goto_e4
+    goto :goto_e6
 
-    :cond_e0
-    move-wide/from16 v22, v14
+    :cond_e2
+    move-object v5, v7
 
-    const-string v5, "\u5269\u4f59\u6d41\u91cf \u00b7 \u8ba2\u9605\u672a\u63d0\u4f9b\u989d\u5ea6"
+    move-object v12, v10
 
-    .line 25
-    :goto_e4
+    const-string v6, "\u5269\u4f59\u6d41\u91cf \u00b7 \u8ba2\u9605\u672a\u63d0\u4f9b\u989d\u5ea6"
+
+    .line 39
+    :goto_e6
     invoke-virtual {v8}, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->trafficRatio()D
 
-    move-result-wide v11
+    move-result-wide v10
 
-    invoke-static {v10, v5, v11, v12}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->addMeter(Landroid/widget/LinearLayout;Ljava/lang/String;D)V
+    invoke-static {v12, v6, v10, v11}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->addMeter(Landroid/widget/LinearLayout;Ljava/lang/String;D)V
 
-    .line 26
-    const-string v5, "\u4e0d\u9650\u65f6"
+    .line 40
+    const-string v6, "\u4e0d\u9650\u65f6"
 
-    .line 27
-    iget-wide v11, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->expiry:J
+    .line 41
+    iget-wide v9, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->expiry:J
 
-    cmp-long v13, v11, v20
+    cmp-long v11, v9, v20
 
-    if-lez v13, :cond_15c
+    if-lez v11, :cond_161
 
-    iget-wide v11, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->expiry:J
+    iget-wide v9, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->expiry:J
 
-    sub-long v11, v11, v22
+    sub-long/2addr v9, v14
 
-    cmp-long v5, v11, v20
+    cmp-long v6, v9, v20
 
-    if-gtz v5, :cond_fe
+    if-gtz v6, :cond_ff
 
-    :goto_fb
-    move-wide/from16 v11, v20
+    :goto_fc
+    move-wide/from16 v9, v20
 
-    goto :goto_109
+    goto :goto_10b
 
-    :cond_fe
-    const-wide/16 v13, 0x1
+    :cond_ff
+    const-wide/16 v20, 0x1
 
-    sub-long/2addr v11, v13
+    sub-long v9, v9, v20
 
-    const-wide/32 v20, 0x15180
+    const-wide/32 v22, 0x15180
 
-    div-long v11, v11, v20
+    div-long v9, v9, v22
 
-    add-long v20, v11, v13
+    add-long v20, v9, v20
 
-    goto :goto_fb
+    goto :goto_fc
 
-    .line 28
-    :goto_109
-    new-instance v13, Ljava/text/SimpleDateFormat;
+    .line 42
+    :goto_10b
+    new-instance v11, Ljava/text/SimpleDateFormat;
 
-    const-string v14, "yyyy-MM-dd"
+    const-string v7, "yyyy-MM-dd"
+
+    move-object/from16 v21, v5
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-direct {v13, v14, v15}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+    invoke-direct {v11, v7, v5}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
 
-    new-instance v14, Ljava/util/Date;
+    new-instance v5, Ljava/util/Date;
 
-    move-object v15, v7
+    move/from16 v22, v6
 
     iget-wide v6, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->expiry:J
 
-    const-wide v24, 0x20c49ba5e353f7L
+    const-wide v23, 0x20c49ba5e353f7L
 
-    cmp-long v21, v6, v24
+    cmp-long v25, v6, v23
 
-    if-lez v21, :cond_128
+    if-lez v25, :cond_12d
 
     const-wide v6, 0x7fffffffffffffffL
 
-    goto :goto_12c
+    goto :goto_131
 
-    :cond_128
+    :cond_12d
     iget-wide v6, v8, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->expiry:J
 
     mul-long v6, v6, v18
 
-    :goto_12c
-    invoke-direct {v14, v6, v7}, Ljava/util/Date;-><init>(J)V
+    :goto_131
+    invoke-direct {v5, v6, v7}, Ljava/util/Date;-><init>(J)V
 
-    invoke-virtual {v13, v14}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {v11, v5}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    .line 29
-    new-instance v7, Ljava/lang/StringBuilder;
+    .line 43
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-gtz v5, :cond_140
+    if-gtz v22, :cond_145
 
     const-string v2, " \u00b7 \u5df2\u5230\u671f"
 
-    goto :goto_151
+    goto :goto_156
 
-    :cond_140
+    :cond_145
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v11, v12}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v9, v10}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     const-string v2, " \u5929"
 
@@ -506,31 +516,29 @@
 
     move-result-object v2
 
-    :goto_151
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_156
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    goto :goto_15d
+    goto :goto_163
 
-    :cond_15c
-    move-object v15, v7
+    :cond_161
+    move-object/from16 v21, v5
 
-    :goto_15d
-    move-wide/from16 v2, v22
-
-    .line 31
-    invoke-virtual {v8, v2, v3}, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->timeRatio(J)D
+    .line 45
+    :goto_163
+    invoke-virtual {v8, v14, v15}, Lio/nekohasekai/sagernet/ui/SubscriptionInfo;->timeRatio(J)D
 
     move-result-wide v2
 
-    invoke-static {v10, v5, v2, v3}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->addMeter(Landroid/widget/LinearLayout;Ljava/lang/String;D)V
+    invoke-static {v12, v6, v2, v3}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->addMeter(Landroid/widget/LinearLayout;Ljava/lang/String;D)V
 
-    .line 32
+    .line 46
     const-string v2, "getId"
 
     invoke-static {v1, v2}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->call(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
@@ -543,16 +551,18 @@
 
     move-result-wide v1
 
-    invoke-static {v15, v1, v2}, Lio/nekohasekai/sagernet/ui/SubscriptionUpdates;->summary(Landroid/content/Context;J)Ljava/lang/String;
+    move-object/from16 v5, v21
+
+    invoke-static {v5, v1, v2}, Lio/nekohasekai/sagernet/ui/SubscriptionUpdates;->summary(Landroid/content/Context;J)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 33
+    .line 47
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_1a1
+    if-nez v2, :cond_1a7
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -564,9 +574,9 @@
 
     move-result-object v1
 
-    const/16 v2, 0xa
+    const/16 v6, 0xb
 
-    invoke-static {v15, v1, v2}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->text(Landroid/content/Context;Ljava/lang/String;I)Landroid/widget/TextView;
+    invoke-static {v5, v1, v6}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->text(Landroid/content/Context;Ljava/lang/String;I)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -580,61 +590,61 @@
 
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/4 v9, -0x1
+    const/4 v3, -0x2
 
-    const/4 v13, -0x2
+    const/4 v13, -0x1
 
-    invoke-direct {v2, v9, v13}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v2, v13, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v10, v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v12, v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_1a1
+    :cond_1a7
     const/high16 v1, 0x42d00000    # 104.0f
 
-    .line 34
-    invoke-static {v15, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
+    .line 48
+    invoke-static {v5, v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setMinimumHeight(I)V
 
-    goto/16 :goto_95
+    goto/16 :goto_96
 
-    .line 36
-    :goto_1ac
+    .line 50
+    :goto_1b2
     invoke-virtual {v0, v1, v1, v1, v1}, Landroid/view/ViewGroup;->setPadding(IIII)V
 
-    .line 37
+    .line 51
     new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    const/4 v9, -0x1
+    const/4 v3, -0x2
 
-    const/4 v13, -0x2
+    const/4 v13, -0x1
 
-    invoke-direct {v1, v9, v13}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v1, v13, v3}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v0, v10, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v0, v12, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 38
+    .line 52
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1c4
+    if-eqz v1, :cond_1ca
 
-    iput v13, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v3, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-    :try_end_1c4
-    .catch Ljava/lang/Exception; {:try_start_ae .. :try_end_1c4} :catch_1c5
+    :try_end_1ca
+    .catch Ljava/lang/Exception; {:try_start_af .. :try_end_1ca} :catch_1cb
 
-    :cond_1c4
+    :cond_1ca
     return-void
 
-    :catch_1c5
+    :catch_1cb
     move-exception v0
 
-    .line 39
+    .line 53
     const-string v1, "SubscriptionCards"
 
     const-string v2, "Cannot show subscription information"
@@ -656,7 +666,7 @@
         }
     .end annotation
 
-    .line 68
+    .line 82
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
@@ -709,7 +719,7 @@
 .method static synthetic lambda$show$0(Landroid/app/Dialog;Ljava/lang/Object;JLjava/lang/Object;Landroid/view/View;)V
     .registers 10
 
-    .line 57
+    .line 71
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
     :try_start_3
@@ -776,63 +786,21 @@
 .end method
 
 .method static synthetic lambda$show$1(Landroid/app/Dialog;Ljava/lang/Object;Ljava/lang/Object;Landroid/view/View;)Z
-    .registers 8
+    .registers 4
 
-    .line 58
-    invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
+    invoke-static {p3, p0}, Lio/nekohasekai/sagernet/ui/MorphDialog;->anchor(Landroid/view/View;Landroid/app/Dialog;)V
+
+    invoke-static {p1, p2}, Lio/nekohasekai/sagernet/ui/GroupActions;->show(Ljava/lang/Object;Ljava/lang/Object;)V
 
     const/4 p0, 0x1
 
-    :try_start_4
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object p3
-
-    const-string v0, "confirmDeleteGroup"
-
-    new-array v1, p0, [Ljava/lang/Class;
-
-    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    invoke-virtual {p3, v0, v1}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object p3
-
-    invoke-virtual {p3, p0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-
-    new-array v0, p0, [Ljava/lang/Object;
-
-    aput-object p2, v0, v3
-
-    invoke-virtual {p3, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_21
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_21} :catch_22
-
-    goto :goto_2a
-
-    :catch_22
-    move-exception p1
-
-    const-string p2, "SubscriptionCards"
-
-    const-string p3, "Cannot confirm group deletion"
-
-    invoke-static {p2, p3, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_2a
     return p0
 .end method
 
 .method static synthetic lambda$show$2(Landroid/app/Dialog;Landroid/view/View;)V
     .registers 2
 
-    .line 64
+    .line 78
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
     return-void
@@ -841,7 +809,7 @@
 .method public static refreshAll()V
     .registers 4
 
-    .line 10
+    .line 24
     sget-object v0, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->meters:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0}, Ljava/util/WeakHashMap;->keySet()Ljava/util/Set;
@@ -888,7 +856,7 @@
 
     move-object/from16 v5, p0
 
-    .line 47
+    .line 61
     :try_start_2
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->isEmpty()Z
 
@@ -912,7 +880,7 @@
 
     goto/16 :goto_1a1
 
-    .line 48
+    .line 62
     :cond_18
     const-string v0, "requireContext"
 
@@ -928,7 +896,7 @@
 
     invoke-direct {v1, v6}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
 
-    .line 49
+    .line 63
     invoke-static {v6}, Lio/nekohasekai/sagernet/ui/UiComponents;->column(Landroid/content/Context;)Landroid/widget/LinearLayout;
 
     move-result-object v7
@@ -943,7 +911,7 @@
 
     invoke-virtual {v7, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 50
+    .line 64
     new-instance v8, Landroid/widget/LinearLayout;
 
     invoke-direct {v8, v6}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -952,7 +920,7 @@
 
     invoke-virtual {v8, v9}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 51
+    .line 65
     const-string v0, "io.nekohasekai.sagernet.database.DataStore"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -971,7 +939,7 @@
 
     move-result-object v2
 
-    .line 52
+    .line 66
     const-string v0, "getSelectedGroup"
 
     invoke-static {v2, v0}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->call(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
@@ -984,7 +952,7 @@
 
     move-result-wide v10
 
-    .line 54
+    .line 68
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v12
@@ -1006,7 +974,7 @@
 
     move-result-object v0
 
-    .line 55
+    .line 69
     const-string v4, "getId"
 
     invoke-static {v0, v4}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->call(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
@@ -1043,7 +1011,7 @@
 
     invoke-virtual {v4, v9}, Landroid/widget/FrameLayout;->setClipToOutline(Z)V
 
-    .line 56
+    .line 70
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
@@ -1082,7 +1050,7 @@
 
     invoke-static {v4, v0}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->decorate(Landroid/view/ViewGroup;Ljava/lang/Object;)V
 
-    .line 57
+    .line 71
     invoke-virtual {v4, v9}, Landroid/widget/FrameLayout;->setClickable(Z)V
 
     invoke-virtual {v4, v9}, Landroid/widget/FrameLayout;->setFocusable(Z)V
@@ -1103,14 +1071,14 @@
 
     invoke-virtual {v15, v0}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 58
+    .line 72
     new-instance v0, Lio/nekohasekai/sagernet/ui/SubscriptionCards$1;
 
     invoke-direct {v0, v1, v5, v13}, Lio/nekohasekai/sagernet/ui/SubscriptionCards$1;-><init>(Landroid/app/Dialog;Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v15, v0}, Landroid/widget/FrameLayout;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    .line 59
+    .line 73
     new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v3, -0x1
@@ -1146,7 +1114,7 @@
     :cond_f3
     const/4 v9, -0x2
 
-    .line 61
+    .line 75
     new-instance v0, Landroid/widget/ScrollView;
 
     invoke-direct {v0, v6}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
@@ -1163,7 +1131,7 @@
 
     invoke-virtual {v0, v8, v2}, Landroid/widget/ScrollView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 62
+    .line 76
     invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -1194,10 +1162,10 @@
 
     invoke-virtual {v7, v0, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 63
+    .line 77
     const-string v0, "\u65f6\u95f4\u8fdb\u5ea6\u6761\u4ee5\u5269\u4f5930\u5929\u4e3a\u523b\u5ea6"
 
-    const/16 v2, 0xa
+    const/16 v2, 0xb
 
     invoke-static {v6, v0, v2}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->text(Landroid/content/Context;Ljava/lang/String;I)Landroid/widget/TextView;
 
@@ -1221,7 +1189,7 @@
 
     invoke-virtual {v7, v0, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 64
+    .line 78
     invoke-static {v6}, Lio/nekohasekai/sagernet/ui/UiComponents;->actions(Landroid/content/Context;)Landroid/widget/LinearLayout;
 
     move-result-object v0
@@ -1256,10 +1224,10 @@
 
     invoke-virtual {v7, v0, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 65
+    .line 79
     invoke-virtual {v1, v7}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
-    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
     invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
@@ -1322,7 +1290,7 @@
     :catch_1a2
     move-exception v0
 
-    .line 66
+    .line 80
     const-string v1, "SubscriptionCards"
 
     const-string v2, "Cannot open group switcher"
@@ -1335,7 +1303,7 @@
 .method static text(Landroid/content/Context;Ljava/lang/String;I)Landroid/widget/TextView;
     .registers 4
 
-    .line 12
+    .line 26
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V

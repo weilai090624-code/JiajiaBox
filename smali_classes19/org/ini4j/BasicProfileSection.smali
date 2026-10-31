@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 25
     const/4 v0, 0x0
@@ -37,7 +37,7 @@
 .end method
 
 .method protected constructor <init>(Lorg/ini4j/BasicProfile;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "profile"    # Lorg/ini4j/BasicProfile;
     .param p2, "name"    # Ljava/lang/String;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method private childName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
 
     .line 128
@@ -94,7 +94,7 @@
 .end method
 
 .method private newChildPattern(Ljava/lang/String;)Ljava/util/regex/Pattern;
-    .locals 3
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
 
     .line 138
@@ -166,7 +166,7 @@
 
 # virtual methods
 .method public addChild(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
 
     .line 72
@@ -186,7 +186,7 @@
 .end method
 
 .method public childrenNames()[Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 79
     new-instance v0, Ljava/util/ArrayList;
@@ -206,12 +206,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_37
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -231,7 +231,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_36
 
     .line 85
     iget-object v3, p0, Lorg/ini4j/BasicProfileSection;->_name:Ljava/lang/String;
@@ -250,12 +250,12 @@
 
     .line 87
     .end local v2    # "key":Ljava/lang/String;
-    :cond_0
-    goto :goto_0
+    :cond_36
+    goto :goto_f
 
     .line 89
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_1
+    :cond_37
     sget-object v1, Lorg/ini4j/BasicProfileSection;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
     invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -268,7 +268,7 @@
 .end method
 
 .method public getChild(Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
 
     .line 40
@@ -288,7 +288,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Lorg/ini4j/BasicProfileSection;->_name:Ljava/lang/String;
@@ -297,7 +297,7 @@
 .end method
 
 .method public getParent()Lorg/ini4j/Profile$Section;
-    .locals 4
+    .registers 5
 
     .line 50
     const/4 v0, 0x0
@@ -318,7 +318,7 @@
 
     .line 53
     .local v1, "idx":I
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_1f
 
     .line 55
     iget-object v2, p0, Lorg/ini4j/BasicProfileSection;->_name:Ljava/lang/String;
@@ -343,12 +343,12 @@
 
     .line 60
     .end local v2    # "name":Ljava/lang/String;
-    :cond_0
+    :cond_1f
     return-object v0
 .end method
 
 .method public getSimpleName()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 65
     iget-object v0, p0, Lorg/ini4j/BasicProfileSection;->_name:Ljava/lang/String;
@@ -367,23 +367,23 @@
     .local v0, "idx":I
     iget-object v1, p0, Lorg/ini4j/BasicProfileSection;->_name:Ljava/lang/String;
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_11
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_11
     add-int/lit8 v2, v0, 0x1
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_17
     return-object v1
 .end method
 
 .method isPropertyFirstUpper()Z
-    .locals 1
+    .registers 2
 
     .line 118
     iget-object v0, p0, Lorg/ini4j/BasicProfileSection;->_profile:Lorg/ini4j/BasicProfile;
@@ -396,7 +396,7 @@
 .end method
 
 .method public varargs lookup([Ljava/lang/String;)Lorg/ini4j/Profile$Section;
-    .locals 6
+    .registers 8
     .param p1, "parts"    # [Ljava/lang/String;
 
     .line 94
@@ -415,8 +415,8 @@
     const/4 v3, 0x0
 
     .local v3, "i$":I
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_8
+    if-ge v3, v2, :cond_21
 
     aget-object v4, v1, v3
 
@@ -426,7 +426,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1b
 
     .line 100
     iget-object v5, p0, Lorg/ini4j/BasicProfileSection;->_profile:Lorg/ini4j/BasicProfile;
@@ -438,20 +438,20 @@
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 103
-    :cond_0
+    :cond_1b
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 96
     .end local v4    # "part":Ljava/lang/String;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 106
     .end local v1    # "arr$":[Ljava/lang/String;
     .end local v2    # "len$":I
     .end local v3    # "i$":I
-    :cond_1
+    :cond_21
     iget-object v1, p0, Lorg/ini4j/BasicProfileSection;->_profile:Lorg/ini4j/BasicProfile;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -472,7 +472,7 @@
 .end method
 
 .method public removeChild(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
 
     .line 111
@@ -491,7 +491,7 @@
 .end method
 
 .method resolve(Ljava/lang/StringBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "buffer"    # Ljava/lang/StringBuilder;
 
     .line 123

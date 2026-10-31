@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/String;
 
     .line 33
@@ -23,7 +23,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -42,7 +42,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/ObjectStreamException;
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public doubleValue()D
-    .locals 2
+    .registers 3
 
     .line 66
     iget-object v0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
@@ -75,24 +75,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 95
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 96
     return v0
 
     .line 98
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/gson/internal/LazilyParsedNumber;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_1f
 
     .line 99
     move-object v1, p1
@@ -105,7 +105,7 @@
 
     iget-object v4, v1, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_1e
 
     iget-object v3, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
 
@@ -115,25 +115,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
-    :cond_2
-    :goto_0
+    :cond_1e
+    :goto_1e
     return v0
 
     .line 102
     .end local v1    # "other":Lcom/google/gson/internal/LazilyParsedNumber;
-    :cond_3
+    :cond_1f
     return v2
 .end method
 
 .method public floatValue()F
-    .locals 1
+    .registers 2
 
     .line 61
     iget-object v0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
@@ -146,7 +146,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 90
     iget-object v0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
@@ -159,7 +159,7 @@
 .end method
 
 .method public intValue()I
-    .locals 4
+    .registers 5
 
     .line 40
     :try_start_0
@@ -168,32 +168,32 @@
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 41
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 43
     .local v0, "e":Ljava/lang/NumberFormatException;
-    :try_start_1
+    :try_start_8
     iget-object v1, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
 
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v1
-    :try_end_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_e
+    .catch Ljava/lang/NumberFormatException; {:try_start_8 .. :try_end_e} :catch_10
 
     long-to-int v2, v1
 
     return v2
 
     .line 44
-    :catch_1
+    :catch_10
     move-exception v1
 
     .line 45
@@ -212,7 +212,7 @@
 .end method
 
 .method public longValue()J
-    .locals 3
+    .registers 4
 
     .line 53
     :try_start_0
@@ -221,13 +221,13 @@
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-wide v0
 
     .line 54
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 55
@@ -246,7 +246,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;

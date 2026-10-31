@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "seed"    # I
 
     .line 96
@@ -60,7 +60,7 @@
 .end method
 
 .method private bmix64(JJ)V
-    .locals 6
+    .registers 11
     .param p1, "k1"    # J
     .param p3, "k2"    # J
 
@@ -155,7 +155,7 @@
 .end method
 
 .method private static fmix64(J)J
-    .locals 3
+    .registers 5
     .param p0, "k"    # J
 
     .line 192
@@ -190,7 +190,7 @@
 .end method
 
 .method private static mixK1(J)J
-    .locals 2
+    .registers 4
     .param p0, "k1"    # J
 
     .line 201
@@ -215,7 +215,7 @@
 .end method
 
 .method private static mixK2(J)J
-    .locals 2
+    .registers 4
     .param p0, "k2"    # J
 
     .line 208
@@ -242,7 +242,7 @@
 
 # virtual methods
 .method protected makeHash()Lcom/google/common/hash/HashCode;
-    .locals 4
+    .registers 5
 
     .line 171
     iget-wide v0, p0, Lcom/google/common/hash/Murmur3_128HashFunction$Murmur3_128Hasher;->h1:J
@@ -365,7 +365,7 @@
 .end method
 
 .method protected process(Ljava/nio/ByteBuffer;)V
-    .locals 5
+    .registers 7
     .param p1, "bb"    # Ljava/nio/ByteBuffer;
 
     .line 104
@@ -395,7 +395,7 @@
 .end method
 
 .method protected processRemaining(Ljava/nio/ByteBuffer;)V
-    .locals 13
+    .registers 15
     .param p1, "bb"    # Ljava/nio/ByteBuffer;
 
     .line 126
@@ -434,7 +434,7 @@
 
     const/16 v10, 0x8
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_f0
 
     .line 163
     new-instance v4, Ljava/lang/AssertionError;
@@ -446,7 +446,7 @@
     throw v4
 
     .line 131
-    :pswitch_0
+    :pswitch_28
     const/16 v4, 0xe
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -464,7 +464,7 @@
     xor-long/2addr v2, v4
 
     .line 133
-    :pswitch_1
+    :pswitch_36
     const/16 v4, 0xd
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -482,7 +482,7 @@
     xor-long/2addr v2, v4
 
     .line 135
-    :pswitch_2
+    :pswitch_43
     const/16 v4, 0xc
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -500,7 +500,7 @@
     xor-long/2addr v2, v4
 
     .line 137
-    :pswitch_3
+    :pswitch_50
     const/16 v4, 0xb
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -518,7 +518,7 @@
     xor-long/2addr v2, v4
 
     .line 139
-    :pswitch_4
+    :pswitch_5d
     const/16 v4, 0xa
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -536,7 +536,7 @@
     xor-long/2addr v2, v4
 
     .line 141
-    :pswitch_5
+    :pswitch_6a
     const/16 v4, 0x9
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -554,7 +554,7 @@
     xor-long/2addr v2, v4
 
     .line 143
-    :pswitch_6
+    :pswitch_77
     invoke-virtual {p1, v10}, Ljava/nio/ByteBuffer;->get(I)B
 
     move-result v4
@@ -568,7 +568,7 @@
     xor-long/2addr v2, v4
 
     .line 145
-    :pswitch_7
+    :pswitch_81
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->getLong()J
 
     move-result-wide v4
@@ -576,10 +576,10 @@
     xor-long/2addr v0, v4
 
     .line 146
-    goto :goto_0
+    goto :goto_dc
 
     .line 148
-    :pswitch_8
+    :pswitch_87
     const/4 v4, 0x6
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -597,7 +597,7 @@
     xor-long/2addr v0, v4
 
     .line 150
-    :pswitch_9
+    :pswitch_94
     const/4 v4, 0x5
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -615,7 +615,7 @@
     xor-long/2addr v0, v4
 
     .line 152
-    :pswitch_a
+    :pswitch_a0
     const/4 v4, 0x4
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -633,7 +633,7 @@
     xor-long/2addr v0, v4
 
     .line 154
-    :pswitch_b
+    :pswitch_ac
     const/4 v4, 0x3
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -651,7 +651,7 @@
     xor-long/2addr v0, v4
 
     .line 156
-    :pswitch_c
+    :pswitch_b8
     const/4 v4, 0x2
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -669,7 +669,7 @@
     xor-long/2addr v0, v4
 
     .line 158
-    :pswitch_d
+    :pswitch_c4
     const/4 v4, 0x1
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -687,7 +687,7 @@
     xor-long/2addr v0, v4
 
     .line 160
-    :pswitch_e
+    :pswitch_d0
     const/4 v4, 0x0
 
     invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->get(I)B
@@ -706,7 +706,7 @@
     nop
 
     .line 165
-    :goto_0
+    :goto_dc
     iget-wide v4, p0, Lcom/google/common/hash/Murmur3_128HashFunction$Murmur3_128Hasher;->h1:J
 
     invoke-static {v0, v1}, Lcom/google/common/hash/Murmur3_128HashFunction$Murmur3_128Hasher;->mixK1(J)J
@@ -733,22 +733,22 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_f0
     .packed-switch 0x1
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_d0
+        :pswitch_c4
+        :pswitch_b8
+        :pswitch_ac
+        :pswitch_a0
+        :pswitch_94
+        :pswitch_87
+        :pswitch_81
+        :pswitch_77
+        :pswitch_6a
+        :pswitch_5d
+        :pswitch_50
+        :pswitch_43
+        :pswitch_36
+        :pswitch_28
     .end packed-switch
 .end method

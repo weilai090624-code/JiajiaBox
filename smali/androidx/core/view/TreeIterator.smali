@@ -89,7 +89,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Iterator;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 4
     .param p1, "rootIterator"    # Ljava/util/Iterator;
     .param p2, "getChildIterator"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -127,7 +127,7 @@
 .end method
 
 .method private final prepareNextIterator(Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .param p1, "item"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -146,13 +146,13 @@
 
     .line 165
     .local v0, "childIterator":Ljava/util/Iterator;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 166
     iget-object v1, p0, Landroidx/core/view/TreeIterator;->stack:Ljava/util/List;
@@ -164,18 +164,18 @@
     .line 167
     iput-object v0, p0, Landroidx/core/view/TreeIterator;->iterator:Ljava/util/Iterator;
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 169
-    :cond_0
-    :goto_0
+    :cond_1a
+    :goto_1a
     iget-object v1, p0, Landroidx/core/view/TreeIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3c
 
     iget-object v1, p0, Landroidx/core/view/TreeIterator;->stack:Ljava/util/List;
 
@@ -185,7 +185,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3c
 
     .line 170
     iget-object v1, p0, Landroidx/core/view/TreeIterator;->stack:Ljava/util/List;
@@ -203,18 +203,18 @@
 
     invoke-static {v1}, Lkotlin/collections/CollectionsKt;->removeLast(Ljava/util/List;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 174
-    :cond_1
-    :goto_1
+    :cond_3c
+    :goto_3c
     return-void
 .end method
 
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 148
     iget-object v0, p0, Landroidx/core/view/TreeIterator;->iterator:Ljava/util/Iterator;
@@ -227,7 +227,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -250,7 +250,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

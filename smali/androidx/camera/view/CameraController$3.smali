@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/CameraController;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/view/CameraController;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -70,7 +70,7 @@
 
     const-string v1, "CameraController"
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 1347
     const-string v0, "Tap-to-focus is canceled by new action."
@@ -81,7 +81,7 @@
     return-void
 
     .line 1350
-    :cond_0
+    :cond_c
     const-string v0, "Tap to focus failed."
 
     invoke-static {v1, v0, p1}, Landroidx/camera/core/Logger;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
@@ -104,7 +104,7 @@
 .end method
 
 .method public onSuccess(Landroidx/camera/core/FocusMeteringResult;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Landroidx/camera/core/FocusMeteringResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -116,13 +116,13 @@
     .end annotation
 
     .line 1336
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 1337
     return-void
 
     .line 1339
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -158,18 +158,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2b
 
     .line 1341
     const/4 v1, 0x2
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_1
+    :cond_2b
     const/4 v1, 0x3
 
     .line 1340
-    :goto_0
+    :goto_2c
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -181,7 +181,7 @@
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000

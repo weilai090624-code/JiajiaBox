@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 13
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +78,7 @@
     iput-object v0, p0, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;->constantToName:Ljava/util/Map;
 
     .line 785
-    :try_start_0
+    :try_start_11
     new-instance v0, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter$1;
 
     invoke-direct {v0, p0, p1}, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter$1;-><init>(Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;Ljava/lang/Class;)V
@@ -97,8 +97,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_1f
+    if-ge v3, v1, :cond_5e
 
     aget-object v4, v0, v3
 
@@ -130,7 +130,7 @@
 
     .line 805
     .local v7, "annotation":Lcom/google/gson/annotations/SerializedName;
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_50
 
     .line 806
     invoke-interface {v7}, Lcom/google/gson/annotations/SerializedName;->value()Ljava/lang/String;
@@ -148,8 +148,8 @@
 
     const/4 v10, 0x0
 
-    :goto_1
-    if-ge v10, v9, :cond_0
+    :goto_43
+    if-ge v10, v9, :cond_50
 
     aget-object v11, v8, v10
 
@@ -165,10 +165,10 @@
     .end local v11    # "alternate":Ljava/lang/String;
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_1
+    goto :goto_43
 
     .line 811
-    :cond_0
+    :cond_50
     iget-object v8, p0, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;->nameToConstant:Ljava/util/Map;
 
     invoke-interface {v8, v6, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -177,8 +177,8 @@
     iget-object v8, p0, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;->constantToName:Ljava/util/Map;
 
     invoke-interface {v8, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5a
+    .catch Ljava/lang/IllegalAccessException; {:try_start_11 .. :try_end_5a} :catch_60
 
     .line 800
     nop
@@ -189,18 +189,18 @@
     .end local v7    # "annotation":Lcom/google/gson/annotations/SerializedName;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 816
     .end local v0    # "constantFields":[Ljava/lang/reflect/Field;
-    :cond_1
+    :cond_5e
     nop
 
     .line 817
     return-void
 
     .line 814
-    :catch_0
+    :catch_60
     move-exception v0
 
     .line 815
@@ -215,7 +215,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Enum;
-    .locals 2
+    .registers 4
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -239,7 +239,7 @@
 
     sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 820
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
@@ -250,7 +250,7 @@
     return-object v0
 
     .line 823
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;->nameToConstant:Ljava/util/Map;
 
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
@@ -267,7 +267,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -284,7 +284,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Enum;)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -303,13 +303,13 @@
     .line 827
     .local p0, "this":Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;, "Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter<TT;>;"
     .local p2, "value":Ljava/lang/Enum;, "TT;"
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;->constantToName:Ljava/util/Map;
 
     invoke-interface {v0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -318,7 +318,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    :goto_0
+    :goto_c
     invoke-virtual {p1, v0}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
 
     .line 828
@@ -326,7 +326,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

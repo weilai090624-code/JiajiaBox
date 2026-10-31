@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method public static getInsetsController(Landroid/view/Window;Landroid/view/View;)Landroidx/core/view/WindowInsetsControllerCompat;
-    .locals 1
+    .registers 3
     .param p0, "window"    # Landroid/view/Window;
     .param p1, "view"    # Landroid/view/View;
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public static requireViewById(Landroid/view/Window;I)Landroid/view/View;
-    .locals 3
+    .registers 5
     .param p0, "window"    # Landroid/view/Window;
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -63,7 +63,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 91
     invoke-static {p0, p1}, Landroidx/core/view/WindowCompat$Api28Impl;->requireViewById(Landroid/view/Window;I)Ljava/lang/Object;
@@ -75,20 +75,20 @@
     return-object v0
 
     .line 94
-    :cond_0
+    :cond_d
     invoke-virtual {p0, p1}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     .line 95
     .local v0, "view":Landroid/view/View;, "TT;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 98
     return-object v0
 
     .line 96
-    :cond_1
+    :cond_14
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "ID does not reference a View inside this Window"
@@ -99,7 +99,7 @@
 .end method
 
 .method public static setDecorFitsSystemWindows(Landroid/view/Window;Z)V
-    .locals 2
+    .registers 4
     .param p0, "window"    # Landroid/view/Window;
     .param p1, "decorFitsSystemWindows"    # Z
 
@@ -108,18 +108,18 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 120
     invoke-static {p0, p1}, Landroidx/core/view/WindowCompat$Api30Impl;->setDecorFitsSystemWindows(Landroid/view/Window;Z)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 122
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Landroidx/core/view/WindowCompat$Api16Impl;->setDecorFitsSystemWindows(Landroid/view/Window;Z)V
 
     .line 124
-    :goto_0
+    :goto_d
     return-void
 .end method

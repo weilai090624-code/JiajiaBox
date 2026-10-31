@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory;Ljava/lang/String;ZZLjava/lang/reflect/Field;ZLcom/google/gson/TypeAdapter;Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;Z)V
-    .locals 0
+    .registers 11
     .param p1, "this$0"    # Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "serialized"    # Z
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method read(Lcom/google/gson/stream/JsonReader;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "reader"    # Lcom/google/gson/stream/JsonReader;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
@@ -80,25 +80,25 @@
 
     .line 131
     .local v0, "fieldValue":Ljava/lang/Object;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     iget-boolean v1, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$1;->val$isPrimitive:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_11
 
     .line 132
-    :cond_0
+    :cond_c
     iget-object v1, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$1;->val$field:Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, p2, v0}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 134
-    :cond_1
+    :cond_11
     return-void
 .end method
 
 .method write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 5
+    .registers 8
     .param p1, "writer"    # Lcom/google/gson/stream/JsonWriter;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
@@ -119,14 +119,14 @@
     .local v0, "fieldValue":Ljava/lang/Object;
     iget-boolean v1, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$1;->val$jsonAdapterPresent:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     iget-object v1, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$1;->val$typeAdapter:Lcom/google/gson/TypeAdapter;
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 125
-    :cond_0
+    :cond_d
     new-instance v1, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;
 
     iget-object v2, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$1;->val$context:Lcom/google/gson/Gson;
@@ -141,7 +141,7 @@
 
     invoke-direct {v1, v2, v3, v4}, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;-><init>(Lcom/google/gson/Gson;Lcom/google/gson/TypeAdapter;Ljava/lang/reflect/Type;)V
 
-    :goto_0
+    :goto_1c
     nop
 
     .line 126
@@ -153,7 +153,7 @@
 .end method
 
 .method public writeField(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -167,12 +167,12 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 137
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$1;->val$field:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -181,10 +181,10 @@
 
     .line 138
     .local v0, "fieldValue":Ljava/lang/Object;
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_f
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_f
     return v1
 .end method

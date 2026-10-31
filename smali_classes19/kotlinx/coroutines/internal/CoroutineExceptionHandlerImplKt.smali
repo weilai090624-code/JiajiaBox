@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 24
     const-class v0, Lkotlinx/coroutines/CoroutineExceptionHandler;
@@ -88,7 +88,7 @@
 .end method
 
 .method public static final ensurePlatformExceptionHandlerLoaded(Lkotlinx/coroutines/CoroutineExceptionHandler;)V
-    .locals 2
+    .registers 3
     .param p0, "callback"    # Lkotlinx/coroutines/CoroutineExceptionHandler;
 
     .line 29
@@ -98,13 +98,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 30
     return-void
 
     .line 51
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     .line 29
@@ -126,7 +126,7 @@
 .end method
 
 .method public static final getPlatformExceptionHandlers()Ljava/util/Collection;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -143,7 +143,7 @@
 .end method
 
 .method public static final propagateExceptionFinalResort(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 3
     .param p0, "exception"    # Ljava/lang/Throwable;
 
     .line 34

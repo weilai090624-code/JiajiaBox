@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Lcom/google/common/util/concurrent/AsyncFunction;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method doFallback(Lcom/google/common/util/concurrent/AsyncFunction;Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,7 +95,7 @@
 .end method
 
 .method bridge synthetic doFallback(Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -114,7 +114,7 @@
 .end method
 
 .method setResult(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,7 +133,7 @@
 .end method
 
 .method bridge synthetic setResult(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 190
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractCatchingFuture$AsyncCatchingFuture;, "Lcom/google/common/util/concurrent/AbstractCatchingFuture$AsyncCatchingFuture<TV;TX;>;"

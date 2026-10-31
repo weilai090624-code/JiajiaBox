@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 56
     new-instance v0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean$1;
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;-><init>()V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->clone()Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
@@ -56,7 +56,7 @@
 .end method
 
 .method public clone()Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
-    .locals 2
+    .registers 3
 
     .line 53
     new-instance v0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
@@ -77,7 +77,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -93,7 +93,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -113,7 +113,7 @@
     .local v0, "version":I
     const/4 v1, 0x2
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 35
     invoke-super {p0, p1}, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
@@ -125,10 +125,10 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->password:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_46
 
     .line 39
-    :cond_0
+    :cond_11
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -177,7 +177,7 @@
     .line 46
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_46
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readBoolean()Z
 
@@ -190,13 +190,13 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->allowInsecure:Ljava/lang/Boolean;
 
     .line 48
-    :cond_1
-    :goto_0
+    :cond_46
+    :goto_46
     return-void
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->initializeDefaultValues()V
@@ -204,7 +204,7 @@
     .line 20
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->security:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->security:Ljava/lang/String;
 
@@ -212,30 +212,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
-    :cond_0
+    :cond_f
     const-string v0, "tls"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->security:Ljava/lang/String;
 
     .line 21
-    :cond_1
+    :cond_13
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->password:Ljava/lang/String;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1b
 
     const-string v0, ""
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->password:Ljava/lang/String;
 
     .line 22
-    :cond_2
+    :cond_1b
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

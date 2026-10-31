@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method static buildBitArray(Ljava/util/List;)Lcom/google/zxing/common/BitArray;
-    .locals 12
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,13 +56,13 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     .line 45
     add-int/lit8 v0, v0, -0x1
 
     .line 48
-    :cond_0
+    :cond_1a
     mul-int/lit8 v2, v0, 0xc
 
     .line 50
@@ -99,42 +99,42 @@
     const/16 v6, 0xb
 
     .local v6, "i":I
-    :goto_0
-    if-ltz v6, :cond_2
+    :goto_33
+    if-ltz v6, :cond_42
 
     .line 56
     shl-int v7, v1, v6
 
     and-int/2addr v7, v5
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_3d
 
     .line 57
     invoke-virtual {v3, v4}, Lcom/google/zxing/common/BitArray;->set(I)V
 
     .line 59
-    :cond_1
+    :cond_3d
     add-int/lit8 v4, v4, 0x1
 
     .line 55
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 62
     .end local v6    # "i":I
-    :cond_2
+    :cond_42
     const/4 v6, 0x1
 
     .restart local v6    # "i":I
     const/4 v7, 0x0
 
-    :goto_1
+    :goto_44
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v8
 
-    if-ge v6, v8, :cond_7
+    if-ge v6, v8, :cond_8c
 
     .line 63
     invoke-interface {p0, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -160,36 +160,36 @@
     const/16 v9, 0xb
 
     .local v9, "j":I
-    :goto_2
-    if-ltz v9, :cond_4
+    :goto_5b
+    if-ltz v9, :cond_6a
 
     .line 67
     shl-int v10, v1, v9
 
     and-int/2addr v10, v8
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_65
 
     .line 68
     invoke-virtual {v3, v4}, Lcom/google/zxing/common/BitArray;->set(I)V
 
     .line 70
-    :cond_3
+    :cond_65
     add-int/lit8 v4, v4, 0x1
 
     .line 66
     add-int/lit8 v9, v9, -0x1
 
-    goto :goto_2
+    goto :goto_5b
 
     .line 73
     .end local v9    # "j":I
-    :cond_4
+    :cond_6a
     invoke-virtual {v7}, Lcom/google/zxing/oned/rss/expanded/ExpandedPair;->getRightChar()Lcom/google/zxing/oned/rss/DataCharacter;
 
     move-result-object v9
 
-    if-eqz v9, :cond_6
+    if-eqz v9, :cond_89
 
     .line 74
     invoke-virtual {v7}, Lcom/google/zxing/oned/rss/expanded/ExpandedPair;->getRightChar()Lcom/google/zxing/oned/rss/DataCharacter;
@@ -205,40 +205,40 @@
     const/16 v10, 0xb
 
     .local v10, "j":I
-    :goto_3
-    if-ltz v10, :cond_6
+    :goto_7a
+    if-ltz v10, :cond_89
 
     .line 76
     shl-int v11, v1, v10
 
     and-int/2addr v11, v9
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_84
 
     .line 77
     invoke-virtual {v3, v4}, Lcom/google/zxing/common/BitArray;->set(I)V
 
     .line 79
-    :cond_5
+    :cond_84
     add-int/lit8 v4, v4, 0x1
 
     .line 75
     add-int/lit8 v10, v10, -0x1
 
-    goto :goto_3
+    goto :goto_7a
 
     .line 62
     .end local v7    # "currentPair":Lcom/google/zxing/oned/rss/expanded/ExpandedPair;
     .end local v8    # "leftValue":I
     .end local v9    # "rightValue":I
     .end local v10    # "j":I
-    :cond_6
+    :cond_89
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_44
 
     .line 83
     .end local v6    # "i":I
-    :cond_7
+    :cond_8c
     return-object v3
 .end method

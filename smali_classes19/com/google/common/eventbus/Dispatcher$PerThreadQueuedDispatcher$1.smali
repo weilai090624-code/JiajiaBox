@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;
 
     .line 80
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 80
     invoke-virtual {p0}, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$1;->initialValue()Ljava/util/Queue;
@@ -48,7 +48,7 @@
 .end method
 
 .method protected initialValue()Ljava/util/Queue;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

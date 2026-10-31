@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)V"
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/PluginEntry$Companion;-><init>()V
 
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public final find(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/PluginEntry;
-    .locals 5
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -75,8 +75,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_b
+    if-ge v2, v1, :cond_1d
 
     aget-object v3, v0, v2
 
@@ -90,20 +90,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1a
 
     .line 60
     return-object v3
 
     .line 58
     .end local v3    # "pluginEntry":Lio/nekohasekai/sagernet/fmt/PluginEntry;
-    :cond_0
+    :cond_1a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 63
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
     return-object v0

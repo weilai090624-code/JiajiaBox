@@ -80,7 +80,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/flow/DistinctFlowImpl;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlinx/coroutines/flow/FlowCollector;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method public final emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -122,7 +122,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2$emit$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -134,7 +134,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2$emit$1;->label:I
 
@@ -142,14 +142,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2$emit$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2$emit$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2$emit$1;-><init>(Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -163,7 +163,7 @@
     .line 72
     iget v2, p2, Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2$emit$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_6e
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -177,12 +177,12 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_5a
 
-    :pswitch_1
+    :pswitch_31
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v2, p0
@@ -206,7 +206,7 @@
 
     sget-object v5, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->NULL:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq v4, v5, :cond_2
+    if-eq v4, v5, :cond_5d
 
     iget-object v4, v2, Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2;->this$0:Lkotlinx/coroutines/flow/DistinctFlowImpl;
 
@@ -226,16 +226,16 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_5a
 
-    goto :goto_2
+    goto :goto_5d
 
     .line 79
     .end local v2    # "this":Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2;
     .end local v3    # "key":Ljava/lang/Object;
     .end local p1    # "value":Ljava/lang/Object;
-    :cond_1
-    :goto_1
+    :cond_5a
+    :goto_5a
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
@@ -244,8 +244,8 @@
     .restart local v2    # "this":Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2;
     .restart local v3    # "key":Ljava/lang/Object;
     .restart local p1    # "value":Ljava/lang/Object;
-    :cond_2
-    :goto_2
+    :cond_5d
+    :goto_5d
     iget-object v4, v2, Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2;->$previousKey:Lkotlin/jvm/internal/Ref$ObjectRef;
 
     iput-object v3, v4, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -264,16 +264,16 @@
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/DistinctFlowImpl$collect$2;
     .end local p1    # "value":Ljava/lang/Object;
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_5a
 
     .line 72
     return-object v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_31
+        :pswitch_2d
     .end packed-switch
 .end method

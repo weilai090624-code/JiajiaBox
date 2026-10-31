@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic lambda$maxBy$1(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "comparator"    # Ljava/util/Comparator;
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
@@ -15,21 +15,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_8
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v0, p2
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method
 
 .method public static synthetic lambda$minBy$0(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "comparator"    # Ljava/util/Comparator;
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
@@ -39,21 +39,21 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_8
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v0, p2
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method
 
 .method public static maxBy(Ljava/util/Comparator;)Ljava/util/function/BinaryOperator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -79,7 +79,7 @@
 .end method
 
 .method public static minBy(Ljava/util/Comparator;)Ljava/util/function/BinaryOperator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

@@ -1,26 +1,26 @@
 # 源码与成品上传信息
 
-当前发布版本：`0.0.4 beta`，内部版本号 `308`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
+当前发布版本：`0.0.5 beta`，内部版本号 `446`，Android 包名 `com.linjiajia.top`，架构 `arm64-v8a`。
 
 | 项目 | 值 |
 | --- | --- |
 | GitHub 仓库 | https://github.com/weilai090624-code/JiajiaBox |
 | Git HTTPS 地址 | https://github.com/weilai090624-code/JiajiaBox.git |
 | 源码分支 | `main` |
-| 对应版本标签 | `v0.0.4-beta.308` |
-| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.4-beta.308 |
-| APK | `JiajiaBox-0.0.4-beta-308-local-ip-test.apk` |
-| APK SHA-256 | `3f9f6a3bdc34045bf1fa2fa403f8691d6452c5a404e9c3e77dfeea177443f19c` |
-| 对应源码归档 | `JiajiaBox-v0.0.4-beta.308-source.tar.gz` |
+| 对应版本标签 | `v0.0.5-beta.446` |
+| 预发布页面 | https://github.com/weilai090624-code/JiajiaBox/releases/tag/v0.0.5-beta.446 |
+| APK | `JiajiaBox-0.0.5-beta-446-nowhere-mode-label.apk` |
+| APK SHA-256 | `67d65c1a3defedee1a124f30e15418c8ca8e0ebee3acf8236f0ba614b6f4a807` |
+| 对应源码归档 | `JiajiaBox-v0.0.5-beta.446-source.tar.gz` |
 | 校验清单 | `SHA256SUMS.txt`（含 APK 与源码归档） |
 
-本机项目路径：`/root/jiajiabox-fixed-0.0.3`。成品位于 `/sdcard/Download/`；本次构建与验证记录位于 `build/rebuilt-local-geo-308/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 和源码归档通过 Releases 附件发布。
+本机项目路径：`/root/JiajiaBox-push`。成品位于 `/sdcard/Download/JiajiaBox-Nowhere-NW3-446-mode-label/`；Nowhere 相关源码与脚本位于 `nowhere/`，内核源码位于 `native-src/`。`build/`、缓存、APK、DEX 与 `.so` 产物由 `.gitignore` 排除，APK 通过 `release/` 与 Releases 附件发布。
 
-本版为用户本地实测确认通过的 308，发布附件沿用同一份 APK，SHA-256 如上。IP.SB 单次请求最多 8 秒、任务预算 25 秒；短暂连接故障可重试官方 IPv4 端点，目标查询可通过直连重试。HTTP 拒绝、限流及证书错误会明确显示；刷新失败时保留最近 5 分钟内的上次在线结果并标明。点击侧栏“定位”可查看失败类别、上次成功时间与手动重试。HK、TW、CN 独立、按出口与地区合并连线、真实 UTC 昼夜和“当前 N”摘要沿用。
+本版在 443 Nowhere 测试包基础上修正节点类型标签：`nowhere` / `newhere` 按 `config.net` 显示 `newhere·tcp` 或 `newhere·udp`，其他自定义 sing-box 类型保持原标签。内核为 `1.14.3-Jiajia-7`，包含 Nowhere NW3 客户端出站（TCP/TLS、UDP/QUIC、Morph）。
 
-发布顺序：先提供本地 APK，由用户实测；用户明确同意后，再推送对应源码和成品。应用行为或 APK 有新改动时重新执行此流程。本次 308 已取得用户实测通过及推送授权；307 Release 继续保留为草稿。
+发布顺序：先提供本地 APK，由用户实测；用户明确同意后，再推送对应源码和成品。应用行为或 APK 有新改动时重新执行此流程。
 
-接口及数据处理说明见 [IP.SB API](https://ip.sb/api/) 和 `assets/licenses/Global-Globe-NOTICE.txt`。
+Nowhere 协议与内核说明见 `nowhere/CONTEXT-DETAILED.txt` 和 `native-src/sing-box/protocol/nowhere/`。
 
 ## 认证
 
@@ -51,7 +51,7 @@ git push origin main
 为新的内部版本建立独立标签，再推送。已发布标签继续对应原来的源码；后续版本使用新的编号。
 
 ```bash
-tag=v0.0.4-beta.308
+tag=v0.0.5-beta.446
 git tag "$tag"
 git push origin "$tag"
 ```
@@ -59,8 +59,8 @@ git push origin "$tag"
 生成与标签一致的源码归档：
 
 ```bash
-mkdir -p build/release-upload-308
-git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-308/JiajiaBox-$tag-source.tar.gz" "$tag"
+mkdir -p build/release-upload-446
+git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-446/JiajiaBox-$tag-source.tar.gz" "$tag"
 ```
 
 ## 上传成品
@@ -70,15 +70,15 @@ git archive --format=tar.gz --prefix="JiajiaBox-$tag/" -o "build/release-upload-
 ```bash
 python3 tools/publish_release.py \
   --repo weilai090624-code/JiajiaBox \
-  --tag v0.0.4-beta.308 \
-  --commit "$(git rev-parse v0.0.4-beta.308^{commit})" \
-  --title "JiajiaBox v0.0.4-beta.308 预发布版" \
-  --notes-file build/release-upload-308/RELEASE_NOTES.md \
-  --asset /sdcard/Download/JiajiaBox-0.0.4-beta-308-local-ip-test.apk \
-  --asset /sdcard/Download/JiajiaBox-0.0.4-beta-308-local-ip-test.apk.sha256 \
-  --asset build/release-upload-308/JiajiaBox-v0.0.4-beta.308-source.tar.gz \
-  --asset build/release-upload-308/SHA256SUMS.txt \
-  --output-json build/release-upload-308/github-publish.json
+  --tag v0.0.5-beta.446 \
+  --commit "$(git rev-parse v0.0.5-beta.446^{commit})" \
+  --title "JiajiaBox v0.0.5-beta.446 预发布版" \
+  --notes-file build/release-upload-446/RELEASE_NOTES.md \
+  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-446-nowhere-mode-label.apk \
+  --asset /sdcard/Download/JiajiaBox-0.0.5-beta-446-nowhere-mode-label.apk.sha256 \
+  --asset build/release-upload-446/JiajiaBox-v0.0.5-beta.446-source.tar.gz \
+  --asset build/release-upload-446/SHA256SUMS.txt \
+  --output-json build/release-upload-446/github-publish.json
 ```
 
 脚本先验证标签对应提交，再创建草稿，逐个上传并核对附件大小及服务端 SHA-256，全部成功后发布为预发布版。同名同校验附件会复用，不同内容会停止以避免混淆版本。创建草稿后会立即保存 Release ID；中断后使用同一命令和 `--output-json` 续传，也可指定 `--release-id`，复用已校验附件。发布结果中的 Release ID、附件 ID、下载地址和校验值保存在指定 JSON 中。

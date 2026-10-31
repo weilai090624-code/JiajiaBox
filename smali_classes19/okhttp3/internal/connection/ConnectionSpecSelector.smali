@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "connectionSpecs"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,7 +85,7 @@
 .end method
 
 .method private final isFallbackPossible(Ljavax/net/ssl/SSLSocket;)Z
-    .locals 5
+    .registers 7
     .param p1, "socket"    # Ljavax/net/ssl/SSLSocket;
 
     .line 115
@@ -97,9 +97,9 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_1e
 
-    :cond_0
+    :cond_a
     move v2, v0
 
     .local v2, "i":I
@@ -120,18 +120,18 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1c
 
     .line 117
     return v3
 
     .line 115
-    :cond_1
-    if-lt v0, v1, :cond_0
+    :cond_1c
+    if-lt v0, v1, :cond_a
 
     .line 120
     .end local v2    # "i":I
-    :cond_2
+    :cond_1e
     const/4 v0, 0x0
 
     return v0
@@ -140,7 +140,7 @@
 
 # virtual methods
 .method public final configureSecureSocket(Ljavax/net/ssl/SSLSocket;)Lokhttp3/ConnectionSpec;
-    .locals 6
+    .registers 8
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -165,9 +165,9 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_29
 
-    :cond_0
+    :cond_10
     move v3, v1
 
     .local v3, "i":I
@@ -188,7 +188,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_27
 
     .line 53
     move-object v0, v4
@@ -199,18 +199,18 @@
     iput v1, p0, Lokhttp3/internal/connection/ConnectionSpecSelector;->nextModeIndex:I
 
     .line 55
-    goto :goto_0
+    goto :goto_29
 
     .line 50
     .end local v4    # "connectionSpec":Lokhttp3/ConnectionSpec;
-    :cond_1
-    if-lt v1, v2, :cond_0
+    :cond_27
+    if-lt v1, v2, :cond_10
 
     .line 59
     .end local v3    # "i":I
-    :cond_2
-    :goto_0
-    if-eqz v0, :cond_3
+    :cond_29
+    :goto_29
+    if-eqz v0, :cond_37
 
     .line 68
     invoke-direct {p0, p1}, Lokhttp3/internal/connection/ConnectionSpecSelector;->isFallbackPossible(Ljavax/net/ssl/SSLSocket;)Z
@@ -228,7 +228,7 @@
     return-object v0
 
     .line 63
-    :cond_3
+    :cond_37
     new-instance v1, Ljava/net/UnknownServiceException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -301,7 +301,7 @@
 .end method
 
 .method public final connectionFailed(Ljava/io/IOException;)Z
-    .locals 3
+    .registers 5
     .param p1, "e"    # Ljava/io/IOException;
 
     const-string v0, "e"
@@ -321,37 +321,37 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_36
 
     .line 89
-    :cond_0
+    :cond_10
     instance-of v1, p1, Ljava/net/ProtocolException;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_36
 
     .line 94
-    :cond_1
+    :cond_16
     instance-of v1, p1, Ljava/io/InterruptedIOException;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1c
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_36
 
     .line 97
-    :cond_2
+    :cond_1c
     instance-of v1, p1, Ljavax/net/ssl/SSLHandshakeException;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2a
 
     invoke-virtual {p1}, Ljava/io/IOException;->getCause()Ljava/lang/Throwable;
 
@@ -359,35 +359,35 @@
 
     instance-of v1, v1, Ljava/security/cert/CertificateException;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2a
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_36
 
     .line 100
-    :cond_3
+    :cond_2a
     instance-of v1, p1, Ljavax/net/ssl/SSLPeerUnverifiedException;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_30
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_36
 
     .line 103
-    :cond_4
+    :cond_30
     instance-of v1, p1, Ljavax/net/ssl/SSLException;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_35
 
-    goto :goto_0
+    goto :goto_36
 
     .line 105
-    :cond_5
+    :cond_35
     const/4 v0, 0x0
 
     .line 85
-    :goto_0
+    :goto_36
     return v0
 .end method

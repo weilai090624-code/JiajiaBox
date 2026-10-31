@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 51
@@ -27,7 +27,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "theme"    # I
 
@@ -68,7 +68,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cancelable"    # Z
     .param p3, "cancelListener"    # Landroid/content/DialogInterface$OnCancelListener;
@@ -94,12 +94,12 @@
 .end method
 
 .method private static getThemeResId(Landroid/content/Context;I)I
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "themeId"    # I
 
     .line 184
-    if-nez p1, :cond_0
+    if-nez p1, :cond_13
 
     .line 186
     new-instance v0, Landroid/util/TypedValue;
@@ -123,14 +123,14 @@
 
     .line 190
     .end local v0    # "outValue":Landroid/util/TypedValue;
-    :cond_0
+    :cond_13
     return p1
 .end method
 
 
 # virtual methods
 .method public addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
@@ -146,7 +146,7 @@
 .end method
 
 .method public dismiss()V
-    .locals 1
+    .registers 2
 
     .line 140
     invoke-super {p0}, Landroidx/activity/ComponentDialog;->dismiss()V
@@ -163,7 +163,7 @@
 .end method
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 2
+    .registers 4
     .param p1, "event"    # Landroid/view/KeyEvent;
 
     .line 214
@@ -187,7 +187,7 @@
 .end method
 
 .method public findViewById(I)Landroid/view/View;
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -210,12 +210,12 @@
 .end method
 
 .method public getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
-    .locals 1
+    .registers 2
 
     .line 177
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDialog;->mDelegate:Landroidx/appcompat/app/AppCompatDelegate;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 178
     invoke-static {p0, p0}, Landroidx/appcompat/app/AppCompatDelegate;->create(Landroid/app/Dialog;Landroidx/appcompat/app/AppCompatCallback;)Landroidx/appcompat/app/AppCompatDelegate;
@@ -225,14 +225,14 @@
     iput-object v0, p0, Landroidx/appcompat/app/AppCompatDialog;->mDelegate:Landroidx/appcompat/app/AppCompatDelegate;
 
     .line 180
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDialog;->mDelegate:Landroidx/appcompat/app/AppCompatDelegate;
 
     return-object v0
 .end method
 
 .method public getSupportActionBar()Landroidx/appcompat/app/ActionBar;
-    .locals 1
+    .registers 2
 
     .line 90
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
@@ -247,7 +247,7 @@
 .end method
 
 .method public invalidateOptionsMenu()V
-    .locals 1
+    .registers 2
 
     .line 169
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
@@ -261,7 +261,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 77
@@ -286,7 +286,7 @@
 .end method
 
 .method protected onStop()V
-    .locals 1
+    .registers 2
 
     .line 134
     invoke-super {p0}, Landroidx/activity/ComponentDialog;->onStop()V
@@ -303,7 +303,7 @@
 .end method
 
 .method public onSupportActionModeFinished(Landroidx/appcompat/view/ActionMode;)V
-    .locals 0
+    .registers 2
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
 
     .line 199
@@ -311,7 +311,7 @@
 .end method
 
 .method public onSupportActionModeStarted(Landroidx/appcompat/view/ActionMode;)V
-    .locals 0
+    .registers 2
     .param p1, "mode"    # Landroidx/appcompat/view/ActionMode;
 
     .line 195
@@ -319,7 +319,7 @@
 .end method
 
 .method public onWindowStartingSupportActionMode(Landroidx/appcompat/view/ActionMode$Callback;)Landroidx/appcompat/view/ActionMode;
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Landroidx/appcompat/view/ActionMode$Callback;
 
     .line 204
@@ -329,7 +329,7 @@
 .end method
 
 .method public setContentView(I)V
-    .locals 1
+    .registers 3
     .param p1, "layoutResID"    # I
 
     .line 95
@@ -344,7 +344,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 100
@@ -359,7 +359,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
@@ -375,7 +375,7 @@
 .end method
 
 .method public setTitle(I)V
-    .locals 2
+    .registers 4
     .param p1, "titleId"    # I
 
     .line 123
@@ -401,7 +401,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 117
@@ -419,7 +419,7 @@
 .end method
 
 .method superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/KeyEvent;
 
     .line 209
@@ -431,7 +431,7 @@
 .end method
 
 .method public supportRequestWindowFeature(I)Z
-    .locals 1
+    .registers 3
     .param p1, "featureId"    # I
 
     .line 160

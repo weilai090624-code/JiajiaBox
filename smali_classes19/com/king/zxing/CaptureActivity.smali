@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Landroidx/appcompat/app/AppCompatActivity;-><init>()V
@@ -31,12 +31,12 @@
 .end method
 
 .method private releaseCamera()V
-    .locals 1
+    .registers 2
 
     .line 110
     iget-object v0, p0, Lcom/king/zxing/CaptureActivity;->mCameraScan:Lcom/king/zxing/CameraScan;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 111
     iget-object v0, p0, Lcom/king/zxing/CaptureActivity;->mCameraScan:Lcom/king/zxing/CameraScan;
@@ -44,14 +44,14 @@
     invoke-virtual {v0}, Lcom/king/zxing/CameraScan;->release()V
 
     .line 113
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 
 # virtual methods
 .method public getCameraScan()Lcom/king/zxing/CameraScan;
-    .locals 1
+    .registers 2
 
     .line 202
     iget-object v0, p0, Lcom/king/zxing/CaptureActivity;->mCameraScan:Lcom/king/zxing/CameraScan;
@@ -60,7 +60,7 @@
 .end method
 
 .method public getFlashlightId()I
-    .locals 1
+    .registers 2
 
     .line 194
     sget v0, Lcom/king/zxing/R$id;->ivFlashlight:I
@@ -69,7 +69,7 @@
 .end method
 
 .method public getLayoutId()I
-    .locals 1
+    .registers 2
 
     .line 169
     sget v0, Lcom/king/zxing/R$layout;->zxl_capture:I
@@ -78,7 +78,7 @@
 .end method
 
 .method public getPreviewViewId()I
-    .locals 1
+    .registers 2
 
     .line 186
     sget v0, Lcom/king/zxing/R$id;->previewView:I
@@ -87,7 +87,7 @@
 .end method
 
 .method public getViewfinderViewId()I
-    .locals 1
+    .registers 2
 
     .line 177
     sget v0, Lcom/king/zxing/R$id;->viewfinderView:I
@@ -96,7 +96,7 @@
 .end method
 
 .method public initCameraScan()V
-    .locals 2
+    .registers 3
 
     .line 86
     new-instance v0, Lcom/king/zxing/DefaultCameraScan;
@@ -117,7 +117,7 @@
 .end method
 
 .method public initUI()V
-    .locals 4
+    .registers 5
 
     .line 59
     invoke-virtual {p0}, Lcom/king/zxing/CaptureActivity;->getPreviewViewId()I
@@ -139,7 +139,7 @@
 
     .line 61
     .local v0, "viewfinderViewId":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 62
     invoke-virtual {p0, v0}, Lcom/king/zxing/CaptureActivity;->findViewById(I)Landroid/view/View;
@@ -151,14 +151,14 @@
     iput-object v1, p0, Lcom/king/zxing/CaptureActivity;->viewfinderView:Lcom/king/zxing/ViewfinderView;
 
     .line 64
-    :cond_0
+    :cond_1a
     invoke-virtual {p0}, Lcom/king/zxing/CaptureActivity;->getFlashlightId()I
 
     move-result v1
 
     .line 65
     .local v1, "ivFlashlightId":I
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_34
 
     .line 66
     invoke-virtual {p0, v1}, Lcom/king/zxing/CaptureActivity;->findViewById(I)Landroid/view/View;
@@ -170,7 +170,7 @@
     .line 67
     iget-object v2, p0, Lcom/king/zxing/CaptureActivity;->ivFlashlight:Landroid/view/View;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_34
 
     .line 68
     iget-object v2, p0, Lcom/king/zxing/CaptureActivity;->ivFlashlight:Landroid/view/View;
@@ -182,7 +182,7 @@
     invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 71
-    :cond_1
+    :cond_34
     invoke-virtual {p0}, Lcom/king/zxing/CaptureActivity;->initCameraScan()V
 
     .line 72
@@ -193,7 +193,7 @@
 .end method
 
 .method public isContentView(I)Z
-    .locals 1
+    .registers 3
     .param p1, "layoutId"    # I
 
     .line 161
@@ -203,7 +203,7 @@
 .end method
 
 .method synthetic lambda$initUI$0$com-king-zxing-CaptureActivity(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "v"    # Landroid/view/View;
 
     .line 68
@@ -213,7 +213,7 @@
 .end method
 
 .method protected onClickFlashlight()V
-    .locals 0
+    .registers 1
 
     .line 79
     invoke-virtual {p0}, Lcom/king/zxing/CaptureActivity;->toggleTorchState()V
@@ -223,7 +223,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 47
@@ -240,13 +240,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 50
     invoke-virtual {p0, v0}, Lcom/king/zxing/CaptureActivity;->setContentView(I)V
 
     .line 52
-    :cond_0
+    :cond_10
     invoke-virtual {p0}, Lcom/king/zxing/CaptureActivity;->initUI()V
 
     .line 53
@@ -254,7 +254,7 @@
 .end method
 
 .method protected onDestroy()V
-    .locals 0
+    .registers 1
 
     .line 151
     invoke-direct {p0}, Lcom/king/zxing/CaptureActivity;->releaseCamera()V
@@ -267,7 +267,7 @@
 .end method
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
-    .locals 1
+    .registers 5
     .param p1, "requestCode"    # I
     .param p2, "permissions"    # [Ljava/lang/String;
     .param p3, "grantResults"    # [I
@@ -278,18 +278,18 @@
     .line 131
     const/16 v0, 0x86
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     .line 132
     invoke-virtual {p0, p2, p3}, Lcom/king/zxing/CaptureActivity;->requestCameraPermissionResult([Ljava/lang/String;[I)V
 
     .line 134
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public onScanResultCallback(Lcom/google/zxing/Result;)Z
-    .locals 1
+    .registers 3
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 212
@@ -299,7 +299,7 @@
 .end method
 
 .method public synthetic onScanResultFailure()V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lcom/king/zxing/CameraScan$OnScanResultCallback$-CC;->$default$onScanResultFailure(Lcom/king/zxing/CameraScan$OnScanResultCallback;)V
 
@@ -307,7 +307,7 @@
 .end method
 
 .method public requestCameraPermissionResult([Ljava/lang/String;[I)V
-    .locals 1
+    .registers 4
     .param p1, "permissions"    # [Ljava/lang/String;
     .param p2, "grantResults"    # [I
 
@@ -318,29 +318,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 143
     invoke-virtual {p0}, Lcom/king/zxing/CaptureActivity;->startCamera()V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 145
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Lcom/king/zxing/CaptureActivity;->finish()V
 
     .line 147
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public startCamera()V
-    .locals 2
+    .registers 3
 
     .line 95
     iget-object v0, p0, Lcom/king/zxing/CaptureActivity;->mCameraScan:Lcom/king/zxing/CameraScan;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 96
     const-string v0, "android.permission.CAMERA"
@@ -349,17 +349,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 97
     iget-object v0, p0, Lcom/king/zxing/CaptureActivity;->mCameraScan:Lcom/king/zxing/CameraScan;
 
     invoke-virtual {v0}, Lcom/king/zxing/CameraScan;->startCamera()V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 99
-    :cond_0
+    :cond_12
     const-string v1, "checkPermissionResult != PERMISSION_GRANTED"
 
     invoke-static {v1}, Lcom/king/zxing/util/LogUtils;->d(Ljava/lang/String;)V
@@ -370,18 +370,18 @@
     invoke-static {p0, v0, v1}, Lcom/king/zxing/util/PermissionUtils;->requestPermission(Landroid/app/Activity;Ljava/lang/String;I)V
 
     .line 103
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     return-void
 .end method
 
 .method protected toggleTorchState()V
-    .locals 3
+    .registers 4
 
     .line 119
     iget-object v0, p0, Lcom/king/zxing/CaptureActivity;->mCameraScan:Lcom/king/zxing/CameraScan;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 120
     iget-object v0, p0, Lcom/king/zxing/CaptureActivity;->mCameraScan:Lcom/king/zxing/CameraScan;
@@ -401,7 +401,7 @@
     .line 122
     iget-object v1, p0, Lcom/king/zxing/CaptureActivity;->ivFlashlight:Landroid/view/View;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 123
     iget-object v1, p0, Lcom/king/zxing/CaptureActivity;->ivFlashlight:Landroid/view/View;
@@ -412,6 +412,6 @@
 
     .line 126
     .end local v0    # "isTorch":Z
-    :cond_0
+    :cond_1c
     return-void
 .end method

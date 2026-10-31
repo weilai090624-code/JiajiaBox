@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static createFromIcon(Landroid/content/Context;Landroid/graphics/drawable/Icon;)Landroidx/core/graphics/drawable/IconCompat;
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Icon;
 
@@ -35,10 +35,10 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3c
 
     .line 1125
-    :pswitch_0
+    :pswitch_7
     new-instance v0, Landroidx/core/graphics/drawable/IconCompat;
 
     const/4 v1, -0x1
@@ -54,7 +54,7 @@
 
     .line 1123
     .end local v0    # "iconCompat":Landroidx/core/graphics/drawable/IconCompat;
-    :pswitch_1
+    :pswitch_10
     invoke-static {p1}, Landroidx/core/graphics/drawable/IconCompat$Api23Impl;->getUri(Ljava/lang/Object;)Landroid/net/Uri;
 
     move-result-object v0
@@ -66,7 +66,7 @@
     return-object v0
 
     .line 1121
-    :pswitch_2
+    :pswitch_19
     invoke-static {p1}, Landroidx/core/graphics/drawable/IconCompat$Api23Impl;->getUri(Ljava/lang/Object;)Landroid/net/Uri;
 
     move-result-object v0
@@ -78,14 +78,14 @@
     return-object v0
 
     .line 1113
-    :pswitch_3
+    :pswitch_22
     invoke-static {p1}, Landroidx/core/graphics/drawable/IconCompat$Api23Impl;->getResPackage(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 1115
     .local v0, "resPackage":Ljava/lang/String;
-    :try_start_0
+    :try_start_26
     invoke-static {p0, v0}, Landroidx/core/graphics/drawable/IconCompat;->getResources(Landroid/content/Context;Ljava/lang/String;)Landroid/content/res/Resources;
 
     move-result-object v1
@@ -99,13 +99,13 @@
     invoke-static {v1, v0, v2}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/res/Resources;Ljava/lang/String;I)Landroidx/core/graphics/drawable/IconCompat;
 
     move-result-object v1
-    :try_end_0
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_32
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_26 .. :try_end_32} :catch_33
 
     return-object v1
 
     .line 1117
-    :catch_0
+    :catch_33
     move-exception v1
 
     .line 1118
@@ -118,18 +118,18 @@
 
     throw v2
 
-    :pswitch_data_0
+    :pswitch_data_3c
     .packed-switch 0x2
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_22
+        :pswitch_7
+        :pswitch_19
+        :pswitch_7
+        :pswitch_10
     .end packed-switch
 .end method
 
 .method static createFromIconInner(Ljava/lang/Object;)Landroidx/core/graphics/drawable/IconCompat;
-    .locals 3
+    .registers 4
     .param p0, "icon"    # Ljava/lang/Object;
 
     .line 1189
@@ -140,10 +140,10 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_34
 
     .line 1198
-    :pswitch_0
+    :pswitch_a
     new-instance v0, Landroidx/core/graphics/drawable/IconCompat;
 
     const/4 v1, -0x1
@@ -159,7 +159,7 @@
 
     .line 1196
     .end local v0    # "iconCompat":Landroidx/core/graphics/drawable/IconCompat;
-    :pswitch_1
+    :pswitch_13
     invoke-static {p0}, Landroidx/core/graphics/drawable/IconCompat$Api23Impl;->getUri(Ljava/lang/Object;)Landroid/net/Uri;
 
     move-result-object v0
@@ -171,7 +171,7 @@
     return-object v0
 
     .line 1194
-    :pswitch_2
+    :pswitch_1c
     invoke-static {p0}, Landroidx/core/graphics/drawable/IconCompat$Api23Impl;->getUri(Ljava/lang/Object;)Landroid/net/Uri;
 
     move-result-object v0
@@ -183,7 +183,7 @@
     return-object v0
 
     .line 1192
-    :pswitch_3
+    :pswitch_25
     invoke-static {p0}, Landroidx/core/graphics/drawable/IconCompat$Api23Impl;->getResPackage(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -202,18 +202,18 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_34
     .packed-switch 0x2
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_25
+        :pswitch_a
+        :pswitch_1c
+        :pswitch_a
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method static getResId(Ljava/lang/Object;)I
-    .locals 6
+    .registers 7
     .param p0, "icon"    # Ljava/lang/Object;
 
     .line 1214
@@ -225,7 +225,7 @@
 
     const/16 v3, 0x1c
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_f
 
     .line 1215
     invoke-static {p0}, Landroidx/core/graphics/drawable/IconCompat$Api28Impl;->getResId(Ljava/lang/Object;)I
@@ -235,10 +235,10 @@
     return v0
 
     .line 1218
-    :cond_0
+    :cond_f
     const/4 v2, 0x0
 
-    :try_start_0
+    :try_start_10
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -262,15 +262,15 @@
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_28
+    .catch Ljava/lang/IllegalAccessException; {:try_start_10 .. :try_end_28} :catch_33
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_10 .. :try_end_28} :catch_2e
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_10 .. :try_end_28} :catch_29
 
     return v0
 
     .line 1225
-    :catch_0
+    :catch_29
     move-exception v3
 
     .line 1226
@@ -282,7 +282,7 @@
 
     .line 1222
     .end local v3    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_1
+    :catch_2e
     move-exception v3
 
     .line 1223
@@ -294,7 +294,7 @@
 
     .line 1219
     .end local v3    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_33
     move-exception v3
 
     .line 1220
@@ -306,7 +306,7 @@
 .end method
 
 .method static getResPackage(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 7
+    .registers 8
     .param p0, "icon"    # Ljava/lang/Object;
 
     .line 1167
@@ -318,7 +318,7 @@
 
     const/16 v3, 0x1c
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_f
 
     .line 1168
     invoke-static {p0}, Landroidx/core/graphics/drawable/IconCompat$Api28Impl;->getResPackage(Ljava/lang/Object;)Ljava/lang/String;
@@ -328,10 +328,10 @@
     return-object v0
 
     .line 1171
-    :cond_0
+    :cond_f
     const/4 v2, 0x0
 
-    :try_start_0
+    :try_start_10
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -353,15 +353,15 @@
     move-result-object v3
 
     check-cast v3, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/IllegalAccessException; {:try_start_10 .. :try_end_25} :catch_30
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_10 .. :try_end_25} :catch_2b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_10 .. :try_end_25} :catch_26
 
     return-object v3
 
     .line 1178
-    :catch_0
+    :catch_26
     move-exception v3
 
     .line 1179
@@ -373,7 +373,7 @@
 
     .line 1175
     .end local v3    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_1
+    :catch_2b
     move-exception v3
 
     .line 1176
@@ -385,7 +385,7 @@
 
     .line 1172
     .end local v3    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_30
     move-exception v3
 
     .line 1173
@@ -397,7 +397,7 @@
 .end method
 
 .method static getType(Ljava/lang/Object;)I
-    .locals 7
+    .registers 8
     .param p0, "icon"    # Ljava/lang/Object;
 
     .line 1139
@@ -409,7 +409,7 @@
 
     const/16 v3, 0x1c
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_f
 
     .line 1140
     invoke-static {p0}, Landroidx/core/graphics/drawable/IconCompat$Api28Impl;->getType(Ljava/lang/Object;)I
@@ -419,10 +419,10 @@
     return v0
 
     .line 1143
-    :cond_0
+    :cond_f
     const/4 v2, -0x1
 
-    :try_start_0
+    :try_start_10
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -448,15 +448,15 @@
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/IllegalAccessException; {:try_start_10 .. :try_end_29} :catch_56
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_10 .. :try_end_29} :catch_40
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_10 .. :try_end_29} :catch_2a
 
     return v0
 
     .line 1150
-    :catch_0
+    :catch_2a
     move-exception v3
 
     .line 1151
@@ -484,7 +484,7 @@
 
     .line 1147
     .end local v3    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_1
+    :catch_40
     move-exception v3
 
     .line 1148
@@ -512,7 +512,7 @@
 
     .line 1144
     .end local v3    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_56
     move-exception v3
 
     .line 1145
@@ -540,7 +540,7 @@
 .end method
 
 .method static getUri(Ljava/lang/Object;)Landroid/net/Uri;
-    .locals 7
+    .registers 8
     .param p0, "icon"    # Ljava/lang/Object;
 
     .line 1243
@@ -552,7 +552,7 @@
 
     const/16 v3, 0x1c
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_f
 
     .line 1244
     invoke-static {p0}, Landroidx/core/graphics/drawable/IconCompat$Api28Impl;->getUri(Ljava/lang/Object;)Landroid/net/Uri;
@@ -562,10 +562,10 @@
     return-object v0
 
     .line 1247
-    :cond_0
+    :cond_f
     const/4 v2, 0x0
 
-    :try_start_0
+    :try_start_10
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -587,15 +587,15 @@
     move-result-object v3
 
     check-cast v3, Landroid/net/Uri;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/IllegalAccessException; {:try_start_10 .. :try_end_25} :catch_30
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_10 .. :try_end_25} :catch_2b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_10 .. :try_end_25} :catch_26
 
     return-object v3
 
     .line 1254
-    :catch_0
+    :catch_26
     move-exception v3
 
     .line 1255
@@ -607,7 +607,7 @@
 
     .line 1251
     .end local v3    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_1
+    :catch_2b
     move-exception v3
 
     .line 1252
@@ -619,7 +619,7 @@
 
     .line 1248
     .end local v3    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_30
     move-exception v3
 
     .line 1249
@@ -631,7 +631,7 @@
 .end method
 
 .method static loadDrawable(Landroid/graphics/drawable/Icon;Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p0, "icon"    # Landroid/graphics/drawable/Icon;
     .param p1, "context"    # Landroid/content/Context;
 
@@ -644,7 +644,7 @@
 .end method
 
 .method static toIcon(Landroidx/core/graphics/drawable/IconCompat;Landroid/content/Context;)Landroid/graphics/drawable/Icon;
-    .locals 4
+    .registers 6
     .param p0, "iconCompat"    # Landroidx/core/graphics/drawable/IconCompat;
     .param p1, "context"    # Landroid/content/Context;
 
@@ -655,10 +655,10 @@
 
     const/16 v2, 0x1a
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_e0
 
     .line 1312
-    :pswitch_0
+    :pswitch_8
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Unknown type"
@@ -668,12 +668,12 @@
     throw v0
 
     .line 1290
-    :pswitch_1
+    :pswitch_10
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x1e
 
-    if-lt v0, v3, :cond_0
+    if-lt v0, v3, :cond_20
 
     .line 1291
     invoke-virtual {p0}, Landroidx/core/graphics/drawable/IconCompat;->getUri()Landroid/net/Uri;
@@ -686,12 +686,12 @@
 
     .line 1292
     .local v0, "icon":Landroid/graphics/drawable/Icon;
-    goto/16 :goto_0
+    goto/16 :goto_c5
 
     .line 1294
     .end local v0    # "icon":Landroid/graphics/drawable/Icon;
-    :cond_0
-    if-eqz p1, :cond_3
+    :cond_20
+    if-eqz p1, :cond_64
 
     .line 1299
     invoke-virtual {p0, p1}, Landroidx/core/graphics/drawable/IconCompat;->getUriInputStream(Landroid/content/Context;)Ljava/io/InputStream;
@@ -700,12 +700,12 @@
 
     .line 1300
     .local v0, "is":Ljava/io/InputStream;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_47
 
     .line 1304
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v3, v2, :cond_1
+    if-lt v3, v2, :cond_37
 
     .line 1305
     invoke-static {v0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
@@ -719,11 +719,11 @@
     move-object v0, v1
 
     .local v1, "icon":Landroid/graphics/drawable/Icon;
-    goto/16 :goto_0
+    goto/16 :goto_c5
 
     .line 1307
     .end local v1    # "icon":Landroid/graphics/drawable/Icon;
-    :cond_1
+    :cond_37
     nop
 
     .line 1308
@@ -744,11 +744,11 @@
     .restart local v1    # "icon":Landroid/graphics/drawable/Icon;
     move-object v0, v1
 
-    goto/16 :goto_0
+    goto/16 :goto_c5
 
     .line 1301
     .end local v1    # "icon":Landroid/graphics/drawable/Icon;
-    :cond_2
+    :cond_47
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -780,7 +780,7 @@
 
     .line 1295
     .end local v0    # "is":Ljava/io/InputStream;
-    :cond_3
+    :cond_64
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -811,10 +811,10 @@
     throw v0
 
     .line 1272
-    :pswitch_2
+    :pswitch_81
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v0, v2, :cond_4
+    if-lt v0, v2, :cond_8e
 
     .line 1273
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
@@ -826,11 +826,11 @@
     move-result-object v0
 
     .local v0, "icon":Landroid/graphics/drawable/Icon;
-    goto :goto_0
+    goto :goto_c5
 
     .line 1275
     .end local v0    # "icon":Landroid/graphics/drawable/Icon;
-    :cond_4
+    :cond_8e
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
     check-cast v0, Landroid/graphics/Bitmap;
@@ -847,11 +847,11 @@
 
     .line 1278
     .restart local v0    # "icon":Landroid/graphics/drawable/Icon;
-    goto :goto_0
+    goto :goto_c5
 
     .line 1287
     .end local v0    # "icon":Landroid/graphics/drawable/Icon;
-    :pswitch_3
+    :pswitch_9b
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/String;
@@ -862,11 +862,11 @@
 
     .line 1288
     .restart local v0    # "icon":Landroid/graphics/drawable/Icon;
-    goto :goto_0
+    goto :goto_c5
 
     .line 1283
     .end local v0    # "icon":Landroid/graphics/drawable/Icon;
-    :pswitch_4
+    :pswitch_a4
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
     check-cast v0, [B
@@ -881,11 +881,11 @@
 
     .line 1285
     .restart local v0    # "icon":Landroid/graphics/drawable/Icon;
-    goto :goto_0
+    goto :goto_c5
 
     .line 1280
     .end local v0    # "icon":Landroid/graphics/drawable/Icon;
-    :pswitch_5
+    :pswitch_b1
     invoke-virtual {p0}, Landroidx/core/graphics/drawable/IconCompat;->getResPackage()Ljava/lang/String;
 
     move-result-object v0
@@ -898,11 +898,11 @@
 
     .line 1281
     .restart local v0    # "icon":Landroid/graphics/drawable/Icon;
-    goto :goto_0
+    goto :goto_c5
 
     .line 1269
     .end local v0    # "icon":Landroid/graphics/drawable/Icon;
-    :pswitch_6
+    :pswitch_bc
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
     check-cast v0, Landroid/graphics/Bitmap;
@@ -916,10 +916,10 @@
     nop
 
     .line 1314
-    :goto_0
+    :goto_c5
     iget-object v1, p0, Landroidx/core/graphics/drawable/IconCompat;->mTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_ce
 
     .line 1315
     iget-object v1, p0, Landroidx/core/graphics/drawable/IconCompat;->mTintList:Landroid/content/res/ColorStateList;
@@ -927,12 +927,12 @@
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Icon;->setTintList(Landroid/content/res/ColorStateList;)Landroid/graphics/drawable/Icon;
 
     .line 1317
-    :cond_5
+    :cond_ce
     iget-object v1, p0, Landroidx/core/graphics/drawable/IconCompat;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
     sget-object v2, Landroidx/core/graphics/drawable/IconCompat;->DEFAULT_TINT_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    if-eq v1, v2, :cond_6
+    if-eq v1, v2, :cond_d9
 
     .line 1318
     iget-object v1, p0, Landroidx/core/graphics/drawable/IconCompat;->mTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -940,12 +940,12 @@
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Icon;->setTintMode(Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Icon;
 
     .line 1320
-    :cond_6
+    :cond_d9
     return-object v0
 
     .line 1267
     .end local v0    # "icon":Landroid/graphics/drawable/Icon;
-    :pswitch_7
+    :pswitch_da
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 
     check-cast v0, Landroid/graphics/drawable/Icon;
@@ -954,15 +954,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_e0
     .packed-switch -0x1
-        :pswitch_7
-        :pswitch_0
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_da
+        :pswitch_8
+        :pswitch_bc
+        :pswitch_b1
+        :pswitch_a4
+        :pswitch_9b
+        :pswitch_81
+        :pswitch_10
     .end packed-switch
 .end method

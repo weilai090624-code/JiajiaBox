@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/TransactionElement$Key;
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/coroutines/ContinuationInterceptor;)V
-    .locals 2
+    .registers 4
     .param p1, "transactionDispatcher"    # Lkotlin/coroutines/ContinuationInterceptor;
 
     .line 153
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public final acquire()V
-    .locals 1
+    .registers 2
 
     .line 170
     iget-object v0, p0, Landroidx/room/TransactionElement;->referenceCount:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -110,7 +110,7 @@
 .end method
 
 .method public fold(Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -134,7 +134,7 @@
 .end method
 
 .method public get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -155,7 +155,7 @@
 .end method
 
 .method public getKey()Lkotlin/coroutines/CoroutineContext$Key;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -174,7 +174,7 @@
 .end method
 
 .method public final getTransactionDispatcher$room_ktx_release()Lkotlin/coroutines/ContinuationInterceptor;
-    .locals 1
+    .registers 2
 
     .line 155
     iget-object v0, p0, Landroidx/room/TransactionElement;->transactionDispatcher:Lkotlin/coroutines/ContinuationInterceptor;
@@ -183,7 +183,7 @@
 .end method
 
 .method public minusKey(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -203,7 +203,7 @@
 .end method
 
 .method public plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 153
@@ -215,7 +215,7 @@
 .end method
 
 .method public final release()V
-    .locals 3
+    .registers 4
 
     .line 174
     iget-object v0, p0, Landroidx/room/TransactionElement;->referenceCount:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -226,13 +226,13 @@
 
     .line 175
     .local v0, "count":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_9
 
     .line 178
     return-void
 
     .line 176
-    :cond_0
+    :cond_9
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Transaction was never started or was already released."

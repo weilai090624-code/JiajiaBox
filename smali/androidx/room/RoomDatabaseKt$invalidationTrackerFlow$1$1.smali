@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/Job;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/room/RoomDatabaseKt$invalidationTrackerFlow$1$1;->$job:Lkotlinx/coroutines/Job;
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 235
     invoke-virtual {p0}, Landroidx/room/RoomDatabaseKt$invalidationTrackerFlow$1$1;->invoke()V
@@ -75,7 +75,7 @@
 .end method
 
 .method public final invoke()V
-    .locals 3
+    .registers 4
 
     .line 236
     iget-object v0, p0, Landroidx/room/RoomDatabaseKt$invalidationTrackerFlow$1$1;->$job:Lkotlinx/coroutines/Job;

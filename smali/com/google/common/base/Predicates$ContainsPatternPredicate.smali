@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/CommonPattern;)V
-    .locals 1
+    .registers 3
     .param p1, "pattern"    # Lcom/google/common/base/CommonPattern;
 
     .line 646
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 3
     .param p1, "t"    # Ljava/lang/CharSequence;
 
     .line 652
@@ -78,7 +78,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 642
     check-cast p1, Ljava/lang/CharSequence;
@@ -91,7 +91,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -102,7 +102,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 666
     move-object v0, p1
@@ -127,7 +127,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2a
 
     iget-object v2, p0, Lcom/google/common/base/Predicates$ContainsPatternPredicate;->pattern:Lcom/google/common/base/CommonPattern;
 
@@ -142,27 +142,27 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_2a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_2a
     nop
 
     .line 670
-    :goto_0
+    :goto_2b
     return v1
 
     .line 673
     .end local v0    # "that":Lcom/google/common/base/Predicates$ContainsPatternPredicate;
-    :cond_1
+    :cond_2c
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 660
     iget-object v0, p0, Lcom/google/common/base/Predicates$ContainsPatternPredicate;->pattern:Lcom/google/common/base/CommonPattern;
@@ -201,7 +201,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 678
     iget-object v0, p0, Lcom/google/common/base/Predicates$ContainsPatternPredicate;->pattern:Lcom/google/common/base/CommonPattern;

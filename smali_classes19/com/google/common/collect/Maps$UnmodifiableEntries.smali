@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Collection;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1437
     .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableEntries;, "Lcom/google/common/collect/Maps$UnmodifiableEntries<TK;TV;>;"
@@ -78,7 +78,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -96,7 +96,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -122,7 +122,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1465
     .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableEntries;, "Lcom/google/common/collect/Maps$UnmodifiableEntries<TK;TV;>;"
@@ -136,7 +136,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

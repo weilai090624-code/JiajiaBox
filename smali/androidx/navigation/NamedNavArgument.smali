@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroidx/navigation/NavArgument;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "argument"    # Landroidx/navigation/NavArgument;
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Landroidx/navigation/NamedNavArgument;->name:Ljava/lang/String;
@@ -79,7 +79,7 @@
 .end method
 
 .method public final component2()Landroidx/navigation/NavArgument;
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Landroidx/navigation/NamedNavArgument;->argument:Landroidx/navigation/NavArgument;
@@ -88,7 +88,7 @@
 .end method
 
 .method public final getArgument()Landroidx/navigation/NavArgument;
-    .locals 1
+    .registers 2
 
     .line 40
     iget-object v0, p0, Landroidx/navigation/NamedNavArgument;->argument:Landroidx/navigation/NavArgument;
@@ -97,7 +97,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 35
     iget-object v0, p0, Landroidx/navigation/NamedNavArgument;->name:Ljava/lang/String;

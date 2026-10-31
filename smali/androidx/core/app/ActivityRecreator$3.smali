@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .registers 9
 
     .line 272
     :try_start_0
@@ -57,7 +57,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 273
     sget-object v0, Landroidx/core/app/ActivityRecreator;->performStopActivity3ParamsMethod:Ljava/lang/reflect/Method;
@@ -86,10 +86,10 @@
     .line 273
     invoke-virtual {v0, v4, v7}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 276
-    :cond_0
+    :cond_20
     sget-object v0, Landroidx/core/app/ActivityRecreator;->performStopActivity2ParamsMethod:Ljava/lang/reflect/Method;
 
     iget-object v4, p0, Landroidx/core/app/ActivityRecreator$3;->val$activityThread:Ljava/lang/Object;
@@ -109,14 +109,14 @@
 
     .line 276
     invoke-virtual {v0, v4, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_33} :catch_3d
+    .catchall {:try_start_0 .. :try_end_33} :catchall_34
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 288
-    :catchall_0
+    :catchall_34
     move-exception v0
 
     .line 289
@@ -127,11 +127,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
+    goto :goto_5b
 
     .line 279
     .end local v0    # "t":Ljava/lang/Throwable;
-    :catch_0
+    :catch_3d
     move-exception v0
 
     .line 281
@@ -142,14 +142,14 @@
 
     const-class v2, Ljava/lang/RuntimeException;
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_5a
 
     .line 282
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5a
 
     .line 283
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
@@ -162,21 +162,21 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_59
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 284
-    :cond_1
+    :cond_59
     throw v0
 
     .line 290
     .end local v0    # "e":Ljava/lang/RuntimeException;
-    :cond_2
-    :goto_0
+    :cond_5a
+    :goto_5a
     nop
 
     .line 291
-    :goto_1
+    :goto_5b
     return-void
 .end method

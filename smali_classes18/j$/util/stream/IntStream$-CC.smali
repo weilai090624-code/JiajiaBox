@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$dropWhile(Lj$/util/stream/IntStream;Ljava/util/function/IntPredicate;)Lj$/util/stream/IntStream;
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/IntStream;
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public static bridge synthetic $default$iterator(Lj$/util/stream/IntStream;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/IntStream;
 
     .line 73
@@ -62,7 +62,7 @@
 .end method
 
 .method public static bridge synthetic $default$parallel(Lj$/util/stream/IntStream;)Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/IntStream;
 
     .line 73
@@ -74,7 +74,7 @@
 .end method
 
 .method public static bridge synthetic $default$sequential(Lj$/util/stream/IntStream;)Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/IntStream;
 
     .line 73
@@ -86,7 +86,7 @@
 .end method
 
 .method public static bridge synthetic $default$spliterator(Lj$/util/stream/IntStream;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/IntStream;
 
     .line 73
@@ -98,7 +98,7 @@
 .end method
 
 .method public static $default$takeWhile(Lj$/util/stream/IntStream;Ljava/util/function/IntPredicate;)Lj$/util/stream/IntStream;
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/IntStream;
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public static builder()Lj$/util/stream/IntStream$Builder;
-    .locals 1
+    .registers 1
 
     .line 851
     new-instance v0, Lj$/util/stream/Streams$IntStreamBuilderImpl;
@@ -154,7 +154,7 @@
 .end method
 
 .method public static concat(Lj$/util/stream/IntStream;Lj$/util/stream/IntStream;)Lj$/util/stream/IntStream;
-    .locals 3
+    .registers 5
     .param p0, "a"    # Lj$/util/stream/IntStream;
     .param p1, "b"    # Lj$/util/stream/IntStream;
 
@@ -184,26 +184,26 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_22
 
     invoke-interface {p1}, Lj$/util/stream/IntStream;->isParallel()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_23
     invoke-static {v0, v1}, Lj$/util/stream/StreamSupport;->intStream(Lj$/util/Spliterator$OfInt;Z)Lj$/util/stream/IntStream;
 
     move-result-object v1
@@ -224,7 +224,7 @@
 .end method
 
 .method public static empty()Lj$/util/stream/IntStream;
-    .locals 2
+    .registers 2
 
     .line 860
     invoke-static {}, Lj$/util/Spliterators;->emptyIntSpliterator()Lj$/util/Spliterator$OfInt;
@@ -241,7 +241,7 @@
 .end method
 
 .method public static generate(Ljava/util/function/IntSupplier;)Lj$/util/stream/IntStream;
-    .locals 3
+    .registers 4
     .param p0, "s"    # Ljava/util/function/IntSupplier;
 
     .line 1019
@@ -264,7 +264,7 @@
 .end method
 
 .method public static iterate(ILjava/util/function/IntPredicate;Ljava/util/function/IntUnaryOperator;)Lj$/util/stream/IntStream;
-    .locals 8
+    .registers 11
     .param p0, "seed"    # I
     .param p1, "hasNext"    # Ljava/util/function/IntPredicate;
     .param p2, "next"    # Ljava/util/function/IntUnaryOperator;
@@ -304,7 +304,7 @@
 .end method
 
 .method public static iterate(ILjava/util/function/IntUnaryOperator;)Lj$/util/stream/IntStream;
-    .locals 7
+    .registers 9
     .param p0, "seed"    # I
     .param p1, "f"    # Ljava/util/function/IntUnaryOperator;
 
@@ -338,7 +338,7 @@
 .end method
 
 .method public static of(I)Lj$/util/stream/IntStream;
-    .locals 2
+    .registers 3
     .param p0, "t"    # I
 
     .line 870
@@ -356,7 +356,7 @@
 .end method
 
 .method public static varargs of([I)Lj$/util/stream/IntStream;
-    .locals 1
+    .registers 2
     .param p0, "values"    # [I
 
     .line 880
@@ -368,12 +368,12 @@
 .end method
 
 .method public static range(II)Lj$/util/stream/IntStream;
-    .locals 2
+    .registers 4
     .param p0, "startInclusive"    # I
     .param p1, "endExclusive"    # I
 
     .line 1042
-    if-lt p0, p1, :cond_0
+    if-lt p0, p1, :cond_7
 
     .line 1043
     invoke-static {}, Lj$/util/stream/IntStream$-CC;->empty()Lj$/util/stream/IntStream;
@@ -383,7 +383,7 @@
     return-object v0
 
     .line 1045
-    :cond_0
+    :cond_7
     new-instance v0, Lj$/util/stream/Streams$RangeIntSpliterator;
 
     const/4 v1, 0x0
@@ -398,12 +398,12 @@
 .end method
 
 .method public static rangeClosed(II)Lj$/util/stream/IntStream;
-    .locals 2
+    .registers 4
     .param p0, "startInclusive"    # I
     .param p1, "endInclusive"    # I
 
     .line 1068
-    if-le p0, p1, :cond_0
+    if-le p0, p1, :cond_7
 
     .line 1069
     invoke-static {}, Lj$/util/stream/IntStream$-CC;->empty()Lj$/util/stream/IntStream;
@@ -413,7 +413,7 @@
     return-object v0
 
     .line 1071
-    :cond_0
+    :cond_7
     new-instance v0, Lj$/util/stream/Streams$RangeIntSpliterator;
 
     const/4 v1, 0x1

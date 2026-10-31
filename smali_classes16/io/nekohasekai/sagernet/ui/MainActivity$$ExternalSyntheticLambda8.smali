@@ -20,7 +20,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/Ref$IntRef;Lio/nekohasekai/sagernet/ui/MainActivity;Lio/nekohasekai/sagernet/fmt/PluginEntry;Lkotlin/jvm/internal/Ref$IntRef;I)V
-    .locals 0
+    .registers 6
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 7
+    .registers 10
 
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/MainActivity$$ExternalSyntheticLambda8;->f$0:Lkotlin/jvm/internal/Ref$IntRef;

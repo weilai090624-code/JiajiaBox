@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/channels/BufferedChannel$receiveImpl$1;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x3
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 8
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
     .param p3, "p3"    # Ljava/lang/Object;
@@ -111,7 +111,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/channels/ChannelSegment;IJ)Ljava/lang/Void;
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

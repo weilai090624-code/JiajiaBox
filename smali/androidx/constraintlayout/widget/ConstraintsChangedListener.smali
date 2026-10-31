@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public postLayoutChange(II)V
-    .locals 0
+    .registers 3
     .param p1, "stateId"    # I
     .param p2, "constraintId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -35,7 +35,7 @@
 .end method
 
 .method public preLayoutChange(II)V
-    .locals 0
+    .registers 3
     .param p1, "stateId"    # I
     .param p2, "constraintId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;

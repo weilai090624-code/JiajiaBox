@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 950
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static checkOtherMembers(ILandroid/content/ClipData$Item;Landroidx/core/util/Consumer;)V
-    .locals 2
+    .registers 5
     .param p0, "i"    # I
     .param p1, "item"    # Landroid/content/ClipData$Item;
     .annotation system Ldalvik/annotation/Signature;
@@ -45,23 +45,23 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     invoke-virtual {p1}, Landroid/content/ClipData$Item;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 956
     invoke-virtual {p1}, Landroid/content/ClipData$Item;->getTextLinks()Landroid/view/textclassifier/TextLinks;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 957
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -93,6 +93,6 @@
     invoke-interface {p2, v0}, Landroidx/core/util/Consumer;->accept(Ljava/lang/Object;)V
 
     .line 960
-    :cond_1
+    :cond_32
     return-void
 .end method

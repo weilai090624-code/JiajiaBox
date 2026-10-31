@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 124
     invoke-direct {p0}, Lcom/google/common/util/concurrent/GwtFuturesCatchingSpecialization;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method public static addCallback(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/util/concurrent/FutureCallback;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,7 +62,7 @@
 .end method
 
 .method public static allAsList(Ljava/lang/Iterable;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -101,7 +101,7 @@
 .end method
 
 .method public static varargs allAsList([Lcom/google/common/util/concurrent/ListenableFuture;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -141,7 +141,7 @@
 .end method
 
 .method public static catching(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Lcom/google/common/base/Function;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 5
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -175,7 +175,7 @@
 .end method
 
 .method public static catchingAsync(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Lcom/google/common/util/concurrent/AsyncFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 5
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -209,7 +209,7 @@
 .end method
 
 .method public static getChecked(Ljava/util/concurrent/Future;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -244,7 +244,7 @@
 .end method
 
 .method public static getChecked(Ljava/util/concurrent/Future;Ljava/lang/Class;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 6
     .param p2, "timeout"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -283,7 +283,7 @@
 .end method
 
 .method public static getDone(Ljava/util/concurrent/Future;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -322,7 +322,7 @@
 .end method
 
 .method public static getUnchecked(Ljava/util/concurrent/Future;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -341,17 +341,17 @@
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1295
-    :try_start_0
+    :try_start_3
     invoke-static {p0}, Lcom/google/common/util/concurrent/Uninterruptibles;->getUninterruptibly(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_3 .. :try_end_7} :catch_8
 
     return-object v0
 
     .line 1296
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 1297
@@ -371,7 +371,7 @@
 .end method
 
 .method private static gwtCompatibleToArray(Ljava/lang/Iterable;)[Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -390,7 +390,7 @@
     .local p0, "futures":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lcom/google/common/util/concurrent/ListenableFuture<+TT;>;>;"
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 909
     move-object v0, p0
@@ -398,18 +398,18 @@
     check-cast v0, Ljava/util/Collection;
 
     .local v0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/google/common/util/concurrent/ListenableFuture<+TT;>;>;"
-    goto :goto_0
+    goto :goto_c
 
     .line 911
     .end local v0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/google/common/util/concurrent/ListenableFuture<+TT;>;>;"
-    :cond_0
+    :cond_8
     invoke-static {p0}, Lcom/google/common/collect/ImmutableList;->copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 
     .line 913
     .restart local v0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/google/common/util/concurrent/ListenableFuture<+TT;>;>;"
-    :goto_0
+    :goto_c
     const/4 v1, 0x0
 
     new-array v1, v1, [Lcom/google/common/util/concurrent/ListenableFuture;
@@ -424,7 +424,7 @@
 .end method
 
 .method public static immediateCancelledFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -444,7 +444,7 @@
 .end method
 
 .method public static immediateFailedFuture(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .param p0, "throwable"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -470,7 +470,7 @@
 .end method
 
 .method public static immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
         .end annotation
@@ -487,7 +487,7 @@
 
     .line 133
     .local p0, "value":Ljava/lang/Object;, "TV;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 136
     sget-object v0, Lcom/google/common/util/concurrent/ImmediateFuture;->NULL:Lcom/google/common/util/concurrent/ListenableFuture;
@@ -498,7 +498,7 @@
 
     .line 139
     .end local v0    # "typedNull":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/common/util/concurrent/ImmediateFuture;
 
     invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/ImmediateFuture;-><init>(Ljava/lang/Object;)V
@@ -507,7 +507,7 @@
 .end method
 
 .method public static immediateVoidFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -524,7 +524,7 @@
 .end method
 
 .method public static inCompletionOrder(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -568,10 +568,10 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_10
     array-length v5, v0
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_1e
 
     .line 882
     new-instance v5, Lcom/google/common/util/concurrent/Futures$InCompletionOrderFuture;
@@ -583,11 +583,11 @@
     .line 881
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 885
     .end local v4    # "i":I
-    :cond_0
+    :cond_1e
     invoke-virtual {v3}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v2
@@ -597,10 +597,10 @@
     const/4 v4, 0x0
 
     .restart local v4    # "i":I
-    :goto_1
+    :goto_23
     array-length v5, v0
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_38
 
     .line 887
     move v5, v4
@@ -625,11 +625,11 @@
     .end local v5    # "localI":I
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
     .line 899
     .end local v4    # "i":I
-    :cond_1
+    :cond_38
     move-object v4, v2
 
     .line 900
@@ -638,7 +638,7 @@
 .end method
 
 .method public static lazyTransform(Ljava/util/concurrent/Future;Lcom/google/common/base/Function;)Ljava/util/concurrent/Future;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<I:",
@@ -672,7 +672,7 @@
 .end method
 
 .method public static nonCancellationPropagating(Lcom/google/common/util/concurrent/ListenableFuture;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -691,13 +691,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 750
     return-object p0
 
     .line 752
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;
 
     invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
@@ -715,7 +715,7 @@
 .end method
 
 .method public static scheduleAsync(Lcom/google/common/util/concurrent/AsyncCallable;JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/ScheduledExecutorService;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 4
+    .registers 9
     .param p1, "delay"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
     .param p4, "executorService"    # Ljava/util/concurrent/ScheduledExecutorService;
@@ -765,7 +765,7 @@
 .end method
 
 .method public static submit(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p0, "runnable"    # Ljava/lang/Runnable;
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
@@ -799,7 +799,7 @@
 .end method
 
 .method public static submit(Ljava/util/concurrent/Callable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -830,7 +830,7 @@
 .end method
 
 .method public static submitAsync(Lcom/google/common/util/concurrent/AsyncCallable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -861,7 +861,7 @@
 .end method
 
 .method public static successfulAsList(Ljava/lang/Iterable;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -893,7 +893,7 @@
 .end method
 
 .method public static varargs successfulAsList([Lcom/google/common/util/concurrent/ListenableFuture;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -926,7 +926,7 @@
 .end method
 
 .method public static transform(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/base/Function;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -957,7 +957,7 @@
 .end method
 
 .method public static transformAsync(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/util/concurrent/AsyncFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -988,7 +988,7 @@
 .end method
 
 .method public static whenAllComplete(Ljava/lang/Iterable;)Lcom/google/common/util/concurrent/Futures$FutureCombiner;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -1021,7 +1021,7 @@
 .end method
 
 .method public static varargs whenAllComplete([Lcom/google/common/util/concurrent/ListenableFuture;)Lcom/google/common/util/concurrent/Futures$FutureCombiner;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -1055,7 +1055,7 @@
 .end method
 
 .method public static whenAllSucceed(Ljava/lang/Iterable;)Lcom/google/common/util/concurrent/Futures$FutureCombiner;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -1088,7 +1088,7 @@
 .end method
 
 .method public static varargs whenAllSucceed([Lcom/google/common/util/concurrent/ListenableFuture;)Lcom/google/common/util/concurrent/Futures$FutureCombiner;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -1122,7 +1122,7 @@
 .end method
 
 .method public static withTimeout(Lcom/google/common/util/concurrent/ListenableFuture;JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/ScheduledExecutorService;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 6
     .param p1, "time"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .param p4, "scheduledExecutor"    # Ljava/util/concurrent/ScheduledExecutorService;
@@ -1147,13 +1147,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 379
     return-object p0
 
     .line 381
-    :cond_0
+    :cond_7
     invoke-static {p0, p1, p2, p3, p4}, Lcom/google/common/util/concurrent/TimeoutFuture;->create(Lcom/google/common/util/concurrent/ListenableFuture;JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/ScheduledExecutorService;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v0
@@ -1162,13 +1162,13 @@
 .end method
 
 .method private static wrapAndThrowUnchecked(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 3
     .param p0, "cause"    # Ljava/lang/Throwable;
 
     .line 1303
     instance-of v0, p0, Ljava/lang/Error;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 1304
     new-instance v0, Lcom/google/common/util/concurrent/ExecutionError;
@@ -1182,7 +1182,7 @@
     throw v0
 
     .line 1311
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/util/concurrent/UncheckedExecutionException;
 
     invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/UncheckedExecutionException;-><init>(Ljava/lang/Throwable;)V

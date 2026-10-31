@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/io/FileTreeWalk$FileTreeWalkIterator;Ljava/io/File;)V
-    .locals 2
+    .registers 5
     .param p1, "this$0"    # Lkotlin/io/FileTreeWalk$FileTreeWalkIterator;
     .param p2, "rootFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
@@ -81,7 +81,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 202
     nop
@@ -90,7 +90,7 @@
     return-void
 
     .line 274
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     .line 201
@@ -110,19 +110,19 @@
 
 # virtual methods
 .method public step()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 205
     iget-boolean v0, p0, Lkotlin/io/FileTreeWalk$FileTreeWalkIterator$SingleFileState;->visited:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 206
-    :cond_0
+    :cond_6
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lkotlin/io/FileTreeWalk$FileTreeWalkIterator$SingleFileState;->visited:Z

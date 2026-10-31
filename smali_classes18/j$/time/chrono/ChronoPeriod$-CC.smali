@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$isNegative(Lj$/time/chrono/ChronoPeriod;)Z
-    .locals 7
+    .registers 8
     .param p0, "_this"    # Lj$/time/chrono/ChronoPeriod;
 
     .line 187
@@ -17,12 +17,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -40,7 +40,7 @@
 
     cmp-long v6, v2, v4
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_20
 
     .line 189
     const/4 v0, 0x1
@@ -49,18 +49,18 @@
 
     .line 191
     .end local v1    # "unit":Lj$/time/temporal/TemporalUnit;
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_8
 
     .line 192
-    :cond_1
+    :cond_21
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static $default$isZero(Lj$/time/chrono/ChronoPeriod;)Z
-    .locals 7
+    .registers 8
     .param p0, "_this"    # Lj$/time/chrono/ChronoPeriod;
 
     .line 173
@@ -72,12 +72,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -95,7 +95,7 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_20
 
     .line 175
     const/4 v0, 0x0
@@ -104,18 +104,18 @@
 
     .line 177
     .end local v1    # "unit":Lj$/time/temporal/TemporalUnit;
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_8
 
     .line 178
-    :cond_1
+    :cond_21
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static $default$negated(Lj$/time/chrono/ChronoPeriod;)Lj$/time/chrono/ChronoPeriod;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/time/chrono/ChronoPeriod;
 
     .line 256
@@ -129,7 +129,7 @@
 .end method
 
 .method public static between(Lj$/time/chrono/ChronoLocalDate;Lj$/time/chrono/ChronoLocalDate;)Lj$/time/chrono/ChronoPeriod;
-    .locals 1
+    .registers 3
     .param p0, "startDateInclusive"    # Lj$/time/chrono/ChronoLocalDate;
     .param p1, "endDateExclusive"    # Lj$/time/chrono/ChronoLocalDate;
 

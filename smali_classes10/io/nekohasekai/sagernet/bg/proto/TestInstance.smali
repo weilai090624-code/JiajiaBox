@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/nekohasekai/sagernet/database/ProxyEntity;Ljava/lang/String;I)V
-    .locals 1
+    .registers 5
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "link"    # Ljava/lang/String;
     .param p3, "timeout"    # I
@@ -71,7 +71,7 @@
 .end method
 
 .method public static final synthetic access$getTimeout$p(Lio/nekohasekai/sagernet/bg/proto/TestInstance;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/proto/TestInstance;
 
     .line 16
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method protected buildConfig()V
-    .locals 5
+    .registers 6
 
     .line 44
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/bg/proto/TestInstance;->getProfile()Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -109,7 +109,7 @@
 .end method
 
 .method public final doTest(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -177,16 +177,16 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_35
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_0
+    :cond_35
     return-object v0
 .end method
 
 .method public final getLink()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 16
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/TestInstance;->link:Ljava/lang/String;
@@ -195,7 +195,7 @@
 .end method
 
 .method protected loadConfig(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -211,7 +211,7 @@
     .line 49
     sget-boolean v0, Lio/nekohasekai/sagernet/BuildConfig;->DEBUG:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
@@ -226,7 +226,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 50
-    :cond_0
+    :cond_11
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/bg/proto/TestInstance;->getConfig()Lio/nekohasekai/sagernet/fmt/ConfigBuildResult;
 
     move-result-object v0

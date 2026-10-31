@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 352
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static invalidateOutline(Landroidx/appcompat/widget/ActionBarContainer;)V
-    .locals 0
+    .registers 1
     .param p0, "drawable"    # Landroidx/appcompat/widget/ActionBarContainer;
 
     .line 357

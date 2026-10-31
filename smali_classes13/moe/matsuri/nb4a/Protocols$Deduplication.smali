@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/nekohasekai/sagernet/fmt/AbstractBean;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "bean"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .param p2, "type"    # Ljava/lang/String;
 
@@ -83,46 +83,46 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 32
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 33
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_f
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_10
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_18
 
     const/4 v0, 0x0
 
     return v0
 
     .line 35
-    :cond_2
+    :cond_18
     const-string v0, "null cannot be cast to non-null type moe.matsuri.nb4a.Protocols.Deduplication"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -152,7 +152,7 @@
 .end method
 
 .method public final getBean()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 17
     iget-object v0, p0, Lmoe/matsuri/nb4a/Protocols$Deduplication;->bean:Lio/nekohasekai/sagernet/fmt/AbstractBean;
@@ -161,7 +161,7 @@
 .end method
 
 .method public final getType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 17
     iget-object v0, p0, Lmoe/matsuri/nb4a/Protocols$Deduplication;->type:Ljava/lang/String;
@@ -170,14 +170,14 @@
 .end method
 
 .method public final hash()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 21
     iget-object v0, p0, Lmoe/matsuri/nb4a/Protocols$Deduplication;->bean:Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     instance-of v0, v0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 22
     iget-object v0, p0, Lmoe/matsuri/nb4a/Protocols$Deduplication;->bean:Lio/nekohasekai/sagernet/fmt/AbstractBean;
@@ -193,7 +193,7 @@
     return-object v0
 
     .line 24
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -228,7 +228,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 28
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/Protocols$Deduplication;->hash()Ljava/lang/String;

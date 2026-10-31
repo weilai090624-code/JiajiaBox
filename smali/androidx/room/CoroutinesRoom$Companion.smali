@@ -58,7 +58,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/room/CoroutinesRoom$Companion;-><init>()V
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public final createFlow(Landroidx/room/RoomDatabase;Z[Ljava/lang/String;Ljava/util/concurrent/Callable;)Lkotlinx/coroutines/flow/Flow;
-    .locals 7
+    .registers 12
     .param p1, "db"    # Landroidx/room/RoomDatabase;
     .param p2, "inTransaction"    # Z
     .param p3, "tableNames"    # [Ljava/lang/String;
@@ -128,7 +128,7 @@
 .end method
 
 .method public final execute(Landroidx/room/RoomDatabase;ZLandroid/os/CancellationSignal;Ljava/util/concurrent/Callable;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 15
+    .registers 21
     .param p1, "db"    # Landroidx/room/RoomDatabase;
     .param p2, "inTransaction"    # Z
     .param p3, "cancellationSignal"    # Landroid/os/CancellationSignal;
@@ -158,13 +158,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-virtual/range {p1 .. p1}, Landroidx/room/RoomDatabase;->inTransaction()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 77
     invoke-interface/range {p4 .. p4}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
@@ -174,7 +174,7 @@
     return-object v0
 
     .line 82
-    :cond_0
+    :cond_11
     invoke-interface/range {p5 .. p5}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object v0
@@ -189,34 +189,34 @@
 
     check-cast v0, Landroidx/room/TransactionElement;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     invoke-virtual {v0}, Landroidx/room/TransactionElement;->getTransactionDispatcher$room_ktx_release()Lkotlin/coroutines/ContinuationInterceptor;
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_34
 
     .line 83
-    :cond_1
-    if-eqz p2, :cond_2
+    :cond_27
+    if-eqz p2, :cond_2e
 
     invoke-static/range {p1 .. p1}, Landroidx/room/CoroutinesRoomKt;->getTransactionDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_2
+    :cond_2e
     invoke-static/range {p1 .. p1}, Landroidx/room/CoroutinesRoomKt;->getQueryDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v0
 
-    :goto_0
+    :goto_32
     check-cast v0, Lkotlin/coroutines/ContinuationInterceptor;
 
     .line 82
-    :cond_3
+    :cond_34
     nop
 
     .line 84
@@ -320,12 +320,12 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_7e
 
     invoke-static/range {p5 .. p5}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 173
-    :cond_4
+    :cond_7e
     nop
 
     .line 84
@@ -334,7 +334,7 @@
 .end method
 
 .method public final execute(Landroidx/room/RoomDatabase;ZLjava/util/concurrent/Callable;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 9
     .param p1, "db"    # Landroidx/room/RoomDatabase;
     .param p2, "inTransaction"    # Z
     .param p3, "callable"    # Ljava/util/concurrent/Callable;
@@ -362,13 +362,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-virtual {p1}, Landroidx/room/RoomDatabase;->inTransaction()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 56
     invoke-interface {p3}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
@@ -378,7 +378,7 @@
     return-object v0
 
     .line 61
-    :cond_0
+    :cond_11
     invoke-interface {p4}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object v0
@@ -393,34 +393,34 @@
 
     check-cast v0, Landroidx/room/TransactionElement;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     invoke-virtual {v0}, Landroidx/room/TransactionElement;->getTransactionDispatcher$room_ktx_release()Lkotlin/coroutines/ContinuationInterceptor;
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_34
 
     .line 62
-    :cond_1
-    if-eqz p2, :cond_2
+    :cond_27
+    if-eqz p2, :cond_2e
 
     invoke-static {p1}, Landroidx/room/CoroutinesRoomKt;->getTransactionDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_2
+    :cond_2e
     invoke-static {p1}, Landroidx/room/CoroutinesRoomKt;->getQueryDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v0
 
-    :goto_0
+    :goto_32
     check-cast v0, Lkotlin/coroutines/ContinuationInterceptor;
 
     .line 61
-    :cond_3
+    :cond_34
     nop
 
     .line 63

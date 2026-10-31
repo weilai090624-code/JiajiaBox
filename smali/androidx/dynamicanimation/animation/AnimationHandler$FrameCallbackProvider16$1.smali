@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackProvider16;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackProvider16;
 
     .line 204
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public doFrame(J)V
-    .locals 1
+    .registers 4
     .param p1, "frameTimeNanos"    # J
 
     .line 207

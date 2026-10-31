@@ -72,7 +72,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/AwaitAll;[Lkotlinx/coroutines/AwaitAll$AwaitAllNode;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lkotlinx/coroutines/AwaitAll;
     .param p2, "nodes"    # [Lkotlinx/coroutines/AwaitAll$AwaitAllNode;
     .annotation system Ldalvik/annotation/Signature;
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public final disposeAll()V
-    .locals 8
+    .registers 9
 
     .line 96
     iget-object v0, p0, Lkotlinx/coroutines/AwaitAll$DisposeHandlersOnCancel;->nodes:[Lkotlinx/coroutines/AwaitAll$AwaitAllNode;
@@ -110,8 +110,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_5
+    if-ge v3, v2, :cond_16
 
     aget-object v4, v0, v3
 
@@ -137,10 +137,10 @@
     .end local v4    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 129
-    :cond_0
+    :cond_16
     nop
 
     .line 97
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 94
@@ -166,7 +166,7 @@
 .end method
 
 .method public invoke(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 99
@@ -176,7 +176,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 100
     new-instance v0, Ljava/lang/StringBuilder;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 414
     invoke-direct {p0}, Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method protected readMicros()J
-    .locals 2
+    .registers 3
 
     .line 419
     iget-object v0, p0, Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch$1;->stopwatch:Lcom/google/common/base/Stopwatch;
@@ -53,7 +53,7 @@
 .end method
 
 .method protected sleepMicrosUninterruptibly(J)V
-    .locals 3
+    .registers 6
     .param p1, "micros"    # J
 
     .line 424
@@ -61,7 +61,7 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_b
 
     .line 425
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MICROSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -69,6 +69,6 @@
     invoke-static {p1, p2, v0}, Lcom/google/common/util/concurrent/Uninterruptibles;->sleepUninterruptibly(JLjava/util/concurrent/TimeUnit;)V
 
     .line 427
-    :cond_0
+    :cond_b
     return-void
 .end method

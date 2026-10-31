@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 457
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getLaunchBounds(Landroid/app/ActivityOptions;)Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
     .param p0, "activityOptions"    # Landroid/app/ActivityOptions;
 
     .line 469
@@ -38,7 +38,7 @@
 .end method
 
 .method static setLaunchBounds(Landroid/app/ActivityOptions;Landroid/graphics/Rect;)Landroid/app/ActivityOptions;
-    .locals 1
+    .registers 3
     .param p0, "activityOptions"    # Landroid/app/ActivityOptions;
     .param p1, "screenSpacePixelRect"    # Landroid/graphics/Rect;
 

@@ -84,7 +84,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 4
+    .registers 7
     .param p1, "source"    # Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;
     .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
 
@@ -104,7 +104,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-virtual {v0}, Lkotlinx/coroutines/CoroutineId;->getId()J
 
@@ -114,12 +114,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     move-object v0, v1
 
-    :goto_0
+    :goto_1a
     iput-object v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->coroutineId:Ljava/lang/Long;
 
     .line 21
@@ -133,18 +133,18 @@
 
     check-cast v0, Lkotlin/coroutines/ContinuationInterceptor;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     move-object v0, v1
 
-    :goto_1
+    :goto_2e
     iput-object v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->dispatcher:Ljava/lang/String;
 
     .line 22
@@ -158,18 +158,18 @@
 
     check-cast v0, Lkotlinx/coroutines/CoroutineName;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_41
 
     invoke-virtual {v0}, Lkotlinx/coroutines/CoroutineName;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_42
 
-    :cond_2
+    :cond_41
     move-object v0, v1
 
-    :goto_2
+    :goto_42
     iput-object v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->name:Ljava/lang/String;
 
     .line 23
@@ -182,36 +182,36 @@
     .line 24
     iget-object v0, p1, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->lastObservedThread:Ljava/lang/Thread;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_59
 
     invoke-virtual {v0}, Ljava/lang/Thread;->getState()Ljava/lang/Thread$State;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_59
 
     invoke-virtual {v0}, Ljava/lang/Thread$State;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_5a
 
-    :cond_3
+    :cond_59
     move-object v0, v1
 
-    :goto_3
+    :goto_5a
     iput-object v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->lastObservedThreadState:Ljava/lang/String;
 
     .line 25
     iget-object v0, p1, Lkotlinx/coroutines/debug/internal/DebugCoroutineInfoImpl;->lastObservedThread:Ljava/lang/Thread;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_64
 
     invoke-virtual {v0}, Ljava/lang/Thread;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    :cond_4
+    :cond_64
     iput-object v1, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->lastObservedThreadName:Ljava/lang/String;
 
     .line 26
@@ -233,7 +233,7 @@
 
 # virtual methods
 .method public final getCoroutineId()Ljava/lang/Long;
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->coroutineId:Ljava/lang/Long;
@@ -242,7 +242,7 @@
 .end method
 
 .method public final getDispatcher()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 21
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->dispatcher:Ljava/lang/String;
@@ -251,7 +251,7 @@
 .end method
 
 .method public final getLastObservedStackTrace()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -268,7 +268,7 @@
 .end method
 
 .method public final getLastObservedThreadName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 25
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->lastObservedThreadName:Ljava/lang/String;
@@ -277,7 +277,7 @@
 .end method
 
 .method public final getLastObservedThreadState()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 24
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->lastObservedThreadState:Ljava/lang/String;
@@ -286,7 +286,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->name:Ljava/lang/String;
@@ -295,7 +295,7 @@
 .end method
 
 .method public final getSequenceNumber()J
-    .locals 2
+    .registers 3
 
     .line 27
     iget-wide v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->sequenceNumber:J
@@ -304,7 +304,7 @@
 .end method
 
 .method public final getState()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lkotlinx/coroutines/debug/internal/DebuggerInfo;->state:Ljava/lang/String;

@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/ScheduledExecutorService;Landroid/os/Handler;Landroidx/camera/camera2/internal/CaptureSessionRepository;I)V
-    .locals 3
+    .registers 9
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "scheduledExecutorService"    # Ljava/util/concurrent/ScheduledExecutorService;
     .param p3, "compatHandler"    # Landroid/os/Handler;
@@ -91,7 +91,7 @@
 
     const/16 v1, 0x17
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_21
 
     .line 235
     iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mEnableFeature:Ljava/util/Set;
@@ -101,19 +101,19 @@
     invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 238
-    :cond_0
+    :cond_21
     iget v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mSupportedHardwareLevel:I
 
     const/4 v2, 0x2
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_2a
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-gt v0, v1, :cond_2
+    if-gt v0, v1, :cond_31
 
     .line 241
-    :cond_1
+    :cond_2a
     iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mEnableFeature:Ljava/util/Set;
 
     const-string v1, "deferrableSurface_close"
@@ -121,10 +121,10 @@
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 244
-    :cond_2
+    :cond_31
     iget v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mSupportedHardwareLevel:I
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_3d
 
     .line 246
     iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mEnableFeature:Ljava/util/Set;
@@ -134,14 +134,14 @@
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 248
-    :cond_3
+    :cond_3d
     return-void
 .end method
 
 
 # virtual methods
 .method build()Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener;
-    .locals 8
+    .registers 9
 
     .line 252
     iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mEnableFeature:Ljava/util/Set;
@@ -150,7 +150,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 253
     new-instance v0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener;
@@ -172,7 +172,7 @@
     return-object v0
 
     .line 258
-    :cond_0
+    :cond_1b
     new-instance v0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener;
 
     new-instance v7, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionImpl;

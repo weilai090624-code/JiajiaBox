@@ -56,7 +56,7 @@
 
 # direct methods
 .method public static final contains(Landroid/view/Menu;Landroid/view/MenuItem;)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Landroid/view/Menu;
     .param p1, "item"    # Landroid/view/MenuItem;
 
@@ -68,8 +68,8 @@
 
     move-result v1
 
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_5
+    if-ge v0, v1, :cond_16
 
     .line 35
     invoke-interface {p0, v0}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
@@ -80,7 +80,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     .line 36
     const/4 v1, 0x1
@@ -88,21 +88,21 @@
     return v1
 
     .line 34
-    :cond_0
+    :cond_13
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 39
     .end local v0    # "index":I
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static final forEach(Landroid/view/Menu;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p0, "$this$forEach"    # Landroid/view/Menu;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -128,8 +128,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_0
+    :goto_6
+    if-ge v1, v2, :cond_12
 
     .line 57
     invoke-interface {p0, v1}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
@@ -141,16 +141,16 @@
     .line 56
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 59
     .end local v1    # "index":I
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public static final forEachIndexed(Landroid/view/Menu;Lkotlin/jvm/functions/Function2;)V
-    .locals 5
+    .registers 7
     .param p0, "$this$forEachIndexed"    # Landroid/view/Menu;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -178,8 +178,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_0
+    :goto_6
+    if-ge v1, v2, :cond_16
 
     .line 64
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -195,16 +195,16 @@
     .line 63
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 66
     .end local v1    # "index":I
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public static final get(Landroid/view/Menu;I)Landroid/view/MenuItem;
-    .locals 2
+    .registers 4
     .param p0, "$this$get"    # Landroid/view/Menu;
     .param p1, "index"    # I
 
@@ -220,7 +220,7 @@
 .end method
 
 .method public static final getChildren(Landroid/view/Menu;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$children"    # Landroid/view/Menu;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -245,7 +245,7 @@
 .end method
 
 .method public static final getSize(Landroid/view/Menu;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$size"    # Landroid/view/Menu;
 
     const/4 v0, 0x0
@@ -260,7 +260,7 @@
 .end method
 
 .method public static final isEmpty(Landroid/view/Menu;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isEmpty"    # Landroid/view/Menu;
 
     const/4 v0, 0x0
@@ -271,21 +271,21 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public static final isNotEmpty(Landroid/view/Menu;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isNotEmpty"    # Landroid/view/Menu;
 
     const/4 v0, 0x0
@@ -296,21 +296,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public static final iterator(Landroid/view/Menu;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$iterator"    # Landroid/view/Menu;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -335,7 +335,7 @@
 .end method
 
 .method public static final minusAssign(Landroid/view/Menu;Landroid/view/MenuItem;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$minusAssign"    # Landroid/view/Menu;
     .param p1, "item"    # Landroid/view/MenuItem;
 
@@ -353,7 +353,7 @@
 .end method
 
 .method public static final removeItemAt(Landroid/view/Menu;I)V
-    .locals 4
+    .registers 6
     .param p0, "$this$removeItemAt"    # Landroid/view/Menu;
     .param p1, "index"    # I
 
@@ -365,7 +365,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 91
     .local v1, "it":Landroid/view/MenuItem;
@@ -383,17 +383,17 @@
     .end local v2    # "$i$a$-let-MenuKt$removeItemAt$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_13
+    if-eqz v1, :cond_16
 
     return-void
 
-    :cond_1
+    :cond_16
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V

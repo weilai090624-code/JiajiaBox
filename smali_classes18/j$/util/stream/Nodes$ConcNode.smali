@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Node;Lj$/util/stream/Node;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public asArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_17
 
     .line 813
     long-to-int v2, v0
@@ -110,7 +110,7 @@
 
     .line 812
     .end local v2    # "array":[Ljava/lang/Object;, "[TT;"
-    :cond_0
+    :cond_17
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -121,7 +121,7 @@
 .end method
 
 .method public copyInto([Ljava/lang/Object;I)V
-    .locals 3
+    .registers 6
     .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -159,7 +159,7 @@
 .end method
 
 .method public forEach(Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,7 +185,7 @@
 .end method
 
 .method public spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -204,7 +204,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 841
     .local p0, "this":Lj$/util/stream/Nodes$ConcNode;, "Ljava/util/stream/Nodes$ConcNode<TT;>;"
@@ -220,7 +220,7 @@
 
     cmp-long v6, v0, v2
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_1e
 
     .line 842
     iget-object v0, p0, Lj$/util/stream/Nodes$ConcNode;->left:Lj$/util/stream/Node;
@@ -244,7 +244,7 @@
     return-object v0
 
     .line 844
-    :cond_0
+    :cond_1e
     invoke-virtual {p0}, Lj$/util/stream/Nodes$ConcNode;->count()J
 
     move-result-wide v0
@@ -267,7 +267,7 @@
 .end method
 
 .method public truncate(JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 16
+    .registers 22
     .param p1, "from"    # J
     .param p3, "to"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -289,7 +289,7 @@
 
     cmp-long v3, p1, v1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_11
 
     invoke-virtual/range {p0 .. p0}, Lj$/util/stream/Nodes$ConcNode;->count()J
 
@@ -297,13 +297,13 @@
 
     cmp-long v3, p3, v1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_11
 
     .line 827
     return-object v0
 
     .line 828
-    :cond_0
+    :cond_11
     iget-object v1, v0, Lj$/util/stream/Nodes$ConcNode;->left:Lj$/util/stream/Node;
 
     invoke-interface {v1}, Lj$/util/stream/Node;->count()J
@@ -314,7 +314,7 @@
     .local v8, "leftCount":J
     cmp-long v1, p1, v8
 
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_28
 
     .line 830
     iget-object v2, v0, Lj$/util/stream/Nodes$ConcNode;->right:Lj$/util/stream/Node;
@@ -332,10 +332,10 @@
     return-object v1
 
     .line 831
-    :cond_1
+    :cond_28
     cmp-long v1, p3, v8
 
-    if-gtz v1, :cond_2
+    if-gtz v1, :cond_39
 
     .line 832
     iget-object v2, v0, Lj$/util/stream/Nodes$ConcNode;->left:Lj$/util/stream/Node;
@@ -353,7 +353,7 @@
     return-object v1
 
     .line 834
-    :cond_2
+    :cond_39
     invoke-virtual/range {p0 .. p0}, Lj$/util/stream/Nodes$ConcNode;->getShape()Lj$/util/stream/StreamShape;
 
     move-result-object v1

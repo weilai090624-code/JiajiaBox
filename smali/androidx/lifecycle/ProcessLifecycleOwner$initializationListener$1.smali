@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/ProcessLifecycleOwner;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/lifecycle/ProcessLifecycleOwner;
 
     iput-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner$initializationListener$1;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
@@ -59,14 +59,14 @@
 
 # virtual methods
 .method public onCreate()V
-    .locals 0
+    .registers 1
 
     .line 61
     return-void
 .end method
 
 .method public onResume()V
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner$initializationListener$1;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
@@ -78,7 +78,7 @@
 .end method
 
 .method public onStart()V
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner$initializationListener$1;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;

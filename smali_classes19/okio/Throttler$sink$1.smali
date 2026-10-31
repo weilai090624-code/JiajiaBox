@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Throttler;Lokio/Sink;)V
-    .locals 0
+    .registers 3
     .param p1, "$receiver"    # Lokio/Throttler;
     .param p2, "$sink"    # Lokio/Sink;
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public write(Lokio/Buffer;J)V
-    .locals 5
+    .registers 9
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -84,15 +84,15 @@
 
     .line 156
     .local v0, "remaining":J
-    :goto_0
+    :goto_7
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_28
 
     .line 157
-    :try_start_0
+    :try_start_d
     iget-object v2, p0, Lokio/Throttler$sink$1;->this$0:Lokio/Throttler;
 
     invoke-virtual {v2, v0, v1}, Lokio/Throttler;->take$okio(J)J
@@ -102,18 +102,18 @@
     .line 158
     .local v2, "toWrite":J
     invoke-super {p0, p1, v2, v3}, Lokio/ForwardingSink;->write(Lokio/Buffer;J)V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/InterruptedException; {:try_start_d .. :try_end_16} :catch_18
 
     .line 159
     sub-long/2addr v0, v2
 
     .end local v2    # "toWrite":J
-    goto :goto_0
+    goto :goto_7
 
     .line 161
     .end local v0    # "remaining":J
-    :catch_0
+    :catch_18
     move-exception v0
 
     .line 162
@@ -135,6 +135,6 @@
 
     .line 165
     .end local v0    # "e":Ljava/lang/InterruptedException;
-    :cond_0
+    :cond_28
     return-void
 .end method

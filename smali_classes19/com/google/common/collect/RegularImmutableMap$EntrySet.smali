@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap;[Ljava/lang/Object;II)V
-    .locals 0
+    .registers 5
     .param p2, "alternatingKeysAndValues"    # [Ljava/lang/Object;
     .param p3, "keyOffset"    # I
     .param p4, "size"    # I
@@ -82,7 +82,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
     .line 293
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
     .line 293
@@ -102,7 +102,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
     .line 293
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -126,7 +126,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 352
     move-object v0, p1
@@ -147,7 +147,7 @@
 
     .line 355
     .local v3, "v":Ljava/lang/Object;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1f
 
     iget-object v4, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->map:Lcom/google/common/collect/ImmutableMap;
 
@@ -159,23 +159,23 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1f
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1f
     return v1
 
     .line 357
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     .end local v2    # "k":Ljava/lang/Object;
     .end local v3    # "v":Ljava/lang/Object;
-    :cond_1
+    :cond_20
     return v1
 .end method
 
 .method copyIntoArray([Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1, "dst"    # [Ljava/lang/Object;
     .param p2, "offset"    # I
 
@@ -193,7 +193,7 @@
 .end method
 
 .method createAsList()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -213,7 +213,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 362
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMap$EntrySet;, "Lcom/google/common/collect/RegularImmutableMap$EntrySet<TK;TV;>;"
@@ -223,7 +223,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -247,7 +247,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 293
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMap$EntrySet;, "Lcom/google/common/collect/RegularImmutableMap$EntrySet<TK;TV;>;"
@@ -259,7 +259,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 367
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMap$EntrySet;, "Lcom/google/common/collect/RegularImmutableMap$EntrySet<TK;TV;>;"

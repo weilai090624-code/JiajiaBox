@@ -46,7 +46,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$REgXRuA0DOliMHGPBoAwW_jiAno(Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 5
 
     invoke-static {p0, p1, p2, p3, p4}, Lio/nekohasekai/sagernet/ui/profile/SSHSettingsActivity;->createPreferences$lambda$3(Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 13
     const/4 v0, 0x1
@@ -71,7 +71,7 @@
 .end method
 
 .method private static final createPreferences$lambda$3(Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 6
     .param p0, "$password"    # Landroidx/preference/EditTextPreference;
     .param p1, "$privateKey"    # Landroidx/preference/EditTextPreference;
     .param p2, "$privateKeyPassphrase"    # Landroidx/preference/EditTextPreference;
@@ -103,7 +103,7 @@
 .end method
 
 .method private static final createPreferences$updateAuthType(Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;I)V
-    .locals 4
+    .registers 8
     .param p0, "password"    # Landroidx/preference/EditTextPreference;
     .param p1, "privateKey"    # Landroidx/preference/EditTextPreference;
     .param p2, "privateKeyPassphrase"    # Landroidx/preference/EditTextPreference;
@@ -114,39 +114,39 @@
 
     const/4 v1, 0x1
 
-    if-ne p3, v1, :cond_0
+    if-ne p3, v1, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_7
     invoke-virtual {p0, v2}, Landroidx/preference/EditTextPreference;->setVisible(Z)V
 
     .line 67
     const/4 v2, 0x2
 
-    if-ne p3, v2, :cond_1
+    if-ne p3, v2, :cond_f
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_10
     invoke-virtual {p1, v3}, Landroidx/preference/EditTextPreference;->setVisible(Z)V
 
     .line 68
-    if-ne p3, v2, :cond_2
+    if-ne p3, v2, :cond_16
 
     const/4 v0, 0x1
 
-    :cond_2
+    :cond_16
     invoke-virtual {p2, v0}, Landroidx/preference/EditTextPreference;->setVisible(Z)V
 
     .line 69
@@ -154,12 +154,12 @@
 .end method
 
 .method static synthetic createPreferences$updateAuthType$default(Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;IILjava/lang/Object;)V
-    .locals 0
+    .registers 6
 
     .line 65
     and-int/lit8 p4, p4, 0x8
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_a
 
     sget-object p3, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -167,7 +167,7 @@
 
     move-result p3
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/profile/SSHSettingsActivity;->createPreferences$updateAuthType(Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/EditTextPreference;I)V
 
     return-void
@@ -176,7 +176,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/SSHSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;
@@ -189,7 +189,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;
-    .locals 1
+    .registers 2
 
     .line 15
     new-instance v0, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;
@@ -200,7 +200,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 10
+    .registers 14
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -371,7 +371,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 13
@@ -385,7 +385,7 @@
 .end method
 
 .method public init(Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;)V
-    .locals 2
+    .registers 4
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;
 
     const-string v0, "<this>"
@@ -468,7 +468,7 @@
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 13
@@ -482,7 +482,7 @@
 .end method
 
 .method public serialize(Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;)V
-    .locals 3
+    .registers 5
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;
 
     const-string v0, "<this>"
@@ -546,31 +546,31 @@
     iget-object v0, p1, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->authType:Ljava/lang/Integer;
 
     .line 36
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3a
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_0
+    :cond_3a
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6d
 
     .line 38
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_40
+    if-nez v0, :cond_43
 
-    goto :goto_1
+    goto :goto_53
 
-    :cond_1
+    :cond_43
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_53
 
     .line 39
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -581,23 +581,23 @@
 
     iput-object v0, p1, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->password:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_6d
 
     .line 41
-    :cond_2
-    :goto_1
-    if-nez v0, :cond_3
+    :cond_53
+    :goto_53
+    if-nez v0, :cond_56
 
-    goto :goto_2
+    goto :goto_6d
 
-    :cond_3
+    :cond_56
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_6d
 
     .line 42
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -618,8 +618,8 @@
     iput-object v0, p1, Lio/nekohasekai/sagernet/fmt/ssh/SSHBean;->privateKeyPassphrase:Ljava/lang/String;
 
     .line 46
-    :cond_4
-    :goto_2
+    :cond_6d
+    :goto_6d
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getServerCertificates()Ljava/lang/String;

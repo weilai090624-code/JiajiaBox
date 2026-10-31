@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;JJLjava/lang/Object;)V
-    .locals 0
+    .registers 9
     .param p1, "this$0"    # Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public onCaptureResult(Landroidx/camera/core/impl/CameraCaptureResult;)Z
-    .locals 7
+    .registers 9
     .param p1, "captureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -97,7 +97,7 @@
     .local v0, "result":Ljava/lang/Object;
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 2160
     iget-object v2, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -108,14 +108,14 @@
     return v1
 
     .line 2162
-    :cond_0
+    :cond_f
     iget-wide v2, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$1;->val$startTimeInMs:J
 
     const-wide/16 v4, 0x0
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_2c
 
     .line 2163
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -130,7 +130,7 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_2c
 
     .line 2165
     iget-object v2, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -143,7 +143,7 @@
     return v1
 
     .line 2169
-    :cond_1
+    :cond_2c
     const/4 v1, 0x0
 
     return v1

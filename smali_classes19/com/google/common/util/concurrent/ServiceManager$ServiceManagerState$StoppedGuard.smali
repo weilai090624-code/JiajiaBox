@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
 
     .line 460
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public isSatisfied()Z
-    .locals 3
+    .registers 4
 
     .line 467
     iget-object v0, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState$StoppedGuard;->this$0:Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
@@ -67,15 +67,15 @@
 
     iget v1, v1, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;->numberOfServices:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1e
     return v0
 .end method

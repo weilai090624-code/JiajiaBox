@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,7 +21,7 @@
 .end method
 
 .method public static e(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p0, "message"    # Ljava/lang/String;
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
@@ -35,7 +35,7 @@
 .end method
 
 .method public static i(Ljava/lang/String;)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # Ljava/lang/String;
 
     .line 52
@@ -48,7 +48,7 @@
 .end method
 
 .method public static w(Ljava/lang/String;)V
-    .locals 1
+    .registers 2
     .param p0, "message"    # Ljava/lang/String;
 
     .line 61

@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/android/material/internal/CheckableGroup;, "Lcom/google/android/material/internal/CheckableGroup<TT;>;"
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/internal/CheckableGroup;Lcom/google/android/material/internal/MaterialCheckable;)Z
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/google/android/material/internal/CheckableGroup;
     .param p1, "x1"    # Lcom/google/android/material/internal/MaterialCheckable;
 
@@ -87,7 +87,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/internal/CheckableGroup;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/internal/CheckableGroup;
 
     .line 43
@@ -97,7 +97,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/internal/CheckableGroup;Lcom/google/android/material/internal/MaterialCheckable;Z)Z
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Lcom/google/android/material/internal/CheckableGroup;
     .param p1, "x1"    # Lcom/google/android/material/internal/MaterialCheckable;
     .param p2, "x2"    # Z
@@ -111,7 +111,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/internal/CheckableGroup;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/android/material/internal/CheckableGroup;
 
     .line 43
@@ -121,7 +121,7 @@
 .end method
 
 .method private checkInternal(Lcom/google/android/material/internal/MaterialCheckable;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -151,13 +151,13 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 151
     return v2
 
     .line 153
-    :cond_0
+    :cond_12
     iget-object v1, p0, Lcom/google/android/material/internal/CheckableGroup;->checkables:Ljava/util/Map;
 
     invoke-virtual {p0}, Lcom/google/android/material/internal/CheckableGroup;->getSingleCheckedId()I
@@ -176,13 +176,13 @@
 
     .line 154
     .local v1, "singleCheckedItem":Lcom/google/android/material/internal/MaterialCheckable;, "Lcom/google/android/material/internal/MaterialCheckable<TT;>;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     .line 155
     invoke-direct {p0, v1, v2}, Lcom/google/android/material/internal/CheckableGroup;->uncheckInternal(Lcom/google/android/material/internal/MaterialCheckable;Z)Z
 
     .line 157
-    :cond_1
+    :cond_27
     iget-object v2, p0, Lcom/google/android/material/internal/CheckableGroup;->checkedIds:Ljava/util/Set;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -199,7 +199,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3b
 
     .line 159
     const/4 v3, 0x1
@@ -207,18 +207,18 @@
     invoke-interface {p1, v3}, Lcom/google/android/material/internal/MaterialCheckable;->setChecked(Z)V
 
     .line 161
-    :cond_2
+    :cond_3b
     return v2
 .end method
 
 .method private onCheckedStateChanged()V
-    .locals 2
+    .registers 3
 
     .line 183
     .local p0, "this":Lcom/google/android/material/internal/CheckableGroup;, "Lcom/google/android/material/internal/CheckableGroup<TT;>;"
     iget-object v0, p0, Lcom/google/android/material/internal/CheckableGroup;->onCheckedStateChangeListener:Lcom/google/android/material/internal/CheckableGroup$OnCheckedStateChangeListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 184
     iget-object v0, p0, Lcom/google/android/material/internal/CheckableGroup;->onCheckedStateChangeListener:Lcom/google/android/material/internal/CheckableGroup$OnCheckedStateChangeListener;
@@ -230,12 +230,12 @@
     invoke-interface {v0, v1}, Lcom/google/android/material/internal/CheckableGroup$OnCheckedStateChangeListener;->onCheckedStateChanged(Ljava/util/Set;)V
 
     .line 186
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method private uncheckInternal(Lcom/google/android/material/internal/MaterialCheckable;Z)Z
-    .locals 5
+    .registers 8
     .param p2, "selectionRequired"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -266,14 +266,14 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 168
     return v2
 
     .line 170
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_12
+    if-eqz p2, :cond_2d
 
     iget-object v1, p0, Lcom/google/android/material/internal/CheckableGroup;->checkedIds:Ljava/util/Set;
 
@@ -283,7 +283,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_2d
 
     iget-object v1, p0, Lcom/google/android/material/internal/CheckableGroup;->checkedIds:Ljava/util/Set;
 
@@ -295,7 +295,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2d
 
     .line 172
     invoke-interface {p1, v3}, Lcom/google/android/material/internal/MaterialCheckable;->setChecked(Z)V
@@ -304,7 +304,7 @@
     return v2
 
     .line 175
-    :cond_1
+    :cond_2d
     iget-object v1, p0, Lcom/google/android/material/internal/CheckableGroup;->checkedIds:Ljava/util/Set;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -321,20 +321,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_40
 
     .line 177
     invoke-interface {p1, v2}, Lcom/google/android/material/internal/MaterialCheckable;->setChecked(Z)V
 
     .line 179
-    :cond_2
+    :cond_40
     return v1
 .end method
 
 
 # virtual methods
 .method public addCheckable(Lcom/google/android/material/internal/MaterialCheckable;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -361,13 +361,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 77
     invoke-direct {p0, p1}, Lcom/google/android/material/internal/CheckableGroup;->checkInternal(Lcom/google/android/material/internal/MaterialCheckable;)Z
 
     .line 79
-    :cond_0
+    :cond_16
     new-instance v0, Lcom/google/android/material/internal/CheckableGroup$1;
 
     invoke-direct {v0, p0}, Lcom/google/android/material/internal/CheckableGroup$1;-><init>(Lcom/google/android/material/internal/CheckableGroup;)V
@@ -379,7 +379,7 @@
 .end method
 
 .method public check(I)V
-    .locals 2
+    .registers 4
     .param p1, "id"    # I
 
     .line 96
@@ -398,29 +398,29 @@
 
     .line 97
     .local v0, "checkable":Lcom/google/android/material/internal/MaterialCheckable;, "Lcom/google/android/material/internal/MaterialCheckable<TT;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 98
     return-void
 
     .line 100
-    :cond_0
+    :cond_f
     invoke-direct {p0, v0}, Lcom/google/android/material/internal/CheckableGroup;->checkInternal(Lcom/google/android/material/internal/MaterialCheckable;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
     .line 101
     invoke-direct {p0}, Lcom/google/android/material/internal/CheckableGroup;->onCheckedStateChanged()V
 
     .line 103
-    :cond_1
+    :cond_18
     return-void
 .end method
 
 .method public clearCheck()V
-    .locals 4
+    .registers 5
 
     .line 116
     .local p0, "this":Lcom/google/android/material/internal/CheckableGroup;, "Lcom/google/android/material/internal/CheckableGroup<TT;>;"
@@ -444,12 +444,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -465,22 +465,22 @@
 
     .line 119
     .end local v2    # "checkable":Lcom/google/android/material/internal/MaterialCheckable;, "Lcom/google/android/material/internal/MaterialCheckable<TT;>;"
-    goto :goto_0
+    goto :goto_12
 
     .line 120
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_23
+    if-eqz v0, :cond_28
 
     .line 121
     invoke-direct {p0}, Lcom/google/android/material/internal/CheckableGroup;->onCheckedStateChanged()V
 
     .line 123
-    :cond_1
+    :cond_28
     return-void
 .end method
 
 .method public getCheckedIds()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -502,7 +502,7 @@
 .end method
 
 .method public getCheckedIdsSortedByChildOrder(Landroid/view/ViewGroup;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -532,12 +532,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_a
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_34
 
     .line 140
     invoke-virtual {p1, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -548,7 +548,7 @@
     .local v3, "child":Landroid/view/View;
     instance-of v4, v3, Lcom/google/android/material/internal/MaterialCheckable;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_31
 
     invoke-virtual {v3}, Landroid/view/View;->getId()I
 
@@ -562,7 +562,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_31
 
     .line 142
     invoke-virtual {v3}, Landroid/view/View;->getId()I
@@ -577,25 +577,25 @@
 
     .line 139
     .end local v3    # "child":Landroid/view/View;
-    :cond_0
+    :cond_31
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 145
     .end local v2    # "i":I
-    :cond_1
+    :cond_34
     return-object v1
 .end method
 
 .method public getSingleCheckedId()I
-    .locals 1
+    .registers 2
 
     .line 127
     .local p0, "this":Lcom/google/android/material/internal/CheckableGroup;, "Lcom/google/android/material/internal/CheckableGroup<TT;>;"
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableGroup;->singleSelection:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     iget-object v0, p0, Lcom/google/android/material/internal/CheckableGroup;->checkedIds:Ljava/util/Set;
 
@@ -603,7 +603,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     iget-object v0, p0, Lcom/google/android/material/internal/CheckableGroup;->checkedIds:Ljava/util/Set;
 
@@ -621,17 +621,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_1e
     return v0
 .end method
 
 .method public isSelectionRequired()Z
-    .locals 1
+    .registers 2
 
     .line 67
     .local p0, "this":Lcom/google/android/material/internal/CheckableGroup;, "Lcom/google/android/material/internal/CheckableGroup<TT;>;"
@@ -641,7 +641,7 @@
 .end method
 
 .method public isSingleSelection()Z
-    .locals 1
+    .registers 2
 
     .line 59
     .local p0, "this":Lcom/google/android/material/internal/CheckableGroup;, "Lcom/google/android/material/internal/CheckableGroup<TT;>;"
@@ -651,7 +651,7 @@
 .end method
 
 .method public removeCheckable(Lcom/google/android/material/internal/MaterialCheckable;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -696,7 +696,7 @@
 .end method
 
 .method public setOnCheckedStateChangeListener(Lcom/google/android/material/internal/CheckableGroup$OnCheckedStateChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/google/android/material/internal/CheckableGroup$OnCheckedStateChangeListener;
 
     .line 71
@@ -708,7 +708,7 @@
 .end method
 
 .method public setSelectionRequired(Z)V
-    .locals 0
+    .registers 2
     .param p1, "selectionRequired"    # Z
 
     .line 63
@@ -720,14 +720,14 @@
 .end method
 
 .method public setSingleSelection(Z)V
-    .locals 1
+    .registers 3
     .param p1, "singleSelection"    # Z
 
     .line 52
     .local p0, "this":Lcom/google/android/material/internal/CheckableGroup;, "Lcom/google/android/material/internal/CheckableGroup<TT;>;"
     iget-boolean v0, p0, Lcom/google/android/material/internal/CheckableGroup;->singleSelection:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 53
     iput-boolean p1, p0, Lcom/google/android/material/internal/CheckableGroup;->singleSelection:Z
@@ -736,12 +736,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/internal/CheckableGroup;->clearCheck()V
 
     .line 56
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public uncheck(I)V
-    .locals 2
+    .registers 4
     .param p1, "id"    # I
 
     .line 106
@@ -760,25 +760,25 @@
 
     .line 107
     .local v0, "checkable":Lcom/google/android/material/internal/MaterialCheckable;, "Lcom/google/android/material/internal/MaterialCheckable<TT;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 108
     return-void
 
     .line 110
-    :cond_0
+    :cond_f
     iget-boolean v1, p0, Lcom/google/android/material/internal/CheckableGroup;->selectionRequired:Z
 
     invoke-direct {p0, v0, v1}, Lcom/google/android/material/internal/CheckableGroup;->uncheckInternal(Lcom/google/android/material/internal/MaterialCheckable;Z)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     .line 111
     invoke-direct {p0}, Lcom/google/android/material/internal/CheckableGroup;->onCheckedStateChanged()V
 
     .line 113
-    :cond_1
+    :cond_1a
     return-void
 .end method

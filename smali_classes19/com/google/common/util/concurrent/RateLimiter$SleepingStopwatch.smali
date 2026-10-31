@@ -16,7 +16,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 402
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static createFromSystemTimer()Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
-    .locals 1
+    .registers 1
 
     .line 414
     new-instance v0, Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch$1;

@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/button/MaterialButtonToggleGroup;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/button/MaterialButtonToggleGroup;
 
     .line 152
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public compare(Lcom/google/android/material/button/MaterialButton;Lcom/google/android/material/button/MaterialButton;)I
-    .locals 4
+    .registers 7
     .param p1, "v1"    # Lcom/google/android/material/button/MaterialButton;
     .param p2, "v2"    # Lcom/google/android/material/button/MaterialButton;
 
@@ -73,13 +73,13 @@
 
     .line 156
     .local v0, "checked":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 157
     return v0
 
     .line 160
-    :cond_0
+    :cond_17
     invoke-virtual {p1}, Lcom/google/android/material/button/MaterialButton;->isPressed()Z
 
     move-result v1
@@ -102,13 +102,13 @@
 
     .line 161
     .local v1, "stateful":I
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2e
 
     .line 162
     return v1
 
     .line 166
-    :cond_1
+    :cond_2e
     iget-object v2, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup$1;->this$0:Lcom/google/android/material/button/MaterialButtonToggleGroup;
 
     invoke-virtual {v2, p1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->indexOfChild(Landroid/view/View;)I
@@ -137,7 +137,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 152
     check-cast p1, Lcom/google/android/material/button/MaterialButton;

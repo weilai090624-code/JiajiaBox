@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "canonicalForm"    # Ljava/lang/String;
 
     .line 51
@@ -28,7 +28,7 @@
 .end method
 
 .method public static from(Ljava/lang/String;)Lcom/google/common/net/HostSpecifier;
-    .locals 5
+    .registers 6
     .param p0, "specifier"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -41,13 +41,13 @@
     invoke-static {p0}, Lcom/google/common/net/HostSpecifier;->fromValid(Ljava/lang/String;)Lcom/google/common/net/HostSpecifier;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 116
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 121
@@ -64,20 +64,20 @@
 
     const-string v4, "Invalid host specifier: "
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_19
 
     invoke-virtual {v4, v2}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_19
     new-instance v2, Ljava/lang/String;
 
     invoke-direct {v2, v4}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_1e
     const/4 v3, 0x0
 
     invoke-direct {v1, v2, v3}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
@@ -91,7 +91,7 @@
 .end method
 
 .method public static fromValid(Ljava/lang/String;)Lcom/google/common/net/HostSpecifier;
-    .locals 8
+    .registers 9
     .param p0, "specifier"    # Ljava/lang/String;
 
     .line 74
@@ -120,25 +120,25 @@
 
     .line 84
     .local v2, "addr":Ljava/net/InetAddress;
-    :try_start_0
+    :try_start_12
     invoke-static {v1}, Lcom/google/common/net/InetAddresses;->forString(Ljava/lang/String;)Ljava/net/InetAddress;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_12 .. :try_end_16} :catch_18
 
     move-object v2, v3
 
     .line 87
-    goto :goto_0
+    goto :goto_19
 
     .line 85
-    :catch_0
+    :catch_18
     move-exception v3
 
     .line 89
-    :goto_0
-    if-eqz v2, :cond_0
+    :goto_19
+    if-eqz v2, :cond_25
 
     .line 90
     new-instance v3, Lcom/google/common/net/HostSpecifier;
@@ -152,7 +152,7 @@
     return-object v3
 
     .line 96
-    :cond_0
+    :cond_25
     invoke-static {v1}, Lcom/google/common/net/InternetDomainName;->from(Ljava/lang/String;)Lcom/google/common/net/InternetDomainName;
 
     move-result-object v3
@@ -163,7 +163,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_39
 
     .line 99
     new-instance v4, Lcom/google/common/net/HostSpecifier;
@@ -177,7 +177,7 @@
     return-object v4
 
     .line 102
-    :cond_1
+    :cond_39
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -190,34 +190,34 @@
 
     const-string v7, "Domain name does not have a recognized public suffix: "
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_4c
 
     invoke-virtual {v7, v5}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    goto :goto_1
+    goto :goto_51
 
-    :cond_2
+    :cond_4c
     new-instance v5, Ljava/lang/String;
 
     invoke-direct {v5, v7}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
-    :goto_1
+    :goto_51
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
 .end method
 
 .method public static isValid(Ljava/lang/String;)Z
-    .locals 2
+    .registers 3
     .param p0, "specifier"    # Ljava/lang/String;
 
     .line 133
     :try_start_0
     invoke-static {p0}, Lcom/google/common/net/HostSpecifier;->fromValid(Ljava/lang/String;)Lcom/google/common/net/HostSpecifier;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_3} :catch_5
 
     .line 134
     const/4 v0, 0x1
@@ -225,7 +225,7 @@
     return v0
 
     .line 135
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 136
@@ -238,14 +238,14 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
     .end param
 
     .line 142
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 143
     const/4 v0, 0x1
@@ -253,10 +253,10 @@
     return v0
 
     .line 146
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/net/HostSpecifier;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 147
     move-object v0, p1
@@ -277,14 +277,14 @@
 
     .line 151
     .end local v0    # "that":Lcom/google/common/net/HostSpecifier;
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 156
     iget-object v0, p0, Lcom/google/common/net/HostSpecifier;->canonicalForm:Ljava/lang/String;
@@ -297,7 +297,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 167
     iget-object v0, p0, Lcom/google/common/net/HostSpecifier;->canonicalForm:Ljava/lang/String;

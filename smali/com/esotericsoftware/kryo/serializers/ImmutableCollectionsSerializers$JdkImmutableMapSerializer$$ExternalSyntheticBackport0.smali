@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(Ljava/util/Map;)Ljava/util/Map;
-    .locals 3
+    .registers 4
 
     .line 0
     new-instance v0, Ljava/util/HashMap;
@@ -24,12 +24,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_11
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_31
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -55,9 +55,9 @@
 
     invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_31
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object p0

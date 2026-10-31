@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/SearchView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/widget/SearchView;
 
     .line 1178
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 5
     .param p1, "v"    # Landroid/widget/TextView;
     .param p2, "actionId"    # I
     .param p3, "event"    # Landroid/view/KeyEvent;

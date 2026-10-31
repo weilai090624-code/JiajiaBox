@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/EnumMultiset;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/EnumMultiset;
 
     .line 262
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method output(I)Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -64,7 +64,7 @@
 .end method
 
 .method bridge synthetic output(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 262
     .local p0, "this":Lcom/google/common/collect/EnumMultiset$2;, "Lcom/google/common/collect/EnumMultiset$2;"

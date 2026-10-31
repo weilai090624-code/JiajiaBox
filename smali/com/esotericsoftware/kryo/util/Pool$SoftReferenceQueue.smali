@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Queue;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 .end method
 
 .method static synthetic lambda$clean$0(Ljava/lang/ref/SoftReference;)Z
-    .locals 1
+    .registers 2
     .param p0, "o"    # Ljava/lang/ref/SoftReference;
 
     .line 183
@@ -73,23 +73,23 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -105,7 +105,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,7 +123,7 @@
 .end method
 
 .method clean()V
-    .locals 2
+    .registers 3
 
     .line 183
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;, "Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue<TT;>;"
@@ -140,7 +140,7 @@
 .end method
 
 .method cleanOne()V
-    .locals 2
+    .registers 3
 
     .line 174
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;, "Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue<TT;>;"
@@ -151,12 +151,12 @@
     move-result-object v0
 
     .local v0, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/ref/SoftReference<TT;>;>;"
-    :cond_0
+    :cond_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     .line 175
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -169,7 +169,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_6
 
     .line 176
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -179,12 +179,12 @@
 
     .line 180
     .end local v0    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/ref/SoftReference<TT;>;>;"
-    :cond_1
+    :cond_1c
     return-void
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 170
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;, "Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue<TT;>;"
@@ -197,7 +197,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 195
@@ -208,7 +208,7 @@
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # Ljava/util/Collection;
 
     .line 227
@@ -219,7 +219,7 @@
 .end method
 
 .method public element()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -234,7 +234,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 191
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;, "Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue<TT;>;"
@@ -244,7 +244,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -261,7 +261,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -285,7 +285,7 @@
 .end method
 
 .method public peek()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -300,7 +300,7 @@
 .end method
 
 .method public poll()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -311,7 +311,7 @@
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;, "Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue<TT;>;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;->delegate:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
@@ -322,33 +322,33 @@
 
     .line 155
     .local v0, "reference":Ljava/lang/ref/SoftReference;, "Ljava/lang/ref/SoftReference<TT;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 156
-    :cond_0
+    :cond_d
     invoke-virtual {v0}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
 
     move-result-object v1
 
     .line 157
     .local v1, "object":Ljava/lang/Object;, "TT;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     return-object v1
 
     .line 158
     .end local v0    # "reference":Ljava/lang/ref/SoftReference;, "Ljava/lang/ref/SoftReference<TT;>;"
     .end local v1    # "object":Ljava/lang/Object;, "TT;"
-    :cond_1
-    goto :goto_0
+    :cond_14
+    goto :goto_1
 .end method
 
 .method public remove()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -363,7 +363,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 223
@@ -374,7 +374,7 @@
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # Ljava/util/Collection;
 
     .line 235
@@ -385,7 +385,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # Ljava/util/Collection;
 
     .line 239
@@ -396,7 +396,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 166
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;, "Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue<TT;>;"
@@ -410,7 +410,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 207
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;, "Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue<TT;>;"
@@ -420,7 +420,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",

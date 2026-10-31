@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/cache/DiskLruCache;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$newJournalWriter$faultHidingSink$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 312
@@ -86,7 +86,7 @@
 .end method
 
 .method public final invoke(Ljava/io/IOException;)V
-    .locals 5
+    .registers 7
     .param p1, "it"    # Ljava/io/IOException;
 
     const-string v0, "it"
@@ -103,18 +103,18 @@
     .local v1, "$i$f$assertThreadHoldsLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3e
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 1079
-    :cond_0
+    :cond_13
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -158,8 +158,8 @@
     throw v2
 
     .line 1081
-    :cond_1
-    :goto_0
+    :cond_3e
+    :goto_3e
     nop
 
     .line 314

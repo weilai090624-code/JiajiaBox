@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/layout/SidecarAdapter$Companion;
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/window/core/SpecificationComputer$VerificationMode;)V
-    .locals 1
+    .registers 3
     .param p1, "verificationMode"    # Landroidx/window/core/SpecificationComputer$VerificationMode;
 
     const-string/jumbo v0, "verificationMode"
@@ -120,16 +120,16 @@
 .end method
 
 .method public synthetic constructor <init>(Landroidx/window/core/SpecificationComputer$VerificationMode;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 40
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Landroidx/window/core/SpecificationComputer$VerificationMode;->QUIET:Landroidx/window/core/SpecificationComputer$VerificationMode;
 
-    :cond_0
+    :cond_6
     invoke-direct {p0, p1}, Landroidx/window/layout/SidecarAdapter;-><init>(Landroidx/window/core/SpecificationComputer$VerificationMode;)V
 
     .line 324
@@ -137,7 +137,7 @@
 .end method
 
 .method private final isEqualSidecarDisplayFeature(Landroidx/window/sidecar/SidecarDisplayFeature;Landroidx/window/sidecar/SidecarDisplayFeature;)Z
-    .locals 4
+    .registers 7
     .param p1, "first"    # Landroidx/window/sidecar/SidecarDisplayFeature;
     .param p2, "second"    # Landroidx/window/sidecar/SidecarDisplayFeature;
 
@@ -148,29 +148,29 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 133
     return v1
 
     .line 135
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_c
 
     .line 136
     return v0
 
     .line 138
-    :cond_1
-    if-nez p2, :cond_2
+    :cond_c
+    if-nez p2, :cond_f
 
     .line 139
     return v0
 
     .line 141
-    :cond_2
+    :cond_f
     invoke-virtual {p1}, Landroidx/window/sidecar/SidecarDisplayFeature;->getType()I
 
     move-result v2
@@ -179,13 +179,13 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_1a
 
     .line 142
     return v0
 
     .line 144
-    :cond_3
+    :cond_1a
     invoke-virtual {p1}, Landroidx/window/sidecar/SidecarDisplayFeature;->getRect()Landroid/graphics/Rect;
 
     move-result-object v2
@@ -198,24 +198,24 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_2a
 
     .line 145
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 147
-    :cond_4
+    :cond_2a
     nop
 
     .line 144
-    :goto_0
+    :goto_2b
     return v1
 .end method
 
 .method private final isEqualSidecarDisplayFeatures(Ljava/util/List;Ljava/util/List;)Z
-    .locals 8
+    .registers 11
     .param p1, "first"    # Ljava/util/List;
     .param p2, "second"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -233,29 +233,29 @@
     .line 106
     const/4 v0, 0x1
 
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_4
 
     .line 107
     return v0
 
     .line 109
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 110
     return v1
 
     .line 112
-    :cond_1
-    if-nez p2, :cond_2
+    :cond_8
+    if-nez p2, :cond_b
 
     .line 113
     return v1
 
     .line 115
-    :cond_2
+    :cond_b
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v2
@@ -264,21 +264,21 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_16
 
     .line 116
     return v1
 
     .line 118
-    :cond_3
+    :cond_16
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v2
 
     const/4 v3, 0x0
 
-    :cond_4
-    if-ge v3, v2, :cond_5
+    :cond_1b
+    if-ge v3, v2, :cond_33
 
     move v4, v3
 
@@ -306,7 +306,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_1b
 
     .line 122
     return v1
@@ -315,14 +315,14 @@
     .end local v4    # "i":I
     .end local v5    # "firstFeature":Landroidx/window/sidecar/SidecarDisplayFeature;
     .end local v6    # "secondFeature":Landroidx/window/sidecar/SidecarDisplayFeature;
-    :cond_5
+    :cond_33
     return v0
 .end method
 
 
 # virtual methods
 .method public final isEqualSidecarDeviceState(Landroidx/window/sidecar/SidecarDeviceState;Landroidx/window/sidecar/SidecarDeviceState;)Z
-    .locals 4
+    .registers 7
     .param p1, "first"    # Landroidx/window/sidecar/SidecarDeviceState;
     .param p2, "second"    # Landroidx/window/sidecar/SidecarDeviceState;
 
@@ -333,29 +333,29 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 71
     return v1
 
     .line 73
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_c
 
     .line 74
     return v0
 
     .line 76
-    :cond_1
-    if-nez p2, :cond_2
+    :cond_c
+    if-nez p2, :cond_f
 
     .line 77
     return v0
 
     .line 79
-    :cond_2
+    :cond_f
     sget-object v2, Landroidx/window/layout/SidecarAdapter;->Companion:Landroidx/window/layout/SidecarAdapter$Companion;
 
     invoke-virtual {v2, p1}, Landroidx/window/layout/SidecarAdapter$Companion;->getSidecarDevicePosture$window_release(Landroidx/window/sidecar/SidecarDeviceState;)I
@@ -372,19 +372,19 @@
 
     .line 81
     .local v3, "secondPosture":I
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_1e
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_3
+    :cond_1e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1f
     return v1
 .end method
 
 .method public final isEqualSidecarWindowLayoutInfo(Landroidx/window/sidecar/SidecarWindowLayoutInfo;Landroidx/window/sidecar/SidecarWindowLayoutInfo;)Z
-    .locals 3
+    .registers 6
     .param p1, "first"    # Landroidx/window/sidecar/SidecarWindowLayoutInfo;
     .param p2, "second"    # Landroidx/window/sidecar/SidecarWindowLayoutInfo;
 
@@ -393,7 +393,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 89
     const/4 v0, 0x1
@@ -401,23 +401,23 @@
     return v0
 
     .line 91
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_c
 
     .line 92
     return v0
 
     .line 94
-    :cond_1
-    if-nez p2, :cond_2
+    :cond_c
+    if-nez p2, :cond_f
 
     .line 95
     return v0
 
     .line 97
-    :cond_2
+    :cond_f
     sget-object v0, Landroidx/window/layout/SidecarAdapter;->Companion:Landroidx/window/layout/SidecarAdapter$Companion;
 
     invoke-virtual {v0, p1}, Landroidx/window/layout/SidecarAdapter$Companion;->getSidecarDisplayFeatures(Landroidx/window/sidecar/SidecarWindowLayoutInfo;)Ljava/util/List;
@@ -442,7 +442,7 @@
 .end method
 
 .method public final translate(Landroidx/window/sidecar/SidecarWindowLayoutInfo;Landroidx/window/sidecar/SidecarDeviceState;)Landroidx/window/layout/WindowLayoutInfo;
-    .locals 5
+    .registers 8
     .param p1, "extensionInfo"    # Landroidx/window/sidecar/SidecarWindowLayoutInfo;
     .param p2, "state"    # Landroidx/window/sidecar/SidecarDeviceState;
 
@@ -451,7 +451,7 @@
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 55
-    if-nez p1, :cond_0
+    if-nez p1, :cond_12
 
     .line 56
     new-instance v0, Landroidx/window/layout/WindowLayoutInfo;
@@ -465,7 +465,7 @@
     return-object v0
 
     .line 58
-    :cond_0
+    :cond_12
     new-instance v0, Landroidx/window/sidecar/SidecarDeviceState;
 
     invoke-direct {v0}, Landroidx/window/sidecar/SidecarDeviceState;-><init>()V
@@ -507,7 +507,7 @@
 .end method
 
 .method public final translate(Ljava/util/List;Landroidx/window/sidecar/SidecarDeviceState;)Ljava/util/List;
-    .locals 13
+    .registers 16
     .param p1, "sidecarDisplayFeatures"    # Ljava/util/List;
     .param p2, "deviceState"    # Landroidx/window/sidecar/SidecarDeviceState;
     .annotation system Ldalvik/annotation/Signature;
@@ -567,12 +567,12 @@
 
     move-result-object v7
 
-    :goto_0
+    :goto_1e
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_3b
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -601,13 +601,13 @@
 
     .end local v11    # "sidecarFeature":Landroidx/window/sidecar/SidecarDisplayFeature;
     .end local v12    # "$i$a$-mapNotNull-SidecarAdapter$translate$1":I
-    if-nez v11, :cond_0
+    if-nez v11, :cond_35
 
-    goto :goto_1
+    goto :goto_39
 
     .line 335
     .local v11, "it$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_35
     const/4 v12, 0x0
 
     .line 333
@@ -616,16 +616,16 @@
 
     .end local v11    # "it$iv$iv":Ljava/lang/Object;
     .end local v12    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
-    :goto_1
+    :goto_39
     nop
 
     .end local v8    # "element$iv$iv$iv":Ljava/lang/Object;
     .end local v9    # "element$iv$iv":Ljava/lang/Object;
     .end local v10    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
-    goto :goto_0
+    goto :goto_1e
 
     .line 336
-    :cond_1
+    :cond_3b
     nop
 
     .line 337
@@ -648,7 +648,7 @@
 .end method
 
 .method public final translate$window_release(Landroidx/window/sidecar/SidecarDisplayFeature;Landroidx/window/sidecar/SidecarDeviceState;)Landroidx/window/layout/DisplayFeature;
-    .locals 8
+    .registers 11
     .param p1, "feature"    # Landroidx/window/sidecar/SidecarDisplayFeature;
     .param p2, "deviceState"    # Landroidx/window/sidecar/SidecarDeviceState;
 
@@ -737,35 +737,35 @@
     .line 159
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4f
 
     .line 174
     return-object v1
 
     .line 175
     .local v0, "checkedFeature":Landroidx/window/sidecar/SidecarDisplayFeature;
-    :cond_0
+    :cond_4f
     invoke-virtual {v0}, Landroidx/window/sidecar/SidecarDisplayFeature;->getType()I
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_90
 
     .line 179
     return-object v1
 
     .line 177
-    :pswitch_0
+    :pswitch_57
     sget-object v2, Landroidx/window/layout/HardwareFoldingFeature$Type;->Companion:Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;
 
     invoke-virtual {v2}, Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;->getHINGE()Landroidx/window/layout/HardwareFoldingFeature$Type;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_64
 
     .line 176
-    :pswitch_1
+    :pswitch_5e
     sget-object v2, Landroidx/window/layout/HardwareFoldingFeature$Type;->Companion:Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;
 
     invoke-virtual {v2}, Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;->getFOLD()Landroidx/window/layout/HardwareFoldingFeature$Type;
@@ -773,7 +773,7 @@
     move-result-object v2
 
     .line 175
-    :goto_0
+    :goto_64
     nop
 
     .line 182
@@ -784,31 +784,31 @@
 
     move-result v3
 
-    packed-switch v3, :pswitch_data_1
+    packed-switch v3, :pswitch_data_98
 
     .line 188
     sget-object v1, Landroidx/window/layout/FoldingFeature$State;->FLAT:Landroidx/window/layout/FoldingFeature$State;
 
-    goto :goto_1
+    goto :goto_78
 
     .line 187
-    :pswitch_2
+    :pswitch_71
     sget-object v1, Landroidx/window/layout/FoldingFeature$State;->FLAT:Landroidx/window/layout/FoldingFeature$State;
 
-    goto :goto_1
+    goto :goto_78
 
     .line 186
-    :pswitch_3
+    :pswitch_74
     sget-object v1, Landroidx/window/layout/FoldingFeature$State;->HALF_OPENED:Landroidx/window/layout/FoldingFeature$State;
 
-    goto :goto_1
+    goto :goto_78
 
     .line 185
-    :pswitch_4
+    :pswitch_77
     return-object v1
 
     .line 182
-    :goto_1
+    :goto_78
     nop
 
     .line 190
@@ -835,18 +835,18 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_90
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5e
+        :pswitch_57
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_98
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_4
+        :pswitch_77
+        :pswitch_77
+        :pswitch_74
+        :pswitch_71
+        :pswitch_77
     .end packed-switch
 .end method

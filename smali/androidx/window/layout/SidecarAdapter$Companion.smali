@@ -54,7 +54,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 193
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +63,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/window/layout/SidecarAdapter$Companion;-><init>()V
 
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public final getRawSidecarDevicePosture(Landroidx/window/sidecar/SidecarDeviceState;)I
-    .locals 5
+    .registers 7
     .param p1, "sidecarDeviceState"    # Landroidx/window/sidecar/SidecarDeviceState;
 
     const-string/jumbo v0, "sidecarDeviceState"
@@ -84,22 +84,22 @@
     nop
 
     .line 273
-    :try_start_0
+    :try_start_7
     iget v0, p1, Landroidx/window/sidecar/SidecarDeviceState;->posture:I
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_9} :catch_a
 
     return v0
 
     .line 274
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 275
     .local v0, "error":Ljava/lang/NoSuchFieldError;
     const/4 v1, 0x0
 
-    :try_start_1
+    :try_start_c
     const-class v2, Landroidx/window/sidecar/SidecarDeviceState;
 
     .line 276
@@ -119,7 +119,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_25
 
     check-cast v3, Ljava/lang/Integer;
 
@@ -129,7 +129,7 @@
 
     return v1
 
-    :cond_0
+    :cond_25
     new-instance v3, Ljava/lang/NullPointerException;
 
     const-string v4, "null cannot be cast to non-null type kotlin.Int"
@@ -139,25 +139,25 @@
     .end local v0    # "error":Ljava/lang/NoSuchFieldError;
     .end local p1    # "sidecarDeviceState":Landroidx/window/sidecar/SidecarDeviceState;
     throw v3
-    :try_end_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_2d
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_c .. :try_end_2d} :catch_32
+    .catch Ljava/lang/IllegalAccessException; {:try_start_c .. :try_end_2d} :catch_2f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_c .. :try_end_2d} :catch_2d
 
     .line 286
     .end local v2    # "methodGetPosture":Ljava/lang/reflect/Method;
     .restart local v0    # "error":Ljava/lang/NoSuchFieldError;
     .restart local p1    # "sidecarDeviceState":Landroidx/window/sidecar/SidecarDeviceState;
-    :catch_1
+    :catch_2d
     move-exception v2
 
     .line 287
     .local v2, "e":Ljava/lang/reflect/InvocationTargetException;
-    goto :goto_0
+    goto :goto_34
 
     .line 282
     .end local v2    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_2f
     move-exception v2
 
     .line 283
@@ -165,10 +165,10 @@
     nop
 
     .end local v2    # "e":Ljava/lang/IllegalAccessException;
-    goto :goto_0
+    goto :goto_34
 
     .line 278
-    :catch_3
+    :catch_32
     move-exception v2
 
     .line 279
@@ -178,12 +178,12 @@
     .line 292
     .end local v0    # "error":Ljava/lang/NoSuchFieldError;
     .end local v2    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_34
     return v1
 .end method
 
 .method public final getSidecarDevicePosture$window_release(Landroidx/window/sidecar/SidecarDeviceState;)I
-    .locals 2
+    .registers 4
     .param p1, "sidecarDeviceState"    # Landroidx/window/sidecar/SidecarDeviceState;
 
     const-string/jumbo v0, "sidecarDeviceState"
@@ -197,33 +197,33 @@
 
     .line 259
     .local v0, "rawPosture":I
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_12
 
     .line 260
     const/4 v1, 0x4
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
     .line 264
-    :cond_0
+    :cond_10
     move v1, v0
 
-    goto :goto_1
+    goto :goto_13
 
     .line 262
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v1, 0x0
 
     .line 259
-    :goto_1
+    :goto_13
     return v1
 .end method
 
 .method public final getSidecarDisplayFeatures(Landroidx/window/sidecar/SidecarWindowLayoutInfo;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p1, "info"    # Landroidx/window/sidecar/SidecarWindowLayoutInfo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -244,27 +244,27 @@
     nop
 
     .line 201
-    :try_start_0
+    :try_start_6
     iget-object v0, p1, Landroidx/window/sidecar/SidecarWindowLayoutInfo;->displayFeatures:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_e} :catch_f
 
-    :cond_0
+    :cond_e
     return-object v0
 
     .line 202
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 203
     .local v0, "error":Ljava/lang/NoSuchFieldError;
-    :try_start_1
+    :try_start_10
     const-class v1, Landroidx/window/sidecar/SidecarWindowLayoutInfo;
 
     .line 205
@@ -287,13 +287,13 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     check-cast v2, Ljava/util/List;
 
     return-object v2
 
-    :cond_1
+    :cond_26
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v3, "null cannot be cast to non-null type kotlin.collections.List<androidx.window.sidecar.SidecarDisplayFeature>"
@@ -303,25 +303,25 @@
     .end local v0    # "error":Ljava/lang/NoSuchFieldError;
     .end local p1    # "info":Landroidx/window/sidecar/SidecarWindowLayoutInfo;
     throw v2
-    :try_end_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_2e
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_10 .. :try_end_2e} :catch_33
+    .catch Ljava/lang/IllegalAccessException; {:try_start_10 .. :try_end_2e} :catch_30
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_10 .. :try_end_2e} :catch_2e
 
     .line 217
     .end local v1    # "methodGetFeatures":Ljava/lang/reflect/Method;
     .restart local v0    # "error":Ljava/lang/NoSuchFieldError;
     .restart local p1    # "info":Landroidx/window/sidecar/SidecarWindowLayoutInfo;
-    :catch_1
+    :catch_2e
     move-exception v1
 
     .line 218
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    goto :goto_0
+    goto :goto_35
 
     .line 213
     .end local v1    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_30
     move-exception v1
 
     .line 214
@@ -329,10 +329,10 @@
     nop
 
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    goto :goto_0
+    goto :goto_35
 
     .line 209
-    :catch_3
+    :catch_33
     move-exception v1
 
     .line 210
@@ -342,7 +342,7 @@
     .line 223
     .end local v0    # "error":Ljava/lang/NoSuchFieldError;
     .end local v1    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_35
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v0
@@ -351,7 +351,7 @@
 .end method
 
 .method public final setSidecarDevicePosture(Landroidx/window/sidecar/SidecarDeviceState;I)V
-    .locals 7
+    .registers 10
     .param p1, "sidecarDeviceState"    # Landroidx/window/sidecar/SidecarDeviceState;
     .param p2, "posture"    # I
 
@@ -363,20 +363,20 @@
     nop
 
     .line 300
-    :try_start_0
+    :try_start_7
     iput p2, p1, Landroidx/window/sidecar/SidecarDeviceState;->posture:I
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_9} :catch_a
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 301
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 302
     .local v0, "error":Ljava/lang/NoSuchFieldError;
-    :try_start_1
+    :try_start_b
     const-class v1, Landroidx/window/sidecar/SidecarDeviceState;
 
     .line 304
@@ -409,25 +409,25 @@
     aput-object v2, v3, v6
 
     invoke-virtual {v1, p1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_27
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_b .. :try_end_27} :catch_2d
+    .catch Ljava/lang/IllegalAccessException; {:try_start_b .. :try_end_27} :catch_2a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_b .. :try_end_27} :catch_28
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 316
     .end local v1    # "methodSetPosture":Ljava/lang/reflect/Method;
-    :catch_1
+    :catch_28
     move-exception v1
 
     .line 317
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    goto :goto_0
+    goto :goto_2f
 
     .line 312
     .end local v1    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_2a
     move-exception v1
 
     .line 313
@@ -435,10 +435,10 @@
     nop
 
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    goto :goto_0
+    goto :goto_2f
 
     .line 308
-    :catch_3
+    :catch_2d
     move-exception v1
 
     .line 309
@@ -448,12 +448,12 @@
     .line 322
     .end local v0    # "error":Ljava/lang/NoSuchFieldError;
     .end local v1    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_2f
     return-void
 .end method
 
 .method public final setSidecarDisplayFeatures(Landroidx/window/sidecar/SidecarWindowLayoutInfo;Ljava/util/List;)V
-    .locals 7
+    .registers 10
     .param p1, "info"    # Landroidx/window/sidecar/SidecarWindowLayoutInfo;
     .param p2, "displayFeatures"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -478,20 +478,20 @@
     nop
 
     .line 234
-    :try_start_0
+    :try_start_b
     iput-object p2, p1, Landroidx/window/sidecar/SidecarWindowLayoutInfo;->displayFeatures:Ljava/util/List;
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_d} :catch_e
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 235
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 236
     .local v0, "error":Ljava/lang/NoSuchFieldError;
-    :try_start_1
+    :try_start_f
     const-class v1, Landroidx/window/sidecar/SidecarWindowLayoutInfo;
 
     .line 238
@@ -519,25 +519,25 @@
     aput-object p2, v2, v6
 
     invoke-virtual {v1, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_27
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_f .. :try_end_27} :catch_2d
+    .catch Ljava/lang/IllegalAccessException; {:try_start_f .. :try_end_27} :catch_2a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_f .. :try_end_27} :catch_28
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 249
     .end local v1    # "methodSetFeatures":Ljava/lang/reflect/Method;
-    :catch_1
+    :catch_28
     move-exception v1
 
     .line 250
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    goto :goto_0
+    goto :goto_2f
 
     .line 245
     .end local v1    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_2a
     move-exception v1
 
     .line 246
@@ -545,10 +545,10 @@
     nop
 
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    goto :goto_0
+    goto :goto_2f
 
     .line 241
-    :catch_3
+    :catch_2d
     move-exception v1
 
     .line 242
@@ -558,6 +558,6 @@
     .line 255
     .end local v0    # "error":Ljava/lang/NoSuchFieldError;
     .end local v1    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_2f
     return-void
 .end method

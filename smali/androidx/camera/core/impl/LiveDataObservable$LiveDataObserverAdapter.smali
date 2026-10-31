@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/Observable$Observer;)V
-    .locals 2
+    .registers 5
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method disable()V
-    .locals 2
+    .registers 3
 
     .line 235
     .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter<TT;>;"
@@ -110,7 +110,7 @@
 .end method
 
 .method public onChanged(Landroidx/camera/core/impl/LiveDataObservable$Result;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -144,7 +144,7 @@
 .end method
 
 .method public bridge synthetic onChanged(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010

@@ -45,7 +45,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/hash/Hashing$ChecksumType;
-    .locals 3
+    .registers 3
 
     .line 428
     const/4 v0, 0x2
@@ -68,7 +68,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 430
     new-instance v0, Lcom/google/common/hash/Hashing$ChecksumType$1;
@@ -107,7 +107,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p3, "toString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -134,7 +134,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;Lcom/google/common/hash/Hashing$1;)V
-    .locals 0
+    .registers 5
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # I
     .param p3, "x2"    # Ljava/lang/String;
@@ -147,7 +147,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/hash/Hashing$ChecksumType;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 428
@@ -163,7 +163,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/hash/Hashing$ChecksumType;
-    .locals 1
+    .registers 1
 
     .line 428
     sget-object v0, Lcom/google/common/hash/Hashing$ChecksumType;->$VALUES:[Lcom/google/common/hash/Hashing$ChecksumType;

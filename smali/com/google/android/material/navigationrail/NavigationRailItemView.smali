@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 35
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method protected getItemDefaultMarginResId()I
-    .locals 1
+    .registers 2
 
     .line 61
     sget v0, Lcom/google/android/material/R$dimen;->mtrl_navigation_rail_icon_margin:I
@@ -27,7 +27,7 @@
 .end method
 
 .method protected getItemLayoutResId()I
-    .locals 1
+    .registers 2
 
     .line 55
     sget v0, Lcom/google/android/material/R$layout;->mtrl_navigation_rail_item:I
@@ -36,7 +36,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 4
+    .registers 7
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 43
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
@@ -79,6 +79,6 @@
     .end local v0    # "preferredHeight":I
     .end local v1    # "measuredHeight":I
     .end local v2    # "bestHeight":I
-    :cond_0
+    :cond_1c
     return-void
 .end method

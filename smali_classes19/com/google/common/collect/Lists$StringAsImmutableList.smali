@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "string"    # Ljava/lang/String;
 
     .line 730
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Character;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 757
@@ -69,7 +69,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 725
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Lists$StringAsImmutableList;->get(I)Ljava/lang/Character;
@@ -80,7 +80,7 @@
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -89,7 +89,7 @@
     .line 736
     instance-of v0, p1, Ljava/lang/Character;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/google/common/collect/Lists$StringAsImmutableList;->string:Ljava/lang/String;
 
@@ -105,17 +105,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 752
     const/4 v0, 0x0
@@ -124,7 +124,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -133,7 +133,7 @@
     .line 741
     instance-of v0, p1, Ljava/lang/Character;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/google/common/collect/Lists$StringAsImmutableList;->string:Ljava/lang/String;
 
@@ -149,17 +149,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 763
     iget-object v0, p0, Lcom/google/common/collect/Lists$StringAsImmutableList;->string:Ljava/lang/String;
@@ -172,7 +172,7 @@
 .end method
 
 .method public subList(II)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 4
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -206,7 +206,7 @@
 .end method
 
 .method public bridge synthetic subList(II)Ljava/util/List;
-    .locals 0
+    .registers 3
 
     .line 725
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Lists$StringAsImmutableList;->subList(II)Lcom/google/common/collect/ImmutableList;

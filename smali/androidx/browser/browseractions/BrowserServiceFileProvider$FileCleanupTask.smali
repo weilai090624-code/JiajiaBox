@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 79
     sget-object v0, Ljava/util/concurrent/TimeUnit;->DAYS:Ljava/util/concurrent/TimeUnit;
@@ -75,7 +75,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 84
@@ -93,7 +93,7 @@
 .end method
 
 .method private static isImageFile(Ljava/io/File;)Z
-    .locals 2
+    .registers 3
     .param p0, "file"    # Ljava/io/File;
 
     .line 123
@@ -113,7 +113,7 @@
 .end method
 
 .method private static shouldCleanUp(Landroid/content/SharedPreferences;)Z
-    .locals 7
+    .registers 8
     .param p0, "prefs"    # Landroid/content/SharedPreferences;
 
     .line 128
@@ -139,23 +139,23 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_17
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_18
     return v2
 .end method
 
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 77
     check-cast p1, [Ljava/lang/Void;
@@ -168,7 +168,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 16
+    .registers 18
     .param p1, "params"    # [Ljava/lang/Void;
 
     .line 90
@@ -216,12 +216,12 @@
 
     const/4 v4, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     return-object v4
 
     .line 93
-    :cond_0
+    :cond_2a
     sget-object v5, Landroidx/browser/browseractions/BrowserServiceFileProvider;->sFileCleanupLock:Ljava/lang/Object;
 
     monitor-enter v5
@@ -231,7 +231,7 @@
 
     .line 95
     .local v0, "allFilesDeletedSuccessfully":Z
-    :try_start_0
+    :try_start_2e
     new-instance v6, Ljava/io/File;
 
     iget-object v7, v1, Landroidx/browser/browseractions/BrowserServiceFileProvider$FileCleanupTask;->mAppContext:Landroid/content/Context;
@@ -250,14 +250,14 @@
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_43
 
     monitor-exit v5
 
     return-object v4
 
     .line 97
-    :cond_1
+    :cond_43
     invoke-virtual {v6}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object v7
@@ -276,8 +276,8 @@
     .local v8, "retentionDate":J
     array-length v10, v7
 
-    :goto_0
-    if-ge v3, v10, :cond_4
+    :goto_4f
+    if-ge v3, v10, :cond_89
 
     aget-object v11, v7, v3
 
@@ -287,12 +287,12 @@
 
     move-result v12
 
-    if-nez v12, :cond_2
+    if-nez v12, :cond_5a
 
-    goto :goto_1
+    goto :goto_85
 
     .line 101
-    :cond_2
+    :cond_5a
     invoke-virtual {v11}, Ljava/io/File;->lastModified()J
 
     move-result-wide v12
@@ -301,13 +301,13 @@
     .local v12, "lastModified":J
     cmp-long v14, v12, v8
 
-    if-gez v14, :cond_3
+    if-gez v14, :cond_85
 
     invoke-virtual {v11}, Ljava/io/File;->delete()Z
 
     move-result v14
 
-    if-nez v14, :cond_3
+    if-nez v14, :cond_85
 
     .line 103
     const-string v14, "BrowserServiceFP"
@@ -342,17 +342,17 @@
     .line 99
     .end local v11    # "file":Ljava/io/File;
     .end local v12    # "lastModified":J
-    :cond_3
-    :goto_1
+    :cond_85
+    :goto_85
     add-int/lit8 v3, v3, 0x1
 
     const/4 v4, 0x0
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 109
-    :cond_4
-    if-eqz v0, :cond_5
+    :cond_89
+    if-eqz v0, :cond_90
 
     .line 110
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -360,11 +360,11 @@
     move-result-wide v3
 
     .local v3, "lastCleanUpTime":J
-    goto :goto_2
+    goto :goto_9a
 
     .line 112
     .end local v3    # "lastCleanUpTime":J
-    :cond_5
+    :cond_90
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
@@ -379,7 +379,7 @@
 
     .line 115
     .restart local v3    # "lastCleanUpTime":J
-    :goto_2
+    :goto_9a
     invoke-interface {v2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v10
@@ -408,12 +408,12 @@
     return-object v0
 
     .line 118
-    :catchall_0
+    :catchall_a9
     move-exception v0
 
     monitor-exit v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_ab
+    .catchall {:try_start_2e .. :try_end_ab} :catchall_a9
 
     throw v0
 .end method

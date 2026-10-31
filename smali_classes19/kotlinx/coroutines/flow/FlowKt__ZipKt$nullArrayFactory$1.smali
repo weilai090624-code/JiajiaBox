@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ZipKt$nullArrayFactory$1;
 
@@ -54,7 +54,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 277
     invoke-virtual {p0}, Lkotlinx/coroutines/flow/FlowKt__ZipKt$nullArrayFactory$1;->invoke()Ljava/lang/Void;
@@ -77,7 +77,7 @@
 .end method
 
 .method public final invoke()Ljava/lang/Void;
-    .locals 1
+    .registers 2
 
     .line 277
     const/4 v0, 0x0

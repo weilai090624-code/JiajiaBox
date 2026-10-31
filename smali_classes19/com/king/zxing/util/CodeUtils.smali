@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method private static addCode(Landroid/graphics/Bitmap;Ljava/lang/String;III)Landroid/graphics/Bitmap;
-    .locals 7
+    .registers 12
     .param p0, "src"    # Landroid/graphics/Bitmap;
     .param p1, "code"    # Ljava/lang/String;
     .param p2, "textSize"    # I
@@ -35,24 +35,24 @@
     .line 628
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 629
     return-object v0
 
     .line 632
-    :cond_0
+    :cond_4
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_b
 
     .line 633
     return-object p0
 
     .line 637
-    :cond_1
+    :cond_b
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v1
@@ -65,21 +65,21 @@
 
     .line 640
     .local v2, "srcHeight":I
-    if-lez v1, :cond_3
+    if-lez v1, :cond_59
 
-    if-gtz v2, :cond_2
+    if-gtz v2, :cond_18
 
-    goto :goto_1
+    goto :goto_59
 
     .line 646
-    :cond_2
+    :cond_18
     add-int v3, v2, p2
 
     mul-int/lit8 v4, p4, 0x2
 
     add-int/2addr v3, v4
 
-    :try_start_0
+    :try_start_1d
     sget-object v4, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {v1, v3, v4}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -137,17 +137,17 @@
 
     .line 655
     invoke-virtual {v4}, Landroid/graphics/Canvas;->restore()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4e
+    .catch Ljava/lang/Exception; {:try_start_1d .. :try_end_4e} :catch_4f
 
     .line 659
     .end local v0    # "paint":Landroid/text/TextPaint;
     .end local v4    # "canvas":Landroid/graphics/Canvas;
-    goto :goto_0
+    goto :goto_58
 
     .line 656
     .end local v3    # "bitmap":Landroid/graphics/Bitmap;
-    :catch_0
+    :catch_4f
     move-exception v0
 
     .line 657
@@ -164,18 +164,18 @@
 
     .line 661
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_58
     return-object v3
 
     .line 641
     .end local v3    # "bitmap":Landroid/graphics/Bitmap;
-    :cond_3
-    :goto_1
+    :cond_59
+    :goto_59
     return-object v0
 .end method
 
 .method private static addLogo(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;F)Landroid/graphics/Bitmap;
-    .locals 10
+    .registers 13
     .param p0, "src"    # Landroid/graphics/Bitmap;
     .param p1, "logo"    # Landroid/graphics/Bitmap;
     .param p2, "ratio"    # F
@@ -183,20 +183,20 @@
     .line 203
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 204
     return-object v0
 
     .line 207
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_4
+    if-nez p1, :cond_7
 
     .line 208
     return-object p0
 
     .line 212
-    :cond_1
+    :cond_7
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v1
@@ -221,22 +221,22 @@
 
     .line 217
     .local v4, "logoHeight":I
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_5d
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1c
 
-    goto :goto_2
+    goto :goto_5d
 
     .line 221
-    :cond_2
-    if-eqz v3, :cond_4
+    :cond_1c
+    if-eqz v3, :cond_5c
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_21
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 226
-    :cond_3
+    :cond_21
     int-to-float v5, v1
 
     mul-float v5, v5, p2
@@ -247,7 +247,7 @@
 
     .line 229
     .local v5, "scaleFactor":F
-    :try_start_0
+    :try_start_26
     sget-object v6, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {v1, v2, v6}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -297,16 +297,16 @@
 
     .line 235
     invoke-virtual {v7}, Landroid/graphics/Canvas;->restore()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_51
+    .catch Ljava/lang/Exception; {:try_start_26 .. :try_end_51} :catch_52
 
     .line 239
     .end local v7    # "canvas":Landroid/graphics/Canvas;
-    goto :goto_0
+    goto :goto_5b
 
     .line 236
     .end local v6    # "bitmap":Landroid/graphics/Bitmap;
-    :catch_0
+    :catch_52
     move-exception v0
 
     .line 237
@@ -323,32 +323,32 @@
 
     .line 241
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_5b
     return-object v6
 
     .line 222
     .end local v5    # "scaleFactor":F
     .end local v6    # "bitmap":Landroid/graphics/Bitmap;
-    :cond_4
-    :goto_1
+    :cond_5c
+    :goto_5c
     return-object p0
 
     .line 218
-    :cond_5
-    :goto_2
+    :cond_5d
+    :goto_5d
     return-object v0
 .end method
 
 .method private static compressBitmap(Ljava/lang/String;II)Landroid/graphics/Bitmap;
-    .locals 7
+    .registers 10
     .param p0, "path"    # Ljava/lang/String;
     .param p1, "reqWidth"    # I
     .param p2, "reqHeight"    # I
 
     .line 430
-    if-lez p1, :cond_3
+    if-lez p1, :cond_3a
 
-    if-lez p2, :cond_3
+    if-lez p2, :cond_3a
 
     .line 432
     new-instance v0, Landroid/graphics/BitmapFactory$Options;
@@ -385,7 +385,7 @@
 
     cmpl-float v4, v1, v4
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_1f
 
     .line 441
     int-to-float v4, p1
@@ -395,7 +395,7 @@
     float-to-int v3, v4
 
     .line 443
-    :cond_0
+    :cond_1f
     const/4 v4, 0x1
 
     .line 444
@@ -404,7 +404,7 @@
 
     cmpl-float v5, v2, v5
 
-    if-lez v5, :cond_1
+    if-lez v5, :cond_29
 
     .line 445
     int-to-float v5, p2
@@ -414,20 +414,20 @@
     float-to-int v4, v5
 
     .line 447
-    :cond_1
+    :cond_29
     invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
 
     move-result v5
 
     .line 448
     .local v5, "size":I
-    if-gtz v5, :cond_2
+    if-gtz v5, :cond_30
 
     .line 449
     const/4 v5, 0x1
 
     .line 450
-    :cond_2
+    :cond_30
     iput v5, v0, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
     .line 452
@@ -449,7 +449,7 @@
     .end local v3    # "wSize":I
     .end local v4    # "hSize":I
     .end local v5    # "size":I
-    :cond_3
+    :cond_3a
     invoke-static {p0}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -458,7 +458,7 @@
 .end method
 
 .method public static createBarCode(Ljava/lang/String;II)Landroid/graphics/Bitmap;
-    .locals 2
+    .registers 5
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "desiredWidth"    # I
     .param p2, "desiredHeight"    # I
@@ -476,7 +476,7 @@
 .end method
 
 .method public static createBarCode(Ljava/lang/String;IIZ)Landroid/graphics/Bitmap;
-    .locals 8
+    .registers 12
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "desiredWidth"    # I
     .param p2, "desiredHeight"    # I
@@ -507,7 +507,7 @@
 .end method
 
 .method public static createBarCode(Ljava/lang/String;IIZI)Landroid/graphics/Bitmap;
-    .locals 8
+    .registers 13
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "desiredWidth"    # I
     .param p2, "desiredHeight"    # I
@@ -539,7 +539,7 @@
 .end method
 
 .method public static createBarCode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;II)Landroid/graphics/Bitmap;
-    .locals 1
+    .registers 5
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p2, "desiredWidth"    # I
@@ -556,7 +556,7 @@
 .end method
 
 .method public static createBarCode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;)Landroid/graphics/Bitmap;
-    .locals 8
+    .registers 13
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p2, "desiredWidth"    # I
@@ -600,7 +600,7 @@
 .end method
 
 .method public static createBarCode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;Z)Landroid/graphics/Bitmap;
-    .locals 8
+    .registers 14
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p2, "desiredWidth"    # I
@@ -645,7 +645,7 @@
 .end method
 
 .method public static createBarCode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;ZI)Landroid/graphics/Bitmap;
-    .locals 8
+    .registers 15
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p2, "desiredWidth"    # I
@@ -691,7 +691,7 @@
 .end method
 
 .method public static createBarCode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;ZII)Landroid/graphics/Bitmap;
-    .locals 17
+    .registers 25
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p2, "desiredWidth"    # I
@@ -722,13 +722,13 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 586
     return-object v2
 
     .line 588
-    :cond_0
+    :cond_a
     const/4 v3, -0x1
 
     .line 589
@@ -753,7 +753,7 @@
 
     move-object/from16 v10, p4
 
-    :try_start_0
+    :try_start_1c
     invoke-virtual/range {v5 .. v10}, Lcom/google/zxing/MultiFormatWriter;->encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;)Lcom/google/zxing/common/BitMatrix;
 
     move-result-object v0
@@ -785,8 +785,8 @@
     const/4 v7, 0x0
 
     .local v7, "y":I
-    :goto_0
-    if-ge v7, v15, :cond_3
+    :goto_30
+    if-ge v7, v15, :cond_4a
 
     .line 600
     mul-int v8, v7, v6
@@ -796,8 +796,8 @@
     const/4 v9, 0x0
 
     .local v9, "x":I
-    :goto_1
-    if-ge v9, v6, :cond_2
+    :goto_35
+    if-ge v9, v6, :cond_47
 
     .line 602
     add-int v10, v8, v9
@@ -806,34 +806,34 @@
 
     move-result v11
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_41
 
     move v11, v4
 
-    goto :goto_2
+    goto :goto_42
 
-    :cond_1
+    :cond_41
     const/4 v11, -0x1
 
-    :goto_2
+    :goto_42
     aput v11, v16, v10
 
     .line 601
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 599
     .end local v8    # "offset":I
     .end local v9    # "x":I
-    :cond_2
+    :cond_47
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
     .line 606
     .end local v7    # "y":I
-    :cond_3
+    :cond_4a
     sget-object v7, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {v6, v15, v7}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -865,23 +865,23 @@
     invoke-virtual/range {v7 .. v14}, Landroid/graphics/Bitmap;->setPixels([IIIIIII)V
 
     .line 609
-    if-eqz p5, :cond_4
+    if-eqz p5, :cond_6c
 
     .line 610
     div-int/lit8 v7, v1, 0x2
-    :try_end_0
-    .catch Lcom/google/zxing/WriterException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_61
+    .catch Lcom/google/zxing/WriterException; {:try_start_1c .. :try_end_61} :catch_71
 
     move-object/from16 v8, p0
 
     move/from16 v9, p7
 
-    :try_start_1
+    :try_start_65
     invoke-static {v2, v8, v1, v9, v7}, Lcom/king/zxing/util/CodeUtils;->addCode(Landroid/graphics/Bitmap;Ljava/lang/String;III)Landroid/graphics/Bitmap;
 
     move-result-object v7
-    :try_end_1
-    .catch Lcom/google/zxing/WriterException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_69
+    .catch Lcom/google/zxing/WriterException; {:try_start_65 .. :try_end_69} :catch_6a
 
     return-object v7
 
@@ -891,10 +891,10 @@
     .end local v6    # "width":I
     .end local v15    # "height":I
     .end local v16    # "pixels":[I
-    :catch_0
+    :catch_6a
     move-exception v0
 
-    goto :goto_3
+    goto :goto_76
 
     .line 612
     .restart local v0    # "result":Lcom/google/zxing/common/BitMatrix;
@@ -902,7 +902,7 @@
     .restart local v6    # "width":I
     .restart local v15    # "height":I
     .restart local v16    # "pixels":[I
-    :cond_4
+    :cond_6c
     move-object/from16 v8, p0
 
     move/from16 v9, p7
@@ -915,7 +915,7 @@
     .end local v6    # "width":I
     .end local v15    # "height":I
     .end local v16    # "pixels":[I
-    :catch_1
+    :catch_71
     move-exception v0
 
     move-object/from16 v8, p0
@@ -924,7 +924,7 @@
 
     .line 614
     .local v0, "e":Lcom/google/zxing/WriterException;
-    :goto_3
+    :goto_76
     invoke-virtual {v0}, Lcom/google/zxing/WriterException;->getMessage()Ljava/lang/String;
 
     move-result-object v2
@@ -939,7 +939,7 @@
 .end method
 
 .method public static createBarCode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IIZI)Landroid/graphics/Bitmap;
-    .locals 8
+    .registers 14
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p2, "desiredWidth"    # I
@@ -972,7 +972,7 @@
 .end method
 
 .method public static createQRCode(Ljava/lang/String;I)Landroid/graphics/Bitmap;
-    .locals 1
+    .registers 3
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "heightPix"    # I
 
@@ -987,7 +987,7 @@
 .end method
 
 .method public static createQRCode(Ljava/lang/String;II)Landroid/graphics/Bitmap;
-    .locals 1
+    .registers 4
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "heightPix"    # I
     .param p2, "codeColor"    # I
@@ -1003,7 +1003,7 @@
 .end method
 
 .method public static createQRCode(Ljava/lang/String;ILandroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .locals 1
+    .registers 4
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "heightPix"    # I
     .param p2, "logo"    # Landroid/graphics/Bitmap;
@@ -1019,7 +1019,7 @@
 .end method
 
 .method public static createQRCode(Ljava/lang/String;ILandroid/graphics/Bitmap;F)Landroid/graphics/Bitmap;
-    .locals 3
+    .registers 7
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "heightPix"    # I
     .param p2, "logo"    # Landroid/graphics/Bitmap;
@@ -1065,7 +1065,7 @@
 .end method
 
 .method public static createQRCode(Ljava/lang/String;ILandroid/graphics/Bitmap;FI)Landroid/graphics/Bitmap;
-    .locals 7
+    .registers 12
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "heightPix"    # I
     .param p2, "logo"    # Landroid/graphics/Bitmap;
@@ -1124,7 +1124,7 @@
 .end method
 
 .method public static createQRCode(Ljava/lang/String;ILandroid/graphics/Bitmap;FLjava/util/Map;)Landroid/graphics/Bitmap;
-    .locals 6
+    .registers 11
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "heightPix"    # I
     .param p2, "logo"    # Landroid/graphics/Bitmap;
@@ -1165,7 +1165,7 @@
 .end method
 
 .method public static createQRCode(Ljava/lang/String;ILandroid/graphics/Bitmap;FLjava/util/Map;I)Landroid/graphics/Bitmap;
-    .locals 13
+    .registers 19
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "heightPix"    # I
     .param p2, "logo"    # Landroid/graphics/Bitmap;
@@ -1191,7 +1191,7 @@
 
     move-object v10, p2
 
-    :try_start_0
+    :try_start_2
     new-instance v1, Lcom/google/zxing/qrcode/QRCodeWriter;
 
     invoke-direct {v1}, Lcom/google/zxing/qrcode/QRCodeWriter;-><init>()V
@@ -1223,22 +1223,22 @@
     const/4 v1, 0x0
 
     .local v1, "y":I
-    :goto_0
-    if-ge v1, v9, :cond_2
+    :goto_18
+    if-ge v1, v9, :cond_35
 
     .line 170
     const/4 v2, 0x0
 
     .local v2, "x":I
-    :goto_1
-    if-ge v2, v9, :cond_1
+    :goto_1b
+    if-ge v2, v9, :cond_32
 
     .line 171
     invoke-virtual {v0, v2, v1}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     .line 172
     mul-int v3, v1, v9
@@ -1247,10 +1247,10 @@
 
     aput p5, v11, v3
 
-    goto :goto_2
+    goto :goto_2f
 
     .line 174
-    :cond_0
+    :cond_29
     mul-int v3, v1, v9
 
     add-int/2addr v3, v2
@@ -1260,21 +1260,21 @@
     aput v4, v11, v3
 
     .line 170
-    :goto_2
+    :goto_2f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_1b
 
     .line 169
     .end local v2    # "x":I
-    :cond_1
+    :cond_32
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 180
     .end local v1    # "y":I
-    :cond_2
+    :cond_35
     sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {p1, p1, v1}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -1300,58 +1300,58 @@
     move v8, p1
 
     invoke-virtual/range {v1 .. v8}, Landroid/graphics/Bitmap;->setPixels([IIIIIII)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_46
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_46} :catch_55
 
     .line 183
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_52
 
     .line 184
     move/from16 v1, p3
 
-    :try_start_1
+    :try_start_4a
     invoke-static {v12, p2, v1}, Lcom/king/zxing/util/CodeUtils;->addLogo(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;F)Landroid/graphics/Bitmap;
 
     move-result-object v2
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_4e
+    .catch Ljava/lang/Exception; {:try_start_4a .. :try_end_4e} :catch_50
 
     move-object v12, v2
 
-    goto :goto_3
+    goto :goto_54
 
     .line 188
     .end local v0    # "bitMatrix":Lcom/google/zxing/common/BitMatrix;
     .end local v11    # "pixels":[I
     .end local v12    # "bitmap":Landroid/graphics/Bitmap;
-    :catch_0
+    :catch_50
     move-exception v0
 
-    goto :goto_4
+    goto :goto_58
 
     .line 183
     .restart local v0    # "bitMatrix":Lcom/google/zxing/common/BitMatrix;
     .restart local v11    # "pixels":[I
     .restart local v12    # "bitmap":Landroid/graphics/Bitmap;
-    :cond_3
+    :cond_52
     move/from16 v1, p3
 
     .line 187
-    :goto_3
+    :goto_54
     return-object v12
 
     .line 188
     .end local v0    # "bitMatrix":Lcom/google/zxing/common/BitMatrix;
     .end local v11    # "pixels":[I
     .end local v12    # "bitmap":Landroid/graphics/Bitmap;
-    :catch_1
+    :catch_55
     move-exception v0
 
     move/from16 v1, p3
 
     .line 189
     .local v0, "e":Ljava/lang/Exception;
-    :goto_4
+    :goto_58
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v2
@@ -1366,7 +1366,7 @@
 .end method
 
 .method public static createQRCode(Ljava/lang/String;ILandroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
-    .locals 1
+    .registers 5
     .param p0, "content"    # Ljava/lang/String;
     .param p1, "heightPix"    # I
     .param p2, "logo"    # Landroid/graphics/Bitmap;
@@ -1383,7 +1383,7 @@
 .end method
 
 .method private static decodeInternal(Lcom/google/zxing/MultiFormatReader;Lcom/google/zxing/LuminanceSource;)Lcom/google/zxing/Result;
-    .locals 3
+    .registers 5
     .param p0, "reader"    # Lcom/google/zxing/MultiFormatReader;
     .param p1, "source"    # Lcom/google/zxing/LuminanceSource;
 
@@ -1392,7 +1392,7 @@
 
     .line 408
     .local v0, "result":Lcom/google/zxing/Result;
-    :try_start_0
+    :try_start_1
     new-instance v1, Lcom/google/zxing/BinaryBitmap;
 
     new-instance v2, Lcom/google/zxing/common/HybridBinarizer;
@@ -1404,24 +1404,24 @@
     invoke-virtual {p0, v1}, Lcom/google/zxing/MultiFormatReader;->decodeWithState(Lcom/google/zxing/BinaryBitmap;)Lcom/google/zxing/Result;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_f} :catch_11
 
     move-object v0, v1
 
     .line 411
-    goto :goto_0
+    goto :goto_12
 
     .line 409
-    :catch_0
+    :catch_11
     move-exception v1
 
     .line 412
-    :goto_0
-    if-nez v0, :cond_0
+    :goto_12
+    if-nez v0, :cond_26
 
     .line 414
-    :try_start_1
+    :try_start_14
     new-instance v1, Lcom/google/zxing/BinaryBitmap;
 
     new-instance v2, Lcom/google/zxing/common/GlobalHistogramBinarizer;
@@ -1433,31 +1433,31 @@
     invoke-virtual {p0, v1}, Lcom/google/zxing/MultiFormatReader;->decodeWithState(Lcom/google/zxing/BinaryBitmap;)Lcom/google/zxing/Result;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_22
+    .catch Ljava/lang/Exception; {:try_start_14 .. :try_end_22} :catch_24
 
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_26
 
     .line 416
-    :catch_1
+    :catch_24
     move-exception v1
 
-    goto :goto_2
+    goto :goto_27
 
     .line 418
-    :cond_0
-    :goto_1
+    :cond_26
+    :goto_26
     nop
 
     .line 419
-    :goto_2
+    :goto_27
     return-object v0
 .end method
 
 .method private static getRGBLuminanceSource(Landroid/graphics/Bitmap;)Lcom/google/zxing/RGBLuminanceSource;
-    .locals 11
+    .registers 12
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 468
@@ -1512,7 +1512,7 @@
 .end method
 
 .method public static parseCode(Landroid/graphics/Bitmap;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 315
@@ -1526,7 +1526,7 @@
 .end method
 
 .method public static parseCode(Landroid/graphics/Bitmap;Ljava/util/Map;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1548,7 +1548,7 @@
 
     .line 326
     .local v0, "result":Lcom/google/zxing/Result;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 327
     invoke-virtual {v0}, Lcom/google/zxing/Result;->getText()Ljava/lang/String;
@@ -1558,14 +1558,14 @@
     return-object v1
 
     .line 329
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static parseCode(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "bitmapPath"    # Ljava/lang/String;
 
     .line 283
@@ -1579,7 +1579,7 @@
 .end method
 
 .method public static parseCode(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "bitmapPath"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1601,7 +1601,7 @@
 
     .line 294
     .local v0, "result":Lcom/google/zxing/Result;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 295
     invoke-virtual {v0}, Lcom/google/zxing/Result;->getText()Ljava/lang/String;
@@ -1611,14 +1611,14 @@
     return-object v1
 
     .line 297
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static parseCodeResult(Landroid/graphics/Bitmap;)Lcom/google/zxing/Result;
-    .locals 2
+    .registers 3
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 360
@@ -1636,7 +1636,7 @@
 .end method
 
 .method public static parseCodeResult(Landroid/graphics/Bitmap;Ljava/util/Map;)Lcom/google/zxing/Result;
-    .locals 1
+    .registers 3
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1664,7 +1664,7 @@
 .end method
 
 .method public static parseCodeResult(Lcom/google/zxing/LuminanceSource;Ljava/util/Map;)Lcom/google/zxing/Result;
-    .locals 4
+    .registers 6
     .param p0, "source"    # Lcom/google/zxing/LuminanceSource;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1690,11 +1690,11 @@
 
     .line 383
     .local v1, "reader":Lcom/google/zxing/MultiFormatReader;
-    :try_start_0
+    :try_start_6
     invoke-virtual {v1, p1}, Lcom/google/zxing/MultiFormatReader;->setHints(Ljava/util/Map;)V
 
     .line 384
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2c
 
     .line 385
     invoke-static {v1, p0}, Lcom/king/zxing/util/CodeUtils;->decodeInternal(Lcom/google/zxing/MultiFormatReader;Lcom/google/zxing/LuminanceSource;)Lcom/google/zxing/Result;
@@ -1704,7 +1704,7 @@
     move-object v0, v2
 
     .line 386
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 387
     invoke-virtual {p0}, Lcom/google/zxing/LuminanceSource;->invert()Lcom/google/zxing/LuminanceSource;
@@ -1718,14 +1718,14 @@
     move-object v0, v2
 
     .line 389
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_1b
+    if-nez v0, :cond_2c
 
     invoke-virtual {p0}, Lcom/google/zxing/LuminanceSource;->isRotateSupported()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2c
 
     .line 390
     invoke-virtual {p0}, Lcom/google/zxing/LuminanceSource;->rotateCounterClockwise()Lcom/google/zxing/LuminanceSource;
@@ -1735,50 +1735,50 @@
     invoke-static {v1, v2}, Lcom/king/zxing/util/CodeUtils;->decodeInternal(Lcom/google/zxing/MultiFormatReader;Lcom/google/zxing/LuminanceSource;)Lcom/google/zxing/Result;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_2b} :catch_32
+    .catchall {:try_start_6 .. :try_end_2b} :catchall_30
 
     move-object v0, v2
 
     .line 397
-    :cond_1
-    :goto_0
+    :cond_2c
+    :goto_2c
     invoke-virtual {v1}, Lcom/google/zxing/MultiFormatReader;->reset()V
 
     .line 398
-    goto :goto_1
+    goto :goto_3b
 
     .line 397
-    :catchall_0
+    :catchall_30
     move-exception v2
 
-    goto :goto_2
+    goto :goto_3c
 
     .line 394
-    :catch_0
+    :catch_32
     move-exception v2
 
     .line 395
     .local v2, "e":Ljava/lang/Exception;
-    :try_start_1
+    :try_start_33
     invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-static {v3}, Lcom/king/zxing/util/LogUtils;->w(Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_33 .. :try_end_3a} :catchall_30
 
     .end local v2    # "e":Ljava/lang/Exception;
-    goto :goto_0
+    goto :goto_2c
 
     .line 400
-    :goto_1
+    :goto_3b
     return-object v0
 
     .line 397
-    :goto_2
+    :goto_3c
     invoke-virtual {v1}, Lcom/google/zxing/MultiFormatReader;->reset()V
 
     .line 398
@@ -1786,7 +1786,7 @@
 .end method
 
 .method public static parseCodeResult(Ljava/lang/String;IILjava/util/Map;)Lcom/google/zxing/Result;
-    .locals 1
+    .registers 5
     .param p0, "bitmapPath"    # Ljava/lang/String;
     .param p1, "reqWidth"    # I
     .param p2, "reqHeight"    # I
@@ -1817,7 +1817,7 @@
 .end method
 
 .method public static parseCodeResult(Ljava/lang/String;Ljava/util/Map;)Lcom/google/zxing/Result;
-    .locals 2
+    .registers 4
     .param p0, "bitmapPath"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1845,7 +1845,7 @@
 .end method
 
 .method public static parseQRCode(Landroid/graphics/Bitmap;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 306
@@ -1859,7 +1859,7 @@
 .end method
 
 .method public static parseQRCode(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "bitmapPath"    # Ljava/lang/String;
 
     .line 250
@@ -1869,7 +1869,7 @@
 
     .line 251
     .local v0, "result":Lcom/google/zxing/Result;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 252
     invoke-virtual {v0}, Lcom/google/zxing/Result;->getText()Ljava/lang/String;
@@ -1879,14 +1879,14 @@
     return-object v1
 
     .line 254
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static parseQRCodeResult(Ljava/lang/String;)Lcom/google/zxing/Result;
-    .locals 2
+    .registers 3
     .param p0, "bitmapPath"    # Ljava/lang/String;
 
     .line 263
@@ -1902,7 +1902,7 @@
 .end method
 
 .method public static parseQRCodeResult(Ljava/lang/String;II)Lcom/google/zxing/Result;
-    .locals 1
+    .registers 4
     .param p0, "bitmapPath"    # Ljava/lang/String;
     .param p1, "reqWidth"    # I
     .param p2, "reqHeight"    # I

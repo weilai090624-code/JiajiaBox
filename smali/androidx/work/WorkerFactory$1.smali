@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 123
     invoke-direct {p0}, Landroidx/work/WorkerFactory;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public createWorker(Landroid/content/Context;Ljava/lang/String;Landroidx/work/WorkerParameters;)Landroidx/work/ListenableWorker;
-    .locals 1
+    .registers 5
     .param p1, "appContext"    # Landroid/content/Context;
     .param p2, "workerClassName"    # Ljava/lang/String;
     .param p3, "workerParameters"    # Landroidx/work/WorkerParameters;

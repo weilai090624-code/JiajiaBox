@@ -72,7 +72,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "uCont"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method protected afterCompletion(Ljava/lang/Object;)V
-    .locals 4
+    .registers 6
     .param p1, "state"    # Ljava/lang/Object;
 
     .line 27
@@ -126,7 +126,7 @@
 .end method
 
 .method protected afterResume(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Ljava/lang/Object;
 
     .line 32
@@ -145,28 +145,28 @@
 .end method
 
 .method public final getCallerFrame()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
-    .locals 2
+    .registers 3
 
     .line 20
     iget-object v0, p0, Lkotlinx/coroutines/internal/ScopeCoroutine;->uCont:Lkotlin/coroutines/Continuation;
 
     instance-of v1, v0, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     check-cast v0, Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return-object v0
 .end method
 
 .method public final getStackTraceElement()Ljava/lang/StackTraceElement;
-    .locals 1
+    .registers 2
 
     .line 21
     const/4 v0, 0x0
@@ -175,7 +175,7 @@
 .end method
 
 .method protected final isScopedCoroutine()Z
-    .locals 1
+    .registers 2
 
     .line 23
     const/4 v0, 0x1

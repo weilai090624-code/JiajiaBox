@@ -24,7 +24,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 56
     .local p0, "this":Lcom/google/common/collect/ForwardingCollection;, "Lcom/google/common/collect/ForwardingCollection<TE;>;"
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -62,7 +62,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,7 +86,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 118
     .local p0, "this":Lcom/google/common/collect/ForwardingCollection;, "Lcom/google/common/collect/ForwardingCollection<TE;>;"
@@ -101,7 +101,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -121,7 +121,7 @@
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -145,7 +145,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/ForwardingCollection;, "Lcom/google/common/collect/ForwardingCollection<TE;>;"
@@ -167,7 +167,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 79
     .local p0, "this":Lcom/google/common/collect/ForwardingCollection;, "Lcom/google/common/collect/ForwardingCollection<TE;>;"
@@ -183,7 +183,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -206,7 +206,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -226,7 +226,7 @@
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -250,7 +250,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -274,7 +274,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 68
     .local p0, "this":Lcom/google/common/collect/ForwardingCollection;, "Lcom/google/common/collect/ForwardingCollection<TE;>;"
@@ -290,7 +290,7 @@
 .end method
 
 .method protected standardAddAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -314,7 +314,7 @@
 .end method
 
 .method protected standardClear()V
-    .locals 1
+    .registers 2
 
     .line 213
     .local p0, "this":Lcom/google/common/collect/ForwardingCollection;, "Lcom/google/common/collect/ForwardingCollection<TE;>;"
@@ -329,7 +329,7 @@
 .end method
 
 .method protected standardContains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -349,7 +349,7 @@
 .end method
 
 .method protected standardContainsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -369,7 +369,7 @@
 .end method
 
 .method protected standardIsEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 224
     .local p0, "this":Lcom/google/common/collect/ForwardingCollection;, "Lcom/google/common/collect/ForwardingCollection<TE;>;"
@@ -387,7 +387,7 @@
 .end method
 
 .method protected standardRemove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -401,12 +401,12 @@
 
     .line 174
     .local v0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
-    :cond_0
+    :cond_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     .line 175
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -417,7 +417,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4
 
     .line 176
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -428,14 +428,14 @@
     return v1
 
     .line 180
-    :cond_1
+    :cond_19
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method protected standardRemoveAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -459,7 +459,7 @@
 .end method
 
 .method protected standardRetainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -483,7 +483,7 @@
 .end method
 
 .method protected standardToArray()[Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 246
     .local p0, "this":Lcom/google/common/collect/ForwardingCollection;, "Lcom/google/common/collect/ForwardingCollection<TE;>;"
@@ -503,7 +503,7 @@
 .end method
 
 .method protected standardToArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -523,7 +523,7 @@
 .end method
 
 .method protected standardToString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 235
     .local p0, "this":Lcom/google/common/collect/ForwardingCollection;, "Lcom/google/common/collect/ForwardingCollection<TE;>;"
@@ -535,7 +535,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 123
     .local p0, "this":Lcom/google/common/collect/ForwardingCollection;, "Lcom/google/common/collect/ForwardingCollection<TE;>;"
@@ -551,7 +551,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

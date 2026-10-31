@@ -101,7 +101,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
-    .locals 0
+    .registers 5
     .param p1, "onPreVisitDirectory"    # Lkotlin/jvm/functions/Function2;
     .param p2, "onVisitFile"    # Lkotlin/jvm/functions/Function2;
     .param p3, "onVisitFileFailed"    # Lkotlin/jvm/functions/Function2;
@@ -166,7 +166,7 @@
 
 # virtual methods
 .method public bridge synthetic postVisitDirectory(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/io/IOException;
 
@@ -183,7 +183,7 @@
 .end method
 
 .method public postVisitDirectory(Ljava/nio/file/Path;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;
-    .locals 2
+    .registers 5
     .param p1, "dir"    # Ljava/nio/file/Path;
     .param p2, "exc"    # Ljava/io/IOException;
 
@@ -194,7 +194,7 @@
     .line 118
     iget-object v0, p0, Lkotlin/io/path/FileVisitorImpl;->onPostVisitDirectory:Lkotlin/jvm/functions/Function2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-interface {v0, p1, p2}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -202,9 +202,9 @@
 
     check-cast v0, Ljava/nio/file/FileVisitResult;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
-    :cond_0
+    :cond_11
     invoke-super {p0, p1, p2}, Ljava/nio/file/SimpleFileVisitor;->postVisitDirectory(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;
 
     move-result-object v0
@@ -213,12 +213,12 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_1a
     return-object v0
 .end method
 
 .method public bridge synthetic preVisitDirectory(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/nio/file/attribute/BasicFileAttributes;
 
@@ -235,7 +235,7 @@
 .end method
 
 .method public preVisitDirectory(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
-    .locals 2
+    .registers 5
     .param p1, "dir"    # Ljava/nio/file/Path;
     .param p2, "attrs"    # Ljava/nio/file/attribute/BasicFileAttributes;
 
@@ -250,7 +250,7 @@
     .line 109
     iget-object v0, p0, Lkotlin/io/path/FileVisitorImpl;->onPreVisitDirectory:Lkotlin/jvm/functions/Function2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     invoke-interface {v0, p1, p2}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -258,9 +258,9 @@
 
     check-cast v0, Ljava/nio/file/FileVisitResult;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
-    :cond_0
+    :cond_16
     invoke-super {p0, p1, p2}, Ljava/nio/file/SimpleFileVisitor;->preVisitDirectory(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
 
     move-result-object v0
@@ -269,12 +269,12 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_1f
     return-object v0
 .end method
 
 .method public bridge synthetic visitFile(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/nio/file/attribute/BasicFileAttributes;
 
@@ -291,7 +291,7 @@
 .end method
 
 .method public visitFile(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
-    .locals 2
+    .registers 5
     .param p1, "file"    # Ljava/nio/file/Path;
     .param p2, "attrs"    # Ljava/nio/file/attribute/BasicFileAttributes;
 
@@ -306,7 +306,7 @@
     .line 112
     iget-object v0, p0, Lkotlin/io/path/FileVisitorImpl;->onVisitFile:Lkotlin/jvm/functions/Function2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     invoke-interface {v0, p1, p2}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -314,9 +314,9 @@
 
     check-cast v0, Ljava/nio/file/FileVisitResult;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
-    :cond_0
+    :cond_16
     invoke-super {p0, p1, p2}, Ljava/nio/file/SimpleFileVisitor;->visitFile(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
 
     move-result-object v0
@@ -325,12 +325,12 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_1f
     return-object v0
 .end method
 
 .method public bridge synthetic visitFileFailed(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/io/IOException;
 
@@ -347,7 +347,7 @@
 .end method
 
 .method public visitFileFailed(Ljava/nio/file/Path;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;
-    .locals 2
+    .registers 5
     .param p1, "file"    # Ljava/nio/file/Path;
     .param p2, "exc"    # Ljava/io/IOException;
 
@@ -362,7 +362,7 @@
     .line 115
     iget-object v0, p0, Lkotlin/io/path/FileVisitorImpl;->onVisitFileFailed:Lkotlin/jvm/functions/Function2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     invoke-interface {v0, p1, p2}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -370,9 +370,9 @@
 
     check-cast v0, Ljava/nio/file/FileVisitResult;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
-    :cond_0
+    :cond_16
     invoke-super {p0, p1, p2}, Ljava/nio/file/SimpleFileVisitor;->visitFileFailed(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;
 
     move-result-object v0
@@ -381,6 +381,6 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_1f
     return-object v0
 .end method

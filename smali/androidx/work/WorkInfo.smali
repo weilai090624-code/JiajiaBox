@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/UUID;Landroidx/work/WorkInfo$State;Landroidx/work/Data;Ljava/util/List;Landroidx/work/Data;II)V
-    .locals 1
+    .registers 9
     .param p1, "id"    # Ljava/util/UUID;
     .param p2, "state"    # Landroidx/work/WorkInfo$State;
     .param p3, "outputData"    # Landroidx/work/Data;
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -127,17 +127,17 @@
     .end annotation
 
     .line 142
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 143
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_54
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -147,12 +147,12 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_12
 
-    goto :goto_0
+    goto :goto_54
 
     .line 145
-    :cond_1
+    :cond_12
     move-object v1, p1
 
     check-cast v1, Landroidx/work/WorkInfo;
@@ -163,22 +163,22 @@
 
     iget v3, v1, Landroidx/work/WorkInfo;->mRunAttemptCount:I
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_1c
 
     return v0
 
     .line 148
-    :cond_2
+    :cond_1c
     iget v2, p0, Landroidx/work/WorkInfo;->mGeneration:I
 
     iget v3, v1, Landroidx/work/WorkInfo;->mGeneration:I
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_23
 
     return v0
 
     .line 149
-    :cond_3
+    :cond_23
     iget-object v2, p0, Landroidx/work/WorkInfo;->mId:Ljava/util/UUID;
 
     iget-object v3, v1, Landroidx/work/WorkInfo;->mId:Ljava/util/UUID;
@@ -187,22 +187,22 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_2e
 
     return v0
 
     .line 150
-    :cond_4
+    :cond_2e
     iget-object v2, p0, Landroidx/work/WorkInfo;->mState:Landroidx/work/WorkInfo$State;
 
     iget-object v3, v1, Landroidx/work/WorkInfo;->mState:Landroidx/work/WorkInfo$State;
 
-    if-eq v2, v3, :cond_5
+    if-eq v2, v3, :cond_35
 
     return v0
 
     .line 151
-    :cond_5
+    :cond_35
     iget-object v2, p0, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
 
     iget-object v3, v1, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
@@ -211,12 +211,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_40
 
     return v0
 
     .line 152
-    :cond_6
+    :cond_40
     iget-object v2, p0, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
 
     iget-object v3, v1, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
@@ -225,12 +225,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_4b
 
     return v0
 
     .line 153
-    :cond_7
+    :cond_4b
     iget-object v0, p0, Landroidx/work/WorkInfo;->mProgress:Landroidx/work/Data;
 
     iget-object v2, v1, Landroidx/work/WorkInfo;->mProgress:Landroidx/work/Data;
@@ -243,13 +243,13 @@
 
     .line 143
     .end local v1    # "workInfo":Landroidx/work/WorkInfo;
-    :cond_8
-    :goto_0
+    :cond_54
+    :goto_54
     return v0
 .end method
 
 .method public getGeneration()I
-    .locals 1
+    .registers 2
 
     .line 137
     iget v0, p0, Landroidx/work/WorkInfo;->mGeneration:I
@@ -258,7 +258,7 @@
 .end method
 
 .method public getId()Ljava/util/UUID;
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Landroidx/work/WorkInfo;->mId:Ljava/util/UUID;
@@ -267,7 +267,7 @@
 .end method
 
 .method public getOutputData()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     .line 90
     iget-object v0, p0, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
@@ -276,7 +276,7 @@
 .end method
 
 .method public getProgress()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Landroidx/work/WorkInfo;->mProgress:Landroidx/work/Data;
@@ -285,7 +285,7 @@
 .end method
 
 .method public getRunAttemptCount()I
-    .locals 1
+    .registers 2
 
     .line 119
     iget v0, p0, Landroidx/work/WorkInfo;->mRunAttemptCount:I
@@ -294,7 +294,7 @@
 .end method
 
 .method public getState()Landroidx/work/WorkInfo$State;
-    .locals 1
+    .registers 2
 
     .line 80
     iget-object v0, p0, Landroidx/work/WorkInfo;->mState:Landroidx/work/WorkInfo$State;
@@ -303,7 +303,7 @@
 .end method
 
 .method public getTags()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -320,7 +320,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 158
     iget-object v0, p0, Landroidx/work/WorkInfo;->mId:Ljava/util/UUID;
@@ -405,7 +405,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 170
     new-instance v0, Ljava/lang/StringBuilder;

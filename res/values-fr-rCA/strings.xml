@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Appel entrant</string>
     <string name="call_notification_ongoing_text">Appel en cours</string>
     <string name="call_notification_screening_text">Filtrer un appel entrant</string>
-    <string name="character_counter_content_description" formatted="false">Caractères entrés : %1$d sur %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Limite de caractère dépassée : %1$d sur %2$d</string>
+    <string name="character_counter_content_description">Caractères entrés : %1$d sur %2$d</string>
+    <string name="character_counter_overflowed_content_description">Limite de caractère dépassée : %1$d sur %2$d</string>
     <string name="clear_text_end_icon_content_description">Effacer le texte</string>
     <string name="copy">Copier</string>
     <string name="copy_toast_msg">Lien copié dans le presse-papiers</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Hors de la plage : %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Du (date de début) au %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">Du %1$s au (date de fin)</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">Du %1$s au %2$s</string>
+    <string name="mtrl_picker_range_header_selected">Du %1$s au %2$s</string>
     <string name="mtrl_picker_range_header_title">Sélectionnez la plage</string>
     <string name="mtrl_picker_range_header_unselected">Du (date de début) au (date de fin)</string>
     <string name="mtrl_picker_save">Enregistrer</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">« %1$s » copié dans le presse-papiers.</string>
     <string name="search_menu_title">Rechercher</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">DÉSACTIVÉ</string>
     <string name="v7_preference_on">ACTIVÉ</string>
 </resources>

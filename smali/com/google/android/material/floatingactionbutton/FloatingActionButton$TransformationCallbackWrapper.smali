@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Lcom/google/android/material/animation/TransformationCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -69,14 +69,14 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 1384
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper<TT;>;"
     instance-of v0, p1, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p1
 
@@ -91,22 +91,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     .line 1384
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 1390
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper<TT;>;"
@@ -120,7 +120,7 @@
 .end method
 
 .method public onScaleChanged()V
-    .locals 2
+    .registers 3
 
     .line 1379
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper<TT;>;"
@@ -135,7 +135,7 @@
 .end method
 
 .method public onTranslationChanged()V
-    .locals 2
+    .registers 3
 
     .line 1374
     .local p0, "this":Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper;, "Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper<TT;>;"

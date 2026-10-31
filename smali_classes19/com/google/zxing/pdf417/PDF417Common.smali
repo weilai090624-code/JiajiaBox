@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 40
     const/4 v0, 0x0
@@ -41,20 +41,20 @@
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_16
 
     sput-object v1, Lcom/google/zxing/pdf417/PDF417Common;->SYMBOL_TABLE:[I
 
     .line 322
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_15e0
 
     sput-object v0, Lcom/google/zxing/pdf417/PDF417Common;->CODEWORD_TABLE:[I
 
     return-void
 
-    :array_0
+    :array_16
     .array-data 4
         0x1025e
         0x1027a
@@ -2845,7 +2845,7 @@
         0x1fbda
     .end array-data
 
-    :array_1
+    :array_15e0
     .array-data 4
         0xa43
         0x71b
@@ -5638,7 +5638,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -5648,7 +5648,7 @@
 .end method
 
 .method public static getBitCountSum([I)I
-    .locals 1
+    .registers 2
     .param p0, "moduleBitCount"    # [I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -5662,7 +5662,7 @@
 .end method
 
 .method public static getCodeword(I)I
-    .locals 2
+    .registers 3
     .param p0, "symbol"    # I
 
     .line 72
@@ -5682,7 +5682,7 @@
     .local v1, "i":I
     move v1, v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_10
 
     .line 74
     const/4 v0, -0x1
@@ -5690,7 +5690,7 @@
     return v0
 
     .line 76
-    :cond_0
+    :cond_10
     sget-object v0, Lcom/google/zxing/pdf417/PDF417Common;->CODEWORD_TABLE:[I
 
     aget v0, v0, v1
@@ -5703,7 +5703,7 @@
 .end method
 
 .method public static toIntArray(Ljava/util/Collection;)[I
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -5715,18 +5715,18 @@
 
     .line 56
     .local p0, "list":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/Integer;>;"
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_2b
 
     invoke-interface {p0}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 59
-    :cond_0
+    :cond_9
     invoke-interface {p0}, Ljava/util/Collection;->size()I
 
     move-result v0
@@ -5743,12 +5743,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_14
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5772,19 +5772,19 @@
     .end local v3    # "integer":Ljava/lang/Integer;
     move v1, v4
 
-    goto :goto_0
+    goto :goto_14
 
     .line 64
     .end local v4    # "i":I
     .restart local v1    # "i":I
-    :cond_1
+    :cond_2a
     return-object v0
 
     .line 57
     .end local v0    # "result":[I
     .end local v1    # "i":I
-    :cond_2
-    :goto_1
+    :cond_2b
+    :goto_2b
     sget-object v0, Lcom/google/zxing/pdf417/PDF417Common;->EMPTY_INT_ARRAY:[I
 
     return-object v0

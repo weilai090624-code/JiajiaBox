@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>(JJLkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,7 +128,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -171,7 +171,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -182,7 +182,7 @@
 
     const/4 v2, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_42
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -193,18 +193,18 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_3e
 
-    :pswitch_1
+    :pswitch_16
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_2d
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_1a
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 1446
@@ -223,14 +223,14 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_2d
 
     .line 1445
     return-object v0
 
     .line 1447
-    :cond_0
-    :goto_0
+    :cond_2d
+    :goto_2d
     sget-object v1, Lio/nekohasekai/sagernet/database/ProfileManager;->INSTANCE:Lio/nekohasekai/sagernet/database/ProfileManager;
 
     iget-wide v3, p0, Lio/nekohasekai/sagernet/ui/MainActivity$cbSelectorUpdate$1;->$id:J
@@ -247,24 +247,24 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_3e
 
     .line 1445
     return-object v0
 
     .line 1448
-    :cond_1
-    :goto_1
+    :cond_3e
+    :goto_3e
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_42
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_16
+        :pswitch_12
     .end packed-switch
 .end method

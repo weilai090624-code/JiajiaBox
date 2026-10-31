@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/Class;I)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p3, "maxItemCount"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method protected addInternal(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
-    .locals 4
+    .registers 9
     .param p1, "group"    # I
     .param p2, "id"    # I
     .param p3, "categoryOrder"    # I
@@ -64,7 +64,7 @@
 
     iget v2, p0, Lcom/google/android/material/navigation/NavigationBarMenu;->maxItemCount:I
 
-    if-gt v0, v2, :cond_1
+    if-gt v0, v2, :cond_1f
 
     .line 76
     invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarMenu;->stopDispatchingItemsChanged()V
@@ -78,7 +78,7 @@
     .local v0, "item":Landroid/view/MenuItem;
     instance-of v2, v0, Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     .line 79
     move-object v2, v0
@@ -88,7 +88,7 @@
     invoke-virtual {v2, v1}, Landroidx/appcompat/view/menu/MenuItemImpl;->setExclusiveCheckable(Z)V
 
     .line 81
-    :cond_0
+    :cond_1b
     invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarMenu;->startDispatchingItemsChanged()V
 
     .line 82
@@ -96,7 +96,7 @@
 
     .line 66
     .end local v0    # "item":Landroid/view/MenuItem;
-    :cond_1
+    :cond_1f
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarMenu;->viewClass:Ljava/lang/Class;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -159,7 +159,7 @@
 .end method
 
 .method public addSubMenu(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;
-    .locals 3
+    .registers 8
     .param p1, "group"    # I
     .param p2, "id"    # I
     .param p3, "categoryOrder"    # I
@@ -199,7 +199,7 @@
 .end method
 
 .method public getMaxItemCount()I
-    .locals 1
+    .registers 2
 
     .line 51
     iget v0, p0, Lcom/google/android/material/navigation/NavigationBarMenu;->maxItemCount:I

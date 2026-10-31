@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/NumbersKt__NumbersJVMKt;-><init>()V
 
@@ -43,7 +43,7 @@
 .end method
 
 .method private static final countLeadingZeroBits(B)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countLeadingZeroBits"    # B
 
     .line 144
@@ -59,7 +59,7 @@
 .end method
 
 .method private static final countLeadingZeroBits(S)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countLeadingZeroBits"    # S
 
     .line 213
@@ -77,7 +77,7 @@
 .end method
 
 .method private static final countOneBits(B)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countOneBits"    # B
 
     .line 137
@@ -91,7 +91,7 @@
 .end method
 
 .method private static final countOneBits(S)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countOneBits"    # S
 
     .line 205
@@ -107,7 +107,7 @@
 .end method
 
 .method private static final countTrailingZeroBits(B)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countTrailingZeroBits"    # B
 
     .line 151
@@ -121,7 +121,7 @@
 .end method
 
 .method private static final countTrailingZeroBits(S)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countTrailingZeroBits"    # S
 
     .line 220
@@ -137,7 +137,7 @@
 .end method
 
 .method public static final rotateLeft(BI)B
-    .locals 3
+    .registers 5
     .param p0, "$this$rotateLeft"    # B
     .param p1, "bitCount"    # I
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public static final rotateLeft(SI)S
-    .locals 3
+    .registers 5
     .param p0, "$this$rotateLeft"    # S
     .param p1, "bitCount"    # I
 
@@ -189,7 +189,7 @@
 .end method
 
 .method public static final rotateRight(BI)B
-    .locals 3
+    .registers 5
     .param p0, "$this$rotateRight"    # B
     .param p1, "bitCount"    # I
 
@@ -214,7 +214,7 @@
 .end method
 
 .method public static final rotateRight(SI)S
-    .locals 3
+    .registers 5
     .param p0, "$this$rotateRight"    # S
     .param p1, "bitCount"    # I
 
@@ -241,7 +241,7 @@
 .end method
 
 .method private static final takeHighestOneBit(B)B
-    .locals 1
+    .registers 2
     .param p0, "$this$takeHighestOneBit"    # B
 
     .line 159
@@ -257,7 +257,7 @@
 .end method
 
 .method private static final takeHighestOneBit(S)S
-    .locals 1
+    .registers 2
     .param p0, "$this$takeHighestOneBit"    # S
 
     .line 228
@@ -275,7 +275,7 @@
 .end method
 
 .method private static final takeLowestOneBit(B)B
-    .locals 1
+    .registers 2
     .param p0, "$this$takeLowestOneBit"    # B
 
     .line 167
@@ -289,7 +289,7 @@
 .end method
 
 .method private static final takeLowestOneBit(S)S
-    .locals 1
+    .registers 2
     .param p0, "$this$takeLowestOneBit"    # S
 
     .line 236

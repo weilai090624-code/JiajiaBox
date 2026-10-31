@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     const-string v0, "[a-zA-Z0-9@.!#$%&\'*+\\-/=?^_`{|}~]+"
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Lcom/google/zxing/client/result/AbstractDoCoMoResultParser;-><init>()V
@@ -33,11 +33,11 @@
 .end method
 
 .method static isBasicallyValidEmailAddress(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "email"    # Ljava/lang/String;
 
     .line 61
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_18
 
     sget-object v0, Lcom/google/zxing/client/result/EmailDoCoMoResultParser;->ATEXT_ALPHANUMERIC:Ljava/util/regex/Pattern;
 
@@ -49,7 +49,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     const/16 v0, 0x40
 
@@ -57,13 +57,13 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_18
 
     const/4 v0, 0x1
 
     return v0
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     return v0
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/EmailAddressParsedResult;
-    .locals 11
+    .registers 13
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 36
@@ -96,13 +96,13 @@
 
     const/4 v3, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 38
     return-object v3
 
     .line 40
-    :cond_0
+    :cond_11
     const-string v0, "TO:"
 
     const/4 v4, 0x1
@@ -115,21 +115,21 @@
     .local v1, "tos":[Ljava/lang/String;
     move-object v1, v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     .line 42
     return-object v3
 
     .line 44
-    :cond_1
+    :cond_1c
     array-length v0, v1
 
     const/4 v4, 0x0
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v0, :cond_3
+    :goto_1f
+    if-ge v5, v0, :cond_2d
 
     aget-object v6, v1, v5
 
@@ -138,19 +138,19 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_2a
 
     .line 46
     return-object v3
 
     .line 44
-    :cond_2
+    :cond_2a
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 49
-    :cond_3
+    :cond_2d
     const-string v0, "SUB:"
 
     invoke-static {v0, v2, v4}, Lcom/google/zxing/client/result/EmailDoCoMoResultParser;->matchSingleDoCoMoPrefixedField(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
@@ -187,7 +187,7 @@
 .end method
 
 .method public bridge synthetic parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/ParsedResult;
-    .locals 0
+    .registers 2
 
     .line 30
     invoke-virtual {p0, p1}, Lcom/google/zxing/client/result/EmailDoCoMoResultParser;->parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/EmailAddressParsedResult;

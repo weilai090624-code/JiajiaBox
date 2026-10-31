@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;
 
     .line 2426
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 2429

@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public final contains(Landroidx/work/impl/model/WorkGenerationalId;)Z
-    .locals 3
+    .registers 5
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
 
     const-string v0, "id"
@@ -105,21 +105,21 @@
 
     .line 59
     .local v1, "$i$a$-synchronized-StartStopTokens$contains$1":I
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Landroidx/work/impl/StartStopTokens;->runs:Ljava/util/Map;
 
     invoke-interface {v2, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_9 .. :try_end_f} :catchall_11
 
     .end local v1    # "$i$a$-synchronized-StartStopTokens$contains$1":I
     monitor-exit v0
 
     return v2
 
-    :catchall_0
+    :catchall_11
     move-exception v1
 
     monitor-exit v0
@@ -128,7 +128,7 @@
 .end method
 
 .method public final remove(Landroidx/work/impl/model/WorkGenerationalId;)Landroidx/work/impl/StartStopToken;
-    .locals 3
+    .registers 5
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
 
     const-string v0, "id"
@@ -144,7 +144,7 @@
 
     .line 46
     .local v1, "$i$a$-synchronized-StartStopTokens$remove$1":I
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Landroidx/work/impl/StartStopTokens;->runs:Ljava/util/Map;
 
     invoke-interface {v2, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -152,8 +152,8 @@
     move-result-object v2
 
     check-cast v2, Landroidx/work/impl/StartStopToken;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_9 .. :try_end_11} :catchall_13
 
     .line 45
     .end local v1    # "$i$a$-synchronized-StartStopTokens$remove$1":I
@@ -161,7 +161,7 @@
 
     return-object v2
 
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
@@ -170,7 +170,7 @@
 .end method
 
 .method public final remove(Landroidx/work/impl/model/WorkSpec;)Landroidx/work/impl/StartStopToken;
-    .locals 1
+    .registers 3
     .param p1, "spec"    # Landroidx/work/impl/model/WorkSpec;
 
     const-string/jumbo v0, "spec"
@@ -190,7 +190,7 @@
 .end method
 
 .method public final remove(Ljava/lang/String;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -216,7 +216,7 @@
 
     .line 52
     .local v1, "$i$a$-synchronized-StartStopTokens$remove$2":I
-    :try_start_0
+    :try_start_a
     iget-object v2, p0, Landroidx/work/impl/StartStopTokens;->runs:Ljava/util/Map;
 
     .local v2, "$this$filterKeys$iv":Ljava/util/Map;
@@ -238,13 +238,13 @@
 
     move-result-object v5
 
-    :cond_0
-    :goto_0
+    :cond_1a
+    :goto_1a
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_43
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -276,7 +276,7 @@
     .line 74
     .end local v7    # "it":Landroidx/work/impl/model/WorkGenerationalId;
     .end local v8    # "$i$a$-filterKeys-StartStopTokens$remove$2$toRemove$1":I
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_1a
 
     .line 75
     invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -289,11 +289,11 @@
 
     invoke-virtual {v4, v7, v8}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 78
     .end local v6    # "entry$iv":Ljava/util/Map$Entry;
-    :cond_1
+    :cond_43
     move-object v5, v4
 
     check-cast v5, Ljava/util/Map;
@@ -321,12 +321,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_52
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_67
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -352,10 +352,10 @@
     .end local v6    # "element$iv":Ljava/lang/Object;
     .end local v7    # "it":Landroidx/work/impl/model/WorkGenerationalId;
     .end local v8    # "$i$a$-forEach-StartStopTokens$remove$2$1":I
-    goto :goto_1
+    goto :goto_52
 
     .line 80
-    :cond_2
+    :cond_67
     nop
 
     .line 54
@@ -370,8 +370,8 @@
     invoke-static {v3}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_72
+    .catchall {:try_start_a .. :try_end_72} :catchall_74
 
     .line 51
     .end local v1    # "$i$a$-synchronized-StartStopTokens$remove$2":I
@@ -380,7 +380,7 @@
 
     return-object v3
 
-    :catchall_0
+    :catchall_74
     move-exception v1
 
     monitor-exit v0
@@ -389,7 +389,7 @@
 .end method
 
 .method public final tokenFor(Landroidx/work/impl/model/WorkGenerationalId;)Landroidx/work/impl/StartStopToken;
-    .locals 7
+    .registers 9
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
 
     const-string v0, "id"
@@ -405,7 +405,7 @@
 
     .line 40
     .local v1, "$i$a$-synchronized-StartStopTokens$tokenFor$1":I
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Landroidx/work/impl/StartStopTokens;->runs:Ljava/util/Map;
 
     .local v2, "$this$getOrPut$iv":Ljava/util/Map;
@@ -419,7 +419,7 @@
 
     .line 66
     .local v4, "value$iv":Ljava/lang/Object;
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1e
 
     .line 67
     const/4 v5, 0x0
@@ -442,22 +442,22 @@
     nop
 
     .end local v5    # "answer$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1f
 
     .line 71
-    :cond_0
+    :cond_1e
     move-object v5, v4
 
     .line 66
-    :goto_0
+    :goto_1f
     nop
 
     .end local v2    # "$this$getOrPut$iv":Ljava/util/Map;
     .end local v3    # "$i$f$getOrPut":I
     .end local v4    # "value$iv":Ljava/lang/Object;
     check-cast v5, Landroidx/work/impl/StartStopToken;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_9 .. :try_end_22} :catchall_25
 
     .line 40
     nop
@@ -468,7 +468,7 @@
 
     return-object v5
 
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     monitor-exit v0
@@ -477,7 +477,7 @@
 .end method
 
 .method public final tokenFor(Landroidx/work/impl/model/WorkSpec;)Landroidx/work/impl/StartStopToken;
-    .locals 1
+    .registers 3
     .param p1, "spec"    # Landroidx/work/impl/model/WorkSpec;
 
     const-string/jumbo v0, "spec"

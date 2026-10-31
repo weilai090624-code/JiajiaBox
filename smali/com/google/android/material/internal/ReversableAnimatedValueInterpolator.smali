@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/animation/TimeInterpolator;)V
-    .locals 0
+    .registers 2
     .param p1, "sourceInterpolator"    # Landroid/animation/TimeInterpolator;
 
     .line 36
@@ -26,18 +26,18 @@
 .end method
 
 .method public static of(ZLandroid/animation/TimeInterpolator;)Landroid/animation/TimeInterpolator;
-    .locals 1
+    .registers 3
     .param p0, "useSourceInterpolator"    # Z
     .param p1, "sourceInterpolator"    # Landroid/animation/TimeInterpolator;
 
     .line 48
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 49
     return-object p1
 
     .line 51
-    :cond_0
+    :cond_3
     new-instance v0, Lcom/google/android/material/internal/ReversableAnimatedValueInterpolator;
 
     invoke-direct {v0, p1}, Lcom/google/android/material/internal/ReversableAnimatedValueInterpolator;-><init>(Landroid/animation/TimeInterpolator;)V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .locals 2
+    .registers 4
     .param p1, "input"    # F
 
     .line 57

@@ -47,7 +47,7 @@
 
 # direct methods
 .method private static final getOrSet(Ljava/lang/ThreadLocal;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "$this$getOrSet"    # Ljava/lang/ThreadLocal;
     .param p1, "default"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -75,7 +75,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
@@ -93,12 +93,12 @@
 
     .end local v1    # "p0":Ljava/lang/Object;
     .end local v2    # "$i$a$-also-ThreadsKt$getOrSet$1":I
-    :cond_0
+    :cond_19
     return-object v0
 .end method
 
 .method public static final thread(ZZLjava/lang/ClassLoader;Ljava/lang/String;ILkotlin/jvm/functions/Function0;)Ljava/lang/Thread;
-    .locals 2
+    .registers 8
     .param p0, "start"    # Z
     .param p1, "isDaemon"    # Z
     .param p2, "contextClassLoader"    # Ljava/lang/ClassLoader;
@@ -129,7 +129,7 @@
 
     .line 33
     .local v0, "thread":Lkotlin/concurrent/ThreadsKt$thread$thread$1;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     .line 34
     const/4 v1, 0x1
@@ -137,35 +137,35 @@
     invoke-virtual {v0, v1}, Lkotlin/concurrent/ThreadsKt$thread$thread$1;->setDaemon(Z)V
 
     .line 35
-    :cond_0
-    if-lez p4, :cond_1
+    :cond_10
+    if-lez p4, :cond_15
 
     .line 36
     invoke-virtual {v0, p4}, Lkotlin/concurrent/ThreadsKt$thread$thread$1;->setPriority(I)V
 
     .line 37
-    :cond_1
-    if-eqz p3, :cond_2
+    :cond_15
+    if-eqz p3, :cond_1a
 
     .line 38
     invoke-virtual {v0, p3}, Lkotlin/concurrent/ThreadsKt$thread$thread$1;->setName(Ljava/lang/String;)V
 
     .line 39
-    :cond_2
-    if-eqz p2, :cond_3
+    :cond_1a
+    if-eqz p2, :cond_1f
 
     .line 40
     invoke-virtual {v0, p2}, Lkotlin/concurrent/ThreadsKt$thread$thread$1;->setContextClassLoader(Ljava/lang/ClassLoader;)V
 
     .line 41
-    :cond_3
-    if-eqz p0, :cond_4
+    :cond_1f
+    if-eqz p0, :cond_24
 
     .line 42
     invoke-virtual {v0}, Lkotlin/concurrent/ThreadsKt$thread$thread$1;->start()V
 
     .line 43
-    :cond_4
+    :cond_24
     move-object v1, v0
 
     check-cast v1, Ljava/lang/Thread;
@@ -174,87 +174,87 @@
 .end method
 
 .method public static synthetic thread$default(ZZLjava/lang/ClassLoader;Ljava/lang/String;ILkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Thread;
-    .locals 6
+    .registers 14
 
     .line 20
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_7
 
     .line 21
     const/4 p0, 0x1
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 20
-    :cond_0
+    :cond_7
     move v0, p0
 
-    :goto_0
+    :goto_8
     and-int/lit8 p0, p6, 0x2
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_f
 
     .line 22
     const/4 p1, 0x0
 
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
     .line 20
-    :cond_1
+    :cond_f
     move v1, p1
 
-    :goto_1
+    :goto_10
     and-int/lit8 p0, p6, 0x4
 
     const/4 p1, 0x0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_17
 
     .line 23
     move-object v2, p1
 
-    goto :goto_2
+    goto :goto_18
 
     .line 20
-    :cond_2
+    :cond_17
     move-object v2, p2
 
-    :goto_2
+    :goto_18
     and-int/lit8 p0, p6, 0x8
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_1e
 
     .line 24
     move-object v3, p1
 
-    goto :goto_3
+    goto :goto_1f
 
     .line 20
-    :cond_3
+    :cond_1e
     move-object v3, p3
 
-    :goto_3
+    :goto_1f
     and-int/lit8 p0, p6, 0x10
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_26
 
     .line 25
     const/4 p4, -0x1
 
     const/4 v4, -0x1
 
-    goto :goto_4
+    goto :goto_27
 
     .line 20
-    :cond_4
+    :cond_26
     move v4, p4
 
-    :goto_4
+    :goto_27
     move-object v5, p5
 
     invoke-static/range {v0 .. v5}, Lkotlin/concurrent/ThreadsKt;->thread(ZZLjava/lang/ClassLoader;Ljava/lang/String;ILkotlin/jvm/functions/Function0;)Ljava/lang/Thread;

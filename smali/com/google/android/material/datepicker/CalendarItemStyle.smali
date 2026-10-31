@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;ILcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/Rect;)V
-    .locals 1
+    .registers 8
     .param p1, "backgroundColor"    # Landroid/content/res/ColorStateList;
     .param p2, "textColor"    # Landroid/content/res/ColorStateList;
     .param p3, "strokeColor"    # Landroid/content/res/ColorStateList;
@@ -73,7 +73,7 @@
 .end method
 
 .method static create(Landroid/content/Context;I)Lcom/google/android/material/datepicker/CalendarItemStyle;
-    .locals 22
+    .registers 24
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "materialCalendarItemStyle"    # I
 
@@ -84,16 +84,16 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_a
     const-string v4, "Cannot create a CalendarItemStyle with a styleResId of 0"
 
     invoke-static {v3, v4}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -247,7 +247,7 @@
 
 # virtual methods
 .method getBottomInset()I
-    .locals 1
+    .registers 2
 
     .line 179
     iget-object v0, p0, Lcom/google/android/material/datepicker/CalendarItemStyle;->insets:Landroid/graphics/Rect;
@@ -258,7 +258,7 @@
 .end method
 
 .method getLeftInset()I
-    .locals 1
+    .registers 2
 
     .line 167
     iget-object v0, p0, Lcom/google/android/material/datepicker/CalendarItemStyle;->insets:Landroid/graphics/Rect;
@@ -269,7 +269,7 @@
 .end method
 
 .method getRightInset()I
-    .locals 1
+    .registers 2
 
     .line 171
     iget-object v0, p0, Lcom/google/android/material/datepicker/CalendarItemStyle;->insets:Landroid/graphics/Rect;
@@ -280,7 +280,7 @@
 .end method
 
 .method getTopInset()I
-    .locals 1
+    .registers 2
 
     .line 175
     iget-object v0, p0, Lcom/google/android/material/datepicker/CalendarItemStyle;->insets:Landroid/graphics/Rect;
@@ -291,7 +291,7 @@
 .end method
 
 .method styleItem(Landroid/widget/TextView;)V
-    .locals 1
+    .registers 3
     .param p1, "item"    # Landroid/widget/TextView;
 
     .line 140
@@ -304,7 +304,7 @@
 .end method
 
 .method styleItem(Landroid/widget/TextView;Landroid/content/res/ColorStateList;)V
-    .locals 9
+    .registers 12
     .param p1, "item"    # Landroid/widget/TextView;
     .param p2, "backgroundColorOverride"    # Landroid/content/res/ColorStateList;
 
@@ -334,17 +334,17 @@
     nop
 
     .line 153
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_19
 
     move-object v2, p2
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_19
     iget-object v2, p0, Lcom/google/android/material/datepicker/CalendarItemStyle;->backgroundColor:Landroid/content/res/ColorStateList;
 
     .line 152
-    :goto_0
+    :goto_1b
     invoke-virtual {v0, v2}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setFillColor(Landroid/content/res/ColorStateList;)V
 
     .line 154

@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 398
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Companion;-><init>()V
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final builder(Landroid/content/Context;)Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation

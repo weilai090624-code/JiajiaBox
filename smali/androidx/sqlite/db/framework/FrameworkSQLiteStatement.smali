@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/sqlite/SQLiteStatement;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Landroid/database/sqlite/SQLiteStatement;
 
     const-string v0, "delegate"
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public execute()V
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteStatement;->delegate:Landroid/database/sqlite/SQLiteStatement;
@@ -85,7 +85,7 @@
 .end method
 
 .method public executeInsert()J
-    .locals 2
+    .registers 3
 
     .line 42
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteStatement;->delegate:Landroid/database/sqlite/SQLiteStatement;
@@ -98,7 +98,7 @@
 .end method
 
 .method public executeUpdateDelete()I
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteStatement;->delegate:Landroid/database/sqlite/SQLiteStatement;
@@ -111,7 +111,7 @@
 .end method
 
 .method public simpleQueryForLong()J
-    .locals 2
+    .registers 3
 
     .line 46
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteStatement;->delegate:Landroid/database/sqlite/SQLiteStatement;
@@ -124,7 +124,7 @@
 .end method
 
 .method public simpleQueryForString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteStatement;->delegate:Landroid/database/sqlite/SQLiteStatement;

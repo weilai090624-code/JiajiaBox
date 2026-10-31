@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Collection;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public asArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,7 +99,7 @@
 .end method
 
 .method public copyInto([Ljava/lang/Object;I)V
-    .locals 3
+    .registers 6
     .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -116,12 +116,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -138,17 +138,17 @@
     move p2, v2
 
     .end local v1    # "t":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_6
 
     .line 724
     .end local v2    # "offset":I
     .restart local p2    # "offset":I
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public count()J
-    .locals 2
+    .registers 3
 
     .line 734
     .local p0, "this":Lj$/util/stream/Nodes$CollectionNode;, "Ljava/util/stream/Nodes$CollectionNode<TT;>;"
@@ -164,7 +164,7 @@
 .end method
 
 .method public forEach(Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,7 +185,7 @@
 .end method
 
 .method public synthetic getChild(I)Lj$/util/stream/Node;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Node$-CC;->$default$getChild(Lj$/util/stream/Node;I)Lj$/util/stream/Node;
 
@@ -195,7 +195,7 @@
 .end method
 
 .method public synthetic getChildCount()I
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$-CC;->$default$getChildCount(Lj$/util/stream/Node;)I
 
@@ -205,7 +205,7 @@
 .end method
 
 .method public synthetic getShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$-CC;->$default$getShape(Lj$/util/stream/Node;)Lj$/util/stream/StreamShape;
 
@@ -215,7 +215,7 @@
 .end method
 
 .method public spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -240,7 +240,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 746
     .local p0, "this":Lj$/util/stream/Nodes$CollectionNode;, "Ljava/util/stream/Nodes$CollectionNode<TT;>;"
@@ -278,7 +278,7 @@
 .end method
 
 .method public synthetic truncate(JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/Node$-CC;->$default$truncate(Lj$/util/stream/Node;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
 

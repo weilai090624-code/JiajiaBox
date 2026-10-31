@@ -115,7 +115,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 145
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -146,7 +146,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/Request;)V
-    .locals 1
+    .registers 3
     .param p1, "request"    # Lokhttp3/Request;
 
     const-string v0, "request"
@@ -195,7 +195,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
     .line 155
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -204,10 +204,10 @@
 
     check-cast v0, Ljava/util/Map;
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 157
-    :cond_0
+    :cond_35
     invoke-virtual {p1}, Lokhttp3/Request;->getTags$okhttp()Ljava/util/Map;
 
     move-result-object v0
@@ -217,7 +217,7 @@
     move-result-object v0
 
     .line 154
-    :goto_0
+    :goto_3d
     iput-object v0, p0, Lokhttp3/Request$Builder;->tags:Ljava/util/Map;
 
     .line 159
@@ -236,25 +236,25 @@
 .end method
 
 .method public static synthetic delete$default(Lokhttp3/Request$Builder;Lokhttp3/RequestBody;ILjava/lang/Object;)Lokhttp3/Request$Builder;
-    .locals 0
+    .registers 4
 
     .line 243
-    if-nez p3, :cond_1
+    if-nez p3, :cond_d
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     sget-object p1, Lokhttp3/internal/Util;->EMPTY_REQUEST:Lokhttp3/RequestBody;
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1}, Lokhttp3/Request$Builder;->delete(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
+    :cond_d
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: delete"
@@ -267,7 +267,7 @@
 
 # virtual methods
 .method public addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -310,7 +310,7 @@
 .end method
 
 .method public build()Lokhttp3/Request;
-    .locals 7
+    .registers 8
 
     .line 288
     nop
@@ -318,7 +318,7 @@
     .line 289
     iget-object v1, p0, Lokhttp3/Request$Builder;->url:Lokhttp3/HttpUrl;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 290
     iget-object v2, p0, Lokhttp3/Request$Builder;->method:Ljava/lang/String;
@@ -350,7 +350,7 @@
     return-object v6
 
     .line 299
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
     .line 289
@@ -374,7 +374,7 @@
 .end method
 
 .method public cacheControl(Lokhttp3/CacheControl;)Lokhttp3/Request$Builder;
-    .locals 3
+    .registers 5
     .param p1, "cacheControl"    # Lokhttp3/CacheControl;
 
     const-string v0, "cacheControl"
@@ -399,39 +399,39 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     const-string v2, "Cache-Control"
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     invoke-virtual {p0, v2}, Lokhttp3/Request$Builder;->removeHeader(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_23
 
     .line 232
-    :cond_1
+    :cond_1f
     invoke-virtual {p0, v2, v0}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v1
 
     .line 230
-    :goto_1
+    :goto_23
     return-object v1
 .end method
 
 .method public final delete()Lokhttp3/Request$Builder;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -445,7 +445,7 @@
 .end method
 
 .method public delete(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
-    .locals 1
+    .registers 3
     .param p1, "body"    # Lokhttp3/RequestBody;
 
     .line 243
@@ -459,7 +459,7 @@
 .end method
 
 .method public get()Lokhttp3/Request$Builder;
-    .locals 2
+    .registers 3
 
     .line 236
     const-string v0, "GET"
@@ -474,7 +474,7 @@
 .end method
 
 .method public final getBody$okhttp()Lokhttp3/RequestBody;
-    .locals 1
+    .registers 2
 
     .line 140
     iget-object v0, p0, Lokhttp3/Request$Builder;->body:Lokhttp3/RequestBody;
@@ -483,7 +483,7 @@
 .end method
 
 .method public final getHeaders$okhttp()Lokhttp3/Headers$Builder;
-    .locals 1
+    .registers 2
 
     .line 139
     iget-object v0, p0, Lokhttp3/Request$Builder;->headers:Lokhttp3/Headers$Builder;
@@ -492,7 +492,7 @@
 .end method
 
 .method public final getMethod$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 138
     iget-object v0, p0, Lokhttp3/Request$Builder;->method:Ljava/lang/String;
@@ -501,7 +501,7 @@
 .end method
 
 .method public final getTags$okhttp()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -520,7 +520,7 @@
 .end method
 
 .method public final getUrl$okhttp()Lokhttp3/HttpUrl;
-    .locals 1
+    .registers 2
 
     .line 137
     iget-object v0, p0, Lokhttp3/Request$Builder;->url:Lokhttp3/HttpUrl;
@@ -529,7 +529,7 @@
 .end method
 
 .method public head()Lokhttp3/Request$Builder;
-    .locals 2
+    .registers 3
 
     .line 238
     const-string v0, "HEAD"
@@ -544,7 +544,7 @@
 .end method
 
 .method public header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -587,7 +587,7 @@
 .end method
 
 .method public headers(Lokhttp3/Headers;)Lokhttp3/Request$Builder;
-    .locals 3
+    .registers 5
     .param p1, "headers"    # Lokhttp3/Headers;
 
     const-string v0, "headers"
@@ -625,7 +625,7 @@
 .end method
 
 .method public method(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
-    .locals 5
+    .registers 8
     .param p1, "method"    # Ljava/lang/String;
     .param p2, "body"    # Lokhttp3/RequestBody;
 
@@ -651,33 +651,33 @@
 
     move-result v2
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_14
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_4
+    :goto_15
+    if-eqz v2, :cond_7b
 
     .line 253
     const-string v2, "method "
 
-    if-nez p2, :cond_2
+    if-nez p2, :cond_46
 
     .line 254
     invoke-static {p1}, Lokhttp3/internal/http/HttpMethod;->requiresRequestBody(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_22
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_1
+    :cond_22
     const/4 v3, 0x0
 
     .line 255
@@ -719,15 +719,15 @@
     throw v3
 
     .line 258
-    :cond_2
+    :cond_46
     invoke-static {p1}, Lokhttp3/internal/http/HttpMethod;->permitsRequestBody(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_57
 
     .line 262
-    :goto_1
+    :goto_4c
     invoke-virtual {v0, p1}, Lokhttp3/Request$Builder;->setMethod$okhttp(Ljava/lang/String;)V
 
     .line 263
@@ -749,7 +749,7 @@
     .line 258
     .restart local v0    # "$this$method_u24lambda_u2d8":Lokhttp3/Request$Builder;
     .restart local v1    # "$i$a$-apply-Request$Builder$method$1":I
-    :cond_3
+    :cond_57
     const/4 v3, 0x0
 
     .line 259
@@ -791,7 +791,7 @@
     throw v3
 
     .line 250
-    :cond_4
+    :cond_7b
     const/4 v2, 0x0
 
     .line 251
@@ -816,7 +816,7 @@
 .end method
 
 .method public patch(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
-    .locals 1
+    .registers 3
     .param p1, "body"    # Lokhttp3/RequestBody;
 
     const-string v0, "body"
@@ -834,7 +834,7 @@
 .end method
 
 .method public post(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
-    .locals 1
+    .registers 3
     .param p1, "body"    # Lokhttp3/RequestBody;
 
     const-string v0, "body"
@@ -852,7 +852,7 @@
 .end method
 
 .method public put(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
-    .locals 1
+    .registers 3
     .param p1, "body"    # Lokhttp3/RequestBody;
 
     const-string v0, "body"
@@ -870,7 +870,7 @@
 .end method
 
 .method public removeHeader(Ljava/lang/String;)Lokhttp3/Request$Builder;
-    .locals 3
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -908,7 +908,7 @@
 .end method
 
 .method public final setBody$okhttp(Lokhttp3/RequestBody;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/RequestBody;
 
     .line 140
@@ -918,7 +918,7 @@
 .end method
 
 .method public final setHeaders$okhttp(Lokhttp3/Headers$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/Headers$Builder;
 
     const-string v0, "<set-?>"
@@ -932,7 +932,7 @@
 .end method
 
 .method public final setMethod$okhttp(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -946,7 +946,7 @@
 .end method
 
 .method public final setTags$okhttp(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -970,7 +970,7 @@
 .end method
 
 .method public final setUrl$okhttp(Lokhttp3/HttpUrl;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/HttpUrl;
 
     .line 137
@@ -980,7 +980,7 @@
 .end method
 
 .method public tag(Ljava/lang/Class;Ljava/lang/Object;)Lokhttp3/Request$Builder;
-    .locals 4
+    .registers 7
     .param p1, "type"    # Ljava/lang/Class;
     .param p2, "tag"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -1008,7 +1008,7 @@
 
     .line 277
     .local v1, "$i$a$-apply-Request$Builder$tag$1":I
-    if-nez p2, :cond_0
+    if-nez p2, :cond_13
 
     .line 278
     invoke-virtual {v0}, Lokhttp3/Request$Builder;->getTags$okhttp()Ljava/util/Map;
@@ -1017,10 +1017,10 @@
 
     invoke-interface {v2, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_35
 
     .line 280
-    :cond_0
+    :cond_13
     invoke-virtual {v0}, Lokhttp3/Request$Builder;->getTags$okhttp()Ljava/util/Map;
 
     move-result-object v2
@@ -1029,7 +1029,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     .line 281
     new-instance v2, Ljava/util/LinkedHashMap;
@@ -1041,7 +1041,7 @@
     invoke-virtual {v0, v2}, Lokhttp3/Request$Builder;->setTags$okhttp(Ljava/util/Map;)V
 
     .line 283
-    :cond_1
+    :cond_27
     invoke-virtual {v0}, Lokhttp3/Request$Builder;->getTags$okhttp()Ljava/util/Map;
 
     move-result-object v2
@@ -1055,7 +1055,7 @@
     invoke-interface {v2, p1, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 285
-    :goto_0
+    :goto_35
     nop
 
     .line 276
@@ -1070,7 +1070,7 @@
 .end method
 
 .method public tag(Ljava/lang/Object;)Lokhttp3/Request$Builder;
-    .locals 1
+    .registers 3
     .param p1, "tag"    # Ljava/lang/Object;
 
     .line 267
@@ -1084,7 +1084,7 @@
 .end method
 
 .method public url(Ljava/lang/String;)Lokhttp3/Request$Builder;
-    .locals 3
+    .registers 5
     .param p1, "url"    # Ljava/lang/String;
 
     const-string v0, "url"
@@ -1105,7 +1105,7 @@
 
     const-string v2, "(this as java.lang.String).substring(startIndex)"
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 176
     const/4 v0, 0x3
@@ -1122,17 +1122,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_38
 
     .line 178
-    :cond_0
+    :cond_20
     const-string v0, "wss:"
 
     invoke-static {p1, v0, v1}, Lkotlin/text/StringsKt;->startsWith(Ljava/lang/String;Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_37
 
     .line 179
     const/4 v0, 0x4
@@ -1149,14 +1149,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_38
 
     .line 181
-    :cond_1
+    :cond_37
     move-object v0, p1
 
     .line 174
-    :goto_0
+    :goto_38
     nop
 
     .line 184
@@ -1175,7 +1175,7 @@
 .end method
 
 .method public url(Ljava/net/URL;)Lokhttp3/Request$Builder;
-    .locals 3
+    .registers 5
     .param p1, "url"    # Ljava/net/URL;
 
     const-string v0, "url"
@@ -1205,7 +1205,7 @@
 .end method
 
 .method public url(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
-    .locals 2
+    .registers 4
     .param p1, "url"    # Lokhttp3/HttpUrl;
 
     const-string v0, "url"

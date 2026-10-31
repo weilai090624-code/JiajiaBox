@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/Preview;Landroidx/camera/core/impl/ImageInfoProcessor;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/Preview;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 2
+    .registers 4
     .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -73,7 +73,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 255
     iget-object v0, p0, Landroidx/camera/core/Preview$1;->this$0:Landroidx/camera/core/Preview;
@@ -81,6 +81,6 @@
     invoke-virtual {v0}, Landroidx/camera/core/Preview;->notifyUpdated()V
 
     .line 257
-    :cond_0
+    :cond_15
     return-void
 .end method

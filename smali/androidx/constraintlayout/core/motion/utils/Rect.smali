@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public height()I
-    .locals 2
+    .registers 3
 
     .line 29
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/Rect;->bottom:I
@@ -39,7 +39,7 @@
 .end method
 
 .method public width()I
-    .locals 2
+    .registers 3
 
     .line 25
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/Rect;->right:I

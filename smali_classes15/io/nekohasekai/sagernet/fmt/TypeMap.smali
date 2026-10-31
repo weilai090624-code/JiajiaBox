@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     new-instance v0, Lio/nekohasekai/sagernet/fmt/TypeMap;
 
@@ -332,12 +332,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_f9
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_124
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -389,10 +389,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/util/Map$Entry;
-    goto :goto_0
+    goto :goto_f9
 
     .line 34
-    :cond_0
+    :cond_124
     nop
 
     .line 30
@@ -402,7 +402,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5
     invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
@@ -413,7 +413,7 @@
 
 # virtual methods
 .method public synthetic compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/Map$-CC;->$default$compute(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -423,7 +423,7 @@
 .end method
 
 .method public synthetic computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/Map$-CC;->$default$computeIfAbsent(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
 
@@ -433,7 +433,7 @@
 .end method
 
 .method public synthetic computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/Map$-CC;->$default$computeIfPresent(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -443,19 +443,19 @@
 .end method
 
 .method public final bridge containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 5
     instance-of v0, p1, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -468,7 +468,7 @@
 .end method
 
 .method public bridge containsKey(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Ljava/lang/String;
 
     .line 5
@@ -480,7 +480,7 @@
 .end method
 
 .method public bridge containsValue(Ljava/lang/Integer;)Z
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Ljava/lang/Integer;
 
     .line 5
@@ -492,19 +492,19 @@
 .end method
 
 .method public final bridge containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 5
     instance-of v0, p1, Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Integer;
@@ -517,7 +517,7 @@
 .end method
 
 .method public final bridge entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -538,7 +538,7 @@
 .end method
 
 .method public synthetic forEach(Ljava/util/function/BiConsumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Map$-CC;->$default$forEach(Ljava/util/Map;Ljava/util/function/BiConsumer;)V
 
@@ -546,19 +546,19 @@
 .end method
 
 .method public final bridge get(Ljava/lang/Object;)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 5
     instance-of v0, p1, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return-object v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -571,7 +571,7 @@
 .end method
 
 .method public bridge get(Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Ljava/lang/String;
 
     .line 5
@@ -585,19 +585,19 @@
 .end method
 
 .method public final bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 5
     instance-of v0, p1, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return-object v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -610,7 +610,7 @@
 .end method
 
 .method public bridge getEntries()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -631,7 +631,7 @@
 .end method
 
 .method public bridge getKeys()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -650,18 +650,18 @@
 .end method
 
 .method public final bridge getOrDefault(Ljava/lang/Object;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "defaultValue"    # Ljava/lang/Integer;
 
     .line 5
     instance-of v0, p1, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-object p2
 
-    :cond_0
+    :cond_5
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -674,7 +674,7 @@
 .end method
 
 .method public bridge getOrDefault(Ljava/lang/String;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/String;
     .param p2, "p1"    # Ljava/lang/Integer;
 
@@ -689,18 +689,18 @@
 .end method
 
 .method public final bridge synthetic getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "defaultValue"    # Ljava/lang/Object;
 
     .line 5
     instance-of v0, p1, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-object p2
 
-    :cond_0
+    :cond_5
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -717,7 +717,7 @@
 .end method
 
 .method public final getReversed()Ljava/util/HashMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -735,7 +735,7 @@
 .end method
 
 .method public bridge getSize()I
-    .locals 1
+    .registers 2
 
     .line 5
     invoke-super {p0}, Ljava/util/HashMap;->size()I
@@ -746,7 +746,7 @@
 .end method
 
 .method public bridge getValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -765,7 +765,7 @@
 .end method
 
 .method public final bridge keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -784,7 +784,7 @@
 .end method
 
 .method public synthetic merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lj$/util/Map$-CC;->$default$merge(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -794,7 +794,7 @@
 .end method
 
 .method public synthetic putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/Map$-CC;->$default$putIfAbsent(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -804,19 +804,19 @@
 .end method
 
 .method public final bridge remove(Ljava/lang/Object;)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 5
     instance-of v0, p1, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return-object v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -829,7 +829,7 @@
 .end method
 
 .method public bridge remove(Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Ljava/lang/String;
 
     .line 5
@@ -843,19 +843,19 @@
 .end method
 
 .method public final bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 5
     instance-of v0, p1, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return-object v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -868,7 +868,7 @@
 .end method
 
 .method public final bridge remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -877,18 +877,18 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
-    :cond_0
+    :cond_6
     instance-of v0, p2, Ljava/lang/Integer;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_b
 
     return v1
 
-    :cond_1
+    :cond_b
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -905,7 +905,7 @@
 .end method
 
 .method public bridge remove(Ljava/lang/String;Ljava/lang/Integer;)Z
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/String;
     .param p2, "p1"    # Ljava/lang/Integer;
 
@@ -918,7 +918,7 @@
 .end method
 
 .method public synthetic replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/Map$-CC;->$default$replace(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -928,7 +928,7 @@
 .end method
 
 .method public synthetic replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lj$/util/Map$-CC;->$default$replace(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -938,7 +938,7 @@
 .end method
 
 .method public synthetic replaceAll(Ljava/util/function/BiFunction;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Map$-CC;->$default$replaceAll(Ljava/util/Map;Ljava/util/function/BiFunction;)V
 
@@ -946,7 +946,7 @@
 .end method
 
 .method public final bridge size()I
-    .locals 1
+    .registers 2
 
     .line 5
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/TypeMap;->getSize()I
@@ -957,7 +957,7 @@
 .end method
 
 .method public final bridge values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

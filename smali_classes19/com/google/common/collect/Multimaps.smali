@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/util/Collection;
 
     .line 72
@@ -50,7 +50,7 @@
 .end method
 
 .method static synthetic access$100(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/util/Collection;
 
     .line 72
@@ -62,7 +62,7 @@
 .end method
 
 .method public static asMap(Lcom/google/common/collect/ListMultimap;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -89,7 +89,7 @@
 .end method
 
 .method public static asMap(Lcom/google/common/collect/Multimap;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -116,7 +116,7 @@
 .end method
 
 .method public static asMap(Lcom/google/common/collect/SetMultimap;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -143,7 +143,7 @@
 .end method
 
 .method public static asMap(Lcom/google/common/collect/SortedSetMultimap;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -170,7 +170,7 @@
 .end method
 
 .method static equalsImpl(Lcom/google/common/collect/Multimap;Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -187,7 +187,7 @@
 
     .line 2130
     .local p0, "multimap":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<**>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 2131
     const/4 v0, 0x1
@@ -195,10 +195,10 @@
     return v0
 
     .line 2133
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/collect/Multimap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 2134
     move-object v0, p1
@@ -223,14 +223,14 @@
 
     .line 2137
     .end local v0    # "that":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<**>;"
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static filterEntries(Lcom/google/common/collect/Multimap;Lcom/google/common/base/Predicate;)Lcom/google/common/collect/Multimap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -257,7 +257,7 @@
     .line 2059
     instance-of v0, p0, Lcom/google/common/collect/SetMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 2060
     move-object v0, p0
@@ -271,10 +271,10 @@
     return-object v0
 
     .line 2062
-    :cond_0
+    :cond_f
     instance-of v0, p0, Lcom/google/common/collect/FilteredMultimap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 2063
     move-object v0, p0
@@ -285,10 +285,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_26
 
     .line 2064
-    :cond_1
+    :cond_1b
     new-instance v0, Lcom/google/common/collect/FilteredEntryMultimap;
 
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -300,12 +300,12 @@
     invoke-direct {v0, v1, p1}, Lcom/google/common/collect/FilteredEntryMultimap;-><init>(Lcom/google/common/collect/Multimap;Lcom/google/common/base/Predicate;)V
 
     .line 2062
-    :goto_0
+    :goto_26
     return-object v0
 .end method
 
 .method public static filterEntries(Lcom/google/common/collect/SetMultimap;Lcom/google/common/base/Predicate;)Lcom/google/common/collect/SetMultimap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -332,7 +332,7 @@
     .line 2096
     instance-of v0, p0, Lcom/google/common/collect/FilteredSetMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 2097
     move-object v0, p0
@@ -343,10 +343,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 2098
-    :cond_0
+    :cond_f
     new-instance v0, Lcom/google/common/collect/FilteredEntrySetMultimap;
 
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -358,12 +358,12 @@
     invoke-direct {v0, v1, p1}, Lcom/google/common/collect/FilteredEntrySetMultimap;-><init>(Lcom/google/common/collect/SetMultimap;Lcom/google/common/base/Predicate;)V
 
     .line 2096
-    :goto_0
+    :goto_1a
     return-object v0
 .end method
 
 .method private static filterFiltered(Lcom/google/common/collect/FilteredMultimap;Lcom/google/common/base/Predicate;)Lcom/google/common/collect/Multimap;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -410,7 +410,7 @@
 .end method
 
 .method private static filterFiltered(Lcom/google/common/collect/FilteredSetMultimap;Lcom/google/common/base/Predicate;)Lcom/google/common/collect/SetMultimap;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -457,7 +457,7 @@
 .end method
 
 .method public static filterKeys(Lcom/google/common/collect/ListMultimap;Lcom/google/common/base/Predicate;)Lcom/google/common/collect/ListMultimap;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -479,7 +479,7 @@
     .local p1, "keyPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TK;>;"
     instance-of v0, p0, Lcom/google/common/collect/FilteredKeyListMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 1956
     move-object v0, p0
@@ -508,7 +508,7 @@
 
     .line 1960
     .end local v0    # "prev":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"
-    :cond_0
+    :cond_17
     new-instance v0, Lcom/google/common/collect/FilteredKeyListMultimap;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/FilteredKeyListMultimap;-><init>(Lcom/google/common/collect/ListMultimap;Lcom/google/common/base/Predicate;)V
@@ -517,7 +517,7 @@
 .end method
 
 .method public static filterKeys(Lcom/google/common/collect/Multimap;Lcom/google/common/base/Predicate;)Lcom/google/common/collect/Multimap;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -539,7 +539,7 @@
     .local p1, "keyPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TK;>;"
     instance-of v0, p0, Lcom/google/common/collect/SetMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 1868
     move-object v0, p0
@@ -553,10 +553,10 @@
     return-object v0
 
     .line 1869
-    :cond_0
+    :cond_c
     instance-of v0, p0, Lcom/google/common/collect/ListMultimap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 1870
     move-object v0, p0
@@ -570,10 +570,10 @@
     return-object v0
 
     .line 1871
-    :cond_1
+    :cond_18
     instance-of v0, p0, Lcom/google/common/collect/FilteredKeyMultimap;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     .line 1872
     move-object v0, p0
@@ -600,10 +600,10 @@
 
     .line 1875
     .end local v0    # "prev":Lcom/google/common/collect/FilteredKeyMultimap;, "Lcom/google/common/collect/FilteredKeyMultimap<TK;TV;>;"
-    :cond_2
+    :cond_2d
     instance-of v0, p0, Lcom/google/common/collect/FilteredMultimap;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3d
 
     .line 1876
     move-object v0, p0
@@ -624,7 +624,7 @@
 
     .line 1879
     .end local v0    # "prev":Lcom/google/common/collect/FilteredMultimap;, "Lcom/google/common/collect/FilteredMultimap<TK;TV;>;"
-    :cond_3
+    :cond_3d
     new-instance v0, Lcom/google/common/collect/FilteredKeyMultimap;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/FilteredKeyMultimap;-><init>(Lcom/google/common/collect/Multimap;Lcom/google/common/base/Predicate;)V
@@ -633,7 +633,7 @@
 .end method
 
 .method public static filterKeys(Lcom/google/common/collect/SetMultimap;Lcom/google/common/base/Predicate;)Lcom/google/common/collect/SetMultimap;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -655,7 +655,7 @@
     .local p1, "keyPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TK;>;"
     instance-of v0, p0, Lcom/google/common/collect/FilteredKeySetMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 1914
     move-object v0, p0
@@ -684,10 +684,10 @@
 
     .line 1917
     .end local v0    # "prev":Lcom/google/common/collect/FilteredKeySetMultimap;, "Lcom/google/common/collect/FilteredKeySetMultimap<TK;TV;>;"
-    :cond_0
+    :cond_17
     instance-of v0, p0, Lcom/google/common/collect/FilteredSetMultimap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 1918
     move-object v0, p0
@@ -708,7 +708,7 @@
 
     .line 1921
     .end local v0    # "prev":Lcom/google/common/collect/FilteredSetMultimap;, "Lcom/google/common/collect/FilteredSetMultimap<TK;TV;>;"
-    :cond_1
+    :cond_27
     new-instance v0, Lcom/google/common/collect/FilteredKeySetMultimap;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/FilteredKeySetMultimap;-><init>(Lcom/google/common/collect/SetMultimap;Lcom/google/common/base/Predicate;)V
@@ -717,7 +717,7 @@
 .end method
 
 .method public static filterValues(Lcom/google/common/collect/Multimap;Lcom/google/common/base/Predicate;)Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -749,7 +749,7 @@
 .end method
 
 .method public static filterValues(Lcom/google/common/collect/SetMultimap;Lcom/google/common/base/Predicate;)Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -781,7 +781,7 @@
 .end method
 
 .method public static forMap(Ljava/util/Map;)Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -806,7 +806,7 @@
 .end method
 
 .method public static index(Ljava/lang/Iterable;Lcom/google/common/base/Function;)Lcom/google/common/collect/ImmutableListMultimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -838,7 +838,7 @@
 .end method
 
 .method public static index(Ljava/util/Iterator;Lcom/google/common/base/Function;)Lcom/google/common/collect/ImmutableListMultimap;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -867,12 +867,12 @@
 
     .line 1610
     .local v0, "builder":Lcom/google/common/collect/ImmutableListMultimap$Builder;, "Lcom/google/common/collect/ImmutableListMultimap$Builder<TK;TV;>;"
-    :goto_0
+    :goto_7
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 1611
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -892,10 +892,10 @@
 
     .line 1614
     .end local v1    # "value":Ljava/lang/Object;, "TV;"
-    goto :goto_0
+    goto :goto_7
 
     .line 1615
-    :cond_0
+    :cond_1c
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableListMultimap$Builder;->build()Lcom/google/common/collect/ImmutableListMultimap;
 
     move-result-object v1
@@ -904,7 +904,7 @@
 .end method
 
 .method public static invertFrom(Lcom/google/common/collect/Multimap;Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/Multimap;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -933,12 +933,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -960,15 +960,15 @@
 
     .line 486
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TV;+TK;>;"
-    goto :goto_0
+    goto :goto_b
 
     .line 487
-    :cond_0
+    :cond_23
     return-object p1
 .end method
 
 .method public static newListMultimap(Ljava/util/Map;Lcom/google/common/base/Supplier;)Lcom/google/common/collect/ListMultimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1000,7 +1000,7 @@
 .end method
 
 .method public static newMultimap(Ljava/util/Map;Lcom/google/common/base/Supplier;)Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1032,7 +1032,7 @@
 .end method
 
 .method public static newSetMultimap(Ljava/util/Map;Lcom/google/common/base/Supplier;)Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1064,7 +1064,7 @@
 .end method
 
 .method public static newSortedSetMultimap(Ljava/util/Map;Lcom/google/common/base/Supplier;)Lcom/google/common/collect/SortedSetMultimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1096,7 +1096,7 @@
 .end method
 
 .method public static synchronizedListMultimap(Lcom/google/common/collect/ListMultimap;)Lcom/google/common/collect/ListMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1123,7 +1123,7 @@
 .end method
 
 .method public static synchronizedMultimap(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1150,7 +1150,7 @@
 .end method
 
 .method public static synchronizedSetMultimap(Lcom/google/common/collect/SetMultimap;)Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1177,7 +1177,7 @@
 .end method
 
 .method public static synchronizedSortedSetMultimap(Lcom/google/common/collect/SortedSetMultimap;)Lcom/google/common/collect/SortedSetMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1204,7 +1204,7 @@
 .end method
 
 .method public static transformEntries(Lcom/google/common/collect/ListMultimap;Lcom/google/common/collect/Maps$EntryTransformer;)Lcom/google/common/collect/ListMultimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1234,7 +1234,7 @@
 .end method
 
 .method public static transformEntries(Lcom/google/common/collect/Multimap;Lcom/google/common/collect/Maps$EntryTransformer;)Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1264,7 +1264,7 @@
 .end method
 
 .method public static transformValues(Lcom/google/common/collect/ListMultimap;Lcom/google/common/base/Function;)Lcom/google/common/collect/ListMultimap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1303,7 +1303,7 @@
 .end method
 
 .method public static transformValues(Lcom/google/common/collect/Multimap;Lcom/google/common/base/Function;)Lcom/google/common/collect/Multimap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1342,7 +1342,7 @@
 .end method
 
 .method private static unmodifiableEntries(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1363,7 +1363,7 @@
     .local p0, "entries":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/Map$Entry<TK;TV;>;>;"
     instance-of v0, p0, Ljava/util/Set;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 934
     move-object v0, p0
@@ -1377,7 +1377,7 @@
     return-object v0
 
     .line 936
-    :cond_0
+    :cond_c
     new-instance v0, Lcom/google/common/collect/Maps$UnmodifiableEntries;
 
     invoke-static {p0}, Ljava/util/Collections;->unmodifiableCollection(Ljava/util/Collection;)Ljava/util/Collection;
@@ -1390,7 +1390,7 @@
 .end method
 
 .method public static unmodifiableListMultimap(Lcom/google/common/collect/ImmutableListMultimap;)Lcom/google/common/collect/ListMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1420,7 +1420,7 @@
 .end method
 
 .method public static unmodifiableListMultimap(Lcom/google/common/collect/ListMultimap;)Lcom/google/common/collect/ListMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1439,16 +1439,16 @@
     .local p0, "delegate":Lcom/google/common/collect/ListMultimap;, "Lcom/google/common/collect/ListMultimap<TK;TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     instance-of v0, p0, Lcom/google/common/collect/ImmutableListMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_f
 
     .line 888
-    :cond_0
+    :cond_9
     new-instance v0, Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;-><init>(Lcom/google/common/collect/ListMultimap;)V
@@ -1456,13 +1456,13 @@
     return-object v0
 
     .line 886
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     return-object p0
 .end method
 
 .method public static unmodifiableMultimap(Lcom/google/common/collect/ImmutableMultimap;)Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1492,7 +1492,7 @@
 .end method
 
 .method public static unmodifiableMultimap(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1511,16 +1511,16 @@
     .local p0, "delegate":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<TK;TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     instance-of v0, p0, Lcom/google/common/collect/ImmutableMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_f
 
     .line 543
-    :cond_0
+    :cond_9
     new-instance v0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;-><init>(Lcom/google/common/collect/Multimap;)V
@@ -1528,13 +1528,13 @@
     return-object v0
 
     .line 541
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     return-object p0
 .end method
 
 .method public static unmodifiableSetMultimap(Lcom/google/common/collect/ImmutableSetMultimap;)Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1564,7 +1564,7 @@
 .end method
 
 .method public static unmodifiableSetMultimap(Lcom/google/common/collect/SetMultimap;)Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1583,16 +1583,16 @@
     .local p0, "delegate":Lcom/google/common/collect/SetMultimap;, "Lcom/google/common/collect/SetMultimap<TK;TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     instance-of v0, p0, Lcom/google/common/collect/ImmutableSetMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_f
 
     .line 809
-    :cond_0
+    :cond_9
     new-instance v0, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;-><init>(Lcom/google/common/collect/SetMultimap;)V
@@ -1600,13 +1600,13 @@
     return-object v0
 
     .line 807
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     return-object p0
 .end method
 
 .method public static unmodifiableSortedSetMultimap(Lcom/google/common/collect/SortedSetMultimap;)Lcom/google/common/collect/SortedSetMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1625,13 +1625,13 @@
     .local p0, "delegate":Lcom/google/common/collect/SortedSetMultimap;, "Lcom/google/common/collect/SortedSetMultimap<TK;TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/Multimaps$UnmodifiableSortedSetMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 854
     return-object p0
 
     .line 856
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/common/collect/Multimaps$UnmodifiableSortedSetMultimap;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Multimaps$UnmodifiableSortedSetMultimap;-><init>(Lcom/google/common/collect/SortedSetMultimap;)V
@@ -1640,7 +1640,7 @@
 .end method
 
 .method private static unmodifiableValueCollection(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -1657,7 +1657,7 @@
     .local p0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     instance-of v0, p0, Ljava/util/SortedSet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 914
     move-object v0, p0
@@ -1671,10 +1671,10 @@
     return-object v0
 
     .line 915
-    :cond_0
+    :cond_c
     instance-of v0, p0, Ljava/util/Set;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 916
     move-object v0, p0
@@ -1688,10 +1688,10 @@
     return-object v0
 
     .line 917
-    :cond_1
+    :cond_18
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_24
 
     .line 918
     move-object v0, p0
@@ -1705,7 +1705,7 @@
     return-object v0
 
     .line 920
-    :cond_2
+    :cond_24
     invoke-static {p0}, Ljava/util/Collections;->unmodifiableCollection(Ljava/util/Collection;)Ljava/util/Collection;
 
     move-result-object v0

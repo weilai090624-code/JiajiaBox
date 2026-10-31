@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/collect/Interner;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -85,7 +85,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -95,7 +95,7 @@
     .local p0, "this":Lcom/google/common/collect/Interners$InternerFunction;, "Lcom/google/common/collect/Interners$InternerFunction<TE;>;"
     instance-of v0, p1, Lcom/google/common/collect/Interners$InternerFunction;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 185
     move-object v0, p1
@@ -116,14 +116,14 @@
 
     .line 189
     .end local v0    # "that":Lcom/google/common/collect/Interners$InternerFunction;, "Lcom/google/common/collect/Interners$InternerFunction<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 179
     .local p0, "this":Lcom/google/common/collect/Interners$InternerFunction;, "Lcom/google/common/collect/Interners$InternerFunction<TE;>;"

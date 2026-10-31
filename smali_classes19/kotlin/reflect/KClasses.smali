@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final cast(Lkotlin/reflect/KClass;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$cast"    # Lkotlin/reflect/KClass;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -58,7 +58,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 26
     const-string v0, "null cannot be cast to non-null type T of kotlin.reflect.KClasses.cast"
@@ -68,7 +68,7 @@
     return-object p1
 
     .line 25
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/ClassCastException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -109,7 +109,7 @@
 .end method
 
 .method public static final safeCast(Lkotlin/reflect/KClass;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$safeCast"    # Lkotlin/reflect/KClass;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -133,7 +133,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const-string v0, "null cannot be cast to non-null type T of kotlin.reflect.KClasses.safeCast"
 
@@ -141,11 +141,11 @@
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method

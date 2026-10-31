@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V
-    .locals 0
+    .registers 2
     .param p1, "ref"    # Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
     .line 322
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 323
     new-instance v0, Ljava/lang/StringBuilder;

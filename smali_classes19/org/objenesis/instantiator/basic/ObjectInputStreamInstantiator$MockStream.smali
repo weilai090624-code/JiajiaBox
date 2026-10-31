@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 50
     const/4 v0, 0x1
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,7 +96,7 @@
     .local v2, "dout":Ljava/io/DataOutputStream;
     const/16 v3, 0x73
 
-    :try_start_0
+    :try_start_18
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     .line 100
@@ -139,8 +139,8 @@
     const/16 v4, 0x70
 
     invoke-virtual {v2, v4}, Ljava/io/DataOutputStream;->writeByte(I)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_43
+    .catch Ljava/io/IOException; {:try_start_18 .. :try_end_43} :catch_59
 
     .line 110
     nop
@@ -175,7 +175,7 @@
 
     .line 108
     .end local v4    # "firstData":[B
-    :catch_0
+    :catch_59
     move-exception v0
 
     .line 109
@@ -210,7 +210,7 @@
 .end method
 
 .method private advanceBuffer()V
-    .locals 2
+    .registers 3
 
     .line 116
     const/4 v0, 0x0
@@ -240,7 +240,7 @@
 .end method
 
 .method private static initialize()V
-    .locals 4
+    .registers 4
 
     .line 62
     :try_start_0
@@ -307,8 +307,8 @@
     move-result-object v2
 
     sput-object v2, Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator$MockStream;->REPEATING_DATA:[B
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3a
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3a} :catch_3c
 
     .line 78
     .end local v0    # "byteOut":Ljava/io/ByteArrayOutputStream;
@@ -319,7 +319,7 @@
     return-void
 
     .line 76
-    :catch_0
+    :catch_3c
     move-exception v0
 
     .line 77
@@ -356,7 +356,7 @@
 
 # virtual methods
 .method public available()I
-    .locals 1
+    .registers 2
 
     .line 133
     const v0, 0x7fffffff
@@ -365,7 +365,7 @@
 .end method
 
 .method public read()I
-    .locals 3
+    .registers 4
 
     .line 123
     iget-object v0, p0, Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator$MockStream;->data:[B
@@ -386,18 +386,18 @@
 
     array-length v2, v2
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_14
 
     .line 125
     invoke-direct {p0}, Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator$MockStream;->advanceBuffer()V
 
     .line 128
-    :cond_0
+    :cond_14
     return v0
 .end method
 
 .method public read([BII)I
-    .locals 4
+    .registers 8
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -417,8 +417,8 @@
 
     .line 141
     .local v1, "remaining":I
-    :goto_0
-    if-gt v1, v0, :cond_0
+    :goto_7
+    if-gt v1, v0, :cond_1d
 
     .line 142
     iget-object v2, p0, Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator$MockStream;->data:[B
@@ -445,11 +445,11 @@
 
     sub-int v1, v2, v3
 
-    goto :goto_0
+    goto :goto_7
 
     .line 148
-    :cond_0
-    if-lez v0, :cond_1
+    :cond_1d
+    if-lez v0, :cond_2b
 
     .line 149
     iget-object v2, p0, Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator$MockStream;->data:[B
@@ -466,6 +466,6 @@
     iput v2, p0, Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator$MockStream;->pointer:I
 
     .line 153
-    :cond_1
+    :cond_2b
     return p3
 .end method

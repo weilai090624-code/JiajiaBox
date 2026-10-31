@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
-    .locals 3
+    .registers 5
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     const-string/jumbo v0, "text"
@@ -118,12 +118,12 @@
 
 # virtual methods
 .method public final add(II)V
-    .locals 2
+    .registers 5
     .param p1, "line"    # I
     .param p2, "index"    # I
 
     .line 31
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 32
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/TextStructure;->lines:Ljava/util/List;
@@ -135,12 +135,12 @@
     invoke-interface {v0, p1, v1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     .line 34
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public final clear()V
-    .locals 3
+    .registers 4
 
     .line 43
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/TextStructure;->lines:Ljava/util/List;
@@ -163,7 +163,7 @@
 .end method
 
 .method public final getIndexForEndOfLine(I)I
-    .locals 1
+    .registers 3
     .param p1, "lineNumber"    # I
 
     .line 76
@@ -173,7 +173,7 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_f
 
     .line 77
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/TextStructure;->text:Ljava/lang/CharSequence;
@@ -185,7 +185,7 @@
     return v0
 
     .line 79
-    :cond_0
+    :cond_f
     add-int/lit8 v0, p1, 0x1
 
     invoke-virtual {p0, v0}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->getIndexForLine(I)I
@@ -198,7 +198,7 @@
 .end method
 
 .method public final getIndexForLine(I)I
-    .locals 1
+    .registers 3
     .param p1, "line"    # I
 
     .line 64
@@ -206,15 +206,15 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_8
 
     .line 65
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 67
-    :cond_0
+    :cond_8
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/TextStructure;->lines:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -228,12 +228,12 @@
     move-result v0
 
     .line 64
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public final getIndexForStartOfLine(I)I
-    .locals 1
+    .registers 3
     .param p1, "lineNumber"    # I
 
     .line 72
@@ -245,19 +245,19 @@
 .end method
 
 .method public final getLine(I)Lcom/blacksquircle/ui/language/base/model/TextStructure$Line;
-    .locals 2
+    .registers 4
     .param p1, "line"    # I
 
     .line 99
     const/4 v0, -0x1
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_12
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->getLineCount()I
 
     move-result v0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_12
 
     .line 100
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/TextStructure;->lines:Ljava/util/List;
@@ -271,7 +271,7 @@
     return-object v0
 
     .line 102
-    :cond_0
+    :cond_12
     new-instance v0, Lcom/blacksquircle/ui/language/base/model/TextStructure$Line;
 
     const/4 v1, 0x0
@@ -282,7 +282,7 @@
 .end method
 
 .method public final getLineCount()I
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/TextStructure;->lines:Ljava/util/List;
@@ -295,7 +295,7 @@
 .end method
 
 .method public final getLineForIndex(I)I
-    .locals 4
+    .registers 6
     .param p1, "index"    # I
 
     .line 83
@@ -311,8 +311,8 @@
 
     .line 85
     .local v1, "last":I
-    :goto_0
-    if-ge v0, v1, :cond_3
+    :goto_7
+    if-ge v0, v1, :cond_28
 
     .line 86
     add-int v2, v0, v1
@@ -325,20 +325,20 @@
 
     move-result v3
 
-    if-ge p1, v3, :cond_0
+    if-ge p1, v3, :cond_15
 
     .line 88
     move v1, v2
 
-    goto :goto_0
+    goto :goto_7
 
     .line 89
-    :cond_0
+    :cond_15
     invoke-virtual {p0, v2}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->getIndexForLine(I)I
 
     move-result v3
 
-    if-le p1, v3, :cond_2
+    if-le p1, v3, :cond_27
 
     add-int/lit8 v3, v2, 0x1
 
@@ -346,26 +346,26 @@
 
     move-result v3
 
-    if-ge p1, v3, :cond_1
+    if-ge p1, v3, :cond_24
 
-    goto :goto_1
+    goto :goto_27
 
     .line 92
-    :cond_1
+    :cond_24
     add-int/lit8 v0, v2, 0x1
 
     .end local v2    # "mid":I
-    goto :goto_0
+    goto :goto_7
 
     .line 90
     .restart local v2    # "mid":I
-    :cond_2
-    :goto_1
+    :cond_27
+    :goto_27
     return v2
 
     .line 95
     .end local v2    # "mid":I
-    :cond_3
+    :cond_28
     invoke-virtual {p0}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->getLineCount()I
 
     move-result v2
@@ -376,7 +376,7 @@
 .end method
 
 .method public final getText()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 19
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/TextStructure;->text:Ljava/lang/CharSequence;
@@ -385,11 +385,11 @@
 .end method
 
 .method public final remove(I)V
-    .locals 1
+    .registers 3
     .param p1, "line"    # I
 
     .line 37
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 38
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/TextStructure;->lines:Ljava/util/List;
@@ -397,12 +397,12 @@
     invoke-interface {v0, p1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 40
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public final shiftIndexes(II)V
-    .locals 4
+    .registers 7
     .param p1, "fromLine"    # I
     .param p2, "shiftBy"    # I
 
@@ -411,30 +411,30 @@
 
     const/4 v1, 0x1
 
-    if-gt v1, p1, :cond_0
+    if-gt v1, p1, :cond_b
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->getLineCount()I
 
     move-result v2
 
-    if-ge p1, v2, :cond_0
+    if-ge p1, v2, :cond_b
 
     const/4 v0, 0x1
 
-    :cond_0
-    if-eqz v0, :cond_3
+    :cond_b
+    if-eqz v0, :cond_32
 
     .line 49
     move v0, p1
 
     .line 50
     .local v0, "i":I
-    :goto_0
+    :goto_e
     invoke-virtual {p0}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->getLineCount()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_3
+    if-ge v0, v2, :cond_32
 
     .line 51
     invoke-virtual {p0, v0}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->getIndexForLine(I)I
@@ -445,24 +445,24 @@
 
     .line 52
     .local v2, "newIndex":I
-    if-lez v0, :cond_2
+    if-lez v0, :cond_24
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_1e
 
-    goto :goto_1
+    goto :goto_24
 
     .line 55
-    :cond_1
+    :cond_1e
     invoke-virtual {p0, v0}, Lcom/blacksquircle/ui/language/base/model/TextStructure;->remove(I)V
 
     .line 56
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_2
+    goto :goto_2f
 
     .line 53
-    :cond_2
-    :goto_1
+    :cond_24
+    :goto_24
     iget-object v3, p0, Lcom/blacksquircle/ui/language/base/model/TextStructure;->lines:Ljava/util/List;
 
     invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -474,16 +474,16 @@
     invoke-virtual {v3, v2}, Lcom/blacksquircle/ui/language/base/model/TextStructure$Line;->setStart(I)V
 
     .line 58
-    :goto_2
+    :goto_2f
     nop
 
     .end local v2    # "newIndex":I
     add-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 61
     .end local v0    # "i":I
-    :cond_3
+    :cond_32
     return-void
 .end method

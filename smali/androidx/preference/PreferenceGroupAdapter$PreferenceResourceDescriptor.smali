@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/Preference;)V
-    .locals 1
+    .registers 3
     .param p1, "preference"    # Landroidx/preference/Preference;
 
     .line 461
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 469
@@ -70,13 +70,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 470
     return v1
 
     .line 472
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;
@@ -87,13 +87,13 @@
 
     iget v3, v0, Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;->mLayoutResId:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_21
 
     iget v2, p0, Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;->mWidgetLayoutResId:I
 
     iget v3, v0, Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;->mWidgetLayoutResId:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_21
 
     iget-object v2, p0, Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;->mClassName:Ljava/lang/String;
 
@@ -104,22 +104,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     nop
 
     .line 473
-    :goto_0
+    :goto_22
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 480
     const/16 v0, 0x11

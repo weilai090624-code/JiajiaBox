@@ -56,7 +56,7 @@
 
 # direct methods
 .method private static final checkInfiniteSumDefined-PjuGub4(JJJ)J
-    .locals 5
+    .registers 11
     .param p0, "value"    # J
     .param p2, "duration"    # J
     .param p4, "durationInUnit"    # J
@@ -66,7 +66,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     xor-long v0, p0, p4
 
@@ -74,11 +74,11 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_f
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Summing infinities of different signs"
@@ -88,13 +88,13 @@
     throw v0
 
     .line 30
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     return-wide p0
 .end method
 
 .method private static final infinityOfSign(J)J
-    .locals 3
+    .registers 5
     .param p0, "value"    # J
 
     .line 43
@@ -104,25 +104,25 @@
 
     sget-object v0, Lkotlin/time/Duration;->Companion:Lkotlin/time/Duration$Companion;
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_d
 
     invoke-virtual {v0}, Lkotlin/time/Duration$Companion;->getNEG_INFINITE-UwyO8pc$kotlin_stdlib()J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-virtual {v0}, Lkotlin/time/Duration$Companion;->getINFINITE-UwyO8pc()J
 
     move-result-wide v0
 
-    :goto_0
+    :goto_11
     return-wide v0
 .end method
 
 .method public static final isSaturated(J)Z
-    .locals 6
+    .registers 8
     .param p0, "$this$isSaturated"    # J
 
     const/4 v0, 0x0
@@ -139,21 +139,21 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_11
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     return v1
 .end method
 
 .method public static final saturatingAdd-NuflL3o(JLkotlin/time/DurationUnit;J)J
-    .locals 17
+    .registers 22
     .param p0, "value"    # J
     .param p2, "unit"    # Lkotlin/time/DurationUnit;
     .param p3, "duration"    # J
@@ -194,20 +194,20 @@
 
     cmp-long v16, v6, v14
 
-    if-nez v16, :cond_0
+    if-nez v16, :cond_22
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v1, 0x0
 
     .line 14
     .end local v1    # "$this$isSaturated$iv":J
     .end local v3    # "$i$f$isSaturated":I
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_23
+    if-eqz v1, :cond_2f
 
     .line 15
     move-wide/from16 v2, p0
@@ -223,7 +223,7 @@
     return-wide v1
 
     .line 17
-    :cond_1
+    :cond_2f
     move-wide v1, v10
 
     .restart local v1    # "$this$isSaturated$iv":J
@@ -237,18 +237,18 @@
 
     cmp-long v6, v4, v14
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_39
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_2
+    :cond_39
     const/4 v12, 0x0
 
     .line 17
     .end local v1    # "$this$isSaturated$iv":J
     .end local v3    # "$i$f$isSaturated":I
-    :goto_1
-    if-eqz v12, :cond_3
+    :goto_3a
+    if-eqz v12, :cond_41
 
     .line 18
     invoke-static/range {p0 .. p4}, Lkotlin/time/LongSaturatedMathKt;->saturatingAddInHalves-NuflL3o(JLkotlin/time/DurationUnit;J)J
@@ -258,7 +258,7 @@
     return-wide v1
 
     .line 21
-    :cond_3
+    :cond_41
     add-long v1, p0, v10
 
     .line 22
@@ -273,25 +273,25 @@
 
     cmp-long v7, v3, v5
 
-    if-gez v7, :cond_5
+    if-gez v7, :cond_55
 
     .line 23
     cmp-long v3, p0, v5
 
-    if-gez v3, :cond_4
+    if-gez v3, :cond_54
 
     const-wide/high16 v14, -0x8000000000000000L
 
-    :cond_4
+    :cond_54
     return-wide v14
 
     .line 25
-    :cond_5
+    :cond_55
     return-wide v1
 .end method
 
 .method private static final saturatingAddInHalves-NuflL3o(JLkotlin/time/DurationUnit;J)J
-    .locals 15
+    .registers 20
     .param p0, "value"    # J
     .param p2, "unit"    # Lkotlin/time/DurationUnit;
     .param p3, "duration"    # J
@@ -332,26 +332,26 @@
 
     cmp-long v14, v10, v12
 
-    if-nez v14, :cond_0
+    if-nez v14, :cond_1f
 
     const/4 v10, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_1f
     const/4 v10, 0x0
 
     .line 36
     .end local v7    # "$this$isSaturated$iv":J
     .end local v9    # "$i$f$isSaturated":I
-    :goto_0
-    if-eqz v10, :cond_1
+    :goto_20
+    if-eqz v10, :cond_23
 
     .line 37
     return-wide v5
 
     .line 39
-    :cond_1
+    :cond_23
     move-wide v7, p0
 
     invoke-static {v7, v8, v0, v3, v4}, Lkotlin/time/LongSaturatedMathKt;->saturatingAdd-NuflL3o(JLkotlin/time/DurationUnit;J)J
@@ -370,7 +370,7 @@
 .end method
 
 .method public static final saturatingDiff(JJLkotlin/time/DurationUnit;)J
-    .locals 8
+    .registers 13
     .param p0, "valueNs"    # J
     .param p2, "origin"    # J
     .param p4, "unit"    # Lkotlin/time/DurationUnit;
@@ -397,20 +397,20 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_17
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v3, 0x0
 
     .line 46
     .end local v0    # "$this$isSaturated$iv":J
     .end local v2    # "$i$f$isSaturated":I
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_18
+    if-eqz v3, :cond_23
 
     .line 47
     invoke-static {p2, p3}, Lkotlin/time/LongSaturatedMathKt;->infinityOfSign(J)J
@@ -424,7 +424,7 @@
     return-wide v0
 
     .line 49
-    :cond_1
+    :cond_23
     invoke-static {p0, p1, p2, p3, p4}, Lkotlin/time/LongSaturatedMathKt;->saturatingFiniteDiff(JJLkotlin/time/DurationUnit;)J
 
     move-result-wide v0
@@ -433,7 +433,7 @@
 .end method
 
 .method private static final saturatingFiniteDiff(JJLkotlin/time/DurationUnit;)J
-    .locals 13
+    .registers 18
     .param p0, "value1"    # J
     .param p2, "value2"    # J
     .param p4, "unit"    # Lkotlin/time/DurationUnit;
@@ -457,7 +457,7 @@
 
     cmp-long v7, v3, v5
 
-    if-gez v7, :cond_1
+    if-gez v7, :cond_46
 
     .line 66
     sget-object v3, Lkotlin/time/DurationUnit;->MILLISECONDS:Lkotlin/time/DurationUnit;
@@ -468,7 +468,7 @@
 
     move-result v3
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_3d
 
     .line 67
     const-wide/16 v3, 0x1
@@ -519,7 +519,7 @@
     .end local v3    # "unitsInMilli":J
     .end local v5    # "resultMs":J
     .end local v7    # "resultUnit":J
-    :cond_0
+    :cond_3d
     invoke-static {v1, v2}, Lkotlin/time/LongSaturatedMathKt;->infinityOfSign(J)J
 
     move-result-wide v3
@@ -531,7 +531,7 @@
     return-wide v3
 
     .line 75
-    :cond_1
+    :cond_46
     invoke-static {v1, v2, v0}, Lkotlin/time/DurationKt;->toDuration(JLkotlin/time/DurationUnit;)J
 
     move-result-wide v3
@@ -540,7 +540,7 @@
 .end method
 
 .method public static final saturatingOriginsDiff(JJLkotlin/time/DurationUnit;)J
-    .locals 13
+    .registers 18
     .param p0, "origin1"    # J
     .param p2, "origin2"    # J
     .param p4, "unit"    # Lkotlin/time/DurationUnit;
@@ -573,25 +573,25 @@
 
     cmp-long v12, v6, v10
 
-    if-nez v12, :cond_0
+    if-nez v12, :cond_1b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
     .line 53
     .end local v0    # "$i$f$isSaturated":I
     .end local v2    # "$this$isSaturated$iv":J
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_1c
+    if-eqz v0, :cond_32
 
     .line 54
     cmp-long v0, p0, p2
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     sget-object v0, Lkotlin/time/Duration;->Companion:Lkotlin/time/Duration$Companion;
 
@@ -602,7 +602,7 @@
     return-wide v2
 
     .line 55
-    :cond_1
+    :cond_29
     invoke-static/range {p2 .. p3}, Lkotlin/time/LongSaturatedMathKt;->infinityOfSign(J)J
 
     move-result-wide v2
@@ -614,7 +614,7 @@
     return-wide v2
 
     .line 57
-    :cond_2
+    :cond_32
     move-wide v2, p0
 
     .restart local v2    # "$this$isSaturated$iv":J
@@ -628,18 +628,18 @@
 
     cmp-long v6, v4, v10
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_3c
 
-    goto :goto_1
+    goto :goto_3d
 
-    :cond_3
+    :cond_3c
     const/4 v8, 0x0
 
     .line 57
     .end local v0    # "$i$f$isSaturated":I
     .end local v2    # "$this$isSaturated$iv":J
-    :goto_1
-    if-eqz v8, :cond_4
+    :goto_3d
+    if-eqz v8, :cond_44
 
     .line 58
     invoke-static {p0, p1}, Lkotlin/time/LongSaturatedMathKt;->infinityOfSign(J)J
@@ -649,7 +649,7 @@
     return-wide v2
 
     .line 60
-    :cond_4
+    :cond_44
     invoke-static/range {p0 .. p4}, Lkotlin/time/LongSaturatedMathKt;->saturatingFiniteDiff(JJLkotlin/time/DurationUnit;)J
 
     move-result-wide v2

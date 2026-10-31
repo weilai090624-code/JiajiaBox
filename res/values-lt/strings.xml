@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Gaunamasis skambutis</string>
     <string name="call_notification_ongoing_text">Vykstantis skambutis</string>
     <string name="call_notification_screening_text">Gaunamojo skambučio tikrinimas</string>
-    <string name="character_counter_content_description" formatted="false">Įvesta simbolių: %1$d iš %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Viršytas simbolių skaičius: %1$d iš %2$d</string>
+    <string name="character_counter_content_description">Įvesta simbolių: %1$d iš %2$d</string>
+    <string name="character_counter_overflowed_content_description">Viršytas simbolių skaičius: %1$d iš %2$d</string>
     <string name="clear_text_end_icon_content_description">Išvalyti tekstą</string>
     <string name="copy">Kopijuoti</string>
     <string name="copy_toast_msg">Nuoroda nukopijuota į iškarpinę</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Nepatenka į diapazoną: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Pradžios data–%1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s–pabaigos data</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
     <string name="mtrl_picker_range_header_title">Pasirinkite diapazoną</string>
     <string name="mtrl_picker_range_header_unselected">Pradžios data–pabaigos data</string>
     <string name="mtrl_picker_save">Išsaugoti</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">Suvestinė „%1$s“ nukopijuota į iškarpinę.</string>
     <string name="search_menu_title">Ieškoti</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">IŠJUNGTA</string>
     <string name="v7_preference_on">ĮJUNGTA</string>
 </resources>

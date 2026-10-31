@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method private clear()V
-    .locals 1
+    .registers 2
 
     .line 108
     const/4 v0, 0x0
@@ -76,7 +76,7 @@
 .end method
 
 .method private getCurrentVelocity()F
-    .locals 17
+    .registers 18
 
     .line 114
     move-object/from16 v0, p0
@@ -87,13 +87,13 @@
 
     const/4 v3, 0x2
 
-    if-ge v1, v3, :cond_0
+    if-ge v1, v3, :cond_9
 
     .line 115
     return v2
 
     .line 120
-    :cond_0
+    :cond_9
     iget v1, v0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferLastUsedIndex:I
 
     add-int/lit8 v1, v1, 0x14
@@ -118,7 +118,7 @@
 
     .line 124
     .local v6, "lastEventTime":J
-    :goto_0
+    :goto_1a
     iget-object v4, v0, Landroidx/core/view/VelocityTrackerFallback;->mEventTimes:[J
 
     aget-wide v8, v4, v1
@@ -129,7 +129,7 @@
 
     cmp-long v4, v8, v10
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_30
 
     .line 126
     iget v4, v0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferSize:I
@@ -143,22 +143,22 @@
 
     rem-int/lit8 v1, v4, 0x14
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 133
-    :cond_1
+    :cond_30
     iget v4, v0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferSize:I
 
-    if-ge v4, v3, :cond_2
+    if-ge v4, v3, :cond_35
 
     .line 134
     return v2
 
     .line 137
-    :cond_2
+    :cond_35
     iget v4, v0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferSize:I
 
-    if-ne v4, v3, :cond_4
+    if-ne v4, v3, :cond_5a
 
     .line 138
     add-int/lit8 v3, v1, 0x1
@@ -177,13 +177,13 @@
 
     cmp-long v4, v8, v10
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4a
 
     .line 140
     return v2
 
     .line 142
-    :cond_3
+    :cond_4a
     iget-object v2, v0, Landroidx/core/view/VelocityTrackerFallback;->mMovements:[F
 
     aget v2, v2, v3
@@ -206,7 +206,7 @@
 
     .line 145
     .end local v3    # "lastIndex":I
-    :cond_4
+    :cond_5a
     const/4 v2, 0x0
 
     .line 146
@@ -218,12 +218,12 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_1
+    :goto_5d
     iget v8, v0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferSize:I
 
     sub-int/2addr v8, v5
 
-    if-ge v4, v8, :cond_7
+    if-ge v4, v8, :cond_9c
 
     .line 151
     add-int v8, v4, v1
@@ -250,13 +250,13 @@
 
     cmp-long v12, v13, v10
 
-    if-nez v12, :cond_5
+    if-nez v12, :cond_77
 
     .line 157
-    goto :goto_2
+    goto :goto_99
 
     .line 160
-    :cond_5
+    :cond_77
     add-int/lit8 v3, v3, 0x1
 
     .line 161
@@ -295,7 +295,7 @@
     add-float/2addr v2, v15
 
     .line 170
-    if-ne v3, v5, :cond_6
+    if-ne v3, v5, :cond_99
 
     .line 171
     const/high16 v15, 0x3f000000    # 0.5f
@@ -309,15 +309,15 @@
     .end local v12    # "vPrev":F
     .end local v13    # "delta":F
     .end local v14    # "vCurr":F
-    :cond_6
-    :goto_2
+    :cond_99
+    :goto_99
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 175
     .end local v4    # "i":I
-    :cond_7
+    :cond_9c
     invoke-static {v2}, Landroidx/core/view/VelocityTrackerFallback;->kineticEnergyToVelocity(F)F
 
     move-result v4
@@ -326,7 +326,7 @@
 .end method
 
 .method private static kineticEnergyToVelocity(F)F
-    .locals 3
+    .registers 4
     .param p0, "work"    # F
 
     .line 180
@@ -334,16 +334,16 @@
 
     cmpg-float v0, p0, v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_8
 
     const/high16 v0, -0x40800000    # -1.0f
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_8
     const/high16 v0, 0x3f800000    # 1.0f
 
-    :goto_0
+    :goto_a
     const/high16 v1, 0x40000000    # 2.0f
 
     invoke-static {p0}, Ljava/lang/Math;->abs(F)F
@@ -368,7 +368,7 @@
 
 # virtual methods
 .method addMovement(Landroid/view/MotionEvent;)V
-    .locals 7
+    .registers 9
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 60
@@ -380,7 +380,7 @@
     .local v0, "eventTime":J
     iget v2, p0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferSize:I
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     iget-object v2, p0, Landroidx/core/view/VelocityTrackerFallback;->mEventTimes:[J
 
@@ -394,13 +394,13 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_19
 
     .line 67
     invoke-direct {p0}, Landroidx/core/view/VelocityTrackerFallback;->clear()V
 
     .line 70
-    :cond_0
+    :cond_19
     iget v2, p0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferLastUsedIndex:I
 
     add-int/lit8 v2, v2, 0x1
@@ -414,7 +414,7 @@
     .line 73
     iget v2, p0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferSize:I
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_2c
 
     .line 74
     iget v2, p0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferSize:I
@@ -424,7 +424,7 @@
     iput v2, p0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferSize:I
 
     .line 77
-    :cond_1
+    :cond_2c
     iget-object v2, p0, Landroidx/core/view/VelocityTrackerFallback;->mMovements:[F
 
     iget v3, p0, Landroidx/core/view/VelocityTrackerFallback;->mDataPointsBufferLastUsedIndex:I
@@ -449,7 +449,7 @@
 .end method
 
 .method computeCurrentVelocity(I)V
-    .locals 1
+    .registers 3
     .param p1, "units"    # I
 
     .line 83
@@ -462,7 +462,7 @@
 .end method
 
 .method computeCurrentVelocity(IF)V
-    .locals 2
+    .registers 5
     .param p1, "units"    # I
     .param p2, "maxVelocity"    # F
 
@@ -488,7 +488,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1c
 
     .line 93
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
@@ -499,10 +499,10 @@
 
     iput v0, p0, Landroidx/core/view/VelocityTrackerFallback;->mLastComputedVelocity:F
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 94
-    :cond_0
+    :cond_1c
     iget v0, p0, Landroidx/core/view/VelocityTrackerFallback;->mLastComputedVelocity:F
 
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
@@ -511,7 +511,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2c
 
     .line 95
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
@@ -521,19 +521,19 @@
     iput v0, p0, Landroidx/core/view/VelocityTrackerFallback;->mLastComputedVelocity:F
 
     .line 97
-    :cond_1
-    :goto_0
+    :cond_2c
+    :goto_2c
     return-void
 .end method
 
 .method getAxisVelocity(I)F
-    .locals 1
+    .registers 3
     .param p1, "axis"    # I
 
     .line 101
     const/16 v0, 0x1a
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_6
 
     .line 102
     const/4 v0, 0x0
@@ -541,7 +541,7 @@
     return v0
 
     .line 104
-    :cond_0
+    :cond_6
     iget v0, p0, Landroidx/core/view/VelocityTrackerFallback;->mLastComputedVelocity:F
 
     return v0

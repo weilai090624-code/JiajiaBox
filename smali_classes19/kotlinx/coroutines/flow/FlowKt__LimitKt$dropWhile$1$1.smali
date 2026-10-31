@@ -78,7 +78,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/jvm/functions/Function2;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public final emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -124,7 +124,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1$emit$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -136,7 +136,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1$emit$1;->label:I
 
@@ -144,14 +144,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1$emit$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1$emit$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1$emit$1;-><init>(Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -167,7 +167,7 @@
 
     const/4 v3, 0x1
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_84
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -181,7 +181,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2e
     iget-object p1, p2, Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1$emit$1;->L$1:Ljava/lang/Object;
 
     .local p1, "value":Ljava/lang/Object;
@@ -194,16 +194,16 @@
 
     move-object v4, v0
 
-    goto :goto_2
+    goto :goto_65
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1;
     .end local p1    # "value":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_39
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_52
 
-    :pswitch_2
+    :pswitch_3d
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v2, p0
@@ -215,7 +215,7 @@
 
     iget-boolean v4, v4, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_55
 
     .line 37
     iget-object v4, v2, Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1;->$this_unsafeFlow:Lkotlinx/coroutines/flow/FlowCollector;
@@ -228,14 +228,14 @@
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1;
     .end local p1    # "value":Ljava/lang/Object;
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_52
 
     .line 35
     return-object v1
 
     .line 42
-    :cond_1
-    :goto_1
+    :cond_52
+    :goto_52
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
@@ -243,7 +243,7 @@
     .line 38
     .restart local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1;
     .restart local p1    # "value":Ljava/lang/Object;
-    :cond_2
+    :cond_55
     iget-object v4, v2, Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1;->$predicate:Lkotlin/jvm/functions/Function2;
 
     iput-object v2, p2, Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1$emit$1;->L$0:Ljava/lang/Object;
@@ -258,21 +258,21 @@
 
     move-result-object v4
 
-    if-ne v4, v1, :cond_3
+    if-ne v4, v1, :cond_65
 
     .line 35
     return-object v1
 
     .line 38
-    :cond_3
-    :goto_2
+    :cond_65
+    :goto_65
     check-cast v4, Ljava/lang/Boolean;
 
     invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_82
 
     .line 39
     iget-object v4, v2, Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1;->$matched:Lkotlin/jvm/internal/Ref$BooleanRef;
@@ -298,22 +298,22 @@
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__LimitKt$dropWhile$1$1;
     .end local p1    # "value":Ljava/lang/Object;
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_52
 
     .line 35
     return-object v1
 
     .line 38
-    :cond_4
-    goto :goto_1
+    :cond_82
+    goto :goto_52
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_84
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_3d
+        :pswitch_39
+        :pswitch_2e
+        :pswitch_39
     .end packed-switch
 .end method

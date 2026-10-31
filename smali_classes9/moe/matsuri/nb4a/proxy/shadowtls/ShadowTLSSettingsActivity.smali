@@ -83,7 +83,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 9
+    .registers 10
 
     .line 13
     const/4 v0, 0x1
@@ -298,7 +298,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSSettingsActivity;->createEntity()Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;
@@ -311,7 +311,7 @@
 .end method
 
 .method public createEntity()Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;
-    .locals 1
+    .registers 2
 
     .line 15
     new-instance v0, Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;
@@ -322,7 +322,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 5
+    .registers 9
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -422,7 +422,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 13
@@ -436,7 +436,7 @@
 .end method
 
 .method public init(Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;
 
     const-string v0, "<this>"
@@ -453,7 +453,7 @@
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 13
@@ -467,7 +467,7 @@
 .end method
 
 .method public serialize(Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lmoe/matsuri/nb4a/proxy/shadowtls/ShadowTLSBean;
 
     const-string v0, "<this>"

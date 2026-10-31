@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public create(Landroid/content/Context;)Landroidx/lifecycle/LifecycleOwner;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -82,7 +82,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     .line 36
     invoke-static {p1}, Landroidx/lifecycle/LifecycleDispatcher;->init(Landroid/content/Context;)V
@@ -102,7 +102,7 @@
     return-object v1
 
     .line 28
-    :cond_0
+    :cond_27
     const/4 v1, 0x0
 
     .line 29
@@ -125,7 +125,7 @@
 .end method
 
 .method public bridge synthetic create(Landroid/content/Context;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Landroid/content/Context;
 
     .line 25
@@ -137,7 +137,7 @@
 .end method
 
 .method public dependencies()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

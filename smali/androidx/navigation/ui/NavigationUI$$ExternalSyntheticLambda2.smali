@@ -16,7 +16,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroidx/navigation/NavController;ZLcom/google/android/material/navigation/NavigationView;)V
-    .locals 0
+    .registers 4
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public final onNavigationItemSelected(Landroid/view/MenuItem;)Z
-    .locals 3
+    .registers 5
 
     .line 0
     iget-object v0, p0, Landroidx/navigation/ui/NavigationUI$$ExternalSyntheticLambda2;->f$0:Landroidx/navigation/NavController;

@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 326
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final varargs add(Ljava/lang/String;[Ljava/lang/String;)Lokhttp3/CertificatePinner$Builder;
-    .locals 7
+    .registers 10
     .param p1, "pattern"    # Ljava/lang/String;
     .param p2, "pins"    # [Ljava/lang/String;
 
@@ -106,8 +106,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_10
+    if-ge v3, v2, :cond_23
 
     aget-object v4, p2, v3
 
@@ -125,11 +125,11 @@
 
     invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_10
 
     .line 340
     .end local v4    # "pin":Ljava/lang/String;
-    :cond_0
+    :cond_23
     nop
 
     .line 336
@@ -144,7 +144,7 @@
 .end method
 
 .method public final build()Lokhttp3/CertificatePinner;
-    .locals 4
+    .registers 5
 
     .line 342
     new-instance v0, Lokhttp3/CertificatePinner;
@@ -167,7 +167,7 @@
 .end method
 
 .method public final getPins()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

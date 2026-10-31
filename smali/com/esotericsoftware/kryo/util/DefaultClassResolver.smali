@@ -78,7 +78,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method public getRegistration(I)Lcom/esotericsoftware/kryo/Registration;
-    .locals 1
+    .registers 3
     .param p1, "classID"    # I
 
     .line 103
@@ -124,20 +124,20 @@
 .end method
 
 .method public getRegistration(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Registration;
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 93
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->memoizedClass:Ljava/lang/Class;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_7
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->memoizedClassValue:Lcom/esotericsoftware/kryo/Registration;
 
     return-object v0
 
     .line 94
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToRegistration:Lcom/esotericsoftware/kryo/util/CuckooObjectMap;
 
     invoke-virtual {v0, p1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -148,7 +148,7 @@
 
     .line 95
     .local v0, "registration":Lcom/esotericsoftware/kryo/Registration;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 96
     iput-object p1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->memoizedClass:Ljava/lang/Class;
@@ -157,18 +157,18 @@
     iput-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->memoizedClassValue:Lcom/esotericsoftware/kryo/Registration;
 
     .line 99
-    :cond_1
+    :cond_15
     return-object v0
 .end method
 
 .method protected getTypeByName(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p1, "className"    # Ljava/lang/String;
 
     .line 197
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameToClass:Lcom/esotericsoftware/kryo/util/ObjectMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameToClass:Lcom/esotericsoftware/kryo/util/ObjectMap;
 
@@ -178,17 +178,17 @@
 
     check-cast v0, Ljava/lang/Class;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public readClass(Lcom/esotericsoftware/kryo/io/Input;)Lcom/esotericsoftware/kryo/Registration;
-    .locals 6
+    .registers 8
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
 
     .line 145
@@ -200,7 +200,7 @@
 
     .line 146
     .local v1, "classID":I
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_d0
 
     .line 153
     iget v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->memoizedClassId:I
@@ -211,12 +211,12 @@
 
     const-string v4, "kryo"
 
-    if-ne v1, v0, :cond_3
+    if-ne v1, v0, :cond_6e
 
     .line 154
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_6b
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -270,10 +270,10 @@
     .line 154
     invoke-static {v4, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_6b
 
     .line 151
-    :pswitch_0
+    :pswitch_4b
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->readName(Lcom/esotericsoftware/kryo/io/Input;)Lcom/esotericsoftware/kryo/Registration;
 
     move-result-object v0
@@ -281,16 +281,16 @@
     return-object v0
 
     .line 148
-    :pswitch_1
+    :pswitch_50
     sget-boolean v2, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_61
 
     sget-boolean v2, Lcom/esotericsoftware/minlog/Log;->DEBUG:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_6a
 
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->kryo:Lcom/esotericsoftware/kryo/Kryo;
 
@@ -298,9 +298,9 @@
 
     move-result v2
 
-    if-ne v2, v0, :cond_1
+    if-ne v2, v0, :cond_6a
 
-    :cond_0
+    :cond_61
     const-string v0, "Read"
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/Input;->position()I
@@ -310,18 +310,18 @@
     invoke-static {v0, v3, v2}, Lcom/esotericsoftware/kryo/util/Util;->log(Ljava/lang/String;Ljava/lang/Object;I)V
 
     .line 149
-    :cond_1
+    :cond_6a
     return-object v3
 
     .line 156
-    :cond_2
-    :goto_0
+    :cond_6b
+    :goto_6b
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->memoizedClassIdValue:Lcom/esotericsoftware/kryo/Registration;
 
     return-object v0
 
     .line 158
-    :cond_3
+    :cond_6e
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->idToRegistration:Lcom/esotericsoftware/kryo/util/IntMap;
 
     add-int/lit8 v5, v1, -0x2
@@ -334,12 +334,12 @@
 
     .line 159
     .local v0, "registration":Lcom/esotericsoftware/kryo/Registration;
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_b5
 
     .line 160
     sget-boolean v5, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_b0
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -390,7 +390,7 @@
     invoke-static {v4, v2}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 161
-    :cond_4
+    :cond_b0
     iput v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->memoizedClassId:I
 
     .line 162
@@ -400,7 +400,7 @@
     return-object v0
 
     .line 159
-    :cond_5
+    :cond_b5
     new-instance v2, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -427,15 +427,15 @@
 
     throw v2
 
-    :pswitch_data_0
+    :pswitch_data_d0
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_50
+        :pswitch_4b
     .end packed-switch
 .end method
 
 .method protected readName(Lcom/esotericsoftware/kryo/io/Input;)Lcom/esotericsoftware/kryo/Registration;
-    .locals 8
+    .registers 10
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
 
     .line 167
@@ -449,7 +449,7 @@
     .local v0, "nameId":I
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameIdToClass:Lcom/esotericsoftware/kryo/util/IntMap;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     new-instance v1, Lcom/esotericsoftware/kryo/util/IntMap;
 
@@ -458,7 +458,7 @@
     iput-object v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameIdToClass:Lcom/esotericsoftware/kryo/util/IntMap;
 
     .line 169
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameIdToClass:Lcom/esotericsoftware/kryo/util/IntMap;
 
     invoke-virtual {v1, v0}, Lcom/esotericsoftware/kryo/util/IntMap;->get(I)Ljava/lang/Object;
@@ -471,7 +471,7 @@
     .local v1, "type":Ljava/lang/Class;
     const-string v2, "kryo"
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_97
 
     .line 172
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/Input;->readString()Ljava/lang/String;
@@ -485,12 +485,12 @@
     move-result-object v1
 
     .line 174
-    if-nez v1, :cond_2
+    if-nez v1, :cond_6b
 
     .line 176
     const/4 v4, 0x0
 
-    :try_start_0
+    :try_start_27
     iget-object v5, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->kryo:Lcom/esotericsoftware/kryo/Kryo;
 
     invoke-virtual {v5}, Lcom/esotericsoftware/kryo/Kryo;->getClassLoader()Ljava/lang/ClassLoader;
@@ -500,21 +500,21 @@
     invoke-static {v3, v4, v5}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v4
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_31
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_27 .. :try_end_31} :catch_33
 
     move-object v1, v4
 
     .line 184
-    goto :goto_0
+    goto :goto_40
 
     .line 177
-    :catch_0
+    :catch_33
     move-exception v5
 
     .line 180
     .local v5, "ex":Ljava/lang/ClassNotFoundException;
-    :try_start_1
+    :try_start_34
     const-class v6, Lcom/esotericsoftware/kryo/Kryo;
 
     invoke-virtual {v6}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -524,8 +524,8 @@
     invoke-static {v3, v4, v6}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v4
-    :try_end_1
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_3e
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_34 .. :try_end_3e} :catch_51
 
     move-object v1, v4
 
@@ -534,10 +534,10 @@
 
     .line 185
     .end local v5    # "ex":Ljava/lang/ClassNotFoundException;
-    :goto_0
+    :goto_40
     iget-object v4, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameToClass:Lcom/esotericsoftware/kryo/util/ObjectMap;
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_4b
 
     new-instance v4, Lcom/esotericsoftware/kryo/util/ObjectMap;
 
@@ -546,16 +546,16 @@
     iput-object v4, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameToClass:Lcom/esotericsoftware/kryo/util/ObjectMap;
 
     .line 186
-    :cond_1
+    :cond_4b
     iget-object v4, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameToClass:Lcom/esotericsoftware/kryo/util/ObjectMap;
 
     invoke-virtual {v4, v3, v1}, Lcom/esotericsoftware/kryo/util/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_6b
 
     .line 181
     .restart local v5    # "ex":Ljava/lang/ClassNotFoundException;
-    :catch_1
+    :catch_51
     move-exception v2
 
     .line 182
@@ -587,8 +587,8 @@
     .line 188
     .end local v2    # "ex2":Ljava/lang/ClassNotFoundException;
     .end local v5    # "ex":Ljava/lang/ClassNotFoundException;
-    :cond_2
-    :goto_1
+    :cond_6b
+    :goto_6b
     iget-object v4, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameIdToClass:Lcom/esotericsoftware/kryo/util/IntMap;
 
     invoke-virtual {v4, v0, v1}, Lcom/esotericsoftware/kryo/util/IntMap;->put(ILjava/lang/Object;)Ljava/lang/Object;
@@ -596,7 +596,7 @@
     .line 189
     sget-boolean v4, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_96
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -632,14 +632,14 @@
 
     .line 190
     .end local v3    # "className":Ljava/lang/String;
-    :cond_3
-    goto :goto_2
+    :cond_96
+    goto :goto_cb
 
     .line 191
-    :cond_4
+    :cond_97
     sget-boolean v3, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_cb
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -688,8 +688,8 @@
     invoke-static {v2, v3}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 193
-    :cond_5
-    :goto_2
+    :cond_cb
+    :goto_cb
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->kryo:Lcom/esotericsoftware/kryo/Kryo;
 
     invoke-virtual {v2, v1}, Lcom/esotericsoftware/kryo/Kryo;->getRegistration(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Registration;
@@ -700,7 +700,7 @@
 .end method
 
 .method public register(Lcom/esotericsoftware/kryo/Registration;)Lcom/esotericsoftware/kryo/Registration;
-    .locals 5
+    .registers 7
     .param p1, "registration"    # Lcom/esotericsoftware/kryo/Registration;
 
     .line 57
@@ -714,7 +714,7 @@
     iput-object v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->memoizedClass:Ljava/lang/Class;
 
     .line 59
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_bd
 
     .line 60
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Registration;->getId()I
@@ -727,12 +727,12 @@
 
     const-string v4, "kryo"
 
-    if-eq v1, v0, :cond_1
+    if-eq v1, v0, :cond_66
 
     .line 61
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5c
 
     .line 62
     new-instance v0, Ljava/lang/StringBuilder;
@@ -804,7 +804,7 @@
     invoke-static {v4, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 65
-    :cond_0
+    :cond_5c
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->idToRegistration:Lcom/esotericsoftware/kryo/util/IntMap;
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Registration;->getId()I
@@ -813,13 +813,13 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/esotericsoftware/kryo/util/IntMap;->put(ILjava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_a0
 
     .line 66
-    :cond_1
+    :cond_66
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_a0
 
     .line 67
     new-instance v0, Ljava/lang/StringBuilder;
@@ -877,8 +877,8 @@
     invoke-static {v4, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 70
-    :cond_2
-    :goto_0
+    :cond_a0
+    :goto_a0
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToRegistration:Lcom/esotericsoftware/kryo/util/CuckooObjectMap;
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/Registration;->getType()Ljava/lang/Class;
@@ -902,19 +902,19 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_bc
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToRegistration:Lcom/esotericsoftware/kryo/util/CuckooObjectMap;
 
     invoke-virtual {v1, v0, p1}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 73
-    :cond_3
+    :cond_bc
     return-object p1
 
     .line 59
     .end local v0    # "wrapperClass":Ljava/lang/Class;
-    :cond_4
+    :cond_bd
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "registration cannot be null."
@@ -925,7 +925,7 @@
 .end method
 
 .method public registerImplicit(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Registration;
-    .locals 3
+    .registers 5
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 89
@@ -949,7 +949,7 @@
 .end method
 
 .method public reset()V
-    .locals 2
+    .registers 3
 
     .line 201
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->kryo:Lcom/esotericsoftware/kryo/Kryo;
@@ -958,12 +958,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1f
 
     .line 202
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToNameId:Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToNameId:Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;
 
@@ -972,28 +972,28 @@
     invoke-virtual {v0, v1}, Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;->clear(I)V
 
     .line 203
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameIdToClass:Lcom/esotericsoftware/kryo/util/IntMap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nameIdToClass:Lcom/esotericsoftware/kryo/util/IntMap;
 
     invoke-virtual {v0}, Lcom/esotericsoftware/kryo/util/IntMap;->clear()V
 
     .line 204
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nextNameId:I
 
     .line 206
-    :cond_2
+    :cond_1f
     return-void
 .end method
 
 .method public setKryo(Lcom/esotericsoftware/kryo/Kryo;)V
-    .locals 0
+    .registers 2
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
 
     .line 53
@@ -1004,7 +1004,7 @@
 .end method
 
 .method public unregister(I)Lcom/esotericsoftware/kryo/Registration;
-    .locals 3
+    .registers 5
     .param p1, "classID"    # I
 
     .line 77
@@ -1018,7 +1018,7 @@
 
     .line 78
     .local v0, "registration":Lcom/esotericsoftware/kryo/Registration;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 79
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToRegistration:Lcom/esotericsoftware/kryo/util/CuckooObjectMap;
@@ -1054,7 +1054,7 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_2c
 
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToRegistration:Lcom/esotericsoftware/kryo/util/CuckooObjectMap;
 
@@ -1062,30 +1062,30 @@
 
     .line 85
     .end local v1    # "wrapperClass":Ljava/lang/Class;
-    :cond_0
+    :cond_2c
     return-object v0
 .end method
 
 .method public writeClass(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Registration;
-    .locals 4
+    .registers 7
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p2, "type"    # Ljava/lang/Class;
 
     .line 107
     const/4 v0, 0x1
 
-    if-nez p2, :cond_2
+    if-nez p2, :cond_22
 
     .line 108
     sget-boolean v1, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     sget-boolean v1, Lcom/esotericsoftware/minlog/Log;->DEBUG:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1d
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->kryo:Lcom/esotericsoftware/kryo/Kryo;
 
@@ -1093,9 +1093,9 @@
 
     move-result v1
 
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_1d
 
-    :cond_0
+    :cond_14
     const-string v0, "Write"
 
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/Output;->position()I
@@ -1105,7 +1105,7 @@
     invoke-static {v0, v2, v1}, Lcom/esotericsoftware/kryo/util/Util;->log(Ljava/lang/String;Ljava/lang/Object;I)V
 
     .line 109
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(B)V
@@ -1114,7 +1114,7 @@
     return-object v2
 
     .line 112
-    :cond_2
+    :cond_22
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->kryo:Lcom/esotericsoftware/kryo/Kryo;
 
     invoke-virtual {v1, p2}, Lcom/esotericsoftware/kryo/Kryo;->getRegistration(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Registration;
@@ -1129,18 +1129,18 @@
 
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_33
 
     .line 114
     invoke-virtual {p0, p1, p2, v1}, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->writeName(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Class;Lcom/esotericsoftware/kryo/Registration;)V
 
-    goto :goto_0
+    goto :goto_76
 
     .line 116
-    :cond_3
+    :cond_33
     sget-boolean v2, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_6d
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1195,7 +1195,7 @@
     invoke-static {v3, v2}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 117
-    :cond_4
+    :cond_6d
     invoke-virtual {v1}, Lcom/esotericsoftware/kryo/Registration;->getId()I
 
     move-result v2
@@ -1205,12 +1205,12 @@
     invoke-virtual {p1, v2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
     .line 119
-    :goto_0
+    :goto_76
     return-object v1
 .end method
 
 .method protected writeName(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Class;Lcom/esotericsoftware/kryo/Registration;)V
-    .locals 5
+    .registers 9
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p2, "type"    # Ljava/lang/Class;
     .param p3, "registration"    # Lcom/esotericsoftware/kryo/Registration;
@@ -1225,7 +1225,7 @@
 
     const-string v2, "kryo"
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4b
 
     .line 125
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToNameId:Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;
@@ -1238,12 +1238,12 @@
 
     .line 126
     .local v1, "nameId":I
-    if-eq v1, v3, :cond_1
+    if-eq v1, v3, :cond_4b
 
     .line 127
     sget-boolean v3, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_47
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1292,7 +1292,7 @@
     invoke-static {v2, v3}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 128
-    :cond_0
+    :cond_47
     invoke-virtual {p1, v1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
     .line 129
@@ -1300,10 +1300,10 @@
 
     .line 133
     .end local v1    # "nameId":I
-    :cond_1
+    :cond_4b
     sget-boolean v1, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_75
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1342,7 +1342,7 @@
     invoke-static {v2, v1}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 134
-    :cond_2
+    :cond_75
     iget v1, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->nextNameId:I
 
     add-int/lit8 v2, v1, 0x1
@@ -1353,7 +1353,7 @@
     .restart local v1    # "nameId":I
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToNameId:Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_86
 
     new-instance v2, Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;
 
@@ -1362,7 +1362,7 @@
     iput-object v2, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToNameId:Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;
 
     .line 136
-    :cond_3
+    :cond_86
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/DefaultClassResolver;->classToNameId:Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;
 
     invoke-virtual {v2, p2, v1}, Lcom/esotericsoftware/kryo/util/IdentityObjectIntMap;->put(Ljava/lang/Object;I)V
@@ -1375,7 +1375,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_9c
 
     .line 139
     invoke-virtual {p2}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -1384,10 +1384,10 @@
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeAscii(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_a3
 
     .line 141
-    :cond_4
+    :cond_9c
     invoke-virtual {p2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v0
@@ -1395,6 +1395,6 @@
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
     .line 142
-    :goto_0
+    :goto_a3
     return-void
 .end method

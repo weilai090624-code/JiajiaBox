@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method casListeners(Landroidx/work/impl/utils/futures/AbstractFuture;Landroidx/work/impl/utils/futures/AbstractFuture$Listener;Landroidx/work/impl/utils/futures/AbstractFuture$Listener;)Z
-    .locals 1
+    .registers 5
     .param p2, "expect"    # Landroidx/work/impl/utils/futures/AbstractFuture$Listener;
     .param p3, "update"    # Landroidx/work/impl/utils/futures/AbstractFuture$Listener;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -188,7 +188,7 @@
 .end method
 
 .method casValue(Landroidx/work/impl/utils/futures/AbstractFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .param p2, "expect"    # Ljava/lang/Object;
     .param p3, "update"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -227,7 +227,7 @@
 .end method
 
 .method casWaiters(Landroidx/work/impl/utils/futures/AbstractFuture;Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;)Z
-    .locals 1
+    .registers 5
     .param p2, "expect"    # Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;
     .param p3, "update"    # Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -266,7 +266,7 @@
 .end method
 
 .method putNext(Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;)V
-    .locals 1
+    .registers 4
     .param p1, "waiter"    # Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;
     .param p2, "newValue"    # Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -290,7 +290,7 @@
 .end method
 
 .method putThread(Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;Ljava/lang/Thread;)V
-    .locals 1
+    .registers 4
     .param p1, "waiter"    # Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;
     .param p2, "newValue"    # Ljava/lang/Thread;
     .annotation system Ldalvik/annotation/MethodParameters;

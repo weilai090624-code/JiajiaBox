@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/MoreExecutors$Application;Ljava/util/concurrent/ExecutorService;JLjava/util/concurrent/TimeUnit;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/MoreExecutors$Application;
 
     .line 206
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 215
     :try_start_0
@@ -61,17 +61,17 @@
     iget-object v3, p0, Lcom/google/common/util/concurrent/MoreExecutors$Application$1;->val$timeUnit:Ljava/util/concurrent/TimeUnit;
 
     invoke-interface {v0, v1, v2, v3}, Ljava/util/concurrent/ExecutorService;->awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_e} :catch_f
 
     .line 219
-    goto :goto_0
+    goto :goto_10
 
     .line 217
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 220
-    :goto_0
+    :goto_10
     return-void
 .end method

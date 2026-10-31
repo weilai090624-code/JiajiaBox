@@ -17,7 +17,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$smcalcSize(JJJ)J
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/SliceOps;->calcSize(JJJ)J
 
@@ -27,7 +27,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smcalcSliceFence(JJ)J
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lj$/util/stream/SliceOps;->calcSliceFence(JJ)J
 
@@ -37,7 +37,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smsliceSpliterator(Lj$/util/stream/StreamShape;Lj$/util/Spliterator;JJ)Lj$/util/Spliterator;
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/SliceOps;->sliceSpliterator(Lj$/util/stream/StreamShape;Lj$/util/Spliterator;JJ)Lj$/util/Spliterator;
 
@@ -47,14 +47,14 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     .line 37
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +63,7 @@
 .end method
 
 .method private static calcSize(JJJ)J
-    .locals 5
+    .registers 11
     .param p0, "size"    # J
     .param p2, "skip"    # J
     .param p4, "limit"    # J
@@ -75,7 +75,7 @@
 
     cmp-long v4, p0, v0
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_12
 
     sub-long v0, p0, p2
 
@@ -87,12 +87,12 @@
 
     move-result-wide v2
 
-    :cond_0
+    :cond_12
     return-wide v2
 .end method
 
 .method private static calcSliceFence(JJ)J
-    .locals 7
+    .registers 11
     .param p0, "skip"    # J
     .param p2, "limit"    # J
 
@@ -103,30 +103,30 @@
 
     cmp-long v4, p2, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_e
 
     add-long v4, p0, p2
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     move-wide v4, v0
 
     .line 67
     .local v4, "sliceFence":J
-    :goto_0
+    :goto_f
     cmp-long v6, v4, v2
 
-    if-ltz v6, :cond_1
+    if-ltz v6, :cond_14
 
     move-wide v0, v4
 
-    :cond_1
+    :cond_14
     return-wide v0
 .end method
 
 .method private static flags(J)I
-    .locals 4
+    .registers 6
     .param p0, "limit"    # J
 
     .line 544
@@ -136,23 +136,23 @@
 
     cmp-long v3, p0, v1
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_b
 
     sget v1, Lj$/util/stream/StreamOpFlag;->IS_SHORT_CIRCUIT:I
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     or-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public static makeDouble(Lj$/util/stream/AbstractPipeline;JJ)Lj$/util/stream/DoubleStream;
-    .locals 11
+    .registers 16
     .param p1, "skip"    # J
     .param p3, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -172,7 +172,7 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_16
 
     .line 448
     new-instance v0, Lj$/util/stream/SliceOps$4;
@@ -198,7 +198,7 @@
     return-object v0
 
     .line 446
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -225,7 +225,7 @@
 .end method
 
 .method public static makeInt(Lj$/util/stream/AbstractPipeline;JJ)Lj$/util/stream/IntStream;
-    .locals 11
+    .registers 16
     .param p1, "skip"    # J
     .param p3, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -245,7 +245,7 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_16
 
     .line 230
     new-instance v0, Lj$/util/stream/SliceOps$2;
@@ -271,7 +271,7 @@
     return-object v0
 
     .line 228
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -298,7 +298,7 @@
 .end method
 
 .method public static makeLong(Lj$/util/stream/AbstractPipeline;JJ)Lj$/util/stream/LongStream;
-    .locals 11
+    .registers 16
     .param p1, "skip"    # J
     .param p3, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -318,7 +318,7 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_16
 
     .line 339
     new-instance v0, Lj$/util/stream/SliceOps$3;
@@ -344,7 +344,7 @@
     return-object v0
 
     .line 337
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -371,7 +371,7 @@
 .end method
 
 .method public static makeRef(Lj$/util/stream/AbstractPipeline;JJ)Lj$/util/stream/Stream;
-    .locals 11
+    .registers 16
     .param p1, "skip"    # J
     .param p3, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -392,7 +392,7 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_16
 
     .line 114
     new-instance v0, Lj$/util/stream/SliceOps$1;
@@ -418,7 +418,7 @@
     return-object v0
 
     .line 112
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -445,7 +445,7 @@
 .end method
 
 .method private static sliceSpliterator(Lj$/util/stream/StreamShape;Lj$/util/Spliterator;JJ)Lj$/util/Spliterator;
-    .locals 9
+    .registers 15
     .param p0, "shape"    # Lj$/util/stream/StreamShape;
     .param p2, "skip"    # J
     .param p4, "limit"    # J
@@ -481,7 +481,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_58
 
     .line 95
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -509,7 +509,7 @@
     throw v0
 
     .line 92
-    :pswitch_0
+    :pswitch_29
     new-instance v8, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfDouble;
 
     move-object v1, p1
@@ -527,7 +527,7 @@
     return-object v8
 
     .line 89
-    :pswitch_1
+    :pswitch_35
     new-instance v8, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfLong;
 
     move-object v1, p1
@@ -545,7 +545,7 @@
     return-object v8
 
     .line 86
-    :pswitch_2
+    :pswitch_41
     new-instance v8, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfInt;
 
     move-object v1, p1
@@ -563,7 +563,7 @@
     return-object v8
 
     .line 83
-    :pswitch_3
+    :pswitch_4d
     new-instance v8, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;
 
     move-object v0, v8
@@ -580,11 +580,11 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_58
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4d
+        :pswitch_41
+        :pswitch_35
+        :pswitch_29
     .end packed-switch
 .end method

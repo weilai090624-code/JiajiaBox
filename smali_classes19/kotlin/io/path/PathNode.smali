@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/file/Path;Ljava/lang/Object;Lkotlin/io/path/PathNode;)V
-    .locals 1
+    .registers 5
     .param p1, "path"    # Ljava/nio/file/Path;
     .param p2, "key"    # Ljava/lang/Object;
     .param p3, "parent"    # Lkotlin/io/path/PathNode;
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public final getContentIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -101,7 +101,7 @@
 .end method
 
 .method public final getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 119
     iget-object v0, p0, Lkotlin/io/path/PathNode;->key:Ljava/lang/Object;
@@ -110,7 +110,7 @@
 .end method
 
 .method public final getParent()Lkotlin/io/path/PathNode;
-    .locals 1
+    .registers 2
 
     .line 119
     iget-object v0, p0, Lkotlin/io/path/PathNode;->parent:Lkotlin/io/path/PathNode;
@@ -119,7 +119,7 @@
 .end method
 
 .method public final getPath()Ljava/nio/file/Path;
-    .locals 1
+    .registers 2
 
     .line 119
     iget-object v0, p0, Lkotlin/io/path/PathNode;->path:Ljava/nio/file/Path;
@@ -128,7 +128,7 @@
 .end method
 
 .method public final setContentIterator(Ljava/util/Iterator;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/util/Iterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {

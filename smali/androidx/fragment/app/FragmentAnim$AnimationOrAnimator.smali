@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 191
@@ -37,13 +37,13 @@
     iput-object p1, p0, Landroidx/fragment/app/FragmentAnim$AnimationOrAnimator;->animator:Landroid/animation/Animator;
 
     .line 194
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 197
     return-void
 
     .line 195
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Animator cannot be null"
@@ -54,7 +54,7 @@
 .end method
 
 .method constructor <init>(Landroid/view/animation/Animation;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .line 183
@@ -69,13 +69,13 @@
     iput-object v0, p0, Landroidx/fragment/app/FragmentAnim$AnimationOrAnimator;->animator:Landroid/animation/Animator;
 
     .line 186
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 189
     return-void
 
     .line 187
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Animation cannot be null"

@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "$version"    # I
     .param p2, "$super_call_param$1"    # I
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public onCreate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -74,7 +74,7 @@
 .end method
 
 .method public onOpen(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 2
+    .registers 4
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -86,7 +86,7 @@
 
     const/4 v1, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_f
 
     .line 235
     iget v0, p0, Landroidx/room/SQLiteCopyOpenHelper$createFrameworkOpenHelper$configuration$1;->$version:I
@@ -94,12 +94,12 @@
     invoke-interface {p1, v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->setVersion(I)V
 
     .line 237
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public onUpgrade(Landroidx/sqlite/db/SupportSQLiteDatabase;II)V
-    .locals 1
+    .registers 5
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p2, "oldVersion"    # I
     .param p3, "newVersion"    # I

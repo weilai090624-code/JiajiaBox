@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 63
+    .registers 63
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/utils/EditorTheme;
 
@@ -1733,7 +1733,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -1744,7 +1744,7 @@
 
 # virtual methods
 .method public final getDARCULA()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 24
     sget-object v0, Lcom/blacksquircle/ui/editorkit/utils/EditorTheme;->DARCULA:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
@@ -1753,7 +1753,7 @@
 .end method
 
 .method public final getECLIPSE()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 264
     sget-object v0, Lcom/blacksquircle/ui/editorkit/utils/EditorTheme;->ECLIPSE:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
@@ -1762,7 +1762,7 @@
 .end method
 
 .method public final getINTELLIJ_LIGHT()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 204
     sget-object v0, Lcom/blacksquircle/ui/editorkit/utils/EditorTheme;->INTELLIJ_LIGHT:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
@@ -1771,7 +1771,7 @@
 .end method
 
 .method public final getLADIES_NIGHT()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 114
     sget-object v0, Lcom/blacksquircle/ui/editorkit/utils/EditorTheme;->LADIES_NIGHT:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
@@ -1780,7 +1780,7 @@
 .end method
 
 .method public final getMONOKAI()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 54
     sget-object v0, Lcom/blacksquircle/ui/editorkit/utils/EditorTheme;->MONOKAI:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
@@ -1789,7 +1789,7 @@
 .end method
 
 .method public final getOBSIDIAN()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 84
     sget-object v0, Lcom/blacksquircle/ui/editorkit/utils/EditorTheme;->OBSIDIAN:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
@@ -1798,7 +1798,7 @@
 .end method
 
 .method public final getSOLARIZED_LIGHT()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 234
     sget-object v0, Lcom/blacksquircle/ui/editorkit/utils/EditorTheme;->SOLARIZED_LIGHT:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
@@ -1807,7 +1807,7 @@
 .end method
 
 .method public final getTOMORROW_NIGHT()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 144
     sget-object v0, Lcom/blacksquircle/ui/editorkit/utils/EditorTheme;->TOMORROW_NIGHT:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
@@ -1816,7 +1816,7 @@
 .end method
 
 .method public final getVISUAL_STUDIO()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 174
     sget-object v0, Lcom/blacksquircle/ui/editorkit/utils/EditorTheme;->VISUAL_STUDIO:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;

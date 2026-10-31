@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 3
     .param p1, "s"    # Ljava/lang/String;
     .param p2, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/graphics/drawable/DrawableContainerCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/graphics/drawable/DrawableContainerCompat;
 
     .line 466
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 469
     iget-object v0, p0, Landroidx/appcompat/graphics/drawable/DrawableContainerCompat$1;->this$0:Landroidx/appcompat/graphics/drawable/DrawableContainerCompat;

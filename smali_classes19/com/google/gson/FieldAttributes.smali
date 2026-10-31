@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;)V
-    .locals 0
+    .registers 2
     .param p1, "f"    # Ljava/lang/reflect/Field;
 
     .line 44
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "instance"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -47,7 +47,7 @@
 .end method
 
 .method public getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -70,7 +70,7 @@
 .end method
 
 .method public getAnnotations()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -95,7 +95,7 @@
 .end method
 
 .method public getDeclaredClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -115,7 +115,7 @@
 .end method
 
 .method public getDeclaredType()Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 80
     iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
@@ -128,7 +128,7 @@
 .end method
 
 .method public getDeclaringClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -148,7 +148,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
@@ -161,7 +161,7 @@
 .end method
 
 .method public hasModifier(I)Z
-    .locals 1
+    .registers 3
     .param p1, "modifier"    # I
 
     .line 135
@@ -173,21 +173,21 @@
 
     and-int/2addr v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method isSynthetic()Z
-    .locals 1
+    .registers 2
 
     .line 159
     iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;

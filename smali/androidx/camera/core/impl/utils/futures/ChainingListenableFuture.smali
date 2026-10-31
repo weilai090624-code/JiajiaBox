@@ -64,7 +64,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/futures/AsyncFunction;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -131,7 +131,7 @@
 .end method
 
 .method private cancel(Ljava/util/concurrent/Future;Z)V
-    .locals 0
+    .registers 3
     .param p2, "mayInterruptIfRunning"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -155,18 +155,18 @@
     .line 177
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;, "Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture<TI;TO;>;"
     .local p1, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 178
     invoke-interface {p1, p2}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
     .line 180
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method private putUninterruptibly(Ljava/util/concurrent/BlockingQueue;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -196,15 +196,15 @@
 
     .line 283
     .local v0, "interrupted":Z
-    :goto_0
-    :try_start_0
+    :goto_1
+    :try_start_1
     invoke-interface {p1, p2}, Ljava/util/concurrent/BlockingQueue;->put(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_4} :catch_19
+    .catchall {:try_start_1 .. :try_end_4} :catchall_e
 
     .line 290
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 291
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -214,14 +214,14 @@
     invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
 
     .line 284
-    :cond_0
+    :cond_d
     return-void
 
     .line 290
-    :catchall_0
+    :catchall_e
     move-exception v1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 291
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -231,11 +231,11 @@
     invoke-virtual {v2}, Ljava/lang/Thread;->interrupt()V
 
     .line 293
-    :cond_1
+    :cond_18
     throw v1
 
     .line 285
-    :catch_0
+    :catch_19
     move-exception v1
 
     .line 286
@@ -244,11 +244,11 @@
 
     .line 287
     .end local v1    # "e":Ljava/lang/InterruptedException;
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private takeUninterruptibly(Ljava/util/concurrent/BlockingQueue;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -275,17 +275,17 @@
 
     .line 262
     .local v0, "interrupted":Z
-    :goto_0
-    :try_start_0
+    :goto_1
+    :try_start_1
     invoke-interface {p1}, Ljava/util/concurrent/BlockingQueue;->take()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_5} :catch_1a
+    .catchall {:try_start_1 .. :try_end_5} :catchall_f
 
     .line 268
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 269
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -295,14 +295,14 @@
     invoke-virtual {v2}, Ljava/lang/Thread;->interrupt()V
 
     .line 262
-    :cond_0
+    :cond_e
     return-object v1
 
     .line 268
-    :catchall_0
+    :catchall_f
     move-exception v1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 269
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -312,11 +312,11 @@
     invoke-virtual {v2}, Ljava/lang/Thread;->interrupt()V
 
     .line 271
-    :cond_1
+    :cond_19
     throw v1
 
     .line 263
-    :catch_0
+    :catch_1a
     move-exception v1
 
     .line 264
@@ -325,13 +325,13 @@
 
     .line 265
     .end local v1    # "e":Ljava/lang/InterruptedException;
-    goto :goto_0
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public cancel(Z)Z
-    .locals 2
+    .registers 4
     .param p1, "mayInterruptIfRunning"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -348,7 +348,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 167
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mMayInterruptIfRunningChannel:Ljava/util/concurrent/BlockingQueue;
@@ -375,14 +375,14 @@
     return v0
 
     .line 172
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TO;"
@@ -402,20 +402,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
     .line 85
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mInputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 86
     .local v0, "inputFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TI;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 87
     invoke-interface {v0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
 
     .line 93
-    :cond_0
+    :cond_d
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mOutputCreated:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->await()V
@@ -425,7 +425,7 @@
 
     .line 101
     .local v1, "outputFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TO;>;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     .line 102
     invoke-interface {v1}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
@@ -433,7 +433,7 @@
     .line 105
     .end local v0    # "inputFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TI;>;"
     .end local v1    # "outputFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TO;>;"
-    :cond_1
+    :cond_19
     invoke-super {p0}, Landroidx/camera/core/impl/utils/futures/FutureChain;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -442,7 +442,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 7
+    .registers 11
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -478,12 +478,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4d
 
     .line 120
     sget-object v0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
 
-    if-eq p3, v0, :cond_0
+    if-eq p3, v0, :cond_12
 
     .line 121
     sget-object v0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -496,14 +496,14 @@
     sget-object p3, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
 
     .line 129
-    :cond_0
+    :cond_12
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mInputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 130
     .local v0, "inputFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TI;>;"
     const-wide/16 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 131
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -529,7 +529,7 @@
 
     .line 139
     .end local v3    # "start":J
-    :cond_1
+    :cond_29
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v3
@@ -542,7 +542,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_47
 
     .line 143
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -562,16 +562,16 @@
 
     .line 151
     .local v1, "outputFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TO;>;"
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4d
 
     .line 152
     invoke-interface {v1, p1, p2, p3}, Lcom/google/common/util/concurrent/ListenableFuture;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 141
     .end local v1    # "outputFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TO;>;"
-    :cond_2
+    :cond_47
     new-instance v1, Ljava/util/concurrent/TimeoutException;
 
     invoke-direct {v1}, Ljava/util/concurrent/TimeoutException;-><init>()V
@@ -581,8 +581,8 @@
     .line 155
     .end local v0    # "inputFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TI;>;"
     .end local v3    # "start":J
-    :cond_3
-    :goto_0
+    :cond_4d
+    :goto_4d
     invoke-super {p0, p1, p2, p3}, Landroidx/camera/core/impl/utils/futures/FutureChain;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
     move-result-object v0
@@ -591,32 +591,32 @@
 .end method
 
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 187
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;, "Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture<TI;TO;>;"
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mInputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-static {v1}, Landroidx/camera/core/impl/utils/futures/Futures;->getUninterruptibly(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_4
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/reflect/UndeclaredThrowableException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_1 .. :try_end_7} :catch_58
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_1 .. :try_end_7} :catch_46
+    .catch Ljava/lang/reflect/UndeclaredThrowableException; {:try_start_1 .. :try_end_7} :catch_44
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_7} :catch_42
+    .catch Ljava/lang/Error; {:try_start_1 .. :try_end_7} :catch_40
+    .catchall {:try_start_1 .. :try_end_7} :catchall_3e
 
     .line 198
     .local v1, "sourceResult":Ljava/lang/Object;, "TI;"
     nop
 
     .line 200
-    :try_start_1
+    :try_start_8
     iget-object v2, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mFunction:Landroidx/camera/core/impl/utils/futures/AsyncFunction;
 
     .line 201
@@ -632,7 +632,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_31
 
     .line 208
     iget-object v3, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mMayInterruptIfRunningChannel:Ljava/util/concurrent/BlockingQueue;
@@ -651,11 +651,11 @@
 
     .line 209
     iput-object v0, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mOutputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
-    :try_end_1
-    .catch Ljava/lang/reflect/UndeclaredThrowableException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/Error; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_27
+    .catch Ljava/lang/reflect/UndeclaredThrowableException; {:try_start_8 .. :try_end_27} :catch_44
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_27} :catch_42
+    .catch Ljava/lang/Error; {:try_start_8 .. :try_end_27} :catch_40
+    .catchall {:try_start_8 .. :try_end_27} :catchall_3e
 
     .line 247
     iput-object v0, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mFunction:Landroidx/camera/core/impl/utils/futures/AsyncFunction;
@@ -672,8 +672,8 @@
     return-void
 
     .line 212
-    :cond_0
-    :try_start_2
+    :cond_31
+    :try_start_31
     new-instance v3, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture$1;
 
     invoke-direct {v3, p0, v2}, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture$1;-><init>(Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;Lcom/google/common/util/concurrent/ListenableFuture;)V
@@ -689,33 +689,33 @@
     .line 247
     .end local v1    # "sourceResult":Ljava/lang/Object;, "TI;"
     .end local v2    # "outputFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TO;>;"
-    goto :goto_2
+    goto :goto_70
 
-    :catchall_0
+    :catchall_3e
     move-exception v1
 
-    goto :goto_5
+    goto :goto_84
 
     .line 242
-    :catch_0
+    :catch_40
     move-exception v1
 
-    goto :goto_0
+    goto :goto_67
 
     .line 238
-    :catch_1
+    :catch_42
     move-exception v1
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 235
-    :catch_2
+    :catch_44
     move-exception v1
 
-    goto :goto_3
+    goto :goto_7a
 
     .line 194
-    :catch_3
+    :catch_46
     move-exception v1
 
     .line 196
@@ -725,11 +725,11 @@
     move-result-object v2
 
     invoke-virtual {p0, v2}, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->setException(Ljava/lang/Throwable;)Z
-    :try_end_2
-    .catch Ljava/lang/reflect/UndeclaredThrowableException; {:try_start_2 .. :try_end_2} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Ljava/lang/Error; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4e
+    .catch Ljava/lang/reflect/UndeclaredThrowableException; {:try_start_31 .. :try_end_4e} :catch_44
+    .catch Ljava/lang/Exception; {:try_start_31 .. :try_end_4e} :catch_42
+    .catch Ljava/lang/Error; {:try_start_31 .. :try_end_4e} :catch_40
+    .catchall {:try_start_31 .. :try_end_4e} :catchall_3e
 
     .line 247
     iput-object v0, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mFunction:Landroidx/camera/core/impl/utils/futures/AsyncFunction;
@@ -747,20 +747,20 @@
 
     .line 188
     .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
-    :catch_4
+    :catch_58
     move-exception v1
 
     .line 192
     .local v1, "e":Ljava/util/concurrent/CancellationException;
     const/4 v2, 0x0
 
-    :try_start_3
+    :try_start_5a
     invoke-virtual {p0, v2}, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->cancel(Z)Z
-    :try_end_3
-    .catch Ljava/lang/reflect/UndeclaredThrowableException; {:try_start_3 .. :try_end_3} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
-    .catch Ljava/lang/Error; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_5d
+    .catch Ljava/lang/reflect/UndeclaredThrowableException; {:try_start_5a .. :try_end_5d} :catch_44
+    .catch Ljava/lang/Exception; {:try_start_5a .. :try_end_5d} :catch_42
+    .catch Ljava/lang/Error; {:try_start_5a .. :try_end_5d} :catch_40
+    .catchall {:try_start_5a .. :try_end_5d} :catchall_3e
 
     .line 247
     iput-object v0, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mFunction:Landroidx/camera/core/impl/utils/futures/AsyncFunction;
@@ -778,28 +778,28 @@
 
     .line 244
     .local v1, "e":Ljava/lang/Error;
-    :goto_0
-    :try_start_4
+    :goto_67
+    :try_start_67
     invoke-virtual {p0, v1}, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->setException(Ljava/lang/Throwable;)Z
 
     .line 247
     nop
 
     .end local v1    # "e":Ljava/lang/Error;
-    goto :goto_2
+    goto :goto_70
 
     .line 241
     .local v1, "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_6c
     invoke-virtual {p0, v1}, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->setException(Ljava/lang/Throwable;)Z
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_6f
+    .catchall {:try_start_67 .. :try_end_6f} :catchall_3e
 
     .line 247
     nop
 
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_70
     iput-object v0, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mFunction:Landroidx/camera/core/impl/utils/futures/AsyncFunction;
 
     .line 248
@@ -811,32 +811,32 @@
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     .line 251
-    goto :goto_4
+    goto :goto_83
 
     .line 237
     .local v1, "e":Ljava/lang/reflect/UndeclaredThrowableException;
-    :goto_3
-    :try_start_5
+    :goto_7a
+    :try_start_7a
     invoke-virtual {v1}, Ljava/lang/reflect/UndeclaredThrowableException;->getCause()Ljava/lang/Throwable;
 
     move-result-object v2
 
     invoke-virtual {p0, v2}, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->setException(Ljava/lang/Throwable;)Z
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_81
+    .catchall {:try_start_7a .. :try_end_81} :catchall_3e
 
     .line 247
     nop
 
     .end local v1    # "e":Ljava/lang/reflect/UndeclaredThrowableException;
-    goto :goto_2
+    goto :goto_70
 
     .line 252
-    :goto_4
+    :goto_83
     return-void
 
     .line 247
-    :goto_5
+    :goto_84
     iput-object v0, p0, Landroidx/camera/core/impl/utils/futures/ChainingListenableFuture;->mFunction:Landroidx/camera/core/impl/utils/futures/AsyncFunction;
 
     .line 248

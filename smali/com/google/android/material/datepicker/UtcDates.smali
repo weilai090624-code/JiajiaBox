@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 40
     new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
@@ -32,7 +32,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 .end method
 
 .method static canonicalYearMonthDay(J)J
-    .locals 4
+    .registers 6
     .param p0, "rawDate"    # J
 
     .line 130
@@ -68,7 +68,7 @@
 .end method
 
 .method private static findCharactersInDateFormatPattern(Ljava/lang/String;Ljava/lang/String;II)I
-    .locals 3
+    .registers 7
     .param p0, "pattern"    # Ljava/lang/String;
     .param p1, "characterSequence"    # Ljava/lang/String;
     .param p2, "increment"    # I
@@ -79,14 +79,14 @@
 
     .line 267
     .local v0, "position":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_1
+    if-ltz v0, :cond_2f
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2f
 
     .line 268
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
@@ -99,7 +99,7 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_2f
 
     .line 271
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
@@ -108,45 +108,45 @@
 
     const/16 v2, 0x27
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_2d
 
     .line 272
     add-int/2addr v0, p2
 
     .line 273
-    :goto_1
-    if-ltz v0, :cond_0
+    :goto_1d
+    if-ltz v0, :cond_2d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_2d
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_2d
 
     .line 274
     add-int/2addr v0, p2
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 278
-    :cond_0
+    :cond_2d
     add-int/2addr v0, p2
 
-    goto :goto_0
+    goto :goto_1
 
     .line 281
-    :cond_1
+    :cond_2f
     return v0
 .end method
 
 .method static getAbbrMonthDayFormat(Ljava/util/Locale;)Landroid/icu/text/DateFormat;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 193
@@ -160,7 +160,7 @@
 .end method
 
 .method static getAbbrMonthWeekdayDayFormat(Ljava/util/Locale;)Landroid/icu/text/DateFormat;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 198
@@ -174,7 +174,7 @@
 .end method
 
 .method private static getAndroidFormat(Ljava/lang/String;Ljava/util/Locale;)Landroid/icu/text/DateFormat;
-    .locals 2
+    .registers 4
     .param p0, "pattern"    # Ljava/lang/String;
     .param p1, "locale"    # Ljava/util/Locale;
 
@@ -199,7 +199,7 @@
 .end method
 
 .method static getDayCopy(Ljava/util/Calendar;)Ljava/util/Calendar;
-    .locals 5
+    .registers 6
     .param p0, "rawCalendar"    # Ljava/util/Calendar;
 
     .line 113
@@ -246,7 +246,7 @@
 .end method
 
 .method static getDefaultTextInputFormat()Ljava/text/SimpleDateFormat;
-    .locals 3
+    .registers 3
 
     .line 151
     nop
@@ -306,7 +306,7 @@
 .end method
 
 .method static getDefaultTextInputHint(Landroid/content/res/Resources;Ljava/text/SimpleDateFormat;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "format"    # Ljava/text/SimpleDateFormat;
 
@@ -357,7 +357,7 @@
 
     const-string/jumbo v6, "y"
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_2f
 
     .line 170
     const-string/jumbo v4, "yyyy"
@@ -367,7 +367,7 @@
     move-result-object v0
 
     .line 173
-    :cond_0
+    :cond_2f
     const-string v4, "d"
 
     invoke-virtual {v0, v4, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
@@ -388,7 +388,7 @@
 .end method
 
 .method private static getFormat(ILjava/util/Locale;)Ljava/text/DateFormat;
-    .locals 2
+    .registers 4
     .param p0, "style"    # I
     .param p1, "locale"    # Ljava/util/Locale;
 
@@ -410,7 +410,7 @@
 .end method
 
 .method static getFullFormat()Ljava/text/DateFormat;
-    .locals 1
+    .registers 1
 
     .line 225
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -425,7 +425,7 @@
 .end method
 
 .method static getFullFormat(Ljava/util/Locale;)Ljava/text/DateFormat;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 229
@@ -439,7 +439,7 @@
 .end method
 
 .method static getMediumFormat()Ljava/text/DateFormat;
-    .locals 1
+    .registers 1
 
     .line 207
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -454,7 +454,7 @@
 .end method
 
 .method static getMediumFormat(Ljava/util/Locale;)Ljava/text/DateFormat;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 211
@@ -468,7 +468,7 @@
 .end method
 
 .method static getMediumNoYear()Ljava/text/DateFormat;
-    .locals 1
+    .registers 1
 
     .line 215
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -483,7 +483,7 @@
 .end method
 
 .method static getMediumNoYear(Ljava/util/Locale;)Ljava/text/DateFormat;
-    .locals 2
+    .registers 3
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 219
@@ -510,7 +510,7 @@
 .end method
 
 .method static getSimpleFormat(Ljava/lang/String;)Ljava/text/SimpleDateFormat;
-    .locals 1
+    .registers 2
     .param p0, "pattern"    # Ljava/lang/String;
 
     .line 177
@@ -526,7 +526,7 @@
 .end method
 
 .method private static getSimpleFormat(Ljava/lang/String;Ljava/util/Locale;)Ljava/text/SimpleDateFormat;
-    .locals 2
+    .registers 4
     .param p0, "pattern"    # Ljava/lang/String;
     .param p1, "locale"    # Ljava/util/Locale;
 
@@ -548,7 +548,7 @@
 .end method
 
 .method static getTimeSource()Lcom/google/android/material/datepicker/TimeSource;
-    .locals 2
+    .registers 2
 
     .line 47
     sget-object v0, Lcom/google/android/material/datepicker/UtcDates;->timeSourceRef:Ljava/util/concurrent/atomic/AtomicReference;
@@ -561,23 +561,23 @@
 
     .line 48
     .local v0, "timeSource":Lcom/google/android/material/datepicker/TimeSource;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/google/android/material/datepicker/TimeSource;->system()Lcom/google/android/material/datepicker/TimeSource;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move-object v1, v0
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method private static getTimeZone()Ljava/util/TimeZone;
-    .locals 1
+    .registers 1
 
     .line 54
     const-string v0, "UTC"
@@ -590,7 +590,7 @@
 .end method
 
 .method static getTodayCalendar()Ljava/util/Calendar;
-    .locals 3
+    .registers 3
 
     .line 66
     invoke-static {}, Lcom/google/android/material/datepicker/UtcDates;->getTimeSource()Lcom/google/android/material/datepicker/TimeSource;
@@ -636,7 +636,7 @@
 .end method
 
 .method private static getUtcAndroidTimeZone()Landroid/icu/util/TimeZone;
-    .locals 1
+    .registers 1
 
     .line 59
     const-string v0, "UTC"
@@ -649,7 +649,7 @@
 .end method
 
 .method static getUtcCalendar()Ljava/util/Calendar;
-    .locals 1
+    .registers 1
 
     .line 83
     const/4 v0, 0x0
@@ -662,7 +662,7 @@
 .end method
 
 .method static getUtcCalendarOf(Ljava/util/Calendar;)Ljava/util/Calendar;
-    .locals 3
+    .registers 4
     .param p0, "rawCalendar"    # Ljava/util/Calendar;
 
     .line 95
@@ -676,15 +676,15 @@
 
     .line 96
     .local v0, "utc":Ljava/util/Calendar;
-    if-nez p0, :cond_0
+    if-nez p0, :cond_e
 
     .line 97
     invoke-virtual {v0}, Ljava/util/Calendar;->clear()V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 99
-    :cond_0
+    :cond_e
     invoke-virtual {p0}, Ljava/util/Calendar;->getTimeInMillis()J
 
     move-result-wide v1
@@ -692,12 +692,12 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
     .line 101
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method static getYearAbbrMonthDayFormat(Ljava/util/Locale;)Landroid/icu/text/DateFormat;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 188
@@ -711,7 +711,7 @@
 .end method
 
 .method static getYearAbbrMonthWeekdayDayFormat(Ljava/util/Locale;)Landroid/icu/text/DateFormat;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 203
@@ -725,7 +725,7 @@
 .end method
 
 .method private static removeYearFromDateFormatPattern(Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 8
     .param p0, "pattern"    # Ljava/lang/String;
 
     .line 234
@@ -747,13 +747,13 @@
 
     move-result v3
 
-    if-lt v1, v3, :cond_0
+    if-lt v1, v3, :cond_10
 
     .line 240
     return-object p0
 
     .line 243
-    :cond_0
+    :cond_10
     const-string v3, "EMd"
 
     .line 244
@@ -771,7 +771,7 @@
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_30
 
     .line 248
     new-instance v5, Ljava/lang/StringBuilder;
@@ -793,7 +793,7 @@
     move-result-object v3
 
     .line 251
-    :cond_1
+    :cond_30
     nop
 
     .line 252
@@ -828,7 +828,7 @@
 .end method
 
 .method static setTimeSource(Lcom/google/android/material/datepicker/TimeSource;)V
-    .locals 1
+    .registers 2
     .param p0, "timeSource"    # Lcom/google/android/material/datepicker/TimeSource;
 
     .line 43

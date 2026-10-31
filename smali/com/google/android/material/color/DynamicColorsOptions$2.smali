@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public onApplied(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 52

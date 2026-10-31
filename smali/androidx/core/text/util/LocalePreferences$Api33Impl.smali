@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 620
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getHourCycle(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 599
@@ -50,7 +50,7 @@
 .end method
 
 .method private static getHourCycleType(Landroid/icu/text/DateFormat$HourCycle;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "hourCycle"    # Landroid/icu/text/DateFormat$HourCycle;
 
     .line 606
@@ -62,7 +62,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1a
 
     .line 616
     const-string v0, ""
@@ -70,40 +70,40 @@
     return-object v0
 
     .line 614
-    :pswitch_0
+    :pswitch_e
     const-string v0, "h24"
 
     return-object v0
 
     .line 612
-    :pswitch_1
+    :pswitch_11
     const-string v0, "h23"
 
     return-object v0
 
     .line 610
-    :pswitch_2
+    :pswitch_14
     const-string v0, "h12"
 
     return-object v0
 
     .line 608
-    :pswitch_3
+    :pswitch_17
     const-string v0, "h11"
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_1a
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_17
+        :pswitch_14
+        :pswitch_11
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method static getResolvedTemperatureUnit(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 585
@@ -158,12 +158,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_30
 
     .line 591
     return-object v2
 
     .line 593
-    :cond_0
+    :cond_30
     return-object v1
 .end method

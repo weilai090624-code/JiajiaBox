@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableList;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method readResolve()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 819
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$SerializedForm;, "Lcom/google/common/collect/ImmutableRangeSet$SerializedForm<TC;>;"
@@ -76,7 +76,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 820
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->of()Lcom/google/common/collect/ImmutableRangeSet;
@@ -86,7 +86,7 @@
     return-object v0
 
     .line 821
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$SerializedForm;->ranges:Lcom/google/common/collect/ImmutableList;
 
     invoke-static {}, Lcom/google/common/collect/Range;->all()Lcom/google/common/collect/Range;
@@ -101,7 +101,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 822
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->all()Lcom/google/common/collect/ImmutableRangeSet;
@@ -111,7 +111,7 @@
     return-object v0
 
     .line 824
-    :cond_1
+    :cond_22
     new-instance v0, Lcom/google/common/collect/ImmutableRangeSet;
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet$SerializedForm;->ranges:Lcom/google/common/collect/ImmutableList;

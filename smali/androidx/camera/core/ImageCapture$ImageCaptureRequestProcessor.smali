@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>(ILandroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor$ImageCaptor;)V
-    .locals 1
+    .registers 4
     .param p1, "maxImages"    # I
     .param p2, "imageCaptor"    # Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor$ImageCaptor;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public cancelRequests(Ljava/lang/Throwable;)V
-    .locals 7
+    .registers 9
     .param p1, "throwable"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -131,7 +131,7 @@
     monitor-enter v0
 
     .line 1085
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequest:Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
 
     .line 1086
@@ -162,13 +162,13 @@
 
     .line 1091
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_3 .. :try_end_19} :catchall_49
 
     .line 1092
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2c
 
     .line 1093
     invoke-static {p1}, Landroidx/camera/core/ImageCapture;->getError(Ljava/lang/Throwable;)I
@@ -187,17 +187,17 @@
     invoke-interface {v3, v0}, Lcom/google/common/util/concurrent/ListenableFuture;->cancel(Z)Z
 
     .line 1097
-    :cond_0
+    :cond_2c
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_30
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_48
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -219,29 +219,29 @@
 
     .line 1099
     .end local v4    # "request":Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
-    goto :goto_0
+    goto :goto_30
 
     .line 1100
-    :cond_1
+    :cond_48
     return-void
 
     .line 1091
     .end local v1    # "currentRequest":Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
     .end local v2    # "pendingRequests":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/ImageCapture$ImageCaptureRequest;>;"
     .end local v3    # "currentRequestFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/camera/core/ImageProxy;>;"
-    :catchall_0
+    :catchall_49
     move-exception v1
 
-    :try_start_1
+    :try_start_4a
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4b
+    .catchall {:try_start_4a .. :try_end_4b} :catchall_49
 
     throw v1
 .end method
 
 .method public onImageClose(Landroidx/camera/core/ImageProxy;)V
-    .locals 2
+    .registers 4
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -258,7 +258,7 @@
     monitor-enter v0
 
     .line 1105
-    :try_start_0
+    :try_start_3
     iget v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mOutstandingImages:I
 
     add-int/lit8 v1, v1, -0x1
@@ -275,18 +275,18 @@
     return-void
 
     .line 1107
-    :catchall_0
+    :catchall_e
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_3 .. :try_end_10} :catchall_e
 
     throw v1
 .end method
 
 .method processNextRequest()V
-    .locals 5
+    .registers 6
 
     .line 1112
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mLock:Ljava/lang/Object;
@@ -294,10 +294,10 @@
     monitor-enter v0
 
     .line 1114
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequest:Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     .line 1115
     monitor-exit v0
@@ -305,12 +305,12 @@
     return-void
 
     .line 1119
-    :cond_0
+    :cond_9
     iget v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mOutstandingImages:I
 
     iget v2, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mMaxImages:I
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_18
 
     .line 1120
     const-string v1, "ImageCapture"
@@ -325,7 +325,7 @@
     return-void
 
     .line 1125
-    :cond_1
+    :cond_18
     iget-object v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mPendingRequests:Ljava/util/Deque;
 
     invoke-interface {v1}, Ljava/util/Deque;->poll()Ljava/lang/Object;
@@ -336,7 +336,7 @@
 
     .line 1126
     .local v1, "imageCaptureRequest":Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
-    if-nez v1, :cond_2
+    if-nez v1, :cond_24
 
     .line 1127
     monitor-exit v0
@@ -344,7 +344,7 @@
     return-void
 
     .line 1130
-    :cond_2
+    :cond_24
     iput-object v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequest:Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
 
     .line 1131
@@ -379,18 +379,18 @@
     return-void
 
     .line 1165
-    :catchall_0
+    :catchall_3e
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_40
+    .catchall {:try_start_3 .. :try_end_40} :catchall_3e
 
     throw v1
 .end method
 
 .method public sendRequest(Landroidx/camera/core/ImageCapture$ImageCaptureRequest;)V
-    .locals 9
+    .registers 11
     .param p1, "imageCaptureRequest"    # Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -407,7 +407,7 @@
     monitor-enter v0
 
     .line 1071
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mPendingRequests:Ljava/util/Deque;
 
     invoke-interface {v1, p1}, Ljava/util/Deque;->offer(Ljava/lang/Object;)Z
@@ -426,16 +426,16 @@
 
     const/4 v6, 0x0
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_16
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_17
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
@@ -475,12 +475,12 @@
     return-void
 
     .line 1076
-    :catchall_0
+    :catchall_38
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_3 .. :try_end_3a} :catchall_38
 
     throw v1
 .end method

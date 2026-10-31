@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 232
     new-instance v0, Lcom/google/android/material/progressindicator/DeterminateDrawable$1;
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;Lcom/google/android/material/progressindicator/DrawingDelegate;)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "baseSpec"    # Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
     .annotation system Ldalvik/annotation/Signature;
@@ -137,7 +137,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/progressindicator/DeterminateDrawable;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/DeterminateDrawable;
 
     .line 30
@@ -149,7 +149,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/progressindicator/DeterminateDrawable;F)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/DeterminateDrawable;
     .param p1, "x1"    # F
 
@@ -160,7 +160,7 @@
 .end method
 
 .method public static createCircularDrawable(Landroid/content/Context;Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;)Lcom/google/android/material/progressindicator/DeterminateDrawable;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "spec"    # Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
     .annotation system Ldalvik/annotation/Signature;
@@ -188,7 +188,7 @@
 .end method
 
 .method public static createLinearDrawable(Landroid/content/Context;Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;)Lcom/google/android/material/progressindicator/DeterminateDrawable;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "spec"    # Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;
     .annotation system Ldalvik/annotation/Signature;
@@ -216,7 +216,7 @@
 .end method
 
 .method private getIndicatorFraction()F
-    .locals 1
+    .registers 2
 
     .line 212
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -226,7 +226,7 @@
 .end method
 
 .method private setIndicatorFraction(F)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorFraction"    # F
 
     .line 216
@@ -243,7 +243,7 @@
 
 # virtual methods
 .method public addSpringAnimationEndListener(Landroidx/dynamicanimation/animation/DynamicAnimation$OnAnimationEndListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroidx/dynamicanimation/animation/DynamicAnimation$OnAnimationEndListener;
 
     .line 96
@@ -257,7 +257,7 @@
 .end method
 
 .method public bridge synthetic clearAnimationCallbacks()V
-    .locals 0
+    .registers 1
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -267,7 +267,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 9
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 190
@@ -286,24 +286,24 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_54
 
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/DeterminateDrawable;->isVisible()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_54
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->getClipBounds(Landroid/graphics/Rect;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
-    goto :goto_0
+    goto :goto_54
 
     .line 197
-    :cond_0
+    :cond_1c
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 198
@@ -370,13 +370,13 @@
 
     .line 194
     .end local v1    # "indicatorColor":I
-    :cond_1
-    :goto_0
+    :cond_54
+    :goto_54
     return-void
 .end method
 
 .method public bridge synthetic getAlpha()I
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -388,7 +388,7 @@
 .end method
 
 .method getDrawingDelegate()Lcom/google/android/material/progressindicator/DrawingDelegate;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -405,7 +405,7 @@
 .end method
 
 .method public getIntrinsicHeight()I
-    .locals 1
+    .registers 2
 
     .line 172
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -419,7 +419,7 @@
 .end method
 
 .method public getIntrinsicWidth()I
-    .locals 1
+    .registers 2
 
     .line 167
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -433,7 +433,7 @@
 .end method
 
 .method public bridge synthetic getOpacity()I
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -445,7 +445,7 @@
 .end method
 
 .method public bridge synthetic hideNow()Z
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -457,7 +457,7 @@
 .end method
 
 .method public bridge synthetic isHiding()Z
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -469,7 +469,7 @@
 .end method
 
 .method public bridge synthetic isRunning()Z
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -481,7 +481,7 @@
 .end method
 
 .method public bridge synthetic isShowing()Z
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -493,7 +493,7 @@
 .end method
 
 .method public jumpToCurrentState()V
-    .locals 2
+    .registers 3
 
     .line 143
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -519,7 +519,7 @@
 .end method
 
 .method protected onLevelChange(I)Z
-    .locals 3
+    .registers 5
     .param p1, "level"    # I
 
     .line 155
@@ -528,7 +528,7 @@
 
     const v1, 0x461c4000    # 10000.0f
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 156
     iget-object v0, p0, Lcom/google/android/material/progressindicator/DeterminateDrawable;->springAnimation:Landroidx/dynamicanimation/animation/SpringAnimation;
@@ -542,10 +542,10 @@
 
     invoke-direct {p0, v0}, Lcom/google/android/material/progressindicator/DeterminateDrawable;->setIndicatorFraction(F)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 159
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lcom/google/android/material/progressindicator/DeterminateDrawable;->springAnimation:Landroidx/dynamicanimation/animation/SpringAnimation;
 
     invoke-direct {p0}, Lcom/google/android/material/progressindicator/DeterminateDrawable;->getIndicatorFraction()F
@@ -564,14 +564,14 @@
     invoke-virtual {v0, v1}, Landroidx/dynamicanimation/animation/SpringAnimation;->animateToFinalPosition(F)V
 
     .line 162
-    :goto_0
+    :goto_23
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public bridge synthetic registerAnimationCallback(Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;)V
-    .locals 0
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -581,7 +581,7 @@
 .end method
 
 .method public removeSpringAnimationEndListener(Landroidx/dynamicanimation/animation/DynamicAnimation$OnAnimationEndListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroidx/dynamicanimation/animation/DynamicAnimation$OnAnimationEndListener;
 
     .line 101
@@ -595,7 +595,7 @@
 .end method
 
 .method public bridge synthetic setAlpha(I)V
-    .locals 0
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -605,7 +605,7 @@
 .end method
 
 .method public bridge synthetic setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 0
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -615,7 +615,7 @@
 .end method
 
 .method setDrawingDelegate(Lcom/google/android/material/progressindicator/DrawingDelegate;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -637,7 +637,7 @@
 .end method
 
 .method setLevelByFraction(F)V
-    .locals 1
+    .registers 3
     .param p1, "fraction"    # F
 
     .line 183
@@ -655,7 +655,7 @@
 .end method
 
 .method public bridge synthetic setVisible(ZZ)Z
-    .locals 0
+    .registers 3
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -667,7 +667,7 @@
 .end method
 
 .method public bridge synthetic setVisible(ZZZ)Z
-    .locals 0
+    .registers 4
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -679,7 +679,7 @@
 .end method
 
 .method setVisibleInternal(ZZZ)Z
-    .locals 4
+    .registers 8
     .param p1, "visible"    # Z
     .param p2, "restart"    # Z
     .param p3, "animate"    # Z
@@ -711,17 +711,17 @@
 
     cmpl-float v2, v1, v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_19
 
     .line 129
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/google/android/material/progressindicator/DeterminateDrawable;->skipAnimationOnLevelChange:Z
 
-    goto :goto_0
+    goto :goto_24
 
     .line 131
-    :cond_0
+    :cond_19
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/google/android/material/progressindicator/DeterminateDrawable;->skipAnimationOnLevelChange:Z
@@ -736,12 +736,12 @@
     invoke-virtual {v2, v3}, Landroidx/dynamicanimation/animation/SpringForce;->setStiffness(F)Landroidx/dynamicanimation/animation/SpringForce;
 
     .line 135
-    :goto_0
+    :goto_24
     return v0
 .end method
 
 .method public bridge synthetic start()V
-    .locals 0
+    .registers 1
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -751,7 +751,7 @@
 .end method
 
 .method public bridge synthetic stop()V
-    .locals 0
+    .registers 1
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"
@@ -761,7 +761,7 @@
 .end method
 
 .method public bridge synthetic unregisterAnimationCallback(Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;)Z
-    .locals 0
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/android/material/progressindicator/DeterminateDrawable;, "Lcom/google/android/material/progressindicator/DeterminateDrawable<TS;>;"

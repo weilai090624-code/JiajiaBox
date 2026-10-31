@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 292
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getScaledHorizontalScrollFactor(Landroid/view/ViewConfiguration;)F
-    .locals 1
+    .registers 2
     .param p0, "viewConfiguration"    # Landroid/view/ViewConfiguration;
 
     .line 298
@@ -38,7 +38,7 @@
 .end method
 
 .method static getScaledVerticalScrollFactor(Landroid/view/ViewConfiguration;)F
-    .locals 1
+    .registers 2
     .param p0, "viewConfiguration"    # Landroid/view/ViewConfiguration;
 
     .line 303

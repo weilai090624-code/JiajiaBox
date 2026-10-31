@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/Fragment;Landroidx/fragment/app/SpecialEffectsController;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/fragment/app/Fragment;
 
     .line 2918
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 2921
     iget-object v0, p0, Landroidx/fragment/app/Fragment$4;->val$controller:Landroidx/fragment/app/SpecialEffectsController;

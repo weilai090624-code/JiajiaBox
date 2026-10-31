@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/SuccessorsFunction;Ljava/util/Set;)V
-    .locals 0
+    .registers 3
 
     .line 386
     .local p1, "successorFunction":Lcom/google/common/graph/SuccessorsFunction;, "Lcom/google/common/graph/SuccessorsFunction<TN;>;"
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method visitNext(Ljava/util/Deque;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,12 +64,12 @@
 
     .line 391
     .local v0, "top":Ljava/util/Iterator;, "Ljava/util/Iterator<+TN;>;"
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1d
 
     .line 392
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -87,18 +87,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 403
     return-object v1
 
     .line 405
     .end local v1    # "element":Ljava/lang/Object;, "TN;"
-    :cond_0
-    goto :goto_0
+    :cond_1c
+    goto :goto_6
 
     .line 406
-    :cond_1
+    :cond_1d
     invoke-interface {p1}, Ljava/util/Deque;->removeFirst()Ljava/lang/Object;
 
     .line 407

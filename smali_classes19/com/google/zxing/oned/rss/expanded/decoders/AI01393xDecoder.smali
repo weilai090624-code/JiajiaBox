@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/zxing/common/BitArray;)V
-    .locals 0
+    .registers 2
     .param p1, "information"    # Lcom/google/zxing/common/BitArray;
 
     .line 42
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public parseInformation()Ljava/lang/String;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/NotFoundException;,
@@ -45,7 +45,7 @@
 
     const/16 v1, 0x30
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_65
 
     .line 51
     new-instance v0, Ljava/lang/StringBuilder;
@@ -110,22 +110,22 @@
 
     div-int/lit8 v3, v3, 0x64
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_43
 
     .line 65
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 67
-    :cond_0
+    :cond_43
     div-int/lit8 v3, v4, 0xa
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_4a
 
     .line 68
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 70
-    :cond_1
+    :cond_4a
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 72
@@ -164,7 +164,7 @@
     .end local v1    # "generalInformation":Lcom/google/zxing/oned/rss/expanded/decoders/DecodedInformation;
     .end local v2    # "lastAIdigit":I
     .end local v4    # "firstThreeDigits":I
-    :cond_2
+    :cond_65
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v0

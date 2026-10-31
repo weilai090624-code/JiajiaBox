@@ -74,7 +74,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     const/4 v0, 0x1
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "max"    # I
 
     .line 33
@@ -128,15 +128,15 @@
 .end method
 
 .method public static synthetic copy$default(Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;IILjava/lang/Object;)Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
-    .locals 0
+    .registers 4
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     iget p1, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;->max:I
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;->copy(I)Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
 
     move-result-object p0
@@ -147,7 +147,7 @@
 
 # virtual methods
 .method public final component1()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;->max:I
 
@@ -155,7 +155,7 @@
 .end method
 
 .method public final copy(I)Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
-    .locals 1
+    .registers 3
 
     new-instance v0, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
 
@@ -165,24 +165,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
@@ -191,16 +191,16 @@
 
     iget v1, v1, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;->max:I
 
-    if-eq v3, v1, :cond_2
+    if-eq v3, v1, :cond_14
 
     return v2
 
-    :cond_2
+    :cond_14
     return v0
 .end method
 
 .method public final getMax()I
-    .locals 1
+    .registers 2
 
     .line 34
     iget v0, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;->max:I
@@ -209,7 +209,7 @@
 .end method
 
 .method public final getProgress()I
-    .locals 3
+    .registers 4
 
     .line 36
     iget-object v0, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;->progress$delegate:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -228,7 +228,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;->max:I
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public final setMax(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 34
@@ -246,7 +246,7 @@
 .end method
 
 .method public final setProgress(I)V
-    .locals 3
+    .registers 5
     .param p1, "<set-?>"    # I
 
     .line 36
@@ -264,7 +264,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

@@ -55,7 +55,7 @@
 
 # direct methods
 .method public static final synthetic access$invokeSafely$FlowKt__EmittersKt(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/jvm/functions/Function3;Ljava/lang/Throwable;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p0, "$receiver"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p1, "action"    # Lkotlin/jvm/functions/Function3;
     .param p2, "cause"    # Ljava/lang/Throwable;
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final ensureActive(Lkotlinx/coroutines/flow/FlowCollector;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$ensureActive"    # Lkotlinx/coroutines/flow/FlowCollector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,13 +83,13 @@
     .line 202
     instance-of v0, p0, Lkotlinx/coroutines/flow/ThrowingCollector;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 203
     return-void
 
     .line 202
-    :cond_0
+    :cond_5
     move-object v0, p0
 
     check-cast v0, Lkotlinx/coroutines/flow/ThrowingCollector;
@@ -100,7 +100,7 @@
 .end method
 
 .method private static final invokeSafely$FlowKt__EmittersKt(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/jvm/functions/Function3;Ljava/lang/Throwable;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -131,7 +131,7 @@
 
     instance-of v0, p3, Lkotlinx/coroutines/flow/FlowKt__EmittersKt$invokeSafely$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p3
 
@@ -143,7 +143,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p3, v0, Lkotlinx/coroutines/flow/FlowKt__EmittersKt$invokeSafely$1;->label:I
 
@@ -151,14 +151,14 @@
 
     iput p3, v0, Lkotlinx/coroutines/flow/FlowKt__EmittersKt$invokeSafely$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__EmittersKt$invokeSafely$1;
 
     invoke-direct {v0, p3}, Lkotlinx/coroutines/flow/FlowKt__EmittersKt$invokeSafely$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p3, v0
 
     .local p3, "$continuation":Lkotlin/coroutines/Continuation;
@@ -172,7 +172,7 @@
     .line 211
     iget v2, p3, Lkotlinx/coroutines/flow/FlowKt__EmittersKt$invokeSafely$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_58
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p3    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -186,28 +186,28 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p3    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p0, p3, Lkotlinx/coroutines/flow/FlowKt__EmittersKt$invokeSafely$1;->L$0:Ljava/lang/Object;
 
     check-cast p0, Ljava/lang/Throwable;
 
     .local p0, "cause":Ljava/lang/Throwable;
-    :try_start_0
+    :try_start_31
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_34
+    .catchall {:try_start_31 .. :try_end_34} :catchall_35
 
-    goto :goto_1
+    goto :goto_48
 
     .line 217
-    :catchall_0
+    :catchall_35
     move-exception p1
 
-    goto :goto_2
+    goto :goto_4e
 
     .line 211
     .end local p0    # "cause":Ljava/lang/Throwable;
-    :pswitch_1
+    :pswitch_37
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 215
@@ -217,7 +217,7 @@
     nop
 
     .line 216
-    :try_start_1
+    :try_start_3b
     iput-object p2, p3, Lkotlinx/coroutines/flow/FlowKt__EmittersKt$invokeSafely$1;->L$0:Ljava/lang/Object;
 
     const/4 v2, 0x1
@@ -227,23 +227,23 @@
     invoke-interface {p1, p0, p2, p3}, Lkotlin/jvm/functions/Function3;->invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_44
+    .catchall {:try_start_3b .. :try_end_44} :catchall_4c
 
     .end local p0    # "$this$invokeSafely":Lkotlinx/coroutines/flow/FlowCollector;
     .end local p1    # "action":Lkotlin/jvm/functions/Function3;
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_47
 
     .line 211
     return-object v1
 
     .line 216
-    :cond_1
+    :cond_47
     move-object p0, p2
 
     .end local p2    # "cause":Ljava/lang/Throwable;
     .local p0, "cause":Ljava/lang/Throwable;
-    :goto_1
+    :goto_48
     nop
 
     .line 221
@@ -254,7 +254,7 @@
 
     .line 217
     .restart local p2    # "cause":Ljava/lang/Throwable;
-    :catchall_1
+    :catchall_4c
     move-exception p1
 
     move-object p0, p2
@@ -263,10 +263,10 @@
     .end local p2    # "cause":Ljava/lang/Throwable;
     .restart local p0    # "cause":Ljava/lang/Throwable;
     .local p1, "e":Ljava/lang/Throwable;
-    :goto_2
-    if-eqz p0, :cond_2
+    :goto_4e
+    if-eqz p0, :cond_57
 
-    if-eq p0, p1, :cond_2
+    if-eq p0, p1, :cond_57
 
     move-object p2, p1
 
@@ -281,18 +281,18 @@
     .end local v1    # "$i$f$addSuppressedThrowable":I
     .end local p0    # "cause":Ljava/lang/Throwable;
     .end local p2    # "$this$addSuppressedThrowable$iv":Ljava/lang/Throwable;
-    :cond_2
+    :cond_57
     throw p1
 
-    :pswitch_data_0
+    :pswitch_data_58
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_37
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final onCompletion(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$onCompletion"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -336,7 +336,7 @@
 .end method
 
 .method public static final onEmpty(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$onEmpty"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -378,7 +378,7 @@
 .end method
 
 .method public static final onStart(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$onStart"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -420,7 +420,7 @@
 .end method
 
 .method public static final transform(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 5
     .param p0, "$this$transform"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -468,7 +468,7 @@
 .end method
 
 .method public static final unsafeTransform(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 5
     .param p0, "$this$unsafeTransform"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;

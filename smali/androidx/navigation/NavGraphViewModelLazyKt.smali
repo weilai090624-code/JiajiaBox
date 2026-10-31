@@ -39,7 +39,7 @@
 
 # direct methods
 .method public static final synthetic access$navGraphViewModels$lambda-0(Lkotlin/Lazy;)Landroidx/navigation/NavBackStackEntry;
-    .locals 1
+    .registers 2
     .param p0, "$backStackEntry$delegate"    # Lkotlin/Lazy;
 
     .line 1
@@ -51,7 +51,7 @@
 .end method
 
 .method public static final synthetic access$navGraphViewModels$lambda-1(Lkotlin/Lazy;)Landroidx/navigation/NavBackStackEntry;
-    .locals 1
+    .registers 2
     .param p0, "$backStackEntry$delegate"    # Lkotlin/Lazy;
 
     .line 1
@@ -63,7 +63,7 @@
 .end method
 
 .method public static final synthetic access$navGraphViewModels$lambda-2(Lkotlin/Lazy;)Landroidx/navigation/NavBackStackEntry;
-    .locals 1
+    .registers 2
     .param p0, "$backStackEntry$delegate"    # Lkotlin/Lazy;
 
     .line 1
@@ -75,7 +75,7 @@
 .end method
 
 .method public static final synthetic access$navGraphViewModels$lambda-3(Lkotlin/Lazy;)Landroidx/navigation/NavBackStackEntry;
-    .locals 1
+    .registers 2
     .param p0, "$backStackEntry$delegate"    # Lkotlin/Lazy;
 
     .line 1
@@ -87,7 +87,7 @@
 .end method
 
 .method public static final synthetic navGraphViewModels(Landroidx/fragment/app/Fragment;ILkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 6
+    .registers 9
     .param p0, "$this$navGraphViewModels"    # Landroidx/fragment/app/Fragment;
     .param p1, "navGraphId"    # I
     .param p2, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
@@ -163,7 +163,7 @@
     check-cast v4, Lkotlin/jvm/functions/Function0;
 
     .line 72
-    if-nez p2, :cond_0
+    if-nez p2, :cond_36
 
     .line 69
     new-instance v5, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$2;
@@ -172,14 +172,14 @@
 
     check-cast v5, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_37
 
     .line 72
-    :cond_0
+    :cond_36
     move-object v5, p2
 
     .line 69
-    :goto_0
+    :goto_37
     invoke-static {p0, v3, v2, v4, v5}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v3
@@ -188,7 +188,7 @@
 .end method
 
 .method public static final synthetic navGraphViewModels(Landroidx/fragment/app/Fragment;ILkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 6
+    .registers 10
     .param p0, "$this$navGraphViewModels"    # Landroidx/fragment/app/Fragment;
     .param p1, "navGraphId"    # I
     .param p2, "extrasProducer"    # Lkotlin/jvm/functions/Function0;
@@ -264,7 +264,7 @@
     check-cast v4, Lkotlin/jvm/functions/Function0;
 
     .line 119
-    if-nez p3, :cond_0
+    if-nez p3, :cond_36
 
     .line 116
     new-instance v5, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$4;
@@ -273,14 +273,14 @@
 
     check-cast v5, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_37
 
     .line 119
-    :cond_0
+    :cond_36
     move-object v5, p3
 
     .line 116
-    :goto_0
+    :goto_37
     invoke-static {p0, v3, v2, v4, v5}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v3
@@ -289,7 +289,7 @@
 .end method
 
 .method public static final synthetic navGraphViewModels(Landroidx/fragment/app/Fragment;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 6
+    .registers 9
     .param p0, "$this$navGraphViewModels"    # Landroidx/fragment/app/Fragment;
     .param p1, "navGraphRoute"    # Ljava/lang/String;
     .param p2, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
@@ -369,7 +369,7 @@
     check-cast v4, Lkotlin/jvm/functions/Function0;
 
     .line 168
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3b
 
     .line 165
     new-instance v5, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$6;
@@ -378,14 +378,14 @@
 
     check-cast v5, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 168
-    :cond_0
+    :cond_3b
     move-object v5, p2
 
     .line 165
-    :goto_0
+    :goto_3c
     invoke-static {p0, v3, v2, v4, v5}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v3
@@ -394,7 +394,7 @@
 .end method
 
 .method public static final synthetic navGraphViewModels(Landroidx/fragment/app/Fragment;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 6
+    .registers 10
     .param p0, "$this$navGraphViewModels"    # Landroidx/fragment/app/Fragment;
     .param p1, "navGraphRoute"    # Ljava/lang/String;
     .param p2, "extrasProducer"    # Lkotlin/jvm/functions/Function0;
@@ -474,7 +474,7 @@
     check-cast v4, Lkotlin/jvm/functions/Function0;
 
     .line 217
-    if-nez p3, :cond_0
+    if-nez p3, :cond_3b
 
     .line 214
     new-instance v5, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$8;
@@ -483,14 +483,14 @@
 
     check-cast v5, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 217
-    :cond_0
+    :cond_3b
     move-object v5, p3
 
     .line 214
-    :goto_0
+    :goto_3c
     invoke-static {p0, v3, v2, v4, v5}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v3
@@ -499,7 +499,7 @@
 .end method
 
 .method public static synthetic navGraphViewModels$default(Landroidx/fragment/app/Fragment;ILkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
-    .locals 4
+    .registers 9
     .param p0, "$this$navGraphViewModels_u24default"    # Landroidx/fragment/app/Fragment;
     .param p1, "navGraphId"    # I
     .param p2, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
@@ -507,13 +507,13 @@
     .line 59
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 61
     const/4 p2, 0x0
 
     .line 59
-    :cond_0
+    :cond_5
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -565,7 +565,7 @@
     check-cast v2, Lkotlin/jvm/functions/Function0;
 
     .line 72
-    if-nez p2, :cond_1
+    if-nez p2, :cond_3b
 
     .line 69
     new-instance v3, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$2;
@@ -574,14 +574,14 @@
 
     check-cast v3, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 72
-    :cond_1
+    :cond_3b
     move-object v3, p2
 
     .line 69
-    :goto_0
+    :goto_3c
     invoke-static {p0, v1, v0, v2, v3}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v1
@@ -590,7 +590,7 @@
 .end method
 
 .method public static synthetic navGraphViewModels$default(Landroidx/fragment/app/Fragment;ILkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
-    .locals 4
+    .registers 10
     .param p0, "$this$navGraphViewModels_u24default"    # Landroidx/fragment/app/Fragment;
     .param p1, "navGraphId"    # I
     .param p2, "extrasProducer"    # Lkotlin/jvm/functions/Function0;
@@ -599,24 +599,24 @@
     .line 105
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 107
     const/4 p2, 0x0
 
     .line 105
-    :cond_0
+    :cond_5
     const/4 p5, 0x4
 
     and-int/2addr p4, p5
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     .line 108
     const/4 p3, 0x0
 
     .line 105
-    :cond_1
+    :cond_a
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -666,7 +666,7 @@
     check-cast v2, Lkotlin/jvm/functions/Function0;
 
     .line 119
-    if-nez p3, :cond_2
+    if-nez p3, :cond_3f
 
     .line 116
     new-instance v3, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$4;
@@ -675,14 +675,14 @@
 
     check-cast v3, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_40
 
     .line 119
-    :cond_2
+    :cond_3f
     move-object v3, p3
 
     .line 116
-    :goto_0
+    :goto_40
     invoke-static {p0, p5, v1, v2, v3}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object p5
@@ -691,7 +691,7 @@
 .end method
 
 .method public static synthetic navGraphViewModels$default(Landroidx/fragment/app/Fragment;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
-    .locals 4
+    .registers 9
     .param p0, "$this$navGraphViewModels_u24default"    # Landroidx/fragment/app/Fragment;
     .param p1, "navGraphRoute"    # Ljava/lang/String;
     .param p2, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
@@ -699,13 +699,13 @@
     .line 155
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 157
     const/4 p2, 0x0
 
     .line 155
-    :cond_0
+    :cond_5
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -761,7 +761,7 @@
     check-cast v2, Lkotlin/jvm/functions/Function0;
 
     .line 168
-    if-nez p2, :cond_1
+    if-nez p2, :cond_40
 
     .line 165
     new-instance v3, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$6;
@@ -770,14 +770,14 @@
 
     check-cast v3, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_41
 
     .line 168
-    :cond_1
+    :cond_40
     move-object v3, p2
 
     .line 165
-    :goto_0
+    :goto_41
     invoke-static {p0, v1, v0, v2, v3}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object v1
@@ -786,7 +786,7 @@
 .end method
 
 .method public static synthetic navGraphViewModels$default(Landroidx/fragment/app/Fragment;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
-    .locals 4
+    .registers 10
     .param p0, "$this$navGraphViewModels_u24default"    # Landroidx/fragment/app/Fragment;
     .param p1, "navGraphRoute"    # Ljava/lang/String;
     .param p2, "extrasProducer"    # Lkotlin/jvm/functions/Function0;
@@ -795,24 +795,24 @@
     .line 203
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 205
     const/4 p2, 0x0
 
     .line 203
-    :cond_0
+    :cond_5
     const/4 p5, 0x4
 
     and-int/2addr p4, p5
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     .line 206
     const/4 p3, 0x0
 
     .line 203
-    :cond_1
+    :cond_a
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -866,7 +866,7 @@
     check-cast v2, Lkotlin/jvm/functions/Function0;
 
     .line 217
-    if-nez p3, :cond_2
+    if-nez p3, :cond_44
 
     .line 214
     new-instance v3, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$8;
@@ -875,14 +875,14 @@
 
     check-cast v3, Lkotlin/jvm/functions/Function0;
 
-    goto :goto_0
+    goto :goto_45
 
     .line 217
-    :cond_2
+    :cond_44
     move-object v3, p3
 
     .line 214
-    :goto_0
+    :goto_45
     invoke-static {p0, p5, v1, v2, v3}, Landroidx/fragment/app/FragmentViewModelLazyKt;->createViewModelLazy(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object p5
@@ -891,7 +891,7 @@
 .end method
 
 .method private static final navGraphViewModels$lambda-0(Lkotlin/Lazy;)Landroidx/navigation/NavBackStackEntry;
-    .locals 1
+    .registers 2
     .param p0, "$backStackEntry$delegate"    # Lkotlin/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -914,7 +914,7 @@
 .end method
 
 .method private static final navGraphViewModels$lambda-1(Lkotlin/Lazy;)Landroidx/navigation/NavBackStackEntry;
-    .locals 1
+    .registers 2
     .param p0, "$backStackEntry$delegate"    # Lkotlin/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -937,7 +937,7 @@
 .end method
 
 .method private static final navGraphViewModels$lambda-2(Lkotlin/Lazy;)Landroidx/navigation/NavBackStackEntry;
-    .locals 1
+    .registers 2
     .param p0, "$backStackEntry$delegate"    # Lkotlin/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -960,7 +960,7 @@
 .end method
 
 .method private static final navGraphViewModels$lambda-3(Lkotlin/Lazy;)Landroidx/navigation/NavBackStackEntry;
-    .locals 1
+    .registers 2
     .param p0, "$backStackEntry$delegate"    # Lkotlin/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {

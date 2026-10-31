@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public static final checkRadix(I)I
-    .locals 5
+    .registers 6
     .param p0, "radix"    # I
 
     .line 318
@@ -81,22 +81,22 @@
 
     const/4 v1, 0x2
 
-    if-gt v1, p0, :cond_0
+    if-gt v1, p0, :cond_9
 
     const/16 v2, 0x25
 
-    if-ge p0, v2, :cond_0
+    if-ge p0, v2, :cond_9
 
     const/4 v0, 0x1
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_9
+    if-eqz v0, :cond_c
 
     .line 321
     return p0
 
     .line 319
-    :cond_1
+    :cond_c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -139,7 +139,7 @@
 .end method
 
 .method public static final digitOf(CI)I
-    .locals 1
+    .registers 3
     .param p0, "char"    # C
     .param p1, "radix"    # I
 
@@ -152,7 +152,7 @@
 .end method
 
 .method public static final getCategory(C)Lkotlin/text/CharCategory;
-    .locals 2
+    .registers 3
     .param p0, "$this$category"    # C
 
     .line 17
@@ -170,7 +170,7 @@
 .end method
 
 .method public static final getDirectionality(C)Lkotlin/text/CharDirectionality;
-    .locals 2
+    .registers 3
     .param p0, "$this$directionality"    # C
 
     .line 289
@@ -188,7 +188,7 @@
 .end method
 
 .method private static final isDefined(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isDefined"    # C
 
     .line 25
@@ -200,7 +200,7 @@
 .end method
 
 .method private static final isDigit(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isDigit"    # C
 
     .line 57
@@ -212,7 +212,7 @@
 .end method
 
 .method private static final isHighSurrogate(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isHighSurrogate"    # C
 
     .line 295
@@ -224,7 +224,7 @@
 .end method
 
 .method private static final isISOControl(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isISOControl"    # C
 
     .line 76
@@ -236,7 +236,7 @@
 .end method
 
 .method private static final isIdentifierIgnorable(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isIdentifierIgnorable"    # C
 
     .line 65
@@ -248,7 +248,7 @@
 .end method
 
 .method private static final isJavaIdentifierPart(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isJavaIdentifierPart"    # C
 
     .line 83
@@ -260,7 +260,7 @@
 .end method
 
 .method private static final isJavaIdentifierStart(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isJavaIdentifierStart"    # C
 
     .line 90
@@ -272,7 +272,7 @@
 .end method
 
 .method private static final isLetter(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isLetter"    # C
 
     .line 36
@@ -284,7 +284,7 @@
 .end method
 
 .method private static final isLetterOrDigit(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isLetterOrDigit"    # C
 
     .line 47
@@ -296,7 +296,7 @@
 .end method
 
 .method private static final isLowSurrogate(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isLowSurrogate"    # C
 
     .line 301
@@ -308,7 +308,7 @@
 .end method
 
 .method private static final isLowerCase(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isLowerCase"    # C
 
     .line 125
@@ -320,7 +320,7 @@
 .end method
 
 .method private static final isTitleCase(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isTitleCase"    # C
 
     .line 237
@@ -332,7 +332,7 @@
 .end method
 
 .method private static final isUpperCase(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isUpperCase"    # C
 
     .line 114
@@ -344,7 +344,7 @@
 .end method
 
 .method public static final isWhitespace(C)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isWhitespace"    # C
 
     .line 103
@@ -352,31 +352,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-static {p0}, Ljava/lang/Character;->isSpaceChar(C)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method private static final lowercase(C)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "$this$lowercase"    # C
 
     .line 213
@@ -402,7 +402,7 @@
 .end method
 
 .method public static final lowercase(CLjava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$lowercase"    # C
     .param p1, "locale"    # Ljava/util/Locale;
 
@@ -431,7 +431,7 @@
 .end method
 
 .method private static final lowercaseChar(C)C
-    .locals 1
+    .registers 2
     .param p0, "$this$lowercaseChar"    # C
 
     .line 198
@@ -443,7 +443,7 @@
 .end method
 
 .method public static final titlecase(CLjava/util/Locale;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0, "$this$titlecase"    # C
     .param p1, "locale"    # Ljava/util/Locale;
 
@@ -466,18 +466,18 @@
 
     const/4 v3, 0x1
 
-    if-le v1, v3, :cond_1
+    if-le v1, v3, :cond_49
 
     .line 278
     const/16 v1, 0x149
 
-    if-ne p0, v1, :cond_0
+    if-ne p0, v1, :cond_18
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_48
 
-    :cond_0
+    :cond_18
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
@@ -522,11 +522,11 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_48
     return-object v1
 
     .line 280
-    :cond_1
+    :cond_49
     invoke-static {p0}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
 
     move-result-object v1
@@ -547,13 +547,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_62
 
     .line 281
     return-object v0
 
     .line 283
-    :cond_2
+    :cond_62
     invoke-static {p0}, Ljava/lang/Character;->toTitleCase(C)C
 
     move-result v1
@@ -566,7 +566,7 @@
 .end method
 
 .method private static final titlecaseChar(C)C
-    .locals 1
+    .registers 2
     .param p0, "$this$titlecaseChar"    # C
 
     .line 261
@@ -578,7 +578,7 @@
 .end method
 
 .method private static final toLowerCase(C)C
-    .locals 1
+    .registers 2
     .param p0, "$this$toLowerCase"    # C
     .annotation runtime Lkotlin/Deprecated;
         message = "Use lowercaseChar() instead."
@@ -601,7 +601,7 @@
 .end method
 
 .method private static final toTitleCase(C)C
-    .locals 1
+    .registers 2
     .param p0, "$this$toTitleCase"    # C
     .annotation runtime Lkotlin/Deprecated;
         message = "Use titlecaseChar() instead."
@@ -624,7 +624,7 @@
 .end method
 
 .method private static final toUpperCase(C)C
-    .locals 1
+    .registers 2
     .param p0, "$this$toUpperCase"    # C
     .annotation runtime Lkotlin/Deprecated;
         message = "Use uppercaseChar() instead."
@@ -647,7 +647,7 @@
 .end method
 
 .method private static final uppercase(C)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "$this$uppercase"    # C
 
     .line 162
@@ -673,7 +673,7 @@
 .end method
 
 .method public static final uppercase(CLjava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$uppercase"    # C
     .param p1, "locale"    # Ljava/util/Locale;
 
@@ -702,7 +702,7 @@
 .end method
 
 .method private static final uppercaseChar(C)C
-    .locals 1
+    .registers 2
     .param p0, "$this$uppercaseChar"    # C
 
     .line 147

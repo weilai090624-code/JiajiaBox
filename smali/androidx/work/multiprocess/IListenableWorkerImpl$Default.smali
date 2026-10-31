@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 28
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method public interrupt([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -64,7 +64,7 @@
 .end method
 
 .method public startWork([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;

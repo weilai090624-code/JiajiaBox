@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/Futures$FutureCombiner;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/Futures$FutureCombiner;
 
     .line 727
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public bridge synthetic call()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -67,7 +67,7 @@
 .end method
 
 .method public call()Ljava/lang/Void;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

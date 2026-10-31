@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/Camera2CameraControlImpl;Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;Ljava/util/concurrent/Executor;)V
-    .locals 3
+    .registers 7
     .param p1, "camera2CameraControlImpl"    # Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
     .param p2, "cameraCharacteristics"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
@@ -137,7 +137,7 @@
 .end method
 
 .method private static createZoomImpl(Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)Landroidx/camera/camera2/internal/ZoomControl$ZoomImpl;
-    .locals 1
+    .registers 2
     .param p0, "cameraCharacteristics"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -153,7 +153,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 111
     new-instance v0, Landroidx/camera/camera2/internal/AndroidRZoomImpl;
@@ -163,7 +163,7 @@
     return-object v0
 
     .line 113
-    :cond_0
+    :cond_c
     new-instance v0, Landroidx/camera/camera2/internal/CropRegionZoomImpl;
 
     invoke-direct {v0, p0}, Landroidx/camera/camera2/internal/CropRegionZoomImpl;-><init>(Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)V
@@ -172,7 +172,7 @@
 .end method
 
 .method static getDefaultZoomState(Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)Landroidx/camera/core/ZoomState;
-    .locals 4
+    .registers 5
     .param p0, "cameraCharacteristics"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -217,7 +217,7 @@
 .end method
 
 .method private static isAndroidRZoomSupported(Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)Z
-    .locals 2
+    .registers 3
     .param p0, "cameraCharacteristics"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -233,7 +233,7 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_ZOOM_RATIO_RANGE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
@@ -241,21 +241,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method private submitCameraZoomRatio(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Landroidx/camera/core/ZoomState;)V
-    .locals 3
+    .registers 6
     .param p2, "zoomState"    # Landroidx/camera/core/ZoomState;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -283,7 +283,7 @@
     .local p1, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Ljava/lang/Void;>;"
     iget-boolean v0, p0, Landroidx/camera/camera2/internal/ZoomControl;->mIsActive:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_27
 
     .line 220
     iget-object v0, p0, Landroidx/camera/camera2/internal/ZoomControl;->mCurrentZoomState:Landroidx/camera/camera2/internal/ZoomStateImpl;
@@ -291,7 +291,7 @@
     monitor-enter v0
 
     .line 221
-    :try_start_0
+    :try_start_7
     iget-object v1, p0, Landroidx/camera/camera2/internal/ZoomControl;->mCurrentZoomState:Landroidx/camera/camera2/internal/ZoomStateImpl;
 
     const/high16 v2, 0x3f800000    # 1.0f
@@ -309,8 +309,8 @@
 
     .line 223
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_7 .. :try_end_16} :catchall_24
 
     .line 224
     invoke-direct {p0, p2}, Landroidx/camera/camera2/internal/ZoomControl;->updateLiveData(Landroidx/camera/core/ZoomState;)V
@@ -328,18 +328,18 @@
     return-void
 
     .line 223
-    :catchall_0
+    :catchall_24
     move-exception v1
 
-    :try_start_1
+    :try_start_25
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_26
+    .catchall {:try_start_25 .. :try_end_26} :catchall_24
 
     throw v1
 
     .line 229
-    :cond_0
+    :cond_27
     invoke-direct {p0, p2}, Landroidx/camera/camera2/internal/ZoomControl;->updateLiveData(Landroidx/camera/core/ZoomState;)V
 
     .line 231
@@ -361,7 +361,7 @@
 .end method
 
 .method private updateLiveData(Landroidx/camera/core/ZoomState;)V
-    .locals 2
+    .registers 4
     .param p1, "zoomState"    # Landroidx/camera/core/ZoomState;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -381,30 +381,30 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 277
     iget-object v0, p0, Landroidx/camera/camera2/internal/ZoomControl;->mZoomStateLiveData:Landroidx/lifecycle/MutableLiveData;
 
     invoke-virtual {v0, p1}, Landroidx/lifecycle/MutableLiveData;->setValue(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 279
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroidx/camera/camera2/internal/ZoomControl;->mZoomStateLiveData:Landroidx/lifecycle/MutableLiveData;
 
     invoke-virtual {v0, p1}, Landroidx/lifecycle/MutableLiveData;->postValue(Ljava/lang/Object;)V
 
     .line 281
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 
 # virtual methods
 .method addZoomOption(Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -425,7 +425,7 @@
 .end method
 
 .method getCropSensorRegion()Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
 
     .line 131
     iget-object v0, p0, Landroidx/camera/camera2/internal/ZoomControl;->mZoomImpl:Landroidx/camera/camera2/internal/ZoomControl$ZoomImpl;
@@ -438,7 +438,7 @@
 .end method
 
 .method getZoomState()Landroidx/lifecycle/LiveData;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -455,7 +455,7 @@
 .end method
 
 .method synthetic lambda$setLinearZoom$2$androidx-camera-camera2-internal-ZoomControl(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Landroidx/camera/core/ZoomState;)V
-    .locals 0
+    .registers 3
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .param p2, "zoomState"    # Landroidx/camera/core/ZoomState;
 
@@ -466,7 +466,7 @@
 .end method
 
 .method synthetic lambda$setLinearZoom$3$androidx-camera-camera2-internal-ZoomControl(Landroidx/camera/core/ZoomState;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "zoomState"    # Landroidx/camera/core/ZoomState;
     .param p2, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .annotation system Ldalvik/annotation/Throws;
@@ -491,7 +491,7 @@
 .end method
 
 .method synthetic lambda$setZoomRatio$0$androidx-camera-camera2-internal-ZoomControl(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Landroidx/camera/core/ZoomState;)V
-    .locals 0
+    .registers 3
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .param p2, "zoomState"    # Landroidx/camera/core/ZoomState;
 
@@ -502,7 +502,7 @@
 .end method
 
 .method synthetic lambda$setZoomRatio$1$androidx-camera-camera2-internal-ZoomControl(Landroidx/camera/core/ZoomState;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "zoomState"    # Landroidx/camera/core/ZoomState;
     .param p2, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .annotation system Ldalvik/annotation/Throws;
@@ -527,7 +527,7 @@
 .end method
 
 .method setActive(Z)V
-    .locals 3
+    .registers 5
     .param p1, "isActive"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -541,19 +541,19 @@
     .line 143
     iget-boolean v0, p0, Landroidx/camera/camera2/internal/ZoomControl;->mIsActive:Z
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 144
     return-void
 
     .line 147
-    :cond_0
+    :cond_5
     iput-boolean p1, p0, Landroidx/camera/camera2/internal/ZoomControl;->mIsActive:Z
 
     .line 149
     iget-boolean v0, p0, Landroidx/camera/camera2/internal/ZoomControl;->mIsActive:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2d
 
     .line 152
     iget-object v0, p0, Landroidx/camera/camera2/internal/ZoomControl;->mCurrentZoomState:Landroidx/camera/camera2/internal/ZoomStateImpl;
@@ -561,7 +561,7 @@
     monitor-enter v0
 
     .line 153
-    :try_start_0
+    :try_start_e
     iget-object v1, p0, Landroidx/camera/camera2/internal/ZoomControl;->mCurrentZoomState:Landroidx/camera/camera2/internal/ZoomStateImpl;
 
     const/high16 v2, 0x3f800000    # 1.0f
@@ -578,8 +578,8 @@
     .line 155
     .local v1, "zoomState":Landroidx/camera/core/ZoomState;
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_e .. :try_end_1c} :catchall_2a
 
     .line 156
     invoke-direct {p0, v1}, Landroidx/camera/camera2/internal/ZoomControl;->updateLiveData(Landroidx/camera/core/ZoomState;)V
@@ -594,28 +594,28 @@
 
     invoke-virtual {v0}, Landroidx/camera/camera2/internal/Camera2CameraControlImpl;->updateSessionConfigSynchronous()V
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 155
     .end local v1    # "zoomState":Landroidx/camera/core/ZoomState;
-    :catchall_0
+    :catchall_2a
     move-exception v1
 
-    :try_start_1
+    :try_start_2b
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_2b .. :try_end_2c} :catchall_2a
 
     throw v1
 
     .line 161
-    :cond_1
-    :goto_0
+    :cond_2d
+    :goto_2d
     return-void
 .end method
 
 .method setLinearZoom(F)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p1, "linearZoom"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -641,7 +641,7 @@
     monitor-enter v0
 
     .line 260
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/camera2/internal/ZoomControl;->mCurrentZoomState:Landroidx/camera/camera2/internal/ZoomStateImpl;
 
     invoke-virtual {v1, p1}, Landroidx/camera/camera2/internal/ZoomStateImpl;->setLinearZoom(F)V
@@ -652,19 +652,19 @@
     invoke-static {v1}, Landroidx/camera/core/internal/ImmutableZoomState;->create(Landroidx/camera/core/ZoomState;)Landroidx/camera/core/ZoomState;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_3 .. :try_end_e} :catch_1f
+    .catchall {:try_start_3 .. :try_end_e} :catchall_1d
 
     .line 264
     .local v1, "zoomState":Landroidx/camera/core/ZoomState;
     nop
 
     .line 265
-    :try_start_1
+    :try_start_f
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_10
+    .catchall {:try_start_f .. :try_end_10} :catchall_1d
 
     .line 267
     invoke-direct {p0, v1}, Landroidx/camera/camera2/internal/ZoomControl;->updateLiveData(Landroidx/camera/core/ZoomState;)V
@@ -682,18 +682,18 @@
 
     .line 265
     .end local v1    # "zoomState":Landroidx/camera/core/ZoomState;
-    :catchall_0
+    :catchall_1d
     move-exception v1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 262
-    :catch_0
+    :catch_1f
     move-exception v1
 
     .line 263
     .local v1, "e":Ljava/lang/IllegalArgumentException;
-    :try_start_2
+    :try_start_20
     invoke-static {v1}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFailedFuture(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v2
@@ -704,16 +704,16 @@
 
     .line 265
     .end local v1    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_26
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_27
+    .catchall {:try_start_20 .. :try_end_27} :catchall_1d
 
     throw v1
 .end method
 
 .method setZoomRatio(F)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p1, "ratio"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -739,7 +739,7 @@
     monitor-enter v0
 
     .line 195
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/camera2/internal/ZoomControl;->mCurrentZoomState:Landroidx/camera/camera2/internal/ZoomStateImpl;
 
     invoke-virtual {v1, p1}, Landroidx/camera/camera2/internal/ZoomStateImpl;->setZoomRatio(F)V
@@ -750,19 +750,19 @@
     invoke-static {v1}, Landroidx/camera/core/internal/ImmutableZoomState;->create(Landroidx/camera/core/ZoomState;)Landroidx/camera/core/ZoomState;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_3 .. :try_end_e} :catch_1f
+    .catchall {:try_start_3 .. :try_end_e} :catchall_1d
 
     .line 199
     .local v1, "zoomState":Landroidx/camera/core/ZoomState;
     nop
 
     .line 200
-    :try_start_1
+    :try_start_f
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_10
+    .catchall {:try_start_f .. :try_end_10} :catchall_1d
 
     .line 202
     invoke-direct {p0, v1}, Landroidx/camera/camera2/internal/ZoomControl;->updateLiveData(Landroidx/camera/core/ZoomState;)V
@@ -780,18 +780,18 @@
 
     .line 200
     .end local v1    # "zoomState":Landroidx/camera/core/ZoomState;
-    :catchall_0
+    :catchall_1d
     move-exception v1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 197
-    :catch_0
+    :catch_1f
     move-exception v1
 
     .line 198
     .local v1, "e":Ljava/lang/IllegalArgumentException;
-    :try_start_2
+    :try_start_20
     invoke-static {v1}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFailedFuture(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v2
@@ -802,10 +802,10 @@
 
     .line 200
     .end local v1    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_26
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_27
+    .catchall {:try_start_20 .. :try_end_27} :catchall_1d
 
     throw v1
 .end method

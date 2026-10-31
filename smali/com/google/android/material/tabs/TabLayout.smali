@@ -1188,14 +1188,14 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_40
 
     .line 1870
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->isLaidOut(Landroid/view/View;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_40
 
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayout;->slidingTabIndicator:Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;
 
@@ -1206,7 +1206,7 @@
 
     if-eqz v0, :cond_1a
 
-    goto :goto_3d
+    goto :goto_40
 
     .line 1878
     :cond_1a
@@ -1222,7 +1222,7 @@
 
     .line 1881
     .local v1, "targetScrollX":I
-    if-eq v0, v1, :cond_35
+    if-eq v0, v1, :cond_38
 
     .line 1882
     invoke-direct {p0}, Lcom/google/android/material/tabs/TabLayout;->ensureScrollAnimator()V
@@ -1240,10 +1240,11 @@
     iget-object v2, p0, Lcom/google/android/material/tabs/TabLayout;->scrollAnimator:Landroid/animation/ValueAnimator;
 
     invoke-static {v2}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v2}, Landroid/animation/ValueAnimator;->start()V
 
     .line 1889
-    :cond_35
+    :cond_38
     iget-object v2, p0, Lcom/google/android/material/tabs/TabLayout;->slidingTabIndicator:Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;
 
     iget v3, p0, Lcom/google/android/material/tabs/TabLayout;->tabIndicatorAnimationDuration:I
@@ -1256,8 +1257,8 @@
     .line 1874
     .end local v0    # "startScrollX":I
     .end local v1    # "targetScrollX":I
-    :cond_3d
-    :goto_3d
+    :cond_40
+    :goto_40
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v1, v0}, Lcom/google/android/material/tabs/TabLayout;->setScrollPosition(IFZ)V

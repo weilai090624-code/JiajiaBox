@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/SortedMap;Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -91,7 +91,7 @@
 .end method
 
 .method bridge synthetic createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 3030
     .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
@@ -103,7 +103,7 @@
 .end method
 
 .method createKeySet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -122,7 +122,7 @@
 .end method
 
 .method public firstKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -150,7 +150,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -184,7 +184,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 3030
     .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
@@ -196,7 +196,7 @@
 .end method
 
 .method public keySet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -217,7 +217,7 @@
 .end method
 
 .method public lastKey()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -235,7 +235,7 @@
 
     .line 3109
     .local v0, "headMap":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
 
     move-result-object v1
@@ -256,13 +256,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 3112
     return-object v1
 
     .line 3114
-    :cond_0
+    :cond_19
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->sortedMap()Ljava/util/SortedMap;
 
     move-result-object v2
@@ -273,11 +273,11 @@
 
     .line 3115
     .end local v1    # "key":Ljava/lang/Object;, "TK;"
-    goto :goto_0
+    goto :goto_4
 .end method
 
 .method sortedMap()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -296,7 +296,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -335,7 +335,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

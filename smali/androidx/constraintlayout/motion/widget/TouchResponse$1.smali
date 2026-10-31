@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/motion/widget/TouchResponse;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/constraintlayout/motion/widget/TouchResponse;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "motionEvent"    # Landroid/view/MotionEvent;
     .annotation system Ldalvik/annotation/MethodParameters;

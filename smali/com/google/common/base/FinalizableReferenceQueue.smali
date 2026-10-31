@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 134
     const-class v0, Lcom/google/common/base/FinalizableReferenceQueue;
@@ -117,7 +117,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 7
+    .registers 8
 
     .line 156
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -143,7 +143,7 @@
 
     .line 162
     .local v0, "threadStarted":Z
-    :try_start_0
+    :try_start_14
     sget-object v1, Lcom/google/common/base/FinalizableReferenceQueue;->startFinalizer:Ljava/lang/reflect/Method;
 
     iget-object v2, p0, Lcom/google/common/base/FinalizableReferenceQueue;->queue:Ljava/lang/ref/ReferenceQueue;
@@ -171,18 +171,18 @@
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_14 .. :try_end_2c} :catch_3b
+    .catchall {:try_start_14 .. :try_end_2c} :catchall_2e
 
     .line 163
     const/4 v0, 0x1
 
     .line 172
-    goto :goto_0
+    goto :goto_38
 
     .line 166
-    :catchall_0
+    :catchall_2e
     move-exception v1
 
     .line 167
@@ -197,14 +197,14 @@
 
     .line 174
     .end local v1    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_38
     iput-boolean v0, p0, Lcom/google/common/base/FinalizableReferenceQueue;->threadStarted:Z
 
     .line 175
     return-void
 
     .line 164
-    :catch_0
+    :catch_3b
     move-exception v1
 
     .line 165
@@ -217,7 +217,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 1
 
     .line 93
     sget-object v0, Lcom/google/common/base/FinalizableReferenceQueue;->logger:Ljava/util/logging/Logger;
@@ -226,7 +226,7 @@
 .end method
 
 .method static getStartFinalizer(Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -266,13 +266,13 @@
     invoke-virtual {p0, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_19} :catch_1a
 
     return-object v0
 
     .line 351
-    :catch_0
+    :catch_1a
     move-exception v0
 
     .line 352
@@ -285,7 +285,7 @@
 .end method
 
 .method private static varargs loadFinalizer([Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;)Ljava/lang/Class;
-    .locals 4
+    .registers 5
     .param p0, "loaders"    # [Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -302,8 +302,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_2
+    if-ge v1, v0, :cond_10
 
     aget-object v2, p0, v1
 
@@ -315,7 +315,7 @@
 
     .line 216
     .local v3, "finalizer":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
     .line 217
     return-object v3
@@ -323,13 +323,13 @@
     .line 214
     .end local v2    # "loader":Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;
     .end local v3    # "finalizer":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_0
+    :cond_d
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 221
-    :cond_1
+    :cond_10
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -340,19 +340,19 @@
 
 # virtual methods
 .method cleanUp()V
-    .locals 5
+    .registers 6
 
     .line 189
     iget-boolean v0, p0, Lcom/google/common/base/FinalizableReferenceQueue;->threadStarted:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 190
     return-void
 
     .line 194
-    :cond_0
-    :goto_0
+    :cond_5
+    :goto_5
     iget-object v0, p0, Lcom/google/common/base/FinalizableReferenceQueue;->queue:Ljava/lang/ref/ReferenceQueue;
 
     invoke-virtual {v0}, Ljava/lang/ref/ReferenceQueue;->poll()Ljava/lang/ref/Reference;
@@ -362,25 +362,25 @@
     move-object v1, v0
 
     .local v1, "reference":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<*>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 199
     invoke-virtual {v1}, Ljava/lang/ref/Reference;->clear()V
 
     .line 201
-    :try_start_0
+    :try_start_11
     move-object v0, v1
 
     check-cast v0, Lcom/google/common/base/FinalizableReference;
 
     invoke-interface {v0}, Lcom/google/common/base/FinalizableReference;->finalizeReferent()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_11 .. :try_end_17} :catchall_18
 
-    goto :goto_1
+    goto :goto_22
 
     .line 202
-    :catchall_0
+    :catchall_18
     move-exception v0
 
     .line 203
@@ -395,16 +395,16 @@
 
     .line 204
     .end local v0    # "t":Ljava/lang/Throwable;
-    :goto_1
-    goto :goto_0
+    :goto_22
+    goto :goto_5
 
     .line 206
-    :cond_1
+    :cond_23
     return-void
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 179
     iget-object v0, p0, Lcom/google/common/base/FinalizableReferenceQueue;->frqRef:Ljava/lang/ref/PhantomReference;

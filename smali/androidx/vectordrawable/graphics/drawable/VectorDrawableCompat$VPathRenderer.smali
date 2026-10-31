@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1170
     new-instance v0, Landroid/graphics/Matrix;
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1191
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -148,7 +148,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;)V
-    .locals 3
+    .registers 5
     .param p1, "copy"    # Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;
 
     .line 1216
@@ -262,7 +262,7 @@
     .line 1227
     iget-object v0, p1, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mRootName:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_67
 
     .line 1228
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mVGTargetsMap:Landroidx/collection/ArrayMap;
@@ -272,7 +272,7 @@
     invoke-virtual {v0, v1, p0}, Landroidx/collection/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1230
-    :cond_0
+    :cond_67
     iget-object v0, p1, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mIsStateful:Ljava/lang/Boolean;
 
     iput-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mIsStateful:Ljava/lang/Boolean;
@@ -282,7 +282,7 @@
 .end method
 
 .method private static cross(FFFF)F
-    .locals 2
+    .registers 6
     .param p0, "v1x"    # F
     .param p1, "v1y"    # F
     .param p2, "v2x"    # F
@@ -299,7 +299,7 @@
 .end method
 
 .method private drawGroupTree(Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;Landroid/graphics/Matrix;Landroid/graphics/Canvas;IILandroid/graphics/ColorFilter;)V
-    .locals 18
+    .registers 25
     .param p1, "currentGroup"    # Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;
     .param p2, "currentMatrix"    # Landroid/graphics/Matrix;
     .param p3, "canvas"    # Landroid/graphics/Canvas;
@@ -332,14 +332,14 @@
     move v9, v0
 
     .local v9, "i":I
-    :goto_0
+    :goto_15
     iget-object v0, v7, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-ge v9, v0, :cond_2
+    if-ge v9, v0, :cond_5a
 
     .line 1248
     iget-object v0, v7, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
@@ -356,7 +356,7 @@
     .local v10, "child":Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VObject;
     instance-of v0, v10, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3e
 
     .line 1250
     move-object v0, v10
@@ -382,13 +382,13 @@
     invoke-direct/range {v11 .. v17}, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->drawGroupTree(Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;Landroid/graphics/Matrix;Landroid/graphics/Canvas;IILandroid/graphics/ColorFilter;)V
 
     .end local v0    # "childGroup":Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;
-    goto :goto_1
+    goto :goto_56
 
     .line 1253
-    :cond_0
+    :cond_3e
     instance-of v0, v10, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPath;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_56
 
     .line 1254
     move-object v11, v10
@@ -413,24 +413,24 @@
 
     invoke-direct/range {v0 .. v6}, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->drawPath(Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPath;Landroid/graphics/Canvas;IILandroid/graphics/ColorFilter;)V
 
-    goto :goto_2
+    goto :goto_57
 
     .line 1253
     .end local v11    # "childPath":Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPath;
-    :cond_1
-    :goto_1
+    :cond_56
+    :goto_56
     nop
 
     .line 1247
     .end local v10    # "child":Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VObject;
-    :goto_2
+    :goto_57
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 1259
     .end local v9    # "i":I
-    :cond_2
+    :cond_5a
     invoke-virtual/range {p3 .. p3}, Landroid/graphics/Canvas;->restore()V
 
     .line 1260
@@ -438,7 +438,7 @@
 .end method
 
 .method private drawPath(Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPath;Landroid/graphics/Canvas;IILandroid/graphics/ColorFilter;)V
-    .locals 18
+    .registers 25
     .param p1, "vGroup"    # Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;
     .param p2, "vPath"    # Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPath;
     .param p3, "canvas"    # Landroid/graphics/Canvas;
@@ -507,13 +507,13 @@
 
     cmpl-float v13, v11, v12
 
-    if-nez v13, :cond_0
+    if-nez v13, :cond_30
 
     .line 1281
     return-void
 
     .line 1283
-    :cond_0
+    :cond_30
     iget-object v13, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {v1, v13}, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPath;->toPath(Landroid/graphics/Path;)V
@@ -532,23 +532,23 @@
 
     move-result v14
 
-    if-eqz v14, :cond_2
+    if-eqz v14, :cond_60
 
     .line 1289
     iget-object v12, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mRenderPath:Landroid/graphics/Path;
 
     iget v14, v1, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPath;->mFillRule:I
 
-    if-nez v14, :cond_1
+    if-nez v14, :cond_4b
 
     sget-object v14, Landroid/graphics/Path$FillType;->WINDING:Landroid/graphics/Path$FillType;
 
-    goto :goto_0
+    goto :goto_4d
 
-    :cond_1
+    :cond_4b
     sget-object v14, Landroid/graphics/Path$FillType;->EVEN_ODD:Landroid/graphics/Path$FillType;
 
-    :goto_0
+    :goto_4d
     invoke-virtual {v12, v14}, Landroid/graphics/Path;->setFillType(Landroid/graphics/Path$FillType;)V
 
     .line 1291
@@ -565,10 +565,10 @@
 
     move/from16 v16, v5
 
-    goto/16 :goto_7
+    goto/16 :goto_1b1
 
     .line 1294
-    :cond_2
+    :cond_60
     move-object v14, v1
 
     check-cast v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;
@@ -581,24 +581,24 @@
 
     cmpl-float v15, v15, v12
 
-    if-nez v15, :cond_4
+    if-nez v15, :cond_75
 
     iget v15, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mTrimPathEnd:F
 
     cmpl-float v15, v15, v16
 
-    if-eqz v15, :cond_3
+    if-eqz v15, :cond_72
 
-    goto :goto_1
+    goto :goto_75
 
-    :cond_3
+    :cond_72
     move/from16 v16, v5
 
-    goto :goto_3
+    goto :goto_c4
 
     .line 1296
-    :cond_4
-    :goto_1
+    :cond_75
+    :goto_75
     iget v15, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mTrimPathStart:F
 
     iget v12, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mTrimPathOffset:F
@@ -621,7 +621,7 @@
     .local v12, "end":F
     iget-object v1, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mPathMeasure:Landroid/graphics/PathMeasure;
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_8e
 
     .line 1300
     new-instance v1, Landroid/graphics/PathMeasure;
@@ -631,7 +631,7 @@
     iput-object v1, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mPathMeasure:Landroid/graphics/PathMeasure;
 
     .line 1302
-    :cond_5
+    :cond_8e
     iget-object v1, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mPathMeasure:Landroid/graphics/PathMeasure;
 
     iget-object v4, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mPath:Landroid/graphics/Path;
@@ -664,7 +664,7 @@
     .line 1308
     cmpl-float v4, v15, v12
 
-    if-lez v4, :cond_6
+    if-lez v4, :cond_b8
 
     .line 1309
     iget-object v4, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mPathMeasure:Landroid/graphics/PathMeasure;
@@ -684,12 +684,12 @@
     .local v17, "len":F
     invoke-virtual {v4, v1, v12, v13, v5}, Landroid/graphics/PathMeasure;->getSegment(FFLandroid/graphics/Path;Z)Z
 
-    goto :goto_2
+    goto :goto_c1
 
     .line 1312
     .end local v17    # "len":F
     .restart local v1    # "len":F
-    :cond_6
+    :cond_b8
     move/from16 v17, v1
 
     const/4 v1, 0x0
@@ -703,14 +703,14 @@
     invoke-virtual {v4, v15, v12, v13, v5}, Landroid/graphics/PathMeasure;->getSegment(FFLandroid/graphics/Path;Z)Z
 
     .line 1314
-    :goto_2
+    :goto_c1
     invoke-virtual {v13, v1, v1}, Landroid/graphics/Path;->rLineTo(FF)V
 
     .line 1316
     .end local v12    # "end":F
     .end local v15    # "start":F
     .end local v17    # "len":F
-    :goto_3
+    :goto_c4
     iget-object v1, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mRenderPath:Landroid/graphics/Path;
 
     iget-object v4, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mFinalPathMatrix:Landroid/graphics/Matrix;
@@ -726,7 +726,7 @@
 
     const/high16 v4, 0x437f0000    # 255.0f
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_136
 
     .line 1319
     iget-object v1, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mFillColor:Landroidx/core/content/res/ComplexColorCompat;
@@ -735,7 +735,7 @@
     .local v1, "fill":Landroidx/core/content/res/ComplexColorCompat;
     iget-object v15, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mFillPaint:Landroid/graphics/Paint;
 
-    if-nez v15, :cond_7
+    if-nez v15, :cond_ea
 
     .line 1321
     new-instance v15, Landroid/graphics/Paint;
@@ -754,7 +754,7 @@
     invoke-virtual {v5, v15}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 1325
-    :cond_7
+    :cond_ea
     iget-object v5, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mFillPaint:Landroid/graphics/Paint;
 
     .line 1326
@@ -763,7 +763,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_8
+    if-eqz v15, :cond_10a
 
     .line 1327
     invoke-virtual {v1}, Landroidx/core/content/res/ComplexColorCompat;->getShader()Landroid/graphics/Shader;
@@ -792,10 +792,10 @@
 
     .line 1331
     .end local v15    # "shader":Landroid/graphics/Shader;
-    goto :goto_4
+    goto :goto_120
 
     .line 1332
-    :cond_8
+    :cond_10a
     const/4 v12, 0x0
 
     invoke-virtual {v5, v12}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
@@ -819,7 +819,7 @@
     invoke-virtual {v5, v12}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 1336
-    :goto_4
+    :goto_120
     invoke-virtual {v5, v3}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
     .line 1337
@@ -827,16 +827,16 @@
 
     iget v15, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mFillRule:I
 
-    if-nez v15, :cond_9
+    if-nez v15, :cond_12c
 
     sget-object v15, Landroid/graphics/Path$FillType;->WINDING:Landroid/graphics/Path$FillType;
 
-    goto :goto_5
+    goto :goto_12e
 
-    :cond_9
+    :cond_12c
     sget-object v15, Landroid/graphics/Path$FillType;->EVEN_ODD:Landroid/graphics/Path$FillType;
 
-    :goto_5
+    :goto_12e
     invoke-virtual {v12, v15}, Landroid/graphics/Path;->setFillType(Landroid/graphics/Path$FillType;)V
 
     .line 1339
@@ -847,14 +847,14 @@
     .line 1342
     .end local v1    # "fill":Landroidx/core/content/res/ComplexColorCompat;
     .end local v5    # "fillPaint":Landroid/graphics/Paint;
-    :cond_a
+    :cond_136
     iget-object v1, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeColor:Landroidx/core/content/res/ComplexColorCompat;
 
     invoke-virtual {v1}, Landroidx/core/content/res/ComplexColorCompat;->willDraw()Z
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_1b1
 
     .line 1343
     iget-object v1, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeColor:Landroidx/core/content/res/ComplexColorCompat;
@@ -863,7 +863,7 @@
     .local v1, "strokeColor":Landroidx/core/content/res/ComplexColorCompat;
     iget-object v5, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mStrokePaint:Landroid/graphics/Paint;
 
-    if-nez v5, :cond_b
+    if-nez v5, :cond_153
 
     .line 1345
     new-instance v5, Landroid/graphics/Paint;
@@ -882,14 +882,14 @@
     invoke-virtual {v5, v12}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 1349
-    :cond_b
+    :cond_153
     iget-object v5, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mStrokePaint:Landroid/graphics/Paint;
 
     .line 1350
     .local v5, "strokePaint":Landroid/graphics/Paint;
     iget-object v12, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeLineJoin:Landroid/graphics/Paint$Join;
 
-    if-eqz v12, :cond_c
+    if-eqz v12, :cond_15e
 
     .line 1351
     iget-object v12, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeLineJoin:Landroid/graphics/Paint$Join;
@@ -897,10 +897,10 @@
     invoke-virtual {v5, v12}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
 
     .line 1354
-    :cond_c
+    :cond_15e
     iget-object v12, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeLineCap:Landroid/graphics/Paint$Cap;
 
-    if-eqz v12, :cond_d
+    if-eqz v12, :cond_167
 
     .line 1355
     iget-object v12, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeLineCap:Landroid/graphics/Paint$Cap;
@@ -908,7 +908,7 @@
     invoke-virtual {v5, v12}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
     .line 1358
-    :cond_d
+    :cond_167
     iget v12, v14, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeMiterlimit:F
 
     invoke-virtual {v5, v12}, Landroid/graphics/Paint;->setStrokeMiter(F)V
@@ -918,7 +918,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_e
+    if-eqz v12, :cond_18a
 
     .line 1360
     invoke-virtual {v1}, Landroidx/core/content/res/ComplexColorCompat;->getShader()Landroid/graphics/Shader;
@@ -947,10 +947,10 @@
 
     .line 1364
     .end local v12    # "shader":Landroid/graphics/Shader;
-    goto :goto_6
+    goto :goto_1a0
 
     .line 1365
-    :cond_e
+    :cond_18a
     const/4 v4, 0x0
 
     invoke-virtual {v5, v4}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
@@ -974,7 +974,7 @@
     invoke-virtual {v5, v4}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 1370
-    :goto_6
+    :goto_1a0
     invoke-virtual {v5, v3}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
     .line 1371
@@ -998,13 +998,13 @@
     .end local v4    # "finalStrokeScale":F
     .end local v5    # "strokePaint":Landroid/graphics/Paint;
     .end local v14    # "fullPath":Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VFullPath;
-    :cond_f
-    :goto_7
+    :cond_1b1
+    :goto_1b1
     return-void
 .end method
 
 .method private getMatrixScale(Landroid/graphics/Matrix;)F
-    .locals 10
+    .registers 12
     .param p1, "groupStackedMatrix"    # Landroid/graphics/Matrix;
 
     .line 1393
@@ -1012,7 +1012,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_40
 
     .line 1394
     .local v0, "unitVectors":[F
@@ -1087,7 +1087,7 @@
 
     cmpl-float v6, v3, v6
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_3f
 
     .line 1403
     invoke-static {v1}, Ljava/lang/Math;->abs(F)F
@@ -1097,10 +1097,10 @@
     div-float v4, v6, v3
 
     .line 1408
-    :cond_0
+    :cond_3f
     return v4
 
-    :array_0
+    :array_40
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -1112,7 +1112,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;IILandroid/graphics/ColorFilter;)V
-    .locals 7
+    .registers 12
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "w"    # I
     .param p3, "h"    # I
@@ -1140,7 +1140,7 @@
 .end method
 
 .method public getAlpha()F
-    .locals 2
+    .registers 3
 
     .line 1213
     invoke-virtual {p0}, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->getRootAlpha()I
@@ -1157,7 +1157,7 @@
 .end method
 
 .method public getRootAlpha()I
-    .locals 1
+    .registers 2
 
     .line 1202
     iget v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mRootAlpha:I
@@ -1166,12 +1166,12 @@
 .end method
 
 .method public isStateful()Z
-    .locals 1
+    .registers 2
 
     .line 1412
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mIsStateful:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 1413
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mRootGroup:Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;
@@ -1187,7 +1187,7 @@
     iput-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mIsStateful:Ljava/lang/Boolean;
 
     .line 1415
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mIsStateful:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -1198,7 +1198,7 @@
 .end method
 
 .method public onStateChanged([I)Z
-    .locals 1
+    .registers 3
     .param p1, "stateSet"    # [I
 
     .line 1419
@@ -1212,7 +1212,7 @@
 .end method
 
 .method public setAlpha(F)V
-    .locals 1
+    .registers 3
     .param p1, "alpha"    # F
 
     .line 1208
@@ -1229,7 +1229,7 @@
 .end method
 
 .method public setRootAlpha(I)V
-    .locals 0
+    .registers 2
     .param p1, "alpha"    # I
 
     .line 1198

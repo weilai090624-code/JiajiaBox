@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;)V
-    .locals 1
+    .registers 4
     .param p1, "seenExceptionsUpdater"    # Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     .param p2, "remainingCountUpdater"    # Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method compareAndSetSeenExceptions(Lcom/google/common/util/concurrent/AggregateFutureState;Ljava/util/Set;Ljava/util/Set;)V
-    .locals 1
+    .registers 5
     .param p2    # Ljava/util/Set;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -95,7 +95,7 @@
 .end method
 
 .method decrementAndGetRemainingCount(Lcom/google/common/util/concurrent/AggregateFutureState;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

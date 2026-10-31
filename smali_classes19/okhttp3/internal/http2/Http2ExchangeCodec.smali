@@ -127,7 +127,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 14
+    .registers 14
 
     new-instance v0, Lokhttp3/internal/http2/Http2ExchangeCodec$Companion;
 
@@ -319,7 +319,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/OkHttpClient;Lokhttp3/internal/connection/RealConnection;Lokhttp3/internal/http/RealInterceptorChain;Lokhttp3/internal/http2/Http2Connection;)V
-    .locals 2
+    .registers 7
     .param p1, "client"    # Lokhttp3/OkHttpClient;
     .param p2, "connection"    # Lokhttp3/internal/connection/RealConnection;
     .param p3, "chain"    # Lokhttp3/internal/http/RealInterceptorChain;
@@ -364,19 +364,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 59
     sget-object v0, Lokhttp3/Protocol;->H2_PRIOR_KNOWLEDGE:Lokhttp3/Protocol;
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 61
-    :cond_0
+    :cond_2c
     sget-object v0, Lokhttp3/Protocol;->HTTP_2:Lokhttp3/Protocol;
 
     .line 58
-    :goto_0
+    :goto_2e
     iput-object v0, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->protocol:Lokhttp3/Protocol;
 
     .line 50
@@ -384,7 +384,7 @@
 .end method
 
 .method public static final synthetic access$getHTTP_2_SKIPPED_REQUEST_HEADERS$cp()Ljava/util/List;
-    .locals 1
+    .registers 1
 
     .line 50
     sget-object v0, Lokhttp3/internal/http2/Http2ExchangeCodec;->HTTP_2_SKIPPED_REQUEST_HEADERS:Ljava/util/List;
@@ -393,7 +393,7 @@
 .end method
 
 .method public static final synthetic access$getHTTP_2_SKIPPED_RESPONSE_HEADERS$cp()Ljava/util/List;
-    .locals 1
+    .registers 1
 
     .line 50
     sget-object v0, Lokhttp3/internal/http2/Http2ExchangeCodec;->HTTP_2_SKIPPED_RESPONSE_HEADERS:Ljava/util/List;
@@ -404,7 +404,7 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 2
+    .registers 3
 
     .line 122
     const/4 v0, 0x1
@@ -414,22 +414,22 @@
     .line 123
     iget-object v0, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->stream:Lokhttp3/internal/http2/Http2Stream;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_8
     sget-object v1, Lokhttp3/internal/http2/ErrorCode;->CANCEL:Lokhttp3/internal/http2/ErrorCode;
 
     invoke-virtual {v0, v1}, Lokhttp3/internal/http2/Http2Stream;->closeLater(Lokhttp3/internal/http2/ErrorCode;)V
 
     .line 124
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method public createRequestBody(Lokhttp3/Request;J)Lokio/Sink;
-    .locals 1
+    .registers 5
     .param p1, "request"    # Lokhttp3/Request;
     .param p2, "contentLength"    # J
 
@@ -450,7 +450,7 @@
 .end method
 
 .method public finishRequest()V
-    .locals 1
+    .registers 2
 
     .line 92
     iget-object v0, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->stream:Lokhttp3/internal/http2/Http2Stream;
@@ -468,7 +468,7 @@
 .end method
 
 .method public flushRequest()V
-    .locals 1
+    .registers 2
 
     .line 88
     iget-object v0, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->http2Connection:Lokhttp3/internal/http2/Http2Connection;
@@ -480,7 +480,7 @@
 .end method
 
 .method public getConnection()Lokhttp3/internal/connection/RealConnection;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->connection:Lokhttp3/internal/connection/RealConnection;
@@ -489,7 +489,7 @@
 .end method
 
 .method public openResponseBodySource(Lokhttp3/Response;)Lokio/Source;
-    .locals 1
+    .registers 3
     .param p1, "response"    # Lokhttp3/Response;
 
     const-string v0, "response"
@@ -511,13 +511,13 @@
 .end method
 
 .method public readResponseHeaders(Z)Lokhttp3/Response$Builder;
-    .locals 5
+    .registers 7
     .param p1, "expectContinue"    # Z
 
     .line 96
     iget-object v0, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->stream:Lokhttp3/internal/http2/Http2Stream;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 97
     .local v0, "stream":Lokhttp3/internal/http2/Http2Stream;
@@ -537,7 +537,7 @@
 
     .line 99
     .local v2, "responseBuilder":Lokhttp3/Response$Builder;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1f
 
     invoke-virtual {v2}, Lokhttp3/Response$Builder;->getCode$okhttp()I
 
@@ -545,7 +545,7 @@
 
     const/16 v4, 0x64
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_1f
 
     .line 100
     const/4 v3, 0x0
@@ -554,21 +554,21 @@
 
     check-cast v4, Lokhttp3/Response$Builder;
 
-    goto :goto_0
+    goto :goto_20
 
     .line 102
-    :cond_0
+    :cond_1f
     move-object v3, v2
 
     .line 99
-    :goto_0
+    :goto_20
     return-object v3
 
     .line 96
     .end local v0    # "stream":Lokhttp3/internal/http2/Http2Stream;
     .end local v1    # "headers":Lokhttp3/Headers;
     .end local v2    # "responseBuilder":Lokhttp3/Response$Builder;
-    :cond_1
+    :cond_21
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "stream wasn\'t created"
@@ -579,7 +579,7 @@
 .end method
 
 .method public reportedContentLength(Lokhttp3/Response;)J
-    .locals 2
+    .registers 4
     .param p1, "response"    # Lokhttp3/Response;
 
     const-string v0, "response"
@@ -594,25 +594,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_13
 
     .line 109
-    :cond_0
+    :cond_f
     invoke-static {p1}, Lokhttp3/internal/Util;->headersContentLength(Lokhttp3/Response;)J
 
     move-result-wide v0
 
     .line 107
-    :goto_0
+    :goto_13
     return-wide v0
 .end method
 
 .method public trailers()Lokhttp3/Headers;
-    .locals 1
+    .registers 2
 
     .line 118
     iget-object v0, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->stream:Lokhttp3/internal/http2/Http2Stream;
@@ -627,7 +627,7 @@
 .end method
 
 .method public writeRequestHeaders(Lokhttp3/Request;)V
-    .locals 6
+    .registers 8
     .param p1, "request"    # Lokhttp3/Request;
 
     const-string v0, "request"
@@ -637,28 +637,28 @@
     .line 72
     iget-object v0, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->stream:Lokhttp3/internal/http2/Http2Stream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return-void
 
     .line 74
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Lokhttp3/Request;->body()Lokhttp3/RequestBody;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x0
 
     .line 75
     .local v0, "hasRequestBody":Z
-    :goto_0
+    :goto_13
     sget-object v1, Lokhttp3/internal/http2/Http2ExchangeCodec;->Companion:Lokhttp3/internal/http2/Http2ExchangeCodec$Companion;
 
     invoke-virtual {v1, p1}, Lokhttp3/internal/http2/Http2ExchangeCodec$Companion;->http2HeadersList(Lokhttp3/Request;)Ljava/util/List;
@@ -678,7 +678,7 @@
     .line 79
     iget-boolean v2, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->canceled:Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_50
 
     .line 83
     iget-object v2, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->stream:Lokhttp3/internal/http2/Http2Stream;
@@ -726,7 +726,7 @@
     return-void
 
     .line 80
-    :cond_2
+    :cond_50
     iget-object v2, p0, Lokhttp3/internal/http2/Http2ExchangeCodec;->stream:Lokhttp3/internal/http2/Http2Stream;
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V

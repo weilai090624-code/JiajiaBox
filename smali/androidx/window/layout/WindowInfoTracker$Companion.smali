@@ -66,7 +66,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/layout/WindowInfoTracker$Companion;
 
@@ -98,7 +98,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public final getOrCreate(Landroid/content/Context;)Landroidx/window/layout/WindowInfoTracker;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -150,7 +150,7 @@
 .end method
 
 .method public final overrideDecorator(Landroidx/window/layout/WindowInfoTrackerDecorator;)V
-    .locals 1
+    .registers 3
     .param p1, "overridingDecorator"    # Landroidx/window/layout/WindowInfoTrackerDecorator;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -167,7 +167,7 @@
 .end method
 
 .method public final reset()V
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -183,7 +183,7 @@
 .end method
 
 .method public final windowBackend$window_release(Landroid/content/Context;)Landroidx/window/layout/WindowBackend;
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -196,7 +196,7 @@
     .line 77
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_7
     sget-object v1, Landroidx/window/layout/SafeWindowLayoutComponentProvider;->INSTANCE:Landroidx/window/layout/SafeWindowLayoutComponentProvider;
 
     invoke-virtual {v1}, Landroidx/window/layout/SafeWindowLayoutComponentProvider;->getWindowLayoutComponent()Landroidx/window/extensions/layout/WindowLayoutComponent;
@@ -207,12 +207,12 @@
     nop
 
     .line 77
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     .line 78
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_11
     nop
 
     .line 117
@@ -224,24 +224,24 @@
     new-instance v3, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend;
 
     invoke-direct {v3, v1}, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend;-><init>(Landroidx/window/extensions/layout/WindowLayoutComponent;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_7 .. :try_end_18} :catchall_1a
 
     move-object v0, v3
 
-    goto :goto_0
+    goto :goto_29
 
     .line 79
     .end local v1    # "p0":Landroidx/window/extensions/layout/WindowLayoutComponent;
     .end local v2    # "$i$a$-let-WindowInfoTracker$Companion$windowBackend$extensionBackend$1":I
-    :catchall_0
+    :catchall_1a
     move-exception v1
 
     .line 80
     .local v1, "t":Ljava/lang/Throwable;
     sget-boolean v2, Landroidx/window/layout/WindowInfoTracker$Companion;->DEBUG:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     .line 81
     sget-object v2, Landroidx/window/layout/WindowInfoTracker$Companion;->TAG:Ljava/lang/String;
@@ -251,19 +251,19 @@
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 83
-    :cond_1
+    :cond_26
     move-object v2, v0
 
     check-cast v2, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend;
 
     .line 76
     .end local v1    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_29
     nop
 
     .line 85
     .local v0, "extensionBackend":Landroidx/window/layout/ExtensionWindowLayoutInfoBackend;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_35
 
     sget-object v1, Landroidx/window/layout/SidecarWindowBackend;->Companion:Landroidx/window/layout/SidecarWindowBackend$Companion;
 
@@ -273,13 +273,13 @@
 
     check-cast v1, Landroidx/window/layout/WindowBackend;
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_2
+    :cond_35
     move-object v1, v0
 
     check-cast v1, Landroidx/window/layout/WindowBackend;
 
-    :goto_1
+    :goto_38
     return-object v1
 .end method

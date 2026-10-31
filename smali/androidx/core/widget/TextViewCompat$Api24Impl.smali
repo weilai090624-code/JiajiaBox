@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1130
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getInstance(Ljava/util/Locale;)Landroid/icu/text/DecimalFormatSymbols;
-    .locals 1
+    .registers 2
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 1136

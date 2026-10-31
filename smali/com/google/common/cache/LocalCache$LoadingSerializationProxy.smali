@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/LocalCache;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +72,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -105,7 +105,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 4665
     .local p0, "this":Lcom/google/common/cache/LocalCache$LoadingSerializationProxy;, "Lcom/google/common/cache/LocalCache$LoadingSerializationProxy<TK;TV;>;"
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -137,7 +137,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -163,7 +163,7 @@
 .end method
 
 .method public getAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -193,7 +193,7 @@
 .end method
 
 .method public getUnchecked(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -213,7 +213,7 @@
 .end method
 
 .method public refresh(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)V"

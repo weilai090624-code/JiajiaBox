@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/escape/Escaper;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/escape/Escaper;
 
     .line 89
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 89
     check-cast p1, Ljava/lang/String;
@@ -60,7 +60,7 @@
 .end method
 
 .method public apply(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "from"    # Ljava/lang/String;
 
     .line 92

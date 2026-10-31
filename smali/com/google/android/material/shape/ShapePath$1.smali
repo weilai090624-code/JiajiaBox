@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/shape/ShapePath;Ljava/util/List;Landroid/graphics/Matrix;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/android/material/shape/ShapePath;
 
     .line 300
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Matrix;Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V
-    .locals 3
+    .registers 8
     .param p1, "matrix"    # Landroid/graphics/Matrix;
     .param p2, "shadowRenderer"    # Lcom/google/android/material/shadow/ShadowRenderer;
     .param p3, "shadowElevation"    # I
@@ -55,12 +55,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -76,9 +76,9 @@
 
     .line 306
     .end local v1    # "op":Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;
-    goto :goto_0
+    goto :goto_6
 
     .line 307
-    :cond_0
+    :cond_18
     return-void
 .end method

@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/serializers/BeanSerializer;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/esotericsoftware/kryo/serializers/BeanSerializer;
 
     .line 186
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -73,7 +73,7 @@
 
     iget-object v0, v0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer;->access:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->this$0:Lcom/esotericsoftware/kryo/serializers/BeanSerializer;
 
@@ -94,7 +94,7 @@
     return-object v0
 
     .line 199
-    :cond_0
+    :cond_16
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->getMethod:Ljava/lang/reflect/Method;
 
     sget-object v1, Lcom/esotericsoftware/kryo/serializers/BeanSerializer;->noArgs:[Ljava/lang/Object;
@@ -107,7 +107,7 @@
 .end method
 
 .method set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "object"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
@@ -127,7 +127,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 204
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->this$0:Lcom/esotericsoftware/kryo/serializers/BeanSerializer;
@@ -148,7 +148,7 @@
     return-void
 
     .line 207
-    :cond_0
+    :cond_18
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->setMethod:Ljava/lang/reflect/Method;
 
     new-array v2, v2, [Ljava/lang/Object;
@@ -162,7 +162,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 194
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;, "Lcom/esotericsoftware/kryo/serializers/BeanSerializer<TT;>.CachedProperty<TX;>;"

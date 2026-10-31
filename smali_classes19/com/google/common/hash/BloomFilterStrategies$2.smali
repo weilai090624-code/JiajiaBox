@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 101
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method private lowerEight([B)J
-    .locals 9
+    .registers 11
     .param p1, "bytes"    # [B
 
     .line 146
@@ -71,7 +71,7 @@
 .end method
 
 .method private upperEight([B)J
-    .locals 9
+    .registers 11
     .param p1, "bytes"    # [B
 
     .line 151
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public mightContain(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;)Z
-    .locals 16
+    .registers 21
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/hash/ParametricNullness;
         .end annotation
@@ -184,10 +184,10 @@
     const/4 v12, 0x0
 
     .local v12, "i":I
-    :goto_0
+    :goto_20
     move/from16 v13, p3
 
-    if-ge v12, v13, :cond_1
+    if-ge v12, v13, :cond_3b
 
     .line 137
     const-wide v14, 0x7fffffffffffffffL
@@ -202,7 +202,7 @@
 
     move-result v14
 
-    if-nez v14, :cond_0
+    if-nez v14, :cond_35
 
     .line 138
     const/4 v14, 0x0
@@ -210,7 +210,7 @@
     return v14
 
     .line 140
-    :cond_0
+    :cond_35
     add-long/2addr v10, v8
 
     .line 135
@@ -218,9 +218,9 @@
 
     move-object/from16 v0, p0
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_3b
     move-object/from16 v0, p4
 
     .line 142
@@ -231,7 +231,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;)Z
-    .locals 18
+    .registers 23
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/hash/ParametricNullness;
         .end annotation
@@ -302,10 +302,10 @@
     const/4 v13, 0x0
 
     .local v13, "i":I
-    :goto_0
+    :goto_21
     move/from16 v14, p3
 
-    if-ge v13, v14, :cond_0
+    if-ge v13, v14, :cond_3e
 
     .line 117
     const-wide v15, 0x7fffffffffffffffL
@@ -336,12 +336,12 @@
 
     move-object/from16 v3, v17
 
-    goto :goto_0
+    goto :goto_21
 
     .line 120
     .end local v13    # "i":I
     .end local v17    # "bytes":[B
     .restart local v3    # "bytes":[B
-    :cond_0
+    :cond_3e
     return v10
 .end method

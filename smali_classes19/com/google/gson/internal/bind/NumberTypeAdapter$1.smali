@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/bind/NumberTypeAdapter;)V
-    .locals 0
+    .registers 2
 
     .line 49
     iput-object p1, p0, Lcom/google/gson/internal/bind/NumberTypeAdapter$1;->val$adapter:Lcom/google/gson/internal/bind/NumberTypeAdapter;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 2
+    .registers 5
     .param p1, "gson"    # Lcom/google/gson/Gson;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,15 +59,15 @@
 
     const-class v1, Ljava/lang/Number;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     iget-object v0, p0, Lcom/google/gson/internal/bind/NumberTypeAdapter$1;->val$adapter:Lcom/google/gson/internal/bind/NumberTypeAdapter;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method

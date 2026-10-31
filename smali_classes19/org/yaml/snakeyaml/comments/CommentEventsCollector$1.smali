@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/yaml/snakeyaml/comments/CommentEventsCollector;Lorg/yaml/snakeyaml/parser/Parser;)V
-    .locals 0
+    .registers 3
 
     .line 45
     iput-object p1, p0, Lorg/yaml/snakeyaml/comments/CommentEventsCollector$1;->this$0:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -64,7 +64,7 @@
 .end method
 
 .method public bridge synthetic offer(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Ljava/lang/Object;
 
     .line 45
@@ -80,7 +80,7 @@
 .end method
 
 .method public offer(Lorg/yaml/snakeyaml/events/Event;)Z
-    .locals 1
+    .registers 3
     .param p1, "e"    # Lorg/yaml/snakeyaml/events/Event;
 
     .line 49
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic peek()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 45
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/comments/CommentEventsCollector$1;->peek()Lorg/yaml/snakeyaml/events/Event;
@@ -103,7 +103,7 @@
 .end method
 
 .method public peek()Lorg/yaml/snakeyaml/events/Event;
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentEventsCollector$1;->val$parser:Lorg/yaml/snakeyaml/parser/Parser;
@@ -116,7 +116,7 @@
 .end method
 
 .method public bridge synthetic poll()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 45
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/comments/CommentEventsCollector$1;->poll()Lorg/yaml/snakeyaml/events/Event;
@@ -127,7 +127,7 @@
 .end method
 
 .method public poll()Lorg/yaml/snakeyaml/events/Event;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentEventsCollector$1;->val$parser:Lorg/yaml/snakeyaml/parser/Parser;
@@ -140,7 +140,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 69
     new-instance v0, Ljava/lang/UnsupportedOperationException;

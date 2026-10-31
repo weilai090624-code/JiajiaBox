@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 769
     invoke-direct {p0}, Landroidx/camera/core/impl/CameraCaptureCallback;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method static synthetic lambda$onCaptureCancelled$2(Landroidx/camera/core/impl/CameraCaptureCallback;)V
-    .locals 0
+    .registers 1
     .param p0, "callback"    # Landroidx/camera/core/impl/CameraCaptureCallback;
 
     .line 820
@@ -73,7 +73,7 @@
 .end method
 
 .method static synthetic lambda$onCaptureCompleted$0(Landroidx/camera/core/impl/CameraCaptureCallback;Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 0
+    .registers 2
     .param p0, "callback"    # Landroidx/camera/core/impl/CameraCaptureCallback;
     .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
 
@@ -85,7 +85,7 @@
 .end method
 
 .method static synthetic lambda$onCaptureFailed$1(Landroidx/camera/core/impl/CameraCaptureCallback;Landroidx/camera/core/impl/CameraCaptureFailure;)V
-    .locals 0
+    .registers 2
     .param p0, "callback"    # Landroidx/camera/core/impl/CameraCaptureCallback;
     .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
 
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method addCaptureCallback(Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/CameraCaptureCallback;)V
-    .locals 1
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "callback"    # Landroidx/camera/core/impl/CameraCaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -128,7 +128,7 @@
 .end method
 
 .method public onCaptureCancelled()V
-    .locals 5
+    .registers 6
 
     .line 817
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CameraCaptureCallbackSet;->mCallbacks:Ljava/util/Set;
@@ -137,12 +137,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -152,7 +152,7 @@
 
     .line 819
     .local v1, "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CameraCaptureCallbackSet;->mCallbackExecutors:Ljava/util/Map;
 
     invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -166,14 +166,14 @@
     invoke-direct {v3, v1}, Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CameraCaptureCallbackSet$$ExternalSyntheticLambda2;-><init>(Landroidx/camera/core/impl/CameraCaptureCallback;)V
 
     invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_22
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_12 .. :try_end_22} :catch_23
 
     .line 824
-    goto :goto_1
+    goto :goto_2b
 
     .line 822
-    :catch_0
+    :catch_23
     move-exception v2
 
     .line 823
@@ -187,16 +187,16 @@
     .line 825
     .end local v1    # "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
     .end local v2    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_1
-    goto :goto_0
+    :goto_2b
+    goto :goto_6
 
     .line 826
-    :cond_0
+    :cond_2c
     return-void
 .end method
 
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 5
+    .registers 7
     .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -214,12 +214,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -229,7 +229,7 @@
 
     .line 791
     .local v1, "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CameraCaptureCallbackSet;->mCallbackExecutors:Ljava/util/Map;
 
     invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -243,14 +243,14 @@
     invoke-direct {v3, v1, p1}, Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CameraCaptureCallbackSet$$ExternalSyntheticLambda0;-><init>(Landroidx/camera/core/impl/CameraCaptureCallback;Landroidx/camera/core/impl/CameraCaptureResult;)V
 
     invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_22
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_12 .. :try_end_22} :catch_23
 
     .line 796
-    goto :goto_1
+    goto :goto_2b
 
     .line 794
-    :catch_0
+    :catch_23
     move-exception v2
 
     .line 795
@@ -264,16 +264,16 @@
     .line 797
     .end local v1    # "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
     .end local v2    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_1
-    goto :goto_0
+    :goto_2b
+    goto :goto_6
 
     .line 798
-    :cond_0
+    :cond_2c
     return-void
 .end method
 
 .method public onCaptureFailed(Landroidx/camera/core/impl/CameraCaptureFailure;)V
-    .locals 5
+    .registers 7
     .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -291,12 +291,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -306,7 +306,7 @@
 
     .line 805
     .local v1, "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CameraCaptureCallbackSet;->mCallbackExecutors:Ljava/util/Map;
 
     invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -320,14 +320,14 @@
     invoke-direct {v3, v1, p1}, Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CameraCaptureCallbackSet$$ExternalSyntheticLambda1;-><init>(Landroidx/camera/core/impl/CameraCaptureCallback;Landroidx/camera/core/impl/CameraCaptureFailure;)V
 
     invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_22
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_12 .. :try_end_22} :catch_23
 
     .line 810
-    goto :goto_1
+    goto :goto_2b
 
     .line 808
-    :catch_0
+    :catch_23
     move-exception v2
 
     .line 809
@@ -341,16 +341,16 @@
     .line 811
     .end local v1    # "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
     .end local v2    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_1
-    goto :goto_0
+    :goto_2b
+    goto :goto_6
 
     .line 812
-    :cond_0
+    :cond_2c
     return-void
 .end method
 
 .method removeCaptureCallback(Landroidx/camera/core/impl/CameraCaptureCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Landroidx/camera/core/impl/CameraCaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(FFFFFF)V
-    .locals 0
+    .registers 7
     .param p1, "controlX1"    # F
     .param p2, "controlY1"    # F
     .param p3, "controlX2"    # F
@@ -64,7 +64,7 @@
 .end method
 
 .method private getControlX1()F
-    .locals 1
+    .registers 2
 
     .line 798
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathCubicOperation;->controlX1:F
@@ -73,7 +73,7 @@
 .end method
 
 .method private getControlX2()F
-    .locals 1
+    .registers 2
 
     .line 814
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathCubicOperation;->controlX2:F
@@ -82,7 +82,7 @@
 .end method
 
 .method private getControlY1()F
-    .locals 1
+    .registers 2
 
     .line 806
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathCubicOperation;->controlY1:F
@@ -91,7 +91,7 @@
 .end method
 
 .method private getControlY2()F
-    .locals 1
+    .registers 2
 
     .line 822
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathCubicOperation;->controlY1:F
@@ -100,7 +100,7 @@
 .end method
 
 .method private getEndX()F
-    .locals 1
+    .registers 2
 
     .line 830
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathCubicOperation;->endX:F
@@ -109,7 +109,7 @@
 .end method
 
 .method private getEndY()F
-    .locals 1
+    .registers 2
 
     .line 838
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathCubicOperation;->endY:F
@@ -118,7 +118,7 @@
 .end method
 
 .method private setControlX1(F)V
-    .locals 0
+    .registers 2
     .param p1, "controlX1"    # F
 
     .line 802
@@ -129,7 +129,7 @@
 .end method
 
 .method private setControlX2(F)V
-    .locals 0
+    .registers 2
     .param p1, "controlX2"    # F
 
     .line 818
@@ -140,7 +140,7 @@
 .end method
 
 .method private setControlY1(F)V
-    .locals 0
+    .registers 2
     .param p1, "controlY1"    # F
 
     .line 810
@@ -151,7 +151,7 @@
 .end method
 
 .method private setControlY2(F)V
-    .locals 0
+    .registers 2
     .param p1, "controlY2"    # F
 
     .line 826
@@ -162,7 +162,7 @@
 .end method
 
 .method private setEndX(F)V
-    .locals 0
+    .registers 2
     .param p1, "endX"    # F
 
     .line 834
@@ -173,7 +173,7 @@
 .end method
 
 .method private setEndY(F)V
-    .locals 0
+    .registers 2
     .param p1, "endY"    # F
 
     .line 842
@@ -186,7 +186,7 @@
 
 # virtual methods
 .method public applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
-    .locals 8
+    .registers 11
     .param p1, "transform"    # Landroid/graphics/Matrix;
     .param p2, "path"    # Landroid/graphics/Path;
 

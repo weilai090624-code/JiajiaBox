@@ -75,7 +75,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p2, Lkotlin/coroutines/Continuation;
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;",
@@ -165,14 +165,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 453
     iget v0, p0, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$requireNoNulls$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3a
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -182,7 +182,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v0, p0
@@ -192,11 +192,11 @@
     iget-object v1, v0, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$requireNoNulls$1;->L$0:Ljava/lang/Object;
 
     .local v1, "it":Ljava/lang/Object;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     return-object v1
 
-    :cond_0
+    :cond_19
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -229,8 +229,8 @@
 
     throw v2
 
-    :pswitch_data_0
+    :pswitch_data_3a
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

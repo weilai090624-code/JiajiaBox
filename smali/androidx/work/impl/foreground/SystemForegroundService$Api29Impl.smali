@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 173
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static startForeground(Landroid/app/Service;ILandroid/app/Notification;I)V
-    .locals 0
+    .registers 4
     .param p0, "service"    # Landroid/app/Service;
     .param p1, "id"    # I
     .param p2, "notification"    # Landroid/app/Notification;

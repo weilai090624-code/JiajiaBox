@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/CommonPattern;)V
-    .locals 0
+    .registers 2
 
     .line 227
     iput-object p1, p0, Lcom/google/common/base/Splitter$3;->val$separatorPattern:Lcom/google/common/base/CommonPattern;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public iterator(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)Lcom/google/common/base/Splitter$SplittingIterator;
-    .locals 2
+    .registers 5
     .param p1, "splitter"    # Lcom/google/common/base/Splitter;
     .param p2, "toSplit"    # Ljava/lang/CharSequence;
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public bridge synthetic iterator(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)Ljava/util/Iterator;
-    .locals 0
+    .registers 3
 
     .line 227
     invoke-virtual {p0, p1, p2}, Lcom/google/common/base/Splitter$3;->iterator(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)Lcom/google/common/base/Splitter$SplittingIterator;

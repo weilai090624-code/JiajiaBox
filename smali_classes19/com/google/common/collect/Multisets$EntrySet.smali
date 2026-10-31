@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1016
     .local p0, "this":Lcom/google/common/collect/Multisets$EntrySet;, "Lcom/google/common/collect/Multisets$EntrySet<TE;>;"
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 1058
     .local p0, "this":Lcom/google/common/collect/Multisets$EntrySet;, "Lcom/google/common/collect/Multisets$EntrySet<TE;>;"
@@ -54,7 +54,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -66,7 +66,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_23
 
     .line 1027
     move-object v0, p1
@@ -79,13 +79,13 @@
 
     move-result v2
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_f
 
     .line 1029
     return v1
 
     .line 1031
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$EntrySet;->multiset()Lcom/google/common/collect/Multiset;
 
     move-result-object v2
@@ -104,17 +104,17 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_22
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_22
     return v1
 
     .line 1034
     .end local v0    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
     .end local v2    # "count":I
-    :cond_2
+    :cond_23
     return v1
 .end method
 
@@ -129,7 +129,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -141,7 +141,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 1042
     move-object v0, p1
@@ -162,7 +162,7 @@
 
     .line 1045
     .local v3, "entryCount":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     .line 1049
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$EntrySet;->multiset()Lcom/google/common/collect/Multiset;
@@ -182,6 +182,6 @@
     .end local v2    # "element":Ljava/lang/Object;
     .end local v3    # "entryCount":I
     .end local v4    # "multiset":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<Ljava/lang/Object;>;"
-    :cond_0
+    :cond_1b
     return v1
 .end method

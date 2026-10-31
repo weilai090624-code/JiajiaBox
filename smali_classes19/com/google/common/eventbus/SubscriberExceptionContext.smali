@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/eventbus/EventBus;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Method;)V
-    .locals 1
+    .registers 6
     .param p1, "eventBus"    # Lcom/google/common/eventbus/EventBus;
     .param p2, "event"    # Ljava/lang/Object;
     .param p3, "subscriber"    # Ljava/lang/Object;
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public getEvent()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Lcom/google/common/eventbus/SubscriberExceptionContext;->event:Ljava/lang/Object;
@@ -77,7 +77,7 @@
 .end method
 
 .method public getEventBus()Lcom/google/common/eventbus/EventBus;
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Lcom/google/common/eventbus/SubscriberExceptionContext;->eventBus:Lcom/google/common/eventbus/EventBus;
@@ -86,7 +86,7 @@
 .end method
 
 .method public getSubscriber()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 63
     iget-object v0, p0, Lcom/google/common/eventbus/SubscriberExceptionContext;->subscriber:Ljava/lang/Object;
@@ -95,7 +95,7 @@
 .end method
 
 .method public getSubscriberMethod()Ljava/lang/reflect/Method;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lcom/google/common/eventbus/SubscriberExceptionContext;->subscriberMethod:Ljava/lang/reflect/Method;

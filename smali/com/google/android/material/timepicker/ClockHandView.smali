@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 100
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 5
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -266,7 +266,7 @@
 .end method
 
 .method private adjustLevel(FF)V
-    .locals 7
+    .registers 10
     .param p1, "x"    # F
     .param p2, "y"    # F
 
@@ -323,14 +323,14 @@
 
     cmpg-float v6, v3, v6
 
-    if-gtz v6, :cond_0
+    if-gtz v6, :cond_26
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_26
     const/4 v1, 0x1
 
-    :goto_0
+    :goto_27
     iput v1, p0, Lcom/google/android/material/timepicker/ClockHandView;->currentLevel:I
 
     .line 350
@@ -338,7 +338,7 @@
 .end method
 
 .method private drawSelector(Landroid/graphics/Canvas;)V
-    .locals 21
+    .registers 23
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 252
@@ -525,7 +525,7 @@
 .end method
 
 .method private getDegreesFromXY(FF)I
-    .locals 8
+    .registers 11
     .param p1, "x"    # F
     .param p2, "y"    # F
 
@@ -576,24 +576,24 @@
 
     .line 374
     .local v6, "degrees":I
-    if-gez v6, :cond_0
+    if-gez v6, :cond_23
 
     .line 375
     add-int/lit16 v6, v6, 0x168
 
     .line 377
-    :cond_0
+    :cond_23
     return v6
 .end method
 
 .method private getLeveledCircleRadius(I)I
-    .locals 2
+    .registers 4
     .param p1, "level"    # I
 
     .line 400
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_10
 
     iget v0, p0, Lcom/google/android/material/timepicker/ClockHandView;->circleRadius:I
 
@@ -607,17 +607,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     iget v0, p0, Lcom/google/android/material/timepicker/ClockHandView;->circleRadius:I
 
-    :goto_0
+    :goto_12
     return v0
 .end method
 
 .method private getValuesForAnimation(F)Landroid/util/Pair;
-    .locals 4
+    .registers 6
     .param p1, "degrees"    # F
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -646,37 +646,37 @@
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_24
 
     .line 189
     const/high16 v1, 0x43b40000    # 360.0f
 
     cmpl-float v3, v0, v2
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_1b
 
     cmpg-float v3, p1, v2
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_1b
 
     .line 190
     add-float/2addr p1, v1
 
     .line 193
-    :cond_0
+    :cond_1b
     cmpg-float v3, v0, v2
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_24
 
     cmpl-float v2, p1, v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_24
 
     .line 194
     add-float/2addr v0, v1
 
     .line 198
-    :cond_1
+    :cond_24
     new-instance v1, Landroid/util/Pair;
 
     invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -693,7 +693,7 @@
 .end method
 
 .method private handleTouchInput(FFZZZ)Z
-    .locals 6
+    .registers 12
     .param p1, "x"    # F
     .param p2, "y"    # F
     .param p3, "forceSelection"    # Z
@@ -719,51 +719,51 @@
 
     cmpl-float v1, v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
     .line 356
     .local v1, "valueChanged":Z
-    :goto_0
-    if-eqz p4, :cond_1
+    :goto_12
+    if-eqz p4, :cond_17
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     .line 357
     return v4
 
     .line 360
-    :cond_1
-    if-nez v1, :cond_3
+    :cond_17
+    if-nez v1, :cond_1d
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_1c
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 365
-    :cond_2
+    :cond_1c
     return v3
 
     .line 361
-    :cond_3
-    :goto_1
+    :cond_1d
+    :goto_1d
     int-to-float v2, v0
 
-    if-eqz p5, :cond_4
+    if-eqz p5, :cond_25
 
     iget-boolean v5, p0, Lcom/google/android/material/timepicker/ClockHandView;->animatingOnTouchUp:Z
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_25
 
     const/4 v3, 0x1
 
-    :cond_4
+    :cond_25
     invoke-virtual {p0, v2, v3}, Lcom/google/android/material/timepicker/ClockHandView;->setHandRotation(FZ)V
 
     .line 362
@@ -771,7 +771,7 @@
 .end method
 
 .method private setHandRotationInternal(FZ)V
-    .locals 11
+    .registers 14
     .param p1, "degrees"    # F
     .param p2, "animate"    # Z
 
@@ -896,12 +896,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_58
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_68
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -915,10 +915,10 @@
 
     .line 222
     .end local v7    # "listener":Lcom/google/android/material/timepicker/ClockHandView$OnRotateListener;
-    goto :goto_0
+    goto :goto_58
 
     .line 224
-    :cond_0
+    :cond_68
     invoke-virtual {p0}, Lcom/google/android/material/timepicker/ClockHandView;->invalidate()V
 
     .line 225
@@ -928,7 +928,7 @@
 
 # virtual methods
 .method public addOnRotateListener(Lcom/google/android/material/timepicker/ClockHandView$OnRotateListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/timepicker/ClockHandView$OnRotateListener;
 
     .line 232
@@ -941,7 +941,7 @@
 .end method
 
 .method getCurrentLevel()I
-    .locals 1
+    .registers 2
 
     .line 382
     iget v0, p0, Lcom/google/android/material/timepicker/ClockHandView;->currentLevel:I
@@ -950,7 +950,7 @@
 .end method
 
 .method public getCurrentSelectorBox()Landroid/graphics/RectF;
-    .locals 1
+    .registers 2
 
     .line 280
     iget-object v0, p0, Lcom/google/android/material/timepicker/ClockHandView;->selectorBox:Landroid/graphics/RectF;
@@ -959,7 +959,7 @@
 .end method
 
 .method public getHandRotation()F
-    .locals 1
+    .registers 2
 
     .line 241
     iget v0, p0, Lcom/google/android/material/timepicker/ClockHandView;->originalDeg:F
@@ -968,7 +968,7 @@
 .end method
 
 .method public getSelectorRadius()I
-    .locals 1
+    .registers 2
 
     .line 285
     iget v0, p0, Lcom/google/android/material/timepicker/ClockHandView;->selectorRadius:I
@@ -977,7 +977,7 @@
 .end method
 
 .method synthetic lambda$setHandRotation$0$com-google-android-material-timepicker-ClockHandView(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 168
@@ -1002,7 +1002,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 246
@@ -1016,7 +1016,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 1
+    .registers 7
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -1033,7 +1033,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 144
     invoke-virtual {p0}, Lcom/google/android/material/timepicker/ClockHandView;->getHandRotation()F
@@ -1043,12 +1043,12 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/timepicker/ClockHandView;->setHandRotation(F)V
 
     .line 146
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 14
+    .registers 16
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 300
@@ -1086,12 +1086,12 @@
 
     const/4 v12, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_6e
 
-    goto :goto_1
+    goto :goto_48
 
     .line 317
-    :pswitch_0
+    :pswitch_15
     iget v5, p0, Lcom/google/android/material/timepicker/ClockHandView;->downX:F
 
     sub-float v5, v10, v5
@@ -1118,50 +1118,50 @@
     .local v7, "distance":I
     iget v8, p0, Lcom/google/android/material/timepicker/ClockHandView;->scaledTouchSlop:I
 
-    if-le v7, v8, :cond_0
+    if-le v7, v8, :cond_2a
 
     const/4 v8, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_2a
     const/4 v8, 0x0
 
-    :goto_0
+    :goto_2b
     iput-boolean v8, p0, Lcom/google/android/material/timepicker/ClockHandView;->isInTapRegion:Z
 
     .line 323
     iget-boolean v8, p0, Lcom/google/android/material/timepicker/ClockHandView;->changedDuringTouch:Z
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_32
 
     .line 324
     const/4 v1, 0x1
 
     .line 326
-    :cond_1
-    if-ne v0, v12, :cond_2
+    :cond_32
+    if-ne v0, v12, :cond_35
 
     const/4 v4, 0x1
 
-    :cond_2
+    :cond_35
     move v3, v4
 
     .line 327
     iget-boolean v4, p0, Lcom/google/android/material/timepicker/ClockHandView;->isMultiLevel:Z
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_48
 
     .line 328
     invoke-direct {p0, v10, v11}, Lcom/google/android/material/timepicker/ClockHandView;->adjustLevel(FF)V
 
-    goto :goto_1
+    goto :goto_48
 
     .line 308
     .end local v5    # "deltaX":I
     .end local v6    # "deltaY":I
     .end local v7    # "distance":I
-    :pswitch_1
+    :pswitch_3e
     iput v10, p0, Lcom/google/android/material/timepicker/ClockHandView;->downX:F
 
     .line 309
@@ -1180,8 +1180,8 @@
     nop
 
     .line 335
-    :cond_3
-    :goto_1
+    :cond_48
+    :goto_48
     iget-boolean v13, p0, Lcom/google/android/material/timepicker/ClockHandView;->changedDuringTouch:Z
 
     move-object v4, p0
@@ -1207,13 +1207,13 @@
     .line 336
     iget-boolean v4, p0, Lcom/google/android/material/timepicker/ClockHandView;->changedDuringTouch:Z
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_6d
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_6d
 
     iget-object v4, p0, Lcom/google/android/material/timepicker/ClockHandView;->onActionUpListener:Lcom/google/android/material/timepicker/ClockHandView$OnActionUpListener;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_6d
 
     .line 337
     iget-object v4, p0, Lcom/google/android/material/timepicker/ClockHandView;->onActionUpListener:Lcom/google/android/material/timepicker/ClockHandView$OnActionUpListener;
@@ -1229,19 +1229,19 @@
     invoke-interface {v4, v5, v6}, Lcom/google/android/material/timepicker/ClockHandView$OnActionUpListener;->onActionUp(FZ)V
 
     .line 340
-    :cond_4
+    :cond_6d
     return v12
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_3e
+        :pswitch_15
+        :pswitch_15
     .end packed-switch
 .end method
 
 .method public setAnimateOnTouchUp(Z)V
-    .locals 0
+    .registers 2
     .param p1, "animating"    # Z
 
     .line 228
@@ -1252,7 +1252,7 @@
 .end method
 
 .method public setCircleRadius(I)V
-    .locals 0
+    .registers 2
     .param p1, "circleRadius"    # I
 
     .line 293
@@ -1266,7 +1266,7 @@
 .end method
 
 .method setCurrentLevel(I)V
-    .locals 0
+    .registers 2
     .param p1, "level"    # I
 
     .line 386
@@ -1280,7 +1280,7 @@
 .end method
 
 .method public setHandRotation(F)V
-    .locals 1
+    .registers 3
     .param p1, "degrees"    # F
 
     .line 149
@@ -1293,14 +1293,14 @@
 .end method
 
 .method public setHandRotation(FZ)V
-    .locals 6
+    .registers 9
     .param p1, "degrees"    # F
     .param p2, "animate"    # Z
 
     .line 153
     iget-object v0, p0, Lcom/google/android/material/timepicker/ClockHandView;->rotationAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 154
     iget-object v0, p0, Lcom/google/android/material/timepicker/ClockHandView;->rotationAnimator:Landroid/animation/ValueAnimator;
@@ -1308,10 +1308,10 @@
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
     .line 157
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_10
 
     .line 158
     invoke-direct {p0, p1, v0}, Lcom/google/android/material/timepicker/ClockHandView;->setHandRotationInternal(FZ)V
@@ -1320,7 +1320,7 @@
     return-void
 
     .line 162
-    :cond_1
+    :cond_10
     invoke-direct {p0, p1}, Lcom/google/android/material/timepicker/ClockHandView;->getValuesForAnimation(F)Landroid/util/Pair;
 
     move-result-object v1
@@ -1401,15 +1401,15 @@
 .end method
 
 .method setMultiLevel(Z)V
-    .locals 1
+    .registers 3
     .param p1, "isMultiLevel"    # Z
 
     .line 391
     iget-boolean v0, p0, Lcom/google/android/material/timepicker/ClockHandView;->isMultiLevel:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     .line 392
     const/4 v0, 0x1
@@ -1417,7 +1417,7 @@
     iput v0, p0, Lcom/google/android/material/timepicker/ClockHandView;->currentLevel:I
 
     .line 394
-    :cond_0
+    :cond_9
     iput-boolean p1, p0, Lcom/google/android/material/timepicker/ClockHandView;->isMultiLevel:Z
 
     .line 395
@@ -1428,7 +1428,7 @@
 .end method
 
 .method public setOnActionUpListener(Lcom/google/android/material/timepicker/ClockHandView$OnActionUpListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/google/android/material/timepicker/ClockHandView$OnActionUpListener;
 
     .line 236

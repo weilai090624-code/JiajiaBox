@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 74
     new-instance v0, Ljava/lang/Object;
@@ -37,7 +37,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,26 +47,26 @@
 .end method
 
 .method static isApplicationUid(I)Z
-    .locals 7
+    .registers 8
     .param p0, "uid"    # I
 
     .line 89
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_1
     sget-object v1, Landroidx/core/os/ProcessCompat$Api19Impl;->sResolvedLock:Ljava/lang/Object;
 
     monitor-enter v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_4} :catch_42
 
     .line 90
-    :try_start_1
+    :try_start_4
     sget-boolean v2, Landroidx/core/os/ProcessCompat$Api19Impl;->sResolved:Z
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     .line 91
     sput-boolean v0, Landroidx/core/os/ProcessCompat$Api19Impl;->sResolved:Z
@@ -89,16 +89,16 @@
     sput-object v2, Landroidx/core/os/ProcessCompat$Api19Impl;->sMethodUserHandleIsAppMethod:Ljava/lang/reflect/Method;
 
     .line 95
-    :cond_0
+    :cond_1b
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_4 .. :try_end_1c} :catchall_3f
 
     .line 96
-    :try_start_2
+    :try_start_1c
     sget-object v1, Landroidx/core/os/ProcessCompat$Api19Impl;->sMethodUserHandleIsAppMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3e
 
     .line 97
     sget-object v1, Landroidx/core/os/ProcessCompat$Api19Impl;->sMethodUserHandleIsAppMethod:Ljava/lang/reflect/Method;
@@ -121,7 +121,7 @@
 
     .line 98
     .local v1, "result":Ljava/lang/Boolean;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_38
 
     .line 102
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -131,40 +131,40 @@
     return v0
 
     .line 100
-    :cond_1
+    :cond_38
     new-instance v2, Ljava/lang/NullPointerException;
 
     invoke-direct {v2}, Ljava/lang/NullPointerException;-><init>()V
 
     .end local p0    # "uid":I
     throw v2
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_3e
+    .catch Ljava/lang/Exception; {:try_start_1c .. :try_end_3e} :catch_42
 
     .line 106
     .end local v1    # "result":Ljava/lang/Boolean;
     .restart local p0    # "uid":I
-    :cond_2
-    goto :goto_0
+    :cond_3e
+    goto :goto_46
 
     .line 95
-    :catchall_0
+    :catchall_3f
     move-exception v2
 
-    :try_start_3
+    :try_start_40
     monitor-exit v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_41
+    .catchall {:try_start_40 .. :try_end_41} :catchall_3f
 
     .end local p0    # "uid":I
-    :try_start_4
+    :try_start_41
     throw v2
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_42
+    .catch Ljava/lang/Exception; {:try_start_41 .. :try_end_42} :catch_42
 
     .line 104
     .restart local p0    # "uid":I
-    :catch_0
+    :catch_42
     move-exception v1
 
     .line 105
@@ -173,6 +173,6 @@
 
     .line 107
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_46
     return v0
 .end method

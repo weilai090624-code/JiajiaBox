@@ -41,7 +41,7 @@
 
 # direct methods
 .method public static final iterator([Z)Lkotlin/collections/BooleanIterator;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [Z
 
     const-string v0, "array"
@@ -59,7 +59,7 @@
 .end method
 
 .method public static final iterator([B)Lkotlin/collections/ByteIterator;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [B
 
     const-string v0, "array"
@@ -77,7 +77,7 @@
 .end method
 
 .method public static final iterator([C)Lkotlin/collections/CharIterator;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [C
 
     const-string v0, "array"
@@ -95,7 +95,7 @@
 .end method
 
 .method public static final iterator([D)Lkotlin/collections/DoubleIterator;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [D
 
     const-string v0, "array"
@@ -113,7 +113,7 @@
 .end method
 
 .method public static final iterator([F)Lkotlin/collections/FloatIterator;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [F
 
     const-string v0, "array"
@@ -131,7 +131,7 @@
 .end method
 
 .method public static final iterator([I)Lkotlin/collections/IntIterator;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [I
 
     const-string v0, "array"
@@ -149,7 +149,7 @@
 .end method
 
 .method public static final iterator([J)Lkotlin/collections/LongIterator;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [J
 
     const-string v0, "array"
@@ -167,7 +167,7 @@
 .end method
 
 .method public static final iterator([S)Lkotlin/collections/ShortIterator;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [S
 
     const-string v0, "array"

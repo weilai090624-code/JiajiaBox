@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Class;Lcom/google/common/base/Predicates$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/lang/Class;
     .param p2, "x1"    # Lcom/google/common/base/Predicates$1;
 
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -113,7 +113,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -125,7 +125,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 512
     move-object v0, p1
@@ -138,21 +138,21 @@
 
     iget-object v3, v0, Lcom/google/common/base/Predicates$InstanceOfPredicate;->clazz:Ljava/lang/Class;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_f
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_f
     return v1
 
     .line 515
     .end local v0    # "that":Lcom/google/common/base/Predicates$InstanceOfPredicate;, "Lcom/google/common/base/Predicates$InstanceOfPredicate<*>;"
-    :cond_1
+    :cond_10
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 506
     .local p0, "this":Lcom/google/common/base/Predicates$InstanceOfPredicate;, "Lcom/google/common/base/Predicates$InstanceOfPredicate<TT;>;"
@@ -166,7 +166,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 520
     .local p0, "this":Lcom/google/common/base/Predicates$InstanceOfPredicate;, "Lcom/google/common/base/Predicates$InstanceOfPredicate<TT;>;"

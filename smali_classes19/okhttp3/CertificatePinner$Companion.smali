@@ -49,7 +49,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 345
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/CertificatePinner$Companion;-><init>()V
 
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public final pin(Ljava/security/cert/Certificate;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "certificate"    # Ljava/security/cert/Certificate;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -80,7 +80,7 @@
     .line 365
     instance-of v0, p1, Ljava/security/cert/X509Certificate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 366
     move-object v0, p1
@@ -104,7 +104,7 @@
     return-object v0
 
     .line 371
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
     .line 365
@@ -128,7 +128,7 @@
 .end method
 
 .method public final sha1Hash(Ljava/security/cert/X509Certificate;)Lokio/ByteString;
-    .locals 7
+    .registers 9
     .param p1, "$this$sha1Hash"    # Ljava/security/cert/X509Certificate;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -172,7 +172,7 @@
 .end method
 
 .method public final sha256Hash(Ljava/security/cert/X509Certificate;)Lokio/ByteString;
-    .locals 7
+    .registers 9
     .param p1, "$this$sha256Hash"    # Ljava/security/cert/X509Certificate;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation

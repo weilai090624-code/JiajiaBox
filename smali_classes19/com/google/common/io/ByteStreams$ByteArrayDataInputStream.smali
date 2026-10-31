@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/ByteArrayInputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "byteArrayInputStream"    # Ljava/io/ByteArrayInputStream;
 
     .line 320
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public readBoolean()Z
-    .locals 2
+    .registers 3
 
     .line 354
     :try_start_0
@@ -52,13 +52,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readBoolean()Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 355
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 356
@@ -71,7 +71,7 @@
 .end method
 
 .method public readByte()B
-    .locals 2
+    .registers 3
 
     .line 363
     :try_start_0
@@ -80,14 +80,14 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readByte()B
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_6} :catch_e
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 366
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 367
@@ -100,7 +100,7 @@
 
     .line 364
     .end local v0    # "impossible":Ljava/io/IOException;
-    :catch_1
+    :catch_e
     move-exception v0
 
     .line 365
@@ -113,7 +113,7 @@
 .end method
 
 .method public readChar()C
-    .locals 2
+    .registers 3
 
     .line 401
     :try_start_0
@@ -122,13 +122,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readChar()C
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 402
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 403
@@ -141,7 +141,7 @@
 .end method
 
 .method public readDouble()D
-    .locals 2
+    .registers 3
 
     .line 437
     :try_start_0
@@ -150,13 +150,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readDouble()D
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-wide v0
 
     .line 438
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 439
@@ -169,7 +169,7 @@
 .end method
 
 .method public readFloat()F
-    .locals 2
+    .registers 3
 
     .line 428
     :try_start_0
@@ -178,13 +178,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readFloat()F
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 429
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 430
@@ -197,7 +197,7 @@
 .end method
 
 .method public readFully([B)V
-    .locals 2
+    .registers 4
     .param p1, "b"    # [B
 
     .line 327
@@ -205,8 +205,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataInputStream;->input:Ljava/io/DataInput;
 
     invoke-interface {v0, p1}, Ljava/io/DataInput;->readFully([B)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 330
     nop
@@ -215,7 +215,7 @@
     return-void
 
     .line 328
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 329
@@ -228,7 +228,7 @@
 .end method
 
 .method public readFully([BII)V
-    .locals 2
+    .registers 6
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -238,8 +238,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataInputStream;->input:Ljava/io/DataInput;
 
     invoke-interface {v0, p1, p2, p3}, Ljava/io/DataInput;->readFully([BII)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 339
     nop
@@ -248,7 +248,7 @@
     return-void
 
     .line 337
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 338
@@ -261,7 +261,7 @@
 .end method
 
 .method public readInt()I
-    .locals 2
+    .registers 3
 
     .line 410
     :try_start_0
@@ -270,13 +270,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readInt()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 411
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 412
@@ -289,7 +289,7 @@
 .end method
 
 .method public readLine()Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -300,13 +300,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readLine()Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
     .line 448
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 449
@@ -319,7 +319,7 @@
 .end method
 
 .method public readLong()J
-    .locals 2
+    .registers 3
 
     .line 419
     :try_start_0
@@ -328,13 +328,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readLong()J
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-wide v0
 
     .line 420
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 421
@@ -347,7 +347,7 @@
 .end method
 
 .method public readShort()S
-    .locals 2
+    .registers 3
 
     .line 383
     :try_start_0
@@ -356,13 +356,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readShort()S
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 384
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 385
@@ -375,7 +375,7 @@
 .end method
 
 .method public readUTF()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 456
     :try_start_0
@@ -384,13 +384,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readUTF()Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
     .line 457
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 458
@@ -403,7 +403,7 @@
 .end method
 
 .method public readUnsignedByte()I
-    .locals 2
+    .registers 3
 
     .line 374
     :try_start_0
@@ -412,13 +412,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readUnsignedByte()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 375
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 376
@@ -431,7 +431,7 @@
 .end method
 
 .method public readUnsignedShort()I
-    .locals 2
+    .registers 3
 
     .line 392
     :try_start_0
@@ -440,13 +440,13 @@
     invoke-interface {v0}, Ljava/io/DataInput;->readUnsignedShort()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 393
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 394
@@ -459,7 +459,7 @@
 .end method
 
 .method public skipBytes(I)I
-    .locals 2
+    .registers 4
     .param p1, "n"    # I
 
     .line 345
@@ -469,13 +469,13 @@
     invoke-interface {v0, p1}, Ljava/io/DataInput;->skipBytes(I)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 346
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 347

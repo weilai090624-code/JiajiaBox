@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 401
     const-string v0, "ForceStopRunnable$Rcvr"
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 400
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -61,7 +61,7 @@
     .end annotation
 
     .line 407
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1c
 
     .line 408
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -76,7 +76,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 410
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -94,6 +94,6 @@
 
     .line 416
     .end local v0    # "action":Ljava/lang/String;
-    :cond_0
+    :cond_1c
     return-void
 .end method

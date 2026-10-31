@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/ktx/Logs;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method private final mkTag()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 10
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public final d(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "message"    # Ljava/lang/String;
 
     const-string v0, "message"
@@ -150,7 +150,7 @@
 .end method
 
 .method public final d(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 5
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "exception"    # Ljava/lang/Throwable;
 
@@ -216,7 +216,7 @@
 .end method
 
 .method public final e(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "message"    # Ljava/lang/String;
 
     const-string v0, "message"
@@ -263,7 +263,7 @@
 .end method
 
 .method public final e(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 5
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "exception"    # Ljava/lang/Throwable;
 
@@ -329,7 +329,7 @@
 .end method
 
 .method public final e(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "exception"    # Ljava/lang/Throwable;
 
     const-string v0, "exception"
@@ -380,7 +380,7 @@
 .end method
 
 .method public final i(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "message"    # Ljava/lang/String;
 
     const-string v0, "message"
@@ -427,7 +427,7 @@
 .end method
 
 .method public final i(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 5
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "exception"    # Ljava/lang/Throwable;
 
@@ -493,7 +493,7 @@
 .end method
 
 .method public final w(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "message"    # Ljava/lang/String;
 
     const-string v0, "message"
@@ -540,7 +540,7 @@
 .end method
 
 .method public final w(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 5
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "exception"    # Ljava/lang/Throwable;
 
@@ -606,7 +606,7 @@
 .end method
 
 .method public final w(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "exception"    # Ljava/lang/Throwable;
 
     const-string v0, "exception"

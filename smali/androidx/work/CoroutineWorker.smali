@@ -81,7 +81,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$AJqza2-JrGJsksuufkexElghlM0(Landroidx/work/CoroutineWorker;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/work/CoroutineWorker;->_init_$lambda$0(Landroidx/work/CoroutineWorker;)V
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 3
+    .registers 6
     .param p1, "appContext"    # Landroid/content/Context;
     .param p2, "params"    # Landroidx/work/WorkerParameters;
 
@@ -165,7 +165,7 @@
 .end method
 
 .method private static final _init_$lambda$0(Landroidx/work/CoroutineWorker;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/work/CoroutineWorker;
 
     const-string/jumbo v0, "this$0"
@@ -179,7 +179,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 50
     iget-object v0, p0, Landroidx/work/CoroutineWorker;->job:Lkotlinx/coroutines/CompletableJob;
@@ -193,12 +193,12 @@
     invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 52
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public static synthetic getCoroutineContext$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "use withContext(...) inside doWork() instead."
     .end annotation
@@ -207,7 +207,7 @@
 .end method
 
 .method static synthetic getForegroundInfo$suspendImpl(Landroidx/work/CoroutineWorker;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this"    # Landroidx/work/CoroutineWorker;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -248,7 +248,7 @@
 .end method
 
 .method public getCoroutineContext()Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 2
 
     .line 61
     iget-object v0, p0, Landroidx/work/CoroutineWorker;->coroutineContext:Lkotlinx/coroutines/CoroutineDispatcher;
@@ -257,7 +257,7 @@
 .end method
 
 .method public getForegroundInfo(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -277,7 +277,7 @@
 .end method
 
 .method public final getForegroundInfoAsync()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -359,7 +359,7 @@
 .end method
 
 .method public final getFuture$work_runtime_ktx_release()Landroidx/work/impl/utils/futures/SettableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -376,7 +376,7 @@
 .end method
 
 .method public final getJob$work_runtime_ktx_release()Lkotlinx/coroutines/CompletableJob;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Landroidx/work/CoroutineWorker;->job:Lkotlinx/coroutines/CompletableJob;
@@ -385,7 +385,7 @@
 .end method
 
 .method public final onStopped()V
-    .locals 2
+    .registers 3
 
     .line 140
     invoke-super {p0}, Landroidx/work/ListenableWorker;->onStopped()V
@@ -402,7 +402,7 @@
 .end method
 
 .method public final setForeground(Landroidx/work/ForegroundInfo;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 13
     .param p1, "foregroundInfo"    # Landroidx/work/ForegroundInfo;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -435,21 +435,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     .line 173
     nop
 
     .line 174
-    :try_start_0
+    :try_start_12
     invoke-interface {v0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_12 .. :try_end_15} :catch_16
 
-    goto :goto_0
+    goto :goto_65
 
     .line 175
-    :catch_0
+    :catch_16
     move-exception v2
 
     .line 176
@@ -458,18 +458,18 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_20
 
     move-object v3, v2
 
     check-cast v3, Ljava/lang/Throwable;
 
-    :cond_0
+    :cond_20
     throw v3
 
     .line 179
     .end local v2    # "e$iv":Ljava/util/concurrent/ExecutionException;
-    :cond_1
+    :cond_21
     const/4 v2, 0x0
 
     .line 180
@@ -549,21 +549,21 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5c
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_2
+    :cond_5c
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_63
 
     return-object v3
 
     .line 198
-    :cond_3
+    :cond_63
     nop
 
     .line 179
@@ -572,7 +572,7 @@
 
     .end local v0    # "$this$await$iv":Lcom/google/common/util/concurrent/ListenableFuture;
     .end local v1    # "$i$f$await":I
-    :goto_0
+    :goto_65
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 126
@@ -580,7 +580,7 @@
 .end method
 
 .method public final setProgress(Landroidx/work/Data;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 13
     .param p1, "data"    # Landroidx/work/Data;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -613,21 +613,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     .line 146
     nop
 
     .line 147
-    :try_start_0
+    :try_start_12
     invoke-interface {v0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_12 .. :try_end_15} :catch_16
 
-    goto :goto_0
+    goto :goto_65
 
     .line 148
-    :catch_0
+    :catch_16
     move-exception v2
 
     .line 149
@@ -636,18 +636,18 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_20
 
     move-object v3, v2
 
     check-cast v3, Ljava/lang/Throwable;
 
-    :cond_0
+    :cond_20
     throw v3
 
     .line 152
     .end local v2    # "e$iv":Ljava/util/concurrent/ExecutionException;
-    :cond_1
+    :cond_21
     const/4 v2, 0x0
 
     .line 153
@@ -727,21 +727,21 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5c
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_2
+    :cond_5c
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_63
 
     return-object v3
 
     .line 171
-    :cond_3
+    :cond_63
     nop
 
     .line 152
@@ -750,7 +750,7 @@
 
     .end local v0    # "$this$await$iv":Lcom/google/common/util/concurrent/ListenableFuture;
     .end local v1    # "$i$f$await":I
-    :goto_0
+    :goto_65
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 111
@@ -758,7 +758,7 @@
 .end method
 
 .method public final startWork()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

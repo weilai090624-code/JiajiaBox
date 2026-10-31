@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public getSummary()Ljava/lang/CharSequence;
-    .locals 14
+    .registers 15
 
     .line 24
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -173,13 +173,13 @@
 
     move-result-object v6
 
-    :cond_0
-    :goto_0
+    :cond_27
+    :goto_27
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_42
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -206,15 +206,15 @@
     .line 43
     .end local v8    # "it":Ljava/lang/String;
     .end local v9    # "$i$a$-filter-AppListPreference$getSummary$packages$1":I
-    if-nez v10, :cond_0
+    if-nez v10, :cond_27
 
     invoke-interface {v3, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_27
 
     .line 44
     .end local v7    # "element$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_42
     nop
 
     .end local v3    # "destination$iv$iv":Ljava/util/Collection;
@@ -261,12 +261,12 @@
 
     move-result-object v6
 
-    :goto_1
+    :goto_5d
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_b4
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -295,11 +295,11 @@
 
     check-cast v10, Landroid/content/pm/PackageInfo;
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_8b
 
     iget-object v10, v10, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_8b
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
@@ -313,10 +313,10 @@
 
     move-result-object v10
 
-    if-nez v10, :cond_4
+    if-nez v10, :cond_b0
 
     .line 26
-    :cond_2
+    :cond_8b
     sget-object v10, Lio/nekohasekai/sagernet/utils/PackageCache;->INSTANCE:Lio/nekohasekai/sagernet/utils/PackageCache;
 
     invoke-virtual {v10}, Lio/nekohasekai/sagernet/utils/PackageCache;->getInstalledPluginPackages()Ljava/util/Map;
@@ -329,11 +329,11 @@
 
     check-cast v10, Landroid/content/pm/PackageInfo;
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_aa
 
     iget-object v10, v10, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_aa
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
@@ -347,14 +347,14 @@
 
     move-result-object v10
 
-    goto :goto_2
+    goto :goto_ab
 
-    :cond_3
+    :cond_aa
     const/4 v10, 0x0
 
     .line 25
-    :goto_2
-    if-nez v10, :cond_4
+    :goto_ab
+    if-nez v10, :cond_b0
 
     .line 27
     move-object v10, v8
@@ -364,14 +364,14 @@
     .line 47
     .end local v8    # "it":Ljava/lang/String;
     .end local v9    # "$i$a$-map-AppListPreference$getSummary$packages$2":I
-    :cond_4
+    :cond_b0
     invoke-interface {v3, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 48
     .end local v7    # "item$iv$iv":Ljava/lang/Object;
-    :cond_5
+    :cond_b4
     nop
 
     .end local v3    # "destination$iv$iv":Ljava/util/Collection;
@@ -395,7 +395,7 @@
 
     const-string v3, "getString(...)"
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_d2
 
     .line 30
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/widget/AppListPreference;->getContext()Landroid/content/Context;
@@ -415,7 +415,7 @@
     return-object v0
 
     .line 32
-    :cond_6
+    :cond_d2
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v2
@@ -424,7 +424,7 @@
     .local v2, "count":I
     const/4 v4, 0x5
 
-    if-gt v2, v4, :cond_7
+    if-gt v2, v4, :cond_ee
 
     move-object v5, v1
 
@@ -457,7 +457,7 @@
     return-object v0
 
     .line 34
-    :cond_7
+    :cond_ee
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/widget/AppListPreference;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -488,7 +488,7 @@
 .end method
 
 .method public final postUpdate()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/widget/AppListPreference;->notifyChanged()V

@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 56
     const-string v0, "SystemJobService"
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 55
     invoke-direct {p0}, Landroid/app/job/JobService;-><init>()V
@@ -76,7 +76,7 @@
 .end method
 
 .method private static workGenerationalIdFromJobParameters(Landroid/app/job/JobParameters;)Landroidx/work/impl/model/WorkGenerationalId;
-    .locals 4
+    .registers 5
     .param p0, "parameters"    # Landroid/app/job/JobParameters;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -90,20 +90,20 @@
     .line 201
     const-string v0, "EXTRA_WORK_SPEC_ID"
 
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0}, Landroid/app/job/JobParameters;->getExtras()Landroid/os/PersistableBundle;
 
     move-result-object v1
 
     .line 202
     .local v1, "extras":Landroid/os/PersistableBundle;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     invoke-virtual {v1, v0}, Landroid/os/PersistableBundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 203
     new-instance v2, Landroidx/work/impl/model/WorkGenerationalId;
@@ -120,23 +120,23 @@
     move-result v3
 
     invoke-direct {v2, v0, v3}, Landroidx/work/impl/model/WorkGenerationalId;-><init>(Ljava/lang/String;I)V
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_1d} :catch_1f
 
     .line 203
     return-object v2
 
     .line 208
     .end local v1    # "extras":Landroid/os/PersistableBundle;
-    :cond_0
-    goto :goto_0
+    :cond_1e
+    goto :goto_20
 
     .line 206
-    :catch_0
+    :catch_1f
     move-exception v0
 
     .line 209
-    :goto_0
+    :goto_20
     const/4 v0, 0x0
 
     return-object v0
@@ -145,13 +145,13 @@
 
 # virtual methods
 .method public onCreate()V
-    .locals 4
+    .registers 5
 
     .line 63
     invoke-super {p0}, Landroid/app/job/JobService;->onCreate()V
 
     .line 65
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Landroidx/work/impl/background/systemjob/SystemJobService;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
@@ -170,14 +170,14 @@
     move-result-object v0
 
     invoke-virtual {v0, p0}, Landroidx/work/impl/Processor;->addExecutionListener(Landroidx/work/impl/ExecutionListener;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/IllegalStateException; {:try_start_3 .. :try_end_16} :catch_17
 
     .line 88
-    goto :goto_0
+    goto :goto_33
 
     .line 67
-    :catch_0
+    :catch_17
     move-exception v0
 
     .line 77
@@ -196,7 +196,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_34
 
     .line 84
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -211,12 +211,12 @@
 
     .line 89
     .end local v0    # "e":Ljava/lang/IllegalStateException;
-    :goto_0
+    :goto_33
     return-void
 
     .line 81
     .restart local v0    # "e":Ljava/lang/IllegalStateException;
-    :cond_0
+    :cond_34
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "WorkManager needs to be initialized via a ContentProvider#onCreate() or an Application#onCreate()."
@@ -227,7 +227,7 @@
 .end method
 
 .method public onDestroy()V
-    .locals 1
+    .registers 2
 
     .line 93
     invoke-super {p0}, Landroid/app/job/JobService;->onDestroy()V
@@ -235,7 +235,7 @@
     .line 94
     iget-object v0, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 95
     iget-object v0, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -247,12 +247,12 @@
     invoke-virtual {v0, p0}, Landroidx/work/impl/Processor;->removeExecutionListener(Landroidx/work/impl/ExecutionListener;)V
 
     .line 97
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onExecuted(Landroidx/work/impl/model/WorkGenerationalId;Z)V
-    .locals 4
+    .registers 7
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -303,7 +303,7 @@
     monitor-enter v0
 
     .line 187
-    :try_start_0
+    :try_start_23
     iget-object v1, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mJobParameters:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -315,8 +315,8 @@
     .line 188
     .local v1, "parameters":Landroid/app/job/JobParameters;
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_23 .. :try_end_2c} :catchall_37
 
     .line 189
     iget-object v0, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mStartStopTokens:Landroidx/work/impl/StartStopTokens;
@@ -324,30 +324,30 @@
     invoke-virtual {v0, p1}, Landroidx/work/impl/StartStopTokens;->remove(Landroidx/work/impl/model/WorkGenerationalId;)Landroidx/work/impl/StartStopToken;
 
     .line 190
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_36
 
     .line 191
     invoke-virtual {p0, v1, p2}, Landroidx/work/impl/background/systemjob/SystemJobService;->jobFinished(Landroid/app/job/JobParameters;Z)V
 
     .line 193
-    :cond_0
+    :cond_36
     return-void
 
     .line 188
     .end local v1    # "parameters":Landroid/app/job/JobParameters;
-    :catchall_0
+    :catchall_37
     move-exception v1
 
-    :try_start_1
+    :try_start_38
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_39
+    .catchall {:try_start_38 .. :try_end_39} :catchall_37
 
     throw v1
 .end method
 
 .method public onStartJob(Landroid/app/job/JobParameters;)Z
-    .locals 7
+    .registers 9
     .param p1, "params"    # Landroid/app/job/JobParameters;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -365,7 +365,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 102
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -385,14 +385,14 @@
     return v2
 
     .line 107
-    :cond_0
+    :cond_15
     invoke-static {p1}, Landroidx/work/impl/background/systemjob/SystemJobService;->workGenerationalIdFromJobParameters(Landroid/app/job/JobParameters;)Landroidx/work/impl/model/WorkGenerationalId;
 
     move-result-object v0
 
     .line 108
     .local v0, "workGenerationalId":Landroidx/work/impl/model/WorkGenerationalId;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_27
 
     .line 109
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -409,20 +409,20 @@
     return v2
 
     .line 113
-    :cond_1
+    :cond_27
     iget-object v3, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mJobParameters:Ljava/util/Map;
 
     monitor-enter v3
 
     .line 114
-    :try_start_0
+    :try_start_2a
     iget-object v4, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mJobParameters:Ljava/util/Map;
 
     invoke-interface {v4, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_50
 
     .line 117
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -457,7 +457,7 @@
     return v2
 
     .line 126
-    :cond_2
+    :cond_50
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v2
@@ -491,8 +491,8 @@
 
     .line 128
     monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_72
+    .catchall {:try_start_2a .. :try_end_72} :catchall_b9
 
     .line 130
     const/4 v2, 0x0
@@ -503,7 +503,7 @@
 
     const/16 v4, 0x18
 
-    if-lt v3, v4, :cond_5
+    if-lt v3, v4, :cond_ad
 
     .line 132
     new-instance v3, Landroidx/work/WorkerParameters$RuntimeExtras;
@@ -517,7 +517,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_90
 
     .line 134
     nop
@@ -534,12 +534,12 @@
     iput-object v3, v2, Landroidx/work/WorkerParameters$RuntimeExtras;->triggeredContentUris:Ljava/util/List;
 
     .line 137
-    :cond_3
+    :cond_90
     invoke-static {p1}, Landroidx/work/impl/background/systemjob/SystemJobService$Api24Impl;->getTriggeredContentAuthorities(Landroid/app/job/JobParameters;)[Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_a1
 
     .line 138
     nop
@@ -556,12 +556,12 @@
     iput-object v3, v2, Landroidx/work/WorkerParameters$RuntimeExtras;->triggeredContentAuthorities:Ljava/util/List;
 
     .line 141
-    :cond_4
+    :cond_a1
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v4, 0x1c
 
-    if-lt v3, v4, :cond_5
+    if-lt v3, v4, :cond_ad
 
     .line 142
     invoke-static {p1}, Landroidx/work/impl/background/systemjob/SystemJobService$Api28Impl;->getNetwork(Landroid/app/job/JobParameters;)Landroid/net/Network;
@@ -571,7 +571,7 @@
     iput-object v3, v2, Landroidx/work/WorkerParameters$RuntimeExtras;->network:Landroid/net/Network;
 
     .line 153
-    :cond_5
+    :cond_ad
     iget-object v3, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
     iget-object v4, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mStartStopTokens:Landroidx/work/impl/StartStopTokens;
@@ -587,19 +587,19 @@
 
     .line 128
     .end local v2    # "runtimeExtras":Landroidx/work/WorkerParameters$RuntimeExtras;
-    :catchall_0
+    :catchall_b9
     move-exception v1
 
-    :try_start_1
+    :try_start_ba
     monitor-exit v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_bb
+    .catchall {:try_start_ba .. :try_end_bb} :catchall_b9
 
     throw v1
 .end method
 
 .method public onStopJob(Landroid/app/job/JobParameters;)Z
-    .locals 6
+    .registers 8
     .param p1, "params"    # Landroid/app/job/JobParameters;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -615,7 +615,7 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 160
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -632,14 +632,14 @@
     return v1
 
     .line 164
-    :cond_0
+    :cond_11
     invoke-static {p1}, Landroidx/work/impl/background/systemjob/SystemJobService;->workGenerationalIdFromJobParameters(Landroid/app/job/JobParameters;)Landroidx/work/impl/model/WorkGenerationalId;
 
     move-result-object v0
 
     .line 165
     .local v0, "workGenerationalId":Landroidx/work/impl/model/WorkGenerationalId;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     .line 166
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -658,7 +658,7 @@
     return v1
 
     .line 170
-    :cond_1
+    :cond_24
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v2
@@ -691,15 +691,15 @@
     monitor-enter v2
 
     .line 173
-    :try_start_0
+    :try_start_43
     iget-object v3, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mJobParameters:Ljava/util/Map;
 
     invoke-interface {v3, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 174
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_49
+    .catchall {:try_start_43 .. :try_end_49} :catchall_66
 
     .line 175
     iget-object v2, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mStartStopTokens:Landroidx/work/impl/StartStopTokens;
@@ -710,7 +710,7 @@
 
     .line 176
     .local v2, "runId":Landroidx/work/impl/StartStopToken;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_56
 
     .line 177
     iget-object v3, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -718,7 +718,7 @@
     invoke-virtual {v3, v2}, Landroidx/work/impl/WorkManagerImpl;->stopWork(Landroidx/work/impl/StartStopToken;)V
 
     .line 179
-    :cond_2
+    :cond_56
     iget-object v3, p0, Landroidx/work/impl/background/systemjob/SystemJobService;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
     invoke-virtual {v3}, Landroidx/work/impl/WorkManagerImpl;->getProcessor()Landroidx/work/impl/Processor;
@@ -739,13 +739,13 @@
 
     .line 174
     .end local v2    # "runId":Landroidx/work/impl/StartStopToken;
-    :catchall_0
+    :catchall_66
     move-exception v1
 
-    :try_start_1
+    :try_start_67
     monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_68
+    .catchall {:try_start_67 .. :try_end_68} :catchall_66
 
     throw v1
 .end method

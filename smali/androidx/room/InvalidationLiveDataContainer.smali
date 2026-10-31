@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/RoomDatabase;)V
-    .locals 2
+    .registers 4
     .param p1, "database"    # Landroidx/room/RoomDatabase;
 
     const-string v0, "database"
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public final create([Ljava/lang/String;ZLjava/util/concurrent/Callable;)Landroidx/lifecycle/LiveData;
-    .locals 7
+    .registers 11
     .param p1, "tableNames"    # [Ljava/lang/String;
     .param p2, "inTransaction"    # Z
     .param p3, "computeFunction"    # Ljava/util/concurrent/Callable;
@@ -160,7 +160,7 @@
 .end method
 
 .method public final getLiveDataSet$room_runtime_release()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -177,7 +177,7 @@
 .end method
 
 .method public final onActive(Landroidx/lifecycle/LiveData;)V
-    .locals 1
+    .registers 3
     .param p1, "liveData"    # Landroidx/lifecycle/LiveData;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -201,7 +201,7 @@
 .end method
 
 .method public final onInactive(Landroidx/lifecycle/LiveData;)V
-    .locals 1
+    .registers 3
     .param p1, "liveData"    # Landroidx/lifecycle/LiveData;
     .annotation system Ldalvik/annotation/Signature;
         value = {

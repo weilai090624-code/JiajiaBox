@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 248
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getParcelable(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -51,7 +51,7 @@
 .end method
 
 .method static getParcelableArray(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)[Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -76,7 +76,7 @@
 .end method
 
 .method static getParcelableArrayList(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -103,7 +103,7 @@
 .end method
 
 .method static getSerializable(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Ljava/io/Serializable;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -128,7 +128,7 @@
 .end method
 
 .method static getSparseParcelableArray(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Landroid/util/SparseArray;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;

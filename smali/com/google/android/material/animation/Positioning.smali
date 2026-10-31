@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(IFF)V
-    .locals 0
+    .registers 4
     .param p1, "gravity"    # I
     .param p2, "xAdjustment"    # F
     .param p3, "yAdjustment"    # F

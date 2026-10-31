@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/AsyncListDiffer$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Landroidx/recyclerview/widget/AsyncListDiffer$1;
 
     .line 292
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public areContentsTheSame(II)Z
-    .locals 3
+    .registers 6
     .param p1, "oldItemPosition"    # I
     .param p2, "newItemPosition"    # I
 
@@ -61,9 +61,9 @@
 
     .line 318
     .local v1, "newItem":Ljava/lang/Object;, "TT;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 319
     iget-object v2, p0, Landroidx/recyclerview/widget/AsyncListDiffer$1$1;->this$1:Landroidx/recyclerview/widget/AsyncListDiffer$1;
@@ -83,10 +83,10 @@
     return v2
 
     .line 321
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_23
+    if-nez v0, :cond_29
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_29
 
     .line 322
     const/4 v2, 0x1
@@ -94,7 +94,7 @@
     return v2
 
     .line 328
-    :cond_1
+    :cond_29
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
@@ -103,7 +103,7 @@
 .end method
 
 .method public areItemsTheSame(II)Z
-    .locals 3
+    .registers 6
     .param p1, "oldItemPosition"    # I
     .param p2, "newItemPosition"    # I
 
@@ -129,9 +129,9 @@
 
     .line 307
     .local v1, "newItem":Ljava/lang/Object;, "TT;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 308
     iget-object v2, p0, Landroidx/recyclerview/widget/AsyncListDiffer$1$1;->this$1:Landroidx/recyclerview/widget/AsyncListDiffer$1;
@@ -151,24 +151,24 @@
     return v2
 
     .line 311
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_23
+    if-nez v0, :cond_29
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_29
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_29
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_2a
     return v2
 .end method
 
 .method public getChangePayload(II)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "oldItemPosition"    # I
     .param p2, "newItemPosition"    # I
 
@@ -194,9 +194,9 @@
 
     .line 336
     .local v1, "newItem":Ljava/lang/Object;, "TT;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 337
     iget-object v2, p0, Landroidx/recyclerview/widget/AsyncListDiffer$1$1;->this$1:Landroidx/recyclerview/widget/AsyncListDiffer$1;
@@ -216,7 +216,7 @@
     return-object v2
 
     .line 343
-    :cond_0
+    :cond_23
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
@@ -225,7 +225,7 @@
 .end method
 
 .method public getNewListSize()I
-    .locals 1
+    .registers 2
 
     .line 300
     .local p0, "this":Landroidx/recyclerview/widget/AsyncListDiffer$1$1;, "Landroidx/recyclerview/widget/AsyncListDiffer$1$1;"
@@ -241,7 +241,7 @@
 .end method
 
 .method public getOldListSize()I
-    .locals 1
+    .registers 2
 
     .line 295
     .local p0, "this":Landroidx/recyclerview/widget/AsyncListDiffer$1$1;, "Landroidx/recyclerview/widget/AsyncListDiffer$1$1;"

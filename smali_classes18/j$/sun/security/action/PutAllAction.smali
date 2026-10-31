@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/security/Provider;Ljava/util/Map;)V
-    .locals 0
+    .registers 3
     .param p1, "provider"    # Ljava/security/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public bridge synthetic run()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 41
     invoke-virtual {p0}, Lj$/sun/security/action/PutAllAction;->run()Ljava/lang/Void;
@@ -71,7 +71,7 @@
 .end method
 
 .method public run()Ljava/lang/Void;
-    .locals 2
+    .registers 3
 
     .line 52
     iget-object v0, p0, Lj$/sun/security/action/PutAllAction;->provider:Ljava/security/Provider;

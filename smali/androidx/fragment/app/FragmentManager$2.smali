@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentManager;
 
     .line 472
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onCreateMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroid/view/Menu;
     .param p2, "menuInflater"    # Landroid/view/MenuInflater;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public onMenuClosed(Landroid/view/Menu;)V
-    .locals 1
+    .registers 3
     .param p1, "menu"    # Landroid/view/Menu;
 
     .line 490
@@ -64,7 +64,7 @@
 .end method
 
 .method public onMenuItemSelected(Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 3
     .param p1, "menuItem"    # Landroid/view/MenuItem;
 
     .line 485
@@ -78,7 +78,7 @@
 .end method
 
 .method public onPrepareMenu(Landroid/view/Menu;)V
-    .locals 1
+    .registers 3
     .param p1, "menu"    # Landroid/view/Menu;
 
     .line 475

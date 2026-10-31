@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final synthetic emptyArray()[Ljava/lang/Object;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

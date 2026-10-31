@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 3
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 88
@@ -114,16 +114,16 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/nio/charset/Charset;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 88
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1}, Lokhttp3/FormBody$Builder;-><init>(Ljava/nio/charset/Charset;)V
 
     .line 121
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public final add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
-    .locals 17
+    .registers 20
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -265,7 +265,7 @@
 .end method
 
 .method public final addEncoded(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
-    .locals 17
+    .registers 20
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -403,7 +403,7 @@
 .end method
 
 .method public final build()Lokhttp3/FormBody;
-    .locals 3
+    .registers 4
 
     .line 120
     new-instance v0, Lokhttp3/FormBody;

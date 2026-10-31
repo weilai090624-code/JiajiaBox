@@ -87,7 +87,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lokhttp3/internal/platform/AndroidPlatform$Companion;
 
@@ -109,22 +109,22 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 137
-    :cond_0
+    :cond_13
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1e
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_1a
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 141
-    :cond_1
+    :cond_1a
     nop
 
     .line 140
@@ -134,14 +134,14 @@
     const/4 v1, 0x1
 
     .line 135
-    :goto_0
+    :goto_1d
     sput-boolean v1, Lokhttp3/internal/platform/AndroidPlatform;->isSupported:Z
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 9
+    .registers 10
 
     .line 44
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform;-><init>()V
@@ -259,13 +259,13 @@
 
     move-result-object v5
 
-    :cond_0
-    :goto_0
+    :cond_59
+    :goto_59
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_71
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -287,15 +287,15 @@
 
     .end local v7    # "it":Lokhttp3/internal/platform/android/SocketAdapter;
     .end local v8    # "$i$a$-filter-AndroidPlatform$socketAdapters$1":I
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_59
 
     invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_59
 
     .line 153
     .end local v6    # "element$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_71
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -316,7 +316,7 @@
 .end method
 
 .method public static final synthetic access$isSupported$cp()Z
-    .locals 1
+    .registers 1
 
     .line 43
     sget-boolean v0, Lokhttp3/internal/platform/AndroidPlatform;->isSupported:Z
@@ -327,7 +327,7 @@
 
 # virtual methods
 .method public buildCertificateChainCleaner(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/tls/CertificateChainCleaner;
-    .locals 1
+    .registers 3
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     const-string v0, "trustManager"
@@ -341,23 +341,23 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     invoke-super {p0, p1}, Lokhttp3/internal/platform/Platform;->buildCertificateChainCleaner(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/tls/CertificateChainCleaner;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     check-cast v0, Lokhttp3/internal/tls/CertificateChainCleaner;
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public buildTrustRootIndex(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/tls/TrustRootIndex;
-    .locals 6
+    .registers 8
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     const-string v0, "trustManager"
@@ -368,7 +368,7 @@
     nop
 
     .line 102
-    :try_start_0
+    :try_start_6
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -406,13 +406,13 @@
 
     .end local v0    # "method":Ljava/lang/reflect/Method;
     check-cast v1, Lokhttp3/internal/tls/TrustRootIndex;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_6 .. :try_end_27} :catch_28
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 106
-    :catch_0
+    :catch_28
     move-exception v0
 
     .line 107
@@ -423,12 +423,12 @@
 
     .line 108
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_2d
     return-object v1
 .end method
 
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 4
+    .registers 8
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -460,12 +460,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_12
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -487,35 +487,35 @@
 
     .end local v2    # "it":Lokhttp3/internal/platform/android/SocketAdapter;
     .end local v3    # "$i$a$-find-AndroidPlatform$configureTlsExtensions$1":I
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_12
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_28
     check-cast v1, Lokhttp3/internal/platform/android/SocketAdapter;
 
     .line 83
     nop
 
     .line 82
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2e
 
     .line 83
-    goto :goto_1
+    goto :goto_31
 
-    :cond_2
+    :cond_2e
     invoke-interface {v1, p1, p2, p3}, Lokhttp3/internal/platform/android/SocketAdapter;->configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
 
     .line 84
-    :goto_1
+    :goto_31
     return-void
 .end method
 
 .method public connectSocket(Ljava/net/Socket;Ljava/net/InetSocketAddress;I)V
-    .locals 4
+    .registers 8
     .param p1, "socket"    # Ljava/net/Socket;
     .param p2, "address"    # Ljava/net/InetSocketAddress;
     .param p3, "connectTimeout"    # I
@@ -537,20 +537,20 @@
     nop
 
     .line 60
-    :try_start_0
+    :try_start_b
     move-object v0, p2
 
     check-cast v0, Ljava/net/SocketAddress;
 
     invoke-virtual {p1, v0, p3}, Ljava/net/Socket;->connect(Ljava/net/SocketAddress;I)V
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/ClassCastException; {:try_start_b .. :try_end_11} :catch_12
 
     .line 70
     return-void
 
     .line 61
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 64
@@ -559,7 +559,7 @@
 
     const/16 v2, 0x1a
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_24
 
     .line 65
     new-instance v1, Ljava/io/IOException;
@@ -575,12 +575,12 @@
     throw v1
 
     .line 67
-    :cond_0
+    :cond_24
     throw v0
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -596,14 +596,14 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -625,31 +625,31 @@
 
     .end local v3    # "it":Lokhttp3/internal/platform/android/SocketAdapter;
     .end local v4    # "$i$a$-find-AndroidPlatform$getSelectedProtocol$1":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_23
     move-object v1, v2
 
-    :goto_0
+    :goto_24
     check-cast v1, Lokhttp3/internal/platform/android/SocketAdapter;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_29
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_2
+    :cond_29
     invoke-interface {v1, p1}, Lokhttp3/internal/platform/android/SocketAdapter;->getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_1
+    :goto_2d
     return-object v2
 .end method
 
 .method public isCleartextTrafficPermitted(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "hostname"    # Ljava/lang/String;
 
     const-string v0, "hostname"
@@ -664,7 +664,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_15
 
     invoke-static {}, Landroid/security/NetworkSecurityPolicy;->getInstance()Landroid/security/NetworkSecurityPolicy;
 
@@ -674,15 +674,15 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_25
 
     .line 92
-    :cond_0
+    :cond_15
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_24
 
     invoke-static {}, Landroid/security/NetworkSecurityPolicy;->getInstance()Landroid/security/NetworkSecurityPolicy;
 
@@ -692,19 +692,19 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_25
 
     .line 93
-    :cond_1
+    :cond_24
     const/4 v0, 0x1
 
     .line 94
-    :goto_0
+    :goto_25
     return v0
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 5
+    .registers 7
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     const-string v0, "sslSocketFactory"
@@ -720,14 +720,14 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -749,30 +749,30 @@
 
     .end local v3    # "it":Lokhttp3/internal/platform/android/SocketAdapter;
     .end local v4    # "$i$a$-find-AndroidPlatform$trustManager$1":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_23
     move-object v1, v2
 
-    :goto_0
+    :goto_24
     check-cast v1, Lokhttp3/internal/platform/android/SocketAdapter;
 
     .line 74
     nop
 
     .line 73
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2a
 
     .line 74
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_2
+    :cond_2a
     invoke-interface {v1, p1}, Lokhttp3/internal/platform/android/SocketAdapter;->trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
 
     move-result-object v2
 
-    :goto_1
+    :goto_2e
     return-object v2
 .end method

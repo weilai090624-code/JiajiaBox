@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method static createIsolatedReader(IIII)Landroidx/camera/core/impl/ImageReaderProxy;
-    .locals 2
+    .registers 6
     .param p0, "width"    # I
     .param p1, "height"    # I
     .param p2, "format"    # I

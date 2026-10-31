@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/net/Uri;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "uri"    # Landroid/net/Uri;
 
@@ -48,12 +48,12 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 272
     iget-object v0, p0, Landroidx/core/provider/FontProvider$ContentQueryWrapperApi16Impl;->mClient:Landroid/content/ContentProviderClient;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 273
     iget-object v0, p0, Landroidx/core/provider/FontProvider$ContentQueryWrapperApi16Impl;->mClient:Landroid/content/ContentProviderClient;
@@ -61,12 +61,12 @@
     invoke-virtual {v0}, Landroid/content/ContentProviderClient;->release()Z
 
     .line 275
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 9
+    .registers 16
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "projection"    # [Ljava/lang/String;
     .param p3, "selection"    # Ljava/lang/String;
@@ -79,14 +79,14 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 259
     return-object v1
 
     .line 262
-    :cond_0
-    :try_start_0
+    :cond_6
+    :try_start_6
     iget-object v2, p0, Landroidx/core/provider/FontProvider$ContentQueryWrapperApi16Impl;->mClient:Landroid/content/ContentProviderClient;
 
     move-object v3, p1
@@ -104,13 +104,13 @@
     invoke-virtual/range {v2 .. v8}, Landroid/content/ContentProviderClient;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
 
     move-result-object v0
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_12} :catch_13
 
     return-object v0
 
     .line 264
-    :catch_0
+    :catch_13
     move-exception v0
 
     .line 265

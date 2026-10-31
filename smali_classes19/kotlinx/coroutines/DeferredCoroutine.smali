@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Z)V
-    .locals 1
+    .registers 4
     .param p1, "parentContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "active"    # Z
 
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic await$suspendImpl(Lkotlinx/coroutines/DeferredCoroutine;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/DeferredCoroutine;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public await(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -116,7 +116,7 @@
 .end method
 
 .method public getCompleted()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -132,7 +132,7 @@
 .end method
 
 .method public getOnAwait()Lkotlinx/coroutines/selects/SelectClause1;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

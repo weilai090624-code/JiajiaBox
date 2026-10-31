@@ -102,7 +102,7 @@
 
 # direct methods
 .method public constructor <init>([Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -139,7 +139,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,7 +168,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/flow/FlowCollector;
 
@@ -182,7 +182,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -212,7 +212,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -221,7 +221,7 @@
     .line 250
     iget v1, p0, Lkotlinx/coroutines/flow/FlowKt__ZipKt$combineTransform$6;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_4a
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -231,18 +231,18 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/flow/FlowKt__ZipKt$combineTransform$6;
     .local p1, "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_47
 
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ZipKt$combineTransform$6;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_16
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -292,32 +292,32 @@
     move-result-object v2
 
     .end local v2    # "$this$flow":Lkotlinx/coroutines/flow/FlowCollector;
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_46
 
     .line 250
     return-object v0
 
     .line 251
-    :cond_0
+    :cond_46
     move-object v0, v1
 
     .line 252
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__ZipKt$combineTransform$6;
     .restart local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ZipKt$combineTransform$6;
-    :goto_0
+    :goto_47
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public final invokeSuspend$$forInline(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p1, "$result"    # Ljava/lang/Object;
 
     iget-object v0, p0, Lkotlinx/coroutines/flow/FlowKt__ZipKt$combineTransform$6;->L$0:Ljava/lang/Object;

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 409
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public queryFrom(Lj$/time/temporal/TemporalAccessor;)Lj$/time/ZoneId;
-    .locals 2
+    .registers 4
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 412
@@ -53,13 +53,13 @@
 
     .line 413
     .local v0, "zone":Lj$/time/ZoneId;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_c
     sget-object v1, Lj$/time/temporal/TemporalQueries;->OFFSET:Lj$/time/temporal/TemporalQuery;
 
     invoke-interface {p1, v1}, Lj$/time/temporal/TemporalAccessor;->query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
@@ -68,12 +68,12 @@
 
     check-cast v1, Lj$/time/ZoneId;
 
-    :goto_0
+    :goto_14
     return-object v1
 .end method
 
 .method public bridge synthetic queryFrom(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 409
     invoke-virtual {p0, p1}, Lj$/time/temporal/TemporalQueries$5;->queryFrom(Lj$/time/temporal/TemporalAccessor;)Lj$/time/ZoneId;
@@ -84,7 +84,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 418
     const-string v0, "Zone"

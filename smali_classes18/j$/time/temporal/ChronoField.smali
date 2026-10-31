@@ -95,7 +95,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 32
+    .registers 32
 
     .line 120
     new-instance v7, Lj$/time/temporal/ChronoField;
@@ -1072,7 +1072,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;Lj$/time/temporal/TemporalUnit;Lj$/time/temporal/TemporalUnit;Lj$/time/temporal/ValueRange;)V
-    .locals 0
+    .registers 7
     .param p3, "name"    # Ljava/lang/String;
     .param p4, "baseUnit"    # Lj$/time/temporal/TemporalUnit;
     .param p5, "rangeUnit"    # Lj$/time/temporal/TemporalUnit;
@@ -1113,7 +1113,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;Lj$/time/temporal/TemporalUnit;Lj$/time/temporal/TemporalUnit;Lj$/time/temporal/ValueRange;Ljava/lang/String;)V
-    .locals 0
+    .registers 8
     .param p3, "name"    # Ljava/lang/String;
     .param p4, "baseUnit"    # Lj$/time/temporal/TemporalUnit;
     .param p5, "rangeUnit"    # Lj$/time/temporal/TemporalUnit;
@@ -1154,7 +1154,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/temporal/ChronoField;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 98
@@ -1170,7 +1170,7 @@
 .end method
 
 .method public static values()[Lj$/time/temporal/ChronoField;
-    .locals 1
+    .registers 1
 
     .line 98
     sget-object v0, Lj$/time/temporal/ChronoField;->$VALUES:[Lj$/time/temporal/ChronoField;
@@ -1187,7 +1187,7 @@
 
 # virtual methods
 .method public adjustInto(Lj$/time/temporal/Temporal;J)Lj$/time/temporal/Temporal;
-    .locals 1
+    .registers 5
     .param p2, "newValue"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1207,7 +1207,7 @@
 .end method
 
 .method public checkValidIntValue(J)I
-    .locals 1
+    .registers 4
     .param p1, "value"    # J
 
     .line 732
@@ -1223,7 +1223,7 @@
 .end method
 
 .method public checkValidValue(J)J
-    .locals 2
+    .registers 5
     .param p1, "value"    # J
 
     .line 713
@@ -1239,7 +1239,7 @@
 .end method
 
 .method public getBaseUnit()Lj$/time/temporal/TemporalUnit;
-    .locals 1
+    .registers 2
 
     .line 642
     iget-object v0, p0, Lj$/time/temporal/ChronoField;->baseUnit:Lj$/time/temporal/TemporalUnit;
@@ -1248,7 +1248,7 @@
 .end method
 
 .method public getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "locale"    # Ljava/util/Locale;
 
     .line 626
@@ -1263,7 +1263,7 @@
 .end method
 
 .method public getFrom(Lj$/time/temporal/TemporalAccessor;)J
-    .locals 2
+    .registers 4
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 748
@@ -1275,7 +1275,7 @@
 .end method
 
 .method public getRangeUnit()Lj$/time/temporal/TemporalUnit;
-    .locals 1
+    .registers 2
 
     .line 647
     iget-object v0, p0, Lj$/time/temporal/ChronoField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
@@ -1284,7 +1284,7 @@
 .end method
 
 .method public isDateBased()Z
-    .locals 2
+    .registers 3
 
     .line 682
     invoke-virtual {p0}, Lj$/time/temporal/ChronoField;->ordinal()I
@@ -1297,7 +1297,7 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1a
 
     invoke-virtual {p0}, Lj$/time/temporal/ChronoField;->ordinal()I
 
@@ -1309,21 +1309,21 @@
 
     move-result v1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method public isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 738
@@ -1335,7 +1335,7 @@
 .end method
 
 .method public isTimeBased()Z
-    .locals 2
+    .registers 3
 
     .line 694
     invoke-virtual {p0}, Lj$/time/temporal/ChronoField;->ordinal()I
@@ -1348,21 +1348,21 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public range()Lj$/time/temporal/ValueRange;
-    .locals 1
+    .registers 2
 
     .line 669
     iget-object v0, p0, Lj$/time/temporal/ChronoField;->range:Lj$/time/temporal/ValueRange;
@@ -1371,7 +1371,7 @@
 .end method
 
 .method public rangeRefinedBy(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 743
@@ -1383,7 +1383,7 @@
 .end method
 
 .method public synthetic resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/temporal/TemporalAccessor;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lj$/time/temporal/TemporalField$-CC;->$default$resolve(Lj$/time/temporal/TemporalField;Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/temporal/TemporalAccessor;
 
@@ -1393,7 +1393,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 760
     iget-object v0, p0, Lj$/time/temporal/ChronoField;->name:Ljava/lang/String;

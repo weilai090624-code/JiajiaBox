@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 44
     invoke-direct {p0}, Lorg/ini4j/BasicOptionMap;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -72,7 +72,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/URL;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -132,7 +132,7 @@
 .end method
 
 .method private storeComment(Lorg/ini4j/spi/OptionsHandler;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "formatter"    # Lorg/ini4j/spi/OptionsHandler;
     .param p2, "comment"    # Ljava/lang/String;
 
@@ -146,7 +146,7 @@
 
 # virtual methods
 .method public getComment()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 76
     iget-object v0, p0, Lorg/ini4j/Options;->_comment:Ljava/lang/String;
@@ -155,7 +155,7 @@
 .end method
 
 .method public getConfig()Lorg/ini4j/Config;
-    .locals 1
+    .registers 2
 
     .line 86
     iget-object v0, p0, Lorg/ini4j/Options;->_config:Lorg/ini4j/Config;
@@ -164,7 +164,7 @@
 .end method
 
 .method public getFile()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object v0, p0, Lorg/ini4j/Options;->_file:Ljava/io/File;
@@ -173,7 +173,7 @@
 .end method
 
 .method isPropertyFirstUpper()Z
-    .locals 1
+    .registers 2
 
     .line 189
     invoke-virtual {p0}, Lorg/ini4j/Options;->getConfig()Lorg/ini4j/Config;
@@ -188,7 +188,7 @@
 .end method
 
 .method public load()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -199,7 +199,7 @@
     .line 106
     iget-object v0, p0, Lorg/ini4j/Options;->_file:Ljava/io/File;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 111
     iget-object v0, p0, Lorg/ini4j/Options;->_file:Ljava/io/File;
@@ -210,7 +210,7 @@
     return-void
 
     .line 108
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/io/FileNotFoundException;
 
     invoke-direct {v0}, Ljava/io/FileNotFoundException;-><init>()V
@@ -219,7 +219,7 @@
 .end method
 
 .method public load(Ljava/io/File;)V
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -244,7 +244,7 @@
 .end method
 
 .method public load(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -273,7 +273,7 @@
 .end method
 
 .method public load(Ljava/io/Reader;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -302,7 +302,7 @@
 .end method
 
 .method public load(Ljava/net/URL;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -331,7 +331,7 @@
 .end method
 
 .method protected newBuilder()Lorg/ini4j/spi/OptionsHandler;
-    .locals 1
+    .registers 2
 
     .line 164
     invoke-static {p0}, Lorg/ini4j/spi/OptionsBuilder;->newInstance(Lorg/ini4j/Options;)Lorg/ini4j/spi/OptionsBuilder;
@@ -342,7 +342,7 @@
 .end method
 
 .method public setComment(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/String;
 
     .line 81
@@ -353,7 +353,7 @@
 .end method
 
 .method public setConfig(Lorg/ini4j/Config;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Lorg/ini4j/Config;
 
     .line 91
@@ -364,7 +364,7 @@
 .end method
 
 .method public setFile(Ljava/io/File;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/io/File;
 
     .line 101
@@ -375,7 +375,7 @@
 .end method
 
 .method public store()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -385,7 +385,7 @@
     .line 136
     iget-object v0, p0, Lorg/ini4j/Options;->_file:Ljava/io/File;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 141
     iget-object v0, p0, Lorg/ini4j/Options;->_file:Ljava/io/File;
@@ -396,7 +396,7 @@
     return-void
 
     .line 138
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/io/FileNotFoundException;
 
     invoke-direct {v0}, Ljava/io/FileNotFoundException;-><init>()V
@@ -405,7 +405,7 @@
 .end method
 
 .method public store(Ljava/io/File;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -430,7 +430,7 @@
 .end method
 
 .method public store(Ljava/io/OutputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "output"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -458,7 +458,7 @@
 .end method
 
 .method public store(Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Ljava/io/Writer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -482,7 +482,7 @@
 .end method
 
 .method protected store(Lorg/ini4j/spi/OptionsHandler;)V
-    .locals 5
+    .registers 7
     .param p1, "formatter"    # Lorg/ini4j/spi/OptionsHandler;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -508,12 +508,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_10
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_43
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -538,25 +538,25 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_32
 
     invoke-virtual {p0, v1}, Lorg/ini4j/Options;->length(Ljava/lang/Object;)I
 
     move-result v2
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_0
+    :cond_32
     const/4 v2, 0x1
 
     .line 176
     .local v2, "n":I
-    :goto_1
+    :goto_33
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_2
-    if-ge v3, v2, :cond_1
+    :goto_34
+    if-ge v3, v2, :cond_42
 
     .line 178
     invoke-virtual {p0, v1, v3}, Lorg/ini4j/Options;->get(Ljava/lang/Object;I)Ljava/lang/Object;
@@ -573,18 +573,18 @@
     .end local v4    # "value":Ljava/lang/String;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_34
 
     .line 182
     .end local v1    # "name":Ljava/lang/String;
     .end local v2    # "n":I
     .end local v3    # "i":I
-    :cond_1
-    goto :goto_0
+    :cond_42
+    goto :goto_10
 
     .line 184
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_2
+    :cond_43
     invoke-interface {p1}, Lorg/ini4j/spi/OptionsHandler;->endOptions()V
 
     .line 185

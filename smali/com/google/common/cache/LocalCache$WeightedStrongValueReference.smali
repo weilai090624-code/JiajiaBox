@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;I)V
-    .locals 0
+    .registers 3
     .param p2, "weight"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public getWeight()I
-    .locals 1
+    .registers 2
 
     .line 1639
     .local p0, "this":Lcom/google/common/cache/LocalCache$WeightedStrongValueReference;, "Lcom/google/common/cache/LocalCache$WeightedStrongValueReference<TK;TV;>;"

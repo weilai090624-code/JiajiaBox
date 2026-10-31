@@ -107,7 +107,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -173,7 +173,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/flow/FlowCollector;
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -217,7 +217,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -226,7 +226,7 @@
     .line 117
     iget v1, p0, Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_56
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -236,7 +236,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1;
@@ -249,25 +249,25 @@
     check-cast v2, Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1;
 
     .local v2, "collector$iv":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1;
-    :try_start_0
+    :try_start_17
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_17 .. :try_end_1a} :catch_1b
 
-    goto :goto_0
+    goto :goto_46
 
     .line 153
-    :catch_0
+    :catch_1b
     move-exception v3
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 117
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1;
     .end local v1    # "$i$f$collectWhile":I
     .end local v2    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1d
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -301,7 +301,7 @@
     nop
 
     .line 152
-    :try_start_1
+    :try_start_31
     move-object v2, v4
 
     check-cast v2, Lkotlinx/coroutines/flow/FlowCollector;
@@ -319,17 +319,17 @@
     invoke-interface {v3, v2, v6}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_1
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_40
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_31 .. :try_end_40} :catch_47
 
     .end local v3    # "$this$collectWhile$iv":Lkotlinx/coroutines/flow/Flow;
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_43
 
     .line 117
     return-object v0
 
     .line 152
-    :cond_0
+    :cond_43
     move-object v0, v1
 
     move-object v2, v4
@@ -341,8 +341,8 @@
     .restart local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1;
     .local v1, "$i$f$collectWhile":I
     .local v2, "collector$iv":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1;
-    :goto_0
-    goto :goto_2
+    :goto_46
+    goto :goto_51
 
     .line 153
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1;
@@ -350,7 +350,7 @@
     .local v1, "this":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1;
     .restart local v4    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1;
     .restart local v5    # "$i$f$collectWhile":I
-    :catch_1
+    :catch_47
     move-exception v3
 
     move-object v0, v1
@@ -366,7 +366,7 @@
     .local v1, "$i$f$collectWhile":I
     .restart local v2    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1;
     .local v3, "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
-    :goto_1
+    :goto_4b
     move-object v4, v2
 
     check-cast v4, Lkotlinx/coroutines/flow/FlowCollector;
@@ -376,7 +376,7 @@
     .line 156
     .end local v2    # "collector$iv":Lkotlinx/coroutines/flow/FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1;
     .end local v3    # "e$iv":Lkotlinx/coroutines/flow/internal/AbortFlowException;
-    :goto_2
+    :goto_51
     nop
 
     .end local v1    # "$i$f$collectWhile":I
@@ -387,9 +387,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_56
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1d
+        :pswitch_11
     .end packed-switch
 .end method

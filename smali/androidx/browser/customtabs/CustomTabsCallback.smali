@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public extraCallback(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "callbackName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public extraCallbackWithResult(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 1
+    .registers 4
     .param p1, "callbackName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public onActivityResized(IILandroid/os/Bundle;)V
-    .locals 0
+    .registers 4
     .param p1, "height"    # I
     .param p2, "width"    # I
     .param p3, "extras"    # Landroid/os/Bundle;
@@ -62,7 +62,7 @@
 .end method
 
 .method public onMessageChannelReady(Landroid/os/Bundle;)V
-    .locals 0
+    .registers 2
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 136
@@ -70,7 +70,7 @@
 .end method
 
 .method public onNavigationEvent(ILandroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "navigationEvent"    # I
     .param p2, "extras"    # Landroid/os/Bundle;
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public onPostMessage(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "extras"    # Landroid/os/Bundle;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public onRelationshipValidationResult(ILandroid/net/Uri;ZLandroid/os/Bundle;)V
-    .locals 0
+    .registers 5
     .param p1, "relation"    # I
     .param p2, "requestedOrigin"    # Landroid/net/Uri;
     .param p3, "result"    # Z

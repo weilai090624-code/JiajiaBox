@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Ljava/util/concurrent/CompletableFuture;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "future"    # Ljava/util/concurrent/CompletableFuture;
     .annotation system Ldalvik/annotation/Signature;
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public synthetic andThen(Ljava/util/function/Function;)Ljava/util/function/BiFunction;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/BiFunction$-CC;->$default$andThen(Ljava/util/function/BiFunction;Ljava/util/function/Function;)Ljava/util/function/BiFunction;
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/lang/Object;
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public apply(Ljava/lang/Object;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 6
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
@@ -154,7 +154,7 @@
 .end method
 
 .method protected onCancelled(Ljava/lang/Throwable;Z)V
-    .locals 1
+    .registers 4
     .param p1, "cause"    # Ljava/lang/Throwable;
     .param p2, "handled"    # Z
 
@@ -168,7 +168,7 @@
 .end method
 
 .method protected onCompleted(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public getErrors()Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -69,7 +69,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 190
     new-instance v0, Ljava/lang/StringBuilder;

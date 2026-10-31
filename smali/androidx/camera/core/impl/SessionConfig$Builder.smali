@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 200
     invoke-direct {p0}, Landroidx/camera/core/impl/SessionConfig$BaseBuilder;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static createFrom(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/impl/SessionConfig$Builder;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -54,7 +54,7 @@
 
     .line 209
     .local v0, "unpacker":Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 215
     new-instance v1, Landroidx/camera/core/impl/SessionConfig$Builder;
@@ -70,7 +70,7 @@
 
     .line 210
     .end local v1    # "builder":Landroidx/camera/core/impl/SessionConfig$Builder;
-    :cond_0
+    :cond_10
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method public addAllCameraCaptureCallbacks(Ljava/util/Collection;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -143,7 +143,7 @@
 .end method
 
 .method public addAllDeviceStateCallbacks(Ljava/util/Collection;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -168,12 +168,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -187,15 +187,15 @@
 
     .line 263
     .end local v1    # "callback":Landroid/hardware/camera2/CameraDevice$StateCallback;
-    goto :goto_0
+    goto :goto_4
 
     .line 264
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public addAllRepeatingCameraCaptureCallbacks(Ljava/util/Collection;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -225,7 +225,7 @@
 .end method
 
 .method public addAllSessionStateCallbacks(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -250,12 +250,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -269,15 +269,15 @@
 
     .line 289
     .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
-    goto :goto_0
+    goto :goto_4
 
     .line 290
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public addCameraCaptureCallback(Landroidx/camera/core/impl/CameraCaptureCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "cameraCaptureCallback"    # Landroidx/camera/core/impl/CameraCaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -303,7 +303,7 @@
 .end method
 
 .method public addDeviceStateCallback(Landroid/hardware/camera2/CameraDevice$StateCallback;)V
-    .locals 2
+    .registers 4
     .param p1, "deviceStateCallback"    # Landroid/hardware/camera2/CameraDevice$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -321,7 +321,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 252
     iget-object v0, p0, Landroidx/camera/core/impl/SessionConfig$Builder;->mDeviceStateCallbacks:Ljava/util/List;
@@ -332,7 +332,7 @@
     return-void
 
     .line 250
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Duplicate device state callback."
@@ -343,7 +343,7 @@
 .end method
 
 .method public addErrorListener(Landroidx/camera/core/impl/SessionConfig$ErrorListener;)V
-    .locals 1
+    .registers 3
     .param p1, "errorListener"    # Landroidx/camera/core/impl/SessionConfig$ErrorListener;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -364,7 +364,7 @@
 .end method
 
 .method public addImplementationOptions(Landroidx/camera/core/impl/Config;)V
-    .locals 1
+    .registers 3
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -385,7 +385,7 @@
 .end method
 
 .method public addNonRepeatingSurface(Landroidx/camera/core/impl/DeferrableSurface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroidx/camera/core/impl/DeferrableSurface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -406,7 +406,7 @@
 .end method
 
 .method public addRepeatingCameraCaptureCallback(Landroidx/camera/core/impl/CameraCaptureCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "cameraCaptureCallback"    # Landroidx/camera/core/impl/CameraCaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -427,7 +427,7 @@
 .end method
 
 .method public addSessionStateCallback(Landroid/hardware/camera2/CameraCaptureSession$StateCallback;)V
-    .locals 2
+    .registers 4
     .param p1, "sessionStateCallback"    # Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -445,7 +445,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 277
     iget-object v0, p0, Landroidx/camera/core/impl/SessionConfig$Builder;->mSessionStateCallbacks:Ljava/util/List;
@@ -456,7 +456,7 @@
     return-void
 
     .line 275
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Duplicate session state callback."
@@ -467,7 +467,7 @@
 .end method
 
 .method public addSurface(Landroidx/camera/core/impl/DeferrableSurface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroidx/camera/core/impl/DeferrableSurface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -493,7 +493,7 @@
 .end method
 
 .method public addTag(Ljava/lang/String;Ljava/lang/Integer;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "tag"    # Ljava/lang/Integer;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -517,7 +517,7 @@
 .end method
 
 .method public build()Landroidx/camera/core/impl/SessionConfig;
-    .locals 8
+    .registers 9
 
     .line 394
     new-instance v7, Landroidx/camera/core/impl/SessionConfig;
@@ -552,7 +552,7 @@
 .end method
 
 .method public clearSurfaces()V
-    .locals 1
+    .registers 2
 
     .line 374
     iget-object v0, p0, Landroidx/camera/core/impl/SessionConfig$Builder;->mSurfaces:Ljava/util/Set;
@@ -569,7 +569,7 @@
 .end method
 
 .method public getSingleCameraCaptureCallbacks()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -590,7 +590,7 @@
 .end method
 
 .method public removeSurface(Landroidx/camera/core/impl/DeferrableSurface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroidx/camera/core/impl/DeferrableSurface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -616,7 +616,7 @@
 .end method
 
 .method public setImplementationOptions(Landroidx/camera/core/impl/Config;)V
-    .locals 1
+    .registers 3
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -637,7 +637,7 @@
 .end method
 
 .method public setTemplateType(I)V
-    .locals 1
+    .registers 3
     .param p1, "templateType"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

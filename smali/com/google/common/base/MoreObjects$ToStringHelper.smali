@@ -35,7 +35,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "className"    # Ljava/lang/String;
 
     .line 172
@@ -77,7 +77,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Lcom/google/common/base/MoreObjects$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # Lcom/google/common/base/MoreObjects$1;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method private addHolder()Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;
-    .locals 2
+    .registers 3
 
     .line 406
     new-instance v0, Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;
@@ -110,7 +110,7 @@
 .end method
 
 .method private addHolder(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -130,7 +130,7 @@
 .end method
 
 .method private addHolder(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -160,7 +160,7 @@
 .end method
 
 .method private addUnconditionalHolder()Lcom/google/common/base/MoreObjects$ToStringHelper$UnconditionalValueHolder;
-    .locals 2
+    .registers 3
 
     .line 425
     new-instance v0, Lcom/google/common/base/MoreObjects$ToStringHelper$UnconditionalValueHolder;
@@ -182,7 +182,7 @@
 .end method
 
 .method private addUnconditionalHolder(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 431
@@ -199,7 +199,7 @@
 .end method
 
 .method private addUnconditionalHolder(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -226,7 +226,7 @@
 .end method
 
 .method private static isEmpty(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 4
     .param p0, "value"    # Ljava/lang/Object;
 
     .line 350
@@ -236,7 +236,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 351
     move-object v0, p0
@@ -247,21 +247,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     return v1
 
     .line 352
-    :cond_1
+    :cond_12
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1e
 
     .line 353
     move-object v0, p0
@@ -275,10 +275,10 @@
     return v0
 
     .line 354
-    :cond_2
+    :cond_1e
     instance-of v0, p0, Ljava/util/Map;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2a
 
     .line 355
     move-object v0, p0
@@ -292,10 +292,10 @@
     return v0
 
     .line 356
-    :cond_3
+    :cond_2a
     instance-of v0, p0, Lcom/google/common/base/Optional;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_37
 
     .line 357
     move-object v0, p0
@@ -311,7 +311,7 @@
     return v0
 
     .line 358
-    :cond_4
+    :cond_37
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -320,32 +320,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4a
 
     .line 359
     invoke-static {p0}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_48
 
-    goto :goto_1
+    goto :goto_49
 
-    :cond_5
+    :cond_48
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_49
     return v1
 
     .line 361
-    :cond_6
+    :cond_4a
     return v2
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/String;C)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # C
 
@@ -362,7 +362,7 @@
 .end method
 
 .method public add(Ljava/lang/String;D)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # D
 
@@ -379,7 +379,7 @@
 .end method
 
 .method public add(Ljava/lang/String;F)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # F
 
@@ -396,7 +396,7 @@
 .end method
 
 .method public add(Ljava/lang/String;I)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # I
 
@@ -413,7 +413,7 @@
 .end method
 
 .method public add(Ljava/lang/String;J)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # J
 
@@ -430,7 +430,7 @@
 .end method
 
 .method public add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -446,7 +446,7 @@
 .end method
 
 .method public add(Ljava/lang/String;Z)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Z
 
@@ -463,7 +463,7 @@
 .end method
 
 .method public addValue(C)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 3
     .param p1, "value"    # C
 
     .line 293
@@ -479,7 +479,7 @@
 .end method
 
 .method public addValue(D)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 4
     .param p1, "value"    # D
 
     .line 306
@@ -495,7 +495,7 @@
 .end method
 
 .method public addValue(F)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 3
     .param p1, "value"    # F
 
     .line 319
@@ -511,7 +511,7 @@
 .end method
 
 .method public addValue(I)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
 
     .line 332
@@ -527,7 +527,7 @@
 .end method
 
 .method public addValue(J)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 4
     .param p1, "value"    # J
 
     .line 345
@@ -543,7 +543,7 @@
 .end method
 
 .method public addValue(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -558,7 +558,7 @@
 .end method
 
 .method public addValue(Z)Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Z
 
     .line 280
@@ -574,7 +574,7 @@
 .end method
 
 .method public omitNullValues()Lcom/google/common/base/MoreObjects$ToStringHelper;
-    .locals 1
+    .registers 2
 
     .line 185
     const/4 v0, 0x1
@@ -586,7 +586,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 10
+    .registers 11
 
     .line 375
     iget-boolean v0, p0, Lcom/google/common/base/MoreObjects$ToStringHelper;->omitNullValues:Z
@@ -627,8 +627,8 @@
 
     .line 380
     .local v4, "valueHolder":Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;
-    :goto_0
-    if-eqz v4, :cond_5
+    :goto_1d
+    if-eqz v4, :cond_6b
 
     .line 382
     iget-object v5, v4, Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;->value:Ljava/lang/Object;
@@ -637,27 +637,27 @@
     .local v5, "value":Ljava/lang/Object;
     instance-of v6, v4, Lcom/google/common/base/MoreObjects$ToStringHelper$UnconditionalValueHolder;
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_32
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_2a
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_68
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_2a
+    if-eqz v1, :cond_32
 
     .line 386
     invoke-static {v5}, Lcom/google/common/base/MoreObjects$ToStringHelper;->isEmpty(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_68
 
     .line 387
-    :cond_1
-    :goto_1
+    :cond_32
+    :goto_32
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 388
@@ -666,7 +666,7 @@
     .line 390
     iget-object v6, v4, Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;->name:Ljava/lang/String;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_46
 
     .line 391
     iget-object v6, v4, Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;->name:Ljava/lang/String;
@@ -680,8 +680,8 @@
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 393
-    :cond_2
-    if-eqz v5, :cond_3
+    :cond_46
+    if-eqz v5, :cond_65
 
     invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -691,7 +691,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_65
 
     .line 394
     const/4 v6, 0x1
@@ -721,23 +721,23 @@
     .line 397
     .end local v7    # "objectArray":[Ljava/lang/Object;
     .end local v8    # "arrayString":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_68
 
     .line 398
-    :cond_3
+    :cond_65
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 381
     .end local v5    # "value":Ljava/lang/Object;
-    :cond_4
-    :goto_2
+    :cond_68
+    :goto_68
     iget-object v4, v4, Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;->next:Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 402
     .end local v4    # "valueHolder":Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;
-    :cond_5
+    :cond_6b
     const/16 v4, 0x7d
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;

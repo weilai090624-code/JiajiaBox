@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>(ILcom/google/common/base/Supplier;)V
-    .locals 2
+    .registers 5
     .param p1, "stripes"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,18 +101,18 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     const v0, 0x7fffffff
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_13
     iget v0, p0, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;->mask:I
 
     add-int/lit8 v0, v0, 0x1
 
-    :goto_0
+    :goto_17
     iput v0, p0, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;->size:I
 
     .line 449
@@ -132,13 +132,13 @@
 .end method
 
 .method private drainQueue()V
-    .locals 5
+    .registers 6
 
     .line 482
     .local p0, "this":Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;, "Lcom/google/common/util/concurrent/Striped$SmallLazyStriped<TL;>;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;->queue:Ljava/lang/ref/ReferenceQueue;
 
     invoke-virtual {v0}, Ljava/lang/ref/ReferenceQueue;->poll()Ljava/lang/ref/Reference;
@@ -148,7 +148,7 @@
     move-object v1, v0
 
     .local v1, "ref":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<+TL;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 484
     move-object v0, v1
@@ -167,17 +167,17 @@
 
     .line 488
     .end local v0    # "arrayRef":Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference;, "Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference<+TL;>;"
-    goto :goto_0
+    goto :goto_1
 
     .line 489
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 
 # virtual methods
 .method public getAt(I)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -192,7 +192,7 @@
 
     const v1, 0x7fffffff
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
     .line 456
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;->size()I
@@ -202,7 +202,7 @@
     invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     .line 458
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;->locks:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->get(I)Ljava/lang/Object;
@@ -215,27 +215,27 @@
     .local v0, "existingRef":Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference;, "Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference<+TL;>;"
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     move-object v2, v1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_1
+    :cond_1b
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference;->get()Ljava/lang/Object;
 
     move-result-object v2
 
     .line 460
     .local v2, "existing":Ljava/lang/Object;, "TL;"
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_1f
+    if-eqz v2, :cond_22
 
     .line 461
     return-object v2
 
     .line 463
-    :cond_2
+    :cond_22
     iget-object v3, p0, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;->supplier:Lcom/google/common/base/Supplier;
 
     invoke-interface {v3}, Lcom/google/common/base/Supplier;->get()Ljava/lang/Object;
@@ -252,14 +252,14 @@
 
     .line 465
     .local v4, "newRef":Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference;, "Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference<TL;>;"
-    :cond_3
+    :cond_2f
     iget-object v5, p0, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;->locks:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     invoke-static {v5, p1, v0, v4}, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReferenceArray;ILjava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_4c
 
     .line 467
     iget-object v5, p0, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;->locks:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -273,28 +273,28 @@
     check-cast v0, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference;
 
     .line 468
-    if-nez v0, :cond_4
+    if-nez v0, :cond_44
 
     move-object v5, v1
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_4
+    :cond_44
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference;->get()Ljava/lang/Object;
 
     move-result-object v5
 
-    :goto_1
+    :goto_48
     move-object v2, v5
 
     .line 469
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2f
 
     .line 470
     return-object v2
 
     .line 473
-    :cond_5
+    :cond_4c
     invoke-direct {p0}, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;->drainQueue()V
 
     .line 474
@@ -302,7 +302,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 493
     .local p0, "this":Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;, "Lcom/google/common/util/concurrent/Striped$SmallLazyStriped<TL;>;"

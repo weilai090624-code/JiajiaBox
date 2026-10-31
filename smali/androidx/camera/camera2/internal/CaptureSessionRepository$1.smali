@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/CaptureSessionRepository;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/CaptureSessionRepository;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -40,7 +40,7 @@
 .end method
 
 .method private cameraClosed()V
-    .locals 3
+    .registers 4
 
     .line 107
     iget-object v0, p0, Landroidx/camera/camera2/internal/CaptureSessionRepository$1;->this$0:Landroidx/camera/camera2/internal/CaptureSessionRepository;
@@ -50,7 +50,7 @@
     monitor-enter v0
 
     .line 108
-    :try_start_0
+    :try_start_5
     iget-object v1, p0, Landroidx/camera/camera2/internal/CaptureSessionRepository$1;->this$0:Landroidx/camera/camera2/internal/CaptureSessionRepository;
 
     invoke-virtual {v1}, Landroidx/camera/camera2/internal/CaptureSessionRepository;->getSessionsInOrder()Ljava/util/List;
@@ -81,20 +81,20 @@
 
     .line 112
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_5 .. :try_end_21} :catchall_36
 
     .line 113
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_25
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_35
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -108,27 +108,27 @@
 
     .line 115
     .end local v2    # "s":Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
-    goto :goto_0
+    goto :goto_25
 
     .line 116
-    :cond_0
+    :cond_35
     return-void
 
     .line 112
     .end local v1    # "sessions":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/camera2/internal/SynchronizedCaptureSession;>;"
-    :catchall_0
+    :catchall_36
     move-exception v1
 
-    :try_start_1
+    :try_start_37
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_38
+    .catchall {:try_start_37 .. :try_end_38} :catchall_36
 
     throw v1
 .end method
 
 .method private forceOnClosedCaptureSessions()V
-    .locals 3
+    .registers 4
 
     .line 97
     new-instance v0, Ljava/util/LinkedHashSet;
@@ -144,7 +144,7 @@
     monitor-enter v1
 
     .line 99
-    :try_start_0
+    :try_start_a
     iget-object v2, p0, Landroidx/camera/camera2/internal/CaptureSessionRepository$1;->this$0:Landroidx/camera/camera2/internal/CaptureSessionRepository;
 
     iget-object v2, v2, Landroidx/camera/camera2/internal/CaptureSessionRepository;->mCreatingCaptureSessions:Ljava/util/Set;
@@ -160,8 +160,8 @@
 
     .line 101
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_a .. :try_end_19} :catchall_26
 
     .line 102
     iget-object v1, p0, Landroidx/camera/camera2/internal/CaptureSessionRepository$1;->this$0:Landroidx/camera/camera2/internal/CaptureSessionRepository;
@@ -178,19 +178,19 @@
     return-void
 
     .line 101
-    :catchall_0
+    :catchall_26
     move-exception v2
 
-    :try_start_1
+    :try_start_27
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_28
+    .catchall {:try_start_27 .. :try_end_28} :catchall_26
 
     throw v2
 .end method
 
 .method static synthetic lambda$forceOnClosedCaptureSessions$0(Ljava/util/LinkedHashSet;)V
-    .locals 0
+    .registers 1
     .param p0, "sessions"    # Ljava/util/LinkedHashSet;
 
     .line 102
@@ -202,7 +202,7 @@
 
 # virtual methods
 .method public onClosed(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 0
+    .registers 2
     .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -221,7 +221,7 @@
 .end method
 
 .method public onDisconnected(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 0
+    .registers 2
     .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -243,7 +243,7 @@
 .end method
 
 .method public onError(Landroid/hardware/camera2/CameraDevice;I)V
-    .locals 0
+    .registers 3
     .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
     .param p2, "error"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -268,7 +268,7 @@
 .end method
 
 .method public onOpened(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 0
+    .registers 2
     .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

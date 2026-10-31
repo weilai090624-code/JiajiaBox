@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method static load()Z
-    .locals 5
+    .registers 5
 
     .line 36
     sget-object v0, Landroid/os/Build;->DEVICE:Ljava/lang/String;
@@ -43,24 +43,24 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x1a
 
-    if-lt v0, v3, :cond_0
+    if-lt v0, v3, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     .line 38
     .local v0, "isSamsungJ5PrimeAndApi26":Z
-    :goto_0
+    :goto_19
     sget-object v3, Landroid/os/Build;->DEVICE:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
@@ -75,24 +75,24 @@
 
     .line 39
     .local v3, "isSamsungA3":Z
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2b
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
-    goto :goto_1
+    goto :goto_2b
 
-    :cond_1
+    :cond_2a
     const/4 v1, 0x0
 
-    :cond_2
-    :goto_1
+    :cond_2b
+    :goto_2b
     return v1
 .end method
 
 
 # virtual methods
 .method public getCropRectScaleX()F
-    .locals 1
+    .registers 2
 
     .line 46
     const/high16 v0, 0x3f400000    # 0.75f

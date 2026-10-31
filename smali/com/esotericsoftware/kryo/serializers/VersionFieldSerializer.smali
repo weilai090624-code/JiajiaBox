@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)V
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "type"    # Ljava/lang/Class;
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer$VersionFieldSerializerConfig;)V
-    .locals 1
+    .registers 5
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "type"    # Ljava/lang/Class;
     .param p3, "config"    # Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer$VersionFieldSerializerConfig;
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public getVersionFieldSerializerConfig()Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer$VersionFieldSerializerConfig;
-    .locals 1
+    .registers 2
 
     .line 139
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;, "Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer<TT;>;"
@@ -86,7 +86,7 @@
 .end method
 
 .method protected initializeCachedFields()V
-    .locals 7
+    .registers 8
 
     .line 65
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;, "Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer<TT;>;"
@@ -109,8 +109,8 @@
     array-length v2, v0
 
     .local v2, "n":I
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_b
+    if-ge v1, v2, :cond_38
 
     .line 68
     aget-object v3, v0, v1
@@ -129,7 +129,7 @@
 
     .line 70
     .local v4, "since":Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer$Since;
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_30
 
     .line 71
     iget-object v5, p0, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->fieldVersion:[I
@@ -153,10 +153,10 @@
 
     iput v5, p0, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->typeVersion:I
 
-    goto :goto_1
+    goto :goto_35
 
     .line 75
-    :cond_0
+    :cond_30
     iget-object v5, p0, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->fieldVersion:[I
 
     const/4 v6, 0x0
@@ -166,18 +166,18 @@
     .line 67
     .end local v3    # "field":Ljava/lang/reflect/Field;
     .end local v4    # "since":Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer$Since;
-    :goto_1
+    :goto_35
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 78
     .end local v1    # "i":I
     .end local v2    # "n":I
-    :cond_1
+    :cond_38
     sget-boolean v1, Lcom/esotericsoftware/minlog/Log;->DEBUG:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_66
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -220,12 +220,12 @@
     invoke-static {v1}, Lcom/esotericsoftware/minlog/Log;->debug(Ljava/lang/String;)V
 
     .line 79
-    :cond_2
+    :cond_66
     return-void
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 9
+    .registers 13
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -249,14 +249,14 @@
 
     .line 113
     .local v0, "version":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 114
-    :cond_0
+    :cond_9
     add-int/lit8 v0, v0, -0x1
 
     .line 115
@@ -264,16 +264,16 @@
 
     iget-boolean v1, v1, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer$VersionFieldSerializerConfig;->compatible:Z
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3b
 
     iget v1, p0, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->typeVersion:I
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_16
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 116
-    :cond_1
+    :cond_16
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -311,8 +311,8 @@
     throw v1
 
     .line 118
-    :cond_2
-    :goto_0
+    :cond_3b
+    :goto_3b
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->pushTypeVariables()I
 
     move-result v1
@@ -340,20 +340,20 @@
     array-length v5, v3
 
     .local v5, "n":I
-    :goto_1
-    if-ge v4, v5, :cond_6
+    :goto_4c
+    if-ge v4, v5, :cond_8e
 
     .line 126
     iget-object v6, p0, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->fieldVersion:[I
 
     aget v6, v6, v4
 
-    if-le v6, v0, :cond_3
+    if-le v6, v0, :cond_77
 
     .line 127
     sget-boolean v6, Lcom/esotericsoftware/minlog/Log;->DEBUG:Z
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_8b
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -383,13 +383,13 @@
 
     invoke-static {v6}, Lcom/esotericsoftware/minlog/Log;->debug(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_8b
 
     .line 130
-    :cond_3
+    :cond_77
     sget-boolean v6, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_86
 
     aget-object v6, v3, v4
 
@@ -402,22 +402,22 @@
     invoke-virtual {p0, v8, v6, v7}, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->log(Ljava/lang/String;Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;I)V
 
     .line 131
-    :cond_4
+    :cond_86
     aget-object v6, v3, v4
 
     invoke-virtual {v6, p2, v2}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->read(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Object;)V
 
     .line 124
-    :cond_5
-    :goto_2
+    :cond_8b
+    :goto_8b
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_4c
 
     .line 134
     .end local v4    # "i":I
     .end local v5    # "n":I
-    :cond_6
+    :cond_8e
     invoke-virtual {p0, v1}, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->popTypeVariables(I)V
 
     .line 135
@@ -425,7 +425,7 @@
 .end method
 
 .method public removeField(Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;)V
-    .locals 0
+    .registers 2
     .param p1, "field"    # Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;
 
     .line 87
@@ -440,7 +440,7 @@
 .end method
 
 .method public removeField(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "fieldName"    # Ljava/lang/String;
 
     .line 82
@@ -455,7 +455,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 7
+    .registers 11
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .annotation system Ldalvik/annotation/Signature;
@@ -470,7 +470,7 @@
     .line 92
     .local p0, "this":Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;, "Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer<TT;>;"
     .local p3, "object":Ljava/lang/Object;, "TT;"
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7
 
     .line 93
     const/4 v0, 0x0
@@ -481,7 +481,7 @@
     return-void
 
     .line 97
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->pushTypeVariables()I
 
     move-result v0
@@ -509,13 +509,13 @@
     array-length v3, v1
 
     .local v3, "n":I
-    :goto_0
-    if-ge v2, v3, :cond_2
+    :goto_18
+    if-ge v2, v3, :cond_31
 
     .line 104
     sget-boolean v4, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_29
 
     aget-object v4, v1, v2
 
@@ -528,7 +528,7 @@
     invoke-virtual {p0, v6, v4, v5}, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->log(Ljava/lang/String;Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;I)V
 
     .line 105
-    :cond_1
+    :cond_29
     aget-object v4, v1, v2
 
     invoke-virtual {v4, p2, p3}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;->write(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -536,12 +536,12 @@
     .line 103
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 108
     .end local v2    # "i":I
     .end local v3    # "n":I
-    :cond_2
+    :cond_31
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer;->popTypeVariables(I)V
 
     .line 109

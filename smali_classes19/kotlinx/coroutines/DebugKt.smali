@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 67
     const-class v0, Lkotlinx/coroutines/CoroutineId;
@@ -91,71 +91,71 @@
     .local v2, "$i$a$-let-DebugKt$DEBUG$1":I
     const/4 v3, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_60
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v4
 
-    sparse-switch v4, :sswitch_data_0
+    sparse-switch v4, :sswitch_data_7e
 
-    :cond_0
-    goto :goto_1
+    :cond_16
+    goto :goto_3d
 
-    :sswitch_0
+    :sswitch_17
     const-string v4, "auto"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_16
 
-    goto :goto_2
+    goto :goto_60
 
-    :sswitch_1
+    :sswitch_20
     const-string v4, "off"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_16
 
     .line 74
     const/4 v4, 0x0
 
-    goto :goto_3
+    goto :goto_62
 
     .line 71
-    :sswitch_2
+    :sswitch_2a
     const-string v4, "on"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_16
 
-    goto :goto_0
+    goto :goto_3b
 
-    :sswitch_3
+    :sswitch_33
     const-string v4, ""
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_16
 
     .line 73
-    :goto_0
+    :goto_3b
     const/4 v4, 0x1
 
-    goto :goto_3
+    goto :goto_62
 
     .line 74
-    :goto_1
+    :goto_3d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 75
@@ -192,12 +192,12 @@
     throw v0
 
     .line 72
-    :cond_1
-    :goto_2
+    :cond_60
+    :goto_60
     sget-boolean v4, Lkotlinx/coroutines/DebugKt;->ASSERTIONS_ENABLED:Z
 
     .line 71
-    :goto_3
+    :goto_62
     nop
 
     .line 70
@@ -208,7 +208,7 @@
     .line 83
     sget-boolean v1, Lkotlinx/coroutines/DebugKt;->DEBUG:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_72
 
     const-string v1, "kotlinx.coroutines.stacktrace.recovery"
 
@@ -216,11 +216,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_72
 
     const/4 v0, 0x1
 
-    :cond_2
+    :cond_72
     sput-boolean v0, Lkotlinx/coroutines/DebugKt;->RECOVER_STACK_TRACES:Z
 
     .line 86
@@ -234,17 +234,17 @@
 
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_7e
     .sparse-switch
-        0x0 -> :sswitch_3
-        0xddf -> :sswitch_2
-        0x1ad6f -> :sswitch_1
-        0x2dddaf -> :sswitch_0
+        0x0 -> :sswitch_33
+        0xddf -> :sswitch_2a
+        0x1ad6f -> :sswitch_20
+        0x2dddaf -> :sswitch_17
     .end sparse-switch
 .end method
 
 .method private static final assert(Lkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 2
     .param p0, "value"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -260,7 +260,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
@@ -272,11 +272,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_13
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -284,13 +284,13 @@
     throw v0
 
     .line 96
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     return-void
 .end method
 
 .method public static final getASSERTIONS_ENABLED()Z
-    .locals 1
+    .registers 1
 
     .line 67
     sget-boolean v0, Lkotlinx/coroutines/DebugKt;->ASSERTIONS_ENABLED:Z
@@ -299,7 +299,7 @@
 .end method
 
 .method public static final getCOROUTINE_ID()Ljava/util/concurrent/atomic/AtomicLong;
-    .locals 1
+    .registers 1
 
     .line 86
     sget-object v0, Lkotlinx/coroutines/DebugKt;->COROUTINE_ID:Ljava/util/concurrent/atomic/AtomicLong;
@@ -308,7 +308,7 @@
 .end method
 
 .method public static final getDEBUG()Z
-    .locals 1
+    .registers 1
 
     .line 70
     sget-boolean v0, Lkotlinx/coroutines/DebugKt;->DEBUG:Z
@@ -317,7 +317,7 @@
 .end method
 
 .method public static final getRECOVER_STACK_TRACES()Z
-    .locals 1
+    .registers 1
 
     .line 82
     sget-boolean v0, Lkotlinx/coroutines/DebugKt;->RECOVER_STACK_TRACES:Z
@@ -326,13 +326,13 @@
 .end method
 
 .method public static synthetic getRECOVER_STACK_TRACES$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final resetCoroutineId()V
-    .locals 3
+    .registers 3
 
     .line 90
     sget-object v0, Lkotlinx/coroutines/DebugKt;->COROUTINE_ID:Ljava/util/concurrent/atomic/AtomicLong;

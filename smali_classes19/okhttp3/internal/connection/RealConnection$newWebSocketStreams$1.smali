@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/connection/Exchange;Lokio/BufferedSource;Lokio/BufferedSink;)V
-    .locals 1
+    .registers 5
     .param p1, "$exchange"    # Lokhttp3/internal/connection/Exchange;
     .param p2, "$source"    # Lokio/BufferedSource;
     .param p3, "$sink"    # Lokio/BufferedSink;
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 6
+    .registers 7
 
     .line 632
     iget-object v0, p0, Lokhttp3/internal/connection/RealConnection$newWebSocketStreams$1;->$exchange:Lokhttp3/internal/connection/Exchange;

@@ -76,7 +76,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$ImFQQNkhi94ALS24w0Yh4UJJZao(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;Lio/nekohasekai/sagernet/database/ProxyEntity;Landroid/view/View;)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->bind$lambda$1(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;Lio/nekohasekai/sagernet/database/ProxyEntity;Landroid/view/View;)V
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Lio/nekohasekai/sagernet/databinding/LayoutProfileBinding;)V
-    .locals 2
+    .registers 5
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
     .param p2, "binding"    # Lio/nekohasekai/sagernet/databinding/LayoutProfileBinding;
     .annotation system Ldalvik/annotation/Signature;
@@ -161,7 +161,7 @@
 .end method
 
 .method private static final bind$lambda$1(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;Lio/nekohasekai/sagernet/database/ProxyEntity;Landroid/view/View;)V
-    .locals 6
+    .registers 10
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
     .param p1, "this$1"    # Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;
     .param p2, "$proxyEntity"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -225,7 +225,7 @@
 
 # virtual methods
 .method public final bind(Lio/nekohasekai/sagernet/database/ProxyEntity;)V
-    .locals 13
+    .registers 15
     .param p1, "proxyEntity"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     const-string v0, "proxyEntity"
@@ -296,18 +296,18 @@
 
     cmp-long v10, v4, v6
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_42
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_0
+    :cond_42
     const/4 v4, 0x0
 
     .line 272
     .local v4, "showTraffic":Z
-    :goto_0
+    :goto_43
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->trafficText:Landroid/widget/TextView;
 
     check-cast v5, Landroid/view/View;
@@ -319,16 +319,16 @@
     .local v6, "$i$f$setVisible":I
     const/16 v7, 0x8
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4e
 
     const/4 v10, 0x0
 
-    goto :goto_1
+    goto :goto_50
 
-    :cond_1
+    :cond_4e
     const/16 v10, 0x8
 
-    :goto_1
+    :goto_50
     invoke-virtual {v5, v10}, Landroid/view/View;->setVisibility(I)V
 
     .line 297
@@ -337,7 +337,7 @@
     .line 273
     .end local v5    # "$this$isVisible$iv":Landroid/view/View;
     .end local v6    # "$i$f$setVisible":I
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_87
 
     .line 274
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->trafficText:Landroid/widget/TextView;
@@ -396,7 +396,7 @@
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 281
-    :cond_2
+    :cond_87
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->editButton:Landroidx/appcompat/widget/AppCompatImageView;
 
     iget-object v6, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->this$0:Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
@@ -433,7 +433,7 @@
 .end method
 
 .method public final getEditButton()Landroidx/appcompat/widget/AppCompatImageView;
-    .locals 1
+    .registers 2
 
     .line 259
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->editButton:Landroidx/appcompat/widget/AppCompatImageView;
@@ -442,7 +442,7 @@
 .end method
 
 .method public final getProfileName()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 256
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->profileName:Landroid/widget/TextView;
@@ -451,7 +451,7 @@
 .end method
 
 .method public final getProfileType()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 257
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->profileType:Landroid/widget/TextView;
@@ -460,7 +460,7 @@
 .end method
 
 .method public final getShareLayout()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 260
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->shareLayout:Landroid/widget/LinearLayout;
@@ -469,7 +469,7 @@
 .end method
 
 .method public final getTrafficText()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 258
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->trafficText:Landroid/widget/TextView;

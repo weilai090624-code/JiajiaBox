@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 41
     const-string v0, "java.home"
@@ -68,7 +68,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,7 +77,7 @@
 .end method
 
 .method private static initProperty(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "key"    # Ljava/lang/String;
 
     .line 50
@@ -87,13 +87,13 @@
 
     .line 51
     .local v0, "v":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 54
     return-object v0
 
     .line 52
-    :cond_0
+    :cond_7
     new-instance v1, Ljava/lang/InternalError;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -120,7 +120,7 @@
 .end method
 
 .method public static javaHome()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 67
     sget-object v0, Lj$/jdk/internal/util/StaticProperty;->JAVA_HOME:Ljava/lang/String;
@@ -129,7 +129,7 @@
 .end method
 
 .method public static jdkSerialFilter()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 120
     sget-object v0, Lj$/jdk/internal/util/StaticProperty;->JDK_SERIAL_FILTER:Ljava/lang/String;
@@ -138,7 +138,7 @@
 .end method
 
 .method public static userDir()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 93
     sget-object v0, Lj$/jdk/internal/util/StaticProperty;->USER_DIR:Ljava/lang/String;
@@ -147,7 +147,7 @@
 .end method
 
 .method public static userHome()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 80
     sget-object v0, Lj$/jdk/internal/util/StaticProperty;->USER_HOME:Ljava/lang/String;
@@ -156,7 +156,7 @@
 .end method
 
 .method public static userName()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 106
     sget-object v0, Lj$/jdk/internal/util/StaticProperty;->USER_NAME:Ljava/lang/String;

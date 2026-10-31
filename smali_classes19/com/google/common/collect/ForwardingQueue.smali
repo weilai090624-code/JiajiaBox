@@ -25,7 +25,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
@@ -49,7 +49,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
@@ -71,7 +71,7 @@
 .end method
 
 .method public element()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -121,7 +121,7 @@
 .end method
 
 .method public peek()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -145,7 +145,7 @@
 .end method
 
 .method public poll()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -169,7 +169,7 @@
 .end method
 
 .method public remove()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -193,7 +193,7 @@
 .end method
 
 .method protected standardOffer(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -211,13 +211,13 @@
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ForwardingQueue;->add(Ljava/lang/Object;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_4} :catch_5
 
     return v0
 
     .line 100
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 101
@@ -228,7 +228,7 @@
 .end method
 
 .method protected standardPeek()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -244,13 +244,13 @@
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->element()Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 115
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 116
@@ -261,7 +261,7 @@
 .end method
 
 .method protected standardPoll()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -277,13 +277,13 @@
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->remove()Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 130
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 131

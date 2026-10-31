@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 48
     const/high16 v0, 0x1010000
@@ -37,7 +37,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 .end method
 
 .method private static obtainAndroidThemeOverlayId(Landroid/content/Context;Landroid/util/AttributeSet;)I
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attrs"    # Landroid/util/AttributeSet;
 
@@ -79,21 +79,21 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 99
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     move v3, v2
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     move v3, v1
 
-    :goto_0
+    :goto_18
     return v3
 .end method
 
 .method private static obtainMaterialThemeOverlayId(Landroid/content/Context;Landroid/util/AttributeSet;II)I
-    .locals 2
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyleAttr"    # I
@@ -124,7 +124,7 @@
 .end method
 
 .method public static wrap(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
-    .locals 6
+    .registers 10
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyleAttr"    # I
@@ -144,7 +144,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     move-object v1, p0
 
@@ -155,26 +155,26 @@
 
     move-result v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_15
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
     .line 71
     .local v1, "contextHasOverlay":Z
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_16
+    if-eqz v0, :cond_2e
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 75
-    :cond_1
+    :cond_1b
     new-instance v3, Landroidx/appcompat/view/ContextThemeWrapper;
 
     invoke-direct {v3, p0, v0}, Landroidx/appcompat/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
@@ -187,7 +187,7 @@
 
     .line 80
     .local v4, "androidThemeOverlayId":I
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2d
 
     .line 81
     invoke-virtual {v3}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -197,13 +197,13 @@
     invoke-virtual {v5, v4, v2}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 
     .line 84
-    :cond_2
+    :cond_2d
     return-object v3
 
     .line 72
     .end local v3    # "contextThemeWrapper":Landroid/content/Context;
     .end local v4    # "androidThemeOverlayId":I
-    :cond_3
-    :goto_1
+    :cond_2e
+    :goto_2e
     return-object p0
 .end method

@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 36
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroidx/work/multiprocess/IListenableWorkerImpl;
-    .locals 2
+    .registers 3
     .param p0, "obj"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -58,7 +58,7 @@
     .end annotation
 
     .line 45
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 46
     const/4 v0, 0x0
@@ -66,7 +66,7 @@
     return-object v0
 
     .line 48
-    :cond_0
+    :cond_4
     const-string v0, "androidx.work.multiprocess.IListenableWorkerImpl"
 
     invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -75,11 +75,11 @@
 
     .line 49
     .local v0, "iin":Landroid/os/IInterface;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     instance-of v1, v0, Landroidx/work/multiprocess/IListenableWorkerImpl;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     .line 50
     move-object v1, v0
@@ -89,7 +89,7 @@
     return-object v1
 
     .line 52
-    :cond_1
+    :cond_14
     new-instance v1, Landroidx/work/multiprocess/IListenableWorkerImpl$Stub$Proxy;
 
     invoke-direct {v1, p0}, Landroidx/work/multiprocess/IListenableWorkerImpl$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
@@ -100,14 +100,14 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 0
+    .registers 1
 
     .line 56
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 4
+    .registers 9
     .param p1, "code"    # I
     .param p2, "data"    # Landroid/os/Parcel;
     .param p3, "reply"    # Landroid/os/Parcel;
@@ -140,21 +140,21 @@
     .local v0, "descriptor":Ljava/lang/String;
     const/4 v1, 0x1
 
-    if-lt p1, v1, :cond_0
+    if-lt p1, v1, :cond_d
 
     const v2, 0xffffff
 
-    if-gt p1, v2, :cond_0
+    if-gt p1, v2, :cond_d
 
     .line 62
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 64
-    :cond_0
-    packed-switch p1, :pswitch_data_0
+    :cond_d
+    packed-switch p1, :pswitch_data_3e
 
     .line 72
-    packed-switch p1, :pswitch_data_1
+    packed-switch p1, :pswitch_data_44
 
     .line 94
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
@@ -164,14 +164,14 @@
     return v1
 
     .line 68
-    :pswitch_0
+    :pswitch_18
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 69
     return v1
 
     .line 86
-    :pswitch_1
+    :pswitch_1c
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v2
@@ -191,12 +191,12 @@
     invoke-virtual {p0, v2, v3}, Landroidx/work/multiprocess/IListenableWorkerImpl$Stub;->interrupt([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
 
     .line 90
-    goto :goto_0
+    goto :goto_3c
 
     .line 77
     .end local v2    # "_arg0":[B
     .end local v3    # "_arg1":Landroidx/work/multiprocess/IWorkManagerImplCallback;
-    :pswitch_2
+    :pswitch_2c
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v2
@@ -221,19 +221,19 @@
     .line 97
     .end local v2    # "_arg0":[B
     .end local v3    # "_arg1":Landroidx/work/multiprocess/IWorkManagerImplCallback;
-    :goto_0
+    :goto_3c
     return v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3e
     .packed-switch 0x5f4e5446
-        :pswitch_0
+        :pswitch_18
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_44
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
+        :pswitch_2c
+        :pswitch_1c
     .end packed-switch
 .end method

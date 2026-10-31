@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1247
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getActiveNotifications(Landroid/app/NotificationManager;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -45,7 +45,7 @@
 
     .line 1253
     .local v0, "notifs":[Landroid/service/notification/StatusBarNotification;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 1254
     new-instance v1, Ljava/util/ArrayList;
@@ -55,7 +55,7 @@
     return-object v1
 
     .line 1256
-    :cond_0
+    :cond_c
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v1
@@ -64,7 +64,7 @@
 .end method
 
 .method static getCurrentInterruptionFilter(Landroid/app/NotificationManager;)I
-    .locals 1
+    .registers 2
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
 
     .line 1262

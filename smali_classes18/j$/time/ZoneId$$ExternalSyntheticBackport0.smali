@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
 
     new-instance v0, Ljava/util/AbstractMap$SimpleImmutableEntry;
 

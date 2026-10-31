@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/connection/RealCall;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lokhttp3/internal/connection/RealCall;
 
     iput-object p1, p0, Lokhttp3/internal/connection/RealCall$timeout$1;->this$0:Lokhttp3/internal/connection/RealCall;
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method protected timedOut()V
-    .locals 1
+    .registers 2
 
     .line 73
     iget-object v0, p0, Lokhttp3/internal/connection/RealCall$timeout$1;->this$0:Lokhttp3/internal/connection/RealCall;

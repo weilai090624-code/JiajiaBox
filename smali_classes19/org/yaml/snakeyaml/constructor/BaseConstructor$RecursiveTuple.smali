@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TK;)V"
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public _1()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -86,7 +86,7 @@
 .end method
 
 .method public _2()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"

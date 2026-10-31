@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 80
     const-string v0, ".\u3002\uff0e\uff61"
@@ -151,7 +151,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
 
     .line 133
@@ -181,7 +181,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 142
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -195,23 +195,23 @@
     move-result-object p1
 
     .line 145
-    :cond_0
+    :cond_22
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
     const/16 v3, 0xfd
 
-    if-gt v0, v3, :cond_1
+    if-gt v0, v3, :cond_2c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_1
+    :cond_2c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_2d
     const-string v3, "Domain name too long: \'%s\':"
 
     invoke-static {v0, v3, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -241,14 +241,14 @@
 
     const/16 v3, 0x7f
 
-    if-gt v0, v3, :cond_2
+    if-gt v0, v3, :cond_4b
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_2
+    :cond_4b
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_4c
     const-string v0, "Domain has too many parts: \'%s\'"
 
     invoke-static {v1, v0, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -293,7 +293,7 @@
 .end method
 
 .method private ancestor(I)Lcom/google/common/net/InternetDomainName;
-    .locals 3
+    .registers 5
     .param p1, "levels"    # I
 
     .line 546
@@ -323,7 +323,7 @@
 .end method
 
 .method private findSuffixOfType(Lcom/google/common/base/Optional;)I
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -346,8 +346,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_3
+    :goto_7
+    if-ge v1, v0, :cond_3d
 
     .line 169
     sget-object v2, Lcom/google/common/net/InternetDomainName;->DOT_JOINER:Lcom/google/common/base/Joiner;
@@ -382,20 +382,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_28
 
     .line 173
     return v1
 
     .line 179
-    :cond_0
+    :cond_28
     sget-object v3, Lcom/google/thirdparty/publicsuffix/PublicSuffixPatterns;->EXCLUDED:Lcom/google/common/collect/ImmutableMap;
 
     invoke-virtual {v3, v2}, Lcom/google/common/collect/ImmutableMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_33
 
     .line 180
     add-int/lit8 v3, v1, 0x1
@@ -403,33 +403,33 @@
     return v3
 
     .line 183
-    :cond_1
+    :cond_33
     invoke-static {p1, v2}, Lcom/google/common/net/InternetDomainName;->matchesWildcardSuffixType(Lcom/google/common/base/Optional;Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3a
 
     .line 184
     return v1
 
     .line 168
     .end local v2    # "ancestorName":Ljava/lang/String;
-    :cond_2
+    :cond_3a
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 188
     .end local v1    # "i":I
-    :cond_3
+    :cond_3d
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method public static from(Ljava/lang/String;)Lcom/google/common/net/InternetDomainName;
-    .locals 2
+    .registers 3
     .param p0, "domain"    # Ljava/lang/String;
 
     .line 210
@@ -447,14 +447,14 @@
 .end method
 
 .method public static isValid(Ljava/lang/String;)Z
-    .locals 2
+    .registers 3
     .param p0, "name"    # Ljava/lang/String;
 
     .line 587
     :try_start_0
     invoke-static {p0}, Lcom/google/common/net/InternetDomainName;->from(Ljava/lang/String;)Lcom/google/common/net/InternetDomainName;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_3} :catch_5
 
     .line 588
     const/4 v0, 0x1
@@ -462,7 +462,7 @@
     return v0
 
     .line 589
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 590
@@ -473,7 +473,7 @@
 .end method
 
 .method private static matchesType(Lcom/google/common/base/Optional;Lcom/google/common/base/Optional;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -493,25 +493,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-virtual {p0, p1}, Lcom/google/common/base/Optional;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-virtual {p1}, Lcom/google/common/base/Optional;->isPresent()Z
 
     move-result v0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method private static matchesWildcardSuffixType(Lcom/google/common/base/Optional;Ljava/lang/String;)Z
-    .locals 4
+    .registers 6
     .param p1, "domain"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -544,7 +544,7 @@
 
     move-result v2
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_29
 
     sget-object v1, Lcom/google/thirdparty/publicsuffix/PublicSuffixPatterns;->UNDER:Lcom/google/common/collect/ImmutableMap;
 
@@ -570,20 +570,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_29
     const/4 v2, 0x0
 
     .line 601
-    :goto_0
+    :goto_2a
     return v2
 .end method
 
 .method private static validatePart(Ljava/lang/String;Z)Z
-    .locals 5
+    .registers 7
     .param p0, "part"    # Ljava/lang/String;
     .param p1, "isFinalPart"    # Z
 
@@ -596,7 +596,7 @@
 
     const/4 v2, 0x1
 
-    if-lt v0, v2, :cond_5
+    if-lt v0, v2, :cond_51
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -604,12 +604,12 @@
 
     const/16 v3, 0x3f
 
-    if-le v0, v3, :cond_0
+    if-le v0, v3, :cond_11
 
-    goto :goto_1
+    goto :goto_51
 
     .line 275
-    :cond_0
+    :cond_11
     invoke-static {}, Lcom/google/common/base/CharMatcher;->ascii()Lcom/google/common/base/CharMatcher;
 
     move-result-object v0
@@ -626,13 +626,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_22
 
     .line 278
     return v1
 
     .line 283
-    :cond_1
+    :cond_22
     sget-object v3, Lcom/google/common/net/InternetDomainName;->DASH_MATCHER:Lcom/google/common/base/CharMatcher;
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -643,7 +643,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_50
 
     sget-object v3, Lcom/google/common/net/InternetDomainName;->DASH_MATCHER:Lcom/google/common/base/CharMatcher;
 
@@ -662,13 +662,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_40
 
-    goto :goto_0
+    goto :goto_50
 
     .line 295
-    :cond_2
-    if-eqz p1, :cond_3
+    :cond_40
+    if-eqz p1, :cond_4f
 
     sget-object v3, Lcom/google/common/net/InternetDomainName;->DIGIT_MATCHER:Lcom/google/common/base/CharMatcher;
 
@@ -680,29 +680,29 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4f
 
     .line 296
     return v1
 
     .line 299
-    :cond_3
+    :cond_4f
     return v2
 
     .line 285
-    :cond_4
-    :goto_0
+    :cond_50
+    :goto_50
     return v1
 
     .line 262
     .end local v0    # "asciiChars":Ljava/lang/String;
-    :cond_5
-    :goto_1
+    :cond_51
+    :goto_51
     return v1
 .end method
 
 .method private static validateSyntax(Ljava/util/List;)Z
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -736,18 +736,18 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     .line 225
     return v3
 
     .line 228
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_2
+    :goto_15
+    if-ge v2, v0, :cond_27
 
     .line 229
     invoke-interface {p0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -762,28 +762,28 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_24
 
     .line 231
     return v3
 
     .line 228
     .end local v4    # "part":Ljava/lang/String;
-    :cond_1
+    :cond_24
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 235
     .end local v2    # "i":I
-    :cond_2
+    :cond_27
     return v1
 .end method
 
 
 # virtual methods
 .method public child(Ljava/lang/String;)Lcom/google/common/net/InternetDomainName;
-    .locals 4
+    .registers 6
     .param p1, "leftParts"    # Ljava/lang/String;
 
     .line 559
@@ -845,14 +845,14 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
     .end param
 
     .line 628
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 629
     const/4 v0, 0x1
@@ -860,10 +860,10 @@
     return v0
 
     .line 632
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/net/InternetDomainName;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 633
     move-object v0, p1
@@ -884,14 +884,14 @@
 
     .line 637
     .end local v0    # "that":Lcom/google/common/net/InternetDomainName;
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hasParent()Z
-    .locals 2
+    .registers 3
 
     .line 523
     iget-object v0, p0, Lcom/google/common/net/InternetDomainName;->parts:Lcom/google/common/collect/ImmutableList;
@@ -902,61 +902,61 @@
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_a
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_b
     return v1
 .end method
 
 .method public hasPublicSuffix()Z
-    .locals 2
+    .registers 3
 
     .line 348
     iget v0, p0, Lcom/google/common/net/InternetDomainName;->publicSuffixIndex:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public hasRegistrySuffix()Z
-    .locals 2
+    .registers 3
 
     .line 457
     iget v0, p0, Lcom/google/common/net/InternetDomainName;->registrySuffixIndex:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 642
     iget-object v0, p0, Lcom/google/common/net/InternetDomainName;->name:Ljava/lang/String;
@@ -969,121 +969,121 @@
 .end method
 
 .method public isPublicSuffix()Z
-    .locals 1
+    .registers 2
 
     .line 332
     iget v0, p0, Lcom/google/common/net/InternetDomainName;->publicSuffixIndex:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public isRegistrySuffix()Z
-    .locals 1
+    .registers 2
 
     .line 442
     iget v0, p0, Lcom/google/common/net/InternetDomainName;->registrySuffixIndex:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public isTopDomainUnderRegistrySuffix()Z
-    .locals 2
+    .registers 3
 
     .line 495
     iget v0, p0, Lcom/google/common/net/InternetDomainName;->registrySuffixIndex:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     return v1
 .end method
 
 .method public isTopPrivateDomain()Z
-    .locals 2
+    .registers 3
 
     .line 391
     iget v0, p0, Lcom/google/common/net/InternetDomainName;->publicSuffixIndex:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     return v1
 .end method
 
 .method public isUnderPublicSuffix()Z
-    .locals 1
+    .registers 2
 
     .line 375
     iget v0, p0, Lcom/google/common/net/InternetDomainName;->publicSuffixIndex:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public isUnderRegistrySuffix()Z
-    .locals 1
+    .registers 2
 
     .line 480
     iget v0, p0, Lcom/google/common/net/InternetDomainName;->registrySuffixIndex:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public parent()Lcom/google/common/net/InternetDomainName;
-    .locals 3
+    .registers 4
 
     .line 534
     invoke-virtual {p0}, Lcom/google/common/net/InternetDomainName;->hasParent()Z
@@ -1107,7 +1107,7 @@
 .end method
 
 .method public parts()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1124,7 +1124,7 @@
 .end method
 
 .method public publicSuffix()Lcom/google/common/net/InternetDomainName;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -1133,7 +1133,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget v0, p0, Lcom/google/common/net/InternetDomainName;->publicSuffixIndex:I
 
@@ -1141,17 +1141,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public registrySuffix()Lcom/google/common/net/InternetDomainName;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -1160,7 +1160,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget v0, p0, Lcom/google/common/net/InternetDomainName;->registrySuffixIndex:I
 
@@ -1168,17 +1168,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 618
     iget-object v0, p0, Lcom/google/common/net/InternetDomainName;->name:Ljava/lang/String;
@@ -1187,20 +1187,20 @@
 .end method
 
 .method public topDomainUnderRegistrySuffix()Lcom/google/common/net/InternetDomainName;
-    .locals 3
+    .registers 4
 
     .line 514
     invoke-virtual {p0}, Lcom/google/common/net/InternetDomainName;->isTopDomainUnderRegistrySuffix()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 515
     return-object p0
 
     .line 517
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lcom/google/common/net/InternetDomainName;->isUnderRegistrySuffix()Z
 
     move-result v0
@@ -1224,20 +1224,20 @@
 .end method
 
 .method public topPrivateDomain()Lcom/google/common/net/InternetDomainName;
-    .locals 3
+    .registers 4
 
     .line 411
     invoke-virtual {p0}, Lcom/google/common/net/InternetDomainName;->isTopPrivateDomain()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 412
     return-object p0
 
     .line 414
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lcom/google/common/net/InternetDomainName;->isUnderPublicSuffix()Z
 
     move-result v0

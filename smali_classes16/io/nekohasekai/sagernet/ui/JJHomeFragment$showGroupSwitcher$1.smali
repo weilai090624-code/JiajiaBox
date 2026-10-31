@@ -166,8 +166,7 @@
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
     .line 441
-    # invokes: Lio/nekohasekai/sagernet/ui/JJHomeFragment;->confirmDeleteGroup(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
-    invoke-static {p1, p2}, Lio/nekohasekai/sagernet/ui/JJHomeFragment;->access$confirmDeleteGroup(Lio/nekohasekai/sagernet/ui/JJHomeFragment;Lio/nekohasekai/sagernet/database/ProxyGroup;)V
+    invoke-static {p1, p2}, Lio/nekohasekai/sagernet/ui/GroupActions;->show(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 442
     const/4 v0, 0x1

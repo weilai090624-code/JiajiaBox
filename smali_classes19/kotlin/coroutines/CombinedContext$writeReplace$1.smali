@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>([Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/internal/Ref$IntRef;)V
-    .locals 1
+    .registers 4
 
     iput-object p1, p0, Lkotlin/coroutines/CombinedContext$writeReplace$1;->$elements:[Lkotlin/coroutines/CoroutineContext;
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public final invoke(Lkotlin/Unit;Lkotlin/coroutines/CoroutineContext$Element;)V
-    .locals 3
+    .registers 6
     .param p2, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
 
     const-string v0, "<anonymous parameter 0>"

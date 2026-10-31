@@ -85,7 +85,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     new-instance v0, Lokhttp3/internal/http2/Hpack;
 
@@ -997,7 +997,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -1006,7 +1006,7 @@
 .end method
 
 .method private final nameToFirstIndex()Ljava/util/Map;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1034,11 +1034,11 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_31
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_10
     move v3, v2
 
     .local v3, "i":I
@@ -1055,7 +1055,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2f
 
     .line 386
     move-object v4, v0
@@ -1075,12 +1075,12 @@
     invoke-interface {v4, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 384
-    :cond_1
-    if-le v2, v1, :cond_0
+    :cond_2f
+    if-le v2, v1, :cond_10
 
     .line 389
     .end local v3    # "i":I
-    :cond_2
+    :cond_31
     move-object v1, v0
 
     check-cast v1, Ljava/util/Map;
@@ -1099,7 +1099,7 @@
 
 # virtual methods
 .method public final checkLowercase(Lokio/ByteString;)Lokio/ByteString;
-    .locals 8
+    .registers 10
     .param p1, "name"    # Lokio/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1116,13 +1116,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_35
 
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_d
     move v3, v2
 
     .local v3, "i":I
@@ -1143,25 +1143,25 @@
 
     move-result v7
 
-    if-gt v5, v7, :cond_1
+    if-gt v5, v7, :cond_1f
 
-    if-gt v7, v6, :cond_1
+    if-gt v7, v6, :cond_1f
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     const/4 v4, 0x0
 
-    :goto_0
-    if-nez v4, :cond_2
+    :goto_20
+    if-nez v4, :cond_25
 
     .line 612
-    if-lt v2, v0, :cond_0
+    if-lt v2, v0, :cond_d
 
-    goto :goto_1
+    goto :goto_35
 
     .line 614
-    :cond_2
+    :cond_25
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "PROTOCOL_ERROR response malformed: mixed case name: "
@@ -1180,13 +1180,13 @@
 
     .line 617
     .end local v3    # "i":I
-    :cond_3
-    :goto_1
+    :cond_35
+    :goto_35
     return-object p1
 .end method
 
 .method public final getNAME_TO_FIRST_INDEX()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1204,7 +1204,7 @@
 .end method
 
 .method public final getSTATIC_HEADER_TABLE()[Lokhttp3/internal/http2/Header;
-    .locals 1
+    .registers 2
 
     .line 58
     sget-object v0, Lokhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lokhttp3/internal/http2/Header;

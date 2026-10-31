@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method static newInstance(Landroid/view/Surface;II)Landroid/media/ImageWriter;
-    .locals 1
+    .registers 4
     .param p0, "surface"    # Landroid/view/Surface;
     .param p1, "maxImages"    # I
     .param p2, "format"    # I

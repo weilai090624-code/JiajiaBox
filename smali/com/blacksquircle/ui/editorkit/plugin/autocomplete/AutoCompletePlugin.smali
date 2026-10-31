@@ -83,7 +83,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin$Companion;
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 25
     const-string v0, "autocomplete-6743"
@@ -108,7 +108,7 @@
 .end method
 
 .method private final getVisibleHeight()I
-    .locals 3
+    .registers 4
 
     .line 126
     new-instance v0, Landroid/graphics/Rect;
@@ -134,7 +134,7 @@
 .end method
 
 .method private final onDropDownSizeChange(II)V
-    .locals 2
+    .registers 5
     .param p1, "width"    # I
     .param p2, "height"    # I
 
@@ -168,7 +168,7 @@
 .end method
 
 .method private final onPopupChangePosition()V
-    .locals 9
+    .registers 10
 
     .line 108
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -179,13 +179,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     return-void
 
     .line 109
     .local v0, "layout":Landroid/text/Layout;
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v1
@@ -275,7 +275,7 @@
 
     move-result v8
 
-    if-le v6, v8, :cond_1
+    if-le v6, v8, :cond_61
 
     .line 119
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -288,14 +288,14 @@
 
     sub-int v8, v5, v8
 
-    goto :goto_0
+    goto :goto_62
 
     .line 121
-    :cond_1
+    :cond_61
     move v8, v5
 
     .line 118
-    :goto_0
+    :goto_62
     invoke-virtual {v7, v8}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->setDropDownVerticalOffset(I)V
 
     .line 123
@@ -303,19 +303,19 @@
 .end method
 
 .method private final updateAdapter()V
-    .locals 4
+    .registers 5
 
     .line 91
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->isAttached()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 92
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->suggestionAdapter:Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .local v0, "adapter":Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
     const/4 v1, 0x0
@@ -326,13 +326,13 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     invoke-interface {v2}, Lcom/blacksquircle/ui/language/base/Language;->getProvider()Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .local v2, "provider":Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
     const/4 v3, 0x0
@@ -347,7 +347,7 @@
     .line 93
     .end local v2    # "provider":Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
     .end local v3    # "$i$a$-let-AutoCompletePlugin$updateAdapter$1$1":I
-    :cond_0
+    :cond_1c
     nop
 
     .line 96
@@ -370,14 +370,14 @@
     nop
 
     .line 99
-    :cond_1
+    :cond_29
     return-void
 .end method
 
 
 # virtual methods
 .method public final getSuggestionAdapter()Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
-    .locals 1
+    .registers 2
 
     .line 27
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->suggestionAdapter:Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
@@ -386,7 +386,7 @@
 .end method
 
 .method public onAttached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 2
+    .registers 4
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -424,7 +424,7 @@
 .end method
 
 .method public onDetached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 1
+    .registers 3
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -447,20 +447,20 @@
 .end method
 
 .method public onLanguageChanged(Lcom/blacksquircle/ui/language/base/Language;)V
-    .locals 3
+    .registers 5
     .param p1, "language"    # Lcom/blacksquircle/ui/language/base/Language;
 
     .line 76
     invoke-super {p0, p1}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onLanguageChanged(Lcom/blacksquircle/ui/language/base/Language;)V
 
     .line 77
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     invoke-interface {p1}, Lcom/blacksquircle/ui/language/base/Language;->getProvider()Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .local v0, "provider":Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
     const/4 v1, 0x0
@@ -469,14 +469,14 @@
     .local v1, "$i$a$-let-AutoCompletePlugin$onLanguageChanged$1":I
     iget-object v2, p0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->suggestionAdapter:Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     invoke-virtual {v2, v0}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;->setSuggestionProvider(Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;)V
 
     .line 77
     .end local v0    # "provider":Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
     .end local v1    # "$i$a$-let-AutoCompletePlugin$onLanguageChanged$1":I
-    :cond_0
+    :cond_13
     nop
 
     .line 80
@@ -484,7 +484,7 @@
 .end method
 
 .method public onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -501,7 +501,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
@@ -518,7 +518,7 @@
 .end method
 
 .method public processLine(III)V
-    .locals 2
+    .registers 6
     .param p1, "lineNumber"    # I
     .param p2, "lineStart"    # I
     .param p3, "lineEnd"    # I
@@ -531,13 +531,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     invoke-interface {v0}, Lcom/blacksquircle/ui/language/base/Language;->getProvider()Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 65
     nop
@@ -559,12 +559,12 @@
     invoke-interface {v0, p1, v1}, Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;->processLine(ILjava/lang/CharSequence;)V
 
     .line 68
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method public removeLine(I)V
-    .locals 1
+    .registers 3
     .param p1, "lineNumber"    # I
 
     .line 71
@@ -575,23 +575,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-interface {v0}, Lcom/blacksquircle/ui/language/base/Language;->getProvider()Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-interface {v0, p1}, Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;->deleteLine(I)V
 
     .line 73
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public final setSuggestionAdapter(Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter;
 
     .line 29
@@ -605,7 +605,7 @@
 .end method
 
 .method public setTextContent(Ljava/lang/CharSequence;)V
-    .locals 2
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     const-string/jumbo v0, "text"
@@ -620,29 +620,29 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     invoke-interface {v0}, Lcom/blacksquircle/ui/language/base/Language;->getProvider()Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     invoke-interface {v0}, Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;->clearLines()V
 
     .line 59
-    :cond_0
+    :cond_18
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->getLanguage()Lcom/blacksquircle/ui/language/base/Language;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     invoke-interface {v0}, Lcom/blacksquircle/ui/language/base/Language;->getProvider()Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->getStructure()Lcom/blacksquircle/ui/language/base/model/TextStructure;
 
@@ -651,12 +651,12 @@
     invoke-interface {v0, v1}, Lcom/blacksquircle/ui/language/base/provider/SuggestionProvider;->processAllLines(Lcom/blacksquircle/ui/language/base/model/TextStructure;)V
 
     .line 60
-    :cond_1
+    :cond_2b
     return-void
 .end method
 
 .method public showDropDown()V
-    .locals 1
+    .registers 2
 
     .line 83
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -667,7 +667,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 84
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/AutoCompletePlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -678,12 +678,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 85
     invoke-super {p0}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->showDropDown()V
 
     .line 88
-    :cond_0
+    :cond_17
     return-void
 .end method

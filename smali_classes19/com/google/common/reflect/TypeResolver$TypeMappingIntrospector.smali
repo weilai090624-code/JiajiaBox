@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 373
     invoke-direct {p0}, Lcom/google/common/reflect/TypeVisitor;-><init>()V
@@ -45,7 +45,7 @@
 .end method
 
 .method static getTypeMappings(Ljava/lang/reflect/Type;)Lcom/google/common/collect/ImmutableMap;
-    .locals 3
+    .registers 4
     .param p0, "contextType"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +90,7 @@
 .end method
 
 .method private map(Lcom/google/common/reflect/TypeResolver$TypeVariableKey;Ljava/lang/reflect/Type;)V
-    .locals 4
+    .registers 7
     .param p1, "var"    # Lcom/google/common/reflect/TypeResolver$TypeVariableKey;
     .param p2, "arg"    # Ljava/lang/reflect/Type;
 
@@ -101,32 +101,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 424
     return-void
 
     .line 427
-    :cond_0
+    :cond_9
     move-object v0, p2
 
     .local v0, "t":Ljava/lang/reflect/Type;
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_a
+    if-eqz v0, :cond_32
 
     .line 428
     invoke-virtual {p1, v0}, Lcom/google/common/reflect/TypeResolver$TypeVariableKey;->equalsType(Ljava/lang/reflect/Type;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_24
 
     .line 433
     move-object v1, p2
 
     .local v1, "x":Ljava/lang/reflect/Type;
-    :goto_1
-    if-eqz v1, :cond_1
+    :goto_13
+    if-eqz v1, :cond_23
 
     iget-object v2, p0, Lcom/google/common/reflect/TypeResolver$TypeMappingIntrospector;->mappings:Ljava/util/Map;
 
@@ -142,15 +142,15 @@
 
     check-cast v1, Ljava/lang/reflect/Type;
 
-    goto :goto_1
+    goto :goto_13
 
     .line 434
     .end local v1    # "x":Ljava/lang/reflect/Type;
-    :cond_1
+    :cond_23
     return-void
 
     .line 427
-    :cond_2
+    :cond_24
     iget-object v1, p0, Lcom/google/common/reflect/TypeResolver$TypeMappingIntrospector;->mappings:Ljava/util/Map;
 
     invoke-static {v0}, Lcom/google/common/reflect/TypeResolver$TypeVariableKey;->forLookup(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeResolver$TypeVariableKey;
@@ -165,11 +165,11 @@
 
     check-cast v0, Ljava/lang/reflect/Type;
 
-    goto :goto_0
+    goto :goto_a
 
     .line 437
     .end local v0    # "t":Ljava/lang/reflect/Type;
-    :cond_3
+    :cond_32
     iget-object v0, p0, Lcom/google/common/reflect/TypeResolver$TypeMappingIntrospector;->mappings:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -181,7 +181,7 @@
 
 # virtual methods
 .method visitClass(Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -218,7 +218,7 @@
 .end method
 
 .method visitParameterizedType(Ljava/lang/reflect/ParameterizedType;)V
-    .locals 8
+    .registers 10
     .param p1, "parameterizedType"    # Ljava/lang/reflect/ParameterizedType;
 
     .line 396
@@ -250,26 +250,26 @@
 
     const/4 v6, 0x1
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_16
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_17
     invoke-static {v3}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 400
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
+    :goto_1b
     array-length v4, v1
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_2d
 
     .line 401
     new-instance v4, Lcom/google/common/reflect/TypeResolver$TypeVariableKey;
@@ -285,11 +285,11 @@
     .line 400
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_1b
 
     .line 403
     .end local v3    # "i":I
-    :cond_1
+    :cond_2d
     new-array v3, v6, [Ljava/lang/reflect/Type;
 
     aput-object v0, v3, v5
@@ -312,7 +312,7 @@
 .end method
 
 .method visitTypeVariable(Ljava/lang/reflect/TypeVariable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -334,7 +334,7 @@
 .end method
 
 .method visitWildcardType(Ljava/lang/reflect/WildcardType;)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # Ljava/lang/reflect/WildcardType;
 
     .line 414

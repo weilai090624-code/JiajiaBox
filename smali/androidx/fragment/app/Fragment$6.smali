@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/Fragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/fragment/app/Fragment;
 
     .line 3077
@@ -37,21 +37,21 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     .line 3081
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_11
 
     .line 3082
     iget-object v0, p0, Landroidx/fragment/app/Fragment$6;->this$0:Landroidx/fragment/app/Fragment;
 
     iget-object v0, v0, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 3083
     iget-object v0, p0, Landroidx/fragment/app/Fragment$6;->this$0:Landroidx/fragment/app/Fragment;
@@ -61,6 +61,6 @@
     invoke-static {v0}, Landroidx/fragment/app/Fragment$Api19Impl;->cancelPendingInputEvents(Landroid/view/View;)V
 
     .line 3086
-    :cond_0
+    :cond_11
     return-void
 .end method

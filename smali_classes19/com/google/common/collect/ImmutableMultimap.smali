@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap;I)V
-    .locals 0
+    .registers 3
     .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,7 +84,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -106,7 +106,7 @@
 .end method
 
 .method public static copyOf(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/ImmutableMultimap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -125,7 +125,7 @@
     .local p0, "multimap":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<+TK;+TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/ImmutableMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 316
     move-object v0, p0
@@ -138,14 +138,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 318
     return-object v0
 
     .line 321
     .end local v0    # "kvMultimap":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
-    :cond_0
+    :cond_e
     invoke-static {p0}, Lcom/google/common/collect/ImmutableListMultimap;->copyOf(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/ImmutableListMultimap;
 
     move-result-object v0
@@ -154,7 +154,7 @@
 .end method
 
 .method public static copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -181,7 +181,7 @@
 .end method
 
 .method public static of()Lcom/google/common/collect/ImmutableMultimap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -203,7 +203,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMultimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -227,7 +227,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMultimap;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -253,7 +253,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMultimap;
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -281,7 +281,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMultimap;
-    .locals 1
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -311,7 +311,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMultimap;
-    .locals 1
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -345,7 +345,7 @@
 
 # virtual methods
 .method public asMap()Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -364,7 +364,7 @@
 .end method
 
 .method public bridge synthetic asMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -376,7 +376,7 @@
 .end method
 
 .method public final clear()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -390,7 +390,7 @@
 .end method
 
 .method public bridge synthetic containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -410,7 +410,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -428,7 +428,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -436,27 +436,27 @@
 
     .line 497
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     invoke-super {p0, p1}, Lcom/google/common/collect/BaseImmutableMultimap;->containsValue(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method createAsMap()Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -479,7 +479,7 @@
 .end method
 
 .method createEntries()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -499,7 +499,7 @@
 .end method
 
 .method bridge synthetic createEntries()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -511,7 +511,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -532,7 +532,7 @@
 .end method
 
 .method createKeys()Lcom/google/common/collect/ImmutableMultiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -551,7 +551,7 @@
 .end method
 
 .method bridge synthetic createKeys()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -563,7 +563,7 @@
 .end method
 
 .method createValues()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -582,7 +582,7 @@
 .end method
 
 .method bridge synthetic createValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -594,7 +594,7 @@
 .end method
 
 .method public entries()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -616,7 +616,7 @@
 .end method
 
 .method public bridge synthetic entries()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -628,7 +628,7 @@
 .end method
 
 .method entryIterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -648,7 +648,7 @@
 .end method
 
 .method bridge synthetic entryIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -660,7 +660,7 @@
 .end method
 
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -686,7 +686,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -698,7 +698,7 @@
 .end method
 
 .method public bridge synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -720,7 +720,7 @@
 .end method
 
 .method public bridge synthetic isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -732,7 +732,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 485
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -746,7 +746,7 @@
 .end method
 
 .method public keySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -767,7 +767,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -779,7 +779,7 @@
 .end method
 
 .method public keys()Lcom/google/common/collect/ImmutableMultiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -800,7 +800,7 @@
 .end method
 
 .method public bridge synthetic keys()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -812,7 +812,7 @@
 .end method
 
 .method public final put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)Z"
@@ -834,7 +834,7 @@
 .end method
 
 .method public final putAll(Lcom/google/common/collect/Multimap;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -857,7 +857,7 @@
 .end method
 
 .method public final putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -881,7 +881,7 @@
 .end method
 
 .method public final remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -903,7 +903,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -931,7 +931,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -949,7 +949,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -975,7 +975,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -989,7 +989,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 502
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -999,7 +999,7 @@
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -1011,7 +1011,7 @@
 .end method
 
 .method valueIterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1030,7 +1030,7 @@
 .end method
 
 .method bridge synthetic valueIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"
@@ -1042,7 +1042,7 @@
 .end method
 
 .method public values()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1063,7 +1063,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>;"

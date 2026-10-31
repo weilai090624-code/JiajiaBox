@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public static final checkStepIsPositive(ZLjava/lang/Number;)V
-    .locals 3
+    .registers 5
     .param p0, "isPositive"    # Z
     .param p1, "step"    # Ljava/lang/Number;
 
@@ -66,13 +66,13 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 274
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     .line 275
     return-void
 
     .line 274
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -105,7 +105,7 @@
 .end method
 
 .method private static final contains(Lkotlin/ranges/ClosedRange;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -125,7 +125,7 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 260
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     move-object v0, p1
 
@@ -135,21 +135,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method private static final contains(Lkotlin/ranges/OpenEndRange;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -169,7 +169,7 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 271
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     move-object v0, p1
 
@@ -179,21 +179,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public static final rangeTo(DD)Lkotlin/ranges/ClosedFloatingPointRange;
-    .locals 1
+    .registers 5
     .param p0, "$this$rangeTo"    # D
     .param p2, "that"    # D
     .annotation system Ldalvik/annotation/Signature;
@@ -216,7 +216,7 @@
 .end method
 
 .method public static final rangeTo(FF)Lkotlin/ranges/ClosedFloatingPointRange;
-    .locals 1
+    .registers 3
     .param p0, "$this$rangeTo"    # F
     .param p1, "that"    # F
     .annotation system Ldalvik/annotation/Signature;
@@ -239,7 +239,7 @@
 .end method
 
 .method public static final rangeTo(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lkotlin/ranges/ClosedRange;
-    .locals 1
+    .registers 3
     .param p0, "$this$rangeTo"    # Ljava/lang/Comparable;
     .param p1, "that"    # Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
@@ -271,7 +271,7 @@
 .end method
 
 .method public static final rangeUntil(DD)Lkotlin/ranges/OpenEndRange;
-    .locals 1
+    .registers 5
     .param p0, "$this$rangeUntil"    # D
     .param p2, "that"    # D
     .annotation system Ldalvik/annotation/Signature;
@@ -294,7 +294,7 @@
 .end method
 
 .method public static final rangeUntil(FF)Lkotlin/ranges/OpenEndRange;
-    .locals 1
+    .registers 3
     .param p0, "$this$rangeUntil"    # F
     .param p1, "that"    # F
     .annotation system Ldalvik/annotation/Signature;
@@ -317,7 +317,7 @@
 .end method
 
 .method public static final rangeUntil(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lkotlin/ranges/OpenEndRange;
-    .locals 1
+    .registers 3
     .param p0, "$this$rangeUntil"    # Ljava/lang/Comparable;
     .param p1, "that"    # Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Lcom/google/common/escape/CharEscaper;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "string"    # Ljava/lang/String;
 
     .line 53
@@ -41,7 +41,7 @@
 .end method
 
 .method protected escape(C)[C
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/card/MaterialCardViewHelper;Landroid/graphics/drawable/Drawable;IIII)V
-    .locals 6
+    .registers 13
     .param p1, "this$0"    # Lcom/google/android/material/card/MaterialCardViewHelper;
     .param p2, "arg0"    # Landroid/graphics/drawable/Drawable;
     .param p3, "arg1"    # I
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public getMinimumHeight()I
-    .locals 1
+    .registers 2
 
     .line 601
     const/4 v0, -0x1
@@ -60,7 +60,7 @@
 .end method
 
 .method public getMinimumWidth()I
-    .locals 1
+    .registers 2
 
     .line 595
     const/4 v0, -0x1
@@ -69,7 +69,7 @@
 .end method
 
 .method public getPadding(Landroid/graphics/Rect;)Z
-    .locals 1
+    .registers 3
     .param p1, "padding"    # Landroid/graphics/Rect;
 
     .line 589

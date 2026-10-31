@@ -91,7 +91,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,7 +143,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
 
     move-object v0, p1
 
@@ -165,7 +165,7 @@
 .end method
 
 .method public final invoke-WpGqRn0(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -198,7 +198,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -209,7 +209,7 @@
 
     const/4 v2, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_5c
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -219,7 +219,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_12
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$timeoutInternal$1$1$1;
@@ -235,14 +235,14 @@
     .local v4, "$this$onSuccess_u2dWpGqRn0$iv":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_40
 
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$timeoutInternal$1$1$1;
     .end local v1    # "$i$f$onSuccess-WpGqRn0":I
     .end local v3    # "$i$a$-onSuccess-WpGqRn0-FlowKt__DelayKt$timeoutInternal$1$1$1$1":I
     .end local v4    # "$this$onSuccess_u2dWpGqRn0$iv":Ljava/lang/Object;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1b
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -271,7 +271,7 @@
     .line 420
     instance-of v6, v3, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_43
 
     move-object v6, v3
 
@@ -289,13 +289,13 @@
     move-result-object v4
 
     .end local v6    # "it":Ljava/lang/Object;
-    if-ne v4, v0, :cond_0
+    if-ne v4, v0, :cond_3c
 
     .line 402
     return-object v0
 
     .line 404
-    :cond_0
+    :cond_3c
     move-object v0, v1
 
     move-object v4, v3
@@ -311,7 +311,7 @@
     .local v1, "$i$f$onSuccess-WpGqRn0":I
     .local v3, "$i$a$-onSuccess-WpGqRn0-FlowKt__DelayKt$timeoutInternal$1$1$1$1":I
     .restart local v4    # "$this$onSuccess_u2dWpGqRn0$iv":Ljava/lang/Object;
-    :goto_0
+    :goto_40
     move v5, v1
 
     move-object v3, v4
@@ -324,7 +324,7 @@
     .local v1, "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$timeoutInternal$1$1$1;
     .local v3, "$this$onSuccess_u2dWpGqRn0$iv":Ljava/lang/Object;
     .restart local v5    # "$i$f$onSuccess-WpGqRn0":I
-    :cond_1
+    :cond_43
     nop
 
     .line 421
@@ -345,7 +345,7 @@
     .line 425
     instance-of v4, v0, Lkotlinx/coroutines/channels/ChannelResult$Closed;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_56
 
     invoke-static {v0}, Lkotlinx/coroutines/channels/ChannelResult;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
@@ -363,7 +363,7 @@
 
     .line 426
     .end local v2    # "$i$a$-onClosed-WpGqRn0-FlowKt__DelayKt$timeoutInternal$1$1$1$2":I
-    :cond_2
+    :cond_56
     nop
 
     .line 408
@@ -375,9 +375,9 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_5c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_12
     .end packed-switch
 .end method

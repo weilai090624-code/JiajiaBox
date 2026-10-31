@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 35
     const-string v14, "SM-G935U"
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -78,7 +78,7 @@
 .end method
 
 .method static load()Z
-    .locals 3
+    .registers 3
 
     .line 58
     sget-object v0, Landroid/os/Build;->BRAND:Ljava/lang/String;
@@ -95,7 +95,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     sget-object v0, Landroidx/camera/core/internal/compat/quirk/ImageCaptureWashedOutImageQuirk;->DEVICE_MODELS:Ljava/util/List;
 
@@ -112,16 +112,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v0, 0x0
 
     .line 58
-    :goto_0
+    :goto_23
     return v0
 .end method

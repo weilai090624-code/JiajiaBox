@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 474
     const-string v5, "percentX"

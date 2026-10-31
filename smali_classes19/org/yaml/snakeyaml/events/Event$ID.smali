@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .registers 13
 
     .line 26
     new-instance v0, Lorg/yaml/snakeyaml/events/Event$ID;
@@ -228,7 +228,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -242,7 +242,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/yaml/snakeyaml/events/Event$ID;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 25
@@ -258,7 +258,7 @@
 .end method
 
 .method public static values()[Lorg/yaml/snakeyaml/events/Event$ID;
-    .locals 1
+    .registers 1
 
     .line 25
     sget-object v0, Lorg/yaml/snakeyaml/events/Event$ID;->$VALUES:[Lorg/yaml/snakeyaml/events/Event$ID;

@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "listener"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public final getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Start;->key:Ljava/lang/Object;
@@ -108,7 +108,7 @@
 .end method
 
 .method public final getListener()Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

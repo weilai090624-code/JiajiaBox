@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 512
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -51,7 +51,7 @@
 .end method
 
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/net/URI;
-    .locals 3
+    .registers 5
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -68,7 +68,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 516
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
@@ -77,8 +77,8 @@
     return-object v2
 
     .line 520
-    :cond_0
-    :try_start_0
+    :cond_d
+    :try_start_d
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
 
     move-result-object v0
@@ -91,26 +91,26 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
-    :goto_0
-    goto :goto_1
+    :goto_19
+    goto :goto_20
 
-    :cond_1
+    :cond_1a
     new-instance v2, Ljava/net/URI;
 
     invoke-direct {v2, v0}, Ljava/net/URI;-><init>(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/net/URISyntaxException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Ljava/net/URISyntaxException; {:try_start_d .. :try_end_1f} :catch_21
 
-    goto :goto_0
+    goto :goto_19
 
-    :goto_1
+    :goto_20
     return-object v2
 
     .line 522
     .end local v0    # "nextString":Ljava/lang/String;
-    :catch_0
+    :catch_21
     move-exception v0
 
     .line 523
@@ -123,7 +123,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -139,7 +139,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/net/URI;)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .param p2, "value"    # Ljava/net/URI;
     .annotation system Ldalvik/annotation/Throws;
@@ -149,18 +149,18 @@
     .end annotation
 
     .line 528
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-virtual {p2}, Ljava/net/URI;->toASCIIString()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-virtual {p1, v0}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
 
     .line 529

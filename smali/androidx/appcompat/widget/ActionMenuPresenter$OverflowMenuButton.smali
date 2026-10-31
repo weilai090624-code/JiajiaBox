@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/appcompat/widget/ActionMenuPresenter;Landroid/content/Context;)V
-    .locals 2
+    .registers 5
     .param p2, "context"    # Landroid/content/Context;
 
     .line 628
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public needsDividerAfter()Z
-    .locals 1
+    .registers 2
 
     .line 687
     const/4 v0, 0x0
@@ -82,7 +82,7 @@
 .end method
 
 .method public needsDividerBefore()Z
-    .locals 1
+    .registers 2
 
     .line 682
     const/4 v0, 0x0
@@ -91,7 +91,7 @@
 .end method
 
 .method public performClick()Z
-    .locals 2
+    .registers 3
 
     .line 671
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatImageView;->performClick()Z
@@ -100,13 +100,13 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 672
     return v1
 
     .line 675
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroidx/appcompat/widget/ActionMenuPresenter$OverflowMenuButton;->playSoundEffect(I)V
@@ -121,7 +121,7 @@
 .end method
 
 .method protected setFrame(IIII)Z
-    .locals 14
+    .registers 19
     .param p1, "l"    # I
     .param p2, "t"    # I
     .param p3, "r"    # I
@@ -146,9 +146,9 @@
 
     .line 697
     .local v2, "bg":Landroid/graphics/drawable/Drawable;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_43
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_43
 
     .line 698
     invoke-virtual {p0}, Landroidx/appcompat/widget/ActionMenuPresenter$OverflowMenuButton;->getWidth()I
@@ -225,6 +225,6 @@
     .end local v7    # "offsetY":I
     .end local v8    # "centerX":I
     .end local v9    # "centerY":I
-    :cond_0
+    :cond_43
     return v0
 .end method

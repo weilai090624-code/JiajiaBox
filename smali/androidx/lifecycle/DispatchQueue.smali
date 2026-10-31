@@ -62,7 +62,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$QTUwShsnwO8ux11W0m-zm9OKBq8(Landroidx/lifecycle/DispatchQueue;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/lifecycle/DispatchQueue;->dispatchAndEnqueue$lambda$2$lambda$1(Landroidx/lifecycle/DispatchQueue;Ljava/lang/Runnable;)V
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -94,7 +94,7 @@
 .end method
 
 .method private static final dispatchAndEnqueue$lambda$2$lambda$1(Landroidx/lifecycle/DispatchQueue;Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Landroidx/lifecycle/DispatchQueue;
     .param p1, "$runnable"    # Ljava/lang/Runnable;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method private final enqueue(Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 4
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 108
@@ -123,7 +123,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 111
     invoke-virtual {p0}, Landroidx/lifecycle/DispatchQueue;->drainQueue()V
@@ -132,7 +132,7 @@
     return-void
 
     .line 108
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     .line 109
@@ -157,34 +157,34 @@
 
 # virtual methods
 .method public final canRun()Z
-    .locals 1
+    .registers 2
 
     .line 82
     iget-boolean v0, p0, Landroidx/lifecycle/DispatchQueue;->finished:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_b
 
     iget-boolean v0, p0, Landroidx/lifecycle/DispatchQueue;->paused:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_c
     return v0
 .end method
 
 .method public final dispatchAndEnqueue(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "runnable"    # Ljava/lang/Runnable;
 
@@ -214,25 +214,25 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_24
 
     invoke-virtual {p0}, Landroidx/lifecycle/DispatchQueue;->canRun()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
-    goto :goto_0
+    goto :goto_24
 
     .line 101
-    :cond_0
+    :cond_20
     invoke-direct {p0, p2}, Landroidx/lifecycle/DispatchQueue;->enqueue(Ljava/lang/Runnable;)V
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 99
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     new-instance v2, Landroidx/lifecycle/DispatchQueue$$ExternalSyntheticLambda0;
 
     invoke-direct {v2, p0, p2}, Landroidx/lifecycle/DispatchQueue$$ExternalSyntheticLambda0;-><init>(Landroidx/lifecycle/DispatchQueue;Ljava/lang/Runnable;)V
@@ -240,7 +240,7 @@
     invoke-virtual {v0, p1, v2}, Lkotlinx/coroutines/MainCoroutineDispatcher;->dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
 
     .line 103
-    :goto_1
+    :goto_2c
     nop
 
     .line 87
@@ -253,18 +253,18 @@
 .end method
 
 .method public final drainQueue()V
-    .locals 2
+    .registers 3
 
     .line 64
     iget-boolean v0, p0, Landroidx/lifecycle/DispatchQueue;->isDraining:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 66
     return-void
 
     .line 68
-    :cond_0
+    :cond_5
     nop
 
     .line 69
@@ -272,12 +272,12 @@
 
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_8
     iput-boolean v0, p0, Landroidx/lifecycle/DispatchQueue;->isDraining:Z
 
     .line 70
-    :cond_1
-    :goto_0
+    :cond_a
+    :goto_a
     iget-object v0, p0, Landroidx/lifecycle/DispatchQueue;->queue:Ljava/util/Queue;
 
     check-cast v0, Ljava/util/Collection;
@@ -286,20 +286,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_29
 
     .line 71
     invoke-virtual {p0}, Landroidx/lifecycle/DispatchQueue;->canRun()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1b
 
     .line 72
-    goto :goto_1
+    goto :goto_29
 
     .line 74
-    :cond_2
+    :cond_1b
     iget-object v0, p0, Landroidx/lifecycle/DispatchQueue;->queue:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
@@ -308,17 +308,17 @@
 
     check-cast v0, Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_a
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_8 .. :try_end_28} :catchall_2d
 
-    goto :goto_0
+    goto :goto_a
 
     .line 77
-    :cond_3
-    :goto_1
+    :cond_29
+    :goto_29
     iput-boolean v1, p0, Landroidx/lifecycle/DispatchQueue;->isDraining:Z
 
     .line 78
@@ -328,7 +328,7 @@
     return-void
 
     .line 77
-    :catchall_0
+    :catchall_2d
     move-exception v0
 
     iput-boolean v1, p0, Landroidx/lifecycle/DispatchQueue;->isDraining:Z
@@ -337,7 +337,7 @@
 .end method
 
 .method public final finish()V
-    .locals 1
+    .registers 2
 
     .line 58
     const/4 v0, 0x1
@@ -352,7 +352,7 @@
 .end method
 
 .method public final pause()V
-    .locals 1
+    .registers 2
 
     .line 41
     const/4 v0, 0x1
@@ -364,21 +364,21 @@
 .end method
 
 .method public final resume()V
-    .locals 2
+    .registers 3
 
     .line 46
     iget-boolean v0, p0, Landroidx/lifecycle/DispatchQueue;->paused:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 47
     return-void
 
     .line 49
-    :cond_0
+    :cond_5
     iget-boolean v0, p0, Landroidx/lifecycle/DispatchQueue;->finished:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     .line 52
     const/4 v0, 0x0
@@ -392,7 +392,7 @@
     return-void
 
     .line 49
-    :cond_1
+    :cond_10
     const/4 v0, 0x0
 
     .line 50

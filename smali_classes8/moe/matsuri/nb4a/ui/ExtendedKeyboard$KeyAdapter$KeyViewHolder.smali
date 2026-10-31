@@ -64,7 +64,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$ekNI9Z5ByvURbo3tO8vCY-lyU5A(Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;->_init_$lambda$0(Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;Landroid/view/View;)V
 
@@ -72,7 +72,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder$Companion;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/databinding/ItemKeyboardKeyBinding;Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$OnKeyListener;)V
-    .locals 2
+    .registers 5
     .param p1, "binding"    # Lio/nekohasekai/sagernet/databinding/ItemKeyboardKeyBinding;
     .param p2, "keyListener"    # Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$OnKeyListener;
 
@@ -133,7 +133,7 @@
 .end method
 
 .method private static final _init_$lambda$0(Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;
     .param p1, "it"    # Landroid/view/View;
 
@@ -142,7 +142,7 @@
 
     iget-object v1, p0, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;->char:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     const-string v1, "char"
 
@@ -150,7 +150,7 @@
 
     const/4 v1, 0x0
 
-    :cond_0
+    :cond_c
     invoke-interface {v0, v1}, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$OnKeyListener;->onKey(Ljava/lang/String;)V
 
     .line 88
@@ -160,7 +160,7 @@
 
 # virtual methods
 .method public final bind(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "item"    # Ljava/lang/String;
 
     const-string v0, "item"
@@ -177,7 +177,7 @@
 
     iget-object v1, p0, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;->char:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     const-string v1, "char"
 
@@ -185,7 +185,7 @@
 
     const/4 v1, 0x0
 
-    :cond_0
+    :cond_15
     check-cast v1, Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V

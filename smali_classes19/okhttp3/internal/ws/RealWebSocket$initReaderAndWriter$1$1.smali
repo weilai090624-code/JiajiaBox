@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/ws/RealWebSocket;J)V
-    .locals 1
+    .registers 5
 
     iput-object p1, p0, Lokhttp3/internal/ws/RealWebSocket$initReaderAndWriter$1$1;->this$0:Lokhttp3/internal/ws/RealWebSocket;
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public final invoke()Ljava/lang/Long;
-    .locals 2
+    .registers 3
 
     .line 270
     iget-object v0, p0, Lokhttp3/internal/ws/RealWebSocket$initReaderAndWriter$1$1;->this$0:Lokhttp3/internal/ws/RealWebSocket;
@@ -85,7 +85,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 269
     invoke-virtual {p0}, Lokhttp3/internal/ws/RealWebSocket$initReaderAndWriter$1$1;->invoke()Ljava/lang/Long;

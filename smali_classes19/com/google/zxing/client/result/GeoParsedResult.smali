@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(DDDLjava/lang/String;)V
-    .locals 1
+    .registers 9
     .param p1, "latitude"    # D
     .param p3, "longitude"    # D
     .param p5, "altitude"    # D
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getAltitude()D
-    .locals 2
+    .registers 3
 
     .line 75
     iget-wide v0, p0, Lcom/google/zxing/client/result/GeoParsedResult;->altitude:D
@@ -54,7 +54,7 @@
 .end method
 
 .method public getDisplayResult()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 87
     new-instance v0, Ljava/lang/StringBuilder;
@@ -90,7 +90,7 @@
 
     cmpl-double v6, v2, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_2d
 
     .line 92
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -106,10 +106,10 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 96
-    :cond_0
+    :cond_2d
     iget-object v0, p0, Lcom/google/zxing/client/result/GeoParsedResult;->query:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_40
 
     .line 97
     const-string v0, " ("
@@ -127,7 +127,7 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 101
-    :cond_1
+    :cond_40
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -136,7 +136,7 @@
 .end method
 
 .method public getGeoURI()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 41
     new-instance v0, Ljava/lang/StringBuilder;
@@ -175,7 +175,7 @@
 
     cmpl-double v6, v2, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_2b
 
     .line 47
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -186,10 +186,10 @@
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
     .line 50
-    :cond_0
+    :cond_2b
     iget-object v0, p0, Lcom/google/zxing/client/result/GeoParsedResult;->query:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_39
 
     .line 51
     const/16 v0, 0x3f
@@ -202,7 +202,7 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 54
-    :cond_1
+    :cond_39
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -211,7 +211,7 @@
 .end method
 
 .method public getLatitude()D
-    .locals 2
+    .registers 3
 
     .line 61
     iget-wide v0, p0, Lcom/google/zxing/client/result/GeoParsedResult;->latitude:D
@@ -220,7 +220,7 @@
 .end method
 
 .method public getLongitude()D
-    .locals 2
+    .registers 3
 
     .line 68
     iget-wide v0, p0, Lcom/google/zxing/client/result/GeoParsedResult;->longitude:D
@@ -229,7 +229,7 @@
 .end method
 
 .method public getQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 82
     iget-object v0, p0, Lcom/google/zxing/client/result/GeoParsedResult;->query:Ljava/lang/String;

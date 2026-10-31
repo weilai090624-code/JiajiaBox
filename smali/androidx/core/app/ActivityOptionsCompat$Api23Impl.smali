@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 407
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static makeBasic()Landroid/app/ActivityOptions;
-    .locals 1
+    .registers 1
 
     .line 419
     invoke-static {}, Landroid/app/ActivityOptions;->makeBasic()Landroid/app/ActivityOptions;
@@ -37,7 +37,7 @@
 .end method
 
 .method static makeClipRevealAnimation(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
-    .locals 1
+    .registers 6
     .param p0, "source"    # Landroid/view/View;
     .param p1, "startX"    # I
     .param p2, "startY"    # I
@@ -53,7 +53,7 @@
 .end method
 
 .method static requestUsageTimeReport(Landroid/app/ActivityOptions;Landroid/app/PendingIntent;)V
-    .locals 0
+    .registers 2
     .param p0, "activityOptions"    # Landroid/app/ActivityOptions;
     .param p1, "receiver"    # Landroid/app/PendingIntent;
 

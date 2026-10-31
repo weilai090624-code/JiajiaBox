@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 36
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/io/Input;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "bufferSize"    # I
 
     .line 41
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "inputStream"    # Ljava/io/InputStream;
 
     .line 46
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;I)V
-    .locals 1
+    .registers 4
     .param p1, "inputStream"    # Ljava/io/InputStream;
     .param p2, "bufferSize"    # I
 
@@ -73,7 +73,7 @@
 .end method
 
 .method private readChunkSize()Z
-    .locals 7
+    .registers 8
 
     .line 83
     :try_start_0
@@ -89,10 +89,10 @@
     const/4 v2, 0x0
 
     .local v2, "result":I
-    :goto_0
+    :goto_6
     const/16 v3, 0x20
 
-    if-ge v1, v3, :cond_3
+    if-ge v1, v3, :cond_44
 
     .line 85
     invoke-virtual {v0}, Ljava/io/InputStream;->read()I
@@ -103,14 +103,14 @@
     .local v3, "b":I
     const/4 v4, -0x1
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_13
 
     const/4 v4, 0x0
 
     return v4
 
     .line 87
-    :cond_0
+    :cond_13
     and-int/lit8 v4, v3, 0x7f
 
     shl-int/2addr v4, v1
@@ -120,7 +120,7 @@
     .line 88
     and-int/lit16 v4, v3, 0x80
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_41
 
     .line 89
     iput v2, p0, Lcom/esotericsoftware/kryo/io/InputChunked;->chunkSize:I
@@ -128,11 +128,11 @@
     .line 90
     sget-boolean v4, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3f
 
     iget v4, p0, Lcom/esotericsoftware/kryo/io/InputChunked;->chunkSize:I
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_3f
 
     const-string v4, "kryo"
 
@@ -157,27 +157,27 @@
     move-result-object v5
 
     invoke-static {v4, v5}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3f
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3f} :catch_4d
 
     .line 91
-    :cond_1
+    :cond_3f
     const/4 v4, 0x1
 
     return v4
 
     .line 84
     .end local v3    # "b":I
-    :cond_2
+    :cond_41
     add-int/lit8 v1, v1, 0x7
 
-    goto :goto_0
+    goto :goto_6
 
     .line 96
     .end local v0    # "inputStream":Ljava/io/InputStream;
     .end local v1    # "offset":I
     .end local v2    # "result":I
-    :cond_3
+    :cond_44
     nop
 
     .line 97
@@ -190,7 +190,7 @@
     throw v0
 
     .line 94
-    :catch_0
+    :catch_4d
     move-exception v0
 
     .line 95
@@ -207,7 +207,7 @@
 
 # virtual methods
 .method protected fill([BII)I
-    .locals 3
+    .registers 7
     .param p1, "buffer"    # [B
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -222,28 +222,28 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     .line 71
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/io/InputChunked;->readChunkSize()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     return v1
 
     .line 72
-    :cond_0
+    :cond_c
     iget v0, p0, Lcom/esotericsoftware/kryo/io/InputChunked;->chunkSize:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     .line 73
     return v1
 
     .line 74
-    :cond_1
+    :cond_11
     iget v0, p0, Lcom/esotericsoftware/kryo/io/InputChunked;->chunkSize:I
 
     invoke-static {v0, p3}, Ljava/lang/Math;->min(II)I
@@ -265,23 +265,23 @@
     .line 76
     iget v2, p0, Lcom/esotericsoftware/kryo/io/InputChunked;->chunkSize:I
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2b
 
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/io/InputChunked;->readChunkSize()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2b
 
     return v1
 
     .line 77
-    :cond_2
+    :cond_2b
     return v0
 .end method
 
 .method public nextChunk()V
-    .locals 2
+    .registers 3
 
     .line 102
     iget v0, p0, Lcom/esotericsoftware/kryo/io/InputChunked;->limit:I
@@ -293,32 +293,32 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/io/InputChunked;->readChunkSize()Z
 
     .line 104
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     iget v0, p0, Lcom/esotericsoftware/kryo/io/InputChunked;->chunkSize:I
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_16
 
     .line 105
     iget v0, p0, Lcom/esotericsoftware/kryo/io/InputChunked;->chunkSize:I
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/InputChunked;->skip(I)V
 
-    goto :goto_0
+    goto :goto_c
 
     .line 106
-    :cond_1
+    :cond_16
     iput v1, p0, Lcom/esotericsoftware/kryo/io/InputChunked;->chunkSize:I
 
     .line 107
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_23
 
     const-string v0, "kryo"
 
@@ -327,12 +327,12 @@
     invoke-static {v0, v1}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 108
-    :cond_2
+    :cond_23
     return-void
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 65
     invoke-super {p0}, Lcom/esotericsoftware/kryo/io/Input;->reset()V
@@ -347,7 +347,7 @@
 .end method
 
 .method public setBuffer([BII)V
-    .locals 1
+    .registers 5
     .param p1, "bytes"    # [B
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -365,7 +365,7 @@
 .end method
 
 .method public setInputStream(Ljava/io/InputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "inputStream"    # Ljava/io/InputStream;
 
     .line 55

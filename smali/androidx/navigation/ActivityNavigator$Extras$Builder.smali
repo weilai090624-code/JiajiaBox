@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 443
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public final addFlags(I)Landroidx/navigation/ActivityNavigator$Extras$Builder;
-    .locals 1
+    .registers 3
     .param p1, "flags"    # I
 
     .line 454
@@ -75,7 +75,7 @@
 .end method
 
 .method public final build()Landroidx/navigation/ActivityNavigator$Extras;
-    .locals 3
+    .registers 4
 
     .line 476
     new-instance v0, Landroidx/navigation/ActivityNavigator$Extras;
@@ -90,7 +90,7 @@
 .end method
 
 .method public final setActivityOptions(Landroidx/core/app/ActivityOptionsCompat;)Landroidx/navigation/ActivityNavigator$Extras$Builder;
-    .locals 1
+    .registers 3
     .param p1, "activityOptions"    # Landroidx/core/app/ActivityOptionsCompat;
 
     const-string v0, "activityOptions"

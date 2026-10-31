@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     .line 11
     invoke-static {}, Llibcore/Libcore;->touch()V
@@ -21,7 +21,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,21 +58,21 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     .line 30
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_20
 
     instance-of v1, p1, Llibcore/StringBox;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_8
 
-    goto :goto_0
+    goto :goto_20
 
     .line 33
-    :cond_0
+    :cond_8
     check-cast p1, Llibcore/StringBox;
 
     .line 34
@@ -86,34 +86,34 @@
     move-result-object p1
 
     .line 36
-    if-nez v1, :cond_1
+    if-nez v1, :cond_17
 
     .line 37
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1e
 
     .line 38
     return v0
 
     .line 40
-    :cond_1
+    :cond_17
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1e
 
     .line 41
     return v0
 
     .line 43
-    :cond_2
+    :cond_1e
     const/4 p1, 0x1
 
     return p1
 
     .line 31
-    :cond_3
-    :goto_0
+    :cond_20
+    :goto_20
     return v0
 .end method
 
@@ -121,7 +121,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 47
     invoke-virtual {p0}, Llibcore/StringBox;->getValue()Ljava/lang/String;
@@ -144,7 +144,7 @@
 .end method
 
 .method public final incRefnum()I
-    .locals 1
+    .registers 2
 
     .line 16
     iget v0, p0, Llibcore/StringBox;->refnum:I
@@ -161,7 +161,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 51
     new-instance v0, Ljava/lang/StringBuilder;

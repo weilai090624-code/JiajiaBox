@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(JJI)V
-    .locals 0
+    .registers 6
     .param p1, "entryCount"    # J
     .param p3, "centralDirectoryOffset"    # J
     .param p5, "commentByteCount"    # I
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public final getCentralDirectoryOffset()J
-    .locals 2
+    .registers 3
 
     .line 463
     iget-wide v0, p0, Lokio/internal/EocdRecord;->centralDirectoryOffset:J
@@ -77,7 +77,7 @@
 .end method
 
 .method public final getCommentByteCount()I
-    .locals 1
+    .registers 2
 
     .line 464
     iget v0, p0, Lokio/internal/EocdRecord;->commentByteCount:I
@@ -86,7 +86,7 @@
 .end method
 
 .method public final getEntryCount()J
-    .locals 2
+    .registers 3
 
     .line 462
     iget-wide v0, p0, Lokio/internal/EocdRecord;->entryCount:J

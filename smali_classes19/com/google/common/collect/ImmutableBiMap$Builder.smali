@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 337
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<TK;TV;>;"
@@ -39,7 +39,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "size"    # I
 
     .line 341
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public build()Lcom/google/common/collect/ImmutableBiMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -72,7 +72,7 @@
 .end method
 
 .method public bridge synthetic build()Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
 
     .line 331
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<TK;TV;>;"
@@ -84,7 +84,7 @@
 .end method
 
 .method public buildOrThrow()Lcom/google/common/collect/ImmutableBiMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -97,7 +97,7 @@
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<TK;TV;>;"
     iget v0, p0, Lcom/google/common/collect/ImmutableBiMap$Builder;->size:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 449
     invoke-static {}, Lcom/google/common/collect/ImmutableBiMap;->of()Lcom/google/common/collect/ImmutableBiMap;
@@ -107,7 +107,7 @@
     return-object v0
 
     .line 451
-    :cond_0
+    :cond_9
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableBiMap$Builder;->sortEntries()V
 
     .line 452
@@ -128,7 +128,7 @@
 .end method
 
 .method public bridge synthetic buildOrThrow()Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
 
     .line 331
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<TK;TV;>;"
@@ -140,7 +140,7 @@
 .end method
 
 .method combine(Lcom/google/common/collect/ImmutableMap$Builder;)Lcom/google/common/collect/ImmutableBiMap$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,7 +161,7 @@
 .end method
 
 .method bridge synthetic combine(Lcom/google/common/collect/ImmutableMap$Builder;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 0
+    .registers 2
 
     .line 331
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<TK;TV;>;"
@@ -173,7 +173,7 @@
 .end method
 
 .method public orderEntriesByValue(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableBiMap$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -194,7 +194,7 @@
 .end method
 
 .method public bridge synthetic orderEntriesByValue(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 0
+    .registers 2
 
     .line 331
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<TK;TV;>;"
@@ -206,7 +206,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap$Builder;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)",
@@ -226,7 +226,7 @@
 .end method
 
 .method public put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableBiMap$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -247,7 +247,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 0
+    .registers 3
 
     .line 331
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<TK;TV;>;"
@@ -259,7 +259,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 0
+    .registers 2
 
     .line 331
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<TK;TV;>;"
@@ -271,7 +271,7 @@
 .end method
 
 .method public putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableBiMap$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -294,7 +294,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)Lcom/google/common/collect/ImmutableBiMap$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -315,7 +315,7 @@
 .end method
 
 .method public bridge synthetic putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 0
+    .registers 2
 
     .line 331
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<TK;TV;>;"
@@ -327,7 +327,7 @@
 .end method
 
 .method public bridge synthetic putAll(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 0
+    .registers 2
 
     .line 331
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<TK;TV;>;"

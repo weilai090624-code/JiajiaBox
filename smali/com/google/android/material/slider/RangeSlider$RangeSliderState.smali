@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 251
     new-instance v0, Lcom/google/android/material/slider/RangeSlider$RangeSliderState$1;
@@ -47,7 +47,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 239
@@ -82,7 +82,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/google/android/material/slider/RangeSlider$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Landroid/os/Parcel;
     .param p2, "x1"    # Lcom/google/android/material/slider/RangeSlider$1;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 235
@@ -104,7 +104,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/slider/RangeSlider$RangeSliderState;
 
     .line 229
@@ -114,7 +114,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;F)F
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/slider/RangeSlider$RangeSliderState;
     .param p1, "x1"    # F
 
@@ -125,7 +125,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/slider/RangeSlider$RangeSliderState;
 
     .line 229
@@ -135,7 +135,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/slider/RangeSlider$RangeSliderState;
     .param p1, "x1"    # I
 
@@ -148,7 +148,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

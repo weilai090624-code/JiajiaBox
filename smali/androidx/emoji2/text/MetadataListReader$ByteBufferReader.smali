@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/nio/ByteBuffer;)V
-    .locals 2
+    .registers 4
     .param p1, "byteBuffer"    # Ljava/nio/ByteBuffer;
 
     .line 315
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getPosition()J
-    .locals 2
+    .registers 3
 
     .line 342
     iget-object v0, p0, Landroidx/emoji2/text/MetadataListReader$ByteBufferReader;->mByteBuffer:Ljava/nio/ByteBuffer;
@@ -61,7 +61,7 @@
 .end method
 
 .method public readTag()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -79,7 +79,7 @@
 .end method
 
 .method public readUnsignedInt()J
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -101,7 +101,7 @@
 .end method
 
 .method public readUnsignedShort()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -123,7 +123,7 @@
 .end method
 
 .method public skip(I)V
-    .locals 2
+    .registers 4
     .param p1, "numOfBytes"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {

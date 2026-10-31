@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 165
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method isPrecomputedText(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .line 168

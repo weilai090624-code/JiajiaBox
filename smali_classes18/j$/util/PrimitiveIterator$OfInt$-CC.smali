@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$forEachRemaining(Lj$/util/PrimitiveIterator$OfInt;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/util/PrimitiveIterator$OfInt;
 
     .line 86
@@ -17,14 +17,14 @@
 .end method
 
 .method public static $default$forEachRemaining(Lj$/util/PrimitiveIterator$OfInt;Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Lj$/util/PrimitiveIterator$OfInt;
 
     .line 142
     .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Integer;>;"
     instance-of v0, p1, Ljava/util/function/IntConsumer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 143
     move-object v0, p1
@@ -33,16 +33,16 @@
 
     invoke-interface {p0, v0}, Lj$/util/PrimitiveIterator$OfInt;->forEachRemaining(Ljava/util/function/IntConsumer;)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 147
-    :cond_0
+    :cond_b
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 148
     sget-boolean v0, Lj$/util/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 149
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -54,7 +54,7 @@
     invoke-static {v0, v1}, Lj$/util/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 150
-    :cond_1
+    :cond_1b
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lj$/util/PrimitiveIterator$OfInt$$ExternalSyntheticLambda0;
@@ -64,12 +64,12 @@
     invoke-interface {p0, v0}, Lj$/util/PrimitiveIterator$OfInt;->forEachRemaining(Ljava/util/function/IntConsumer;)V
 
     .line 152
-    :goto_0
+    :goto_26
     return-void
 .end method
 
 .method public static $default$forEachRemaining(Lj$/util/PrimitiveIterator$OfInt;Ljava/util/function/IntConsumer;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/util/PrimitiveIterator$OfInt;
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
@@ -77,12 +77,12 @@
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 114
-    :goto_0
+    :goto_3
     invoke-interface {p0}, Lj$/util/PrimitiveIterator$OfInt;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 115
     invoke-interface {p0}, Lj$/util/PrimitiveIterator$OfInt;->nextInt()I
@@ -91,21 +91,21 @@
 
     invoke-interface {p1, v0}, Ljava/util/function/IntConsumer;->accept(I)V
 
-    goto :goto_0
+    goto :goto_3
 
     .line 116
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public static $default$next(Lj$/util/PrimitiveIterator$OfInt;)Ljava/lang/Integer;
-    .locals 2
+    .registers 3
     .param p0, "_this"    # Lj$/util/PrimitiveIterator$OfInt;
 
     .line 126
     sget-boolean v0, Lj$/util/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 127
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -117,7 +117,7 @@
     invoke-static {v0, v1}, Lj$/util/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 128
-    :cond_0
+    :cond_d
     invoke-interface {p0}, Lj$/util/PrimitiveIterator$OfInt;->nextInt()I
 
     move-result v0
@@ -130,7 +130,7 @@
 .end method
 
 .method public static bridge synthetic $default$next(Lj$/util/PrimitiveIterator$OfInt;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/PrimitiveIterator$OfInt;
 
     .line 86

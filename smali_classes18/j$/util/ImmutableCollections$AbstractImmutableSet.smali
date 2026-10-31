@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 462
     .local p0, "this":Lj$/util/ImmutableCollections$AbstractImmutableSet;, "Ljava/util/ImmutableCollections$AbstractImmutableSet<TE;>;"
@@ -46,31 +46,31 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 467
     .local p0, "this":Lj$/util/ImmutableCollections$AbstractImmutableSet;, "Ljava/util/ImmutableCollections$AbstractImmutableSet<TE;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 468
     return v0
 
     .line 469
-    :cond_0
+    :cond_4
     instance-of v1, p1, Ljava/util/Set;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 470
     return v2
 
     .line 473
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Ljava/util/Collection;
@@ -85,23 +85,23 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_18
 
     .line 475
     return v2
 
     .line 477
-    :cond_2
+    :cond_18
     invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_0
+    :goto_1c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_31
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -109,30 +109,30 @@
 
     .line 478
     .local v4, "e":Ljava/lang/Object;
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_30
 
     invoke-virtual {p0, v4}, Lj$/util/ImmutableCollections$AbstractImmutableSet;->contains(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_2f
 
-    goto :goto_1
+    goto :goto_30
 
     .line 481
     .end local v4    # "e":Ljava/lang/Object;
-    :cond_3
-    goto :goto_0
+    :cond_2f
+    goto :goto_1c
 
     .line 479
     .restart local v4    # "e":Ljava/lang/Object;
-    :cond_4
-    :goto_1
+    :cond_30
+    :goto_30
     return v2
 
     .line 482
     .end local v4    # "e":Ljava/lang/Object;
-    :cond_5
+    :cond_31
     return v0
 .end method
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Set$-CC;->$default$spliterator(Ljava/util/Set;)Lj$/util/Spliterator;
 

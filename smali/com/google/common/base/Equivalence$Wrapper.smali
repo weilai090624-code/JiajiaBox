@@ -55,7 +55,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/base/Equivalence;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -91,7 +91,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/base/Equivalence;Ljava/lang/Object;Lcom/google/common/base/Equivalence$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Lcom/google/common/base/Equivalence;
     .param p2, "x1"    # Ljava/lang/Object;
     .param p3, "x2"    # Lcom/google/common/base/Equivalence$1;
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -114,7 +114,7 @@
 
     .line 201
     .local p0, "this":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<TT;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 202
     const/4 v0, 0x1
@@ -122,10 +122,10 @@
     return v0
 
     .line 204
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/base/Equivalence$Wrapper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 205
     move-object v0, p1
@@ -142,7 +142,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     .line 213
     iget-object v1, p0, Lcom/google/common/base/Equivalence$Wrapper;->equivalence:Lcom/google/common/base/Equivalence;
@@ -162,14 +162,14 @@
     .line 217
     .end local v0    # "that":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<*>;"
     .end local v1    # "equivalence":Lcom/google/common/base/Equivalence;, "Lcom/google/common/base/Equivalence<Ljava/lang/Object;>;"
-    :cond_1
+    :cond_20
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/base/ParametricNullness;
     .end annotation
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 223
     .local p0, "this":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<TT;>;"
@@ -203,7 +203,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 232
     .local p0, "this":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<TT;>;"

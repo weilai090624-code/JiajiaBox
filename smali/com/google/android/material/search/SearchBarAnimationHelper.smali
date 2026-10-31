@@ -77,7 +77,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/search/SearchBarAnimationHelper;Lcom/google/android/material/search/SearchBarAnimationHelper$OnLoadAnimationInvocation;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/search/SearchBarAnimationHelper;
     .param p1, "x1"    # Lcom/google/android/material/search/SearchBarAnimationHelper$OnLoadAnimationInvocation;
 
@@ -128,7 +128,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/google/android/material/search/SearchBarAnimationHelper;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/search/SearchBarAnimationHelper;
     .param p1, "x1"    # Z
 
@@ -139,7 +139,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/google/android/material/search/SearchBarAnimationHelper;Landroid/animation/Animator;)Landroid/animation/Animator;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/search/SearchBarAnimationHelper;
     .param p1, "x1"    # Landroid/animation/Animator;
 
@@ -150,7 +150,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/google/android/material/search/SearchBarAnimationHelper;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/search/SearchBarAnimationHelper;
     .param p1, "x1"    # Z
 
@@ -161,7 +161,7 @@
 .end method
 
 .method private dispatchOnLoadAnimation(Lcom/google/android/material/search/SearchBarAnimationHelper$OnLoadAnimationInvocation;)V
-    .locals 2
+    .registers 4
     .param p1, "invocation"    # Lcom/google/android/material/search/SearchBarAnimationHelper$OnLoadAnimationInvocation;
 
     .line 147
@@ -171,12 +171,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -190,15 +190,15 @@
 
     .line 149
     .end local v1    # "onLoadAnimationCallback":Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 150
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method private getCollapseAnimator(Lcom/google/android/material/search/SearchBar;Landroid/view/View;Lcom/google/android/material/appbar/AppBarLayout;)Landroid/animation/Animator;
-    .locals 3
+    .registers 7
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
     .param p2, "expandedView"    # Landroid/view/View;
     .param p3, "appBarLayout"    # Lcom/google/android/material/appbar/AppBarLayout;
@@ -234,7 +234,7 @@
 .end method
 
 .method private getDefaultCenterViewAnimator(Landroid/view/View;)Landroid/animation/Animator;
-    .locals 11
+    .registers 13
     .param p1, "centerView"    # Landroid/view/View;
 
     .line 157
@@ -242,7 +242,7 @@
 
     new-array v1, v0, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_66
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -279,17 +279,17 @@
 
     const-wide/16 v7, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_27
 
     move-wide v9, v5
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     move-wide v9, v7
 
     .line 160
-    :goto_0
+    :goto_28
     invoke-virtual {v1, v9, v10}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     .line 162
@@ -298,18 +298,18 @@
     .line 163
     iget-boolean v3, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->onLoadAnimationFadeInEnabled:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_32
 
     const-wide/16 v7, 0x1f4
 
     .line 162
-    :cond_1
+    :cond_32
     invoke-virtual {v1, v7, v8}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
 
     .line 165
     new-array v3, v0, [F
 
-    fill-array-data v3, :array_1
+    fill-array-data v3, :array_6e
 
     invoke-static {v3}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -360,13 +360,13 @@
 
     nop
 
-    :array_0
+    :array_66
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_1
+    :array_6e
     .array-data 4
         0x3f800000    # 1.0f
         0x0
@@ -374,7 +374,7 @@
 .end method
 
 .method private getEndAnchoredViews(Landroid/view/View;)Ljava/util/List;
-    .locals 6
+    .registers 8
     .param p1, "expandedView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -402,7 +402,7 @@
     .local v1, "endAnchoredViews":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     instance-of v2, p1, Landroid/view/ViewGroup;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2d
 
     .line 400
     move-object v2, p1
@@ -414,12 +414,12 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_11
     invoke-virtual {v2}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_3
+    if-ge v3, v4, :cond_2d
 
     .line 402
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -428,39 +428,39 @@
 
     .line 403
     .local v4, "child":Landroid/view/View;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     instance-of v5, v4, Landroidx/appcompat/widget/ActionMenuView;
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_27
 
-    :cond_0
-    if-eqz v0, :cond_2
+    :cond_21
+    if-eqz v0, :cond_2a
 
     instance-of v5, v4, Landroidx/appcompat/widget/ActionMenuView;
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_2a
 
     .line 405
-    :cond_1
+    :cond_27
     invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 401
     .end local v4    # "child":Landroid/view/View;
-    :cond_2
+    :cond_2a
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 409
     .end local v2    # "viewGroup":Landroid/view/ViewGroup;
     .end local v3    # "i":I
-    :cond_3
+    :cond_2d
     return-object v1
 .end method
 
 .method private getExpandAnimator(Lcom/google/android/material/search/SearchBar;Landroid/view/View;Lcom/google/android/material/appbar/AppBarLayout;)Landroid/animation/Animator;
-    .locals 3
+    .registers 7
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
     .param p2, "expandedView"    # Landroid/view/View;
     .param p3, "appBarLayout"    # Lcom/google/android/material/appbar/AppBarLayout;
@@ -496,7 +496,7 @@
 .end method
 
 .method private getExpandCollapseAnimationHelper(Lcom/google/android/material/search/SearchBar;Landroid/view/View;Lcom/google/android/material/appbar/AppBarLayout;)Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;
-    .locals 2
+    .registers 6
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
     .param p2, "expandedView"    # Landroid/view/View;
     .param p3, "appBarLayout"    # Lcom/google/android/material/appbar/AppBarLayout;
@@ -517,18 +517,18 @@
     move-result-object v0
 
     .line 344
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_14
 
     invoke-virtual {p3}, Lcom/google/android/material/appbar/AppBarLayout;->getTop()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_15
     invoke-virtual {v0, v1}, Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;->setCollapsedViewOffsetY(I)Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;
 
     move-result-object v0
@@ -547,7 +547,7 @@
 .end method
 
 .method private getExpandedViewBackgroundUpdateListener(Lcom/google/android/material/search/SearchBar;Landroid/view/View;)Landroid/animation/ValueAnimator$AnimatorUpdateListener;
-    .locals 2
+    .registers 5
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
     .param p2, "expandedView"    # Landroid/view/View;
 
@@ -587,7 +587,7 @@
 .end method
 
 .method private getFadeChildren(Lcom/google/android/material/search/SearchBar;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -611,7 +611,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 391
     invoke-virtual {p1}, Lcom/google/android/material/search/SearchBar;->getCenterView()Landroid/view/View;
@@ -621,12 +621,12 @@
     invoke-interface {v0, v1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     .line 393
-    :cond_0
+    :cond_11
     return-object v0
 .end method
 
 .method private getFadeInChildrenAnimator(Lcom/google/android/material/search/SearchBar;)Landroid/animation/Animator;
-    .locals 4
+    .registers 6
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
 
     .line 380
@@ -640,7 +640,7 @@
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_20
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -667,7 +667,7 @@
     .line 385
     return-object v1
 
-    :array_0
+    :array_20
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -675,7 +675,7 @@
 .end method
 
 .method private getFadeOutChildrenAnimator(Lcom/google/android/material/search/SearchBar;Landroid/view/View;)Landroid/animation/Animator;
-    .locals 4
+    .registers 7
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
     .param p2, "expandedView"    # Landroid/view/View;
 
@@ -690,7 +690,7 @@
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_28
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -724,7 +724,7 @@
     .line 376
     return-object v1
 
-    :array_0
+    :array_28
     .array-data 4
         0x3f800000    # 1.0f
         0x0
@@ -732,7 +732,7 @@
 .end method
 
 .method private getSecondaryActionMenuItemAnimator(Landroid/view/View;)Landroid/animation/Animator;
-    .locals 3
+    .registers 5
     .param p1, "secondaryActionMenuItemView"    # Landroid/view/View;
 
     .line 196
@@ -740,7 +740,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_22
 
     invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -775,7 +775,7 @@
     .line 200
     return-object v0
 
-    :array_0
+    :array_22
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -783,7 +783,7 @@
 .end method
 
 .method private getSecondaryViewAnimator(Landroid/widget/TextView;Landroid/view/View;)Landroid/animation/Animator;
-    .locals 3
+    .registers 6
     .param p1, "textView"    # Landroid/widget/TextView;
     .param p2, "secondaryActionMenuItemView"    # Landroid/view/View;
 
@@ -806,7 +806,7 @@
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     .line 181
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1a
 
     .line 182
     invoke-direct {p0, p2}, Lcom/google/android/material/search/SearchBarAnimationHelper;->getSecondaryActionMenuItemAnimator(Landroid/view/View;)Landroid/animation/Animator;
@@ -816,12 +816,12 @@
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     .line 184
-    :cond_0
+    :cond_1a
     return-object v0
 .end method
 
 .method private getTextViewAnimator(Landroid/widget/TextView;)Landroid/animation/Animator;
-    .locals 3
+    .registers 5
     .param p1, "textView"    # Landroid/widget/TextView;
 
     .line 188
@@ -829,7 +829,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_22
 
     invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -864,7 +864,7 @@
     .line 192
     return-object v0
 
-    :array_0
+    :array_22
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -872,7 +872,7 @@
 .end method
 
 .method static synthetic lambda$getExpandedViewBackgroundUpdateListener$1(Lcom/google/android/material/shape/MaterialShapeDrawable;Landroid/view/View;Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 5
     .param p0, "expandedViewBackground"    # Lcom/google/android/material/shape/MaterialShapeDrawable;
     .param p1, "expandedView"    # Landroid/view/View;
     .param p2, "valueAnimator"    # Landroid/animation/ValueAnimator;
@@ -899,7 +899,7 @@
 .end method
 
 .method static synthetic lambda$getFadeOutChildrenAnimator$2(Landroid/view/View;Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .registers 3
     .param p0, "expandedView"    # Landroid/view/View;
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
@@ -915,7 +915,7 @@
 
 # virtual methods
 .method addCollapseAnimationListener(Landroid/animation/AnimatorListenerAdapter;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/animation/AnimatorListenerAdapter;
 
     .line 332
@@ -928,7 +928,7 @@
 .end method
 
 .method addExpandAnimationListener(Landroid/animation/AnimatorListenerAdapter;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/animation/AnimatorListenerAdapter;
 
     .line 265
@@ -941,7 +941,7 @@
 .end method
 
 .method addOnLoadAnimationCallback(Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "onLoadAnimationCallback"    # Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;
 
     .line 139
@@ -954,7 +954,7 @@
 .end method
 
 .method isCollapsing()Z
-    .locals 1
+    .registers 2
 
     .line 328
     iget-boolean v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->collapsing:Z
@@ -963,7 +963,7 @@
 .end method
 
 .method isExpanding()Z
-    .locals 1
+    .registers 2
 
     .line 261
     iget-boolean v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->expanding:Z
@@ -972,7 +972,7 @@
 .end method
 
 .method isOnLoadAnimationFadeInEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 131
     iget-boolean v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->onLoadAnimationFadeInEnabled:Z
@@ -981,7 +981,7 @@
 .end method
 
 .method synthetic lambda$startExpandAnimation$0$com-google-android-material-search-SearchBarAnimationHelper(Lcom/google/android/material/search/SearchBar;Landroid/view/View;Lcom/google/android/material/appbar/AppBarLayout;Z)V
-    .locals 5
+    .registers 10
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
     .param p2, "expandedView"    # Landroid/view/View;
     .param p3, "appBarLayout"    # Lcom/google/android/material/appbar/AppBarLayout;
@@ -1034,12 +1034,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_27
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_37
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1053,11 +1053,11 @@
 
     .line 231
     .end local v4    # "listener":Landroid/animation/AnimatorListenerAdapter;
-    goto :goto_0
+    goto :goto_27
 
     .line 232
-    :cond_0
-    if-eqz p4, :cond_1
+    :cond_37
+    if-eqz p4, :cond_3e
 
     .line 233
     const-wide/16 v3, 0x0
@@ -1065,7 +1065,7 @@
     invoke-virtual {v0, v3, v4}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
     .line 235
-    :cond_1
+    :cond_3e
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
 
     .line 237
@@ -1076,7 +1076,7 @@
 .end method
 
 .method removeCollapseAnimationListener(Landroid/animation/AnimatorListenerAdapter;)Z
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/animation/AnimatorListenerAdapter;
 
     .line 336
@@ -1090,7 +1090,7 @@
 .end method
 
 .method removeExpandAnimationListener(Landroid/animation/AnimatorListenerAdapter;)Z
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/animation/AnimatorListenerAdapter;
 
     .line 269
@@ -1104,7 +1104,7 @@
 .end method
 
 .method removeOnLoadAnimationCallback(Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;)Z
-    .locals 1
+    .registers 3
     .param p1, "onLoadAnimationCallback"    # Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;
 
     .line 143
@@ -1118,7 +1118,7 @@
 .end method
 
 .method setOnLoadAnimationFadeInEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "onLoadAnimationFadeInEnabled"    # Z
 
     .line 135
@@ -1129,7 +1129,7 @@
 .end method
 
 .method startCollapseAnimation(Lcom/google/android/material/search/SearchBar;Landroid/view/View;Lcom/google/android/material/appbar/AppBarLayout;Z)V
-    .locals 6
+    .registers 11
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
     .param p2, "expandedView"    # Landroid/view/View;
     .param p3, "appBarLayout"    # Lcom/google/android/material/appbar/AppBarLayout;
@@ -1140,11 +1140,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->runningExpandOrCollapseAnimator:Landroid/animation/Animator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 280
     iget-object v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->runningExpandOrCollapseAnimator:Landroid/animation/Animator;
@@ -1152,7 +1152,7 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
     .line 283
-    :cond_0
+    :cond_f
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->collapsing:Z
@@ -1202,12 +1202,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_38
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_48
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1221,11 +1221,11 @@
 
     .line 298
     .end local v4    # "listener":Landroid/animation/AnimatorListenerAdapter;
-    goto :goto_0
+    goto :goto_38
 
     .line 299
-    :cond_1
-    if-eqz p4, :cond_2
+    :cond_48
+    if-eqz p4, :cond_4f
 
     .line 300
     const-wide/16 v4, 0x0
@@ -1233,7 +1233,7 @@
     invoke-virtual {v1, v4, v5}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
     .line 302
-    :cond_2
+    :cond_4f
     invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
 
     .line 304
@@ -1244,7 +1244,7 @@
 .end method
 
 .method startExpandAnimation(Lcom/google/android/material/search/SearchBar;Landroid/view/View;Lcom/google/android/material/appbar/AppBarLayout;Z)V
-    .locals 7
+    .registers 12
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
     .param p2, "expandedView"    # Landroid/view/View;
     .param p3, "appBarLayout"    # Lcom/google/android/material/appbar/AppBarLayout;
@@ -1255,11 +1255,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->runningExpandOrCollapseAnimator:Landroid/animation/Animator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 211
     iget-object v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->runningExpandOrCollapseAnimator:Landroid/animation/Animator;
@@ -1267,7 +1267,7 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
     .line 213
-    :cond_0
+    :cond_f
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->expanding:Z
@@ -1301,7 +1301,7 @@
 .end method
 
 .method startOnLoadAnimation(Lcom/google/android/material/search/SearchBar;)V
-    .locals 6
+    .registers 8
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
 
     .line 73
@@ -1354,16 +1354,16 @@
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setAlpha(F)V
 
     .line 90
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2c
 
     .line 91
     invoke-virtual {v2, v4}, Landroid/view/View;->setAlpha(F)V
 
     .line 93
-    :cond_0
+    :cond_2c
     instance-of v5, v1, Lcom/google/android/material/animation/AnimatableView;
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3f
 
     .line 94
     move-object v4, v1
@@ -1378,11 +1378,11 @@
 
     invoke-interface {v4, v5}, Lcom/google/android/material/animation/AnimatableView;->startAnimation(Lcom/google/android/material/animation/AnimatableView$Listener;)V
 
-    goto :goto_0
+    goto :goto_5d
 
     .line 95
-    :cond_1
-    if-eqz v1, :cond_2
+    :cond_3f
+    if-eqz v1, :cond_5a
 
     .line 96
     invoke-virtual {v1, v4}, Landroid/view/View;->setAlpha(F)V
@@ -1413,25 +1413,25 @@
 
     .line 109
     .end local v4    # "defaultCenterViewAnimator":Landroid/animation/Animator;
-    goto :goto_0
+    goto :goto_5d
 
     .line 110
-    :cond_2
+    :cond_5a
     invoke-virtual {v3}, Landroid/animation/Animator;->start()V
 
     .line 112
-    :goto_0
+    :goto_5d
     return-void
 .end method
 
 .method stopOnLoadAnimation(Lcom/google/android/material/search/SearchBar;)V
-    .locals 2
+    .registers 4
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
 
     .line 115
     iget-object v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->secondaryViewAnimator:Landroid/animation/Animator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 116
     iget-object v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->secondaryViewAnimator:Landroid/animation/Animator;
@@ -1439,10 +1439,10 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->end()V
 
     .line 118
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->defaultCenterViewAnimator:Landroid/animation/Animator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 119
     iget-object v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper;->defaultCenterViewAnimator:Landroid/animation/Animator;
@@ -1450,7 +1450,7 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->end()V
 
     .line 121
-    :cond_1
+    :cond_12
     invoke-virtual {p1}, Lcom/google/android/material/search/SearchBar;->getCenterView()Landroid/view/View;
 
     move-result-object v0
@@ -1459,7 +1459,7 @@
     .local v0, "centerView":Landroid/view/View;
     instance-of v1, v0, Lcom/google/android/material/animation/AnimatableView;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_20
 
     .line 123
     move-object v1, v0
@@ -1469,8 +1469,8 @@
     invoke-interface {v1}, Lcom/google/android/material/animation/AnimatableView;->stopAnimation()V
 
     .line 125
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_20
+    if-eqz v0, :cond_26
 
     .line 126
     const/4 v1, 0x0
@@ -1478,6 +1478,6 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
     .line 128
-    :cond_3
+    :cond_26
     return-void
 .end method

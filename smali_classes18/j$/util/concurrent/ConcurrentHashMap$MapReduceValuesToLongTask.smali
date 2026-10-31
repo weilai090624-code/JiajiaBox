@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/concurrent/ConcurrentHashMap$BulkTask;III[Lj$/util/concurrent/ConcurrentHashMap$Node;Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;Ljava/util/function/ToLongFunction;JLjava/util/function/LongBinaryOperator;)V
-    .locals 0
+    .registers 11
     .param p2, "b"    # I
     .param p3, "i"    # I
     .param p4, "f"    # I
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public final compute()V
-    .locals 19
+    .registers 20
 
     .line 6021
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask<TK;TV;>;"
@@ -123,14 +123,14 @@
     move-object v12, v0
 
     .local v12, "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_90
 
     iget-object v0, v11, Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;->reducer:Ljava/util/function/LongBinaryOperator;
 
     move-object v13, v0
 
     .local v13, "reducer":Ljava/util/function/LongBinaryOperator;
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_8e
 
     .line 6023
     iget-wide v14, v11, Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;->basis:J
@@ -140,10 +140,10 @@
     iget v10, v11, Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;->baseIndex:I
 
     .local v10, "i":I
-    :goto_0
+    :goto_10
     iget v0, v11, Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;->batch:I
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_50
 
     iget v0, v11, Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;->baseLimit:I
 
@@ -159,7 +159,7 @@
     move v8, v0
 
     .local v8, "h":I
-    if-le v0, v10, :cond_0
+    if-le v0, v10, :cond_49
 
     .line 6026
     invoke-virtual {v11, v1}, Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;->addToPendingCount(I)V
@@ -216,7 +216,7 @@
 
     move/from16 v10, v18
 
-    goto :goto_0
+    goto :goto_10
 
     .line 6024
     .end local v16    # "h":I
@@ -225,7 +225,7 @@
     .restart local v8    # "h":I
     .restart local v10    # "i":I
     .restart local v12    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
-    :cond_0
+    :cond_49
     move/from16 v16, v8
 
     move/from16 v18, v10
@@ -238,7 +238,7 @@
     .restart local v16    # "h":I
     .restart local v17    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
     .restart local v18    # "i":I
-    goto :goto_1
+    goto :goto_54
 
     .end local v4    # "f":I
     .end local v16    # "h":I
@@ -246,7 +246,7 @@
     .end local v18    # "i":I
     .restart local v10    # "i":I
     .restart local v12    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
-    :cond_1
+    :cond_50
     move/from16 v18, v10
 
     move-object/from16 v17, v12
@@ -255,7 +255,7 @@
     .end local v10    # "i":I
     .end local v12    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
     .restart local v17    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
-    :goto_1
+    :goto_54
     invoke-virtual/range {p0 .. p0}, Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
 
     move-result-object v0
@@ -263,7 +263,7 @@
     move-object v1, v0
 
     .local v1, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_68
 
     .line 6032
     iget-object v0, v1, Lj$/util/concurrent/ConcurrentHashMap$Node;->val:Ljava/lang/Object;
@@ -280,12 +280,12 @@
 
     move-result-wide v14
 
-    goto :goto_1
+    goto :goto_54
 
     .line 6031
     .end local v2    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
     .restart local v17    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
-    :cond_2
+    :cond_68
     move-object/from16 v2, v17
 
     .line 6033
@@ -300,8 +300,8 @@
     move-result-object v0
 
     .local v0, "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
-    :goto_2
-    if-eqz v0, :cond_6
+    :goto_70
+    if-eqz v0, :cond_91
 
     .line 6038
     move-object v1, v0
@@ -314,8 +314,8 @@
 
     .line 6040
     .local v3, "s":Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask<TK;TV;>;"
-    :goto_3
-    if-eqz v3, :cond_3
+    :goto_77
+    if-eqz v3, :cond_89
 
     .line 6041
     iget-wide v4, v1, Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;->result:J
@@ -335,46 +335,46 @@
 
     move-object v3, v4
 
-    goto :goto_3
+    goto :goto_77
 
     .line 6035
     .end local v1    # "t":Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask<TK;TV;>;"
     .end local v3    # "s":Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask<TK;TV;>;"
-    :cond_3
+    :cond_89
     invoke-virtual {v0}, Ljava/util/concurrent/CountedCompleter;->nextComplete()Ljava/util/concurrent/CountedCompleter;
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_70
 
     .line 6021
     .end local v0    # "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
     .end local v2    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
     .end local v14    # "r":J
     .restart local v12    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
-    :cond_4
+    :cond_8e
     move-object v2, v12
 
     .end local v12    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
     .restart local v2    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
-    goto :goto_4
+    goto :goto_91
 
     .end local v2    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
     .end local v13    # "reducer":Ljava/util/function/LongBinaryOperator;
     .restart local v12    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
-    :cond_5
+    :cond_90
     move-object v2, v12
 
     .line 6046
     .end local v12    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
     .restart local v2    # "transformer":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TV;>;"
-    :cond_6
-    :goto_4
+    :cond_91
+    :goto_91
     return-void
 .end method
 
 .method public final getRawResult()Ljava/lang/Long;
-    .locals 2
+    .registers 3
 
     .line 6017
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask<TK;TV;>;"
@@ -388,7 +388,7 @@
 .end method
 
 .method public bridge synthetic getRawResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 5999
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask<TK;TV;>;"

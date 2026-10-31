@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,12 +28,12 @@
 .end method
 
 .method private static getTempNestedScrollConsumed()[I
-    .locals 3
+    .registers 3
 
     .line 514
     sget-object v0, Landroidx/core/view/ViewParentCompat;->sTempNestedScrollConsumed:[I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 515
     const/4 v0, 0x2
@@ -42,10 +42,10 @@
 
     sput-object v0, Landroidx/core/view/ViewParentCompat;->sTempNestedScrollConsumed:[I
 
-    goto :goto_0
+    goto :goto_14
 
     .line 517
-    :cond_0
+    :cond_a
     sget-object v0, Landroidx/core/view/ViewParentCompat;->sTempNestedScrollConsumed:[I
 
     const/4 v1, 0x0
@@ -60,14 +60,14 @@
     aput v1, v0, v2
 
     .line 520
-    :goto_0
+    :goto_14
     sget-object v0, Landroidx/core/view/ViewParentCompat;->sTempNestedScrollConsumed:[I
 
     return-object v0
 .end method
 
 .method public static notifySubtreeAccessibilityStateChanged(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)V
-    .locals 0
+    .registers 4
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "child"    # Landroid/view/View;
     .param p2, "source"    # Landroid/view/View;
@@ -81,7 +81,7 @@
 .end method
 
 .method public static onNestedFling(Landroid/view/ViewParent;Landroid/view/View;FFZ)Z
-    .locals 3
+    .registers 8
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "target"    # Landroid/view/View;
     .param p2, "velocityX"    # F
@@ -92,17 +92,17 @@
     nop
 
     .line 441
-    :try_start_0
+    :try_start_1
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onNestedFling(Landroid/view/ViewParent;Landroid/view/View;FFZ)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/AbstractMethodError; {:try_start_1 .. :try_end_5} :catch_6
 
     return v0
 
     .line 442
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 443
@@ -146,7 +146,7 @@
 .end method
 
 .method public static onNestedPreFling(Landroid/view/ViewParent;Landroid/view/View;FF)Z
-    .locals 3
+    .registers 7
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "target"    # Landroid/view/View;
     .param p2, "velocityX"    # F
@@ -156,17 +156,17 @@
     nop
 
     .line 479
-    :try_start_0
+    :try_start_1
     invoke-static {p0, p1, p2, p3}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onNestedPreFling(Landroid/view/ViewParent;Landroid/view/View;FF)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/AbstractMethodError; {:try_start_1 .. :try_end_5} :catch_6
 
     return v0
 
     .line 480
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 481
@@ -210,7 +210,7 @@
 .end method
 
 .method public static onNestedPreScroll(Landroid/view/ViewParent;Landroid/view/View;II[I)V
-    .locals 6
+    .registers 11
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "target"    # Landroid/view/View;
     .param p2, "dx"    # I
@@ -237,7 +237,7 @@
 .end method
 
 .method public static onNestedPreScroll(Landroid/view/ViewParent;Landroid/view/View;II[II)V
-    .locals 7
+    .registers 13
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "target"    # Landroid/view/View;
     .param p2, "dx"    # I
@@ -248,7 +248,7 @@
     .line 398
     instance-of v0, p0, Landroidx/core/view/NestedScrollingParent2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 400
     move-object v1, p0
@@ -267,27 +267,27 @@
 
     invoke-interface/range {v1 .. v6}, Landroidx/core/view/NestedScrollingParent2;->onNestedPreScroll(Landroid/view/View;II[II)V
 
-    goto :goto_1
+    goto :goto_37
 
     .line 401
-    :cond_0
-    if-nez p5, :cond_1
+    :cond_10
+    if-nez p5, :cond_37
 
     .line 403
     nop
 
     .line 405
-    :try_start_0
+    :try_start_13
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onNestedPreScroll(Landroid/view/ViewParent;Landroid/view/View;II[I)V
-    :try_end_0
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/AbstractMethodError; {:try_start_13 .. :try_end_16} :catch_17
 
     .line 409
-    :goto_0
-    goto :goto_1
+    :goto_16
+    goto :goto_37
 
     .line 406
-    :catch_0
+    :catch_17
     move-exception v0
 
     .line 407
@@ -321,16 +321,16 @@
     invoke-static {v2, v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .end local v0    # "e":Ljava/lang/AbstractMethodError;
-    goto :goto_0
+    goto :goto_16
 
     .line 414
-    :cond_1
-    :goto_1
+    :cond_37
+    :goto_37
     return-void
 .end method
 
 .method public static onNestedScroll(Landroid/view/ViewParent;Landroid/view/View;IIII)V
-    .locals 8
+    .registers 14
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "target"    # Landroid/view/View;
     .param p2, "dxConsumed"    # I
@@ -368,7 +368,7 @@
 .end method
 
 .method public static onNestedScroll(Landroid/view/ViewParent;Landroid/view/View;IIIII)V
-    .locals 8
+    .registers 15
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "target"    # Landroid/view/View;
     .param p2, "dxConsumed"    # I
@@ -407,7 +407,7 @@
 .end method
 
 .method public static onNestedScroll(Landroid/view/ViewParent;Landroid/view/View;IIIII[I)V
-    .locals 10
+    .registers 18
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "target"    # Landroid/view/View;
     .param p2, "dxConsumed"    # I
@@ -422,7 +422,7 @@
 
     instance-of v0, v1, Landroidx/core/view/NestedScrollingParent3;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 343
     move-object v2, v1
@@ -445,10 +445,10 @@
 
     invoke-interface/range {v2 .. v9}, Landroidx/core/view/NestedScrollingParent3;->onNestedScroll(Landroid/view/View;IIIII[I)V
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 349
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
     aget v2, p7, v0
@@ -469,7 +469,7 @@
     .line 352
     instance-of v0, v1, Landroidx/core/view/NestedScrollingParent2;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
     .line 353
     move-object v2, v1
@@ -490,27 +490,27 @@
 
     invoke-interface/range {v2 .. v8}, Landroidx/core/view/NestedScrollingParent2;->onNestedScroll(Landroid/view/View;IIIII)V
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 355
-    :cond_1
-    if-nez p6, :cond_2
+    :cond_33
+    if-nez p6, :cond_5c
 
     .line 357
     nop
 
     .line 359
-    :try_start_0
+    :try_start_36
     invoke-static/range {p0 .. p5}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onNestedScroll(Landroid/view/ViewParent;Landroid/view/View;IIII)V
-    :try_end_0
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Ljava/lang/AbstractMethodError; {:try_start_36 .. :try_end_39} :catch_3a
 
     .line 364
-    :goto_0
-    goto :goto_1
+    :goto_39
+    goto :goto_5c
 
     .line 361
-    :catch_0
+    :catch_3a
     move-exception v0
 
     move-object v2, v0
@@ -548,16 +548,16 @@
     invoke-static {v3, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .end local v0    # "e":Ljava/lang/AbstractMethodError;
-    goto :goto_0
+    goto :goto_39
 
     .line 371
-    :cond_2
-    :goto_1
+    :cond_5c
+    :goto_5c
     return-void
 .end method
 
 .method public static onNestedScrollAccepted(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)V
-    .locals 1
+    .registers 5
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "child"    # Landroid/view/View;
     .param p2, "target"    # Landroid/view/View;
@@ -573,7 +573,7 @@
 .end method
 
 .method public static onNestedScrollAccepted(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;II)V
-    .locals 3
+    .registers 8
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "child"    # Landroid/view/View;
     .param p2, "target"    # Landroid/view/View;
@@ -583,7 +583,7 @@
     .line 258
     instance-of v0, p0, Landroidx/core/view/NestedScrollingParent2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 260
     move-object v0, p0
@@ -592,27 +592,27 @@
 
     invoke-interface {v0, p1, p2, p3, p4}, Landroidx/core/view/NestedScrollingParent2;->onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;II)V
 
-    goto :goto_1
+    goto :goto_32
 
     .line 262
-    :cond_0
-    if-nez p4, :cond_1
+    :cond_b
+    if-nez p4, :cond_32
 
     .line 264
     nop
 
     .line 266
-    :try_start_0
+    :try_start_e
     invoke-static {p0, p1, p2, p3}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onNestedScrollAccepted(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)V
-    :try_end_0
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/AbstractMethodError; {:try_start_e .. :try_end_11} :catch_12
 
     .line 270
-    :goto_0
-    goto :goto_1
+    :goto_11
+    goto :goto_32
 
     .line 267
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 268
@@ -646,16 +646,16 @@
     invoke-static {v2, v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .end local v0    # "e":Ljava/lang/AbstractMethodError;
-    goto :goto_0
+    goto :goto_11
 
     .line 276
-    :cond_1
-    :goto_1
+    :cond_32
+    :goto_32
     return-void
 .end method
 
 .method public static onStartNestedScroll(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)Z
-    .locals 1
+    .registers 5
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "child"    # Landroid/view/View;
     .param p2, "target"    # Landroid/view/View;
@@ -672,7 +672,7 @@
 .end method
 
 .method public static onStartNestedScroll(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;II)Z
-    .locals 3
+    .registers 8
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "child"    # Landroid/view/View;
     .param p2, "target"    # Landroid/view/View;
@@ -682,7 +682,7 @@
     .line 216
     instance-of v0, p0, Landroidx/core/view/NestedScrollingParent2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 218
     move-object v0, p0
@@ -696,24 +696,24 @@
     return v0
 
     .line 220
-    :cond_0
-    if-nez p4, :cond_1
+    :cond_c
+    if-nez p4, :cond_34
 
     .line 222
     nop
 
     .line 224
-    :try_start_0
+    :try_start_f
     invoke-static {p0, p1, p2, p3}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onStartNestedScroll(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/AbstractMethodError; {:try_start_f .. :try_end_13} :catch_14
 
     return v0
 
     .line 225
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 226
@@ -751,14 +751,14 @@
     nop
 
     .line 234
-    :cond_1
+    :cond_34
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static onStopNestedScroll(Landroid/view/ViewParent;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "target"    # Landroid/view/View;
 
@@ -772,7 +772,7 @@
 .end method
 
 .method public static onStopNestedScroll(Landroid/view/ViewParent;Landroid/view/View;I)V
-    .locals 3
+    .registers 6
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "target"    # Landroid/view/View;
     .param p2, "type"    # I
@@ -780,7 +780,7 @@
     .line 294
     instance-of v0, p0, Landroidx/core/view/NestedScrollingParent2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 296
     move-object v0, p0
@@ -789,27 +789,27 @@
 
     invoke-interface {v0, p1, p2}, Landroidx/core/view/NestedScrollingParent2;->onStopNestedScroll(Landroid/view/View;I)V
 
-    goto :goto_1
+    goto :goto_32
 
     .line 297
-    :cond_0
-    if-nez p2, :cond_1
+    :cond_b
+    if-nez p2, :cond_32
 
     .line 299
     nop
 
     .line 301
-    :try_start_0
+    :try_start_e
     invoke-static {p0, p1}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onStopNestedScroll(Landroid/view/ViewParent;Landroid/view/View;)V
-    :try_end_0
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/AbstractMethodError; {:try_start_e .. :try_end_11} :catch_12
 
     .line 305
-    :goto_0
-    goto :goto_1
+    :goto_11
+    goto :goto_32
 
     .line 302
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 303
@@ -843,16 +843,16 @@
     invoke-static {v2, v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .end local v0    # "e":Ljava/lang/AbstractMethodError;
-    goto :goto_0
+    goto :goto_11
 
     .line 310
-    :cond_1
-    :goto_1
+    :cond_32
+    :goto_32
     return-void
 .end method
 
 .method public static requestSendAccessibilityEvent(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 1
+    .registers 4
     .param p0, "parent"    # Landroid/view/ViewParent;
     .param p1, "child"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;

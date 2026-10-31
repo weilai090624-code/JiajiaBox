@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 333
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static varargs createLocaleList([Ljava/util/Locale;)Landroid/os/LocaleList;
-    .locals 1
+    .registers 2
     .param p0, "list"    # [Ljava/util/Locale;
 
     .line 339
@@ -38,7 +38,7 @@
 .end method
 
 .method static getAdjustedDefault()Landroid/os/LocaleList;
-    .locals 1
+    .registers 1
 
     .line 344
     invoke-static {}, Landroid/os/LocaleList;->getAdjustedDefault()Landroid/os/LocaleList;
@@ -49,7 +49,7 @@
 .end method
 
 .method static getDefault()Landroid/os/LocaleList;
-    .locals 1
+    .registers 1
 
     .line 349
     invoke-static {}, Landroid/os/LocaleList;->getDefault()Landroid/os/LocaleList;

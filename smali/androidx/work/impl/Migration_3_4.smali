@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/work/impl/Migration_3_4;
 
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 146
     const/4 v0, 0x3
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public migrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 2
+    .registers 4
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -73,7 +73,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     .line 149
     const-string v0, "\n    UPDATE workspec SET schedule_requested_at = 0\n    WHERE state NOT IN (2, 3, 5)\n        AND schedule_requested_at = -1\n        AND interval_duration <> 0\n    "
@@ -81,6 +81,6 @@
     invoke-interface {p1, v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 151
-    :cond_0
+    :cond_10
     return-void
 .end method

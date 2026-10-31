@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/search/SearchBarAnimationHelper;Landroid/view/View;Landroid/animation/Animator;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/android/material/search/SearchBarAnimationHelper;
 
     .line 101
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 104

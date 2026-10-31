@@ -25,7 +25,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     .local p0, "this":Lcom/google/common/collect/UnmodifiableListIterator;, "Lcom/google/common/collect/UnmodifiableListIterator<TE;>;"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public final add(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -62,7 +62,7 @@
 .end method
 
 .method public final set(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

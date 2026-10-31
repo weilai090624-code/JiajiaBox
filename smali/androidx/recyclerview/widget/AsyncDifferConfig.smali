@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Landroidx/recyclerview/widget/DiffUtil$ItemCallback;)V
-    .locals 0
+    .registers 4
     .param p1, "mainThreadExecutor"    # Ljava/util/concurrent/Executor;
     .param p2, "backgroundThreadExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public getBackgroundThreadExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 64
     .local p0, "this":Landroidx/recyclerview/widget/AsyncDifferConfig;, "Landroidx/recyclerview/widget/AsyncDifferConfig<TT;>;"
@@ -81,7 +81,7 @@
 .end method
 
 .method public getDiffCallback()Landroidx/recyclerview/widget/DiffUtil$ItemCallback;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -98,7 +98,7 @@
 .end method
 
 .method public getMainThreadExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 58
     .local p0, "this":Landroidx/recyclerview/widget/AsyncDifferConfig;, "Landroidx/recyclerview/widget/AsyncDifferConfig<TT;>;"

@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 65
     const-string v0, "DiagnosticsWrkr"
@@ -69,7 +69,7 @@
 .end method
 
 .method public static final synthetic access$getTAG$p()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Landroidx/work/impl/workers/DiagnosticsWorkerKt;->TAG:Ljava/lang/String;
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final synthetic access$workSpecRows(Landroidx/work/impl/model/WorkNameDao;Landroidx/work/impl/model/WorkTagDao;Landroidx/work/impl/model/SystemIdInfoDao;Ljava/util/List;)Ljava/lang/String;
-    .locals 1
+    .registers 5
     .param p0, "workNameDao"    # Landroidx/work/impl/model/WorkNameDao;
     .param p1, "workTagDao"    # Landroidx/work/impl/model/WorkTagDao;
     .param p2, "systemIdInfoDao"    # Landroidx/work/impl/model/SystemIdInfoDao;
@@ -93,7 +93,7 @@
 .end method
 
 .method private static final workSpecRow(Landroidx/work/impl/model/WorkSpec;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 7
     .param p0, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "systemId"    # Ljava/lang/Integer;
@@ -199,7 +199,7 @@
 .end method
 
 .method private static final workSpecRows(Landroidx/work/impl/model/WorkNameDao;Landroidx/work/impl/model/WorkTagDao;Landroidx/work/impl/model/SystemIdInfoDao;Ljava/util/List;)Ljava/lang/String;
-    .locals 27
+    .registers 31
     .param p0, "workNameDao"    # Landroidx/work/impl/model/WorkNameDao;
     .param p1, "workTagDao"    # Landroidx/work/impl/model/WorkTagDao;
     .param p2, "systemIdInfoDao"    # Landroidx/work/impl/model/SystemIdInfoDao;
@@ -233,18 +233,18 @@
 
     const/16 v4, 0x17
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_10
 
     const-string v3, "Job Id"
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const-string v3, "Alarm Id"
 
     .line 74
     .local v3, "systemIdHeader":Ljava/lang/String;
-    :goto_0
+    :goto_12
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -287,12 +287,12 @@
 
     move-result-object v7
 
-    :goto_1
+    :goto_37
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_a9
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -318,7 +318,7 @@
 
     move-result-object v11
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_58
 
     iget v11, v11, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
@@ -326,14 +326,14 @@
 
     move-result-object v11
 
-    goto :goto_2
+    goto :goto_59
 
-    :cond_1
+    :cond_58
     const/4 v11, 0x0
 
     .line 78
     .local v11, "systemId":Ljava/lang/Integer;
-    :goto_2
+    :goto_59
     iget-object v13, v9, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
 
     move-object/from16 v14, p0
@@ -430,14 +430,14 @@
     move-object/from16 v3, v17
 
     .end local v8    # "element$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_37
 
     .line 89
     .end local v16    # "$i$a$-buildString-DiagnosticsWorkerKt$workSpecRows$1":I
     .end local v17    # "systemIdHeader":Ljava/lang/String;
     .local v2, "$i$a$-buildString-DiagnosticsWorkerKt$workSpecRows$1":I
     .restart local v3    # "systemIdHeader":Ljava/lang/String;
-    :cond_2
+    :cond_a9
     nop
 
     .line 82

@@ -94,7 +94,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/navigation/ui/AppBarConfiguration;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "configuration"    # Landroidx/navigation/ui/AppBarConfiguration;
 
@@ -124,7 +124,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .local v0, "$this$openableLayoutWeakReference_u24lambda_u2d0":Landroidx/customview/widget/Openable;
     const/4 v1, 0x0
@@ -138,12 +138,12 @@
     .line 43
     .end local v0    # "$this$openableLayoutWeakReference_u24lambda_u2d0":Landroidx/customview/widget/Openable;
     .end local v1    # "$i$a$-run-AbstractAppBarOnDestinationChangedListener$openableLayoutWeakReference$1":I
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_23
     iput-object v2, p0, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->openableLayoutWeakReference:Ljava/lang/ref/WeakReference;
 
     .line 38
@@ -151,7 +151,7 @@
 .end method
 
 .method private final setActionBarUpIndicator(Z)V
-    .locals 7
+    .registers 9
     .param p1, "showAsDrawerIndicator"    # Z
 
     .line 97
@@ -161,7 +161,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .local v0, "$this$setActionBarUpIndicator_u24lambda_u2d1":Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;
     const/4 v3, 0x0
@@ -179,10 +179,10 @@
     .line 97
     .end local v0    # "$this$setActionBarUpIndicator_u24lambda_u2d1":Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;
     .end local v3    # "$i$a$-run-AbstractAppBarOnDestinationChangedListener$setActionBarUpIndicator$1":I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     .line 99
-    :cond_0
+    :cond_11
     new-instance v0, Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;
 
     iget-object v3, p0, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->context:Landroid/content/Context;
@@ -210,7 +210,7 @@
     move-result-object v0
 
     .line 97
-    :cond_1
+    :cond_24
     invoke-virtual {v0}, Lkotlin/Pair;->component1()Ljava/lang/Object;
 
     move-result-object v3
@@ -238,34 +238,34 @@
     check-cast v4, Landroid/graphics/drawable/Drawable;
 
     .line 103
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3d
 
     sget v5, Landroidx/navigation/ui/R$string;->nav_app_bar_open_drawer_description:I
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 104
-    :cond_2
+    :cond_3d
     sget v5, Landroidx/navigation/ui/R$string;->nav_app_bar_navigate_up_description:I
 
     .line 101
-    :goto_0
+    :goto_3f
     invoke-virtual {p0, v4, v5}, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->setNavigationIcon(Landroid/graphics/drawable/Drawable;I)V
 
     .line 107
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_46
 
     const/4 v4, 0x0
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_3
+    :cond_46
     const/high16 v4, 0x3f800000    # 1.0f
 
     .line 108
     .local v4, "endValue":F
-    :goto_1
-    if-eqz v0, :cond_6
+    :goto_48
+    if-eqz v0, :cond_7b
 
     .line 109
     invoke-virtual {v3}, Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;->getProgress()F
@@ -276,12 +276,12 @@
     .local v5, "startValue":F
     iget-object v6, p0, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->animator:Landroid/animation/ValueAnimator;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_55
 
     invoke-virtual {v6}, Landroid/animation/ValueAnimator;->cancel()V
 
     .line 111
-    :cond_4
+    :cond_55
     const/4 v6, 0x2
 
     new-array v6, v6, [F
@@ -303,18 +303,19 @@
     .line 112
     iget-object v1, p0, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->animator:Landroid/animation/ValueAnimator;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_73
 
     check-cast v1, Landroid/animation/ObjectAnimator;
 
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->start()V
 
     .end local v5    # "startValue":F
-    goto :goto_2
+    goto :goto_7e
 
     .restart local v5    # "startValue":F
-    :cond_5
+    :cond_73
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type android.animation.ObjectAnimator"
@@ -325,18 +326,18 @@
 
     .line 114
     .end local v5    # "startValue":F
-    :cond_6
+    :cond_7b
     invoke-virtual {v3, v4}, Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;->setProgress(F)V
 
     .line 116
-    :goto_2
+    :goto_7e
     return-void
 .end method
 
 
 # virtual methods
 .method public onDestinationChanged(Landroidx/navigation/NavController;Landroidx/navigation/NavDestination;Landroid/os/Bundle;)V
-    .locals 9
+    .registers 13
     .param p1, "controller"    # Landroidx/navigation/NavController;
     .param p2, "destination"    # Landroidx/navigation/NavDestination;
     .param p3, "arguments"    # Landroid/os/Bundle;
@@ -352,18 +353,18 @@
     .line 59
     instance-of v0, p2, Landroidx/navigation/FloatingWindow;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 60
     return-void
 
     .line 62
-    :cond_0
+    :cond_f
     iget-object v0, p0, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->openableLayoutWeakReference:Ljava/lang/ref/WeakReference;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
@@ -371,19 +372,19 @@
 
     check-cast v0, Landroidx/customview/widget/Openable;
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     move-object v0, v1
 
     .line 63
     .local v0, "openableLayout":Landroidx/customview/widget/Openable;
-    :goto_0
+    :goto_1c
     iget-object v2, p0, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->openableLayoutWeakReference:Ljava/lang/ref/WeakReference;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_29
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_29
 
     .line 64
     move-object v1, p0
@@ -396,7 +397,7 @@
     return-void
 
     .line 67
-    :cond_2
+    :cond_29
     invoke-virtual {p2}, Landroidx/navigation/NavDestination;->getLabel()Ljava/lang/CharSequence;
 
     move-result-object v2
@@ -405,7 +406,7 @@
     .local v2, "label":Ljava/lang/CharSequence;
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_9e
 
     .line 70
     new-instance v4, Ljava/lang/StringBuffer;
@@ -428,12 +429,12 @@
 
     .line 73
     .local v6, "matcher":Ljava/util/regex/Matcher;
-    :goto_1
+    :goto_3f
     invoke-virtual {v6}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_95
 
     .line 74
     invoke-virtual {v6, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -442,13 +443,13 @@
 
     .line 75
     .local v7, "argName":Ljava/lang/String;
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_62
 
     invoke-virtual {p3, v7}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_62
 
     .line 76
     const-string v8, ""
@@ -466,10 +467,10 @@
 
     invoke-virtual {v4, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 79
-    :cond_3
+    :cond_62
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     .line 80
@@ -524,7 +525,7 @@
 
     .line 84
     .end local v7    # "argName":Ljava/lang/String;
-    :cond_4
+    :cond_95
     invoke-virtual {v6, v4}, Ljava/util/regex/Matcher;->appendTail(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     .line 85
@@ -538,7 +539,7 @@
     .end local v4    # "title":Ljava/lang/StringBuffer;
     .end local v5    # "fillInPattern":Ljava/util/regex/Pattern;
     .end local v6    # "matcher":Ljava/util/regex/Matcher;
-    :cond_5
+    :cond_9e
     iget-object v4, p0, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->topLevelDestinations:Ljava/util/Set;
 
     invoke-static {p2, v4}, Landroidx/navigation/ui/NavigationUI;->matchDestinations$navigation_ui_release(Landroidx/navigation/NavDestination;Ljava/util/Set;)Z
@@ -549,31 +550,31 @@
     .local v4, "isTopLevelDestination":Z
     const/4 v5, 0x0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_ad
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_ad
 
     .line 89
     invoke-virtual {p0, v1, v5}, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->setNavigationIcon(Landroid/graphics/drawable/Drawable;I)V
 
-    goto :goto_3
+    goto :goto_b6
 
     .line 91
-    :cond_6
-    if-eqz v0, :cond_7
+    :cond_ad
+    if-eqz v0, :cond_b2
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_b2
 
-    goto :goto_2
+    goto :goto_b3
 
-    :cond_7
+    :cond_b2
     const/4 v3, 0x0
 
-    :goto_2
+    :goto_b3
     invoke-direct {p0, v3}, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->setActionBarUpIndicator(Z)V
 
     .line 93
-    :goto_3
+    :goto_b6
     return-void
 .end method
 

@@ -40,7 +40,7 @@
 
 # direct methods
 .method public static final clearSpans(Landroid/text/Spannable;)V
-    .locals 8
+    .registers 9
     .param p0, "$this$clearSpans"    # Landroid/text/Spannable;
 
     const/4 v0, 0x0
@@ -95,8 +95,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_16
+    if-ge v4, v3, :cond_23
 
     aget-object v5, v1, v4
 
@@ -118,10 +118,10 @@
     .end local v5    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 72
-    :cond_0
+    :cond_23
     nop
 
     .line 32
@@ -131,7 +131,7 @@
 .end method
 
 .method public static final set(Landroid/text/Spannable;IILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p0, "$this$set"    # Landroid/text/Spannable;
     .param p1, "start"    # I
     .param p2, "end"    # I
@@ -150,7 +150,7 @@
 .end method
 
 .method public static final set(Landroid/text/Spannable;Lkotlin/ranges/IntRange;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p0, "$this$set"    # Landroid/text/Spannable;
     .param p1, "range"    # Lkotlin/ranges/IntRange;
     .param p2, "span"    # Ljava/lang/Object;
@@ -184,7 +184,7 @@
 .end method
 
 .method public static final toSpannable(Ljava/lang/CharSequence;)Landroid/text/Spannable;
-    .locals 2
+    .registers 3
     .param p0, "$this$toSpannable"    # Ljava/lang/CharSequence;
 
     const/4 v0, 0x0

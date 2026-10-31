@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/Configuration;Z)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Landroidx/work/Configuration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 4
+    .registers 6
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -82,18 +82,18 @@
     .line 286
     iget-boolean v0, p0, Landroidx/work/Configuration$1;->val$isTaskExecutor:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const-string v0, "WM.task-"
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     const-string v0, "androidx.work-"
 
     .line 287
     .local v0, "prefix":Ljava/lang/String;
-    :goto_0
+    :goto_9
     new-instance v1, Ljava/lang/Thread;
 
     new-instance v2, Ljava/lang/StringBuilder;

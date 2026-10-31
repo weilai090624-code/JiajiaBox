@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 91
     sget v0, Lcom/google/android/material/R$attr;->motionDurationLong1:I
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(IZ)V
-    .locals 2
+    .registers 5
     .param p1, "axis"    # I
     .param p2, "forward"    # Z
 
@@ -81,12 +81,12 @@
 .end method
 
 .method private static createPrimaryAnimatorProvider(IZ)Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;
-    .locals 3
+    .registers 5
     .param p0, "axis"    # I
     .param p1, "forward"    # Z
 
     .line 113
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_3e
 
     .line 121
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -114,7 +114,7 @@
     throw v0
 
     .line 119
-    :pswitch_0
+    :pswitch_1c
     new-instance v0, Lcom/google/android/material/transition/platform/ScaleProvider;
 
     invoke-direct {v0, p1}, Lcom/google/android/material/transition/platform/ScaleProvider;-><init>(Z)V
@@ -122,51 +122,51 @@
     return-object v0
 
     .line 117
-    :pswitch_1
+    :pswitch_22
     new-instance v0, Lcom/google/android/material/transition/platform/SlideDistanceProvider;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_29
 
     const/16 v1, 0x50
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_29
     const/16 v1, 0x30
 
-    :goto_0
+    :goto_2b
     invoke-direct {v0, v1}, Lcom/google/android/material/transition/platform/SlideDistanceProvider;-><init>(I)V
 
     return-object v0
 
     .line 115
-    :pswitch_2
+    :pswitch_2f
     new-instance v0, Lcom/google/android/material/transition/platform/SlideDistanceProvider;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_37
 
     const v1, 0x800005
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_1
+    :cond_37
     const v1, 0x800003
 
-    :goto_1
+    :goto_3a
     invoke-direct {v0, v1}, Lcom/google/android/material/transition/platform/SlideDistanceProvider;-><init>(I)V
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_3e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2f
+        :pswitch_22
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method private static createSecondaryAnimatorProvider()Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;
-    .locals 1
+    .registers 1
 
     .line 126
     new-instance v0, Lcom/google/android/material/transition/platform/FadeThroughProvider;
@@ -179,7 +179,7 @@
 
 # virtual methods
 .method public bridge synthetic addAdditionalAnimatorProvider(Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;)V
-    .locals 0
+    .registers 2
 
     .line 55
     invoke-super {p0, p1}, Lcom/google/android/material/transition/platform/MaterialVisibility;->addAdditionalAnimatorProvider(Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;)V
@@ -188,7 +188,7 @@
 .end method
 
 .method public bridge synthetic clearAdditionalAnimatorProvider()V
-    .locals 0
+    .registers 1
 
     .line 55
     invoke-super {p0}, Lcom/google/android/material/transition/platform/MaterialVisibility;->clearAdditionalAnimatorProvider()V
@@ -197,7 +197,7 @@
 .end method
 
 .method public getAxis()I
-    .locals 1
+    .registers 2
 
     .line 104
     iget v0, p0, Lcom/google/android/material/transition/platform/MaterialSharedAxis;->axis:I
@@ -206,7 +206,7 @@
 .end method
 
 .method getDurationThemeAttrResId(Z)I
-    .locals 1
+    .registers 3
     .param p1, "appearing"    # Z
 
     .line 132
@@ -216,7 +216,7 @@
 .end method
 
 .method getEasingThemeAttrResId(Z)I
-    .locals 1
+    .registers 3
     .param p1, "appearing"    # Z
 
     .line 138
@@ -226,7 +226,7 @@
 .end method
 
 .method public bridge synthetic getPrimaryAnimatorProvider()Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;
-    .locals 1
+    .registers 2
 
     .line 55
     invoke-super {p0}, Lcom/google/android/material/transition/platform/MaterialVisibility;->getPrimaryAnimatorProvider()Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;
@@ -237,7 +237,7 @@
 .end method
 
 .method public bridge synthetic getSecondaryAnimatorProvider()Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;
-    .locals 1
+    .registers 2
 
     .line 55
     invoke-super {p0}, Lcom/google/android/material/transition/platform/MaterialVisibility;->getSecondaryAnimatorProvider()Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;
@@ -248,7 +248,7 @@
 .end method
 
 .method public isForward()Z
-    .locals 1
+    .registers 2
 
     .line 108
     iget-boolean v0, p0, Lcom/google/android/material/transition/platform/MaterialSharedAxis;->forward:Z
@@ -257,7 +257,7 @@
 .end method
 
 .method public bridge synthetic onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 0
+    .registers 5
 
     .line 55
     invoke-super {p0, p1, p2, p3, p4}, Lcom/google/android/material/transition/platform/MaterialVisibility;->onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
@@ -268,7 +268,7 @@
 .end method
 
 .method public bridge synthetic onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 0
+    .registers 5
 
     .line 55
     invoke-super {p0, p1, p2, p3, p4}, Lcom/google/android/material/transition/platform/MaterialVisibility;->onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
@@ -279,7 +279,7 @@
 .end method
 
 .method public bridge synthetic removeAdditionalAnimatorProvider(Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;)Z
-    .locals 0
+    .registers 2
 
     .line 55
     invoke-super {p0, p1}, Lcom/google/android/material/transition/platform/MaterialVisibility;->removeAdditionalAnimatorProvider(Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;)Z
@@ -290,7 +290,7 @@
 .end method
 
 .method public bridge synthetic setSecondaryAnimatorProvider(Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;)V
-    .locals 0
+    .registers 2
 
     .line 55
     invoke-super {p0, p1}, Lcom/google/android/material/transition/platform/MaterialVisibility;->setSecondaryAnimatorProvider(Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;)V

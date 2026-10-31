@@ -59,7 +59,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/Sequence;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "it"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,11 +89,11 @@
     .end annotation
 
     .line 2576
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_3
 
     return-object p1
 
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;

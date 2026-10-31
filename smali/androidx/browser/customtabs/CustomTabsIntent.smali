@@ -139,7 +139,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Intent;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "startAnimationBundle"    # Landroid/os/Bundle;
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public static getActivityResizeBehavior(Landroid/content/Intent;)I
-    .locals 2
+    .registers 3
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 1195
@@ -173,7 +173,7 @@
 .end method
 
 .method public static getCloseButtonPosition(Landroid/content/Intent;)I
-    .locals 2
+    .registers 3
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 1234
@@ -189,18 +189,18 @@
 .end method
 
 .method public static getColorSchemeParams(Landroid/content/Intent;I)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
-    .locals 5
+    .registers 7
     .param p0, "intent"    # Landroid/content/Intent;
     .param p1, "colorScheme"    # I
 
     .line 1159
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_31
 
     const/4 v0, 0x2
 
-    if-gt p1, v0, :cond_2
+    if-gt p1, v0, :cond_31
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_31
 
     .line 1164
     invoke-virtual {p0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
@@ -209,7 +209,7 @@
 
     .line 1165
     .local v0, "extras":Landroid/os/Bundle;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 1166
     const/4 v1, 0x0
@@ -221,7 +221,7 @@
     return-object v1
 
     .line 1169
-    :cond_0
+    :cond_13
     invoke-static {v0}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->fromBundle(Landroid/os/Bundle;)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
 
     move-result-object v1
@@ -236,7 +236,7 @@
 
     .line 1172
     .local v2, "paramBundles":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Bundle;>;"
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_30
 
     .line 1173
     invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -247,7 +247,7 @@
 
     .line 1174
     .local v3, "bundleForScheme":Landroid/os/Bundle;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_30
 
     .line 1175
     invoke-static {v3}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->fromBundle(Landroid/os/Bundle;)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
@@ -264,14 +264,14 @@
 
     .line 1179
     .end local v3    # "bundleForScheme":Landroid/os/Bundle;
-    :cond_1
+    :cond_30
     return-object v1
 
     .line 1161
     .end local v0    # "extras":Landroid/os/Bundle;
     .end local v1    # "defaults":Landroidx/browser/customtabs/CustomTabColorSchemeParams;
     .end local v2    # "paramBundles":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Bundle;>;"
-    :cond_2
+    :cond_31
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -298,7 +298,7 @@
 .end method
 
 .method public static getInitialActivityHeightPx(Landroid/content/Intent;)I
-    .locals 2
+    .registers 3
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 1208
@@ -314,7 +314,7 @@
 .end method
 
 .method public static getMaxToolbarItems()I
-    .locals 1
+    .registers 1
 
     .line 1115
     const/4 v0, 0x5
@@ -323,7 +323,7 @@
 .end method
 
 .method public static getToolbarCornerRadiusDp(Landroid/content/Intent;)I
-    .locals 2
+    .registers 3
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 1220
@@ -339,11 +339,11 @@
 .end method
 
 .method public static setAlwaysUseBrowserUI(Landroid/content/Intent;)Landroid/content/Intent;
-    .locals 2
+    .registers 3
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 1127
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     new-instance v0, Landroid/content/Intent;
 
@@ -354,7 +354,7 @@
     move-object p0, v0
 
     .line 1128
-    :cond_0
+    :cond_a
     const/high16 v0, 0x10000000
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
@@ -371,7 +371,7 @@
 .end method
 
 .method public static shouldAlwaysUseBrowserUI(Landroid/content/Intent;)Z
-    .locals 3
+    .registers 4
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 1141
@@ -383,7 +383,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 1142
     invoke-virtual {p0}, Landroid/content/Intent;->getFlags()I
@@ -394,24 +394,24 @@
 
     and-int/2addr v0, v2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     nop
 
     .line 1141
-    :goto_0
+    :goto_15
     return v1
 .end method
 
 
 # virtual methods
 .method public launchUrl(Landroid/content/Context;Landroid/net/Uri;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "url"    # Landroid/net/Uri;
 

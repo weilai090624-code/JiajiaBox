@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public getValue(Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
     .annotation system Ldalvik/annotation/Signature;
@@ -95,11 +95,11 @@
     .line 62
     iget-object v0, p0, Lkotlin/properties/NotNullVar;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return-object v0
 
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -136,7 +136,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
     .param p3, "value"    # Ljava/lang/Object;
@@ -165,7 +165,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 70
     new-instance v0, Ljava/lang/StringBuilder;
@@ -180,7 +180,7 @@
 
     iget-object v1, p0, Lkotlin/properties/NotNullVar;->value:Ljava/lang/Object;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -202,12 +202,12 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_25
     const-string v1, "value not initialized yet"
 
-    :goto_0
+    :goto_27
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

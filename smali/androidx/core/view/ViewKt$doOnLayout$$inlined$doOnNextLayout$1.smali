@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Landroidx/core/view/ViewKt$doOnLayout$$inlined$doOnNextLayout$1;->$action$inlined:Lkotlin/jvm/functions/Function1;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 3
+    .registers 13
     .param p1, "view"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I

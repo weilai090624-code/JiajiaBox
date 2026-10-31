@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final buildSingBoxOutboundTuicBean(Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;)Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_TUICOptions;
-    .locals 8
+    .registers 9
     .param p0, "bean"    # Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;
 
     const-string v0, "bean"
@@ -45,21 +45,21 @@
     .line 72
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->protocolVersion:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_7
+    if-eq v0, v1, :cond_b1
 
     .line 73
-    :goto_0
+    :goto_11
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_TUICOptions;
 
     invoke-direct {v0}, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_TUICOptions;-><init>()V
@@ -110,12 +110,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3c
 
     iput-object v4, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_TUICOptions;->udp_relay_mode:Ljava/lang/String;
 
     .line 83
-    :cond_1
+    :cond_3c
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->reduceRTT:Ljava/lang/Boolean;
 
     iput-object v3, v1, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_TUICOptions;->zero_rtt_handshake:Ljava/lang/Boolean;
@@ -144,7 +144,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_5a
 
     .line 86
     iget-object v6, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->sni:Ljava/lang/String;
@@ -152,7 +152,7 @@
     iput-object v6, v4, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->server_name:Ljava/lang/String;
 
     .line 88
-    :cond_2
+    :cond_5a
     iget-object v6, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->alpn:Ljava/lang/String;
 
     const-string v7, "alpn"
@@ -165,7 +165,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_74
 
     .line 89
     iget-object v6, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->alpn:Ljava/lang/String;
@@ -179,7 +179,7 @@
     iput-object v6, v4, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->alpn:Ljava/util/List;
 
     .line 91
-    :cond_3
+    :cond_74
     iget-object v6, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->caText:Ljava/lang/String;
 
     const-string v7, "caText"
@@ -192,7 +192,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_87
 
     .line 92
     iget-object v6, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->caText:Ljava/lang/String;
@@ -200,7 +200,7 @@
     iput-object v6, v4, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->certificate:Ljava/lang/String;
 
     .line 94
-    :cond_4
+    :cond_87
     iget-object v6, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->disableSNI:Ljava/lang/Boolean;
 
     iput-object v6, v4, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->disable_sni:Ljava/lang/Boolean;
@@ -214,7 +214,7 @@
 
     const/4 v7, 0x1
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_9f
 
     sget-object v6, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -222,20 +222,20 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_9d
 
-    goto :goto_1
+    goto :goto_9f
 
-    :cond_5
+    :cond_9d
     const/4 v6, 0x0
 
-    goto :goto_2
+    goto :goto_a0
 
-    :cond_6
-    :goto_1
+    :cond_9f
+    :goto_9f
     const/4 v6, 0x1
 
-    :goto_2
+    :goto_a0
     invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v6
@@ -266,7 +266,7 @@
     return-object v0
 
     .line 72
-    :cond_7
+    :cond_b1
     new-instance v0, Ljava/lang/Exception;
 
     const-string v1, "TUIC v4 is no longer supported"
@@ -277,7 +277,7 @@
 .end method
 
 .method public static final parseTuic(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;
-    .locals 19
+    .registers 20
     .param p0, "url"    # Ljava/lang/String;
 
     move-object/from16 v6, p0
@@ -309,7 +309,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_f7
 
     .line 14
     nop
@@ -395,7 +395,7 @@
 
     const/4 v9, 0x1
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_8d
 
     .line 27
     move-object v13, v4
@@ -433,21 +433,21 @@
 
     move-result v8
 
-    if-ge v9, v8, :cond_0
+    if-ge v9, v8, :cond_7c
 
     const/4 v12, 0x1
 
-    :cond_0
-    if-eqz v12, :cond_1
+    :cond_7c
+    if-eqz v12, :cond_83
 
     invoke-interface {v7, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v8
 
-    goto :goto_0
+    goto :goto_88
 
     .line 101
-    :cond_1
+    :cond_83
     move v8, v9
 
     .local v8, "it":I
@@ -461,30 +461,30 @@
     .end local v10    # "$i$a$-getOrElse-TuicFmtKt$parseTuic$1$1":I
     const-string v8, ""
 
-    :goto_0
+    :goto_88
     check-cast v8, Ljava/lang/String;
 
     iput-object v8, v2, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->token:Ljava/lang/String;
 
     .end local v7    # "parts":Ljava/util/List;
-    goto :goto_1
+    goto :goto_91
 
     .line 31
-    :cond_2
+    :cond_8d
     iput-object v4, v2, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->uuid:Ljava/lang/String;
 
     .line 32
     iput-object v5, v2, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->token:Ljava/lang/String;
 
     .line 35
-    :goto_1
+    :goto_91
     const-string v7, "sni"
 
     invoke-virtual {v0, v7}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_9e
 
     .local v7, "it":Ljava/lang/String;
     const/4 v8, 0x0
@@ -502,14 +502,14 @@
     nop
 
     .line 38
-    :cond_3
+    :cond_9e
     const-string v7, "congestion_control"
 
     invoke-virtual {v0, v7}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_ab
 
     .restart local v7    # "it":Ljava/lang/String;
     const/4 v8, 0x0
@@ -527,14 +527,14 @@
     nop
 
     .line 41
-    :cond_4
+    :cond_ab
     const-string v7, "udp_relay_mode"
 
     invoke-virtual {v0, v7}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_b8
 
     .restart local v7    # "it":Ljava/lang/String;
     const/4 v8, 0x0
@@ -552,14 +552,14 @@
     nop
 
     .line 44
-    :cond_5
+    :cond_b8
     const-string v7, "alpn"
 
     invoke-virtual {v0, v7}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_c5
 
     .restart local v7    # "it":Ljava/lang/String;
     const/4 v8, 0x0
@@ -577,7 +577,7 @@
     nop
 
     .line 47
-    :cond_6
+    :cond_c5
     const-string v7, "allow_insecure"
 
     invoke-virtual {v0, v7}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
@@ -586,7 +586,7 @@
 
     const-string v8, "1"
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_de
 
     .restart local v7    # "it":Ljava/lang/String;
     const/4 v10, 0x0
@@ -597,7 +597,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_dc
 
     invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -606,7 +606,7 @@
     iput-object v11, v2, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->allowInsecure:Ljava/lang/Boolean;
 
     .line 49
-    :cond_7
+    :cond_dc
     nop
 
     .line 47
@@ -615,14 +615,14 @@
     nop
 
     .line 50
-    :cond_8
+    :cond_de
     const-string v7, "disable_sni"
 
     invoke-virtual {v0, v7}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_f5
 
     .restart local v7    # "it":Ljava/lang/String;
     const/4 v10, 0x0
@@ -633,7 +633,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_f3
 
     invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -642,7 +642,7 @@
     iput-object v8, v2, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->disableSNI:Ljava/lang/Boolean;
 
     .line 52
-    :cond_9
+    :cond_f3
     nop
 
     .line 50
@@ -651,7 +651,7 @@
     nop
 
     .line 53
-    :cond_a
+    :cond_f5
     nop
 
     .line 16
@@ -663,7 +663,7 @@
 
     .line 13
     .end local v0    # "link":Lokhttp3/HttpUrl;
-    :cond_b
+    :cond_f7
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 14
@@ -695,7 +695,7 @@
 .end method
 
 .method public static final toUri(Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$toUri"    # Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;
 
     const-string v0, "<this>"
@@ -781,14 +781,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_5d
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->sni:Ljava/lang/String;
 
     invoke-virtual {v0, v2, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 63
-    :cond_0
+    :cond_5d
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->alpn:Ljava/lang/String;
 
     const-string v2, "alpn"
@@ -801,14 +801,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_71
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->alpn:Ljava/lang/String;
 
     invoke-virtual {v0, v2, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 64
-    :cond_1
+    :cond_71
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->allowInsecure:Ljava/lang/Boolean;
 
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -817,28 +817,28 @@
 
     const-string v2, "1"
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_80
 
     const-string v1, "allow_insecure"
 
     invoke-virtual {v0, v1, v2}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 65
-    :cond_2
+    :cond_80
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->disableSNI:Ljava/lang/Boolean;
 
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_8d
 
     const-string v1, "disable_sni"
 
     invoke-virtual {v0, v1, v2}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 66
-    :cond_3
+    :cond_8d
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->name:Ljava/lang/String;
 
     const-string v2, "name"
@@ -851,7 +851,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_a8
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->name:Ljava/lang/String;
 
@@ -864,7 +864,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->encodedFragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 68
-    :cond_4
+    :cond_a8
     const/4 v1, 0x2
 
     const/4 v2, 0x0

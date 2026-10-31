@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/multiprocess/RemoteWorkManagerClient$11;Landroidx/work/multiprocess/IWorkManagerImpl;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Landroidx/work/multiprocess/RemoteWorkManagerClient$11;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 409
     :try_start_0
@@ -61,14 +61,14 @@
     iget-object v2, v2, Landroidx/work/multiprocess/RemoteWorkManagerClient$11;->val$callback:Landroidx/work/multiprocess/RemoteCallback;
 
     invoke-interface {v0, v1, v2}, Landroidx/work/multiprocess/RemoteDispatcher;->execute(Ljava/lang/Object;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_0 .. :try_end_d} :catchall_e
 
     .line 413
-    goto :goto_0
+    goto :goto_21
 
     .line 410
-    :catchall_0
+    :catchall_e
     move-exception v0
 
     .line 411
@@ -92,6 +92,6 @@
 
     .line 414
     .end local v0    # "innerThrowable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_21
     return-void
 .end method

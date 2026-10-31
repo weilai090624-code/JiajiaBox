@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -85,7 +85,7 @@
     .local p0, "this":Lcom/google/common/base/Suppliers$SupplierOfInstance;, "Lcom/google/common/base/Suppliers$SupplierOfInstance<TT;>;"
     instance-of v0, p1, Lcom/google/common/base/Suppliers$SupplierOfInstance;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 309
     move-object v0, p1
@@ -106,14 +106,14 @@
 
     .line 312
     .end local v0    # "that":Lcom/google/common/base/Suppliers$SupplierOfInstance;, "Lcom/google/common/base/Suppliers$SupplierOfInstance<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/base/ParametricNullness;
     .end annotation
 
@@ -131,7 +131,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 317
     .local p0, "this":Lcom/google/common/base/Suppliers$SupplierOfInstance;, "Lcom/google/common/base/Suppliers$SupplierOfInstance<TT;>;"
@@ -153,7 +153,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 322
     .local p0, "this":Lcom/google/common/base/Suppliers$SupplierOfInstance;, "Lcom/google/common/base/Suppliers$SupplierOfInstance<TT;>;"

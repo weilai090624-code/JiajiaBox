@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/regex/Pattern;)V
-    .locals 1
+    .registers 3
     .param p1, "pattern"    # Ljava/util/regex/Pattern;
 
     .line 28
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public flags()I
-    .locals 1
+    .registers 2
 
     .line 44
     iget-object v0, p0, Lcom/google/common/base/JdkPattern;->pattern:Ljava/util/regex/Pattern;
@@ -62,7 +62,7 @@
 .end method
 
 .method public matcher(Ljava/lang/CharSequence;)Lcom/google/common/base/CommonMatcher;
-    .locals 2
+    .registers 4
     .param p1, "t"    # Ljava/lang/CharSequence;
 
     .line 34
@@ -80,7 +80,7 @@
 .end method
 
 .method public pattern()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 39
     iget-object v0, p0, Lcom/google/common/base/JdkPattern;->pattern:Ljava/util/regex/Pattern;
@@ -93,7 +93,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 49
     iget-object v0, p0, Lcom/google/common/base/JdkPattern;->pattern:Ljava/util/regex/Pattern;

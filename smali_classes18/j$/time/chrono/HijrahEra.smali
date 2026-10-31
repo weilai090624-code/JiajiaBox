@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 95
     new-instance v0, Lj$/time/chrono/HijrahEra;
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -67,13 +67,13 @@
 .end method
 
 .method public static of(I)Lj$/time/chrono/HijrahEra;
-    .locals 3
+    .registers 4
     .param p0, "hijrahEra"    # I
 
     .line 108
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_6
 
     .line 109
     sget-object v0, Lj$/time/chrono/HijrahEra;->AH:Lj$/time/chrono/HijrahEra;
@@ -81,7 +81,7 @@
     return-object v0
 
     .line 111
-    :cond_0
+    :cond_6
     new-instance v0, Lj$/time/DateTimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -108,7 +108,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/chrono/HijrahEra;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 89
@@ -124,7 +124,7 @@
 .end method
 
 .method public static values()[Lj$/time/chrono/HijrahEra;
-    .locals 1
+    .registers 1
 
     .line 89
     sget-object v0, Lj$/time/chrono/HijrahEra;->$VALUES:[Lj$/time/chrono/HijrahEra;
@@ -141,7 +141,7 @@
 
 # virtual methods
 .method public synthetic adjustInto(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$adjustInto(Lj$/time/chrono/Era;Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public synthetic get(Lj$/time/temporal/TemporalField;)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$get(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)I
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public getDisplayName(Lj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "style"    # Lj$/time/format/TextStyle;
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -203,7 +203,7 @@
 .end method
 
 .method public synthetic getLong(Lj$/time/temporal/TemporalField;)J
-    .locals 2
+    .registers 4
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$getLong(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)J
 
@@ -213,7 +213,7 @@
 .end method
 
 .method public getValue()I
-    .locals 1
+    .registers 2
 
     .line 125
     const/4 v0, 0x1
@@ -222,7 +222,7 @@
 .end method
 
 .method public synthetic isSupported(Lj$/time/temporal/TemporalField;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$isSupported(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)Z
 
@@ -232,7 +232,7 @@
 .end method
 
 .method public synthetic query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$query(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
@@ -242,13 +242,13 @@
 .end method
 
 .method public range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 2
+    .registers 4
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 155
     sget-object v0, Lj$/time/temporal/ChronoField;->ERA:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_b
 
     .line 156
     const-wide/16 v0, 0x1
@@ -260,7 +260,7 @@
     return-object v0
 
     .line 158
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$range(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
 
     move-result-object v0

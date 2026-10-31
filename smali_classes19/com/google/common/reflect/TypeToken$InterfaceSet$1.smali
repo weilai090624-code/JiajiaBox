@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/reflect/TypeToken$InterfaceSet;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/common/reflect/TypeToken$InterfaceSet;
 
     .line 751
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,7 +61,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 751
     .local p0, "this":Lcom/google/common/reflect/TypeToken$InterfaceSet$1;, "Lcom/google/common/reflect/TypeToken$InterfaceSet$1;"

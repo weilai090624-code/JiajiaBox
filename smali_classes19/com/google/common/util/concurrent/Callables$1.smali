@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 40
     iput-object p1, p0, Lcom/google/common/util/concurrent/Callables$1;->val$value:Ljava/lang/Object;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public call()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 

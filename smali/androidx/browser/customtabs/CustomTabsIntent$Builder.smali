@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 511
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/browser/customtabs/CustomTabsSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/browser/customtabs/CustomTabsSession;
 
     .line 522
@@ -129,18 +129,18 @@
     iput-boolean v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mInstantAppsEnabled:Z
 
     .line 523
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1e
 
     .line 524
     invoke-virtual {p0, p1}, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->setSession(Landroidx/browser/customtabs/CustomTabsSession;)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
 
     .line 526
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method private setCurrentLocaleAsDefaultAcceptLanguage()V
-    .locals 5
+    .registers 6
 
     .line 1097
     invoke-static {}, Landroidx/browser/customtabs/CustomTabsIntent$Api24Impl;->getDefaultLocale()Ljava/lang/String;
@@ -153,7 +153,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_30
 
     .line 1099
     iget-object v1, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -164,7 +164,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 1100
     iget-object v1, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -173,23 +173,23 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_1b
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
     .line 1101
     .local v1, "header":Landroid/os/Bundle;
-    :goto_0
+    :goto_20
     const-string v3, "Accept-Language"
 
     invoke-virtual {v1, v3}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_30
 
     .line 1102
     invoke-virtual {v1, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
@@ -201,12 +201,12 @@
 
     .line 1106
     .end local v1    # "header":Landroid/os/Bundle;
-    :cond_1
+    :cond_30
     return-void
 .end method
 
 .method private setSessionParameters(Landroid/os/IBinder;Landroid/app/PendingIntent;)V
-    .locals 2
+    .registers 5
     .param p1, "binder"    # Landroid/os/IBinder;
     .param p2, "sessionId"    # Landroid/app/PendingIntent;
 
@@ -222,7 +222,7 @@
     invoke-static {v0, v1, p1}, Landroidx/core/app/BundleCompat;->putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
 
     .line 558
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_11
 
     .line 559
     const-string v1, "android.support.customtabs.extra.SESSION_ID"
@@ -230,7 +230,7 @@
     invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 562
-    :cond_0
+    :cond_11
     iget-object v1, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
@@ -242,7 +242,7 @@
 
 # virtual methods
 .method public addDefaultShareMenuItem()Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -256,14 +256,14 @@
 .end method
 
 .method public addMenuItem(Ljava/lang/String;Landroid/app/PendingIntent;)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 5
     .param p1, "label"    # Ljava/lang/String;
     .param p2, "pendingIntent"    # Landroid/app/PendingIntent;
 
     .line 639
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mMenuItems:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -272,7 +272,7 @@
     iput-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mMenuItems:Ljava/util/ArrayList;
 
     .line 640
-    :cond_0
+    :cond_b
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -298,7 +298,7 @@
 .end method
 
 .method public addToolbarItem(ILandroid/graphics/Bitmap;Ljava/lang/String;Landroid/app/PendingIntent;)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 7
     .param p1, "id"    # I
     .param p2, "icon"    # Landroid/graphics/Bitmap;
     .param p3, "description"    # Ljava/lang/String;
@@ -315,7 +315,7 @@
     .line 766
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mActionButtons:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 767
     new-instance v0, Ljava/util/ArrayList;
@@ -325,7 +325,7 @@
     iput-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mActionButtons:Ljava/util/ArrayList;
 
     .line 769
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mActionButtons:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -334,7 +334,7 @@
 
     const/4 v1, 0x5
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_33
 
     .line 773
     new-instance v0, Landroid/os/Bundle;
@@ -372,7 +372,7 @@
 
     .line 770
     .end local v0    # "bundle":Landroid/os/Bundle;
-    :cond_1
+    :cond_33
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Exceeded maximum toolbar item count of 5"
@@ -383,7 +383,7 @@
 .end method
 
 .method public build()Landroidx/browser/customtabs/CustomTabsIntent;
-    .locals 3
+    .registers 4
 
     .line 1059
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -394,7 +394,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 1061
     const/4 v0, 0x0
@@ -402,10 +402,10 @@
     invoke-direct {p0, v0, v0}, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->setSessionParameters(Landroid/os/IBinder;Landroid/app/PendingIntent;)V
 
     .line 1063
-    :cond_0
+    :cond_e
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mMenuItems:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 1064
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -417,10 +417,10 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putParcelableArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
     .line 1066
-    :cond_1
+    :cond_1b
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mActionButtons:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     .line 1067
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -432,7 +432,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putParcelableArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
     .line 1069
-    :cond_2
+    :cond_28
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
 
     const-string v1, "android.support.customtabs.extra.EXTRA_ENABLE_INSTANT_APPS"
@@ -459,7 +459,7 @@
     .line 1072
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mDefaultColorSchemeBundle:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4b
 
     .line 1073
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -469,10 +469,10 @@
     invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
     .line 1076
-    :cond_3
+    :cond_4b
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mColorSchemeParamBundles:Landroid/util/SparseArray;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_60
 
     .line 1077
     new-instance v0, Landroid/os/Bundle;
@@ -494,7 +494,7 @@
 
     .line 1082
     .end local v0    # "bundle":Landroid/os/Bundle;
-    :cond_4
+    :cond_60
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
 
     const-string v1, "androidx.browser.customtabs.extra.SHARE_STATE"
@@ -508,13 +508,13 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_5
+    if-lt v0, v1, :cond_72
 
     .line 1085
     invoke-direct {p0}, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->setCurrentLocaleAsDefaultAcceptLanguage()V
 
     .line 1088
-    :cond_5
+    :cond_72
     new-instance v0, Landroidx/browser/customtabs/CustomTabsIntent;
 
     iget-object v1, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -527,7 +527,7 @@
 .end method
 
 .method public enableUrlBarHiding()Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 3
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -545,7 +545,7 @@
 .end method
 
 .method public setActionButton(Landroid/graphics/Bitmap;Ljava/lang/String;Landroid/app/PendingIntent;)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 1
+    .registers 5
     .param p1, "icon"    # Landroid/graphics/Bitmap;
     .param p2, "description"    # Ljava/lang/String;
     .param p3, "pendingIntent"    # Landroid/app/PendingIntent;
@@ -561,7 +561,7 @@
 .end method
 
 .method public setActionButton(Landroid/graphics/Bitmap;Ljava/lang/String;Landroid/app/PendingIntent;Z)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 3
+    .registers 8
     .param p1, "icon"    # Landroid/graphics/Bitmap;
     .param p2, "description"    # Ljava/lang/String;
     .param p3, "pendingIntent"    # Landroid/app/PendingIntent;
@@ -614,7 +614,7 @@
 .end method
 
 .method public setCloseButtonIcon(Landroid/graphics/Bitmap;)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 4
     .param p1, "icon"    # Landroid/graphics/Bitmap;
 
     .line 615
@@ -629,15 +629,15 @@
 .end method
 
 .method public setCloseButtonPosition(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 1045
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_d
 
     const/4 v0, 0x2
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_d
 
     .line 1049
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -650,7 +650,7 @@
     return-object p0
 
     .line 1046
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value for the position argument"
@@ -661,15 +661,15 @@
 .end method
 
 .method public setColorScheme(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 4
     .param p1, "colorScheme"    # I
 
     .line 910
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_d
 
     const/4 v0, 0x2
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_d
 
     .line 913
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -682,7 +682,7 @@
     return-object p0
 
     .line 911
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value for the colorScheme argument"
@@ -693,23 +693,23 @@
 .end method
 
 .method public setColorSchemeParams(ILandroidx/browser/customtabs/CustomTabColorSchemeParams;)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 3
+    .registers 6
     .param p1, "colorScheme"    # I
     .param p2, "params"    # Landroidx/browser/customtabs/CustomTabColorSchemeParams;
 
     .line 952
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_1c
 
     const/4 v0, 0x2
 
-    if-gt p1, v0, :cond_1
+    if-gt p1, v0, :cond_1c
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1c
 
     .line 956
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mColorSchemeParamBundles:Landroid/util/SparseArray;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 957
     new-instance v0, Landroid/util/SparseArray;
@@ -719,7 +719,7 @@
     iput-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mColorSchemeParamBundles:Landroid/util/SparseArray;
 
     .line 959
-    :cond_0
+    :cond_12
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mColorSchemeParamBundles:Landroid/util/SparseArray;
 
     invoke-virtual {p2}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->toBundle()Landroid/os/Bundle;
@@ -732,7 +732,7 @@
     return-object p0
 
     .line 954
-    :cond_1
+    :cond_1c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -759,7 +759,7 @@
 .end method
 
 .method public setDefaultColorSchemeParams(Landroidx/browser/customtabs/CustomTabColorSchemeParams;)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 1
+    .registers 3
     .param p1, "params"    # Landroidx/browser/customtabs/CustomTabColorSchemeParams;
 
     .line 974
@@ -774,34 +774,34 @@
 .end method
 
 .method public setDefaultShareMenuItemEnabled(Z)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 1
+    .registers 3
     .param p1, "enabled"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 670
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 671
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->setShareState(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
 
-    goto :goto_0
+    goto :goto_b
 
     .line 673
-    :cond_0
+    :cond_7
     const/4 v0, 0x2
 
     invoke-virtual {p0, v0}, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->setShareState(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
 
     .line 675
-    :goto_0
+    :goto_b
     return-object p0
 .end method
 
 .method public setExitAnimations(Landroid/content/Context;II)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "enterResId"    # I
     .param p3, "exitResId"    # I
@@ -829,7 +829,7 @@
 .end method
 
 .method public setInitialActivityHeightPx(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 1
+    .registers 3
     .param p1, "initialHeightPx"    # I
 
     .line 1016
@@ -843,19 +843,19 @@
 .end method
 
 .method public setInitialActivityHeightPx(II)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 5
     .param p1, "initialHeightPx"    # I
     .param p2, "activityHeightResizeBehavior"    # I
 
     .line 993
-    if-lez p1, :cond_1
+    if-lez p1, :cond_1e
 
     .line 997
-    if-ltz p2, :cond_0
+    if-ltz p2, :cond_16
 
     const/4 v0, 0x2
 
-    if-gt p2, v0, :cond_0
+    if-gt p2, v0, :cond_16
 
     .line 1003
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -875,7 +875,7 @@
     return-object p0
 
     .line 999
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value for the activityHeightResizeBehavior argument"
@@ -885,7 +885,7 @@
     throw v0
 
     .line 994
-    :cond_1
+    :cond_1e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value for the initialHeightPx argument"
@@ -896,7 +896,7 @@
 .end method
 
 .method public setInstantAppsEnabled(Z)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 0
+    .registers 2
     .param p1, "enabled"    # Z
 
     .line 864
@@ -907,7 +907,7 @@
 .end method
 
 .method public setNavigationBarColor(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -922,7 +922,7 @@
 .end method
 
 .method public setNavigationBarDividerColor(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -937,7 +937,7 @@
 .end method
 
 .method public setPendingSession(Landroidx/browser/customtabs/CustomTabsSession$PendingSession;)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/browser/customtabs/CustomTabsSession$PendingSession;
 
     .line 550
@@ -954,7 +954,7 @@
 .end method
 
 .method public setSecondaryToolbarColor(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -969,7 +969,7 @@
 .end method
 
 .method public setSecondaryToolbarViews(Landroid/widget/RemoteViews;[ILandroid/app/PendingIntent;)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 6
     .param p1, "remoteViews"    # Landroid/widget/RemoteViews;
     .param p2, "clickableIDs"    # [I
     .param p3, "pendingIntent"    # Landroid/app/PendingIntent;
@@ -1000,7 +1000,7 @@
 .end method
 
 .method public setSession(Landroidx/browser/customtabs/CustomTabsSession;)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/browser/customtabs/CustomTabsSession;
 
     .line 536
@@ -1032,15 +1032,15 @@
 .end method
 
 .method public setShareState(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 3
+    .registers 5
     .param p1, "shareState"    # I
 
     .line 689
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_21
 
     const/4 v0, 0x2
 
-    if-gt p1, v0, :cond_2
+    if-gt p1, v0, :cond_21
 
     .line 692
     iput p1, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mShareState:I
@@ -1050,18 +1050,18 @@
 
     const-string v2, "android.support.customtabs.extra.SHARE_MENU_ITEM"
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_12
 
     .line 696
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    goto :goto_0
+    goto :goto_20
 
     .line 697
-    :cond_0
-    if-ne p1, v0, :cond_1
+    :cond_12
+    if-ne p1, v0, :cond_1b
 
     .line 698
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -1070,20 +1070,20 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    goto :goto_0
+    goto :goto_20
 
     .line 700
-    :cond_1
+    :cond_1b
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->removeExtra(Ljava/lang/String;)V
 
     .line 702
-    :goto_0
+    :goto_20
     return-object p0
 
     .line 690
-    :cond_2
+    :cond_21
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value for the shareState argument"
@@ -1094,7 +1094,7 @@
 .end method
 
 .method public setShowTitle(Z)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 4
     .param p1, "showTitle"    # Z
 
     .line 626
@@ -1113,7 +1113,7 @@
 .end method
 
 .method public setStartAnimations(Landroid/content/Context;II)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "enterResId"    # I
     .param p3, "exitResId"    # I
@@ -1135,7 +1135,7 @@
 .end method
 
 .method public setToolbarColor(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1150,15 +1150,15 @@
 .end method
 
 .method public setToolbarCornerRadiusDp(I)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 4
     .param p1, "cornerRadiusDp"    # I
 
     .line 1027
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_e
 
     const/16 v0, 0x10
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_e
 
     .line 1031
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent$Builder;->mIntent:Landroid/content/Intent;
@@ -1171,7 +1171,7 @@
     return-object p0
 
     .line 1028
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value for the cornerRadiusDp argument"
@@ -1182,7 +1182,7 @@
 .end method
 
 .method public setUrlBarHidingEnabled(Z)Landroidx/browser/customtabs/CustomTabsIntent$Builder;
-    .locals 2
+    .registers 4
     .param p1, "enabled"    # Z
 
     .line 604

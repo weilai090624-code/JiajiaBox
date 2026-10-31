@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 4765
     new-instance v0, Lj$/util/concurrent/ConcurrentHashMap;
@@ -57,7 +57,7 @@
 .end method
 
 .method constructor <init>(Lj$/time/format/FormatStyle;Lj$/time/format/FormatStyle;)V
-    .locals 0
+    .registers 3
     .param p1, "dateStyle"    # Lj$/time/format/FormatStyle;
     .param p2, "timeStyle"    # Lj$/time/format/FormatStyle;
 
@@ -75,7 +75,7 @@
 .end method
 
 .method private formatter(Ljava/util/Locale;Lj$/time/chrono/Chronology;)Lj$/time/format/DateTimeFormatter;
-    .locals 5
+    .registers 8
     .param p1, "locale"    # Ljava/util/Locale;
     .param p2, "chrono"    # Lj$/time/chrono/Chronology;
 
@@ -138,7 +138,7 @@
 
     .line 4808
     .local v1, "formatter":Lj$/time/format/DateTimeFormatter;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_59
 
     .line 4809
     iget-object v2, p0, Lj$/time/format/DateTimeFormatterBuilder$LocalizedPrinterParser;->dateStyle:Lj$/time/format/FormatStyle;
@@ -174,7 +174,7 @@
 
     .line 4812
     .local v3, "old":Lj$/time/format/DateTimeFormatter;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_59
 
     .line 4813
     move-object v1, v3
@@ -182,14 +182,14 @@
     .line 4816
     .end local v2    # "pattern":Ljava/lang/String;
     .end local v3    # "old":Lj$/time/format/DateTimeFormatter;
-    :cond_0
+    :cond_59
     return-object v1
 .end method
 
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 3
+    .registers 6
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -226,7 +226,7 @@
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 3
+    .registers 7
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -260,31 +260,31 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 4821
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$LocalizedPrinterParser;->dateStyle:Lj$/time/format/FormatStyle;
 
     const-string v1, ""
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$LocalizedPrinterParser;->dateStyle:Lj$/time/format/FormatStyle;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     move-object v0, v1
 
     .line 4822
-    :goto_0
+    :goto_a
     iget-object v2, p0, Lj$/time/format/DateTimeFormatterBuilder$LocalizedPrinterParser;->timeStyle:Lj$/time/format/FormatStyle;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_10
 
     iget-object v1, p0, Lj$/time/format/DateTimeFormatterBuilder$LocalizedPrinterParser;->timeStyle:Lj$/time/format/FormatStyle;
 
-    :cond_1
+    :cond_10
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V

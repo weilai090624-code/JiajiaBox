@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 22
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method public onMessageChannelReady(Landroid/support/customtabs/ICustomTabsCallback;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
@@ -53,7 +53,7 @@
 .end method
 
 .method public onPostMessage(Landroid/support/customtabs/ICustomTabsCallback;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 4
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "extras"    # Landroid/os/Bundle;

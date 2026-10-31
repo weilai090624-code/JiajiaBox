@@ -20,7 +20,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$CBVg26zUpxC1pz1KzAQxDAVlyy0([B[B)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/browser/trusted/TokenContents;->compareByteArrays([B[B)I
 
@@ -30,7 +30,7 @@
 .end method
 
 .method private constructor <init>([B)V
-    .locals 0
+    .registers 2
     .param p1, "contents"    # [B
 
     .line 63
@@ -44,7 +44,7 @@
 .end method
 
 .method private constructor <init>([BLjava/lang/String;Ljava/util/List;)V
-    .locals 4
+    .registers 8
     .param p1, "contents"    # [B
     .param p2, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -82,12 +82,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_16
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2d
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -109,47 +109,47 @@
 
     .line 83
     .end local v1    # "fingerprint":[B
-    goto :goto_0
+    goto :goto_16
 
     .line 84
-    :cond_0
+    :cond_2d
     return-void
 .end method
 
 .method private static compareByteArrays([B[B)I
-    .locals 4
+    .registers 6
     .param p0, "a"    # [B
     .param p1, "b"    # [B
 
     .line 149
     const/4 v0, 0x0
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 152
-    :cond_0
-    if-nez p0, :cond_1
+    :cond_4
+    if-nez p0, :cond_8
 
     const/4 v0, -0x1
 
     return v0
 
     .line 153
-    :cond_1
-    if-nez p1, :cond_2
+    :cond_8
+    if-nez p1, :cond_c
 
     const/4 v0, 0x1
 
     return v0
 
     .line 156
-    :cond_2
+    :cond_c
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_d
     array-length v2, p0
 
     array-length v3, p1
@@ -158,14 +158,14 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_24
 
     .line 157
     aget-byte v2, p0, v1
 
     aget-byte v3, p1, v1
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_21
 
     aget-byte v0, p0, v1
 
@@ -176,19 +176,19 @@
     return v0
 
     .line 156
-    :cond_3
+    :cond_21
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 161
     .end local v1    # "i":I
-    :cond_4
+    :cond_24
     array-length v1, p0
 
     array-length v2, p1
 
-    if-eq v1, v2, :cond_5
+    if-eq v1, v2, :cond_2c
 
     array-length v0, p0
 
@@ -199,12 +199,12 @@
     return v0
 
     .line 164
-    :cond_5
+    :cond_2c
     return v0
 .end method
 
 .method static create(Ljava/lang/String;Ljava/util/List;)Landroidx/browser/trusted/TokenContents;
-    .locals 2
+    .registers 4
     .param p0, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -238,7 +238,7 @@
 .end method
 
 .method private static createToken(Ljava/lang/String;Ljava/util/List;)[B
-    .locals 5
+    .registers 7
     .param p0, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -290,12 +290,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_20
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_34
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -314,10 +314,10 @@
 
     .line 139
     .end local v3    # "fingerprint":[B
-    goto :goto_0
+    goto :goto_20
 
     .line 140
-    :cond_0
+    :cond_34
     invoke-virtual {v1}, Ljava/io/DataOutputStream;->flush()V
 
     .line 142
@@ -329,7 +329,7 @@
 .end method
 
 .method static deserialize([B)Landroidx/browser/trusted/TokenContents;
-    .locals 1
+    .registers 2
     .param p0, "serialized"    # [B
 
     .line 60
@@ -341,7 +341,7 @@
 .end method
 
 .method private parseIfNeeded()V
-    .locals 8
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -351,12 +351,12 @@
     .line 168
     iget-object v0, p0, Landroidx/browser/trusted/TokenContents;->mPackageName:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 170
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/io/DataInputStream;
 
     new-instance v1, Ljava/io/ByteArrayInputStream;
@@ -392,8 +392,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_23
+    if-ge v2, v1, :cond_41
 
     .line 176
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readInt()I
@@ -412,7 +412,7 @@
 
     .line 179
     .local v5, "bytesRead":I
-    if-ne v5, v3, :cond_1
+    if-ne v5, v3, :cond_39
 
     .line 180
     iget-object v6, p0, Landroidx/browser/trusted/TokenContents;->mFingerprints:Ljava/util/List;
@@ -425,13 +425,13 @@
     .end local v5    # "bytesRead":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 179
     .restart local v3    # "size":I
     .restart local v4    # "fingerprint":[B
     .restart local v5    # "bytesRead":I
-    :cond_1
+    :cond_39
     new-instance v6, Ljava/lang/IllegalStateException;
 
     const-string v7, "Could not read fingerprint"
@@ -445,26 +445,26 @@
     .end local v3    # "size":I
     .end local v4    # "fingerprint":[B
     .end local v5    # "bytesRead":I
-    :cond_2
+    :cond_41
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 113
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 114
-    :cond_0
-    if-eqz p1, :cond_2
+    :cond_4
+    if-eqz p1, :cond_1d
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -474,12 +474,12 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_11
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 115
-    :cond_1
+    :cond_11
     move-object v0, p1
 
     check-cast v0, Landroidx/browser/trusted/TokenContents;
@@ -498,15 +498,15 @@
 
     .line 114
     .end local v0    # "that":Landroidx/browser/trusted/TokenContents;
-    :cond_2
-    :goto_0
+    :cond_1d
+    :goto_1d
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public getFingerprint(I)[B
-    .locals 2
+    .registers 4
     .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -520,7 +520,7 @@
     .line 102
     iget-object v0, p0, Landroidx/browser/trusted/TokenContents;->mFingerprints:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 103
     iget-object v0, p0, Landroidx/browser/trusted/TokenContents;->mFingerprints:Ljava/util/List;
@@ -548,7 +548,7 @@
     return-object v0
 
     .line 102
-    :cond_0
+    :cond_1d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -557,7 +557,7 @@
 .end method
 
 .method public getFingerprintCount()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -570,7 +570,7 @@
     .line 95
     iget-object v0, p0, Landroidx/browser/trusted/TokenContents;->mFingerprints:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 96
     iget-object v0, p0, Landroidx/browser/trusted/TokenContents;->mFingerprints:Ljava/util/List;
@@ -582,7 +582,7 @@
     return v0
 
     .line 95
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -591,7 +591,7 @@
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -604,7 +604,7 @@
     .line 89
     iget-object v0, p0, Landroidx/browser/trusted/TokenContents;->mPackageName:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 90
     iget-object v0, p0, Landroidx/browser/trusted/TokenContents;->mPackageName:Ljava/lang/String;
@@ -612,7 +612,7 @@
     return-object v0
 
     .line 89
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -621,7 +621,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 121
     iget-object v0, p0, Landroidx/browser/trusted/TokenContents;->mContents:[B
@@ -634,7 +634,7 @@
 .end method
 
 .method public serialize()[B
-    .locals 2
+    .registers 3
 
     .line 108
     iget-object v0, p0, Landroidx/browser/trusted/TokenContents;->mContents:[B

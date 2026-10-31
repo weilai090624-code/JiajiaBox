@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method static createAnimation(Landroid/view/View;Landroidx/transition/TransitionValues;IIFFFFLandroid/animation/TimeInterpolator;Landroidx/transition/Transition;)Landroid/animation/Animator;
-    .locals 17
+    .registers 27
     .param p0, "view"    # Landroid/view/View;
     .param p1, "values"    # Landroidx/transition/TransitionValues;
     .param p2, "viewPosX"    # I
@@ -70,7 +70,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_2a
 
     .line 60
     aget v2, v11, v1
@@ -98,14 +98,14 @@
 
     .end local p5    # "startY":F
     .local v3, "startY":F
-    goto :goto_0
+    goto :goto_2e
 
     .line 59
     .end local v2    # "startX":F
     .end local v3    # "startY":F
     .restart local p4    # "startX":F
     .restart local p5    # "startY":F
-    :cond_0
+    :cond_2a
     move/from16 v12, p4
 
     move/from16 v13, p5
@@ -115,7 +115,7 @@
     .end local p5    # "startY":F
     .local v12, "startX":F
     .local v13, "startY":F
-    :goto_0
+    :goto_2e
     sub-float v2, v12, v9
 
     invoke-static {v2}, Ljava/lang/Math;->round(F)I
@@ -144,11 +144,11 @@
     .line 69
     cmpl-float v2, v12, p6
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4e
 
     cmpl-float v2, v13, p7
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4e
 
     .line 70
     const/4 v0, 0x0
@@ -156,7 +156,7 @@
     return-object v0
 
     .line 72
-    :cond_1
+    :cond_4e
     sget-object v2, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
 
     const/4 v3, 0x2

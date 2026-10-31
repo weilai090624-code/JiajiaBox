@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/RequestBody$Companion;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,7 @@
 .end method
 
 .method public static final create(Ljava/io/File;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public static final create(Ljava/io/FileDescriptor;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public static final create(Ljava/lang/String;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public static final create(Lokhttp3/MediaType;Ljava/io/File;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'file\' argument first to fix Java"
@@ -138,7 +138,7 @@
 .end method
 
 .method public static final create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -163,7 +163,7 @@
 .end method
 
 .method public static final create(Lokhttp3/MediaType;Lokio/ByteString;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -188,7 +188,7 @@
 .end method
 
 .method public static final create(Lokhttp3/MediaType;[B)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -213,7 +213,7 @@
 .end method
 
 .method public static final create(Lokhttp3/MediaType;[BI)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 4
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -238,7 +238,7 @@
 .end method
 
 .method public static final create(Lokhttp3/MediaType;[BII)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 5
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -263,7 +263,7 @@
 .end method
 
 .method public static final create(Lokio/ByteString;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -277,7 +277,7 @@
 .end method
 
 .method public static final create([B)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -291,7 +291,7 @@
 .end method
 
 .method public static final create([BLokhttp3/MediaType;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -305,7 +305,7 @@
 .end method
 
 .method public static final create([BLokhttp3/MediaType;I)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 4
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -319,7 +319,7 @@
 .end method
 
 .method public static final create([BLokhttp3/MediaType;II)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 5
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -335,7 +335,7 @@
 
 # virtual methods
 .method public contentLength()J
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -352,7 +352,7 @@
 .end method
 
 .method public isDuplex()Z
-    .locals 1
+    .registers 2
 
     .line 78
     const/4 v0, 0x0
@@ -361,7 +361,7 @@
 .end method
 
 .method public isOneShot()Z
-    .locals 1
+    .registers 2
 
     .line 97
     const/4 v0, 0x0

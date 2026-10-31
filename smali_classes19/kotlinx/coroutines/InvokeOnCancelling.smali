@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/InvokeOnCancelling;
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 2
     .param p1, "handler"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 1425
@@ -117,7 +117,7 @@
 .end method
 
 .method public invoke(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 1431
@@ -131,13 +131,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lkotlinx/coroutines/InvokeOnCancelling;->handler:Lkotlin/jvm/functions/Function1;
 
     invoke-interface {v0, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1432
-    :cond_0
+    :cond_f
     return-void
 .end method

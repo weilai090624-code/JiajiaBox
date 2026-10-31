@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/foreground/ForegroundProcessor;Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/model/WorkSpec;Ljava/util/List;)V
-    .locals 1
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "configuration"    # Landroidx/work/Configuration;
     .param p3, "workTaskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
@@ -138,7 +138,7 @@
 .end method
 
 .method static synthetic access$000(Landroidx/work/impl/WorkerWrapper$Builder;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/work/impl/WorkerWrapper$Builder;
 
     .line 634
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method public build()Landroidx/work/impl/WorkerWrapper;
-    .locals 1
+    .registers 2
 
     .line 707
     new-instance v0, Landroidx/work/impl/WorkerWrapper;
@@ -161,7 +161,7 @@
 .end method
 
 .method public withRuntimeExtras(Landroidx/work/WorkerParameters$RuntimeExtras;)Landroidx/work/impl/WorkerWrapper$Builder;
-    .locals 0
+    .registers 2
     .param p1, "runtimeExtras"    # Landroidx/work/WorkerParameters$RuntimeExtras;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -173,18 +173,18 @@
     .end annotation
 
     .line 684
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4
 
     .line 685
     iput-object p1, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
 
     .line 687
-    :cond_0
+    :cond_4
     return-object p0
 .end method
 
 .method public withSchedulers(Ljava/util/List;)Landroidx/work/impl/WorkerWrapper$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -213,7 +213,7 @@
 .end method
 
 .method public withWorker(Landroidx/work/ListenableWorker;)Landroidx/work/impl/WorkerWrapper$Builder;
-    .locals 0
+    .registers 2
     .param p1, "worker"    # Landroidx/work/ListenableWorker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

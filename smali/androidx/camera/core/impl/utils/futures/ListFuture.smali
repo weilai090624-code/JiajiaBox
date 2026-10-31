@@ -68,7 +68,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;ZLjava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 6
     .param p2, "allMustSucceed"    # Z
     .param p3, "listenerExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -154,7 +154,7 @@
 .end method
 
 .method private callAllGets()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -167,25 +167,25 @@
 
     .line 243
     .local v0, "oldFutures":Ljava/util/List;, "Ljava/util/List<+Lcom/google/common/util/concurrent/ListenableFuture<+TV;>;>;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_30
 
     invoke-virtual {p0}, Landroidx/camera/core/impl/utils/futures/ListFuture;->isDone()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_30
 
     .line 244
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_30
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -195,44 +195,44 @@
 
     .line 248
     .local v2, "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TV;>;"
-    :goto_1
+    :goto_1a
     invoke-interface {v2}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2f
 
     .line 250
-    :try_start_0
+    :try_start_20
     invoke-interface {v2}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catch Ljava/lang/Error; {:try_start_20 .. :try_end_23} :catch_2d
+    .catch Ljava/lang/InterruptedException; {:try_start_20 .. :try_end_23} :catch_2b
+    .catchall {:try_start_20 .. :try_end_23} :catchall_24
 
     .line 262
-    goto :goto_1
+    goto :goto_1a
 
     .line 255
-    :catchall_0
+    :catchall_24
     move-exception v3
 
     .line 257
     .local v3, "e":Ljava/lang/Throwable;
     iget-boolean v4, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mAllMustSucceed:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2a
 
     .line 258
     return-void
 
     .line 260
-    :cond_0
-    goto :goto_1
+    :cond_2a
+    goto :goto_1a
 
     .line 253
     .end local v3    # "e":Ljava/lang/Throwable;
-    :catch_0
+    :catch_2b
     move-exception v1
 
     .line 254
@@ -241,7 +241,7 @@
 
     .line 251
     .end local v1    # "e":Ljava/lang/InterruptedException;
-    :catch_1
+    :catch_2d
     move-exception v1
 
     .line 252
@@ -251,16 +251,16 @@
     .line 264
     .end local v1    # "e":Ljava/lang/Error;
     .end local v2    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TV;>;"
-    :cond_1
-    goto :goto_0
+    :cond_2f
+    goto :goto_e
 
     .line 266
-    :cond_2
+    :cond_30
     return-void
 .end method
 
 .method private init(Ljava/util/concurrent/Executor;)V
-    .locals 5
+    .registers 7
     .param p1, "listenerExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -292,7 +292,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 112
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -309,18 +309,18 @@
     return-void
 
     .line 117
-    :cond_0
+    :cond_21
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_22
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mFutures:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_33
 
     .line 118
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mValues:Ljava/util/List;
@@ -332,11 +332,11 @@
     .line 117
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 128
     .end local v0    # "i":I
-    :cond_1
+    :cond_33
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mFutures:Ljava/util/List;
 
     .line 129
@@ -344,12 +344,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
+    :goto_36
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_4e
 
     .line 130
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -375,18 +375,18 @@
     .end local v3    # "index":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_36
 
     .line 139
     .end local v1    # "i":I
-    :cond_2
+    :cond_4e
     return-void
 .end method
 
 
 # virtual methods
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p1, "listener"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -411,7 +411,7 @@
 .end method
 
 .method public cancel(Z)Z
-    .locals 2
+    .registers 4
     .param p1, "mayInterruptIfRunning"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -426,7 +426,7 @@
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ListFuture;, "Landroidx/camera/core/impl/utils/futures/ListFuture<TV;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mFutures:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 202
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mFutures:Ljava/util/List;
@@ -435,12 +435,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -454,10 +454,10 @@
 
     .line 204
     .end local v1    # "f":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TV;>;"
-    goto :goto_0
+    goto :goto_a
 
     .line 207
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResult:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v0, p1}, Lcom/google/common/util/concurrent/ListenableFuture;->cancel(Z)Z
@@ -468,7 +468,7 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/concurrent/ExecutionException;,
@@ -486,7 +486,7 @@
 .end method
 
 .method public bridge synthetic get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -516,7 +516,7 @@
 .end method
 
 .method public get()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -549,7 +549,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/util/List;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -595,7 +595,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 212
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ListFuture;, "Landroidx/camera/core/impl/utils/futures/ListFuture<TV;>;"
@@ -609,7 +609,7 @@
 .end method
 
 .method public isDone()Z
-    .locals 1
+    .registers 2
 
     .line 217
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ListFuture;, "Landroidx/camera/core/impl/utils/futures/ListFuture<TV;>;"
@@ -623,7 +623,7 @@
 .end method
 
 .method setOneValue(ILjava/util/concurrent/Future;)V
-    .locals 7
+    .registers 10
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -657,19 +657,19 @@
 
     move-result v2
 
-    if-nez v2, :cond_e
+    if-nez v2, :cond_105
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
-    goto/16 :goto_a
+    goto/16 :goto_105
 
     .line 156
-    :cond_0
+    :cond_e
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    :try_start_0
+    :try_start_10
     invoke-interface {p2}, Ljava/util/concurrent/Future;->isDone()Z
 
     move-result v4
@@ -684,12 +684,12 @@
     move-result-object v4
 
     invoke-interface {v1, p1, v4}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_10 .. :try_end_20} :catch_b0
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_10 .. :try_end_20} :catch_87
+    .catch Ljava/lang/RuntimeException; {:try_start_10 .. :try_end_20} :catch_62
+    .catch Ljava/lang/Error; {:try_start_10 .. :try_end_20} :catch_3f
+    .catchall {:try_start_10 .. :try_end_20} :catchall_3c
 
     .line 181
     iget-object v4, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mRemaining:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -700,24 +700,24 @@
 
     .line 182
     .local v4, "newRemaining":I
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_29
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_29
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_2a
     invoke-static {v2, v0}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
 
     .line 183
-    if-nez v4, :cond_a
+    if-nez v4, :cond_dd
 
     .line 184
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mValues:Ljava/util/List;
 
     .line 185
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_d6
 
     .line 186
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -726,27 +726,27 @@
 
     invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_d2
 
     .line 181
     .end local v4    # "newRemaining":I
-    :catchall_0
+    :catchall_3c
     move-exception v4
 
-    goto/16 :goto_7
+    goto/16 :goto_df
 
     .line 177
-    :catch_0
+    :catch_3f
     move-exception v4
 
     .line 179
     .local v4, "e":Ljava/lang/Error;
-    :try_start_1
+    :try_start_40
     iget-object v5, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     invoke-virtual {v5, v4}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_45
+    .catchall {:try_start_40 .. :try_end_45} :catchall_3c
 
     .line 181
     nop
@@ -760,24 +760,24 @@
 
     .line 182
     .local v4, "newRemaining":I
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_4f
 
-    goto :goto_1
+    goto :goto_50
 
-    :cond_2
+    :cond_4f
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_50
     invoke-static {v2, v0}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
 
     .line 183
-    if-nez v4, :cond_a
+    if-nez v4, :cond_dd
 
     .line 184
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mValues:Ljava/util/List;
 
     .line 185
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_d6
 
     .line 186
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -786,30 +786,30 @@
 
     invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_d2
 
     .line 173
     .end local v4    # "newRemaining":I
-    :catch_1
+    :catch_62
     move-exception v4
 
     .line 174
     .local v4, "e":Ljava/lang/RuntimeException;
-    :try_start_2
+    :try_start_63
     iget-boolean v5, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mAllMustSucceed:Z
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_6c
 
     .line 175
     iget-object v5, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     invoke-virtual {v5, v4}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_6c
+    .catchall {:try_start_63 .. :try_end_6c} :catchall_3c
 
     .line 181
     .end local v4    # "e":Ljava/lang/RuntimeException;
-    :cond_3
+    :cond_6c
     iget-object v4, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mRemaining:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v4}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
@@ -818,24 +818,24 @@
 
     .line 182
     .local v4, "newRemaining":I
-    if-ltz v4, :cond_4
+    if-ltz v4, :cond_75
 
-    goto :goto_2
+    goto :goto_76
 
-    :cond_4
+    :cond_75
     const/4 v2, 0x0
 
-    :goto_2
+    :goto_76
     invoke-static {v2, v0}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
 
     .line 183
-    if-nez v4, :cond_a
+    if-nez v4, :cond_dd
 
     .line 184
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mValues:Ljava/util/List;
 
     .line 185
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_d6
 
     .line 186
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -844,19 +844,19 @@
 
     invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    goto :goto_5
+    goto :goto_d2
 
     .line 167
     .end local v4    # "newRemaining":I
-    :catch_2
+    :catch_87
     move-exception v4
 
     .line 168
     .local v4, "e":Ljava/util/concurrent/ExecutionException;
-    :try_start_3
+    :try_start_88
     iget-boolean v5, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mAllMustSucceed:Z
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_95
 
     .line 171
     iget-object v5, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -866,12 +866,12 @@
     move-result-object v6
 
     invoke-virtual {v5, v6}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_95
+    .catchall {:try_start_88 .. :try_end_95} :catchall_3c
 
     .line 181
     .end local v4    # "e":Ljava/util/concurrent/ExecutionException;
-    :cond_5
+    :cond_95
     iget-object v4, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mRemaining:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v4}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
@@ -880,24 +880,24 @@
 
     .line 182
     .local v4, "newRemaining":I
-    if-ltz v4, :cond_6
+    if-ltz v4, :cond_9e
 
-    goto :goto_3
+    goto :goto_9f
 
-    :cond_6
+    :cond_9e
     const/4 v2, 0x0
 
-    :goto_3
+    :goto_9f
     invoke-static {v2, v0}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
 
     .line 183
-    if-nez v4, :cond_a
+    if-nez v4, :cond_dd
 
     .line 184
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mValues:Ljava/util/List;
 
     .line 185
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_d6
 
     .line 186
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -906,28 +906,28 @@
 
     invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    goto :goto_5
+    goto :goto_d2
 
     .line 159
     .end local v4    # "newRemaining":I
-    :catch_3
+    :catch_b0
     move-exception v4
 
     .line 160
     .local v4, "e":Ljava/util/concurrent/CancellationException;
-    :try_start_4
+    :try_start_b1
     iget-boolean v5, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mAllMustSucceed:Z
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_b8
 
     .line 165
     invoke-virtual {p0, v3}, Landroidx/camera/core/impl/utils/futures/ListFuture;->cancel(Z)Z
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_b8
+    .catchall {:try_start_b1 .. :try_end_b8} :catchall_3c
 
     .line 181
     .end local v4    # "e":Ljava/util/concurrent/CancellationException;
-    :cond_7
+    :cond_b8
     iget-object v4, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mRemaining:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v4}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
@@ -936,24 +936,24 @@
 
     .line 182
     .local v4, "newRemaining":I
-    if-ltz v4, :cond_8
+    if-ltz v4, :cond_c1
 
-    goto :goto_4
+    goto :goto_c2
 
-    :cond_8
+    :cond_c1
     const/4 v2, 0x0
 
-    :goto_4
+    :goto_c2
     invoke-static {v2, v0}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
 
     .line 183
-    if-nez v4, :cond_a
+    if-nez v4, :cond_dd
 
     .line 184
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mValues:Ljava/util/List;
 
     .line 185
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_d6
 
     .line 186
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -962,13 +962,13 @@
 
     invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    :goto_5
+    :goto_d2
     invoke-virtual {v0, v2}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
-    goto :goto_6
+    goto :goto_dd
 
     .line 188
-    :cond_9
+    :cond_d6
     invoke-virtual {p0}, Landroidx/camera/core/impl/utils/futures/ListFuture;->isDone()Z
 
     move-result v0
@@ -977,15 +977,15 @@
 
     .line 191
     .end local v4    # "newRemaining":I
-    :cond_a
-    :goto_6
+    :cond_dd
+    :goto_dd
     nop
 
     .line 192
     return-void
 
     .line 181
-    :goto_7
+    :goto_df
     iget-object v5, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mRemaining:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v5}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
@@ -994,24 +994,24 @@
 
     .line 182
     .local v5, "newRemaining":I
-    if-ltz v5, :cond_b
+    if-ltz v5, :cond_e8
 
-    goto :goto_8
+    goto :goto_e9
 
-    :cond_b
+    :cond_e8
     const/4 v2, 0x0
 
-    :goto_8
+    :goto_e9
     invoke-static {v2, v0}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
 
     .line 183
-    if-nez v5, :cond_d
+    if-nez v5, :cond_104
 
     .line 184
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mValues:Ljava/util/List;
 
     .line 185
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_fd
 
     .line 186
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -1022,10 +1022,10 @@
 
     invoke-virtual {v0, v2}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
-    goto :goto_9
+    goto :goto_104
 
     .line 188
-    :cond_c
+    :cond_fd
     invoke-virtual {p0}, Landroidx/camera/core/impl/utils/futures/ListFuture;->isDone()Z
 
     move-result v0
@@ -1034,13 +1034,13 @@
 
     .line 191
     .end local v5    # "newRemaining":I
-    :cond_d
-    :goto_9
+    :cond_104
+    :goto_104
     throw v4
 
     .line 150
-    :cond_e
-    :goto_a
+    :cond_105
+    :goto_105
     iget-boolean v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mAllMustSucceed:Z
 
     const-string v2, "Future was done before all dependencies completed"

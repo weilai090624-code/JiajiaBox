@@ -97,7 +97,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$dpsg06okbB847jib5cr-d0X1meI(Lkotlin/jvm/functions/Function0;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/core/view/ViewKt;->postOnAnimationDelayed$lambda$1(Lkotlin/jvm/functions/Function0;)V
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public static final doOnAttach(Landroid/view/View;Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$doOnAttach"    # Landroid/view/View;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -128,15 +128,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     .line 94
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 96
-    :cond_0
+    :cond_b
     new-instance v1, Landroidx/core/view/ViewKt$doOnAttach$1;
 
     invoke-direct {v1, p0, p1}, Landroidx/core/view/ViewKt$doOnAttach$1;-><init>(Landroid/view/View;Lkotlin/jvm/functions/Function1;)V
@@ -146,12 +146,12 @@
     invoke-virtual {p0, v1}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     .line 105
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public static final doOnDetach(Landroid/view/View;Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$doOnDetach"    # Landroid/view/View;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -174,15 +174,15 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
     .line 118
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 120
-    :cond_0
+    :cond_b
     new-instance v1, Landroidx/core/view/ViewKt$doOnDetach$1;
 
     invoke-direct {v1, p0, p1}, Landroidx/core/view/ViewKt$doOnDetach$1;-><init>(Landroid/view/View;Lkotlin/jvm/functions/Function1;)V
@@ -192,12 +192,12 @@
     invoke-virtual {p0, v1}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     .line 129
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public static final doOnLayout(Landroid/view/View;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p0, "$this$doOnLayout"    # Landroid/view/View;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -220,21 +220,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     invoke-virtual {p0}, Landroid/view/View;->isLayoutRequested()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     .line 66
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 68
-    :cond_0
+    :cond_11
     move-object v1, p0
 
     .local v1, "$this$doOnNextLayout$iv":Landroid/view/View;
@@ -256,12 +256,12 @@
     .line 72
     .end local v1    # "$this$doOnNextLayout$iv":Landroid/view/View;
     .end local v2    # "$i$f$doOnNextLayout":I
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method public static final doOnNextLayout(Landroid/view/View;Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$doOnNextLayout"    # Landroid/view/View;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -293,7 +293,7 @@
 .end method
 
 .method public static final doOnPreDraw(Landroid/view/View;Lkotlin/jvm/functions/Function1;)Landroidx/core/view/OneShotPreDrawListener;
-    .locals 2
+    .registers 4
     .param p0, "$this$doOnPreDraw"    # Landroid/view/View;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -327,7 +327,7 @@
 .end method
 
 .method public static final drawToBitmap(Landroid/view/View;Landroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 7
+    .registers 9
     .param p0, "$this$drawToBitmap"    # Landroid/view/View;
     .param p1, "config"    # Landroid/graphics/Bitmap$Config;
 
@@ -336,7 +336,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_30
 
     .line 232
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
@@ -408,7 +408,7 @@
     return-object v0
 
     .line 230
-    :cond_0
+    :cond_30
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "View needs to be laid out before calling drawToBitmap()"
@@ -419,16 +419,16 @@
 .end method
 
 .method public static synthetic drawToBitmap$default(Landroid/view/View;Landroid/graphics/Bitmap$Config;ILjava/lang/Object;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 4
 
     .line 228
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Landroidx/core/view/ViewKt;->drawToBitmap(Landroid/view/View;Landroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object p0
@@ -437,7 +437,7 @@
 .end method
 
 .method public static final getAllViews(Landroid/view/View;)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 3
     .param p0, "$this$allViews"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -468,7 +468,7 @@
 .end method
 
 .method public static final getAncestors(Landroid/view/View;)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 3
     .param p0, "$this$ancestors"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -498,7 +498,7 @@
 .end method
 
 .method public static final getMarginBottom(Landroid/view/View;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$marginBottom"    # Landroid/view/View;
 
     const/4 v0, 0x0
@@ -511,31 +511,31 @@
 
     instance-of v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     check-cast v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_d
+    if-eqz v1, :cond_12
 
     iget v1, v1, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_13
     return v1
 .end method
 
 .method public static final getMarginEnd(Landroid/view/View;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$marginEnd"    # Landroid/view/View;
 
     const/4 v0, 0x0
@@ -550,7 +550,7 @@
     .local v1, "lp":Landroid/view/ViewGroup$LayoutParams;
     instance-of v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     move-object v2, v1
 
@@ -560,17 +560,17 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_12
     return v2
 .end method
 
 .method public static final getMarginLeft(Landroid/view/View;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$marginLeft"    # Landroid/view/View;
 
     const/4 v0, 0x0
@@ -583,31 +583,31 @@
 
     instance-of v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     check-cast v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_d
+    if-eqz v1, :cond_12
 
     iget v1, v1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_13
     return v1
 .end method
 
 .method public static final getMarginRight(Landroid/view/View;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$marginRight"    # Landroid/view/View;
 
     const/4 v0, 0x0
@@ -620,31 +620,31 @@
 
     instance-of v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     check-cast v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_d
+    if-eqz v1, :cond_12
 
     iget v1, v1, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_13
     return v1
 .end method
 
 .method public static final getMarginStart(Landroid/view/View;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$marginStart"    # Landroid/view/View;
 
     const/4 v0, 0x0
@@ -659,7 +659,7 @@
     .local v1, "lp":Landroid/view/ViewGroup$LayoutParams;
     instance-of v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     move-object v2, v1
 
@@ -669,17 +669,17 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_12
     return v2
 .end method
 
 .method public static final getMarginTop(Landroid/view/View;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$marginTop"    # Landroid/view/View;
 
     const/4 v0, 0x0
@@ -692,31 +692,31 @@
 
     instance-of v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     check-cast v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_d
+    if-eqz v1, :cond_12
 
     iget v1, v1, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_13
     return v1
 .end method
 
 .method public static final isGone(Landroid/view/View;)Z
-    .locals 3
+    .registers 4
     .param p0, "$this$isGone"    # Landroid/view/View;
 
     const/4 v0, 0x0
@@ -729,21 +729,21 @@
 
     const/16 v2, 0x8
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     return v1
 .end method
 
 .method public static final isInvisible(Landroid/view/View;)Z
-    .locals 3
+    .registers 4
     .param p0, "$this$isInvisible"    # Landroid/view/View;
 
     const/4 v0, 0x0
@@ -756,21 +756,21 @@
 
     const/4 v2, 0x4
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_b
     return v1
 .end method
 
 .method public static final isVisible(Landroid/view/View;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isVisible"    # Landroid/view/View;
 
     const/4 v0, 0x0
@@ -781,21 +781,21 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public static final postDelayed(Landroid/view/View;JLkotlin/jvm/functions/Function0;)Ljava/lang/Runnable;
-    .locals 2
+    .registers 6
     .param p0, "$this$postDelayed"    # Landroid/view/View;
     .param p1, "delayInMillis"    # J
     .param p3, "action"    # Lkotlin/jvm/functions/Function0;
@@ -830,7 +830,7 @@
 .end method
 
 .method public static final postOnAnimationDelayed(Landroid/view/View;JLkotlin/jvm/functions/Function0;)Ljava/lang/Runnable;
-    .locals 1
+    .registers 5
     .param p0, "$this$postOnAnimationDelayed"    # Landroid/view/View;
     .param p1, "delayInMillis"    # J
     .param p3, "action"    # Lkotlin/jvm/functions/Function0;
@@ -860,7 +860,7 @@
 .end method
 
 .method private static final postOnAnimationDelayed$lambda$1(Lkotlin/jvm/functions/Function0;)V
-    .locals 0
+    .registers 1
     .param p0, "$action"    # Lkotlin/jvm/functions/Function0;
 
     .line 209
@@ -870,7 +870,7 @@
 .end method
 
 .method public static final setGone(Landroid/view/View;Z)V
-    .locals 2
+    .registers 4
     .param p0, "$this$isGone"    # Landroid/view/View;
     .param p1, "value"    # Z
 
@@ -878,16 +878,16 @@
 
     .line 298
     .local v0, "$i$f$setGone":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/16 v1, 0x8
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     invoke-virtual {p0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 299
@@ -895,7 +895,7 @@
 .end method
 
 .method public static final setInvisible(Landroid/view/View;Z)V
-    .locals 2
+    .registers 4
     .param p0, "$this$isInvisible"    # Landroid/view/View;
     .param p1, "value"    # Z
 
@@ -903,16 +903,16 @@
 
     .line 277
     .local v0, "$i$f$setInvisible":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     const/4 v1, 0x4
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_6
     invoke-virtual {p0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 278
@@ -920,7 +920,7 @@
 .end method
 
 .method public static final setPadding(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
     .param p0, "$this$setPadding"    # Landroid/view/View;
     .param p1, "size"    # I
 
@@ -935,7 +935,7 @@
 .end method
 
 .method public static final setVisible(Landroid/view/View;Z)V
-    .locals 2
+    .registers 4
     .param p0, "$this$isVisible"    # Landroid/view/View;
     .param p1, "value"    # Z
 
@@ -943,16 +943,16 @@
 
     .line 256
     .local v0, "$i$f$setVisible":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     const/16 v1, 0x8
 
-    :goto_0
+    :goto_7
     invoke-virtual {p0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 257
@@ -960,7 +960,7 @@
 .end method
 
 .method public static final updateLayoutParams(Landroid/view/View;Lkotlin/jvm/functions/Function1;)V
-    .locals 5
+    .registers 7
     .param p0, "$this$updateLayoutParams"    # Landroid/view/View;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -990,7 +990,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_11
 
     .line 421
     .local v3, "params$iv":Landroid/view/ViewGroup$LayoutParams;
@@ -1011,7 +1011,7 @@
     .line 420
     .restart local v1    # "$this$updateLayoutParams$iv":Landroid/view/View;
     .restart local v2    # "$i$f$updateLayoutParamsTyped":I
-    :cond_0
+    :cond_11
     new-instance v3, Ljava/lang/NullPointerException;
 
     const-string v4, "null cannot be cast to non-null type android.view.ViewGroup.LayoutParams"
@@ -1022,7 +1022,7 @@
 .end method
 
 .method public static final synthetic updateLayoutParamsTyped(Landroid/view/View;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p0, "$this$updateLayoutParams"    # Landroid/view/View;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1066,7 +1066,7 @@
 .end method
 
 .method public static final updatePadding(Landroid/view/View;IIII)V
-    .locals 1
+    .registers 6
     .param p0, "$this$updatePadding"    # Landroid/view/View;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -1084,7 +1084,7 @@
 .end method
 
 .method public static synthetic updatePadding$default(Landroid/view/View;IIIIILjava/lang/Object;)V
-    .locals 0
+    .registers 7
     .param p0, "$this$updatePadding_u24default"    # Landroid/view/View;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -1094,7 +1094,7 @@
     .line 157
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_8
 
     .line 158
     invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
@@ -1102,10 +1102,10 @@
     move-result p1
 
     .line 157
-    :cond_0
+    :cond_8
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_10
 
     .line 159
     invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
@@ -1113,10 +1113,10 @@
     move-result p2
 
     .line 157
-    :cond_1
+    :cond_10
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_18
 
     .line 160
     invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
@@ -1124,10 +1124,10 @@
     move-result p3
 
     .line 157
-    :cond_2
+    :cond_18
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_20
 
     .line 161
     invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
@@ -1135,7 +1135,7 @@
     move-result p4
 
     .line 157
-    :cond_3
+    :cond_20
     const/4 p5, 0x0
 
     .line 163
@@ -1147,7 +1147,7 @@
 .end method
 
 .method public static final updatePaddingRelative(Landroid/view/View;IIII)V
-    .locals 1
+    .registers 6
     .param p0, "$this$updatePaddingRelative"    # Landroid/view/View;
     .param p1, "start"    # I
     .param p2, "top"    # I
@@ -1165,7 +1165,7 @@
 .end method
 
 .method public static synthetic updatePaddingRelative$default(Landroid/view/View;IIIIILjava/lang/Object;)V
-    .locals 0
+    .registers 7
     .param p0, "$this$updatePaddingRelative_u24default"    # Landroid/view/View;
     .param p1, "start"    # I
     .param p2, "top"    # I
@@ -1175,7 +1175,7 @@
     .line 142
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_8
 
     .line 143
     invoke-virtual {p0}, Landroid/view/View;->getPaddingStart()I
@@ -1183,10 +1183,10 @@
     move-result p1
 
     .line 142
-    :cond_0
+    :cond_8
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_10
 
     .line 144
     invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
@@ -1194,10 +1194,10 @@
     move-result p2
 
     .line 142
-    :cond_1
+    :cond_10
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_18
 
     .line 145
     invoke-virtual {p0}, Landroid/view/View;->getPaddingEnd()I
@@ -1205,10 +1205,10 @@
     move-result p3
 
     .line 142
-    :cond_2
+    :cond_18
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_20
 
     .line 146
     invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
@@ -1216,7 +1216,7 @@
     move-result p4
 
     .line 142
-    :cond_3
+    :cond_20
     const/4 p5, 0x0
 
     .line 148

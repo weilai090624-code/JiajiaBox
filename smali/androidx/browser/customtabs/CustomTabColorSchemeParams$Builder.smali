@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 129
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public build()Landroidx/browser/customtabs/CustomTabColorSchemeParams;
-    .locals 5
+    .registers 6
 
     .line 177
     new-instance v0, Landroidx/browser/customtabs/CustomTabColorSchemeParams;
@@ -56,7 +56,7 @@
 .end method
 
 .method public setNavigationBarColor(I)Landroidx/browser/customtabs/CustomTabColorSchemeParams$Builder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 158
@@ -75,7 +75,7 @@
 .end method
 
 .method public setNavigationBarDividerColor(I)Landroidx/browser/customtabs/CustomTabColorSchemeParams$Builder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 167
@@ -90,7 +90,7 @@
 .end method
 
 .method public setSecondaryToolbarColor(I)Landroidx/browser/customtabs/CustomTabColorSchemeParams$Builder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 149
@@ -105,7 +105,7 @@
 .end method
 
 .method public setToolbarColor(I)Landroidx/browser/customtabs/CustomTabColorSchemeParams$Builder;
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 140

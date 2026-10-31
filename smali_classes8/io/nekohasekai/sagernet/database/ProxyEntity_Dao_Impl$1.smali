@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/ProxyEntity_Dao_Impl;Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/database/ProxyEntity_Dao_Impl;
     .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method protected bind(Landroidx/sqlite/db/SupportSQLiteStatement;Lio/nekohasekai/sagernet/database/ProxyEntity;)V
-    .locals 19
+    .registers 22
     .param p1, "statement"    # Landroidx/sqlite/db/SupportSQLiteStatement;
     .param p2, "entity"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -163,15 +163,15 @@
 
     const/16 v2, 0xa
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_5b
 
     .line 82
     invoke-interface {v0, v2}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_62
 
     .line 84
-    :cond_0
+    :cond_5b
     invoke-virtual/range {p2 .. p2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getError()Ljava/lang/String;
 
     move-result-object v1
@@ -179,7 +179,7 @@
     invoke-interface {v0, v2, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 86
-    :goto_0
+    :goto_62
     invoke-virtual/range {p2 .. p2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getSocksBean()Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
 
     move-result-object v1
@@ -451,7 +451,7 @@
 .end method
 
 .method protected bridge synthetic bind(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -472,7 +472,7 @@
 .end method
 
 .method protected createQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 66
     const-string v0, "INSERT OR ABORT INTO `proxy_entities` (`id`,`groupId`,`type`,`userOrder`,`tx`,`rx`,`status`,`ping`,`uuid`,`error`,`socksBean`,`httpBean`,`ssBean`,`vmessBean`,`trojanBean`,`trojanGoBean`,`mieruBean`,`naiveBean`,`hysteriaBean`,`tuicBean`,`sshBean`,`wgBean`,`shadowTLSBean`,`anyTLSBean`,`chainBean`,`nekoBean`,`configBean`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"

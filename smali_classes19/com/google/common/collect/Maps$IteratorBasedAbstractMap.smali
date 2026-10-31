@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3618
     .local p0, "this":Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;, "Lcom/google/common/collect/Maps$IteratorBasedAbstractMap<TK;TV;>;"
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 3643
     .local p0, "this":Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;, "Lcom/google/common/collect/Maps$IteratorBasedAbstractMap<TK;TV;>;"
@@ -66,7 +66,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

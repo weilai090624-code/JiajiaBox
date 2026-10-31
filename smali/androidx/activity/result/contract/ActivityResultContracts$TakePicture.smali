@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 265
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContract;-><init>()V
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public createIntent(Landroid/content/Context;Landroid/net/Uri;)Landroid/content/Intent;
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Landroid/net/Uri;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public bridge synthetic createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -123,7 +123,7 @@
 .end method
 
 .method public final getSynchronousResult(Landroid/content/Context;Landroid/net/Uri;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Signature;
@@ -153,7 +153,7 @@
 .end method
 
 .method public bridge synthetic getSynchronousResult(Landroid/content/Context;Ljava/lang/Object;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -170,23 +170,23 @@
 .end method
 
 .method public final parseResult(ILandroid/content/Intent;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 
     .line 278
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_6
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -195,7 +195,7 @@
 .end method
 
 .method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11591
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onScrollStateChanged(Landroidx/recyclerview/widget/RecyclerView;I)V
-    .locals 0
+    .registers 3
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "newState"    # I
 
@@ -36,7 +36,7 @@
 .end method
 
 .method public onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
-    .locals 0
+    .registers 4
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "dx"    # I
     .param p3, "dy"    # I

@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 52
     const/4 v0, 0x3
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +63,7 @@
 .end method
 
 .method static checkMatchParent(Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;Landroidx/constraintlayout/core/LinearSystem;Landroidx/constraintlayout/core/widgets/ConstraintWidget;)V
-    .locals 5
+    .registers 8
     .param p0, "container"    # Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;
     .param p1, "system"    # Landroidx/constraintlayout/core/LinearSystem;
     .param p2, "widget"    # Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -87,7 +87,7 @@
 
     const/4 v3, 0x2
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_4b
 
     iget-object v0, p2, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
 
@@ -95,7 +95,7 @@
 
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_4b
 
     .line 70
     iget-object v0, p2, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -160,7 +160,7 @@
     .line 80
     .end local v0    # "left":I
     .end local v1    # "right":I
-    :cond_0
+    :cond_4b
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;->mListDimensionBehaviors:[Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
 
     const/4 v1, 0x1
@@ -169,7 +169,7 @@
 
     sget-object v2, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-eq v0, v2, :cond_3
+    if-eq v0, v2, :cond_b0
 
     iget-object v0, p2, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
 
@@ -177,7 +177,7 @@
 
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_b0
 
     .line 83
     iget-object v0, p2, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->mTop:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -236,7 +236,7 @@
     .line 90
     iget v2, p2, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->mBaselineDistance:I
 
-    if-gtz v2, :cond_1
+    if-gtz v2, :cond_97
 
     invoke-virtual {p2}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->getVisibility()I
 
@@ -244,10 +244,10 @@
 
     const/16 v4, 0x8
 
-    if-ne v2, v4, :cond_2
+    if-ne v2, v4, :cond_ab
 
     .line 91
-    :cond_1
+    :cond_97
     iget-object v2, p2, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->mBaseline:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
 
     iget-object v4, p2, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->mBaseline:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -270,7 +270,7 @@
     invoke-virtual {p1, v2, v4}, Landroidx/constraintlayout/core/LinearSystem;->addEquality(Landroidx/constraintlayout/core/SolverVariable;I)V
 
     .line 94
-    :cond_2
+    :cond_ab
     iput v3, p2, Landroidx/constraintlayout/core/widgets/ConstraintWidget;->mVerticalResolution:I
 
     .line 95
@@ -279,27 +279,27 @@
     .line 97
     .end local v0    # "top":I
     .end local v1    # "bottom":I
-    :cond_3
+    :cond_b0
     return-void
 .end method
 
 .method public static final enabled(II)Z
-    .locals 1
+    .registers 3
     .param p0, "optimizationLevel"    # I
     .param p1, "optimization"    # I
 
     .line 100
     and-int v0, p0, p1
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method

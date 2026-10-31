@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 198
     new-instance v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
@@ -69,7 +69,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 201
     const/4 v0, 0x1
@@ -83,7 +83,7 @@
 .end method
 
 .method static synthetic access$300()Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
-    .locals 1
+    .registers 1
 
     .line 196
     sget-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
@@ -92,7 +92,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 229
     sget-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public bridge synthetic distance(Ljava/lang/Comparable;Ljava/lang/Comparable;)J
-    .locals 0
+    .registers 3
 
     .line 196
     check-cast p1, Ljava/math/BigInteger;
@@ -118,7 +118,7 @@
 .end method
 
 .method public distance(Ljava/math/BigInteger;Ljava/math/BigInteger;)J
-    .locals 2
+    .registers 5
     .param p1, "start"    # Ljava/math/BigInteger;
     .param p2, "end"    # Ljava/math/BigInteger;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public bridge synthetic next(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 2
 
     .line 196
     check-cast p1, Ljava/math/BigInteger;
@@ -160,7 +160,7 @@
 .end method
 
 .method public next(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/math/BigInteger;
 
     .line 209
@@ -174,7 +174,7 @@
 .end method
 
 .method bridge synthetic offset(Ljava/lang/Comparable;J)Ljava/lang/Comparable;
-    .locals 0
+    .registers 4
 
     .line 196
     check-cast p1, Ljava/math/BigInteger;
@@ -187,7 +187,7 @@
 .end method
 
 .method offset(Ljava/math/BigInteger;J)Ljava/math/BigInteger;
-    .locals 1
+    .registers 5
     .param p1, "origin"    # Ljava/math/BigInteger;
     .param p2, "distance"    # J
 
@@ -209,7 +209,7 @@
 .end method
 
 .method public bridge synthetic previous(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 2
 
     .line 196
     check-cast p1, Ljava/math/BigInteger;
@@ -222,7 +222,7 @@
 .end method
 
 .method public previous(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/math/BigInteger;
 
     .line 214
@@ -236,7 +236,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 234
     const-string v0, "DiscreteDomain.bigIntegers()"

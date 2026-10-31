@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 95
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public append(ILandroidx/constraintlayout/core/motion/CustomVariable;)V
-    .locals 3
+    .registers 6
     .param p1, "position"    # I
     .param p2, "value"    # Landroidx/constraintlayout/core/motion/CustomVariable;
 
@@ -64,13 +64,13 @@
 
     aget-object v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 128
     invoke-virtual {p0, p1}, Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;->remove(I)V
 
     .line 130
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;->values:[Landroidx/constraintlayout/core/motion/CustomVariable;
 
     aput-object p2, v0, p1
@@ -96,7 +96,7 @@
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 100
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;->keys:[I
@@ -122,7 +122,7 @@
 .end method
 
 .method public dump()V
-    .locals 4
+    .registers 5
 
     .line 106
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -170,10 +170,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_2c
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;->count:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_54
 
     .line 109
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -182,16 +182,16 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3c
 
     const-string v3, ""
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_0
+    :cond_3c
     const-string v3, ", "
 
-    :goto_1
+    :goto_3e
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -213,11 +213,11 @@
     .line 108
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 111
     .end local v0    # "i":I
-    :cond_1
+    :cond_54
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "]"
@@ -229,7 +229,7 @@
 .end method
 
 .method public keyAt(I)I
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
 
     .line 123
@@ -241,7 +241,7 @@
 .end method
 
 .method public remove(I)V
-    .locals 4
+    .registers 6
     .param p1, "position"    # I
 
     .line 136
@@ -258,17 +258,17 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_7
     iget v2, p0, Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;->count:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_28
 
     .line 138
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;->keys:[I
 
     aget v2, v2, v1
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_19
 
     .line 139
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;->keys:[I
@@ -281,8 +281,8 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 142
-    :cond_0
-    if-eq v1, v0, :cond_1
+    :cond_19
+    if-eq v1, v0, :cond_23
 
     .line 143
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;->keys:[I
@@ -294,18 +294,18 @@
     aput v3, v2, v1
 
     .line 145
-    :cond_1
+    :cond_23
     add-int/lit8 v0, v0, 0x1
 
     .line 137
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 148
     .end local v0    # "j":I
     .end local v1    # "i":I
-    :cond_2
+    :cond_28
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;->count:I
 
     add-int/lit8 v0, v0, -0x1
@@ -317,7 +317,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 115
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/KeyFrameArray$CustomVar;->count:I
@@ -326,7 +326,7 @@
 .end method
 
 .method public valueAt(I)Landroidx/constraintlayout/core/motion/CustomVariable;
-    .locals 2
+    .registers 4
     .param p1, "i"    # I
 
     .line 119

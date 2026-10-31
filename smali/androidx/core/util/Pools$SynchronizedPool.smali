@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "maxPoolSize"    # I
 
     .line 123
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public acquire()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -101,19 +101,19 @@
 
     .line 126
     .local v1, "$i$a$-synchronized-Pools$SynchronizedPool$acquire$1":I
-    :try_start_0
+    :try_start_4
     invoke-super {p0}, Landroidx/core/util/Pools$SimplePool;->acquire()Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_4 .. :try_end_8} :catchall_a
 
     .end local v1    # "$i$a$-synchronized-Pools$SynchronizedPool$acquire$1":I
     monitor-exit v0
 
     return-object v2
 
-    :catchall_0
+    :catchall_a
     move-exception v1
 
     monitor-exit v0
@@ -122,7 +122,7 @@
 .end method
 
 .method public release(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "instance"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -144,19 +144,19 @@
 
     .line 130
     .local v1, "$i$a$-synchronized-Pools$SynchronizedPool$release$1":I
-    :try_start_0
+    :try_start_9
     invoke-super {p0, p1}, Landroidx/core/util/Pools$SimplePool;->release(Ljava/lang/Object;)Z
 
     move-result v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_9 .. :try_end_d} :catchall_f
 
     .end local v1    # "$i$a$-synchronized-Pools$SynchronizedPool$release$1":I
     monitor-exit v0
 
     return v2
 
-    :catchall_0
+    :catchall_f
     move-exception v1
 
     monitor-exit v0

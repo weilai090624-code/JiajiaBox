@@ -5,11 +5,11 @@
 
 # direct methods
 .method public static synthetic toZonedDateTime(Ljava/util/GregorianCalendar;)Lj$/time/ZonedDateTime;
-    .locals 1
+    .registers 2
 
     instance-of v0, p0, Lj$/util/GregorianCalendarRetargetInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/util/GregorianCalendarRetargetInterface;
 
@@ -19,7 +19,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     invoke-static {p0}, Lj$/util/DesugarGregorianCalendar;->toZonedDateTime(Ljava/util/GregorianCalendar;)Lj$/time/ZonedDateTime;
 
     move-result-object p0

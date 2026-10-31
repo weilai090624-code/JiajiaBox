@@ -5,10 +5,10 @@
 
 # direct methods
 .method public static synthetic m(Landroidx/navigation/NavType$Companion;Ljava/lang/String;Ljava/lang/String;)Landroidx/navigation/NavType;
-    .locals 3
+    .registers 6
 
     .line 0
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3a
 
     const-string v0, "java"
 
@@ -16,12 +16,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
-    goto :goto_0
+    goto :goto_3a
 
-    :cond_0
-    :try_start_0
+    :cond_b
+    :try_start_b
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -51,12 +51,12 @@
     invoke-virtual {p0, v0, p2}, Landroidx/navigation/NavType$Companion;->fromArgType(Ljava/lang/String;Ljava/lang/String;)Landroidx/navigation/NavType;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/lang/RuntimeException; {:try_start_b .. :try_end_2a} :catch_2b
 
     return-object p0
 
-    :catch_0
+    :catch_2b
     move-exception v0
 
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
@@ -65,7 +65,7 @@
 
     instance-of v1, v1, Ljava/lang/ClassNotFoundException;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_39
 
     invoke-virtual {p0, p1, p2}, Landroidx/navigation/NavType$Companion;->fromArgType(Ljava/lang/String;Ljava/lang/String;)Landroidx/navigation/NavType;
 
@@ -73,11 +73,11 @@
 
     return-object p0
 
-    :cond_1
+    :cond_39
     throw v0
 
-    :cond_2
-    :goto_0
+    :cond_3a
+    :goto_3a
     invoke-virtual {p0, p1, p2}, Landroidx/navigation/NavType$Companion;->fromArgType(Ljava/lang/String;Ljava/lang/String;)Landroidx/navigation/NavType;
 
     move-result-object p0

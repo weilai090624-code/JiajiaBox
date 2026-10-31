@@ -98,7 +98,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$Companion;
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 595
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContract;-><init>()V
@@ -121,7 +121,7 @@
 .end method
 
 .method public static final getSystemFallbackPicker$activity_release(Landroid/content/Context;)Landroid/content/pm/ResolveInfo;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -137,7 +137,7 @@
 .end method
 
 .method public static final isPhotoPickerAvailable()Z
-    .locals 1
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         message = "This method is deprecated in favor of isPhotoPickerAvailable(context) to support the picker provided by updatable system apps"
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -160,7 +160,7 @@
 .end method
 
 .method public static final isPhotoPickerAvailable(Landroid/content/Context;)Z
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -176,7 +176,7 @@
 .end method
 
 .method public static final isSystemFallbackPickerAvailable$activity_release(Landroid/content/Context;)Z
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -192,7 +192,7 @@
 .end method
 
 .method public static final isSystemPickerAvailable$activity_release()Z
-    .locals 1
+    .registers 1
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -209,7 +209,7 @@
 
 # virtual methods
 .method public createIntent(Landroid/content/Context;Landroidx/activity/result/PickVisualMediaRequest;)Landroid/content/Intent;
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Landroidx/activity/result/PickVisualMediaRequest;
 
@@ -228,7 +228,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     .line 781
     new-instance v0, Landroid/content/Intent;
@@ -274,7 +274,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_44
 
     .line 786
     const-string v3, "android.provider.extra.PICK_IMAGES_ACCENT_COLOR"
@@ -286,23 +286,23 @@
     invoke-virtual {v1, v3, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
     .line 788
-    :cond_0
+    :cond_44
     nop
 
     .line 781
     .end local v1    # "$this$createIntent_u24lambda_u240":Landroid/content/Intent;
     .end local v2    # "$i$a$-apply-ActivityResultContracts$PickVisualMedia$createIntent$1":I
-    goto/16 :goto_0
+    goto/16 :goto_d4
 
     .line 789
-    :cond_1
+    :cond_47
     sget-object v0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$Companion;
 
     invoke-virtual {v0, p1}, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$Companion;->isSystemFallbackPickerAvailable$activity_release(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_a3
 
     .line 790
     sget-object v0, Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$Companion;
@@ -311,7 +311,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_97
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -369,7 +369,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_94
 
     .line 797
     const-string v4, "androidx.activity.result.contract.extra.PICK_IMAGES_ACCENT_COLOR"
@@ -381,7 +381,7 @@
     invoke-virtual {v2, v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
     .line 799
-    :cond_2
+    :cond_94
     nop
 
     .line 791
@@ -390,10 +390,10 @@
     move-object v0, v1
 
     .end local v0    # "fallbackPicker":Landroid/content/pm/ActivityInfo;
-    goto :goto_0
+    goto :goto_d4
 
     .line 790
-    :cond_3
+    :cond_97
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Required value was null."
@@ -407,7 +407,7 @@
     throw v0
 
     .line 804
-    :cond_4
+    :cond_a3
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.OPEN_DOCUMENT"
@@ -438,7 +438,7 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_d2
 
     .line 810
     const-string v3, "*/*"
@@ -459,7 +459,7 @@
     invoke-virtual {v1, v4, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
 
     .line 813
-    :cond_5
+    :cond_d2
     nop
 
     .line 804
@@ -468,12 +468,12 @@
     nop
 
     .line 780
-    :goto_0
+    :goto_d4
     return-object v0
 .end method
 
 .method public bridge synthetic createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -490,7 +490,7 @@
 .end method
 
 .method public final getSynchronousResult(Landroid/content/Context;Landroidx/activity/result/PickVisualMediaRequest;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Landroidx/activity/result/PickVisualMediaRequest;
     .annotation system Ldalvik/annotation/Signature;
@@ -520,7 +520,7 @@
 .end method
 
 .method public bridge synthetic getSynchronousResult(Landroid/content/Context;Ljava/lang/Object;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -537,7 +537,7 @@
 .end method
 
 .method public final parseResult(ILandroid/content/Intent;)Landroid/net/Uri;
-    .locals 3
+    .registers 6
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -558,32 +558,32 @@
     .local v1, "$i$a$-takeIf-ActivityResultContracts$PickVisualMedia$parseResult$1":I
     const/4 v2, -0x1
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_9
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v2, 0x0
 
     .end local v0    # "it":Landroid/content/Intent;
     .end local v1    # "$i$a$-takeIf-ActivityResultContracts$PickVisualMedia$parseResult$1":I
-    :goto_0
+    :goto_a
     const/4 v0, 0x0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_f
 
     move-object v1, p2
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     move-object v1, v0
 
     .line 826
-    :goto_1
-    if-eqz v1, :cond_3
+    :goto_10
+    if-eqz v1, :cond_28
 
     .line 825
     nop
@@ -600,7 +600,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_27
 
     sget-object v2, Landroidx/activity/result/contract/ActivityResultContracts$GetMultipleContents;->Companion:Landroidx/activity/result/contract/ActivityResultContracts$GetMultipleContents$Companion;
 
@@ -614,13 +614,13 @@
 
     check-cast v2, Landroid/net/Uri;
 
-    :cond_2
+    :cond_27
     move-object v0, v2
 
     .line 826
     .end local v0    # "$this$parseResult_u24lambda_u244":Landroid/content/Intent;
     .end local v1    # "$i$a$-run-ActivityResultContracts$PickVisualMedia$parseResult$2":I
-    :cond_3
+    :cond_28
     nop
 
     .line 824
@@ -628,7 +628,7 @@
 .end method
 
 .method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 

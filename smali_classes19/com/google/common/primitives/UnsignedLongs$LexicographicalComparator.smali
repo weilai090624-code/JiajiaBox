@@ -35,7 +35,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/primitives/UnsignedLongs$LexicographicalComparator;
-    .locals 3
+    .registers 3
 
     .line 161
     const/4 v0, 0x1
@@ -52,7 +52,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 162
     new-instance v0, Lcom/google/common/primitives/UnsignedLongs$LexicographicalComparator;
@@ -76,7 +76,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -90,7 +90,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/primitives/UnsignedLongs$LexicographicalComparator;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 161
@@ -106,7 +106,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/primitives/UnsignedLongs$LexicographicalComparator;
-    .locals 1
+    .registers 1
 
     .line 161
     sget-object v0, Lcom/google/common/primitives/UnsignedLongs$LexicographicalComparator;->$VALUES:[Lcom/google/common/primitives/UnsignedLongs$LexicographicalComparator;
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 161
     check-cast p1, [J
@@ -138,7 +138,7 @@
 .end method
 
 .method public compare([J[J)I
-    .locals 7
+    .registers 10
     .param p1, "left"    # [J
     .param p2, "right"    # [J
 
@@ -156,8 +156,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_7
+    if-ge v1, v0, :cond_1d
 
     .line 168
     aget-wide v2, p1, v1
@@ -166,7 +166,7 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1a
 
     .line 169
     aget-wide v2, p1, v1
@@ -180,14 +180,14 @@
     return v2
 
     .line 167
-    :cond_0
+    :cond_1a
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 172
     .end local v1    # "i":I
-    :cond_1
+    :cond_1d
     array-length v1, p1
 
     array-length v2, p2
@@ -198,7 +198,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 177
     const-string v0, "UnsignedLongs.lexicographicalComparator()"

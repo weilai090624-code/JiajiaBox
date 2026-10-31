@@ -72,7 +72,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$ANrvAZ-VAwktb4ej0IJxPGmbc5c(Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;Landroidx/window/layout/WindowLayoutInfo;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;->accept$lambda-0(Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;Landroidx/window/layout/WindowLayoutInfo;)V
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Activity;Ljava/util/concurrent/Executor;Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 5
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroidx/core/util/Consumer;
@@ -124,7 +124,7 @@
 .end method
 
 .method private static final accept$lambda-0(Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;Landroidx/window/layout/WindowLayoutInfo;)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;
     .param p1, "$newLayoutInfo"    # Landroidx/window/layout/WindowLayoutInfo;
 
@@ -147,7 +147,7 @@
 
 # virtual methods
 .method public final accept(Landroidx/window/layout/WindowLayoutInfo;)V
-    .locals 2
+    .registers 4
     .param p1, "newLayoutInfo"    # Landroidx/window/layout/WindowLayoutInfo;
 
     const-string v0, "newLayoutInfo"
@@ -171,7 +171,7 @@
 .end method
 
 .method public final getActivity()Landroid/app/Activity;
-    .locals 1
+    .registers 2
 
     .line 158
     iget-object v0, p0, Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;->activity:Landroid/app/Activity;
@@ -180,7 +180,7 @@
 .end method
 
 .method public final getCallback()Landroidx/core/util/Consumer;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -197,7 +197,7 @@
 .end method
 
 .method public final getLastInfo()Landroidx/window/layout/WindowLayoutInfo;
-    .locals 1
+    .registers 2
 
     .line 162
     iget-object v0, p0, Landroidx/window/layout/SidecarWindowBackend$WindowLayoutChangeCallbackWrapper;->lastInfo:Landroidx/window/layout/WindowLayoutInfo;
@@ -206,7 +206,7 @@
 .end method
 
 .method public final setLastInfo(Landroidx/window/layout/WindowLayoutInfo;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroidx/window/layout/WindowLayoutInfo;
 
     .line 162

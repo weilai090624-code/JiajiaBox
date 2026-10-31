@@ -82,7 +82,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/Set;)V
-    .locals 6
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +125,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/Set;)V
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -174,7 +174,7 @@
 
 # virtual methods
 .method public accumulator()Ljava/util/function/BiConsumer;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -191,7 +191,7 @@
 .end method
 
 .method public characteristics()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -209,7 +209,7 @@
 .end method
 
 .method public combiner()Ljava/util/function/BinaryOperator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -226,7 +226,7 @@
 .end method
 
 .method public finisher()Ljava/util/function/Function;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -243,7 +243,7 @@
 .end method
 
 .method public supplier()Ljava/util/function/Supplier;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

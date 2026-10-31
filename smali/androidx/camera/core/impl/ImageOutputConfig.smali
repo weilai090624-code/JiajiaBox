@@ -86,7 +86,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 49
     const-class v0, Landroidx/camera/core/AspectRatio;

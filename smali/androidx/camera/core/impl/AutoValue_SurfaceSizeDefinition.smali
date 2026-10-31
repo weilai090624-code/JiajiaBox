@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/util/Size;Landroid/util/Size;Landroid/util/Size;)V
-    .locals 2
+    .registers 6
     .param p1, "analysisSize"    # Landroid/util/Size;
     .param p2, "previewSize"    # Landroid/util/Size;
     .param p3, "recordSize"    # Landroid/util/Size;
@@ -34,19 +34,19 @@
     invoke-direct {p0}, Landroidx/camera/core/impl/SurfaceSizeDefinition;-><init>()V
 
     .line 20
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_20
 
     .line 23
     iput-object p1, p0, Landroidx/camera/core/impl/AutoValue_SurfaceSizeDefinition;->analysisSize:Landroid/util/Size;
 
     .line 24
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_18
 
     .line 27
     iput-object p2, p0, Landroidx/camera/core/impl/AutoValue_SurfaceSizeDefinition;->previewSize:Landroid/util/Size;
 
     .line 28
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_10
 
     .line 31
     iput-object p3, p0, Landroidx/camera/core/impl/AutoValue_SurfaceSizeDefinition;->recordSize:Landroid/util/Size;
@@ -55,7 +55,7 @@
     return-void
 
     .line 29
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null recordSize"
@@ -65,7 +65,7 @@
     throw v0
 
     .line 25
-    :cond_1
+    :cond_18
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null previewSize"
@@ -75,7 +75,7 @@
     throw v0
 
     .line 21
-    :cond_2
+    :cond_20
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null analysisSize"
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -102,18 +102,18 @@
     .line 60
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 61
     return v0
 
     .line 63
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/camera/core/impl/SurfaceSizeDefinition;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_33
 
     .line 64
     move-object v1, p1
@@ -132,7 +132,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_31
 
     iget-object v3, p0, Landroidx/camera/core/impl/AutoValue_SurfaceSizeDefinition;->previewSize:Landroid/util/Size;
 
@@ -145,7 +145,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_31
 
     iget-object v3, p0, Landroidx/camera/core/impl/AutoValue_SurfaceSizeDefinition;->recordSize:Landroid/util/Size;
 
@@ -158,25 +158,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_31
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_1
+    :cond_31
     const/4 v0, 0x0
 
     .line 65
-    :goto_0
+    :goto_32
     return v0
 
     .line 69
     .end local v1    # "that":Landroidx/camera/core/impl/SurfaceSizeDefinition;
-    :cond_2
+    :cond_33
     return v2
 .end method
 
 .method public getAnalysisSize()Landroid/util/Size;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Landroidx/camera/core/impl/AutoValue_SurfaceSizeDefinition;->analysisSize:Landroid/util/Size;
@@ -185,7 +185,7 @@
 .end method
 
 .method public getPreviewSize()Landroid/util/Size;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Landroidx/camera/core/impl/AutoValue_SurfaceSizeDefinition;->previewSize:Landroid/util/Size;
@@ -194,7 +194,7 @@
 .end method
 
 .method public getRecordSize()Landroid/util/Size;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Landroidx/camera/core/impl/AutoValue_SurfaceSizeDefinition;->recordSize:Landroid/util/Size;
@@ -203,7 +203,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 74
     const/4 v0, 0x1
@@ -252,7 +252,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 51
     new-instance v0, Ljava/lang/StringBuilder;

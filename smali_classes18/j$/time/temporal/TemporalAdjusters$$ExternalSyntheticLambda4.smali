@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public final adjustInto(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     invoke-static {p1}, Lj$/time/temporal/TemporalAdjusters;->lambda$firstDayOfNextYear$6(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
 

@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;JJ)V
-    .locals 14
+    .registers 20
     .param p2, "sliceOrigin"    # J
     .param p4, "sliceFence"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructor <init>(Lj$/util/Spliterator;JJJJ)V
-    .locals 0
+    .registers 10
     .param p2, "sliceOrigin"    # J
     .param p4, "sliceFence"    # J
     .param p6, "origin"    # J
@@ -97,7 +97,7 @@
 .end method
 
 .method static synthetic lambda$forEachRemaining$1(Ljava/lang/Object;)V
-    .locals 0
+    .registers 1
     .param p0, "e"    # Ljava/lang/Object;
 
     .line 745
@@ -105,7 +105,7 @@
 .end method
 
 .method static synthetic lambda$tryAdvance$0(Ljava/lang/Object;)V
-    .locals 0
+    .registers 1
     .param p0, "e"    # Ljava/lang/Object;
 
     .line 717
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,33 +136,33 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_c
 
     .line 733
     return-void
 
     .line 735
-    :cond_0
+    :cond_c
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->fence:J
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_15
 
     .line 736
     return-void
 
     .line 738
-    :cond_1
+    :cond_15
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->sliceOrigin:J
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_36
 
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
 
@@ -178,7 +178,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_2
+    if-gtz v4, :cond_36
 
     .line 740
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->s:Lj$/util/Spliterator;
@@ -190,11 +190,11 @@
 
     iput-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
 
-    goto :goto_2
+    goto :goto_63
 
     .line 744
-    :cond_2
-    :goto_0
+    :cond_36
+    :goto_36
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->sliceOrigin:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
@@ -203,7 +203,7 @@
 
     cmp-long v6, v0, v2
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_50
 
     .line 745
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->s:Lj$/util/Spliterator;
@@ -221,18 +221,18 @@
 
     iput-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
 
-    goto :goto_0
+    goto :goto_36
 
     .line 749
-    :cond_3
-    :goto_1
+    :cond_50
+    :goto_50
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->fence:J
 
     cmp-long v6, v0, v2
 
-    if-gez v6, :cond_4
+    if-gez v6, :cond_63
 
     .line 750
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->s:Lj$/util/Spliterator;
@@ -246,16 +246,16 @@
 
     iput-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
 
-    goto :goto_1
+    goto :goto_50
 
     .line 753
-    :cond_4
-    :goto_2
+    :cond_63
+    :goto_63
     return-void
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -265,7 +265,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -275,7 +275,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -285,7 +285,7 @@
 .end method
 
 .method protected makeSpliterator(Lj$/util/Spliterator;JJJJ)Lj$/util/Spliterator;
-    .locals 11
+    .registers 21
     .param p2, "sliceOrigin"    # J
     .param p4, "sliceFence"    # J
     .param p6, "origin"    # J
@@ -323,7 +323,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -346,14 +346,14 @@
 
     cmp-long v5, v0, v2
 
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_d
 
     .line 714
     return v4
 
     .line 716
-    :cond_0
-    :goto_0
+    :cond_d
+    :goto_d
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->sliceOrigin:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
@@ -362,7 +362,7 @@
 
     cmp-long v7, v0, v2
 
-    if-lez v7, :cond_1
+    if-lez v7, :cond_27
 
     .line 717
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->s:Lj$/util/Spliterator;
@@ -380,23 +380,23 @@
 
     iput-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
 
-    goto :goto_0
+    goto :goto_d
 
     .line 721
-    :cond_1
+    :cond_27
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
 
     iget-wide v2, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->fence:J
 
     cmp-long v7, v0, v2
 
-    if-ltz v7, :cond_2
+    if-ltz v7, :cond_30
 
     .line 722
     return v4
 
     .line 724
-    :cond_2
+    :cond_30
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;->index:J
 
     add-long/2addr v0, v5

@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1827
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,7 +93,7 @@
 .end method
 
 .method static synthetic access$000(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;ILandroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
     .param p1, "x1"    # I
     .param p2, "x2"    # Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -105,7 +105,7 @@
 .end method
 
 .method static synthetic access$1000(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
     .param p1, "x1"    # Ljava/lang/String;
     .param p2, "x2"    # I
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic access$1100(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;Ljava/lang/String;F)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
     .param p1, "x1"    # Ljava/lang/String;
     .param p2, "x2"    # F
@@ -129,7 +129,7 @@
 .end method
 
 .method static synthetic access$1200(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
     .param p1, "x1"    # Ljava/lang/String;
     .param p2, "x2"    # Ljava/lang/String;
@@ -141,7 +141,7 @@
 .end method
 
 .method static synthetic access$700(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;Landroidx/constraintlayout/widget/ConstraintHelper;ILandroidx/constraintlayout/widget/Constraints$LayoutParams;)V
-    .locals 0
+    .registers 4
     .param p0, "x0"    # Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
     .param p1, "x1"    # Landroidx/constraintlayout/widget/ConstraintHelper;
     .param p2, "x2"    # I
@@ -154,7 +154,7 @@
 .end method
 
 .method static synthetic access$800(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;ILandroidx/constraintlayout/widget/Constraints$LayoutParams;)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
     .param p1, "x1"    # I
     .param p2, "x2"    # Landroidx/constraintlayout/widget/Constraints$LayoutParams;
@@ -166,7 +166,7 @@
 .end method
 
 .method static synthetic access$900(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
     .param p1, "x1"    # Ljava/lang/String;
     .param p2, "x2"    # I
@@ -178,7 +178,7 @@
 .end method
 
 .method private fillFrom(ILandroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;)V
-    .locals 3
+    .registers 6
     .param p1, "viewId"    # I
     .param p2, "param"    # Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -624,7 +624,7 @@
 .end method
 
 .method private fillFromConstraints(ILandroidx/constraintlayout/widget/Constraints$LayoutParams;)V
-    .locals 2
+    .registers 5
     .param p1, "viewId"    # I
     .param p2, "param"    # Landroidx/constraintlayout/widget/Constraints$LayoutParams;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -737,7 +737,7 @@
 .end method
 
 .method private fillFromConstraints(Landroidx/constraintlayout/widget/ConstraintHelper;ILandroidx/constraintlayout/widget/Constraints$LayoutParams;)V
-    .locals 3
+    .registers 7
     .param p1, "helper"    # Landroidx/constraintlayout/widget/ConstraintHelper;
     .param p2, "viewId"    # I
     .param p3, "param"    # Landroidx/constraintlayout/widget/Constraints$LayoutParams;
@@ -760,7 +760,7 @@
     .line 1991
     instance-of v0, p1, Landroidx/constraintlayout/widget/Barrier;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 1992
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
@@ -804,12 +804,12 @@
 
     .line 1998
     .end local v0    # "barrier":Landroidx/constraintlayout/widget/Barrier;
-    :cond_0
+    :cond_27
     return-void
 .end method
 
 .method private get(Ljava/lang/String;Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;)Landroidx/constraintlayout/widget/ConstraintAttribute;
-    .locals 4
+    .registers 7
     .param p1, "attributeName"    # Ljava/lang/String;
     .param p2, "attributeType"    # Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -830,7 +830,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_38
 
     .line 1950
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->mCustomConstraints:Ljava/util/HashMap;
@@ -847,12 +847,12 @@
 
     move-result-object v1
 
-    if-ne v1, p2, :cond_0
+    if-ne v1, p2, :cond_17
 
-    goto :goto_0
+    goto :goto_42
 
     .line 1952
-    :cond_0
+    :cond_17
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -888,7 +888,7 @@
 
     .line 1956
     .end local v0    # "ret":Landroidx/constraintlayout/widget/ConstraintAttribute;
-    :cond_1
+    :cond_38
     new-instance v0, Landroidx/constraintlayout/widget/ConstraintAttribute;
 
     invoke-direct {v0, p1, p2}, Landroidx/constraintlayout/widget/ConstraintAttribute;-><init>(Ljava/lang/String;Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;)V
@@ -900,12 +900,12 @@
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1959
-    :goto_0
+    :goto_42
     return-object v0
 .end method
 
 .method private setColorValue(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "attributeName"    # Ljava/lang/String;
     .param p2, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -933,7 +933,7 @@
 .end method
 
 .method private setFloatValue(Ljava/lang/String;F)V
-    .locals 1
+    .registers 4
     .param p1, "attributeName"    # Ljava/lang/String;
     .param p2, "value"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -961,7 +961,7 @@
 .end method
 
 .method private setIntValue(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "attributeName"    # Ljava/lang/String;
     .param p2, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -989,7 +989,7 @@
 .end method
 
 .method private setStringValue(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "attributeName"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1019,7 +1019,7 @@
 
 # virtual methods
 .method public applyDelta(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;)V
-    .locals 1
+    .registers 3
     .param p1, "c"    # Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1033,7 +1033,7 @@
     .line 1934
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->mDelta:Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1935
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->mDelta:Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;
@@ -1041,12 +1041,12 @@
     invoke-virtual {v0, p1}, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->applyDelta(Landroidx/constraintlayout/widget/ConstraintSet$Constraint;)V
 
     .line 1937
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public applyTo(Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "param"    # Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1419,7 +1419,7 @@
 
     iget-object v0, v0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->mConstraintTag:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13e
 
     .line 2147
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
@@ -1429,7 +1429,7 @@
     iput-object v0, p1, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constraintTag:Ljava/lang/String;
 
     .line 2149
-    :cond_0
+    :cond_13e
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
 
     iget v0, v0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->mWrapBehavior:I
@@ -1461,7 +1461,7 @@
 .end method
 
 .method public clone()Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
-    .locals 3
+    .registers 4
 
     .line 1979
     new-instance v0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
@@ -1512,7 +1512,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -1528,7 +1528,7 @@
 .end method
 
 .method public printDelta(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1542,22 +1542,22 @@
     .line 1940
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->mDelta:Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 1941
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->mDelta:Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;
 
     invoke-virtual {v0, p1}, Landroidx/constraintlayout/widget/ConstraintSet$Constraint$Delta;->printDelta(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 1943
-    :cond_0
+    :cond_a
     const-string v0, "DELTA IS NULL"
 
     invoke-static {p1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1945
-    :goto_0
+    :goto_f
     return-void
 .end method

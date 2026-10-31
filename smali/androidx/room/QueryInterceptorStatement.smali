@@ -80,7 +80,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$0JPyqR6Q_rg0_PLLwppZoQ8UItA(Landroidx/room/QueryInterceptorStatement;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorStatement;->simpleQueryForString$lambda$4(Landroidx/room/QueryInterceptorStatement;)V
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$BQW3zRVgGgV24eEGxxT69QhA-RY(Landroidx/room/QueryInterceptorStatement;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorStatement;->simpleQueryForLong$lambda$3(Landroidx/room/QueryInterceptorStatement;)V
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$HAZ35I4PG8_j29pEkM4jGPQHthQ(Landroidx/room/QueryInterceptorStatement;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorStatement;->execute$lambda$0(Landroidx/room/QueryInterceptorStatement;)V
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$ioBB5xIamV6sfAY_SDXVsvG6_uk(Landroidx/room/QueryInterceptorStatement;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorStatement;->executeInsert$lambda$2(Landroidx/room/QueryInterceptorStatement;)V
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$vNe1N2zlZCqfqG5kv2o-Vt0njSo(Landroidx/room/QueryInterceptorStatement;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/QueryInterceptorStatement;->executeUpdateDelete$lambda$1(Landroidx/room/QueryInterceptorStatement;)V
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/String;Ljava/util/concurrent/Executor;Landroidx/room/RoomDatabase$QueryCallback;)V
-    .locals 1
+    .registers 6
     .param p1, "delegate"    # Landroidx/sqlite/db/SupportSQLiteStatement;
     .param p2, "sqlStatement"    # Ljava/lang/String;
     .param p3, "queryCallbackExecutor"    # Ljava/util/concurrent/Executor;
@@ -171,7 +171,7 @@
 .end method
 
 .method private static final execute$lambda$0(Landroidx/room/QueryInterceptorStatement;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorStatement;
 
     const-string/jumbo v0, "this$0"
@@ -192,7 +192,7 @@
 .end method
 
 .method private static final executeInsert$lambda$2(Landroidx/room/QueryInterceptorStatement;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorStatement;
 
     const-string/jumbo v0, "this$0"
@@ -213,7 +213,7 @@
 .end method
 
 .method private static final executeUpdateDelete$lambda$1(Landroidx/room/QueryInterceptorStatement;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorStatement;
 
     const-string/jumbo v0, "this$0"
@@ -234,7 +234,7 @@
 .end method
 
 .method private final saveArgsToCache(ILjava/lang/Object;)V
-    .locals 7
+    .registers 10
     .param p1, "bindIndex"    # I
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -249,7 +249,7 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_23
 
     .line 103
     iget-object v1, p0, Landroidx/room/QueryInterceptorStatement;->bindArgsCache:Ljava/util/List;
@@ -264,8 +264,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_15
+    if-ge v2, v1, :cond_23
 
     move v3, v2
 
@@ -288,10 +288,10 @@
     .end local v4    # "$i$a$-repeat-QueryInterceptorStatement$saveArgsToCache$1":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 107
-    :cond_0
+    :cond_23
     iget-object v1, p0, Landroidx/room/QueryInterceptorStatement;->bindArgsCache:Ljava/util/List;
 
     invoke-interface {v1, v0, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
@@ -301,7 +301,7 @@
 .end method
 
 .method private static final simpleQueryForLong$lambda$3(Landroidx/room/QueryInterceptorStatement;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorStatement;
 
     const-string/jumbo v0, "this$0"
@@ -322,7 +322,7 @@
 .end method
 
 .method private static final simpleQueryForString$lambda$4(Landroidx/room/QueryInterceptorStatement;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/QueryInterceptorStatement;
 
     const-string/jumbo v0, "this$0"
@@ -345,7 +345,7 @@
 
 # virtual methods
 .method public bindBlob(I[B)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # [B
 
@@ -366,7 +366,7 @@
 .end method
 
 .method public bindDouble(ID)V
-    .locals 1
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # D
 
@@ -387,7 +387,7 @@
 .end method
 
 .method public bindLong(IJ)V
-    .locals 1
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # J
 
@@ -408,7 +408,7 @@
 .end method
 
 .method public bindNull(I)V
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 70
@@ -426,7 +426,7 @@
 .end method
 
 .method public bindString(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/String;
 
@@ -447,7 +447,7 @@
 .end method
 
 .method public clearBindings()V
-    .locals 1
+    .registers 2
 
     .line 95
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->bindArgsCache:Ljava/util/List;
@@ -464,7 +464,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->delegate:Landroidx/sqlite/db/SupportSQLiteStatement;
 
@@ -474,7 +474,7 @@
 .end method
 
 .method public execute()V
-    .locals 2
+    .registers 3
 
     .line 35
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->queryCallbackExecutor:Ljava/util/concurrent/Executor;
@@ -495,7 +495,7 @@
 .end method
 
 .method public executeInsert()J
-    .locals 2
+    .registers 3
 
     .line 49
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->queryCallbackExecutor:Ljava/util/concurrent/Executor;
@@ -517,7 +517,7 @@
 .end method
 
 .method public executeUpdateDelete()I
-    .locals 2
+    .registers 3
 
     .line 42
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->queryCallbackExecutor:Ljava/util/concurrent/Executor;
@@ -539,7 +539,7 @@
 .end method
 
 .method public simpleQueryForLong()J
-    .locals 2
+    .registers 3
 
     .line 56
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->queryCallbackExecutor:Ljava/util/concurrent/Executor;
@@ -561,7 +561,7 @@
 .end method
 
 .method public simpleQueryForString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 63
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->queryCallbackExecutor:Ljava/util/concurrent/Executor;

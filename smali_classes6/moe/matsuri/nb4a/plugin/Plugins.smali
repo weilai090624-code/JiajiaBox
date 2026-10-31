@@ -72,7 +72,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$iXPstkTVwiuXgML8H2DjUkOyQ0w(Landroid/content/pm/ProviderInfo;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lmoe/matsuri/nb4a/plugin/Plugins;->getPluginExternal$lambda$4(Landroid/content/pm/ProviderInfo;)Ljava/lang/CharSequence;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lmoe/matsuri/nb4a/plugin/Plugins;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -103,7 +103,7 @@
 .end method
 
 .method private final buildUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 3
+    .registers 6
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "auth"    # Ljava/lang/String;
 
@@ -156,7 +156,7 @@
 .end method
 
 .method private final getExtPluginNew(Ljava/lang/String;)Ljava/util/List;
-    .locals 17
+    .registers 19
     .param p1, "pluginId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -215,12 +215,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_22
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_3a
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -248,11 +248,11 @@
     .end local v8    # "$i$a$-map-Plugins$getExtPluginNew$pkgs$1":I
     invoke-interface {v2, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_22
 
     .line 128
     .end local v6    # "item$iv$iv":Ljava/util/Map$Entry;
-    :cond_0
+    :cond_3a
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -293,15 +293,15 @@
 
     move-result-object v5
 
-    :cond_1
-    :goto_1
+    :cond_4f
+    :goto_4f
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
     const/4 v7, 0x0
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_7e
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -319,11 +319,11 @@
     .local v10, "$i$a$-filter-Plugins$getExtPluginNew$pkgs$2":I
     iget-object v11, v9, Landroid/content/pm/PackageInfo;->providers:[Landroid/content/pm/ProviderInfo;
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_71
 
     aget-object v7, v11, v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_71
 
     sget-object v8, Lio/nekohasekai/sagernet/plugin/PluginManager;->INSTANCE:Lio/nekohasekai/sagernet/plugin/PluginManager;
 
@@ -335,12 +335,12 @@
 
     move-result-object v8
 
-    goto :goto_2
+    goto :goto_72
 
-    :cond_2
+    :cond_71
     const/4 v8, 0x0
 
-    :goto_2
+    :goto_72
     move-object/from16 v11, p1
 
     invoke-static {v8, v11}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -350,15 +350,15 @@
     .line 130
     .end local v9    # "it":Landroid/content/pm/PackageInfo;
     .end local v10    # "$i$a$-filter-Plugins$getExtPluginNew$pkgs$2":I
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_4f
 
     invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 131
     .end local v6    # "element$iv$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_7e
     move-object/from16 v11, p1
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -413,12 +413,12 @@
 
     move-result-object v10
 
-    :goto_3
+    :goto_98
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
 
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_b9
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -443,20 +443,20 @@
     .local v16, "$i$a$-mapNotNull-Plugins$getExtPluginNew$1":I
     iget-object v8, v15, Landroid/content/pm/PackageInfo;->providers:[Landroid/content/pm/ProviderInfo;
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_b0
 
     aget-object v8, v8, v7
 
-    goto :goto_4
+    goto :goto_b1
 
-    :cond_4
+    :cond_b0
     const/4 v8, 0x0
 
     .line 140
     .end local v15    # "it":Landroid/content/pm/PackageInfo;
     .end local v16    # "$i$a$-mapNotNull-Plugins$getExtPluginNew$1":I
-    :goto_4
-    if-eqz v8, :cond_5
+    :goto_b1
+    if-eqz v8, :cond_b7
 
     .line 142
     .local v8, "it$iv$iv":Ljava/lang/Object;
@@ -471,14 +471,14 @@
     .end local v13    # "element$iv$iv":Ljava/lang/Object;
     .end local v14    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
     .end local v15    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
-    :cond_5
+    :cond_b7
     nop
 
     .end local v12    # "element$iv$iv$iv":Ljava/lang/Object;
-    goto :goto_3
+    goto :goto_98
 
     .line 143
-    :cond_6
+    :cond_b9
     nop
 
     .line 144
@@ -501,7 +501,7 @@
 .end method
 
 .method private final getExtPluginOld(Ljava/lang/String;)Ljava/util/List;
-    .locals 17
+    .registers 19
     .param p1, "pluginId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -527,7 +527,7 @@
 
     const/16 v4, 0x18
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_13
 
     .line 107
     const/high16 v3, 0x40000
@@ -542,7 +542,7 @@
     move v2, v3
 
     .line 109
-    :cond_0
+    :cond_13
     sget-object v3, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getApplication()Lio/nekohasekai/sagernet/SagerNet;
@@ -653,12 +653,12 @@
 
     move-result-object v12
 
-    :goto_0
+    :goto_6c
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_89
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -686,7 +686,7 @@
     .line 153
     .end local v0    # "it":Landroid/content/pm/ResolveInfo;
     .end local v16    # "$i$a$-mapNotNull-Plugins$getExtPluginOld$1":I
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_86
 
     .line 155
     .local v0, "it$iv$iv":Ljava/lang/Object;
@@ -701,14 +701,14 @@
     .end local v14    # "element$iv$iv":Ljava/lang/Object;
     .end local v15    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
     .end local v16    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
-    :cond_1
+    :cond_86
     move-object/from16 v0, p0
 
     .end local v13    # "element$iv$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_6c
 
     .line 156
-    :cond_2
+    :cond_89
     nop
 
     .line 157
@@ -756,13 +756,13 @@
 
     move-result-object v9
 
-    :cond_3
-    :goto_1
+    :cond_a0
+    :goto_a0
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_b6
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -783,15 +783,15 @@
     .line 159
     .end local v11    # "it":Landroid/content/pm/ProviderInfo;
     .end local v12    # "$i$a$-filter-Plugins$getExtPluginOld$2":I
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_a0
 
     invoke-interface {v6, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_a0
 
     .line 160
     .end local v10    # "element$iv$iv":Ljava/lang/Object;
-    :cond_4
+    :cond_b6
     nop
 
     .end local v6    # "destination$iv$iv":Ljava/util/Collection;
@@ -809,7 +809,7 @@
 .end method
 
 .method private static final getPluginExternal$lambda$4(Landroid/content/pm/ProviderInfo;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 3
     .param p0, "it"    # Landroid/content/pm/ProviderInfo;
 
     const-string v0, "it"
@@ -831,7 +831,7 @@
 
 # virtual methods
 .method public final displayExeProvider(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "pkgName"    # Ljava/lang/String;
 
     const-string v0, "pkgName"
@@ -851,39 +851,39 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 46
     const-string v0, "SagerNet"
 
-    goto :goto_0
+    goto :goto_20
 
     .line 47
-    :cond_0
+    :cond_13
     const-string v0, "moe.matsuri.exe."
 
     invoke-static {p1, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 48
     const-string v0, "Matsuri"
 
-    goto :goto_0
+    goto :goto_20
 
     .line 50
-    :cond_1
+    :cond_1e
     const-string v0, "Unknown"
 
     .line 45
-    :goto_0
+    :goto_20
     return-object v0
 .end method
 
 .method public final getPlugin(Ljava/lang/String;)Landroid/content/pm/ProviderInfo;
-    .locals 4
+    .registers 6
     .param p1, "pluginId"    # Ljava/lang/String;
 
     const-string v0, "pluginId"
@@ -899,19 +899,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 56
-    :cond_0
+    :cond_10
     invoke-virtual {p0, p1}, Lmoe/matsuri/nb4a/plugin/Plugins;->getPluginExternal(Ljava/lang/String;)Landroid/content/pm/ProviderInfo;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 121
     .local v0, "it":Landroid/content/pm/ProviderInfo;
@@ -924,7 +924,7 @@
     .line 58
     .end local v0    # "it":Landroid/content/pm/ProviderInfo;
     .end local v1    # "$i$a$-let-Plugins$getPlugin$1":I
-    :cond_1
+    :cond_18
     new-instance v0, Landroid/content/pm/ProviderInfo;
 
     invoke-direct {v0}, Landroid/content/pm/ProviderInfo;-><init>()V
@@ -947,7 +947,7 @@
 .end method
 
 .method public final getPluginExternal(Ljava/lang/String;)Landroid/content/pm/ProviderInfo;
-    .locals 16
+    .registers 18
     .param p1, "pluginId"    # Ljava/lang/String;
 
     move-object/from16 v0, p1
@@ -967,12 +967,12 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     return-object v2
 
     .line 65
-    :cond_0
+    :cond_12
     invoke-direct/range {p0 .. p1}, Lmoe/matsuri/nb4a/plugin/Plugins;->getExtPluginOld(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v1
@@ -983,24 +983,24 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_20
 
     invoke-direct/range {p0 .. p1}, Lmoe/matsuri/nb4a/plugin/Plugins;->getExtPluginNew(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v1
 
     .line 71
-    :cond_1
+    :cond_20
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_27
 
     return-object v2
 
     .line 73
-    :cond_2
+    :cond_27
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v3
@@ -1009,7 +1009,7 @@
 
     const/4 v5, 0x1
 
-    if-le v3, v5, :cond_5
+    if-le v3, v5, :cond_75
 
     .line 74
     move-object v3, v1
@@ -1039,12 +1039,12 @@
 
     move-result-object v10
 
-    :goto_0
+    :goto_40
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_67
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1081,18 +1081,18 @@
     .line 123
     .end local v12    # "it":Landroid/content/pm/ProviderInfo;
     .end local v13    # "$i$a$-filter-Plugins$getPluginExternal$prefer$1":I
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_65
 
     invoke-interface {v7, v11}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    :cond_3
+    :cond_65
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_40
 
     .line 124
     .end local v11    # "element$iv$iv":Ljava/lang/Object;
-    :cond_4
+    :cond_67
     nop
 
     .end local v7    # "destination$iv$iv":Ljava/util/Collection;
@@ -1118,18 +1118,18 @@
 
     const/4 v5, 0x1
 
-    if-ne v3, v5, :cond_5
+    if-ne v3, v5, :cond_75
 
     move-object v1, v2
 
     .line 80
     .end local v2    # "prefer":Ljava/util/List;
-    :cond_5
+    :cond_75
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-le v2, v5, :cond_6
+    if-le v2, v5, :cond_b6
 
     .line 82
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1203,7 +1203,7 @@
 
     .line 86
     .end local v2    # "message":Ljava/lang/String;
-    :cond_6
+    :cond_b6
     invoke-interface {v1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
@@ -1214,7 +1214,7 @@
 .end method
 
 .method public final isExe(Landroid/content/pm/PackageInfo;)Z
-    .locals 7
+    .registers 9
     .param p1, "pkg"    # Landroid/content/pm/PackageInfo;
 
     const-string v0, "pkg"
@@ -1228,58 +1228,58 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     array-length v0, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
-    if-ne v0, v1, :cond_1
+    :goto_11
+    if-ne v0, v1, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_16
+    if-eqz v0, :cond_19
 
     return v2
 
     .line 25
-    :cond_2
+    :cond_19
     iget-object v0, p1, Landroid/content/pm/PackageInfo;->providers:[Landroid/content/pm/ProviderInfo;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_3e
 
     aget-object v0, v0, v2
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_22
 
-    goto :goto_4
+    goto :goto_3e
 
     .line 26
     .local v0, "provider":Landroid/content/pm/ProviderInfo;
-    :cond_3
+    :cond_22
     iget-object v3, v0, Landroid/content/pm/ProviderInfo;->authority:Ljava/lang/String;
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_27
 
     return v2
 
     .line 27
     .local v3, "auth":Ljava/lang/String;
-    :cond_4
+    :cond_27
     const-string v4, "io.nekohasekai.sagernet.plugin."
 
     const/4 v5, 0x2
@@ -1290,7 +1290,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_3c
 
     .line 28
     const-string v4, "moe.matsuri.exe."
@@ -1299,33 +1299,33 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_3a
 
-    goto :goto_2
+    goto :goto_3c
 
-    :cond_5
+    :cond_3a
     const/4 v1, 0x0
 
-    goto :goto_3
+    goto :goto_3d
 
-    :cond_6
-    :goto_2
+    :cond_3c
+    :goto_3c
     nop
 
     .line 27
-    :goto_3
+    :goto_3d
     return v1
 
     .line 25
     .end local v0    # "provider":Landroid/content/pm/ProviderInfo;
     .end local v3    # "auth":Ljava/lang/String;
-    :cond_7
-    :goto_4
+    :cond_3e
+    :goto_3e
     return v2
 .end method
 
 .method public final isUsingMatsuriExe(Ljava/lang/String;)Z
-    .locals 7
+    .registers 9
     .param p1, "pluginId"    # Ljava/lang/String;
 
     const-string v0, "pluginId"
@@ -1339,7 +1339,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .local v0, "$this$isUsingMatsuriExe_u24lambda_u240":Landroid/content/pm/ProviderInfo;
     const/4 v2, 0x0
@@ -1362,7 +1362,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     .line 38
     const/4 v1, 0x1
@@ -1370,7 +1370,7 @@
     return v1
 
     .line 40
-    :cond_0
+    :cond_20
     nop
 
     .line 36
@@ -1379,12 +1379,12 @@
     nop
 
     .line 41
-    :cond_1
+    :cond_22
     return v1
 .end method
 
 .method public final preferExePrefix()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 32
     const-string v0, "moe.matsuri.exe."

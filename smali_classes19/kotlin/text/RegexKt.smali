@@ -47,7 +47,7 @@
 
 # direct methods
 .method public static final synthetic access$findNext(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Lkotlin/text/MatchResult;
-    .locals 1
+    .registers 4
     .param p0, "$receiver"    # Ljava/util/regex/Matcher;
     .param p1, "from"    # I
     .param p2, "input"    # Ljava/lang/CharSequence;
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final synthetic access$matchEntire(Ljava/util/regex/Matcher;Ljava/lang/CharSequence;)Lkotlin/text/MatchResult;
-    .locals 1
+    .registers 3
     .param p0, "$receiver"    # Ljava/util/regex/Matcher;
     .param p1, "input"    # Ljava/lang/CharSequence;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public static final synthetic access$range(Ljava/util/regex/MatchResult;)Lkotlin/ranges/IntRange;
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Ljava/util/regex/MatchResult;
 
     .line 1
@@ -86,7 +86,7 @@
 .end method
 
 .method public static final synthetic access$range(Ljava/util/regex/MatchResult;I)Lkotlin/ranges/IntRange;
-    .locals 1
+    .registers 3
     .param p0, "$receiver"    # Ljava/util/regex/MatchResult;
     .param p1, "groupIndex"    # I
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public static final synthetic access$toInt(Ljava/lang/Iterable;)I
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Ljava/lang/Iterable;
 
     .line 1
@@ -111,7 +111,7 @@
 .end method
 
 .method private static final findNext(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Lkotlin/text/MatchResult;
-    .locals 1
+    .registers 4
     .param p0, "$this$findNext"    # Ljava/util/regex/Matcher;
     .param p1, "from"    # I
     .param p2, "input"    # Ljava/lang/CharSequence;
@@ -121,25 +121,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_8
     new-instance v0, Lkotlin/text/MatcherMatchResult;
 
     invoke-direct {v0, p0, p2}, Lkotlin/text/MatcherMatchResult;-><init>(Ljava/util/regex/Matcher;Ljava/lang/CharSequence;)V
 
     check-cast v0, Lkotlin/text/MatchResult;
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method private static final synthetic fromInt(I)Ljava/util/Set;
-    .locals 6
+    .registers 7
     .param p0, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -223,7 +223,7 @@
 .end method
 
 .method private static final matchEntire(Ljava/util/regex/Matcher;Ljava/lang/CharSequence;)Lkotlin/text/MatchResult;
-    .locals 1
+    .registers 3
     .param p0, "$this$matchEntire"    # Ljava/util/regex/Matcher;
     .param p1, "input"    # Ljava/lang/CharSequence;
 
@@ -232,25 +232,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_8
     new-instance v0, Lkotlin/text/MatcherMatchResult;
 
     invoke-direct {v0, p0, p1}, Lkotlin/text/MatcherMatchResult;-><init>(Ljava/util/regex/Matcher;Ljava/lang/CharSequence;)V
 
     check-cast v0, Lkotlin/text/MatchResult;
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method private static final range(Ljava/util/regex/MatchResult;)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 3
     .param p0, "$this$range"    # Ljava/util/regex/MatchResult;
 
     .line 395
@@ -270,7 +270,7 @@
 .end method
 
 .method private static final range(Ljava/util/regex/MatchResult;I)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$range"    # Ljava/util/regex/MatchResult;
     .param p1, "groupIndex"    # I
 
@@ -291,7 +291,7 @@
 .end method
 
 .method private static final toInt(Ljava/lang/Iterable;)I
-    .locals 10
+    .registers 11
     .param p0, "$this$toInt"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -322,12 +322,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_8
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1f
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -359,10 +359,10 @@
     move v3, v6
 
     .end local v5    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_8
 
     .line 400
-    :cond_0
+    :cond_1f
     nop
 
     .line 19

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 957
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static createStaticLayoutForMeasuring(Ljava/lang/CharSequence;Landroid/text/Layout$Alignment;ILandroid/widget/TextView;Landroid/text/TextPaint;)Landroid/text/StaticLayout;
-    .locals 12
+    .registers 17
     .param p0, "text"    # Ljava/lang/CharSequence;
     .param p1, "alignment"    # Landroid/text/Layout$Alignment;
     .param p2, "availableWidth"    # I
@@ -76,7 +76,7 @@
 .end method
 
 .method static getMaxLines(Landroid/widget/TextView;)I
-    .locals 1
+    .registers 2
     .param p0, "textView"    # Landroid/widget/TextView;
 
     .line 963

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AlertController;Landroid/view/View;Landroid/view/View;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/appcompat/app/AlertController;
 
     .line 600
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 603
     iget-object v0, p0, Landroidx/appcompat/app/AlertController$3;->this$0:Landroidx/appcompat/app/AlertController;

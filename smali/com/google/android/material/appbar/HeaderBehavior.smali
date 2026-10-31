@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 50
     .local p0, "this":Lcom/google/android/material/appbar/HeaderBehavior;, "Lcom/google/android/material/appbar/HeaderBehavior<TV;>;"
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -83,13 +83,13 @@
 .end method
 
 .method private ensureVelocityTracker()V
-    .locals 1
+    .registers 2
 
     .line 254
     .local p0, "this":Lcom/google/android/material/appbar/HeaderBehavior;, "Lcom/google/android/material/appbar/HeaderBehavior<TV;>;"
     iget-object v0, p0, Lcom/google/android/material/appbar/HeaderBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 255
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -99,14 +99,14 @@
     iput-object v0, p0, Lcom/google/android/material/appbar/HeaderBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
     .line 257
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 
 # virtual methods
 .method canDragView(Landroid/view/View;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)Z"
@@ -122,7 +122,7 @@
 .end method
 
 .method final fling(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIF)Z
-    .locals 13
+    .registers 19
     .param p1, "coordinatorLayout"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "minOffset"    # I
     .param p4, "maxOffset"    # I
@@ -144,7 +144,7 @@
 
     iget-object v2, v0, Lcom/google/android/material/appbar/HeaderBehavior;->flingRunnable:Ljava/lang/Runnable;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 203
     iget-object v2, v0, Lcom/google/android/material/appbar/HeaderBehavior;->flingRunnable:Ljava/lang/Runnable;
@@ -157,10 +157,10 @@
     iput-object v2, v0, Lcom/google/android/material/appbar/HeaderBehavior;->flingRunnable:Ljava/lang/Runnable;
 
     .line 207
-    :cond_0
+    :cond_e
     iget-object v2, v0, Lcom/google/android/material/appbar/HeaderBehavior;->scroller:Landroid/widget/OverScroller;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1d
 
     .line 208
     new-instance v2, Landroid/widget/OverScroller;
@@ -174,7 +174,7 @@
     iput-object v2, v0, Lcom/google/android/material/appbar/HeaderBehavior;->scroller:Landroid/widget/OverScroller;
 
     .line 211
-    :cond_1
+    :cond_1d
     iget-object v4, v0, Lcom/google/android/material/appbar/HeaderBehavior;->scroller:Landroid/widget/OverScroller;
 
     .line 213
@@ -209,7 +209,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_49
 
     .line 222
     new-instance v2, Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;
@@ -231,7 +231,7 @@
     return v2
 
     .line 226
-    :cond_2
+    :cond_49
     move-object v3, p1
 
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/appbar/HeaderBehavior;->onFlingFinished(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)V
@@ -243,7 +243,7 @@
 .end method
 
 .method getMaxDragOffset(Landroid/view/View;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)I"
@@ -263,7 +263,7 @@
 .end method
 
 .method getScrollRangeForDragFling(Landroid/view/View;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)I"
@@ -281,7 +281,7 @@
 .end method
 
 .method getTopBottomOffsetForScrollingSibling()I
-    .locals 1
+    .registers 2
 
     .line 183
     .local p0, "this":Lcom/google/android/material/appbar/HeaderBehavior;, "Lcom/google/android/material/appbar/HeaderBehavior<TV;>;"
@@ -293,7 +293,7 @@
 .end method
 
 .method onFlingFinished(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -310,7 +310,7 @@
 .end method
 
 .method public onInterceptTouchEvent(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 7
+    .registers 11
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "ev"    # Landroid/view/MotionEvent;
     .annotation system Ldalvik/annotation/Signature;
@@ -328,7 +328,7 @@
     .local p2, "child":Landroid/view/View;, "TV;"
     iget v0, p0, Lcom/google/android/material/appbar/HeaderBehavior;->touchSlop:I
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_12
 
     .line 60
     invoke-virtual {p1}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->getContext()Landroid/content/Context;
@@ -346,7 +346,7 @@
     iput v0, p0, Lcom/google/android/material/appbar/HeaderBehavior;->touchSlop:I
 
     .line 64
-    :cond_0
+    :cond_12
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
@@ -359,22 +359,22 @@
 
     const/4 v4, 0x0
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_42
 
     iget-boolean v0, p0, Lcom/google/android/material/appbar/HeaderBehavior;->isBeingDragged:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_42
 
     .line 65
     iget v0, p0, Lcom/google/android/material/appbar/HeaderBehavior;->activePointerId:I
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v3, :cond_25
 
     .line 67
     return v4
 
     .line 69
-    :cond_1
+    :cond_25
     iget v0, p0, Lcom/google/android/material/appbar/HeaderBehavior;->activePointerId:I
 
     invoke-virtual {p3, v0}, Landroid/view/MotionEvent;->findPointerIndex(I)I
@@ -383,13 +383,13 @@
 
     .line 70
     .local v0, "pointerIndex":I
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_2e
 
     .line 71
     return v4
 
     .line 74
-    :cond_2
+    :cond_2e
     invoke-virtual {p3, v0}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v1
@@ -410,7 +410,7 @@
     .local v5, "yDiff":I
     iget v6, p0, Lcom/google/android/material/appbar/HeaderBehavior;->touchSlop:I
 
-    if-le v5, v6, :cond_3
+    if-le v5, v6, :cond_42
 
     .line 77
     iput v1, p0, Lcom/google/android/material/appbar/HeaderBehavior;->lastMotionY:I
@@ -422,12 +422,12 @@
     .end local v0    # "pointerIndex":I
     .end local v1    # "y":I
     .end local v5    # "yDiff":I
-    :cond_3
+    :cond_42
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_86
 
     .line 83
     iput v3, p0, Lcom/google/android/material/appbar/HeaderBehavior;->activePointerId:I
@@ -453,28 +453,28 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_62
 
     invoke-virtual {p1, p2, v0, v1}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->isPointInChildBounds(Landroid/view/View;II)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_62
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_63
 
-    :cond_4
+    :cond_62
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_63
     iput-boolean v3, p0, Lcom/google/android/material/appbar/HeaderBehavior;->isBeingDragged:Z
 
     .line 88
     iget-boolean v3, p0, Lcom/google/android/material/appbar/HeaderBehavior;->isBeingDragged:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_86
 
     .line 89
     iput v1, p0, Lcom/google/android/material/appbar/HeaderBehavior;->lastMotionY:I
@@ -492,7 +492,7 @@
     .line 94
     iget-object v3, p0, Lcom/google/android/material/appbar/HeaderBehavior;->scroller:Landroid/widget/OverScroller;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_86
 
     iget-object v3, p0, Lcom/google/android/material/appbar/HeaderBehavior;->scroller:Landroid/widget/OverScroller;
 
@@ -500,7 +500,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_86
 
     .line 95
     iget-object v3, p0, Lcom/google/android/material/appbar/HeaderBehavior;->scroller:Landroid/widget/OverScroller;
@@ -513,10 +513,10 @@
     .line 101
     .end local v0    # "x":I
     .end local v1    # "y":I
-    :cond_5
+    :cond_86
     iget-object v0, p0, Lcom/google/android/material/appbar/HeaderBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8f
 
     .line 102
     iget-object v0, p0, Lcom/google/android/material/appbar/HeaderBehavior;->velocityTracker:Landroid/view/VelocityTracker;
@@ -524,12 +524,12 @@
     invoke-virtual {v0, p3}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
     .line 105
-    :cond_6
+    :cond_8f
     return v4
 .end method
 
 .method public onTouchEvent(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 12
+    .registers 16
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "ev"    # Landroid/view/MotionEvent;
     .annotation system Ldalvik/annotation/Signature;
@@ -559,29 +559,29 @@
 
     const/4 v4, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_90
 
-    :pswitch_0
-    goto/16 :goto_1
+    :pswitch_b
+    goto/16 :goto_7d
 
     .line 126
-    :pswitch_1
+    :pswitch_d
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
     .line 127
     .local v1, "newIndex":I
-    :goto_0
+    :goto_16
     invoke-virtual {p3, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v3
@@ -602,11 +602,11 @@
     iput v3, p0, Lcom/google/android/material/appbar/HeaderBehavior;->lastMotionY:I
 
     .line 129
-    goto :goto_1
+    goto :goto_7d
 
     .line 114
     .end local v1    # "newIndex":I
-    :pswitch_2
+    :pswitch_27
     iget v1, p0, Lcom/google/android/material/appbar/HeaderBehavior;->activePointerId:I
 
     invoke-virtual {p3, v1}, Landroid/view/MotionEvent;->findPointerIndex(I)I
@@ -615,13 +615,13 @@
 
     .line 115
     .local v1, "activePointerIndex":I
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_30
 
     .line 116
     return v4
 
     .line 119
-    :cond_1
+    :cond_30
     invoke-virtual {p3, v1}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v3
@@ -656,16 +656,16 @@
     invoke-virtual/range {v6 .. v11}, Lcom/google/android/material/appbar/HeaderBehavior;->scroll(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I
 
     .line 124
-    goto :goto_1
+    goto :goto_7d
 
     .line 131
     .end local v1    # "activePointerIndex":I
     .end local v3    # "y":I
     .end local v5    # "dy":I
-    :pswitch_3
+    :pswitch_47
     iget-object v1, p0, Lcom/google/android/material/appbar/HeaderBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_6d
 
     .line 132
     const/4 v0, 0x1
@@ -713,8 +713,8 @@
 
     .line 141
     .end local v1    # "yvel":F
-    :cond_2
-    :pswitch_4
+    :cond_6d
+    :pswitch_6d
     iput-boolean v4, p0, Lcom/google/android/material/appbar/HeaderBehavior;->isBeingDragged:Z
 
     .line 142
@@ -723,7 +723,7 @@
     .line 143
     iget-object v1, p0, Lcom/google/android/material/appbar/HeaderBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_7d
 
     .line 144
     iget-object v1, p0, Lcom/google/android/material/appbar/HeaderBehavior;->velocityTracker:Landroid/view/VelocityTracker;
@@ -736,11 +736,11 @@
     iput-object v1, p0, Lcom/google/android/material/appbar/HeaderBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
     .line 150
-    :cond_3
-    :goto_1
+    :cond_7d
+    :goto_7d
     iget-object v1, p0, Lcom/google/android/material/appbar/HeaderBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_86
 
     .line 151
     iget-object v1, p0, Lcom/google/android/material/appbar/HeaderBehavior;->velocityTracker:Landroid/view/VelocityTracker;
@@ -748,37 +748,37 @@
     invoke-virtual {v1, p3}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
     .line 154
-    :cond_4
+    :cond_86
     iget-boolean v1, p0, Lcom/google/android/material/appbar/HeaderBehavior;->isBeingDragged:Z
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_8e
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8d
 
-    goto :goto_2
+    goto :goto_8e
 
-    :cond_5
+    :cond_8d
     const/4 v2, 0x0
 
-    :cond_6
-    :goto_2
+    :cond_8e
+    :goto_8e
     return v2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_90
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_4
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
+        :pswitch_47
+        :pswitch_27
+        :pswitch_6d
+        :pswitch_b
+        :pswitch_b
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method final scroll(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I
-    .locals 7
+    .registers 13
     .param p1, "coordinatorLayout"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "dy"    # I
     .param p4, "minOffset"    # I
@@ -822,7 +822,7 @@
 .end method
 
 .method setHeaderTopBottomOffset(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)I
-    .locals 6
+    .registers 10
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "newOffset"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -856,7 +856,7 @@
 .end method
 
 .method setHeaderTopBottomOffset(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I
-    .locals 2
+    .registers 8
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "newOffset"    # I
     .param p4, "minOffset"    # I
@@ -882,11 +882,11 @@
 
     .line 167
     .local v1, "consumed":I
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_16
 
-    if-lt v0, p4, :cond_0
+    if-lt v0, p4, :cond_16
 
-    if-gt v0, p5, :cond_0
+    if-gt v0, p5, :cond_16
 
     .line 170
     invoke-static {p3, p4, p5}, Landroidx/core/math/MathUtils;->clamp(III)I
@@ -894,7 +894,7 @@
     move-result p3
 
     .line 172
-    if-eq v0, p3, :cond_0
+    if-eq v0, p3, :cond_16
 
     .line 173
     invoke-virtual {p0, p3}, Lcom/google/android/material/appbar/HeaderBehavior;->setTopAndBottomOffset(I)Z
@@ -903,6 +903,6 @@
     sub-int v1, v0, p3
 
     .line 179
-    :cond_0
+    :cond_16
     return v1
 .end method

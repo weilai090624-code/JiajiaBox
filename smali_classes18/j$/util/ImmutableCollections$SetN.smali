@@ -59,12 +59,12 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 584
     sget-object v0, Lj$/util/ImmutableCollections$SetN;->EMPTY_SET:Ljava/util/Set;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 585
     new-instance v0, Lj$/util/ImmutableCollections$SetN;
@@ -78,12 +78,12 @@
     sput-object v0, Lj$/util/ImmutableCollections$SetN;->EMPTY_SET:Ljava/util/Set;
 
     .line 587
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method varargs constructor <init>([Ljava/lang/Object;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TE;)V"
@@ -113,10 +113,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_e
     array-length v1, p1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_3c
 
     .line 601
     aget-object v1, p1, v0
@@ -129,7 +129,7 @@
 
     .line 603
     .local v2, "idx":I
-    if-gez v2, :cond_0
+    if-gez v2, :cond_23
 
     .line 606
     iget-object v3, p0, Lj$/util/ImmutableCollections$SetN;->elements:[Ljava/lang/Object;
@@ -145,12 +145,12 @@
     .end local v2    # "idx":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 604
     .restart local v1    # "e":Ljava/lang/Object;, "TE;"
     .restart local v2    # "idx":I
-    :cond_0
+    :cond_23
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -179,12 +179,12 @@
     .end local v0    # "i":I
     .end local v1    # "e":Ljava/lang/Object;, "TE;"
     .end local v2    # "idx":I
-    :cond_1
+    :cond_3c
     return-void
 .end method
 
 .method private probe(Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
     .param p1, "pe"    # Ljava/lang/Object;
 
     .line 689
@@ -203,14 +203,14 @@
 
     .line 691
     .local v0, "idx":I
-    :goto_0
+    :goto_b
     iget-object v1, p0, Lj$/util/ImmutableCollections$SetN;->elements:[Ljava/lang/Object;
 
     aget-object v1, v1, v0
 
     .line 692
     .local v1, "ee":Ljava/lang/Object;, "TE;"
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     .line 693
     neg-int v2, v0
@@ -220,37 +220,37 @@
     return v2
 
     .line 694
-    :cond_0
+    :cond_15
     invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     .line 695
     return v0
 
     .line 696
-    :cond_1
+    :cond_1c
     add-int/lit8 v0, v0, 0x1
 
     iget-object v2, p0, Lj$/util/ImmutableCollections$SetN;->elements:[Ljava/lang/Object;
 
     array-length v2, v2
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_24
 
     .line 697
     const/4 v0, 0x0
 
     .line 699
     .end local v1    # "ee":Ljava/lang/Object;, "TE;"
-    :cond_2
-    goto :goto_0
+    :cond_24
+    goto :goto_b
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/ObjectInputStream;
 
     .line 703
@@ -265,7 +265,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 7
+    .registers 8
 
     .line 707
     .local p0, "this":Lj$/util/ImmutableCollections$SetN;, "Ljava/util/ImmutableCollections$SetN<TE;>;"
@@ -285,14 +285,14 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_9
+    if-ge v4, v3, :cond_17
 
     aget-object v5, v2, v4
 
     .line 710
     .local v5, "o":Ljava/lang/Object;
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_14
 
     .line 711
     add-int/lit8 v6, v1, 0x1
@@ -307,13 +307,13 @@
     .end local v5    # "o":Ljava/lang/Object;
     .end local v6    # "dest":I
     .restart local v1    # "dest":I
-    :cond_0
+    :cond_14
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 714
-    :cond_1
+    :cond_17
     new-instance v2, Lj$/util/CollSer;
 
     const/4 v3, 0x2
@@ -326,7 +326,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 618
@@ -336,27 +336,27 @@
     .line 619
     iget v0, p0, Lj$/util/ImmutableCollections$SetN;->size:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_f
 
     invoke-direct {p0, p1}, Lj$/util/ImmutableCollections$SetN;->probe(Ljava/lang/Object;)I
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .registers 7
 
     .line 675
     .local p0, "this":Lj$/util/ImmutableCollections$SetN;, "Ljava/util/ImmutableCollections$SetN<TE;>;"
@@ -370,14 +370,14 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_5
+    if-ge v3, v2, :cond_13
 
     aget-object v4, v1, v3
 
     .line 677
     .local v4, "e":Ljava/lang/Object;, "TE;"
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_10
 
     .line 678
     invoke-virtual {v4}, Ljava/lang/Object;->hashCode()I
@@ -388,18 +388,18 @@
 
     .line 676
     .end local v4    # "e":Ljava/lang/Object;, "TE;"
-    :cond_0
+    :cond_10
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 681
-    :cond_1
+    :cond_13
     return v0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -418,7 +418,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 613
     .local p0, "this":Lj$/util/ImmutableCollections$SetN;, "Ljava/util/ImmutableCollections$SetN<TE;>;"

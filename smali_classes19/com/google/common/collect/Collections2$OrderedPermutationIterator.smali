@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Ljava/util/Comparator;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method calculateNextPermutation()V
-    .locals 5
+    .registers 6
 
     .line 510
     .local p0, "this":Lcom/google/common/collect/Collections2$OrderedPermutationIterator;, "Lcom/google/common/collect/Collections2$OrderedPermutationIterator<TE;>;"
@@ -96,7 +96,7 @@
     .local v0, "j":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 512
     const/4 v1, 0x0
@@ -107,7 +107,7 @@
     return-void
 
     .line 519
-    :cond_0
+    :cond_b
     iget-object v1, p0, Lcom/google/common/collect/Collections2$OrderedPermutationIterator;->nextPermutation:Ljava/util/List;
 
     invoke-static {v1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -147,7 +147,7 @@
 .end method
 
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -161,7 +161,7 @@
 .end method
 
 .method protected computeNext()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -177,7 +177,7 @@
     .local p0, "this":Lcom/google/common/collect/Collections2$OrderedPermutationIterator;, "Lcom/google/common/collect/Collections2$OrderedPermutationIterator<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Collections2$OrderedPermutationIterator;->nextPermutation:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 502
     invoke-virtual {p0}, Lcom/google/common/collect/Collections2$OrderedPermutationIterator;->endOfData()Ljava/lang/Object;
@@ -189,7 +189,7 @@
     return-object v0
 
     .line 504
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/google/common/collect/Collections2$OrderedPermutationIterator;->nextPermutation:Ljava/util/List;
 
     invoke-static {v0}, Lcom/google/common/collect/ImmutableList;->copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableList;
@@ -205,7 +205,7 @@
 .end method
 
 .method findNextJ()I
-    .locals 5
+    .registers 6
 
     .line 532
     .local p0, "this":Lcom/google/common/collect/Collections2$OrderedPermutationIterator;, "Lcom/google/common/collect/Collections2$OrderedPermutationIterator<TE;>;"
@@ -223,8 +223,8 @@
     add-int/lit8 v0, v0, -0x2
 
     .local v0, "k":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_d
+    if-ltz v0, :cond_29
 
     .line 534
     iget-object v1, p0, Lcom/google/common/collect/Collections2$OrderedPermutationIterator;->comparator:Ljava/util/Comparator;
@@ -247,27 +247,27 @@
 
     move-result v1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_26
 
     .line 535
     return v0
 
     .line 533
-    :cond_0
+    :cond_26
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 538
     .end local v0    # "k":I
-    :cond_1
+    :cond_29
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method findNextL(I)I
-    .locals 4
+    .registers 6
     .param p1, "j"    # I
 
     .line 546
@@ -294,8 +294,8 @@
     add-int/lit8 v1, v1, -0x1
 
     .local v1, "l":I
-    :goto_0
-    if-le v1, p1, :cond_1
+    :goto_13
+    if-le v1, p1, :cond_27
 
     .line 549
     iget-object v2, p0, Lcom/google/common/collect/Collections2$OrderedPermutationIterator;->comparator:Ljava/util/Comparator;
@@ -310,20 +310,20 @@
 
     move-result v2
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_24
 
     .line 550
     return v1
 
     .line 548
-    :cond_0
+    :cond_24
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 553
     .end local v1    # "l":I
-    :cond_1
+    :cond_27
     new-instance v1, Ljava/lang/AssertionError;
 
     const-string v2, "this statement should be unreachable"

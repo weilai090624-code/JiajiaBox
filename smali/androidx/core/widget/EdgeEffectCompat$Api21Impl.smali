@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 344
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static onPull(Landroid/widget/EdgeEffect;FF)V
-    .locals 0
+    .registers 3
     .param p0, "edgeEffect"    # Landroid/widget/EdgeEffect;
     .param p1, "deltaDistance"    # F
     .param p2, "displacement"    # F

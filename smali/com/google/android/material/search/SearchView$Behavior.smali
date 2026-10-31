@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 889
     invoke-direct {p0}, Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public bridge synthetic onDependentViewChanged(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
-    .locals 0
+    .registers 4
 
     .line 887
     check-cast p2, Lcom/google/android/material/search/SearchView;
@@ -60,7 +60,7 @@
 .end method
 
 .method public onDependentViewChanged(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/search/SearchView;Landroid/view/View;)Z
-    .locals 1
+    .registers 5
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Lcom/google/android/material/search/SearchView;
     .param p3, "dependency"    # Landroid/view/View;
@@ -70,11 +70,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     instance-of v0, p3, Lcom/google/android/material/search/SearchBar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 899
     move-object v0, p3
@@ -84,7 +84,7 @@
     invoke-virtual {p2, v0}, Lcom/google/android/material/search/SearchView;->setupWithSearchBar(Lcom/google/android/material/search/SearchBar;)V
 
     .line 901
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0

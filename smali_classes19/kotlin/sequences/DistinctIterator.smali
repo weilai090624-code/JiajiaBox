@@ -78,7 +78,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Iterator;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Ljava/util/Iterator;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -120,19 +120,19 @@
 
 # virtual methods
 .method protected computeNext()V
-    .locals 3
+    .registers 4
 
     .line 588
     nop
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lkotlin/sequences/DistinctIterator;->source:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 589
     iget-object v0, p0, Lkotlin/sequences/DistinctIterator;->source:Ljava/util/Iterator;
@@ -157,7 +157,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     .line 593
     invoke-virtual {p0, v0}, Lkotlin/sequences/DistinctIterator;->setNext(Ljava/lang/Object;)V
@@ -168,7 +168,7 @@
     .line 598
     .end local v0    # "next":Ljava/lang/Object;
     .end local v1    # "key":Ljava/lang/Object;
-    :cond_1
+    :cond_21
     invoke-virtual {p0}, Lkotlin/sequences/DistinctIterator;->done()V
 
     .line 599

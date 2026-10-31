@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Class;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 4
     .param p1, "_tag"    # Ljava/lang/String;
     .param p3, "_args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Signature;

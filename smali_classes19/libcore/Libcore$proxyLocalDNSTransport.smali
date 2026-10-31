@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 .end method
 
 .method public final incRefnum()I
-    .locals 1
+    .registers 2
 
     .line 111
     iget v0, p0, Llibcore/Libcore$proxyLocalDNSTransport;->refnum:I

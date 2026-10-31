@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/MotionInterpolator;-><init>()V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public config(FFFFFF)V
-    .locals 8
+    .registers 15
     .param p1, "currentPos"    # F
     .param p2, "destination"    # F
     .param p3, "currentVelocity"    # F
@@ -89,7 +89,7 @@
 .end method
 
 .method public debug(Ljava/lang/String;F)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "desc"    # Ljava/lang/String;
     .param p2, "time"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -114,7 +114,7 @@
 .end method
 
 .method public getInterpolation(F)F
-    .locals 1
+    .registers 3
     .param p1, "v"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -136,7 +136,7 @@
 .end method
 
 .method public getVelocity()F
-    .locals 1
+    .registers 2
 
     .line 92
     iget-object v0, p0, Landroidx/constraintlayout/motion/utils/StopLogic;->mEngine:Landroidx/constraintlayout/core/motion/utils/StopEngine;
@@ -149,7 +149,7 @@
 .end method
 
 .method public getVelocity(F)F
-    .locals 1
+    .registers 3
     .param p1, "x"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -171,7 +171,7 @@
 .end method
 
 .method public isStopped()Z
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object v0, p0, Landroidx/constraintlayout/motion/utils/StopLogic;->mEngine:Landroidx/constraintlayout/core/motion/utils/StopEngine;
@@ -184,7 +184,7 @@
 .end method
 
 .method public springConfig(FFFFFFFI)V
-    .locals 11
+    .registers 20
     .param p1, "currentPos"    # F
     .param p2, "destination"    # F
     .param p3, "currentVelocity"    # F
@@ -221,7 +221,7 @@
 
     iget-object v1, v0, Landroidx/constraintlayout/motion/utils/StopLogic;->mSpringStopEngine:Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     .line 79
     new-instance v1, Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;
@@ -231,7 +231,7 @@
     iput-object v1, v0, Landroidx/constraintlayout/motion/utils/StopLogic;->mSpringStopEngine:Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;
 
     .line 81
-    :cond_0
+    :cond_c
     iget-object v1, v0, Landroidx/constraintlayout/motion/utils/StopLogic;->mSpringStopEngine:Landroidx/constraintlayout/core/motion/utils/SpringStopEngine;
 
     iput-object v1, v0, Landroidx/constraintlayout/motion/utils/StopLogic;->mEngine:Landroidx/constraintlayout/core/motion/utils/StopEngine;

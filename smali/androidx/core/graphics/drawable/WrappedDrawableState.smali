@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/graphics/drawable/WrappedDrawableState;)V
-    .locals 1
+    .registers 3
     .param p1, "orig"    # Landroidx/core/graphics/drawable/WrappedDrawableState;
 
     .line 35
@@ -32,7 +32,7 @@
     iput-object v0, p0, Landroidx/core/graphics/drawable/WrappedDrawableState;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
     .line 36
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1c
 
     .line 37
     iget v0, p1, Landroidx/core/graphics/drawable/WrappedDrawableState;->mChangingConfigurations:I
@@ -55,33 +55,33 @@
     iput-object v0, p0, Landroidx/core/graphics/drawable/WrappedDrawableState;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
     .line 42
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 
 # virtual methods
 .method canConstantState()Z
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Landroidx/core/graphics/drawable/WrappedDrawableState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public getChangingConfigurations()I
-    .locals 2
+    .registers 3
 
     .line 61
     iget v0, p0, Landroidx/core/graphics/drawable/WrappedDrawableState;->mChangingConfigurations:I
@@ -89,7 +89,7 @@
     .line 62
     iget-object v1, p0, Landroidx/core/graphics/drawable/WrappedDrawableState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     iget-object v1, p0, Landroidx/core/graphics/drawable/WrappedDrawableState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
@@ -97,12 +97,12 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_e
     or-int/2addr v0, v1
 
     .line 61
@@ -110,7 +110,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 47
     const/4 v0, 0x0
@@ -123,7 +123,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p1, "res"    # Landroid/content/res/Resources;
 
     .line 53

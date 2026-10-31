@@ -14,7 +14,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Error;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Error;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Error;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -37,7 +37,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Error;)V
-    .locals 0
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation

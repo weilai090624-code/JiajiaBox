@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static clampDouble(DDD)D
-    .locals 1
+    .registers 7
     .param p0, "min"    # D
     .param p2, "max"    # D
     .param p4, "input"    # D
@@ -22,51 +22,51 @@
     .line 77
     cmpg-double v0, p4, p0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_5
 
     .line 78
     return-wide p0
 
     .line 79
-    :cond_0
+    :cond_5
     cmpl-double v0, p4, p2
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_a
 
     .line 80
     return-wide p2
 
     .line 83
-    :cond_1
+    :cond_a
     return-wide p4
 .end method
 
 .method public static clampInt(III)I
-    .locals 0
+    .registers 3
     .param p0, "min"    # I
     .param p1, "max"    # I
     .param p2, "input"    # I
 
     .line 62
-    if-ge p2, p0, :cond_0
+    if-ge p2, p0, :cond_3
 
     .line 63
     return p0
 
     .line 64
-    :cond_0
-    if-le p2, p1, :cond_1
+    :cond_3
+    if-le p2, p1, :cond_6
 
     .line 65
     return p1
 
     .line 68
-    :cond_1
+    :cond_6
     return p2
 .end method
 
 .method public static differenceDegrees(DD)D
-    .locals 4
+    .registers 8
     .param p0, "a"    # D
     .param p2, "b"    # D
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public static lerp(DDD)D
-    .locals 4
+    .registers 10
     .param p0, "start"    # D
     .param p2, "stop"    # D
     .param p4, "amount"    # D
@@ -111,7 +111,7 @@
 .end method
 
 .method public static matrixMultiply([D[[D)[D
-    .locals 14
+    .registers 16
     .param p0, "row"    # [D
     .param p1, "matrix"    # [[D
 
@@ -226,7 +226,7 @@
 .end method
 
 .method public static rotationDirection(DD)D
-    .locals 5
+    .registers 9
     .param p0, "from"    # D
     .param p2, "to"    # D
 
@@ -243,21 +243,21 @@
 
     cmpg-double v4, v0, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_12
 
     const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-wide/high16 v2, -0x4010000000000000L    # -1.0
 
-    :goto_0
+    :goto_14
     return-wide v2
 .end method
 
 .method public static sanitizeDegreesDouble(D)D
-    .locals 5
+    .registers 7
     .param p0, "degrees"    # D
 
     .line 105
@@ -270,36 +270,36 @@
 
     cmpg-double v4, p0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_d
 
     .line 107
     add-double/2addr p0, v0
 
     .line 109
-    :cond_0
+    :cond_d
     return-wide p0
 .end method
 
 .method public static sanitizeDegreesInt(I)I
-    .locals 0
+    .registers 1
     .param p0, "degrees"    # I
 
     .line 92
     rem-int/lit16 p0, p0, 0x168
 
     .line 93
-    if-gez p0, :cond_0
+    if-gez p0, :cond_6
 
     .line 94
     add-int/lit16 p0, p0, 0x168
 
     .line 96
-    :cond_0
+    :cond_6
     return p0
 .end method
 
 .method public static signum(D)I
-    .locals 3
+    .registers 5
     .param p0, "num"    # D
 
     .line 38
@@ -307,7 +307,7 @@
 
     cmpg-double v2, p0, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_8
 
     .line 39
     const/4 v0, -0x1
@@ -315,10 +315,10 @@
     return v0
 
     .line 40
-    :cond_0
+    :cond_8
     cmpl-double v2, p0, v0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_e
 
     .line 41
     const/4 v0, 0x0
@@ -326,7 +326,7 @@
     return v0
 
     .line 43
-    :cond_1
+    :cond_e
     const/4 v0, 0x1
 
     return v0

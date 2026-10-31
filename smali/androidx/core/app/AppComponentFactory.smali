@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Landroid/app/AppComponentFactory;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public final instantiateActivity(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Activity;
-    .locals 1
+    .registers 5
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "intent"    # Landroid/content/Intent;
@@ -43,7 +43,7 @@
 .end method
 
 .method public instantiateActivityCompat(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Activity;
-    .locals 3
+    .registers 7
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "intent"    # Landroid/content/Intent;
@@ -58,7 +58,7 @@
     .line 137
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-static {p2, v0, p1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v1
@@ -83,25 +83,25 @@
     move-result-object v0
 
     check-cast v0, Landroid/app/Activity;
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_19} :catch_1c
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_19} :catch_1a
 
     .line 137
     return-object v0
 
     .line 139
-    :catch_0
+    :catch_1a
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :catch_1
+    :catch_1c
     move-exception v0
 
     .line 140
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_1d
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Couldn\'t call constructor"
@@ -112,7 +112,7 @@
 .end method
 
 .method public final instantiateApplication(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/app/Application;
-    .locals 1
+    .registers 4
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -138,7 +138,7 @@
 .end method
 
 .method public instantiateApplicationCompat(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/app/Application;
-    .locals 3
+    .registers 6
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -152,7 +152,7 @@
     .line 113
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-static {p2, v0, p1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v1
@@ -177,25 +177,25 @@
     move-result-object v0
 
     check-cast v0, Landroid/app/Application;
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_19} :catch_1c
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_19} :catch_1a
 
     .line 113
     return-object v0
 
     .line 115
-    :catch_0
+    :catch_1a
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :catch_1
+    :catch_1c
     move-exception v0
 
     .line 116
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_1d
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Couldn\'t call constructor"
@@ -206,7 +206,7 @@
 .end method
 
 .method public final instantiateProvider(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/content/ContentProvider;
-    .locals 1
+    .registers 4
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -232,7 +232,7 @@
 .end method
 
 .method public instantiateProviderCompat(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/content/ContentProvider;
-    .locals 3
+    .registers 6
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -246,7 +246,7 @@
     .line 204
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-static {p2, v0, p1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v1
@@ -271,25 +271,25 @@
     move-result-object v0
 
     check-cast v0, Landroid/content/ContentProvider;
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_19} :catch_1c
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_19} :catch_1a
 
     .line 204
     return-object v0
 
     .line 206
-    :catch_0
+    :catch_1a
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :catch_1
+    :catch_1c
     move-exception v0
 
     .line 207
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_1d
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Couldn\'t call constructor"
@@ -300,7 +300,7 @@
 .end method
 
 .method public final instantiateReceiver(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/content/BroadcastReceiver;
-    .locals 1
+    .registers 5
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "intent"    # Landroid/content/Intent;
@@ -327,7 +327,7 @@
 .end method
 
 .method public instantiateReceiverCompat(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/content/BroadcastReceiver;
-    .locals 3
+    .registers 7
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "intent"    # Landroid/content/Intent;
@@ -342,7 +342,7 @@
     .line 157
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-static {p2, v0, p1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v1
@@ -367,25 +367,25 @@
     move-result-object v0
 
     check-cast v0, Landroid/content/BroadcastReceiver;
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_19} :catch_1c
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_19} :catch_1a
 
     .line 157
     return-object v0
 
     .line 159
-    :catch_0
+    :catch_1a
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :catch_1
+    :catch_1c
     move-exception v0
 
     .line 160
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_1d
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Couldn\'t call constructor"
@@ -396,7 +396,7 @@
 .end method
 
 .method public final instantiateService(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Service;
-    .locals 1
+    .registers 5
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "intent"    # Landroid/content/Intent;
@@ -423,7 +423,7 @@
 .end method
 
 .method public instantiateServiceCompat(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Service;
-    .locals 3
+    .registers 7
     .param p1, "cl"    # Ljava/lang/ClassLoader;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "intent"    # Landroid/content/Intent;
@@ -438,7 +438,7 @@
     .line 181
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-static {p2, v0, p1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v1
@@ -463,25 +463,25 @@
     move-result-object v0
 
     check-cast v0, Landroid/app/Service;
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_19} :catch_1c
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_19} :catch_1a
 
     .line 181
     return-object v0
 
     .line 183
-    :catch_0
+    :catch_1a
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :catch_1
+    :catch_1c
     move-exception v0
 
     .line 184
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_1d
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Couldn\'t call constructor"

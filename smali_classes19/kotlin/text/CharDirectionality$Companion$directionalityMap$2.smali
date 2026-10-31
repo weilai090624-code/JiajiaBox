@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/text/CharDirectionality$Companion$directionalityMap$2;
 
@@ -71,7 +71,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 118
     invoke-virtual {p0}, Lkotlin/text/CharDirectionality$Companion$directionalityMap$2;->invoke()Ljava/util/Map;
@@ -94,7 +94,7 @@
 .end method
 
 .method public final invoke()Ljava/util/Map;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -153,12 +153,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_24
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_3e
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -188,11 +188,11 @@
     .line 128
     invoke-interface {v3, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_24
 
     .line 130
     .end local v7    # "element$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_3e
     nop
 
     .line 126

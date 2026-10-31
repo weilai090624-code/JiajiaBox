@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 83
     new-instance v0, Lmoe/matsuri/nb4a/proxy/neko/NekoBean$1;
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public static tryParseJSON(Ljava/lang/String;)Lorg/json/JSONObject;
-    .locals 3
+    .registers 4
     .param p0, "input"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -70,16 +70,16 @@
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0, p0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_6
 
     .line 54
     .local v0, "ret":Lorg/json/JSONObject;
-    goto :goto_0
+    goto :goto_12
 
     .line 51
     .end local v0    # "ret":Lorg/json/JSONObject;
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 52
@@ -99,14 +99,14 @@
     .line 55
     .end local v1    # "ret":Lorg/json/JSONObject;
     .local v0, "ret":Lorg/json/JSONObject;
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 
 # virtual methods
 .method public canICMPing()Z
-    .locals 1
+    .registers 2
 
     .line 69
     const/4 v0, 0x0
@@ -115,7 +115,7 @@
 .end method
 
 .method public canMapping()Z
-    .locals 1
+    .registers 2
 
     .line 64
     const/4 v0, 0x0
@@ -124,7 +124,7 @@
 .end method
 
 .method public canTCPing()Z
-    .locals 1
+    .registers 2
 
     .line 74
     const/4 v0, 0x0
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/proxy/neko/NekoBean;->clone()Lmoe/matsuri/nb4a/proxy/neko/NekoBean;
@@ -144,7 +144,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -160,7 +160,7 @@
 .end method
 
 .method public clone()Lmoe/matsuri/nb4a/proxy/neko/NekoBean;
-    .locals 2
+    .registers 3
 
     .line 80
     new-instance v0, Lmoe/matsuri/nb4a/proxy/neko/NekoBean;
@@ -181,7 +181,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -231,7 +231,7 @@
 .end method
 
 .method public displayType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 59
     const-string v0, "invalid"
@@ -240,7 +240,7 @@
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 1
+    .registers 2
 
     .line 23
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->initializeDefaultValues()V
@@ -248,29 +248,29 @@
     .line 24
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/neko/NekoBean;->protocolId:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const-string v0, ""
 
     iput-object v0, p0, Lmoe/matsuri/nb4a/proxy/neko/NekoBean;->protocolId:Ljava/lang/String;
 
     .line 25
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/neko/NekoBean;->plgId:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     const-string v0, "moe.matsuri.plugin.donotexist"
 
     iput-object v0, p0, Lmoe/matsuri/nb4a/proxy/neko/NekoBean;->plgId:Ljava/lang/String;
 
     .line 26
-    :cond_1
+    :cond_13
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$andThen(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/function/Function;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/Function;
 
     .line 87
@@ -21,7 +21,7 @@
 .end method
 
 .method public static $default$compose(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/function/Function;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/Function;
 
     .line 67
@@ -37,7 +37,7 @@
 .end method
 
 .method public static synthetic $private$lambda$andThen$1(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/Function;
     .param p1, "after"    # Ljava/util/function/Function;
     .param p2, "t"    # Ljava/lang/Object;
@@ -55,7 +55,7 @@
 .end method
 
 .method public static synthetic $private$lambda$compose$0(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/Function;
     .param p1, "before"    # Ljava/util/function/Function;
     .param p2, "v"    # Ljava/lang/Object;
@@ -73,7 +73,7 @@
 .end method
 
 .method public static identity()Ljava/util/function/Function;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -93,7 +93,7 @@
 .end method
 
 .method public static synthetic lambda$identity$2(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .param p0, "t"    # Ljava/lang/Object;
 
     .line 98

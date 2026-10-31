@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(ZZ)V
-    .locals 0
+    .registers 3
     .param p1, "plain"    # Z
     .param p2, "nonplain"    # Z
 
@@ -31,30 +31,30 @@
 
 # virtual methods
 .method public bothFalse()Z
-    .locals 1
+    .registers 2
 
     .line 51
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/events/ImplicitTuple;->plain:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/events/ImplicitTuple;->nonPlain:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public canOmitTagInNonPlainScalar()Z
-    .locals 1
+    .registers 2
 
     .line 47
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/events/ImplicitTuple;->nonPlain:Z
@@ -63,7 +63,7 @@
 .end method
 
 .method public canOmitTagInPlainScalar()Z
-    .locals 1
+    .registers 2
 
     .line 39
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/events/ImplicitTuple;->plain:Z
@@ -72,7 +72,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 56
     new-instance v0, Ljava/lang/StringBuilder;

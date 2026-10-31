@@ -17,7 +17,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/concurrent/ScheduledExecutorService;)V
-    .locals 0
+    .registers 2
     .param p1, "delegate"    # Ljava/util/concurrent/ScheduledExecutorService;
 
     .line 41
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public final schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 2
+    .registers 7
     .param p1, "command"    # Ljava/lang/Runnable;
     .param p2, "delay"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -64,7 +64,7 @@
 .end method
 
 .method public final schedule(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 2
+    .registers 7
     .param p2, "delay"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -97,7 +97,7 @@
 .end method
 
 .method public final scheduleAtFixedRate(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 7
+    .registers 14
     .param p1, "command"    # Ljava/lang/Runnable;
     .param p2, "initialDelay"    # J
     .param p4, "period"    # J
@@ -135,7 +135,7 @@
 .end method
 
 .method public final scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 7
+    .registers 14
     .param p1, "command"    # Ljava/lang/Runnable;
     .param p2, "initialDelay"    # J
     .param p4, "delay"    # J

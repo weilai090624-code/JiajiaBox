@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/sqlite/db/SupportSQLiteCompat$Api29Impl;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 258
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final getNotificationUris(Landroid/database/Cursor;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "cursor"    # Landroid/database/Cursor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,7 +101,7 @@
 .end method
 
 .method public static final setNotificationUris(Landroid/database/Cursor;Landroid/content/ContentResolver;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p0, "cursor"    # Landroid/database/Cursor;
     .param p1, "cr"    # Landroid/content/ContentResolver;
     .param p2, "uris"    # Ljava/util/List;

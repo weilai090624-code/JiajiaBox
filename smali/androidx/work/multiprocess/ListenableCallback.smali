@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/concurrent/Executor;Landroidx/work/multiprocess/IWorkManagerImplCallback;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/Signature;
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public dispatchCallbackSafely()V
-    .locals 3
+    .registers 4
 
     .line 64
     .local p0, "this":Landroidx/work/multiprocess/ListenableCallback;, "Landroidx/work/multiprocess/ListenableCallback<TI;>;"

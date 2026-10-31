@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Inkommande samtal</string>
     <string name="call_notification_ongoing_text">Pågående samtal</string>
     <string name="call_notification_screening_text">Ett inkommande samtal filtreras</string>
-    <string name="character_counter_content_description" formatted="false">%1$d av %2$d tecken har angetts</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Teckengränsen har överskridits: %1$d av %2$d</string>
+    <string name="character_counter_content_description">%1$d av %2$d tecken har angetts</string>
+    <string name="character_counter_overflowed_content_description">Teckengränsen har överskridits: %1$d av %2$d</string>
     <string name="clear_text_end_icon_content_description">Rensa text</string>
     <string name="copy">Kopiera</string>
     <string name="copy_toast_msg">Länk kopierad till Urklipp</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Utanför intervallet: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Startdatum–%1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s–slutdatum</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
     <string name="mtrl_picker_range_header_title">Välj intervall</string>
     <string name="mtrl_picker_range_header_unselected">Startdatum–slutdatum</string>
     <string name="mtrl_picker_save">Spara</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">%1$s har kopierats till Urklipp.</string>
     <string name="search_menu_title">Sök</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">AV</string>
     <string name="v7_preference_on">PÅ</string>
 </resources>

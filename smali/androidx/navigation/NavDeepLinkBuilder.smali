@@ -96,7 +96,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -116,7 +116,7 @@
 
     instance-of v0, v0, Landroid/app/Activity;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 61
     new-instance v0, Landroid/content/Intent;
@@ -131,10 +131,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 63
-    :cond_0
+    :cond_1f
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkBuilder;->context:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -153,7 +153,7 @@
 
     .line 64
     .local v0, "launchIntent":Landroid/content/Intent;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_37
 
     new-instance v1, Landroid/content/Intent;
 
@@ -163,8 +163,8 @@
 
     .line 65
     .end local v0    # "launchIntent":Landroid/content/Intent;
-    :cond_1
-    :goto_0
+    :cond_37
+    :goto_37
     move-object v1, v0
 
     .local v1, "it":Landroid/content/Intent;
@@ -198,7 +198,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/navigation/NavController;)V
-    .locals 1
+    .registers 3
     .param p1, "navController"    # Landroidx/navigation/NavController;
 
     const-string v0, "navController"
@@ -224,16 +224,16 @@
 .end method
 
 .method public static synthetic addDestination$default(Landroidx/navigation/NavDeepLinkBuilder;ILandroid/os/Bundle;ILjava/lang/Object;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 0
+    .registers 5
 
     .line 199
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Landroidx/navigation/NavDeepLinkBuilder;->addDestination(ILandroid/os/Bundle;)Landroidx/navigation/NavDeepLinkBuilder;
 
     move-result-object p0
@@ -242,16 +242,16 @@
 .end method
 
 .method public static synthetic addDestination$default(Landroidx/navigation/NavDeepLinkBuilder;Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/Object;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 0
+    .registers 5
 
     .line 219
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Landroidx/navigation/NavDeepLinkBuilder;->addDestination(Ljava/lang/String;Landroid/os/Bundle;)Landroidx/navigation/NavDeepLinkBuilder;
 
     move-result-object p0
@@ -260,7 +260,7 @@
 .end method
 
 .method private final fillInIntent()V
-    .locals 13
+    .registers 14
 
     .line 257
     new-instance v0, Ljava/util/ArrayList;
@@ -287,12 +287,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_13
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_73
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -320,7 +320,7 @@
 
     .line 264
     .local v7, "node":Landroidx/navigation/NavDestination;
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_46
 
     .line 270
     invoke-virtual {v7, v2}, Landroidx/navigation/NavDestination;->buildDeepLinkIds(Landroidx/navigation/NavDestination;)[I
@@ -331,8 +331,8 @@
 
     const/4 v10, 0x0
 
-    :goto_1
-    if-ge v10, v9, :cond_0
+    :goto_33
+    if-ge v10, v9, :cond_44
 
     aget v11, v8, v10
 
@@ -350,25 +350,25 @@
     .line 270
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
     .line 274
     .end local v11    # "id":I
-    :cond_0
+    :cond_44
     move-object v2, v7
 
     .end local v4    # "destination":Landroidx/navigation/NavDeepLinkBuilder$DeepLinkDestination;
     .end local v5    # "destId":I
     .end local v6    # "arguments":Landroid/os/Bundle;
     .end local v7    # "node":Landroidx/navigation/NavDestination;
-    goto :goto_0
+    goto :goto_13
 
     .line 265
     .restart local v4    # "destination":Landroidx/navigation/NavDeepLinkBuilder$DeepLinkDestination;
     .restart local v5    # "destId":I
     .restart local v6    # "arguments":Landroid/os/Bundle;
     .restart local v7    # "node":Landroidx/navigation/NavDestination;
-    :cond_1
+    :cond_46
     sget-object v3, Landroidx/navigation/NavDestination;->Companion:Landroidx/navigation/NavDestination$Companion;
 
     iget-object v8, p0, Landroidx/navigation/NavDeepLinkBuilder;->context:Landroid/content/Context;
@@ -423,7 +423,7 @@
     .end local v5    # "destId":I
     .end local v6    # "arguments":Landroid/os/Bundle;
     .end local v7    # "node":Landroidx/navigation/NavDestination;
-    :cond_2
+    :cond_73
     move-object v3, v0
 
     check-cast v3, Ljava/util/Collection;
@@ -452,7 +452,7 @@
 .end method
 
 .method private final findDestination(I)Landroidx/navigation/NavDestination;
-    .locals 4
+    .registers 6
     .param p1, "destId"    # I
 
     .line 228
@@ -469,12 +469,12 @@
     invoke-virtual {v0, v1}, Lkotlin/collections/ArrayDeque;->add(Ljava/lang/Object;)Z
 
     .line 230
-    :cond_0
+    :cond_d
     invoke-virtual {v0}, Lkotlin/collections/ArrayDeque;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3b
 
     .line 231
     invoke-virtual {v0}, Lkotlin/collections/ArrayDeque;->removeFirst()Ljava/lang/Object;
@@ -489,16 +489,16 @@
 
     move-result v2
 
-    if-ne v2, p1, :cond_1
+    if-ne v2, p1, :cond_20
 
     .line 233
     return-object v1
 
     .line 234
-    :cond_1
+    :cond_20
     instance-of v2, v1, Landroidx/navigation/NavGraph;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_d
 
     .line 235
     move-object v2, v1
@@ -509,12 +509,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_2b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -526,28 +526,28 @@
     .local v3, "child":Landroidx/navigation/NavDestination;
     invoke-virtual {v0, v3}, Lkotlin/collections/ArrayDeque;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 240
     .end local v1    # "destination":Landroidx/navigation/NavDestination;
     .end local v3    # "child":Landroidx/navigation/NavDestination;
-    :cond_2
+    :cond_3b
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static synthetic setDestination$default(Landroidx/navigation/NavDeepLinkBuilder;ILandroid/os/Bundle;ILjava/lang/Object;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 0
+    .registers 5
 
     .line 141
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Landroidx/navigation/NavDeepLinkBuilder;->setDestination(ILandroid/os/Bundle;)Landroidx/navigation/NavDeepLinkBuilder;
 
     move-result-object p0
@@ -556,16 +556,16 @@
 .end method
 
 .method public static synthetic setDestination$default(Landroidx/navigation/NavDeepLinkBuilder;Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/Object;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 0
+    .registers 5
 
     .line 161
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Landroidx/navigation/NavDeepLinkBuilder;->setDestination(Ljava/lang/String;Landroid/os/Bundle;)Landroidx/navigation/NavDeepLinkBuilder;
 
     move-result-object p0
@@ -574,7 +574,7 @@
 .end method
 
 .method private final verifyAllDestinations()V
-    .locals 7
+    .registers 8
 
     .line 244
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkBuilder;->destinations:Ljava/util/List;
@@ -583,12 +583,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -610,12 +610,12 @@
 
     .line 247
     .local v3, "node":Landroidx/navigation/NavDestination;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1d
 
-    goto :goto_0
+    goto :goto_6
 
     .line 248
-    :cond_0
+    :cond_1d
     sget-object v0, Landroidx/navigation/NavDestination;->Companion:Landroidx/navigation/NavDestination$Companion;
 
     iget-object v4, p0, Landroidx/navigation/NavDeepLinkBuilder;->context:Landroid/content/Context;
@@ -669,14 +669,14 @@
     .end local v1    # "destination":Landroidx/navigation/NavDeepLinkBuilder$DeepLinkDestination;
     .end local v2    # "destId":I
     .end local v3    # "node":Landroidx/navigation/NavDestination;
-    :cond_1
+    :cond_4a
     return-void
 .end method
 
 
 # virtual methods
 .method public final addDestination(I)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -690,7 +690,7 @@
 .end method
 
 .method public final addDestination(ILandroid/os/Bundle;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 2
+    .registers 5
     .param p1, "destId"    # I
     .param p2, "args"    # Landroid/os/Bundle;
 
@@ -706,18 +706,18 @@
     .line 201
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkBuilder;->graph:Landroidx/navigation/NavGraph;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 202
     invoke-direct {p0}, Landroidx/navigation/NavDeepLinkBuilder;->verifyAllDestinations()V
 
     .line 204
-    :cond_0
+    :cond_11
     return-object p0
 .end method
 
 .method public final addDestination(Ljava/lang/String;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 2
+    .registers 4
 
     const-string v0, "route"
 
@@ -735,7 +735,7 @@
 .end method
 
 .method public final addDestination(Ljava/lang/String;Landroid/os/Bundle;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 3
+    .registers 6
     .param p1, "route"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
 
@@ -765,18 +765,18 @@
     .line 221
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkBuilder;->graph:Landroidx/navigation/NavGraph;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 222
     invoke-direct {p0}, Landroidx/navigation/NavDeepLinkBuilder;->verifyAllDestinations()V
 
     .line 224
-    :cond_0
+    :cond_20
     return-object p0
 .end method
 
 .method public final createPendingIntent()Landroid/app/PendingIntent;
-    .locals 11
+    .registers 12
 
     .line 339
     const/4 v0, 0x0
@@ -787,7 +787,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2e
 
     .local v1, "globalArgs":Landroid/os/Bundle;
     const/4 v3, 0x0
@@ -802,12 +802,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_f
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2c
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -825,26 +825,26 @@
     .local v6, "value":Ljava/lang/Object;
     mul-int/lit8 v7, v0, 0x1f
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_28
 
     invoke-virtual {v6}, Ljava/lang/Object;->hashCode()I
 
     move-result v8
 
-    goto :goto_1
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     const/4 v8, 0x0
 
-    :goto_1
+    :goto_29
     add-int v0, v7, v8
 
     .end local v5    # "key":Ljava/lang/String;
     .end local v6    # "value":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_f
 
     .line 345
-    :cond_1
+    :cond_2c
     nop
 
     .line 340
@@ -853,19 +853,19 @@
     nop
 
     .line 346
-    :cond_2
+    :cond_2e
     iget-object v1, p0, Landroidx/navigation/NavDeepLinkBuilder;->destinations:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_3
+    :cond_34
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_73
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -892,7 +892,7 @@
 
     .line 350
     .local v5, "arguments":Landroid/os/Bundle;
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_34
 
     .line 351
     invoke-virtual {v5}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
@@ -903,12 +903,12 @@
 
     move-result-object v6
 
-    :goto_2
+    :goto_56
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_34
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -926,29 +926,29 @@
     .local v8, "value":Ljava/lang/Object;
     mul-int/lit8 v9, v0, 0x1f
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_6f
 
     invoke-virtual {v8}, Ljava/lang/Object;->hashCode()I
 
     move-result v10
 
-    goto :goto_3
+    goto :goto_70
 
-    :cond_4
+    :cond_6f
     const/4 v10, 0x0
 
-    :goto_3
+    :goto_70
     add-int v0, v9, v10
 
     .end local v7    # "key":Ljava/lang/String;
     .end local v8    # "value":Ljava/lang/Object;
-    goto :goto_2
+    goto :goto_56
 
     .line 357
     .end local v3    # "destination":Landroidx/navigation/NavDeepLinkBuilder$DeepLinkDestination;
     .end local v4    # "destId":I
     .end local v5    # "arguments":Landroid/os/Bundle;
-    :cond_5
+    :cond_73
     invoke-virtual {p0}, Landroidx/navigation/NavDeepLinkBuilder;->createTaskStackBuilder()Landroidx/core/app/TaskStackBuilder;
 
     move-result-object v1
@@ -972,12 +972,12 @@
 .end method
 
 .method public final createTaskStackBuilder()Landroidx/core/app/TaskStackBuilder;
-    .locals 6
+    .registers 7
 
     .line 305
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkBuilder;->graph:Landroidx/navigation/NavGraph;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_52
 
     .line 308
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkBuilder;->destinations:Ljava/util/List;
@@ -988,7 +988,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_44
 
     .line 311
     invoke-direct {p0}, Landroidx/navigation/NavDeepLinkBuilder;->fillInIntent()V
@@ -1027,8 +1027,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_2d
+    if-ge v1, v2, :cond_43
 
     .line 321
     nop
@@ -1039,7 +1039,7 @@
     move-result-object v3
 
     .line 321
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_40
 
     .line 320
     nop
@@ -1054,19 +1054,19 @@
     invoke-virtual {v3, v5, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     .line 317
-    :cond_0
+    :cond_40
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 323
     .end local v1    # "index":I
-    :cond_1
+    :cond_43
     return-object v0
 
     .line 308
     .end local v0    # "taskStackBuilder":Landroidx/core/app/TaskStackBuilder;
-    :cond_2
+    :cond_44
     const/4 v0, 0x0
 
     .line 309
@@ -1088,7 +1088,7 @@
     throw v0
 
     .line 305
-    :cond_3
+    :cond_52
     const/4 v0, 0x0
 
     .line 306
@@ -1111,7 +1111,7 @@
 .end method
 
 .method public final setArguments(Landroid/os/Bundle;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 2
+    .registers 4
     .param p1, "args"    # Landroid/os/Bundle;
 
     .line 287
@@ -1129,7 +1129,7 @@
 .end method
 
 .method public final setComponentName(Landroid/content/ComponentName;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 1
+    .registers 3
     .param p1, "componentName"    # Landroid/content/ComponentName;
 
     const-string v0, "componentName"
@@ -1146,7 +1146,7 @@
 .end method
 
 .method public final setComponentName(Ljava/lang/Class;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 2
+    .registers 4
     .param p1, "activityClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1178,7 +1178,7 @@
 .end method
 
 .method public final setDestination(I)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -1192,7 +1192,7 @@
 .end method
 
 .method public final setDestination(ILandroid/os/Bundle;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 2
+    .registers 5
     .param p1, "destId"    # I
     .param p2, "args"    # Landroid/os/Bundle;
 
@@ -1213,18 +1213,18 @@
     .line 144
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkBuilder;->graph:Landroidx/navigation/NavGraph;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 145
     invoke-direct {p0}, Landroidx/navigation/NavDeepLinkBuilder;->verifyAllDestinations()V
 
     .line 147
-    :cond_0
+    :cond_16
     return-object p0
 .end method
 
 .method public final setDestination(Ljava/lang/String;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 2
+    .registers 4
 
     const-string v0, "destRoute"
 
@@ -1242,7 +1242,7 @@
 .end method
 
 .method public final setDestination(Ljava/lang/String;Landroid/os/Bundle;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 3
+    .registers 6
     .param p1, "destRoute"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
 
@@ -1277,18 +1277,18 @@
     .line 164
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkBuilder;->graph:Landroidx/navigation/NavGraph;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 165
     invoke-direct {p0}, Landroidx/navigation/NavDeepLinkBuilder;->verifyAllDestinations()V
 
     .line 167
-    :cond_0
+    :cond_25
     return-object p0
 .end method
 
 .method public final setGraph(I)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 3
+    .registers 5
     .param p1, "navGraphId"    # I
 
     .line 111
@@ -1316,7 +1316,7 @@
 .end method
 
 .method public final setGraph(Landroidx/navigation/NavGraph;)Landroidx/navigation/NavDeepLinkBuilder;
-    .locals 1
+    .registers 3
     .param p1, "navGraph"    # Landroidx/navigation/NavGraph;
 
     const-string v0, "navGraph"

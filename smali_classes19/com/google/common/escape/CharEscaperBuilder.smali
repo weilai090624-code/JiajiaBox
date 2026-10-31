@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public addEscape(CLjava/lang/String;)Lcom/google/common/escape/CharEscaperBuilder;
-    .locals 3
+    .registers 6
     .param p1, "c"    # C
     .param p2, "r"    # Ljava/lang/String;
 
@@ -77,18 +77,18 @@
     .line 92
     iget v0, p0, Lcom/google/common/escape/CharEscaperBuilder;->max:I
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_15
 
     .line 93
     iput p1, p0, Lcom/google/common/escape/CharEscaperBuilder;->max:I
 
     .line 95
-    :cond_0
+    :cond_15
     return-object p0
 .end method
 
 .method public addEscapes([CLjava/lang/String;)Lcom/google/common/escape/CharEscaperBuilder;
-    .locals 3
+    .registers 6
     .param p1, "cs"    # [C
     .param p2, "r"    # Ljava/lang/String;
 
@@ -100,8 +100,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_5
+    if-ge v1, v0, :cond_f
 
     aget-char v2, p1, v1
 
@@ -113,15 +113,15 @@
     .end local v2    # "c":C
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 105
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method public toArray()[[C
-    .locals 5
+    .registers 6
 
     .line 116
     iget v0, p0, Lcom/google/common/escape/CharEscaperBuilder;->max:I
@@ -142,12 +142,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_33
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -181,15 +181,15 @@
 
     .line 119
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Character;Ljava/lang/String;>;"
-    goto :goto_0
+    goto :goto_10
 
     .line 120
-    :cond_0
+    :cond_33
     return-object v0
 .end method
 
 .method public toEscaper()Lcom/google/common/escape/Escaper;
-    .locals 2
+    .registers 3
 
     .line 130
     new-instance v0, Lcom/google/common/escape/CharEscaperBuilder$CharArrayDecorator;

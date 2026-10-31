@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 732
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/CollectionSerializer;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method private createPriorityQueue(Ljava/lang/Class;ILjava/util/Comparator;)Ljava/util/PriorityQueue;
-    .locals 6
+    .registers 10
     .param p2, "size"    # I
     .param p3, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -61,17 +61,17 @@
     .local v1, "initialCapacity":I
     const-class v2, Ljava/util/PriorityQueue;
 
-    if-eq p1, v2, :cond_2
+    if-eq p1, v2, :cond_3f
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 750
-    :cond_0
+    :cond_c
     const/4 v2, 0x2
 
-    :try_start_0
+    :try_start_d
     new-array v3, v2, [Ljava/lang/Class;
 
     sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
@@ -93,29 +93,29 @@
     invoke-virtual {v3}, Ljava/lang/reflect/Constructor;->isAccessible()Z
 
     move-result v4
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_20
+    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_20} :catch_38
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_27
 
     .line 753
-    :try_start_1
+    :try_start_22
     invoke-virtual {v3, v0}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
-    :try_end_1
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_25
+    .catch Ljava/lang/SecurityException; {:try_start_22 .. :try_end_25} :catch_26
+    .catch Ljava/lang/Exception; {:try_start_22 .. :try_end_25} :catch_38
 
     .line 755
-    goto :goto_0
+    goto :goto_27
 
     .line 754
-    :catch_0
+    :catch_26
     move-exception v4
 
     .line 757
-    :cond_1
-    :goto_0
-    :try_start_2
+    :cond_27
+    :goto_27
+    :try_start_27
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
@@ -131,14 +131,14 @@
     move-result-object v0
 
     check-cast v0, Ljava/util/PriorityQueue;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_37
+    .catch Ljava/lang/Exception; {:try_start_27 .. :try_end_37} :catch_38
 
     return-object v0
 
     .line 758
     .end local v3    # "constructor":Ljava/lang/reflect/Constructor;
-    :catch_1
+    :catch_38
     move-exception v0
 
     .line 759
@@ -151,8 +151,8 @@
 
     .line 747
     .end local v0    # "ex":Ljava/lang/Exception;
-    :cond_2
-    :goto_1
+    :cond_3f
+    :goto_3f
     new-instance v0, Ljava/util/PriorityQueue;
 
     invoke-direct {v0, v1, p3}, Ljava/util/PriorityQueue;-><init>(ILjava/util/Comparator;)V
@@ -163,7 +163,7 @@
 
 # virtual methods
 .method protected bridge synthetic create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/Collection;
-    .locals 0
+    .registers 5
 
     .line 732
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$PriorityQueueSerializer;->create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/PriorityQueue;
@@ -174,7 +174,7 @@
 .end method
 
 .method protected create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/PriorityQueue;
-    .locals 1
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p4, "size"    # I
@@ -207,7 +207,7 @@
 .end method
 
 .method protected bridge synthetic createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
 
     .line 732
     check-cast p2, Ljava/util/PriorityQueue;
@@ -220,7 +220,7 @@
 .end method
 
 .method protected createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/PriorityQueue;)Ljava/util/PriorityQueue;
-    .locals 3
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "original"    # Ljava/util/PriorityQueue;
 
@@ -245,7 +245,7 @@
 .end method
 
 .method protected bridge synthetic writeHeader(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/Collection;)V
-    .locals 0
+    .registers 4
 
     .line 732
     check-cast p3, Ljava/util/PriorityQueue;
@@ -256,7 +256,7 @@
 .end method
 
 .method protected writeHeader(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/PriorityQueue;)V
-    .locals 1
+    .registers 5
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "queue"    # Ljava/util/PriorityQueue;

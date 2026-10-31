@@ -90,7 +90,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -152,7 +152,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/channels/ProducerScope;
 
@@ -166,7 +166,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -196,7 +196,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -209,7 +209,7 @@
 
     const/4 v3, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_4a
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -219,7 +219,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_13
     move-object v0, p0
 
     .local v0, "this":Landroidx/lifecycle/FlowExtKt$flowWithLifecycle$1;
@@ -231,12 +231,12 @@
     .local v1, "$this$callbackFlow":Lkotlinx/coroutines/channels/ProducerScope;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_41
 
     .end local v0    # "this":Landroidx/lifecycle/FlowExtKt$flowWithLifecycle$1;
     .end local v1    # "$this$callbackFlow":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1c
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -273,13 +273,13 @@
 
     move-result-object v5
 
-    if-ne v5, v0, :cond_0
+    if-ne v5, v0, :cond_3f
 
     .line 90
     return-object v0
 
     .line 91
-    :cond_0
+    :cond_3f
     move-object v0, v1
 
     move-object v1, v4
@@ -288,7 +288,7 @@
     .end local v4    # "$this$callbackFlow":Lkotlinx/coroutines/channels/ProducerScope;
     .restart local v0    # "this":Landroidx/lifecycle/FlowExtKt$flowWithLifecycle$1;
     .local v1, "$this$callbackFlow":Lkotlinx/coroutines/channels/ProducerScope;
-    :goto_0
+    :goto_41
     move-object v4, v1
 
     check-cast v4, Lkotlinx/coroutines/channels/SendChannel;
@@ -300,9 +300,9 @@
 
     return-object v2
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1c
+        :pswitch_13
     .end packed-switch
 .end method

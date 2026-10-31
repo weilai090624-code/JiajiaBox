@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -113,25 +113,25 @@
     invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     .line 340
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
     iget-object v0, p0, Lcom/google/common/collect/Lists$OnePlusArrayList;->first:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lcom/google/common/collect/Lists$OnePlusArrayList;->rest:[Ljava/lang/Object;
 
     add-int/lit8 v1, p1, -0x1
 
     aget-object v0, v0, v1
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 332
     .local p0, "this":Lcom/google/common/collect/Lists$OnePlusArrayList;, "Lcom/google/common/collect/Lists$OnePlusArrayList<TE;>;"

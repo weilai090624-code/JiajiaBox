@@ -74,7 +74,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/activity/SystemBarStyle$Companion;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method private constructor <init>(IIILkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 5
     .param p1, "lightScrim"    # I
     .param p2, "darkScrim"    # I
     .param p3, "nightMode"    # I
@@ -124,7 +124,7 @@
 .end method
 
 .method public synthetic constructor <init>(IIILkotlin/jvm/functions/Function1;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/activity/SystemBarStyle;-><init>(IIILkotlin/jvm/functions/Function1;)V
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public static final auto(II)Landroidx/activity/SystemBarStyle;
-    .locals 1
+    .registers 3
     .param p0, "lightScrim"    # I
     .param p1, "darkScrim"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -149,7 +149,7 @@
 .end method
 
 .method public static final auto(IILkotlin/jvm/functions/Function1;)Landroidx/activity/SystemBarStyle;
-    .locals 1
+    .registers 4
     .param p0, "lightScrim"    # I
     .param p1, "darkScrim"    # I
     .param p2, "detectDarkMode"    # Lkotlin/jvm/functions/Function1;
@@ -179,7 +179,7 @@
 .end method
 
 .method public static final dark(I)Landroidx/activity/SystemBarStyle;
-    .locals 1
+    .registers 2
     .param p0, "scrim"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -195,7 +195,7 @@
 .end method
 
 .method public static final light(II)Landroidx/activity/SystemBarStyle;
-    .locals 1
+    .registers 3
     .param p0, "scrim"    # I
     .param p1, "darkScrim"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -214,7 +214,7 @@
 
 # virtual methods
 .method public final getDarkScrim$activity_release()I
-    .locals 1
+    .registers 2
 
     .line 110
     iget v0, p0, Landroidx/activity/SystemBarStyle;->darkScrim:I
@@ -223,7 +223,7 @@
 .end method
 
 .method public final getDetectDarkMode$activity_release()Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -241,7 +241,7 @@
 .end method
 
 .method public final getNightMode$activity_release()I
-    .locals 1
+    .registers 2
 
     .line 111
     iget v0, p0, Landroidx/activity/SystemBarStyle;->nightMode:I
@@ -250,25 +250,25 @@
 .end method
 
 .method public final getScrim$activity_release(Z)I
-    .locals 1
+    .registers 3
     .param p1, "isDark"    # Z
 
     .line 192
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     iget v0, p0, Landroidx/activity/SystemBarStyle;->darkScrim:I
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     iget v0, p0, Landroidx/activity/SystemBarStyle;->lightScrim:I
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public final getScrimWithEnforcedContrast$activity_release(Z)I
-    .locals 1
+    .registers 3
     .param p1, "isDark"    # Z
 
     .line 195
@@ -277,25 +277,25 @@
     .line 196
     iget v0, p0, Landroidx/activity/SystemBarStyle;->nightMode:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
     .line 197
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_7
+    if-eqz p1, :cond_c
 
     iget v0, p0, Landroidx/activity/SystemBarStyle;->darkScrim:I
 
-    goto :goto_0
+    goto :goto_e
 
     .line 198
-    :cond_1
+    :cond_c
     iget v0, p0, Landroidx/activity/SystemBarStyle;->lightScrim:I
 
     .line 195
-    :goto_0
+    :goto_e
     return v0
 .end method

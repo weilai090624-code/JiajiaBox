@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method static load()Z
-    .locals 2
+    .registers 2
 
     .line 35
     sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
@@ -34,7 +34,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
@@ -51,16 +51,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v0, 0x0
 
     .line 35
-    :goto_0
+    :goto_23
     return v0
 .end method

@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/SurfaceRequest;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/camera/core/SurfaceRequest;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -80,7 +80,7 @@
     .line 148
     instance-of v0, p1, Landroidx/camera/core/SurfaceRequest$RequestCancelledException;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 150
     iget-object v0, p0, Landroidx/camera/core/SurfaceRequest$1;->val$requestCancellationFuture:Lcom/google/common/util/concurrent/ListenableFuture;
@@ -93,10 +93,10 @@
 
     invoke-static {v0}, Landroidx/core/util/Preconditions;->checkState(Z)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 154
-    :cond_0
+    :cond_f
     iget-object v0, p0, Landroidx/camera/core/SurfaceRequest$1;->val$requestCancellationCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     const/4 v1, 0x0
@@ -108,12 +108,12 @@
     invoke-static {v0}, Landroidx/core/util/Preconditions;->checkState(Z)V
 
     .line 156
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -132,7 +132,7 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Void;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Ljava/lang/Void;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

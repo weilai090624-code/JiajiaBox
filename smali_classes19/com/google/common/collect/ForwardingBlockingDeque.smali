@@ -28,7 +28,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 55
     .local p0, "this":Lcom/google/common/collect/ForwardingBlockingDeque;, "Lcom/google/common/collect/ForwardingBlockingDeque<TE;>;"
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ForwardingBlockingDeque;, "Lcom/google/common/collect/ForwardingBlockingDeque<TE;>;"
@@ -52,7 +52,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ForwardingBlockingDeque;, "Lcom/google/common/collect/ForwardingBlockingDeque<TE;>;"
@@ -64,7 +64,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Deque;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ForwardingBlockingDeque;, "Lcom/google/common/collect/ForwardingBlockingDeque<TE;>;"
@@ -76,7 +76,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Queue;
-    .locals 1
+    .registers 2
 
     .line 48
     .local p0, "this":Lcom/google/common/collect/ForwardingBlockingDeque;, "Lcom/google/common/collect/ForwardingBlockingDeque<TE;>;"
@@ -98,7 +98,7 @@
 .end method
 
 .method public drainTo(Ljava/util/Collection;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -122,7 +122,7 @@
 .end method
 
 .method public drainTo(Ljava/util/Collection;I)I
-    .locals 1
+    .registers 4
     .param p2, "maxElements"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -147,7 +147,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z
-    .locals 1
+    .registers 6
     .param p2, "timeout"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -179,7 +179,7 @@
 .end method
 
 .method public offerFirst(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z
-    .locals 1
+    .registers 6
     .param p2, "timeout"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -211,7 +211,7 @@
 .end method
 
 .method public offerLast(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z
-    .locals 1
+    .registers 6
     .param p2, "timeout"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -243,7 +243,7 @@
 .end method
 
 .method public poll(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -277,7 +277,7 @@
 .end method
 
 .method public pollFirst(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -311,7 +311,7 @@
 .end method
 
 .method public pollLast(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -345,7 +345,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -372,7 +372,7 @@
 .end method
 
 .method public putFirst(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -399,7 +399,7 @@
 .end method
 
 .method public putLast(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -426,7 +426,7 @@
 .end method
 
 .method public remainingCapacity()I
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ForwardingBlockingDeque;, "Lcom/google/common/collect/ForwardingBlockingDeque<TE;>;"
@@ -442,7 +442,7 @@
 .end method
 
 .method public take()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -469,7 +469,7 @@
 .end method
 
 .method public takeFirst()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -496,7 +496,7 @@
 .end method
 
 .method public takeLast()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"

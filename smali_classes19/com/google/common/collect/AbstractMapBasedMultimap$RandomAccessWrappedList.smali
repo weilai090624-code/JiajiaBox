@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/List;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
-    .locals 0
+    .registers 5
     .param p1    # Lcom/google/common/collect/AbstractMapBasedMultimap;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

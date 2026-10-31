@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 59
     new-instance v0, Landroidx/work/multiprocess/parcelable/ParcelableForegroundRequestInfo$1;
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 4
+    .registers 6
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 47
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroidx/work/ForegroundInfo;)V
-    .locals 0
+    .registers 3
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "foregroundInfo"    # Landroidx/work/ForegroundInfo;
 
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 86
     const/4 v0, 0x0
@@ -121,7 +121,7 @@
 .end method
 
 .method public getForegroundInfo()Landroidx/work/ForegroundInfo;
-    .locals 1
+    .registers 2
 
     .line 75
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableForegroundRequestInfo;->mForegroundInfo:Landroidx/work/ForegroundInfo;
@@ -130,7 +130,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 80
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableForegroundRequestInfo;->mId:Ljava/lang/String;
@@ -139,7 +139,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

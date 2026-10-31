@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/layout/SafeWindowLayoutComponentProvider;
 
@@ -84,7 +84,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,7 +93,7 @@
 .end method
 
 .method public static final synthetic access$canUseWindowLayoutComponent(Landroidx/window/layout/SafeWindowLayoutComponentProvider;Ljava/lang/ClassLoader;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Landroidx/window/layout/SafeWindowLayoutComponentProvider;
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public static final synthetic access$doesReturn(Landroidx/window/layout/SafeWindowLayoutComponentProvider;Ljava/lang/reflect/Method;Ljava/lang/Class;)Z
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Landroidx/window/layout/SafeWindowLayoutComponentProvider;
     .param p1, "$receiver"    # Ljava/lang/reflect/Method;
     .param p2, "clazz"    # Ljava/lang/Class;
@@ -120,7 +120,7 @@
 .end method
 
 .method public static final synthetic access$doesReturn(Landroidx/window/layout/SafeWindowLayoutComponentProvider;Ljava/lang/reflect/Method;Lkotlin/reflect/KClass;)Z
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Landroidx/window/layout/SafeWindowLayoutComponentProvider;
     .param p1, "$receiver"    # Ljava/lang/reflect/Method;
     .param p2, "clazz"    # Lkotlin/reflect/KClass;
@@ -134,7 +134,7 @@
 .end method
 
 .method public static final synthetic access$foldingFeatureClass(Landroidx/window/layout/SafeWindowLayoutComponentProvider;Ljava/lang/ClassLoader;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Landroidx/window/layout/SafeWindowLayoutComponentProvider;
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public static final synthetic access$isPublic(Landroidx/window/layout/SafeWindowLayoutComponentProvider;Ljava/lang/reflect/Method;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Landroidx/window/layout/SafeWindowLayoutComponentProvider;
     .param p1, "$receiver"    # Ljava/lang/reflect/Method;
 
@@ -160,7 +160,7 @@
 .end method
 
 .method public static final synthetic access$windowExtensionsClass(Landroidx/window/layout/SafeWindowLayoutComponentProvider;Ljava/lang/ClassLoader;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Landroidx/window/layout/SafeWindowLayoutComponentProvider;
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
@@ -173,7 +173,7 @@
 .end method
 
 .method public static final synthetic access$windowExtensionsProviderClass(Landroidx/window/layout/SafeWindowLayoutComponentProvider;Ljava/lang/ClassLoader;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Landroidx/window/layout/SafeWindowLayoutComponentProvider;
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
@@ -186,7 +186,7 @@
 .end method
 
 .method public static final synthetic access$windowLayoutComponentClass(Landroidx/window/layout/SafeWindowLayoutComponentProvider;Ljava/lang/ClassLoader;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Landroidx/window/layout/SafeWindowLayoutComponentProvider;
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
@@ -199,7 +199,7 @@
 .end method
 
 .method private final canUseWindowLayoutComponent(Ljava/lang/ClassLoader;)Z
-    .locals 3
+    .registers 5
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
     .line 46
@@ -209,54 +209,54 @@
 
     const/4 v2, 0x0
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_22
 
     .line 47
     invoke-direct {p0, p1}, Landroidx/window/layout/SafeWindowLayoutComponentProvider;->isWindowLayoutProviderValid(Ljava/lang/ClassLoader;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 48
     invoke-direct {p0, p1}, Landroidx/window/layout/SafeWindowLayoutComponentProvider;->isWindowExtensionsValid(Ljava/lang/ClassLoader;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 49
     invoke-direct {p0, p1}, Landroidx/window/layout/SafeWindowLayoutComponentProvider;->isWindowLayoutComponentValid(Ljava/lang/ClassLoader;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 50
     invoke-direct {p0, p1}, Landroidx/window/layout/SafeWindowLayoutComponentProvider;->isFoldingFeatureValid(Ljava/lang/ClassLoader;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
-    goto :goto_0
+    :cond_21
+    goto :goto_23
 
     .line 52
-    :cond_1
+    :cond_22
     nop
 
     .line 46
-    :goto_0
+    :goto_23
     return v2
 .end method
 
 .method private final doesReturn(Ljava/lang/reflect/Method;Ljava/lang/Class;)Z
-    .locals 1
+    .registers 4
     .param p1, "$this$doesReturn"    # Ljava/lang/reflect/Method;
     .param p2, "clazz"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -281,7 +281,7 @@
 .end method
 
 .method private final doesReturn(Ljava/lang/reflect/Method;Lkotlin/reflect/KClass;)Z
-    .locals 1
+    .registers 4
     .param p1, "$this$doesReturn"    # Ljava/lang/reflect/Method;
     .param p2, "clazz"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
@@ -306,7 +306,7 @@
 .end method
 
 .method private final foldingFeatureClass(Ljava/lang/ClassLoader;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -329,7 +329,7 @@
 .end method
 
 .method private final isFoldingFeatureValid(Ljava/lang/ClassLoader;)Z
-    .locals 1
+    .registers 3
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
     .line 78
@@ -347,7 +347,7 @@
 .end method
 
 .method private final isPublic(Ljava/lang/reflect/Method;)Z
-    .locals 1
+    .registers 3
     .param p1, "$this$isPublic"    # Ljava/lang/reflect/Method;
 
     .line 120
@@ -363,7 +363,7 @@
 .end method
 
 .method private final isWindowExtensionsValid(Ljava/lang/ClassLoader;)Z
-    .locals 1
+    .registers 3
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
     .line 67
@@ -381,7 +381,7 @@
 .end method
 
 .method private final isWindowLayoutComponentValid(Ljava/lang/ClassLoader;)Z
-    .locals 1
+    .registers 3
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
     .line 94
@@ -399,7 +399,7 @@
 .end method
 
 .method private final isWindowLayoutProviderValid(Ljava/lang/ClassLoader;)Z
-    .locals 1
+    .registers 3
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
     .line 57
@@ -417,7 +417,7 @@
 .end method
 
 .method private final validate(Lkotlin/jvm/functions/Function0;)Z
-    .locals 2
+    .registers 4
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -434,7 +434,7 @@
     .line 110
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_2
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
@@ -444,23 +444,23 @@
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_c} :catch_f
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_c} :catch_d
 
-    goto :goto_0
+    goto :goto_11
 
     .line 113
-    :catch_0
+    :catch_d
     move-exception v1
 
     .line 114
     .local v1, "noMethod":Ljava/lang/NoSuchMethodException;
-    goto :goto_0
+    goto :goto_11
 
     .line 111
     .end local v1    # "noMethod":Ljava/lang/NoSuchMethodException;
-    :catch_1
+    :catch_f
     move-exception v1
 
     .line 112
@@ -469,12 +469,12 @@
 
     .line 109
     .end local v1    # "noClass":Ljava/lang/ClassNotFoundException;
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method private final windowExtensionsClass(Ljava/lang/ClassLoader;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -497,7 +497,7 @@
 .end method
 
 .method private final windowExtensionsProviderClass(Ljava/lang/ClassLoader;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -520,7 +520,7 @@
 .end method
 
 .method private final windowLayoutComponentClass(Ljava/lang/ClassLoader;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p1, "classLoader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -545,7 +545,7 @@
 
 # virtual methods
 .method public final getWindowLayoutComponent()Landroidx/window/extensions/layout/WindowLayoutComponent;
-    .locals 1
+    .registers 2
 
     .line 32
     sget-object v0, Landroidx/window/layout/SafeWindowLayoutComponentProvider;->windowLayoutComponent$delegate:Lkotlin/Lazy;

@@ -79,7 +79,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1361
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -98,7 +98,7 @@
 .end method
 
 .method private final addMigration(Landroidx/room/migration/Migration;)V
-    .locals 8
+    .registers 10
     .param p1, "migration"    # Landroidx/room/migration/Migration;
 
     .line 1385
@@ -128,7 +128,7 @@
 
     .line 1554
     .local v5, "value$iv":Ljava/lang/Object;
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1d
 
     .line 1555
     const/4 v6, 0x0
@@ -151,14 +151,14 @@
     nop
 
     .end local v6    # "answer$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1e
 
     .line 1559
-    :cond_0
+    :cond_1d
     move-object v6, v5
 
     .line 1554
-    :goto_0
+    :goto_1e
     nop
 
     .line 1387
@@ -184,7 +184,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_59
 
     .line 1390
     new-instance v3, Ljava/lang/StringBuilder;
@@ -227,7 +227,7 @@
 
     invoke-static {v4, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_59
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
@@ -244,7 +244,7 @@
 .end method
 
 .method private final findUpMigrationPath(Ljava/util/List;ZII)Ljava/util/List;
-    .locals 11
+    .registers 16
     .param p1, "result"    # Ljava/util/List;
     .param p2, "upgrade"    # Z
     .param p3, "start"    # I
@@ -266,30 +266,30 @@
 
     .line 1430
     .local v0, "migrationStart":I
-    :cond_0
+    :cond_1
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_8
 
-    if-ge v0, p4, :cond_2
+    if-ge v0, p4, :cond_c
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_1
-    if-le v0, p4, :cond_2
+    :cond_8
+    if-le v0, p4, :cond_c
 
-    :goto_0
+    :goto_a
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_d
 
-    :cond_2
+    :cond_c
     const/4 v3, 0x0
 
-    :goto_1
-    if-eqz v3, :cond_a
+    :goto_d
+    if-eqz v3, :cond_78
 
     .line 1431
     iget-object v3, p0, Landroidx/room/RoomDatabase$MigrationContainer;->migrations:Ljava/util/Map;
@@ -306,14 +306,14 @@
 
     const/4 v4, 0x0
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_1f
 
     return-object v4
 
     .line 1433
     .local v3, "targetNodes":Ljava/util/TreeMap;
-    :cond_3
-    if-eqz p2, :cond_4
+    :cond_1f
+    if-eqz p2, :cond_28
 
     .line 1434
     invoke-virtual {v3}, Ljava/util/TreeMap;->descendingKeySet()Ljava/util/NavigableSet;
@@ -322,16 +322,16 @@
 
     check-cast v5, Ljava/util/Set;
 
-    goto :goto_2
+    goto :goto_2c
 
     .line 1436
-    :cond_4
+    :cond_28
     invoke-virtual {v3}, Ljava/util/TreeMap;->keySet()Ljava/util/Set;
 
     move-result-object v5
 
     .line 1433
-    :goto_2
+    :goto_2c
     nop
 
     .line 1438
@@ -344,12 +344,12 @@
 
     move-result-object v7
 
-    :cond_5
+    :cond_32
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_75
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -361,7 +361,7 @@
     .local v8, "targetVersion":Ljava/lang/Integer;
     const-string/jumbo v9, "targetVersion"
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_54
 
     .line 1441
     add-int/lit8 v10, v0, 0x1
@@ -372,45 +372,45 @@
 
     move-result v9
 
-    if-gt v10, v9, :cond_6
+    if-gt v10, v9, :cond_52
 
-    if-gt v9, p4, :cond_6
+    if-gt v9, p4, :cond_52
 
     const/4 v9, 0x1
 
-    goto :goto_3
+    goto :goto_62
 
-    :cond_6
+    :cond_52
     const/4 v9, 0x0
 
-    goto :goto_3
+    goto :goto_62
 
     .line 1443
-    :cond_7
+    :cond_54
     invoke-static {v8, v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
 
     move-result v9
 
-    if-gt p4, v9, :cond_8
+    if-gt p4, v9, :cond_61
 
-    if-ge v9, v0, :cond_8
+    if-ge v9, v0, :cond_61
 
     const/4 v9, 0x1
 
-    goto :goto_3
+    goto :goto_62
 
-    :cond_8
+    :cond_61
     const/4 v9, 0x0
 
     .line 1440
-    :goto_3
+    :goto_62
     nop
 
     .line 1445
     .local v9, "shouldAddToPath":Z
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_32
 
     .line 1448
     invoke-virtual {v3, v8}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -435,8 +435,8 @@
     .line 1454
     .end local v8    # "targetVersion":Ljava/lang/Integer;
     .end local v9    # "shouldAddToPath":Z
-    :cond_9
-    if-nez v6, :cond_0
+    :cond_75
+    if-nez v6, :cond_1
 
     .line 1455
     return-object v4
@@ -445,14 +445,14 @@
     .end local v3    # "targetNodes":Ljava/util/TreeMap;
     .end local v5    # "keySet":Ljava/util/Set;
     .end local v6    # "found":Z
-    :cond_a
+    :cond_78
     return-object p1
 .end method
 
 
 # virtual methods
 .method public addMigrations(Ljava/util/List;)V
-    .locals 6
+    .registers 8
     .param p1, "migrations"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -482,12 +482,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_d
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -511,10 +511,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_d
 
     .line 1552
-    :cond_0
+    :cond_20
     nop
 
     .line 1382
@@ -524,7 +524,7 @@
 .end method
 
 .method public varargs addMigrations([Landroidx/room/migration/Migration;)V
-    .locals 7
+    .registers 9
     .param p1, "migrations"    # [Landroidx/room/migration/Migration;
 
     const-string v0, "migrations"
@@ -543,8 +543,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_9
+    if-ge v3, v2, :cond_16
 
     aget-object v4, v0, v3
 
@@ -566,10 +566,10 @@
     .end local v4    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1550
-    :cond_0
+    :cond_16
     nop
 
     .line 1372
@@ -579,7 +579,7 @@
 .end method
 
 .method public final contains(II)Z
-    .locals 3
+    .registers 6
     .param p1, "startVersion"    # I
     .param p2, "endVersion"    # I
 
@@ -598,7 +598,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     .line 1472
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -611,7 +611,7 @@
 
     check-cast v1, Ljava/util/Map;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1e
 
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
@@ -619,7 +619,7 @@
 
     .line 1473
     .local v1, "startVersionMatches":Ljava/util/Map;
-    :cond_0
+    :cond_1e
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -632,14 +632,14 @@
 
     .line 1475
     .end local v1    # "startVersionMatches":Ljava/util/Map;
-    :cond_1
+    :cond_27
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public findMigrationPath(II)Ljava/util/List;
-    .locals 3
+    .registers 6
     .param p1, "start"    # I
     .param p2, "end"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -652,7 +652,7 @@
     .end annotation
 
     .line 1415
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_7
 
     .line 1416
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
@@ -662,19 +662,19 @@
     return-object v0
 
     .line 1418
-    :cond_0
-    if-le p2, p1, :cond_1
+    :cond_7
+    if-le p2, p1, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_1
+    :cond_b
     const/4 v0, 0x0
 
     .line 1419
     .local v0, "migrateUp":Z
-    :goto_0
+    :goto_c
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -691,7 +691,7 @@
 .end method
 
 .method public getMigrations()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

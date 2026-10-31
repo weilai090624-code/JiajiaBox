@@ -39,7 +39,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$ENwgic5h6novaYdTi_z5SNX1ZBE(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/activity/result/ActivityResultCallerKt;->registerForActivityResult$lambda$0(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$p6fMCAr3kK9mRhAhUUFoxiKf_xU(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/activity/result/ActivityResultCallerKt;->registerForActivityResult$lambda$1(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public static final registerForActivityResult(Landroidx/activity/result/ActivityResultCaller;Landroidx/activity/result/contract/ActivityResultContract;Ljava/lang/Object;Landroidx/activity/result/ActivityResultRegistry;Lkotlin/jvm/functions/Function1;)Landroidx/activity/result/ActivityResultLauncher;
-    .locals 2
+    .registers 7
     .param p0, "$this$registerForActivityResult"    # Landroidx/activity/result/ActivityResultCaller;
     .param p1, "contract"    # Landroidx/activity/result/contract/ActivityResultContract;
     .param p2, "input"    # Ljava/lang/Object;
@@ -119,7 +119,7 @@
 .end method
 
 .method public static final registerForActivityResult(Landroidx/activity/result/ActivityResultCaller;Landroidx/activity/result/contract/ActivityResultContract;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Landroidx/activity/result/ActivityResultLauncher;
-    .locals 2
+    .registers 6
     .param p0, "$this$registerForActivityResult"    # Landroidx/activity/result/ActivityResultCaller;
     .param p1, "contract"    # Landroidx/activity/result/contract/ActivityResultContract;
     .param p2, "input"    # Ljava/lang/Object;
@@ -177,7 +177,7 @@
 .end method
 
 .method private static final registerForActivityResult$lambda$0(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "$callback"    # Lkotlin/jvm/functions/Function1;
     .param p1, "it"    # Ljava/lang/Object;
 
@@ -188,7 +188,7 @@
 .end method
 
 .method private static final registerForActivityResult$lambda$1(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "$callback"    # Lkotlin/jvm/functions/Function1;
     .param p1, "it"    # Ljava/lang/Object;
 

@@ -115,7 +115,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/connection/RealCall;Lokhttp3/EventListener;Lokhttp3/internal/connection/ExchangeFinder;Lokhttp3/internal/http/ExchangeCodec;)V
-    .locals 1
+    .registers 6
     .param p1, "call"    # Lokhttp3/internal/connection/RealCall;
     .param p2, "eventListener"    # Lokhttp3/EventListener;
     .param p3, "finder"    # Lokhttp3/internal/connection/ExchangeFinder;
@@ -166,7 +166,7 @@
 .end method
 
 .method private final trackFailure(Ljava/io/IOException;)V
-    .locals 2
+    .registers 4
     .param p1, "e"    # Ljava/io/IOException;
 
     .line 170
@@ -197,7 +197,7 @@
 
 # virtual methods
 .method public final bodyComplete(JZZLjava/io/IOException;)Ljava/io/IOException;
-    .locals 2
+    .registers 8
     .param p1, "bytesRead"    # J
     .param p3, "responseDone"    # Z
     .param p4, "requestDone"    # Z
@@ -211,17 +211,17 @@
     .end annotation
 
     .line 181
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 182
     invoke-direct {p0, p5}, Lokhttp3/internal/connection/Exchange;->trackFailure(Ljava/io/IOException;)V
 
     .line 184
-    :cond_0
-    if-eqz p4, :cond_2
+    :cond_5
+    if-eqz p4, :cond_1c
 
     .line 185
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_13
 
     .line 186
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->eventListener:Lokhttp3/EventListener;
@@ -232,10 +232,10 @@
 
     invoke-virtual {v0, v1, p5}, Lokhttp3/EventListener;->requestFailed(Lokhttp3/Call;Ljava/io/IOException;)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 188
-    :cond_1
+    :cond_13
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->eventListener:Lokhttp3/EventListener;
 
     iget-object v1, p0, Lokhttp3/internal/connection/Exchange;->call:Lokhttp3/internal/connection/RealCall;
@@ -245,12 +245,12 @@
     invoke-virtual {v0, v1, p1, p2}, Lokhttp3/EventListener;->requestBodyEnd(Lokhttp3/Call;J)V
 
     .line 191
-    :cond_2
-    :goto_0
-    if-eqz p3, :cond_4
+    :cond_1c
+    :goto_1c
+    if-eqz p3, :cond_33
 
     .line 192
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_2a
 
     .line 193
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->eventListener:Lokhttp3/EventListener;
@@ -261,10 +261,10 @@
 
     invoke-virtual {v0, v1, p5}, Lokhttp3/EventListener;->responseFailed(Lokhttp3/Call;Ljava/io/IOException;)V
 
-    goto :goto_1
+    goto :goto_33
 
     .line 195
-    :cond_3
+    :cond_2a
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->eventListener:Lokhttp3/EventListener;
 
     iget-object v1, p0, Lokhttp3/internal/connection/Exchange;->call:Lokhttp3/internal/connection/RealCall;
@@ -274,8 +274,8 @@
     invoke-virtual {v0, v1, p1, p2}, Lokhttp3/EventListener;->responseBodyEnd(Lokhttp3/Call;J)V
 
     .line 198
-    :cond_4
-    :goto_1
+    :cond_33
+    :goto_33
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->call:Lokhttp3/internal/connection/RealCall;
 
     invoke-virtual {v0, p0, p4, p3, p5}, Lokhttp3/internal/connection/RealCall;->messageDone$okhttp(Lokhttp3/internal/connection/Exchange;ZZLjava/io/IOException;)Ljava/io/IOException;
@@ -286,7 +286,7 @@
 .end method
 
 .method public final cancel()V
-    .locals 1
+    .registers 2
 
     .line 157
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->codec:Lokhttp3/internal/http/ExchangeCodec;
@@ -298,7 +298,7 @@
 .end method
 
 .method public final createRequestBody(Lokhttp3/Request;Z)Lokio/Sink;
-    .locals 4
+    .registers 7
     .param p1, "request"    # Lokhttp3/Request;
     .param p2, "duplex"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -354,7 +354,7 @@
 .end method
 
 .method public final detachWithViolence()V
-    .locals 3
+    .registers 4
 
     .line 165
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->codec:Lokhttp3/internal/http/ExchangeCodec;
@@ -375,7 +375,7 @@
 .end method
 
 .method public final finishRequest()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -386,18 +386,18 @@
     nop
 
     .line 95
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->codec:Lokhttp3/internal/http/ExchangeCodec;
 
     invoke-interface {v0}, Lokhttp3/internal/http/ExchangeCodec;->finishRequest()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_6} :catch_7
 
     .line 101
     return-void
 
     .line 96
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 97
@@ -418,7 +418,7 @@
 .end method
 
 .method public final flushRequest()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -429,18 +429,18 @@
     nop
 
     .line 84
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->codec:Lokhttp3/internal/http/ExchangeCodec;
 
     invoke-interface {v0}, Lokhttp3/internal/http/ExchangeCodec;->flushRequest()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_6} :catch_7
 
     .line 90
     return-void
 
     .line 85
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 86
@@ -461,7 +461,7 @@
 .end method
 
 .method public final getCall$okhttp()Lokhttp3/internal/connection/RealCall;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->call:Lokhttp3/internal/connection/RealCall;
@@ -470,7 +470,7 @@
 .end method
 
 .method public final getConnection$okhttp()Lokhttp3/internal/connection/RealConnection;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->connection:Lokhttp3/internal/connection/RealConnection;
@@ -479,7 +479,7 @@
 .end method
 
 .method public final getEventListener$okhttp()Lokhttp3/EventListener;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->eventListener:Lokhttp3/EventListener;
@@ -488,7 +488,7 @@
 .end method
 
 .method public final getFinder$okhttp()Lokhttp3/internal/connection/ExchangeFinder;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->finder:Lokhttp3/internal/connection/ExchangeFinder;
@@ -497,7 +497,7 @@
 .end method
 
 .method public final getHasFailure$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 51
     iget-boolean v0, p0, Lokhttp3/internal/connection/Exchange;->hasFailure:Z
@@ -506,7 +506,7 @@
 .end method
 
 .method public final isCoalescedConnection$okhttp()Z
-    .locals 2
+    .registers 3
 
     .line 57
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->finder:Lokhttp3/internal/connection/ExchangeFinder;
@@ -551,7 +551,7 @@
 .end method
 
 .method public final isDuplex$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 47
     iget-boolean v0, p0, Lokhttp3/internal/connection/Exchange;->isDuplex:Z
@@ -560,7 +560,7 @@
 .end method
 
 .method public final newWebSocketStreams()Lokhttp3/internal/ws/RealWebSocket$Streams;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -587,7 +587,7 @@
 .end method
 
 .method public final noNewExchangesOnConnection()V
-    .locals 1
+    .registers 2
 
     .line 153
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->codec:Lokhttp3/internal/http/ExchangeCodec;
@@ -603,7 +603,7 @@
 .end method
 
 .method public final noRequestBody()V
-    .locals 4
+    .registers 5
 
     .line 202
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->call:Lokhttp3/internal/connection/RealCall;
@@ -621,7 +621,7 @@
 .end method
 
 .method public final openResponseBody(Lokhttp3/Response;)Lokhttp3/ResponseBody;
-    .locals 7
+    .registers 9
     .param p1, "response"    # Lokhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -637,7 +637,7 @@
     nop
 
     .line 127
-    :try_start_0
+    :try_start_6
     const-string v0, "Content-Type"
 
     const/4 v1, 0x2
@@ -685,8 +685,8 @@
     invoke-direct {v5, v0, v1, v2, v6}, Lokhttp3/internal/http/RealResponseBody;-><init>(Ljava/lang/String;JLokio/BufferedSource;)V
 
     check-cast v5, Lokhttp3/ResponseBody;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2d
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_2d} :catch_2e
 
     return-object v5
 
@@ -695,7 +695,7 @@
     .end local v1    # "contentLength":J
     .end local v3    # "rawSource":Lokio/Source;
     .end local v4    # "source":Lokhttp3/internal/connection/Exchange$ResponseBodySource;
-    :catch_0
+    :catch_2e
     move-exception v0
 
     .line 133
@@ -716,7 +716,7 @@
 .end method
 
 .method public final readResponseHeaders(Z)Lokhttp3/Response$Builder;
-    .locals 3
+    .registers 5
     .param p1, "expectContinue"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -728,7 +728,7 @@
     nop
 
     .line 110
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->codec:Lokhttp3/internal/http/ExchangeCodec;
 
     invoke-interface {v0, p1}, Lokhttp3/internal/http/ExchangeCodec;->readResponseHeaders(Z)Lokhttp3/Response$Builder;
@@ -737,22 +737,22 @@
 
     .line 111
     .local v0, "result":Lokhttp3/Response$Builder;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_a
     invoke-virtual {v0, p0}, Lokhttp3/Response$Builder;->initExchange$okhttp(Lokhttp3/internal/connection/Exchange;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_d} :catch_e
 
     .line 112
-    :goto_0
+    :goto_d
     return-object v0
 
     .line 113
     .end local v0    # "result":Lokhttp3/Response$Builder;
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 114
@@ -773,7 +773,7 @@
 .end method
 
 .method public final responseHeadersEnd(Lokhttp3/Response;)V
-    .locals 2
+    .registers 4
     .param p1, "response"    # Lokhttp3/Response;
 
     const-string v0, "response"
@@ -794,7 +794,7 @@
 .end method
 
 .method public final responseHeadersStart()V
-    .locals 2
+    .registers 3
 
     .line 104
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->eventListener:Lokhttp3/EventListener;
@@ -810,7 +810,7 @@
 .end method
 
 .method public final trailers()Lokhttp3/Headers;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -828,7 +828,7 @@
 .end method
 
 .method public final webSocketUpgradeFailed()V
-    .locals 6
+    .registers 7
 
     .line 149
     const/4 v4, 0x1
@@ -848,7 +848,7 @@
 .end method
 
 .method public final writeRequestHeaders(Lokhttp3/Request;)V
-    .locals 3
+    .registers 5
     .param p1, "request"    # Lokhttp3/Request;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -864,7 +864,7 @@
     nop
 
     .line 62
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Lokhttp3/internal/connection/Exchange;->eventListener:Lokhttp3/EventListener;
 
     iget-object v1, p0, Lokhttp3/internal/connection/Exchange;->call:Lokhttp3/internal/connection/RealCall;
@@ -886,14 +886,14 @@
     check-cast v1, Lokhttp3/Call;
 
     invoke-virtual {v0, v1, p1}, Lokhttp3/EventListener;->requestHeadersEnd(Lokhttp3/Call;Lokhttp3/Request;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_1d} :catch_1e
 
     .line 70
     return-void
 
     .line 65
-    :catch_0
+    :catch_1e
     move-exception v0
 
     .line 66

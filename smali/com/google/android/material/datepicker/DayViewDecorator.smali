@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public getBackgroundColor(Landroid/content/Context;IIIZZ)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "year"    # I
     .param p3, "month"    # I
@@ -34,7 +34,7 @@
 .end method
 
 .method public getCompoundDrawableBottom(Landroid/content/Context;IIIZZ)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "year"    # I
     .param p3, "month"    # I
@@ -49,7 +49,7 @@
 .end method
 
 .method public getCompoundDrawableLeft(Landroid/content/Context;IIIZZ)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "year"    # I
     .param p3, "month"    # I
@@ -64,7 +64,7 @@
 .end method
 
 .method public getCompoundDrawableRight(Landroid/content/Context;IIIZZ)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "year"    # I
     .param p3, "month"    # I
@@ -79,7 +79,7 @@
 .end method
 
 .method public getCompoundDrawableTop(Landroid/content/Context;IIIZZ)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "year"    # I
     .param p3, "month"    # I
@@ -94,7 +94,7 @@
 .end method
 
 .method public getContentDescription(Landroid/content/Context;IIIZZLjava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "year"    # I
     .param p3, "month"    # I
@@ -108,7 +108,7 @@
 .end method
 
 .method public initialize(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 38

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/NavigableSet;Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public ceiling(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -94,7 +94,7 @@
 .end method
 
 .method public descendingIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,7 +123,7 @@
 .end method
 
 .method public descendingSet()Ljava/util/NavigableSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -152,7 +152,7 @@
 .end method
 
 .method public floor(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -195,7 +195,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -230,7 +230,7 @@
 .end method
 
 .method public higher(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -269,7 +269,7 @@
 .end method
 
 .method public last()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -299,7 +299,7 @@
 .end method
 
 .method public lower(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -342,7 +342,7 @@
 .end method
 
 .method public pollFirst()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -368,7 +368,7 @@
 .end method
 
 .method public pollLast()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -398,7 +398,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 2
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -443,7 +443,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -478,7 +478,7 @@
 .end method
 
 .method unfiltered()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

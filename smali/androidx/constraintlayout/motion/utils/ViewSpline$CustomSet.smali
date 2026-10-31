@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/util/SparseArray;)V
-    .locals 2
+    .registers 5
     .param p1, "attribute"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public setPoint(IF)V
-    .locals 2
+    .registers 5
     .param p1, "position"    # I
     .param p2, "value"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -107,7 +107,7 @@
 .end method
 
 .method public setPoint(ILandroidx/constraintlayout/widget/ConstraintAttribute;)V
-    .locals 1
+    .registers 4
     .param p1, "position"    # I
     .param p2, "value"    # Landroidx/constraintlayout/widget/ConstraintAttribute;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -131,7 +131,7 @@
 .end method
 
 .method public setProperty(Landroid/view/View;F)V
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "t"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -174,7 +174,7 @@
 .end method
 
 .method public setup(I)V
-    .locals 11
+    .registers 13
     .param p1, "curveType"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -242,8 +242,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v0, :cond_1
+    :goto_2a
+    if-ge v4, v0, :cond_5e
 
     .line 198
     iget-object v5, p0, Landroidx/constraintlayout/motion/utils/ViewSpline$CustomSet;->mConstraintAttributeList:Landroid/util/SparseArray;
@@ -281,12 +281,12 @@
     const/4 v7, 0x0
 
     .local v7, "k":I
-    :goto_1
+    :goto_4a
     iget-object v8, p0, Landroidx/constraintlayout/motion/utils/ViewSpline$CustomSet;->mTempValues:[F
 
     array-length v8, v8
 
-    if-ge v7, v8, :cond_0
+    if-ge v7, v8, :cond_5b
 
     .line 204
     aget-object v8, v2, v4
@@ -302,20 +302,20 @@
     .line 203
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 196
     .end local v5    # "key":I
     .end local v6    # "ca":Landroidx/constraintlayout/widget/ConstraintAttribute;
     .end local v7    # "k":I
-    :cond_0
+    :cond_5b
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 208
     .end local v4    # "i":I
-    :cond_1
+    :cond_5e
     invoke-static {p1, v3, v2}, Landroidx/constraintlayout/core/motion/utils/CurveFit;->get(I[D[[D)Landroidx/constraintlayout/core/motion/utils/CurveFit;
 
     move-result-object v4

@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public create(Ljavax/net/ssl/SSLSocket;)Lokhttp3/internal/platform/android/SocketAdapter;
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -72,7 +72,7 @@
 .end method
 
 .method public matchesSocket(Ljavax/net/ssl/SSLSocket;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -86,21 +86,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-static {p1}, Lorg/conscrypt/Conscrypt;->isConscrypt(Ljavax/net/ssl/SSLSocket;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_16
     return v0
 .end method

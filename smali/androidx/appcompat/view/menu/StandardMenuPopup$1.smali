@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/view/menu/StandardMenuPopup;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/view/menu/StandardMenuPopup;
 
     .line 61
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onGlobalLayout()V
-    .locals 2
+    .registers 3
 
     .line 67
     iget-object v0, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
@@ -46,7 +46,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
 
@@ -56,7 +56,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2c
 
     .line 68
     iget-object v0, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
@@ -65,36 +65,36 @@
 
     .line 69
     .local v0, "anchor":Landroid/view/View;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     invoke-virtual {v0}, Landroid/view/View;->isShown()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1f
 
-    goto :goto_0
+    goto :goto_27
 
     .line 73
-    :cond_0
+    :cond_1f
     iget-object v1, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
 
     iget-object v1, v1, Landroidx/appcompat/view/menu/StandardMenuPopup;->mPopup:Landroidx/appcompat/widget/MenuPopupWindow;
 
     invoke-virtual {v1}, Landroidx/appcompat/widget/MenuPopupWindow;->show()V
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 70
-    :cond_1
-    :goto_0
+    :cond_27
+    :goto_27
     iget-object v1, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
 
     invoke-virtual {v1}, Landroidx/appcompat/view/menu/StandardMenuPopup;->dismiss()V
 
     .line 76
     .end local v0    # "anchor":Landroid/view/View;
-    :cond_2
-    :goto_1
+    :cond_2c
+    :goto_2c
     return-void
 .end method

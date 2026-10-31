@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "str"    # Ljava/lang/String;
 
     .line 53
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public setProperty(Landroidx/constraintlayout/core/motion/MotionWidget;F)V
-    .locals 2
+    .registers 5
     .param p1, "widget"    # Landroidx/constraintlayout/core/motion/MotionWidget;
     .param p2, "t"    # F
 

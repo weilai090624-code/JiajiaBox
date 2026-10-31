@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/ImageCapture;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public onCaptureCancelled()V
-    .locals 3
+    .registers 4
 
     .line 1614
     const-string v0, "Capture request is cancelled because camera is closed"
@@ -68,7 +68,7 @@
 .end method
 
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -91,7 +91,7 @@
 .end method
 
 .method public onCaptureFailed(Landroidx/camera/core/impl/CameraCaptureFailure;)V
-    .locals 3
+    .registers 5
     .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

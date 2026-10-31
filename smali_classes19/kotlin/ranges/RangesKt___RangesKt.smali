@@ -108,7 +108,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/ranges/RangesKt__RangesKt;-><init>()V
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public static final synthetic byteRangeContains(Lkotlin/ranges/ClosedRange;D)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
@@ -144,7 +144,7 @@
 
     .line 433
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$3":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -154,19 +154,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Byte;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$3":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final synthetic byteRangeContains(Lkotlin/ranges/ClosedRange;F)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # F
     .annotation runtime Lkotlin/Deprecated;
@@ -194,7 +194,7 @@
 
     .line 481
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$7":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -204,19 +204,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Byte;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$7":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final byteRangeContains(Lkotlin/ranges/ClosedRange;I)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -243,7 +243,7 @@
 
     .line 525
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$9":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -253,19 +253,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Byte;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$9":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final byteRangeContains(Lkotlin/ranges/ClosedRange;J)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -292,7 +292,7 @@
 
     .line 607
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$14":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -302,19 +302,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Byte;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$14":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final byteRangeContains(Lkotlin/ranges/ClosedRange;S)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # S
     .annotation system Ldalvik/annotation/Signature;
@@ -341,7 +341,7 @@
 
     .line 697
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$19":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -351,19 +351,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Byte;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$19":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final byteRangeContains(Lkotlin/ranges/OpenEndRange;I)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -390,7 +390,7 @@
 
     .line 573
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$11":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -400,19 +400,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Byte;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$11":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final byteRangeContains(Lkotlin/ranges/OpenEndRange;J)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -439,7 +439,7 @@
 
     .line 655
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$17":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -449,19 +449,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Byte;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$17":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final byteRangeContains(Lkotlin/ranges/OpenEndRange;S)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # S
     .annotation system Ldalvik/annotation/Signature;
@@ -488,7 +488,7 @@
 
     .line 747
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$20":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -498,120 +498,120 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Byte;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$20":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final coerceAtLeast(BB)B
-    .locals 1
+    .registers 3
     .param p0, "$this$coerceAtLeast"    # B
     .param p1, "minimumValue"    # B
 
     .line 1223
-    if-ge p0, p1, :cond_0
+    if-ge p0, p1, :cond_4
 
     move v0, p1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     move v0, p0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public static final coerceAtLeast(DD)D
-    .locals 2
+    .registers 6
     .param p0, "$this$coerceAtLeast"    # D
     .param p2, "minimumValue"    # D
 
     .line 1278
     cmpg-double v0, p0, p2
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_6
 
     move-wide v0, p2
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move-wide v0, p0
 
-    :goto_0
+    :goto_7
     return-wide v0
 .end method
 
 .method public static final coerceAtLeast(FF)F
-    .locals 1
+    .registers 3
     .param p0, "$this$coerceAtLeast"    # F
     .param p1, "minimumValue"    # F
 
     .line 1267
     cmpg-float v0, p0, p1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_6
 
     move v0, p1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move v0, p0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public static final coerceAtLeast(II)I
-    .locals 1
+    .registers 3
     .param p0, "$this$coerceAtLeast"    # I
     .param p1, "minimumValue"    # I
 
     .line 1245
-    if-ge p0, p1, :cond_0
+    if-ge p0, p1, :cond_4
 
     move v0, p1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     move v0, p0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public static final coerceAtLeast(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "$this$coerceAtLeast"    # J
     .param p2, "minimumValue"    # J
 
     .line 1256
     cmp-long v0, p0, p2
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_6
 
     move-wide v0, p2
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move-wide v0, p0
 
-    :goto_0
+    :goto_7
     return-wide v0
 .end method
 
 .method public static final coerceAtLeast(Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .param p0, "$this$coerceAtLeast"    # Ljava/lang/Comparable;
     .param p1, "minimumValue"    # Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
@@ -635,141 +635,141 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_12
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     move-object v0, p0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public static final coerceAtLeast(SS)S
-    .locals 1
+    .registers 3
     .param p0, "$this$coerceAtLeast"    # S
     .param p1, "minimumValue"    # S
 
     .line 1234
-    if-ge p0, p1, :cond_0
+    if-ge p0, p1, :cond_4
 
     move v0, p1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     move v0, p0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public static final coerceAtMost(BB)B
-    .locals 1
+    .registers 3
     .param p0, "$this$coerceAtMost"    # B
     .param p1, "maximumValue"    # B
 
     .line 1300
-    if-le p0, p1, :cond_0
+    if-le p0, p1, :cond_4
 
     move v0, p1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     move v0, p0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public static final coerceAtMost(DD)D
-    .locals 2
+    .registers 6
     .param p0, "$this$coerceAtMost"    # D
     .param p2, "maximumValue"    # D
 
     .line 1355
     cmpl-double v0, p0, p2
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     move-wide v0, p2
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move-wide v0, p0
 
-    :goto_0
+    :goto_7
     return-wide v0
 .end method
 
 .method public static final coerceAtMost(FF)F
-    .locals 1
+    .registers 3
     .param p0, "$this$coerceAtMost"    # F
     .param p1, "maximumValue"    # F
 
     .line 1344
     cmpl-float v0, p0, p1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     move v0, p1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move v0, p0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public static final coerceAtMost(II)I
-    .locals 1
+    .registers 3
     .param p0, "$this$coerceAtMost"    # I
     .param p1, "maximumValue"    # I
 
     .line 1322
-    if-le p0, p1, :cond_0
+    if-le p0, p1, :cond_4
 
     move v0, p1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     move v0, p0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public static final coerceAtMost(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "$this$coerceAtMost"    # J
     .param p2, "maximumValue"    # J
 
     .line 1333
     cmp-long v0, p0, p2
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     move-wide v0, p2
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move-wide v0, p0
 
-    :goto_0
+    :goto_7
     return-wide v0
 .end method
 
 .method public static final coerceAtMost(Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .param p0, "$this$coerceAtMost"    # Ljava/lang/Comparable;
     .param p1, "maximumValue"    # Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
@@ -793,64 +793,64 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_12
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     move-object v0, p0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public static final coerceAtMost(SS)S
-    .locals 1
+    .registers 3
     .param p0, "$this$coerceAtMost"    # S
     .param p1, "maximumValue"    # S
 
     .line 1311
-    if-le p0, p1, :cond_0
+    if-le p0, p1, :cond_4
 
     move v0, p1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     move v0, p0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public static final coerceIn(BBB)B
-    .locals 3
+    .registers 6
     .param p0, "$this$coerceIn"    # B
     .param p1, "minimumValue"    # B
     .param p2, "maximumValue"    # B
 
     .line 1386
-    if-gt p1, p2, :cond_2
+    if-gt p1, p2, :cond_9
 
     .line 1387
-    if-ge p0, p1, :cond_0
+    if-ge p0, p1, :cond_5
 
     return p1
 
     .line 1388
-    :cond_0
-    if-le p0, p2, :cond_1
+    :cond_5
+    if-le p0, p2, :cond_8
 
     return p2
 
     .line 1389
-    :cond_1
+    :cond_8
     return p0
 
     .line 1386
-    :cond_2
+    :cond_9
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -893,7 +893,7 @@
 .end method
 
 .method public static final coerceIn(DDD)D
-    .locals 3
+    .registers 9
     .param p0, "$this$coerceIn"    # D
     .param p2, "minimumValue"    # D
     .param p4, "maximumValue"    # D
@@ -901,29 +901,29 @@
     .line 1456
     cmpl-double v0, p2, p4
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_f
 
     .line 1457
     cmpg-double v0, p0, p2
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_9
 
     return-wide p2
 
     .line 1458
-    :cond_0
+    :cond_9
     cmpl-double v0, p0, p4
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_e
 
     return-wide p4
 
     .line 1459
-    :cond_1
+    :cond_e
     return-wide p0
 
     .line 1456
-    :cond_2
+    :cond_f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -966,7 +966,7 @@
 .end method
 
 .method public static final coerceIn(FFF)F
-    .locals 3
+    .registers 6
     .param p0, "$this$coerceIn"    # F
     .param p1, "minimumValue"    # F
     .param p2, "maximumValue"    # F
@@ -974,29 +974,29 @@
     .line 1442
     cmpl-float v0, p1, p2
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_f
 
     .line 1443
     cmpg-float v0, p0, p1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_9
 
     return p1
 
     .line 1444
-    :cond_0
+    :cond_9
     cmpl-float v0, p0, p2
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_e
 
     return p2
 
     .line 1445
-    :cond_1
+    :cond_e
     return p0
 
     .line 1442
-    :cond_2
+    :cond_f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1039,31 +1039,31 @@
 .end method
 
 .method public static final coerceIn(III)I
-    .locals 3
+    .registers 6
     .param p0, "$this$coerceIn"    # I
     .param p1, "minimumValue"    # I
     .param p2, "maximumValue"    # I
 
     .line 1414
-    if-gt p1, p2, :cond_2
+    if-gt p1, p2, :cond_9
 
     .line 1415
-    if-ge p0, p1, :cond_0
+    if-ge p0, p1, :cond_5
 
     return p1
 
     .line 1416
-    :cond_0
-    if-le p0, p2, :cond_1
+    :cond_5
+    if-le p0, p2, :cond_8
 
     return p2
 
     .line 1417
-    :cond_1
+    :cond_8
     return p0
 
     .line 1414
-    :cond_2
+    :cond_9
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1106,7 +1106,7 @@
 .end method
 
 .method public static final coerceIn(ILkotlin/ranges/ClosedRange;)I
-    .locals 3
+    .registers 5
     .param p0, "$this$coerceIn"    # I
     .param p1, "range"    # Lkotlin/ranges/ClosedRange;
     .annotation system Ldalvik/annotation/Signature;
@@ -1125,7 +1125,7 @@
     .line 1508
     instance-of v0, p1, Lkotlin/ranges/ClosedFloatingPointRange;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 1509
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1151,12 +1151,12 @@
     return v0
 
     .line 1511
-    :cond_0
+    :cond_1d
     invoke-interface {p1}, Lkotlin/ranges/ClosedRange;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_54
 
     .line 1512
     nop
@@ -1172,7 +1172,7 @@
 
     move-result v0
 
-    if-ge p0, v0, :cond_1
+    if-ge p0, v0, :cond_3b
 
     invoke-interface {p1}, Lkotlin/ranges/ClosedRange;->getStart()Ljava/lang/Comparable;
 
@@ -1184,10 +1184,10 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_53
 
     .line 1514
-    :cond_1
+    :cond_3b
     invoke-interface {p1}, Lkotlin/ranges/ClosedRange;->getEndInclusive()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -1198,7 +1198,7 @@
 
     move-result v0
 
-    if-le p0, v0, :cond_2
+    if-le p0, v0, :cond_52
 
     invoke-interface {p1}, Lkotlin/ranges/ClosedRange;->getEndInclusive()Ljava/lang/Comparable;
 
@@ -1210,18 +1210,18 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_53
 
     .line 1515
-    :cond_2
+    :cond_52
     move v0, p0
 
     .line 1512
-    :goto_0
+    :goto_53
     return v0
 
     .line 1511
-    :cond_3
+    :cond_54
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1254,7 +1254,7 @@
 .end method
 
 .method public static final coerceIn(JJJ)J
-    .locals 3
+    .registers 9
     .param p0, "$this$coerceIn"    # J
     .param p2, "minimumValue"    # J
     .param p4, "maximumValue"    # J
@@ -1262,29 +1262,29 @@
     .line 1428
     cmp-long v0, p2, p4
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_f
 
     .line 1429
     cmp-long v0, p0, p2
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_9
 
     return-wide p2
 
     .line 1430
-    :cond_0
+    :cond_9
     cmp-long v0, p0, p4
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_e
 
     return-wide p4
 
     .line 1431
-    :cond_1
+    :cond_e
     return-wide p0
 
     .line 1428
-    :cond_2
+    :cond_f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1327,7 +1327,7 @@
 .end method
 
 .method public static final coerceIn(JLkotlin/ranges/ClosedRange;)J
-    .locals 3
+    .registers 6
     .param p0, "$this$coerceIn"    # J
     .param p2, "range"    # Lkotlin/ranges/ClosedRange;
     .annotation system Ldalvik/annotation/Signature;
@@ -1346,7 +1346,7 @@
     .line 1527
     instance-of v0, p2, Lkotlin/ranges/ClosedFloatingPointRange;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 1528
     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -1372,12 +1372,12 @@
     return-wide v0
 
     .line 1530
-    :cond_0
+    :cond_1d
     invoke-interface {p2}, Lkotlin/ranges/ClosedRange;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_58
 
     .line 1531
     nop
@@ -1395,7 +1395,7 @@
 
     cmp-long v2, p0, v0
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_3d
 
     invoke-interface {p2}, Lkotlin/ranges/ClosedRange;->getStart()Ljava/lang/Comparable;
 
@@ -1407,10 +1407,10 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_57
 
     .line 1533
-    :cond_1
+    :cond_3d
     invoke-interface {p2}, Lkotlin/ranges/ClosedRange;->getEndInclusive()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -1423,7 +1423,7 @@
 
     cmp-long v2, p0, v0
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_56
 
     invoke-interface {p2}, Lkotlin/ranges/ClosedRange;->getEndInclusive()Ljava/lang/Comparable;
 
@@ -1435,18 +1435,18 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_57
 
     .line 1534
-    :cond_2
+    :cond_56
     move-wide v0, p0
 
     .line 1531
-    :goto_0
+    :goto_57
     return-wide v0
 
     .line 1530
-    :cond_3
+    :cond_58
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1479,7 +1479,7 @@
 .end method
 
 .method public static final coerceIn(Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 3
+    .registers 6
     .param p0, "$this$coerceIn"    # Ljava/lang/Comparable;
     .param p1, "minimumValue"    # Ljava/lang/Comparable;
     .param p2, "maximumValue"    # Ljava/lang/Comparable;
@@ -1496,38 +1496,38 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 1366
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_46
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_46
 
     .line 1367
     invoke-interface {p1, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_1d
 
     .line 1368
     invoke-interface {p0, p1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_16
 
     return-object p1
 
     .line 1369
-    :cond_0
+    :cond_16
     invoke-interface {p0, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
 
-    if-lez v0, :cond_4
+    if-lez v0, :cond_58
 
     return-object p2
 
     .line 1367
-    :cond_1
+    :cond_1d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1569,36 +1569,36 @@
     throw v0
 
     .line 1372
-    :cond_2
-    if-eqz p1, :cond_3
+    :cond_46
+    if-eqz p1, :cond_4f
 
     invoke-interface {p0, p1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
 
-    if-gez v0, :cond_3
+    if-gez v0, :cond_4f
 
     return-object p1
 
     .line 1373
-    :cond_3
-    if-eqz p2, :cond_4
+    :cond_4f
+    if-eqz p2, :cond_58
 
     invoke-interface {p0, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
 
-    if-lez v0, :cond_4
+    if-lez v0, :cond_58
 
     return-object p2
 
     .line 1375
-    :cond_4
+    :cond_58
     return-object p0
 .end method
 
 .method public static final coerceIn(Ljava/lang/Comparable;Lkotlin/ranges/ClosedFloatingPointRange;)Ljava/lang/Comparable;
-    .locals 3
+    .registers 5
     .param p0, "$this$coerceIn"    # Ljava/lang/Comparable;
     .param p1, "range"    # Lkotlin/ranges/ClosedFloatingPointRange;
     .annotation system Ldalvik/annotation/Signature;
@@ -1624,7 +1624,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_45
 
     .line 1472
     nop
@@ -1638,7 +1638,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     invoke-interface {p1}, Lkotlin/ranges/ClosedFloatingPointRange;->getStart()Ljava/lang/Comparable;
 
@@ -1648,16 +1648,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     invoke-interface {p1}, Lkotlin/ranges/ClosedFloatingPointRange;->getStart()Ljava/lang/Comparable;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_44
 
     .line 1476
-    :cond_0
+    :cond_2a
     invoke-interface {p1}, Lkotlin/ranges/ClosedFloatingPointRange;->getEndInclusive()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -1666,7 +1666,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_43
 
     invoke-interface {p1}, Lkotlin/ranges/ClosedFloatingPointRange;->getEndInclusive()Ljava/lang/Comparable;
 
@@ -1676,24 +1676,24 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_43
 
     invoke-interface {p1}, Lkotlin/ranges/ClosedFloatingPointRange;->getEndInclusive()Ljava/lang/Comparable;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_44
 
     .line 1477
-    :cond_1
+    :cond_43
     move-object v0, p0
 
     .line 1472
-    :goto_0
+    :goto_44
     return-object v0
 
     .line 1471
-    :cond_2
+    :cond_45
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1726,7 +1726,7 @@
 .end method
 
 .method public static final coerceIn(Ljava/lang/Comparable;Lkotlin/ranges/ClosedRange;)Ljava/lang/Comparable;
-    .locals 3
+    .registers 5
     .param p0, "$this$coerceIn"    # Ljava/lang/Comparable;
     .param p1, "range"    # Lkotlin/ranges/ClosedRange;
     .annotation system Ldalvik/annotation/Signature;
@@ -1750,7 +1750,7 @@
     .line 1489
     instance-of v0, p1, Lkotlin/ranges/ClosedFloatingPointRange;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 1490
     move-object v0, p1
@@ -1764,12 +1764,12 @@
     return-object v0
 
     .line 1492
-    :cond_0
+    :cond_16
     invoke-interface {p1}, Lkotlin/ranges/ClosedRange;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_3d
 
     .line 1493
     nop
@@ -1783,16 +1783,16 @@
 
     move-result v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_2c
 
     invoke-interface {p1}, Lkotlin/ranges/ClosedRange;->getStart()Ljava/lang/Comparable;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 1495
-    :cond_1
+    :cond_2c
     invoke-interface {p1}, Lkotlin/ranges/ClosedRange;->getEndInclusive()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -1801,24 +1801,24 @@
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_3b
 
     invoke-interface {p1}, Lkotlin/ranges/ClosedRange;->getEndInclusive()Ljava/lang/Comparable;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 1496
-    :cond_2
+    :cond_3b
     move-object v0, p0
 
     .line 1493
-    :goto_0
+    :goto_3c
     return-object v0
 
     .line 1492
-    :cond_3
+    :cond_3d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1851,31 +1851,31 @@
 .end method
 
 .method public static final coerceIn(SSS)S
-    .locals 3
+    .registers 6
     .param p0, "$this$coerceIn"    # S
     .param p1, "minimumValue"    # S
     .param p2, "maximumValue"    # S
 
     .line 1400
-    if-gt p1, p2, :cond_2
+    if-gt p1, p2, :cond_9
 
     .line 1401
-    if-ge p0, p1, :cond_0
+    if-ge p0, p1, :cond_5
 
     return p1
 
     .line 1402
-    :cond_0
-    if-le p0, p2, :cond_1
+    :cond_5
+    if-le p0, p2, :cond_8
 
     return p2
 
     .line 1403
-    :cond_1
+    :cond_8
     return p0
 
     .line 1400
-    :cond_2
+    :cond_9
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1918,7 +1918,7 @@
 .end method
 
 .method private static final contains(Lkotlin/ranges/CharRange;Ljava/lang/Character;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/CharRange;
     .param p1, "element"    # Ljava/lang/Character;
 
@@ -1927,7 +1927,7 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 313
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     invoke-virtual {p1}, Ljava/lang/Character;->charValue()C
 
@@ -1937,21 +1937,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method private static final contains(Lkotlin/ranges/IntRange;B)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/IntRange;
     .param p1, "value"    # B
 
@@ -1972,7 +1972,7 @@
 .end method
 
 .method private static final contains(Lkotlin/ranges/IntRange;J)Z
-    .locals 1
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/IntRange;
     .param p1, "value"    # J
 
@@ -1993,7 +1993,7 @@
 .end method
 
 .method private static final contains(Lkotlin/ranges/IntRange;Ljava/lang/Integer;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/IntRange;
     .param p1, "element"    # Ljava/lang/Integer;
 
@@ -2002,7 +2002,7 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 291
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
@@ -2012,21 +2012,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method private static final contains(Lkotlin/ranges/IntRange;S)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/IntRange;
     .param p1, "value"    # S
 
@@ -2047,7 +2047,7 @@
 .end method
 
 .method private static final contains(Lkotlin/ranges/LongRange;B)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/LongRange;
     .param p1, "value"    # B
 
@@ -2068,7 +2068,7 @@
 .end method
 
 .method private static final contains(Lkotlin/ranges/LongRange;I)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/LongRange;
     .param p1, "value"    # I
 
@@ -2089,7 +2089,7 @@
 .end method
 
 .method private static final contains(Lkotlin/ranges/LongRange;Ljava/lang/Long;)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/LongRange;
     .param p1, "element"    # Ljava/lang/Long;
 
@@ -2098,7 +2098,7 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 302
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
@@ -2108,21 +2108,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method private static final contains(Lkotlin/ranges/LongRange;S)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/LongRange;
     .param p1, "value"    # S
 
@@ -2143,7 +2143,7 @@
 .end method
 
 .method public static final synthetic doubleRangeContains(Lkotlin/ranges/ClosedRange;B)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # B
     .annotation runtime Lkotlin/Deprecated;
@@ -2177,7 +2177,7 @@
 .end method
 
 .method public static final doubleRangeContains(Lkotlin/ranges/ClosedRange;F)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # F
     .annotation system Ldalvik/annotation/Signature;
@@ -2210,7 +2210,7 @@
 .end method
 
 .method public static final synthetic doubleRangeContains(Lkotlin/ranges/ClosedRange;I)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
@@ -2244,7 +2244,7 @@
 .end method
 
 .method public static final synthetic doubleRangeContains(Lkotlin/ranges/ClosedRange;J)Z
-    .locals 2
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # J
     .annotation runtime Lkotlin/Deprecated;
@@ -2278,7 +2278,7 @@
 .end method
 
 .method public static final synthetic doubleRangeContains(Lkotlin/ranges/ClosedRange;S)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # S
     .annotation runtime Lkotlin/Deprecated;
@@ -2312,7 +2312,7 @@
 .end method
 
 .method public static final doubleRangeContains(Lkotlin/ranges/OpenEndRange;F)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # F
     .annotation system Ldalvik/annotation/Signature;
@@ -2345,7 +2345,7 @@
 .end method
 
 .method public static final downTo(CC)Lkotlin/ranges/CharProgression;
-    .locals 2
+    .registers 4
     .param p0, "$this$downTo"    # C
     .param p1, "to"    # C
 
@@ -2362,7 +2362,7 @@
 .end method
 
 .method public static final downTo(BB)Lkotlin/ranges/IntProgression;
-    .locals 2
+    .registers 4
     .param p0, "$this$downTo"    # B
     .param p1, "to"    # B
 
@@ -2379,7 +2379,7 @@
 .end method
 
 .method public static final downTo(BI)Lkotlin/ranges/IntProgression;
-    .locals 2
+    .registers 4
     .param p0, "$this$downTo"    # B
     .param p1, "to"    # I
 
@@ -2396,7 +2396,7 @@
 .end method
 
 .method public static final downTo(BS)Lkotlin/ranges/IntProgression;
-    .locals 2
+    .registers 4
     .param p0, "$this$downTo"    # B
     .param p1, "to"    # S
 
@@ -2413,7 +2413,7 @@
 .end method
 
 .method public static final downTo(IB)Lkotlin/ranges/IntProgression;
-    .locals 2
+    .registers 4
     .param p0, "$this$downTo"    # I
     .param p1, "to"    # B
 
@@ -2430,7 +2430,7 @@
 .end method
 
 .method public static final downTo(II)Lkotlin/ranges/IntProgression;
-    .locals 2
+    .registers 4
     .param p0, "$this$downTo"    # I
     .param p1, "to"    # I
 
@@ -2447,7 +2447,7 @@
 .end method
 
 .method public static final downTo(IS)Lkotlin/ranges/IntProgression;
-    .locals 2
+    .registers 4
     .param p0, "$this$downTo"    # I
     .param p1, "to"    # S
 
@@ -2464,7 +2464,7 @@
 .end method
 
 .method public static final downTo(SB)Lkotlin/ranges/IntProgression;
-    .locals 2
+    .registers 4
     .param p0, "$this$downTo"    # S
     .param p1, "to"    # B
 
@@ -2481,7 +2481,7 @@
 .end method
 
 .method public static final downTo(SI)Lkotlin/ranges/IntProgression;
-    .locals 2
+    .registers 4
     .param p0, "$this$downTo"    # S
     .param p1, "to"    # I
 
@@ -2498,7 +2498,7 @@
 .end method
 
 .method public static final downTo(SS)Lkotlin/ranges/IntProgression;
-    .locals 2
+    .registers 4
     .param p0, "$this$downTo"    # S
     .param p1, "to"    # S
 
@@ -2515,7 +2515,7 @@
 .end method
 
 .method public static final downTo(BJ)Lkotlin/ranges/LongProgression;
-    .locals 7
+    .registers 10
     .param p0, "$this$downTo"    # B
     .param p1, "to"    # J
 
@@ -2536,7 +2536,7 @@
 .end method
 
 .method public static final downTo(IJ)Lkotlin/ranges/LongProgression;
-    .locals 7
+    .registers 10
     .param p0, "$this$downTo"    # I
     .param p1, "to"    # J
 
@@ -2557,7 +2557,7 @@
 .end method
 
 .method public static final downTo(JB)Lkotlin/ranges/LongProgression;
-    .locals 7
+    .registers 10
     .param p0, "$this$downTo"    # J
     .param p2, "to"    # B
 
@@ -2578,7 +2578,7 @@
 .end method
 
 .method public static final downTo(JI)Lkotlin/ranges/LongProgression;
-    .locals 7
+    .registers 10
     .param p0, "$this$downTo"    # J
     .param p2, "to"    # I
 
@@ -2599,7 +2599,7 @@
 .end method
 
 .method public static final downTo(JJ)Lkotlin/ranges/LongProgression;
-    .locals 7
+    .registers 11
     .param p0, "$this$downTo"    # J
     .param p2, "to"    # J
 
@@ -2620,7 +2620,7 @@
 .end method
 
 .method public static final downTo(JS)Lkotlin/ranges/LongProgression;
-    .locals 7
+    .registers 10
     .param p0, "$this$downTo"    # J
     .param p2, "to"    # S
 
@@ -2641,7 +2641,7 @@
 .end method
 
 .method public static final downTo(SJ)Lkotlin/ranges/LongProgression;
-    .locals 7
+    .registers 10
     .param p0, "$this$downTo"    # S
     .param p1, "to"    # J
 
@@ -2662,7 +2662,7 @@
 .end method
 
 .method public static final first(Lkotlin/ranges/CharProgression;)C
-    .locals 3
+    .registers 4
     .param p0, "$this$first"    # Lkotlin/ranges/CharProgression;
 
     const-string v0, "<this>"
@@ -2674,7 +2674,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 52
     invoke-virtual {p0}, Lkotlin/ranges/CharProgression;->getFirst()C
@@ -2684,7 +2684,7 @@
     return v0
 
     .line 51
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/util/NoSuchElementException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2717,7 +2717,7 @@
 .end method
 
 .method public static final first(Lkotlin/ranges/IntProgression;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$first"    # Lkotlin/ranges/IntProgression;
 
     const-string v0, "<this>"
@@ -2729,7 +2729,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 28
     invoke-virtual {p0}, Lkotlin/ranges/IntProgression;->getFirst()I
@@ -2739,7 +2739,7 @@
     return v0
 
     .line 27
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/util/NoSuchElementException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2772,7 +2772,7 @@
 .end method
 
 .method public static final first(Lkotlin/ranges/LongProgression;)J
-    .locals 3
+    .registers 4
     .param p0, "$this$first"    # Lkotlin/ranges/LongProgression;
 
     const-string v0, "<this>"
@@ -2784,7 +2784,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 40
     invoke-virtual {p0}, Lkotlin/ranges/LongProgression;->getFirst()J
@@ -2794,7 +2794,7 @@
     return-wide v0
 
     .line 39
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/util/NoSuchElementException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2827,7 +2827,7 @@
 .end method
 
 .method public static final firstOrNull(Lkotlin/ranges/CharProgression;)Ljava/lang/Character;
-    .locals 1
+    .registers 2
     .param p0, "$this$firstOrNull"    # Lkotlin/ranges/CharProgression;
 
     const-string v0, "<this>"
@@ -2839,13 +2839,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lkotlin/ranges/CharProgression;->getFirst()C
 
     move-result v0
@@ -2854,12 +2854,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public static final firstOrNull(Lkotlin/ranges/IntProgression;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "$this$firstOrNull"    # Lkotlin/ranges/IntProgression;
 
     const-string v0, "<this>"
@@ -2871,13 +2871,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lkotlin/ranges/IntProgression;->getFirst()I
 
     move-result v0
@@ -2886,12 +2886,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public static final firstOrNull(Lkotlin/ranges/LongProgression;)Ljava/lang/Long;
-    .locals 2
+    .registers 3
     .param p0, "$this$firstOrNull"    # Lkotlin/ranges/LongProgression;
 
     const-string v0, "<this>"
@@ -2903,13 +2903,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lkotlin/ranges/LongProgression;->getFirst()J
 
     move-result-wide v0
@@ -2918,12 +2918,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public static final synthetic floatRangeContains(Lkotlin/ranges/ClosedRange;B)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # B
     .annotation runtime Lkotlin/Deprecated;
@@ -2957,7 +2957,7 @@
 .end method
 
 .method public static final floatRangeContains(Lkotlin/ranges/ClosedRange;D)Z
-    .locals 1
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # D
     .annotation system Ldalvik/annotation/Signature;
@@ -2990,7 +2990,7 @@
 .end method
 
 .method public static final synthetic floatRangeContains(Lkotlin/ranges/ClosedRange;I)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
@@ -3024,7 +3024,7 @@
 .end method
 
 .method public static final synthetic floatRangeContains(Lkotlin/ranges/ClosedRange;J)Z
-    .locals 1
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # J
     .annotation runtime Lkotlin/Deprecated;
@@ -3058,7 +3058,7 @@
 .end method
 
 .method public static final synthetic floatRangeContains(Lkotlin/ranges/ClosedRange;S)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # S
     .annotation runtime Lkotlin/Deprecated;
@@ -3092,7 +3092,7 @@
 .end method
 
 .method public static final intRangeContains(Lkotlin/ranges/ClosedRange;B)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # B
     .annotation system Ldalvik/annotation/Signature;
@@ -3123,7 +3123,7 @@
 .end method
 
 .method public static final synthetic intRangeContains(Lkotlin/ranges/ClosedRange;D)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
@@ -3151,7 +3151,7 @@
 
     .line 413
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$1":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -3161,19 +3161,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Integer;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$1":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final synthetic intRangeContains(Lkotlin/ranges/ClosedRange;F)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # F
     .annotation runtime Lkotlin/Deprecated;
@@ -3201,7 +3201,7 @@
 
     .line 461
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$5":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -3211,19 +3211,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Integer;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$5":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final intRangeContains(Lkotlin/ranges/ClosedRange;J)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -3250,7 +3250,7 @@
 
     .line 599
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$13":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -3260,19 +3260,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Integer;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$13":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final intRangeContains(Lkotlin/ranges/ClosedRange;S)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # S
     .annotation system Ldalvik/annotation/Signature;
@@ -3303,7 +3303,7 @@
 .end method
 
 .method public static final intRangeContains(Lkotlin/ranges/OpenEndRange;B)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # B
     .annotation system Ldalvik/annotation/Signature;
@@ -3334,7 +3334,7 @@
 .end method
 
 .method public static final intRangeContains(Lkotlin/ranges/OpenEndRange;J)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -3361,7 +3361,7 @@
 
     .line 645
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$16":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -3371,19 +3371,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Integer;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$16":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final intRangeContains(Lkotlin/ranges/OpenEndRange;S)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # S
     .annotation system Ldalvik/annotation/Signature;
@@ -3414,7 +3414,7 @@
 .end method
 
 .method public static final last(Lkotlin/ranges/CharProgression;)C
-    .locals 3
+    .registers 4
     .param p0, "$this$last"    # Lkotlin/ranges/CharProgression;
 
     const-string v0, "<this>"
@@ -3426,7 +3426,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 118
     invoke-virtual {p0}, Lkotlin/ranges/CharProgression;->getLast()C
@@ -3436,7 +3436,7 @@
     return v0
 
     .line 117
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/util/NoSuchElementException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3469,7 +3469,7 @@
 .end method
 
 .method public static final last(Lkotlin/ranges/IntProgression;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$last"    # Lkotlin/ranges/IntProgression;
 
     const-string v0, "<this>"
@@ -3481,7 +3481,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 90
     invoke-virtual {p0}, Lkotlin/ranges/IntProgression;->getLast()I
@@ -3491,7 +3491,7 @@
     return v0
 
     .line 89
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/util/NoSuchElementException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3524,7 +3524,7 @@
 .end method
 
 .method public static final last(Lkotlin/ranges/LongProgression;)J
-    .locals 3
+    .registers 4
     .param p0, "$this$last"    # Lkotlin/ranges/LongProgression;
 
     const-string v0, "<this>"
@@ -3536,7 +3536,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 104
     invoke-virtual {p0}, Lkotlin/ranges/LongProgression;->getLast()J
@@ -3546,7 +3546,7 @@
     return-wide v0
 
     .line 103
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/util/NoSuchElementException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3579,7 +3579,7 @@
 .end method
 
 .method public static final lastOrNull(Lkotlin/ranges/CharProgression;)Ljava/lang/Character;
-    .locals 1
+    .registers 2
     .param p0, "$this$lastOrNull"    # Lkotlin/ranges/CharProgression;
 
     const-string v0, "<this>"
@@ -3591,13 +3591,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lkotlin/ranges/CharProgression;->getLast()C
 
     move-result v0
@@ -3606,12 +3606,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public static final lastOrNull(Lkotlin/ranges/IntProgression;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "$this$lastOrNull"    # Lkotlin/ranges/IntProgression;
 
     const-string v0, "<this>"
@@ -3623,13 +3623,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lkotlin/ranges/IntProgression;->getLast()I
 
     move-result v0
@@ -3638,12 +3638,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public static final lastOrNull(Lkotlin/ranges/LongProgression;)Ljava/lang/Long;
-    .locals 2
+    .registers 3
     .param p0, "$this$lastOrNull"    # Lkotlin/ranges/LongProgression;
 
     const-string v0, "<this>"
@@ -3655,13 +3655,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lkotlin/ranges/LongProgression;->getLast()J
 
     move-result-wide v0
@@ -3670,12 +3670,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public static final longRangeContains(Lkotlin/ranges/ClosedRange;B)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # B
     .annotation system Ldalvik/annotation/Signature;
@@ -3708,7 +3708,7 @@
 .end method
 
 .method public static final synthetic longRangeContains(Lkotlin/ranges/ClosedRange;D)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
@@ -3736,7 +3736,7 @@
 
     .line 423
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$2":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -3746,19 +3746,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Long;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$2":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final synthetic longRangeContains(Lkotlin/ranges/ClosedRange;F)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # F
     .annotation runtime Lkotlin/Deprecated;
@@ -3786,7 +3786,7 @@
 
     .line 471
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$6":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -3796,19 +3796,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Long;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$6":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final longRangeContains(Lkotlin/ranges/ClosedRange;I)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -3841,7 +3841,7 @@
 .end method
 
 .method public static final longRangeContains(Lkotlin/ranges/ClosedRange;S)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # S
     .annotation system Ldalvik/annotation/Signature;
@@ -3874,7 +3874,7 @@
 .end method
 
 .method public static final longRangeContains(Lkotlin/ranges/OpenEndRange;B)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # B
     .annotation system Ldalvik/annotation/Signature;
@@ -3907,7 +3907,7 @@
 .end method
 
 .method public static final longRangeContains(Lkotlin/ranges/OpenEndRange;I)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -3940,7 +3940,7 @@
 .end method
 
 .method public static final longRangeContains(Lkotlin/ranges/OpenEndRange;S)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # S
     .annotation system Ldalvik/annotation/Signature;
@@ -3973,7 +3973,7 @@
 .end method
 
 .method private static final random(Lkotlin/ranges/CharRange;)C
-    .locals 1
+    .registers 2
     .param p0, "$this$random"    # Lkotlin/ranges/CharRange;
 
     const-string v0, "<this>"
@@ -3993,7 +3993,7 @@
 .end method
 
 .method public static final random(Lkotlin/ranges/CharRange;Lkotlin/random/Random;)C
-    .locals 3
+    .registers 5
     .param p0, "$this$random"    # Lkotlin/ranges/CharRange;
     .param p1, "random"    # Lkotlin/random/Random;
 
@@ -4009,7 +4009,7 @@
     nop
 
     .line 220
-    :try_start_0
+    :try_start_b
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getFirst()C
 
     move-result v0
@@ -4023,15 +4023,15 @@
     invoke-virtual {p1, v0, v1}, Lkotlin/random/Random;->nextInt(II)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_b .. :try_end_19} :catch_1b
 
     int-to-char v0, v0
 
     return v0
 
     .line 221
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 222
@@ -4048,7 +4048,7 @@
 .end method
 
 .method private static final random(Lkotlin/ranges/IntRange;)I
-    .locals 1
+    .registers 2
     .param p0, "$this$random"    # Lkotlin/ranges/IntRange;
 
     const-string v0, "<this>"
@@ -4068,7 +4068,7 @@
 .end method
 
 .method public static final random(Lkotlin/ranges/IntRange;Lkotlin/random/Random;)I
-    .locals 3
+    .registers 5
     .param p0, "$this$random"    # Lkotlin/ranges/IntRange;
     .param p1, "random"    # Lkotlin/random/Random;
 
@@ -4084,17 +4084,17 @@
     nop
 
     .line 192
-    :try_start_0
+    :try_start_b
     invoke-static {p1, p0}, Lkotlin/random/RandomKt;->nextInt(Lkotlin/random/Random;Lkotlin/ranges/IntRange;)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_b .. :try_end_f} :catch_10
 
     return v0
 
     .line 193
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 194
@@ -4111,7 +4111,7 @@
 .end method
 
 .method private static final random(Lkotlin/ranges/LongRange;)J
-    .locals 2
+    .registers 3
     .param p0, "$this$random"    # Lkotlin/ranges/LongRange;
 
     const-string v0, "<this>"
@@ -4131,7 +4131,7 @@
 .end method
 
 .method public static final random(Lkotlin/ranges/LongRange;Lkotlin/random/Random;)J
-    .locals 3
+    .registers 5
     .param p0, "$this$random"    # Lkotlin/ranges/LongRange;
     .param p1, "random"    # Lkotlin/random/Random;
 
@@ -4147,17 +4147,17 @@
     nop
 
     .line 206
-    :try_start_0
+    :try_start_b
     invoke-static {p1, p0}, Lkotlin/random/RandomKt;->nextLong(Lkotlin/random/Random;Lkotlin/ranges/LongRange;)J
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_b .. :try_end_f} :catch_10
 
     return-wide v0
 
     .line 207
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 208
@@ -4174,7 +4174,7 @@
 .end method
 
 .method private static final randomOrNull(Lkotlin/ranges/CharRange;)Ljava/lang/Character;
-    .locals 1
+    .registers 2
     .param p0, "$this$randomOrNull"    # Lkotlin/ranges/CharRange;
 
     const-string v0, "<this>"
@@ -4194,7 +4194,7 @@
 .end method
 
 .method public static final randomOrNull(Lkotlin/ranges/CharRange;Lkotlin/random/Random;)Ljava/lang/Character;
-    .locals 2
+    .registers 4
     .param p0, "$this$randomOrNull"    # Lkotlin/ranges/CharRange;
     .param p1, "random"    # Lkotlin/random/Random;
 
@@ -4211,7 +4211,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 279
     const/4 v0, 0x0
@@ -4219,7 +4219,7 @@
     return-object v0
 
     .line 280
-    :cond_0
+    :cond_12
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getFirst()C
 
     move-result v0
@@ -4244,7 +4244,7 @@
 .end method
 
 .method private static final randomOrNull(Lkotlin/ranges/IntRange;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "$this$randomOrNull"    # Lkotlin/ranges/IntRange;
 
     const-string v0, "<this>"
@@ -4264,7 +4264,7 @@
 .end method
 
 .method public static final randomOrNull(Lkotlin/ranges/IntRange;Lkotlin/random/Random;)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p0, "$this$randomOrNull"    # Lkotlin/ranges/IntRange;
     .param p1, "random"    # Lkotlin/random/Random;
 
@@ -4281,7 +4281,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 259
     const/4 v0, 0x0
@@ -4289,7 +4289,7 @@
     return-object v0
 
     .line 260
-    :cond_0
+    :cond_12
     invoke-static {p1, p0}, Lkotlin/random/RandomKt;->nextInt(Lkotlin/random/Random;Lkotlin/ranges/IntRange;)I
 
     move-result v0
@@ -4302,7 +4302,7 @@
 .end method
 
 .method private static final randomOrNull(Lkotlin/ranges/LongRange;)Ljava/lang/Long;
-    .locals 1
+    .registers 2
     .param p0, "$this$randomOrNull"    # Lkotlin/ranges/LongRange;
 
     const-string v0, "<this>"
@@ -4322,7 +4322,7 @@
 .end method
 
 .method public static final randomOrNull(Lkotlin/ranges/LongRange;Lkotlin/random/Random;)Ljava/lang/Long;
-    .locals 2
+    .registers 4
     .param p0, "$this$randomOrNull"    # Lkotlin/ranges/LongRange;
     .param p1, "random"    # Lkotlin/random/Random;
 
@@ -4339,7 +4339,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 269
     const/4 v0, 0x0
@@ -4347,7 +4347,7 @@
     return-object v0
 
     .line 270
-    :cond_0
+    :cond_12
     invoke-static {p1, p0}, Lkotlin/random/RandomKt;->nextLong(Lkotlin/random/Random;Lkotlin/ranges/LongRange;)J
 
     move-result-wide v0
@@ -4360,7 +4360,7 @@
 .end method
 
 .method public static final reversed(Lkotlin/ranges/CharProgression;)Lkotlin/ranges/CharProgression;
-    .locals 4
+    .registers 5
     .param p0, "$this$reversed"    # Lkotlin/ranges/CharProgression;
 
     const-string v0, "<this>"
@@ -4392,7 +4392,7 @@
 .end method
 
 .method public static final reversed(Lkotlin/ranges/IntProgression;)Lkotlin/ranges/IntProgression;
-    .locals 4
+    .registers 5
     .param p0, "$this$reversed"    # Lkotlin/ranges/IntProgression;
 
     const-string v0, "<this>"
@@ -4424,7 +4424,7 @@
 .end method
 
 .method public static final reversed(Lkotlin/ranges/LongProgression;)Lkotlin/ranges/LongProgression;
-    .locals 8
+    .registers 9
     .param p0, "$this$reversed"    # Lkotlin/ranges/LongProgression;
 
     const-string v0, "<this>"
@@ -4456,7 +4456,7 @@
 .end method
 
 .method public static final shortRangeContains(Lkotlin/ranges/ClosedRange;B)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # B
     .annotation system Ldalvik/annotation/Signature;
@@ -4489,7 +4489,7 @@
 .end method
 
 .method public static final synthetic shortRangeContains(Lkotlin/ranges/ClosedRange;D)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # D
     .annotation runtime Lkotlin/Deprecated;
@@ -4517,7 +4517,7 @@
 
     .line 443
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$4":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -4527,19 +4527,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Short;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$4":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final synthetic shortRangeContains(Lkotlin/ranges/ClosedRange;F)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # F
     .annotation runtime Lkotlin/Deprecated;
@@ -4567,7 +4567,7 @@
 
     .line 491
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$8":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -4577,19 +4577,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Short;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$8":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final shortRangeContains(Lkotlin/ranges/ClosedRange;I)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -4616,7 +4616,7 @@
 
     .line 533
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$10":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -4626,19 +4626,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Short;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$10":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final shortRangeContains(Lkotlin/ranges/ClosedRange;J)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$contains"    # Lkotlin/ranges/ClosedRange;
     .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -4665,7 +4665,7 @@
 
     .line 615
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$15":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -4675,19 +4675,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Short;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$15":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final shortRangeContains(Lkotlin/ranges/OpenEndRange;B)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # B
     .annotation system Ldalvik/annotation/Signature;
@@ -4720,7 +4720,7 @@
 .end method
 
 .method public static final shortRangeContains(Lkotlin/ranges/OpenEndRange;I)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -4747,7 +4747,7 @@
 
     .line 583
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$12":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -4757,19 +4757,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Short;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$12":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final shortRangeContains(Lkotlin/ranges/OpenEndRange;J)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$contains"    # Lkotlin/ranges/OpenEndRange;
     .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -4796,7 +4796,7 @@
 
     .line 665
     .local v1, "$i$a$-let-RangesKt___RangesKt$contains$18":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v2, v0
 
@@ -4806,19 +4806,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .end local v0    # "it":Ljava/lang/Short;
     .end local v1    # "$i$a$-let-RangesKt___RangesKt$contains$18":I
-    :goto_0
+    :goto_15
     return v2
 .end method
 
 .method public static final step(Lkotlin/ranges/CharProgression;I)Lkotlin/ranges/CharProgression;
-    .locals 4
+    .registers 6
     .param p0, "$this$step"    # Lkotlin/ranges/CharProgression;
     .param p1, "step"    # I
 
@@ -4827,16 +4827,16 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 983
-    if-lez p1, :cond_0
+    if-lez p1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -4860,16 +4860,16 @@
 
     move-result v3
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_25
 
     move v3, p1
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     neg-int v3, p1
 
-    :goto_1
+    :goto_26
     invoke-virtual {v0, v1, v2, v3}, Lkotlin/ranges/CharProgression$Companion;->fromClosedRange(CCI)Lkotlin/ranges/CharProgression;
 
     move-result-object v0
@@ -4878,7 +4878,7 @@
 .end method
 
 .method public static final step(Lkotlin/ranges/IntProgression;I)Lkotlin/ranges/IntProgression;
-    .locals 4
+    .registers 6
     .param p0, "$this$step"    # Lkotlin/ranges/IntProgression;
     .param p1, "step"    # I
 
@@ -4887,16 +4887,16 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 963
-    if-lez p1, :cond_0
+    if-lez p1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -4920,16 +4920,16 @@
 
     move-result v3
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_25
 
     move v3, p1
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     neg-int v3, p1
 
-    :goto_1
+    :goto_26
     invoke-virtual {v0, v1, v2, v3}, Lkotlin/ranges/IntProgression$Companion;->fromClosedRange(III)Lkotlin/ranges/IntProgression;
 
     move-result-object v0
@@ -4938,7 +4938,7 @@
 .end method
 
 .method public static final step(Lkotlin/ranges/LongProgression;J)Lkotlin/ranges/LongProgression;
-    .locals 11
+    .registers 14
     .param p0, "$this$step"    # Lkotlin/ranges/LongProgression;
     .param p1, "step"    # J
 
@@ -4951,16 +4951,16 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_e
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
@@ -4986,18 +4986,18 @@
 
     cmp-long v9, v2, v0
 
-    if-lez v9, :cond_1
+    if-lez v9, :cond_2b
 
     move-wide v9, p1
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_1
+    :cond_2b
     neg-long v0, p1
 
     move-wide v9, v0
 
-    :goto_1
+    :goto_2d
     invoke-virtual/range {v4 .. v10}, Lkotlin/ranges/LongProgression$Companion;->fromClosedRange(JJJ)Lkotlin/ranges/LongProgression;
 
     move-result-object v0
@@ -5006,7 +5006,7 @@
 .end method
 
 .method public static final toByteExactOrNull(D)Ljava/lang/Byte;
-    .locals 4
+    .registers 6
     .param p0, "$this$toByteExactOrNull"    # D
 
     .line 1000
@@ -5016,18 +5016,18 @@
 
     cmpg-double v3, v0, p0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_11
 
     const-wide v0, 0x405fc00000000000L    # 127.0
 
     cmpg-double v3, p0, v0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_11
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_11
+    if-eqz v2, :cond_1a
 
     double-to-int v0, p0
 
@@ -5037,17 +5037,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return-object v0
 .end method
 
 .method public static final toByteExactOrNull(F)Ljava/lang/Byte;
-    .locals 2
+    .registers 3
     .param p0, "$this$toByteExactOrNull"    # F
 
     .line 1004
@@ -5057,18 +5057,18 @@
 
     cmpg-float v0, v0, p0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_e
 
     const/high16 v0, 0x42fe0000    # 127.0f
 
     cmpg-float v0, p0, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_e
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_e
+    if-eqz v1, :cond_17
 
     float-to-int v0, p0
 
@@ -5078,17 +5078,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_18
     return-object v0
 .end method
 
 .method public static final toByteExactOrNull(I)Ljava/lang/Byte;
-    .locals 2
+    .registers 3
     .param p0, "$this$toByteExactOrNull"    # I
 
     .line 988
@@ -5096,16 +5096,16 @@
 
     const/4 v1, 0x0
 
-    if-gt v0, p0, :cond_0
+    if-gt v0, p0, :cond_a
 
     const/16 v0, 0x80
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_a
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_a
+    if-eqz v1, :cond_12
 
     int-to-byte v0, p0
 
@@ -5113,17 +5113,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public static final toByteExactOrNull(J)Ljava/lang/Byte;
-    .locals 4
+    .registers 6
     .param p0, "$this$toByteExactOrNull"    # J
 
     .line 992
@@ -5133,18 +5133,18 @@
 
     cmp-long v3, v0, p0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_e
 
     const-wide/16 v0, 0x80
 
     cmp-long v3, p0, v0
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_e
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_e
+    if-eqz v2, :cond_17
 
     long-to-int v0, p0
 
@@ -5154,17 +5154,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_18
     return-object v0
 .end method
 
 .method public static final toByteExactOrNull(S)Ljava/lang/Byte;
-    .locals 2
+    .registers 3
     .param p0, "$this$toByteExactOrNull"    # S
 
     .line 996
@@ -5172,16 +5172,16 @@
 
     const/4 v1, 0x0
 
-    if-gt v0, p0, :cond_0
+    if-gt v0, p0, :cond_a
 
     const/16 v0, 0x80
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_a
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_a
+    if-eqz v1, :cond_12
 
     int-to-byte v0, p0
 
@@ -5189,17 +5189,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public static final toIntExactOrNull(D)Ljava/lang/Integer;
-    .locals 4
+    .registers 6
     .param p0, "$this$toIntExactOrNull"    # D
 
     .line 1012
@@ -5209,18 +5209,18 @@
 
     cmpg-double v3, v0, p0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_11
 
     const-wide v0, 0x41dfffffffc00000L    # 2.147483647E9
 
     cmpg-double v3, p0, v0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_11
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_11
+    if-eqz v2, :cond_19
 
     double-to-int v0, p0
 
@@ -5228,17 +5228,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1a
     return-object v0
 .end method
 
 .method public static final toIntExactOrNull(F)Ljava/lang/Integer;
-    .locals 2
+    .registers 3
     .param p0, "$this$toIntExactOrNull"    # F
 
     .line 1016
@@ -5248,18 +5248,18 @@
 
     cmpg-float v0, v0, p0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_e
 
     const/high16 v0, 0x4f000000
 
     cmpg-float v0, p0, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_e
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_e
+    if-eqz v1, :cond_16
 
     float-to-int v0, p0
 
@@ -5267,17 +5267,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static final toIntExactOrNull(J)Ljava/lang/Integer;
-    .locals 4
+    .registers 6
     .param p0, "$this$toIntExactOrNull"    # J
 
     .line 1008
@@ -5287,18 +5287,18 @@
 
     cmp-long v3, v0, p0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_12
 
     const-wide v0, 0x80000000L
 
     cmp-long v3, p0, v0
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_12
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_12
+    if-eqz v2, :cond_1a
 
     long-to-int v0, p0
 
@@ -5306,17 +5306,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return-object v0
 .end method
 
 .method public static final toLongExactOrNull(D)Ljava/lang/Long;
-    .locals 4
+    .registers 6
     .param p0, "$this$toLongExactOrNull"    # D
 
     .line 1020
@@ -5326,18 +5326,18 @@
 
     cmpg-double v3, v0, p0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_e
 
     const-wide/high16 v0, 0x43e0000000000000L    # 9.223372036854776E18
 
     cmpg-double v3, p0, v0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_e
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_e
+    if-eqz v2, :cond_16
 
     double-to-long v0, p0
 
@@ -5345,17 +5345,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static final toLongExactOrNull(F)Ljava/lang/Long;
-    .locals 2
+    .registers 3
     .param p0, "$this$toLongExactOrNull"    # F
 
     .line 1024
@@ -5365,18 +5365,18 @@
 
     cmpg-float v0, v0, p0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_e
 
     const/high16 v0, 0x5f000000
 
     cmpg-float v0, p0, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_e
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_e
+    if-eqz v1, :cond_16
 
     float-to-long v0, p0
 
@@ -5384,17 +5384,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static final toShortExactOrNull(D)Ljava/lang/Short;
-    .locals 4
+    .registers 6
     .param p0, "$this$toShortExactOrNull"    # D
 
     .line 1036
@@ -5404,18 +5404,18 @@
 
     cmpg-double v3, v0, p0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_11
 
     const-wide v0, 0x40dfffc000000000L    # 32767.0
 
     cmpg-double v3, p0, v0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_11
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_11
+    if-eqz v2, :cond_1a
 
     double-to-int v0, p0
 
@@ -5425,17 +5425,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return-object v0
 .end method
 
 .method public static final toShortExactOrNull(F)Ljava/lang/Short;
-    .locals 2
+    .registers 3
     .param p0, "$this$toShortExactOrNull"    # F
 
     .line 1040
@@ -5445,18 +5445,18 @@
 
     cmpg-float v0, v0, p0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_f
 
     const v0, 0x46fffe00    # 32767.0f
 
     cmpg-float v0, p0, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_f
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_f
+    if-eqz v1, :cond_18
 
     float-to-int v0, p0
 
@@ -5466,17 +5466,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_19
     return-object v0
 .end method
 
 .method public static final toShortExactOrNull(I)Ljava/lang/Short;
-    .locals 2
+    .registers 3
     .param p0, "$this$toShortExactOrNull"    # I
 
     .line 1028
@@ -5484,16 +5484,16 @@
 
     const/4 v1, 0x0
 
-    if-gt v0, p0, :cond_0
+    if-gt v0, p0, :cond_b
 
     const v0, 0x8000
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_b
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_b
+    if-eqz v1, :cond_13
 
     int-to-short v0, p0
 
@@ -5501,17 +5501,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public static final toShortExactOrNull(J)Ljava/lang/Short;
-    .locals 4
+    .registers 6
     .param p0, "$this$toShortExactOrNull"    # J
 
     .line 1032
@@ -5521,18 +5521,18 @@
 
     cmp-long v3, v0, p0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_f
 
     const-wide/32 v0, 0x8000
 
     cmp-long v3, p0, v0
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_f
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_f
+    if-eqz v2, :cond_18
 
     long-to-int v0, p0
 
@@ -5542,17 +5542,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_19
     return-object v0
 .end method
 
 .method public static final until(CC)Lkotlin/ranges/CharRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$until"    # C
     .param p1, "to"    # C
 
@@ -5563,7 +5563,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_e
 
     sget-object v0, Lkotlin/ranges/CharRange;->Companion:Lkotlin/ranges/CharRange$Companion;
 
@@ -5574,7 +5574,7 @@
     return-object v0
 
     .line 1086
-    :cond_0
+    :cond_e
     new-instance v0, Lkotlin/ranges/CharRange;
 
     add-int/lit8 v1, p1, -0x1
@@ -5587,7 +5587,7 @@
 .end method
 
 .method public static final until(BB)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$until"    # B
     .param p1, "to"    # B
 
@@ -5602,14 +5602,14 @@
 .end method
 
 .method public static final until(BI)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$until"    # B
     .param p1, "to"    # I
 
     .line 1114
     const/high16 v0, -0x80000000
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_b
 
     sget-object v0, Lkotlin/ranges/IntRange;->Companion:Lkotlin/ranges/IntRange$Companion;
 
@@ -5620,7 +5620,7 @@
     return-object v0
 
     .line 1115
-    :cond_0
+    :cond_b
     new-instance v0, Lkotlin/ranges/IntRange;
 
     add-int/lit8 v1, p1, -0x1
@@ -5631,7 +5631,7 @@
 .end method
 
 .method public static final until(BS)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$until"    # B
     .param p1, "to"    # S
 
@@ -5646,7 +5646,7 @@
 .end method
 
 .method public static final until(IB)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$until"    # I
     .param p1, "to"    # B
 
@@ -5661,14 +5661,14 @@
 .end method
 
 .method public static final until(II)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$until"    # I
     .param p1, "to"    # I
 
     .line 1095
     const/high16 v0, -0x80000000
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_b
 
     sget-object v0, Lkotlin/ranges/IntRange;->Companion:Lkotlin/ranges/IntRange$Companion;
 
@@ -5679,7 +5679,7 @@
     return-object v0
 
     .line 1096
-    :cond_0
+    :cond_b
     new-instance v0, Lkotlin/ranges/IntRange;
 
     add-int/lit8 v1, p1, -0x1
@@ -5690,7 +5690,7 @@
 .end method
 
 .method public static final until(IS)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$until"    # I
     .param p1, "to"    # S
 
@@ -5705,7 +5705,7 @@
 .end method
 
 .method public static final until(SB)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$until"    # S
     .param p1, "to"    # B
 
@@ -5720,14 +5720,14 @@
 .end method
 
 .method public static final until(SI)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$until"    # S
     .param p1, "to"    # I
 
     .line 1124
     const/high16 v0, -0x80000000
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_b
 
     sget-object v0, Lkotlin/ranges/IntRange;->Companion:Lkotlin/ranges/IntRange$Companion;
 
@@ -5738,7 +5738,7 @@
     return-object v0
 
     .line 1125
-    :cond_0
+    :cond_b
     new-instance v0, Lkotlin/ranges/IntRange;
 
     add-int/lit8 v1, p1, -0x1
@@ -5749,7 +5749,7 @@
 .end method
 
 .method public static final until(SS)Lkotlin/ranges/IntRange;
-    .locals 2
+    .registers 4
     .param p0, "$this$until"    # S
     .param p1, "to"    # S
 
@@ -5764,7 +5764,7 @@
 .end method
 
 .method public static final until(BJ)Lkotlin/ranges/LongRange;
-    .locals 5
+    .registers 8
     .param p0, "$this$until"    # B
     .param p1, "to"    # J
 
@@ -5773,7 +5773,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_d
 
     sget-object v0, Lkotlin/ranges/LongRange;->Companion:Lkotlin/ranges/LongRange$Companion;
 
@@ -5784,7 +5784,7 @@
     return-object v0
 
     .line 1155
-    :cond_0
+    :cond_d
     new-instance v0, Lkotlin/ranges/LongRange;
 
     int-to-long v1, p0
@@ -5799,7 +5799,7 @@
 .end method
 
 .method public static final until(IJ)Lkotlin/ranges/LongRange;
-    .locals 5
+    .registers 8
     .param p0, "$this$until"    # I
     .param p1, "to"    # J
 
@@ -5808,7 +5808,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_d
 
     sget-object v0, Lkotlin/ranges/LongRange;->Companion:Lkotlin/ranges/LongRange$Companion;
 
@@ -5819,7 +5819,7 @@
     return-object v0
 
     .line 1135
-    :cond_0
+    :cond_d
     new-instance v0, Lkotlin/ranges/LongRange;
 
     int-to-long v1, p0
@@ -5834,7 +5834,7 @@
 .end method
 
 .method public static final until(JB)Lkotlin/ranges/LongRange;
-    .locals 5
+    .registers 8
     .param p0, "$this$until"    # J
     .param p2, "to"    # B
 
@@ -5853,7 +5853,7 @@
 .end method
 
 .method public static final until(JI)Lkotlin/ranges/LongRange;
-    .locals 5
+    .registers 8
     .param p0, "$this$until"    # J
     .param p2, "to"    # I
 
@@ -5872,7 +5872,7 @@
 .end method
 
 .method public static final until(JJ)Lkotlin/ranges/LongRange;
-    .locals 3
+    .registers 7
     .param p0, "$this$until"    # J
     .param p2, "to"    # J
 
@@ -5881,7 +5881,7 @@
 
     cmp-long v2, p2, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_d
 
     sget-object v0, Lkotlin/ranges/LongRange;->Companion:Lkotlin/ranges/LongRange$Companion;
 
@@ -5892,7 +5892,7 @@
     return-object v0
 
     .line 1145
-    :cond_0
+    :cond_d
     new-instance v0, Lkotlin/ranges/LongRange;
 
     const-wide/16 v1, 0x1
@@ -5905,7 +5905,7 @@
 .end method
 
 .method public static final until(JS)Lkotlin/ranges/LongRange;
-    .locals 5
+    .registers 8
     .param p0, "$this$until"    # J
     .param p2, "to"    # S
 
@@ -5924,7 +5924,7 @@
 .end method
 
 .method public static final until(SJ)Lkotlin/ranges/LongRange;
-    .locals 5
+    .registers 8
     .param p0, "$this$until"    # S
     .param p1, "to"    # J
 
@@ -5933,7 +5933,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_d
 
     sget-object v0, Lkotlin/ranges/LongRange;->Companion:Lkotlin/ranges/LongRange$Companion;
 
@@ -5944,7 +5944,7 @@
     return-object v0
 
     .line 1165
-    :cond_0
+    :cond_d
     new-instance v0, Lkotlin/ranges/LongRange;
 
     int-to-long v1, p0

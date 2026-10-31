@@ -96,7 +96,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -130,7 +130,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/internal/NavigationMenuPresenter;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/internal/NavigationMenuPresenter;
 
     .line 62
@@ -140,7 +140,7 @@
 .end method
 
 .method private updateTopPadding()V
-    .locals 4
+    .registers 5
 
     .line 417
     const/4 v0, 0x0
@@ -153,17 +153,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     iget-boolean v1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->isBehindStatusBar:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 420
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->paddingTopDefault:I
 
     .line 423
-    :cond_0
+    :cond_f
     iget-object v1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
 
     iget-object v2, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
@@ -183,7 +183,7 @@
 
 # virtual methods
 .method public addHeaderView(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 242
@@ -209,7 +209,7 @@
 .end method
 
 .method public collapseItemActionView(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/view/menu/MenuItemImpl;)Z
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -220,7 +220,7 @@
 .end method
 
 .method public dispatchApplyWindowInsets(Landroidx/core/view/WindowInsetsCompat;)V
-    .locals 5
+    .registers 7
     .param p1, "insets"    # Landroidx/core/view/WindowInsetsCompat;
 
     .line 427
@@ -232,7 +232,7 @@
     .local v0, "top":I
     iget v1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->paddingTopDefault:I
 
-    if-eq v1, v0, :cond_0
+    if-eq v1, v0, :cond_d
 
     .line 429
     iput v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->paddingTopDefault:I
@@ -241,7 +241,7 @@
     invoke-direct {p0}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateTopPadding()V
 
     .line 435
-    :cond_0
+    :cond_d
     iget-object v1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
 
     iget-object v2, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
@@ -268,7 +268,7 @@
 .end method
 
 .method public expandItemActionView(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/view/menu/MenuItemImpl;)Z
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -279,7 +279,7 @@
 .end method
 
 .method public flagActionItems()Z
-    .locals 1
+    .registers 2
 
     .line 165
     const/4 v0, 0x0
@@ -288,7 +288,7 @@
 .end method
 
 .method public getCheckedItem()Landroidx/appcompat/view/menu/MenuItemImpl;
-    .locals 1
+    .registers 2
 
     .line 232
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->adapter:Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
@@ -301,7 +301,7 @@
 .end method
 
 .method public getDividerInsetEnd()I
-    .locals 1
+    .registers 2
 
     .line 343
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->dividerInsetEnd:I
@@ -310,7 +310,7 @@
 .end method
 
 .method public getDividerInsetStart()I
-    .locals 1
+    .registers 2
 
     .line 333
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->dividerInsetStart:I
@@ -319,7 +319,7 @@
 .end method
 
 .method public getHeaderCount()I
-    .locals 1
+    .registers 2
 
     .line 255
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->headerLayout:Landroid/widget/LinearLayout;
@@ -332,7 +332,7 @@
 .end method
 
 .method public getHeaderView(I)Landroid/view/View;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 259
@@ -346,7 +346,7 @@
 .end method
 
 .method public getId()I
-    .locals 1
+    .registers 2
 
     .line 180
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->id:I
@@ -355,7 +355,7 @@
 .end method
 
 .method public getItemBackground()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 299
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->itemBackground:Landroid/graphics/drawable/Drawable;
@@ -364,7 +364,7 @@
 .end method
 
 .method public getItemHorizontalPadding()I
-    .locals 1
+    .registers 2
 
     .line 313
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->itemHorizontalPadding:I
@@ -373,7 +373,7 @@
 .end method
 
 .method public getItemIconPadding()I
-    .locals 1
+    .registers 2
 
     .line 372
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->itemIconPadding:I
@@ -382,7 +382,7 @@
 .end method
 
 .method public getItemMaxLines()I
-    .locals 1
+    .registers 2
 
     .line 386
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->itemMaxLines:I
@@ -391,7 +391,7 @@
 .end method
 
 .method public getItemTextColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 284
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->textColor:Landroid/content/res/ColorStateList;
@@ -400,7 +400,7 @@
 .end method
 
 .method public getItemTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 274
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->iconTintList:Landroid/content/res/ColorStateList;
@@ -409,7 +409,7 @@
 .end method
 
 .method public getItemVerticalPadding()I
-    .locals 1
+    .registers 2
 
     .line 323
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->itemVerticalPadding:I
@@ -418,13 +418,13 @@
 .end method
 
 .method public getMenuView(Landroid/view/ViewGroup;)Landroidx/appcompat/view/menu/MenuView;
-    .locals 4
+    .registers 6
     .param p1, "root"    # Landroid/view/ViewGroup;
 
     .line 120
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_49
 
     .line 121
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->layoutInflater:Landroid/view/LayoutInflater;
@@ -456,7 +456,7 @@
     .line 125
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->adapter:Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_28
 
     .line 126
     new-instance v0, Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
@@ -466,12 +466,12 @@
     iput-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->adapter:Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
 
     .line 128
-    :cond_0
+    :cond_28
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->overScrollMode:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_34
 
     .line 129
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
@@ -481,7 +481,7 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/internal/NavigationMenuView;->setOverScrollMode(I)V
 
     .line 131
-    :cond_1
+    :cond_34
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->layoutInflater:Landroid/view/LayoutInflater;
 
     sget v1, Lcom/google/android/material/R$layout;->design_navigation_item_header:I
@@ -505,14 +505,14 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/internal/NavigationMenuView;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
 
     .line 136
-    :cond_2
+    :cond_49
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
 
     return-object v0
 .end method
 
 .method public getSubheaderInsetEnd()I
-    .locals 1
+    .registers 2
 
     .line 363
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->subheaderInsetEnd:I
@@ -521,7 +521,7 @@
 .end method
 
 .method public getSubheaderInsetStart()I
-    .locals 1
+    .registers 2
 
     .line 353
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->subheaderInsetStart:I
@@ -530,7 +530,7 @@
 .end method
 
 .method public inflateHeaderView(I)Landroid/view/View;
-    .locals 3
+    .registers 5
     .param p1, "res"    # I
 
     .line 236
@@ -553,7 +553,7 @@
 .end method
 
 .method public initForMenu(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
@@ -588,7 +588,7 @@
 .end method
 
 .method public isBehindStatusBar()Z
-    .locals 1
+    .registers 2
 
     .line 413
     iget-boolean v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->isBehindStatusBar:Z
@@ -597,14 +597,14 @@
 .end method
 
 .method public onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "allMenusAreClosing"    # Z
 
     .line 158
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->callback:Landroidx/appcompat/view/menu/MenuPresenter$Callback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 159
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->callback:Landroidx/appcompat/view/menu/MenuPresenter$Callback;
@@ -612,18 +612,18 @@
     invoke-interface {v0, p1, p2}, Landroidx/appcompat/view/menu/MenuPresenter$Callback;->onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
 
     .line 161
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 5
+    .registers 7
     .param p1, "parcelable"    # Landroid/os/Parcelable;
 
     .line 209
     instance-of v0, p1, Landroid/os/Bundle;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2e
 
     .line 210
     move-object v0, p1
@@ -640,7 +640,7 @@
 
     .line 212
     .local v1, "hierarchy":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 213
     iget-object v2, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
@@ -648,7 +648,7 @@
     invoke-virtual {v2, v1}, Lcom/google/android/material/internal/NavigationMenuView;->restoreHierarchyState(Landroid/util/SparseArray;)V
 
     .line 215
-    :cond_0
+    :cond_14
     const-string v2, "android:menu:adapter"
 
     invoke-virtual {v0, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
@@ -657,7 +657,7 @@
 
     .line 216
     .local v2, "adapterState":Landroid/os/Bundle;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     .line 217
     iget-object v3, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->adapter:Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
@@ -665,7 +665,7 @@
     invoke-virtual {v3, v2}, Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;->restoreInstanceState(Landroid/os/Bundle;)V
 
     .line 219
-    :cond_1
+    :cond_21
     const-string v3, "android:menu:header"
 
     invoke-virtual {v0, v3}, Landroid/os/Bundle;->getSparseParcelableArray(Ljava/lang/String;)Landroid/util/SparseArray;
@@ -674,7 +674,7 @@
 
     .line 220
     .local v3, "header":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2e
 
     .line 221
     iget-object v4, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->headerLayout:Landroid/widget/LinearLayout;
@@ -686,12 +686,12 @@
     .end local v1    # "hierarchy":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
     .end local v2    # "adapterState":Landroid/os/Bundle;
     .end local v3    # "header":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
-    :cond_2
+    :cond_2e
     return-void
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 3
+    .registers 4
 
     .line 190
     new-instance v0, Landroid/os/Bundle;
@@ -702,7 +702,7 @@
     .local v0, "state":Landroid/os/Bundle;
     iget-object v1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 192
     new-instance v1, Landroid/util/SparseArray;
@@ -722,10 +722,10 @@
 
     .line 196
     .end local v1    # "hierarchy":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
-    :cond_0
+    :cond_18
     iget-object v1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->adapter:Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     .line 197
     iget-object v1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->adapter:Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
@@ -739,10 +739,10 @@
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 199
-    :cond_1
+    :cond_27
     iget-object v1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->headerLayout:Landroid/widget/LinearLayout;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3a
 
     .line 200
     new-instance v1, Landroid/util/SparseArray;
@@ -762,12 +762,12 @@
 
     .line 204
     .end local v1    # "header":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
-    :cond_2
+    :cond_3a
     return-object v0
 .end method
 
 .method public onSubMenuSelected(Landroidx/appcompat/view/menu/SubMenuBuilder;)Z
-    .locals 1
+    .registers 3
     .param p1, "subMenu"    # Landroidx/appcompat/view/menu/SubMenuBuilder;
 
     .line 153
@@ -777,7 +777,7 @@
 .end method
 
 .method public removeHeaderView(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
 
     .line 248
@@ -792,7 +792,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 250
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
@@ -810,18 +810,18 @@
     invoke-virtual {v0, v3, v1, v3, v2}, Lcom/google/android/material/internal/NavigationMenuView;->setPadding(IIII)V
 
     .line 252
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method public setBehindStatusBar(Z)V
-    .locals 1
+    .registers 3
     .param p1, "behindStatusBar"    # Z
 
     .line 405
     iget-boolean v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->isBehindStatusBar:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 406
     iput-boolean p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->isBehindStatusBar:Z
@@ -830,12 +830,12 @@
     invoke-direct {p0}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateTopPadding()V
 
     .line 409
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setCallback(Landroidx/appcompat/view/menu/MenuPresenter$Callback;)V
-    .locals 0
+    .registers 2
     .param p1, "cb"    # Landroidx/appcompat/view/menu/MenuPresenter$Callback;
 
     .line 148
@@ -846,7 +846,7 @@
 .end method
 
 .method public setCheckedItem(Landroidx/appcompat/view/menu/MenuItemImpl;)V
-    .locals 1
+    .registers 3
     .param p1, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
     .line 227
@@ -859,7 +859,7 @@
 .end method
 
 .method public setDividerInsetEnd(I)V
-    .locals 1
+    .registers 3
     .param p1, "dividerInsetEnd"    # I
 
     .line 347
@@ -875,7 +875,7 @@
 .end method
 
 .method public setDividerInsetStart(I)V
-    .locals 1
+    .registers 3
     .param p1, "dividerInsetStart"    # I
 
     .line 337
@@ -891,7 +891,7 @@
 .end method
 
 .method public setId(I)V
-    .locals 0
+    .registers 2
     .param p1, "id"    # I
 
     .line 184
@@ -902,7 +902,7 @@
 .end method
 
 .method public setItemBackground(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "itemBackground"    # Landroid/graphics/drawable/Drawable;
 
     .line 303
@@ -918,7 +918,7 @@
 .end method
 
 .method public setItemForeground(Landroid/graphics/drawable/RippleDrawable;)V
-    .locals 1
+    .registers 3
     .param p1, "itemForeground"    # Landroid/graphics/drawable/RippleDrawable;
 
     .line 308
@@ -934,7 +934,7 @@
 .end method
 
 .method public setItemHorizontalPadding(I)V
-    .locals 1
+    .registers 3
     .param p1, "itemHorizontalPadding"    # I
 
     .line 317
@@ -950,7 +950,7 @@
 .end method
 
 .method public setItemIconPadding(I)V
-    .locals 1
+    .registers 3
     .param p1, "itemIconPadding"    # I
 
     .line 376
@@ -966,13 +966,13 @@
 .end method
 
 .method public setItemIconSize(I)V
-    .locals 1
+    .registers 3
     .param p1, "itemIconSize"    # I
 
     .line 390
     iget v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->itemIconSize:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_d
 
     .line 391
     iput p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->itemIconSize:I
@@ -988,12 +988,12 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateMenuView(Z)V
 
     .line 395
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public setItemIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
     .line 278
@@ -1009,7 +1009,7 @@
 .end method
 
 .method public setItemMaxLines(I)V
-    .locals 1
+    .registers 3
     .param p1, "itemMaxLines"    # I
 
     .line 381
@@ -1025,7 +1025,7 @@
 .end method
 
 .method public setItemTextAppearance(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 293
@@ -1041,7 +1041,7 @@
 .end method
 
 .method public setItemTextColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "textColor"    # Landroid/content/res/ColorStateList;
 
     .line 288
@@ -1057,7 +1057,7 @@
 .end method
 
 .method public setItemVerticalPadding(I)V
-    .locals 1
+    .registers 3
     .param p1, "itemVerticalPadding"    # I
 
     .line 327
@@ -1073,7 +1073,7 @@
 .end method
 
 .method public setOverScrollMode(I)V
-    .locals 1
+    .registers 3
     .param p1, "overScrollMode"    # I
 
     .line 440
@@ -1082,7 +1082,7 @@
     .line 441
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 442
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
@@ -1090,12 +1090,12 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/internal/NavigationMenuView;->setOverScrollMode(I)V
 
     .line 444
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setSubheaderColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "subheaderColor"    # Landroid/content/res/ColorStateList;
 
     .line 263
@@ -1111,7 +1111,7 @@
 .end method
 
 .method public setSubheaderInsetEnd(I)V
-    .locals 1
+    .registers 3
     .param p1, "subheaderInsetEnd"    # I
 
     .line 367
@@ -1127,7 +1127,7 @@
 .end method
 
 .method public setSubheaderInsetStart(I)V
-    .locals 1
+    .registers 3
     .param p1, "subheaderInsetStart"    # I
 
     .line 357
@@ -1143,7 +1143,7 @@
 .end method
 
 .method public setSubheaderTextAppearance(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 268
@@ -1159,13 +1159,13 @@
 .end method
 
 .method public setUpdateSuspended(Z)V
-    .locals 1
+    .registers 3
     .param p1, "updateSuspended"    # Z
 
     .line 398
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->adapter:Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 399
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->adapter:Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
@@ -1173,18 +1173,18 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;->setUpdateSuspended(Z)V
 
     .line 401
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public updateMenuView(Z)V
-    .locals 1
+    .registers 3
     .param p1, "cleared"    # Z
 
     .line 141
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->adapter:Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 142
     iget-object v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->adapter:Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;
@@ -1192,6 +1192,6 @@
     invoke-virtual {v0}, Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;->update()V
 
     .line 144
-    :cond_0
+    :cond_9
     return-void
 .end method

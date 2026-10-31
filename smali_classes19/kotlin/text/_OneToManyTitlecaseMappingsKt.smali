@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static final titlecaseImpl(C)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$titlecaseImpl"    # C
 
     .line 15
@@ -56,18 +56,18 @@
 
     const/4 v3, 0x1
 
-    if-le v2, v3, :cond_1
+    if-le v2, v3, :cond_52
 
     .line 17
     const/16 v2, 0x149
 
-    if-ne p0, v2, :cond_0
+    if-ne p0, v2, :cond_21
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_51
 
-    :cond_0
+    :cond_21
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
@@ -112,11 +112,11 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_51
     return-object v1
 
     .line 19
-    :cond_1
+    :cond_52
     invoke-static {p0}, Ljava/lang/Character;->toTitleCase(C)C
 
     move-result v1

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 846
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onDismiss(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 849
@@ -47,7 +47,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 850
     const/16 v0, 0x8
@@ -55,7 +55,7 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 852
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$7;->this$0:Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     const/4 v1, 0x0
@@ -67,17 +67,17 @@
 .end method
 
 .method public onDragStateChanged(I)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # I
 
     .line 857
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar$7;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar$7;"
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_1e
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 861
-    :pswitch_0
+    :pswitch_4
     invoke-static {}, Lcom/google/android/material/snackbar/SnackbarManager;->getInstance()Lcom/google/android/material/snackbar/SnackbarManager;
 
     move-result-object v0
@@ -89,10 +89,10 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/snackbar/SnackbarManager;->pauseTimeout(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V
 
     .line 862
-    goto :goto_0
+    goto :goto_1c
 
     .line 865
-    :pswitch_1
+    :pswitch_10
     invoke-static {}, Lcom/google/android/material/snackbar/SnackbarManager;->getInstance()Lcom/google/android/material/snackbar/SnackbarManager;
 
     move-result-object v0
@@ -107,15 +107,15 @@
     nop
 
     .line 870
-    :goto_0
+    :goto_1c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_10
+        :pswitch_4
+        :pswitch_4
     .end packed-switch
 .end method

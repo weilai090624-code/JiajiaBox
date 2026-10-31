@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/CustomTabsService;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/browser/customtabs/CustomTabsService;
 
     .line 168
@@ -32,18 +32,18 @@
 .end method
 
 .method private getSessionIdFromBundle(Landroid/os/Bundle;)Landroid/app/PendingIntent;
-    .locals 2
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 265
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 267
-    :cond_0
+    :cond_4
     const-string v0, "android.support.customtabs.extra.SESSION_ID"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -61,7 +61,7 @@
 .end method
 
 .method private newSessionInternal(Landroid/support/customtabs/ICustomTabsCallback;Landroid/app/PendingIntent;)Z
-    .locals 6
+    .registers 9
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "sessionId"    # Landroid/app/PendingIntent;
 
@@ -74,7 +74,7 @@
     .local v0, "sessionToken":Landroidx/browser/customtabs/CustomTabsSessionToken;
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_6
     new-instance v2, Landroidx/browser/customtabs/CustomTabsService$1$$ExternalSyntheticLambda0;
 
     invoke-direct {v2, p0, v0}, Landroidx/browser/customtabs/CustomTabsService$1$$ExternalSyntheticLambda0;-><init>(Landroidx/browser/customtabs/CustomTabsService$1;Landroidx/browser/customtabs/CustomTabsSessionToken;)V
@@ -86,11 +86,11 @@
     iget-object v3, v3, Landroidx/browser/customtabs/CustomTabsService;->mDeathRecipientMap:Landroidx/collection/SimpleArrayMap;
 
     monitor-enter v3
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_10} :catch_2d
 
     .line 193
-    :try_start_1
+    :try_start_10
     invoke-interface {p1}, Landroid/support/customtabs/ICustomTabsCallback;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
@@ -110,44 +110,44 @@
 
     .line 195
     monitor-exit v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_23
+    .catchall {:try_start_10 .. :try_end_23} :catchall_2a
 
     .line 196
-    :try_start_2
+    :try_start_23
     iget-object v3, p0, Landroidx/browser/customtabs/CustomTabsService$1;->this$0:Landroidx/browser/customtabs/CustomTabsService;
 
     invoke-virtual {v3, v0}, Landroidx/browser/customtabs/CustomTabsService;->newSession(Landroidx/browser/customtabs/CustomTabsSessionToken;)Z
 
     move-result v1
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_29
+    .catch Landroid/os/RemoteException; {:try_start_23 .. :try_end_29} :catch_2d
 
     return v1
 
     .line 195
-    :catchall_0
+    :catchall_2a
     move-exception v4
 
-    :try_start_3
+    :try_start_2b
     monitor-exit v3
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_2b .. :try_end_2c} :catchall_2a
 
     .end local v0    # "sessionToken":Landroidx/browser/customtabs/CustomTabsSessionToken;
     .end local p1    # "callback":Landroid/support/customtabs/ICustomTabsCallback;
     .end local p2    # "sessionId":Landroid/app/PendingIntent;
-    :try_start_4
+    :try_start_2c
     throw v4
-    :try_end_4
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_2d
+    .catch Landroid/os/RemoteException; {:try_start_2c .. :try_end_2d} :catch_2d
 
     .line 197
     .end local v2    # "deathRecipient":Landroid/os/IBinder$DeathRecipient;
     .restart local v0    # "sessionToken":Landroidx/browser/customtabs/CustomTabsSessionToken;
     .restart local p1    # "callback":Landroid/support/customtabs/ICustomTabsCallback;
     .restart local p2    # "sessionId":Landroid/app/PendingIntent;
-    :catch_0
+    :catch_2d
     move-exception v2
 
     .line 198
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public extraCommand(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 1
+    .registers 4
     .param p1, "commandName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
 
@@ -173,7 +173,7 @@
 .end method
 
 .method synthetic lambda$newSessionInternal$0$androidx-browser-customtabs-CustomTabsService$1(Landroidx/browser/customtabs/CustomTabsSessionToken;)V
-    .locals 1
+    .registers 3
     .param p1, "sessionToken"    # Landroidx/browser/customtabs/CustomTabsSessionToken;
 
     .line 191
@@ -185,7 +185,7 @@
 .end method
 
 .method public mayLaunchUrl(Landroid/support/customtabs/ICustomTabsCallback;Landroid/net/Uri;Landroid/os/Bundle;Ljava/util/List;)Z
-    .locals 3
+    .registers 8
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "url"    # Landroid/net/Uri;
     .param p3, "extras"    # Landroid/os/Bundle;
@@ -223,7 +223,7 @@
 .end method
 
 .method public newSession(Landroid/support/customtabs/ICustomTabsCallback;)Z
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
 
     .line 177
@@ -237,7 +237,7 @@
 .end method
 
 .method public newSessionWithExtras(Landroid/support/customtabs/ICustomTabsCallback;Landroid/os/Bundle;)Z
-    .locals 1
+    .registers 4
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "extras"    # Landroid/os/Bundle;
 
@@ -254,7 +254,7 @@
 .end method
 
 .method public postMessage(Landroid/support/customtabs/ICustomTabsCallback;Ljava/lang/String;Landroid/os/Bundle;)I
-    .locals 3
+    .registers 7
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "extras"    # Landroid/os/Bundle;
@@ -280,7 +280,7 @@
 .end method
 
 .method public receiveFile(Landroid/support/customtabs/ICustomTabsCallback;Landroid/net/Uri;ILandroid/os/Bundle;)Z
-    .locals 3
+    .registers 8
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "uri"    # Landroid/net/Uri;
     .param p3, "purpose"    # I
@@ -307,7 +307,7 @@
 .end method
 
 .method public requestPostMessageChannel(Landroid/support/customtabs/ICustomTabsCallback;Landroid/net/Uri;)Z
-    .locals 3
+    .registers 6
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "postMessageOrigin"    # Landroid/net/Uri;
 
@@ -328,7 +328,7 @@
 .end method
 
 .method public requestPostMessageChannelWithExtras(Landroid/support/customtabs/ICustomTabsCallback;Landroid/net/Uri;Landroid/os/Bundle;)Z
-    .locals 3
+    .registers 7
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "postMessageOrigin"    # Landroid/net/Uri;
     .param p3, "extras"    # Landroid/os/Bundle;
@@ -354,7 +354,7 @@
 .end method
 
 .method public updateVisuals(Landroid/support/customtabs/ICustomTabsCallback;Landroid/os/Bundle;)Z
-    .locals 3
+    .registers 6
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "bundle"    # Landroid/os/Bundle;
 
@@ -379,7 +379,7 @@
 .end method
 
 .method public validateRelationship(Landroid/support/customtabs/ICustomTabsCallback;ILandroid/net/Uri;Landroid/os/Bundle;)Z
-    .locals 3
+    .registers 8
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "relation"    # I
     .param p3, "origin"    # Landroid/net/Uri;
@@ -406,7 +406,7 @@
 .end method
 
 .method public warmup(J)Z
-    .locals 1
+    .registers 4
     .param p1, "flags"    # J
 
     .line 172

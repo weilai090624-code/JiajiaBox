@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/ListIterator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,7 +46,7 @@
 .end method
 
 .method private backingIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -91,7 +91,7 @@
 .end method
 
 .method public final hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 44
     .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
@@ -107,7 +107,7 @@
 .end method
 
 .method public final nextIndex()I
-    .locals 1
+    .registers 2
 
     .line 55
     .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
@@ -123,7 +123,7 @@
 .end method
 
 .method public final previous()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public final previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 60
     .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
@@ -167,7 +167,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

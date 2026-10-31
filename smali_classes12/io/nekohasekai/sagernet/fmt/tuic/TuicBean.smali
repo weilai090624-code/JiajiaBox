@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 112
     new-instance v0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean$1;
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public canTCPing()Z
-    .locals 1
+    .registers 2
 
     .line 103
     const/4 v0, 0x0
@@ -80,7 +80,7 @@
 .end method
 
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->clone()Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;
@@ -91,7 +91,7 @@
 .end method
 
 .method public clone()Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;
-    .locals 2
+    .registers 3
 
     .line 109
     new-instance v0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;
@@ -112,7 +112,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -128,7 +128,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -226,7 +226,7 @@
     .line 88
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_60
 
     .line 89
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readBoolean()Z
@@ -251,10 +251,10 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->allowInsecure:Ljava/lang/Boolean;
 
     .line 92
-    :cond_0
+    :cond_60
     const/4 v1, 0x2
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_7a
 
     .line 93
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
@@ -281,10 +281,10 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->uuid:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_81
 
     .line 97
-    :cond_1
+    :cond_7a
     const/4 v1, 0x4
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -294,12 +294,12 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->protocolVersion:Ljava/lang/Integer;
 
     .line 99
-    :goto_0
+    :goto_81
     return-void
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 3
+    .registers 4
 
     .line 38
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->initializeDefaultValues()V
@@ -309,53 +309,53 @@
 
     const-string v1, ""
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->token:Ljava/lang/String;
 
     .line 40
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->caText:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->caText:Ljava/lang/String;
 
     .line 41
-    :cond_1
+    :cond_11
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->udpRelayMode:Ljava/lang/String;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_19
 
     const-string v0, "native"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->udpRelayMode:Ljava/lang/String;
 
     .line 42
-    :cond_2
+    :cond_19
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->congestionController:Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_21
 
     const-string v0, "cubic"
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->congestionController:Ljava/lang/String;
 
     .line 43
-    :cond_3
+    :cond_21
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->alpn:Ljava/lang/String;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_27
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->alpn:Ljava/lang/String;
 
     .line 44
-    :cond_4
+    :cond_27
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->disableSNI:Ljava/lang/Boolean;
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_32
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -364,10 +364,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->disableSNI:Ljava/lang/Boolean;
 
     .line 45
-    :cond_5
+    :cond_32
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->reduceRTT:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_3c
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -376,10 +376,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->reduceRTT:Ljava/lang/Boolean;
 
     .line 46
-    :cond_6
+    :cond_3c
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->mtu:Ljava/lang/Integer;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_48
 
     const/16 v0, 0x578
 
@@ -390,18 +390,18 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->mtu:Ljava/lang/Integer;
 
     .line 47
-    :cond_7
+    :cond_48
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->sni:Ljava/lang/String;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_4e
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->sni:Ljava/lang/String;
 
     .line 48
-    :cond_8
+    :cond_4e
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->fastConnect:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_58
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -410,10 +410,10 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->fastConnect:Ljava/lang/Boolean;
 
     .line 49
-    :cond_9
+    :cond_58
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->allowInsecure:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_62
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -422,18 +422,18 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->allowInsecure:Ljava/lang/Boolean;
 
     .line 50
-    :cond_a
+    :cond_62
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->customJSON:Ljava/lang/String;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_68
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->customJSON:Ljava/lang/String;
 
     .line 51
-    :cond_b
+    :cond_68
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->protocolVersion:Ljava/lang/Integer;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_73
 
     const/4 v0, 0x5
 
@@ -444,20 +444,20 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->protocolVersion:Ljava/lang/Integer;
 
     .line 52
-    :cond_c
+    :cond_73
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->uuid:Ljava/lang/String;
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_79
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/tuic/TuicBean;->uuid:Ljava/lang/String;
 
     .line 53
-    :cond_d
+    :cond_79
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

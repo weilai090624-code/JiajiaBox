@@ -83,7 +83,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 4
     .param p1, "navArgsClass"    # Lkotlin/reflect/KClass;
     .param p2, "argumentProducer"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public getValue()Landroidx/navigation/NavArgs;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TArgs;"
@@ -133,7 +133,7 @@
 
     .line 44
     .local v0, "args":Landroidx/navigation/NavArgs;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_60
 
     .line 45
     iget-object v1, p0, Landroidx/navigation/NavArgsLazy;->argumentProducer:Lkotlin/jvm/functions/Function0;
@@ -158,7 +158,7 @@
 
     check-cast v2, Ljava/lang/reflect/Method;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_44
 
     .line 47
     iget-object v2, p0, Landroidx/navigation/NavArgsLazy;->navArgsClass:Lkotlin/reflect/KClass;
@@ -213,7 +213,7 @@
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 46
-    :cond_0
+    :cond_44
     nop
 
     .line 54
@@ -232,7 +232,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_58
 
     move-object v0, v3
 
@@ -241,10 +241,10 @@
     .line 55
     iput-object v0, p0, Landroidx/navigation/NavArgsLazy;->cached:Landroidx/navigation/NavArgs;
 
-    goto :goto_0
+    goto :goto_60
 
     .line 54
-    :cond_1
+    :cond_58
     new-instance v3, Ljava/lang/NullPointerException;
 
     const-string v4, "null cannot be cast to non-null type Args of androidx.navigation.NavArgsLazy"
@@ -256,13 +256,13 @@
     .line 57
     .end local v1    # "arguments":Landroid/os/Bundle;
     .end local v2    # "method":Ljava/lang/reflect/Method;
-    :cond_2
-    :goto_0
+    :cond_60
+    :goto_60
     return-object v0
 .end method
 
 .method public bridge synthetic getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 35
     invoke-virtual {p0}, Landroidx/navigation/NavArgsLazy;->getValue()Landroidx/navigation/NavArgs;
@@ -273,20 +273,20 @@
 .end method
 
 .method public isInitialized()Z
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Landroidx/navigation/NavArgsLazy;->cached:Landroidx/navigation/NavArgs;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method

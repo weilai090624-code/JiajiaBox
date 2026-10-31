@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroidx/camera/camera2/internal/CamcorderProfileHelper;Ljava/lang/Object;Ljava/util/Set;)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "camcorderProfileHelper"    # Landroidx/camera/camera2/internal/CamcorderProfileHelper;
     .param p3, "cameraManager"    # Ljava/lang/Object;
@@ -84,7 +84,7 @@
     .line 77
     instance-of v0, p3, Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 78
     move-object v0, p3
@@ -92,18 +92,18 @@
     check-cast v0, Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
 
     .local v0, "cameraManagerCompat":Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
-    goto :goto_0
+    goto :goto_1b
 
     .line 80
     .end local v0    # "cameraManagerCompat":Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
-    :cond_0
+    :cond_17
     invoke-static {p1}, Landroidx/camera/camera2/internal/compat/CameraManagerCompat;->from(Landroid/content/Context;)Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
 
     move-result-object v0
 
     .line 82
     .restart local v0    # "cameraManagerCompat":Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
-    :goto_0
+    :goto_1b
     invoke-direct {p0, p1, v0, p4}, Landroidx/camera/camera2/internal/Camera2DeviceSurfaceManager;->init(Landroid/content/Context;Landroidx/camera/camera2/internal/compat/CameraManagerCompat;Ljava/util/Set;)V
 
     .line 83
@@ -111,7 +111,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/Object;Ljava/util/Set;)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cameraManager"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -157,7 +157,7 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroidx/camera/camera2/internal/compat/CameraManagerCompat;Ljava/util/Set;)V
-    .locals 5
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cameraManager"    # Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -199,12 +199,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_7
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -226,17 +226,17 @@
 
     .line 98
     .end local v1    # "cameraId":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_7
 
     .line 99
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 
 # virtual methods
 .method public checkSupported(Ljava/lang/String;Ljava/util/List;)Z
-    .locals 2
+    .registers 5
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -261,18 +261,18 @@
 
     .line 113
     .local p2, "surfaceConfigList":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/SurfaceConfig;>;"
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_19
 
     invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_19
 
     .line 117
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2DeviceSurfaceManager;->mCameraSupportedSurfaceCombinationMap:Ljava/util/Map;
 
     .line 118
@@ -288,7 +288,7 @@
 
     .line 121
     .local v1, "isSupported":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 122
     invoke-virtual {v0, p2}, Landroidx/camera/camera2/internal/SupportedSurfaceCombination;->checkSupported(Ljava/util/List;)Z
@@ -296,21 +296,21 @@
     move-result v1
 
     .line 125
-    :cond_1
+    :cond_18
     return v1
 
     .line 114
     .end local v0    # "supportedSurfaceCombination":Landroidx/camera/camera2/internal/SupportedSurfaceCombination;
     .end local v1    # "isSupported":Z
-    :cond_2
-    :goto_0
+    :cond_19
+    :goto_19
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public getSuggestedResolutions(Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Ljava/util/Map;
-    .locals 7
+    .registers 11
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -367,12 +367,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_36
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -407,10 +407,10 @@
 
     .line 185
     .end local v2    # "useCaseConfig":Landroidx/camera/core/impl/UseCaseConfig;, "Landroidx/camera/core/impl/UseCaseConfig<*>;"
-    goto :goto_0
+    goto :goto_14
 
     .line 187
-    :cond_0
+    :cond_36
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2DeviceSurfaceManager;->mCameraSupportedSurfaceCombinationMap:Ljava/util/Map;
 
     .line 188
@@ -422,14 +422,14 @@
 
     .line 190
     .local v1, "supportedSurfaceCombination":Landroidx/camera/camera2/internal/SupportedSurfaceCombination;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_78
 
     .line 195
     invoke-virtual {v1, v0}, Landroidx/camera/camera2/internal/SupportedSurfaceCombination;->checkSupported(Ljava/util/List;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4b
 
     .line 203
     invoke-virtual {v1, p2, p3}, Landroidx/camera/camera2/internal/SupportedSurfaceCombination;->getSuggestedResolutions(Ljava/util/List;Ljava/util/List;)Ljava/util/Map;
@@ -439,7 +439,7 @@
     return-object v2
 
     .line 196
-    :cond_1
+    :cond_4b
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -485,7 +485,7 @@
     throw v2
 
     .line 191
-    :cond_2
+    :cond_78
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -512,7 +512,7 @@
 .end method
 
 .method public transformSurfaceConfig(Ljava/lang/String;ILandroid/util/Size;)Landroidx/camera/core/impl/SurfaceConfig;
-    .locals 2
+    .registers 6
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "imageFormat"    # I
     .param p3, "size"    # Landroid/util/Size;
@@ -545,7 +545,7 @@
 
     .line 145
     .local v1, "surfaceConfig":Landroidx/camera/core/impl/SurfaceConfig;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 146
     nop
@@ -556,6 +556,6 @@
     move-result-object v1
 
     .line 150
-    :cond_0
+    :cond_10
     return-object v1
 .end method

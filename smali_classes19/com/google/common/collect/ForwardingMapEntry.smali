@@ -26,7 +26,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 57
     .local p0, "this":Lcom/google/common/collect/ForwardingMapEntry;, "Lcom/google/common/collect/ForwardingMapEntry<TK;TV;>;"
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 50
     .local p0, "this":Lcom/google/common/collect/ForwardingMapEntry;, "Lcom/google/common/collect/ForwardingMapEntry<TK;TV;>;"
@@ -60,7 +60,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -80,7 +80,7 @@
 .end method
 
 .method public getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 87
     .local p0, "this":Lcom/google/common/collect/ForwardingMapEntry;, "Lcom/google/common/collect/ForwardingMapEntry<TK;TV;>;"
@@ -144,7 +144,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -173,7 +173,7 @@
 .end method
 
 .method protected standardEquals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -185,7 +185,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     .line 99
     move-object v0, p1
@@ -206,7 +206,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     .line 101
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingMapEntry;->getValue()Ljava/lang/Object;
@@ -221,27 +221,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_26
     nop
 
     .line 100
-    :goto_0
+    :goto_27
     return v1
 
     .line 103
     .end local v0    # "that":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_1
+    :cond_28
     return v1
 .end method
 
 .method protected standardHashCode()I
-    .locals 4
+    .registers 5
 
     .line 114
     .local p0, "this":Lcom/google/common/collect/ForwardingMapEntry;, "Lcom/google/common/collect/ForwardingMapEntry<TK;TV;>;"
@@ -259,35 +259,35 @@
     .local v1, "v":Ljava/lang/Object;, "TV;"
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
 
-    :goto_0
-    if-nez v1, :cond_1
+    :goto_11
+    if-nez v1, :cond_14
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_14
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    :goto_1
+    :goto_18
     xor-int/2addr v2, v3
 
     return v2
 .end method
 
 .method protected standardToString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 128
     .local p0, "this":Lcom/google/common/collect/ForwardingMapEntry;, "Lcom/google/common/collect/ForwardingMapEntry<TK;TV;>;"

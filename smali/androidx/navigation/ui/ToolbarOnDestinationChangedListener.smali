@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/ui/AppBarConfiguration;)V
-    .locals 2
+    .registers 5
     .param p1, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p2, "configuration"    # Landroidx/navigation/ui/AppBarConfiguration;
 
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public onDestinationChanged(Landroidx/navigation/NavController;Landroidx/navigation/NavDestination;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 6
     .param p1, "controller"    # Landroidx/navigation/NavController;
     .param p2, "destination"    # Landroidx/navigation/NavDestination;
     .param p3, "arguments"    # Landroid/os/Bundle;
@@ -121,7 +121,7 @@
 
     .line 44
     .local v0, "toolbar":Landroidx/appcompat/widget/Toolbar;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 45
     move-object v1, p0
@@ -134,7 +134,7 @@
     return-void
 
     .line 48
-    :cond_0
+    :cond_1b
     invoke-super {p0, p1, p2, p3}, Landroidx/navigation/ui/AbstractAppBarOnDestinationChangedListener;->onDestinationChanged(Landroidx/navigation/NavController;Landroidx/navigation/NavDestination;Landroid/os/Bundle;)V
 
     .line 49
@@ -142,7 +142,7 @@
 .end method
 
 .method protected setNavigationIcon(Landroid/graphics/drawable/Drawable;I)V
-    .locals 4
+    .registers 7
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "contentDescription"    # I
 
@@ -155,38 +155,38 @@
 
     check-cast v0, Landroidx/appcompat/widget/Toolbar;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     .local v0, "$this$setNavigationIcon_u24lambda_u2d1":Landroidx/appcompat/widget/Toolbar;
     const/4 v1, 0x0
 
     .line 59
     .local v1, "$i$a$-run-ToolbarOnDestinationChangedListener$setNavigationIcon$1":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_15
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/Toolbar;->getNavigationIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v2, 0x0
 
     .line 60
     .local v2, "useTransition":Z
-    :goto_0
+    :goto_16
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/Toolbar;->setNavigationIcon(Landroid/graphics/drawable/Drawable;)V
 
     .line 61
     invoke-virtual {v0, p2}, Landroidx/appcompat/widget/Toolbar;->setNavigationContentDescription(I)V
 
     .line 62
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_24
 
     .line 63
     move-object v3, v0
@@ -196,7 +196,7 @@
     invoke-static {v3}, Landroidx/transition/TransitionManager;->beginDelayedTransition(Landroid/view/ViewGroup;)V
 
     .line 65
-    :cond_1
+    :cond_24
     nop
 
     .line 58
@@ -206,12 +206,12 @@
     nop
 
     .line 66
-    :cond_2
+    :cond_26
     return-void
 .end method
 
 .method protected setTitle(Ljava/lang/CharSequence;)V
-    .locals 2
+    .registers 4
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 52
@@ -223,7 +223,7 @@
 
     check-cast v0, Landroidx/appcompat/widget/Toolbar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .local v0, "toolbar":Landroidx/appcompat/widget/Toolbar;
     const/4 v1, 0x0
@@ -241,6 +241,6 @@
     nop
 
     .line 55
-    :cond_0
+    :cond_10
     return-void
 .end method

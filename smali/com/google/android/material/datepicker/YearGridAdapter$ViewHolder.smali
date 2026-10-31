@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/widget/TextView;
 
     .line 40

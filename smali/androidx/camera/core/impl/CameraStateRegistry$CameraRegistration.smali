@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/CameraInternal$State;Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/CameraStateRegistry$OnOpenAvailableListener;)V
-    .locals 0
+    .registers 4
     .param p1, "initialState"    # Landroidx/camera/core/impl/CameraInternal$State;
     .param p2, "notifyExecutor"    # Ljava/util/concurrent/Executor;
     .param p3, "cameraAvailableListener"    # Landroidx/camera/core/impl/CameraStateRegistry$OnOpenAvailableListener;
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method getState()Landroidx/camera/core/impl/CameraInternal$State;
-    .locals 1
+    .registers 2
 
     .line 305
     iget-object v0, p0, Landroidx/camera/core/impl/CameraStateRegistry$CameraRegistration;->mState:Landroidx/camera/core/impl/CameraInternal$State;
@@ -69,7 +69,7 @@
 .end method
 
 .method notifyListener()V
-    .locals 3
+    .registers 4
 
     .line 310
     :try_start_0
@@ -84,14 +84,14 @@
     invoke-direct {v2, v1}, Landroidx/camera/core/impl/CameraStateRegistry$CameraRegistration$$ExternalSyntheticLambda0;-><init>(Landroidx/camera/core/impl/CameraStateRegistry$OnOpenAvailableListener;)V
 
     invoke-interface {v0, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_f} :catch_10
 
     .line 313
-    goto :goto_0
+    goto :goto_18
 
     .line 311
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 312
@@ -104,12 +104,12 @@
 
     .line 314
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method setState(Landroidx/camera/core/impl/CameraInternal$State;)Landroidx/camera/core/impl/CameraInternal$State;
-    .locals 1
+    .registers 3
     .param p1, "state"    # Landroidx/camera/core/impl/CameraInternal$State;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

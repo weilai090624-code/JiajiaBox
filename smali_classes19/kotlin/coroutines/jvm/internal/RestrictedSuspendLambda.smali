@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "arity"    # I
 
     .line 145
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(ILkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 3
     .param p1, "arity"    # I
     .param p2, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public getArity()I
-    .locals 1
+    .registers 2
 
     .line 142
     iget v0, p0, Lkotlin/coroutines/jvm/internal/RestrictedSuspendLambda;->arity:I
@@ -102,14 +102,14 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 148
     invoke-virtual {p0}, Lkotlin/coroutines/jvm/internal/RestrictedSuspendLambda;->getCompletion()Lkotlin/coroutines/Continuation;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 149
     move-object v0, p0
@@ -124,14 +124,14 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 151
-    :cond_0
+    :cond_13
     invoke-super {p0}, Lkotlin/coroutines/jvm/internal/RestrictedContinuationImpl;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method

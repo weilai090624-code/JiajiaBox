@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,14 +19,14 @@
 .end method
 
 .method static checkGwtRpcEnabled()V
-    .locals 0
+    .registers 0
 
     .line 132
     return-void
 .end method
 
 .method static copy([Ljava/lang/Object;II[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p0, "source"    # [Ljava/lang/Object;
     .param p1, "from"    # I
     .param p2, "to"    # I
@@ -54,7 +54,7 @@
 .end method
 
 .method static newArray([Ljava/lang/Object;I)[Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,7 +88,7 @@
 .end method
 
 .method static newHashMapWithExpectedSize(I)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -111,7 +111,7 @@
 .end method
 
 .method static newHashSetWithExpectedSize(I)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -132,7 +132,7 @@
 .end method
 
 .method static newLinkedHashMapWithExpectedSize(I)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -155,7 +155,7 @@
 .end method
 
 .method static newLinkedHashSetWithExpectedSize(I)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -176,7 +176,7 @@
 .end method
 
 .method static preservesInsertionOrderOnAddsSet()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -196,7 +196,7 @@
 .end method
 
 .method static preservesInsertionOrderOnPutsMap()Ljava/util/Map;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -218,7 +218,7 @@
 .end method
 
 .method static reduceExponentIfGwt(I)I
-    .locals 0
+    .registers 1
     .param p0, "exponent"    # I
 
     .line 129
@@ -226,7 +226,7 @@
 .end method
 
 .method static reduceIterationsIfGwt(I)I
-    .locals 0
+    .registers 1
     .param p0, "iterations"    # I
 
     .line 125
@@ -234,7 +234,7 @@
 .end method
 
 .method static tryWeakKeys(Lcom/google/common/collect/MapMaker;)Lcom/google/common/collect/MapMaker;
-    .locals 1
+    .registers 2
     .param p0, "mapMaker"    # Lcom/google/common/collect/MapMaker;
 
     .line 121

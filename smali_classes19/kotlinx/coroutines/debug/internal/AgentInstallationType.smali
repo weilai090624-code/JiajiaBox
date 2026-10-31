@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/debug/internal/AgentInstallationType;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public final isInstalledStatically$kotlinx_coroutines_core()Z
-    .locals 1
+    .registers 2
 
     .line 15
     sget-boolean v0, Lkotlinx/coroutines/debug/internal/AgentInstallationType;->isInstalledStatically:Z
@@ -70,7 +70,7 @@
 .end method
 
 .method public final setInstalledStatically$kotlinx_coroutines_core(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 15

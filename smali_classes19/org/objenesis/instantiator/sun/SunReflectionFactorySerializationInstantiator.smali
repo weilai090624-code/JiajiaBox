@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +62,7 @@
     .local v0, "nonSerializableAncestor":Ljava/lang/Class;, "Ljava/lang/Class<-TT;>;"
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_9
     move-object v2, v1
 
     check-cast v2, [Ljava/lang/Class;
@@ -71,8 +71,8 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_9 .. :try_end_10} :catch_1e
 
     .line 53
     .local v1, "nonSerializableAncestorConstructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<-TT;>;"
@@ -97,7 +97,7 @@
 
     .line 51
     .end local v1    # "nonSerializableAncestorConstructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<-TT;>;"
-    :catch_0
+    :catch_1e
     move-exception v1
 
     .line 52
@@ -134,7 +134,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -155,13 +155,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_a} :catch_b
 
     return-object v0
 
     .line 64
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 65

@@ -122,7 +122,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/database/ProfileManager;
 
@@ -148,7 +148,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -157,16 +157,16 @@
 .end method
 
 .method public static synthetic createRule$default(Lio/nekohasekai/sagernet/database/ProfileManager;Lio/nekohasekai/sagernet/database/RuleEntity;ZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 6
 
     .line 156
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p2, 0x1
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/database/ProfileManager;->createRule(Lio/nekohasekai/sagernet/database/RuleEntity;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p0
@@ -175,16 +175,16 @@
 .end method
 
 .method public static synthetic postUpdate$default(Lio/nekohasekai/sagernet/database/ProfileManager;JZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 7
 
     .line 144
     and-int/lit8 p5, p5, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p3, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2, p3, p4}, Lio/nekohasekai/sagernet/database/ProfileManager;->postUpdate(JZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p0
@@ -193,16 +193,16 @@
 .end method
 
 .method public static synthetic postUpdate$default(Lio/nekohasekai/sagernet/database/ProfileManager;Lio/nekohasekai/sagernet/database/ProxyEntity;ZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 6
 
     .line 148
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/database/ProfileManager;->postUpdate(Lio/nekohasekai/sagernet/database/ProxyEntity;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p0
@@ -213,7 +213,7 @@
 
 # virtual methods
 .method public final addListener(Lio/nekohasekai/sagernet/database/ProfileManager$Listener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Lio/nekohasekai/sagernet/database/ProfileManager$Listener;
 
     const-string v0, "listener"
@@ -229,12 +229,12 @@
 
     .line 53
     .local v1, "$i$a$-synchronized-ProfileManager$addListener$1":I
-    :try_start_0
+    :try_start_9
     sget-object v2, Lio/nekohasekai/sagernet/database/ProfileManager;->listeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_9 .. :try_end_e} :catchall_10
 
     .line 52
     .end local v1    # "$i$a$-synchronized-ProfileManager$addListener$1":I
@@ -244,7 +244,7 @@
     return-void
 
     .line 52
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
@@ -253,7 +253,7 @@
 .end method
 
 .method public final addListener(Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;
 
     const-string v0, "listener"
@@ -269,12 +269,12 @@
 
     .line 65
     .local v1, "$i$a$-synchronized-ProfileManager$addListener$2":I
-    :try_start_0
+    :try_start_9
     sget-object v2, Lio/nekohasekai/sagernet/database/ProfileManager;->ruleListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_9 .. :try_end_e} :catchall_10
 
     .line 64
     .end local v1    # "$i$a$-synchronized-ProfileManager$addListener$2":I
@@ -284,7 +284,7 @@
     return-void
 
     .line 64
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
@@ -293,7 +293,7 @@
 .end method
 
 .method public final createProfile(JLio/nekohasekai/sagernet/fmt/AbstractBean;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 45
+    .registers 50
     .param p4, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -311,7 +311,7 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$createProfile$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -323,7 +323,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v1, Lio/nekohasekai/sagernet/database/ProfileManager$createProfile$1;->label:I
 
@@ -333,9 +333,9 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v1, Lio/nekohasekai/sagernet/database/ProfileManager$createProfile$1;
 
     move-object/from16 v2, p0
@@ -343,7 +343,7 @@
     invoke-direct {v1, v2, v0}, Lio/nekohasekai/sagernet/database/ProfileManager$createProfile$1;-><init>(Lio/nekohasekai/sagernet/database/ProfileManager;Lkotlin/coroutines/Continuation;)V
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_1f
     iget-object v3, v1, Lio/nekohasekai/sagernet/database/ProfileManager$createProfile$1;->result:Ljava/lang/Object;
 
     .local v3, "$result":Ljava/lang/Object;
@@ -354,7 +354,7 @@
     .line 75
     iget v5, v1, Lio/nekohasekai/sagernet/database/ProfileManager$createProfile$1;->label:I
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_d8
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -368,7 +368,7 @@
 
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_32
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/ProfileManager$createProfile$1;->L$0:Ljava/lang/Object;
 
     check-cast v4, Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -376,10 +376,10 @@
     .local v4, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_d6
 
     .end local v4    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :pswitch_1
+    :pswitch_3b
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v5, p0
@@ -503,20 +503,20 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_ac
 
     invoke-virtual {v8}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v11
 
-    goto :goto_1
+    goto :goto_ae
 
     .end local v6    # "$this$createProfile_u24lambda_u247":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v9    # "groupId":J
-    :cond_1
+    :cond_ac
     const-wide/16 v11, 0x1
 
-    :goto_1
+    :goto_ae
     invoke-virtual {v6, v11, v12}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setUserOrder(J)V
 
     .line 82
@@ -560,32 +560,32 @@
     move-result-object v5
 
     .end local v5    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    if-ne v5, v4, :cond_2
+    if-ne v5, v4, :cond_d5
 
     .line 75
     return-object v4
 
     .line 84
-    :cond_2
+    :cond_d5
     move-object v4, v6
 
     .line 85
     .end local v6    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .restart local v4    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :goto_2
+    :goto_d6
     return-object v4
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_d8
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3b
+        :pswitch_32
     .end packed-switch
 .end method
 
 .method public final createRule(Lio/nekohasekai/sagernet/database/RuleEntity;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 10
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -602,7 +602,7 @@
 
     instance-of v0, p3, Lio/nekohasekai/sagernet/database/ProfileManager$createRule$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p3
 
@@ -614,7 +614,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$createRule$1;->label:I
 
@@ -622,15 +622,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$createRule$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/database/ProfileManager$createRule$1;
 
     invoke-direct {v0, p0, p3}, Lio/nekohasekai/sagernet/database/ProfileManager$createRule$1;-><init>(Lio/nekohasekai/sagernet/database/ProfileManager;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$createRule$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -641,7 +641,7 @@
     .line 156
     iget v3, v0, Lio/nekohasekai/sagernet/database/ProfileManager$createRule$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_74
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -655,7 +655,7 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     iget-object p1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$createRule$1;->L$0:Ljava/lang/Object;
 
     check-cast p1, Lio/nekohasekai/sagernet/database/RuleEntity;
@@ -663,10 +663,10 @@
     .local p1, "rule":Lio/nekohasekai/sagernet/database/RuleEntity;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_71
 
     .end local p1    # "rule":Lio/nekohasekai/sagernet/database/RuleEntity;
-    :pswitch_1
+    :pswitch_34
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v3, p0
@@ -685,18 +685,18 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_49
 
     invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v4
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_1
+    :cond_49
     const-wide/16 v4, 0x1
 
-    :goto_1
+    :goto_4b
     invoke-virtual {p1, v4, v5}, Lio/nekohasekai/sagernet/database/RuleEntity;->setUserOrder(J)V
 
     .line 158
@@ -713,7 +713,7 @@
     invoke-virtual {p1, v4, v5}, Lio/nekohasekai/sagernet/database/RuleEntity;->setId(J)V
 
     .line 159
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_72
 
     .line 160
     .end local p2    # "post":Z
@@ -736,30 +736,30 @@
     move-result-object p2
 
     .end local v3    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    if-ne p2, v2, :cond_2
+    if-ne p2, v2, :cond_71
 
     .line 156
     return-object v2
 
     .line 162
-    :cond_2
-    :goto_2
+    :cond_71
+    :goto_71
     nop
 
-    :cond_3
+    :cond_72
     return-object p1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_74
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_34
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public final deleteProfile(JJLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 17
+    .registers 23
     .param p5, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -776,7 +776,7 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$deleteProfile$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -788,7 +788,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v1, Lio/nekohasekai/sagernet/database/ProfileManager$deleteProfile$1;->label:I
 
@@ -798,9 +798,9 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v1, Lio/nekohasekai/sagernet/database/ProfileManager$deleteProfile$1;
 
     move-object/from16 v2, p0
@@ -808,7 +808,7 @@
     invoke-direct {v1, v2, v0}, Lio/nekohasekai/sagernet/database/ProfileManager$deleteProfile$1;-><init>(Lio/nekohasekai/sagernet/database/ProfileManager;Lkotlin/coroutines/Continuation;)V
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_1f
     iget-object v3, v1, Lio/nekohasekai/sagernet/database/ProfileManager$deleteProfile$1;->result:Ljava/lang/Object;
 
     .local v3, "$result":Ljava/lang/Object;
@@ -819,7 +819,7 @@
     .line 107
     iget v5, v1, Lio/nekohasekai/sagernet/database/ProfileManager$deleteProfile$1;->label:I
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_94
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -833,16 +833,16 @@
 
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_32
     iget-wide v4, v1, Lio/nekohasekai/sagernet/database/ProfileManager$deleteProfile$1;->J$0:J
 
     .local v4, "groupId":J
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_7c
 
     .end local v4    # "groupId":J
-    :pswitch_1
+    :pswitch_38
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v5, p0
@@ -865,14 +865,14 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_50
 
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v4
 
     .line 109
-    :cond_1
+    :cond_50
     sget-object v6, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/database/DataStore;->getSelectedProxy()J
@@ -881,7 +881,7 @@
 
     cmp-long v8, v6, v14
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_61
 
     .line 110
     sget-object v6, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -891,7 +891,7 @@
     invoke-virtual {v6, v7, v8}, Lio/nekohasekai/sagernet/database/DataStore;->setSelectedProxy(J)V
 
     .line 112
-    :cond_2
+    :cond_61
     new-instance v16, Lio/nekohasekai/sagernet/database/ProfileManager$deleteProfile$2;
 
     const/4 v11, 0x0
@@ -920,19 +920,19 @@
 
     .end local v5    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
     .end local v14    # "profileId":J
-    if-ne v5, v4, :cond_3
+    if-ne v5, v4, :cond_7b
 
     .line 107
     return-object v4
 
     .line 112
-    :cond_3
+    :cond_7b
     move-wide v4, v12
 
     .line 113
     .end local v12    # "groupId":J
     .restart local v4    # "groupId":J
-    :goto_1
+    :goto_7c
     sget-object v6, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getProxyDao()Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
@@ -947,7 +947,7 @@
 
     cmp-long v10, v6, v8
 
-    if-lez v10, :cond_4
+    if-lez v10, :cond_91
 
     .line 114
     sget-object v6, Lio/nekohasekai/sagernet/database/GroupManager;->INSTANCE:Lio/nekohasekai/sagernet/database/GroupManager;
@@ -956,20 +956,20 @@
 
     .line 116
     .end local v4    # "groupId":J
-    :cond_4
+    :cond_91
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v4
 
-    :pswitch_data_0
+    :pswitch_data_94
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_38
+        :pswitch_32
     .end packed-switch
 .end method
 
 .method public final deleteProfile2(JJLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 9
     .param p1, "groupId"    # J
     .param p3, "profileId"    # J
     .param p5, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -995,14 +995,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 102
-    :cond_0
+    :cond_f
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getSelectedProxy()J
@@ -1011,7 +1011,7 @@
 
     cmp-long v2, v0, p3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_20
 
     .line 103
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1021,14 +1021,14 @@
     invoke-virtual {v0, v1, v2}, Lio/nekohasekai/sagernet/database/DataStore;->setSelectedProxy(J)V
 
     .line 105
-    :cond_1
+    :cond_20
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method public final deleteRule(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "ruleId"    # J
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1068,11 +1068,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1c
 
     return-object v0
 
-    :cond_0
+    :cond_1c
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 173
@@ -1080,7 +1080,7 @@
 .end method
 
 .method public final deleteRules(Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "rules"    # Ljava/util/List;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1123,11 +1123,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1c
 
     return-object v0
 
-    :cond_0
+    :cond_1c
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 182
@@ -1135,7 +1135,7 @@
 .end method
 
 .method public final getProfile(J)Lio/nekohasekai/sagernet/database/ProxyEntity;
-    .locals 4
+    .registers 7
     .param p1, "profileId"    # J
 
     .line 119
@@ -1145,16 +1145,16 @@
 
     cmp-long v3, p1, v0
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_8
 
     return-object v2
 
     .line 120
-    :cond_0
+    :cond_8
     nop
 
     .line 121
-    :try_start_0
+    :try_start_9
     sget-object v0, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getProxyDao()Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
@@ -1164,14 +1164,14 @@
     invoke-interface {v0, p1, p2}, Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;->getById(J)Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     move-result-object v2
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteCantOpenDatabaseException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/sql/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Landroid/database/sqlite/SQLiteCantOpenDatabaseException; {:try_start_9 .. :try_end_13} :catch_1f
+    .catch Ljava/sql/SQLException; {:try_start_9 .. :try_end_13} :catch_14
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 124
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 125
@@ -1189,11 +1189,11 @@
 
     .line 120
     .end local v0    # "ex":Ljava/sql/SQLException;
-    :goto_0
+    :goto_1e
     return-object v2
 
     .line 122
-    :catch_1
+    :catch_1f
     move-exception v0
 
     .line 123
@@ -1210,7 +1210,7 @@
 .end method
 
 .method public final getProfiles(Ljava/util/List;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p1, "profileIds"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1233,7 +1233,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -1242,11 +1242,11 @@
     return-object v0
 
     .line 132
-    :cond_0
+    :cond_10
     nop
 
     .line 133
-    :try_start_0
+    :try_start_11
     sget-object v0, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getProxyDao()Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;
@@ -1256,14 +1256,14 @@
     invoke-interface {v0, p1}, Lio/nekohasekai/sagernet/database/ProxyEntity$Dao;->getEntities(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v0
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteCantOpenDatabaseException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/sql/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Landroid/database/sqlite/SQLiteCantOpenDatabaseException; {:try_start_11 .. :try_end_1b} :catch_2b
+    .catch Ljava/sql/SQLException; {:try_start_11 .. :try_end_1b} :catch_1c
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 136
-    :catch_0
+    :catch_1c
     move-exception v0
 
     .line 137
@@ -1285,11 +1285,11 @@
 
     .line 132
     .end local v0    # "ex":Ljava/sql/SQLException;
-    :goto_0
+    :goto_2a
     return-object v0
 
     .line 134
-    :catch_1
+    :catch_2b
     move-exception v0
 
     .line 135
@@ -1306,7 +1306,7 @@
 .end method
 
 .method public final getRules(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 37
+    .registers 39
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1324,7 +1324,7 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$getRules$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -1336,7 +1336,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v1, Lio/nekohasekai/sagernet/database/ProfileManager$getRules$1;->label:I
 
@@ -1346,9 +1346,9 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v1, Lio/nekohasekai/sagernet/database/ProfileManager$getRules$1;
 
     move-object/from16 v2, p0
@@ -1356,7 +1356,7 @@
     invoke-direct {v1, v2, v0}, Lio/nekohasekai/sagernet/database/ProfileManager$getRules$1;-><init>(Lio/nekohasekai/sagernet/database/ProfileManager;Lkotlin/coroutines/Continuation;)V
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_1f
     iget-object v9, v1, Lio/nekohasekai/sagernet/database/ProfileManager$getRules$1;->result:Ljava/lang/Object;
 
     .local v9, "$result":Ljava/lang/Object;
@@ -1377,7 +1377,7 @@
 
     const/4 v15, 0x0
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_2e2
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v9    # "$result":Ljava/lang/Object;
@@ -1391,7 +1391,7 @@
 
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v9    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_38
     iget-object v3, v1, Lio/nekohasekai/sagernet/database/ProfileManager$getRules$1;->L$1:Ljava/lang/Object;
 
     check-cast v3, Ljava/util/Iterator;
@@ -1409,10 +1409,10 @@
 
     move-object v3, v14
 
-    goto/16 :goto_7
+    goto/16 :goto_2cf
 
     .end local v4    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    :pswitch_1
+    :pswitch_48
     iget-object v3, v1, Lio/nekohasekai/sagernet/database/ProfileManager$getRules$1;->L$3:Ljava/lang/Object;
 
     check-cast v3, Ljava/lang/String;
@@ -1440,12 +1440,12 @@
 
     move-object/from16 v4, v36
 
-    goto/16 :goto_6
+    goto/16 :goto_264
 
     .end local v3    # "displayCountry":Ljava/lang/String;
     .end local v4    # "country":Ljava/lang/String;
     .end local v6    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    :pswitch_2
+    :pswitch_62
     iget-object v3, v1, Lio/nekohasekai/sagernet/database/ProfileManager$getRules$1;->L$3:Ljava/lang/Object;
 
     check-cast v3, Ljava/lang/String;
@@ -1467,12 +1467,12 @@
     .restart local v6    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
     invoke-static {v9}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_1f5
 
     .end local v3    # "displayCountry":Ljava/lang/String;
     .end local v4    # "country":Ljava/lang/String;
     .end local v6    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    :pswitch_3
+    :pswitch_77
     iget-object v3, v1, Lio/nekohasekai/sagernet/database/ProfileManager$getRules$1;->L$0:Ljava/lang/Object;
 
     check-cast v3, Lio/nekohasekai/sagernet/database/ProfileManager;
@@ -1480,10 +1480,10 @@
     .local v3, "this":Lio/nekohasekai/sagernet/database/ProfileManager;
     invoke-static {v9}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_150
 
     .end local v3    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    :pswitch_4
+    :pswitch_80
     iget-object v3, v1, Lio/nekohasekai/sagernet/database/ProfileManager$getRules$1;->L$0:Ljava/lang/Object;
 
     check-cast v3, Lio/nekohasekai/sagernet/database/ProfileManager;
@@ -1493,10 +1493,10 @@
 
     move-object v8, v3
 
-    goto/16 :goto_1
+    goto/16 :goto_ff
 
     .end local v3    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    :pswitch_5
+    :pswitch_8a
     invoke-static {v9}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v8, p0
@@ -1519,7 +1519,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_2de
 
     sget-object v4, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -1527,7 +1527,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_9
+    if-nez v4, :cond_2de
 
     .line 187
     .end local v3    # "rules":Ljava/util/List;
@@ -1634,19 +1634,19 @@
 
     move-result-object v3
 
-    if-ne v3, v10, :cond_1
+    if-ne v3, v10, :cond_fd
 
     .line 184
     return-object v10
 
     .line 188
-    :cond_1
+    :cond_fd
     move-object/from16 v8, v17
 
     .line 196
     .end local v17    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
     .restart local v8    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    :goto_1
+    :goto_ff
     nop
 
     .line 197
@@ -1739,19 +1739,19 @@
 
     move-result-object v3
 
-    if-ne v3, v10, :cond_2
+    if-ne v3, v10, :cond_14e
 
     .line 184
     return-object v10
 
     .line 196
-    :cond_2
+    :cond_14e
     move-object/from16 v3, v17
 
     .line 203
     .end local v17    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
     .local v3, "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    :goto_2
+    :goto_150
     const-string v4, "cn:\u4e2d\u56fd"
 
     filled-new-array {v4}, [Ljava/lang/String;
@@ -1782,7 +1782,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_17e
 
     .line 206
     move-object v5, v4
@@ -1803,7 +1803,7 @@
     invoke-interface {v5, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 209
-    :cond_3
+    :cond_17e
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
@@ -1815,12 +1815,12 @@
     .end local p1    # "$completion":Lkotlin/coroutines/Continuation;
     .local v0, "$completion":Lkotlin/coroutines/Continuation;
     .restart local v6    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    :goto_3
+    :goto_183
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_2d3
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1854,7 +1854,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_1f6
 
     .line 214
     new-instance v4, Lio/nekohasekai/sagernet/database/RuleEntity;
@@ -1939,31 +1939,31 @@
 
     move-result-object v4
 
-    if-ne v4, v10, :cond_4
+    if-ne v4, v10, :cond_1f4
 
     .line 184
     return-object v10
 
     .line 213
-    :cond_4
+    :cond_1f4
     move-object v4, v7
 
     .line 219
     .end local v7    # "country":Ljava/lang/String;
     .local v4, "country":Ljava/lang/String;
-    :goto_4
-    goto :goto_5
+    :goto_1f5
+    goto :goto_1f7
 
     .line 213
     .end local v4    # "country":Ljava/lang/String;
     .restart local v7    # "country":Ljava/lang/String;
-    :cond_5
+    :cond_1f6
     move-object v4, v7
 
     .line 220
     .end local v7    # "country":Ljava/lang/String;
     .restart local v4    # "country":Ljava/lang/String;
-    :goto_5
+    :goto_1f7
     new-instance v7, Lio/nekohasekai/sagernet/database/RuleEntity;
 
     move-object/from16 v16, v7
@@ -2074,13 +2074,13 @@
 
     move-result-object v7
 
-    if-ne v7, v10, :cond_6
+    if-ne v7, v10, :cond_25f
 
     .line 184
     return-object v10
 
     .line 219
-    :cond_6
+    :cond_25f
     move-object/from16 v36, v6
 
     move-object v6, v4
@@ -2090,7 +2090,7 @@
     .line 226
     .local v4, "this":Lio/nekohasekai/sagernet/database/ProfileManager;
     .local v6, "country":Ljava/lang/String;
-    :goto_6
+    :goto_264
     nop
 
     .line 227
@@ -2208,27 +2208,27 @@
 
     move-result-object v6
 
-    if-ne v6, v10, :cond_7
+    if-ne v6, v10, :cond_2ce
 
     .line 184
     return-object v10
 
     .line 226
-    :cond_7
+    :cond_2ce
     move-object v6, v4
 
     .end local v4    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
     .local v6, "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    :goto_7
+    :goto_2cf
     move-object v14, v3
 
     const/4 v11, 0x2
 
-    goto/16 :goto_3
+    goto/16 :goto_183
 
     .line 234
     .end local v6    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
-    :cond_8
+    :cond_2d3
     sget-object v3, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getRulesDao()Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
@@ -2240,37 +2240,37 @@
     move-result-object v3
 
     .local v3, "rules":Ljava/util/List;
-    goto :goto_8
+    goto :goto_2e0
 
     .line 186
     .end local v0    # "$completion":Lkotlin/coroutines/Continuation;
     .restart local v8    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
     .restart local p1    # "$completion":Lkotlin/coroutines/Continuation;
-    :cond_9
+    :cond_2de
     move-object/from16 v17, v8
 
     .line 236
     .end local v8    # "this":Lio/nekohasekai/sagernet/database/ProfileManager;
     .end local p1    # "$completion":Lkotlin/coroutines/Continuation;
     .restart local v0    # "$completion":Lkotlin/coroutines/Continuation;
-    :goto_8
+    :goto_2e0
     return-object v3
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2e2
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_8a
+        :pswitch_80
+        :pswitch_77
+        :pswitch_62
+        :pswitch_48
+        :pswitch_38
     .end packed-switch
 .end method
 
 .method public final iterator(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 12
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2295,7 +2295,7 @@
 
     instance-of v0, p2, Lio/nekohasekai/sagernet/database/ProfileManager$iterator$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -2307,7 +2307,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$iterator$1;->label:I
 
@@ -2315,15 +2315,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$iterator$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/database/ProfileManager$iterator$1;
 
     invoke-direct {v0, p0, p2}, Lio/nekohasekai/sagernet/database/ProfileManager$iterator$1;-><init>(Lio/nekohasekai/sagernet/database/ProfileManager;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$iterator$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -2334,7 +2334,7 @@
     .line 34
     iget v3, v0, Lio/nekohasekai/sagernet/database/ProfileManager$iterator$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_7c
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -2348,7 +2348,7 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     const/4 p1, 0x0
 
     .local p1, "$i$f$forEach":I
@@ -2366,12 +2366,12 @@
     .local v5, "what":Lkotlin/jvm/functions/Function2;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_72
 
     .end local v3    # "$i$a$-forEach-ProfileManager$iterator$3":I
     .end local v5    # "what":Lkotlin/jvm/functions/Function2;
     .end local p1    # "$i$f$forEach":I
-    :pswitch_1
+    :pswitch_3a
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 35
@@ -2384,7 +2384,7 @@
 
     .line 36
     .local v4, "$i$a$-synchronized-ProfileManager$iterator$2":I
-    :try_start_0
+    :try_start_41
     sget-object v5, Lio/nekohasekai/sagernet/database/ProfileManager;->listeners:Ljava/util/ArrayList;
 
     check-cast v5, Ljava/lang/Iterable;
@@ -2392,8 +2392,8 @@
     invoke-static {v5}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_49
+    .catchall {:try_start_41 .. :try_end_49} :catchall_79
 
     .line 35
     .end local v4    # "$i$a$-synchronized-ProfileManager$iterator$2":I
@@ -2425,12 +2425,12 @@
     .end local v4    # "$i$f$forEach":I
     .restart local v5    # "what":Lkotlin/jvm/functions/Function2;
     .local p1, "$i$f$forEach":I
-    :goto_1
+    :goto_56
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_75
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2457,18 +2457,18 @@
     move-result-object v3
 
     .end local v3    # "listener":Lio/nekohasekai/sagernet/database/ProfileManager$Listener;
-    if-ne v3, v2, :cond_1
+    if-ne v3, v2, :cond_71
 
     .line 34
     return-object v2
 
     .line 38
-    :cond_1
+    :cond_71
     move v3, v6
 
     .end local v6    # "$i$a$-forEach-ProfileManager$iterator$3":I
     .local v3, "$i$a$-forEach-ProfileManager$iterator$3":I
-    :goto_2
+    :goto_72
     nop
 
     .line 39
@@ -2476,10 +2476,10 @@
 
     .line 241
     .end local v3    # "$i$a$-forEach-ProfileManager$iterator$3":I
-    goto :goto_1
+    goto :goto_56
 
     .line 242
-    :cond_2
+    :cond_75
     nop
 
     .line 40
@@ -2490,22 +2490,22 @@
 
     .line 35
     .end local v5    # "what":Lkotlin/jvm/functions/Function2;
-    :catchall_0
+    :catchall_79
     move-exception p1
 
     monitor-exit v3
 
     throw p1
 
-    :pswitch_data_0
+    :pswitch_data_7c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3a
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public final postUpdate(JZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 7
     .param p1, "profileId"    # J
     .param p3, "noTraffic"    # Z
     .param p4, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -2525,13 +2525,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :cond_0
+    :cond_9
     invoke-virtual {p0, v0, p3, p4}, Lio/nekohasekai/sagernet/database/ProfileManager;->postUpdate(Lio/nekohasekai/sagernet/database/ProxyEntity;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v0
@@ -2540,11 +2540,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_14
 
     return-object v0
 
-    :cond_1
+    :cond_14
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 146
@@ -2552,7 +2552,7 @@
 .end method
 
 .method public final postUpdate(Lio/nekohasekai/sagernet/aidl/TrafficData;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "data"    # Lio/nekohasekai/sagernet/aidl/TrafficData;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -2584,11 +2584,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     return-object v0
 
-    :cond_0
+    :cond_13
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 154
@@ -2596,7 +2596,7 @@
 .end method
 
 .method public final postUpdate(Lio/nekohasekai/sagernet/database/ProxyEntity;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "noTraffic"    # Z
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -2630,11 +2630,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     return-object v0
 
-    :cond_0
+    :cond_13
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 150
@@ -2642,7 +2642,7 @@
 .end method
 
 .method public final removeListener(Lio/nekohasekai/sagernet/database/ProfileManager$Listener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Lio/nekohasekai/sagernet/database/ProfileManager$Listener;
 
     const-string v0, "listener"
@@ -2658,12 +2658,12 @@
 
     .line 59
     .local v1, "$i$a$-synchronized-ProfileManager$removeListener$1":I
-    :try_start_0
+    :try_start_9
     sget-object v2, Lio/nekohasekai/sagernet/database/ProfileManager;->listeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_9 .. :try_end_e} :catchall_10
 
     .line 58
     .end local v1    # "$i$a$-synchronized-ProfileManager$removeListener$1":I
@@ -2673,7 +2673,7 @@
     return-void
 
     .line 58
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
@@ -2682,7 +2682,7 @@
 .end method
 
 .method public final removeListener(Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;
 
     const-string v0, "listener"
@@ -2698,12 +2698,12 @@
 
     .line 71
     .local v1, "$i$a$-synchronized-ProfileManager$removeListener$2":I
-    :try_start_0
+    :try_start_9
     sget-object v2, Lio/nekohasekai/sagernet/database/ProfileManager;->ruleListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_9 .. :try_end_e} :catchall_10
 
     .line 70
     .end local v1    # "$i$a$-synchronized-ProfileManager$removeListener$2":I
@@ -2713,7 +2713,7 @@
     return-void
 
     .line 70
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
@@ -2722,7 +2722,7 @@
 .end method
 
 .method public final ruleIterator(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2747,7 +2747,7 @@
 
     instance-of v0, p2, Lio/nekohasekai/sagernet/database/ProfileManager$ruleIterator$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -2759,7 +2759,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$ruleIterator$1;->label:I
 
@@ -2767,15 +2767,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$ruleIterator$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/database/ProfileManager$ruleIterator$1;
 
     invoke-direct {v0, p0, p2}, Lio/nekohasekai/sagernet/database/ProfileManager$ruleIterator$1;-><init>(Lio/nekohasekai/sagernet/database/ProfileManager;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$ruleIterator$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -2786,7 +2786,7 @@
     .line 42
     iget v3, v0, Lio/nekohasekai/sagernet/database/ProfileManager$ruleIterator$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_70
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -2800,7 +2800,7 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     iget-object p1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$ruleIterator$1;->L$1:Ljava/lang/Object;
 
     check-cast p1, Ljava/util/Iterator;
@@ -2812,10 +2812,10 @@
     .local v3, "what":Lkotlin/jvm/functions/Function2;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_69
 
     .end local v3    # "what":Lkotlin/jvm/functions/Function2;
-    :pswitch_1
+    :pswitch_38
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 43
@@ -2828,7 +2828,7 @@
 
     .line 44
     .local v4, "$i$a$-synchronized-ProfileManager$ruleIterator$ruleListeners$1":I
-    :try_start_0
+    :try_start_3f
     sget-object v5, Lio/nekohasekai/sagernet/database/ProfileManager;->ruleListeners:Ljava/util/ArrayList;
 
     check-cast v5, Ljava/lang/Iterable;
@@ -2836,8 +2836,8 @@
     invoke-static {v5}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_47
+    .catchall {:try_start_3f .. :try_end_47} :catchall_6d
 
     .line 43
     .end local v4    # "$i$a$-synchronized-ProfileManager$ruleIterator$ruleListeners$1":I
@@ -2857,12 +2857,12 @@
 
     .end local p1    # "what":Lkotlin/jvm/functions/Function2;
     .local v3, "what":Lkotlin/jvm/functions/Function2;
-    :goto_1
+    :goto_4f
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_6a
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2885,40 +2885,40 @@
     move-result-object v4
 
     .end local v4    # "listener":Lio/nekohasekai/sagernet/database/ProfileManager$RuleListener;
-    if-ne v4, v2, :cond_1
+    if-ne v4, v2, :cond_69
 
     .line 42
     return-object v2
 
     .line 47
-    :cond_1
-    :goto_2
-    goto :goto_1
+    :cond_69
+    :goto_69
+    goto :goto_4f
 
     .line 49
-    :cond_2
+    :cond_6a
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     .line 43
     .end local v3    # "what":Lkotlin/jvm/functions/Function2;
-    :catchall_0
+    :catchall_6d
     move-exception p1
 
     monitor-exit v3
 
     throw p1
 
-    :pswitch_data_0
+    :pswitch_data_70
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_38
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public final updateProfile(Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -2959,11 +2959,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1c
 
     return-object v0
 
-    :cond_0
+    :cond_1c
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 91
@@ -2971,7 +2971,7 @@
 .end method
 
 .method public final updateProfile(Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 12
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2989,7 +2989,7 @@
 
     instance-of v0, p2, Lio/nekohasekai/sagernet/database/ProfileManager$updateProfile$3;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -3001,7 +3001,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$updateProfile$3;->label:I
 
@@ -3009,15 +3009,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$updateProfile$3;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/database/ProfileManager$updateProfile$3;
 
     invoke-direct {v0, p0, p2}, Lio/nekohasekai/sagernet/database/ProfileManager$updateProfile$3;-><init>(Lio/nekohasekai/sagernet/database/ProfileManager;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/database/ProfileManager$updateProfile$3;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -3028,7 +3028,7 @@
     .line 93
     iget v3, v0, Lio/nekohasekai/sagernet/database/ProfileManager$updateProfile$3;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_74
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -3042,7 +3042,7 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     const/4 p1, 0x0
 
     .local p1, "$i$f$forEach":I
@@ -3055,11 +3055,11 @@
 
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_6e
 
     .end local v3    # "$i$a$-forEach-ProfileManager$updateProfile$4":I
     .end local p1    # "$i$f$forEach":I
-    :pswitch_1
+    :pswitch_36
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 94
@@ -3088,12 +3088,12 @@
 
     .end local v3    # "$i$f$forEach":I
     .local p1, "$i$f$forEach":I
-    :goto_1
+    :goto_4a
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_70
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3128,27 +3128,27 @@
     move-result-object v3
 
     .end local v3    # "it":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    if-ne v3, v2, :cond_1
+    if-ne v3, v2, :cond_6d
 
     .line 93
     return-object v2
 
     .line 96
-    :cond_1
+    :cond_6d
     move v3, v5
 
     .line 97
     .end local v5    # "$i$a$-forEach-ProfileManager$updateProfile$4":I
     .local v3, "$i$a$-forEach-ProfileManager$updateProfile$4":I
-    :goto_2
+    :goto_6e
     nop
 
     .line 243
     .end local v3    # "$i$a$-forEach-ProfileManager$updateProfile$4":I
-    goto :goto_1
+    goto :goto_4a
 
     .line 244
-    :cond_2
+    :cond_70
     nop
 
     .line 98
@@ -3157,15 +3157,15 @@
 
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_74
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_36
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public final updateRule(Lio/nekohasekai/sagernet/database/RuleEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -3206,11 +3206,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1c
 
     return-object v0
 
-    :cond_0
+    :cond_1c
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 168

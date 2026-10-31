@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final synthetic hasKeyWithValueOfType(Landroidx/work/Data;Ljava/lang/String;)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$hasKeyWithValueOfType"    # Landroidx/work/Data;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -81,7 +81,7 @@
 .end method
 
 .method public static final varargs workDataOf([Lkotlin/Pair;)Landroidx/work/Data;
-    .locals 7
+    .registers 8
     .param p0, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -113,8 +113,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_d
+    if-ge v3, v2, :cond_21
 
     aget-object v4, p0, v3
 
@@ -136,10 +136,10 @@
     .end local v4    # "pair":Lkotlin/Pair;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 35
-    :cond_0
+    :cond_21
     invoke-virtual {v1}, Landroidx/work/Data$Builder;->build()Landroidx/work/Data;
 
     move-result-object v2

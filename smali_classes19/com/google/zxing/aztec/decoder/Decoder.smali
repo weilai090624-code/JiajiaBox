@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 33
+    .registers 33
 
     .line 46
     const-string v30, "CTRL_DL"
@@ -358,7 +358,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -367,7 +367,7 @@
 .end method
 
 .method static convertBoolArrayToByteArray([Z)[B
-    .locals 3
+    .registers 4
     .param p0, "boolArr"    # [Z
 
     .line 356
@@ -384,10 +384,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_8
     array-length v2, v0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_16
 
     .line 358
     shl-int/lit8 v2, v1, 0x3
@@ -401,16 +401,16 @@
     .line 357
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 360
     .end local v1    # "i":I
-    :cond_0
+    :cond_16
     return-object v0
 .end method
 
 .method private correctBits([Z)[Z
-    .locals 12
+    .registers 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/FormatException;
@@ -426,7 +426,7 @@
 
     const/4 v1, 0x2
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     .line 210
     nop
@@ -436,10 +436,10 @@
 
     const/4 v1, 0x6
 
-    goto :goto_0
+    goto :goto_31
 
     .line 212
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/google/zxing/aztec/decoder/Decoder;->ddata:Lcom/google/zxing/aztec/AztecDetectorResult;
 
     invoke-virtual {v0}, Lcom/google/zxing/aztec/AztecDetectorResult;->getNbLayers()I
@@ -448,7 +448,7 @@
 
     const/16 v1, 0x8
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_1c
 
     .line 213
     nop
@@ -456,10 +456,10 @@
     .line 214
     sget-object v0, Lcom/google/zxing/common/reedsolomon/GenericGF;->AZTEC_DATA_8:Lcom/google/zxing/common/reedsolomon/GenericGF;
 
-    goto :goto_0
+    goto :goto_31
 
     .line 215
-    :cond_1
+    :cond_1c
     iget-object v0, p0, Lcom/google/zxing/aztec/decoder/Decoder;->ddata:Lcom/google/zxing/aztec/AztecDetectorResult;
 
     invoke-virtual {v0}, Lcom/google/zxing/aztec/AztecDetectorResult;->getNbLayers()I
@@ -468,7 +468,7 @@
 
     const/16 v1, 0x16
 
-    if-gt v0, v1, :cond_2
+    if-gt v0, v1, :cond_2c
 
     .line 216
     nop
@@ -478,10 +478,10 @@
 
     const/16 v1, 0xa
 
-    goto :goto_0
+    goto :goto_31
 
     .line 219
-    :cond_2
+    :cond_2c
     nop
 
     .line 220
@@ -490,7 +490,7 @@
     const/16 v1, 0xc
 
     .line 223
-    :goto_0
+    :goto_31
     iget-object v2, p0, Lcom/google/zxing/aztec/decoder/Decoder;->ddata:Lcom/google/zxing/aztec/AztecDetectorResult;
 
     invoke-virtual {v2}, Lcom/google/zxing/aztec/AztecDetectorResult;->getNbDatablocks()I
@@ -503,7 +503,7 @@
     div-int/2addr v3, v1
 
     .line 225
-    if-lt v3, v2, :cond_e
+    if-lt v3, v2, :cond_b5
 
     .line 228
     array-length v4, p1
@@ -518,8 +518,8 @@
 
     const/4 v7, 0x0
 
-    :goto_1
-    if-ge v7, v3, :cond_3
+    :goto_41
+    if-ge v7, v3, :cond_4d
 
     .line 232
     invoke-static {p1, v4, v1}, Lcom/google/zxing/aztec/decoder/Decoder;->readCode([ZII)I
@@ -533,11 +533,11 @@
 
     add-int/2addr v4, v1
 
-    goto :goto_1
+    goto :goto_41
 
     .line 236
-    :cond_3
-    :try_start_0
+    :cond_4d
+    :try_start_4d
     new-instance p1, Lcom/google/zxing/common/reedsolomon/ReedSolomonDecoder;
 
     invoke-direct {p1, v0}, Lcom/google/zxing/common/reedsolomon/ReedSolomonDecoder;-><init>(Lcom/google/zxing/common/reedsolomon/GenericGF;)V
@@ -546,8 +546,8 @@
     sub-int/2addr v3, v2
 
     invoke-virtual {p1, v5, v3}, Lcom/google/zxing/common/reedsolomon/ReedSolomonDecoder;->decode([II)V
-    :try_end_0
-    .catch Lcom/google/zxing/common/reedsolomon/ReedSolomonException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_56
+    .catch Lcom/google/zxing/common/reedsolomon/ReedSolomonException; {:try_start_4d .. :try_end_56} :catch_af
 
     .line 240
     nop
@@ -567,36 +567,36 @@
 
     const/4 v4, 0x0
 
-    :goto_2
-    if-ge v3, v2, :cond_7
+    :goto_5e
+    if-ge v3, v2, :cond_76
 
     .line 247
     aget v7, v5, v3
 
     .line 248
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_71
 
-    if-eq v7, v0, :cond_6
+    if-eq v7, v0, :cond_71
 
     .line 250
-    if-eq v7, p1, :cond_4
+    if-eq v7, p1, :cond_6c
 
     add-int/lit8 v8, v0, -0x1
 
-    if-ne v7, v8, :cond_5
+    if-ne v7, v8, :cond_6e
 
     .line 251
-    :cond_4
+    :cond_6c
     add-int/lit8 v4, v4, 0x1
 
     .line 246
-    :cond_5
+    :cond_6e
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_5e
 
     .line 249
-    :cond_6
+    :cond_71
     invoke-static {}, Lcom/google/zxing/FormatException;->getFormatInstance()Lcom/google/zxing/FormatException;
 
     move-result-object p1
@@ -604,7 +604,7 @@
     throw p1
 
     .line 255
-    :cond_7
+    :cond_76
     mul-int v3, v2, v1
 
     sub-int/2addr v3, v4
@@ -619,27 +619,27 @@
 
     const/4 v7, 0x0
 
-    :goto_3
-    if-ge v4, v2, :cond_d
+    :goto_7e
+    if-ge v4, v2, :cond_ae
 
     .line 258
     aget v8, v5, v4
 
     .line 259
-    if-eq v8, p1, :cond_a
+    if-eq v8, p1, :cond_9d
 
     add-int/lit8 v9, v0, -0x1
 
-    if-ne v8, v9, :cond_8
+    if-ne v8, v9, :cond_89
 
-    goto :goto_6
+    goto :goto_9d
 
     .line 264
-    :cond_8
+    :cond_89
     add-int/lit8 v9, v1, -0x1
 
-    :goto_4
-    if-ltz v9, :cond_c
+    :goto_8b
+    if-ltz v9, :cond_ab
 
     .line 265
     add-int/lit8 v10, v7, 0x1
@@ -648,16 +648,16 @@
 
     and-int/2addr v11, v8
 
-    if-eqz v11, :cond_9
+    if-eqz v11, :cond_96
 
     const/4 v11, 0x1
 
-    goto :goto_5
+    goto :goto_97
 
-    :cond_9
+    :cond_96
     const/4 v11, 0x0
 
-    :goto_5
+    :goto_97
     aput-boolean v11, v3, v7
 
     .line 264
@@ -665,25 +665,25 @@
 
     move v7, v10
 
-    goto :goto_4
+    goto :goto_8b
 
     .line 261
-    :cond_a
-    :goto_6
+    :cond_9d
+    :goto_9d
     add-int v9, v7, v1
 
     sub-int/2addr v9, p1
 
-    if-le v8, p1, :cond_b
+    if-le v8, p1, :cond_a4
 
     const/4 v8, 0x1
 
-    goto :goto_7
+    goto :goto_a5
 
-    :cond_b
+    :cond_a4
     const/4 v8, 0x0
 
-    :goto_7
+    :goto_a5
     invoke-static {v3, v7, v9, v8}, Ljava/util/Arrays;->fill([ZIIZ)V
 
     .line 262
@@ -692,17 +692,17 @@
     add-int/2addr v7, v8
 
     .line 257
-    :cond_c
+    :cond_ab
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_7e
 
     .line 269
-    :cond_d
+    :cond_ae
     return-object v3
 
     .line 239
-    :catch_0
+    :catch_af
     move-exception p1
 
     invoke-static {p1}, Lcom/google/zxing/FormatException;->getFormatInstance(Ljava/lang/Throwable;)Lcom/google/zxing/FormatException;
@@ -712,7 +712,7 @@
     throw p1
 
     .line 226
-    :cond_e
+    :cond_b5
     invoke-static {}, Lcom/google/zxing/FormatException;->getFormatInstance()Lcom/google/zxing/FormatException;
 
     move-result-object p1
@@ -721,7 +721,7 @@
 .end method
 
 .method private extractBits(Lcom/google/zxing/common/BitMatrix;)[Z
-    .locals 18
+    .registers 20
     .param p1, "matrix"    # Lcom/google/zxing/common/BitMatrix;
 
     .line 278
@@ -745,16 +745,16 @@
 
     .line 280
     .local v3, "layers":I
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     const/16 v4, 0xb
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/16 v4, 0xe
 
-    :goto_0
+    :goto_17
     shl-int/lit8 v5, v3, 0x2
 
     add-int/2addr v4, v5
@@ -779,16 +779,16 @@
     .local v6, "rawbits":[Z
     const/4 v7, 0x2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_31
 
     .line 285
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_1
+    :goto_28
     array-length v9, v4
 
-    if-ge v8, v9, :cond_1
+    if-ge v8, v9, :cond_30
 
     .line 286
     aput v8, v4, v8
@@ -796,14 +796,14 @@
     .line 285
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_28
 
     .end local v8    # "i":I
-    :cond_1
-    goto :goto_3
+    :cond_30
+    goto :goto_5b
 
     .line 289
-    :cond_2
+    :cond_31
     add-int/lit8 v8, v5, 0x1
 
     div-int/lit8 v9, v5, 0x2
@@ -829,8 +829,8 @@
     const/4 v11, 0x0
 
     .local v11, "i":I
-    :goto_2
-    if-ge v11, v9, :cond_3
+    :goto_41
+    if-ge v11, v9, :cond_5b
 
     .line 293
     div-int/lit8 v12, v11, 0xf
@@ -862,39 +862,39 @@
     .end local v12    # "newOffset":I
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_2
+    goto :goto_41
 
     .line 298
     .end local v8    # "matrixSize":I
     .end local v9    # "origCenter":I
     .end local v10    # "center":I
     .end local v11    # "i":I
-    :cond_3
-    :goto_3
+    :cond_5b
+    :goto_5b
     const/4 v8, 0x0
 
     .local v8, "i":I
     const/4 v9, 0x0
 
     .local v9, "rowOffset":I
-    :goto_4
-    if-ge v8, v3, :cond_7
+    :goto_5d
+    if-ge v8, v3, :cond_e0
 
     .line 299
     sub-int v10, v3, v8
 
     shl-int/2addr v10, v7
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_67
 
     const/16 v11, 0x9
 
-    goto :goto_5
+    goto :goto_69
 
-    :cond_4
+    :cond_67
     const/16 v11, 0xc
 
-    :goto_5
+    :goto_69
     add-int/2addr v10, v11
 
     .line 301
@@ -912,8 +912,8 @@
     const/4 v13, 0x0
 
     .local v13, "j":I
-    :goto_6
-    if-ge v13, v10, :cond_6
+    :goto_70
+    if-ge v13, v10, :cond_d4
 
     .line 306
     shl-int/lit8 v14, v13, 0x1
@@ -923,8 +923,8 @@
     const/4 v15, 0x0
 
     .local v15, "k":I
-    :goto_7
-    if-ge v15, v7, :cond_5
+    :goto_75
+    if-ge v15, v7, :cond_cc
 
     .line 309
     add-int v16, v9, v14
@@ -1031,11 +1031,11 @@
 
     move/from16 v2, v17
 
-    goto :goto_7
+    goto :goto_75
 
     .end local v17    # "compact":Z
     .restart local v2    # "compact":Z
-    :cond_5
+    :cond_cc
     move/from16 v17, v2
 
     .line 305
@@ -1049,11 +1049,11 @@
 
     move-object/from16 v0, p0
 
-    goto :goto_6
+    goto :goto_70
 
     .end local v17    # "compact":Z
     .restart local v2    # "compact":Z
-    :cond_6
+    :cond_d4
     move/from16 v17, v2
 
     .line 322
@@ -1074,19 +1074,19 @@
 
     move-object/from16 v0, p0
 
-    goto/16 :goto_4
+    goto/16 :goto_5d
 
     .line 324
     .end local v8    # "i":I
     .end local v9    # "rowOffset":I
     .end local v17    # "compact":Z
     .restart local v2    # "compact":Z
-    :cond_7
+    :cond_e0
     return-object v6
 .end method
 
 .method private static getCharacter(Lcom/google/zxing/aztec/decoder/Decoder$Table;I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "table"    # Lcom/google/zxing/aztec/decoder/Decoder$Table;
     .param p1, "code"    # I
 
@@ -1099,7 +1099,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2c
 
     .line 195
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -1111,7 +1111,7 @@
     throw v0
 
     .line 192
-    :pswitch_0
+    :pswitch_13
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder;->DIGIT_TABLE:[Ljava/lang/String;
 
     aget-object v0, v0, p1
@@ -1119,7 +1119,7 @@
     return-object v0
 
     .line 190
-    :pswitch_1
+    :pswitch_18
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder;->PUNCT_TABLE:[Ljava/lang/String;
 
     aget-object v0, v0, p1
@@ -1127,7 +1127,7 @@
     return-object v0
 
     .line 188
-    :pswitch_2
+    :pswitch_1d
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder;->MIXED_TABLE:[Ljava/lang/String;
 
     aget-object v0, v0, p1
@@ -1135,7 +1135,7 @@
     return-object v0
 
     .line 186
-    :pswitch_3
+    :pswitch_22
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder;->LOWER_TABLE:[Ljava/lang/String;
 
     aget-object v0, v0, p1
@@ -1143,25 +1143,25 @@
     return-object v0
 
     .line 184
-    :pswitch_4
+    :pswitch_27
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder;->UPPER_TABLE:[Ljava/lang/String;
 
     aget-object v0, v0, p1
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_27
+        :pswitch_22
+        :pswitch_1d
+        :pswitch_18
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method private static getEncodedData([Z)Ljava/lang/String;
-    .locals 10
+    .registers 11
 
     .line 96
     array-length v0, p0
@@ -1185,20 +1185,20 @@
     const/4 v5, 0x0
 
     .line 101
-    :goto_0
-    if-ge v5, v0, :cond_7
+    :goto_e
+    if-ge v5, v0, :cond_84
 
     .line 102
     sget-object v6, Lcom/google/zxing/aztec/decoder/Decoder$Table;->BINARY:Lcom/google/zxing/aztec/decoder/Decoder$Table;
 
     const/4 v7, 0x5
 
-    if-ne v2, v6, :cond_3
+    if-ne v2, v6, :cond_4b
 
     .line 103
     sub-int v2, v0, v5
 
-    if-lt v2, v7, :cond_7
+    if-lt v2, v7, :cond_84
 
     .line 106
     invoke-static {p0, v5, v7}, Lcom/google/zxing/aztec/decoder/Decoder;->readCode([ZII)I
@@ -1209,14 +1209,14 @@
     add-int/lit8 v5, v5, 0x5
 
     .line 108
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2f
 
     .line 109
     sub-int v2, v0, v5
 
     const/16 v6, 0xb
 
-    if-lt v2, v6, :cond_7
+    if-lt v2, v6, :cond_84
 
     .line 112
     invoke-static {p0, v5, v6}, Lcom/google/zxing/aztec/decoder/Decoder;->readCode([ZII)I
@@ -1229,18 +1229,18 @@
     add-int/lit8 v5, v5, 0xb
 
     .line 115
-    :cond_0
+    :cond_2f
     const/4 v6, 0x0
 
-    :goto_1
-    if-ge v6, v2, :cond_2
+    :goto_30
+    if-ge v6, v2, :cond_48
 
     .line 116
     sub-int v7, v0, v5
 
     const/16 v8, 0x8
 
-    if-ge v7, v8, :cond_1
+    if-ge v7, v8, :cond_3b
 
     .line 117
     nop
@@ -1248,10 +1248,10 @@
     .line 118
     move v5, v0
 
-    goto :goto_2
+    goto :goto_48
 
     .line 120
-    :cond_1
+    :cond_3b
     invoke-static {p0, v5, v8}, Lcom/google/zxing/aztec/decoder/Decoder;->readCode([ZII)I
 
     move-result v7
@@ -1267,36 +1267,36 @@
     .line 115
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_30
 
     .line 125
-    :cond_2
-    :goto_2
+    :cond_48
+    :goto_48
     nop
 
     .line 126
     move-object v2, v1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 127
-    :cond_3
+    :cond_4b
     sget-object v6, Lcom/google/zxing/aztec/decoder/Decoder$Table;->DIGIT:Lcom/google/zxing/aztec/decoder/Decoder$Table;
 
-    if-ne v2, v6, :cond_4
+    if-ne v2, v6, :cond_51
 
     const/4 v6, 0x4
 
-    goto :goto_3
+    goto :goto_52
 
-    :cond_4
+    :cond_51
     const/4 v6, 0x5
 
     .line 128
-    :goto_3
+    :goto_52
     sub-int v8, v0, v5
 
-    if-lt v8, v6, :cond_7
+    if-lt v8, v6, :cond_84
 
     .line 131
     invoke-static {p0, v5, v6}, Lcom/google/zxing/aztec/decoder/Decoder;->readCode([ZII)I
@@ -1318,7 +1318,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_7f
 
     .line 139
     nop
@@ -1341,36 +1341,36 @@
 
     const/16 v7, 0x4c
 
-    if-ne v6, v7, :cond_5
+    if-ne v6, v7, :cond_7b
 
     .line 142
     move-object v2, v1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 141
-    :cond_5
+    :cond_7b
     move-object v9, v2
 
     move-object v2, v1
 
     move-object v1, v9
 
-    goto :goto_4
+    goto :goto_83
 
     .line 145
-    :cond_6
+    :cond_7f
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 147
     move-object v2, v1
 
     .line 149
-    :goto_4
-    goto :goto_0
+    :goto_83
+    goto :goto_e
 
     .line 151
-    :cond_7
+    :cond_84
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -1379,11 +1379,11 @@
 .end method
 
 .method private static getTable(C)Lcom/google/zxing/aztec/decoder/Decoder$Table;
-    .locals 1
+    .registers 2
     .param p0, "t"    # C
 
     .line 158
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_16
 
     .line 171
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder$Table;->UPPER:Lcom/google/zxing/aztec/decoder/Decoder$Table;
@@ -1391,49 +1391,49 @@
     return-object v0
 
     .line 162
-    :sswitch_0
+    :sswitch_6
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder$Table;->PUNCT:Lcom/google/zxing/aztec/decoder/Decoder$Table;
 
     return-object v0
 
     .line 164
-    :sswitch_1
+    :sswitch_9
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder$Table;->MIXED:Lcom/google/zxing/aztec/decoder/Decoder$Table;
 
     return-object v0
 
     .line 160
-    :sswitch_2
+    :sswitch_c
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder$Table;->LOWER:Lcom/google/zxing/aztec/decoder/Decoder$Table;
 
     return-object v0
 
     .line 166
-    :sswitch_3
+    :sswitch_f
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder$Table;->DIGIT:Lcom/google/zxing/aztec/decoder/Decoder$Table;
 
     return-object v0
 
     .line 168
-    :sswitch_4
+    :sswitch_12
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder$Table;->BINARY:Lcom/google/zxing/aztec/decoder/Decoder$Table;
 
     return-object v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_16
     .sparse-switch
-        0x42 -> :sswitch_4
-        0x44 -> :sswitch_3
-        0x4c -> :sswitch_2
-        0x4d -> :sswitch_1
-        0x50 -> :sswitch_0
+        0x42 -> :sswitch_12
+        0x44 -> :sswitch_f
+        0x4c -> :sswitch_c
+        0x4d -> :sswitch_9
+        0x50 -> :sswitch_6
     .end sparse-switch
 .end method
 
 .method public static highLevelDecode([Z)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "correctedBits"    # [Z
 
     .line 87
@@ -1445,7 +1445,7 @@
 .end method
 
 .method private static readByte([ZI)B
-    .locals 3
+    .registers 5
     .param p0, "rawbits"    # [Z
     .param p1, "startIndex"    # I
 
@@ -1462,7 +1462,7 @@
 
     const/16 v2, 0x8
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_e
 
     .line 347
     invoke-static {p0, p1, v2}, Lcom/google/zxing/aztec/decoder/Decoder;->readCode([ZII)I
@@ -1474,7 +1474,7 @@
     return v0
 
     .line 349
-    :cond_0
+    :cond_e
     invoke-static {p0, p1, v1}, Lcom/google/zxing/aztec/decoder/Decoder;->readCode([ZII)I
 
     move-result v0
@@ -1489,7 +1489,7 @@
 .end method
 
 .method private static readCode([ZII)I
-    .locals 3
+    .registers 6
     .param p0, "rawbits"    # [Z
     .param p1, "startIndex"    # I
     .param p2, "length"    # I
@@ -1502,10 +1502,10 @@
     move v1, p1
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     add-int v2, p1, p2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_11
 
     .line 333
     shl-int/lit8 v0, v0, 0x1
@@ -1513,39 +1513,39 @@
     .line 334
     aget-boolean v2, p0, v1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 335
     or-int/lit8 v0, v0, 0x1
 
     .line 332
-    :cond_0
+    :cond_e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 338
     .end local v1    # "i":I
-    :cond_1
+    :cond_11
     return v0
 .end method
 
 .method private static totalBitsInLayer(IZ)I
-    .locals 2
+    .registers 4
     .param p0, "layers"    # I
     .param p1, "compact"    # Z
 
     .line 364
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     const/16 v0, 0x58
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     const/16 v0, 0x70
 
-    :goto_0
+    :goto_7
     shl-int/lit8 v1, p0, 0x4
 
     add-int/2addr v0, v1
@@ -1558,7 +1558,7 @@
 
 # virtual methods
 .method public decode(Lcom/google/zxing/aztec/AztecDetectorResult;)Lcom/google/zxing/common/DecoderResult;
-    .locals 8
+    .registers 10
     .param p1, "detectorResult"    # Lcom/google/zxing/aztec/AztecDetectorResult;
     .annotation system Ldalvik/annotation/Throws;
         value = {

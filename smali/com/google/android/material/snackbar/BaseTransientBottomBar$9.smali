@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 943
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 946

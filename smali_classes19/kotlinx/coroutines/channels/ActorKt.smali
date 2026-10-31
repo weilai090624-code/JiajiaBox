@@ -48,7 +48,7 @@
 
 # direct methods
 .method public static final actor(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/SendChannel;
-    .locals 4
+    .registers 10
     .param p0, "$this$actor"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
@@ -105,7 +105,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     .line 119
     new-instance v2, Lkotlinx/coroutines/channels/LazyActorCoroutine;
@@ -114,10 +114,10 @@
 
     check-cast v2, Lkotlinx/coroutines/channels/ActorCoroutine;
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 120
-    :cond_0
+    :cond_18
     new-instance v2, Lkotlinx/coroutines/channels/ActorCoroutine;
 
     const/4 v3, 0x1
@@ -125,17 +125,17 @@
     invoke-direct {v2, v0, v1, v3}, Lkotlinx/coroutines/channels/ActorCoroutine;-><init>(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/Channel;Z)V
 
     .line 118
-    :goto_0
+    :goto_1e
     nop
 
     .line 121
     .local v2, "coroutine":Lkotlinx/coroutines/channels/ActorCoroutine;
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_24
 
     invoke-virtual {v2, p4}, Lkotlinx/coroutines/channels/ActorCoroutine;->invokeOnCompletion(Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/DisposableHandle;
 
     .line 122
-    :cond_1
+    :cond_24
     invoke-virtual {v2, p3, v2, p5}, Lkotlinx/coroutines/channels/ActorCoroutine;->start(Lkotlinx/coroutines/CoroutineStart;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V
 
     .line 123
@@ -147,12 +147,12 @@
 .end method
 
 .method public static synthetic actor$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/SendChannel;
-    .locals 6
+    .registers 14
 
     .line 109
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_a
 
     .line 110
     sget-object p1, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -161,61 +161,61 @@
 
     move-object v1, p1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 109
-    :cond_0
+    :cond_a
     move-object v1, p1
 
-    :goto_0
+    :goto_b
     and-int/lit8 p1, p6, 0x2
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
     .line 111
     const/4 p2, 0x0
 
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
     .line 109
-    :cond_1
+    :cond_12
     move v2, p2
 
-    :goto_1
+    :goto_13
     and-int/lit8 p1, p6, 0x4
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1b
 
     .line 112
     sget-object p3, Lkotlinx/coroutines/CoroutineStart;->DEFAULT:Lkotlinx/coroutines/CoroutineStart;
 
     move-object v3, p3
 
-    goto :goto_2
+    goto :goto_1c
 
     .line 109
-    :cond_2
+    :cond_1b
     move-object v3, p3
 
-    :goto_2
+    :goto_1c
     and-int/lit8 p1, p6, 0x8
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_23
 
     .line 113
     const/4 p4, 0x0
 
     move-object v4, p4
 
-    goto :goto_3
+    goto :goto_24
 
     .line 109
-    :cond_3
+    :cond_23
     move-object v4, p4
 
-    :goto_3
+    :goto_24
     move-object v0, p0
 
     move-object v5, p5

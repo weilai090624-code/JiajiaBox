@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/graph/SuccessorsFunction;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +69,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/graph/SuccessorsFunction;Lcom/google/common/graph/Traverser$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/graph/SuccessorsFunction;
     .param p2, "x1"    # Lcom/google/common/graph/Traverser$1;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public static forGraph(Lcom/google/common/graph/SuccessorsFunction;)Lcom/google/common/graph/Traverser;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -104,7 +104,7 @@
 .end method
 
 .method public static forTree(Lcom/google/common/graph/SuccessorsFunction;)Lcom/google/common/graph/Traverser;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -121,7 +121,7 @@
     .local p0, "tree":Lcom/google/common/graph/SuccessorsFunction;, "Lcom/google/common/graph/SuccessorsFunction<TN;>;"
     instance-of v0, p0, Lcom/google/common/graph/BaseGraph;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 183
     move-object v0, p0
@@ -137,10 +137,10 @@
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 185
-    :cond_0
+    :cond_10
     instance-of v0, p0, Lcom/google/common/graph/Network;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 186
     move-object v0, p0
@@ -156,7 +156,7 @@
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 188
-    :cond_1
+    :cond_20
     new-instance v0, Lcom/google/common/graph/Traverser$2;
 
     invoke-direct {v0, p0, p0}, Lcom/google/common/graph/Traverser$2;-><init>(Lcom/google/common/graph/SuccessorsFunction;Lcom/google/common/graph/SuccessorsFunction;)V
@@ -165,7 +165,7 @@
 .end method
 
 .method private validate(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSet;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -189,12 +189,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -208,17 +208,17 @@
 
     .line 368
     .end local v2    # "node":Ljava/lang/Object;, "TN;"
-    goto :goto_0
+    goto :goto_8
 
     .line 369
-    :cond_0
+    :cond_18
     return-object v0
 .end method
 
 
 # virtual methods
 .method public final breadthFirst(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -246,7 +246,7 @@
 .end method
 
 .method public final breadthFirst(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -270,7 +270,7 @@
 .end method
 
 .method public final depthFirstPostOrder(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -298,7 +298,7 @@
 .end method
 
 .method public final depthFirstPostOrder(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -322,7 +322,7 @@
 .end method
 
 .method public final depthFirstPreOrder(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -350,7 +350,7 @@
 .end method
 
 .method public final depthFirstPreOrder(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",

@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 26
     invoke-static {}, Lcom/google/gson/internal/JavaVersion;->determineMajorJavaVersion()I
@@ -22,7 +22,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method private static determineMajorJavaVersion()I
-    .locals 2
+    .registers 2
 
     .line 29
     const-string v0, "java.version"
@@ -50,7 +50,7 @@
 .end method
 
 .method private static extractBeginningInt(Ljava/lang/String;)I
-    .locals 4
+    .registers 5
     .param p0, "javaVersion"    # Ljava/lang/String;
 
     .line 62
@@ -64,12 +64,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1d
 
     .line 64
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -82,7 +82,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1d
 
     .line 66
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -93,11 +93,11 @@
     .end local v2    # "c":C
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 71
     .end local v1    # "i":I
-    :cond_0
+    :cond_1d
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -105,14 +105,14 @@
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v1
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_25} :catch_26
 
     return v1
 
     .line 72
     .end local v0    # "num":Ljava/lang/StringBuilder;
-    :catch_0
+    :catch_26
     move-exception v0
 
     .line 73
@@ -123,7 +123,7 @@
 .end method
 
 .method public static getMajorJavaVersion()I
-    .locals 1
+    .registers 1
 
     .line 81
     sget v0, Lcom/google/gson/internal/JavaVersion;->majorJavaVersion:I
@@ -132,7 +132,7 @@
 .end method
 
 .method static getMajorJavaVersion(Ljava/lang/String;)I
-    .locals 2
+    .registers 3
     .param p0, "javaVersion"    # Ljava/lang/String;
 
     .line 35
@@ -144,7 +144,7 @@
     .local v0, "version":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 37
     invoke-static {p0}, Lcom/google/gson/internal/JavaVersion;->extractBeginningInt(Ljava/lang/String;)I
@@ -152,8 +152,8 @@
     move-result v0
 
     .line 39
-    :cond_0
-    if-ne v0, v1, :cond_1
+    :cond_b
+    if-ne v0, v1, :cond_f
 
     .line 40
     const/4 v1, 0x6
@@ -161,33 +161,33 @@
     return v1
 
     .line 42
-    :cond_1
+    :cond_f
     return v0
 .end method
 
 .method public static isJava9OrLater()Z
-    .locals 2
+    .registers 2
 
     .line 88
     sget v0, Lcom/google/gson/internal/JavaVersion;->majorJavaVersion:I
 
     const/16 v1, 0x9
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method private static parseDotted(Ljava/lang/String;)I
-    .locals 4
+    .registers 5
     .param p0, "javaVersion"    # Ljava/lang/String;
 
     .line 48
@@ -212,11 +212,11 @@
     .local v1, "firstVer":I
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1a
 
     array-length v3, v0
 
-    if-le v3, v2, :cond_0
+    if-le v3, v2, :cond_1a
 
     .line 51
     aget-object v2, v0, v2
@@ -224,19 +224,19 @@
     invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_19} :catch_1b
 
     return v2
 
     .line 53
-    :cond_0
+    :cond_1a
     return v1
 
     .line 55
     .end local v0    # "parts":[Ljava/lang/String;
     .end local v1    # "firstVer":I
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 56

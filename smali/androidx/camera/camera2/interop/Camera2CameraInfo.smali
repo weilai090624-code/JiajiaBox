@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "camera2CameraInfoImpl"    # Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -31,7 +31,7 @@
 .end method
 
 .method public static extractCameraCharacteristics(Landroidx/camera/core/CameraInfo;)Landroid/hardware/camera2/CameraCharacteristics;
-    .locals 2
+    .registers 3
     .param p0, "cameraInfo"    # Landroidx/camera/core/CameraInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -68,7 +68,7 @@
 .end method
 
 .method public static from(Landroidx/camera/core/CameraInfo;)Landroidx/camera/camera2/interop/Camera2CameraInfo;
-    .locals 2
+    .registers 3
     .param p0, "cameraInfo"    # Landroidx/camera/core/CameraInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public getCameraCharacteristic(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -137,7 +137,7 @@
 .end method
 
 .method public getCameraId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 83
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraInfo;->mCamera2CameraInfoImpl:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;

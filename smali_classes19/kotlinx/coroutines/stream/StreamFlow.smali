@@ -72,7 +72,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/stream/StreamFlow;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Lj$/util/stream/Stream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Lj$/util/stream/Stream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -131,7 +131,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/stream/StreamFlow$collect$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -143,7 +143,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/stream/StreamFlow$collect$1;->label:I
 
@@ -151,14 +151,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/stream/StreamFlow$collect$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/stream/StreamFlow$collect$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/stream/StreamFlow$collect$1;-><init>(Lkotlinx/coroutines/stream/StreamFlow;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -174,7 +174,7 @@
 
     const/4 v3, 0x1
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_8c
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -188,7 +188,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2e
     iget-object p1, p2, Lkotlinx/coroutines/stream/StreamFlow$collect$1;->L$2:Ljava/lang/Object;
 
     check-cast p1, Ljava/util/Iterator;
@@ -203,16 +203,16 @@
     check-cast v4, Lkotlinx/coroutines/stream/StreamFlow;
 
     .local v4, "this":Lkotlinx/coroutines/stream/StreamFlow;
-    :try_start_0
+    :try_start_3a
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3d
+    .catchall {:try_start_3a .. :try_end_3d} :catchall_78
 
-    goto :goto_2
+    goto :goto_6e
 
     .end local v2    # "collector":Lkotlinx/coroutines/flow/FlowCollector;
     .end local v4    # "this":Lkotlinx/coroutines/stream/StreamFlow;
-    :pswitch_1
+    :pswitch_3e
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v4, p0
@@ -228,13 +228,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_7f
 
     .line 24
     nop
 
     .line 25
-    :try_start_1
+    :try_start_4c
     iget-object v2, v4, Lkotlinx/coroutines/stream/StreamFlow;->stream:Lj$/util/stream/Stream;
 
     invoke-interface {v2}, Lj$/util/stream/Stream;->iterator()Ljava/util/Iterator;
@@ -249,12 +249,12 @@
 
     .end local p1    # "collector":Lkotlinx/coroutines/flow/FlowCollector;
     .restart local v2    # "collector":Lkotlinx/coroutines/flow/FlowCollector;
-    :goto_1
+    :goto_55
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6f
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -273,23 +273,23 @@
     invoke-interface {v2, v5, p2}, Lkotlinx/coroutines/flow/FlowCollector;->emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v6
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_6b
+    .catchall {:try_start_4c .. :try_end_6b} :catchall_78
 
     .end local v5    # "value":Ljava/lang/Object;
-    if-ne v6, v1, :cond_1
+    if-ne v6, v1, :cond_6e
 
     .line 22
     return-object v1
 
     .line 26
-    :cond_1
-    :goto_2
-    goto :goto_1
+    :cond_6e
+    :goto_6e
+    goto :goto_55
 
     .line 29
     .end local v2    # "collector":Lkotlinx/coroutines/flow/FlowCollector;
-    :cond_2
+    :cond_6f
     iget-object p1, v4, Lkotlinx/coroutines/stream/StreamFlow;->stream:Lj$/util/stream/Stream;
 
     invoke-interface {p1}, Lj$/util/stream/Stream;->close()V
@@ -307,7 +307,7 @@
     .line 29
     .end local p1    # "this":Lkotlinx/coroutines/stream/StreamFlow;
     .restart local v4    # "this":Lkotlinx/coroutines/stream/StreamFlow;
-    :catchall_0
+    :catchall_78
     move-exception p1
 
     iget-object v1, v4, Lkotlinx/coroutines/stream/StreamFlow;->stream:Lj$/util/stream/Stream;
@@ -318,7 +318,7 @@
 
     .line 23
     .end local v4    # "this":Lkotlinx/coroutines/stream/StreamFlow;
-    :cond_3
+    :cond_7f
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string v1, "Stream.consumeAsFlow can be collected only once"
@@ -333,9 +333,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_8c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3e
+        :pswitch_2e
     .end packed-switch
 .end method

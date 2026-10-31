@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static cbSelectorUpdate(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;J)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
     .param p1, "id"    # J
 
@@ -35,7 +35,7 @@
 .end method
 
 .method public static cbSpeedUpdate(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
     .param p1, "stats"    # Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public static cbTrafficUpdate(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;Lio/nekohasekai/sagernet/aidl/TrafficData;)V
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
     .param p1, "data"    # Lio/nekohasekai/sagernet/aidl/TrafficData;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public static missingPlugin(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
     .param p1, "profileName"    # Ljava/lang/String;
     .param p2, "pluginName"    # Ljava/lang/String;
@@ -79,7 +79,7 @@
 .end method
 
 .method public static onBinderDied(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;)V
-    .locals 0
+    .registers 1
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
     .line 57
@@ -87,7 +87,7 @@
 .end method
 
 .method public static onServiceDisconnected(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;)V
-    .locals 0
+    .registers 1
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
     .line 56

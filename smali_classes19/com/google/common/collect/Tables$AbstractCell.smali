@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 113
     .local p0, "this":Lcom/google/common/collect/Tables$AbstractCell;, "Lcom/google/common/collect/Tables$AbstractCell<TR;TC;TV;>;"
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -56,18 +56,18 @@
     .local p0, "this":Lcom/google/common/collect/Tables$AbstractCell;, "Lcom/google/common/collect/Tables$AbstractCell<TR;TC;TV;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 118
     return v0
 
     .line 120
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/collect/Table$Cell;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_39
 
     .line 121
     move-object v1, p1
@@ -88,7 +88,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_37
 
     .line 123
     invoke-virtual {p0}, Lcom/google/common/collect/Tables$AbstractCell;->getColumnKey()Ljava/lang/Object;
@@ -103,7 +103,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_37
 
     .line 124
     invoke-virtual {p0}, Lcom/google/common/collect/Tables$AbstractCell;->getValue()Ljava/lang/Object;
@@ -118,25 +118,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_37
 
-    goto :goto_0
+    goto :goto_38
 
-    :cond_1
+    :cond_37
     const/4 v0, 0x0
 
     .line 122
-    :goto_0
+    :goto_38
     return v0
 
     .line 126
     .end local v1    # "other":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<***>;"
-    :cond_2
+    :cond_39
     return v2
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .registers 6
 
     .line 131
     .local p0, "this":Lcom/google/common/collect/Tables$AbstractCell;, "Lcom/google/common/collect/Tables$AbstractCell<TR;TC;TV;>;"
@@ -176,7 +176,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 136
     .local p0, "this":Lcom/google/common/collect/Tables$AbstractCell;, "Lcom/google/common/collect/Tables$AbstractCell<TR;TC;TV;>;"

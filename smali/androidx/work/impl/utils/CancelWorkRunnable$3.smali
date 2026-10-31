@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Z)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method runInternal()V
-    .locals 6
+    .registers 7
 
     .line 184
     iget-object v0, p0, Landroidx/work/impl/utils/CancelWorkRunnable$3;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -67,7 +67,7 @@
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 187
-    :try_start_0
+    :try_start_9
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
     move-result-object v1
@@ -86,12 +86,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_17
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_29
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -107,13 +107,13 @@
 
     .line 191
     .end local v4    # "workSpecId":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_17
 
     .line 192
-    :cond_0
+    :cond_29
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_9 .. :try_end_2c} :catchall_3a
 
     .line 194
     .end local v1    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
@@ -126,7 +126,7 @@
     .line 197
     iget-boolean v1, p0, Landroidx/work/impl/utils/CancelWorkRunnable$3;->val$allowReschedule:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_39
 
     .line 198
     iget-object v1, p0, Landroidx/work/impl/utils/CancelWorkRunnable$3;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -134,11 +134,11 @@
     invoke-virtual {p0, v1}, Landroidx/work/impl/utils/CancelWorkRunnable$3;->reschedulePendingWorkers(Landroidx/work/impl/WorkManagerImpl;)V
 
     .line 200
-    :cond_1
+    :cond_39
     return-void
 
     .line 194
-    :catchall_0
+    :catchall_3a
     move-exception v1
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V

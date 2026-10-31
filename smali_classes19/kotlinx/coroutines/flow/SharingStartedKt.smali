@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final WhileSubscribed-5qebJ5I(Lkotlinx/coroutines/flow/SharingStarted$Companion;JJ)Lkotlinx/coroutines/flow/SharingStarted;
-    .locals 5
+    .registers 10
     .param p0, "$this$WhileSubscribed_u2d5qebJ5I"    # Lkotlinx/coroutines/flow/SharingStarted$Companion;
     .param p1, "stopTimeout"    # J
     .param p3, "replayExpiration"    # J
@@ -55,12 +55,12 @@
 .end method
 
 .method public static synthetic WhileSubscribed-5qebJ5I$default(Lkotlinx/coroutines/flow/SharingStarted$Companion;JJILjava/lang/Object;)Lkotlinx/coroutines/flow/SharingStarted;
-    .locals 0
+    .registers 7
 
     .line 138
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_a
 
     .line 139
     sget-object p1, Lkotlin/time/Duration;->Companion:Lkotlin/time/Duration$Companion;
@@ -70,10 +70,10 @@
     move-result-wide p1
 
     .line 138
-    :cond_0
+    :cond_a
     and-int/lit8 p5, p5, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_14
 
     .line 140
     sget-object p3, Lkotlin/time/Duration;->Companion:Lkotlin/time/Duration$Companion;
@@ -83,7 +83,7 @@
     move-result-wide p3
 
     .line 138
-    :cond_1
+    :cond_14
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/flow/SharingStartedKt;->WhileSubscribed-5qebJ5I(Lkotlinx/coroutines/flow/SharingStarted$Companion;JJ)Lkotlinx/coroutines/flow/SharingStarted;
 
     move-result-object p0

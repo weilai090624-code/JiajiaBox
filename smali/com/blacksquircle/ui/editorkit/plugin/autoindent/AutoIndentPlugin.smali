@@ -85,7 +85,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$mI2w4mBZvo6qJ9BR6jYWCFKUBOs(Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;IILjava/lang/String;I)V
-    .locals 0
+    .registers 5
 
     invoke-static {p0, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->completeIndentation$lambda$0(Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;IILjava/lang/String;I)V
 
@@ -93,7 +93,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin$Companion;
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 24
     const-string v0, "autoindent-7401"
@@ -135,14 +135,14 @@
 .end method
 
 .method private final completeIndentation(II)V
-    .locals 11
+    .registers 14
     .param p1, "start"    # I
     .param p2, "count"    # I
 
     .line 46
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->isAutoIndenting:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_7b
 
     .line 47
     invoke-direct {p0, p1}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->executeIndentation(I)[Ljava/lang/String;
@@ -159,82 +159,82 @@
 
     const-string v4, ""
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_23
 
     aget-object v2, v0, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
-    goto :goto_0
+    goto :goto_23
 
     .line 56
-    :cond_0
+    :cond_15
     const/4 v1, 0x2
 
     aget-object v2, v0, v1
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_22
 
     .line 57
     aget-object v1, v0, v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_20
 
     move-object v9, v4
 
-    goto :goto_2
+    goto :goto_53
 
-    :cond_1
+    :cond_20
     move-object v9, v1
 
-    goto :goto_2
+    goto :goto_53
 
     .line 59
-    :cond_2
+    :cond_22
     return-void
 
     .line 49
-    :cond_3
-    :goto_0
+    :cond_23
+    :goto_23
     aget-object v1, v0, v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_28
 
     move-object v1, v4
 
     .line 50
     .local v1, "preText":Ljava/lang/String;
-    :cond_4
+    :cond_28
     aget-object v2, v0, v3
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_2d
 
     move-object v2, v4
 
     .line 51
     .local v2, "postText":Ljava/lang/String;
-    :cond_5
+    :cond_2d
     invoke-static {v1, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_3b
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_3a
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 54
-    :cond_6
+    :cond_3a
     return-void
 
     .line 52
-    :cond_7
-    :goto_1
+    :cond_3b
+    :goto_3b
     iget-object v3, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->newText:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -262,7 +262,7 @@
     .line 48
     .end local v1    # "preText":Ljava/lang/String;
     .end local v2    # "postText":Ljava/lang/String;
-    :goto_2
+    :goto_53
     nop
 
     .line 61
@@ -271,7 +271,7 @@
 
     aget-object v2, v0, v1
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_64
 
     .line 62
     aget-object v1, v0, v1
@@ -284,10 +284,10 @@
 
     move v10, v1
 
-    goto :goto_3
+    goto :goto_6a
 
     .line 64
-    :cond_8
+    :cond_64
     invoke-virtual {v9}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -297,7 +297,7 @@
     move v10, v1
 
     .line 61
-    :goto_3
+    :goto_6a
     nop
 
     .line 66
@@ -324,12 +324,12 @@
     .end local v0    # "result":[Ljava/lang/String;
     .end local v9    # "replacementValue":Ljava/lang/String;
     .end local v10    # "newCursorPosition":I
-    :cond_9
+    :cond_7b
     return-void
 .end method
 
 .method private static final completeIndentation$lambda$0(Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;IILjava/lang/String;I)V
-    .locals 3
+    .registers 8
     .param p0, "this$0"    # Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;
     .param p1, "$start"    # I
     .param p2, "$count"    # I
@@ -390,7 +390,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_3f
 
     .line 72
     invoke-virtual {v0, p3}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->setNewText(Ljava/lang/String;)V
@@ -403,7 +403,7 @@
     invoke-virtual {v1, v0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->push(Lcom/blacksquircle/ui/editorkit/model/TextChange;)V
 
     .line 75
-    :cond_0
+    :cond_3f
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v1
@@ -422,7 +422,7 @@
 .end method
 
 .method private final executeIndentation(I)[Ljava/lang/String;
-    .locals 11
+    .registers 13
     .param p1, "start"    # I
 
     const/4 v0, 0x0
@@ -445,11 +445,11 @@
 
     const/4 v6, 0x1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_7f
 
     iget-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoIndentLines:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_7f
 
     .line 84
     invoke-direct {p0, p1}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getIndentationForOffset(I)Ljava/lang/String;
@@ -474,7 +474,7 @@
 
     .line 87
     .local v8, "newCursorPosition":I
-    if-lez p1, :cond_0
+    if-lez p1, :cond_49
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
@@ -492,7 +492,7 @@
 
     const/16 v10, 0x7b
 
-    if-ne v9, v10, :cond_0
+    if-ne v9, v10, :cond_49
 
     .line 88
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -515,7 +515,7 @@
     add-int/lit8 v8, v9, 0x1
 
     .line 91
-    :cond_0
+    :cond_49
     add-int/lit8 v9, p1, 0x1
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -530,7 +530,7 @@
 
     move-result v10
 
-    if-ge v9, v10, :cond_1
+    if-ge v9, v10, :cond_70
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
@@ -546,7 +546,7 @@
 
     move-result v9
 
-    if-ne v9, v3, :cond_1
+    if-ne v9, v3, :cond_70
 
     .line 92
     invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -556,7 +556,7 @@
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 94
-    :cond_1
+    :cond_70
     new-array v0, v5, [Ljava/lang/String;
 
     .line 95
@@ -580,7 +580,7 @@
     .end local v1    # "prevLineIndentation":Ljava/lang/String;
     .end local v7    # "indentation":Ljava/lang/StringBuilder;
     .end local v8    # "newCursorPosition":I
-    :cond_2
+    :cond_7f
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->newText:Ljava/lang/String;
 
     const-string v2, "\""
@@ -595,11 +595,11 @@
 
     const/4 v9, 0x2
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_10b
 
     iget-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoCloseQuotes:Z
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_10b
 
     .line 99
     add-int/lit8 v1, p1, 0x1
@@ -616,7 +616,7 @@
 
     move-result v3
 
-    if-lt v1, v3, :cond_3
+    if-lt v1, v3, :cond_af
 
     .line 100
     new-array v0, v5, [Ljava/lang/String;
@@ -637,7 +637,7 @@
     return-object v0
 
     .line 104
-    :cond_3
+    :cond_af
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v1
@@ -654,7 +654,7 @@
 
     const/16 v3, 0x22
 
-    if-ne v1, v3, :cond_4
+    if-ne v1, v3, :cond_de
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
@@ -670,7 +670,7 @@
 
     move-result v1
 
-    if-eq v1, v7, :cond_4
+    if-eq v1, v7, :cond_de
 
     .line 105
     new-array v0, v5, [Ljava/lang/String;
@@ -691,7 +691,7 @@
     return-object v0
 
     .line 109
-    :cond_4
+    :cond_de
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v1
@@ -706,7 +706,7 @@
 
     move-result v1
 
-    if-ne v1, v3, :cond_5
+    if-ne v1, v3, :cond_fe
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
@@ -722,10 +722,10 @@
 
     move-result v1
 
-    if-eq v1, v7, :cond_11
+    if-eq v1, v7, :cond_2bb
 
     .line 110
-    :cond_5
+    :cond_fe
     new-array v0, v5, [Ljava/lang/String;
 
     .line 111
@@ -744,7 +744,7 @@
     return-object v0
 
     .line 115
-    :cond_6
+    :cond_10b
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->newText:Ljava/lang/String;
 
     const-string v2, "\'"
@@ -753,11 +753,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_1b3
 
     iget-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoCloseQuotes:Z
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_1b3
 
     .line 116
     add-int/lit8 v1, p1, 0x1
@@ -774,7 +774,7 @@
 
     move-result v3
 
-    if-lt v1, v3, :cond_7
+    if-lt v1, v3, :cond_136
 
     .line 117
     new-array v0, v5, [Ljava/lang/String;
@@ -795,7 +795,7 @@
     return-object v0
 
     .line 121
-    :cond_7
+    :cond_136
     add-int/lit8 v1, p1, 0x1
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -810,7 +810,7 @@
 
     move-result v3
 
-    if-lt v1, v3, :cond_8
+    if-lt v1, v3, :cond_153
 
     .line 122
     new-array v0, v5, [Ljava/lang/String;
@@ -831,7 +831,7 @@
     return-object v0
 
     .line 126
-    :cond_8
+    :cond_153
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v1
@@ -848,9 +848,9 @@
 
     const/16 v3, 0x27
 
-    if-ne v1, v3, :cond_9
+    if-ne v1, v3, :cond_184
 
-    if-lez p1, :cond_9
+    if-lez p1, :cond_184
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
@@ -866,7 +866,7 @@
 
     move-result v1
 
-    if-eq v1, v7, :cond_9
+    if-eq v1, v7, :cond_184
 
     .line 127
     new-array v0, v5, [Ljava/lang/String;
@@ -887,7 +887,7 @@
     return-object v0
 
     .line 131
-    :cond_9
+    :cond_184
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v1
@@ -902,9 +902,9 @@
 
     move-result v1
 
-    if-ne v1, v3, :cond_a
+    if-ne v1, v3, :cond_1a6
 
-    if-lez p1, :cond_a
+    if-lez p1, :cond_1a6
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
@@ -920,10 +920,10 @@
 
     move-result v1
 
-    if-eq v1, v7, :cond_11
+    if-eq v1, v7, :cond_2bb
 
     .line 132
-    :cond_a
+    :cond_1a6
     new-array v0, v5, [Ljava/lang/String;
 
     .line 133
@@ -942,7 +942,7 @@
     return-object v0
 
     .line 137
-    :cond_b
+    :cond_1b3
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->newText:Ljava/lang/String;
 
     const-string/jumbo v2, "{"
@@ -953,11 +953,11 @@
 
     const-string/jumbo v2, "}"
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_1d2
 
     iget-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoCloseBrackets:Z
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_1d2
 
     .line 138
     new-array v0, v5, [Ljava/lang/String;
@@ -978,18 +978,18 @@
     return-object v0
 
     .line 142
-    :cond_c
+    :cond_1d2
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->newText:Ljava/lang/String;
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_20b
 
     iget-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoCloseBrackets:Z
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_20b
 
     .line 143
     add-int/lit8 v1, p1, 0x1
@@ -1006,7 +1006,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_11
+    if-ge v1, v2, :cond_2bb
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
@@ -1022,7 +1022,7 @@
 
     move-result v1
 
-    if-ne v1, v3, :cond_11
+    if-ne v1, v3, :cond_2bb
 
     .line 144
     new-array v0, v5, [Ljava/lang/String;
@@ -1043,7 +1043,7 @@
     return-object v0
 
     .line 149
-    :cond_d
+    :cond_20b
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->newText:Ljava/lang/String;
 
     const-string v2, "("
@@ -1054,11 +1054,11 @@
 
     const-string v2, ")"
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_228
 
     iget-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoCloseBrackets:Z
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_228
 
     .line 150
     new-array v0, v5, [Ljava/lang/String;
@@ -1079,18 +1079,18 @@
     return-object v0
 
     .line 154
-    :cond_e
+    :cond_228
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->newText:Ljava/lang/String;
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_263
 
     iget-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoCloseBrackets:Z
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_263
 
     .line 155
     add-int/lit8 v1, p1, 0x1
@@ -1107,7 +1107,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_11
+    if-ge v1, v2, :cond_2bb
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
@@ -1125,7 +1125,7 @@
 
     const/16 v2, 0x29
 
-    if-ne v1, v2, :cond_11
+    if-ne v1, v2, :cond_2bb
 
     .line 156
     new-array v0, v5, [Ljava/lang/String;
@@ -1146,7 +1146,7 @@
     return-object v0
 
     .line 161
-    :cond_f
+    :cond_263
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->newText:Ljava/lang/String;
 
     const-string v2, "["
@@ -1157,11 +1157,11 @@
 
     const-string v2, "]"
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_280
 
     iget-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoCloseBrackets:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_280
 
     .line 162
     new-array v0, v5, [Ljava/lang/String;
@@ -1182,18 +1182,18 @@
     return-object v0
 
     .line 166
-    :cond_10
+    :cond_280
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->newText:Ljava/lang/String;
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_2bb
 
     iget-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoCloseBrackets:Z
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_2bb
 
     .line 167
     add-int/lit8 v1, p1, 0x1
@@ -1210,7 +1210,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_11
+    if-ge v1, v2, :cond_2bb
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
@@ -1228,7 +1228,7 @@
 
     const/16 v2, 0x5d
 
-    if-ne v1, v2, :cond_11
+    if-ne v1, v2, :cond_2bb
 
     .line 169
     new-array v0, v5, [Ljava/lang/String;
@@ -1249,14 +1249,14 @@
     return-object v0
 
     .line 174
-    :cond_11
+    :cond_2bb
     new-array v1, v5, [Ljava/lang/String;
 
     return-object v1
 .end method
 
 .method private final getIndentationForLine(I)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "line"    # I
 
     .line 182
@@ -1280,7 +1280,7 @@
 
     .line 185
     .local v2, "i":I
-    :goto_0
+    :goto_d
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v3
@@ -1293,7 +1293,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_37
 
     .line 186
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -1314,32 +1314,32 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_36
 
     const/16 v4, 0xa
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_32
 
-    goto :goto_1
+    goto :goto_36
 
     .line 190
-    :cond_0
+    :cond_32
     nop
 
     .end local v3    # "char":C
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 188
     .restart local v3    # "char":C
-    :cond_1
-    :goto_1
+    :cond_36
+    :goto_36
     nop
 
     .line 192
     .end local v3    # "char":C
-    :cond_2
+    :cond_37
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     move-result-object v3
@@ -1360,7 +1360,7 @@
 .end method
 
 .method private final getIndentationForOffset(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "offset"    # I
 
     .line 178
@@ -1382,7 +1382,7 @@
 
 # virtual methods
 .method public final getAutoCloseBrackets()Z
-    .locals 1
+    .registers 2
 
     .line 27
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoCloseBrackets:Z
@@ -1391,7 +1391,7 @@
 .end method
 
 .method public final getAutoCloseQuotes()Z
-    .locals 1
+    .registers 2
 
     .line 28
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoCloseQuotes:Z
@@ -1400,7 +1400,7 @@
 .end method
 
 .method public final getAutoIndentLines()Z
-    .locals 1
+    .registers 2
 
     .line 26
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/autoindent/AutoIndentPlugin;->autoIndentLines:Z
@@ -1409,7 +1409,7 @@
 .end method
 
 .method public onAttached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 2
+    .registers 4
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -1431,7 +1431,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
@@ -1441,7 +1441,7 @@
     invoke-super {p0, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onTextChanged(Ljava/lang/CharSequence;III)V
 
     .line 40
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     add-int v0, p2, p4
 
@@ -1449,12 +1449,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -1474,7 +1474,7 @@
 .end method
 
 .method public final setAutoCloseBrackets(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 27
@@ -1484,7 +1484,7 @@
 .end method
 
 .method public final setAutoCloseQuotes(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 28
@@ -1494,7 +1494,7 @@
 .end method
 
 .method public final setAutoIndentLines(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 26

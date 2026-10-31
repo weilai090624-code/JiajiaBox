@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 492
     const/4 v0, 0x0
@@ -73,7 +73,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;)V
-    .locals 5
+    .registers 8
     .param p1, "node1"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
     .param p2, "node2"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
 
@@ -143,8 +143,8 @@
     array-length v2, v0
 
     .local v2, "n":I
-    :goto_0
-    if-ge v1, v2, :cond_2
+    :goto_3b
+    if-ge v1, v2, :cond_70
 
     .line 504
     const-class v3, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;
@@ -163,7 +163,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_55
 
     .line 506
     sget-object v3, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;->EMPTY_STACK_TRACE:[Ljava/lang/StackTraceElement;
@@ -171,10 +171,10 @@
     invoke-virtual {p0, v3}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;->setStackTrace([Ljava/lang/StackTraceElement;)V
 
     .line 507
-    goto :goto_1
+    goto :goto_70
 
     .line 509
-    :cond_0
+    :cond_55
     sget-object v3, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;->EXCLUDED_CLASS_NAMES:Lcom/google/common/collect/ImmutableSet;
 
     aget-object v4, v0, v1
@@ -187,7 +187,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_6d
 
     .line 510
     invoke-static {v0, v1, v2}, Ljava/util/Arrays;->copyOfRange([Ljava/lang/Object;II)[Ljava/lang/Object;
@@ -199,18 +199,18 @@
     invoke-virtual {p0, v3}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;->setStackTrace([Ljava/lang/StackTraceElement;)V
 
     .line 511
-    goto :goto_1
+    goto :goto_70
 
     .line 503
-    :cond_1
+    :cond_6d
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 514
     .end local v1    # "i":I
     .end local v2    # "n":I
-    :cond_2
-    :goto_1
+    :cond_70
+    :goto_70
     return-void
 .end method

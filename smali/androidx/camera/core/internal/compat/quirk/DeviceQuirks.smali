@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 39
     new-instance v0, Landroidx/camera/core/impl/Quirks;
@@ -27,7 +27,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method public static get(Ljava/lang/Class;)Landroidx/camera/core/impl/Quirk;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10

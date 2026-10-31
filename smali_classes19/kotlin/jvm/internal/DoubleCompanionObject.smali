@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/jvm/internal/DoubleCompanionObject;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,43 +86,43 @@
 .end method
 
 .method public static synthetic getMAX_VALUE$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getMIN_VALUE$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getNEGATIVE_INFINITY$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getNaN$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getPOSITIVE_INFINITY$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getSIZE_BITS$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getSIZE_BYTES$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public final getMAX_VALUE()D
-    .locals 2
+    .registers 3
 
     .line 26
     const-wide v0, 0x7fefffffffffffffL    # Double.MAX_VALUE
@@ -139,7 +139,7 @@
 .end method
 
 .method public final getMIN_VALUE()D
-    .locals 2
+    .registers 3
 
     .line 25
     const-wide/16 v0, 0x1
@@ -148,7 +148,7 @@
 .end method
 
 .method public final getNEGATIVE_INFINITY()D
-    .locals 2
+    .registers 3
 
     .line 28
     const-wide/high16 v0, -0x10000000000000L    # Double.NEGATIVE_INFINITY
@@ -157,7 +157,7 @@
 .end method
 
 .method public final getNaN()D
-    .locals 2
+    .registers 3
 
     .line 29
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
@@ -166,7 +166,7 @@
 .end method
 
 .method public final getPOSITIVE_INFINITY()D
-    .locals 2
+    .registers 3
 
     .line 27
     const-wide/high16 v0, 0x7ff0000000000000L    # Double.POSITIVE_INFINITY

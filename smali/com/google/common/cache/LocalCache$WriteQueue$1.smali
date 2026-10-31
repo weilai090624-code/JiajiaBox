@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/LocalCache$WriteQueue;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/cache/LocalCache$WriteQueue;
 
     .line 3522
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public getNextInWriteQueue()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -79,7 +79,7 @@
 .end method
 
 .method public getPreviousInWriteQueue()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -96,7 +96,7 @@
 .end method
 
 .method public getWriteTime()J
-    .locals 2
+    .registers 3
 
     .line 3526
     .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$1;, "Lcom/google/common/cache/LocalCache$WriteQueue$1;"
@@ -106,7 +106,7 @@
 .end method
 
 .method public setNextInWriteQueue(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +125,7 @@
 .end method
 
 .method public setPreviousInWriteQueue(Lcom/google/common/cache/ReferenceEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -144,7 +144,7 @@
 .end method
 
 .method public setWriteTime(J)V
-    .locals 0
+    .registers 3
     .param p1, "time"    # J
 
     .line 3530

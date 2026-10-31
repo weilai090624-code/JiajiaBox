@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 433
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public build()Landroidx/recyclerview/widget/ConcatAdapter$Config;
-    .locals 3
+    .registers 4
 
     .line 477
     new-instance v0, Landroidx/recyclerview/widget/ConcatAdapter$Config;
@@ -62,7 +62,7 @@
 .end method
 
 .method public setIsolateViewTypes(Z)Landroidx/recyclerview/widget/ConcatAdapter$Config$Builder;
-    .locals 0
+    .registers 2
     .param p1, "isolateViewTypes"    # Z
 
     .line 451
@@ -73,7 +73,7 @@
 .end method
 
 .method public setStableIdMode(Landroidx/recyclerview/widget/ConcatAdapter$Config$StableIdMode;)Landroidx/recyclerview/widget/ConcatAdapter$Config$Builder;
-    .locals 0
+    .registers 2
     .param p1, "stableIdMode"    # Landroidx/recyclerview/widget/ConcatAdapter$Config$StableIdMode;
 
     .line 468

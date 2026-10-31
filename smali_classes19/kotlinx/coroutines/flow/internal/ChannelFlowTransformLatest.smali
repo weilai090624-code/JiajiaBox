@@ -86,7 +86,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function3;Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)V
-    .locals 0
+    .registers 6
     .param p1, "transform"    # Lkotlin/jvm/functions/Function3;
     .param p2, "flow"    # Lkotlinx/coroutines/flow/Flow;
     .param p3, "context"    # Lkotlin/coroutines/CoroutineContext;
@@ -125,12 +125,12 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/functions/Function3;Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 6
+    .registers 14
 
     .line 13
     and-int/lit8 p7, p6, 0x4
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_a
 
     .line 16
     sget-object p3, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -139,45 +139,45 @@
 
     move-object v3, p3
 
-    goto :goto_0
+    goto :goto_b
 
     .line 13
-    :cond_0
+    :cond_a
     move-object v3, p3
 
-    :goto_0
+    :goto_b
     and-int/lit8 p3, p6, 0x8
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_12
 
     .line 17
     const/4 p4, -0x2
 
     const/4 v4, -0x2
 
-    goto :goto_1
+    goto :goto_13
 
     .line 13
-    :cond_1
+    :cond_12
     move v4, p4
 
-    :goto_1
+    :goto_13
     and-int/lit8 p3, p6, 0x10
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_1b
 
     .line 18
     sget-object p5, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
     move-object v5, p5
 
-    goto :goto_2
+    goto :goto_1c
 
     .line 13
-    :cond_2
+    :cond_1b
     move-object v5, p5
 
-    :goto_2
+    :goto_1c
     move-object v0, p0
 
     move-object v1, p1
@@ -191,7 +191,7 @@
 .end method
 
 .method public static final synthetic access$getTransform$p(Lkotlinx/coroutines/flow/internal/ChannelFlowTransformLatest;)Lkotlin/jvm/functions/Function3;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/flow/internal/ChannelFlowTransformLatest;
 
     .line 13
@@ -203,7 +203,7 @@
 
 # virtual methods
 .method protected create(Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/internal/ChannelFlow;
-    .locals 7
+    .registers 11
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
     .param p3, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
@@ -242,7 +242,7 @@
 .end method
 
 .method protected flowCollect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "collector"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -263,7 +263,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 101
     const/4 v0, 0x0
@@ -273,11 +273,11 @@
     instance-of v0, p1, Lkotlinx/coroutines/flow/internal/SendingCollector;
 
     .end local v0    # "$i$a$-assert-ChannelFlowTransformLatest$flowCollect$2":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -285,8 +285,8 @@
     throw v0
 
     .line 25
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     new-instance v0, Lkotlinx/coroutines/flow/internal/ChannelFlowTransformLatest$flowCollect$3;
 
     const/4 v1, 0x0
@@ -303,11 +303,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_25
 
     return-object v0
 
-    :cond_2
+    :cond_25
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 38

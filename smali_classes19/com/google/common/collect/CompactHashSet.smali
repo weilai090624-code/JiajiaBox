@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 200
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "expectedSize"    # I
 
     .line 209
@@ -82,7 +82,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/CompactHashSet;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/CompactHashSet;
 
     .line 76
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/collect/CompactHashSet;I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/collect/CompactHashSet;
     .param p1, "x1"    # I
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public static create()Lcom/google/common/collect/CompactHashSet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -125,7 +125,7 @@
 .end method
 
 .method public static create(Ljava/util/Collection;)Lcom/google/common/collect/CompactHashSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -157,7 +157,7 @@
 .end method
 
 .method public static varargs create([Ljava/lang/Object;)Lcom/google/common/collect/CompactHashSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -188,7 +188,7 @@
 .end method
 
 .method private createHashFloodingResistantDelegate(I)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p1, "tableSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -210,7 +210,7 @@
 .end method
 
 .method public static createWithExpectedSize(I)Lcom/google/common/collect/CompactHashSet;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -231,7 +231,7 @@
 .end method
 
 .method private element(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -251,7 +251,7 @@
 .end method
 
 .method private entry(I)I
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
 
     .line 717
@@ -266,7 +266,7 @@
 .end method
 
 .method private hashTableMask()I
-    .locals 2
+    .registers 3
 
     .line 285
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -284,7 +284,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 4
+    .registers 6
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -304,7 +304,7 @@
 
     .line 684
     .local v0, "elementCount":I
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_1a
 
     .line 687
     invoke-virtual {p0, v0}, Lcom/google/common/collect/CompactHashSet;->init(I)V
@@ -313,8 +313,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_d
+    if-ge v1, v0, :cond_19
 
     .line 689
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
@@ -329,15 +329,15 @@
     .end local v2    # "element":Ljava/lang/Object;, "TE;"
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 692
     .end local v1    # "i":I
-    :cond_0
+    :cond_19
     return-void
 
     .line 685
-    :cond_1
+    :cond_1a
     new-instance v1, Ljava/io/InvalidObjectException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -366,7 +366,7 @@
 .end method
 
 .method private requireElements()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 708
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -382,7 +382,7 @@
 .end method
 
 .method private requireEntries()[I
-    .locals 1
+    .registers 2
 
     .line 704
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -398,7 +398,7 @@
 .end method
 
 .method private requireTable()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 700
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -412,7 +412,7 @@
 .end method
 
 .method private resizeMeMaybe(I)V
-    .locals 3
+    .registers 5
     .param p1, "newSize"    # I
 
     .line 362
@@ -425,7 +425,7 @@
 
     .line 363
     .local v0, "entriesSize":I
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_1c
 
     .line 365
     ushr-int/lit8 v1, v0, 0x1
@@ -449,19 +449,19 @@
 
     .line 367
     .local v1, "newCapacity":I
-    if-eq v1, v0, :cond_0
+    if-eq v1, v0, :cond_1c
 
     .line 368
     invoke-virtual {p0, v1}, Lcom/google/common/collect/CompactHashSet;->resizeEntries(I)V
 
     .line 371
     .end local v1    # "newCapacity":I
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method private resizeTable(IIII)I
-    .locals 14
+    .registers 19
     .param p1, "oldMask"    # I
     .param p2, "newCapacity"    # I
     .param p3, "targetHash"    # I
@@ -483,7 +483,7 @@
 
     .line 387
     .local v3, "newMask":I
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_11
 
     .line 389
     and-int v4, p3, v3
@@ -493,7 +493,7 @@
     invoke-static {v2, v4, v5}, Lcom/google/common/collect/CompactHashing;->tableSet(Ljava/lang/Object;II)V
 
     .line 392
-    :cond_0
+    :cond_11
     invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireTable()Ljava/lang/Object;
 
     move-result-object v4
@@ -509,8 +509,8 @@
     const/4 v6, 0x0
 
     .local v6, "oldTableIndex":I
-    :goto_0
-    if-gt v6, v1, :cond_2
+    :goto_1a
+    if-gt v6, v1, :cond_42
 
     .line 397
     invoke-static {v4, v6}, Lcom/google/common/collect/CompactHashing;->tableGet(Ljava/lang/Object;I)I
@@ -519,8 +519,8 @@
 
     .line 398
     .local v7, "oldNext":I
-    :goto_1
-    if-eqz v7, :cond_1
+    :goto_20
+    if-eqz v7, :cond_3f
 
     .line 399
     add-int/lit8 v8, v7, -0x1
@@ -569,18 +569,18 @@
     .end local v10    # "hash":I
     .end local v11    # "newTableIndex":I
     .end local v12    # "newNext":I
-    goto :goto_1
+    goto :goto_20
 
     .line 396
     .end local v7    # "oldNext":I
-    :cond_1
+    :cond_3f
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 414
     .end local v6    # "oldTableIndex":I
-    :cond_2
+    :cond_42
     iput-object v2, v0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
 
     .line 415
@@ -591,7 +591,7 @@
 .end method
 
 .method private setElement(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -613,7 +613,7 @@
 .end method
 
 .method private setEntry(II)V
-    .locals 1
+    .registers 4
     .param p1, "i"    # I
     .param p2, "value"    # I
 
@@ -630,7 +630,7 @@
 .end method
 
 .method private setHashTableMask(I)V
-    .locals 3
+    .registers 5
     .param p1, "mask"    # I
 
     .line 278
@@ -659,7 +659,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -683,12 +683,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -700,17 +700,17 @@
 
     .line 677
     .end local v1    # "e":Ljava/lang/Object;, "TE;"
-    goto :goto_0
+    goto :goto_e
 
     .line 678
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 14
+    .registers 16
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -728,20 +728,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 296
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->allocArrays()I
 
     .line 298
-    :cond_0
+    :cond_9
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->delegateOrNull()Ljava/util/Set;
 
     move-result-object v0
 
     .line 299
     .local v0, "delegate":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 300
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -751,7 +751,7 @@
     return v1
 
     .line 302
-    :cond_1
+    :cond_14
     invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireEntries()[I
 
     move-result-object v1
@@ -798,10 +798,10 @@
 
     .line 311
     .local v8, "next":I
-    if-nez v8, :cond_3
+    if-nez v8, :cond_49
 
     .line 312
-    if-le v4, v6, :cond_2
+    if-le v4, v6, :cond_3f
 
     .line 314
     invoke-static {v6}, Lcom/google/common/collect/CompactHashing;->newCapacity(I)I
@@ -812,10 +812,10 @@
 
     move-result v6
 
-    goto :goto_0
+    goto :goto_8a
 
     .line 316
-    :cond_2
+    :cond_3f
     invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireTable()Ljava/lang/Object;
 
     move-result-object v9
@@ -824,10 +824,10 @@
 
     invoke-static {v9, v7, v10}, Lcom/google/common/collect/CompactHashing;->tableSet(Ljava/lang/Object;II)V
 
-    goto :goto_0
+    goto :goto_8a
 
     .line 321
-    :cond_3
+    :cond_49
     invoke-static {v5, v6}, Lcom/google/common/collect/CompactHashing;->getHashPrefix(II)I
 
     move-result v9
@@ -838,7 +838,7 @@
 
     .line 324
     .local v10, "bucketLength":I
-    :cond_4
+    :cond_4e
     add-int/lit8 v11, v8, -0x1
 
     .line 325
@@ -851,7 +851,7 @@
 
     move-result v13
 
-    if-ne v13, v9, :cond_5
+    if-ne v13, v9, :cond_62
 
     aget-object v13, v2, v11
 
@@ -860,7 +860,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_62
 
     .line 328
     const/4 v13, 0x0
@@ -868,7 +868,7 @@
     return v13
 
     .line 330
-    :cond_5
+    :cond_62
     invoke-static {v12, v6}, Lcom/google/common/collect/CompactHashing;->getNext(II)I
 
     move-result v8
@@ -877,12 +877,12 @@
     add-int/lit8 v10, v10, 0x1
 
     .line 332
-    if-nez v8, :cond_4
+    if-nez v8, :cond_4e
 
     .line 334
     const/16 v13, 0x9
 
-    if-lt v10, v13, :cond_6
+    if-lt v10, v13, :cond_77
 
     .line 335
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->convertToHashFloodingResistantImplementation()Ljava/util/Set;
@@ -896,8 +896,8 @@
     return v13
 
     .line 338
-    :cond_6
-    if-le v4, v6, :cond_7
+    :cond_77
+    if-le v4, v6, :cond_82
 
     .line 340
     invoke-static {v6}, Lcom/google/common/collect/CompactHashing;->newCapacity(I)I
@@ -908,10 +908,10 @@
 
     move-result v6
 
-    goto :goto_0
+    goto :goto_8a
 
     .line 342
-    :cond_7
+    :cond_82
     add-int/lit8 v13, v3, 0x1
 
     invoke-static {v12, v13, v6}, Lcom/google/common/collect/CompactHashing;->maskCombine(III)I
@@ -925,7 +925,7 @@
     .end local v10    # "bucketLength":I
     .end local v11    # "entryIndex":I
     .end local v12    # "entry":I
-    :goto_0
+    :goto_8a
     invoke-direct {p0, v4}, Lcom/google/common/collect/CompactHashSet;->resizeMeMaybe(I)V
 
     .line 346
@@ -944,7 +944,7 @@
 .end method
 
 .method adjustAfterRemove(II)I
-    .locals 1
+    .registers 4
     .param p1, "indexBeforeRemove"    # I
     .param p2, "indexRemoved"    # I
 
@@ -956,7 +956,7 @@
 .end method
 
 .method allocArrays()I
-    .locals 3
+    .registers 4
 
     .line 230
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -1005,7 +1005,7 @@
 .end method
 
 .method public clear()V
-    .locals 6
+    .registers 7
 
     .line 653
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -1013,13 +1013,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 654
     return-void
 
     .line 656
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->incrementModCount()V
 
     .line 657
@@ -1033,7 +1033,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 659
     nop
@@ -1062,10 +1062,10 @@
     .line 663
     iput v2, p0, Lcom/google/common/collect/CompactHashSet;->size:I
 
-    goto :goto_0
+    goto :goto_44
 
     .line 665
-    :cond_1
+    :cond_29
     invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
 
     move-result-object v3
@@ -1094,12 +1094,12 @@
     iput v2, p0, Lcom/google/common/collect/CompactHashSet;->size:I
 
     .line 670
-    :goto_0
+    :goto_44
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 9
+    .registers 11
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1113,20 +1113,20 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 422
     return v1
 
     .line 424
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->delegateOrNull()Ljava/util/Set;
 
     move-result-object v0
 
     .line 425
     .local v0, "delegate":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 426
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -1136,7 +1136,7 @@
     return v1
 
     .line 428
-    :cond_1
+    :cond_13
     invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v2
@@ -1161,20 +1161,20 @@
 
     .line 431
     .local v4, "next":I
-    if-nez v4, :cond_2
+    if-nez v4, :cond_28
 
     .line 432
     return v1
 
     .line 434
-    :cond_2
+    :cond_28
     invoke-static {v2, v3}, Lcom/google/common/collect/CompactHashing;->getHashPrefix(II)I
 
     move-result v5
 
     .line 436
     .local v5, "hashPrefix":I
-    :cond_3
+    :cond_2c
     add-int/lit8 v6, v4, -0x1
 
     .line 437
@@ -1189,7 +1189,7 @@
 
     move-result v8
 
-    if-ne v8, v5, :cond_4
+    if-ne v8, v5, :cond_44
 
     .line 439
     invoke-direct {p0, v6}, Lcom/google/common/collect/CompactHashSet;->element(I)Ljava/lang/Object;
@@ -1200,7 +1200,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_44
 
     .line 440
     const/4 v1, 0x1
@@ -1208,7 +1208,7 @@
     return v1
 
     .line 442
-    :cond_4
+    :cond_44
     invoke-static {v7, v3}, Lcom/google/common/collect/CompactHashing;->getNext(II)I
 
     move-result v4
@@ -1216,14 +1216,14 @@
     .line 443
     .end local v6    # "entryIndex":I
     .end local v7    # "entry":I
-    if-nez v4, :cond_3
+    if-nez v4, :cond_2c
 
     .line 444
     return v1
 .end method
 
 .method convertToHashFloodingResistantImplementation()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1251,8 +1251,8 @@
     move-result v1
 
     .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
+    :goto_e
+    if-ltz v1, :cond_1c
 
     .line 262
     invoke-direct {p0, v1}, Lcom/google/common/collect/CompactHashSet;->element(I)Ljava/lang/Object;
@@ -1266,11 +1266,11 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 264
     .end local v1    # "i":I
-    :cond_0
+    :cond_1c
     iput-object v0, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
 
     .line 265
@@ -1289,7 +1289,7 @@
 .end method
 
 .method delegateOrNull()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1307,7 +1307,7 @@
 
     instance-of v0, v0, Ljava/util/Set;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 248
     iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
@@ -1317,14 +1317,14 @@
     return-object v0
 
     .line 250
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method firstEntryIndex()I
-    .locals 1
+    .registers 2
 
     .line 522
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -1332,21 +1332,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method getSuccessor(I)I
-    .locals 2
+    .registers 4
     .param p1, "entryIndex"    # I
 
     .line 526
@@ -1355,21 +1355,21 @@
 
     iget v1, p0, Lcom/google/common/collect/CompactHashSet;->size:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_9
 
     add-int/lit8 v0, p1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method incrementModCount()V
-    .locals 1
+    .registers 2
 
     .line 289
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -1384,23 +1384,23 @@
 .end method
 
 .method init(I)V
-    .locals 3
+    .registers 5
     .param p1, "expectedSize"    # I
 
     .line 215
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
     const/4 v0, 0x1
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_5
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_6
     const-string v2, "Expected size must be >= 0"
 
     invoke-static {v1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -1419,7 +1419,7 @@
 .end method
 
 .method insertEntry(ILjava/lang/Object;II)V
-    .locals 1
+    .registers 6
     .param p1, "entryIndex"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -1452,7 +1452,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 597
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -1460,21 +1460,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method isUsingHashFloodingResistance()Z
-    .locals 1
+    .registers 2
 
     .line 273
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -1482,21 +1482,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1513,7 +1513,7 @@
 
     .line 541
     .local v0, "delegate":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 542
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
@@ -1523,7 +1523,7 @@
     return-object v1
 
     .line 544
-    :cond_0
+    :cond_b
     new-instance v1, Lcom/google/common/collect/CompactHashSet$1;
 
     invoke-direct {v1, p0}, Lcom/google/common/collect/CompactHashSet$1;-><init>(Lcom/google/common/collect/CompactHashSet;)V
@@ -1532,7 +1532,7 @@
 .end method
 
 .method moveLastEntry(II)V
-    .locals 11
+    .registers 14
     .param p1, "dstIndex"    # I
     .param p2, "mask"    # I
 
@@ -1568,7 +1568,7 @@
 
     const/4 v5, 0x0
 
-    if-ge p1, v3, :cond_1
+    if-ge p1, v3, :cond_49
 
     .line 488
     aget-object v6, v2, v3
@@ -1607,17 +1607,17 @@
 
     .line 500
     .local v8, "srcNext":I
-    if-ne v4, v8, :cond_0
+    if-ne v4, v8, :cond_36
 
     .line 502
     add-int/lit8 v5, p1, 0x1
 
     invoke-static {v0, v7, v5}, Lcom/google/common/collect/CompactHashing;->tableSet(Ljava/lang/Object;II)V
 
-    goto :goto_0
+    goto :goto_48
 
     .line 508
-    :cond_0
+    :cond_36
     add-int/lit8 v5, v4, -0x1
 
     .line 509
@@ -1631,7 +1631,7 @@
     move-result v4
 
     .line 511
-    if-ne v4, v8, :cond_0
+    if-ne v4, v8, :cond_36
 
     .line 513
     add-int/lit8 v10, p1, 0x1
@@ -1649,43 +1649,43 @@
     .end local v7    # "tableIndex":I
     .end local v8    # "srcNext":I
     .end local v9    # "entry":I
-    :goto_0
-    goto :goto_1
+    :goto_48
+    goto :goto_4d
 
     .line 516
-    :cond_1
+    :cond_49
     aput-object v5, v2, p1
 
     .line 517
     aput v4, v1, p1
 
     .line 519
-    :goto_1
+    :goto_4d
     return-void
 .end method
 
 .method needsAllocArrays()Z
-    .locals 1
+    .registers 2
 
     .line 224
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 10
+    .registers 12
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -1699,20 +1699,20 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 451
     return v1
 
     .line 453
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->delegateOrNull()Ljava/util/Set;
 
     move-result-object v0
 
     .line 454
     .local v0, "delegate":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 455
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
@@ -1722,7 +1722,7 @@
     return v1
 
     .line 457
-    :cond_1
+    :cond_13
     invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->hashTableMask()I
 
     move-result v9
@@ -1763,13 +1763,13 @@
     .local v2, "index":I
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_30
 
     .line 468
     return v1
 
     .line 471
-    :cond_2
+    :cond_30
     invoke-virtual {p0, v2, v9}, Lcom/google/common/collect/CompactHashSet;->moveLastEntry(II)V
 
     .line 472
@@ -1789,7 +1789,7 @@
 .end method
 
 .method resizeEntries(I)V
-    .locals 1
+    .registers 3
     .param p1, "newCapacity"    # I
 
     .line 378
@@ -1820,7 +1820,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 591
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -1830,23 +1830,23 @@
 
     .line 592
     .local v0, "delegate":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-interface {v0}, Ljava/util/Set;->size()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     iget v1, p0, Lcom/google/common/collect/CompactHashSet;->size:I
 
-    :goto_0
+    :goto_d
     return v1
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 3
+    .registers 4
 
     .line 602
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -1854,7 +1854,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 603
     const/4 v0, 0x0
@@ -1864,22 +1864,22 @@
     return-object v0
 
     .line 605
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->delegateOrNull()Ljava/util/Set;
 
     move-result-object v0
 
     .line 606
     .local v0, "delegate":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     invoke-interface {v0}, Ljava/util/Set;->toArray()[Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_1
+    :cond_15
     invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
 
     move-result-object v1
@@ -1890,12 +1890,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1f
     return-object v1
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1913,12 +1913,12 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
     .line 614
     array-length v0, p1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_d
 
     .line 615
     const/4 v0, 0x0
@@ -1926,28 +1926,28 @@
     aput-object v0, p1, v1
 
     .line 617
-    :cond_0
+    :cond_d
     return-object p1
 
     .line 619
-    :cond_1
+    :cond_e
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->delegateOrNull()Ljava/util/Set;
 
     move-result-object v0
 
     .line 620
     .local v0, "delegate":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_19
 
     .line 621
     invoke-interface {v0, p1}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 622
-    :cond_2
+    :cond_19
     invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
 
     move-result-object v2
@@ -1959,12 +1959,12 @@
     move-result-object v1
 
     .line 620
-    :goto_0
+    :goto_23
     return-object v1
 .end method
 
 .method public trimToSize()V
-    .locals 5
+    .registers 6
 
     .line 630
     .local p0, "this":Lcom/google/common/collect/CompactHashSet;, "Lcom/google/common/collect/CompactHashSet<TE;>;"
@@ -1972,20 +1972,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 631
     return-void
 
     .line 633
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->delegateOrNull()Ljava/util/Set;
 
     move-result-object v0
 
     .line 634
     .local v0, "delegate":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 635
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->size()I
@@ -2008,7 +2008,7 @@
 
     .line 640
     .end local v1    # "newDelegate":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    :cond_1
+    :cond_1b
     iget v1, p0, Lcom/google/common/collect/CompactHashSet;->size:I
 
     .line 641
@@ -2019,13 +2019,13 @@
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_27
 
     .line 642
     invoke-virtual {p0, v1}, Lcom/google/common/collect/CompactHashSet;->resizeEntries(I)V
 
     .line 644
-    :cond_2
+    :cond_27
     invoke-static {v1}, Lcom/google/common/collect/CompactHashing;->tableSize(I)I
 
     move-result v2
@@ -2038,7 +2038,7 @@
 
     .line 646
     .local v3, "mask":I
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_35
 
     .line 647
     const/4 v4, 0x0
@@ -2046,6 +2046,6 @@
     invoke-direct {p0, v3, v2, v4, v4}, Lcom/google/common/collect/CompactHashSet;->resizeTable(IIII)I
 
     .line 649
-    :cond_3
+    :cond_35
     return-void
 .end method

@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 983
     invoke-direct {p0}, Lokhttp3/internal/http2/Http2Connection$Listener;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public onStream(Lokhttp3/internal/http2/Http2Stream;)V
-    .locals 2
+    .registers 4
     .param p1, "stream"    # Lokhttp3/internal/http2/Http2Stream;
     .annotation system Ldalvik/annotation/Throws;
         value = {

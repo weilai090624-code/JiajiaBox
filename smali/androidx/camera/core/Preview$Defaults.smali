@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 620
     new-instance v0, Landroidx/camera/core/Preview$Builder;
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 613
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public bridge synthetic getConfig()Landroidx/camera/core/impl/Config;
-    .locals 1
+    .registers 2
 
     .line 612
     invoke-virtual {p0}, Landroidx/camera/core/Preview$Defaults;->getConfig()Landroidx/camera/core/impl/PreviewConfig;
@@ -92,7 +92,7 @@
 .end method
 
 .method public getConfig()Landroidx/camera/core/impl/PreviewConfig;
-    .locals 1
+    .registers 2
 
     .line 628
     sget-object v0, Landroidx/camera/core/Preview$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/PreviewConfig;

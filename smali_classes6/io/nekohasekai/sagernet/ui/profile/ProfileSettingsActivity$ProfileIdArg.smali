@@ -80,7 +80,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg$Creator;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public constructor <init>(JJ)V
-    .locals 0
+    .registers 5
     .param p1, "profileId"    # J
     .param p3, "groupId"    # J
 
@@ -109,22 +109,22 @@
 .end method
 
 .method public static synthetic copy$default(Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;JJILjava/lang/Object;)Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;
-    .locals 0
+    .registers 7
 
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_6
 
     iget-wide p1, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;->profileId:J
 
-    :cond_0
+    :cond_6
     and-int/lit8 p5, p5, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_c
 
     iget-wide p3, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;->groupId:J
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2, p3, p4}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;->copy(JJ)Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;
 
     move-result-object p0
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public final component1()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;->profileId:J
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public final component2()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;->groupId:J
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public final copy(JJ)Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;
-    .locals 1
+    .registers 6
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public final describeContents()I
-    .locals 1
+    .registers 2
 
     .line 66
     nop
@@ -173,24 +173,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;
@@ -201,27 +201,27 @@
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_16
 
     return v2
 
-    :cond_2
+    :cond_16
     iget-wide v3, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;->groupId:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;->groupId:J
 
     cmp-long v1, v3, v5
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     return v0
 .end method
 
 .method public final getGroupId()J
-    .locals 2
+    .registers 3
 
     .line 67
     iget-wide v0, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;->groupId:J
@@ -230,7 +230,7 @@
 .end method
 
 .method public final getProfileId()J
-    .locals 2
+    .registers 3
 
     .line 67
     iget-wide v0, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;->profileId:J
@@ -239,7 +239,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$ProfileIdArg;->profileId:J
 
@@ -261,7 +261,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -305,7 +305,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+    .registers 5
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

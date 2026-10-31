@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/internal/ClassValueCtorCache;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 106
     invoke-direct {p0}, Lkotlinx/coroutines/internal/CtorCache;-><init>()V
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/Class;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {

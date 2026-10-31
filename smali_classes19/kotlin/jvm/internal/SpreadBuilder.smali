@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 17
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 55
@@ -50,19 +50,19 @@
 .end method
 
 .method public addSpread(Ljava/lang/Object;)V
-    .locals 4
+    .registers 6
     .param p1, "container"    # Ljava/lang/Object;
 
     .line 23
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-void
 
     .line 25
-    :cond_0
+    :cond_3
     instance-of v0, p1, [Ljava/lang/Object;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     .line 26
     move-object v0, p1
@@ -75,7 +75,7 @@
     .local v0, "array":[Ljava/lang/Object;
     array-length v1, v0
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_21
 
     .line 28
     iget-object v1, p0, Lkotlin/jvm/internal/SpreadBuilder;->list:Ljava/util/ArrayList;
@@ -99,14 +99,14 @@
 
     .line 31
     .end local v0    # "array":[Ljava/lang/Object;
-    :cond_1
-    goto :goto_2
+    :cond_21
+    goto :goto_63
 
     .line 32
-    :cond_2
+    :cond_22
     instance-of v0, p1, Ljava/util/Collection;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2f
 
     .line 33
     iget-object v0, p0, Lkotlin/jvm/internal/SpreadBuilder;->list:Ljava/util/ArrayList;
@@ -117,13 +117,13 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    goto :goto_2
+    goto :goto_63
 
     .line 35
-    :cond_3
+    :cond_2f
     instance-of v0, p1, Ljava/lang/Iterable;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4b
 
     .line 36
     move-object v0, p1
@@ -134,12 +134,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_3a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -153,16 +153,16 @@
 
     .line 38
     .end local v1    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_3a
 
-    :cond_4
-    goto :goto_2
+    :cond_4a
+    goto :goto_63
 
     .line 40
-    :cond_5
+    :cond_4b
     instance-of v0, p1, Ljava/util/Iterator;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_64
 
     .line 41
     move-object v0, p1
@@ -170,12 +170,12 @@
     check-cast v0, Ljava/util/Iterator;
 
     .local v0, "iterator":Ljava/util/Iterator;
-    :goto_1
+    :goto_52
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_62
 
     .line 42
     iget-object v1, p0, Lkotlin/jvm/internal/SpreadBuilder;->list:Ljava/util/ArrayList;
@@ -186,18 +186,18 @@
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_52
 
     .end local v0    # "iterator":Ljava/util/Iterator;
-    :cond_6
+    :cond_62
     nop
 
     .line 48
-    :goto_2
+    :goto_63
     return-void
 
     .line 46
-    :cond_7
+    :cond_64
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -228,7 +228,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 51
     iget-object v0, p0, Lkotlin/jvm/internal/SpreadBuilder;->list:Ljava/util/ArrayList;
@@ -241,7 +241,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "a"    # [Ljava/lang/Object;
 
     .line 59

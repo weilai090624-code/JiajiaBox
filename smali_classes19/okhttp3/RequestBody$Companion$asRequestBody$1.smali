@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/MediaType;Ljava/io/File;)V
-    .locals 0
+    .registers 3
     .param p1, "$contentType"    # Lokhttp3/MediaType;
     .param p2, "$receiver"    # Ljava/io/File;
 
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public contentLength()J
-    .locals 2
+    .registers 3
 
     .line 183
     iget-object v0, p0, Lokhttp3/RequestBody$Companion$asRequestBody$1;->$this_asRequestBody:Ljava/io/File;
@@ -82,7 +82,7 @@
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .registers 2
 
     .line 181
     iget-object v0, p0, Lokhttp3/RequestBody$Companion$asRequestBody$1;->$contentType:Lokhttp3/MediaType;
@@ -91,7 +91,7 @@
 .end method
 
 .method public writeTo(Lokio/BufferedSink;)V
-    .locals 4
+    .registers 6
     .param p1, "sink"    # Lokio/BufferedSink;
 
     const-string v0, "sink"
@@ -113,7 +113,7 @@
 
     check-cast v2, Ljava/lang/Throwable;
 
-    :try_start_0
+    :try_start_11
     move-object v2, v0
 
     check-cast v2, Lokio/Source;
@@ -125,8 +125,8 @@
     .line 186
     .local v3, "$i$a$-use-RequestBody$Companion$asRequestBody$1$writeTo$1":I
     invoke-interface {p1, v2}, Lokio/BufferedSink;->writeAll(Lokio/Source;)J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_11 .. :try_end_18} :catchall_1c
 
     .end local v2    # "source":Lokio/Source;
     .end local v3    # "$i$a$-use-RequestBody$Companion$asRequestBody$1$writeTo$1":I
@@ -136,17 +136,17 @@
     return-void
 
     .line 186
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     .end local p1    # "sink":Lokio/BufferedSink;
-    :try_start_1
+    :try_start_1d
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_1e
+    .catchall {:try_start_1d .. :try_end_1e} :catchall_1e
 
     .restart local p1    # "sink":Lokio/BufferedSink;
-    :catchall_1
+    :catchall_1e
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V

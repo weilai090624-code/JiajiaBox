@@ -46,7 +46,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lkotlin/io/path/OnErrorResult;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x2
 
@@ -68,7 +68,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 21
     new-instance v0, Lkotlin/io/path/OnErrorResult;
@@ -112,7 +112,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -129,7 +129,7 @@
 .end method
 
 .method public static getEntries()Lkotlin/enums/EnumEntries;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -145,7 +145,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lkotlin/io/path/OnErrorResult;
-    .locals 1
+    .registers 2
 
     const-class v0, Lkotlin/io/path/OnErrorResult;
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public static values()[Lkotlin/io/path/OnErrorResult;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lkotlin/io/path/OnErrorResult;->$VALUES:[Lkotlin/io/path/OnErrorResult;
 

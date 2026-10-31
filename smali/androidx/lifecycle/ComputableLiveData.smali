@@ -91,7 +91,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$3YPDTAMNTCGT-z9DkpLbjudOC6w(Landroidx/lifecycle/ComputableLiveData;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/lifecycle/ComputableLiveData;->refreshRunnable$lambda$0(Landroidx/lifecycle/ComputableLiveData;)V
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$7oABH0_b7KfpQ6DlyqjjKM5jdaU(Landroidx/lifecycle/ComputableLiveData;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/lifecycle/ComputableLiveData;->invalidationRunnable$lambda$1(Landroidx/lifecycle/ComputableLiveData;)V
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     const-string v0, "executor"
@@ -183,12 +183,12 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/util/concurrent/Executor;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 44
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 45
     invoke-static {}, Landroidx/arch/core/executor/ArchTaskExecutor;->getIOThreadExecutor()Ljava/util/concurrent/Executor;
@@ -200,7 +200,7 @@
     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 44
-    :cond_0
+    :cond_d
     invoke-direct {p0, p1}, Landroidx/lifecycle/ComputableLiveData;-><init>(Ljava/util/concurrent/Executor;)V
 
     .line 118
@@ -208,19 +208,19 @@
 .end method
 
 .method public static synthetic getInvalidationRunnable$lifecycle_livedata_release$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getRefreshRunnable$lifecycle_livedata_release$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private static final invalidationRunnable$lambda$1(Landroidx/lifecycle/ComputableLiveData;)V
-    .locals 4
+    .registers 5
     .param p0, "this$0"    # Landroidx/lifecycle/ComputableLiveData;
 
     const-string/jumbo v0, "this$0"
@@ -248,10 +248,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 100
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 101
     iget-object v1, p0, Landroidx/lifecycle/ComputableLiveData;->executor:Ljava/util/concurrent/Executor;
@@ -261,12 +261,12 @@
     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     .line 104
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 .method private static final refreshRunnable$lambda$0(Landroidx/lifecycle/ComputableLiveData;)V
-    .locals 5
+    .registers 6
     .param p0, "this$0"    # Landroidx/lifecycle/ComputableLiveData;
 
     const-string/jumbo v0, "this$0"
@@ -277,7 +277,7 @@
 
     .line 66
     .local v0, "computed":Z
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     .line 68
@@ -291,7 +291,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_39
 
     .line 70
     nop
@@ -301,15 +301,15 @@
 
     .line 72
     .local v1, "value":Ljava/lang/Object;
-    :goto_0
-    :try_start_0
+    :goto_14
+    :try_start_14
     iget-object v4, p0, Landroidx/lifecycle/ComputableLiveData;->invalid:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v4, v3, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_23
 
     .line 73
     const/4 v0, 0x1
@@ -321,11 +321,11 @@
 
     move-object v1, v4
 
-    goto :goto_0
+    goto :goto_14
 
     .line 76
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_23
+    if-eqz v0, :cond_2c
 
     .line 77
     invoke-virtual {p0}, Landroidx/lifecycle/ComputableLiveData;->getLiveData()Landroidx/lifecycle/LiveData;
@@ -333,21 +333,21 @@
     move-result-object v3
 
     invoke-virtual {v3, v1}, Landroidx/lifecycle/LiveData;->postValue(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_14 .. :try_end_2c} :catchall_32
 
     .line 81
     .end local v1    # "value":Ljava/lang/Object;
-    :cond_2
+    :cond_2c
     iget-object v1, p0, Landroidx/lifecycle/ComputableLiveData;->computing:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 82
-    goto :goto_1
+    goto :goto_39
 
     .line 81
-    :catchall_0
+    :catchall_32
     move-exception v1
 
     iget-object v3, p0, Landroidx/lifecycle/ComputableLiveData;->computing:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -357,9 +357,9 @@
     throw v1
 
     .line 91
-    :cond_3
-    :goto_1
-    if-eqz v0, :cond_4
+    :cond_39
+    :goto_39
+    if-eqz v0, :cond_43
 
     iget-object v1, p0, Landroidx/lifecycle/ComputableLiveData;->invalid:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -367,10 +367,10 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_7
 
     .line 92
-    :cond_4
+    :cond_43
     return-void
 .end method
 
@@ -385,7 +385,7 @@
 .end method
 
 .method public final getComputing$lifecycle_livedata_release()Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Landroidx/lifecycle/ComputableLiveData;->computing:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -394,7 +394,7 @@
 .end method
 
 .method public final getExecutor$lifecycle_livedata_release()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Landroidx/lifecycle/ComputableLiveData;->executor:Ljava/util/concurrent/Executor;
@@ -403,7 +403,7 @@
 .end method
 
 .method public final getInvalid$lifecycle_livedata_release()Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Landroidx/lifecycle/ComputableLiveData;->invalid:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -412,7 +412,7 @@
 .end method
 
 .method public getLiveData()Landroidx/lifecycle/LiveData;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -428,7 +428,7 @@
 .end method
 
 .method public invalidate()V
-    .locals 2
+    .registers 3
 
     .line 112
     invoke-static {}, Landroidx/arch/core/executor/ArchTaskExecutor;->getInstance()Landroidx/arch/core/executor/ArchTaskExecutor;

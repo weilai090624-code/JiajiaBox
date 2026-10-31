@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 42
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -70,14 +70,14 @@
 
 # virtual methods
 .method protected declared-synchronized onMeasure(II)V
-    .locals 4
+    .registers 7
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
     monitor-enter p0
 
     .line 61
-    :try_start_0
+    :try_start_1
     invoke-super {p0, p1, p2}, Landroid/widget/RatingBar;->onMeasure(II)V
 
     .line 63
@@ -89,7 +89,7 @@
 
     .line 64
     .local v0, "sampleTile":Landroid/graphics/Bitmap;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 65
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -117,13 +117,13 @@
 
     .line 66
     invoke-virtual {p0, v2, v3}, Landroidx/appcompat/widget/AppCompatRatingBar;->setMeasuredDimension(II)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_1 .. :try_end_22} :catchall_24
 
     .line 69
     .end local v1    # "width":I
     .end local p0    # "this":Landroidx/appcompat/widget/AppCompatRatingBar;
-    :cond_0
+    :cond_22
     monitor-exit p0
 
     return-void
@@ -132,13 +132,13 @@
     .end local v0    # "sampleTile":Landroid/graphics/Bitmap;
     .end local p1    # "widthMeasureSpec":I
     .end local p2    # "heightMeasureSpec":I
-    :catchall_0
+    :catchall_24
     move-exception p1
 
-    :try_start_1
+    :try_start_25
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_26
+    .catchall {:try_start_25 .. :try_end_26} :catchall_24
 
     throw p1
 .end method

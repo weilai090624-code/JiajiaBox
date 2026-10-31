@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     .local p0, "this":Lcom/google/common/util/concurrent/GwtFluentFutureCatchingSpecialization;, "Lcom/google/common/util/concurrent/GwtFluentFutureCatchingSpecialization<TV;>;"

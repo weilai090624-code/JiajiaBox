@@ -95,7 +95,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$1HpA9l4DCyKYHMSQDYtfGikaSK0(Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->createPreferences$lambda$3(Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$_AkONUy48vMayPbfk92jgBiTh0I(Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->createPreferences$lambda$4(Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 15
     const/4 v0, 0x1
@@ -171,7 +171,7 @@
 .end method
 
 .method private static final createPreferences$lambda$3(Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -197,7 +197,7 @@
 .end method
 
 .method private static final createPreferences$lambda$4(Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -225,7 +225,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
@@ -238,7 +238,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
-    .locals 1
+    .registers 2
 
     .line 17
     new-instance v0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
@@ -249,7 +249,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 3
+    .registers 7
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -434,7 +434,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_ac
 
     .line 88
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->getNetwork()Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
@@ -450,7 +450,7 @@
     invoke-virtual {v0, v1}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->setValue(Ljava/lang/String;)V
 
     .line 91
-    :cond_0
+    :cond_ac
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->getNetwork()Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
 
     move-result-object v0
@@ -520,16 +520,16 @@
 .end method
 
 .method public final getEncryprtion()Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->encryprtion:Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "encryprtion"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -540,16 +540,16 @@
 .end method
 
 .method public final getMethod()Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
-    .locals 1
+    .registers 2
 
     .line 62
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->method:Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "method"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -560,16 +560,16 @@
 .end method
 
 .method public final getNetwork()Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->network:Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "network"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -580,16 +580,16 @@
 .end method
 
 .method public final getSsCategory()Landroidx/preference/PreferenceCategory;
-    .locals 1
+    .registers 2
 
     .line 61
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->ssCategory:Landroidx/preference/PreferenceCategory;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "ssCategory"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -600,7 +600,7 @@
 .end method
 
 .method public final getTrojanGoMethods()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->trojanGoMethods:[Ljava/lang/String;
@@ -609,7 +609,7 @@
 .end method
 
 .method public final getTrojanGoNetworks()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 65
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->trojanGoNetworks:[Ljava/lang/String;
@@ -618,16 +618,16 @@
 .end method
 
 .method public final getWsCategory()Landroidx/preference/PreferenceCategory;
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->wsCategory:Landroidx/preference/PreferenceCategory;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "wsCategory"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -638,7 +638,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 15
@@ -652,7 +652,7 @@
 .end method
 
 .method public init(Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;)V
-    .locals 6
+    .registers 8
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
 
     const-string v0, "<this>"
@@ -749,7 +749,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8a
 
     .line 30
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -792,10 +792,10 @@
 
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setServerPassword1(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_91
 
     .line 34
-    :cond_0
+    :cond_8a
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     iget-object v1, p1, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->encryption:Ljava/lang/String;
@@ -803,12 +803,12 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setServerEncryption(Ljava/lang/String;)V
 
     .line 36
-    :goto_0
+    :goto_91
     return-void
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 15
@@ -822,7 +822,7 @@
 .end method
 
 .method public serialize(Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;)V
-    .locals 3
+    .registers 5
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
 
     const-string v0, "<this>"
@@ -933,7 +933,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8e
 
     .line 50
     new-instance v1, Ljava/lang/StringBuilder;
@@ -978,15 +978,15 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_8f
 
     .line 53
-    :cond_0
+    :cond_8e
     nop
 
     .line 48
     .end local v0    # "security":Ljava/lang/String;
-    :goto_0
+    :goto_8f
     iput-object v0, p1, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->encryption:Ljava/lang/String;
 
     .line 56
@@ -994,7 +994,7 @@
 .end method
 
 .method public final setEncryprtion(Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
 
     const-string v0, "<set-?>"
@@ -1008,7 +1008,7 @@
 .end method
 
 .method public final setMethod(Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
 
     const-string v0, "<set-?>"
@@ -1022,7 +1022,7 @@
 .end method
 
 .method public final setNetwork(Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
 
     const-string v0, "<set-?>"
@@ -1036,7 +1036,7 @@
 .end method
 
 .method public final setSsCategory(Landroidx/preference/PreferenceCategory;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/preference/PreferenceCategory;
 
     const-string v0, "<set-?>"
@@ -1050,7 +1050,7 @@
 .end method
 
 .method public final setWsCategory(Landroidx/preference/PreferenceCategory;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/preference/PreferenceCategory;
 
     const-string v0, "<set-?>"
@@ -1064,7 +1064,7 @@
 .end method
 
 .method public final updateEncryption(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "encryption"    # Ljava/lang/String;
 
     const-string v0, "encryption"
@@ -1083,7 +1083,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
     .line 118
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->getSsCategory()Landroidx/preference/PreferenceCategory;
@@ -1109,7 +1109,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3a
 
     .line 121
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->getMethod()Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
@@ -1122,10 +1122,10 @@
 
     invoke-virtual {v0, v1}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->setValue(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 125
-    :cond_0
+    :cond_33
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->getSsCategory()Landroidx/preference/PreferenceCategory;
 
     move-result-object v0
@@ -1133,13 +1133,13 @@
     invoke-virtual {v0, v1}, Landroidx/preference/PreferenceCategory;->setVisible(Z)V
 
     .line 128
-    :cond_1
-    :goto_0
+    :cond_3a
+    :goto_3a
     return-void
 .end method
 
 .method public final updateNetwork(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "newNet"    # Ljava/lang/String;
 
     const-string v0, "newNet"
@@ -1156,7 +1156,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 107
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->getWsCategory()Landroidx/preference/PreferenceCategory;
@@ -1167,10 +1167,10 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/PreferenceCategory;->setVisible(Z)V
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 110
-    :cond_0
+    :cond_17
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/TrojanGoSettingsActivity;->getWsCategory()Landroidx/preference/PreferenceCategory;
 
     move-result-object v0
@@ -1180,6 +1180,6 @@
     invoke-virtual {v0, v1}, Landroidx/preference/PreferenceCategory;->setVisible(Z)V
 
     .line 113
-    :goto_0
+    :goto_1f
     return-void
 .end method

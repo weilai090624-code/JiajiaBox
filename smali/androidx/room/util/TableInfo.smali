@@ -105,7 +105,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/util/TableInfo$Companion;
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/Map;Ljava/util/Set;)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "columns"    # Ljava/util/Map;
     .param p3, "foreignKeys"    # Ljava/util/Set;
@@ -160,7 +160,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/Map;Ljava/util/Set;Ljava/util/Set;)V
-    .locals 1
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "columns"    # Ljava/util/Map;
     .param p3, "foreignKeys"    # Ljava/util/Set;
@@ -214,18 +214,18 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;Ljava/util/Map;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 7
 
     .line 41
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 52
     const/4 p4, 0x0
 
     .line 41
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/room/util/TableInfo;-><init>(Ljava/lang/String;Ljava/util/Map;Ljava/util/Set;Ljava/util/Set;)V
 
     .line 463
@@ -233,7 +233,7 @@
 .end method
 
 .method public static final read(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Landroidx/room/util/TableInfo;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -249,28 +249,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 72
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 73
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/room/util/TableInfo;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 74
-    :cond_1
+    :cond_a
     iget-object v1, p0, Landroidx/room/util/TableInfo;->name:Ljava/lang/String;
 
     move-object v3, p1
@@ -283,12 +283,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
     .line 75
-    :cond_2
+    :cond_18
     iget-object v1, p0, Landroidx/room/util/TableInfo;->columns:Ljava/util/Map;
 
     move-object v3, p1
@@ -301,13 +301,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_26
 
     .line 76
     return v2
 
     .line 78
-    :cond_3
+    :cond_26
     iget-object v1, p0, Landroidx/room/util/TableInfo;->foreignKeys:Ljava/util/Set;
 
     move-object v3, p1
@@ -320,16 +320,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_34
 
     .line 79
     return v2
 
     .line 81
-    :cond_4
+    :cond_34
     iget-object v1, p0, Landroidx/room/util/TableInfo;->indices:Ljava/util/Set;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_4c
 
     move-object v1, p1
 
@@ -337,12 +337,12 @@
 
     iget-object v1, v1, Landroidx/room/util/TableInfo;->indices:Ljava/util/Set;
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_40
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 85
-    :cond_5
+    :cond_40
     iget-object v0, p0, Landroidx/room/util/TableInfo;->indices:Ljava/util/Set;
 
     move-object v1, p1
@@ -355,20 +355,20 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 84
-    :cond_6
-    :goto_0
+    :cond_4c
+    :goto_4c
     nop
 
     .line 81
-    :goto_1
+    :goto_4d
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 89
     iget-object v0, p0, Landroidx/room/util/TableInfo;->name:Ljava/lang/String;
@@ -409,7 +409,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 97
     new-instance v0, Ljava/lang/StringBuilder;

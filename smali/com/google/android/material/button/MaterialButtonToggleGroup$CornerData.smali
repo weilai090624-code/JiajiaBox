@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 801
     new-instance v0, Lcom/google/android/material/shape/AbsoluteCornerSize;
@@ -45,7 +45,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;)V
-    .locals 0
+    .registers 5
     .param p1, "topLeft"    # Lcom/google/android/material/shape/CornerSize;
     .param p2, "bottomLeft"    # Lcom/google/android/material/shape/CornerSize;
     .param p3, "topRight"    # Lcom/google/android/material/shape/CornerSize;
@@ -71,7 +71,7 @@
 .end method
 
 .method public static bottom(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
-    .locals 5
+    .registers 6
     .param p0, "orig"    # Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     .line 843
@@ -91,7 +91,7 @@
 .end method
 
 .method public static end(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;Landroid/view/View;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
-    .locals 1
+    .registers 3
     .param p0, "orig"    # Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
     .param p1, "view"    # Landroid/view/View;
 
@@ -100,25 +100,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-static {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;->left(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-static {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;->right(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method public static left(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
-    .locals 5
+    .registers 6
     .param p0, "orig"    # Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     .line 828
@@ -138,7 +138,7 @@
 .end method
 
 .method public static right(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
-    .locals 5
+    .registers 6
     .param p0, "orig"    # Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     .line 833
@@ -158,7 +158,7 @@
 .end method
 
 .method public static start(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;Landroid/view/View;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
-    .locals 1
+    .registers 3
     .param p0, "orig"    # Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
     .param p1, "view"    # Landroid/view/View;
 
@@ -167,25 +167,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-static {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;->right(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-static {p0}, Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;->left(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method public static top(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
-    .locals 5
+    .registers 6
     .param p0, "orig"    # Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;
 
     .line 838

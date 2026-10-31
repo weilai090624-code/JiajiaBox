@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 .end method
 
 .method private static getJavaLangObjectConstructor()Ljava/lang/reflect/Constructor;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -98,13 +98,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_a} :catch_b
 
     return-object v0
 
     .line 59
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 60
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -140,13 +140,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_a} :catch_b
 
     return-object v0
 
     .line 50
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 51

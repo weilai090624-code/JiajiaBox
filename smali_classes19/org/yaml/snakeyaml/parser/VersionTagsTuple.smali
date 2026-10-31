@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/DumperOptions$Version;Ljava/util/Map;)V
-    .locals 0
+    .registers 3
     .param p1, "version"    # Lorg/yaml/snakeyaml/DumperOptions$Version;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getTags()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -68,7 +68,7 @@
 .end method
 
 .method public getVersion()Lorg/yaml/snakeyaml/DumperOptions$Version;
-    .locals 1
+    .registers 2
 
     .line 35
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/VersionTagsTuple;->version:Lorg/yaml/snakeyaml/DumperOptions$Version;
@@ -77,7 +77,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 44
     iget-object v0, p0, Lorg/yaml/snakeyaml/parser/VersionTagsTuple;->version:Lorg/yaml/snakeyaml/DumperOptions$Version;

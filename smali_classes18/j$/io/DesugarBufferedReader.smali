@@ -4,7 +4,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -12,7 +12,7 @@
 .end method
 
 .method public static lines(Ljava/io/BufferedReader;)Lj$/util/stream/Stream;
-    .locals 3
+    .registers 4
     .param p0, "this"    # Ljava/io/BufferedReader;
 
     .line 566

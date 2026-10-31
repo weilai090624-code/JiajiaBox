@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/layout/WindowMetricsCalculator$Companion;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public final getOrCreate()Landroidx/window/layout/WindowMetricsCalculator;
-    .locals 2
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public final overrideDecorator(Landroidx/window/layout/WindowMetricsCalculatorDecorator;)V
-    .locals 1
+    .registers 3
     .param p1, "overridingDecorator"    # Landroidx/window/layout/WindowMetricsCalculatorDecorator;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -133,7 +133,7 @@
 .end method
 
 .method public final reset()V
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 

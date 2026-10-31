@@ -91,7 +91,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/CertificatePinner$Companion;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Set;Lokhttp3/internal/tls/CertificateChainCleaner;)V
-    .locals 1
+    .registers 4
     .param p1, "pins"    # Ljava/util/Set;
     .param p2, "certificateChainCleaner"    # Lokhttp3/internal/tls/CertificateChainCleaner;
     .annotation system Ldalvik/annotation/Signature;
@@ -148,18 +148,18 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/util/Set;Lokhttp3/internal/tls/CertificateChainCleaner;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 136
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 138
     const/4 p2, 0x0
 
     .line 136
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Lokhttp3/CertificatePinner;-><init>(Ljava/util/Set;Lokhttp3/internal/tls/CertificateChainCleaner;)V
 
     .line 369
@@ -167,7 +167,7 @@
 .end method
 
 .method public static final pin(Ljava/security/cert/Certificate;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -181,7 +181,7 @@
 .end method
 
 .method public static final sha1Hash(Ljava/security/cert/X509Certificate;)Lokio/ByteString;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -195,7 +195,7 @@
 .end method
 
 .method public static final sha256Hash(Ljava/security/cert/X509Certificate;)Lokio/ByteString;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -211,7 +211,7 @@
 
 # virtual methods
 .method public final check(Ljava/lang/String;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p1, "hostname"    # Ljava/lang/String;
     .param p2, "peerCertificates"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -252,7 +252,7 @@
 .end method
 
 .method public final varargs check(Ljava/lang/String;[Ljava/security/cert/Certificate;)V
-    .locals 1
+    .registers 4
     .param p1, "hostname"    # Ljava/lang/String;
     .param p2, "peerCertificates"    # [Ljava/security/cert/Certificate;
     .annotation system Ldalvik/annotation/Throws;
@@ -289,7 +289,7 @@
 .end method
 
 .method public final check$okhttp(Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
-    .locals 10
+    .registers 13
     .param p1, "hostname"    # Ljava/lang/String;
     .param p2, "cleanedPeerCertificatesFn"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -324,12 +324,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     return-void
 
     .line 160
-    :cond_0
+    :cond_15
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
@@ -342,12 +342,12 @@
 
     move-result-object v2
 
-    :cond_1
+    :cond_1f
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_87
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -369,12 +369,12 @@
 
     move-result-object v6
 
-    :cond_2
+    :cond_31
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_1f
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -395,10 +395,10 @@
 
     move-result v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_5c
 
     .line 170
-    if-nez v5, :cond_3
+    if-nez v5, :cond_51
 
     sget-object v8, Lokhttp3/CertificatePinner;->Companion:Lokhttp3/CertificatePinner$Companion;
 
@@ -407,7 +407,7 @@
     move-result-object v5
 
     .line 171
-    :cond_3
+    :cond_51
     invoke-virtual {v7}, Lokhttp3/CertificatePinner$Pin;->getHash()Lokio/ByteString;
 
     move-result-object v8
@@ -416,22 +416,22 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_31
 
     return-void
 
     .line 173
-    :cond_4
+    :cond_5c
     const-string v9, "sha1"
 
     invoke-static {v8, v9}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_77
 
     .line 174
-    if-nez v4, :cond_5
+    if-nez v4, :cond_6c
 
     sget-object v8, Lokhttp3/CertificatePinner;->Companion:Lokhttp3/CertificatePinner$Companion;
 
@@ -440,7 +440,7 @@
     move-result-object v4
 
     .line 175
-    :cond_5
+    :cond_6c
     invoke-virtual {v7}, Lokhttp3/CertificatePinner$Pin;->getHash()Lokio/ByteString;
 
     move-result-object v8
@@ -449,12 +449,12 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_31
 
     return-void
 
     .line 177
-    :cond_6
+    :cond_77
     new-instance v2, Ljava/lang/AssertionError;
 
     const-string v6, "unsupported hashAlgorithm: "
@@ -476,7 +476,7 @@
     .end local v4    # "sha1":Lokio/ByteString;
     .end local v5    # "sha256":Lokio/ByteString;
     .end local v7    # "pin":Lokhttp3/CertificatePinner$Pin;
-    :cond_7
+    :cond_87
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -502,14 +502,14 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_9c
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
     const-string v7, "\n    "
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_ca
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -550,11 +550,11 @@
 
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_9c
 
     .line 192
     .end local v6    # "element":Ljava/security/cert/X509Certificate;
-    :cond_8
+    :cond_ca
     const-string v5, "\n  Pinned certificates for "
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -572,12 +572,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_db
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_ee
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -592,11 +592,11 @@
     .line 197
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_db
 
     .line 199
     .end local v6    # "pin":Lokhttp3/CertificatePinner$Pin;
-    :cond_9
+    :cond_ee
     nop
 
     .line 183
@@ -620,13 +620,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 230
     instance-of v0, p1, Lokhttp3/CertificatePinner;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 231
     move-object v0, p1
@@ -641,7 +641,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 232
     move-object v0, p1
@@ -656,22 +656,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v0, 0x0
 
     .line 230
-    :goto_0
+    :goto_21
     return v0
 .end method
 
 .method public final findMatchingPins(Ljava/lang/String;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p1, "hostname"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -708,13 +708,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_12
+    :goto_12
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3c
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -737,14 +737,14 @@
 
     .end local v5    # "$this$findMatchingPins_u24lambda_u2d1":Lokhttp3/CertificatePinner$Pin;
     .end local v6    # "$i$a$-filterList-CertificatePinner$findMatchingPins$1":I
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_12
 
     .line 374
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_34
 
     new-instance v5, Ljava/util/ArrayList;
 
@@ -755,18 +755,18 @@
     check-cast v2, Ljava/util/List;
 
     .line 375
-    :cond_1
+    :cond_34
     invoke-static {v2}, Lkotlin/jvm/internal/TypeIntrinsics;->asMutableList(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v5
 
     invoke-interface {v5, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_12
 
     .line 378
     .end local v4    # "i$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_3c
     nop
 
     .line 216
@@ -777,7 +777,7 @@
 .end method
 
 .method public final getCertificateChainCleaner$okhttp()Lokhttp3/internal/tls/CertificateChainCleaner;
-    .locals 1
+    .registers 2
 
     .line 138
     iget-object v0, p0, Lokhttp3/CertificatePinner;->certificateChainCleaner:Lokhttp3/internal/tls/CertificateChainCleaner;
@@ -786,7 +786,7 @@
 .end method
 
 .method public final getPins()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -803,7 +803,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 236
     const/16 v0, 0x25
@@ -827,18 +827,18 @@
 
     iget-object v2, p0, Lokhttp3/CertificatePinner;->certificateChainCleaner:Lokhttp3/internal/tls/CertificateChainCleaner;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_17
     add-int/2addr v0, v2
 
     .line 239
@@ -848,7 +848,7 @@
 .end method
 
 .method public final withCertificateChainCleaner$okhttp(Lokhttp3/internal/tls/CertificateChainCleaner;)Lokhttp3/CertificatePinner;
-    .locals 2
+    .registers 4
     .param p1, "certificateChainCleaner"    # Lokhttp3/internal/tls/CertificateChainCleaner;
 
     const-string v0, "certificateChainCleaner"
@@ -862,15 +862,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 223
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_16
 
     .line 225
-    :cond_0
+    :cond_f
     new-instance v0, Lokhttp3/CertificatePinner;
 
     iget-object v1, p0, Lokhttp3/CertificatePinner;->pins:Ljava/util/Set;
@@ -878,6 +878,6 @@
     invoke-direct {v0, v1, p1}, Lokhttp3/CertificatePinner;-><init>(Ljava/util/Set;Lokhttp3/internal/tls/CertificateChainCleaner;)V
 
     .line 222
-    :goto_0
+    :goto_16
     return-object v0
 .end method

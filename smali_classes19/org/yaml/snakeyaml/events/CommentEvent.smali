@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/comments/CommentType;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 2
+    .registers 7
     .param p1, "type"    # Lorg/yaml/snakeyaml/comments/CommentType;
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -21,13 +21,13 @@
     invoke-direct {p0, p3, p4}, Lorg/yaml/snakeyaml/events/Event;-><init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .line 30
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_14
 
     .line 31
     iput-object p1, p0, Lorg/yaml/snakeyaml/events/CommentEvent;->type:Lorg/yaml/snakeyaml/comments/CommentType;
 
     .line 32
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_c
 
     .line 33
     iput-object p2, p0, Lorg/yaml/snakeyaml/events/CommentEvent;->value:Ljava/lang/String;
@@ -36,7 +36,7 @@
     return-void
 
     .line 32
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Value must be provided."
@@ -46,7 +46,7 @@
     throw v0
 
     .line 30
-    :cond_1
+    :cond_14
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Event Type must be provided."
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method protected getArguments()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 59
     new-instance v0, Ljava/lang/StringBuilder;
@@ -106,7 +106,7 @@
 .end method
 
 .method public getCommentType()Lorg/yaml/snakeyaml/comments/CommentType;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/CommentEvent;->type:Lorg/yaml/snakeyaml/comments/CommentType;
@@ -115,7 +115,7 @@
 .end method
 
 .method public getEventId()Lorg/yaml/snakeyaml/events/Event$ID;
-    .locals 1
+    .registers 2
 
     .line 64
     sget-object v0, Lorg/yaml/snakeyaml/events/Event$ID;->Comment:Lorg/yaml/snakeyaml/events/Event$ID;
@@ -124,7 +124,7 @@
 .end method
 
 .method public getValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/CommentEvent;->value:Ljava/lang/String;

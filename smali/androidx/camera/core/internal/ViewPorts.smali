@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static calculateViewPortRects(Landroid/graphics/Rect;ZLandroid/util/Rational;IIILjava/util/Map;)Ljava/util/Map;
-    .locals 15
+    .registers 22
     .param p0, "fullSensorRect"    # Landroid/graphics/Rect;
     .param p1, "isFrontCamera"    # Z
     .param p2, "viewPortAspectRatio"    # Landroid/util/Rational;
@@ -70,23 +70,23 @@
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_f
 
     invoke-virtual {p0}, Landroid/graphics/Rect;->height()I
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_f
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     .line 70
-    :goto_0
+    :goto_10
     const-string v2, "Cannot compute viewport crop rects zero sized sensor rect."
 
     invoke-static {v1, v2}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -118,12 +118,12 @@
 
     move-result-object v4
 
-    :goto_1
+    :goto_2c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_73
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -202,10 +202,10 @@
     .end local v6    # "useCaseToSensorTransformation":Landroid/graphics/Matrix;
     .end local v7    # "srcRect":Landroid/graphics/RectF;
     .end local v8    # "useCaseSensorRect":Landroid/graphics/RectF;
-    goto :goto_1
+    goto :goto_2c
 
     .line 99
-    :cond_1
+    :cond_73
     move-object/from16 v10, p2
 
     move/from16 v11, p3
@@ -260,12 +260,12 @@
 
     move-result-object v8
 
-    :goto_2
+    :goto_a0
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_ca
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -307,15 +307,15 @@
     .line 116
     .end local v9    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroidx/camera/core/UseCase;Landroid/graphics/Matrix;>;"
     .end local v13    # "outputCropRect":Landroid/graphics/Rect;
-    goto :goto_2
+    goto :goto_a0
 
     .line 117
-    :cond_2
+    :cond_ca
     return-object v5
 .end method
 
 .method private static correctStartOrEnd(ZILandroid/graphics/RectF;Landroid/graphics/RectF;)Landroid/graphics/RectF;
-    .locals 11
+    .registers 15
     .param p0, "isMirrored"    # Z
     .param p1, "rotationDegrees"    # I
     .param p2, "containerRect"    # Landroid/graphics/RectF;
@@ -340,154 +340,154 @@
 
     const/4 v1, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v2, 0x0
 
     .line 208
     .local v2, "ltrRotation0":Z
-    :goto_0
+    :goto_9
     const/16 v3, 0x5a
 
-    if-ne p1, v3, :cond_1
+    if-ne p1, v3, :cond_11
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_11
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
+    :cond_11
     const/4 v4, 0x0
 
     .line 209
     .local v4, "rtlRotation90":Z
-    :goto_1
-    if-nez v2, :cond_f
+    :goto_12
+    if-nez v2, :cond_9a
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_18
 
-    goto/16 :goto_b
+    goto/16 :goto_9a
 
     .line 218
-    :cond_2
-    if-nez p1, :cond_3
+    :cond_18
+    if-nez p1, :cond_1e
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_1e
 
     const/4 v5, 0x1
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_3
+    :cond_1e
     const/4 v5, 0x0
 
     .line 224
     .local v5, "rtlRotation0":Z
-    :goto_2
+    :goto_1f
     const/16 v6, 0x10e
 
-    if-ne p1, v6, :cond_4
+    if-ne p1, v6, :cond_27
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_27
 
     const/4 v7, 0x1
 
-    goto :goto_3
+    goto :goto_28
 
-    :cond_4
+    :cond_27
     const/4 v7, 0x0
 
     .line 225
     .local v7, "ltrRotation270":Z
-    :goto_3
-    if-nez v5, :cond_e
+    :goto_28
+    if-nez v5, :cond_91
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_2d
 
-    goto :goto_a
+    goto :goto_91
 
     .line 234
-    :cond_5
-    if-ne p1, v3, :cond_6
+    :cond_2d
+    if-ne p1, v3, :cond_33
 
-    if-nez p0, :cond_6
+    if-nez p0, :cond_33
 
     const/4 v3, 0x1
 
-    goto :goto_4
+    goto :goto_34
 
-    :cond_6
+    :cond_33
     const/4 v3, 0x0
 
     .line 240
     .local v3, "ltrRotation90":Z
-    :goto_4
+    :goto_34
     const/16 v8, 0xb4
 
-    if-ne p1, v8, :cond_7
+    if-ne p1, v8, :cond_3c
 
-    if-eqz p0, :cond_7
+    if-eqz p0, :cond_3c
 
     const/4 v9, 0x1
 
-    goto :goto_5
+    goto :goto_3d
 
-    :cond_7
+    :cond_3c
     const/4 v9, 0x0
 
     .line 241
     .local v9, "rtlRotation180":Z
-    :goto_5
-    if-nez v3, :cond_d
+    :goto_3d
+    if-nez v3, :cond_88
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_42
 
-    goto :goto_9
+    goto :goto_88
 
     .line 250
-    :cond_8
-    if-ne p1, v8, :cond_9
+    :cond_42
+    if-ne p1, v8, :cond_48
 
-    if-nez p0, :cond_9
+    if-nez p0, :cond_48
 
     const/4 v8, 0x1
 
-    goto :goto_6
+    goto :goto_49
 
-    :cond_9
+    :cond_48
     const/4 v8, 0x0
 
     .line 256
     .local v8, "ltrRotation180":Z
-    :goto_6
-    if-ne p1, v6, :cond_a
+    :goto_49
+    if-ne p1, v6, :cond_4e
 
-    if-eqz p0, :cond_a
+    if-eqz p0, :cond_4e
 
-    goto :goto_7
+    goto :goto_4f
 
-    :cond_a
+    :cond_4e
     const/4 v0, 0x0
 
     .line 257
     .local v0, "rtlRotation270":Z
-    :goto_7
-    if-nez v8, :cond_c
+    :goto_4f
+    if-nez v8, :cond_77
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_54
 
-    goto :goto_8
+    goto :goto_77
 
     .line 262
-    :cond_b
+    :cond_54
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -523,8 +523,8 @@
     throw v1
 
     .line 258
-    :cond_c
-    :goto_8
+    :cond_77
+    :goto_77
     invoke-virtual {p2}, Landroid/graphics/RectF;->centerY()F
 
     move-result v1
@@ -548,8 +548,8 @@
     .line 242
     .end local v0    # "rtlRotation270":Z
     .end local v8    # "ltrRotation180":Z
-    :cond_d
-    :goto_9
+    :cond_88
+    :goto_88
     invoke-virtual {p2}, Landroid/graphics/RectF;->centerY()F
 
     move-result v0
@@ -563,8 +563,8 @@
     .line 226
     .end local v3    # "ltrRotation90":Z
     .end local v9    # "rtlRotation180":Z
-    :cond_e
-    :goto_a
+    :cond_91
+    :goto_91
     invoke-virtual {p2}, Landroid/graphics/RectF;->centerX()F
 
     move-result v0
@@ -578,13 +578,13 @@
     .line 210
     .end local v5    # "rtlRotation0":Z
     .end local v7    # "ltrRotation270":Z
-    :cond_f
-    :goto_b
+    :cond_9a
+    :goto_9a
     return-object p3
 .end method
 
 .method private static flipHorizontally(Landroid/graphics/RectF;F)Landroid/graphics/RectF;
-    .locals 5
+    .registers 7
     .param p0, "original"    # Landroid/graphics/RectF;
     .param p1, "flipLineX"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -626,7 +626,7 @@
 .end method
 
 .method private static flipVertically(Landroid/graphics/RectF;F)Landroid/graphics/RectF;
-    .locals 5
+    .registers 7
     .param p0, "original"    # Landroid/graphics/RectF;
     .param p1, "flipLineY"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -668,7 +668,7 @@
 .end method
 
 .method private static flipX(FF)F
-    .locals 1
+    .registers 3
     .param p0, "x"    # F
     .param p1, "flipLineX"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -691,7 +691,7 @@
 .end method
 
 .method private static flipY(FF)F
-    .locals 1
+    .registers 3
     .param p0, "y"    # F
     .param p1, "flipLineY"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -714,7 +714,7 @@
 .end method
 
 .method public static getScaledRect(Landroid/graphics/RectF;Landroid/util/Rational;IZII)Landroid/graphics/RectF;
-    .locals 5
+    .registers 11
     .param p0, "fittingRect"    # Landroid/graphics/RectF;
     .param p1, "containerAspectRatio"    # Landroid/util/Rational;
     .param p2, "scaleType"    # I
@@ -743,13 +743,13 @@
     .line 138
     const/4 v0, 0x3
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_4
 
     .line 140
     return-object p0
 
     .line 148
-    :cond_0
+    :cond_4
     new-instance v0, Landroid/graphics/Matrix;
 
     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
@@ -777,7 +777,7 @@
 
     .line 151
     .local v1, "viewPortRect":Landroid/graphics/RectF;
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_5a
 
     .line 165
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -805,25 +805,25 @@
     throw v2
 
     .line 161
-    :pswitch_0
+    :pswitch_35
     sget-object v2, Landroid/graphics/Matrix$ScaleToFit;->END:Landroid/graphics/Matrix$ScaleToFit;
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
 
     .line 163
-    goto :goto_0
+    goto :goto_47
 
     .line 153
-    :pswitch_1
+    :pswitch_3b
     sget-object v2, Landroid/graphics/Matrix$ScaleToFit;->CENTER:Landroid/graphics/Matrix$ScaleToFit;
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
 
     .line 155
-    goto :goto_0
+    goto :goto_47
 
     .line 157
-    :pswitch_2
+    :pswitch_41
     sget-object v2, Landroid/graphics/Matrix$ScaleToFit;->START:Landroid/graphics/Matrix$ScaleToFit;
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
@@ -832,7 +832,7 @@
     nop
 
     .line 168
-    :goto_0
+    :goto_47
     new-instance v2, Landroid/graphics/RectF;
 
     invoke-direct {v2}, Landroid/graphics/RectF;-><init>()V
@@ -858,16 +858,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_41
+        :pswitch_3b
+        :pswitch_35
     .end packed-switch
 .end method
 
 .method private static shouldMirrorStartAndEnd(ZI)Z
-    .locals 1
+    .registers 3
     .param p0, "isFrontCamera"    # Z
     .param p1, "layoutDirection"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -884,14 +884,14 @@
     .line 274
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_4
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     xor-int/2addr v0, p0
 
     return v0

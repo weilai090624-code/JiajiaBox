@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/graph/ElementOrder$Type;Ljava/util/Comparator;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # Lcom/google/common/graph/ElementOrder$Type;
     .param p2    # Ljava/util/Comparator;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -83,34 +83,34 @@
 
     const/4 v2, 0x0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz p2, :cond_1
+    :goto_16
+    if-eqz p2, :cond_1a
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v3, 0x0
 
-    :goto_1
-    if-ne v0, v3, :cond_2
+    :goto_1b
+    if-ne v0, v3, :cond_1e
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_2
+    :cond_1e
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_1f
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 79
@@ -118,7 +118,7 @@
 .end method
 
 .method public static insertion()Lcom/google/common/graph/ElementOrder;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -142,7 +142,7 @@
 .end method
 
 .method public static natural()Lcom/google/common/graph/ElementOrder;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S::",
@@ -168,7 +168,7 @@
 .end method
 
 .method public static sorted(Ljava/util/Comparator;)Lcom/google/common/graph/ElementOrder;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -199,7 +199,7 @@
 .end method
 
 .method public static stable()Lcom/google/common/graph/ElementOrder;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -223,7 +223,7 @@
 .end method
 
 .method public static unordered()Lcom/google/common/graph/ElementOrder;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -249,7 +249,7 @@
 
 # virtual methods
 .method cast()Lcom/google/common/graph/ElementOrder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:TT;>()",
@@ -264,7 +264,7 @@
 .end method
 
 .method public comparator()Ljava/util/Comparator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -277,7 +277,7 @@
     .local p0, "this":Lcom/google/common/graph/ElementOrder;, "Lcom/google/common/graph/ElementOrder<TT;>;"
     iget-object v0, p0, Lcom/google/common/graph/ElementOrder;->comparator:Ljava/util/Comparator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 158
     iget-object v0, p0, Lcom/google/common/graph/ElementOrder;->comparator:Ljava/util/Comparator;
@@ -285,7 +285,7 @@
     return-object v0
 
     .line 160
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "This ordering does not define a comparator."
@@ -296,7 +296,7 @@
 .end method
 
 .method createMap(I)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .param p1, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -320,7 +320,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_26
 
     .line 201
     new-instance v0, Ljava/lang/AssertionError;
@@ -330,7 +330,7 @@
     throw v0
 
     .line 199
-    :pswitch_0
+    :pswitch_13
     invoke-virtual {p0}, Lcom/google/common/graph/ElementOrder;->comparator()Ljava/util/Comparator;
 
     move-result-object v0
@@ -342,7 +342,7 @@
     return-object v0
 
     .line 197
-    :pswitch_1
+    :pswitch_1c
     invoke-static {p1}, Lcom/google/common/collect/Maps;->newLinkedHashMapWithExpectedSize(I)Ljava/util/LinkedHashMap;
 
     move-result-object v0
@@ -350,24 +350,24 @@
     return-object v0
 
     .line 194
-    :pswitch_2
+    :pswitch_21
     invoke-static {p1}, Lcom/google/common/collect/Maps;->newHashMapWithExpectedSize(I)Ljava/util/HashMap;
 
     move-result-object v0
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_21
+        :pswitch_1c
+        :pswitch_1c
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -377,24 +377,24 @@
     .local p0, "this":Lcom/google/common/graph/ElementOrder;, "Lcom/google/common/graph/ElementOrder<TT;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 166
     return v0
 
     .line 168
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/graph/ElementOrder;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 169
     return v2
 
     .line 172
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/common/graph/ElementOrder;
@@ -405,7 +405,7 @@
 
     iget-object v4, v1, Lcom/google/common/graph/ElementOrder;->type:Lcom/google/common/graph/ElementOrder$Type;
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_1e
 
     iget-object v3, p0, Lcom/google/common/graph/ElementOrder;->comparator:Ljava/util/Comparator;
 
@@ -415,19 +415,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1e
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_2
+    :cond_1e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1f
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 178
     .local p0, "this":Lcom/google/common/graph/ElementOrder;, "Lcom/google/common/graph/ElementOrder<TT;>;"
@@ -455,7 +455,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 183
     .local p0, "this":Lcom/google/common/graph/ElementOrder;, "Lcom/google/common/graph/ElementOrder<TT;>;"
@@ -475,7 +475,7 @@
     .local v0, "helper":Lcom/google/common/base/MoreObjects$ToStringHelper;
     iget-object v1, p0, Lcom/google/common/graph/ElementOrder;->comparator:Ljava/util/Comparator;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 185
     const-string v1, "comparator"
@@ -485,7 +485,7 @@
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/MoreObjects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     .line 187
-    :cond_0
+    :cond_17
     invoke-virtual {v0}, Lcom/google/common/base/MoreObjects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -494,7 +494,7 @@
 .end method
 
 .method public type()Lcom/google/common/graph/ElementOrder$Type;
-    .locals 1
+    .registers 2
 
     .line 148
     .local p0, "this":Lcom/google/common/graph/ElementOrder;, "Lcom/google/common/graph/ElementOrder<TT;>;"

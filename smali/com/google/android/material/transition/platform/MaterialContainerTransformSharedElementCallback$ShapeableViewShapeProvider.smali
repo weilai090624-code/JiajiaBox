@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,13 +30,13 @@
 
 # virtual methods
 .method public provideShape(Landroid/view/View;)Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 1
+    .registers 3
     .param p1, "sharedElement"    # Landroid/view/View;
 
     .line 77
     instance-of v0, p1, Lcom/google/android/material/shape/Shapeable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 78
     move-object v0, p1
@@ -47,13 +47,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_d
 
     .line 79
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     .line 77
-    :goto_0
+    :goto_d
     return-object v0
 .end method

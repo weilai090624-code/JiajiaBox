@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method static createComboCallback(Ljava/util/List;)Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -54,7 +54,7 @@
 .end method
 
 .method public static varargs createComboCallback([Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    .locals 1
+    .registers 2
     .param p0, "callbacks"    # [Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -78,7 +78,7 @@
 .end method
 
 .method public static createNoOpCallback()Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    .locals 1
+    .registers 1
 
     .line 44
     new-instance v0, Landroidx/camera/camera2/internal/Camera2CaptureCallbacks$NoOpSessionCaptureCallback;

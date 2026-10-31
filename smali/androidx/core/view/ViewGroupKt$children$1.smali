@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/ViewGroup;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroid/view/ViewGroup;
 
     iput-object p1, p0, Landroidx/core/view/ViewGroupKt$children$1;->$this_children:Landroid/view/ViewGroup;
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 7
+    .registers 9
 
     const-class v3, Landroidx/preference/PreferenceDataStore;
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/String;
     .param p2, "p1"    # Ljava/lang/String;
 

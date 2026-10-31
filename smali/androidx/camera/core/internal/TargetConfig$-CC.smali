@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$getTargetClass(Landroidx/camera/core/internal/TargetConfig;)Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/internal/TargetConfig;
 
     .line 77
@@ -22,7 +22,7 @@
 .end method
 
 .method public static $default$getTargetClass(Landroidx/camera/core/internal/TargetConfig;Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/internal/TargetConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -50,7 +50,7 @@
 .end method
 
 .method public static $default$getTargetName(Landroidx/camera/core/internal/TargetConfig;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/internal/TargetConfig;
 
     .line 106
@@ -67,7 +67,7 @@
 .end method
 
 .method public static $default$getTargetName(Landroidx/camera/core/internal/TargetConfig;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/internal/TargetConfig;
     .param p1, "valueIfMissing"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;

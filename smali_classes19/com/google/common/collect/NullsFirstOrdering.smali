@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Ordering;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -82,7 +82,7 @@
     .local p0, "this":Lcom/google/common/collect/NullsFirstOrdering;, "Lcom/google/common/collect/NullsFirstOrdering<TT;>;"
     .local p1, "left":Ljava/lang/Object;, "TT;"
     .local p2, "right":Ljava/lang/Object;, "TT;"
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_4
 
     .line 38
     const/4 v0, 0x0
@@ -90,8 +90,8 @@
     return v0
 
     .line 40
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_4
+    if-nez p1, :cond_8
 
     .line 41
     const/4 v0, -0x1
@@ -99,8 +99,8 @@
     return v0
 
     .line 43
-    :cond_1
-    if-nez p2, :cond_2
+    :cond_8
+    if-nez p2, :cond_c
 
     .line 44
     const/4 v0, 0x1
@@ -108,7 +108,7 @@
     return v0
 
     .line 46
-    :cond_2
+    :cond_c
     iget-object v0, p0, Lcom/google/common/collect/NullsFirstOrdering;->ordering:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/Ordering;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -119,7 +119,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -127,7 +127,7 @@
 
     .line 69
     .local p0, "this":Lcom/google/common/collect/NullsFirstOrdering;, "Lcom/google/common/collect/NullsFirstOrdering<TT;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 70
     const/4 v0, 0x1
@@ -135,10 +135,10 @@
     return v0
 
     .line 72
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/collect/NullsFirstOrdering;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 73
     move-object v0, p1
@@ -159,14 +159,14 @@
 
     .line 76
     .end local v0    # "that":Lcom/google/common/collect/NullsFirstOrdering;, "Lcom/google/common/collect/NullsFirstOrdering<*>;"
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 81
     .local p0, "this":Lcom/google/common/collect/NullsFirstOrdering;, "Lcom/google/common/collect/NullsFirstOrdering<TT;>;"
@@ -184,7 +184,7 @@
 .end method
 
 .method public nullsFirst()Lcom/google/common/collect/Ordering;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:TT;>()",
@@ -199,7 +199,7 @@
 .end method
 
 .method public nullsLast()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:TT;>()",
@@ -220,7 +220,7 @@
 .end method
 
 .method public reverse()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:TT;>()",
@@ -245,7 +245,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 86
     .local p0, "this":Lcom/google/common/collect/NullsFirstOrdering;, "Lcom/google/common/collect/NullsFirstOrdering<TT;>;"

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 5
     .param p0, "r"    # Landroid/content/res/Resources;
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
@@ -47,7 +47,7 @@
 .end method
 
 .method public static getChangingConfigurations(Landroid/content/res/TypedArray;)I
-    .locals 1
+    .registers 2
     .param p0, "typedArray"    # Landroid/content/res/TypedArray;
 
     .line 63
@@ -59,7 +59,7 @@
 .end method
 
 .method public static inflate(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 0
+    .registers 5
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "r"    # Landroid/content/res/Resources;
     .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;

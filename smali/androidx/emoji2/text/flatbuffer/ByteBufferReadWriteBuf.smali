@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/ByteBuffer;)V
-    .locals 2
+    .registers 4
     .param p1, "bb"    # Ljava/nio/ByteBuffer;
 
     .line 10
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public data()[B
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/ByteBufferReadWriteBuf;->buffer:Ljava/nio/ByteBuffer;
@@ -48,7 +48,7 @@
 .end method
 
 .method public get(I)B
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 22
@@ -62,7 +62,7 @@
 .end method
 
 .method public getBoolean(I)Z
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 17
@@ -70,21 +70,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public getDouble(I)D
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 47
@@ -98,7 +98,7 @@
 .end method
 
 .method public getFloat(I)F
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 42
@@ -112,7 +112,7 @@
 .end method
 
 .method public getInt(I)I
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 32
@@ -126,7 +126,7 @@
 .end method
 
 .method public getLong(I)J
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 37
@@ -140,7 +140,7 @@
 .end method
 
 .method public getShort(I)S
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 27
@@ -154,7 +154,7 @@
 .end method
 
 .method public getString(II)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "start"    # I
     .param p2, "size"    # I
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public limit()I
-    .locals 1
+    .registers 2
 
     .line 157
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/ByteBufferReadWriteBuf;->buffer:Ljava/nio/ByteBuffer;
@@ -182,7 +182,7 @@
 .end method
 
 .method public put(B)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # B
 
     .line 72
@@ -195,7 +195,7 @@
 .end method
 
 .method public put([BII)V
-    .locals 1
+    .registers 5
     .param p1, "value"    # [B
     .param p2, "start"    # I
     .param p3, "length"    # I
@@ -210,7 +210,7 @@
 .end method
 
 .method public putBoolean(Z)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Z
 
     .line 62
@@ -223,7 +223,7 @@
 .end method
 
 .method public putDouble(D)V
-    .locals 1
+    .registers 4
     .param p1, "value"    # D
 
     .line 97
@@ -236,7 +236,7 @@
 .end method
 
 .method public putFloat(F)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # F
 
     .line 92
@@ -249,7 +249,7 @@
 .end method
 
 .method public putInt(I)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
 
     .line 82
@@ -262,7 +262,7 @@
 .end method
 
 .method public putLong(J)V
-    .locals 1
+    .registers 4
     .param p1, "value"    # J
 
     .line 87
@@ -275,7 +275,7 @@
 .end method
 
 .method public putShort(S)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # S
 
     .line 77
@@ -288,7 +288,7 @@
 .end method
 
 .method public requestCapacity(I)Z
-    .locals 1
+    .registers 3
     .param p1, "capacity"    # I
 
     .line 162
@@ -298,21 +298,21 @@
 
     move-result v0
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public set(IB)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # B
 
@@ -331,7 +331,7 @@
 .end method
 
 .method public set(I[BII)V
-    .locals 2
+    .registers 7
     .param p1, "index"    # I
     .param p2, "value"    # [B
     .param p3, "start"    # I
@@ -372,7 +372,7 @@
 .end method
 
 .method public setBoolean(IZ)V
-    .locals 0
+    .registers 3
     .param p1, "index"    # I
     .param p2, "value"    # Z
 
@@ -384,7 +384,7 @@
 .end method
 
 .method public setDouble(ID)V
-    .locals 1
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # D
 
@@ -403,7 +403,7 @@
 .end method
 
 .method public setFloat(IF)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # F
 
@@ -422,7 +422,7 @@
 .end method
 
 .method public setInt(II)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # I
 
@@ -441,7 +441,7 @@
 .end method
 
 .method public setLong(IJ)V
-    .locals 1
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # J
 
@@ -460,7 +460,7 @@
 .end method
 
 .method public setShort(IS)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # S
 
@@ -479,7 +479,7 @@
 .end method
 
 .method public writePosition()I
-    .locals 1
+    .registers 2
 
     .line 152
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/ByteBufferReadWriteBuf;->buffer:Ljava/nio/ByteBuffer;

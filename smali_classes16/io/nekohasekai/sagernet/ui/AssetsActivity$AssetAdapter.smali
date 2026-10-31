@@ -94,7 +94,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$QjU0L6QYt5RmpJyVckmvGTxMVBI(Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;->reloadAssets$lambda$1(Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;)V
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/AssetsActivity;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/AssetsActivity;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -136,7 +136,7 @@
 .end method
 
 .method private static final reloadAssets$lambda$1(Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;)V
-    .locals 0
+    .registers 1
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;
 
     .line 163
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method public commit(Ljava/util/List;)V
-    .locals 10
+    .registers 12
     .param p1, "actions"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -202,12 +202,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_1c
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_34
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -235,11 +235,11 @@
     .end local v8    # "$i$a$-map-AssetsActivity$AssetAdapter$commit$groups$1":I
     invoke-interface {v2, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 372
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_34
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -297,7 +297,7 @@
 .end method
 
 .method public final getAssets()Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -314,7 +314,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 176
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;->assets:Ljava/util/ArrayList;
@@ -327,7 +327,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "p1"    # I
 
@@ -342,7 +342,7 @@
 .end method
 
 .method public onBindViewHolder(Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;I)V
-    .locals 2
+    .registers 5
     .param p1, "holder"    # Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;
     .param p2, "position"    # I
 
@@ -370,7 +370,7 @@
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Landroid/view/ViewGroup;
     .param p2, "p1"    # I
 
@@ -385,7 +385,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;
-    .locals 4
+    .registers 7
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -420,7 +420,7 @@
 .end method
 
 .method public final reloadAssets()V
-    .locals 18
+    .registers 19
 
     .line 154
     move-object/from16 v0, p0
@@ -433,7 +433,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;->this$0:Lio/nekohasekai/sagernet/ui/AssetsActivity;
 
@@ -443,7 +443,7 @@
 
     .line 156
     .local v1, "filesDir":Ljava/io/File;
-    :cond_0
+    :cond_11
     nop
 
     .line 155
@@ -452,7 +452,7 @@
     move-result-object v3
 
     .line 156
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_77
 
     .line 155
     nop
@@ -485,8 +485,8 @@
 
     const/4 v11, 0x0
 
-    :goto_0
-    if-ge v11, v9, :cond_4
+    :goto_28
+    if-ge v11, v9, :cond_6e
 
     aget-object v12, v7, v11
 
@@ -502,7 +502,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_1
+    if-eqz v15, :cond_5b
 
     invoke-virtual {v13}, Ljava/io/File;->getName()Ljava/lang/String;
 
@@ -530,7 +530,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_60
 
     invoke-virtual {v4}, Lio/nekohasekai/sagernet/ui/AssetsActivity;->getAssetNames()[Ljava/lang/String;
 
@@ -544,17 +544,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_60
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_61
 
     .end local v16    # "$this$filter$iv":[Ljava/lang/Object;
     .end local v17    # "$i$f$filter":I
     .restart local v3    # "$this$filter$iv":[Ljava/lang/Object;
     .restart local v5    # "$i$f$filter":I
-    :cond_1
+    :cond_5b
     move-object/from16 v16, v3
 
     move/from16 v17, v5
@@ -565,19 +565,19 @@
     .end local v5    # "$i$f$filter":I
     .restart local v16    # "$this$filter$iv":[Ljava/lang/Object;
     .restart local v17    # "$i$f$filter":I
-    :cond_2
+    :cond_60
     const/4 v2, 0x0
 
     .line 367
     .end local v13    # "it":Ljava/io/File;
     .end local v14    # "$i$a$-filter-AssetsActivity$AssetAdapter$reloadAssets$files$1":I
-    :goto_1
-    if-eqz v2, :cond_3
+    :goto_61
+    if-eqz v2, :cond_66
 
     invoke-interface {v6, v12}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .end local v12    # "element$iv$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_66
     add-int/lit8 v11, v11, 0x1
 
     move-object v2, v5
@@ -586,14 +586,14 @@
 
     move/from16 v5, v17
 
-    goto :goto_0
+    goto :goto_28
 
     .line 368
     .end local v16    # "$this$filter$iv":[Ljava/lang/Object;
     .end local v17    # "$i$f$filter":I
     .restart local v3    # "$this$filter$iv":[Ljava/lang/Object;
     .restart local v5    # "$i$f$filter":I
-    :cond_4
+    :cond_6e
     move-object/from16 v16, v3
 
     move/from16 v17, v5
@@ -614,14 +614,14 @@
 
     .end local v16    # "$this$filter$iv":[Ljava/lang/Object;
     .end local v17    # "$i$f$filter":I
-    goto :goto_2
+    goto :goto_78
 
     .line 156
-    :cond_5
+    :cond_77
     move-object v5, v2
 
     .line 155
-    :goto_2
+    :goto_78
     nop
 
     .line 157
@@ -653,7 +653,7 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 160
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_a0
 
     iget-object v3, v0, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;->assets:Ljava/util/ArrayList;
 
@@ -664,7 +664,7 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     .line 162
-    :cond_6
+    :cond_a0
     iget-object v3, v0, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;->this$0:Lio/nekohasekai/sagernet/ui/AssetsActivity;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/ui/AssetsActivity;->getLayout()Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;
@@ -684,7 +684,7 @@
 .end method
 
 .method public final remove(I)V
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 180
@@ -700,7 +700,7 @@
 .end method
 
 .method public undo(Ljava/util/List;)V
-    .locals 4
+    .registers 6
     .param p1, "actions"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -724,12 +724,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -765,9 +765,9 @@
 
     .end local v1    # "item":Ljava/io/File;
     .end local v2    # "index":I
-    goto :goto_0
+    goto :goto_9
 
     .line 189
-    :cond_0
+    :cond_2e
     return-void
 .end method

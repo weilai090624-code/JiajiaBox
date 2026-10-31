@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static nameOf(I)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "lensFacing"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -27,7 +27,7 @@
     .end annotation
 
     .line 71
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_22
 
     .line 77
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -55,26 +55,26 @@
     throw v0
 
     .line 75
-    :pswitch_0
+    :pswitch_1c
     const-string v0, "BACK"
 
     return-object v0
 
     .line 73
-    :pswitch_1
+    :pswitch_1f
     const-string v0, "FRONT"
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_22
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1f
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)I
-    .locals 3
+    .registers 4
     .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -86,7 +86,7 @@
     .end annotation
 
     .line 48
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_3f
 
     .line 52
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
@@ -97,42 +97,42 @@
 
     const/4 v2, 0x0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_48
 
-    :cond_0
-    goto :goto_0
+    :cond_b
+    goto :goto_20
 
-    :sswitch_0
+    :sswitch_c
     const-string v0, "FRONT"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_21
 
-    :sswitch_1
+    :sswitch_16
     const-string v0, "BACK"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_21
 
-    :goto_0
+    :goto_20
     const/4 v0, -0x1
 
-    :goto_1
-    packed-switch v0, :pswitch_data_0
+    :goto_21
+    packed-switch v0, :pswitch_data_52
 
     .line 58
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -160,15 +160,15 @@
     throw v0
 
     .line 56
-    :pswitch_0
+    :pswitch_3d
     return v1
 
     .line 54
-    :pswitch_1
+    :pswitch_3e
     return v2
 
     .line 49
-    :cond_1
+    :cond_3f
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "name cannot be null"
@@ -179,21 +179,21 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_48
     .sparse-switch
-        0x1efce7 -> :sswitch_1
-        0x400e609 -> :sswitch_0
+        0x1efce7 -> :sswitch_16
+        0x400e609 -> :sswitch_c
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_52
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3e
+        :pswitch_3d
     .end packed-switch
 .end method
 
 .method public static values()[Ljava/lang/Integer;
-    .locals 5
+    .registers 5
 
     .line 37
     const/4 v0, 0x0

@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "previousFragmentId"    # Ljava/lang/String;
 
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public final getPreviousFragmentId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 28
     iget-object v0, p0, Landroidx/fragment/app/strictmode/FragmentReuseViolation;->previousFragmentId:Ljava/lang/String;

@@ -167,7 +167,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 4
+    .registers 6
     .param p1, "workerClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -253,7 +253,7 @@
 
 # virtual methods
 .method public final addTag(Ljava/lang/String;)Landroidx/work/WorkRequest$Builder;
-    .locals 1
+    .registers 3
     .param p1, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -281,7 +281,7 @@
 .end method
 
 .method public final build()Landroidx/work/WorkRequest;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TW;"
@@ -309,55 +309,55 @@
 
     const/4 v5, 0x1
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_16
 
     invoke-virtual {v1}, Landroidx/work/Constraints;->hasContentUriTriggers()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_31
 
     .line 266
-    :cond_0
+    :cond_16
     invoke-virtual {v1}, Landroidx/work/Constraints;->requiresBatteryNotLow()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_31
 
     .line 267
     invoke-virtual {v1}, Landroidx/work/Constraints;->requiresCharging()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_31
 
     .line 268
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x17
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_2f
 
     invoke-virtual {v1}, Landroidx/work/Constraints;->requiresDeviceIdle()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2f
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_1
+    :cond_2f
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_2
-    :goto_0
+    :cond_31
+    :goto_31
     const/4 v2, 0x1
 
     .line 264
-    :goto_1
+    :goto_32
     nop
 
     .line 269
@@ -366,20 +366,20 @@
 
     iget-boolean v3, v3, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_6a
 
     .line 270
-    if-nez v2, :cond_3
+    if-nez v2, :cond_3d
 
     const/4 v3, 0x1
 
-    goto :goto_2
+    goto :goto_3e
 
-    :cond_3
+    :cond_3d
     const/4 v3, 0x0
 
-    :goto_2
-    if-eqz v3, :cond_6
+    :goto_3e
+    if-eqz v3, :cond_5c
 
     .line 273
     iget-object v3, p0, Landroidx/work/WorkRequest$Builder;->workSpec:Landroidx/work/impl/model/WorkSpec;
@@ -390,17 +390,17 @@
 
     cmp-long v3, v6, v8
 
-    if-gtz v3, :cond_4
+    if-gtz v3, :cond_4b
 
     const/4 v4, 0x1
 
-    :cond_4
-    if-eqz v4, :cond_5
+    :cond_4b
+    if-eqz v4, :cond_4e
 
-    goto :goto_3
+    goto :goto_6a
 
     .line 362
-    :cond_5
+    :cond_4e
     const/4 v3, 0x0
 
     .line 273
@@ -421,7 +421,7 @@
     throw v3
 
     .line 270
-    :cond_6
+    :cond_5c
     const/4 v3, 0x0
 
     .line 271
@@ -443,8 +443,8 @@
     throw v3
 
     .line 276
-    :cond_7
-    :goto_3
+    :cond_6a
+    :goto_6a
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
     move-result-object v3
@@ -468,7 +468,7 @@
 .end method
 
 .method public final getBackoffCriteriaSet$work_runtime_release()Z
-    .locals 1
+    .registers 2
 
     .line 71
     iget-boolean v0, p0, Landroidx/work/WorkRequest$Builder;->backoffCriteriaSet:Z
@@ -477,7 +477,7 @@
 .end method
 
 .method public final getId$work_runtime_release()Ljava/util/UUID;
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->id:Ljava/util/UUID;
@@ -486,7 +486,7 @@
 .end method
 
 .method public final getTags$work_runtime_release()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -511,7 +511,7 @@
 .end method
 
 .method public final getWorkSpec$work_runtime_release()Landroidx/work/impl/model/WorkSpec;
-    .locals 1
+    .registers 2
 
     .line 73
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->workSpec:Landroidx/work/impl/model/WorkSpec;
@@ -520,7 +520,7 @@
 .end method
 
 .method public final getWorkerClass$work_runtime_release()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -538,7 +538,7 @@
 .end method
 
 .method public final keepResultsForAtLeast(JLjava/util/concurrent/TimeUnit;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
+    .registers 7
     .param p1, "duration"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -571,7 +571,7 @@
 .end method
 
 .method public final keepResultsForAtLeast(Lj$/time/Duration;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
+    .registers 5
     .param p1, "duration"    # Lj$/time/Duration;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -603,7 +603,7 @@
 .end method
 
 .method public final setBackoffCriteria(Landroidx/work/BackoffPolicy;JLjava/util/concurrent/TimeUnit;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
+    .registers 8
     .param p1, "backoffPolicy"    # Landroidx/work/BackoffPolicy;
     .param p2, "backoffDelay"    # J
     .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -653,7 +653,7 @@
 .end method
 
 .method public final setBackoffCriteria(Landroidx/work/BackoffPolicy;Lj$/time/Duration;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
+    .registers 6
     .param p1, "backoffPolicy"    # Landroidx/work/BackoffPolicy;
     .param p2, "duration"    # Lj$/time/Duration;
     .annotation system Ldalvik/annotation/Signature;
@@ -701,7 +701,7 @@
 .end method
 
 .method public final setBackoffCriteriaSet$work_runtime_release(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 71
@@ -711,7 +711,7 @@
 .end method
 
 .method public final setConstraints(Landroidx/work/Constraints;)Landroidx/work/WorkRequest$Builder;
-    .locals 1
+    .registers 3
     .param p1, "constraints"    # Landroidx/work/Constraints;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -739,7 +739,7 @@
 .end method
 
 .method public setExpedited(Landroidx/work/OutOfQuotaPolicy;)Landroidx/work/WorkRequest$Builder;
-    .locals 2
+    .registers 4
     .param p1, "policy"    # Landroidx/work/OutOfQuotaPolicy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -774,7 +774,7 @@
 .end method
 
 .method public final setId(Ljava/util/UUID;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
+    .registers 5
     .param p1, "id"    # Ljava/util/UUID;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -817,7 +817,7 @@
 .end method
 
 .method public final setId$work_runtime_release(Ljava/util/UUID;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/UUID;
 
     const-string v0, "<set-?>"
@@ -831,7 +831,7 @@
 .end method
 
 .method public setInitialDelay(JLjava/util/concurrent/TimeUnit;)Landroidx/work/WorkRequest$Builder;
-    .locals 5
+    .registers 9
     .param p1, "duration"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -870,17 +870,17 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_23
+    if-eqz v0, :cond_2a
 
     .line 222
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThisObject$work_runtime_release()Landroidx/work/WorkRequest$Builder;
@@ -890,7 +890,7 @@
     return-object v0
 
     .line 219
-    :cond_1
+    :cond_2a
     const/4 v0, 0x0
 
     .line 220
@@ -913,7 +913,7 @@
 .end method
 
 .method public setInitialDelay(Lj$/time/Duration;)Landroidx/work/WorkRequest$Builder;
-    .locals 5
+    .registers 7
     .param p1, "duration"    # Lj$/time/Duration;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -951,17 +951,17 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_21
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_22
+    if-eqz v0, :cond_29
 
     .line 239
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThisObject$work_runtime_release()Landroidx/work/WorkRequest$Builder;
@@ -971,7 +971,7 @@
     return-object v0
 
     .line 236
-    :cond_1
+    :cond_29
     const/4 v0, 0x0
 
     .line 237
@@ -994,7 +994,7 @@
 .end method
 
 .method public final setInitialRunAttemptCount(I)Landroidx/work/WorkRequest$Builder;
-    .locals 1
+    .registers 3
     .param p1, "runAttemptCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1016,7 +1016,7 @@
 .end method
 
 .method public final setInitialState(Landroidx/work/WorkInfo$State;)Landroidx/work/WorkRequest$Builder;
-    .locals 1
+    .registers 3
     .param p1, "state"    # Landroidx/work/WorkInfo$State;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1044,7 +1044,7 @@
 .end method
 
 .method public final setInputData(Landroidx/work/Data;)Landroidx/work/WorkRequest$Builder;
-    .locals 1
+    .registers 3
     .param p1, "inputData"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1072,7 +1072,7 @@
 .end method
 
 .method public final setLastEnqueueTime(JLjava/util/concurrent/TimeUnit;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
+    .registers 7
     .param p1, "periodStartTime"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -1105,7 +1105,7 @@
 .end method
 
 .method public final setScheduleRequestedAt(JLjava/util/concurrent/TimeUnit;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
+    .registers 7
     .param p1, "scheduleRequestedAt"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -1138,7 +1138,7 @@
 .end method
 
 .method public final setWorkSpec$work_runtime_release(Landroidx/work/impl/model/WorkSpec;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/work/impl/model/WorkSpec;
 
     const-string v0, "<set-?>"

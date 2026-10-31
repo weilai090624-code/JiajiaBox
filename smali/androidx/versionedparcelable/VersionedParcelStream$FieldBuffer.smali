@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/io/DataOutputStream;)V
-    .locals 2
+    .registers 5
     .param p1, "fieldId"    # I
     .param p2, "target"    # Ljava/io/DataOutputStream;
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method flushField()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -89,16 +89,16 @@
 
     const v2, 0xffff
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_18
 
     const v3, 0xffff
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     move v3, v0
 
-    :goto_0
+    :goto_19
     or-int/2addr v1, v3
 
     .line 558
@@ -108,7 +108,7 @@
     invoke-virtual {v3, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 559
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_26
 
     .line 560
     iget-object v2, p0, Landroidx/versionedparcelable/VersionedParcelStream$FieldBuffer;->mTarget:Ljava/io/DataOutputStream;
@@ -116,7 +116,7 @@
     invoke-virtual {v2, v0}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 562
-    :cond_1
+    :cond_26
     iget-object v2, p0, Landroidx/versionedparcelable/VersionedParcelStream$FieldBuffer;->mOutput:Ljava/io/ByteArrayOutputStream;
 
     iget-object v3, p0, Landroidx/versionedparcelable/VersionedParcelStream$FieldBuffer;->mTarget:Ljava/io/DataOutputStream;

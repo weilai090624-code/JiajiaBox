@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 .end method
 
 .method static create(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/base/Function;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 5
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -141,7 +141,7 @@
 .end method
 
 .method static create(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/util/concurrent/AsyncFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 5
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -186,7 +186,7 @@
 
 # virtual methods
 .method protected final afterDone()V
-    .locals 1
+    .registers 2
 
     .line 181
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractTransformFuture;, "Lcom/google/common/util/concurrent/AbstractTransformFuture<TI;TO;TF;TT;>;"
@@ -228,7 +228,7 @@
 .end method
 
 .method protected pendingToString()Ljava/lang/String;
-    .locals 7
+    .registers 8
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -252,7 +252,7 @@
 
     .line 193
     .local v3, "resultString":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
     .line 194
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -294,8 +294,8 @@
     move-result-object v3
 
     .line 196
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_33
+    if-eqz v1, :cond_6a
 
     .line 197
     invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -353,8 +353,8 @@
     return-object v4
 
     .line 198
-    :cond_1
-    if-eqz v2, :cond_3
+    :cond_6a
+    if-eqz v2, :cond_86
 
     .line 199
     invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -369,33 +369,33 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_7f
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_0
+    goto :goto_85
 
-    :cond_2
+    :cond_7f
     new-instance v5, Ljava/lang/String;
 
     invoke-direct {v5, v4}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
     move-object v4, v5
 
-    :goto_0
+    :goto_85
     return-object v4
 
     .line 201
-    :cond_3
+    :cond_86
     const/4 v4, 0x0
 
     return-object v4
 .end method
 
 .method public final run()V
-    .locals 6
+    .registers 7
 
     .line 69
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractTransformFuture;, "Lcom/google/common/util/concurrent/AbstractTransformFuture<TI;TO;TF;TT;>;"
@@ -415,35 +415,35 @@
 
     const/4 v4, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_f
     or-int/2addr v2, v5
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_13
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_14
     or-int/2addr v2, v3
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_18
 
     .line 72
     return-void
 
     .line 74
-    :cond_2
+    :cond_18
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
@@ -453,7 +453,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_27
 
     .line 78
     nop
@@ -469,28 +469,28 @@
 
     .line 93
     .end local v2    # "unused":Z
-    :cond_3
-    :try_start_0
+    :cond_27
+    :try_start_27
     invoke-static {v0}, Lcom/google/common/util/concurrent/Futures;->getDone(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_27 .. :try_end_2b} :catch_55
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_27 .. :try_end_2b} :catch_4c
+    .catch Ljava/lang/RuntimeException; {:try_start_27 .. :try_end_2b} :catch_47
+    .catch Ljava/lang/Error; {:try_start_27 .. :try_end_2b} :catch_42
 
     .line 118
     .local v3, "sourceResult":Ljava/lang/Object;, "TI;"
     nop
 
     .line 122
-    :try_start_1
+    :try_start_2c
     invoke-virtual {p0, v1, v3}, Lcom/google/common/util/concurrent/AbstractTransformFuture;->doTransform(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_30
+    .catchall {:try_start_2c .. :try_end_30} :catchall_37
 
     .line 128
     .local v4, "transformResult":Ljava/lang/Object;, "TT;"
@@ -507,15 +507,15 @@
 
     .line 123
     .end local v4    # "transformResult":Ljava/lang/Object;, "TT;"
-    :catchall_0
+    :catchall_37
     move-exception v4
 
     .line 125
     .local v4, "t":Ljava/lang/Throwable;
-    :try_start_2
+    :try_start_38
     invoke-virtual {p0, v4}, Lcom/google/common/util/concurrent/AbstractTransformFuture;->setException(Ljava/lang/Throwable;)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_3b
+    .catchall {:try_start_38 .. :try_end_3b} :catchall_3e
 
     .line 128
     iput-object v2, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->function:Ljava/lang/Object;
@@ -525,7 +525,7 @@
 
     .line 128
     .end local v4    # "t":Ljava/lang/Throwable;
-    :catchall_1
+    :catchall_3e
     move-exception v4
 
     iput-object v2, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->function:Ljava/lang/Object;
@@ -535,7 +535,7 @@
 
     .line 110
     .end local v3    # "sourceResult":Ljava/lang/Object;, "TI;"
-    :catch_0
+    :catch_42
     move-exception v2
 
     .line 116
@@ -547,7 +547,7 @@
 
     .line 106
     .end local v2    # "e":Ljava/lang/Error;
-    :catch_1
+    :catch_47
     move-exception v2
 
     .line 108
@@ -559,7 +559,7 @@
 
     .line 102
     .end local v2    # "e":Ljava/lang/RuntimeException;
-    :catch_2
+    :catch_4c
     move-exception v2
 
     .line 104
@@ -575,7 +575,7 @@
 
     .line 94
     .end local v2    # "e":Ljava/util/concurrent/ExecutionException;
-    :catch_3
+    :catch_55
     move-exception v2
 
     .line 100

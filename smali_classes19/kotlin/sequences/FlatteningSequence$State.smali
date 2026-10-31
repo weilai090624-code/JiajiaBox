@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/sequences/FlatteningSequence$State;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 292
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

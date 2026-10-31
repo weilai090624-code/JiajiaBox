@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/pm/ResolveInfo;)V
-    .locals 0
+    .registers 2
     .param p1, "resolveInfo"    # Landroid/content/pm/ResolveInfo;
 
     .line 870
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public compareTo(Landroidx/appcompat/widget/ActivityChooserModel$ActivityResolveInfo;)I
-    .locals 2
+    .registers 4
     .param p1, "another"    # Landroidx/appcompat/widget/ActivityChooserModel$ActivityResolveInfo;
 
     .line 899
@@ -72,7 +72,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 853
     check-cast p1, Landroidx/appcompat/widget/ActivityChooserModel$ActivityResolveInfo;
@@ -85,28 +85,28 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 881
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 882
     return v0
 
     .line 884
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 885
     return v1
 
     .line 887
-    :cond_1
+    :cond_8
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -115,13 +115,13 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_13
 
     .line 888
     return v1
 
     .line 890
-    :cond_2
+    :cond_13
     move-object v2, p1
 
     check-cast v2, Landroidx/appcompat/widget/ActivityChooserModel$ActivityResolveInfo;
@@ -140,18 +140,18 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_25
 
     .line 892
     return v1
 
     .line 894
-    :cond_3
+    :cond_25
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 876
     iget v0, p0, Landroidx/appcompat/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
@@ -166,7 +166,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 904
     new-instance v0, Ljava/lang/StringBuilder;

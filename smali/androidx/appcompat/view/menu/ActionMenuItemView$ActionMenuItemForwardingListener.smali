@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/appcompat/view/menu/ActionMenuItemView;)V
-    .locals 0
+    .registers 2
 
     .line 304
     iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Landroidx/appcompat/view/menu/ActionMenuItemView;
@@ -35,14 +35,14 @@
 
 # virtual methods
 .method public getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
-    .locals 1
+    .registers 2
 
     .line 310
     iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Landroidx/appcompat/view/menu/ActionMenuItemView;
 
     iget-object v0, v0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mPopupCallback:Landroidx/appcompat/view/menu/ActionMenuItemView$PopupCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 311
     iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Landroidx/appcompat/view/menu/ActionMenuItemView;
@@ -56,14 +56,14 @@
     return-object v0
 
     .line 313
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method protected onForwardingStarted()Z
-    .locals 3
+    .registers 4
 
     .line 319
     iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Landroidx/appcompat/view/menu/ActionMenuItemView;
@@ -72,7 +72,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Landroidx/appcompat/view/menu/ActionMenuItemView;
 
@@ -86,7 +86,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 320
     invoke-virtual {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
@@ -95,21 +95,21 @@
 
     .line 321
     .local v0, "popup":Landroidx/appcompat/view/menu/ShowableListMenu;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     invoke-interface {v0}, Landroidx/appcompat/view/menu/ShowableListMenu;->isShowing()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_22
     return v1
 
     .line 323
     .end local v0    # "popup":Landroidx/appcompat/view/menu/ShowableListMenu;
-    :cond_1
+    :cond_23
     return v1
 .end method

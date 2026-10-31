@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/SafeConstructor;)V
-    .locals 0
+    .registers 2
 
     .line 345
     iput-object p1, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlBinary;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 349

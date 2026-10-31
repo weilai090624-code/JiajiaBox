@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)V
-    .locals 8
+    .registers 10
     .param p1, "cameraCharacteristicsCompat"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -153,7 +153,7 @@
 .end method
 
 .method private getMinimumPreviewSize(Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)Landroid/util/Size;
-    .locals 5
+    .registers 7
     .param p1, "cameraCharacteristicsCompat"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -179,7 +179,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 146
     const-string v3, "Can not retrieve SCALER_STREAM_CONFIGURATION_MAP."
@@ -194,12 +194,12 @@
     return-object v1
 
     .line 150
-    :cond_0
+    :cond_18
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v4, 0x17
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_25
 
     .line 153
     const-class v3, Landroid/graphics/SurfaceTexture;
@@ -209,11 +209,11 @@
     move-result-object v3
 
     .local v3, "outputSizes":[Landroid/util/Size;
-    goto :goto_0
+    goto :goto_2b
 
     .line 155
     .end local v3    # "outputSizes":[Landroid/util/Size;
-    :cond_1
+    :cond_25
     const/16 v3, 0x22
 
     invoke-virtual {v0, v3}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getOutputSizes(I)[Landroid/util/Size;
@@ -222,8 +222,8 @@
 
     .line 157
     .restart local v3    # "outputSizes":[Landroid/util/Size;
-    :goto_0
-    if-nez v3, :cond_2
+    :goto_2b
+    if-nez v3, :cond_38
 
     .line 158
     const-string v4, "Can not get output size list."
@@ -238,7 +238,7 @@
     return-object v1
 
     .line 162
-    :cond_2
+    :cond_38
     nop
 
     .line 163
@@ -261,7 +261,7 @@
 .end method
 
 .method static synthetic lambda$getMinimumPreviewSize$0(Landroid/util/Size;Landroid/util/Size;)I
-    .locals 6
+    .registers 8
     .param p0, "o1"    # Landroid/util/Size;
     .param p1, "o2"    # Landroid/util/Size;
 
@@ -310,7 +310,7 @@
 
 # virtual methods
 .method clear()V
-    .locals 2
+    .registers 3
 
     .line 112
     const-string v0, "MeteringRepeating"
@@ -322,7 +322,7 @@
     .line 113
     iget-object v0, p0, Landroidx/camera/camera2/internal/MeteringRepeatingSession;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 114
     iget-object v0, p0, Landroidx/camera/camera2/internal/MeteringRepeatingSession;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
@@ -330,7 +330,7 @@
     invoke-virtual {v0}, Landroidx/camera/core/impl/DeferrableSurface;->close()V
 
     .line 116
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/MeteringRepeatingSession;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
@@ -340,7 +340,7 @@
 .end method
 
 .method getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 104
     const-string v0, "MeteringRepeating"
@@ -349,7 +349,7 @@
 .end method
 
 .method getSessionConfig()Landroidx/camera/core/impl/SessionConfig;
-    .locals 1
+    .registers 2
 
     .line 99
     iget-object v0, p0, Landroidx/camera/camera2/internal/MeteringRepeatingSession;->mSessionConfig:Landroidx/camera/core/impl/SessionConfig;

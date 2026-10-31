@@ -137,7 +137,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .registers 15
 
     .line 21
     const/16 v0, 0x100
@@ -148,10 +148,10 @@
 
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_6
     const-string v4, "0123456789abcdef"
 
-    if-ge v3, v0, :cond_0
+    if-ge v3, v0, :cond_1e
 
     .line 22
     shr-int/lit8 v5, v3, 0x4
@@ -175,9 +175,9 @@
     .line 21
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_1e
     sput-object v1, Lkotlin/text/HexExtensionsKt;->BYTE_TO_LOWER_CASE_HEX_DIGITS:[I
 
     .line 30
@@ -185,10 +185,10 @@
 
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_23
     const-string v5, "0123456789ABCDEF"
 
-    if-ge v3, v0, :cond_1
+    if-ge v3, v0, :cond_3b
 
     .line 31
     shr-int/lit8 v6, v3, 0x4
@@ -212,9 +212,9 @@
     .line 30
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_1
+    :cond_3b
     sput-object v1, Lkotlin/text/HexExtensionsKt;->BYTE_TO_UPPER_CASE_HEX_DIGITS:[I
 
     .line 42
@@ -222,8 +222,8 @@
 
     const/4 v3, 0x0
 
-    :goto_2
-    if-ge v3, v0, :cond_2
+    :goto_40
+    if-ge v3, v0, :cond_48
 
     const/4 v6, -0x1
 
@@ -231,9 +231,9 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_40
 
-    :cond_2
+    :cond_48
     move-object v3, v1
 
     .local v3, "$this$HEX_DIGITS_TO_DECIMAL_u24lambda_u242":[I
@@ -256,12 +256,12 @@
     .local v9, "index$iv":I
     const/4 v10, 0x0
 
-    :goto_3
+    :goto_50
     invoke-interface {v7}, Ljava/lang/CharSequence;->length()I
 
     move-result v11
 
-    if-ge v10, v11, :cond_3
+    if-ge v10, v11, :cond_65
 
     invoke-interface {v7, v10}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -292,12 +292,12 @@
 
     move v9, v12
 
-    goto :goto_3
+    goto :goto_50
 
     .line 1343
     .end local v12    # "index$iv":I
     .local v9, "index$iv":I
-    :cond_3
+    :cond_65
     nop
 
     .line 44
@@ -319,12 +319,12 @@
     .restart local v9    # "index$iv":I
     const/4 v10, 0x0
 
-    :goto_4
+    :goto_6c
     invoke-interface {v7}, Ljava/lang/CharSequence;->length()I
 
     move-result v11
 
-    if-ge v10, v11, :cond_4
+    if-ge v10, v11, :cond_81
 
     invoke-interface {v7, v10}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -355,12 +355,12 @@
 
     move v9, v12
 
-    goto :goto_4
+    goto :goto_6c
 
     .line 1346
     .end local v12    # "index$iv":I
     .local v9, "index$iv":I
-    :cond_4
+    :cond_81
     nop
 
     .line 45
@@ -379,8 +379,8 @@
 
     const/4 v3, 0x0
 
-    :goto_5
-    if-ge v3, v0, :cond_5
+    :goto_88
+    if-ge v3, v0, :cond_91
 
     const-wide/16 v6, -0x1
 
@@ -388,9 +388,9 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_5
+    goto :goto_88
 
-    :cond_5
+    :cond_91
     move-object v0, v1
 
     .local v0, "$this$HEX_DIGITS_TO_LONG_DECIMAL_u24lambda_u245":[J
@@ -411,12 +411,12 @@
     .local v7, "index$iv":I
     const/4 v8, 0x0
 
-    :goto_6
+    :goto_98
     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
     move-result v9
 
-    if-ge v8, v9, :cond_6
+    if-ge v8, v9, :cond_ae
 
     invoke-interface {v4, v8}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -449,12 +449,12 @@
 
     move v7, v10
 
-    goto :goto_6
+    goto :goto_98
 
     .line 1349
     .end local v10    # "index$iv":I
     .local v7, "index$iv":I
-    :cond_6
+    :cond_ae
     nop
 
     .line 56
@@ -476,12 +476,12 @@
     .local v6, "index$iv":I
     nop
 
-    :goto_7
+    :goto_b5
     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
     move-result v7
 
-    if-ge v2, v7, :cond_7
+    if-ge v2, v7, :cond_cb
 
     invoke-interface {v4, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -514,12 +514,12 @@
 
     move v6, v8
 
-    goto :goto_7
+    goto :goto_b5
 
     .line 1352
     .end local v8    # "index$iv":I
     .local v6, "index$iv":I
-    :cond_7
+    :cond_cb
     nop
 
     .line 57
@@ -537,23 +537,23 @@
 .end method
 
 .method private static final charsPerSet(JII)J
-    .locals 8
+    .registers 12
     .param p0, "charsPerElement"    # J
     .param p2, "elementsPerSet"    # I
     .param p3, "elementSeparatorLength"    # I
 
     .line 622
-    if-lez p2, :cond_0
+    if-lez p2, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_5
+    if-eqz v0, :cond_13
 
     .line 623
     int-to-long v0, p2
@@ -575,7 +575,7 @@
     return-wide v0
 
     .line 622
-    :cond_1
+    :cond_13
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."
@@ -590,7 +590,7 @@
 .end method
 
 .method private static final checkContainsAt(Ljava/lang/String;IILjava/lang/String;ZLjava/lang/String;)I
-    .locals 5
+    .registers 11
     .param p0, "$this$checkContainsAt"    # Ljava/lang/String;
     .param p1, "index"    # I
     .param p2, "endIndex"    # I
@@ -610,22 +610,22 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_d
+    if-eqz v1, :cond_10
 
     return p1
 
     .line 1199
-    :cond_1
+    :cond_10
     const/4 v1, 0x0
 
     .local v1, "i":I
@@ -637,8 +637,8 @@
 
     move-result v2
 
-    :goto_1
-    if-ge v1, v2, :cond_3
+    :goto_18
+    if-ge v1, v2, :cond_30
 
     .line 1200
     invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
@@ -655,20 +655,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_2d
 
     .line 1201
     invoke-static {p0, p1, p2, p3, p5}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1199
-    :cond_2
+    :cond_2d
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
     .line 1204
     .end local v1    # "i":I
-    :cond_3
+    :cond_30
     invoke-virtual {p3}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -679,7 +679,7 @@
 .end method
 
 .method private static final checkFormatLength(J)I
-    .locals 4
+    .registers 6
     .param p0, "formatLength"    # J
 
     .line 339
@@ -689,18 +689,18 @@
 
     cmp-long v3, v0, p0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_f
 
     const-wide/32 v0, 0x7fffffff
 
     cmp-long v3, p0, v0
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_f
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_f
+    if-eqz v2, :cond_13
 
     .line 343
     long-to-int v0, p0
@@ -708,7 +708,7 @@
     return v0
 
     .line 341
-    :cond_1
+    :cond_13
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -743,7 +743,7 @@
 .end method
 
 .method private static final checkNewLineAt(Ljava/lang/String;II)I
-    .locals 3
+    .registers 6
     .param p0, "$this$checkNewLineAt"    # Ljava/lang/String;
     .param p1, "index"    # I
     .param p2, "endIndex"    # I
@@ -757,12 +757,12 @@
 
     const/16 v2, 0xa
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1c
 
     .line 633
     add-int/lit8 v0, p1, 0x1
 
-    if-ge v0, p2, :cond_0
+    if-ge v0, p2, :cond_19
 
     add-int/lit8 v0, p1, 0x1
 
@@ -770,34 +770,34 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_19
 
     add-int/lit8 v0, p1, 0x2
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_19
     add-int/lit8 v0, p1, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 634
-    :cond_1
+    :cond_1c
     invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_25
 
     .line 635
     add-int/lit8 v0, p1, 0x1
 
     .line 632
-    :goto_0
+    :goto_24
     return v0
 
     .line 637
-    :cond_2
+    :cond_25
     new-instance v0, Ljava/lang/NumberFormatException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -838,7 +838,7 @@
 .end method
 
 .method private static final checkNumberOfDigits(Ljava/lang/String;III)V
-    .locals 3
+    .registers 7
     .param p0, "$this$checkNumberOfDigits"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -851,18 +851,18 @@
     .local v0, "digits":I
     const/4 v1, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_b
 
     .line 1163
     const-string v2, "at least"
 
     invoke-static {p0, p1, p2, v2, v1}, Lkotlin/text/HexExtensionsKt;->throwInvalidNumberOfDigits(Ljava/lang/String;IILjava/lang/String;I)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 1164
-    :cond_0
-    if-le v0, p3, :cond_1
+    :cond_b
+    if-le v0, p3, :cond_13
 
     .line 1165
     add-int v1, p1, v0
@@ -872,13 +872,13 @@
     invoke-static {p0, p1, v1}, Lkotlin/text/HexExtensionsKt;->checkZeroDigits(Ljava/lang/String;II)V
 
     .line 1167
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     return-void
 .end method
 
 .method private static final checkPrefixSuffixNumberOfDigits(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;ZI)V
-    .locals 9
+    .registers 16
     .param p0, "$this$checkPrefixSuffixNumberOfDigits"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -900,13 +900,13 @@
 
     move-result v1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_10
 
     .line 1150
     invoke-static {p0, p1, p2, p3, p4}, Lkotlin/text/HexExtensionsKt;->throwInvalidPrefixSuffix(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1153
-    :cond_0
+    :cond_10
     const-string v0, "prefix"
 
     .local v0, "partName$iv":Ljava/lang/String;
@@ -929,24 +929,24 @@
 
     const/4 v5, 0x1
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_21
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_2
+    :goto_22
+    if-eqz v3, :cond_26
 
     move v3, p1
 
-    goto :goto_2
+    goto :goto_4b
 
     .line 1318
-    :cond_2
+    :cond_26
     const/4 v3, 0x0
 
     .local v3, "i$iv":I
@@ -958,8 +958,8 @@
 
     move-result v6
 
-    :goto_1
-    if-ge v3, v6, :cond_4
+    :goto_2e
+    if-ge v3, v6, :cond_46
 
     .line 1319
     invoke-virtual {p3, v3}, Ljava/lang/String;->charAt(I)C
@@ -976,20 +976,20 @@
 
     move-result v7
 
-    if-nez v7, :cond_3
+    if-nez v7, :cond_43
 
     .line 1320
     invoke-static {v1, p1, p2, p3, v0}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1318
-    :cond_3
+    :cond_43
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 1323
     .end local v3    # "i$iv":I
-    :cond_4
+    :cond_46
     invoke-virtual {p3}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -1000,7 +1000,7 @@
     .end local v0    # "partName$iv":Ljava/lang/String;
     .end local v1    # "$this$checkContainsAt$iv":Ljava/lang/String;
     .end local v2    # "$i$f$checkContainsAt":I
-    :goto_2
+    :goto_4b
     move v0, v3
 
     .line 1154
@@ -1031,12 +1031,12 @@
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_60
 
     const/4 v4, 0x1
 
-    :cond_5
-    if-nez v4, :cond_8
+    :cond_60
+    if-nez v4, :cond_85
 
     .line 1325
     const/4 v4, 0x0
@@ -1050,8 +1050,8 @@
 
     move-result v5
 
-    :goto_3
-    if-ge v4, v5, :cond_7
+    :goto_6a
+    if-ge v4, v5, :cond_82
 
     .line 1326
     invoke-virtual {p4, v4}, Ljava/lang/String;->charAt(I)C
@@ -1068,27 +1068,27 @@
 
     move-result v7
 
-    if-nez v7, :cond_6
+    if-nez v7, :cond_7f
 
     .line 1327
     invoke-static {v3, v1, p2, p4, v2}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1325
-    :cond_6
+    :cond_7f
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_6a
 
     .line 1330
     .end local v4    # "i$iv":I
-    :cond_7
+    :cond_82
     invoke-virtual {p4}, Ljava/lang/String;->length()I
 
     .line 1157
     .end local v2    # "partName$iv":Ljava/lang/String;
     .end local v3    # "$this$checkContainsAt$iv":Ljava/lang/String;
     .end local v6    # "$i$f$checkContainsAt":I
-    :cond_8
+    :cond_85
     invoke-static {p0, v0, v1, p6}, Lkotlin/text/HexExtensionsKt;->checkNumberOfDigits(Ljava/lang/String;III)V
 
     .line 1158
@@ -1096,7 +1096,7 @@
 .end method
 
 .method private static final checkZeroDigits(Ljava/lang/String;II)V
-    .locals 4
+    .registers 7
     .param p0, "$this$checkZeroDigits"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -1105,8 +1105,8 @@
     move v0, p1
 
     .local v0, "index":I
-    :goto_0
-    if-ge v0, p2, :cond_1
+    :goto_1
+    if-ge v0, p2, :cond_3b
 
     .line 1171
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
@@ -1115,15 +1115,15 @@
 
     const/16 v2, 0x30
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_e
 
     .line 1170
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1172
-    :cond_0
+    :cond_e
     new-instance v1, Ljava/lang/NumberFormatException;
 
     .line 1173
@@ -1172,12 +1172,12 @@
 
     .line 1178
     .end local v0    # "index":I
-    :cond_1
+    :cond_3b
     return-void
 .end method
 
 .method private static final decimalFromHexDigitAt(Ljava/lang/String;I)I
-    .locals 3
+    .registers 5
     .param p0, "$this$decimalFromHexDigitAt"    # Ljava/lang/String;
     .param p1, "index"    # I
 
@@ -1193,13 +1193,13 @@
     .local v1, "code":I
     ushr-int/lit8 v2, v1, 0x8
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     sget-object v2, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_DECIMAL:[I
 
     aget v2, v2, v1
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_14
 
     .line 1211
     sget-object v2, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_DECIMAL:[I
@@ -1209,7 +1209,7 @@
     return v2
 
     .line 1213
-    :cond_0
+    :cond_14
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->throwInvalidDigitAt(Ljava/lang/String;I)Ljava/lang/Void;
 
     new-instance v2, Lkotlin/KotlinNothingValueException;
@@ -1220,7 +1220,7 @@
 .end method
 
 .method private static final formatByteAt([BILjava/lang/String;Ljava/lang/String;[I[CI)I
-    .locals 2
+    .registers 9
     .param p0, "$this$formatByteAt"    # [B
     .param p1, "index"    # I
     .param p2, "bytePrefix"    # Ljava/lang/String;
@@ -1249,7 +1249,7 @@
 .end method
 
 .method private static final formatByteAt([BI[I[CI)I
-    .locals 4
+    .registers 9
     .param p0, "$this$formatByteAt"    # [B
     .param p1, "index"    # I
     .param p2, "byteToDigits"    # [I
@@ -1289,24 +1289,24 @@
 .end method
 
 .method private static final formattedStringLength(IIII)I
-    .locals 6
+    .registers 10
     .param p0, "numberOfBytes"    # I
     .param p1, "byteSeparatorLength"    # I
     .param p2, "bytePrefixLength"    # I
     .param p3, "byteSuffixLength"    # I
 
     .line 296
-    if-lez p0, :cond_0
+    if-lez p0, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_5
+    if-eqz v0, :cond_19
 
     .line 298
     const-wide/16 v0, 0x2
@@ -1344,7 +1344,7 @@
     .line 296
     .end local v0    # "formatLength":J
     .end local v2    # "charsPerByte":J
-    :cond_1
+    :cond_19
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."
@@ -1359,7 +1359,7 @@
 .end method
 
 .method public static final formattedStringLength(IIIIIII)I
-    .locals 16
+    .registers 23
     .param p0, "numberOfBytes"    # I
     .param p1, "bytesPerLine"    # I
     .param p2, "bytesPerGroup"    # I
@@ -1371,17 +1371,17 @@
     .line 313
     move/from16 v0, p0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_2
+    :goto_7
+    if-eqz v1, :cond_47
 
     .line 316
     add-int/lit8 v1, v0, -0x1
@@ -1408,14 +1408,14 @@
 
     .line 319
     .local v5, "$i$a$-let-HexExtensionsKt$formattedStringLength$groupSeparators$1$bytesInLastLine$1":I
-    if-nez v4, :cond_1
+    if-nez v4, :cond_19
 
     move/from16 v4, p1
 
     .line 320
     .end local v5    # "$i$a$-let-HexExtensionsKt$formattedStringLength$groupSeparators$1$bytesInLastLine$1":I
     .local v4, "bytesInLastLine":I
-    :cond_1
+    :cond_19
     add-int/lit8 v5, v4, -0x1
 
     div-int v5, v5, p2
@@ -1504,7 +1504,7 @@
     .end local v2    # "groupSeparators":I
     .end local v3    # "byteSeparators":I
     .end local v4    # "formatLength":J
-    :cond_2
+    :cond_47
     move/from16 v8, p3
 
     move/from16 v9, p4
@@ -1527,7 +1527,7 @@
 .end method
 
 .method public static final getBYTE_TO_LOWER_CASE_HEX_DIGITS()[I
-    .locals 1
+    .registers 1
 
     .line 21
     sget-object v0, Lkotlin/text/HexExtensionsKt;->BYTE_TO_LOWER_CASE_HEX_DIGITS:[I
@@ -1536,13 +1536,13 @@
 .end method
 
 .method public static synthetic getBYTE_TO_LOWER_CASE_HEX_DIGITS$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private static final hexToByte(Ljava/lang/String;IILkotlin/text/HexFormat;)B
-    .locals 1
+    .registers 5
     .param p0, "$this$hexToByte"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -1561,7 +1561,7 @@
 .end method
 
 .method public static final hexToByte(Ljava/lang/String;Lkotlin/text/HexFormat;)B
-    .locals 2
+    .registers 4
     .param p0, "$this$hexToByte"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -1588,28 +1588,28 @@
 .end method
 
 .method static synthetic hexToByte$default(Ljava/lang/String;IILkotlin/text/HexFormat;ILjava/lang/Object;)B
-    .locals 0
+    .registers 6
 
     .line 736
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p2
 
-    :cond_1
+    :cond_d
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_17
 
     sget-object p3, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -1617,7 +1617,7 @@
 
     move-result-object p3
 
-    :cond_2
+    :cond_17
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/HexExtensionsKt;->hexToByte(Ljava/lang/String;IILkotlin/text/HexFormat;)B
 
     move-result p0
@@ -1626,12 +1626,12 @@
 .end method
 
 .method public static synthetic hexToByte$default(Ljava/lang/String;Lkotlin/text/HexFormat;ILjava/lang/Object;)B
-    .locals 0
+    .registers 4
 
     .line 708
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -1639,7 +1639,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->hexToByte(Ljava/lang/String;Lkotlin/text/HexFormat;)B
 
     move-result p0
@@ -1648,7 +1648,7 @@
 .end method
 
 .method private static final hexToByteArray(Ljava/lang/String;IILkotlin/text/HexFormat;)[B
-    .locals 3
+    .registers 7
     .param p0, "$this$hexToByteArray"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -1664,7 +1664,7 @@
     invoke-virtual {v0, p1, p2, v1}, Lkotlin/collections/AbstractList$Companion;->checkBoundsIndexes$kotlin_stdlib(III)V
 
     .line 399
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_f
 
     const/4 v0, 0x0
 
@@ -1674,7 +1674,7 @@
     return-object v0
 
     .line 403
-    :cond_0
+    :cond_f
     invoke-virtual {p3}, Lkotlin/text/HexFormat;->getBytes()Lkotlin/text/HexFormat$BytesHexFormat;
 
     move-result-object v0
@@ -1685,14 +1685,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     .line 407
     invoke-static {p0, p1, p2, v0}, Lkotlin/text/HexExtensionsKt;->hexToByteArrayNoLineAndGroupSeparator(Ljava/lang/String;IILkotlin/text/HexFormat$BytesHexFormat;)[B
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     .line 1250
     .local v1, "it":[B
@@ -1705,7 +1705,7 @@
     .line 410
     .end local v1    # "it":[B
     .end local v2    # "$i$a$-let-HexExtensionsKt$hexToByteArray$1":I
-    :cond_1
+    :cond_21
     invoke-static {p0, p1, p2, v0}, Lkotlin/text/HexExtensionsKt;->hexToByteArraySlowPath(Ljava/lang/String;IILkotlin/text/HexFormat$BytesHexFormat;)[B
 
     move-result-object v1
@@ -1714,7 +1714,7 @@
 .end method
 
 .method public static final hexToByteArray(Ljava/lang/String;Lkotlin/text/HexFormat;)[B
-    .locals 2
+    .registers 4
     .param p0, "$this$hexToByteArray"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -1741,21 +1741,21 @@
 .end method
 
 .method static synthetic hexToByteArray$default(Ljava/lang/String;IILkotlin/text/HexFormat;ILjava/lang/Object;)[B
-    .locals 0
+    .registers 6
 
     .line 392
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 393
     const/4 p1, 0x0
 
     .line 392
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_d
 
     .line 394
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -1763,10 +1763,10 @@
     move-result p2
 
     .line 392
-    :cond_1
+    :cond_d
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_17
 
     .line 395
     sget-object p3, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
@@ -1776,7 +1776,7 @@
     move-result-object p3
 
     .line 392
-    :cond_2
+    :cond_17
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/HexExtensionsKt;->hexToByteArray(Ljava/lang/String;IILkotlin/text/HexFormat;)[B
 
     move-result-object p0
@@ -1785,12 +1785,12 @@
 .end method
 
 .method public static synthetic hexToByteArray$default(Ljava/lang/String;Lkotlin/text/HexFormat;ILjava/lang/Object;)[B
-    .locals 0
+    .registers 4
 
     .line 367
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -1798,7 +1798,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->hexToByteArray(Ljava/lang/String;Lkotlin/text/HexFormat;)[B
 
     move-result-object p0
@@ -1807,7 +1807,7 @@
 .end method
 
 .method private static final hexToByteArrayNoLineAndGroupSeparator(Ljava/lang/String;IILkotlin/text/HexFormat$BytesHexFormat;)[B
-    .locals 1
+    .registers 5
     .param p0, "$this$hexToByteArrayNoLineAndGroupSeparator"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -1818,7 +1818,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 421
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/HexExtensionsKt;->hexToByteArrayShortByteSeparatorNoPrefixAndSuffix(Ljava/lang/String;IILkotlin/text/HexFormat$BytesHexFormat;)[B
@@ -1828,7 +1828,7 @@
     return-object v0
 
     .line 424
-    :cond_0
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/HexExtensionsKt;->hexToByteArrayNoLineAndGroupSeparatorSlowPath(Ljava/lang/String;IILkotlin/text/HexFormat$BytesHexFormat;)[B
 
     move-result-object v0
@@ -1837,7 +1837,7 @@
 .end method
 
 .method private static final hexToByteArrayNoLineAndGroupSeparatorSlowPath(Ljava/lang/String;IILkotlin/text/HexFormat$BytesHexFormat;)[B
-    .locals 28
+    .registers 32
     .param p0, "$this$hexToByteArrayNoLineAndGroupSeparatorSlowPath"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -1922,7 +1922,7 @@
 
     cmp-long v10, v12, v8
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_36
 
     .line 482
     const/4 v10, 0x0
@@ -1930,7 +1930,7 @@
     return-object v10
 
     .line 485
-    :cond_0
+    :cond_36
     invoke-virtual/range {p3 .. p3}, Lkotlin/text/HexFormat$BytesHexFormat;->getIgnoreCase$kotlin_stdlib()Z
 
     move-result v10
@@ -1967,17 +1967,17 @@
 
     const/16 v19, 0x1
 
-    if-nez v17, :cond_1
+    if-nez v17, :cond_55
 
     const/16 v17, 0x1
 
-    goto :goto_0
+    goto :goto_57
 
-    :cond_1
+    :cond_55
     const/16 v17, 0x0
 
-    :goto_0
-    if-eqz v17, :cond_2
+    :goto_57
+    if-eqz v17, :cond_5f
 
     move/from16 v21, v5
 
@@ -1985,10 +1985,10 @@
 
     move v5, v13
 
-    goto :goto_2
+    goto :goto_90
 
     .line 1259
-    :cond_2
+    :cond_5f
     const/16 v17, 0x0
 
     .local v17, "i$iv":I
@@ -2011,8 +2011,8 @@
     .end local v17    # "i$iv":I
     .local v6, "i$iv":I
     .local v22, "charsPerByte":J
-    :goto_1
-    if-ge v6, v5, :cond_4
+    :goto_6f
+    if-ge v6, v5, :cond_8b
 
     .line 1260
     invoke-virtual {v2, v6}, Ljava/lang/String;->charAt(I)C
@@ -2031,22 +2031,22 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_86
 
     .line 1261
     invoke-static {v15, v13, v1, v2, v14}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1259
-    :cond_3
+    :cond_86
     add-int/lit8 v6, v6, 0x1
 
     move/from16 v5, v17
 
-    goto :goto_1
+    goto :goto_6f
 
     .line 1264
     .end local v6    # "i$iv":I
-    :cond_4
+    :cond_8b
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -2057,7 +2057,7 @@
     .end local v14    # "partName$iv":Ljava/lang/String;
     .end local v15    # "$this$checkContainsAt$iv":Ljava/lang/String;
     .end local v16    # "$i$f$checkContainsAt":I
-    :goto_2
+    :goto_90
     nop
 
     .line 491
@@ -2090,8 +2090,8 @@
     .local v7, "byteIndex":I
     add-int/lit8 v13, v11, -0x1
 
-    :goto_3
-    if-ge v7, v13, :cond_9
+    :goto_a9
+    if-ge v7, v13, :cond_119
 
     .line 493
     invoke-static {v0, v5}, Lkotlin/text/HexExtensionsKt;->parseByteAt(Ljava/lang/String;I)B
@@ -2122,17 +2122,17 @@
 
     move-result v20
 
-    if-nez v20, :cond_5
+    if-nez v20, :cond_c6
 
     const/16 v20, 0x1
 
-    goto :goto_4
+    goto :goto_c8
 
-    :cond_5
+    :cond_c6
     const/16 v20, 0x0
 
-    :goto_4
-    if-eqz v20, :cond_6
+    :goto_c8
+    if-eqz v20, :cond_d1
 
     move-object/from16 v25, v2
 
@@ -2140,10 +2140,10 @@
 
     move-wide/from16 v26, v8
 
-    goto :goto_6
+    goto :goto_10f
 
     .line 1266
-    :cond_6
+    :cond_d1
     const/16 v20, 0x0
 
     .local v20, "i$iv":I
@@ -2166,8 +2166,8 @@
     .end local v20    # "i$iv":I
     .local v4, "i$iv":I
     .local v24, "byteSeparator":Ljava/lang/String;
-    :goto_5
-    if-ge v4, v2, :cond_8
+    :goto_e1
+    if-ge v4, v2, :cond_105
 
     .line 1267
     move/from16 v20, v2
@@ -2194,13 +2194,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_fc
 
     .line 1268
     invoke-static {v9, v14, v1, v6, v15}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1266
-    :cond_7
+    :cond_fc
     add-int/lit8 v4, v4, 0x1
 
     move-object/from16 v16, v9
@@ -2209,13 +2209,13 @@
 
     move-wide/from16 v8, v26
 
-    goto :goto_5
+    goto :goto_e1
 
     .end local v9    # "$this$checkContainsAt$iv":Ljava/lang/String;
     .end local v26    # "numberOfChars":J
     .restart local v8    # "numberOfChars":J
     .restart local v16    # "$this$checkContainsAt$iv":Ljava/lang/String;
-    :cond_8
+    :cond_105
     move-wide/from16 v26, v8
 
     move-object/from16 v9, v16
@@ -2239,7 +2239,7 @@
     .end local v14    # "index$iv":I
     .end local v15    # "partName$iv":Ljava/lang/String;
     .end local v17    # "$i$f$checkContainsAt":I
-    :goto_6
+    :goto_10f
     move v5, v14
 
     .line 492
@@ -2251,7 +2251,7 @@
 
     move-wide/from16 v8, v26
 
-    goto :goto_3
+    goto :goto_a9
 
     .end local v24    # "byteSeparator":Ljava/lang/String;
     .end local v25    # "bytePrefix":Ljava/lang/String;
@@ -2259,7 +2259,7 @@
     .restart local v2    # "bytePrefix":Ljava/lang/String;
     .local v4, "byteSeparator":Ljava/lang/String;
     .restart local v8    # "numberOfChars":J
-    :cond_9
+    :cond_119
     move-object/from16 v25, v2
 
     move-object/from16 v24, v4
@@ -2304,12 +2304,12 @@
 
     move-result v9
 
-    if-nez v9, :cond_a
+    if-nez v9, :cond_139
 
     const/16 v18, 0x1
 
-    :cond_a
-    if-nez v18, :cond_d
+    :cond_139
+    if-nez v18, :cond_15e
 
     .line 1273
     const/4 v9, 0x0
@@ -2323,8 +2323,8 @@
 
     move-result v13
 
-    :goto_7
-    if-ge v9, v13, :cond_c
+    :goto_143
+    if-ge v9, v13, :cond_15b
 
     .line 1274
     invoke-virtual {v3, v9}, Ljava/lang/String;->charAt(I)C
@@ -2341,20 +2341,20 @@
 
     move-result v14
 
-    if-nez v14, :cond_b
+    if-nez v14, :cond_158
 
     .line 1275
     invoke-static {v7, v2, v1, v3, v4}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1273
-    :cond_b
+    :cond_158
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_7
+    goto :goto_143
 
     .line 1278
     .end local v9    # "i$iv":I
-    :cond_c
+    :cond_15b
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     .line 499
@@ -2362,12 +2362,12 @@
     .end local v4    # "partName$iv":Ljava/lang/String;
     .end local v7    # "$this$checkContainsAt$iv":Ljava/lang/String;
     .end local v8    # "$i$f$checkContainsAt":I
-    :cond_d
+    :cond_15e
     return-object v12
 .end method
 
 .method private static final hexToByteArrayShortByteSeparatorNoPrefixAndSuffix(Ljava/lang/String;IILkotlin/text/HexFormat$BytesHexFormat;)[B
-    .locals 19
+    .registers 23
     .param p0, "$this$hexToByteArrayShortByteSeparatorNoPrefixAndSuffix"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -2392,17 +2392,17 @@
 
     const/4 v4, 0x1
 
-    if-gt v2, v4, :cond_0
+    if-gt v2, v4, :cond_12
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v5, 0x0
 
-    :goto_0
-    if-eqz v5, :cond_b
+    :goto_13
+    if-eqz v5, :cond_bd
 
     .line 436
     sub-int v5, v1, p1
@@ -2415,17 +2415,17 @@
     .local v6, "charIndex":I
     const/4 v7, 0x0
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_33
 
     .line 440
     and-int/lit8 v3, v5, 0x1
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_20
 
     return-object v7
 
     .line 441
-    :cond_1
+    :cond_20
     shr-int/lit8 v3, v5, 0x1
 
     .line 442
@@ -2437,8 +2437,8 @@
     const/4 v7, 0x0
 
     .local v7, "byteIndex":I
-    :goto_1
-    if-ge v7, v3, :cond_2
+    :goto_25
+    if-ge v7, v3, :cond_32
 
     .line 444
     invoke-static {v0, v6}, Lkotlin/text/HexExtensionsKt;->parseByteAt(Ljava/lang/String;I)B
@@ -2453,27 +2453,27 @@
     .line 443
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_25
 
     .line 447
     .end local v7    # "byteIndex":I
-    :cond_2
+    :cond_32
     return-object v4
 
     .line 449
     .end local v3    # "numberOfBytes":I
     .end local v4    # "byteArray":[B
-    :cond_3
+    :cond_33
     rem-int/lit8 v8, v5, 0x3
 
     const/4 v9, 0x2
 
-    if-eq v8, v9, :cond_4
+    if-eq v8, v9, :cond_39
 
     return-object v7
 
     .line 450
-    :cond_4
+    :cond_39
     div-int/lit8 v7, v5, 0x3
 
     add-int/2addr v7, v4
@@ -2507,15 +2507,15 @@
     const/4 v9, 0x1
 
     .local v9, "byteIndex":I
-    :goto_2
-    if-ge v9, v7, :cond_a
+    :goto_4e
+    if-ge v9, v7, :cond_bc
 
     .line 456
     invoke-virtual {v0, v6}, Ljava/lang/String;->charAt(I)C
 
     move-result v11
 
-    if-eq v11, v10, :cond_9
+    if-eq v11, v10, :cond_a9
 
     .line 457
     invoke-virtual/range {p3 .. p3}, Lkotlin/text/HexFormat$BytesHexFormat;->getByteSeparator()Ljava/lang/String;
@@ -2546,17 +2546,17 @@
 
     move-result v16
 
-    if-nez v16, :cond_5
+    if-nez v16, :cond_70
 
     const/16 v16, 0x1
 
-    goto :goto_3
+    goto :goto_72
 
-    :cond_5
+    :cond_70
     const/16 v16, 0x0
 
-    :goto_3
-    if-nez v16, :cond_8
+    :goto_72
+    if-nez v16, :cond_a6
 
     .line 1252
     const/16 v16, 0x0
@@ -2574,8 +2574,8 @@
 
     .end local v16    # "i$iv":I
     .local v4, "i$iv":I
-    :goto_4
-    if-ge v4, v3, :cond_7
+    :goto_80
+    if-ge v4, v3, :cond_a0
 
     .line 1253
     move/from16 v16, v2
@@ -2598,24 +2598,24 @@
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_99
 
     .line 1254
     invoke-static {v14, v6, v1, v11, v13}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1252
-    :cond_6
+    :cond_99
     add-int/lit8 v4, v4, 0x1
 
     move/from16 v2, v16
 
     move/from16 v3, v18
 
-    goto :goto_4
+    goto :goto_80
 
     .end local v16    # "byteSeparatorLength":I
     .restart local v2    # "byteSeparatorLength":I
-    :cond_7
+    :cond_a0
     move/from16 v16, v2
 
     .line 1257
@@ -2624,17 +2624,17 @@
     .restart local v16    # "byteSeparatorLength":I
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 
-    goto :goto_5
+    goto :goto_ab
 
     .line 1251
     .end local v16    # "byteSeparatorLength":I
     .restart local v2    # "byteSeparatorLength":I
-    :cond_8
+    :cond_a6
     move/from16 v16, v2
 
     .end local v2    # "byteSeparatorLength":I
     .restart local v16    # "byteSeparatorLength":I
-    goto :goto_5
+    goto :goto_ab
 
     .line 456
     .end local v11    # "part$iv":Ljava/lang/String;
@@ -2644,13 +2644,13 @@
     .end local v15    # "$i$f$checkContainsAt":I
     .end local v16    # "byteSeparatorLength":I
     .restart local v2    # "byteSeparatorLength":I
-    :cond_9
+    :cond_a9
     move/from16 v16, v2
 
     .line 459
     .end local v2    # "byteSeparatorLength":I
     .restart local v16    # "byteSeparatorLength":I
-    :goto_5
+    :goto_ab
     add-int/lit8 v2, v6, 0x1
 
     invoke-static {v0, v2}, Lkotlin/text/HexExtensionsKt;->parseByteAt(Ljava/lang/String;I)B
@@ -2671,13 +2671,13 @@
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_4e
 
     .line 462
     .end local v9    # "byteIndex":I
     .end local v16    # "byteSeparatorLength":I
     .restart local v2    # "byteSeparatorLength":I
-    :cond_a
+    :cond_bc
     return-object v8
 
     .line 434
@@ -2686,7 +2686,7 @@
     .end local v7    # "numberOfBytes":I
     .end local v8    # "byteArray":[B
     .end local v10    # "byteSeparatorChar":C
-    :cond_b
+    :cond_bd
     move/from16 v16, v2
 
     .end local v2    # "byteSeparatorLength":I
@@ -2705,7 +2705,7 @@
 .end method
 
 .method private static final hexToByteArraySlowPath(Ljava/lang/String;IILkotlin/text/HexFormat$BytesHexFormat;)[B
-    .locals 24
+    .registers 28
     .param p0, "$this$hexToByteArraySlowPath"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -2817,13 +2817,13 @@
 
     .line 532
     .local v7, "indexInGroup":I
-    :goto_0
-    if-ge v4, v1, :cond_14
+    :goto_41
+    if-ge v4, v1, :cond_1e2
 
     .line 533
     const/16 v16, 0x1
 
-    if-ne v6, v9, :cond_0
+    if-ne v6, v9, :cond_53
 
     .line 534
     invoke-static {v0, v4, v1}, Lkotlin/text/HexExtensionsKt;->checkNewLineAt(Ljava/lang/String;II)I
@@ -2840,11 +2840,11 @@
 
     move/from16 v23, v9
 
-    goto/16 :goto_8
+    goto/16 :goto_120
 
     .line 537
-    :cond_0
-    if-ne v7, v10, :cond_5
+    :cond_53
+    if-ne v7, v10, :cond_c5
 
     .line 538
     const-string v17, "group separator"
@@ -2869,17 +2869,17 @@
 
     move-result v20
 
-    if-nez v20, :cond_1
+    if-nez v20, :cond_6a
 
     const/16 v20, 0x1
 
-    goto :goto_1
+    goto :goto_6c
 
-    :cond_1
+    :cond_6a
     const/16 v20, 0x0
 
-    :goto_1
-    if-eqz v20, :cond_2
+    :goto_6c
+    if-eqz v20, :cond_76
 
     move/from16 v21, v2
 
@@ -2889,10 +2889,10 @@
 
     move/from16 v23, v9
 
-    goto :goto_4
+    goto :goto_c0
 
     .line 1280
-    :cond_2
+    :cond_76
     const/16 v20, 0x0
 
     .local v20, "i$iv":I
@@ -2911,8 +2911,8 @@
     .end local v20    # "i$iv":I
     .local v2, "i$iv":I
     .local v21, "parseMaxSize":I
-    :goto_2
-    if-ge v2, v8, :cond_4
+    :goto_84
+    if-ge v2, v8, :cond_b3
 
     .line 1281
     move/from16 v20, v6
@@ -2942,7 +2942,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_a4
 
     .line 1282
     move-object/from16 v6, v19
@@ -2951,18 +2951,18 @@
     .local v6, "partName$iv":Ljava/lang/String;
     invoke-static {v9, v4, v1, v14, v6}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_a6
 
     .line 1281
     .end local v6    # "partName$iv":Ljava/lang/String;
     .restart local v19    # "partName$iv":Ljava/lang/String;
-    :cond_3
+    :cond_a4
     move-object/from16 v6, v19
 
     .line 1280
     .end local v19    # "partName$iv":Ljava/lang/String;
     .restart local v6    # "partName$iv":Ljava/lang/String;
-    :goto_3
+    :goto_a6
     add-int/lit8 v2, v2, 0x1
 
     move-object/from16 v19, v6
@@ -2975,7 +2975,7 @@
 
     move/from16 v9, v23
 
-    goto :goto_2
+    goto :goto_84
 
     .end local v20    # "indexInLine":I
     .end local v23    # "bytesPerLine":I
@@ -2983,7 +2983,7 @@
     .local v9, "bytesPerLine":I
     .restart local v18    # "$this$checkContainsAt$iv":Ljava/lang/String;
     .restart local v19    # "partName$iv":Ljava/lang/String;
-    :cond_4
+    :cond_b3
     move/from16 v20, v6
 
     move/from16 v23, v9
@@ -3010,7 +3010,7 @@
     .end local v6    # "partName$iv":Ljava/lang/String;
     .end local v9    # "$this$checkContainsAt$iv":Ljava/lang/String;
     .end local v17    # "$i$f$checkContainsAt":I
-    :goto_4
+    :goto_c0
     move v4, v2
 
     .line 539
@@ -3018,7 +3018,7 @@
 
     move/from16 v6, v20
 
-    goto :goto_8
+    goto :goto_120
 
     .line 540
     .end local v20    # "indexInLine":I
@@ -3027,7 +3027,7 @@
     .local v2, "parseMaxSize":I
     .local v6, "indexInLine":I
     .local v9, "bytesPerLine":I
-    :cond_5
+    :cond_c5
     move/from16 v21, v2
 
     move/from16 v20, v6
@@ -3040,7 +3040,7 @@
     .restart local v20    # "indexInLine":I
     .restart local v21    # "parseMaxSize":I
     .restart local v23    # "bytesPerLine":I
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_11c
 
     .line 541
     const-string v2, "byte separator"
@@ -3061,26 +3061,26 @@
 
     move-result v9
 
-    if-nez v9, :cond_6
+    if-nez v9, :cond_dd
 
     const/4 v9, 0x1
 
-    goto :goto_5
+    goto :goto_de
 
-    :cond_6
+    :cond_dd
     const/4 v9, 0x0
 
-    :goto_5
-    if-eqz v9, :cond_7
+    :goto_de
+    if-eqz v9, :cond_e4
 
     move/from16 v18, v7
 
     move v7, v4
 
-    goto :goto_7
+    goto :goto_116
 
     .line 1287
-    :cond_7
+    :cond_e4
     const/4 v9, 0x0
 
     .local v9, "i$iv":I
@@ -3096,8 +3096,8 @@
 
     move-result v7
 
-    :goto_6
-    if-ge v9, v7, :cond_9
+    :goto_ef
+    if-ge v9, v7, :cond_10f
 
     .line 1288
     move/from16 v17, v7
@@ -3120,24 +3120,24 @@
 
     move-result v7
 
-    if-nez v7, :cond_8
+    if-nez v7, :cond_108
 
     .line 1289
     invoke-static {v6, v4, v1, v13, v2}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1287
-    :cond_8
+    :cond_108
     add-int/lit8 v9, v9, 0x1
 
     move/from16 v7, v17
 
     move/from16 v8, v19
 
-    goto :goto_6
+    goto :goto_ef
 
     .end local v19    # "$i$f$checkContainsAt":I
     .restart local v8    # "$i$f$checkContainsAt":I
-    :cond_9
+    :cond_10f
     move/from16 v19, v8
 
     .line 1292
@@ -3154,19 +3154,19 @@
     .end local v2    # "partName$iv":Ljava/lang/String;
     .end local v6    # "$this$checkContainsAt$iv":Ljava/lang/String;
     .end local v19    # "$i$f$checkContainsAt":I
-    :goto_7
+    :goto_116
     move v4, v7
 
     move/from16 v7, v18
 
     move/from16 v6, v20
 
-    goto :goto_8
+    goto :goto_120
 
     .line 540
     .end local v18    # "indexInGroup":I
     .restart local v7    # "indexInGroup":I
-    :cond_a
+    :cond_11c
     move/from16 v18, v7
 
     .end local v7    # "indexInGroup":I
@@ -3178,7 +3178,7 @@
     .end local v20    # "indexInLine":I
     .local v6, "indexInLine":I
     .restart local v7    # "indexInGroup":I
-    :goto_8
+    :goto_120
     add-int/lit8 v6, v6, 0x1
 
     .line 544
@@ -3203,17 +3203,17 @@
 
     move-result v17
 
-    if-nez v17, :cond_b
+    if-nez v17, :cond_136
 
     const/16 v17, 0x1
 
-    goto :goto_9
+    goto :goto_138
 
-    :cond_b
+    :cond_136
     const/16 v17, 0x0
 
-    :goto_9
-    if-eqz v17, :cond_c
+    :goto_138
+    if-eqz v17, :cond_140
 
     move/from16 v19, v6
 
@@ -3221,10 +3221,10 @@
 
     move v6, v4
 
-    goto :goto_b
+    goto :goto_177
 
     .line 1294
-    :cond_c
+    :cond_140
     const/16 v17, 0x0
 
     .local v17, "i$iv":I
@@ -3247,8 +3247,8 @@
     .end local v17    # "i$iv":I
     .local v7, "i$iv":I
     .restart local v18    # "indexInGroup":I
-    :goto_a
-    if-ge v7, v6, :cond_e
+    :goto_150
+    if-ge v7, v6, :cond_170
 
     .line 1295
     move/from16 v17, v6
@@ -3271,24 +3271,24 @@
 
     move-result v6
 
-    if-nez v6, :cond_d
+    if-nez v6, :cond_169
 
     .line 1296
     invoke-static {v8, v4, v1, v11, v2}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1294
-    :cond_d
+    :cond_169
     add-int/lit8 v7, v7, 0x1
 
     move/from16 v6, v17
 
     move/from16 v9, v20
 
-    goto :goto_a
+    goto :goto_150
 
     .end local v20    # "$i$f$checkContainsAt":I
     .restart local v9    # "$i$f$checkContainsAt":I
-    :cond_e
+    :cond_170
     move/from16 v20, v9
 
     .line 1299
@@ -3305,7 +3305,7 @@
     .end local v2    # "partName$iv":Ljava/lang/String;
     .end local v8    # "$this$checkContainsAt$iv":Ljava/lang/String;
     .end local v20    # "$i$f$checkContainsAt":I
-    :goto_b
+    :goto_177
     move v2, v6
 
     .line 547
@@ -3313,7 +3313,7 @@
     .local v2, "charIndex":I
     add-int/lit8 v4, v1, -0x2
 
-    if-ge v4, v2, :cond_f
+    if-ge v4, v2, :cond_182
 
     .line 548
     const-string v4, "exactly"
@@ -3323,7 +3323,7 @@
     invoke-static {v0, v2, v1, v4, v6}, Lkotlin/text/HexExtensionsKt;->throwInvalidNumberOfDigits(Ljava/lang/String;IILjava/lang/String;I)V
 
     .line 550
-    :cond_f
+    :cond_182
     add-int/lit8 v4, v5, 0x1
 
     .end local v5    # "byteIndex":I
@@ -3356,22 +3356,22 @@
 
     move-result v9
 
-    if-nez v9, :cond_10
+    if-nez v9, :cond_19b
 
-    goto :goto_c
+    goto :goto_19d
 
-    :cond_10
+    :cond_19b
     const/16 v16, 0x0
 
-    :goto_c
-    if-eqz v16, :cond_11
+    :goto_19d
+    if-eqz v16, :cond_1a2
 
     move/from16 v17, v2
 
-    goto :goto_e
+    goto :goto_1d3
 
     .line 1301
-    :cond_11
+    :cond_1a2
     const/4 v9, 0x0
 
     .local v9, "i$iv":I
@@ -3383,8 +3383,8 @@
 
     move-result v0
 
-    :goto_d
-    if-ge v9, v0, :cond_13
+    :goto_1ab
+    if-ge v9, v0, :cond_1cb
 
     .line 1302
     move/from16 v16, v0
@@ -3407,24 +3407,24 @@
 
     move-result v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_1c4
 
     .line 1303
     invoke-static {v7, v5, v1, v12, v6}, Lkotlin/text/HexExtensionsKt;->throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1301
-    :cond_12
+    :cond_1c4
     add-int/lit8 v9, v9, 0x1
 
     move/from16 v0, v16
 
     move/from16 v2, v17
 
-    goto :goto_d
+    goto :goto_1ab
 
     .end local v17    # "charIndex":I
     .restart local v2    # "charIndex":I
-    :cond_13
+    :cond_1cb
     move/from16 v17, v2
 
     .line 1306
@@ -3444,7 +3444,7 @@
     .end local v6    # "partName$iv":Ljava/lang/String;
     .end local v7    # "$this$checkContainsAt$iv":Ljava/lang/String;
     .end local v8    # "$i$f$checkContainsAt":I
-    :goto_e
+    :goto_1d3
     move v0, v5
 
     move v5, v4
@@ -3463,7 +3463,7 @@
 
     .end local v17    # "charIndex":I
     .local v0, "charIndex":I
-    goto/16 :goto_0
+    goto/16 :goto_41
 
     .line 554
     .end local v0    # "charIndex":I
@@ -3477,7 +3477,7 @@
     .local v6, "indexInLine":I
     .local v7, "indexInGroup":I
     .local v9, "bytesPerLine":I
-    :cond_14
+    :cond_1e2
     move/from16 v21, v2
 
     move/from16 v20, v6
@@ -3496,13 +3496,13 @@
     .restart local v23    # "bytesPerLine":I
     array-length v0, v3
 
-    if-ne v5, v0, :cond_15
+    if-ne v5, v0, :cond_1ef
 
     move-object v0, v3
 
-    goto :goto_f
+    goto :goto_1f8
 
-    :cond_15
+    :cond_1ef
     invoke-static {v3, v5}, Ljava/util/Arrays;->copyOf([BI)[B
 
     move-result-object v0
@@ -3511,12 +3511,12 @@
 
     invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_f
+    :goto_1f8
     return-object v0
 .end method
 
 .method private static final hexToInt(Ljava/lang/String;IILkotlin/text/HexFormat;)I
-    .locals 1
+    .registers 5
     .param p0, "$this$hexToInt"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -3533,7 +3533,7 @@
 .end method
 
 .method public static final hexToInt(Ljava/lang/String;Lkotlin/text/HexFormat;)I
-    .locals 2
+    .registers 4
     .param p0, "$this$hexToInt"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -3560,28 +3560,28 @@
 .end method
 
 .method static synthetic hexToInt$default(Ljava/lang/String;IILkotlin/text/HexFormat;ILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 940
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p2
 
-    :cond_1
+    :cond_d
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_17
 
     sget-object p3, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -3589,7 +3589,7 @@
 
     move-result-object p3
 
-    :cond_2
+    :cond_17
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/HexExtensionsKt;->hexToInt(Ljava/lang/String;IILkotlin/text/HexFormat;)I
 
     move-result p0
@@ -3598,12 +3598,12 @@
 .end method
 
 .method public static synthetic hexToInt$default(Ljava/lang/String;Lkotlin/text/HexFormat;ILjava/lang/Object;)I
-    .locals 0
+    .registers 4
 
     .line 912
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -3611,7 +3611,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->hexToInt(Ljava/lang/String;Lkotlin/text/HexFormat;)I
 
     move-result p0
@@ -3620,7 +3620,7 @@
 .end method
 
 .method private static final hexToIntImpl(Ljava/lang/String;IILkotlin/text/HexFormat;I)I
-    .locals 10
+    .registers 15
     .param p0, "$this$hexToIntImpl"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -3647,7 +3647,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 1113
     invoke-static {p0, p1, p2, p4}, Lkotlin/text/HexExtensionsKt;->checkNumberOfDigits(Ljava/lang/String;III)V
@@ -3660,7 +3660,7 @@
     return v1
 
     .line 1117
-    :cond_0
+    :cond_1b
     invoke-virtual {v0}, Lkotlin/text/HexFormat$NumberHexFormat;->getPrefix()Ljava/lang/String;
 
     move-result-object v1
@@ -3712,7 +3712,7 @@
 .end method
 
 .method public static final hexToLong(Ljava/lang/String;IILkotlin/text/HexFormat;)J
-    .locals 2
+    .registers 6
     .param p0, "$this$hexToLong"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -3737,7 +3737,7 @@
 .end method
 
 .method public static final hexToLong(Ljava/lang/String;Lkotlin/text/HexFormat;)J
-    .locals 2
+    .registers 4
     .param p0, "$this$hexToLong"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -3764,28 +3764,28 @@
 .end method
 
 .method public static synthetic hexToLong$default(Ljava/lang/String;IILkotlin/text/HexFormat;ILjava/lang/Object;)J
-    .locals 0
+    .registers 6
 
     .line 1052
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p2
 
-    :cond_1
+    :cond_d
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_17
 
     sget-object p3, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -3793,7 +3793,7 @@
 
     move-result-object p3
 
-    :cond_2
+    :cond_17
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/HexExtensionsKt;->hexToLong(Ljava/lang/String;IILkotlin/text/HexFormat;)J
 
     move-result-wide p0
@@ -3802,12 +3802,12 @@
 .end method
 
 .method public static synthetic hexToLong$default(Ljava/lang/String;Lkotlin/text/HexFormat;ILjava/lang/Object;)J
-    .locals 0
+    .registers 4
 
     .line 1024
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -3815,7 +3815,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->hexToLong(Ljava/lang/String;Lkotlin/text/HexFormat;)J
 
     move-result-wide p0
@@ -3824,7 +3824,7 @@
 .end method
 
 .method private static final hexToLongImpl(Ljava/lang/String;IILkotlin/text/HexFormat;I)J
-    .locals 10
+    .registers 15
     .param p0, "$this$hexToLongImpl"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -3851,7 +3851,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 1131
     invoke-static {p0, p1, p2, p4}, Lkotlin/text/HexExtensionsKt;->checkNumberOfDigits(Ljava/lang/String;III)V
@@ -3864,7 +3864,7 @@
     return-wide v1
 
     .line 1135
-    :cond_0
+    :cond_1b
     invoke-virtual {v0}, Lkotlin/text/HexFormat$NumberHexFormat;->getPrefix()Ljava/lang/String;
 
     move-result-object v1
@@ -3916,7 +3916,7 @@
 .end method
 
 .method private static final hexToShort(Ljava/lang/String;IILkotlin/text/HexFormat;)S
-    .locals 1
+    .registers 5
     .param p0, "$this$hexToShort"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -3935,7 +3935,7 @@
 .end method
 
 .method public static final hexToShort(Ljava/lang/String;Lkotlin/text/HexFormat;)S
-    .locals 2
+    .registers 4
     .param p0, "$this$hexToShort"    # Ljava/lang/String;
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -3962,28 +3962,28 @@
 .end method
 
 .method static synthetic hexToShort$default(Ljava/lang/String;IILkotlin/text/HexFormat;ILjava/lang/Object;)S
-    .locals 0
+    .registers 6
 
     .line 836
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p2
 
-    :cond_1
+    :cond_d
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_17
 
     sget-object p3, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -3991,7 +3991,7 @@
 
     move-result-object p3
 
-    :cond_2
+    :cond_17
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/HexExtensionsKt;->hexToShort(Ljava/lang/String;IILkotlin/text/HexFormat;)S
 
     move-result p0
@@ -4000,12 +4000,12 @@
 .end method
 
 .method public static synthetic hexToShort$default(Ljava/lang/String;Lkotlin/text/HexFormat;ILjava/lang/Object;)S
-    .locals 0
+    .registers 4
 
     .line 808
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -4013,7 +4013,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->hexToShort(Ljava/lang/String;Lkotlin/text/HexFormat;)S
 
     move-result p0
@@ -4022,7 +4022,7 @@
 .end method
 
 .method private static final longDecimalFromHexDigitAt(Ljava/lang/String;I)J
-    .locals 7
+    .registers 9
     .param p0, "$this$longDecimalFromHexDigitAt"    # Ljava/lang/String;
     .param p1, "index"    # I
 
@@ -4038,7 +4038,7 @@
     .local v1, "code":I
     ushr-int/lit8 v2, v1, 0x8
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_18
 
     sget-object v2, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_LONG_DECIMAL:[J
 
@@ -4048,7 +4048,7 @@
 
     cmp-long v2, v3, v5
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_18
 
     .line 1220
     sget-object v2, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_LONG_DECIMAL:[J
@@ -4058,7 +4058,7 @@
     return-wide v3
 
     .line 1222
-    :cond_0
+    :cond_18
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->throwInvalidDigitAt(Ljava/lang/String;I)Ljava/lang/Void;
 
     new-instance v2, Lkotlin/KotlinNothingValueException;
@@ -4069,7 +4069,7 @@
 .end method
 
 .method private static final parseByteAt(Ljava/lang/String;I)B
-    .locals 6
+    .registers 8
     .param p0, "$this$parseByteAt"    # Ljava/lang/String;
     .param p1, "index"    # I
 
@@ -4089,13 +4089,13 @@
     .local v2, "code$iv":I
     ushr-int/lit8 v3, v2, 0x8
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_3a
 
     sget-object v3, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_DECIMAL:[I
 
     aget v3, v3, v2
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_3a
 
     .line 1309
     sget-object v3, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_DECIMAL:[I
@@ -4128,13 +4128,13 @@
     .local v4, "code$iv":I
     ushr-int/lit8 v5, v4, 0x8
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_31
 
     sget-object v5, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_DECIMAL:[I
 
     aget v5, v5, v4
 
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_31
 
     .line 1314
     sget-object v5, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_DECIMAL:[I
@@ -4163,7 +4163,7 @@
     .restart local v2    # "$this$decimalFromHexDigitAt$iv":Ljava/lang/String;
     .restart local v3    # "$i$f$decimalFromHexDigitAt":I
     .restart local v4    # "code$iv":I
-    :cond_0
+    :cond_31
     invoke-static {v2, v1}, Lkotlin/text/HexExtensionsKt;->throwInvalidDigitAt(Ljava/lang/String;I)Ljava/lang/Void;
 
     new-instance v5, Lkotlin/KotlinNothingValueException;
@@ -4178,7 +4178,7 @@
     .local v0, "$this$decimalFromHexDigitAt$iv":Ljava/lang/String;
     .local v1, "$i$f$decimalFromHexDigitAt":I
     .local v2, "code$iv":I
-    :cond_1
+    :cond_3a
     invoke-static {v0, p1}, Lkotlin/text/HexExtensionsKt;->throwInvalidDigitAt(Ljava/lang/String;I)Ljava/lang/Void;
 
     new-instance v3, Lkotlin/KotlinNothingValueException;
@@ -4189,7 +4189,7 @@
 .end method
 
 .method private static final parseInt(Ljava/lang/String;II)I
-    .locals 7
+    .registers 10
     .param p0, "$this$parseInt"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -4202,8 +4202,8 @@
     move v1, p1
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p2, :cond_1
+    :goto_2
+    if-ge v1, p2, :cond_28
 
     .line 1183
     shl-int/lit8 v2, v0, 0x4
@@ -4223,13 +4223,13 @@
     .local v5, "code$iv":I
     ushr-int/lit8 v6, v5, 0x8
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1f
 
     sget-object v6, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_DECIMAL:[I
 
     aget v6, v6, v5
 
-    if-ltz v6, :cond_0
+    if-ltz v6, :cond_1f
 
     .line 1333
     sget-object v6, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_DECIMAL:[I
@@ -4245,13 +4245,13 @@
     .line 1182
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 1335
     .restart local v3    # "$this$decimalFromHexDigitAt$iv":Ljava/lang/String;
     .restart local v4    # "$i$f$decimalFromHexDigitAt":I
     .restart local v5    # "code$iv":I
-    :cond_0
+    :cond_1f
     invoke-static {v3, v1}, Lkotlin/text/HexExtensionsKt;->throwInvalidDigitAt(Ljava/lang/String;I)Ljava/lang/Void;
 
     new-instance v2, Lkotlin/KotlinNothingValueException;
@@ -4265,12 +4265,12 @@
     .end local v3    # "$this$decimalFromHexDigitAt$iv":Ljava/lang/String;
     .end local v4    # "$i$f$decimalFromHexDigitAt":I
     .end local v5    # "code$iv":I
-    :cond_1
+    :cond_28
     return v0
 .end method
 
 .method private static final parseLong(Ljava/lang/String;II)J
-    .locals 13
+    .registers 16
     .param p0, "$this$parseLong"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -4283,8 +4283,8 @@
     move v2, p1
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, p2, :cond_1
+    :goto_3
+    if-ge v2, p2, :cond_2e
 
     .line 1191
     const/4 v3, 0x4
@@ -4306,7 +4306,7 @@
     .local v7, "code$iv":I
     ushr-int/lit8 v8, v7, 0x8
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_25
 
     sget-object v8, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_LONG_DECIMAL:[J
 
@@ -4316,7 +4316,7 @@
 
     cmp-long v8, v9, v11
 
-    if-ltz v8, :cond_0
+    if-ltz v8, :cond_25
 
     .line 1338
     sget-object v8, Lkotlin/text/HexExtensionsKt;->HEX_DIGITS_TO_LONG_DECIMAL:[J
@@ -4332,13 +4332,13 @@
     .line 1190
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 1340
     .restart local v5    # "$this$longDecimalFromHexDigitAt$iv":Ljava/lang/String;
     .restart local v6    # "$i$f$longDecimalFromHexDigitAt":I
     .restart local v7    # "code$iv":I
-    :cond_0
+    :cond_25
     invoke-static {v5, v2}, Lkotlin/text/HexExtensionsKt;->throwInvalidDigitAt(Ljava/lang/String;I)Ljava/lang/Void;
 
     new-instance v3, Lkotlin/KotlinNothingValueException;
@@ -4352,12 +4352,12 @@
     .end local v5    # "$this$longDecimalFromHexDigitAt$iv":Ljava/lang/String;
     .end local v6    # "$i$f$longDecimalFromHexDigitAt":I
     .end local v7    # "code$iv":I
-    :cond_1
+    :cond_2e
     return-wide v0
 .end method
 
 .method public static final parsedByteArrayMaxSize(IIIIIII)I
-    .locals 23
+    .registers 30
     .param p0, "stringLength"    # I
     .param p1, "bytesPerLine"    # I
     .param p2, "bytesPerGroup"    # I
@@ -4377,17 +4377,17 @@
 
     move/from16 v4, p4
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_e
 
     const/4 v7, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v7, 0x0
 
-    :goto_0
-    if-eqz v7, :cond_4
+    :goto_f
+    if-eqz v7, :cond_74
 
     .line 581
     move/from16 v7, p5
@@ -4412,17 +4412,17 @@
 
     .line 585
     .local v11, "charsPerGroup":J
-    if-gt v1, v2, :cond_1
+    if-gt v1, v2, :cond_26
 
     .line 586
     invoke-static {v8, v9, v1, v4}, Lkotlin/text/HexExtensionsKt;->charsPerSet(JII)J
 
     move-result-wide v13
 
-    goto :goto_1
+    goto :goto_38
 
     .line 588
-    :cond_1
+    :cond_26
     div-int v13, v1, v2
 
     .line 589
@@ -4437,7 +4437,7 @@
 
     .line 591
     .local v5, "bytesPerLastGroupInLine":I
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_37
 
     .line 592
     int-to-long v6, v3
@@ -4452,14 +4452,14 @@
     add-long/2addr v14, v6
 
     .line 595
-    :cond_2
+    :cond_37
     move-wide v13, v14
 
     .line 585
     .end local v5    # "bytesPerLastGroupInLine":I
     .end local v13    # "groupsPerLine":I
     .end local v14    # "result":J
-    :goto_1
+    :goto_38
     move-wide v5, v13
 
     .line 598
@@ -4527,16 +4527,16 @@
 
     cmp-long v22, v13, v9
 
-    if-lez v22, :cond_3
+    if-lez v22, :cond_65
 
     const/4 v15, 0x1
 
-    goto :goto_2
+    goto :goto_66
 
-    :cond_3
+    :cond_65
     const/4 v15, 0x0
 
-    :goto_2
+    :goto_66
     move v9, v15
 
     .line 618
@@ -4570,7 +4570,7 @@
     .end local v16    # "wholeLines":J
     .end local v18    # "wholeGroupsInLastLine":J
     .end local v20    # "wholeBytesInLastGroup":J
-    :cond_4
+    :cond_74
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."
@@ -4585,7 +4585,7 @@
 .end method
 
 .method private static final throwInvalidDigitAt(Ljava/lang/String;I)Ljava/lang/Void;
-    .locals 3
+    .registers 5
     .param p0, "$this$throwInvalidDigitAt"    # Ljava/lang/String;
     .param p1, "index"    # I
 
@@ -4630,7 +4630,7 @@
 .end method
 
 .method private static final throwInvalidNumberOfDigits(Ljava/lang/String;IILjava/lang/String;I)V
-    .locals 4
+    .registers 9
     .param p0, "$this$throwInvalidNumberOfDigits"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -4722,7 +4722,7 @@
 .end method
 
 .method private static final throwInvalidPrefixSuffix(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .registers 9
     .param p0, "$this$throwInvalidPrefixSuffix"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -4792,7 +4792,7 @@
 .end method
 
 .method private static final throwNotContainedAt(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .registers 9
     .param p0, "$this$throwNotContainedAt"    # Ljava/lang/String;
     .param p1, "index"    # I
     .param p2, "endIndex"    # I
@@ -4882,7 +4882,7 @@
 .end method
 
 .method private static final toCharArrayIfNotEmpty(Ljava/lang/String;[CI)I
-    .locals 3
+    .registers 6
     .param p0, "$this$toCharArrayIfNotEmpty"    # Ljava/lang/String;
     .param p1, "destination"    # [C
     .param p2, "destinationOffset"    # I
@@ -4894,7 +4894,7 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_22
 
     .line 1100
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -4907,10 +4907,10 @@
 
     invoke-virtual {p0, v1, v0, p1, p2}, Ljava/lang/String;->getChars(II[CI)V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 1099
-    :pswitch_0
+    :pswitch_15
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
@@ -4918,8 +4918,8 @@
     aput-char v0, p1, p2
 
     .line 1102
-    :goto_0
-    :pswitch_1
+    :goto_1b
+    :pswitch_1b
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -4930,15 +4930,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_22
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_15
     .end packed-switch
 .end method
 
 .method public static final toHexString(BLkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p0, "$this$toHexString"    # B
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -4951,18 +4951,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const-string v0, "0123456789ABCDEF"
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_e
     const-string v0, "0123456789abcdef"
 
     .line 667
     .local v0, "digits":Ljava/lang/String;
-    :goto_0
+    :goto_10
     invoke-virtual {p1}, Lkotlin/text/HexFormat;->getNumber()Lkotlin/text/HexFormat$NumberHexFormat;
 
     move-result-object v1
@@ -4973,7 +4973,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_50
 
     .line 671
     const/4 v2, 0x2
@@ -5014,7 +5014,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4b
 
     .line 676
     and-int/lit16 v5, p0, 0xff
@@ -5037,22 +5037,22 @@
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 678
-    :cond_1
+    :cond_4b
     invoke-static {v3}, Lkotlin/text/StringsKt;->concatToString([C)Ljava/lang/String;
 
     move-result-object v2
 
     .line 675
-    :goto_1
+    :goto_4f
     return-object v2
 
     .line 681
     .end local v3    # "charArray":[C
     .end local v4    # "value":I
-    :cond_2
+    :cond_50
     int-to-long v2, p0
 
     const/16 v4, 0x8
@@ -5065,7 +5065,7 @@
 .end method
 
 .method public static final toHexString(ILkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p0, "$this$toHexString"    # I
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -5078,18 +5078,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const-string v0, "0123456789ABCDEF"
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_e
     const-string v0, "0123456789abcdef"
 
     .line 865
     .local v0, "digits":Ljava/lang/String;
-    :goto_0
+    :goto_10
     invoke-virtual {p1}, Lkotlin/text/HexFormat;->getNumber()Lkotlin/text/HexFormat$NumberHexFormat;
 
     move-result-object v1
@@ -5100,7 +5100,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_8f
 
     .line 869
     const/16 v2, 0x8
@@ -5219,7 +5219,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_8a
 
     .line 880
     invoke-static {p0}, Ljava/lang/Integer;->numberOfLeadingZeros(I)I
@@ -5238,22 +5238,22 @@
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_8e
 
     .line 882
-    :cond_1
+    :cond_8a
     invoke-static {v2}, Lkotlin/text/StringsKt;->concatToString([C)Ljava/lang/String;
 
     move-result-object v4
 
     .line 879
-    :goto_1
+    :goto_8e
     return-object v4
 
     .line 885
     .end local v2    # "charArray":[C
     .end local v3    # "value":I
-    :cond_2
+    :cond_8f
     int-to-long v2, p0
 
     const/16 v4, 0x20
@@ -5266,7 +5266,7 @@
 .end method
 
 .method public static final toHexString(JLkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 16
+    .registers 19
     .param p0, "$this$toHexString"    # J
     .param p2, "format"    # Lkotlin/text/HexFormat;
 
@@ -5281,18 +5281,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const-string v0, "0123456789ABCDEF"
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const-string v0, "0123456789abcdef"
 
     .line 969
     .local v0, "digits":Ljava/lang/String;
-    :goto_0
+    :goto_12
     invoke-virtual/range {p2 .. p2}, Lkotlin/text/HexFormat;->getNumber()Lkotlin/text/HexFormat$NumberHexFormat;
 
     move-result-object v2
@@ -5303,7 +5303,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_10a
 
     .line 973
     const/16 v3, 0x10
@@ -5582,7 +5582,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_105
 
     .line 992
     invoke-static/range {p0 .. p1}, Ljava/lang/Long;->numberOfLeadingZeros(J)I
@@ -5601,22 +5601,22 @@
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_109
 
     .line 994
-    :cond_1
+    :cond_105
     invoke-static {v4}, Lkotlin/text/StringsKt;->concatToString([C)Ljava/lang/String;
 
     move-result-object v3
 
     .line 991
-    :goto_1
+    :goto_109
     return-object v3
 
     .line 997
     .end local v4    # "charArray":[C
     .end local v5    # "value":J
-    :cond_2
+    :cond_10a
     const/16 v3, 0x40
 
     move-wide/from16 v4, p0
@@ -5629,7 +5629,7 @@
 .end method
 
 .method public static final toHexString(SLkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 9
+    .registers 11
     .param p0, "$this$toHexString"    # S
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -5642,18 +5642,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const-string v0, "0123456789ABCDEF"
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_e
     const-string v0, "0123456789abcdef"
 
     .line 765
     .local v0, "digits":Ljava/lang/String;
-    :goto_0
+    :goto_10
     invoke-virtual {p1}, Lkotlin/text/HexFormat;->getNumber()Lkotlin/text/HexFormat$NumberHexFormat;
 
     move-result-object v1
@@ -5666,7 +5666,7 @@
 
     const/16 v3, 0x10
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_6a
 
     .line 769
     const/4 v2, 0x4
@@ -5733,7 +5733,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_65
 
     .line 776
     const v5, 0xffff
@@ -5758,22 +5758,22 @@
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_69
 
     .line 778
-    :cond_1
+    :cond_65
     invoke-static {v2}, Lkotlin/text/StringsKt;->concatToString([C)Ljava/lang/String;
 
     move-result-object v3
 
     .line 775
-    :goto_1
+    :goto_69
     return-object v3
 
     .line 781
     .end local v2    # "charArray":[C
     .end local v4    # "value":I
-    :cond_2
+    :cond_6a
     int-to-long v4, p0
 
     invoke-static {v4, v5, v1, v0, v3}, Lkotlin/text/HexExtensionsKt;->toHexStringImpl(JLkotlin/text/HexFormat$NumberHexFormat;Ljava/lang/String;I)Ljava/lang/String;
@@ -5784,7 +5784,7 @@
 .end method
 
 .method public static final toHexString([BIILkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 3
+    .registers 7
     .param p0, "$this$toHexString"    # [B
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -5806,7 +5806,7 @@
     invoke-virtual {v0, p1, p2, v1}, Lkotlin/collections/AbstractList$Companion;->checkBoundsIndexes$kotlin_stdlib(III)V
 
     .line 120
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_15
 
     .line 121
     const-string v0, ""
@@ -5814,23 +5814,23 @@
     return-object v0
 
     .line 124
-    :cond_0
+    :cond_15
     invoke-virtual {p3}, Lkotlin/text/HexFormat;->getUpperCase()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     sget-object v0, Lkotlin/text/HexExtensionsKt;->BYTE_TO_UPPER_CASE_HEX_DIGITS:[I
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1e
     sget-object v0, Lkotlin/text/HexExtensionsKt;->BYTE_TO_LOWER_CASE_HEX_DIGITS:[I
 
     .line 125
     .local v0, "byteToDigits":[I
-    :goto_0
+    :goto_20
     invoke-virtual {p3}, Lkotlin/text/HexFormat;->getBytes()Lkotlin/text/HexFormat$BytesHexFormat;
 
     move-result-object v1
@@ -5841,7 +5841,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2f
 
     .line 129
     invoke-static {p0, p1, p2, v1, v0}, Lkotlin/text/HexExtensionsKt;->toHexStringNoLineAndGroupSeparator([BIILkotlin/text/HexFormat$BytesHexFormat;[I)Ljava/lang/String;
@@ -5851,7 +5851,7 @@
     return-object v2
 
     .line 132
-    :cond_2
+    :cond_2f
     invoke-static {p0, p1, p2, v1, v0}, Lkotlin/text/HexExtensionsKt;->toHexStringSlowPath([BIILkotlin/text/HexFormat$BytesHexFormat;[I)Ljava/lang/String;
 
     move-result-object v2
@@ -5860,7 +5860,7 @@
 .end method
 
 .method public static final toHexString([BLkotlin/text/HexFormat;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$toHexString"    # [B
     .param p1, "format"    # Lkotlin/text/HexFormat;
 
@@ -5885,12 +5885,12 @@
 .end method
 
 .method public static synthetic toHexString$default(BLkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 665
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -5898,7 +5898,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->toHexString(BLkotlin/text/HexFormat;)Ljava/lang/String;
 
     move-result-object p0
@@ -5907,12 +5907,12 @@
 .end method
 
 .method public static synthetic toHexString$default(ILkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 863
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -5920,7 +5920,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->toHexString(ILkotlin/text/HexFormat;)Ljava/lang/String;
 
     move-result-object p0
@@ -5929,12 +5929,12 @@
 .end method
 
 .method public static synthetic toHexString$default(JLkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 967
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_a
 
     sget-object p2, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -5942,7 +5942,7 @@
 
     move-result-object p2
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1, p2}, Lkotlin/text/HexExtensionsKt;->toHexString(JLkotlin/text/HexFormat;)Ljava/lang/String;
 
     move-result-object p0
@@ -5951,12 +5951,12 @@
 .end method
 
 .method public static synthetic toHexString$default(SLkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 763
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -5964,7 +5964,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->toHexString(SLkotlin/text/HexFormat;)Ljava/lang/String;
 
     move-result-object p0
@@ -5973,30 +5973,30 @@
 .end method
 
 .method public static synthetic toHexString$default([BIILkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 113
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 114
     const/4 p1, 0x0
 
     .line 113
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_a
 
     .line 115
     array-length p2, p0
 
     .line 113
-    :cond_1
+    :cond_a
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_14
 
     .line 116
     sget-object p3, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
@@ -6006,7 +6006,7 @@
     move-result-object p3
 
     .line 113
-    :cond_2
+    :cond_14
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/HexExtensionsKt;->toHexString([BIILkotlin/text/HexFormat;)Ljava/lang/String;
 
     move-result-object p0
@@ -6015,12 +6015,12 @@
 .end method
 
 .method public static synthetic toHexString$default([BLkotlin/text/HexFormat;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 84
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     sget-object p1, Lkotlin/text/HexFormat;->Companion:Lkotlin/text/HexFormat$Companion;
 
@@ -6028,7 +6028,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lkotlin/text/HexExtensionsKt;->toHexString([BLkotlin/text/HexFormat;)Ljava/lang/String;
 
     move-result-object p0
@@ -6037,7 +6037,7 @@
 .end method
 
 .method private static final toHexStringImpl(JLkotlin/text/HexFormat$NumberHexFormat;Ljava/lang/String;I)Ljava/lang/String;
-    .locals 24
+    .registers 29
     .param p0, "$this$toHexStringImpl"    # J
     .param p2, "numberFormat"    # Lkotlin/text/HexFormat$NumberHexFormat;
     .param p3, "digits"    # Ljava/lang/String;
@@ -6050,17 +6050,17 @@
 
     const/4 v3, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_6
+    :goto_a
+    if-eqz v1, :cond_96
 
     .line 1061
     move-wide/from16 v4, p0
@@ -6145,7 +6145,7 @@
     move-result v14
 
     .line 1075
-    if-lez v7, :cond_1
+    if-lez v7, :cond_4d
 
     .line 1076
     invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
@@ -6160,7 +6160,7 @@
     add-int/2addr v14, v7
 
     .line 1080
-    :cond_1
+    :cond_4d
     const/4 v2, 0x0
 
     .local v2, "shift":I
@@ -6169,8 +6169,8 @@
     .line 1081
     const/4 v15, 0x0
 
-    :goto_1
-    if-ge v15, v1, :cond_4
+    :goto_51
+    if-ge v15, v1, :cond_80
 
     move/from16 v16, v15
 
@@ -6196,26 +6196,26 @@
 
     .line 1084
     .local v4, "decimal":I
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_6c
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_6c
 
     shr-int/lit8 v3, v2, 0x2
 
-    if-lt v3, v6, :cond_2
+    if-lt v3, v6, :cond_6c
 
     const/4 v3, 0x1
 
-    goto :goto_2
+    goto :goto_6d
 
-    :cond_2
+    :cond_6c
     const/4 v3, 0x0
 
-    :goto_2
+    :goto_6d
     move v10, v3
 
     .line 1085
-    if-nez v10, :cond_3
+    if-nez v10, :cond_79
 
     .line 1086
     add-int/lit8 v3, v14, 0x1
@@ -6233,7 +6233,7 @@
     .line 1088
     .end local v3    # "charIndex":I
     .restart local v14    # "charIndex":I
-    :cond_3
+    :cond_79
     nop
 
     .line 1081
@@ -6246,12 +6246,12 @@
 
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_51
 
     .line 1090
     .end local v22    # "value":J
     .local v4, "value":J
-    :cond_4
+    :cond_80
     move-wide/from16 v22, v4
 
     .end local v4    # "value":J
@@ -6265,15 +6265,15 @@
     .restart local v3    # "charIndex":I
     array-length v4, v13
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_8e
 
     invoke-static {v13}, Lkotlin/text/StringsKt;->concatToString([C)Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_3
+    goto :goto_95
 
-    :cond_5
+    :cond_8e
     const/4 v4, 0x0
 
     const/4 v5, 0x1
@@ -6284,7 +6284,7 @@
 
     move-result-object v4
 
-    :goto_3
+    :goto_95
     return-object v4
 
     .line 1059
@@ -6299,7 +6299,7 @@
     .end local v11    # "formatLength":J
     .end local v13    # "charArray":[C
     .end local v22    # "value":J
-    :cond_6
+    :cond_96
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Failed requirement."
@@ -6314,7 +6314,7 @@
 .end method
 
 .method private static final toHexStringNoLineAndGroupSeparator([BIILkotlin/text/HexFormat$BytesHexFormat;[I)Ljava/lang/String;
-    .locals 1
+    .registers 6
     .param p0, "$this$toHexStringNoLineAndGroupSeparator"    # [B
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -6326,7 +6326,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 144
     invoke-static {p0, p1, p2, p3, p4}, Lkotlin/text/HexExtensionsKt;->toHexStringShortByteSeparatorNoPrefixAndSuffix([BIILkotlin/text/HexFormat$BytesHexFormat;[I)Ljava/lang/String;
@@ -6336,7 +6336,7 @@
     return-object v0
 
     .line 147
-    :cond_0
+    :cond_b
     invoke-static {p0, p1, p2, p3, p4}, Lkotlin/text/HexExtensionsKt;->toHexStringNoLineAndGroupSeparatorSlowPath([BIILkotlin/text/HexFormat$BytesHexFormat;[I)Ljava/lang/String;
 
     move-result-object v0
@@ -6345,7 +6345,7 @@
 .end method
 
 .method private static final toHexStringNoLineAndGroupSeparatorSlowPath([BIILkotlin/text/HexFormat$BytesHexFormat;[I)Ljava/lang/String;
-    .locals 15
+    .registers 20
     .param p0, "$this$toHexStringNoLineAndGroupSeparatorSlowPath"    # [B
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -6431,8 +6431,8 @@
     move v13, v2
 
     .local v13, "byteIndex":I
-    :goto_0
-    if-ge v13, v0, :cond_0
+    :goto_33
+    if-ge v13, v0, :cond_48
 
     .line 205
     invoke-static {v10, v12, v1}, Lkotlin/text/HexExtensionsKt;->toCharArrayIfNotEmpty(Ljava/lang/String;[CI)I
@@ -6465,11 +6465,11 @@
     .restart local v1    # "charIndex":I
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 209
     .end local v13    # "byteIndex":I
-    :cond_0
+    :cond_48
     invoke-static {v12}, Lkotlin/text/StringsKt;->concatToString([C)Ljava/lang/String;
 
     move-result-object v2
@@ -6478,7 +6478,7 @@
 .end method
 
 .method private static final toHexStringShortByteSeparatorNoPrefixAndSuffix([BIILkotlin/text/HexFormat$BytesHexFormat;[I)Ljava/lang/String;
-    .locals 8
+    .registers 13
     .param p0, "$this$toHexStringShortByteSeparatorNoPrefixAndSuffix"    # [B
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -6500,15 +6500,15 @@
 
     const/4 v2, 0x1
 
-    if-gt v0, v2, :cond_0
+    if-gt v0, v2, :cond_d
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_4
+    :goto_e
+    if-eqz v2, :cond_5d
 
     .line 160
     sub-int v2, p2, p1
@@ -6519,7 +6519,7 @@
 
     .line 163
     .local v3, "charIndex":I
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2f
 
     .line 164
     const-wide/16 v4, 0x2
@@ -6539,8 +6539,8 @@
     move v4, p1
 
     .local v4, "byteIndex":I
-    :goto_1
-    if-ge v4, p2, :cond_1
+    :goto_21
+    if-ge v4, p2, :cond_2a
 
     .line 166
     invoke-static {p0, v4, p4, v1, v3}, Lkotlin/text/HexExtensionsKt;->formatByteAt([BI[I[CI)I
@@ -6550,11 +6550,11 @@
     .line 165
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_21
 
     .line 168
     .end local v4    # "byteIndex":I
-    :cond_1
+    :cond_2a
     invoke-static {v1}, Lkotlin/text/StringsKt;->concatToString([C)Ljava/lang/String;
 
     move-result-object v4
@@ -6563,7 +6563,7 @@
 
     .line 170
     .end local v1    # "charArray":[C
-    :cond_2
+    :cond_2f
     const-wide/16 v4, 0x3
 
     int-to-long v6, v2
@@ -6600,8 +6600,8 @@
     add-int/lit8 v5, p1, 0x1
 
     .local v5, "byteIndex":I
-    :goto_2
-    if-ge v5, p2, :cond_3
+    :goto_4b
+    if-ge v5, p2, :cond_58
 
     .line 175
     add-int/lit8 v6, v3, 0x1
@@ -6620,11 +6620,11 @@
     .restart local v3    # "charIndex":I
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_2
+    goto :goto_4b
 
     .line 179
     .end local v5    # "byteIndex":I
-    :cond_3
+    :cond_58
     invoke-static {v4}, Lkotlin/text/StringsKt;->concatToString([C)Ljava/lang/String;
 
     move-result-object v5
@@ -6636,7 +6636,7 @@
     .end local v2    # "numberOfBytes":I
     .end local v3    # "charIndex":I
     .end local v4    # "charArray":[C
-    :cond_4
+    :cond_5d
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Failed requirement."
@@ -6651,7 +6651,7 @@
 .end method
 
 .method private static final toHexStringSlowPath([BIILkotlin/text/HexFormat$BytesHexFormat;[I)Ljava/lang/String;
-    .locals 21
+    .registers 26
     .param p0, "$this$toHexStringSlowPath"    # [B
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -6757,13 +6757,13 @@
     move v7, v4
 
     .local v7, "byteIndex":I
-    :goto_0
+    :goto_3c
     const/16 v16, 0x1
 
-    if-ge v7, v0, :cond_3
+    if-ge v7, v0, :cond_82
 
     .line 242
-    if-ne v2, v8, :cond_0
+    if-ne v2, v8, :cond_50
 
     .line 243
     add-int/lit8 v4, v1, 0x1
@@ -6786,13 +6786,13 @@
 
     move v1, v4
 
-    goto :goto_1
+    goto :goto_60
 
     .line 246
     .end local v4    # "charIndex":I
     .restart local v1    # "charIndex":I
-    :cond_0
-    if-ne v3, v9, :cond_1
+    :cond_50
+    if-ne v3, v9, :cond_5c
 
     .line 247
     invoke-static {v13, v15, v1}, Lkotlin/text/HexExtensionsKt;->toCharArrayIfNotEmpty(Ljava/lang/String;[CI)I
@@ -6806,10 +6806,10 @@
 
     move/from16 v18, v3
 
-    goto :goto_1
+    goto :goto_60
 
     .line 246
-    :cond_1
+    :cond_5c
     move/from16 v17, v2
 
     move/from16 v18, v3
@@ -6819,8 +6819,8 @@
     .end local v3    # "indexInGroup":I
     .local v17, "indexInLine":I
     .local v18, "indexInGroup":I
-    :goto_1
-    if-eqz v18, :cond_2
+    :goto_60
+    if-eqz v18, :cond_69
 
     .line 251
     invoke-static {v12, v15, v1}, Lkotlin/text/HexExtensionsKt;->toCharArrayIfNotEmpty(Ljava/lang/String;[CI)I
@@ -6829,16 +6829,16 @@
 
     move/from16 v19, v1
 
-    goto :goto_2
+    goto :goto_6b
 
     .line 250
-    :cond_2
+    :cond_69
     move/from16 v19, v1
 
     .line 254
     .end local v1    # "charIndex":I
     .local v19, "charIndex":I
-    :goto_2
+    :goto_6b
     move-object/from16 v1, p0
 
     move v2, v7
@@ -6878,22 +6878,22 @@
 
     .end local v20    # "byteIndex":I
     .restart local v7    # "byteIndex":I
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_3
+    :cond_82
     move/from16 v20, v7
 
     .line 260
     .end local v7    # "byteIndex":I
-    if-ne v1, v14, :cond_4
+    if-ne v1, v14, :cond_87
 
-    goto :goto_3
+    goto :goto_89
 
-    :cond_4
+    :cond_87
     const/16 v16, 0x0
 
-    :goto_3
-    if-eqz v16, :cond_5
+    :goto_89
+    if-eqz v16, :cond_90
 
     .line 261
     invoke-static {v15}, Lkotlin/text/StringsKt;->concatToString([C)Ljava/lang/String;
@@ -6903,7 +6903,7 @@
     return-object v4
 
     .line 260
-    :cond_5
+    :cond_90
     new-instance v4, Ljava/lang/IllegalStateException;
 
     const-string v5, "Check failed."
@@ -6918,7 +6918,7 @@
 .end method
 
 .method private static final wholeElementsPerSet(JJI)J
-    .locals 4
+    .registers 9
     .param p0, "charsPerSet"    # J
     .param p2, "charsPerElement"    # J
     .param p4, "elementSeparatorLength"    # I
@@ -6928,16 +6928,16 @@
 
     cmp-long v2, p0, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_10
 
     cmp-long v2, p2, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_b
 
-    goto :goto_0
+    goto :goto_10
 
     .line 628
-    :cond_0
+    :cond_b
     int-to-long v0, p4
 
     add-long/2addr v0, p0
@@ -6949,7 +6949,7 @@
     div-long/2addr v0, v2
 
     .line 627
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     return-wide v0
 .end method

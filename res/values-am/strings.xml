@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">ገቢ ጥሪ</string>
     <string name="call_notification_ongoing_text">እየተካሄደ ያለ ጥሪ</string>
     <string name="call_notification_screening_text">ገቢ ጥሪ ማጣራት</string>
-    <string name="character_counter_content_description" formatted="false">ቁምፊዎች %1$d ከ%2$d ገብተዋል</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">የቁምፊ ገደብ %1$d ከ%2$d አልፏል</string>
+    <string name="character_counter_content_description">ቁምፊዎች %1$d ከ%2$d ገብተዋል</string>
+    <string name="character_counter_overflowed_content_description">የቁምፊ ገደብ %1$d ከ%2$d አልፏል</string>
     <string name="clear_text_end_icon_content_description">ጽሑፍን አጽዳ</string>
     <string name="copy">ቅዳ</string>
     <string name="copy_toast_msg">አገናኝ ወደ ቅንጥብ ሰሌዳ ተቀድቷል</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">ከክልል ውጭ፦ %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">መጀመሪያ ቀን – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – መጨረሻ ቀን</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">ክልል ይምረጡ</string>
     <string name="mtrl_picker_range_header_unselected">የመጀመሪያ ቀን – የመጨረሻ ቀን</string>
     <string name="mtrl_picker_save">አስቀምጥ</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">«%1$s» ወደ የቅንጥብ ሰሌዳ ተቀድቷል።</string>
     <string name="search_menu_title">ፍለጋ</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s፣ %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s፣ %2$s</string>
     <string name="v7_preference_off">ጠፍቷል</string>
     <string name="v7_preference_on">በርቷል</string>
 </resources>

@@ -33,7 +33,7 @@
 
 # direct methods
 .method public static final getQueryDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 6
+    .registers 7
     .param p0, "$this$getQueryDispatcher"    # Landroidx/room/RoomDatabase;
 
     .line 149
@@ -55,7 +55,7 @@
 
     .line 164
     .local v3, "value$iv":Ljava/lang/Object;
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1c
 
     .line 165
     const/4 v4, 0x0
@@ -82,14 +82,14 @@
     nop
 
     .end local v4    # "answer$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1d
 
     .line 169
-    :cond_0
+    :cond_1c
     move-object v4, v3
 
     .line 164
-    :goto_0
+    :goto_1d
     nop
 
     .line 149
@@ -107,7 +107,7 @@
 .end method
 
 .method public static final getTransactionDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 6
+    .registers 7
     .param p0, "$this$transactionDispatcher"    # Landroidx/room/RoomDatabase;
 
     .line 159
@@ -129,7 +129,7 @@
 
     .line 171
     .local v3, "value$iv":Ljava/lang/Object;
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1c
 
     .line 172
     const/4 v4, 0x0
@@ -156,14 +156,14 @@
     nop
 
     .end local v4    # "answer$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1d
 
     .line 176
-    :cond_0
+    :cond_1c
     move-object v4, v3
 
     .line 171
-    :goto_0
+    :goto_1d
     nop
 
     .line 159

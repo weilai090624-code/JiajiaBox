@@ -25,27 +25,27 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 67
     const/4 v0, 0x4
 
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_10
 
     sput-object v1, Landroidx/profileinstaller/ProfileTranscoder;->MAGIC_PROF:[B
 
     .line 68
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_16
 
     sput-object v0, Landroidx/profileinstaller/ProfileTranscoder;->MAGIC_PROFM:[B
 
     return-void
 
-    :array_0
+    :array_10
     .array-data 1
         0x70t
         0x72t
@@ -53,7 +53,7 @@
         0x0t
     .end array-data
 
-    :array_1
+    :array_16
     .array-data 1
         0x70t
         0x72t
@@ -63,7 +63,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -73,7 +73,7 @@
 .end method
 
 .method private static computeMethodFlags(Landroidx/profileinstaller/DexProfileData;)I
-    .locals 4
+    .registers 5
     .param p0, "profileData"    # Landroidx/profileinstaller/DexProfileData;
 
     .line 428
@@ -91,12 +91,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -123,15 +123,15 @@
     .line 432
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     .end local v3    # "flagValue":I
-    goto :goto_0
+    goto :goto_b
 
     .line 433
-    :cond_0
+    :cond_23
     return v0
 .end method
 
 .method private static createCompressibleBody([Landroidx/profileinstaller/DexProfileData;[B)[B
-    .locals 9
+    .registers 11
     .param p0, "lines"    # [Landroidx/profileinstaller/DexProfileData;
     .param p1, "version"    # [B
     .annotation system Ldalvik/annotation/Throws;
@@ -151,8 +151,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_4
+    if-ge v3, v1, :cond_2b
 
     aget-object v4, p0, v3
 
@@ -208,10 +208,10 @@
     .end local v6    # "dexKey":Ljava/lang/String;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 579
-    :cond_0
+    :cond_2b
     new-instance v1, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v1, v0}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
@@ -224,13 +224,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_4e
 
     .line 587
     array-length v3, p0
 
-    :goto_1
-    if-ge v2, v3, :cond_3
+    :goto_39
+    if-ge v2, v3, :cond_6d
 
     aget-object v4, p0, v2
 
@@ -256,16 +256,16 @@
     .end local v5    # "dexKey":Ljava/lang/String;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_39
 
     .line 595
-    :cond_1
+    :cond_4e
     array-length v3, p0
 
     const/4 v4, 0x0
 
-    :goto_2
-    if-ge v4, v3, :cond_2
+    :goto_50
+    if-ge v4, v3, :cond_62
 
     aget-object v5, p0, v4
 
@@ -288,14 +288,14 @@
     .end local v6    # "dexKey":Ljava/lang/String;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_50
 
     .line 601
-    :cond_2
+    :cond_62
     array-length v3, p0
 
-    :goto_3
-    if-ge v2, v3, :cond_3
+    :goto_63
+    if-ge v2, v3, :cond_6d
 
     aget-object v4, p0, v2
 
@@ -307,15 +307,15 @@
     .end local v4    # "data":Landroidx/profileinstaller/DexProfileData;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_63
 
     .line 606
-    :cond_3
+    :cond_6d
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->size()I
 
     move-result v2
 
-    if-ne v2, v0, :cond_4
+    if-ne v2, v0, :cond_78
 
     .line 610
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
@@ -325,7 +325,7 @@
     return-object v2
 
     .line 607
-    :cond_4
+    :cond_78
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -368,7 +368,7 @@
 .end method
 
 .method private static createCompressibleClassSection([Landroidx/profileinstaller/DexProfileData;)Landroidx/profileinstaller/WritableFileSection;
-    .locals 6
+    .registers 7
     .param p0, "profileData"    # [Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -390,11 +390,11 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    :try_start_0
+    :goto_7
+    :try_start_7
     array-length v3, p0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_23
 
     .line 338
     aget-object v3, p0, v2
@@ -428,11 +428,11 @@
     .end local v3    # "profile":Landroidx/profileinstaller/DexProfileData;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 349
     .end local v2    # "i":I
-    :cond_0
+    :cond_23
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v2
@@ -441,7 +441,7 @@
     .local v2, "contents":[B
     array-length v3, v2
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v3, :cond_36
 
     .line 356
     new-instance v3, Landroidx/profileinstaller/WritableFileSection;
@@ -451,8 +451,8 @@
     const/4 v5, 0x1
 
     invoke-direct {v3, v4, v0, v2, v5}, Landroidx/profileinstaller/WritableFileSection;-><init>(Landroidx/profileinstaller/FileSectionType;I[BZ)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_7 .. :try_end_32} :catchall_59
 
     .line 362
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
@@ -461,8 +461,8 @@
     return-object v3
 
     .line 351
-    :cond_1
-    :try_start_1
+    :cond_36
+    :try_start_36
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -501,35 +501,35 @@
     .end local v1    # "out":Ljava/io/ByteArrayOutputStream;
     .end local p0    # "profileData":[Landroidx/profileinstaller/DexProfileData;
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_59
+    .catchall {:try_start_36 .. :try_end_59} :catchall_59
 
     .line 336
     .end local v2    # "contents":[B
     .restart local v0    # "expectedSize":I
     .restart local v1    # "out":Ljava/io/ByteArrayOutputStream;
     .restart local p0    # "profileData":[Landroidx/profileinstaller/DexProfileData;
-    :catchall_0
+    :catchall_59
     move-exception v2
 
-    :try_start_2
+    :try_start_5a
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_5d
+    .catchall {:try_start_5a .. :try_end_5d} :catchall_5e
 
-    goto :goto_1
+    goto :goto_62
 
-    :catchall_1
+    :catchall_5e
     move-exception v3
 
     invoke-virtual {v2, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_1
+    :goto_62
     throw v2
 .end method
 
 .method private static createCompressibleMethodsSection([Landroidx/profileinstaller/DexProfileData;)Landroidx/profileinstaller/WritableFileSection;
-    .locals 10
+    .registers 11
     .param p0, "profileData"    # [Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -551,11 +551,11 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    :try_start_0
+    :goto_7
+    :try_start_7
     array-length v3, p0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_35
 
     .line 371
     aget-object v3, p0, v2
@@ -623,11 +623,11 @@
     .end local v7    # "followingDataSize":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 392
     .end local v2    # "i":I
-    :cond_0
+    :cond_35
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v2
@@ -636,7 +636,7 @@
     .local v2, "contents":[B
     array-length v3, v2
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v3, :cond_48
 
     .line 399
     new-instance v3, Landroidx/profileinstaller/WritableFileSection;
@@ -646,8 +646,8 @@
     const/4 v5, 0x1
 
     invoke-direct {v3, v4, v0, v2, v5}, Landroidx/profileinstaller/WritableFileSection;-><init>(Landroidx/profileinstaller/FileSectionType;I[BZ)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_44
+    .catchall {:try_start_7 .. :try_end_44} :catchall_6b
 
     .line 405
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
@@ -656,8 +656,8 @@
     return-object v3
 
     .line 394
-    :cond_1
-    :try_start_1
+    :cond_48
+    :try_start_48
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -696,35 +696,35 @@
     .end local v1    # "out":Ljava/io/ByteArrayOutputStream;
     .end local p0    # "profileData":[Landroidx/profileinstaller/DexProfileData;
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_6b
+    .catchall {:try_start_48 .. :try_end_6b} :catchall_6b
 
     .line 369
     .end local v2    # "contents":[B
     .restart local v0    # "expectedSize":I
     .restart local v1    # "out":Ljava/io/ByteArrayOutputStream;
     .restart local p0    # "profileData":[Landroidx/profileinstaller/DexProfileData;
-    :catchall_0
+    :catchall_6b
     move-exception v2
 
-    :try_start_2
+    :try_start_6c
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_6f
+    .catchall {:try_start_6c .. :try_end_6f} :catchall_70
 
-    goto :goto_1
+    goto :goto_74
 
-    :catchall_1
+    :catchall_70
     move-exception v3
 
     invoke-virtual {v2, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_1
+    :goto_74
     throw v2
 .end method
 
 .method private static createMethodBitmapRegionForS(ILandroidx/profileinstaller/DexProfileData;)[B
-    .locals 3
+    .registers 5
     .param p0, "methodFlags"    # I
     .param p1, "profile"    # Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -740,15 +740,15 @@
 
     .line 413
     .local v0, "out":Ljava/io/ByteArrayOutputStream;
-    :try_start_0
+    :try_start_5
     invoke-static {v0, p0, p1}, Landroidx/profileinstaller/ProfileTranscoder;->writeMethodBitmapForS(Ljava/io/OutputStream;ILandroidx/profileinstaller/DexProfileData;)V
 
     .line 414
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_5 .. :try_end_c} :catchall_10
 
     .line 415
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->close()V
@@ -757,27 +757,27 @@
     return-object v1
 
     .line 412
-    :catchall_0
+    :catchall_10
     move-exception v1
 
-    :try_start_1
+    :try_start_11
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_14
+    .catchall {:try_start_11 .. :try_end_14} :catchall_15
 
-    goto :goto_0
+    goto :goto_19
 
-    :catchall_1
+    :catchall_15
     move-exception v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_0
+    :goto_19
     throw v1
 .end method
 
 .method private static createMethodsWithInlineCaches(Landroidx/profileinstaller/DexProfileData;)[B
-    .locals 3
+    .registers 4
     .param p0, "profile"    # Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -792,15 +792,15 @@
 
     .line 422
     .local v0, "out":Ljava/io/ByteArrayOutputStream;
-    :try_start_0
+    :try_start_5
     invoke-static {v0, p0}, Landroidx/profileinstaller/ProfileTranscoder;->writeMethodsWithInlineCaches(Ljava/io/OutputStream;Landroidx/profileinstaller/DexProfileData;)V
 
     .line 423
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_5 .. :try_end_c} :catchall_10
 
     .line 424
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->close()V
@@ -809,27 +809,27 @@
     return-object v1
 
     .line 421
-    :catchall_0
+    :catchall_10
     move-exception v1
 
-    :try_start_1
+    :try_start_11
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_14
+    .catchall {:try_start_11 .. :try_end_14} :catchall_15
 
-    goto :goto_0
+    goto :goto_19
 
-    :catchall_1
+    :catchall_15
     move-exception v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_0
+    :goto_19
     throw v1
 .end method
 
 .method private static enforceSeparator(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "value"    # Ljava/lang/String;
     .param p1, "separator"    # Ljava/lang/String;
 
@@ -842,7 +842,7 @@
 
     const-string v2, ":"
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 1096
     invoke-virtual {p0, v2, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
@@ -852,12 +852,12 @@
     return-object v0
 
     .line 1097
-    :cond_0
+    :cond_f
     invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     .line 1098
     invoke-virtual {p0, v0, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
@@ -867,12 +867,12 @@
     return-object v0
 
     .line 1100
-    :cond_1
+    :cond_1a
     return-object p0
 .end method
 
 .method private static extractKey(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "profileKey"    # Ljava/lang/String;
 
     .line 1106
@@ -884,7 +884,7 @@
 
     .line 1107
     .local v0, "index":I
-    if-gez v0, :cond_0
+    if-gez v0, :cond_e
 
     .line 1108
     const-string v1, ":"
@@ -894,8 +894,8 @@
     move-result v0
 
     .line 1110
-    :cond_0
-    if-lez v0, :cond_1
+    :cond_e
+    if-lez v0, :cond_17
 
     .line 1112
     add-int/lit8 v1, v0, 0x1
@@ -907,12 +907,12 @@
     return-object v1
 
     .line 1114
-    :cond_1
+    :cond_17
     return-object p0
 .end method
 
 .method private static findByDexName([Landroidx/profileinstaller/DexProfileData;Ljava/lang/String;)Landroidx/profileinstaller/DexProfileData;
-    .locals 4
+    .registers 6
     .param p0, "profile"    # [Landroidx/profileinstaller/DexProfileData;
     .param p1, "profileKey"    # Ljava/lang/String;
 
@@ -921,12 +921,12 @@
 
     const/4 v1, 0x0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_5
 
     return-object v1
 
     .line 1009
-    :cond_0
+    :cond_5
     invoke-static {p1}, Landroidx/profileinstaller/ProfileTranscoder;->extractKey(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -936,10 +936,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_a
     array-length v3, p0
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_1d
 
     .line 1011
     aget-object v3, p0, v2
@@ -950,7 +950,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1a
 
     .line 1012
     aget-object v1, p0, v2
@@ -958,19 +958,19 @@
     return-object v1
 
     .line 1010
-    :cond_1
+    :cond_1a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 1015
     .end local v2    # "i":I
-    :cond_2
+    :cond_1d
     return-object v1
 .end method
 
 .method private static generateDexKey(Ljava/lang/String;Ljava/lang/String;[B)Ljava/lang/String;
-    .locals 3
+    .registers 6
     .param p0, "apkName"    # Ljava/lang/String;
     .param p1, "dexName"    # Ljava/lang/String;
     .param p2, "version"    # [B
@@ -986,7 +986,7 @@
 
     move-result v1
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_f
 
     invoke-static {p1, v0}, Landroidx/profileinstaller/ProfileTranscoder;->enforceSeparator(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -995,26 +995,26 @@
     return-object v1
 
     .line 1083
-    :cond_0
+    :cond_f
     const-string v1, "classes.dex"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
     return-object p0
 
     .line 1084
-    :cond_1
+    :cond_18
     const-string v1, "!"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_4c
 
     const-string v1, ":"
 
@@ -1022,24 +1022,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_29
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 1087
-    :cond_2
+    :cond_29
     const-string v1, ".apk"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_32
 
     return-object p1
 
     .line 1088
-    :cond_3
+    :cond_32
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1067,8 +1067,8 @@
     return-object v1
 
     .line 1085
-    :cond_4
-    :goto_0
+    :cond_4c
+    :goto_4c
     invoke-static {p1, v0}, Landroidx/profileinstaller/ProfileTranscoder;->enforceSeparator(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -1077,7 +1077,7 @@
 .end method
 
 .method private static getMethodBitmapStorageSize(I)I
-    .locals 2
+    .registers 3
     .param p0, "numMethodIds"    # I
 
     .line 614
@@ -1095,7 +1095,7 @@
 .end method
 
 .method private static getMethodBitmapStorageSizeForS(II)I
-    .locals 3
+    .registers 5
     .param p0, "methodFlags"    # I
     .param p1, "numMethodIds"    # I
 
@@ -1122,16 +1122,16 @@
 .end method
 
 .method private static methodFlagBitmapIndex(III)I
-    .locals 2
+    .registers 5
     .param p0, "flag"    # I
     .param p1, "methodIndex"    # I
     .param p2, "numMethodIds"    # I
 
     .line 1280
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_26
 
     .line 1288
-    :pswitch_0
+    :pswitch_3
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1157,17 +1157,17 @@
     throw v0
 
     .line 1286
-    :pswitch_1
+    :pswitch_1b
     add-int v0, p1, p2
 
     return v0
 
     .line 1284
-    :pswitch_2
+    :pswitch_1e
     return p1
 
     .line 1282
-    :pswitch_3
+    :pswitch_1f
     const-string v0, "HOT methods are not stored in the bitmap"
 
     invoke-static {v0}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -1176,17 +1176,17 @@
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x1
+        :pswitch_1f
+        :pswitch_1e
         :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_1b
     .end packed-switch
 .end method
 
 .method private static readClasses(Ljava/io/InputStream;I)[I
-    .locals 5
+    .registers 7
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "classSetSize"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -1207,8 +1207,8 @@
     const/4 v2, 0x0
 
     .local v2, "k":I
-    :goto_0
-    if-ge v2, p1, :cond_0
+    :goto_4
+    if-ge v2, p1, :cond_12
 
     .line 1241
     invoke-static {p0}, Landroidx/profileinstaller/Encoding;->readUInt16(Ljava/io/InputStream;)I
@@ -1231,16 +1231,16 @@
     .end local v4    # "classDexIndex":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 1246
     .end local v2    # "k":I
-    :cond_0
+    :cond_12
     return-object v0
 .end method
 
 .method private static readFlagsFromBitmap(Ljava/util/BitSet;II)I
-    .locals 2
+    .registers 5
     .param p0, "bs"    # Ljava/util/BitSet;
     .param p1, "methodIndex"    # I
     .param p2, "numMethodIds"    # I
@@ -1260,13 +1260,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 1269
     or-int/lit8 v0, v0, 0x2
 
     .line 1271
-    :cond_0
+    :cond_e
     const/4 v1, 0x4
 
     invoke-static {v1, p1, p2}, Landroidx/profileinstaller/ProfileTranscoder;->methodFlagBitmapIndex(III)I
@@ -1277,18 +1277,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     .line 1272
     or-int/lit8 v0, v0, 0x4
 
     .line 1274
-    :cond_1
+    :cond_1b
     return v0
 .end method
 
 .method static readHeader(Ljava/io/InputStream;[B)[B
-    .locals 2
+    .registers 4
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "magic"    # [B
     .annotation system Ldalvik/annotation/Throws;
@@ -1310,7 +1310,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 77
     sget-object v1, Landroidx/profileinstaller/ProfileVersion;->V010_P:[B
@@ -1324,7 +1324,7 @@
     return-object v1
 
     .line 75
-    :cond_0
+    :cond_13
     const-string v1, "Invalid magic"
 
     invoke-static {v1}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -1335,7 +1335,7 @@
 .end method
 
 .method private static readHotMethodRegion(Ljava/io/InputStream;Landroidx/profileinstaller/DexProfileData;)V
-    .locals 7
+    .registers 9
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "data"    # Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -1359,12 +1359,12 @@
 
     .line 1182
     .local v1, "lastMethodIndex":I
-    :goto_0
+    :goto_8
     invoke-virtual {p0}, Ljava/io/InputStream;->available()I
 
     move-result v2
 
-    if-le v2, v0, :cond_1
+    if-le v2, v0, :cond_30
 
     .line 1185
     invoke-static {p0}, Landroidx/profileinstaller/Encoding;->readUInt16(Ljava/io/InputStream;)I
@@ -1398,8 +1398,8 @@
 
     .line 1192
     .local v4, "inlineCacheSize":I
-    :goto_1
-    if-lez v4, :cond_0
+    :goto_26
+    if-lez v4, :cond_2e
 
     .line 1193
     invoke-static {p0}, Landroidx/profileinstaller/ProfileTranscoder;->skipInlineCache(Ljava/io/InputStream;)V
@@ -1407,31 +1407,31 @@
     .line 1194
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_1
+    goto :goto_26
 
     .line 1197
-    :cond_0
+    :cond_2e
     move v1, v3
 
     .line 1198
     .end local v2    # "diffWithLastMethodDexIndex":I
     .end local v3    # "methodDexIndex":I
     .end local v4    # "inlineCacheSize":I
-    goto :goto_0
+    goto :goto_8
 
     .line 1201
-    :cond_1
+    :cond_30
     invoke-virtual {p0}, Ljava/io/InputStream;->available()I
 
     move-result v2
 
-    if-ne v2, v0, :cond_2
+    if-ne v2, v0, :cond_37
 
     .line 1206
     return-void
 
     .line 1202
-    :cond_2
+    :cond_37
     const-string v2, "Read too much data during profile line parse"
 
     invoke-static {v2}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -1442,7 +1442,7 @@
 .end method
 
 .method static readMeta(Ljava/io/InputStream;[B[B[Landroidx/profileinstaller/DexProfileData;)[Landroidx/profileinstaller/DexProfileData;
-    .locals 2
+    .registers 6
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "metadataVersion"    # [B
     .param p2, "desiredProfileVersion"    # [B
@@ -1460,7 +1460,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 865
     sget-object v0, Landroidx/profileinstaller/ProfileVersion;->V015_S:[B
@@ -1471,7 +1471,7 @@
 
     .line 868
     .local v0, "requiresProfileV015":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 873
     invoke-static {p0, p1, p3}, Landroidx/profileinstaller/ProfileTranscoder;->readMetadata001(Ljava/io/InputStream;[B[Landroidx/profileinstaller/DexProfileData;)[Landroidx/profileinstaller/DexProfileData;
@@ -1481,7 +1481,7 @@
     return-object v1
 
     .line 869
-    :cond_0
+    :cond_15
     const-string v1, "Requires new Baseline Profile Metadata. Please rebuild the APK with Android Gradle Plugin 7.2 Canary 7 or higher"
 
     invoke-static {v1}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -1492,14 +1492,14 @@
 
     .line 874
     .end local v0    # "requiresProfileV015":Z
-    :cond_1
+    :cond_1c
     sget-object v0, Landroidx/profileinstaller/ProfileVersion;->METADATA_V002:[B
 
     invoke-static {p1, v0}, Ljava/util/Arrays;->equals([B[B)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
     .line 875
     invoke-static {p0, p2, p3}, Landroidx/profileinstaller/ProfileTranscoder;->readMetadataV002(Ljava/io/InputStream;[B[Landroidx/profileinstaller/DexProfileData;)[Landroidx/profileinstaller/DexProfileData;
@@ -1509,7 +1509,7 @@
     return-object v0
 
     .line 877
-    :cond_2
+    :cond_29
     const-string v0, "Unsupported meta version"
 
     invoke-static {v0}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -1520,7 +1520,7 @@
 .end method
 
 .method static readMetadata001(Ljava/io/InputStream;[B[Landroidx/profileinstaller/DexProfileData;)[Landroidx/profileinstaller/DexProfileData;
-    .locals 9
+    .registers 12
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "metadataVersion"    # [B
     .param p2, "profile"    # [Landroidx/profileinstaller/DexProfileData;
@@ -1537,7 +1537,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3e
 
     .line 898
     invoke-static {p0}, Landroidx/profileinstaller/Encoding;->readUInt8(Ljava/io/InputStream;)I
@@ -1572,7 +1572,7 @@
 
     move-result v6
 
-    if-gtz v6, :cond_0
+    if-gtz v6, :cond_37
 
     .line 911
     new-instance v6, Ljava/io/ByteArrayInputStream;
@@ -1581,12 +1581,12 @@
 
     .line 912
     .local v6, "dataStream":Ljava/io/InputStream;
-    :try_start_0
+    :try_start_25
     invoke-static {v6, v0, p2}, Landroidx/profileinstaller/ProfileTranscoder;->readMetadataForNBody(Ljava/io/InputStream;I[Landroidx/profileinstaller/DexProfileData;)[Landroidx/profileinstaller/DexProfileData;
 
     move-result-object v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_25 .. :try_end_29} :catchall_2d
 
     .line 913
     invoke-virtual {v6}, Ljava/io/InputStream;->close()V
@@ -1595,27 +1595,27 @@
     return-object v7
 
     .line 911
-    :catchall_0
+    :catchall_2d
     move-exception v7
 
-    :try_start_1
+    :try_start_2e
     invoke-virtual {v6}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_31
+    .catchall {:try_start_2e .. :try_end_31} :catchall_32
 
-    goto :goto_0
+    goto :goto_36
 
-    :catchall_1
+    :catchall_32
     move-exception v8
 
     invoke-virtual {v7, v8}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_0
+    :goto_36
     throw v7
 
     .line 909
     .end local v6    # "dataStream":Ljava/io/InputStream;
-    :cond_0
+    :cond_37
     const-string v6, "Content found after the end of file"
 
     invoke-static {v6}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -1629,7 +1629,7 @@
     .end local v1    # "uncompressedDataSize":J
     .end local v3    # "compressedDataSize":J
     .end local v5    # "uncompressedData":[B
-    :cond_1
+    :cond_3e
     const-string v0, "Unsupported meta version"
 
     invoke-static {v0}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -1640,7 +1640,7 @@
 .end method
 
 .method private static readMetadataForNBody(Ljava/io/InputStream;I[Landroidx/profileinstaller/DexProfileData;)[Landroidx/profileinstaller/DexProfileData;
-    .locals 6
+    .registers 9
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "numberOfDexFiles"    # I
     .param p2, "profile"    # [Landroidx/profileinstaller/DexProfileData;
@@ -1655,7 +1655,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 1032
     const/4 v0, 0x0
@@ -1665,10 +1665,10 @@
     return-object v0
 
     .line 1034
-    :cond_0
+    :cond_a
     array-length v0, p2
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_4d
 
     .line 1038
     new-array v0, p1, [Ljava/lang/String;
@@ -1682,8 +1682,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, p1, :cond_1
+    :goto_12
+    if-ge v2, p1, :cond_27
 
     .line 1041
     invoke-static {p0}, Landroidx/profileinstaller/Encoding;->readUInt16(Ljava/io/InputStream;)I
@@ -1709,16 +1709,16 @@
     .end local v3    # "dexNameSize":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 1047
     .end local v2    # "i":I
-    :cond_1
+    :cond_27
     const/4 v2, 0x0
 
     .restart local v2    # "i":I
-    :goto_1
-    if-ge v2, p1, :cond_3
+    :goto_28
+    if-ge v2, p1, :cond_4c
 
     .line 1048
     aget-object v3, p2, v2
@@ -1733,7 +1733,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_45
 
     .line 1052
     aget v4, v1, v2
@@ -1753,11 +1753,11 @@
     .end local v3    # "data":Landroidx/profileinstaller/DexProfileData;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_28
 
     .line 1050
     .restart local v3    # "data":Landroidx/profileinstaller/DexProfileData;
-    :cond_2
+    :cond_45
     const-string v4, "Order of dexfiles in metadata did not match baseline"
 
     invoke-static {v4}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -1769,13 +1769,13 @@
     .line 1057
     .end local v2    # "i":I
     .end local v3    # "data":Landroidx/profileinstaller/DexProfileData;
-    :cond_3
+    :cond_4c
     return-object p2
 
     .line 1035
     .end local v0    # "names":[Ljava/lang/String;
     .end local v1    # "sizes":[I
-    :cond_4
+    :cond_4d
     const-string v0, "Mismatched number of dex files found in metadata"
 
     invoke-static {v0}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -1786,7 +1786,7 @@
 .end method
 
 .method static readMetadataV002(Ljava/io/InputStream;[B[Landroidx/profileinstaller/DexProfileData;)[Landroidx/profileinstaller/DexProfileData;
-    .locals 9
+    .registers 12
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "desiredProfileVersion"    # [B
     .param p2, "profile"    # [Landroidx/profileinstaller/DexProfileData;
@@ -1829,7 +1829,7 @@
 
     move-result v6
 
-    if-gtz v6, :cond_0
+    if-gtz v6, :cond_2f
 
     .line 945
     new-instance v6, Ljava/io/ByteArrayInputStream;
@@ -1838,12 +1838,12 @@
 
     .line 946
     .local v6, "dataStream":Ljava/io/InputStream;
-    :try_start_0
+    :try_start_1d
     invoke-static {v6, p1, v0, p2}, Landroidx/profileinstaller/ProfileTranscoder;->readMetadataV002Body(Ljava/io/InputStream;[BI[Landroidx/profileinstaller/DexProfileData;)[Landroidx/profileinstaller/DexProfileData;
 
     move-result-object v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_1d .. :try_end_21} :catchall_25
 
     .line 952
     invoke-virtual {v6}, Ljava/io/InputStream;->close()V
@@ -1852,27 +1852,27 @@
     return-object v7
 
     .line 945
-    :catchall_0
+    :catchall_25
     move-exception v7
 
-    :try_start_1
+    :try_start_26
     invoke-virtual {v6}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_29
+    .catchall {:try_start_26 .. :try_end_29} :catchall_2a
 
-    goto :goto_0
+    goto :goto_2e
 
-    :catchall_1
+    :catchall_2a
     move-exception v8
 
     invoke-virtual {v7, v8}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_0
+    :goto_2e
     throw v7
 
     .line 944
     .end local v6    # "dataStream":Ljava/io/InputStream;
-    :cond_0
+    :cond_2f
     const-string v6, "Content found after the end of file"
 
     invoke-static {v6}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -1883,7 +1883,7 @@
 .end method
 
 .method private static readMetadataV002Body(Ljava/io/InputStream;[BI[Landroidx/profileinstaller/DexProfileData;)[Landroidx/profileinstaller/DexProfileData;
-    .locals 9
+    .registers 13
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "desiredProfileVersion"    # [B
     .param p2, "dexFileCount"    # I
@@ -1899,7 +1899,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 964
     const/4 v0, 0x0
@@ -1909,17 +1909,17 @@
     return-object v0
 
     .line 966
-    :cond_0
+    :cond_a
     array-length v0, p3
 
-    if-ne p2, v0, :cond_4
+    if-ne p2, v0, :cond_57
 
     .line 969
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p2, :cond_3
+    :goto_e
+    if-ge v0, p2, :cond_56
 
     .line 971
     invoke-static {p0}, Landroidx/profileinstaller/Encoding;->readUInt16(Ljava/io/InputStream;)I
@@ -1955,7 +1955,7 @@
 
     .line 980
     .local v6, "data":Landroidx/profileinstaller/DexProfileData;
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3e
 
     .line 984
     iput-wide v3, v6, Landroidx/profileinstaller/DexProfileData;->mTypeIdCount:J
@@ -1973,7 +1973,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_3b
 
     .line 992
     iput v5, v6, Landroidx/profileinstaller/DexProfileData;->classSetSize:I
@@ -1988,10 +1988,10 @@
     .end local v5    # "classIdSetSize":I
     .end local v6    # "data":Landroidx/profileinstaller/DexProfileData;
     .end local v7    # "classes":[I
-    :cond_1
+    :cond_3b
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 981
     .restart local v1    # "profileKeySize":I
@@ -1999,7 +1999,7 @@
     .restart local v3    # "typeIdCount":J
     .restart local v5    # "classIdSetSize":I
     .restart local v6    # "data":Landroidx/profileinstaller/DexProfileData;
-    :cond_2
+    :cond_3e
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -2031,11 +2031,11 @@
     .end local v3    # "typeIdCount":J
     .end local v5    # "classIdSetSize":I
     .end local v6    # "data":Landroidx/profileinstaller/DexProfileData;
-    :cond_3
+    :cond_56
     return-object p3
 
     .line 967
-    :cond_4
+    :cond_57
     const-string v0, "Mismatched number of dex files found in metadata"
 
     invoke-static {v0}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -2046,7 +2046,7 @@
 .end method
 
 .method private static readMethodBitmap(Ljava/io/InputStream;Landroidx/profileinstaller/DexProfileData;)V
-    .locals 9
+    .registers 11
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "data"    # Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -2081,10 +2081,10 @@
     const/4 v3, 0x0
 
     .local v3, "methodIndex":I
-    :goto_0
+    :goto_11
     iget v4, p1, Landroidx/profileinstaller/DexProfileData;->numMethodIds:I
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_45
 
     .line 1257
     iget v4, p1, Landroidx/profileinstaller/DexProfileData;->numMethodIds:I
@@ -2095,7 +2095,7 @@
 
     .line 1258
     .local v4, "newFlags":I
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_42
 
     .line 1259
     iget-object v5, p1, Landroidx/profileinstaller/DexProfileData;->methods:Ljava/util/TreeMap;
@@ -2112,7 +2112,7 @@
 
     .line 1260
     .local v5, "current":Ljava/lang/Integer;
-    if-nez v5, :cond_0
+    if-nez v5, :cond_30
 
     const/4 v6, 0x0
 
@@ -2121,7 +2121,7 @@
     move-result-object v5
 
     .line 1261
-    :cond_0
+    :cond_30
     iget-object v6, p1, Landroidx/profileinstaller/DexProfileData;->methods:Ljava/util/TreeMap;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2143,19 +2143,19 @@
     .line 1256
     .end local v4    # "newFlags":I
     .end local v5    # "current":Ljava/lang/Integer;
-    :cond_1
+    :cond_42
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1264
     .end local v3    # "methodIndex":I
-    :cond_2
+    :cond_45
     return-void
 .end method
 
 .method static readProfile(Ljava/io/InputStream;[BLjava/lang/String;)[Landroidx/profileinstaller/DexProfileData;
-    .locals 9
+    .registers 12
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "version"    # [B
     .param p2, "apkName"    # Ljava/lang/String;
@@ -2172,7 +2172,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3e
 
     .line 839
     invoke-static {p0}, Landroidx/profileinstaller/Encoding;->readUInt8(Ljava/io/InputStream;)I
@@ -2207,7 +2207,7 @@
 
     move-result v6
 
-    if-gtz v6, :cond_0
+    if-gtz v6, :cond_37
 
     .line 852
     new-instance v6, Ljava/io/ByteArrayInputStream;
@@ -2216,12 +2216,12 @@
 
     .line 853
     .local v6, "dataStream":Ljava/io/InputStream;
-    :try_start_0
+    :try_start_25
     invoke-static {v6, p2, v0}, Landroidx/profileinstaller/ProfileTranscoder;->readUncompressedBody(Ljava/io/InputStream;Ljava/lang/String;I)[Landroidx/profileinstaller/DexProfileData;
 
     move-result-object v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_25 .. :try_end_29} :catchall_2d
 
     .line 854
     invoke-virtual {v6}, Ljava/io/InputStream;->close()V
@@ -2230,27 +2230,27 @@
     return-object v7
 
     .line 852
-    :catchall_0
+    :catchall_2d
     move-exception v7
 
-    :try_start_1
+    :try_start_2e
     invoke-virtual {v6}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_31
+    .catchall {:try_start_2e .. :try_end_31} :catchall_32
 
-    goto :goto_0
+    goto :goto_36
 
-    :catchall_1
+    :catchall_32
     move-exception v8
 
     invoke-virtual {v7, v8}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_0
+    :goto_36
     throw v7
 
     .line 850
     .end local v6    # "dataStream":Ljava/io/InputStream;
-    :cond_0
+    :cond_37
     const-string v6, "Content found after the end of file"
 
     invoke-static {v6}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -2264,7 +2264,7 @@
     .end local v1    # "uncompressedDataSize":J
     .end local v3    # "compressedDataSize":J
     .end local v5    # "uncompressedData":[B
-    :cond_1
+    :cond_3e
     const-string v0, "Unsupported version"
 
     invoke-static {v0}, Landroidx/profileinstaller/Encoding;->error(Ljava/lang/String;)Ljava/lang/RuntimeException;
@@ -2275,7 +2275,7 @@
 .end method
 
 .method private static readUncompressedBody(Ljava/io/InputStream;Ljava/lang/String;I)[Landroidx/profileinstaller/DexProfileData;
-    .locals 27
+    .registers 30
     .param p0, "is"    # Ljava/io/InputStream;
     .param p1, "apkName"    # Ljava/lang/String;
     .param p2, "numberOfDexFiles"    # I
@@ -2296,7 +2296,7 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_e
 
     .line 1131
     new-array v2, v3, [Landroidx/profileinstaller/DexProfileData;
@@ -2304,7 +2304,7 @@
     return-object v2
 
     .line 1134
-    :cond_0
+    :cond_e
     new-array v2, v1, [Landroidx/profileinstaller/DexProfileData;
 
     .line 1135
@@ -2312,8 +2312,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v1, :cond_1
+    :goto_11
+    if-ge v4, v1, :cond_59
 
     .line 1136
     invoke-static/range {p0 .. p0}, Landroidx/profileinstaller/Encoding;->readUInt16(Ljava/io/InputStream;)I
@@ -2409,15 +2409,15 @@
     .end local v25    # "numMethodIds":J
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1158
     .end local v4    # "i":I
-    :cond_1
+    :cond_59
     array-length v4, v2
 
-    :goto_1
-    if-ge v3, v4, :cond_2
+    :goto_5a
+    if-ge v3, v4, :cond_6f
 
     aget-object v5, v2, v3
 
@@ -2441,15 +2441,15 @@
     .end local v5    # "data":Landroidx/profileinstaller/DexProfileData;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_5a
 
     .line 1171
-    :cond_2
+    :cond_6f
     return-object v2
 .end method
 
 .method private static roundUpToByte(I)I
-    .locals 1
+    .registers 2
     .param p0, "bits"    # I
 
     .line 625
@@ -2463,7 +2463,7 @@
 .end method
 
 .method private static setMethodBitmapBit([BIILandroidx/profileinstaller/DexProfileData;)V
-    .locals 5
+    .registers 9
     .param p0, "bitmap"    # [B
     .param p1, "flag"    # I
     .param p2, "methodIndex"    # I
@@ -2503,7 +2503,7 @@
 .end method
 
 .method private static skipInlineCache(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 3
     .param p0, "is"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2523,24 +2523,24 @@
     .local v0, "dexPcMapSize":I
     const/4 v1, 0x6
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 1214
     return-void
 
     .line 1217
-    :cond_0
+    :cond_b
     const/4 v1, 0x7
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_f
 
     .line 1218
     return-void
 
     .line 1223
-    :cond_1
-    :goto_0
-    if-lez v0, :cond_3
+    :cond_f
+    :goto_f
+    if-lez v0, :cond_24
 
     .line 1224
     invoke-static {p0}, Landroidx/profileinstaller/Encoding;->readUInt8(Ljava/io/InputStream;)I
@@ -2552,8 +2552,8 @@
 
     .line 1226
     .local v1, "numClasses":I
-    :goto_1
-    if-lez v1, :cond_2
+    :goto_18
+    if-lez v1, :cond_20
 
     .line 1227
     invoke-static {p0}, Landroidx/profileinstaller/Encoding;->readUInt16(Ljava/io/InputStream;)I
@@ -2561,25 +2561,25 @@
     .line 1228
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_1
+    goto :goto_18
 
     .line 1230
-    :cond_2
+    :cond_20
     nop
 
     .end local v1    # "numClasses":I
     add-int/lit8 v0, v0, -0x1
 
     .line 1231
-    goto :goto_0
+    goto :goto_f
 
     .line 1232
-    :cond_3
+    :cond_24
     return-void
 .end method
 
 .method static transcodeAndWriteBody(Ljava/io/OutputStream;[B[Landroidx/profileinstaller/DexProfileData;)Z
-    .locals 2
+    .registers 5
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "desiredVersion"    # [B
     .param p2, "data"    # [Landroidx/profileinstaller/DexProfileData;
@@ -2598,7 +2598,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 100
     invoke-static {p0, p2}, Landroidx/profileinstaller/ProfileTranscoder;->writeProfileForS(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
@@ -2607,14 +2607,14 @@
     return v1
 
     .line 104
-    :cond_0
+    :cond_d
     sget-object v0, Landroidx/profileinstaller/ProfileVersion;->V010_P:[B
 
     invoke-static {p1, v0}, Ljava/util/Arrays;->equals([B[B)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 105
     invoke-static {p0, p2}, Landroidx/profileinstaller/ProfileTranscoder;->writeProfileForP(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
@@ -2623,14 +2623,14 @@
     return v1
 
     .line 109
-    :cond_1
+    :cond_19
     sget-object v0, Landroidx/profileinstaller/ProfileVersion;->V005_O:[B
 
     invoke-static {p1, v0}, Ljava/util/Arrays;->equals([B[B)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_25
 
     .line 110
     invoke-static {p0, p2}, Landroidx/profileinstaller/ProfileTranscoder;->writeProfileForO(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
@@ -2639,14 +2639,14 @@
     return v1
 
     .line 114
-    :cond_2
+    :cond_25
     sget-object v0, Landroidx/profileinstaller/ProfileVersion;->V009_O_MR1:[B
 
     invoke-static {p1, v0}, Ljava/util/Arrays;->equals([B[B)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_31
 
     .line 115
     invoke-static {p0, p2}, Landroidx/profileinstaller/ProfileTranscoder;->writeProfileForO_MR1(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
@@ -2655,14 +2655,14 @@
     return v1
 
     .line 119
-    :cond_3
+    :cond_31
     sget-object v0, Landroidx/profileinstaller/ProfileVersion;->V001_N:[B
 
     invoke-static {p1, v0}, Ljava/util/Arrays;->equals([B[B)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3d
 
     .line 120
     invoke-static {p0, p2}, Landroidx/profileinstaller/ProfileTranscoder;->writeProfileForN(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
@@ -2671,14 +2671,14 @@
     return v1
 
     .line 125
-    :cond_4
+    :cond_3d
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private static writeClasses(Ljava/io/OutputStream;Landroidx/profileinstaller/DexProfileData;)V
-    .locals 6
+    .registers 8
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "dexData"    # Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -2698,8 +2698,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_5
+    if-ge v3, v2, :cond_1c
 
     aget v4, v1, v3
 
@@ -2729,15 +2729,15 @@
     .end local v5    # "diffWithTheLastClassIndex":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 730
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method private static writeDexFileSection([Landroidx/profileinstaller/DexProfileData;)Landroidx/profileinstaller/WritableFileSection;
-    .locals 7
+    .registers 8
     .param p0, "profileData"    # [Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2759,7 +2759,7 @@
     add-int/lit8 v0, v0, 0x2
 
     .line 289
-    :try_start_0
+    :try_start_8
     array-length v2, p0
 
     invoke-static {v1, v2}, Landroidx/profileinstaller/Encoding;->writeUInt16(Ljava/io/OutputStream;I)V
@@ -2768,10 +2768,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_d
     array-length v3, p0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_44
 
     .line 291
     aget-object v3, p0, v2
@@ -2841,11 +2841,11 @@
     .end local v5    # "keyLength":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 316
     .end local v2    # "i":I
-    :cond_0
+    :cond_44
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v2
@@ -2854,7 +2854,7 @@
     .local v2, "contents":[B
     array-length v3, v2
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v3, :cond_57
 
     .line 323
     new-instance v3, Landroidx/profileinstaller/WritableFileSection;
@@ -2864,8 +2864,8 @@
     const/4 v5, 0x0
 
     invoke-direct {v3, v4, v0, v2, v5}, Landroidx/profileinstaller/WritableFileSection;-><init>(Landroidx/profileinstaller/FileSectionType;I[BZ)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_53
+    .catchall {:try_start_8 .. :try_end_53} :catchall_7a
 
     .line 329
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
@@ -2874,8 +2874,8 @@
     return-object v3
 
     .line 318
-    :cond_1
-    :try_start_1
+    :cond_57
+    :try_start_57
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2914,35 +2914,35 @@
     .end local v1    # "out":Ljava/io/ByteArrayOutputStream;
     .end local p0    # "profileData":[Landroidx/profileinstaller/DexProfileData;
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7a
+    .catchall {:try_start_57 .. :try_end_7a} :catchall_7a
 
     .line 286
     .end local v2    # "contents":[B
     .restart local v0    # "expectedSize":I
     .restart local v1    # "out":Ljava/io/ByteArrayOutputStream;
     .restart local p0    # "profileData":[Landroidx/profileinstaller/DexProfileData;
-    :catchall_0
+    :catchall_7a
     move-exception v2
 
-    :try_start_2
+    :try_start_7b
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_7e
+    .catchall {:try_start_7b .. :try_end_7e} :catchall_7f
 
-    goto :goto_1
+    goto :goto_83
 
-    :catchall_1
+    :catchall_7f
     move-exception v3
 
     invoke-virtual {v2, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_1
+    :goto_83
     throw v2
 .end method
 
 .method static writeHeader(Ljava/io/OutputStream;[B)V
-    .locals 1
+    .registers 3
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "version"    # [B
     .annotation system Ldalvik/annotation/Throws;
@@ -2964,7 +2964,7 @@
 .end method
 
 .method private static writeLineData(Ljava/io/OutputStream;Landroidx/profileinstaller/DexProfileData;)V
-    .locals 0
+    .registers 2
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "dexData"    # Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -2987,7 +2987,7 @@
 .end method
 
 .method private static writeLineHeader(Ljava/io/OutputStream;Landroidx/profileinstaller/DexProfileData;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "dexData"    # Landroidx/profileinstaller/DexProfileData;
     .param p2, "dexKey"    # Ljava/lang/String;
@@ -3036,7 +3036,7 @@
 .end method
 
 .method private static writeMethodBitmap(Ljava/io/OutputStream;Landroidx/profileinstaller/DexProfileData;)V
-    .locals 6
+    .registers 8
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "dexData"    # Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -3066,12 +3066,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_43
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3107,7 +3107,7 @@
     .local v4, "flagValue":I
     and-int/lit8 v5, v4, 0x2
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_3a
 
     .line 784
     const/4 v5, 0x2
@@ -3115,10 +3115,10 @@
     invoke-static {v0, v5, v3, p1}, Landroidx/profileinstaller/ProfileTranscoder;->setMethodBitmapBit([BIILandroidx/profileinstaller/DexProfileData;)V
 
     .line 787
-    :cond_0
+    :cond_3a
     and-int/lit8 v5, v4, 0x4
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_42
 
     .line 788
     const/4 v5, 0x4
@@ -3129,11 +3129,11 @@
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     .end local v3    # "methodIndex":I
     .end local v4    # "flagValue":I
-    :cond_1
-    goto :goto_0
+    :cond_42
+    goto :goto_12
 
     .line 791
-    :cond_2
+    :cond_43
     invoke-virtual {p0, v0}, Ljava/io/OutputStream;->write([B)V
 
     .line 792
@@ -3141,7 +3141,7 @@
 .end method
 
 .method private static writeMethodBitmapForS(Ljava/io/OutputStream;ILandroidx/profileinstaller/DexProfileData;)V
-    .locals 13
+    .registers 16
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "methodFlags"    # I
     .param p2, "dexData"    # Landroidx/profileinstaller/DexProfileData;
@@ -3174,12 +3174,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_12
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5e
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3221,39 +3221,39 @@
 
     .line 746
     .local v7, "flag":I
-    :goto_1
+    :goto_34
     const/4 v8, 0x4
 
-    if-gt v7, v8, :cond_3
+    if-gt v7, v8, :cond_5d
 
     .line 747
     const/4 v8, 0x1
 
-    if-ne v7, v8, :cond_0
+    if-ne v7, v8, :cond_3d
 
     .line 748
     shl-int/lit8 v7, v7, 0x1
 
     .line 749
-    goto :goto_1
+    goto :goto_34
 
     .line 751
-    :cond_0
+    :cond_3d
     and-int v9, v7, p1
 
-    if-nez v9, :cond_1
+    if-nez v9, :cond_44
 
     .line 752
     shl-int/lit8 v7, v7, 0x1
 
     .line 753
-    goto :goto_1
+    goto :goto_34
 
     .line 755
-    :cond_1
+    :cond_44
     and-int v9, v7, v5
 
-    if-ne v9, v7, :cond_2
+    if-ne v9, v7, :cond_58
 
     .line 757
     iget v9, p2, Landroidx/profileinstaller/DexProfileData;->numMethodIds:I
@@ -3286,13 +3286,13 @@
     .end local v8    # "value":B
     .end local v9    # "bitIndex":I
     .end local v10    # "bitmapIndex":I
-    :cond_2
+    :cond_58
     add-int/lit8 v6, v6, 0x1
 
     .line 763
     shl-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_34
 
     .line 765
     .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;"
@@ -3300,11 +3300,11 @@
     .end local v5    # "flagValue":I
     .end local v6    # "offset":I
     .end local v7    # "flag":I
-    :cond_3
-    goto :goto_0
+    :cond_5d
+    goto :goto_12
 
     .line 766
-    :cond_4
+    :cond_5e
     invoke-virtual {p0, v1}, Ljava/io/OutputStream;->write([B)V
 
     .line 767
@@ -3312,7 +3312,7 @@
 .end method
 
 .method private static writeMethodsWithInlineCaches(Ljava/io/OutputStream;Landroidx/profileinstaller/DexProfileData;)V
-    .locals 7
+    .registers 9
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "dexData"    # Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -3336,12 +3336,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3377,13 +3377,13 @@
     .local v4, "flags":I
     and-int/lit8 v5, v4, 0x1
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_30
 
     .line 701
-    goto :goto_0
+    goto :goto_b
 
     .line 703
-    :cond_0
+    :cond_30
     sub-int v5, v3, v0
 
     .line 704
@@ -3403,15 +3403,15 @@
     .end local v3    # "methodId":I
     .end local v4    # "flags":I
     .end local v5    # "diffWithTheLastMethodIndex":I
-    goto :goto_0
+    goto :goto_b
 
     .line 708
-    :cond_1
+    :cond_3b
     return-void
 .end method
 
 .method private static writeProfileForN(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
-    .locals 9
+    .registers 11
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "lines"    # [Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -3432,8 +3432,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_2
+    :goto_7
+    if-ge v2, v0, :cond_62
 
     aget-object v3, p1, v2
 
@@ -3492,12 +3492,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_3d
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_51
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3515,18 +3515,18 @@
 
     .line 157
     .end local v6    # "id":I
-    goto :goto_1
+    goto :goto_3d
 
     .line 159
-    :cond_0
+    :cond_51
     iget-object v5, v3, Landroidx/profileinstaller/DexProfileData;->classes:[I
 
     array-length v6, v5
 
     const/4 v7, 0x0
 
-    :goto_2
-    if-ge v7, v6, :cond_1
+    :goto_55
+    if-ge v7, v6, :cond_5f
 
     aget v8, v5, v7
 
@@ -3538,23 +3538,23 @@
     .end local v8    # "id":I
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_2
+    goto :goto_55
 
     .line 147
     .end local v3    # "data":Landroidx/profileinstaller/DexProfileData;
     .end local v4    # "profileKey":Ljava/lang/String;
-    :cond_1
+    :cond_5f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 163
-    :cond_2
+    :cond_62
     return-void
 .end method
 
 .method private static writeProfileForO(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
-    .locals 10
+    .registers 12
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "lines"    # [Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -3575,8 +3575,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_2
+    :goto_7
+    if-ge v2, v0, :cond_68
 
     aget-object v3, p1, v2
 
@@ -3641,12 +3641,12 @@
 
     move-result-object v6
 
-    :goto_1
+    :goto_40
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_57
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3667,18 +3667,18 @@
 
     .line 539
     .end local v7    # "id":I
-    goto :goto_1
+    goto :goto_40
 
     .line 541
-    :cond_0
+    :cond_57
     iget-object v6, v3, Landroidx/profileinstaller/DexProfileData;->classes:[I
 
     array-length v7, v6
 
     const/4 v8, 0x0
 
-    :goto_2
-    if-ge v8, v7, :cond_1
+    :goto_5b
+    if-ge v8, v7, :cond_65
 
     aget v9, v6, v8
 
@@ -3690,24 +3690,24 @@
     .end local v9    # "id":I
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2
+    goto :goto_5b
 
     .line 524
     .end local v3    # "data":Landroidx/profileinstaller/DexProfileData;
     .end local v4    # "hotMethodRegionSize":I
     .end local v5    # "dexKey":Ljava/lang/String;
-    :cond_1
+    :cond_65
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 545
-    :cond_2
+    :cond_68
     return-void
 .end method
 
 .method private static writeProfileForO_MR1(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
-    .locals 2
+    .registers 4
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "lines"    # [Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -3737,7 +3737,7 @@
 .end method
 
 .method private static writeProfileForP(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
-    .locals 2
+    .registers 4
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "lines"    # [Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -3767,7 +3767,7 @@
 .end method
 
 .method private static writeProfileForS(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
-    .locals 0
+    .registers 2
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "profileData"    # [Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -3784,7 +3784,7 @@
 .end method
 
 .method private static writeProfileSections(Ljava/io/OutputStream;[Landroidx/profileinstaller/DexProfileData;)V
-    .locals 11
+    .registers 13
     .param p0, "os"    # Ljava/io/OutputStream;
     .param p1, "profileData"    # [Landroidx/profileinstaller/DexProfileData;
     .annotation system Ldalvik/annotation/Throws;
@@ -3875,12 +3875,12 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_3e
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_8c
 
     .line 252
     invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -3905,7 +3905,7 @@
     .line 258
     iget-boolean v6, v5, Landroidx/profileinstaller/WritableFileSection;->mNeedsCompression:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_73
 
     .line 259
     iget-object v6, v5, Landroidx/profileinstaller/WritableFileSection;->mContents:[B
@@ -3946,10 +3946,10 @@
     .line 267
     .end local v6    # "inflatedSize":J
     .end local v8    # "compressed":[B
-    goto :goto_1
+    goto :goto_89
 
     .line 268
-    :cond_0
+    :cond_73
     iget-object v6, v5, Landroidx/profileinstaller/WritableFileSection;->mContents:[B
 
     invoke-interface {v1, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -3979,23 +3979,23 @@
 
     .line 251
     .end local v5    # "section":Landroidx/profileinstaller/WritableFileSection;
-    :goto_1
+    :goto_89
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 277
     .end local v4    # "i":I
-    :cond_1
+    :cond_8c
     const/4 v4, 0x0
 
     .restart local v4    # "i":I
-    :goto_2
+    :goto_8d
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_2
+    if-ge v4, v5, :cond_9f
 
     .line 278
     invoke-interface {v1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -4009,10 +4009,10 @@
     .line 277
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_8d
 
     .line 280
     .end local v4    # "i":I
-    :cond_2
+    :cond_9f
     return-void
 .end method

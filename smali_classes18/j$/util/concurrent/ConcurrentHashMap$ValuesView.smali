@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/concurrent/ConcurrentHashMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)Z"
@@ -80,7 +80,7 @@
 .end method
 
 .method public final addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,7 +100,7 @@
 .end method
 
 .method public final contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 4716
@@ -115,7 +115,7 @@
 .end method
 
 .method public forEach(Ljava/util/function/Consumer;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,7 +127,7 @@
     .line 4770
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ValuesView;, "Ljava/util/concurrent/ConcurrentHashMap$ValuesView<TK;TV;>;"
     .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TV;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1f
 
     .line 4772
     iget-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$ValuesView;->map:Lj$/util/concurrent/ConcurrentHashMap;
@@ -137,7 +137,7 @@
     move-object v1, v0
 
     .local v1, "t":[Lj$/util/concurrent/ConcurrentHashMap$Node;, "[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 4773
     new-instance v0, Lj$/util/concurrent/ConcurrentHashMap$Traverser;
@@ -152,7 +152,7 @@
 
     .line 4774
     .local v0, "it":Lj$/util/concurrent/ConcurrentHashMap$Traverser;, "Ljava/util/concurrent/ConcurrentHashMap$Traverser<TK;TV;>;"
-    :goto_0
+    :goto_11
     invoke-virtual {v0}, Lj$/util/concurrent/ConcurrentHashMap$Traverser;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
 
     move-result-object v2
@@ -160,24 +160,24 @@
     move-object v3, v2
 
     .local v3, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 4775
     iget-object v2, v3, Lj$/util/concurrent/ConcurrentHashMap$Node;->val:Ljava/lang/Object;
 
     invoke-interface {p1, v2}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 4777
     .end local v0    # "it":Lj$/util/concurrent/ConcurrentHashMap$Traverser;, "Ljava/util/concurrent/ConcurrentHashMap$Traverser<TK;TV;>;"
     .end local v3    # "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    :cond_0
+    :cond_1e
     return-void
 
     .line 4770
     .end local v1    # "t":[Lj$/util/concurrent/ConcurrentHashMap$Node;, "[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    :cond_1
+    :cond_1f
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -186,7 +186,7 @@
 .end method
 
 .method public final iterator()Ljava/util/Iterator;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -206,22 +206,22 @@
     move-object v7, v0
 
     .local v7, "t":[Lj$/util/concurrent/ConcurrentHashMap$Node;, "[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x0
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     array-length v0, v7
 
     move v2, v0
 
     .line 4735
     .local v2, "f":I
-    :goto_0
+    :goto_c
     new-instance v8, Lj$/util/concurrent/ConcurrentHashMap$ValueIterator;
 
     const/4 v3, 0x0
@@ -240,7 +240,7 @@
 .end method
 
 .method public synthetic parallelStream()Lj$/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Collection$-CC;->$default$parallelStream(Ljava/util/Collection;)Lj$/util/stream/Stream;
 
@@ -250,7 +250,7 @@
 .end method
 
 .method public synthetic parallelStream()Ljava/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$ValuesView;->parallelStream()Lj$/util/stream/Stream;
 
@@ -264,12 +264,12 @@
 .end method
 
 .method public final remove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 4720
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ValuesView;, "Ljava/util/concurrent/ConcurrentHashMap$ValuesView<TK;TV;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1b
 
     .line 4721
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$ValuesView;->iterator()Ljava/util/Iterator;
@@ -277,12 +277,12 @@
     move-result-object v0
 
     .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TV;>;"
-    :cond_0
+    :cond_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     .line 4722
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -293,7 +293,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_6
 
     .line 4723
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -305,14 +305,14 @@
 
     .line 4728
     .end local v0    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TV;>;"
-    :cond_1
+    :cond_1b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -324,7 +324,7 @@
     .line 4746
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ValuesView;, "Ljava/util/concurrent/ConcurrentHashMap$ValuesView<TK;TV;>;"
     .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1d
 
     .line 4747
     const/4 v0, 0x0
@@ -336,13 +336,13 @@
     move-result-object v1
 
     .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TV;>;"
-    :cond_0
-    :goto_0
+    :cond_7
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     .line 4749
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -353,7 +353,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_7
 
     .line 4750
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
@@ -361,16 +361,16 @@
     .line 4751
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 4754
     .end local v1    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TV;>;"
-    :cond_1
+    :cond_1c
     return v0
 
     .line 4746
     .end local v0    # "modified":Z
-    :cond_2
+    :cond_1d
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -379,7 +379,7 @@
 .end method
 
 .method public removeIf(Ljava/util/function/Predicate;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -401,7 +401,7 @@
 .end method
 
 .method public spliterator()Lj$/util/Spliterator;
-    .locals 12
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -427,38 +427,38 @@
     move-object v11, v3
 
     .local v11, "t":[Lj$/util/concurrent/ConcurrentHashMap$Node;, "[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-nez v3, :cond_0
+    if-nez v3, :cond_e
 
     const/4 v3, 0x0
 
     const/4 v6, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_e
     array-length v3, v11
 
     move v6, v3
 
     .line 4766
     .local v6, "f":I
-    :goto_0
+    :goto_10
     new-instance v3, Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;
 
     const-wide/16 v4, 0x0
 
     cmp-long v7, v1, v4
 
-    if-gez v7, :cond_1
+    if-gez v7, :cond_1a
 
     move-wide v9, v4
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     move-wide v9, v1
 
-    :goto_1
+    :goto_1b
     const/4 v7, 0x0
 
     move-object v4, v3
@@ -473,7 +473,7 @@
 .end method
 
 .method public synthetic spliterator()Ljava/util/Spliterator;
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$ValuesView;->spliterator()Lj$/util/Spliterator;
 
@@ -487,7 +487,7 @@
 .end method
 
 .method public synthetic stream()Lj$/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Collection$-CC;->$default$stream(Ljava/util/Collection;)Lj$/util/stream/Stream;
 
@@ -497,7 +497,7 @@
 .end method
 
 .method public synthetic stream()Ljava/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$ValuesView;->stream()Lj$/util/stream/Stream;
 
@@ -511,7 +511,7 @@
 .end method
 
 .method public synthetic toArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Collection$-CC;->$default$toArray(Ljava/util/Collection;Ljava/util/function/IntFunction;)[Ljava/lang/Object;
 

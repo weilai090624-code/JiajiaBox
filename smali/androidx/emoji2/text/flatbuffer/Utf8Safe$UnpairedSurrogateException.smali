@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(II)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "length"    # I
 

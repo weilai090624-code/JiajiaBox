@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/fragment/app/FragmentContainerView$Api20Impl;
 
@@ -58,7 +58,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 339
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public final onApplyWindowInsets(Landroid/view/View$OnApplyWindowInsetsListener;Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 2
+    .registers 6
     .param p1, "onApplyWindowInsetsListener"    # Landroid/view/View$OnApplyWindowInsetsListener;
     .param p2, "v"    # Landroid/view/View;
     .param p3, "insets"    # Landroid/view/WindowInsets;

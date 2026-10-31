@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/CustomTabsClient$2;IILandroid/os/Bundle;)V
-    .locals 0
+    .registers 5
     .param p1, "this$1"    # Landroidx/browser/customtabs/CustomTabsClient$2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 408
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2$6;->this$1:Landroidx/browser/customtabs/CustomTabsClient$2;

@@ -94,7 +94,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -164,7 +164,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -194,7 +194,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -203,7 +203,7 @@
     .line 38
     iget v1, p0, Lkotlinx/coroutines/channels/ChannelsKt__ChannelsKt$trySendBlocking$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_68
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -213,7 +213,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/channels/ChannelsKt__ChannelsKt$trySendBlocking$2;
@@ -221,24 +221,24 @@
     const/4 v1, 0x0
 
     .local v1, "$i$a$-runCatching-ChannelsKt__ChannelsKt$trySendBlocking$2$r$1":I
-    :try_start_0
+    :try_start_13
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_13 .. :try_end_16} :catchall_17
 
-    goto :goto_0
+    goto :goto_34
 
     .line 39
     .end local v1    # "$i$a$-runCatching-ChannelsKt__ChannelsKt$trySendBlocking$2$r$1":I
-    :catchall_0
+    :catchall_17
     move-exception v1
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 38
     .end local v0    # "this":Lkotlinx/coroutines/channels/ChannelsKt__ChannelsKt$trySendBlocking$2;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -256,7 +256,7 @@
     iget-object v4, v1, Lkotlinx/coroutines/channels/ChannelsKt__ChannelsKt$trySendBlocking$2;->$element:Ljava/lang/Object;
 
     .end local v2    # "$this$runBlocking":Lkotlinx/coroutines/CoroutineScope;
-    :try_start_1
+    :try_start_25
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     .line 62
@@ -271,16 +271,16 @@
     invoke-interface {v3, v4, v1}, Lkotlinx/coroutines/channels/SendChannel;->send(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2f
+    .catchall {:try_start_25 .. :try_end_2f} :catchall_3b
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_32
 
     .line 38
     return-object v0
 
     .line 39
-    :cond_0
+    :cond_32
     move-object v0, v1
 
     move v1, v2
@@ -288,22 +288,22 @@
     .end local v2    # "$i$a$-runCatching-ChannelsKt__ChannelsKt$trySendBlocking$2$r$1":I
     .restart local v0    # "this":Lkotlinx/coroutines/channels/ChannelsKt__ChannelsKt$trySendBlocking$2;
     .local v1, "$i$a$-runCatching-ChannelsKt__ChannelsKt$trySendBlocking$2$r$1":I
-    :goto_0
-    :try_start_2
+    :goto_34
+    :try_start_34
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .end local v1    # "$i$a$-runCatching-ChannelsKt__ChannelsKt$trySendBlocking$2$r$1":I
     invoke-static {v1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_34 .. :try_end_3a} :catchall_17
 
-    goto :goto_2
+    goto :goto_49
 
     .end local v0    # "this":Lkotlinx/coroutines/channels/ChannelsKt__ChannelsKt$trySendBlocking$2;
     .local v1, "this":Lkotlinx/coroutines/channels/ChannelsKt__ChannelsKt$trySendBlocking$2;
-    :catchall_1
+    :catchall_3b
     move-exception v0
 
     move-object v6, v1
@@ -314,7 +314,7 @@
 
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__ChannelsKt$trySendBlocking$2;
     .restart local v0    # "this":Lkotlinx/coroutines/channels/ChannelsKt__ChannelsKt$trySendBlocking$2;
-    :goto_1
+    :goto_3f
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {v1}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
@@ -327,12 +327,12 @@
 
     .line 40
     .local v1, "r":Ljava/lang/Object;
-    :goto_2
+    :goto_49
     invoke-static {v1}, Lkotlin/Result;->isSuccess-impl(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_58
 
     sget-object v2, Lkotlinx/coroutines/channels/ChannelResult;->Companion:Lkotlinx/coroutines/channels/ChannelResult$Companion;
 
@@ -342,10 +342,10 @@
 
     move-result-object v2
 
-    goto :goto_3
+    goto :goto_62
 
     .line 41
-    :cond_1
+    :cond_58
     sget-object v2, Lkotlinx/coroutines/channels/ChannelResult;->Companion:Lkotlinx/coroutines/channels/ChannelResult$Companion;
 
     invoke-static {v1}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
@@ -357,7 +357,7 @@
     move-result-object v2
 
     .end local v1    # "r":Ljava/lang/Object;
-    :goto_3
+    :goto_62
     invoke-static {v2}, Lkotlinx/coroutines/channels/ChannelResult;->box-impl(Ljava/lang/Object;)Lkotlinx/coroutines/channels/ChannelResult;
 
     move-result-object v1
@@ -367,9 +367,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_68
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_11
     .end packed-switch
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 283
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static buildChildDocumentsUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 3
     .param p0, "authority"    # Ljava/lang/String;
     .param p1, "parentDocumentId"    # Ljava/lang/String;
 
@@ -39,7 +39,7 @@
 .end method
 
 .method static buildChildDocumentsUriUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 3
     .param p0, "treeUri"    # Landroid/net/Uri;
     .param p1, "parentDocumentId"    # Ljava/lang/String;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method static buildDocumentUriUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 3
     .param p0, "treeUri"    # Landroid/net/Uri;
     .param p1, "documentId"    # Ljava/lang/String;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public static buildTreeDocumentUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 3
     .param p0, "authority"    # Ljava/lang/String;
     .param p1, "documentId"    # Ljava/lang/String;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method static createDocument(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 5
     .param p0, "content"    # Landroid/content/ContentResolver;
     .param p1, "parentDocumentUri"    # Landroid/net/Uri;
     .param p2, "mimeType"    # Ljava/lang/String;
@@ -98,7 +98,7 @@
 .end method
 
 .method static getTreeDocumentId(Landroid/net/Uri;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "documentUri"    # Landroid/net/Uri;
 
     .line 246
@@ -110,7 +110,7 @@
 .end method
 
 .method static renameDocument(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 4
     .param p0, "content"    # Landroid/content/ContentResolver;
     .param p1, "documentUri"    # Landroid/net/Uri;
     .param p2, "displayName"    # Ljava/lang/String;

@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 223
     new-instance v0, Landroidx/work/impl/utils/futures/AbstractFuture$Failure;
@@ -43,7 +43,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

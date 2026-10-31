@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(JJ)V
-    .locals 0
+    .registers 5
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final apply(J)Ljava/lang/Object;
-    .locals 6
+    .registers 9
 
     iget-wide v0, p0, Lj$/time/LocalDate$$ExternalSyntheticLambda10;->f$0:J
 

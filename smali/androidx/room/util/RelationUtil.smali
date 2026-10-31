@@ -39,7 +39,7 @@
 
 # direct methods
 .method public static final recursiveFetchArrayMap(Landroidx/collection/ArrayMap;ZLkotlin/jvm/functions/Function1;)V
-    .locals 8
+    .registers 11
     .param p0, "map"    # Landroidx/collection/ArrayMap;
     .param p1, "isRelationCollection"    # Z
     .param p2, "fetchBlock"    # Lkotlin/jvm/functions/Function1;
@@ -92,12 +92,12 @@
 
     .line 124
     .local v4, "limit":I
-    :cond_0
-    :goto_0
-    if-ge v3, v4, :cond_3
+    :cond_17
+    :goto_17
+    if-ge v3, v4, :cond_4b
 
     .line 125
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2a
 
     .line 126
     move-object v5, v0
@@ -114,10 +114,10 @@
 
     invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_35
 
     .line 128
-    :cond_1
+    :cond_2a
     move-object v5, v0
 
     check-cast v5, Ljava/util/Map;
@@ -131,20 +131,20 @@
     invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 130
-    :goto_1
+    :goto_35
     add-int/lit8 v3, v3, 0x1
 
     .line 131
     add-int/lit8 v2, v2, 0x1
 
     .line 132
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_17
 
     .line 133
     invoke-interface {p2, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 134
-    if-nez p1, :cond_2
+    if-nez p1, :cond_46
 
     .line 136
     move-object v5, v0
@@ -154,23 +154,23 @@
     invoke-virtual {p0, v5}, Landroidx/collection/ArrayMap;->putAll(Ljava/util/Map;)V
 
     .line 138
-    :cond_2
+    :cond_46
     invoke-virtual {v0}, Landroidx/collection/ArrayMap;->clear()V
 
     .line 139
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 142
-    :cond_3
-    if-lez v2, :cond_4
+    :cond_4b
+    if-lez v2, :cond_58
 
     .line 143
     invoke-interface {p2, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 144
-    if-nez p1, :cond_4
+    if-nez p1, :cond_58
 
     .line 146
     move-object v1, v0
@@ -180,12 +180,12 @@
     invoke-virtual {p0, v1}, Landroidx/collection/ArrayMap;->putAll(Ljava/util/Map;)V
 
     .line 149
-    :cond_4
+    :cond_58
     return-void
 .end method
 
 .method public static final recursiveFetchHashMap(Ljava/util/HashMap;ZLkotlin/jvm/functions/Function1;)V
-    .locals 7
+    .registers 10
     .param p0, "map"    # Ljava/util/HashMap;
     .param p1, "isRelationCollection"    # Z
     .param p2, "fetchBlock"    # Lkotlin/jvm/functions/Function1;
@@ -236,13 +236,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_1a
+    :goto_1a
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_54
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -252,7 +252,7 @@
     .local v4, "key":Ljava/lang/Object;
     const-string v5, "key"
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_36
 
     .line 46
     move-object v6, v0
@@ -267,10 +267,10 @@
 
     invoke-interface {v6, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_40
 
     .line 48
-    :cond_1
+    :cond_36
     move-object v6, v0
 
     check-cast v6, Ljava/util/Map;
@@ -282,17 +282,17 @@
     invoke-interface {v6, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 50
-    :goto_1
+    :goto_40
     add-int/lit8 v2, v2, 0x1
 
     .line 51
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_1a
 
     .line 53
     invoke-interface {p2, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 56
-    if-nez p1, :cond_2
+    if-nez p1, :cond_4f
 
     .line 57
     move-object v5, v0
@@ -302,24 +302,24 @@
     invoke-virtual {p0, v5}, Ljava/util/HashMap;->putAll(Ljava/util/Map;)V
 
     .line 59
-    :cond_2
+    :cond_4f
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
     .line 60
     const/4 v2, 0x0
 
     .end local v4    # "key":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1a
 
     .line 63
-    :cond_3
-    if-lez v2, :cond_4
+    :cond_54
+    if-lez v2, :cond_61
 
     .line 65
     invoke-interface {p2, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 67
-    if-nez p1, :cond_4
+    if-nez p1, :cond_61
 
     .line 68
     move-object v1, v0
@@ -329,12 +329,12 @@
     invoke-virtual {p0, v1}, Ljava/util/HashMap;->putAll(Ljava/util/Map;)V
 
     .line 71
-    :cond_4
+    :cond_61
     return-void
 .end method
 
 .method public static final recursiveFetchLongSparseArray(Landroidx/collection/LongSparseArray;ZLkotlin/jvm/functions/Function1;)V
-    .locals 8
+    .registers 11
     .param p0, "map"    # Landroidx/collection/LongSparseArray;
     .param p1, "isRelationCollection"    # Z
     .param p2, "fetchBlock"    # Lkotlin/jvm/functions/Function1;
@@ -385,12 +385,12 @@
 
     .line 85
     .local v4, "limit":I
-    :cond_0
-    :goto_0
-    if-ge v3, v4, :cond_3
+    :cond_17
+    :goto_17
+    if-ge v3, v4, :cond_42
 
     .line 86
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_27
 
     .line 87
     invoke-virtual {p0, v3}, Landroidx/collection/LongSparseArray;->keyAt(I)J
@@ -403,10 +403,10 @@
 
     invoke-virtual {v0, v5, v6, v7}, Landroidx/collection/LongSparseArray;->put(JLjava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 91
-    :cond_1
+    :cond_27
     invoke-virtual {p0, v3}, Landroidx/collection/LongSparseArray;->keyAt(I)J
 
     move-result-wide v5
@@ -416,47 +416,47 @@
     invoke-virtual {v0, v5, v6, v7}, Landroidx/collection/LongSparseArray;->put(JLjava/lang/Object;)V
 
     .line 93
-    :goto_1
+    :goto_2f
     add-int/lit8 v3, v3, 0x1
 
     .line 94
     add-int/lit8 v2, v2, 0x1
 
     .line 95
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_17
 
     .line 96
     invoke-interface {p2, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 97
-    if-nez p1, :cond_2
+    if-nez p1, :cond_3d
 
     .line 98
     invoke-virtual {p0, v0}, Landroidx/collection/LongSparseArray;->putAll(Landroidx/collection/LongSparseArray;)V
 
     .line 100
-    :cond_2
+    :cond_3d
     invoke-virtual {v0}, Landroidx/collection/LongSparseArray;->clear()V
 
     .line 101
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 104
-    :cond_3
-    if-lez v2, :cond_4
+    :cond_42
+    if-lez v2, :cond_4c
 
     .line 105
     invoke-interface {p2, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 106
-    if-nez p1, :cond_4
+    if-nez p1, :cond_4c
 
     .line 107
     invoke-virtual {p0, v0}, Landroidx/collection/LongSparseArray;->putAll(Landroidx/collection/LongSparseArray;)V
 
     .line 110
-    :cond_4
+    :cond_4c
     return-void
 .end method

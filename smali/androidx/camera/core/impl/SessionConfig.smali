@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Landroidx/camera/core/impl/CaptureConfig;)V
-    .locals 1
+    .registers 8
     .param p6, "repeatingCaptureConfig"    # Landroidx/camera/core/impl/CaptureConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -166,7 +166,7 @@
 .end method
 
 .method public static defaultEmptySessionConfig()Landroidx/camera/core/impl/SessionConfig;
-    .locals 8
+    .registers 8
 
     .line 86
     new-instance v7, Landroidx/camera/core/impl/SessionConfig;
@@ -213,7 +213,7 @@
 
 # virtual methods
 .method public getDeviceStateCallbacks()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -230,7 +230,7 @@
 .end method
 
 .method public getErrorListeners()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -247,7 +247,7 @@
 .end method
 
 .method public getImplementationOptions()Landroidx/camera/core/impl/Config;
-    .locals 1
+    .registers 2
 
     .line 102
     iget-object v0, p0, Landroidx/camera/core/impl/SessionConfig;->mRepeatingCaptureConfig:Landroidx/camera/core/impl/CaptureConfig;
@@ -260,7 +260,7 @@
 .end method
 
 .method public getRepeatingCameraCaptureCallbacks()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -281,7 +281,7 @@
 .end method
 
 .method public getRepeatingCaptureConfig()Landroidx/camera/core/impl/CaptureConfig;
-    .locals 1
+    .registers 2
 
     .line 141
     iget-object v0, p0, Landroidx/camera/core/impl/SessionConfig;->mRepeatingCaptureConfig:Landroidx/camera/core/impl/CaptureConfig;
@@ -290,7 +290,7 @@
 .end method
 
 .method public getSessionStateCallbacks()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -307,7 +307,7 @@
 .end method
 
 .method public getSingleCameraCaptureCallbacks()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -324,7 +324,7 @@
 .end method
 
 .method public getSurfaces()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -345,7 +345,7 @@
 .end method
 
 .method public getTemplateType()I
-    .locals 1
+    .registers 2
 
     .line 106
     iget-object v0, p0, Landroidx/camera/core/impl/SessionConfig;->mRepeatingCaptureConfig:Landroidx/camera/core/impl/CaptureConfig;

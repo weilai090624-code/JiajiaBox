@@ -35,7 +35,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$smcastingIdentity()Ljava/util/function/Function;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lj$/util/stream/DesugarCollectors;->castingIdentity()Ljava/util/function/Function;
 
@@ -45,7 +45,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 91
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
@@ -73,7 +73,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 95
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -82,7 +82,7 @@
 .end method
 
 .method private static castingIdentity()Ljava/util/function/Function;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<I:",
@@ -104,7 +104,7 @@
 .end method
 
 .method public static filtering(Ljava/util/function/Predicate;Lj$/util/stream/Collector;)Lj$/util/stream/Collector;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -165,7 +165,7 @@
 .end method
 
 .method public static flatMapping(Ljava/util/function/Function;Lj$/util/stream/Collector;)Lj$/util/stream/Collector;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -230,7 +230,7 @@
 .end method
 
 .method static synthetic lambda$castingIdentity$9(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .param p0, "i"    # Ljava/lang/Object;
 
     .line 391
@@ -238,7 +238,7 @@
 .end method
 
 .method static synthetic lambda$filtering$0(Ljava/util/function/Predicate;Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "predicate"    # Ljava/util/function/Predicate;
     .param p1, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
     .param p2, "r"    # Ljava/lang/Object;
@@ -249,18 +249,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 140
     invoke-interface {p1, p2, p3}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 142
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method static synthetic lambda$flatMapping$1(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p0, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
     .param p1, "r"    # Ljava/lang/Object;
     .param p2, "u"    # Ljava/lang/Object;
@@ -272,7 +272,7 @@
 .end method
 
 .method static synthetic lambda$flatMapping$2(Ljava/util/function/Function;Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .param p0, "mapper"    # Ljava/util/function/Function;
     .param p1, "downstreamAccumulator"    # Ljava/util/function/BiConsumer;
     .param p2, "r"    # Ljava/lang/Object;
@@ -287,10 +287,10 @@
 
     .line 189
     .local v0, "result":Lj$/util/stream/Stream;, "Ljava/util/stream/Stream<+TU;>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 190
-    :try_start_0
+    :try_start_8
     invoke-interface {v0}, Lj$/util/stream/Stream;->sequential()Lj$/util/stream/BaseStream;
 
     move-result-object v1
@@ -302,48 +302,48 @@
     invoke-direct {v2, p1, p2}, Lj$/util/stream/DesugarCollectors$$ExternalSyntheticLambda4;-><init>(Ljava/util/function/BiConsumer;Ljava/lang/Object;)V
 
     invoke-interface {v1, v2}, Lj$/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_8 .. :try_end_16} :catchall_17
 
-    goto :goto_1
+    goto :goto_23
 
     .line 188
-    :catchall_0
+    :catchall_17
     move-exception v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
-    :try_start_1
+    :try_start_1a
     invoke-interface {v0}, Lj$/util/stream/Stream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_1d
+    .catchall {:try_start_1a .. :try_end_1d} :catchall_1e
 
-    goto :goto_0
+    goto :goto_22
 
-    :catchall_1
+    :catchall_1e
     move-exception v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :cond_0
-    :goto_0
+    :cond_22
+    :goto_22
     throw v1
 
     .line 191
-    :cond_1
-    :goto_1
-    if-eqz v0, :cond_2
+    :cond_23
+    :goto_23
+    if-eqz v0, :cond_28
 
     invoke-interface {v0}, Lj$/util/stream/Stream;->close()V
 
     .line 192
     .end local v0    # "result":Lj$/util/stream/Stream;, "Ljava/util/stream/Stream<+TU;>;"
-    :cond_2
+    :cond_28
     return-void
 .end method
 
 .method static synthetic lambda$toUnmodifiableList$3(Ljava/util/List;Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .param p0, "left"    # Ljava/util/List;
     .param p1, "right"    # Ljava/util/List;
 
@@ -354,7 +354,7 @@
 .end method
 
 .method static synthetic lambda$toUnmodifiableList$4(Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "list"    # Ljava/util/List;
 
     .line 213
@@ -370,7 +370,7 @@
 .end method
 
 .method static synthetic lambda$toUnmodifiableMap$5(Ljava/util/Map;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "map"    # Ljava/util/Map;
 
     .line 253
@@ -396,7 +396,7 @@
 .end method
 
 .method static synthetic lambda$toUnmodifiableMap$6(Ljava/util/HashMap;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "map"    # Ljava/util/HashMap;
 
     .line 298
@@ -422,7 +422,7 @@
 .end method
 
 .method static synthetic lambda$toUnmodifiableSet$7(Ljava/util/Set;Ljava/util/Set;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "left"    # Ljava/util/Set;
     .param p1, "right"    # Ljava/util/Set;
 
@@ -435,7 +435,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_e
 
     .line 322
     invoke-interface {p1, p0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
@@ -443,14 +443,14 @@
     return-object p1
 
     .line 324
-    :cond_0
+    :cond_e
     invoke-interface {p0, p1}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
     return-object p0
 .end method
 
 .method static synthetic lambda$toUnmodifiableSet$8(Ljava/util/Set;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "set"    # Ljava/util/Set;
 
     .line 327
@@ -466,7 +466,7 @@
 .end method
 
 .method public static toUnmodifiableList()Lj$/util/stream/Collector;
-    .locals 7
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -508,7 +508,7 @@
 .end method
 
 .method public static toUnmodifiableMap(Ljava/util/function/Function;Ljava/util/function/Function;)Lj$/util/stream/Collector;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -562,7 +562,7 @@
 .end method
 
 .method public static toUnmodifiableMap(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Lj$/util/stream/Collector;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -626,7 +626,7 @@
 .end method
 
 .method public static toUnmodifiableSet()Lj$/util/stream/Collector;
-    .locals 7
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

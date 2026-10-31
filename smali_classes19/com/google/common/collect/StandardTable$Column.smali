@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/StandardTable;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)V"
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -92,7 +92,7 @@
 .end method
 
 .method createEntrySet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -114,7 +114,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -133,7 +133,7 @@
 .end method
 
 .method createValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -152,7 +152,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -182,7 +182,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;TV;)TV;"
@@ -208,7 +208,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -238,7 +238,7 @@
 .end method
 
 .method removeFromColumnIf(Lcom/google/common/base/Predicate;)Z
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -270,12 +270,12 @@
 
     .line 472
     .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TR;Ljava/util/Map<TC;TV;>;>;>;"
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_45
 
     .line 473
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -302,7 +302,7 @@
 
     .line 476
     .local v4, "value":Ljava/lang/Object;, "TV;"
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_44
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -316,7 +316,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_44
 
     .line 477
     iget-object v5, p0, Lcom/google/common/collect/StandardTable$Column;->columnKey:Ljava/lang/Object;
@@ -331,7 +331,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_44
 
     .line 480
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
@@ -340,10 +340,10 @@
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TR;Ljava/util/Map<TC;TV;>;>;"
     .end local v3    # "map":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
     .end local v4    # "value":Ljava/lang/Object;, "TV;"
-    :cond_0
-    goto :goto_0
+    :cond_44
+    goto :goto_d
 
     .line 484
-    :cond_1
+    :cond_45
     return v0
 .end method

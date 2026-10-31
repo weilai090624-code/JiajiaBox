@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static setAutoCancel(Landroid/animation/ObjectAnimator;Z)V
-    .locals 0
+    .registers 2
     .param p0, "objectAnimator"    # Landroid/animation/ObjectAnimator;
     .param p1, "cancel"    # Z
 

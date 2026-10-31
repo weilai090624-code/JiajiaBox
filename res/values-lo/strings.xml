@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">ສາຍໂທເຂົ້າ</string>
     <string name="call_notification_ongoing_text">ສາຍໂທອອກ</string>
     <string name="call_notification_screening_text">ກຳລັງກວດສອບສາຍໂທເຂົ້າ</string>
-    <string name="character_counter_content_description" formatted="false">ຕົວອັກສອນທີ່ປ້ອນເຂົ້າ %1$d ຕົວຈາກທັງໝົດ %2$d ຕົວ</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">ຂີດຈຳກັດຕົວອັກສອນເກີນ %1$d ຈາກທັງໝົດ %2$d</string>
+    <string name="character_counter_content_description">ຕົວອັກສອນທີ່ປ້ອນເຂົ້າ %1$d ຕົວຈາກທັງໝົດ %2$d ຕົວ</string>
+    <string name="character_counter_overflowed_content_description">ຂີດຈຳກັດຕົວອັກສອນເກີນ %1$d ຈາກທັງໝົດ %2$d</string>
     <string name="clear_text_end_icon_content_description">ລຶບລ້າງຂໍ້ຄວາມ</string>
     <string name="copy">ສຳເນົາ</string>
     <string name="copy_toast_msg">ສຳເນົາລິ້ງໃສ່ຄລິບບອດແລ້ວ</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">ຢູ່ນອກຊ່ວງວັນທີ: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">ວັນທີເລີ່ມຕົ້ນ – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – ວັນທີສິ້ນສຸດ</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">ເລືອກຊ່ວງ</string>
     <string name="mtrl_picker_range_header_unselected">ວັນທີເລີ່ມຕົ້ນ – ວັນທີສິ້ນສຸດ</string>
     <string name="mtrl_picker_save">ບັນທຶກ</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">ສຳເນົາ \"%1$s\" ໄປໃສ່ຄລິບບອດແລ້ວ.</string>
     <string name="search_menu_title">ຊອກຫາ</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ປິດ</string>
     <string name="v7_preference_on">ເປີດ</string>
 </resources>

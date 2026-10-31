@@ -37,7 +37,7 @@
 
 # direct methods
 .method public static final SupervisorJob(Lkotlinx/coroutines/Job;)Lkotlinx/coroutines/CompletableJob;
-    .locals 1
+    .registers 2
     .param p0, "parent"    # Lkotlinx/coroutines/Job;
 
     .line 33
@@ -51,7 +51,7 @@
 .end method
 
 .method public static final synthetic SupervisorJob(Lkotlinx/coroutines/Job;)Lkotlinx/coroutines/Job;
-    .locals 1
+    .registers 2
     .param p0, "parent"    # Lkotlinx/coroutines/Job;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -69,16 +69,16 @@
 .end method
 
 .method public static synthetic SupervisorJob$default(Lkotlinx/coroutines/Job;ILjava/lang/Object;)Lkotlinx/coroutines/CompletableJob;
-    .locals 0
+    .registers 3
 
     .line 33
     and-int/lit8 p1, p1, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0}, Lkotlinx/coroutines/SupervisorKt;->SupervisorJob(Lkotlinx/coroutines/Job;)Lkotlinx/coroutines/CompletableJob;
 
     move-result-object p0
@@ -87,16 +87,16 @@
 .end method
 
 .method public static synthetic SupervisorJob$default(Lkotlinx/coroutines/Job;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
-    .locals 0
+    .registers 3
 
     .line 39
     and-int/lit8 p1, p1, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0}, Lkotlinx/coroutines/SupervisorKt;->SupervisorJob(Lkotlinx/coroutines/Job;)Lkotlinx/coroutines/Job;
 
     move-result-object p0
@@ -105,7 +105,7 @@
 .end method
 
 .method public static final supervisorScope(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -164,10 +164,10 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1c
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_0
+    :cond_1c
     return-object v0
 .end method

@@ -76,7 +76,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/concurrent/ConcurrentHashMap$BulkTask;III[Lj$/util/concurrent/ConcurrentHashMap$Node;Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;Ljava/util/function/BiFunction;Ljava/util/function/BiFunction;)V
-    .locals 0
+    .registers 9
     .param p2, "b"    # I
     .param p3, "i"    # I
     .param p4, "f"    # I
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public final compute()V
-    .locals 14
+    .registers 15
 
     .line 5715
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask<TK;TV;TU;>;"
@@ -129,23 +129,23 @@
     move-object v10, v0
 
     .local v10, "transformer":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<-TK;-TV;+TU;>;"
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_81
 
     iget-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->reducer:Ljava/util/function/BiFunction;
 
     move-object v11, v0
 
     .local v11, "reducer":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<-TU;-TU;+TU;>;"
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_81
 
     .line 5717
     iget v0, p0, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->baseIndex:I
 
     .local v0, "i":I
-    :goto_0
+    :goto_c
     iget v1, p0, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->batch:I
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_38
 
     iget v1, p0, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->baseLimit:I
 
@@ -161,7 +161,7 @@
     move v12, v1
 
     .local v12, "h":I
-    if-le v1, v0, :cond_0
+    if-le v1, v0, :cond_38
 
     .line 5719
     invoke-virtual {p0, v2}, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->addToPendingCount(I)V
@@ -198,18 +198,18 @@
     .line 5722
     invoke-virtual {v13}, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->fork()Ljava/util/concurrent/ForkJoinTask;
 
-    goto :goto_0
+    goto :goto_c
 
     .line 5724
     .end local v0    # "i":I
     .end local v5    # "f":I
     .end local v12    # "h":I
-    :cond_0
+    :cond_38
     const/4 v0, 0x0
 
     .line 5725
     .local v0, "r":Ljava/lang/Object;, "TU;"
-    :goto_1
+    :goto_39
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
 
     move-result-object v1
@@ -217,7 +217,7 @@
     move-object v2, v1
 
     .local v2, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_55
 
     .line 5727
     iget-object v1, v2, Lj$/util/concurrent/ConcurrentHashMap$Node;->key:Ljava/lang/Object;
@@ -231,31 +231,31 @@
     move-object v3, v1
 
     .local v3, "u":Ljava/lang/Object;, "TU;"
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_54
 
     .line 5728
-    if-nez v0, :cond_1
+    if-nez v0, :cond_4f
 
     move-object v1, v3
 
-    goto :goto_2
+    goto :goto_53
 
-    :cond_1
+    :cond_4f
     invoke-interface {v11, v0, v3}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_2
+    :goto_53
     move-object v0, v1
 
     .line 5729
     .end local v3    # "u":Ljava/lang/Object;, "TU;"
-    :cond_2
-    goto :goto_1
+    :cond_54
+    goto :goto_39
 
     .line 5730
     .end local v2    # "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    :cond_3
+    :cond_55
     iput-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->result:Ljava/lang/Object;
 
     .line 5732
@@ -264,8 +264,8 @@
     move-result-object v1
 
     .local v1, "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
-    :goto_3
-    if-eqz v1, :cond_7
+    :goto_5b
+    if-eqz v1, :cond_81
 
     .line 5735
     move-object v2, v1
@@ -278,8 +278,8 @@
 
     .line 5737
     .local v3, "s":Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask<TK;TV;TU;>;"
-    :goto_4
-    if-eqz v3, :cond_6
+    :goto_62
+    if-eqz v3, :cond_7c
 
     .line 5739
     iget-object v4, v3, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->result:Ljava/lang/Object;
@@ -287,7 +287,7 @@
     move-object v5, v4
 
     .local v5, "sr":Ljava/lang/Object;, "TU;"
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_76
 
     .line 5740
     iget-object v4, v2, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->result:Ljava/lang/Object;
@@ -295,24 +295,24 @@
     move-object v6, v4
 
     .local v6, "tr":Ljava/lang/Object;, "TU;"
-    if-nez v4, :cond_4
+    if-nez v4, :cond_70
 
     move-object v4, v5
 
-    goto :goto_5
+    goto :goto_74
 
     .line 5741
-    :cond_4
+    :cond_70
     invoke-interface {v11, v6, v5}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
 
-    :goto_5
+    :goto_74
     iput-object v4, v2, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->result:Ljava/lang/Object;
 
     .line 5742
     .end local v6    # "tr":Ljava/lang/Object;, "TU;"
-    :cond_5
+    :cond_76
     iget-object v4, v3, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->nextRight:Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;
 
     iput-object v4, v2, Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;->rights:Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;
@@ -321,28 +321,28 @@
 
     .line 5743
     .end local v5    # "sr":Ljava/lang/Object;, "TU;"
-    goto :goto_4
+    goto :goto_62
 
     .line 5732
     .end local v2    # "t":Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask<TK;TV;TU;>;"
     .end local v3    # "s":Lj$/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceMappingsTask<TK;TV;TU;>;"
-    :cond_6
+    :cond_7c
     invoke-virtual {v1}, Ljava/util/concurrent/CountedCompleter;->nextComplete()Ljava/util/concurrent/CountedCompleter;
 
     move-result-object v1
 
-    goto :goto_3
+    goto :goto_5b
 
     .line 5746
     .end local v0    # "r":Ljava/lang/Object;, "TU;"
     .end local v1    # "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
     .end local v11    # "reducer":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<-TU;-TU;+TU;>;"
-    :cond_7
+    :cond_81
     return-void
 .end method
 
 .method public final getRawResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TU;"

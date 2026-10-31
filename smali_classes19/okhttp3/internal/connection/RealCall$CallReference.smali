@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/connection/RealCall;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "referent"    # Lokhttp3/internal/connection/RealCall;
     .param p2, "callStackTrace"    # Ljava/lang/Object;
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public final getCallStackTrace()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 549
     iget-object v0, p0, Lokhttp3/internal/connection/RealCall$CallReference;->callStackTrace:Ljava/lang/Object;

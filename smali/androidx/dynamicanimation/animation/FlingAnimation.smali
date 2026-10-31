@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/dynamicanimation/animation/FloatValueHolder;)V
-    .locals 2
+    .registers 4
     .param p1, "floatValueHolder"    # Landroidx/dynamicanimation/animation/FloatValueHolder;
 
     .line 58
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Landroidx/dynamicanimation/animation/FloatPropertyCompat;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method getAcceleration(FF)F
-    .locals 1
+    .registers 4
     .param p1, "value"    # F
     .param p2, "velocity"    # F
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public getFriction()F
-    .locals 1
+    .registers 2
 
     .line 98
     iget-object v0, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mFlingForce:Landroidx/dynamicanimation/animation/FlingAnimation$DragForce;
@@ -119,7 +119,7 @@
 .end method
 
 .method isAtEquilibrium(FF)Z
-    .locals 1
+    .registers 4
     .param p1, "value"    # F
     .param p2, "velocity"    # F
 
@@ -128,13 +128,13 @@
 
     cmpl-float v0, p1, v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_17
 
     iget v0, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mMinValue:F
 
     cmpg-float v0, p1, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_17
 
     iget-object v0, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mFlingForce:Landroidx/dynamicanimation/animation/FlingAnimation$DragForce;
 
@@ -143,25 +143,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_18
     return v0
 .end method
 
 .method public setFriction(F)Landroidx/dynamicanimation/animation/FlingAnimation;
-    .locals 2
+    .registers 4
     .param p1, "friction"    # F
 
     .line 84
@@ -169,7 +169,7 @@
 
     cmpg-float v0, p1, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_b
 
     .line 87
     iget-object v0, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mFlingForce:Landroidx/dynamicanimation/animation/FlingAnimation$DragForce;
@@ -180,7 +180,7 @@
     return-object p0
 
     .line 85
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Friction must be positive"
@@ -191,7 +191,7 @@
 .end method
 
 .method public bridge synthetic setMaxValue(F)Landroidx/dynamicanimation/animation/DynamicAnimation;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Landroidx/dynamicanimation/animation/FlingAnimation;->setMaxValue(F)Landroidx/dynamicanimation/animation/FlingAnimation;
@@ -202,7 +202,7 @@
 .end method
 
 .method public setMaxValue(F)Landroidx/dynamicanimation/animation/FlingAnimation;
-    .locals 0
+    .registers 2
     .param p1, "maxValue"    # F
 
     .line 123
@@ -213,7 +213,7 @@
 .end method
 
 .method public bridge synthetic setMinValue(F)Landroidx/dynamicanimation/animation/DynamicAnimation;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Landroidx/dynamicanimation/animation/FlingAnimation;->setMinValue(F)Landroidx/dynamicanimation/animation/FlingAnimation;
@@ -224,7 +224,7 @@
 .end method
 
 .method public setMinValue(F)Landroidx/dynamicanimation/animation/FlingAnimation;
-    .locals 0
+    .registers 2
     .param p1, "minValue"    # F
 
     .line 110
@@ -235,7 +235,7 @@
 .end method
 
 .method public bridge synthetic setStartVelocity(F)Landroidx/dynamicanimation/animation/DynamicAnimation;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Landroidx/dynamicanimation/animation/FlingAnimation;->setStartVelocity(F)Landroidx/dynamicanimation/animation/FlingAnimation;
@@ -246,7 +246,7 @@
 .end method
 
 .method public setStartVelocity(F)Landroidx/dynamicanimation/animation/FlingAnimation;
-    .locals 0
+    .registers 2
     .param p1, "startVelocity"    # F
 
     .line 150
@@ -257,7 +257,7 @@
 .end method
 
 .method setValueThreshold(F)V
-    .locals 1
+    .registers 3
     .param p1, "threshold"    # F
 
     .line 191
@@ -270,7 +270,7 @@
 .end method
 
 .method updateValueAndVelocity(J)Z
-    .locals 4
+    .registers 7
     .param p1, "deltaT"    # J
 
     .line 157
@@ -304,7 +304,7 @@
 
     cmpg-float v1, v1, v2
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_20
 
     .line 163
     iget v1, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mMinValue:F
@@ -315,14 +315,14 @@
     return v3
 
     .line 166
-    :cond_0
+    :cond_20
     iget v1, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mValue:F
 
     iget v2, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mMaxValue:F
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_2d
 
     .line 167
     iget v1, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mMaxValue:F
@@ -333,7 +333,7 @@
     return v3
 
     .line 171
-    :cond_1
+    :cond_2d
     iget v1, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mValue:F
 
     iget v2, p0, Landroidx/dynamicanimation/animation/FlingAnimation;->mVelocity:F
@@ -342,13 +342,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_38
 
     .line 172
     return v3
 
     .line 174
-    :cond_2
+    :cond_38
     const/4 v1, 0x0
 
     return v1

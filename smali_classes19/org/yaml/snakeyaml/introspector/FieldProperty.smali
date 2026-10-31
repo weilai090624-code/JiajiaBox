@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;)V
-    .locals 3
+    .registers 5
     .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 37
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 50
@@ -52,13 +52,13 @@
     invoke-virtual {v0, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
     .line 51
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 52
@@ -115,7 +115,7 @@
 .end method
 
 .method public getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -138,7 +138,7 @@
 .end method
 
 .method public getAnnotations()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -163,7 +163,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;

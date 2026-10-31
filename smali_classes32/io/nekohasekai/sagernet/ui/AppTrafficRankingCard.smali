@@ -62,6 +62,8 @@
 
 .field private publication:Ljava/lang/Runnable;
 
+.field private volatile published:Z
+
 .field private final rows:[Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;
 
 .field private final surface:Landroid/graphics/drawable/GradientDrawable;
@@ -177,7 +179,7 @@
 
     invoke-virtual {p0, v3}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->setId(I)V
 
-    const/high16 v3, 0x41b00000    # 22.0f
+    const/high16 v3, 0x41a00000    # 20.0f
 
     invoke-direct {p0, v3}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->dp(F)I
 
@@ -207,9 +209,9 @@
 
     invoke-direct {p0, v5}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->dp(F)I
 
-    move-result v7
+    move-result v5
 
-    invoke-virtual {p0, v4, v6, v0, v7}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->setPadding(IIII)V
+    invoke-virtual {p0, v4, v6, v0, v5}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->setPadding(IIII)V
 
     .line 58
     invoke-static {p0, v3}, Lio/nekohasekai/sagernet/ui/CardLight;->bind(Landroid/view/View;F)V
@@ -226,7 +228,9 @@
     .line 60
     const-string v3, "\u5e94\u7528\u6d41\u91cf\u6392\u884c"
 
-    invoke-direct {p0, v3, v5, v2}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->text(Ljava/lang/String;FZ)Landroid/widget/TextView;
+    const/high16 v4, 0x41700000    # 15.0f
+
+    invoke-direct {p0, v3, v4, v2}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->text(Ljava/lang/String;FZ)Landroid/widget/TextView;
 
     move-result-object v3
 
@@ -234,7 +238,7 @@
 
     const-string v4, "\u7d2f\u8ba1\u4ee3\u7406 \u00b7 TOP 5"
 
-    const/high16 v5, 0x41200000    # 10.0f
+    const/high16 v5, 0x41300000    # 11.0f
 
     const/4 v6, 0x0
 
@@ -311,12 +315,12 @@
     const/4 v0, 0x0
 
     .line 63
-    :goto_d4
+    :goto_d6
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->rows:[Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;
 
     array-length v3, v2
 
-    if-ge v0, v3, :cond_ff
+    if-ge v0, v3, :cond_101
 
     new-instance v3, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;
 
@@ -352,10 +356,10 @@
 
     move v0, v4
 
-    goto :goto_d4
+    goto :goto_d6
 
     .line 64
-    :cond_ff
+    :cond_101
     const-string p1, "\u6b63\u5728\u8bfb\u53d6\u5e94\u7528\u6d41\u91cf\u2026"
 
     const/high16 v0, 0x41500000    # 13.0f
@@ -449,7 +453,7 @@
 .method private applyTheme()V
     .registers 8
 
-    .line 134
+    .line 136
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->title:Landroid/widget/TextView;
 
     if-nez v0, :cond_6
@@ -465,14 +469,14 @@
 
     move-result v0
 
-    .line 135
+    .line 137
     iget v1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->themeColor:I
 
     if-ne v1, v0, :cond_14
 
     goto/16 :goto_8f
 
-    .line 136
+    .line 138
     :cond_14
     iput v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->themeColor:I
 
@@ -512,7 +516,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    .line 137
+    .line 139
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->title:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
@@ -541,7 +545,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 138
+    .line 140
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->rows:[Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;
 
     array-length v2, v1
@@ -628,7 +632,7 @@
 .method private dp(F)I
     .registers 3
 
-    .line 142
+    .line 145
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -668,7 +672,7 @@
 
     move-result v0
 
-    const/high16 v1, 0x41b00000    # 22.0f
+    const/high16 v1, 0x41c00000    # 24.0f
 
     mul-float v0, v0, v1
 
@@ -761,22 +765,27 @@
         }
     .end annotation
 
-    .line 121
-    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->applyTheme()V
-
-    .line 123
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->caption:Landroid/widget/TextView;
-
-    if-eqz p3, :cond_16
+    const/4 v0, 0x1
 
     .line 122
+    iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->published:Z
+
+    .line 123
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->applyTheme()V
+
+    .line 125
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->caption:Landroid/widget/TextView;
+
+    if-eqz p3, :cond_19
+
+    .line 124
     const-string p1, "\u7d2f\u8ba1\u4ee3\u7406 \u00b7 \u672a\u66f4\u65b0"
 
     invoke-static {v0, p1}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
 
     iget-boolean p1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->hasData:Z
 
-    if-nez p1, :cond_d0
+    if-nez p1, :cond_de
 
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->empty:Landroid/widget/TextView;
 
@@ -784,8 +793,8 @@
 
     return-void
 
-    .line 123
-    :cond_16
+    .line 125
+    :cond_19
     const-string p3, "\u7d2f\u8ba1\u4ee3\u7406 \u00b7 TOP 5"
 
     invoke-static {v0, p3}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
@@ -804,17 +813,17 @@
 
     const/4 v2, 0x0
 
-    if-nez p3, :cond_2d
+    if-nez p3, :cond_30
 
     const/16 p3, 0x8
 
-    goto :goto_2e
+    goto :goto_31
 
-    :cond_2d
+    :cond_30
     const/4 p3, 0x0
 
-    :goto_2e
-    invoke-virtual {v0, p3}, Landroid/widget/TextView;->setVisibility(I)V
+    :goto_31
+    invoke-static {v0, p3}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->setVisibility(Landroid/view/View;I)V
 
     iget-object p3, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->empty:Landroid/widget/TextView;
 
@@ -822,18 +831,18 @@
 
     invoke-static {p3, v0}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    .line 124
+    .line 126
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result p3
 
-    if-eqz p3, :cond_41
+    if-eqz p3, :cond_44
 
     const-wide/16 v3, 0x1
 
-    goto :goto_49
+    goto :goto_4c
 
-    :cond_41
+    :cond_44
     invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object p3
@@ -842,32 +851,32 @@
 
     iget-wide v3, p3, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->total:J
 
-    :goto_49
+    :goto_4c
     const/4 p3, 0x0
 
-    .line 125
-    :goto_4a
+    .line 127
+    :goto_4d
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->rows:[Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;
 
     array-length v5, v0
 
-    if-ge p3, v5, :cond_d0
+    if-ge p3, v5, :cond_de
 
-    .line 126
+    .line 128
     aget-object v0, v0, p3
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-lt p3, v5, :cond_5b
+    if-lt p3, v5, :cond_5f
 
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->setVisibility(I)V
 
-    goto :goto_cc
+    goto/16 :goto_da
 
-    .line 127
-    :cond_5b
+    .line 129
+    :cond_5f
     invoke-interface {p1, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -882,17 +891,17 @@
 
     check-cast v6, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Display;
 
-    if-nez v6, :cond_6e
+    if-nez v6, :cond_72
 
     iget-object v7, v5, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
 
-    goto :goto_70
+    goto :goto_74
 
-    :cond_6e
+    :cond_72
     iget-object v7, v6, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Display;->label:Ljava/lang/String;
 
-    .line 128
-    :goto_70
+    .line 130
+    :goto_74
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->getContext()Landroid/content/Context;
 
     move-result-object v8
@@ -903,7 +912,7 @@
 
     move-result-object v8
 
-    .line 129
+    .line 131
     iget-object v9, v0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->name:Landroid/widget/TextView;
 
     invoke-static {v9, v7}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->setText(Landroid/widget/TextView;Ljava/lang/String;)V
@@ -914,16 +923,16 @@
 
     iget-object v9, v0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->icon:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Icon;
 
-    if-nez v6, :cond_8a
+    if-nez v6, :cond_8e
 
     const/4 v6, 0x0
 
-    goto :goto_8c
+    goto :goto_90
 
-    :cond_8a
+    :cond_8e
     iget-object v6, v6, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Display;->icon:Landroid/graphics/drawable/Drawable;
 
-    :goto_8c
+    :goto_90
     invoke-virtual {v9, v6}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Icon;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
     iget-wide v5, v5, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->total:J
@@ -942,7 +951,7 @@
 
     cmpl-float v6, v6, v5
 
-    if-eqz v6, :cond_a6
+    if-eqz v6, :cond_aa
 
     iget-object v6, v0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->bar:Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Bar;
 
@@ -952,8 +961,8 @@
 
     invoke-virtual {v5}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Bar;->invalidate()V
 
-    .line 130
-    :cond_a6
+    .line 132
+    :cond_aa
     new-instance v5, Ljava/lang/StringBuilder;
 
     const-string v6, "\u7b2c"
@@ -980,16 +989,27 @@
 
     move-result-object v5
 
+    invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->getContentDescription()Ljava/lang/CharSequence;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_d7
+
     invoke-virtual {v0, v5}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v0, v2}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Row;->setVisibility(I)V
+    :cond_d7
+    invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->setVisibility(Landroid/view/View;I)V
 
-    :goto_cc
+    :goto_da
     add-int/lit8 p3, p3, 0x1
 
-    goto/16 :goto_4a
+    goto/16 :goto_4d
 
-    :cond_d0
+    :cond_de
     return-void
 .end method
 
@@ -1085,7 +1105,7 @@
 
     move-result v0
 
-    const/high16 v1, 0x42000000    # 32.0f
+    const/high16 v1, 0x42080000    # 34.0f
 
     mul-float v0, v0, v1
 
@@ -1099,7 +1119,7 @@
 .method private static setText(Landroid/widget/TextView;Ljava/lang/String;)V
     .registers 3
 
-    .line 140
+    .line 142
     invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -1116,10 +1136,26 @@
     return-void
 .end method
 
+.method private static setVisibility(Landroid/view/View;I)V
+    .registers 3
+
+    .line 143
+    invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
+
+    move-result v0
+
+    if-eq v0, p1, :cond_9
+
+    invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_9
+    return-void
+.end method
+
 .method private text(Ljava/lang/String;FZ)Landroid/widget/TextView;
     .registers 6
 
-    .line 141
+    .line 144
     new-instance v0, Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->getContext()Landroid/content/Context;
@@ -1193,7 +1229,7 @@
 .method synthetic lambda$request$2$io-nekohasekai-sagernet-ui-AppTrafficRankingCard(ILjava/util/List;Ljava/util/Map;Ljava/lang/String;)V
     .registers 8
 
-    .line 113
+    .line 114
     iget v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->epoch:I
 
     const/4 v1, 0x0
@@ -1210,7 +1246,7 @@
 
     goto :goto_18
 
-    .line 114
+    .line 115
     :cond_d
     iput-object v2, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->publication:Ljava/lang/Runnable;
 
@@ -1222,7 +1258,7 @@
 
     return-void
 
-    .line 113
+    .line 114
     :cond_18
     :goto_18
     iput-object v2, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->publication:Ljava/lang/Runnable;
@@ -1237,7 +1273,7 @@
 .method synthetic lambda$request$3$io-nekohasekai-sagernet-ui-AppTrafficRankingCard(ILjava/util/List;Ljava/util/Map;Ljava/lang/String;)V
     .registers 12
 
-    .line 111
+    .line 112
     iget v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->epoch:I
 
     if-ne p1, v0, :cond_1b
@@ -1250,7 +1286,7 @@
 
     goto :goto_1b
 
-    .line 112
+    .line 113
     :cond_b
     new-instance v1, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$0;
 
@@ -1268,12 +1304,12 @@
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->publication:Ljava/lang/Runnable;
 
-    .line 116
+    .line 117
     invoke-static {p0, v1}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->publish(Landroid/view/View;Ljava/lang/Runnable;)V
 
     return-void
 
-    .line 111
+    .line 112
     :cond_1b
     :goto_1b
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->loading:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -1286,131 +1322,177 @@
 .end method
 
 .method synthetic lambda$request$4$io-nekohasekai-sagernet-ui-AppTrafficRankingCard(Landroid/content/Context;I)V
-    .registers 14
+    .registers 16
 
     .line 85
-    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->cached:Ljava/util/List;
+    iget-object v2, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->cached:Ljava/util/List;
+
+    const/4 v3, 0x0
 
     .line 87
-    :try_start_2
+    :try_start_3
     new-instance v0, Ljava/io/File;
 
     invoke-virtual {p1}, Landroid/content/Context;->getNoBackupFilesDir()Ljava/io/File;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string v3, "proxy-app-traffic.json"
+    const-string v5, "proxy-app-traffic.json"
 
-    invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 88
     invoke-virtual {v0}, Ljava/io/File;->lastModified()J
 
-    move-result-wide v2
+    move-result-wide v4
 
     invoke-virtual {v0}, Ljava/io/File;->length()J
 
-    move-result-wide v4
+    move-result-wide v6
 
     .line 89
     invoke-virtual {v0}, Ljava/io/File;->isFile()Z
 
-    move-result v6
-
-    const/4 v7, 0x0
-
-    if-nez v6, :cond_25
-
-    sget-object v1, Ljava/util/Collections;->EMPTY_LIST:Ljava/util/List;
-
-    const-wide/16 v2, -0x1
-
-    iput-wide v2, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastModified:J
-
-    iput-wide v2, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastLength:J
-
-    goto :goto_5e
+    move-result v8
+    :try_end_1a
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_1a} :catch_f1
 
     .line 90
-    :cond_25
-    iget-wide v8, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastModified:J
+    iget-wide v9, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastModified:J
 
-    cmp-long v6, v2, v8
+    const/4 v11, 0x1
 
-    if-nez v6, :cond_31
+    if-nez v8, :cond_3a
 
+    const-wide/16 v4, -0x1
+
+    cmp-long v0, v9, v4
+
+    if-nez v0, :cond_33
+
+    .line 89
+    :try_start_25
+    iget-wide v6, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastLength:J
+
+    cmp-long v0, v6, v4
+
+    if-nez v0, :cond_33
+
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+    :try_end_2f
+    .catch Ljava/lang/Exception; {:try_start_25 .. :try_end_2f} :catch_f1
+
+    if-nez v0, :cond_32
+
+    goto :goto_33
+
+    :cond_32
+    const/4 v11, 0x0
+
+    :cond_33
+    :goto_33
+    :try_start_33
+    sget-object v2, Ljava/util/Collections;->EMPTY_LIST:Ljava/util/List;
+
+    iput-wide v4, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastModified:J
+
+    iput-wide v4, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastLength:J
+    :try_end_39
+    .catch Ljava/lang/Exception; {:try_start_33 .. :try_end_39} :catch_f2
+
+    goto :goto_74
+
+    :cond_3a
+    cmp-long v8, v4, v9
+
+    if-nez v8, :cond_47
+
+    .line 90
+    :try_start_3e
     iget-wide v8, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastLength:J
 
-    cmp-long v6, v4, v8
+    cmp-long v10, v6, v8
 
-    if-eqz v6, :cond_5e
+    if-eqz v10, :cond_45
+
+    goto :goto_47
+
+    :cond_45
+    const/4 v11, 0x0
+
+    goto :goto_74
 
     .line 91
-    :cond_31
-    new-instance v6, Ljava/io/FileInputStream;
+    :cond_47
+    :goto_47
+    new-instance v8, Ljava/io/FileInputStream;
 
-    invoke-direct {v6, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-    :try_end_36
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_36} :catch_d9
+    invoke-direct {v8, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_4c
+    .catch Ljava/lang/Exception; {:try_start_3e .. :try_end_4c} :catch_f1
 
-    :try_start_36
-    new-instance v8, Ljava/io/ByteArrayOutputStream;
+    :try_start_4c
+    new-instance v9, Ljava/io/ByteArrayOutputStream;
 
-    invoke-direct {v8}, Ljava/io/ByteArrayOutputStream;-><init>()V
-    :try_end_3b
-    .catchall {:try_start_36 .. :try_end_3b} :catchall_ce
+    invoke-direct {v9}, Ljava/io/ByteArrayOutputStream;-><init>()V
+    :try_end_51
+    .catchall {:try_start_4c .. :try_end_51} :catchall_e4
 
     const/16 v0, 0x2000
 
     .line 92
-    :try_start_3d
+    :try_start_53
     new-array v0, v0, [B
 
-    :goto_3f
-    invoke-virtual {v6, v0}, Ljava/io/InputStream;->read([B)I
+    :goto_55
+    invoke-virtual {v8, v0}, Ljava/io/InputStream;->read([B)I
 
-    move-result v9
+    move-result v10
 
-    const/4 v10, -0x1
+    const/4 v12, -0x1
 
-    if-eq v9, v10, :cond_4a
+    if-eq v10, v12, :cond_60
 
-    invoke-virtual {v8, v0, v7, v9}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    invoke-virtual {v9, v0, v3, v10}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    goto :goto_3f
+    goto :goto_55
 
     .line 93
-    :cond_4a
+    :cond_60
     const-string v0, "UTF-8"
 
-    invoke-virtual {v8, v0}, Ljava/io/ByteArrayOutputStream;->toString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v9, v0}, Ljava/io/ByteArrayOutputStream;->toString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppTrafficRanking;->topFive(Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v1
-    :try_end_54
-    .catchall {:try_start_3d .. :try_end_54} :catchall_c3
+    move-result-object v2
+    :try_end_6a
+    .catchall {:try_start_53 .. :try_end_6a} :catchall_d9
 
     .line 94
-    :try_start_54
-    invoke-virtual {v8}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_57
-    .catchall {:try_start_54 .. :try_end_57} :catchall_ce
+    :try_start_6a
+    invoke-virtual {v9}, Ljava/io/ByteArrayOutputStream;->close()V
+    :try_end_6d
+    .catchall {:try_start_6a .. :try_end_6d} :catchall_e4
 
-    :try_start_57
-    invoke-virtual {v6}, Ljava/io/InputStream;->close()V
+    :try_start_6d
+    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
 
     .line 95
-    iput-wide v2, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastModified:J
+    iput-wide v4, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastModified:J
 
-    iput-wide v4, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastLength:J
+    iput-wide v6, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->lastLength:J
+    :try_end_74
+    .catch Ljava/lang/Exception; {:try_start_6d .. :try_end_74} :catch_f1
 
     .line 97
-    :cond_5e
-    :goto_5e
-    iput-object v1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->cached:Ljava/util/List;
+    :goto_74
+    :try_start_74
+    iput-object v2, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->cached:Ljava/util/List;
 
     .line 98
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->displays:Ljava/util/Map;
@@ -1419,191 +1501,213 @@
 
     move-result v0
 
-    const/16 v2, 0x20
+    const/16 v4, 0x20
 
-    if-le v0, v2, :cond_6f
+    if-le v0, v4, :cond_85
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->displays:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
     .line 99
-    :cond_6f
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    :cond_85
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :cond_73
-    :goto_73
+    :cond_89
+    :goto_89
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    if-eqz v2, :cond_db
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;
-
-    iget-object v4, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->displays:Ljava/util/Map;
-
-    iget-object v5, v2, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
-
-    invoke-interface {v4, v5}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_73
+    const/4 v5, 0x0
 
-    .line 100
-    iget-object v4, v2, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
-    :try_end_8c
-    .catch Ljava/lang/Exception; {:try_start_57 .. :try_end_8c} :catch_d9
+    if-eqz v4, :cond_f4
 
-    .line 101
-    :try_start_8c
-    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v5
-
-    iget-object v6, v2, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v5, v6, v7}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v5
-
-    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v5}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
+    check-cast v4, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;
+
+    iget-object v6, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->displays:Ljava/util/Map;
+
+    iget-object v7, v4, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
+
+    invoke-interface {v6, v7}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_89
+
+    .line 100
+    iget-object v6, v4, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
+    :try_end_a2
+    .catch Ljava/lang/Exception; {:try_start_74 .. :try_end_a2} :catch_f2
+
+    .line 101
+    :try_start_a2
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v7
+
+    iget-object v8, v4, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v7, v8, v3}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v7
+
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v7}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {v6, v5}, Landroid/content/pm/PackageManager;->getApplicationIcon(Landroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
-    :try_end_aa
-    .catch Ljava/lang/Exception; {:try_start_8c .. :try_end_aa} :catch_aa
+    move-result-object v8
+
+    invoke-virtual {v8, v7}, Landroid/content/pm/PackageManager;->getApplicationIcon(Landroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v5
+    :try_end_c0
+    .catch Ljava/lang/Exception; {:try_start_a2 .. :try_end_c0} :catch_c0
 
     .line 102
-    :catch_aa
-    :try_start_aa
-    const-string v5, "unknown"
+    :catch_c0
+    :try_start_c0
+    const-string v7, "unknown"
 
-    iget-object v6, v2, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
+    iget-object v8, v4, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v7
 
-    if-eqz v5, :cond_b6
+    if-eqz v7, :cond_cc
 
-    const-string v4, "\u672a\u8bc6\u522b\u5e94\u7528"
+    const-string v6, "\u672a\u8bc6\u522b\u5e94\u7528"
 
     .line 103
-    :cond_b6
-    iget-object v5, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->displays:Ljava/util/Map;
+    :cond_cc
+    iget-object v7, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->displays:Ljava/util/Map;
 
-    iget-object v2, v2, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
+    iget-object v4, v4, Lio/nekohasekai/sagernet/ui/AppTrafficRanking$Entry;->packageName:Ljava/lang/String;
 
-    new-instance v6, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Display;
+    new-instance v8, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Display;
 
-    invoke-direct {v6, v4, v3}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Display;-><init>(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {v8, v6, v5}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Display;-><init>(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
 
-    invoke-interface {v5, v2, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_c2
-    .catch Ljava/lang/Exception; {:try_start_aa .. :try_end_c2} :catch_d9
+    invoke-interface {v7, v4, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_d8
+    .catch Ljava/lang/Exception; {:try_start_c0 .. :try_end_d8} :catch_f2
 
-    goto :goto_73
+    goto :goto_89
 
-    :catchall_c3
+    :catchall_d9
     move-exception v0
 
-    move-object p1, v0
+    move-object v4, v0
 
     .line 91
-    :try_start_c5
-    invoke-virtual {v8}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_c8
-    .catchall {:try_start_c5 .. :try_end_c8} :catchall_c9
+    :try_start_db
+    invoke-virtual {v9}, Ljava/io/ByteArrayOutputStream;->close()V
+    :try_end_de
+    .catchall {:try_start_db .. :try_end_de} :catchall_df
 
-    goto :goto_cd
+    goto :goto_e3
 
-    :catchall_c9
+    :catchall_df
     move-exception v0
 
-    :try_start_ca
-    invoke-virtual {p1, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    :try_start_e0
+    invoke-virtual {v4, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_cd
-    throw p1
-    :try_end_ce
-    .catchall {:try_start_ca .. :try_end_ce} :catchall_ce
+    :goto_e3
+    throw v4
+    :try_end_e4
+    .catchall {:try_start_e0 .. :try_end_e4} :catchall_e4
 
-    :catchall_ce
+    :catchall_e4
     move-exception v0
 
-    move-object p1, v0
+    move-object v4, v2
 
-    :try_start_d0
-    invoke-virtual {v6}, Ljava/io/InputStream;->close()V
-    :try_end_d3
-    .catchall {:try_start_d0 .. :try_end_d3} :catchall_d4
+    move-object v2, v0
 
-    goto :goto_d8
+    :try_start_e7
+    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
+    :try_end_ea
+    .catchall {:try_start_e7 .. :try_end_ea} :catchall_eb
 
-    :catchall_d4
+    goto :goto_ef
+
+    :catchall_eb
     move-exception v0
 
-    :try_start_d5
-    invoke-virtual {p1, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    :try_start_ec
+    invoke-virtual {v2, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_d8
-    throw p1
-    :try_end_d9
-    .catch Ljava/lang/Exception; {:try_start_d5 .. :try_end_d9} :catch_d9
+    :goto_ef
+    throw v2
+    :try_end_f0
+    .catch Ljava/lang/Exception; {:try_start_ec .. :try_end_f0} :catch_f0
+
+    :catch_f0
+    move-object v2, v4
+
+    :catch_f1
+    const/4 v11, 0x0
 
     .line 105
-    :catch_d9
-    const-string v3, "\u6682\u65f6\u65e0\u6cd5\u8bfb\u53d6\u6d41\u91cf\u7edf\u8ba1"
+    :catch_f2
+    const-string v5, "\u6682\u65f6\u65e0\u6cd5\u8bfb\u53d6\u6d41\u91cf\u7edf\u8ba1"
 
-    :cond_db
-    move-object v7, v1
+    :cond_f4
+    if-nez v11, :cond_102
 
-    move-object v9, v3
+    .line 106
+    iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->published:Z
 
-    .line 109
-    new-instance v8, Ljava/util/HashMap;
+    if-eqz v0, :cond_102
 
-    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->displays:Ljava/util/Map;
+    if-nez v5, :cond_102
 
-    invoke-direct {v8, p1}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->loading:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    invoke-virtual {v0, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+
+    return-void
 
     .line 110
-    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->main:Landroid/os/Handler;
+    :cond_102
+    new-instance v4, Ljava/util/HashMap;
 
-    new-instance v4, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$5;
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->displays:Ljava/util/Map;
 
-    move-object v5, p0
+    invoke-direct {v4, v0}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
 
-    move v6, p2
+    .line 111
+    iget-object v6, p0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;->main:Landroid/os/Handler;
 
-    invoke-direct/range {v4 .. v9}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$5;-><init>(Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;ILjava/util/List;Ljava/util/Map;Ljava/lang/String;)V
+    new-instance v0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$5;
 
-    invoke-virtual {p1, v4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    move-object v1, p0
+
+    move-object v3, v2
+
+    move v2, p2
+
+    invoke-direct/range {v0 .. v5}, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$5;-><init>(Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard;ILjava/util/List;Ljava/util/Map;Ljava/lang/String;)V
+
+    invoke-virtual {v6, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

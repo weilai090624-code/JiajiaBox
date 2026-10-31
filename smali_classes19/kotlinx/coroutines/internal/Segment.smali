@@ -84,7 +84,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/internal/Segment;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public constructor <init>(JLkotlinx/coroutines/internal/Segment;I)V
-    .locals 1
+    .registers 6
     .param p1, "id"    # J
     .param p3, "prev"    # Lkotlinx/coroutines/internal/Segment;
     .param p4, "pointers"    # I
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public final decPointers$kotlinx_coroutines_core()Z
-    .locals 2
+    .registers 3
 
     sget-object v0, Lkotlinx/coroutines/internal/Segment;->cleanedAndPointers$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -147,22 +147,22 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/Segment;->isTail()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
@@ -170,7 +170,7 @@
 .end method
 
 .method public isRemoved()Z
-    .locals 2
+    .registers 3
 
     sget-object v0, Lkotlinx/coroutines/internal/Segment;->cleanedAndPointers$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -183,22 +183,22 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/Segment;->isTail()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return v0
 .end method
 
@@ -206,7 +206,7 @@
 .end method
 
 .method public final onSlotCleaned()V
-    .locals 2
+    .registers 3
 
     .line 247
     sget-object v0, Lkotlinx/coroutines/internal/Segment;->cleanedAndPointers$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
@@ -219,17 +219,17 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/Segment;->remove()V
 
     .line 248
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public final tryIncPointers$kotlinx_coroutines_core()Z
-    .locals 9
+    .registers 10
 
     sget-object v0, Lkotlinx/coroutines/internal/Segment;->cleanedAndPointers$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -242,7 +242,7 @@
 
     .line 270
     .local v2, "$i$f$addConditionally$atomicfu":I
-    :cond_0
+    :cond_5
     invoke-virtual {v0, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v3
@@ -267,42 +267,42 @@
 
     const/4 v8, 0x1
 
-    if-ne v4, v6, :cond_2
+    if-ne v4, v6, :cond_1d
 
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/Segment;->isTail()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_1b
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_1
+    :cond_1b
     const/4 v4, 0x0
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_2
-    :goto_0
+    :cond_1d
+    :goto_1d
     const/4 v4, 0x1
 
     .line 272
     .end local v4    # "it":I
     .end local v5    # "$i$a$-addConditionally$atomicfu-Segment$tryIncPointers$1":I
-    :goto_1
-    if-nez v4, :cond_3
+    :goto_1e
+    if-nez v4, :cond_21
 
-    goto :goto_2
+    goto :goto_2a
 
     .line 273
-    :cond_3
+    :cond_21
     add-int v4, v3, v1
 
     invoke-virtual {v0, p0, v3, v4}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->compareAndSet(Ljava/lang/Object;II)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_5
 
     const/4 v7, 0x1
 
@@ -311,6 +311,6 @@
     .end local v1    # "delta$iv":I
     .end local v2    # "$i$f$addConditionally$atomicfu":I
     .end local v3    # "cur$iv":I
-    :goto_2
+    :goto_2a
     return v7
 .end method

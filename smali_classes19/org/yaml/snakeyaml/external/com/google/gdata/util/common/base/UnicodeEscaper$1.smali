@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;Ljava/lang/Appendable;)V
-    .locals 0
+    .registers 3
 
     .line 288
     iput-object p1, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->this$0:Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;
@@ -54,7 +54,7 @@
 .end method
 
 .method private outputChars([CI)V
-    .locals 3
+    .registers 6
     .param p1, "chars"    # [C
     .param p2, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -67,8 +67,8 @@
     const/4 v0, 0x0
 
     .local v0, "n":I
-    :goto_0
-    if-ge v0, p2, :cond_0
+    :goto_1
+    if-ge v0, p2, :cond_d
 
     .line 411
     iget-object v1, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->val$out:Ljava/lang/Appendable;
@@ -80,18 +80,18 @@
     .line 410
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 413
     .end local v0    # "n":I
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 
 # virtual methods
 .method public append(C)Ljava/lang/Appendable;
-    .locals 4
+    .registers 6
     .param p1, "c"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -106,14 +106,14 @@
 
     const/4 v2, -0x1
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_52
 
     .line 377
     invoke-static {p1}, Ljava/lang/Character;->isLowSurrogate(C)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 382
     iget-object v0, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->this$0:Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;
@@ -132,17 +132,17 @@
 
     .line 383
     .local v0, "escaped":[C
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 384
     array-length v1, v0
 
     invoke-direct {p0, v0, v1}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->outputChars([CI)V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 386
-    :cond_0
+    :cond_21
     iget-object v1, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->val$out:Ljava/lang/Appendable;
 
     iget v3, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->pendingHighSurrogate:I
@@ -157,15 +157,15 @@
     invoke-interface {v1, p1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .line 389
-    :goto_0
+    :goto_2e
     iput v2, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->pendingHighSurrogate:I
 
     .line 390
     .end local v0    # "escaped":[C
-    goto :goto_1
+    goto :goto_73
 
     .line 378
-    :cond_1
+    :cond_31
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -199,25 +199,25 @@
     throw v0
 
     .line 390
-    :cond_2
+    :cond_52
     invoke-static {p1}, Ljava/lang/Character;->isHighSurrogate(C)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5b
 
     .line 392
     iput p1, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->pendingHighSurrogate:I
 
-    goto :goto_1
+    goto :goto_73
 
     .line 394
-    :cond_3
+    :cond_5b
     invoke-static {p1}, Ljava/lang/Character;->isLowSurrogate(C)Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_74
 
     .line 399
     iget-object v0, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->this$0:Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;
@@ -228,28 +228,28 @@
 
     .line 400
     .restart local v0    # "escaped":[C
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6e
 
     .line 401
     array-length v1, v0
 
     invoke-direct {p0, v0, v1}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->outputChars([CI)V
 
-    goto :goto_1
+    goto :goto_73
 
     .line 403
-    :cond_4
+    :cond_6e
     iget-object v1, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->val$out:Ljava/lang/Appendable;
 
     invoke-interface {v1, p1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .line 406
     .end local v0    # "escaped":[C
-    :goto_1
+    :goto_73
     return-object p0
 
     .line 395
-    :cond_5
+    :cond_74
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -284,7 +284,7 @@
 .end method
 
 .method public append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
-    .locals 2
+    .registers 4
     .param p1, "csq"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -307,7 +307,7 @@
 .end method
 
 .method public append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
-    .locals 7
+    .registers 11
     .param p1, "csq"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -322,7 +322,7 @@
 
     .line 298
     .local v0, "index":I
-    if-ge v0, p3, :cond_8
+    if-ge v0, p3, :cond_8f
 
     .line 305
     move v1, v0
@@ -333,7 +333,7 @@
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_50
 
     .line 310
     add-int/lit8 v2, v0, 0x1
@@ -350,7 +350,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_37
 
     .line 315
     iget-object v4, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->this$0:Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;
@@ -369,7 +369,7 @@
 
     .line 317
     .local v4, "escaped":[C
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2b
 
     .line 321
     array-length v5, v4
@@ -379,10 +379,10 @@
     .line 322
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 328
-    :cond_0
+    :cond_2b
     iget-object v5, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->val$out:Ljava/lang/Appendable;
 
     iget v6, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->pendingHighSurrogate:I
@@ -392,16 +392,16 @@
     invoke-interface {v5, v6}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .line 330
-    :goto_0
+    :goto_33
     iput v3, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->pendingHighSurrogate:I
 
     move v0, v2
 
-    goto :goto_1
+    goto :goto_50
 
     .line 312
     .end local v4    # "escaped":[C
-    :cond_1
+    :cond_37
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -429,8 +429,8 @@
     .line 335
     .end local v2    # "index":I
     .local v0, "index":I
-    :cond_2
-    :goto_1
+    :cond_50
+    :goto_50
     iget-object v2, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->this$0:Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;
 
     invoke-virtual {v2, p1, v0, p3}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;->nextEscapeIndex(Ljava/lang/CharSequence;II)I
@@ -438,7 +438,7 @@
     move-result v0
 
     .line 336
-    if-le v0, v1, :cond_3
+    if-le v0, v1, :cond_5d
 
     .line 337
     iget-object v2, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->val$out:Ljava/lang/Appendable;
@@ -446,21 +446,21 @@
     invoke-interface {v2, p1, v1, v0}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
 
     .line 339
-    :cond_3
-    if-ne v0, p3, :cond_4
+    :cond_5d
+    if-ne v0, p3, :cond_60
 
     .line 340
-    goto :goto_4
+    goto :goto_8f
 
     .line 344
-    :cond_4
+    :cond_60
     invoke-static {p1, v0, p3}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;->codePointAt(Ljava/lang/CharSequence;II)I
 
     move-result v2
 
     .line 345
     .local v2, "cp":I
-    if-gez v2, :cond_5
+    if-gez v2, :cond_6a
 
     .line 349
     neg-int v3, v2
@@ -468,10 +468,10 @@
     iput v3, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->pendingHighSurrogate:I
 
     .line 350
-    goto :goto_4
+    goto :goto_8f
 
     .line 353
-    :cond_5
+    :cond_6a
     iget-object v3, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->this$0:Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;
 
     invoke-virtual {v3, v2}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper;->escape(I)[C
@@ -480,17 +480,17 @@
 
     .line 354
     .local v3, "escaped":[C
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_77
 
     .line 355
     array-length v4, v3
 
     invoke-direct {p0, v3, v4}, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->outputChars([CI)V
 
-    goto :goto_2
+    goto :goto_83
 
     .line 360
-    :cond_6
+    :cond_77
     iget-object v4, p0, Lorg/yaml/snakeyaml/external/com/google/gdata/util/common/base/UnicodeEscaper$1;->decodedChars:[C
 
     const/4 v5, 0x0
@@ -507,21 +507,21 @@
 
     .line 365
     .end local v4    # "len":I
-    :goto_2
+    :goto_83
     invoke-static {v2}, Ljava/lang/Character;->isSupplementaryCodePoint(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8b
 
     const/4 v4, 0x2
 
-    goto :goto_3
+    goto :goto_8c
 
-    :cond_7
+    :cond_8b
     const/4 v4, 0x1
 
-    :goto_3
+    :goto_8c
     add-int/2addr v0, v4
 
     .line 366
@@ -530,11 +530,11 @@
     .line 367
     .end local v2    # "cp":I
     .end local v3    # "escaped":[C
-    goto :goto_1
+    goto :goto_50
 
     .line 369
     .end local v1    # "unescapedChunkStart":I
-    :cond_8
-    :goto_4
+    :cond_8f
+    :goto_8f
     return-object p0
 .end method

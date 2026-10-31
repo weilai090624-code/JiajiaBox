@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/time/MonotonicTimeSource;
 
@@ -76,7 +76,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,7 +85,7 @@
 .end method
 
 .method private final read()J
-    .locals 4
+    .registers 5
 
     .line 13
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public final adjustReading-6QKq23U(JJ)J
-    .locals 2
+    .registers 7
     .param p1, "timeMark"    # J
     .param p3, "duration"    # J
 
@@ -121,7 +121,7 @@
 .end method
 
 .method public final differenceBetween-fRLX17w(JJ)J
-    .locals 2
+    .registers 7
     .param p1, "one"    # J
     .param p3, "another"    # J
 
@@ -136,7 +136,7 @@
 .end method
 
 .method public final elapsedFrom-6eNON_k(J)J
-    .locals 3
+    .registers 6
     .param p1, "timeMark"    # J
 
     .line 18
@@ -154,7 +154,7 @@
 .end method
 
 .method public bridge synthetic markNow()Lkotlin/time/ComparableTimeMark;
-    .locals 2
+    .registers 3
 
     .line 10
     invoke-virtual {p0}, Lkotlin/time/MonotonicTimeSource;->markNow-z9LOYto()J
@@ -169,7 +169,7 @@
 .end method
 
 .method public bridge synthetic markNow()Lkotlin/time/TimeMark;
-    .locals 2
+    .registers 3
 
     .line 10
     invoke-virtual {p0}, Lkotlin/time/MonotonicTimeSource;->markNow-z9LOYto()J
@@ -184,7 +184,7 @@
 .end method
 
 .method public markNow-z9LOYto()J
-    .locals 2
+    .registers 3
 
     .line 16
     invoke-direct {p0}, Lkotlin/time/MonotonicTimeSource;->read()J
@@ -199,7 +199,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 14
     const-string v0, "TimeSource(System.nanoTime())"

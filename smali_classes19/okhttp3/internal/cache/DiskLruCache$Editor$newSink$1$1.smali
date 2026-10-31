@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/cache/DiskLruCache;Lokhttp3/internal/cache/DiskLruCache$Editor;)V
-    .locals 1
+    .registers 4
 
     iput-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$Editor$newSink$1$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 896
@@ -86,7 +86,7 @@
 .end method
 
 .method public final invoke(Ljava/io/IOException;)V
-    .locals 3
+    .registers 5
     .param p1, "it"    # Ljava/io/IOException;
 
     const-string v0, "it"
@@ -104,7 +104,7 @@
 
     .line 898
     .local v2, "$i$a$-synchronized-DiskLruCache$Editor$newSink$1$1$1":I
-    :try_start_0
+    :try_start_b
     invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache$Editor;->detach$okhttp()V
 
     .line 899
@@ -112,8 +112,8 @@
 
     .end local v2    # "$i$a$-synchronized-DiskLruCache$Editor$newSink$1$1$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_b .. :try_end_11} :catchall_13
 
     .line 897
     monitor-exit v0
@@ -122,7 +122,7 @@
     return-void
 
     .line 897
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0

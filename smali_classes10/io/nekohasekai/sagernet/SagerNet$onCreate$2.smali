@@ -69,7 +69,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$bWhuSgT52afWvDXwKWoY_19Mlyk(Landroid/net/Network;)Lkotlin/Unit;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/SagerNet$onCreate$2;->invokeSuspend$lambda$0(Landroid/net/Network;)Lkotlin/Unit;
 
@@ -79,7 +79,7 @@
 .end method
 
 .method constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$0(Landroid/net/Network;)Lkotlin/Unit;
-    .locals 1
+    .registers 2
     .param p0, "it"    # Landroid/net/Network;
 
     .line 97
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -154,7 +154,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -183,7 +183,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -192,7 +192,7 @@
     .line 95
     iget v1, p0, Lio/nekohasekai/sagernet/SagerNet$onCreate$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_38
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -203,13 +203,13 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_30
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -238,14 +238,14 @@
     move-result-object v1
 
     .end local v1    # "$this$runOnDefaultDispatcher":Lkotlinx/coroutines/CoroutineScope;
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_30
 
     .line 95
     return-object v0
 
     .line 100
-    :cond_0
-    :goto_0
+    :cond_30
+    :goto_30
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->updateNotificationChannels()V
@@ -255,9 +255,9 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_38
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

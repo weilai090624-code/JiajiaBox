@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Z)V
-    .locals 0
+    .registers 4
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +57,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)V
-    .locals 0
+    .registers 4
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 437
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$DoubleWrappingSpliterator<TP_IN;>;"
@@ -96,7 +96,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfDouble$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfDouble;Ljava/util/function/Consumer;)V
 
@@ -104,18 +104,18 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/DoubleConsumer;)V
-    .locals 3
+    .registers 5
     .param p1, "consumer"    # Ljava/util/function/DoubleConsumer;
 
     .line 482
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$DoubleWrappingSpliterator<TP_IN;>;"
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;->buffer:Lj$/util/stream/AbstractSpinedBuffer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     iget-boolean v0, p0, Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;->finished:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 483
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -141,23 +141,23 @@
 
     iput-boolean v0, p0, Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;->finished:Z
 
-    goto :goto_0
+    goto :goto_27
 
     .line 490
-    :cond_0
+    :cond_21
     invoke-virtual {p0, p1}, Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;->tryAdvance(Ljava/util/function/DoubleConsumer;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 492
-    :goto_0
+    :goto_27
     return-void
 .end method
 
 .method initPartialTraversalState()V
-    .locals 3
+    .registers 4
 
     .line 460
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$DoubleWrappingSpliterator<TP_IN;>;"
@@ -196,7 +196,7 @@
 .end method
 
 .method synthetic lambda$initPartialTraversalState$0$java-util-stream-StreamSpliterators$DoubleWrappingSpliterator()Z
-    .locals 2
+    .registers 3
 
     .line 463
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$DoubleWrappingSpliterator<TP_IN;>;"
@@ -212,7 +212,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 437
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$DoubleWrappingSpliterator<TP_IN;>;"
@@ -226,7 +226,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfDouble$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfDouble;Ljava/util/function/Consumer;)Z
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/DoubleConsumer;)Z
-    .locals 4
+    .registers 6
     .param p1, "consumer"    # Ljava/util/function/DoubleConsumer;
 
     .line 473
@@ -250,7 +250,7 @@
 
     .line 475
     .local v0, "hasNext":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 476
     iget-object v1, p0, Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;->buffer:Lj$/util/stream/AbstractSpinedBuffer;
@@ -266,12 +266,12 @@
     invoke-interface {p1, v1, v2}, Ljava/util/function/DoubleConsumer;->accept(D)V
 
     .line 477
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method public trySplit()Lj$/util/Spliterator$OfDouble;
-    .locals 1
+    .registers 2
 
     .line 468
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$DoubleWrappingSpliterator<TP_IN;>;"
@@ -285,7 +285,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 437
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$DoubleWrappingSpliterator<TP_IN;>;"
@@ -297,7 +297,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 437
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DoubleWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$DoubleWrappingSpliterator<TP_IN;>;"
@@ -309,7 +309,7 @@
 .end method
 
 .method wrap(Lj$/util/Spliterator;)Lj$/util/stream/StreamSpliterators$AbstractWrappingSpliterator;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
 
     iput p1, p0, Lkotlin/text/Regex$special$$inlined$fromInt$1;->$value:I
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public final invoke(Ljava/lang/Enum;)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .param p1, "it"    # Ljava/lang/Enum;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,16 +104,16 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_16
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 23

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "inputStream"    # Ljava/io/InputStream;
 
     .line 249
@@ -71,7 +71,7 @@
 .end method
 
 .method private read(I)V
-    .locals 4
+    .registers 6
     .param p1, "numOfBytes"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -90,7 +90,7 @@
 
     move-result v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_12
 
     .line 299
     iget-wide v0, p0, Landroidx/emoji2/text/MetadataListReader$InputStreamOpenTypeReader;->mPosition:J
@@ -105,7 +105,7 @@
     return-void
 
     .line 297
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "read failed"
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public getPosition()J
-    .locals 2
+    .registers 3
 
     .line 291
     iget-wide v0, p0, Landroidx/emoji2/text/MetadataListReader$InputStreamOpenTypeReader;->mPosition:J
@@ -127,7 +127,7 @@
 .end method
 
 .method public readTag()I
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -157,7 +157,7 @@
 .end method
 
 .method public readUnsignedInt()J
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -191,7 +191,7 @@
 .end method
 
 .method public readUnsignedShort()I
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -225,7 +225,7 @@
 .end method
 
 .method public skip(I)V
-    .locals 6
+    .registers 8
     .param p1, "numOfBytes"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -236,8 +236,8 @@
     .line 279
     nop
 
-    :goto_0
-    if-lez p1, :cond_1
+    :goto_1
+    if-lez p1, :cond_1e
 
     .line 280
     iget-object v0, p0, Landroidx/emoji2/text/MetadataListReader$InputStreamOpenTypeReader;->mInputStream:Ljava/io/InputStream;
@@ -254,7 +254,7 @@
     .local v1, "skipped":I
     const/4 v0, 0x1
 
-    if-lt v1, v0, :cond_0
+    if-lt v1, v0, :cond_16
 
     .line 284
     sub-int/2addr p1, v1
@@ -270,11 +270,11 @@
 
     .line 286
     .end local v1    # "skipped":I
-    goto :goto_0
+    goto :goto_1
 
     .line 282
     .restart local v1    # "skipped":I
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/io/IOException;
 
     const-string v2, "Skip didn\'t move at least 1 byte forward"
@@ -285,6 +285,6 @@
 
     .line 287
     .end local v1    # "skipped":I
-    :cond_1
+    :cond_1e
     return-void
 .end method

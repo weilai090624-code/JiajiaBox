@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 627
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method static fromKilometersPerHour(D)Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
-    .locals 3
+    .registers 5
     .param p0, "kph"    # D
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -55,7 +55,7 @@
 .end method
 
 .method static fromKnots(D)Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
-    .locals 3
+    .registers 5
     .param p0, "knots"    # D
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -79,7 +79,7 @@
 .end method
 
 .method static fromMetersPerSecond(D)Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
-    .locals 3
+    .registers 5
     .param p0, "mps"    # D
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -103,7 +103,7 @@
 .end method
 
 .method static fromMilesPerHour(D)Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
-    .locals 1
+    .registers 3
     .param p0, "mph"    # D
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

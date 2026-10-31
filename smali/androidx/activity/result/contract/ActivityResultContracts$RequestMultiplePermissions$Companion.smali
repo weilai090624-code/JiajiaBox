@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 131
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContracts$RequestMultiplePermissions$Companion;-><init>()V
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final createIntent$activity_release([Ljava/lang/String;)Landroid/content/Intent;
-    .locals 2
+    .registers 4
     .param p1, "input"    # [Ljava/lang/String;
 
     const-string v0, "input"

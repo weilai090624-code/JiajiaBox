@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/text/MatcherMatchResult$groups$1;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lkotlin/text/MatcherMatchResult$groups$1$iterator$1;->this$0:Lkotlin/text/MatcherMatchResult$groups$1;
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 361
@@ -87,7 +87,7 @@
 .end method
 
 .method public final invoke(I)Lkotlin/text/MatchGroup;
-    .locals 1
+    .registers 3
     .param p1, "it"    # I
 
     .line 361

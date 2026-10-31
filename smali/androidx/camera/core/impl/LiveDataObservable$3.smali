@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/LiveDataObservable;Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/impl/LiveDataObservable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 141
     .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$3;, "Landroidx/camera/core/impl/LiveDataObservable$3;"

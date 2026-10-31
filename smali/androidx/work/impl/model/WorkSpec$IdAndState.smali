@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroidx/work/WorkInfo$State;)V
-    .locals 1
+    .registers 4
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "state"    # Landroidx/work/WorkInfo$State;
 
@@ -80,22 +80,22 @@
 .end method
 
 .method public static synthetic copy$default(Landroidx/work/impl/model/WorkSpec$IdAndState;Ljava/lang/String;Landroidx/work/WorkInfo$State;ILjava/lang/Object;)Landroidx/work/impl/model/WorkSpec$IdAndState;
-    .locals 0
+    .registers 5
 
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     iget-object p1, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_c
 
     iget-object p2, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2}, Landroidx/work/impl/model/WorkSpec$IdAndState;->copy(Ljava/lang/String;Landroidx/work/WorkInfo$State;)Landroidx/work/impl/model/WorkSpec$IdAndState;
 
     move-result-object p0
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public final component2()Landroidx/work/WorkInfo$State;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public final copy(Ljava/lang/String;Landroidx/work/WorkInfo$State;)Landroidx/work/impl/model/WorkSpec$IdAndState;
-    .locals 1
+    .registers 4
 
     const-string v0, "id"
 
@@ -140,24 +140,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/work/impl/model/WorkSpec$IdAndState;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Landroidx/work/impl/model/WorkSpec$IdAndState;
@@ -170,25 +170,25 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
 
     iget-object v1, v1, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
 
-    if-eq v3, v1, :cond_3
+    if-eq v3, v1, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
 
@@ -210,7 +210,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

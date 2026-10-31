@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -32,7 +32,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,7 +42,7 @@
 .end method
 
 .method constructor <init>(ILcom/esotericsoftware/asm/Item;)V
-    .locals 2
+    .registers 5
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method a(D)V
-    .locals 2
+    .registers 5
 
     const/4 v0, 0x6
 
@@ -110,7 +110,7 @@
 .end method
 
 .method a(F)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x4
 
@@ -138,7 +138,7 @@
 .end method
 
 .method a(I)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x3
 
@@ -160,7 +160,7 @@
 .end method
 
 .method a(II)V
-    .locals 1
+    .registers 4
 
     const/16 v0, 0x21
 
@@ -174,7 +174,7 @@
 .end method
 
 .method a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 6
 
     iput p1, p0, Lcom/esotericsoftware/asm/Item;->b:I
 
@@ -186,7 +186,7 @@
 
     const v0, 0x7fffffff
 
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_34
 
     invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
 
@@ -202,10 +202,10 @@
 
     move-result p3
 
-    :goto_0
+    :goto_1c
     mul-int p2, p2, p3
 
-    :goto_1
+    :goto_1e
     add-int/2addr p1, p2
 
     and-int/2addr p1, v0
@@ -214,7 +214,7 @@
 
     return-void
 
-    :sswitch_0
+    :sswitch_23
     invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
 
     move-result p2
@@ -223,33 +223,33 @@
 
     move-result p3
 
-    goto :goto_0
+    goto :goto_1c
 
-    :sswitch_1
+    :sswitch_2c
     const/4 p3, 0x0
 
     iput p3, p0, Lcom/esotericsoftware/asm/Item;->c:I
 
-    :sswitch_2
+    :sswitch_2f
     invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
 
     move-result p2
 
-    goto :goto_1
+    goto :goto_1e
 
-    :sswitch_data_0
+    :sswitch_data_34
     .sparse-switch
-        0x1 -> :sswitch_2
-        0x7 -> :sswitch_1
-        0x8 -> :sswitch_2
-        0xc -> :sswitch_0
-        0x10 -> :sswitch_2
-        0x1e -> :sswitch_2
+        0x1 -> :sswitch_2f
+        0x7 -> :sswitch_2c
+        0x8 -> :sswitch_2f
+        0xc -> :sswitch_23
+        0x10 -> :sswitch_2f
+        0x1e -> :sswitch_2f
     .end sparse-switch
 .end method
 
 .method a(J)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x5
 
@@ -273,7 +273,7 @@
 .end method
 
 .method a(Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 3
+    .registers 7
 
     const/16 v0, 0x12
 
@@ -315,7 +315,7 @@
 .end method
 
 .method a(Lcom/esotericsoftware/asm/Item;)Z
-    .locals 7
+    .registers 9
 
     iget v0, p0, Lcom/esotericsoftware/asm/Item;->b:I
 
@@ -323,7 +323,7 @@
 
     const/4 v2, 0x0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_8e
 
     iget-object v0, p1, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
 
@@ -333,7 +333,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8c
 
     iget-object v0, p1, Lcom/esotericsoftware/asm/Item;->h:Ljava/lang/String;
 
@@ -343,7 +343,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8c
 
     iget-object p1, p1, Lcom/esotericsoftware/asm/Item;->i:Ljava/lang/String;
 
@@ -353,16 +353,16 @@
 
     move-result p1
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_8c
 
-    goto :goto_5
+    goto :goto_8d
 
-    :sswitch_0
+    :sswitch_26
     iget v0, p1, Lcom/esotericsoftware/asm/Item;->c:I
 
     iget v3, p0, Lcom/esotericsoftware/asm/Item;->c:I
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_37
 
     iget-object p1, p1, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
 
@@ -372,24 +372,24 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_37
 
-    goto :goto_0
+    goto :goto_38
 
-    :cond_0
+    :cond_37
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_38
     return v1
 
-    :sswitch_1
+    :sswitch_39
     iget-wide v3, p1, Lcom/esotericsoftware/asm/Item;->d:J
 
     iget-wide v5, p0, Lcom/esotericsoftware/asm/Item;->d:J
 
     cmp-long v0, v3, v5
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_56
 
     iget-object v0, p1, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
 
@@ -399,7 +399,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_56
 
     iget-object p1, p1, Lcom/esotericsoftware/asm/Item;->h:Ljava/lang/String;
 
@@ -409,17 +409,17 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_56
 
-    goto :goto_1
+    goto :goto_57
 
-    :cond_1
+    :cond_56
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_57
     return v1
 
-    :sswitch_2
+    :sswitch_58
     iget-object v0, p1, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
 
     iget-object v3, p0, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
@@ -428,7 +428,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_6d
 
     iget-object p1, p1, Lcom/esotericsoftware/asm/Item;->h:Ljava/lang/String;
 
@@ -438,49 +438,49 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_6d
 
-    goto :goto_2
+    goto :goto_6e
 
-    :cond_2
+    :cond_6d
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_6e
     return v1
 
-    :sswitch_3
+    :sswitch_6f
     iget-wide v3, p1, Lcom/esotericsoftware/asm/Item;->d:J
 
     iget-wide v5, p0, Lcom/esotericsoftware/asm/Item;->d:J
 
     cmp-long p1, v3, v5
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_78
 
-    goto :goto_3
+    goto :goto_79
 
-    :cond_3
+    :cond_78
     const/4 v1, 0x0
 
-    :goto_3
+    :goto_79
     return v1
 
-    :sswitch_4
+    :sswitch_7a
     iget p1, p1, Lcom/esotericsoftware/asm/Item;->c:I
 
     iget v0, p0, Lcom/esotericsoftware/asm/Item;->c:I
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_81
 
-    goto :goto_4
+    goto :goto_82
 
-    :cond_4
+    :cond_81
     const/4 v1, 0x0
 
-    :goto_4
+    :goto_82
     return v1
 
-    :sswitch_5
+    :sswitch_83
     iget-object p1, p1, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
@@ -491,26 +491,26 @@
 
     return p1
 
-    :cond_5
+    :cond_8c
     const/4 v1, 0x0
 
-    :goto_5
+    :goto_8d
     return v1
 
-    :sswitch_data_0
+    :sswitch_data_8e
     .sparse-switch
-        0x1 -> :sswitch_5
-        0x3 -> :sswitch_4
-        0x4 -> :sswitch_4
-        0x5 -> :sswitch_3
-        0x6 -> :sswitch_3
-        0x7 -> :sswitch_5
-        0x8 -> :sswitch_5
-        0xc -> :sswitch_2
-        0x10 -> :sswitch_5
-        0x12 -> :sswitch_1
-        0x1e -> :sswitch_5
-        0x1f -> :sswitch_0
-        0x20 -> :sswitch_3
+        0x1 -> :sswitch_83
+        0x3 -> :sswitch_7a
+        0x4 -> :sswitch_7a
+        0x5 -> :sswitch_6f
+        0x6 -> :sswitch_6f
+        0x7 -> :sswitch_83
+        0x8 -> :sswitch_83
+        0xc -> :sswitch_58
+        0x10 -> :sswitch_83
+        0x12 -> :sswitch_39
+        0x1e -> :sswitch_83
+        0x1f -> :sswitch_26
+        0x20 -> :sswitch_6f
     .end sparse-switch
 .end method

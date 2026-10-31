@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     .local p0, "this":Lcom/esotericsoftware/kryo/Serializer;, "Lcom/esotericsoftware/kryo/Serializer<TT;>;"
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "acceptsNull"    # Z
 
     .line 34
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(ZZ)V
-    .locals 0
+    .registers 3
     .param p1, "acceptsNull"    # Z
     .param p2, "immutable"    # Z
 
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -86,12 +86,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-object p2
 
     .line 96
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -126,7 +126,7 @@
 .end method
 
 .method public getAcceptsNull()Z
-    .locals 1
+    .registers 2
 
     .line 64
     .local p0, "this":Lcom/esotericsoftware/kryo/Serializer;, "Lcom/esotericsoftware/kryo/Serializer<TT;>;"
@@ -136,7 +136,7 @@
 .end method
 
 .method public isImmutable()Z
-    .locals 1
+    .registers 2
 
     .line 77
     .local p0, "this":Lcom/esotericsoftware/kryo/Serializer;, "Lcom/esotericsoftware/kryo/Serializer<TT;>;"
@@ -158,7 +158,7 @@
 .end method
 
 .method public setAcceptsNull(Z)V
-    .locals 0
+    .registers 2
     .param p1, "acceptsNull"    # Z
 
     .line 73
@@ -170,7 +170,7 @@
 .end method
 
 .method public setImmutable(Z)V
-    .locals 0
+    .registers 2
     .param p1, "immutable"    # Z
 
     .line 83

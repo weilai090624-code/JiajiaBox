@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Predicate;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Character;)Z
-    .locals 2
+    .registers 4
     .param p1, "character"    # Ljava/lang/Character;
 
     .line 1810
@@ -78,7 +78,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 1794
     check-cast p1, Ljava/lang/Character;
@@ -91,7 +91,7 @@
 .end method
 
 .method public matches(C)Z
-    .locals 2
+    .registers 4
     .param p1, "c"    # C
 
     .line 1804
@@ -109,7 +109,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 1815
     iget-object v0, p0, Lcom/google/common/base/CharMatcher$ForPredicate;->predicate:Lcom/google/common/base/Predicate;

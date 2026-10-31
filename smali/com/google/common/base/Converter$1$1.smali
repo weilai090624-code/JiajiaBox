@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Converter$1;)V
-    .locals 1
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/base/Converter$1;
 
     .line 278
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 283
     .local p0, "this":Lcom/google/common/base/Converter$1$1;, "Lcom/google/common/base/Converter$1$1;"
@@ -80,7 +80,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TB;"
@@ -110,7 +110,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 295
     .local p0, "this":Lcom/google/common/base/Converter$1$1;, "Lcom/google/common/base/Converter$1$1;"

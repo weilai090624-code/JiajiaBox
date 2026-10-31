@@ -46,7 +46,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 36
     nop
@@ -69,7 +69,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlinx/coroutines/CoroutineDispatcher$Key;-><init>()V
 

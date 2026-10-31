@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroidx/core/util/Consumer;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
 
     .line 0
     iget-object v0, p0, Landroidx/core/location/LocationManagerCompat$Api30Impl$$ExternalSyntheticLambda0;->f$0:Landroidx/core/util/Consumer;
@@ -38,7 +38,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;

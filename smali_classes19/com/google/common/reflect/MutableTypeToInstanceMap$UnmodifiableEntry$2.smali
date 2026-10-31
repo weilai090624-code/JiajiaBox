@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 151
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 151
     check-cast p1, Ljava/util/Map$Entry;
@@ -54,7 +54,7 @@
 .end method
 
 .method public apply(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

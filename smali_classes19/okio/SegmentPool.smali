@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     new-instance v0, Lokio/SegmentPool;
 
@@ -123,8 +123,8 @@
 
     new-array v1, v0, [Ljava/util/concurrent/atomic/AtomicReference;
 
-    :goto_0
-    if-ge v7, v0, :cond_0
+    :goto_30
+    if-ge v7, v0, :cond_3c
 
     .line 66
     new-instance v2, Ljava/util/concurrent/atomic/AtomicReference;
@@ -136,16 +136,16 @@
     .line 65
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_3c
     sput-object v1, Lokio/SegmentPool;->hashBuckets:[Ljava/util/concurrent/atomic/AtomicReference;
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -154,7 +154,7 @@
 .end method
 
 .method private final firstRef()Ljava/util/concurrent/atomic/AtomicReference;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -195,7 +195,7 @@
 .end method
 
 .method public static final recycle(Lokio/Segment;)V
-    .locals 5
+    .registers 6
     .param p0, "segment"    # Lokio/Segment;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -209,31 +209,31 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     iget-object v0, p0, Lokio/Segment;->prev:Lokio/Segment;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_6
+    :goto_11
+    if-eqz v0, :cond_46
 
     .line 103
     iget-boolean v0, p0, Lokio/Segment;->shared:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     return-void
 
     .line 105
-    :cond_1
+    :cond_18
     sget-object v0, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
 
     invoke-direct {v0}, Lokio/SegmentPool;->firstRef()Ljava/util/concurrent/atomic/AtomicReference;
@@ -252,32 +252,32 @@
     .local v2, "first":Lokio/Segment;
     sget-object v3, Lokio/SegmentPool;->LOCK:Lokio/Segment;
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_29
 
     return-void
 
     .line 109
-    :cond_2
-    if-nez v2, :cond_3
+    :cond_29
+    if-nez v2, :cond_2d
 
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_2f
 
-    :cond_3
+    :cond_2d
     iget v3, v2, Lokio/Segment;->limit:I
 
     .line 110
     .local v3, "firstLimit":I
-    :goto_1
+    :goto_2f
     sget v4, Lokio/SegmentPool;->MAX_SIZE:I
 
-    if-lt v3, v4, :cond_4
+    if-lt v3, v4, :cond_34
 
     return-void
 
     .line 112
-    :cond_4
+    :cond_34
     iput-object v2, p0, Lokio/Segment;->next:Lokio/Segment;
 
     .line 113
@@ -293,7 +293,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_45
 
     .line 118
     const/4 v1, 0x0
@@ -301,14 +301,14 @@
     iput-object v1, p0, Lokio/Segment;->next:Lokio/Segment;
 
     .line 120
-    :cond_5
+    :cond_45
     return-void
 
     .line 102
     .end local v0    # "firstRef":Ljava/util/concurrent/atomic/AtomicReference;
     .end local v2    # "first":Lokio/Segment;
     .end local v3    # "firstLimit":I
-    :cond_6
+    :cond_46
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."
@@ -325,7 +325,7 @@
 .end method
 
 .method public static final take()Lokio/Segment;
-    .locals 4
+    .registers 4
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -353,7 +353,7 @@
     .line 81
     sget-object v2, Lokio/SegmentPool;->LOCK:Lokio/Segment;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_19
 
     .line 83
     new-instance v2, Lokio/Segment;
@@ -363,10 +363,10 @@
     return-object v2
 
     .line 85
-    :cond_0
+    :cond_19
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_25
 
     .line 87
     invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
@@ -379,7 +379,7 @@
     return-object v2
 
     .line 92
-    :cond_1
+    :cond_25
     iget-object v3, v1, Lokio/Segment;->next:Lokio/Segment;
 
     invoke-virtual {v0, v3}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
@@ -399,7 +399,7 @@
 
 # virtual methods
 .method public final getByteCount()I
-    .locals 2
+    .registers 3
 
     .line 71
     invoke-direct {p0}, Lokio/SegmentPool;->firstRef()Ljava/util/concurrent/atomic/AtomicReference;
@@ -412,7 +412,7 @@
 
     check-cast v0, Lokio/Segment;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x0
 
@@ -420,14 +420,14 @@
 
     .line 72
     .local v0, "first":Lokio/Segment;
-    :cond_0
+    :cond_e
     iget v1, v0, Lokio/Segment;->limit:I
 
     return v1
 .end method
 
 .method public final getMAX_SIZE()I
-    .locals 1
+    .registers 2
 
     .line 45
     sget v0, Lokio/SegmentPool;->MAX_SIZE:I

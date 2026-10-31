@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/temporal/TemporalAccessor;Lj$/time/format/DateTimeFormatter;)V
-    .locals 1
+    .registers 4
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
     .param p2, "formatter"    # Lj$/time/format/DateTimeFormatter;
 
@@ -35,7 +35,7 @@
 .end method
 
 .method private static adjust(Lj$/time/temporal/TemporalAccessor;Lj$/time/format/DateTimeFormatter;)Lj$/time/temporal/TemporalAccessor;
-    .locals 11
+    .registers 13
     .param p0, "temporal"    # Lj$/time/temporal/TemporalAccessor;
     .param p1, "formatter"    # Lj$/time/format/DateTimeFormatter;
 
@@ -52,15 +52,15 @@
 
     .line 127
     .local v1, "overrideZone":Lj$/time/ZoneId;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     .line 128
     return-object p0
 
     .line 132
-    :cond_0
+    :cond_d
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->chronology()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v2
@@ -89,46 +89,46 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_28
 
     .line 135
     const/4 v0, 0x0
 
     .line 137
-    :cond_1
+    :cond_28
     invoke-static {v1, v3}, Lj$/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2f
 
     .line 138
     const/4 v1, 0x0
 
     .line 140
-    :cond_2
-    if-nez v0, :cond_3
+    :cond_2f
+    if-nez v0, :cond_34
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_34
 
     .line 141
     return-object p0
 
     .line 145
-    :cond_3
-    if-eqz v0, :cond_4
+    :cond_34
+    if-eqz v0, :cond_38
 
     move-object v4, v0
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_4
+    :cond_38
     move-object v4, v2
 
     .line 146
     .local v4, "effectiveChrono":Lj$/time/chrono/Chronology;
-    :goto_0
-    if-eqz v1, :cond_7
+    :goto_39
+    if-eqz v1, :cond_9e
 
     .line 148
     sget-object v5, Lj$/time/temporal/ChronoField;->INSTANT_SECONDS:Lj$/time/temporal/ChronoField;
@@ -137,7 +137,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_54
 
     .line 149
     sget-object v5, Lj$/time/chrono/IsoChronology;->INSTANCE:Lj$/time/chrono/IsoChronology;
@@ -162,14 +162,14 @@
 
     .line 153
     .end local v5    # "chrono":Lj$/time/chrono/Chronology;
-    :cond_5
+    :cond_54
     invoke-virtual {v1}, Lj$/time/ZoneId;->normalized()Lj$/time/ZoneId;
 
     move-result-object v5
 
     instance-of v5, v5, Lj$/time/ZoneOffset;
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_9e
 
     sget-object v5, Lj$/time/temporal/ChronoField;->OFFSET_SECONDS:Lj$/time/temporal/ChronoField;
 
@@ -177,7 +177,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_9e
 
     sget-object v5, Lj$/time/temporal/ChronoField;->OFFSET_SECONDS:Lj$/time/temporal/ChronoField;
 
@@ -200,12 +200,12 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_6
+    if-ne v5, v6, :cond_7b
 
-    goto :goto_1
+    goto :goto_9e
 
     .line 155
-    :cond_6
+    :cond_7b
     new-instance v5, Lj$/time/DateTimeException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -241,21 +241,21 @@
     throw v5
 
     .line 160
-    :cond_7
-    :goto_1
-    if-eqz v1, :cond_8
+    :cond_9e
+    :goto_9e
+    if-eqz v1, :cond_a2
 
     move-object v5, v1
 
-    goto :goto_2
+    goto :goto_a3
 
-    :cond_8
+    :cond_a2
     move-object v5, v3
 
     .line 162
     .local v5, "effectiveZone":Lj$/time/ZoneId;
-    :goto_2
-    if-eqz v0, :cond_e
+    :goto_a3
+    if-eqz v0, :cond_f7
 
     .line 163
     sget-object v6, Lj$/time/temporal/ChronoField;->EPOCH_DAY:Lj$/time/temporal/ChronoField;
@@ -264,7 +264,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_b2
 
     .line 164
     invoke-interface {v4, p0}, Lj$/time/chrono/Chronology;->date(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ChronoLocalDate;
@@ -272,19 +272,19 @@
     move-result-object v6
 
     .local v6, "effectiveDate":Lj$/time/chrono/ChronoLocalDate;
-    goto :goto_5
+    goto :goto_f8
 
     .line 167
     .end local v6    # "effectiveDate":Lj$/time/chrono/ChronoLocalDate;
-    :cond_9
+    :cond_b2
     sget-object v6, Lj$/time/chrono/IsoChronology;->INSTANCE:Lj$/time/chrono/IsoChronology;
 
-    if-ne v0, v6, :cond_a
+    if-ne v0, v6, :cond_b8
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_f5
 
     .line 168
-    :cond_a
+    :cond_b8
     invoke-static {}, Lj$/time/temporal/ChronoField;->values()[Lj$/time/temporal/ChronoField;
 
     move-result-object v6
@@ -293,8 +293,8 @@
 
     const/4 v8, 0x0
 
-    :goto_3
-    if-ge v8, v7, :cond_d
+    :goto_be
+    if-ge v8, v7, :cond_f5
 
     aget-object v9, v6, v8
 
@@ -304,18 +304,18 @@
 
     move-result v10
 
-    if-eqz v10, :cond_c
+    if-eqz v10, :cond_f2
 
     invoke-interface {p0, v9}, Lj$/time/temporal/TemporalAccessor;->isSupported(Lj$/time/temporal/TemporalField;)Z
 
     move-result v10
 
-    if-nez v10, :cond_b
+    if-nez v10, :cond_cf
 
-    goto :goto_4
+    goto :goto_f2
 
     .line 170
-    :cond_b
+    :cond_cf
     new-instance v6, Lj$/time/DateTimeException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -352,27 +352,27 @@
 
     .line 168
     .end local v9    # "f":Lj$/time/temporal/ChronoField;
-    :cond_c
-    :goto_4
+    :cond_f2
+    :goto_f2
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_3
+    goto :goto_be
 
     .line 176
-    :cond_d
+    :cond_f5
     const/4 v6, 0x0
 
     .restart local v6    # "effectiveDate":Lj$/time/chrono/ChronoLocalDate;
-    goto :goto_5
+    goto :goto_f8
 
     .line 179
     .end local v6    # "effectiveDate":Lj$/time/chrono/ChronoLocalDate;
-    :cond_e
+    :cond_f7
     const/4 v6, 0x0
 
     .line 185
     .restart local v6    # "effectiveDate":Lj$/time/chrono/ChronoLocalDate;
-    :goto_5
+    :goto_f8
     new-instance v7, Lj$/time/format/DateTimePrintContext$1;
 
     invoke-direct {v7, v6, p0, v4, v5}, Lj$/time/format/DateTimePrintContext$1;-><init>(Lj$/time/chrono/ChronoLocalDate;Lj$/time/temporal/TemporalAccessor;Lj$/time/chrono/Chronology;Lj$/time/ZoneId;)V
@@ -383,7 +383,7 @@
 
 # virtual methods
 .method endOptional()V
-    .locals 1
+    .registers 2
 
     .line 276
     iget v0, p0, Lj$/time/format/DateTimePrintContext;->optional:I
@@ -397,7 +397,7 @@
 .end method
 
 .method getDecimalStyle()Lj$/time/format/DecimalStyle;
-    .locals 1
+    .registers 2
 
     .line 261
     iget-object v0, p0, Lj$/time/format/DateTimePrintContext;->formatter:Lj$/time/format/DateTimeFormatter;
@@ -410,7 +410,7 @@
 .end method
 
 .method getLocale()Ljava/util/Locale;
-    .locals 1
+    .registers 2
 
     .line 250
     iget-object v0, p0, Lj$/time/format/DateTimePrintContext;->formatter:Lj$/time/format/DateTimeFormatter;
@@ -423,7 +423,7 @@
 .end method
 
 .method getTemporal()Lj$/time/temporal/TemporalAccessor;
-    .locals 1
+    .registers 2
 
     .line 238
     iget-object v0, p0, Lj$/time/format/DateTimePrintContext;->temporal:Lj$/time/temporal/TemporalAccessor;
@@ -432,13 +432,13 @@
 .end method
 
 .method getValue(Lj$/time/temporal/TemporalField;)Ljava/lang/Long;
-    .locals 2
+    .registers 4
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 305
     iget v0, p0, Lj$/time/format/DateTimePrintContext;->optional:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_e
 
     iget-object v0, p0, Lj$/time/format/DateTimePrintContext;->temporal:Lj$/time/temporal/TemporalAccessor;
 
@@ -446,7 +446,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 306
     const/4 v0, 0x0
@@ -454,7 +454,7 @@
     return-object v0
 
     .line 308
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lj$/time/format/DateTimePrintContext;->temporal:Lj$/time/temporal/TemporalAccessor;
 
     invoke-interface {v0, p1}, Lj$/time/temporal/TemporalAccessor;->getLong(Lj$/time/temporal/TemporalField;)J
@@ -469,7 +469,7 @@
 .end method
 
 .method getValue(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -490,16 +490,16 @@
 
     .line 288
     .local v0, "result":Ljava/lang/Object;, "TR;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     iget v1, p0, Lj$/time/format/DateTimePrintContext;->optional:I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
-    goto :goto_0
+    goto :goto_32
 
     .line 289
-    :cond_0
+    :cond_d
     new-instance v1, Lj$/time/DateTimeException;
 
     iget-object v2, p0, Lj$/time/format/DateTimePrintContext;->temporal:Lj$/time/temporal/TemporalAccessor;
@@ -537,13 +537,13 @@
     throw v1
 
     .line 292
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     return-object v0
 .end method
 
 .method startOptional()V
-    .locals 1
+    .registers 2
 
     .line 269
     iget v0, p0, Lj$/time/format/DateTimePrintContext;->optional:I
@@ -557,7 +557,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 319
     iget-object v0, p0, Lj$/time/format/DateTimePrintContext;->temporal:Lj$/time/temporal/TemporalAccessor;

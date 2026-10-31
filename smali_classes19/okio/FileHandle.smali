@@ -87,7 +87,7 @@
 
 # direct methods
 .method public constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "readWrite"    # Z
 
     .line 35
@@ -101,7 +101,7 @@
 .end method
 
 .method public static final synthetic access$getClosed$p(Lokio/FileHandle;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokio/FileHandle;
 
     .line 35
@@ -111,7 +111,7 @@
 .end method
 
 .method public static final synthetic access$getOpenStreamCount$p(Lokio/FileHandle;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokio/FileHandle;
 
     .line 35
@@ -121,7 +121,7 @@
 .end method
 
 .method public static final synthetic access$readNoCloseCheck(Lokio/FileHandle;JLokio/Buffer;J)J
-    .locals 2
+    .registers 8
     .param p0, "$this"    # Lokio/FileHandle;
     .param p1, "fileOffset"    # J
     .param p3, "sink"    # Lokio/Buffer;
@@ -136,7 +136,7 @@
 .end method
 
 .method public static final synthetic access$setOpenStreamCount$p(Lokio/FileHandle;I)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokio/FileHandle;
     .param p1, "<set-?>"    # I
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public static final synthetic access$writeNoCloseCheck(Lokio/FileHandle;JLokio/Buffer;J)V
-    .locals 0
+    .registers 6
     .param p0, "$this"    # Lokio/FileHandle;
     .param p1, "fileOffset"    # J
     .param p3, "source"    # Lokio/Buffer;
@@ -160,7 +160,7 @@
 .end method
 
 .method private final readNoCloseCheck(JLokio/Buffer;J)J
-    .locals 15
+    .registers 21
     .param p1, "fileOffset"    # J
     .param p3, "sink"    # Lokio/Buffer;
     .param p4, "byteCount"    # J
@@ -174,17 +174,17 @@
 
     cmp-long v4, p4, v1
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_5
+    :goto_c
+    if-eqz v1, :cond_61
 
     .line 334
     move-wide/from16 v1, p1
@@ -195,10 +195,10 @@
 
     .line 337
     .local v4, "targetOffset":J
-    :goto_1
+    :goto_12
     cmp-long v6, v1, v4
 
-    if-gez v6, :cond_4
+    if-gez v6, :cond_5e
 
     .line 338
     invoke-virtual {v0, v3}, Lokio/Buffer;->writableSegment$okio(I)Lokio/Segment;
@@ -256,14 +256,14 @@
     .local v6, "readByteCount":I
     const/4 v7, -0x1
 
-    if-ne v6, v7, :cond_3
+    if-ne v6, v7, :cond_4d
 
     .line 347
     iget v3, v12, Lokio/Segment;->pos:I
 
     iget v7, v12, Lokio/Segment;->limit:I
 
-    if-ne v3, v7, :cond_1
+    if-ne v3, v7, :cond_45
 
     .line 349
     invoke-virtual {v12}, Lokio/Segment;->pop()Lokio/Segment;
@@ -276,21 +276,21 @@
     invoke-static {v12}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     .line 352
-    :cond_1
+    :cond_45
     cmp-long v3, p1, v1
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_4c
 
     const-wide/16 v7, -0x1
 
     return-wide v7
 
     .line 353
-    :cond_2
-    goto :goto_2
+    :cond_4c
+    goto :goto_5e
 
     .line 356
-    :cond_3
+    :cond_4d
     iget v7, v12, Lokio/Segment;->limit:I
 
     add-int/2addr v7, v6
@@ -315,11 +315,11 @@
 
     .end local v6    # "readByteCount":I
     .end local v12    # "tail":Lokio/Segment;
-    goto :goto_1
+    goto :goto_12
 
     .line 361
-    :cond_4
-    :goto_2
+    :cond_5e
+    :goto_5e
     sub-long v6, v1, p1
 
     return-wide v6
@@ -327,7 +327,7 @@
     .line 444
     .end local v1    # "currentOffset":J
     .end local v4    # "targetOffset":J
-    :cond_5
+    :cond_61
     const/4 v1, 0x0
 
     .line 332
@@ -357,7 +357,7 @@
 .end method
 
 .method public static synthetic sink$default(Lokio/FileHandle;JILjava/lang/Object;)Lokio/Sink;
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -365,22 +365,22 @@
     .end annotation
 
     .line 217
-    if-nez p4, :cond_1
+    if-nez p4, :cond_d
 
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_8
 
     const-wide/16 p1, 0x0
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1, p2}, Lokio/FileHandle;->sink(J)Lokio/Sink;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
+    :cond_d
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: sink"
@@ -391,7 +391,7 @@
 .end method
 
 .method public static synthetic source$default(Lokio/FileHandle;JILjava/lang/Object;)Lokio/Source;
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -399,22 +399,22 @@
     .end annotation
 
     .line 148
-    if-nez p4, :cond_1
+    if-nez p4, :cond_d
 
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_8
 
     const-wide/16 p1, 0x0
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1, p2}, Lokio/FileHandle;->source(J)Lokio/Source;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
+    :cond_d
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: source"
@@ -425,7 +425,7 @@
 .end method
 
 .method private final writeNoCloseCheck(JLokio/Buffer;J)V
-    .locals 13
+    .registers 19
     .param p1, "fileOffset"    # J
     .param p3, "source"    # Lokio/Buffer;
     .param p4, "byteCount"    # J
@@ -452,11 +452,11 @@
 
     .line 370
     .local v3, "targetOffset":J
-    :cond_0
-    :goto_0
+    :cond_10
+    :goto_10
     cmp-long v5, v1, v3
 
-    if-gez v5, :cond_1
+    if-gez v5, :cond_52
 
     .line 371
     iget-object v5, v0, Lokio/Buffer;->head:Lokio/Segment;
@@ -535,7 +535,7 @@
 
     iget v6, v11, Lokio/Segment;->limit:I
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v6, :cond_10
 
     .line 380
     invoke-virtual {v11}, Lokio/Segment;->pop()Lokio/Segment;
@@ -549,17 +549,17 @@
 
     .end local v11    # "head":Lokio/Segment;
     .end local v12    # "toCopy":I
-    goto :goto_0
+    goto :goto_10
 
     .line 384
-    :cond_1
+    :cond_52
     return-void
 .end method
 
 
 # virtual methods
 .method public final appendingSink()Lokio/Sink;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -579,7 +579,7 @@
 .end method
 
 .method public final close()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -597,12 +597,12 @@
 
     .line 286
     .local v1, "$i$a$-synchronized-FileHandle$close$1":I
-    :try_start_0
+    :try_start_3
     iget-boolean v2, p0, Lokio/FileHandle;->closed:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_3 .. :try_end_5} :catchall_1b
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_9
 
     .end local v0    # "$i$f$synchronized":I
     .end local v1    # "$i$a$-synchronized-FileHandle$close$1":I
@@ -613,18 +613,18 @@
     .line 287
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$close$1":I
-    :cond_0
+    :cond_9
     const/4 v2, 0x1
 
-    :try_start_1
+    :try_start_a
     iput-boolean v2, p0, Lokio/FileHandle;->closed:Z
 
     .line 288
     iget v2, p0, Lokio/FileHandle;->openStreamCount:I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_e
+    .catchall {:try_start_a .. :try_end_e} :catchall_1b
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_12
 
     .end local v0    # "$i$f$synchronized":I
     .end local v1    # "$i$a$-synchronized-FileHandle$close$1":I
@@ -635,14 +635,14 @@
     .line 289
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$close$1":I
-    :cond_1
+    :cond_12
     nop
 
     .end local v1    # "$i$a$-synchronized-FileHandle$close$1":I
-    :try_start_2
+    :try_start_13
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_15
+    .catchall {:try_start_13 .. :try_end_15} :catchall_1b
 
     monitor-exit p0
 
@@ -658,7 +658,7 @@
 
     .line 289
     .restart local v0    # "$i$f$synchronized":I
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     monitor-exit p0
@@ -667,7 +667,7 @@
 .end method
 
 .method public final flush()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -677,7 +677,7 @@
     .line 136
     iget-boolean v0, p0, Lokio/FileHandle;->readWrite:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 137
     const/4 v0, 0x0
@@ -690,18 +690,18 @@
 
     .line 138
     .local v1, "$i$a$-synchronized-FileHandle$flush$2":I
-    :try_start_0
+    :try_start_7
     iget-boolean v2, p0, Lokio/FileHandle;->closed:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     .line 139
     nop
 
     .end local v1    # "$i$a$-synchronized-FileHandle$flush$2":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_7 .. :try_end_e} :catchall_23
 
     monitor-exit p0
 
@@ -717,12 +717,12 @@
     .line 444
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$flush$2":I
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .line 138
     .local v2, "$i$a$-check-FileHandle$flush$2$1":I
-    :try_start_1
+    :try_start_15
     const-string v3, "closed"
 
     .end local v2    # "$i$a$-check-FileHandle$flush$2$1":I
@@ -738,13 +738,13 @@
 
     .end local v0    # "$i$f$synchronized":I
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_23
+    .catchall {:try_start_15 .. :try_end_23} :catchall_23
 
     .line 139
     .end local v1    # "$i$a$-synchronized-FileHandle$flush$2":I
     .restart local v0    # "$i$f$synchronized":I
-    :catchall_0
+    :catchall_23
     move-exception v1
 
     monitor-exit p0
@@ -753,7 +753,7 @@
 
     .line 444
     .end local v0    # "$i$f$synchronized":I
-    :cond_1
+    :cond_26
     const/4 v0, 0x0
 
     .line 136
@@ -775,7 +775,7 @@
 .end method
 
 .method public final getReadWrite()Z
-    .locals 1
+    .registers 2
 
     .line 41
     iget-boolean v0, p0, Lokio/FileHandle;->readWrite:Z
@@ -784,7 +784,7 @@
 .end method
 
 .method public final position(Lokio/Sink;)J
-    .locals 5
+    .registers 7
     .param p1, "sink"    # Lokio/Sink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -807,7 +807,7 @@
     .local v1, "bufferSize":J
     instance-of v3, v0, Lokio/RealBufferedSink;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     .line 246
     move-object v3, v0
@@ -836,10 +836,10 @@
     iget-object v0, v3, Lokio/RealBufferedSink;->sink:Lokio/Sink;
 
     .line 250
-    :cond_0
+    :cond_1b
     instance-of v3, v0, Lokio/FileHandle$FileHandleSink;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
     move-object v3, v0
 
@@ -849,17 +849,17 @@
 
     move-result-object v3
 
-    if-ne v3, p0, :cond_1
+    if-ne v3, p0, :cond_2a
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_1
+    :cond_2a
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_3
+    :goto_2b
+    if-eqz v3, :cond_4f
 
     .line 253
     move-object v3, v0
@@ -870,7 +870,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3f
 
     .line 255
     move-object v3, v0
@@ -886,7 +886,7 @@
     return-wide v3
 
     .line 444
-    :cond_2
+    :cond_3f
     const/4 v3, 0x0
 
     .line 253
@@ -909,7 +909,7 @@
     throw v3
 
     .line 250
-    :cond_3
+    :cond_4f
     const/4 v3, 0x0
 
     .line 251
@@ -934,7 +934,7 @@
 .end method
 
 .method public final position(Lokio/Source;)J
-    .locals 5
+    .registers 7
     .param p1, "source"    # Lokio/Source;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -957,7 +957,7 @@
     .local v1, "bufferSize":J
     instance-of v3, v0, Lokio/RealBufferedSource;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     .line 167
     move-object v3, v0
@@ -986,10 +986,10 @@
     iget-object v0, v3, Lokio/RealBufferedSource;->source:Lokio/Source;
 
     .line 171
-    :cond_0
+    :cond_1b
     instance-of v3, v0, Lokio/FileHandle$FileHandleSource;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
     move-object v3, v0
 
@@ -999,17 +999,17 @@
 
     move-result-object v3
 
-    if-ne v3, p0, :cond_1
+    if-ne v3, p0, :cond_2a
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_1
+    :cond_2a
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_3
+    :goto_2b
+    if-eqz v3, :cond_4f
 
     .line 174
     move-object v3, v0
@@ -1020,7 +1020,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3f
 
     .line 176
     move-object v3, v0
@@ -1036,7 +1036,7 @@
     return-wide v3
 
     .line 444
-    :cond_2
+    :cond_3f
     const/4 v3, 0x0
 
     .line 174
@@ -1059,7 +1059,7 @@
     throw v3
 
     .line 171
-    :cond_3
+    :cond_4f
     const/4 v3, 0x0
 
     .line 172
@@ -1132,7 +1132,7 @@
 .end method
 
 .method public final read(J[BII)I
-    .locals 4
+    .registers 10
     .param p1, "fileOffset"    # J
     .param p3, "array"    # [B
     .param p4, "arrayOffset"    # I
@@ -1158,18 +1158,18 @@
 
     .line 68
     .local v1, "$i$a$-synchronized-FileHandle$read$1":I
-    :try_start_0
+    :try_start_8
     iget-boolean v2, p0, Lokio/FileHandle;->closed:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_16
 
     .line 69
     nop
 
     .end local v1    # "$i$a$-synchronized-FileHandle$read$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_8 .. :try_end_f} :catchall_25
 
     monitor-exit p0
 
@@ -1187,12 +1187,12 @@
     .line 444
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$read$1":I
-    :cond_0
+    :cond_16
     const/4 v2, 0x0
 
     .line 68
     .local v2, "$i$a$-check-FileHandle$read$1$1":I
-    :try_start_1
+    :try_start_17
     const-string v3, "closed"
 
     .end local v2    # "$i$a$-check-FileHandle$read$1$1":I
@@ -1212,8 +1212,8 @@
     .end local p4    # "arrayOffset":I
     .end local p5    # "byteCount":I
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_25
+    .catchall {:try_start_17 .. :try_end_25} :catchall_25
 
     .line 69
     .end local v1    # "$i$a$-synchronized-FileHandle$read$1":I
@@ -1222,7 +1222,7 @@
     .restart local p3    # "array":[B
     .restart local p4    # "arrayOffset":I
     .restart local p5    # "byteCount":I
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     monitor-exit p0
@@ -1231,7 +1231,7 @@
 .end method
 
 .method public final read(JLokio/Buffer;J)J
-    .locals 4
+    .registers 10
     .param p1, "fileOffset"    # J
     .param p3, "sink"    # Lokio/Buffer;
     .param p4, "byteCount"    # J
@@ -1256,18 +1256,18 @@
 
     .line 80
     .local v1, "$i$a$-synchronized-FileHandle$read$2":I
-    :try_start_0
+    :try_start_8
     iget-boolean v2, p0, Lokio/FileHandle;->closed:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_16
 
     .line 81
     nop
 
     .end local v1    # "$i$a$-synchronized-FileHandle$read$2":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_8 .. :try_end_f} :catchall_25
 
     monitor-exit p0
 
@@ -1285,12 +1285,12 @@
     .line 444
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$read$2":I
-    :cond_0
+    :cond_16
     const/4 v2, 0x0
 
     .line 80
     .local v2, "$i$a$-check-FileHandle$read$2$1":I
-    :try_start_1
+    :try_start_17
     const-string v3, "closed"
 
     .end local v2    # "$i$a$-check-FileHandle$read$2$1":I
@@ -1309,8 +1309,8 @@
     .end local p3    # "sink":Lokio/Buffer;
     .end local p4    # "byteCount":J
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_25
+    .catchall {:try_start_17 .. :try_end_25} :catchall_25
 
     .line 81
     .end local v1    # "$i$a$-synchronized-FileHandle$read$2":I
@@ -1318,7 +1318,7 @@
     .restart local p1    # "fileOffset":J
     .restart local p3    # "sink":Lokio/Buffer;
     .restart local p4    # "byteCount":J
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     monitor-exit p0
@@ -1327,7 +1327,7 @@
 .end method
 
 .method public final reposition(Lokio/Sink;J)V
-    .locals 6
+    .registers 10
     .param p1, "sink"    # Lokio/Sink;
     .param p2, "position"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -1351,7 +1351,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_57
 
     .line 266
     move-object v0, p1
@@ -1364,7 +1364,7 @@
     .local v0, "fileHandleSink":Lokio/Sink;
     instance-of v5, v0, Lokio/FileHandle$FileHandleSink;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_22
 
     move-object v5, v0
 
@@ -1374,15 +1374,15 @@
 
     move-result-object v5
 
-    if-ne v5, p0, :cond_0
+    if-ne v5, p0, :cond_22
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_2
+    :goto_23
+    if-eqz v3, :cond_49
 
     .line 270
     move-object v2, v0
@@ -1393,7 +1393,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_3b
 
     .line 272
     move-object v1, p1
@@ -1410,11 +1410,11 @@
     invoke-virtual {v1, p2, p3}, Lokio/FileHandle$FileHandleSink;->setPosition(J)V
 
     .end local v0    # "fileHandleSink":Lokio/Sink;
-    goto :goto_2
+    goto :goto_77
 
     .line 444
     .restart local v0    # "fileHandleSink":Lokio/Sink;
-    :cond_1
+    :cond_3b
     const/4 v2, 0x0
 
     .line 270
@@ -1435,7 +1435,7 @@
     throw v2
 
     .line 267
-    :cond_2
+    :cond_49
     const/4 v1, 0x0
 
     .line 268
@@ -1458,10 +1458,10 @@
 
     .line 275
     .end local v0    # "fileHandleSink":Lokio/Sink;
-    :cond_3
+    :cond_57
     instance-of v0, p1, Lokio/FileHandle$FileHandleSink;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_65
 
     move-object v0, p1
 
@@ -1471,15 +1471,15 @@
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_4
+    if-ne v0, p0, :cond_65
 
-    goto :goto_1
+    goto :goto_66
 
-    :cond_4
+    :cond_65
     const/4 v3, 0x0
 
-    :goto_1
-    if-eqz v3, :cond_6
+    :goto_66
+    if-eqz v3, :cond_86
 
     .line 278
     move-object v0, p1
@@ -1490,7 +1490,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_78
 
     .line 279
     move-object v0, p1
@@ -1500,11 +1500,11 @@
     invoke-virtual {v0, p2, p3}, Lokio/FileHandle$FileHandleSink;->setPosition(J)V
 
     .line 281
-    :goto_2
+    :goto_77
     return-void
 
     .line 444
-    :cond_5
+    :cond_78
     const/4 v0, 0x0
 
     .line 278
@@ -1525,7 +1525,7 @@
     throw v0
 
     .line 275
-    :cond_6
+    :cond_86
     const/4 v0, 0x0
 
     .line 276
@@ -1548,7 +1548,7 @@
 .end method
 
 .method public final reposition(Lokio/Source;J)V
-    .locals 10
+    .registers 14
     .param p1, "source"    # Lokio/Source;
     .param p2, "position"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -1572,7 +1572,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_84
 
     .line 187
     move-object v0, p1
@@ -1585,7 +1585,7 @@
     .local v0, "fileHandleSource":Lokio/Source;
     instance-of v5, v0, Lokio/FileHandle$FileHandleSource;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_23
 
     move-object v5, v0
 
@@ -1595,17 +1595,17 @@
 
     move-result-object v5
 
-    if-ne v5, p0, :cond_0
+    if-ne v5, p0, :cond_23
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     const/4 v5, 0x0
 
-    :goto_0
-    if-eqz v5, :cond_4
+    :goto_24
+    if-eqz v5, :cond_76
 
     .line 191
     move-object v2, v0
@@ -1616,7 +1616,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_68
 
     .line 193
     move-object v1, p1
@@ -1657,19 +1657,19 @@
 
     cmp-long v9, v7, v5
 
-    if-gtz v9, :cond_1
+    if-gtz v9, :cond_4e
 
     cmp-long v7, v5, v1
 
-    if-gez v7, :cond_1
+    if-gez v7, :cond_4e
 
-    goto :goto_1
+    goto :goto_4f
 
-    :cond_1
+    :cond_4e
     const/4 v3, 0x0
 
-    :goto_1
-    if-eqz v3, :cond_2
+    :goto_4f
+    if-eqz v3, :cond_58
 
     .line 197
     move-object v3, p1
@@ -1678,10 +1678,10 @@
 
     invoke-virtual {v3, v5, v6}, Lokio/RealBufferedSource;->skip(J)V
 
-    goto :goto_3
+    goto :goto_a4
 
     .line 200
-    :cond_2
+    :cond_58
     move-object v3, p1
 
     check-cast v3, Lokio/RealBufferedSource;
@@ -1708,11 +1708,11 @@
     .end local v0    # "fileHandleSource":Lokio/Source;
     .end local v1    # "bufferSize":J
     .end local v5    # "toSkip":J
-    goto :goto_3
+    goto :goto_a4
 
     .line 444
     .restart local v0    # "fileHandleSource":Lokio/Source;
-    :cond_3
+    :cond_68
     const/4 v2, 0x0
 
     .line 191
@@ -1733,7 +1733,7 @@
     throw v2
 
     .line 188
-    :cond_4
+    :cond_76
     const/4 v1, 0x0
 
     .line 189
@@ -1756,10 +1756,10 @@
 
     .line 204
     .end local v0    # "fileHandleSource":Lokio/Source;
-    :cond_5
+    :cond_84
     instance-of v0, p1, Lokio/FileHandle$FileHandleSource;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_92
 
     move-object v0, p1
 
@@ -1769,15 +1769,15 @@
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_6
+    if-ne v0, p0, :cond_92
 
-    goto :goto_2
+    goto :goto_93
 
-    :cond_6
+    :cond_92
     const/4 v3, 0x0
 
-    :goto_2
-    if-eqz v3, :cond_8
+    :goto_93
+    if-eqz v3, :cond_b3
 
     .line 207
     move-object v0, p1
@@ -1788,7 +1788,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_a5
 
     .line 208
     move-object v0, p1
@@ -1798,11 +1798,11 @@
     invoke-virtual {v0, p2, p3}, Lokio/FileHandle$FileHandleSource;->setPosition(J)V
 
     .line 210
-    :goto_3
+    :goto_a4
     return-void
 
     .line 444
-    :cond_7
+    :cond_a5
     const/4 v0, 0x0
 
     .line 207
@@ -1823,7 +1823,7 @@
     throw v0
 
     .line 204
-    :cond_8
+    :cond_b3
     const/4 v0, 0x0
 
     .line 205
@@ -1846,7 +1846,7 @@
 .end method
 
 .method public final resize(J)V
-    .locals 4
+    .registers 7
     .param p1, "size"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1857,7 +1857,7 @@
     .line 102
     iget-boolean v0, p0, Lokio/FileHandle;->readWrite:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 103
     const/4 v0, 0x0
@@ -1870,18 +1870,18 @@
 
     .line 104
     .local v1, "$i$a$-synchronized-FileHandle$resize$2":I
-    :try_start_0
+    :try_start_7
     iget-boolean v2, p0, Lokio/FileHandle;->closed:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     .line 105
     nop
 
     .end local v1    # "$i$a$-synchronized-FileHandle$resize$2":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_7 .. :try_end_e} :catchall_23
 
     monitor-exit p0
 
@@ -1897,12 +1897,12 @@
     .line 444
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$resize$2":I
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     .line 104
     .local v2, "$i$a$-check-FileHandle$resize$2$1":I
-    :try_start_1
+    :try_start_15
     const-string v3, "closed"
 
     .end local v2    # "$i$a$-check-FileHandle$resize$2$1":I
@@ -1919,14 +1919,14 @@
     .end local v0    # "$i$f$synchronized":I
     .end local p1    # "size":J
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_23
+    .catchall {:try_start_15 .. :try_end_23} :catchall_23
 
     .line 105
     .end local v1    # "$i$a$-synchronized-FileHandle$resize$2":I
     .restart local v0    # "$i$f$synchronized":I
     .restart local p1    # "size":J
-    :catchall_0
+    :catchall_23
     move-exception v1
 
     monitor-exit p0
@@ -1935,7 +1935,7 @@
 
     .line 444
     .end local v0    # "$i$f$synchronized":I
-    :cond_1
+    :cond_26
     const/4 v0, 0x0
 
     .line 102
@@ -1957,7 +1957,7 @@
 .end method
 
 .method public final sink(J)Lokio/Sink;
-    .locals 4
+    .registers 7
     .param p1, "fileOffset"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1968,7 +1968,7 @@
     .line 218
     iget-boolean v0, p0, Lokio/FileHandle;->readWrite:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 219
     const/4 v0, 0x0
@@ -1981,10 +1981,10 @@
 
     .line 220
     .local v1, "$i$a$-synchronized-FileHandle$sink$2":I
-    :try_start_0
+    :try_start_7
     iget-boolean v2, p0, Lokio/FileHandle;->closed:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     .line 221
     iget v2, p0, Lokio/FileHandle;->openStreamCount:I
@@ -1992,8 +1992,8 @@
     add-int/lit8 v2, v2, 0x1
 
     iput v2, p0, Lokio/FileHandle;->openStreamCount:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_7 .. :try_end_11} :catchall_2a
 
     .end local v1    # "$i$a$-synchronized-FileHandle$sink$2":I
     monitor-exit p0
@@ -2014,12 +2014,12 @@
     .line 444
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$sink$2":I
-    :cond_0
+    :cond_1b
     const/4 v2, 0x0
 
     .line 220
     .local v2, "$i$a$-check-FileHandle$sink$2$1":I
-    :try_start_1
+    :try_start_1c
     const-string v3, "closed"
 
     .end local v2    # "$i$a$-check-FileHandle$sink$2$1":I
@@ -2036,14 +2036,14 @@
     .end local v0    # "$i$f$synchronized":I
     .end local p1    # "fileOffset":J
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_1c .. :try_end_2a} :catchall_2a
 
     .line 221
     .end local v1    # "$i$a$-synchronized-FileHandle$sink$2":I
     .restart local v0    # "$i$f$synchronized":I
     .restart local p1    # "fileOffset":J
-    :catchall_0
+    :catchall_2a
     move-exception v1
 
     monitor-exit p0
@@ -2052,7 +2052,7 @@
 
     .line 444
     .end local v0    # "$i$f$synchronized":I
-    :cond_1
+    :cond_2d
     const/4 v0, 0x0
 
     .line 218
@@ -2074,7 +2074,7 @@
 .end method
 
 .method public final size()J
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2092,18 +2092,18 @@
 
     .line 91
     .local v1, "$i$a$-synchronized-FileHandle$size$1":I
-    :try_start_0
+    :try_start_3
     iget-boolean v2, p0, Lokio/FileHandle;->closed:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_11
 
     .line 92
     nop
 
     .end local v1    # "$i$a$-synchronized-FileHandle$size$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_3 .. :try_end_a} :catchall_20
 
     monitor-exit p0
 
@@ -2121,12 +2121,12 @@
     .line 444
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$size$1":I
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
     .line 91
     .local v2, "$i$a$-check-FileHandle$size$1$1":I
-    :try_start_1
+    :try_start_12
     const-string v3, "closed"
 
     .end local v2    # "$i$a$-check-FileHandle$size$1$1":I
@@ -2142,13 +2142,13 @@
 
     .end local v0    # "$i$f$synchronized":I
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_20
+    .catchall {:try_start_12 .. :try_end_20} :catchall_20
 
     .line 92
     .end local v1    # "$i$a$-synchronized-FileHandle$size$1":I
     .restart local v0    # "$i$f$synchronized":I
-    :catchall_0
+    :catchall_20
     move-exception v1
 
     monitor-exit p0
@@ -2157,7 +2157,7 @@
 .end method
 
 .method public final source(J)Lokio/Source;
-    .locals 4
+    .registers 7
     .param p1, "fileOffset"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2176,10 +2176,10 @@
 
     .line 150
     .local v1, "$i$a$-synchronized-FileHandle$source$1":I
-    :try_start_0
+    :try_start_3
     iget-boolean v2, p0, Lokio/FileHandle;->closed:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 151
     iget v2, p0, Lokio/FileHandle;->openStreamCount:I
@@ -2187,8 +2187,8 @@
     add-int/lit8 v2, v2, 0x1
 
     iput v2, p0, Lokio/FileHandle;->openStreamCount:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_26
 
     .end local v1    # "$i$a$-synchronized-FileHandle$source$1":I
     monitor-exit p0
@@ -2209,12 +2209,12 @@
     .line 444
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$source$1":I
-    :cond_0
+    :cond_17
     const/4 v2, 0x0
 
     .line 150
     .local v2, "$i$a$-check-FileHandle$source$1$1":I
-    :try_start_1
+    :try_start_18
     const-string v3, "closed"
 
     .end local v2    # "$i$a$-check-FileHandle$source$1$1":I
@@ -2231,14 +2231,14 @@
     .end local v0    # "$i$f$synchronized":I
     .end local p1    # "fileOffset":J
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_26
+    .catchall {:try_start_18 .. :try_end_26} :catchall_26
 
     .line 151
     .end local v1    # "$i$a$-synchronized-FileHandle$source$1":I
     .restart local v0    # "$i$f$synchronized":I
     .restart local p1    # "fileOffset":J
-    :catchall_0
+    :catchall_26
     move-exception v1
 
     monitor-exit p0
@@ -2247,7 +2247,7 @@
 .end method
 
 .method public final write(JLokio/Buffer;J)V
-    .locals 4
+    .registers 10
     .param p1, "fileOffset"    # J
     .param p3, "source"    # Lokio/Buffer;
     .param p4, "byteCount"    # J
@@ -2264,7 +2264,7 @@
     .line 126
     iget-boolean v0, p0, Lokio/FileHandle;->readWrite:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     .line 127
     const/4 v0, 0x0
@@ -2277,18 +2277,18 @@
 
     .line 128
     .local v1, "$i$a$-synchronized-FileHandle$write$4":I
-    :try_start_0
+    :try_start_c
     iget-boolean v2, p0, Lokio/FileHandle;->closed:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_19
 
     .line 129
     nop
 
     .end local v1    # "$i$a$-synchronized-FileHandle$write$4":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_c .. :try_end_13} :catchall_28
 
     monitor-exit p0
 
@@ -2305,12 +2305,12 @@
     .line 444
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$write$4":I
-    :cond_0
+    :cond_19
     const/4 v2, 0x0
 
     .line 128
     .local v2, "$i$a$-check-FileHandle$write$4$1":I
-    :try_start_1
+    :try_start_1a
     const-string v3, "closed"
 
     .end local v2    # "$i$a$-check-FileHandle$write$4$1":I
@@ -2329,8 +2329,8 @@
     .end local p3    # "source":Lokio/Buffer;
     .end local p4    # "byteCount":J
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_28
+    .catchall {:try_start_1a .. :try_end_28} :catchall_28
 
     .line 129
     .end local v1    # "$i$a$-synchronized-FileHandle$write$4":I
@@ -2338,7 +2338,7 @@
     .restart local p1    # "fileOffset":J
     .restart local p3    # "source":Lokio/Buffer;
     .restart local p4    # "byteCount":J
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     monitor-exit p0
@@ -2347,7 +2347,7 @@
 
     .line 444
     .end local v0    # "$i$f$synchronized":I
-    :cond_1
+    :cond_2b
     const/4 v0, 0x0
 
     .line 126
@@ -2369,7 +2369,7 @@
 .end method
 
 .method public final write(J[BII)V
-    .locals 4
+    .registers 10
     .param p1, "fileOffset"    # J
     .param p3, "array"    # [B
     .param p4, "arrayOffset"    # I
@@ -2382,7 +2382,7 @@
     .line 116
     iget-boolean v0, p0, Lokio/FileHandle;->readWrite:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     .line 117
     const/4 v0, 0x0
@@ -2395,18 +2395,18 @@
 
     .line 118
     .local v1, "$i$a$-synchronized-FileHandle$write$2":I
-    :try_start_0
+    :try_start_c
     iget-boolean v2, p0, Lokio/FileHandle;->closed:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_19
 
     .line 119
     nop
 
     .end local v1    # "$i$a$-synchronized-FileHandle$write$2":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_c .. :try_end_13} :catchall_28
 
     monitor-exit p0
 
@@ -2422,12 +2422,12 @@
     .line 444
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$a$-synchronized-FileHandle$write$2":I
-    :cond_0
+    :cond_19
     const/4 v2, 0x0
 
     .line 118
     .local v2, "$i$a$-check-FileHandle$write$2$1":I
-    :try_start_1
+    :try_start_1a
     const-string v3, "closed"
 
     .end local v2    # "$i$a$-check-FileHandle$write$2$1":I
@@ -2447,8 +2447,8 @@
     .end local p4    # "arrayOffset":I
     .end local p5    # "byteCount":I
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_28
+    .catchall {:try_start_1a .. :try_end_28} :catchall_28
 
     .line 119
     .end local v1    # "$i$a$-synchronized-FileHandle$write$2":I
@@ -2457,7 +2457,7 @@
     .restart local p3    # "array":[B
     .restart local p4    # "arrayOffset":I
     .restart local p5    # "byteCount":I
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     monitor-exit p0
@@ -2466,7 +2466,7 @@
 
     .line 444
     .end local v0    # "$i$f$synchronized":I
-    :cond_1
+    :cond_2b
     const/4 v0, 0x0
 
     .line 116

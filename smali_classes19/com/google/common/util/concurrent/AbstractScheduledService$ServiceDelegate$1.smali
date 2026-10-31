@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     .line 229
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 229
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$1;->get()Ljava/lang/String;
@@ -57,7 +57,7 @@
 .end method
 
 .method public get()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 232
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$1;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;

@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 61
     new-instance v0, Lj$/util/OptionalLong;
@@ -28,7 +28,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>(J)V
-    .locals 1
+    .registers 4
     .param p1, "value"    # J
 
     .line 101
@@ -67,7 +67,7 @@
 .end method
 
 .method public static empty()Lj$/util/OptionalLong;
-    .locals 1
+    .registers 1
 
     .line 93
     sget-object v0, Lj$/util/OptionalLong;->EMPTY:Lj$/util/OptionalLong;
@@ -76,7 +76,7 @@
 .end method
 
 .method public static of(J)Lj$/util/OptionalLong;
-    .locals 1
+    .registers 3
     .param p0, "value"    # J
 
     .line 113
@@ -90,30 +90,30 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 290
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 291
     return v0
 
     .line 294
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/util/OptionalLong;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 295
     return v2
 
     .line 298
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lj$/util/OptionalLong;
@@ -122,11 +122,11 @@
     .local v1, "other":Lj$/util/OptionalLong;
     iget-boolean v3, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_20
 
     iget-boolean v3, v1, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_20
 
     .line 300
     iget-wide v3, p0, Lj$/util/OptionalLong;->value:J
@@ -135,40 +135,40 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_1e
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_2
+    :cond_1e
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_28
 
     .line 301
-    :cond_3
+    :cond_20
     iget-boolean v3, p0, Lj$/util/OptionalLong;->isPresent:Z
 
     iget-boolean v4, v1, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_27
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_4
+    :cond_27
     const/4 v0, 0x0
 
     .line 299
-    :goto_0
+    :goto_28
     return v0
 .end method
 
 .method public getAsLong()J
-    .locals 2
+    .registers 3
 
     .line 127
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 130
     iget-wide v0, p0, Lj$/util/OptionalLong;->value:J
@@ -176,7 +176,7 @@
     return-wide v0
 
     .line 128
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "No value present"
@@ -187,12 +187,12 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 313
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-wide v0, p0, Lj$/util/OptionalLong;->value:J
 
@@ -200,23 +200,23 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method public ifPresent(Ljava/util/function/LongConsumer;)V
-    .locals 2
+    .registers 4
     .param p1, "action"    # Ljava/util/function/LongConsumer;
 
     .line 162
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 163
     iget-wide v0, p0, Lj$/util/OptionalLong;->value:J
@@ -224,38 +224,38 @@
     invoke-interface {p1, v0, v1}, Ljava/util/function/LongConsumer;->accept(J)V
 
     .line 165
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public ifPresentOrElse(Ljava/util/function/LongConsumer;Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 5
     .param p1, "action"    # Ljava/util/function/LongConsumer;
     .param p2, "emptyAction"    # Ljava/lang/Runnable;
 
     .line 180
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 181
     iget-wide v0, p0, Lj$/util/OptionalLong;->value:J
 
     invoke-interface {p1, v0, v1}, Ljava/util/function/LongConsumer;->accept(J)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 183
-    :cond_0
+    :cond_a
     invoke-interface {p2}, Ljava/lang/Runnable;->run()V
 
     .line 185
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 150
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
@@ -266,7 +266,7 @@
 .end method
 
 .method public isPresent()Z
-    .locals 1
+    .registers 2
 
     .line 139
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
@@ -275,54 +275,54 @@
 .end method
 
 .method public orElse(J)J
-    .locals 2
+    .registers 5
     .param p1, "other"    # J
 
     .line 218
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-wide v0, p0, Lj$/util/OptionalLong;->value:J
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     move-wide v0, p1
 
-    :goto_0
+    :goto_8
     return-wide v0
 .end method
 
 .method public orElseGet(Ljava/util/function/LongSupplier;)J
-    .locals 2
+    .registers 4
     .param p1, "supplier"    # Ljava/util/function/LongSupplier;
 
     .line 232
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-wide v0, p0, Lj$/util/OptionalLong;->value:J
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_7
     invoke-interface {p1}, Ljava/util/function/LongSupplier;->getAsLong()J
 
     move-result-wide v0
 
-    :goto_0
+    :goto_b
     return-wide v0
 .end method
 
 .method public orElseThrow()J
-    .locals 2
+    .registers 3
 
     .line 244
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 247
     iget-wide v0, p0, Lj$/util/OptionalLong;->value:J
@@ -330,7 +330,7 @@
     return-wide v0
 
     .line 245
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "No value present"
@@ -341,7 +341,7 @@
 .end method
 
 .method public orElseThrow(Ljava/util/function/Supplier;)J
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<X:",
@@ -356,7 +356,7 @@
     .local p1, "exceptionSupplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<+TX;>;"
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 269
     iget-wide v0, p0, Lj$/util/OptionalLong;->value:J
@@ -364,7 +364,7 @@
     return-wide v0
 
     .line 271
-    :cond_0
+    :cond_7
     invoke-interface {p1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -375,12 +375,12 @@
 .end method
 
 .method public stream()Lj$/util/stream/LongStream;
-    .locals 2
+    .registers 3
 
     .line 203
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 204
     iget-wide v0, p0, Lj$/util/OptionalLong;->value:J
@@ -392,7 +392,7 @@
     return-object v0
 
     .line 206
-    :cond_0
+    :cond_b
     invoke-static {}, Lj$/util/stream/LongStream$-CC;->empty()Lj$/util/stream/LongStream;
 
     move-result-object v0
@@ -401,12 +401,12 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 330
     iget-boolean v0, p0, Lj$/util/OptionalLong;->isPresent:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 331
     iget-wide v0, p0, Lj$/util/OptionalLong;->value:J
@@ -429,13 +429,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_19
 
     .line 332
-    :cond_0
+    :cond_17
     const-string v0, "OptionalLong.empty"
 
     .line 330
-    :goto_0
+    :goto_19
     return-object v0
 .end method

@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 123
     new-instance v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;
@@ -47,7 +47,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 126
     const/4 v0, 0x1
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$200()Lcom/google/common/collect/DiscreteDomain$LongDomain;
-    .locals 1
+    .registers 1
 
     .line 122
     sget-object v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$LongDomain;
@@ -70,7 +70,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 176
     sget-object v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$LongDomain;
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public bridge synthetic distance(Ljava/lang/Comparable;Ljava/lang/Comparable;)J
-    .locals 0
+    .registers 3
 
     .line 122
     check-cast p1, Ljava/lang/Long;
@@ -96,7 +96,7 @@
 .end method
 
 .method public distance(Ljava/lang/Long;Ljava/lang/Long;)J
-    .locals 9
+    .registers 12
     .param p1, "start"    # Ljava/lang/Long;
     .param p2, "end"    # Ljava/lang/Long;
 
@@ -125,11 +125,11 @@
 
     cmp-long v8, v2, v4
 
-    if-lez v8, :cond_0
+    if-lez v8, :cond_21
 
     cmp-long v2, v0, v6
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_21
 
     .line 157
     const-wide v2, 0x7fffffffffffffffL
@@ -137,7 +137,7 @@
     return-wide v2
 
     .line 159
-    :cond_0
+    :cond_21
     invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v2
@@ -148,11 +148,11 @@
 
     cmp-long v8, v2, v4
 
-    if-gez v8, :cond_1
+    if-gez v8, :cond_34
 
     cmp-long v2, v0, v6
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_34
 
     .line 160
     const-wide/high16 v2, -0x8000000000000000L
@@ -160,12 +160,12 @@
     return-wide v2
 
     .line 162
-    :cond_1
+    :cond_34
     return-wide v0
 .end method
 
 .method public bridge synthetic maxValue()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 122
     invoke-virtual {p0}, Lcom/google/common/collect/DiscreteDomain$LongDomain;->maxValue()Ljava/lang/Long;
@@ -176,7 +176,7 @@
 .end method
 
 .method public maxValue()Ljava/lang/Long;
-    .locals 2
+    .registers 3
 
     .line 172
     const-wide v0, 0x7fffffffffffffffL
@@ -189,7 +189,7 @@
 .end method
 
 .method public bridge synthetic minValue()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 122
     invoke-virtual {p0}, Lcom/google/common/collect/DiscreteDomain$LongDomain;->minValue()Ljava/lang/Long;
@@ -200,7 +200,7 @@
 .end method
 
 .method public minValue()Ljava/lang/Long;
-    .locals 2
+    .registers 3
 
     .line 167
     const-wide/high16 v0, -0x8000000000000000L
@@ -213,7 +213,7 @@
 .end method
 
 .method public bridge synthetic next(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -228,7 +228,7 @@
 .end method
 
 .method public next(Ljava/lang/Long;)Ljava/lang/Long;
-    .locals 5
+    .registers 7
     .param p1, "value"    # Ljava/lang/Long;
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -244,13 +244,13 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_f
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_f
     const-wide/16 v2, 0x1
 
     add-long/2addr v2, v0
@@ -259,12 +259,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_16
     return-object v2
 .end method
 
 .method bridge synthetic offset(Ljava/lang/Comparable;J)Ljava/lang/Comparable;
-    .locals 0
+    .registers 4
 
     .line 122
     check-cast p1, Ljava/lang/Long;
@@ -277,7 +277,7 @@
 .end method
 
 .method offset(Ljava/lang/Long;J)Ljava/lang/Long;
-    .locals 7
+    .registers 11
     .param p1, "origin"    # Ljava/lang/Long;
     .param p2, "distance"    # J
 
@@ -299,7 +299,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_20
 
     .line 148
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
@@ -308,22 +308,22 @@
 
     cmp-long v6, v4, v2
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_1a
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1b
     const-string v3, "overflow"
 
     invoke-static {v2, v3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 150
-    :cond_1
+    :cond_20
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v2
@@ -332,7 +332,7 @@
 .end method
 
 .method public bridge synthetic previous(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -347,7 +347,7 @@
 .end method
 
 .method public previous(Ljava/lang/Long;)Ljava/lang/Long;
-    .locals 5
+    .registers 7
     .param p1, "value"    # Ljava/lang/Long;
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -363,13 +363,13 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_c
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_c
     const-wide/16 v2, 0x1
 
     sub-long v2, v0, v2
@@ -378,12 +378,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_14
     return-object v2
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 181
     const-string v0, "DiscreteDomain.longs()"

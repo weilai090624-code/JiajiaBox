@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static iterate(DLjava/util/function/DoublePredicate;Ljava/util/function/DoubleUnaryOperator;)Lj$/util/stream/DoubleStream;
-    .locals 9
+    .registers 13
     .param p0, "seed"    # D
     .param p2, "hasNext"    # Ljava/util/function/DoublePredicate;
     .param p3, "next"    # Ljava/util/function/DoubleUnaryOperator;

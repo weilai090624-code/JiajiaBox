@@ -68,7 +68,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 52
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContract;-><init>()V
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public createIntent(Landroid/content/Context;Ljava/lang/Void;)Landroid/content/Intent;
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Void;
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic getSynchronousResult(Landroid/content/Context;Ljava/lang/Object;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public getSynchronousResult(Landroid/content/Context;Ljava/lang/Void;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Void;
     .annotation system Ldalvik/annotation/Signature;
@@ -176,13 +176,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     invoke-static {p1}, Landroid/net/VpnService;->prepare(Landroid/content/Context;)Landroid/content/Intent;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .local v0, "intent":Landroid/content/Intent;
     const/4 v1, 0x0
@@ -199,7 +199,7 @@
     .line 63
     .end local v0    # "intent":Landroid/content/Intent;
     .end local v1    # "$i$a$-let-VpnRequestActivity$StartService$getSynchronousResult$1":I
-    :cond_0
+    :cond_1e
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->startService()V
@@ -219,14 +219,14 @@
 .end method
 
 .method public parseResult(ILandroid/content/Intent;)Ljava/lang/Boolean;
-    .locals 3
+    .registers 6
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 
     .line 71
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     .line 72
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -236,10 +236,10 @@
     .line 73
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_23
 
     .line 75
-    :cond_0
+    :cond_a
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -265,7 +265,7 @@
     .line 76
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_23
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -275,7 +275,7 @@
 .end method
 
 .method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 

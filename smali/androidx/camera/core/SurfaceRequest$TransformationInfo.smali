@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 741
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static of(Landroid/graphics/Rect;II)Landroidx/camera/core/SurfaceRequest$TransformationInfo;
-    .locals 1
+    .registers 4
     .param p0, "cropRect"    # Landroid/graphics/Rect;
     .param p1, "rotationDegrees"    # I
     .param p2, "targetRotation"    # I

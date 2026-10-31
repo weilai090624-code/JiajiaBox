@@ -79,7 +79,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public final getAccentColor()J
-    .locals 2
+    .registers 3
 
     .line 136
     iget-wide v0, p0, Landroidx/activity/result/PickVisualMediaRequest;->accentColor:J
@@ -123,7 +123,7 @@
 .end method
 
 .method public final getDefaultTab()Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;
-    .locals 1
+    .registers 2
 
     .line 130
     iget-object v0, p0, Landroidx/activity/result/PickVisualMediaRequest;->defaultTab:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;
@@ -132,7 +132,7 @@
 .end method
 
 .method public final getMaxItems()I
-    .locals 1
+    .registers 2
 
     .line 124
     iget v0, p0, Landroidx/activity/result/PickVisualMediaRequest;->maxItems:I
@@ -141,7 +141,7 @@
 .end method
 
 .method public final getMediaType()Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
-    .locals 1
+    .registers 2
 
     .line 121
     iget-object v0, p0, Landroidx/activity/result/PickVisualMediaRequest;->mediaType:Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
@@ -150,7 +150,7 @@
 .end method
 
 .method public final isCustomAccentColorApplied()Z
-    .locals 1
+    .registers 2
 
     .line 133
     iget-boolean v0, p0, Landroidx/activity/result/PickVisualMediaRequest;->isCustomAccentColorApplied:Z
@@ -159,7 +159,7 @@
 .end method
 
 .method public final isOrderedSelection()Z
-    .locals 1
+    .registers 2
 
     .line 127
     iget-boolean v0, p0, Landroidx/activity/result/PickVisualMediaRequest;->isOrderedSelection:Z
@@ -168,7 +168,7 @@
 .end method
 
 .method public final setAccentColor$activity_release(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 137
@@ -178,7 +178,7 @@
 .end method
 
 .method public final setCustomAccentColorApplied$activity_release(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 134
@@ -188,7 +188,7 @@
 .end method
 
 .method public final setDefaultTab$activity_release(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$DefaultTab;
 
     const-string v0, "<set-?>"
@@ -202,7 +202,7 @@
 .end method
 
 .method public final setMaxItems$activity_release(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 125
@@ -212,7 +212,7 @@
 .end method
 
 .method public final setMediaType$activity_release(Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/activity/result/contract/ActivityResultContracts$PickVisualMedia$VisualMediaType;
 
     const-string v0, "<set-?>"
@@ -226,7 +226,7 @@
 .end method
 
 .method public final setOrderedSelection$activity_release(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 128

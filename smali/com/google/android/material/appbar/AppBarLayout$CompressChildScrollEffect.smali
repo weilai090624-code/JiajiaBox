@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 2540
     invoke-direct {p0}, Lcom/google/android/material/appbar/AppBarLayout$ChildScrollEffect;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method private static updateRelativeRect(Landroid/graphics/Rect;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;)V
-    .locals 2
+    .registers 5
     .param p0, "rect"    # Landroid/graphics/Rect;
     .param p1, "appBarLayout"    # Lcom/google/android/material/appbar/AppBarLayout;
     .param p2, "child"    # Landroid/view/View;
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public onOffsetChanged(Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;F)V
-    .locals 8
+    .registers 12
     .param p1, "appBarLayout"    # Lcom/google/android/material/appbar/AppBarLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "offset"    # F
@@ -107,7 +107,7 @@
 
     cmpg-float v2, v0, v1
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_54
 
     .line 2568
     iget-object v2, p0, Lcom/google/android/material/appbar/AppBarLayout$CompressChildScrollEffect;->relativeRect:Landroid/graphics/Rect;
@@ -193,10 +193,10 @@
     .end local v2    # "offsetY":F
     .end local v3    # "easeOutQuad":F
     .end local v4    # "distance":F
-    goto :goto_0
+    goto :goto_5b
 
     .line 2593
-    :cond_0
+    :cond_54
     const/4 v2, 0x0
 
     invoke-static {p2, v2}, Landroidx/core/view/ViewCompat;->setClipBounds(Landroid/view/View;Landroid/graphics/Rect;)V
@@ -205,6 +205,6 @@
     invoke-virtual {p2, v1}, Landroid/view/View;->setTranslationY(F)V
 
     .line 2596
-    :goto_0
+    :goto_5b
     return-void
 .end method

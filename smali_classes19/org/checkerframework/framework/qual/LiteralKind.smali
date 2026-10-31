@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 12
+    .registers 12
 
     .line 17
     new-instance v0, Lorg/checkerframework/framework/qual/LiteralKind;
@@ -202,7 +202,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -216,7 +216,7 @@
 .end method
 
 .method public static allLiteralKinds()Ljava/util/List;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -255,7 +255,7 @@
 .end method
 
 .method public static primitiveLiteralKinds()Ljava/util/List;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -314,7 +314,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/checkerframework/framework/qual/LiteralKind;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 15
@@ -330,7 +330,7 @@
 .end method
 
 .method public static values()[Lorg/checkerframework/framework/qual/LiteralKind;
-    .locals 1
+    .registers 1
 
     .line 15
     sget-object v0, Lorg/checkerframework/framework/qual/LiteralKind;->$VALUES:[Lorg/checkerframework/framework/qual/LiteralKind;

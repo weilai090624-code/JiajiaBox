@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5199
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static forIncomingCall(Landroid/app/Person;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)Landroid/app/Notification$CallStyle;
-    .locals 1
+    .registers 4
     .param p0, "person"    # Landroid/app/Person;
     .param p1, "declineIntent"    # Landroid/app/PendingIntent;
     .param p2, "answerIntent"    # Landroid/app/PendingIntent;
@@ -40,7 +40,7 @@
 .end method
 
 .method static forOngoingCall(Landroid/app/Person;Landroid/app/PendingIntent;)Landroid/app/Notification$CallStyle;
-    .locals 1
+    .registers 3
     .param p0, "person"    # Landroid/app/Person;
     .param p1, "hangUpIntent"    # Landroid/app/PendingIntent;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method static forScreeningCall(Landroid/app/Person;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)Landroid/app/Notification$CallStyle;
-    .locals 1
+    .registers 4
     .param p0, "person"    # Landroid/app/Person;
     .param p1, "hangUpIntent"    # Landroid/app/PendingIntent;
     .param p2, "answerIntent"    # Landroid/app/PendingIntent;
@@ -67,7 +67,7 @@
 .end method
 
 .method static setAnswerButtonColorHint(Landroid/app/Notification$CallStyle;I)Landroid/app/Notification$CallStyle;
-    .locals 1
+    .registers 3
     .param p0, "callStyle"    # Landroid/app/Notification$CallStyle;
     .param p1, "color"    # I
 
@@ -80,7 +80,7 @@
 .end method
 
 .method static setAuthenticationRequired(Landroid/app/Notification$Action$Builder;Z)Landroid/app/Notification$Action$Builder;
-    .locals 1
+    .registers 3
     .param p0, "actionBuilder"    # Landroid/app/Notification$Action$Builder;
     .param p1, "authenticationRequired"    # Z
 
@@ -93,7 +93,7 @@
 .end method
 
 .method static setDeclineButtonColorHint(Landroid/app/Notification$CallStyle;I)Landroid/app/Notification$CallStyle;
-    .locals 1
+    .registers 3
     .param p0, "callStyle"    # Landroid/app/Notification$CallStyle;
     .param p1, "color"    # I
 
@@ -106,7 +106,7 @@
 .end method
 
 .method static setIsVideo(Landroid/app/Notification$CallStyle;Z)Landroid/app/Notification$CallStyle;
-    .locals 1
+    .registers 3
     .param p0, "callStyle"    # Landroid/app/Notification$CallStyle;
     .param p1, "isVideo"    # Z
 
@@ -119,7 +119,7 @@
 .end method
 
 .method static setVerificationIcon(Landroid/app/Notification$CallStyle;Landroid/graphics/drawable/Icon;)Landroid/app/Notification$CallStyle;
-    .locals 1
+    .registers 3
     .param p0, "callStyle"    # Landroid/app/Notification$CallStyle;
     .param p1, "verificationIcon"    # Landroid/graphics/drawable/Icon;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method static setVerificationText(Landroid/app/Notification$CallStyle;Ljava/lang/CharSequence;)Landroid/app/Notification$CallStyle;
-    .locals 1
+    .registers 3
     .param p0, "callStyle"    # Landroid/app/Notification$CallStyle;
     .param p1, "verificationText"    # Ljava/lang/CharSequence;
 

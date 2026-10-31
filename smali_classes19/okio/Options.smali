@@ -73,7 +73,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokio/Options$Companion;
 
@@ -87,7 +87,7 @@
 .end method
 
 .method private constructor <init>([Lokio/ByteString;[I)V
-    .locals 0
+    .registers 3
     .param p1, "byteStrings"    # [Lokio/ByteString;
     .param p2, "trie"    # [I
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public synthetic constructor <init>([Lokio/ByteString;[ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     invoke-direct {p0, p1, p2}, Lokio/Options;-><init>([Lokio/ByteString;[I)V
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public static final varargs of([Lokio/ByteString;)Lokio/Options;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -129,19 +129,19 @@
 
 # virtual methods
 .method public final bridge contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 21
     instance-of v0, p1, Lokio/ByteString;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lokio/ByteString;
@@ -154,7 +154,7 @@
 .end method
 
 .method public bridge contains(Lokio/ByteString;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Lokio/ByteString;
 
     .line 21
@@ -166,7 +166,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 21
@@ -178,7 +178,7 @@
 .end method
 
 .method public get(I)Lokio/ByteString;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 29
@@ -190,7 +190,7 @@
 .end method
 
 .method public final getByteStrings$okio()[Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lokio/Options;->byteStrings:[Lokio/ByteString;
@@ -199,7 +199,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 27
     iget-object v0, p0, Lokio/Options;->byteStrings:[Lokio/ByteString;
@@ -210,7 +210,7 @@
 .end method
 
 .method public final getTrie$okio()[I
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lokio/Options;->trie:[I
@@ -219,19 +219,19 @@
 .end method
 
 .method public final bridge indexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 21
     instance-of v0, p1, Lokio/ByteString;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lokio/ByteString;
@@ -244,7 +244,7 @@
 .end method
 
 .method public bridge indexOf(Lokio/ByteString;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Lokio/ByteString;
 
     .line 21
@@ -256,19 +256,19 @@
 .end method
 
 .method public final bridge lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 21
     instance-of v0, p1, Lokio/ByteString;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lokio/ByteString;
@@ -281,7 +281,7 @@
 .end method
 
 .method public bridge lastIndexOf(Lokio/ByteString;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Lokio/ByteString;
 
     .line 21

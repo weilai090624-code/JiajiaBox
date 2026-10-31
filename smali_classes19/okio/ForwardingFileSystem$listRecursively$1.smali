@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/ForwardingFileSystem;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lokio/ForwardingFileSystem$listRecursively$1;->this$0:Lokio/ForwardingFileSystem;
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 182
@@ -81,7 +81,7 @@
 .end method
 
 .method public final invoke(Lokio/Path;)Lokio/Path;
-    .locals 2
+    .registers 4
     .param p1, "it"    # Lokio/Path;
 
     const-string v0, "it"

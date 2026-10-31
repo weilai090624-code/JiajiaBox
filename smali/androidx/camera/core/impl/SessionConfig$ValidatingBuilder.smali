@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 408
     invoke-direct {p0}, Landroidx/camera/core/impl/SessionConfig$BaseBuilder;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public add(Landroidx/camera/core/impl/SessionConfig;)V
-    .locals 6
+    .registers 8
     .param p1, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -75,12 +75,12 @@
 
     const-string v4, "ValidatingBuilder"
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_57
 
     .line 422
     iget-boolean v1, p0, Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;->mTemplateSet:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1f
 
     .line 423
     iget-object v1, p0, Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;->mCaptureConfigBuilder:Landroidx/camera/core/impl/CaptureConfig$Builder;
@@ -96,10 +96,10 @@
 
     iput-boolean v1, p0, Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;->mTemplateSet:Z
 
-    goto :goto_0
+    goto :goto_57
 
     .line 425
-    :cond_0
+    :cond_1f
     iget-object v1, p0, Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;->mCaptureConfigBuilder:Landroidx/camera/core/impl/CaptureConfig$Builder;
 
     invoke-virtual {v1}, Landroidx/camera/core/impl/CaptureConfig$Builder;->getTemplateType()I
@@ -111,7 +111,7 @@
 
     move-result v2
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_57
 
     .line 427
     new-instance v1, Ljava/lang/StringBuilder;
@@ -163,8 +163,8 @@
 
     .line 437
     .end local v1    # "errorMessage":Ljava/lang/String;
-    :cond_1
-    :goto_0
+    :cond_57
+    :goto_57
     invoke-virtual {p1}, Landroidx/camera/core/impl/SessionConfig;->getRepeatingCaptureConfig()Landroidx/camera/core/impl/CaptureConfig;
 
     move-result-object v1
@@ -261,7 +261,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_bc
 
     .line 462
     const-string v2, "Invalid configuration due to capture request surfaces are not a subset of surfaces"
@@ -275,7 +275,7 @@
 
     .line 471
     .end local v2    # "errorMessage":Ljava/lang/String;
-    :cond_2
+    :cond_bc
     iget-object v2, p0, Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;->mCaptureConfigBuilder:Landroidx/camera/core/impl/CaptureConfig$Builder;
 
     .line 472
@@ -291,12 +291,12 @@
 .end method
 
 .method public build()Landroidx/camera/core/impl/SessionConfig;
-    .locals 8
+    .registers 9
 
     .line 486
     iget-boolean v0, p0, Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;->mValid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 489
     new-instance v0, Landroidx/camera/core/impl/SessionConfig;
@@ -330,7 +330,7 @@
     return-object v0
 
     .line 487
-    :cond_0
+    :cond_20
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Unsupported session configuration combination"
@@ -341,24 +341,24 @@
 .end method
 
 .method public isValid()Z
-    .locals 1
+    .registers 2
 
     .line 477
     iget-boolean v0, p0, Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;->mTemplateSet:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     iget-boolean v0, p0, Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;->mValid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method

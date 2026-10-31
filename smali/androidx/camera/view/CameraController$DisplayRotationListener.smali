@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/CameraController;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/view/CameraController;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onDisplayAdded(I)V
-    .locals 0
+    .registers 2
     .param p1, "displayId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -61,7 +61,7 @@
 .end method
 
 .method public onDisplayChanged(I)V
-    .locals 2
+    .registers 4
     .param p1, "displayId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -77,7 +77,7 @@
 
     iget-object v0, v0, Landroidx/camera/view/CameraController;->mPreviewDisplay:Landroid/view/Display;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     iget-object v0, p0, Landroidx/camera/view/CameraController$DisplayRotationListener;->this$0:Landroidx/camera/view/CameraController;
 
@@ -87,7 +87,7 @@
 
     move-result v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_1f
 
     .line 1696
     iget-object v0, p0, Landroidx/camera/view/CameraController$DisplayRotationListener;->this$0:Landroidx/camera/view/CameraController;
@@ -105,12 +105,12 @@
     invoke-virtual {v0, v1}, Landroidx/camera/core/Preview;->setTargetRotation(I)V
 
     .line 1698
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method public onDisplayRemoved(I)V
-    .locals 0
+    .registers 2
     .param p1, "displayId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

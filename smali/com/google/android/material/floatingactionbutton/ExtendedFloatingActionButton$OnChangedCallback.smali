@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 154
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onExtended(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V
-    .locals 0
+    .registers 2
     .param p1, "extendedFab"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
     .line 179
@@ -35,7 +35,7 @@
 .end method
 
 .method public onHidden(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V
-    .locals 0
+    .registers 2
     .param p1, "extendedFab"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
     .line 170
@@ -43,7 +43,7 @@
 .end method
 
 .method public onShown(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V
-    .locals 0
+    .registers 2
     .param p1, "extendedFab"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
     .line 162
@@ -51,7 +51,7 @@
 .end method
 
 .method public onShrunken(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V
-    .locals 0
+    .registers 2
     .param p1, "extendedFab"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
     .line 187

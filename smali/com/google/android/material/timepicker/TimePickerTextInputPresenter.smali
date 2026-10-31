@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/LinearLayout;Lcom/google/android/material/timepicker/TimeModel;)V
-    .locals 8
+    .registers 11
     .param p1, "timePickerView"    # Landroid/widget/LinearLayout;
     .param p2, "time"    # Lcom/google/android/material/timepicker/TimeModel;
 
@@ -157,13 +157,13 @@
     .line 111
     iget v3, p2, Lcom/google/android/material/timepicker/TimeModel;->format:I
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_74
 
     .line 112
     invoke-direct {p0}, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->setupPeriodToggle()V
 
     .line 115
-    :cond_0
+    :cond_74
     new-instance v3, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter$3;
 
     invoke-direct {v3, p0}, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter$3;-><init>(Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;)V
@@ -279,7 +279,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;)Lcom/google/android/material/timepicker/TimeModel;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;
 
     .line 53
@@ -289,7 +289,7 @@
 .end method
 
 .method private addTextWatchers()V
-    .locals 2
+    .registers 3
 
     .line 174
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->hourEditText:Landroid/widget/EditText;
@@ -310,7 +310,7 @@
 .end method
 
 .method private removeTextWatchers()V
-    .locals 2
+    .registers 3
 
     .line 179
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->hourEditText:Landroid/widget/EditText;
@@ -331,7 +331,7 @@
 .end method
 
 .method private static setCursorDrawableColor(Landroid/widget/EditText;I)V
-    .locals 11
+    .registers 13
     .param p0, "view"    # Landroid/widget/EditText;
     .param p1, "color"    # I
 
@@ -426,8 +426,8 @@
     .line 270
     .local v2, "drawables":[Landroid/graphics/drawable/Drawable;
     invoke-virtual {v7, v5, v2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_45
+    .catchall {:try_start_0 .. :try_end_45} :catchall_46
 
     .line 273
     .end local v0    # "context":Landroid/content/Context;
@@ -439,19 +439,19 @@
     .end local v6    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v7    # "cursorDrawableField":Ljava/lang/reflect/Field;
     .end local v8    # "drawable":Landroid/graphics/drawable/Drawable;
-    goto :goto_0
+    goto :goto_47
 
     .line 271
-    :catchall_0
+    :catchall_46
     move-exception v0
 
     .line 274
-    :goto_0
+    :goto_47
     return-void
 .end method
 
 .method private setTime(Lcom/google/android/material/timepicker/TimeModel;)V
-    .locals 6
+    .registers 8
     .param p1, "time"    # Lcom/google/android/material/timepicker/TimeModel;
 
     .line 184
@@ -532,7 +532,7 @@
 .end method
 
 .method private setupPeriodToggle()V
-    .locals 2
+    .registers 3
 
     .line 195
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->timePickerView:Landroid/widget/LinearLayout;
@@ -571,18 +571,18 @@
 .end method
 
 .method private updateSelection()V
-    .locals 2
+    .registers 3
 
     .line 211
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->toggle:Lcom/google/android/material/button/MaterialButtonToggleGroup;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 212
     return-void
 
     .line 215
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->toggle:Lcom/google/android/material/button/MaterialButtonToggleGroup;
 
     .line 216
@@ -590,19 +590,19 @@
 
     iget v1, v1, Lcom/google/android/material/timepicker/TimeModel;->period:I
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_10
 
     .line 217
     sget v1, Lcom/google/android/material/R$id;->material_clock_period_am_button:I
 
-    goto :goto_0
+    goto :goto_12
 
     .line 218
-    :cond_1
+    :cond_10
     sget v1, Lcom/google/android/material/R$id;->material_clock_period_pm_button:I
 
     .line 215
-    :goto_0
+    :goto_12
     invoke-virtual {v0, v1}, Lcom/google/android/material/button/MaterialButtonToggleGroup;->check(I)V
 
     .line 219
@@ -612,7 +612,7 @@
 
 # virtual methods
 .method public clearCheck()V
-    .locals 2
+    .registers 3
 
     .line 282
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->minuteTextInput:Lcom/google/android/material/timepicker/ChipTextInputComboView;
@@ -631,7 +631,7 @@
 .end method
 
 .method public hide()V
-    .locals 3
+    .registers 4
 
     .line 237
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->timePickerView:Landroid/widget/LinearLayout;
@@ -642,13 +642,13 @@
 
     .line 238
     .local v0, "currentFocus":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 239
     invoke-static {v0}, Lcom/google/android/material/internal/ViewUtils;->hideKeyboard(Landroid/view/View;)V
 
     .line 242
-    :cond_0
+    :cond_b
     iget-object v1, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->timePickerView:Landroid/widget/LinearLayout;
 
     const/16 v2, 0x8
@@ -660,7 +660,7 @@
 .end method
 
 .method public initialize()V
-    .locals 1
+    .registers 2
 
     .line 168
     invoke-direct {p0}, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->addTextWatchers()V
@@ -680,7 +680,7 @@
 .end method
 
 .method public invalidate()V
-    .locals 1
+    .registers 2
 
     .line 247
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->time:Lcom/google/android/material/timepicker/TimeModel;
@@ -692,33 +692,33 @@
 .end method
 
 .method synthetic lambda$setupPeriodToggle$0$com-google-android-material-timepicker-TimePickerTextInputPresenter(Lcom/google/android/material/button/MaterialButtonToggleGroup;IZ)V
-    .locals 2
+    .registers 6
     .param p1, "group"    # Lcom/google/android/material/button/MaterialButtonToggleGroup;
     .param p2, "checkedId"    # I
     .param p3, "isChecked"    # Z
 
     .line 198
-    if-nez p3, :cond_0
+    if-nez p3, :cond_3
 
     .line 199
     return-void
 
     .line 202
-    :cond_0
+    :cond_3
     sget v0, Lcom/google/android/material/R$id;->material_clock_period_pm_button:I
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_1
+    :cond_9
     const/4 v0, 0x0
 
     .line 203
     .local v0, "period":I
-    :goto_0
+    :goto_a
     iget-object v1, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->time:Lcom/google/android/material/timepicker/TimeModel;
 
     invoke-virtual {v1, v0}, Lcom/google/android/material/timepicker/TimeModel;->setPeriod(I)V
@@ -728,7 +728,7 @@
 .end method
 
 .method public onSelectionChanged(I)V
-    .locals 4
+    .registers 6
     .param p1, "selection"    # I
 
     .line 223
@@ -745,16 +745,16 @@
 
     const/4 v3, 0x0
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     invoke-virtual {v0, v1}, Lcom/google/android/material/timepicker/ChipTextInputComboView;->setChecked(Z)V
 
     .line 225
@@ -762,14 +762,14 @@
 
     const/16 v1, 0xa
 
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_19
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_1a
     invoke-virtual {v0, v2}, Lcom/google/android/material/timepicker/ChipTextInputComboView;->setChecked(Z)V
 
     .line 226
@@ -780,7 +780,7 @@
 .end method
 
 .method public resetChecked()V
-    .locals 5
+    .registers 6
 
     .line 277
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->minuteTextInput:Lcom/google/android/material/timepicker/ChipTextInputComboView;
@@ -795,16 +795,16 @@
 
     const/4 v4, 0x0
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     invoke-virtual {v0, v1}, Lcom/google/android/material/timepicker/ChipTextInputComboView;->setChecked(Z)V
 
     .line 278
@@ -816,14 +816,14 @@
 
     const/16 v2, 0xa
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1d
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_1e
     invoke-virtual {v0, v3}, Lcom/google/android/material/timepicker/ChipTextInputComboView;->setChecked(Z)V
 
     .line 279
@@ -831,7 +831,7 @@
 .end method
 
 .method public show()V
-    .locals 2
+    .registers 3
 
     .line 231
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;->timePickerView:Landroid/widget/LinearLayout;

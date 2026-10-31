@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/Fade;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/transition/Fade;
 
     .line 136
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 139

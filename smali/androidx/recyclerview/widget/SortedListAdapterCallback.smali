@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public onChanged(II)V
-    .locals 1
+    .registers 4
     .param p1, "position"    # I
     .param p2, "count"    # I
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public onChanged(IILjava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "position"    # I
     .param p2, "count"    # I
     .param p3, "payload"    # Ljava/lang/Object;
@@ -83,7 +83,7 @@
 .end method
 
 .method public onInserted(II)V
-    .locals 1
+    .registers 4
     .param p1, "position"    # I
     .param p2, "count"    # I
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public onMoved(II)V
-    .locals 1
+    .registers 4
     .param p1, "fromPosition"    # I
     .param p2, "toPosition"    # I
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public onRemoved(II)V
-    .locals 1
+    .registers 4
     .param p1, "position"    # I
     .param p2, "count"    # I
 

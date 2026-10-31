@@ -81,7 +81,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$SegDtREqoh-91E7UL711kAXYCco(Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->looper$lambda$4$lambda$3(Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$V01JTX5E3FJcdBqO8cvP_BtHGuU(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;Ljava/lang/String;Lkotlinx/coroutines/channels/Channel;)Lkotlin/Unit;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->looper$lambda$4(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;Ljava/lang/String;Lkotlinx/coroutines/channels/Channel;)Lkotlin/Unit;
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$b6ac6IGpDLec-_MvVI8-N9yUNIE(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;Ljava/lang/String;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->looper$lambda$2(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;Ljava/lang/String;)Lkotlin/Unit;
 
@@ -111,7 +111,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$tc4OL61_kaYFSkxS33kGPEn0Kvg(Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->looper$lambda$2$lambda$1(Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
 
@@ -121,7 +121,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/bg/GuardedProcessPool;Ljava/util/List;Ljava/util/Map;)V
-    .locals 1
+    .registers 5
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/bg/GuardedProcessPool;
     .param p2, "cmd"    # Ljava/util/List;
     .param p3, "env"    # Ljava/util/Map;
@@ -162,12 +162,12 @@
 .end method
 
 .method public synthetic constructor <init>(Lio/nekohasekai/sagernet/bg/GuardedProcessPool;Ljava/util/List;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 28
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_8
 
     .line 30
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
@@ -175,7 +175,7 @@
     move-result-object p3
 
     .line 28
-    :cond_0
+    :cond_8
     invoke-direct {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;-><init>(Lio/nekohasekai/sagernet/bg/GuardedProcessPool;Ljava/util/List;Ljava/util/Map;)V
 
     .line 31
@@ -183,7 +183,7 @@
 .end method
 
 .method public static final synthetic access$getProcess$p(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;)Ljava/lang/Process;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
 
     .line 28
@@ -193,14 +193,14 @@
 .end method
 
 .method private static final looper$lambda$2(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;Ljava/lang/String;)Lkotlin/Unit;
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
     .param p1, "$cmdName"    # Ljava/lang/String;
 
     .line 53
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->process:Ljava/lang/Process;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const-string v0, "process"
 
@@ -208,7 +208,7 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Ljava/lang/Process;->getErrorStream()Ljava/io/InputStream;
 
     move-result-object v0
@@ -230,7 +230,7 @@
 .end method
 
 .method private static final looper$lambda$2$lambda$1(Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
-    .locals 2
+    .registers 4
     .param p0, "$cmdName"    # Ljava/lang/String;
     .param p1, "it"    # Ljava/lang/String;
 
@@ -275,7 +275,7 @@
 .end method
 
 .method private static final looper$lambda$4(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;Ljava/lang/String;Lkotlinx/coroutines/channels/Channel;)Lkotlin/Unit;
-    .locals 3
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
     .param p1, "$cmdName"    # Ljava/lang/String;
     .param p2, "$exitChannel"    # Lkotlinx/coroutines/channels/Channel;
@@ -285,7 +285,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const-string v0, "process"
 
@@ -293,7 +293,7 @@
 
     move-object v0, v1
 
-    :cond_0
+    :cond_b
     invoke-virtual {v0}, Ljava/lang/Process;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v0
@@ -326,7 +326,7 @@
 .end method
 
 .method private static final looper$lambda$4$lambda$3(Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
-    .locals 2
+    .registers 4
     .param p0, "$cmdName"    # Ljava/lang/String;
     .param p1, "it"    # Ljava/lang/String;
 
@@ -371,7 +371,7 @@
 .end method
 
 .method private final streamLogger(Ljava/io/InputStream;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 6
     .param p1, "input"    # Ljava/io/InputStream;
     .param p2, "logger"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -390,7 +390,7 @@
     nop
 
     .line 35
-    :try_start_0
+    :try_start_1
     sget-object v0, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
     new-instance v1, Ljava/io/InputStreamReader;
@@ -401,13 +401,13 @@
 
     instance-of v0, v1, Ljava/io/BufferedReader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     check-cast v1, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/io/BufferedReader;
 
     const/16 v2, 0x2000
@@ -416,28 +416,28 @@
 
     move-object v1, v0
 
-    :goto_0
+    :goto_19
     check-cast v1, Ljava/io/Reader;
 
     invoke-static {v1, p2}, Lkotlin/io/TextStreamsKt;->forEachLine(Ljava/io/Reader;Lkotlin/jvm/functions/Function1;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1e} :catch_1f
 
-    goto :goto_1
+    goto :goto_20
 
     .line 36
-    :catch_0
+    :catch_1f
     move-exception v0
 
     .line 37
-    :goto_1
+    :goto_20
     return-void
 .end method
 
 
 # virtual methods
 .method public final looper(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 24
+    .registers 27
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -462,7 +462,7 @@
 
     instance-of v0, v1, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     move-object v0, v1
 
@@ -474,7 +474,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$1;->label:I
 
@@ -484,16 +484,16 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$1;
 
     move-object/from16 v2, p0
 
     invoke-direct {v0, v2, v1}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$1;-><init>(Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_1f
     move-object v3, v0
 
     .local v3, "$continuation":Lkotlin/coroutines/Continuation;
@@ -509,7 +509,7 @@
 
     const/4 v6, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2a8
 
     .end local v3    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v4    # "$result":Ljava/lang/Object;
@@ -523,21 +523,21 @@
 
     .restart local v3    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v4    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_34
     iget-object v0, v3, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$1;->L$0:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/Throwable;
 
     invoke-static {v4}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_2a5
 
-    :pswitch_1
+    :pswitch_3d
     invoke-static {v4}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_6
+    goto/16 :goto_280
 
-    :pswitch_2
+    :pswitch_42
     iget v7, v3, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$1;->I$0:I
 
     .local v7, "running":Z
@@ -563,11 +563,11 @@
     check-cast v10, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
 
     .local v10, "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :try_start_0
+    :try_start_55
     invoke-static {v4}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_58
+    .catch Ljava/io/IOException; {:try_start_55 .. :try_end_58} :catch_62
+    .catchall {:try_start_55 .. :try_end_58} :catchall_5f
 
     move-object v11, v10
 
@@ -579,27 +579,27 @@
 
     move-object v9, v0
 
-    goto/16 :goto_4
+    goto/16 :goto_1c2
 
     .line 80
     .end local v0    # "cmdName":Ljava/lang/String;
     .end local v9    # "onRestartCallback":Lkotlin/jvm/functions/Function1;
-    :catchall_0
+    :catchall_5f
     move-exception v0
 
-    goto/16 :goto_7
+    goto/16 :goto_285
 
     .line 76
-    :catch_0
+    :catch_62
     move-exception v0
 
-    goto/16 :goto_5
+    goto/16 :goto_21a
 
     .line 45
     .end local v7    # "running":Z
     .end local v8    # "exitChannel":Lkotlinx/coroutines/channels/Channel;
     .end local v10    # "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :pswitch_3
+    :pswitch_65
     iget-wide v7, v3, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$1;->J$0:J
 
     .local v7, "startTime":J
@@ -628,11 +628,11 @@
     check-cast v12, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
 
     .local v12, "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :try_start_1
+    :try_start_7a
     invoke-static {v4}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_7d
+    .catch Ljava/io/IOException; {:try_start_7a .. :try_end_7d} :catch_8b
+    .catchall {:try_start_7a .. :try_end_7d} :catchall_85
 
     move-object v14, v12
 
@@ -646,13 +646,13 @@
 
     move-object v5, v4
 
-    goto/16 :goto_2
+    goto/16 :goto_11d
 
     .line 80
     .end local v0    # "cmdName":Ljava/lang/String;
     .end local v7    # "startTime":J
     .end local v11    # "onRestartCallback":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_85
     move-exception v0
 
     move v7, v9
@@ -661,10 +661,10 @@
 
     move-object v10, v12
 
-    goto/16 :goto_7
+    goto/16 :goto_285
 
     .line 76
-    :catch_1
+    :catch_8b
     move-exception v0
 
     move v7, v9
@@ -673,13 +673,13 @@
 
     move-object v10, v12
 
-    goto/16 :goto_5
+    goto/16 :goto_21a
 
     .line 45
     .end local v9    # "running":Z
     .end local v10    # "exitChannel":Lkotlinx/coroutines/channels/Channel;
     .end local v12    # "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :pswitch_4
+    :pswitch_91
     invoke-static {v4}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v0, p0
@@ -728,11 +728,11 @@
     .end local p2    # "$completion":Lkotlin/coroutines/Continuation;
     .local v1, "$completion":Lkotlin/coroutines/Continuation;
     .local v11, "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :goto_1
+    :goto_b1
     nop
 
     .line 52
-    :try_start_2
+    :try_start_b2
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -836,17 +836,17 @@
     invoke-interface {v10, v3}, Lkotlinx/coroutines/channels/Channel;->receive(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_4
-    .catchall {:try_start_2 .. :try_end_2} :catchall_4
+    :try_end_115
+    .catch Ljava/io/IOException; {:try_start_b2 .. :try_end_115} :catch_216
+    .catchall {:try_start_b2 .. :try_end_115} :catchall_211
 
-    if-ne v0, v5, :cond_1
+    if-ne v0, v5, :cond_118
 
     .line 45
     return-object v5
 
     .line 61
-    :cond_1
+    :cond_118
     move-object v14, v11
 
     move-object v11, v7
@@ -862,16 +862,16 @@
     .local v5, "$result":Ljava/lang/Object;
     .local v11, "onRestartCallback":Lkotlin/jvm/functions/Function1;
     .local v14, "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :goto_2
-    :try_start_3
+    :goto_11d
+    :try_start_11d
     check-cast v4, Ljava/lang/Number;
 
     invoke-virtual {v4}, Ljava/lang/Number;->intValue()I
 
     move-result v0
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+    :try_end_123
+    .catch Ljava/io/IOException; {:try_start_11d .. :try_end_123} :catch_20a
+    .catchall {:try_start_11d .. :try_end_123} :catchall_202
 
     .line 62
     .local v0, "exitCode":I
@@ -883,7 +883,7 @@
     nop
 
     .line 64
-    :try_start_4
+    :try_start_125
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v15
@@ -896,7 +896,7 @@
 
     cmp-long v19, v15, v17
 
-    if-ltz v19, :cond_5
+    if-ltz v19, :cond_1cc
 
     .line 68
     .end local v12    # "startTime":J
@@ -904,7 +904,7 @@
 
     add-int/lit16 v12, v12, 0x80
 
-    if-ne v0, v12, :cond_2
+    if-ne v0, v12, :cond_151
 
     sget-object v12, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
@@ -928,10 +928,10 @@
 
     invoke-virtual {v12, v13}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_174
 
     .line 69
-    :cond_2
+    :cond_151
     sget-object v12, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v13, Ljava/io/IOException;
@@ -965,7 +965,7 @@
     invoke-virtual {v12, v13}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/Throwable;)V
 
     .line 71
-    :goto_3
+    :goto_174
     sget-object v6, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -1015,9 +1015,9 @@
     .line 72
     .end local v0    # "exitCode":I
     invoke-virtual {v14}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;->start()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_1a7
+    .catch Ljava/io/IOException; {:try_start_125 .. :try_end_1a7} :catch_1f8
+    .catchall {:try_start_125 .. :try_end_1a7} :catchall_1ed
 
     .line 73
     const/4 v8, 0x1
@@ -1025,9 +1025,9 @@
     .line 74
     .end local v4    # "running":Z
     .restart local v8    # "running":Z
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_1c5
 
-    :try_start_5
+    :try_start_1aa
     iput-object v14, v3, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$1;->L$0:Ljava/lang/Object;
 
     iput-object v11, v3, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard$looper$1;->L$1:Ljava/lang/Object;
@@ -1045,17 +1045,17 @@
     invoke-interface {v11, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_1bb
+    .catch Ljava/io/IOException; {:try_start_1aa .. :try_end_1bb} :catch_20a
+    .catchall {:try_start_1aa .. :try_end_1bb} :catchall_202
 
-    if-ne v0, v7, :cond_3
+    if-ne v0, v7, :cond_1be
 
     .line 45
     return-object v7
 
     .line 74
-    :cond_3
+    :cond_1be
     move-object v4, v5
 
     move-object v5, v7
@@ -1069,17 +1069,17 @@
     .local v4, "$result":Ljava/lang/Object;
     .restart local v7    # "onRestartCallback":Lkotlin/jvm/functions/Function1;
     .local v11, "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :goto_4
+    :goto_1c2
     const/4 v6, 0x0
 
-    goto/16 :goto_1
+    goto/16 :goto_b1
 
     .end local v4    # "$result":Ljava/lang/Object;
     .end local v7    # "onRestartCallback":Lkotlin/jvm/functions/Function1;
     .restart local v5    # "$result":Ljava/lang/Object;
     .local v11, "onRestartCallback":Lkotlin/jvm/functions/Function1;
     .restart local v14    # "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :cond_4
+    :cond_1c5
     move-object v4, v5
 
     move-object v5, v7
@@ -1090,15 +1090,15 @@
 
     const/4 v6, 0x0
 
-    goto/16 :goto_1
+    goto/16 :goto_b1
 
     .line 64
     .end local v8    # "running":Z
     .restart local v0    # "exitCode":I
     .local v4, "running":Z
     .restart local v12    # "startTime":J
-    :cond_5
-    :try_start_6
+    :cond_1cc
+    :try_start_1cc
     new-instance v6, Ljava/io/IOException;
 
     .line 65
@@ -1142,9 +1142,9 @@
     .end local v10    # "exitChannel":Lkotlinx/coroutines/channels/Channel;
     .end local v14    # "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
     throw v6
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
-    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+    :try_end_1ed
+    .catch Ljava/io/IOException; {:try_start_1cc .. :try_end_1ed} :catch_1f8
+    .catchall {:try_start_1cc .. :try_end_1ed} :catchall_1ed
 
     .line 80
     .restart local v1    # "$completion":Lkotlin/coroutines/Continuation;
@@ -1153,7 +1153,7 @@
     .restart local v5    # "$result":Ljava/lang/Object;
     .restart local v10    # "exitChannel":Lkotlinx/coroutines/channels/Channel;
     .restart local v14    # "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :catchall_2
+    :catchall_1ed
     move-exception v0
 
     move-object v8, v10
@@ -1168,10 +1168,10 @@
 
     move-object/from16 v5, v23
 
-    goto/16 :goto_7
+    goto/16 :goto_285
 
     .line 76
-    :catch_2
+    :catch_1f8
     move-exception v0
 
     move-object v8, v10
@@ -1186,12 +1186,12 @@
 
     move-object/from16 v5, v23
 
-    goto :goto_5
+    goto :goto_21a
 
     .line 80
     .end local v4    # "running":Z
     .restart local v8    # "running":Z
-    :catchall_3
+    :catchall_202
     move-exception v0
 
     move-object v4, v5
@@ -1204,10 +1204,10 @@
 
     move-object v10, v14
 
-    goto/16 :goto_7
+    goto/16 :goto_285
 
     .line 76
-    :catch_3
+    :catch_20a
     move-exception v0
 
     move-object v4, v5
@@ -1220,14 +1220,14 @@
 
     move-object v10, v14
 
-    goto :goto_5
+    goto :goto_21a
 
     .line 80
     .end local v5    # "$result":Ljava/lang/Object;
     .end local v14    # "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
     .local v4, "$result":Ljava/lang/Object;
     .local v11, "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :catchall_4
+    :catchall_211
     move-exception v0
 
     move v7, v8
@@ -1236,10 +1236,10 @@
 
     move-object v10, v11
 
-    goto :goto_7
+    goto :goto_285
 
     .line 76
-    :catch_4
+    :catch_216
     move-exception v0
 
     move v7, v8
@@ -1254,8 +1254,8 @@
     .local v7, "running":Z
     .local v8, "exitChannel":Lkotlinx/coroutines/channels/Channel;
     .local v10, "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :goto_5
-    :try_start_7
+    :goto_21a
+    :try_start_21a
     sget-object v6, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1322,14 +1322,14 @@
     const/16 v19, 0x0
 
     invoke-static/range {v17 .. v22}, Lkotlinx/coroutines/BuildersKt;->launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_5
+    :try_end_25f
+    .catchall {:try_start_21a .. :try_end_25f} :catchall_284
 
     .line 80
     nop
 
     .end local v0    # "e":Ljava/io/IOException;
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_281
 
     sget-object v0, Lkotlinx/coroutines/NonCancellable;->INSTANCE:Lkotlinx/coroutines/NonCancellable;
 
@@ -1362,18 +1362,18 @@
     .end local v7    # "running":Z
     .end local v8    # "exitChannel":Lkotlinx/coroutines/channels/Channel;
     .end local v10    # "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    if-ne v0, v5, :cond_6
+    if-ne v0, v5, :cond_280
 
     .line 45
     return-object v5
 
     .line 98
-    :cond_6
-    :goto_6
+    :cond_280
+    :goto_280
     nop
 
     .line 99
-    :cond_7
+    :cond_281
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
@@ -1382,11 +1382,11 @@
     .restart local v7    # "running":Z
     .restart local v8    # "exitChannel":Lkotlinx/coroutines/channels/Channel;
     .restart local v10    # "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    :catchall_5
+    :catchall_284
     move-exception v0
 
-    :goto_7
-    if-eqz v7, :cond_9
+    :goto_285
+    if-eqz v7, :cond_2a6
 
     sget-object v6, Lkotlinx/coroutines/NonCancellable;->INSTANCE:Lkotlinx/coroutines/NonCancellable;
 
@@ -1419,33 +1419,33 @@
     .end local v7    # "running":Z
     .end local v8    # "exitChannel":Lkotlinx/coroutines/channels/Channel;
     .end local v10    # "this":Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Guard;
-    if-ne v6, v5, :cond_8
+    if-ne v6, v5, :cond_2a5
 
     .line 45
     return-object v5
 
     .line 99
-    :cond_8
-    :goto_8
+    :cond_2a5
+    :goto_2a5
     nop
 
-    :cond_9
+    :cond_2a6
     throw v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2a8
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_91
+        :pswitch_65
+        :pswitch_42
+        :pswitch_3d
+        :pswitch_34
     .end packed-switch
 .end method
 
 .method public final start()V
-    .locals 5
+    .registers 6
 
     .line 40
     new-instance v0, Ljava/lang/ProcessBuilder;

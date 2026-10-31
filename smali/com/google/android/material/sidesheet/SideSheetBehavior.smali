@@ -120,7 +120,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 66
     sget v0, Lcom/google/android/material/R$string;->side_sheet_accessibility_pane_title:I
@@ -136,7 +136,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 119
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -191,7 +191,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -258,7 +258,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3e
 
     .line 126
     sget v3, Lcom/google/android/material/R$styleable;->SideSheetBehavior_Layout_backgroundTint:I
@@ -271,14 +271,14 @@
     iput-object v3, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->backgroundTint:Landroid/content/res/ColorStateList;
 
     .line 130
-    :cond_0
+    :cond_3e
     sget v3, Lcom/google/android/material/R$styleable;->SideSheetBehavior_Layout_shapeAppearance:I
 
     invoke-virtual {v2, v3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_53
 
     .line 131
     sget v3, Lcom/google/android/material/sidesheet/SideSheetBehavior;->DEF_STYLE_RES:I
@@ -297,14 +297,14 @@
     iput-object v3, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 134
-    :cond_1
+    :cond_53
     sget v3, Lcom/google/android/material/R$styleable;->SideSheetBehavior_Layout_coplanarSiblingViewId:I
 
     invoke-virtual {v2, v3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_64
 
     .line 135
     sget v3, Lcom/google/android/material/R$styleable;->SideSheetBehavior_Layout_coplanarSiblingViewId:I
@@ -318,7 +318,7 @@
     invoke-virtual {p0, v1}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->setCoplanarSiblingViewId(I)V
 
     .line 138
-    :cond_2
+    :cond_64
     invoke-direct {p0, p1}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->createMaterialShapeDrawableIfNeeded(Landroid/content/Context;)V
 
     .line 140
@@ -371,7 +371,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/sidesheet/SideSheetBehavior;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
     .line 63
@@ -381,7 +381,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/sidesheet/SideSheetBehavior;)Ljava/lang/ref/WeakReference;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
     .line 63
@@ -391,7 +391,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/sidesheet/SideSheetBehavior;)Lcom/google/android/material/sidesheet/SheetDelegate;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
     .line 63
@@ -401,7 +401,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/sidesheet/SideSheetBehavior;Landroid/view/View;I)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Lcom/google/android/material/sidesheet/SideSheetBehavior;
     .param p1, "x1"    # Landroid/view/View;
     .param p2, "x2"    # I
@@ -413,7 +413,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/android/material/sidesheet/SideSheetBehavior;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
     .line 63
@@ -423,7 +423,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/android/material/sidesheet/SideSheetBehavior;Landroid/view/View;IZ)V
-    .locals 0
+    .registers 4
     .param p0, "x0"    # Lcom/google/android/material/sidesheet/SideSheetBehavior;
     .param p1, "x1"    # Landroid/view/View;
     .param p2, "x2"    # I
@@ -436,7 +436,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/android/material/sidesheet/SideSheetBehavior;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
     .line 63
@@ -446,7 +446,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/android/material/sidesheet/SideSheetBehavior;)Landroidx/customview/widget/ViewDragHelper;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
     .line 63
@@ -456,7 +456,7 @@
 .end method
 
 .method private calculateCurrentOffset(ILandroid/view/View;)I
-    .locals 3
+    .registers 6
     .param p1, "savedOutwardEdge"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -469,10 +469,10 @@
     .local p2, "child":Landroid/view/View;, "TV;"
     iget v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->state:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_34
 
     .line 377
-    :pswitch_0
+    :pswitch_5
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -500,7 +500,7 @@
     throw v0
 
     .line 374
-    :pswitch_1
+    :pswitch_20
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->sheetDelegate:Lcom/google/android/material/sidesheet/SheetDelegate;
 
     invoke-virtual {v0}, Lcom/google/android/material/sidesheet/SheetDelegate;->getHiddenOffset()I
@@ -509,20 +509,20 @@
 
     .line 375
     .local v0, "currentOffset":I
-    goto :goto_0
+    goto :goto_32
 
     .line 367
     .end local v0    # "currentOffset":I
-    :pswitch_2
+    :pswitch_27
     const/4 v0, 0x0
 
     .line 368
     .restart local v0    # "currentOffset":I
-    goto :goto_0
+    goto :goto_32
 
     .line 371
     .end local v0    # "currentOffset":I
-    :pswitch_3
+    :pswitch_29
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->sheetDelegate:Lcom/google/android/material/sidesheet/SheetDelegate;
 
     invoke-virtual {v0, p2}, Lcom/google/android/material/sidesheet/SheetDelegate;->getOutwardEdge(Landroid/view/View;)I
@@ -536,23 +536,23 @@
     nop
 
     .line 379
-    :goto_0
+    :goto_32
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_34
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_29
+        :pswitch_29
+        :pswitch_27
+        :pswitch_5
+        :pswitch_20
     .end packed-switch
 .end method
 
 .method private calculateDragDistance(FF)F
-    .locals 1
+    .registers 4
     .param p1, "initialPoint"    # F
     .param p2, "currentPoint"    # F
 
@@ -568,13 +568,13 @@
 .end method
 
 .method private clearCoplanarSiblingView()V
-    .locals 1
+    .registers 2
 
     .line 804
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->coplanarSiblingViewRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 805
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->coplanarSiblingViewRef:Ljava/lang/ref/WeakReference;
@@ -582,7 +582,7 @@
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->clear()V
 
     .line 807
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->coplanarSiblingViewRef:Ljava/lang/ref/WeakReference;
@@ -592,7 +592,7 @@
 .end method
 
 .method private createAccessibilityViewCommandForState(I)Landroidx/core/view/accessibility/AccessibilityViewCommand;
-    .locals 1
+    .registers 3
     .param p1, "state"    # I
 
     .line 955
@@ -605,20 +605,20 @@
 .end method
 
 .method private createMaterialShapeDrawableIfNeeded(Landroid/content/Context;)V
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     .line 634
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 635
     return-void
 
     .line 638
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -635,7 +635,7 @@
     .line 641
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->backgroundTint:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 642
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->materialShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -644,10 +644,10 @@
 
     invoke-virtual {v0, v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setFillColor(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 645
-    :cond_1
+    :cond_1f
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
@@ -673,12 +673,12 @@
 
     .line 649
     .end local v0    # "defaultColor":Landroid/util/TypedValue;
-    :goto_0
+    :goto_36
     return-void
 .end method
 
 .method private dispatchOnSlide(Landroid/view/View;I)V
-    .locals 3
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
     .param p2, "outwardEdge"    # I
 
@@ -690,7 +690,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_24
 
     .line 746
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->sheetDelegate:Lcom/google/android/material/sidesheet/SheetDelegate;
@@ -707,12 +707,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_24
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -726,16 +726,16 @@
 
     .line 749
     .end local v2    # "callback":Lcom/google/android/material/sidesheet/SheetCallback;
-    goto :goto_0
+    goto :goto_14
 
     .line 751
     .end local v0    # "slideOffset":F
-    :cond_0
+    :cond_24
     return-void
 .end method
 
 .method private ensureAccessibilityPaneTitleIsSet(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "sheet"    # Landroid/view/View;
 
     .line 339
@@ -744,7 +744,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 340
     nop
@@ -764,12 +764,12 @@
     invoke-static {p1, v0}, Landroidx/core/view/ViewCompat;->setAccessibilityPaneTitle(Landroid/view/View;Ljava/lang/CharSequence;)V
 
     .line 343
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static from(Landroid/view/View;)Lcom/google/android/material/sidesheet/SideSheetBehavior;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -790,7 +790,7 @@
     .local v0, "params":Landroid/view/ViewGroup$LayoutParams;
     instance-of v1, v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     .line 919
     move-object v1, v0
@@ -805,7 +805,7 @@
     .local v1, "behavior":Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;, "Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior<*>;"
     instance-of v2, v1, Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     .line 923
     move-object v2, v1
@@ -815,7 +815,7 @@
     return-object v2
 
     .line 921
-    :cond_0
+    :cond_17
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "The view is not associated with SideSheetBehavior"
@@ -826,7 +826,7 @@
 
     .line 917
     .end local v1    # "behavior":Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;, "Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior<*>;"
-    :cond_1
+    :cond_1f
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "The view is not a child of CoordinatorLayout"
@@ -837,7 +837,7 @@
 .end method
 
 .method private getChildMeasureSpec(IIII)I
-    .locals 5
+    .registers 10
     .param p1, "parentMeasureSpec"    # I
     .param p2, "padding"    # I
     .param p3, "maxSize"    # I
@@ -853,13 +853,13 @@
     .local v0, "result":I
     const/4 v1, -0x1
 
-    if-ne p3, v1, :cond_0
+    if-ne p3, v1, :cond_8
 
     .line 257
     return v0
 
     .line 259
-    :cond_0
+    :cond_8
     invoke-static {v0}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v1
@@ -872,17 +872,17 @@
 
     .line 261
     .local v2, "size":I
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_2e
 
     .line 268
-    if-nez v2, :cond_1
+    if-nez v2, :cond_22
 
     move v3, p3
 
-    goto :goto_0
+    goto :goto_26
 
     .line 263
-    :pswitch_0
+    :pswitch_17
     invoke-static {v2, p3}, Ljava/lang/Math;->min(II)I
 
     move-result v3
@@ -896,13 +896,13 @@
     return v3
 
     .line 268
-    :cond_1
+    :cond_22
     invoke-static {v2, p3}, Ljava/lang/Math;->min(II)I
 
     move-result v3
 
     .line 267
-    :goto_0
+    :goto_26
     const/high16 v4, -0x80000000
 
     invoke-static {v3, v4}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
@@ -913,14 +913,14 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2e
     .packed-switch 0x40000000
-        :pswitch_0
+        :pswitch_17
     .end packed-switch
 .end method
 
 .method private getDefaultSheetEdge()I
-    .locals 1
+    .registers 2
 
     .line 166
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -930,7 +930,7 @@
 .end method
 
 .method private isDraggedFarEnough(Landroid/view/MotionEvent;)Z
-    .locals 3
+    .registers 5
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 457
@@ -941,13 +941,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 458
     return v1
 
     .line 460
-    :cond_0
+    :cond_8
     iget v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->initialX:I
 
     int-to-float v0, v0
@@ -972,16 +972,16 @@
 
     cmpl-float v2, v0, v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_1f
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_1f
     return v1
 .end method
 
 .method private isLayingOut(Landroid/view/View;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)Z"
@@ -997,46 +997,46 @@
 
     .line 574
     .local v0, "parent":Landroid/view/ViewParent;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-interface {v0}, Landroid/view/ViewParent;->isLayoutRequested()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_15
     return v1
 .end method
 
 .method private maybeAssignCoplanarSiblingViewBasedId(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)V
-    .locals 2
+    .registers 4
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
     .line 346
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->coplanarSiblingViewRef:Ljava/lang/ref/WeakReference;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     iget v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->coplanarSiblingViewId:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_18
 
     .line 347
     iget v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->coplanarSiblingViewId:I
@@ -1047,7 +1047,7 @@
 
     .line 348
     .local v0, "coplanarSiblingView":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 349
     new-instance v1, Ljava/lang/ref/WeakReference;
@@ -1058,12 +1058,12 @@
 
     .line 352
     .end local v0    # "coplanarSiblingView":Landroid/view/View;
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method private replaceAccessibilityActionForState(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;I)V
-    .locals 2
+    .registers 6
     .param p2, "action"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
     .param p3, "state"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1094,13 +1094,13 @@
 .end method
 
 .method private resetVelocity()V
-    .locals 1
+    .registers 2
 
     .line 617
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 618
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
@@ -1113,12 +1113,12 @@
     iput-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
     .line 621
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method private runAfterLayout(Landroid/view/View;Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 4
     .param p2, "runnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1135,31 +1135,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 566
     invoke-virtual {p1, p2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_0
+    goto :goto_d
 
     .line 568
-    :cond_0
+    :cond_a
     invoke-interface {p2}, Ljava/lang/Runnable;->run()V
 
     .line 570
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method private setSheetEdge(I)V
-    .locals 3
+    .registers 5
     .param p1, "sheetEdge"    # I
 
     .line 152
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->sheetDelegate:Lcom/google/android/material/sidesheet/SheetDelegate;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->sheetDelegate:Lcom/google/android/material/sidesheet/SheetDelegate;
 
@@ -1167,18 +1167,18 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_d
 
-    goto :goto_0
+    goto :goto_e
 
     .line 162
-    :cond_0
+    :cond_d
     return-void
 
     .line 154
-    :cond_1
-    :goto_0
-    if-nez p1, :cond_2
+    :cond_e
+    :goto_e
+    if-nez p1, :cond_18
 
     .line 155
     new-instance v0, Lcom/google/android/material/sidesheet/RightSheetDelegate;
@@ -1191,7 +1191,7 @@
     return-void
 
     .line 159
-    :cond_2
+    :cond_18
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1230,36 +1230,36 @@
 .end method
 
 .method private shouldHandleDraggingWithHelper()Z
-    .locals 2
+    .registers 3
 
     .line 630
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewDragHelper:Landroidx/customview/widget/ViewDragHelper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
     iget-boolean v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->draggable:Z
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     iget v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->state:I
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_e
 
-    :cond_0
-    goto :goto_0
+    :cond_d
+    goto :goto_f
 
-    :cond_1
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     return v1
 .end method
 
 .method private shouldInterceptTouchEvent(Landroid/view/View;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)Z"
@@ -1273,32 +1273,32 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->getAccessibilityPaneTitle(Landroid/view/View;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
-    :cond_0
+    :cond_c
     iget-boolean v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->draggable:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method private startSettling(Landroid/view/View;IZ)V
-    .locals 2
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
     .param p2, "state"    # I
     .param p3, "isReleasingView"    # Z
@@ -1313,7 +1313,7 @@
 
     .line 661
     .local v0, "settling":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 662
     const/4 v1, 0x2
@@ -1325,31 +1325,31 @@
 
     invoke-virtual {v1, p2}, Lcom/google/android/material/sidesheet/SideSheetBehavior$StateSettlingTracker;->continueSettlingToState(I)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 665
-    :cond_0
+    :cond_12
     invoke-virtual {p0, p2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->setStateInternal(I)V
 
     .line 667
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method private updateAccessibilityActions()V
-    .locals 3
+    .registers 4
 
     .line 927
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 928
     return-void
 
     .line 930
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -1360,13 +1360,13 @@
 
     .line 931
     .local v0, "child":Landroid/view/View;, "TV;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     .line 932
     return-void
 
     .line 934
-    :cond_1
+    :cond_10
     const/high16 v1, 0x40000
 
     invoke-static {v0, v1}, Landroidx/core/view/ViewCompat;->removeAccessibilityAction(Landroid/view/View;I)V
@@ -1381,7 +1381,7 @@
 
     const/4 v2, 0x5
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_24
 
     .line 938
     sget-object v1, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;->ACTION_DISMISS:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
@@ -1389,12 +1389,12 @@
     invoke-direct {p0, v0, v1, v2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->replaceAccessibilityActionForState(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;I)V
 
     .line 941
-    :cond_2
+    :cond_24
     iget v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->state:I
 
     const/4 v2, 0x3
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_2e
 
     .line 942
     sget-object v1, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;->ACTION_EXPAND:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
@@ -1402,12 +1402,12 @@
     invoke-direct {p0, v0, v1, v2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->replaceAccessibilityActionForState(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;I)V
 
     .line 945
-    :cond_3
+    :cond_2e
     return-void
 .end method
 
 .method private updateSheetVisibility(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "sheet"    # Landroid/view/View;
 
     .line 331
@@ -1416,36 +1416,36 @@
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x4
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     .line 332
     .local v0, "visibility":I
-    :goto_0
+    :goto_8
     invoke-virtual {p1}, Landroid/view/View;->getVisibility()I
 
     move-result v1
 
-    if-eq v1, v0, :cond_1
+    if-eq v1, v0, :cond_11
 
     .line 333
     invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 335
-    :cond_1
+    :cond_11
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic addCallback(Lcom/google/android/material/sidesheet/SheetCallback;)V
-    .locals 0
+    .registers 2
 
     .line 63
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1457,7 +1457,7 @@
 .end method
 
 .method public addCallback(Lcom/google/android/material/sidesheet/SideSheetCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Lcom/google/android/material/sidesheet/SideSheetCallback;
 
     .line 522
@@ -1471,7 +1471,7 @@
 .end method
 
 .method public expand()V
-    .locals 1
+    .registers 2
 
     .line 174
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1484,7 +1484,7 @@
 .end method
 
 .method getChildWidth()I
-    .locals 1
+    .registers 2
 
     .line 355
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1494,13 +1494,13 @@
 .end method
 
 .method public getCoplanarSiblingView()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 800
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->coplanarSiblingViewRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->coplanarSiblingViewRef:Ljava/lang/ref/WeakReference;
 
@@ -1510,17 +1510,17 @@
 
     check-cast v0, Landroid/view/View;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public getExpandedOffset()I
-    .locals 1
+    .registers 2
 
     .line 473
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1534,7 +1534,7 @@
 .end method
 
 .method public getHideFriction()F
-    .locals 1
+    .registers 2
 
     .line 508
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1544,7 +1544,7 @@
 .end method
 
 .method getHideThreshold()F
-    .locals 1
+    .registers 2
 
     .line 512
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1554,7 +1554,7 @@
 .end method
 
 .method public getLastStableState()I
-    .locals 1
+    .registers 2
 
     .line 829
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1564,15 +1564,15 @@
 .end method
 
 .method getOutwardEdgeOffsetForState(I)I
-    .locals 3
+    .registers 5
     .param p1, "state"    # I
 
     .line 670
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_28
 
     .line 676
-    :pswitch_0
+    :pswitch_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1598,7 +1598,7 @@
     throw v0
 
     .line 674
-    :pswitch_1
+    :pswitch_1c
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->sheetDelegate:Lcom/google/android/material/sidesheet/SheetDelegate;
 
     invoke-virtual {v0}, Lcom/google/android/material/sidesheet/SheetDelegate;->getHiddenOffset()I
@@ -1608,23 +1608,23 @@
     return v0
 
     .line 672
-    :pswitch_2
+    :pswitch_23
     invoke-virtual {p0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->getExpandedOffset()I
 
     move-result v0
 
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_23
+        :pswitch_3
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method getParentWidth()I
-    .locals 1
+    .registers 2
 
     .line 359
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1634,7 +1634,7 @@
 .end method
 
 .method getSignificantVelocityThreshold()I
-    .locals 1
+    .registers 2
 
     .line 422
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1644,7 +1644,7 @@
 .end method
 
 .method public getState()I
-    .locals 1
+    .registers 2
 
     .line 586
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1654,7 +1654,7 @@
 .end method
 
 .method getViewDragHelper()Landroidx/customview/widget/ViewDragHelper;
-    .locals 1
+    .registers 2
 
     .line 682
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1664,13 +1664,13 @@
 .end method
 
 .method getXVelocity()F
-    .locals 3
+    .registers 4
 
     .line 652
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 653
     const/4 v0, 0x0
@@ -1678,7 +1678,7 @@
     return v0
 
     .line 655
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
     const/16 v1, 0x3e8
@@ -1698,7 +1698,7 @@
 .end method
 
 .method public hide()V
-    .locals 1
+    .registers 2
 
     .line 182
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1711,7 +1711,7 @@
 .end method
 
 .method public isDraggable()Z
-    .locals 1
+    .registers 2
 
     .line 488
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1721,7 +1721,7 @@
 .end method
 
 .method synthetic lambda$createAccessibilityViewCommandForState$1$com-google-android-material-sidesheet-SideSheetBehavior(ILandroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
-    .locals 1
+    .registers 5
     .param p1, "state"    # I
     .param p2, "view"    # Landroid/view/View;
     .param p3, "arguments"    # Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;
@@ -1737,7 +1737,7 @@
 .end method
 
 .method synthetic lambda$setState$0$com-google-android-material-sidesheet-SideSheetBehavior(I)V
-    .locals 2
+    .registers 4
     .param p1, "finalState"    # I
 
     .line 556
@@ -1752,7 +1752,7 @@
 
     .line 557
     .local v0, "child":Landroid/view/View;, "TV;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 558
     const/4 v1, 0x0
@@ -1760,12 +1760,12 @@
     invoke-direct {p0, v0, p1, v1}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->startSettling(Landroid/view/View;IZ)V
 
     .line 560
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public onAttachedToLayoutParams(Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "layoutParams"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
     .line 205
@@ -1785,7 +1785,7 @@
 .end method
 
 .method public onDetachedFromLayoutParams()V
-    .locals 1
+    .registers 2
 
     .line 214
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -1804,7 +1804,7 @@
 .end method
 
 .method public onInterceptTouchEvent(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 4
+    .registers 8
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "event"    # Landroid/view/MotionEvent;
     .annotation system Ldalvik/annotation/Signature;
@@ -1828,7 +1828,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 386
     iput-boolean v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->ignoreEvents:Z
@@ -1837,23 +1837,23 @@
     return v2
 
     .line 389
-    :cond_0
+    :cond_b
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
     .line 391
     .local v0, "action":I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 392
     invoke-direct {p0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->resetVelocity()V
 
     .line 394
-    :cond_1
+    :cond_14
     iget-object v3, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_1e
 
     .line 395
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -1863,22 +1863,22 @@
     iput-object v3, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
     .line 397
-    :cond_2
+    :cond_1e
     iget-object v3, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v3, p3}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
     .line 398
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_4a
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_26
+    goto :goto_36
 
     .line 402
-    :pswitch_1
+    :pswitch_27
     iget-boolean v3, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->ignoreEvents:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_36
 
     .line 403
     iput-boolean v2, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->ignoreEvents:Z
@@ -1887,7 +1887,7 @@
     return v2
 
     .line 408
-    :pswitch_2
+    :pswitch_2e
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getX()F
 
     move-result v3
@@ -1900,15 +1900,15 @@
     nop
 
     .line 412
-    :cond_3
-    :goto_0
+    :cond_36
+    :goto_36
     iget-boolean v3, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->ignoreEvents:Z
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_47
 
     iget-object v3, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewDragHelper:Landroidx/customview/widget/ViewDragHelper;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_47
 
     iget-object v3, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewDragHelper:Landroidx/customview/widget/ViewDragHelper;
 
@@ -1917,30 +1917,30 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_47
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_4
+    :cond_47
     const/4 v1, 0x0
 
     .line 412
-    :goto_1
+    :goto_48
     return v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_2e
+        :pswitch_27
+        :pswitch_26
+        :pswitch_27
     .end packed-switch
 .end method
 
 .method public onLayoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z
-    .locals 6
+    .registers 10
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "layoutDirection"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1960,22 +1960,22 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-static {p2}, Landroidx/core/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 277
     invoke-virtual {p2, v1}, Landroid/view/View;->setFitsSystemWindows(Z)V
 
     .line 280
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_54
 
     .line 282
     new-instance v0, Ljava/lang/ref/WeakReference;
@@ -1987,7 +1987,7 @@
     .line 285
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->materialShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_39
 
     .line 286
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->materialShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -2004,28 +2004,28 @@
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_33
 
     invoke-static {p2}, Landroidx/core/view/ViewCompat;->getElevation(Landroid/view/View;)F
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_1
+    :cond_33
     iget v2, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->elevation:F
 
     .line 288
-    :goto_0
+    :goto_35
     invoke-virtual {v0, v2}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setElevation(F)V
 
-    goto :goto_1
+    goto :goto_42
 
     .line 290
-    :cond_2
+    :cond_39
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->backgroundTint:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_42
 
     .line 291
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->backgroundTint:Landroid/content/res/ColorStateList;
@@ -2033,8 +2033,8 @@
     invoke-static {p2, v0}, Landroidx/core/view/ViewCompat;->setBackgroundTintList(Landroid/view/View;Landroid/content/res/ColorStateList;)V
 
     .line 293
-    :cond_3
-    :goto_1
+    :cond_42
+    :goto_42
     invoke-direct {p0, p2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->updateSheetVisibility(Landroid/view/View;)V
 
     .line 295
@@ -2045,20 +2045,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_51
 
     .line 298
     invoke-static {p2, v1}, Landroidx/core/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
 
     .line 300
-    :cond_4
+    :cond_51
     invoke-direct {p0, p2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->ensureAccessibilityPaneTitleIsSet(Landroid/view/View;)V
 
     .line 302
-    :cond_5
+    :cond_54
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewDragHelper:Landroidx/customview/widget/ViewDragHelper;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_60
 
     .line 303
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->dragCallback:Landroidx/customview/widget/ViewDragHelper$Callback;
@@ -2070,7 +2070,7 @@
     iput-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewDragHelper:Landroidx/customview/widget/ViewDragHelper;
 
     .line 306
-    :cond_6
+    :cond_60
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->sheetDelegate:Lcom/google/android/material/sidesheet/SheetDelegate;
 
     invoke-virtual {v0, p2}, Lcom/google/android/material/sidesheet/SheetDelegate;->getOutwardEdge(Landroid/view/View;)I
@@ -2114,12 +2114,12 @@
 
     move-result-object v3
 
-    :goto_2
+    :goto_85
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9c
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2131,7 +2131,7 @@
     .local v4, "callback":Lcom/google/android/material/sidesheet/SheetCallback;
     instance-of v5, v4, Lcom/google/android/material/sidesheet/SideSheetCallback;
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_9b
 
     .line 321
     move-object v5, v4
@@ -2145,16 +2145,16 @@
     .line 324
     .end local v4    # "callback":Lcom/google/android/material/sidesheet/SheetCallback;
     .end local v5    # "sideSheetCallback":Lcom/google/android/material/sidesheet/SideSheetCallback;
-    :cond_7
-    goto :goto_2
+    :cond_9b
+    goto :goto_85
 
     .line 325
-    :cond_8
+    :cond_9c
     return v1
 .end method
 
 .method public onMeasureChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIII)Z
-    .locals 5
+    .registers 12
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "parentWidthMeasureSpec"    # I
     .param p4, "widthUsed"    # I
@@ -2256,7 +2256,7 @@
 .end method
 
 .method public onRestoreInstanceState(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/os/Parcelable;)V
-    .locals 3
+    .registers 7
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "state"    # Landroid/os/Parcelable;
     .annotation system Ldalvik/annotation/Signature;
@@ -2282,7 +2282,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 196
     invoke-virtual {v0}, Lcom/google/android/material/sidesheet/SideSheetBehavior$SavedState;->getSuperState()Landroid/os/Parcelable;
@@ -2292,31 +2292,31 @@
     invoke-super {p0, p1, p2, v1}, Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;->onRestoreInstanceState(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/os/Parcelable;)V
 
     .line 199
-    :cond_0
+    :cond_10
     iget v1, v0, Lcom/google/android/material/sidesheet/SideSheetBehavior$SavedState;->state:I
 
     const/4 v2, 0x1
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_1e
 
     iget v1, v0, Lcom/google/android/material/sidesheet/SideSheetBehavior$SavedState;->state:I
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1b
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1b
     iget v1, v0, Lcom/google/android/material/sidesheet/SideSheetBehavior$SavedState;->state:I
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_2
-    :goto_0
+    :cond_1e
+    :goto_1e
     const/4 v1, 0x5
 
-    :goto_1
+    :goto_1f
     iput v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->state:I
 
     .line 200
@@ -2329,7 +2329,7 @@
 .end method
 
 .method public onSaveInstanceState(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)Landroid/os/Parcelable;
-    .locals 2
+    .registers 5
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2355,7 +2355,7 @@
 .end method
 
 .method public onTouchEvent(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 4
+    .registers 8
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "event"    # Landroid/view/MotionEvent;
     .annotation system Ldalvik/annotation/Signature;
@@ -2375,7 +2375,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 429
     const/4 v0, 0x0
@@ -2383,7 +2383,7 @@
     return v0
 
     .line 431
-    :cond_0
+    :cond_8
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
@@ -2394,20 +2394,20 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_14
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 433
     return v2
 
     .line 435
-    :cond_1
+    :cond_14
     invoke-direct {p0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->shouldHandleDraggingWithHelper()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1f
 
     .line 436
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewDragHelper:Landroidx/customview/widget/ViewDragHelper;
@@ -2415,17 +2415,17 @@
     invoke-virtual {v1, p3}, Landroidx/customview/widget/ViewDragHelper;->processTouchEvent(Landroid/view/MotionEvent;)V
 
     .line 439
-    :cond_2
-    if-nez v0, :cond_3
+    :cond_1f
+    if-nez v0, :cond_24
 
     .line 440
     invoke-direct {p0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->resetVelocity()V
 
     .line 442
-    :cond_3
+    :cond_24
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_2e
 
     .line 443
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -2435,7 +2435,7 @@
     iput-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
     .line 445
-    :cond_4
+    :cond_2e
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->velocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v1, p3}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
@@ -2445,22 +2445,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_53
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_53
 
     iget-boolean v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->ignoreEvents:Z
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_53
 
     .line 449
     invoke-direct {p0, p3}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->isDraggedFarEnough(Landroid/view/MotionEvent;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_53
 
     .line 450
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewDragHelper:Landroidx/customview/widget/ViewDragHelper;
@@ -2476,7 +2476,7 @@
     invoke-virtual {v1, p2, v3}, Landroidx/customview/widget/ViewDragHelper;->captureChildView(Landroid/view/View;I)V
 
     .line 453
-    :cond_5
+    :cond_53
     iget-boolean v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->ignoreEvents:Z
 
     xor-int/2addr v1, v2
@@ -2485,7 +2485,7 @@
 .end method
 
 .method public bridge synthetic removeCallback(Lcom/google/android/material/sidesheet/SheetCallback;)V
-    .locals 0
+    .registers 2
 
     .line 63
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
@@ -2497,7 +2497,7 @@
 .end method
 
 .method public removeCallback(Lcom/google/android/material/sidesheet/SideSheetCallback;)V
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Lcom/google/android/material/sidesheet/SideSheetCallback;
 
     .line 532
@@ -2511,7 +2511,7 @@
 .end method
 
 .method public setCoplanarSiblingView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "coplanarSiblingView"    # Landroid/view/View;
 
     .line 782
@@ -2521,15 +2521,15 @@
     iput v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->coplanarSiblingViewId:I
 
     .line 783
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     .line 784
     invoke-direct {p0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->clearCoplanarSiblingView()V
 
-    goto :goto_0
+    goto :goto_25
 
     .line 786
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
@@ -2539,7 +2539,7 @@
     .line 788
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     .line 789
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
@@ -2556,20 +2556,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     .line 791
     invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
 
     .line 795
     .end local v0    # "view":Landroid/view/View;
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     return-void
 .end method
 
 .method public setCoplanarSiblingViewId(I)V
-    .locals 2
+    .registers 4
     .param p1, "coplanarSiblingViewId"    # I
 
     .line 761
@@ -2582,7 +2582,7 @@
     .line 766
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 767
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
@@ -2597,25 +2597,25 @@
     .local v0, "view":Landroid/view/View;
     const/4 v1, -0x1
 
-    if-eq p1, v1, :cond_0
+    if-eq p1, v1, :cond_1d
 
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->isLaidOut(Landroid/view/View;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 769
     invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
 
     .line 772
     .end local v0    # "view":Landroid/view/View;
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public setDraggable(Z)V
-    .locals 0
+    .registers 2
     .param p1, "draggable"    # Z
 
     .line 484
@@ -2627,7 +2627,7 @@
 .end method
 
 .method public setHideFriction(F)V
-    .locals 0
+    .registers 2
     .param p1, "hideFriction"    # F
 
     .line 498
@@ -2639,30 +2639,30 @@
 .end method
 
 .method public setState(I)V
-    .locals 4
+    .registers 6
     .param p1, "state"    # I
 
     .line 542
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     const/4 v0, 0x1
 
-    if-eq p1, v0, :cond_3
+    if-eq p1, v0, :cond_2a
 
     const/4 v1, 0x2
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_7
 
-    goto :goto_2
+    goto :goto_2a
 
     .line 548
-    :cond_0
+    :cond_7
     move v0, p1
 
     .line 549
     .local v0, "finalState":I
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_26
 
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
 
@@ -2670,12 +2670,12 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_15
 
-    goto :goto_0
+    goto :goto_26
 
     .line 553
-    :cond_1
+    :cond_15
     iget-object v1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
 
     .line 554
@@ -2692,21 +2692,21 @@
     .line 553
     invoke-direct {p0, v1, v2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->runAfterLayout(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    goto :goto_1
+    goto :goto_29
 
     .line 551
-    :cond_2
-    :goto_0
+    :cond_26
+    :goto_26
     invoke-virtual {p0, p1}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->setStateInternal(I)V
 
     .line 562
-    :goto_1
+    :goto_29
     return-void
 
     .line 543
     .end local v0    # "finalState":I
-    :cond_3
-    :goto_2
+    :cond_2a
+    :goto_2a
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2720,16 +2720,16 @@
     move-result-object v2
 
     .line 545
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_3c
 
     const-string v0, "DRAGGING"
 
-    goto :goto_3
+    goto :goto_3e
 
-    :cond_4
+    :cond_3c
     const-string v0, "SETTLING"
 
-    :goto_3
+    :goto_3e
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -2750,46 +2750,46 @@
 .end method
 
 .method setStateInternal(I)V
-    .locals 3
+    .registers 5
     .param p1, "state"    # I
 
     .line 590
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"
     iget v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->state:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 591
     return-void
 
     .line 593
-    :cond_0
+    :cond_5
     iput p1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->state:I
 
     .line 594
     const/4 v0, 0x3
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_d
 
     const/4 v0, 0x5
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_f
 
     .line 595
-    :cond_1
+    :cond_d
     iput p1, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->lastStableState:I
 
     .line 598
-    :cond_2
+    :cond_f
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_14
 
     .line 599
     return-void
 
     .line 602
-    :cond_3
+    :cond_14
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior;->viewRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -2800,13 +2800,13 @@
 
     .line 603
     .local v0, "sheet":Landroid/view/View;
-    if-nez v0, :cond_4
+    if-nez v0, :cond_1f
 
     .line 604
     return-void
 
     .line 607
-    :cond_4
+    :cond_1f
     invoke-direct {p0, v0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->updateSheetVisibility(Landroid/view/View;)V
 
     .line 609
@@ -2816,12 +2816,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_28
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_38
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2835,10 +2835,10 @@
 
     .line 611
     .end local v2    # "callback":Lcom/google/android/material/sidesheet/SheetCallback;
-    goto :goto_0
+    goto :goto_28
 
     .line 613
-    :cond_5
+    :cond_38
     invoke-direct {p0}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->updateAccessibilityActions()V
 
     .line 614
@@ -2846,7 +2846,7 @@
 .end method
 
 .method shouldHide(Landroid/view/View;F)Z
-    .locals 1
+    .registers 4
     .param p1, "child"    # Landroid/view/View;
     .param p2, "velocity"    # F
 
@@ -2862,7 +2862,7 @@
 .end method
 
 .method public shouldSkipSmoothAnimation()Z
-    .locals 1
+    .registers 2
 
     .line 817
     .local p0, "this":Lcom/google/android/material/sidesheet/SideSheetBehavior;, "Lcom/google/android/material/sidesheet/SideSheetBehavior<TV;>;"

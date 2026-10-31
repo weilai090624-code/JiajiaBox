@@ -78,7 +78,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lkotlin/ranges/CharRange$Companion;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public constructor <init>(CC)V
-    .locals 1
+    .registers 4
     .param p1, "start"    # C
     .param p2, "endInclusive"    # C
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public static final synthetic access$getEMPTY$cp()Lkotlin/ranges/CharRange;
-    .locals 1
+    .registers 1
 
     .line 14
     sget-object v0, Lkotlin/ranges/CharRange;->EMPTY:Lkotlin/ranges/CharRange;
@@ -125,7 +125,7 @@
 .end method
 
 .method public static synthetic getEndExclusive$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Can throw an exception when it\'s impossible to represent the value with Char type, for example, when the range includes MAX_VALUE. It\'s recommended to use \'endInclusive\' property that doesn\'t throw."
     .end annotation
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public contains(C)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # C
 
     .line 26
@@ -148,7 +148,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_16
 
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getLast()C
 
@@ -158,21 +158,21 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public bridge synthetic contains(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Comparable;
 
     .line 14
@@ -192,19 +192,19 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 36
     instance-of v0, p1, Lkotlin/ranges/CharRange;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p1
 
@@ -214,10 +214,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2d
 
     .line 37
-    :cond_0
+    :cond_13
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getFirst()C
 
     move-result v0
@@ -230,7 +230,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2f
 
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getLast()C
 
@@ -244,22 +244,22 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2f
 
-    :cond_1
+    :cond_2d
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_2
+    :cond_2f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_30
     return v0
 .end method
 
 .method public getEndExclusive()Ljava/lang/Character;
-    .locals 2
+    .registers 3
 
     .line 22
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getLast()C
@@ -268,7 +268,7 @@
 
     const v1, 0xffff
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_15
 
     .line 23
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getLast()C
@@ -286,7 +286,7 @@
     return-object v0
 
     .line 22
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot return the exclusive upper bound of a range that includes MAX_VALUE."
@@ -301,7 +301,7 @@
 .end method
 
 .method public bridge synthetic getEndExclusive()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getEndExclusive()Ljava/lang/Character;
@@ -314,7 +314,7 @@
 .end method
 
 .method public getEndInclusive()Ljava/lang/Character;
-    .locals 1
+    .registers 2
 
     .line 16
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getLast()C
@@ -329,7 +329,7 @@
 .end method
 
 .method public bridge synthetic getEndInclusive()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getEndInclusive()Ljava/lang/Character;
@@ -342,7 +342,7 @@
 .end method
 
 .method public getStart()Ljava/lang/Character;
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getFirst()C
@@ -357,7 +357,7 @@
 .end method
 
 .method public bridge synthetic getStart()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getStart()Ljava/lang/Character;
@@ -370,20 +370,20 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 40
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getFirst()C
 
     move-result v0
@@ -396,12 +396,12 @@
 
     add-int/2addr v0, v1
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 33
     invoke-virtual {p0}, Lkotlin/ranges/CharRange;->getFirst()C
@@ -416,21 +416,21 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 42
     new-instance v0, Ljava/lang/StringBuilder;

@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Ljava/util/Map;I)V
-    .locals 1
+    .registers 5
     .param p3, "selfLoopCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -96,22 +96,22 @@
 
     move-result v0
 
-    if-gt p3, v0, :cond_0
+    if-gt p3, v0, :cond_27
 
     invoke-interface {p2}, Ljava/util/Map;->size()I
 
     move-result v0
 
-    if-gt p3, v0, :cond_0
+    if-gt p3, v0, :cond_27
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_28
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 58
@@ -119,7 +119,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/graph/AbstractDirectedNetworkConnections;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/AbstractDirectedNetworkConnections;
 
     .line 44
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method public addInEdge(Ljava/lang/Object;Ljava/lang/Object;Z)V
-    .locals 2
+    .registers 6
     .param p3, "isSelfLoop"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -151,7 +151,7 @@
     .line 129
     const/4 v0, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_11
 
     .line 130
     iget v1, p0, Lcom/google/common/graph/AbstractDirectedNetworkConnections;->selfLoopCount:I
@@ -163,7 +163,7 @@
     invoke-static {v1}, Lcom/google/common/graph/Graphs;->checkPositive(I)I
 
     .line 132
-    :cond_0
+    :cond_11
     iget-object v1, p0, Lcom/google/common/graph/AbstractDirectedNetworkConnections;->inEdgeMap:Ljava/util/Map;
 
     invoke-interface {v1, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -172,14 +172,14 @@
 
     .line 133
     .local v1, "previousNode":Ljava/lang/Object;, "TN;"
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1a
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 134
@@ -187,7 +187,7 @@
 .end method
 
 .method public addOutEdge(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TN;)V"
@@ -212,16 +212,16 @@
 
     .line 142
     .local v0, "previousNode":Ljava/lang/Object;, "TN;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 143
@@ -229,7 +229,7 @@
 .end method
 
 .method public adjacentNode(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TN;"
@@ -253,7 +253,7 @@
 .end method
 
 .method public adjacentNodes()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -280,7 +280,7 @@
 .end method
 
 .method public inEdges()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -305,7 +305,7 @@
 .end method
 
 .method public incidentEdges()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -324,7 +324,7 @@
 .end method
 
 .method public outEdges()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -349,7 +349,7 @@
 .end method
 
 .method public removeInEdge(Ljava/lang/Object;Z)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p2, "isSelfLoop"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -360,7 +360,7 @@
     .line 109
     .local p0, "this":Lcom/google/common/graph/AbstractDirectedNetworkConnections;, "Lcom/google/common/graph/AbstractDirectedNetworkConnections<TN;TE;>;"
     .local p1, "edge":Ljava/lang/Object;, "TE;"
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_b
 
     .line 110
     iget v0, p0, Lcom/google/common/graph/AbstractDirectedNetworkConnections;->selfLoopCount:I
@@ -372,7 +372,7 @@
     invoke-static {v0}, Lcom/google/common/graph/Graphs;->checkNonNegative(I)I
 
     .line 112
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/google/common/graph/AbstractDirectedNetworkConnections;->inEdgeMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -389,7 +389,7 @@
 .end method
 
 .method public removeOutEdge(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TN;"

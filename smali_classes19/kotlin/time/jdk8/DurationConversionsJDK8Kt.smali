@@ -34,7 +34,7 @@
 
 # direct methods
 .method private static final toJavaDuration-LRDsOJo(J)Lj$/time/Duration;
-    .locals 7
+    .registers 9
     .param p0, "$this$toJavaDuration_u2dLRDsOJo"    # J
 
     .line 35
@@ -81,7 +81,7 @@
 .end method
 
 .method private static final toKotlinDuration(Lj$/time/Duration;)J
-    .locals 4
+    .registers 5
     .param p0, "$this$toKotlinDuration"    # Lj$/time/Duration;
 
     const-string v0, "<this>"

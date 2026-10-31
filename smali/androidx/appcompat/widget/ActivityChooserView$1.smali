@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/widget/ActivityChooserView;
 
     .line 135
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 1
+    .registers 2
 
     .line 139
     invoke-super {p0}, Landroid/database/DataSetObserver;->onChanged()V
@@ -51,7 +51,7 @@
 .end method
 
 .method public onInvalidated()V
-    .locals 1
+    .registers 2
 
     .line 144
     invoke-super {p0}, Landroid/database/DataSetObserver;->onInvalidated()V

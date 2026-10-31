@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 316
@@ -83,13 +83,13 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 335
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$MaterialAboutActionItemViewHolder;->onClickAction:Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 336
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$MaterialAboutActionItemViewHolder;->onClickAction:Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
@@ -97,18 +97,18 @@
     invoke-interface {v0}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;->onClick()V
 
     .line 338
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public onLongClick(Landroid/view/View;)Z
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 342
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$MaterialAboutActionItemViewHolder;->onLongClickAction:Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 343
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$MaterialAboutActionItemViewHolder;->onLongClickAction:Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
@@ -121,14 +121,14 @@
     return v0
 
     .line 346
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public setOnClickAction(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;)V
-    .locals 2
+    .registers 4
     .param p1, "onClickAction"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
     .line 324
@@ -137,16 +137,16 @@
     .line 325
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$MaterialAboutActionItemViewHolder;->view:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 326
@@ -154,7 +154,7 @@
 .end method
 
 .method public setOnLongClickAction(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;)V
-    .locals 2
+    .registers 4
     .param p1, "onLongClickAction"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
     .line 329
@@ -163,16 +163,16 @@
     .line 330
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$MaterialAboutActionItemViewHolder;->view:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     .line 331

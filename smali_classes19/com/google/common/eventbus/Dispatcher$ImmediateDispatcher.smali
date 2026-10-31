@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 181
     new-instance v0, Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;
@@ -33,7 +33,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 180
     invoke-direct {p0}, Lcom/google/common/eventbus/Dispatcher;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method static synthetic access$200()Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;
-    .locals 1
+    .registers 1
 
     .line 180
     sget-object v0, Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;->INSTANCE:Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method dispatch(Ljava/lang/Object;Ljava/util/Iterator;)V
-    .locals 1
+    .registers 4
     .param p1, "event"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -70,12 +70,12 @@
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 186
-    :goto_0
+    :goto_3
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 187
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -86,9 +86,9 @@
 
     invoke-virtual {v0, p1}, Lcom/google/common/eventbus/Subscriber;->dispatchEvent(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_3
 
     .line 189
-    :cond_0
+    :cond_13
     return-void
 .end method

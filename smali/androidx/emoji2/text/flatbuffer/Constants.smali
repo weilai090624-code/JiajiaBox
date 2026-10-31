@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method public static FLATBUFFERS_1_12_0()V
-    .locals 0
+    .registers 0
 
     .line 49
     return-void

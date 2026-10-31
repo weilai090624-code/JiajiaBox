@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 713
     new-instance v0, Lkotlinx/coroutines/internal/Symbol;
@@ -72,7 +72,7 @@
 .end method
 
 .method public static final MutableSharedFlow(IILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/MutableSharedFlow;
-    .locals 3
+    .registers 6
     .param p0, "replay"    # I
     .param p1, "extraBufferCapacity"    # I
     .param p2, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
@@ -93,66 +93,66 @@
 
     const/4 v1, 0x0
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_7
+    :goto_7
+    if-eqz v2, :cond_69
 
     .line 269
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_1
-    if-eqz v2, :cond_6
+    :goto_e
+    if-eqz v2, :cond_4b
 
     .line 270
-    if-gtz p0, :cond_3
+    if-gtz p0, :cond_1a
 
-    if-gtz p1, :cond_3
+    if-gtz p1, :cond_1a
 
     sget-object v2, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne p2, v2, :cond_2
+    if-ne p2, v2, :cond_19
 
-    goto :goto_2
+    goto :goto_1a
 
-    :cond_2
+    :cond_19
     const/4 v0, 0x0
 
-    :cond_3
-    :goto_2
-    if-eqz v0, :cond_5
+    :cond_1a
+    :goto_1a
+    if-eqz v0, :cond_2d
 
     .line 273
     add-int v0, p0, p1
 
     .line 274
     .local v0, "bufferCapacity0":I
-    if-gez v0, :cond_4
+    if-gez v0, :cond_24
 
     const v1, 0x7fffffff
 
-    goto :goto_3
+    goto :goto_25
 
-    :cond_4
+    :cond_24
     move v1, v0
 
     .line 275
     .local v1, "bufferCapacity":I
-    :goto_3
+    :goto_25
     new-instance v2, Lkotlinx/coroutines/flow/SharedFlowImpl;
 
     invoke-direct {v2, p0, v1, p2}, Lkotlinx/coroutines/flow/SharedFlowImpl;-><init>(IILkotlinx/coroutines/channels/BufferOverflow;)V
@@ -164,7 +164,7 @@
     .line 270
     .end local v0    # "bufferCapacity0":I
     .end local v1    # "bufferCapacity":I
-    :cond_5
+    :cond_2d
     const/4 v0, 0x0
 
     .line 271
@@ -200,7 +200,7 @@
     throw v1
 
     .line 732
-    :cond_6
+    :cond_4b
     const/4 v0, 0x0
 
     .line 269
@@ -235,7 +235,7 @@
     throw v1
 
     .line 732
-    :cond_7
+    :cond_69
     const/4 v0, 0x0
 
     .line 268
@@ -271,38 +271,38 @@
 .end method
 
 .method public static synthetic MutableSharedFlow$default(IILkotlinx/coroutines/channels/BufferOverflow;ILjava/lang/Object;)Lkotlinx/coroutines/flow/MutableSharedFlow;
-    .locals 1
+    .registers 6
 
     .line 263
     and-int/lit8 p4, p3, 0x1
 
     const/4 v0, 0x0
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     .line 264
     const/4 p0, 0x0
 
     .line 263
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p3, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     .line 265
     const/4 p1, 0x0
 
     .line 263
-    :cond_1
+    :cond_b
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_11
 
     .line 266
     sget-object p2, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
     .line 263
-    :cond_2
+    :cond_11
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/flow/SharedFlowKt;->MutableSharedFlow(IILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/MutableSharedFlow;
 
     move-result-object p0
@@ -311,7 +311,7 @@
 .end method
 
 .method public static final synthetic access$getBufferAt([Ljava/lang/Object;J)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$receiver"    # [Ljava/lang/Object;
     .param p1, "index"    # J
 
@@ -324,7 +324,7 @@
 .end method
 
 .method public static final synthetic access$setBufferAt([Ljava/lang/Object;JLjava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p0, "$receiver"    # [Ljava/lang/Object;
     .param p1, "index"    # J
     .param p3, "item"    # Ljava/lang/Object;
@@ -336,7 +336,7 @@
 .end method
 
 .method public static final fuseSharedFlow(Lkotlinx/coroutines/flow/SharedFlow;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 6
     .param p0, "$this$fuseSharedFlow"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
@@ -358,16 +358,16 @@
     .end annotation
 
     .line 725
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 v0, -0x3
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_d
 
-    :cond_0
+    :cond_5
     sget-object v0, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne p3, v0, :cond_1
+    if-ne p3, v0, :cond_d
 
     .line 726
     move-object v0, p0
@@ -377,7 +377,7 @@
     return-object v0
 
     .line 729
-    :cond_1
+    :cond_d
     new-instance v0, Lkotlinx/coroutines/flow/internal/ChannelFlowOperatorImpl;
 
     move-object v1, p0
@@ -392,7 +392,7 @@
 .end method
 
 .method private static final getBufferAt([Ljava/lang/Object;J)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$getBufferAt"    # [Ljava/lang/Object;
     .param p1, "index"    # J
 
@@ -411,7 +411,7 @@
 .end method
 
 .method private static final setBufferAt([Ljava/lang/Object;JLjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p0, "$this$setBufferAt"    # [Ljava/lang/Object;
     .param p1, "index"    # J
     .param p3, "item"    # Ljava/lang/Object;

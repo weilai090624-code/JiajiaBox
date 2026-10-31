@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/customview/view/AbsSavedState;
-    .locals 1
+    .registers 3
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 102
@@ -53,7 +53,7 @@
 .end method
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/customview/view/AbsSavedState;
-    .locals 3
+    .registers 6
     .param p1, "in"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -64,7 +64,7 @@
 
     .line 94
     .local v0, "superState":Landroid/os/Parcelable;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 97
     sget-object v1, Landroidx/customview/view/AbsSavedState;->EMPTY_STATE:Landroidx/customview/view/AbsSavedState;
@@ -72,7 +72,7 @@
     return-object v1
 
     .line 95
-    :cond_0
+    :cond_9
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v2, "superState must be null"
@@ -83,7 +83,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 90
     invoke-virtual {p0, p1}, Landroidx/customview/view/AbsSavedState$2;->createFromParcel(Landroid/os/Parcel;)Landroidx/customview/view/AbsSavedState;
@@ -94,7 +94,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 90
     invoke-virtual {p0, p1, p2}, Landroidx/customview/view/AbsSavedState$2;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/customview/view/AbsSavedState;
@@ -105,7 +105,7 @@
 .end method
 
 .method public newArray(I)[Landroidx/customview/view/AbsSavedState;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 107
@@ -115,7 +115,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 90
     invoke-virtual {p0, p1}, Landroidx/customview/view/AbsSavedState$2;->newArray(I)[Landroidx/customview/view/AbsSavedState;

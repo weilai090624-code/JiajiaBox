@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 1
+    .registers 4
     .param p1, "width"    # I
     .param p2, "height"    # I
 
@@ -62,7 +62,7 @@
 .end method
 
 .method constructor <init>(IIZ)V
-    .locals 0
+    .registers 4
     .param p1, "width"    # I
     .param p2, "height"    # I
     .param p3, "isOverflowButton"    # Z
@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "c"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .registers 2
     .param p1, "other"    # Landroid/view/ViewGroup$LayoutParams;
 
     .line 837
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/appcompat/widget/ActionMenuView$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "other"    # Landroidx/appcompat/widget/ActionMenuView$LayoutParams;
 
     .line 841

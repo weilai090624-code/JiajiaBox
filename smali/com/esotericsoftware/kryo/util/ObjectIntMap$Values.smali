@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/ObjectIntMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,12 +44,12 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 486
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->valid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 487
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->hasNext:Z
@@ -57,7 +57,7 @@
     return v0
 
     .line 486
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     const-string v1, "#iterator() cannot be used nested."
@@ -68,24 +68,24 @@
 .end method
 
 .method public iterator()Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;
-    .locals 0
+    .registers 1
 
     .line 500
     return-object p0
 .end method
 
 .method public next()I
-    .locals 2
+    .registers 3
 
     .line 491
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->hasNext:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 492
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->valid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 493
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->map:Lcom/esotericsoftware/kryo/util/ObjectIntMap;
@@ -110,7 +110,7 @@
 
     .line 492
     .end local v0    # "value":I
-    :cond_0
+    :cond_18
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     const-string v1, "#iterator() cannot be used nested."
@@ -120,7 +120,7 @@
     throw v0
 
     .line 491
-    :cond_1
+    :cond_20
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -129,7 +129,7 @@
 .end method
 
 .method public bridge synthetic remove()V
-    .locals 0
+    .registers 1
 
     .line 480
     invoke-super {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$MapIterator;->remove()V
@@ -138,7 +138,7 @@
 .end method
 
 .method public bridge synthetic reset()V
-    .locals 0
+    .registers 1
 
     .line 480
     invoke-super {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$MapIterator;->reset()V
@@ -147,7 +147,7 @@
 .end method
 
 .method public toArray()Lcom/esotericsoftware/kryo/util/IntArray;
-    .locals 3
+    .registers 4
 
     .line 505
     new-instance v0, Lcom/esotericsoftware/kryo/util/IntArray;
@@ -162,10 +162,10 @@
 
     .line 506
     .local v0, "array":Lcom/esotericsoftware/kryo/util/IntArray;
-    :goto_0
+    :goto_a
     iget-boolean v1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->hasNext:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 507
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->next()I
@@ -174,24 +174,24 @@
 
     invoke-virtual {v0, v1}, Lcom/esotericsoftware/kryo/util/IntArray;->add(I)V
 
-    goto :goto_0
+    goto :goto_a
 
     .line 508
-    :cond_0
+    :cond_16
     return-object v0
 .end method
 
 .method public toArray(Lcom/esotericsoftware/kryo/util/IntArray;)Lcom/esotericsoftware/kryo/util/IntArray;
-    .locals 1
+    .registers 3
     .param p1, "array"    # Lcom/esotericsoftware/kryo/util/IntArray;
 
     .line 513
     nop
 
-    :goto_0
+    :goto_1
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->hasNext:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 514
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->next()I
@@ -200,9 +200,9 @@
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/util/IntArray;->add(I)V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 515
-    :cond_0
+    :cond_d
     return-object p1
 .end method

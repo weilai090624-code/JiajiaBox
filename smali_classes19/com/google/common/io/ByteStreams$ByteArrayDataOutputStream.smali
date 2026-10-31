@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/ByteArrayOutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "byteArrayOutputStream"    # Ljava/io/ByteArrayOutputStream;
 
     .line 507
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public toByteArray()[B
-    .locals 1
+    .registers 2
 
     .line 640
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->byteArrayOutputStream:Ljava/io/ByteArrayOutputStream;
@@ -61,7 +61,7 @@
 .end method
 
 .method public write(I)V
-    .locals 2
+    .registers 4
     .param p1, "b"    # I
 
     .line 515
@@ -69,8 +69,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->write(I)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 518
     nop
@@ -79,7 +79,7 @@
     return-void
 
     .line 516
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 517
@@ -92,7 +92,7 @@
 .end method
 
 .method public write([B)V
-    .locals 2
+    .registers 4
     .param p1, "b"    # [B
 
     .line 524
@@ -100,8 +100,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->write([B)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 527
     nop
@@ -110,7 +110,7 @@
     return-void
 
     .line 525
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 526
@@ -123,7 +123,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 2
+    .registers 6
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -133,8 +133,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1, p2, p3}, Ljava/io/DataOutput;->write([BII)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 536
     nop
@@ -143,7 +143,7 @@
     return-void
 
     .line 534
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 535
@@ -156,7 +156,7 @@
 .end method
 
 .method public writeBoolean(Z)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Z
 
     .line 542
@@ -164,8 +164,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->writeBoolean(Z)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 545
     nop
@@ -174,7 +174,7 @@
     return-void
 
     .line 543
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 544
@@ -187,7 +187,7 @@
 .end method
 
 .method public writeByte(I)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # I
 
     .line 551
@@ -195,8 +195,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->writeByte(I)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 554
     nop
@@ -205,7 +205,7 @@
     return-void
 
     .line 552
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 553
@@ -218,7 +218,7 @@
 .end method
 
 .method public writeBytes(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/lang/String;
 
     .line 560
@@ -226,8 +226,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->writeBytes(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 563
     nop
@@ -236,7 +236,7 @@
     return-void
 
     .line 561
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 562
@@ -249,7 +249,7 @@
 .end method
 
 .method public writeChar(I)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # I
 
     .line 569
@@ -257,8 +257,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->writeChar(I)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 572
     nop
@@ -267,7 +267,7 @@
     return-void
 
     .line 570
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 571
@@ -280,7 +280,7 @@
 .end method
 
 .method public writeChars(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/lang/String;
 
     .line 578
@@ -288,8 +288,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->writeChars(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 581
     nop
@@ -298,7 +298,7 @@
     return-void
 
     .line 579
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 580
@@ -311,7 +311,7 @@
 .end method
 
 .method public writeDouble(D)V
-    .locals 2
+    .registers 5
     .param p1, "v"    # D
 
     .line 587
@@ -319,8 +319,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1, p2}, Ljava/io/DataOutput;->writeDouble(D)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 590
     nop
@@ -329,7 +329,7 @@
     return-void
 
     .line 588
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 589
@@ -342,7 +342,7 @@
 .end method
 
 .method public writeFloat(F)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # F
 
     .line 596
@@ -350,8 +350,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->writeFloat(F)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 599
     nop
@@ -360,7 +360,7 @@
     return-void
 
     .line 597
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 598
@@ -373,7 +373,7 @@
 .end method
 
 .method public writeInt(I)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # I
 
     .line 605
@@ -381,8 +381,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->writeInt(I)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 608
     nop
@@ -391,7 +391,7 @@
     return-void
 
     .line 606
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 607
@@ -404,7 +404,7 @@
 .end method
 
 .method public writeLong(J)V
-    .locals 2
+    .registers 5
     .param p1, "v"    # J
 
     .line 614
@@ -412,8 +412,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1, p2}, Ljava/io/DataOutput;->writeLong(J)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 617
     nop
@@ -422,7 +422,7 @@
     return-void
 
     .line 615
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 616
@@ -435,7 +435,7 @@
 .end method
 
 .method public writeShort(I)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # I
 
     .line 623
@@ -443,8 +443,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->writeShort(I)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 626
     nop
@@ -453,7 +453,7 @@
     return-void
 
     .line 624
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 625
@@ -466,7 +466,7 @@
 .end method
 
 .method public writeUTF(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/lang/String;
 
     .line 632
@@ -474,8 +474,8 @@
     iget-object v0, p0, Lcom/google/common/io/ByteStreams$ByteArrayDataOutputStream;->output:Ljava/io/DataOutput;
 
     invoke-interface {v0, p1}, Ljava/io/DataOutput;->writeUTF(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 635
     nop
@@ -484,7 +484,7 @@
     return-void
 
     .line 633
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 634

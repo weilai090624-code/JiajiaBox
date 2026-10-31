@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lcom/blacksquircle/ui/language/json/JsonLanguage$Companion;-><init>()V
 
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public final supportFormat(Ljava/lang/String;)Z
-    .locals 4
+    .registers 6
     .param p1, "fileName"    # Ljava/lang/String;
 
     const-string v0, "fileName"

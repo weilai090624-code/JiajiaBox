@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public applyMask(Landroid/graphics/RectF;FLcom/google/android/material/transition/platform/FitModeResult;)V
-    .locals 4
+    .registers 8
     .param p1, "maskBounds"    # Landroid/graphics/RectF;
     .param p2, "maskMultiplier"    # F
     .param p3, "fitModeResult"    # Lcom/google/android/material/transition/platform/FitModeResult;
@@ -77,7 +77,7 @@
 .end method
 
 .method public evaluate(FFFFFFF)Lcom/google/android/material/transition/platform/FitModeResult;
-    .locals 13
+    .registers 21
     .param p1, "progress"    # F
     .param p2, "scaleStartFraction"    # F
     .param p3, "scaleEndFraction"    # F
@@ -146,7 +146,7 @@
 .end method
 
 .method public shouldMaskStartBounds(Lcom/google/android/material/transition/platform/FitModeResult;)Z
-    .locals 2
+    .registers 4
     .param p1, "fitModeResult"    # Lcom/google/android/material/transition/platform/FitModeResult;
 
     .line 115
@@ -156,15 +156,15 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method

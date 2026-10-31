@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 208
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getLongLittleEndian([BI)J
-    .locals 9
+    .registers 12
     .param p1, "source"    # [B
     .param p2, "offset"    # I
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public putLongLittleEndian([BIJ)V
-    .locals 8
+    .registers 13
     .param p1, "sink"    # [B
     .param p2, "offset"    # I
     .param p3, "value"    # J
@@ -85,10 +85,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_3
     const/16 v3, 0x8
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_16
 
     .line 226
     add-int v4, p2, v2
@@ -110,10 +110,10 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 228
     .end local v2    # "i":I
-    :cond_0
+    :cond_16
     return-void
 .end method

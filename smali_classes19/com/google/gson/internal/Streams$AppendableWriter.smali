@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Appendable;)V
-    .locals 1
+    .registers 3
     .param p1, "appendable"    # Ljava/lang/Appendable;
 
     .line 87
@@ -51,21 +51,21 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
 
     .line 101
     return-void
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
 
     .line 100
     return-void
 .end method
 
 .method public write(I)V
-    .locals 2
+    .registers 4
     .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -85,7 +85,7 @@
 .end method
 
 .method public write([CII)V
-    .locals 3
+    .registers 7
     .param p1, "chars"    # [C
     .param p2, "offset"    # I
     .param p3, "length"    # I

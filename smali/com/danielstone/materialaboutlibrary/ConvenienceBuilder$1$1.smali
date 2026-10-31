@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$1;Landroid/webkit/WebView;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$1;
 
     .line 91
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+    .registers 4
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "id"    # I
 

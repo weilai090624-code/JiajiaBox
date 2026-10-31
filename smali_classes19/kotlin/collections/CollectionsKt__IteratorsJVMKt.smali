@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/CollectionsKt__IterablesKt;-><init>()V
 
@@ -36,7 +36,7 @@
 .end method
 
 .method public static final iterator(Ljava/util/Enumeration;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$iterator"    # Ljava/util/Enumeration;
     .annotation system Ldalvik/annotation/Signature;
         value = {

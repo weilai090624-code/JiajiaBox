@@ -69,7 +69,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -118,7 +118,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,7 +161,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -170,7 +170,7 @@
     .line 555
     iget v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$7;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_82
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -181,13 +181,13 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_7e
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 556
@@ -229,13 +229,13 @@
     move-result-object v4
 
     .end local v1    # "profiles":Ljava/util/List;
-    :cond_0
-    :goto_0
+    :cond_38
+    :goto_38
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_5e
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -263,7 +263,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_38
 
     .line 562
     .end local v5    # "proxy":Lmoe/matsuri/nb4a/Protocols$Deduplication;
@@ -273,12 +273,12 @@
 
     invoke-interface {v5, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_38
 
     .line 565
     .end local v1    # "pf":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v3    # "uniqueProxies":Ljava/util/LinkedHashSet;
-    :cond_1
+    :cond_5e
     move-object v1, v2
 
     check-cast v1, Ljava/util/Collection;
@@ -287,7 +287,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_7f
 
     .line 566
     new-instance v1, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$7$1;
@@ -313,24 +313,24 @@
     move-result-object v1
 
     .end local v2    # "toClear":Ljava/util/List;
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_7e
 
     .line 555
     return-object v0
 
     .line 603
-    :cond_2
-    :goto_1
+    :cond_7e
+    :goto_7e
     nop
 
-    :cond_3
+    :cond_7f
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_82
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

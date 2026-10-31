@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multisets$2;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Multisets$2;
 
     .line 483
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method protected computeNext()Lcom/google/common/collect/Multiset$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -61,14 +61,14 @@
     .line 487
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/Multisets$2$1;->val$iterator1:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 488
     iget-object v0, p0, Lcom/google/common/collect/Multisets$2$1;->val$iterator1:Ljava/util/Iterator;
@@ -105,7 +105,7 @@
 
     .line 491
     .local v2, "count":I
-    if-lez v2, :cond_0
+    if-lez v2, :cond_2c
 
     .line 492
     invoke-static {v1, v2}, Lcom/google/common/collect/Multisets;->immutableEntry(Ljava/lang/Object;I)Lcom/google/common/collect/Multiset$Entry;
@@ -118,11 +118,11 @@
     .end local v0    # "entry1":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<TE;>;"
     .end local v1    # "element":Ljava/lang/Object;, "TE;"
     .end local v2    # "count":I
-    :cond_0
-    goto :goto_0
+    :cond_2c
+    goto :goto_1
 
     .line 495
-    :cond_1
+    :cond_2d
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$2$1;->endOfData()Ljava/lang/Object;
 
     move-result-object v0
@@ -133,7 +133,7 @@
 .end method
 
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 

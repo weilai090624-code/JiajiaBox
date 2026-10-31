@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1047
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getResId(Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
     .param p0, "icon"    # Ljava/lang/Object;
 
     .line 1063
@@ -42,7 +42,7 @@
 .end method
 
 .method static getResPackage(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "icon"    # Ljava/lang/Object;
 
     .line 1053
@@ -58,7 +58,7 @@
 .end method
 
 .method static getType(Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
     .param p0, "icon"    # Ljava/lang/Object;
 
     .line 1058
@@ -74,7 +74,7 @@
 .end method
 
 .method static getUri(Ljava/lang/Object;)Landroid/net/Uri;
-    .locals 1
+    .registers 2
     .param p0, "icon"    # Ljava/lang/Object;
 
     .line 1068

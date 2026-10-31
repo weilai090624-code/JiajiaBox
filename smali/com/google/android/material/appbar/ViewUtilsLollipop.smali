@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     const v0, 0x1010448
@@ -24,7 +24,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method static setBoundsViewOutlineProvider(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 39
@@ -46,7 +46,7 @@
 .end method
 
 .method static setDefaultAppBarLayoutStateListAnimator(Landroid/view/View;F)V
-    .locals 11
+    .registers 13
     .param p0, "view"    # Landroid/view/View;
     .param p1, "elevation"    # F
 
@@ -157,7 +157,7 @@
 .end method
 
 .method static setStateListAnimatorFromAttrs(Landroid/view/View;Landroid/util/AttributeSet;II)V
-    .locals 8
+    .registers 12
     .param p0, "view"    # Landroid/view/View;
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyleAttr"    # I
@@ -191,12 +191,12 @@
 
     .line 49
     .local v0, "a":Landroid/content/res/TypedArray;
-    :try_start_0
+    :try_start_11
     invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 50
     nop
@@ -213,12 +213,12 @@
     .line 52
     .local v1, "sla":Landroid/animation/StateListAnimator;
     invoke-virtual {p0, v1}, Landroid/view/View;->setStateListAnimator(Landroid/animation/StateListAnimator;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_11 .. :try_end_23} :catchall_28
 
     .line 55
     .end local v1    # "sla":Landroid/animation/StateListAnimator;
-    :cond_0
+    :cond_23
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 56
@@ -228,7 +228,7 @@
     return-void
 
     .line 55
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V

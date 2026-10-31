@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/io/Writer;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -43,7 +43,7 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -59,7 +59,7 @@
 .end method
 
 .method public write([CII)V
-    .locals 1
+    .registers 5
     .param p1, "buffer"    # [C
     .param p2, "offset"    # I
     .param p3, "counter"    # I

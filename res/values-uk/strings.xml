@@ -128,8 +128,8 @@
     <string name="call_notification_screening_text">Вхідний виклик (Фільтр)</string>
     <string name="certificates">Сертифікати</string>
     <string name="chain_settings">Налаштування ланцюжка</string>
-    <string name="character_counter_content_description" formatted="false">Введено символів: %1$d з %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Перевищено ліміт символів: %1$d з %2$d</string>
+    <string name="character_counter_content_description">Введено символів: %1$d з %2$d</string>
+    <string name="character_counter_overflowed_content_description">Перевищено ліміт символів: %1$d з %2$d</string>
     <string name="circular_reference">Циклічне посилання</string>
     <string name="circular_reference_sum">Маршрут не може містити самого себе.</string>
     <string name="clear_logcat">Очистити Logcat</string>
@@ -361,7 +361,7 @@
     <string name="mtrl_picker_out_of_range">За межами діапазону: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Дата початку – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – дата завершення</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Виберіть діапазон дат</string>
     <string name="mtrl_picker_range_header_unselected">Дата початку – дата завершення</string>
     <string name="mtrl_picker_save">Зберегти</string>
@@ -532,7 +532,7 @@
     <string name="sniff_override">Результат аналізу для призначення</string>
     <string name="sniff_routing">Результат аналізу для маршрутизації</string>
     <string name="speed">%s/с</string>
-    <string name="speed_detail" formatted="false">"Проксі: %1$s↑ %2$s↓
+    <string name="speed_detail">"Проксі: %1$s↑ %2$s↓
 Прямий: %3$s↑ %4$s↓"</string>
     <string name="speed_interval">Інтервал оновлення сповіщення про швидкість</string>
     <string name="ss_cat">Налаштування Shadowsocks</string>
@@ -560,7 +560,7 @@
     <string name="subscription_used">Використано %s</string>
     <string name="subscription_user_agent">UserAgent</string>
     <string name="subscriptions">Підписки</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="tcp_connections">"%d TCP-з'єднань"</string>
     <string name="tcp_keep_alive_interval">Інтервал доставки пакетів TCP keep-alive</string>
     <string name="telegram">Канал оновлень в Telegram</string>
@@ -570,7 +570,7 @@
     <string name="tls">Використовувати TLS</string>
     <string name="tls_camouflage_settings">Налаштування маскування TLS</string>
     <string name="tools_network">Мережа</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="traffic_downlink" formatted="false">%s | %s/с ↓</string>
     <string name="traffic_downlink_total">Всього %s ↓</string>
     <string name="traffic_sniffing">Увімкнути аналіз трафіку</string>

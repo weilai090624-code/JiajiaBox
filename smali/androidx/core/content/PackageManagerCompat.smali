@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method public static areUnusedAppRestrictionsAvailable(Landroid/content/pm/PackageManager;)Z
-    .locals 6
+    .registers 7
     .param p0, "packageManager"    # Landroid/content/pm/PackageManager;
 
     .line 199
@@ -42,72 +42,72 @@
 
     const/16 v3, 0x1e
 
-    if-lt v0, v3, :cond_0
+    if-lt v0, v3, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 200
     .local v0, "restrictionsBuiltIntoOs":Z
-    :goto_0
+    :goto_b
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v5, 0x17
 
-    if-lt v4, v5, :cond_1
+    if-lt v4, v5, :cond_17
 
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-ge v4, v3, :cond_1
+    if-ge v4, v3, :cond_17
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v3, 0x0
 
     .line 203
     .local v3, "isOsMThroughQ":Z
-    :goto_1
+    :goto_18
     invoke-static {p0}, Landroidx/core/content/PackageManagerCompat;->getPermissionRevocationVerifierApp(Landroid/content/pm/PackageManager;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_20
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_21
 
-    :cond_2
+    :cond_20
     const/4 v4, 0x0
 
     .line 205
     .local v4, "hasBackportFeature":Z
-    :goto_2
-    if-nez v0, :cond_4
+    :goto_21
+    if-nez v0, :cond_29
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_28
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_28
 
-    goto :goto_3
+    goto :goto_29
 
-    :cond_3
+    :cond_28
     const/4 v1, 0x0
 
-    :cond_4
-    :goto_3
+    :cond_29
+    :goto_29
     return v1
 .end method
 
 .method public static getPermissionRevocationVerifierApp(Landroid/content/pm/PackageManager;)Ljava/lang/String;
-    .locals 7
+    .registers 8
     .param p0, "packageManager"    # Landroid/content/pm/PackageManager;
 
     .line 219
@@ -153,12 +153,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1f
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3d
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -180,34 +180,34 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_38
 
     .line 233
-    goto :goto_0
+    goto :goto_1f
 
     .line 236
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_38
+    if-eqz v2, :cond_3b
 
     .line 240
     return-object v2
 
     .line 242
-    :cond_1
+    :cond_3b
     move-object v2, v5
 
     .line 243
     .end local v4    # "intentResolver":Landroid/content/pm/ResolveInfo;
     .end local v5    # "packageName":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1f
 
     .line 245
-    :cond_2
+    :cond_3d
     return-object v2
 .end method
 
 .method public static getUnusedAppRestrictionsStatus(Landroid/content/Context;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 7
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -241,7 +241,7 @@
     move-result-object v3
 
     .line 138
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     .line 139
     invoke-virtual {v0, v3}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
@@ -255,7 +255,7 @@
     return-object v0
 
     .line 144
-    :cond_0
+    :cond_1a
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -264,7 +264,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2d
 
     .line 145
     const/4 v1, 0x1
@@ -279,7 +279,7 @@
     return-object v0
 
     .line 149
-    :cond_1
+    :cond_2d
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v1
@@ -290,7 +290,7 @@
     .local v1, "targetSdkVersion":I
     const/16 v4, 0x1e
 
-    if-ge v1, v4, :cond_2
+    if-ge v1, v4, :cond_40
 
     .line 152
     invoke-virtual {v0, v3}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
@@ -304,7 +304,7 @@
     return-object v0
 
     .line 158
-    :cond_2
+    :cond_40
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/4 v3, 0x4
@@ -313,31 +313,31 @@
 
     const/16 v6, 0x1f
 
-    if-lt v2, v6, :cond_5
+    if-lt v2, v6, :cond_61
 
     .line 159
     invoke-static {p0}, Landroidx/core/content/PackageManagerCompat$Api30Impl;->areUnusedAppRestrictionsEnabled(Landroid/content/Context;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_59
 
     .line 162
-    if-lt v1, v6, :cond_3
+    if-lt v1, v6, :cond_51
 
     const/4 v3, 0x5
 
-    :cond_3
+    :cond_51
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_60
 
     .line 164
-    :cond_4
+    :cond_59
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -345,14 +345,14 @@
     invoke-virtual {v0, v2}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
 
     .line 166
-    :goto_0
+    :goto_60
     return-object v0
 
     .line 169
-    :cond_5
+    :cond_61
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-ne v2, v4, :cond_7
+    if-ne v2, v4, :cond_76
 
     .line 170
     nop
@@ -362,17 +362,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_6d
 
     .line 172
-    goto :goto_1
+    goto :goto_6e
 
     .line 173
-    :cond_6
+    :cond_6d
     const/4 v3, 0x2
 
     .line 171
-    :goto_1
+    :goto_6e
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -384,7 +384,7 @@
     return-object v0
 
     .line 177
-    :cond_7
+    :cond_76
     new-instance v2, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;
 
     invoke-direct {v2, p0}, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;-><init>(Landroid/content/Context;)V

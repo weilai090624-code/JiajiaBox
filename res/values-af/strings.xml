@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Inkomende oproep</string>
     <string name="call_notification_ongoing_text">Oproep aan die gang</string>
     <string name="call_notification_screening_text">"Keur tans 'n inkomende oproep"</string>
-    <string name="character_counter_content_description" formatted="false">Karakters ingevoer: %1$d van %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Karakterlimiet oorskry %1$d van %2$d</string>
+    <string name="character_counter_content_description">Karakters ingevoer: %1$d van %2$d</string>
+    <string name="character_counter_overflowed_content_description">Karakterlimiet oorskry %1$d van %2$d</string>
     <string name="clear_text_end_icon_content_description">Vee teks uit</string>
     <string name="copy">Kopieer</string>
     <string name="copy_toast_msg">Skakel is na knipbord gekopieer</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Buite reeks: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Begindatum – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Einddatum</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s-%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s-%2$s</string>
     <string name="mtrl_picker_range_header_title">Kies datumreeks</string>
     <string name="mtrl_picker_range_header_unselected">Begindatum – Einddatum</string>
     <string name="mtrl_picker_save">Stoor</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" is na knipbord gekopieer.</string>
     <string name="search_menu_title">Soek</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">AF</string>
     <string name="v7_preference_on">AAN</string>
 </resources>

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/app/JobIntentService;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/core/app/JobIntentService;
 
     .line 387
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 387
     check-cast p1, [Ljava/lang/Void;
@@ -57,13 +57,13 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 3
+    .registers 5
     .param p1, "params"    # [Ljava/lang/Void;
 
     .line 394
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Landroidx/core/app/JobIntentService$CommandProcessor;->this$0:Landroidx/core/app/JobIntentService;
 
     invoke-virtual {v0}, Landroidx/core/app/JobIntentService;->dequeueWork()Landroidx/core/app/JobIntentService$GenericWorkItem;
@@ -73,7 +73,7 @@
     move-object v1, v0
 
     .local v1, "work":Landroidx/core/app/JobIntentService$GenericWorkItem;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 396
     iget-object v0, p0, Landroidx/core/app/JobIntentService$CommandProcessor;->this$0:Landroidx/core/app/JobIntentService;
@@ -87,17 +87,17 @@
     .line 398
     invoke-interface {v1}, Landroidx/core/app/JobIntentService$GenericWorkItem;->complete()V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 403
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method protected bridge synthetic onCancelled(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 387
     check-cast p1, Ljava/lang/Void;
@@ -108,7 +108,7 @@
 .end method
 
 .method protected onCancelled(Ljava/lang/Void;)V
-    .locals 1
+    .registers 3
     .param p1, "aVoid"    # Ljava/lang/Void;
 
     .line 408
@@ -121,7 +121,7 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 387
     check-cast p1, Ljava/lang/Void;
@@ -132,7 +132,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Void;)V
-    .locals 1
+    .registers 3
     .param p1, "aVoid"    # Ljava/lang/Void;
 
     .line 413

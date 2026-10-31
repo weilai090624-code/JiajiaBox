@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "workSpecId"    # Ljava/lang/String;
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Landroidx/work/impl/model/WorkName;->name:Ljava/lang/String;
@@ -75,7 +75,7 @@
 .end method
 
 .method public final getWorkSpecId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Landroidx/work/impl/model/WorkName;->workSpecId:Ljava/lang/String;

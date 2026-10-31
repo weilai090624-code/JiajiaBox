@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "title"    # Ljava/lang/String;
 
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public final getContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 9
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/ConnectionTestNotification;->context:Landroid/content/Context;
@@ -99,7 +99,7 @@
 .end method
 
 .method public final getTitle()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 9
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/ConnectionTestNotification;->title:Ljava/lang/String;
@@ -108,7 +108,7 @@
 .end method
 
 .method public final updateNotification(IIZ)V
-    .locals 4
+    .registers 8
     .param p1, "progress"    # I
     .param p2, "max"    # I
     .param p3, "finished"    # Z
@@ -117,10 +117,10 @@
     nop
 
     .line 15
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_f
 
     .line 16
-    :try_start_0
+    :try_start_3
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getNotification()Landroid/app/NotificationManager;
@@ -135,7 +135,7 @@
     return-void
 
     .line 19
-    :cond_0
+    :cond_f
     new-instance v0, Landroidx/core/app/NotificationCompat$Builder;
 
     iget-object v1, p0, Lmoe/matsuri/nb4a/ui/ConnectionTestNotification;->context:Landroid/content/Context;
@@ -224,14 +224,14 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v3}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_63
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_63} :catch_64
 
     .end local v0    # "builder":Landroidx/core/app/NotificationCompat$Builder;
-    goto :goto_0
+    goto :goto_6d
 
     .line 25
-    :catch_0
+    :catch_64
     move-exception v0
 
     .line 26
@@ -246,6 +246,6 @@
 
     .line 28
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_6d
     return-void
 .end method

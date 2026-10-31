@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public handleKeyDown(Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 5
     .param p1, "editable"    # Landroid/text/Editable;
     .param p2, "keyCode"    # I
     .param p3, "event"    # Landroid/view/KeyEvent;

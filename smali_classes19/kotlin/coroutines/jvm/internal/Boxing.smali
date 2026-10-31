@@ -48,7 +48,7 @@
 
 # direct methods
 .method public static final boxBoolean(Z)Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
     .param p0, "primitive"    # Z
 
     .line 20
@@ -60,7 +60,7 @@
 .end method
 
 .method public static final boxByte(B)Ljava/lang/Byte;
-    .locals 1
+    .registers 2
     .param p0, "primitive"    # B
 
     .line 24
@@ -72,7 +72,7 @@
 .end method
 
 .method public static final boxChar(C)Ljava/lang/Character;
-    .locals 1
+    .registers 2
     .param p0, "primitive"    # C
 
     .line 48
@@ -84,7 +84,7 @@
 .end method
 
 .method public static final boxDouble(D)Ljava/lang/Double;
-    .locals 1
+    .registers 3
     .param p0, "primitive"    # D
 
     .line 44
@@ -96,7 +96,7 @@
 .end method
 
 .method public static final boxFloat(F)Ljava/lang/Float;
-    .locals 1
+    .registers 2
     .param p0, "primitive"    # F
 
     .line 40
@@ -108,7 +108,7 @@
 .end method
 
 .method public static final boxInt(I)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "primitive"    # I
 
     .line 32
@@ -120,7 +120,7 @@
 .end method
 
 .method public static final boxLong(J)Ljava/lang/Long;
-    .locals 1
+    .registers 3
     .param p0, "primitive"    # J
 
     .line 36
@@ -132,7 +132,7 @@
 .end method
 
 .method public static final boxShort(S)Ljava/lang/Short;
-    .locals 1
+    .registers 2
     .param p0, "primitive"    # S
 
     .line 28

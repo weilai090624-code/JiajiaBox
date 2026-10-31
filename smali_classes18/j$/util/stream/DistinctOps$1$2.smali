@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/DistinctOps$1;Lj$/util/stream/Sink;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lj$/util/stream/DistinctOps$1;
 
     .line 158
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -66,7 +66,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 176
     iget-object v0, p0, Lj$/util/stream/DistinctOps$1$2;->seen:Ljava/util/Set;
@@ -79,12 +79,12 @@
     invoke-interface {v0, p1}, Lj$/util/stream/Sink;->accept(Ljava/lang/Object;)V
 
     .line 179
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public begin(J)V
-    .locals 3
+    .registers 6
     .param p1, "size"    # J
 
     .line 163
@@ -106,7 +106,7 @@
 .end method
 
 .method public end()V
-    .locals 1
+    .registers 2
 
     .line 169
     const/4 v0, 0x0

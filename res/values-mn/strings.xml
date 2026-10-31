@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Ирсэн дуудлага</string>
     <string name="call_notification_ongoing_text">Дуудлага хийгдэж байна</string>
     <string name="call_notification_screening_text">Ирсэн дуудлагыг харуулж байна</string>
-    <string name="character_counter_content_description" formatted="false">%2$d-н %1$d тэмдэгтийг оруулсан</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Тэмдэгтийн хязгаар %2$d-н %1$d-с хэтэрсэн</string>
+    <string name="character_counter_content_description">%2$d-н %1$d тэмдэгтийг оруулсан</string>
+    <string name="character_counter_overflowed_content_description">Тэмдэгтийн хязгаар %2$d-н %1$d-с хэтэрсэн</string>
     <string name="clear_text_end_icon_content_description">Текстийг арилгах</string>
     <string name="copy">Хуулах</string>
     <string name="copy_toast_msg">Холбоосыг түр санах ойд хуулсан</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Хязгаараас хэтэрсэн: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Эхлэх огноо – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Дуусах огноо</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Муж сонгох</string>
     <string name="mtrl_picker_range_header_unselected">Эхлэх огноо – Дуусах огноо</string>
     <string name="mtrl_picker_save">Хадгалах</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\"-г түр санах ойд хуулсан.</string>
     <string name="search_menu_title">Хайх</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ИДЭВХГҮЙ</string>
     <string name="v7_preference_on">ИДЭВХТЭЙ</string>
 </resources>

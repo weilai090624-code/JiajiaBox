@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 342
     const/4 v0, 0x0
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/Long;
-    .locals 2
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -87,7 +87,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     check-cast v0, Ljava/lang/Long;
 
@@ -101,7 +101,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_1b
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type kotlin.Long"
@@ -112,7 +112,7 @@
 .end method
 
 .method public bridge synthetic get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 344
     const-string v0, "long"
@@ -134,7 +134,7 @@
 .end method
 
 .method public parseValue(Ljava/lang/String;)Ljava/lang/Long;
-    .locals 6
+    .registers 8
     .param p1, "value"    # Ljava/lang/String;
 
     const-string/jumbo v0, "value"
@@ -158,7 +158,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 361
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -178,14 +178,14 @@
     move-object v0, v1
 
     .line 363
-    :cond_0
+    :cond_23
     const-string v1, "0x"
 
     invoke-static {p1, v1, v2, v3, v4}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_40
 
     .line 364
     invoke-virtual {v0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -206,15 +206,15 @@
 
     move-result-wide v1
 
-    goto :goto_0
+    goto :goto_44
 
     .line 366
-    :cond_1
+    :cond_40
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v1
 
-    :goto_0
+    :goto_44
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v1
@@ -224,7 +224,7 @@
 .end method
 
 .method public bridge synthetic parseValue(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 342
@@ -236,7 +236,7 @@
 .end method
 
 .method public put(Landroid/os/Bundle;Ljava/lang/String;J)V
-    .locals 1
+    .registers 6
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # J
@@ -257,7 +257,7 @@
 .end method
 
 .method public bridge synthetic put(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;

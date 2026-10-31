@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 966
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/search/SearchView$SavedState;
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/os/Parcel;
 
     .line 975
@@ -51,7 +51,7 @@
 .end method
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Lcom/google/android/material/search/SearchView$SavedState;
-    .locals 1
+    .registers 4
     .param p1, "source"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 966
     invoke-virtual {p0, p1}, Lcom/google/android/material/search/SearchView$SavedState$1;->createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/search/SearchView$SavedState;
@@ -75,7 +75,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 966
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/search/SearchView$SavedState$1;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Lcom/google/android/material/search/SearchView$SavedState;
@@ -86,7 +86,7 @@
 .end method
 
 .method public newArray(I)[Lcom/google/android/material/search/SearchView$SavedState;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 980
@@ -96,7 +96,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 966
     invoke-virtual {p0, p1}, Lcom/google/android/material/search/SearchView$SavedState$1;->newArray(I)[Lcom/google/android/material/search/SearchView$SavedState;

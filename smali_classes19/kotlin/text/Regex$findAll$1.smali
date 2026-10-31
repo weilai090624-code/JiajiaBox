@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/text/Regex;Ljava/lang/CharSequence;I)V
-    .locals 1
+    .registers 5
 
     iput-object p1, p0, Lkotlin/text/Regex$findAll$1;->this$0:Lkotlin/text/Regex;
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 135
     invoke-virtual {p0}, Lkotlin/text/Regex$findAll$1;->invoke()Lkotlin/text/MatchResult;
@@ -83,7 +83,7 @@
 .end method
 
 .method public final invoke()Lkotlin/text/MatchResult;
-    .locals 3
+    .registers 4
 
     .line 135
     iget-object v0, p0, Lkotlin/text/Regex$findAll$1;->this$0:Lkotlin/text/Regex;

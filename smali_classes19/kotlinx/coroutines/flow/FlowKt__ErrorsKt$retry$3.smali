@@ -96,7 +96,7 @@
 
 # direct methods
 .method constructor <init>(JLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 11
 
     move-object v1, p1
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/flow/FlowCollector;Ljava/lang/Throwable;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -201,7 +201,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -212,7 +212,7 @@
 
     const/4 v2, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_48
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -222,7 +222,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_12
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retry$3;
@@ -233,11 +233,11 @@
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_36
 
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retry$3;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -256,7 +256,7 @@
 
     cmp-long v8, v4, v6
 
-    if-gez v8, :cond_2
+    if-gez v8, :cond_40
 
     iget-object v6, v1, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retry$3;->$predicate:Lkotlin/jvm/functions/Function2;
 
@@ -268,41 +268,41 @@
 
     .end local v3    # "cause":Ljava/lang/Throwable;
     .end local v4    # "attempt":J
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_34
 
     return-object v0
 
-    :cond_0
+    :cond_34
     move-object v0, p1
 
     move-object p1, v3
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
+    :goto_36
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3f
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_1
+    :cond_3f
     move-object p1, v0
 
     .end local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :cond_2
+    :cond_40
     const/4 v2, 0x0
 
     move-object v0, p1
 
     .end local p1    # "$result":Ljava/lang/Object;
     .restart local v0    # "$result":Ljava/lang/Object;
-    :goto_1
+    :goto_42
     invoke-static {v2}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
     move-result-object p1
@@ -311,9 +311,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_48
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_12
     .end packed-switch
 .end method

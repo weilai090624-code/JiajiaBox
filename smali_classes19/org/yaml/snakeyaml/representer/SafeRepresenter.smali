@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 115
     const-string v0, "\n|\u0085|\u2028|\u2029"
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 51
     new-instance v0, Lorg/yaml/snakeyaml/DumperOptions;
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/DumperOptions;)V
-    .locals 4
+    .registers 6
     .param p1, "options"    # Lorg/yaml/snakeyaml/DumperOptions;
 
     .line 54
@@ -332,7 +332,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 1
 
     .line 44
     sget-object v0, Lorg/yaml/snakeyaml/representer/SafeRepresenter;->MULTILINE_PATTERN:Ljava/util/regex/Pattern;
@@ -343,7 +343,7 @@
 
 # virtual methods
 .method public addClassTag(Ljava/lang/Class;Lorg/yaml/snakeyaml/nodes/Tag;)Lorg/yaml/snakeyaml/nodes/Tag;
-    .locals 2
+    .registers 5
     .param p2, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -360,7 +360,7 @@
 
     .line 103
     .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/Object;>;"
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_b
 
     .line 106
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter;->classTags:Ljava/util/Map;
@@ -374,7 +374,7 @@
     return-object v0
 
     .line 104
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Tag must be provided."
@@ -385,7 +385,7 @@
 .end method
 
 .method protected getTag(Ljava/lang/Class;Lorg/yaml/snakeyaml/nodes/Tag;)Lorg/yaml/snakeyaml/nodes/Tag;
-    .locals 1
+    .registers 4
     .param p2, "defaultTag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -406,7 +406,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 86
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter;->classTags:Ljava/util/Map;
@@ -420,12 +420,12 @@
     return-object v0
 
     .line 88
-    :cond_0
+    :cond_11
     return-object p2
 .end method
 
 .method public getTimeZone()Ljava/util/TimeZone;
-    .locals 1
+    .registers 2
 
     .line 442
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter;->timeZone:Ljava/util/TimeZone;
@@ -434,7 +434,7 @@
 .end method
 
 .method public setTimeZone(Ljava/util/TimeZone;)V
-    .locals 0
+    .registers 2
     .param p1, "timeZone"    # Ljava/util/TimeZone;
 
     .line 446

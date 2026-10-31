@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/AbstractGraphBuilder;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,7 +66,7 @@
 .end method
 
 .method private addNodeInternal(Ljava/lang/Object;)Lcom/google/common/graph/GraphConnections;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -90,16 +90,16 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 82
@@ -107,7 +107,7 @@
 .end method
 
 .method private newConnections()Lcom/google/common/graph/GraphConnections;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -122,7 +122,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 189
     iget-object v0, p0, Lcom/google/common/graph/StandardMutableValueGraph;->incidentEdgeOrder:Lcom/google/common/graph/ElementOrder;
@@ -131,10 +131,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
     .line 190
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/common/graph/StandardMutableValueGraph;->incidentEdgeOrder:Lcom/google/common/graph/ElementOrder;
 
     invoke-static {v0}, Lcom/google/common/graph/UndirectedGraphConnections;->of(Lcom/google/common/graph/ElementOrder;)Lcom/google/common/graph/UndirectedGraphConnections;
@@ -142,14 +142,14 @@
     move-result-object v0
 
     .line 188
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 
 # virtual methods
 .method public addNode(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)Z"
@@ -168,7 +168,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 66
     const/4 v0, 0x0
@@ -176,7 +176,7 @@
     return v0
 
     .line 69
-    :cond_0
+    :cond_d
     invoke-direct {p0, p1}, Lcom/google/common/graph/StandardMutableValueGraph;->addNodeInternal(Ljava/lang/Object;)Lcom/google/common/graph/GraphConnections;
 
     .line 70
@@ -186,7 +186,7 @@
 .end method
 
 .method public incidentEdgeOrder()Lcom/google/common/graph/ElementOrder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -203,7 +203,7 @@
 .end method
 
 .method public putEdgeValue(Lcom/google/common/graph/EndpointPair;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -238,7 +238,7 @@
 .end method
 
 .method public putEdgeValue(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TN;TV;)TV;"
@@ -272,7 +272,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 94
     invoke-virtual {p1, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -286,7 +286,7 @@
     invoke-static {v0, v1, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
 
     .line 97
-    :cond_0
+    :cond_20
     iget-object v0, p0, Lcom/google/common/graph/StandardMutableValueGraph;->nodeConnections:Lcom/google/common/graph/MapIteratorCache;
 
     invoke-virtual {v0, p1}, Lcom/google/common/graph/MapIteratorCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -297,7 +297,7 @@
 
     .line 98
     .local v0, "connectionsU":Lcom/google/common/graph/GraphConnections;, "Lcom/google/common/graph/GraphConnections<TN;TV;>;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2e
 
     .line 99
     invoke-direct {p0, p1}, Lcom/google/common/graph/StandardMutableValueGraph;->addNodeInternal(Ljava/lang/Object;)Lcom/google/common/graph/GraphConnections;
@@ -305,7 +305,7 @@
     move-result-object v0
 
     .line 101
-    :cond_1
+    :cond_2e
     invoke-interface {v0, p2, p3}, Lcom/google/common/graph/GraphConnections;->addSuccessor(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -322,7 +322,7 @@
 
     .line 103
     .local v2, "connectionsV":Lcom/google/common/graph/GraphConnections;, "Lcom/google/common/graph/GraphConnections<TN;TV;>;"
-    if-nez v2, :cond_2
+    if-nez v2, :cond_40
 
     .line 104
     invoke-direct {p0, p2}, Lcom/google/common/graph/StandardMutableValueGraph;->addNodeInternal(Ljava/lang/Object;)Lcom/google/common/graph/GraphConnections;
@@ -330,11 +330,11 @@
     move-result-object v2
 
     .line 106
-    :cond_2
+    :cond_40
     invoke-interface {v2, p1, p3}, Lcom/google/common/graph/GraphConnections;->addPredecessor(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 107
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4f
 
     .line 108
     iget-wide v3, p0, Lcom/google/common/graph/StandardMutableValueGraph;->edgeCount:J
@@ -348,12 +348,12 @@
     invoke-static {v3, v4}, Lcom/google/common/graph/Graphs;->checkPositive(J)J
 
     .line 110
-    :cond_3
+    :cond_4f
     return-object v1
 .end method
 
 .method public removeEdge(Lcom/google/common/graph/EndpointPair;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -387,7 +387,7 @@
 .end method
 
 .method public removeEdge(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;TN;)TV;"
@@ -431,21 +431,21 @@
 
     .line 167
     .local v1, "connectionsV":Lcom/google/common/graph/GraphConnections;, "Lcom/google/common/graph/GraphConnections<TN;TV;>;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_33
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1f
 
-    goto :goto_0
+    goto :goto_33
 
     .line 171
-    :cond_0
+    :cond_1f
     invoke-interface {v0, p2}, Lcom/google/common/graph/GraphConnections;->removeSuccessor(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     .line 172
     .local v2, "previousValue":Ljava/lang/Object;, "TV;"
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_32
 
     .line 173
     invoke-interface {v1, p1}, Lcom/google/common/graph/GraphConnections;->removePredecessor(Ljava/lang/Object;)V
@@ -462,20 +462,20 @@
     invoke-static {v3, v4}, Lcom/google/common/graph/Graphs;->checkNonNegative(J)J
 
     .line 176
-    :cond_1
+    :cond_32
     return-object v2
 
     .line 168
     .end local v2    # "previousValue":Ljava/lang/Object;, "TV;"
-    :cond_2
-    :goto_0
+    :cond_33
+    :goto_33
     const/4 v2, 0x0
 
     return-object v2
 .end method
 
 .method public removeNode(Ljava/lang/Object;)Z
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)Z"
@@ -502,27 +502,27 @@
     .local v0, "connections":Lcom/google/common/graph/GraphConnections;, "Lcom/google/common/graph/GraphConnections<TN;TV;>;"
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 128
     return v1
 
     .line 131
-    :cond_0
+    :cond_11
     invoke-virtual {p0}, Lcom/google/common/graph/StandardMutableValueGraph;->allowsSelfLoops()Z
 
     move-result v2
 
     const-wide/16 v3, 0x1
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     .line 133
     invoke-interface {v0, p1}, Lcom/google/common/graph/GraphConnections;->removeSuccessor(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     .line 134
     invoke-interface {v0, p1}, Lcom/google/common/graph/GraphConnections;->removePredecessor(Ljava/lang/Object;)V
@@ -535,7 +535,7 @@
     iput-wide v5, p0, Lcom/google/common/graph/StandardMutableValueGraph;->edgeCount:J
 
     .line 139
-    :cond_1
+    :cond_27
     invoke-interface {v0}, Lcom/google/common/graph/GraphConnections;->successors()Ljava/util/Set;
 
     move-result-object v2
@@ -544,12 +544,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_2f
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_50
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -582,17 +582,17 @@
 
     .line 143
     .end local v5    # "successor":Ljava/lang/Object;, "TN;"
-    goto :goto_0
+    goto :goto_2f
 
     .line 144
-    :cond_2
+    :cond_50
     invoke-virtual {p0}, Lcom/google/common/graph/StandardMutableValueGraph;->isDirected()Z
 
     move-result v2
 
     const/4 v5, 0x1
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_89
 
     .line 145
     invoke-interface {v0}, Lcom/google/common/graph/GraphConnections;->predecessors()Ljava/util/Set;
@@ -603,12 +603,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_5f
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_89
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -635,17 +635,17 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_7f
 
     const/4 v7, 0x1
 
-    goto :goto_2
+    goto :goto_80
 
-    :cond_3
+    :cond_7f
     const/4 v7, 0x0
 
     .line 147
-    :goto_2
+    :goto_80
     invoke-static {v7}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 150
@@ -657,10 +657,10 @@
 
     .line 151
     .end local v6    # "predecessor":Ljava/lang/Object;, "TN;"
-    goto :goto_1
+    goto :goto_5f
 
     .line 153
-    :cond_4
+    :cond_89
     iget-object v1, p0, Lcom/google/common/graph/StandardMutableValueGraph;->nodeConnections:Lcom/google/common/graph/MapIteratorCache;
 
     invoke-virtual {v1, p1}, Lcom/google/common/graph/MapIteratorCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;

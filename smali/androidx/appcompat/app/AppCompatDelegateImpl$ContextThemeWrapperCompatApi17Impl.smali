@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 533
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static applyOverrideConfiguration(Landroid/view/ContextThemeWrapper;Landroid/content/res/Configuration;)V
-    .locals 0
+    .registers 2
     .param p0, "context"    # Landroid/view/ContextThemeWrapper;
     .param p1, "overrideConfiguration"    # Landroid/content/res/Configuration;
 

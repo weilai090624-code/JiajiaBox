@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public onActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public onActivityDestroyed(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -78,7 +78,7 @@
 .end method
 
 .method public onActivityPaused(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -90,7 +90,7 @@
 .end method
 
 .method public onActivityResumed(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -102,7 +102,7 @@
 .end method
 
 .method public onActivitySaveInstanceState(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "outState"    # Landroid/os/Bundle;
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public onActivityStarted(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -131,7 +131,7 @@
 .end method
 
 .method public onActivityStopped(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"

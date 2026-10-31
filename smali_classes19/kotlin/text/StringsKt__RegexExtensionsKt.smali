@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/text/StringsKt__RegexExtensionsJVMKt;-><init>()V
 
@@ -39,7 +39,7 @@
 .end method
 
 .method private static final toRegex(Ljava/lang/String;)Lkotlin/text/Regex;
-    .locals 1
+    .registers 2
     .param p0, "$this$toRegex"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -55,7 +55,7 @@
 .end method
 
 .method private static final toRegex(Ljava/lang/String;Ljava/util/Set;)Lkotlin/text/Regex;
-    .locals 1
+    .registers 3
     .param p0, "$this$toRegex"    # Ljava/lang/String;
     .param p1, "options"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -87,7 +87,7 @@
 .end method
 
 .method private static final toRegex(Ljava/lang/String;Lkotlin/text/RegexOption;)Lkotlin/text/Regex;
-    .locals 1
+    .registers 3
     .param p0, "$this$toRegex"    # Ljava/lang/String;
     .param p1, "option"    # Lkotlin/text/RegexOption;
 

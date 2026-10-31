@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 8
+    .registers 9
 
     const/16 v6, 0xf
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public constructor <init>(IIJLjava/lang/String;)V
-    .locals 1
+    .registers 7
     .param p1, "corePoolSize"    # I
     .param p2, "maxPoolSize"    # I
     .param p3, "idleWorkerKeepAliveNs"    # J
@@ -128,66 +128,66 @@
 .end method
 
 .method public synthetic constructor <init>(IIJLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 3
+    .registers 11
 
     .line 96
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_6
 
     .line 97
     sget p1, Lkotlinx/coroutines/scheduling/TasksKt;->CORE_POOL_SIZE:I
 
     .line 96
-    :cond_0
+    :cond_6
     and-int/lit8 p7, p6, 0x2
 
-    if-eqz p7, :cond_1
+    if-eqz p7, :cond_e
 
     .line 98
     sget p2, Lkotlinx/coroutines/scheduling/TasksKt;->MAX_POOL_SIZE:I
 
     move p7, p2
 
-    goto :goto_0
+    goto :goto_f
 
     .line 96
-    :cond_1
+    :cond_e
     move p7, p2
 
-    :goto_0
+    :goto_f
     and-int/lit8 p2, p6, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_17
 
     .line 99
     sget-wide p3, Lkotlinx/coroutines/scheduling/TasksKt;->IDLE_WORKER_KEEP_ALIVE_NS:J
 
     move-wide v0, p3
 
-    goto :goto_1
+    goto :goto_18
 
     .line 96
-    :cond_2
+    :cond_17
     move-wide v0, p3
 
-    :goto_1
+    :goto_18
     and-int/lit8 p2, p6, 0x8
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_20
 
     .line 100
     const-string p5, "CoroutineScheduler"
 
     move-object v2, p5
 
-    goto :goto_2
+    goto :goto_21
 
     .line 96
-    :cond_3
+    :cond_20
     move-object v2, p5
 
-    :goto_2
+    :goto_21
     move-object p2, p0
 
     move p3, p1
@@ -205,7 +205,7 @@
 .end method
 
 .method private final createScheduler()Lkotlinx/coroutines/scheduling/CoroutineScheduler;
-    .locals 7
+    .registers 8
 
     .line 110
     new-instance v6, Lkotlinx/coroutines/scheduling/CoroutineScheduler;
@@ -228,7 +228,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 122
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/SchedulerCoroutineDispatcher;->coroutineScheduler:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
@@ -240,7 +240,7 @@
 .end method
 
 .method public dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -263,7 +263,7 @@
 .end method
 
 .method public final dispatchWithContext$kotlinx_coroutines_core(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;Z)V
-    .locals 1
+    .registers 5
     .param p1, "block"    # Ljava/lang/Runnable;
     .param p2, "context"    # Lkotlinx/coroutines/scheduling/TaskContext;
     .param p3, "tailDispatch"    # Z
@@ -278,7 +278,7 @@
 .end method
 
 .method public dispatchYield(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -301,7 +301,7 @@
 .end method
 
 .method public getExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/SchedulerCoroutineDispatcher;->coroutineScheduler:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
@@ -312,7 +312,7 @@
 .end method
 
 .method public final restore$kotlinx_coroutines_core()V
-    .locals 0
+    .registers 1
 
     .line 139
     invoke-virtual {p0}, Lkotlinx/coroutines/scheduling/SchedulerCoroutineDispatcher;->usePrivateScheduler$kotlinx_coroutines_core()V
@@ -321,18 +321,18 @@
 .end method
 
 .method public final declared-synchronized shutdown$kotlinx_coroutines_core(J)V
-    .locals 1
+    .registers 4
     .param p1, "timeout"    # J
 
     monitor-enter p0
 
     .line 135
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/SchedulerCoroutineDispatcher;->coroutineScheduler:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
 
     invoke-virtual {v0, p1, p2}, Lkotlinx/coroutines/scheduling/CoroutineScheduler;->shutdown(J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_1 .. :try_end_6} :catchall_8
 
     .line 136
     monitor-exit p0
@@ -342,24 +342,24 @@
     .line 134
     .end local p0    # "this":Lkotlinx/coroutines/scheduling/SchedulerCoroutineDispatcher;
     .end local p1    # "timeout":J
-    :catchall_0
+    :catchall_8
     move-exception p1
 
-    :try_start_1
+    :try_start_9
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_a
+    .catchall {:try_start_9 .. :try_end_a} :catchall_8
 
     throw p1
 .end method
 
 .method public final declared-synchronized usePrivateScheduler$kotlinx_coroutines_core()V
-    .locals 3
+    .registers 4
 
     monitor-enter p0
 
     .line 128
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/SchedulerCoroutineDispatcher;->coroutineScheduler:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
 
     const-wide/16 v1, 0x3e8
@@ -372,8 +372,8 @@
     move-result-object v0
 
     iput-object v0, p0, Lkotlinx/coroutines/scheduling/SchedulerCoroutineDispatcher;->coroutineScheduler:Lkotlinx/coroutines/scheduling/CoroutineScheduler;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_1 .. :try_end_e} :catchall_10
 
     .line 130
     monitor-exit p0
@@ -382,13 +382,13 @@
 
     .line 127
     .end local p0    # "this":Lkotlinx/coroutines/scheduling/SchedulerCoroutineDispatcher;
-    :catchall_0
+    :catchall_10
     move-exception v0
 
-    :try_start_1
+    :try_start_11
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_12
+    .catchall {:try_start_11 .. :try_end_12} :catchall_10
 
     throw v0
 .end method

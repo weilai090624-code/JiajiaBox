@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 40
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
+    .registers 3
     .param p1, "intent"    # Landroid/content/Intent;
 
     .line 70

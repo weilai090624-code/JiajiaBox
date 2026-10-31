@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(DD)V
-    .locals 1
+    .registers 6
     .param p1, "slope"    # D
     .param p3, "yIntercept"    # D
 
@@ -53,7 +53,7 @@
 .end method
 
 .method constructor <init>(DDLcom/google/common/math/LinearTransformation;)V
-    .locals 0
+    .registers 6
     .param p1, "slope"    # D
     .param p3, "yIntercept"    # D
     .param p5, "inverse"    # Lcom/google/common/math/LinearTransformation;
@@ -75,7 +75,7 @@
 .end method
 
 .method private createInverse()Lcom/google/common/math/LinearTransformation;
-    .locals 11
+    .registers 12
 
     .line 212
     iget-wide v0, p0, Lcom/google/common/math/LinearTransformation$RegularLinearTransformation;->slope:D
@@ -84,7 +84,7 @@
 
     cmpl-double v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_20
 
     .line 213
     new-instance v0, Lcom/google/common/math/LinearTransformation$RegularLinearTransformation;
@@ -114,7 +114,7 @@
     return-object v0
 
     .line 215
-    :cond_0
+    :cond_20
     new-instance v0, Lcom/google/common/math/LinearTransformation$VerticalLinearTransformation;
 
     iget-wide v1, p0, Lcom/google/common/math/LinearTransformation$RegularLinearTransformation;->yIntercept:D
@@ -127,14 +127,14 @@
 
 # virtual methods
 .method public inverse()Lcom/google/common/math/LinearTransformation;
-    .locals 2
+    .registers 3
 
     .line 202
     iget-object v0, p0, Lcom/google/common/math/LinearTransformation$RegularLinearTransformation;->inverse:Lcom/google/common/math/LinearTransformation;
 
     .line 203
     .local v0, "result":Lcom/google/common/math/LinearTransformation;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-direct {p0}, Lcom/google/common/math/LinearTransformation$RegularLinearTransformation;->createInverse()Lcom/google/common/math/LinearTransformation;
 
@@ -142,17 +142,17 @@
 
     iput-object v1, p0, Lcom/google/common/math/LinearTransformation$RegularLinearTransformation;->inverse:Lcom/google/common/math/LinearTransformation;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public isHorizontal()Z
-    .locals 5
+    .registers 6
 
     .line 187
     iget-wide v0, p0, Lcom/google/common/math/LinearTransformation$RegularLinearTransformation;->slope:D
@@ -161,21 +161,21 @@
 
     cmpl-double v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public isVertical()Z
-    .locals 1
+    .registers 2
 
     .line 182
     const/4 v0, 0x0
@@ -184,7 +184,7 @@
 .end method
 
 .method public slope()D
-    .locals 2
+    .registers 3
 
     .line 192
     iget-wide v0, p0, Lcom/google/common/math/LinearTransformation$RegularLinearTransformation;->slope:D
@@ -193,7 +193,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 208
     iget-wide v0, p0, Lcom/google/common/math/LinearTransformation$RegularLinearTransformation;->slope:D
@@ -230,7 +230,7 @@
 .end method
 
 .method public transform(D)D
-    .locals 4
+    .registers 7
     .param p1, "x"    # D
 
     .line 197

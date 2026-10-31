@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     new-instance v0, Landroidx/recyclerview/widget/ItemTouchUIUtilImpl;
@@ -25,7 +25,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method private static findMaxElevation(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;)F
-    .locals 6
+    .registers 8
     .param p0, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p1, "itemView"    # Landroid/view/View;
 
@@ -52,8 +52,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_2
+    :goto_6
+    if-ge v2, v0, :cond_1b
 
     .line 64
     invoke-virtual {p0, v2}, Landroidx/recyclerview/widget/RecyclerView;->getChildAt(I)Landroid/view/View;
@@ -62,13 +62,13 @@
 
     .line 65
     .local v3, "child":Landroid/view/View;
-    if-ne v3, p1, :cond_0
+    if-ne v3, p1, :cond_f
 
     .line 66
-    goto :goto_1
+    goto :goto_18
 
     .line 68
-    :cond_0
+    :cond_f
     invoke-static {v3}, Landroidx/core/view/ViewCompat;->getElevation(Landroid/view/View;)F
 
     move-result v4
@@ -77,7 +77,7 @@
     .local v4, "elevation":F
     cmpl-float v5, v4, v1
 
-    if-lez v5, :cond_1
+    if-lez v5, :cond_18
 
     .line 70
     move v1, v4
@@ -85,22 +85,22 @@
     .line 63
     .end local v3    # "child":Landroid/view/View;
     .end local v4    # "elevation":F
-    :cond_1
-    :goto_1
+    :cond_18
+    :goto_18
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 73
     .end local v2    # "i":I
-    :cond_2
+    :cond_1b
     return v1
 .end method
 
 
 # virtual methods
 .method public clearView(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 90
@@ -117,7 +117,7 @@
     .local v0, "tag":Ljava/lang/Object;
     instance-of v1, v0, Ljava/lang/Float;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 93
     move-object v1, v0
@@ -131,7 +131,7 @@
     invoke-static {p1, v1}, Landroidx/core/view/ViewCompat;->setElevation(Landroid/view/View;F)V
 
     .line 95
-    :cond_0
+    :cond_15
     sget v1, Landroidx/recyclerview/R$id;->item_touch_helper_previous_elevation:I
 
     const/4 v2, 0x0
@@ -152,7 +152,7 @@
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;FFIZ)V
-    .locals 3
+    .registers 11
     .param p1, "c"    # Landroid/graphics/Canvas;
     .param p2, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p3, "view"    # Landroid/view/View;
@@ -165,7 +165,7 @@
     nop
 
     .line 45
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_22
 
     .line 46
     sget v0, Landroidx/recyclerview/R$id;->item_touch_helper_previous_elevation:I
@@ -176,7 +176,7 @@
 
     .line 47
     .local v0, "originalElevation":Ljava/lang/Object;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 48
     invoke-static {p3}, Landroidx/core/view/ViewCompat;->getElevation(Landroid/view/View;)F
@@ -208,7 +208,7 @@
     .line 56
     .end local v0    # "originalElevation":Ljava/lang/Object;
     .end local v2    # "newElevation":F
-    :cond_0
+    :cond_22
     invoke-virtual {p3, p4}, Landroid/view/View;->setTranslationX(F)V
 
     .line 57
@@ -219,7 +219,7 @@
 .end method
 
 .method public onDrawOver(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;FFIZ)V
-    .locals 0
+    .registers 8
     .param p1, "c"    # Landroid/graphics/Canvas;
     .param p2, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p3, "view"    # Landroid/view/View;
@@ -233,7 +233,7 @@
 .end method
 
 .method public onSelected(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 104

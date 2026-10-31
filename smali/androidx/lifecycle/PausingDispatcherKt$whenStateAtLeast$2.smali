@@ -90,7 +90,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -158,7 +158,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -172,7 +172,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -199,7 +199,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -208,7 +208,7 @@
     .line 197
     iget v1, p0, Landroidx/lifecycle/PausingDispatcherKt$whenStateAtLeast$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_7c
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -218,7 +218,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Landroidx/lifecycle/PausingDispatcherKt$whenStateAtLeast$2;
@@ -228,10 +228,10 @@
     check-cast v1, Landroidx/lifecycle/LifecycleController;
 
     .local v1, "controller":Landroidx/lifecycle/LifecycleController;
-    :try_start_0
+    :try_start_16
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_16 .. :try_end_19} :catchall_1d
 
     move-object v2, v1
 
@@ -239,19 +239,19 @@
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_60
 
     .line 205
-    :catchall_0
+    :catchall_1d
     move-exception v2
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 197
     .end local v0    # "this":Landroidx/lifecycle/PausingDispatcherKt$whenStateAtLeast$2;
     .end local v1    # "controller":Landroidx/lifecycle/LifecycleController;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1f
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -279,7 +279,7 @@
     check-cast v3, Lkotlinx/coroutines/Job;
 
     .end local v2    # "$this$withContext":Lkotlinx/coroutines/CoroutineScope;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_6e
 
     move-object v2, v3
 
@@ -310,7 +310,7 @@
     nop
 
     .line 203
-    :try_start_1
+    :try_start_4a
     move-object v4, v3
 
     check-cast v4, Lkotlin/coroutines/CoroutineContext;
@@ -330,17 +330,17 @@
     invoke-static {v4, v5, v6}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_5b
+    .catchall {:try_start_4a .. :try_end_5b} :catchall_65
 
     .end local v3    # "dispatcher":Landroidx/lifecycle/PausingDispatcher;
-    if-ne v4, v0, :cond_0
+    if-ne v4, v0, :cond_5e
 
     .line 197
     return-object v0
 
     .line 203
-    :cond_0
+    :cond_5e
     move-object v0, p1
 
     move-object p1, v4
@@ -348,7 +348,7 @@
     .line 205
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
+    :goto_60
     invoke-virtual {v2}, Landroidx/lifecycle/LifecycleController;->finish()V
 
     .line 206
@@ -362,7 +362,7 @@
     .line 205
     .end local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catchall_1
+    :catchall_65
     move-exception v0
 
     move-object v8, v2
@@ -376,7 +376,7 @@
     .end local v2    # "controller":Landroidx/lifecycle/LifecycleController;
     .local v0, "this":Landroidx/lifecycle/PausingDispatcherKt$whenStateAtLeast$2;
     .local v1, "controller":Landroidx/lifecycle/LifecycleController;
-    :goto_1
+    :goto_6a
     invoke-virtual {v1}, Landroidx/lifecycle/LifecycleController;->finish()V
 
     throw v2
@@ -384,7 +384,7 @@
     .line 198
     .end local v0    # "this":Landroidx/lifecycle/PausingDispatcherKt$whenStateAtLeast$2;
     .local v1, "this":Landroidx/lifecycle/PausingDispatcherKt$whenStateAtLeast$2;
-    :cond_1
+    :cond_6e
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v2, "when[State] methods should have a parent job"
@@ -399,9 +399,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_7c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1f
+        :pswitch_11
     .end packed-switch
 .end method

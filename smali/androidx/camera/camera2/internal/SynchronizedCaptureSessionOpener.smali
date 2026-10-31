@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$OpenerImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "impl"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$OpenerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method createSessionConfigurationCompat(ILjava/util/List;Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;)Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;
-    .locals 1
+    .registers 5
     .param p1, "sessionType"    # I
     .param p3, "stateCallback"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -91,7 +91,7 @@
 .end method
 
 .method public getExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 212
     iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener;->mImpl:Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$OpenerImpl;
@@ -104,7 +104,7 @@
 .end method
 
 .method openCaptureSession(Landroid/hardware/camera2/CameraDevice;Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;Ljava/util/List;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 5
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .param p2, "sessionConfigurationCompat"    # Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -146,7 +146,7 @@
 .end method
 
 .method startWithDeferrableSurface(Ljava/util/List;J)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 5
     .param p2, "timeout"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -184,7 +184,7 @@
 .end method
 
 .method stop()Z
-    .locals 1
+    .registers 2
 
     .line 206
     iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener;->mImpl:Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$OpenerImpl;

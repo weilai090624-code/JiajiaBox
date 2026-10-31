@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final varargs FragmentNavigatorExtras([Lkotlin/Pair;)Landroidx/navigation/fragment/FragmentNavigator$Extras;
-    .locals 11
+    .registers 12
     .param p0, "sharedElements"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -76,8 +76,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v6, v5, :cond_0
+    :goto_11
+    if-ge v6, v5, :cond_29
 
     aget-object v7, v3, v6
 
@@ -111,11 +111,11 @@
     .end local v10    # "name":Ljava/lang/String;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 37
     .end local v7    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_29
     nop
 
     .line 34

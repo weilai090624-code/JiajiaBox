@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 29
     new-instance v0, Lcom/google/common/collect/EmptyImmutableListMultimap;
@@ -38,7 +38,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 32
     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->of()Lcom/google/common/collect/ImmutableMap;
@@ -54,7 +54,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 36
     sget-object v0, Lcom/google/common/collect/EmptyImmutableListMultimap;->INSTANCE:Lcom/google/common/collect/EmptyImmutableListMultimap;

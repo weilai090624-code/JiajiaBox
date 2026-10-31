@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/ComponentName;JF)V
-    .locals 0
+    .registers 5
     .param p1, "activityName"    # Landroid/content/ComponentName;
     .param p2, "time"    # J
     .param p4, "weight"    # F
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;JF)V
-    .locals 1
+    .registers 6
     .param p1, "activityName"    # Ljava/lang/String;
     .param p2, "time"    # J
     .param p4, "weight"    # F
@@ -65,28 +65,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 812
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 813
     return v0
 
     .line 815
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 816
     return v1
 
     .line 818
-    :cond_1
+    :cond_8
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -95,13 +95,13 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_13
 
     .line 819
     return v1
 
     .line 821
-    :cond_2
+    :cond_13
     move-object v2, p1
 
     check-cast v2, Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;
@@ -110,18 +110,18 @@
     .local v2, "other":Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;
     iget-object v3, p0, Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;->activity:Landroid/content/ComponentName;
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_1f
 
     .line 823
     iget-object v3, v2, Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;->activity:Landroid/content/ComponentName;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_2a
 
     .line 824
     return v1
 
     .line 826
-    :cond_3
+    :cond_1f
     iget-object v3, p0, Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;->activity:Landroid/content/ComponentName;
 
     iget-object v4, v2, Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;->activity:Landroid/content/ComponentName;
@@ -130,26 +130,26 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_2a
 
     .line 827
     return v1
 
     .line 829
-    :cond_4
+    :cond_2a
     iget-wide v3, p0, Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;->time:J
 
     iget-wide v5, v2, Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;->time:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_33
 
     .line 830
     return v1
 
     .line 832
-    :cond_5
+    :cond_33
     iget v3, p0, Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;->weight:F
 
     invoke-static {v3}, Ljava/lang/Float;->floatToIntBits(F)I
@@ -162,18 +162,18 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_42
 
     .line 833
     return v1
 
     .line 835
-    :cond_6
+    :cond_42
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 8
+    .registers 9
 
     .line 802
     const/16 v0, 0x1f
@@ -188,20 +188,20 @@
 
     iget-object v3, p0, Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;->activity:Landroid/content/ComponentName;
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_b
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_b
     iget-object v3, p0, Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;->activity:Landroid/content/ComponentName;
 
     invoke-virtual {v3}, Landroid/content/ComponentName;->hashCode()I
 
     move-result v3
 
-    :goto_0
+    :goto_11
     add-int/2addr v2, v3
 
     .line 805
@@ -243,7 +243,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 840
     new-instance v0, Ljava/lang/StringBuilder;

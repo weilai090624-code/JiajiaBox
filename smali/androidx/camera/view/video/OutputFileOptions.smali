@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 51
     invoke-static {}, Landroidx/camera/view/video/Metadata;->builder()Landroidx/camera/view/video/Metadata$Builder;
@@ -34,7 +34,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method public static builder(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;)Landroidx/camera/view/video/OutputFileOptions$Builder;
-    .locals 2
+    .registers 5
     .param p0, "contentResolver"    # Landroid/content/ContentResolver;
     .param p1, "saveCollection"    # Landroid/net/Uri;
     .param p2, "contentValues"    # Landroid/content/ContentValues;
@@ -92,7 +92,7 @@
 .end method
 
 .method public static builder(Landroid/os/ParcelFileDescriptor;)Landroidx/camera/view/video/OutputFileOptions$Builder;
-    .locals 2
+    .registers 3
     .param p0, "fileDescriptor"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -108,16 +108,16 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     const-string v1, "Using a ParcelFileDescriptor to record a video is only supported for Android 8.0 or above."
 
     invoke-static {v0, v1}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -143,7 +143,7 @@
 .end method
 
 .method public static builder(Ljava/io/File;)Landroidx/camera/view/video/OutputFileOptions$Builder;
-    .locals 2
+    .registers 3
     .param p0, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -173,79 +173,79 @@
 .end method
 
 .method private isSavingToFile()Z
-    .locals 1
+    .registers 2
 
     .line 165
     invoke-virtual {p0}, Landroidx/camera/view/video/OutputFileOptions;->getFile()Ljava/io/File;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method private isSavingToFileDescriptor()Z
-    .locals 1
+    .registers 2
 
     .line 172
     invoke-virtual {p0}, Landroidx/camera/view/video/OutputFileOptions;->getFileDescriptor()Landroid/os/ParcelFileDescriptor;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method private isSavingToMediaStore()Z
-    .locals 1
+    .registers 2
 
     .line 157
     invoke-virtual {p0}, Landroidx/camera/view/video/OutputFileOptions;->getSaveCollection()Landroid/net/Uri;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {p0}, Landroidx/camera/view/video/OutputFileOptions;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 158
     invoke-virtual {p0}, Landroidx/camera/view/video/OutputFileOptions;->getContentValues()Landroid/content/ContentValues;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     .line 157
-    :goto_0
+    :goto_15
     return v0
 .end method
 
@@ -270,14 +270,14 @@
 .end method
 
 .method public toVideoCaptureOutputFileOptions()Landroidx/camera/core/VideoCapture$OutputFileOptions;
-    .locals 4
+    .registers 5
 
     .line 184
     invoke-direct {p0}, Landroidx/camera/view/video/OutputFileOptions;->isSavingToFile()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 185
     new-instance v0, Landroidx/camera/core/VideoCapture$OutputFileOptions$Builder;
@@ -296,16 +296,16 @@
     invoke-direct {v0, v1}, Landroidx/camera/core/VideoCapture$OutputFileOptions$Builder;-><init>(Ljava/io/File;)V
 
     .local v0, "internalOutputFileOptionsBuilder":Landroidx/camera/core/VideoCapture$OutputFileOptions$Builder;
-    goto :goto_0
+    goto :goto_5a
 
     .line 188
     .end local v0    # "internalOutputFileOptionsBuilder":Landroidx/camera/core/VideoCapture$OutputFileOptions$Builder;
-    :cond_0
+    :cond_16
     invoke-direct {p0}, Landroidx/camera/view/video/OutputFileOptions;->isSavingToFileDescriptor()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     .line 189
     new-instance v0, Landroidx/camera/core/VideoCapture$OutputFileOptions$Builder;
@@ -328,11 +328,11 @@
     invoke-direct {v0, v1}, Landroidx/camera/core/VideoCapture$OutputFileOptions$Builder;-><init>(Ljava/io/FileDescriptor;)V
 
     .restart local v0    # "internalOutputFileOptionsBuilder":Landroidx/camera/core/VideoCapture$OutputFileOptions$Builder;
-    goto :goto_0
+    goto :goto_5a
 
     .line 193
     .end local v0    # "internalOutputFileOptionsBuilder":Landroidx/camera/core/VideoCapture$OutputFileOptions$Builder;
-    :cond_1
+    :cond_30
     invoke-direct {p0}, Landroidx/camera/view/video/OutputFileOptions;->isSavingToMediaStore()Z
 
     move-result v0
@@ -379,7 +379,7 @@
 
     .line 201
     .restart local v0    # "internalOutputFileOptionsBuilder":Landroidx/camera/core/VideoCapture$OutputFileOptions$Builder;
-    :goto_0
+    :goto_5a
     new-instance v1, Landroidx/camera/core/VideoCapture$Metadata;
 
     invoke-direct {v1}, Landroidx/camera/core/VideoCapture$Metadata;-><init>()V

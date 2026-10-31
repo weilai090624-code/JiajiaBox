@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/Button;Landroid/widget/Button;Landroid/widget/Button;Landroid/widget/CheckBox;Landroid/widget/CheckBox;Landroid/widget/CheckBox;Landroid/widget/Button;)V
-    .locals 0
+    .registers 9
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "actionExport"    # Landroid/widget/Button;
     .param p3, "actionImportFile"    # Landroid/widget/Button;
@@ -90,7 +90,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;
-    .locals 19
+    .registers 20
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -116,7 +116,7 @@
 
     .line 87
     .local v2, "actionExport":Landroid/widget/Button;
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_71
 
     .line 91
     const v1, 0x7f0a0058
@@ -132,7 +132,7 @@
 
     .line 93
     .local v12, "actionImportFile":Landroid/widget/Button;
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_70
 
     .line 97
     const v1, 0x7f0a0081
@@ -148,7 +148,7 @@
 
     .line 99
     .local v13, "actionShare":Landroid/widget/Button;
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_6f
 
     .line 103
     const v1, 0x7f0a00a9
@@ -164,7 +164,7 @@
 
     .line 105
     .local v14, "backupConfigurations":Landroid/widget/CheckBox;
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_6e
 
     .line 109
     const v1, 0x7f0a00aa
@@ -180,7 +180,7 @@
 
     .line 111
     .local v15, "backupRules":Landroid/widget/CheckBox;
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_6d
 
     .line 115
     const v1, 0x7f0a00ab
@@ -196,7 +196,7 @@
 
     .line 117
     .local v16, "backupSettings":Landroid/widget/CheckBox;
-    if-eqz v16, :cond_1
+    if-eqz v16, :cond_6c
 
     .line 121
     const v1, 0x7f0a022b
@@ -212,7 +212,7 @@
 
     .line 123
     .local v17, "resetSettings":Landroid/widget/Button;
-    if-eqz v17, :cond_0
+    if-eqz v17, :cond_6b
 
     .line 127
     new-instance v18, Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;
@@ -242,42 +242,42 @@
     return-object v18
 
     .line 124
-    :cond_0
-    goto :goto_0
+    :cond_6b
+    goto :goto_72
 
     .line 118
     .end local v17    # "resetSettings":Landroid/widget/Button;
-    :cond_1
-    goto :goto_0
+    :cond_6c
+    goto :goto_72
 
     .line 112
     .end local v16    # "backupSettings":Landroid/widget/CheckBox;
-    :cond_2
-    goto :goto_0
+    :cond_6d
+    goto :goto_72
 
     .line 106
     .end local v15    # "backupRules":Landroid/widget/CheckBox;
-    :cond_3
-    goto :goto_0
+    :cond_6e
+    goto :goto_72
 
     .line 100
     .end local v14    # "backupConfigurations":Landroid/widget/CheckBox;
-    :cond_4
-    goto :goto_0
+    :cond_6f
+    goto :goto_72
 
     .line 94
     .end local v13    # "actionShare":Landroid/widget/Button;
-    :cond_5
-    goto :goto_0
+    :cond_70
+    goto :goto_72
 
     .line 88
     .end local v12    # "actionImportFile":Landroid/widget/Button;
-    :cond_6
+    :cond_71
     nop
 
     .line 130
     .end local v2    # "actionExport":Landroid/widget/Button;
-    :goto_0
+    :goto_72
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -302,7 +302,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -326,7 +326,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -354,13 +354,13 @@
 
     .line 73
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 74
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 76
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;
 
     move-result-object v1
@@ -371,7 +371,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -382,7 +382,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 61
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutBackupBinding;->rootView:Landroid/widget/LinearLayout;

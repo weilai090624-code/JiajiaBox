@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$schedule(Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
+    .registers 5
     .param p0, "_this"    # Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;
 
     .line 32
@@ -17,7 +17,7 @@
 .end method
 
 .method public static bridge synthetic $default$schedule(Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
+    .registers 5
     .param p0, "_this"    # Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;
 
     .line 32
@@ -29,7 +29,7 @@
 .end method
 
 .method public static bridge synthetic $default$scheduleAtFixedRate(Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
+    .registers 7
     .param p0, "_this"    # Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;
 
     .line 32
@@ -41,7 +41,7 @@
 .end method
 
 .method public static bridge synthetic $default$scheduleWithFixedDelay(Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
+    .registers 7
     .param p0, "_this"    # Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;
 
     .line 32

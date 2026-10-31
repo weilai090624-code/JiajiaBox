@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/internal/FastServiceLoader;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -89,7 +89,7 @@
 .end method
 
 .method private final createInstanceOf(Ljava/lang/Class;Ljava/lang/String;)Lkotlinx/coroutines/internal/MainDispatcherFactory;
-    .locals 4
+    .registers 7
     .param p1, "baseClass"    # Ljava/lang/Class;
     .param p2, "serviceClass"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -111,7 +111,7 @@
     nop
 
     .line 78
-    :try_start_0
+    :try_start_2
     invoke-virtual {p1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v1
@@ -144,13 +144,13 @@
 
     .end local v1    # "clz":Ljava/lang/Class;
     check-cast v2, Lkotlinx/coroutines/internal/MainDispatcherFactory;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_1e} :catch_1f
 
-    goto :goto_0
+    goto :goto_21
 
     .line 80
-    :catch_0
+    :catch_1f
     move-exception v1
 
     .line 81
@@ -159,12 +159,12 @@
 
     .line 77
     .end local v1    # "e":Ljava/lang/ClassNotFoundException;
-    :goto_0
+    :goto_21
     return-object v2
 .end method
 
 .method private final getProviderInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 4
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
     .param p3, "service"    # Ljava/lang/Class;
@@ -193,7 +193,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 107
     new-array v2, v0, [Ljava/lang/Class;
@@ -215,7 +215,7 @@
     return-object v0
 
     .line 167
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
     .line 106
@@ -261,7 +261,7 @@
 .end method
 
 .method private final load(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/List;
-    .locals 2
+    .registers 5
     .param p1, "service"    # Ljava/lang/Class;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -282,17 +282,17 @@
     nop
 
     .line 87
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0, p1, p2}, Lkotlinx/coroutines/internal/FastServiceLoader;->loadProviders$kotlinx_coroutines_core(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/List;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_1 .. :try_end_5} :catchall_6
 
-    goto :goto_0
+    goto :goto_12
 
     .line 88
-    :catchall_0
+    :catchall_6
     move-exception v0
 
     .line 90
@@ -311,12 +311,12 @@
 
     .line 86
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method private final parse(Ljava/net/URL;)Ljava/util/List;
-    .locals 14
+    .registers 16
     .param p1, "url"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -348,7 +348,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_70
 
     .line 114
     const-string v1, "jar:file:"
@@ -401,7 +401,7 @@
 
     .line 118
     .local v9, "$i$a$-use-FastServiceLoader$parse$1":I
-    :try_start_0
+    :try_start_2d
     new-instance v10, Ljava/io/BufferedReader;
 
     new-instance v11, Ljava/io/InputStreamReader;
@@ -423,10 +423,10 @@
     invoke-direct {v10, v11}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
     check-cast v10, Ljava/io/Closeable;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_3
+    :try_end_46
+    .catchall {:try_start_2d .. :try_end_46} :catchall_61
 
-    :try_start_1
+    :try_start_46
     move-object v11, v10
 
     check-cast v11, Ljava/io/BufferedReader;
@@ -441,15 +441,15 @@
     invoke-direct {v13, v11}, Lkotlinx/coroutines/internal/FastServiceLoader;->parseFile(Ljava/io/BufferedReader;)Ljava/util/List;
 
     move-result-object v13
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_50
+    .catchall {:try_start_46 .. :try_end_50} :catchall_5a
 
     .end local v11    # "r":Ljava/io/BufferedReader;
     .end local v12    # "$i$a$-use-FastServiceLoader$parse$1$1":I
-    :try_start_2
+    :try_start_50
     invoke-static {v10, v4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_3
+    :try_end_53
+    .catchall {:try_start_50 .. :try_end_53} :catchall_61
 
     .line 190
     .end local v2    # "$this$use$iv":Ljava/util/jar/JarFile;
@@ -461,16 +461,16 @@
     nop
 
     .line 191
-    :try_start_3
+    :try_start_54
     invoke-virtual {v2}, Ljava/util/jar/JarFile;->close()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_57
+    .catchall {:try_start_54 .. :try_end_57} :catchall_58
 
     .line 193
     return-object v13
 
     .line 192
-    :catchall_0
+    :catchall_58
     move-exception v2
 
     .line 193
@@ -482,7 +482,7 @@
     .restart local v7    # "cause$iv":Ljava/lang/Throwable;
     .restart local v8    # "file":Ljava/util/jar/JarFile;
     .restart local v9    # "$i$a$-use-FastServiceLoader$parse$1":I
-    :catchall_1
+    :catchall_5a
     move-exception v4
 
     .end local v0    # "path":Ljava/lang/String;
@@ -495,10 +495,10 @@
     .end local v8    # "file":Ljava/util/jar/JarFile;
     .end local v9    # "$i$a$-use-FastServiceLoader$parse$1":I
     .end local p1    # "url":Ljava/net/URL;
-    :try_start_4
+    :try_start_5b
     throw v4
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_5c
+    .catchall {:try_start_5b .. :try_end_5c} :catchall_5c
 
     .restart local v0    # "path":Ljava/lang/String;
     .restart local v1    # "pathToJar":Ljava/lang/String;
@@ -510,10 +510,10 @@
     .restart local v8    # "file":Ljava/util/jar/JarFile;
     .restart local v9    # "$i$a$-use-FastServiceLoader$parse$1":I
     .restart local p1    # "url":Ljava/net/URL;
-    :catchall_2
+    :catchall_5c
     move-exception v11
 
-    :try_start_5
+    :try_start_5d
     invoke-static {v10, v4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local v0    # "path":Ljava/lang/String;
@@ -525,8 +525,8 @@
     .end local v7    # "cause$iv":Ljava/lang/Throwable;
     .end local p1    # "url":Ljava/net/URL;
     throw v11
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_61
+    .catchall {:try_start_5d .. :try_end_61} :catchall_61
 
     .line 186
     .end local v8    # "file":Ljava/util/jar/JarFile;
@@ -539,7 +539,7 @@
     .restart local v6    # "$i$f$use":I
     .restart local v7    # "cause$iv":Ljava/lang/Throwable;
     .restart local p1    # "url":Ljava/net/URL;
-    :catchall_3
+    :catchall_61
     move-exception v4
 
     .line 187
@@ -557,10 +557,10 @@
     .end local v6    # "$i$f$use":I
     .end local v7    # "cause$iv":Ljava/lang/Throwable;
     .end local p1    # "url":Ljava/net/URL;
-    :try_start_6
+    :try_start_64
     throw v4
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_4
+    :try_end_65
+    .catchall {:try_start_64 .. :try_end_65} :catchall_65
 
     .line 190
     .end local v4    # "e$iv":Ljava/lang/Throwable;
@@ -572,20 +572,20 @@
     .restart local v6    # "$i$f$use":I
     .restart local v7    # "cause$iv":Ljava/lang/Throwable;
     .restart local p1    # "url":Ljava/net/URL;
-    :catchall_4
+    :catchall_65
     move-exception v4
 
     .line 191
-    :try_start_7
+    :try_start_66
     invoke-virtual {v2}, Ljava/util/jar/JarFile;->close()V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_5
+    :try_end_69
+    .catchall {:try_start_66 .. :try_end_69} :catchall_6a
 
     .line 195
     throw v4
 
     .line 192
-    :catchall_5
+    :catchall_6a
     move-exception v4
 
     .line 193
@@ -606,7 +606,7 @@
     .end local v5    # "this_$iv":Lkotlinx/coroutines/internal/FastServiceLoader;
     .end local v6    # "$i$f$use":I
     .end local v7    # "cause$iv":Ljava/lang/Throwable;
-    :cond_0
+    :cond_70
     new-instance v1, Ljava/io/BufferedReader;
 
     new-instance v2, Ljava/io/InputStreamReader;
@@ -623,7 +623,7 @@
 
     check-cast v1, Ljava/io/Closeable;
 
-    :try_start_8
+    :try_start_82
     move-object v2, v1
 
     check-cast v2, Ljava/io/BufferedReader;
@@ -638,8 +638,8 @@
     invoke-direct {v5, v2}, Lkotlinx/coroutines/internal/FastServiceLoader;->parseFile(Ljava/io/BufferedReader;)Ljava/util/List;
 
     move-result-object v5
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_6
+    :try_end_8c
+    .catchall {:try_start_82 .. :try_end_8c} :catchall_90
 
     .line 124
     .end local v2    # "reader":Ljava/io/BufferedReader;
@@ -648,19 +648,19 @@
 
     return-object v5
 
-    :catchall_6
+    :catchall_90
     move-exception v2
 
     .end local v0    # "path":Ljava/lang/String;
     .end local p1    # "url":Ljava/net/URL;
-    :try_start_9
+    :try_start_91
     throw v2
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_7
+    :try_end_92
+    .catchall {:try_start_91 .. :try_end_92} :catchall_92
 
     .restart local v0    # "path":Ljava/lang/String;
     .restart local p1    # "url":Ljava/net/URL;
-    :catchall_7
+    :catchall_92
     move-exception v3
 
     invoke-static {v1, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -669,7 +669,7 @@
 .end method
 
 .method private final parseFile(Ljava/io/BufferedReader;)Ljava/util/List;
-    .locals 12
+    .registers 14
     .param p1, "r"    # Ljava/io/BufferedReader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -691,8 +691,8 @@
 
     .line 150
     .local v0, "names":Ljava/util/Set;
-    :cond_0
-    :goto_0
+    :cond_7
+    :goto_7
     nop
 
     .line 151
@@ -700,7 +700,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_16
 
     .line 158
     move-object v1, v0
@@ -715,7 +715,7 @@
 
     .line 152
     .local v1, "line":Ljava/lang/String;
-    :cond_1
+    :cond_16
     const-string v2, "#"
 
     const/4 v3, 0x2
@@ -751,14 +751,14 @@
 
     const/4 v6, 0x0
 
-    :goto_1
+    :goto_2e
     invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
 
     move-result v7
 
     const/4 v8, 0x1
 
-    if-ge v6, v7, :cond_5
+    if-ge v6, v7, :cond_50
 
     invoke-interface {v3, v6}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -774,50 +774,50 @@
     .local v10, "$i$a$-all-FastServiceLoader$parseFile$1":I
     const/16 v11, 0x2e
 
-    if-eq v9, v11, :cond_3
+    if-eq v9, v11, :cond_48
 
     invoke-static {v9}, Ljava/lang/Character;->isJavaIdentifierPart(C)Z
 
     move-result v11
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_46
 
-    goto :goto_2
+    goto :goto_48
 
-    :cond_2
+    :cond_46
     const/4 v9, 0x0
 
-    goto :goto_3
+    goto :goto_49
 
-    :cond_3
-    :goto_2
+    :cond_48
+    :goto_48
     const/4 v9, 0x1
 
     .line 196
     .end local v9    # "it":C
     .end local v10    # "$i$a$-all-FastServiceLoader$parseFile$1":I
-    :goto_3
-    if-nez v9, :cond_4
+    :goto_49
+    if-nez v9, :cond_4d
 
     const/4 v3, 0x0
 
-    goto :goto_4
+    goto :goto_51
 
     .end local v7    # "element$iv":C
-    :cond_4
+    :cond_4d
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 197
-    :cond_5
+    :cond_50
     const/4 v3, 0x1
 
     .line 153
     .end local v3    # "$this$all$iv":Ljava/lang/CharSequence;
     .end local v4    # "$i$f$all":I
-    :goto_4
-    if-eqz v3, :cond_7
+    :goto_51
+    if-eqz v3, :cond_63
 
     .line 154
     move-object v3, v2
@@ -828,20 +828,20 @@
 
     move-result v3
 
-    if-lez v3, :cond_6
+    if-lez v3, :cond_5d
 
     const/4 v5, 0x1
 
-    :cond_6
-    if-eqz v5, :cond_0
+    :cond_5d
+    if-eqz v5, :cond_7
 
     .line 155
     invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_7
 
     .line 167
-    :cond_7
+    :cond_63
     const/4 v3, 0x0
 
     .line 153
@@ -877,7 +877,7 @@
 .end method
 
 .method private final use(Ljava/util/jar/JarFile;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "$this$use"    # Ljava/util/jar/JarFile;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -905,21 +905,21 @@
     nop
 
     .line 133
-    :try_start_0
+    :try_start_3
     invoke-interface {p2, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_7
+    .catchall {:try_start_3 .. :try_end_7} :catchall_f
 
     .line 138
     nop
 
     .line 139
-    :try_start_1
+    :try_start_8
     invoke-virtual {p1}, Ljava/util/jar/JarFile;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_8 .. :try_end_b} :catchall_d
 
     .line 141
     nop
@@ -928,7 +928,7 @@
     return-object v2
 
     .line 140
-    :catchall_0
+    :catchall_d
     move-exception v2
 
     .line 141
@@ -937,7 +937,7 @@
 
     .line 134
     .end local v2    # "closeException":Ljava/lang/Throwable;
-    :catchall_1
+    :catchall_f
     move-exception v2
 
     .line 135
@@ -951,10 +951,10 @@
     .end local v1    # "cause":Ljava/lang/Throwable;
     .end local p1    # "$this$use":Ljava/util/jar/JarFile;
     .end local p2    # "block":Lkotlin/jvm/functions/Function1;
-    :try_start_2
+    :try_start_12
     throw v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_13
+    .catchall {:try_start_12 .. :try_end_13} :catchall_13
 
     .line 138
     .end local v2    # "e":Ljava/lang/Throwable;
@@ -962,20 +962,20 @@
     .restart local v1    # "cause":Ljava/lang/Throwable;
     .restart local p1    # "$this$use":Ljava/util/jar/JarFile;
     .restart local p2    # "block":Lkotlin/jvm/functions/Function1;
-    :catchall_2
+    :catchall_13
     move-exception v2
 
     .line 139
-    :try_start_3
+    :try_start_14
     invoke-virtual {p1}, Ljava/util/jar/JarFile;->close()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+    :try_end_17
+    .catchall {:try_start_14 .. :try_end_17} :catchall_18
 
     .line 143
     throw v2
 
     .line 140
-    :catchall_3
+    :catchall_18
     move-exception v2
 
     .line 141
@@ -992,7 +992,7 @@
 
 # virtual methods
 .method public final loadMainDispatcherFactory$kotlinx_coroutines_core()Ljava/util/List;
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1013,7 +1013,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 55
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -1027,11 +1027,11 @@
     return-object v1
 
     .line 58
-    :cond_0
+    :cond_12
     nop
 
     .line 59
-    :try_start_0
+    :try_start_13
     new-instance v1, Ljava/util/ArrayList;
 
     const/4 v2, 0x2
@@ -1041,8 +1041,8 @@
     .line 60
     .local v1, "result":Ljava/util/ArrayList;
     const-string v2, "kotlinx.coroutines.android.AndroidDispatcherFactory"
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_13 .. :try_end_1b} :catchall_75
 
     .local v2, "serviceClass$iv":Ljava/lang/String;
     move-object v3, p0
@@ -1061,7 +1061,7 @@
 
     const/4 v7, 0x0
 
-    :try_start_1
+    :try_start_21
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v8
@@ -1090,14 +1090,14 @@
 
     .end local v8    # "clz$iv":Ljava/lang/Class;
     check-cast v9, Lkotlinx/coroutines/internal/MainDispatcherFactory;
-    :try_end_1
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3b
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_21 .. :try_end_3b} :catch_3c
+    .catchall {:try_start_21 .. :try_end_3b} :catchall_75
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 165
-    :catch_0
+    :catch_3c
     move-exception v8
 
     .line 166
@@ -1106,14 +1106,14 @@
 
     .line 162
     .end local v8    # "e$iv":Ljava/lang/ClassNotFoundException;
-    :goto_0
+    :goto_3e
     nop
 
     .line 60
     .end local v2    # "serviceClass$iv":Ljava/lang/String;
     .end local v3    # "this_$iv":Lkotlinx/coroutines/internal/FastServiceLoader;
     .end local v4    # "$i$f$createInstanceOf":I
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_46
 
     move-object v2, v9
 
@@ -1123,16 +1123,16 @@
 
     .line 60
     .local v3, "$i$a$-apply-FastServiceLoader$loadMainDispatcherFactory$1":I
-    :try_start_2
+    :try_start_43
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 61
     .end local v2    # "$this$loadMainDispatcherFactory_u24lambda_u240":Lkotlinx/coroutines/internal/MainDispatcherFactory;
     .end local v3    # "$i$a$-apply-FastServiceLoader$loadMainDispatcherFactory$1":I
-    :cond_1
+    :cond_46
     const-string v2, "kotlinx.coroutines.test.internal.TestMainDispatcherFactory"
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_48
+    .catchall {:try_start_43 .. :try_end_48} :catchall_75
 
     .local v2, "serviceClass$iv":Ljava/lang/String;
     move-object v3, p0
@@ -1145,7 +1145,7 @@
     nop
 
     .line 169
-    :try_start_3
+    :try_start_4b
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v8
@@ -1174,16 +1174,16 @@
 
     .end local v6    # "clz$iv":Ljava/lang/Class;
     check-cast v7, Lkotlinx/coroutines/internal/MainDispatcherFactory;
-    :try_end_3
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_3 .. :try_end_3} :catch_1
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_65
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_4b .. :try_end_65} :catch_67
+    .catchall {:try_start_4b .. :try_end_65} :catchall_75
 
     move-object v5, v7
 
-    goto :goto_1
+    goto :goto_69
 
     .line 171
-    :catch_1
+    :catch_67
     move-exception v6
 
     .line 172
@@ -1192,14 +1192,14 @@
 
     .line 168
     .end local v6    # "e$iv":Ljava/lang/ClassNotFoundException;
-    :goto_1
+    :goto_69
     nop
 
     .line 61
     .end local v2    # "serviceClass$iv":Ljava/lang/String;
     .end local v3    # "this_$iv":Lkotlinx/coroutines/internal/FastServiceLoader;
     .end local v4    # "$i$f$createInstanceOf":I
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_71
 
     move-object v2, v5
 
@@ -1209,24 +1209,24 @@
 
     .line 61
     .local v3, "$i$a$-apply-FastServiceLoader$loadMainDispatcherFactory$2":I
-    :try_start_4
+    :try_start_6e
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 62
     .end local v2    # "$this$loadMainDispatcherFactory_u24lambda_u241":Lkotlinx/coroutines/internal/MainDispatcherFactory;
     .end local v3    # "$i$a$-apply-FastServiceLoader$loadMainDispatcherFactory$2":I
-    :cond_2
+    :cond_71
     nop
 
     .end local v1    # "result":Ljava/util/ArrayList;
     check-cast v1, Ljava/util/List;
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_74
+    .catchall {:try_start_6e .. :try_end_74} :catchall_75
 
-    goto :goto_2
+    goto :goto_7f
 
     .line 63
-    :catchall_0
+    :catchall_75
     move-exception v1
 
     .line 65
@@ -1243,12 +1243,12 @@
 
     .line 58
     .end local v1    # "e":Ljava/lang/Throwable;
-    :goto_2
+    :goto_7f
     return-object v1
 .end method
 
 .method public final loadProviders$kotlinx_coroutines_core(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/List;
-    .locals 13
+    .registers 16
     .param p1, "service"    # Ljava/lang/Class;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -1331,12 +1331,12 @@
 
     move-result-object v7
 
-    :goto_0
+    :goto_36
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_50
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1368,12 +1368,12 @@
     .local v9, "list$iv$iv":Ljava/lang/Iterable;
     invoke-static {v4, v9}, Lkotlin/collections/CollectionsKt;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
-    goto :goto_0
+    goto :goto_36
 
     .line 178
     .end local v8    # "element$iv$iv":Ljava/lang/Object;
     .end local v9    # "list$iv$iv":Ljava/lang/Iterable;
-    :cond_0
+    :cond_50
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;
@@ -1403,7 +1403,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_97
 
     .line 101
     move-object v3, v2
@@ -1439,12 +1439,12 @@
 
     move-result-object v8
 
-    :goto_1
+    :goto_7a
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_92
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1472,11 +1472,11 @@
     .end local v11    # "$i$a$-map-FastServiceLoader$loadProviders$2":I
     invoke-interface {v5, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_7a
 
     .line 182
     .end local v9    # "item$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_92
     nop
 
     .end local v5    # "destination$iv$iv":Ljava/util/Collection;
@@ -1493,7 +1493,7 @@
     return-object v5
 
     .line 167
-    :cond_2
+    :cond_97
     const/4 v3, 0x0
 
     .line 100

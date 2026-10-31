@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 207
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public onPostMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 8
+    .registers 10
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"

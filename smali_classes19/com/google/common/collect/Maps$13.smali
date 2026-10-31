@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Maps$EntryTransformer;)V
-    .locals 0
+    .registers 2
 
     .line 2034
     iput-object p1, p0, Lcom/google/common/collect/Maps$13;->val$transformer:Lcom/google/common/collect/Maps$EntryTransformer;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 2034
     check-cast p1, Ljava/util/Map$Entry;
@@ -60,7 +60,7 @@
 .end method
 
 .method public apply(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

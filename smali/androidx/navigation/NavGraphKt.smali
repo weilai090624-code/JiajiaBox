@@ -37,7 +37,7 @@
 
 # direct methods
 .method public static final contains(Landroidx/navigation/NavGraph;I)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Landroidx/navigation/NavGraph;
     .param p1, "id"    # I
 
@@ -50,21 +50,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method public static final contains(Landroidx/navigation/NavGraph;Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Landroidx/navigation/NavGraph;
     .param p1, "route"    # Ljava/lang/String;
 
@@ -81,21 +81,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public static final get(Landroidx/navigation/NavGraph;I)Landroidx/navigation/NavDestination;
-    .locals 4
+    .registers 6
     .param p0, "$this$get"    # Landroidx/navigation/NavGraph;
     .param p1, "id"    # I
 
@@ -111,11 +111,11 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     return-object v1
 
-    :cond_0
+    :cond_d
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -152,7 +152,7 @@
 .end method
 
 .method public static final get(Landroidx/navigation/NavGraph;Ljava/lang/String;)Landroidx/navigation/NavDestination;
-    .locals 4
+    .registers 6
     .param p0, "$this$get"    # Landroidx/navigation/NavGraph;
     .param p1, "route"    # Ljava/lang/String;
 
@@ -172,12 +172,12 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 435
     return-object v1
 
-    :cond_0
+    :cond_12
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -214,7 +214,7 @@
 .end method
 
 .method public static final minusAssign(Landroidx/navigation/NavGraph;Landroidx/navigation/NavDestination;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Landroidx/navigation/NavGraph;
     .param p1, "node"    # Landroidx/navigation/NavDestination;
 
@@ -237,7 +237,7 @@
 .end method
 
 .method public static final plusAssign(Landroidx/navigation/NavGraph;Landroidx/navigation/NavDestination;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Landroidx/navigation/NavGraph;
     .param p1, "node"    # Landroidx/navigation/NavDestination;
 
@@ -260,7 +260,7 @@
 .end method
 
 .method public static final plusAssign(Landroidx/navigation/NavGraph;Landroidx/navigation/NavGraph;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Landroidx/navigation/NavGraph;
     .param p1, "other"    # Landroidx/navigation/NavGraph;
 

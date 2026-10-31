@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/Image;)V
-    .locals 6
+    .registers 8
     .param p1, "image"    # Landroid/media/Image;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -50,7 +50,7 @@
     .local v0, "originalPlanes":[Landroid/media/Image$Plane;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 50
     array-length v2, v0
@@ -63,10 +63,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_12
     array-length v3, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_23
 
     .line 52
     iget-object v3, p0, Landroidx/camera/core/AndroidImageProxy;->mPlanes:[Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
@@ -82,20 +82,20 @@
     .line 51
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .end local v2    # "i":I
-    :cond_0
-    goto :goto_1
+    :cond_23
+    goto :goto_28
 
     .line 55
-    :cond_1
+    :cond_24
     new-array v2, v1, [Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
 
     iput-object v2, p0, Landroidx/camera/core/AndroidImageProxy;->mPlanes:[Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
 
     .line 58
-    :goto_1
+    :goto_28
     invoke-static {}, Landroidx/camera/core/impl/TagBundle;->emptyBundle()Landroidx/camera/core/impl/TagBundle;
 
     move-result-object v2
@@ -117,17 +117,17 @@
 
 # virtual methods
 .method public declared-synchronized close()V
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 63
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy;->mImage:Landroid/media/Image;
 
     invoke-virtual {v0}, Landroid/media/Image;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_1 .. :try_end_6} :catchall_8
 
     .line 64
     monitor-exit p0
@@ -136,31 +136,31 @@
 
     .line 62
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
-    :catchall_0
+    :catchall_8
     move-exception v0
 
-    :try_start_1
+    :try_start_9
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_a
+    .catchall {:try_start_9 .. :try_end_a} :catchall_8
 
     throw v0
 .end method
 
 .method public declared-synchronized getCropRect()Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 69
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy;->mImage:Landroid/media/Image;
 
     invoke-virtual {v0}, Landroid/media/Image;->getCropRect()Landroid/graphics/Rect;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     monitor-exit p0
 
@@ -168,31 +168,31 @@
 
     .line 69
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method
 
 .method public declared-synchronized getFormat()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 79
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy;->mImage:Landroid/media/Image;
 
     invoke-virtual {v0}, Landroid/media/Image;->getFormat()I
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     monitor-exit p0
 
@@ -200,31 +200,31 @@
 
     .line 79
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method
 
 .method public declared-synchronized getHeight()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 84
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy;->mImage:Landroid/media/Image;
 
     invoke-virtual {v0}, Landroid/media/Image;->getHeight()I
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     monitor-exit p0
 
@@ -232,27 +232,27 @@
 
     .line 84
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method
 
 .method public declared-synchronized getImage()Landroid/media/Image;
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 133
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy;->mImage:Landroid/media/Image;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
@@ -260,19 +260,19 @@
 
     .line 133
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
-    :catchall_0
+    :catchall_5
     move-exception v0
 
-    :try_start_1
+    :try_start_6
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_6 .. :try_end_7} :catchall_5
 
     throw v0
 .end method
 
 .method public getImageInfo()Landroidx/camera/core/ImageInfo;
-    .locals 1
+    .registers 2
 
     .line 127
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy;->mImageInfo:Landroidx/camera/core/ImageInfo;
@@ -281,15 +281,15 @@
 .end method
 
 .method public declared-synchronized getPlanes()[Landroidx/camera/core/ImageProxy$PlaneProxy;
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 95
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy;->mPlanes:[Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
@@ -297,31 +297,31 @@
 
     .line 95
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
-    :catchall_0
+    :catchall_5
     move-exception v0
 
-    :try_start_1
+    :try_start_6
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_6 .. :try_end_7} :catchall_5
 
     throw v0
 .end method
 
 .method public declared-synchronized getWidth()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 89
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy;->mImage:Landroid/media/Image;
 
     invoke-virtual {v0}, Landroid/media/Image;->getWidth()I
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     monitor-exit p0
 
@@ -329,19 +329,19 @@
 
     .line 89
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method
 
 .method public declared-synchronized setCropRect(Landroid/graphics/Rect;)V
-    .locals 1
+    .registers 3
     .param p1, "rect"    # Landroid/graphics/Rect;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -355,12 +355,12 @@
     monitor-enter p0
 
     .line 74
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy;->mImage:Landroid/media/Image;
 
     invoke-virtual {v0, p1}, Landroid/media/Image;->setCropRect(Landroid/graphics/Rect;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_1 .. :try_end_6} :catchall_8
 
     .line 75
     monitor-exit p0
@@ -370,13 +370,13 @@
     .line 73
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
     .end local p1    # "rect":Landroid/graphics/Rect;
-    :catchall_0
+    :catchall_8
     move-exception p1
 
-    :try_start_1
+    :try_start_9
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_a
+    .catchall {:try_start_9 .. :try_end_a} :catchall_8
 
     throw p1
 .end method

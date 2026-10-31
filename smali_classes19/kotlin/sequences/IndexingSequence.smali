@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/sequences/Sequence;)V
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -81,7 +81,7 @@
 .end method
 
 .method public static final synthetic access$getSequence$p(Lkotlin/sequences/IndexingSequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/IndexingSequence;
 
     .line 247
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/Continuation;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "uCont"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -94,7 +94,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     sget-object v0, Lkotlinx/coroutines/UndispatchedMarker;->INSTANCE:Lkotlinx/coroutines/UndispatchedMarker;
 
@@ -104,12 +104,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     move-object v0, p1
 
-    :goto_0
+    :goto_14
     invoke-direct {p0, v0, p2}, Lkotlinx/coroutines/internal/ScopeCoroutine;-><init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/Continuation;)V
 
     .line 201
@@ -137,7 +137,7 @@
 
     instance-of v0, v0, Lkotlinx/coroutines/CoroutineDispatcher;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3a
 
     .line 243
     const/4 v0, 0x0
@@ -155,7 +155,7 @@
 
     .line 247
     .end local v0    # "values":Ljava/lang/Object;
-    :cond_1
+    :cond_3a
     nop
 
     .line 165
@@ -165,13 +165,13 @@
 
 # virtual methods
 .method protected afterResume(Ljava/lang/Object;)V
-    .locals 9
+    .registers 11
     .param p1, "state"    # Ljava/lang/Object;
 
     .line 261
     iget-boolean v0, p0, Lkotlinx/coroutines/UndispatchedCoroutine;->threadLocalIsSet:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 262
     iget-object v0, p0, Lkotlinx/coroutines/UndispatchedCoroutine;->threadStateToRecover:Ljava/lang/ThreadLocal;
@@ -182,7 +182,7 @@
 
     check-cast v0, Lkotlin/Pair;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 315
     const/4 v1, 0x0
@@ -211,7 +211,7 @@
     .end local v0    # "value":Ljava/lang/Object;
     .end local v1    # "$i$a$-let-UndispatchedCoroutine$afterResume$1":I
     .end local v2    # "ctx":Lkotlin/coroutines/CoroutineContext;
-    :cond_0
+    :cond_1d
     nop
 
     .line 265
@@ -220,7 +220,7 @@
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->remove()V
 
     .line 268
-    :cond_1
+    :cond_23
     iget-object v0, p0, Lkotlinx/coroutines/UndispatchedCoroutine;->uCont:Lkotlin/coroutines/Continuation;
 
     invoke-static {p1, v0}, Lkotlinx/coroutines/CompletionStateKt;->recoverResult(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -253,21 +253,21 @@
     .local v5, "oldValue$iv":Ljava/lang/Object;
     sget-object v6, Lkotlinx/coroutines/internal/ThreadContextKt;->NO_THREAD_ELEMENTS:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq v5, v6, :cond_2
+    if-eq v5, v6, :cond_3e
 
     .line 320
     invoke-static {v1, v4, v5}, Lkotlinx/coroutines/CoroutineContextKt;->updateUndispatchedCompletion(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)Lkotlinx/coroutines/UndispatchedCoroutine;
 
     move-result-object v6
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 322
-    :cond_2
+    :cond_3e
     const/4 v6, 0x0
 
     .line 318
-    :goto_0
+    :goto_3f
     nop
 
     .line 324
@@ -279,7 +279,7 @@
 
     .line 270
     .local v7, "$i$a$-withContinuationContext-UndispatchedCoroutine$afterResume$2":I
-    :try_start_0
+    :try_start_42
     iget-object v8, p0, Lkotlinx/coroutines/UndispatchedCoroutine;->uCont:Lkotlin/coroutines/Continuation;
 
     invoke-interface {v8, v0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
@@ -289,27 +289,27 @@
 
     .end local v7    # "$i$a$-withContinuationContext-UndispatchedCoroutine$afterResume$2":I
     sget-object v7, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_42 .. :try_end_4a} :catchall_58
 
     .line 325
     nop
 
     .line 327
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_53
 
     invoke-virtual {v6}, Lkotlinx/coroutines/UndispatchedCoroutine;->clearThreadContext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_56
 
     .line 328
-    :cond_3
+    :cond_53
     invoke-static {v4, v5}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
     .line 325
-    :cond_4
+    :cond_56
     nop
 
     .line 272
@@ -328,34 +328,34 @@
     .restart local v4    # "context$iv":Lkotlin/coroutines/CoroutineContext;
     .restart local v5    # "oldValue$iv":Ljava/lang/Object;
     .restart local v6    # "undispatchedCompletion$iv":Lkotlinx/coroutines/UndispatchedCoroutine;
-    :catchall_0
+    :catchall_58
     move-exception v7
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_61
 
     invoke-virtual {v6}, Lkotlinx/coroutines/UndispatchedCoroutine;->clearThreadContext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_64
 
     .line 328
-    :cond_5
+    :cond_61
     invoke-static {v4, v5}, Lkotlinx/coroutines/internal/ThreadContextKt;->restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
 
-    :cond_6
+    :cond_64
     throw v7
 .end method
 
 .method public final clearThreadContext()Z
-    .locals 5
+    .registers 6
 
     .line 255
     iget-boolean v0, p0, Lkotlinx/coroutines/UndispatchedCoroutine;->threadLocalIsSet:Z
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lkotlinx/coroutines/UndispatchedCoroutine;->threadStateToRecover:Ljava/lang/ThreadLocal;
 
@@ -363,16 +363,16 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     move v2, v0
 
     .local v2, "it":Z
@@ -396,7 +396,7 @@
 .end method
 
 .method public final saveThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "oldValue"    # Ljava/lang/Object;
 

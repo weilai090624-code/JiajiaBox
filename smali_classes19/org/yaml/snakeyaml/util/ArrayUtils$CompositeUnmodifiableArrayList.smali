@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/Object;[Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TE;[TE;)V"
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,7 +84,7 @@
 
     array-length v0, v0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_a
 
     .line 95
     iget-object v0, p0, Lorg/yaml/snakeyaml/util/ArrayUtils$CompositeUnmodifiableArrayList;->array1:[Ljava/lang/Object;
@@ -92,11 +92,11 @@
     aget-object v0, v0, p1
 
     .local v0, "element":Ljava/lang/Object;, "TE;"
-    goto :goto_0
+    goto :goto_1d
 
     .line 96
     .end local v0    # "element":Ljava/lang/Object;, "TE;"
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lorg/yaml/snakeyaml/util/ArrayUtils$CompositeUnmodifiableArrayList;->array1:[Ljava/lang/Object;
 
     array-length v0, v0
@@ -107,7 +107,7 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1e
 
     .line 97
     iget-object v0, p0, Lorg/yaml/snakeyaml/util/ArrayUtils$CompositeUnmodifiableArrayList;->array2:[Ljava/lang/Object;
@@ -122,12 +122,12 @@
 
     .line 101
     .restart local v0    # "element":Ljava/lang/Object;, "TE;"
-    :goto_0
+    :goto_1d
     return-object v0
 
     .line 99
     .end local v0    # "element":Ljava/lang/Object;, "TE;"
-    :cond_1
+    :cond_1e
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -168,7 +168,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 106
     .local p0, "this":Lorg/yaml/snakeyaml/util/ArrayUtils$CompositeUnmodifiableArrayList;, "Lorg/yaml/snakeyaml/util/ArrayUtils$CompositeUnmodifiableArrayList<TE;>;"

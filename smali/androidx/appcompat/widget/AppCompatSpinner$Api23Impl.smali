@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static setDropDownViewTheme(Landroid/widget/ThemedSpinnerAdapter;Landroid/content/res/Resources$Theme;)V
-    .locals 1
+    .registers 3
     .param p0, "themedSpinnerAdapter"    # Landroid/widget/ThemedSpinnerAdapter;
     .param p1, "theme"    # Landroid/content/res/Resources$Theme;
 
@@ -39,12 +39,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 1134
     invoke-interface {p0, p1}, Landroid/widget/ThemedSpinnerAdapter;->setDropDownViewTheme(Landroid/content/res/Resources$Theme;)V
 
     .line 1136
-    :cond_0
+    :cond_d
     return-void
 .end method

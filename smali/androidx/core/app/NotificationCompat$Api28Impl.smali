@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9553
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getSemanticAction(Landroid/app/Notification$Action;)I
-    .locals 1
+    .registers 2
     .param p0, "action"    # Landroid/app/Notification$Action;
 
     .line 9557

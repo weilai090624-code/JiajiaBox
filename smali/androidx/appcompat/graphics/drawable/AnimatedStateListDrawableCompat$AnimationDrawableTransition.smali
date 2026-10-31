@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/AnimationDrawable;ZZ)V
-    .locals 7
+    .registers 11
     .param p1, "ad"    # Landroid/graphics/drawable/AnimationDrawable;
     .param p2, "reversed"    # Z
     .param p3, "hasReversibleFlag"    # Z
@@ -41,28 +41,28 @@
     .local v0, "frameCount":I
     const/4 v1, 0x0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_e
 
     add-int/lit8 v2, v0, -0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v2, 0x0
 
     .line 394
     .local v2, "fromFrame":I
-    :goto_0
-    if-eqz p2, :cond_1
+    :goto_f
+    if-eqz p2, :cond_12
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
+    :cond_12
     add-int/lit8 v1, v0, -0x1
 
     .line 395
     .local v1, "toFrame":I
-    :goto_1
+    :goto_14
     new-instance v3, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$FrameInterpolator;
 
     invoke-direct {v3, p1, p2}, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$FrameInterpolator;-><init>(Landroid/graphics/drawable/AnimationDrawable;Z)V
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public canReverse()Z
-    .locals 1
+    .registers 2
 
     .line 410
     iget-boolean v0, p0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimationDrawableTransition;->mHasReversibleFlag:Z
@@ -123,7 +123,7 @@
 .end method
 
 .method public reverse()V
-    .locals 1
+    .registers 2
 
     .line 420
     iget-object v0, p0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimationDrawableTransition;->mAnim:Landroid/animation/ObjectAnimator;
@@ -135,7 +135,7 @@
 .end method
 
 .method public start()V
-    .locals 1
+    .registers 2
 
     .line 415
     iget-object v0, p0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimationDrawableTransition;->mAnim:Landroid/animation/ObjectAnimator;
@@ -147,7 +147,7 @@
 .end method
 
 .method public stop()V
-    .locals 1
+    .registers 2
 
     .line 425
     iget-object v0, p0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimationDrawableTransition;->mAnim:Landroid/animation/ObjectAnimator;

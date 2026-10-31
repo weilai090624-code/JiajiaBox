@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1293
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static createNotificationChannel(Landroid/app/NotificationManager;Landroid/app/NotificationChannel;)V
-    .locals 0
+    .registers 2
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .param p1, "channel"    # Landroid/app/NotificationChannel;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static createNotificationChannelGroup(Landroid/app/NotificationManager;Landroid/app/NotificationChannelGroup;)V
-    .locals 0
+    .registers 2
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .param p1, "group"    # Landroid/app/NotificationChannelGroup;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method static createNotificationChannelGroups(Landroid/app/NotificationManager;Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,7 +71,7 @@
 .end method
 
 .method static createNotificationChannels(Landroid/app/NotificationManager;Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -92,7 +92,7 @@
 .end method
 
 .method static deleteNotificationChannel(Landroid/app/NotificationManager;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .param p1, "channelId"    # Ljava/lang/String;
 
@@ -104,7 +104,7 @@
 .end method
 
 .method static deleteNotificationChannelGroup(Landroid/app/NotificationManager;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .param p1, "groupId"    # Ljava/lang/String;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method static getId(Landroid/app/NotificationChannel;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "notificationChannel"    # Landroid/app/NotificationChannel;
 
     .line 1354
@@ -128,7 +128,7 @@
 .end method
 
 .method static getId(Landroid/app/NotificationChannelGroup;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "notificationChannelGroup"    # Landroid/app/NotificationChannelGroup;
 
     .line 1359
@@ -140,7 +140,7 @@
 .end method
 
 .method static getNotificationChannel(Landroid/app/NotificationManager;Ljava/lang/String;)Landroid/app/NotificationChannel;
-    .locals 1
+    .registers 3
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .param p1, "channelId"    # Ljava/lang/String;
 
@@ -153,7 +153,7 @@
 .end method
 
 .method static getNotificationChannelGroups(Landroid/app/NotificationManager;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -175,7 +175,7 @@
 .end method
 
 .method static getNotificationChannels(Landroid/app/NotificationManager;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "notificationManager"    # Landroid/app/NotificationManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {

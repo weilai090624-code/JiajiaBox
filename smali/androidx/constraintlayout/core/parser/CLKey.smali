@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 22
     new-instance v0, Ljava/util/ArrayList;
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>([C)V
-    .locals 0
+    .registers 2
     .param p1, "content"    # [C
 
     .line 36
@@ -98,7 +98,7 @@
 .end method
 
 .method public static allocate(Ljava/lang/String;Landroidx/constraintlayout/core/parser/CLElement;)Landroidx/constraintlayout/core/parser/CLElement;
-    .locals 3
+    .registers 5
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "value"    # Landroidx/constraintlayout/core/parser/CLElement;
 
@@ -136,7 +136,7 @@
 .end method
 
 .method public static allocate([C)Landroidx/constraintlayout/core/parser/CLElement;
-    .locals 1
+    .registers 2
     .param p0, "content"    # [C
 
     .line 40
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 51
     invoke-virtual {p0}, Landroidx/constraintlayout/core/parser/CLKey;->content()Ljava/lang/String;
@@ -161,7 +161,7 @@
 .end method
 
 .method public getValue()Landroidx/constraintlayout/core/parser/CLElement;
-    .locals 2
+    .registers 3
 
     .line 94
     iget-object v0, p0, Landroidx/constraintlayout/core/parser/CLKey;->mElements:Ljava/util/ArrayList;
@@ -170,7 +170,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_12
 
     .line 95
     iget-object v0, p0, Landroidx/constraintlayout/core/parser/CLKey;->mElements:Ljava/util/ArrayList;
@@ -186,14 +186,14 @@
     return-object v0
 
     .line 97
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public set(Landroidx/constraintlayout/core/parser/CLElement;)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # Landroidx/constraintlayout/core/parser/CLElement;
 
     .line 86
@@ -203,7 +203,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_f
 
     .line 87
     iget-object v0, p0, Landroidx/constraintlayout/core/parser/CLKey;->mElements:Ljava/util/ArrayList;
@@ -212,21 +212,21 @@
 
     invoke-virtual {v0, v1, p1}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 89
-    :cond_0
+    :cond_f
     iget-object v0, p0, Landroidx/constraintlayout/core/parser/CLKey;->mElements:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 91
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method protected toFormattedJSON(II)Ljava/lang/String;
-    .locals 6
+    .registers 9
     .param p1, "indent"    # I
     .param p2, "forceIndent"    # I
 
@@ -256,7 +256,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_3
+    if-lez v2, :cond_6d
 
     .line 65
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -273,16 +273,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_29
 
     .line 68
     const/4 p2, 0x3
 
     .line 70
-    :cond_0
+    :cond_29
     const/4 v2, 0x0
 
-    if-lez p2, :cond_1
+    if-lez p2, :cond_3e
 
     .line 71
     iget-object v3, p0, Landroidx/constraintlayout/core/parser/CLKey;->mElements:Ljava/util/ArrayList;
@@ -301,10 +301,10 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_68
 
     .line 73
-    :cond_1
+    :cond_3e
     iget-object v3, p0, Landroidx/constraintlayout/core/parser/CLKey;->mElements:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -327,15 +327,15 @@
 
     sget v5, Landroidx/constraintlayout/core/parser/CLKey;->MAX_LINE:I
 
-    if-ge v4, v5, :cond_2
+    if-ge v4, v5, :cond_57
 
     .line 75
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_68
 
     .line 77
-    :cond_2
+    :cond_57
     iget-object v4, p0, Landroidx/constraintlayout/core/parser/CLKey;->mElements:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -354,7 +354,7 @@
 
     .line 80
     .end local v3    # "val":Ljava/lang/String;
-    :goto_0
+    :goto_68
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -362,7 +362,7 @@
     return-object v2
 
     .line 82
-    :cond_3
+    :cond_6d
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -385,7 +385,7 @@
 .end method
 
 .method protected toJSON()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 54
     iget-object v0, p0, Landroidx/constraintlayout/core/parser/CLKey;->mElements:Ljava/util/ArrayList;
@@ -394,7 +394,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_39
 
     .line 55
     new-instance v0, Ljava/lang/StringBuilder;
@@ -448,7 +448,7 @@
     return-object v0
 
     .line 57
-    :cond_0
+    :cond_39
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

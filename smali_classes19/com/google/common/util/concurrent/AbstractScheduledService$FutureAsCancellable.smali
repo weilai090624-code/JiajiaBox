@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Future;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public cancel(Z)V
-    .locals 1
+    .registers 3
     .param p1, "mayInterruptIfRunning"    # Z
 
     .line 463
@@ -66,7 +66,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 468
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$FutureAsCancellable;->delegate:Ljava/util/concurrent/Future;

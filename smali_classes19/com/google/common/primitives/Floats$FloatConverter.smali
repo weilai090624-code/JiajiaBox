@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 288
     new-instance v0, Lcom/google/common/primitives/Floats$FloatConverter;
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 286
     invoke-direct {p0}, Lcom/google/common/base/Converter;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 306
     sget-object v0, Lcom/google/common/primitives/Floats$FloatConverter;->INSTANCE:Lcom/google/common/primitives/Floats$FloatConverter;
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method protected bridge synthetic doBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 286
     check-cast p1, Ljava/lang/Float;
@@ -81,7 +81,7 @@
 .end method
 
 .method protected doBackward(Ljava/lang/Float;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Float;
 
     .line 297
@@ -93,7 +93,7 @@
 .end method
 
 .method protected doForward(Ljava/lang/String;)Ljava/lang/Float;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 292
@@ -105,7 +105,7 @@
 .end method
 
 .method protected bridge synthetic doForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 286
     check-cast p1, Ljava/lang/String;
@@ -118,7 +118,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 302
     const-string v0, "Floats.stringConverter()"

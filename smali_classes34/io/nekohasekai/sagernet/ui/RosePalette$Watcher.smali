@@ -31,7 +31,7 @@
 .method constructor <init>(Landroid/view/View;)V
     .registers 2
 
-    .line 44
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->root:Landroid/view/View;
@@ -44,7 +44,7 @@
 .method public onGlobalLayout()V
     .registers 1
 
-    .line 45
+    .line 47
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->schedule()V
 
     return-void
@@ -53,7 +53,7 @@
 .method public onViewAttachedToWindow(Landroid/view/View;)V
     .registers 2
 
-    .line 55
+    .line 57
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->schedule()V
 
     return-void
@@ -62,7 +62,7 @@
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .registers 2
 
-    .line 56
+    .line 58
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->root:Landroid/view/View;
 
     invoke-virtual {p1, p0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
@@ -83,7 +83,7 @@
 
     const/4 v0, 0x0
 
-    .line 48
+    .line 50
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->posted:Z
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->root:Landroid/view/View;
@@ -96,7 +96,7 @@
 
     return-void
 
-    .line 49
+    .line 51
     :cond_c
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->root:Landroid/view/View;
 
@@ -112,13 +112,13 @@
 
     return-void
 
-    .line 50
+    .line 52
     :cond_18
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v3
 
-    .line 51
+    .line 53
     iget-wide v5, p0, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->last:J
 
     const-wide/16 v7, 0x0
@@ -147,7 +147,7 @@
 
     return-void
 
-    .line 52
+    .line 54
     :cond_36
     iput-wide v3, p0, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->last:J
 
@@ -163,7 +163,7 @@
 
     xor-int/2addr v1, v2
 
-    .line 53
+    .line 55
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->root:Landroid/view/View;
 
     const v3, 0x1020002
@@ -185,7 +185,7 @@
 .method schedule()V
     .registers 4
 
-    .line 46
+    .line 48
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/RosePalette$Watcher;->posted:Z
 
     if-nez v0, :cond_e

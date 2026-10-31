@@ -69,7 +69,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Landroidx/annotation/RestrictTo$Scope;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x6
 
@@ -115,7 +115,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 77
     new-instance v0, Landroidx/annotation/RestrictTo$Scope;
@@ -193,7 +193,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -209,7 +209,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/annotation/RestrictTo$Scope;
-    .locals 1
+    .registers 2
 
     const-class v0, Landroidx/annotation/RestrictTo$Scope;
 
@@ -223,7 +223,7 @@
 .end method
 
 .method public static values()[Landroidx/annotation/RestrictTo$Scope;
-    .locals 1
+    .registers 1
 
     sget-object v0, Landroidx/annotation/RestrictTo$Scope;->$VALUES:[Landroidx/annotation/RestrictTo$Scope;
 

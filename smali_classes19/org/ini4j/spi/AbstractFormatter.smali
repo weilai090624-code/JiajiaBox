@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method escapeKey(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/lang/String;
 
     .line 116
@@ -59,7 +59,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     invoke-static {}, Lorg/ini4j/spi/EscapeTool;->getInstance()Lorg/ini4j/spi/EscapeTool;
 
@@ -69,17 +69,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     move-object v0, p1
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method escapeValue(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/lang/String;
 
     .line 121
@@ -91,7 +91,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getConfig()Lorg/ini4j/Config;
 
@@ -101,7 +101,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     invoke-static {}, Lorg/ini4j/spi/EscapeTool;->getInstance()Lorg/ini4j/spi/EscapeTool;
 
@@ -111,17 +111,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move-object v0, p1
 
-    :goto_0
+    :goto_1e
     return-object v0
 .end method
 
 .method protected getConfig()Lorg/ini4j/Config;
-    .locals 1
+    .registers 2
 
     .line 91
     iget-object v0, p0, Lorg/ini4j/spi/AbstractFormatter;->_config:Lorg/ini4j/Config;
@@ -130,7 +130,7 @@
 .end method
 
 .method protected getOutput()Ljava/io/PrintWriter;
-    .locals 1
+    .registers 2
 
     .line 101
     iget-object v0, p0, Lorg/ini4j/spi/AbstractFormatter;->_output:Ljava/io/PrintWriter;
@@ -139,7 +139,7 @@
 .end method
 
 .method public handleComment(Ljava/lang/String;)V
-    .locals 6
+    .registers 8
     .param p1, "comment"    # Ljava/lang/String;
 
     .line 33
@@ -151,11 +151,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_67
 
     iget-boolean v0, p0, Lorg/ini4j/spi/AbstractFormatter;->_header:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getConfig()Lorg/ini4j/Config;
 
@@ -165,16 +165,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_67
 
-    :cond_0
-    if-eqz p1, :cond_2
+    :cond_18
+    if-eqz p1, :cond_67
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_67
 
     .line 35
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getConfig()Lorg/ini4j/Config;
@@ -196,8 +196,8 @@
     const/4 v2, 0x0
 
     .local v2, "i$":I
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_2e
+    if-ge v2, v1, :cond_54
 
     aget-object v3, v0, v2
 
@@ -237,16 +237,16 @@
     .end local v3    # "line":Ljava/lang/String;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 42
     .end local v0    # "arr$":[Ljava/lang/String;
     .end local v1    # "len$":I
     .end local v2    # "i$":I
-    :cond_1
+    :cond_54
     iget-boolean v0, p0, Lorg/ini4j/spi/AbstractFormatter;->_header:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_67
 
     .line 44
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getOutput()Ljava/io/PrintWriter;
@@ -264,7 +264,7 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 48
-    :cond_2
+    :cond_67
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lorg/ini4j/spi/AbstractFormatter;->_header:Z
@@ -274,7 +274,7 @@
 .end method
 
 .method public handleOption(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .registers 7
     .param p1, "optionName"    # Ljava/lang/String;
     .param p2, "optionValue"    # Ljava/lang/String;
 
@@ -289,7 +289,7 @@
 
     const/16 v1, 0x3d
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_53
 
     .line 55
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getConfig()Lorg/ini4j/Config;
@@ -300,12 +300,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2a
 
     .line 57
-    :cond_0
+    :cond_18
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getOutput()Ljava/io/PrintWriter;
 
     move-result-object v0
@@ -324,8 +324,8 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(C)V
 
     .line 61
-    :cond_1
-    if-eqz p2, :cond_2
+    :cond_2a
+    if-eqz p2, :cond_37
 
     .line 63
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getOutput()Ljava/io/PrintWriter;
@@ -339,7 +339,7 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 66
-    :cond_2
+    :cond_37
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getConfig()Lorg/ini4j/Config;
 
     move-result-object v0
@@ -348,12 +348,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_43
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_a1
 
     .line 68
-    :cond_3
+    :cond_43
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getOutput()Ljava/io/PrintWriter;
 
     move-result-object v0
@@ -368,11 +368,11 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_a1
 
     .line 73
-    :cond_4
-    if-nez p2, :cond_5
+    :cond_53
+    if-nez p2, :cond_62
 
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getConfig()Lorg/ini4j/Config;
 
@@ -382,19 +382,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_62
 
     const-string v0, ""
 
-    goto :goto_0
+    goto :goto_63
 
-    :cond_5
+    :cond_62
     move-object v0, p2
 
     .line 75
     .local v0, "value":Ljava/lang/String;
-    :goto_0
-    if-eqz v0, :cond_6
+    :goto_63
+    if-eqz v0, :cond_a1
 
     .line 77
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractFormatter;->getOutput()Ljava/io/PrintWriter;
@@ -458,8 +458,8 @@
 
     .line 86
     .end local v0    # "value":Ljava/lang/String;
-    :cond_6
-    :goto_1
+    :cond_a1
+    :goto_a1
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lorg/ini4j/spi/AbstractFormatter;->setHeader(Z)V
@@ -469,7 +469,7 @@
 .end method
 
 .method protected setConfig(Lorg/ini4j/Config;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Lorg/ini4j/Config;
 
     .line 96
@@ -480,7 +480,7 @@
 .end method
 
 .method setHeader(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 111
@@ -491,7 +491,7 @@
 .end method
 
 .method protected setOutput(Ljava/io/PrintWriter;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/io/PrintWriter;
 
     .line 106

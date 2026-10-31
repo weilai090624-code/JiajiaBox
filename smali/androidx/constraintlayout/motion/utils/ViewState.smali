@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public getState(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -79,7 +79,7 @@
 .end method
 
 .method public height()I
-    .locals 2
+    .registers 3
 
     .line 40
     iget v0, p0, Landroidx/constraintlayout/motion/utils/ViewState;->bottom:I
@@ -92,7 +92,7 @@
 .end method
 
 .method public width()I
-    .locals 2
+    .registers 3
 
     .line 36
     iget v0, p0, Landroidx/constraintlayout/motion/utils/ViewState;->right:I

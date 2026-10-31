@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TS;)V"
@@ -65,7 +65,7 @@
 .end method
 
 .method protected registerDrawable(Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;)V
-    .locals 0
+    .registers 2
     .param p1, "drawable"    # Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;
 
     .line 89
@@ -77,7 +77,7 @@
 .end method
 
 .method validateSpecAndAdjustCanvas(Landroid/graphics/Canvas;Landroid/graphics/Rect;F)V
-    .locals 1
+    .registers 5
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "bounds"    # Landroid/graphics/Rect;
     .param p3, "trackThicknessFraction"    # F

@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lmoe/matsuri/nb4a/ui/Dialogs;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final logExceptionAndShow(Landroid/content/Context;Ljava/lang/Exception;Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "e"    # Ljava/lang/Exception;
     .param p3, "callback"    # Ljava/lang/Runnable;
@@ -108,7 +108,7 @@
 .end method
 
 .method public final message(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "title"    # Ljava/lang/String;
     .param p3, "message"    # Ljava/lang/String;

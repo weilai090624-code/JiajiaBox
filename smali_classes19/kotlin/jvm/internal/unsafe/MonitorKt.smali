@@ -28,7 +28,7 @@
 
 # direct methods
 .method private static final monitorEnter(Ljava/lang/Object;)V
-    .locals 2
+    .registers 3
     .param p0, "monitor"    # Ljava/lang/Object;
 
     .line 9
@@ -42,7 +42,7 @@
 .end method
 
 .method private static final monitorExit(Ljava/lang/Object;)V
-    .locals 2
+    .registers 3
     .param p0, "monitor"    # Ljava/lang/Object;
 
     .line 12

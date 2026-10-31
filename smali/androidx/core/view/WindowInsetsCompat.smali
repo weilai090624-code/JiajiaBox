@@ -36,35 +36,35 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 78
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 79
     sget-object v0, Landroidx/core/view/WindowInsetsCompat$Impl30;->CONSUMED:Landroidx/core/view/WindowInsetsCompat;
 
     sput-object v0, Landroidx/core/view/WindowInsetsCompat;->CONSUMED:Landroidx/core/view/WindowInsetsCompat;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 81
-    :cond_0
+    :cond_b
     sget-object v0, Landroidx/core/view/WindowInsetsCompat$Impl;->CONSUMED:Landroidx/core/view/WindowInsetsCompat;
 
     sput-object v0, Landroidx/core/view/WindowInsetsCompat;->CONSUMED:Landroidx/core/view/WindowInsetsCompat;
 
     .line 83
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method private constructor <init>(Landroid/view/WindowInsets;)V
-    .locals 2
+    .registers 4
     .param p1, "insets"    # Landroid/view/WindowInsets;
 
     .line 88
@@ -75,7 +75,7 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 90
     new-instance v0, Landroidx/core/view/WindowInsetsCompat$Impl30;
@@ -84,15 +84,15 @@
 
     iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
-    goto :goto_0
+    goto :goto_35
 
     .line 91
-    :cond_0
+    :cond_11
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1f
 
     .line 92
     new-instance v0, Landroidx/core/view/WindowInsetsCompat$Impl29;
@@ -101,15 +101,15 @@
 
     iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
-    goto :goto_0
+    goto :goto_35
 
     .line 93
-    :cond_1
+    :cond_1f
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_2d
 
     .line 94
     new-instance v0, Landroidx/core/view/WindowInsetsCompat$Impl28;
@@ -118,10 +118,10 @@
 
     iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
-    goto :goto_0
+    goto :goto_35
 
     .line 95
-    :cond_2
+    :cond_2d
     nop
 
     .line 96
@@ -132,19 +132,19 @@
     iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
     .line 102
-    :goto_0
+    :goto_35
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/core/view/WindowInsetsCompat;)V
-    .locals 3
+    .registers 5
     .param p1, "src"    # Landroidx/core/view/WindowInsetsCompat;
 
     .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 110
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_6f
 
     .line 112
     iget-object v0, p1, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
@@ -155,11 +155,11 @@
 
     const/16 v2, 0x1e
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_1c
 
     instance-of v1, v0, Landroidx/core/view/WindowInsetsCompat$Impl30;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 114
     new-instance v1, Landroidx/core/view/WindowInsetsCompat$Impl30;
@@ -172,19 +172,19 @@
 
     iput-object v1, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
-    goto :goto_0
+    goto :goto_6b
 
     .line 115
-    :cond_0
+    :cond_1c
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1d
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_31
 
     instance-of v1, v0, Landroidx/core/view/WindowInsetsCompat$Impl29;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_31
 
     .line 116
     new-instance v1, Landroidx/core/view/WindowInsetsCompat$Impl29;
@@ -197,19 +197,19 @@
 
     iput-object v1, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
-    goto :goto_0
+    goto :goto_6b
 
     .line 117
-    :cond_1
+    :cond_31
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1c
 
-    if-lt v1, v2, :cond_2
+    if-lt v1, v2, :cond_46
 
     instance-of v1, v0, Landroidx/core/view/WindowInsetsCompat$Impl28;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_46
 
     .line 118
     new-instance v1, Landroidx/core/view/WindowInsetsCompat$Impl28;
@@ -222,13 +222,13 @@
 
     iput-object v1, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
-    goto :goto_0
+    goto :goto_6b
 
     .line 119
-    :cond_2
+    :cond_46
     instance-of v1, v0, Landroidx/core/view/WindowInsetsCompat$Impl21;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_55
 
     .line 120
     new-instance v1, Landroidx/core/view/WindowInsetsCompat$Impl21;
@@ -241,13 +241,13 @@
 
     iput-object v1, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
-    goto :goto_0
+    goto :goto_6b
 
     .line 121
-    :cond_3
+    :cond_55
     instance-of v1, v0, Landroidx/core/view/WindowInsetsCompat$Impl20;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_64
 
     .line 122
     new-instance v1, Landroidx/core/view/WindowInsetsCompat$Impl20;
@@ -260,10 +260,10 @@
 
     iput-object v1, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
-    goto :goto_0
+    goto :goto_6b
 
     .line 124
-    :cond_4
+    :cond_64
     new-instance v1, Landroidx/core/view/WindowInsetsCompat$Impl;
 
     invoke-direct {v1, p0}, Landroidx/core/view/WindowInsetsCompat$Impl;-><init>(Landroidx/core/view/WindowInsetsCompat;)V
@@ -271,15 +271,15 @@
     iput-object v1, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
     .line 126
-    :goto_0
+    :goto_6b
     invoke-virtual {v0, p0}, Landroidx/core/view/WindowInsetsCompat$Impl;->copyWindowDataInto(Landroidx/core/view/WindowInsetsCompat;)V
 
     .line 127
     .end local v0    # "srcImpl":Landroidx/core/view/WindowInsetsCompat$Impl;
-    goto :goto_1
+    goto :goto_76
 
     .line 129
-    :cond_5
+    :cond_6f
     new-instance v0, Landroidx/core/view/WindowInsetsCompat$Impl;
 
     invoke-direct {v0, p0}, Landroidx/core/view/WindowInsetsCompat$Impl;-><init>(Landroidx/core/view/WindowInsetsCompat;)V
@@ -287,12 +287,12 @@
     iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
     .line 131
-    :goto_1
+    :goto_76
     return-void
 .end method
 
 .method static insetInsets(Landroidx/core/graphics/Insets;IIII)Landroidx/core/graphics/Insets;
-    .locals 5
+    .registers 10
     .param p0, "insets"    # Landroidx/core/graphics/Insets;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -342,19 +342,19 @@
 
     .line 1341
     .local v1, "newBottom":I
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_26
 
-    if-ne v2, p2, :cond_0
+    if-ne v2, p2, :cond_26
 
-    if-ne v3, p3, :cond_0
+    if-ne v3, p3, :cond_26
 
-    if-ne v1, p4, :cond_0
+    if-ne v1, p4, :cond_26
 
     .line 1342
     return-object p0
 
     .line 1344
-    :cond_0
+    :cond_26
     invoke-static {v0, v2, v3, v1}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
 
     move-result-object v4
@@ -363,7 +363,7 @@
 .end method
 
 .method public static toWindowInsetsCompat(Landroid/view/WindowInsets;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 2
     .param p0, "insets"    # Landroid/view/WindowInsets;
 
     .line 148
@@ -377,7 +377,7 @@
 .end method
 
 .method public static toWindowInsetsCompat(Landroid/view/WindowInsets;Landroid/view/View;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 2
+    .registers 4
     .param p0, "insets"    # Landroid/view/WindowInsets;
     .param p1, "view"    # Landroid/view/View;
 
@@ -394,13 +394,13 @@
 
     .line 169
     .local v0, "wic":Landroidx/core/view/WindowInsetsCompat;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_21
 
     invoke-virtual {p1}, Landroid/view/View;->isAttachedToWindow()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 171
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->getRootWindowInsets(Landroid/view/View;)Landroidx/core/view/WindowInsetsCompat;
@@ -417,14 +417,14 @@
     invoke-virtual {v0, v1}, Landroidx/core/view/WindowInsetsCompat;->copyRootViewBounds(Landroid/view/View;)V
 
     .line 175
-    :cond_0
+    :cond_21
     return-object v0
 .end method
 
 
 # virtual methods
 .method public consumeDisplayCutout()Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -439,7 +439,7 @@
 .end method
 
 .method public consumeStableInsets()Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -454,7 +454,7 @@
 .end method
 
 .method public consumeSystemWindowInsets()Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -469,7 +469,7 @@
 .end method
 
 .method copyRootViewBounds(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "rootView"    # Landroid/view/View;
 
     .line 2112
@@ -482,11 +482,11 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 718
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 719
     const/4 v0, 0x1
@@ -494,10 +494,10 @@
     return v0
 
     .line 721
-    :cond_0
+    :cond_4
     instance-of v0, p1, Landroidx/core/view/WindowInsetsCompat;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     .line 722
     const/4 v0, 0x0
@@ -505,7 +505,7 @@
     return v0
 
     .line 724
-    :cond_1
+    :cond_a
     move-object v0, p1
 
     check-cast v0, Landroidx/core/view/WindowInsetsCompat;
@@ -524,7 +524,7 @@
 .end method
 
 .method public getDisplayCutout()Landroidx/core/view/DisplayCutoutCompat;
-    .locals 1
+    .registers 2
 
     .line 490
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
@@ -537,7 +537,7 @@
 .end method
 
 .method public getInsets(I)Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 3
     .param p1, "typeMask"    # I
 
     .line 668
@@ -551,7 +551,7 @@
 .end method
 
 .method public getInsetsIgnoringVisibility(I)Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 3
     .param p1, "typeMask"    # I
 
     .line 696
@@ -565,7 +565,7 @@
 .end method
 
 .method public getMandatorySystemGestureInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -580,7 +580,7 @@
 .end method
 
 .method public getStableInsetBottom()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -597,7 +597,7 @@
 .end method
 
 .method public getStableInsetLeft()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -614,7 +614,7 @@
 .end method
 
 .method public getStableInsetRight()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -631,7 +631,7 @@
 .end method
 
 .method public getStableInsetTop()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -648,7 +648,7 @@
 .end method
 
 .method public getStableInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -663,7 +663,7 @@
 .end method
 
 .method public getSystemGestureInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -678,7 +678,7 @@
 .end method
 
 .method public getSystemWindowInsetBottom()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -695,7 +695,7 @@
 .end method
 
 .method public getSystemWindowInsetLeft()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -712,7 +712,7 @@
 .end method
 
 .method public getSystemWindowInsetRight()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -729,7 +729,7 @@
 .end method
 
 .method public getSystemWindowInsetTop()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -746,7 +746,7 @@
 .end method
 
 .method public getSystemWindowInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -761,7 +761,7 @@
 .end method
 
 .method public getTappableElementInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -776,7 +776,7 @@
 .end method
 
 .method public hasInsets()Z
-    .locals 2
+    .registers 3
 
     .line 267
     invoke-static {}, Landroidx/core/view/WindowInsetsCompat$Type;->all()I
@@ -793,7 +793,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     .line 268
     invoke-static {}, Landroidx/core/view/WindowInsetsCompat$Type;->all()I
@@ -816,33 +816,33 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     .line 269
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat;->getDisplayCutout()Landroidx/core/view/DisplayCutoutCompat;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_0
+    :cond_2c
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_2f
 
-    :cond_1
-    :goto_0
+    :cond_2e
+    :goto_2e
     const/4 v0, 0x1
 
     .line 267
-    :goto_1
+    :goto_2f
     return v0
 .end method
 
 .method public hasStableInsets()Z
-    .locals 2
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -865,7 +865,7 @@
 .end method
 
 .method public hasSystemWindowInsets()Z
-    .locals 2
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -888,30 +888,30 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 730
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
     invoke-virtual {v0}, Landroidx/core/view/WindowInsetsCompat$Impl;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method public inset(IIII)Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 6
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -928,7 +928,7 @@
 .end method
 
 .method public inset(Landroidx/core/graphics/Insets;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 4
+    .registers 6
     .param p1, "insets"    # Landroidx/core/graphics/Insets;
 
     .line 626
@@ -948,7 +948,7 @@
 .end method
 
 .method public isConsumed()Z
-    .locals 1
+    .registers 2
 
     .line 286
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
@@ -961,7 +961,7 @@
 .end method
 
 .method public isRound()Z
-    .locals 1
+    .registers 2
 
     .line 302
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
@@ -974,7 +974,7 @@
 .end method
 
 .method public isVisible(I)Z
-    .locals 1
+    .registers 3
     .param p1, "typeMask"    # I
 
     .line 713
@@ -988,7 +988,7 @@
 .end method
 
 .method public replaceSystemWindowInsets(IIII)Landroidx/core/view/WindowInsetsCompat;
-    .locals 2
+    .registers 7
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -1020,7 +1020,7 @@
 .end method
 
 .method public replaceSystemWindowInsets(Landroid/graphics/Rect;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 2
+    .registers 4
     .param p1, "systemWindowInsets"    # Landroid/graphics/Rect;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1049,7 +1049,7 @@
 .end method
 
 .method setOverriddenInsets([Landroidx/core/graphics/Insets;)V
-    .locals 1
+    .registers 3
     .param p1, "insetsTypeMask"    # [Landroidx/core/graphics/Insets;
 
     .line 1706
@@ -1062,7 +1062,7 @@
 .end method
 
 .method setRootViewData(Landroidx/core/graphics/Insets;)V
-    .locals 1
+    .registers 3
     .param p1, "visibleInsets"    # Landroidx/core/graphics/Insets;
 
     .line 2108
@@ -1075,7 +1075,7 @@
 .end method
 
 .method setRootWindowInsets(Landroidx/core/view/WindowInsetsCompat;)V
-    .locals 1
+    .registers 3
     .param p1, "rootWindowInsets"    # Landroidx/core/view/WindowInsetsCompat;
 
     .line 2104
@@ -1088,7 +1088,7 @@
 .end method
 
 .method setStableInsets(Landroidx/core/graphics/Insets;)V
-    .locals 1
+    .registers 3
     .param p1, "stableInsets"    # Landroidx/core/graphics/Insets;
 
     .line 1804
@@ -1101,14 +1101,14 @@
 .end method
 
 .method public toWindowInsets()Landroid/view/WindowInsets;
-    .locals 1
+    .registers 2
 
     .line 741
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
     instance-of v0, v0, Landroidx/core/view/WindowInsetsCompat$Impl20;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
 
@@ -1116,11 +1116,11 @@
 
     iget-object v0, v0, Landroidx/core/view/WindowInsetsCompat$Impl20;->mPlatformInsets:Landroid/view/WindowInsets;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
 
     .line 788
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 5
+    .registers 7
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 801
@@ -57,8 +57,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_e
+    if-ge v2, v1, :cond_1e
 
     .line 805
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -74,16 +74,16 @@
     .line 804
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 807
     .end local v2    # "i":I
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 5
+    .registers 7
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 791
@@ -106,8 +106,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_e
+    if-ge v2, v1, :cond_1e
 
     .line 795
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -123,10 +123,10 @@
     .line 794
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 797
     .end local v2    # "i":I
-    :cond_0
+    :cond_1e
     return-void
 .end method

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/LocalCache;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/cache/LocalCache;
 
     .line 4462
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 4471
@@ -53,13 +53,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 4472
     return v1
 
     .line 4474
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/util/Map$Entry;
@@ -72,13 +72,13 @@
 
     .line 4476
     .local v2, "key":Ljava/lang/Object;
-    if-nez v2, :cond_1
+    if-nez v2, :cond_10
 
     .line 4477
     return v1
 
     .line 4479
-    :cond_1
+    :cond_10
     iget-object v3, p0, Lcom/google/common/cache/LocalCache$EntrySet;->this$0:Lcom/google/common/cache/LocalCache;
 
     invoke-virtual {v3, v2}, Lcom/google/common/cache/LocalCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -87,7 +87,7 @@
 
     .line 4481
     .local v3, "v":Ljava/lang/Object;, "TV;"
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_27
 
     iget-object v4, p0, Lcom/google/common/cache/LocalCache$EntrySet;->this$0:Lcom/google/common/cache/LocalCache;
 
@@ -101,16 +101,16 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_27
 
     const/4 v1, 0x1
 
-    :cond_2
+    :cond_27
     return v1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -132,7 +132,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 4486
@@ -141,13 +141,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 4487
     return v1
 
     .line 4489
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/util/Map$Entry;
@@ -160,7 +160,7 @@
 
     .line 4491
     .local v2, "key":Ljava/lang/Object;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     iget-object v3, p0, Lcom/google/common/cache/LocalCache$EntrySet;->this$0:Lcom/google/common/cache/LocalCache;
 
@@ -172,10 +172,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1c
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_1c
     return v1
 .end method

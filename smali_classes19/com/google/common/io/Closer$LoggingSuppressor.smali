@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 249
     new-instance v0, Lcom/google/common/io/Closer$LoggingSuppressor;
@@ -36,7 +36,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 247
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public suppress(Ljava/io/Closeable;Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    .locals 5
+    .registers 9
     .param p1, "closeable"    # Ljava/io/Closeable;
     .param p2, "thrown"    # Ljava/lang/Throwable;
     .param p3, "suppressed"    # Ljava/lang/Throwable;

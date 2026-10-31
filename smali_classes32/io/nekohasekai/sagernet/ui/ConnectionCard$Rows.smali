@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    .line 94
+    .line 108
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Rows;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
@@ -41,7 +41,7 @@
 .method synthetic constructor <init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;Lio/nekohasekai/sagernet/ui/ConnectionCard$1;)V
     .registers 3
 
-    .line 94
+    .line 108
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionCard$Rows;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
 
     return-void
@@ -52,7 +52,7 @@
 .method public getCount()I
     .registers 3
 
-    .line 95
+    .line 109
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Rows;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     # getter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->data:Lio/nekohasekai/sagernet/ui/ConnectionRows;
@@ -103,7 +103,7 @@
         }
     .end annotation
 
-    .line 94
+    .line 108
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionCard$Rows;->getItem(I)Lorg/json/JSONObject;
 
     move-result-object p1
@@ -114,7 +114,7 @@
 .method public getItem(I)Lorg/json/JSONObject;
     .registers 4
 
-    .line 96
+    .line 110
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard$Rows;->this$0:Lio/nekohasekai/sagernet/ui/ConnectionCard;
 
     # getter for: Lio/nekohasekai/sagernet/ui/ConnectionCard;->data:Lio/nekohasekai/sagernet/ui/ConnectionRows;
@@ -153,7 +153,7 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .registers 4
 
-    .line 98
+    .line 112
     instance-of p3, p2, Lio/nekohasekai/sagernet/ui/ConnectionCard$Row;
 
     if-eqz p3, :cond_7

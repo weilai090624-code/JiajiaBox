@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 56
     new-instance v0, Lcom/google/common/hash/Murmur3_32HashFunction;
@@ -77,7 +77,7 @@
 .end method
 
 .method constructor <init>(IZ)V
-    .locals 0
+    .registers 3
     .param p1, "seed"    # I
     .param p2, "supplementaryPlaneFix"    # Z
 
@@ -95,7 +95,7 @@
 .end method
 
 .method static synthetic access$000(I)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # I
 
     .line 55
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$100(II)I
-    .locals 1
+    .registers 3
     .param p0, "x0"    # I
     .param p1, "x1"    # I
 
@@ -120,7 +120,7 @@
 .end method
 
 .method static synthetic access$200([BI)I
-    .locals 1
+    .registers 3
     .param p0, "x0"    # [B
     .param p1, "x1"    # I
 
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$300(C)J
-    .locals 2
+    .registers 3
     .param p0, "x0"    # C
 
     .line 55
@@ -145,7 +145,7 @@
 .end method
 
 .method static synthetic access$400(C)J
-    .locals 2
+    .registers 3
     .param p0, "x0"    # C
 
     .line 55
@@ -157,7 +157,7 @@
 .end method
 
 .method static synthetic access$500(I)J
-    .locals 2
+    .registers 3
     .param p0, "x0"    # I
 
     .line 55
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic access$600(II)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # I
     .param p1, "x1"    # I
 
@@ -182,7 +182,7 @@
 .end method
 
 .method private static charToThreeUtf8Bytes(C)J
-    .locals 4
+    .registers 5
     .param p0, "c"    # C
 
     .line 413
@@ -220,7 +220,7 @@
 .end method
 
 .method private static charToTwoUtf8Bytes(C)J
-    .locals 4
+    .registers 5
     .param p0, "c"    # C
 
     .line 420
@@ -246,7 +246,7 @@
 .end method
 
 .method private static codePointToFourUtf8Bytes(I)J
-    .locals 7
+    .registers 8
     .param p0, "codePoint"    # I
 
     .line 406
@@ -304,7 +304,7 @@
 .end method
 
 .method private static fmix(II)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 3
     .param p0, "h1"    # I
     .param p1, "length"    # I
 
@@ -345,7 +345,7 @@
 .end method
 
 .method private static getIntLittleEndian([BI)I
-    .locals 4
+    .registers 6
     .param p0, "input"    # [B
     .param p1, "offset"    # I
 
@@ -372,7 +372,7 @@
 .end method
 
 .method private static mixH1(II)I
-    .locals 2
+    .registers 4
     .param p0, "h1"    # I
     .param p1, "k1"    # I
 
@@ -400,7 +400,7 @@
 .end method
 
 .method private static mixK1(I)I
-    .locals 1
+    .registers 2
     .param p0, "k1"    # I
 
     .line 246
@@ -427,7 +427,7 @@
 
 # virtual methods
 .method public bits()I
-    .locals 1
+    .registers 2
 
     .line 81
     const/16 v0, 0x20
@@ -436,7 +436,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -447,7 +447,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 97
     move-object v0, p1
@@ -460,27 +460,27 @@
 
     iget v3, v0, Lcom/google/common/hash/Murmur3_32HashFunction;->seed:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_15
 
     iget-boolean v2, p0, Lcom/google/common/hash/Murmur3_32HashFunction;->supplementaryPlaneFix:Z
 
     iget-boolean v3, v0, Lcom/google/common/hash/Murmur3_32HashFunction;->supplementaryPlaneFix:Z
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_15
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_15
     return v1
 
     .line 100
     .end local v0    # "other":Lcom/google/common/hash/Murmur3_32HashFunction;
-    :cond_1
+    :cond_16
     return v1
 .end method
 
 .method public hashBytes([BII)Lcom/google/common/hash/HashCode;
-    .locals 5
+    .registers 9
     .param p1, "input"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -500,10 +500,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_9
     add-int/lit8 v2, v1, 0x4
 
-    if-gt v2, p3, :cond_0
+    if-gt v2, p3, :cond_1e
 
     .line 229
     add-int v2, p2, v1
@@ -526,10 +526,10 @@
     .end local v2    # "k1":I
     add-int/lit8 v1, v1, 0x4
 
-    goto :goto_0
+    goto :goto_9
 
     .line 233
-    :cond_0
+    :cond_1e
     const/4 v2, 0x0
 
     .line 234
@@ -537,8 +537,8 @@
     const/4 v3, 0x0
 
     .local v3, "shift":I
-    :goto_1
-    if-ge v1, p3, :cond_1
+    :goto_20
+    if-ge v1, p3, :cond_31
 
     .line 235
     add-int v4, p2, v1
@@ -558,11 +558,11 @@
 
     add-int/lit8 v3, v3, 0x8
 
-    goto :goto_1
+    goto :goto_20
 
     .line 237
     .end local v3    # "shift":I
-    :cond_1
+    :cond_31
     invoke-static {v2}, Lcom/google/common/hash/Murmur3_32HashFunction;->mixK1(I)I
 
     move-result v3
@@ -578,7 +578,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 105
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -597,7 +597,7 @@
 .end method
 
 .method public hashInt(I)Lcom/google/common/hash/HashCode;
-    .locals 3
+    .registers 5
     .param p1, "input"    # I
 
     .line 110
@@ -625,7 +625,7 @@
 .end method
 
 .method public hashLong(J)Lcom/google/common/hash/HashCode;
-    .locals 5
+    .registers 8
     .param p1, "input"    # J
 
     .line 118
@@ -675,7 +675,7 @@
 .end method
 
 .method public hashString(Ljava/lang/CharSequence;Ljava/nio/charset/Charset;)Lcom/google/common/hash/HashCode;
-    .locals 12
+    .registers 15
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
 
@@ -686,7 +686,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_c4
 
     .line 155
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -707,12 +707,12 @@
 
     .line 161
     .local v3, "len":I
-    :goto_0
+    :goto_10
     add-int/lit8 v4, v2, 0x4
 
     const/16 v5, 0x80
 
-    if-gt v4, v0, :cond_0
+    if-gt v4, v0, :cond_4b
 
     .line 162
     invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -745,13 +745,13 @@
 
     .line 166
     .local v8, "c3":C
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_4b
 
-    if-ge v6, v5, :cond_0
+    if-ge v6, v5, :cond_4b
 
-    if-ge v7, v5, :cond_0
+    if-ge v7, v5, :cond_4b
 
-    if-ge v8, v5, :cond_0
+    if-ge v8, v5, :cond_4b
 
     .line 167
     shl-int/lit8 v5, v6, 0x8
@@ -791,10 +791,10 @@
     add-int/lit8 v3, v3, 0x4
 
     .line 175
-    goto :goto_0
+    goto :goto_10
 
     .line 177
-    :cond_0
+    :cond_4b
     const-wide/16 v6, 0x0
 
     .line 178
@@ -803,8 +803,8 @@
 
     .line 179
     .local v4, "shift":I
-    :goto_1
-    if-ge v2, v0, :cond_8
+    :goto_4e
+    if-ge v2, v0, :cond_b9
 
     .line 180
     invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -813,7 +813,7 @@
 
     .line 181
     .local v8, "c":C
-    if-ge v8, v5, :cond_1
+    if-ge v8, v5, :cond_5e
 
     .line 182
     int-to-long v9, v8
@@ -828,13 +828,13 @@
     .line 184
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_a6
 
     .line 185
-    :cond_1
+    :cond_5e
     const/16 v9, 0x800
 
-    if-ge v8, v9, :cond_2
+    if-ge v8, v9, :cond_6d
 
     .line 186
     invoke-static {v8}, Lcom/google/common/hash/Murmur3_32HashFunction;->charToTwoUtf8Bytes(C)J
@@ -851,29 +851,29 @@
     .line 188
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_3
+    goto :goto_a6
 
     .line 189
-    :cond_2
+    :cond_6d
     const v9, 0xd800
 
-    if-lt v8, v9, :cond_6
+    if-lt v8, v9, :cond_9c
 
     const v9, 0xdfff
 
-    if-le v8, v9, :cond_3
+    if-le v8, v9, :cond_78
 
-    goto :goto_2
+    goto :goto_9c
 
     .line 194
-    :cond_3
+    :cond_78
     invoke-static {p1, v2}, Ljava/lang/Character;->codePointAt(Ljava/lang/CharSequence;I)I
 
     move-result v9
 
     .line 195
     .local v9, "codePoint":I
-    if-ne v9, v8, :cond_4
+    if-ne v9, v8, :cond_8b
 
     .line 197
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
@@ -891,7 +891,7 @@
     return-object v5
 
     .line 199
-    :cond_4
+    :cond_8b
     add-int/lit8 v2, v2, 0x1
 
     .line 200
@@ -906,21 +906,21 @@
     .line 201
     iget-boolean v10, p0, Lcom/google/common/hash/Murmur3_32HashFunction;->supplementaryPlaneFix:Z
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_99
 
     .line 202
     add-int/lit8 v4, v4, 0x20
 
     .line 204
-    :cond_5
+    :cond_99
     add-int/lit8 v3, v3, 0x4
 
-    goto :goto_3
+    goto :goto_a6
 
     .line 190
     .end local v9    # "codePoint":I
-    :cond_6
-    :goto_2
+    :cond_9c
+    :goto_9c
     invoke-static {v8}, Lcom/google/common/hash/Murmur3_32HashFunction;->charToThreeUtf8Bytes(C)J
 
     move-result-wide v9
@@ -936,10 +936,10 @@
     add-int/lit8 v3, v3, 0x3
 
     .line 207
-    :goto_3
+    :goto_a6
     const/16 v9, 0x20
 
-    if-lt v4, v9, :cond_7
+    if-lt v4, v9, :cond_b6
 
     .line 208
     long-to-int v10, v6
@@ -963,13 +963,13 @@
     .line 179
     .end local v8    # "c":C
     .end local v10    # "k1":I
-    :cond_7
+    :cond_b6
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_4e
 
     .line 215
-    :cond_8
+    :cond_b9
     long-to-int v5, v6
 
     invoke-static {v5}, Lcom/google/common/hash/Murmur3_32HashFunction;->mixK1(I)I
@@ -995,7 +995,7 @@
     .end local v4    # "shift":I
     .end local v5    # "k1":I
     .end local v6    # "buffer":J
-    :cond_9
+    :cond_c4
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -1012,7 +1012,7 @@
 .end method
 
 .method public hashUnencodedChars(Ljava/lang/CharSequence;)Lcom/google/common/hash/HashCode;
-    .locals 4
+    .registers 6
     .param p1, "input"    # Ljava/lang/CharSequence;
 
     .line 132
@@ -1023,12 +1023,12 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_3
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_21
 
     .line 136
     add-int/lit8 v2, v1, -0x1
@@ -1060,11 +1060,11 @@
     .end local v2    # "k1":I
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_0
+    goto :goto_3
 
     .line 142
     .end local v1    # "i":I
-    :cond_0
+    :cond_21
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
@@ -1073,7 +1073,7 @@
 
     and-int/2addr v1, v2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_37
 
     .line 143
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -1097,7 +1097,7 @@
 
     .line 148
     .end local v1    # "k1":I
-    :cond_1
+    :cond_37
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
@@ -1112,7 +1112,7 @@
 .end method
 
 .method public newHasher()Lcom/google/common/hash/Hasher;
-    .locals 2
+    .registers 3
 
     .line 86
     new-instance v0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;
@@ -1125,7 +1125,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 91
     iget v0, p0, Lcom/google/common/hash/Murmur3_32HashFunction;->seed:I

@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)V
-    .locals 3
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "type"    # Ljava/lang/Class;
 
@@ -64,31 +64,31 @@
 
     and-int/lit8 v2, v2, 0x10
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v2, 0x0
 
     .line 312
     .local v2, "isFinal":Z
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_1a
+    if-eqz v2, :cond_1f
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/serializers/DefaultArraySerializers$ObjectArraySerializer;->setElementsAreSameType(Z)V
 
     .line 313
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 299
     check-cast p2, [Ljava/lang/Object;
@@ -101,7 +101,7 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "original"    # [Ljava/lang/Object;
 
@@ -132,8 +132,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_13
+    if-ge v2, v0, :cond_20
 
     .line 366
     aget-object v3, p2, v2
@@ -147,16 +147,16 @@
     .line 365
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 367
     .end local v2    # "i":I
-    :cond_0
+    :cond_20
     return-object v1
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 299
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultArraySerializers$ObjectArraySerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)[Ljava/lang/Object;
@@ -167,7 +167,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)[Ljava/lang/Object;
-    .locals 6
+    .registers 10
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p3, "type"    # Ljava/lang/Class;
@@ -181,14 +181,14 @@
 
     .line 340
     .local v0, "n":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 341
-    :cond_0
+    :cond_9
     add-int/lit8 v0, v0, -0x1
 
     .line 342
@@ -215,23 +215,23 @@
     .local v2, "elementClass":Ljava/lang/Class;
     iget-boolean v3, p0, Lcom/esotericsoftware/kryo/serializers/DefaultArraySerializers$ObjectArraySerializer;->elementsAreSameType:Z
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_33
 
     invoke-virtual {p1, v2}, Lcom/esotericsoftware/kryo/Kryo;->isFinal(Ljava/lang/Class;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
-    goto :goto_1
+    goto :goto_33
 
     .line 355
-    :cond_1
+    :cond_27
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v0, :cond_6
+    :goto_28
+    if-ge v3, v0, :cond_55
 
     .line 356
     invoke-virtual {p1, p2}, Lcom/esotericsoftware/kryo/Kryo;->readClassAndObject(Lcom/esotericsoftware/kryo/io/Input;)Ljava/lang/Object;
@@ -243,12 +243,12 @@
     .line 355
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 346
     .end local v3    # "i":I
-    :cond_2
-    :goto_1
+    :cond_33
+    :goto_33
     invoke-virtual {p1, v2}, Lcom/esotericsoftware/kryo/Kryo;->getSerializer(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
 
     move-result-object v3
@@ -257,14 +257,14 @@
     .local v3, "elementSerializer":Lcom/esotericsoftware/kryo/Serializer;
     iget-boolean v4, p0, Lcom/esotericsoftware/kryo/serializers/DefaultArraySerializers$ObjectArraySerializer;->elementsCanBeNull:Z
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_48
 
     .line 348
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_2
-    if-ge v4, v0, :cond_3
+    :goto_3c
+    if-ge v4, v0, :cond_47
 
     .line 349
     invoke-virtual {p1, p2, v2, v3}, Lcom/esotericsoftware/kryo/Kryo;->readObjectOrNull(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)Ljava/lang/Object;
@@ -276,19 +276,19 @@
     .line 348
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_3c
 
     .end local v4    # "i":I
-    :cond_3
-    goto :goto_4
+    :cond_47
+    goto :goto_54
 
     .line 351
-    :cond_4
+    :cond_48
     const/4 v4, 0x0
 
     .restart local v4    # "i":I
-    :goto_3
-    if-ge v4, v0, :cond_5
+    :goto_49
+    if-ge v4, v0, :cond_54
 
     .line 352
     invoke-virtual {p1, p2, v2, v3}, Lcom/esotericsoftware/kryo/Kryo;->readObject(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;Lcom/esotericsoftware/kryo/Serializer;)Ljava/lang/Object;
@@ -300,22 +300,22 @@
     .line 351
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_49
 
     .line 354
     .end local v3    # "elementSerializer":Lcom/esotericsoftware/kryo/Serializer;
     .end local v4    # "i":I
-    :cond_5
-    :goto_4
+    :cond_54
+    :goto_54
     nop
 
     .line 358
-    :cond_6
+    :cond_55
     return-object v1
 .end method
 
 .method public setElementsAreSameType(Z)V
-    .locals 0
+    .registers 2
     .param p1, "elementsAreSameType"    # Z
 
     .line 380
@@ -326,7 +326,7 @@
 .end method
 
 .method public setElementsCanBeNull(Z)V
-    .locals 0
+    .registers 2
     .param p1, "elementsCanBeNull"    # Z
 
     .line 373
@@ -337,7 +337,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 299
     check-cast p3, [Ljava/lang/Object;
@@ -348,13 +348,13 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;[Ljava/lang/Object;)V
-    .locals 5
+    .registers 9
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # [Ljava/lang/Object;
 
     .line 316
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7
 
     .line 317
     const/4 v0, 0x0
@@ -365,7 +365,7 @@
     return-void
 
     .line 320
-    :cond_0
+    :cond_7
     array-length v0, p3
 
     .line 321
@@ -389,23 +389,23 @@
     .local v1, "elementClass":Ljava/lang/Class;
     iget-boolean v2, p0, Lcom/esotericsoftware/kryo/serializers/DefaultArraySerializers$ObjectArraySerializer;->elementsAreSameType:Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2c
 
     invoke-virtual {p1, v1}, Lcom/esotericsoftware/kryo/Kryo;->isFinal(Ljava/lang/Class;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 333
-    :cond_1
+    :cond_21
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_6
+    :goto_22
+    if-ge v2, v0, :cond_4c
 
     .line 334
     aget-object v3, p3, v2
@@ -415,12 +415,12 @@
     .line 333
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 324
     .end local v2    # "i":I
-    :cond_2
-    :goto_1
+    :cond_2c
+    :goto_2c
     invoke-virtual {p1, v1}, Lcom/esotericsoftware/kryo/Kryo;->getSerializer(Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
 
     move-result-object v2
@@ -429,14 +429,14 @@
     .local v2, "elementSerializer":Lcom/esotericsoftware/kryo/Serializer;
     iget-boolean v3, p0, Lcom/esotericsoftware/kryo/serializers/DefaultArraySerializers$ObjectArraySerializer;->elementsCanBeNull:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_40
 
     .line 326
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_2
-    if-ge v3, v0, :cond_3
+    :goto_35
+    if-ge v3, v0, :cond_3f
 
     .line 327
     aget-object v4, p3, v3
@@ -446,19 +446,19 @@
     .line 326
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_35
 
     .end local v3    # "i":I
-    :cond_3
-    goto :goto_4
+    :cond_3f
+    goto :goto_4b
 
     .line 329
-    :cond_4
+    :cond_40
     const/4 v3, 0x0
 
     .restart local v3    # "i":I
-    :goto_3
-    if-ge v3, v0, :cond_5
+    :goto_41
+    if-ge v3, v0, :cond_4b
 
     .line 330
     aget-object v4, p3, v3
@@ -468,16 +468,16 @@
     .line 329
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_41
 
     .line 332
     .end local v2    # "elementSerializer":Lcom/esotericsoftware/kryo/Serializer;
     .end local v3    # "i":I
-    :cond_5
-    :goto_4
+    :cond_4b
+    :goto_4b
     nop
 
     .line 336
-    :cond_6
+    :cond_4c
     return-void
 .end method

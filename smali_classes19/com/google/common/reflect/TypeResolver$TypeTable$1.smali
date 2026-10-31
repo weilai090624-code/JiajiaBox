@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/reflect/TypeResolver$TypeTable;Ljava/lang/reflect/TypeVariable;Lcom/google/common/reflect/TypeResolver$TypeTable;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/reflect/TypeResolver$TypeTable;
 
     .line 305
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public resolveInternal(Ljava/lang/reflect/TypeVariable;Lcom/google/common/reflect/TypeResolver$TypeTable;)Ljava/lang/reflect/Type;
-    .locals 2
+    .registers 5
     .param p2, "forDependent"    # Lcom/google/common/reflect/TypeResolver$TypeTable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,13 +67,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 309
     return-object p1
 
     .line 311
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lcom/google/common/reflect/TypeResolver$TypeTable$1;->val$unguarded:Lcom/google/common/reflect/TypeResolver$TypeTable;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/common/reflect/TypeResolver$TypeTable;->resolveInternal(Ljava/lang/reflect/TypeVariable;Lcom/google/common/reflect/TypeResolver$TypeTable;)Ljava/lang/reflect/Type;

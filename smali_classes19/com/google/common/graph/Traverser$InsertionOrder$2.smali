@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 512
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method insertInto(Ljava/util/Deque;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

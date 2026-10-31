@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 121
     new-instance v0, Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;
@@ -41,7 +41,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 135
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 .end method
 
 .method constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "unused"    # Z
 
     .line 132
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method setNext(Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;)V
-    .locals 1
+    .registers 3
     .param p1, "next"    # Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;
 
     .line 143
@@ -86,14 +86,14 @@
 .end method
 
 .method unpark()V
-    .locals 2
+    .registers 3
 
     .line 151
     iget-object v0, p0, Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;->thread:Ljava/lang/Thread;
 
     .line 152
     .local v0, "w":Ljava/lang/Thread;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 153
     const/4 v1, 0x0
@@ -104,6 +104,6 @@
     invoke-static {v0}, Ljava/util/concurrent/locks/LockSupport;->unpark(Ljava/lang/Thread;)V
 
     .line 156
-    :cond_0
+    :cond_a
     return-void
 .end method

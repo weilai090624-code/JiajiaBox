@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 38
     new-instance v0, Lcom/google/zxing/aztec/decoder/Decoder$Table;
@@ -143,7 +143,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -157,7 +157,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/zxing/aztec/decoder/Decoder$Table;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 37
@@ -173,7 +173,7 @@
 .end method
 
 .method public static values()[Lcom/google/zxing/aztec/decoder/Decoder$Table;
-    .locals 1
+    .registers 1
 
     .line 37
     sget-object v0, Lcom/google/zxing/aztec/decoder/Decoder$Table;->$VALUES:[Lcom/google/zxing/aztec/decoder/Decoder$Table;

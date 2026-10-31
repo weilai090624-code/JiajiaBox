@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 

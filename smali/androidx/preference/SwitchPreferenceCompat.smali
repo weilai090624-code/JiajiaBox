@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 123
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 4
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -152,13 +152,13 @@
 .end method
 
 .method private syncSwitchView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 218
     instance-of v0, p1, Landroidx/appcompat/widget/SwitchCompat;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 219
     move-object v0, p1
@@ -173,10 +173,10 @@
 
     .line 222
     .end local v0    # "switchView":Landroidx/appcompat/widget/SwitchCompat;
-    :cond_0
+    :cond_b
     instance-of v0, p1, Landroid/widget/Checkable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 223
     move-object v0, p1
@@ -188,10 +188,10 @@
     invoke-interface {v0, v1}, Landroid/widget/Checkable;->setChecked(Z)V
 
     .line 225
-    :cond_1
+    :cond_17
     instance-of v0, p1, Landroidx/appcompat/widget/SwitchCompat;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     .line 226
     move-object v0, p1
@@ -216,12 +216,12 @@
 
     .line 231
     .end local v0    # "switchView":Landroidx/appcompat/widget/SwitchCompat;
-    :cond_2
+    :cond_2d
     return-void
 .end method
 
 .method private syncViewIfAccessibilityEnabled(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 204
@@ -246,13 +246,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     .line 207
     return-void
 
     .line 210
-    :cond_0
+    :cond_14
     sget v1, Landroidx/preference/R$id;->switchWidget:I
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -281,7 +281,7 @@
 
 # virtual methods
 .method public getSwitchTextOff()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 179
     iget-object v0, p0, Landroidx/preference/SwitchPreferenceCompat;->mSwitchOff:Ljava/lang/CharSequence;
@@ -290,7 +290,7 @@
 .end method
 
 .method public getSwitchTextOn()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 161
     iget-object v0, p0, Landroidx/preference/SwitchPreferenceCompat;->mSwitchOn:Ljava/lang/CharSequence;
@@ -299,7 +299,7 @@
 .end method
 
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 1
+    .registers 3
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     .line 128
@@ -324,7 +324,7 @@
 .end method
 
 .method protected performClick(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 199
@@ -338,7 +338,7 @@
 .end method
 
 .method public setSwitchTextOff(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 189
@@ -357,7 +357,7 @@
 .end method
 
 .method public setSwitchTextOff(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "offText"    # Ljava/lang/CharSequence;
 
     .line 152
@@ -371,7 +371,7 @@
 .end method
 
 .method public setSwitchTextOn(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 171
@@ -390,7 +390,7 @@
 .end method
 
 .method public setSwitchTextOn(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "onText"    # Ljava/lang/CharSequence;
 
     .line 141

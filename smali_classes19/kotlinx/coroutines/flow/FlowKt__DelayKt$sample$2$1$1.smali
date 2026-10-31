@@ -97,7 +97,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,7 +128,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -157,7 +157,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
 
     move-object v0, p1
 
@@ -179,7 +179,7 @@
 .end method
 
 .method public final invoke-WpGqRn0(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -212,14 +212,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 285
     iget v0, p0, Lkotlinx/coroutines/flow/FlowKt__DelayKt$sample$2$1$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_54
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -229,7 +229,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v0, p0
@@ -261,7 +261,7 @@
     .line 420
     instance-of v4, v1, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_29
 
     move-object v4, v1
 
@@ -275,7 +275,7 @@
     .line 420
     .end local v4    # "it":Ljava/lang/Object;
     .end local v5    # "$i$a$-onSuccess-WpGqRn0-FlowKt__DelayKt$sample$2$1$1$1":I
-    :cond_0
+    :cond_29
     nop
 
     .line 421
@@ -297,7 +297,7 @@
     .line 425
     instance-of v5, v1, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_4e
 
     invoke-static {v1}, Lkotlinx/coroutines/channels/ChannelResult;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
@@ -308,7 +308,7 @@
 
     .line 289
     .local v6, "$i$a$-onFailure-WpGqRn0-FlowKt__DelayKt$sample$2$1$1$2":I
-    if-nez v5, :cond_1
+    if-nez v5, :cond_4b
 
     .line 290
     new-instance v7, Lkotlinx/coroutines/flow/internal/ChildCancelledException;
@@ -325,11 +325,11 @@
     iput-object v2, v3, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 292
-    goto :goto_0
+    goto :goto_4e
 
     .line 289
     .end local v1    # "$this$onFailure_u2dWpGqRn0$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_4b
     move-object v1, v5
 
     .line 426
@@ -345,8 +345,8 @@
     .end local v5    # "it":Ljava/lang/Throwable;
     .end local v6    # "$i$a$-onFailure-WpGqRn0-FlowKt__DelayKt$sample$2$1$1$2":I
     .local v1, "$this$onFailure_u2dWpGqRn0$iv":Ljava/lang/Object;
-    :cond_2
-    :goto_0
+    :cond_4e
+    :goto_4e
     nop
 
     .line 427
@@ -361,8 +361,8 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_54
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

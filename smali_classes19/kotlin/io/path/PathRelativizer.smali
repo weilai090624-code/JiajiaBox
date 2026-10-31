@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lkotlin/io/path/PathRelativizer;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 159
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public final tryRelativeTo(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
-    .locals 8
+    .registers 11
     .param p1, "path"    # Ljava/nio/file/Path;
     .param p2, "base"    # Ljava/nio/file/Path;
 
@@ -134,8 +134,8 @@
 
     move-result v4
 
-    :goto_0
-    if-ge v3, v4, :cond_1
+    :goto_23
+    if-ge v3, v4, :cond_48
 
     .line 170
     invoke-interface {v0, v3}, Ljava/nio/file/Path;->getName(I)Ljava/nio/file/Path;
@@ -148,7 +148,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_48
 
     .line 171
     invoke-interface {v1, v3}, Ljava/nio/file/Path;->getName(I)Ljava/nio/file/Path;
@@ -161,15 +161,15 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_40
 
     .line 169
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 171
-    :cond_0
+    :cond_40
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string v5, "Unable to compute relative path"
@@ -180,12 +180,12 @@
 
     .line 174
     .end local v3    # "i":I
-    :cond_1
+    :cond_48
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_58
 
     sget-object v3, Lkotlin/io/path/PathRelativizer;->emptyPath:Ljava/nio/file/Path;
 
@@ -193,15 +193,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_58
 
     .line 175
     move-object v4, v1
 
-    goto :goto_1
+    goto :goto_8e
 
     .line 177
-    :cond_2
+    :cond_58
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -230,7 +230,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_8d
 
     .line 180
     invoke-interface {v2}, Ljava/nio/file/Path;->getFileSystem()Ljava/nio/file/FileSystem;
@@ -259,15 +259,15 @@
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_8e
 
     .line 182
-    :cond_3
+    :cond_8d
     move-object v4, v2
 
     .line 174
     .end local v3    # "rnString":Ljava/lang/String;
-    :goto_1
+    :goto_8e
     move-object v3, v4
 
     .line 184

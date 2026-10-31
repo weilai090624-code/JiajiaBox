@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 33
     nop
@@ -35,7 +35,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 129
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 .end method
 
 .method static callSharedElementStartEnd(Landroidx/fragment/app/Fragment;Landroidx/fragment/app/Fragment;ZLandroidx/collection/ArrayMap;Z)V
-    .locals 6
+    .registers 11
     .param p0, "inFragment"    # Landroidx/fragment/app/Fragment;
     .param p1, "outFragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "isPop"    # Z
@@ -65,27 +65,27 @@
 
     .line 93
     .local p3, "sharedElements":Landroidx/collection/ArrayMap;, "Landroidx/collection/ArrayMap<Ljava/lang/String;Landroid/view/View;>;"
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     .line 94
     invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getEnterTransitionCallback()Landroidx/core/app/SharedElementCallback;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_b
 
     .line 95
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getEnterTransitionCallback()Landroidx/core/app/SharedElementCallback;
 
     move-result-object v0
 
-    :goto_0
+    :goto_b
     nop
 
     .line 96
     .local v0, "sharedElementCallback":Landroidx/core/app/SharedElementCallback;
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_42
 
     .line 97
     new-instance v1, Ljava/util/ArrayList;
@@ -100,25 +100,25 @@
 
     .line 99
     .local v2, "names":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    if-nez p3, :cond_1
+    if-nez p3, :cond_1c
 
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
+    :cond_1c
     invoke-virtual {p3}, Landroidx/collection/ArrayMap;->size()I
 
     move-result v3
 
     .line 100
     .local v3, "count":I
-    :goto_1
+    :goto_20
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_2
-    if-ge v4, v3, :cond_2
+    :goto_21
+    if-ge v4, v3, :cond_38
 
     .line 101
     invoke-virtual {p3, v4}, Landroidx/collection/ArrayMap;->keyAt(I)Ljava/lang/Object;
@@ -141,35 +141,35 @@
     .line 100
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_21
 
     .line 104
     .end local v4    # "i":I
-    :cond_2
+    :cond_38
     const/4 v4, 0x0
 
-    if-eqz p4, :cond_3
+    if-eqz p4, :cond_3f
 
     .line 105
     invoke-virtual {v0, v2, v1, v4}, Landroidx/core/app/SharedElementCallback;->onSharedElementStart(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
 
-    goto :goto_3
+    goto :goto_42
 
     .line 107
-    :cond_3
+    :cond_3f
     invoke-virtual {v0, v2, v1, v4}, Landroidx/core/app/SharedElementCallback;->onSharedElementEnd(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
 
     .line 110
     .end local v1    # "views":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     .end local v2    # "names":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     .end local v3    # "count":I
-    :cond_4
-    :goto_3
+    :cond_42
+    :goto_42
     return-void
 .end method
 
 .method static findKeyForValue(Landroidx/collection/ArrayMap;Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -195,8 +195,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_5
+    if-ge v1, v0, :cond_1b
 
     .line 57
     invoke-virtual {p0, v1}, Landroidx/collection/ArrayMap;->valueAt(I)Ljava/lang/Object;
@@ -207,7 +207,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     .line 58
     invoke-virtual {p0, v1}, Landroidx/collection/ArrayMap;->keyAt(I)Ljava/lang/Object;
@@ -219,21 +219,21 @@
     return-object v2
 
     .line 56
-    :cond_0
+    :cond_18
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 61
     .end local v1    # "i":I
-    :cond_1
+    :cond_1b
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method private static resolveSupportImpl()Landroidx/fragment/app/FragmentTransitionImpl;
-    .locals 3
+    .registers 3
 
     .line 42
     :try_start_0
@@ -260,14 +260,14 @@
     move-result-object v1
 
     check-cast v1, Landroidx/fragment/app/FragmentTransitionImpl;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_15} :catch_16
 
     return-object v1
 
     .line 45
     .end local v0    # "impl":Ljava/lang/Class;, "Ljava/lang/Class<Landroidx/fragment/app/FragmentTransitionImpl;>;"
-    :catch_0
+    :catch_16
     move-exception v0
 
     .line 48
@@ -277,7 +277,7 @@
 .end method
 
 .method static retainValues(Landroidx/collection/ArrayMap;Landroidx/collection/ArrayMap;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -302,8 +302,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_6
+    if-ltz v0, :cond_1a
 
     .line 72
     invoke-virtual {p0, v0}, Landroidx/collection/ArrayMap;->valueAt(I)Ljava/lang/Object;
@@ -318,26 +318,26 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 74
     invoke-virtual {p0, v0}, Landroidx/collection/ArrayMap;->removeAt(I)Ljava/lang/Object;
 
     .line 71
     .end local v1    # "targetName":Ljava/lang/String;
-    :cond_0
+    :cond_17
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 77
     .end local v0    # "i":I
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method static setViewVisibility(Ljava/util/ArrayList;I)V
-    .locals 2
+    .registers 4
     .param p1, "visibility"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -350,13 +350,13 @@
 
     .line 116
     .local p0, "views":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 117
     return-void
 
     .line 119
-    :cond_0
+    :cond_3
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
@@ -364,8 +364,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_9
+    if-ltz v0, :cond_17
 
     .line 120
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -382,37 +382,37 @@
     .end local v1    # "view":Landroid/view/View;
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 123
     .end local v0    # "i":I
-    :cond_1
+    :cond_17
     return-void
 .end method
 
 .method static supportsTransition()Z
-    .locals 1
+    .registers 1
 
     .line 126
     sget-object v0, Landroidx/fragment/app/FragmentTransition;->PLATFORM_IMPL:Landroidx/fragment/app/FragmentTransitionImpl;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_b
 
     sget-object v0, Landroidx/fragment/app/FragmentTransition;->SUPPORT_IMPL:Landroidx/fragment/app/FragmentTransitionImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_c
     return v0
 .end method

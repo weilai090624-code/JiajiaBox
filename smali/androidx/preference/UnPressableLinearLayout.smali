@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 41
@@ -18,7 +18,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method protected dispatchSetPressed(Z)V
-    .locals 0
+    .registers 2
     .param p1, "pressed"    # Z
 
     .line 52

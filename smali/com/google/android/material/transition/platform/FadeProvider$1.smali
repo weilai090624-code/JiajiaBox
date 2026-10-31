@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;FFFF)V
-    .locals 0
+    .registers 6
 
     .line 97
     iput-object p1, p0, Lcom/google/android/material/transition/platform/FadeProvider$1;->val$view:Landroid/view/View;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 6
+    .registers 8
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 100

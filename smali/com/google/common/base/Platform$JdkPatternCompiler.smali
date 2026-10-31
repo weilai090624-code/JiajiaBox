@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/base/Platform$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/base/Platform$1;
 
     .line 105
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public compile(Ljava/lang/String;)Lcom/google/common/base/CommonPattern;
-    .locals 2
+    .registers 4
     .param p1, "pattern"    # Ljava/lang/String;
 
     .line 108
@@ -56,7 +56,7 @@
 .end method
 
 .method public isPcreLike()Z
-    .locals 1
+    .registers 2
 
     .line 113
     const/4 v0, 0x1

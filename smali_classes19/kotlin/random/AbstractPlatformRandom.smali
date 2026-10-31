@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Lkotlin/random/Random;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method public nextBits(I)I
-    .locals 1
+    .registers 3
     .param p1, "bitCount"    # I
 
     .line 39
@@ -84,7 +84,7 @@
 .end method
 
 .method public nextBoolean()Z
-    .locals 1
+    .registers 2
 
     .line 44
     invoke-virtual {p0}, Lkotlin/random/AbstractPlatformRandom;->getImpl()Ljava/util/Random;
@@ -99,7 +99,7 @@
 .end method
 
 .method public nextBytes([B)[B
-    .locals 3
+    .registers 5
     .param p1, "array"    # [B
 
     const-string v0, "array"
@@ -127,7 +127,7 @@
 .end method
 
 .method public nextDouble()D
-    .locals 2
+    .registers 3
 
     .line 45
     invoke-virtual {p0}, Lkotlin/random/AbstractPlatformRandom;->getImpl()Ljava/util/Random;
@@ -142,7 +142,7 @@
 .end method
 
 .method public nextFloat()F
-    .locals 1
+    .registers 2
 
     .line 46
     invoke-virtual {p0}, Lkotlin/random/AbstractPlatformRandom;->getImpl()Ljava/util/Random;
@@ -157,7 +157,7 @@
 .end method
 
 .method public nextInt()I
-    .locals 1
+    .registers 2
 
     .line 41
     invoke-virtual {p0}, Lkotlin/random/AbstractPlatformRandom;->getImpl()Ljava/util/Random;
@@ -172,7 +172,7 @@
 .end method
 
 .method public nextInt(I)I
-    .locals 1
+    .registers 3
     .param p1, "until"    # I
 
     .line 42
@@ -188,7 +188,7 @@
 .end method
 
 .method public nextLong()J
-    .locals 2
+    .registers 3
 
     .line 43
     invoke-virtual {p0}, Lkotlin/random/AbstractPlatformRandom;->getImpl()Ljava/util/Random;

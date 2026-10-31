@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 666
     invoke-direct {p0}, Lkotlin/collections/AbstractMutableSet;-><init>()V
@@ -60,19 +60,19 @@
 
 # virtual methods
 .method public final bridge contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 666
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/util/Map$Entry;
@@ -85,7 +85,7 @@
 .end method
 
 .method public final contains(Ljava/util/Map$Entry;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/util/Map$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -116,19 +116,19 @@
 .end method
 
 .method public final bridge remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 666
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/util/Map$Entry;
@@ -141,7 +141,7 @@
 .end method
 
 .method public bridge remove(Ljava/util/Map$Entry;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/util/Map$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {

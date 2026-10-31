@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/Surface;)V
-    .locals 2
+    .registers 4
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -46,7 +46,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "outputConfiguration"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -65,7 +65,7 @@
 .end method
 
 .method private static getMaxSharedSurfaceCountApi26()I
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NoSuchFieldException;,
@@ -99,7 +99,7 @@
 .end method
 
 .method private static getMutableSurfaceListApi26(Landroid/hardware/camera2/params/OutputConfiguration;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "outputConfiguration"    # Landroid/hardware/camera2/params/OutputConfiguration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -154,7 +154,7 @@
 .end method
 
 .method static wrap(Landroid/hardware/camera2/params/OutputConfiguration;)Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;
-    .locals 2
+    .registers 3
     .param p0, "outputConfiguration"    # Landroid/hardware/camera2/params/OutputConfiguration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -180,7 +180,7 @@
 
 # virtual methods
 .method public addSurface(Landroid/view/Surface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -205,7 +205,7 @@
 .end method
 
 .method public enableSurfaceSharing()V
-    .locals 1
+    .registers 2
 
     .line 83
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;->getOutputConfiguration()Ljava/lang/Object;
@@ -221,31 +221,31 @@
 .end method
 
 .method public getMaxSharedSurfaceCount()I
-    .locals 3
+    .registers 4
 
     .line 142
     :try_start_0
     invoke-static {}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;->getMaxSharedSurfaceCountApi26()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_4} :catch_7
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_4} :catch_5
 
     return v0
 
     .line 143
-    :catch_0
+    :catch_5
     move-exception v0
 
-    goto :goto_0
+    goto :goto_8
 
-    :catch_1
+    :catch_7
     move-exception v0
 
     .line 144
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_8
     const-string v1, "OutputConfigCompat"
 
     const-string v2, "Unable to retrieve max shared surface count."
@@ -261,7 +261,7 @@
 .end method
 
 .method public getOutputConfiguration()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 160
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;->mObject:Ljava/lang/Object;
@@ -281,7 +281,7 @@
 .end method
 
 .method public getPhysicalCameraId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 110
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;->mObject:Ljava/lang/Object;
@@ -294,7 +294,7 @@
 .end method
 
 .method public getSurfaces()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -319,7 +319,7 @@
 .end method
 
 .method final isSurfaceSharingEnabled()Z
-    .locals 2
+    .registers 3
 
     .line 88
     new-instance v0, Ljava/lang/AssertionError;
@@ -332,7 +332,7 @@
 .end method
 
 .method public removeSurface(Landroid/view/Surface;)V
-    .locals 3
+    .registers 5
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -348,13 +348,13 @@
 
     move-result-object v0
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_2b
 
     .line 124
     nop
 
     .line 125
-    :try_start_0
+    :try_start_7
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;->getOutputConfiguration()Ljava/lang/Object;
 
     move-result-object v0
@@ -372,15 +372,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 132
     .end local v0    # "surfaces":Ljava/util/List;, "Ljava/util/List<Landroid/view/Surface;>;"
-    goto :goto_1
+    goto :goto_2a
 
     .line 127
     .restart local v0    # "surfaces":Ljava/util/List;, "Ljava/util/List<Landroid/view/Surface;>;"
-    :cond_0
+    :cond_18
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Surface is not part of this output configuration"
@@ -389,24 +389,24 @@
 
     .end local p1    # "surface":Landroid/view/Surface;
     throw v1
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_20
+    .catch Ljava/lang/IllegalAccessException; {:try_start_7 .. :try_end_20} :catch_22
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_7 .. :try_end_20} :catch_20
 
     .line 130
     .end local v0    # "surfaces":Ljava/util/List;, "Ljava/util/List<Landroid/view/Surface;>;"
     .restart local p1    # "surface":Landroid/view/Surface;
-    :catch_0
+    :catch_20
     move-exception v0
 
-    goto :goto_0
+    goto :goto_23
 
-    :catch_1
+    :catch_22
     move-exception v0
 
     .line 131
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_23
     const-string v1, "OutputConfigCompat"
 
     const-string v2, "Unable to remove surface from this output configuration."
@@ -415,11 +415,11 @@
 
     .line 134
     .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
-    :goto_1
+    :goto_2a
     return-void
 
     .line 119
-    :cond_1
+    :cond_2b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Cannot remove surface associated with this output configuration"
@@ -430,7 +430,7 @@
 .end method
 
 .method public setPhysicalCameraId(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "physicalCameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

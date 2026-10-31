@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 37
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public final getCallbackList$room_runtime_release()Landroid/os/RemoteCallbackList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -131,7 +131,7 @@
 .end method
 
 .method public final getClientNames$room_runtime_release()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -149,7 +149,7 @@
 .end method
 
 .method public final getMaxClientId$room_runtime_release()I
-    .locals 1
+    .registers 2
 
     .line 38
     iget v0, p0, Landroidx/room/MultiInstanceInvalidationService;->maxClientId:I
@@ -158,7 +158,7 @@
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
+    .registers 3
     .param p1, "intent"    # Landroid/content/Intent;
 
     const-string v0, "intent"
@@ -174,7 +174,7 @@
 .end method
 
 .method public final setMaxClientId$room_runtime_release(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 38

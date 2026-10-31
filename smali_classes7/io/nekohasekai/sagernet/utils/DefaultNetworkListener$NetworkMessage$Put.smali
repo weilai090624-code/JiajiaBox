@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/Network;)V
-    .locals 1
+    .registers 3
     .param p1, "network"    # Landroid/net/Network;
 
     const-string v0, "network"
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final getNetwork()Landroid/net/Network;
-    .locals 1
+    .registers 2
 
     .line 29
     iget-object v0, p0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Put;->network:Landroid/net/Network;

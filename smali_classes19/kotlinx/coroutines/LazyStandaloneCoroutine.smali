@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .registers 4
     .param p1, "parentContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method protected onStart()V
-    .locals 2
+    .registers 3
 
     .line 206
     iget-object v0, p0, Lkotlinx/coroutines/LazyStandaloneCoroutine;->continuation:Lkotlin/coroutines/Continuation;

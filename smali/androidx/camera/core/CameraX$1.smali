@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Landroidx/camera/core/CameraX;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -83,21 +83,21 @@
     monitor-enter v0
 
     .line 228
-    :try_start_0
+    :try_start_a
     sget-object v1, Landroidx/camera/core/CameraX;->sInstance:Landroidx/camera/core/CameraX;
 
     iget-object v2, p0, Landroidx/camera/core/CameraX$1;->val$cameraX:Landroidx/camera/core/CameraX;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_13
 
     .line 229
     invoke-static {}, Landroidx/camera/core/CameraX;->shutdownLocked()Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 231
-    :cond_0
+    :cond_13
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_1a
 
     .line 232
     iget-object v0, p0, Landroidx/camera/core/CameraX$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -108,19 +108,19 @@
     return-void
 
     .line 231
-    :catchall_0
+    :catchall_1a
     move-exception v1
 
-    :try_start_1
+    :try_start_1b
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_1b .. :try_end_1c} :catchall_1a
 
     throw v1
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -139,7 +139,7 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Void;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Ljava/lang/Void;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

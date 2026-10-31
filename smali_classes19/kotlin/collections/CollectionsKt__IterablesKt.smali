@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/CollectionsKt__CollectionsKt;-><init>()V
 
@@ -48,7 +48,7 @@
 .end method
 
 .method private static final Iterable(Lkotlin/jvm/functions/Function0;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 2
     .param p0, "iterator"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,7 +80,7 @@
 .end method
 
 .method public static final collectionSizeOrDefault(Ljava/lang/Iterable;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$collectionSizeOrDefault"    # Ljava/lang/Iterable;
     .param p1, "default"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -100,7 +100,7 @@
     .line 39
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     move-object v0, p0
 
@@ -110,17 +110,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     move v0, p1
 
-    :goto_0
+    :goto_12
     return v0
 .end method
 
 .method public static final collectionSizeOrNull(Ljava/lang/Iterable;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "$this$collectionSizeOrNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -140,7 +140,7 @@
     .line 33
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     move-object v0, p0
 
@@ -154,17 +154,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_16
     return-object v0
 .end method
 
 .method public static final flatten(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .param p0, "$this$flatten"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -195,12 +195,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -216,11 +216,11 @@
 
     invoke-static {v3, v2}, Lkotlin/collections/CollectionsKt;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
-    goto :goto_0
+    goto :goto_e
 
     .line 51
     .end local v2    # "element":Ljava/lang/Iterable;
-    :cond_0
+    :cond_21
     move-object v1, v0
 
     check-cast v1, Ljava/util/List;
@@ -229,7 +229,7 @@
 .end method
 
 .method public static final unzip(Ljava/lang/Iterable;)Lkotlin/Pair;
-    .locals 6
+    .registers 7
     .param p0, "$this$unzip"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -279,12 +279,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_19
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_34
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -307,11 +307,11 @@
 
     invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_19
 
     .line 68
     .end local v4    # "pair":Lkotlin/Pair;
-    :cond_0
+    :cond_34
     invoke-static {v1, v2}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
 
     move-result-object v3

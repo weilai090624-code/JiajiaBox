@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/zxing/common/BitArray;)V
-    .locals 0
+    .registers 2
     .param p1, "information"    # Lcom/google/zxing/common/BitArray;
 
     .line 37
@@ -24,7 +24,7 @@
 .end method
 
 .method final encodeCompressedWeight(Ljava/lang/StringBuilder;II)V
-    .locals 5
+    .registers 9
     .param p1, "buf"    # Ljava/lang/StringBuilder;
     .param p2, "currentPos"    # I
     .param p3, "weightSize"    # I
@@ -56,15 +56,15 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_13
     const/4 v4, 0x5
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_24
 
     .line 48
     div-int v4, v1, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1f
 
     .line 49
     const/16 v4, 0x30
@@ -72,17 +72,17 @@
     invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 51
-    :cond_0
+    :cond_1f
     div-int/lit8 v2, v2, 0xa
 
     .line 47
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 53
     .end local v3    # "i":I
-    :cond_1
+    :cond_24
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 54

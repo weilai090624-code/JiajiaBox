@@ -56,7 +56,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 143
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +65,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/Handshake$Companion;-><init>()V
 
@@ -73,7 +73,7 @@
 .end method
 
 .method private final toImmutableList([Ljava/security/cert/Certificate;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "$this$toImmutableList"    # [Ljava/security/cert/Certificate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -87,7 +87,7 @@
     .end annotation
 
     .line 170
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 171
     array-length v0, p1
@@ -100,23 +100,23 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_10
 
     .line 173
-    :cond_0
+    :cond_c
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     .line 170
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 
 # virtual methods
 .method public final -deprecated_get(Ljavax/net/ssl/SSLSession;)Lokhttp3/Handshake;
-    .locals 1
+    .registers 3
     .param p1, "sslSession"    # Ljavax/net/ssl/SSLSession;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -146,7 +146,7 @@
 .end method
 
 .method public final get(Ljavax/net/ssl/SSLSession;)Lokhttp3/Handshake;
-    .locals 7
+    .registers 9
     .param p1, "$this$handshake"    # Ljavax/net/ssl/SSLSession;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -166,7 +166,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_82
 
     .line 149
     .local v0, "cipherSuiteString":Ljava/lang/String;
@@ -176,21 +176,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_15
     const-string v1, "SSL_NULL_WITH_NULL_NULL"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    :goto_0
-    if-nez v1, :cond_3
+    :goto_1b
+    if-nez v1, :cond_76
 
     .line 152
     sget-object v1, Lokhttp3/CipherSuite;->Companion:Lokhttp3/CipherSuite$Companion;
@@ -209,7 +209,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_66
 
     .line 156
     .local v1, "tlsVersionString":Ljava/lang/String;
@@ -219,7 +219,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_5e
 
     .line 157
     sget-object v2, Lokhttp3/TlsVersion;->Companion:Lokhttp3/TlsVersion$Companion;
@@ -233,7 +233,7 @@
     nop
 
     .line 160
-    :try_start_0
+    :try_start_39
     invoke-interface {p1}, Ljavax/net/ssl/SSLSession;->getPeerCertificates()[Ljava/security/cert/Certificate;
 
     move-result-object v3
@@ -241,13 +241,13 @@
     invoke-direct {p0, v3}, Lokhttp3/Handshake$Companion;->toImmutableList([Ljava/security/cert/Certificate;)Ljava/util/List;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljavax/net/ssl/SSLPeerUnverifiedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_41
+    .catch Ljavax/net/ssl/SSLPeerUnverifiedException; {:try_start_39 .. :try_end_41} :catch_42
 
-    goto :goto_1
+    goto :goto_48
 
     .line 161
-    :catch_0
+    :catch_42
     move-exception v3
 
     .line 162
@@ -260,7 +260,7 @@
 
     .line 159
     .end local v3    # "_":Ljavax/net/ssl/SSLPeerUnverifiedException;
-    :goto_1
+    :goto_48
     nop
 
     .line 165
@@ -290,7 +290,7 @@
     .line 156
     .end local v2    # "tlsVersion":Lokhttp3/TlsVersion;
     .end local v3    # "peerCertificatesCopy":Ljava/util/List;
-    :cond_1
+    :cond_5e
     new-instance v2, Ljava/io/IOException;
 
     const-string v3, "tlsVersion == NONE"
@@ -301,7 +301,7 @@
 
     .line 200
     .end local v1    # "tlsVersionString":Ljava/lang/String;
-    :cond_2
+    :cond_66
     const/4 v1, 0x0
 
     .line 155
@@ -325,7 +325,7 @@
 
     .line 150
     .local v0, "cipherSuiteString":Ljava/lang/String;
-    :cond_3
+    :cond_76
     new-instance v1, Ljava/io/IOException;
 
     const-string v2, "cipherSuite == "
@@ -340,7 +340,7 @@
 
     .line 200
     .end local v0    # "cipherSuiteString":Ljava/lang/String;
-    :cond_4
+    :cond_82
     const/4 v0, 0x0
 
     .line 148
@@ -364,7 +364,7 @@
 .end method
 
 .method public final get(Lokhttp3/TlsVersion;Lokhttp3/CipherSuite;Ljava/util/List;Ljava/util/List;)Lokhttp3/Handshake;
-    .locals 4
+    .registers 9
     .param p1, "tlsVersion"    # Lokhttp3/TlsVersion;
     .param p2, "cipherSuite"    # Lokhttp3/CipherSuite;
     .param p3, "peerCertificates"    # Ljava/util/List;

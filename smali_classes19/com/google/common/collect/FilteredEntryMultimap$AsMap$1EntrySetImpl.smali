@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FilteredEntryMultimap$AsMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/common/collect/FilteredEntryMultimap$AsMap;
 
     .line 250
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -66,7 +66,7 @@
 .end method
 
 .method map()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -85,7 +85,7 @@
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,7 +113,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -145,7 +145,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 291
     .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1EntrySetImpl;, "Lcom/google/common/collect/FilteredEntryMultimap$AsMap$1EntrySetImpl;"

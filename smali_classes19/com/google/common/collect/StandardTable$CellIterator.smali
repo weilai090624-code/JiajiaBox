@@ -68,7 +68,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/StandardTable;)V
-    .locals 0
+    .registers 2
 
     .line 241
     .local p0, "this":Lcom/google/common/collect/StandardTable$CellIterator;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.CellIterator;"
@@ -102,7 +102,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/StandardTable;
     .param p2, "x1"    # Lcom/google/common/collect/StandardTable$1;
 
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 248
     .local p0, "this":Lcom/google/common/collect/StandardTable$CellIterator;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.CellIterator;"
@@ -126,7 +126,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$CellIterator;->columnIterator:Ljava/util/Iterator;
 
@@ -134,25 +134,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_14
     return v0
 .end method
 
 .method public next()Lcom/google/common/collect/Table$Cell;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -169,7 +169,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_24
 
     .line 254
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$CellIterator;->rowIterator:Ljava/util/Iterator;
@@ -202,7 +202,7 @@
     iput-object v0, p0, Lcom/google/common/collect/StandardTable$CellIterator;->columnIterator:Ljava/util/Iterator;
 
     .line 270
-    :cond_0
+    :cond_24
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$CellIterator;->rowEntry:Ljava/util/Map$Entry;
 
     invoke-static {v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -240,7 +240,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 241
     .local p0, "this":Lcom/google/common/collect/StandardTable$CellIterator;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.CellIterator;"
@@ -252,7 +252,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 277
     .local p0, "this":Lcom/google/common/collect/StandardTable$CellIterator;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.CellIterator;"
@@ -279,7 +279,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 289
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$CellIterator;->rowIterator:Ljava/util/Iterator;
@@ -292,6 +292,6 @@
     iput-object v0, p0, Lcom/google/common/collect/StandardTable$CellIterator;->rowEntry:Ljava/util/Map$Entry;
 
     .line 292
-    :cond_0
+    :cond_21
     return-void
 .end method

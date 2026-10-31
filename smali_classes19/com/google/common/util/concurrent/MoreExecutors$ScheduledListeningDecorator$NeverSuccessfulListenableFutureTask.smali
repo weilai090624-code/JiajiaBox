@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Ljava/lang/Runnable;
 
     .line 650
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method protected pendingToString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 666
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$NeverSuccessfulListenableFutureTask;->delegate:Ljava/lang/Runnable;
@@ -101,15 +101,15 @@
 .end method
 
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 657
     :try_start_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$NeverSuccessfulListenableFutureTask;->delegate:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_0 .. :try_end_5} :catchall_7
 
     .line 661
     nop
@@ -118,7 +118,7 @@
     return-void
 
     .line 658
-    :catchall_0
+    :catchall_7
     move-exception v0
 
     .line 659

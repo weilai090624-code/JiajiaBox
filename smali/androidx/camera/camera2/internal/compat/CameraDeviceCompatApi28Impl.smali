@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 2
+    .registers 4
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public createCaptureSession(Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;)V
-    .locals 2
+    .registers 4
     .param p1, "config"    # Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

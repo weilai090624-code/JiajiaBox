@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "maxPoolSize"    # I
 
     .line 96
@@ -44,7 +44,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 97
-    if-lez p1, :cond_0
+    if-lez p1, :cond_a
 
     .line 100
     new-array v0, p1, [Ljava/lang/Object;
@@ -55,7 +55,7 @@
     return-void
 
     .line 98
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The max pool size must be > 0"
@@ -66,7 +66,7 @@
 .end method
 
 .method private isInPool(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -79,17 +79,17 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget v1, p0, Landroidx/constraintlayout/core/Pools$SimplePool;->mPoolSize:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_10
 
     .line 152
     iget-object v1, p0, Landroidx/constraintlayout/core/Pools$SimplePool;->mPool:[Ljava/lang/Object;
 
     aget-object v1, v1, v0
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_d
 
     .line 153
     const/4 v1, 0x1
@@ -97,14 +97,14 @@
     return v1
 
     .line 151
-    :cond_0
+    :cond_d
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 156
     .end local v0    # "i":I
-    :cond_1
+    :cond_10
     const/4 v0, 0x0
 
     return v0
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public acquire()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -126,7 +126,7 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_18
 
     .line 107
     iget v0, p0, Landroidx/constraintlayout/core/Pools$SimplePool;->mPoolSize:I
@@ -158,12 +158,12 @@
     .line 113
     .end local v0    # "lastPooledIndex":I
     .end local v2    # "instance":Ljava/lang/Object;, "TT;"
-    :cond_0
+    :cond_18
     return-object v1
 .end method
 
 .method public release(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -179,7 +179,7 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_14
 
     .line 124
     iget-object v0, p0, Landroidx/constraintlayout/core/Pools$SimplePool;->mPool:[Ljava/lang/Object;
@@ -201,14 +201,14 @@
     return v1
 
     .line 128
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public releaseAll([Ljava/lang/Object;I)V
-    .locals 4
+    .registers 7
     .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -221,18 +221,18 @@
     .local p1, "variables":[Ljava/lang/Object;, "[TT;"
     array-length v0, p1
 
-    if-le p2, v0, :cond_0
+    if-le p2, v0, :cond_4
 
     .line 134
     array-length p2, p1
 
     .line 136
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p2, :cond_2
+    :goto_5
+    if-ge v0, p2, :cond_1f
 
     .line 137
     aget-object v1, p1, v0
@@ -245,7 +245,7 @@
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_1c
 
     .line 144
     iget-object v2, p0, Landroidx/constraintlayout/core/Pools$SimplePool;->mPool:[Ljava/lang/Object;
@@ -263,13 +263,13 @@
 
     .line 136
     .end local v1    # "instance":Ljava/lang/Object;, "TT;"
-    :cond_1
+    :cond_1c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 148
     .end local v0    # "i":I
-    :cond_2
+    :cond_1f
     return-void
 .end method

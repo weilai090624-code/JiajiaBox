@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/Preference;)V
-    .locals 0
+    .registers 2
     .param p1, "preference"    # Landroidx/preference/Preference;
 
     .line 2252
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onCreateContextMenu(Landroid/view/ContextMenu;Landroid/view/View;Landroid/view/ContextMenu$ContextMenuInfo;)V
-    .locals 3
+    .registers 7
     .param p1, "menu"    # Landroid/view/ContextMenu;
     .param p2, "v"    # Landroid/view/View;
     .param p3, "menuInfo"    # Landroid/view/ContextMenu$ContextMenuInfo;
@@ -60,18 +60,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
-    goto :goto_0
+    goto :goto_23
 
     .line 2263
-    :cond_0
+    :cond_15
     invoke-interface {p1, v0}, Landroid/view/ContextMenu;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
 
     .line 2264
@@ -90,13 +90,13 @@
     return-void
 
     .line 2261
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     return-void
 .end method
 
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .locals 9
+    .registers 11
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 2270

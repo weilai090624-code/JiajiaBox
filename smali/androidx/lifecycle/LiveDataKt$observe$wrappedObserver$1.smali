@@ -67,7 +67,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public final onChanged(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -88,7 +88,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/InvalidationTracker$ObservedTableTracker$Companion;
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "tableCount"    # I
 
     .line 692
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public final getNeedsSync()Z
-    .locals 1
+    .registers 2
 
     .line 703
     iget-boolean v0, p0, Landroidx/room/InvalidationTracker$ObservedTableTracker;->needsSync:Z
@@ -139,7 +139,7 @@
 .end method
 
 .method public final getTableObservers()[J
-    .locals 1
+    .registers 2
 
     .line 694
     iget-object v0, p0, Landroidx/room/InvalidationTracker$ObservedTableTracker;->tableObservers:[J
@@ -148,7 +148,7 @@
 .end method
 
 .method public final getTablesToSync()[I
-    .locals 18
+    .registers 19
 
     .line 761
     move-object/from16 v1, p0
@@ -159,12 +159,12 @@
 
     .line 762
     .local v0, "$i$a$-synchronized-InvalidationTracker$ObservedTableTracker$getTablesToSync$1":I
-    :try_start_0
+    :try_start_4
     iget-boolean v2, v1, Landroidx/room/InvalidationTracker$ObservedTableTracker;->needsSync:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_4 .. :try_end_6} :catchall_51
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_c
 
     .line 763
     nop
@@ -178,8 +178,8 @@
 
     .line 765
     .restart local v0    # "$i$a$-synchronized-InvalidationTracker$ObservedTableTracker$getTablesToSync$1":I
-    :cond_0
-    :try_start_1
+    :cond_c
+    :try_start_c
     iget-object v2, v1, Landroidx/room/InvalidationTracker$ObservedTableTracker;->tableObservers:[J
 
     .local v2, "$this$forEachIndexed$iv":[J
@@ -197,8 +197,8 @@
 
     const/4 v7, 0x0
 
-    :goto_0
-    if-ge v7, v5, :cond_4
+    :goto_13
+    if-ge v7, v5, :cond_44
 
     aget-wide v8, v2, v7
 
@@ -220,47 +220,47 @@
 
     cmp-long v17, v11, v14
 
-    if-lez v17, :cond_1
+    if-lez v17, :cond_25
 
     const/4 v14, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     const/4 v14, 0x0
 
     .line 767
     .local v14, "newState":Z
-    :goto_1
+    :goto_26
     iget-object v15, v1, Landroidx/room/InvalidationTracker$ObservedTableTracker;->triggerStates:[Z
 
     aget-boolean v15, v15, v4
 
-    if-eq v14, v15, :cond_3
+    if-eq v14, v15, :cond_36
 
     .line 768
     iget-object v15, v1, Landroidx/room/InvalidationTracker$ObservedTableTracker;->triggerStateChanges:[I
 
-    if-eqz v14, :cond_2
+    if-eqz v14, :cond_31
 
-    goto :goto_2
+    goto :goto_33
 
-    :cond_2
+    :cond_31
     const/16 v16, 0x2
 
-    :goto_2
+    :goto_33
     aput v16, v15, v4
 
-    goto :goto_3
+    goto :goto_3a
 
     .line 770
-    :cond_3
+    :cond_36
     iget-object v15, v1, Landroidx/room/InvalidationTracker$ObservedTableTracker;->triggerStateChanges:[I
 
     aput v6, v15, v4
 
     .line 772
-    :goto_3
+    :goto_3a
     iget-object v15, v1, Landroidx/room/InvalidationTracker$ObservedTableTracker;->triggerStates:[Z
 
     aput-boolean v14, v15, v4
@@ -280,12 +280,12 @@
 
     move v4, v10
 
-    goto :goto_0
+    goto :goto_13
 
     .line 847
     .end local v10    # "index$iv":I
     .local v4, "index$iv":I
-    :cond_4
+    :cond_44
     nop
 
     .line 774
@@ -302,15 +302,15 @@
     move-result-object v2
 
     check-cast v2, [I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4f
+    .catchall {:try_start_c .. :try_end_4f} :catchall_51
 
     .end local v0    # "$i$a$-synchronized-InvalidationTracker$ObservedTableTracker$getTablesToSync$1":I
     monitor-exit p0
 
     return-object v2
 
-    :catchall_0
+    :catchall_51
     move-exception v0
 
     monitor-exit p0
@@ -319,7 +319,7 @@
 .end method
 
 .method public final varargs onAdded([I)Z
-    .locals 14
+    .registers 16
     .param p1, "tableIds"    # [I
 
     const-string/jumbo v0, "tableIds"
@@ -344,13 +344,13 @@
 
     .line 841
     .local v3, "$i$f$forEach":I
-    :try_start_0
+    :try_start_b
     array-length v4, v2
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_1
+    :goto_d
+    if-ge v5, v4, :cond_2e
 
     aget v6, v2, v5
 
@@ -383,7 +383,7 @@
 
     cmp-long v13, v9, v11
 
-    if-nez v13, :cond_0
+    if-nez v13, :cond_29
 
     .line 715
     const/4 v11, 0x1
@@ -394,7 +394,7 @@
     const/4 v0, 0x1
 
     .line 718
-    :cond_0
+    :cond_29
     nop
 
     .line 841
@@ -406,10 +406,10 @@
     .end local v6    # "element$iv":I
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 842
-    :cond_1
+    :cond_2e
     nop
 
     .line 719
@@ -419,8 +419,8 @@
 
     .end local v1    # "$i$a$-synchronized-InvalidationTracker$ObservedTableTracker$onAdded$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_b .. :try_end_32} :catchall_34
 
     .line 710
     monitor-exit p0
@@ -429,7 +429,7 @@
     return v0
 
     .line 710
-    :catchall_0
+    :catchall_34
     move-exception v1
 
     monitor-exit p0
@@ -438,7 +438,7 @@
 .end method
 
 .method public final varargs onRemoved([I)Z
-    .locals 18
+    .registers 20
     .param p1, "tableIds"    # [I
 
     move-object/from16 v1, p0
@@ -467,13 +467,13 @@
 
     .line 843
     .local v5, "$i$f$forEach":I
-    :try_start_0
+    :try_start_10
     array-length v6, v4
 
     const/4 v7, 0x0
 
-    :goto_0
-    if-ge v7, v6, :cond_1
+    :goto_12
+    if-ge v7, v6, :cond_32
 
     aget v8, v4, v7
 
@@ -504,7 +504,7 @@
     .line 732
     cmp-long v13, v11, v14
 
-    if-nez v13, :cond_0
+    if-nez v13, :cond_2d
 
     .line 733
     const/4 v13, 0x1
@@ -515,7 +515,7 @@
     const/4 v3, 0x1
 
     .line 736
-    :cond_0
+    :cond_2d
     nop
 
     .line 843
@@ -527,10 +527,10 @@
     .end local v8    # "element$iv":I
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 844
-    :cond_1
+    :cond_32
     nop
 
     .line 737
@@ -540,8 +540,8 @@
 
     .end local v0    # "$i$a$-synchronized-InvalidationTracker$ObservedTableTracker$onRemoved$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_36
+    .catchall {:try_start_10 .. :try_end_36} :catchall_38
 
     .line 728
     monitor-exit p0
@@ -550,7 +550,7 @@
     return v3
 
     .line 728
-    :catchall_0
+    :catchall_38
     move-exception v0
 
     monitor-exit p0
@@ -559,7 +559,7 @@
 .end method
 
 .method public final resetTriggerState()V
-    .locals 3
+    .registers 4
 
     .line 746
     monitor-enter p0
@@ -568,7 +568,7 @@
 
     .line 747
     .local v0, "$i$a$-synchronized-InvalidationTracker$ObservedTableTracker$resetTriggerState$1":I
-    :try_start_0
+    :try_start_2
     iget-object v1, p0, Landroidx/room/InvalidationTracker$ObservedTableTracker;->triggerStates:[Z
 
     const/4 v2, 0x0
@@ -585,8 +585,8 @@
 
     .end local v0    # "$i$a$-synchronized-InvalidationTracker$ObservedTableTracker$resetTriggerState$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_2 .. :try_end_e} :catchall_10
 
     .line 746
     monitor-exit p0
@@ -595,7 +595,7 @@
     return-void
 
     .line 746
-    :catchall_0
+    :catchall_10
     move-exception v0
 
     monitor-exit p0
@@ -604,7 +604,7 @@
 .end method
 
 .method public final setNeedsSync(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 703

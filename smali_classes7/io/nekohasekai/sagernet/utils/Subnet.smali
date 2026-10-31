@@ -84,7 +84,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/utils/Subnet$Companion;
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/InetAddress;I)V
-    .locals 3
+    .registers 6
     .param p1, "address"    # Ljava/net/InetAddress;
     .param p2, "prefixSize"    # I
 
@@ -125,14 +125,14 @@
 
     const/4 v2, 0x0
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_19
 
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_19
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_19
+    if-eqz v2, :cond_1d
 
     .line 27
     nop
@@ -141,7 +141,7 @@
     return-void
 
     .line 88
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
     .line 26
@@ -193,7 +193,7 @@
 .end method
 
 .method private final getAddressLength()I
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lio/nekohasekai/sagernet/utils/Subnet;->address:Ljava/net/InetAddress;
@@ -210,7 +210,7 @@
 .end method
 
 .method private final unsigned(B)I
-    .locals 1
+    .registers 3
     .param p1, "$this$unsigned"    # B
 
     .line 65
@@ -222,7 +222,7 @@
 
 # virtual methods
 .method public compareTo(Lio/nekohasekai/sagernet/utils/Subnet;)I
-    .locals 7
+    .registers 9
     .param p1, "other"    # Lio/nekohasekai/sagernet/utils/Subnet;
 
     const-string v0, "other"
@@ -259,19 +259,19 @@
 
     .line 71
     .local v2, "result":I
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     return v2
 
     .line 72
-    :cond_0
+    :cond_1b
     const/4 v3, 0x0
 
     .local v3, "i":I
     array-length v4, v0
 
-    :goto_0
-    if-ge v3, v4, :cond_2
+    :goto_1d
+    if-ge v3, v4, :cond_37
 
     .line 74
     nop
@@ -298,19 +298,19 @@
     move v2, v5
 
     .line 75
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_34
 
     return v2
 
     .line 72
-    :cond_1
+    :cond_34
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 77
     .end local v3    # "i":I
-    :cond_2
+    :cond_37
     iget v3, p0, Lio/nekohasekai/sagernet/utils/Subnet;->prefixSize:I
 
     iget v4, p1, Lio/nekohasekai/sagernet/utils/Subnet;->prefixSize:I
@@ -323,7 +323,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 7
@@ -339,7 +339,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 81
@@ -347,52 +347,52 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     move-object v0, p1
 
     check-cast v0, Lio/nekohasekai/sagernet/utils/Subnet;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     move-object v0, v1
 
     .line 82
     .local v0, "that":Lio/nekohasekai/sagernet/utils/Subnet;
-    :goto_0
+    :goto_a
     iget-object v2, p0, Lio/nekohasekai/sagernet/utils/Subnet;->address:Ljava/net/InetAddress;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/utils/Subnet;->address:Ljava/net/InetAddress;
 
-    :cond_1
+    :cond_10
     invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1e
 
     iget v1, p0, Lio/nekohasekai/sagernet/utils/Subnet;->prefixSize:I
 
     iget v2, v0, Lio/nekohasekai/sagernet/utils/Subnet;->prefixSize:I
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_1e
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_2
+    :cond_1e
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_1f
     return v1
 .end method
 
 .method public final getAddress()Ljava/net/InetAddress;
-    .locals 1
+    .registers 2
 
     .line 7
     iget-object v0, p0, Lio/nekohasekai/sagernet/utils/Subnet;->address:Ljava/net/InetAddress;
@@ -401,7 +401,7 @@
 .end method
 
 .method public final getPrefixSize()I
-    .locals 1
+    .registers 2
 
     .line 7
     iget v0, p0, Lio/nekohasekai/sagernet/utils/Subnet;->prefixSize:I
@@ -410,7 +410,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 85
     iget-object v0, p0, Lio/nekohasekai/sagernet/utils/Subnet;->address:Ljava/net/InetAddress;
@@ -441,7 +441,7 @@
 .end method
 
 .method public final toImmutable()Lio/nekohasekai/sagernet/utils/Subnet$Immutable;
-    .locals 7
+    .registers 8
 
     .line 53
     iget-object v0, p0, Lio/nekohasekai/sagernet/utils/Subnet;->address:Ljava/net/InetAddress;
@@ -467,7 +467,7 @@
 
     rem-int/lit8 v4, v4, 0x8
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_25
 
     .line 56
     aget-byte v4, v1, v3
@@ -496,11 +496,11 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 59
-    :cond_0
-    :goto_0
+    :cond_25
+    :goto_25
     array-length v4, v1
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_2f
 
     add-int/lit8 v4, v3, 0x1
 
@@ -512,12 +512,12 @@
 
     move v3, v4
 
-    goto :goto_0
+    goto :goto_25
 
     .line 60
     .end local v4    # "i":I
     .restart local v3    # "i":I
-    :cond_1
+    :cond_2f
     nop
 
     .line 53
@@ -541,7 +541,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 63
     iget v0, p0, Lio/nekohasekai/sagernet/utils/Subnet;->prefixSize:I
@@ -550,7 +550,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/utils/Subnet;->address:Ljava/net/InetAddress;
 
@@ -562,9 +562,9 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -595,6 +595,6 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_33
     return-object v0
 .end method

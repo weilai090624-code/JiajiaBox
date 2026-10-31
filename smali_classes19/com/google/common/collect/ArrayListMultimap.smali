@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 113
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -47,7 +47,7 @@
 .end method
 
 .method private constructor <init>(II)V
-    .locals 1
+    .registers 4
     .param p1, "expectedKeys"    # I
     .param p2, "expectedValuesPerKey"    # I
 
@@ -72,7 +72,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/collect/Multimap;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
     .line 125
     instance-of v1, p1, Lcom/google/common/collect/ArrayListMultimap;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 126
     move-object v1, p1
@@ -107,14 +107,14 @@
 
     iget v1, v1, Lcom/google/common/collect/ArrayListMultimap;->expectedValuesPerKey:I
 
-    goto :goto_0
+    goto :goto_14
 
     .line 127
-    :cond_0
+    :cond_13
     const/4 v1, 0x3
 
     .line 123
-    :goto_0
+    :goto_14
     invoke-direct {p0, v0, v1}, Lcom/google/common/collect/ArrayListMultimap;-><init>(II)V
 
     .line 128
@@ -125,7 +125,7 @@
 .end method
 
 .method public static create()Lcom/google/common/collect/ArrayListMultimap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -147,7 +147,7 @@
 .end method
 
 .method public static create(II)Lcom/google/common/collect/ArrayListMultimap;
-    .locals 1
+    .registers 3
     .param p0, "expectedKeys"    # I
     .param p1, "expectedValuesPerKey"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -171,7 +171,7 @@
 .end method
 
 .method public static create(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/ArrayListMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -196,7 +196,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -237,7 +237,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -259,7 +259,7 @@
 
 # virtual methods
 .method public bridge synthetic asMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -271,7 +271,7 @@
 .end method
 
 .method public bridge synthetic clear()V
-    .locals 0
+    .registers 1
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -281,7 +281,7 @@
 .end method
 
 .method public bridge synthetic containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -301,7 +301,7 @@
 .end method
 
 .method public bridge synthetic containsKey(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -317,7 +317,7 @@
 .end method
 
 .method public bridge synthetic containsValue(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -333,7 +333,7 @@
 .end method
 
 .method bridge synthetic createCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -345,7 +345,7 @@
 .end method
 
 .method createCollection()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -366,7 +366,7 @@
 .end method
 
 .method public bridge synthetic entries()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -378,7 +378,7 @@
 .end method
 
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -394,7 +394,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -410,7 +410,7 @@
 .end method
 
 .method public bridge synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -422,7 +422,7 @@
 .end method
 
 .method public bridge synthetic isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -434,7 +434,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -446,7 +446,7 @@
 .end method
 
 .method public bridge synthetic keys()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -458,7 +458,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -478,7 +478,7 @@
 .end method
 
 .method public bridge synthetic putAll(Lcom/google/common/collect/Multimap;)Z
-    .locals 0
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -490,7 +490,7 @@
 .end method
 
 .method public bridge synthetic putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -506,7 +506,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -526,7 +526,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -542,7 +542,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -558,7 +558,7 @@
 .end method
 
 .method public bridge synthetic size()I
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -570,7 +570,7 @@
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"
@@ -582,7 +582,7 @@
 .end method
 
 .method public trimToSize()V
-    .locals 3
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -600,12 +600,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -626,15 +626,15 @@
     .line 151
     .end local v1    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     .end local v2    # "arrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TV;>;"
-    goto :goto_0
+    goto :goto_c
 
     .line 152
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 62
     .local p0, "this":Lcom/google/common/collect/ArrayListMultimap;, "Lcom/google/common/collect/ArrayListMultimap<TK;TV;>;"

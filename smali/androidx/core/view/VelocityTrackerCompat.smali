@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 78
     new-instance v0, Ljava/util/WeakHashMap;
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 325
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method public static addMovement(Landroid/view/VelocityTracker;Landroid/view/MotionEvent;)V
-    .locals 2
+    .registers 4
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
     .param p1, "event"    # Landroid/view/MotionEvent;
 
@@ -67,20 +67,20 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 281
     return-void
 
     .line 284
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getSource()I
 
     move-result v0
 
     const/high16 v1, 0x400000
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2f
 
     .line 287
     sget-object v0, Landroidx/core/view/VelocityTrackerCompat;->sFallbackTrackers:Ljava/util/Map;
@@ -89,7 +89,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     .line 288
     sget-object v0, Landroidx/core/view/VelocityTrackerCompat;->sFallbackTrackers:Ljava/util/Map;
@@ -101,7 +101,7 @@
     invoke-interface {v0, p0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 290
-    :cond_1
+    :cond_24
     sget-object v0, Landroidx/core/view/VelocityTrackerCompat;->sFallbackTrackers:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -113,12 +113,12 @@
     invoke-virtual {v0, p1}, Landroidx/core/view/VelocityTrackerFallback;->addMovement(Landroid/view/MotionEvent;)V
 
     .line 292
-    :cond_2
+    :cond_2f
     return-void
 .end method
 
 .method public static clear(Landroid/view/VelocityTracker;)V
-    .locals 0
+    .registers 1
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
 
     .line 211
@@ -132,7 +132,7 @@
 .end method
 
 .method public static computeCurrentVelocity(Landroid/view/VelocityTracker;I)V
-    .locals 1
+    .registers 3
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
     .param p1, "units"    # I
 
@@ -146,7 +146,7 @@
 .end method
 
 .method public static computeCurrentVelocity(Landroid/view/VelocityTracker;IF)V
-    .locals 1
+    .registers 4
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
     .param p1, "units"    # I
     .param p2, "maxVelocity"    # F
@@ -161,18 +161,18 @@
 
     .line 252
     .local v0, "fallback":Landroidx/core/view/VelocityTrackerFallback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 253
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/VelocityTrackerFallback;->computeCurrentVelocity(IF)V
 
     .line 255
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public static getAxisVelocity(Landroid/view/VelocityTracker;I)F
-    .locals 2
+    .registers 4
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
     .param p1, "axis"    # I
 
@@ -181,7 +181,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 146
     invoke-static {p0, p1}, Landroidx/core/view/VelocityTrackerCompat$Api34Impl;->getAxisVelocity(Landroid/view/VelocityTracker;I)F
@@ -191,8 +191,8 @@
     return v0
 
     .line 150
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_b
+    if-nez p1, :cond_12
 
     .line 151
     invoke-virtual {p0}, Landroid/view/VelocityTracker;->getXVelocity()F
@@ -202,10 +202,10 @@
     return v0
 
     .line 153
-    :cond_1
+    :cond_12
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_1a
 
     .line 154
     invoke-virtual {p0}, Landroid/view/VelocityTracker;->getYVelocity()F
@@ -215,14 +215,14 @@
     return v0
 
     .line 159
-    :cond_2
+    :cond_1a
     invoke-static {p0}, Landroidx/core/view/VelocityTrackerCompat;->getFallbackTrackerOrNull(Landroid/view/VelocityTracker;)Landroidx/core/view/VelocityTrackerFallback;
 
     move-result-object v0
 
     .line 160
     .local v0, "fallback":Landroidx/core/view/VelocityTrackerFallback;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_25
 
     .line 161
     invoke-virtual {v0, p1}, Landroidx/core/view/VelocityTrackerFallback;->getAxisVelocity(I)F
@@ -232,14 +232,14 @@
     return v1
 
     .line 164
-    :cond_3
+    :cond_25
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public static getAxisVelocity(Landroid/view/VelocityTracker;II)F
-    .locals 2
+    .registers 5
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
     .param p1, "axis"    # I
     .param p2, "pointerId"    # I
@@ -249,7 +249,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 198
     invoke-static {p0, p1, p2}, Landroidx/core/view/VelocityTrackerCompat$Api34Impl;->getAxisVelocity(Landroid/view/VelocityTracker;II)F
@@ -259,8 +259,8 @@
     return v0
 
     .line 200
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_b
+    if-nez p1, :cond_12
 
     .line 201
     invoke-virtual {p0, p2}, Landroid/view/VelocityTracker;->getXVelocity(I)F
@@ -270,10 +270,10 @@
     return v0
 
     .line 203
-    :cond_1
+    :cond_12
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_1a
 
     .line 204
     invoke-virtual {p0, p2}, Landroid/view/VelocityTracker;->getYVelocity(I)F
@@ -283,14 +283,14 @@
     return v0
 
     .line 206
-    :cond_2
+    :cond_1a
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private static getFallbackTrackerOrNull(Landroid/view/VelocityTracker;)Landroidx/core/view/VelocityTrackerFallback;
-    .locals 1
+    .registers 2
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
 
     .line 300
@@ -306,7 +306,7 @@
 .end method
 
 .method public static getXVelocity(Landroid/view/VelocityTracker;I)F
-    .locals 1
+    .registers 3
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
     .param p1, "pointerId"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -321,7 +321,7 @@
 .end method
 
 .method public static getYVelocity(Landroid/view/VelocityTracker;I)F
-    .locals 1
+    .registers 3
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
     .param p1, "pointerId"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -336,7 +336,7 @@
 .end method
 
 .method public static isAxisSupported(Landroid/view/VelocityTracker;I)Z
-    .locals 2
+    .registers 4
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
     .param p1, "axis"    # I
 
@@ -345,7 +345,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 124
     invoke-static {p0, p1}, Landroidx/core/view/VelocityTrackerCompat$Api34Impl;->isAxisSupported(Landroid/view/VelocityTracker;I)Z
@@ -355,29 +355,29 @@
     return v0
 
     .line 126
-    :cond_0
+    :cond_b
     const/16 v0, 0x1a
 
     const/4 v1, 0x1
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_16
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_16
 
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_15
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 v1, 0x0
 
-    :cond_2
-    :goto_0
+    :cond_16
+    :goto_16
     return v1
 .end method
 
 .method public static recycle(Landroid/view/VelocityTracker;)V
-    .locals 0
+    .registers 1
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
 
     .line 229
@@ -391,7 +391,7 @@
 .end method
 
 .method private static removeFallbackForTracker(Landroid/view/VelocityTracker;)V
-    .locals 1
+    .registers 2
     .param p0, "tracker"    # Landroid/view/VelocityTracker;
 
     .line 295

@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(JILjava/util/function/DoubleUnaryOperator;D)V
-    .locals 0
+    .registers 7
     .param p1, "est"    # J
     .param p3, "additionalCharacteristics"    # I
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 968
     check-cast p1, Ljava/util/function/DoubleConsumer;
@@ -56,7 +56,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/DoubleConsumer;)Z
-    .locals 4
+    .registers 6
     .param p1, "action"    # Ljava/util/function/DoubleConsumer;
 
     .line 974
@@ -67,7 +67,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 977
     iget-object v0, p0, Lj$/util/stream/DoubleStream$1;->val$f:Ljava/util/function/DoubleUnaryOperator;
@@ -79,11 +79,11 @@
     move-result-wide v2
 
     .local v2, "t":D
-    goto :goto_0
+    goto :goto_15
 
     .line 979
     .end local v2    # "t":D
-    :cond_0
+    :cond_11
     iget-wide v2, p0, Lj$/util/stream/DoubleStream$1;->val$seed:D
 
     .line 980
@@ -91,7 +91,7 @@
     iput-boolean v1, p0, Lj$/util/stream/DoubleStream$1;->started:Z
 
     .line 982
-    :goto_0
+    :goto_15
     iput-wide v2, p0, Lj$/util/stream/DoubleStream$1;->prev:D
 
     invoke-interface {p1, v2, v3}, Ljava/util/function/DoubleConsumer;->accept(D)V

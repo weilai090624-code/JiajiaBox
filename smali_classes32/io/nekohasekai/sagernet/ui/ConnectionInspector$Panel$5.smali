@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # instance fields
@@ -24,13 +24,13 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onDismiss(Landroid/content/DialogInterface;)V
     .registers 3
 
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel$5;->f$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 
-    invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;->lambda$new$1$io-nekohasekai-sagernet-ui-ConnectionInspector$Panel(Landroid/view/View;)V
+    invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;->lambda$new$2$io-nekohasekai-sagernet-ui-ConnectionInspector$Panel(Landroid/content/DialogInterface;)V
 
     return-void
 .end method

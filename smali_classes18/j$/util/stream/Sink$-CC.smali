@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$accept(Lj$/util/stream/Sink;D)V
-    .locals 2
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/Sink;
     .param p1, "value"    # D
 
@@ -20,7 +20,7 @@
 .end method
 
 .method public static $default$accept(Lj$/util/stream/Sink;I)V
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Lj$/util/stream/Sink;
     .param p1, "value"    # I
 
@@ -35,7 +35,7 @@
 .end method
 
 .method public static $default$accept(Lj$/util/stream/Sink;J)V
-    .locals 2
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/Sink;
     .param p1, "value"    # J
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public static $default$begin(Lj$/util/stream/Sink;J)V
-    .locals 0
+    .registers 3
     .param p0, "_this"    # Lj$/util/stream/Sink;
     .param p1, "size"    # J
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public static $default$cancellationRequested(Lj$/util/stream/Sink;)Z
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/Sink;
 
     .line 148
@@ -69,7 +69,7 @@
 .end method
 
 .method public static $default$end(Lj$/util/stream/Sink;)V
-    .locals 0
+    .registers 1
     .param p0, "_this"    # Lj$/util/stream/Sink;
 
     .line 138

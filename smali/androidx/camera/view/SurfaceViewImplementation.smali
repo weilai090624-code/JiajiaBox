@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/FrameLayout;Landroidx/camera/view/PreviewTransformation;)V
-    .locals 1
+    .registers 4
     .param p1, "parent"    # Landroid/widget/FrameLayout;
     .param p2, "previewTransform"    # Landroidx/camera/view/PreviewTransformation;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -55,23 +55,23 @@
 .end method
 
 .method static synthetic lambda$getPreviewBitmap$1(I)V
-    .locals 3
+    .registers 4
     .param p0, "copyResult"    # I
 
     .line 133
     const-string v0, "SurfaceViewImpl"
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     .line 134
     const-string v1, "PreviewView.SurfaceViewImplementation.getBitmap() succeeded"
 
     invoke-static {v0, v1}, Landroidx/camera/core/Logger;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 136
-    :cond_0
+    :cond_a
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -93,14 +93,14 @@
     invoke-static {v0, v1}, Landroidx/camera/core/Logger;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 139
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 
 # virtual methods
 .method getPreview()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 93
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation;->mSurfaceView:Landroid/view/SurfaceView;
@@ -109,12 +109,12 @@
 .end method
 
 .method getPreviewBitmap()Landroid/graphics/Bitmap;
-    .locals 4
+    .registers 5
 
     .line 124
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation;->mSurfaceView:Landroid/view/SurfaceView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_44
 
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation;->mSurfaceView:Landroid/view/SurfaceView;
 
@@ -126,7 +126,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_44
 
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation;->mSurfaceView:Landroid/view/SurfaceView;
 
@@ -143,12 +143,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
-    goto :goto_0
+    goto :goto_44
 
     .line 130
-    :cond_0
+    :cond_21
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation;->mSurfaceView:Landroid/view/SurfaceView;
 
     invoke-virtual {v0}, Landroid/view/SurfaceView;->getWidth()I
@@ -190,15 +190,15 @@
 
     .line 126
     .end local v0    # "bitmap":Landroid/graphics/Bitmap;
-    :cond_1
-    :goto_0
+    :cond_44
+    :goto_44
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method initializePreview()V
-    .locals 4
+    .registers 5
 
     .line 79
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation;->mParent:Landroid/widget/FrameLayout;
@@ -274,7 +274,7 @@
 .end method
 
 .method synthetic lambda$onSurfaceRequested$0$androidx-camera-view-SurfaceViewImplementation(Landroidx/camera/core/SurfaceRequest;)V
-    .locals 1
+    .registers 3
     .param p1, "surfaceRequest"    # Landroidx/camera/core/SurfaceRequest;
 
     .line 74
@@ -286,12 +286,12 @@
 .end method
 
 .method notifySurfaceNotInUse()V
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation;->mOnSurfaceNotInUseListener:Landroidx/camera/view/PreviewViewImplementation$OnSurfaceNotInUseListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 109
     iget-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation;->mOnSurfaceNotInUseListener:Landroidx/camera/view/PreviewViewImplementation$OnSurfaceNotInUseListener;
@@ -304,26 +304,26 @@
     iput-object v0, p0, Landroidx/camera/view/SurfaceViewImplementation;->mOnSurfaceNotInUseListener:Landroidx/camera/view/PreviewViewImplementation$OnSurfaceNotInUseListener;
 
     .line 112
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method onAttachedToWindow()V
-    .locals 0
+    .registers 1
 
     .line 99
     return-void
 .end method
 
 .method onDetachedFromWindow()V
-    .locals 0
+    .registers 1
 
     .line 104
     return-void
 .end method
 
 .method onSurfaceRequested(Landroidx/camera/core/SurfaceRequest;Landroidx/camera/view/PreviewViewImplementation$OnSurfaceNotInUseListener;)V
-    .locals 2
+    .registers 5
     .param p1, "surfaceRequest"    # Landroidx/camera/core/SurfaceRequest;
     .param p2, "onSurfaceNotInUseListener"    # Landroidx/camera/view/PreviewViewImplementation$OnSurfaceNotInUseListener;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -383,7 +383,7 @@
 .end method
 
 .method waitForNextFrame()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

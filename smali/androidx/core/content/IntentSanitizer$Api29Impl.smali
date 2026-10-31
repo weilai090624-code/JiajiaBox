@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 965
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getIdentifier(Landroid/content/Intent;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 976
@@ -38,7 +38,7 @@
 .end method
 
 .method static setIdentifier(Landroid/content/Intent;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 1
+    .registers 3
     .param p0, "intent"    # Landroid/content/Intent;
     .param p1, "identifier"    # Ljava/lang/String;
 

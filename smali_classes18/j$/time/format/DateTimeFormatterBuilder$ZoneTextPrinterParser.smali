@@ -83,7 +83,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 4044
     new-instance v0, Lj$/util/concurrent/ConcurrentHashMap;
@@ -96,7 +96,7 @@
 .end method
 
 .method constructor <init>(Lj$/time/format/TextStyle;Ljava/util/Set;Z)V
-    .locals 4
+    .registers 8
     .param p1, "textStyle"    # Lj$/time/format/TextStyle;
     .param p3, "isGeneric"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -170,13 +170,13 @@
     iput-boolean p3, p0, Lj$/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;->isGeneric:Z
 
     .line 4033
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_63
 
     invoke-interface {p2}, Ljava/util/Set;->size()I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_63
 
     .line 4034
     new-instance v0, Ljava/util/HashSet;
@@ -190,12 +190,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_63
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -215,15 +215,15 @@
 
     .line 4037
     .end local v1    # "id":Lj$/time/ZoneId;
-    goto :goto_0
+    goto :goto_4d
 
     .line 4039
-    :cond_0
+    :cond_63
     return-void
 .end method
 
 .method private getDisplayName(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;
-    .locals 12
+    .registers 16
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "locale"    # Ljava/util/Locale;
@@ -233,7 +233,7 @@
 
     sget-object v1, Lj$/time/format/TextStyle;->NARROW:Lj$/time/format/TextStyle;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 4049
     const/4 v0, 0x0
@@ -241,7 +241,7 @@
     return-object v0
 
     .line 4052
-    :cond_0
+    :cond_8
     sget-object v0, Lj$/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;->cache:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -258,7 +258,7 @@
     .local v1, "perLocale":Ljava/util/Map;, "Ljava/util/Map<Ljava/util/Locale;[Ljava/lang/String;>;"
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     invoke-virtual {v0}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
 
@@ -268,7 +268,7 @@
 
     move-object v1, v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_26
 
     .line 4055
     invoke-interface {v1, p3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -280,11 +280,11 @@
     move-object v4, v3
 
     .local v4, "names":[Ljava/lang/String;
-    if-nez v3, :cond_3
+    if-nez v3, :cond_58
 
     .line 4072
     .end local v4    # "names":[Ljava/lang/String;
-    :cond_1
+    :cond_26
     invoke-static {p1}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v3
@@ -327,7 +327,7 @@
 
     .line 4085
     .restart local v4    # "names":[Ljava/lang/String;
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4b
 
     .line 4086
     new-instance v5, Lj$/util/concurrent/ConcurrentHashMap;
@@ -337,7 +337,7 @@
     move-object v1, v5
 
     .line 4088
-    :cond_2
+    :cond_4b
     invoke-interface {v1, p3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 4089
@@ -351,8 +351,8 @@
 
     .line 4091
     .end local v3    # "tz":Ljava/util/TimeZone;
-    :cond_3
-    packed-switch p2, :pswitch_data_0
+    :cond_58
+    packed-switch p2, :pswitch_data_7c
 
     .line 4097
     iget-object v2, p0, Lj$/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;->textStyle:Lj$/time/format/TextStyle;
@@ -368,7 +368,7 @@
     return-object v2
 
     .line 4095
-    :pswitch_0
+    :pswitch_66
     iget-object v2, p0, Lj$/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;->textStyle:Lj$/time/format/TextStyle;
 
     invoke-virtual {v2}, Lj$/time/format/TextStyle;->zoneNameStyleIndex()I
@@ -382,7 +382,7 @@
     return-object v2
 
     .line 4093
-    :pswitch_1
+    :pswitch_71
     iget-object v3, p0, Lj$/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;->textStyle:Lj$/time/format/TextStyle;
 
     invoke-virtual {v3}, Lj$/time/format/TextStyle;->zoneNameStyleIndex()I
@@ -397,17 +397,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_7c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_71
+        :pswitch_66
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 9
+    .registers 12
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -424,7 +424,7 @@
 
     .line 4103
     .local v0, "zone":Lj$/time/ZoneId;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 4104
     const/4 v1, 0x0
@@ -432,7 +432,7 @@
     return v1
 
     .line 4106
-    :cond_0
+    :cond_e
     invoke-virtual {v0}, Lj$/time/ZoneId;->getId()Ljava/lang/String;
 
     move-result-object v1
@@ -441,7 +441,7 @@
     .local v1, "zname":Ljava/lang/String;
     instance-of v2, v0, Lj$/time/ZoneOffset;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_83
 
     .line 4108
     invoke-virtual {p1}, Lj$/time/format/DateTimePrintContext;->getTemporal()Lj$/time/temporal/TemporalAccessor;
@@ -456,7 +456,7 @@
     .local v3, "type":I
     iget-boolean v4, p0, Lj$/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;->isGeneric:Z
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_78
 
     .line 4111
     sget-object v4, Lj$/time/temporal/ChronoField;->INSTANT_SECONDS:Lj$/time/temporal/ChronoField;
@@ -465,7 +465,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_35
 
     .line 4112
     invoke-virtual {v0}, Lj$/time/ZoneId;->getRules()Lj$/time/zone/ZoneRules;
@@ -482,17 +482,17 @@
 
     move v3, v4
 
-    goto :goto_0
+    goto :goto_78
 
     .line 4113
-    :cond_1
+    :cond_35
     sget-object v4, Lj$/time/temporal/ChronoField;->EPOCH_DAY:Lj$/time/temporal/ChronoField;
 
     invoke-interface {v2, v4}, Lj$/time/temporal/TemporalAccessor;->isSupported(Lj$/time/temporal/TemporalField;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_78
 
     sget-object v4, Lj$/time/temporal/ChronoField;->NANO_OF_DAY:Lj$/time/temporal/ChronoField;
 
@@ -501,7 +501,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_78
 
     .line 4115
     sget-object v4, Lj$/time/temporal/ChronoField;->EPOCH_DAY:Lj$/time/temporal/ChronoField;
@@ -542,7 +542,7 @@
 
     move-result-object v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_78
 
     .line 4119
     invoke-virtual {v0}, Lj$/time/ZoneId;->getRules()Lj$/time/zone/ZoneRules;
@@ -567,8 +567,8 @@
     .end local v4    # "date":Lj$/time/LocalDate;
     .end local v5    # "time":Lj$/time/LocalTime;
     .end local v6    # "ldt":Lj$/time/LocalDateTime;
-    :cond_2
-    :goto_0
+    :cond_78
+    :goto_78
     invoke-virtual {p1}, Lj$/time/format/DateTimePrintContext;->getLocale()Ljava/util/Locale;
 
     move-result-object v4
@@ -579,7 +579,7 @@
 
     .line 4124
     .local v4, "name":Ljava/lang/String;
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_83
 
     .line 4125
     move-object v1, v4
@@ -588,7 +588,7 @@
     .end local v2    # "dt":Lj$/time/temporal/TemporalAccessor;
     .end local v3    # "type":I
     .end local v4    # "name":Ljava/lang/String;
-    :cond_3
+    :cond_83
     invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 4129
@@ -598,7 +598,7 @@
 .end method
 
 .method protected getTree(Lj$/time/format/DateTimeParseContext;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
-    .locals 17
+    .registers 19
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
 
     .line 4140
@@ -608,7 +608,7 @@
 
     sget-object v2, Lj$/time/format/TextStyle;->NARROW:Lj$/time/format/TextStyle;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_d
 
     .line 4141
     invoke-super/range {p0 .. p1}, Lj$/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser;->getTree(Lj$/time/format/DateTimeParseContext;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
@@ -618,7 +618,7 @@
     return-object v1
 
     .line 4143
-    :cond_0
+    :cond_d
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->getLocale()Ljava/util/Locale;
 
     move-result-object v1
@@ -643,18 +643,18 @@
 
     .line 4149
     .local v4, "regionIdsSize":I
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_22
 
     iget-object v5, v0, Lj$/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;->cachedTree:Ljava/util/Map;
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_22
     iget-object v5, v0, Lj$/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;->cachedTreeCI:Ljava/util/Map;
 
     .line 4151
     .local v5, "cached":Ljava/util/Map;, "Ljava/util/Map<Ljava/util/Locale;Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/ref/SoftReference<Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;>;>;>;"
-    :goto_0
+    :goto_24
     const/4 v6, 0x0
 
     .line 4152
@@ -675,7 +675,7 @@
 
     move-object v6, v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_4b
 
     .line 4155
     invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -688,7 +688,7 @@
 
     move-result v9
 
-    if-ne v9, v4, :cond_2
+    if-ne v9, v4, :cond_4b
 
     .line 4156
     invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -705,10 +705,10 @@
 
     move-object v7, v9
 
-    if-nez v9, :cond_b
+    if-nez v9, :cond_c8
 
     .line 4157
-    :cond_2
+    :cond_4b
     invoke-static/range {p1 .. p1}, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;->newTree(Lj$/time/format/DateTimeParseContext;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
 
     move-result-object v7
@@ -729,8 +729,8 @@
 
     const/4 v11, 0x0
 
-    :goto_1
-    if-ge v11, v9, :cond_6
+    :goto_5a
+    if-ge v11, v9, :cond_85
 
     aget-object v14, v8, v11
 
@@ -744,13 +744,13 @@
 
     move-result v16
 
-    if-nez v16, :cond_3
+    if-nez v16, :cond_67
 
     .line 4164
-    goto :goto_3
+    goto :goto_82
 
     .line 4166
-    :cond_3
+    :cond_67
     invoke-virtual {v7, v15, v15}, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;->add(Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 4167
@@ -763,21 +763,21 @@
 
     sget-object v13, Lj$/time/format/TextStyle;->FULL:Lj$/time/format/TextStyle;
 
-    if-ne v12, v13, :cond_4
+    if-ne v12, v13, :cond_76
 
     const/4 v12, 0x1
 
-    goto :goto_2
+    goto :goto_77
 
-    :cond_4
+    :cond_76
     const/4 v12, 0x2
 
     .line 4169
     .local v12, "i":I
-    :goto_2
+    :goto_77
     array-length v13, v14
 
-    if-ge v12, v13, :cond_5
+    if-ge v12, v13, :cond_82
 
     .line 4170
     aget-object v13, v14, v12
@@ -787,31 +787,31 @@
     .line 4169
     add-int/lit8 v12, v12, 0x2
 
-    goto :goto_2
+    goto :goto_77
 
     .line 4161
     .end local v12    # "i":I
     .end local v14    # "names":[Ljava/lang/String;
     .end local v15    # "zid":Ljava/lang/String;
-    :cond_5
-    :goto_3
+    :cond_82
+    :goto_82
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_1
+    goto :goto_5a
 
     .line 4175
-    :cond_6
+    :cond_85
     iget-object v9, v0, Lj$/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;->preferredZones:Ljava/util/Set;
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_b7
 
     .line 4176
     array-length v9, v8
 
     const/4 v11, 0x0
 
-    :goto_4
-    if-ge v11, v9, :cond_a
+    :goto_8b
+    if-ge v11, v9, :cond_b7
 
     aget-object v12, v8, v11
 
@@ -827,38 +827,38 @@
 
     move-result v14
 
-    if-eqz v14, :cond_9
+    if-eqz v14, :cond_b4
 
     invoke-interface {v3, v13}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-nez v14, :cond_7
+    if-nez v14, :cond_a0
 
     .line 4179
-    goto :goto_6
+    goto :goto_b4
 
     .line 4181
-    :cond_7
+    :cond_a0
     iget-object v14, v0, Lj$/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;->textStyle:Lj$/time/format/TextStyle;
 
     sget-object v15, Lj$/time/format/TextStyle;->FULL:Lj$/time/format/TextStyle;
 
-    if-ne v14, v15, :cond_8
+    if-ne v14, v15, :cond_a8
 
     const/4 v14, 0x1
 
-    goto :goto_5
+    goto :goto_a9
 
-    :cond_8
+    :cond_a8
     const/4 v14, 0x2
 
     .line 4182
     .local v14, "i":I
-    :goto_5
+    :goto_a9
     array-length v15, v12
 
-    if-ge v14, v15, :cond_9
+    if-ge v14, v15, :cond_b4
 
     .line 4183
     aget-object v15, v12, v14
@@ -868,20 +868,20 @@
     .line 4182
     add-int/lit8 v14, v14, 0x2
 
-    goto :goto_5
+    goto :goto_a9
 
     .line 4176
     .end local v12    # "names":[Ljava/lang/String;
     .end local v13    # "zid":Ljava/lang/String;
     .end local v14    # "i":I
-    :cond_9
-    :goto_6
+    :cond_b4
+    :goto_b4
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_4
+    goto :goto_8b
 
     .line 4187
-    :cond_a
+    :cond_b7
     new-instance v9, Ljava/util/AbstractMap$SimpleImmutableEntry;
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -897,6 +897,6 @@
     invoke-interface {v5, v1, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 4189
-    :cond_b
+    :cond_c8
     return-object v7
 .end method

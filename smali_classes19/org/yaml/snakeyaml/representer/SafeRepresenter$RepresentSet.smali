@@ -23,7 +23,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/yaml/snakeyaml/representer/SafeRepresenter;)V
-    .locals 0
+    .registers 2
 
     .line 326
     iput-object p1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentSet;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public representData(Ljava/lang/Object;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 6
+    .registers 8
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 329
@@ -57,12 +57,12 @@
     move-result-object v2
 
     .local v2, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -76,11 +76,11 @@
 
     .line 333
     .end local v3    # "key":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_c
 
     .line 334
     .end local v2    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_1b
     iget-object v2, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentSet;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
 
     iget-object v3, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentSet;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;

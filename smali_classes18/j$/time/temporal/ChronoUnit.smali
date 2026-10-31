@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 83
     new-instance v0, Lj$/time/temporal/ChronoUnit;
@@ -450,7 +450,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;Lj$/time/Duration;)V
-    .locals 0
+    .registers 5
     .param p3, "name"    # Ljava/lang/String;
     .param p4, "estimatedDuration"    # Lj$/time/Duration;
     .annotation system Ldalvik/annotation/Signature;
@@ -476,7 +476,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/temporal/ChronoUnit;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 77
@@ -492,7 +492,7 @@
 .end method
 
 .method public static values()[Lj$/time/temporal/ChronoUnit;
-    .locals 1
+    .registers 1
 
     .line 77
     sget-object v0, Lj$/time/temporal/ChronoUnit;->$VALUES:[Lj$/time/temporal/ChronoUnit;
@@ -509,7 +509,7 @@
 
 # virtual methods
 .method public addTo(Lj$/time/temporal/Temporal;J)Lj$/time/temporal/Temporal;
-    .locals 1
+    .registers 5
     .param p2, "amount"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -529,7 +529,7 @@
 .end method
 
 .method public between(Lj$/time/temporal/Temporal;Lj$/time/temporal/Temporal;)J
-    .locals 2
+    .registers 5
     .param p1, "temporal1Inclusive"    # Lj$/time/temporal/Temporal;
     .param p2, "temporal2Exclusive"    # Lj$/time/temporal/Temporal;
 
@@ -542,7 +542,7 @@
 .end method
 
 .method public getDuration()Lj$/time/Duration;
-    .locals 1
+    .registers 2
 
     .line 211
     iget-object v0, p0, Lj$/time/temporal/ChronoUnit;->duration:Lj$/time/Duration;
@@ -551,7 +551,7 @@
 .end method
 
 .method public isDateBased()Z
-    .locals 1
+    .registers 2
 
     .line 241
     sget-object v0, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
@@ -560,25 +560,25 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_e
 
     sget-object v0, Lj$/time/temporal/ChronoUnit;->FOREVER:Lj$/time/temporal/ChronoUnit;
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public isDurationEstimated()Z
-    .locals 1
+    .registers 2
 
     .line 227
     sget-object v0, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
@@ -587,21 +587,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public isSupportedBy(Lj$/time/temporal/Temporal;)Z
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 260
@@ -613,7 +613,7 @@
 .end method
 
 .method public isTimeBased()Z
-    .locals 1
+    .registers 2
 
     .line 254
     sget-object v0, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
@@ -622,21 +622,21 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 278
     iget-object v0, p0, Lj$/time/temporal/ChronoUnit;->name:Ljava/lang/String;

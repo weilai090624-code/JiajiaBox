@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static decrementAll(Ljava/util/List;)V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -40,12 +40,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -59,15 +59,15 @@
 
     .line 174
     .end local v1    # "surface":Landroidx/camera/core/impl/DeferrableSurface;
-    goto :goto_0
+    goto :goto_4
 
     .line 175
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static incrementAll(Ljava/util/List;)V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -98,15 +98,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2b
 
     .line 146
     const/4 v0, 0x0
 
     .line 149
     .local v0, "i":I
-    :cond_0
-    :try_start_0
+    :cond_7
+    :try_start_7
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -122,24 +122,24 @@
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
-    :try_end_0
-    .catch Landroidx/camera/core/impl/DeferrableSurface$SurfaceClosedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Landroidx/camera/core/impl/DeferrableSurface$SurfaceClosedException; {:try_start_7 .. :try_end_16} :catch_19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_7
 
     .line 162
-    goto :goto_1
+    goto :goto_2b
 
     .line 154
-    :catch_0
+    :catch_19
     move-exception v1
 
     .line 156
     .local v1, "e":Landroidx/camera/core/impl/DeferrableSurface$SurfaceClosedException;
     add-int/lit8 v0, v0, -0x1
 
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_1c
+    if-ltz v0, :cond_2a
 
     .line 157
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -153,22 +153,22 @@
     .line 156
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 161
-    :cond_1
+    :cond_2a
     throw v1
 
     .line 164
     .end local v0    # "i":I
     .end local v1    # "e":Landroidx/camera/core/impl/DeferrableSurface$SurfaceClosedException;
-    :cond_2
-    :goto_1
+    :cond_2b
+    :goto_2b
     return-void
 .end method
 
 .method static synthetic lambda$surfaceListWithTimeout$0(Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;J)V
-    .locals 3
+    .registers 7
     .param p0, "listenableFuture"    # Lcom/google/common/util/concurrent/ListenableFuture;
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .param p2, "timeout"    # J
@@ -178,7 +178,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     .line 75
     new-instance v0, Ljava/util/concurrent/TimeoutException;
@@ -211,12 +211,12 @@
     invoke-interface {p0, v0}, Lcom/google/common/util/concurrent/ListenableFuture;->cancel(Z)Z
 
     .line 80
-    :cond_0
+    :cond_25
     return-void
 .end method
 
 .method static synthetic lambda$surfaceListWithTimeout$1(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;J)V
-    .locals 1
+    .registers 6
     .param p0, "executor"    # Ljava/util/concurrent/Executor;
     .param p1, "listenableFuture"    # Lcom/google/common/util/concurrent/ListenableFuture;
     .param p2, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -234,7 +234,7 @@
 .end method
 
 .method static synthetic lambda$surfaceListWithTimeout$2(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 1
+    .registers 2
     .param p0, "listenableFuture"    # Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 85
@@ -246,7 +246,7 @@
 .end method
 
 .method static synthetic lambda$surfaceListWithTimeout$3(Ljava/util/List;Ljava/util/concurrent/ScheduledExecutorService;Ljava/util/concurrent/Executor;JZLandroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 8
+    .registers 15
     .param p0, "listenableFutureSurfaces"    # Ljava/util/List;
     .param p1, "scheduledExecutorService"    # Ljava/util/concurrent/ScheduledExecutorService;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
@@ -308,7 +308,7 @@
 .end method
 
 .method public static surfaceListWithTimeout(Ljava/util/Collection;ZJLjava/util/concurrent/Executor;Ljava/util/concurrent/ScheduledExecutorService;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 9
+    .registers 15
     .param p1, "removeNullSurfaces"    # Z
     .param p2, "timeout"    # J
     .param p4, "executor"    # Ljava/util/concurrent/Executor;
@@ -358,12 +358,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -381,10 +381,10 @@
 
     .line 65
     .end local v2    # "deferrableSurface":Landroidx/camera/core/impl/DeferrableSurface;
-    goto :goto_0
+    goto :goto_9
 
     .line 67
-    :cond_0
+    :cond_1d
     new-instance v8, Landroidx/camera/core/impl/DeferrableSurfaces$$ExternalSyntheticLambda0;
 
     move-object v1, v8
@@ -409,7 +409,7 @@
 .end method
 
 .method public static tryIncrementAll(Ljava/util/List;)Z
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -432,8 +432,8 @@
     .local p0, "surfaceList":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/DeferrableSurface;>;"
     :try_start_0
     invoke-static {p0}, Landroidx/camera/core/impl/DeferrableSurfaces;->incrementAll(Ljava/util/List;)V
-    :try_end_0
-    .catch Landroidx/camera/core/impl/DeferrableSurface$SurfaceClosedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Landroidx/camera/core/impl/DeferrableSurface$SurfaceClosedException; {:try_start_0 .. :try_end_3} :catch_6
 
     .line 127
     nop
@@ -444,7 +444,7 @@
     return v0
 
     .line 125
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 126

@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
 
     const-string v0, "message"

@@ -99,7 +99,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/flow/SharingStarted;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/MutableSharedFlow;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,7 +168,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -182,7 +182,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -211,7 +211,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -220,7 +220,7 @@
     .line 209
     iget v1, p0, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_b6
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -230,51 +230,51 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .local p1, "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_b2
 
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_17
     move-object v0, p0
 
     .restart local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .restart local p1    # "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_86
 
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_1d
     move-object v1, p0
 
     .local v1, "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .restart local p1    # "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_72
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_22
     move-object v0, p0
 
     .restart local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .restart local p1    # "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_4a
 
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_4
+    :pswitch_27
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -293,7 +293,7 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_4b
 
     .line 214
     iget-object v2, v1, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;->$upstream:Lkotlinx/coroutines/flow/Flow;
@@ -314,24 +314,24 @@
 
     move-result-object v2
 
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_49
 
     .line 209
     return-object v0
 
     .line 214
-    :cond_0
+    :cond_49
     move-object v0, v1
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .restart local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
-    :goto_0
-    goto :goto_4
+    :goto_4a
+    goto :goto_b3
 
     .line 216
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .restart local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
-    :cond_1
+    :cond_4b
     iget-object v2, v1, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;->$started:Lkotlinx/coroutines/flow/SharingStarted;
 
     sget-object v3, Lkotlinx/coroutines/flow/SharingStarted;->Companion:Lkotlinx/coroutines/flow/SharingStarted$Companion;
@@ -342,7 +342,7 @@
 
     const/4 v4, 0x0
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_87
 
     .line 218
     iget-object v2, v1, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;->$shared:Lkotlinx/coroutines/flow/MutableSharedFlow;
@@ -371,14 +371,14 @@
 
     move-result-object v2
 
-    if-ne v2, v0, :cond_2
+    if-ne v2, v0, :cond_72
 
     .line 209
     return-object v0
 
     .line 219
-    :cond_2
-    :goto_1
+    :cond_72
+    :goto_72
     iget-object v2, v1, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;->$upstream:Lkotlinx/coroutines/flow/Flow;
 
     iget-object v3, v1, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;->$shared:Lkotlinx/coroutines/flow/MutableSharedFlow;
@@ -397,24 +397,24 @@
 
     move-result-object v2
 
-    if-ne v2, v0, :cond_3
+    if-ne v2, v0, :cond_85
 
     .line 209
     return-object v0
 
     .line 219
-    :cond_3
+    :cond_85
     move-object v0, v1
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .restart local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
-    :goto_2
-    goto :goto_4
+    :goto_86
+    goto :goto_b3
 
     .line 223
     .end local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .restart local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
-    :cond_4
+    :cond_87
     iget-object v2, v1, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;->$started:Lkotlinx/coroutines/flow/SharingStarted;
 
     iget-object v3, v1, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;->$shared:Lkotlinx/coroutines/flow/MutableSharedFlow;
@@ -457,32 +457,32 @@
 
     move-result-object v2
 
-    if-ne v2, v0, :cond_5
+    if-ne v2, v0, :cond_b1
 
     .line 209
     return-object v0
 
     .line 225
-    :cond_5
+    :cond_b1
     move-object v0, v1
 
     .line 240
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
     .restart local v0    # "this":Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
-    :goto_3
+    :goto_b2
     nop
 
-    :goto_4
+    :goto_b3
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_b6
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_27
+        :pswitch_22
+        :pswitch_1d
+        :pswitch_17
+        :pswitch_11
     .end packed-switch
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$dropWhile(Lj$/util/stream/Stream;Ljava/util/function/Predicate;)Lj$/util/stream/Stream;
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/Stream;
 
     .line 622
@@ -50,7 +50,7 @@
 .end method
 
 .method public static $default$takeWhile(Lj$/util/stream/Stream;Ljava/util/function/Predicate;)Lj$/util/stream/Stream;
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/Stream;
 
     .line 556
@@ -95,7 +95,7 @@
 .end method
 
 .method public static builder()Lj$/util/stream/Stream$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -115,7 +115,7 @@
 .end method
 
 .method public static concat(Lj$/util/stream/Stream;Lj$/util/stream/Stream;)Lj$/util/stream/Stream;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -158,26 +158,26 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_22
 
     invoke-interface {p1}, Lj$/util/stream/Stream;->isParallel()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_23
     invoke-static {v0, v1}, Lj$/util/stream/StreamSupport;->stream(Lj$/util/Spliterator;Z)Lj$/util/stream/Stream;
 
     move-result-object v1
@@ -198,7 +198,7 @@
 .end method
 
 .method public static empty()Lj$/util/stream/Stream;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -224,7 +224,7 @@
 .end method
 
 .method public static generate(Ljava/util/function/Supplier;)Lj$/util/stream/Stream;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -258,7 +258,7 @@
 .end method
 
 .method public static iterate(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/UnaryOperator;)Lj$/util/stream/Stream;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -311,7 +311,7 @@
 .end method
 
 .method public static iterate(Ljava/lang/Object;Ljava/util/function/UnaryOperator;)Lj$/util/stream/Stream;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -356,7 +356,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;)Lj$/util/stream/Stream;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -383,7 +383,7 @@
 .end method
 
 .method public static varargs of([Ljava/lang/Object;)Lj$/util/stream/Stream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -404,7 +404,7 @@
 .end method
 
 .method public static ofNullable(Ljava/lang/Object;)Lj$/util/stream/Stream;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -417,16 +417,16 @@
 
     .line 1174
     .local p0, "t":Ljava/lang/Object;, "TT;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     invoke-static {}, Lj$/util/stream/Stream$-CC;->empty()Lj$/util/stream/Stream;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1175
-    :cond_0
+    :cond_7
     new-instance v0, Lj$/util/stream/Streams$StreamBuilderImpl;
 
     invoke-direct {v0, p0}, Lj$/util/stream/Streams$StreamBuilderImpl;-><init>(Ljava/lang/Object;)V
@@ -438,6 +438,6 @@
     move-result-object v0
 
     .line 1174
-    :goto_0
+    :goto_11
     return-object v0
 .end method

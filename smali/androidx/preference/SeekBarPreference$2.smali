@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/SeekBarPreference;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/SeekBarPreference;
 
     .line 107
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 3
+    .registers 7
     .param p1, "v"    # Landroid/view/View;
     .param p2, "keyCode"    # I
     .param p3, "event"    # Landroid/view/KeyEvent;
@@ -49,50 +49,50 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 111
     return v1
 
     .line 114
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/preference/SeekBarPreference$2;->this$0:Landroidx/preference/SeekBarPreference;
 
     iget-boolean v0, v0, Landroidx/preference/SeekBarPreference;->mAdjustable:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_17
 
     const/16 v0, 0x15
 
-    if-eq p2, v0, :cond_1
+    if-eq p2, v0, :cond_16
 
     const/16 v0, 0x16
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_17
 
     .line 117
-    :cond_1
+    :cond_16
     return v1
 
     .line 122
-    :cond_2
+    :cond_17
     const/16 v0, 0x17
 
-    if-eq p2, v0, :cond_5
+    if-eq p2, v0, :cond_37
 
     const/16 v0, 0x42
 
-    if-ne p2, v0, :cond_3
+    if-ne p2, v0, :cond_20
 
-    goto :goto_0
+    goto :goto_37
 
     .line 126
-    :cond_3
+    :cond_20
     iget-object v0, p0, Landroidx/preference/SeekBarPreference$2;->this$0:Landroidx/preference/SeekBarPreference;
 
     iget-object v0, v0, Landroidx/preference/SeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_2e
 
     .line 127
     const-string v0, "SeekBarPreference"
@@ -105,7 +105,7 @@
     return v1
 
     .line 130
-    :cond_4
+    :cond_2e
     iget-object v0, p0, Landroidx/preference/SeekBarPreference$2;->this$0:Landroidx/preference/SeekBarPreference;
 
     iget-object v0, v0, Landroidx/preference/SeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
@@ -117,7 +117,7 @@
     return v0
 
     .line 123
-    :cond_5
-    :goto_0
+    :cond_37
+    :goto_37
     return v1
 .end method

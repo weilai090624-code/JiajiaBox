@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroidx/fragment/app/Fragment;
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "className"    # Ljava/lang/String;
     .param p3, "arguments"    # Landroid/os/Bundle;

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(Ljava/util/Collection;)Ljava/util/List;
-    .locals 2
+    .registers 3
 
     .line 0
     new-instance v0, Ljava/util/ArrayList;
@@ -20,12 +20,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -37,9 +37,9 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_1f
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object p0

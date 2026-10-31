@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static getNonSerializableSuperClass(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -33,14 +33,14 @@
 
     .line 40
     .local v0, "result":Ljava/lang/Class;, "Ljava/lang/Class<-TT;>;"
-    :goto_0
+    :goto_1
     const-class v1, Ljava/io/Serializable;
 
     invoke-virtual {v1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
     .line 41
     invoke-virtual {v0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
@@ -48,12 +48,12 @@
     move-result-object v0
 
     .line 42
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
-    goto :goto_0
+    goto :goto_1
 
     .line 43
-    :cond_0
+    :cond_10
     new-instance v1, Ljava/lang/Error;
 
     const-string v2, "Bad class hierarchy: No non-serializable parents"
@@ -63,6 +63,6 @@
     throw v1
 
     .line 46
-    :cond_1
+    :cond_18
     return-object v0
 .end method

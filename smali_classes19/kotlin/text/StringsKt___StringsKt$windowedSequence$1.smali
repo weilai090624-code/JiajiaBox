@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/text/StringsKt___StringsKt$windowedSequence$1;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 2383
@@ -93,7 +93,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "it"    # Ljava/lang/CharSequence;
 
     const-string v0, "it"

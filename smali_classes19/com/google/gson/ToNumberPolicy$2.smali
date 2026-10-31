@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 50
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public readNumber(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Number;
-    .locals 2
+    .registers 4
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {

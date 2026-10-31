@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static resolve(Landroid/content/Context;I)Landroid/util/TypedValue;
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributeResId"    # I
 
@@ -35,20 +35,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 48
     return-object v0
 
     .line 50
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static resolveBoolean(Landroid/content/Context;IZ)Z
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributeResId"    # I
     .param p2, "defaultValue"    # Z
@@ -60,39 +60,39 @@
 
     .line 122
     .local v0, "typedValue":Landroid/util/TypedValue;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/16 v2, 0x12
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_14
 
     .line 123
     iget v1, v0, Landroid/util/TypedValue;->data:I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
     .line 124
-    :cond_1
+    :cond_14
     move v1, p2
 
     .line 122
-    :goto_0
+    :goto_15
     return v1
 .end method
 
 .method public static resolveBooleanOrThrow(Landroid/content/Context;ILjava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributeResId"    # I
     .param p2, "errorMessageComponent"    # Ljava/lang/String;
@@ -102,21 +102,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static resolveDimension(Landroid/content/Context;II)I
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributeResId"    # I
     .param p2, "defaultDimenResId"    # I
@@ -128,18 +128,18 @@
 
     .line 154
     .local v0, "dimensionValue":Landroid/util/TypedValue;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/4 v2, 0x5
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_c
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 157
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -157,8 +157,8 @@
     return v1
 
     .line 155
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -173,7 +173,7 @@
 .end method
 
 .method public static resolveInteger(Landroid/content/Context;II)I
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributeResId"    # I
     .param p2, "defaultValue"    # I
@@ -185,30 +185,30 @@
 
     .line 134
     .local v0, "typedValue":Landroid/util/TypedValue;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/16 v2, 0x10
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_f
 
     .line 135
     iget v1, v0, Landroid/util/TypedValue;->data:I
 
-    goto :goto_0
+    goto :goto_10
 
     .line 136
-    :cond_0
+    :cond_f
     move v1, p2
 
     .line 134
-    :goto_0
+    :goto_10
     return v1
 .end method
 
 .method public static resolveMinimumAccessibleTouchTarget(Landroid/content/Context;)I
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 142
@@ -224,7 +224,7 @@
 .end method
 
 .method public static resolveOrThrow(Landroid/content/Context;ILjava/lang/String;)I
-    .locals 1
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributeResId"    # I
     .param p2, "errorMessageComponent"    # Ljava/lang/String;
@@ -240,7 +240,7 @@
 .end method
 
 .method public static resolveOrThrow(Landroid/view/View;I)I
-    .locals 1
+    .registers 3
     .param p0, "componentView"    # Landroid/view/View;
     .param p1, "attributeResId"    # I
 
@@ -255,7 +255,7 @@
 .end method
 
 .method public static resolveTypedValueOrThrow(Landroid/content/Context;ILjava/lang/String;)Landroid/util/TypedValue;
-    .locals 6
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributeResId"    # I
     .param p2, "errorMessageComponent"    # Ljava/lang/String;
@@ -267,13 +267,13 @@
 
     .line 66
     .local v0, "typedValue":Landroid/util/TypedValue;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 77
     return-object v0
 
     .line 67
-    :cond_0
+    :cond_7
     const-string v1, "%1$s requires a value for the %2$s attribute to be set in your app theme. You can either set the attribute in your theme or update your theme to inherit from Theme.MaterialComponents (or a descendant)."
 
     .line 71
@@ -312,7 +312,7 @@
 .end method
 
 .method public static resolveTypedValueOrThrow(Landroid/view/View;I)Landroid/util/TypedValue;
-    .locals 2
+    .registers 4
     .param p0, "componentView"    # Landroid/view/View;
     .param p1, "attributeResId"    # I
 

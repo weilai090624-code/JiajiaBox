@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 223
     invoke-direct {p0}, Lcom/google/common/cache/CacheLoader;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public load(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,7 +76,7 @@
 .end method
 
 .method public bridge synthetic load(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/provider/CallbackWithHandler;Landroidx/core/provider/FontsContractCompat$FontRequestCallback;I)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/core/provider/CallbackWithHandler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 71
     iget-object v0, p0, Landroidx/core/provider/CallbackWithHandler$2;->val$callback:Landroidx/core/provider/FontsContractCompat$FontRequestCallback;

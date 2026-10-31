@@ -165,7 +165,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$N3lLocXwl_6fp69m3kw3ekqVtDk(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;IJ)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->onRemoved$lambda$6(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;IJ)V
 
@@ -173,7 +173,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$QXXbXw4jhS4NR-WBW23t2mxU10A(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Ljava/util/List;Lkotlin/jvm/internal/Ref$IntRef;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lkotlin/jvm/internal/Ref$ObjectRef;)V
-    .locals 0
+    .registers 5
 
     invoke-static {p0, p1, p2, p3, p4}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->reloadProfiles$lambda$11(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Ljava/util/List;Lkotlin/jvm/internal/Ref$IntRef;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lkotlin/jvm/internal/Ref$ObjectRef;)V
 
@@ -181,7 +181,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$S38oTAO1H9IhgNtqZVnjb3_ky-E(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Lio/nekohasekai/sagernet/database/ProxyEntity;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->onAdd$lambda$3(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Lio/nekohasekai/sagernet/database/ProxyEntity;)V
 
@@ -189,7 +189,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$SqZEMG5tSxOPfIftx6psfWXyvQg(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Lio/nekohasekai/sagernet/database/ProxyEntity;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->undo$lambda$1(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Lio/nekohasekai/sagernet/database/ProxyEntity;I)V
 
@@ -197,7 +197,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$bIUO4eHcRqVy-jAA-xRt6QjCxEc(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Lio/nekohasekai/sagernet/database/ProxyEntity;IZ)V
-    .locals 0
+    .registers 5
 
     invoke-static {p0, p1, p2, p3, p4}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->onUpdated$lambda$4(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Lio/nekohasekai/sagernet/database/ProxyEntity;IZ)V
 
@@ -205,7 +205,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -257,7 +257,7 @@
 .end method
 
 .method public static final synthetic access$getUpdated$p(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;)Ljava/util/HashSet;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
 
     .line 1247
@@ -267,7 +267,7 @@
 .end method
 
 .method private final getItem(J)Lio/nekohasekai/sagernet/database/ProxyEntity;
-    .locals 3
+    .registers 6
     .param p1, "profileId"    # J
 
     .line 1260
@@ -285,7 +285,7 @@
 
     .line 1261
     .local v0, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 1262
     sget-object v1, Lio/nekohasekai/sagernet/database/ProfileManager;->INSTANCE:Lio/nekohasekai/sagernet/database/ProfileManager;
@@ -295,7 +295,7 @@
     move-result-object v0
 
     .line 1263
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -309,14 +309,14 @@
     invoke-interface {v2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1267
-    :cond_0
+    :cond_21
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     return-object v0
 .end method
 
 .method private final getItemAt(I)Lio/nekohasekai/sagernet/database/ProxyEntity;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 1270
@@ -340,7 +340,7 @@
 .end method
 
 .method private static final onAdd$lambda$3(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Lio/nekohasekai/sagernet/database/ProxyEntity;)V
-    .locals 4
+    .registers 7
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
     .param p1, "this$1"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
     .param p2, "$profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -348,7 +348,7 @@
     .line 1368
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->undoManager:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1369
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getUndoManager()Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
@@ -358,7 +358,7 @@
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->flush()Lkotlin/Unit;
 
     .line 1371
-    :cond_0
+    :cond_b
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->getItemCount()I
 
     move-result v0
@@ -400,7 +400,7 @@
 .end method
 
 .method private static final onRemoved$lambda$6(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;IJ)V
-    .locals 2
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
     .param p1, "$index"    # I
     .param p2, "$profileId"    # J
@@ -427,7 +427,7 @@
 .end method
 
 .method private static final onUpdated$lambda$4(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Lio/nekohasekai/sagernet/database/ProxyEntity;IZ)V
-    .locals 3
+    .registers 8
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
     .param p1, "this$1"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
     .param p2, "$profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -437,7 +437,7 @@
     .line 1383
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->undoManager:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1384
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getUndoManager()Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
@@ -447,7 +447,7 @@
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->flush()Lkotlin/Unit;
 
     .line 1386
-    :cond_0
+    :cond_b
     iget-object v0, p1, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->configurationList:Ljava/util/HashMap;
 
     check-cast v0, Ljava/util/Map;
@@ -484,9 +484,9 @@
 
     .line 1390
     .local v0, "oldProfile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_3c
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3c
 
     .line 1391
     new-instance v1, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter$onUpdated$2$1;
@@ -500,12 +500,12 @@
     invoke-static {v1}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 1401
-    :cond_1
+    :cond_3c
     return-void
 .end method
 
 .method private static final reloadProfiles$lambda$11(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Ljava/util/List;Lkotlin/jvm/internal/Ref$IntRef;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Lkotlin/jvm/internal/Ref$ObjectRef;)V
-    .locals 3
+    .registers 8
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
     .param p1, "$newProfileIds"    # Ljava/util/List;
     .param p2, "$selectedProfileIndex"    # Lkotlin/jvm/internal/Ref$IntRef;
@@ -536,7 +536,7 @@
 
     const/4 v2, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_20
 
     .line 1479
     invoke-virtual {p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -547,10 +547,10 @@
 
     invoke-static {v0, v1, v2}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->scrollTo(Landroidx/recyclerview/widget/RecyclerView;IZ)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 1480
-    :cond_0
+    :cond_20
     iget-object v0, p4, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/Collection;
@@ -559,7 +559,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     .line 1481
     invoke-virtual {p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -571,13 +571,13 @@
     invoke-static {v0, v1, v2}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->scrollTo(Landroidx/recyclerview/widget/RecyclerView;IZ)V
 
     .line 1484
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     return-void
 .end method
 
 .method private static final undo$lambda$1(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Lio/nekohasekai/sagernet/database/ProxyEntity;I)V
-    .locals 3
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
     .param p1, "$item"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "$index"    # I
@@ -620,7 +620,7 @@
 
 # virtual methods
 .method public commit(Ljava/util/List;)V
-    .locals 10
+    .registers 12
     .param p1, "actions"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -671,12 +671,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_1c
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_34
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -704,11 +704,11 @@
     .end local v8    # "$i$a$-map-ConfigurationFragment$GroupFragment$ConfigurationAdapter$commit$profiles$1":I
     invoke-interface {v2, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 1775
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_34
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -741,7 +741,7 @@
 .end method
 
 .method public final commitMove()Lkotlinx/coroutines/Job;
-    .locals 2
+    .registers 3
 
     .line 1334
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter$commitMove$1;
@@ -761,7 +761,7 @@
 .end method
 
 .method public final filter(Ljava/lang/String;)V
-    .locals 18
+    .registers 20
     .param p1, "name"    # Ljava/lang/String;
 
     move-object/from16 v0, p0
@@ -781,17 +781,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_15
+    if-eqz v2, :cond_1b
 
     .line 1301
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->reloadProfiles()V
@@ -800,7 +800,7 @@
     return-void
 
     .line 1304
-    :cond_1
+    :cond_1b
     iget-object v2, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->configurationIdList:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->clear()V
@@ -851,12 +851,12 @@
 
     move-result-object v12
 
-    :goto_1
+    :goto_43
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_6
+    if-eqz v13, :cond_dd
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -915,7 +915,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_bf
 
     .line 1308
     invoke-interface {v14}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -946,7 +946,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_be
 
     .line 1309
     invoke-interface {v14}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -983,29 +983,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_bc
 
-    goto :goto_2
+    goto :goto_bf
 
-    :cond_2
+    :cond_bc
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_c0
 
     .line 1308
-    :cond_3
+    :cond_be
     const/4 v7, 0x0
 
     .line 1309
-    :cond_4
-    :goto_2
+    :cond_bf
+    :goto_bf
     const/4 v0, 0x1
 
     .line 1767
     .end local v14    # "it":Ljava/util/Map$Entry;
     .end local v15    # "$i$a$-filter-ConfigurationFragment$GroupFragment$ConfigurationAdapter$filter$1":I
-    :goto_3
-    if-eqz v0, :cond_5
+    :goto_c0
+    if-eqz v0, :cond_d5
 
     .line 1768
     invoke-interface {v13}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -1024,23 +1024,23 @@
 
     move-object/from16 v7, v17
 
-    goto/16 :goto_1
+    goto/16 :goto_43
 
     .line 1767
-    :cond_5
+    :cond_d5
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
     move-object/from16 v7, v17
 
-    goto/16 :goto_1
+    goto/16 :goto_43
 
     .line 1771
     .end local v13    # "element$iv$iv":Ljava/util/Map$Entry;
     .end local v17    # "$this$filter$iv":Ljava/util/Map;
     .restart local v7    # "$this$filter$iv":Ljava/util/Map;
-    :cond_6
+    :cond_dd
     nop
 
     .line 1765
@@ -1069,7 +1069,7 @@
 .end method
 
 .method public final getConfigurationIdList()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1086,7 +1086,7 @@
 .end method
 
 .method public final getConfigurationList()Ljava/util/HashMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1104,7 +1104,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 1294
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->configurationIdList:Ljava/util/List;
@@ -1117,7 +1117,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 1283
@@ -1137,7 +1137,7 @@
 .end method
 
 .method public groupAdd(Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1159,7 +1159,7 @@
 .end method
 
 .method public groupRemoved(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "groupId"    # J
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1180,7 +1180,7 @@
 .end method
 
 .method public groupUpdated(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p1, "groupId"    # J
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1207,14 +1207,14 @@
 
     cmp-long v2, p1, v0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 1444
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     sget-object v1, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
@@ -1241,7 +1241,7 @@
 .end method
 
 .method public groupUpdated(Lio/nekohasekai/sagernet/database/ProxyGroup;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1273,14 +1273,14 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_15
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 1438
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->setProxyGroup(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
@@ -1295,7 +1295,7 @@
 .end method
 
 .method public final move(II)V
-    .locals 17
+    .registers 20
     .param p1, "from"    # I
     .param p2, "to"    # I
 
@@ -1320,7 +1320,7 @@
     .local v4, "previousOrder":J
     new-instance v6, Lkotlin/Pair;
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1f
 
     const/4 v7, 0x1
 
@@ -1334,10 +1334,10 @@
 
     invoke-direct {v6, v7, v8}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 1318
-    :cond_0
+    :cond_1f
     const/4 v7, -0x1
 
     invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1353,7 +1353,7 @@
     .line 1317
     invoke-direct {v6, v7, v8}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_2d
     invoke-virtual {v6}, Lkotlin/Pair;->component1()Ljava/lang/Object;
 
     move-result-object v7
@@ -1386,18 +1386,18 @@
 
     move-result v10
 
-    if-lez v10, :cond_1
+    if-lez v10, :cond_4d
 
-    if-le v8, v9, :cond_2
+    if-le v8, v9, :cond_51
 
-    :cond_1
-    if-gez v10, :cond_3
+    :cond_4d
+    if-gez v10, :cond_75
 
-    if-gt v9, v8, :cond_3
+    if-gt v9, v8, :cond_75
 
     .line 1321
-    :cond_2
-    :goto_1
+    :cond_51
+    :goto_51
     add-int v11, v8, v7
 
     invoke-direct {v0, v11}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->getItemAt(I)Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -1438,15 +1438,15 @@
     .line 1320
     .end local v11    # "next":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v12    # "order":J
-    if-eq v8, v9, :cond_3
+    if-eq v8, v9, :cond_75
 
     add-int/2addr v8, v10
 
-    goto :goto_1
+    goto :goto_51
 
     .line 1328
     .end local v8    # "i":I
-    :cond_3
+    :cond_75
     invoke-virtual {v3, v4, v5}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setUserOrder(J)V
 
     .line 1329
@@ -1475,7 +1475,7 @@
 .end method
 
 .method public onAdd(Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1507,14 +1507,14 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_15
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 1367
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -1536,7 +1536,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "p1"    # I
 
@@ -1551,7 +1551,7 @@
 .end method
 
 .method public onBindViewHolder(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;I)V
-    .locals 3
+    .registers 6
     .param p1, "holder"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;
     .param p2, "position"    # I
 
@@ -1563,7 +1563,7 @@
     nop
 
     .line 1288
-    :try_start_0
+    :try_start_6
     invoke-direct {p0, p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->getItemAt(I)Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     move-result-object v0
@@ -1573,22 +1573,22 @@
     const/4 v2, 0x0
 
     invoke-static {p1, v0, v2, v1, v2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;->bind$default(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/aidl/TrafficData;ILjava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/NullPointerException; {:try_start_6 .. :try_end_f} :catch_10
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1289
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 1291
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Landroid/view/ViewGroup;
     .param p2, "p1"    # I
 
@@ -1603,7 +1603,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;
-    .locals 5
+    .registers 8
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -1645,7 +1645,7 @@
 .end method
 
 .method public onRemoved(JJLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 9
     .param p1, "groupId"    # J
     .param p3, "profileId"    # J
     .param p5, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -1673,14 +1673,14 @@
 
     cmp-long v2, p1, v0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 1423
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->configurationIdList:Ljava/util/List;
 
     invoke-static {p3, p4}, Lkotlin/coroutines/jvm/internal/Boxing;->boxLong(J)Ljava/lang/Long;
@@ -1693,14 +1693,14 @@
 
     .line 1424
     .local v0, "index":I
-    if-gez v0, :cond_1
+    if-gez v0, :cond_20
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 1426
-    :cond_1
+    :cond_20
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -1720,7 +1720,7 @@
 .end method
 
 .method public onUpdated(Lio/nekohasekai/sagernet/aidl/TrafficData;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 10
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1736,7 +1736,7 @@
 
     instance-of v0, p2, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter$onUpdated$3;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -1748,7 +1748,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter$onUpdated$3;->label:I
 
@@ -1756,15 +1756,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter$onUpdated$3;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter$onUpdated$3;
 
     invoke-direct {v0, p0, p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter$onUpdated$3;-><init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter$onUpdated$3;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -1775,7 +1775,7 @@
     .line 1404
     iget v3, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter$onUpdated$3;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_88
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -1789,22 +1789,22 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
-    :try_start_0
+    :pswitch_2c
+    :try_start_2c
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2f
+    .catch Ljava/lang/Exception; {:try_start_2c .. :try_end_2f} :catch_30
 
-    goto :goto_2
+    goto :goto_7b
 
     .line 1416
-    :catch_0
+    :catch_30
     move-exception p1
 
-    goto :goto_3
+    goto :goto_7c
 
     .line 1404
-    :pswitch_1
+    :pswitch_32
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v3, p0
@@ -1815,7 +1815,7 @@
     nop
 
     .line 1406
-    :try_start_1
+    :try_start_37
     iget-object v4, v3, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->configurationIdList:Ljava/util/List;
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/aidl/TrafficData;->getId()J
@@ -1834,7 +1834,7 @@
     .local v4, "index":I
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_84
 
     .line 1409
     nop
@@ -1854,7 +1854,7 @@
     .end local v4    # "index":I
     const/4 v4, 0x0
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_64
 
     .line 1408
     nop
@@ -1881,12 +1881,12 @@
 
     .end local v3    # "it":Landroid/view/View;
     .end local v5    # "$i$a$-let-ConfigurationFragment$GroupFragment$ConfigurationAdapter$onUpdated$holder$1":I
-    goto :goto_1
+    goto :goto_65
 
-    :cond_1
+    :cond_64
     move-object v6, v4
 
-    :goto_1
+    :goto_65
     check-cast v6, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;
 
     .line 1408
@@ -1894,7 +1894,7 @@
 
     .line 1410
     .local v3, "holder":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_84
 
     .line 1411
     new-instance v5, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter$onUpdated$4;
@@ -1910,24 +1910,24 @@
     invoke-static {v5, v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->onMainDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_78
+    .catch Ljava/lang/Exception; {:try_start_37 .. :try_end_78} :catch_30
 
     .end local v3    # "holder":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationHolder;
     .end local p1    # "data":Lio/nekohasekai/sagernet/aidl/TrafficData;
-    if-ne v4, v2, :cond_2
+    if-ne v4, v2, :cond_7b
 
     .line 1404
     return-object v2
 
     .line 1411
-    :cond_2
-    :goto_2
-    goto :goto_4
+    :cond_7b
+    :goto_7b
+    goto :goto_84
 
     .line 1417
     .local p1, "e":Ljava/lang/Exception;
-    :goto_3
+    :goto_7c
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v3, p1
@@ -1938,23 +1938,23 @@
 
     .line 1419
     .end local p1    # "e":Ljava/lang/Exception;
-    :cond_3
-    :goto_4
+    :cond_84
+    :goto_84
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_88
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_32
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public onUpdated(Lio/nekohasekai/sagernet/database/ProxyEntity;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 13
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "noTraffic"    # Z
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -1988,14 +1988,14 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_15
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 1380
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->configurationIdList:Ljava/util/List;
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getId()J
@@ -2012,14 +2012,14 @@
 
     .line 1381
     .local v0, "index":I
-    if-gez v0, :cond_1
+    if-gez v0, :cond_28
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 1382
-    :cond_1
+    :cond_28
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -2051,7 +2051,7 @@
 .end method
 
 .method public final reloadProfiles()V
-    .locals 13
+    .registers 14
 
     .line 1449
     new-instance v0, Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -2092,12 +2092,12 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_110
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 1457
-    :pswitch_0
+    :pswitch_29
     nop
 
     .line 1458
@@ -2125,10 +2125,10 @@
     .end local v2    # "$i$f$sortedBy":I
     iput-object v1, v0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 1452
-    :pswitch_1
+    :pswitch_3d
     iget-object v1, v0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/Iterable;
@@ -2154,7 +2154,7 @@
     iput-object v1, v0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 1462
-    :goto_0
+    :goto_4f
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->configurationList:Ljava/util/HashMap;
 
     invoke-virtual {v1}, Ljava/util/HashMap;->clear()V
@@ -2207,12 +2207,12 @@
 
     move-result-object v9
 
-    :goto_1
+    :goto_78
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_92
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2242,11 +2242,11 @@
     .line 1782
     invoke-interface {v6, v11, v10}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_78
 
     .line 1784
     .end local v10    # "element$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_92
     nop
 
     .line 1780
@@ -2293,12 +2293,12 @@
 
     move-result-object v6
 
-    :goto_2
+    :goto_ad
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_c7
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2328,11 +2328,11 @@
     .line 1787
     invoke-interface {v3, v8}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_ad
 
     .line 1788
     .end local v7    # "item$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_c7
     nop
 
     .end local v3    # "destination$iv$iv":Ljava/util/Collection;
@@ -2368,7 +2368,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_fa
 
     .line 1469
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
@@ -2377,15 +2377,15 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_ea
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getId()J
 
     move-result-wide v1
 
-    goto :goto_3
+    goto :goto_f0
 
-    :cond_2
+    :cond_ea
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/DataStore;->getSelectedProxy()J
@@ -2394,7 +2394,7 @@
 
     .line 1470
     .local v1, "selectedProxy":J
-    :goto_3
+    :goto_f0
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
@@ -2407,7 +2407,7 @@
 
     .line 1473
     .end local v1    # "selectedProxy":J
-    :cond_3
+    :cond_fa
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -2435,24 +2435,24 @@
     .line 1485
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_110
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3d
+        :pswitch_29
     .end packed-switch
 .end method
 
 .method public final remove(I)V
-    .locals 1
+    .registers 3
     .param p1, "pos"    # I
 
     .line 1340
-    if-gez p1, :cond_0
+    if-gez p1, :cond_3
 
     return-void
 
     .line 1341
-    :cond_0
+    :cond_3
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->configurationIdList:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -2465,7 +2465,7 @@
 .end method
 
 .method public final setConfigurationIdList(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2487,7 +2487,7 @@
 .end method
 
 .method public undo(Ljava/util/List;)V
-    .locals 5
+    .registers 7
     .param p1, "actions"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2509,12 +2509,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_34
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2553,11 +2553,11 @@
 
     invoke-virtual {v3, v4}, Landroidx/recyclerview/widget/RecyclerView;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1353
     .end local v1    # "item":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v2    # "index":I
-    :cond_0
+    :cond_34
     return-void
 .end method

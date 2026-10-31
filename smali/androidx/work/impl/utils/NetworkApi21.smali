@@ -36,7 +36,7 @@
 
 # direct methods
 .method public static final getNetworkCapabilitiesCompat(Landroid/net/ConnectivityManager;Landroid/net/Network;)Landroid/net/NetworkCapabilities;
-    .locals 1
+    .registers 3
     .param p0, "$this$getNetworkCapabilitiesCompat"    # Landroid/net/ConnectivityManager;
     .param p1, "network"    # Landroid/net/Network;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method public static final hasCapabilityCompat(Landroid/net/NetworkCapabilities;I)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$hasCapabilityCompat"    # Landroid/net/NetworkCapabilities;
     .param p1, "capability"    # I
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final unregisterNetworkCallbackCompat(Landroid/net/ConnectivityManager;Landroid/net/ConnectivityManager$NetworkCallback;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$unregisterNetworkCallbackCompat"    # Landroid/net/ConnectivityManager;
     .param p1, "networkCallback"    # Landroid/net/ConnectivityManager$NetworkCallback;
 

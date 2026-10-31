@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static getSystemIdInfo(Landroidx/work/impl/model/SystemIdInfoDao;Landroidx/work/impl/model/WorkGenerationalId;)Landroidx/work/impl/model/SystemIdInfo;
-    .locals 2
+    .registers 4
     .param p0, "$this"    # Landroidx/work/impl/model/SystemIdInfoDao;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public static removeSystemIdInfo(Landroidx/work/impl/model/SystemIdInfoDao;Landroidx/work/impl/model/WorkGenerationalId;)V
-    .locals 2
+    .registers 4
     .param p0, "$this"    # Landroidx/work/impl/model/SystemIdInfoDao;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
 

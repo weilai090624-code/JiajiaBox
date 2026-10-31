@@ -40,7 +40,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$Dg8J4rnezClAiZOkGMh3F2X4SAc(Landroid/view/View;)Z
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ToolsFragment;->onViewCreated$lambda$1$lambda$0(Landroid/view/View;)Z
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$nbVjONIqBuqagGkweHPi7lmgBsw(Ljava/util/List;Lcom/google/android/material/tabs/TabLayout$Tab;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ToolsFragment;->onViewCreated$lambda$1(Ljava/util/List;Lcom/google/android/material/tabs/TabLayout$Tab;I)V
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 11
     const v0, 0x7f0d005d
@@ -69,7 +69,7 @@
 .end method
 
 .method private static final onViewCreated$lambda$1(Ljava/util/List;Lcom/google/android/material/tabs/TabLayout$Tab;I)V
-    .locals 2
+    .registers 5
     .param p0, "$tools"    # Ljava/util/List;
     .param p1, "tab"    # Lcom/google/android/material/tabs/TabLayout$Tab;
     .param p2, "position"    # I
@@ -107,7 +107,7 @@
 .end method
 
 .method private static final onViewCreated$lambda$1$lambda$0(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0, "it"    # Landroid/view/View;
 
     .line 27
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 6
+    .registers 9
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 

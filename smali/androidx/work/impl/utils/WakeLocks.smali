@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 25
     const-string v0, "WakeLocks"
@@ -60,7 +60,7 @@
 .end method
 
 .method public static final checkWakeLocks()V
-    .locals 12
+    .registers 12
 
     .line 57
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -79,7 +79,7 @@
 
     .line 62
     .local v2, "$i$a$-synchronized-WakeLocks$checkWakeLocks$1":I
-    :try_start_0
+    :try_start_b
     sget-object v3, Landroidx/work/impl/utils/WakeLocksHolder;->INSTANCE:Landroidx/work/impl/utils/WakeLocksHolder;
 
     invoke-virtual {v3}, Landroidx/work/impl/utils/WakeLocksHolder;->getWakeLocks()Ljava/util/WeakHashMap;
@@ -95,8 +95,8 @@
 
     .end local v2    # "$i$a$-synchronized-WakeLocks$checkWakeLocks$1":I
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_b .. :try_end_19} :catchall_6b
 
     .line 58
     monitor-exit v1
@@ -117,12 +117,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_24
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_69
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -152,7 +152,7 @@
     .local v7, "tag":Ljava/lang/String;
     const/4 v8, 0x0
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_48
 
     invoke-virtual {v6}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
 
@@ -160,12 +160,12 @@
 
     const/4 v10, 0x1
 
-    if-ne v9, v10, :cond_0
+    if-ne v9, v10, :cond_48
 
     const/4 v8, 0x1
 
-    :cond_0
-    if-eqz v8, :cond_1
+    :cond_48
+    if-eqz v8, :cond_66
 
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
@@ -194,7 +194,7 @@
     invoke-virtual {v8, v9, v10}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 67
-    :cond_1
+    :cond_66
     nop
 
     .line 73
@@ -204,10 +204,10 @@
     nop
 
     .end local v4    # "element$iv":Ljava/util/Map$Entry;
-    goto :goto_0
+    goto :goto_24
 
     .line 74
-    :cond_2
+    :cond_69
     nop
 
     .line 68
@@ -216,7 +216,7 @@
     return-void
 
     .line 58
-    :catchall_0
+    :catchall_6b
     move-exception v2
 
     monitor-exit v1
@@ -225,7 +225,7 @@
 .end method
 
 .method public static final newWakeLock(Landroid/content/Context;Ljava/lang/String;)Landroid/os/PowerManager$WakeLock;
-    .locals 6
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "tag"    # Ljava/lang/String;
 
@@ -294,7 +294,7 @@
 
     .line 42
     .local v4, "$i$a$-synchronized-WakeLocks$newWakeLock$1":I
-    :try_start_0
+    :try_start_38
     sget-object v5, Landroidx/work/impl/utils/WakeLocksHolder;->INSTANCE:Landroidx/work/impl/utils/WakeLocksHolder;
 
     invoke-virtual {v5}, Landroidx/work/impl/utils/WakeLocksHolder;->getWakeLocks()Ljava/util/WeakHashMap;
@@ -306,8 +306,8 @@
     move-result-object v5
 
     check-cast v5, Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_44
+    .catchall {:try_start_38 .. :try_end_44} :catchall_4c
 
     .line 41
     .end local v4    # "$i$a$-synchronized-WakeLocks$newWakeLock$1":I
@@ -321,7 +321,7 @@
     return-object v2
 
     .line 41
-    :catchall_0
+    :catchall_4c
     move-exception v4
 
     monitor-exit v3

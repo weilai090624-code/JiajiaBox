@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lj$/util/stream/Sink;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final accept(I)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lj$/util/stream/IntPipeline$$ExternalSyntheticLambda10;->f$0:Lj$/util/stream/Sink;
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 

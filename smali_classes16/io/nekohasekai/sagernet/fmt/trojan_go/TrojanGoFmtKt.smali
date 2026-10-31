@@ -36,7 +36,7 @@
 
 # direct methods
 .method public static final buildTrojanGoConfig(Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;I)Ljava/lang/String;
-    .locals 14
+    .registers 16
     .param p0, "$this$buildTrojanGoConfig"    # Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
     .param p1, "port"    # I
 
@@ -127,16 +127,16 @@
 
     const/4 v7, 0x2
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_4d
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_4e
 
-    :cond_0
+    :cond_4d
     const/4 v3, 0x2
 
-    :goto_0
+    :goto_4e
     const-string v8, "log_level"
 
     invoke-virtual {v1, v8, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
@@ -161,16 +161,16 @@
 
     const/4 v11, 0x1
 
-    if-gt v10, v11, :cond_1
+    if-gt v10, v11, :cond_65
 
     const/4 v10, 0x1
 
-    goto :goto_1
+    goto :goto_66
 
-    :cond_1
+    :cond_65
     const/4 v10, 0x0
 
-    :goto_1
+    :goto_66
     const-string v12, "prefer_ipv4"
 
     invoke-virtual {v8, v12, v10}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
@@ -199,7 +199,7 @@
 
     const-string v9, "enabled"
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_a7
 
     .line 106
     const-string v8, "ws"
@@ -208,7 +208,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_a7
 
     new-instance v3, Lorg/json/JSONObject;
 
@@ -250,7 +250,7 @@
     invoke-virtual {v1, v8, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 113
-    :cond_2
+    :cond_a7
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->sni:Ljava/lang/String;
 
     const-string v8, "sni"
@@ -263,7 +263,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_cf
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->finalAddress:Ljava/lang/String;
 
@@ -271,7 +271,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_cf
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->serverAddress:Ljava/lang/String;
 
@@ -283,7 +283,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_cf
 
     .line 114
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->serverAddress:Ljava/lang/String;
@@ -291,7 +291,7 @@
     iput-object v3, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->sni:Ljava/lang/String;
 
     .line 117
-    :cond_3
+    :cond_cf
     new-instance v3, Lorg/json/JSONObject;
 
     invoke-direct {v3}, Lorg/json/JSONObject;-><init>()V
@@ -313,28 +313,28 @@
 
     move-result v12
 
-    if-nez v12, :cond_4
+    if-nez v12, :cond_e8
 
     iget-object v12, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->sni:Ljava/lang/String;
 
     invoke-virtual {v4, v8, v12}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 119
-    :cond_4
+    :cond_e8
     iget-object v8, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->allowInsecure:Ljava/lang/Boolean;
 
     invoke-virtual {v8}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_f5
 
     const-string v8, "verify"
 
     invoke-virtual {v4, v8, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
     .line 120
-    :cond_5
+    :cond_f5
     nop
 
     .end local v4    # "$this$buildTrojanGoConfig_u24lambda_u2414_u24lambda_u2412":Lorg/json/JSONObject;
@@ -358,7 +358,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_14c
 
     .line 125
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->encryption:Ljava/lang/String;
@@ -375,7 +375,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_14c
 
     new-instance v3, Lorg/json/JSONObject;
 
@@ -435,7 +435,7 @@
     invoke-virtual {v1, v4, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 131
-    :cond_6
+    :cond_14c
     nop
 
     .line 85
@@ -453,7 +453,7 @@
 .end method
 
 .method public static final parseTrojanGo(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
-    .locals 8
+    .registers 9
     .param p0, "server"    # Ljava/lang/String;
 
     const-string v0, "server"
@@ -483,7 +483,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_b1
 
     .line 14
     nop
@@ -532,7 +532,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_44
 
     .local v4, "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -550,14 +550,14 @@
     nop
 
     .line 23
-    :cond_0
+    :cond_44
     const-string v4, "type"
 
     invoke-virtual {v0, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_75
 
     .local v4, "lType":Ljava/lang/String;
     const/4 v5, 0x0
@@ -576,7 +576,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_73
 
     .line 28
     const-string v6, "host"
@@ -585,7 +585,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_66
 
     .local v6, "it":Ljava/lang/String;
     const/4 v7, 0x0
@@ -603,14 +603,14 @@
     nop
 
     .line 31
-    :cond_1
+    :cond_66
     const-string v6, "path"
 
     invoke-virtual {v0, v6}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_73
 
     .restart local v6    # "it":Ljava/lang/String;
     const/4 v7, 0x0
@@ -628,7 +628,7 @@
     nop
 
     .line 37
-    :cond_2
+    :cond_73
     nop
 
     .line 23
@@ -637,14 +637,14 @@
     nop
 
     .line 39
-    :cond_3
+    :cond_75
     const-string v4, "encryption"
 
     invoke-virtual {v0, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_82
 
     .local v4, "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -662,14 +662,14 @@
     nop
 
     .line 42
-    :cond_4
+    :cond_82
     const-string v4, "plugin"
 
     invoke-virtual {v0, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_8f
 
     .restart local v4    # "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -687,7 +687,7 @@
     nop
 
     .line 45
-    :cond_5
+    :cond_8f
     invoke-virtual {v0}, Lokhttp3/HttpUrl;->fragment()Ljava/lang/String;
 
     move-result-object v4
@@ -704,37 +704,37 @@
 
     check-cast v7, Ljava/lang/CharSequence;
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_a3
 
     invoke-static {v7}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_a1
 
-    goto :goto_0
+    goto :goto_a3
 
-    :cond_6
+    :cond_a1
     const/4 v7, 0x0
 
-    goto :goto_1
+    goto :goto_a4
 
-    :cond_7
-    :goto_0
+    :cond_a3
+    :goto_a3
     const/4 v7, 0x1
 
     .end local v5    # "it":Ljava/lang/String;
     .end local v6    # "$i$a$-takeIf-TrojanGoFmtKt$parseTrojanGo$1$5":I
-    :goto_1
-    if-nez v7, :cond_8
+    :goto_a4
+    if-nez v7, :cond_a7
 
-    goto :goto_2
+    goto :goto_a8
 
-    :cond_8
+    :cond_a7
     const/4 v4, 0x0
 
-    :goto_2
-    if-eqz v4, :cond_9
+    :goto_a8
+    if-eqz v4, :cond_af
 
     .restart local v4    # "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -752,7 +752,7 @@
     nop
 
     .line 48
-    :cond_9
+    :cond_af
     nop
 
     .line 16
@@ -762,7 +762,7 @@
 
     .line 13
     .end local v0    # "link":Lokhttp3/HttpUrl;
-    :cond_a
+    :cond_b1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 14
@@ -794,7 +794,7 @@
 .end method
 
 .method public static final parseTrojanGo(Lorg/json/JSONObject;)Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
-    .locals 10
+    .registers 11
     .param p0, "$this$parseTrojanGo"    # Lorg/json/JSONObject;
 
     const-string v0, "<this>"
@@ -869,7 +869,7 @@
 
     const/4 v6, 0x0
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_48
 
     .line 140
     move-object v5, v4
@@ -878,13 +878,13 @@
 
     iput-object v5, v1, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->password:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 142
-    :cond_0
+    :cond_48
     instance-of v5, v4, Ljava/util/List;
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_5c
 
     .line 143
     move-object v5, v4
@@ -905,15 +905,15 @@
 
     .line 146
     .end local v4    # "pass":Ljava/lang/Object;
-    :cond_1
-    :goto_0
+    :cond_5c
+    :goto_5c
     const-string v4, "ssl"
 
     invoke-virtual {p0, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_71
 
     .local v4, "$this$parseTrojanGo_u24lambda_u2418_u24lambda_u2415":Lorg/json/JSONArray;
     const/4 v5, 0x0
@@ -939,7 +939,7 @@
     nop
 
     .line 149
-    :cond_2
+    :cond_71
     const-string v4, "websocket"
 
     invoke-virtual {p0, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -948,7 +948,7 @@
 
     const-string v5, "enabled"
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_9c
 
     .local v4, "$this$parseTrojanGo_u24lambda_u2418_u24lambda_u2416":Lorg/json/JSONArray;
     const/4 v7, 0x0
@@ -959,7 +959,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_9a
 
     .line 151
     const-string v8, "ws"
@@ -989,7 +989,7 @@
     iput-object v8, v1, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->path:Ljava/lang/String;
 
     .line 155
-    :cond_3
+    :cond_9a
     nop
 
     .line 149
@@ -998,14 +998,14 @@
     nop
 
     .line 156
-    :cond_4
+    :cond_9c
     const-string v4, "shadowsocks"
 
     invoke-virtual {p0, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_d8
 
     .local v4, "$this$parseTrojanGo_u24lambda_u2418_u24lambda_u2417":Lorg/json/JSONArray;
     const/4 v7, 0x0
@@ -1016,7 +1016,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_d6
 
     .line 158
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1062,7 +1062,7 @@
     iput-object v3, v1, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->encryption:Ljava/lang/String;
 
     .line 160
-    :cond_5
+    :cond_d6
     nop
 
     .line 156
@@ -1071,7 +1071,7 @@
     nop
 
     .line 161
-    :cond_6
+    :cond_d8
     nop
 
     .line 135
@@ -1083,7 +1083,7 @@
 .end method
 
 .method public static final toUri(Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$toUri"    # Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;
 
     const-string v0, "<this>"
@@ -1145,7 +1145,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_44
 
     .line 54
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->sni:Ljava/lang/String;
@@ -1153,7 +1153,7 @@
     invoke-virtual {v0, v2, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 56
-    :cond_0
+    :cond_44
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->type:Ljava/lang/String;
 
     const-string v2, "type"
@@ -1166,7 +1166,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_94
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->type:Ljava/lang/String;
 
@@ -1176,7 +1176,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_94
 
     .line 57
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->type:Ljava/lang/String;
@@ -1193,7 +1193,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_94
 
     .line 61
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->host:Ljava/lang/String;
@@ -1208,7 +1208,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_80
 
     .line 62
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->host:Ljava/lang/String;
@@ -1216,7 +1216,7 @@
     invoke-virtual {v0, v3, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 64
-    :cond_1
+    :cond_80
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->path:Ljava/lang/String;
 
     const-string v3, "path"
@@ -1229,7 +1229,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_94
 
     .line 65
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->path:Ljava/lang/String;
@@ -1237,7 +1237,7 @@
     invoke-virtual {v0, v3, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 70
-    :cond_2
+    :cond_94
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->type:Ljava/lang/String;
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1248,7 +1248,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_b2
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->type:Ljava/lang/String;
 
@@ -1258,7 +1258,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_b2
 
     .line 71
     const-string v1, "encryption"
@@ -1268,7 +1268,7 @@
     invoke-virtual {v0, v1, v2}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 73
-    :cond_3
+    :cond_b2
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->plugin:Ljava/lang/String;
 
     const-string v2, "plugin"
@@ -1281,7 +1281,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_c6
 
     .line 74
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->plugin:Ljava/lang/String;
@@ -1289,7 +1289,7 @@
     invoke-virtual {v0, v2, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 77
-    :cond_4
+    :cond_c6
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->name:Ljava/lang/String;
 
     const-string v2, "name"
@@ -1302,7 +1302,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_e1
 
     .line 78
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/trojan_go/TrojanGoBean;->name:Ljava/lang/String;
@@ -1316,7 +1316,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->encodedFragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 81
-    :cond_5
+    :cond_e1
     const/4 v1, 0x2
 
     const/4 v2, 0x0

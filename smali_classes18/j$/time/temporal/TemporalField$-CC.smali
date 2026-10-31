@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$getDisplayName(Lj$/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/time/temporal/TemporalField;
     .param p1, "locale"    # Ljava/util/Locale;
 
@@ -23,7 +23,7 @@
 .end method
 
 .method public static $default$resolve(Lj$/time/temporal/TemporalField;Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/temporal/TemporalAccessor;
-    .locals 1
+    .registers 5
     .param p0, "_this"    # Lj$/time/temporal/TemporalField;
     .param p2, "partialTemporal"    # Lj$/time/temporal/TemporalAccessor;
     .param p3, "resolverStyle"    # Lj$/time/format/ResolverStyle;

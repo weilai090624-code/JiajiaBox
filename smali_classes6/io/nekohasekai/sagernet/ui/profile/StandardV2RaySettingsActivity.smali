@@ -160,7 +160,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$5uHq32mYnibF_V8LXgpE0uNpIdU(Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->createPreferences$lambda$4$lambda$3(Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -170,7 +170,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$D0BHAgNe2Cy47K1aYi82Qww3SuY(Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->createPreferences$lambda$6$lambda$5(Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -180,7 +180,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 9
+    .registers 10
 
     .line 19
     const/4 v0, 0x1
@@ -711,7 +711,7 @@
 .end method
 
 .method private static final createPreferences$lambda$4$lambda$3(Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -737,7 +737,7 @@
 .end method
 
 .method private static final createPreferences$lambda$6$lambda$5(Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -763,7 +763,7 @@
 .end method
 
 .method private final updateTls(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "tls"    # Ljava/lang/String;
 
     .line 190
@@ -789,7 +789,7 @@
     .local v0, "isTLS":Z
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->securityCategory:Landroidx/preference/PreferenceCategory;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     const-string v1, "securityCategory"
 
@@ -797,13 +797,13 @@
 
     move-object v1, v4
 
-    :cond_0
+    :cond_18
     invoke-virtual {v1, v0}, Landroidx/preference/PreferenceCategory;->setVisible(Z)V
 
     .line 192
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->tlsCamouflageCategory:Landroidx/preference/PreferenceCategory;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_25
 
     const-string v1, "tlsCamouflageCategory"
 
@@ -811,24 +811,24 @@
 
     move-object v1, v4
 
-    :cond_1
+    :cond_25
     invoke-virtual {v1, v0}, Landroidx/preference/PreferenceCategory;->setVisible(Z)V
 
     .line 193
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->echCategory:Landroidx/preference/PreferenceCategory;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_32
 
     const-string v1, "echCategory"
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_2
+    :cond_32
     move-object v4, v1
 
-    :goto_0
+    :goto_33
     invoke-virtual {v4, v0}, Landroidx/preference/PreferenceCategory;->setVisible(Z)V
 
     .line 194
@@ -836,7 +836,7 @@
 .end method
 
 .method private final updateView(Ljava/lang/String;)V
-    .locals 6
+    .registers 8
     .param p1, "network"    # Ljava/lang/String;
 
     .line 150
@@ -866,13 +866,13 @@
 
     const-string v3, "wsCategory"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_0
+    :cond_1e
     invoke-virtual {v0, v1}, Landroidx/preference/PreferenceCategory;->setVisible(Z)V
 
     .line 154
@@ -886,24 +886,24 @@
 
     const/4 v5, 0x1
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_112
 
-    :goto_0
-    goto/16 :goto_2
+    :goto_2f
+    goto/16 :goto_111
 
-    :sswitch_0
+    :sswitch_31
     const-string v0, "http"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3a
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 161
-    :cond_1
+    :cond_3a
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->host:Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
 
     invoke-virtual {v0}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->getPreference()Landroidx/preference/Preference;
@@ -939,22 +939,22 @@
 
     invoke-virtual {v0, v5}, Landroidx/preference/Preference;->setVisible(Z)V
 
-    goto/16 :goto_2
+    goto/16 :goto_111
 
     .line 154
-    :sswitch_1
+    :sswitch_60
     const-string v0, "grpc"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_69
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 176
-    :cond_2
+    :cond_69
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->path:Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
 
     invoke-virtual {v0}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->getPreference()Landroidx/preference/Preference;
@@ -974,22 +974,22 @@
 
     invoke-virtual {v0, v5}, Landroidx/preference/Preference;->setVisible(Z)V
 
-    goto/16 :goto_2
+    goto/16 :goto_111
 
     .line 154
-    :sswitch_2
+    :sswitch_80
     const-string v0, "tcp"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_89
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 156
-    :cond_3
+    :cond_89
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->host:Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
 
     invoke-virtual {v0}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->getPreference()Landroidx/preference/Preference;
@@ -1007,22 +1007,22 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
-    goto/16 :goto_2
+    goto/16 :goto_111
 
     .line 154
-    :sswitch_3
+    :sswitch_9d
     const-string v0, "ws"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_a6
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 168
-    :cond_4
+    :cond_a6
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->host:Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
 
     invoke-virtual {v0}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->getPreference()Landroidx/preference/Preference;
@@ -1065,34 +1065,34 @@
     .line 172
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->wsCategory:Landroidx/preference/PreferenceCategory;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_d8
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_d9
 
-    :cond_5
+    :cond_d8
     move-object v2, v0
 
-    :goto_1
+    :goto_d9
     invoke-virtual {v2, v5}, Landroidx/preference/PreferenceCategory;->setVisible(Z)V
 
-    goto :goto_2
+    goto :goto_111
 
     .line 154
-    :sswitch_4
+    :sswitch_dd
     const-string v0, "httpupgrade"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_e7
 
-    goto/16 :goto_0
+    goto/16 :goto_2f
 
     .line 181
-    :cond_6
+    :cond_e7
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->host:Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
 
     invoke-virtual {v0}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->getPreference()Landroidx/preference/Preference;
@@ -1133,23 +1133,23 @@
     invoke-virtual {v0, v5}, Landroidx/preference/Preference;->setVisible(Z)V
 
     .line 187
-    :goto_2
+    :goto_111
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_112
     .sparse-switch
-        -0x3e11976c -> :sswitch_4
-        0xedc -> :sswitch_3
-        0x1bfe1 -> :sswitch_2
-        0x308c1e -> :sswitch_1
-        0x310888 -> :sswitch_0
+        -0x3e11976c -> :sswitch_dd
+        0xedc -> :sswitch_9d
+        0x1bfe1 -> :sswitch_80
+        0x308c1e -> :sswitch_60
+        0x310888 -> :sswitch_31
     .end sparse-switch
 .end method
 
 
 # virtual methods
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 10
+    .registers 14
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -1243,58 +1243,58 @@
 
     const/4 v3, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_69
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->tmpBean:Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_64
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->isVLESS()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_64
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_65
 
-    :cond_0
+    :cond_64
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_65
+    if-eqz v1, :cond_69
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_6a
 
-    :cond_1
+    :cond_69
     const/4 v1, 0x0
 
     .line 89
     .local v1, "isVmess":Z
-    :goto_1
+    :goto_6a
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->tmpBean:Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_76
 
     invoke-virtual {v4}, Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;->isVLESS()Z
 
     move-result v4
 
-    if-ne v4, v3, :cond_2
+    if-ne v4, v3, :cond_76
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_77
 
-    :cond_2
+    :cond_76
     const/4 v4, 0x0
 
     .line 91
     .local v4, "isVless":Z
-    :goto_2
+    :goto_77
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->serverPort:Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
 
     invoke-virtual {v5}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->getPreference()Landroidx/preference/Preference;
@@ -1412,22 +1412,22 @@
 
     move-result-object v5
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_db
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_d9
 
-    goto :goto_3
+    goto :goto_db
 
-    :cond_3
+    :cond_d9
     const/4 v6, 0x0
 
-    goto :goto_4
+    goto :goto_dc
 
-    :cond_4
-    :goto_3
+    :cond_db
+    :goto_db
     const/4 v6, 0x1
 
-    :goto_4
+    :goto_dc
     invoke-virtual {v5, v6}, Landroidx/preference/Preference;->setVisible(Z)V
 
     .line 106
@@ -1446,14 +1446,14 @@
 
     move-result-object v5
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_f2
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_f3
 
-    :cond_5
+    :cond_f2
     const/4 v2, 0x1
 
-    :cond_6
+    :cond_f3
     invoke-virtual {v5, v2}, Landroidx/preference/Preference;->setVisible(Z)V
 
     .line 108
@@ -1479,7 +1479,7 @@
 
     instance-of v2, v2, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_124
 
     .line 112
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->uuid:Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
@@ -1503,7 +1503,7 @@
     invoke-virtual {v2, v3}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 115
-    :cond_7
+    :cond_124
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->encryption:Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
 
     invoke-virtual {v2}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->getPreference()Landroidx/preference/Preference;
@@ -1524,7 +1524,7 @@
     check-cast v6, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
 
     .line 117
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_15e
 
     .line 124
     move-object v6, v2
@@ -1569,10 +1569,10 @@
     .line 121
     invoke-virtual {v6, v7}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->setEntryValues(I)V
 
-    goto :goto_5
+    goto :goto_16d
 
     .line 124
-    :cond_8
+    :cond_15e
     move-object v6, v2
 
     check-cast v6, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;
@@ -1590,7 +1590,7 @@
     invoke-virtual {v6, v7}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->setEntryValues(I)V
 
     .line 126
-    :goto_5
+    :goto_16d
     nop
 
     .line 115
@@ -1687,7 +1687,7 @@
 .end method
 
 .method public final getTmpBean()Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
-    .locals 1
+    .registers 2
 
     .line 21
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->tmpBean:Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
@@ -1696,7 +1696,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 19
@@ -1710,7 +1710,7 @@
 .end method
 
 .method public init(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;)V
-    .locals 2
+    .registers 4
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     const-string v0, "<this>"
@@ -1720,7 +1720,7 @@
     .line 56
     instance-of v0, p1, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 57
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->uuid:Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
@@ -1737,7 +1737,7 @@
     invoke-virtual {v0, v1}, Lmoe/matsuri/nb4a/proxy/PreferenceBinding;->setDisable(Z)V
 
     .line 61
-    :cond_0
+    :cond_16
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;->tmpBean:Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     .line 62
@@ -1750,7 +1750,7 @@
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 19
@@ -1764,7 +1764,7 @@
 .end method
 
 .method public serialize(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     const-string v0, "<this>"
@@ -1781,7 +1781,7 @@
 .end method
 
 .method public final setTmpBean(Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/fmt/v2ray/StandardV2RayBean;
 
     .line 21

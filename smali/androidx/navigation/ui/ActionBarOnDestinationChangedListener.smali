@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/appcompat/app/AppCompatActivity;Landroidx/navigation/ui/AppBarConfiguration;)V
-    .locals 3
+    .registers 6
     .param p1, "activity"    # Landroidx/appcompat/app/AppCompatActivity;
     .param p2, "configuration"    # Landroidx/navigation/ui/AppBarConfiguration;
 
@@ -63,7 +63,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 33
     invoke-interface {v0}, Landroidx/appcompat/app/ActionBarDrawerToggle$Delegate;->getActionBarThemedContext()Landroid/content/Context;
@@ -87,7 +87,7 @@
     return-void
 
     .line 31
-    :cond_0
+    :cond_21
     const/4 v0, 0x0
 
     .line 32
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method protected setNavigationIcon(Landroid/graphics/drawable/Drawable;I)V
-    .locals 4
+    .registers 7
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "contentDescription"    # I
 
@@ -145,7 +145,7 @@
 
     const-string v1, "Activity "
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4d
 
     const-string v2, "checkNotNull(activity.su\u2026ortActionBar()\"\n        }"
 
@@ -153,16 +153,16 @@
 
     .line 47
     .local v0, "actionBar":Landroidx/appcompat/app/ActionBar;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_14
     invoke-virtual {v0, v2}, Landroidx/appcompat/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
     .line 48
@@ -172,7 +172,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     const-string v1, "checkNotNull(activity.dr\u2026leDelegate set\"\n        }"
 
@@ -189,7 +189,7 @@
 
     .line 48
     .end local v1    # "delegate":Landroidx/appcompat/app/ActionBarDrawerToggle$Delegate;
-    :cond_1
+    :cond_29
     const/4 v2, 0x0
 
     .line 49
@@ -232,7 +232,7 @@
 
     .line 44
     .end local v0    # "actionBar":Landroidx/appcompat/app/ActionBar;
-    :cond_2
+    :cond_4d
     const/4 v0, 0x0
 
     .line 45
@@ -275,7 +275,7 @@
 .end method
 
 .method protected setTitle(Ljava/lang/CharSequence;)V
-    .locals 3
+    .registers 5
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 37
@@ -285,7 +285,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     const-string v1, "checkNotNull(activity.su\u2026ortActionBar()\"\n        }"
 
@@ -300,7 +300,7 @@
 
     .line 37
     .end local v0    # "actionBar":Landroidx/appcompat/app/ActionBar;
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 38

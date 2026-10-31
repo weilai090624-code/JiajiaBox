@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method private constructor <init>(Landroidx/core/os/LocaleListInterface;)V
-    .locals 0
+    .registers 2
     .param p1, "impl"    # Landroidx/core/os/LocaleListInterface;
 
     .line 40
@@ -53,7 +53,7 @@
 .end method
 
 .method public static varargs create([Ljava/util/Locale;)Landroidx/core/os/LocaleListCompat;
-    .locals 2
+    .registers 3
     .param p0, "localeList"    # [Ljava/util/Locale;
 
     .line 75
@@ -61,7 +61,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
     .line 76
     invoke-static {p0}, Landroidx/core/os/LocaleListCompat$Api24Impl;->createLocaleList([Ljava/util/Locale;)Landroid/os/LocaleList;
@@ -75,7 +75,7 @@
     return-object v0
 
     .line 78
-    :cond_0
+    :cond_f
     new-instance v0, Landroidx/core/os/LocaleListCompat;
 
     new-instance v1, Landroidx/core/os/LocaleListCompatWrapper;
@@ -88,7 +88,7 @@
 .end method
 
 .method static forLanguageTagCompat(Ljava/lang/String;)Ljava/util/Locale;
-    .locals 6
+    .registers 7
     .param p0, "str"    # Ljava/lang/String;
 
     .line 177
@@ -106,7 +106,7 @@
 
     const/4 v5, 0x1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_38
 
     .line 178
     invoke-virtual {p0, v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
@@ -117,7 +117,7 @@
     .local v0, "args":[Ljava/lang/String;
     array-length v1, v0
 
-    if-le v1, v3, :cond_0
+    if-le v1, v3, :cond_1f
 
     .line 180
     new-instance v1, Ljava/util/Locale;
@@ -133,10 +133,10 @@
     return-object v1
 
     .line 181
-    :cond_0
+    :cond_1f
     array-length v1, v0
 
-    if-le v1, v5, :cond_1
+    if-le v1, v5, :cond_2c
 
     .line 182
     new-instance v1, Ljava/util/Locale;
@@ -150,10 +150,10 @@
     return-object v1
 
     .line 183
-    :cond_1
+    :cond_2c
     array-length v1, v0
 
-    if-ne v1, v5, :cond_2
+    if-ne v1, v5, :cond_37
 
     .line 184
     new-instance v1, Ljava/util/Locale;
@@ -166,17 +166,17 @@
 
     .line 186
     .end local v0    # "args":[Ljava/lang/String;
-    :cond_2
-    goto :goto_0
+    :cond_37
+    goto :goto_6c
 
-    :cond_3
+    :cond_38
     const-string v0, "_"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8b
 
     .line 187
     invoke-virtual {p0, v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
@@ -187,7 +187,7 @@
     .restart local v0    # "args":[Ljava/lang/String;
     array-length v1, v0
 
-    if-le v1, v3, :cond_4
+    if-le v1, v3, :cond_53
 
     .line 189
     new-instance v1, Ljava/util/Locale;
@@ -203,10 +203,10 @@
     return-object v1
 
     .line 190
-    :cond_4
+    :cond_53
     array-length v1, v0
 
-    if-le v1, v5, :cond_5
+    if-le v1, v5, :cond_60
 
     .line 191
     new-instance v1, Ljava/util/Locale;
@@ -220,10 +220,10 @@
     return-object v1
 
     .line 192
-    :cond_5
+    :cond_60
     array-length v1, v0
 
-    if-ne v1, v5, :cond_6
+    if-ne v1, v5, :cond_6b
 
     .line 193
     new-instance v1, Ljava/util/Locale;
@@ -236,11 +236,11 @@
 
     .line 195
     .end local v0    # "args":[Ljava/lang/String;
-    :cond_6
+    :cond_6b
     nop
 
     .line 199
-    :goto_0
+    :goto_6c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -272,7 +272,7 @@
     throw v0
 
     .line 196
-    :cond_7
+    :cond_8b
     new-instance v0, Ljava/util/Locale;
 
     invoke-direct {v0, p0}, Ljava/util/Locale;-><init>(Ljava/lang/String;)V
@@ -281,22 +281,22 @@
 .end method
 
 .method public static forLanguageTags(Ljava/lang/String;)Landroidx/core/os/LocaleListCompat;
-    .locals 4
+    .registers 5
     .param p0, "list"    # Ljava/lang/String;
 
     .line 161
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_28
 
     invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_1
+    goto :goto_28
 
     .line 164
-    :cond_0
+    :cond_9
     const-string v0, ","
 
     const/4 v1, -0x1
@@ -316,10 +316,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_14
     array-length v3, v1
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_23
 
     .line 167
     nop
@@ -337,11 +337,11 @@
     .line 166
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 171
     .end local v2    # "i":I
-    :cond_1
+    :cond_23
     invoke-static {v1}, Landroidx/core/os/LocaleListCompat;->create([Ljava/util/Locale;)Landroidx/core/os/LocaleListCompat;
 
     move-result-object v2
@@ -351,8 +351,8 @@
     .line 162
     .end local v0    # "tags":[Ljava/lang/String;
     .end local v1    # "localeArray":[Ljava/util/Locale;
-    :cond_2
-    :goto_1
+    :cond_28
+    :goto_28
     invoke-static {}, Landroidx/core/os/LocaleListCompat;->getEmptyLocaleList()Landroidx/core/os/LocaleListCompat;
 
     move-result-object v0
@@ -361,14 +361,14 @@
 .end method
 
 .method public static getAdjustedDefault()Landroidx/core/os/LocaleListCompat;
-    .locals 3
+    .registers 3
 
     .line 208
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
     .line 209
     invoke-static {}, Landroidx/core/os/LocaleListCompat$Api24Impl;->getAdjustedDefault()Landroid/os/LocaleList;
@@ -382,7 +382,7 @@
     return-object v0
 
     .line 211
-    :cond_0
+    :cond_f
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0
@@ -403,14 +403,14 @@
 .end method
 
 .method public static getDefault()Landroidx/core/os/LocaleListCompat;
-    .locals 3
+    .registers 3
 
     .line 228
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
     .line 229
     invoke-static {}, Landroidx/core/os/LocaleListCompat$Api24Impl;->getDefault()Landroid/os/LocaleList;
@@ -424,7 +424,7 @@
     return-object v0
 
     .line 231
-    :cond_0
+    :cond_f
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0
@@ -445,7 +445,7 @@
 .end method
 
 .method public static getEmptyLocaleList()Landroidx/core/os/LocaleListCompat;
-    .locals 1
+    .registers 1
 
     .line 148
     sget-object v0, Landroidx/core/os/LocaleListCompat;->sEmptyLocaleList:Landroidx/core/os/LocaleListCompat;
@@ -454,7 +454,7 @@
 .end method
 
 .method public static matchesLanguageAndScript(Ljava/util/Locale;Ljava/util/Locale;)Z
-    .locals 2
+    .registers 4
     .param p0, "supported"    # Ljava/util/Locale;
     .param p1, "desired"    # Ljava/util/Locale;
 
@@ -463,7 +463,7 @@
 
     const/16 v1, 0x21
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 251
     invoke-static {p0, p1}, Landroid/os/LocaleList;->matchesLanguageAndScript(Ljava/util/Locale;Ljava/util/Locale;)Z
@@ -473,7 +473,7 @@
     return v0
 
     .line 252
-    :cond_0
+    :cond_b
     nop
 
     .line 253
@@ -485,7 +485,7 @@
 .end method
 
 .method public static wrap(Landroid/os/LocaleList;)Landroidx/core/os/LocaleListCompat;
-    .locals 2
+    .registers 3
     .param p0, "localeList"    # Landroid/os/LocaleList;
 
     .line 57
@@ -501,7 +501,7 @@
 .end method
 
 .method public static wrap(Ljava/lang/Object;)Landroidx/core/os/LocaleListCompat;
-    .locals 1
+    .registers 2
     .param p0, "localeList"    # Ljava/lang/Object;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -521,13 +521,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 317
     instance-of v0, p1, Landroidx/core/os/LocaleListCompat;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Landroidx/core/os/LocaleListCompat;->mImpl:Landroidx/core/os/LocaleListInterface;
 
@@ -541,21 +541,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public get(I)Ljava/util/Locale;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 89
@@ -569,7 +569,7 @@
 .end method
 
 .method public getFirstMatch([Ljava/lang/String;)Ljava/util/Locale;
-    .locals 1
+    .registers 3
     .param p1, "supportedLocales"    # [Ljava/lang/String;
 
     .line 140
@@ -583,7 +583,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 322
     iget-object v0, p0, Landroidx/core/os/LocaleListCompat;->mImpl:Landroidx/core/os/LocaleListInterface;
@@ -596,7 +596,7 @@
 .end method
 
 .method public indexOf(Ljava/util/Locale;)I
-    .locals 1
+    .registers 3
     .param p1, "locale"    # Ljava/util/Locale;
 
     .line 120
@@ -610,7 +610,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 99
     iget-object v0, p0, Landroidx/core/os/LocaleListCompat;->mImpl:Landroidx/core/os/LocaleListInterface;
@@ -623,7 +623,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 107
     iget-object v0, p0, Landroidx/core/os/LocaleListCompat;->mImpl:Landroidx/core/os/LocaleListInterface;
@@ -636,7 +636,7 @@
 .end method
 
 .method public toLanguageTags()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 128
     iget-object v0, p0, Landroidx/core/os/LocaleListCompat;->mImpl:Landroidx/core/os/LocaleListInterface;
@@ -649,7 +649,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 328
     iget-object v0, p0, Landroidx/core/os/LocaleListCompat;->mImpl:Landroidx/core/os/LocaleListInterface;
@@ -662,7 +662,7 @@
 .end method
 
 .method public unwrap()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Landroidx/core/os/LocaleListCompat;->mImpl:Landroidx/core/os/LocaleListInterface;

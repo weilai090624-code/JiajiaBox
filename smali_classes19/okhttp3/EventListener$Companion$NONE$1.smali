@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 475
     invoke-direct {p0}, Lokhttp3/EventListener;-><init>()V

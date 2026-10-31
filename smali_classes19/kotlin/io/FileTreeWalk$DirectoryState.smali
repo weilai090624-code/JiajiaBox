@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 2
+    .registers 4
     .param p1, "rootDir"    # Ljava/io/File;
 
     const-string v0, "rootDir"
@@ -62,7 +62,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 63
     nop
@@ -71,7 +71,7 @@
     return-void
 
     .line 274
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     .line 62

@@ -53,7 +53,7 @@
 
 # direct methods
 .method public static final buildHysteria1Config(Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;ILkotlin/jvm/functions/Function0;)Ljava/lang/String;
-    .locals 8
+    .registers 11
     .param p0, "$this$buildHysteria1Config"    # Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
     .param p1, "port"    # I
     .param p2, "cacheFile"    # Lkotlin/jvm/functions/Function0;
@@ -77,7 +77,7 @@
     .line 206
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocolVersion:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1aa
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -85,7 +85,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_1aa
 
     .line 209
     new-instance v0, Lorg/json/JSONObject;
@@ -115,37 +115,37 @@
 
     const/4 v6, 0x2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_28
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_28
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v7
 
-    if-ne v7, v1, :cond_1
+    if-ne v7, v1, :cond_34
 
     .line 213
     const-string v4, "faketcp"
 
     invoke-virtual {v2, v5, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    goto :goto_1
+    goto :goto_42
 
     .line 216
-    :cond_1
-    :goto_0
-    if-nez v4, :cond_2
+    :cond_34
+    :goto_34
+    if-nez v4, :cond_37
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_2
+    :cond_37
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-ne v4, v6, :cond_3
+    if-ne v4, v6, :cond_42
 
     .line 217
     const-string v4, "wechat-video"
@@ -153,8 +153,8 @@
     invoke-virtual {v2, v5, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 220
-    :cond_3
-    :goto_1
+    :cond_42
+    :goto_42
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->uploadMbps:Ljava/lang/Integer;
 
     const-string v5, "uploadMbps"
@@ -260,16 +260,16 @@
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayloadType:Ljava/lang/Integer;
 
     .line 234
-    if-nez v4, :cond_4
+    if-nez v4, :cond_aa
 
-    goto :goto_2
+    goto :goto_b8
 
-    :cond_4
+    :cond_aa
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v5
 
-    if-ne v5, v6, :cond_5
+    if-ne v5, v6, :cond_b8
 
     const-string v4, "auth"
 
@@ -277,21 +277,21 @@
 
     invoke-virtual {v2, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    goto :goto_3
+    goto :goto_c8
 
     .line 235
-    :cond_5
-    :goto_2
-    if-nez v4, :cond_6
+    :cond_b8
+    :goto_b8
+    if-nez v4, :cond_bb
 
-    goto :goto_3
+    goto :goto_c8
 
-    :cond_6
+    :cond_bb
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-ne v4, v1, :cond_7
+    if-ne v4, v1, :cond_c8
 
     const-string v4, "auth_str"
 
@@ -300,8 +300,8 @@
     invoke-virtual {v2, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 237
-    :cond_7
-    :goto_3
+    :cond_c8
+    :goto_c8
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
 
     const-string v5, "sni"
@@ -314,7 +314,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_f2
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->finalAddress:Ljava/lang/String;
 
@@ -324,7 +324,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_f2
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverAddress:Ljava/lang/String;
 
@@ -336,7 +336,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_f2
 
     .line 238
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverAddress:Ljava/lang/String;
@@ -344,7 +344,7 @@
     iput-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
 
     .line 240
-    :cond_8
+    :cond_f2
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
 
     invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -355,7 +355,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_9
+    if-nez v4, :cond_106
 
     .line 241
     const-string v4, "server_name"
@@ -365,7 +365,7 @@
     invoke-virtual {v2, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 243
-    :cond_9
+    :cond_106
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->alpn:Ljava/lang/String;
 
     const-string v5, "alpn"
@@ -378,14 +378,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_11a
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->alpn:Ljava/lang/String;
 
     invoke-virtual {v2, v5, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 244
-    :cond_a
+    :cond_11a
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->caText:Ljava/lang/String;
 
     const-string v5, "caText"
@@ -398,9 +398,9 @@
 
     move-result v4
 
-    if-nez v4, :cond_b
+    if-nez v4, :cond_143
 
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_143
 
     .line 245
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
@@ -430,28 +430,28 @@
 
     .line 250
     .end local v4    # "caFile":Ljava/io/File;
-    :cond_b
+    :cond_143
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->allowInsecure:Ljava/lang/Boolean;
 
     invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_150
 
     const-string v4, "insecure"
 
     invoke-virtual {v2, v4, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
     .line 251
-    :cond_c
+    :cond_150
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->streamReceiveWindow:Ljava/lang/Integer;
 
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-lez v4, :cond_d
+    if-lez v4, :cond_16a
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->streamReceiveWindow:Ljava/lang/Integer;
 
@@ -470,14 +470,14 @@
     invoke-virtual {v2, v5, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 252
-    :cond_d
+    :cond_16a
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->connectionReceiveWindow:Ljava/lang/Integer;
 
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-lez v4, :cond_e
+    if-lez v4, :cond_184
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->connectionReceiveWindow:Ljava/lang/Integer;
 
@@ -496,21 +496,21 @@
     invoke-virtual {v2, v5, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 253
-    :cond_e
+    :cond_184
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->disableMtuDiscovery:Ljava/lang/Boolean;
 
     invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v4
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_191
 
     const-string v4, "disable_mtu_discovery"
 
     invoke-virtual {v2, v4, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
     .line 255
-    :cond_f
+    :cond_191
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->hopInterval:Ljava/lang/Integer;
 
     const-string v4, "hopInterval"
@@ -544,7 +544,7 @@
     return-object v0
 
     .line 207
-    :cond_10
+    :cond_1aa
     new-instance v0, Ljava/lang/Exception;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -573,7 +573,7 @@
 .end method
 
 .method public static final buildSingBoxOutboundHysteriaBean(Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;)Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOption;
-    .locals 13
+    .registers 14
     .param p0, "bean"    # Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
 
     const-string v0, "bean"
@@ -604,16 +604,16 @@
     move-result-object v8
 
     .line 277
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
-    goto/16 :goto_3
+    goto/16 :goto_118
 
-    :cond_0
+    :cond_1a
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v9
 
-    if-ne v9, v7, :cond_d
+    if-ne v9, v7, :cond_118
 
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_HysteriaOptions;
 
@@ -646,15 +646,15 @@
 
     .line 281
     .local v11, "port":Ljava/lang/Integer;
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_3d
 
     .line 282
     iput-object v11, v9, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_HysteriaOptions;->server_port:Ljava/lang/Integer;
 
-    goto :goto_0
+    goto :goto_48
 
     .line 284
-    :cond_1
+    :cond_3d
     iget-object v12, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverPorts:Ljava/lang/String;
 
     invoke-static {v12, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -666,7 +666,7 @@
     iput-object v6, v9, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_HysteriaOptions;->server_ports:Ljava/util/List;
 
     .line 286
-    :goto_0
+    :goto_48
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -711,51 +711,51 @@
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayloadType:Ljava/lang/Integer;
 
     .line 292
-    if-nez v4, :cond_2
+    if-nez v4, :cond_72
 
-    goto :goto_1
+    goto :goto_7d
 
-    :cond_2
+    :cond_72
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v6
 
-    if-ne v6, v5, :cond_3
+    if-ne v6, v5, :cond_7d
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayload:Ljava/lang/String;
 
     iput-object v4, v9, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_HysteriaOptions;->auth:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_8a
 
     .line 293
-    :cond_3
-    :goto_1
-    if-nez v4, :cond_4
+    :cond_7d
+    :goto_7d
+    if-nez v4, :cond_80
 
-    goto :goto_2
+    goto :goto_8a
 
-    :cond_4
+    :cond_80
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-ne v4, v7, :cond_5
+    if-ne v4, v7, :cond_8a
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayload:Ljava/lang/String;
 
     iput-object v4, v9, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_HysteriaOptions;->auth_str:Ljava/lang/String;
 
     .line 295
-    :cond_5
-    :goto_2
+    :cond_8a
+    :goto_8a
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->streamReceiveWindow:Ljava/lang/Integer;
 
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-lez v4, :cond_6
+    if-lez v4, :cond_9f
 
     .line 296
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->streamReceiveWindow:Ljava/lang/Integer;
@@ -773,14 +773,14 @@
     iput-object v4, v9, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_HysteriaOptions;->recv_window_conn:Ljava/lang/Long;
 
     .line 298
-    :cond_6
+    :cond_9f
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->connectionReceiveWindow:Ljava/lang/Integer;
 
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-lez v4, :cond_7
+    if-lez v4, :cond_b4
 
     .line 299
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->connectionReceiveWindow:Ljava/lang/Integer;
@@ -798,7 +798,7 @@
     iput-object v4, v9, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_HysteriaOptions;->recv_window_conn:Ljava/lang/Long;
 
     .line 301
-    :cond_7
+    :cond_b4
     new-instance v4, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;
 
     invoke-direct {v4}, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;-><init>()V
@@ -820,7 +820,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_cc
 
     .line 303
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
@@ -828,7 +828,7 @@
     iput-object v3, v5, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->server_name:Ljava/lang/String;
 
     .line 305
-    :cond_8
+    :cond_cc
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->alpn:Ljava/lang/String;
 
     const-string v12, "alpn"
@@ -841,7 +841,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_e6
 
     .line 306
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->alpn:Ljava/lang/String;
@@ -855,7 +855,7 @@
     iput-object v3, v5, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->alpn:Ljava/util/List;
 
     .line 308
-    :cond_9
+    :cond_e6
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->caText:Ljava/lang/String;
 
     invoke-static {v3, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -866,7 +866,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_f7
 
     .line 309
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->caText:Ljava/lang/String;
@@ -874,14 +874,14 @@
     iput-object v2, v5, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->certificate:Ljava/lang/String;
 
     .line 311
-    :cond_a
+    :cond_f7
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->allowInsecure:Ljava/lang/Boolean;
 
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_107
 
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -889,12 +889,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_108
 
-    :cond_b
+    :cond_107
     const/4 v1, 0x1
 
-    :cond_c
+    :cond_108
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -921,18 +921,18 @@
     .end local v11    # "port":Ljava/lang/Integer;
     check-cast v0, Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOption;
 
-    goto/16 :goto_5
+    goto/16 :goto_1da
 
     .line 316
-    :cond_d
-    :goto_3
-    if-eqz v0, :cond_14
+    :cond_118
+    :goto_118
+    if-eqz v0, :cond_1db
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    if-ne v0, v5, :cond_14
+    if-ne v0, v5, :cond_1db
 
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_Hysteria2Options;
 
@@ -965,15 +965,15 @@
 
     .line 320
     .local v10, "port":Ljava/lang/Integer;
-    if-eqz v10, :cond_e
+    if-eqz v10, :cond_13d
 
     .line 321
     iput-object v10, v5, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_Hysteria2Options;->server_port:Ljava/lang/Integer;
 
-    goto :goto_4
+    goto :goto_148
 
     .line 323
-    :cond_e
+    :cond_13d
     iget-object v11, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->serverPorts:Ljava/lang/String;
 
     invoke-static {v11, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -985,7 +985,7 @@
     iput-object v6, v5, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_Hysteria2Options;->server_ports:Ljava/util/List;
 
     .line 325
-    :goto_4
+    :goto_148
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -1029,7 +1029,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_f
+    if-nez v4, :cond_186
 
     .line 329
     new-instance v4, Lmoe/matsuri/nb4a/SingBoxOptions$Hysteria2Obfs;
@@ -1061,7 +1061,7 @@
     iput-object v4, v5, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_Hysteria2Options;->obfs:Lmoe/matsuri/nb4a/SingBoxOptions$Hysteria2Obfs;
 
     .line 335
-    :cond_f
+    :cond_186
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayload:Ljava/lang/String;
 
     iput-object v4, v5, Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_Hysteria2Options;->password:Ljava/lang/String;
@@ -1088,7 +1088,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_10
+    if-nez v3, :cond_1a2
 
     .line 344
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
@@ -1096,7 +1096,7 @@
     iput-object v3, v6, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->server_name:Ljava/lang/String;
 
     .line 346
-    :cond_10
+    :cond_1a2
     const-string v3, "h3"
 
     invoke-static {v3}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
@@ -1116,7 +1116,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_1bb
 
     .line 348
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->caText:Ljava/lang/String;
@@ -1124,14 +1124,14 @@
     iput-object v2, v6, Lmoe/matsuri/nb4a/SingBoxOptions$OutboundTLSOptions;->certificate:Ljava/lang/String;
 
     .line 350
-    :cond_11
+    :cond_1bb
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->allowInsecure:Ljava/lang/Boolean;
 
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
-    if-nez v2, :cond_12
+    if-nez v2, :cond_1cb
 
     sget-object v2, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -1139,12 +1139,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_1cc
 
-    :cond_12
+    :cond_1cb
     const/4 v1, 0x1
 
-    :cond_13
+    :cond_1cc
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -1172,11 +1172,11 @@
     check-cast v0, Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOption;
 
     .line 276
-    :goto_5
+    :goto_1da
     return-object v0
 
     .line 316
-    :cond_14
+    :cond_1db
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 355
@@ -1214,7 +1214,7 @@
 .end method
 
 .method public static final canUseSingBox(Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$canUseSingBox"    # Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
 
     const-string v0, "<this>"
@@ -1224,31 +1224,31 @@
     .line 271
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
-    :goto_0
+    :goto_10
     const/4 v0, 0x0
 
     return v0
 
     .line 272
-    :cond_1
+    :cond_12
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static final getFirstPort(Ljava/lang/String;)I
-    .locals 4
+    .registers 5
     .param p0, "portStr"    # Ljava/lang/String;
 
     const-string v0, "portStr"
@@ -1276,23 +1276,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_1e
     const/16 v0, 0x1bb
 
-    :goto_0
+    :goto_20
     return v0
 .end method
 
 .method public static final hopPortsToSingboxList(Ljava/lang/String;)Ljava/util/List;
-    .locals 26
+    .registers 27
     .param p0, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1366,12 +1366,12 @@
 
     move-result-object v8
 
-    :goto_0
+    :goto_2a
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_75
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1440,26 +1440,26 @@
 
     const/4 v14, 0x2
 
-    if-ne v13, v14, :cond_0
+    if-ne v13, v14, :cond_6a
 
     .line 363
     move-object v13, v12
 
-    goto :goto_1
+    goto :goto_6b
 
     .line 365
-    :cond_0
+    :cond_6a
     const/4 v13, 0x0
 
     .line 366
-    :goto_1
+    :goto_6b
     nop
 
     .line 379
     .end local v12    # "pRange":Ljava/lang/String;
     .end local v18    # "it":Ljava/lang/String;
     .end local v19    # "$i$a$-mapNotNull-HysteriaFmtKt$hopPortsToSingboxList$1":I
-    if-eqz v13, :cond_1
+    if-eqz v13, :cond_73
 
     move-object v12, v13
 
@@ -1476,14 +1476,14 @@
     .end local v11    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
     .end local v12    # "it$iv$iv":Ljava/lang/Object;
     .end local v13    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
-    :cond_1
+    :cond_73
     nop
 
     .end local v9    # "element$iv$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_2a
 
     .line 382
-    :cond_2
+    :cond_75
     nop
 
     .line 383
@@ -1506,7 +1506,7 @@
 .end method
 
 .method public static final isMultiPort(Ljava/lang/String;)Z
-    .locals 6
+    .registers 7
     .param p0, "hyAddr"    # Ljava/lang/String;
 
     const-string v0, "hyAddr"
@@ -1534,12 +1534,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     return v3
 
     .line 261
-    :cond_0
+    :cond_17
     invoke-static {p0, v1, v5, v4, v5}, Lkotlin/text/StringsKt;->substringAfterLast$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -1558,7 +1558,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_37
 
     move-object v1, v0
 
@@ -1572,24 +1572,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_36
 
-    goto :goto_0
+    goto :goto_37
 
     .line 263
-    :cond_1
+    :cond_36
     return v3
 
     .line 262
-    :cond_2
-    :goto_0
+    :cond_37
+    :goto_37
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method public static final parseHysteria1(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
-    .locals 9
+    .registers 10
     .param p0, "url"    # Ljava/lang/String;
 
     const-string v0, "url"
@@ -1619,7 +1619,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_10f
 
     .line 16
     nop
@@ -1677,7 +1677,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_4b
 
     .local v5, "it":Ljava/lang/String;
     const/4 v6, 0x0
@@ -1695,14 +1695,14 @@
     nop
 
     .line 27
-    :cond_0
+    :cond_4b
     const-string v5, "peer"
 
     invoke-virtual {v0, v5}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_58
 
     .restart local v5    # "it":Ljava/lang/String;
     const/4 v6, 0x0
@@ -1720,14 +1720,14 @@
     nop
 
     .line 30
-    :cond_1
+    :cond_58
     const-string v5, "auth"
 
     invoke-virtual {v0, v5}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_79
 
     move-object v6, v5
 
@@ -1747,15 +1747,15 @@
 
     .end local v6    # "it":Ljava/lang/String;
     .end local v7    # "$i$a$-takeIf-HysteriaFmtKt$parseHysteria1$1$3":I
-    if-nez v8, :cond_2
+    if-nez v8, :cond_6c
 
-    goto :goto_0
+    goto :goto_6d
 
-    :cond_2
+    :cond_6c
     const/4 v5, 0x0
 
-    :goto_0
-    if-eqz v5, :cond_3
+    :goto_6d
+    if-eqz v5, :cond_79
 
     .restart local v5    # "it":Ljava/lang/String;
     const/4 v6, 0x0
@@ -1777,7 +1777,7 @@
     .line 30
     .end local v5    # "it":Ljava/lang/String;
     .end local v6    # "$i$a$-also-HysteriaFmtKt$parseHysteria1$1$4":I
-    :cond_3
+    :cond_79
     nop
 
     .line 34
@@ -1787,7 +1787,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_9f
 
     .restart local v5    # "it":Ljava/lang/String;
     const/4 v6, 0x0
@@ -1800,7 +1800,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_96
 
     const-string v7, "true"
 
@@ -1808,20 +1808,20 @@
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_94
 
-    goto :goto_1
+    goto :goto_96
 
-    :cond_4
+    :cond_94
     const/4 v7, 0x0
 
-    goto :goto_2
+    goto :goto_97
 
-    :cond_5
-    :goto_1
+    :cond_96
+    :goto_96
     const/4 v7, 0x1
 
-    :goto_2
+    :goto_97
     invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v7
@@ -1837,14 +1837,14 @@
     nop
 
     .line 37
-    :cond_6
+    :cond_9f
     const-string v5, "upmbps"
 
     invoke-virtual {v0, v5}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_b4
 
     .restart local v5    # "it":Ljava/lang/String;
     const/4 v6, 0x0
@@ -1855,11 +1855,11 @@
 
     move-result-object v7
 
-    if-nez v7, :cond_7
+    if-nez v7, :cond_b0
 
     iget-object v7, v2, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->uploadMbps:Ljava/lang/Integer;
 
-    :cond_7
+    :cond_b0
     iput-object v7, v2, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->uploadMbps:Ljava/lang/Integer;
 
     .line 39
@@ -1871,14 +1871,14 @@
     nop
 
     .line 40
-    :cond_8
+    :cond_b4
     const-string v5, "downmbps"
 
     invoke-virtual {v0, v5}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_c9
 
     .restart local v5    # "it":Ljava/lang/String;
     const/4 v6, 0x0
@@ -1889,11 +1889,11 @@
 
     move-result-object v7
 
-    if-nez v7, :cond_9
+    if-nez v7, :cond_c5
 
     iget-object v7, v2, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->downloadMbps:Ljava/lang/Integer;
 
-    :cond_9
+    :cond_c5
     iput-object v7, v2, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->downloadMbps:Ljava/lang/Integer;
 
     .line 42
@@ -1905,14 +1905,14 @@
     nop
 
     .line 43
-    :cond_a
+    :cond_c9
     const-string v5, "alpn"
 
     invoke-virtual {v0, v5}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_d6
 
     .restart local v5    # "it":Ljava/lang/String;
     const/4 v6, 0x0
@@ -1930,14 +1930,14 @@
     nop
 
     .line 46
-    :cond_b
+    :cond_d6
     const-string v5, "obfsParam"
 
     invoke-virtual {v0, v5}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_e3
 
     .restart local v5    # "it":Ljava/lang/String;
     const/4 v6, 0x0
@@ -1955,14 +1955,14 @@
     nop
 
     .line 49
-    :cond_c
+    :cond_e3
     const-string v5, "protocol"
 
     invoke-virtual {v0, v5}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_10d
 
     .restart local v5    # "it":Ljava/lang/String;
     const/4 v6, 0x0
@@ -1978,7 +1978,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_fc
 
     .line 52
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1987,17 +1987,17 @@
 
     iput-object v4, v2, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
 
-    goto :goto_3
+    goto :goto_10b
 
     .line 55
-    :cond_d
+    :cond_fc
     const-string v4, "wechat-video"
 
     invoke-static {v5, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_10b
 
     .line 56
     const/4 v4, 0x2
@@ -2009,8 +2009,8 @@
     iput-object v4, v2, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
 
     .line 59
-    :cond_e
-    :goto_3
+    :cond_10b
+    :goto_10b
     nop
 
     .line 49
@@ -2019,7 +2019,7 @@
     nop
 
     .line 60
-    :cond_f
+    :cond_10d
     nop
 
     .line 18
@@ -2029,7 +2029,7 @@
 
     .line 15
     .end local v0    # "link":Lokhttp3/HttpUrl;
-    :cond_10
+    :cond_10f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 16
@@ -2061,7 +2061,7 @@
 .end method
 
 .method public static final parseHysteria1Json(Lorg/json/JSONObject;)Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
-    .locals 11
+    .registers 12
     .param p0, "$this$parseHysteria1Json"    # Lorg/json/JSONObject;
 
     const-string v0, "<this>"
@@ -2164,7 +2164,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_60
 
     .local v4, "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -2185,14 +2185,14 @@
     nop
 
     .line 180
-    :cond_0
+    :cond_60
     const-string v4, "auth_str"
 
     invoke-static {p0, v4}, Lio/nekohasekai/sagernet/ktx/FormatsKt;->getStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_6f
 
     .restart local v4    # "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -2213,14 +2213,14 @@
     nop
 
     .line 184
-    :cond_1
+    :cond_6f
     const-string v4, "protocol"
 
     invoke-static {p0, v4}, Lio/nekohasekai/sagernet/ktx/FormatsKt;->getStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_90
 
     .restart local v4    # "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -2236,29 +2236,29 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_84
 
     .line 187
     iput-object v3, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
 
-    goto :goto_0
+    goto :goto_8e
 
     .line 190
-    :cond_2
+    :cond_84
     const-string v3, "wechat-video"
 
     invoke-static {v4, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_8e
 
     .line 191
     iput-object v10, v1, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
 
     .line 194
-    :cond_3
-    :goto_0
+    :cond_8e
+    :goto_8e
     nop
 
     .line 184
@@ -2267,7 +2267,7 @@
     nop
 
     .line 195
-    :cond_4
+    :cond_90
     const-string v3, "server_name"
 
     invoke-static {p0, v3}, Lio/nekohasekai/sagernet/ktx/FormatsKt;->getStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
@@ -2331,7 +2331,7 @@
 .end method
 
 .method public static final parseHysteria2(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
-    .locals 13
+    .registers 14
     .param p0, "url"    # Ljava/lang/String;
 
     const-string v0, "url"
@@ -2379,7 +2379,7 @@
     move-result-object v0
 
     .line 65
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_c8
 
     .line 69
     .local v0, "link":Lokhttp3/HttpUrl;
@@ -2431,7 +2431,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_6e
 
     .line 74
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2464,16 +2464,16 @@
 
     move-result-object v4
 
-    goto :goto_0
+    goto :goto_72
 
     .line 76
-    :cond_0
+    :cond_6e
     invoke-virtual {v0}, Lokhttp3/HttpUrl;->username()Ljava/lang/String;
 
     move-result-object v4
 
     .line 73
-    :goto_0
+    :goto_72
     iput-object v4, v2, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayload:Ljava/lang/String;
 
     .line 78
@@ -2490,7 +2490,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_87
 
     .local v4, "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -2508,14 +2508,14 @@
     nop
 
     .line 83
-    :cond_1
+    :cond_87
     const-string v4, "sni"
 
     invoke-virtual {v0, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_94
 
     .restart local v4    # "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -2533,14 +2533,14 @@
     nop
 
     .line 86
-    :cond_2
+    :cond_94
     const-string v4, "insecure"
 
     invoke-virtual {v0, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_b9
 
     .restart local v4    # "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -2553,7 +2553,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_b0
 
     const-string v6, "true"
 
@@ -2561,20 +2561,20 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_ae
 
-    goto :goto_1
+    goto :goto_b0
 
-    :cond_3
+    :cond_ae
     const/4 v6, 0x0
 
-    goto :goto_2
+    goto :goto_b1
 
-    :cond_4
-    :goto_1
+    :cond_b0
+    :goto_b0
     const/4 v6, 0x1
 
-    :goto_2
+    :goto_b1
     invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v6
@@ -2590,14 +2590,14 @@
     nop
 
     .line 95
-    :cond_5
+    :cond_b9
     const-string v4, "obfs-password"
 
     invoke-virtual {v0, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_c6
 
     .restart local v4    # "it":Ljava/lang/String;
     const/4 v5, 0x0
@@ -2615,7 +2615,7 @@
     nop
 
     .line 101
-    :cond_6
+    :cond_c6
     nop
 
     .line 69
@@ -2625,7 +2625,7 @@
 
     .line 65
     .end local v0    # "link":Lokhttp3/HttpUrl;
-    :cond_7
+    :cond_c8
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 68
@@ -2657,7 +2657,7 @@
 .end method
 
 .method public static final toUri(Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;)Ljava/lang/String;
-    .locals 12
+    .registers 13
     .param p0, "$this$toUri"    # Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;
 
     const-string v0, "<this>"
@@ -2683,16 +2683,16 @@
 
     const/4 v6, 0x2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_13
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_0
+    :cond_13
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    if-ne v2, v6, :cond_2
+    if-ne v2, v6, :cond_40
 
     .line 108
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayload:Ljava/lang/String;
@@ -2711,7 +2711,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3e
 
     .line 109
     iget-object v2, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayload:Ljava/lang/String;
@@ -2731,15 +2731,15 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_40
 
     .line 112
-    :cond_1
+    :cond_3e
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayload:Ljava/lang/String;
 
     .line 116
-    :cond_2
-    :goto_0
+    :cond_40
+    :goto_40
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/NetsKt;->linkBuilder()Lokhttp3/HttpUrl$Builder;
 
     move-result-object v2
@@ -2797,7 +2797,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_7d
 
     .line 122
     const-string v7, "mport"
@@ -2807,7 +2807,7 @@
     invoke-virtual {v2, v7, v8}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 124
-    :cond_3
+    :cond_7d
     iget-object v7, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->name:Ljava/lang/String;
 
     const-string v8, "name"
@@ -2820,7 +2820,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_98
 
     .line 125
     iget-object v7, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->name:Ljava/lang/String;
@@ -2834,14 +2834,14 @@
     invoke-virtual {v2, v7}, Lokhttp3/HttpUrl$Builder;->encodedFragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 127
-    :cond_4
+    :cond_98
     iget-object v7, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->allowInsecure:Ljava/lang/Boolean;
 
     invoke-virtual {v7}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_a7
 
     .line 128
     const-string v7, "insecure"
@@ -2851,7 +2851,7 @@
     invoke-virtual {v2, v7, v8}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 130
-    :cond_5
+    :cond_a7
     iget-object v7, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocolVersion:Ljava/lang/Integer;
 
     const-string v8, "obfs"
@@ -2860,18 +2860,18 @@
 
     const-string v10, "sni"
 
-    if-nez v7, :cond_6
+    if-nez v7, :cond_b3
 
-    goto/16 :goto_2
+    goto/16 :goto_147
 
-    :cond_6
+    :cond_b3
     invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
     move-result v7
 
     const/4 v11, 0x1
 
-    if-ne v7, v11, :cond_e
+    if-ne v7, v11, :cond_147
 
     .line 131
     iget-object v7, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
@@ -2884,7 +2884,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_7
+    if-nez v7, :cond_ce
 
     .line 132
     const-string v7, "peer"
@@ -2894,7 +2894,7 @@
     invoke-virtual {v2, v7, v10}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 134
-    :cond_7
+    :cond_ce
     iget-object v7, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->authPayload:Ljava/lang/String;
 
     invoke-static {v7, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -2905,7 +2905,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_e2
 
     .line 135
     const-string v4, "auth"
@@ -2915,7 +2915,7 @@
     invoke-virtual {v2, v4, v7}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 137
-    :cond_8
+    :cond_e2
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->uploadMbps:Ljava/lang/Integer;
 
     invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -2950,7 +2950,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_9
+    if-nez v4, :cond_10c
 
     .line 140
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->alpn:Ljava/lang/String;
@@ -2958,7 +2958,7 @@
     invoke-virtual {v2, v7, v4}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 142
-    :cond_9
+    :cond_10c
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->obfuscation:Ljava/lang/String;
 
     invoke-static {v4, v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -2969,7 +2969,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_125
 
     .line 143
     const-string v4, "xplus"
@@ -2984,54 +2984,54 @@
     invoke-virtual {v2, v4, v7}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 146
-    :cond_a
+    :cond_125
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocol:Ljava/lang/Integer;
 
     .line 147
     const-string v7, "protocol"
 
-    if-nez v4, :cond_b
+    if-nez v4, :cond_12c
 
-    goto :goto_1
+    goto :goto_138
 
-    :cond_b
+    :cond_12c
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v8
 
-    if-ne v8, v11, :cond_c
+    if-ne v8, v11, :cond_138
 
     .line 148
     const-string v4, "faketcp"
 
     invoke-virtual {v2, v7, v4}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
-    goto :goto_3
+    goto :goto_172
 
     .line 151
-    :cond_c
-    :goto_1
-    if-nez v4, :cond_d
+    :cond_138
+    :goto_138
+    if-nez v4, :cond_13b
 
-    goto :goto_3
+    goto :goto_172
 
-    :cond_d
+    :cond_13b
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-ne v4, v6, :cond_10
+    if-ne v4, v6, :cond_172
 
     .line 152
     const-string v4, "wechat-video"
 
     invoke-virtual {v2, v7, v4}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
-    goto :goto_3
+    goto :goto_172
 
     .line 156
-    :cond_e
-    :goto_2
+    :cond_147
+    :goto_147
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
 
     invoke-static {v4, v10}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -3042,7 +3042,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_f
+    if-nez v4, :cond_159
 
     .line 157
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->sni:Ljava/lang/String;
@@ -3050,7 +3050,7 @@
     invoke-virtual {v2, v10, v4}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 159
-    :cond_f
+    :cond_159
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->obfuscation:Ljava/lang/String;
 
     invoke-static {v4, v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -3061,7 +3061,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_10
+    if-nez v4, :cond_172
 
     .line 160
     const-string v4, "salamander"
@@ -3076,30 +3076,30 @@
     invoke-virtual {v2, v4, v7}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 164
-    :cond_10
-    :goto_3
+    :cond_172
+    :goto_172
     iget-object v4, p0, Lio/nekohasekai/sagernet/fmt/hysteria/HysteriaBean;->protocolVersion:Ljava/lang/Integer;
 
-    if-nez v4, :cond_11
+    if-nez v4, :cond_177
 
-    goto :goto_4
+    goto :goto_180
 
-    :cond_11
+    :cond_177
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
-    if-ne v4, v6, :cond_12
+    if-ne v4, v6, :cond_180
 
     const-string v4, "hy2"
 
-    goto :goto_5
+    goto :goto_182
 
-    :cond_12
-    :goto_4
+    :cond_180
+    :goto_180
     const-string v4, "hysteria"
 
-    :goto_5
+    :goto_182
     invoke-static {v2, v4, v3, v6, v5}, Lio/nekohasekai/sagernet/ktx/NetsKt;->toLink$default(Lokhttp3/HttpUrl$Builder;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3

@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1381
     new-instance v0, Lcom/google/common/base/CharMatcher$JavaLetter;
@@ -33,7 +33,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1379
     invoke-direct {p0}, Lcom/google/common/base/CharMatcher;-><init>()V
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public matches(C)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
 
     .line 1385
@@ -71,7 +71,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1390
     const-string v0, "CharMatcher.javaLetter()"

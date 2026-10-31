@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 41
     new-instance v0, Lcom/google/gson/internal/sql/SqlTimeTypeAdapter$1;
@@ -36,7 +36,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 50
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/gson/internal/sql/SqlTimeTypeAdapter$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/gson/internal/sql/SqlTimeTypeAdapter$1;
 
     .line 40
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -83,7 +83,7 @@
 .end method
 
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/sql/Time;
-    .locals 5
+    .registers 7
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -98,7 +98,7 @@
 
     sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 55
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
@@ -109,20 +109,20 @@
     return-object v0
 
     .line 58
-    :cond_0
+    :cond_d
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 60
     .local v0, "s":Ljava/lang/String;
-    :try_start_0
+    :try_start_11
     monitor-enter p0
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/text/ParseException; {:try_start_11 .. :try_end_12} :catch_26
 
     .line 61
-    :try_start_1
+    :try_start_12
     iget-object v1, p0, Lcom/google/gson/internal/sql/SqlTimeTypeAdapter;->format:Ljava/text/DateFormat;
 
     invoke-virtual {v1, v0}, Ljava/text/DateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
@@ -145,24 +145,24 @@
 
     .line 63
     .end local v1    # "date":Ljava/util/Date;
-    :catchall_0
+    :catchall_23
     move-exception v1
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_25
+    .catchall {:try_start_12 .. :try_end_25} :catchall_23
 
     .end local v0    # "s":Ljava/lang/String;
     .end local p1    # "in":Lcom/google/gson/stream/JsonReader;
-    :try_start_2
+    :try_start_25
     throw v1
-    :try_end_2
-    .catch Ljava/text/ParseException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_26
+    .catch Ljava/text/ParseException; {:try_start_25 .. :try_end_26} :catch_26
 
     .line 64
     .restart local v0    # "s":Ljava/lang/String;
     .restart local p1    # "in":Lcom/google/gson/stream/JsonReader;
-    :catch_0
+    :catch_26
     move-exception v1
 
     .line 65
@@ -207,7 +207,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -223,7 +223,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/sql/Time;)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .param p2, "value"    # Ljava/sql/Time;
     .annotation system Ldalvik/annotation/Throws;
@@ -233,7 +233,7 @@
     .end annotation
 
     .line 70
-    if-nez p2, :cond_0
+    if-nez p2, :cond_6
 
     .line 71
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonWriter;->nullValue()Lcom/google/gson/stream/JsonWriter;
@@ -242,11 +242,11 @@
     return-void
 
     .line 75
-    :cond_0
+    :cond_6
     monitor-enter p0
 
     .line 76
-    :try_start_0
+    :try_start_7
     iget-object v0, p0, Lcom/google/gson/internal/sql/SqlTimeTypeAdapter;->format:Ljava/text/DateFormat;
 
     invoke-virtual {v0, p2}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
@@ -256,8 +256,8 @@
     .line 77
     .local v0, "timeString":Ljava/lang/String;
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_7 .. :try_end_e} :catchall_12
 
     .line 78
     invoke-virtual {p1, v0}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
@@ -267,13 +267,13 @@
 
     .line 77
     .end local v0    # "timeString":Ljava/lang/String;
-    :catchall_0
+    :catchall_12
     move-exception v0
 
-    :try_start_1
+    :try_start_13
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_14
+    .catchall {:try_start_13 .. :try_end_14} :catchall_12
 
     throw v0
 .end method

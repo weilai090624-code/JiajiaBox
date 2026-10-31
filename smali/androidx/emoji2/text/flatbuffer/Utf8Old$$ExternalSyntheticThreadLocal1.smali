@@ -9,7 +9,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/function/Supplier;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method protected synthetic initialValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 0
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/Utf8Old$$ExternalSyntheticThreadLocal1;->initialValueSupplier:Ljava/util/function/Supplier;

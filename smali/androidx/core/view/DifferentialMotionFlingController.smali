@@ -36,7 +36,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$lv23FpWloyumz6IvnMabmJR9BpE(Landroid/content/Context;[ILandroid/view/MotionEvent;I)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Landroidx/core/view/DifferentialMotionFlingController;->calculateFlingVelocityThresholds(Landroid/content/Context;[ILandroid/view/MotionEvent;I)V
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$rCNQ1h5KBIaVcUXhwymI_1638W0(Landroid/view/VelocityTracker;Landroid/view/MotionEvent;I)F
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/core/view/DifferentialMotionFlingController;->getCurrentVelocity(Landroid/view/VelocityTracker;Landroid/view/MotionEvent;I)F
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/core/view/DifferentialMotionFlingTarget;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "target"    # Landroidx/core/view/DifferentialMotionFlingTarget;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroidx/core/view/DifferentialMotionFlingTarget;Landroidx/core/view/DifferentialMotionFlingController$FlingVelocityThresholdCalculator;Landroidx/core/view/DifferentialMotionFlingController$DifferentialVelocityProvider;)V
-    .locals 2
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "target"    # Landroidx/core/view/DifferentialMotionFlingTarget;
     .param p3, "velocityThresholdCalculator"    # Landroidx/core/view/DifferentialMotionFlingController$FlingVelocityThresholdCalculator;
@@ -122,7 +122,7 @@
 .end method
 
 .method private static calculateFlingVelocityThresholds(Landroid/content/Context;[ILandroid/view/MotionEvent;I)V
-    .locals 3
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "buffer"    # [I
     .param p2, "event"    # Landroid/view/MotionEvent;
@@ -181,7 +181,7 @@
 .end method
 
 .method private calculateFlingVelocityThresholds(Landroid/view/MotionEvent;I)Z
-    .locals 5
+    .registers 8
     .param p1, "event"    # Landroid/view/MotionEvent;
     .param p2, "axis"    # I
 
@@ -200,27 +200,27 @@
     .local v1, "deviceId":I
     iget v2, p0, Landroidx/core/view/DifferentialMotionFlingController;->mLastProcessedSource:I
 
-    if-ne v2, v0, :cond_1
+    if-ne v2, v0, :cond_17
 
     iget v2, p0, Landroidx/core/view/DifferentialMotionFlingController;->mLastProcessedDeviceId:I
 
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_17
 
     iget v2, p0, Landroidx/core/view/DifferentialMotionFlingController;->mLastProcessedAxis:I
 
-    if-eq v2, p2, :cond_0
+    if-eq v2, p2, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
     .line 189
-    :cond_0
+    :cond_15
     const/4 v2, 0x0
 
     return v2
 
     .line 180
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     iget-object v2, p0, Landroidx/core/view/DifferentialMotionFlingController;->mVelocityThresholdCalculator:Landroidx/core/view/DifferentialMotionFlingController$FlingVelocityThresholdCalculator;
 
     iget-object v3, p0, Landroidx/core/view/DifferentialMotionFlingController;->mContext:Landroid/content/Context;
@@ -245,14 +245,14 @@
 .end method
 
 .method private getCurrentVelocity(Landroid/view/MotionEvent;I)F
-    .locals 2
+    .registers 5
     .param p1, "event"    # Landroid/view/MotionEvent;
     .param p2, "axis"    # I
 
     .line 202
     iget-object v0, p0, Landroidx/core/view/DifferentialMotionFlingController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 203
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -262,7 +262,7 @@
     iput-object v0, p0, Landroidx/core/view/DifferentialMotionFlingController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     .line 206
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/core/view/DifferentialMotionFlingController;->mVelocityProvider:Landroidx/core/view/DifferentialMotionFlingController$DifferentialVelocityProvider;
 
     iget-object v1, p0, Landroidx/core/view/DifferentialMotionFlingController;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -275,7 +275,7 @@
 .end method
 
 .method private static getCurrentVelocity(Landroid/view/VelocityTracker;Landroid/view/MotionEvent;I)F
-    .locals 1
+    .registers 4
     .param p0, "vt"    # Landroid/view/VelocityTracker;
     .param p1, "event"    # Landroid/view/MotionEvent;
     .param p2, "axis"    # I
@@ -299,7 +299,7 @@
 
 # virtual methods
 .method public onMotionEvent(Landroid/view/MotionEvent;I)V
-    .locals 7
+    .registers 10
     .param p1, "event"    # Landroid/view/MotionEvent;
     .param p2, "axis"    # I
 
@@ -318,12 +318,12 @@
 
     const v3, 0x7fffffff
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_1b
 
     .line 133
     iget-object v1, p0, Landroidx/core/view/DifferentialMotionFlingController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 134
     iget-object v1, p0, Landroidx/core/view/DifferentialMotionFlingController;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -336,11 +336,11 @@
     iput-object v1, p0, Landroidx/core/view/DifferentialMotionFlingController;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     .line 137
-    :cond_0
+    :cond_1a
     return-void
 
     .line 140
-    :cond_1
+    :cond_1b
     nop
 
     .line 141
@@ -366,7 +366,7 @@
     .local v3, "velocityDirection":F
     const/4 v4, 0x0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3d
 
     iget v5, p0, Landroidx/core/view/DifferentialMotionFlingController;->mLastFlingVelocity:F
 
@@ -377,20 +377,20 @@
 
     cmpl-float v5, v3, v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_42
 
     cmpl-float v5, v3, v4
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_42
 
     .line 149
-    :cond_2
+    :cond_3d
     iget-object v5, p0, Landroidx/core/view/DifferentialMotionFlingController;->mTarget:Landroidx/core/view/DifferentialMotionFlingTarget;
 
     invoke-interface {v5}, Landroidx/core/view/DifferentialMotionFlingTarget;->stopDifferentialMotionFling()V
 
     .line 152
-    :cond_3
+    :cond_42
     invoke-static {v1}, Ljava/lang/Math;->abs(F)F
 
     move-result v5
@@ -403,13 +403,13 @@
 
     cmpg-float v2, v5, v2
 
-    if-gez v2, :cond_4
+    if-gez v2, :cond_50
 
     .line 153
     return-void
 
     .line 161
-    :cond_4
+    :cond_50
     iget-object v2, p0, Landroidx/core/view/DifferentialMotionFlingController;->mFlingVelocityThresholds:[I
 
     const/4 v5, 0x1
@@ -445,11 +445,11 @@
 
     .line 167
     .local v2, "flung":Z
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6d
 
     move v4, v1
 
-    :cond_5
+    :cond_6d
     iput v4, p0, Landroidx/core/view/DifferentialMotionFlingController;->mLastFlingVelocity:F
 
     .line 168

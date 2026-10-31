@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,7 +74,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/Comparator;Ljava/util/Comparator;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -135,12 +135,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lcom/google/common/collect/CompoundOrdering;->comparators:[Ljava/util/Comparator;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_14
 
     .line 44
     iget-object v1, p0, Lcom/google/common/collect/CompoundOrdering;->comparators:[Ljava/util/Comparator;
@@ -153,28 +153,28 @@
 
     .line 45
     .local v1, "result":I
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 46
     return v1
 
     .line 43
     .end local v1    # "result":I
-    :cond_0
+    :cond_11
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 49
     .end local v0    # "i":I
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -182,7 +182,7 @@
 
     .line 54
     .local p0, "this":Lcom/google/common/collect/CompoundOrdering;, "Lcom/google/common/collect/CompoundOrdering<TT;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 55
     const/4 v0, 0x1
@@ -190,10 +190,10 @@
     return v0
 
     .line 57
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/collect/CompoundOrdering;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 58
     move-object v0, p1
@@ -214,14 +214,14 @@
 
     .line 61
     .end local v0    # "that":Lcom/google/common/collect/CompoundOrdering;, "Lcom/google/common/collect/CompoundOrdering<*>;"
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 66
     .local p0, "this":Lcom/google/common/collect/CompoundOrdering;, "Lcom/google/common/collect/CompoundOrdering<TT;>;"
@@ -235,7 +235,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 71
     .local p0, "this":Lcom/google/common/collect/CompoundOrdering;, "Lcom/google/common/collect/CompoundOrdering<TT;>;"

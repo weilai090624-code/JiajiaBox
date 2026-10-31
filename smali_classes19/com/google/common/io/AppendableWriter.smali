@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Appendable;)V
-    .locals 1
+    .registers 3
     .param p1, "target"    # Ljava/lang/Appendable;
 
     .line 45
@@ -36,7 +36,7 @@
 .end method
 
 .method private checkNotClosed()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -46,13 +46,13 @@
     .line 124
     iget-boolean v0, p0, Lcom/google/common/io/AppendableWriter;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 127
     return-void
 
     .line 125
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "Cannot write to a closed writer."
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public append(C)Ljava/io/Writer;
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -86,7 +86,7 @@
 .end method
 
 .method public append(Ljava/lang/CharSequence;)Ljava/io/Writer;
-    .locals 1
+    .registers 3
     .param p1, "charSeq"    # Ljava/lang/CharSequence;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -110,7 +110,7 @@
 .end method
 
 .method public append(Ljava/lang/CharSequence;II)Ljava/io/Writer;
-    .locals 1
+    .registers 5
     .param p1, "charSeq"    # Ljava/lang/CharSequence;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -136,7 +136,7 @@
 .end method
 
 .method public bridge synthetic append(C)Ljava/lang/Appendable;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -152,7 +152,7 @@
 .end method
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/CharSequence;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -172,7 +172,7 @@
 .end method
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
-    .locals 0
+    .registers 4
     .param p1    # Ljava/lang/CharSequence;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -192,7 +192,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -209,7 +209,7 @@
 
     instance-of v0, v0, Ljava/io/Closeable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 98
     iget-object v0, p0, Lcom/google/common/io/AppendableWriter;->target:Ljava/lang/Appendable;
@@ -219,12 +219,12 @@
     invoke-interface {v0}, Ljava/io/Closeable;->close()V
 
     .line 100
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -239,7 +239,7 @@
 
     instance-of v0, v0, Ljava/io/Flushable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 90
     iget-object v0, p0, Lcom/google/common/io/AppendableWriter;->target:Ljava/lang/Appendable;
@@ -249,12 +249,12 @@
     invoke-interface {v0}, Ljava/io/Flushable;->flush()V
 
     .line 92
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public write(I)V
-    .locals 2
+    .registers 4
     .param p1, "c"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -277,7 +277,7 @@
 .end method
 
 .method public write(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "str"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -301,7 +301,7 @@
 .end method
 
 .method public write(Ljava/lang/String;II)V
-    .locals 2
+    .registers 6
     .param p1, "str"    # Ljava/lang/String;
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -329,7 +329,7 @@
 .end method
 
 .method public write([CII)V
-    .locals 2
+    .registers 6
     .param p1, "cbuf"    # [C
     .param p2, "off"    # I
     .param p3, "len"    # I

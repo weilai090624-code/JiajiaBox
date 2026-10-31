@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;)V
-    .locals 0
+    .registers 2
     .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 254
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public copy(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "original"    # Ljava/lang/Object;
     .param p2, "copy"    # Ljava/lang/Object;
 
@@ -44,8 +44,8 @@
     move-result v1
 
     invoke-virtual {v0, p2, v1}, Ljava/lang/reflect/Field;->setShort(Ljava/lang/Object;S)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_0 .. :try_end_b} :catchall_d
 
     .line 284
     nop
@@ -54,7 +54,7 @@
     return-void
 
     .line 280
-    :catchall_0
+    :catchall_d
     move-exception v0
 
     .line 281
@@ -92,7 +92,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -105,8 +105,8 @@
     move-result v1
 
     invoke-virtual {v0, p2, v1}, Ljava/lang/reflect/Field;->setShort(Ljava/lang/Object;S)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_0 .. :try_end_9} :catchall_b
 
     .line 274
     nop
@@ -115,7 +115,7 @@
     return-void
 
     .line 270
-    :catchall_0
+    :catchall_b
     move-exception v0
 
     .line 271
@@ -153,7 +153,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -166,8 +166,8 @@
     move-result v0
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeShort(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_0 .. :try_end_9} :catchall_b
 
     .line 264
     nop
@@ -176,7 +176,7 @@
     return-void
 
     .line 260
-    :catchall_0
+    :catchall_b
     move-exception v0
 
     .line 261

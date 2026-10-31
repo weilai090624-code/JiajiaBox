@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 201
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public build()Landroidx/camera/camera2/impl/Camera2ImplConfig;
-    .locals 2
+    .registers 3
 
     .line 254
     new-instance v0, Landroidx/camera/camera2/impl/Camera2ImplConfig;
@@ -67,7 +67,7 @@
 .end method
 
 .method public bridge synthetic build()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 201
     invoke-virtual {p0}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->build()Landroidx/camera/camera2/impl/Camera2ImplConfig;
@@ -78,7 +78,7 @@
 .end method
 
 .method public getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
-    .locals 1
+    .registers 2
 
     .line 208
     iget-object v0, p0, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->mMutableOptionsBundle:Landroidx/camera/core/impl/MutableOptionsBundle;
@@ -87,7 +87,7 @@
 .end method
 
 .method public insertAllOptions(Landroidx/camera/core/impl/Config;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
-    .locals 5
+    .registers 7
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -107,12 +107,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -137,15 +137,15 @@
     .line 242
     .end local v1    # "option":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
     .end local v2    # "objectOpt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<Ljava/lang/Object;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 243
-    :cond_0
+    :cond_1f
     return-object p0
 .end method
 
 .method public setCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -186,7 +186,7 @@
 .end method
 
 .method public setCaptureRequestOptionWithPriority(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;Landroidx/camera/core/impl/Config$OptionPriority;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
-    .locals 2
+    .registers 6
     .param p3, "priority"    # Landroidx/camera/core/impl/Config$OptionPriority;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

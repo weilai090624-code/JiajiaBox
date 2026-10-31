@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/core/os/BundleApi21ImplKt;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final putSize(Landroid/os/Bundle;Ljava/lang/String;Landroid/util/Size;)V
-    .locals 0
+    .registers 3
     .param p0, "bundle"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Landroid/util/Size;
@@ -75,7 +75,7 @@
 .end method
 
 .method public static final putSizeF(Landroid/os/Bundle;Ljava/lang/String;Landroid/util/SizeF;)V
-    .locals 0
+    .registers 3
     .param p0, "bundle"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Landroid/util/SizeF;

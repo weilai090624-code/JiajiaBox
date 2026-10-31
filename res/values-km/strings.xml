@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">ការ​ហៅ​ចូល</string>
     <string name="call_notification_ongoing_text">ការ​ហៅដែលកំពុងដំណើរការ</string>
     <string name="call_notification_screening_text">កំពុងពិនិត្យការ​ហៅ​ចូល</string>
-    <string name="character_counter_content_description" formatted="false">តួ​អក្សរ​បាន​បញ្ចូល​ %1$d នៃ %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">ដែនកំណត់តួអក្សរបានលើស %1$d នៃ %2$d</string>
+    <string name="character_counter_content_description">តួ​អក្សរ​បាន​បញ្ចូល​ %1$d នៃ %2$d</string>
+    <string name="character_counter_overflowed_content_description">ដែនកំណត់តួអក្សរបានលើស %1$d នៃ %2$d</string>
     <string name="clear_text_end_icon_content_description">សម្អាតអក្សរ</string>
     <string name="copy">ចម្លង</string>
     <string name="copy_toast_msg">បាន​ចម្លង​តំណ​ទៅឃ្លីបបត</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">នៅក្រៅ​ជួរ៖ %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">កាលបរិច្ឆេទ​ចាប់ផ្ដើម – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – កាលបរិច្ឆេទ​បញ្ចប់</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">ជ្រើស​រើស​ចន្លោះ</string>
     <string name="mtrl_picker_range_header_unselected">កាលបរិច្ឆេទ​ចាប់ផ្ដើម – កាលបរិច្ឆេទ​បញ្ចប់</string>
     <string name="mtrl_picker_save">រក្សាទុក</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" បានចម្លងទៅ​ឃ្លីបបត។</string>
     <string name="search_menu_title">ស្វែងរក</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">បិទ</string>
     <string name="v7_preference_on">បើក</string>
 </resources>

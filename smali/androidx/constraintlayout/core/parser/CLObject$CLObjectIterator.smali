@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/core/parser/CLObject;Landroidx/constraintlayout/core/parser/CLObject;)V
-    .locals 0
+    .registers 3
     .param p2, "clObject"    # Landroidx/constraintlayout/core/parser/CLObject;
 
     .line 75
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 81
     iget v0, p0, Landroidx/constraintlayout/core/parser/CLObject$CLObjectIterator;->index:I
@@ -61,21 +61,21 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 86
     iget-object v0, p0, Landroidx/constraintlayout/core/parser/CLObject$CLObjectIterator;->myObject:Landroidx/constraintlayout/core/parser/CLObject;

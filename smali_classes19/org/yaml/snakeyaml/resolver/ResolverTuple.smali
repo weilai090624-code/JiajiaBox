@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/util/regex/Pattern;)V
-    .locals 0
+    .registers 3
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "regexp"    # Ljava/util/regex/Pattern;
 
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getRegexp()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Lorg/yaml/snakeyaml/resolver/ResolverTuple;->regexp:Ljava/util/regex/Pattern;
@@ -40,7 +40,7 @@
 .end method
 
 .method public getTag()Lorg/yaml/snakeyaml/nodes/Tag;
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Lorg/yaml/snakeyaml/resolver/ResolverTuple;->tag:Lorg/yaml/snakeyaml/nodes/Tag;
@@ -49,7 +49,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 41
     new-instance v0, Ljava/lang/StringBuilder;

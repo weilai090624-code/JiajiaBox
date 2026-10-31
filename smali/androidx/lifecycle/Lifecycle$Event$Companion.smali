@@ -48,7 +48,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 151
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/lifecycle/Lifecycle$Event$Companion;-><init>()V
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public final downFrom(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -85,43 +85,43 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     .line 166
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 165
-    :pswitch_0
+    :pswitch_13
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_PAUSE:Landroidx/lifecycle/Lifecycle$Event;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 164
-    :pswitch_1
+    :pswitch_16
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 163
-    :pswitch_2
+    :pswitch_19
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
     .line 162
-    :goto_0
+    :goto_1b
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_16
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method public final downTo(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -139,45 +139,45 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     .line 184
-    :pswitch_0
+    :pswitch_11
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 181
-    :pswitch_1
+    :pswitch_13
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 183
-    :pswitch_2
+    :pswitch_16
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_PAUSE:Landroidx/lifecycle/Lifecycle$Event;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 182
-    :pswitch_3
+    :pswitch_19
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
 
     .line 180
-    :goto_0
+    :goto_1b
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_19
+        :pswitch_16
+        :pswitch_11
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method public final upFrom(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -195,46 +195,46 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     .line 202
-    :pswitch_0
+    :pswitch_11
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 199
-    :pswitch_1
+    :pswitch_13
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_CREATE:Landroidx/lifecycle/Lifecycle$Event;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 201
-    :pswitch_2
+    :pswitch_16
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 200
-    :pswitch_3
+    :pswitch_19
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
 
     .line 198
-    :goto_0
+    :goto_1b
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
+        :pswitch_19
+        :pswitch_16
+        :pswitch_11
+        :pswitch_11
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method public final upTo(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -252,37 +252,37 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     .line 220
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 219
-    :pswitch_0
+    :pswitch_13
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 218
-    :pswitch_1
+    :pswitch_16
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 217
-    :pswitch_2
+    :pswitch_19
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_CREATE:Landroidx/lifecycle/Lifecycle$Event;
 
     .line 216
-    :goto_0
+    :goto_1b
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_16
+        :pswitch_13
     .end packed-switch
 .end method

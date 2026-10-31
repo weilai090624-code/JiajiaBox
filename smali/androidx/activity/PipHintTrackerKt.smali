@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final synthetic access$trackPipAnimationHintView$positionInWindow(Landroid/view/View;)Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Landroid/view/View;
 
     .line 1
@@ -41,7 +41,7 @@
 .end method
 
 .method public static final trackPipAnimationHintView(Landroid/app/Activity;Landroid/view/View;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "$this$trackPipAnimationHintView"    # Landroid/app/Activity;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -90,11 +90,11 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1f
 
     return-object v1
 
-    :cond_0
+    :cond_1f
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 93
@@ -102,7 +102,7 @@
 .end method
 
 .method private static final trackPipAnimationHintView$positionInWindow(Landroid/view/View;)Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
     .param p0, "$this$trackPipAnimationHintView_u24positionInWindow"    # Landroid/view/View;
 
     .line 43

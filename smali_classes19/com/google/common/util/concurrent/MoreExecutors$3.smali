@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ExecutorService;Lcom/google/common/base/Supplier;)V
-    .locals 0
+    .registers 3
     .param p1, "delegate"    # Ljava/util/concurrent/ExecutorService;
 
     .line 912
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method protected wrapTask(Ljava/lang/Runnable;)Ljava/lang/Runnable;
-    .locals 1
+    .registers 3
     .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 920
@@ -48,7 +48,7 @@
 .end method
 
 .method protected wrapTask(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Callable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

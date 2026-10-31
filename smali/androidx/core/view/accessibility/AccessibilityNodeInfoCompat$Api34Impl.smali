@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5279
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static getActionScrollInDirection()Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
-    .locals 1
+    .registers 1
 
     .line 5345
     sget-object v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SCROLL_IN_DIRECTION:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
@@ -35,7 +35,7 @@
 .end method
 
 .method public static getBoundsInWindow(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "bounds"    # Landroid/graphics/Rect;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public static getContainerTitle(Landroid/view/accessibility/AccessibilityNodeInfo;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 5296
@@ -59,7 +59,7 @@
 .end method
 
 .method public static getMinDurationBetweenContentChangeMillis(Landroid/view/accessibility/AccessibilityNodeInfo;)J
-    .locals 2
+    .registers 3
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 5328
@@ -75,7 +75,7 @@
 .end method
 
 .method public static hasRequestInitialAccessibilityFocus(Landroid/view/accessibility/AccessibilityNodeInfo;)Z
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 5317
@@ -87,7 +87,7 @@
 .end method
 
 .method public static isAccessibilityDataSensitive(Landroid/view/accessibility/AccessibilityNodeInfo;)Z
-    .locals 1
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 5285
@@ -99,7 +99,7 @@
 .end method
 
 .method public static setAccessibilityDataSensitive(Landroid/view/accessibility/AccessibilityNodeInfo;Z)V
-    .locals 0
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "accessibilityDataSensitive"    # Z
 
@@ -111,7 +111,7 @@
 .end method
 
 .method public static setBoundsInWindow(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "bounds"    # Landroid/graphics/Rect;
 
@@ -123,7 +123,7 @@
 .end method
 
 .method public static setContainerTitle(Landroid/view/accessibility/AccessibilityNodeInfo;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "containerTitle"    # Ljava/lang/CharSequence;
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public static setMinDurationBetweenContentChangeMillis(Landroid/view/accessibility/AccessibilityNodeInfo;J)V
-    .locals 1
+    .registers 4
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "duration"    # J
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public static setQueryFromAppProcessEnabled(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/View;Z)V
-    .locals 0
+    .registers 3
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "enabled"    # Z
@@ -164,7 +164,7 @@
 .end method
 
 .method public static setRequestInitialAccessibilityFocus(Landroid/view/accessibility/AccessibilityNodeInfo;Z)V
-    .locals 0
+    .registers 2
     .param p0, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p1, "requestInitialAccessibilityFocus"    # Z
 

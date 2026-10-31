@@ -87,7 +87,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;)V
-    .locals 3
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,7 +141,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture$1;)V
-    .locals 0
+    .registers 7
     .param p1, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/ClosingFuture;
     .param p3, "x2"    # Lcom/google/common/util/concurrent/ClosingFuture;
@@ -157,7 +157,7 @@
 .end method
 
 .method static synthetic access$2700(Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;
 
     .line 1935
@@ -167,7 +167,7 @@
 .end method
 
 .method static synthetic access$2800(Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;
 
     .line 1935
@@ -177,7 +177,7 @@
 .end method
 
 .method static synthetic access$2900(Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;
 
     .line 1935
@@ -187,7 +187,7 @@
 .end method
 
 .method static synthetic access$3000(Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;
 
     .line 1935
@@ -197,7 +197,7 @@
 .end method
 
 .method static synthetic access$3100(Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;
 
     .line 1935
@@ -209,7 +209,7 @@
 
 # virtual methods
 .method public call(Lcom/google/common/util/concurrent/ClosingFuture$Combiner5$ClosingFunction5;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -240,7 +240,7 @@
 .end method
 
 .method public callAsync(Lcom/google/common/util/concurrent/ClosingFuture$Combiner5$AsyncClosingFunction5;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {

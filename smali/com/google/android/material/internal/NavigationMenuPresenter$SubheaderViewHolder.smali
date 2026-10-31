@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)V
-    .locals 2
+    .registers 5
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "parent"    # Landroid/view/ViewGroup;
 

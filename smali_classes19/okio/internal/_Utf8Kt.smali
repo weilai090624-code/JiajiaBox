@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final commonAsUtf8ToByteArray(Ljava/lang/String;)[B
-    .locals 18
+    .registers 19
     .param p0, "$this$commonAsUtf8ToByteArray"    # Ljava/lang/String;
 
     move-object/from16 v0, p0
@@ -60,11 +60,11 @@
 
     const-string v3, "java.util.Arrays.copyOf(this, newSize)"
 
-    if-lez v2, :cond_b
+    if-lez v2, :cond_139
 
     const/4 v5, 0x0
 
-    :cond_0
+    :cond_18
     move v6, v5
 
     .local v6, "index":I
@@ -85,7 +85,7 @@
 
     move-result v10
 
-    if-ltz v10, :cond_a
+    if-ltz v10, :cond_134
 
     .line 49
     const/4 v2, 0x0
@@ -110,9 +110,9 @@
 
     .line 240
     .local v12, "index$iv":I
-    :cond_1
-    :goto_0
-    if-ge v12, v5, :cond_9
+    :cond_31
+    :goto_31
+    if-ge v12, v5, :cond_12b
 
     .line 241
     invoke-virtual {v10, v12}, Ljava/lang/String;->charAt(I)C
@@ -128,7 +128,7 @@
 
     move-result v14
 
-    if-gez v14, :cond_2
+    if-gez v14, :cond_65
 
     .line 246
     int-to-byte v14, v13
@@ -157,8 +157,8 @@
     .line 250
     .end local v16    # "size":I
     .restart local v2    # "size":I
-    :goto_1
-    if-ge v12, v5, :cond_1
+    :goto_49
+    if-ge v12, v5, :cond_31
 
     invoke-virtual {v10, v12}, Ljava/lang/String;->charAt(I)C
 
@@ -168,7 +168,7 @@
 
     move-result v14
 
-    if-gez v14, :cond_1
+    if-gez v14, :cond_31
 
     .line 251
     add-int/lit8 v14, v12, 0x1
@@ -199,21 +199,21 @@
 
     .end local v12    # "c":B
     .end local v15    # "$i$a$-processUtf8Bytes-_Utf8Kt$commonAsUtf8ToByteArray$1":I
-    goto :goto_1
+    goto :goto_49
 
     .line 255
     .end local v14    # "index$iv":I
     .end local v16    # "size":I
     .restart local v2    # "size":I
     .local v12, "index$iv":I
-    :cond_2
+    :cond_65
     const/16 v14, 0x800
 
     invoke-static {v13, v14}, Lkotlin/jvm/internal/Intrinsics;->compare(II)I
 
     move-result v14
 
-    if-gez v14, :cond_3
+    if-gez v14, :cond_86
 
     .line 258
     shr-int/lit8 v14, v13, 0x6
@@ -266,29 +266,29 @@
 
     move v2, v15
 
-    goto :goto_0
+    goto :goto_31
 
     .line 264
     .end local v15    # "size":I
     .local v2, "size":I
-    :cond_3
+    :cond_86
     const v14, 0xd800
 
     const v15, 0xdfff
 
-    if-gt v14, v13, :cond_4
+    if-gt v14, v13, :cond_92
 
-    if-gt v13, v15, :cond_4
+    if-gt v13, v15, :cond_92
 
     const/4 v14, 0x1
 
-    goto :goto_2
+    goto :goto_93
 
-    :cond_4
+    :cond_92
     const/4 v14, 0x0
 
-    :goto_2
-    if-nez v14, :cond_5
+    :goto_93
+    if-nez v14, :cond_bc
 
     .line 267
     shr-int/lit8 v14, v13, 0xc
@@ -366,24 +366,24 @@
 
     move/from16 v2, v16
 
-    goto/16 :goto_0
+    goto/16 :goto_31
 
     .line 278
     .end local v16    # "size":I
     .local v2, "size":I
-    :cond_5
+    :cond_bc
     const v14, 0xdbff
 
     invoke-static {v13, v14}, Lkotlin/jvm/internal/Intrinsics;->compare(II)I
 
     move-result v14
 
-    if-gtz v14, :cond_8
+    if-gtz v14, :cond_11e
 
     .line 279
     add-int/lit8 v14, v12, 0x1
 
-    if-le v5, v14, :cond_8
+    if-le v5, v14, :cond_11e
 
     .line 280
     add-int/lit8 v14, v12, 0x1
@@ -394,24 +394,24 @@
 
     const v4, 0xdc00
 
-    if-gt v4, v14, :cond_6
+    if-gt v4, v14, :cond_d8
 
-    if-gt v14, v15, :cond_6
+    if-gt v14, v15, :cond_d8
 
     const/4 v4, 0x1
 
-    goto :goto_3
+    goto :goto_d9
 
-    :cond_6
+    :cond_d8
     const/4 v4, 0x0
 
-    :goto_3
-    if-nez v4, :cond_7
+    :goto_d9
+    if-nez v4, :cond_dc
 
-    goto :goto_4
+    goto :goto_11e
 
     .line 289
-    :cond_7
+    :cond_dc
     shl-int/lit8 v4, v13, 0xa
 
     add-int/lit8 v14, v12, 0x1
@@ -539,14 +539,14 @@
 
     move v2, v15
 
-    goto/16 :goto_0
+    goto/16 :goto_31
 
     .line 282
     .end local v15    # "size":I
     .local v2, "size":I
     .restart local v13    # "c$iv":C
-    :cond_8
-    :goto_4
+    :cond_11e
+    :goto_11e
     const/16 v4, 0x3f
 
     .local v4, "c":B
@@ -570,13 +570,13 @@
 
     move v2, v15
 
-    goto/16 :goto_0
+    goto/16 :goto_31
 
     .line 305
     .end local v13    # "c$iv":C
     .end local v15    # "size":I
     .restart local v2    # "size":I
-    :cond_9
+    :cond_12b
     nop
 
     .line 53
@@ -594,18 +594,18 @@
 
     .line 55
     .end local v2    # "size":I
-    :cond_a
+    :cond_134
     int-to-byte v4, v8
 
     aput-byte v4, v1, v6
 
     .line 46
     .end local v8    # "b0":C
-    if-lt v5, v2, :cond_0
+    if-lt v5, v2, :cond_18
 
     .line 58
     .end local v6    # "index":I
-    :cond_b
+    :cond_139
     invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -620,7 +620,7 @@
 .end method
 
 .method public static final commonToUtf8String([BII)Ljava/lang/String;
-    .locals 26
+    .registers 29
     .param p0, "$this$commonToUtf8String"    # [B
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
@@ -636,13 +636,13 @@
     invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 28
-    if-ltz v1, :cond_2e
+    if-ltz v1, :cond_3e6
 
     array-length v3, v0
 
-    if-gt v2, v3, :cond_2e
+    if-gt v2, v3, :cond_3e6
 
-    if-gt v1, v2, :cond_2e
+    if-gt v1, v2, :cond_3e6
 
     .line 31
     sub-int v3, v2, v1
@@ -666,9 +666,9 @@
 
     .line 62
     .local v7, "index$iv":I
-    :cond_0
-    :goto_0
-    if-ge v7, v2, :cond_2d
+    :cond_1c
+    :goto_1c
+    if-ge v7, v2, :cond_3df
 
     .line 63
     aget-byte v9, v5, v7
@@ -678,7 +678,7 @@
     nop
 
     .line 65
-    if-ltz v9, :cond_1
+    if-ltz v9, :cond_40
 
     .line 67
     int-to-char v8, v9
@@ -707,12 +707,12 @@
     .line 72
     .end local v11    # "length":I
     .restart local v4    # "length":I
-    :goto_1
-    if-ge v7, v2, :cond_0
+    :goto_2d
+    if-ge v7, v2, :cond_1c
 
     aget-byte v8, v5, v7
 
-    if-ltz v8, :cond_0
+    if-ltz v8, :cond_1c
 
     .line 73
     add-int/lit8 v8, v7, 0x1
@@ -741,14 +741,14 @@
 
     .end local v7    # "c":C
     .end local v10    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
-    goto :goto_1
+    goto :goto_2d
 
     .line 76
     .end local v8    # "index$iv":I
     .end local v11    # "length":I
     .restart local v4    # "length":I
     .local v7, "index$iv":I
-    :cond_1
+    :cond_40
     const/4 v10, 0x5
 
     .local v10, "other$iv$iv":I
@@ -769,7 +769,7 @@
 
     const/16 v12, 0x80
 
-    if-ne v10, v11, :cond_6
+    if-ne v10, v11, :cond_be
 
     .line 78
     move-object v10, v5
@@ -781,7 +781,7 @@
     .local v11, "$i$f$process2Utf8Bytes":I
     add-int/lit8 v15, v7, 0x1
 
-    if-gt v2, v15, :cond_2
+    if-gt v2, v15, :cond_63
 
     .line 80
     const v8, 0xfffd
@@ -820,12 +820,12 @@
 
     move/from16 v16, v6
 
-    goto :goto_4
+    goto :goto_b9
 
     .line 85
     .end local v16    # "length":I
     .restart local v4    # "length":I
-    :cond_2
+    :cond_63
     aget-byte v15, v10, v7
 
     .line 86
@@ -856,19 +856,19 @@
     .end local v18    # "other$iv$iv$iv$iv":I
     .end local v19    # "$this$and$iv$iv$iv$iv":B
     .end local v20    # "$i$f$and":I
-    if-ne v14, v12, :cond_3
+    if-ne v14, v12, :cond_77
 
     const/4 v8, 0x1
 
-    goto :goto_2
+    goto :goto_78
 
-    :cond_3
+    :cond_77
     const/4 v8, 0x0
 
     .line 87
     .end local v16    # "$i$f$isUtf8Continuation":I
-    :goto_2
-    if-nez v8, :cond_4
+    :goto_78
+    if-nez v8, :cond_8e
 
     .line 90
     const v8, 0xfffd
@@ -907,12 +907,12 @@
 
     const/4 v13, 0x1
 
-    goto :goto_4
+    goto :goto_b9
 
     .line 96
     .end local v17    # "length":I
     .restart local v4    # "length":I
-    :cond_4
+    :cond_8e
     nop
 
     .line 97
@@ -935,7 +935,7 @@
     nop
 
     .line 102
-    if-ge v8, v12, :cond_5
+    if-ge v8, v12, :cond_a8
 
     .line 103
     const v12, 0xfffd
@@ -969,14 +969,14 @@
     .end local v12    # "it$iv":I
     .end local v14    # "$i$a$-process2Utf8Bytes-Utf8$processUtf16Chars$1$iv":I
     .end local v18    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
-    goto :goto_3
+    goto :goto_b4
 
     .line 106
     .end local v16    # "$i$f$processUtf16Chars":I
     .end local v19    # "length":I
     .restart local v4    # "length":I
     .local v6, "$i$f$processUtf16Chars":I
-    :cond_5
+    :cond_a8
     move/from16 v16, v6
 
     .end local v6    # "$i$f$processUtf16Chars":I
@@ -1008,7 +1008,7 @@
     .end local v12    # "$i$a$-process2Utf8Bytes-Utf8$processUtf16Chars$1$iv":I
     .end local v14    # "c":C
     .end local v18    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
-    :goto_3
+    :goto_b4
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 109
@@ -1024,17 +1024,17 @@
     .end local v15    # "b0$iv$iv":B
     .end local v19    # "length":I
     .restart local v4    # "length":I
-    :goto_4
+    :goto_b9
     add-int/2addr v7, v13
 
     move/from16 v6, v16
 
-    goto/16 :goto_0
+    goto/16 :goto_1c
 
     .line 110
     .end local v16    # "$i$f$processUtf16Chars":I
     .local v6, "$i$f$processUtf16Chars":I
-    :cond_6
+    :cond_be
     move/from16 v16, v6
 
     .end local v6    # "$i$f$processUtf16Chars":I
@@ -1059,7 +1059,7 @@
 
     const v13, 0xd800
 
-    if-ne v6, v11, :cond_12
+    if-ne v6, v11, :cond_198
 
     .line 112
     move-object v6, v5
@@ -1071,7 +1071,7 @@
     .local v11, "$i$f$process3Utf8Bytes":I
     add-int/lit8 v15, v7, 0x2
 
-    if-gt v2, v15, :cond_a
+    if-gt v2, v15, :cond_100
 
     .line 115
     const v10, 0xfffd
@@ -1106,7 +1106,7 @@
     .line 116
     add-int/lit8 v4, v7, 0x1
 
-    if-le v2, v4, :cond_9
+    if-le v2, v4, :cond_fb
 
     add-int/lit8 v4, v7, 0x1
 
@@ -1133,44 +1133,44 @@
     .end local v13    # "other$iv$iv$iv$iv":I
     .end local v14    # "$this$and$iv$iv$iv$iv":B
     .end local v15    # "$i$f$and":I
-    if-ne v13, v12, :cond_7
+    if-ne v13, v12, :cond_f2
 
     const/4 v8, 0x1
 
-    goto :goto_5
+    goto :goto_f3
 
-    :cond_7
+    :cond_f2
     const/4 v8, 0x0
 
     .line 116
     .end local v4    # "byte$iv$iv$iv":B
     .end local v10    # "$i$f$isUtf8Continuation":I
-    :goto_5
-    if-nez v8, :cond_8
+    :goto_f3
+    if-nez v8, :cond_f6
 
-    goto :goto_6
+    goto :goto_fb
 
     .line 121
-    :cond_8
+    :cond_f6
     move/from16 v4, v18
 
     const/4 v13, 0x2
 
-    goto/16 :goto_c
+    goto/16 :goto_193
 
     .line 118
-    :cond_9
-    :goto_6
+    :cond_fb
+    :goto_fb
     move/from16 v4, v18
 
     const/4 v13, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_193
 
     .line 125
     .end local v18    # "length":I
     .local v4, "length":I
-    :cond_a
+    :cond_100
     aget-byte v15, v6, v7
 
     .line 126
@@ -1201,19 +1201,19 @@
     .end local v20    # "other$iv$iv$iv$iv":I
     .end local v22    # "$this$and$iv$iv$iv$iv":B
     .end local v23    # "$i$f$and":I
-    if-ne v14, v12, :cond_b
+    if-ne v14, v12, :cond_114
 
     const/4 v14, 0x1
 
-    goto :goto_7
+    goto :goto_115
 
-    :cond_b
+    :cond_114
     const/4 v14, 0x0
 
     .line 127
     .end local v19    # "$i$f$isUtf8Continuation":I
-    :goto_7
-    if-nez v14, :cond_c
+    :goto_115
+    if-nez v14, :cond_128
 
     .line 129
     const v8, 0xfffd
@@ -1250,12 +1250,12 @@
 
     const/4 v13, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_193
 
     .line 132
     .end local v14    # "length":I
     .restart local v4    # "length":I
-    :cond_c
+    :cond_128
     add-int/lit8 v14, v7, 0x2
 
     aget-byte v14, v6, v14
@@ -1282,19 +1282,19 @@
     .end local v20    # "other$iv$iv$iv$iv":I
     .end local v22    # "$this$and$iv$iv$iv$iv":B
     .end local v23    # "$i$f$and":I
-    if-ne v8, v12, :cond_d
+    if-ne v8, v12, :cond_13a
 
     const/4 v8, 0x1
 
-    goto :goto_8
+    goto :goto_13b
 
-    :cond_d
+    :cond_13a
     const/4 v8, 0x0
 
     .line 133
     .end local v19    # "$i$f$isUtf8Continuation":I
-    :goto_8
-    if-nez v8, :cond_e
+    :goto_13b
+    if-nez v8, :cond_14e
 
     .line 135
     const v8, 0xfffd
@@ -1331,12 +1331,12 @@
 
     const/4 v13, 0x2
 
-    goto :goto_c
+    goto :goto_193
 
     .line 141
     .end local v19    # "length":I
     .restart local v4    # "length":I
-    :cond_e
+    :cond_14e
     nop
 
     .line 142
@@ -1369,7 +1369,7 @@
     .line 148
     const/16 v12, 0x800
 
-    if-ge v8, v12, :cond_f
+    if-ge v8, v12, :cond_16f
 
     .line 149
     const v10, 0xfffd
@@ -1393,7 +1393,7 @@
     aput-char v13, v3, v4
 
     .line 36
-    :goto_9
+    :goto_16b
     nop
 
     .end local v10    # "it$iv":I
@@ -1402,25 +1402,25 @@
     .end local v17    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_b
+    goto :goto_190
 
     .line 151
     .end local v19    # "length":I
     .restart local v4    # "length":I
-    :cond_f
-    if-gt v13, v8, :cond_10
+    :cond_16f
+    if-gt v13, v8, :cond_176
 
-    if-gt v8, v10, :cond_10
+    if-gt v8, v10, :cond_176
 
     const/16 v24, 0x1
 
-    goto :goto_a
+    goto :goto_178
 
-    :cond_10
+    :cond_176
     const/16 v24, 0x0
 
-    :goto_a
-    if-eqz v24, :cond_11
+    :goto_178
+    if-eqz v24, :cond_186
 
     .line 152
     const v10, 0xfffd
@@ -1443,7 +1443,7 @@
     .restart local v19    # "length":I
     aput-char v13, v3, v4
 
-    goto :goto_9
+    goto :goto_16b
 
     .line 155
     .end local v10    # "it$iv":I
@@ -1452,7 +1452,7 @@
     .end local v17    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
     .end local v19    # "length":I
     .restart local v4    # "length":I
-    :cond_11
+    :cond_186
     move v10, v8
 
     .restart local v10    # "it$iv":I
@@ -1473,14 +1473,14 @@
     .restart local v19    # "length":I
     aput-char v13, v3, v4
 
-    goto :goto_9
+    goto :goto_16b
 
     .line 158
     .end local v10    # "it$iv":I
     .end local v12    # "$i$a$-process3Utf8Bytes-Utf8$processUtf16Chars$2$iv":I
     .end local v13    # "c":C
     .end local v17    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
-    :goto_b
+    :goto_190
     move/from16 v4, v19
 
     const/4 v13, 0x3
@@ -1494,15 +1494,15 @@
     .end local v18    # "b1$iv$iv":B
     .end local v19    # "length":I
     .restart local v4    # "length":I
-    :goto_c
+    :goto_193
     add-int/2addr v7, v13
 
     move/from16 v6, v16
 
-    goto/16 :goto_0
+    goto/16 :goto_1c
 
     .line 159
-    :cond_12
+    :cond_198
     const/4 v6, 0x3
 
     .local v6, "other$iv$iv":I
@@ -1519,7 +1519,7 @@
     .end local v6    # "other$iv$iv":I
     .end local v8    # "$this$shr$iv$iv":B
     .end local v14    # "$i$f$shr":I
-    if-ne v6, v11, :cond_2c
+    if-ne v6, v11, :cond_3cf
 
     .line 161
     move-object v6, v5
@@ -1537,7 +1537,7 @@
 
     const v10, 0xfffd
 
-    if-gt v2, v11, :cond_1a
+    if-gt v2, v11, :cond_20f
 
     .line 164
     const v11, 0xfffd
@@ -1547,7 +1547,7 @@
 
     .line 165
     .local v13, "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3$iv":I
-    if-eq v11, v10, :cond_13
+    if-eq v11, v10, :cond_1c9
 
     .line 170
     ushr-int/lit8 v10, v11, 0xa
@@ -1595,12 +1595,12 @@
 
     .end local v4    # "c":C
     .end local v10    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
-    goto :goto_d
+    goto :goto_1d2
 
     .line 174
     .end local v14    # "length":I
     .local v4, "length":I
-    :cond_13
+    :cond_1c9
     const v10, 0xfffd
 
     .local v10, "c":C
@@ -1621,7 +1621,7 @@
     .end local v10    # "c":C
     .end local v15    # "length":I
     .local v14, "length":I
-    :goto_d
+    :goto_1d2
     nop
 
     .end local v11    # "codePoint$iv":I
@@ -1631,7 +1631,7 @@
     .line 177
     add-int/lit8 v4, v7, 0x1
 
-    if-le v2, v4, :cond_19
+    if-le v2, v4, :cond_20b
 
     add-int/lit8 v4, v7, 0x1
 
@@ -1658,28 +1658,28 @@
     .end local v11    # "other$iv$iv$iv$iv":I
     .end local v13    # "$this$and$iv$iv$iv$iv":B
     .end local v15    # "$i$f$and":I
-    if-ne v11, v12, :cond_14
+    if-ne v11, v12, :cond_1e7
 
     const/4 v4, 0x1
 
-    goto :goto_e
+    goto :goto_1e8
 
-    :cond_14
+    :cond_1e7
     const/4 v4, 0x0
 
     .line 177
     .end local v4    # "byte$iv$iv$iv":B
     .end local v10    # "$i$f$isUtf8Continuation":I
-    :goto_e
-    if-nez v4, :cond_15
+    :goto_1e8
+    if-nez v4, :cond_1eb
 
-    goto :goto_11
+    goto :goto_20b
 
     .line 180
-    :cond_15
+    :cond_1eb
     add-int/lit8 v4, v7, 0x2
 
-    if-le v2, v4, :cond_18
+    if-le v2, v4, :cond_207
 
     add-int/lit8 v4, v7, 0x2
 
@@ -1706,53 +1706,53 @@
     .end local v11    # "other$iv$iv$iv$iv":I
     .end local v13    # "$this$and$iv$iv$iv$iv":B
     .end local v15    # "$i$f$and":I
-    if-ne v11, v12, :cond_16
+    if-ne v11, v12, :cond_1fe
 
     const/16 v21, 0x1
 
-    goto :goto_f
+    goto :goto_200
 
-    :cond_16
+    :cond_1fe
     const/16 v21, 0x0
 
     .line 180
     .end local v4    # "byte$iv$iv$iv":B
     .end local v10    # "$i$f$isUtf8Continuation":I
-    :goto_f
-    if-nez v21, :cond_17
+    :goto_200
+    if-nez v21, :cond_203
 
-    goto :goto_10
+    goto :goto_207
 
     .line 185
-    :cond_17
+    :cond_203
     move v4, v14
 
     const/4 v13, 0x3
 
-    goto/16 :goto_1d
+    goto/16 :goto_3ca
 
     .line 182
-    :cond_18
-    :goto_10
+    :cond_207
+    :goto_207
     move v4, v14
 
     const/4 v13, 0x2
 
-    goto/16 :goto_1d
+    goto/16 :goto_3ca
 
     .line 179
-    :cond_19
-    :goto_11
+    :cond_20b
+    :goto_20b
     move v4, v14
 
     const/4 v13, 0x1
 
-    goto/16 :goto_1d
+    goto/16 :goto_3ca
 
     .line 189
     .end local v14    # "length":I
     .local v4, "length":I
-    :cond_1a
+    :cond_20f
     aget-byte v11, v6, v7
 
     .line 190
@@ -1783,19 +1783,19 @@
     .end local v22    # "other$iv$iv$iv$iv":I
     .end local v23    # "$this$and$iv$iv$iv$iv":B
     .end local v25    # "$i$f$and":I
-    if-ne v13, v12, :cond_1b
+    if-ne v13, v12, :cond_223
 
     const/4 v13, 0x1
 
-    goto :goto_12
+    goto :goto_224
 
-    :cond_1b
+    :cond_223
     const/4 v13, 0x0
 
     .line 191
     .end local v20    # "$i$f$isUtf8Continuation":I
-    :goto_12
-    if-nez v13, :cond_1d
+    :goto_224
+    if-nez v13, :cond_251
 
     .line 193
     const v12, 0xfffd
@@ -1805,7 +1805,7 @@
 
     .line 165
     .local v13, "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3$iv":I
-    if-eq v12, v10, :cond_1c
+    if-eq v12, v10, :cond_241
 
     .line 170
     ushr-int/lit8 v10, v12, 0xa
@@ -1853,12 +1853,12 @@
 
     .end local v4    # "c":C
     .end local v10    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
-    goto :goto_13
+    goto :goto_24a
 
     .line 174
     .end local v14    # "length":I
     .local v4, "length":I
-    :cond_1c
+    :cond_241
     const v10, 0xfffd
 
     .local v10, "c":C
@@ -1879,7 +1879,7 @@
     .end local v10    # "c":C
     .end local v15    # "length":I
     .local v14, "length":I
-    :goto_13
+    :goto_24a
     nop
 
     .end local v12    # "codePoint$iv":I
@@ -1891,12 +1891,12 @@
 
     const/4 v13, 0x1
 
-    goto/16 :goto_1d
+    goto/16 :goto_3ca
 
     .line 196
     .end local v14    # "length":I
     .restart local v4    # "length":I
-    :cond_1d
+    :cond_251
     add-int/lit8 v13, v7, 0x2
 
     aget-byte v13, v6, v13
@@ -1923,19 +1923,19 @@
     .end local v22    # "other$iv$iv$iv$iv":I
     .end local v23    # "$this$and$iv$iv$iv$iv":B
     .end local v25    # "$i$f$and":I
-    if-ne v14, v12, :cond_1e
+    if-ne v14, v12, :cond_263
 
     const/4 v14, 0x1
 
-    goto :goto_14
+    goto :goto_264
 
-    :cond_1e
+    :cond_263
     const/4 v14, 0x0
 
     .line 197
     .end local v20    # "$i$f$isUtf8Continuation":I
-    :goto_14
-    if-nez v14, :cond_20
+    :goto_264
+    if-nez v14, :cond_295
 
     .line 199
     const v12, 0xfffd
@@ -1945,7 +1945,7 @@
 
     .line 165
     .local v14, "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3$iv":I
-    if-eq v12, v10, :cond_1f
+    if-eq v12, v10, :cond_284
 
     .line 170
     ushr-int/lit8 v10, v12, 0xa
@@ -1995,12 +1995,12 @@
 
     .end local v4    # "c":C
     .end local v10    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
-    goto :goto_15
+    goto :goto_28e
 
     .line 174
     .end local v15    # "length":I
     .local v4, "length":I
-    :cond_1f
+    :cond_284
     const v10, 0xfffd
 
     .local v10, "c":C
@@ -2021,7 +2021,7 @@
     .end local v10    # "c":C
     .end local v18    # "length":I
     .local v15, "length":I
-    :goto_15
+    :goto_28e
     nop
 
     .end local v12    # "codePoint$iv":I
@@ -2033,12 +2033,12 @@
 
     const/4 v13, 0x2
 
-    goto/16 :goto_1d
+    goto/16 :goto_3ca
 
     .line 202
     .end local v15    # "length":I
     .restart local v4    # "length":I
-    :cond_20
+    :cond_295
     add-int/lit8 v14, v7, 0x3
 
     aget-byte v14, v6, v14
@@ -2065,19 +2065,19 @@
     .end local v20    # "other$iv$iv$iv$iv":I
     .end local v22    # "$this$and$iv$iv$iv$iv":B
     .end local v23    # "$i$f$and":I
-    if-ne v15, v12, :cond_21
+    if-ne v15, v12, :cond_2a7
 
     const/4 v12, 0x1
 
-    goto :goto_16
+    goto :goto_2a8
 
-    :cond_21
+    :cond_2a7
     const/4 v12, 0x0
 
     .line 203
     .end local v17    # "$i$f$isUtf8Continuation":I
-    :goto_16
-    if-nez v12, :cond_23
+    :goto_2a8
+    if-nez v12, :cond_2e0
 
     .line 205
     const v12, 0xfffd
@@ -2087,7 +2087,7 @@
 
     .line 165
     .local v15, "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3$iv":I
-    if-eq v12, v10, :cond_22
+    if-eq v12, v10, :cond_2cd
 
     .line 170
     ushr-int/lit8 v10, v12, 0xa
@@ -2139,12 +2139,12 @@
 
     .end local v4    # "c":C
     .end local v10    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
-    goto :goto_17
+    goto :goto_2d8
 
     .line 174
     .end local v17    # "length":I
     .local v4, "length":I
-    :cond_22
+    :cond_2cd
     const v10, 0xfffd
 
     .local v10, "c":C
@@ -2165,7 +2165,7 @@
     .end local v10    # "c":C
     .end local v18    # "length":I
     .local v17, "length":I
-    :goto_17
+    :goto_2d8
     nop
 
     .end local v12    # "codePoint$iv":I
@@ -2177,12 +2177,12 @@
 
     const/4 v13, 0x3
 
-    goto/16 :goto_1d
+    goto/16 :goto_3ca
 
     .line 211
     .end local v17    # "length":I
     .restart local v4    # "length":I
-    :cond_23
+    :cond_2e0
     nop
 
     .line 212
@@ -2221,7 +2221,7 @@
     .line 219
     const v15, 0x10ffff
 
-    if-le v12, v15, :cond_25
+    if-le v12, v15, :cond_32a
 
     .line 220
     const v15, 0xfffd
@@ -2231,7 +2231,7 @@
 
     .line 165
     .local v17, "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3$iv":I
-    if-eq v15, v10, :cond_24
+    if-eq v15, v10, :cond_31a
 
     .line 170
     ushr-int/lit8 v10, v15, 0xa
@@ -2279,17 +2279,17 @@
     aput-char v4, v3, v20
 
     .line 36
-    :goto_18
+    :goto_318
     nop
 
     .end local v4    # "c":C
     .end local v10    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
-    goto :goto_1a
+    goto :goto_325
 
     .line 174
     .end local v18    # "length":I
     .local v4, "length":I
-    :cond_24
+    :cond_31a
     const v10, 0xfffd
 
     .local v10, "c":C
@@ -2304,43 +2304,43 @@
     aput-char v10, v3, v4
 
     .line 36
-    :goto_19
+    :goto_323
     move/from16 v18, v20
 
     .line 176
     .end local v10    # "c":C
     .end local v20    # "length":I
     .local v18, "length":I
-    :goto_1a
+    :goto_325
     nop
 
     .end local v15    # "codePoint$iv":I
     .end local v17    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3$iv":I
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto/16 :goto_1c
+    goto/16 :goto_3c6
 
     .line 222
     .end local v18    # "length":I
     .restart local v4    # "length":I
-    :cond_25
+    :cond_32a
     const v15, 0xd800
 
-    if-gt v15, v12, :cond_26
+    if-gt v15, v12, :cond_337
 
     const v15, 0xdfff
 
-    if-gt v12, v15, :cond_26
+    if-gt v12, v15, :cond_337
 
     const/16 v24, 0x1
 
-    goto :goto_1b
+    goto :goto_339
 
-    :cond_26
+    :cond_337
     const/16 v24, 0x0
 
-    :goto_1b
-    if-eqz v24, :cond_28
+    :goto_339
+    if-eqz v24, :cond_368
 
     .line 223
     const v15, 0xfffd
@@ -2350,7 +2350,7 @@
 
     .line 165
     .restart local v17    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3$iv":I
-    if-eq v15, v10, :cond_27
+    if-eq v15, v10, :cond_35e
 
     .line 170
     ushr-int/lit8 v10, v15, 0xa
@@ -2397,13 +2397,13 @@
     .local v18, "length":I
     aput-char v4, v3, v20
 
-    goto :goto_18
+    goto :goto_318
 
     .line 174
     .end local v10    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
     .end local v18    # "length":I
     .local v4, "length":I
-    :cond_27
+    :cond_35e
     const v10, 0xfffd
 
     .local v10, "c":C
@@ -2417,7 +2417,7 @@
     .restart local v20    # "length":I
     aput-char v10, v3, v4
 
-    goto :goto_19
+    goto :goto_323
 
     .line 225
     .end local v10    # "c":C
@@ -2426,10 +2426,10 @@
     .end local v18    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
     .end local v20    # "length":I
     .restart local v4    # "length":I
-    :cond_28
+    :cond_368
     const/high16 v15, 0x10000
 
-    if-ge v12, v15, :cond_2a
+    if-ge v12, v15, :cond_399
 
     .line 226
     const v15, 0xfffd
@@ -2439,7 +2439,7 @@
 
     .line 165
     .restart local v17    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3$iv":I
-    if-eq v15, v10, :cond_29
+    if-eq v15, v10, :cond_38f
 
     .line 170
     ushr-int/lit8 v10, v15, 0xa
@@ -2486,13 +2486,13 @@
     .local v18, "length":I
     aput-char v4, v3, v20
 
-    goto :goto_18
+    goto :goto_318
 
     .line 174
     .end local v10    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
     .end local v18    # "length":I
     .local v4, "length":I
-    :cond_29
+    :cond_38f
     const v10, 0xfffd
 
     .local v10, "c":C
@@ -2506,7 +2506,7 @@
     .restart local v20    # "length":I
     aput-char v10, v3, v4
 
-    goto :goto_19
+    goto :goto_323
 
     .line 229
     .end local v10    # "c":C
@@ -2515,7 +2515,7 @@
     .end local v18    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
     .end local v20    # "length":I
     .restart local v4    # "length":I
-    :cond_2a
+    :cond_399
     move v15, v12
 
     .restart local v15    # "codePoint$iv":I
@@ -2523,7 +2523,7 @@
 
     .line 165
     .restart local v17    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3$iv":I
-    if-eq v15, v10, :cond_2b
+    if-eq v15, v10, :cond_3bb
 
     .line 170
     ushr-int/lit8 v10, v15, 0xa
@@ -2570,13 +2570,13 @@
     .local v18, "length":I
     aput-char v4, v3, v20
 
-    goto/16 :goto_18
+    goto/16 :goto_318
 
     .line 174
     .end local v10    # "$i$a$-processUtf16Chars-_Utf8Kt$commonToUtf8String$1":I
     .end local v18    # "length":I
     .local v4, "length":I
-    :cond_2b
+    :cond_3bb
     const v10, 0xfffd
 
     .local v10, "c":C
@@ -2590,7 +2590,7 @@
     .restart local v20    # "length":I
     aput-char v10, v3, v4
 
-    goto/16 :goto_19
+    goto/16 :goto_323
 
     .line 232
     .end local v10    # "c":C
@@ -2598,7 +2598,7 @@
     .end local v17    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3$iv":I
     .end local v20    # "length":I
     .local v18, "length":I
-    :goto_1c
+    :goto_3c6
     const/4 v4, 0x4
 
     move/from16 v4, v18
@@ -2615,15 +2615,15 @@
     .end local v18    # "length":I
     .end local v19    # "b1$iv$iv":B
     .restart local v4    # "length":I
-    :goto_1d
+    :goto_3ca
     add-int/2addr v7, v13
 
     move/from16 v6, v16
 
-    goto/16 :goto_0
+    goto/16 :goto_1c
 
     .line 233
-    :cond_2c
+    :cond_3cf
     const v6, 0xfffd
 
     .local v6, "c":C
@@ -2649,7 +2649,7 @@
 
     move/from16 v6, v16
 
-    goto/16 :goto_0
+    goto/16 :goto_1c
 
     .line 238
     .end local v9    # "b0$iv":B
@@ -2657,7 +2657,7 @@
     .end local v16    # "$i$f$processUtf16Chars":I
     .restart local v4    # "length":I
     .local v6, "$i$f$processUtf16Chars":I
-    :cond_2d
+    :cond_3df
     nop
 
     .line 38
@@ -2675,7 +2675,7 @@
     .line 29
     .end local v3    # "chars":[C
     .end local v4    # "length":I
-    :cond_2e
+    :cond_3e6
     new-instance v3, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2724,23 +2724,23 @@
 .end method
 
 .method public static synthetic commonToUtf8String$default([BIIILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 27
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_a
 
     array-length p2, p0
 
-    :cond_1
+    :cond_a
     invoke-static {p0, p1, p2}, Lokio/internal/_Utf8Kt;->commonToUtf8String([BII)Ljava/lang/String;
 
     move-result-object p0

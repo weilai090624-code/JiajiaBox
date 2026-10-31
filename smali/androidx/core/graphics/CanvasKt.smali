@@ -53,7 +53,7 @@
 
 # direct methods
 .method public static final withClip(Landroid/graphics/Canvas;FFFFLkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 9
     .param p0, "$this$withClip"    # Landroid/graphics/Canvas;
     .param p1, "left"    # F
     .param p2, "top"    # F
@@ -89,10 +89,10 @@
     nop
 
     .line 198
-    :try_start_0
+    :try_start_9
     invoke-interface {p5, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_11
 
     .line 200
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -104,7 +104,7 @@
     return-void
 
     .line 200
-    :catchall_0
+    :catchall_11
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -113,7 +113,7 @@
 .end method
 
 .method public static final withClip(Landroid/graphics/Canvas;IIIILkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 9
     .param p0, "$this$withClip"    # Landroid/graphics/Canvas;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -149,10 +149,10 @@
     nop
 
     .line 178
-    :try_start_0
+    :try_start_9
     invoke-interface {p5, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_11
 
     .line 180
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -164,7 +164,7 @@
     return-void
 
     .line 180
-    :catchall_0
+    :catchall_11
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -173,7 +173,7 @@
 .end method
 
 .method public static final withClip(Landroid/graphics/Canvas;Landroid/graphics/Path;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 6
     .param p0, "$this$withClip"    # Landroid/graphics/Canvas;
     .param p1, "clipPath"    # Landroid/graphics/Path;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
@@ -206,10 +206,10 @@
     nop
 
     .line 215
-    :try_start_0
+    :try_start_9
     invoke-interface {p2, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_11
 
     .line 217
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -221,7 +221,7 @@
     return-void
 
     .line 217
-    :catchall_0
+    :catchall_11
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -230,7 +230,7 @@
 .end method
 
 .method public static final withClip(Landroid/graphics/Canvas;Landroid/graphics/Rect;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 6
     .param p0, "$this$withClip"    # Landroid/graphics/Canvas;
     .param p1, "clipRect"    # Landroid/graphics/Rect;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
@@ -263,10 +263,10 @@
     nop
 
     .line 141
-    :try_start_0
+    :try_start_9
     invoke-interface {p2, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_11
 
     .line 143
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -278,7 +278,7 @@
     return-void
 
     .line 143
-    :catchall_0
+    :catchall_11
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -287,7 +287,7 @@
 .end method
 
 .method public static final withClip(Landroid/graphics/Canvas;Landroid/graphics/RectF;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 6
     .param p0, "$this$withClip"    # Landroid/graphics/Canvas;
     .param p1, "clipRect"    # Landroid/graphics/RectF;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
@@ -320,10 +320,10 @@
     nop
 
     .line 158
-    :try_start_0
+    :try_start_9
     invoke-interface {p2, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_11
 
     .line 160
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -335,7 +335,7 @@
     return-void
 
     .line 160
-    :catchall_0
+    :catchall_11
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -344,7 +344,7 @@
 .end method
 
 .method public static final withMatrix(Landroid/graphics/Canvas;Landroid/graphics/Matrix;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 6
     .param p0, "$this$withMatrix"    # Landroid/graphics/Canvas;
     .param p1, "matrix"    # Landroid/graphics/Matrix;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
@@ -377,10 +377,10 @@
     nop
 
     .line 124
-    :try_start_0
+    :try_start_9
     invoke-interface {p2, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_11
 
     .line 126
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -392,7 +392,7 @@
     return-void
 
     .line 126
-    :catchall_0
+    :catchall_11
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -401,7 +401,7 @@
 .end method
 
 .method public static synthetic withMatrix$default(Landroid/graphics/Canvas;Landroid/graphics/Matrix;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 1
+    .registers 6
     .param p0, "$this$withMatrix_u24default"    # Landroid/graphics/Canvas;
     .param p1, "matrix"    # Landroid/graphics/Matrix;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
@@ -409,7 +409,7 @@
     .line 117
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_a
 
     .line 118
     new-instance p3, Landroid/graphics/Matrix;
@@ -419,7 +419,7 @@
     move-object p1, p3
 
     .line 117
-    :cond_0
+    :cond_a
     const/4 p3, 0x0
 
     .line 121
@@ -436,10 +436,10 @@
     nop
 
     .line 124
-    :try_start_0
+    :try_start_13
     invoke-interface {p2, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_13 .. :try_end_16} :catchall_1b
 
     .line 126
     invoke-virtual {p0, p4}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -451,7 +451,7 @@
     return-void
 
     .line 126
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     invoke-virtual {p0, p4}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -460,7 +460,7 @@
 .end method
 
 .method public static final withRotation(Landroid/graphics/Canvas;FFFLkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 8
     .param p0, "$this$withRotation"    # Landroid/graphics/Canvas;
     .param p1, "degrees"    # F
     .param p2, "pivotX"    # F
@@ -495,10 +495,10 @@
     nop
 
     .line 69
-    :try_start_0
+    :try_start_9
     invoke-interface {p4, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_11
 
     .line 71
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -510,7 +510,7 @@
     return-void
 
     .line 71
-    :catchall_0
+    :catchall_11
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -519,7 +519,7 @@
 .end method
 
 .method public static synthetic withRotation$default(Landroid/graphics/Canvas;FFFLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 1
+    .registers 8
     .param p0, "$this$withRotation_u24default"    # Landroid/graphics/Canvas;
     .param p1, "degrees"    # F
     .param p2, "pivotX"    # F
@@ -529,31 +529,31 @@
     .line 60
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     .line 61
     const/4 p1, 0x0
 
     .line 60
-    :cond_0
+    :cond_5
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_a
 
     .line 62
     const/4 p2, 0x0
 
     .line 60
-    :cond_1
+    :cond_a
     and-int/lit8 p5, p5, 0x4
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_f
 
     .line 63
     const/4 p3, 0x0
 
     .line 60
-    :cond_2
+    :cond_f
     const/4 p5, 0x0
 
     .line 66
@@ -570,10 +570,10 @@
     nop
 
     .line 69
-    :try_start_0
+    :try_start_18
     invoke-interface {p4, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_18 .. :try_end_1b} :catchall_20
 
     .line 71
     invoke-virtual {p0, p6}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -585,7 +585,7 @@
     return-void
 
     .line 71
-    :catchall_0
+    :catchall_20
     move-exception v0
 
     invoke-virtual {p0, p6}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -594,7 +594,7 @@
 .end method
 
 .method public static final withSave(Landroid/graphics/Canvas;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$withSave"    # Landroid/graphics/Canvas;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -622,10 +622,10 @@
     nop
 
     .line 32
-    :try_start_0
+    :try_start_6
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_6 .. :try_end_9} :catchall_e
 
     .line 34
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -637,7 +637,7 @@
     return-void
 
     .line 34
-    :catchall_0
+    :catchall_e
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -646,7 +646,7 @@
 .end method
 
 .method public static final withScale(Landroid/graphics/Canvas;FFFFLkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 9
     .param p0, "$this$withScale"    # Landroid/graphics/Canvas;
     .param p1, "x"    # F
     .param p2, "y"    # F
@@ -682,10 +682,10 @@
     nop
 
     .line 89
-    :try_start_0
+    :try_start_9
     invoke-interface {p5, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_11
 
     .line 91
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -697,7 +697,7 @@
     return-void
 
     .line 91
-    :catchall_0
+    :catchall_11
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -706,7 +706,7 @@
 .end method
 
 .method public static synthetic withScale$default(Landroid/graphics/Canvas;FFFFLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 1
+    .registers 9
     .param p0, "$this$withScale_u24default"    # Landroid/graphics/Canvas;
     .param p1, "x"    # F
     .param p2, "y"    # F
@@ -717,40 +717,40 @@
     .line 79
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_6
 
     .line 80
     const/high16 p1, 0x3f800000    # 1.0f
 
     .line 79
-    :cond_0
+    :cond_6
     and-int/lit8 p7, p6, 0x2
 
-    if-eqz p7, :cond_1
+    if-eqz p7, :cond_c
 
     .line 81
     const/high16 p2, 0x3f800000    # 1.0f
 
     .line 79
-    :cond_1
+    :cond_c
     and-int/lit8 p7, p6, 0x4
 
-    if-eqz p7, :cond_2
+    if-eqz p7, :cond_11
 
     .line 82
     const/4 p3, 0x0
 
     .line 79
-    :cond_2
+    :cond_11
     and-int/lit8 p6, p6, 0x8
 
-    if-eqz p6, :cond_3
+    if-eqz p6, :cond_16
 
     .line 83
     const/4 p4, 0x0
 
     .line 79
-    :cond_3
+    :cond_16
     const/4 p6, 0x0
 
     .line 86
@@ -767,10 +767,10 @@
     nop
 
     .line 89
-    :try_start_0
+    :try_start_1f
     invoke-interface {p5, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_1f .. :try_end_22} :catchall_27
 
     .line 91
     invoke-virtual {p0, p7}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -782,7 +782,7 @@
     return-void
 
     .line 91
-    :catchall_0
+    :catchall_27
     move-exception v0
 
     invoke-virtual {p0, p7}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -791,7 +791,7 @@
 .end method
 
 .method public static final withSkew(Landroid/graphics/Canvas;FFLkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 7
     .param p0, "$this$withSkew"    # Landroid/graphics/Canvas;
     .param p1, "x"    # F
     .param p2, "y"    # F
@@ -825,10 +825,10 @@
     nop
 
     .line 107
-    :try_start_0
+    :try_start_9
     invoke-interface {p3, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_11
 
     .line 109
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -840,7 +840,7 @@
     return-void
 
     .line 109
-    :catchall_0
+    :catchall_11
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -849,7 +849,7 @@
 .end method
 
 .method public static synthetic withSkew$default(Landroid/graphics/Canvas;FFLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 1
+    .registers 7
     .param p0, "$this$withSkew_u24default"    # Landroid/graphics/Canvas;
     .param p1, "x"    # F
     .param p2, "y"    # F
@@ -858,22 +858,22 @@
     .line 99
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 100
     const/4 p1, 0x0
 
     .line 99
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     .line 101
     const/4 p2, 0x0
 
     .line 99
-    :cond_1
+    :cond_a
     const/4 p4, 0x0
 
     .line 104
@@ -890,10 +890,10 @@
     nop
 
     .line 107
-    :try_start_0
+    :try_start_13
     invoke-interface {p3, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_13 .. :try_end_16} :catchall_1b
 
     .line 109
     invoke-virtual {p0, p5}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -905,7 +905,7 @@
     return-void
 
     .line 109
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     invoke-virtual {p0, p5}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -914,7 +914,7 @@
 .end method
 
 .method public static final withTranslation(Landroid/graphics/Canvas;FFLkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 7
     .param p0, "$this$withTranslation"    # Landroid/graphics/Canvas;
     .param p1, "x"    # F
     .param p2, "y"    # F
@@ -948,10 +948,10 @@
     nop
 
     .line 50
-    :try_start_0
+    :try_start_9
     invoke-interface {p3, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_11
 
     .line 52
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -963,7 +963,7 @@
     return-void
 
     .line 52
-    :catchall_0
+    :catchall_11
     move-exception v2
 
     invoke-virtual {p0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -972,7 +972,7 @@
 .end method
 
 .method public static synthetic withTranslation$default(Landroid/graphics/Canvas;FFLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 1
+    .registers 7
     .param p0, "$this$withTranslation_u24default"    # Landroid/graphics/Canvas;
     .param p1, "x"    # F
     .param p2, "y"    # F
@@ -981,22 +981,22 @@
     .line 42
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 43
     const/4 p1, 0x0
 
     .line 42
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     .line 44
     const/4 p2, 0x0
 
     .line 42
-    :cond_1
+    :cond_a
     const/4 p4, 0x0
 
     .line 47
@@ -1013,10 +1013,10 @@
     nop
 
     .line 50
-    :try_start_0
+    :try_start_13
     invoke-interface {p3, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_13 .. :try_end_16} :catchall_1b
 
     .line 52
     invoke-virtual {p0, p5}, Landroid/graphics/Canvas;->restoreToCount(I)V
@@ -1028,7 +1028,7 @@
     return-void
 
     .line 52
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     invoke-virtual {p0, p5}, Landroid/graphics/Canvas;->restoreToCount(I)V

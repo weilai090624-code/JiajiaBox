@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/core/LinearSystem;Landroidx/constraintlayout/core/Cache;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Landroidx/constraintlayout/core/LinearSystem;
     .param p2, "cache"    # Landroidx/constraintlayout/core/Cache;
 

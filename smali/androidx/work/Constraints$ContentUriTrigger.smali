@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;Z)V
-    .locals 1
+    .registers 4
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "isTriggeredForDescendants"    # Z
 
@@ -73,46 +73,46 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 374
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 375
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_f
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_10
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
     .line 377
-    :cond_2
+    :cond_18
     const-string v1, "null cannot be cast to non-null type androidx.work.Constraints.ContentUriTrigger"
 
     invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -134,12 +134,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2e
 
     return v2
 
     .line 380
-    :cond_3
+    :cond_2e
     iget-boolean v1, p0, Landroidx/work/Constraints$ContentUriTrigger;->isTriggeredForDescendants:Z
 
     move-object v3, p1
@@ -148,17 +148,17 @@
 
     iget-boolean v3, v3, Landroidx/work/Constraints$ContentUriTrigger;->isTriggeredForDescendants:Z
 
-    if-eq v1, v3, :cond_4
+    if-eq v1, v3, :cond_38
 
     return v2
 
     .line 382
-    :cond_4
+    :cond_38
     return v0
 .end method
 
 .method public final getUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 372
     iget-object v0, p0, Landroidx/work/Constraints$ContentUriTrigger;->uri:Landroid/net/Uri;
@@ -167,7 +167,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 386
     iget-object v0, p0, Landroidx/work/Constraints$ContentUriTrigger;->uri:Landroid/net/Uri;
@@ -195,7 +195,7 @@
 .end method
 
 .method public final isTriggeredForDescendants()Z
-    .locals 1
+    .registers 2
 
     .line 372
     iget-boolean v0, p0, Landroidx/work/Constraints$ContentUriTrigger;->isTriggeredForDescendants:Z

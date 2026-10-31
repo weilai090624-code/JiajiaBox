@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 52
     new-instance v0, Landroidx/camera/core/impl/CameraInternal$State;
@@ -164,7 +164,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZ)V
-    .locals 0
+    .registers 4
     .param p3, "holdsCameraSlot"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -196,7 +196,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/camera/core/impl/CameraInternal$State;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -220,7 +220,7 @@
 .end method
 
 .method public static values()[Landroidx/camera/core/impl/CameraInternal$State;
-    .locals 1
+    .registers 1
 
     .line 45
     sget-object v0, Landroidx/camera/core/impl/CameraInternal$State;->$VALUES:[Landroidx/camera/core/impl/CameraInternal$State;
@@ -237,7 +237,7 @@
 
 # virtual methods
 .method holdsCameraSlot()Z
-    .locals 1
+    .registers 2
 
     .line 101
     iget-boolean v0, p0, Landroidx/camera/core/impl/CameraInternal$State;->mHoldsCameraSlot:Z

@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lokhttp3/internal/platform/BouncyCastlePlatform$Companion;
 
@@ -83,7 +83,7 @@
     .line 87
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_a
     const-string v1, "org.bouncycastle.jsse.provider.BouncyCastleJsseProvider"
 
     sget-object v2, Lokhttp3/internal/platform/BouncyCastlePlatform;->Companion:Lokhttp3/internal/platform/BouncyCastlePlatform$Companion;
@@ -97,16 +97,16 @@
     move-result-object v2
 
     invoke-static {v1, v0, v2}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_a .. :try_end_19} :catch_1b
 
     .line 89
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 90
-    :catch_0
+    :catch_1b
     move-exception v1
 
     .line 91
@@ -115,14 +115,14 @@
 
     .line 85
     .end local v1    # "_":Ljava/lang/ClassNotFoundException;
-    :goto_0
+    :goto_1d
     sput-boolean v0, Lokhttp3/internal/platform/BouncyCastlePlatform;->isSupported:Z
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 34
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform;-><init>()V
@@ -141,7 +141,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/BouncyCastlePlatform;-><init>()V
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public static final synthetic access$isSupported$cp()Z
-    .locals 1
+    .registers 1
 
     .line 34
     sget-boolean v0, Lokhttp3/internal/platform/BouncyCastlePlatform;->isSupported:Z
@@ -160,7 +160,7 @@
 
 # virtual methods
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 7
+    .registers 11
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -186,7 +186,7 @@
     .line 60
     instance-of v0, p1, Lorg/bouncycastle/jsse/BCSSLSocket;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3d
 
     .line 61
     move-object v0, p1
@@ -228,7 +228,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_35
 
     .end local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v3    # "$i$f$toTypedArray":I
@@ -247,7 +247,7 @@
 
     .end local v0    # "sslParameters":Lorg/bouncycastle/jsse/BCSSLParameters;
     .end local v1    # "names":Ljava/util/List;
-    goto :goto_0
+    goto :goto_40
 
     .line 99
     .restart local v0    # "sslParameters":Lorg/bouncycastle/jsse/BCSSLParameters;
@@ -255,7 +255,7 @@
     .restart local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v3    # "$i$f$toTypedArray":I
     .restart local v4    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_0
+    :cond_35
     new-instance v5, Ljava/lang/NullPointerException;
 
     const-string v6, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -270,16 +270,16 @@
     .end local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v3    # "$i$f$toTypedArray":I
     .end local v4    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_1
+    :cond_3d
     invoke-super {p0, p1, p2, p3}, Lokhttp3/internal/platform/Platform;->configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
 
     .line 71
-    :goto_0
+    :goto_40
     return-void
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -289,7 +289,7 @@
     .line 74
     instance-of v0, p1, Lorg/bouncycastle/jsse/BCSSLSocket;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     .line 75
     move-object v0, p1
@@ -302,48 +302,48 @@
 
     .line 77
     .local v0, "protocol":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_14
     const-string v1, ""
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_1a
+    if-eqz v1, :cond_1f
 
     const/4 v1, 0x0
 
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_25
 
     .line 78
-    :cond_1
+    :cond_1f
     nop
 
     .end local v0    # "protocol":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_25
 
     .line 81
-    :cond_2
+    :cond_21
     invoke-super {p0, p1}, Lokhttp3/internal/platform/Platform;->getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 82
-    :goto_1
+    :goto_25
     return-object v0
 .end method
 
 .method public newSSLContext()Ljavax/net/ssl/SSLContext;
-    .locals 2
+    .registers 3
 
     .line 38
     const-string v0, "TLS"
@@ -362,7 +362,7 @@
 .end method
 
 .method public platformTrustManager()Ljavax/net/ssl/X509TrustManager;
-    .locals 5
+    .registers 6
 
     .line 42
     nop
@@ -401,32 +401,32 @@
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_0
+    if-ne v2, v4, :cond_23
 
     aget-object v2, v1, v3
 
     instance-of v2, v2, Ljavax/net/ssl/X509TrustManager;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     const/4 v4, 0x0
 
-    :goto_0
-    if-eqz v4, :cond_2
+    :goto_24
+    if-eqz v4, :cond_35
 
     .line 48
     aget-object v2, v1, v3
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2d
 
     check-cast v2, Ljavax/net/ssl/X509TrustManager;
 
     return-object v2
 
-    :cond_1
+    :cond_2d
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v3, "null cannot be cast to non-null type javax.net.ssl.X509TrustManager"
@@ -436,7 +436,7 @@
     throw v2
 
     .line 45
-    :cond_2
+    :cond_35
     const/4 v2, 0x0
 
     .line 46
@@ -471,7 +471,7 @@
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 2
+    .registers 4
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     const-string v0, "sslSocketFactory"

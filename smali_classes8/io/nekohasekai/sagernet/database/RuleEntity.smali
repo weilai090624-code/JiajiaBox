@@ -175,7 +175,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/database/RuleEntity$Creator;
 
@@ -189,7 +189,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 20
+    .registers 21
 
     move-object/from16 v0, p0
 
@@ -231,7 +231,7 @@
 .end method
 
 .method public constructor <init>(JLjava/lang/String;Ljava/lang/String;JZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/util/Set;)V
-    .locals 16
+    .registers 34
     .param p1, "id"    # J
     .param p3, "name"    # Ljava/lang/String;
     .param p4, "config"    # Ljava/lang/String;
@@ -386,209 +386,209 @@
 .end method
 
 .method public synthetic constructor <init>(JLjava/lang/String;Ljava/lang/String;JZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 18
+    .registers 38
 
     .line 12
     move/from16 v0, p18
 
     and-int/lit8 v1, v0, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     .line 13
     const-wide/16 v4, 0x0
 
-    goto :goto_0
+    goto :goto_b
 
     .line 12
-    :cond_0
+    :cond_9
     move-wide/from16 v4, p1
 
-    :goto_0
+    :goto_b
     and-int/lit8 v1, v0, 0x2
 
     const-string v6, ""
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_13
 
     .line 14
     move-object v1, v6
 
-    goto :goto_1
+    goto :goto_15
 
     .line 12
-    :cond_1
+    :cond_13
     move-object/from16 v1, p3
 
-    :goto_1
+    :goto_15
     and-int/lit8 v7, v0, 0x4
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_1b
 
     .line 16
     move-object v7, v6
 
-    goto :goto_2
+    goto :goto_1d
 
     .line 12
-    :cond_2
+    :cond_1b
     move-object/from16 v7, p4
 
-    :goto_2
+    :goto_1d
     and-int/lit8 v8, v0, 0x8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_24
 
     .line 17
     const-wide/16 v8, 0x0
 
-    goto :goto_3
+    goto :goto_26
 
     .line 12
-    :cond_3
+    :cond_24
     move-wide/from16 v8, p5
 
-    :goto_3
+    :goto_26
     and-int/lit8 v10, v0, 0x10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_2c
 
     .line 18
     const/4 v10, 0x0
 
-    goto :goto_4
+    goto :goto_2e
 
     .line 12
-    :cond_4
+    :cond_2c
     move/from16 v10, p7
 
-    :goto_4
+    :goto_2e
     and-int/lit8 v11, v0, 0x20
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_34
 
     .line 19
     move-object v11, v6
 
-    goto :goto_5
+    goto :goto_36
 
     .line 12
-    :cond_5
+    :cond_34
     move-object/from16 v11, p8
 
-    :goto_5
+    :goto_36
     and-int/lit8 v12, v0, 0x40
 
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_3c
 
     .line 20
     move-object v12, v6
 
-    goto :goto_6
+    goto :goto_3e
 
     .line 12
-    :cond_6
+    :cond_3c
     move-object/from16 v12, p9
 
-    :goto_6
+    :goto_3e
     and-int/lit16 v13, v0, 0x80
 
-    if-eqz v13, :cond_7
+    if-eqz v13, :cond_44
 
     .line 21
     move-object v13, v6
 
-    goto :goto_7
+    goto :goto_46
 
     .line 12
-    :cond_7
+    :cond_44
     move-object/from16 v13, p10
 
-    :goto_7
+    :goto_46
     and-int/lit16 v14, v0, 0x100
 
-    if-eqz v14, :cond_8
+    if-eqz v14, :cond_4c
 
     .line 22
     move-object v14, v6
 
-    goto :goto_8
+    goto :goto_4e
 
     .line 12
-    :cond_8
+    :cond_4c
     move-object/from16 v14, p11
 
-    :goto_8
+    :goto_4e
     and-int/lit16 v15, v0, 0x200
 
-    if-eqz v15, :cond_9
+    if-eqz v15, :cond_54
 
     .line 23
     move-object v15, v6
 
-    goto :goto_9
+    goto :goto_56
 
     .line 12
-    :cond_9
+    :cond_54
     move-object/from16 v15, p12
 
-    :goto_9
+    :goto_56
     and-int/lit16 v2, v0, 0x400
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_5c
 
     .line 24
     move-object v2, v6
 
-    goto :goto_a
+    goto :goto_5e
 
     .line 12
-    :cond_a
+    :cond_5c
     move-object/from16 v2, p13
 
-    :goto_a
+    :goto_5e
     and-int/lit16 v3, v0, 0x800
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_63
 
     .line 25
-    goto :goto_b
+    goto :goto_65
 
     .line 12
-    :cond_b
+    :cond_63
     move-object/from16 v6, p14
 
-    :goto_b
+    :goto_65
     and-int/lit16 v3, v0, 0x1000
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_6c
 
     .line 26
     const-wide/16 v16, 0x0
 
-    goto :goto_c
+    goto :goto_6e
 
     .line 12
-    :cond_c
+    :cond_6c
     move-wide/from16 v16, p15
 
-    :goto_c
+    :goto_6e
     and-int/lit16 v0, v0, 0x2000
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_77
 
     .line 27
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
-    goto :goto_d
+    goto :goto_79
 
     .line 12
-    :cond_d
+    :cond_77
     move-object/from16 v0, p17
 
-    :goto_d
+    :goto_79
     move-object/from16 p1, p0
 
     move-wide/from16 p2, v4
@@ -626,7 +626,7 @@
 .end method
 
 .method public static synthetic copy$default(Lio/nekohasekai/sagernet/database/RuleEntity;JLjava/lang/String;Ljava/lang/String;JZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/util/Set;ILjava/lang/Object;)Lio/nekohasekai/sagernet/database/RuleEntity;
-    .locals 16
+    .registers 36
 
     move-object/from16 v0, p0
 
@@ -634,176 +634,176 @@
 
     and-int/lit8 v2, v1, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_b
 
     iget-wide v2, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->id:J
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     move-wide/from16 v2, p1
 
-    :goto_0
+    :goto_d
     and-int/lit8 v4, v1, 0x2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_14
 
     iget-object v4, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->name:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_14
     move-object/from16 v4, p3
 
-    :goto_1
+    :goto_16
     and-int/lit8 v5, v1, 0x4
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_1d
 
     iget-object v5, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->config:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_2
+    :cond_1d
     move-object/from16 v5, p4
 
-    :goto_2
+    :goto_1f
     and-int/lit8 v6, v1, 0x8
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_26
 
     iget-wide v6, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->userOrder:J
 
-    goto :goto_3
+    goto :goto_28
 
-    :cond_3
+    :cond_26
     move-wide/from16 v6, p5
 
-    :goto_3
+    :goto_28
     and-int/lit8 v8, v1, 0x10
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_2f
 
     iget-boolean v8, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->enabled:Z
 
-    goto :goto_4
+    goto :goto_31
 
-    :cond_4
+    :cond_2f
     move/from16 v8, p7
 
-    :goto_4
+    :goto_31
     and-int/lit8 v9, v1, 0x20
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_38
 
     iget-object v9, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->domains:Ljava/lang/String;
 
-    goto :goto_5
+    goto :goto_3a
 
-    :cond_5
+    :cond_38
     move-object/from16 v9, p8
 
-    :goto_5
+    :goto_3a
     and-int/lit8 v10, v1, 0x40
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_41
 
     iget-object v10, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->ip:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_43
 
-    :cond_6
+    :cond_41
     move-object/from16 v10, p9
 
-    :goto_6
+    :goto_43
     and-int/lit16 v11, v1, 0x80
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_4a
 
     iget-object v11, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->port:Ljava/lang/String;
 
-    goto :goto_7
+    goto :goto_4c
 
-    :cond_7
+    :cond_4a
     move-object/from16 v11, p10
 
-    :goto_7
+    :goto_4c
     and-int/lit16 v12, v1, 0x100
 
-    if-eqz v12, :cond_8
+    if-eqz v12, :cond_53
 
     iget-object v12, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->sourcePort:Ljava/lang/String;
 
-    goto :goto_8
+    goto :goto_55
 
-    :cond_8
+    :cond_53
     move-object/from16 v12, p11
 
-    :goto_8
+    :goto_55
     and-int/lit16 v13, v1, 0x200
 
-    if-eqz v13, :cond_9
+    if-eqz v13, :cond_5c
 
     iget-object v13, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->network:Ljava/lang/String;
 
-    goto :goto_9
+    goto :goto_5e
 
-    :cond_9
+    :cond_5c
     move-object/from16 v13, p12
 
-    :goto_9
+    :goto_5e
     and-int/lit16 v14, v1, 0x400
 
-    if-eqz v14, :cond_a
+    if-eqz v14, :cond_65
 
     iget-object v14, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->source:Ljava/lang/String;
 
-    goto :goto_a
+    goto :goto_67
 
-    :cond_a
+    :cond_65
     move-object/from16 v14, p13
 
-    :goto_a
+    :goto_67
     and-int/lit16 v15, v1, 0x800
 
-    if-eqz v15, :cond_b
+    if-eqz v15, :cond_6e
 
     iget-object v15, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->protocol:Ljava/lang/String;
 
-    goto :goto_b
+    goto :goto_70
 
-    :cond_b
+    :cond_6e
     move-object/from16 v15, p14
 
-    :goto_b
+    :goto_70
     move-object/from16 p14, v15
 
     and-int/lit16 v15, v1, 0x1000
 
     move-object/from16 p13, v14
 
-    if-eqz v15, :cond_c
+    if-eqz v15, :cond_7b
 
     iget-wide v14, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->outbound:J
 
-    goto :goto_c
+    goto :goto_7d
 
-    :cond_c
+    :cond_7b
     move-wide/from16 v14, p15
 
-    :goto_c
+    :goto_7d
     and-int/lit16 v1, v1, 0x2000
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_84
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/database/RuleEntity;->packages:Ljava/util/Set;
 
-    goto :goto_d
+    goto :goto_86
 
-    :cond_d
+    :cond_84
     move-object/from16 v1, p17
 
-    :goto_d
+    :goto_86
     move-wide/from16 p1, v2
 
     move-object/from16 p3, v4
@@ -838,7 +838,7 @@
 
 # virtual methods
 .method public final component1()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->id:J
 
@@ -846,7 +846,7 @@
 .end method
 
 .method public final component10()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->network:Ljava/lang/String;
 
@@ -854,7 +854,7 @@
 .end method
 
 .method public final component11()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->source:Ljava/lang/String;
 
@@ -862,7 +862,7 @@
 .end method
 
 .method public final component12()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->protocol:Ljava/lang/String;
 
@@ -870,7 +870,7 @@
 .end method
 
 .method public final component13()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->outbound:J
 
@@ -878,7 +878,7 @@
 .end method
 
 .method public final component14()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -894,7 +894,7 @@
 .end method
 
 .method public final component2()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->name:Ljava/lang/String;
 
@@ -902,7 +902,7 @@
 .end method
 
 .method public final component3()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->config:Ljava/lang/String;
 
@@ -910,7 +910,7 @@
 .end method
 
 .method public final component4()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->userOrder:J
 
@@ -918,7 +918,7 @@
 .end method
 
 .method public final component5()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->enabled:Z
 
@@ -926,7 +926,7 @@
 .end method
 
 .method public final component6()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->domains:Ljava/lang/String;
 
@@ -934,7 +934,7 @@
 .end method
 
 .method public final component7()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->ip:Ljava/lang/String;
 
@@ -942,7 +942,7 @@
 .end method
 
 .method public final component8()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->port:Ljava/lang/String;
 
@@ -950,7 +950,7 @@
 .end method
 
 .method public final component9()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->sourcePort:Ljava/lang/String;
 
@@ -958,7 +958,7 @@
 .end method
 
 .method public final copy(JLjava/lang/String;Ljava/lang/String;JZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/util/Set;)Lio/nekohasekai/sagernet/database/RuleEntity;
-    .locals 21
+    .registers 39
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public final describeContents()I
-    .locals 1
+    .registers 2
 
     .line 9
     nop
@@ -1094,7 +1094,7 @@
 .end method
 
 .method public final displayName()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 31
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->name:Ljava/lang/String;
@@ -1117,15 +1117,15 @@
 
     .end local v1    # "it":Ljava/lang/String;
     .end local v2    # "$i$a$-takeIf-RuleEntity$displayName$1":I
-    if-nez v3, :cond_0
+    if-nez v3, :cond_e
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_f
+    if-nez v0, :cond_26
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1147,12 +1147,12 @@
 
     move-result-object v0
 
-    :cond_1
+    :cond_26
     return-object v0
 .end method
 
 .method public final displayOutbound()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 56
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->outbound:J
@@ -1164,7 +1164,7 @@
 
     cmp-long v5, v0, v2
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_19
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
@@ -1178,15 +1178,15 @@
 
     invoke-static {v0, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_61
 
     .line 58
-    :cond_0
+    :cond_19
     const-wide/16 v2, -0x1
 
     cmp-long v5, v0, v2
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_2e
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
@@ -1200,15 +1200,15 @@
 
     invoke-static {v0, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_61
 
     .line 59
-    :cond_1
+    :cond_2e
     const-wide/16 v2, -0x2
 
     cmp-long v5, v0, v2
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_43
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
@@ -1222,10 +1222,10 @@
 
     invoke-static {v0, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_61
 
     .line 60
-    :cond_2
+    :cond_43
     sget-object v0, Lio/nekohasekai/sagernet/database/ProfileManager;->INSTANCE:Lio/nekohasekai/sagernet/database/ProfileManager;
 
     iget-wide v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->outbound:J
@@ -1234,16 +1234,16 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_53
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/ProxyEntity;->displayName()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_61
 
     .line 61
-    :cond_3
+    :cond_53
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
     move-result-object v0
@@ -1257,30 +1257,30 @@
     invoke-static {v0, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 56
-    :cond_4
-    :goto_0
+    :cond_61
+    :goto_61
     return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lio/nekohasekai/sagernet/database/RuleEntity;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lio/nekohasekai/sagernet/database/RuleEntity;
@@ -1291,11 +1291,11 @@
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_16
 
     return v2
 
-    :cond_2
+    :cond_16
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->name:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->name:Ljava/lang/String;
@@ -1304,11 +1304,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_21
 
     return v2
 
-    :cond_3
+    :cond_21
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->config:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->config:Ljava/lang/String;
@@ -1317,31 +1317,31 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_2c
 
     return v2
 
-    :cond_4
+    :cond_2c
     iget-wide v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->userOrder:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->userOrder:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_35
 
     return v2
 
-    :cond_5
+    :cond_35
     iget-boolean v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->enabled:Z
 
     iget-boolean v4, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->enabled:Z
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_3c
 
     return v2
 
-    :cond_6
+    :cond_3c
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->domains:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->domains:Ljava/lang/String;
@@ -1350,11 +1350,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_47
 
     return v2
 
-    :cond_7
+    :cond_47
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->ip:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->ip:Ljava/lang/String;
@@ -1363,11 +1363,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_52
 
     return v2
 
-    :cond_8
+    :cond_52
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->port:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->port:Ljava/lang/String;
@@ -1376,11 +1376,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_5d
 
     return v2
 
-    :cond_9
+    :cond_5d
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->sourcePort:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->sourcePort:Ljava/lang/String;
@@ -1389,11 +1389,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_a
+    if-nez v3, :cond_68
 
     return v2
 
-    :cond_a
+    :cond_68
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->network:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->network:Ljava/lang/String;
@@ -1402,11 +1402,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_73
 
     return v2
 
-    :cond_b
+    :cond_73
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->source:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->source:Ljava/lang/String;
@@ -1415,11 +1415,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_7e
 
     return v2
 
-    :cond_c
+    :cond_7e
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->protocol:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->protocol:Ljava/lang/String;
@@ -1428,22 +1428,22 @@
 
     move-result v3
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_89
 
     return v2
 
-    :cond_d
+    :cond_89
     iget-wide v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->outbound:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->outbound:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_92
 
     return v2
 
-    :cond_e
+    :cond_92
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->packages:Ljava/util/Set;
 
     iget-object v1, v1, Lio/nekohasekai/sagernet/database/RuleEntity;->packages:Ljava/util/Set;
@@ -1452,16 +1452,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_9d
 
     return v2
 
-    :cond_f
+    :cond_9d
     return v0
 .end method
 
 .method public final getConfig()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 15
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->config:Ljava/lang/String;
@@ -1470,7 +1470,7 @@
 .end method
 
 .method public final getDomains()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 19
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->domains:Ljava/lang/String;
@@ -1479,7 +1479,7 @@
 .end method
 
 .method public final getEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 18
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->enabled:Z
@@ -1488,7 +1488,7 @@
 .end method
 
 .method public final getId()J
-    .locals 2
+    .registers 3
 
     .line 13
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->id:J
@@ -1497,7 +1497,7 @@
 .end method
 
 .method public final getIp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->ip:Ljava/lang/String;
@@ -1506,7 +1506,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 14
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->name:Ljava/lang/String;
@@ -1515,7 +1515,7 @@
 .end method
 
 .method public final getNetwork()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->network:Ljava/lang/String;
@@ -1524,7 +1524,7 @@
 .end method
 
 .method public final getOutbound()J
-    .locals 2
+    .registers 3
 
     .line 26
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->outbound:J
@@ -1533,7 +1533,7 @@
 .end method
 
 .method public final getPackages()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1550,7 +1550,7 @@
 .end method
 
 .method public final getPort()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 21
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->port:Ljava/lang/String;
@@ -1559,7 +1559,7 @@
 .end method
 
 .method public final getProtocol()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 25
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->protocol:Ljava/lang/String;
@@ -1568,7 +1568,7 @@
 .end method
 
 .method public final getSource()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 24
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->source:Ljava/lang/String;
@@ -1577,7 +1577,7 @@
 .end method
 
 .method public final getSourcePort()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->sourcePort:Ljava/lang/String;
@@ -1586,7 +1586,7 @@
 .end method
 
 .method public final getUserOrder()J
-    .locals 2
+    .registers 3
 
     .line 17
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->userOrder:J
@@ -1595,7 +1595,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->id:J
 
@@ -1737,7 +1737,7 @@
 .end method
 
 .method public final mkSummary()Ljava/lang/String;
-    .locals 13
+    .registers 14
 
     .line 35
     const-string v0, ""
@@ -1752,7 +1752,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1f
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1773,7 +1773,7 @@
     move-result-object v0
 
     .line 37
-    :cond_0
+    :cond_1f
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->domains:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -1784,7 +1784,7 @@
 
     const/16 v2, 0xa
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_42
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1809,7 +1809,7 @@
     move-result-object v0
 
     .line 38
-    :cond_1
+    :cond_42
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->ip:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -1818,7 +1818,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_63
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1843,7 +1843,7 @@
     move-result-object v0
 
     .line 39
-    :cond_2
+    :cond_63
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->source:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -1852,7 +1852,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_8a
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1883,7 +1883,7 @@
     move-result-object v0
 
     .line 40
-    :cond_3
+    :cond_8a
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->sourcePort:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -1892,7 +1892,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_b1
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1923,7 +1923,7 @@
     move-result-object v0
 
     .line 41
-    :cond_4
+    :cond_b1
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->port:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -1932,7 +1932,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_d8
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1963,7 +1963,7 @@
     move-result-object v0
 
     .line 42
-    :cond_5
+    :cond_d8
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->network:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -1972,7 +1972,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_ff
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2003,7 +2003,7 @@
     move-result-object v0
 
     .line 43
-    :cond_6
+    :cond_ff
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->protocol:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -2012,7 +2012,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_126
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2043,7 +2043,7 @@
     move-result-object v0
 
     .line 44
-    :cond_7
+    :cond_126
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity;->packages:Ljava/util/Set;
 
     check-cast v1, Ljava/util/Collection;
@@ -2054,7 +2054,7 @@
 
     const/4 v3, 0x0
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_160
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2105,7 +2105,7 @@
     move-result-object v0
 
     .line 47
-    :cond_8
+    :cond_160
     move-object v1, v0
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -2148,7 +2148,7 @@
 
     const/4 v5, 0x3
 
-    if-le v4, v5, :cond_9
+    if-le v4, v5, :cond_19e
 
     .line 49
     invoke-interface {v2, v3, v5}, Ljava/util/List;->subList(II)Ljava/util/List;
@@ -2185,10 +2185,10 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1a9
 
     .line 51
-    :cond_9
+    :cond_19e
     move-object v1, v0
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -2202,12 +2202,12 @@
     move-result-object v1
 
     .line 48
-    :goto_0
+    :goto_1a9
     return-object v1
 .end method
 
 .method public final setConfig(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -2222,7 +2222,7 @@
 .end method
 
 .method public final setDomains(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -2236,7 +2236,7 @@
 .end method
 
 .method public final setEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 18
@@ -2246,7 +2246,7 @@
 .end method
 
 .method public final setId(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 13
@@ -2256,7 +2256,7 @@
 .end method
 
 .method public final setIp(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -2270,7 +2270,7 @@
 .end method
 
 .method public final setName(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -2284,7 +2284,7 @@
 .end method
 
 .method public final setNetwork(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -2298,7 +2298,7 @@
 .end method
 
 .method public final setOutbound(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 26
@@ -2308,7 +2308,7 @@
 .end method
 
 .method public final setPackages(Ljava/util/Set;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2330,7 +2330,7 @@
 .end method
 
 .method public final setPort(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -2344,7 +2344,7 @@
 .end method
 
 .method public final setProtocol(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -2358,7 +2358,7 @@
 .end method
 
 .method public final setSource(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -2372,7 +2372,7 @@
 .end method
 
 .method public final setSourcePort(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -2386,7 +2386,7 @@
 .end method
 
 .method public final setUserOrder(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 17
@@ -2396,7 +2396,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -2580,7 +2580,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+    .registers 5
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
@@ -2652,12 +2652,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_53
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_63
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2667,9 +2667,9 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_53
 
     .line 110
-    :cond_0
+    :cond_63
     return-void
 .end method

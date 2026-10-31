@@ -92,7 +92,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Path;Lokio/FileSystem;ZLkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -153,7 +153,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlin/sequences/SequenceScope;
 
@@ -167,7 +167,7 @@
 .end method
 
 .method public final invoke(Lkotlin/sequences/SequenceScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -199,7 +199,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 12
+    .registers 14
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -208,7 +208,7 @@
     .line 89
     iget v1, p0, Lokio/internal/_FileSystemKt$commonListRecursively$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_74
 
     .line 101
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -220,7 +220,7 @@
     throw p1
 
     .line 89
-    :pswitch_0
+    :pswitch_11
     move-object v1, p0
 
     .local v1, "this":Lokio/internal/_FileSystemKt$commonListRecursively$1;
@@ -245,13 +245,13 @@
 
     move-object v11, v4
 
-    goto :goto_1
+    goto :goto_6f
 
     .end local v1    # "this":Lokio/internal/_FileSystemKt$commonListRecursively$1;
     .end local v3    # "stack":Lkotlin/collections/ArrayDeque;
     .end local v4    # "$this$sequence":Lkotlin/sequences/SequenceScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_24
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -297,12 +297,12 @@
     .end local v3    # "stack":Lkotlin/collections/ArrayDeque;
     .local v10, "stack":Lkotlin/collections/ArrayDeque;
     .local v11, "$this$sequence":Lkotlin/sequences/SequenceScope;
-    :goto_0
+    :goto_45
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_70
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -355,7 +355,7 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_6f
 
     .line 89
     .end local v10    # "stack":Lkotlin/collections/ArrayDeque;
@@ -365,23 +365,23 @@
     .line 93
     .restart local v10    # "stack":Lkotlin/collections/ArrayDeque;
     .restart local v11    # "$this$sequence":Lkotlin/sequences/SequenceScope;
-    :cond_0
-    :goto_1
-    goto :goto_0
+    :cond_6f
+    :goto_6f
+    goto :goto_45
 
     .line 101
     .end local v10    # "stack":Lkotlin/collections/ArrayDeque;
     .end local v11    # "$this$sequence":Lkotlin/sequences/SequenceScope;
-    :cond_1
+    :cond_70
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_74
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_24
+        :pswitch_11
     .end packed-switch
 .end method

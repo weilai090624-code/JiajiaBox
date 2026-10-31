@@ -85,7 +85,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/BufferedSource;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/jvm/internal/Ref$ObjectRef;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public final invoke(IJ)V
-    .locals 12
+    .registers 16
     .param p1, "headerId"    # I
     .param p2, "dataSize"    # J
 
@@ -159,7 +159,7 @@
     .line 401
     const/16 v0, 0x5455
 
-    if-ne p1, v0, :cond_a
+    if-ne p1, v0, :cond_8a
 
     .line 402
     const-wide/16 v0, 0x1
@@ -168,7 +168,7 @@
 
     cmp-long v3, p2, v0
 
-    if-ltz v3, :cond_9
+    if-ltz v3, :cond_84
 
     .line 405
     iget-object v0, p0, Lokio/internal/ZipKt$readOrSkipLocalHeader$1;->$this_readOrSkipLocalHeader:Lokio/BufferedSource;
@@ -187,45 +187,45 @@
 
     const/4 v4, 0x1
 
-    if-ne v1, v4, :cond_0
+    if-ne v1, v4, :cond_1d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v1, 0x0
 
     .line 408
     .local v1, "hasLastModifiedAtMillis":Z
-    :goto_0
+    :goto_1e
     and-int/lit8 v5, v0, 0x2
 
     const/4 v6, 0x2
 
-    if-ne v5, v6, :cond_1
+    if-ne v5, v6, :cond_25
 
     const/4 v5, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     const/4 v5, 0x0
 
     .line 409
     .local v5, "hasLastAccessedAtMillis":Z
-    :goto_1
+    :goto_26
     and-int/lit8 v6, v0, 0x4
 
     const/4 v7, 0x4
 
-    if-ne v6, v7, :cond_2
+    if-ne v6, v7, :cond_2c
 
     const/4 v3, 0x1
 
     .line 410
     .local v3, "hasCreatedAtMillis":Z
-    :cond_2
+    :cond_2c
     iget-object v4, p0, Lokio/internal/ZipKt$readOrSkipLocalHeader$1;->$this_readOrSkipLocalHeader:Lokio/BufferedSource;
 
     .local v4, "$this$invoke_u24lambda_u2d0":Lokio/BufferedSource;
@@ -239,24 +239,24 @@
     .local v7, "result":J
     const-wide/16 v9, 0x4
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_36
 
     add-long/2addr v7, v9
 
     .line 413
-    :cond_3
-    if-eqz v5, :cond_4
+    :cond_36
+    if-eqz v5, :cond_39
 
     add-long/2addr v7, v9
 
     .line 414
-    :cond_4
-    if-eqz v3, :cond_5
+    :cond_39
+    if-eqz v3, :cond_3c
 
     add-long/2addr v7, v9
 
     .line 415
-    :cond_5
+    :cond_3c
     nop
 
     .line 410
@@ -269,12 +269,12 @@
     .local v6, "requiredSize":J
     cmp-long v4, p2, v6
 
-    if-ltz v4, :cond_8
+    if-ltz v4, :cond_7e
 
     .line 421
     const-wide/16 v8, 0x3e8
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_57
 
     iget-object v2, p0, Lokio/internal/ZipKt$readOrSkipLocalHeader$1;->$lastModifiedAtMillis:Lkotlin/jvm/internal/Ref$ObjectRef;
 
@@ -295,8 +295,8 @@
     iput-object v4, v2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 422
-    :cond_6
-    if-eqz v5, :cond_7
+    :cond_57
+    if-eqz v5, :cond_6a
 
     iget-object v2, p0, Lokio/internal/ZipKt$readOrSkipLocalHeader$1;->$lastAccessedAtMillis:Lkotlin/jvm/internal/Ref$ObjectRef;
 
@@ -317,8 +317,8 @@
     iput-object v4, v2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 423
-    :cond_7
-    if-eqz v3, :cond_a
+    :cond_6a
+    if-eqz v3, :cond_8a
 
     iget-object v2, p0, Lokio/internal/ZipKt$readOrSkipLocalHeader$1;->$createdAtMillis:Lkotlin/jvm/internal/Ref$ObjectRef;
 
@@ -338,10 +338,10 @@
 
     iput-object v4, v2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_8a
 
     .line 418
-    :cond_8
+    :cond_7e
     new-instance v4, Ljava/io/IOException;
 
     invoke-direct {v4, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
@@ -354,7 +354,7 @@
     .end local v3    # "hasCreatedAtMillis":Z
     .end local v5    # "hasLastAccessedAtMillis":Z
     .end local v6    # "requiredSize":J
-    :cond_9
+    :cond_84
     new-instance v0, Ljava/io/IOException;
 
     invoke-direct {v0, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
@@ -362,7 +362,7 @@
     throw v0
 
     .line 426
-    :cond_a
-    :goto_2
+    :cond_8a
+    :goto_8a
     return-void
 .end method

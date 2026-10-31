@@ -91,7 +91,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 91
     const-string v0, "[^0-9A-Fa-f]"
@@ -380,7 +380,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/reader/StreamReader;)V
-    .locals 2
+    .registers 4
     .param p1, "reader"    # Lorg/yaml/snakeyaml/reader/StreamReader;
 
     .line 222
@@ -446,7 +446,7 @@
 .end method
 
 .method private addAllTokens(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -482,13 +482,13 @@
 .end method
 
 .method private addIndent(I)Z
-    .locals 2
+    .registers 4
     .param p1, "column"    # I
 
     .line 600
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->indent:I
 
-    if-ge v0, p1, :cond_0
+    if-ge v0, p1, :cond_13
 
     .line 601
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->indents:Lorg/yaml/snakeyaml/util/ArrayStack;
@@ -510,14 +510,14 @@
     return v0
 
     .line 605
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private addToken(ILorg/yaml/snakeyaml/tokens/Token;)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "token"    # Lorg/yaml/snakeyaml/tokens/Token;
 
@@ -528,13 +528,13 @@
 
     move-result v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     .line 296
     iput-object p2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->lastToken:Lorg/yaml/snakeyaml/tokens/Token;
 
     .line 298
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->tokens:Ljava/util/List;
 
     invoke-interface {v0, p1, p2}, Ljava/util/List;->add(ILjava/lang/Object;)V
@@ -544,7 +544,7 @@
 .end method
 
 .method private addToken(Lorg/yaml/snakeyaml/tokens/Token;)V
-    .locals 1
+    .registers 3
     .param p1, "token"    # Lorg/yaml/snakeyaml/tokens/Token;
 
     .line 290
@@ -560,7 +560,7 @@
 .end method
 
 .method private atEndOfPlain()Z
-    .locals 8
+    .registers 9
 
     .line 2103
     const/4 v0, 0x0
@@ -575,7 +575,7 @@
 
     .line 2107
     .local v1, "wsColumn":I
-    :goto_0
+    :goto_7
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2, v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek(I)I
@@ -585,7 +585,7 @@
     move v3, v2
 
     .local v3, "c":I
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3c
 
     sget-object v2, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -593,7 +593,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3c
 
     .line 2108
     add-int/lit8 v0, v0, 0x1
@@ -605,11 +605,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_3a
 
     const/16 v2, 0xd
 
-    if-ne v3, v2, :cond_0
+    if-ne v3, v2, :cond_32
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -621,27 +621,27 @@
 
     const/16 v4, 0xa
 
-    if-eq v2, v4, :cond_1
+    if-eq v2, v4, :cond_3a
 
-    :cond_0
+    :cond_32
     const v2, 0xfeff
 
-    if-eq v3, v2, :cond_1
+    if-eq v3, v2, :cond_3a
 
     .line 2110
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 2112
-    :cond_1
+    :cond_3a
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_7
 
     .line 2119
     .end local v3    # "c":I
-    :cond_2
+    :cond_3c
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2, v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek(I)I
@@ -652,7 +652,7 @@
 
     const/4 v4, 0x1
 
-    if-eq v2, v3, :cond_6
+    if-eq v2, v3, :cond_8d
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -662,29 +662,29 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_8d
 
     iget v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_5a
 
     iget v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->indent:I
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_5a
 
-    goto :goto_2
+    goto :goto_8d
 
     .line 2126
-    :cond_3
+    :cond_5a
     iget v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_8b
 
     .line 2128
     const/4 v2, 0x1
 
     .local v2, "extra":I
-    :goto_1
+    :goto_5f
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     add-int v5, v0, v2
@@ -696,7 +696,7 @@
     move v5, v3
 
     .local v5, "c":I
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_8b
 
     sget-object v3, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -704,12 +704,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_8b
 
     .line 2129
     const/16 v3, 0x3a
 
-    if-ne v5, v3, :cond_4
+    if-ne v5, v3, :cond_88
 
     sget-object v3, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -727,33 +727,33 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_88
 
     .line 2130
     return v4
 
     .line 2128
-    :cond_4
+    :cond_88
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_5f
 
     .line 2136
     .end local v2    # "extra":I
     .end local v5    # "c":I
-    :cond_5
+    :cond_8b
     const/4 v2, 0x0
 
     return v2
 
     .line 2121
-    :cond_6
-    :goto_2
+    :cond_8d
+    :goto_8d
     return v4
 .end method
 
 .method private checkBlockEntry()Z
-    .locals 3
+    .registers 4
 
     .line 1135
     sget-object v0, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
@@ -774,7 +774,7 @@
 .end method
 
 .method private checkDirective()Z
-    .locals 1
+    .registers 2
 
     .line 1099
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -783,21 +783,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method private checkDocumentEnd()Z
-    .locals 3
+    .registers 4
 
     .line 1122
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -806,7 +806,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_27
 
     .line 1123
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -823,7 +823,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     sget-object v0, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -837,7 +837,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 1124
     const/4 v0, 0x1
@@ -845,14 +845,14 @@
     return v0
 
     .line 1127
-    :cond_0
+    :cond_27
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private checkDocumentStart()Z
-    .locals 3
+    .registers 4
 
     .line 1108
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -861,7 +861,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_27
 
     .line 1109
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -878,7 +878,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     sget-object v0, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -892,7 +892,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 1110
     const/4 v0, 0x1
@@ -900,27 +900,27 @@
     return v0
 
     .line 1113
-    :cond_0
+    :cond_27
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private checkKey()Z
-    .locals 3
+    .registers 4
 
     .line 1143
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 1144
     return v1
 
     .line 1147
-    :cond_0
+    :cond_6
     sget-object v0, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -937,7 +937,7 @@
 .end method
 
 .method private checkPlain()Z
-    .locals 4
+    .registers 5
 
     .line 1184
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -958,7 +958,7 @@
 
     const/4 v2, 0x1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_32
 
     sget-object v1, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -972,15 +972,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_31
 
     const/16 v1, 0x2d
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_32
 
     iget v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_31
 
     const-string v1, "?:"
 
@@ -990,33 +990,33 @@
 
     const/4 v3, -0x1
 
-    if-eq v1, v3, :cond_0
+    if-eq v1, v3, :cond_31
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_31
     const/4 v2, 0x0
 
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     return v2
 .end method
 
 .method private checkValue()Z
-    .locals 3
+    .registers 4
 
     .line 1156
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 1157
     return v1
 
     .line 1160
-    :cond_0
+    :cond_6
     sget-object v0, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -1033,7 +1033,7 @@
 .end method
 
 .method private fetchAlias()V
-    .locals 1
+    .registers 2
 
     .line 951
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->savePossibleSimpleKey()V
@@ -1057,7 +1057,7 @@
 .end method
 
 .method private fetchAnchor()V
-    .locals 1
+    .registers 2
 
     .line 972
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->savePossibleSimpleKey()V
@@ -1083,17 +1083,17 @@
 .end method
 
 .method private fetchBlockEntry()V
-    .locals 4
+    .registers 5
 
     .line 815
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     .line 817
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 823
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -1106,7 +1106,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 824
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -1123,11 +1123,11 @@
 
     invoke-direct {p0, v1}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->addToken(Lorg/yaml/snakeyaml/tokens/Token;)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 818
     .end local v0    # "mark":Lorg/yaml/snakeyaml/error/Mark;
-    :cond_0
+    :cond_23
     new-instance v0, Lorg/yaml/snakeyaml/scanner/ScannerException;
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -1145,8 +1145,8 @@
     throw v0
 
     .line 832
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
@@ -1189,7 +1189,7 @@
 .end method
 
 .method private fetchBlockScalar(C)V
-    .locals 1
+    .registers 3
     .param p1, "style"    # C
 
     .line 1029
@@ -1214,7 +1214,7 @@
 .end method
 
 .method private fetchDirective()V
-    .locals 1
+    .registers 2
 
     .line 652
     const/4 v0, -0x1
@@ -1243,7 +1243,7 @@
 .end method
 
 .method private fetchDocumentEnd()V
-    .locals 1
+    .registers 2
 
     .line 674
     const/4 v0, 0x0
@@ -1255,7 +1255,7 @@
 .end method
 
 .method private fetchDocumentIndicator(Z)V
-    .locals 3
+    .registers 5
     .param p1, "isDocumentStart"    # Z
 
     .line 683
@@ -1295,7 +1295,7 @@
 
     .line 695
     .local v1, "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_24
 
     .line 696
     new-instance v2, Lorg/yaml/snakeyaml/tokens/DocumentStartToken;
@@ -1303,18 +1303,18 @@
     invoke-direct {v2, v0, v1}, Lorg/yaml/snakeyaml/tokens/DocumentStartToken;-><init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .local v2, "token":Lorg/yaml/snakeyaml/tokens/Token;
-    goto :goto_0
+    goto :goto_29
 
     .line 698
     .end local v2    # "token":Lorg/yaml/snakeyaml/tokens/Token;
-    :cond_0
+    :cond_24
     new-instance v2, Lorg/yaml/snakeyaml/tokens/DocumentEndToken;
 
     invoke-direct {v2, v0, v1}, Lorg/yaml/snakeyaml/tokens/DocumentEndToken;-><init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .line 700
     .restart local v2    # "token":Lorg/yaml/snakeyaml/tokens/Token;
-    :goto_0
+    :goto_29
     invoke-direct {p0, v2}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->addToken(Lorg/yaml/snakeyaml/tokens/Token;)V
 
     .line 701
@@ -1322,7 +1322,7 @@
 .end method
 
 .method private fetchDocumentStart()V
-    .locals 1
+    .registers 2
 
     .line 667
     const/4 v0, 0x1
@@ -1334,7 +1334,7 @@
 .end method
 
 .method private fetchDouble()V
-    .locals 1
+    .registers 2
 
     .line 1050
     const/16 v0, 0x22
@@ -1346,7 +1346,7 @@
 .end method
 
 .method private fetchFlowCollectionEnd(Z)V
-    .locals 3
+    .registers 5
     .param p1, "isMappingEnd"    # Z
 
     .line 766
@@ -1386,7 +1386,7 @@
 
     .line 779
     .local v1, "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_25
 
     .line 780
     new-instance v2, Lorg/yaml/snakeyaml/tokens/FlowMappingEndToken;
@@ -1394,18 +1394,18 @@
     invoke-direct {v2, v0, v1}, Lorg/yaml/snakeyaml/tokens/FlowMappingEndToken;-><init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .local v2, "token":Lorg/yaml/snakeyaml/tokens/Token;
-    goto :goto_0
+    goto :goto_2a
 
     .line 782
     .end local v2    # "token":Lorg/yaml/snakeyaml/tokens/Token;
-    :cond_0
+    :cond_25
     new-instance v2, Lorg/yaml/snakeyaml/tokens/FlowSequenceEndToken;
 
     invoke-direct {v2, v0, v1}, Lorg/yaml/snakeyaml/tokens/FlowSequenceEndToken;-><init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .line 784
     .restart local v2    # "token":Lorg/yaml/snakeyaml/tokens/Token;
-    :goto_0
+    :goto_2a
     invoke-direct {p0, v2}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->addToken(Lorg/yaml/snakeyaml/tokens/Token;)V
 
     .line 785
@@ -1413,7 +1413,7 @@
 .end method
 
 .method private fetchFlowCollectionStart(Z)V
-    .locals 3
+    .registers 5
     .param p1, "isMappingStart"    # Z
 
     .line 725
@@ -1453,7 +1453,7 @@
 
     .line 738
     .local v1, "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_24
 
     .line 739
     new-instance v2, Lorg/yaml/snakeyaml/tokens/FlowMappingStartToken;
@@ -1461,18 +1461,18 @@
     invoke-direct {v2, v0, v1}, Lorg/yaml/snakeyaml/tokens/FlowMappingStartToken;-><init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .local v2, "token":Lorg/yaml/snakeyaml/tokens/Token;
-    goto :goto_0
+    goto :goto_29
 
     .line 741
     .end local v2    # "token":Lorg/yaml/snakeyaml/tokens/Token;
-    :cond_0
+    :cond_24
     new-instance v2, Lorg/yaml/snakeyaml/tokens/FlowSequenceStartToken;
 
     invoke-direct {v2, v0, v1}, Lorg/yaml/snakeyaml/tokens/FlowSequenceStartToken;-><init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .line 743
     .restart local v2    # "token":Lorg/yaml/snakeyaml/tokens/Token;
-    :goto_0
+    :goto_29
     invoke-direct {p0, v2}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->addToken(Lorg/yaml/snakeyaml/tokens/Token;)V
 
     .line 744
@@ -1480,7 +1480,7 @@
 .end method
 
 .method private fetchFlowEntry()V
-    .locals 3
+    .registers 4
 
     .line 795
     const/4 v0, 0x1
@@ -1525,7 +1525,7 @@
 .end method
 
 .method private fetchFlowMappingEnd()V
-    .locals 1
+    .registers 2
 
     .line 751
     const/4 v0, 0x1
@@ -1537,7 +1537,7 @@
 .end method
 
 .method private fetchFlowMappingStart()V
-    .locals 1
+    .registers 2
 
     .line 708
     const/4 v0, 0x1
@@ -1549,7 +1549,7 @@
 .end method
 
 .method private fetchFlowScalar(C)V
-    .locals 1
+    .registers 3
     .param p1, "style"    # C
 
     .line 1062
@@ -1574,7 +1574,7 @@
 .end method
 
 .method private fetchFlowSequenceEnd()V
-    .locals 1
+    .registers 2
 
     .line 747
     const/4 v0, 0x0
@@ -1586,7 +1586,7 @@
 .end method
 
 .method private fetchFlowSequenceStart()V
-    .locals 1
+    .registers 2
 
     .line 704
     const/4 v0, 0x0
@@ -1598,7 +1598,7 @@
 .end method
 
 .method private fetchFolded()V
-    .locals 1
+    .registers 2
 
     .line 1017
     const/16 v0, 0x3e
@@ -1610,17 +1610,17 @@
 .end method
 
 .method private fetchKey()V
-    .locals 4
+    .registers 5
 
     .line 852
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     .line 854
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 859
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -1633,7 +1633,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 860
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -1650,11 +1650,11 @@
 
     invoke-direct {p0, v1}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->addToken(Lorg/yaml/snakeyaml/tokens/Token;)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 855
     .end local v0    # "mark":Lorg/yaml/snakeyaml/error/Mark;
-    :cond_0
+    :cond_23
     new-instance v0, Lorg/yaml/snakeyaml/scanner/ScannerException;
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -1672,20 +1672,20 @@
     throw v0
 
     .line 865
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_38
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_39
 
-    :cond_2
+    :cond_38
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_39
     iput-boolean v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
 
     .line 868
@@ -1726,7 +1726,7 @@
 .end method
 
 .method private fetchLiteral()V
-    .locals 1
+    .registers 2
 
     .line 1007
     const/16 v0, 0x7c
@@ -1738,7 +1738,7 @@
 .end method
 
 .method private fetchMoreTokens()V
-    .locals 7
+    .registers 8
 
     .line 329
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanToNextToken()V
@@ -1764,22 +1764,22 @@
 
     .line 338
     .local v0, "c":I
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_112
 
-    goto/16 :goto_0
+    goto/16 :goto_92
 
     .line 383
-    :sswitch_0
+    :sswitch_1a
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchFlowMappingEnd()V
 
     .line 384
     return-void
 
     .line 418
-    :sswitch_1
+    :sswitch_1e
     iget v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_92
 
     .line 419
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchLiteral()V
@@ -1788,33 +1788,33 @@
     return-void
 
     .line 375
-    :sswitch_2
+    :sswitch_26
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchFlowMappingStart()V
 
     .line 376
     return-void
 
     .line 379
-    :sswitch_3
+    :sswitch_2a
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchFlowSequenceEnd()V
 
     .line 380
     return-void
 
     .line 371
-    :sswitch_4
+    :sswitch_2e
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchFlowSequenceStart()V
 
     .line 372
     return-void
 
     .line 392
-    :sswitch_5
+    :sswitch_32
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->checkKey()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_92
 
     .line 393
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchKey()V
@@ -1823,10 +1823,10 @@
     return-void
 
     .line 425
-    :sswitch_6
+    :sswitch_3c
     iget v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_92
 
     .line 426
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchFolded()V
@@ -1835,12 +1835,12 @@
     return-void
 
     .line 399
-    :sswitch_7
+    :sswitch_44
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->checkValue()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_92
 
     .line 400
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchValue()V
@@ -1849,12 +1849,12 @@
     return-void
 
     .line 363
-    :sswitch_8
+    :sswitch_4e
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->checkDocumentEnd()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_92
 
     .line 364
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchDocumentEnd()V
@@ -1863,12 +1863,12 @@
     return-void
 
     .line 352
-    :sswitch_9
+    :sswitch_58
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->checkDocumentStart()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_62
 
     .line 353
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchDocumentStart()V
@@ -1877,12 +1877,12 @@
     return-void
 
     .line 356
-    :cond_0
+    :cond_62
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->checkBlockEntry()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_92
 
     .line 357
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchBlockEntry()V
@@ -1891,40 +1891,40 @@
     return-void
 
     .line 387
-    :sswitch_a
+    :sswitch_6c
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchFlowEntry()V
 
     .line 388
     return-void
 
     .line 406
-    :sswitch_b
+    :sswitch_70
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchAlias()V
 
     .line 407
     return-void
 
     .line 432
-    :sswitch_c
+    :sswitch_74
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchSingle()V
 
     .line 433
     return-void
 
     .line 410
-    :sswitch_d
+    :sswitch_78
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchAnchor()V
 
     .line 411
     return-void
 
     .line 345
-    :sswitch_e
+    :sswitch_7c
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->checkDirective()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_92
 
     .line 346
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchDirective()V
@@ -1933,34 +1933,34 @@
     return-void
 
     .line 436
-    :sswitch_f
+    :sswitch_86
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchDouble()V
 
     .line 437
     return-void
 
     .line 414
-    :sswitch_10
+    :sswitch_8a
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchTag()V
 
     .line 415
     return-void
 
     .line 341
-    :sswitch_11
+    :sswitch_8e
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchStreamEnd()V
 
     .line 342
     return-void
 
     .line 440
-    :cond_1
-    :goto_0
+    :cond_92
+    :goto_92
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->checkPlain()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_9c
 
     .line 441
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchPlain()V
@@ -1969,7 +1969,7 @@
     return-void
 
     .line 447
-    :cond_2
+    :cond_9c
     invoke-static {v0}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v1
@@ -1991,12 +1991,12 @@
     move-result-object v2
 
     .local v2, "i$":Ljava/util/Iterator;
-    :goto_1
+    :goto_ae
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_dd
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2020,7 +2020,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_dc
 
     .line 451
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2042,21 +2042,21 @@
     move-result-object v1
 
     .line 452
-    goto :goto_2
+    goto :goto_dd
 
     .line 454
     .end local v3    # "s":Ljava/lang/Character;
     .end local v4    # "v":Ljava/lang/String;
-    :cond_3
-    goto :goto_1
+    :cond_dc
+    goto :goto_ae
 
     .line 455
     .end local v2    # "i$":Ljava/util/Iterator;
-    :cond_4
-    :goto_2
+    :cond_dd
+    :goto_dd
     const/16 v2, 0x9
 
-    if-ne v0, v2, :cond_5
+    if-ne v0, v2, :cond_f4
 
     .line 456
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2078,7 +2078,7 @@
     move-result-object v1
 
     .line 457
-    :cond_5
+    :cond_f4
     const/4 v2, 0x2
 
     new-array v2, v2, [Ljava/lang/Object;
@@ -2115,31 +2115,31 @@
 
     throw v3
 
-    :sswitch_data_0
+    :sswitch_data_112
     .sparse-switch
-        0x0 -> :sswitch_11
-        0x21 -> :sswitch_10
-        0x22 -> :sswitch_f
-        0x25 -> :sswitch_e
-        0x26 -> :sswitch_d
-        0x27 -> :sswitch_c
-        0x2a -> :sswitch_b
-        0x2c -> :sswitch_a
-        0x2d -> :sswitch_9
-        0x2e -> :sswitch_8
-        0x3a -> :sswitch_7
-        0x3e -> :sswitch_6
-        0x3f -> :sswitch_5
-        0x5b -> :sswitch_4
-        0x5d -> :sswitch_3
-        0x7b -> :sswitch_2
-        0x7c -> :sswitch_1
-        0x7d -> :sswitch_0
+        0x0 -> :sswitch_8e
+        0x21 -> :sswitch_8a
+        0x22 -> :sswitch_86
+        0x25 -> :sswitch_7c
+        0x26 -> :sswitch_78
+        0x27 -> :sswitch_74
+        0x2a -> :sswitch_70
+        0x2c -> :sswitch_6c
+        0x2d -> :sswitch_58
+        0x2e -> :sswitch_4e
+        0x3a -> :sswitch_44
+        0x3e -> :sswitch_3c
+        0x3f -> :sswitch_32
+        0x5b -> :sswitch_2e
+        0x5d -> :sswitch_2a
+        0x7b -> :sswitch_26
+        0x7c -> :sswitch_1e
+        0x7d -> :sswitch_1a
     .end sparse-switch
 .end method
 
 .method private fetchPlain()V
-    .locals 1
+    .registers 2
 
     .line 1077
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->savePossibleSimpleKey()V
@@ -2163,7 +2163,7 @@
 .end method
 
 .method private fetchSingle()V
-    .locals 1
+    .registers 2
 
     .line 1043
     const/16 v0, 0x27
@@ -2175,7 +2175,7 @@
 .end method
 
 .method private fetchStreamEnd()V
-    .locals 3
+    .registers 4
 
     .line 625
     const/4 v0, -0x1
@@ -2222,7 +2222,7 @@
 .end method
 
 .method private fetchStreamStart()V
-    .locals 2
+    .registers 3
 
     .line 616
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -2246,7 +2246,7 @@
 .end method
 
 .method private fetchTag()V
-    .locals 1
+    .registers 2
 
     .line 989
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->savePossibleSimpleKey()V
@@ -2270,7 +2270,7 @@
 .end method
 
 .method private fetchValue()V
-    .locals 6
+    .registers 7
 
     .line 885
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->possibleSimpleKeys:Ljava/util/Map;
@@ -2291,7 +2291,7 @@
     .local v0, "key":Lorg/yaml/snakeyaml/scanner/SimpleKey;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_50
 
     .line 888
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/scanner/SimpleKey;->getTokenNumber()I
@@ -2319,7 +2319,7 @@
     .line 892
     iget v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_4d
 
     .line 893
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/scanner/SimpleKey;->getColumn()I
@@ -2330,7 +2330,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4d
 
     .line 894
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/scanner/SimpleKey;->getTokenNumber()I
@@ -2356,26 +2356,26 @@
     invoke-direct {p0, v2, v3}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->addToken(ILorg/yaml/snakeyaml/tokens/Token;)V
 
     .line 899
-    :cond_0
+    :cond_4d
     iput-boolean v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
 
-    goto :goto_1
+    goto :goto_90
 
     .line 905
-    :cond_1
+    :cond_50
     iget v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_68
 
     .line 909
     iget-boolean v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_59
 
-    goto :goto_0
+    goto :goto_68
 
     .line 910
-    :cond_2
+    :cond_59
     new-instance v1, Lorg/yaml/snakeyaml/scanner/ScannerException;
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -2393,11 +2393,11 @@
     throw v1
 
     .line 918
-    :cond_3
-    :goto_0
+    :cond_68
+    :goto_68
     iget v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_86
 
     .line 919
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -2410,7 +2410,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_86
 
     .line 920
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -2429,21 +2429,21 @@
 
     .line 926
     .end local v2    # "mark":Lorg/yaml/snakeyaml/error/Mark;
-    :cond_4
+    :cond_86
     iget v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_8b
 
     const/4 v1, 0x1
 
-    :cond_5
+    :cond_8b
     iput-boolean v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
 
     .line 929
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->removePossibleSimpleKey()V
 
     .line 932
-    :goto_1
+    :goto_90
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->getMark()Lorg/yaml/snakeyaml/error/Mark;
@@ -2478,7 +2478,7 @@
 .end method
 
 .method private varargs makeTokenList([Lorg/yaml/snakeyaml/tokens/Token;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p1, "tokens"    # [Lorg/yaml/snakeyaml/tokens/Token;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2501,67 +2501,67 @@
     const/4 v1, 0x0
 
     .local v1, "ix":I
-    :goto_0
+    :goto_6
     array-length v2, p1
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_21
 
     .line 2381
     aget-object v2, p1, v1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_e
 
     .line 2382
-    goto :goto_1
+    goto :goto_1e
 
     .line 2384
-    :cond_0
+    :cond_e
     iget-boolean v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->parseComments:Z
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_19
 
     aget-object v2, p1, v1
 
     instance-of v2, v2, Lorg/yaml/snakeyaml/tokens/CommentToken;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_19
 
     .line 2385
-    goto :goto_1
+    goto :goto_1e
 
     .line 2387
-    :cond_1
+    :cond_19
     aget-object v2, p1, v1
 
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 2380
-    :goto_1
+    :goto_1e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 2389
     .end local v1    # "ix":I
-    :cond_2
+    :cond_21
     return-object v0
 .end method
 
 .method private needMoreTokens()Z
-    .locals 4
+    .registers 5
 
     .line 311
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->done:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 312
     return v1
 
     .line 315
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->tokens:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
@@ -2570,13 +2570,13 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 316
     return v2
 
     .line 320
-    :cond_1
+    :cond_10
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->stalePossibleSimpleKeys()V
 
     .line 321
@@ -2586,16 +2586,16 @@
 
     iget v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->tokensTaken:I
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_1c
 
     const/4 v1, 0x1
 
-    :cond_2
+    :cond_1c
     return v1
 .end method
 
 .method private nextPossibleSimpleKey()I
-    .locals 1
+    .registers 2
 
     .line 475
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->possibleSimpleKeys:Ljava/util/Map;
@@ -2604,7 +2604,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     .line 476
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->possibleSimpleKeys:Ljava/util/Map;
@@ -2630,14 +2630,14 @@
     return v0
 
     .line 478
-    :cond_0
+    :cond_1d
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method private removePossibleSimpleKey()V
-    .locals 6
+    .registers 7
 
     .line 552
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->possibleSimpleKeys:Ljava/util/Map;
@@ -2656,18 +2656,18 @@
 
     .line 553
     .local v0, "key":Lorg/yaml/snakeyaml/scanner/SimpleKey;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/scanner/SimpleKey;->isRequired()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 554
-    :cond_0
+    :cond_17
     new-instance v1, Lorg/yaml/snakeyaml/scanner/ScannerException;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/scanner/SimpleKey;->getMark()Lorg/yaml/snakeyaml/error/Mark;
@@ -2689,18 +2689,18 @@
     throw v1
 
     .line 557
-    :cond_1
-    :goto_0
+    :cond_2b
+    :goto_2b
     return-void
 .end method
 
 .method private savePossibleSimpleKey()V
-    .locals 10
+    .registers 11
 
     .line 527
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->indent:I
 
@@ -2710,28 +2710,28 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     .line 529
     .local v0, "required":Z
-    :goto_0
+    :goto_11
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_20
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
-    goto :goto_1
+    goto :goto_20
 
     .line 533
-    :cond_1
+    :cond_18
     new-instance v1, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v2, "A simple key is required only if it is the first token in the current line"
@@ -2741,11 +2741,11 @@
     throw v1
 
     .line 539
-    :cond_2
-    :goto_1
+    :cond_20
+    :goto_20
     iget-boolean v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5c
 
     .line 540
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->removePossibleSimpleKey()V
@@ -2812,12 +2812,12 @@
     .line 546
     .end local v1    # "key":Lorg/yaml/snakeyaml/scanner/SimpleKey;
     .end local v8    # "tokenNumber":I
-    :cond_3
+    :cond_5c
     return-void
 .end method
 
 .method private scanAnchor(Z)Lorg/yaml/snakeyaml/tokens/Token;
-    .locals 13
+    .registers 15
     .param p1, "isAnchor"    # Z
 
     .line 1503
@@ -2839,18 +2839,18 @@
     .local v1, "indicator":I
     const/16 v2, 0x2a
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_13
 
     const-string v2, "alias"
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const-string v2, "anchor"
 
     .line 1506
     .local v2, "name":Ljava/lang/String;
-    :goto_0
+    :goto_15
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
@@ -2868,7 +2868,7 @@
 
     .line 1509
     .local v4, "c":I
-    :goto_1
+    :goto_21
     sget-object v5, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     const-string v6, ":,[]{}/.*&"
@@ -2877,7 +2877,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_34
 
     .line 1510
     add-int/lit8 v3, v3, 0x1
@@ -2889,10 +2889,10 @@
 
     move-result v4
 
-    goto :goto_1
+    goto :goto_21
 
     .line 1513
-    :cond_1
+    :cond_34
     const-string v5, ")"
 
     const-string v6, "("
@@ -2901,7 +2901,7 @@
 
     const-string v8, "while scanning an "
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_aa
 
     .line 1518
     iget-object v9, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -2927,7 +2927,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_3
+    if-nez v10, :cond_68
 
     .line 1525
     iget-object v5, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -2938,7 +2938,7 @@
 
     .line 1527
     .local v5, "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_62
 
     .line 1528
     new-instance v6, Lorg/yaml/snakeyaml/tokens/AnchorToken;
@@ -2946,24 +2946,24 @@
     invoke-direct {v6, v9, v0, v5}, Lorg/yaml/snakeyaml/tokens/AnchorToken;-><init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .local v6, "tok":Lorg/yaml/snakeyaml/tokens/Token;
-    goto :goto_2
+    goto :goto_67
 
     .line 1530
     .end local v6    # "tok":Lorg/yaml/snakeyaml/tokens/Token;
-    :cond_2
+    :cond_62
     new-instance v6, Lorg/yaml/snakeyaml/tokens/AliasToken;
 
     invoke-direct {v6, v9, v0, v5}, Lorg/yaml/snakeyaml/tokens/AliasToken;-><init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .line 1532
     .restart local v6    # "tok":Lorg/yaml/snakeyaml/tokens/Token;
-    :goto_2
+    :goto_67
     return-object v6
 
     .line 1521
     .end local v5    # "endMark":Lorg/yaml/snakeyaml/error/Mark;
     .end local v6    # "tok":Lorg/yaml/snakeyaml/tokens/Token;
-    :cond_3
+    :cond_68
     invoke-static {v4}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v10
@@ -3033,7 +3033,7 @@
     .line 1514
     .end local v9    # "value":Ljava/lang/String;
     .end local v10    # "s":Ljava/lang/String;
-    :cond_4
+    :cond_aa
     invoke-static {v4}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v9
@@ -3102,7 +3102,7 @@
 .end method
 
 .method private scanBlockScalar(C)Ljava/util/List;
-    .locals 24
+    .registers 26
     .param p1, "style"    # C
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3120,22 +3120,22 @@
 
     move/from16 v2, p1
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_a
 
     .line 1641
     const/4 v1, 0x1
 
     .local v1, "folded":Z
-    goto :goto_0
+    goto :goto_b
 
     .line 1643
     .end local v1    # "folded":Z
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
     .line 1645
     .restart local v1    # "folded":Z
-    :goto_0
+    :goto_b
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -3181,30 +3181,30 @@
 
     .line 1655
     .local v5, "minIndent":I
-    if-ge v5, v14, :cond_1
+    if-ge v5, v14, :cond_30
 
     .line 1656
     const/4 v5, 0x1
 
     move v15, v5
 
-    goto :goto_1
+    goto :goto_31
 
     .line 1655
-    :cond_1
+    :cond_30
     move v15, v5
 
     .line 1662
     .end local v5    # "minIndent":I
     .local v15, "minIndent":I
-    :goto_1
+    :goto_31
     const/16 v16, 0x2
 
     const/4 v5, -0x1
 
     const/16 v17, 0x0
 
-    if-ne v12, v5, :cond_2
+    if-ne v12, v5, :cond_52
 
     .line 1663
     invoke-direct/range {p0 .. p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanBlockScalarIndentation()[Ljava/lang/Object;
@@ -3243,14 +3243,14 @@
     .local v6, "indent":I
     move v10, v6
 
-    goto :goto_2
+    goto :goto_63
 
     .line 1669
     .end local v6    # "indent":I
     .end local v7    # "breaks":Ljava/lang/String;
     .end local v8    # "maxIndent":I
     .end local v9    # "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    :cond_2
+    :cond_52
     add-int v6, v15, v12
 
     sub-int/2addr v6, v14
@@ -3283,19 +3283,19 @@
     .local v7, "breaks":Ljava/lang/String;
     .restart local v9    # "endMark":Lorg/yaml/snakeyaml/error/Mark;
     .local v10, "indent":I
-    :goto_2
+    :goto_63
     const-string v6, ""
 
     .line 1678
     .local v6, "lineBreak":Ljava/lang/String;
-    :goto_3
+    :goto_65
     iget-object v8, v0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v8}, Lorg/yaml/snakeyaml/reader/StreamReader;->getColumn()I
 
     move-result v8
 
-    if-ne v8, v10, :cond_9
+    if-ne v8, v10, :cond_107
 
     iget-object v8, v0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -3303,7 +3303,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_107
 
     .line 1679
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3321,25 +3321,25 @@
 
     move-result v8
 
-    if-ne v8, v5, :cond_3
+    if-ne v8, v5, :cond_88
 
     const/4 v8, 0x1
 
-    goto :goto_4
+    goto :goto_89
 
-    :cond_3
+    :cond_88
     const/4 v8, 0x0
 
     .line 1681
     .local v8, "leadingNonSpace":Z
-    :goto_4
+    :goto_89
     const/16 v19, 0x0
 
     move/from16 v5, v19
 
     .line 1682
     .local v5, "length":I
-    :goto_5
+    :goto_8d
     sget-object v2, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_OR_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     move-object/from16 v19, v6
@@ -3356,7 +3356,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_a4
 
     .line 1683
     add-int/lit8 v5, v5, 0x1
@@ -3365,10 +3365,10 @@
 
     move-object/from16 v6, v19
 
-    goto :goto_5
+    goto :goto_8d
 
     .line 1685
-    :cond_4
+    :cond_a4
     iget-object v2, v0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2, v5}, Lorg/yaml/snakeyaml/reader/StreamReader;->prefixForward(I)Ljava/lang/String;
@@ -3417,7 +3417,7 @@
 
     move-result v2
 
-    if-ne v2, v10, :cond_8
+    if-ne v2, v10, :cond_104
 
     iget-object v2, v0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -3425,10 +3425,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_104
 
     .line 1695
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_fa
 
     const-string v2, "\n"
 
@@ -3436,9 +3436,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_fa
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_fa
 
     iget-object v2, v0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -3452,54 +3452,54 @@
 
     const/4 v14, -0x1
 
-    if-ne v2, v14, :cond_6
+    if-ne v2, v14, :cond_fb
 
     .line 1697
     invoke-virtual {v7}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_fe
 
     .line 1698
     const-string v2, " "
 
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_6
+    goto :goto_fe
 
     .line 1695
-    :cond_5
+    :cond_fa
     const/4 v14, -0x1
 
     .line 1701
-    :cond_6
+    :cond_fb
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1708
     .end local v5    # "length":I
     .end local v8    # "leadingNonSpace":Z
     .end local v19    # "brme":[Ljava/lang/Object;
-    :cond_7
-    :goto_6
+    :cond_fe
+    :goto_fe
     move/from16 v2, p1
 
     const/4 v5, -0x1
 
     const/4 v14, 0x1
 
-    goto/16 :goto_3
+    goto/16 :goto_65
 
     .line 1710
-    :cond_8
+    :cond_104
     move-object v2, v6
 
     move-object v14, v7
 
-    goto :goto_7
+    goto :goto_10c
 
     .line 1678
-    :cond_9
+    :cond_107
     move-object/from16 v19, v6
 
     .line 1710
@@ -3513,18 +3513,18 @@
     .end local v19    # "lineBreak":Ljava/lang/String;
     .local v2, "lineBreak":Ljava/lang/String;
     .local v14, "breaks":Ljava/lang/String;
-    :goto_7
+    :goto_10c
     invoke-virtual {v11}, Lorg/yaml/snakeyaml/scanner/ScannerImpl$Chomping;->chompTailIsNotFalse()Z
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_115
 
     .line 1711
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1713
-    :cond_a
+    :cond_115
     const/4 v5, 0x0
 
     .line 1714
@@ -3533,12 +3533,12 @@
 
     move-result v6
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_12e
 
     .line 1715
     iget-boolean v6, v0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->parseComments:Z
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_128
 
     .line 1716
     new-instance v6, Lorg/yaml/snakeyaml/tokens/CommentToken;
@@ -3550,21 +3550,21 @@
     move-object v5, v6
 
     .line 1718
-    :cond_b
+    :cond_128
     invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-object/from16 v19, v5
 
-    goto :goto_8
+    goto :goto_130
 
     .line 1714
-    :cond_c
+    :cond_12e
     move-object/from16 v19, v5
 
     .line 1721
     .end local v5    # "blankLineCommentToken":Lorg/yaml/snakeyaml/tokens/CommentToken;
     .local v19, "blankLineCommentToken":Lorg/yaml/snakeyaml/tokens/CommentToken;
-    :goto_8
+    :goto_130
     new-instance v20, Lorg/yaml/snakeyaml/tokens/ScalarToken;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -3619,7 +3619,7 @@
 .end method
 
 .method private scanBlockScalarBreaks(I)[Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p1, "indent"    # I
 
     .line 1859
@@ -3645,10 +3645,10 @@
 
     .line 1864
     .local v2, "col":I
-    :goto_0
+    :goto_11
     const/16 v3, 0x20
 
-    if-ge v2, p1, :cond_0
+    if-ge v2, p1, :cond_25
 
     iget-object v4, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -3656,7 +3656,7 @@
 
     move-result v4
 
-    if-ne v4, v3, :cond_0
+    if-ne v4, v3, :cond_25
 
     .line 1865
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -3666,15 +3666,15 @@
     .line 1866
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1871
-    :cond_0
+    :cond_25
     const/4 v4, 0x0
 
     .line 1872
     .local v4, "lineBreak":Ljava/lang/String;
-    :cond_1
+    :cond_26
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanLineBreak()Ljava/lang/String;
 
     move-result-object v5
@@ -3685,7 +3685,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_52
 
     .line 1873
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3705,8 +3705,8 @@
     move-result v2
 
     .line 1878
-    :goto_1
-    if-ge v2, p1, :cond_1
+    :goto_40
+    if-ge v2, p1, :cond_26
 
     iget-object v5, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -3714,7 +3714,7 @@
 
     move-result v5
 
-    if-ne v5, v3, :cond_1
+    if-ne v5, v3, :cond_26
 
     .line 1879
     iget-object v5, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -3724,10 +3724,10 @@
     .line 1880
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_40
 
     .line 1884
-    :cond_2
+    :cond_52
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -3748,13 +3748,13 @@
 .end method
 
 .method private scanBlockScalarIgnoredLine(Lorg/yaml/snakeyaml/error/Mark;)Lorg/yaml/snakeyaml/tokens/CommentToken;
-    .locals 8
+    .registers 10
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 1800
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -3763,17 +3763,17 @@
 
     const/16 v1, 0x20
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 1801
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1805
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 1806
@@ -3786,7 +3786,7 @@
 
     const/16 v2, 0x23
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_22
 
     .line 1807
     sget-object v1, Lorg/yaml/snakeyaml/comments/CommentType;->IN_LINE:Lorg/yaml/snakeyaml/comments/CommentType;
@@ -3796,7 +3796,7 @@
     move-result-object v0
 
     .line 1811
-    :cond_1
+    :cond_22
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -3815,14 +3815,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_6e
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_35
 
-    goto :goto_1
+    goto :goto_6e
 
     .line 1814
-    :cond_2
+    :cond_35
     invoke-static {v1}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v3
@@ -3883,13 +3883,13 @@
 
     .line 1819
     .end local v3    # "s":Ljava/lang/String;
-    :cond_3
-    :goto_1
+    :cond_6e
+    :goto_6e
     return-object v0
 .end method
 
 .method private scanBlockScalarIndentation()[Ljava/lang/Object;
-    .locals 7
+    .registers 8
 
     .line 1831
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3910,8 +3910,8 @@
 
     .line 1837
     .local v2, "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     sget-object v3, Lorg/yaml/snakeyaml/scanner/Constant;->LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     iget-object v4, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -3926,7 +3926,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_48
 
     .line 1838
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -3937,7 +3937,7 @@
 
     const/16 v4, 0x20
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_34
 
     .line 1841
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanLineBreak()Ljava/lang/String;
@@ -3953,10 +3953,10 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_c
 
     .line 1847
-    :cond_1
+    :cond_34
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
@@ -3968,7 +3968,7 @@
 
     move-result v3
 
-    if-le v3, v1, :cond_0
+    if-le v3, v1, :cond_c
 
     .line 1849
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -3977,10 +3977,10 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 1854
-    :cond_2
+    :cond_48
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -4009,7 +4009,7 @@
 .end method
 
 .method private scanBlockScalarIndicators(Lorg/yaml/snakeyaml/error/Mark;)Lorg/yaml/snakeyaml/scanner/ScannerImpl$Chomping;
-    .locals 8
+    .registers 10
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 1742
@@ -4037,19 +4037,19 @@
 
     const/16 v6, 0x2d
 
-    if-eq v2, v6, :cond_4
+    if-eq v2, v6, :cond_51
 
-    if-ne v2, v5, :cond_0
+    if-ne v2, v5, :cond_15
 
-    goto :goto_1
+    goto :goto_51
 
     .line 1763
-    :cond_0
+    :cond_15
     invoke-static {v2}, Ljava/lang/Character;->isDigit(I)Z
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_89
 
     .line 1764
     invoke-static {v2}, Ljava/lang/Character;->toChars(I)[C
@@ -4067,7 +4067,7 @@
     move-result v1
 
     .line 1766
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_45
 
     .line 1771
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -4082,33 +4082,33 @@
     move-result v2
 
     .line 1773
-    if-eq v2, v6, :cond_1
+    if-eq v2, v6, :cond_38
 
-    if-ne v2, v5, :cond_7
+    if-ne v2, v5, :cond_89
 
     .line 1774
-    :cond_1
-    if-ne v2, v5, :cond_2
+    :cond_38
+    if-ne v2, v5, :cond_3d
 
     .line 1775
     sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 1777
-    :cond_2
+    :cond_3d
     sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     .line 1779
-    :goto_0
+    :goto_3f
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto :goto_3
+    goto :goto_89
 
     .line 1767
-    :cond_3
+    :cond_45
     new-instance v5, Lorg/yaml/snakeyaml/scanner/ScannerException;
 
     iget-object v6, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -4123,21 +4123,21 @@
 
     .line 1746
     .end local v7    # "s":Ljava/lang/String;
-    :cond_4
-    :goto_1
-    if-ne v2, v5, :cond_5
+    :cond_51
+    :goto_51
+    if-ne v2, v5, :cond_56
 
     .line 1747
     sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    goto :goto_2
+    goto :goto_58
 
     .line 1749
-    :cond_5
+    :cond_56
     sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     .line 1751
-    :goto_2
+    :goto_58
     iget-object v5, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v5}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
@@ -4154,7 +4154,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_89
 
     .line 1754
     invoke-static {v2}, Ljava/lang/Character;->toChars(I)[C
@@ -4172,7 +4172,7 @@
     move-result v1
 
     .line 1756
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7d
 
     .line 1761
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -4181,11 +4181,11 @@
 
     .line 1762
     .end local v5    # "s":Ljava/lang/String;
-    goto :goto_3
+    goto :goto_89
 
     .line 1757
     .restart local v5    # "s":Ljava/lang/String;
-    :cond_6
+    :cond_7d
     new-instance v6, Lorg/yaml/snakeyaml/scanner/ScannerException;
 
     iget-object v7, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -4200,8 +4200,8 @@
 
     .line 1782
     .end local v5    # "s":Ljava/lang/String;
-    :cond_7
-    :goto_3
+    :cond_89
+    :goto_89
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -4215,7 +4215,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_9d
 
     .line 1789
     new-instance v3, Lorg/yaml/snakeyaml/scanner/ScannerImpl$Chomping;
@@ -4225,7 +4225,7 @@
     return-object v3
 
     .line 1784
-    :cond_8
+    :cond_9d
     invoke-static {v2}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v3
@@ -4284,7 +4284,7 @@
 .end method
 
 .method private scanComment(Lorg/yaml/snakeyaml/comments/CommentType;)Lorg/yaml/snakeyaml/tokens/CommentToken;
-    .locals 5
+    .registers 7
     .param p1, "type"    # Lorg/yaml/snakeyaml/comments/CommentType;
 
     .line 1280
@@ -4305,7 +4305,7 @@
 
     .line 1283
     .local v1, "length":I
-    :goto_0
+    :goto_c
     sget-object v2, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_OR_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -4318,15 +4318,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     .line 1284
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 1286
-    :cond_0
+    :cond_1d
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2, v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->prefixForward(I)Ljava/lang/String;
@@ -4351,7 +4351,7 @@
 .end method
 
 .method private scanDirective()Ljava/util/List;
-    .locals 8
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -4391,7 +4391,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
     .line 1300
     invoke-direct {p0, v0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanYamlDirectiveValue(Lorg/yaml/snakeyaml/error/Mark;)Ljava/util/List;
@@ -4406,18 +4406,18 @@
     move-result-object v3
 
     .local v3, "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    goto :goto_1
+    goto :goto_55
 
     .line 1302
     .end local v3    # "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    :cond_0
+    :cond_23
     const-string v3, "TAG"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_36
 
     .line 1303
     invoke-direct {p0, v0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanTagDirectiveValue(Lorg/yaml/snakeyaml/error/Mark;)Ljava/util/List;
@@ -4432,11 +4432,11 @@
     move-result-object v3
 
     .restart local v3    # "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    goto :goto_1
+    goto :goto_55
 
     .line 1306
     .end local v3    # "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    :cond_1
+    :cond_36
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/reader/StreamReader;->getMark()Lorg/yaml/snakeyaml/error/Mark;
@@ -4449,7 +4449,7 @@
 
     .line 1308
     .local v4, "ff":I
-    :goto_0
+    :goto_3d
     sget-object v5, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_OR_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     iget-object v6, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -4462,16 +4462,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_4e
 
     .line 1309
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 1311
-    :cond_2
-    if-lez v4, :cond_3
+    :cond_4e
+    if-lez v4, :cond_55
 
     .line 1312
     iget-object v5, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -4480,8 +4480,8 @@
 
     .line 1315
     .end local v4    # "ff":I
-    :cond_3
-    :goto_1
+    :cond_55
+    :goto_55
     invoke-direct {p0, v0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanDirectiveIgnoredLine(Lorg/yaml/snakeyaml/error/Mark;)Lorg/yaml/snakeyaml/tokens/CommentToken;
 
     move-result-object v4
@@ -4514,13 +4514,13 @@
 .end method
 
 .method private scanDirectiveIgnoredLine(Lorg/yaml/snakeyaml/error/Mark;)Lorg/yaml/snakeyaml/tokens/CommentToken;
-    .locals 8
+    .registers 10
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 1473
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -4529,17 +4529,17 @@
 
     const/16 v1, 0x20
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 1474
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1476
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 1477
@@ -4552,7 +4552,7 @@
 
     const/16 v2, 0x23
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_27
 
     .line 1478
     sget-object v1, Lorg/yaml/snakeyaml/comments/CommentType;->IN_LINE:Lorg/yaml/snakeyaml/comments/CommentType;
@@ -4565,14 +4565,14 @@
     .local v1, "comment":Lorg/yaml/snakeyaml/tokens/CommentToken;
     iget-boolean v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->parseComments:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     .line 1480
     move-object v0, v1
 
     .line 1483
     .end local v1    # "comment":Lorg/yaml/snakeyaml/tokens/CommentToken;
-    :cond_1
+    :cond_27
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -4591,14 +4591,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_73
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3a
 
-    goto :goto_1
+    goto :goto_73
 
     .line 1486
-    :cond_2
+    :cond_3a
     invoke-static {v1}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v3
@@ -4659,13 +4659,13 @@
 
     .line 1491
     .end local v3    # "s":Ljava/lang/String;
-    :cond_3
-    :goto_1
+    :cond_73
+    :goto_73
     return-object v0
 .end method
 
 .method private scanDirectiveName(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
-    .locals 10
+    .registers 12
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 1328
@@ -4681,14 +4681,14 @@
 
     .line 1333
     .local v1, "c":I
-    :goto_0
+    :goto_7
     sget-object v2, Lorg/yaml/snakeyaml/scanner/Constant;->ALPHA:Lorg/yaml/snakeyaml/scanner/Constant;
 
     invoke-virtual {v2, v1}, Lorg/yaml/snakeyaml/scanner/Constant;->has(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     .line 1334
     add-int/lit8 v0, v0, 0x1
@@ -4700,10 +4700,10 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 1338
-    :cond_0
+    :cond_18
     const-string v2, ")"
 
     const-string v3, "("
@@ -4712,7 +4712,7 @@
 
     const-string v5, "while scanning a directive"
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_68
 
     .line 1344
     iget-object v6, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -4736,13 +4736,13 @@
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_37
 
     .line 1352
     return-object v6
 
     .line 1347
-    :cond_1
+    :cond_37
     invoke-static {v1}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v7
@@ -4796,7 +4796,7 @@
     .line 1339
     .end local v6    # "value":Ljava/lang/String;
     .end local v7    # "s":Ljava/lang/String;
-    :cond_2
+    :cond_68
     invoke-static {v1}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v6
@@ -4849,28 +4849,28 @@
 .end method
 
 .method private scanFlowScalar(C)Lorg/yaml/snakeyaml/tokens/Token;
-    .locals 12
+    .registers 14
     .param p1, "style"    # C
 
     .line 1907
     const/16 v0, 0x22
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_6
 
     .line 1908
     const/4 v0, 0x1
 
     .local v0, "_double":Z
-    goto :goto_0
+    goto :goto_7
 
     .line 1910
     .end local v0    # "_double":Z
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
     .line 1912
     .restart local v0    # "_double":Z
-    :goto_0
+    :goto_7
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -4905,14 +4905,14 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1917
-    :goto_1
+    :goto_24
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
 
     move-result v3
 
-    if-eq v3, v9, :cond_1
+    if-eq v3, v9, :cond_3b
 
     .line 1918
     invoke-direct {p0, v2}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanFlowScalarSpaces(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
@@ -4928,10 +4928,10 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_24
 
     .line 1921
-    :cond_1
+    :cond_3b
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
@@ -4973,7 +4973,7 @@
 .end method
 
 .method private scanFlowScalarBreaks(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 2024
@@ -4983,7 +4983,7 @@
 
     .line 2028
     .local v0, "chunks":Ljava/lang/StringBuilder;
-    :goto_0
+    :goto_5
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     const/4 v2, 0x3
@@ -5000,7 +5000,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1c
 
     const-string v3, "..."
 
@@ -5008,9 +5008,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
-    :cond_0
+    :cond_1c
     sget-object v3, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     iget-object v4, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -5023,11 +5023,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_52
 
     .line 2035
-    :cond_1
-    :goto_1
+    :cond_2a
+    :goto_2a
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -5042,17 +5042,17 @@
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_3f
 
     .line 2036
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto :goto_1
+    goto :goto_2a
 
     .line 2040
-    :cond_2
+    :cond_3f
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanLineBreak()Ljava/lang/String;
 
     move-result-object v2
@@ -5063,7 +5063,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4d
 
     .line 2042
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -5071,12 +5071,12 @@
     .line 2046
     .end local v1    # "prefix":Ljava/lang/String;
     .end local v2    # "lineBreak":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_5
 
     .line 2044
     .restart local v1    # "prefix":Ljava/lang/String;
     .restart local v2    # "lineBreak":Ljava/lang/String;
-    :cond_3
+    :cond_4d
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -5085,7 +5085,7 @@
 
     .line 2031
     .end local v2    # "lineBreak":Ljava/lang/String;
-    :cond_4
+    :cond_52
     new-instance v2, Lorg/yaml/snakeyaml/scanner/ScannerException;
 
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -5104,7 +5104,7 @@
 .end method
 
 .method private scanFlowScalarNonSpaces(ZLorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
-    .locals 8
+    .registers 11
     .param p1, "doubleQuoted"    # Z
     .param p2, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
@@ -5115,12 +5115,12 @@
 
     .line 1935
     .local v0, "chunks":Ljava/lang/StringBuilder;
-    :goto_0
+    :goto_5
     const/4 v1, 0x0
 
     .line 1936
     .local v1, "length":I
-    :goto_1
+    :goto_6
     sget-object v2, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -5135,16 +5135,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 1937
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_6
 
     .line 1939
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_19
+    if-eqz v1, :cond_24
 
     .line 1940
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -5156,7 +5156,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1944
-    :cond_1
+    :cond_24
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -5167,9 +5167,9 @@
     .local v2, "c":I
     const/16 v3, 0x27
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_46
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_46
 
     iget-object v4, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -5179,7 +5179,7 @@
 
     move-result v4
 
-    if-ne v4, v3, :cond_2
+    if-ne v4, v3, :cond_46
 
     .line 1946
     const-string v3, "\'"
@@ -5193,16 +5193,16 @@
 
     invoke-virtual {v3, v4}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward(I)V
 
-    goto/16 :goto_2
+    goto/16 :goto_129
 
     .line 1948
-    :cond_2
-    if-eqz p1, :cond_3
+    :cond_46
+    if-eqz p1, :cond_4a
 
-    if-eq v2, v3, :cond_4
+    if-eq v2, v3, :cond_55
 
-    :cond_3
-    if-nez p1, :cond_5
+    :cond_4a
+    if-nez p1, :cond_5f
 
     const-string v3, "\"\\"
 
@@ -5212,10 +5212,10 @@
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_5
+    if-eq v3, v4, :cond_5f
 
     .line 1949
-    :cond_4
+    :cond_55
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->appendCodePoint(I)Ljava/lang/StringBuilder;
 
     .line 1950
@@ -5223,15 +5223,15 @@
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto/16 :goto_2
+    goto/16 :goto_129
 
     .line 1951
-    :cond_5
-    if-eqz p1, :cond_a
+    :cond_5f
+    if-eqz p1, :cond_162
 
     const/16 v3, 0x5c
 
-    if-ne v2, v3, :cond_a
+    if-ne v2, v3, :cond_162
 
     .line 1952
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -5250,7 +5250,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_9a
 
     sget-object v3, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->ESCAPE_REPLACEMENTS:Ljava/util/Map;
 
@@ -5264,7 +5264,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_9a
 
     .line 1958
     sget-object v3, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->ESCAPE_REPLACEMENTS:Ljava/util/Map;
@@ -5288,17 +5288,17 @@
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto/16 :goto_2
+    goto/16 :goto_129
 
     .line 1960
-    :cond_6
+    :cond_9a
     invoke-static {v2}, Ljava/lang/Character;->isSupplementaryCodePoint(I)Z
 
     move-result v3
 
     const-string v4, "while scanning a double-quoted scalar"
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_118
 
     sget-object v3, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->ESCAPE_CODES:Ljava/util/Map;
 
@@ -5312,7 +5312,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_118
 
     .line 1963
     sget-object v3, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->ESCAPE_CODES:Ljava/util/Map;
@@ -5357,7 +5357,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_ef
 
     .line 1972
     const/16 v4, 0x10
@@ -5389,11 +5389,11 @@
     .end local v3    # "hex":Ljava/lang/String;
     .end local v4    # "decimal":I
     .end local v5    # "unicode":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_129
 
     .line 1967
     .restart local v3    # "hex":Ljava/lang/String;
-    :cond_7
+    :cond_ef
     new-instance v5, Lorg/yaml/snakeyaml/scanner/ScannerException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -5436,7 +5436,7 @@
 
     .line 1976
     .end local v3    # "hex":Ljava/lang/String;
-    :cond_8
+    :cond_118
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanLineBreak()Ljava/lang/String;
 
     move-result-object v3
@@ -5445,7 +5445,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_12b
 
     .line 1977
     invoke-direct {p0, p2}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanFlowScalarBreaks(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
@@ -5457,13 +5457,13 @@
     .line 1987
     .end local v1    # "length":I
     .end local v2    # "c":I
-    :goto_2
-    goto/16 :goto_0
+    :goto_129
+    goto/16 :goto_5
 
     .line 1979
     .restart local v1    # "length":I
     .restart local v2    # "c":I
-    :cond_9
+    :cond_12b
     invoke-static {v2}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v3
@@ -5522,7 +5522,7 @@
 
     .line 1985
     .end local v3    # "s":Ljava/lang/String;
-    :cond_a
+    :cond_162
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -5531,7 +5531,7 @@
 .end method
 
 .method private scanFlowScalarSpaces(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 1992
@@ -5545,7 +5545,7 @@
 
     .line 1996
     .local v1, "length":I
-    :goto_0
+    :goto_6
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2, v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek(I)I
@@ -5560,15 +5560,15 @@
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_18
 
     .line 1997
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 1999
-    :cond_0
+    :cond_18
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2, v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->prefixForward(I)Ljava/lang/String;
@@ -5585,7 +5585,7 @@
 
     .line 2001
     .local v3, "c":I
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_57
 
     .line 2007
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanLineBreak()Ljava/lang/String;
@@ -5598,7 +5598,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4f
 
     .line 2009
     invoke-direct {p0, p1}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanFlowScalarBreaks(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
@@ -5613,20 +5613,20 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_40
 
     .line 2011
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 2012
-    :cond_1
+    :cond_40
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_4b
 
     .line 2013
     const-string v6, " "
@@ -5634,20 +5634,20 @@
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 2015
-    :cond_2
-    :goto_1
+    :cond_4b
+    :goto_4b
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 2016
     .end local v5    # "breaks":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_52
 
     .line 2017
-    :cond_3
+    :cond_4f
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 2019
-    :goto_2
+    :goto_52
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
@@ -5656,7 +5656,7 @@
 
     .line 2003
     .end local v4    # "lineBreak":Ljava/lang/String;
-    :cond_4
+    :cond_57
     new-instance v4, Lorg/yaml/snakeyaml/scanner/ScannerException;
 
     iget-object v5, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -5675,7 +5675,7 @@
 .end method
 
 .method private scanLineBreak()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 2363
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -5690,37 +5690,37 @@
 
     const/16 v2, 0xd
 
-    if-eq v0, v2, :cond_3
+    if-eq v0, v2, :cond_2d
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_2d
 
     const/16 v3, 0x85
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_13
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 2371
-    :cond_0
+    :cond_13
     const/16 v1, 0x2028
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_1f
 
     const/16 v1, 0x2029
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1c
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 2375
-    :cond_1
+    :cond_1c
     const-string v1, ""
 
     return-object v1
 
     .line 2372
-    :cond_2
-    :goto_0
+    :cond_1f
+    :goto_1f
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
@@ -5737,9 +5737,9 @@
     return-object v1
 
     .line 2365
-    :cond_3
-    :goto_1
-    if-ne v0, v2, :cond_4
+    :cond_2d
+    :goto_2d
+    if-ne v0, v2, :cond_3f
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -5749,7 +5749,7 @@
 
     move-result v2
 
-    if-ne v1, v2, :cond_4
+    if-ne v1, v2, :cond_3f
 
     .line 2366
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -5758,23 +5758,23 @@
 
     invoke-virtual {v1, v2}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward(I)V
 
-    goto :goto_2
+    goto :goto_44
 
     .line 2368
-    :cond_4
+    :cond_3f
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
     .line 2370
-    :goto_2
+    :goto_44
     const-string v1, "\n"
 
     return-object v1
 .end method
 
 .method private scanPlain()Lorg/yaml/snakeyaml/tokens/Token;
-    .locals 12
+    .registers 13
 
     .line 2061
     new-instance v0, Ljava/lang/StringBuilder;
@@ -5807,7 +5807,7 @@
 
     .line 2068
     .local v5, "spaces":Ljava/lang/String;
-    :goto_0
+    :goto_12
     const/4 v6, 0x0
 
     .line 2070
@@ -5820,14 +5820,14 @@
 
     const/16 v8, 0x23
 
-    if-ne v7, v8, :cond_0
+    if-ne v7, v8, :cond_1f
 
     .line 2071
-    goto/16 :goto_4
+    goto/16 :goto_94
 
     .line 2074
-    :cond_0
-    :goto_1
+    :cond_1f
+    :goto_1f
     iget-object v7, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v7, v6}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek(I)I
@@ -5842,11 +5842,11 @@
 
     move-result v9
 
-    if-nez v9, :cond_4
+    if-nez v9, :cond_5b
 
     const/16 v9, 0x3a
 
-    if-ne v7, v9, :cond_2
+    if-ne v7, v9, :cond_4a
 
     sget-object v9, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -5860,26 +5860,26 @@
 
     iget v11, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_42
 
     const-string v11, ",[]{}"
 
-    goto :goto_2
+    goto :goto_44
 
-    :cond_1
+    :cond_42
     const-string v11, ""
 
-    :goto_2
+    :goto_44
     invoke-virtual {v9, v10, v11}, Lorg/yaml/snakeyaml/scanner/Constant;->has(ILjava/lang/String;)Z
 
     move-result v9
 
-    if-nez v9, :cond_4
+    if-nez v9, :cond_5b
 
-    :cond_2
+    :cond_4a
     iget v9, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_58
 
     const-string v9, ",?[]{}"
 
@@ -5889,27 +5889,27 @@
 
     const/4 v10, -0x1
 
-    if-eq v9, v10, :cond_3
+    if-eq v9, v10, :cond_58
 
     .line 2078
-    goto :goto_3
+    goto :goto_5b
 
     .line 2080
-    :cond_3
+    :cond_58
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 2082
-    :cond_4
-    :goto_3
-    if-nez v6, :cond_5
+    :cond_5b
+    :goto_5b
+    if-nez v6, :cond_5e
 
     .line 2083
-    goto :goto_4
+    goto :goto_94
 
     .line 2085
-    :cond_5
+    :cond_5e
     const/4 v9, 0x0
 
     iput-boolean v9, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
@@ -5943,7 +5943,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_94
 
     iget-object v9, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -5951,11 +5951,11 @@
 
     move-result v9
 
-    if-eq v9, v8, :cond_7
+    if-eq v9, v8, :cond_94
 
     iget v8, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_92
 
     iget-object v8, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -5963,20 +5963,20 @@
 
     move-result v8
 
-    if-ge v8, v3, :cond_6
+    if-ge v8, v3, :cond_92
 
     .line 2093
-    goto :goto_4
+    goto :goto_94
 
     .line 2095
     .end local v6    # "length":I
     .end local v7    # "c":I
-    :cond_6
-    goto/16 :goto_0
+    :cond_92
+    goto/16 :goto_12
 
     .line 2096
-    :cond_7
-    :goto_4
+    :cond_94
+    :goto_94
     new-instance v6, Lorg/yaml/snakeyaml/tokens/ScalarToken;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -5989,14 +5989,14 @@
 .end method
 
 .method private scanPlainSpaces()Ljava/lang/String;
-    .locals 13
+    .registers 14
 
     .line 2144
     const/4 v0, 0x0
 
     .line 2145
     .local v0, "length":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v1, v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek(I)I
@@ -6005,7 +6005,7 @@
 
     const/16 v2, 0x20
 
-    if-eq v1, v2, :cond_b
+    if-eq v1, v2, :cond_cb
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -6015,12 +6015,12 @@
 
     const/16 v3, 0x9
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_17
 
-    goto/16 :goto_4
+    goto/16 :goto_cb
 
     .line 2148
-    :cond_0
+    :cond_17
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v1, v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->prefixForward(I)Ljava/lang/String;
@@ -6039,7 +6039,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_ca
 
     .line 2151
     const/4 v4, 0x1
@@ -6065,7 +6065,7 @@
 
     const-string v8, ""
 
-    if-nez v7, :cond_9
+    if-nez v7, :cond_c9
 
     const-string v7, "..."
 
@@ -6073,7 +6073,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_53
 
     sget-object v9, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -6087,51 +6087,51 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_53
 
-    goto/16 :goto_3
+    goto/16 :goto_c9
 
     .line 2157
-    :cond_1
+    :cond_53
     iget-boolean v9, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->parseComments:Z
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_5e
 
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->atEndOfPlain()Z
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_5e
 
     .line 2158
     return-object v8
 
     .line 2160
-    :cond_2
+    :cond_5e
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 2162
     .local v9, "breaks":Ljava/lang/StringBuilder;
-    :goto_1
+    :goto_63
     iget-object v10, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v10}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
 
     move-result v10
 
-    if-ne v10, v2, :cond_3
+    if-ne v10, v2, :cond_71
 
     .line 2163
     iget-object v10, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v10}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto :goto_1
+    goto :goto_63
 
     .line 2165
-    :cond_3
+    :cond_71
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanLineBreak()Ljava/lang/String;
 
     move-result-object v10
@@ -6142,7 +6142,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_a1
 
     .line 2167
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -6159,13 +6159,13 @@
 
     move-result v11
 
-    if-nez v11, :cond_5
+    if-nez v11, :cond_a0
 
     invoke-virtual {v7, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_9f
 
     sget-object v11, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
@@ -6179,31 +6179,31 @@
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_9f
 
-    goto :goto_2
+    goto :goto_a0
 
     .line 2176
     .end local v10    # "lb":Ljava/lang/String;
-    :cond_4
-    goto :goto_1
+    :cond_9f
+    goto :goto_63
 
     .line 2171
     .restart local v10    # "lb":Ljava/lang/String;
-    :cond_5
-    :goto_2
+    :cond_a0
+    :goto_a0
     return-object v8
 
     .line 2178
     .end local v10    # "lb":Ljava/lang/String;
-    :cond_6
+    :cond_a1
     const-string v2, "\n"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_bb
 
     .line 2179
     new-instance v2, Ljava/lang/StringBuilder;
@@ -6225,12 +6225,12 @@
     return-object v2
 
     .line 2180
-    :cond_7
+    :cond_bb
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->length()I
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_c4
 
     .line 2181
     const-string v2, " "
@@ -6238,7 +6238,7 @@
     return-object v2
 
     .line 2183
-    :cond_8
+    :cond_c4
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -6247,27 +6247,27 @@
 
     .line 2155
     .end local v9    # "breaks":Ljava/lang/StringBuilder;
-    :cond_9
-    :goto_3
+    :cond_c9
+    :goto_c9
     return-object v8
 
     .line 2185
     .end local v4    # "prefix":Ljava/lang/String;
-    :cond_a
+    :cond_ca
     return-object v1
 
     .line 2146
     .end local v1    # "whitespaces":Ljava/lang/String;
     .end local v3    # "lineBreak":Ljava/lang/String;
-    :cond_b
-    :goto_4
+    :cond_cb
+    :goto_cb
     add-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 .end method
 
 .method private scanTag()Lorg/yaml/snakeyaml/tokens/Token;
-    .locals 11
+    .registers 12
 
     .line 1570
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -6306,7 +6306,7 @@
 
     const-string v8, "tag"
 
-    if-ne v1, v4, :cond_1
+    if-ne v1, v4, :cond_68
 
     .line 1580
     iget-object v4, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -6330,17 +6330,17 @@
     .line 1583
     const/16 v4, 0x3e
 
-    if-ne v1, v4, :cond_0
+    if-ne v1, v4, :cond_35
 
     .line 1591
     iget-object v4, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v4}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto :goto_3
+    goto :goto_a3
 
     .line 1586
-    :cond_0
+    :cond_35
     invoke-static {v1}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v4
@@ -6395,14 +6395,14 @@
 
     .line 1592
     .end local v4    # "s":Ljava/lang/String;
-    :cond_1
+    :cond_68
     sget-object v4, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_T_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     invoke-virtual {v4, v1}, Lorg/yaml/snakeyaml/scanner/Constant;->has(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_78
 
     .line 1595
     const-string v3, "!"
@@ -6412,10 +6412,10 @@
 
     invoke-virtual {v4}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto :goto_3
+    goto :goto_a3
 
     .line 1602
-    :cond_2
+    :cond_78
     const/4 v4, 0x1
 
     .line 1603
@@ -6424,28 +6424,28 @@
 
     .line 1604
     .local v9, "useHandle":Z
-    :goto_0
+    :goto_7a
     sget-object v10, Lorg/yaml/snakeyaml/scanner/Constant;->NULL_BL_LINEBR:Lorg/yaml/snakeyaml/scanner/Constant;
 
     invoke-virtual {v10, v1}, Lorg/yaml/snakeyaml/scanner/Constant;->hasNo(I)Z
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_91
 
     .line 1605
     const/16 v10, 0x21
 
-    if-ne v1, v10, :cond_3
+    if-ne v1, v10, :cond_88
 
     .line 1606
     const/4 v9, 0x1
 
     .line 1607
-    goto :goto_1
+    goto :goto_91
 
     .line 1609
-    :cond_3
+    :cond_88
     add-int/lit8 v4, v4, 0x1
 
     .line 1610
@@ -6455,22 +6455,22 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_7a
 
     .line 1614
-    :cond_4
-    :goto_1
-    if-eqz v9, :cond_5
+    :cond_91
+    :goto_91
+    if-eqz v9, :cond_98
 
     .line 1615
     invoke-direct {p0, v8, v0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanTagHandle(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_2
+    goto :goto_9f
 
     .line 1617
-    :cond_5
+    :cond_98
     const-string v2, "!"
 
     .line 1618
@@ -6479,7 +6479,7 @@
     invoke-virtual {v10}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
     .line 1620
-    :goto_2
+    :goto_9f
     invoke-direct {p0, v8, v0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanTagUri(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
 
     move-result-object v3
@@ -6487,7 +6487,7 @@
     .line 1622
     .end local v4    # "length":I
     .end local v9    # "useHandle":Z
-    :goto_3
+    :goto_a3
     iget-object v4, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v4}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -6501,7 +6501,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_c2
 
     .line 1630
     new-instance v4, Lorg/yaml/snakeyaml/tokens/TagTuple;
@@ -6527,7 +6527,7 @@
     .line 1626
     .end local v4    # "value":Lorg/yaml/snakeyaml/tokens/TagTuple;
     .end local v5    # "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    :cond_6
+    :cond_c2
     invoke-static {v1}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v4
@@ -6582,7 +6582,7 @@
 .end method
 
 .method private scanTagDirectiveHandle(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 1443
@@ -6604,13 +6604,13 @@
     .local v1, "c":I
     const/16 v2, 0x20
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_11
 
     .line 1450
     return-object v0
 
     .line 1446
-    :cond_0
+    :cond_11
     invoke-static {v1}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v2
@@ -6671,7 +6671,7 @@
 .end method
 
 .method private scanTagDirectivePrefix(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 1460
@@ -6697,13 +6697,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     .line 1468
     return-object v0
 
     .line 1463
-    :cond_0
+    :cond_15
     invoke-static {v1}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v2
@@ -6764,7 +6764,7 @@
 .end method
 
 .method private scanTagDirectiveValue(Lorg/yaml/snakeyaml/error/Mark;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -6780,7 +6780,7 @@
     .line 1420
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -6789,41 +6789,41 @@
 
     const/16 v1, 0x20
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 1421
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1423
-    :cond_0
+    :cond_11
     invoke-direct {p0, p1}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanTagDirectiveHandle(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 1424
     .local v0, "handle":Ljava/lang/String;
-    :goto_1
+    :goto_15
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
 
     move-result v2
 
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_23
 
     .line 1425
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto :goto_1
+    goto :goto_15
 
     .line 1427
-    :cond_1
+    :cond_23
     invoke-direct {p0, p1}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanTagDirectivePrefix(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
 
     move-result-object v1
@@ -6848,7 +6848,7 @@
 .end method
 
 .method private scanTagHandle(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
-    .locals 9
+    .registers 12
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
@@ -6871,7 +6871,7 @@
 
     const/16 v5, 0x21
 
-    if-ne v0, v5, :cond_3
+    if-ne v0, v5, :cond_81
 
     .line 2220
     const/4 v6, 0x1
@@ -6887,17 +6887,17 @@
     .line 2222
     const/16 v7, 0x20
 
-    if-eq v0, v7, :cond_2
+    if-eq v0, v7, :cond_7a
 
     .line 2227
-    :goto_0
+    :goto_1d
     sget-object v7, Lorg/yaml/snakeyaml/scanner/Constant;->ALPHA:Lorg/yaml/snakeyaml/scanner/Constant;
 
     invoke-virtual {v7, v0}, Lorg/yaml/snakeyaml/scanner/Constant;->has(I)Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_2e
 
     .line 2228
     add-int/lit8 v6, v6, 0x1
@@ -6909,19 +6909,19 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 2234
-    :cond_0
-    if-ne v0, v5, :cond_1
+    :cond_2e
+    if-ne v0, v5, :cond_33
 
     .line 2240
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_7a
 
     .line 2235
-    :cond_1
+    :cond_33
     iget-object v5, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v5, v6}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward(I)V
@@ -6995,8 +6995,8 @@
 
     .line 2242
     .end local v5    # "s":Ljava/lang/String;
-    :cond_2
-    :goto_1
+    :cond_7a
+    :goto_7a
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v1, v6}, Lorg/yaml/snakeyaml/reader/StreamReader;->prefixForward(I)Ljava/lang/String;
@@ -7010,7 +7010,7 @@
     .line 2213
     .end local v1    # "value":Ljava/lang/String;
     .end local v6    # "length":I
-    :cond_3
+    :cond_81
     invoke-static {v0}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v5
@@ -7079,7 +7079,7 @@
 .end method
 
 .method private scanTagUri(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
-    .locals 8
+    .registers 11
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
@@ -7102,19 +7102,19 @@
 
     .line 2270
     .local v2, "c":I
-    :goto_0
+    :goto_c
     sget-object v3, Lorg/yaml/snakeyaml/scanner/Constant;->URI_CHARS:Lorg/yaml/snakeyaml/scanner/Constant;
 
     invoke-virtual {v3, v2}, Lorg/yaml/snakeyaml/scanner/Constant;->has(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_33
 
     .line 2271
     const/16 v3, 0x25
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_2a
 
     .line 2272
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -7135,25 +7135,25 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 2276
-    :cond_0
+    :cond_2a
     add-int/lit8 v1, v1, 0x1
 
     .line 2278
-    :goto_1
+    :goto_2c
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v3, v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek(I)I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_c
 
     .line 2282
-    :cond_1
-    if-eqz v1, :cond_2
+    :cond_33
+    if-eqz v1, :cond_3e
 
     .line 2283
     iget-object v3, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -7165,12 +7165,12 @@
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 2285
-    :cond_2
+    :cond_3e
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_49
 
     .line 2291
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -7180,7 +7180,7 @@
     return-object v3
 
     .line 2287
-    :cond_3
+    :cond_49
     invoke-static {v2}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v3
@@ -7257,7 +7257,7 @@
 .end method
 
 .method private scanToNextToken()V
-    .locals 10
+    .registers 11
 
     .line 1218
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -7266,7 +7266,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -7276,7 +7276,7 @@
 
     const v1, 0xfeff
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_18
 
     .line 1219
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -7284,7 +7284,7 @@
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
     .line 1221
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     .line 1222
@@ -7293,8 +7293,8 @@
 
     .line 1223
     .local v1, "inlineStartColumn":I
-    :goto_0
-    if-nez v0, :cond_a
+    :goto_1a
+    if-nez v0, :cond_a8
 
     .line 1224
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -7321,7 +7321,7 @@
 
     .line 1230
     .local v5, "ff":I
-    :goto_1
+    :goto_2a
     iget-object v6, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v6, v5}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek(I)I
@@ -7330,16 +7330,16 @@
 
     const/16 v7, 0x20
 
-    if-ne v6, v7, :cond_1
+    if-ne v6, v7, :cond_37
 
     .line 1231
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_2a
 
     .line 1233
-    :cond_1
-    if-lez v5, :cond_2
+    :cond_37
+    if-lez v5, :cond_3e
 
     .line 1234
     iget-object v6, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -7347,7 +7347,7 @@
     invoke-virtual {v6, v5}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward(I)V
 
     .line 1240
-    :cond_2
+    :cond_3e
     iget-object v6, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v6}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -7356,17 +7356,17 @@
 
     const/16 v7, 0x23
 
-    if-ne v6, v7, :cond_6
+    if-ne v6, v7, :cond_7b
 
     .line 1241
     const/4 v4, 0x1
 
     .line 1243
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_62
 
     iget-object v6, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->lastToken:Lorg/yaml/snakeyaml/tokens/Token;
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_59
 
     iget-object v6, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->lastToken:Lorg/yaml/snakeyaml/tokens/Token;
 
@@ -7376,10 +7376,10 @@
 
     sget-object v7, Lorg/yaml/snakeyaml/tokens/Token$ID;->BlockEntry:Lorg/yaml/snakeyaml/tokens/Token$ID;
 
-    if-eq v6, v7, :cond_4
+    if-eq v6, v7, :cond_62
 
     .line 1244
-    :cond_3
+    :cond_59
     sget-object v6, Lorg/yaml/snakeyaml/comments/CommentType;->IN_LINE:Lorg/yaml/snakeyaml/comments/CommentType;
 
     .line 1245
@@ -7390,28 +7390,28 @@
 
     move-result v1
 
-    goto :goto_2
+    goto :goto_70
 
     .line 1246
     .end local v6    # "type":Lorg/yaml/snakeyaml/comments/CommentType;
-    :cond_4
+    :cond_62
     iget-object v6, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v6}, Lorg/yaml/snakeyaml/reader/StreamReader;->getColumn()I
 
     move-result v6
 
-    if-ne v1, v6, :cond_5
+    if-ne v1, v6, :cond_6d
 
     .line 1247
     sget-object v6, Lorg/yaml/snakeyaml/comments/CommentType;->IN_LINE:Lorg/yaml/snakeyaml/comments/CommentType;
 
     .restart local v6    # "type":Lorg/yaml/snakeyaml/comments/CommentType;
-    goto :goto_2
+    goto :goto_70
 
     .line 1249
     .end local v6    # "type":Lorg/yaml/snakeyaml/comments/CommentType;
-    :cond_5
+    :cond_6d
     const/4 v1, -0x1
 
     .line 1250
@@ -7419,7 +7419,7 @@
 
     .line 1252
     .restart local v6    # "type":Lorg/yaml/snakeyaml/comments/CommentType;
-    :goto_2
+    :goto_70
     invoke-direct {p0, v6}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanComment(Lorg/yaml/snakeyaml/comments/CommentType;)Lorg/yaml/snakeyaml/tokens/CommentToken;
 
     move-result-object v7
@@ -7428,7 +7428,7 @@
     .local v7, "token":Lorg/yaml/snakeyaml/tokens/CommentToken;
     iget-boolean v8, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->parseComments:Z
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_7b
 
     .line 1254
     invoke-direct {p0, v7}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->addToken(Lorg/yaml/snakeyaml/tokens/Token;)V
@@ -7436,7 +7436,7 @@
     .line 1259
     .end local v6    # "type":Lorg/yaml/snakeyaml/comments/CommentType;
     .end local v7    # "token":Lorg/yaml/snakeyaml/tokens/CommentToken;
-    :cond_6
+    :cond_7b
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanLineBreak()Ljava/lang/String;
 
     move-result-object v6
@@ -7447,17 +7447,17 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_a5
 
     .line 1261
     iget-boolean v7, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->parseComments:Z
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_9d
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_9d
 
     .line 1262
-    if-nez v3, :cond_7
+    if-nez v3, :cond_9d
 
     .line 1263
     iget-object v7, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -7478,20 +7478,20 @@
 
     .line 1267
     .end local v7    # "endMark":Lorg/yaml/snakeyaml/error/Mark;
-    :cond_7
+    :cond_9d
     iget v7, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-nez v7, :cond_9
+    if-nez v7, :cond_a6
 
     .line 1270
     const/4 v7, 0x1
 
     iput-boolean v7, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->allowSimpleKey:Z
 
-    goto :goto_3
+    goto :goto_a6
 
     .line 1273
-    :cond_8
+    :cond_a5
     const/4 v0, 0x1
 
     .line 1275
@@ -7500,17 +7500,17 @@
     .end local v4    # "commentSeen":Z
     .end local v5    # "ff":I
     .end local v6    # "breaks":Ljava/lang/String;
-    :cond_9
-    :goto_3
-    goto/16 :goto_0
+    :cond_a6
+    :goto_a6
+    goto/16 :goto_1a
 
     .line 1276
-    :cond_a
+    :cond_a8
     return-void
 .end method
 
 .method private scanUriEscapes(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/String;
-    .locals 13
+    .registers 16
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
@@ -7519,7 +7519,7 @@
 
     .line 2309
     .local v0, "length":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     mul-int/lit8 v2, v0, 0x3
@@ -7530,15 +7530,15 @@
 
     const/16 v2, 0x25
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_10
 
     .line 2310
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 2316
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->getMark()Lorg/yaml/snakeyaml/error/Mark;
@@ -7553,7 +7553,7 @@
 
     .line 2318
     .local v3, "buff":Ljava/nio/ByteBuffer;
-    :goto_1
+    :goto_1a
     iget-object v4, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v4}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -7562,7 +7562,7 @@
 
     const-string v5, "while scanning a "
 
-    if-ne v4, v2, :cond_1
+    if-ne v4, v2, :cond_b1
 
     .line 2319
     iget-object v4, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -7570,7 +7570,7 @@
     invoke-virtual {v4}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
     .line 2321
-    :try_start_0
+    :try_start_29
     iget-object v4, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     const/4 v6, 0x2
@@ -7590,8 +7590,8 @@
     .line 2322
     .local v4, "code":B
     invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3a
+    .catch Ljava/lang/NumberFormatException; {:try_start_29 .. :try_end_3a} :catch_41
 
     .line 2333
     nop
@@ -7602,10 +7602,10 @@
 
     invoke-virtual {v4, v6}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward(I)V
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 2323
-    :catch_0
+    :catch_41
     move-exception v2
 
     .line 2324
@@ -7734,21 +7734,21 @@
     .end local v6    # "s1":Ljava/lang/String;
     .end local v7    # "c2":I
     .end local v8    # "s2":Ljava/lang/String;
-    :cond_1
+    :cond_b1
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
     .line 2338
-    :try_start_1
+    :try_start_b4
     invoke-static {v3}, Lorg/yaml/snakeyaml/util/UriEncoder;->decode(Ljava/nio/ByteBuffer;)Ljava/lang/String;
 
     move-result-object v2
-    :try_end_1
-    .catch Ljava/nio/charset/CharacterCodingException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_b8
+    .catch Ljava/nio/charset/CharacterCodingException; {:try_start_b4 .. :try_end_b8} :catch_b9
 
     return-object v2
 
     .line 2339
-    :catch_1
+    :catch_b9
     move-exception v2
 
     .line 2340
@@ -7799,7 +7799,7 @@
 .end method
 
 .method private scanYamlDirectiveNumber(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/Integer;
-    .locals 6
+    .registers 8
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 1392
@@ -7815,14 +7815,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2b
 
     .line 1398
     const/4 v1, 0x0
 
     .line 1399
     .local v1, "length":I
-    :goto_0
+    :goto_d
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2, v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek(I)I
@@ -7833,15 +7833,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 1400
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1402
-    :cond_0
+    :cond_1c
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v2, v1}, Lorg/yaml/snakeyaml/reader/StreamReader;->prefixForward(I)Ljava/lang/String;
@@ -7863,7 +7863,7 @@
     .line 1394
     .end local v1    # "length":I
     .end local v2    # "value":Ljava/lang/Integer;
-    :cond_1
+    :cond_2b
     invoke-static {v0}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v1
@@ -7924,7 +7924,7 @@
 .end method
 
 .method private scanYamlDirectiveValue(Lorg/yaml/snakeyaml/error/Mark;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -7940,7 +7940,7 @@
     .line 1357
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->peek()I
@@ -7949,17 +7949,17 @@
 
     const/16 v1, 0x20
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 1358
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/reader/StreamReader;->forward()V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1360
-    :cond_0
+    :cond_11
     invoke-direct {p0, p1}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->scanYamlDirectiveNumber(Lorg/yaml/snakeyaml/error/Mark;)Ljava/lang/Integer;
 
     move-result-object v0
@@ -7982,7 +7982,7 @@
 
     const-string v5, "while scanning a directive"
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_7c
 
     .line 1368
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -8009,7 +8009,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_49
 
     .line 1377
     new-instance v3, Ljava/util/ArrayList;
@@ -8030,7 +8030,7 @@
 
     .line 1372
     .end local v3    # "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
-    :cond_1
+    :cond_49
     invoke-static {v1}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v6
@@ -8086,7 +8086,7 @@
     .line 1363
     .end local v2    # "minor":Ljava/lang/Integer;
     .end local v6    # "s":Ljava/lang/String;
-    :cond_2
+    :cond_7c
     invoke-static {v1}, Ljava/lang/Character;->toChars(I)[C
 
     move-result-object v2
@@ -8141,7 +8141,7 @@
 .end method
 
 .method private stalePossibleSimpleKeys()V
-    .locals 7
+    .registers 8
 
     .line 492
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->possibleSimpleKeys:Ljava/util/Map;
@@ -8150,7 +8150,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_57
 
     .line 493
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->possibleSimpleKeys:Ljava/util/Map;
@@ -8165,12 +8165,12 @@
 
     .line 494
     .local v0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Lorg/yaml/snakeyaml/scanner/SimpleKey;>;"
-    :goto_0
+    :goto_12
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_57
 
     .line 495
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -8191,7 +8191,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_39
 
     iget-object v2, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
 
@@ -8207,27 +8207,27 @@
 
     const/16 v3, 0x400
 
-    if-le v2, v3, :cond_1
+    if-le v2, v3, :cond_42
 
     .line 502
-    :cond_0
+    :cond_39
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/scanner/SimpleKey;->isRequired()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_43
 
     .line 508
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
     .line 510
     .end local v1    # "key":Lorg/yaml/snakeyaml/scanner/SimpleKey;
-    :cond_1
-    goto :goto_0
+    :cond_42
+    goto :goto_12
 
     .line 505
     .restart local v1    # "key":Lorg/yaml/snakeyaml/scanner/SimpleKey;
-    :cond_2
+    :cond_43
     new-instance v2, Lorg/yaml/snakeyaml/scanner/ScannerException;
 
     invoke-virtual {v1}, Lorg/yaml/snakeyaml/scanner/SimpleKey;->getMark()Lorg/yaml/snakeyaml/error/Mark;
@@ -8251,28 +8251,28 @@
     .line 512
     .end local v0    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Lorg/yaml/snakeyaml/scanner/SimpleKey;>;"
     .end local v1    # "key":Lorg/yaml/snakeyaml/scanner/SimpleKey;
-    :cond_3
+    :cond_57
     return-void
 .end method
 
 .method private unwindIndent(I)V
-    .locals 2
+    .registers 4
     .param p1, "col"    # I
 
     .line 584
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->flowLevel:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 585
     return-void
 
     .line 589
-    :cond_0
-    :goto_0
+    :cond_5
+    :goto_5
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->indent:I
 
-    if-le v0, p1, :cond_1
+    if-le v0, p1, :cond_26
 
     .line 590
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->reader:Lorg/yaml/snakeyaml/reader/StreamReader;
@@ -8306,36 +8306,36 @@
 
     .line 593
     .end local v0    # "mark":Lorg/yaml/snakeyaml/error/Mark;
-    goto :goto_0
+    goto :goto_5
 
     .line 594
-    :cond_1
+    :cond_26
     return-void
 .end method
 
 
 # virtual methods
 .method public varargs checkToken([Lorg/yaml/snakeyaml/tokens/Token$ID;)Z
-    .locals 5
+    .registers 7
     .param p1, "choices"    # [Lorg/yaml/snakeyaml/tokens/Token$ID;
 
     .line 250
     nop
 
-    :goto_0
+    :goto_1
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->needMoreTokens()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 251
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchMoreTokens()V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 253
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->tokens:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
@@ -8344,20 +8344,20 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_31
 
     .line 254
     array-length v0, p1
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
     .line 255
     return v2
 
     .line 259
-    :cond_1
+    :cond_19
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->tokens:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -8375,34 +8375,34 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
+    :goto_26
     array-length v4, p1
 
-    if-ge v3, v4, :cond_3
+    if-ge v3, v4, :cond_31
 
     .line 261
     aget-object v4, p1, v3
 
-    if-ne v0, v4, :cond_2
+    if-ne v0, v4, :cond_2e
 
     .line 262
     return v2
 
     .line 260
-    :cond_2
+    :cond_2e
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
     .line 266
     .end local v0    # "first":Lorg/yaml/snakeyaml/tokens/Token$ID;
     .end local v3    # "i":I
-    :cond_3
+    :cond_31
     return v1
 .end method
 
 .method public getToken()Lorg/yaml/snakeyaml/tokens/Token;
-    .locals 2
+    .registers 3
 
     .line 283
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->tokensTaken:I
@@ -8426,7 +8426,7 @@
 .end method
 
 .method public isParseComments()Z
-    .locals 1
+    .registers 2
 
     .line 243
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->parseComments:Z
@@ -8435,25 +8435,25 @@
 .end method
 
 .method public peekToken()Lorg/yaml/snakeyaml/tokens/Token;
-    .locals 2
+    .registers 3
 
     .line 273
     nop
 
-    :goto_0
+    :goto_1
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->needMoreTokens()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 274
     invoke-direct {p0}, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->fetchMoreTokens()V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 276
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl;->tokens:Ljava/util/List;
 
     const/4 v1, 0x0
@@ -8468,7 +8468,7 @@
 .end method
 
 .method public setParseComments(Z)Lorg/yaml/snakeyaml/scanner/ScannerImpl;
-    .locals 0
+    .registers 2
     .param p1, "parseComments"    # Z
 
     .line 238

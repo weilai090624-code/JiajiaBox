@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 34
     sget-object v0, Landroidx/camera/core/impl/Config$OptionPriority;->OPTIONAL:Landroidx/camera/core/impl/Config$OptionPriority;
@@ -23,7 +23,7 @@
 .end method
 
 .method private constructor <init>(Ljava/util/TreeMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -55,7 +55,7 @@
 .end method
 
 .method public static create()Landroidx/camera/core/impl/MutableOptionsBundle;
-    .locals 3
+    .registers 3
 
     .line 48
     new-instance v0, Landroidx/camera/core/impl/MutableOptionsBundle;
@@ -72,7 +72,7 @@
 .end method
 
 .method public static from(Landroidx/camera/core/impl/Config;)Landroidx/camera/core/impl/MutableOptionsBundle;
-    .locals 8
+    .registers 9
     .param p0, "otherConfig"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -100,12 +100,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_40
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -131,12 +131,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_28
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_3c
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -154,20 +154,20 @@
 
     .line 66
     .end local v6    # "priority":Landroidx/camera/core/impl/Config$OptionPriority;
-    goto :goto_1
+    goto :goto_28
 
     .line 67
-    :cond_0
+    :cond_3c
     invoke-virtual {v0, v2, v4}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 68
     .end local v2    # "opt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
     .end local v3    # "priorities":Ljava/util/Set;, "Ljava/util/Set<Landroidx/camera/core/impl/Config$OptionPriority;>;"
     .end local v4    # "valuesMap":Ljava/util/Map;, "Ljava/util/Map<Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;>;"
-    goto :goto_0
+    goto :goto_f
 
     .line 70
-    :cond_1
+    :cond_40
     new-instance v1, Landroidx/camera/core/impl/MutableOptionsBundle;
 
     invoke-direct {v1, v0}, Landroidx/camera/core/impl/MutableOptionsBundle;-><init>(Ljava/util/TreeMap;)V
@@ -178,7 +178,7 @@
 
 # virtual methods
 .method public insertOption(Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;)V
-    .locals 9
+    .registers 13
     .param p2, "priority"    # Landroidx/camera/core/impl/Config$OptionPriority;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -218,7 +218,7 @@
 
     .line 92
     .local v0, "values":Ljava/util/Map;, "Ljava/util/Map<Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 94
     new-instance v1, Landroid/util/ArrayMap;
@@ -239,7 +239,7 @@
     return-void
 
     .line 101
-    :cond_0
+    :cond_19
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v1
@@ -270,18 +270,18 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_7d
 
     invoke-static {v1, v2}, Landroidx/camera/core/impl/Config$-CC;->hasConflict(Landroidx/camera/core/impl/Config$OptionPriority;Landroidx/camera/core/impl/Config$OptionPriority;)Z
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_36
 
-    goto :goto_0
+    goto :goto_7d
 
     .line 106
-    :cond_1
+    :cond_36
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -354,8 +354,8 @@
     throw v5
 
     .line 111
-    :cond_2
-    :goto_0
+    :cond_7d
+    :goto_7d
     invoke-interface {v0, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 112
@@ -363,7 +363,7 @@
 .end method
 
 .method public insertOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -397,7 +397,7 @@
 .end method
 
 .method public removeOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0

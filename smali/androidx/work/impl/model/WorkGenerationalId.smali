@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "workSpecId"    # Ljava/lang/String;
     .param p2, "generation"    # I
 
@@ -67,22 +67,22 @@
 .end method
 
 .method public static synthetic copy$default(Landroidx/work/impl/model/WorkGenerationalId;Ljava/lang/String;IILjava/lang/Object;)Landroidx/work/impl/model/WorkGenerationalId;
-    .locals 0
+    .registers 5
 
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     iget-object p1, p0, Landroidx/work/impl/model/WorkGenerationalId;->workSpecId:Ljava/lang/String;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_c
 
     iget p2, p0, Landroidx/work/impl/model/WorkGenerationalId;->generation:I
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2}, Landroidx/work/impl/model/WorkGenerationalId;->copy(Ljava/lang/String;I)Landroidx/work/impl/model/WorkGenerationalId;
 
     move-result-object p0
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkGenerationalId;->workSpecId:Ljava/lang/String;
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public final component2()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Landroidx/work/impl/model/WorkGenerationalId;->generation:I
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public final copy(Ljava/lang/String;I)Landroidx/work/impl/model/WorkGenerationalId;
-    .locals 1
+    .registers 4
 
     const-string/jumbo v0, "workSpecId"
 
@@ -123,24 +123,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/work/impl/model/WorkGenerationalId;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Landroidx/work/impl/model/WorkGenerationalId;
@@ -153,25 +153,25 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget v3, p0, Landroidx/work/impl/model/WorkGenerationalId;->generation:I
 
     iget v1, v1, Landroidx/work/impl/model/WorkGenerationalId;->generation:I
 
-    if-eq v3, v1, :cond_3
+    if-eq v3, v1, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     return v0
 .end method
 
 .method public final getGeneration()I
-    .locals 1
+    .registers 2
 
     .line 405
     iget v0, p0, Landroidx/work/impl/model/WorkGenerationalId;->generation:I
@@ -180,7 +180,7 @@
 .end method
 
 .method public final getWorkSpecId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 405
     iget-object v0, p0, Landroidx/work/impl/model/WorkGenerationalId;->workSpecId:Ljava/lang/String;
@@ -189,7 +189,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkGenerationalId;->workSpecId:Ljava/lang/String;
 
@@ -207,7 +207,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

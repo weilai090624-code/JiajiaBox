@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$andThen(Ljava/util/function/IntUnaryOperator;Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/IntUnaryOperator;
     .param p1, "after"    # Ljava/util/function/IntUnaryOperator;
 
@@ -21,7 +21,7 @@
 .end method
 
 .method public static $default$compose(Ljava/util/function/IntUnaryOperator;Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/IntUnaryOperator;
     .param p1, "before"    # Ljava/util/function/IntUnaryOperator;
 
@@ -37,7 +37,7 @@
 .end method
 
 .method public static synthetic $private$lambda$andThen$1(Ljava/util/function/IntUnaryOperator;Ljava/util/function/IntUnaryOperator;I)I
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/IntUnaryOperator;
     .param p1, "after"    # Ljava/util/function/IntUnaryOperator;
     .param p2, "t"    # I
@@ -55,7 +55,7 @@
 .end method
 
 .method public static synthetic $private$lambda$compose$0(Ljava/util/function/IntUnaryOperator;Ljava/util/function/IntUnaryOperator;I)I
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/IntUnaryOperator;
     .param p1, "before"    # Ljava/util/function/IntUnaryOperator;
     .param p2, "v"    # I
@@ -73,7 +73,7 @@
 .end method
 
 .method public static identity()Ljava/util/function/IntUnaryOperator;
-    .locals 1
+    .registers 1
 
     .line 93
     new-instance v0, Lj$/util/function/IntUnaryOperator$$ExternalSyntheticLambda2;
@@ -84,7 +84,7 @@
 .end method
 
 .method public static synthetic lambda$identity$2(I)I
-    .locals 0
+    .registers 1
     .param p0, "t"    # I
 
     .line 93

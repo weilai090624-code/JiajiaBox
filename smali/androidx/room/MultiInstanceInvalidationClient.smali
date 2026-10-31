@@ -112,7 +112,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$2favYSSWyM0gRx77r31pzjS1Occ(Landroidx/room/MultiInstanceInvalidationClient;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/MultiInstanceInvalidationClient;->removeObserverRunnable$lambda$2(Landroidx/room/MultiInstanceInvalidationClient;)V
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$fYnJ2FTy9KIeZ6OKMBfkix53V3o(Landroidx/room/MultiInstanceInvalidationClient;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/room/MultiInstanceInvalidationClient;->setUpRunnable$lambda$1(Landroidx/room/MultiInstanceInvalidationClient;)V
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/content/Intent;Landroidx/room/InvalidationTracker;Ljava/util/concurrent/Executor;)V
-    .locals 5
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "serviceIntent"    # Landroid/content/Intent;
@@ -290,7 +290,7 @@
 .end method
 
 .method private static final removeObserverRunnable$lambda$2(Landroidx/room/MultiInstanceInvalidationClient;)V
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Landroidx/room/MultiInstanceInvalidationClient;
 
     const-string/jumbo v0, "this$0"
@@ -310,7 +310,7 @@
 .end method
 
 .method private static final setUpRunnable$lambda$1(Landroidx/room/MultiInstanceInvalidationClient;)V
-    .locals 4
+    .registers 5
     .param p0, "this$0"    # Landroidx/room/MultiInstanceInvalidationClient;
 
     const-string/jumbo v0, "this$0"
@@ -321,10 +321,10 @@
     nop
 
     .line 81
-    :try_start_0
+    :try_start_7
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->service:Landroidx/room/IMultiInstanceInvalidationService;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .local v0, "it":Landroidx/room/IMultiInstanceInvalidationService;
     const/4 v1, 0x0
@@ -349,8 +349,8 @@
     move-result-object v3
 
     invoke-virtual {v2, v3}, Landroidx/room/InvalidationTracker;->addObserver(Landroidx/room/InvalidationTracker$Observer;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_1f} :catch_21
 
     .line 84
     nop
@@ -358,11 +358,11 @@
     .line 81
     .end local v0    # "it":Landroidx/room/IMultiInstanceInvalidationService;
     .end local v1    # "$i$a$-let-MultiInstanceInvalidationClient$setUpRunnable$1$1":I
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_2c
 
     .line 85
-    :catch_0
+    :catch_21
     move-exception v0
 
     .line 86
@@ -379,14 +379,14 @@
 
     .line 88
     .end local v0    # "e":Landroid/os/RemoteException;
-    :goto_0
+    :goto_2c
     return-void
 .end method
 
 
 # virtual methods
 .method public final getCallback()Landroidx/room/IMultiInstanceInvalidationCallback;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->callback:Landroidx/room/IMultiInstanceInvalidationCallback;
@@ -395,7 +395,7 @@
 .end method
 
 .method public final getClientId()I
-    .locals 1
+    .registers 2
 
     .line 53
     iget v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->clientId:I
@@ -404,7 +404,7 @@
 .end method
 
 .method public final getExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->executor:Ljava/util/concurrent/Executor;
@@ -413,7 +413,7 @@
 .end method
 
 .method public final getInvalidationTracker()Landroidx/room/InvalidationTracker;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->invalidationTracker:Landroidx/room/InvalidationTracker;
@@ -422,7 +422,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->name:Ljava/lang/String;
@@ -431,16 +431,16 @@
 .end method
 
 .method public final getObserver()Landroidx/room/InvalidationTracker$Observer;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->observer:Landroidx/room/InvalidationTracker$Observer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "observer"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -451,7 +451,7 @@
 .end method
 
 .method public final getRemoveObserverRunnable()Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
 
     .line 90
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->removeObserverRunnable:Ljava/lang/Runnable;
@@ -460,7 +460,7 @@
 .end method
 
 .method public final getService()Landroidx/room/IMultiInstanceInvalidationService;
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->service:Landroidx/room/IMultiInstanceInvalidationService;
@@ -469,7 +469,7 @@
 .end method
 
 .method public final getServiceConnection()Landroid/content/ServiceConnection;
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->serviceConnection:Landroid/content/ServiceConnection;
@@ -478,7 +478,7 @@
 .end method
 
 .method public final getSetUpRunnable()Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
 
     .line 79
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->setUpRunnable:Ljava/lang/Runnable;
@@ -487,7 +487,7 @@
 .end method
 
 .method public final getStopped()Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->stopped:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -496,7 +496,7 @@
 .end method
 
 .method public final setClientId(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 53
@@ -506,7 +506,7 @@
 .end method
 
 .method public final setObserver(Landroidx/room/InvalidationTracker$Observer;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/room/InvalidationTracker$Observer;
 
     const-string v0, "<set-?>"
@@ -520,7 +520,7 @@
 .end method
 
 .method public final setService(Landroidx/room/IMultiInstanceInvalidationService;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroidx/room/IMultiInstanceInvalidationService;
 
     .line 55
@@ -530,7 +530,7 @@
 .end method
 
 .method public final stop()V
-    .locals 4
+    .registers 5
 
     .line 119
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->stopped:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -543,7 +543,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 120
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->invalidationTracker:Landroidx/room/InvalidationTracker;
@@ -558,23 +558,23 @@
     nop
 
     .line 122
-    :try_start_0
+    :try_start_14
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->service:Landroidx/room/IMultiInstanceInvalidationService;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     iget-object v1, p0, Landroidx/room/MultiInstanceInvalidationClient;->callback:Landroidx/room/IMultiInstanceInvalidationCallback;
 
     iget v2, p0, Landroidx/room/MultiInstanceInvalidationClient;->clientId:I
 
     invoke-interface {v0, v1, v2}, Landroidx/room/IMultiInstanceInvalidationService;->unregisterCallback(Landroidx/room/IMultiInstanceInvalidationCallback;I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Landroid/os/RemoteException; {:try_start_14 .. :try_end_1f} :catch_20
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 123
-    :catch_0
+    :catch_20
     move-exception v0
 
     .line 124
@@ -591,8 +591,8 @@
 
     .line 126
     .end local v0    # "e":Landroid/os/RemoteException;
-    :cond_0
-    :goto_0
+    :cond_2b
+    :goto_2b
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient;->appContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroidx/room/MultiInstanceInvalidationClient;->serviceConnection:Landroid/content/ServiceConnection;
@@ -600,6 +600,6 @@
     invoke-virtual {v0, v1}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
     .line 128
-    :cond_1
+    :cond_32
     return-void
 .end method

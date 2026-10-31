@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/yaml/snakeyaml/Yaml;)V
-    .locals 0
+    .registers 2
 
     .line 506
     iput-object p1, p0, Lorg/yaml/snakeyaml/Yaml$1;->this$0:Lorg/yaml/snakeyaml/Yaml;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 509
     iget-object v0, p0, Lorg/yaml/snakeyaml/Yaml$1;->this$0:Lorg/yaml/snakeyaml/Yaml;
@@ -60,7 +60,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 514
     iget-object v0, p0, Lorg/yaml/snakeyaml/Yaml$1;->this$0:Lorg/yaml/snakeyaml/Yaml;
@@ -75,7 +75,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 519
     new-instance v0, Ljava/lang/UnsupportedOperationException;

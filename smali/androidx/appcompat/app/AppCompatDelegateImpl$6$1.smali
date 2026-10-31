@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl$6;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Landroidx/appcompat/app/AppCompatDelegateImpl$6;
 
     .line 1375
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 1383
@@ -71,7 +71,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 1378

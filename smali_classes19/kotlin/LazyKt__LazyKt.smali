@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/LazyKt__LazyJVMKt;-><init>()V
 
@@ -43,7 +43,7 @@
 .end method
 
 .method private static final getValue(Lkotlin/Lazy;Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getValue"    # Lkotlin/Lazy;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -77,7 +77,7 @@
 .end method
 
 .method public static final lazyOf(Ljava/lang/Object;)Lkotlin/Lazy;
-    .locals 1
+    .registers 2
     .param p0, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

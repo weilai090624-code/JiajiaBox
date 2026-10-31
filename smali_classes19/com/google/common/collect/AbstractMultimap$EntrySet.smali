@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractMultimap;
 
     .line 136
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -58,7 +58,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 139
     .local p0, "this":Lcom/google/common/collect/AbstractMultimap$EntrySet;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.EntrySet;"

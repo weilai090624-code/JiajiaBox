@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -52,7 +52,7 @@
     .local v0, "peek":Lcom/google/gson/stream/JsonToken;
     sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 139
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
@@ -63,10 +63,10 @@
     return-object v1
 
     .line 141
-    :cond_0
+    :cond_d
     sget-object v1, Lcom/google/gson/stream/JsonToken;->STRING:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1e
 
     .line 143
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
@@ -84,7 +84,7 @@
     return-object v1
 
     .line 145
-    :cond_1
+    :cond_1e
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextBoolean()Z
 
     move-result v1
@@ -97,7 +97,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -113,7 +113,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Boolean;)V
-    .locals 0
+    .registers 3
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .param p2, "value"    # Ljava/lang/Boolean;
     .annotation system Ldalvik/annotation/Throws;
@@ -130,7 +130,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

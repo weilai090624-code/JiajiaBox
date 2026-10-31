@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentStateManager;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentStateManager;
 
     .line 540
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 543
@@ -59,7 +59,7 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "v"    # Landroid/view/View;
 
     .line 549

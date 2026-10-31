@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method public static getButtonDrawable(Landroid/widget/CompoundButton;)Landroid/graphics/drawable/Drawable;
-    .locals 4
+    .registers 5
     .param p0, "button"    # Landroid/widget/CompoundButton;
 
     .line 127
@@ -39,7 +39,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 128
     invoke-static {p0}, Landroidx/core/widget/CompoundButtonCompat$Api23Impl;->getButtonDrawable(Landroid/widget/CompoundButton;)Landroid/graphics/drawable/Drawable;
@@ -49,17 +49,17 @@
     return-object v0
 
     .line 131
-    :cond_0
+    :cond_b
     sget-boolean v0, Landroidx/core/widget/CompoundButtonCompat;->sButtonDrawableFieldFetched:Z
 
     const-string v1, "CompoundButtonCompat"
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2a
 
     .line 133
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_12
     const-class v2, Landroid/widget/CompoundButton;
 
     const-string v3, "mButtonDrawable"
@@ -74,14 +74,14 @@
     sget-object v2, Landroidx/core/widget/CompoundButtonCompat;->sButtonDrawableField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v2, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_12 .. :try_end_21} :catch_22
 
     .line 137
-    goto :goto_0
+    goto :goto_28
 
     .line 135
-    :catch_0
+    :catch_22
     move-exception v2
 
     .line 136
@@ -92,19 +92,19 @@
 
     .line 138
     .end local v2    # "e":Ljava/lang/NoSuchFieldException;
-    :goto_0
+    :goto_28
     sput-boolean v0, Landroidx/core/widget/CompoundButtonCompat;->sButtonDrawableFieldFetched:Z
 
     .line 141
-    :cond_1
+    :cond_2a
     sget-object v0, Landroidx/core/widget/CompoundButtonCompat;->sButtonDrawableField:Ljava/lang/reflect/Field;
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_40
 
     .line 143
-    :try_start_1
+    :try_start_2f
     sget-object v0, Landroidx/core/widget/CompoundButtonCompat;->sButtonDrawableField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -112,13 +112,13 @@
     move-result-object v0
 
     check-cast v0, Landroid/graphics/drawable/Drawable;
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_37
+    .catch Ljava/lang/IllegalAccessException; {:try_start_2f .. :try_end_37} :catch_38
 
     return-object v0
 
     .line 144
-    :catch_1
+    :catch_38
     move-exception v0
 
     .line 145
@@ -132,12 +132,12 @@
 
     .line 149
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :cond_2
+    :cond_40
     return-object v2
 .end method
 
 .method public static getButtonTintList(Landroid/widget/CompoundButton;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
     .param p0, "button"    # Landroid/widget/CompoundButton;
 
     .line 74
@@ -152,7 +152,7 @@
 .end method
 
 .method public static getButtonTintMode(Landroid/widget/CompoundButton;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
     .param p0, "button"    # Landroid/widget/CompoundButton;
 
     .line 111
@@ -167,7 +167,7 @@
 .end method
 
 .method public static setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p0, "button"    # Landroid/widget/CompoundButton;
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
@@ -182,7 +182,7 @@
 .end method
 
 .method public static setButtonTintMode(Landroid/widget/CompoundButton;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p0, "button"    # Landroid/widget/CompoundButton;
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 

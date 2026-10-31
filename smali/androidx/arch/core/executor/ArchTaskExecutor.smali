@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 42
     new-instance v0, Landroidx/arch/core/executor/ArchTaskExecutor$$ExternalSyntheticLambda0;
@@ -39,7 +39,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 49
     invoke-direct {p0}, Landroidx/arch/core/executor/TaskExecutor;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public static getIOThreadExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 1
 
     .line 103
     sget-object v0, Landroidx/arch/core/executor/ArchTaskExecutor;->sIOThreadExecutor:Ljava/util/concurrent/Executor;
@@ -70,12 +70,12 @@
 .end method
 
 .method public static getInstance()Landroidx/arch/core/executor/ArchTaskExecutor;
-    .locals 2
+    .registers 2
 
     .line 61
     sget-object v0, Landroidx/arch/core/executor/ArchTaskExecutor;->sInstance:Landroidx/arch/core/executor/ArchTaskExecutor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 62
     sget-object v0, Landroidx/arch/core/executor/ArchTaskExecutor;->sInstance:Landroidx/arch/core/executor/ArchTaskExecutor;
@@ -83,16 +83,16 @@
     return-object v0
 
     .line 64
-    :cond_0
+    :cond_7
     const-class v0, Landroidx/arch/core/executor/ArchTaskExecutor;
 
     monitor-enter v0
 
     .line 65
-    :try_start_0
+    :try_start_a
     sget-object v1, Landroidx/arch/core/executor/ArchTaskExecutor;->sInstance:Landroidx/arch/core/executor/ArchTaskExecutor;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_15
 
     .line 66
     new-instance v1, Landroidx/arch/core/executor/ArchTaskExecutor;
@@ -102,10 +102,10 @@
     sput-object v1, Landroidx/arch/core/executor/ArchTaskExecutor;->sInstance:Landroidx/arch/core/executor/ArchTaskExecutor;
 
     .line 68
-    :cond_1
+    :cond_15
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_a .. :try_end_16} :catchall_19
 
     .line 69
     sget-object v0, Landroidx/arch/core/executor/ArchTaskExecutor;->sInstance:Landroidx/arch/core/executor/ArchTaskExecutor;
@@ -113,19 +113,19 @@
     return-object v0
 
     .line 68
-    :catchall_0
+    :catchall_19
     move-exception v1
 
-    :try_start_1
+    :try_start_1a
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_1a .. :try_end_1b} :catchall_19
 
     throw v1
 .end method
 
 .method public static getMainThreadExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 1
 
     .line 98
     sget-object v0, Landroidx/arch/core/executor/ArchTaskExecutor;->sMainThreadExecutor:Ljava/util/concurrent/Executor;
@@ -134,7 +134,7 @@
 .end method
 
 .method static synthetic lambda$static$0(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 2
     .param p0, "command"    # Ljava/lang/Runnable;
 
     .line 43
@@ -148,7 +148,7 @@
 .end method
 
 .method static synthetic lambda$static$1(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 2
     .param p0, "command"    # Ljava/lang/Runnable;
 
     .line 47
@@ -164,7 +164,7 @@
 
 # virtual methods
 .method public executeOnDiskIO(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 88
@@ -177,7 +177,7 @@
 .end method
 
 .method public isMainThread()Z
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Landroidx/arch/core/executor/ArchTaskExecutor;->mDelegate:Landroidx/arch/core/executor/TaskExecutor;
@@ -190,7 +190,7 @@
 .end method
 
 .method public postToMainThread(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 93
@@ -203,20 +203,20 @@
 .end method
 
 .method public setDelegate(Landroidx/arch/core/executor/TaskExecutor;)V
-    .locals 1
+    .registers 3
     .param p1, "taskExecutor"    # Landroidx/arch/core/executor/TaskExecutor;
 
     .line 83
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     iget-object v0, p0, Landroidx/arch/core/executor/ArchTaskExecutor;->mDefaultTaskExecutor:Landroidx/arch/core/executor/TaskExecutor;
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     move-object v0, p1
 
-    :goto_0
+    :goto_6
     iput-object v0, p0, Landroidx/arch/core/executor/ArchTaskExecutor;->mDelegate:Landroidx/arch/core/executor/TaskExecutor;
 
     .line 84

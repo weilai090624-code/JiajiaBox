@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokio/HashingSink$Companion;-><init>()V
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final hmacSha1(Lokio/Sink;Lokio/ByteString;)Lokio/HashingSink;
-    .locals 2
+    .registers 5
     .param p1, "sink"    # Lokio/Sink;
     .param p2, "key"    # Lokio/ByteString;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -91,7 +91,7 @@
 .end method
 
 .method public final hmacSha256(Lokio/Sink;Lokio/ByteString;)Lokio/HashingSink;
-    .locals 2
+    .registers 5
     .param p1, "sink"    # Lokio/Sink;
     .param p2, "key"    # Lokio/ByteString;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -116,7 +116,7 @@
 .end method
 
 .method public final hmacSha512(Lokio/Sink;Lokio/ByteString;)Lokio/HashingSink;
-    .locals 2
+    .registers 5
     .param p1, "sink"    # Lokio/Sink;
     .param p2, "key"    # Lokio/ByteString;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -141,7 +141,7 @@
 .end method
 
 .method public final md5(Lokio/Sink;)Lokio/HashingSink;
-    .locals 2
+    .registers 4
     .param p1, "sink"    # Lokio/Sink;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -161,7 +161,7 @@
 .end method
 
 .method public final sha1(Lokio/Sink;)Lokio/HashingSink;
-    .locals 2
+    .registers 4
     .param p1, "sink"    # Lokio/Sink;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -181,7 +181,7 @@
 .end method
 
 .method public final sha256(Lokio/Sink;)Lokio/HashingSink;
-    .locals 2
+    .registers 4
     .param p1, "sink"    # Lokio/Sink;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -201,7 +201,7 @@
 .end method
 
 .method public final sha512(Lokio/Sink;)Lokio/HashingSink;
-    .locals 2
+    .registers 4
     .param p1, "sink"    # Lokio/Sink;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation

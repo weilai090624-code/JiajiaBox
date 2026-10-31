@@ -171,7 +171,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/io/path/PathsKt__PathRecursiveFunctionsKt;-><init>()V
 
@@ -179,7 +179,7 @@
 .end method
 
 .method private static final Path(Ljava/lang/String;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 3
     .param p0, "path"    # Ljava/lang/String;
 
     const-string v0, "path"
@@ -203,7 +203,7 @@
 .end method
 
 .method private static final varargs Path(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "base"    # Ljava/lang/String;
     .param p1, "subpaths"    # [Ljava/lang/String;
 
@@ -236,7 +236,7 @@
 .end method
 
 .method private static final absolute(Ljava/nio/file/Path;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 3
     .param p0, "$this$absolute"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -256,7 +256,7 @@
 .end method
 
 .method private static final absolutePathString(Ljava/nio/file/Path;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$absolutePathString"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -276,7 +276,7 @@
 .end method
 
 .method private static final copyTo(Ljava/nio/file/Path;Ljava/nio/file/Path;Z)Ljava/nio/file/Path;
-    .locals 3
+    .registers 6
     .param p0, "$this$copyTo"    # Ljava/nio/file/Path;
     .param p1, "target"    # Ljava/nio/file/Path;
     .param p2, "overwrite"    # Z
@@ -297,7 +297,7 @@
     .line 221
     const/4 v0, 0x0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_15
 
     const/4 v1, 0x1
 
@@ -307,12 +307,12 @@
 
     aput-object v2, v1, v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     new-array v1, v0, [Ljava/nio/file/CopyOption;
 
-    :goto_0
+    :goto_17
     move-object v0, v1
 
     .line 222
@@ -337,7 +337,7 @@
 .end method
 
 .method private static final varargs copyTo(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 5
     .param p0, "$this$copyTo"    # Ljava/nio/file/Path;
     .param p1, "target"    # Ljava/nio/file/Path;
     .param p2, "options"    # [Ljava/nio/file/CopyOption;
@@ -380,7 +380,7 @@
 .end method
 
 .method static synthetic copyTo$default(Ljava/nio/file/Path;Ljava/nio/file/Path;ZILjava/lang/Object;)Ljava/nio/file/Path;
-    .locals 1
+    .registers 6
     .param p0, "$this$copyTo_u24default"    # Ljava/nio/file/Path;
     .param p1, "target"    # Ljava/nio/file/Path;
     .param p2, "overwrite"    # Z
@@ -393,11 +393,11 @@
     .line 220
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -409,7 +409,7 @@
     .line 221
     const/4 p3, 0x0
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_1a
 
     const/4 p4, 0x1
 
@@ -419,12 +419,12 @@
 
     aput-object v0, p4, p3
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_1a
     new-array p4, p3, [Ljava/nio/file/CopyOption;
 
-    :goto_0
+    :goto_1c
     move-object p3, p4
 
     .line 222
@@ -449,7 +449,7 @@
 .end method
 
 .method private static final varargs createDirectories(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$createDirectories"    # Ljava/nio/file/Path;
     .param p1, "attributes"    # [Ljava/nio/file/attribute/FileAttribute;
     .annotation system Ldalvik/annotation/Signature;
@@ -498,7 +498,7 @@
 .end method
 
 .method private static final varargs createDirectory(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$createDirectory"    # Ljava/nio/file/Path;
     .param p1, "attributes"    # [Ljava/nio/file/attribute/FileAttribute;
     .annotation system Ldalvik/annotation/Signature;
@@ -547,7 +547,7 @@
 .end method
 
 .method private static final varargs createFile(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$createFile"    # Ljava/nio/file/Path;
     .param p1, "attributes"    # [Ljava/nio/file/attribute/FileAttribute;
     .annotation system Ldalvik/annotation/Signature;
@@ -596,7 +596,7 @@
 .end method
 
 .method private static final createLinkPointingTo(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$createLinkPointingTo"    # Ljava/nio/file/Path;
     .param p1, "target"    # Ljava/nio/file/Path;
     .annotation system Ldalvik/annotation/Throws;
@@ -626,7 +626,7 @@
 .end method
 
 .method public static final varargs createParentDirectories(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
-    .locals 6
+    .registers 8
     .param p0, "$this$createParentDirectories"    # Ljava/nio/file/Path;
     .param p1, "attributes"    # [Ljava/nio/file/attribute/FileAttribute;
     .annotation system Ldalvik/annotation/Signature;
@@ -668,7 +668,7 @@
 
     .line 567
     .local v2, "parent":Ljava/nio/file/Path;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4b
 
     const/4 v3, 0x0
 
@@ -684,13 +684,13 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_4b
 
     .line 568
     nop
 
     .line 569
-    :try_start_0
+    :try_start_22
     array-length v4, p1
 
     invoke-static {p1, v4}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -714,13 +714,13 @@
     const-string v5, "createDirectories(...)"
 
     invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/nio/file/FileAlreadyExistsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Ljava/nio/file/FileAlreadyExistsException; {:try_start_22 .. :try_end_39} :catch_3a
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 570
-    :catch_0
+    :catch_3a
     move-exception v4
 
     .line 571
@@ -737,17 +737,17 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_4a
 
-    goto :goto_0
+    goto :goto_4b
 
-    :cond_0
+    :cond_4a
     throw v4
 
     .line 574
     .end local v4    # "e":Ljava/nio/file/FileAlreadyExistsException;
-    :cond_1
-    :goto_0
+    :cond_4b
+    :goto_4b
     nop
 
     .line 565
@@ -761,7 +761,7 @@
 .end method
 
 .method private static final varargs createSymbolicLinkPointingTo(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 5
     .param p0, "$this$createSymbolicLinkPointingTo"    # Ljava/nio/file/Path;
     .param p1, "target"    # Ljava/nio/file/Path;
     .param p2, "attributes"    # [Ljava/nio/file/attribute/FileAttribute;
@@ -816,7 +816,7 @@
 .end method
 
 .method private static final varargs createTempDirectory(Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "prefix"    # Ljava/lang/String;
     .param p1, "attributes"    # [Ljava/nio/file/attribute/FileAttribute;
     .annotation system Ldalvik/annotation/Signature;
@@ -861,7 +861,7 @@
 .end method
 
 .method public static final varargs createTempDirectory(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 5
     .param p0, "directory"    # Ljava/nio/file/Path;
     .param p1, "prefix"    # Ljava/lang/String;
     .param p2, "attributes"    # [Ljava/nio/file/attribute/FileAttribute;
@@ -890,7 +890,7 @@
     .line 982
     const-string v0, "createTempDirectory(...)"
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_18
 
     .line 983
     array-length v1, p2
@@ -907,10 +907,10 @@
 
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 985
-    :cond_0
+    :cond_18
     array-length v1, p2
 
     invoke-static {p2, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -925,12 +925,12 @@
 
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_26
     return-object v1
 .end method
 
 .method static synthetic createTempDirectory$default(Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;ILjava/lang/Object;)Ljava/nio/file/Path;
-    .locals 0
+    .registers 4
     .param p0, "prefix"    # Ljava/lang/String;
     .param p1, "attributes"    # [Ljava/nio/file/attribute/FileAttribute;
     .annotation system Ldalvik/annotation/Throws;
@@ -942,11 +942,11 @@
     .line 962
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     const-string p2, "attributes"
 
     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -972,7 +972,7 @@
 .end method
 
 .method public static synthetic createTempDirectory$default(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;ILjava/lang/Object;)Ljava/nio/file/Path;
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -982,11 +982,11 @@
     .line 981
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/io/path/PathsKt;->createTempDirectory(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
 
     move-result-object p0
@@ -995,7 +995,7 @@
 .end method
 
 .method private static final varargs createTempFile(Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 5
     .param p0, "prefix"    # Ljava/lang/String;
     .param p1, "suffix"    # Ljava/lang/String;
     .param p2, "attributes"    # [Ljava/nio/file/attribute/FileAttribute;
@@ -1042,7 +1042,7 @@
 .end method
 
 .method public static final varargs createTempFile(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 6
     .param p0, "directory"    # Ljava/nio/file/Path;
     .param p1, "prefix"    # Ljava/lang/String;
     .param p2, "suffix"    # Ljava/lang/String;
@@ -1073,7 +1073,7 @@
     .line 942
     const-string v0, "createTempFile(...)"
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_18
 
     .line 943
     array-length v1, p3
@@ -1090,10 +1090,10 @@
 
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 945
-    :cond_0
+    :cond_18
     array-length v1, p3
 
     invoke-static {p3, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -1108,12 +1108,12 @@
 
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_26
     return-object v1
 .end method
 
 .method static synthetic createTempFile$default(Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;ILjava/lang/Object;)Ljava/nio/file/Path;
-    .locals 0
+    .registers 5
     .param p0, "prefix"    # Ljava/lang/String;
     .param p1, "suffix"    # Ljava/lang/String;
     .param p2, "attributes"    # [Ljava/nio/file/attribute/FileAttribute;
@@ -1126,18 +1126,18 @@
     .line 921
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_a
 
     const/4 p1, 0x0
 
-    :cond_1
+    :cond_a
     const-string p3, "attributes"
 
     invoke-static {p2, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1163,7 +1163,7 @@
 .end method
 
 .method public static synthetic createTempFile$default(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;ILjava/lang/Object;)Ljava/nio/file/Path;
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1175,18 +1175,18 @@
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     move-object p1, v0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     move-object p2, v0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/io/path/PathsKt;->createTempFile(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
 
     move-result-object p0
@@ -1195,7 +1195,7 @@
 .end method
 
 .method private static final deleteExisting(Ljava/nio/file/Path;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$deleteExisting"    # Ljava/nio/file/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1215,7 +1215,7 @@
 .end method
 
 .method private static final deleteIfExists(Ljava/nio/file/Path;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$deleteIfExists"    # Ljava/nio/file/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1236,7 +1236,7 @@
 .end method
 
 .method private static final div(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$div"    # Ljava/nio/file/Path;
     .param p1, "other"    # Ljava/lang/String;
 
@@ -1261,7 +1261,7 @@
 .end method
 
 .method private static final div(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$div"    # Ljava/nio/file/Path;
     .param p1, "other"    # Ljava/nio/file/Path;
 
@@ -1286,7 +1286,7 @@
 .end method
 
 .method private static final varargs exists(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$exists"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/LinkOption;
 
@@ -1315,7 +1315,7 @@
 .end method
 
 .method public static final fileAttributeViewNotAvailable(Ljava/nio/file/Path;Ljava/lang/Class;)Ljava/lang/Void;
-    .locals 3
+    .registers 5
     .param p0, "path"    # Ljava/nio/file/Path;
     .param p1, "attributeViewClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -1379,7 +1379,7 @@
 .end method
 
 .method private static final varargs synthetic fileAttributesView(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;
-    .locals 4
+    .registers 6
     .param p0, "$this$fileAttributesView"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/LinkOption;
     .annotation system Ldalvik/annotation/Signature;
@@ -1427,7 +1427,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     move-object v0, v2
 
@@ -1435,7 +1435,7 @@
 
     return-object v2
 
-    :cond_0
+    :cond_26
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
     const-class v0, Ljava/nio/file/attribute/FileAttributeView;
@@ -1454,7 +1454,7 @@
 .end method
 
 .method private static final varargs synthetic fileAttributesViewOrNull(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;
-    .locals 2
+    .registers 4
     .param p0, "$this$fileAttributesViewOrNull"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/LinkOption;
     .annotation system Ldalvik/annotation/Signature;
@@ -1506,7 +1506,7 @@
 .end method
 
 .method private static final fileSize(Ljava/nio/file/Path;)J
-    .locals 2
+    .registers 3
     .param p0, "$this$fileSize"    # Ljava/nio/file/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1527,7 +1527,7 @@
 .end method
 
 .method private static final fileStore(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;
-    .locals 2
+    .registers 3
     .param p0, "$this$fileStore"    # Ljava/nio/file/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1552,7 +1552,7 @@
 .end method
 
 .method public static final fileVisitor(Lkotlin/jvm/functions/Function1;)Ljava/nio/file/FileVisitor;
-    .locals 1
+    .registers 2
     .param p0, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1590,7 +1590,7 @@
 .end method
 
 .method private static final forEachDirectoryEntry(Ljava/nio/file/Path;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
-    .locals 9
+    .registers 12
     .param p0, "$this$forEachDirectoryEntry"    # Ljava/nio/file/Path;
     .param p1, "glob"    # Ljava/lang/String;
     .param p2, "action"    # Lkotlin/jvm/functions/Function1;
@@ -1636,7 +1636,7 @@
 
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_17
     move-object v3, v0
 
     check-cast v3, Ljava/nio/file/DirectoryStream;
@@ -1662,12 +1662,12 @@
 
     move-result-object v7
 
-    :goto_0
+    :goto_26
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_34
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1676,11 +1676,11 @@
     .local v8, "element$iv":Ljava/lang/Object;
     invoke-interface {p2, v8}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_26
 
     .line 1184
     .end local v8    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_34
     nop
 
     .line 440
@@ -1691,77 +1691,77 @@
     .end local v3    # "it":Ljava/nio/file/DirectoryStream;
     .end local v4    # "$i$a$-use-PathsKt__PathUtilsKt$forEachDirectoryEntry$1":I
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_38
+    .catchall {:try_start_17 .. :try_end_38} :catchall_49
 
     invoke-static {v2, v2, v1}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_43
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_43
+    if-eqz v0, :cond_48
 
     invoke-interface {v0}, Ljava/io/Closeable;->close()V
 
-    :cond_2
-    :goto_1
+    :cond_48
+    :goto_48
     return-void
 
-    :catchall_0
+    :catchall_49
     move-exception v3
 
     .end local p0    # "$this$forEachDirectoryEntry":Ljava/nio/file/Path;
     .end local p1    # "glob":Ljava/lang/String;
     .end local p2    # "action":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_4a
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_4b
+    .catchall {:try_start_4a .. :try_end_4b} :catchall_4b
 
     .restart local p0    # "$this$forEachDirectoryEntry":Ljava/nio/file/Path;
     .restart local p1    # "glob":Ljava/lang/String;
     .restart local p2    # "action":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_4b
     move-exception v4
 
     invoke-static {v2, v2, v1}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_5a
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5d
 
-    :try_start_2
+    :try_start_54
     invoke-interface {v0}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_57
+    .catchall {:try_start_54 .. :try_end_57} :catchall_58
 
-    goto :goto_2
+    goto :goto_5d
 
-    :catchall_2
+    :catchall_58
     move-exception v0
 
-    goto :goto_2
+    goto :goto_5d
 
-    :cond_3
+    :cond_5a
     invoke-static {v0, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    :cond_4
-    :goto_2
+    :cond_5d
+    :goto_5d
     throw v4
 .end method
 
 .method static synthetic forEachDirectoryEntry$default(Ljava/nio/file/Path;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 7
+    .registers 12
     .param p0, "$this$forEachDirectoryEntry_u24default"    # Ljava/nio/file/Path;
     .param p1, "glob"    # Ljava/lang/String;
     .param p2, "action"    # Lkotlin/jvm/functions/Function1;
@@ -1776,11 +1776,11 @@
 
     and-int/2addr p3, p4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     const-string p1, "*"
 
-    :cond_0
+    :cond_6
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1802,7 +1802,7 @@
 
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1c
     move-object v1, p3
 
     check-cast v1, Ljava/nio/file/DirectoryStream;
@@ -1828,12 +1828,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_2b
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_39
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1842,11 +1842,11 @@
     .local v6, "element$iv":Ljava/lang/Object;
     invoke-interface {p2, v6}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 1184
     .end local v6    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_39
     nop
 
     .line 440
@@ -1857,77 +1857,77 @@
     .end local v1    # "it":Ljava/nio/file/DirectoryStream;
     .end local v2    # "$i$a$-use-PathsKt__PathUtilsKt$forEachDirectoryEntry$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3d
+    .catchall {:try_start_1c .. :try_end_3d} :catchall_4e
 
     invoke-static {p4, p4, v0}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result p4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_48
 
     const/4 p4, 0x0
 
     invoke-static {p3, p4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_4d
 
-    :cond_2
-    if-eqz p3, :cond_3
+    :cond_48
+    if-eqz p3, :cond_4d
 
     invoke-interface {p3}, Ljava/io/Closeable;->close()V
 
-    :cond_3
-    :goto_1
+    :cond_4d
+    :goto_4d
     return-void
 
-    :catchall_0
+    :catchall_4e
     move-exception v1
 
     .end local p0    # "$this$forEachDirectoryEntry_u24default":Ljava/nio/file/Path;
     .end local p1    # "glob":Ljava/lang/String;
     .end local p2    # "action":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_4f
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_50
+    .catchall {:try_start_4f .. :try_end_50} :catchall_50
 
     .restart local p0    # "$this$forEachDirectoryEntry_u24default":Ljava/nio/file/Path;
     .restart local p1    # "glob":Ljava/lang/String;
     .restart local p2    # "action":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_50
     move-exception v2
 
     invoke-static {p4, p4, v0}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result p4
 
-    if-nez p4, :cond_4
+    if-nez p4, :cond_5f
 
-    if-eqz p3, :cond_5
+    if-eqz p3, :cond_62
 
-    :try_start_2
+    :try_start_59
     invoke-interface {p3}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_5c
+    .catchall {:try_start_59 .. :try_end_5c} :catchall_5d
 
-    goto :goto_2
+    goto :goto_62
 
-    :catchall_2
+    :catchall_5d
     move-exception p3
 
-    goto :goto_2
+    goto :goto_62
 
-    :cond_4
+    :cond_5f
     invoke-static {p3, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    :cond_5
-    :goto_2
+    :cond_62
+    :goto_62
     throw v2
 .end method
 
 .method private static final varargs getAttribute(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getAttribute"    # Ljava/nio/file/Path;
     .param p1, "attribute"    # Ljava/lang/String;
     .param p2, "options"    # [Ljava/nio/file/LinkOption;
@@ -1966,7 +1966,7 @@
 .end method
 
 .method public static final getExtension(Ljava/nio/file/Path;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$extension"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -1980,13 +1980,13 @@
 
     const-string v1, ""
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     const/16 v2, 0x2e
 
@@ -1994,26 +1994,26 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     move-object v1, v0
 
-    :cond_1
-    :goto_0
+    :cond_1d
+    :goto_1d
     return-object v1
 .end method
 
 .method public static synthetic getExtension$annotations(Ljava/nio/file/Path;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method private static final getInvariantSeparatorsPath(Ljava/nio/file/Path;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$invariantSeparatorsPath"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -2029,7 +2029,7 @@
 .end method
 
 .method public static synthetic getInvariantSeparatorsPath$annotations(Ljava/nio/file/Path;)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "Use invariantSeparatorsPathString property instead."
@@ -2043,7 +2043,7 @@
 .end method
 
 .method public static final getInvariantSeparatorsPathString(Ljava/nio/file/Path;)Ljava/lang/String;
-    .locals 7
+    .registers 8
     .param p0, "$this$invariantSeparatorsPathString"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -2067,7 +2067,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_27
 
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -2089,25 +2089,25 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_27
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_2b
     return-object v1
 .end method
 
 .method public static synthetic getInvariantSeparatorsPathString$annotations(Ljava/nio/file/Path;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method private static final varargs getLastModifiedTime(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileTime;
-    .locals 2
+    .registers 4
     .param p0, "$this$getLastModifiedTime"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/LinkOption;
     .annotation system Ldalvik/annotation/Throws;
@@ -2145,7 +2145,7 @@
 .end method
 
 .method public static final getName(Ljava/nio/file/Path;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$name"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -2157,34 +2157,34 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_11
+    if-nez v0, :cond_15
 
     const-string v0, ""
 
-    :cond_1
+    :cond_15
     return-object v0
 .end method
 
 .method public static synthetic getName$annotations(Ljava/nio/file/Path;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static final getNameWithoutExtension(Ljava/nio/file/Path;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "$this$nameWithoutExtension"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -2196,13 +2196,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     const-string v1, "."
 
@@ -2214,23 +2214,23 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1d
 
-    :cond_0
+    :cond_1b
     const-string v0, ""
 
-    :cond_1
+    :cond_1d
     return-object v0
 .end method
 
 .method public static synthetic getNameWithoutExtension$annotations(Ljava/nio/file/Path;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method private static final varargs getOwner(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/UserPrincipal;
-    .locals 1
+    .registers 3
     .param p0, "$this$getOwner"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/LinkOption;
     .annotation system Ldalvik/annotation/Throws;
@@ -2264,7 +2264,7 @@
 .end method
 
 .method private static final getPathString(Ljava/nio/file/Path;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$pathString"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -2280,13 +2280,13 @@
 .end method
 
 .method public static synthetic getPathString$annotations(Ljava/nio/file/Path;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method private static final varargs getPosixFilePermissions(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "$this$getPosixFilePermissions"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/LinkOption;
     .annotation system Ldalvik/annotation/Signature;
@@ -2337,7 +2337,7 @@
 .end method
 
 .method private static final varargs isDirectory(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$isDirectory"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/LinkOption;
 
@@ -2366,7 +2366,7 @@
 .end method
 
 .method private static final isExecutable(Ljava/nio/file/Path;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isExecutable"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -2382,7 +2382,7 @@
 .end method
 
 .method private static final isHidden(Ljava/nio/file/Path;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isHidden"    # Ljava/nio/file/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2403,7 +2403,7 @@
 .end method
 
 .method private static final isReadable(Ljava/nio/file/Path;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isReadable"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -2419,7 +2419,7 @@
 .end method
 
 .method private static final varargs isRegularFile(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$isRegularFile"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/LinkOption;
 
@@ -2448,7 +2448,7 @@
 .end method
 
 .method private static final isSameFileAs(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$isSameFileAs"    # Ljava/nio/file/Path;
     .param p1, "other"    # Ljava/nio/file/Path;
     .annotation system Ldalvik/annotation/Throws;
@@ -2474,7 +2474,7 @@
 .end method
 
 .method private static final isSymbolicLink(Ljava/nio/file/Path;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isSymbolicLink"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -2490,7 +2490,7 @@
 .end method
 
 .method private static final isWritable(Ljava/nio/file/Path;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isWritable"    # Ljava/nio/file/Path;
 
     const-string v0, "<this>"
@@ -2506,7 +2506,7 @@
 .end method
 
 .method public static final listDirectoryEntries(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p0, "$this$listDirectoryEntries"    # Ljava/nio/file/Path;
     .param p1, "glob"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -2542,7 +2542,7 @@
 
     check-cast v0, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_10
     move-object v1, v0
 
     check-cast v1, Ljava/nio/file/DirectoryStream;
@@ -2562,8 +2562,8 @@
     invoke-static {v3}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_10 .. :try_end_1e} :catchall_23
 
     .end local v1    # "it":Ljava/nio/file/DirectoryStream;
     .end local v2    # "$i$a$-use-PathsKt__PathUtilsKt$listDirectoryEntries$1":I
@@ -2573,19 +2573,19 @@
 
     return-object v3
 
-    :catchall_0
+    :catchall_23
     move-exception v1
 
     .end local p0    # "$this$listDirectoryEntries":Ljava/nio/file/Path;
     .end local p1    # "glob":Ljava/lang/String;
-    :try_start_1
+    :try_start_24
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_25
+    .catchall {:try_start_24 .. :try_end_25} :catchall_25
 
     .restart local p0    # "$this$listDirectoryEntries":Ljava/nio/file/Path;
     .restart local p1    # "glob":Ljava/lang/String;
-    :catchall_1
+    :catchall_25
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -2594,7 +2594,7 @@
 .end method
 
 .method public static synthetic listDirectoryEntries$default(Ljava/nio/file/Path;Ljava/lang/String;ILjava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2604,11 +2604,11 @@
     .line 399
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const-string p1, "*"
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Lkotlin/io/path/PathsKt;->listDirectoryEntries(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object p0
@@ -2617,7 +2617,7 @@
 .end method
 
 .method private static final moveTo(Ljava/nio/file/Path;Ljava/nio/file/Path;Z)Ljava/nio/file/Path;
-    .locals 3
+    .registers 6
     .param p0, "$this$moveTo"    # Ljava/nio/file/Path;
     .param p1, "target"    # Ljava/nio/file/Path;
     .param p2, "overwrite"    # Z
@@ -2638,7 +2638,7 @@
     .line 616
     const/4 v0, 0x0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_15
 
     const/4 v1, 0x1
 
@@ -2648,12 +2648,12 @@
 
     aput-object v2, v1, v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     new-array v1, v0, [Ljava/nio/file/CopyOption;
 
-    :goto_0
+    :goto_17
     move-object v0, v1
 
     .line 617
@@ -2678,7 +2678,7 @@
 .end method
 
 .method private static final varargs moveTo(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 5
     .param p0, "$this$moveTo"    # Ljava/nio/file/Path;
     .param p1, "target"    # Ljava/nio/file/Path;
     .param p2, "options"    # [Ljava/nio/file/CopyOption;
@@ -2721,7 +2721,7 @@
 .end method
 
 .method static synthetic moveTo$default(Ljava/nio/file/Path;Ljava/nio/file/Path;ZILjava/lang/Object;)Ljava/nio/file/Path;
-    .locals 1
+    .registers 6
     .param p0, "$this$moveTo_u24default"    # Ljava/nio/file/Path;
     .param p1, "target"    # Ljava/nio/file/Path;
     .param p2, "overwrite"    # Z
@@ -2734,11 +2734,11 @@
     .line 615
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -2750,7 +2750,7 @@
     .line 616
     const/4 p3, 0x0
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_1a
 
     const/4 p4, 0x1
 
@@ -2760,12 +2760,12 @@
 
     aput-object v0, p4, p3
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_1a
     new-array p4, p3, [Ljava/nio/file/CopyOption;
 
-    :goto_0
+    :goto_1c
     move-object p3, p4
 
     .line 617
@@ -2790,7 +2790,7 @@
 .end method
 
 .method private static final varargs notExists(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$notExists"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/LinkOption;
 
@@ -2819,7 +2819,7 @@
 .end method
 
 .method private static final varargs synthetic readAttributes(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;
-    .locals 2
+    .registers 4
     .param p0, "$this$readAttributes"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/LinkOption;
     .annotation system Ldalvik/annotation/Signature;
@@ -2885,7 +2885,7 @@
 .end method
 
 .method private static final varargs readAttributes(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;
-    .locals 2
+    .registers 5
     .param p0, "$this$readAttributes"    # Ljava/nio/file/Path;
     .param p1, "attributes"    # Ljava/lang/String;
     .param p2, "options"    # [Ljava/nio/file/LinkOption;
@@ -2943,7 +2943,7 @@
 .end method
 
 .method private static final readSymbolicLink(Ljava/nio/file/Path;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 3
     .param p0, "$this$readSymbolicLink"    # Ljava/nio/file/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2968,7 +2968,7 @@
 .end method
 
 .method public static final relativeTo(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
-    .locals 4
+    .registers 6
     .param p0, "$this$relativeTo"    # Ljava/nio/file/Path;
     .param p1, "base"    # Ljava/nio/file/Path;
 
@@ -2984,20 +2984,20 @@
     nop
 
     .line 125
-    :try_start_0
+    :try_start_b
     sget-object v0, Lkotlin/io/path/PathRelativizer;->INSTANCE:Lkotlin/io/path/PathRelativizer;
 
     invoke-virtual {v0, p0, p1}, Lkotlin/io/path/PathRelativizer;->tryRelativeTo(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_b .. :try_end_11} :catch_12
 
     .line 128
     return-object v0
 
     .line 126
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 127
@@ -3050,7 +3050,7 @@
 .end method
 
 .method public static final relativeToOrNull(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$relativeToOrNull"    # Ljava/nio/file/Path;
     .param p1, "base"    # Ljava/nio/file/Path;
 
@@ -3066,19 +3066,19 @@
     nop
 
     .line 154
-    :try_start_0
+    :try_start_b
     sget-object v0, Lkotlin/io/path/PathRelativizer;->INSTANCE:Lkotlin/io/path/PathRelativizer;
 
     invoke-virtual {v0, p0, p1}, Lkotlin/io/path/PathRelativizer;->tryRelativeTo(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_b .. :try_end_11} :catch_12
 
-    goto :goto_0
+    goto :goto_15
 
     .line 155
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 156
@@ -3089,12 +3089,12 @@
 
     .line 157
     .end local v0    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public static final relativeToOrSelf(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
-    .locals 1
+    .registers 3
     .param p0, "$this$relativeToOrSelf"    # Ljava/nio/file/Path;
     .param p1, "base"    # Ljava/nio/file/Path;
 
@@ -3111,16 +3111,16 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     move-object v0, p0
 
-    :cond_0
+    :cond_11
     return-object v0
 .end method
 
 .method private static final varargs setAttribute(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 6
     .param p0, "$this$setAttribute"    # Ljava/nio/file/Path;
     .param p1, "attribute"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Object;
@@ -3164,7 +3164,7 @@
 .end method
 
 .method private static final setLastModifiedTime(Ljava/nio/file/Path;Ljava/nio/file/attribute/FileTime;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$setLastModifiedTime"    # Ljava/nio/file/Path;
     .param p1, "value"    # Ljava/nio/file/attribute/FileTime;
     .annotation system Ldalvik/annotation/Throws;
@@ -3194,7 +3194,7 @@
 .end method
 
 .method private static final setOwner(Ljava/nio/file/Path;Ljava/nio/file/attribute/UserPrincipal;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$setOwner"    # Ljava/nio/file/Path;
     .param p1, "value"    # Ljava/nio/file/attribute/UserPrincipal;
     .annotation system Ldalvik/annotation/Throws;
@@ -3224,7 +3224,7 @@
 .end method
 
 .method private static final setPosixFilePermissions(Ljava/nio/file/Path;Ljava/util/Set;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 4
     .param p0, "$this$setPosixFilePermissions"    # Ljava/nio/file/Path;
     .param p1, "value"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -3266,7 +3266,7 @@
 .end method
 
 .method private static final toPath(Ljava/net/URI;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 3
     .param p0, "$this$toPath"    # Ljava/net/URI;
 
     const-string v0, "<this>"
@@ -3286,7 +3286,7 @@
 .end method
 
 .method private static final useDirectoryEntries(Ljava/nio/file/Path;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p0, "$this$useDirectoryEntries"    # Ljava/nio/file/Path;
     .param p1, "glob"    # Ljava/lang/String;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
@@ -3335,7 +3335,7 @@
 
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_17
     move-object v3, v0
 
     check-cast v3, Ljava/nio/file/DirectoryStream;
@@ -3359,8 +3359,8 @@
     invoke-interface {p2, v5}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_17 .. :try_end_29} :catchall_3a
 
     .end local v3    # "it":Ljava/nio/file/DirectoryStream;
     .end local v4    # "$i$a$-use-PathsKt__PathUtilsKt$useDirectoryEntries$1":I
@@ -3368,70 +3368,70 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_34
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_34
+    if-eqz v0, :cond_39
 
     invoke-interface {v0}, Ljava/io/Closeable;->close()V
 
-    :cond_1
-    :goto_0
+    :cond_39
+    :goto_39
     return-object v5
 
-    :catchall_0
+    :catchall_3a
     move-exception v3
 
     .end local p0    # "$this$useDirectoryEntries":Ljava/nio/file/Path;
     .end local p1    # "glob":Ljava/lang/String;
     .end local p2    # "block":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_3b
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_3c
+    .catchall {:try_start_3b .. :try_end_3c} :catchall_3c
 
     .restart local p0    # "$this$useDirectoryEntries":Ljava/nio/file/Path;
     .restart local p1    # "glob":Ljava/lang/String;
     .restart local p2    # "block":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_3c
     move-exception v4
 
     invoke-static {v2, v2, v1}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4b
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4e
 
-    :try_start_2
+    :try_start_45
     invoke-interface {v0}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_48
+    .catchall {:try_start_45 .. :try_end_48} :catchall_49
 
-    goto :goto_1
+    goto :goto_4e
 
-    :catchall_2
+    :catchall_49
     move-exception v0
 
-    goto :goto_1
+    goto :goto_4e
 
-    :cond_2
+    :cond_4b
     invoke-static {v0, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    :cond_3
-    :goto_1
+    :cond_4e
+    :goto_4e
     throw v4
 .end method
 
 .method static synthetic useDirectoryEntries$default(Ljava/nio/file/Path;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 9
     .param p0, "$this$useDirectoryEntries_u24default"    # Ljava/nio/file/Path;
     .param p1, "glob"    # Ljava/lang/String;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
@@ -3446,11 +3446,11 @@
 
     and-int/2addr p3, p4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     const-string p1, "*"
 
-    :cond_0
+    :cond_6
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -3472,7 +3472,7 @@
 
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1c
     move-object v1, p3
 
     check-cast v1, Ljava/nio/file/DirectoryStream;
@@ -3496,8 +3496,8 @@
     invoke-interface {p2, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_1c .. :try_end_2e} :catchall_3f
 
     .end local v1    # "it":Ljava/nio/file/DirectoryStream;
     .end local v2    # "$i$a$-use-PathsKt__PathUtilsKt$useDirectoryEntries$1":I
@@ -3505,70 +3505,70 @@
 
     move-result p4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_39
 
     const/4 p4, 0x0
 
     invoke-static {p3, p4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_3e
 
-    :cond_1
-    if-eqz p3, :cond_2
+    :cond_39
+    if-eqz p3, :cond_3e
 
     invoke-interface {p3}, Ljava/io/Closeable;->close()V
 
-    :cond_2
-    :goto_0
+    :cond_3e
+    :goto_3e
     return-object v3
 
-    :catchall_0
+    :catchall_3f
     move-exception v1
 
     .end local p0    # "$this$useDirectoryEntries_u24default":Ljava/nio/file/Path;
     .end local p1    # "glob":Ljava/lang/String;
     .end local p2    # "block":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_40
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_41
+    .catchall {:try_start_40 .. :try_end_41} :catchall_41
 
     .restart local p0    # "$this$useDirectoryEntries_u24default":Ljava/nio/file/Path;
     .restart local p1    # "glob":Ljava/lang/String;
     .restart local p2    # "block":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_41
     move-exception v2
 
     invoke-static {p4, p4, v0}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result p4
 
-    if-nez p4, :cond_3
+    if-nez p4, :cond_50
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_53
 
-    :try_start_2
+    :try_start_4a
     invoke-interface {p3}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_4d
+    .catchall {:try_start_4a .. :try_end_4d} :catchall_4e
 
-    goto :goto_1
+    goto :goto_53
 
-    :catchall_2
+    :catchall_4e
     move-exception p3
 
-    goto :goto_1
+    goto :goto_53
 
-    :cond_3
+    :cond_50
     invoke-static {p3, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    :cond_4
-    :goto_1
+    :cond_53
+    :goto_53
     throw v2
 .end method
 
 .method public static final visitFileTree(Ljava/nio/file/Path;IZLkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 5
     .param p0, "$this$visitFileTree"    # Ljava/nio/file/Path;
     .param p1, "maxDepth"    # I
     .param p2, "followLinks"    # Z
@@ -3609,7 +3609,7 @@
 .end method
 
 .method public static final visitFileTree(Ljava/nio/file/Path;Ljava/nio/file/FileVisitor;IZ)V
-    .locals 1
+    .registers 5
     .param p0, "$this$visitFileTree"    # Ljava/nio/file/Path;
     .param p1, "visitor"    # Ljava/nio/file/FileVisitor;
     .param p2, "maxDepth"    # I
@@ -3633,7 +3633,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 1084
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_13
 
     sget-object v0, Ljava/nio/file/FileVisitOption;->FOLLOW_LINKS:Ljava/nio/file/FileVisitOption;
 
@@ -3641,16 +3641,16 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_13
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
     .line 1085
     .local v0, "options":Ljava/util/Set;
-    :goto_0
+    :goto_17
     invoke-static {p0, v0, p2, p1}, Ljava/nio/file/Files;->walkFileTree(Ljava/nio/file/Path;Ljava/util/Set;ILjava/nio/file/FileVisitor;)Ljava/nio/file/Path;
 
     .line 1086
@@ -3658,57 +3658,57 @@
 .end method
 
 .method public static synthetic visitFileTree$default(Ljava/nio/file/Path;IZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 6
 
     .line 1126
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_7
 
     .line 1127
     const p1, 0x7fffffff
 
     .line 1126
-    :cond_0
+    :cond_7
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 1128
     const/4 p2, 0x0
 
     .line 1126
-    :cond_1
+    :cond_c
     invoke-static {p0, p1, p2, p3}, Lkotlin/io/path/PathsKt;->visitFileTree(Ljava/nio/file/Path;IZLkotlin/jvm/functions/Function1;)V
 
     return-void
 .end method
 
 .method public static synthetic visitFileTree$default(Ljava/nio/file/Path;Ljava/nio/file/FileVisitor;IZILjava/lang/Object;)V
-    .locals 0
+    .registers 6
 
     .line 1083
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_7
 
     const p2, 0x7fffffff
 
-    :cond_0
+    :cond_7
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_c
     invoke-static {p0, p1, p2, p3}, Lkotlin/io/path/PathsKt;->visitFileTree(Ljava/nio/file/Path;Ljava/nio/file/FileVisitor;IZ)V
 
     return-void
 .end method
 
 .method public static final varargs walk(Ljava/nio/file/Path;[Lkotlin/io/path/PathWalkOption;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 3
     .param p0, "$this$walk"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Lkotlin/io/path/PathWalkOption;
     .annotation system Ldalvik/annotation/Signature;

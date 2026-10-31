@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 56
     new-instance v0, Landroid/view/animation/DecelerateInterpolator;
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 156
     invoke-direct {p0}, Landroidx/transition/Visibility;-><init>()V
@@ -127,7 +127,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "slideEdge"    # I
 
     .line 163
@@ -151,7 +151,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -201,7 +201,7 @@
 .end method
 
 .method private captureValues(Landroidx/transition/TransitionValues;)V
-    .locals 4
+    .registers 6
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 180
@@ -231,7 +231,7 @@
 
 # virtual methods
 .method public captureEndValues(Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 194
@@ -245,7 +245,7 @@
 .end method
 
 .method public captureStartValues(Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 188
@@ -259,7 +259,7 @@
 .end method
 
 .method public getSlideEdge()I
-    .locals 1
+    .registers 2
 
     .line 245
     iget v0, p0, Landroidx/transition/Slide;->mSlideEdge:I
@@ -268,7 +268,7 @@
 .end method
 
 .method public onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 19
+    .registers 24
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "startValues"    # Landroidx/transition/TransitionValues;
@@ -283,7 +283,7 @@
 
     move-object/from16 v13, p4
 
-    if-nez v13, :cond_0
+    if-nez v13, :cond_c
 
     .line 253
     const/4 v0, 0x0
@@ -291,7 +291,7 @@
     return-object v0
 
     .line 255
-    :cond_0
+    :cond_c
     iget-object v0, v13, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v1, "android:slide:screenPosition"
@@ -368,7 +368,7 @@
 .end method
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 19
+    .registers 24
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "startValues"    # Landroidx/transition/TransitionValues;
@@ -383,7 +383,7 @@
 
     move-object/from16 v13, p3
 
-    if-nez v13, :cond_0
+    if-nez v13, :cond_c
 
     .line 270
     const/4 v0, 0x0
@@ -391,7 +391,7 @@
     return-object v0
 
     .line 272
-    :cond_0
+    :cond_c
     iget-object v0, v13, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v1, "android:slide:screenPosition"
@@ -468,11 +468,11 @@
 .end method
 
 .method public setSlideEdge(I)V
-    .locals 2
+    .registers 4
     .param p1, "slideEdge"    # I
 
     .line 207
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_38
 
     .line 227
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -484,52 +484,52 @@
     throw v0
 
     .line 224
-    :sswitch_0
+    :sswitch_b
     sget-object v0, Landroidx/transition/Slide;->sCalculateEnd:Landroidx/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
     .line 225
-    goto :goto_0
+    goto :goto_29
 
     .line 221
-    :sswitch_1
+    :sswitch_10
     sget-object v0, Landroidx/transition/Slide;->sCalculateStart:Landroidx/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
     .line 222
-    goto :goto_0
+    goto :goto_29
 
     .line 218
-    :sswitch_2
+    :sswitch_15
     sget-object v0, Landroidx/transition/Slide;->sCalculateBottom:Landroidx/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
     .line 219
-    goto :goto_0
+    goto :goto_29
 
     .line 212
-    :sswitch_3
+    :sswitch_1a
     sget-object v0, Landroidx/transition/Slide;->sCalculateTop:Landroidx/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
     .line 213
-    goto :goto_0
+    goto :goto_29
 
     .line 215
-    :sswitch_4
+    :sswitch_1f
     sget-object v0, Landroidx/transition/Slide;->sCalculateRight:Landroidx/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
     .line 216
-    goto :goto_0
+    goto :goto_29
 
     .line 209
-    :sswitch_5
+    :sswitch_24
     sget-object v0, Landroidx/transition/Slide;->sCalculateLeft:Landroidx/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
@@ -538,7 +538,7 @@
     nop
 
     .line 229
-    :goto_0
+    :goto_29
     iput p1, p0, Landroidx/transition/Slide;->mSlideEdge:I
 
     .line 230
@@ -558,13 +558,13 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_38
     .sparse-switch
-        0x3 -> :sswitch_5
-        0x5 -> :sswitch_4
-        0x30 -> :sswitch_3
-        0x50 -> :sswitch_2
-        0x800003 -> :sswitch_1
-        0x800005 -> :sswitch_0
+        0x3 -> :sswitch_24
+        0x5 -> :sswitch_1f
+        0x30 -> :sswitch_1a
+        0x50 -> :sswitch_15
+        0x800003 -> :sswitch_10
+        0x800005 -> :sswitch_b
     .end sparse-switch
 .end method

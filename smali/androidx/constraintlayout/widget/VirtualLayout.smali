@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method protected applyLayoutFeaturesInConstraintSet(Landroidx/constraintlayout/widget/ConstraintLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "container"    # Landroidx/constraintlayout/widget/ConstraintLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -98,7 +98,7 @@
 .end method
 
 .method protected init(Landroid/util/AttributeSet;)V
-    .locals 6
+    .registers 8
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -113,7 +113,7 @@
     invoke-super {p0, p1}, Landroidx/constraintlayout/widget/ConstraintHelper;->init(Landroid/util/AttributeSet;)V
 
     .line 49
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2e
 
     .line 50
     invoke-virtual {p0}, Landroidx/constraintlayout/widget/VirtualLayout;->getContext()Landroid/content/Context;
@@ -137,8 +137,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_14
+    if-ge v2, v1, :cond_2b
 
     .line 53
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -151,44 +151,44 @@
 
     const/4 v5, 0x1
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_22
 
     .line 55
     iput-boolean v5, p0, Landroidx/constraintlayout/widget/VirtualLayout;->mApplyVisibilityOnAttach:Z
 
-    goto :goto_1
+    goto :goto_28
 
     .line 56
-    :cond_0
+    :cond_22
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_Layout_android_elevation:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_28
 
     .line 57
     iput-boolean v5, p0, Landroidx/constraintlayout/widget/VirtualLayout;->mApplyElevationOnAttach:Z
 
     .line 52
     .end local v3    # "attr":I
-    :cond_1
-    :goto_1
+    :cond_28
+    :goto_28
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 60
     .end local v2    # "i":I
-    :cond_2
+    :cond_2b
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 62
     .end local v0    # "a":Landroid/content/res/TypedArray;
     .end local v1    # "N":I
-    :cond_3
+    :cond_2e
     return-void
 .end method
 
 .method public onAttachedToWindow()V
-    .locals 8
+    .registers 9
 
     .line 73
     invoke-super {p0}, Landroidx/constraintlayout/widget/ConstraintHelper;->onAttachedToWindow()V
@@ -196,14 +196,14 @@
     .line 74
     iget-boolean v0, p0, Landroidx/constraintlayout/widget/VirtualLayout;->mApplyVisibilityOnAttach:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     iget-boolean v0, p0, Landroidx/constraintlayout/widget/VirtualLayout;->mApplyElevationOnAttach:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4a
 
     .line 75
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Landroidx/constraintlayout/widget/VirtualLayout;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
@@ -212,7 +212,7 @@
     .local v0, "parent":Landroid/view/ViewParent;
     instance-of v1, v0, Landroidx/constraintlayout/widget/ConstraintLayout;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4a
 
     .line 77
     move-object v1, v0
@@ -242,10 +242,10 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_21
     iget v5, p0, Landroidx/constraintlayout/widget/VirtualLayout;->mCount:I
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_4a
 
     .line 84
     iget-object v5, p0, Landroidx/constraintlayout/widget/VirtualLayout;->mIds:[I
@@ -260,28 +260,28 @@
 
     .line 86
     .local v6, "view":Landroid/view/View;
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_47
 
     .line 87
     iget-boolean v7, p0, Landroidx/constraintlayout/widget/VirtualLayout;->mApplyVisibilityOnAttach:Z
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_36
 
     .line 88
     invoke-virtual {v6, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 90
-    :cond_1
+    :cond_36
     iget-boolean v7, p0, Landroidx/constraintlayout/widget/VirtualLayout;->mApplyElevationOnAttach:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_47
 
     .line 91
     const/4 v7, 0x0
 
     cmpl-float v7, v3, v7
 
-    if-lez v7, :cond_2
+    if-lez v7, :cond_47
 
     .line 92
     invoke-virtual {v6}, Landroid/view/View;->getTranslationZ()F
@@ -295,10 +295,10 @@
     .line 83
     .end local v5    # "id":I
     .end local v6    # "view":Landroid/view/View;
-    :cond_2
+    :cond_47
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
     .line 99
     .end local v0    # "parent":Landroid/view/ViewParent;
@@ -306,12 +306,12 @@
     .end local v2    # "visibility":I
     .end local v3    # "elevation":F
     .end local v4    # "i":I
-    :cond_3
+    :cond_4a
     return-void
 .end method
 
 .method public onMeasure(Landroidx/constraintlayout/core/widgets/VirtualLayout;II)V
-    .locals 0
+    .registers 4
     .param p1, "layout"    # Landroidx/constraintlayout/core/widgets/VirtualLayout;
     .param p2, "widthMeasureSpec"    # I
     .param p3, "heightMeasureSpec"    # I
@@ -333,7 +333,7 @@
 .end method
 
 .method public setElevation(F)V
-    .locals 0
+    .registers 2
     .param p1, "elevation"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -355,7 +355,7 @@
 .end method
 
 .method public setVisibility(I)V
-    .locals 0
+    .registers 2
     .param p1, "visibility"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

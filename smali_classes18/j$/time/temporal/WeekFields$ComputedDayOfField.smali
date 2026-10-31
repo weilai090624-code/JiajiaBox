@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 768
     const-wide/16 v0, 0x1
@@ -97,7 +97,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Lj$/time/temporal/WeekFields;Lj$/time/temporal/TemporalUnit;Lj$/time/temporal/TemporalUnit;Lj$/time/temporal/ValueRange;)V
-    .locals 0
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "weekDef"    # Lj$/time/temporal/WeekFields;
     .param p3, "baseUnit"    # Lj$/time/temporal/TemporalUnit;
@@ -127,7 +127,7 @@
 .end method
 
 .method private computeWeek(II)I
-    .locals 2
+    .registers 5
     .param p1, "offset"    # I
     .param p2, "day"    # I
 
@@ -144,7 +144,7 @@
 .end method
 
 .method private localizedDayOfWeek(I)I
-    .locals 3
+    .registers 5
     .param p1, "isoDow"    # I
 
     .line 797
@@ -174,7 +174,7 @@
 .end method
 
 .method private localizedDayOfWeek(Lj$/time/temporal/TemporalAccessor;)I
-    .locals 4
+    .registers 6
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 791
@@ -212,7 +212,7 @@
 .end method
 
 .method private localizedWeekBasedYear(Lj$/time/temporal/TemporalAccessor;)I
-    .locals 9
+    .registers 11
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 822
@@ -250,7 +250,7 @@
 
     .line 827
     .local v4, "week":I
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1d
 
     .line 829
     add-int/lit8 v5, v1, -0x1
@@ -258,7 +258,7 @@
     return v5
 
     .line 833
-    :cond_0
+    :cond_1d
     sget-object v5, Lj$/time/temporal/ChronoField;->DAY_OF_YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-interface {p1, v5}, Lj$/time/temporal/TemporalAccessor;->range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
@@ -289,7 +289,7 @@
 
     .line 836
     .local v6, "newYearWeek":I
-    if-lt v4, v6, :cond_1
+    if-lt v4, v6, :cond_38
 
     .line 837
     add-int/lit8 v8, v1, 0x1
@@ -300,12 +300,12 @@
     .end local v5    # "dayRange":Lj$/time/temporal/ValueRange;
     .end local v6    # "newYearWeek":I
     .end local v7    # "yearLen":I
-    :cond_1
+    :cond_38
     return v1
 .end method
 
 .method private localizedWeekOfMonth(Lj$/time/temporal/TemporalAccessor;)J
-    .locals 5
+    .registers 7
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 802
@@ -339,7 +339,7 @@
 .end method
 
 .method private localizedWeekOfWeekBasedYear(Lj$/time/temporal/TemporalAccessor;)I
-    .locals 8
+    .registers 10
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 853
@@ -369,7 +369,7 @@
 
     .line 857
     .local v3, "week":I
-    if-nez v3, :cond_0
+    if-nez v3, :cond_28
 
     .line 860
     invoke-static {p1}, Lj$/time/chrono/Chronology$-CC;->from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/Chronology;
@@ -399,10 +399,10 @@
 
     .line 863
     .end local v4    # "date":Lj$/time/chrono/ChronoLocalDate;
-    :cond_0
+    :cond_28
     const/16 v4, 0x32
 
-    if-le v3, v4, :cond_1
+    if-le v3, v4, :cond_48
 
     .line 866
     sget-object v4, Lj$/time/temporal/ChronoField;->DAY_OF_YEAR:Lj$/time/temporal/ChronoField;
@@ -435,7 +435,7 @@
 
     .line 869
     .local v5, "newYearWeek":I
-    if-lt v3, v5, :cond_1
+    if-lt v3, v5, :cond_48
 
     .line 871
     sub-int v7, v3, v5
@@ -446,12 +446,12 @@
     .end local v4    # "dayRange":Lj$/time/temporal/ValueRange;
     .end local v5    # "newYearWeek":I
     .end local v6    # "yearLen":I
-    :cond_1
+    :cond_48
     return v3
 .end method
 
 .method private localizedWeekOfYear(Lj$/time/temporal/TemporalAccessor;)J
-    .locals 5
+    .registers 7
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 809
@@ -485,7 +485,7 @@
 .end method
 
 .method static ofDayOfWeekField(Lj$/time/temporal/WeekFields;)Lj$/time/temporal/WeekFields$ComputedDayOfField;
-    .locals 7
+    .registers 8
     .param p0, "weekDef"    # Lj$/time/temporal/WeekFields;
 
     .line 691
@@ -509,7 +509,7 @@
 .end method
 
 .method private ofWeekBasedYear(Lj$/time/chrono/Chronology;III)Lj$/time/chrono/ChronoLocalDate;
-    .locals 9
+    .registers 14
     .param p1, "chrono"    # Lj$/time/chrono/Chronology;
     .param p2, "yowby"    # I
     .param p3, "wowby"    # I
@@ -589,7 +589,7 @@
 .end method
 
 .method static ofWeekBasedYearField(Lj$/time/temporal/WeekFields;)Lj$/time/temporal/WeekFields$ComputedDayOfField;
-    .locals 7
+    .registers 8
     .param p0, "weekDef"    # Lj$/time/temporal/WeekFields;
 
     .line 727
@@ -617,7 +617,7 @@
 .end method
 
 .method static ofWeekOfMonthField(Lj$/time/temporal/WeekFields;)Lj$/time/temporal/WeekFields$ComputedDayOfField;
-    .locals 7
+    .registers 8
     .param p0, "weekDef"    # Lj$/time/temporal/WeekFields;
 
     .line 700
@@ -641,7 +641,7 @@
 .end method
 
 .method static ofWeekOfWeekBasedYearField(Lj$/time/temporal/WeekFields;)Lj$/time/temporal/WeekFields$ComputedDayOfField;
-    .locals 7
+    .registers 8
     .param p0, "weekDef"    # Lj$/time/temporal/WeekFields;
 
     .line 718
@@ -665,7 +665,7 @@
 .end method
 
 .method static ofWeekOfYearField(Lj$/time/temporal/WeekFields;)Lj$/time/temporal/WeekFields$ComputedDayOfField;
-    .locals 7
+    .registers 8
     .param p0, "weekDef"    # Lj$/time/temporal/WeekFields;
 
     .line 709
@@ -689,7 +689,7 @@
 .end method
 
 .method private rangeByWeek(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 7
+    .registers 10
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
     .param p2, "field"    # Lj$/time/temporal/TemporalField;
 
@@ -750,7 +750,7 @@
 .end method
 
 .method private rangeWeekOfWeekBasedYear(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
-    .locals 11
+    .registers 13
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 1141
@@ -760,7 +760,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 1142
     sget-object v0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->WEEK_OF_YEAR_RANGE:Lj$/time/temporal/ValueRange;
@@ -768,7 +768,7 @@
     return-object v0
 
     .line 1144
-    :cond_0
+    :cond_b
     invoke-direct {p0, p1}, Lj$/time/temporal/WeekFields$ComputedDayOfField;->localizedDayOfWeek(Lj$/time/temporal/TemporalAccessor;)I
 
     move-result v0
@@ -795,7 +795,7 @@
 
     .line 1148
     .local v3, "week":I
-    if-nez v3, :cond_1
+    if-nez v3, :cond_35
 
     .line 1151
     invoke-static {p1}, Lj$/time/chrono/Chronology$-CC;->from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/Chronology;
@@ -827,7 +827,7 @@
 
     .line 1156
     .end local v4    # "date":Lj$/time/chrono/ChronoLocalDate;
-    :cond_1
+    :cond_35
     sget-object v4, Lj$/time/temporal/ChronoField;->DAY_OF_YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-interface {p1, v4}, Lj$/time/temporal/TemporalAccessor;->range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
@@ -858,7 +858,7 @@
 
     .line 1160
     .local v5, "newYearWeek":I
-    if-lt v3, v5, :cond_2
+    if-lt v3, v5, :cond_67
 
     .line 1162
     invoke-static {p1}, Lj$/time/chrono/Chronology$-CC;->from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/Chronology;
@@ -894,7 +894,7 @@
 
     .line 1166
     .end local v7    # "date":Lj$/time/chrono/ChronoLocalDate;
-    :cond_2
+    :cond_67
     add-int/lit8 v7, v5, -0x1
 
     int-to-long v7, v7
@@ -909,7 +909,7 @@
 .end method
 
 .method private resolveWBY(Ljava/util/Map;Lj$/time/chrono/Chronology;ILj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 7
+    .registers 12
     .param p2, "chrono"    # Lj$/time/chrono/Chronology;
     .param p3, "localDow"    # I
     .param p4, "resolverStyle"    # Lj$/time/format/ResolverStyle;
@@ -972,7 +972,7 @@
     .local v0, "yowby":I
     sget-object v1, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-ne p4, v1, :cond_0
+    if-ne p4, v1, :cond_4a
 
     .line 1026
     const/4 v1, 0x1
@@ -1018,11 +1018,11 @@
     .line 1030
     .end local v2    # "wowby":J
     .end local v4    # "weeks":J
-    goto :goto_1
+    goto :goto_86
 
     .line 1031
     .end local v1    # "date":Lj$/time/chrono/ChronoLocalDate;
-    :cond_0
+    :cond_4a
     iget-object v1, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->weekDef:Lj$/time/temporal/WeekFields;
 
     invoke-static {v1}, Lj$/time/temporal/WeekFields;->-$$Nest$fgetweekOfWeekBasedYear(Lj$/time/temporal/WeekFields;)Lj$/time/temporal/TemporalField;
@@ -1071,18 +1071,18 @@
     .local v2, "date":Lj$/time/chrono/ChronoLocalDate;
     sget-object v3, Lj$/time/format/ResolverStyle;->STRICT:Lj$/time/format/ResolverStyle;
 
-    if-ne p4, v3, :cond_2
+    if-ne p4, v3, :cond_85
 
     invoke-direct {p0, v2}, Lj$/time/temporal/WeekFields$ComputedDayOfField;->localizedWeekBasedYear(Lj$/time/temporal/TemporalAccessor;)I
 
     move-result v3
 
-    if-ne v3, v0, :cond_1
+    if-ne v3, v0, :cond_7d
 
-    goto :goto_0
+    goto :goto_85
 
     .line 1035
-    :cond_1
+    :cond_7d
     new-instance v3, Lj$/time/DateTimeException;
 
     const-string v4, "Strict mode rejected resolved date as it is in a different week-based-year"
@@ -1093,13 +1093,13 @@
 
     .line 1038
     .end local v1    # "wowby":I
-    :cond_2
-    :goto_0
+    :cond_85
+    :goto_85
     move-object v1, v2
 
     .end local v2    # "date":Lj$/time/chrono/ChronoLocalDate;
     .local v1, "date":Lj$/time/chrono/ChronoLocalDate;
-    :goto_1
+    :goto_86
     invoke-interface {p1, p0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1039
@@ -1130,7 +1130,7 @@
 .end method
 
 .method private resolveWoM(Ljava/util/Map;Lj$/time/chrono/Chronology;IJJILj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 17
+    .registers 27
     .param p2, "chrono"    # Lj$/time/chrono/Chronology;
     .param p3, "year"    # I
     .param p4, "month"    # J
@@ -1172,7 +1172,7 @@
 
     const/4 v10, 0x1
 
-    if-ne v8, v9, :cond_0
+    if-ne v8, v9, :cond_43
 
     .line 976
     invoke-interface {v2, v3, v10, v10}, Lj$/time/chrono/Chronology;->date(III)Lj$/time/chrono/ChronoLocalDate;
@@ -1236,11 +1236,11 @@
     .line 980
     .end local v12    # "days":I
     .end local v15    # "weeks":J
-    goto :goto_1
+    goto :goto_82
 
     .line 981
     .end local v9    # "date":Lj$/time/chrono/ChronoLocalDate;
-    :cond_0
+    :cond_43
     sget-object v9, Lj$/time/temporal/ChronoField;->MONTH_OF_YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v9, v4, v5}, Lj$/time/temporal/ChronoField;->checkValidIntValue(J)I
@@ -1300,7 +1300,7 @@
     .local v2, "date":Lj$/time/chrono/ChronoLocalDate;
     sget-object v10, Lj$/time/format/ResolverStyle;->STRICT:Lj$/time/format/ResolverStyle;
 
-    if-ne v8, v10, :cond_2
+    if-ne v8, v10, :cond_81
 
     sget-object v10, Lj$/time/temporal/ChronoField;->MONTH_OF_YEAR:Lj$/time/temporal/ChronoField;
 
@@ -1310,12 +1310,12 @@
 
     cmp-long v10, v14, v4
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_79
 
-    goto :goto_0
+    goto :goto_81
 
     .line 988
-    :cond_1
+    :cond_79
     new-instance v10, Lj$/time/DateTimeException;
 
     const-string v14, "Strict mode rejected resolved date as it is in a different month"
@@ -1329,13 +1329,13 @@
     .end local v11    # "womInt":I
     .end local v12    # "days":I
     .end local v13    # "weeks":I
-    :cond_2
-    :goto_0
+    :cond_81
+    :goto_81
     move-object v9, v2
 
     .end local v2    # "date":Lj$/time/chrono/ChronoLocalDate;
     .local v9, "date":Lj$/time/chrono/ChronoLocalDate;
-    :goto_1
+    :goto_82
     invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 992
@@ -1358,7 +1358,7 @@
 .end method
 
 .method private resolveWoY(Ljava/util/Map;Lj$/time/chrono/Chronology;IJILj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 16
+    .registers 24
     .param p2, "chrono"    # Lj$/time/chrono/Chronology;
     .param p3, "year"    # I
     .param p4, "woy"    # J
@@ -1403,7 +1403,7 @@
     .local v6, "date":Lj$/time/chrono/ChronoLocalDate;
     sget-object v8, Lj$/time/format/ResolverStyle;->LENIENT:Lj$/time/format/ResolverStyle;
 
-    if-ne v5, v8, :cond_0
+    if-ne v5, v8, :cond_34
 
     .line 1002
     invoke-direct {v0, v6}, Lj$/time/temporal/WeekFields$ComputedDayOfField;->localizedWeekOfYear(Lj$/time/temporal/TemporalAccessor;)J
@@ -1445,10 +1445,10 @@
     .line 1005
     .end local v8    # "weeks":J
     .end local v10    # "days":I
-    goto :goto_0
+    goto :goto_69
 
     .line 1006
-    :cond_0
+    :cond_34
     iget-object v8, v0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->range:Lj$/time/temporal/ValueRange;
 
     invoke-virtual {v8, v3, v4, v0}, Lj$/time/temporal/ValueRange;->checkValidIntValue(JLj$/time/temporal/TemporalField;)I
@@ -1492,7 +1492,7 @@
     .line 1010
     sget-object v11, Lj$/time/format/ResolverStyle;->STRICT:Lj$/time/format/ResolverStyle;
 
-    if-ne v5, v11, :cond_2
+    if-ne v5, v11, :cond_69
 
     sget-object v11, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
 
@@ -1504,12 +1504,12 @@
 
     cmp-long v15, v11, v13
 
-    if-nez v15, :cond_1
+    if-nez v15, :cond_61
 
-    goto :goto_0
+    goto :goto_69
 
     .line 1011
-    :cond_1
+    :cond_61
     new-instance v11, Lj$/time/DateTimeException;
 
     const-string v12, "Strict mode rejected resolved date as it is in a different year"
@@ -1522,8 +1522,8 @@
     .end local v8    # "womInt":I
     .end local v9    # "days":I
     .end local v10    # "weeks":I
-    :cond_2
-    :goto_0
+    :cond_69
+    :goto_69
     invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1015
@@ -1541,7 +1541,7 @@
 .end method
 
 .method private startOfWeekOffset(II)I
-    .locals 4
+    .registers 7
     .param p1, "day"    # I
     .param p2, "dow"    # I
 
@@ -1568,20 +1568,20 @@
 
     move-result v3
 
-    if-le v2, v3, :cond_0
+    if-le v2, v3, :cond_14
 
     .line 890
     rsub-int/lit8 v1, v0, 0x7
 
     .line 892
-    :cond_0
+    :cond_14
     return v1
 .end method
 
 
 # virtual methods
 .method public adjustInto(Lj$/time/temporal/Temporal;J)Lj$/time/temporal/Temporal;
-    .locals 6
+    .registers 10
     .param p2, "newValue"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1607,18 +1607,18 @@
 
     .line 913
     .local v1, "currentVal":I
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 914
     return-object p1
 
     .line 917
-    :cond_0
+    :cond_d
     iget-object v2, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v3, Lj$/time/temporal/ChronoUnit;->FOREVER:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_31
 
     .line 920
     iget-object v2, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->weekDef:Lj$/time/temporal/WeekFields;
@@ -1660,7 +1660,7 @@
     .line 925
     .end local v2    # "idow":I
     .end local v3    # "wowby":I
-    :cond_1
+    :cond_31
     sub-int v2, v0, v1
 
     int-to-long v2, v2
@@ -1675,7 +1675,7 @@
 .end method
 
 .method public getBaseUnit()Lj$/time/temporal/TemporalUnit;
-    .locals 1
+    .registers 2
 
     .line 1062
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->baseUnit:Lj$/time/temporal/TemporalUnit;
@@ -1684,7 +1684,7 @@
 .end method
 
 .method public getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "locale"    # Ljava/util/Locale;
 
     .line 1048
@@ -1697,7 +1697,7 @@
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->YEARS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 1055
     const-string v0, "Week"
@@ -1705,14 +1705,14 @@
     return-object v0
 
     .line 1057
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->name:Ljava/lang/String;
 
     return-object v0
 .end method
 
 .method public getFrom(Lj$/time/temporal/TemporalAccessor;)J
-    .locals 4
+    .registers 6
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 775
@@ -1720,7 +1720,7 @@
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->WEEKS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     .line 776
     invoke-direct {p0, p1}, Lj$/time/temporal/WeekFields$ComputedDayOfField;->localizedDayOfWeek(Lj$/time/temporal/TemporalAccessor;)I
@@ -1732,12 +1732,12 @@
     return-wide v0
 
     .line 777
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->MONTHS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_17
 
     .line 778
     invoke-direct {p0, p1}, Lj$/time/temporal/WeekFields$ComputedDayOfField;->localizedWeekOfMonth(Lj$/time/temporal/TemporalAccessor;)J
@@ -1747,12 +1747,12 @@
     return-wide v0
 
     .line 779
-    :cond_1
+    :cond_17
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->YEARS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_22
 
     .line 780
     invoke-direct {p0, p1}, Lj$/time/temporal/WeekFields$ComputedDayOfField;->localizedWeekOfYear(Lj$/time/temporal/TemporalAccessor;)J
@@ -1762,12 +1762,12 @@
     return-wide v0
 
     .line 781
-    :cond_2
+    :cond_22
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/WeekFields;->WEEK_BASED_YEARS:Lj$/time/temporal/TemporalUnit;
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_2e
 
     .line 782
     invoke-direct {p0, p1}, Lj$/time/temporal/WeekFields$ComputedDayOfField;->localizedWeekOfWeekBasedYear(Lj$/time/temporal/TemporalAccessor;)I
@@ -1779,12 +1779,12 @@
     return-wide v0
 
     .line 783
-    :cond_3
+    :cond_2e
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->FOREVER:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_3a
 
     .line 784
     invoke-direct {p0, p1}, Lj$/time/temporal/WeekFields$ComputedDayOfField;->localizedWeekBasedYear(Lj$/time/temporal/TemporalAccessor;)I
@@ -1796,7 +1796,7 @@
     return-wide v0
 
     .line 786
-    :cond_4
+    :cond_3a
     new-instance v0, Ljava/lang/IllegalStateException;
 
     iget-object v1, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
@@ -1835,7 +1835,7 @@
 .end method
 
 .method public getRangeUnit()Lj$/time/temporal/TemporalUnit;
-    .locals 1
+    .registers 2
 
     .line 1067
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
@@ -1844,7 +1844,7 @@
 .end method
 
 .method public isDateBased()Z
-    .locals 1
+    .registers 2
 
     .line 1072
     const/4 v0, 0x1
@@ -1853,7 +1853,7 @@
 .end method
 
 .method public isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
-    .locals 2
+    .registers 4
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 1088
@@ -1863,14 +1863,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_44
 
     .line 1089
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->WEEKS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 1090
     const/4 v0, 0x1
@@ -1878,12 +1878,12 @@
     return v0
 
     .line 1091
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->MONTHS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1d
 
     .line 1092
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_MONTH:Lj$/time/temporal/ChronoField;
@@ -1895,12 +1895,12 @@
     return v0
 
     .line 1093
-    :cond_1
+    :cond_1d
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->YEARS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2a
 
     .line 1094
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_YEAR:Lj$/time/temporal/ChronoField;
@@ -1912,12 +1912,12 @@
     return v0
 
     .line 1095
-    :cond_2
+    :cond_2a
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/WeekFields;->WEEK_BASED_YEARS:Lj$/time/temporal/TemporalUnit;
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_37
 
     .line 1096
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_YEAR:Lj$/time/temporal/ChronoField;
@@ -1929,12 +1929,12 @@
     return v0
 
     .line 1097
-    :cond_3
+    :cond_37
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->FOREVER:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_44
 
     .line 1098
     sget-object v0, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
@@ -1946,14 +1946,14 @@
     return v0
 
     .line 1101
-    :cond_4
+    :cond_44
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public isTimeBased()Z
-    .locals 1
+    .registers 2
 
     .line 1077
     const/4 v0, 0x0
@@ -1962,7 +1962,7 @@
 .end method
 
 .method public range()Lj$/time/temporal/ValueRange;
-    .locals 1
+    .registers 2
 
     .line 1082
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->range:Lj$/time/temporal/ValueRange;
@@ -1971,7 +1971,7 @@
 .end method
 
 .method public rangeRefinedBy(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
-    .locals 4
+    .registers 6
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 1106
@@ -1979,7 +1979,7 @@
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->WEEKS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     .line 1107
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->range:Lj$/time/temporal/ValueRange;
@@ -1987,12 +1987,12 @@
     return-object v0
 
     .line 1108
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->MONTHS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_16
 
     .line 1109
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_MONTH:Lj$/time/temporal/ChronoField;
@@ -2004,12 +2004,12 @@
     return-object v0
 
     .line 1110
-    :cond_1
+    :cond_16
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->YEARS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_23
 
     .line 1111
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_YEAR:Lj$/time/temporal/ChronoField;
@@ -2021,12 +2021,12 @@
     return-object v0
 
     .line 1112
-    :cond_2
+    :cond_23
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/WeekFields;->WEEK_BASED_YEARS:Lj$/time/temporal/TemporalUnit;
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_2e
 
     .line 1113
     invoke-direct {p0, p1}, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeWeekOfWeekBasedYear(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
@@ -2036,12 +2036,12 @@
     return-object v0
 
     .line 1114
-    :cond_3
+    :cond_2e
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->FOREVER:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_3b
 
     .line 1115
     sget-object v0, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
@@ -2053,7 +2053,7 @@
     return-object v0
 
     .line 1117
-    :cond_4
+    :cond_3b
     new-instance v0, Ljava/lang/IllegalStateException;
 
     iget-object v1, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
@@ -2092,7 +2092,7 @@
 .end method
 
 .method public resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 21
+    .registers 25
     .param p2, "partialTemporal"    # Lj$/time/temporal/TemporalAccessor;
     .param p3, "resolverStyle"    # Lj$/time/format/ResolverStyle;
     .annotation system Ldalvik/annotation/Signature;
@@ -2139,7 +2139,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_43
 
     .line 938
     iget-object v0, v10, Lj$/time/temporal/WeekFields$ComputedDayOfField;->range:Lj$/time/temporal/ValueRange;
@@ -2198,20 +2198,20 @@
     .end local v0    # "checkedValue":I
     .end local v1    # "startDow":I
     .end local v3    # "isoDow":J
-    :cond_0
+    :cond_43
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_WEEK:Lj$/time/temporal/ChronoField;
 
     invoke-interface {v11, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_4c
 
     .line 948
     return-object v2
 
     .line 950
-    :cond_1
+    :cond_4c
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_WEEK:Lj$/time/temporal/ChronoField;
 
     sget-object v1, Lj$/time/temporal/ChronoField;->DAY_OF_WEEK:Lj$/time/temporal/ChronoField;
@@ -2250,7 +2250,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_cd
 
     .line 956
     sget-object v0, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
@@ -2277,7 +2277,7 @@
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->MONTHS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_b0
 
     sget-object v0, Lj$/time/temporal/ChronoField;->MONTH_OF_YEAR:Lj$/time/temporal/ChronoField;
 
@@ -2285,7 +2285,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_b0
 
     .line 958
     sget-object v0, Lj$/time/temporal/ChronoField;->MONTH_OF_YEAR:Lj$/time/temporal/ChronoField;
@@ -2338,7 +2338,7 @@
     .end local v20    # "dow":I
     .restart local v8    # "chrono":Lj$/time/chrono/Chronology;
     .restart local v9    # "dow":I
-    :cond_2
+    :cond_b0
     move-object/from16 v19, v8
 
     move/from16 v20, v9
@@ -2352,7 +2352,7 @@
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->YEARS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_cc
 
     .line 962
     int-to-long v4, v14
@@ -2377,15 +2377,15 @@
 
     .line 961
     .end local v16    # "year":I
-    :cond_3
-    goto :goto_0
+    :cond_cc
+    goto :goto_de
 
     .line 964
     .end local v19    # "chrono":Lj$/time/chrono/Chronology;
     .end local v20    # "dow":I
     .restart local v8    # "chrono":Lj$/time/chrono/Chronology;
     .restart local v9    # "dow":I
-    :cond_4
+    :cond_cd
     move-object/from16 v19, v8
 
     move/from16 v20, v9
@@ -2398,28 +2398,28 @@
 
     sget-object v1, Lj$/time/temporal/WeekFields;->WEEK_BASED_YEARS:Lj$/time/temporal/TemporalUnit;
 
-    if-eq v0, v1, :cond_6
+    if-eq v0, v1, :cond_e5
 
     iget-object v0, v10, Lj$/time/temporal/WeekFields$ComputedDayOfField;->rangeUnit:Lj$/time/temporal/TemporalUnit;
 
     sget-object v1, Lj$/time/temporal/ChronoUnit;->FOREVER:Lj$/time/temporal/ChronoUnit;
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_de
 
-    goto :goto_1
+    goto :goto_e5
 
-    :cond_5
-    :goto_0
+    :cond_de
+    :goto_de
     move-object/from16 v0, p3
 
     move-object/from16 v3, v19
 
     move/from16 v1, v20
 
-    goto :goto_2
+    goto :goto_115
 
-    :cond_6
-    :goto_1
+    :cond_e5
+    :goto_e5
     iget-object v0, v10, Lj$/time/temporal/WeekFields$ComputedDayOfField;->weekDef:Lj$/time/temporal/WeekFields;
 
     invoke-static {v0}, Lj$/time/temporal/WeekFields;->-$$Nest$fgetweekBasedYear(Lj$/time/temporal/WeekFields;)Lj$/time/temporal/TemporalField;
@@ -2431,7 +2431,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_10f
 
     iget-object v0, v10, Lj$/time/temporal/WeekFields$ComputedDayOfField;->weekDef:Lj$/time/temporal/WeekFields;
 
@@ -2444,7 +2444,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_108
 
     .line 967
     move-object/from16 v0, p3
@@ -2468,7 +2468,7 @@
     .end local v3    # "chrono":Lj$/time/chrono/Chronology;
     .restart local v19    # "chrono":Lj$/time/chrono/Chronology;
     .restart local v20    # "dow":I
-    :cond_7
+    :cond_108
     move-object/from16 v0, p3
 
     move-object/from16 v3, v19
@@ -2479,14 +2479,14 @@
     .end local v20    # "dow":I
     .restart local v1    # "dow":I
     .restart local v3    # "chrono":Lj$/time/chrono/Chronology;
-    goto :goto_2
+    goto :goto_115
 
     .line 965
     .end local v1    # "dow":I
     .end local v3    # "chrono":Lj$/time/chrono/Chronology;
     .restart local v19    # "chrono":Lj$/time/chrono/Chronology;
     .restart local v20    # "dow":I
-    :cond_8
+    :cond_10f
     move-object/from16 v0, p3
 
     move-object/from16 v3, v19
@@ -2498,12 +2498,12 @@
     .end local v20    # "dow":I
     .restart local v1    # "dow":I
     .restart local v3    # "chrono":Lj$/time/chrono/Chronology;
-    :goto_2
+    :goto_115
     return-object v2
 .end method
 
 .method public bridge synthetic resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/temporal/TemporalAccessor;
-    .locals 0
+    .registers 4
 
     .line 681
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/temporal/WeekFields$ComputedDayOfField;->resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
@@ -2514,7 +2514,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 1172
     iget-object v0, p0, Lj$/time/temporal/WeekFields$ComputedDayOfField;->name:Ljava/lang/String;

@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 216
     invoke-static {}, Lcom/google/common/collect/Ordering;->natural()Lcom/google/common/collect/Ordering;
@@ -57,7 +57,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 268
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 .end method
 
 .method private static bestGetCheckedTypeValidator()Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidator;
-    .locals 1
+    .registers 1
 
     .line 95
     sget-object v0, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder;->BEST_VALIDATOR:Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidator;
@@ -75,7 +75,7 @@
 .end method
 
 .method static checkExceptionClassValidity(Ljava/lang/Class;)V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -118,7 +118,7 @@
 .end method
 
 .method static getChecked(Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidator;Ljava/util/concurrent/Future;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "validator"    # Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidator;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
@@ -150,18 +150,18 @@
     invoke-interface {p0, p2}, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidator;->validateClass(Ljava/lang/Class;)V
 
     .line 59
-    :try_start_0
+    :try_start_3
     invoke-interface {p1}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_7} :catch_16
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_3 .. :try_end_7} :catch_8
 
     return-object v0
 
     .line 63
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 64
@@ -181,7 +181,7 @@
 
     .line 60
     .end local v0    # "e":Ljava/util/concurrent/ExecutionException;
-    :catch_1
+    :catch_16
     move-exception v0
 
     .line 61
@@ -201,7 +201,7 @@
 .end method
 
 .method static getChecked(Ljava/util/concurrent/Future;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -240,7 +240,7 @@
 .end method
 
 .method static getChecked(Ljava/util/concurrent/Future;Ljava/lang/Class;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 2
+    .registers 7
     .param p2, "timeout"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -278,19 +278,19 @@
     invoke-interface {v0, p1}, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidator;->validateClass(Ljava/lang/Class;)V
 
     .line 77
-    :try_start_0
+    :try_start_7
     invoke-interface {p0, p2, p3, p4}, Ljava/util/concurrent/Future;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/InterruptedException; {:try_start_7 .. :try_end_b} :catch_20
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_7 .. :try_end_b} :catch_1a
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_7 .. :try_end_b} :catch_c
 
     return-object v0
 
     .line 83
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 84
@@ -310,7 +310,7 @@
 
     .line 81
     .end local v0    # "e":Ljava/util/concurrent/ExecutionException;
-    :catch_1
+    :catch_1a
     move-exception v0
 
     .line 82
@@ -323,7 +323,7 @@
 
     .line 78
     .end local v0    # "e":Ljava/util/concurrent/TimeoutException;
-    :catch_2
+    :catch_20
     move-exception v0
 
     .line 79
@@ -343,7 +343,7 @@
 .end method
 
 .method private static hasConstructorUsableByGetChecked(Ljava/lang/Class;)Z
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -364,8 +364,8 @@
     invoke-static {p0, v0}, Lcom/google/common/util/concurrent/FuturesGetChecked;->newWithCause(Ljava/lang/Class;Ljava/lang/Throwable;)Ljava/lang/Exception;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_9} :catch_b
 
     .line 184
     .local v0, "unused":Ljava/lang/Exception;
@@ -375,7 +375,7 @@
 
     .line 185
     .end local v0    # "unused":Ljava/lang/Exception;
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 186
@@ -386,7 +386,7 @@
 .end method
 
 .method static isCheckedException(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -411,7 +411,7 @@
 .end method
 
 .method private static newFromConstructor(Ljava/lang/reflect/Constructor;Ljava/lang/Throwable;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p1, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -445,12 +445,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_8
     array-length v3, v0
 
     const/4 v4, 0x0
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_2b
 
     .line 231
     aget-object v3, v0, v2
@@ -463,7 +463,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1d
 
     .line 233
     invoke-virtual {p1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
@@ -472,76 +472,76 @@
 
     aput-object v4, v1, v2
 
-    goto :goto_1
+    goto :goto_27
 
     .line 234
-    :cond_0
+    :cond_1d
     const-class v5, Ljava/lang/Throwable;
 
     invoke-virtual {v3, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2a
 
     .line 235
     aput-object p1, v1, v2
 
     .line 230
     .end local v3    # "paramType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :goto_1
+    :goto_27
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 237
     .restart local v3    # "paramType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_1
+    :cond_2a
     return-object v4
 
     .line 241
     .end local v2    # "i":I
     .end local v3    # "paramType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_2
-    :try_start_0
+    :cond_2b
+    :try_start_2b
     invoke-virtual {p0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2f
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_2b .. :try_end_2f} :catch_36
+    .catch Ljava/lang/InstantiationException; {:try_start_2b .. :try_end_2f} :catch_34
+    .catch Ljava/lang/IllegalAccessException; {:try_start_2b .. :try_end_2f} :catch_32
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_2b .. :try_end_2f} :catch_30
 
     return-object v2
 
     .line 242
-    :catch_0
+    :catch_30
     move-exception v2
 
-    goto :goto_2
+    goto :goto_37
 
-    :catch_1
+    :catch_32
     move-exception v2
 
-    goto :goto_2
+    goto :goto_37
 
-    :catch_2
+    :catch_34
     move-exception v2
 
-    goto :goto_2
+    goto :goto_37
 
-    :catch_3
+    :catch_36
     move-exception v2
 
     .line 246
     .local v2, "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_37
     return-object v4
 .end method
 
 .method private static newWithCause(Ljava/lang/Class;Ljava/lang/Throwable;)Ljava/lang/Exception;
-    .locals 5
+    .registers 7
     .param p1, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -575,12 +575,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -598,30 +598,30 @@
 
     .line 196
     .local v3, "instance":Ljava/lang/Exception;, "TX;"
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2e
 
     .line 197
     invoke-virtual {v3}, Ljava/lang/Exception;->getCause()Ljava/lang/Throwable;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2d
 
     .line 198
     invoke-virtual {v3, p1}, Ljava/lang/Exception;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 200
-    :cond_0
+    :cond_2d
     return-object v3
 
     .line 202
     .end local v2    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<TX;>;"
     .end local v3    # "instance":Ljava/lang/Exception;, "TX;"
-    :cond_1
-    goto :goto_0
+    :cond_2e
+    goto :goto_10
 
     .line 203
-    :cond_2
+    :cond_2f
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -668,7 +668,7 @@
 .end method
 
 .method private static preferringStrings(Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<X:",
@@ -695,7 +695,7 @@
 .end method
 
 .method static weakSetValidator()Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidator;
-    .locals 1
+    .registers 1
 
     .line 100
     sget-object v0, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator;->INSTANCE:Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator;
@@ -704,7 +704,7 @@
 .end method
 
 .method private static wrapAndThrowExceptionOrError(Ljava/lang/Throwable;Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .param p0, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -727,12 +727,12 @@
     .local p1, "exceptionClass":Ljava/lang/Class;, "Ljava/lang/Class<TX;>;"
     instance-of v0, p0, Ljava/lang/Error;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 169
     instance-of v0, p0, Ljava/lang/RuntimeException;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 170
     new-instance v0, Lcom/google/common/util/concurrent/UncheckedExecutionException;
@@ -742,7 +742,7 @@
     throw v0
 
     .line 172
-    :cond_0
+    :cond_e
     invoke-static {p1, p0}, Lcom/google/common/util/concurrent/FuturesGetChecked;->newWithCause(Ljava/lang/Class;Ljava/lang/Throwable;)Ljava/lang/Exception;
 
     move-result-object v0
@@ -750,7 +750,7 @@
     throw v0
 
     .line 167
-    :cond_1
+    :cond_13
     new-instance v0, Lcom/google/common/util/concurrent/ExecutionError;
 
     move-object v1, p0

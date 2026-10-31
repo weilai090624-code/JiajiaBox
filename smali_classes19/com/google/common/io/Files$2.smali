@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 863
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public successors(Ljava/io/File;)Ljava/lang/Iterable;
-    .locals 2
+    .registers 4
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +57,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 868
     invoke-virtual {p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
@@ -66,7 +66,7 @@
 
     .line 869
     .local v0, "files":[Ljava/io/File;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 870
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -81,7 +81,7 @@
 
     .line 874
     .end local v0    # "files":[Ljava/io/File;
-    :cond_0
+    :cond_15
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic successors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     .line 863
     check-cast p1, Ljava/io/File;

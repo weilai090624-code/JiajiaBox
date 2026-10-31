@@ -63,7 +63,7 @@
 
 # direct methods
 .method public static final filter(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 5
+    .registers 7
     .param p0, "$this$filter"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -118,7 +118,7 @@
 .end method
 
 .method public static final synthetic filterIsInstance(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 7
+    .registers 8
     .param p0, "$this$filterIsInstance"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -178,7 +178,7 @@
 .end method
 
 .method public static final filterIsInstance(Lkotlinx/coroutines/flow/Flow;Lkotlin/reflect/KClass;)Lkotlinx/coroutines/flow/Flow;
-    .locals 6
+    .registers 8
     .param p0, "$this$filterIsInstance"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "klass"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
@@ -236,7 +236,7 @@
 .end method
 
 .method public static final filterNot(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 5
+    .registers 7
     .param p0, "$this$filterNot"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -291,7 +291,7 @@
 .end method
 
 .method public static final filterNotNull(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 5
     .param p0, "$this$filterNotNull"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -334,7 +334,7 @@
 .end method
 
 .method public static final map(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 5
+    .registers 7
     .param p0, "$this$map"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -389,7 +389,7 @@
 .end method
 
 .method public static final mapNotNull(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 5
+    .registers 7
     .param p0, "$this$mapNotNull"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -444,7 +444,7 @@
 .end method
 
 .method public static final onEach(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 4
+    .registers 6
     .param p0, "$this$onEach"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -496,7 +496,7 @@
 .end method
 
 .method public static final runningFold(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "$this$runningFold"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -537,7 +537,7 @@
 .end method
 
 .method public static final runningReduce(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$runningReduce"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -575,7 +575,7 @@
 .end method
 
 .method public static final scan(Lkotlinx/coroutines/flow/Flow;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 4
     .param p0, "$this$scan"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -608,7 +608,7 @@
 .end method
 
 .method public static final withIndex(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "$this$withIndex"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {

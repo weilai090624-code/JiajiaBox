@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 211
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public failed(Lcom/google/common/util/concurrent/Service$State;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 3
     .param p1, "from"    # Lcom/google/common/util/concurrent/Service$State;
     .param p2, "failure"    # Ljava/lang/Throwable;
 
@@ -36,21 +36,21 @@
 .end method
 
 .method public running()V
-    .locals 0
+    .registers 1
 
     .line 223
     return-void
 .end method
 
 .method public starting()V
-    .locals 0
+    .registers 1
 
     .line 217
     return-void
 .end method
 
 .method public stopping(Lcom/google/common/util/concurrent/Service$State;)V
-    .locals 0
+    .registers 2
     .param p1, "from"    # Lcom/google/common/util/concurrent/Service$State;
 
     .line 232
@@ -58,7 +58,7 @@
 .end method
 
 .method public terminated(Lcom/google/common/util/concurrent/Service$State;)V
-    .locals 0
+    .registers 2
     .param p1, "from"    # Lcom/google/common/util/concurrent/Service$State;
 
     .line 244

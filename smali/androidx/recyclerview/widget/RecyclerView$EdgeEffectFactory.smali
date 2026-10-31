@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 6084
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method protected createEdgeEffect(Landroidx/recyclerview/widget/RecyclerView;I)Landroid/widget/EdgeEffect;
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "direction"    # I
 

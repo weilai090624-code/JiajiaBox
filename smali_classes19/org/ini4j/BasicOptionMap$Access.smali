@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/ini4j/BasicOptionMap;)V
-    .locals 1
+    .registers 3
 
     .line 292
     const/4 v0, 0x0
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>(Lorg/ini4j/BasicOptionMap;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p2, "prefix"    # Ljava/lang/String;
 
     .line 296
@@ -53,7 +53,7 @@
 .end method
 
 .method private transform(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "orig"    # Ljava/lang/String;
 
     .line 337
@@ -63,7 +63,7 @@
     .local v0, "ret":Ljava/lang/String;
     iget-object v1, p0, Lorg/ini4j/BasicOptionMap$Access;->_prefix:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     iget-object v1, p0, Lorg/ini4j/BasicOptionMap$Access;->this$0:Lorg/ini4j/BasicOptionMap;
 
@@ -71,10 +71,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_41
 
-    :cond_0
-    if-eqz p1, :cond_3
+    :cond_d
+    if-eqz p1, :cond_41
 
     .line 341
     new-instance v1, Ljava/lang/StringBuilder;
@@ -85,7 +85,7 @@
     .local v1, "buff":Ljava/lang/StringBuilder;
     iget-object v2, p0, Lorg/ini4j/BasicOptionMap$Access;->_prefix:Ljava/lang/String;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1d
 
     .line 345
     iget-object v2, p0, Lorg/ini4j/BasicOptionMap$Access;->_prefix:Ljava/lang/String;
@@ -93,14 +93,14 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 348
-    :cond_1
+    :cond_1d
     iget-object v2, p0, Lorg/ini4j/BasicOptionMap$Access;->this$0:Lorg/ini4j/BasicOptionMap;
 
     invoke-virtual {v2}, Lorg/ini4j/BasicOptionMap;->isPropertyFirstUpper()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3a
 
     .line 350
     const/4 v2, 0x0
@@ -124,28 +124,28 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 355
-    :cond_2
+    :cond_3a
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 358
-    :goto_0
+    :goto_3d
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 361
     .end local v1    # "buff":Ljava/lang/StringBuilder;
-    :cond_3
+    :cond_41
     return-object v0
 .end method
 
 
 # virtual methods
 .method public propAdd(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "propertyName"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public propDel(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "propertyName"    # Ljava/lang/String;
 
     .line 307
@@ -183,7 +183,7 @@
 .end method
 
 .method public propGet(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "propertyName"    # Ljava/lang/String;
 
     .line 312
@@ -201,7 +201,7 @@
 .end method
 
 .method public propGet(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "propertyName"    # Ljava/lang/String;
     .param p2, "index"    # I
 
@@ -220,7 +220,7 @@
 .end method
 
 .method public propLength(Ljava/lang/String;)I
-    .locals 2
+    .registers 4
     .param p1, "propertyName"    # Ljava/lang/String;
 
     .line 322
@@ -238,7 +238,7 @@
 .end method
 
 .method public propSet(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "propertyName"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -259,7 +259,7 @@
 .end method
 
 .method public propSet(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
-    .locals 2
+    .registers 6
     .param p1, "propertyName"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "index"    # I

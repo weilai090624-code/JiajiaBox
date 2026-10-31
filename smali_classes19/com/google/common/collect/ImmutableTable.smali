@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 249
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -45,7 +45,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/collect/ImmutableTable$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -69,7 +69,7 @@
 .end method
 
 .method static cellOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/Table$Cell;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -120,7 +120,7 @@
 .end method
 
 .method public static copyOf(Lcom/google/common/collect/Table;)Lcom/google/common/collect/ImmutableTable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -141,7 +141,7 @@
     .local p0, "table":Lcom/google/common/collect/Table;, "Lcom/google/common/collect/Table<+TR;+TC;+TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/ImmutableTable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 80
     move-object v0, p0
@@ -154,7 +154,7 @@
 
     .line 83
     .end local v0    # "parameterizedTable":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
-    :cond_0
+    :cond_8
     invoke-interface {p0}, Lcom/google/common/collect/Table;->cellSet()Ljava/util/Set;
 
     move-result-object v0
@@ -167,7 +167,7 @@
 .end method
 
 .method static copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableTable;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -198,12 +198,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -217,10 +217,10 @@
 
     .line 92
     .end local v2    # "cell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<+TR;+TC;+TV;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 93
-    :cond_0
+    :cond_18
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableTable$Builder;->build()Lcom/google/common/collect/ImmutableTable;
 
     move-result-object v1
@@ -229,7 +229,7 @@
 .end method
 
 .method public static of()Lcom/google/common/collect/ImmutableTable;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -251,7 +251,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableTable;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -280,7 +280,7 @@
 
 # virtual methods
 .method final cellIterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -302,7 +302,7 @@
 .end method
 
 .method bridge synthetic cellIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -314,7 +314,7 @@
 .end method
 
 .method public cellSet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -336,7 +336,7 @@
 .end method
 
 .method public bridge synthetic cellSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -348,7 +348,7 @@
 .end method
 
 .method public final clear()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -362,7 +362,7 @@
 .end method
 
 .method public column(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)",
@@ -407,7 +407,7 @@
 .end method
 
 .method public bridge synthetic column(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 0
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -419,7 +419,7 @@
 .end method
 
 .method public columnKeySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -442,7 +442,7 @@
 .end method
 
 .method public bridge synthetic columnKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -466,7 +466,7 @@
 .end method
 
 .method public bridge synthetic columnMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -478,7 +478,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -494,21 +494,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public bridge synthetic containsColumn(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -524,7 +524,7 @@
 .end method
 
 .method public bridge synthetic containsRow(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -540,7 +540,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -571,7 +571,7 @@
 .end method
 
 .method bridge synthetic createCellSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -596,7 +596,7 @@
 .end method
 
 .method bridge synthetic createValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -608,7 +608,7 @@
 .end method
 
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -624,7 +624,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -646,7 +646,7 @@
 .end method
 
 .method public bridge synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -658,7 +658,7 @@
 .end method
 
 .method public bridge synthetic isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -670,7 +670,7 @@
 .end method
 
 .method public final put(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;TC;TV;)TV;"
@@ -696,7 +696,7 @@
 .end method
 
 .method public final putAll(Lcom/google/common/collect/Table;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -719,7 +719,7 @@
 .end method
 
 .method public final remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -753,7 +753,7 @@
 .end method
 
 .method public row(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)",
@@ -798,7 +798,7 @@
 .end method
 
 .method public bridge synthetic row(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 0
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -810,7 +810,7 @@
 .end method
 
 .method public rowKeySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -833,7 +833,7 @@
 .end method
 
 .method public bridge synthetic rowKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -857,7 +857,7 @@
 .end method
 
 .method public bridge synthetic rowMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -869,7 +869,7 @@
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -881,7 +881,7 @@
 .end method
 
 .method public values()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -902,7 +902,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"
@@ -914,7 +914,7 @@
 .end method
 
 .method final valuesIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -935,7 +935,7 @@
 .end method
 
 .method final writeReplace()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 454
     .local p0, "this":Lcom/google/common/collect/ImmutableTable;, "Lcom/google/common/collect/ImmutableTable<TR;TC;TV;>;"

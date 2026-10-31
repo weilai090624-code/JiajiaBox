@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/random/Random$Default$Serialized;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 273
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method private final readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 276
     sget-object v0, Lkotlin/random/Random;->Default:Lkotlin/random/Random$Default;

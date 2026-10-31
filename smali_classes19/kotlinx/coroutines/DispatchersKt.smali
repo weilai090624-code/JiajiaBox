@@ -36,7 +36,7 @@
 
 # direct methods
 .method public static final synthetic getIO(Lkotlinx/coroutines/Dispatchers;)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 2
     .param p0, "$this$IO"    # Lkotlinx/coroutines/Dispatchers;
 
     .line 107
@@ -48,7 +48,7 @@
 .end method
 
 .method public static synthetic getIO$annotations(Lkotlinx/coroutines/Dispatchers;)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
         message = "Should not be used directly"

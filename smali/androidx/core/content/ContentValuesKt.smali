@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final varargs contentValuesOf([Lkotlin/Pair;)Landroid/content/ContentValues;
-    .locals 8
+    .registers 9
     .param p0, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -63,8 +63,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_a
+    :goto_a
+    if-ge v4, v3, :cond_b5
 
     aget-object v5, p0, v4
 
@@ -84,17 +84,17 @@
     nop
 
     .line 31
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1f
 
     invoke-virtual {v1, v6}, Landroid/content/ContentValues;->putNull(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_81
 
     .line 32
-    :cond_0
+    :cond_1f
     instance-of v7, v5, Ljava/lang/String;
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_2a
 
     move-object v7, v5
 
@@ -102,13 +102,13 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_81
 
     .line 33
-    :cond_1
+    :cond_2a
     instance-of v7, v5, Ljava/lang/Integer;
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_35
 
     move-object v7, v5
 
@@ -116,13 +116,13 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    goto :goto_1
+    goto :goto_81
 
     .line 34
-    :cond_2
+    :cond_35
     instance-of v7, v5, Ljava/lang/Long;
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_40
 
     move-object v7, v5
 
@@ -130,13 +130,13 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    goto :goto_1
+    goto :goto_81
 
     .line 35
-    :cond_3
+    :cond_40
     instance-of v7, v5, Ljava/lang/Boolean;
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_4b
 
     move-object v7, v5
 
@@ -144,13 +144,13 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    goto :goto_1
+    goto :goto_81
 
     .line 36
-    :cond_4
+    :cond_4b
     instance-of v7, v5, Ljava/lang/Float;
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_56
 
     move-object v7, v5
 
@@ -158,13 +158,13 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Float;)V
 
-    goto :goto_1
+    goto :goto_81
 
     .line 37
-    :cond_5
+    :cond_56
     instance-of v7, v5, Ljava/lang/Double;
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_61
 
     move-object v7, v5
 
@@ -172,13 +172,13 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Double;)V
 
-    goto :goto_1
+    goto :goto_81
 
     .line 38
-    :cond_6
+    :cond_61
     instance-of v7, v5, [B
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_6c
 
     move-object v7, v5
 
@@ -186,13 +186,13 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
-    goto :goto_1
+    goto :goto_81
 
     .line 39
-    :cond_7
+    :cond_6c
     instance-of v7, v5, Ljava/lang/Byte;
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_77
 
     move-object v7, v5
 
@@ -200,13 +200,13 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Byte;)V
 
-    goto :goto_1
+    goto :goto_81
 
     .line 40
-    :cond_8
+    :cond_77
     instance-of v7, v5, Ljava/lang/Short;
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_84
 
     move-object v7, v5
 
@@ -217,15 +217,15 @@
     .line 29
     .end local v5    # "value":Ljava/lang/Object;
     .end local v6    # "key":Ljava/lang/String;
-    :goto_1
+    :goto_81
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 42
     .restart local v5    # "value":Ljava/lang/Object;
     .restart local v6    # "key":Ljava/lang/String;
-    :cond_9
+    :cond_84
     invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -280,7 +280,7 @@
     .end local v0    # "valueType":Ljava/lang/String;
     .end local v5    # "value":Ljava/lang/Object;
     .end local v6    # "key":Ljava/lang/String;
-    :cond_a
+    :cond_b5
     nop
 
     .line 28

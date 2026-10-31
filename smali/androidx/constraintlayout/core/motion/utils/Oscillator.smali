@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 26
     const-string v0, "Oscillator"
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public addPoint(DF)V
-    .locals 6
+    .registers 10
     .param p1, "position"    # D
     .param p3, "period"    # F
 
@@ -107,7 +107,7 @@
 
     .line 63
     .local v1, "j":I
-    if-gez v1, :cond_0
+    if-gez v1, :cond_10
 
     .line 64
     neg-int v2, v1
@@ -115,7 +115,7 @@
     add-int/lit8 v1, v2, -0x1
 
     .line 66
-    :cond_0
+    :cond_10
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPosition:[D
 
     invoke-static {v2, v0}, Ljava/util/Arrays;->copyOf([DI)[D
@@ -171,7 +171,7 @@
 .end method
 
 .method getDP(D)D
-    .locals 17
+    .registers 20
     .param p1, "time"    # D
 
     .line 148
@@ -181,42 +181,42 @@
 
     cmpg-double v3, p1, v1
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_e
 
     .line 149
     const-wide v3, 0x3ee4f8b588e368f1L    # 1.0E-5
 
     .end local p1    # "time":D
     .local v3, "time":D
-    goto :goto_0
+    goto :goto_1c
 
     .line 150
     .end local v3    # "time":D
     .restart local p1    # "time":D
-    :cond_0
+    :cond_e
     const-wide/high16 v3, 0x3ff0000000000000L    # 1.0
 
     cmpl-double v5, p1, v3
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_1a
 
     .line 151
     const-wide v3, 0x3feffffde7210be9L    # 0.999999
 
     .end local p1    # "time":D
     .restart local v3    # "time":D
-    goto :goto_0
+    goto :goto_1c
 
     .line 150
     .end local v3    # "time":D
     .restart local p1    # "time":D
-    :cond_1
+    :cond_1a
     move-wide/from16 v3, p1
 
     .line 153
     .end local p1    # "time":D
     .restart local v3    # "time":D
-    :goto_0
+    :goto_1c
     iget-object v5, v0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPosition:[D
 
     invoke-static {v5, v3, v4}, Ljava/util/Arrays;->binarySearch([DD)I
@@ -229,14 +229,14 @@
 
     .line 155
     .local v6, "p":D
-    if-lez v5, :cond_2
+    if-lez v5, :cond_27
 
     .line 156
     return-wide v1
 
     .line 158
-    :cond_2
-    if-eqz v5, :cond_3
+    :cond_27
+    if-eqz v5, :cond_59
 
     .line 159
     neg-int v1, v5
@@ -303,12 +303,12 @@
     .line 164
     .end local v1    # "t":D
     .end local v8    # "m":D
-    :cond_3
+    :cond_59
     return-wide v6
 .end method
 
 .method getP(D)D
-    .locals 19
+    .registers 22
     .param p1, "time"    # D
 
     .line 103
@@ -318,42 +318,42 @@
 
     cmpg-double v3, p1, v1
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_b
 
     .line 104
     const-wide/16 v1, 0x0
 
     .end local p1    # "time":D
     .local v1, "time":D
-    goto :goto_0
+    goto :goto_16
 
     .line 105
     .end local v1    # "time":D
     .restart local p1    # "time":D
-    :cond_0
+    :cond_b
     const-wide/high16 v1, 0x3ff0000000000000L    # 1.0
 
     cmpl-double v3, p1, v1
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_14
 
     .line 106
     const-wide/high16 v1, 0x3ff0000000000000L    # 1.0
 
     .end local p1    # "time":D
     .restart local v1    # "time":D
-    goto :goto_0
+    goto :goto_16
 
     .line 105
     .end local v1    # "time":D
     .restart local p1    # "time":D
-    :cond_1
+    :cond_14
     move-wide/from16 v1, p1
 
     .line 108
     .end local p1    # "time":D
     .restart local v1    # "time":D
-    :goto_0
+    :goto_16
     iget-object v3, v0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPosition:[D
 
     invoke-static {v3, v1, v2}, Ljava/util/Arrays;->binarySearch([DD)I
@@ -366,16 +366,16 @@
 
     .line 110
     .local v4, "p":D
-    if-lez v3, :cond_2
+    if-lez v3, :cond_23
 
     .line 111
     const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
 
-    goto :goto_1
+    goto :goto_7a
 
     .line 112
-    :cond_2
-    if-eqz v3, :cond_3
+    :cond_23
+    if-eqz v3, :cond_7a
 
     .line 113
     neg-int v6, v3
@@ -482,13 +482,13 @@
     .line 120
     .end local v6    # "t":D
     .end local v8    # "m":D
-    :cond_3
-    :goto_1
+    :cond_7a
+    :goto_7a
     return-wide v4
 .end method
 
 .method public getSlope(DDD)D
-    .locals 16
+    .registers 23
     .param p1, "time"    # D
     .param p3, "phase"    # D
     .param p5, "dphase"    # D
@@ -518,7 +518,7 @@
 
     const-wide/high16 v8, 0x4010000000000000L    # 4.0
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_66
 
     .line 174
     iget-wide v5, v0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->PI2:D
@@ -538,7 +538,7 @@
     return-wide v5
 
     .line 188
-    :pswitch_0
+    :pswitch_26
     iget-object v5, v0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mCustomCurve:Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;
 
     const-wide/high16 v6, 0x3ff0000000000000L    # 1.0
@@ -554,7 +554,7 @@
     return-wide v5
 
     .line 186
-    :pswitch_1
+    :pswitch_32
     mul-double v10, v3, v8
 
     mul-double v12, v1, v8
@@ -570,7 +570,7 @@
     return-wide v10
 
     .line 184
-    :pswitch_2
+    :pswitch_3c
     iget-wide v5, v0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->PI2:D
 
     neg-double v5, v5
@@ -590,7 +590,7 @@
     return-wide v5
 
     .line 182
-    :pswitch_3
+    :pswitch_4c
     neg-double v8, v3
 
     mul-double v8, v8, v6
@@ -598,13 +598,13 @@
     return-wide v8
 
     .line 180
-    :pswitch_4
+    :pswitch_50
     mul-double v6, v6, v3
 
     return-wide v6
 
     .line 178
-    :pswitch_5
+    :pswitch_53
     mul-double v10, v3, v8
 
     mul-double v12, v1, v8
@@ -626,25 +626,25 @@
     return-wide v10
 
     .line 176
-    :pswitch_6
+    :pswitch_63
     const-wide/16 v5, 0x0
 
     return-wide v5
 
-    :pswitch_data_0
+    :pswitch_data_66
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_63
+        :pswitch_53
+        :pswitch_50
+        :pswitch_4c
+        :pswitch_3c
+        :pswitch_32
+        :pswitch_26
     .end packed-switch
 .end method
 
 .method public getValue(DD)D
-    .locals 11
+    .registers 16
     .param p1, "time"    # D
     .param p3, "phase"    # D
 
@@ -665,7 +665,7 @@
 
     const-wide/high16 v7, 0x3ff0000000000000L    # 1.0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_5e
 
     .line 128
     iget-wide v2, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->PI2:D
@@ -679,7 +679,7 @@
     return-wide v2
 
     .line 143
-    :pswitch_0
+    :pswitch_19
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mCustomCurve:Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;
 
     rem-double v3, v0, v7
@@ -693,7 +693,7 @@
     return-wide v2
 
     .line 140
-    :pswitch_1
+    :pswitch_23
     mul-double v9, v0, v3
 
     rem-double/2addr v9, v3
@@ -716,7 +716,7 @@
 
     .line 138
     .end local v2    # "x":D
-    :pswitch_2
+    :pswitch_31
     iget-wide v2, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->PI2:D
 
     add-double v4, p3, v0
@@ -730,7 +730,7 @@
     return-wide v2
 
     .line 136
-    :pswitch_3
+    :pswitch_3c
     mul-double v2, v0, v5
 
     add-double/2addr v2, v7
@@ -742,7 +742,7 @@
     return-wide v7
 
     .line 134
-    :pswitch_4
+    :pswitch_42
     mul-double v2, v0, v5
 
     add-double/2addr v2, v7
@@ -754,7 +754,7 @@
     return-wide v2
 
     .line 132
-    :pswitch_5
+    :pswitch_48
     mul-double v9, v0, v3
 
     add-double/2addr v9, v7
@@ -772,7 +772,7 @@
     return-wide v7
 
     .line 130
-    :pswitch_6
+    :pswitch_53
     const-wide/high16 v2, 0x3fe0000000000000L    # 0.5
 
     rem-double v4, v0, v7
@@ -787,20 +787,20 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_53
+        :pswitch_48
+        :pswitch_42
+        :pswitch_3c
+        :pswitch_31
+        :pswitch_23
+        :pswitch_19
     .end packed-switch
 .end method
 
 .method public normalize()V
-    .locals 15
+    .registers 16
 
     .line 79
     const-wide/16 v0, 0x0
@@ -814,12 +814,12 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_5
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPeriod:[F
 
     array-length v5, v5
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_13
 
     .line 82
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPeriod:[F
@@ -833,22 +833,22 @@
     .line 81
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 84
     .end local v4    # "i":I
-    :cond_0
+    :cond_13
     const/4 v4, 0x1
 
     .restart local v4    # "i":I
-    :goto_1
+    :goto_14
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPeriod:[F
 
     array-length v5, v5
 
     const/high16 v6, 0x40000000    # 2.0f
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_39
 
     .line 85
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPeriod:[F
@@ -892,20 +892,20 @@
     .end local v7    # "w":D
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_14
 
     .line 90
     .end local v4    # "i":I
-    :cond_1
+    :cond_39
     const/4 v4, 0x0
 
     .restart local v4    # "i":I
-    :goto_2
+    :goto_3a
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPeriod:[F
 
     array-length v5, v5
 
-    if-ge v4, v5, :cond_2
+    if-ge v4, v5, :cond_4e
 
     .line 91
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPeriod:[F
@@ -925,11 +925,11 @@
     .line 90
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_3a
 
     .line 93
     .end local v4    # "i":I
-    :cond_2
+    :cond_4e
     iget-object v4, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mArea:[D
 
     const/4 v5, 0x0
@@ -942,12 +942,12 @@
     const/4 v4, 0x1
 
     .restart local v4    # "i":I
-    :goto_3
+    :goto_56
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPeriod:[F
 
     array-length v5, v5
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_83
 
     .line 95
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mPeriod:[F
@@ -1001,11 +1001,11 @@
     .end local v8    # "w":D
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_56
 
     .line 99
     .end local v4    # "i":I
-    :cond_3
+    :cond_83
     const/4 v4, 0x1
 
     iput-boolean v4, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mNormalized:Z
@@ -1015,7 +1015,7 @@
 .end method
 
 .method public setType(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "type"    # I
     .param p2, "customType"    # Ljava/lang/String;
 
@@ -1028,7 +1028,7 @@
     .line 55
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mCustomType:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 56
     invoke-static {p2}, Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;->buildWave(Ljava/lang/String;)Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;
@@ -1038,12 +1038,12 @@
     iput-object v0, p0, Landroidx/constraintlayout/core/motion/utils/Oscillator;->mCustomCurve:Landroidx/constraintlayout/core/motion/utils/MonotonicCurveFit;
 
     .line 58
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 49
     new-instance v0, Ljava/lang/StringBuilder;

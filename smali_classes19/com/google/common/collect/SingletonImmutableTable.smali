@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Table$Cell;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,7 +81,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;TC;TV;)V"
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public column(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)",
@@ -142,7 +142,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 50
     iget-object v0, p0, Lcom/google/common/collect/SingletonImmutableTable;->singleRowKey:Ljava/lang/Object;
@@ -153,21 +153,21 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_16
 
     .line 51
-    :cond_0
+    :cond_12
     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->of()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
 
     .line 49
-    :goto_0
+    :goto_16
     return-object v0
 .end method
 
 .method public bridge synthetic column(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 0
+    .registers 2
 
     .line 29
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableTable;, "Lcom/google/common/collect/SingletonImmutableTable<TR;TC;TV;>;"
@@ -179,7 +179,7 @@
 .end method
 
 .method public columnMap()Lcom/google/common/collect/ImmutableMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -210,7 +210,7 @@
 .end method
 
 .method public bridge synthetic columnMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 29
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableTable;, "Lcom/google/common/collect/SingletonImmutableTable<TR;TC;TV;>;"
@@ -222,7 +222,7 @@
 .end method
 
 .method createCellSet()Lcom/google/common/collect/ImmutableSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -252,7 +252,7 @@
 .end method
 
 .method bridge synthetic createCellSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 29
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableTable;, "Lcom/google/common/collect/SingletonImmutableTable<TR;TC;TV;>;"
@@ -264,7 +264,7 @@
 .end method
 
 .method createSerializedForm()Lcom/google/common/collect/ImmutableTable$SerializedForm;
-    .locals 2
+    .registers 3
 
     .line 81
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableTable;, "Lcom/google/common/collect/SingletonImmutableTable<TR;TC;TV;>;"
@@ -286,7 +286,7 @@
 .end method
 
 .method createValues()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -307,7 +307,7 @@
 .end method
 
 .method bridge synthetic createValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 29
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableTable;, "Lcom/google/common/collect/SingletonImmutableTable<TR;TC;TV;>;"
@@ -319,7 +319,7 @@
 .end method
 
 .method public rowMap()Lcom/google/common/collect/ImmutableMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -350,7 +350,7 @@
 .end method
 
 .method public bridge synthetic rowMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 29
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableTable;, "Lcom/google/common/collect/SingletonImmutableTable<TR;TC;TV;>;"
@@ -362,7 +362,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 66
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableTable;, "Lcom/google/common/collect/SingletonImmutableTable<TR;TC;TV;>;"

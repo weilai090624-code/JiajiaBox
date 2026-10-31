@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Sets$5$1;Ljava/util/BitSet;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/collect/Sets$5$1;
 
     .line 1647
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -66,7 +66,7 @@
 
     .line 1651
     .local v0, "i":Ljava/lang/Integer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     iget-object v1, p0, Lcom/google/common/collect/Sets$5$1$1;->val$copy:Ljava/util/BitSet;
 
@@ -78,21 +78,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1d
     return v1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -110,7 +110,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1673
     iget-object v0, p0, Lcom/google/common/collect/Sets$5$1$1;->this$1:Lcom/google/common/collect/Sets$5$1;

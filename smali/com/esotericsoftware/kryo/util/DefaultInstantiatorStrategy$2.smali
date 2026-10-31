@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy;Ljava/lang/reflect/Constructor;Ljava/lang/Class;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy;
 
     .line 84
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 4
+    .registers 5
 
     .line 87
     :try_start_0
@@ -58,13 +58,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_9} :catch_a
 
     return-object v0
 
     .line 88
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 89

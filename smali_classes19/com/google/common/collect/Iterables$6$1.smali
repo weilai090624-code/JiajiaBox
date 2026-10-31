@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Iterables$6;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Iterables$6;
 
     .line 931
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 936
     iget-object v0, p0, Lcom/google/common/collect/Iterables$6$1;->val$iterator:Ljava/util/Iterator;
@@ -65,7 +65,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 949
     iget-boolean v0, p0, Lcom/google/common/collect/Iterables$6$1;->atStart:Z

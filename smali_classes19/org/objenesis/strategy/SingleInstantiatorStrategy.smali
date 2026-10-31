@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -37,7 +37,7 @@
     .line 43
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_4
     new-array v0, v0, [Ljava/lang/Class;
 
     const-class v1, Ljava/lang/Class;
@@ -51,8 +51,8 @@
     move-result-object v0
 
     iput-object v0, p0, Lorg/objenesis/strategy/SingleInstantiatorStrategy;->constructor:Ljava/lang/reflect/Constructor;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_4 .. :try_end_11} :catch_13
 
     .line 47
     nop
@@ -61,7 +61,7 @@
     return-void
 
     .line 45
-    :catch_0
+    :catch_13
     move-exception v0
 
     .line 46
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public newInstantiatorOf(Ljava/lang/Class;)Lorg/objenesis/instantiator/ObjectInstantiator;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -107,30 +107,30 @@
     move-result-object v0
 
     check-cast v0, Lorg/objenesis/instantiator/ObjectInstantiator;
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_e} :catch_13
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_e} :catch_11
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_e} :catch_f
 
     return-object v0
 
     .line 62
-    :catch_0
+    :catch_f
     move-exception v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :catch_1
+    :catch_11
     move-exception v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :catch_2
+    :catch_13
     move-exception v0
 
     .line 63
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_14
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V

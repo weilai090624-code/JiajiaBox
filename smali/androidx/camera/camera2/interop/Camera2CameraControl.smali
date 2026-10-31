@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/camera2/internal/Camera2CameraControlImpl;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p1, "camera2CameraControlImpl"    # Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -92,7 +92,7 @@
 .end method
 
 .method private addCaptureRequestOptionsInternal(Landroidx/camera/camera2/interop/CaptureRequestOptions;)V
-    .locals 6
+    .registers 8
     .param p1, "bundle"    # Landroidx/camera/camera2/interop/CaptureRequestOptions;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -109,7 +109,7 @@
     monitor-enter v0
 
     .line 255
-    :try_start_0
+    :try_start_3
     invoke-virtual {p1}, Landroidx/camera/camera2/interop/CaptureRequestOptions;->listOptions()Ljava/util/Set;
 
     move-result-object v1
@@ -118,12 +118,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -154,28 +154,28 @@
     .line 260
     .end local v2    # "option":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
     .end local v3    # "objectOpt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<Ljava/lang/Object;>;"
-    goto :goto_0
+    goto :goto_b
 
     .line 261
-    :cond_0
+    :cond_26
     monitor-exit v0
 
     .line 262
     return-void
 
     .line 261
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_3 .. :try_end_2a} :catchall_28
 
     throw v1
 .end method
 
 .method private clearCaptureRequestOptionsInternal()V
-    .locals 2
+    .registers 3
 
     .line 265
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mLock:Ljava/lang/Object;
@@ -183,7 +183,7 @@
     monitor-enter v0
 
     .line 266
-    :try_start_0
+    :try_start_3
     new-instance v1, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
     invoke-direct {v1}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;-><init>()V
@@ -197,18 +197,18 @@
     return-void
 
     .line 267
-    :catchall_0
+    :catchall_c
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_3 .. :try_end_e} :catchall_c
 
     throw v1
 .end method
 
 .method public static from(Landroidx/camera/core/CameraControl;)Landroidx/camera/camera2/interop/Camera2CameraControl;
-    .locals 2
+    .registers 3
     .param p0, "cameraControl"    # Landroidx/camera/core/CameraControl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -239,7 +239,7 @@
 .end method
 
 .method private setActiveInternal(Z)V
-    .locals 3
+    .registers 5
     .param p1, "isActive"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -253,38 +253,38 @@
     .line 310
     iget-boolean v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mIsActive:Z
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 311
     return-void
 
     .line 314
-    :cond_0
+    :cond_5
     iput-boolean p1, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mIsActive:Z
 
     .line 316
     iget-boolean v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mIsActive:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 317
     iget-boolean v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mPendingUpdate:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
     .line 318
     invoke-direct {p0}, Landroidx/camera/camera2/interop/Camera2CameraControl;->updateSession()V
 
-    goto :goto_0
+    goto :goto_29
 
     .line 321
-    :cond_1
+    :cond_13
     invoke-direct {p0}, Landroidx/camera/camera2/interop/Camera2CameraControl;->clearCaptureRequestOptionsInternal()V
 
     .line 322
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
     .line 323
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -303,13 +303,13 @@
     iput-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 328
-    :cond_2
-    :goto_0
+    :cond_29
+    :goto_29
     return-void
 .end method
 
 .method private updateConfig(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -341,26 +341,26 @@
     .local v0, "completerToCancel":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Ljava/lang/Void;>;"
     iget-object v1, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     .line 276
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 278
-    :cond_0
+    :cond_a
     iput-object p1, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 279
     iget-boolean v1, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mIsActive:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_13
 
     .line 280
     invoke-direct {p0}, Landroidx/camera/camera2/interop/Camera2CameraControl;->updateSession()V
 
     .line 282
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_13
+    if-eqz v0, :cond_1f
 
     .line 283
     new-instance v1, Landroidx/camera/core/CameraControl$OperationCanceledException;
@@ -372,12 +372,12 @@
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
     .line 286
-    :cond_2
+    :cond_1f
     return-void
 .end method
 
 .method private updateSession()V
-    .locals 1
+    .registers 2
 
     .line 290
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
@@ -396,7 +396,7 @@
 
 # virtual methods
 .method public addCaptureRequestOptions(Landroidx/camera/camera2/interop/CaptureRequestOptions;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "bundle"    # Landroidx/camera/camera2/interop/CaptureRequestOptions;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -438,7 +438,7 @@
 .end method
 
 .method public clearCaptureRequestOptions()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -468,7 +468,7 @@
 .end method
 
 .method public getCamera2ImplConfig()Landroidx/camera/camera2/impl/Camera2ImplConfig;
-    .locals 4
+    .registers 5
 
     .line 243
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mLock:Ljava/lang/Object;
@@ -476,10 +476,10 @@
     monitor-enter v0
 
     .line 244
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 245
     iget-object v1, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mBuilder:Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
@@ -505,7 +505,7 @@
     invoke-interface {v1, v2, v3}, Landroidx/camera/core/impl/MutableConfig;->insertOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)V
 
     .line 249
-    :cond_0
+    :cond_1c
     iget-object v1, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mBuilder:Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
     invoke-virtual {v1}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->build()Landroidx/camera/camera2/impl/Camera2ImplConfig;
@@ -517,18 +517,18 @@
     return-object v1
 
     .line 250
-    :catchall_0
+    :catchall_24
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_3 .. :try_end_26} :catchall_24
 
     throw v1
 .end method
 
 .method public getCaptureRequestListener()Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CaptureResultListener;
-    .locals 1
+    .registers 2
 
     .line 106
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCaptureResultListener:Landroidx/camera/camera2/internal/Camera2CameraControlImpl$CaptureResultListener;
@@ -537,7 +537,7 @@
 .end method
 
 .method public getCaptureRequestOptions()Landroidx/camera/camera2/interop/CaptureRequestOptions;
-    .locals 2
+    .registers 3
 
     .line 207
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mLock:Ljava/lang/Object;
@@ -545,7 +545,7 @@
     monitor-enter v0
 
     .line 208
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mBuilder:Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
     invoke-virtual {v1}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->build()Landroidx/camera/camera2/impl/Camera2ImplConfig;
@@ -565,18 +565,18 @@
     return-object v1
 
     .line 209
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method
 
 .method synthetic lambda$addCaptureRequestOptions$3$androidx-camera-camera2-interop-Camera2CameraControl(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
-    .locals 0
+    .registers 2
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 190
@@ -587,7 +587,7 @@
 .end method
 
 .method synthetic lambda$addCaptureRequestOptions$4$androidx-camera-camera2-interop-Camera2CameraControl(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -611,7 +611,7 @@
 .end method
 
 .method synthetic lambda$clearCaptureRequestOptions$5$androidx-camera-camera2-interop-Camera2CameraControl(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
-    .locals 0
+    .registers 2
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 228
@@ -622,7 +622,7 @@
 .end method
 
 .method synthetic lambda$clearCaptureRequestOptions$6$androidx-camera-camera2-interop-Camera2CameraControl(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -646,7 +646,7 @@
 .end method
 
 .method synthetic lambda$new$0$androidx-camera-camera2-interop-Camera2CameraControl(Landroid/hardware/camera2/TotalCaptureResult;)Z
-    .locals 5
+    .registers 7
     .param p1, "captureResult"    # Landroid/hardware/camera2/TotalCaptureResult;
 
     .line 70
@@ -658,7 +658,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_31
 
     .line 72
     invoke-virtual {p1}, Landroid/hardware/camera2/TotalCaptureResult;->getRequest()Landroid/hardware/camera2/CaptureRequest;
@@ -673,7 +673,7 @@
     .local v1, "tag":Ljava/lang/Object;
     instance-of v3, v1, Landroidx/camera/core/impl/TagBundle;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_31
 
     .line 74
     move-object v3, v1
@@ -688,7 +688,7 @@
 
     .line 75
     .local v3, "tagInteger":Ljava/lang/Integer;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_31
 
     iget-object v4, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
@@ -704,7 +704,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_31
 
     .line 76
     iget-object v0, p0, Landroidx/camera/camera2/interop/Camera2CameraControl;->mCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -715,21 +715,21 @@
     .line 81
     .end local v1    # "tag":Ljava/lang/Object;
     .end local v3    # "tagInteger":Ljava/lang/Integer;
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_31
+    if-eqz v0, :cond_36
 
     .line 82
     invoke-virtual {v0, v2}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
     .line 85
-    :cond_1
+    :cond_36
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method synthetic lambda$setActive$7$androidx-camera-camera2-interop-Camera2CameraControl(Z)V
-    .locals 0
+    .registers 2
     .param p1, "isActive"    # Z
 
     .line 305
@@ -739,7 +739,7 @@
 .end method
 
 .method synthetic lambda$setCaptureRequestOptions$1$androidx-camera-camera2-interop-Camera2CameraControl(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
-    .locals 0
+    .registers 2
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 159
@@ -750,7 +750,7 @@
 .end method
 
 .method synthetic lambda$setCaptureRequestOptions$2$androidx-camera-camera2-interop-Camera2CameraControl(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -774,7 +774,7 @@
 .end method
 
 .method public setActive(Z)V
-    .locals 2
+    .registers 4
     .param p1, "isActive"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -799,7 +799,7 @@
 .end method
 
 .method public setCaptureRequestOptions(Landroidx/camera/camera2/interop/CaptureRequestOptions;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 3
     .param p1, "bundle"    # Landroidx/camera/camera2/interop/CaptureRequestOptions;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

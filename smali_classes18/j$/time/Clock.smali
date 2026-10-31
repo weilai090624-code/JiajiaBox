@@ -16,7 +16,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 386
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static fixed(Lj$/time/Instant;Lj$/time/ZoneId;)Lj$/time/Clock;
-    .locals 1
+    .registers 3
     .param p0, "fixedInstant"    # Lj$/time/Instant;
     .param p1, "zone"    # Lj$/time/ZoneId;
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public static offset(Lj$/time/Clock;Lj$/time/Duration;)Lj$/time/Clock;
-    .locals 1
+    .registers 3
     .param p0, "baseClock"    # Lj$/time/Clock;
     .param p1, "offsetDuration"    # Lj$/time/Duration;
 
@@ -70,13 +70,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 377
     return-object p0
 
     .line 379
-    :cond_0
+    :cond_13
     new-instance v0, Lj$/time/Clock$OffsetClock;
 
     invoke-direct {v0, p0, p1}, Lj$/time/Clock$OffsetClock;-><init>(Lj$/time/Clock;Lj$/time/Duration;)V
@@ -85,7 +85,7 @@
 .end method
 
 .method public static system(Lj$/time/ZoneId;)Lj$/time/Clock;
-    .locals 1
+    .registers 2
     .param p0, "zone"    # Lj$/time/ZoneId;
 
     .line 202
@@ -96,7 +96,7 @@
     .line 203
     sget-object v0, Lj$/time/ZoneOffset;->UTC:Lj$/time/ZoneOffset;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_c
 
     .line 204
     sget-object v0, Lj$/time/Clock$SystemClock;->UTC:Lj$/time/Clock$SystemClock;
@@ -104,7 +104,7 @@
     return-object v0
 
     .line 206
-    :cond_0
+    :cond_c
     new-instance v0, Lj$/time/Clock$SystemClock;
 
     invoke-direct {v0, p0}, Lj$/time/Clock$SystemClock;-><init>(Lj$/time/ZoneId;)V
@@ -113,7 +113,7 @@
 .end method
 
 .method public static systemDefaultZone()Lj$/time/Clock;
-    .locals 2
+    .registers 2
 
     .line 183
     new-instance v0, Lj$/time/Clock$SystemClock;
@@ -128,7 +128,7 @@
 .end method
 
 .method public static systemUTC()Lj$/time/Clock;
-    .locals 1
+    .registers 1
 
     .line 160
     sget-object v0, Lj$/time/Clock$SystemClock;->UTC:Lj$/time/Clock$SystemClock;
@@ -137,7 +137,7 @@
 .end method
 
 .method public static tick(Lj$/time/Clock;Lj$/time/Duration;)Lj$/time/Clock;
-    .locals 7
+    .registers 9
     .param p0, "baseClock"    # Lj$/time/Clock;
     .param p1, "tickDuration"    # Lj$/time/Duration;
 
@@ -156,7 +156,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_3d
 
     .line 318
     invoke-virtual {p1}, Lj$/time/Duration;->toNanos()J
@@ -173,33 +173,33 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_20
 
-    goto :goto_0
+    goto :goto_28
 
     .line 321
-    :cond_0
+    :cond_20
     const-wide/32 v2, 0x3b9aca00
 
     rem-long/2addr v2, v0
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_35
 
     .line 326
-    :goto_0
+    :goto_28
     const-wide/16 v2, 0x1
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_1
+    if-gtz v4, :cond_2f
 
     .line 327
     return-object p0
 
     .line 329
-    :cond_1
+    :cond_2f
     new-instance v2, Lj$/time/Clock$TickClock;
 
     invoke-direct {v2, p0, v0, v1}, Lj$/time/Clock$TickClock;-><init>(Lj$/time/Clock;J)V
@@ -207,7 +207,7 @@
     return-object v2
 
     .line 324
-    :cond_2
+    :cond_35
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Invalid tick duration"
@@ -218,7 +218,7 @@
 
     .line 316
     .end local v0    # "tickNanos":J
-    :cond_3
+    :cond_3d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Tick duration must not be negative"
@@ -229,7 +229,7 @@
 .end method
 
 .method public static tickMillis(Lj$/time/ZoneId;)Lj$/time/Clock;
-    .locals 4
+    .registers 5
     .param p0, "zone"    # Lj$/time/ZoneId;
 
     .line 231
@@ -247,7 +247,7 @@
 .end method
 
 .method public static tickMinutes(Lj$/time/ZoneId;)Lj$/time/Clock;
-    .locals 4
+    .registers 5
     .param p0, "zone"    # Lj$/time/ZoneId;
 
     .line 278
@@ -265,7 +265,7 @@
 .end method
 
 .method public static tickSeconds(Lj$/time/ZoneId;)Lj$/time/Clock;
-    .locals 4
+    .registers 5
     .param p0, "zone"    # Lj$/time/ZoneId;
 
     .line 255
@@ -285,7 +285,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 458
@@ -300,7 +300,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 472
     invoke-super {p0}, Ljava/lang/Object;->hashCode()I
@@ -314,7 +314,7 @@
 .end method
 
 .method public millis()J
-    .locals 2
+    .registers 3
 
     .line 431
     invoke-virtual {p0}, Lj$/time/Clock;->instant()Lj$/time/Instant;

@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 505
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap;, "Lcom/google/common/collect/ImmutableBiMap<TK;TV;>;"
@@ -46,7 +46,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/collect/ImmutableBiMap$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -68,7 +68,7 @@
 .end method
 
 .method public static builderWithExpectedSize(I)Lcom/google/common/collect/ImmutableBiMap$Builder;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -96,7 +96,7 @@
 .end method
 
 .method public static copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -117,7 +117,7 @@
     .local p0, "entries":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Ljava/util/Map$Entry<+TK;+TV;>;>;"
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 500
     move-object v0, p0
@@ -128,13 +128,13 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_d
 
     .line 501
-    :cond_0
+    :cond_c
     const/4 v0, 0x4
 
-    :goto_0
+    :goto_d
     nop
 
     .line 502
@@ -155,7 +155,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Map;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -174,7 +174,7 @@
     .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/ImmutableBiMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 476
     move-object v0, p0
@@ -187,14 +187,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 480
     return-object v0
 
     .line 483
     .end local v0    # "bimap":Lcom/google/common/collect/ImmutableBiMap;, "Lcom/google/common/collect/ImmutableBiMap<TK;TV;>;"
-    :cond_0
+    :cond_e
     invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -207,7 +207,7 @@
 .end method
 
 .method public static of()Lcom/google/common/collect/ImmutableBiMap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -227,7 +227,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -266,7 +266,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -318,7 +318,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 4
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -383,7 +383,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 4
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -461,7 +461,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 4
+    .registers 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -552,7 +552,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 4
+    .registers 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -656,7 +656,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 4
+    .registers 18
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -773,7 +773,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 4
+    .registers 20
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -903,7 +903,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 4
+    .registers 22
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1046,7 +1046,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 4
+    .registers 24
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1202,7 +1202,7 @@
 .end method
 
 .method public static varargs ofEntries([Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableBiMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1240,7 +1240,7 @@
 
 # virtual methods
 .method bridge synthetic createValues()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap;, "Lcom/google/common/collect/ImmutableBiMap<TK;TV;>;"
@@ -1252,7 +1252,7 @@
 .end method
 
 .method final createValues()Lcom/google/common/collect/ImmutableSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1273,7 +1273,7 @@
 .end method
 
 .method public final forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -1298,7 +1298,7 @@
 .end method
 
 .method public bridge synthetic inverse()Lcom/google/common/collect/BiMap;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap;, "Lcom/google/common/collect/ImmutableBiMap<TK;TV;>;"
@@ -1320,7 +1320,7 @@
 .end method
 
 .method public bridge synthetic values()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap;, "Lcom/google/common/collect/ImmutableBiMap<TK;TV;>;"
@@ -1332,7 +1332,7 @@
 .end method
 
 .method public values()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1355,7 +1355,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap;, "Lcom/google/common/collect/ImmutableBiMap<TK;TV;>;"
@@ -1367,7 +1367,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap;, "Lcom/google/common/collect/ImmutableBiMap<TK;TV;>;"
@@ -1379,7 +1379,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 567
     .local p0, "this":Lcom/google/common/collect/ImmutableBiMap;, "Lcom/google/common/collect/ImmutableBiMap<TK;TV;>;"

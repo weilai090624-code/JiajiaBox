@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Node$OfInt;)V
-    .locals 0
+    .registers 2
     .param p1, "cur"    # Lj$/util/stream/Node$OfInt;
 
     .line 1176
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)V
 
@@ -53,7 +53,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/util/function/IntConsumer;)V
-    .locals 0
+    .registers 2
 
     .line 1171
     invoke-super {p0, p1}, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfPrimitive;->forEachRemaining(Ljava/lang/Object;)V
@@ -62,7 +62,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)Z
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/util/function/IntConsumer;)Z
-    .locals 0
+    .registers 2
 
     .line 1171
     invoke-super {p0, p1}, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfPrimitive;->tryAdvance(Ljava/lang/Object;)Z
@@ -83,7 +83,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 2
 
     .line 1171
     invoke-super {p0}, Lj$/util/stream/Nodes$InternalNodeSpliterator$OfPrimitive;->trySplit()Lj$/util/Spliterator;

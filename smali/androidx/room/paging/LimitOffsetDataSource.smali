@@ -33,7 +33,7 @@
 
 # direct methods
 .method protected varargs constructor <init>(Landroidx/room/RoomDatabase;Landroidx/room/RoomSQLiteQuery;ZZ[Ljava/lang/String;)V
-    .locals 2
+    .registers 8
     .param p1, "db"    # Landroidx/room/RoomDatabase;
     .param p2, "query"    # Landroidx/room/RoomSQLiteQuery;
     .param p3, "inTransaction"    # Z
@@ -136,18 +136,18 @@
     iput-object v0, p0, Landroidx/room/paging/LimitOffsetDataSource;->mObserver:Landroidx/room/InvalidationTracker$Observer;
 
     .line 105
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5f
 
     .line 106
     invoke-direct {p0}, Landroidx/room/paging/LimitOffsetDataSource;->registerObserverIfNecessary()V
 
     .line 108
-    :cond_0
+    :cond_5f
     return-void
 .end method
 
 .method protected varargs constructor <init>(Landroidx/room/RoomDatabase;Landroidx/room/RoomSQLiteQuery;Z[Ljava/lang/String;)V
-    .locals 6
+    .registers 11
     .param p1, "db"    # Landroidx/room/RoomDatabase;
     .param p2, "query"    # Landroidx/room/RoomSQLiteQuery;
     .param p3, "inTransaction"    # Z
@@ -174,7 +174,7 @@
 .end method
 
 .method protected varargs constructor <init>(Landroidx/room/RoomDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;ZZ[Ljava/lang/String;)V
-    .locals 6
+    .registers 12
     .param p1, "db"    # Landroidx/room/RoomDatabase;
     .param p2, "query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .param p3, "inTransaction"    # Z
@@ -204,7 +204,7 @@
 .end method
 
 .method protected varargs constructor <init>(Landroidx/room/RoomDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;Z[Ljava/lang/String;)V
-    .locals 1
+    .registers 6
     .param p1, "db"    # Landroidx/room/RoomDatabase;
     .param p2, "query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .param p3, "inTransaction"    # Z
@@ -223,7 +223,7 @@
 .end method
 
 .method private getSQLiteQuery(II)Landroidx/room/RoomSQLiteQuery;
-    .locals 4
+    .registers 7
     .param p1, "startPosition"    # I
     .param p2, "loadCount"    # I
 
@@ -276,7 +276,7 @@
 .end method
 
 .method private registerObserverIfNecessary()V
-    .locals 3
+    .registers 4
 
     .line 111
     .local p0, "this":Landroidx/room/paging/LimitOffsetDataSource;, "Landroidx/room/paging/LimitOffsetDataSource<TT;>;"
@@ -290,7 +290,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 112
     iget-object v0, p0, Landroidx/room/paging/LimitOffsetDataSource;->mDb:Landroidx/room/RoomDatabase;
@@ -304,7 +304,7 @@
     invoke-virtual {v0, v1}, Landroidx/room/InvalidationTracker;->addWeakObserver(Landroidx/room/InvalidationTracker$Observer;)V
 
     .line 114
-    :cond_0
+    :cond_15
     return-void
 .end method
 
@@ -323,7 +323,7 @@
 .end method
 
 .method public countItems()I
-    .locals 4
+    .registers 5
 
     .line 123
     .local p0, "this":Landroidx/room/paging/LimitOffsetDataSource;, "Landroidx/room/paging/LimitOffsetDataSource<TT;>;"
@@ -359,21 +359,21 @@
 
     .line 129
     .local v1, "cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_1a
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v2
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2c
 
     .line 130
     invoke-interface {v1, v3}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_1a .. :try_end_25} :catchall_34
 
     .line 134
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
@@ -385,7 +385,7 @@
     return v2
 
     .line 132
-    :cond_0
+    :cond_2c
     nop
 
     .line 134
@@ -398,7 +398,7 @@
     return v3
 
     .line 134
-    :catchall_0
+    :catchall_34
     move-exception v2
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
@@ -411,7 +411,7 @@
 .end method
 
 .method public isInvalid()Z
-    .locals 1
+    .registers 2
 
     .line 141
     .local p0, "this":Landroidx/room/paging/LimitOffsetDataSource;, "Landroidx/room/paging/LimitOffsetDataSource<TT;>;"
@@ -435,7 +435,7 @@
 .end method
 
 .method public loadInitial(Landroidx/paging/PositionalDataSource$LoadInitialParams;Landroidx/paging/PositionalDataSource$LoadInitialCallback;)V
-    .locals 8
+    .registers 11
     .param p1, "params"    # Landroidx/paging/PositionalDataSource$LoadInitialParams;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -475,14 +475,14 @@
     invoke-virtual {v4}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 162
-    :try_start_0
+    :try_start_f
     invoke-virtual {p0}, Landroidx/room/paging/LimitOffsetDataSource;->countItems()I
 
     move-result v4
 
     .line 163
     .local v4, "totalCount":I
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_34
 
     .line 165
     invoke-static {p1, v4}, Landroidx/room/paging/LimitOffsetDataSource;->computeInitialLoadPosition(Landroidx/paging/PositionalDataSource$LoadInitialParams;I)I
@@ -523,8 +523,8 @@
     iget-object v7, p0, Landroidx/room/paging/LimitOffsetDataSource;->mDb:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v7}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_f .. :try_end_33} :catchall_47
 
     .line 172
     move-object v0, v6
@@ -532,26 +532,26 @@
     .line 175
     .end local v5    # "firstLoadSize":I
     .end local v6    # "rows":Ljava/util/List;, "Ljava/util/List<TT;>;"
-    :cond_0
-    if-eqz v3, :cond_1
+    :cond_34
+    if-eqz v3, :cond_39
 
     .line 176
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
     .line 178
-    :cond_1
+    :cond_39
     iget-object v5, p0, Landroidx/room/paging/LimitOffsetDataSource;->mDb:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v5}, Landroidx/room/RoomDatabase;->endTransaction()V
 
     .line 179
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_43
 
     .line 180
     invoke-virtual {v2}, Landroidx/room/RoomSQLiteQuery;->release()V
 
     .line 184
-    :cond_2
+    :cond_43
     invoke-virtual {p2, v0, v1, v4}, Landroidx/paging/PositionalDataSource$LoadInitialCallback;->onResult(Ljava/util/List;II)V
 
     .line 185
@@ -559,33 +559,33 @@
 
     .line 175
     .end local v4    # "totalCount":I
-    :catchall_0
+    :catchall_47
     move-exception v4
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4d
 
     .line 176
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
     .line 178
-    :cond_3
+    :cond_4d
     iget-object v5, p0, Landroidx/room/paging/LimitOffsetDataSource;->mDb:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v5}, Landroidx/room/RoomDatabase;->endTransaction()V
 
     .line 179
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_57
 
     .line 180
     invoke-virtual {v2}, Landroidx/room/RoomSQLiteQuery;->release()V
 
     .line 182
-    :cond_4
+    :cond_57
     throw v4
 .end method
 
 .method public loadRange(II)Ljava/util/List;
-    .locals 4
+    .registers 7
     .param p1, "startPosition"    # I
     .param p2, "loadCount"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -606,7 +606,7 @@
     .local v0, "sqLiteQuery":Landroidx/room/RoomSQLiteQuery;
     iget-boolean v1, p0, Landroidx/room/paging/LimitOffsetDataSource;->mInTransaction:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3c
 
     .line 203
     iget-object v1, p0, Landroidx/room/paging/LimitOffsetDataSource;->mDb:Landroidx/room/RoomDatabase;
@@ -618,7 +618,7 @@
 
     .line 207
     .local v1, "cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_e
     iget-object v2, p0, Landroidx/room/paging/LimitOffsetDataSource;->mDb:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2, v0}, Landroidx/room/RoomDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroid/database/Cursor;
@@ -637,20 +637,20 @@
     iget-object v3, p0, Landroidx/room/paging/LimitOffsetDataSource;->mDb:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_e .. :try_end_1e} :catchall_2d
 
     .line 210
     nop
 
     .line 212
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     .line 213
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     .line 215
-    :cond_0
+    :cond_24
     iget-object v3, p0, Landroidx/room/paging/LimitOffsetDataSource;->mDb:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->endTransaction()V
@@ -663,16 +663,16 @@
 
     .line 212
     .end local v2    # "rows":Ljava/util/List;, "Ljava/util/List<TT;>;"
-    :catchall_0
+    :catchall_2d
     move-exception v2
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_33
 
     .line 213
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     .line 215
-    :cond_1
+    :cond_33
     iget-object v3, p0, Landroidx/room/paging/LimitOffsetDataSource;->mDb:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->endTransaction()V
@@ -685,7 +685,7 @@
 
     .line 219
     .end local v1    # "cursor":Landroid/database/Cursor;
-    :cond_2
+    :cond_3c
     iget-object v1, p0, Landroidx/room/paging/LimitOffsetDataSource;->mDb:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v1, v0}, Landroidx/room/RoomDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroid/database/Cursor;
@@ -694,12 +694,12 @@
 
     .line 222
     .restart local v1    # "cursor":Landroid/database/Cursor;
-    :try_start_1
+    :try_start_42
     invoke-virtual {p0, v1}, Landroidx/room/paging/LimitOffsetDataSource;->convertRows(Landroid/database/Cursor;)Ljava/util/List;
 
     move-result-object v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_46
+    .catchall {:try_start_42 .. :try_end_46} :catchall_4d
 
     .line 224
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
@@ -711,7 +711,7 @@
     return-object v2
 
     .line 224
-    :catchall_1
+    :catchall_4d
     move-exception v2
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
@@ -724,7 +724,7 @@
 .end method
 
 .method public loadRange(Landroidx/paging/PositionalDataSource$LoadRangeParams;Landroidx/paging/PositionalDataSource$LoadRangeCallback;)V
-    .locals 2
+    .registers 5
     .param p1, "params"    # Landroidx/paging/PositionalDataSource$LoadRangeParams;
     .annotation system Ldalvik/annotation/Signature;
         value = {

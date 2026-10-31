@@ -53,7 +53,7 @@
 
 # direct methods
 .method public static final CoroutineScope(Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/CoroutineScope;
-    .locals 3
+    .registers 4
     .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 277
@@ -67,13 +67,13 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     move-object v1, p0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x1
 
     const/4 v2, 0x0
@@ -88,7 +88,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1a
     invoke-direct {v0, v1}, Lkotlinx/coroutines/internal/ContextScope;-><init>(Lkotlin/coroutines/CoroutineContext;)V
 
     check-cast v0, Lkotlinx/coroutines/CoroutineScope;
@@ -97,7 +97,7 @@
 .end method
 
 .method public static final MainScope()Lkotlinx/coroutines/CoroutineScope;
-    .locals 3
+    .registers 3
 
     .line 118
     new-instance v0, Lkotlinx/coroutines/internal/ContextScope;
@@ -128,7 +128,7 @@
 .end method
 
 .method public static final cancel(Lkotlinx/coroutines/CoroutineScope;Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 4
     .param p0, "$this$cancel"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "cause"    # Ljava/lang/Throwable;
@@ -144,7 +144,7 @@
 .end method
 
 .method public static final cancel(Lkotlinx/coroutines/CoroutineScope;Ljava/util/concurrent/CancellationException;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$cancel"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "cause"    # Ljava/util/concurrent/CancellationException;
 
@@ -163,7 +163,7 @@
 
     check-cast v0, Lkotlinx/coroutines/Job;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 287
     .local v0, "job":Lkotlinx/coroutines/Job;
@@ -174,7 +174,7 @@
 
     .line 286
     .end local v0    # "job":Lkotlinx/coroutines/Job;
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -205,39 +205,39 @@
 .end method
 
 .method public static synthetic cancel$default(Lkotlinx/coroutines/CoroutineScope;Ljava/lang/String;Ljava/lang/Throwable;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 295
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/CoroutineScopeKt;->cancel(Lkotlinx/coroutines/CoroutineScope;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     return-void
 .end method
 
 .method public static synthetic cancel$default(Lkotlinx/coroutines/CoroutineScope;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 285
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lkotlinx/coroutines/CoroutineScopeKt;->cancel(Lkotlinx/coroutines/CoroutineScope;Ljava/util/concurrent/CancellationException;)V
 
     return-void
 .end method
 
 .method public static final coroutineScope(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -292,16 +292,16 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_0
+    :cond_19
     return-object v0
 .end method
 
 .method public static final currentCoroutineContext(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -326,7 +326,7 @@
 .end method
 
 .method private static final currentCoroutineContext$$forInline(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .param p0, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -348,7 +348,7 @@
 .end method
 
 .method public static final ensureActive(Lkotlinx/coroutines/CoroutineScope;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$ensureActive"    # Lkotlinx/coroutines/CoroutineScope;
 
     .line 313
@@ -362,7 +362,7 @@
 .end method
 
 .method public static final isActive(Lkotlinx/coroutines/CoroutineScope;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isActive"    # Lkotlinx/coroutines/CoroutineScope;
 
     .line 137
@@ -380,29 +380,29 @@
 
     check-cast v0, Lkotlinx/coroutines/Job;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-interface {v0}, Lkotlinx/coroutines/Job;->isActive()Z
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_16
     return v0
 .end method
 
 .method public static synthetic isActive$annotations(Lkotlinx/coroutines/CoroutineScope;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static final plus(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/CoroutineScope;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 

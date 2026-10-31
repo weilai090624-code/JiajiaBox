@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1989
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getLocation()Landroid/location/Location;
-    .locals 1
+    .registers 2
 
     .line 2074
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$Metadata;->mLocation:Landroid/location/Location;
@@ -51,7 +51,7 @@
 .end method
 
 .method public isReversedHorizontal()Z
-    .locals 1
+    .registers 2
 
     .line 2023
     iget-boolean v0, p0, Landroidx/camera/core/ImageCapture$Metadata;->mIsReversedHorizontal:Z
@@ -60,7 +60,7 @@
 .end method
 
 .method public isReversedHorizontalSet()Z
-    .locals 1
+    .registers 2
 
     .line 2036
     iget-boolean v0, p0, Landroidx/camera/core/ImageCapture$Metadata;->mIsReversedHorizontalSet:Z
@@ -69,7 +69,7 @@
 .end method
 
 .method public isReversedVertical()Z
-    .locals 1
+    .registers 2
 
     .line 2055
     iget-boolean v0, p0, Landroidx/camera/core/ImageCapture$Metadata;->mIsReversedVertical:Z
@@ -78,7 +78,7 @@
 .end method
 
 .method public setLocation(Landroid/location/Location;)V
-    .locals 0
+    .registers 2
     .param p1, "location"    # Landroid/location/Location;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -97,7 +97,7 @@
 .end method
 
 .method public setReversedHorizontal(Z)V
-    .locals 1
+    .registers 3
     .param p1, "isReversedHorizontal"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -121,7 +121,7 @@
 .end method
 
 .method public setReversedVertical(Z)V
-    .locals 0
+    .registers 2
     .param p1, "isReversedVertical"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

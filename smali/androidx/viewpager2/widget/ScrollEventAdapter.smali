@@ -55,7 +55,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
-    .locals 1
+    .registers 3
     .param p1, "viewPager"    # Landroidx/viewpager2/widget/ViewPager2;
 
     .line 77
@@ -97,7 +97,7 @@
 .end method
 
 .method private dispatchScrolled(IFI)V
-    .locals 1
+    .registers 5
     .param p1, "position"    # I
     .param p2, "offset"    # F
     .param p3, "offsetPx"    # I
@@ -105,7 +105,7 @@
     .line 437
     iget-object v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mCallback:Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 438
     iget-object v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mCallback:Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
@@ -113,18 +113,18 @@
     invoke-virtual {v0, p1, p2, p3}, Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;->onPageScrolled(IFI)V
 
     .line 440
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private dispatchSelected(I)V
-    .locals 1
+    .registers 3
     .param p1, "target"    # I
 
     .line 431
     iget-object v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mCallback:Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 432
     iget-object v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mCallback:Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
@@ -132,12 +132,12 @@
     invoke-virtual {v0, p1}, Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;->onPageSelected(I)V
 
     .line 434
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private dispatchStateChanged(I)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # I
 
     .line 416
@@ -145,32 +145,32 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     iget v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollState:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 418
     return-void
 
     .line 420
-    :cond_0
+    :cond_a
     iget v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollState:I
 
-    if-ne v0, p1, :cond_1
+    if-ne v0, p1, :cond_f
 
     .line 421
     return-void
 
     .line 424
-    :cond_1
+    :cond_f
     iput p1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollState:I
 
     .line 425
     iget-object v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mCallback:Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1a
 
     .line 426
     iget-object v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mCallback:Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
@@ -178,12 +178,12 @@
     invoke-virtual {v0, p1}, Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;->onPageScrollStateChanged(I)V
 
     .line 428
-    :cond_2
+    :cond_1a
     return-void
 .end method
 
 .method private getPosition()I
-    .locals 1
+    .registers 2
 
     .line 443
     iget-object v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
@@ -196,33 +196,33 @@
 .end method
 
 .method private isInAnyDraggingState()Z
-    .locals 3
+    .registers 4
 
     .line 392
     iget v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mAdapterState:I
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_c
 
     iget v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mAdapterState:I
 
     const/4 v2, 0x4
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_b
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :cond_1
-    :goto_0
+    :cond_c
+    :goto_c
     return v1
 .end method
 
 .method private resetState()V
-    .locals 2
+    .registers 3
 
     .line 87
     const/4 v0, 0x0
@@ -262,7 +262,7 @@
 .end method
 
 .method private startDrag(Z)V
-    .locals 3
+    .registers 5
     .param p1, "isFakeDrag"    # Z
 
     .line 287
@@ -271,16 +271,16 @@
     .line 288
     const/4 v0, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     const/4 v1, 0x4
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v1, 0x1
 
-    :goto_0
+    :goto_8
     iput v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mAdapterState:I
 
     .line 289
@@ -288,7 +288,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_16
 
     .line 292
     iget v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mTarget:I
@@ -298,13 +298,13 @@
     .line 294
     iput v2, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mTarget:I
 
-    goto :goto_1
+    goto :goto_20
 
     .line 295
-    :cond_1
+    :cond_16
     iget v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mDragStartPosition:I
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_20
 
     .line 297
     invoke-direct {p0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->getPosition()I
@@ -314,8 +314,8 @@
     iput v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mDragStartPosition:I
 
     .line 299
-    :cond_2
-    :goto_1
+    :cond_20
+    :goto_20
     invoke-direct {p0, v0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchStateChanged(I)V
 
     .line 300
@@ -323,7 +323,7 @@
 .end method
 
 .method private updateScrollEventValues()V
-    .locals 17
+    .registers 18
 
     .line 224
     move-object/from16 v0, p0
@@ -345,7 +345,7 @@
 
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_15
 
     .line 228
     invoke-virtual {v1}, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->reset()V
@@ -354,7 +354,7 @@
     return-void
 
     .line 231
-    :cond_0
+    :cond_15
     iget-object v2, v0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
     iget v3, v1, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mPosition:I
@@ -365,7 +365,7 @@
 
     .line 232
     .local v2, "firstVisibleView":Landroid/view/View;
-    if-nez v2, :cond_1
+    if-nez v2, :cond_23
 
     .line 233
     invoke-virtual {v1}, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->reset()V
@@ -374,7 +374,7 @@
     return-void
 
     .line 237
-    :cond_1
+    :cond_23
     iget-object v3, v0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
     invoke-virtual {v3, v2}, Landroidx/recyclerview/widget/LinearLayoutManager;->getLeftDecorationWidth(Landroid/view/View;)I
@@ -415,7 +415,7 @@
     .local v7, "params":Landroid/view/ViewGroup$LayoutParams;
     instance-of v8, v7, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_52
 
     .line 244
     move-object v8, v7
@@ -445,7 +445,7 @@
 
     .line 251
     .end local v8    # "margin":Landroid/view/ViewGroup$MarginLayoutParams;
-    :cond_2
+    :cond_52
     invoke-virtual {v2}, Landroid/view/View;->getHeight()I
 
     move-result v8
@@ -472,19 +472,19 @@
 
     move-result v10
 
-    if-nez v10, :cond_3
+    if-nez v10, :cond_68
 
     const/4 v10, 0x1
 
-    goto :goto_0
+    goto :goto_69
 
-    :cond_3
+    :cond_68
     const/4 v10, 0x0
 
     .line 256
     .local v10, "isHorizontal":Z
-    :goto_0
-    if-eqz v10, :cond_4
+    :goto_69
+    if-eqz v10, :cond_82
 
     .line 257
     move v13, v9
@@ -513,17 +513,17 @@
 
     move-result v15
 
-    if-eqz v15, :cond_5
+    if-eqz v15, :cond_8f
 
     .line 260
     neg-int v14, v14
 
-    goto :goto_1
+    goto :goto_8f
 
     .line 263
     .end local v13    # "sizePx":I
     .end local v14    # "start":I
-    :cond_4
+    :cond_82
     move v13, v8
 
     .line 264
@@ -544,8 +544,8 @@
 
     .line 267
     .restart local v14    # "start":I
-    :cond_5
-    :goto_1
+    :cond_8f
+    :goto_8f
     neg-int v15, v14
 
     iput v15, v1, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffsetPx:I
@@ -553,7 +553,7 @@
     .line 268
     iget v15, v1, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffsetPx:I
 
-    if-gez v15, :cond_7
+    if-gez v15, :cond_c6
 
     .line 271
     new-instance v15, Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;
@@ -566,7 +566,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_ab
 
     .line 272
     new-instance v11, Ljava/lang/IllegalStateException;
@@ -578,7 +578,7 @@
     throw v11
 
     .line 280
-    :cond_6
+    :cond_ab
     new-instance v12, Ljava/lang/IllegalStateException;
 
     sget-object v15, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -610,14 +610,14 @@
     throw v12
 
     .line 283
-    :cond_7
-    if-nez v13, :cond_8
+    :cond_c6
+    if-nez v13, :cond_ca
 
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto :goto_cf
 
-    :cond_8
+    :cond_ca
     iget v0, v1, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffsetPx:I
 
     int-to-float v0, v0
@@ -626,7 +626,7 @@
 
     div-float/2addr v0, v11
 
-    :goto_2
+    :goto_cf
     iput v0, v1, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffset:F
 
     .line 284
@@ -636,7 +636,7 @@
 
 # virtual methods
 .method getRelativeScrollPosition()D
-    .locals 4
+    .registers 5
 
     .line 407
     invoke-direct {p0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->updateScrollEventValues()V
@@ -660,7 +660,7 @@
 .end method
 
 .method getScrollState()I
-    .locals 1
+    .registers 2
 
     .line 360
     iget v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollState:I
@@ -669,26 +669,26 @@
 .end method
 
 .method isDragging()Z
-    .locals 2
+    .registers 3
 
     .line 375
     iget v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollState:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     return v1
 .end method
 
 .method isFakeDragging()Z
-    .locals 1
+    .registers 2
 
     .line 383
     iget-boolean v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mFakeDragging:Z
@@ -697,26 +697,26 @@
 .end method
 
 .method isIdle()Z
-    .locals 1
+    .registers 2
 
     .line 367
     iget v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollState:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method notifyBeginFakeDrag()V
-    .locals 1
+    .registers 2
 
     .line 328
     const/4 v0, 0x4
@@ -733,7 +733,7 @@
 .end method
 
 .method notifyDataSetChangeHappened()V
-    .locals 1
+    .registers 2
 
     .line 303
     const/4 v0, 0x1
@@ -745,24 +745,24 @@
 .end method
 
 .method notifyEndFakeDrag()V
-    .locals 3
+    .registers 4
 
     .line 336
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->isDragging()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-boolean v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mFakeDragging:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 338
     return-void
 
     .line 340
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mFakeDragging:Z
@@ -775,7 +775,7 @@
 
     iget v1, v1, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffsetPx:I
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2d
 
     .line 344
     iget-object v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
@@ -784,7 +784,7 @@
 
     iget v2, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mDragStartPosition:I
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_26
 
     .line 345
     iget-object v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
@@ -794,43 +794,43 @@
     invoke-direct {p0, v1}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchSelected(I)V
 
     .line 347
-    :cond_1
+    :cond_26
     invoke-direct {p0, v0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchStateChanged(I)V
 
     .line 348
     invoke-direct {p0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->resetState()V
 
-    goto :goto_0
+    goto :goto_31
 
     .line 351
-    :cond_2
+    :cond_2d
     const/4 v0, 0x2
 
     invoke-direct {p0, v0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchStateChanged(I)V
 
     .line 353
-    :goto_0
+    :goto_31
     return-void
 .end method
 
 .method notifyProgrammaticScroll(IZ)V
-    .locals 3
+    .registers 6
     .param p1, "target"    # I
     .param p2, "smooth"    # Z
 
     .line 310
     const/4 v0, 0x2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 v1, 0x2
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v1, 0x3
 
-    :goto_0
+    :goto_6
     iput v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mAdapterState:I
 
     .line 315
@@ -841,31 +841,31 @@
     .line 316
     iget v2, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mTarget:I
 
-    if-eq v2, p1, :cond_1
+    if-eq v2, p1, :cond_10
 
     const/4 v1, 0x1
 
     .line 317
     .local v1, "hasNewTarget":Z
-    :cond_1
+    :cond_10
     iput p1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mTarget:I
 
     .line 318
     invoke-direct {p0, v0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchStateChanged(I)V
 
     .line 319
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1a
 
     .line 320
     invoke-direct {p0, p1}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchSelected(I)V
 
     .line 322
-    :cond_2
+    :cond_1a
     return-void
 .end method
 
 .method public onScrollStateChanged(Landroidx/recyclerview/widget/RecyclerView;I)V
-    .locals 6
+    .registers 9
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "newState"    # I
 
@@ -876,14 +876,14 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_a
 
     iget v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollState:I
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_10
 
-    :cond_0
-    if-ne p2, v2, :cond_1
+    :cond_a
+    if-ne p2, v2, :cond_10
 
     .line 108
     invoke-direct {p0, v1}, Landroidx/viewpager2/widget/ScrollEventAdapter;->startDrag(Z)V
@@ -892,21 +892,21 @@
     return-void
 
     .line 114
-    :cond_1
+    :cond_10
     invoke-direct {p0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->isInAnyDraggingState()Z
 
     move-result v0
 
     const/4 v3, 0x2
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_23
 
-    if-ne p2, v3, :cond_3
+    if-ne p2, v3, :cond_23
 
     .line 116
     iget-boolean v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollHappened:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     .line 117
     invoke-direct {p0, v3}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchStateChanged(I)V
@@ -915,20 +915,20 @@
     iput-boolean v2, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mDispatchSelected:Z
 
     .line 121
-    :cond_2
+    :cond_22
     return-void
 
     .line 125
-    :cond_3
+    :cond_23
     invoke-direct {p0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->isInAnyDraggingState()Z
 
     move-result v0
 
     const/4 v2, -0x1
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_62
 
-    if-nez p2, :cond_7
+    if-nez p2, :cond_62
 
     .line 126
     const/4 v0, 0x0
@@ -940,14 +940,14 @@
     .line 128
     iget-boolean v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollHappened:Z
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_44
 
     .line 133
     iget-object v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
     iget v4, v4, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mPosition:I
 
-    if-eq v4, v2, :cond_4
+    if-eq v4, v2, :cond_42
 
     .line 134
     iget-object v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
@@ -959,18 +959,18 @@
     invoke-direct {p0, v4, v5, v1}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchScrolled(IFI)V
 
     .line 136
-    :cond_4
+    :cond_42
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 137
-    :cond_5
+    :cond_44
     iget-object v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
     iget v4, v4, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffsetPx:I
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_5a
 
     .line 144
     const/4 v0, 0x1
@@ -982,7 +982,7 @@
 
     iget v5, v5, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mPosition:I
 
-    if-eq v4, v5, :cond_6
+    if-eq v4, v5, :cond_5a
 
     .line 146
     iget-object v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
@@ -992,9 +992,9 @@
     invoke-direct {p0, v4}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchSelected(I)V
 
     .line 149
-    :cond_6
-    :goto_0
-    if-eqz v0, :cond_7
+    :cond_5a
+    :goto_5a
+    if-eqz v0, :cond_62
 
     .line 152
     invoke-direct {p0, v1}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchStateChanged(I)V
@@ -1004,16 +1004,16 @@
 
     .line 157
     .end local v0    # "dispatchIdle":Z
-    :cond_7
+    :cond_62
     iget v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mAdapterState:I
 
-    if-ne v0, v3, :cond_a
+    if-ne v0, v3, :cond_92
 
-    if-nez p2, :cond_a
+    if-nez p2, :cond_92
 
     iget-boolean v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mDataSetChangeHappened:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_92
 
     .line 159
     invoke-direct {p0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->updateScrollEventValues()V
@@ -1023,7 +1023,7 @@
 
     iget v0, v0, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffsetPx:I
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_92
 
     .line 161
     iget v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mTarget:I
@@ -1032,41 +1032,41 @@
 
     iget v3, v3, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mPosition:I
 
-    if-eq v0, v3, :cond_9
+    if-eq v0, v3, :cond_8c
 
     .line 162
     iget-object v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
     iget v0, v0, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mPosition:I
 
-    if-ne v0, v2, :cond_8
+    if-ne v0, v2, :cond_85
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_89
 
-    :cond_8
+    :cond_85
     iget-object v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
     iget v0, v0, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mPosition:I
 
-    :goto_1
+    :goto_89
     invoke-direct {p0, v0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchSelected(I)V
 
     .line 165
-    :cond_9
+    :cond_8c
     invoke-direct {p0, v1}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchStateChanged(I)V
 
     .line 166
     invoke-direct {p0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->resetState()V
 
     .line 169
-    :cond_a
+    :cond_92
     return-void
 .end method
 
 .method public onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
-    .locals 6
+    .registers 10
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "dx"    # I
     .param p3, "dy"    # I
@@ -1086,55 +1086,55 @@
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_43
 
     .line 182
     iput-boolean v3, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mDispatchSelected:Z
 
     .line 183
-    if-gtz p3, :cond_2
+    if-gtz p3, :cond_22
 
-    if-nez p3, :cond_1
+    if-nez p3, :cond_20
 
-    if-gez p2, :cond_0
+    if-gez p2, :cond_16
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_17
     iget-object v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
 
     invoke-virtual {v4}, Landroidx/viewpager2/widget/ViewPager2;->isRtl()Z
 
     move-result v4
 
-    if-ne v1, v4, :cond_1
+    if-ne v1, v4, :cond_20
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_20
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_23
 
-    :cond_2
-    :goto_1
+    :cond_22
+    :goto_22
     const/4 v1, 0x1
 
     .line 187
     .local v1, "scrollingForward":Z
-    :goto_2
-    if-eqz v1, :cond_3
+    :goto_23
+    if-eqz v1, :cond_31
 
     iget-object v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
     iget v4, v4, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffsetPx:I
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_31
 
     iget-object v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
@@ -1142,14 +1142,14 @@
 
     add-int/2addr v4, v0
 
-    goto :goto_3
+    goto :goto_35
 
-    :cond_3
+    :cond_31
     iget-object v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
     iget v4, v4, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mPosition:I
 
-    :goto_3
+    :goto_35
     iput v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mTarget:I
 
     .line 189
@@ -1157,21 +1157,21 @@
 
     iget v5, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mTarget:I
 
-    if-eq v4, v5, :cond_6
+    if-eq v4, v5, :cond_54
 
     .line 190
     iget v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mTarget:I
 
     invoke-direct {p0, v4}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchSelected(I)V
 
-    goto :goto_5
+    goto :goto_54
 
     .line 192
     .end local v1    # "scrollingForward":Z
-    :cond_4
+    :cond_43
     iget v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mAdapterState:I
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_54
 
     .line 195
     iget-object v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
@@ -1180,44 +1180,44 @@
 
     .line 197
     .local v1, "position":I
-    if-ne v1, v2, :cond_5
+    if-ne v1, v2, :cond_4f
 
     const/4 v4, 0x0
 
-    goto :goto_4
+    goto :goto_50
 
-    :cond_5
+    :cond_4f
     move v4, v1
 
-    :goto_4
+    :goto_50
     invoke-direct {p0, v4}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchSelected(I)V
 
-    goto :goto_6
+    goto :goto_55
 
     .line 192
     .end local v1    # "position":I
-    :cond_6
-    :goto_5
+    :cond_54
+    :goto_54
     nop
 
     .line 201
-    :goto_6
+    :goto_55
     iget-object v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
     iget v1, v1, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mPosition:I
 
-    if-ne v1, v2, :cond_7
+    if-ne v1, v2, :cond_5d
 
     const/4 v1, 0x0
 
-    goto :goto_7
+    goto :goto_61
 
-    :cond_7
+    :cond_5d
     iget-object v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
     iget v1, v1, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mPosition:I
 
-    :goto_7
+    :goto_61
     iget-object v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
     iget v4, v4, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffset:F
@@ -1235,22 +1235,22 @@
 
     iget v4, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mTarget:I
 
-    if-eq v1, v4, :cond_8
+    if-eq v1, v4, :cond_78
 
     iget v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mTarget:I
 
-    if-ne v1, v2, :cond_9
+    if-ne v1, v2, :cond_88
 
-    :cond_8
+    :cond_78
     iget-object v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollValues:Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;
 
     iget v1, v1, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffsetPx:I
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_88
 
     iget v1, p0, Landroidx/viewpager2/widget/ScrollEventAdapter;->mScrollState:I
 
-    if-eq v1, v0, :cond_9
+    if-eq v1, v0, :cond_88
 
     .line 214
     invoke-direct {p0, v3}, Landroidx/viewpager2/widget/ScrollEventAdapter;->dispatchStateChanged(I)V
@@ -1259,12 +1259,12 @@
     invoke-direct {p0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->resetState()V
 
     .line 217
-    :cond_9
+    :cond_88
     return-void
 .end method
 
 .method setOnPageChangeCallback(Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "callback"    # Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
 
     .line 356

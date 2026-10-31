@@ -64,7 +64,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 383
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -73,159 +73,159 @@
 .end method
 
 .method static getFeedbackConstantOrFallback(I)I
-    .locals 2
+    .registers 3
     .param p0, "feedbackConstant"    # I
 
     .line 322
     const/4 v0, -0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_4
 
     .line 324
     return v0
 
     .line 326
-    :cond_0
+    :cond_4
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x22
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_14
 
     .line 327
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_3c
 
-    goto :goto_0
+    goto :goto_14
 
     .line 329
-    :pswitch_0
+    :pswitch_e
     const/4 p0, 0x0
 
     .line 330
-    goto :goto_0
+    goto :goto_14
 
     .line 339
-    :pswitch_1
+    :pswitch_10
     const/4 p0, 0x4
 
-    goto :goto_0
+    goto :goto_14
 
     .line 334
-    :pswitch_2
+    :pswitch_12
     const/4 p0, 0x6
 
     .line 335
     nop
 
     .line 343
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_24
 
     .line 344
-    packed-switch p0, :pswitch_data_1
+    packed-switch p0, :pswitch_data_4e
 
-    :pswitch_3
-    goto :goto_1
+    :pswitch_1d
+    goto :goto_24
 
     .line 346
-    :pswitch_4
+    :pswitch_1e
     const/4 p0, 0x0
 
     .line 347
-    goto :goto_1
+    goto :goto_24
 
     .line 353
-    :pswitch_5
+    :pswitch_20
     const/4 p0, 0x6
 
-    goto :goto_1
+    goto :goto_24
 
     .line 350
-    :pswitch_6
+    :pswitch_22
     const/4 p0, 0x1
 
     .line 351
     nop
 
     .line 357
-    :cond_2
-    :goto_1
+    :cond_24
+    :goto_24
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1b
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_2f
 
     .line 358
-    packed-switch p0, :pswitch_data_2
+    packed-switch p0, :pswitch_data_5e
 
-    goto :goto_2
+    goto :goto_2f
 
     .line 362
-    :pswitch_7
+    :pswitch_2e
     const/4 p0, -0x1
 
     .line 366
-    :cond_3
-    :goto_2
+    :cond_2f
+    :goto_2f
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-ge v0, v1, :cond_4
+    if-ge v0, v1, :cond_3a
 
     .line 367
-    packed-switch p0, :pswitch_data_3
+    packed-switch p0, :pswitch_data_68
 
-    goto :goto_3
+    goto :goto_3a
 
     .line 369
-    :pswitch_8
+    :pswitch_39
     const/4 p0, 0x4
 
     .line 373
-    :cond_4
-    :goto_3
+    :cond_3a
+    :goto_3a
     nop
 
     .line 380
     return p0
 
-    :pswitch_data_0
+    :pswitch_data_3c
     .packed-switch 0x15
-        :pswitch_2
-        :pswitch_1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
+        :pswitch_12
+        :pswitch_10
+        :pswitch_12
+        :pswitch_10
+        :pswitch_e
+        :pswitch_12
+        :pswitch_10
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_4e
     .packed-switch 0xc
-        :pswitch_6
-        :pswitch_5
-        :pswitch_3
-        :pswitch_3
-        :pswitch_6
-        :pswitch_4
+        :pswitch_22
+        :pswitch_20
+        :pswitch_1d
+        :pswitch_1d
+        :pswitch_22
+        :pswitch_1e
     .end packed-switch
 
-    :pswitch_data_2
+    :pswitch_data_5e
     .packed-switch 0x7
-        :pswitch_7
-        :pswitch_7
-        :pswitch_7
+        :pswitch_2e
+        :pswitch_2e
+        :pswitch_2e
     .end packed-switch
 
-    :pswitch_data_3
+    :pswitch_data_68
     .packed-switch 0x6
-        :pswitch_8
+        :pswitch_39
     .end packed-switch
 .end method

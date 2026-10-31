@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 307
     new-instance v0, Landroidx/core/util/Pools$SimplePool;
@@ -65,7 +65,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 309
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 .end method
 
 .method static drainCache()V
-    .locals 1
+    .registers 1
 
     .line 326
     :goto_0
@@ -85,17 +85,17 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     goto :goto_0
 
     .line 327
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method static obtain()Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;
-    .locals 2
+    .registers 2
 
     .line 313
     sget-object v0, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;->sPool:Landroidx/core/util/Pools$Pool;
@@ -108,23 +108,23 @@
 
     .line 314
     .local v0, "record":Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     new-instance v1, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;
 
     invoke-direct {v1}, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;-><init>()V
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     move-object v1, v0
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method static recycle(Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;)V
-    .locals 1
+    .registers 2
     .param p0, "record"    # Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;
 
     .line 318

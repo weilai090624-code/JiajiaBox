@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 928
     new-instance v0, Lcom/google/android/material/navigation/NavigationBarView$SavedState$1;
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -53,7 +53,7 @@
     invoke-direct {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
     .line 912
-    if-nez p2, :cond_0
+    if-nez p2, :cond_d
 
     .line 913
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -65,7 +65,7 @@
     move-result-object p2
 
     .line 915
-    :cond_0
+    :cond_d
     invoke-direct {p0, p1, p2}, Lcom/google/android/material/navigation/NavigationBarView$SavedState;->readFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
     .line 916
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 907
@@ -84,7 +84,7 @@
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 4
     .param p1, "in"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

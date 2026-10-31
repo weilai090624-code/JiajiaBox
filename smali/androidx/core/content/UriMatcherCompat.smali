@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static asPredicate(Landroid/content/UriMatcher;)Landroidx/core/util/Predicate;
-    .locals 1
+    .registers 2
     .param p0, "matcher"    # Landroid/content/UriMatcher;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -37,7 +37,7 @@
 .end method
 
 .method static synthetic lambda$asPredicate$0(Landroid/content/UriMatcher;Landroid/net/Uri;)Z
-    .locals 2
+    .registers 4
     .param p0, "matcher"    # Landroid/content/UriMatcher;
     .param p1, "v"    # Landroid/net/Uri;
 
@@ -48,15 +48,15 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method

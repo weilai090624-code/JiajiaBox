@@ -12,7 +12,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
     .param p1, "token"    # Landroid/os/IBinder;
 
     .line 25
@@ -28,13 +28,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 31
     instance-of v0, p1, Landroidx/transition/WindowIdApi14;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p1
 
@@ -48,21 +48,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Landroidx/transition/WindowIdApi14;->mToken:Landroid/os/IBinder;

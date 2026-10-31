@@ -155,7 +155,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$6NXdZqYrSmurbrpbML5WoOE_fY0(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/activity/result/ActivityResult;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->selectAppList$lambda$3(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/activity/result/ActivityResult;)V
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$G30FUa8xt4GFB58juNh6AQ_MGf8(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/activity/result/ActivityResult;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->selectProfileForAdd$lambda$2(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/activity/result/ActivityResult;)V
 
@@ -171,7 +171,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$a8Q2UqdMxo2j10Uw9SuFiJTSvQY(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->viewCreated$lambda$4(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -181,7 +181,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$egwLOYP6RlflSg812KfcXSeGY7I(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;)Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$MyPreferenceFragmentCompat;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->child_delegate$lambda$9(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;)Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$MyPreferenceFragmentCompat;
 
@@ -191,7 +191,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$o18IwF7q2uxSKrBGFJS3MNWNb88(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/preference/Preference;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->viewCreated$lambda$5(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/preference/Preference;)Z
 
@@ -201,7 +201,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$Companion;
 
@@ -215,7 +215,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -229,7 +229,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "resId"    # I
 
     .line 47
@@ -299,18 +299,18 @@
 .end method
 
 .method public synthetic constructor <init>(IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 45
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     .line 46
     const p1, 0x7f0d005b
 
     .line 45
-    :cond_0
+    :cond_7
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;-><init>(I)V
 
     .line 47
@@ -318,7 +318,7 @@
 .end method
 
 .method private static final child_delegate$lambda$9(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;)Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$MyPreferenceFragmentCompat;
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
 
     .line 288
@@ -342,7 +342,7 @@
 .end method
 
 .method private static final selectAppList$lambda$3(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/activity/result/ActivityResult;)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
 
     const-string v0, "<destruct>"
@@ -361,7 +361,7 @@
 .end method
 
 .method private static final selectProfileForAdd$lambda$2(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/activity/result/ActivityResult;)V
-    .locals 3
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
 
     const-string v0, "<destruct>"
@@ -382,7 +382,7 @@
     .local p1, "data":Landroid/content/Intent;
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$selectProfileForAdd$1$1;
 
@@ -395,12 +395,12 @@
     invoke-static {v1}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 139
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method private static final viewCreated$lambda$4(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 3
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -419,7 +419,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_22
 
     .line 156
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->selectProfileForAdd:Landroidx/activity/result/ActivityResultLauncher;
@@ -443,19 +443,19 @@
     .line 161
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_23
 
     .line 163
-    :cond_0
+    :cond_22
     const/4 p1, 0x1
 
     .line 164
-    :goto_0
+    :goto_23
     return p1
 .end method
 
 .method private static final viewCreated$lambda$5(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Landroidx/preference/Preference;)Z
-    .locals 4
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
     .param p1, "it"    # Landroidx/preference/Preference;
 
@@ -491,7 +491,7 @@
 
 # virtual methods
 .method public final createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -525,7 +525,7 @@
 .end method
 
 .method public final displayPreferenceDialog(Landroidx/preference/Preference;)Z
-    .locals 1
+    .registers 3
     .param p1, "preference"    # Landroidx/preference/Preference;
 
     const-string v0, "preference"
@@ -539,16 +539,16 @@
 .end method
 
 .method public final getApps()Lio/nekohasekai/sagernet/widget/AppListPreference;
-    .locals 1
+    .registers 2
 
     .line 148
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->apps:Lio/nekohasekai/sagernet/widget/AppListPreference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "apps"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -559,7 +559,7 @@
 .end method
 
 .method public final getChild()Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$MyPreferenceFragmentCompat;
-    .locals 1
+    .registers 2
 
     .line 288
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->child$delegate:Lkotlin/Lazy;
@@ -574,16 +574,16 @@
 .end method
 
 .method public final getOutbound()Lio/nekohasekai/sagernet/widget/OutboundPreference;
-    .locals 1
+    .registers 2
 
     .line 147
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->outbound:Lio/nekohasekai/sagernet/widget/OutboundPreference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "outbound"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -594,7 +594,7 @@
 .end method
 
 .method public final getSelectAppList()Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -611,7 +611,7 @@
 .end method
 
 .method public final getSelectProfileForAdd()Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -628,7 +628,7 @@
 .end method
 
 .method public final init(Lio/nekohasekai/sagernet/database/RuleEntity;)V
-    .locals 11
+    .registers 13
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/database/RuleEntity;
 
     const-string v0, "<this>"
@@ -737,42 +737,42 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_6d
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_7e
 
     .line 72
-    :cond_0
+    :cond_6d
     const-wide/16 v3, -0x1
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_75
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_7e
 
     .line 73
-    :cond_1
+    :cond_75
     const-wide/16 v3, -0x2
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_7d
 
     const/4 v1, 0x2
 
-    goto :goto_0
+    goto :goto_7e
 
     .line 74
-    :cond_2
+    :cond_7d
     const/4 v1, 0x3
 
     .line 70
-    :goto_0
+    :goto_7e
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setRouteOutbound(I)V
 
     .line 76
@@ -817,7 +817,7 @@
 .end method
 
 .method public final init(Ljava/lang/String;)V
-    .locals 22
+    .registers 24
     .param p1, "packageName"    # Ljava/lang/String;
 
     .line 51
@@ -880,27 +880,27 @@
 
     const/4 v5, 0x1
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_36
 
     invoke-static {v3}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_34
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_0
+    :cond_34
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_1
-    :goto_0
+    :cond_36
+    :goto_36
     const/4 v3, 0x1
 
-    :goto_1
-    if-nez v3, :cond_2
+    :goto_37
+    if-nez v3, :cond_58
 
     .line 53
     invoke-static/range {p1 .. p1}, Lkotlin/collections/SetsKt;->setOf(Ljava/lang/Object;)Ljava/util/Set;
@@ -933,7 +933,7 @@
     invoke-virtual {v1, v3}, Lio/nekohasekai/sagernet/database/RuleEntity;->setName(Ljava/lang/String;)V
 
     .line 56
-    :cond_2
+    :cond_58
     nop
 
     .line 51
@@ -953,7 +953,7 @@
 .end method
 
 .method public final needSave()Z
-    .locals 1
+    .registers 2
 
     .line 105
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -966,14 +966,14 @@
 .end method
 
 .method public onBackPressed()V
-    .locals 6
+    .registers 7
 
     .line 298
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->needSave()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 299
     new-instance v0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$UnsavedChangesDialogFragment;
@@ -1006,19 +1006,19 @@
 
     invoke-virtual {v0, v1, v5}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$UnsavedChangesDialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 300
-    :cond_0
+    :cond_1d
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onBackPressed()V
 
     .line 301
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .registers 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 217
@@ -1040,7 +1040,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .local v0, "$this$onCreate_u24lambda_u246":Landroidx/appcompat/app/ActionBar;
     const/4 v1, 0x0
@@ -1070,8 +1070,8 @@
     nop
 
     .line 225
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_28
+    if-nez p1, :cond_46
 
     .line 226
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->getIntent()Landroid/content/Intent;
@@ -1105,12 +1105,12 @@
 
     .line 255
     .end local v0    # "editingId":J
-    :cond_1
+    :cond_46
     return-void
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 2
+    .registers 4
     .param p1, "menu"    # Landroid/view/Menu;
 
     const-string v0, "menu"
@@ -1133,7 +1133,7 @@
 .end method
 
 .method protected onDestroy()V
-    .locals 2
+    .registers 3
 
     .line 309
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1156,7 +1156,7 @@
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 3
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -1176,7 +1176,7 @@
 .end method
 
 .method public onPreferenceDataStoreChanged(Landroidx/preference/PreferenceDataStore;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "store"    # Landroidx/preference/PreferenceDataStore;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -1195,7 +1195,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 315
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1205,12 +1205,12 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/DataStore;->setDirty(Z)V
 
     .line 317
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method protected onResume()V
-    .locals 1
+    .registers 2
 
     .line 118
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onResume()V
@@ -1218,12 +1218,12 @@
     .line 120
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->editConfigPreference:Lmoe/matsuri/nb4a/ui/EditConfigPreference;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 121
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->editConfigPreference:Lmoe/matsuri/nb4a/ui/EditConfigPreference;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const-string v0, "editConfigPreference"
 
@@ -1231,35 +1231,35 @@
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_11
     invoke-virtual {v0}, Lmoe/matsuri/nb4a/ui/EditConfigPreference;->notifyChanged()V
 
     .line 123
-    :cond_1
+    :cond_14
     return-void
 .end method
 
 .method public onSupportNavigateUp()Z
-    .locals 1
+    .registers 2
 
     .line 304
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onSupportNavigateUp()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->finish()V
 
     .line 305
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public final saveAndExit(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 32
+    .registers 34
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1276,7 +1276,7 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$saveAndExit$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -1288,7 +1288,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v1, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$saveAndExit$1;->label:I
 
@@ -1298,9 +1298,9 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v1, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$saveAndExit$1;
 
     move-object/from16 v2, p0
@@ -1308,7 +1308,7 @@
     invoke-direct {v1, v2, v0}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$saveAndExit$1;-><init>(Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;Lkotlin/coroutines/Continuation;)V
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_1f
     iget-object v9, v1, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$saveAndExit$1;->result:Ljava/lang/Object;
 
     .local v9, "$result":Ljava/lang/Object;
@@ -1319,7 +1319,7 @@
     .line 257
     iget v3, v1, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$saveAndExit$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_fc
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v9    # "$result":Ljava/lang/Object;
@@ -1333,7 +1333,7 @@
 
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v9    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_32
     iget-object v3, v1, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$saveAndExit$1;->L$0:Ljava/lang/Object;
 
     check-cast v3, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
@@ -1341,10 +1341,10 @@
     .local v3, "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
     invoke-static {v9}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_f3
 
     .end local v3    # "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
-    :pswitch_1
+    :pswitch_3b
     iget-object v3, v1, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$saveAndExit$1;->L$0:Ljava/lang/Object;
 
     check-cast v3, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
@@ -1352,15 +1352,15 @@
     .restart local v3    # "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
     invoke-static {v9}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_c6
 
     .end local v3    # "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
-    :pswitch_2
+    :pswitch_44
     invoke-static {v9}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_65
 
-    :pswitch_3
+    :pswitch_48
     invoke-static {v9}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v11, p0
@@ -1371,7 +1371,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_68
 
     .line 260
     new-instance v3, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$saveAndExit$2;
@@ -1391,21 +1391,21 @@
     move-result-object v3
 
     .end local v11    # "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
-    if-ne v3, v10, :cond_1
+    if-ne v3, v10, :cond_65
 
     .line 257
     return-object v10
 
     .line 266
-    :cond_1
-    :goto_1
+    :cond_65
+    :goto_65
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v3
 
     .line 269
     .restart local v11    # "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
-    :cond_2
+    :cond_68
     sget-object v3, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/database/DataStore;->getEditingId()J
@@ -1419,7 +1419,7 @@
     cmp-long v7, v3, v5
 
     .end local v3    # "editingId":J
-    if-nez v7, :cond_5
+    if-nez v7, :cond_c7
 
     .line 271
     invoke-virtual {v11}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->getIntent()Landroid/content/Intent;
@@ -1432,7 +1432,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_89
 
     .line 272
     new-instance v3, Landroid/content/Intent;
@@ -1444,7 +1444,7 @@
     invoke-virtual {v11, v4, v3}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->setResult(ILandroid/content/Intent;)V
 
     .line 275
-    :cond_3
+    :cond_89
     sget-object v3, Lio/nekohasekai/sagernet/database/ProfileManager;->INSTANCE:Lio/nekohasekai/sagernet/database/ProfileManager;
 
     new-instance v4, Lio/nekohasekai/sagernet/database/RuleEntity;
@@ -1515,24 +1515,24 @@
 
     move-result-object v3
 
-    if-ne v3, v10, :cond_4
+    if-ne v3, v10, :cond_c5
 
     .line 257
     return-object v10
 
     .line 275
-    :cond_4
+    :cond_c5
     move-object v3, v11
 
     .end local v11    # "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
     .local v3, "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
-    :goto_2
-    goto :goto_4
+    :goto_c6
+    goto :goto_f5
 
     .line 277
     .end local v3    # "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
     .restart local v11    # "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
-    :cond_5
+    :cond_c7
     sget-object v3, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getRulesDao()Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
@@ -1551,7 +1551,7 @@
 
     .line 278
     .local v3, "entity":Lio/nekohasekai/sagernet/database/RuleEntity;
-    if-nez v3, :cond_6
+    if-nez v3, :cond_df
 
     .line 279
     .end local v3    # "entity":Lio/nekohasekai/sagernet/database/RuleEntity;
@@ -1564,7 +1564,7 @@
 
     .line 282
     .restart local v3    # "entity":Lio/nekohasekai/sagernet/database/RuleEntity;
-    :cond_6
+    :cond_df
     sget-object v4, Lio/nekohasekai/sagernet/database/ProfileManager;->INSTANCE:Lio/nekohasekai/sagernet/database/ProfileManager;
 
     .end local v3    # "entity":Lio/nekohasekai/sagernet/database/RuleEntity;
@@ -1590,22 +1590,22 @@
 
     move-result-object v3
 
-    if-ne v3, v10, :cond_7
+    if-ne v3, v10, :cond_f2
 
     .line 257
     return-object v10
 
     .line 282
-    :cond_7
+    :cond_f2
     move-object v3, v11
 
     .line 284
     .end local v11    # "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
     .local v3, "this":Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
-    :goto_3
+    :goto_f3
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    :goto_4
+    :goto_f5
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->finish()V
 
     .line 286
@@ -1615,17 +1615,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_fc
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_48
+        :pswitch_44
+        :pswitch_3b
+        :pswitch_32
     .end packed-switch
 .end method
 
 .method public final serialize(Lio/nekohasekai/sagernet/database/RuleEntity;)V
-    .locals 12
+    .registers 14
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/database/RuleEntity;
 
     const-string v0, "<this>"
@@ -1722,7 +1722,7 @@
 
     const-wide/16 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_d0
 
     .line 93
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1731,26 +1731,26 @@
 
     move-result-wide v3
 
-    goto :goto_0
+    goto :goto_6f
 
     .line 92
-    :pswitch_0
+    :pswitch_68
     const-wide/16 v3, -0x2
 
-    goto :goto_0
+    goto :goto_6f
 
     .line 91
-    :pswitch_1
+    :pswitch_6b
     const-wide/16 v3, -0x1
 
-    goto :goto_0
+    goto :goto_6f
 
     .line 90
-    :pswitch_2
+    :pswitch_6e
     move-wide v3, v1
 
     .line 89
-    :goto_0
+    :goto_6f
     invoke-virtual {p1, v3, v4}, Lio/nekohasekai/sagernet/database/RuleEntity;->setOutbound(J)V
 
     .line 95
@@ -1807,13 +1807,13 @@
 
     move-result-object v7
 
-    :cond_0
-    :goto_1
+    :cond_99
+    :goto_99
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_b4
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1840,15 +1840,15 @@
     .line 396
     .end local v9    # "it":Ljava/lang/String;
     .end local v10    # "$i$a$-filter-RouteSettingsActivity$serialize$1":I
-    if-nez v11, :cond_0
+    if-nez v11, :cond_99
 
     invoke-interface {v4, v8}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_99
 
     .line 397
     .end local v8    # "element$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_b4
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;
@@ -1879,7 +1879,7 @@
 
     cmp-long v0, v3, v1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_cf
 
     .line 98
     const/4 v0, 0x1
@@ -1887,19 +1887,19 @@
     invoke-virtual {p1, v0}, Lio/nekohasekai/sagernet/database/RuleEntity;->setEnabled(Z)V
 
     .line 100
-    :cond_2
+    :cond_cf
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_d0
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6e
+        :pswitch_6b
+        :pswitch_68
     .end packed-switch
 .end method
 
 .method public final setApps(Lio/nekohasekai/sagernet/widget/AppListPreference;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/widget/AppListPreference;
 
     const-string v0, "<set-?>"
@@ -1913,7 +1913,7 @@
 .end method
 
 .method public final setOutbound(Lio/nekohasekai/sagernet/widget/OutboundPreference;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/widget/OutboundPreference;
 
     const-string v0, "<set-?>"
@@ -1927,7 +1927,7 @@
 .end method
 
 .method public final viewCreated(Landroidx/preference/PreferenceFragmentCompat;Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 6
     .param p1, "$this$viewCreated"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;

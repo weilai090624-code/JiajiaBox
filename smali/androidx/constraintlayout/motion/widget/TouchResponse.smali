@@ -121,38 +121,38 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .registers 13
 
     .line 67
     const/4 v0, 0x2
 
     new-array v1, v0, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_6c
 
     new-array v2, v0, [F
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_74
 
     new-array v3, v0, [F
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_7c
 
     new-array v4, v0, [F
 
-    fill-array-data v4, :array_3
+    fill-array-data v4, :array_84
 
     new-array v5, v0, [F
 
-    fill-array-data v5, :array_4
+    fill-array-data v5, :array_8c
 
     new-array v6, v0, [F
 
-    fill-array-data v6, :array_5
+    fill-array-data v6, :array_94
 
     new-array v7, v0, [F
 
-    fill-array-data v7, :array_6
+    fill-array-data v7, :array_9c
 
     const/4 v8, 0x7
 
@@ -189,27 +189,27 @@
     .line 76
     new-array v6, v0, [F
 
-    fill-array-data v6, :array_7
+    fill-array-data v6, :array_a4
 
     new-array v7, v0, [F
 
-    fill-array-data v7, :array_8
+    fill-array-data v7, :array_ac
 
     new-array v8, v0, [F
 
-    fill-array-data v8, :array_9
+    fill-array-data v8, :array_b4
 
     new-array v10, v0, [F
 
-    fill-array-data v10, :array_a
+    fill-array-data v10, :array_bc
 
     new-array v11, v0, [F
 
-    fill-array-data v11, :array_b
+    fill-array-data v11, :array_c4
 
     new-array v12, v0, [F
 
-    fill-array-data v12, :array_c
+    fill-array-data v12, :array_cc
 
     new-array v5, v5, [[F
 
@@ -229,79 +229,79 @@
 
     return-void
 
-    :array_0
+    :array_6c
     .array-data 4
         0x3f000000    # 0.5f
         0x0
     .end array-data
 
-    :array_1
+    :array_74
     .array-data 4
         0x0
         0x3f000000    # 0.5f
     .end array-data
 
-    :array_2
+    :array_7c
     .array-data 4
         0x3f800000    # 1.0f
         0x3f000000    # 0.5f
     .end array-data
 
-    :array_3
+    :array_84
     .array-data 4
         0x3f000000    # 0.5f
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_4
+    :array_8c
     .array-data 4
         0x3f000000    # 0.5f
         0x3f000000    # 0.5f
     .end array-data
 
-    :array_5
+    :array_94
     .array-data 4
         0x0
         0x3f000000    # 0.5f
     .end array-data
 
-    :array_6
+    :array_9c
     .array-data 4
         0x3f800000    # 1.0f
         0x3f000000    # 0.5f
     .end array-data
 
-    :array_7
+    :array_a4
     .array-data 4
         0x0
         -0x40800000    # -1.0f
     .end array-data
 
-    :array_8
+    :array_ac
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_9
+    :array_b4
     .array-data 4
         -0x40800000    # -1.0f
         0x0
     .end array-data
 
-    :array_a
+    :array_bc
     .array-data 4
         0x3f800000    # 1.0f
         0x0
     .end array-data
 
-    :array_b
+    :array_c4
     .array-data 4
         -0x40800000    # -1.0f
         0x0
     .end array-data
 
-    :array_c
+    :array_cc
     .array-data 4
         0x3f800000    # 1.0f
         0x0
@@ -309,7 +309,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroidx/constraintlayout/motion/widget/MotionLayout;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 4
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "layout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .param p3, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
@@ -457,7 +457,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/constraintlayout/motion/widget/MotionLayout;Landroidx/constraintlayout/motion/widget/OnSwipe;)V
-    .locals 5
+    .registers 8
     .param p1, "layout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .param p2, "onSwipe"    # Landroidx/constraintlayout/motion/widget/OnSwipe;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -607,7 +607,7 @@
     .line 127
     iget v4, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorSide:I
 
-    if-eq v4, v1, :cond_0
+    if-eq v4, v1, :cond_79
 
     .line 128
     sget-object v1, Landroidx/constraintlayout/motion/widget/TouchResponse;->TOUCH_SIDES:[[F
@@ -632,7 +632,7 @@
     iput v1, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorY:F
 
     .line 131
-    :cond_0
+    :cond_79
     invoke-virtual {p2}, Landroidx/constraintlayout/motion/widget/OnSwipe;->getDragDirection()I
 
     move-result v1
@@ -646,7 +646,7 @@
 
     array-length v4, v4
 
-    if-ge v1, v4, :cond_1
+    if-ge v1, v4, :cond_9b
 
     .line 133
     sget-object v1, Landroidx/constraintlayout/motion/widget/TouchResponse;->TOUCH_DIRECTION:[[F
@@ -670,10 +670,10 @@
 
     iput v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionY:F
 
-    goto :goto_0
+    goto :goto_a1
 
     .line 136
-    :cond_1
+    :cond_9b
     iput v2, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionY:F
 
     iput v2, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionX:F
@@ -682,7 +682,7 @@
     iput-boolean v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mIsRotateMode:Z
 
     .line 139
-    :goto_0
+    :goto_a1
     invoke-virtual {p2}, Landroidx/constraintlayout/motion/widget/OnSwipe;->getMaxVelocity()F
 
     move-result v0
@@ -799,7 +799,7 @@
 .end method
 
 .method private fill(Landroid/content/res/TypedArray;)V
-    .locals 7
+    .registers 9
     .param p1, "a"    # Landroid/content/res/TypedArray;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -820,8 +820,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_14
+    :goto_5
+    if-ge v1, v0, :cond_146
 
     .line 188
     invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -832,7 +832,7 @@
     .local v2, "attr":I
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_touchAnchorId:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_19
 
     .line 190
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorId:I
@@ -843,17 +843,17 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorId:I
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 191
-    :cond_0
+    :cond_19
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_touchAnchorSide:I
 
     const/4 v4, 0x1
 
     const/4 v5, 0x0
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_3d
 
     .line 192
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorSide:I
@@ -886,13 +886,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorY:F
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 195
-    :cond_1
+    :cond_3d
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_dragDirection:I
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_70
 
     .line 196
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchSide:I
@@ -910,7 +910,7 @@
 
     array-length v6, v6
 
-    if-ge v3, v6, :cond_2
+    if-ge v3, v6, :cond_66
 
     .line 198
     sget-object v3, Landroidx/constraintlayout/motion/widget/TouchResponse;->TOUCH_DIRECTION:[[F
@@ -934,10 +934,10 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionY:F
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 201
-    :cond_2
+    :cond_66
     const/high16 v3, 0x7fc00000    # Float.NaN
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionY:F
@@ -947,13 +947,13 @@
     .line 202
     iput-boolean v4, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mIsRotateMode:Z
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 204
-    :cond_3
+    :cond_70
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_maxVelocity:I
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_7e
 
     .line 205
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMaxVelocity:F
@@ -964,13 +964,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMaxVelocity:F
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 206
-    :cond_4
+    :cond_7e
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_maxAcceleration:I
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_8c
 
     .line 207
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMaxAcceleration:F
@@ -981,13 +981,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMaxAcceleration:F
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 208
-    :cond_5
+    :cond_8c
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_moveWhenScrollAtTop:I
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_9a
 
     .line 209
     iget-boolean v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMoveWhenScrollAtTop:Z
@@ -998,13 +998,13 @@
 
     iput-boolean v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMoveWhenScrollAtTop:Z
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 210
-    :cond_6
+    :cond_9a
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_dragScale:I
 
-    if-ne v2, v3, :cond_7
+    if-ne v2, v3, :cond_a8
 
     .line 211
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragScale:F
@@ -1015,13 +1015,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragScale:F
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 212
-    :cond_7
+    :cond_a8
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_dragThreshold:I
 
-    if-ne v2, v3, :cond_8
+    if-ne v2, v3, :cond_b6
 
     .line 213
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragThreshold:F
@@ -1032,13 +1032,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragThreshold:F
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 214
-    :cond_8
+    :cond_b6
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_touchRegionId:I
 
-    if-ne v2, v3, :cond_9
+    if-ne v2, v3, :cond_c4
 
     .line 215
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchRegionId:I
@@ -1049,13 +1049,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchRegionId:I
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 216
-    :cond_9
+    :cond_c4
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_onTouchUp:I
 
-    if-ne v2, v3, :cond_a
+    if-ne v2, v3, :cond_d2
 
     .line 217
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
@@ -1066,13 +1066,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
 
-    goto/16 :goto_1
+    goto/16 :goto_142
 
     .line 218
-    :cond_a
+    :cond_d2
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_nestedScrollFlags:I
 
-    if-ne v2, v3, :cond_b
+    if-ne v2, v3, :cond_dd
 
     .line 219
     invoke-virtual {p1, v2, v5}, Landroid/content/res/TypedArray;->getInteger(II)I
@@ -1081,13 +1081,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mFlags:I
 
-    goto :goto_1
+    goto :goto_142
 
     .line 220
-    :cond_b
+    :cond_dd
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_limitBoundsTo:I
 
-    if-ne v2, v3, :cond_c
+    if-ne v2, v3, :cond_e8
 
     .line 221
     invoke-virtual {p1, v2, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1096,13 +1096,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mLimitBoundsTo:I
 
-    goto :goto_1
+    goto :goto_142
 
     .line 222
-    :cond_c
+    :cond_e8
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_rotationCenterId:I
 
-    if-ne v2, v3, :cond_d
+    if-ne v2, v3, :cond_f5
 
     .line 223
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mRotationCenterId:I
@@ -1113,13 +1113,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mRotationCenterId:I
 
-    goto :goto_1
+    goto :goto_142
 
     .line 224
-    :cond_d
+    :cond_f5
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_springDamping:I
 
-    if-ne v2, v3, :cond_e
+    if-ne v2, v3, :cond_102
 
     .line 225
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringDamping:F
@@ -1130,13 +1130,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringDamping:F
 
-    goto :goto_1
+    goto :goto_142
 
     .line 226
-    :cond_e
+    :cond_102
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_springMass:I
 
-    if-ne v2, v3, :cond_f
+    if-ne v2, v3, :cond_10f
 
     .line 227
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringMass:F
@@ -1147,13 +1147,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringMass:F
 
-    goto :goto_1
+    goto :goto_142
 
     .line 228
-    :cond_f
+    :cond_10f
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_springStiffness:I
 
-    if-ne v2, v3, :cond_10
+    if-ne v2, v3, :cond_11c
 
     .line 229
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringStiffness:F
@@ -1164,13 +1164,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringStiffness:F
 
-    goto :goto_1
+    goto :goto_142
 
     .line 230
-    :cond_10
+    :cond_11c
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_springStopThreshold:I
 
-    if-ne v2, v3, :cond_11
+    if-ne v2, v3, :cond_129
 
     .line 231
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringStopThreshold:F
@@ -1181,13 +1181,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringStopThreshold:F
 
-    goto :goto_1
+    goto :goto_142
 
     .line 232
-    :cond_11
+    :cond_129
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_springBoundary:I
 
-    if-ne v2, v3, :cond_12
+    if-ne v2, v3, :cond_136
 
     .line 233
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringBoundary:I
@@ -1198,13 +1198,13 @@
 
     iput v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringBoundary:I
 
-    goto :goto_1
+    goto :goto_142
 
     .line 234
-    :cond_12
+    :cond_136
     sget v3, Landroidx/constraintlayout/widget/R$styleable;->OnSwipe_autoCompleteMode:I
 
-    if-ne v2, v3, :cond_13
+    if-ne v2, v3, :cond_142
 
     .line 235
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAutoCompleteMode:I
@@ -1217,20 +1217,20 @@
 
     .line 187
     .end local v2    # "attr":I
-    :cond_13
-    :goto_1
+    :cond_142
+    :goto_142
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_5
 
     .line 239
     .end local v1    # "i":I
-    :cond_14
+    :cond_146
     return-void
 .end method
 
 .method private fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1265,7 +1265,7 @@
 
 # virtual methods
 .method dot(FF)F
-    .locals 2
+    .registers 5
     .param p1, "dx"    # F
     .param p2, "dy"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1294,7 +1294,7 @@
 .end method
 
 .method public getAnchorId()I
-    .locals 1
+    .registers 2
 
     .line 702
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorId:I
@@ -1303,7 +1303,7 @@
 .end method
 
 .method public getAutoCompleteMode()I
-    .locals 1
+    .registers 2
 
     .line 760
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAutoCompleteMode:I
@@ -1312,7 +1312,7 @@
 .end method
 
 .method public getFlags()I
-    .locals 1
+    .registers 2
 
     .line 834
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mFlags:I
@@ -1321,7 +1321,7 @@
 .end method
 
 .method getLimitBoundsTo(Landroid/view/ViewGroup;Landroid/graphics/RectF;)Landroid/graphics/RectF;
-    .locals 5
+    .registers 8
     .param p1, "layout"    # Landroid/view/ViewGroup;
     .param p2, "rect"    # Landroid/graphics/RectF;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1342,13 +1342,13 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     .line 806
     return-object v2
 
     .line 808
-    :cond_0
+    :cond_7
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mLimitBoundsTo:I
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
@@ -1357,13 +1357,13 @@
 
     .line 809
     .local v0, "view":Landroid/view/View;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     .line 810
     return-object v2
 
     .line 812
-    :cond_1
+    :cond_10
     invoke-virtual {v0}, Landroid/view/View;->getLeft()I
 
     move-result v1
@@ -1395,7 +1395,7 @@
 .end method
 
 .method getLimitBoundsToId()I
-    .locals 1
+    .registers 2
 
     .line 817
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mLimitBoundsTo:I
@@ -1404,7 +1404,7 @@
 .end method
 
 .method getMaxAcceleration()F
-    .locals 1
+    .registers 2
 
     .line 737
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMaxAcceleration:F
@@ -1413,7 +1413,7 @@
 .end method
 
 .method public getMaxVelocity()F
-    .locals 1
+    .registers 2
 
     .line 747
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMaxVelocity:F
@@ -1422,7 +1422,7 @@
 .end method
 
 .method getMoveWhenScrollAtTop()Z
-    .locals 1
+    .registers 2
 
     .line 751
     iget-boolean v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMoveWhenScrollAtTop:Z
@@ -1431,7 +1431,7 @@
 .end method
 
 .method getProgressDirection(FF)F
-    .locals 7
+    .registers 10
     .param p1, "dx"    # F
     .param p2, "dy"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1477,7 +1477,7 @@
 
     cmpl-float v1, v1, v3
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_35
 
     .line 592
     iget-object v1, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
@@ -1488,7 +1488,7 @@
 
     cmpl-float v1, v1, v3
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2b
 
     .line 593
     iget-object v1, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
@@ -1496,7 +1496,7 @@
     aput v2, v1, v4
 
     .line 595
-    :cond_0
+    :cond_2b
     iget v1, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionX:F
 
     mul-float v1, v1, p1
@@ -1508,11 +1508,11 @@
     div-float/2addr v1, v2
 
     .local v1, "velocity":F
-    goto :goto_0
+    goto :goto_4b
 
     .line 597
     .end local v1    # "velocity":F
-    :cond_1
+    :cond_35
     iget-object v1, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
 
     const/4 v4, 0x1
@@ -1521,7 +1521,7 @@
 
     cmpl-float v1, v1, v3
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_42
 
     .line 598
     iget-object v1, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
@@ -1529,7 +1529,7 @@
     aput v2, v1, v4
 
     .line 600
-    :cond_2
+    :cond_42
     iget v1, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionY:F
 
     mul-float v1, v1, p2
@@ -1542,12 +1542,12 @@
 
     .line 602
     .restart local v1    # "velocity":F
-    :goto_0
+    :goto_4b
     return v1
 .end method
 
 .method public getSpringBoundary()I
-    .locals 1
+    .registers 2
 
     .line 885
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringBoundary:I
@@ -1556,7 +1556,7 @@
 .end method
 
 .method public getSpringDamping()F
-    .locals 1
+    .registers 2
 
     .line 865
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringDamping:F
@@ -1565,7 +1565,7 @@
 .end method
 
 .method public getSpringMass()F
-    .locals 1
+    .registers 2
 
     .line 856
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringMass:F
@@ -1574,7 +1574,7 @@
 .end method
 
 .method public getSpringStiffness()F
-    .locals 1
+    .registers 2
 
     .line 847
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringStiffness:F
@@ -1583,7 +1583,7 @@
 .end method
 
 .method public getSpringStopThreshold()F
-    .locals 1
+    .registers 2
 
     .line 873
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mSpringStopThreshold:F
@@ -1592,7 +1592,7 @@
 .end method
 
 .method getTouchRegion(Landroid/view/ViewGroup;Landroid/graphics/RectF;)Landroid/graphics/RectF;
-    .locals 5
+    .registers 8
     .param p1, "layout"    # Landroid/view/ViewGroup;
     .param p2, "rect"    # Landroid/graphics/RectF;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1613,13 +1613,13 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     .line 782
     return-object v2
 
     .line 784
-    :cond_0
+    :cond_7
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchRegionId:I
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
@@ -1628,13 +1628,13 @@
 
     .line 785
     .local v0, "view":Landroid/view/View;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     .line 786
     return-object v2
 
     .line 788
-    :cond_1
+    :cond_10
     invoke-virtual {v0}, Landroid/view/View;->getLeft()I
 
     move-result v1
@@ -1666,7 +1666,7 @@
 .end method
 
 .method getTouchRegionId()I
-    .locals 1
+    .registers 2
 
     .line 793
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchRegionId:I
@@ -1675,7 +1675,7 @@
 .end method
 
 .method isDragStarted()Z
-    .locals 1
+    .registers 2
 
     .line 889
     iget-boolean v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragStarted:Z
@@ -1684,7 +1684,7 @@
 .end method
 
 .method processTouchEvent(Landroid/view/MotionEvent;Landroidx/constraintlayout/motion/widget/MotionLayout$MotionTracker;ILandroidx/constraintlayout/motion/widget/MotionScene;)V
-    .locals 21
+    .registers 26
     .param p1, "event"    # Landroid/view/MotionEvent;
     .param p2, "velocityTracker"    # Landroidx/constraintlayout/motion/widget/MotionLayout$MotionTracker;
     .param p3, "currentState"    # I
@@ -1711,7 +1711,7 @@
 
     iget-boolean v2, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mIsRotateMode:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     .line 413
     invoke-virtual/range {p0 .. p4}, Landroidx/constraintlayout/motion/widget/TouchResponse;->processTouchRotateEvent(Landroid/view/MotionEvent;Landroidx/constraintlayout/motion/widget/MotionLayout$MotionTracker;ILandroidx/constraintlayout/motion/widget/MotionScene;)V
@@ -1720,7 +1720,7 @@
     return-void
 
     .line 416
-    :cond_0
+    :cond_c
     move-object/from16 v2, p1
 
     invoke-interface {v1, v2}, Landroidx/constraintlayout/motion/widget/MotionLayout$MotionTracker;->addMovement(Landroid/view/MotionEvent;)V
@@ -1740,12 +1740,12 @@
 
     const/4 v11, 0x0
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_23e
 
-    goto/16 :goto_a
+    goto/16 :goto_23c
 
     .line 424
-    :pswitch_0
+    :pswitch_20
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawY()F
 
     move-result v3
@@ -1786,14 +1786,14 @@
 
     cmpl-float v14, v14, v15
 
-    if-gtz v14, :cond_1
+    if-gtz v14, :cond_45
 
     iget-boolean v14, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragStarted:Z
 
-    if-eqz v14, :cond_19
+    if-eqz v14, :cond_23c
 
     .line 435
-    :cond_1
+    :cond_45
     iget-object v14, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     invoke-virtual {v14}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getProgress()F
@@ -1804,7 +1804,7 @@
     .local v14, "pos":F
     iget-boolean v15, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragStarted:Z
 
-    if-nez v15, :cond_2
+    if-nez v15, :cond_56
 
     .line 437
     iput-boolean v9, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragStarted:Z
@@ -1815,10 +1815,10 @@
     invoke-virtual {v15, v14}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setProgress(F)V
 
     .line 443
-    :cond_2
+    :cond_56
     iget v15, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorId:I
 
-    if-eq v15, v6, :cond_3
+    if-eq v15, v6, :cond_72
 
     .line 445
     iget-object v15, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -1843,10 +1843,10 @@
 
     invoke-virtual/range {v15 .. v20}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getAnchorDpDt(IFFF[F)V
 
-    goto :goto_0
+    goto :goto_93
 
     .line 453
-    :cond_3
+    :cond_72
     iget-object v4, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     invoke-virtual {v4}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getWidth()I
@@ -1886,7 +1886,7 @@
 
     .line 458
     .end local v4    # "minSize":F
-    :goto_0
+    :goto_93
     iget v4, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionX:F
 
     iget-object v5, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
@@ -1924,7 +1924,7 @@
 
     cmpg-double v17, v5, v15
 
-    if-gez v17, :cond_4
+    if-gez v17, :cond_c1
 
     .line 469
     iget-object v5, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
@@ -1937,12 +1937,12 @@
     aput v7, v5, v9
 
     .line 474
-    :cond_4
+    :cond_c1
     iget v5, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionX:F
 
     cmpl-float v5, v5, v11
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_ce
 
     .line 475
     iget-object v5, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
@@ -1952,11 +1952,11 @@
     div-float v5, v12, v5
 
     .local v5, "change":F
-    goto :goto_1
+    goto :goto_d4
 
     .line 477
     .end local v5    # "change":F
-    :cond_5
+    :cond_ce
     iget-object v5, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
 
     aget v5, v5, v9
@@ -1965,7 +1965,7 @@
 
     .line 483
     .restart local v5    # "change":F
-    :goto_1
+    :goto_d4
     add-float v6, v14, v5
 
     invoke-static {v6, v8}, Ljava/lang/Math;->min(FF)F
@@ -1983,7 +1983,7 @@
 
     const/4 v15, 0x6
 
-    if-ne v14, v15, :cond_6
+    if-ne v14, v15, :cond_e7
 
     .line 486
     invoke-static {v6, v7}, Ljava/lang/Math;->max(FF)F
@@ -1991,12 +1991,12 @@
     move-result v6
 
     .line 488
-    :cond_6
+    :cond_e7
     iget v7, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
 
     const/4 v14, 0x7
 
-    if-ne v7, v14, :cond_7
+    if-ne v7, v14, :cond_f3
 
     .line 489
     const v7, 0x3f7d70a4    # 0.99f
@@ -2006,7 +2006,7 @@
     move-result v6
 
     .line 492
-    :cond_7
+    :cond_f3
     iget-object v7, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     invoke-virtual {v7}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getProgress()F
@@ -2017,37 +2017,37 @@
     .local v7, "current":F
     cmpl-float v14, v6, v7
 
-    if-eqz v14, :cond_c
+    if-eqz v14, :cond_13b
 
     .line 494
     cmpl-float v14, v7, v11
 
-    if-eqz v14, :cond_8
+    if-eqz v14, :cond_105
 
     cmpl-float v8, v7, v8
 
-    if-nez v8, :cond_a
+    if-nez v8, :cond_111
 
     .line 495
-    :cond_8
+    :cond_105
     iget-object v8, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     cmpl-float v14, v7, v11
 
-    if-nez v14, :cond_9
+    if-nez v14, :cond_10d
 
     const/4 v14, 0x1
 
-    goto :goto_2
+    goto :goto_10e
 
-    :cond_9
+    :cond_10d
     const/4 v14, 0x0
 
-    :goto_2
+    :goto_10e
     invoke-virtual {v8, v14}, Landroidx/constraintlayout/motion/widget/MotionLayout;->endTrigger(Z)V
 
     .line 497
-    :cond_a
+    :cond_111
     iget-object v8, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     invoke-virtual {v8, v6}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setProgress(F)V
@@ -2074,7 +2074,7 @@
 
     cmpl-float v11, v15, v11
 
-    if-eqz v11, :cond_b
+    if-eqz v11, :cond_130
 
     iget-object v9, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
 
@@ -2082,9 +2082,9 @@
 
     div-float v9, v8, v9
 
-    goto :goto_3
+    goto :goto_136
 
-    :cond_b
+    :cond_130
     iget-object v10, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
 
     aget v9, v10, v9
@@ -2093,7 +2093,7 @@
 
     .line 505
     .local v9, "velocity":F
-    :goto_3
+    :goto_136
     iget-object v10, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iput v9, v10, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastVelocity:F
@@ -2102,16 +2102,16 @@
     .end local v8    # "tvx":F
     .end local v9    # "velocity":F
     .end local v14    # "tvy":F
-    goto :goto_4
+    goto :goto_13f
 
     .line 507
-    :cond_c
+    :cond_13b
     iget-object v8, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iput v11, v8, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastVelocity:F
 
     .line 509
-    :goto_4
+    :goto_13f
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v8
@@ -2130,13 +2130,13 @@
     .end local v5    # "change":F
     .end local v6    # "pos":F
     .end local v7    # "current":F
-    goto/16 :goto_a
+    goto/16 :goto_23c
 
     .line 514
     .end local v3    # "dy":F
     .end local v12    # "dx":F
     .end local v13    # "drag":F
-    :pswitch_1
+    :pswitch_14d
     iput-boolean v10, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragStarted:Z
 
     .line 515
@@ -2171,7 +2171,7 @@
     .local v7, "pos":F
     iget v12, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorId:I
 
-    if-eq v12, v6, :cond_d
+    if-eq v12, v6, :cond_17a
 
     .line 525
     iget-object v12, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -2192,10 +2192,10 @@
 
     invoke-virtual/range {v12 .. v17}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getAnchorDpDt(IFFF[F)V
 
-    goto :goto_5
+    goto :goto_19b
 
     .line 527
-    :cond_d
+    :cond_17a
     iget-object v6, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     invoke-virtual {v6}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getWidth()I
@@ -2235,7 +2235,7 @@
 
     .line 531
     .end local v6    # "minSize":F
-    :goto_5
+    :goto_19b
     iget v6, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionX:F
 
     iget-object v12, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
@@ -2260,7 +2260,7 @@
 
     cmpl-float v12, v12, v11
 
-    if-eqz v12, :cond_e
+    if-eqz v12, :cond_1b9
 
     .line 534
     iget-object v9, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
@@ -2270,11 +2270,11 @@
     div-float v9, v3, v9
 
     .restart local v9    # "velocity":F
-    goto :goto_6
+    goto :goto_1bf
 
     .line 536
     .end local v9    # "velocity":F
-    :cond_e
+    :cond_1b9
     iget-object v10, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
 
     aget v9, v10, v9
@@ -2283,12 +2283,12 @@
 
     .line 544
     .restart local v9    # "velocity":F
-    :goto_6
+    :goto_1bf
     invoke-static {v9}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v10
 
-    if-nez v10, :cond_f
+    if-nez v10, :cond_1ca
 
     .line 545
     const/high16 v10, 0x40400000    # 3.0f
@@ -2298,20 +2298,20 @@
     add-float/2addr v7, v10
 
     .line 547
-    :cond_f
+    :cond_1ca
     cmpl-float v10, v7, v11
 
-    if-eqz v10, :cond_16
+    if-eqz v10, :cond_21b
 
     cmpl-float v10, v7, v8
 
-    if-eqz v10, :cond_16
+    if-eqz v10, :cond_21b
 
     iget v10, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
 
     const/4 v12, 0x3
 
-    if-eq v10, v12, :cond_16
+    if-eq v10, v12, :cond_21b
 
     .line 548
     float-to-double v12, v7
@@ -2320,30 +2320,30 @@
 
     cmpg-double v10, v12, v14
 
-    if-gez v10, :cond_10
+    if-gez v10, :cond_1e0
 
     const/4 v10, 0x0
 
-    goto :goto_7
+    goto :goto_1e2
 
-    :cond_10
+    :cond_1e0
     const/high16 v10, 0x3f800000    # 1.0f
 
     .line 550
     .local v10, "target":F
-    :goto_7
+    :goto_1e2
     iget v12, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
 
     const/4 v13, 0x6
 
-    if-ne v12, v13, :cond_12
+    if-ne v12, v13, :cond_1f3
 
     .line 551
     add-float v12, v5, v9
 
     cmpg-float v12, v12, v11
 
-    if-gez v12, :cond_11
+    if-gez v12, :cond_1f1
 
     .line 552
     invoke-static {v9}, Ljava/lang/Math;->abs(F)F
@@ -2351,23 +2351,23 @@
     move-result v9
 
     .line 554
-    :cond_11
+    :cond_1f1
     const/high16 v10, 0x3f800000    # 1.0f
 
     .line 556
-    :cond_12
+    :cond_1f3
     iget v12, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
 
     const/4 v13, 0x7
 
-    if-ne v12, v13, :cond_14
+    if-ne v12, v13, :cond_204
 
     .line 557
     add-float v12, v5, v9
 
     cmpl-float v12, v12, v8
 
-    if-lez v12, :cond_13
+    if-lez v12, :cond_203
 
     .line 558
     invoke-static {v9}, Ljava/lang/Math;->abs(F)F
@@ -2377,11 +2377,11 @@
     neg-float v9, v12
 
     .line 560
-    :cond_13
+    :cond_203
     const/4 v10, 0x0
 
     .line 563
-    :cond_14
+    :cond_204
     iget-object v12, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iget v13, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
@@ -2391,49 +2391,49 @@
     .line 564
     cmpl-float v11, v11, v5
 
-    if-gez v11, :cond_15
+    if-gez v11, :cond_213
 
     cmpg-float v8, v8, v5
 
-    if-gtz v8, :cond_17
+    if-gtz v8, :cond_224
 
     .line 565
-    :cond_15
+    :cond_213
     iget-object v8, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     sget-object v11, Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;->FINISHED:Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;
 
     invoke-virtual {v8, v11}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setState(Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;)V
 
-    goto :goto_8
+    goto :goto_224
 
     .line 567
     .end local v10    # "target":F
-    :cond_16
+    :cond_21b
     cmpl-float v10, v11, v7
 
-    if-gez v10, :cond_18
+    if-gez v10, :cond_225
 
     cmpg-float v8, v8, v7
 
-    if-gtz v8, :cond_17
+    if-gtz v8, :cond_224
 
-    goto :goto_9
+    goto :goto_225
 
-    :cond_17
-    :goto_8
-    goto :goto_a
+    :cond_224
+    :goto_224
+    goto :goto_23c
 
     .line 568
-    :cond_18
-    :goto_9
+    :cond_225
+    :goto_225
     iget-object v8, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     sget-object v10, Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;->FINISHED:Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;
 
     invoke-virtual {v8, v10}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setState(Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;)V
 
-    goto :goto_a
+    goto :goto_23c
 
     .line 419
     .end local v3    # "tvx":F
@@ -2442,7 +2442,7 @@
     .end local v6    # "movmentInDir":F
     .end local v7    # "pos":F
     .end local v9    # "velocity":F
-    :pswitch_2
+    :pswitch_22d
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v3
@@ -2463,22 +2463,22 @@
     nop
 
     .line 573
-    :cond_19
-    :goto_a
+    :cond_23c
+    :goto_23c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_23e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_22d
+        :pswitch_14d
+        :pswitch_20
     .end packed-switch
 .end method
 
 .method processTouchRotateEvent(Landroid/view/MotionEvent;Landroidx/constraintlayout/motion/widget/MotionLayout$MotionTracker;ILandroidx/constraintlayout/motion/widget/MotionScene;)V
-    .locals 28
+    .registers 33
     .param p1, "event"    # Landroid/view/MotionEvent;
     .param p2, "velocityTracker"    # Landroidx/constraintlayout/motion/widget/MotionLayout$MotionTracker;
     .param p3, "currentState"    # I
@@ -2522,12 +2522,12 @@
 
     const/4 v10, 0x1
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_3a6
 
-    goto/16 :goto_9
+    goto/16 :goto_3a4
 
     .line 264
-    :pswitch_0
+    :pswitch_19
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawY()F
 
     move-result v3
@@ -2574,7 +2574,7 @@
     .local v13, "rcy":F
     iget v14, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mRotationCenterId:I
 
-    if-eq v14, v5, :cond_1
+    if-eq v14, v5, :cond_71
 
     .line 272
     iget-object v14, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -2641,13 +2641,13 @@
 
     .line 276
     .end local v14    # "v":Landroid/view/View;
-    :cond_0
-    goto :goto_0
+    :cond_70
+    goto :goto_be
 
-    :cond_1
+    :cond_71
     iget v8, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorId:I
 
-    if-eq v8, v5, :cond_0
+    if-eq v8, v5, :cond_70
 
     .line 277
     iget-object v8, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -2672,7 +2672,7 @@
 
     .line 279
     .restart local v14    # "v":Landroid/view/View;
-    if-nez v14, :cond_2
+    if-nez v14, :cond_91
 
     .line 280
     const-string v9, "TouchResponse"
@@ -2681,10 +2681,10 @@
 
     invoke-static {v9, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_be
 
     .line 282
-    :cond_2
+    :cond_91
     iget-object v15, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iget-object v6, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTempLoc:[I
@@ -2740,7 +2740,7 @@
     .line 287
     .end local v8    # "mc":Landroidx/constraintlayout/motion/widget/MotionController;
     .end local v14    # "v":Landroid/view/View;
-    :goto_0
+    :goto_be
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v6
@@ -2823,27 +2823,27 @@
 
     cmpl-float v14, v9, v14
 
-    if-lez v14, :cond_3
+    if-lez v14, :cond_101
 
     .line 294
     sub-float/2addr v9, v4
 
-    goto :goto_1
+    goto :goto_108
 
     .line 295
-    :cond_3
+    :cond_101
     const/high16 v14, -0x3c5b0000    # -330.0f
 
     cmpg-float v14, v9, v14
 
-    if-gez v14, :cond_4
+    if-gez v14, :cond_108
 
     .line 296
     add-float/2addr v9, v4
 
     .line 299
-    :cond_4
-    :goto_1
+    :cond_108
+    :goto_108
     invoke-static {v9}, Ljava/lang/Math;->abs(F)F
 
     move-result v14
@@ -2854,14 +2854,14 @@
 
     cmpl-double v24, v14, v22
 
-    if-gtz v24, :cond_5
+    if-gtz v24, :cond_11a
 
     iget-boolean v14, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragStarted:Z
 
-    if-eqz v14, :cond_19
+    if-eqz v14, :cond_3a4
 
     .line 300
-    :cond_5
+    :cond_11a
     iget-object v14, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     invoke-virtual {v14}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getProgress()F
@@ -2872,7 +2872,7 @@
     .local v14, "pos":F
     iget-boolean v15, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragStarted:Z
 
-    if-nez v15, :cond_6
+    if-nez v15, :cond_12b
 
     .line 302
     iput-boolean v10, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragStarted:Z
@@ -2883,12 +2883,12 @@
     invoke-virtual {v15, v14}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setProgress(F)V
 
     .line 305
-    :cond_6
+    :cond_12b
     iget v15, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorId:I
 
     const/4 v4, -0x1
 
-    if-eq v15, v4, :cond_7
+    if-eq v15, v4, :cond_15e
 
     .line 306
     iget-object v4, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -2944,14 +2944,14 @@
 
     aput v3, v2, v4
 
-    goto :goto_2
+    goto :goto_169
 
     .line 309
     .end local v20    # "dy":F
     .end local v23    # "angle2":D
     .restart local v3    # "dy":F
     .restart local v5    # "angle2":D
-    :cond_7
+    :cond_15e
     move/from16 v20, v3
 
     move-wide/from16 v23, v5
@@ -2969,7 +2969,7 @@
     aput v3, v2, v4
 
     .line 311
-    :goto_2
+    :goto_169
     iget v2, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragScale:F
 
     mul-float v2, v2, v9
@@ -3009,41 +3009,41 @@
     .local v5, "current":F
     cmpl-float v6, v3, v5
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_1e5
 
     .line 317
     cmpl-float v6, v5, v4
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_193
 
     const/high16 v4, 0x3f800000    # 1.0f
 
     cmpl-float v4, v5, v4
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_1a0
 
     .line 318
-    :cond_8
+    :cond_193
     iget-object v4, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     const/4 v6, 0x0
 
     cmpl-float v6, v5, v6
 
-    if-nez v6, :cond_9
+    if-nez v6, :cond_19c
 
     const/4 v6, 0x1
 
-    goto :goto_3
+    goto :goto_19d
 
-    :cond_9
+    :cond_19c
     const/4 v6, 0x0
 
-    :goto_3
+    :goto_19d
     invoke-virtual {v4, v6}, Landroidx/constraintlayout/motion/widget/MotionLayout;->endTrigger(Z)V
 
     .line 320
-    :cond_a
+    :cond_1a0
     iget-object v4, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     invoke-virtual {v4, v3}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setProgress(F)V
@@ -3150,7 +3150,7 @@
     .end local v2    # "angularVelocity":F
     .end local v4    # "tvx":F
     .end local v16    # "tvy":F
-    goto :goto_4
+    goto :goto_1f3
 
     .line 327
     .end local v10    # "change":F
@@ -3162,7 +3162,7 @@
     .local v5, "current":F
     .restart local v7    # "angle1":D
     .restart local v19    # "relativePosY":F
-    :cond_b
+    :cond_1e5
     move v10, v2
 
     move/from16 v17, v3
@@ -3189,7 +3189,7 @@
     iput v3, v2, Landroidx/constraintlayout/motion/widget/MotionLayout;->mLastVelocity:F
 
     .line 329
-    :goto_4
+    :goto_1f3
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v2
@@ -3207,7 +3207,7 @@
     .end local v10    # "change":F
     .end local v17    # "pos":F
     .end local v22    # "current":F
-    goto/16 :goto_9
+    goto/16 :goto_3a4
 
     .line 335
     .end local v5    # "relativePosY":F
@@ -3219,7 +3219,7 @@
     .end local v21    # "relativePosX":F
     .end local v23    # "angle2":D
     .end local v25    # "angle1":D
-    :pswitch_1
+    :pswitch_201
     const/4 v2, 0x0
 
     iput-boolean v2, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragStarted:Z
@@ -3282,7 +3282,7 @@
 
     const/4 v10, -0x1
 
-    if-eq v8, v10, :cond_c
+    if-eq v8, v10, :cond_263
 
     .line 345
     iget-object v8, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -3352,15 +3352,15 @@
     add-float v7, v10, v11
 
     .end local v8    # "v":Landroid/view/View;
-    goto :goto_5
+    goto :goto_2a8
 
     .line 349
-    :cond_c
+    :cond_263
     iget v8, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorId:I
 
     const/4 v10, -0x1
 
-    if-eq v8, v10, :cond_d
+    if-eq v8, v10, :cond_2a8
 
     .line 350
     iget-object v8, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -3441,17 +3441,17 @@
 
     add-float v7, v11, v12
 
-    goto :goto_6
+    goto :goto_2a9
 
     .line 349
     .end local v8    # "mc":Landroidx/constraintlayout/motion/widget/MotionController;
     .end local v10    # "v":Landroid/view/View;
-    :cond_d
-    :goto_5
+    :cond_2a8
+    :goto_2a8
     nop
 
     .line 356
-    :goto_6
+    :goto_2a9
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v8
@@ -3486,7 +3486,7 @@
 
     const/4 v11, -0x1
 
-    if-eq v10, v11, :cond_e
+    if-eq v10, v11, :cond_2e0
 
     .line 361
     iget-object v10, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -3522,10 +3522,10 @@
 
     aput v11, v10, v12
 
-    goto :goto_7
+    goto :goto_2e7
 
     .line 364
-    :cond_e
+    :cond_2e0
     const/4 v12, 0x1
 
     iget-object v10, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
@@ -3535,7 +3535,7 @@
     aput v11, v10, v12
 
     .line 366
-    :goto_7
+    :goto_2e7
     add-float v10, v3, v9
 
     float-to-double v10, v10
@@ -3574,7 +3574,7 @@
 
     const/high16 v20, 0x40400000    # 3.0f
 
-    if-nez v15, :cond_f
+    if-nez v15, :cond_312
 
     .line 371
     mul-float v15, v14, v20
@@ -3594,24 +3594,24 @@
     add-float/2addr v5, v15
 
     .line 373
-    :cond_f
+    :cond_312
     const/4 v1, 0x0
 
     cmpl-float v15, v5, v1
 
-    if-eqz v15, :cond_17
+    if-eqz v15, :cond_37d
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     cmpl-float v15, v5, v1
 
-    if-eqz v15, :cond_17
+    if-eqz v15, :cond_37d
 
     iget v1, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
 
     const/4 v15, 0x3
 
-    if-eq v1, v15, :cond_17
+    if-eq v1, v15, :cond_37d
 
     .line 374
     iget v1, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragScale:F
@@ -3635,18 +3635,18 @@
 
     cmpg-double v23, v14, v21
 
-    if-gez v23, :cond_10
+    if-gez v23, :cond_336
 
     const/4 v14, 0x0
 
-    goto :goto_8
+    goto :goto_338
 
-    :cond_10
+    :cond_336
     const/high16 v14, 0x3f800000    # 1.0f
 
     .line 377
     .local v14, "target":F
-    :goto_8
+    :goto_338
     iget v15, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
 
     move/from16 v21, v2
@@ -3655,7 +3655,7 @@
     .local v21, "tvx":F
     const/4 v2, 0x6
 
-    if-ne v15, v2, :cond_12
+    if-ne v15, v2, :cond_34c
 
     .line 378
     add-float v2, v4, v1
@@ -3664,7 +3664,7 @@
 
     cmpg-float v2, v2, v15
 
-    if-gez v2, :cond_11
+    if-gez v2, :cond_34a
 
     .line 379
     invoke-static {v1}, Ljava/lang/Math;->abs(F)F
@@ -3672,16 +3672,16 @@
     move-result v1
 
     .line 381
-    :cond_11
+    :cond_34a
     const/high16 v14, 0x3f800000    # 1.0f
 
     .line 383
-    :cond_12
+    :cond_34c
     iget v2, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
 
     const/4 v15, 0x7
 
-    if-ne v2, v15, :cond_14
+    if-ne v2, v15, :cond_35f
 
     .line 384
     add-float v2, v4, v1
@@ -3690,7 +3690,7 @@
 
     cmpl-float v2, v2, v15
 
-    if-lez v2, :cond_13
+    if-lez v2, :cond_35e
 
     .line 385
     invoke-static {v1}, Ljava/lang/Math;->abs(F)F
@@ -3700,11 +3700,11 @@
     neg-float v1, v2
 
     .line 387
-    :cond_13
+    :cond_35e
     const/4 v14, 0x0
 
     .line 389
-    :cond_14
+    :cond_35f
     iget-object v2, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iget v15, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
@@ -3722,16 +3722,16 @@
 
     cmpl-float v2, v2, v4
 
-    if-gez v2, :cond_15
+    if-gez v2, :cond_375
 
     const/high16 v2, 0x3f800000    # 1.0f
 
     cmpg-float v2, v2, v4
 
-    if-gtz v2, :cond_16
+    if-gtz v2, :cond_37c
 
     .line 391
-    :cond_15
+    :cond_375
     iget-object v2, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     sget-object v3, Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;->FINISHED:Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;
@@ -3740,8 +3740,8 @@
 
     .line 393
     .end local v14    # "target":F
-    :cond_16
-    goto :goto_9
+    :cond_37c
+    goto :goto_3a4
 
     .line 373
     .end local v1    # "angularVelocity":F
@@ -3750,7 +3750,7 @@
     .restart local v2    # "tvx":F
     .restart local v3    # "tvy":F
     .local v14, "angularVelocity":F
-    :cond_17
+    :cond_37d
     move/from16 v21, v2
 
     move/from16 v22, v3
@@ -3764,23 +3764,23 @@
 
     cmpl-float v1, v1, v5
 
-    if-gez v1, :cond_18
+    if-gez v1, :cond_38c
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     cmpg-float v1, v1, v5
 
-    if-gtz v1, :cond_19
+    if-gtz v1, :cond_3a4
 
     .line 394
-    :cond_18
+    :cond_38c
     iget-object v1, v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     sget-object v2, Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;->FINISHED:Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;
 
     invoke-virtual {v1, v2}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setState(Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;)V
 
-    goto :goto_9
+    goto :goto_3a4
 
     .line 258
     .end local v4    # "currentPos":F
@@ -3796,7 +3796,7 @@
     .end local v18    # "angle1":D
     .end local v21    # "tvx":F
     .end local v22    # "tvy":F
-    :pswitch_2
+    :pswitch_394
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v1
@@ -3819,22 +3819,22 @@
     nop
 
     .line 399
-    :cond_19
-    :goto_9
+    :cond_3a4
+    :goto_3a4
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3a6
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_394
+        :pswitch_201
+        :pswitch_19
     .end packed-switch
 .end method
 
 .method scrollMove(FF)V
-    .locals 11
+    .registers 14
     .param p1, "dx"    # F
     .param p2, "dy"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -3873,7 +3873,7 @@
 
     const/4 v8, 0x1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     .line 631
     iput-boolean v8, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mDragStarted:Z
@@ -3884,7 +3884,7 @@
     invoke-virtual {v2, v1}, Landroidx/constraintlayout/motion/widget/MotionLayout;->setProgress(F)V
 
     .line 634
-    :cond_0
+    :cond_1b
     iget-object v2, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorId:I
@@ -3932,7 +3932,7 @@
 
     cmpg-double v3, v5, v9
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_54
 
     .line 638
     iget-object v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mAnchorDpDt:[F
@@ -3947,14 +3947,14 @@
     aput v5, v3, v8
 
     .line 643
-    :cond_1
+    :cond_54
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionX:F
 
     const/4 v5, 0x0
 
     cmpl-float v3, v3, v5
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_65
 
     .line 644
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionX:F
@@ -3968,11 +3968,11 @@
     div-float/2addr v3, v4
 
     .local v3, "change":F
-    goto :goto_0
+    goto :goto_6e
 
     .line 646
     .end local v3    # "change":F
-    :cond_2
+    :cond_65
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionY:F
 
     mul-float v3, v3, p2
@@ -3985,7 +3985,7 @@
 
     .line 648
     .restart local v3    # "change":F
-    :goto_0
+    :goto_6e
     add-float v4, v1, v3
 
     const/high16 v6, 0x3f800000    # 1.0f
@@ -4007,7 +4007,7 @@
 
     cmpl-float v4, v1, v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_89
 
     .line 651
     iget-object v4, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -4018,12 +4018,12 @@
     .end local v1    # "pos":F
     .end local v2    # "movmentInDir":F
     .end local v3    # "change":F
-    :cond_3
+    :cond_89
     return-void
 .end method
 
 .method scrollUp(FF)V
-    .locals 12
+    .registers 15
     .param p1, "dx"    # F
     .param p2, "dy"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -4094,7 +4094,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3a
 
     .line 613
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionX:F
@@ -4108,11 +4108,11 @@
     div-float/2addr v3, v6
 
     .local v3, "velocity":F
-    goto :goto_0
+    goto :goto_43
 
     .line 615
     .end local v3    # "velocity":F
-    :cond_0
+    :cond_3a
     iget v3, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionY:F
 
     mul-float v3, v3, p2
@@ -4125,12 +4125,12 @@
 
     .line 617
     .restart local v3    # "velocity":F
-    :goto_0
+    :goto_43
     invoke-static {v3}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_4e
 
     .line 618
     const/high16 v6, 0x40400000    # 3.0f
@@ -4140,37 +4140,37 @@
     add-float/2addr v1, v6
 
     .line 620
-    :cond_1
+    :cond_4e
     cmpl-float v6, v1, v4
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_75
 
     const/high16 v6, 0x3f800000    # 1.0f
 
     cmpl-float v7, v1, v6
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_5a
 
     const/4 v7, 0x1
 
-    goto :goto_1
+    goto :goto_5b
 
-    :cond_2
+    :cond_5a
     const/4 v7, 0x0
 
-    :goto_1
+    :goto_5b
     iget v8, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mOnTouchUp:I
 
     const/4 v9, 0x3
 
-    if-eq v8, v9, :cond_3
+    if-eq v8, v9, :cond_61
 
     const/4 v0, 0x1
 
-    :cond_3
+    :cond_61
     and-int/2addr v0, v7
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_75
 
     .line 621
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -4183,23 +4183,23 @@
 
     cmpg-double v11, v7, v9
 
-    if-gez v11, :cond_4
+    if-gez v11, :cond_70
 
-    goto :goto_2
+    goto :goto_72
 
-    :cond_4
+    :cond_70
     const/high16 v4, 0x3f800000    # 1.0f
 
-    :goto_2
+    :goto_72
     invoke-virtual {v0, v5, v4, v3}, Landroidx/constraintlayout/motion/widget/MotionLayout;->touchAnimateTo(IFF)V
 
     .line 623
-    :cond_5
+    :cond_75
     return-void
 .end method
 
 .method public setAnchorId(I)V
-    .locals 0
+    .registers 2
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -4218,7 +4218,7 @@
 .end method
 
 .method setAutoCompleteMode(I)V
-    .locals 0
+    .registers 2
     .param p1, "autoCompleteMode"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -4237,7 +4237,7 @@
 .end method
 
 .method setDown(FF)V
-    .locals 0
+    .registers 3
     .param p1, "lastTouchX"    # F
     .param p2, "lastTouchY"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -4262,7 +4262,7 @@
 .end method
 
 .method public setMaxAcceleration(F)V
-    .locals 0
+    .registers 2
     .param p1, "acceleration"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -4281,7 +4281,7 @@
 .end method
 
 .method public setMaxVelocity(F)V
-    .locals 0
+    .registers 2
     .param p1, "velocity"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -4300,7 +4300,7 @@
 .end method
 
 .method public setRTL(Z)V
-    .locals 8
+    .registers 10
     .param p1, "rtl"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -4324,7 +4324,7 @@
 
     const/4 v5, 0x2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_29
 
     .line 159
     sget-object v6, Landroidx/constraintlayout/motion/widget/TouchResponse;->TOUCH_DIRECTION:[[F
@@ -4362,10 +4362,10 @@
 
     aput-object v2, v1, v0
 
-    goto :goto_0
+    goto :goto_49
 
     .line 164
-    :cond_0
+    :cond_29
     sget-object v6, Landroidx/constraintlayout/motion/widget/TouchResponse;->TOUCH_DIRECTION:[[F
 
     sget-object v7, Landroidx/constraintlayout/motion/widget/TouchResponse;->TOUCH_DIRECTION:[[F
@@ -4402,7 +4402,7 @@
     aput-object v2, v1, v0
 
     .line 170
-    :goto_0
+    :goto_49
     sget-object v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->TOUCH_SIDES:[[F
 
     iget v1, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchAnchorSide:I
@@ -4433,13 +4433,13 @@
 
     array-length v2, v2
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_66
 
     .line 173
     return-void
 
     .line 175
-    :cond_1
+    :cond_66
     sget-object v0, Landroidx/constraintlayout/motion/widget/TouchResponse;->TOUCH_DIRECTION:[[F
 
     iget v2, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchSide:I
@@ -4466,7 +4466,7 @@
 .end method
 
 .method public setTouchAnchorLocation(FF)V
-    .locals 0
+    .registers 3
     .param p1, "x"    # F
     .param p2, "y"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -4491,7 +4491,7 @@
 .end method
 
 .method public setTouchUpMode(I)V
-    .locals 0
+    .registers 2
     .param p1, "touchUpMode"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -4510,7 +4510,7 @@
 .end method
 
 .method setUpTouchEvent(FF)V
-    .locals 1
+    .registers 4
     .param p1, "lastTouchX"    # F
     .param p2, "lastTouchY"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -4540,7 +4540,7 @@
 .end method
 
 .method setupTouch()V
-    .locals 4
+    .registers 5
 
     .line 662
     const/4 v0, 0x0
@@ -4551,7 +4551,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_34
 
     .line 664
     iget-object v1, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -4563,7 +4563,7 @@
     move-result-object v0
 
     .line 665
-    if-nez v0, :cond_0
+    if-nez v0, :cond_34
 
     .line 666
     new-instance v1, Ljava/lang/StringBuilder;
@@ -4601,10 +4601,10 @@
     invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 669
-    :cond_0
+    :cond_34
     instance-of v1, v0, Landroidx/core/widget/NestedScrollView;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4b
 
     .line 670
     move-object v1, v0
@@ -4628,12 +4628,12 @@
 
     .line 685
     .end local v1    # "sv":Landroidx/core/widget/NestedScrollView;
-    :cond_1
+    :cond_4b
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 825
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TouchResponse;->mTouchDirectionX:F
@@ -4642,13 +4642,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     const-string v0, "rotation"
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -4675,6 +4675,6 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_26
     return-object v0
 .end method

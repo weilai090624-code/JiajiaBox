@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Dolazni poziv</string>
     <string name="call_notification_ongoing_text">Poziv u tijeku</string>
     <string name="call_notification_screening_text">Filtriranje dolaznog poziva</string>
-    <string name="character_counter_content_description" formatted="false">Uneseno znakova: %1$d od %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Premašeno je ograničenje broja znakova: %1$d od %2$d</string>
+    <string name="character_counter_content_description">Uneseno znakova: %1$d od %2$d</string>
+    <string name="character_counter_overflowed_content_description">Premašeno je ograničenje broja znakova: %1$d od %2$d</string>
     <string name="clear_text_end_icon_content_description">Brisanje teksta</string>
     <string name="copy">Kopiraj</string>
     <string name="copy_toast_msg">Veza je kopirana u međuspremnik</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Izvan raspona: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Datum početka – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – datum završetka</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Odaberite raspon</string>
     <string name="mtrl_picker_range_header_unselected">Datum početka – datum završetka</string>
     <string name="mtrl_picker_save">Spremi</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">Sažetak \"%1$s\" kopiran je u međuspremnik.</string>
     <string name="search_menu_title">Pretraži</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ISKLJUČENO</string>
     <string name="v7_preference_on">UKLJUČENO</string>
 </resources>

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 117
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method getOwnerType(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,7 +49,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 122
     const/4 v0, 0x0
@@ -57,7 +57,7 @@
     return-object v0
 
     .line 124
-    :cond_0
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Class;->getEnclosingClass()Ljava/lang/Class;
 
     move-result-object v0

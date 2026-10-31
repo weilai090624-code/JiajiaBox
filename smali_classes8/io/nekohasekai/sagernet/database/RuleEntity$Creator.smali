@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public final createFromParcel(Landroid/os/Parcel;)Lio/nekohasekai/sagernet/database/RuleEntity;
-    .locals 20
+    .registers 22
 
     const-string v0, "parcel"
 
@@ -76,18 +76,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     const/4 v0, 0x1
 
     const/4 v9, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v9, 0x0
 
-    :goto_0
+    :goto_21
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v10
@@ -130,8 +130,8 @@
 
     const/4 v1, 0x0
 
-    :goto_1
-    if-eq v1, v0, :cond_1
+    :goto_4b
+    if-eq v1, v0, :cond_5b
 
     move/from16 v19, v0
 
@@ -145,9 +145,9 @@
 
     move/from16 v0, v19
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_1
+    :cond_5b
     move-object/from16 v19, v2
 
     check-cast v19, Ljava/util/Set;
@@ -162,7 +162,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/database/RuleEntity$Creator;->createFromParcel(Landroid/os/Parcel;)Lio/nekohasekai/sagernet/database/RuleEntity;
 
@@ -172,7 +172,7 @@
 .end method
 
 .method public final newArray(I)[Lio/nekohasekai/sagernet/database/RuleEntity;
-    .locals 1
+    .registers 3
 
     new-array v0, p1, [Lio/nekohasekai/sagernet/database/RuleEntity;
 
@@ -180,7 +180,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/database/RuleEntity$Creator;->newArray(I)[Lio/nekohasekai/sagernet/database/RuleEntity;
 

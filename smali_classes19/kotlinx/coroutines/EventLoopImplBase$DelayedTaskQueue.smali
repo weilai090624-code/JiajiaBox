@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "timeNow"    # J
 
     .line 522

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;Landroid/content/res/Resources;)V
-    .locals 1
+    .registers 5
     .param p1, "orig"    # Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
     .param p2, "owner"    # Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;
     .param p3, "res"    # Landroid/content/res/Resources;
@@ -29,17 +29,17 @@
     invoke-direct {p0, p1, p2, p3}, Landroidx/appcompat/graphics/drawable/DrawableContainerCompat$DrawableContainerState;-><init>(Landroidx/appcompat/graphics/drawable/DrawableContainerCompat$DrawableContainerState;Landroidx/appcompat/graphics/drawable/DrawableContainerCompat;Landroid/content/res/Resources;)V
 
     .line 329
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 331
     iget-object v0, p1, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;->mStateSets:[[I
 
     iput-object v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;->mStateSets:[[I
 
-    goto :goto_0
+    goto :goto_12
 
     .line 333
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;->getCapacity()I
 
     move-result v0
@@ -49,14 +49,14 @@
     iput-object v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;->mStateSets:[[I
 
     .line 335
-    :goto_0
+    :goto_12
     return-void
 .end method
 
 
 # virtual methods
 .method addStateSet([ILandroid/graphics/drawable/Drawable;)I
-    .locals 2
+    .registers 5
     .param p1, "stateSet"    # [I
     .param p2, "drawable"    # Landroid/graphics/drawable/Drawable;
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public growArray(II)V
-    .locals 3
+    .registers 6
     .param p1, "oldSize"    # I
     .param p2, "newSize"    # I
 
@@ -102,7 +102,7 @@
 .end method
 
 .method indexOfStateSet([I)I
-    .locals 4
+    .registers 6
     .param p1, "stateSet"    # [I
 
     .line 353
@@ -119,8 +119,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_7
+    if-ge v2, v1, :cond_15
 
     .line 356
     aget-object v3, v0, v2
@@ -129,27 +129,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_12
 
     .line 357
     return v2
 
     .line 355
-    :cond_0
+    :cond_12
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 360
     .end local v2    # "i":I
-    :cond_1
+    :cond_15
     const/4 v2, -0x1
 
     return v2
 .end method
 
 .method mutate()V
-    .locals 3
+    .registers 4
 
     .line 339
     iget-object v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;->mStateSets:[[I
@@ -167,15 +167,15 @@
     add-int/lit8 v1, v1, -0x1
 
     .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_1
+    :goto_a
+    if-ltz v1, :cond_23
 
     .line 341
     iget-object v2, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;->mStateSets:[[I
 
     aget-object v2, v2, v1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     iget-object v2, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;->mStateSets:[[I
 
@@ -187,22 +187,22 @@
 
     check-cast v2, [I
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_1e
     aput-object v2, v0, v1
 
     .line 340
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 343
     .end local v1    # "i":I
-    :cond_1
+    :cond_23
     iput-object v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;->mStateSets:[[I
 
     .line 344
@@ -210,7 +210,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 3
 
     .line 366
     new-instance v0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;
@@ -223,7 +223,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p1, "res"    # Landroid/content/res/Resources;
 
     .line 372

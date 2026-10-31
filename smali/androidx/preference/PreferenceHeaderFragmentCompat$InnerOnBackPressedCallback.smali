@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/preference/PreferenceHeaderFragmentCompat;)V
-    .locals 2
+    .registers 4
     .param p1, "caller"    # Landroidx/preference/PreferenceHeaderFragmentCompat;
 
     const-string v0, "caller"
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public handleOnBackPressed()V
-    .locals 1
+    .registers 2
 
     .line 115
     iget-object v0, p0, Landroidx/preference/PreferenceHeaderFragmentCompat$InnerOnBackPressedCallback;->caller:Landroidx/preference/PreferenceHeaderFragmentCompat;
@@ -111,7 +111,7 @@
 .end method
 
 .method public onPanelClosed(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "panel"    # Landroid/view/View;
 
     const-string v0, "panel"
@@ -128,7 +128,7 @@
 .end method
 
 .method public onPanelOpened(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "panel"    # Landroid/view/View;
 
     const-string v0, "panel"
@@ -145,7 +145,7 @@
 .end method
 
 .method public onPanelSlide(Landroid/view/View;F)V
-    .locals 1
+    .registers 4
     .param p1, "panel"    # Landroid/view/View;
     .param p2, "slideOffset"    # F
 

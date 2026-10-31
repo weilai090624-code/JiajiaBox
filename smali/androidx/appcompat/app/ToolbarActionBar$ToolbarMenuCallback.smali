@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/ToolbarActionBar;)V
-    .locals 0
+    .registers 2
 
     .line 519
     iput-object p1, p0, Landroidx/appcompat/app/ToolbarActionBar$ToolbarMenuCallback;->this$0:Landroidx/appcompat/app/ToolbarActionBar;
@@ -36,11 +36,11 @@
 
 # virtual methods
 .method public onCreatePanelView(I)Landroid/view/View;
-    .locals 2
+    .registers 4
     .param p1, "featureId"    # I
 
     .line 534
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 538
     new-instance v0, Landroid/view/View;
@@ -58,24 +58,24 @@
     return-object v0
 
     .line 540
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public onPreparePanel(I)Z
-    .locals 2
+    .registers 4
     .param p1, "featureId"    # I
 
     .line 523
-    if-nez p1, :cond_0
+    if-nez p1, :cond_14
 
     iget-object v0, p0, Landroidx/appcompat/app/ToolbarActionBar$ToolbarMenuCallback;->this$0:Landroidx/appcompat/app/ToolbarActionBar;
 
     iget-boolean v0, v0, Landroidx/appcompat/app/ToolbarActionBar;->mToolbarMenuPrepared:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 524
     iget-object v0, p0, Landroidx/appcompat/app/ToolbarActionBar$ToolbarMenuCallback;->this$0:Landroidx/appcompat/app/ToolbarActionBar;
@@ -92,7 +92,7 @@
     iput-boolean v1, v0, Landroidx/appcompat/app/ToolbarActionBar;->mToolbarMenuPrepared:Z
 
     .line 529
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     return v0

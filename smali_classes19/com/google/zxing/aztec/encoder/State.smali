@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 30
     new-instance v0, Lcom/google/zxing/aztec/encoder/State;
@@ -36,7 +36,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/zxing/aztec/encoder/Token;III)V
-    .locals 0
+    .registers 5
     .param p1, "token"    # Lcom/google/zxing/aztec/encoder/Token;
     .param p2, "mode"    # I
     .param p3, "binaryBytes"    # I
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method addBinaryShiftChar(I)Lcom/google/zxing/aztec/encoder/State;
-    .locals 7
+    .registers 9
     .param p1, "index"    # I
 
     .line 104
@@ -84,16 +84,16 @@
 
     const/4 v4, 0x4
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_10
 
     iget v3, p0, Lcom/google/zxing/aztec/encoder/State;->mode:I
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_25
 
     .line 109
-    :cond_0
+    :cond_10
     sget-object v3, Lcom/google/zxing/aztec/encoder/HighLevelEncoder;->LATCH_TABLE:[[I
 
     aget-object v3, v3, v1
@@ -124,42 +124,42 @@
 
     .line 114
     .end local v3    # "latch":I
-    :cond_1
+    :cond_25
     iget v3, p0, Lcom/google/zxing/aztec/encoder/State;->binaryShiftByteCount:I
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3c
 
     iget v3, p0, Lcom/google/zxing/aztec/encoder/State;->binaryShiftByteCount:I
 
     const/16 v4, 0x1f
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_30
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_2
+    :cond_30
     iget v3, p0, Lcom/google/zxing/aztec/encoder/State;->binaryShiftByteCount:I
 
     const/16 v4, 0x3e
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_39
 
     const/16 v3, 0x9
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_3
+    :cond_39
     const/16 v3, 0x8
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_4
-    :goto_0
+    :cond_3c
+    :goto_3c
     const/16 v3, 0x12
 
     .line 117
     .local v3, "deltaBitCount":I
-    :goto_1
+    :goto_3e
     new-instance v4, Lcom/google/zxing/aztec/encoder/State;
 
     iget v5, p0, Lcom/google/zxing/aztec/encoder/State;->binaryShiftByteCount:I
@@ -180,7 +180,7 @@
 
     const/16 v6, 0x81e
 
-    if-ne v4, v6, :cond_5
+    if-ne v4, v6, :cond_57
 
     .line 120
     add-int/lit8 v4, p1, 0x1
@@ -190,24 +190,24 @@
     move-result-object v5
 
     .line 122
-    :cond_5
+    :cond_57
     return-object v5
 .end method
 
 .method endBinaryShift(I)Lcom/google/zxing/aztec/encoder/State;
-    .locals 5
+    .registers 7
     .param p1, "index"    # I
 
     .line 128
     iget v0, p0, Lcom/google/zxing/aztec/encoder/State;->binaryShiftByteCount:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 129
     return-object p0
 
     .line 131
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/zxing/aztec/encoder/State;->token:Lcom/google/zxing/aztec/encoder/Token;
 
     const/4 v1, 0x0
@@ -241,7 +241,7 @@
 .end method
 
 .method getBinaryShiftByteCount()I
-    .locals 1
+    .registers 2
 
     .line 66
     iget v0, p0, Lcom/google/zxing/aztec/encoder/State;->binaryShiftByteCount:I
@@ -250,7 +250,7 @@
 .end method
 
 .method getBitCount()I
-    .locals 1
+    .registers 2
 
     .line 70
     iget v0, p0, Lcom/google/zxing/aztec/encoder/State;->bitCount:I
@@ -259,7 +259,7 @@
 .end method
 
 .method getMode()I
-    .locals 1
+    .registers 2
 
     .line 58
     iget v0, p0, Lcom/google/zxing/aztec/encoder/State;->mode:I
@@ -268,7 +268,7 @@
 .end method
 
 .method getToken()Lcom/google/zxing/aztec/encoder/Token;
-    .locals 1
+    .registers 2
 
     .line 62
     iget-object v0, p0, Lcom/google/zxing/aztec/encoder/State;->token:Lcom/google/zxing/aztec/encoder/Token;
@@ -277,7 +277,7 @@
 .end method
 
 .method isBetterThanOrEqualTo(Lcom/google/zxing/aztec/encoder/State;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Lcom/google/zxing/aztec/encoder/State;
 
     .line 140
@@ -301,40 +301,40 @@
     .local v0, "mySize":I
     iget v1, p1, Lcom/google/zxing/aztec/encoder/State;->binaryShiftByteCount:I
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_1f
 
     iget v1, p0, Lcom/google/zxing/aztec/encoder/State;->binaryShiftByteCount:I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     iget v1, p0, Lcom/google/zxing/aztec/encoder/State;->binaryShiftByteCount:I
 
     iget v2, p1, Lcom/google/zxing/aztec/encoder/State;->binaryShiftByteCount:I
 
-    if-le v1, v2, :cond_1
+    if-le v1, v2, :cond_1f
 
     .line 143
-    :cond_0
+    :cond_1d
     add-int/lit8 v0, v0, 0xa
 
     .line 145
-    :cond_1
+    :cond_1f
     iget v1, p1, Lcom/google/zxing/aztec/encoder/State;->bitCount:I
 
-    if-gt v0, v1, :cond_2
+    if-gt v0, v1, :cond_25
 
     const/4 v1, 0x1
 
     return v1
 
-    :cond_2
+    :cond_25
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method latchAndAppend(II)Lcom/google/zxing/aztec/encoder/State;
-    .locals 6
+    .registers 9
     .param p1, "mode"    # I
     .param p2, "value"    # I
 
@@ -349,7 +349,7 @@
     .local v1, "token":Lcom/google/zxing/aztec/encoder/Token;
     iget v2, p0, Lcom/google/zxing/aztec/encoder/State;->mode:I
 
-    if-eq p1, v2, :cond_0
+    if-eq p1, v2, :cond_1d
 
     .line 80
     sget-object v2, Lcom/google/zxing/aztec/encoder/HighLevelEncoder;->LATCH_TABLE:[[I
@@ -379,21 +379,21 @@
 
     .line 84
     .end local v2    # "latch":I
-    :cond_0
+    :cond_1d
     const/4 v2, 0x2
 
-    if-ne p1, v2, :cond_1
+    if-ne p1, v2, :cond_22
 
     const/4 v2, 0x4
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_22
     const/4 v2, 0x5
 
     .line 85
     .local v2, "latchModeBitCount":I
-    :goto_0
+    :goto_23
     invoke-virtual {v1, p2, v2}, Lcom/google/zxing/aztec/encoder/Token;->add(II)Lcom/google/zxing/aztec/encoder/Token;
 
     move-result-object v1
@@ -411,7 +411,7 @@
 .end method
 
 .method shiftAndAppend(II)Lcom/google/zxing/aztec/encoder/State;
-    .locals 6
+    .registers 9
     .param p1, "mode"    # I
     .param p2, "value"    # I
 
@@ -426,18 +426,18 @@
 
     const/4 v3, 0x5
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_a
 
     const/4 v1, 0x4
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x5
 
     .line 96
     .local v1, "thisModeBitCount":I
-    :goto_0
+    :goto_b
     sget-object v2, Lcom/google/zxing/aztec/encoder/HighLevelEncoder;->SHIFT_TABLE:[[I
 
     iget v4, p0, Lcom/google/zxing/aztec/encoder/State;->mode:I
@@ -474,7 +474,7 @@
 .end method
 
 .method toBitArray([B)Lcom/google/zxing/common/BitArray;
-    .locals 4
+    .registers 6
     .param p1, "text"    # [B
 
     .line 151
@@ -493,8 +493,8 @@
     iget-object v1, v1, Lcom/google/zxing/aztec/encoder/State;->token:Lcom/google/zxing/aztec/encoder/Token;
 
     .local v1, "token":Lcom/google/zxing/aztec/encoder/Token;
-    :goto_0
-    if-eqz v1, :cond_0
+    :goto_c
+    if-eqz v1, :cond_16
 
     .line 153
     invoke-interface {v0, v1}, Ljava/util/Deque;->addFirst(Ljava/lang/Object;)V
@@ -504,11 +504,11 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 155
     .end local v1    # "token":Lcom/google/zxing/aztec/encoder/Token;
-    :cond_0
+    :cond_16
     new-instance v1, Lcom/google/zxing/common/BitArray;
 
     invoke-direct {v1}, Lcom/google/zxing/common/BitArray;-><init>()V
@@ -519,12 +519,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_1f
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -536,15 +536,15 @@
     invoke-virtual {v3, v1, p1}, Lcom/google/zxing/aztec/encoder/Token;->appendTo(Lcom/google/zxing/common/BitArray;[B)V
 
     .line 159
-    goto :goto_1
+    goto :goto_1f
 
     .line 161
-    :cond_1
+    :cond_2f
     return-object v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 166
     sget-object v0, Lcom/google/zxing/aztec/encoder/HighLevelEncoder;->MODE_NAMES:[Ljava/lang/String;

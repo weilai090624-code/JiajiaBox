@@ -72,7 +72,7 @@
 
 # direct methods
 .method private synthetic constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "holder"    # Ljava/lang/Object;
 
     .line 18
@@ -84,7 +84,7 @@
 .end method
 
 .method public static final synthetic box-impl(Ljava/lang/Object;)Lkotlinx/coroutines/internal/InlineList;
-    .locals 1
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/internal/InlineList;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public static constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -110,16 +110,16 @@
 .end method
 
 .method public static synthetic constructor-impl$default(Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 18
     and-int/lit8 p1, p1, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0}, Lkotlinx/coroutines/internal/InlineList;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
@@ -128,17 +128,17 @@
 .end method
 
 .method public static equals-impl(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     instance-of v0, p1, Lkotlinx/coroutines/internal/InlineList;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lkotlinx/coroutines/internal/InlineList;
@@ -151,18 +151,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     return v1
 
-    :cond_1
+    :cond_14
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static final equals-impl0(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -172,7 +172,7 @@
 .end method
 
 .method public static final forEachReversed-impl(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p0, "arg0"    # Ljava/lang/Object;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -193,22 +193,22 @@
     nop
 
     .line 38
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     return-void
 
     .line 39
-    :cond_0
+    :cond_5
     instance-of v1, p0, Ljava/util/ArrayList;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_d
 
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_28
 
     .line 41
-    :cond_1
+    :cond_d
     const-string v1, "null cannot be cast to non-null type java.util.ArrayList<E of kotlinx.coroutines.internal.InlineList>{ kotlin.collections.TypeAliasesKt.ArrayList<E of kotlinx.coroutines.internal.InlineList> }"
 
     invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -226,10 +226,10 @@
     add-int/lit8 v2, v2, -0x1
 
     .local v2, "i":I
-    :goto_0
+    :goto_1b
     const/4 v3, -0x1
 
-    if-ge v3, v2, :cond_2
+    if-ge v3, v2, :cond_28
 
     .line 43
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -241,36 +241,36 @@
     .line 42
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 47
     .end local v1    # "list":Ljava/util/ArrayList;
     .end local v2    # "i":I
-    :cond_2
-    :goto_1
+    :cond_28
+    :goto_28
     return-void
 .end method
 
 .method public static hashCode-impl(Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public static final plus-FjFbRPM(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "arg0"    # Ljava/lang/Object;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -287,7 +287,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 50
     const/4 v0, 0x0
@@ -297,11 +297,11 @@
     instance-of v1, p1, Ljava/util/List;
 
     .end local v0    # "$i$a$-assert-InlineList$plus$1":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -309,24 +309,24 @@
     throw v0
 
     .line 21
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     nop
 
     .line 22
-    if-nez p0, :cond_2
+    if-nez p0, :cond_1a
 
     invoke-static {p1}, Lkotlinx/coroutines/internal/InlineList;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 23
-    :cond_2
+    :cond_1a
     instance-of v0, p0, Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2e
 
     .line 24
     const-string v0, "null cannot be cast to non-null type java.util.ArrayList<E of kotlinx.coroutines.internal.InlineList>{ kotlin.collections.TypeAliasesKt.ArrayList<E of kotlinx.coroutines.internal.InlineList> }"
@@ -344,10 +344,10 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 28
-    :cond_3
+    :cond_2e
     new-instance v0, Ljava/util/ArrayList;
 
     const/4 v1, 0x4
@@ -370,12 +370,12 @@
 
     .line 21
     .end local v0    # "list":Ljava/util/ArrayList;
-    :goto_1
+    :goto_3f
     return-object v0
 .end method
 
 .method public static toString-impl(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -407,7 +407,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lkotlinx/coroutines/internal/InlineList;->holder:Ljava/lang/Object;
 
@@ -419,7 +419,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/internal/InlineList;->holder:Ljava/lang/Object;
 
@@ -431,7 +431,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/internal/InlineList;->holder:Ljava/lang/Object;
 
@@ -443,7 +443,7 @@
 .end method
 
 .method public final synthetic unbox-impl()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/internal/InlineList;->holder:Ljava/lang/Object;
 

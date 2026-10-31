@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;[F)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "values"    # [F
 
@@ -80,7 +80,7 @@
 .end method
 
 .method private setAnimationMatrix()V
-    .locals 3
+    .registers 4
 
     .line 583
     iget-object v0, p0, Landroidx/transition/ChangeTransform$PathAnimatorMatrix;->mValues:[F
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method getMatrix()Landroid/graphics/Matrix;
-    .locals 1
+    .registers 2
 
     .line 590
     iget-object v0, p0, Landroidx/transition/ChangeTransform$PathAnimatorMatrix;->mMatrix:Landroid/graphics/Matrix;
@@ -130,7 +130,7 @@
 .end method
 
 .method setTranslation(Landroid/graphics/PointF;)V
-    .locals 1
+    .registers 3
     .param p1, "translation"    # Landroid/graphics/PointF;
 
     .line 577
@@ -151,7 +151,7 @@
 .end method
 
 .method setValues([F)V
-    .locals 3
+    .registers 5
     .param p1, "values"    # [F
 
     .line 572

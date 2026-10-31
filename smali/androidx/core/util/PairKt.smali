@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final component1(Landroid/util/Pair;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$component1"    # Landroid/util/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,7 +59,7 @@
 .end method
 
 .method public static final component1(Landroidx/core/util/Pair;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$component1"    # Landroidx/core/util/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,7 +83,7 @@
 .end method
 
 .method public static final component2(Landroid/util/Pair;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$component2"    # Landroid/util/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -107,7 +107,7 @@
 .end method
 
 .method public static final component2(Landroidx/core/util/Pair;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$component2"    # Landroidx/core/util/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -131,7 +131,7 @@
 .end method
 
 .method public static final toAndroidPair(Lkotlin/Pair;)Landroid/util/Pair;
-    .locals 4
+    .registers 5
     .param p0, "$this$toAndroidPair"    # Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -167,7 +167,7 @@
 .end method
 
 .method public static final toAndroidXPair(Lkotlin/Pair;)Landroidx/core/util/Pair;
-    .locals 4
+    .registers 5
     .param p0, "$this$toAndroidXPair"    # Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -203,7 +203,7 @@
 .end method
 
 .method public static final toKotlinPair(Landroid/util/Pair;)Lkotlin/Pair;
-    .locals 4
+    .registers 5
     .param p0, "$this$toKotlinPair"    # Landroid/util/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -235,7 +235,7 @@
 .end method
 
 .method public static final toKotlinPair(Landroidx/core/util/Pair;)Lkotlin/Pair;
-    .locals 4
+    .registers 5
     .param p0, "$this$toKotlinPair"    # Landroidx/core/util/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {

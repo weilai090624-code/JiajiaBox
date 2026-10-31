@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .registers 13
 
     .line 220
     new-instance v6, Lj$/util/stream/FindOps$FindOp;
@@ -112,7 +112,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 207
     invoke-direct {p0}, Lj$/util/stream/FindOps$FindSink;-><init>()V
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
 
     .line 212
@@ -138,7 +138,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
 
     .line 207
     invoke-super {p0, p1}, Lj$/util/stream/FindOps$FindSink;->accept(Ljava/lang/Object;)V
@@ -147,7 +147,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 
@@ -157,12 +157,12 @@
 .end method
 
 .method public get()Lj$/util/OptionalInt;
-    .locals 1
+    .registers 2
 
     .line 217
     iget-boolean v0, p0, Lj$/util/stream/FindOps$FindSink$OfInt;->hasValue:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lj$/util/stream/FindOps$FindSink$OfInt;->value:Ljava/lang/Object;
 
@@ -176,17 +176,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 207
     invoke-virtual {p0}, Lj$/util/stream/FindOps$FindSink$OfInt;->get()Lj$/util/OptionalInt;

@@ -50,7 +50,7 @@
 
 # direct methods
 .method public static final createCancellationSignal()Landroid/os/CancellationSignal;
-    .locals 1
+    .registers 1
 
     .line 162
     nop
@@ -65,7 +65,7 @@
 .end method
 
 .method public static final dropFtsSyncTriggers(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 11
+    .registers 12
     .param p0, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -102,7 +102,7 @@
 
     check-cast v5, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_16
     move-object v6, v5
 
     check-cast v6, Landroid/database/Cursor;
@@ -112,14 +112,14 @@
 
     .line 101
     .local v7, "$i$a$-useCursor-DBUtil$dropFtsSyncTriggers$existingTriggers$1$1":I
-    :goto_0
+    :goto_1a
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v8
 
     const/4 v9, 0x0
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_29
 
     .line 102
     invoke-interface {v6, v9}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -128,17 +128,17 @@
 
     invoke-interface {v1, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 104
-    :cond_0
+    :cond_29
     nop
 
     .end local v6    # "cursor":Landroid/database/Cursor;
     .end local v7    # "$i$a$-useCursor-DBUtil$dropFtsSyncTriggers$existingTriggers$1$1":I
     sget-object v6, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_16 .. :try_end_2c} :catchall_75
 
     .line 216
     const/4 v6, 0x0
@@ -172,12 +172,12 @@
 
     move-result-object v3
 
-    :goto_1
+    :goto_3d
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_73
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -205,7 +205,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_70
 
     .line 109
     new-instance v8, Ljava/lang/StringBuilder;
@@ -229,7 +229,7 @@
     invoke-interface {p0, v8}, Landroidx/sqlite/db/SupportSQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
     .line 111
-    :cond_1
+    :cond_70
     nop
 
     .line 222
@@ -238,10 +238,10 @@
     nop
 
     .end local v4    # "element$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_3d
 
     .line 223
-    :cond_2
+    :cond_73
     nop
 
     .line 112
@@ -255,7 +255,7 @@
     .local v2, "$i$a$-buildList-DBUtil$dropFtsSyncTriggers$existingTriggers$1":I
     .restart local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
     .local v4, "$i$f$useCursor":I
-    :catchall_0
+    :catchall_75
     move-exception v0
 
     .end local v1    # "$this$dropFtsSyncTriggers_u24lambda_u241":Ljava/util/List;
@@ -263,17 +263,17 @@
     .end local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v4    # "$i$f$useCursor":I
     .end local p0    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :try_start_1
+    :try_start_76
     throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_77
+    .catchall {:try_start_76 .. :try_end_77} :catchall_77
 
     .restart local v1    # "$this$dropFtsSyncTriggers_u24lambda_u241":Ljava/util/List;
     .restart local v2    # "$i$a$-buildList-DBUtil$dropFtsSyncTriggers$existingTriggers$1":I
     .restart local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v4    # "$i$f$useCursor":I
     .restart local p0    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :catchall_1
+    :catchall_77
     move-exception v6
 
     invoke-static {v5, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -282,7 +282,7 @@
 .end method
 
 .method public static final foreignKeyCheck(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)V
-    .locals 7
+    .registers 9
     .param p0, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p1, "tableName"    # Ljava/lang/String;
 
@@ -335,7 +335,7 @@
 
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_2d
     move-object v3, v2
 
     check-cast v3, Landroid/database/Cursor;
@@ -349,7 +349,7 @@
 
     move-result v5
 
-    if-gtz v5, :cond_0
+    if-gtz v5, :cond_3f
 
     .line 126
     nop
@@ -357,8 +357,8 @@
     .end local v3    # "cursor":Landroid/database/Cursor;
     .end local v4    # "$i$a$-useCursor-DBUtil$foreignKeyCheck$1":I
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_2d .. :try_end_3a} :catchall_49
 
     .line 225
     const/4 v3, 0x0
@@ -375,8 +375,8 @@
     .restart local v1    # "$i$f$useCursor":I
     .restart local v3    # "cursor":Landroid/database/Cursor;
     .restart local v4    # "$i$a$-useCursor-DBUtil$foreignKeyCheck$1":I
-    :cond_0
-    :try_start_1
+    :cond_3f
+    :try_start_3f
     invoke-static {v3}, Landroidx/room/util/DBUtil;->processForeignKeyCheckFailure(Landroid/database/Cursor;)Ljava/lang/String;
 
     move-result-object v5
@@ -392,8 +392,8 @@
     .end local p0    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local p1    # "tableName":Ljava/lang/String;
     throw v6
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_49
+    .catchall {:try_start_3f .. :try_end_49} :catchall_49
 
     .line 225
     .end local v3    # "cursor":Landroid/database/Cursor;
@@ -403,23 +403,23 @@
     .restart local v1    # "$i$f$useCursor":I
     .restart local p0    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local p1    # "tableName":Ljava/lang/String;
-    :catchall_0
+    :catchall_49
     move-exception v3
 
     .end local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v1    # "$i$f$useCursor":I
     .end local p0    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local p1    # "tableName":Ljava/lang/String;
-    :try_start_2
+    :try_start_4a
     throw v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_4b
+    .catchall {:try_start_4a .. :try_end_4b} :catchall_4b
 
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
     .restart local p0    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local p1    # "tableName":Ljava/lang/String;
-    :catchall_1
+    :catchall_4b
     move-exception v4
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -428,7 +428,7 @@
 .end method
 
 .method private static final processForeignKeyCheckFailure(Landroid/database/Cursor;)Ljava/lang/String;
-    .locals 10
+    .registers 11
     .param p0, "cursor"    # Landroid/database/Cursor;
 
     .line 185
@@ -457,20 +457,20 @@
 
     .line 189
     .local v4, "fkParentTables":Ljava/util/Map;
-    :cond_0
-    :goto_0
+    :cond_12
+    :goto_12
     invoke-interface {p0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_4f
 
     .line 190
     invoke-interface {p0}, Landroid/database/Cursor;->isFirst()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_31
 
     .line 191
     const-string v5, "Foreign key violation(s) detected in \'"
@@ -493,7 +493,7 @@
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 194
-    :cond_1
+    :cond_31
     const/4 v5, 0x3
 
     invoke-interface {p0, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -506,7 +506,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_12
 
     .line 196
     const-string v6, "constraintIndex"
@@ -525,11 +525,11 @@
 
     invoke-interface {v4, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_12
 
     .line 200
     .end local v5    # "constraintIndex":Ljava/lang/String;
-    :cond_2
+    :cond_4f
     const-string v5, "Number of different violations discovered: "
 
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -577,12 +577,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_7e
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_ab
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -624,12 +624,12 @@
 
     invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_7e
 
     .line 212
     .end local v7    # "value":Ljava/lang/String;
     .end local v8    # "key":Ljava/lang/String;
-    :cond_3
+    :cond_ab
     nop
 
     .line 185
@@ -649,7 +649,7 @@
 .end method
 
 .method public static final query(Landroidx/room/RoomDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;Z)Landroid/database/Cursor;
-    .locals 1
+    .registers 4
     .param p0, "db"    # Landroidx/room/RoomDatabase;
     .param p1, "sqLiteQuery"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .param p2, "maybeCopy"    # Z
@@ -676,7 +676,7 @@
 .end method
 
 .method public static final query(Landroidx/room/RoomDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;ZLandroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 5
+    .registers 9
     .param p0, "db"    # Landroidx/room/RoomDatabase;
     .param p1, "sqLiteQuery"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .param p2, "maybeCopy"    # Z
@@ -697,11 +697,11 @@
 
     .line 76
     .local v0, "cursor":Landroid/database/Cursor;
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_40
 
     instance-of v1, v0, Landroid/database/AbstractWindowedCursor;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_40
 
     .line 77
     move-object v1, v0
@@ -722,7 +722,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_31
 
     .line 79
     move-object v2, v0
@@ -737,14 +737,14 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_32
 
     .line 81
-    :cond_0
+    :cond_31
     move v2, v1
 
     .line 78
-    :goto_0
+    :goto_32
     nop
 
     .line 83
@@ -753,12 +753,12 @@
 
     const/16 v4, 0x17
 
-    if-lt v3, v4, :cond_1
+    if-lt v3, v4, :cond_3b
 
-    if-ge v2, v1, :cond_2
+    if-ge v2, v1, :cond_40
 
     .line 84
-    :cond_1
+    :cond_3b
     invoke-static {v0}, Landroidx/room/util/CursorUtil;->copyAndClose(Landroid/database/Cursor;)Landroid/database/Cursor;
 
     move-result-object v3
@@ -768,12 +768,12 @@
     .line 87
     .end local v1    # "rowsInCursor":I
     .end local v2    # "rowsInWindow":I
-    :cond_2
+    :cond_40
     return-object v0
 .end method
 
 .method public static final readVersion(Ljava/io/File;)I
-    .locals 11
+    .registers 12
     .param p0, "databaseFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -796,7 +796,7 @@
 
     check-cast v0, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_10
     move-object v1, v0
 
     check-cast v1, Ljava/nio/channels/FileChannel;
@@ -838,7 +838,7 @@
 
     .line 147
     .local v2, "read":I
-    if-ne v2, v9, :cond_0
+    if-ne v2, v9, :cond_3a
 
     .line 150
     invoke-virtual {v10}, Ljava/nio/ByteBuffer;->rewind()Ljava/nio/Buffer;
@@ -847,8 +847,8 @@
     invoke-virtual {v10}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_35
+    .catchall {:try_start_10 .. :try_end_35} :catchall_42
 
     .end local v1    # "input":Ljava/nio/channels/FileChannel;
     .end local v2    # "read":I
@@ -865,8 +865,8 @@
     .restart local v2    # "read":I
     .restart local v8    # "$i$a$-use-DBUtil$readVersion$1":I
     .restart local v10    # "buffer":Ljava/nio/ByteBuffer;
-    :cond_0
-    :try_start_1
+    :cond_3a
+    :try_start_3a
     new-instance v3, Ljava/io/IOException;
 
     const-string v4, "Bad database header, unable to read 4 bytes at offset 60"
@@ -875,8 +875,8 @@
 
     .end local p0    # "databaseFile":Ljava/io/File;
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_42
+    .catchall {:try_start_3a .. :try_end_42} :catchall_42
 
     .line 151
     .end local v1    # "input":Ljava/nio/channels/FileChannel;
@@ -884,17 +884,17 @@
     .end local v8    # "$i$a$-use-DBUtil$readVersion$1":I
     .end local v10    # "buffer":Ljava/nio/ByteBuffer;
     .restart local p0    # "databaseFile":Ljava/io/File;
-    :catchall_0
+    :catchall_42
     move-exception v1
 
     .end local p0    # "databaseFile":Ljava/io/File;
-    :try_start_2
+    :try_start_43
     throw v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_44
+    .catchall {:try_start_43 .. :try_end_44} :catchall_44
 
     .restart local p0    # "databaseFile":Ljava/io/File;
-    :catchall_1
+    :catchall_44
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V

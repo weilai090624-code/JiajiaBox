@@ -49,7 +49,7 @@
 
 # direct methods
 .method public static final suspendWithStateAtLeastUnchecked(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;ZLkotlinx/coroutines/CoroutineDispatcher;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 15
     .param p0, "$this$suspendWithStateAtLeastUnchecked"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "dispatchNeeded"    # Z
@@ -115,7 +115,7 @@
 
     .line 190
     .local v6, "observer":Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$observer$1;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_2b
 
     .line 191
     nop
@@ -134,10 +134,10 @@
 
     invoke-virtual {p3, v7, v8}, Lkotlinx/coroutines/CoroutineDispatcher;->dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_31
 
     .line 195
-    :cond_0
+    :cond_2b
     move-object v7, v6
 
     check-cast v7, Landroidx/lifecycle/LifecycleObserver;
@@ -145,7 +145,7 @@
     invoke-virtual {p0, v7}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     .line 197
-    :goto_0
+    :goto_31
     new-instance v7, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$2;
 
     invoke-direct {v7, p3, p0, v6}, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$2;-><init>(Lkotlinx/coroutines/CoroutineDispatcher;Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$observer$1;)V
@@ -176,12 +176,12 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_4a
 
     invoke-static {p5}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 299
-    :cond_1
+    :cond_4a
     nop
 
     .line 205
@@ -190,7 +190,7 @@
 .end method
 
 .method public static final withCreated(Landroidx/lifecycle/Lifecycle;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 11
+    .registers 14
     .param p0, "$this$withCreated"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -246,7 +246,7 @@
 
     .line 217
     .local v10, "dispatchNeeded$iv":Z
-    if-nez v10, :cond_1
+    if-nez v10, :cond_38
 
     .line 218
     invoke-virtual {v2}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -255,7 +255,7 @@
 
     sget-object v4, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_32
 
     .line 219
     invoke-virtual {v2}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -270,16 +270,16 @@
 
     move-result v3
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_38
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 218
-    :cond_0
+    :cond_32
     new-instance v3, Landroidx/lifecycle/LifecycleDestroyedException;
 
     invoke-direct {v3}, Landroidx/lifecycle/LifecycleDestroyedException;-><init>()V
@@ -287,7 +287,7 @@
     throw v3
 
     .line 222
-    :cond_1
+    :cond_38
     move-object v5, v9
 
     check-cast v5, Lkotlinx/coroutines/CoroutineDispatcher;
@@ -316,12 +316,12 @@
     .end local v8    # "$i$f$withStateAtLeastUnchecked":I
     .end local v9    # "lifecycleDispatcher$iv":Lkotlinx/coroutines/MainCoroutineDispatcher;
     .end local v10    # "dispatchNeeded$iv":Z
-    :goto_0
+    :goto_4a
     return-object v3
 .end method
 
 .method public static final withCreated(Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 11
+    .registers 14
     .param p0, "$this$withCreated"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -381,7 +381,7 @@
 
     .line 267
     .local v10, "dispatchNeeded$iv":Z
-    if-nez v10, :cond_1
+    if-nez v10, :cond_3c
 
     .line 268
     invoke-virtual {v1}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -390,7 +390,7 @@
 
     sget-object v3, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_36
 
     .line 269
     invoke-virtual {v1}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -405,16 +405,16 @@
 
     move-result v2
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_3c
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 268
-    :cond_0
+    :cond_36
     new-instance v2, Landroidx/lifecycle/LifecycleDestroyedException;
 
     invoke-direct {v2}, Landroidx/lifecycle/LifecycleDestroyedException;-><init>()V
@@ -422,7 +422,7 @@
     throw v2
 
     .line 272
-    :cond_1
+    :cond_3c
     move-object v4, v9
 
     check-cast v4, Lkotlinx/coroutines/CoroutineDispatcher;
@@ -451,12 +451,12 @@
     .end local v8    # "$i$f$withStateAtLeastUnchecked":I
     .end local v9    # "lifecycleDispatcher$iv":Lkotlinx/coroutines/MainCoroutineDispatcher;
     .end local v10    # "dispatchNeeded$iv":Z
-    :goto_0
+    :goto_4e
     return-object v2
 .end method
 
 .method private static final withCreated$$forInline(Landroidx/lifecycle/Lifecycle;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p0, "$this$withCreated"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -499,7 +499,7 @@
 .end method
 
 .method private static final withCreated$$forInline(Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p0, "$this$withCreated"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -543,7 +543,7 @@
 .end method
 
 .method public static final withResumed(Landroidx/lifecycle/Lifecycle;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 11
+    .registers 14
     .param p0, "$this$withResumed"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -599,7 +599,7 @@
 
     .line 233
     .local v10, "dispatchNeeded$iv":Z
-    if-nez v10, :cond_1
+    if-nez v10, :cond_38
 
     .line 234
     invoke-virtual {v2}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -608,7 +608,7 @@
 
     sget-object v4, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_32
 
     .line 235
     invoke-virtual {v2}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -623,16 +623,16 @@
 
     move-result v3
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_38
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 234
-    :cond_0
+    :cond_32
     new-instance v3, Landroidx/lifecycle/LifecycleDestroyedException;
 
     invoke-direct {v3}, Landroidx/lifecycle/LifecycleDestroyedException;-><init>()V
@@ -640,7 +640,7 @@
     throw v3
 
     .line 238
-    :cond_1
+    :cond_38
     move-object v5, v9
 
     check-cast v5, Lkotlinx/coroutines/CoroutineDispatcher;
@@ -669,12 +669,12 @@
     .end local v8    # "$i$f$withStateAtLeastUnchecked":I
     .end local v9    # "lifecycleDispatcher$iv":Lkotlinx/coroutines/MainCoroutineDispatcher;
     .end local v10    # "dispatchNeeded$iv":Z
-    :goto_0
+    :goto_4a
     return-object v3
 .end method
 
 .method public static final withResumed(Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 11
+    .registers 14
     .param p0, "$this$withResumed"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -734,7 +734,7 @@
 
     .line 283
     .local v10, "dispatchNeeded$iv":Z
-    if-nez v10, :cond_1
+    if-nez v10, :cond_3c
 
     .line 284
     invoke-virtual {v1}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -743,7 +743,7 @@
 
     sget-object v3, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_36
 
     .line 285
     invoke-virtual {v1}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -758,16 +758,16 @@
 
     move-result v2
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_3c
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 284
-    :cond_0
+    :cond_36
     new-instance v2, Landroidx/lifecycle/LifecycleDestroyedException;
 
     invoke-direct {v2}, Landroidx/lifecycle/LifecycleDestroyedException;-><init>()V
@@ -775,7 +775,7 @@
     throw v2
 
     .line 288
-    :cond_1
+    :cond_3c
     move-object v4, v9
 
     check-cast v4, Lkotlinx/coroutines/CoroutineDispatcher;
@@ -804,12 +804,12 @@
     .end local v8    # "$i$f$withStateAtLeastUnchecked":I
     .end local v9    # "lifecycleDispatcher$iv":Lkotlinx/coroutines/MainCoroutineDispatcher;
     .end local v10    # "dispatchNeeded$iv":Z
-    :goto_0
+    :goto_4e
     return-object v2
 .end method
 
 .method private static final withResumed$$forInline(Landroidx/lifecycle/Lifecycle;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p0, "$this$withResumed"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -852,7 +852,7 @@
 .end method
 
 .method private static final withResumed$$forInline(Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p0, "$this$withResumed"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -896,7 +896,7 @@
 .end method
 
 .method public static final withStarted(Landroidx/lifecycle/Lifecycle;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 11
+    .registers 14
     .param p0, "$this$withStarted"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -952,7 +952,7 @@
 
     .line 225
     .local v10, "dispatchNeeded$iv":Z
-    if-nez v10, :cond_1
+    if-nez v10, :cond_38
 
     .line 226
     invoke-virtual {v2}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -961,7 +961,7 @@
 
     sget-object v4, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_32
 
     .line 227
     invoke-virtual {v2}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -976,16 +976,16 @@
 
     move-result v3
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_38
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 226
-    :cond_0
+    :cond_32
     new-instance v3, Landroidx/lifecycle/LifecycleDestroyedException;
 
     invoke-direct {v3}, Landroidx/lifecycle/LifecycleDestroyedException;-><init>()V
@@ -993,7 +993,7 @@
     throw v3
 
     .line 230
-    :cond_1
+    :cond_38
     move-object v5, v9
 
     check-cast v5, Lkotlinx/coroutines/CoroutineDispatcher;
@@ -1022,12 +1022,12 @@
     .end local v8    # "$i$f$withStateAtLeastUnchecked":I
     .end local v9    # "lifecycleDispatcher$iv":Lkotlinx/coroutines/MainCoroutineDispatcher;
     .end local v10    # "dispatchNeeded$iv":Z
-    :goto_0
+    :goto_4a
     return-object v3
 .end method
 
 .method public static final withStarted(Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 11
+    .registers 14
     .param p0, "$this$withStarted"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -1087,7 +1087,7 @@
 
     .line 275
     .local v10, "dispatchNeeded$iv":Z
-    if-nez v10, :cond_1
+    if-nez v10, :cond_3c
 
     .line 276
     invoke-virtual {v1}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -1096,7 +1096,7 @@
 
     sget-object v3, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_36
 
     .line 277
     invoke-virtual {v1}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -1111,16 +1111,16 @@
 
     move-result v2
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_3c
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 276
-    :cond_0
+    :cond_36
     new-instance v2, Landroidx/lifecycle/LifecycleDestroyedException;
 
     invoke-direct {v2}, Landroidx/lifecycle/LifecycleDestroyedException;-><init>()V
@@ -1128,7 +1128,7 @@
     throw v2
 
     .line 280
-    :cond_1
+    :cond_3c
     move-object v4, v9
 
     check-cast v4, Lkotlinx/coroutines/CoroutineDispatcher;
@@ -1157,12 +1157,12 @@
     .end local v8    # "$i$f$withStateAtLeastUnchecked":I
     .end local v9    # "lifecycleDispatcher$iv":Lkotlinx/coroutines/MainCoroutineDispatcher;
     .end local v10    # "dispatchNeeded$iv":Z
-    :goto_0
+    :goto_4e
     return-object v2
 .end method
 
 .method private static final withStarted$$forInline(Landroidx/lifecycle/Lifecycle;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p0, "$this$withStarted"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -1205,7 +1205,7 @@
 .end method
 
 .method private static final withStarted$$forInline(Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p0, "$this$withStarted"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -1249,7 +1249,7 @@
 .end method
 
 .method public static final withStateAtLeast(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 14
     .param p0, "$this$withStateAtLeast"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "block"    # Lkotlin/jvm/functions/Function0;
@@ -1281,17 +1281,17 @@
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_3
+    :goto_e
+    if-eqz v1, :cond_57
 
     .line 47
     move-object v1, p0
@@ -1321,7 +1321,7 @@
 
     .line 209
     .local v9, "dispatchNeeded$iv":Z
-    if-nez v9, :cond_2
+    if-nez v9, :cond_44
 
     .line 210
     invoke-virtual {v1}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -1330,7 +1330,7 @@
 
     sget-object v3, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_3e
 
     .line 211
     invoke-virtual {v1}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -1345,16 +1345,16 @@
 
     move-result v2
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_44
 
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_56
 
     .line 210
-    :cond_1
+    :cond_3e
     new-instance v2, Landroidx/lifecycle/LifecycleDestroyedException;
 
     invoke-direct {v2}, Landroidx/lifecycle/LifecycleDestroyedException;-><init>()V
@@ -1362,7 +1362,7 @@
     throw v2
 
     .line 214
-    :cond_2
+    :cond_44
     move-object v4, v8
 
     check-cast v4, Lkotlinx/coroutines/CoroutineDispatcher;
@@ -1390,11 +1390,11 @@
     .end local v7    # "$i$f$withStateAtLeastUnchecked":I
     .end local v8    # "lifecycleDispatcher$iv":Lkotlinx/coroutines/MainCoroutineDispatcher;
     .end local v9    # "dispatchNeeded$iv":Z
-    :goto_1
+    :goto_56
     return-object v2
 
     .line 43
-    :cond_3
+    :cond_57
     const/4 v1, 0x0
 
     .line 44
@@ -1431,7 +1431,7 @@
 .end method
 
 .method public static final withStateAtLeast(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 12
+    .registers 16
     .param p0, "$this$withStateAtLeast"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "block"    # Lkotlin/jvm/functions/Function0;
@@ -1472,17 +1472,17 @@
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_12
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_3
+    :goto_13
+    if-eqz v1, :cond_5d
 
     .line 243
     move-object v1, v7
@@ -1512,7 +1512,7 @@
 
     .line 246
     .local v11, "dispatchNeeded$iv$iv":Z
-    if-nez v11, :cond_2
+    if-nez v11, :cond_49
 
     .line 247
     invoke-virtual {v1}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -1521,7 +1521,7 @@
 
     sget-object v3, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_43
 
     .line 248
     invoke-virtual {v1}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -1536,16 +1536,16 @@
 
     move-result v2
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_49
 
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_5b
 
     .line 247
-    :cond_1
+    :cond_43
     new-instance v2, Landroidx/lifecycle/LifecycleDestroyedException;
 
     invoke-direct {v2}, Landroidx/lifecycle/LifecycleDestroyedException;-><init>()V
@@ -1553,7 +1553,7 @@
     throw v2
 
     .line 251
-    :cond_2
+    :cond_49
     move-object v4, v10
 
     check-cast v4, Lkotlinx/coroutines/CoroutineDispatcher;
@@ -1581,7 +1581,7 @@
     .end local v9    # "$i$f$withStateAtLeastUnchecked":I
     .end local v10    # "lifecycleDispatcher$iv$iv":Lkotlinx/coroutines/MainCoroutineDispatcher;
     .end local v11    # "dispatchNeeded$iv$iv":Z
-    :goto_1
+    :goto_5b
     nop
 
     .line 101
@@ -1592,7 +1592,7 @@
     .line 239
     .restart local v7    # "$this$withStateAtLeast$iv":Landroidx/lifecycle/Lifecycle;
     .restart local v8    # "$i$f$withStateAtLeast":I
-    :cond_3
+    :cond_5d
     const/4 v1, 0x0
 
     .line 240
@@ -1629,7 +1629,7 @@
 .end method
 
 .method private static final withStateAtLeast$$forInline(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 8
     .param p0, "$this$withStateAtLeast"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "block"    # Lkotlin/jvm/functions/Function0;
@@ -1661,17 +1661,17 @@
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_1
+    :goto_e
+    if-nez v1, :cond_2f
 
     const/4 v1, 0x0
 
@@ -1713,7 +1713,7 @@
     .end local p1    # "state":Landroidx/lifecycle/Lifecycle$State;
     .end local p2    # "block":Lkotlin/jvm/functions/Function0;
     .end local p3    # "$completion":Lkotlin/coroutines/Continuation;
-    :cond_1
+    :cond_2f
     nop
 
     .line 207
@@ -1732,7 +1732,7 @@
 .end method
 
 .method private static final withStateAtLeast$$forInline(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 10
     .param p0, "$this$withStateAtLeast"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "block"    # Lkotlin/jvm/functions/Function0;
@@ -1773,17 +1773,17 @@
 
     move-result v3
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_12
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v3, 0x0
 
-    :goto_0
-    if-nez v3, :cond_1
+    :goto_13
+    if-nez v3, :cond_34
 
     const/4 v3, 0x0
 
@@ -1827,7 +1827,7 @@
     .end local p1    # "state":Landroidx/lifecycle/Lifecycle$State;
     .end local p2    # "block":Lkotlin/jvm/functions/Function0;
     .end local p3    # "$completion":Lkotlin/coroutines/Continuation;
-    :cond_1
+    :cond_34
     nop
 
     .line 257
@@ -1846,7 +1846,7 @@
 .end method
 
 .method public static final withStateAtLeastUnchecked(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 13
     .param p0, "$this$withStateAtLeastUnchecked"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "block"    # Lkotlin/jvm/functions/Function0;
@@ -1890,7 +1890,7 @@
 
     .line 156
     .local v2, "dispatchNeeded":Z
-    if-nez v2, :cond_1
+    if-nez v2, :cond_33
 
     .line 157
     invoke-virtual {p0}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -1899,7 +1899,7 @@
 
     sget-object v4, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_2d
 
     .line 158
     invoke-virtual {p0}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
@@ -1914,7 +1914,7 @@
 
     move-result v3
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_33
 
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
@@ -1923,7 +1923,7 @@
     return-object v3
 
     .line 157
-    :cond_0
+    :cond_2d
     new-instance v3, Landroidx/lifecycle/LifecycleDestroyedException;
 
     invoke-direct {v3}, Landroidx/lifecycle/LifecycleDestroyedException;-><init>()V
@@ -1931,7 +1931,7 @@
     throw v3
 
     .line 161
-    :cond_1
+    :cond_33
     move-object v6, v1
 
     check-cast v6, Lkotlinx/coroutines/CoroutineDispatcher;
@@ -1960,7 +1960,7 @@
 .end method
 
 .method private static final withStateAtLeastUnchecked$$forInline(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
     .param p0, "$this$withStateAtLeastUnchecked"    # Landroidx/lifecycle/Lifecycle;
     .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "block"    # Lkotlin/jvm/functions/Function0;

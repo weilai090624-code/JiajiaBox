@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 31
     const-class v0, Landroid/graphics/Matrix;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public get(Landroid/widget/ImageView;)Landroid/graphics/Matrix;
-    .locals 2
+    .registers 4
     .param p1, "object"    # Landroid/widget/ImageView;
 
     .line 42
@@ -62,7 +62,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 27
     check-cast p1, Landroid/widget/ImageView;
@@ -75,7 +75,7 @@
 .end method
 
 .method public set(Landroid/widget/ImageView;Landroid/graphics/Matrix;)V
-    .locals 0
+    .registers 3
     .param p1, "object"    # Landroid/widget/ImageView;
     .param p2, "value"    # Landroid/graphics/Matrix;
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 27
     check-cast p1, Landroid/widget/ImageView;

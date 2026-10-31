@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/TorchControl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/TorchControl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onCaptureResult(Landroid/hardware/camera2/TotalCaptureResult;)Z
-    .locals 6
+    .registers 8
     .param p1, "captureResult"    # Landroid/hardware/camera2/TotalCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -63,7 +63,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 197
     invoke-virtual {p1}, Landroid/hardware/camera2/TotalCaptureResult;->getRequest()Landroid/hardware/camera2/CaptureRequest;
@@ -82,7 +82,7 @@
 
     .line 199
     .local v2, "flashMode":Ljava/lang/Integer;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 200
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
@@ -91,23 +91,23 @@
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_1e
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v3, 0x0
 
     .line 202
     .local v3, "torchEnabled":Z
-    :goto_0
+    :goto_1f
     iget-object v4, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
 
     iget-boolean v4, v4, Landroidx/camera/camera2/internal/TorchControl;->mTargetTorchEnabled:Z
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_31
 
     .line 203
     iget-object v4, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
@@ -127,6 +127,6 @@
     .end local v0    # "captureRequest":Landroid/hardware/camera2/CaptureRequest;
     .end local v2    # "flashMode":Ljava/lang/Integer;
     .end local v3    # "torchEnabled":Z
-    :cond_1
+    :cond_31
     return v1
 .end method

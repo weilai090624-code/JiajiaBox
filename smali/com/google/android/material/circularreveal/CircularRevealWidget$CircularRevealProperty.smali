@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 181
     new-instance v0, Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealProperty;
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 185
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public get(Lcom/google/android/material/circularreveal/CircularRevealWidget;)Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
-    .locals 1
+    .registers 3
     .param p1, "object"    # Lcom/google/android/material/circularreveal/CircularRevealWidget;
 
     .line 191
@@ -80,7 +80,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 179
     check-cast p1, Lcom/google/android/material/circularreveal/CircularRevealWidget;
@@ -93,7 +93,7 @@
 .end method
 
 .method public set(Lcom/google/android/material/circularreveal/CircularRevealWidget;Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V
-    .locals 0
+    .registers 3
     .param p1, "object"    # Lcom/google/android/material/circularreveal/CircularRevealWidget;
     .param p2, "value"    # Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 179
     check-cast p1, Lcom/google/android/material/circularreveal/CircularRevealWidget;

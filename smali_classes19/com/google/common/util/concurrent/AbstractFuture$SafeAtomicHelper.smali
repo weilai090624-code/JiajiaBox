@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method casListeners(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Listener;Lcom/google/common/util/concurrent/AbstractFuture$Listener;)Z
-    .locals 1
+    .registers 5
     .param p2, "expect"    # Lcom/google/common/util/concurrent/AbstractFuture$Listener;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -161,7 +161,7 @@
 .end method
 
 .method casValue(Lcom/google/common/util/concurrent/AbstractFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .param p2, "expect"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -190,7 +190,7 @@
 .end method
 
 .method casWaiters(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)Z
-    .locals 1
+    .registers 5
     .param p2, "expect"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -222,7 +222,7 @@
 .end method
 
 .method putNext(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)V
-    .locals 1
+    .registers 4
     .param p1, "waiter"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     .param p2, "newValue"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -239,7 +239,7 @@
 .end method
 
 .method putThread(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;Ljava/lang/Thread;)V
-    .locals 1
+    .registers 4
     .param p1, "waiter"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     .param p2, "newValue"    # Ljava/lang/Thread;
 

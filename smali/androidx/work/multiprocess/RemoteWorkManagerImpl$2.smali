@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/multiprocess/RemoteWorkManagerImpl;Ljava/util/concurrent/Executor;Landroidx/work/multiprocess/IWorkManagerImplCallback;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/work/multiprocess/RemoteWorkManagerImpl;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public toByteArray(Landroidx/work/Operation$State$SUCCESS;)[B
-    .locals 1
+    .registers 3
     .param p1, "result"    # Landroidx/work/Operation$State$SUCCESS;
 
     .line 113
@@ -55,7 +55,7 @@
 .end method
 
 .method public bridge synthetic toByteArray(Ljava/lang/Object;)[B
-    .locals 0
+    .registers 2
 
     .line 109
     check-cast p1, Landroidx/work/Operation$State$SUCCESS;

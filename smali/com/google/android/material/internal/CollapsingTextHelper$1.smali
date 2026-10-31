@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/internal/CollapsingTextHelper;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/internal/CollapsingTextHelper;
 
     .line 405
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public apply(Landroid/graphics/Typeface;)V
-    .locals 1
+    .registers 3
     .param p1, "font"    # Landroid/graphics/Typeface;
 
     .line 408

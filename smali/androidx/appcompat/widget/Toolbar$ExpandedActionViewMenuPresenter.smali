@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/Toolbar;)V
-    .locals 0
+    .registers 2
 
     .line 2674
     iput-object p1, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public collapseItemActionView(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/view/menu/MenuItemImpl;)Z
-    .locals 2
+    .registers 5
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -52,7 +52,7 @@
 
     instance-of v0, v0, Landroidx/appcompat/view/CollapsibleActionView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 2776
     iget-object v0, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
@@ -64,7 +64,7 @@
     invoke-interface {v0}, Landroidx/appcompat/view/CollapsibleActionView;->onActionViewCollapsed()V
 
     .line 2779
-    :cond_0
+    :cond_11
     iget-object v0, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
 
     iget-object v1, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
@@ -119,7 +119,7 @@
 .end method
 
 .method public expandItemActionView(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/view/menu/MenuItemImpl;)Z
-    .locals 5
+    .registers 8
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
@@ -141,12 +141,12 @@
     .local v0, "collapseButtonParent":Landroid/view/ViewParent;
     iget-object v1, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_28
 
     .line 2738
     instance-of v1, v0, Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     .line 2739
     move-object v1, v0
@@ -160,7 +160,7 @@
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 2741
-    :cond_0
+    :cond_1f
     iget-object v1, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
 
     iget-object v2, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
@@ -170,7 +170,7 @@
     invoke-virtual {v1, v2}, Landroidx/appcompat/widget/Toolbar;->addView(Landroid/view/View;)V
 
     .line 2743
-    :cond_1
+    :cond_28
     iget-object v1, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
 
     invoke-virtual {p2}, Landroidx/appcompat/view/menu/MenuItemImpl;->getActionView()Landroid/view/View;
@@ -195,12 +195,12 @@
     .local v1, "expandedActionParent":Landroid/view/ViewParent;
     iget-object v2, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_71
 
     .line 2747
     instance-of v2, v1, Landroid/view/ViewGroup;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4c
 
     .line 2748
     move-object v2, v1
@@ -214,7 +214,7 @@
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 2750
-    :cond_2
+    :cond_4c
     iget-object v2, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
 
     invoke-virtual {v2}, Landroidx/appcompat/widget/Toolbar;->generateDefaultLayoutParams()Landroidx/appcompat/widget/Toolbar$LayoutParams;
@@ -258,7 +258,7 @@
 
     .line 2757
     .end local v2    # "lp":Landroidx/appcompat/widget/Toolbar$LayoutParams;
-    :cond_3
+    :cond_71
     iget-object v2, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
 
     invoke-virtual {v2}, Landroidx/appcompat/widget/Toolbar;->removeChildrenForExpandedActionView()V
@@ -280,7 +280,7 @@
 
     instance-of v3, v3, Landroidx/appcompat/view/CollapsibleActionView;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_90
 
     .line 2762
     iget-object v3, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
@@ -292,7 +292,7 @@
     invoke-interface {v3}, Landroidx/appcompat/view/CollapsibleActionView;->onActionViewExpanded()V
 
     .line 2766
-    :cond_4
+    :cond_90
     iget-object v3, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroidx/appcompat/widget/Toolbar;
 
     invoke-virtual {v3}, Landroidx/appcompat/widget/Toolbar;->updateBackInvokedCallbackState()V
@@ -302,7 +302,7 @@
 .end method
 
 .method public flagActionItems()Z
-    .locals 1
+    .registers 2
 
     .line 2730
     const/4 v0, 0x0
@@ -311,7 +311,7 @@
 .end method
 
 .method public getId()I
-    .locals 1
+    .registers 2
 
     .line 2796
     const/4 v0, 0x0
@@ -320,7 +320,7 @@
 .end method
 
 .method public getMenuView(Landroid/view/ViewGroup;)Landroidx/appcompat/view/menu/MenuView;
-    .locals 1
+    .registers 3
     .param p1, "root"    # Landroid/view/ViewGroup;
 
     .line 2688
@@ -330,18 +330,18 @@
 .end method
 
 .method public initForMenu(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
     .line 2680
     iget-object v0, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 2681
     iget-object v0, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -351,7 +351,7 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/view/menu/MenuBuilder;->collapseItemActionView(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
 
     .line 2683
-    :cond_0
+    :cond_f
     iput-object p2, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
     .line 2684
@@ -359,7 +359,7 @@
 .end method
 
 .method public onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
-    .locals 0
+    .registers 3
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "allMenusAreClosing"    # Z
 
@@ -368,7 +368,7 @@
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .line 2806
@@ -376,7 +376,7 @@
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 1
+    .registers 2
 
     .line 2801
     const/4 v0, 0x0
@@ -385,7 +385,7 @@
 .end method
 
 .method public onSubMenuSelected(Landroidx/appcompat/view/menu/SubMenuBuilder;)Z
-    .locals 1
+    .registers 3
     .param p1, "subMenu"    # Landroidx/appcompat/view/menu/SubMenuBuilder;
 
     .line 2721
@@ -395,7 +395,7 @@
 .end method
 
 .method public setCallback(Landroidx/appcompat/view/menu/MenuPresenter$Callback;)V
-    .locals 0
+    .registers 2
     .param p1, "cb"    # Landroidx/appcompat/view/menu/MenuPresenter$Callback;
 
     .line 2717
@@ -403,13 +403,13 @@
 .end method
 
 .method public updateMenuView(Z)V
-    .locals 5
+    .registers 7
     .param p1, "cleared"    # Z
 
     .line 2694
     iget-object v0, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2a
 
     .line 2695
     const/4 v0, 0x0
@@ -418,7 +418,7 @@
     .local v0, "found":Z
     iget-object v1, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     .line 2698
     iget-object v1, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -432,8 +432,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_10
+    if-ge v2, v1, :cond_21
 
     .line 2700
     iget-object v3, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -446,27 +446,27 @@
     .local v3, "item":Landroid/view/MenuItem;
     iget-object v4, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_1e
 
     .line 2702
     const/4 v0, 0x1
 
     .line 2703
-    goto :goto_1
+    goto :goto_21
 
     .line 2699
     .end local v3    # "item":Landroid/view/MenuItem;
-    :cond_0
+    :cond_1e
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 2708
     .end local v1    # "count":I
     .end local v2    # "i":I
-    :cond_1
-    :goto_1
-    if-nez v0, :cond_2
+    :cond_21
+    :goto_21
+    if-nez v0, :cond_2a
 
     .line 2710
     iget-object v1, p0, Landroidx/appcompat/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -477,6 +477,6 @@
 
     .line 2713
     .end local v0    # "found":Z
-    :cond_2
+    :cond_2a
     return-void
 .end method

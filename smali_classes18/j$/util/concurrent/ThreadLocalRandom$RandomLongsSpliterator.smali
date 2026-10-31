@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(JJJJ)V
-    .locals 0
+    .registers 9
     .param p1, "index"    # J
     .param p3, "fence"    # J
     .param p5, "origin"    # J
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 864
     const/16 v0, 0x4540
@@ -64,7 +64,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 4
+    .registers 5
 
     .line 860
     iget-wide v0, p0, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;->fence:J
@@ -77,7 +77,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 841
     check-cast p1, Ljava/util/function/LongConsumer;
@@ -88,7 +88,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfLong$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfLong;Ljava/util/function/Consumer;)V
 
@@ -96,11 +96,11 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/LongConsumer;)V
-    .locals 12
+    .registers 14
     .param p1, "consumer"    # Ljava/util/function/LongConsumer;
 
     .line 880
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_24
 
     .line 881
     iget-wide v0, p0, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;->index:J
@@ -112,7 +112,7 @@
     .local v2, "f":J
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_23
 
     .line 883
     iput-wide v2, p0, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;->index:J
@@ -131,7 +131,7 @@
 
     .line 887
     .local v8, "rng":Lj$/util/concurrent/ThreadLocalRandom;
-    :cond_0
+    :cond_14
     invoke-virtual {v8, v4, v5, v6, v7}, Lj$/util/concurrent/ThreadLocalRandom;->internalNextLong(JJ)J
 
     move-result-wide v9
@@ -147,19 +147,19 @@
 
     cmp-long v11, v9, v2
 
-    if-ltz v11, :cond_0
+    if-ltz v11, :cond_14
 
     .line 890
     .end local v4    # "o":J
     .end local v6    # "b":J
     .end local v8    # "rng":Lj$/util/concurrent/ThreadLocalRandom;
-    :cond_1
+    :cond_23
     return-void
 
     .line 880
     .end local v0    # "i":J
     .end local v2    # "f":J
-    :cond_2
+    :cond_24
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -168,7 +168,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -188,7 +188,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -198,7 +198,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 841
     check-cast p1, Ljava/util/function/LongConsumer;
@@ -211,7 +211,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfLong$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfLong;Ljava/util/function/Consumer;)Z
 
@@ -221,11 +221,11 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/LongConsumer;)Z
-    .locals 9
+    .registers 11
     .param p1, "consumer"    # Ljava/util/function/LongConsumer;
 
     .line 869
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_22
 
     .line 870
     iget-wide v0, p0, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;->index:J
@@ -237,7 +237,7 @@
     .local v2, "f":J
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_20
 
     .line 872
     invoke-static {}, Lj$/util/concurrent/ThreadLocalRandom;->current()Lj$/util/concurrent/ThreadLocalRandom;
@@ -267,7 +267,7 @@
     return v4
 
     .line 876
-    :cond_0
+    :cond_20
     const/4 v4, 0x0
 
     return v4
@@ -275,7 +275,7 @@
     .line 869
     .end local v0    # "i":J
     .end local v2    # "f":J
-    :cond_1
+    :cond_22
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -284,7 +284,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 2
 
     .line 841
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;->trySplit()Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;
@@ -295,7 +295,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 841
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;->trySplit()Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;
@@ -306,7 +306,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 841
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;->trySplit()Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;
@@ -317,7 +317,7 @@
 .end method
 
 .method public trySplit()Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;
-    .locals 14
+    .registers 15
 
     .line 854
     iget-wide v9, p0, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;->index:J
@@ -335,14 +335,14 @@
     .local v11, "m":J
     cmp-long v0, v11, v9
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_e
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 856
-    :cond_0
+    :cond_e
     new-instance v13, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;
 
     iput-wide v11, p0, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;->index:J
@@ -360,6 +360,6 @@
     invoke-direct/range {v0 .. v8}, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;-><init>(JJJJ)V
 
     .line 855
-    :goto_0
+    :goto_1c
     return-object v0
 .end method

@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 151
     new-instance v0, Lorg/yaml/snakeyaml/DumperOptions$Version;
@@ -98,7 +98,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I[Ljava/lang/Integer;)V
-    .locals 0
+    .registers 4
     .param p3, "version"    # [Ljava/lang/Integer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -119,7 +119,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/yaml/snakeyaml/DumperOptions$Version;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 150
@@ -135,7 +135,7 @@
 .end method
 
 .method public static values()[Lorg/yaml/snakeyaml/DumperOptions$Version;
-    .locals 1
+    .registers 1
 
     .line 150
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$Version;->$VALUES:[Lorg/yaml/snakeyaml/DumperOptions$Version;
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public getRepresentation()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 163
     new-instance v0, Ljava/lang/StringBuilder;
@@ -193,7 +193,7 @@
 .end method
 
 .method public major()I
-    .locals 2
+    .registers 3
 
     .line 159
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions$Version;->version:[Ljava/lang/Integer;
@@ -210,7 +210,7 @@
 .end method
 
 .method public minor()I
-    .locals 2
+    .registers 3
 
     .line 160
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions$Version;->version:[Ljava/lang/Integer;
@@ -227,7 +227,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 168
     new-instance v0, Ljava/lang/StringBuilder;

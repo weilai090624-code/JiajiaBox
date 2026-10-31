@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static createCircularReveal(Lcom/google/android/material/circularreveal/CircularRevealWidget;FFF)Landroid/animation/Animator;
-    .locals 8
+    .registers 12
     .param p0, "view"    # Lcom/google/android/material/circularreveal/CircularRevealWidget;
     .param p1, "centerX"    # F
     .param p2, "centerY"    # F
@@ -53,7 +53,7 @@
 
     .line 67
     .local v1, "revealInfo":Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_35
 
     .line 71
     iget v3, v1, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;->radius:F
@@ -98,7 +98,7 @@
     .end local v3    # "startRadius":F
     .end local v4    # "circularRevealAnimator":Landroid/animation/Animator;
     .end local v6    # "set":Landroid/animation/AnimatorSet;
-    :cond_0
+    :cond_35
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Caller must set a non-null RevealInfo before calling this."
@@ -109,7 +109,7 @@
 .end method
 
 .method public static createCircularReveal(Lcom/google/android/material/circularreveal/CircularRevealWidget;FFFF)Landroid/animation/Animator;
-    .locals 7
+    .registers 12
     .param p0, "view"    # Lcom/google/android/material/circularreveal/CircularRevealWidget;
     .param p1, "centerX"    # F
     .param p2, "centerY"    # F
@@ -185,7 +185,7 @@
 .end method
 
 .method public static createCircularRevealListener(Lcom/google/android/material/circularreveal/CircularRevealWidget;)Landroid/animation/Animator$AnimatorListener;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Lcom/google/android/material/circularreveal/CircularRevealWidget;
 
     .line 123

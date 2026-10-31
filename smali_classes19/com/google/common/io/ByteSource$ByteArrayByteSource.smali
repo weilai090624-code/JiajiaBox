@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>([B)V
-    .locals 2
+    .registers 4
     .param p1, "bytes"    # [B
 
     .line 581
@@ -39,7 +39,7 @@
 .end method
 
 .method constructor <init>([BII)V
-    .locals 0
+    .registers 4
     .param p1, "bytes"    # [B
     .param p2, "offset"    # I
     .param p3, "length"    # I
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public copyTo(Ljava/io/OutputStream;)J
-    .locals 3
+    .registers 5
     .param p1, "output"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -89,7 +89,7 @@
 .end method
 
 .method public hash(Lcom/google/common/hash/HashFunction;)Lcom/google/common/hash/HashCode;
-    .locals 3
+    .registers 5
     .param p1, "hashFunction"    # Lcom/google/common/hash/HashFunction;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -112,26 +112,26 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 603
     iget v0, p0, Lcom/google/common/io/ByteSource$ByteArrayByteSource;->length:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public openBufferedStream()Ljava/io/InputStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -147,7 +147,7 @@
 .end method
 
 .method public openStream()Ljava/io/InputStream;
-    .locals 4
+    .registers 5
 
     .line 593
     new-instance v0, Ljava/io/ByteArrayInputStream;
@@ -164,7 +164,7 @@
 .end method
 
 .method public read(Lcom/google/common/io/ByteProcessor;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation runtime Lcom/google/common/io/ParametricNullness;
     .end annotation
 
@@ -203,7 +203,7 @@
 .end method
 
 .method public read()[B
-    .locals 4
+    .registers 5
 
     .line 618
     iget-object v0, p0, Lcom/google/common/io/ByteSource$ByteArrayByteSource;->bytes:[B
@@ -224,7 +224,7 @@
 .end method
 
 .method public size()J
-    .locals 2
+    .registers 3
 
     .line 608
     iget v0, p0, Lcom/google/common/io/ByteSource$ByteArrayByteSource;->length:I
@@ -235,7 +235,7 @@
 .end method
 
 .method public sizeIfKnown()Lcom/google/common/base/Optional;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -262,7 +262,7 @@
 .end method
 
 .method public slice(JJ)Lcom/google/common/io/ByteSource;
-    .locals 6
+    .registers 11
     .param p1, "offset"    # J
     .param p3, "length"    # J
 
@@ -275,16 +275,16 @@
 
     cmp-long v4, p1, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_a
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_b
     const-string v5, "offset (%s) may not be negative"
 
     invoke-static {v4, v5, p1, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -292,14 +292,14 @@
     .line 643
     cmp-long v4, p3, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_15
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_16
     const-string v1, "length (%s) may not be negative"
 
     invoke-static {v0, v1, p3, p4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -345,7 +345,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 654
     invoke-static {}, Lcom/google/common/io/BaseEncoding;->base16()Lcom/google/common/io/BaseEncoding;

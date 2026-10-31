@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/Class;I)V
-    .locals 1
+    .registers 5
     .param p1, "tagKey"    # I
     .param p3, "frameworkMinimumSdk"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>(ILjava/lang/Class;II)V
-    .locals 0
+    .registers 5
     .param p1, "tagKey"    # I
     .param p3, "contentChangeType"    # I
     .param p4, "frameworkMinimumSdk"    # I
@@ -99,7 +99,7 @@
 .end method
 
 .method private frameworkAvailable()Z
-    .locals 2
+    .registers 3
 
     .line 4853
     .local p0, "this":Landroidx/core/view/ViewCompat$AccessibilityViewProperty;, "Landroidx/core/view/ViewCompat$AccessibilityViewProperty<TT;>;"
@@ -107,23 +107,23 @@
 
     iget v1, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mFrameworkMinimumSdk:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 
 # virtual methods
 .method booleanNullToFalseEquals(Ljava/lang/Boolean;Ljava/lang/Boolean;)Z
-    .locals 4
+    .registers 7
     .param p1, "a"    # Ljava/lang/Boolean;
     .param p2, "b"    # Ljava/lang/Boolean;
 
@@ -133,50 +133,50 @@
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
     .line 4867
     .local v2, "aBool":Z
-    :goto_0
-    if-eqz p2, :cond_1
+    :goto_d
+    if-eqz p2, :cond_17
 
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_17
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v3, 0x0
 
     .line 4868
     .local v3, "bBool":Z
-    :goto_1
-    if-ne v2, v3, :cond_2
+    :goto_18
+    if-ne v2, v3, :cond_1b
 
-    goto :goto_2
+    goto :goto_1c
 
-    :cond_2
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_2
+    :goto_1c
     return v0
 .end method
 
@@ -201,7 +201,7 @@
 .end method
 
 .method get(Landroid/view/View;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -217,7 +217,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 4842
     invoke-virtual {p0, p1}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->frameworkGet(Landroid/view/View;)Ljava/lang/Object;
@@ -227,7 +227,7 @@
     return-object v0
 
     .line 4844
-    :cond_0
+    :cond_b
     iget v0, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mTagKey:I
 
     invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
@@ -242,21 +242,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     .line 4846
     return-object v0
 
     .line 4849
     .end local v0    # "value":Ljava/lang/Object;
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method set(Landroid/view/View;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -273,15 +273,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 4828
     invoke-virtual {p0, p1, p2}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->frameworkSet(Landroid/view/View;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 4829
-    :cond_0
+    :cond_a
     invoke-virtual {p0, p1}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->get(Landroid/view/View;)Ljava/lang/Object;
 
     move-result-object v0
@@ -290,7 +290,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 4830
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->ensureAccessibilityDelegateCompat(Landroid/view/View;)V
@@ -306,13 +306,13 @@
     invoke-static {p1, v0}, Landroidx/core/view/ViewCompat;->notifyViewAccessibilityStateChangedIfNeeded(Landroid/view/View;I)V
 
     .line 4837
-    :cond_1
-    :goto_0
+    :cond_21
+    :goto_21
     return-void
 .end method
 
 .method shouldUpdate(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)Z"

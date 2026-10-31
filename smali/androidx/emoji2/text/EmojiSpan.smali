@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/emoji2/text/EmojiMetadata;)V
-    .locals 1
+    .registers 3
     .param p1, "metadata"    # Landroidx/emoji2/text/EmojiMetadata;
 
     .line 75
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final getHeight()I
-    .locals 1
+    .registers 2
 
     .line 130
     iget-short v0, p0, Landroidx/emoji2/text/EmojiSpan;->mHeight:S
@@ -67,7 +67,7 @@
 .end method
 
 .method public final getId()I
-    .locals 1
+    .registers 2
 
     .line 148
     invoke-virtual {p0}, Landroidx/emoji2/text/EmojiSpan;->getMetadata()Landroidx/emoji2/text/EmojiMetadata;
@@ -82,7 +82,7 @@
 .end method
 
 .method public final getMetadata()Landroidx/emoji2/text/EmojiMetadata;
-    .locals 1
+    .registers 2
 
     .line 110
     iget-object v0, p0, Landroidx/emoji2/text/EmojiSpan;->mMetadata:Landroidx/emoji2/text/EmojiMetadata;
@@ -91,7 +91,7 @@
 .end method
 
 .method final getRatio()F
-    .locals 1
+    .registers 2
 
     .line 138
     iget v0, p0, Landroidx/emoji2/text/EmojiSpan;->mRatio:F
@@ -100,7 +100,7 @@
 .end method
 
 .method public getSize(Landroid/graphics/Paint;Ljava/lang/CharSequence;IILandroid/graphics/Paint$FontMetricsInt;)I
-    .locals 3
+    .registers 9
     .param p1, "paint"    # Landroid/graphics/Paint;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "start"    # I
@@ -186,7 +186,7 @@
     iput-short v1, p0, Landroidx/emoji2/text/EmojiSpan;->mWidth:S
 
     .line 94
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_59
 
     .line 95
     iget-object v1, p0, Landroidx/emoji2/text/EmojiSpan;->mTmpFontMetrics:Landroid/graphics/Paint$FontMetricsInt;
@@ -217,14 +217,14 @@
     iput v1, p5, Landroid/graphics/Paint$FontMetricsInt;->bottom:I
 
     .line 101
-    :cond_0
+    :cond_59
     iget-short v1, p0, Landroidx/emoji2/text/EmojiSpan;->mWidth:S
 
     return v1
 .end method
 
 .method final getWidth()I
-    .locals 1
+    .registers 2
 
     .line 120
     iget-short v0, p0, Landroidx/emoji2/text/EmojiSpan;->mWidth:S

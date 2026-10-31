@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V
-    .locals 0
+    .registers 4
     .param p1, "getModuleMethod"    # Ljava/lang/reflect/Method;
     .param p2, "getDescriptorMethod"    # Ljava/lang/reflect/Method;
     .param p3, "nameMethod"    # Ljava/lang/reflect/Method;

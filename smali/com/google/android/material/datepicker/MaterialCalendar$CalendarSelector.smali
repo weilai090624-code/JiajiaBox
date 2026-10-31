@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 65
     new-instance v0, Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;
@@ -75,7 +75,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -89,7 +89,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 64
@@ -105,7 +105,7 @@
 .end method
 
 .method public static values()[Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;
-    .locals 1
+    .registers 1
 
     .line 64
     sget-object v0, Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;->$VALUES:[Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;

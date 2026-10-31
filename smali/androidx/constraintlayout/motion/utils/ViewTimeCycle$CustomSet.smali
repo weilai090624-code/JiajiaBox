@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/util/SparseArray;)V
-    .locals 2
+    .registers 5
     .param p1, "attribute"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public setPoint(IFFIF)V
-    .locals 2
+    .registers 8
     .param p1, "position"    # I
     .param p2, "value"    # F
     .param p3, "period"    # F
@@ -134,7 +134,7 @@
 .end method
 
 .method public setPoint(ILandroidx/constraintlayout/widget/ConstraintAttribute;FIF)V
-    .locals 3
+    .registers 9
     .param p1, "position"    # I
     .param p2, "value"    # Landroidx/constraintlayout/widget/ConstraintAttribute;
     .param p3, "period"    # F
@@ -193,7 +193,7 @@
 .end method
 
 .method public setProperty(Landroid/view/View;FJLandroidx/constraintlayout/core/motion/utils/KeyCache;)Z
-    .locals 20
+    .registers 26
     .param p1, "view"    # Landroid/view/View;
     .param p2, "t"    # F
     .param p3, "time"    # J
@@ -273,7 +273,7 @@
 
     const/4 v12, 0x0
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_45
 
     .line 266
     iget-object v7, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->mAttributeName:Ljava/lang/String;
@@ -293,20 +293,20 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_47
 
     .line 268
     iput v11, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->last_cycle:F
 
-    goto :goto_0
+    goto :goto_47
 
     .line 265
-    :cond_0
+    :cond_45
     move-object/from16 v13, p5
 
     .line 272
-    :cond_1
-    :goto_0
+    :cond_47
+    :goto_47
     iget v7, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->last_cycle:F
 
     float-to-double v14, v7
@@ -351,12 +351,12 @@
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_1
+    :goto_68
     iget-object v11, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->mCache:[F
 
     array-length v11, v11
 
-    if-ge v8, v11, :cond_3
+    if-ge v8, v11, :cond_8e
 
     .line 277
     iget-boolean v11, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->mContinue:Z
@@ -371,16 +371,16 @@
 
     cmpl-double v12, v14, v18
 
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_7c
 
     const/4 v12, 0x1
 
-    goto :goto_2
+    goto :goto_7d
 
-    :cond_2
+    :cond_7c
     const/4 v12, 0x0
 
-    :goto_2
+    :goto_7d
     or-int/2addr v11, v12
 
     iput-boolean v11, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->mContinue:Z
@@ -401,11 +401,11 @@
     .line 276
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_68
 
     .line 280
     .end local v8    # "i":I
-    :cond_3
+    :cond_8e
     iget-object v8, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->mConstraintAttributeList:Landroid/util/SparseArray;
 
     const/4 v11, 0x0
@@ -425,7 +425,7 @@
 
     cmpl-float v8, v4, v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_a4
 
     .line 282
     const/4 v8, 0x1
@@ -433,14 +433,14 @@
     iput-boolean v8, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->mContinue:Z
 
     .line 284
-    :cond_4
+    :cond_a4
     iget-boolean v8, v0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->mContinue:Z
 
     return v8
 .end method
 
 .method public setup(I)V
-    .locals 14
+    .registers 16
     .param p1, "curveType"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -517,8 +517,8 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_0
-    if-ge v5, v0, :cond_1
+    :goto_32
+    if-ge v5, v0, :cond_7e
 
     .line 234
     iget-object v7, p0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->mConstraintAttributeList:Landroid/util/SparseArray;
@@ -566,12 +566,12 @@
     const/4 v10, 0x0
 
     .local v10, "k":I
-    :goto_1
+    :goto_5a
     iget-object v11, p0, Landroidx/constraintlayout/motion/utils/ViewTimeCycle$CustomSet;->mTempValues:[F
 
     array-length v11, v11
 
-    if-ge v10, v11, :cond_0
+    if-ge v10, v11, :cond_6b
 
     .line 240
     aget-object v11, v4, v5
@@ -587,11 +587,11 @@
     .line 239
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_1
+    goto :goto_5a
 
     .line 242
     .end local v10    # "k":I
-    :cond_0
+    :cond_6b
     aget-object v10, v4, v5
 
     aget v11, v9, v2
@@ -617,11 +617,11 @@
     .end local v9    # "waveProp":[F
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_32
 
     .line 245
     .end local v5    # "i":I
-    :cond_1
+    :cond_7e
     invoke-static {p1, v3, v4}, Landroidx/constraintlayout/core/motion/utils/CurveFit;->get(I[D[[D)Landroidx/constraintlayout/core/motion/utils/CurveFit;
 
     move-result-object v2

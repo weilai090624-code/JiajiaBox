@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 578
     invoke-direct {p0}, Lcom/google/android/material/shape/ShapePath$PathOperation;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
     .line 578
@@ -41,7 +41,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathLineOperation;
     .param p1, "x1"    # F
 
@@ -52,7 +52,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathLineOperation;
 
     .line 578
@@ -62,7 +62,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathLineOperation;
     .param p1, "x1"    # F
 
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
-    .locals 3
+    .registers 6
     .param p1, "transform"    # Landroid/graphics/Matrix;
     .param p2, "path"    # Landroid/graphics/Path;
 

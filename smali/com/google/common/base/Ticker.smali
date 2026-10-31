@@ -14,7 +14,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 48
     new-instance v0, Lcom/google/common/base/Ticker$1;
@@ -27,7 +27,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 .end method
 
 .method public static systemTicker()Lcom/google/common/base/Ticker;
-    .locals 1
+    .registers 1
 
     .line 45
     sget-object v0, Lcom/google/common/base/Ticker;->SYSTEM_TICKER:Lcom/google/common/base/Ticker;

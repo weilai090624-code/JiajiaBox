@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;)V
-    .locals 0
+    .registers 4
     .param p1, "contentResolver"    # Landroid/content/ContentResolver;
     .param p2, "saveCollection"    # Landroid/net/Uri;
     .param p3, "contentValues"    # Landroid/content/ContentValues;
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 0
+    .registers 2
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/FileDescriptor;)V
-    .locals 2
+    .registers 4
     .param p1, "fileDescriptor"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -105,16 +105,16 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     const-string v1, "Using a FileDescriptor to record a video is only supported for Android 8.0 or above."
 
     invoke-static {v0, v1}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public build()Landroidx/camera/core/VideoCapture$OutputFileOptions;
-    .locals 8
+    .registers 9
 
     .line 1838
     new-instance v7, Landroidx/camera/core/VideoCapture$OutputFileOptions;
@@ -154,7 +154,7 @@
 .end method
 
 .method public setMetadata(Landroidx/camera/core/VideoCapture$Metadata;)Landroidx/camera/core/VideoCapture$OutputFileOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "metadata"    # Landroidx/camera/core/VideoCapture$Metadata;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

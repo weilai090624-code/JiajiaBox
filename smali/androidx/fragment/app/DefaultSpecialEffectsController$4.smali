@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/DefaultSpecialEffectsController;Landroidx/fragment/app/SpecialEffectsController$Operation;Landroid/view/ViewGroup;Landroid/view/View;Landroidx/fragment/app/DefaultSpecialEffectsController$AnimationInfo;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Landroidx/fragment/app/DefaultSpecialEffectsController;
 
     .line 286
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .line 300
@@ -72,7 +72,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     .line 308
     new-instance v0, Ljava/lang/StringBuilder;
@@ -106,12 +106,12 @@
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 311
-    :cond_0
+    :cond_31
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .line 315
@@ -119,7 +119,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .line 289
@@ -129,7 +129,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 290
     new-instance v0, Ljava/lang/StringBuilder;
@@ -163,6 +163,6 @@
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 293
-    :cond_0
+    :cond_27
     return-void
 .end method

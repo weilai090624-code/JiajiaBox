@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 645
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,7 +88,7 @@
 .end method
 
 .method private final bytes(Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 3
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -117,7 +117,7 @@
 .end method
 
 .method private final number(Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 3
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -148,7 +148,7 @@
 
 # virtual methods
 .method public final build()Lkotlin/text/HexFormat;
-    .locals 4
+    .registers 5
 
     .line 759
     new-instance v0, Lkotlin/text/HexFormat;
@@ -159,15 +159,15 @@
     .line 761
     iget-object v2, p0, Lkotlin/text/HexFormat$Builder;->_bytes:Lkotlin/text/HexFormat$BytesHexFormat$Builder;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     invoke-virtual {v2}, Lkotlin/text/HexFormat$BytesHexFormat$Builder;->build$kotlin_stdlib()Lkotlin/text/HexFormat$BytesHexFormat;
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_14
 
-    :cond_0
+    :cond_e
     sget-object v2, Lkotlin/text/HexFormat$BytesHexFormat;->Companion:Lkotlin/text/HexFormat$BytesHexFormat$Companion;
 
     invoke-virtual {v2}, Lkotlin/text/HexFormat$BytesHexFormat$Companion;->getDefault$kotlin_stdlib()Lkotlin/text/HexFormat$BytesHexFormat;
@@ -175,18 +175,18 @@
     move-result-object v2
 
     .line 762
-    :cond_1
+    :cond_14
     iget-object v3, p0, Lkotlin/text/HexFormat$Builder;->_number:Lkotlin/text/HexFormat$NumberHexFormat$Builder;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1e
 
     invoke-virtual {v3}, Lkotlin/text/HexFormat$NumberHexFormat$Builder;->build$kotlin_stdlib()Lkotlin/text/HexFormat$NumberHexFormat;
 
     move-result-object v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_24
 
-    :cond_2
+    :cond_1e
     sget-object v3, Lkotlin/text/HexFormat$NumberHexFormat;->Companion:Lkotlin/text/HexFormat$NumberHexFormat$Companion;
 
     invoke-virtual {v3}, Lkotlin/text/HexFormat$NumberHexFormat$Companion;->getDefault$kotlin_stdlib()Lkotlin/text/HexFormat$NumberHexFormat;
@@ -194,19 +194,19 @@
     move-result-object v3
 
     .line 759
-    :cond_3
+    :cond_24
     invoke-direct {v0, v1, v2, v3}, Lkotlin/text/HexFormat;-><init>(ZLkotlin/text/HexFormat$BytesHexFormat;Lkotlin/text/HexFormat$NumberHexFormat;)V
 
     return-object v0
 .end method
 
 .method public final getBytes()Lkotlin/text/HexFormat$BytesHexFormat$Builder;
-    .locals 1
+    .registers 2
 
     .line 663
     iget-object v0, p0, Lkotlin/text/HexFormat$Builder;->_bytes:Lkotlin/text/HexFormat$BytesHexFormat$Builder;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 664
     new-instance v0, Lkotlin/text/HexFormat$BytesHexFormat$Builder;
@@ -216,7 +216,7 @@
     iput-object v0, p0, Lkotlin/text/HexFormat$Builder;->_bytes:Lkotlin/text/HexFormat$BytesHexFormat$Builder;
 
     .line 666
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lkotlin/text/HexFormat$Builder;->_bytes:Lkotlin/text/HexFormat$BytesHexFormat$Builder;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -225,12 +225,12 @@
 .end method
 
 .method public final getNumber()Lkotlin/text/HexFormat$NumberHexFormat$Builder;
-    .locals 1
+    .registers 2
 
     .line 679
     iget-object v0, p0, Lkotlin/text/HexFormat$Builder;->_number:Lkotlin/text/HexFormat$NumberHexFormat$Builder;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 680
     new-instance v0, Lkotlin/text/HexFormat$NumberHexFormat$Builder;
@@ -240,7 +240,7 @@
     iput-object v0, p0, Lkotlin/text/HexFormat$Builder;->_number:Lkotlin/text/HexFormat$NumberHexFormat$Builder;
 
     .line 682
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lkotlin/text/HexFormat$Builder;->_number:Lkotlin/text/HexFormat$NumberHexFormat$Builder;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -249,7 +249,7 @@
 .end method
 
 .method public final getUpperCase()Z
-    .locals 1
+    .registers 2
 
     .line 653
     iget-boolean v0, p0, Lkotlin/text/HexFormat$Builder;->upperCase:Z
@@ -258,7 +258,7 @@
 .end method
 
 .method public final setUpperCase(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 653

@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 59
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -91,7 +91,7 @@
 .end method
 
 .method private findSpinnerIndexOfValue(Ljava/lang/String;)I
-    .locals 3
+    .registers 5
     .param p1, "value"    # Ljava/lang/String;
 
     .line 140
@@ -101,9 +101,9 @@
 
     .line 141
     .local v0, "entryValues":[Ljava/lang/CharSequence;
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1d
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 142
     array-length v1, v0
@@ -111,8 +111,8 @@
     add-int/lit8 v1, v1, -0x1
 
     .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_1
+    :goto_b
+    if-ltz v1, :cond_1d
 
     .line 143
     aget-object v2, v0, v1
@@ -125,27 +125,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     .line 144
     return v1
 
     .line 142
-    :cond_0
+    :cond_1a
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 148
     .end local v1    # "i":I
-    :cond_1
+    :cond_1d
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method private updateEntries()V
-    .locals 6
+    .registers 7
 
     .line 107
     iget-object v0, p0, Landroidx/preference/DropDownPreference;->mAdapter:Landroid/widget/ArrayAdapter;
@@ -157,7 +157,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 109
     invoke-virtual {p0}, Landroidx/preference/DropDownPreference;->getEntries()[Ljava/lang/CharSequence;
@@ -168,8 +168,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_11
+    if-ge v2, v1, :cond_21
 
     aget-object v3, v0, v2
 
@@ -187,17 +187,17 @@
     .end local v3    # "c":Ljava/lang/CharSequence;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 113
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 
 # virtual methods
 .method protected createAdapter()Landroid/widget/ArrayAdapter;
-    .locals 3
+    .registers 4
 
     .line 102
     new-instance v0, Landroid/widget/ArrayAdapter;
@@ -212,7 +212,7 @@
 .end method
 
 .method protected notifyChanged()V
-    .locals 1
+    .registers 2
 
     .line 122
     invoke-super {p0}, Landroidx/preference/ListPreference;->notifyChanged()V
@@ -220,7 +220,7 @@
     .line 125
     iget-object v0, p0, Landroidx/preference/DropDownPreference;->mAdapter:Landroid/widget/ArrayAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 126
     iget-object v0, p0, Landroidx/preference/DropDownPreference;->mAdapter:Landroid/widget/ArrayAdapter;
@@ -228,12 +228,12 @@
     invoke-virtual {v0}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
 
     .line 128
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 2
+    .registers 4
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     .line 132
@@ -284,7 +284,7 @@
 .end method
 
 .method protected onClick()V
-    .locals 1
+    .registers 2
 
     .line 82
     iget-object v0, p0, Landroidx/preference/DropDownPreference;->mSpinner:Landroid/widget/Spinner;
@@ -296,7 +296,7 @@
 .end method
 
 .method public setEntries([Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "entries"    # [Ljava/lang/CharSequence;
 
     .line 87
@@ -310,7 +310,7 @@
 .end method
 
 .method public setValueIndex(I)V
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 117

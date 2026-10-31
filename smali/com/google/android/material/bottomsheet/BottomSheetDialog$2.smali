@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/bottomsheet/BottomSheetDialog;
 
     .line 329
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 332
@@ -45,7 +45,7 @@
 
     iget-boolean v0, v0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->cancelable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog$2;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetDialog;
 
@@ -53,7 +53,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog$2;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetDialog;
 
@@ -61,7 +61,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 333
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog$2;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetDialog;
@@ -69,6 +69,6 @@
     invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->cancel()V
 
     .line 335
-    :cond_0
+    :cond_1b
     return-void
 .end method

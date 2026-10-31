@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p1, "collapsedView"    # Landroid/view/View;
     .param p2, "expandedView"    # Landroid/view/View;
 
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;)Landroid/view/View;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;
 
     .line 44
@@ -81,7 +81,7 @@
 .end method
 
 .method private addListeners(Landroid/animation/Animator;Ljava/util/List;)V
-    .locals 2
+    .registers 5
     .param p1, "animator"    # Landroid/animation/Animator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -99,12 +99,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -118,15 +118,15 @@
 
     .line 206
     .end local v1    # "listener":Landroid/animation/AnimatorListenerAdapter;
-    goto :goto_0
+    goto :goto_4
 
     .line 207
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method private getAnimatorSet(Z)Landroid/animation/AnimatorSet;
-    .locals 6
+    .registers 8
     .param p1, "expand"    # Z
 
     .line 152
@@ -177,7 +177,7 @@
 .end method
 
 .method private getEndAnchoredViewsTranslateAnimator(Z)Landroid/animation/Animator;
-    .locals 6
+    .registers 8
     .param p1, "expand"    # Z
 
     .line 190
@@ -268,7 +268,7 @@
 .end method
 
 .method private getExpandCollapseAnimator(Z)Landroid/animation/Animator;
-    .locals 6
+    .registers 8
     .param p1, "expand"    # Z
 
     .line 161
@@ -330,7 +330,7 @@
     .line 168
     iget-object v4, p0, Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;->additionalUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_38
 
     .line 169
     iget-object v4, p0, Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;->additionalUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
@@ -338,7 +338,7 @@
     invoke-virtual {v3, v4}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     .line 171
-    :cond_0
+    :cond_38
     iget-wide v4, p0, Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;->duration:J
 
     invoke-virtual {v3, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
@@ -359,7 +359,7 @@
 .end method
 
 .method private getExpandedViewChildrenAlphaAnimator(Z)Landroid/animation/Animator;
-    .locals 4
+    .registers 6
     .param p1, "expand"    # Z
 
     .line 179
@@ -375,7 +375,7 @@
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_26
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -408,7 +408,7 @@
     .line 185
     return-object v1
 
-    :array_0
+    :array_26
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -418,7 +418,7 @@
 
 # virtual methods
 .method public addEndAnchoredViews(Ljava/util/Collection;)Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -440,7 +440,7 @@
 .end method
 
 .method public varargs addEndAnchoredViews([Landroid/view/View;)Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;
-    .locals 1
+    .registers 3
     .param p1, "views"    # [Landroid/view/View;
 
     .line 118
@@ -453,7 +453,7 @@
 .end method
 
 .method public addListener(Landroid/animation/AnimatorListenerAdapter;)Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/animation/AnimatorListenerAdapter;
 
     .line 111
@@ -466,7 +466,7 @@
 .end method
 
 .method public getCollapseAnimator()Landroid/animation/Animator;
-    .locals 2
+    .registers 3
 
     .line 88
     const/4 v0, 0x0
@@ -493,7 +493,7 @@
 .end method
 
 .method public getExpandAnimator()Landroid/animation/Animator;
-    .locals 2
+    .registers 3
 
     .line 73
     const/4 v0, 0x1
@@ -520,7 +520,7 @@
 .end method
 
 .method synthetic lambda$getExpandCollapseAnimator$0$com-google-android-material-internal-ExpandCollapseAnimationHelper(Landroid/graphics/Rect;Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .registers 4
     .param p1, "bounds"    # Landroid/graphics/Rect;
     .param p2, "valueAnimator"    # Landroid/animation/ValueAnimator;
 
@@ -533,7 +533,7 @@
 .end method
 
 .method public setAdditionalUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;
-    .locals 0
+    .registers 2
     .param p1, "additionalUpdateListener"    # Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
     .line 133
@@ -544,7 +544,7 @@
 .end method
 
 .method public setCollapsedViewOffsetY(I)Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;
-    .locals 0
+    .registers 2
     .param p1, "collapsedViewOffsetY"    # I
 
     .line 140
@@ -555,7 +555,7 @@
 .end method
 
 .method public setDuration(J)Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;
-    .locals 0
+    .registers 3
     .param p1, "duration"    # J
 
     .line 104
@@ -566,7 +566,7 @@
 .end method
 
 .method public setExpandedViewOffsetY(I)Lcom/google/android/material/internal/ExpandCollapseAnimationHelper;
-    .locals 0
+    .registers 2
     .param p1, "expandedViewOffsetY"    # I
 
     .line 147

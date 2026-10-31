@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Llibcore/ExchangeContext;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -141,7 +141,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,14 +170,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 14
+    .registers 16
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 127
     iget v0, p0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$2;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_96
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -187,7 +187,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 129
@@ -197,15 +197,15 @@
     .line 130
     const v0, 0x1bf52
 
-    :try_start_0
+    :try_start_17
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getUnderlyingNetwork()Landroid/net/Network;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_1d
+    .catch Ljava/net/UnknownHostException; {:try_start_17 .. :try_end_1d} :catch_8c
+    .catch Ljava/lang/Exception; {:try_start_17 .. :try_end_1d} :catch_7d
 
     .line 131
     .local v1, "u":Landroid/net/Network;
@@ -214,35 +214,35 @@
     .line 132
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2a
 
-    :try_start_1
+    :try_start_21
     iget-object v3, p0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$2;->$domain:Ljava/lang/String;
 
     invoke-virtual {v1, v3}, Landroid/net/Network;->getAllByName(Ljava/lang/String;)[Ljava/net/InetAddress;
 
     move-result-object v2
-    :try_end_1
-    .catch Ljava/net/UnknownHostException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_27
+    .catch Ljava/net/UnknownHostException; {:try_start_21 .. :try_end_27} :catch_28
+    .catch Ljava/lang/Exception; {:try_start_21 .. :try_end_27} :catch_7d
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 133
     .end local v1    # "u":Landroid/net/Network;
-    :catch_0
+    :catch_28
     move-exception v1
 
     .line 134
     nop
 
     .line 131
-    :cond_0
-    :goto_0
-    if-nez v2, :cond_1
+    :cond_2a
+    :goto_2a
+    if-nez v2, :cond_32
 
     .line 135
-    :try_start_2
+    :try_start_2c
     iget-object v1, p0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$2;->$domain:Ljava/lang/String;
 
     invoke-static {v1}, Ljava/net/InetAddress;->getAllByName(Ljava/lang/String;)[Ljava/net/InetAddress;
@@ -250,12 +250,12 @@
     move-result-object v2
 
     .line 131
-    :cond_1
+    :cond_32
     move-object v1, v2
 
     .line 136
     .local v1, "answer":[Ljava/net/InetAddress;
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_77
 
     .line 137
     iget-object v2, p0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$2;->$ctx:Llibcore/ExchangeContext;
@@ -288,8 +288,8 @@
 
     const/4 v8, 0x0
 
-    :goto_1
-    if-ge v8, v7, :cond_3
+    :goto_44
+    if-ge v8, v7, :cond_59
 
     aget-object v9, v1, v8
 
@@ -312,7 +312,7 @@
     .line 160
     .end local v11    # "it":Ljava/net/InetAddress;
     .end local v12    # "$i$a$-mapNotNull-LocalResolverImpl$lookup$2$1":I
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_56
 
     move-object v11, v13
 
@@ -329,13 +329,13 @@
     .end local v10    # "$i$a$-forEach-ArraysKt___ArraysKt$mapNotNullTo$1$iv$iv":I
     .end local v11    # "it$iv$iv":Ljava/lang/Object;
     .end local v12    # "$i$a$-let-ArraysKt___ArraysKt$mapNotNullTo$1$1$iv$iv":I
-    :cond_2
+    :cond_56
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_44
 
     .line 163
-    :cond_3
+    :cond_59
     nop
 
     .line 164
@@ -384,21 +384,21 @@
 
     invoke-virtual {v2, v1}, Llibcore/ExchangeContext;->success(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_93
 
     .line 139
-    :cond_4
+    :cond_77
     iget-object v1, p0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$2;->$ctx:Llibcore/ExchangeContext;
 
     invoke-virtual {v1, v0}, Llibcore/ExchangeContext;->errnoCode(I)V
-    :try_end_2
-    .catch Ljava/net/UnknownHostException; {:try_start_2 .. :try_end_2} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_7c
+    .catch Ljava/net/UnknownHostException; {:try_start_2c .. :try_end_7c} :catch_8c
+    .catch Ljava/lang/Exception; {:try_start_2c .. :try_end_7c} :catch_7d
 
-    goto :goto_2
+    goto :goto_93
 
     .line 143
-    :catch_1
+    :catch_7d
     move-exception v1
 
     .line 144
@@ -416,11 +416,11 @@
 
     invoke-virtual {v2, v0}, Llibcore/ExchangeContext;->errnoCode(I)V
 
-    goto :goto_2
+    goto :goto_93
 
     .line 141
     .end local v1    # "e":Ljava/lang/Exception;
-    :catch_2
+    :catch_8c
     move-exception v0
 
     .line 142
@@ -431,13 +431,13 @@
     invoke-virtual {v0, v1}, Llibcore/ExchangeContext;->errorCode(I)V
 
     .line 147
-    :goto_2
+    :goto_93
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_96
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

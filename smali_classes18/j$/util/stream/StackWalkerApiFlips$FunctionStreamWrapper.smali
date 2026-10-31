@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/function/Function;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 .end method
 
 .method private flipStream(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
@@ -75,7 +75,7 @@
     .line 27
     .local p0, "this":Lj$/util/stream/StackWalkerApiFlips$FunctionStreamWrapper;, "Ljava/util/stream/StackWalkerApiFlips$FunctionStreamWrapper<TT;TR;>;"
     .local p1, "maybeStream":Ljava/lang/Object;, "TT;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 28
     const/4 v0, 0x0
@@ -83,10 +83,10 @@
     return-object v0
 
     .line 30
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lj$/util/stream/Stream;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 31
     move-object v0, p1
@@ -100,10 +100,10 @@
     return-object v0
 
     .line 33
-    :cond_1
+    :cond_10
     instance-of v0, p1, Ljava/util/stream/Stream;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1c
 
     .line 34
     move-object v0, p1
@@ -117,7 +117,7 @@
     return-object v0
 
     .line 36
-    :cond_2
+    :cond_1c
     const-string v0, "java.util.stream.Stream"
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -134,7 +134,7 @@
 
 # virtual methods
 .method public synthetic andThen(Ljava/util/function/Function;)Ljava/util/function/Function;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Function$-CC;->$default$andThen(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/function/Function;
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TR;"
@@ -168,7 +168,7 @@
 .end method
 
 .method public synthetic compose(Ljava/util/function/Function;)Ljava/util/function/Function;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Function$-CC;->$default$compose(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/function/Function;
 

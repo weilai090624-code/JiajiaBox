@@ -5,7 +5,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Object;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 2
+    .registers 6
     .param p1, "contextMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p2, "key"    # Ljava/lang/Object;
     .param p3, "problemMark"    # Lorg/yaml/snakeyaml/error/Mark;

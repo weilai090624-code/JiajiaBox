@@ -50,7 +50,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 747
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/connection/RealConnection$Companion;-><init>()V
 
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public final newTestConnection(Lokhttp3/internal/connection/RealConnectionPool;Lokhttp3/Route;Ljava/net/Socket;J)Lokhttp3/internal/connection/RealConnection;
-    .locals 1
+    .registers 7
     .param p1, "connectionPool"    # Lokhttp3/internal/connection/RealConnectionPool;
     .param p2, "route"    # Lokhttp3/Route;
     .param p3, "socket"    # Ljava/net/Socket;

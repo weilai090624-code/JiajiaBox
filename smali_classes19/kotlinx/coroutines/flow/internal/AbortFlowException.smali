@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/FlowCollector;)V
-    .locals 1
+    .registers 3
     .param p1, "owner"    # Lkotlinx/coroutines/flow/FlowCollector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,14 +71,14 @@
 
 # virtual methods
 .method public fillInStackTrace()Ljava/lang/Throwable;
-    .locals 2
+    .registers 3
 
     .line 15
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getDEBUG()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-super {p0}, Ljava/util/concurrent/CancellationException;->fillInStackTrace()Ljava/lang/Throwable;
 
@@ -87,7 +87,7 @@
     return-object v0
 
     .line 17
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     .line 31

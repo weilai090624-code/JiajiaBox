@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     const-string v0, "WrkMgrInitializer"
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public create(Landroid/content/Context;)Landroidx/work/WorkManager;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic create(Landroid/content/Context;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -110,7 +110,7 @@
 .end method
 
 .method public dependencies()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

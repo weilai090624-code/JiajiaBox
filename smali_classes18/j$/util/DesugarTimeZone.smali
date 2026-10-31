@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 133
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static getTimeZone(Lj$/time/ZoneId;)Ljava/util/TimeZone;
-    .locals 4
+    .registers 5
     .param p0, "zoneId"    # Lj$/time/ZoneId;
 
     .line 161
@@ -35,19 +35,19 @@
     .local v1, "c":C
     const/16 v2, 0x2b
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_20
 
     const/16 v2, 0x2d
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_12
 
-    goto :goto_0
+    goto :goto_20
 
     .line 165
-    :cond_0
+    :cond_12
     const/16 v2, 0x5a
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_33
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -55,16 +55,16 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_33
 
     .line 166
     const-string v0, "UTC"
 
-    goto :goto_1
+    goto :goto_33
 
     .line 164
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -84,8 +84,8 @@
     move-result-object v0
 
     .line 168
-    :cond_2
-    :goto_1
+    :cond_33
+    :goto_33
     invoke-static {v0}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v2
@@ -94,7 +94,7 @@
 .end method
 
 .method public static getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
-    .locals 1
+    .registers 2
     .param p0, "ID"    # Ljava/lang/String;
 
     .line 148
@@ -106,7 +106,7 @@
 .end method
 
 .method public static toZoneId(Ljava/util/TimeZone;)Lj$/time/ZoneId;
-    .locals 2
+    .registers 3
     .param p0, "zone"    # Ljava/util/TimeZone;
 
     .line 180

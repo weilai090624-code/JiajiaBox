@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/FrameLayout;Landroidx/camera/view/PreviewTransformation;)V
-    .locals 1
+    .registers 4
     .param p1, "parent"    # Landroid/widget/FrameLayout;
     .param p2, "previewTransform"    # Landroidx/camera/view/PreviewTransformation;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method getBitmap()Landroid/graphics/Bitmap;
-    .locals 5
+    .registers 6
 
     .line 113
     invoke-virtual {p0}, Landroidx/camera/view/PreviewViewImplementation;->getPreviewBitmap()Landroid/graphics/Bitmap;
@@ -67,7 +67,7 @@
 
     .line 114
     .local v0, "bitmap":Landroid/graphics/Bitmap;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 115
     const/4 v1, 0x0
@@ -75,7 +75,7 @@
     return-object v1
 
     .line 117
-    :cond_0
+    :cond_8
     iget-object v1, p0, Landroidx/camera/view/PreviewViewImplementation;->mPreviewTransform:Landroidx/camera/view/PreviewTransformation;
 
     new-instance v2, Landroid/util/Size;
@@ -126,7 +126,7 @@
 .end method
 
 .method onSurfaceProvided()V
-    .locals 1
+    .registers 2
 
     .line 92
     const/4 v0, 0x1
@@ -154,7 +154,7 @@
 .end method
 
 .method redrawPreview()V
-    .locals 5
+    .registers 6
 
     .line 79
     invoke-virtual {p0}, Landroidx/camera/view/PreviewViewImplementation;->getPreview()Landroid/view/View;
@@ -163,16 +163,16 @@
 
     .line 83
     .local v0, "preview":Landroid/view/View;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     iget-boolean v1, p0, Landroidx/camera/view/PreviewViewImplementation;->mWasSurfaceProvided:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
-    goto :goto_0
+    goto :goto_28
 
     .line 86
-    :cond_0
+    :cond_b
     iget-object v1, p0, Landroidx/camera/view/PreviewViewImplementation;->mPreviewTransform:Landroidx/camera/view/PreviewTransformation;
 
     new-instance v2, Landroid/util/Size;
@@ -205,8 +205,8 @@
     return-void
 
     .line 84
-    :cond_1
-    :goto_0
+    :cond_28
+    :goto_28
     return-void
 .end method
 

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/WorkDatabase;)V
-    .locals 0
+    .registers 2
     .param p1, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 .end method
 
 .method public static migrateLegacyPreferences(Landroid/content/Context;Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 13
+    .registers 15
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "sqLiteDatabase"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -81,17 +81,17 @@
 
     const-string v5, "last_cancel_all_time_ms"
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_19
 
     .line 153
     invoke-interface {v1, v5}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_5a
 
     .line 155
-    :cond_0
+    :cond_19
     const-wide/16 v6, 0x0
 
     invoke-interface {v1, v5, v6, v7}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
@@ -106,20 +106,20 @@
 
     .line 157
     .local v4, "needsReschedule":Z
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_27
 
     const-wide/16 v6, 0x1
 
     .line 158
     .local v6, "reschedule":J
-    :cond_1
+    :cond_27
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransaction()V
 
     .line 161
     nop
 
     .line 162
-    :try_start_0
+    :try_start_2b
     invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v10
@@ -169,8 +169,8 @@
 
     .line 172
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_56
+    .catchall {:try_start_2b .. :try_end_56} :catchall_5b
 
     .line 174
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->endTransaction()V
@@ -182,14 +182,14 @@
     .end local v4    # "needsReschedule":Z
     .end local v6    # "reschedule":J
     .end local v8    # "lastCancelTimeMillis":J
-    :cond_2
+    :cond_5a
     return-void
 
     .line 174
     .restart local v4    # "needsReschedule":Z
     .restart local v6    # "reschedule":J
     .restart local v8    # "lastCancelTimeMillis":J
-    :catchall_0
+    :catchall_5b
     move-exception v0
 
     invoke-interface {p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->endTransaction()V
@@ -201,7 +201,7 @@
 
 # virtual methods
 .method public getLastCancelAllTimeMillis()J
-    .locals 3
+    .registers 4
 
     .line 66
     iget-object v0, p0, Landroidx/work/impl/utils/PreferenceUtils;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -219,23 +219,23 @@
 
     .line 69
     .local v0, "value":Ljava/lang/Long;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const-wide/16 v1, 0x0
 
-    :goto_0
+    :goto_15
     return-wide v1
 .end method
 
 .method public getLastCancelAllTimeMillisLiveData()Landroidx/lifecycle/LiveData;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -273,7 +273,7 @@
 .end method
 
 .method public getLastForceStopEventMillis()J
-    .locals 3
+    .registers 4
 
     .line 130
     iget-object v0, p0, Landroidx/work/impl/utils/PreferenceUtils;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -290,7 +290,7 @@
 
     .line 131
     .local v0, "timestamp":Ljava/lang/Long;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 132
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
@@ -300,14 +300,14 @@
     return-wide v1
 
     .line 134
-    :cond_0
+    :cond_13
     const-wide/16 v1, 0x0
 
     return-wide v1
 .end method
 
 .method public getNeedsReschedule()Z
-    .locals 6
+    .registers 7
 
     .line 104
     iget-object v0, p0, Landroidx/work/impl/utils/PreferenceUtils;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -324,7 +324,7 @@
 
     .line 105
     .local v0, "value":Ljava/lang/Long;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
@@ -334,21 +334,21 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1b
     return v1
 .end method
 
 .method public setLastCancelAllTimeMillis(J)V
-    .locals 3
+    .registers 6
     .param p1, "timeMillis"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -385,7 +385,7 @@
 .end method
 
 .method public setLastForceStopEventMillis(J)V
-    .locals 3
+    .registers 6
     .param p1, "lastForceStopTimeMillis"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -422,7 +422,7 @@
 .end method
 
 .method public setNeedsReschedule(Z)V
-    .locals 2
+    .registers 4
     .param p1, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

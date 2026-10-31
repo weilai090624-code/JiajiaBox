@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public onDisableSession()Landroidx/camera/core/impl/CaptureConfig;
-    .locals 1
+    .registers 2
 
     .line 77
     const/4 v0, 0x0
@@ -25,7 +25,7 @@
 .end method
 
 .method public onEnableSession()Landroidx/camera/core/impl/CaptureConfig;
-    .locals 1
+    .registers 2
 
     .line 52
     const/4 v0, 0x0
@@ -34,7 +34,7 @@
 .end method
 
 .method public onPresetSession()Landroidx/camera/core/impl/CaptureConfig;
-    .locals 1
+    .registers 2
 
     .line 39
     const/4 v0, 0x0
@@ -43,7 +43,7 @@
 .end method
 
 .method public onRepeating()Landroidx/camera/core/impl/CaptureConfig;
-    .locals 1
+    .registers 2
 
     .line 64
     const/4 v0, 0x0

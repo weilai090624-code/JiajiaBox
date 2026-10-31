@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p1, "fadeOutView"    # Landroid/view/View;
     .param p2, "fadeInView"    # Landroid/view/View;
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 4
+    .registers 6
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 48
@@ -66,7 +66,7 @@
     .line 50
     iget-object v1, p0, Lcom/google/android/material/internal/FadeThroughUpdateListener;->fadeOutView:Landroid/view/View;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 51
     iget-object v1, p0, Lcom/google/android/material/internal/FadeThroughUpdateListener;->fadeOutView:Landroid/view/View;
@@ -80,10 +80,10 @@
     invoke-virtual {v1, v2}, Landroid/view/View;->setAlpha(F)V
 
     .line 53
-    :cond_0
+    :cond_1d
     iget-object v1, p0, Lcom/google/android/material/internal/FadeThroughUpdateListener;->fadeInView:Landroid/view/View;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2b
 
     .line 54
     iget-object v1, p0, Lcom/google/android/material/internal/FadeThroughUpdateListener;->fadeInView:Landroid/view/View;
@@ -97,6 +97,6 @@
     invoke-virtual {v1, v2}, Landroid/view/View;->setAlpha(F)V
 
     .line 56
-    :cond_1
+    :cond_2b
     return-void
 .end method

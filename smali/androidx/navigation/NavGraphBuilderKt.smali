@@ -36,7 +36,7 @@
 
 # direct methods
 .method public static final navigation(Landroidx/navigation/NavigatorProvider;IILkotlin/jvm/functions/Function1;)Landroidx/navigation/NavGraph;
-    .locals 2
+    .registers 6
     .param p0, "$this$navigation"    # Landroidx/navigation/NavigatorProvider;
     .param p1, "id"    # I
     .param p2, "startDestination"    # I
@@ -89,7 +89,7 @@
 .end method
 
 .method public static final navigation(Landroidx/navigation/NavigatorProvider;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Landroidx/navigation/NavGraph;
-    .locals 2
+    .registers 6
     .param p0, "$this$navigation"    # Landroidx/navigation/NavigatorProvider;
     .param p1, "startDestination"    # Ljava/lang/String;
     .param p2, "route"    # Ljava/lang/String;
@@ -140,7 +140,7 @@
 .end method
 
 .method public static final navigation(Landroidx/navigation/NavGraphBuilder;IILkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 7
     .param p0, "$this$navigation"    # Landroidx/navigation/NavGraphBuilder;
     .param p1, "id"    # I
     .param p2, "startDestination"    # I
@@ -196,7 +196,7 @@
 .end method
 
 .method public static final navigation(Landroidx/navigation/NavGraphBuilder;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 7
     .param p0, "$this$navigation"    # Landroidx/navigation/NavGraphBuilder;
     .param p1, "startDestination"    # Ljava/lang/String;
     .param p2, "route"    # Ljava/lang/String;
@@ -253,7 +253,7 @@
 .end method
 
 .method public static synthetic navigation$default(Landroidx/navigation/NavigatorProvider;IILkotlin/jvm/functions/Function1;ILjava/lang/Object;)Landroidx/navigation/NavGraph;
-    .locals 0
+    .registers 6
     .param p0, "$this$navigation_u24default"    # Landroidx/navigation/NavigatorProvider;
     .param p1, "id"    # I
     .param p2, "startDestination"    # I
@@ -262,13 +262,13 @@
     .line 38
     and-int/lit8 p4, p4, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 39
     const/4 p1, 0x0
 
     .line 38
-    :cond_0
+    :cond_5
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -295,7 +295,7 @@
 .end method
 
 .method public static synthetic navigation$default(Landroidx/navigation/NavigatorProvider;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Landroidx/navigation/NavGraph;
-    .locals 0
+    .registers 6
     .param p0, "$this$navigation_u24default"    # Landroidx/navigation/NavigatorProvider;
     .param p1, "startDestination"    # Ljava/lang/String;
     .param p2, "route"    # Ljava/lang/String;
@@ -304,13 +304,13 @@
     .line 53
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 55
     const/4 p2, 0x0
 
     .line 53
-    :cond_0
+    :cond_5
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

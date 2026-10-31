@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/layout/WindowMetricsCalculatorCompat;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -99,7 +99,7 @@
 .end method
 
 .method private final getCutoutForDisplay(Landroid/view/Display;)Landroid/view/DisplayCutout;
-    .locals 10
+    .registers 12
     .param p1, "display"    # Landroid/view/Display;
 
     .line 350
@@ -110,7 +110,7 @@
     nop
 
     .line 352
-    :try_start_0
+    :try_start_2
     const-string v1, "android.view.DisplayInfo"
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -197,19 +197,19 @@
     .local v4, "cutout":Ljava/lang/Object;
     instance-of v7, v4, Landroid/view/DisplayCutout;
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_8a
 
     .line 365
     move-object v7, v4
 
     check-cast v7, Landroid/view/DisplayCutout;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_5
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_4
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4d
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_4d} :catch_81
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_4d} :catch_77
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_2 .. :try_end_4d} :catch_6d
+    .catch Ljava/lang/IllegalAccessException; {:try_start_2 .. :try_end_4d} :catch_63
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_2 .. :try_end_4d} :catch_59
+    .catch Ljava/lang/InstantiationException; {:try_start_2 .. :try_end_4d} :catch_4f
 
     move-object v0, v7
 
@@ -219,10 +219,10 @@
     .end local v4    # "cutout":Ljava/lang/Object;
     .end local v5    # "displayInfo":Ljava/lang/Object;
     .end local v6    # "getDisplayInfoMethod":Ljava/lang/reflect/Method;
-    goto :goto_0
+    goto :goto_8a
 
     .line 377
-    :catch_0
+    :catch_4f
     move-exception v1
 
     .line 378
@@ -235,11 +235,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_8a
 
     .line 375
     .end local v1    # "e":Ljava/lang/InstantiationException;
-    :catch_1
+    :catch_59
     move-exception v1
 
     .line 376
@@ -252,11 +252,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_8a
 
     .line 373
     .end local v1    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_63
     move-exception v1
 
     .line 374
@@ -269,11 +269,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_8a
 
     .line 371
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    :catch_3
+    :catch_6d
     move-exception v1
 
     .line 372
@@ -286,11 +286,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_8a
 
     .line 369
     .end local v1    # "e":Ljava/lang/NoSuchFieldException;
-    :catch_4
+    :catch_77
     move-exception v1
 
     .line 370
@@ -303,11 +303,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_8a
 
     .line 367
     .end local v1    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_5
+    :catch_81
     move-exception v1
 
     .line 368
@@ -322,13 +322,13 @@
 
     .line 380
     .end local v1    # "e":Ljava/lang/ClassNotFoundException;
-    :cond_0
-    :goto_0
+    :cond_8a
+    :goto_8a
     return-object v0
 .end method
 
 .method private final getNavigationBarHeight(Landroid/content/Context;)I
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     .line 334
@@ -350,26 +350,26 @@
 
     .line 336
     .local v1, "resourceId":I
-    if-lez v1, :cond_0
+    if-lez v1, :cond_15
 
     .line 337
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_16
 
     .line 338
-    :cond_0
+    :cond_15
     const/4 v2, 0x0
 
     .line 336
-    :goto_0
+    :goto_16
     return v2
 .end method
 
 .method private final getRectSizeFromDisplay(Landroid/app/Activity;Landroid/graphics/Rect;)V
-    .locals 1
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "bounds"    # Landroid/graphics/Rect;
 
@@ -396,7 +396,7 @@
 
 # virtual methods
 .method public computeCurrentWindowMetrics(Landroid/app/Activity;)Landroidx/window/layout/WindowMetrics;
-    .locals 2
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -408,7 +408,7 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_12
 
     .line 54
     sget-object v0, Landroidx/window/layout/ActivityCompatHelperApi30;->INSTANCE:Landroidx/window/layout/ActivityCompatHelperApi30;
@@ -417,61 +417,61 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_37
 
     .line 55
-    :cond_0
+    :cond_12
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1d
 
     .line 56
     invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsQ$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_37
 
     .line 57
-    :cond_1
+    :cond_1d
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_28
 
     .line 58
     invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsP$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_37
 
     .line 59
-    :cond_2
+    :cond_28
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_33
 
     .line 60
     invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsN$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_37
 
     .line 62
-    :cond_3
+    :cond_33
     invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsIceCreamSandwich$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
 
     move-result-object v0
 
     .line 53
-    :goto_0
+    :goto_37
     nop
 
     .line 64
@@ -484,7 +484,7 @@
 .end method
 
 .method public computeMaximumWindowMetrics(Landroid/app/Activity;)Landroidx/window/layout/WindowMetrics;
-    .locals 6
+    .registers 8
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -496,7 +496,7 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_12
 
     .line 73
     sget-object v0, Landroidx/window/layout/ActivityCompatHelperApi30;->INSTANCE:Landroidx/window/layout/ActivityCompatHelperApi30;
@@ -505,10 +505,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 78
-    :cond_0
+    :cond_12
     invoke-virtual {p1}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
 
     move-result-object v0
@@ -547,7 +547,7 @@
     .line 72
     .end local v0    # "display":Landroid/view/Display;
     .end local v1    # "displaySize":Landroid/graphics/Point;
-    :goto_0
+    :goto_2f
     nop
 
     .line 82
@@ -560,7 +560,7 @@
 .end method
 
 .method public final computeWindowBoundsIceCreamSandwich$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
-    .locals 4
+    .registers 6
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -599,16 +599,16 @@
     .local v2, "bounds":Landroid/graphics/Rect;
     iget v3, v1, Landroid/graphics/Point;->x:I
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2e
 
     iget v3, v1, Landroid/graphics/Point;->y:I
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_25
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 283
-    :cond_0
+    :cond_25
     iget v3, v1, Landroid/graphics/Point;->x:I
 
     iput v3, v2, Landroid/graphics/Rect;->right:I
@@ -618,20 +618,20 @@
 
     iput v3, v2, Landroid/graphics/Rect;->bottom:I
 
-    goto :goto_1
+    goto :goto_31
 
     .line 281
-    :cond_1
-    :goto_0
+    :cond_2e
+    :goto_2e
     invoke-virtual {v0, v2}, Landroid/view/Display;->getRectSize(Landroid/graphics/Rect;)V
 
     .line 286
-    :goto_1
+    :goto_31
     return-object v2
 .end method
 
 .method public final computeWindowBoundsN$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
-    .locals 6
+    .registers 8
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -667,7 +667,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_47
 
     .line 250
     const-string v2, "defaultDisplay"
@@ -696,7 +696,7 @@
 
     iget v5, v2, Landroid/graphics/Point;->y:I
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_3b
 
     .line 253
     iget v4, v0, Landroid/graphics/Rect;->bottom:I
@@ -705,17 +705,17 @@
 
     iput v4, v0, Landroid/graphics/Rect;->bottom:I
 
-    goto :goto_0
+    goto :goto_47
 
     .line 254
-    :cond_0
+    :cond_3b
     iget v4, v0, Landroid/graphics/Rect;->right:I
 
     add-int/2addr v4, v3
 
     iget v5, v2, Landroid/graphics/Point;->x:I
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_47
 
     .line 255
     iget v4, v0, Landroid/graphics/Rect;->right:I
@@ -727,13 +727,13 @@
     .line 258
     .end local v2    # "realDisplaySize":Landroid/graphics/Point;
     .end local v3    # "navigationBarHeight":I
-    :cond_1
-    :goto_0
+    :cond_47
+    :goto_47
     return-object v0
 .end method
 
 .method public final computeWindowBoundsP$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
-    .locals 9
+    .registers 11
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -759,7 +759,7 @@
     .local v1, "config":Landroid/content/res/Configuration;
     const/4 v2, 0x0
 
-    :try_start_0
+    :try_start_13
     const-class v3, Landroid/content/res/Configuration;
 
     .line 132
@@ -790,18 +790,18 @@
     invoke-virtual {v5, p1}, Landroidx/window/layout/ActivityCompatHelperApi24;->isInMultiWindowMode(Landroid/app/Activity;)Z
 
     move-result v5
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_13 .. :try_end_2b} :catch_96
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_13 .. :try_end_2b} :catch_89
+    .catch Ljava/lang/IllegalAccessException; {:try_start_13 .. :try_end_2b} :catch_7c
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_13 .. :try_end_2b} :catch_6f
 
     const-string v6, "null cannot be cast to non-null type android.graphics.Rect"
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4f
 
     .line 140
-    :try_start_1
+    :try_start_2f
     invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v5
@@ -822,17 +822,17 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_49
 
     check-cast v7, Landroid/graphics/Rect;
 
     invoke-virtual {v0, v7}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     .end local v5    # "getAppBounds":Ljava/lang/reflect/Method;
-    goto :goto_0
+    goto :goto_a2
 
     .restart local v5    # "getAppBounds":Ljava/lang/reflect/Method;
-    :cond_0
+    :cond_49
     new-instance v7, Ljava/lang/NullPointerException;
 
     invoke-direct {v7, v6}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
@@ -847,7 +847,7 @@
     .restart local v0    # "bounds":Landroid/graphics/Rect;
     .restart local v1    # "config":Landroid/content/res/Configuration;
     .restart local p1    # "activity":Landroid/app/Activity;
-    :cond_1
+    :cond_4f
     invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v5
@@ -868,7 +868,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_69
 
     check-cast v7, Landroid/graphics/Rect;
 
@@ -877,12 +877,12 @@
     .end local v3    # "windowConfigField":Ljava/lang/reflect/Field;
     .end local v4    # "windowConfig":Ljava/lang/Object;
     .end local v5    # "getAppBounds":Ljava/lang/reflect/Method;
-    goto :goto_0
+    goto :goto_a2
 
     .restart local v3    # "windowConfigField":Ljava/lang/reflect/Field;
     .restart local v4    # "windowConfig":Ljava/lang/Object;
     .restart local v5    # "getAppBounds":Ljava/lang/reflect/Method;
-    :cond_2
+    :cond_69
     new-instance v7, Ljava/lang/NullPointerException;
 
     invoke-direct {v7, v6}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
@@ -891,11 +891,11 @@
     .end local v1    # "config":Landroid/content/res/Configuration;
     .end local p1    # "activity":Landroid/app/Activity;
     throw v7
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_6f
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_2f .. :try_end_6f} :catch_96
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_2f .. :try_end_6f} :catch_89
+    .catch Ljava/lang/IllegalAccessException; {:try_start_2f .. :try_end_6f} :catch_7c
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_2f .. :try_end_6f} :catch_6f
 
     .line 155
     .end local v3    # "windowConfigField":Ljava/lang/reflect/Field;
@@ -904,7 +904,7 @@
     .restart local v0    # "bounds":Landroid/graphics/Rect;
     .restart local v1    # "config":Landroid/content/res/Configuration;
     .restart local p1    # "activity":Landroid/app/Activity;
-    :catch_0
+    :catch_6f
     move-exception v3
 
     .line 156
@@ -920,11 +920,11 @@
     .line 157
     invoke-direct {p0, p1, v0}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->getRectSizeFromDisplay(Landroid/app/Activity;Landroid/graphics/Rect;)V
 
-    goto :goto_0
+    goto :goto_a2
 
     .line 152
     .end local v3    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_7c
     move-exception v3
 
     .line 153
@@ -941,10 +941,10 @@
     invoke-direct {p0, p1, v0}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->getRectSizeFromDisplay(Landroid/app/Activity;Landroid/graphics/Rect;)V
 
     .end local v3    # "e":Ljava/lang/IllegalAccessException;
-    goto :goto_0
+    goto :goto_a2
 
     .line 149
-    :catch_2
+    :catch_89
     move-exception v3
 
     .line 150
@@ -961,10 +961,10 @@
     invoke-direct {p0, p1, v0}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->getRectSizeFromDisplay(Landroid/app/Activity;Landroid/graphics/Rect;)V
 
     .end local v3    # "e":Ljava/lang/NoSuchMethodException;
-    goto :goto_0
+    goto :goto_a2
 
     .line 146
-    :catch_3
+    :catch_96
     move-exception v3
 
     .line 147
@@ -982,7 +982,7 @@
 
     .line 159
     .end local v3    # "e":Ljava/lang/NoSuchFieldException;
-    :goto_0
+    :goto_a2
     invoke-virtual {p1}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
 
     move-result-object v3
@@ -1019,7 +1019,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_e9
 
     .line 174
     move-object v6, p1
@@ -1038,7 +1038,7 @@
 
     iget v8, v5, Landroid/graphics/Point;->y:I
 
-    if-ne v7, v8, :cond_3
+    if-ne v7, v8, :cond_d6
 
     .line 176
     iget v7, v0, Landroid/graphics/Rect;->bottom:I
@@ -1047,17 +1047,17 @@
 
     iput v7, v0, Landroid/graphics/Rect;->bottom:I
 
-    goto :goto_1
+    goto :goto_e9
 
     .line 177
-    :cond_3
+    :cond_d6
     iget v7, v0, Landroid/graphics/Rect;->right:I
 
     add-int/2addr v7, v6
 
     iget v8, v5, Landroid/graphics/Point;->x:I
 
-    if-ne v7, v8, :cond_4
+    if-ne v7, v8, :cond_e3
 
     .line 178
     iget v7, v0, Landroid/graphics/Rect;->right:I
@@ -1066,28 +1066,28 @@
 
     iput v7, v0, Landroid/graphics/Rect;->right:I
 
-    goto :goto_1
+    goto :goto_e9
 
     .line 179
-    :cond_4
+    :cond_e3
     iget v7, v0, Landroid/graphics/Rect;->left:I
 
-    if-ne v7, v6, :cond_5
+    if-ne v7, v6, :cond_e9
 
     .line 180
     iput v2, v0, Landroid/graphics/Rect;->left:I
 
     .line 183
     .end local v6    # "navigationBarHeight":I
-    :cond_5
-    :goto_1
+    :cond_e9
+    :goto_e9
     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
 
     move-result v6
 
     iget v7, v5, Landroid/graphics/Point;->x:I
 
-    if-lt v6, v7, :cond_6
+    if-lt v6, v7, :cond_f9
 
     invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
 
@@ -1095,17 +1095,17 @@
 
     iget v7, v5, Landroid/graphics/Point;->y:I
 
-    if-ge v6, v7, :cond_a
+    if-ge v6, v7, :cond_14f
 
     .line 184
-    :cond_6
+    :cond_f9
     sget-object v6, Landroidx/window/layout/ActivityCompatHelperApi24;->INSTANCE:Landroidx/window/layout/ActivityCompatHelperApi24;
 
     invoke-virtual {v6, p1}, Landroidx/window/layout/ActivityCompatHelperApi24;->isInMultiWindowMode(Landroid/app/Activity;)Z
 
     move-result v6
 
-    if-nez v6, :cond_a
+    if-nez v6, :cond_14f
 
     .line 190
     invoke-direct {p0, v4}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->getCutoutForDisplay(Landroid/view/Display;)Landroid/view/DisplayCutout;
@@ -1114,7 +1114,7 @@
 
     .line 191
     .local v6, "displayCutout":Landroid/view/DisplayCutout;
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_14f
 
     .line 192
     iget v7, v0, Landroid/graphics/Rect;->left:I
@@ -1125,13 +1125,13 @@
 
     move-result v8
 
-    if-ne v7, v8, :cond_7
+    if-ne v7, v8, :cond_113
 
     .line 193
     iput v2, v0, Landroid/graphics/Rect;->left:I
 
     .line 195
-    :cond_7
+    :cond_113
     iget v7, v5, Landroid/graphics/Point;->x:I
 
     iget v8, v0, Landroid/graphics/Rect;->right:I
@@ -1144,7 +1144,7 @@
 
     move-result v8
 
-    if-ne v7, v8, :cond_8
+    if-ne v7, v8, :cond_12b
 
     .line 196
     iget v7, v0, Landroid/graphics/Rect;->right:I
@@ -1160,7 +1160,7 @@
     iput v7, v0, Landroid/graphics/Rect;->right:I
 
     .line 198
-    :cond_8
+    :cond_12b
     iget v7, v0, Landroid/graphics/Rect;->top:I
 
     sget-object v8, Landroidx/window/layout/DisplayCompatHelperApi28;->INSTANCE:Landroidx/window/layout/DisplayCompatHelperApi28;
@@ -1169,13 +1169,13 @@
 
     move-result v8
 
-    if-ne v7, v8, :cond_9
+    if-ne v7, v8, :cond_137
 
     .line 199
     iput v2, v0, Landroid/graphics/Rect;->top:I
 
     .line 201
-    :cond_9
+    :cond_137
     iget v2, v5, Landroid/graphics/Point;->y:I
 
     iget v7, v0, Landroid/graphics/Rect;->bottom:I
@@ -1188,7 +1188,7 @@
 
     move-result v7
 
-    if-ne v2, v7, :cond_a
+    if-ne v2, v7, :cond_14f
 
     .line 202
     iget v2, v0, Landroid/graphics/Rect;->bottom:I
@@ -1205,12 +1205,12 @@
 
     .line 206
     .end local v6    # "displayCutout":Landroid/view/DisplayCutout;
-    :cond_a
+    :cond_14f
     return-object v0
 .end method
 
 .method public final computeWindowBoundsQ$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
-    .locals 8
+    .registers 10
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -1231,7 +1231,7 @@
 
     .line 91
     .local v1, "config":Landroid/content/res/Configuration;
-    :try_start_0
+    :try_start_e
     const-class v2, Landroid/content/res/Configuration;
 
     .line 93
@@ -1281,7 +1281,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_3e
 
     check-cast v6, Landroid/graphics/Rect;
 
@@ -1292,12 +1292,12 @@
     .end local v2    # "windowConfigField":Ljava/lang/reflect/Field;
     .end local v3    # "windowConfig":Ljava/lang/Object;
     .end local v4    # "getBoundsMethod":Ljava/lang/reflect/Method;
-    goto :goto_0
+    goto :goto_7d
 
     .restart local v2    # "windowConfigField":Ljava/lang/reflect/Field;
     .restart local v3    # "windowConfig":Ljava/lang/Object;
     .restart local v4    # "getBoundsMethod":Ljava/lang/reflect/Method;
-    :cond_0
+    :cond_3e
     new-instance v5, Ljava/lang/NullPointerException;
 
     const-string v6, "null cannot be cast to non-null type android.graphics.Rect"
@@ -1308,11 +1308,11 @@
     .end local v1    # "config":Landroid/content/res/Configuration;
     .end local p1    # "activity":Landroid/app/Activity;
     throw v5
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_46
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_e .. :try_end_46} :catch_70
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_e .. :try_end_46} :catch_62
+    .catch Ljava/lang/IllegalAccessException; {:try_start_e .. :try_end_46} :catch_54
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_e .. :try_end_46} :catch_46
 
     .line 109
     .end local v2    # "windowConfigField":Ljava/lang/reflect/Field;
@@ -1321,7 +1321,7 @@
     .restart local v0    # "bounds":Landroid/graphics/Rect;
     .restart local v1    # "config":Landroid/content/res/Configuration;
     .restart local p1    # "activity":Landroid/app/Activity;
-    :catch_0
+    :catch_46
     move-exception v2
 
     .line 110
@@ -1339,11 +1339,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_7d
 
     .line 106
     .end local v2    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_54
     move-exception v2
 
     .line 107
@@ -1362,10 +1362,10 @@
     move-result-object v0
 
     .end local v2    # "e":Ljava/lang/IllegalAccessException;
-    goto :goto_0
+    goto :goto_7d
 
     .line 103
-    :catch_2
+    :catch_62
     move-exception v2
 
     .line 104
@@ -1384,10 +1384,10 @@
     move-result-object v0
 
     .end local v2    # "e":Ljava/lang/NoSuchMethodException;
-    goto :goto_0
+    goto :goto_7d
 
     .line 98
-    :catch_3
+    :catch_70
     move-exception v2
 
     .line 99
@@ -1407,12 +1407,12 @@
 
     .line 113
     .end local v2    # "e":Ljava/lang/NoSuchFieldException;
-    :goto_0
+    :goto_7d
     return-object v0
 .end method
 
 .method public final getRealSizeForDisplay$window_release(Landroid/view/Display;)Landroid/graphics/Point;
-    .locals 2
+    .registers 4
     .param p1, "display"    # Landroid/view/Display;
 
     const-string v0, "display"

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p3, "toString"    # Ljava/lang/String;
 
     .line 430
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 430
     invoke-virtual {p0}, Lcom/google/common/hash/Hashing$ChecksumType$1;->get()Ljava/util/zip/Checksum;
@@ -41,7 +41,7 @@
 .end method
 
 .method public get()Ljava/util/zip/Checksum;
-    .locals 1
+    .registers 2
 
     .line 433
     new-instance v0, Ljava/util/zip/CRC32;

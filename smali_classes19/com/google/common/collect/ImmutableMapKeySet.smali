@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -81,7 +81,7 @@
 .end method
 
 .method get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -115,7 +115,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 61
     .local p0, "this":Lcom/google/common/collect/ImmutableMapKeySet;, "Lcom/google/common/collect/ImmutableMapKeySet<TK;TV;>;"
@@ -125,7 +125,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -146,7 +146,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/collect/ImmutableMapKeySet;, "Lcom/google/common/collect/ImmutableMapKeySet<TK;TV;>;"
@@ -158,7 +158,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 41
     .local p0, "this":Lcom/google/common/collect/ImmutableMapKeySet;, "Lcom/google/common/collect/ImmutableMapKeySet<TK;TV;>;"
@@ -172,7 +172,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 67
     .local p0, "this":Lcom/google/common/collect/ImmutableMapKeySet;, "Lcom/google/common/collect/ImmutableMapKeySet<TK;TV;>;"

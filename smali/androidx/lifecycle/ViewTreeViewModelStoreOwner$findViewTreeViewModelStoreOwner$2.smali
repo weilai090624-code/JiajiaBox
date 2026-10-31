@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/lifecycle/ViewTreeViewModelStoreOwner$findViewTreeViewModelStoreOwner$2;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public final invoke(Landroid/view/View;)Landroidx/lifecycle/ViewModelStoreOwner;
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     const-string/jumbo v0, "view"
@@ -93,21 +93,21 @@
 
     instance-of v1, v0, Landroidx/lifecycle/ViewModelStoreOwner;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     check-cast v0, Landroidx/lifecycle/ViewModelStoreOwner;
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 52

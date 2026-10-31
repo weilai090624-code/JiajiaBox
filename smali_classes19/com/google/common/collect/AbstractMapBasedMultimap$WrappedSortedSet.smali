@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/SortedSet;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractMapBasedMultimap;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -94,7 +94,7 @@
 .end method
 
 .method public first()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -121,7 +121,7 @@
 .end method
 
 .method getSortedSetDelegate()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -142,7 +142,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 5
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -184,18 +184,18 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1b
 
     move-object v4, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1b
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;->getAncestor()Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;
 
     move-result-object v4
 
-    :goto_0
+    :goto_1f
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/SortedSet;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
 
     .line 653
@@ -203,7 +203,7 @@
 .end method
 
 .method public last()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -230,7 +230,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 5
+    .registers 8
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -277,18 +277,18 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1b
 
     move-object v4, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1b
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;->getAncestor()Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;
 
     move-result-object v4
 
-    :goto_0
+    :goto_1f
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/SortedSet;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
 
     .line 662
@@ -296,7 +296,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 5
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -338,18 +338,18 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1b
 
     move-object v4, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1b
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;->getAncestor()Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;
 
     move-result-object v4
 
-    :goto_0
+    :goto_1f
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/SortedSet;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
 
     .line 671

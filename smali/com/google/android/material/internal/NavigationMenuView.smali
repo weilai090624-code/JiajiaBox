@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 34
@@ -21,7 +21,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public getWindowAnimations()I
-    .locals 1
+    .registers 2
 
     .line 51
     const/4 v0, 0x0
@@ -70,7 +70,7 @@
 .end method
 
 .method public initialize(Landroidx/appcompat/view/menu/MenuBuilder;)V
-    .locals 0
+    .registers 2
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
     .line 47

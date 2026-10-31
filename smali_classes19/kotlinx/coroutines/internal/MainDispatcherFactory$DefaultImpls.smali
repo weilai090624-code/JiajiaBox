@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static hintOnError(Lkotlinx/coroutines/internal/MainDispatcherFactory;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/internal/MainDispatcherFactory;
 
     .line 28

@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 242
     const/4 v0, 0x1
@@ -42,7 +42,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "defaultChildrenSize"    # I
 
     .line 246
@@ -62,19 +62,19 @@
 
 # virtual methods
 .method get(I)Landroidx/emoji2/text/MetadataRepo$Node;
-    .locals 1
+    .registers 3
     .param p1, "key"    # I
 
     .line 251
     iget-object v0, p0, Landroidx/emoji2/text/MetadataRepo$Node;->mChildren:Landroid/util/SparseArray;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/emoji2/text/MetadataRepo$Node;->mChildren:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -83,12 +83,12 @@
 
     check-cast v0, Landroidx/emoji2/text/MetadataRepo$Node;
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method final getData()Landroidx/emoji2/text/EmojiMetadata;
-    .locals 1
+    .registers 2
 
     .line 255
     iget-object v0, p0, Landroidx/emoji2/text/MetadataRepo$Node;->mData:Landroidx/emoji2/text/EmojiMetadata;
@@ -97,7 +97,7 @@
 .end method
 
 .method put(Landroidx/emoji2/text/EmojiMetadata;II)V
-    .locals 3
+    .registers 7
     .param p1, "data"    # Landroidx/emoji2/text/EmojiMetadata;
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -113,7 +113,7 @@
 
     .line 261
     .local v0, "node":Landroidx/emoji2/text/MetadataRepo$Node;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 262
     new-instance v1, Landroidx/emoji2/text/MetadataRepo$Node;
@@ -132,21 +132,21 @@
     invoke-virtual {v1, v2, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 266
-    :cond_0
-    if-le p3, p2, :cond_1
+    :cond_19
+    if-le p3, p2, :cond_21
 
     .line 267
     add-int/lit8 v1, p2, 0x1
 
     invoke-virtual {v0, p1, v1, p3}, Landroidx/emoji2/text/MetadataRepo$Node;->put(Landroidx/emoji2/text/EmojiMetadata;II)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 269
-    :cond_1
+    :cond_21
     iput-object p1, v0, Landroidx/emoji2/text/MetadataRepo$Node;->mData:Landroidx/emoji2/text/EmojiMetadata;
 
     .line 271
-    :goto_0
+    :goto_23
     return-void
 .end method

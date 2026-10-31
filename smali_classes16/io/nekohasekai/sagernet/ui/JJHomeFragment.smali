@@ -1095,7 +1095,7 @@
 
     move-result v2
 
-    invoke-virtual {v4, v6, v1, v2, v3}, Landroidx/recyclerview/widget/RecyclerView;->setPadding(IIII)V
+    invoke-static {v4, v1, v3}, Lio/nekohasekai/sagernet/ui/HomeInsets;->apply(Landroid/view/View;II)V
 
     .line 209
     return-void
@@ -3923,12 +3923,26 @@
 
     .line 546
     .local v5, "panel":Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
+    move-object/from16 v11, p4
+
+    instance-of v11, v11, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1$$ExternalSyntheticLambda0;
+
+    if-eqz v11, :cond_1e8
+
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/MorphDialog;->groupDialog(Landroid/content/Context;)Landroid/app/Dialog;
+
+    move-result-object v10
+
+    goto :goto_1ed
+
+    :cond_1e8
     new-instance v10, Landroid/app/Dialog;
 
     invoke-direct {v10, v1}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
 
     .line 547
     .local v10, "dialog":Landroid/app/Dialog;
+    :goto_1ed
     move-object v11, v5
 
     check-cast v11, Landroid/view/View;
@@ -3940,7 +3954,7 @@
 
     move-result-object v11
 
-    if-eqz v11, :cond_206
+    if-eqz v11, :cond_211
 
     .local v11, "$this$showGlassConfirmDialog_u24lambda_u2421":Landroid/view/Window;
     const/4 v12, 0x0
@@ -3976,7 +3990,7 @@
     nop
 
     .line 553
-    :cond_206
+    :cond_211
     new-instance v11, Lio/nekohasekai/sagernet/ui/JJHomeFragment$$ExternalSyntheticLambda8;
 
     invoke-direct {v11, v10}, Lio/nekohasekai/sagernet/ui/JJHomeFragment$$ExternalSyntheticLambda8;-><init>(Landroid/app/Dialog;)V
@@ -3994,7 +4008,7 @@
 
     instance-of v11, v12, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1$$ExternalSyntheticLambda0;
 
-    if-eqz v11, :cond_227
+    if-eqz v11, :cond_232
 
     new-instance v11, Lio/nekohasekai/sagernet/ui/JJHomeFragment$GroupDeleteCancel;
 
@@ -4005,7 +4019,7 @@
     invoke-virtual {v4, v11}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 558
-    :cond_227
+    :cond_232
     invoke-static {v10}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->homeDialog(Landroid/app/Dialog;)V
 
     invoke-static {v10}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
@@ -4032,6 +4046,15 @@
     .param p2, "it"    # Landroid/view/View;
 
     .line 555
+    instance-of p2, p0, Lio/nekohasekai/sagernet/ui/MorphDialog;
+
+    if-eqz p2, :cond_8
+
+    invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/MorphDialog;->groupConfirm(Landroid/app/Dialog;Ljava/lang/Object;)V
+
+    return-void
+
+    :cond_8
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
     .line 556

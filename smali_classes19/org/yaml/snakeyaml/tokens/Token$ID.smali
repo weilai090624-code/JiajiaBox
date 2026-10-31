@@ -78,7 +78,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 23
     new-instance v0, Lorg/yaml/snakeyaml/tokens/Token$ID;
@@ -504,7 +504,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p3, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -525,7 +525,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/yaml/snakeyaml/tokens/Token$ID;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 22
@@ -541,7 +541,7 @@
 .end method
 
 .method public static values()[Lorg/yaml/snakeyaml/tokens/Token$ID;
-    .locals 1
+    .registers 1
 
     .line 22
     sget-object v0, Lorg/yaml/snakeyaml/tokens/Token$ID;->$VALUES:[Lorg/yaml/snakeyaml/tokens/Token$ID;
@@ -558,7 +558,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Lorg/yaml/snakeyaml/tokens/Token$ID;->description:Ljava/lang/String;

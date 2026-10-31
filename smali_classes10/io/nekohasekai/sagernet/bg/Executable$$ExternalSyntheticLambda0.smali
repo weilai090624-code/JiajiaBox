@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public final accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 0
+    .registers 3
 
     .line 0
     invoke-static {p1, p2}, Lio/nekohasekai/sagernet/bg/Executable;->$r8$lambda$9f2VpcJxuEqttqOCJHlnpaSLmos(Ljava/io/File;Ljava/lang/String;)Z

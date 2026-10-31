@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;)V
-    .locals 1
+    .registers 3
     .param p1, "textView"    # Landroid/widget/TextView;
 
     .line 43
@@ -41,12 +41,12 @@
 
 # virtual methods
 .method public getTextClassifier()Landroid/view/textclassifier/TextClassifier;
-    .locals 1
+    .registers 2
 
     .line 63
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextClassifierHelper;->mTextClassifier:Landroid/view/textclassifier/TextClassifier;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 64
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextClassifierHelper;->mTextView:Landroid/widget/TextView;
@@ -58,14 +58,14 @@
     return-object v0
 
     .line 66
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextClassifierHelper;->mTextClassifier:Landroid/view/textclassifier/TextClassifier;
 
     return-object v0
 .end method
 
 .method public setTextClassifier(Landroid/view/textclassifier/TextClassifier;)V
-    .locals 0
+    .registers 2
     .param p1, "textClassifier"    # Landroid/view/textclassifier/TextClassifier;
 
     .line 52

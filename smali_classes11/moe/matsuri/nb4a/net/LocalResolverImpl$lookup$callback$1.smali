@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Llibcore/ExchangeContext;)V
-    .locals 0
+    .registers 2
     .param p1, "$ctx"    # Llibcore/ExchangeContext;
 
     iput-object p1, p0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$callback$1;->$ctx:Llibcore/ExchangeContext;
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public bridge synthetic onAnswer(Ljava/lang/Object;I)V
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # I
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public onAnswer(Ljava/util/Collection;I)V
-    .locals 18
+    .registers 21
     .param p1, "answer"    # Ljava/util/Collection;
     .param p2, "rcode"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -122,10 +122,10 @@
     nop
 
     .line 74
-    if-nez v3, :cond_2
+    if-nez v3, :cond_60
 
     .line 75
-    :try_start_0
+    :try_start_e
     iget-object v0, v1, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$callback$1;->$ctx:Llibcore/ExchangeContext;
 
     move-object v4, v2
@@ -162,12 +162,12 @@
 
     move-result-object v11
 
-    :goto_0
+    :goto_23
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_43
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -197,7 +197,7 @@
     .line 160
     .end local v15    # "it":Ljava/net/InetAddress;
     .end local v16    # "$i$a$-mapNotNull-LocalResolverImpl$lookup$callback$1$onAnswer$1":I
-    if-eqz v17, :cond_0
+    if-eqz v17, :cond_41
 
     move-object/from16 v15, v17
 
@@ -214,14 +214,14 @@
     .end local v14    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
     .end local v15    # "it$iv$iv":Ljava/lang/Object;
     .end local v16    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
-    :cond_0
+    :cond_41
     nop
 
     .end local v12    # "element$iv$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_23
 
     .line 163
-    :cond_1
+    :cond_43
     nop
 
     .line 164
@@ -270,20 +270,20 @@
 
     invoke-virtual {v0, v4}, Llibcore/ExchangeContext;->success(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_77
 
     .line 77
-    :cond_2
+    :cond_60
     iget-object v0, v1, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$callback$1;->$ctx:Llibcore/ExchangeContext;
 
     invoke-virtual {v0, v3}, Llibcore/ExchangeContext;->errorCode(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_65
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_65} :catch_66
 
-    goto :goto_1
+    goto :goto_77
 
     .line 79
-    :catch_0
+    :catch_66
     move-exception v0
 
     .line 80
@@ -305,12 +305,12 @@
 
     .line 83
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_77
     return-void
 .end method
 
 .method public onError(Landroid/net/DnsResolver$DnsException;)V
-    .locals 4
+    .registers 6
     .param p1, "error"    # Landroid/net/DnsResolver$DnsException;
 
     const-string v0, "error"
@@ -323,7 +323,7 @@
     .line 87
     const v0, 0x1bf52
 
-    :try_start_0
+    :try_start_9
     invoke-virtual {p1}, Landroid/net/DnsResolver$DnsException;->getCause()Ljava/lang/Throwable;
 
     move-result-object v1
@@ -332,7 +332,7 @@
     .local v1, "cause":Ljava/lang/Throwable;
     instance-of v2, v1, Landroid/system/ErrnoException;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 89
     iget-object v2, p0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$callback$1;->$ctx:Llibcore/ExchangeContext;
@@ -345,10 +345,10 @@
 
     invoke-virtual {v2, v3}, Llibcore/ExchangeContext;->errnoCode(I)V
 
-    goto :goto_0
+    goto :goto_38
 
     .line 91
-    :cond_0
+    :cond_1c
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v3, p1
@@ -361,14 +361,14 @@
     iget-object v2, p0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$callback$1;->$ctx:Llibcore/ExchangeContext;
 
     invoke-virtual {v2, v0}, Llibcore/ExchangeContext;->errnoCode(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_29} :catch_2a
 
     .end local v1    # "cause":Ljava/lang/Throwable;
-    goto :goto_0
+    goto :goto_38
 
     .line 94
-    :catch_0
+    :catch_2a
     move-exception v1
 
     .line 95
@@ -388,6 +388,6 @@
 
     .line 98
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_38
     return-void
 .end method

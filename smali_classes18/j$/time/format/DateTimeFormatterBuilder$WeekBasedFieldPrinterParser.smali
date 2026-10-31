@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(CIII)V
-    .locals 6
+    .registers 11
     .param p1, "chr"    # C
     .param p2, "count"    # I
     .param p3, "minWidth"    # I
@@ -48,7 +48,7 @@
 .end method
 
 .method constructor <init>(CIIII)V
-    .locals 6
+    .registers 12
     .param p1, "chr"    # C
     .param p2, "count"    # I
     .param p3, "minWidth"    # I
@@ -81,7 +81,7 @@
 .end method
 
 .method private printerParser(Ljava/util/Locale;)Lj$/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;
-    .locals 11
+    .registers 13
     .param p1, "locale"    # Ljava/util/Locale;
 
     .line 4911
@@ -97,7 +97,7 @@
     .local v1, "field":Lj$/time/temporal/TemporalField;
     iget-char v2, p0, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->chr:C
 
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_64
 
     .line 4935
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -109,25 +109,25 @@
     throw v2
 
     .line 4929
-    :sswitch_0
+    :sswitch_12
     invoke-virtual {v0}, Lj$/time/temporal/WeekFields;->weekOfWeekBasedYear()Lj$/time/temporal/TemporalField;
 
     move-result-object v1
 
     .line 4930
-    goto :goto_1
+    goto :goto_53
 
     .line 4926
-    :sswitch_1
+    :sswitch_17
     invoke-virtual {v0}, Lj$/time/temporal/WeekFields;->dayOfWeek()Lj$/time/temporal/TemporalField;
 
     move-result-object v1
 
     .line 4927
-    goto :goto_1
+    goto :goto_53
 
     .line 4915
-    :sswitch_2
+    :sswitch_1c
     invoke-virtual {v0}, Lj$/time/temporal/WeekFields;->weekBasedYear()Lj$/time/temporal/TemporalField;
 
     move-result-object v1
@@ -137,7 +137,7 @@
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_35
 
     .line 4917
     new-instance v10, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;
@@ -163,7 +163,7 @@
     return-object v10
 
     .line 4920
-    :cond_0
+    :cond_35
     new-instance v8, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
 
     iget v4, p0, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->count:I
@@ -173,16 +173,16 @@
 
     const/4 v3, 0x4
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_41
 
     sget-object v2, Lj$/time/format/SignStyle;->NORMAL:Lj$/time/format/SignStyle;
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_1
+    :cond_41
     sget-object v2, Lj$/time/format/SignStyle;->EXCEEDS_PAD:Lj$/time/format/SignStyle;
 
-    :goto_0
+    :goto_43
     move-object v6, v2
 
     iget v7, p0, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->subsequentWidth:I
@@ -199,7 +199,7 @@
     return-object v8
 
     .line 4932
-    :sswitch_3
+    :sswitch_4e
     invoke-virtual {v0}, Lj$/time/temporal/WeekFields;->weekOfMonth()Lj$/time/temporal/TemporalField;
 
     move-result-object v1
@@ -208,7 +208,7 @@
     nop
 
     .line 4937
-    :goto_1
+    :goto_53
     new-instance v8, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
 
     iget v4, p0, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->minWidth:I
@@ -229,20 +229,20 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_64
     .sparse-switch
-        0x57 -> :sswitch_3
-        0x59 -> :sswitch_2
-        0x63 -> :sswitch_1
-        0x65 -> :sswitch_1
-        0x77 -> :sswitch_0
+        0x57 -> :sswitch_4e
+        0x59 -> :sswitch_1c
+        0x63 -> :sswitch_17
+        0x65 -> :sswitch_17
+        0x77 -> :sswitch_12
     .end sparse-switch
 .end method
 
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -263,7 +263,7 @@
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 1
+    .registers 5
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -285,7 +285,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 4943
     new-instance v0, Ljava/lang/StringBuilder;
@@ -307,39 +307,39 @@
 
     const-string v3, ","
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_52
 
     .line 4946
     iget v1, p0, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->count:I
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1f
 
     .line 4947
     const-string v1, "WeekBasedYear"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_72
 
     .line 4948
-    :cond_0
+    :cond_1f
     iget v1, p0, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->count:I
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_2a
 
     .line 4949
     const-string v1, "ReducedValue(WeekBasedYear,2,2,2000-01-01)"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_72
 
     .line 4951
-    :cond_1
+    :cond_2a
     const-string v1, "WeekBasedYear,"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -372,48 +372,48 @@
 
     const/4 v3, 0x4
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_4c
 
     sget-object v2, Lj$/time/format/SignStyle;->NORMAL:Lj$/time/format/SignStyle;
 
-    goto :goto_0
+    goto :goto_4e
 
-    :cond_2
+    :cond_4c
     sget-object v2, Lj$/time/format/SignStyle;->EXCEEDS_PAD:Lj$/time/format/SignStyle;
 
-    :goto_0
+    :goto_4e
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_72
 
     .line 4956
-    :cond_3
+    :cond_52
     iget-char v1, p0, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->chr:C
 
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v1, :sswitch_data_7c
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 4962
-    :sswitch_0
+    :sswitch_58
     const-string v1, "WeekOfWeekBasedYear"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 4963
-    goto :goto_1
+    goto :goto_6a
 
     .line 4959
-    :sswitch_1
+    :sswitch_5e
     const-string v1, "DayOfWeek"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 4960
-    goto :goto_1
+    goto :goto_6a
 
     .line 4965
-    :sswitch_2
+    :sswitch_64
     const-string v1, "WeekOfMonth"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -422,7 +422,7 @@
     nop
 
     .line 4970
-    :goto_1
+    :goto_6a
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 4971
@@ -431,7 +431,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 4973
-    :goto_2
+    :goto_72
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -443,17 +443,17 @@
 
     return-object v1
 
-    :sswitch_data_0
+    :sswitch_data_7c
     .sparse-switch
-        0x57 -> :sswitch_2
-        0x63 -> :sswitch_1
-        0x65 -> :sswitch_1
-        0x77 -> :sswitch_0
+        0x57 -> :sswitch_64
+        0x63 -> :sswitch_5e
+        0x65 -> :sswitch_5e
+        0x77 -> :sswitch_58
     .end sparse-switch
 .end method
 
 .method bridge synthetic withFixedWidth()Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
-    .locals 1
+    .registers 2
 
     .line 4835
     invoke-virtual {p0}, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->withFixedWidth()Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;
@@ -464,20 +464,20 @@
 .end method
 
 .method withFixedWidth()Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;
-    .locals 8
+    .registers 9
 
     .line 4875
     iget v0, p0, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->subsequentWidth:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
     .line 4876
     return-object p0
 
     .line 4878
-    :cond_0
+    :cond_6
     new-instance v0, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;
 
     iget-char v3, p0, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->chr:C
@@ -498,7 +498,7 @@
 .end method
 
 .method bridge synthetic withSubsequentWidth(I)Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
-    .locals 0
+    .registers 2
 
     .line 4835
     invoke-virtual {p0, p1}, Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;->withSubsequentWidth(I)Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;
@@ -509,7 +509,7 @@
 .end method
 
 .method withSubsequentWidth(I)Lj$/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;
-    .locals 7
+    .registers 9
     .param p1, "subsequentWidth"    # I
 
     .line 4889

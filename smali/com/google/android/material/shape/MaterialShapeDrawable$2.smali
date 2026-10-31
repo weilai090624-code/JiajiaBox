@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/shape/MaterialShapeDrawable;F)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     .line 1182
@@ -41,21 +41,21 @@
 
 # virtual methods
 .method public apply(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;
-    .locals 2
+    .registers 4
     .param p1, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
     .line 1188
     instance-of v0, p1, Lcom/google/android/material/shape/RelativeCornerSize;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 1189
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1190
-    :cond_0
+    :cond_6
     new-instance v0, Lcom/google/android/material/shape/AdjustedCornerSize;
 
     iget v1, p0, Lcom/google/android/material/shape/MaterialShapeDrawable$2;->val$strokeInsetLength:F
@@ -63,6 +63,6 @@
     invoke-direct {v0, v1, p1}, Lcom/google/android/material/shape/AdjustedCornerSize;-><init>(FLcom/google/android/material/shape/CornerSize;)V
 
     .line 1188
-    :goto_0
+    :goto_d
     return-object v0
 .end method

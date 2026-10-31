@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Llibcore/BoxInstance;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p1, "box"    # Llibcore/BoxInstance;
     .param p2, "items"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -99,7 +99,7 @@
 .end method
 
 .method private final updateOne(Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;)Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
-    .locals 32
+    .registers 34
     .param p1, "item"    # Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
 
     .line 23
@@ -128,7 +128,7 @@
 
     cmp-long v8, v4, v6
 
-    if-gtz v8, :cond_0
+    if-gtz v8, :cond_22
 
     move-object/from16 v8, p1
 
@@ -151,7 +151,7 @@
     return-object v1
 
     .line 32
-    :cond_0
+    :cond_22
     iget-object v6, v0, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;->box:Llibcore/BoxInstance;
 
     invoke-virtual/range {p1 .. p1}, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->getTag()Ljava/lang/String;
@@ -282,7 +282,7 @@
 
 # virtual methods
 .method public final getItems()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -299,7 +299,7 @@
 .end method
 
 .method public final updateAll(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 12
+    .registers 14
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -334,12 +334,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_10
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_64
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -359,7 +359,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_63
 
     .line 55
     invoke-virtual {v5}, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->getTag()Ljava/lang/String;
@@ -374,7 +374,7 @@
 
     .line 57
     .local v7, "diff":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
-    if-nez v7, :cond_0
+    if-nez v7, :cond_3c
 
     .line 58
     invoke-direct {p0, v5}, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater;->updateOne(Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;)Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
@@ -388,10 +388,10 @@
 
     invoke-interface {v0, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_62
 
     .line 61
-    :cond_0
+    :cond_3c
     invoke-virtual {v5}, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->getRx()J
 
     move-result-wide v8
@@ -432,7 +432,7 @@
     invoke-virtual {v5, v8, v9}, Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;->setTxRate(J)V
 
     .line 66
-    :goto_1
+    :goto_62
     nop
 
     .line 72
@@ -440,11 +440,11 @@
     .end local v5    # "item":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
     .end local v6    # "$i$a$-forEach-TrafficUpdater$updateAll$2":I
     .end local v7    # "diff":Lio/nekohasekai/sagernet/bg/proto/TrafficUpdater$TrafficLooperData;
-    :cond_1
-    goto :goto_0
+    :cond_63
+    goto :goto_10
 
     .line 73
-    :cond_2
+    :cond_64
     nop
 
     .line 69

@@ -101,7 +101,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$s6e-DZH-C6a1RPe5emQxMvma7vE(Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment;)Landroid/os/Parcelable;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment;->arg_delegate$lambda$0(Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment;)Landroid/os/Parcelable;
 
@@ -111,7 +111,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment$Companion;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-direct {p0}, Landroidx/appcompat/app/AppCompatDialogFragment;-><init>()V
@@ -146,7 +146,7 @@
 .end method
 
 .method private static final arg_delegate$lambda$0(Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment;)Landroid/os/Parcelable;
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment;
 
     .line 39
@@ -166,14 +166,14 @@
 .end method
 
 .method private final args()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 42
     invoke-virtual {p0}, Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     new-instance v0, Landroid/os/Bundle;
 
@@ -191,12 +191,12 @@
 
     .end local v1    # "it":Landroid/os/Bundle;
     .end local v2    # "$i$a$-also-AlertDialogFragment$args$1":I
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method private final getResultKey()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 38
     invoke-virtual {p0}, Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment;->requireArguments()Landroid/os/Bundle;
@@ -213,14 +213,14 @@
 .end method
 
 .method public static synthetic key$default(Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment;Ljava/lang/String;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 44
-    if-nez p3, :cond_1
+    if-nez p3, :cond_12
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_e
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -230,12 +230,12 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_e
     invoke-virtual {p0, p1}, Lcom/github/shadowsocks/plugin/fragment/AlertDialogFragment;->key(Ljava/lang/String;)V
 
     return-void
 
-    :cond_1
+    :cond_12
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: key"
@@ -248,7 +248,7 @@
 
 # virtual methods
 .method public final arg(Landroid/os/Parcelable;)V
-    .locals 2
+    .registers 4
     .param p1, "arg"    # Landroid/os/Parcelable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -271,7 +271,7 @@
 .end method
 
 .method protected final getArg()Landroid/os/Parcelable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TArg;"
@@ -291,7 +291,7 @@
 .end method
 
 .method public final key(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "resultKey"    # Ljava/lang/String;
 
     const-string v0, "resultKey"
@@ -311,7 +311,7 @@
 .end method
 
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 7
+    .registers 10
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "which"    # I
 
@@ -324,11 +324,11 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     return-void
 
-    :cond_0
+    :cond_a
     new-instance v2, Landroid/os/Bundle;
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
@@ -349,11 +349,11 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_1d
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_1d
     const-string v6, "ret"
 
     invoke-virtual {v3, v6, v5}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
@@ -363,7 +363,7 @@
 
     .end local v3    # "$this$onClick_u24lambda_u243":Landroid/os/Bundle;
     .end local v4    # "$i$a$-apply-AlertDialogFragment$onClick$1":I
-    :goto_0
+    :goto_23
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 50
@@ -374,7 +374,7 @@
 .end method
 
 .method public bridge synthetic onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Landroid/os/Bundle;
 
     .line 18
@@ -388,7 +388,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroidx/appcompat/app/AlertDialog;
-    .locals 5
+    .registers 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 47
@@ -432,7 +432,7 @@
 .end method
 
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+    .registers 4
     .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     const-string v0, "dialog"
@@ -457,7 +457,7 @@
 .end method
 
 .method protected ret(I)Landroid/os/Parcelable;
-    .locals 1
+    .registers 3
     .param p1, "which"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

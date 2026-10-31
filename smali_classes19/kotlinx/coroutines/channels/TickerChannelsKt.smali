@@ -42,7 +42,7 @@
 
 # direct methods
 .method public static final synthetic access$fixedDelayTicker(JJLkotlinx/coroutines/channels/SendChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 7
     .param p0, "delayMillis"    # J
     .param p2, "initialDelayMillis"    # J
     .param p4, "channel"    # Lkotlinx/coroutines/channels/SendChannel;
@@ -57,7 +57,7 @@
 .end method
 
 .method public static final synthetic access$fixedPeriodTicker(JJLkotlinx/coroutines/channels/SendChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 7
     .param p0, "delayMillis"    # J
     .param p2, "initialDelayMillis"    # J
     .param p4, "channel"    # Lkotlinx/coroutines/channels/SendChannel;
@@ -72,7 +72,7 @@
 .end method
 
 .method private static final fixedDelayTicker(JJLkotlinx/coroutines/channels/SendChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -90,7 +90,7 @@
 
     instance-of v0, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p5
 
@@ -102,7 +102,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p5, v0, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;->label:I
 
@@ -110,14 +110,14 @@
 
     iput p5, v0, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;
 
     invoke-direct {v0, p5}, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p5, v0
 
     .local p5, "$continuation":Lkotlin/coroutines/Continuation;
@@ -131,7 +131,7 @@
     .line 101
     iget v2, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_7e
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p5    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -145,7 +145,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p5    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-wide p0, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;->J$0:J
 
     .local p0, "delayMillis":J
@@ -156,11 +156,11 @@
     .local p2, "channel":Lkotlinx/coroutines/channels/SendChannel;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_4
+    goto :goto_7c
 
     .end local p0    # "delayMillis":J
     .end local p2    # "channel":Lkotlinx/coroutines/channels/SendChannel;
-    :pswitch_1
+    :pswitch_37
     iget-wide p0, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;->J$0:J
 
     .restart local p0    # "delayMillis":J
@@ -171,11 +171,11 @@
     .restart local p2    # "channel":Lkotlinx/coroutines/channels/SendChannel;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_3
+    goto :goto_6e
 
     .end local p0    # "delayMillis":J
     .end local p2    # "channel":Lkotlinx/coroutines/channels/SendChannel;
-    :pswitch_2
+    :pswitch_41
     iget-wide p0, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;->J$0:J
 
     .restart local p0    # "delayMillis":J
@@ -186,11 +186,11 @@
     .restart local p2    # "channel":Lkotlinx/coroutines/channels/SendChannel;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_5d
 
     .end local p0    # "delayMillis":J
     .end local p2    # "channel":Lkotlinx/coroutines/channels/SendChannel;
-    :pswitch_3
+    :pswitch_4b
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 106
@@ -210,23 +210,23 @@
     move-result-object p2
 
     .end local p2    # "initialDelayMillis":J
-    if-ne p2, v1, :cond_1
+    if-ne p2, v1, :cond_5c
 
     .line 101
     return-object v1
 
     .line 106
-    :cond_1
+    :cond_5c
     move-object p2, p4
 
     .line 107
     .end local p4    # "channel":Lkotlinx/coroutines/channels/SendChannel;
     .local p2, "channel":Lkotlinx/coroutines/channels/SendChannel;
-    :goto_1
+    :goto_5d
     nop
 
     .line 108
-    :goto_2
+    :goto_5e
     sget-object p3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     iput-object p2, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;->L$0:Ljava/lang/Object;
@@ -241,14 +241,14 @@
 
     move-result-object p3
 
-    if-ne p3, v1, :cond_2
+    if-ne p3, v1, :cond_6e
 
     .line 101
     return-object v1
 
     .line 109
-    :cond_2
-    :goto_3
+    :cond_6e
+    :goto_6e
     iput-object p2, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;->L$0:Ljava/lang/Object;
 
     iput-wide p0, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedDelayTicker$1;->J$0:J
@@ -261,29 +261,29 @@
 
     move-result-object p3
 
-    if-ne p3, v1, :cond_3
+    if-ne p3, v1, :cond_7c
 
     .line 101
     return-object v1
 
     .line 109
-    :cond_3
-    :goto_4
-    goto :goto_2
+    :cond_7c
+    :goto_7c
+    goto :goto_5e
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_7e
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4b
+        :pswitch_41
+        :pswitch_37
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method private static final fixedPeriodTicker(JJLkotlinx/coroutines/channels/SendChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -301,7 +301,7 @@
 
     instance-of v0, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedPeriodTicker$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p5
 
@@ -313,7 +313,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p5, v0, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedPeriodTicker$1;->label:I
 
@@ -321,14 +321,14 @@
 
     iput p5, v0, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedPeriodTicker$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedPeriodTicker$1;
 
     invoke-direct {v0, p5}, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedPeriodTicker$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p5, v0
 
     .local p5, "$continuation":Lkotlin/coroutines/Continuation;
@@ -342,7 +342,7 @@
     .line 78
     iget v2, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedPeriodTicker$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_fa
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p5    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -356,7 +356,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p5    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-wide p0, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedPeriodTicker$1;->J$1:J
 
     .local p0, "delayNs":J
@@ -374,12 +374,12 @@
 
     move-wide p0, p2
 
-    goto/16 :goto_7
+    goto/16 :goto_f9
 
     .end local p0    # "delayNs":J
     .end local p2    # "deadline":J
     .end local p4    # "channel":Lkotlinx/coroutines/channels/SendChannel;
-    :pswitch_1
+    :pswitch_3c
     iget-wide p0, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedPeriodTicker$1;->J$1:J
 
     .restart local p0    # "delayNs":J
@@ -397,12 +397,12 @@
 
     move-wide p0, p2
 
-    goto/16 :goto_6
+    goto/16 :goto_e2
 
     .end local p0    # "delayNs":J
     .end local p2    # "deadline":J
     .end local p4    # "channel":Lkotlinx/coroutines/channels/SendChannel;
-    :pswitch_2
+    :pswitch_4b
     iget-wide p0, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedPeriodTicker$1;->J$1:J
 
     .restart local p0    # "delayNs":J
@@ -416,12 +416,12 @@
     .restart local p4    # "channel":Lkotlinx/coroutines/channels/SendChannel;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_4
+    goto :goto_a6
 
     .end local p0    # "delayNs":J
     .end local p2    # "deadline":J
     .end local p4    # "channel":Lkotlinx/coroutines/channels/SendChannel;
-    :pswitch_3
+    :pswitch_57
     iget-wide p0, p5, Lkotlinx/coroutines/channels/TickerChannelsKt$fixedPeriodTicker$1;->J$1:J
 
     .local p0, "deadline":J
@@ -435,12 +435,12 @@
     .restart local p4    # "channel":Lkotlinx/coroutines/channels/SendChannel;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_8c
 
     .end local p0    # "deadline":J
     .end local p2    # "delayMillis":J
     .end local p4    # "channel":Lkotlinx/coroutines/channels/SendChannel;
-    :pswitch_4
+    :pswitch_63
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 83
@@ -451,20 +451,20 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_71
 
     invoke-virtual {v2}, Lkotlinx/coroutines/AbstractTimeSource;->nanoTime()J
 
     move-result-wide v2
 
-    goto :goto_1
+    goto :goto_75
 
-    :cond_1
+    :cond_71
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v2
 
-    :goto_1
+    :goto_75
     invoke-static {p2, p3}, Lkotlinx/coroutines/EventLoop_commonKt;->delayToNanos(J)J
 
     move-result-wide v4
@@ -488,13 +488,13 @@
     move-result-object p2
 
     .end local p2    # "initialDelayMillis":J
-    if-ne p2, v1, :cond_2
+    if-ne p2, v1, :cond_8a
 
     .line 78
     return-object v1
 
     .line 84
-    :cond_2
+    :cond_8a
     move-wide p2, p0
 
     move-wide p0, v2
@@ -503,7 +503,7 @@
     .end local v2    # "deadline":J
     .local p0, "deadline":J
     .local p2, "delayMillis":J
-    :goto_2
+    :goto_8c
     invoke-static {p2, p3}, Lkotlinx/coroutines/EventLoop_commonKt;->delayToNanos(J)J
 
     move-result-wide v2
@@ -511,7 +511,7 @@
     .line 86
     .end local p2    # "delayMillis":J
     .local v2, "delayNs":J
-    :goto_3
+    :goto_90
     nop
 
     .line 87
@@ -534,13 +534,13 @@
 
     move-result-object p2
 
-    if-ne p2, v1, :cond_3
+    if-ne p2, v1, :cond_a4
 
     .line 78
     return-object v1
 
     .line 88
-    :cond_3
+    :cond_a4
     move-wide p2, p0
 
     move-wide p0, v2
@@ -549,27 +549,27 @@
     .end local v2    # "delayNs":J
     .local p0, "delayNs":J
     .local p2, "deadline":J
-    :goto_4
+    :goto_a6
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_b1
 
     invoke-virtual {v2}, Lkotlinx/coroutines/AbstractTimeSource;->nanoTime()J
 
     move-result-wide v2
 
-    goto :goto_5
+    goto :goto_b5
 
-    :cond_4
+    :cond_b1
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v2
 
     .line 90
     .local v2, "now":J
-    :goto_5
+    :goto_b5
     sub-long v4, p2, v2
 
     const-wide/16 v6, 0x0
@@ -582,11 +582,11 @@
     .local v4, "nextDelay":J
     cmp-long v8, v4, v6
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_e3
 
     cmp-long v8, p0, v6
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_e3
 
     .line 92
     .end local v4    # "nextDelay":J
@@ -621,13 +621,13 @@
     move-result-object v2
 
     .end local v4    # "adjustedDelay":J
-    if-ne v2, v1, :cond_5
+    if-ne v2, v1, :cond_e0
 
     .line 78
     return-object v1
 
     .line 94
-    :cond_5
+    :cond_e0
     move-wide v2, p0
 
     move-wide p0, p2
@@ -635,15 +635,15 @@
     .end local p2    # "deadline":J
     .local v2, "delayNs":J
     .local p0, "deadline":J
-    :goto_6
-    goto :goto_3
+    :goto_e2
+    goto :goto_90
 
     .line 96
     .end local v2    # "delayNs":J
     .local v4, "nextDelay":J
     .local p0, "delayNs":J
     .restart local p2    # "deadline":J
-    :cond_6
+    :cond_e3
     invoke-static {v4, v5}, Lkotlinx/coroutines/EventLoop_commonKt;->delayNanosToMillis(J)J
 
     move-result-wide v2
@@ -663,13 +663,13 @@
     move-result-object v2
 
     .end local v4    # "nextDelay":J
-    if-ne v2, v1, :cond_7
+    if-ne v2, v1, :cond_f7
 
     .line 78
     return-object v1
 
     .line 96
-    :cond_7
+    :cond_f7
     move-wide v2, p0
 
     move-wide p0, p2
@@ -677,21 +677,21 @@
     .end local p2    # "deadline":J
     .restart local v2    # "delayNs":J
     .local p0, "deadline":J
-    :goto_7
-    goto :goto_3
+    :goto_f9
+    goto :goto_90
 
-    :pswitch_data_0
+    :pswitch_data_fa
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_63
+        :pswitch_57
+        :pswitch_4b
+        :pswitch_3c
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final ticker(JJLkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/TickerMode;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 16
+    .registers 22
     .param p0, "delayMillis"    # J
     .param p2, "initialDelayMillis"    # J
     .param p4, "context"    # Lkotlin/coroutines/CoroutineContext;
@@ -721,32 +721,32 @@
 
     cmp-long v3, v7, v1
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_e
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_f
     const-string v4, " ms"
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_62
 
     .line 69
     cmp-long v3, v9, v1
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_18
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_19
+    if-eqz v0, :cond_3e
 
     .line 70
     sget-object v0, Lkotlinx/coroutines/GlobalScope;->INSTANCE:Lkotlinx/coroutines/GlobalScope;
@@ -788,7 +788,7 @@
     return-object v0
 
     .line 113
-    :cond_2
+    :cond_3e
     move-object/from16 v13, p4
 
     const/4 v0, 0x0
@@ -829,7 +829,7 @@
     throw v1
 
     .line 113
-    :cond_3
+    :cond_62
     move-object/from16 v13, p4
 
     const/4 v0, 0x0
@@ -871,21 +871,21 @@
 .end method
 
 .method public static synthetic ticker$default(JJLkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/TickerMode;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 8
 
     .line 62
     and-int/lit8 p7, p6, 0x2
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_5
 
     .line 64
     move-wide p2, p0
 
     .line 62
-    :cond_0
+    :cond_5
     and-int/lit8 p7, p6, 0x4
 
-    if-eqz p7, :cond_1
+    if-eqz p7, :cond_d
 
     .line 65
     sget-object p4, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -893,16 +893,16 @@
     check-cast p4, Lkotlin/coroutines/CoroutineContext;
 
     .line 62
-    :cond_1
+    :cond_d
     and-int/lit8 p6, p6, 0x8
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_13
 
     .line 66
     sget-object p5, Lkotlinx/coroutines/channels/TickerMode;->FIXED_PERIOD:Lkotlinx/coroutines/channels/TickerMode;
 
     .line 62
-    :cond_2
+    :cond_13
     invoke-static/range {p0 .. p5}, Lkotlinx/coroutines/channels/TickerChannelsKt;->ticker(JJLkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/TickerMode;)Lkotlinx/coroutines/channels/ReceiveChannel;
 
     move-result-object p0

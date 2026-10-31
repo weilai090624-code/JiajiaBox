@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function0;Z)V
-    .locals 0
+    .registers 3
     .param p1, "$callback"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$onetime"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -99,7 +99,7 @@
     .line 119
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ktx/UtilsKt$listenForPackageChanges$1;->$onetime:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     move-object v0, p0
 
@@ -108,6 +108,6 @@
     invoke-virtual {p1, v0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 120
-    :cond_0
+    :cond_19
     return-void
 .end method

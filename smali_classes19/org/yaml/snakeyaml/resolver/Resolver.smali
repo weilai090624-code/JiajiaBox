@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 31
     const-string v0, "^(?:yes|Yes|YES|no|No|NO|true|True|TRUE|false|False|FALSE|on|On|ON|off|Off|OFF)$"
@@ -126,7 +126,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -148,13 +148,13 @@
 
 # virtual methods
 .method public addImplicitResolver(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/util/regex/Pattern;Ljava/lang/String;)V
-    .locals 6
+    .registers 10
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "regexp"    # Ljava/util/regex/Pattern;
     .param p3, "first"    # Ljava/lang/String;
 
     .line 90
-    if-nez p3, :cond_1
+    if-nez p3, :cond_21
 
     .line 91
     iget-object v0, p0, Lorg/yaml/snakeyaml/resolver/Resolver;->yamlImplicitResolvers:Ljava/util/Map;
@@ -169,7 +169,7 @@
 
     .line 92
     .local v0, "curr":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/resolver/ResolverTuple;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 93
     new-instance v2, Ljava/util/ArrayList;
@@ -184,7 +184,7 @@
     invoke-interface {v2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 96
-    :cond_0
+    :cond_18
     new-instance v1, Lorg/yaml/snakeyaml/resolver/ResolverTuple;
 
     invoke-direct {v1, p1, p2}, Lorg/yaml/snakeyaml/resolver/ResolverTuple;-><init>(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/util/regex/Pattern;)V
@@ -193,10 +193,10 @@
 
     .line 97
     .end local v0    # "curr":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/resolver/ResolverTuple;>;"
-    goto :goto_1
+    goto :goto_56
 
     .line 98
-    :cond_1
+    :cond_21
     invoke-virtual {p3}, Ljava/lang/String;->toCharArray()[C
 
     move-result-object v0
@@ -209,8 +209,8 @@
     array-length v2, v0
 
     .local v2, "j":I
-    :goto_0
-    if-ge v1, v2, :cond_4
+    :goto_27
+    if-ge v1, v2, :cond_56
 
     .line 100
     aget-char v3, v0, v1
@@ -225,13 +225,13 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_36
 
     .line 103
     const/4 v3, 0x0
 
     .line 105
-    :cond_2
+    :cond_36
     iget-object v4, p0, Lorg/yaml/snakeyaml/resolver/Resolver;->yamlImplicitResolvers:Ljava/util/Map;
 
     invoke-interface {v4, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -242,7 +242,7 @@
 
     .line 106
     .local v4, "curr":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/resolver/ResolverTuple;>;"
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4b
 
     .line 107
     new-instance v5, Ljava/util/ArrayList;
@@ -257,7 +257,7 @@
     invoke-interface {v5, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 110
-    :cond_3
+    :cond_4b
     new-instance v5, Lorg/yaml/snakeyaml/resolver/ResolverTuple;
 
     invoke-direct {v5, p1, p2}, Lorg/yaml/snakeyaml/resolver/ResolverTuple;-><init>(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/util/regex/Pattern;)V
@@ -269,19 +269,19 @@
     .end local v4    # "curr":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/resolver/ResolverTuple;>;"
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
     .line 113
     .end local v0    # "chrs":[C
     .end local v1    # "i":I
     .end local v2    # "j":I
-    :cond_4
-    :goto_1
+    :cond_56
+    :goto_56
     return-void
 .end method
 
 .method protected addImplicitResolvers()V
-    .locals 3
+    .registers 4
 
     .line 66
     sget-object v0, Lorg/yaml/snakeyaml/nodes/Tag;->BOOL:Lorg/yaml/snakeyaml/nodes/Tag;
@@ -360,7 +360,7 @@
 .end method
 
 .method public resolve(Lorg/yaml/snakeyaml/nodes/NodeId;Ljava/lang/String;Z)Lorg/yaml/snakeyaml/nodes/Tag;
-    .locals 6
+    .registers 10
     .param p1, "kind"    # Lorg/yaml/snakeyaml/nodes/NodeId;
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "implicit"    # Z
@@ -368,9 +368,9 @@
     .line 116
     sget-object v0, Lorg/yaml/snakeyaml/nodes/NodeId;->scalar:Lorg/yaml/snakeyaml/nodes/NodeId;
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_85
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_85
 
     .line 118
     invoke-virtual {p2}, Ljava/lang/String;->length()I
@@ -379,7 +379,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 119
     iget-object v0, p0, Lorg/yaml/snakeyaml/resolver/Resolver;->yamlImplicitResolvers:Ljava/util/Map;
@@ -395,11 +395,11 @@
     check-cast v0, Ljava/util/List;
 
     .local v0, "resolvers":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/resolver/ResolverTuple;>;"
-    goto :goto_0
+    goto :goto_2a
 
     .line 121
     .end local v0    # "resolvers":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/resolver/ResolverTuple;>;"
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Lorg/yaml/snakeyaml/resolver/Resolver;->yamlImplicitResolvers:Ljava/util/Map;
 
     invoke-virtual {p2, v1}, Ljava/lang/String;->charAt(I)C
@@ -418,8 +418,8 @@
 
     .line 123
     .restart local v0    # "resolvers":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/resolver/ResolverTuple;>;"
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_2a
+    if-eqz v0, :cond_50
 
     .line 124
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -427,12 +427,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_1
+    :goto_30
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_50
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -462,7 +462,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4f
 
     .line 128
     return-object v3
@@ -471,12 +471,12 @@
     .end local v2    # "v":Lorg/yaml/snakeyaml/resolver/ResolverTuple;
     .end local v3    # "tag":Lorg/yaml/snakeyaml/nodes/Tag;
     .end local v4    # "regexp":Ljava/util/regex/Pattern;
-    :cond_1
-    goto :goto_1
+    :cond_4f
+    goto :goto_30
 
     .line 132
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_2
+    :cond_50
     iget-object v1, p0, Lorg/yaml/snakeyaml/resolver/Resolver;->yamlImplicitResolvers:Ljava/util/Map;
 
     const/4 v2, 0x0
@@ -485,7 +485,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_85
 
     .line 133
     iget-object v1, p0, Lorg/yaml/snakeyaml/resolver/Resolver;->yamlImplicitResolvers:Ljava/util/Map;
@@ -501,12 +501,12 @@
     move-result-object v1
 
     .restart local v1    # "i$":Ljava/util/Iterator;
-    :goto_2
+    :goto_65
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_85
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -536,7 +536,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_84
 
     .line 137
     return-object v3
@@ -545,13 +545,13 @@
     .end local v2    # "v":Lorg/yaml/snakeyaml/resolver/ResolverTuple;
     .end local v3    # "tag":Lorg/yaml/snakeyaml/nodes/Tag;
     .end local v4    # "regexp":Ljava/util/regex/Pattern;
-    :cond_3
-    goto :goto_2
+    :cond_84
+    goto :goto_65
 
     .line 142
     .end local v0    # "resolvers":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/resolver/ResolverTuple;>;"
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_4
+    :cond_85
     sget-object v0, Lorg/yaml/snakeyaml/resolver/Resolver$1;->$SwitchMap$org$yaml$snakeyaml$nodes$NodeId:[I
 
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/nodes/NodeId;->ordinal()I
@@ -560,7 +560,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_9a
 
     .line 148
     sget-object v0, Lorg/yaml/snakeyaml/nodes/Tag;->MAP:Lorg/yaml/snakeyaml/nodes/Tag;
@@ -568,22 +568,22 @@
     return-object v0
 
     .line 146
-    :pswitch_0
+    :pswitch_93
     sget-object v0, Lorg/yaml/snakeyaml/nodes/Tag;->SEQ:Lorg/yaml/snakeyaml/nodes/Tag;
 
     return-object v0
 
     .line 144
-    :pswitch_1
+    :pswitch_96
     sget-object v0, Lorg/yaml/snakeyaml/nodes/Tag;->STR:Lorg/yaml/snakeyaml/nodes/Tag;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_9a
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_96
+        :pswitch_93
     .end packed-switch
 .end method

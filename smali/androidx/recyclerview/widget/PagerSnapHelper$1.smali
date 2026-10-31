@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/PagerSnapHelper;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/recyclerview/widget/PagerSnapHelper;
     .param p2, "context"    # Landroid/content/Context;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method protected calculateSpeedPerPixel(Landroid/util/DisplayMetrics;)F
-    .locals 2
+    .registers 4
     .param p1, "displayMetrics"    # Landroid/util/DisplayMetrics;
 
     .line 193
@@ -51,7 +51,7 @@
 .end method
 
 .method protected calculateTimeForScrolling(I)I
-    .locals 2
+    .registers 4
     .param p1, "dx"    # I
 
     .line 198
@@ -69,7 +69,7 @@
 .end method
 
 .method protected onTargetFound(Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$Action;)V
-    .locals 5
+    .registers 9
     .param p1, "targetView"    # Landroid/view/View;
     .param p2, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
     .param p3, "action"    # Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$Action;
@@ -121,7 +121,7 @@
 
     .line 186
     .local v3, "time":I
-    if-lez v3, :cond_0
+    if-lez v3, :cond_2b
 
     .line 187
     iget-object v4, p0, Landroidx/recyclerview/widget/PagerSnapHelper$1;->mDecelerateInterpolator:Landroid/view/animation/DecelerateInterpolator;
@@ -129,6 +129,6 @@
     invoke-virtual {p3, v1, v2, v3, v4}, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$Action;->update(IIILandroid/view/animation/Interpolator;)V
 
     .line 189
-    :cond_0
+    :cond_2b
     return-void
 .end method

@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
     iput-object v0, p0, Lorg/objenesis/instantiator/android/AndroidSerializationInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
     .line 45
-    :try_start_0
+    :try_start_b
     const-class v0, Ljava/io/ObjectStreamClass;
 
     const-string v1, "lookupAny"
@@ -83,15 +83,15 @@
     invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_1b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_b .. :try_end_1b} :catch_34
 
     .line 48
     .local v0, "m":Ljava/lang/reflect/Method;
     nop
 
     .line 50
-    :try_start_1
+    :try_start_1c
     new-array v1, v2, [Ljava/lang/Object;
 
     aput-object p1, v1, v5
@@ -105,9 +105,9 @@
     check-cast v1, Ljava/io/ObjectStreamClass;
 
     iput-object v1, p0, Lorg/objenesis/instantiator/android/AndroidSerializationInstantiator;->objectStreamClass:Ljava/io/ObjectStreamClass;
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_29
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1c .. :try_end_29} :catch_2d
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1c .. :try_end_29} :catch_2b
 
     .line 53
     nop
@@ -116,17 +116,17 @@
     return-void
 
     .line 51
-    :catch_0
+    :catch_2b
     move-exception v1
 
-    goto :goto_0
+    goto :goto_2e
 
-    :catch_1
+    :catch_2d
     move-exception v1
 
     .line 52
     .local v1, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_2e
     new-instance v2, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v2, v1}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -136,7 +136,7 @@
     .line 46
     .end local v0    # "m":Ljava/lang/reflect/Method;
     .end local v1    # "e":Ljava/lang/ReflectiveOperationException;
-    :catch_2
+    :catch_34
     move-exception v0
 
     .line 47
@@ -149,7 +149,7 @@
 .end method
 
 .method private static getNewInstanceMethod()Ljava/lang/reflect/Method;
-    .locals 6
+    .registers 6
 
     .line 67
     :try_start_0
@@ -174,26 +174,26 @@
     .line 69
     .local v0, "newInstanceMethod":Ljava/lang/reflect/Method;
     invoke-virtual {v0, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_13} :catch_16
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_13} :catch_14
 
     .line 70
     return-object v0
 
     .line 72
     .end local v0    # "newInstanceMethod":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_14
     move-exception v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :catch_1
+    :catch_16
     move-exception v0
 
     .line 73
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_17
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -204,7 +204,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -237,30 +237,30 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_16} :catch_1b
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_16} :catch_19
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_16} :catch_17
 
     return-object v0
 
     .line 60
-    :catch_0
+    :catch_17
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1c
 
-    :catch_1
+    :catch_19
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1c
 
-    :catch_2
+    :catch_1b
     move-exception v0
 
     .line 61
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_1c
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V

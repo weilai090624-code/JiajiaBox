@@ -51,12 +51,12 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 803
     sget-object v0, Lj$/util/ImmutableCollections$MapN;->EMPTY_MAP:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 804
     new-instance v0, Lj$/util/ImmutableCollections$MapN;
@@ -70,12 +70,12 @@
     sput-object v0, Lj$/util/ImmutableCollections$MapN;->EMPTY_MAP:Ljava/util/Map;
 
     .line 806
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method varargs constructor <init>([Ljava/lang/Object;)V
-    .locals 8
+    .registers 10
     .param p1, "input"    # [Ljava/lang/Object;
 
     .line 814
@@ -87,7 +87,7 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_5a
 
     .line 818
     array-length v0, p1
@@ -116,10 +116,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_19
     array-length v2, p1
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_59
 
     .line 826
     aget-object v2, p1, v1
@@ -146,7 +146,7 @@
 
     .line 830
     .local v4, "idx":I
-    if-gez v4, :cond_0
+    if-gez v4, :cond_40
 
     .line 833
     add-int/lit8 v5, v4, 0x1
@@ -173,13 +173,13 @@
     .end local v5    # "dest":I
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_0
+    goto :goto_19
 
     .line 831
     .restart local v2    # "k":Ljava/lang/Object;, "TK;"
     .restart local v3    # "v":Ljava/lang/Object;, "TV;"
     .restart local v4    # "idx":I
-    :cond_0
+    :cond_40
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -209,12 +209,12 @@
     .end local v2    # "k":Ljava/lang/Object;, "TK;"
     .end local v3    # "v":Ljava/lang/Object;, "TV;"
     .end local v4    # "idx":I
-    :cond_1
+    :cond_59
     return-void
 
     .line 816
     .end local v0    # "len":I
-    :cond_2
+    :cond_5a
     new-instance v0, Ljava/lang/InternalError;
 
     const-string v1, "length is odd"
@@ -225,7 +225,7 @@
 .end method
 
 .method private probe(Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
     .param p1, "pk"    # Ljava/lang/Object;
 
     .line 957
@@ -248,14 +248,14 @@
 
     .line 960
     .local v0, "idx":I
-    :goto_0
+    :goto_f
     iget-object v1, p0, Lj$/util/ImmutableCollections$MapN;->table:[Ljava/lang/Object;
 
     aget-object v1, v1, v0
 
     .line 961
     .local v1, "ek":Ljava/lang/Object;, "TK;"
-    if-nez v1, :cond_0
+    if-nez v1, :cond_19
 
     .line 962
     neg-int v2, v0
@@ -265,37 +265,37 @@
     return v2
 
     .line 963
-    :cond_0
+    :cond_19
     invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     .line 964
     return v0
 
     .line 965
-    :cond_1
+    :cond_20
     add-int/lit8 v0, v0, 0x2
 
     iget-object v2, p0, Lj$/util/ImmutableCollections$MapN;->table:[Ljava/lang/Object;
 
     array-length v2, v2
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_28
 
     .line 966
     const/4 v0, 0x0
 
     .line 968
     .end local v1    # "ek":Ljava/lang/Object;, "TK;"
-    :cond_2
-    goto :goto_0
+    :cond_28
+    goto :goto_f
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/ObjectInputStream;
 
     .line 972
@@ -310,7 +310,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 7
+    .registers 8
 
     .line 976
     .local p0, "this":Lj$/util/ImmutableCollections$MapN;, "Ljava/util/ImmutableCollections$MapN<TK;TV;>;"
@@ -335,15 +335,15 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_b
+    if-ge v3, v1, :cond_28
 
     .line 980
     iget-object v4, p0, Lj$/util/ImmutableCollections$MapN;->table:[Ljava/lang/Object;
 
     aget-object v4, v4, v3
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_25
 
     .line 981
     add-int/lit8 v4, v2, 0x1
@@ -370,14 +370,14 @@
     aput-object v5, v0, v4
 
     .line 979
-    :cond_0
+    :cond_25
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_0
+    goto :goto_b
 
     .line 985
     .end local v3    # "i":I
-    :cond_1
+    :cond_28
     new-instance v3, Lj$/util/CollSer;
 
     const/4 v4, 0x3
@@ -390,7 +390,7 @@
 
 # virtual methods
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 842
@@ -400,27 +400,27 @@
     .line 843
     iget v0, p0, Lj$/util/ImmutableCollections$MapN;->size:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_f
 
     invoke-direct {p0, p1}, Lj$/util/ImmutableCollections$MapN;->probe(Ljava/lang/Object;)I
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     return v0
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 848
@@ -431,12 +431,12 @@
     const/4 v0, 0x1
 
     .local v0, "i":I
-    :goto_0
+    :goto_4
     iget-object v1, p0, Lj$/util/ImmutableCollections$MapN;->table:[Ljava/lang/Object;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1a
 
     .line 850
     iget-object v1, p0, Lj$/util/ImmutableCollections$MapN;->table:[Ljava/lang/Object;
@@ -445,13 +445,13 @@
 
     .line 851
     .local v1, "v":Ljava/lang/Object;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     .line 852
     const/4 v2, 0x1
@@ -460,21 +460,21 @@
 
     .line 849
     .end local v1    # "v":Ljava/lang/Object;
-    :cond_0
+    :cond_17
     add-int/lit8 v0, v0, 0x2
 
-    goto :goto_0
+    goto :goto_4
 
     .line 855
     .end local v0    # "i":I
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -494,7 +494,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -510,7 +510,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 874
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -519,14 +519,14 @@
     return-object v1
 
     .line 877
-    :cond_0
+    :cond_9
     invoke-direct {p0, p1}, Lj$/util/ImmutableCollections$MapN;->probe(Ljava/lang/Object;)I
 
     move-result v0
 
     .line 878
     .local v0, "i":I
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_16
 
     .line 879
     iget-object v1, p0, Lj$/util/ImmutableCollections$MapN;->table:[Ljava/lang/Object;
@@ -538,12 +538,12 @@
     return-object v1
 
     .line 881
-    :cond_1
+    :cond_16
     return-object v1
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .registers 7
 
     .line 860
     .local p0, "this":Lj$/util/ImmutableCollections$MapN;, "Ljava/util/ImmutableCollections$MapN<TK;TV;>;"
@@ -554,12 +554,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     iget-object v2, p0, Lj$/util/ImmutableCollections$MapN;->table:[Ljava/lang/Object;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_20
 
     .line 862
     iget-object v2, p0, Lj$/util/ImmutableCollections$MapN;->table:[Ljava/lang/Object;
@@ -568,7 +568,7 @@
 
     .line 863
     .local v2, "k":Ljava/lang/Object;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     .line 864
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
@@ -591,19 +591,19 @@
 
     .line 861
     .end local v2    # "k":Ljava/lang/Object;
-    :cond_0
+    :cond_1d
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_0
+    goto :goto_2
 
     .line 867
     .end local v1    # "i":I
-    :cond_1
+    :cond_20
     return v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 887
     .local p0, "this":Lj$/util/ImmutableCollections$MapN;, "Ljava/util/ImmutableCollections$MapN<TK;TV;>;"

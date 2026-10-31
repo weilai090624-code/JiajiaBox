@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/InvalidationTracker;Landroidx/room/InvalidationTracker$Observer;)V
-    .locals 1
+    .registers 4
     .param p1, "tracker"    # Landroidx/room/InvalidationTracker;
     .param p2, "delegate"    # Landroidx/room/InvalidationTracker$Observer;
 
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public final getDelegateRef()Ljava/lang/ref/WeakReference;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -116,7 +116,7 @@
 .end method
 
 .method public final getTracker()Landroidx/room/InvalidationTracker;
-    .locals 1
+    .registers 2
 
     .line 792
     iget-object v0, p0, Landroidx/room/InvalidationTracker$WeakObserver;->tracker:Landroidx/room/InvalidationTracker;
@@ -125,7 +125,7 @@
 .end method
 
 .method public onInvalidated(Ljava/util/Set;)V
-    .locals 3
+    .registers 5
     .param p1, "tables"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -151,7 +151,7 @@
 
     .line 798
     .local v0, "observer":Landroidx/room/InvalidationTracker$Observer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 799
     iget-object v1, p0, Landroidx/room/InvalidationTracker$WeakObserver;->tracker:Landroidx/room/InvalidationTracker;
@@ -162,13 +162,13 @@
 
     invoke-virtual {v1, v2}, Landroidx/room/InvalidationTracker;->removeObserver(Landroidx/room/InvalidationTracker$Observer;)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 801
-    :cond_0
+    :cond_19
     invoke-virtual {v0, p1}, Landroidx/room/InvalidationTracker$Observer;->onInvalidated(Ljava/util/Set;)V
 
     .line 803
-    :goto_0
+    :goto_1c
     return-void
 .end method

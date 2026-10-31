@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 29
     new-instance v0, Lcom/google/android/material/animation/ArgbEvaluatorCompat;
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 .end method
 
 .method public static getInstance()Lcom/google/android/material/animation/ArgbEvaluatorCompat;
-    .locals 1
+    .registers 1
 
     .line 40
     sget-object v0, Lcom/google/android/material/animation/ArgbEvaluatorCompat;->instance:Lcom/google/android/material/animation/ArgbEvaluatorCompat;
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public evaluate(FLjava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 18
+    .registers 22
     .param p1, "fraction"    # F
     .param p2, "startValue"    # Ljava/lang/Integer;
     .param p3, "endValue"    # Ljava/lang/Integer;
@@ -346,7 +346,7 @@
 .end method
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 28
     check-cast p2, Ljava/lang/Integer;

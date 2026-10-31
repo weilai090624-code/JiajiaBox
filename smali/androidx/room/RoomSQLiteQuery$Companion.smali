@@ -59,7 +59,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/room/RoomSQLiteQuery$Companion;-><init>()V
 
@@ -76,19 +76,19 @@
 .end method
 
 .method public static synthetic getDESIRED_POOL_SIZE$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getPOOL_LIMIT$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getQueryPool$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public final acquire(Ljava/lang/String;I)Landroidx/room/RoomSQLiteQuery;
-    .locals 5
+    .registers 8
     .param p1, "query"    # Ljava/lang/String;
     .param p2, "argumentCount"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -115,7 +115,7 @@
 
     .line 203
     .local v1, "$i$a$-synchronized-RoomSQLiteQuery$Companion$acquire$1":I
-    :try_start_0
+    :try_start_9
     sget-object v2, Landroidx/room/RoomSQLiteQuery;->queryPool:Ljava/util/TreeMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -128,7 +128,7 @@
 
     .line 204
     .local v2, "entry":Ljava/util/Map$Entry;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2f
 
     .line 205
     sget-object v3, Landroidx/room/RoomSQLiteQuery;->queryPool:Ljava/util/TreeMap;
@@ -154,8 +154,8 @@
     const-string/jumbo v4, "sqliteQuery"
 
     invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2d
+    .catchall {:try_start_9 .. :try_end_2d} :catchall_3d
 
     .end local v1    # "$i$a$-synchronized-RoomSQLiteQuery$Companion$acquire$1":I
     .end local v2    # "entry":Ljava/util/Map$Entry;
@@ -167,15 +167,15 @@
     .line 210
     .restart local v1    # "$i$a$-synchronized-RoomSQLiteQuery$Companion$acquire$1":I
     .restart local v2    # "entry":Ljava/util/Map$Entry;
-    :cond_0
+    :cond_2f
     nop
 
     .end local v1    # "$i$a$-synchronized-RoomSQLiteQuery$Companion$acquire$1":I
     .end local v2    # "entry":Ljava/util/Map$Entry;
-    :try_start_1
+    :try_start_30
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_32
+    .catchall {:try_start_30 .. :try_end_32} :catchall_3d
 
     .line 202
     monitor-exit v0
@@ -196,7 +196,7 @@
 
     .line 202
     .end local v0    # "sqLiteQuery":Landroidx/room/RoomSQLiteQuery;
-    :catchall_0
+    :catchall_3d
     move-exception v1
 
     monitor-exit v0
@@ -205,7 +205,7 @@
 .end method
 
 .method public final copyFrom(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroidx/room/RoomSQLiteQuery;
-    .locals 2
+    .registers 4
     .param p1, "supportSQLiteQuery"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -247,7 +247,7 @@
 .end method
 
 .method public final prunePoolLocked$room_runtime_release()V
-    .locals 3
+    .registers 4
 
     .line 217
     sget-object v0, Landroidx/room/RoomSQLiteQuery;->queryPool:Ljava/util/TreeMap;
@@ -258,7 +258,7 @@
 
     const/16 v1, 0xf
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_2d
 
     .line 218
     sget-object v0, Landroidx/room/RoomSQLiteQuery;->queryPool:Ljava/util/TreeMap;
@@ -287,12 +287,12 @@
 
     .line 220
     .local v1, "iterator":Ljava/util/Iterator;
-    :goto_0
+    :goto_21
     add-int/lit8 v2, v0, -0x1
 
     .end local v0    # "toBeRemoved":I
     .local v2, "toBeRemoved":I
-    if-lez v0, :cond_0
+    if-lez v0, :cond_2d
 
     .line 221
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -302,11 +302,11 @@
 
     move v0, v2
 
-    goto :goto_0
+    goto :goto_21
 
     .line 225
     .end local v1    # "iterator":Ljava/util/Iterator;
     .end local v2    # "toBeRemoved":I
-    :cond_0
+    :cond_2d
     return-void
 .end method

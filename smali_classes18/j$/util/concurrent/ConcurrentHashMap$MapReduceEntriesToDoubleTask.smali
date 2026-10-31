@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/concurrent/ConcurrentHashMap$BulkTask;III[Lj$/util/concurrent/ConcurrentHashMap$Node;Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;Ljava/util/function/ToDoubleFunction;DLjava/util/function/DoubleBinaryOperator;)V
-    .locals 0
+    .registers 11
     .param p2, "b"    # I
     .param p3, "i"    # I
     .param p4, "f"    # I
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public final compute()V
-    .locals 19
+    .registers 20
 
     .line 5871
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask<TK;TV;>;"
@@ -125,14 +125,14 @@
     move-object v12, v0
 
     .local v12, "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8e
 
     iget-object v0, v11, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;->reducer:Ljava/util/function/DoubleBinaryOperator;
 
     move-object v13, v0
 
     .local v13, "reducer":Ljava/util/function/DoubleBinaryOperator;
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_8c
 
     .line 5873
     iget-wide v14, v11, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;->basis:D
@@ -142,10 +142,10 @@
     iget v10, v11, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;->baseIndex:I
 
     .local v10, "i":I
-    :goto_0
+    :goto_10
     iget v0, v11, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;->batch:I
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_50
 
     iget v0, v11, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;->baseLimit:I
 
@@ -161,7 +161,7 @@
     move v8, v0
 
     .local v8, "h":I
-    if-le v0, v10, :cond_0
+    if-le v0, v10, :cond_49
 
     .line 5876
     invoke-virtual {v11, v1}, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;->addToPendingCount(I)V
@@ -218,7 +218,7 @@
 
     move/from16 v10, v18
 
-    goto :goto_0
+    goto :goto_10
 
     .line 5874
     .end local v16    # "h":I
@@ -227,7 +227,7 @@
     .restart local v8    # "h":I
     .restart local v10    # "i":I
     .restart local v12    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :cond_0
+    :cond_49
     move/from16 v16, v8
 
     move/from16 v18, v10
@@ -240,7 +240,7 @@
     .restart local v16    # "h":I
     .restart local v17    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
     .restart local v18    # "i":I
-    goto :goto_1
+    goto :goto_54
 
     .end local v4    # "f":I
     .end local v16    # "h":I
@@ -248,7 +248,7 @@
     .end local v18    # "i":I
     .restart local v10    # "i":I
     .restart local v12    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :cond_1
+    :cond_50
     move/from16 v18, v10
 
     move-object/from16 v17, v12
@@ -257,7 +257,7 @@
     .end local v10    # "i":I
     .end local v12    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
     .restart local v17    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :goto_1
+    :goto_54
     invoke-virtual/range {p0 .. p0}, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
 
     move-result-object v0
@@ -265,7 +265,7 @@
     move-object v1, v0
 
     .local v1, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_66
 
     .line 5882
     move-object/from16 v0, v17
@@ -280,12 +280,12 @@
 
     move-result-wide v14
 
-    goto :goto_1
+    goto :goto_54
 
     .line 5881
     .end local v0    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
     .restart local v17    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :cond_2
+    :cond_66
     move-object/from16 v0, v17
 
     .line 5883
@@ -300,8 +300,8 @@
     move-result-object v1
 
     .local v1, "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
-    :goto_2
-    if-eqz v1, :cond_6
+    :goto_6e
+    if-eqz v1, :cond_8f
 
     .line 5888
     move-object v2, v1
@@ -314,8 +314,8 @@
 
     .line 5890
     .local v3, "s":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask<TK;TV;>;"
-    :goto_3
-    if-eqz v3, :cond_3
+    :goto_75
+    if-eqz v3, :cond_87
 
     .line 5891
     iget-wide v4, v2, Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;->result:D
@@ -335,46 +335,46 @@
 
     move-object v3, v4
 
-    goto :goto_3
+    goto :goto_75
 
     .line 5885
     .end local v2    # "t":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask<TK;TV;>;"
     .end local v3    # "s":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask<TK;TV;>;"
-    :cond_3
+    :cond_87
     invoke-virtual {v1}, Ljava/util/concurrent/CountedCompleter;->nextComplete()Ljava/util/concurrent/CountedCompleter;
 
     move-result-object v1
 
-    goto :goto_2
+    goto :goto_6e
 
     .line 5871
     .end local v0    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
     .end local v1    # "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
     .end local v14    # "r":D
     .restart local v12    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :cond_4
+    :cond_8c
     move-object v0, v12
 
     .end local v12    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
     .restart local v0    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
-    goto :goto_4
+    goto :goto_8f
 
     .end local v0    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
     .end local v13    # "reducer":Ljava/util/function/DoubleBinaryOperator;
     .restart local v12    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :cond_5
+    :cond_8e
     move-object v0, v12
 
     .line 5896
     .end local v12    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
     .restart local v0    # "transformer":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :cond_6
-    :goto_4
+    :cond_8f
+    :goto_8f
     return-void
 .end method
 
 .method public final getRawResult()Ljava/lang/Double;
-    .locals 2
+    .registers 3
 
     .line 5867
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask<TK;TV;>;"
@@ -388,7 +388,7 @@
 .end method
 
 .method public bridge synthetic getRawResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 5849
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask;, "Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToDoubleTask<TK;TV;>;"

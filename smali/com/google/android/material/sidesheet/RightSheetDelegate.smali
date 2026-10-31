@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/sidesheet/SideSheetBehavior;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,7 +41,7 @@
 .end method
 
 .method private isReleasedCloseToOriginEdge(Landroid/view/View;)Z
-    .locals 3
+    .registers 5
     .param p1, "releasedChild"    # Landroid/view/View;
 
     .line 67
@@ -61,21 +61,21 @@
 
     div-int/lit8 v1, v1, 0x2
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method private isSwipeSignificant(FF)Z
-    .locals 1
+    .registers 4
     .param p1, "xVelocity"    # F
     .param p2, "yVelocity"    # F
 
@@ -84,7 +84,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/google/android/material/sidesheet/RightSheetDelegate;->sheetBehavior:Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
@@ -97,24 +97,24 @@
 
     cmpl-float v0, p2, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     .line 102
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 
 # virtual methods
 .method calculateSlideOffsetBasedOnOutwardEdge(I)F
-    .locals 3
+    .registers 5
     .param p1, "left"    # I
 
     .line 129
@@ -146,7 +146,7 @@
 .end method
 
 .method calculateTargetStateOnViewReleased(Landroid/view/View;FF)I
-    .locals 3
+    .registers 7
     .param p1, "releasedChild"    # Landroid/view/View;
     .param p2, "xVelocity"    # F
     .param p3, "yVelocity"    # F
@@ -156,80 +156,80 @@
 
     cmpg-float v1, p2, v0
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_7
 
     .line 76
     const/4 v0, 0x3
 
     .local v0, "targetState":I
-    goto :goto_3
+    goto :goto_4b
 
     .line 78
     .end local v0    # "targetState":I
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/sidesheet/RightSheetDelegate;->shouldHide(Landroid/view/View;F)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_1e
 
     .line 81
     invoke-direct {p0, p2, p3}, Lcom/google/android/material/sidesheet/RightSheetDelegate;->isSwipeSignificant(FF)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1c
 
     invoke-direct {p0, p1}, Lcom/google/android/material/sidesheet/RightSheetDelegate;->isReleasedCloseToOriginEdge(Landroid/view/View;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 84
-    :cond_1
+    :cond_1a
     const/4 v0, 0x3
 
     .restart local v0    # "targetState":I
-    goto :goto_3
+    goto :goto_4b
 
     .line 82
     .end local v0    # "targetState":I
-    :cond_2
-    :goto_0
+    :cond_1c
+    :goto_1c
     const/4 v0, 0x5
 
     .restart local v0    # "targetState":I
-    goto :goto_3
+    goto :goto_4b
 
     .line 86
     .end local v0    # "targetState":I
-    :cond_3
+    :cond_1e
     cmpl-float v0, p2, v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_2b
 
     invoke-static {p2, p3}, Lcom/google/android/material/sidesheet/SheetUtils;->isSwipeMostlyHorizontal(FF)Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_29
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 96
-    :cond_4
+    :cond_29
     const/4 v0, 0x5
 
     .restart local v0    # "targetState":I
-    goto :goto_3
+    goto :goto_4b
 
     .line 89
     .end local v0    # "targetState":I
-    :cond_5
-    :goto_1
+    :cond_2b
+    :goto_2b
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
     move-result v0
@@ -256,7 +256,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_6
+    if-ge v1, v2, :cond_48
 
     .line 91
     const/4 v1, 0x3
@@ -264,27 +264,27 @@
     move v0, v1
 
     .local v1, "targetState":I
-    goto :goto_2
+    goto :goto_4a
 
     .line 93
     .end local v1    # "targetState":I
-    :cond_6
+    :cond_48
     const/4 v1, 0x5
 
     move v0, v1
 
     .line 95
     .local v0, "targetState":I
-    :goto_2
+    :goto_4a
     nop
 
     .line 98
-    :goto_3
+    :goto_4b
     return v0
 .end method
 
 .method getExpandedOffset()I
-    .locals 2
+    .registers 3
 
     .line 60
     invoke-virtual {p0}, Lcom/google/android/material/sidesheet/RightSheetDelegate;->getHiddenOffset()I
@@ -309,7 +309,7 @@
 .end method
 
 .method getHiddenOffset()I
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Lcom/google/android/material/sidesheet/RightSheetDelegate;->sheetBehavior:Lcom/google/android/material/sidesheet/SideSheetBehavior;
@@ -322,7 +322,7 @@
 .end method
 
 .method getOutwardEdge(Landroid/view/View;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -341,7 +341,7 @@
 .end method
 
 .method getSheetEdge()I
-    .locals 1
+    .registers 2
 
     .line 45
     const/4 v0, 0x0
@@ -350,7 +350,7 @@
 .end method
 
 .method isSettling(Landroid/view/View;IZ)Z
-    .locals 3
+    .registers 7
     .param p1, "child"    # Landroid/view/View;
     .param p2, "state"    # I
     .param p3, "isReleasingView"    # Z
@@ -372,9 +372,9 @@
 
     .line 116
     .local v1, "viewDragHelper":Landroidx/customview/widget/ViewDragHelper;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1b
 
     .line 118
     invoke-virtual {p1}, Landroid/view/View;->getTop()I
@@ -385,12 +385,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
-    goto :goto_0
+    goto :goto_25
 
     .line 119
-    :cond_0
+    :cond_1b
     invoke-virtual {p1}, Landroid/view/View;->getTop()I
 
     move-result v2
@@ -399,23 +399,23 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
-    :goto_0
+    :goto_25
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v2, 0x0
 
     .line 116
-    :goto_1
+    :goto_28
     return v2
 .end method
 
 .method shouldHide(Landroid/view/View;F)Z
-    .locals 3
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
     .param p2, "velocity"    # F
 
@@ -450,21 +450,21 @@
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1f
     return v1
 .end method
 
 .method updateCoplanarSiblingLayoutParams(Landroid/view/ViewGroup$MarginLayoutParams;II)V
-    .locals 2
+    .registers 6
     .param p1, "coplanarSiblingLayoutParams"    # Landroid/view/ViewGroup$MarginLayoutParams;
     .param p2, "sheetLeft"    # I
     .param p3, "sheetRight"    # I
@@ -478,7 +478,7 @@
 
     .line 142
     .local v0, "parentWidth":I
-    if-gt p2, v0, :cond_0
+    if-gt p2, v0, :cond_c
 
     .line 143
     sub-int v1, v0, p2
@@ -486,6 +486,6 @@
     iput v1, p1, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
     .line 145
-    :cond_0
+    :cond_c
     return-void
 .end method

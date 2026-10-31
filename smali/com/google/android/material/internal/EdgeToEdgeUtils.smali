@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public static applyEdgeToEdge(Landroid/view/Window;Z)V
-    .locals 1
+    .registers 3
     .param p0, "window"    # Landroid/view/Window;
     .param p1, "edgeToEdgeEnabled"    # Z
 
@@ -32,7 +32,7 @@
 .end method
 
 .method public static applyEdgeToEdge(Landroid/view/Window;ZLjava/lang/Integer;Ljava/lang/Integer;)V
-    .locals 5
+    .registers 9
     .param p0, "window"    # Landroid/view/Window;
     .param p1, "edgeToEdgeEnabled"    # Z
     .param p2, "statusBarOverlapBackgroundColor"    # Ljava/lang/Integer;
@@ -46,50 +46,50 @@
 
     const/4 v1, 0x1
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_e
 
     .line 83
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_c
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_f
 
-    :cond_1
-    :goto_0
+    :cond_e
+    :goto_e
     const/4 v2, 0x1
 
     .line 84
     .local v2, "useDefaultBackgroundColorForStatusBar":Z
-    :goto_1
-    if-eqz p3, :cond_2
+    :goto_f
+    if-eqz p3, :cond_17
 
     .line 85
     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_18
 
-    :cond_2
+    :cond_17
     const/4 v0, 0x1
 
     .line 86
     .local v0, "useDefaultBackgroundColorForNavigationBar":Z
-    :cond_3
-    if-nez v2, :cond_4
+    :cond_18
+    if-nez v2, :cond_1c
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_36
 
     .line 87
-    :cond_4
+    :cond_1c
     nop
 
     .line 88
@@ -107,7 +107,7 @@
 
     .line 89
     .local v1, "defaultBackgroundColor":I
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_30
 
     .line 90
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -115,8 +115,8 @@
     move-result-object p2
 
     .line 92
-    :cond_5
-    if-eqz v0, :cond_6
+    :cond_30
+    if-eqz v0, :cond_36
 
     .line 93
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -125,7 +125,7 @@
 
     .line 97
     .end local v1    # "defaultBackgroundColor":I
-    :cond_6
+    :cond_36
     xor-int/lit8 v1, p1, 0x1
 
     invoke-static {p0, v1}, Landroidx/core/view/WindowCompat;->setDecorFitsSystemWindows(Landroid/view/Window;Z)V
@@ -200,7 +200,7 @@
 .end method
 
 .method private static getNavigationBarColor(Landroid/content/Context;Z)I
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "isEdgeToEdgeEnabled"    # Z
 
@@ -209,13 +209,13 @@
 
     const v1, 0x1010452
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_19
 
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x1b
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_19
 
     .line 160
     nop
@@ -237,8 +237,8 @@
 
     .line 164
     .end local v0    # "opaqueNavBarColor":I
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_19
+    if-eqz p1, :cond_1d
 
     .line 165
     const/4 v0, 0x0
@@ -246,7 +246,7 @@
     return v0
 
     .line 167
-    :cond_1
+    :cond_1d
     invoke-static {p0, v1, v0}, Lcom/google/android/material/color/MaterialColors;->getColor(Landroid/content/Context;II)I
 
     move-result v0
@@ -255,7 +255,7 @@
 .end method
 
 .method private static getStatusBarColor(Landroid/content/Context;Z)I
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "isEdgeToEdgeEnabled"    # Z
 
@@ -264,13 +264,13 @@
 
     const v1, 0x1010451
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_19
 
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x17
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_19
 
     .line 145
     nop
@@ -292,8 +292,8 @@
 
     .line 149
     .end local v0    # "opaqueStatusBarColor":I
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_19
+    if-eqz p1, :cond_1d
 
     .line 150
     const/4 v0, 0x0
@@ -301,7 +301,7 @@
     return v0
 
     .line 152
-    :cond_1
+    :cond_1d
     invoke-static {p0, v1, v0}, Lcom/google/android/material/color/MaterialColors;->getColor(Landroid/content/Context;II)I
 
     move-result v0
@@ -310,7 +310,7 @@
 .end method
 
 .method private static isUsingLightSystemBar(IZ)Z
-    .locals 1
+    .registers 3
     .param p0, "systemBarColor"    # I
     .param p1, "isLightBackground"    # Z
 
@@ -319,29 +319,29 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_d
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_b
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_e
     return v0
 .end method
 
 .method public static setLightNavigationBar(Landroid/view/Window;Z)V
-    .locals 1
+    .registers 3
     .param p0, "window"    # Landroid/view/Window;
     .param p1, "isLight"    # Z
 
@@ -366,7 +366,7 @@
 .end method
 
 .method public static setLightStatusBar(Landroid/view/Window;Z)V
-    .locals 1
+    .registers 3
     .param p0, "window"    # Landroid/view/Window;
     .param p1, "isLight"    # Z
 

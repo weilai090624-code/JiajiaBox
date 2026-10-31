@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final synthetic navArgs(Landroidx/fragment/app/Fragment;)Landroidx/navigation/NavArgsLazy;
-    .locals 4
+    .registers 5
     .param p0, "$this$navArgs"    # Landroidx/fragment/app/Fragment;
     .annotation system Ldalvik/annotation/Signature;
         value = {

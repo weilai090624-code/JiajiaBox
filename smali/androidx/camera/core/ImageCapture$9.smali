@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 831
     invoke-static {}, Landroidx/camera/core/ImageSaver$SaveError;->values()[Landroidx/camera/core/ImageSaver$SaveError;
@@ -33,7 +33,7 @@
 
     sput-object v0, Landroidx/camera/core/ImageCapture$9;->$SwitchMap$androidx$camera$core$ImageSaver$SaveError:[I
 
-    :try_start_0
+    :try_start_9
     sget-object v0, Landroidx/camera/core/ImageCapture$9;->$SwitchMap$androidx$camera$core$ImageSaver$SaveError:[I
 
     sget-object v1, Landroidx/camera/core/ImageSaver$SaveError;->FILE_IO_FAILED:Landroidx/camera/core/ImageSaver$SaveError;
@@ -45,14 +45,14 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_15
 
-    goto :goto_0
+    goto :goto_16
 
-    :catch_0
+    :catch_15
     move-exception v0
 
-    :goto_0
+    :goto_16
     return-void
 .end method

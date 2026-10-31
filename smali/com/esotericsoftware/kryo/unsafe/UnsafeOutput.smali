@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/io/Output;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "bufferSize"    # I
 
     .line 48
@@ -26,7 +26,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "bufferSize"    # I
     .param p2, "maxBufferSize"    # I
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "outputStream"    # Ljava/io/OutputStream;
 
     .line 73
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;I)V
-    .locals 0
+    .registers 3
     .param p1, "outputStream"    # Ljava/io/OutputStream;
     .param p2, "bufferSize"    # I
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .locals 1
+    .registers 3
     .param p1, "buffer"    # [B
 
     .line 62
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>([BI)V
-    .locals 0
+    .registers 3
     .param p1, "buffer"    # [B
     .param p2, "maxBufferSize"    # I
 
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public write(I)V
-    .locals 6
+    .registers 8
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -101,14 +101,14 @@
 
     iget v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->capacity:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->require(I)Z
 
     .line 83
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->buffer:[B
@@ -134,7 +134,7 @@
 .end method
 
 .method public writeBoolean(Z)V
-    .locals 6
+    .registers 8
     .param p1, "value"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -147,14 +147,14 @@
 
     iget v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->capacity:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->require(I)Z
 
     .line 134
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->buffer:[B
@@ -178,7 +178,7 @@
 .end method
 
 .method public writeBooleans([ZII)V
-    .locals 3
+    .registers 7
     .param p1, "array"    # [Z
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -200,7 +200,7 @@
 .end method
 
 .method public writeByte(B)V
-    .locals 6
+    .registers 8
     .param p1, "value"    # B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -213,14 +213,14 @@
 
     iget v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->capacity:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->require(I)Z
 
     .line 88
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->buffer:[B
@@ -244,7 +244,7 @@
 .end method
 
 .method public writeByte(I)V
-    .locals 6
+    .registers 8
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -257,14 +257,14 @@
 
     iget v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->capacity:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->require(I)Z
 
     .line 93
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->buffer:[B
@@ -290,7 +290,7 @@
 .end method
 
 .method public writeBytes(Ljava/lang/Object;JI)V
-    .locals 10
+    .registers 15
     .param p1, "from"    # Ljava/lang/Object;
     .param p2, "offset"    # J
     .param p4, "count"    # I
@@ -313,7 +313,7 @@
 
     .line 173
     .local v0, "copyCount":I
-    :goto_0
+    :goto_9
     sget-object v1, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-object v5, p0, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->buffer:[B
@@ -345,13 +345,13 @@
     sub-int/2addr p4, v0
 
     .line 176
-    if-nez p4, :cond_0
+    if-nez p4, :cond_22
 
     .line 181
     return-void
 
     .line 177
-    :cond_0
+    :cond_22
     int-to-long v1, v0
 
     add-long/2addr p2, v1
@@ -366,11 +366,11 @@
     .line 179
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/unsafe/UnsafeOutput;->require(I)Z
 
-    goto :goto_0
+    goto :goto_9
 .end method
 
 .method public writeBytes([BII)V
-    .locals 4
+    .registers 8
     .param p1, "array"    # [B
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -394,7 +394,7 @@
 .end method
 
 .method public writeChar(C)V
-    .locals 7
+    .registers 9
     .param p1, "value"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -434,7 +434,7 @@
 .end method
 
 .method public writeChars([CII)V
-    .locals 3
+    .registers 7
     .param p1, "array"    # [C
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -458,7 +458,7 @@
 .end method
 
 .method public writeDouble(D)V
-    .locals 7
+    .registers 10
     .param p1, "value"    # D
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -500,7 +500,7 @@
 .end method
 
 .method public writeDoubles([DII)V
-    .locals 3
+    .registers 7
     .param p1, "array"    # [D
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -524,7 +524,7 @@
 .end method
 
 .method public writeFloat(F)V
-    .locals 7
+    .registers 9
     .param p1, "value"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -564,7 +564,7 @@
 .end method
 
 .method public writeFloats([FII)V
-    .locals 3
+    .registers 7
     .param p1, "array"    # [F
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -588,7 +588,7 @@
 .end method
 
 .method public writeInt(I)V
-    .locals 7
+    .registers 9
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -628,7 +628,7 @@
 .end method
 
 .method public writeInts([III)V
-    .locals 3
+    .registers 7
     .param p1, "array"    # [I
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -652,7 +652,7 @@
 .end method
 
 .method public writeLong(J)V
-    .locals 7
+    .registers 10
     .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -694,7 +694,7 @@
 .end method
 
 .method public writeLongs([JII)V
-    .locals 3
+    .registers 7
     .param p1, "array"    # [J
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -718,7 +718,7 @@
 .end method
 
 .method public writeShort(I)V
-    .locals 7
+    .registers 9
     .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -760,7 +760,7 @@
 .end method
 
 .method public writeShorts([SII)V
-    .locals 3
+    .registers 7
     .param p1, "array"    # [S
     .param p2, "offset"    # I
     .param p3, "count"    # I

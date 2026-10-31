@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;JLokio/BufferedSource;)V
-    .locals 1
+    .registers 6
     .param p1, "contentTypeString"    # Ljava/lang/String;
     .param p2, "contentLength"    # J
     .param p4, "source"    # Lokio/BufferedSource;
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public contentLength()J
-    .locals 2
+    .registers 3
 
     .line 33
     iget-wide v0, p0, Lokhttp3/internal/http/RealResponseBody;->contentLength:J
@@ -79,30 +79,30 @@
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 2
+    .registers 3
 
     .line 35
     iget-object v0, p0, Lokhttp3/internal/http/RealResponseBody;->contentTypeString:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_6
     sget-object v1, Lokhttp3/MediaType;->Companion:Lokhttp3/MediaType$Companion;
 
     invoke-virtual {v1, v0}, Lokhttp3/MediaType$Companion;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public source()Lokio/BufferedSource;
-    .locals 1
+    .registers 2
 
     .line 37
     iget-object v0, p0, Lokhttp3/internal/http/RealResponseBody;->source:Lokio/BufferedSource;

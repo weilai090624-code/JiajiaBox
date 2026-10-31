@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 1
+    .registers 4
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .param p2, "$context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method protected invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 266

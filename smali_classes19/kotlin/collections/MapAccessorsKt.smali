@@ -40,7 +40,7 @@
 
 # direct methods
 .method private static final getValue(Ljava/util/Map;Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getValue"    # Ljava/util/Map;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -80,7 +80,7 @@
 .end method
 
 .method private static final getVar(Ljava/util/Map;Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getValue"    # Ljava/util/Map;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -120,7 +120,7 @@
 .end method
 
 .method private static final setValue(Ljava/util/Map;Ljava/lang/Object;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "$this$setValue"    # Ljava/util/Map;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;

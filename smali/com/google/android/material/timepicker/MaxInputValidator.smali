@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "max"    # I
 
     .line 26
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
-    .locals 4
+    .registers 11
     .param p1, "source"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -68,10 +68,10 @@
     .line 46
     .local v2, "input":I
     iget v3, p0, Lcom/google/android/material/timepicker/MaxInputValidator;->max:I
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_1a} :catch_1f
 
-    if-gt v2, v3, :cond_0
+    if-gt v2, v3, :cond_1e
 
     .line 47
     const/4 v3, 0x0
@@ -82,22 +82,22 @@
     .end local v0    # "builder":Ljava/lang/StringBuilder;
     .end local v1    # "newVal":Ljava/lang/String;
     .end local v2    # "input":I
-    :cond_0
-    goto :goto_0
+    :cond_1e
+    goto :goto_20
 
     .line 49
-    :catch_0
+    :catch_1f
     move-exception v0
 
     .line 52
-    :goto_0
+    :goto_20
     const-string v0, ""
 
     return-object v0
 .end method
 
 .method public getMax()I
-    .locals 1
+    .registers 2
 
     .line 35
     iget v0, p0, Lcom/google/android/material/timepicker/MaxInputValidator;->max:I
@@ -106,7 +106,7 @@
 .end method
 
 .method public setMax(I)V
-    .locals 0
+    .registers 2
     .param p1, "max"    # I
 
     .line 31

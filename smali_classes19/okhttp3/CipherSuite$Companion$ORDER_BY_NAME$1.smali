@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 5
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/lang/Object;
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public compare(Ljava/lang/String;Ljava/lang/String;)I
-    .locals 7
+    .registers 10
     .param p1, "a"    # Ljava/lang/String;
     .param p2, "b"    # Ljava/lang/String;
 
@@ -115,12 +115,12 @@
 
     .line 66
     .local v1, "limit":I
-    :goto_0
+    :goto_17
     const/4 v2, -0x1
 
     const/4 v3, 0x1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_31
 
     .line 67
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
@@ -135,32 +135,32 @@
 
     .line 69
     .local v5, "charB":C
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_2e
 
     invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->compare(II)I
 
     move-result v6
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_2c
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_0
+    :cond_2c
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_2d
     return v2
 
     .line 70
-    :cond_1
+    :cond_2e
     add-int/lit8 v0, v0, 0x1
 
     .end local v4    # "charA":C
     .end local v5    # "charB":C
-    goto :goto_0
+    goto :goto_17
 
     .line 72
-    :cond_2
+    :cond_31
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -173,20 +173,20 @@
 
     .line 74
     .local v5, "lengthB":I
-    if-eq v4, v5, :cond_4
+    if-eq v4, v5, :cond_40
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_3e
 
-    goto :goto_2
+    goto :goto_3f
 
-    :cond_3
+    :cond_3e
     const/4 v2, 0x1
 
-    :goto_2
+    :goto_3f
     return v2
 
     .line 75
-    :cond_4
+    :cond_40
     const/4 v2, 0x0
 
     return v2

@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 751
     :try_start_0
@@ -123,14 +123,14 @@
 
     .line 761
     sput-boolean v5, Landroidx/appcompat/widget/DropDownListView$Api30Impl;->sHasMethods:Z
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_57
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_57} :catch_58
 
     .line 764
-    goto :goto_0
+    goto :goto_5c
 
     .line 762
-    :catch_0
+    :catch_58
     move-exception v0
 
     .line 763
@@ -139,12 +139,12 @@
 
     .line 765
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_5c
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 767
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -154,7 +154,7 @@
 .end method
 
 .method static canPositionSelectorForHoveredItem()Z
-    .locals 1
+    .registers 1
 
     .line 776
     sget-boolean v0, Landroidx/appcompat/widget/DropDownListView$Api30Impl;->sHasMethods:Z
@@ -163,7 +163,7 @@
 .end method
 
 .method static positionSelectorForHoveredItem(Landroidx/appcompat/widget/DropDownListView;ILandroid/view/View;)V
-    .locals 8
+    .registers 11
     .param p0, "view"    # Landroidx/appcompat/widget/DropDownListView;
     .param p1, "position"    # I
     .param p2, "sel"    # Landroid/view/View;
@@ -241,25 +241,25 @@
     aput-object v3, v1, v2
 
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_42
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_42} :catch_48
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_42} :catch_43
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 796
-    :catch_0
+    :catch_43
     move-exception v0
 
     .line 797
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 794
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_48
     move-exception v0
 
     .line 795
@@ -268,10 +268,10 @@
 
     .line 798
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :goto_0
+    :goto_4c
     nop
 
     .line 799
-    :goto_1
+    :goto_4d
     return-void
 .end method

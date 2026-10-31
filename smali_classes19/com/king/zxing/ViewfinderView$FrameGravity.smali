@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 234
     new-instance v0, Lcom/king/zxing/ViewfinderView$FrameGravity;
@@ -126,7 +126,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .param p3, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -145,7 +145,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/king/zxing/ViewfinderView$FrameGravity;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/king/zxing/ViewfinderView$FrameGravity;
 
     .line 233
@@ -155,7 +155,7 @@
 .end method
 
 .method static synthetic access$400(I)Lcom/king/zxing/ViewfinderView$FrameGravity;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # I
 
     .line 233
@@ -167,7 +167,7 @@
 .end method
 
 .method private static getFromInt(I)Lcom/king/zxing/ViewfinderView$FrameGravity;
-    .locals 5
+    .registers 6
     .param p0, "value"    # I
 
     .line 243
@@ -179,8 +179,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_12
 
     aget-object v3, v0, v2
 
@@ -188,27 +188,27 @@
     .local v3, "gravity":Lcom/king/zxing/ViewfinderView$FrameGravity;
     iget v4, v3, Lcom/king/zxing/ViewfinderView$FrameGravity;->mValue:I
 
-    if-ne v4, p0, :cond_0
+    if-ne v4, p0, :cond_f
 
     .line 245
     return-object v3
 
     .line 243
     .end local v3    # "gravity":Lcom/king/zxing/ViewfinderView$FrameGravity;
-    :cond_0
+    :cond_f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 248
-    :cond_1
+    :cond_12
     sget-object v0, Lcom/king/zxing/ViewfinderView$FrameGravity;->CENTER:Lcom/king/zxing/ViewfinderView$FrameGravity;
 
     return-object v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/king/zxing/ViewfinderView$FrameGravity;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 233
@@ -224,7 +224,7 @@
 .end method
 
 .method public static values()[Lcom/king/zxing/ViewfinderView$FrameGravity;
-    .locals 1
+    .registers 1
 
     .line 233
     sget-object v0, Lcom/king/zxing/ViewfinderView$FrameGravity;->$VALUES:[Lcom/king/zxing/ViewfinderView$FrameGravity;

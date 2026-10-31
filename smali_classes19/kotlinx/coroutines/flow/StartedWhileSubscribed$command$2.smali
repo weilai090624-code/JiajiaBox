@@ -68,7 +68,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -114,7 +114,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/flow/SharingCommand;
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/flow/SharingCommand;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -157,14 +157,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 188
     iget v0, p0, Lkotlinx/coroutines/flow/StartedWhileSubscribed$command$2;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -174,7 +174,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v0, p0
@@ -188,25 +188,25 @@
     .local v1, "it":Lkotlinx/coroutines/flow/SharingCommand;
     sget-object v2, Lkotlinx/coroutines/flow/SharingCommand;->START:Lkotlinx/coroutines/flow/SharingCommand;
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_1e
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
     .end local v1    # "it":Lkotlinx/coroutines/flow/SharingCommand;
-    :cond_0
+    :cond_1e
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1f
     invoke-static {v2}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
     move-result-object v1
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

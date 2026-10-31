@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 157
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -50,7 +50,7 @@
 
     sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 160
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
@@ -61,7 +61,7 @@
     return-object v0
 
     .line 163
-    :cond_0
+    :cond_d
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
 
     move-result-object v0
@@ -74,7 +74,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -90,7 +90,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Boolean;)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .param p2, "value"    # Ljava/lang/Boolean;
     .annotation system Ldalvik/annotation/Throws;
@@ -100,18 +100,18 @@
     .end annotation
 
     .line 167
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
     const-string v0, "null"
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_5
     invoke-virtual {p2}, Ljava/lang/Boolean;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-virtual {p1, v0}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
 
     .line 168
@@ -119,7 +119,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

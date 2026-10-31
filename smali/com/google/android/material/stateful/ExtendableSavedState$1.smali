@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/stateful/ExtendableSavedState;
-    .locals 2
+    .registers 4
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 103
@@ -53,7 +53,7 @@
 .end method
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Lcom/google/android/material/stateful/ExtendableSavedState;
-    .locals 2
+    .registers 5
     .param p1, "in"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 92
     invoke-virtual {p0, p1}, Lcom/google/android/material/stateful/ExtendableSavedState$1;->createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/stateful/ExtendableSavedState;
@@ -79,7 +79,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 92
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/stateful/ExtendableSavedState$1;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Lcom/google/android/material/stateful/ExtendableSavedState;
@@ -90,7 +90,7 @@
 .end method
 
 .method public newArray(I)[Lcom/google/android/material/stateful/ExtendableSavedState;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 109
@@ -100,7 +100,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 92
     invoke-virtual {p0, p1}, Lcom/google/android/material/stateful/ExtendableSavedState$1;->newArray(I)[Lcom/google/android/material/stateful/ExtendableSavedState;

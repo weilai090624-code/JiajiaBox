@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/locks/ReentrantLock;Ljava/util/concurrent/Future;)V
-    .locals 0
+    .registers 3
     .param p1, "lock"    # Ljava/util/concurrent/locks/ReentrantLock;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,7 +60,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;)Ljava/util/concurrent/Future;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;
 
     .line 616
@@ -70,7 +70,7 @@
 .end method
 
 .method static synthetic access$802(Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;Ljava/util/concurrent/Future;)Ljava/util/concurrent/Future;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;
     .param p1, "x1"    # Ljava/util/concurrent/Future;
 
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public cancel(Z)V
-    .locals 2
+    .registers 4
     .param p1, "mayInterruptIfRunning"    # Z
 
     .line 640
@@ -92,12 +92,12 @@
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 642
-    :try_start_0
+    :try_start_5
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;->currentFuture:Ljava/util/concurrent/Future;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/Future;->cancel(Z)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_5 .. :try_end_a} :catchall_11
 
     .line 644
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;->lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -111,7 +111,7 @@
     return-void
 
     .line 644
-    :catchall_0
+    :catchall_11
     move-exception v0
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;->lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -123,7 +123,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 2
+    .registers 3
 
     .line 650
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;->lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -131,14 +131,14 @@
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 652
-    :try_start_0
+    :try_start_5
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;->currentFuture:Ljava/util/concurrent/Future;
 
     invoke-interface {v0}, Ljava/util/concurrent/Future;->isCancelled()Z
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_5 .. :try_end_b} :catchall_11
 
     .line 654
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;->lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -149,7 +149,7 @@
     return v0
 
     .line 654
-    :catchall_0
+    :catchall_11
     move-exception v0
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$SupplantableFuture;->lock:Ljava/util/concurrent/locks/ReentrantLock;

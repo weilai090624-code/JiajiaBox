@@ -27,7 +27,7 @@
 
 # direct methods
 .method public static final toDrawable(I)Landroid/graphics/drawable/ColorDrawable;
-    .locals 2
+    .registers 3
     .param p0, "$this$toDrawable"    # I
 
     const/4 v0, 0x0
@@ -42,7 +42,7 @@
 .end method
 
 .method public static final toDrawable(Landroid/graphics/Color;)Landroid/graphics/drawable/ColorDrawable;
-    .locals 3
+    .registers 4
     .param p0, "$this$toDrawable"    # Landroid/graphics/Color;
 
     const/4 v0, 0x0

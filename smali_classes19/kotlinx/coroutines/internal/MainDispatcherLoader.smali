@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/internal/MainDispatcherLoader;
 
@@ -75,7 +75,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -84,7 +84,7 @@
 .end method
 
 .method private final loadMainDispatcher()Lkotlinx/coroutines/MainCoroutineDispatcher;
-    .locals 11
+    .registers 12
 
     .line 25
     nop
@@ -92,10 +92,10 @@
     .line 26
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_2
     sget-boolean v1, Lkotlinx/coroutines/internal/MainDispatcherLoader;->FAST_SERVICE_LOADER_ENABLED:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     .line 27
     sget-object v1, Lkotlinx/coroutines/internal/FastServiceLoader;->INSTANCE:Lkotlinx/coroutines/internal/FastServiceLoader;
@@ -104,9 +104,9 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_d
     const-class v1, Lkotlinx/coroutines/internal/MainDispatcherFactory;
 
     const-class v2, Lkotlinx/coroutines/internal/MainDispatcherFactory;
@@ -135,7 +135,7 @@
     move-result-object v1
 
     .line 26
-    :goto_0
+    :goto_25
     nop
 
     .line 38
@@ -159,14 +159,14 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_36
 
     move-object v5, v0
 
-    goto :goto_1
+    goto :goto_62
 
     .line 137
-    :cond_1
+    :cond_36
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
@@ -177,12 +177,12 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_41
 
-    goto :goto_1
+    goto :goto_62
 
     .line 139
-    :cond_2
+    :cond_41
     move-object v6, v5
 
     check-cast v6, Lkotlinx/coroutines/internal/MainDispatcherFactory;
@@ -203,7 +203,7 @@
 
     .line 141
     .local v6, "maxValue$iv":I
-    :cond_3
+    :cond_4a
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v7
@@ -230,7 +230,7 @@
 
     .line 143
     .local v8, "v$iv":I
-    if-ge v6, v8, :cond_4
+    if-ge v6, v8, :cond_5b
 
     .line 144
     move-object v5, v7
@@ -241,12 +241,12 @@
     .line 147
     .end local v7    # "e$iv":Ljava/lang/Object;
     .end local v8    # "v$iv":I
-    :cond_4
+    :cond_5b
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-nez v7, :cond_3
+    if-nez v7, :cond_4a
 
     .line 148
     nop
@@ -257,19 +257,19 @@
     .end local v4    # "iterator$iv":Ljava/util/Iterator;
     .end local v5    # "maxElem$iv":Ljava/lang/Object;
     .end local v6    # "maxValue$iv":I
-    :goto_1
+    :goto_62
     check-cast v5, Lkotlinx/coroutines/internal/MainDispatcherFactory;
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_6c
 
     invoke-static {v5, v1}, Lkotlinx/coroutines/internal/MainDispatchersKt;->tryCreateDispatcher(Lkotlinx/coroutines/internal/MainDispatcherFactory;Ljava/util/List;)Lkotlinx/coroutines/MainCoroutineDispatcher;
 
     move-result-object v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_73
 
     .line 39
-    :cond_5
+    :cond_6c
     const/4 v2, 0x3
 
     invoke-static {v0, v0, v2, v0}, Lkotlinx/coroutines/internal/MainDispatchersKt;->createMissingDispatcher$default(Ljava/lang/Throwable;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/coroutines/internal/MissingMainCoroutineDispatcher;
@@ -277,15 +277,15 @@
     move-result-object v2
 
     check-cast v2, Lkotlinx/coroutines/MainCoroutineDispatcher;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_73
+    .catchall {:try_start_2 .. :try_end_73} :catchall_74
 
     .end local v1    # "factories":Ljava/util/List;
-    :cond_6
-    goto :goto_2
+    :cond_73
+    goto :goto_7d
 
     .line 40
-    :catchall_0
+    :catchall_74
     move-exception v1
 
     .line 42
@@ -302,6 +302,6 @@
 
     .line 25
     .end local v1    # "e":Ljava/lang/Throwable;
-    :goto_2
+    :goto_7d
     return-object v2
 .end method

@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/layout/ExtensionsWindowLayoutInfoAdapter;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 .end method
 
 .method private final validBounds(Landroid/app/Activity;Landroidx/window/core/Bounds;)Z
-    .locals 4
+    .registers 7
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "bounds"    # Landroidx/window/core/Bounds;
 
@@ -92,13 +92,13 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 75
     return v2
 
     .line 77
-    :cond_0
+    :cond_12
     invoke-virtual {p2}, Landroidx/window/core/Bounds;->getWidth()I
 
     move-result v1
@@ -107,7 +107,7 @@
 
     move-result v3
 
-    if-eq v1, v3, :cond_1
+    if-eq v1, v3, :cond_27
 
     invoke-virtual {p2}, Landroidx/window/core/Bounds;->getHeight()I
 
@@ -117,13 +117,13 @@
 
     move-result v3
 
-    if-eq v1, v3, :cond_1
+    if-eq v1, v3, :cond_27
 
     .line 78
     return v2
 
     .line 80
-    :cond_1
+    :cond_27
     invoke-virtual {p2}, Landroidx/window/core/Bounds;->getWidth()I
 
     move-result v1
@@ -132,7 +132,7 @@
 
     move-result v3
 
-    if-ge v1, v3, :cond_2
+    if-ge v1, v3, :cond_3c
 
     invoke-virtual {p2}, Landroidx/window/core/Bounds;->getHeight()I
 
@@ -142,13 +142,13 @@
 
     move-result v3
 
-    if-ge v1, v3, :cond_2
+    if-ge v1, v3, :cond_3c
 
     .line 81
     return v2
 
     .line 83
-    :cond_2
+    :cond_3c
     invoke-virtual {p2}, Landroidx/window/core/Bounds;->getWidth()I
 
     move-result v1
@@ -157,7 +157,7 @@
 
     move-result v3
 
-    if-ne v1, v3, :cond_3
+    if-ne v1, v3, :cond_51
 
     invoke-virtual {p2}, Landroidx/window/core/Bounds;->getHeight()I
 
@@ -167,13 +167,13 @@
 
     move-result v3
 
-    if-ne v1, v3, :cond_3
+    if-ne v1, v3, :cond_51
 
     .line 84
     return v2
 
     .line 87
-    :cond_3
+    :cond_51
     const/4 v1, 0x1
 
     return v1
@@ -182,7 +182,7 @@
 
 # virtual methods
 .method public final translate$window_release(Landroid/app/Activity;Landroidx/window/extensions/layout/FoldingFeature;)Landroidx/window/layout/FoldingFeature;
-    .locals 7
+    .registers 10
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "oemFeature"    # Landroidx/window/extensions/layout/FoldingFeature;
 
@@ -201,23 +201,23 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_5c
 
     .line 35
     return-object v1
 
     .line 34
-    :pswitch_0
+    :pswitch_13
     sget-object v0, Landroidx/window/layout/HardwareFoldingFeature$Type;->Companion:Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;
 
     invoke-virtual {v0}, Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;->getHINGE()Landroidx/window/layout/HardwareFoldingFeature$Type;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_20
 
     .line 33
-    :pswitch_1
+    :pswitch_1a
     sget-object v0, Landroidx/window/layout/HardwareFoldingFeature$Type;->Companion:Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;
 
     invoke-virtual {v0}, Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;->getFOLD()Landroidx/window/layout/HardwareFoldingFeature$Type;
@@ -225,7 +225,7 @@
     move-result-object v0
 
     .line 32
-    :goto_0
+    :goto_20
     nop
 
     .line 37
@@ -234,23 +234,23 @@
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_1
+    packed-switch v2, :pswitch_data_64
 
     .line 40
     return-object v1
 
     .line 39
-    :pswitch_2
+    :pswitch_29
     sget-object v2, Landroidx/window/layout/FoldingFeature$State;->HALF_OPENED:Landroidx/window/layout/FoldingFeature$State;
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 38
-    :pswitch_3
+    :pswitch_2c
     sget-object v2, Landroidx/window/layout/FoldingFeature$State;->FLAT:Landroidx/window/layout/FoldingFeature$State;
 
     .line 37
-    :goto_1
+    :goto_2e
     nop
 
     .line 42
@@ -273,7 +273,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_57
 
     .line 44
     new-instance v1, Landroidx/window/layout/HardwareFoldingFeature;
@@ -292,35 +292,35 @@
 
     check-cast v1, Landroidx/window/layout/FoldingFeature;
 
-    goto :goto_2
+    goto :goto_5a
 
     .line 46
-    :cond_0
+    :cond_57
     move-object v4, v1
 
     check-cast v4, Landroidx/window/layout/FoldingFeature;
 
     .line 43
-    :goto_2
+    :goto_5a
     return-object v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5c
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_13
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_64
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
+        :pswitch_2c
+        :pswitch_29
     .end packed-switch
 .end method
 
 .method public final translate$window_release(Landroid/app/Activity;Landroidx/window/extensions/layout/WindowLayoutInfo;)Landroidx/window/layout/WindowLayoutInfo;
-    .locals 17
+    .registers 20
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "info"    # Landroidx/window/extensions/layout/WindowLayoutInfo;
 
@@ -377,12 +377,12 @@
 
     move-result-object v9
 
-    :goto_0
+    :goto_29
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_5d
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -410,7 +410,7 @@
     .line 53
     instance-of v15, v13, Landroidx/window/extensions/layout/FoldingFeature;
 
-    if-eqz v15, :cond_0
+    if-eqz v15, :cond_4f
 
     sget-object v15, Landroidx/window/layout/ExtensionsWindowLayoutInfoAdapter;->INSTANCE:Landroidx/window/layout/ExtensionsWindowLayoutInfoAdapter;
 
@@ -430,12 +430,12 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_52
 
     .line 54
     .end local v16    # "$this$mapNotNull$iv":Ljava/lang/Iterable;
     .restart local v1    # "$this$mapNotNull$iv":Ljava/lang/Iterable;
-    :cond_0
+    :cond_4f
     move-object/from16 v16, v1
 
     .end local v1    # "$this$mapNotNull$iv":Ljava/lang/Iterable;
@@ -443,18 +443,18 @@
     const/4 v1, 0x0
 
     .line 52
-    :goto_1
+    :goto_52
     nop
 
     .end local v13    # "feature":Landroidx/window/extensions/layout/DisplayFeature;
     .end local v14    # "$i$a$-mapNotNull-ExtensionsWindowLayoutInfoAdapter$translate$features$1":I
-    if-nez v1, :cond_1
+    if-nez v1, :cond_56
 
-    goto :goto_2
+    goto :goto_5a
 
     .line 100
     .local v1, "it$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_56
     const/4 v13, 0x0
 
     .line 98
@@ -463,18 +463,18 @@
 
     .end local v1    # "it$iv$iv":Ljava/lang/Object;
     .end local v13    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
-    :goto_2
+    :goto_5a
     move-object/from16 v1, v16
 
     .end local v10    # "element$iv$iv$iv":Ljava/lang/Object;
     .end local v11    # "element$iv$iv":Ljava/lang/Object;
     .end local v12    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
-    goto :goto_0
+    goto :goto_29
 
     .line 101
     .end local v16    # "$this$mapNotNull$iv":Ljava/lang/Iterable;
     .local v1, "$this$mapNotNull$iv":Ljava/lang/Iterable;
-    :cond_2
+    :cond_5d
     move-object/from16 v16, v1
 
     .line 102

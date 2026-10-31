@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 107
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;, "Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture<TV;>;"
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public final addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 3
     .param p1, "listener"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public final cancel(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "mayInterruptIfRunning"    # Z
 
     .line 142
@@ -69,7 +69,7 @@
 .end method
 
 .method public final get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public final get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -128,7 +128,7 @@
 .end method
 
 .method public final isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 131
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;, "Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture<TV;>;"
@@ -140,7 +140,7 @@
 .end method
 
 .method public final isDone()Z
-    .locals 1
+    .registers 2
 
     .line 126
     .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;, "Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture<TV;>;"

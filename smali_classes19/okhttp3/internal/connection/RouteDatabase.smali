@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,12 +69,12 @@
 
 # virtual methods
 .method public final declared-synchronized connected(Lokhttp3/Route;)V
-    .locals 1
+    .registers 3
     .param p1, "route"    # Lokhttp3/Route;
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "route"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -83,8 +83,8 @@
     iget-object v0, p0, Lokhttp3/internal/connection/RouteDatabase;->failedRoutes:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_1 .. :try_end_b} :catchall_d
 
     .line 37
     monitor-exit p0
@@ -94,24 +94,24 @@
     .line 35
     .end local p0    # "this":Lokhttp3/internal/connection/RouteDatabase;
     .end local p1    # "route":Lokhttp3/Route;
-    :catchall_0
+    :catchall_d
     move-exception p1
 
-    :try_start_1
+    :try_start_e
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_f
+    .catchall {:try_start_e .. :try_end_f} :catchall_d
 
     throw p1
 .end method
 
 .method public final declared-synchronized failed(Lokhttp3/Route;)V
-    .locals 1
+    .registers 3
     .param p1, "failedRoute"    # Lokhttp3/Route;
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "failedRoute"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -120,8 +120,8 @@
     iget-object v0, p0, Lokhttp3/internal/connection/RouteDatabase;->failedRoutes:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_1 .. :try_end_b} :catchall_d
 
     .line 32
     monitor-exit p0
@@ -131,24 +131,24 @@
     .line 30
     .end local p0    # "this":Lokhttp3/internal/connection/RouteDatabase;
     .end local p1    # "failedRoute":Lokhttp3/Route;
-    :catchall_0
+    :catchall_d
     move-exception p1
 
-    :try_start_1
+    :try_start_e
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_f
+    .catchall {:try_start_e .. :try_end_f} :catchall_d
 
     throw p1
 .end method
 
 .method public final declared-synchronized shouldPostpone(Lokhttp3/Route;)Z
-    .locals 1
+    .registers 3
     .param p1, "route"    # Lokhttp3/Route;
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "route"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -159,8 +159,8 @@
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_1 .. :try_end_c} :catchall_e
 
     monitor-exit p0
 
@@ -169,13 +169,13 @@
     .line 40
     .end local p0    # "this":Lokhttp3/internal/connection/RouteDatabase;
     .end local p1    # "route":Lokhttp3/Route;
-    :catchall_0
+    :catchall_e
     move-exception p1
 
-    :try_start_1
+    :try_start_f
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_10
+    .catchall {:try_start_f .. :try_end_10} :catchall_e
 
     throw p1
 .end method

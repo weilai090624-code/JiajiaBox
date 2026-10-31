@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$entriesDiffering(Lcom/google/common/collect/SortedMapDifference;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/SortedMapDifference;
 
     .line 29
@@ -18,7 +18,7 @@
 .end method
 
 .method public static bridge synthetic $default$entriesInCommon(Lcom/google/common/collect/SortedMapDifference;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/SortedMapDifference;
 
     .line 29
@@ -31,7 +31,7 @@
 .end method
 
 .method public static bridge synthetic $default$entriesOnlyOnLeft(Lcom/google/common/collect/SortedMapDifference;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/SortedMapDifference;
 
     .line 29
@@ -44,7 +44,7 @@
 .end method
 
 .method public static bridge synthetic $default$entriesOnlyOnRight(Lcom/google/common/collect/SortedMapDifference;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/SortedMapDifference;
 
     .line 29

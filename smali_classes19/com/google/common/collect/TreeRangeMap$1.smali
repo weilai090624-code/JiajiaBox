@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 311
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public asDescendingMapOfRanges()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -63,7 +63,7 @@
 .end method
 
 .method public asMapOfRanges()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -85,14 +85,14 @@
 .end method
 
 .method public clear()V
-    .locals 0
+    .registers 1
 
     .line 352
     return-void
 .end method
 
 .method public get(Ljava/lang/Comparable;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,7 +113,7 @@
 .end method
 
 .method public getEntry(Ljava/lang/Comparable;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -139,7 +139,7 @@
 .end method
 
 .method public put(Lcom/google/common/collect/Range;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -203,7 +203,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/RangeMap;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -225,13 +225,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 349
     return-void
 
     .line 346
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Cannot putAll(nonEmptyRangeMap) into an empty subRangeMap"
@@ -242,7 +242,7 @@
 .end method
 
 .method public putCoalescing(Lcom/google/common/collect/Range;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -306,7 +306,7 @@
 .end method
 
 .method public remove(Lcom/google/common/collect/Range;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -325,7 +325,7 @@
 .end method
 
 .method public span()Lcom/google/common/collect/Range;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -344,7 +344,7 @@
 .end method
 
 .method public subRangeMap(Lcom/google/common/collect/Range;)Lcom/google/common/collect/RangeMap;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

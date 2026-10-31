@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,12 +18,12 @@
 .end method
 
 .method static calculateIndicatorWidthForTab(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;)Landroid/graphics/RectF;
-    .locals 5
+    .registers 7
     .param p0, "tabLayout"    # Lcom/google/android/material/tabs/TabLayout;
     .param p1, "tab"    # Landroid/view/View;
 
     .line 104
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     .line 105
     new-instance v0, Landroid/graphics/RectF;
@@ -33,16 +33,16 @@
     return-object v0
 
     .line 109
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lcom/google/android/material/tabs/TabLayout;->isTabIndicatorFullWidth()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     instance-of v0, p1, Lcom/google/android/material/tabs/TabLayout$TabView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 110
     move-object v0, p1
@@ -58,7 +58,7 @@
     return-object v0
 
     .line 114
-    :cond_1
+    :cond_1c
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
@@ -91,7 +91,7 @@
 .end method
 
 .method static calculateTabViewContentBounds(Lcom/google/android/material/tabs/TabLayout$TabView;I)Landroid/graphics/RectF;
-    .locals 14
+    .registers 16
     .param p0, "tabView"    # Lcom/google/android/material/tabs/TabLayout$TabView;
     .param p1, "minWidth"    # I
 
@@ -120,13 +120,13 @@
 
     .line 76
     .local v2, "minWidthPx":I
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_14
 
     .line 77
     move v0, v2
 
     .line 80
-    :cond_0
+    :cond_14
     invoke-virtual {p0}, Lcom/google/android/material/tabs/TabLayout$TabView;->getLeft()I
 
     move-result v3
@@ -197,7 +197,7 @@
 
 # virtual methods
 .method setIndicatorBoundsForTab(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
-    .locals 5
+    .registers 9
     .param p1, "tabLayout"    # Lcom/google/android/material/tabs/TabLayout;
     .param p2, "tab"    # Landroid/view/View;
     .param p3, "indicator"    # Landroid/graphics/drawable/Drawable;
@@ -239,7 +239,7 @@
 .end method
 
 .method updateIndicatorForOffset(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;Landroid/view/View;FLandroid/graphics/drawable/Drawable;)V
-    .locals 6
+    .registers 12
     .param p1, "tabLayout"    # Lcom/google/android/material/tabs/TabLayout;
     .param p2, "startTitle"    # Landroid/view/View;
     .param p3, "endTitle"    # Landroid/view/View;

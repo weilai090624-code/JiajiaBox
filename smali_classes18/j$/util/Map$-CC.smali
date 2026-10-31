@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$compute(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "_this"    # Ljava/util/Map;
 
     .line 1168
@@ -26,35 +26,35 @@
 
     .line 1172
     .local v1, "newValue":Ljava/lang/Object;, "TV;"
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1c
 
     .line 1174
     const/4 v2, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     invoke-interface {p0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_17
 
-    goto :goto_0
+    goto :goto_18
 
     .line 1180
-    :cond_0
+    :cond_17
     return-object v2
 
     .line 1176
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1177
     return-object v2
 
     .line 1184
-    :cond_2
+    :cond_1c
     invoke-interface {p0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1185
@@ -62,7 +62,7 @@
 .end method
 
 .method public static $default$computeIfAbsent(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "_this"    # Ljava/util/Map;
 
     .line 999
@@ -78,7 +78,7 @@
     move-object v1, v0
 
     .local v1, "v":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 1003
     invoke-interface {p2, p1}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
@@ -88,7 +88,7 @@
     move-object v2, v0
 
     .local v2, "newValue":Ljava/lang/Object;, "TV;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 1004
     invoke-interface {p0, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -98,12 +98,12 @@
 
     .line 1009
     .end local v2    # "newValue":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_15
     return-object v1
 .end method
 
 .method public static $default$computeIfPresent(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "_this"    # Ljava/util/Map;
 
     .line 1076
@@ -121,7 +121,7 @@
     .local v1, "oldValue":Ljava/lang/Object;, "TV;"
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 1079
     invoke-interface {p2, p1, v1}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -130,7 +130,7 @@
 
     .line 1080
     .local v0, "newValue":Ljava/lang/Object;, "TV;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 1081
     invoke-interface {p0, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -139,7 +139,7 @@
     return-object v0
 
     .line 1084
-    :cond_0
+    :cond_15
     invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1085
@@ -147,12 +147,12 @@
 
     .line 1088
     .end local v0    # "newValue":Ljava/lang/Object;, "TV;"
-    :cond_1
+    :cond_19
     return-object v2
 .end method
 
 .method public static $default$forEach(Ljava/util/Map;Ljava/util/function/BiConsumer;)V
-    .locals 4
+    .registers 6
     .param p0, "_this"    # Ljava/util/Map;
 
     .line 650
@@ -168,12 +168,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -183,7 +183,7 @@
 
     .line 655
     .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :try_start_0
+    :try_start_17
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -193,8 +193,8 @@
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/IllegalStateException; {:try_start_17 .. :try_end_1f} :catch_24
 
     .line 660
     .local v3, "v":Ljava/lang/Object;, "TV;"
@@ -207,11 +207,11 @@
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     .end local v2    # "k":Ljava/lang/Object;, "TK;"
     .end local v3    # "v":Ljava/lang/Object;, "TV;"
-    goto :goto_0
+    goto :goto_b
 
     .line 657
     .restart local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :catch_0
+    :catch_24
     move-exception v0
 
     .line 659
@@ -225,12 +225,12 @@
     .line 663
     .end local v0    # "ise":Ljava/lang/IllegalStateException;
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
+    :cond_2b
     return-void
 .end method
 
 .method public static $default$getOrDefault(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "_this"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
 
@@ -243,34 +243,34 @@
     move-object v1, v0
 
     .local v1, "v":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     invoke-interface {p0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
-    goto :goto_0
+    goto :goto_10
 
     .line 621
-    :cond_0
+    :cond_e
     move-object v0, p2
 
-    goto :goto_1
+    goto :goto_11
 
     .line 620
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     move-object v0, v1
 
     .line 619
-    :goto_1
+    :goto_11
     return-object v0
 .end method
 
 .method public static $default$merge(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "_this"    # Ljava/util/Map;
 
     .line 1266
@@ -289,41 +289,41 @@
 
     .line 1269
     .local v0, "oldValue":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_12
 
     .line 1270
-    :cond_0
+    :cond_e
     invoke-interface {p3, v0, p2}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     nop
 
     .line 1271
     .local v1, "newValue":Ljava/lang/Object;, "TV;"
-    if-nez v1, :cond_1
+    if-nez v1, :cond_19
 
     .line 1272
     invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 1274
-    :cond_1
+    :cond_19
     invoke-interface {p0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1276
-    :goto_1
+    :goto_1c
     return-object v1
 .end method
 
 .method public static $default$putIfAbsent(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/Map;
 
     .line 773
@@ -335,7 +335,7 @@
 
     .line 774
     .local v0, "v":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 775
     invoke-interface {p0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -343,12 +343,12 @@
     move-result-object v0
 
     .line 778
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public static $default$remove(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p0, "_this"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
@@ -364,21 +364,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 818
     invoke-interface {p0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
-    goto :goto_0
+    goto :goto_18
 
     .line 821
-    :cond_0
+    :cond_13
     invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 822
@@ -387,15 +387,15 @@
     return v1
 
     .line 819
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public static $default$replace(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "_this"    # Ljava/util/Map;
 
     .line 917
@@ -408,27 +408,27 @@
     move-object v1, v0
 
     .local v1, "curValue":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     invoke-interface {p0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 918
-    :cond_0
+    :cond_d
     invoke-interface {p0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 920
-    :cond_1
+    :cond_11
     return-object v1
 .end method
 
 .method public static $default$replace(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 6
     .param p0, "_this"    # Ljava/util/Map;
 
     .line 868
@@ -445,21 +445,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 870
     invoke-interface {p0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
-    goto :goto_0
+    goto :goto_18
 
     .line 873
-    :cond_0
+    :cond_13
     invoke-interface {p0, p1, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 874
@@ -468,15 +468,15 @@
     return v1
 
     .line 871
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public static $default$replaceAll(Ljava/util/Map;Ljava/util/function/BiFunction;)V
-    .locals 5
+    .registers 7
     .param p0, "_this"    # Ljava/util/Map;
 
     .line 705
@@ -492,12 +492,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_37
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -507,7 +507,7 @@
 
     .line 710
     .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :try_start_0
+    :try_start_17
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -517,8 +517,8 @@
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_1f
+    .catch Ljava/lang/IllegalStateException; {:try_start_17 .. :try_end_1f} :catch_30
 
     .line 715
     .local v3, "v":Ljava/lang/Object;, "TV;"
@@ -530,10 +530,10 @@
     move-result-object v3
 
     .line 721
-    :try_start_1
+    :try_start_24
     invoke-interface {v1, v3}, Ljava/util/Map$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_27
+    .catch Ljava/lang/IllegalStateException; {:try_start_24 .. :try_end_27} :catch_29
 
     .line 725
     nop
@@ -542,13 +542,13 @@
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     .end local v2    # "k":Ljava/lang/Object;, "TK;"
     .end local v3    # "v":Ljava/lang/Object;, "TV;"
-    goto :goto_0
+    goto :goto_b
 
     .line 722
     .restart local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     .restart local v2    # "k":Ljava/lang/Object;, "TK;"
     .restart local v3    # "v":Ljava/lang/Object;, "TV;"
-    :catch_0
+    :catch_29
     move-exception v0
 
     .line 724
@@ -563,7 +563,7 @@
     .end local v0    # "ise":Ljava/lang/IllegalStateException;
     .end local v2    # "k":Ljava/lang/Object;, "TK;"
     .end local v3    # "v":Ljava/lang/Object;, "TV;"
-    :catch_1
+    :catch_30
     move-exception v0
 
     .line 714
@@ -577,12 +577,12 @@
     .line 727
     .end local v0    # "ise":Ljava/lang/IllegalStateException;
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
+    :cond_37
     return-void
 .end method
 
 .method public static copyOf(Ljava/util/Map;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -601,13 +601,13 @@
     .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     instance-of v0, p0, Lj$/util/ImmutableCollections$AbstractImmutableMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 1682
     return-object p0
 
     .line 1684
-    :cond_0
+    :cond_5
     invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -630,7 +630,7 @@
 .end method
 
 .method public static entry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -654,7 +654,7 @@
 .end method
 
 .method public static of()Ljava/util/Map;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -676,7 +676,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -700,7 +700,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -746,7 +746,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -802,7 +802,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -868,7 +868,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -944,7 +944,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1030,7 +1030,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 17
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1126,7 +1126,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1232,7 +1232,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1348,7 +1348,7 @@
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 23
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1474,7 +1474,7 @@
 .end method
 
 .method public static varargs ofEntries([Ljava/util/Map$Entry;)Ljava/util/Map;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1493,7 +1493,7 @@
     .local p0, "entries":[Ljava/util/Map$Entry;, "[Ljava/util/Map$Entry<+TK;+TV;>;"
     array-length v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 1607
     invoke-static {}, Lj$/util/ImmutableCollections;->emptyMap()Ljava/util/Map;
@@ -1503,14 +1503,14 @@
     return-object v0
 
     .line 1608
-    :cond_0
+    :cond_8
     array-length v0, p0
 
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_1f
 
     .line 1610
     new-instance v0, Lj$/util/ImmutableCollections$Map1;
@@ -1534,7 +1534,7 @@
     return-object v0
 
     .line 1613
-    :cond_1
+    :cond_1f
     array-length v0, p0
 
     shl-int/2addr v0, v2
@@ -1549,8 +1549,8 @@
     .local v2, "a":I
     array-length v3, p0
 
-    :goto_0
-    if-ge v1, v3, :cond_2
+    :goto_25
+    if-ge v1, v3, :cond_3c
 
     aget-object v4, p0, v1
 
@@ -1581,10 +1581,10 @@
     .end local v4    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
     .line 1620
-    :cond_2
+    :cond_3c
     new-instance v1, Lj$/util/ImmutableCollections$MapN;
 
     invoke-direct {v1, v0}, Lj$/util/ImmutableCollections$MapN;-><init>([Ljava/lang/Object;)V

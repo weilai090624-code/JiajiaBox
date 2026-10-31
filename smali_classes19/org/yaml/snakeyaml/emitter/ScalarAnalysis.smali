@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;ZZZZZZ)V
-    .locals 0
+    .registers 8
     .param p1, "scalar"    # Ljava/lang/String;
     .param p2, "empty"    # Z
     .param p3, "multiline"    # Z
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public getScalar()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->scalar:Ljava/lang/String;
@@ -70,7 +70,7 @@
 .end method
 
 .method public isAllowBlock()Z
-    .locals 1
+    .registers 2
 
     .line 67
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->allowBlock:Z
@@ -79,7 +79,7 @@
 .end method
 
 .method public isAllowBlockPlain()Z
-    .locals 1
+    .registers 2
 
     .line 59
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->allowBlockPlain:Z
@@ -88,7 +88,7 @@
 .end method
 
 .method public isAllowFlowPlain()Z
-    .locals 1
+    .registers 2
 
     .line 55
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->allowFlowPlain:Z
@@ -97,7 +97,7 @@
 .end method
 
 .method public isAllowSingleQuoted()Z
-    .locals 1
+    .registers 2
 
     .line 63
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->allowSingleQuoted:Z
@@ -106,7 +106,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 47
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->empty:Z
@@ -115,7 +115,7 @@
 .end method
 
 .method public isMultiline()Z
-    .locals 1
+    .registers 2
 
     .line 51
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/emitter/ScalarAnalysis;->multiline:Z

@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>(F)V
-    .locals 0
+    .registers 2
     .param p1, "f"    # F
 
     .line 660
@@ -48,7 +48,7 @@
 .end method
 
 .method synthetic constructor <init>(FLcom/google/zxing/qrcode/detector/FinderPatternFinder$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # F
     .param p2, "x1"    # Lcom/google/zxing/qrcode/detector/FinderPatternFinder$1;
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public compare(Lcom/google/zxing/qrcode/detector/FinderPattern;Lcom/google/zxing/qrcode/detector/FinderPattern;)I
-    .locals 3
+    .registers 6
     .param p1, "center1"    # Lcom/google/zxing/qrcode/detector/FinderPattern;
     .param p2, "center2"    # Lcom/google/zxing/qrcode/detector/FinderPattern;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 658
     check-cast p1, Lcom/google/zxing/qrcode/detector/FinderPattern;

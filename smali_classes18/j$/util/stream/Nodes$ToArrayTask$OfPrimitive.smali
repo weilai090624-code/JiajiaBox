@@ -52,7 +52,7 @@
 
 # direct methods
 .method private constructor <init>(Lj$/util/stream/Node$OfPrimitive;Ljava/lang/Object;I)V
-    .locals 0
+    .registers 4
     .param p3, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,7 +74,7 @@
 .end method
 
 .method synthetic constructor <init>(Lj$/util/stream/Node$OfPrimitive;Ljava/lang/Object;ILj$/util/stream/Nodes-IA;)V
-    .locals 0
+    .registers 5
 
     invoke-direct {p0, p1, p2, p3}, Lj$/util/stream/Nodes$ToArrayTask$OfPrimitive;-><init>(Lj$/util/stream/Node$OfPrimitive;Ljava/lang/Object;I)V
 
@@ -82,7 +82,7 @@
 .end method
 
 .method private constructor <init>(Lj$/util/stream/Nodes$ToArrayTask$OfPrimitive;Lj$/util/stream/Node$OfPrimitive;I)V
-    .locals 1
+    .registers 5
     .param p3, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method copyNodeToArray()V
-    .locals 3
+    .registers 4
 
     .line 2128
     .local p0, "this":Lj$/util/stream/Nodes$ToArrayTask$OfPrimitive;, "Ljava/util/stream/Nodes$ToArrayTask$OfPrimitive<TT;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;"
@@ -131,7 +131,7 @@
 .end method
 
 .method makeChild(II)Lj$/util/stream/Nodes$ToArrayTask$OfPrimitive;
-    .locals 2
+    .registers 5
     .param p1, "childIndex"    # I
     .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -162,7 +162,7 @@
 .end method
 
 .method bridge synthetic makeChild(II)Lj$/util/stream/Nodes$ToArrayTask;
-    .locals 0
+    .registers 3
 
     .line 2104
     .local p0, "this":Lj$/util/stream/Nodes$ToArrayTask$OfPrimitive;, "Ljava/util/stream/Nodes$ToArrayTask$OfPrimitive<TT;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;"

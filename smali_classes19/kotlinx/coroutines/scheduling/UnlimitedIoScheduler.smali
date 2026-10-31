@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/scheduling/UnlimitedIoScheduler;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Lkotlinx/coroutines/CoroutineDispatcher;-><init>()V
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public dispatchYield(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "block"    # Ljava/lang/Runnable;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public limitedParallelism(I)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 3
     .param p1, "parallelism"    # I
 
     .line 52
@@ -109,7 +109,7 @@
     .line 53
     sget v0, Lkotlinx/coroutines/scheduling/TasksKt;->MAX_POOL_SIZE:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_b
 
     move-object v0, p0
 
@@ -118,7 +118,7 @@
     return-object v0
 
     .line 54
-    :cond_0
+    :cond_b
     invoke-super {p0, p1}, Lkotlinx/coroutines/CoroutineDispatcher;->limitedParallelism(I)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v0

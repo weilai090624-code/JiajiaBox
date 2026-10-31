@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 58
     new-instance v0, Lcom/google/common/math/BigDecimalMath$BigDecimalToDoubleRounder;
@@ -41,7 +41,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-direct {p0}, Lcom/google/common/math/ToDoubleRounder;-><init>()V
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method bridge synthetic minus(Ljava/lang/Number;Ljava/lang/Number;)Ljava/lang/Number;
-    .locals 0
+    .registers 3
 
     .line 57
     check-cast p1, Ljava/math/BigDecimal;
@@ -67,7 +67,7 @@
 .end method
 
 .method minus(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-    .locals 1
+    .registers 4
     .param p1, "a"    # Ljava/math/BigDecimal;
     .param p2, "b"    # Ljava/math/BigDecimal;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method bridge synthetic roundToDoubleArbitrarily(Ljava/lang/Number;)D
-    .locals 2
+    .registers 4
 
     .line 57
     check-cast p1, Ljava/math/BigDecimal;
@@ -93,7 +93,7 @@
 .end method
 
 .method roundToDoubleArbitrarily(Ljava/math/BigDecimal;)D
-    .locals 2
+    .registers 4
     .param p1, "bigDecimal"    # Ljava/math/BigDecimal;
 
     .line 64
@@ -105,7 +105,7 @@
 .end method
 
 .method bridge synthetic sign(Ljava/lang/Number;)I
-    .locals 0
+    .registers 2
 
     .line 57
     check-cast p1, Ljava/math/BigDecimal;
@@ -118,7 +118,7 @@
 .end method
 
 .method sign(Ljava/math/BigDecimal;)I
-    .locals 1
+    .registers 3
     .param p1, "bigDecimal"    # Ljava/math/BigDecimal;
 
     .line 69
@@ -130,7 +130,7 @@
 .end method
 
 .method bridge synthetic toX(DLjava/math/RoundingMode;)Ljava/lang/Number;
-    .locals 0
+    .registers 4
 
     .line 57
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/common/math/BigDecimalMath$BigDecimalToDoubleRounder;->toX(DLjava/math/RoundingMode;)Ljava/math/BigDecimal;
@@ -141,7 +141,7 @@
 .end method
 
 .method toX(DLjava/math/RoundingMode;)Ljava/math/BigDecimal;
-    .locals 1
+    .registers 5
     .param p1, "d"    # D
     .param p3, "mode"    # Ljava/math/RoundingMode;
 

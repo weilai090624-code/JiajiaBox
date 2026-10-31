@@ -22,14 +22,14 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/Window$Callback;)V
-    .locals 2
+    .registers 4
     .param p1, "wrapped"    # Landroid/view/Window$Callback;
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 52
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 55
     iput-object p1, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -38,7 +38,7 @@
     return-void
 
     .line 53
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Window callback may not be null"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public dispatchGenericMotionEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 80
@@ -65,7 +65,7 @@
 .end method
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/KeyEvent;
 
     .line 60
@@ -79,7 +79,7 @@
 .end method
 
 .method public dispatchKeyShortcutEvent(Landroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/KeyEvent;
 
     .line 65
@@ -93,7 +93,7 @@
 .end method
 
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .line 85
@@ -107,7 +107,7 @@
 .end method
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 70
@@ -121,7 +121,7 @@
 .end method
 
 .method public dispatchTrackballEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 75
@@ -135,7 +135,7 @@
 .end method
 
 .method public final getWrapped()Landroid/view/Window$Callback;
-    .locals 1
+    .registers 2
 
     .line 189
     iget-object v0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -144,7 +144,7 @@
 .end method
 
 .method public onActionModeFinished(Landroid/view/ActionMode;)V
-    .locals 1
+    .registers 3
     .param p1, "mode"    # Landroid/view/ActionMode;
 
     .line 172
@@ -157,7 +157,7 @@
 .end method
 
 .method public onActionModeStarted(Landroid/view/ActionMode;)V
-    .locals 1
+    .registers 3
     .param p1, "mode"    # Landroid/view/ActionMode;
 
     .line 167
@@ -170,7 +170,7 @@
 .end method
 
 .method public onAttachedToWindow()V
-    .locals 1
+    .registers 2
 
     .line 130
     iget-object v0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -182,7 +182,7 @@
 .end method
 
 .method public onContentChanged()V
-    .locals 1
+    .registers 2
 
     .line 120
     iget-object v0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -194,7 +194,7 @@
 .end method
 
 .method public onCreatePanelMenu(ILandroid/view/Menu;)Z
-    .locals 1
+    .registers 4
     .param p1, "featureId"    # I
     .param p2, "menu"    # Landroid/view/Menu;
 
@@ -209,7 +209,7 @@
 .end method
 
 .method public onCreatePanelView(I)Landroid/view/View;
-    .locals 1
+    .registers 3
     .param p1, "featureId"    # I
 
     .line 90
@@ -223,7 +223,7 @@
 .end method
 
 .method public onDetachedFromWindow()V
-    .locals 1
+    .registers 2
 
     .line 135
     iget-object v0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -235,7 +235,7 @@
 .end method
 
 .method public onMenuItemSelected(ILandroid/view/MenuItem;)Z
-    .locals 1
+    .registers 4
     .param p1, "featureId"    # I
     .param p2, "item"    # Landroid/view/MenuItem;
 
@@ -250,7 +250,7 @@
 .end method
 
 .method public onMenuOpened(ILandroid/view/Menu;)Z
-    .locals 1
+    .registers 4
     .param p1, "featureId"    # I
     .param p2, "menu"    # Landroid/view/Menu;
 
@@ -265,7 +265,7 @@
 .end method
 
 .method public onPanelClosed(ILandroid/view/Menu;)V
-    .locals 1
+    .registers 4
     .param p1, "featureId"    # I
     .param p2, "menu"    # Landroid/view/Menu;
 
@@ -279,7 +279,7 @@
 .end method
 
 .method public onPointerCaptureChanged(Z)V
-    .locals 1
+    .registers 3
     .param p1, "hasCapture"    # Z
 
     .line 185
@@ -292,7 +292,7 @@
 .end method
 
 .method public onPreparePanel(ILandroid/view/View;Landroid/view/Menu;)Z
-    .locals 1
+    .registers 5
     .param p1, "featureId"    # I
     .param p2, "view"    # Landroid/view/View;
     .param p3, "menu"    # Landroid/view/Menu;
@@ -308,7 +308,7 @@
 .end method
 
 .method public onProvideKeyboardShortcuts(Ljava/util/List;Landroid/view/Menu;I)V
-    .locals 1
+    .registers 5
     .param p2, "menu"    # Landroid/view/Menu;
     .param p3, "deviceId"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -333,7 +333,7 @@
 .end method
 
 .method public onSearchRequested()Z
-    .locals 1
+    .registers 2
 
     .line 151
     iget-object v0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -346,7 +346,7 @@
 .end method
 
 .method public onSearchRequested(Landroid/view/SearchEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "searchEvent"    # Landroid/view/SearchEvent;
 
     .line 146
@@ -360,7 +360,7 @@
 .end method
 
 .method public onWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "attrs"    # Landroid/view/WindowManager$LayoutParams;
 
     .line 115
@@ -373,7 +373,7 @@
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .locals 1
+    .registers 3
     .param p1, "hasFocus"    # Z
 
     .line 125
@@ -386,7 +386,7 @@
 .end method
 
 .method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Landroid/view/ActionMode$Callback;
 
     .line 156
@@ -400,7 +400,7 @@
 .end method
 
 .method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;
-    .locals 1
+    .registers 4
     .param p1, "callback"    # Landroid/view/ActionMode$Callback;
     .param p2, "type"    # I
 

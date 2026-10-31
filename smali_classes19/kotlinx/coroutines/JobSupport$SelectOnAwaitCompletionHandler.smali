@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/JobSupport;Lkotlinx/coroutines/selects/SelectInstance;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lkotlinx/coroutines/JobSupport;
     .param p2, "select"    # Lkotlinx/coroutines/selects/SelectInstance;
     .annotation system Ldalvik/annotation/Signature;
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 1269
@@ -97,7 +97,7 @@
 .end method
 
 .method public invoke(Ljava/lang/Throwable;)V
-    .locals 4
+    .registers 6
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 1273
@@ -111,20 +111,20 @@
     .local v0, "state":Ljava/lang/Object;
     instance-of v1, v0, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     invoke-static {v0}, Lkotlinx/coroutines/JobSupportKt;->unboxState(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 1275
     .local v1, "result":Ljava/lang/Object;
-    :goto_0
+    :goto_10
     iget-object v2, p0, Lkotlinx/coroutines/JobSupport$SelectOnAwaitCompletionHandler;->select:Lkotlinx/coroutines/selects/SelectInstance;
 
     iget-object v3, p0, Lkotlinx/coroutines/JobSupport$SelectOnAwaitCompletionHandler;->this$0:Lkotlinx/coroutines/JobSupport;

@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 27
     new-instance v0, Lkotlinx/coroutines/internal/Symbol;
@@ -69,7 +69,7 @@
 .end method
 
 .method private static final decisionAndIndex(II)I
-    .locals 2
+    .registers 4
     .param p0, "decision"    # I
     .param p1, "index"    # I
 
@@ -85,7 +85,7 @@
 .end method
 
 .method private static final getDecision(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$decision"    # I
 
     const/4 v0, 0x0
@@ -98,7 +98,7 @@
 .end method
 
 .method private static final getIndex(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$index"    # I
 
     const/4 v0, 0x0

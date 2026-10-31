@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/LifecycleOwner;Landroidx/camera/lifecycle/LifecycleCameraRepository;)V
-    .locals 0
+    .registers 3
     .param p1, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "lifecycleCameraRepository"    # Landroidx/camera/lifecycle/LifecycleCameraRepository;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method getLifecycleOwner()Landroidx/lifecycle/LifecycleOwner;
-    .locals 1
+    .registers 2
 
     .line 487
     iget-object v0, p0, Landroidx/camera/lifecycle/LifecycleCameraRepository$LifecycleCameraRepositoryObserver;->mLifecycleOwner:Landroidx/lifecycle/LifecycleOwner;
@@ -64,7 +64,7 @@
 .end method
 
 .method public onDestroy(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p1, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
@@ -89,7 +89,7 @@
 .end method
 
 .method public onStart(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p1, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
@@ -114,7 +114,7 @@
 .end method
 
 .method public onStop(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 1
+    .registers 3
     .param p1, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;

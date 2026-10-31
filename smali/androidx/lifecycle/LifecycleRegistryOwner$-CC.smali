@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$getLifecycle(Landroidx/lifecycle/LifecycleRegistryOwner;)Landroidx/lifecycle/Lifecycle;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/lifecycle/LifecycleRegistryOwner;
 
     .line 25

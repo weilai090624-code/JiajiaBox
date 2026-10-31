@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 49
     const-string v0, "Alarms"
@@ -32,7 +32,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 140
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method public static cancelAlarm(Landroid/content/Context;Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/model/WorkGenerationalId;)V
-    .locals 6
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
     .param p2, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
@@ -72,7 +72,7 @@
 
     .line 91
     .local v1, "systemIdInfo":Landroidx/work/impl/model/SystemIdInfo;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_34
 
     .line 92
     iget v2, v1, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
@@ -116,12 +116,12 @@
     invoke-interface {v0, p2}, Landroidx/work/impl/model/SystemIdInfoDao;->removeSystemIdInfo(Landroidx/work/impl/model/WorkGenerationalId;)V
 
     .line 97
-    :cond_0
+    :cond_34
     return-void
 .end method
 
 .method private static cancelExactAlarm(Landroid/content/Context;Landroidx/work/impl/model/WorkGenerationalId;I)V
-    .locals 8
+    .registers 11
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "alarmId"    # I
@@ -163,7 +163,7 @@
 
     const/16 v4, 0x17
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_17
 
     .line 107
     const/high16 v3, 0x4000000
@@ -171,16 +171,16 @@
     or-int/2addr v2, v3
 
     .line 109
-    :cond_0
+    :cond_17
     invoke-static {p0, p2, v1, v2}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v3
 
     .line 110
     .local v3, "pendingIntent":Landroid/app/PendingIntent;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_4e
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4e
 
     .line 111
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -229,12 +229,12 @@
     invoke-virtual {v0, v3}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
     .line 116
-    :cond_1
+    :cond_4e
     return-void
 .end method
 
 .method public static setAlarm(Landroid/content/Context;Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/model/WorkGenerationalId;J)V
-    .locals 5
+    .registers 10
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
     .param p2, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
@@ -267,7 +267,7 @@
 
     .line 66
     .local v1, "systemIdInfo":Landroidx/work/impl/model/SystemIdInfo;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 67
     iget v2, v1, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
@@ -279,10 +279,10 @@
 
     invoke-static {p0, p2, v2, p3, p4}, Landroidx/work/impl/background/systemalarm/Alarms;->setExactAlarm(Landroid/content/Context;Landroidx/work/impl/model/WorkGenerationalId;IJ)V
 
-    goto :goto_0
+    goto :goto_28
 
     .line 70
-    :cond_0
+    :cond_15
     new-instance v2, Landroidx/work/impl/utils/IdGenerator;
 
     invoke-direct {v2, p1}, Landroidx/work/impl/utils/IdGenerator;-><init>(Landroidx/work/impl/WorkDatabase;)V
@@ -310,12 +310,12 @@
     .end local v2    # "idGenerator":Landroidx/work/impl/utils/IdGenerator;
     .end local v3    # "alarmId":I
     .end local v4    # "newSystemIdInfo":Landroidx/work/impl/model/SystemIdInfo;
-    :goto_0
+    :goto_28
     return-void
 .end method
 
 .method private static setExactAlarm(Landroid/content/Context;Landroidx/work/impl/model/WorkGenerationalId;IJ)V
-    .locals 5
+    .registers 10
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p2, "alarmId"    # I
@@ -354,7 +354,7 @@
 
     const/16 v3, 0x17
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_13
 
     .line 127
     const/high16 v2, 0x4000000
@@ -362,7 +362,7 @@
     or-int/2addr v1, v2
 
     .line 129
-    :cond_0
+    :cond_13
     invoke-static {p0, p1}, Landroidx/work/impl/background/systemalarm/CommandHandler;->createDelayMetIntent(Landroid/content/Context;Landroidx/work/impl/model/WorkGenerationalId;)Landroid/content/Intent;
 
     move-result-object v2
@@ -375,7 +375,7 @@
 
     .line 131
     .local v3, "pendingIntent":Landroid/app/PendingIntent;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 132
     nop
@@ -386,6 +386,6 @@
     invoke-static {v0, v4, p3, p4, v3}, Landroidx/work/impl/background/systemalarm/Alarms$Api19Impl;->setExact(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
 
     .line 138
-    :cond_1
+    :cond_22
     return-void
 .end method

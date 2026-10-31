@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 54
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -123,13 +123,13 @@
 
     .line 73
     .local v2, "d":Landroid/graphics/drawable/Drawable;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3c
 
     .line 74
     invoke-virtual {p0, v2}, Lcom/google/android/material/internal/ForegroundLinearLayout;->setForeground(Landroid/graphics/drawable/Drawable;)V
 
     .line 77
-    :cond_0
+    :cond_3c
     sget v3, Lcom/google/android/material/R$styleable;->ForegroundLinearLayout_foregroundInsidePadding:I
 
     .line 78
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 9
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 205
@@ -158,7 +158,7 @@
     .line 207
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_59
 
     .line 208
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
@@ -167,7 +167,7 @@
     .local v0, "foreground":Landroid/graphics/drawable/Drawable;
     iget-boolean v1, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foregroundBoundsChanged:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_56
 
     .line 211
     const/4 v1, 0x0
@@ -209,15 +209,15 @@
     .local v5, "h":I
     iget-boolean v6, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->mForegroundInPadding:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2e
 
     .line 219
     invoke-virtual {v2, v1, v1, v4, v5}, Landroid/graphics/Rect;->set(IIII)V
 
-    goto :goto_0
+    goto :goto_46
 
     .line 221
-    :cond_0
+    :cond_2e
     nop
 
     .line 222
@@ -245,7 +245,7 @@
     invoke-virtual {v2, v1, v6, v7, v8}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 225
-    :goto_0
+    :goto_46
     iget v1, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foregroundGravity:I
 
     .line 227
@@ -269,17 +269,17 @@
     .end local v3    # "overlayBounds":Landroid/graphics/Rect;
     .end local v4    # "w":I
     .end local v5    # "h":I
-    :cond_1
+    :cond_56
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 236
     .end local v0    # "foreground":Landroid/graphics/drawable/Drawable;
-    :cond_2
+    :cond_59
     return-void
 .end method
 
 .method public drawableHotspotChanged(FF)V
-    .locals 1
+    .registers 4
     .param p1, "x"    # F
     .param p2, "y"    # F
 
@@ -289,7 +289,7 @@
     .line 243
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 244
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
@@ -297,12 +297,12 @@
     invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/Drawable;->setHotspot(FF)V
 
     .line 246
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method protected drawableStateChanged()V
-    .locals 2
+    .registers 3
 
     .line 137
     invoke-super {p0}, Landroidx/appcompat/widget/LinearLayoutCompat;->drawableStateChanged()V
@@ -310,7 +310,7 @@
     .line 138
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
 
@@ -318,7 +318,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 139
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
@@ -330,12 +330,12 @@
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
     .line 141
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public getForeground()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 188
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
@@ -344,7 +344,7 @@
 .end method
 
 .method public getForegroundGravity()I
-    .locals 1
+    .registers 2
 
     .line 91
     iget v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foregroundGravity:I
@@ -353,7 +353,7 @@
 .end method
 
 .method public jumpDrawablesToCurrentState()V
-    .locals 1
+    .registers 2
 
     .line 129
     invoke-super {p0}, Landroidx/appcompat/widget/LinearLayoutCompat;->jumpDrawablesToCurrentState()V
@@ -361,7 +361,7 @@
     .line 130
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 131
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
@@ -369,12 +369,12 @@
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->jumpToCurrentState()V
 
     .line 133
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 1
+    .registers 7
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -396,7 +396,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 1
+    .registers 6
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -415,18 +415,18 @@
 .end method
 
 .method public setForeground(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .registers 4
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 152
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
 
-    if-eq v0, p1, :cond_4
+    if-eq v0, p1, :cond_46
 
     .line 153
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 154
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
@@ -441,7 +441,7 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/internal/ForegroundLinearLayout;->unscheduleDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 158
-    :cond_0
+    :cond_13
     iput-object p1, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
 
     .line 159
@@ -450,7 +450,7 @@
     iput-boolean v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foregroundBoundsChanged:Z
 
     .line 161
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3d
 
     .line 162
     const/4 v0, 0x0
@@ -465,7 +465,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     .line 165
     invoke-virtual {p0}, Lcom/google/android/material/internal/ForegroundLinearLayout;->getDrawableState()[I
@@ -475,12 +475,12 @@
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
     .line 167
-    :cond_1
+    :cond_2e
     iget v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foregroundGravity:I
 
     const/16 v1, 0x77
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_40
 
     .line 168
     new-instance v0, Landroid/graphics/Rect;
@@ -493,40 +493,40 @@
 
     .line 170
     .end local v0    # "padding":Landroid/graphics/Rect;
-    goto :goto_0
+    goto :goto_40
 
     .line 172
-    :cond_2
+    :cond_3d
     invoke-virtual {p0, v0}, Lcom/google/android/material/internal/ForegroundLinearLayout;->setWillNotDraw(Z)V
 
     .line 174
-    :cond_3
-    :goto_0
+    :cond_40
+    :goto_40
     invoke-virtual {p0}, Lcom/google/android/material/internal/ForegroundLinearLayout;->requestLayout()V
 
     .line 175
     invoke-virtual {p0}, Lcom/google/android/material/internal/ForegroundLinearLayout;->invalidate()V
 
     .line 177
-    :cond_4
+    :cond_46
     return-void
 .end method
 
 .method public setForegroundGravity(I)V
-    .locals 2
+    .registers 4
     .param p1, "foregroundGravity"    # I
 
     .line 102
     iget v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foregroundGravity:I
 
-    if-eq v0, p1, :cond_3
+    if-eq v0, p1, :cond_2d
 
     .line 103
     const v0, 0x800007
 
     and-int/2addr v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 104
     const v0, 0x800003
@@ -534,16 +534,16 @@
     or-int/2addr p1, v0
 
     .line 107
-    :cond_0
+    :cond_e
     and-int/lit8 v0, p1, 0x70
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 108
     or-int/lit8 p1, p1, 0x30
 
     .line 111
-    :cond_1
+    :cond_14
     iput p1, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foregroundGravity:I
 
     .line 113
@@ -551,11 +551,11 @@
 
     const/16 v1, 0x77
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2a
 
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2a
 
     .line 114
     new-instance v0, Landroid/graphics/Rect;
@@ -570,16 +570,16 @@
 
     .line 118
     .end local v0    # "padding":Landroid/graphics/Rect;
-    :cond_2
+    :cond_2a
     invoke-virtual {p0}, Lcom/google/android/material/internal/ForegroundLinearLayout;->requestLayout()V
 
     .line 120
-    :cond_3
+    :cond_2d
     return-void
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
-    .locals 1
+    .registers 3
     .param p1, "who"    # Landroid/graphics/drawable/Drawable;
 
     .line 124
@@ -587,23 +587,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_d
 
     iget-object v0, p0, Lcom/google/android/material/internal/ForegroundLinearLayout;->foreground:Landroid/graphics/drawable/Drawable;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_e
     return v0
 .end method

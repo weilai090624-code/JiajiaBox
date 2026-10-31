@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/LayoutInflater;ZI)V
-    .locals 1
+    .registers 6
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "inflater"    # Landroid/view/LayoutInflater;
     .param p3, "overflowOnly"    # Z
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method findExpandedIndex()V
-    .locals 5
+    .registers 6
 
     .line 114
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mAdapterMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -66,7 +66,7 @@
 
     .line 115
     .local v0, "expandedItem":Landroidx/appcompat/view/menu/MenuItemImpl;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 116
     iget-object v1, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mAdapterMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -86,8 +86,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_13
+    if-ge v3, v2, :cond_23
 
     .line 119
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -98,7 +98,7 @@
 
     .line 120
     .local v4, "item":Landroidx/appcompat/view/menu/MenuItemImpl;
-    if-ne v4, v0, :cond_0
+    if-ne v4, v0, :cond_20
 
     .line 121
     iput v3, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mExpandedIndex:I
@@ -108,16 +108,16 @@
 
     .line 118
     .end local v4    # "item":Landroidx/appcompat/view/menu/MenuItemImpl;
-    :cond_0
+    :cond_20
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 126
     .end local v1    # "items":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/appcompat/view/menu/MenuItemImpl;>;"
     .end local v2    # "count":I
     .end local v3    # "i":I
-    :cond_1
+    :cond_23
     const/4 v1, -0x1
 
     iput v1, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mExpandedIndex:I
@@ -127,7 +127,7 @@
 .end method
 
 .method public getAdapterMenu()Landroidx/appcompat/view/menu/MenuBuilder;
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mAdapterMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -136,12 +136,12 @@
 .end method
 
 .method public getCount()I
-    .locals 2
+    .registers 3
 
     .line 62
     iget-boolean v0, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mOverflowOnly:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 63
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mAdapterMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -150,9 +150,9 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mAdapterMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
     invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuBuilder;->getVisibleItems()Ljava/util/ArrayList;
@@ -161,10 +161,10 @@
 
     .line 64
     .local v0, "items":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/appcompat/view/menu/MenuItemImpl;>;"
-    :goto_0
+    :goto_11
     iget v1, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mExpandedIndex:I
 
-    if-gez v1, :cond_1
+    if-gez v1, :cond_1a
 
     .line 65
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -174,7 +174,7 @@
     return v1
 
     .line 67
-    :cond_1
+    :cond_1a
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
@@ -185,7 +185,7 @@
 .end method
 
 .method public getForceShowIcon()Z
-    .locals 1
+    .registers 2
 
     .line 53
     iget-boolean v0, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mForceShowIcon:Z
@@ -194,13 +194,13 @@
 .end method
 
 .method public getItem(I)Landroidx/appcompat/view/menu/MenuItemImpl;
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 76
     iget-boolean v0, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mOverflowOnly:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 77
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mAdapterMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -209,9 +209,9 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mAdapterMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
     invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuBuilder;->getVisibleItems()Ljava/util/ArrayList;
@@ -220,20 +220,20 @@
 
     .line 78
     .local v0, "items":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/appcompat/view/menu/MenuItemImpl;>;"
-    :goto_0
+    :goto_11
     iget v1, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mExpandedIndex:I
 
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_1b
 
     iget v1, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mExpandedIndex:I
 
-    if-lt p1, v1, :cond_1
+    if-lt p1, v1, :cond_1b
 
     .line 79
     add-int/lit8 p1, p1, 0x1
 
     .line 81
-    :cond_1
+    :cond_1b
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -244,7 +244,7 @@
 .end method
 
 .method public bridge synthetic getItem(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 32
     invoke-virtual {p0, p1}, Landroidx/appcompat/view/menu/MenuAdapter;->getItem(I)Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -255,7 +255,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 88
@@ -265,7 +265,7 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 6
+    .registers 10
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
@@ -273,7 +273,7 @@
     .line 93
     const/4 v0, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_b
 
     .line 94
     iget-object v1, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mInflater:Landroid/view/LayoutInflater;
@@ -285,7 +285,7 @@
     move-result-object p2
 
     .line 97
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroidx/appcompat/view/menu/MenuAdapter;->getItem(I)Landroidx/appcompat/view/menu/MenuItemImpl;
 
     move-result-object v1
@@ -298,7 +298,7 @@
     .local v1, "currGroupId":I
     add-int/lit8 v2, p1, -0x1
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_22
 
     add-int/lit8 v2, p1, -0x1
 
@@ -310,14 +310,14 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_22
     move v2, v1
 
     .line 101
     .local v2, "prevGroupId":I
-    :goto_0
+    :goto_23
     move-object v3, p2
 
     check-cast v3, Landroidx/appcompat/view/menu/ListMenuItemView;
@@ -331,18 +331,18 @@
 
     const/4 v5, 0x1
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_33
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_33
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_2
+    :cond_33
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_34
     invoke-virtual {v3, v4}, Landroidx/appcompat/view/menu/ListMenuItemView;->setGroupDividerEnabled(Z)V
 
     .line 105
@@ -354,7 +354,7 @@
     .local v3, "itemView":Landroidx/appcompat/view/menu/MenuView$ItemView;
     iget-boolean v4, p0, Landroidx/appcompat/view/menu/MenuAdapter;->mForceShowIcon:Z
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_44
 
     .line 107
     move-object v4, p2
@@ -364,7 +364,7 @@
     invoke-virtual {v4, v5}, Landroidx/appcompat/view/menu/ListMenuItemView;->setForceShowIcon(Z)V
 
     .line 109
-    :cond_3
+    :cond_44
     invoke-virtual {p0, p1}, Landroidx/appcompat/view/menu/MenuAdapter;->getItem(I)Landroidx/appcompat/view/menu/MenuItemImpl;
 
     move-result-object v4
@@ -376,7 +376,7 @@
 .end method
 
 .method public notifyDataSetChanged()V
-    .locals 0
+    .registers 1
 
     .line 131
     invoke-virtual {p0}, Landroidx/appcompat/view/menu/MenuAdapter;->findExpandedIndex()V
@@ -389,7 +389,7 @@
 .end method
 
 .method public setForceShowIcon(Z)V
-    .locals 0
+    .registers 2
     .param p1, "forceShow"    # Z
 
     .line 57

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;)V
-    .locals 2
+    .registers 4
     .param p1, "delegate"    # Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;
 
     .line 76
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/internal/TextDrawableHelper;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/internal/TextDrawableHelper;
     .param p1, "x1"    # Z
 
@@ -88,7 +88,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/internal/TextDrawableHelper;)Ljava/lang/ref/WeakReference;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/internal/TextDrawableHelper;
 
     .line 39
@@ -98,11 +98,11 @@
 .end method
 
 .method private calculateTextWidth(Ljava/lang/CharSequence;)F
-    .locals 3
+    .registers 5
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
 
     .line 110
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 111
     const/4 v0, 0x0
@@ -110,7 +110,7 @@
     return v0
 
     .line 113
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textPaint:Landroid/text/TextPaint;
 
     const/4 v1, 0x0
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public getTextAppearance()Lcom/google/android/material/resources/TextAppearance;
-    .locals 1
+    .registers 2
 
     .line 123
     iget-object v0, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textAppearance:Lcom/google/android/material/resources/TextAppearance;
@@ -138,7 +138,7 @@
 .end method
 
 .method public getTextPaint()Landroid/text/TextPaint;
-    .locals 1
+    .registers 2
 
     .line 87
     iget-object v0, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textPaint:Landroid/text/TextPaint;
@@ -147,13 +147,13 @@
 .end method
 
 .method public getTextWidth(Ljava/lang/String;)F
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/String;
 
     .line 100
     iget-boolean v0, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textWidthDirty:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 101
     iget v0, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textWidth:F
@@ -161,7 +161,7 @@
     return v0
 
     .line 104
-    :cond_0
+    :cond_7
     invoke-direct {p0, p1}, Lcom/google/android/material/internal/TextDrawableHelper;->calculateTextWidth(Ljava/lang/CharSequence;)F
 
     move-result v0
@@ -180,7 +180,7 @@
 .end method
 
 .method public isTextWidthDirty()Z
-    .locals 1
+    .registers 2
 
     .line 95
     iget-boolean v0, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textWidthDirty:Z
@@ -189,7 +189,7 @@
 .end method
 
 .method public setDelegate(Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;
 
     .line 82
@@ -204,20 +204,20 @@
 .end method
 
 .method public setTextAppearance(Lcom/google/android/material/resources/TextAppearance;Landroid/content/Context;)V
-    .locals 3
+    .registers 6
     .param p1, "textAppearance"    # Lcom/google/android/material/resources/TextAppearance;
     .param p2, "context"    # Landroid/content/Context;
 
     .line 134
     iget-object v0, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textAppearance:Lcom/google/android/material/resources/TextAppearance;
 
-    if-eq v0, p1, :cond_2
+    if-eq v0, p1, :cond_3f
 
     .line 135
     iput-object p1, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textAppearance:Lcom/google/android/material/resources/TextAppearance;
 
     .line 136
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2b
 
     .line 137
     iget-object v0, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textPaint:Landroid/text/TextPaint;
@@ -237,7 +237,7 @@
 
     .line 140
     .local v0, "textDrawableDelegate":Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 141
     iget-object v1, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textPaint:Landroid/text/TextPaint;
@@ -249,7 +249,7 @@
     iput-object v2, v1, Landroid/text/TextPaint;->drawableState:[I
 
     .line 143
-    :cond_0
+    :cond_21
     iget-object v1, p0, Lcom/google/android/material/internal/TextDrawableHelper;->textPaint:Landroid/text/TextPaint;
 
     iget-object v2, p0, Lcom/google/android/material/internal/TextDrawableHelper;->fontCallback:Lcom/google/android/material/resources/TextAppearanceFontCallback;
@@ -263,7 +263,7 @@
 
     .line 147
     .end local v0    # "textDrawableDelegate":Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;
-    :cond_1
+    :cond_2b
     iget-object v0, p0, Lcom/google/android/material/internal/TextDrawableHelper;->delegate:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -274,7 +274,7 @@
 
     .line 148
     .restart local v0    # "textDrawableDelegate":Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3f
 
     .line 149
     invoke-interface {v0}, Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;->onTextSizeChange()V
@@ -288,12 +288,12 @@
 
     .line 153
     .end local v0    # "textDrawableDelegate":Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;
-    :cond_2
+    :cond_3f
     return-void
 .end method
 
 .method public setTextWidthDirty(Z)V
-    .locals 0
+    .registers 2
     .param p1, "dirty"    # Z
 
     .line 91
@@ -304,7 +304,7 @@
 .end method
 
 .method public updateTextPaintDrawState(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     .line 156

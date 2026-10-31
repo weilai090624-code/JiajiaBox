@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$zip$1;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-    .locals 1
+    .registers 4
     .param p1, "t1"    # Ljava/lang/Object;
     .param p2, "t2"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

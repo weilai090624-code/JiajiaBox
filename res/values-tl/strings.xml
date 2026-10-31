@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Papasok na tawag</string>
     <string name="call_notification_ongoing_text">Kasalukuyang tawag</string>
     <string name="call_notification_screening_text">Nagsi-screen ng papasok na tawag</string>
-    <string name="character_counter_content_description" formatted="false">Mga character na nailagay %1$d sa %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Lumampas sa limitasyon sa bilang ng character %1$d sa %2$d</string>
+    <string name="character_counter_content_description">Mga character na nailagay %1$d sa %2$d</string>
+    <string name="character_counter_overflowed_content_description">Lumampas sa limitasyon sa bilang ng character %1$d sa %2$d</string>
     <string name="clear_text_end_icon_content_description">I-clear ang text</string>
     <string name="copy">Kopyahin</string>
     <string name="copy_toast_msg">Nakopya sa clipboard ang link</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Wala sa sakop: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Petsa ng pagsisimula – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Petsa ng pagtatapos</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Pumili ng Range</string>
     <string name="mtrl_picker_range_header_unselected">Petsa ng pagsisimula – Petsa ng pagtatapos</string>
     <string name="mtrl_picker_save">I-save</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">Nakopya sa clipboard ang \"%1$s.\"</string>
     <string name="search_menu_title">Maghanap</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">NAKA-OFF</string>
     <string name="v7_preference_on">NAKA-ON</string>
 </resources>

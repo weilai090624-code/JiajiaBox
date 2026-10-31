@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -62,7 +62,7 @@
 .end method
 
 .method private getOrCreateUseCaseAttachInfo(Ljava/lang/String;Landroidx/camera/core/impl/SessionConfig;)Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;
-    .locals 2
+    .registers 5
     .param p1, "useCaseName"    # Ljava/lang/String;
     .param p2, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -87,7 +87,7 @@
 
     .line 198
     .local v0, "useCaseAttachInfo":Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 199
     new-instance v1, Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;
@@ -102,12 +102,12 @@
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 202
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method private getSessionConfigs(Landroidx/camera/core/impl/UseCaseAttachState$AttachStateFilter;)Ljava/util/Collection;
-    .locals 4
+    .registers 6
     .param p1, "attachStateFilter"    # Landroidx/camera/core/impl/UseCaseAttachState$AttachStateFilter;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -146,12 +146,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_37
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -161,7 +161,7 @@
 
     .line 209
     .local v2, "attachedUseCase":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_29
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -173,10 +173,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_36
 
     .line 210
-    :cond_0
+    :cond_29
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
@@ -191,16 +191,16 @@
 
     .line 212
     .end local v2    # "attachedUseCase":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;>;"
-    :cond_1
-    goto :goto_0
+    :cond_36
+    goto :goto_f
 
     .line 213
-    :cond_2
+    :cond_37
     return-object v0
 .end method
 
 .method static synthetic lambda$getActiveAndAttachedSessionConfigs$1(Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;)Z
-    .locals 1
+    .registers 2
     .param p0, "useCaseAttachInfo"    # Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;
 
     .line 127
@@ -208,27 +208,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-virtual {p0}, Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;->getAttached()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method static synthetic lambda$getAttachedSessionConfigs$0(Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;)Z
-    .locals 1
+    .registers 2
     .param p0, "useCaseAttachInfo"    # Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;
 
     .line 120
@@ -242,7 +242,7 @@
 
 # virtual methods
 .method public getActiveAndAttachedBuilder()Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;
-    .locals 7
+    .registers 8
 
     .line 161
     new-instance v0, Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;
@@ -267,12 +267,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_14
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_43
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -294,13 +294,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_42
 
     invoke-virtual {v4}, Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;->getAttached()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_42
 
     .line 168
     invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -324,11 +324,11 @@
     .end local v3    # "attachedUseCase":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;>;"
     .end local v4    # "useCaseAttachInfo":Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;
     .end local v5    # "useCaseName":Ljava/lang/String;
-    :cond_0
-    goto :goto_0
+    :cond_42
+    goto :goto_14
 
     .line 173
-    :cond_1
+    :cond_43
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -368,7 +368,7 @@
 .end method
 
 .method public getActiveAndAttachedSessionConfigs()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -397,7 +397,7 @@
 .end method
 
 .method public getAttachedBuilder()Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;
-    .locals 6
+    .registers 7
 
     .line 180
     new-instance v0, Landroidx/camera/core/impl/SessionConfig$ValidatingBuilder;
@@ -422,12 +422,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_14
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -449,7 +449,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_3c
 
     .line 186
     invoke-virtual {v4}, Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;->getSessionConfig()Landroidx/camera/core/impl/SessionConfig;
@@ -473,11 +473,11 @@
     .end local v3    # "attachedUseCase":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;>;"
     .end local v4    # "useCaseAttachInfo":Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;
     .end local v5    # "useCaseName":Ljava/lang/String;
-    :cond_0
-    goto :goto_0
+    :cond_3c
+    goto :goto_14
 
     .line 191
-    :cond_1
+    :cond_3d
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -517,7 +517,7 @@
 .end method
 
 .method public getAttachedSessionConfigs()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -546,7 +546,7 @@
 .end method
 
 .method public isUseCaseAttached(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "useCaseName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -564,7 +564,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 110
     const/4 v0, 0x0
@@ -572,7 +572,7 @@
     return v0
 
     .line 113
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/camera/core/impl/UseCaseAttachState;->mAttachedUseCasesToInfoMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -591,7 +591,7 @@
 .end method
 
 .method public removeUseCase(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "useCaseName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -612,7 +612,7 @@
 .end method
 
 .method public setUseCaseActive(Ljava/lang/String;Landroidx/camera/core/impl/SessionConfig;)V
-    .locals 2
+    .registers 5
     .param p1, "useCaseName"    # Ljava/lang/String;
     .param p2, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -642,7 +642,7 @@
 .end method
 
 .method public setUseCaseAttached(Ljava/lang/String;Landroidx/camera/core/impl/SessionConfig;)V
-    .locals 2
+    .registers 5
     .param p1, "useCaseName"    # Ljava/lang/String;
     .param p2, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -672,7 +672,7 @@
 .end method
 
 .method public setUseCaseDetached(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "useCaseName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -690,13 +690,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 98
     return-void
 
     .line 100
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/camera/core/impl/UseCaseAttachState;->mAttachedUseCasesToInfoMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -716,7 +716,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_20
 
     .line 103
     iget-object v1, p0, Landroidx/camera/core/impl/UseCaseAttachState;->mAttachedUseCasesToInfoMap:Ljava/util/Map;
@@ -724,12 +724,12 @@
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 105
-    :cond_1
+    :cond_20
     return-void
 .end method
 
 .method public setUseCaseInactive(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "useCaseName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -747,13 +747,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 69
     return-void
 
     .line 72
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/camera/core/impl/UseCaseAttachState;->mAttachedUseCasesToInfoMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -773,7 +773,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_20
 
     .line 75
     iget-object v1, p0, Landroidx/camera/core/impl/UseCaseAttachState;->mAttachedUseCasesToInfoMap:Ljava/util/Map;
@@ -781,12 +781,12 @@
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 77
-    :cond_1
+    :cond_20
     return-void
 .end method
 
 .method public updateUseCase(Ljava/lang/String;Landroidx/camera/core/impl/SessionConfig;)V
-    .locals 3
+    .registers 6
     .param p1, "useCaseName"    # Ljava/lang/String;
     .param p2, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -807,13 +807,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 137
     return-void
 
     .line 141
-    :cond_0
+    :cond_9
     new-instance v0, Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;
 
     invoke-direct {v0, p2}, Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;-><init>(Landroidx/camera/core/impl/SessionConfig;)V

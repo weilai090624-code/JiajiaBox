@@ -96,7 +96,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lkotlin/SafePublicationLazyImpl$Companion;
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 3
     .param p1, "initializer"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -168,7 +168,7 @@
 .end method
 
 .method private final writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 121
     new-instance v0, Lkotlin/InitializedLazyImpl;
@@ -185,7 +185,7 @@
 
 # virtual methods
 .method public getValue()Ljava/lang/Object;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -199,18 +199,18 @@
     .local v0, "value":Ljava/lang/Object;
     sget-object v1, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_7
 
     .line 101
     return-object v0
 
     .line 104
-    :cond_0
+    :cond_7
     iget-object v1, p0, Lkotlin/SafePublicationLazyImpl;->initializer:Lkotlin/jvm/functions/Function0;
 
     .line 106
     .local v1, "initializerValue":Lkotlin/jvm/functions/Function0;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1d
 
     .line 107
     invoke-interface {v1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
@@ -227,7 +227,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1d
 
     .line 109
     const/4 v3, 0x0
@@ -239,42 +239,42 @@
 
     .line 114
     .end local v2    # "newValue":Ljava/lang/Object;
-    :cond_1
+    :cond_1d
     iget-object v2, p0, Lkotlin/SafePublicationLazyImpl;->_value:Ljava/lang/Object;
 
     return-object v2
 .end method
 
 .method public isInitialized()Z
-    .locals 2
+    .registers 3
 
     .line 117
     iget-object v0, p0, Lkotlin/SafePublicationLazyImpl;->_value:Ljava/lang/Object;
 
     sget-object v1, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 119
     invoke-virtual {p0}, Lkotlin/SafePublicationLazyImpl;->isInitialized()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {p0}, Lkotlin/SafePublicationLazyImpl;->getValue()Ljava/lang/Object;
 
@@ -284,11 +284,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const-string v0, "Lazy value not initialized yet."
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method

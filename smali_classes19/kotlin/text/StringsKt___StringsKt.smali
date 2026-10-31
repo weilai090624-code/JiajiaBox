@@ -252,7 +252,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/text/StringsKt___StringsJvmKt;-><init>()V
 
@@ -260,7 +260,7 @@
 .end method
 
 .method public static final all(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$all"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -291,12 +291,12 @@
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_2b
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -317,25 +317,25 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_28
 
     return v1
 
     .end local v3    # "element":C
-    :cond_0
+    :cond_28
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1070
-    :cond_1
+    :cond_2b
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method public static final any(Ljava/lang/CharSequence;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$any"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -349,23 +349,23 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     xor-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public static final any(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$any"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -396,12 +396,12 @@
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_2c
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -422,25 +422,25 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_29
 
     const/4 v1, 0x1
 
     return v1
 
     .end local v3    # "element":C
-    :cond_0
+    :cond_29
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1089
-    :cond_1
+    :cond_2c
     return v1
 .end method
 
 .method public static final asIterable(Ljava/lang/CharSequence;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 2
     .param p0, "$this$asIterable"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -460,23 +460,23 @@
     .line 2475
     instance-of v0, p0, Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_12
+    if-eqz v0, :cond_1b
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -487,7 +487,7 @@
     return-object v0
 
     .line 2476
-    :cond_1
+    :cond_1b
     new-instance v0, Lkotlin/text/StringsKt___StringsKt$asIterable$$inlined$Iterable$1;
 
     invoke-direct {v0, p0}, Lkotlin/text/StringsKt___StringsKt$asIterable$$inlined$Iterable$1;-><init>(Ljava/lang/CharSequence;)V
@@ -498,7 +498,7 @@
 .end method
 
 .method public static final asSequence(Ljava/lang/CharSequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$asSequence"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -518,23 +518,23 @@
     .line 2483
     instance-of v0, p0, Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_12
+    if-eqz v0, :cond_19
 
     invoke-static {}, Lkotlin/sequences/SequencesKt;->emptySequence()Lkotlin/sequences/Sequence;
 
@@ -543,7 +543,7 @@
     return-object v0
 
     .line 2484
-    :cond_1
+    :cond_19
     new-instance v0, Lkotlin/text/StringsKt___StringsKt$asSequence$$inlined$Sequence$1;
 
     invoke-direct {v0, p0}, Lkotlin/text/StringsKt___StringsKt$asSequence$$inlined$Sequence$1;-><init>(Ljava/lang/CharSequence;)V
@@ -554,7 +554,7 @@
 .end method
 
 .method public static final associate(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 9
+    .registers 11
     .param p0, "$this$associate"    # Ljava/lang/CharSequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -620,12 +620,12 @@
     .local v4, "$i$f$associateTo":I
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_23
     invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_0
+    if-ge v5, v6, :cond_45
 
     invoke-interface {v3, v5}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -657,10 +657,10 @@
     .end local v6    # "element$iv":C
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 2530
-    :cond_0
+    :cond_45
     nop
 
     .line 682
@@ -671,7 +671,7 @@
 .end method
 
 .method public static final associateBy(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 9
+    .registers 11
     .param p0, "$this$associateBy"    # Ljava/lang/CharSequence;
     .param p1, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -735,12 +735,12 @@
     .local v4, "$i$f$associateByTo":I
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_23
     invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_0
+    if-ge v5, v6, :cond_3f
 
     invoke-interface {v3, v5}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -766,10 +766,10 @@
     .end local v6    # "element$iv":C
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 2534
-    :cond_0
+    :cond_3f
     nop
 
     .line 697
@@ -780,7 +780,7 @@
 .end method
 
 .method public static final associateBy(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 9
+    .registers 12
     .param p0, "$this$associateBy"    # Ljava/lang/CharSequence;
     .param p1, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .param p2, "valueTransform"    # Lkotlin/jvm/functions/Function1;
@@ -853,12 +853,12 @@
     .local v4, "$i$f$associateByTo":I
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_28
     invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_0
+    if-ge v5, v6, :cond_48
 
     invoke-interface {v3, v5}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -888,10 +888,10 @@
     .end local v6    # "element$iv":C
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 2538
-    :cond_0
+    :cond_48
     nop
 
     .line 711
@@ -902,7 +902,7 @@
 .end method
 
 .method public static final associateByTo(Ljava/lang/CharSequence;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 5
+    .registers 8
     .param p0, "$this$associateByTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
@@ -942,12 +942,12 @@
     .local v0, "$i$f$associateByTo":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_2d
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -973,15 +973,15 @@
     .end local v2    # "element":C
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 727
-    :cond_0
+    :cond_2d
     return-object p1
 .end method
 
 .method public static final associateByTo(Ljava/lang/CharSequence;Ljava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 5
+    .registers 9
     .param p0, "$this$associateByTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
@@ -1030,12 +1030,12 @@
     .local v0, "$i$f$associateByTo":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_36
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -1065,15 +1065,15 @@
     .end local v2    # "element":C
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 743
-    :cond_0
+    :cond_36
     return-object p1
 .end method
 
 .method public static final associateTo(Ljava/lang/CharSequence;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 5
+    .registers 8
     .param p0, "$this$associateTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -1115,12 +1115,12 @@
     .local v0, "$i$f$associateTo":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_33
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -1152,15 +1152,15 @@
     .end local v2    # "element":C
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 758
-    :cond_0
+    :cond_33
     return-object p1
 .end method
 
 .method public static final associateWith(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 9
+    .registers 11
     .param p0, "$this$associateWith"    # Ljava/lang/CharSequence;
     .param p1, "valueSelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1226,12 +1226,12 @@
     .local v3, "$i$f$associateWithTo":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_27
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_46
 
     invoke-interface {v2, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -1261,10 +1261,10 @@
     .end local v5    # "element$iv":C
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
     .line 2542
-    :cond_0
+    :cond_46
     move-object v2, v1
 
     check-cast v2, Ljava/util/Map;
@@ -1276,7 +1276,7 @@
 .end method
 
 .method public static final associateWithTo(Ljava/lang/CharSequence;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 5
+    .registers 8
     .param p0, "$this$associateWithTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "valueSelector"    # Lkotlin/jvm/functions/Function1;
@@ -1316,12 +1316,12 @@
     .local v0, "$i$f$associateWithTo":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_2d
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -1347,15 +1347,15 @@
     .end local v2    # "element":C
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 790
-    :cond_0
+    :cond_2d
     return-object p1
 .end method
 
 .method public static final chunked(Ljava/lang/CharSequence;I)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0, "$this$chunked"    # Ljava/lang/CharSequence;
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1384,7 +1384,7 @@
 .end method
 
 .method public static final chunked(Ljava/lang/CharSequence;ILkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p0, "$this$chunked"    # Ljava/lang/CharSequence;
     .param p1, "size"    # I
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -1423,7 +1423,7 @@
 .end method
 
 .method public static final chunkedSequence(Ljava/lang/CharSequence;I)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 3
     .param p0, "$this$chunkedSequence"    # Ljava/lang/CharSequence;
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1454,7 +1454,7 @@
 .end method
 
 .method public static final chunkedSequence(Ljava/lang/CharSequence;ILkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 4
     .param p0, "$this$chunkedSequence"    # Ljava/lang/CharSequence;
     .param p1, "size"    # I
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -1493,7 +1493,7 @@
 .end method
 
 .method private static final count(Ljava/lang/CharSequence;)I
-    .locals 1
+    .registers 2
     .param p0, "$this$count"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -1509,7 +1509,7 @@
 .end method
 
 .method public static final count(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)I
-    .locals 5
+    .registers 7
     .param p0, "$this$count"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1542,12 +1542,12 @@
     .local v1, "count":I
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_2c
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -1568,23 +1568,23 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_29
 
     add-int/lit8 v1, v1, 0x1
 
     .end local v3    # "element":C
-    :cond_0
+    :cond_29
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1106
-    :cond_1
+    :cond_2c
     return v1
 .end method
 
 .method public static final drop(Ljava/lang/CharSequence;I)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 5
     .param p0, "$this$drop"    # Ljava/lang/CharSequence;
     .param p1, "n"    # I
 
@@ -1593,17 +1593,17 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 331
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_a
+    if-eqz v0, :cond_1d
 
     .line 332
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -1625,7 +1625,7 @@
     return-object v0
 
     .line 2495
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
     .line 331
@@ -1667,7 +1667,7 @@
 .end method
 
 .method public static final drop(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "$this$drop"    # Ljava/lang/String;
     .param p1, "n"    # I
 
@@ -1676,17 +1676,17 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 343
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_a
+    if-eqz v0, :cond_1e
 
     .line 344
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -1708,7 +1708,7 @@
     return-object v0
 
     .line 2495
-    :cond_1
+    :cond_1e
     const/4 v0, 0x0
 
     .line 343
@@ -1750,7 +1750,7 @@
 .end method
 
 .method public static final dropLast(Ljava/lang/CharSequence;I)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 5
     .param p0, "$this$dropLast"    # Ljava/lang/CharSequence;
     .param p1, "n"    # I
 
@@ -1761,17 +1761,17 @@
     .line 355
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_b
+    if-eqz v1, :cond_1b
 
     .line 356
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -1791,7 +1791,7 @@
     return-object v0
 
     .line 2495
-    :cond_1
+    :cond_1b
     const/4 v0, 0x0
 
     .line 355
@@ -1833,7 +1833,7 @@
 .end method
 
 .method public static final dropLast(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "$this$dropLast"    # Ljava/lang/String;
     .param p1, "n"    # I
 
@@ -1844,17 +1844,17 @@
     .line 367
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_b
+    if-eqz v1, :cond_1b
 
     .line 368
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -1874,7 +1874,7 @@
     return-object v0
 
     .line 2495
-    :cond_1
+    :cond_1b
     const/4 v0, 0x0
 
     .line 367
@@ -1916,7 +1916,7 @@
 .end method
 
 .method public static final dropLastWhile(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/CharSequence;
-    .locals 4
+    .registers 6
     .param p0, "$this$dropLastWhile"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1949,10 +1949,10 @@
     move-result v1
 
     .local v1, "index":I
-    :goto_0
+    :goto_f
     const/4 v2, -0x1
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_31
 
     .line 378
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1973,7 +1973,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2e
 
     .line 379
     add-int/lit8 v2, v1, 0x1
@@ -1987,14 +1987,14 @@
     return-object v2
 
     .line 377
-    :cond_0
+    :cond_2e
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 380
     .end local v1    # "index":I
-    :cond_1
+    :cond_31
     const-string v1, ""
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -2003,7 +2003,7 @@
 .end method
 
 .method public static final dropLastWhile(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "$this$dropLastWhile"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2040,10 +2040,10 @@
     move-result v1
 
     .local v1, "index":I
-    :goto_0
+    :goto_12
     const/4 v2, -0x1
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_39
 
     .line 390
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -2064,7 +2064,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_36
 
     .line 391
     add-int/lit8 v2, v1, 0x1
@@ -2082,21 +2082,21 @@
     return-object v2
 
     .line 389
-    :cond_0
+    :cond_36
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 392
     .end local v1    # "index":I
-    :cond_1
+    :cond_39
     const-string v1, ""
 
     return-object v1
 .end method
 
 .method public static final dropWhile(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/CharSequence;
-    .locals 4
+    .registers 6
     .param p0, "$this$dropWhile"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2131,8 +2131,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_10
+    if-ge v1, v2, :cond_32
 
     .line 402
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -2153,7 +2153,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2f
 
     .line 403
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -2167,14 +2167,14 @@
     return-object v2
 
     .line 401
-    :cond_0
+    :cond_2f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 404
     .end local v1    # "index":I
-    :cond_1
+    :cond_32
     const-string v1, ""
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -2183,7 +2183,7 @@
 .end method
 
 .method public static final dropWhile(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "$this$dropWhile"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2222,8 +2222,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_13
+    if-ge v1, v2, :cond_36
 
     .line 414
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -2244,7 +2244,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_33
 
     .line 415
     invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -2258,21 +2258,21 @@
     return-object v2
 
     .line 413
-    :cond_0
+    :cond_33
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 416
     .end local v1    # "index":I
-    :cond_1
+    :cond_36
     const-string v1, ""
 
     return-object v1
 .end method
 
 .method private static final elementAtOrElse(Ljava/lang/CharSequence;ILkotlin/jvm/functions/Function1;)C
-    .locals 2
+    .registers 5
     .param p0, "$this$elementAtOrElse"    # Ljava/lang/CharSequence;
     .param p1, "index"    # I
     .param p2, "defaultValue"    # Lkotlin/jvm/functions/Function1;
@@ -2303,26 +2303,26 @@
     .line 36
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_15
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_15
 
     const/4 v0, 0x1
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_15
+    if-eqz v0, :cond_1c
 
     invoke-interface {p0, p1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_1c
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -2337,12 +2337,12 @@
 
     move-result v0
 
-    :goto_0
+    :goto_2a
     return v0
 .end method
 
 .method private static final elementAtOrNull(Ljava/lang/CharSequence;I)Ljava/lang/Character;
-    .locals 1
+    .registers 3
     .param p0, "$this$elementAtOrNull"    # Ljava/lang/CharSequence;
     .param p1, "index"    # I
 
@@ -2359,7 +2359,7 @@
 .end method
 
 .method public static final filter(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/CharSequence;
-    .locals 8
+    .registers 10
     .param p0, "$this$filter"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2408,8 +2408,8 @@
 
     move-result v5
 
-    :goto_0
-    if-ge v4, v5, :cond_1
+    :goto_19
+    if-ge v4, v5, :cond_35
 
     .line 2497
     invoke-interface {v2, v4}, Ljava/lang/CharSequence;->charAt(I)C
@@ -2432,20 +2432,20 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_32
 
     invoke-interface {v1, v6}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .line 2496
     .end local v6    # "element$iv":C
-    :cond_0
+    :cond_32
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 2500
     .end local v4    # "index$iv":I
-    :cond_1
+    :cond_35
     nop
 
     .end local v1    # "destination$iv":Ljava/lang/Appendable;
@@ -2458,7 +2458,7 @@
 .end method
 
 .method public static final filter(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p0, "$this$filter"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2509,8 +2509,8 @@
 
     move-result v5
 
-    :goto_0
-    if-ge v4, v5, :cond_1
+    :goto_1b
+    if-ge v4, v5, :cond_37
 
     .line 2502
     invoke-interface {v1, v4}, Ljava/lang/CharSequence;->charAt(I)C
@@ -2533,20 +2533,20 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_34
 
     invoke-interface {v2, v6}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .line 2501
     .end local v6    # "element$iv":C
-    :cond_0
+    :cond_34
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 2505
     .end local v4    # "index$iv":I
-    :cond_1
+    :cond_37
     nop
 
     .end local v1    # "$this$filterTo$iv":Ljava/lang/CharSequence;
@@ -2569,7 +2569,7 @@
 .end method
 
 .method public static final filterIndexed(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/lang/CharSequence;
-    .locals 14
+    .registers 16
     .param p0, "$this$filterIndexed"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -2626,12 +2626,12 @@
     .local v6, "index$iv$iv":I
     const/4 v7, 0x0
 
-    :goto_0
+    :goto_18
     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
     move-result v8
 
-    if-ge v7, v8, :cond_1
+    if-ge v7, v8, :cond_43
 
     invoke-interface {v4, v7}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -2667,12 +2667,12 @@
 
     move-result v12
 
-    if-eqz v12, :cond_0
+    if-eqz v12, :cond_3d
 
     invoke-interface {v1, v10}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .line 2510
-    :cond_0
+    :cond_3d
     nop
 
     .line 2508
@@ -2686,12 +2686,12 @@
 
     move v6, v9
 
-    goto :goto_0
+    goto :goto_18
 
     .line 2511
     .end local v9    # "index$iv$iv":I
     .local v6, "index$iv$iv":I
-    :cond_1
+    :cond_43
     nop
 
     .line 2512
@@ -2710,7 +2710,7 @@
 .end method
 
 .method public static final filterIndexed(Ljava/lang/String;Lkotlin/jvm/functions/Function2;)Ljava/lang/String;
-    .locals 14
+    .registers 16
     .param p0, "$this$filterIndexed"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -2769,12 +2769,12 @@
     .local v6, "index$iv$iv":I
     const/4 v7, 0x0
 
-    :goto_0
+    :goto_1a
     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
     move-result v8
 
-    if-ge v7, v8, :cond_1
+    if-ge v7, v8, :cond_45
 
     invoke-interface {v4, v7}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -2810,12 +2810,12 @@
 
     move-result v12
 
-    if-eqz v12, :cond_0
+    if-eqz v12, :cond_3f
 
     invoke-interface {v2, v10}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .line 2517
-    :cond_0
+    :cond_3f
     nop
 
     .line 2515
@@ -2829,12 +2829,12 @@
 
     move v6, v9
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 2518
     .end local v9    # "index$iv$iv":I
     .local v6, "index$iv$iv":I
-    :cond_1
+    :cond_45
     nop
 
     .line 2519
@@ -2863,7 +2863,7 @@
 .end method
 
 .method public static final filterIndexedTo(Ljava/lang/CharSequence;Ljava/lang/Appendable;Lkotlin/jvm/functions/Function2;)Ljava/lang/Appendable;
-    .locals 11
+    .registers 14
     .param p0, "$this$filterIndexedTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/lang/Appendable;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function2;
@@ -2913,12 +2913,12 @@
     .local v3, "index$iv":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_3f
 
     invoke-interface {v1, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -2954,12 +2954,12 @@
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_39
 
     invoke-interface {p1, v7}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .line 469
-    :cond_0
+    :cond_39
     nop
 
     .line 2521
@@ -2973,12 +2973,12 @@
 
     move v3, v6
 
-    goto :goto_0
+    goto :goto_14
 
     .line 2522
     .end local v6    # "index$iv":I
     .local v3, "index$iv":I
-    :cond_1
+    :cond_3f
     nop
 
     .line 470
@@ -2989,7 +2989,7 @@
 .end method
 
 .method public static final filterNot(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/CharSequence;
-    .locals 7
+    .registers 9
     .param p0, "$this$filterNot"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -3033,12 +3033,12 @@
     .local v3, "$i$f$filterNotTo":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_15
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_35
 
     invoke-interface {v2, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -3059,18 +3059,18 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_32
 
     invoke-interface {v1, v5}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .end local v5    # "element$iv":C
-    :cond_0
+    :cond_32
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 2524
-    :cond_1
+    :cond_35
     nop
 
     .end local v1    # "destination$iv":Ljava/lang/Appendable;
@@ -3083,7 +3083,7 @@
 .end method
 
 .method public static final filterNot(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p0, "$this$filterNot"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -3129,12 +3129,12 @@
     .local v3, "$i$f$filterNotTo":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_17
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_37
 
     invoke-interface {v1, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -3155,18 +3155,18 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_34
 
     invoke-interface {v2, v5}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .end local v5    # "element$iv":C
-    :cond_0
+    :cond_34
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 2526
-    :cond_1
+    :cond_37
     nop
 
     .end local v1    # "$this$filterNotTo$iv":Ljava/lang/CharSequence;
@@ -3189,7 +3189,7 @@
 .end method
 
 .method public static final filterNotTo(Ljava/lang/CharSequence;Ljava/lang/Appendable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Appendable;
-    .locals 4
+    .registers 7
     .param p0, "$this$filterNotTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/lang/Appendable;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -3226,12 +3226,12 @@
     .local v0, "$i$f$filterNotTo":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_31
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -3252,23 +3252,23 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2e
 
     invoke-interface {p1, v2}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .end local v2    # "element":C
-    :cond_0
+    :cond_2e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 498
-    :cond_1
+    :cond_31
     return-object p1
 .end method
 
 .method public static final filterTo(Ljava/lang/CharSequence;Ljava/lang/Appendable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Appendable;
-    .locals 5
+    .registers 8
     .param p0, "$this$filterTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/lang/Appendable;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -3310,8 +3310,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_15
+    if-ge v1, v2, :cond_31
 
     .line 508
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -3334,25 +3334,25 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2e
 
     invoke-interface {p1, v3}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
     .line 507
     .end local v3    # "element":C
-    :cond_0
+    :cond_2e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 511
     .end local v1    # "index":I
-    :cond_1
+    :cond_31
     return-object p1
 .end method
 
 .method private static final find(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-    .locals 5
+    .registers 7
     .param p0, "$this$find"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -3386,12 +3386,12 @@
     .local v1, "$i$f$firstOrNull":I
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_2f
 
     invoke-interface {v0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -3412,33 +3412,33 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2c
 
     invoke-static {v3}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_30
 
     .end local v3    # "element$iv":C
-    :cond_0
+    :cond_2c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 2489
-    :cond_1
+    :cond_2f
     const/4 v2, 0x0
 
     .line 56
     .end local v0    # "$this$firstOrNull$iv":Ljava/lang/CharSequence;
     .end local v1    # "$i$f$firstOrNull":I
-    :goto_1
+    :goto_30
     return-object v2
 .end method
 
 .method private static final findLast(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-    .locals 6
+    .registers 8
     .param p0, "$this$findLast"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -3476,9 +3476,9 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_32
 
-    :cond_0
+    :cond_14
     move v3, v2
 
     .local v3, "index$iv":I
@@ -3505,33 +3505,33 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_30
 
     invoke-static {v4}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_33
 
     .line 2490
     .end local v4    # "element$iv":C
-    :cond_1
-    if-gez v2, :cond_0
+    :cond_30
+    if-gez v2, :cond_14
 
     .line 2494
     .end local v3    # "index$iv":I
-    :cond_2
+    :cond_32
     const/4 v2, 0x0
 
     .line 66
     .end local v0    # "$this$lastOrNull$iv":Ljava/lang/CharSequence;
     .end local v1    # "$i$f$lastOrNull":I
-    :goto_0
+    :goto_33
     return-object v2
 .end method
 
 .method public static final first(Ljava/lang/CharSequence;)C
-    .locals 2
+    .registers 3
     .param p0, "$this$first"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -3545,17 +3545,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_f
+    if-nez v0, :cond_16
 
     .line 77
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -3565,7 +3565,7 @@
     return v0
 
     .line 76
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "Char sequence is empty."
@@ -3576,7 +3576,7 @@
 .end method
 
 .method public static final first(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)C
-    .locals 4
+    .registers 6
     .param p0, "$this$first"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -3605,12 +3605,12 @@
     .local v0, "$i$f$first":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2a
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -3631,18 +3631,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_27
 
     return v2
 
     .end local v2    # "element":C
-    :cond_0
+    :cond_27
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 86
-    :cond_1
+    :cond_2a
     new-instance v1, Ljava/util/NoSuchElementException;
 
     const-string v2, "Char sequence contains no character matching the predicate."
@@ -3653,7 +3653,7 @@
 .end method
 
 .method private static final firstNotNullOf(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$firstNotNullOf"    # Ljava/lang/CharSequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -3680,12 +3680,12 @@
     .line 98
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_22
 
     invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -3699,21 +3699,21 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_23
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_22
     const/4 v1, 0x0
 
-    :cond_1
-    if-eqz v1, :cond_2
+    :cond_23
+    if-eqz v1, :cond_26
 
     return-object v1
 
-    :cond_2
+    :cond_26
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "No element of the char sequence was transformed to a non-null value."
@@ -3724,7 +3724,7 @@
 .end method
 
 .method private static final firstNotNullOfOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "$this$firstNotNullOfOrNull"    # Ljava/lang/CharSequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -3751,12 +3751,12 @@
     .line 110
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_23
 
     invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -3774,7 +3774,7 @@
 
     .line 112
     .local v2, "result":Ljava/lang/Object;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 113
     return-object v2
@@ -3782,20 +3782,20 @@
     .line 110
     .end local v1    # "element":C
     .end local v2    # "result":Ljava/lang/Object;
-    :cond_0
+    :cond_20
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 116
-    :cond_1
+    :cond_23
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static final firstOrNull(Ljava/lang/CharSequence;)Ljava/lang/Character;
-    .locals 2
+    .registers 3
     .param p0, "$this$firstOrNull"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -3809,23 +3809,23 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_13
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -3834,12 +3834,12 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_1b
     return-object v0
 .end method
 
 .method public static final firstOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-    .locals 4
+    .registers 6
     .param p0, "$this$firstOrNull"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -3869,12 +3869,12 @@
     .local v0, "$i$f$firstOrNull":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2e
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -3895,7 +3895,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2b
 
     invoke-static {v2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
@@ -3904,20 +3904,20 @@
     return-object v1
 
     .end local v2    # "element":C
-    :cond_0
+    :cond_2b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 131
-    :cond_1
+    :cond_2e
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static final flatMap(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$flatMap"    # Ljava/lang/CharSequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -3965,12 +3965,12 @@
     .local v3, "$i$f$flatMapTo":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_15
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_2f
 
     invoke-interface {v2, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -3997,10 +3997,10 @@
     .end local v6    # "list$iv":Ljava/lang/Iterable;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 2547
-    :cond_0
+    :cond_2f
     nop
 
     .end local v1    # "destination$iv":Ljava/util/Collection;
@@ -4013,7 +4013,7 @@
 .end method
 
 .method private static final flatMapIndexedIterable(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p0, "$this$flatMapIndexed"    # Ljava/lang/CharSequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -4054,12 +4054,12 @@
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_13
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v1, v3, :cond_0
+    if-ge v1, v3, :cond_34
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -4087,16 +4087,16 @@
 
     move v2, v4
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_34
     check-cast v0, Ljava/util/List;
 
     return-object v0
 .end method
 
 .method private static final flatMapIndexedIterableTo(Ljava/lang/CharSequence;Ljava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
-    .locals 5
+    .registers 8
     .param p0, "$this$flatMapIndexedTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -4139,12 +4139,12 @@
     .local v0, "index":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_32
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -4181,17 +4181,17 @@
 
     move v0, v3
 
-    goto :goto_0
+    goto :goto_11
 
     .line 880
     .end local v3    # "index":I
     .local v0, "index":I
-    :cond_0
+    :cond_32
     return-object p1
 .end method
 
 .method public static final flatMapTo(Ljava/lang/CharSequence;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
-    .locals 4
+    .registers 7
     .param p0, "$this$flatMapTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -4231,12 +4231,12 @@
     .local v0, "$i$f$flatMapTo":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_2b
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -4263,15 +4263,15 @@
     .end local v3    # "list":Ljava/lang/Iterable;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 891
-    :cond_0
+    :cond_2b
     return-object p1
 .end method
 
 .method public static final fold(Ljava/lang/CharSequence;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "$this$fold"    # Ljava/lang/CharSequence;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -4307,12 +4307,12 @@
     .local v1, "accumulator":Ljava/lang/Object;
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_22
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -4330,15 +4330,15 @@
     .end local v3    # "element":C
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1120
-    :cond_0
+    :cond_22
     return-object v1
 .end method
 
 .method public static final foldIndexed(Ljava/lang/CharSequence;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
-    .locals 7
+    .registers 10
     .param p0, "$this$foldIndexed"    # Ljava/lang/CharSequence;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -4380,12 +4380,12 @@
     .local v2, "accumulator":Ljava/lang/Object;
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_e
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_2a
 
     invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -4413,17 +4413,17 @@
 
     move v1, v5
 
-    goto :goto_0
+    goto :goto_e
 
     .line 1136
     .end local v5    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_2a
     return-object v2
 .end method
 
 .method public static final foldRight(Ljava/lang/CharSequence;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$foldRight"    # Ljava/lang/CharSequence;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -4463,8 +4463,8 @@
 
     .line 1150
     .local v2, "accumulator":Ljava/lang/Object;
-    :goto_0
-    if-ltz v1, :cond_0
+    :goto_10
+    if-ltz v1, :cond_22
 
     .line 1151
     add-int/lit8 v3, v1, -0x1
@@ -4485,17 +4485,17 @@
 
     move v1, v3
 
-    goto :goto_0
+    goto :goto_10
 
     .line 1153
     .end local v3    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_22
     return-object v2
 .end method
 
 .method public static final foldRightIndexed(Ljava/lang/CharSequence;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "$this$foldRightIndexed"    # Ljava/lang/CharSequence;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -4537,8 +4537,8 @@
 
     .line 1168
     .local v2, "accumulator":Ljava/lang/Object;
-    :goto_0
-    if-ltz v1, :cond_0
+    :goto_10
+    if-ltz v1, :cond_25
 
     .line 1169
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -4560,15 +4560,15 @@
     .line 1170
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 1172
-    :cond_0
+    :cond_25
     return-object v2
 .end method
 
 .method public static final forEach(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p0, "$this$forEach"    # Ljava/lang/CharSequence;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -4597,12 +4597,12 @@
     .local v0, "$i$f$forEach":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_20
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -4618,15 +4618,15 @@
     .end local v2    # "element":C
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 1180
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public static final forEachIndexed(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)V
-    .locals 6
+    .registers 8
     .param p0, "$this$forEachIndexed"    # Ljava/lang/CharSequence;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -4661,12 +4661,12 @@
     .local v1, "index":I
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_28
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -4692,17 +4692,17 @@
 
     move v1, v4
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1190
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_28
     return-void
 .end method
 
 .method private static final getOrElse(Ljava/lang/CharSequence;ILkotlin/jvm/functions/Function1;)C
-    .locals 2
+    .registers 5
     .param p0, "$this$getOrElse"    # Ljava/lang/CharSequence;
     .param p1, "index"    # I
     .param p2, "defaultValue"    # Lkotlin/jvm/functions/Function1;
@@ -4733,26 +4733,26 @@
     .line 142
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_15
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_15
 
     const/4 v0, 0x1
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_15
+    if-eqz v0, :cond_1c
 
     invoke-interface {p0, p1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_1c
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -4767,12 +4767,12 @@
 
     move-result v0
 
-    :goto_0
+    :goto_2a
     return v0
 .end method
 
 .method public static final getOrNull(Ljava/lang/CharSequence;I)Ljava/lang/Character;
-    .locals 2
+    .registers 4
     .param p0, "$this$getOrNull"    # Ljava/lang/CharSequence;
     .param p1, "index"    # I
 
@@ -4783,18 +4783,18 @@
     .line 151
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_f
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_f
 
     const/4 v0, 0x1
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_f
+    if-eqz v0, :cond_1a
 
     invoke-interface {p0, p1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -4804,17 +4804,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return-object v0
 .end method
 
 .method public static final groupBy(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 12
+    .registers 14
     .param p0, "$this$groupBy"    # Ljava/lang/CharSequence;
     .param p1, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -4863,12 +4863,12 @@
     .local v3, "$i$f$groupByTo":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_15
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_4c
 
     invoke-interface {v2, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -4899,7 +4899,7 @@
 
     .line 2552
     .local v9, "value$iv$iv":Ljava/lang/Object;
-    if-nez v9, :cond_0
+    if-nez v9, :cond_3d
 
     .line 2553
     const/4 v10, 0x0
@@ -4924,14 +4924,14 @@
     nop
 
     .end local v10    # "answer$iv$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_3e
 
     .line 2557
-    :cond_0
+    :cond_3d
     move-object v10, v9
 
     .line 2552
-    :goto_1
+    :goto_3e
     nop
 
     .line 2550
@@ -4956,10 +4956,10 @@
     .end local v7    # "list$iv":Ljava/util/List;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 2560
-    :cond_1
+    :cond_4c
     nop
 
     .line 903
@@ -4970,7 +4970,7 @@
 .end method
 
 .method public static final groupBy(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 12
+    .registers 15
     .param p0, "$this$groupBy"    # Ljava/lang/CharSequence;
     .param p1, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .param p2, "valueTransform"    # Lkotlin/jvm/functions/Function1;
@@ -5029,12 +5029,12 @@
     .local v3, "$i$f$groupByTo":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_1a
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_55
 
     invoke-interface {v2, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -5065,7 +5065,7 @@
 
     .line 2565
     .local v9, "value$iv$iv":Ljava/lang/Object;
-    if-nez v9, :cond_0
+    if-nez v9, :cond_42
 
     .line 2566
     const/4 v10, 0x0
@@ -5090,14 +5090,14 @@
     nop
 
     .end local v10    # "answer$iv$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_43
 
     .line 2570
-    :cond_0
+    :cond_42
     move-object v10, v9
 
     .line 2565
-    :goto_1
+    :goto_43
     nop
 
     .line 2563
@@ -5126,10 +5126,10 @@
     .end local v7    # "list$iv":Ljava/util/List;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 2573
-    :cond_1
+    :cond_55
     nop
 
     .line 916
@@ -5140,7 +5140,7 @@
 .end method
 
 .method public static final groupByTo(Ljava/lang/CharSequence;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 9
+    .registers 12
     .param p0, "$this$groupByTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
@@ -5181,12 +5181,12 @@
     .local v0, "$i$f$groupByTo":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_48
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -5217,7 +5217,7 @@
 
     .line 2575
     .local v6, "value$iv":Ljava/lang/Object;
-    if-nez v6, :cond_0
+    if-nez v6, :cond_39
 
     .line 2576
     const/4 v7, 0x0
@@ -5242,14 +5242,14 @@
     nop
 
     .end local v7    # "answer$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_3a
 
     .line 2580
-    :cond_0
+    :cond_39
     move-object v7, v6
 
     .line 2575
-    :goto_1
+    :goto_3a
     nop
 
     .line 930
@@ -5274,15 +5274,15 @@
     .end local v4    # "list":Ljava/util/List;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 933
-    :cond_1
+    :cond_48
     return-object p1
 .end method
 
 .method public static final groupByTo(Ljava/lang/CharSequence;Ljava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 9
+    .registers 13
     .param p0, "$this$groupByTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
@@ -5333,12 +5333,12 @@
     .local v0, "$i$f$groupByTo":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_51
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -5369,7 +5369,7 @@
 
     .line 2582
     .local v6, "value$iv":Ljava/lang/Object;
-    if-nez v6, :cond_0
+    if-nez v6, :cond_3e
 
     .line 2583
     const/4 v7, 0x0
@@ -5394,14 +5394,14 @@
     nop
 
     .end local v7    # "answer$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_3f
 
     .line 2587
-    :cond_0
+    :cond_3e
     move-object v7, v6
 
     .line 2582
-    :goto_1
+    :goto_3f
     nop
 
     .line 948
@@ -5430,15 +5430,15 @@
     .end local v4    # "list":Ljava/util/List;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 951
-    :cond_1
+    :cond_51
     return-object p1
 .end method
 
 .method public static final groupingBy(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Lkotlin/collections/Grouping;
-    .locals 2
+    .registers 4
     .param p0, "$this$groupingBy"    # Ljava/lang/CharSequence;
     .param p1, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -5479,7 +5479,7 @@
 .end method
 
 .method public static final indexOfFirst(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)I
-    .locals 4
+    .registers 6
     .param p0, "$this$indexOfFirst"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -5513,8 +5513,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_10
+    if-ge v1, v2, :cond_2a
 
     .line 159
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -5535,27 +5535,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_27
 
     .line 160
     return v1
 
     .line 158
-    :cond_0
+    :cond_27
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 163
     .end local v1    # "index":I
-    :cond_1
+    :cond_2a
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method public static final indexOfLast(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)I
-    .locals 5
+    .registers 7
     .param p0, "$this$indexOfLast"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -5590,9 +5590,9 @@
 
     add-int/2addr v1, v2
 
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_2c
 
-    :cond_0
+    :cond_13
     move v3, v1
 
     .local v3, "index":I
@@ -5617,23 +5617,23 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2a
 
     .line 172
     return v3
 
     .line 170
-    :cond_1
-    if-gez v1, :cond_0
+    :cond_2a
+    if-gez v1, :cond_13
 
     .line 175
     .end local v3    # "index":I
-    :cond_2
+    :cond_2c
     return v2
 .end method
 
 .method public static final last(Ljava/lang/CharSequence;)C
-    .locals 2
+    .registers 3
     .param p0, "$this$last"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -5645,17 +5645,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_e
+    if-nez v0, :cond_19
 
     .line 188
     invoke-static {p0}, Lkotlin/text/StringsKt;->getLastIndex(Ljava/lang/CharSequence;)I
@@ -5669,7 +5669,7 @@
     return v0
 
     .line 187
-    :cond_1
+    :cond_19
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "Char sequence is empty."
@@ -5680,7 +5680,7 @@
 .end method
 
 .method public static final last(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)C
-    .locals 5
+    .registers 7
     .param p0, "$this$last"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -5713,9 +5713,9 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_2e
 
-    :goto_0
+    :goto_13
     move v2, v1
 
     .local v2, "index":I
@@ -5742,20 +5742,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2b
 
     return v3
 
     .line 199
     .end local v3    # "element":C
-    :cond_0
-    if-ltz v1, :cond_1
+    :cond_2b
+    if-ltz v1, :cond_2e
 
-    goto :goto_0
+    goto :goto_13
 
     .line 203
     .end local v2    # "index":I
-    :cond_1
+    :cond_2e
     new-instance v1, Ljava/util/NoSuchElementException;
 
     const-string v2, "Char sequence contains no character matching the predicate."
@@ -5766,7 +5766,7 @@
 .end method
 
 .method public static final lastOrNull(Ljava/lang/CharSequence;)Ljava/lang/Character;
-    .locals 2
+    .registers 3
     .param p0, "$this$lastOrNull"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -5780,23 +5780,23 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
+    :cond_13
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -5811,12 +5811,12 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_20
     return-object v0
 .end method
 
 .method public static final lastOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-    .locals 5
+    .registers 7
     .param p0, "$this$lastOrNull"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -5850,9 +5850,9 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_31
 
-    :cond_0
+    :cond_13
     move v2, v1
 
     .local v2, "index":I
@@ -5879,7 +5879,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2f
 
     invoke-static {v3}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
@@ -5889,19 +5889,19 @@
 
     .line 221
     .end local v3    # "element":C
-    :cond_1
-    if-gez v1, :cond_0
+    :cond_2f
+    if-gez v1, :cond_13
 
     .line 225
     .end local v2    # "index":I
-    :cond_2
+    :cond_31
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static final map(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$map"    # Ljava/lang/CharSequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -5951,12 +5951,12 @@
     .local v3, "$i$f$mapTo":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_19
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_31
 
     invoke-interface {v2, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -5978,10 +5978,10 @@
     .end local v5    # "item$iv":C
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 2590
-    :cond_0
+    :cond_31
     nop
 
     .end local v1    # "destination$iv":Ljava/util/Collection;
@@ -5994,7 +5994,7 @@
 .end method
 
 .method public static final mapIndexed(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 9
+    .registers 11
     .param p0, "$this$mapIndexed"    # Ljava/lang/CharSequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -6050,12 +6050,12 @@
     .local v4, "index$iv":I
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_1a
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_0
+    if-ge v5, v6, :cond_39
 
     invoke-interface {v2, v5}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -6087,12 +6087,12 @@
 
     move v4, v7
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 2594
     .end local v7    # "index$iv":I
     .restart local v4    # "index$iv":I
-    :cond_0
+    :cond_39
     nop
 
     .end local v1    # "destination$iv":Ljava/util/Collection;
@@ -6106,7 +6106,7 @@
 .end method
 
 .method public static final mapIndexedNotNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 14
+    .registers 16
     .param p0, "$this$mapIndexedNotNull"    # Ljava/lang/CharSequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -6165,12 +6165,12 @@
     .local v6, "index$iv$iv":I
     const/4 v7, 0x0
 
-    :goto_0
+    :goto_18
     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
     move-result v8
 
-    if-ge v7, v8, :cond_1
+    if-ge v7, v8, :cond_3d
 
     invoke-interface {v4, v7}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -6200,7 +6200,7 @@
 
     move-result-object v12
 
-    if-eqz v12, :cond_0
+    if-eqz v12, :cond_38
 
     .line 2598
     .local v12, "it$iv":Ljava/lang/Object;
@@ -6216,7 +6216,7 @@
     .end local v11    # "$i$a$-forEachIndexed-StringsKt___StringsKt$mapIndexedNotNullTo$1$iv":I
     .end local v12    # "it$iv":Ljava/lang/Object;
     .end local v13    # "$i$a$-let-StringsKt___StringsKt$mapIndexedNotNullTo$1$1$iv":I
-    :cond_0
+    :cond_38
     nop
 
     .end local v8    # "item$iv$iv":C
@@ -6224,12 +6224,12 @@
 
     move v6, v9
 
-    goto :goto_0
+    goto :goto_18
 
     .line 2599
     .end local v9    # "index$iv$iv":I
     .local v6, "index$iv$iv":I
-    :cond_1
+    :cond_3d
     nop
 
     .line 2600
@@ -6248,7 +6248,7 @@
 .end method
 
 .method public static final mapIndexedNotNullTo(Ljava/lang/CharSequence;Ljava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
-    .locals 11
+    .registers 14
     .param p0, "$this$mapIndexedNotNullTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -6299,12 +6299,12 @@
     .local v3, "index$iv":I
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_39
 
     invoke-interface {v1, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -6334,7 +6334,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_34
 
     .line 2495
     .local v9, "it":Ljava/lang/Object;
@@ -6350,7 +6350,7 @@
     .end local v8    # "$i$a$-forEachIndexed-StringsKt___StringsKt$mapIndexedNotNullTo$1":I
     .end local v9    # "it":Ljava/lang/Object;
     .end local v10    # "$i$a$-let-StringsKt___StringsKt$mapIndexedNotNullTo$1$1":I
-    :cond_0
+    :cond_34
     nop
 
     .end local v5    # "item$iv":C
@@ -6358,12 +6358,12 @@
 
     move v3, v6
 
-    goto :goto_0
+    goto :goto_14
 
     .line 2603
     .end local v6    # "index$iv":I
     .local v3, "index$iv":I
-    :cond_1
+    :cond_39
     nop
 
     .line 1006
@@ -6374,7 +6374,7 @@
 .end method
 
 .method public static final mapIndexedTo(Ljava/lang/CharSequence;Ljava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
-    .locals 6
+    .registers 9
     .param p0, "$this$mapIndexedTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -6418,12 +6418,12 @@
     .local v1, "index":I
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_12
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_31
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -6455,17 +6455,17 @@
 
     move v1, v4
 
-    goto :goto_0
+    goto :goto_12
 
     .line 1019
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_31
     return-object p1
 .end method
 
 .method public static final mapNotNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 12
+    .registers 14
     .param p0, "$this$mapNotNull"    # Ljava/lang/CharSequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -6518,12 +6518,12 @@
     .local v5, "$i$f$forEach":I
     const/4 v6, 0x0
 
-    :goto_0
+    :goto_17
     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
     move-result v7
 
-    if-ge v6, v7, :cond_1
+    if-ge v6, v7, :cond_35
 
     invoke-interface {v4, v6}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -6545,7 +6545,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_31
 
     .line 2606
     .local v10, "it$iv":Ljava/lang/Object;
@@ -6560,16 +6560,16 @@
     .end local v9    # "$i$a$-forEach-StringsKt___StringsKt$mapNotNullTo$1$iv":I
     .end local v10    # "it$iv":Ljava/lang/Object;
     .end local v11    # "$i$a$-let-StringsKt___StringsKt$mapNotNullTo$1$1$iv":I
-    :cond_0
+    :cond_31
     nop
 
     .end local v7    # "element$iv$iv":C
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 2607
-    :cond_1
+    :cond_35
     nop
 
     .line 2608
@@ -6587,7 +6587,7 @@
 .end method
 
 .method public static final mapNotNullTo(Ljava/lang/CharSequence;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
-    .locals 9
+    .registers 12
     .param p0, "$this$mapNotNullTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -6632,12 +6632,12 @@
     .local v2, "$i$f$forEach":I
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_13
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_31
 
     invoke-interface {v1, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -6659,7 +6659,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_2d
 
     .line 2495
     .local v7, "it":Ljava/lang/Object;
@@ -6674,16 +6674,16 @@
     .end local v6    # "$i$a$-forEach-StringsKt___StringsKt$mapNotNullTo$1":I
     .end local v7    # "it":Ljava/lang/Object;
     .end local v8    # "$i$a$-let-StringsKt___StringsKt$mapNotNullTo$1$1":I
-    :cond_0
+    :cond_2d
     nop
 
     .end local v4    # "element$iv":C
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 2610
-    :cond_1
+    :cond_31
     nop
 
     .line 1038
@@ -6693,7 +6693,7 @@
 .end method
 
 .method public static final mapTo(Ljava/lang/CharSequence;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
-    .locals 4
+    .registers 7
     .param p0, "$this$mapTo"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -6731,12 +6731,12 @@
     .local v0, "$i$f$mapTo":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_29
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -6758,15 +6758,15 @@
     .end local v2    # "item":C
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1048
-    :cond_0
+    :cond_29
     return-object p1
 .end method
 
 .method public static final maxByOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-    .locals 8
+    .registers 10
     .param p0, "$this$maxByOrNull"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -6801,24 +6801,24 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_15
+    if-eqz v1, :cond_19
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 1245
-    :cond_1
+    :cond_19
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v1
@@ -6831,7 +6831,7 @@
 
     .line 1247
     .local v2, "lastIndex":I
-    if-nez v2, :cond_2
+    if-nez v2, :cond_28
 
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
@@ -6840,7 +6840,7 @@
     return-object v3
 
     .line 1248
-    :cond_2
+    :cond_28
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v3
@@ -6856,10 +6856,10 @@
     const/4 v4, 0x1
 
     .local v4, "i":I
-    if-gt v4, v2, :cond_4
+    if-gt v4, v2, :cond_50
 
     .line 1250
-    :goto_1
+    :goto_35
     invoke-interface {p0, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v5
@@ -6882,7 +6882,7 @@
 
     move-result v7
 
-    if-gez v7, :cond_3
+    if-gez v7, :cond_4b
 
     .line 1253
     move v1, v5
@@ -6893,16 +6893,16 @@
     .line 1249
     .end local v5    # "e":C
     .end local v6    # "v":Ljava/lang/Comparable;
-    :cond_3
-    if-eq v4, v2, :cond_4
+    :cond_4b
+    if-eq v4, v2, :cond_50
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 1257
     .end local v4    # "i":I
-    :cond_4
+    :cond_50
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v4
@@ -6911,7 +6911,7 @@
 .end method
 
 .method public static final maxByOrThrow(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)C
-    .locals 8
+    .registers 10
     .param p0, "$this$maxBy"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -6945,17 +6945,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_4
+    :goto_15
+    if-nez v1, :cond_4b
 
     .line 1222
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -6970,12 +6970,12 @@
 
     .line 1224
     .local v2, "lastIndex":I
-    if-nez v2, :cond_1
+    if-nez v2, :cond_22
 
     return v1
 
     .line 1225
-    :cond_1
+    :cond_22
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v3
@@ -6991,10 +6991,10 @@
     const/4 v4, 0x1
 
     .local v4, "i":I
-    if-gt v4, v2, :cond_3
+    if-gt v4, v2, :cond_4a
 
     .line 1227
-    :goto_1
+    :goto_2f
     invoke-interface {p0, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v5
@@ -7017,7 +7017,7 @@
 
     move-result v7
 
-    if-gez v7, :cond_2
+    if-gez v7, :cond_45
 
     .line 1230
     move v1, v5
@@ -7028,23 +7028,23 @@
     .line 1226
     .end local v5    # "e":C
     .end local v6    # "v":Ljava/lang/Comparable;
-    :cond_2
-    if-eq v4, v2, :cond_3
+    :cond_45
+    if-eq v4, v2, :cond_4a
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 1234
     .end local v4    # "i":I
-    :cond_3
+    :cond_4a
     return v1
 
     .line 1221
     .end local v1    # "maxElem":C
     .end local v2    # "lastIndex":I
     .end local v3    # "maxValue":Ljava/lang/Comparable;
-    :cond_4
+    :cond_4b
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -7053,7 +7053,7 @@
 .end method
 
 .method private static final maxOf(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)D
-    .locals 6
+    .registers 8
     .param p0, "$this$maxOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7083,17 +7083,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_14
+    if-nez v0, :cond_4b
 
     .line 1274
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -7123,10 +7123,10 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_1
+    if-gt v2, v3, :cond_4a
 
     .line 1276
-    :goto_1
+    :goto_2f
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v4
@@ -7153,20 +7153,20 @@
 
     .line 1275
     .end local v4    # "v":D
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_4a
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 1279
     .end local v2    # "i":I
-    :cond_1
+    :cond_4a
     return-wide v0
 
     .line 1273
     .end local v0    # "maxValue":D
-    :cond_2
+    :cond_4b
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -7175,7 +7175,7 @@
 .end method
 
 .method private static final maxOf(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)F
-    .locals 4
+    .registers 6
     .param p0, "$this$maxOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7205,17 +7205,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_14
+    if-nez v0, :cond_4b
 
     .line 1296
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -7245,10 +7245,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_1
+    if-gt v1, v2, :cond_4a
 
     .line 1298
-    :goto_1
+    :goto_2f
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -7275,20 +7275,20 @@
 
     .line 1297
     .end local v3    # "v":F
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_4a
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 1301
     .end local v1    # "i":I
-    :cond_1
+    :cond_4a
     return v0
 
     .line 1295
     .end local v0    # "maxValue":F
-    :cond_2
+    :cond_4b
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -7297,7 +7297,7 @@
 .end method
 
 .method private static final maxOf(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
-    .locals 5
+    .registers 7
     .param p0, "$this$maxOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7328,17 +7328,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_3
+    :goto_14
+    if-nez v0, :cond_46
 
     .line 1316
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -7364,10 +7364,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_45
 
     .line 1318
-    :goto_1
+    :goto_2b
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -7388,28 +7388,28 @@
 
     move-result v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_40
 
     .line 1320
     move-object v0, v3
 
     .line 1317
     .end local v3    # "v":Ljava/lang/Comparable;
-    :cond_1
-    if-eq v1, v2, :cond_2
+    :cond_40
+    if-eq v1, v2, :cond_45
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 1323
     .end local v1    # "i":I
-    :cond_2
+    :cond_45
     return-object v0
 
     .line 1315
     .end local v0    # "maxValue":Ljava/lang/Comparable;
-    :cond_3
+    :cond_46
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -7418,7 +7418,7 @@
 .end method
 
 .method private static final maxOfOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
-    .locals 5
+    .registers 7
     .param p0, "$this$maxOfOrNull"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7449,24 +7449,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_14
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1376
-    :cond_1
+    :cond_18
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -7490,10 +7490,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_3
+    if-gt v1, v2, :cond_47
 
     .line 1378
-    :goto_1
+    :goto_2d
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -7514,28 +7514,28 @@
 
     move-result v4
 
-    if-gez v4, :cond_2
+    if-gez v4, :cond_42
 
     .line 1380
     move-object v0, v3
 
     .line 1377
     .end local v3    # "v":Ljava/lang/Comparable;
-    :cond_2
-    if-eq v1, v2, :cond_3
+    :cond_42
+    if-eq v1, v2, :cond_47
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 1383
     .end local v1    # "i":I
-    :cond_3
+    :cond_47
     return-object v0
 .end method
 
 .method private static final maxOfOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Double;
-    .locals 6
+    .registers 8
     .param p0, "$this$maxOfOrNull"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7566,24 +7566,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_14
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1338
-    :cond_1
+    :cond_18
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -7611,10 +7611,10 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_2
+    if-gt v2, v3, :cond_4c
 
     .line 1340
-    :goto_1
+    :goto_31
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v4
@@ -7641,15 +7641,15 @@
 
     .line 1339
     .end local v4    # "v":D
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_4c
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
     .line 1343
     .end local v2    # "i":I
-    :cond_2
+    :cond_4c
     invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v2
@@ -7658,7 +7658,7 @@
 .end method
 
 .method private static final maxOfOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Float;
-    .locals 4
+    .registers 6
     .param p0, "$this$maxOfOrNull"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7689,24 +7689,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_14
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1358
-    :cond_1
+    :cond_18
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -7734,10 +7734,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_4c
 
     .line 1360
-    :goto_1
+    :goto_31
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -7764,15 +7764,15 @@
 
     .line 1359
     .end local v3    # "v":F
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_4c
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
     .line 1363
     .end local v1    # "i":I
-    :cond_2
+    :cond_4c
     invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v1
@@ -7781,7 +7781,7 @@
 .end method
 
 .method private static final maxOfWith(Ljava/lang/CharSequence;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "$this$maxOfWith"    # Ljava/lang/CharSequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -7819,17 +7819,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_3
+    :goto_19
+    if-nez v0, :cond_47
 
     .line 1398
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -7853,10 +7853,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_46
 
     .line 1400
-    :goto_1
+    :goto_2e
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -7875,28 +7875,28 @@
 
     move-result v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_41
 
     .line 1402
     move-object v0, v3
 
     .line 1399
     .end local v3    # "v":Ljava/lang/Object;
-    :cond_1
-    if-eq v1, v2, :cond_2
+    :cond_41
+    if-eq v1, v2, :cond_46
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 1405
     .end local v1    # "i":I
-    :cond_2
+    :cond_46
     return-object v0
 
     .line 1397
     .end local v0    # "maxValue":Ljava/lang/Object;
-    :cond_3
+    :cond_47
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -7905,7 +7905,7 @@
 .end method
 
 .method private static final maxOfWithOrNull(Ljava/lang/CharSequence;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "$this$maxOfWithOrNull"    # Ljava/lang/CharSequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -7943,24 +7943,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_19
+    if-eqz v0, :cond_1d
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1418
-    :cond_1
+    :cond_1d
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -7982,10 +7982,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_3
+    if-gt v1, v2, :cond_48
 
     .line 1420
-    :goto_1
+    :goto_30
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -8004,28 +8004,28 @@
 
     move-result v4
 
-    if-gez v4, :cond_2
+    if-gez v4, :cond_43
 
     .line 1422
     move-object v0, v3
 
     .line 1419
     .end local v3    # "v":Ljava/lang/Object;
-    :cond_2
-    if-eq v1, v2, :cond_3
+    :cond_43
+    if-eq v1, v2, :cond_48
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_30
 
     .line 1425
     .end local v1    # "i":I
-    :cond_3
+    :cond_48
     return-object v0
 .end method
 
 .method public static final maxOrNull(Ljava/lang/CharSequence;)Ljava/lang/Character;
-    .locals 5
+    .registers 6
     .param p0, "$this$maxOrNull"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -8039,24 +8039,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1434
-    :cond_1
+    :cond_13
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -8070,10 +8070,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_3
+    if-gt v1, v2, :cond_2e
 
     .line 1436
-    :goto_1
+    :goto_1e
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -8084,22 +8084,22 @@
 
     move-result v4
 
-    if-gez v4, :cond_2
+    if-gez v4, :cond_29
 
     move v0, v3
 
     .line 1435
     .end local v3    # "e":C
-    :cond_2
-    if-eq v1, v2, :cond_3
+    :cond_29
+    if-eq v1, v2, :cond_2e
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 1439
     .end local v1    # "i":I
-    :cond_3
+    :cond_2e
     invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v1
@@ -8108,7 +8108,7 @@
 .end method
 
 .method public static final maxOrThrow(Ljava/lang/CharSequence;)C
-    .locals 5
+    .registers 6
     .param p0, "$this$max"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -8122,17 +8122,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_3
+    :goto_f
+    if-nez v0, :cond_2d
 
     .line 1202
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -8148,10 +8148,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_2c
 
     .line 1204
-    :goto_1
+    :goto_1c
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -8162,27 +8162,27 @@
 
     move-result v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_27
 
     move v0, v3
 
     .line 1203
     .end local v3    # "e":C
-    :cond_1
-    if-eq v1, v2, :cond_2
+    :cond_27
+    if-eq v1, v2, :cond_2c
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 1207
     .end local v1    # "i":I
-    :cond_2
+    :cond_2c
     return v0
 
     .line 1201
     .end local v0    # "max":C
-    :cond_3
+    :cond_2d
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -8191,7 +8191,7 @@
 .end method
 
 .method public static final maxWithOrNull(Ljava/lang/CharSequence;Ljava/util/Comparator;)Ljava/lang/Character;
-    .locals 6
+    .registers 8
     .param p0, "$this$maxWithOrNull"    # Ljava/lang/CharSequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -8221,24 +8221,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_14
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1466
-    :cond_1
+    :cond_18
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -8252,10 +8252,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_3
+    if-gt v1, v2, :cond_3b
 
     .line 1468
-    :goto_1
+    :goto_23
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -8274,22 +8274,22 @@
 
     move-result v4
 
-    if-gez v4, :cond_2
+    if-gez v4, :cond_36
 
     move v0, v3
 
     .line 1467
     .end local v3    # "e":C
-    :cond_2
-    if-eq v1, v2, :cond_3
+    :cond_36
+    if-eq v1, v2, :cond_3b
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
     .line 1471
     .end local v1    # "i":I
-    :cond_3
+    :cond_3b
     invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v1
@@ -8298,7 +8298,7 @@
 .end method
 
 .method public static final maxWithOrThrow(Ljava/lang/CharSequence;Ljava/util/Comparator;)C
-    .locals 6
+    .registers 8
     .param p0, "$this$maxWith"    # Ljava/lang/CharSequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -8327,17 +8327,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_3
+    :goto_14
+    if-nez v0, :cond_3a
 
     .line 1452
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -8353,10 +8353,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_39
 
     .line 1454
-    :goto_1
+    :goto_21
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -8375,27 +8375,27 @@
 
     move-result v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_34
 
     move v0, v3
 
     .line 1453
     .end local v3    # "e":C
-    :cond_1
-    if-eq v1, v2, :cond_2
+    :cond_34
+    if-eq v1, v2, :cond_39
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_21
 
     .line 1457
     .end local v1    # "i":I
-    :cond_2
+    :cond_39
     return v0
 
     .line 1451
     .end local v0    # "max":C
-    :cond_3
+    :cond_3a
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -8404,7 +8404,7 @@
 .end method
 
 .method public static final minByOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-    .locals 8
+    .registers 10
     .param p0, "$this$minByOrNull"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8439,24 +8439,24 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_15
+    if-eqz v1, :cond_19
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 1527
-    :cond_1
+    :cond_19
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v1
@@ -8469,7 +8469,7 @@
 
     .line 1529
     .local v2, "lastIndex":I
-    if-nez v2, :cond_2
+    if-nez v2, :cond_28
 
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
@@ -8478,7 +8478,7 @@
     return-object v3
 
     .line 1530
-    :cond_2
+    :cond_28
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v3
@@ -8494,10 +8494,10 @@
     const/4 v4, 0x1
 
     .local v4, "i":I
-    if-gt v4, v2, :cond_4
+    if-gt v4, v2, :cond_50
 
     .line 1532
-    :goto_1
+    :goto_35
     invoke-interface {p0, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v5
@@ -8520,7 +8520,7 @@
 
     move-result v7
 
-    if-lez v7, :cond_3
+    if-lez v7, :cond_4b
 
     .line 1535
     move v1, v5
@@ -8531,16 +8531,16 @@
     .line 1531
     .end local v5    # "e":C
     .end local v6    # "v":Ljava/lang/Comparable;
-    :cond_3
-    if-eq v4, v2, :cond_4
+    :cond_4b
+    if-eq v4, v2, :cond_50
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 1539
     .end local v4    # "i":I
-    :cond_4
+    :cond_50
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v4
@@ -8549,7 +8549,7 @@
 .end method
 
 .method public static final minByOrThrow(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)C
-    .locals 8
+    .registers 10
     .param p0, "$this$minBy"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8583,17 +8583,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_4
+    :goto_15
+    if-nez v1, :cond_4b
 
     .line 1504
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -8608,12 +8608,12 @@
 
     .line 1506
     .local v2, "lastIndex":I
-    if-nez v2, :cond_1
+    if-nez v2, :cond_22
 
     return v1
 
     .line 1507
-    :cond_1
+    :cond_22
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v3
@@ -8629,10 +8629,10 @@
     const/4 v4, 0x1
 
     .local v4, "i":I
-    if-gt v4, v2, :cond_3
+    if-gt v4, v2, :cond_4a
 
     .line 1509
-    :goto_1
+    :goto_2f
     invoke-interface {p0, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v5
@@ -8655,7 +8655,7 @@
 
     move-result v7
 
-    if-lez v7, :cond_2
+    if-lez v7, :cond_45
 
     .line 1512
     move v1, v5
@@ -8666,23 +8666,23 @@
     .line 1508
     .end local v5    # "e":C
     .end local v6    # "v":Ljava/lang/Comparable;
-    :cond_2
-    if-eq v4, v2, :cond_3
+    :cond_45
+    if-eq v4, v2, :cond_4a
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 1516
     .end local v4    # "i":I
-    :cond_3
+    :cond_4a
     return v1
 
     .line 1503
     .end local v1    # "minElem":C
     .end local v2    # "lastIndex":I
     .end local v3    # "minValue":Ljava/lang/Comparable;
-    :cond_4
+    :cond_4b
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -8691,7 +8691,7 @@
 .end method
 
 .method private static final minOf(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)D
-    .locals 6
+    .registers 8
     .param p0, "$this$minOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8721,17 +8721,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_14
+    if-nez v0, :cond_4b
 
     .line 1556
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -8761,10 +8761,10 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_1
+    if-gt v2, v3, :cond_4a
 
     .line 1558
-    :goto_1
+    :goto_2f
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v4
@@ -8791,20 +8791,20 @@
 
     .line 1557
     .end local v4    # "v":D
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_4a
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 1561
     .end local v2    # "i":I
-    :cond_1
+    :cond_4a
     return-wide v0
 
     .line 1555
     .end local v0    # "minValue":D
-    :cond_2
+    :cond_4b
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -8813,7 +8813,7 @@
 .end method
 
 .method private static final minOf(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)F
-    .locals 4
+    .registers 6
     .param p0, "$this$minOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8843,17 +8843,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_14
+    if-nez v0, :cond_4b
 
     .line 1578
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -8883,10 +8883,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_1
+    if-gt v1, v2, :cond_4a
 
     .line 1580
-    :goto_1
+    :goto_2f
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -8913,20 +8913,20 @@
 
     .line 1579
     .end local v3    # "v":F
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_4a
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 1583
     .end local v1    # "i":I
-    :cond_1
+    :cond_4a
     return v0
 
     .line 1577
     .end local v0    # "minValue":F
-    :cond_2
+    :cond_4b
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -8935,7 +8935,7 @@
 .end method
 
 .method private static final minOf(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
-    .locals 5
+    .registers 7
     .param p0, "$this$minOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8966,17 +8966,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_3
+    :goto_14
+    if-nez v0, :cond_46
 
     .line 1598
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -9002,10 +9002,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_45
 
     .line 1600
-    :goto_1
+    :goto_2b
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -9026,28 +9026,28 @@
 
     move-result v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_40
 
     .line 1602
     move-object v0, v3
 
     .line 1599
     .end local v3    # "v":Ljava/lang/Comparable;
-    :cond_1
-    if-eq v1, v2, :cond_2
+    :cond_40
+    if-eq v1, v2, :cond_45
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 1605
     .end local v1    # "i":I
-    :cond_2
+    :cond_45
     return-object v0
 
     .line 1597
     .end local v0    # "minValue":Ljava/lang/Comparable;
-    :cond_3
+    :cond_46
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -9056,7 +9056,7 @@
 .end method
 
 .method private static final minOfOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
-    .locals 5
+    .registers 7
     .param p0, "$this$minOfOrNull"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -9087,24 +9087,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_14
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1658
-    :cond_1
+    :cond_18
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -9128,10 +9128,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_3
+    if-gt v1, v2, :cond_47
 
     .line 1660
-    :goto_1
+    :goto_2d
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -9152,28 +9152,28 @@
 
     move-result v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_42
 
     .line 1662
     move-object v0, v3
 
     .line 1659
     .end local v3    # "v":Ljava/lang/Comparable;
-    :cond_2
-    if-eq v1, v2, :cond_3
+    :cond_42
+    if-eq v1, v2, :cond_47
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 1665
     .end local v1    # "i":I
-    :cond_3
+    :cond_47
     return-object v0
 .end method
 
 .method private static final minOfOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Double;
-    .locals 6
+    .registers 8
     .param p0, "$this$minOfOrNull"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -9204,24 +9204,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_14
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1620
-    :cond_1
+    :cond_18
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -9249,10 +9249,10 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_2
+    if-gt v2, v3, :cond_4c
 
     .line 1622
-    :goto_1
+    :goto_31
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v4
@@ -9279,15 +9279,15 @@
 
     .line 1621
     .end local v4    # "v":D
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_4c
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
     .line 1625
     .end local v2    # "i":I
-    :cond_2
+    :cond_4c
     invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v2
@@ -9296,7 +9296,7 @@
 .end method
 
 .method private static final minOfOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Float;
-    .locals 4
+    .registers 6
     .param p0, "$this$minOfOrNull"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -9327,24 +9327,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_14
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1640
-    :cond_1
+    :cond_18
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -9372,10 +9372,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_4c
 
     .line 1642
-    :goto_1
+    :goto_31
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -9402,15 +9402,15 @@
 
     .line 1641
     .end local v3    # "v":F
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_4c
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
     .line 1645
     .end local v1    # "i":I
-    :cond_2
+    :cond_4c
     invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v1
@@ -9419,7 +9419,7 @@
 .end method
 
 .method private static final minOfWith(Ljava/lang/CharSequence;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "$this$minOfWith"    # Ljava/lang/CharSequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -9457,17 +9457,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_3
+    :goto_19
+    if-nez v0, :cond_47
 
     .line 1680
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -9491,10 +9491,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_46
 
     .line 1682
-    :goto_1
+    :goto_2e
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -9513,28 +9513,28 @@
 
     move-result v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_41
 
     .line 1684
     move-object v0, v3
 
     .line 1681
     .end local v3    # "v":Ljava/lang/Object;
-    :cond_1
-    if-eq v1, v2, :cond_2
+    :cond_41
+    if-eq v1, v2, :cond_46
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 1687
     .end local v1    # "i":I
-    :cond_2
+    :cond_46
     return-object v0
 
     .line 1679
     .end local v0    # "minValue":Ljava/lang/Object;
-    :cond_3
+    :cond_47
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -9543,7 +9543,7 @@
 .end method
 
 .method private static final minOfWithOrNull(Ljava/lang/CharSequence;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p0, "$this$minOfWithOrNull"    # Ljava/lang/CharSequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -9581,24 +9581,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_19
+    if-eqz v0, :cond_1d
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1700
-    :cond_1
+    :cond_1d
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -9620,10 +9620,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_3
+    if-gt v1, v2, :cond_48
 
     .line 1702
-    :goto_1
+    :goto_30
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -9642,28 +9642,28 @@
 
     move-result v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_43
 
     .line 1704
     move-object v0, v3
 
     .line 1701
     .end local v3    # "v":Ljava/lang/Object;
-    :cond_2
-    if-eq v1, v2, :cond_3
+    :cond_43
+    if-eq v1, v2, :cond_48
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_30
 
     .line 1707
     .end local v1    # "i":I
-    :cond_3
+    :cond_48
     return-object v0
 .end method
 
 .method public static final minOrNull(Ljava/lang/CharSequence;)Ljava/lang/Character;
-    .locals 5
+    .registers 6
     .param p0, "$this$minOrNull"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -9677,24 +9677,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1716
-    :cond_1
+    :cond_13
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -9708,10 +9708,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_3
+    if-gt v1, v2, :cond_2e
 
     .line 1718
-    :goto_1
+    :goto_1e
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -9722,22 +9722,22 @@
 
     move-result v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_29
 
     move v0, v3
 
     .line 1717
     .end local v3    # "e":C
-    :cond_2
-    if-eq v1, v2, :cond_3
+    :cond_29
+    if-eq v1, v2, :cond_2e
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 1721
     .end local v1    # "i":I
-    :cond_3
+    :cond_2e
     invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v1
@@ -9746,7 +9746,7 @@
 .end method
 
 .method public static final minOrThrow(Ljava/lang/CharSequence;)C
-    .locals 5
+    .registers 6
     .param p0, "$this$min"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -9760,17 +9760,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_3
+    :goto_f
+    if-nez v0, :cond_2d
 
     .line 1484
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -9786,10 +9786,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_2c
 
     .line 1486
-    :goto_1
+    :goto_1c
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -9800,27 +9800,27 @@
 
     move-result v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_27
 
     move v0, v3
 
     .line 1485
     .end local v3    # "e":C
-    :cond_1
-    if-eq v1, v2, :cond_2
+    :cond_27
+    if-eq v1, v2, :cond_2c
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 1489
     .end local v1    # "i":I
-    :cond_2
+    :cond_2c
     return v0
 
     .line 1483
     .end local v0    # "min":C
-    :cond_3
+    :cond_2d
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -9829,7 +9829,7 @@
 .end method
 
 .method public static final minWithOrNull(Ljava/lang/CharSequence;Ljava/util/Comparator;)Ljava/lang/Character;
-    .locals 6
+    .registers 8
     .param p0, "$this$minWithOrNull"    # Ljava/lang/CharSequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -9859,24 +9859,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_14
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 1748
-    :cond_1
+    :cond_18
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
@@ -9890,10 +9890,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_3
+    if-gt v1, v2, :cond_3b
 
     .line 1750
-    :goto_1
+    :goto_23
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -9912,22 +9912,22 @@
 
     move-result v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_36
 
     move v0, v3
 
     .line 1749
     .end local v3    # "e":C
-    :cond_2
-    if-eq v1, v2, :cond_3
+    :cond_36
+    if-eq v1, v2, :cond_3b
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
     .line 1753
     .end local v1    # "i":I
-    :cond_3
+    :cond_3b
     invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v1
@@ -9936,7 +9936,7 @@
 .end method
 
 .method public static final minWithOrThrow(Ljava/lang/CharSequence;Ljava/util/Comparator;)C
-    .locals 6
+    .registers 8
     .param p0, "$this$minWith"    # Ljava/lang/CharSequence;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -9965,17 +9965,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_3
+    :goto_14
+    if-nez v0, :cond_3a
 
     .line 1734
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -9991,10 +9991,10 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_39
 
     .line 1736
-    :goto_1
+    :goto_21
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
@@ -10013,27 +10013,27 @@
 
     move-result v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_34
 
     move v0, v3
 
     .line 1735
     .end local v3    # "e":C
-    :cond_1
-    if-eq v1, v2, :cond_2
+    :cond_34
+    if-eq v1, v2, :cond_39
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_21
 
     .line 1739
     .end local v1    # "i":I
-    :cond_2
+    :cond_39
     return v0
 
     .line 1733
     .end local v0    # "min":C
-    :cond_3
+    :cond_3a
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -10042,7 +10042,7 @@
 .end method
 
 .method public static final none(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$none"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -10054,21 +10054,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method public static final none(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$none"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -10099,12 +10099,12 @@
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_2b
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -10125,25 +10125,25 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_28
 
     return v1
 
     .end local v3    # "element":C
-    :cond_0
+    :cond_28
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1772
-    :cond_1
+    :cond_2b
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method public static final onEach(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/CharSequence;
-    .locals 6
+    .registers 8
     .param p0, "$this$onEach"    # Ljava/lang/CharSequence;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -10181,12 +10181,12 @@
     .local v2, "$i$a$-apply-StringsKt___StringsKt$onEach$1":I
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_e
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_22
 
     invoke-interface {v1, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -10202,16 +10202,16 @@
     .end local v4    # "element":C
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .end local v1    # "$this$onEach_u24lambda_u2417":Ljava/lang/CharSequence;
     .end local v2    # "$i$a$-apply-StringsKt___StringsKt$onEach$1":I
-    :cond_0
+    :cond_22
     return-object p0
 .end method
 
 .method public static final onEachIndexed(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/lang/CharSequence;
-    .locals 10
+    .registers 12
     .param p0, "$this$onEachIndexed"    # Ljava/lang/CharSequence;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -10262,12 +10262,12 @@
     .local v5, "index$iv":I
     const/4 v6, 0x0
 
-    :goto_0
+    :goto_11
     invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
 
     move-result v7
 
-    if-ge v6, v7, :cond_0
+    if-ge v6, v7, :cond_2c
 
     invoke-interface {v3, v6}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -10293,12 +10293,12 @@
 
     move v5, v8
 
-    goto :goto_0
+    goto :goto_11
 
     .line 2613
     .end local v8    # "index$iv":I
     .restart local v5    # "index$iv":I
-    :cond_0
+    :cond_2c
     nop
 
     .line 1791
@@ -10313,7 +10313,7 @@
 .end method
 
 .method public static final partition(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Lkotlin/Pair;
-    .locals 6
+    .registers 8
     .param p0, "$this$partition"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -10358,12 +10358,12 @@
     .local v2, "second":Ljava/lang/StringBuilder;
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_16
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_3a
 
     invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -10385,26 +10385,26 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_34
 
     .line 2285
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_37
 
     .line 2287
-    :cond_0
+    :cond_34
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 2283
     .end local v4    # "element":C
-    :goto_1
+    :goto_37
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 2290
-    :cond_1
+    :cond_3a
     new-instance v3, Lkotlin/Pair;
 
     invoke-direct {v3, v1, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -10413,7 +10413,7 @@
 .end method
 
 .method public static final partition(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lkotlin/Pair;
-    .locals 7
+    .registers 9
     .param p0, "$this$partition"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -10462,8 +10462,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_1a
+    if-ge v4, v3, :cond_3a
 
     invoke-virtual {p0, v4}, Ljava/lang/String;->charAt(I)C
 
@@ -10485,26 +10485,26 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_34
 
     .line 2305
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_37
 
     .line 2307
-    :cond_0
+    :cond_34
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 2303
     .end local v5    # "element":C
-    :goto_1
+    :goto_37
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 2310
-    :cond_1
+    :cond_3a
     new-instance v3, Lkotlin/Pair;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -10527,7 +10527,7 @@
 .end method
 
 .method private static final random(Ljava/lang/CharSequence;)C
-    .locals 1
+    .registers 2
     .param p0, "$this$random"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -10547,7 +10547,7 @@
 .end method
 
 .method public static final random(Ljava/lang/CharSequence;Lkotlin/random/Random;)C
-    .locals 2
+    .registers 4
     .param p0, "$this$random"    # Ljava/lang/CharSequence;
     .param p1, "random"    # Lkotlin/random/Random;
 
@@ -10564,17 +10564,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_13
+    if-nez v0, :cond_22
 
     .line 248
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -10592,7 +10592,7 @@
     return v0
 
     .line 247
-    :cond_1
+    :cond_22
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "Char sequence is empty."
@@ -10603,7 +10603,7 @@
 .end method
 
 .method private static final randomOrNull(Ljava/lang/CharSequence;)Ljava/lang/Character;
-    .locals 1
+    .registers 2
     .param p0, "$this$randomOrNull"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -10623,7 +10623,7 @@
 .end method
 
 .method public static final randomOrNull(Ljava/lang/CharSequence;Lkotlin/random/Random;)Ljava/lang/Character;
-    .locals 1
+    .registers 3
     .param p0, "$this$randomOrNull"    # Ljava/lang/CharSequence;
     .param p1, "random"    # Lkotlin/random/Random;
 
@@ -10640,17 +10640,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_13
+    if-eqz v0, :cond_17
 
     .line 266
     const/4 v0, 0x0
@@ -10658,7 +10658,7 @@
     return-object v0
 
     .line 267
-    :cond_1
+    :cond_17
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -10679,7 +10679,7 @@
 .end method
 
 .method public static final reduce(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)C
-    .locals 6
+    .registers 8
     .param p0, "$this$reduce"    # Ljava/lang/CharSequence;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -10714,17 +10714,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_2
+    :goto_15
+    if-nez v1, :cond_3e
 
     .line 1809
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -10740,10 +10740,10 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_1
+    if-gt v2, v3, :cond_3d
 
     .line 1811
-    :goto_1
+    :goto_22
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v4
@@ -10767,20 +10767,20 @@
     move-result v1
 
     .line 1810
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_3d
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 1813
     .end local v2    # "index":I
-    :cond_1
+    :cond_3d
     return v1
 
     .line 1808
     .end local v1    # "accumulator":C
-    :cond_2
+    :cond_3e
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     const-string v2, "Empty char sequence can\'t be reduced."
@@ -10791,7 +10791,7 @@
 .end method
 
 .method public static final reduceIndexed(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function3;)C
-    .locals 7
+    .registers 9
     .param p0, "$this$reduceIndexed"    # Ljava/lang/CharSequence;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -10828,17 +10828,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_2
+    :goto_15
+    if-nez v1, :cond_42
 
     .line 1831
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -10854,10 +10854,10 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_1
+    if-gt v2, v3, :cond_41
 
     .line 1833
-    :goto_1
+    :goto_22
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
@@ -10885,20 +10885,20 @@
     move-result v1
 
     .line 1832
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_41
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 1835
     .end local v2    # "index":I
-    :cond_1
+    :cond_41
     return v1
 
     .line 1830
     .end local v1    # "accumulator":C
-    :cond_2
+    :cond_42
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     const-string v2, "Empty char sequence can\'t be reduced."
@@ -10909,7 +10909,7 @@
 .end method
 
 .method public static final reduceIndexedOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function3;)Ljava/lang/Character;
-    .locals 7
+    .registers 9
     .param p0, "$this$reduceIndexedOrNull"    # Ljava/lang/CharSequence;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -10947,17 +10947,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_15
+    if-eqz v1, :cond_19
 
     .line 1852
     const/4 v1, 0x0
@@ -10965,7 +10965,7 @@
     return-object v1
 
     .line 1853
-    :cond_1
+    :cond_19
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v1
@@ -10979,10 +10979,10 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_2
+    if-gt v2, v3, :cond_43
 
     .line 1855
-    :goto_1
+    :goto_24
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
@@ -11010,15 +11010,15 @@
     move-result v1
 
     .line 1854
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_43
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
     .line 1857
     .end local v2    # "index":I
-    :cond_2
+    :cond_43
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v2
@@ -11027,7 +11027,7 @@
 .end method
 
 .method public static final reduceOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/lang/Character;
-    .locals 6
+    .registers 8
     .param p0, "$this$reduceOrNull"    # Ljava/lang/CharSequence;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -11063,17 +11063,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_15
+    if-eqz v1, :cond_19
 
     .line 1874
     const/4 v1, 0x0
@@ -11081,7 +11081,7 @@
     return-object v1
 
     .line 1875
-    :cond_1
+    :cond_19
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v1
@@ -11095,10 +11095,10 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_2
+    if-gt v2, v3, :cond_3f
 
     .line 1877
-    :goto_1
+    :goto_24
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v4
@@ -11122,15 +11122,15 @@
     move-result v1
 
     .line 1876
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_3f
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
     .line 1879
     .end local v2    # "index":I
-    :cond_2
+    :cond_3f
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v2
@@ -11139,7 +11139,7 @@
 .end method
 
 .method public static final reduceRight(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)C
-    .locals 5
+    .registers 7
     .param p0, "$this$reduceRight"    # Ljava/lang/CharSequence;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -11174,7 +11174,7 @@
 
     .line 1896
     .local v1, "index":I
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_34
 
     .line 1897
     add-int/lit8 v2, v1, -0x1
@@ -11187,8 +11187,8 @@
 
     .line 1898
     .local v1, "accumulator":C
-    :goto_0
-    if-ltz v2, :cond_0
+    :goto_17
+    if-ltz v2, :cond_33
 
     .line 1899
     add-int/lit8 v3, v2, -0x1
@@ -11219,18 +11219,18 @@
 
     move v2, v3
 
-    goto :goto_0
+    goto :goto_17
 
     .line 1901
     .end local v3    # "index":I
     .restart local v2    # "index":I
-    :cond_0
+    :cond_33
     return v1
 
     .line 1896
     .end local v2    # "index":I
     .local v1, "index":I
-    :cond_1
+    :cond_34
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     const-string v3, "Empty char sequence can\'t be reduced."
@@ -11241,7 +11241,7 @@
 .end method
 
 .method public static final reduceRightIndexed(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function3;)C
-    .locals 6
+    .registers 8
     .param p0, "$this$reduceRightIndexed"    # Ljava/lang/CharSequence;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -11278,7 +11278,7 @@
 
     .line 1918
     .local v1, "index":I
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_37
 
     .line 1919
     add-int/lit8 v2, v1, -0x1
@@ -11291,8 +11291,8 @@
 
     .line 1920
     .local v1, "accumulator":C
-    :goto_0
-    if-ltz v2, :cond_0
+    :goto_17
+    if-ltz v2, :cond_36
 
     .line 1921
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -11324,16 +11324,16 @@
     .line 1922
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 1924
-    :cond_0
+    :cond_36
     return v1
 
     .line 1918
     .end local v2    # "index":I
     .local v1, "index":I
-    :cond_1
+    :cond_37
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     const-string v3, "Empty char sequence can\'t be reduced."
@@ -11344,7 +11344,7 @@
 .end method
 
 .method public static final reduceRightIndexedOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function3;)Ljava/lang/Character;
-    .locals 6
+    .registers 8
     .param p0, "$this$reduceRightIndexedOrNull"    # Ljava/lang/CharSequence;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -11382,14 +11382,14 @@
 
     .line 1941
     .local v1, "index":I
-    if-gez v1, :cond_0
+    if-gez v1, :cond_13
 
     const/4 v2, 0x0
 
     return-object v2
 
     .line 1942
-    :cond_0
+    :cond_13
     add-int/lit8 v2, v1, -0x1
 
     .end local v1    # "index":I
@@ -11400,8 +11400,8 @@
 
     .line 1943
     .local v1, "accumulator":C
-    :goto_0
-    if-ltz v2, :cond_1
+    :goto_19
+    if-ltz v2, :cond_38
 
     .line 1944
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -11433,10 +11433,10 @@
     .line 1945
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 1947
-    :cond_1
+    :cond_38
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v3
@@ -11445,7 +11445,7 @@
 .end method
 
 .method public static final reduceRightOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/lang/Character;
-    .locals 5
+    .registers 7
     .param p0, "$this$reduceRightOrNull"    # Ljava/lang/CharSequence;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -11481,14 +11481,14 @@
 
     .line 1964
     .local v1, "index":I
-    if-gez v1, :cond_0
+    if-gez v1, :cond_13
 
     const/4 v2, 0x0
 
     return-object v2
 
     .line 1965
-    :cond_0
+    :cond_13
     add-int/lit8 v2, v1, -0x1
 
     .end local v1    # "index":I
@@ -11499,8 +11499,8 @@
 
     .line 1966
     .local v1, "accumulator":C
-    :goto_0
-    if-ltz v2, :cond_1
+    :goto_19
+    if-ltz v2, :cond_35
 
     .line 1967
     add-int/lit8 v3, v2, -0x1
@@ -11531,12 +11531,12 @@
 
     move v2, v3
 
-    goto :goto_0
+    goto :goto_19
 
     .line 1969
     .end local v3    # "index":I
     .restart local v2    # "index":I
-    :cond_1
+    :cond_35
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v3
@@ -11545,7 +11545,7 @@
 .end method
 
 .method public static final reversed(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 3
     .param p0, "$this$reversed"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -11571,7 +11571,7 @@
 .end method
 
 .method private static final reversed(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$reversed"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -11595,7 +11595,7 @@
 .end method
 
 .method public static final runningFold(Ljava/lang/CharSequence;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 6
+    .registers 9
     .param p0, "$this$runningFold"    # Ljava/lang/CharSequence;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -11635,17 +11635,17 @@
 
     const/4 v3, 0x1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_16
+    if-eqz v1, :cond_1d
 
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
@@ -11654,7 +11654,7 @@
     return-object v1
 
     .line 1986
-    :cond_1
+    :cond_1d
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -11685,12 +11685,12 @@
     .local v3, "accumulator":Ljava/lang/Object;
     nop
 
-    :goto_1
+    :goto_2e
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-ge v2, v4, :cond_2
+    if-ge v2, v4, :cond_46
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -11713,10 +11713,10 @@
     .end local v4    # "element":C
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 1992
-    :cond_2
+    :cond_46
     move-object v2, v1
 
     check-cast v2, Ljava/util/List;
@@ -11725,7 +11725,7 @@
 .end method
 
 .method public static final runningFoldIndexed(Ljava/lang/CharSequence;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
-    .locals 7
+    .registers 10
     .param p0, "$this$runningFoldIndexed"    # Ljava/lang/CharSequence;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -11765,17 +11765,17 @@
 
     const/4 v2, 0x1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_15
+    if-eqz v1, :cond_1c
 
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
@@ -11784,7 +11784,7 @@
     return-object v1
 
     .line 2010
-    :cond_1
+    :cond_1c
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -11820,8 +11820,8 @@
 
     move-result v4
 
-    :goto_1
-    if-ge v3, v4, :cond_2
+    :goto_31
+    if-ge v3, v4, :cond_49
 
     .line 2013
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -11846,11 +11846,11 @@
     .line 2012
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
     .line 2016
     .end local v3    # "index":I
-    :cond_2
+    :cond_49
     move-object v3, v1
 
     check-cast v3, Ljava/util/List;
@@ -11859,7 +11859,7 @@
 .end method
 
 .method public static final runningReduce(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$runningReduce"    # Ljava/lang/CharSequence;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -11897,17 +11897,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_15
+    if-eqz v1, :cond_1c
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -11916,7 +11916,7 @@
     return-object v1
 
     .line 2033
-    :cond_1
+    :cond_1c
     const/4 v1, 0x0
 
     .local v1, "accumulator":C
@@ -11958,8 +11958,8 @@
 
     move-result v4
 
-    :goto_1
-    if-ge v3, v4, :cond_2
+    :goto_38
+    if-ge v3, v4, :cond_5a
 
     .line 2036
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -11994,11 +11994,11 @@
     .line 2035
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_38
 
     .line 2039
     .end local v3    # "index":I
-    :cond_2
+    :cond_5a
     move-object v3, v2
 
     check-cast v3, Ljava/util/List;
@@ -12007,7 +12007,7 @@
 .end method
 
 .method public static final runningReduceIndexed(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
-    .locals 8
+    .registers 10
     .param p0, "$this$runningReduceIndexed"    # Ljava/lang/CharSequence;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -12047,17 +12047,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_15
+    if-eqz v1, :cond_1c
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -12066,7 +12066,7 @@
     return-object v1
 
     .line 2057
-    :cond_1
+    :cond_1c
     const/4 v1, 0x0
 
     .local v1, "accumulator":C
@@ -12108,8 +12108,8 @@
 
     move-result v4
 
-    :goto_1
-    if-ge v3, v4, :cond_2
+    :goto_38
+    if-ge v3, v4, :cond_5e
 
     .line 2060
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -12148,11 +12148,11 @@
     .line 2059
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_38
 
     .line 2063
     .end local v3    # "index":I
-    :cond_2
+    :cond_5e
     move-object v3, v2
 
     check-cast v3, Ljava/util/List;
@@ -12161,7 +12161,7 @@
 .end method
 
 .method public static final scan(Ljava/lang/CharSequence;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 8
+    .registers 11
     .param p0, "$this$scan"    # Ljava/lang/CharSequence;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -12208,26 +12208,26 @@
 
     const/4 v5, 0x1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_17
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_18
+    if-eqz v3, :cond_1f
 
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_4c
 
     .line 2615
-    :cond_1
+    :cond_1f
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
@@ -12258,12 +12258,12 @@
     .local v5, "accumulator$iv":Ljava/lang/Object;
     nop
 
-    :goto_1
+    :goto_30
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
 
-    if-ge v4, v6, :cond_2
+    if-ge v4, v6, :cond_48
 
     invoke-interface {v1, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -12286,10 +12286,10 @@
     .end local v6    # "element$iv":C
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_30
 
     .line 2622
-    :cond_2
+    :cond_48
     move-object v4, v3
 
     check-cast v4, Ljava/util/List;
@@ -12301,12 +12301,12 @@
     .end local v2    # "$i$f$runningFold":I
     .end local v3    # "result$iv":Ljava/util/ArrayList;
     .end local v5    # "accumulator$iv":Ljava/lang/Object;
-    :goto_2
+    :goto_4c
     return-object v3
 .end method
 
 .method public static final scanIndexed(Ljava/lang/CharSequence;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
-    .locals 9
+    .registers 12
     .param p0, "$this$scanIndexed"    # Ljava/lang/CharSequence;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -12353,26 +12353,26 @@
 
     const/4 v4, 0x1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_16
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_17
+    if-eqz v3, :cond_1e
 
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_4f
 
     .line 2624
-    :cond_1
+    :cond_1e
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
@@ -12408,8 +12408,8 @@
 
     move-result v6
 
-    :goto_1
-    if-ge v5, v6, :cond_2
+    :goto_33
+    if-ge v5, v6, :cond_4b
 
     .line 2628
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -12434,11 +12434,11 @@
     .line 2627
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
     .line 2631
     .end local v5    # "index$iv":I
-    :cond_2
+    :cond_4b
     move-object v5, v3
 
     check-cast v5, Ljava/util/List;
@@ -12450,12 +12450,12 @@
     .end local v2    # "$i$f$runningFoldIndexed":I
     .end local v3    # "result$iv":Ljava/util/ArrayList;
     .end local v4    # "accumulator$iv":Ljava/lang/Object;
-    :goto_2
+    :goto_4f
     return-object v3
 .end method
 
 .method public static final single(Ljava/lang/CharSequence;)C
-    .locals 2
+    .registers 3
     .param p0, "$this$single"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -12467,7 +12467,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_22
 
     .line 277
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -12479,7 +12479,7 @@
     throw v0
 
     .line 276
-    :pswitch_0
+    :pswitch_14
     const/4 v0, 0x0
 
     invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
@@ -12490,7 +12490,7 @@
     return v0
 
     .line 275
-    :pswitch_1
+    :pswitch_1a
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "Char sequence is empty."
@@ -12499,15 +12499,15 @@
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_22
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_14
     .end packed-switch
 .end method
 
 .method public static final single(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)C
-    .locals 6
+    .registers 8
     .param p0, "$this$single"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -12544,12 +12544,12 @@
     .local v2, "found":Z
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_e
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_3b
 
     invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -12571,10 +12571,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_38
 
     .line 289
-    if-nez v2, :cond_0
+    if-nez v2, :cond_30
 
     .line 290
     invoke-static {v4}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -12584,10 +12584,10 @@
     .line 291
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_38
 
     .line 289
-    :cond_0
+    :cond_30
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string v5, "Char sequence contains more than one matching element."
@@ -12598,15 +12598,15 @@
 
     .line 287
     .end local v4    # "element":C
-    :cond_1
-    :goto_1
+    :cond_38
+    :goto_38
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 294
-    :cond_2
-    if-eqz v2, :cond_3
+    :cond_3b
+    if-eqz v2, :cond_47
 
     .line 296
     const-string v3, "null cannot be cast to non-null type kotlin.Char"
@@ -12620,7 +12620,7 @@
     return v3
 
     .line 294
-    :cond_3
+    :cond_47
     new-instance v3, Ljava/util/NoSuchElementException;
 
     const-string v4, "Char sequence contains no character matching the predicate."
@@ -12631,7 +12631,7 @@
 .end method
 
 .method public static final singleOrNull(Ljava/lang/CharSequence;)Ljava/lang/Character;
-    .locals 2
+    .registers 3
     .param p0, "$this$singleOrNull"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -12645,7 +12645,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     const/4 v0, 0x0
 
@@ -12657,17 +12657,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static final singleOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-    .locals 7
+    .registers 9
     .param p0, "$this$singleOrNull"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -12705,14 +12705,14 @@
     .local v2, "found":Z
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_e
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
     const/4 v5, 0x0
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_34
 
     invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -12734,15 +12734,15 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_31
 
     .line 314
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2c
 
     return-object v5
 
     .line 315
-    :cond_0
+    :cond_2c
     invoke-static {v4}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v1
@@ -12752,24 +12752,24 @@
 
     .line 312
     .end local v4    # "element":C
-    :cond_1
+    :cond_31
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 319
-    :cond_2
-    if-nez v2, :cond_3
+    :cond_34
+    if-nez v2, :cond_37
 
     return-object v5
 
     .line 320
-    :cond_3
+    :cond_37
     return-object v1
 .end method
 
 .method public static final slice(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/CharSequence;
-    .locals 5
+    .registers 7
     .param p0, "$this$slice"    # Ljava/lang/CharSequence;
     .param p1, "indices"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -12800,7 +12800,7 @@
 
     .line 535
     .local v0, "size":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     const-string v1, ""
 
@@ -12809,7 +12809,7 @@
     return-object v1
 
     .line 536
-    :cond_0
+    :cond_17
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(I)V
@@ -12820,12 +12820,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_20
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_38
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -12845,11 +12845,11 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_20
 
     .line 540
     .end local v3    # "i":I
-    :cond_1
+    :cond_38
     move-object v2, v1
 
     check-cast v2, Ljava/lang/CharSequence;
@@ -12858,7 +12858,7 @@
 .end method
 
 .method public static final slice(Ljava/lang/CharSequence;Lkotlin/ranges/IntRange;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p0, "$this$slice"    # Ljava/lang/CharSequence;
     .param p1, "indices"    # Lkotlin/ranges/IntRange;
 
@@ -12875,7 +12875,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     const-string v0, ""
 
@@ -12884,7 +12884,7 @@
     return-object v0
 
     .line 519
-    :cond_0
+    :cond_15
     invoke-static {p0, p1}, Lkotlin/text/StringsKt;->subSequence(Ljava/lang/CharSequence;Lkotlin/ranges/IntRange;)Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -12893,7 +12893,7 @@
 .end method
 
 .method private static final slice(Ljava/lang/String;Ljava/lang/Iterable;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this$slice"    # Ljava/lang/String;
     .param p1, "indices"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -12932,7 +12932,7 @@
 .end method
 
 .method public static final slice(Ljava/lang/String;Lkotlin/ranges/IntRange;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this$slice"    # Ljava/lang/String;
     .param p1, "indices"    # Lkotlin/ranges/IntRange;
 
@@ -12949,14 +12949,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const-string v0, ""
 
     return-object v0
 
     .line 527
-    :cond_0
+    :cond_13
     invoke-static {p0, p1}, Lkotlin/text/StringsKt;->substring(Ljava/lang/String;Lkotlin/ranges/IntRange;)Ljava/lang/String;
 
     move-result-object v0
@@ -12965,7 +12965,7 @@
 .end method
 
 .method public static final sumBy(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)I
-    .locals 5
+    .registers 7
     .param p0, "$this$sumBy"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13010,12 +13010,12 @@
     .local v1, "sum":I
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_29
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -13043,15 +13043,15 @@
     .end local v3    # "element":C
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 2109
-    :cond_0
+    :cond_29
     return v1
 .end method
 
 .method public static final sumByDouble(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)D
-    .locals 7
+    .registers 9
     .param p0, "$this$sumByDouble"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13096,12 +13096,12 @@
     .local v1, "sum":D
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_e
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_2a
 
     invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -13129,15 +13129,15 @@
     .end local v4    # "element":C
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 2122
-    :cond_0
+    :cond_2a
     return-wide v1
 .end method
 
 .method private static final sumOfDouble(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)D
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13167,12 +13167,12 @@
     .local v0, "sum":D
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_29
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -13200,15 +13200,15 @@
     .end local v3    # "element":C
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 2138
-    :cond_0
+    :cond_29
     return-wide v0
 .end method
 
 .method private static final sumOfInt(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)I
-    .locals 4
+    .registers 6
     .param p0, "$this$sumOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13238,12 +13238,12 @@
     .local v0, "sum":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_c
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_28
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -13271,15 +13271,15 @@
     .end local v2    # "element":C
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 2154
-    :cond_0
+    :cond_28
     return v0
 .end method
 
 .method private static final sumOfLong(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)J
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13309,12 +13309,12 @@
     .local v0, "sum":J
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_29
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -13342,15 +13342,15 @@
     .end local v3    # "element":C
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 2170
-    :cond_0
+    :cond_29
     return-wide v0
 .end method
 
 .method private static final sumOfUInt(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)I
-    .locals 4
+    .registers 6
     .param p0, "$this$sumOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13384,12 +13384,12 @@
     .local v1, "sum":I
     nop
 
-    :goto_0
+    :goto_10
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_30
 
     invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -13421,15 +13421,15 @@
     .end local v2    # "element":C
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 2187
-    :cond_0
+    :cond_30
     return v1
 .end method
 
 .method private static final sumOfULong(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)J
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf"    # Ljava/lang/CharSequence;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13463,12 +13463,12 @@
     .local v0, "sum":J
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_11
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_31
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -13500,15 +13500,15 @@
     .end local v3    # "element":C
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 2204
-    :cond_0
+    :cond_31
     return-wide v0
 .end method
 
 .method public static final take(Ljava/lang/CharSequence;I)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 5
     .param p0, "$this$take"    # Ljava/lang/CharSequence;
     .param p1, "n"    # I
 
@@ -13519,17 +13519,17 @@
     .line 559
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_b
+    if-eqz v1, :cond_1a
 
     .line 560
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -13547,7 +13547,7 @@
     return-object v0
 
     .line 2495
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
     .line 559
@@ -13589,7 +13589,7 @@
 .end method
 
 .method public static final take(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "$this$take"    # Ljava/lang/String;
     .param p1, "n"    # I
 
@@ -13600,17 +13600,17 @@
     .line 571
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_b
+    if-eqz v1, :cond_1f
 
     .line 572
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -13632,7 +13632,7 @@
     return-object v0
 
     .line 2495
-    :cond_1
+    :cond_1f
     const/4 v0, 0x0
 
     .line 571
@@ -13674,7 +13674,7 @@
 .end method
 
 .method public static final takeLast(Ljava/lang/CharSequence;I)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 5
     .param p0, "$this$takeLast"    # Ljava/lang/CharSequence;
     .param p1, "n"    # I
 
@@ -13683,17 +13683,17 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 583
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_a
+    if-eqz v0, :cond_1b
 
     .line 584
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -13716,7 +13716,7 @@
 
     .line 2495
     .end local v0    # "length":I
-    :cond_1
+    :cond_1b
     const/4 v0, 0x0
 
     .line 583
@@ -13758,7 +13758,7 @@
 .end method
 
 .method public static final takeLast(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "$this$takeLast"    # Ljava/lang/String;
     .param p1, "n"    # I
 
@@ -13767,17 +13767,17 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 596
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_a
+    if-eqz v0, :cond_20
 
     .line 597
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -13804,7 +13804,7 @@
 
     .line 2495
     .end local v0    # "length":I
-    :cond_1
+    :cond_20
     const/4 v0, 0x0
 
     .line 596
@@ -13846,7 +13846,7 @@
 .end method
 
 .method public static final takeLastWhile(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/CharSequence;
-    .locals 4
+    .registers 6
     .param p0, "$this$takeLastWhile"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13879,10 +13879,10 @@
     move-result v1
 
     .local v1, "index":I
-    :goto_0
+    :goto_f
     const/4 v2, -0x1
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_34
 
     .line 608
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -13903,7 +13903,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_31
 
     .line 609
     add-int/lit8 v2, v1, 0x1
@@ -13919,14 +13919,14 @@
     return-object v2
 
     .line 607
-    :cond_0
+    :cond_31
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 612
     .end local v1    # "index":I
-    :cond_1
+    :cond_34
     const/4 v1, 0x0
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -13941,7 +13941,7 @@
 .end method
 
 .method public static final takeLastWhile(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "$this$takeLastWhile"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13978,10 +13978,10 @@
     move-result v1
 
     .local v1, "index":I
-    :goto_0
+    :goto_12
     const/4 v2, -0x1
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_38
 
     .line 622
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -14002,7 +14002,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_35
 
     .line 623
     add-int/lit8 v2, v1, 0x1
@@ -14018,19 +14018,19 @@
     return-object v2
 
     .line 621
-    :cond_0
+    :cond_35
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 626
     .end local v1    # "index":I
-    :cond_1
+    :cond_38
     return-object p0
 .end method
 
 .method public static final takeWhile(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/CharSequence;
-    .locals 5
+    .registers 7
     .param p0, "$this$takeWhile"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -14065,10 +14065,10 @@
 
     move-result v2
 
-    :goto_0
+    :goto_10
     const/4 v3, 0x0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2f
 
     .line 636
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -14089,7 +14089,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2c
 
     .line 637
     invoke-interface {p0, v3, v1}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -14099,14 +14099,14 @@
     return-object v2
 
     .line 635
-    :cond_0
+    :cond_2c
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 639
     .end local v1    # "index":I
-    :cond_1
+    :cond_2f
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
@@ -14119,7 +14119,7 @@
 .end method
 
 .method public static final takeWhile(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "$this$takeWhile"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -14154,8 +14154,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_10
+    if-ge v1, v2, :cond_34
 
     .line 649
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -14176,7 +14176,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_31
 
     .line 650
     const/4 v2, 0x0
@@ -14192,19 +14192,19 @@
     return-object v2
 
     .line 648
-    :cond_0
+    :cond_31
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 652
     .end local v1    # "index":I
-    :cond_1
+    :cond_34
     return-object p0
 .end method
 
 .method public static final toCollection(Ljava/lang/CharSequence;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 3
+    .registers 5
     .param p0, "$this$toCollection"    # Ljava/lang/CharSequence;
     .param p1, "destination"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -14230,12 +14230,12 @@
     .line 797
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1f
 
     invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -14253,15 +14253,15 @@
     .end local v1    # "item":C
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 800
-    :cond_0
+    :cond_1f
     return-object p1
 .end method
 
 .method public static final toHashSet(Ljava/lang/CharSequence;)Ljava/util/HashSet;
-    .locals 3
+    .registers 4
     .param p0, "$this$toHashSet"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -14309,7 +14309,7 @@
 .end method
 
 .method public static final toList(Ljava/lang/CharSequence;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$toList"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -14331,17 +14331,17 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     .line 817
     invoke-static {p0}, Lkotlin/text/StringsKt;->toMutableList(Ljava/lang/CharSequence;)Ljava/util/List;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_23
 
     .line 816
-    :pswitch_0
+    :pswitch_11
     const/4 v0, 0x0
 
     invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
@@ -14356,27 +14356,27 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_23
 
     .line 815
-    :pswitch_1
+    :pswitch_1f
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     .line 814
-    :goto_0
+    :goto_23
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1f
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public static final toMutableList(Ljava/lang/CharSequence;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "$this$toMutableList"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -14414,7 +14414,7 @@
 .end method
 
 .method public static final toSet(Ljava/lang/CharSequence;)Ljava/util/Set;
-    .locals 3
+    .registers 4
     .param p0, "$this$toSet"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -14436,7 +14436,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3c
 
     .line 837
     new-instance v0, Ljava/util/LinkedHashSet;
@@ -14465,10 +14465,10 @@
 
     check-cast v0, Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 836
-    :pswitch_0
+    :pswitch_28
     const/4 v0, 0x0
 
     invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
@@ -14483,29 +14483,29 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 835
-    :pswitch_1
+    :pswitch_36
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
     .line 834
-    :goto_0
+    :goto_3a
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_36
+        :pswitch_28
     .end packed-switch
 .end method
 
 .method public static final windowed(Ljava/lang/CharSequence;IIZ)Ljava/util/List;
-    .locals 1
+    .registers 5
     .param p0, "$this$windowed"    # Ljava/lang/CharSequence;
     .param p1, "size"    # I
     .param p2, "step"    # I
@@ -14538,7 +14538,7 @@
 .end method
 
 .method public static final windowed(Ljava/lang/CharSequence;IIZLkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 9
+    .registers 14
     .param p0, "$this$windowed"    # Ljava/lang/CharSequence;
     .param p1, "size"    # I
     .param p2, "step"    # I
@@ -14586,16 +14586,16 @@
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v2, 0x1
 
-    :goto_0
+    :goto_1c
     add-int/2addr v1, v2
 
     .line 2355
@@ -14610,46 +14610,46 @@
 
     .line 2357
     .local v5, "index":I
-    :goto_1
-    if-ltz v5, :cond_1
+    :goto_23
+    if-ltz v5, :cond_29
 
-    if-ge v5, v0, :cond_1
+    if-ge v5, v0, :cond_29
 
     const/4 v6, 0x1
 
-    goto :goto_2
+    goto :goto_2a
 
-    :cond_1
+    :cond_29
     const/4 v6, 0x0
 
-    :goto_2
-    if-eqz v6, :cond_4
+    :goto_2a
+    if-eqz v6, :cond_45
 
     .line 2358
     add-int v6, v5, p1
 
     .line 2359
     .local v6, "end":I
-    if-ltz v6, :cond_3
+    if-ltz v6, :cond_35
 
-    if-le v6, v0, :cond_2
+    if-le v6, v0, :cond_33
 
-    goto :goto_3
+    goto :goto_35
 
-    :cond_2
+    :cond_33
     move v7, v6
 
-    goto :goto_4
+    goto :goto_38
 
-    :cond_3
-    :goto_3
-    if-eqz p3, :cond_4
+    :cond_35
+    :goto_35
+    if-eqz p3, :cond_45
 
     move v7, v0
 
     .line 2360
     .local v7, "coercedEnd":I
-    :goto_4
+    :goto_38
     invoke-interface {p0, v5, v7}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
     move-result-object v8
@@ -14665,10 +14665,10 @@
 
     .end local v6    # "end":I
     .end local v7    # "coercedEnd":I
-    goto :goto_1
+    goto :goto_23
 
     .line 2363
-    :cond_4
+    :cond_45
     move-object v3, v2
 
     check-cast v3, Ljava/util/List;
@@ -14677,23 +14677,23 @@
 .end method
 
 .method public static synthetic windowed$default(Ljava/lang/CharSequence;IIZILjava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 6
 
     .line 2329
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p2, 0x1
 
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_a
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->windowed(Ljava/lang/CharSequence;IIZ)Ljava/util/List;
 
     move-result-object p0
@@ -14702,23 +14702,23 @@
 .end method
 
 .method public static synthetic windowed$default(Ljava/lang/CharSequence;IIZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 7
 
     .line 2351
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     const/4 p2, 0x1
 
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p5, 0x4
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_a
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_a
     invoke-static {p0, p1, p2, p3, p4}, Lkotlin/text/StringsKt;->windowed(Ljava/lang/CharSequence;IIZLkotlin/jvm/functions/Function1;)Ljava/util/List;
 
     move-result-object p0
@@ -14727,7 +14727,7 @@
 .end method
 
 .method public static final windowedSequence(Ljava/lang/CharSequence;IIZ)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 5
     .param p0, "$this$windowedSequence"    # Ljava/lang/CharSequence;
     .param p1, "size"    # I
     .param p2, "step"    # I
@@ -14760,7 +14760,7 @@
 .end method
 
 .method public static final windowedSequence(Ljava/lang/CharSequence;IIZLkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
-    .locals 3
+    .registers 8
     .param p0, "$this$windowedSequence"    # Ljava/lang/CharSequence;
     .param p1, "size"    # I
     .param p2, "step"    # I
@@ -14794,15 +14794,15 @@
     invoke-static {p1, p2}, Lkotlin/collections/SlidingWindowKt;->checkWindowSizeStep(II)V
 
     .line 2406
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_14
 
     invoke-static {p0}, Lkotlin/text/StringsKt;->getIndices(Ljava/lang/CharSequence;)Lkotlin/ranges/IntRange;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_14
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -14817,7 +14817,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_20
     check-cast v0, Lkotlin/ranges/IntProgression;
 
     invoke-static {v0, p2}, Lkotlin/ranges/RangesKt;->step(Lkotlin/ranges/IntProgression;I)Lkotlin/ranges/IntProgression;
@@ -14848,23 +14848,23 @@
 .end method
 
 .method public static synthetic windowedSequence$default(Ljava/lang/CharSequence;IIZILjava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 0
+    .registers 6
 
     .line 2382
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p2, 0x1
 
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_a
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->windowedSequence(Ljava/lang/CharSequence;IIZ)Lkotlin/sequences/Sequence;
 
     move-result-object p0
@@ -14873,23 +14873,23 @@
 .end method
 
 .method public static synthetic windowedSequence$default(Ljava/lang/CharSequence;IIZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 0
+    .registers 7
 
     .line 2404
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     const/4 p2, 0x1
 
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p5, 0x4
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_a
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_a
     invoke-static {p0, p1, p2, p3, p4}, Lkotlin/text/StringsKt;->windowedSequence(Ljava/lang/CharSequence;IIZLkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
 
     move-result-object p0
@@ -14898,7 +14898,7 @@
 .end method
 
 .method public static final withIndex(Ljava/lang/CharSequence;)Ljava/lang/Iterable;
-    .locals 2
+    .registers 3
     .param p0, "$this$withIndex"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -14933,7 +14933,7 @@
 .end method
 
 .method public static final zip(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p0, "$this$zip"    # Ljava/lang/CharSequence;
     .param p1, "other"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -14989,8 +14989,8 @@
     const/4 v4, 0x0
 
     .local v4, "i$iv":I
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_1e
+    if-ge v4, v2, :cond_3b
 
     .line 2635
     invoke-interface {v0, v4}, Ljava/lang/CharSequence;->charAt(I)C
@@ -15028,11 +15028,11 @@
     .line 2634
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 2637
     .end local v4    # "i$iv":I
-    :cond_0
+    :cond_3b
     move-object v0, v3
 
     check-cast v0, Ljava/util/List;
@@ -15046,7 +15046,7 @@
 .end method
 
 .method public static final zip(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 6
+    .registers 9
     .param p0, "$this$zip"    # Ljava/lang/CharSequence;
     .param p1, "other"    # Ljava/lang/CharSequence;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -15107,8 +15107,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_22
+    if-ge v3, v1, :cond_3e
 
     .line 2435
     invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
@@ -15136,11 +15136,11 @@
     .line 2434
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 2437
     .end local v3    # "i":I
-    :cond_0
+    :cond_3e
     move-object v3, v2
 
     check-cast v3, Ljava/util/List;
@@ -15149,7 +15149,7 @@
 .end method
 
 .method public static final zipWithNext(Ljava/lang/CharSequence;)Ljava/util/List;
-    .locals 10
+    .registers 11
     .param p0, "$this$zipWithNext"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -15186,16 +15186,16 @@
 
     .line 2639
     .local v2, "size$iv":I
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_14
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 2640
-    :cond_0
+    :cond_14
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3, v2}, Ljava/util/ArrayList;-><init>(I)V
@@ -15205,8 +15205,8 @@
     const/4 v4, 0x0
 
     .local v4, "index$iv":I
-    :goto_0
-    if-ge v4, v2, :cond_1
+    :goto_1a
+    if-ge v4, v2, :cond_39
 
     .line 2642
     invoke-interface {v0, v4}, Ljava/lang/CharSequence;->charAt(I)C
@@ -15246,11 +15246,11 @@
     .line 2641
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 2644
     .end local v4    # "index$iv":I
-    :cond_1
+    :cond_39
     move-object v4, v3
 
     check-cast v4, Ljava/util/List;
@@ -15262,12 +15262,12 @@
     .end local v1    # "$i$f$zipWithNext":I
     .end local v2    # "size$iv":I
     .end local v3    # "result$iv":Ljava/util/ArrayList;
-    :goto_1
+    :goto_3d
     return-object v3
 .end method
 
 .method public static final zipWithNext(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 6
+    .registers 8
     .param p0, "$this$zipWithNext"    # Ljava/lang/CharSequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -15309,7 +15309,7 @@
 
     .line 2463
     .local v1, "size":I
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_18
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -15318,7 +15318,7 @@
     return-object v2
 
     .line 2464
-    :cond_0
+    :cond_18
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(I)V
@@ -15328,8 +15328,8 @@
     const/4 v3, 0x0
 
     .local v3, "index":I
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_1e
+    if-ge v3, v1, :cond_3c
 
     .line 2466
     invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
@@ -15359,11 +15359,11 @@
     .line 2465
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 2468
     .end local v3    # "index":I
-    :cond_1
+    :cond_3c
     move-object v3, v2
 
     check-cast v3, Ljava/util/List;

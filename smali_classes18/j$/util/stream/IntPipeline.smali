@@ -32,7 +32,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$smadapt(Lj$/util/Spliterator;)Lj$/util/Spliterator$OfInt;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/util/stream/IntPipeline;->adapt(Lj$/util/Spliterator;)Lj$/util/Spliterator$OfInt;
 
@@ -42,7 +42,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;IZ)V
-    .locals 0
+    .registers 4
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;I)V
-    .locals 0
+    .registers 3
     .param p2, "opFlags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,7 +84,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/function/Supplier;IZ)V
-    .locals 0
+    .registers 4
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -108,7 +108,7 @@
 .end method
 
 .method private static adapt(Lj$/util/Spliterator;)Lj$/util/Spliterator$OfInt;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,7 +123,7 @@
     .local p0, "s":Lj$/util/Spliterator;, "Ljava/util/Spliterator<Ljava/lang/Integer;>;"
     instance-of v0, p0, Lj$/util/Spliterator$OfInt;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 119
     move-object v0, p0
@@ -133,10 +133,10 @@
     return-object v0
 
     .line 122
-    :cond_0
+    :cond_8
     sget-boolean v0, Lj$/util/stream/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 123
     const-class v0, Lj$/util/stream/AbstractPipeline;
@@ -146,7 +146,7 @@
     invoke-static {v0, v1}, Lj$/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 125
-    :cond_1
+    :cond_13
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "IntStream.adapt(Spliterator<Integer> s)"
@@ -157,7 +157,7 @@
 .end method
 
 .method private static adapt(Lj$/util/stream/Sink;)Ljava/util/function/IntConsumer;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -172,7 +172,7 @@
     .local p0, "sink":Lj$/util/stream/Sink;, "Ljava/util/stream/Sink<Ljava/lang/Integer;>;"
     instance-of v0, p0, Ljava/util/function/IntConsumer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 100
     move-object v0, p0
@@ -182,10 +182,10 @@
     return-object v0
 
     .line 103
-    :cond_0
+    :cond_8
     sget-boolean v0, Lj$/util/stream/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 104
     const-class v0, Lj$/util/stream/AbstractPipeline;
@@ -195,7 +195,7 @@
     invoke-static {v0, v1}, Lj$/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 106
-    :cond_1
+    :cond_13
     invoke-static {p0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lj$/util/stream/IntPipeline$$ExternalSyntheticLambda10;
@@ -206,7 +206,7 @@
 .end method
 
 .method static synthetic lambda$average$1()[J
-    .locals 1
+    .registers 1
 
     .line 469
     const/4 v0, 0x2
@@ -217,7 +217,7 @@
 .end method
 
 .method static synthetic lambda$average$2([JI)V
-    .locals 5
+    .registers 7
     .param p0, "ll"    # [J
     .param p1, "i"    # I
 
@@ -248,7 +248,7 @@
 .end method
 
 .method static synthetic lambda$average$3([J[J)V
-    .locals 5
+    .registers 7
     .param p0, "ll"    # [J
     .param p1, "rr"    # [J
 
@@ -279,7 +279,7 @@
 .end method
 
 .method static synthetic lambda$collect$4(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p0, "combiner"    # Ljava/util/function/BiConsumer;
     .param p1, "left"    # Ljava/lang/Object;
     .param p2, "right"    # Ljava/lang/Object;
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic lambda$distinct$0(Ljava/lang/Integer;)I
-    .locals 1
+    .registers 2
     .param p0, "i"    # Ljava/lang/Integer;
 
     .line 432
@@ -304,7 +304,7 @@
 .end method
 
 .method static synthetic lambda$toArray$5(I)[Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "x$0"    # I
 
     .line 538
@@ -314,7 +314,7 @@
 .end method
 
 .method private mapToObj(Ljava/util/function/IntFunction;I)Lj$/util/stream/Stream;
-    .locals 7
+    .registers 10
     .param p2, "opFlags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -353,7 +353,7 @@
 
 # virtual methods
 .method public final allMatch(Ljava/util/function/IntPredicate;)Z
-    .locals 1
+    .registers 3
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
 
     .line 518
@@ -378,7 +378,7 @@
 .end method
 
 .method public final anyMatch(Ljava/util/function/IntPredicate;)Z
-    .locals 1
+    .registers 3
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
 
     .line 513
@@ -403,7 +403,7 @@
 .end method
 
 .method public final asDoubleStream()Lj$/util/stream/DoubleStream;
-    .locals 3
+    .registers 4
 
     .line 218
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -419,7 +419,7 @@
 .end method
 
 .method public final asLongStream()Lj$/util/stream/LongStream;
-    .locals 3
+    .registers 4
 
     .line 203
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -435,7 +435,7 @@
 .end method
 
 .method public final average()Lj$/util/OptionalDouble;
-    .locals 7
+    .registers 8
 
     .line 469
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -467,7 +467,7 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_2b
 
     .line 479
     const/4 v2, 0x1
@@ -486,21 +486,21 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 480
-    :cond_0
+    :cond_2b
     invoke-static {}, Lj$/util/OptionalDouble;->empty()Lj$/util/OptionalDouble;
 
     move-result-object v1
 
     .line 478
-    :goto_0
+    :goto_2f
     return-object v1
 .end method
 
 .method public final boxed()Lj$/util/stream/Stream;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -526,7 +526,7 @@
 .end method
 
 .method public final collect(Ljava/util/function/Supplier;Ljava/util/function/ObjIntConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -567,7 +567,7 @@
 .end method
 
 .method public final count()J
-    .locals 2
+    .registers 3
 
     .line 464
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -589,7 +589,7 @@
 .end method
 
 .method public final distinct()Lj$/util/stream/IntStream;
-    .locals 2
+    .registers 3
 
     .line 432
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -613,7 +613,7 @@
 .end method
 
 .method public final dropWhile(Ljava/util/function/IntPredicate;)Lj$/util/stream/IntStream;
-    .locals 1
+    .registers 3
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
 
     .line 420
@@ -626,7 +626,7 @@
 .end method
 
 .method final evaluateToNode(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;ZLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 1
+    .registers 6
     .param p3, "flattenTree"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -661,7 +661,7 @@
 .end method
 
 .method public final filter(Ljava/util/function/IntPredicate;)Lj$/util/stream/IntStream;
-    .locals 7
+    .registers 9
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
 
     .line 355
@@ -689,7 +689,7 @@
 .end method
 
 .method public final findAny()Lj$/util/OptionalInt;
-    .locals 1
+    .registers 2
 
     .line 533
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -709,7 +709,7 @@
 .end method
 
 .method public final findFirst()Lj$/util/OptionalInt;
-    .locals 1
+    .registers 2
 
     .line 528
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -729,7 +729,7 @@
 .end method
 
 .method public final flatMap(Ljava/util/function/IntFunction;)Lj$/util/stream/IntStream;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -775,7 +775,7 @@
 .end method
 
 .method public forEach(Ljava/util/function/IntConsumer;)V
-    .locals 1
+    .registers 3
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 439
@@ -793,7 +793,7 @@
 .end method
 
 .method public forEachOrdered(Ljava/util/function/IntConsumer;)V
-    .locals 1
+    .registers 3
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 444
@@ -811,7 +811,7 @@
 .end method
 
 .method final forEachWithCancel(Lj$/util/Spliterator;Lj$/util/stream/Sink;)Z
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -840,7 +840,7 @@
 
     .line 163
     .local v1, "adaptedSink":Ljava/util/function/IntConsumer;
-    :cond_0
+    :cond_8
     invoke-interface {p2}, Lj$/util/stream/Sink;->cancellationRequested()Z
 
     move-result v2
@@ -848,21 +848,21 @@
     move v3, v2
 
     .local v3, "cancelled":Z
-    if-nez v2, :cond_1
+    if-nez v2, :cond_15
 
     invoke-interface {v0, v1}, Lj$/util/Spliterator$OfInt;->tryAdvance(Ljava/util/function/IntConsumer;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_8
 
     .line 164
-    :cond_1
+    :cond_15
     return v3
 .end method
 
 .method final getOutputShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     .line 134
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -872,7 +872,7 @@
 .end method
 
 .method public final iterator()Lj$/util/PrimitiveIterator$OfInt;
-    .locals 1
+    .registers 2
 
     .line 191
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -888,7 +888,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 53
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -900,7 +900,7 @@
 .end method
 
 .method final lazySpliterator(Ljava/util/function/Supplier;)Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -924,7 +924,7 @@
 .end method
 
 .method bridge synthetic lazySpliterator(Ljava/util/function/Supplier;)Lj$/util/Spliterator;
-    .locals 0
+    .registers 2
 
     .line 53
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -936,7 +936,7 @@
 .end method
 
 .method public final limit(J)Lj$/util/stream/IntStream;
-    .locals 3
+    .registers 6
     .param p1, "maxSize"    # J
 
     .line 398
@@ -945,7 +945,7 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_b
 
     .line 400
     invoke-static {p0, v0, v1, p1, p2}, Lj$/util/stream/SliceOps;->makeInt(Lj$/util/stream/AbstractPipeline;JJ)Lj$/util/stream/IntStream;
@@ -955,7 +955,7 @@
     return-object v0
 
     .line 399
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1, p2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
@@ -968,7 +968,7 @@
 .end method
 
 .method final makeNodeBuilder(JLjava/util/function/IntFunction;)Lj$/util/stream/Node$Builder;
-    .locals 1
+    .registers 5
     .param p1, "exactSizeIfKnown"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -994,7 +994,7 @@
 .end method
 
 .method public final map(Ljava/util/function/IntUnaryOperator;)Lj$/util/stream/IntStream;
-    .locals 7
+    .registers 9
     .param p1, "mapper"    # Ljava/util/function/IntUnaryOperator;
 
     .line 238
@@ -1026,7 +1026,7 @@
 .end method
 
 .method public final mapToDouble(Ljava/util/function/IntToDoubleFunction;)Lj$/util/stream/DoubleStream;
-    .locals 7
+    .registers 9
     .param p1, "mapper"    # Ljava/util/function/IntToDoubleFunction;
 
     .line 278
@@ -1058,7 +1058,7 @@
 .end method
 
 .method public final mapToLong(Ljava/util/function/IntToLongFunction;)Lj$/util/stream/LongStream;
-    .locals 7
+    .registers 9
     .param p1, "mapper"    # Ljava/util/function/IntToLongFunction;
 
     .line 261
@@ -1090,7 +1090,7 @@
 .end method
 
 .method public final mapToObj(Ljava/util/function/IntFunction;)Lj$/util/stream/Stream;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -1123,7 +1123,7 @@
 .end method
 
 .method public final max()Lj$/util/OptionalInt;
-    .locals 1
+    .registers 2
 
     .line 459
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1139,7 +1139,7 @@
 .end method
 
 .method public final min()Lj$/util/OptionalInt;
-    .locals 1
+    .registers 2
 
     .line 454
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1155,7 +1155,7 @@
 .end method
 
 .method public final noneMatch(Ljava/util/function/IntPredicate;)Z
-    .locals 1
+    .registers 3
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
 
     .line 523
@@ -1180,7 +1180,7 @@
 .end method
 
 .method public bridge synthetic parallel()Lj$/util/stream/IntStream;
-    .locals 1
+    .registers 2
 
     .line 53
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1194,7 +1194,7 @@
 .end method
 
 .method public final peek(Ljava/util/function/IntConsumer;)Lj$/util/stream/IntStream;
-    .locals 7
+    .registers 9
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 378
@@ -1222,7 +1222,7 @@
 .end method
 
 .method public final reduce(ILjava/util/function/IntBinaryOperator;)I
-    .locals 1
+    .registers 4
     .param p1, "identity"    # I
     .param p2, "op"    # Ljava/util/function/IntBinaryOperator;
 
@@ -1246,7 +1246,7 @@
 .end method
 
 .method public final reduce(Ljava/util/function/IntBinaryOperator;)Lj$/util/OptionalInt;
-    .locals 1
+    .registers 3
     .param p1, "op"    # Ljava/util/function/IntBinaryOperator;
 
     .line 496
@@ -1265,7 +1265,7 @@
 .end method
 
 .method public bridge synthetic sequential()Lj$/util/stream/IntStream;
-    .locals 1
+    .registers 2
 
     .line 53
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1279,7 +1279,7 @@
 .end method
 
 .method public final skip(J)Lj$/util/stream/IntStream;
-    .locals 3
+    .registers 6
     .param p1, "n"    # J
 
     .line 405
@@ -1288,18 +1288,18 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_12
 
     .line 407
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_b
 
     .line 408
     return-object p0
 
     .line 410
-    :cond_0
+    :cond_b
     const-wide/16 v0, -0x1
 
     invoke-static {p0, p1, p2, v0, v1}, Lj$/util/stream/SliceOps;->makeInt(Lj$/util/stream/AbstractPipeline;JJ)Lj$/util/stream/IntStream;
@@ -1309,7 +1309,7 @@
     return-object v0
 
     .line 406
-    :cond_1
+    :cond_12
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1, p2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
@@ -1322,7 +1322,7 @@
 .end method
 
 .method public final sorted()Lj$/util/stream/IntStream;
-    .locals 1
+    .registers 2
 
     .line 425
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1334,7 +1334,7 @@
 .end method
 
 .method public final spliterator()Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 2
 
     .line 196
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1350,7 +1350,7 @@
 .end method
 
 .method public bridge synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 53
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1362,7 +1362,7 @@
 .end method
 
 .method public final sum()I
-    .locals 2
+    .registers 3
 
     .line 449
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1380,7 +1380,7 @@
 .end method
 
 .method public final summaryStatistics()Lj$/util/IntSummaryStatistics;
-    .locals 3
+    .registers 4
 
     .line 485
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1406,7 +1406,7 @@
 .end method
 
 .method public final takeWhile(Ljava/util/function/IntPredicate;)Lj$/util/stream/IntStream;
-    .locals 1
+    .registers 3
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
 
     .line 415
@@ -1419,7 +1419,7 @@
 .end method
 
 .method public final toArray()[I
-    .locals 1
+    .registers 2
 
     .line 538
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1449,7 +1449,7 @@
 .end method
 
 .method public bridge synthetic unordered()Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
     .line 53
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1461,7 +1461,7 @@
 .end method
 
 .method public unordered()Lj$/util/stream/IntStream;
-    .locals 3
+    .registers 4
 
     .line 343
     .local p0, "this":Lj$/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
@@ -1469,13 +1469,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 344
     return-object p0
 
     .line 345
-    :cond_0
+    :cond_7
     new-instance v0, Lj$/util/stream/IntPipeline$8;
 
     sget-object v1, Lj$/util/stream/StreamShape;->INT_VALUE:Lj$/util/stream/StreamShape;
@@ -1488,7 +1488,7 @@
 .end method
 
 .method final wrap(Lj$/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)Lj$/util/Spliterator;
-    .locals 1
+    .registers 5
     .param p3, "isParallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {

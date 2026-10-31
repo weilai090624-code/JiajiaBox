@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
 
     .line 801
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .locals 1
+    .registers 2
 
     .line 804
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$6;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;

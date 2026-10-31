@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multisets$1;Ljava/util/Iterator;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/collect/Multisets$1;
 
     .line 421
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method protected computeNext()Lcom/google/common/collect/Multiset$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -69,7 +69,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 426
     iget-object v0, p0, Lcom/google/common/collect/Multisets$1$1;->val$iterator1:Ljava/util/Iterator;
@@ -116,15 +116,15 @@
     .end local v0    # "entry1":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<+TE;>;"
     .end local v1    # "element":Ljava/lang/Object;, "TE;"
     .end local v2    # "count":I
-    :cond_0
-    :goto_0
+    :cond_29
+    :goto_29
     iget-object v0, p0, Lcom/google/common/collect/Multisets$1$1;->val$iterator2:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_51
 
     .line 432
     iget-object v0, p0, Lcom/google/common/collect/Multisets$1$1;->val$iterator2:Ljava/util/Iterator;
@@ -151,7 +151,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_50
 
     .line 435
     invoke-interface {v0}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
@@ -167,11 +167,11 @@
     .line 437
     .end local v0    # "entry2":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<+TE;>;"
     .end local v1    # "element":Ljava/lang/Object;, "TE;"
-    :cond_1
-    goto :goto_0
+    :cond_50
+    goto :goto_29
 
     .line 438
-    :cond_2
+    :cond_51
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$1$1;->endOfData()Ljava/lang/Object;
 
     move-result-object v0
@@ -182,7 +182,7 @@
 .end method
 
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 

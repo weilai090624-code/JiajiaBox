@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 78
     .local p0, "this":Lcom/google/common/collect/TreeTraverser;, "Lcom/google/common/collect/TreeTraverser<TT;>;"
@@ -41,7 +41,7 @@
 .end method
 
 .method public static using(Lcom/google/common/base/Function;)Lcom/google/common/collect/TreeTraverser;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public final breadthFirstTraversal(Ljava/lang/Object;)Lcom/google/common/collect/FluentIterable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -110,7 +110,7 @@
 .end method
 
 .method postOrderIterator(Ljava/lang/Object;)Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -130,7 +130,7 @@
 .end method
 
 .method public final postOrderTraversal(Ljava/lang/Object;)Lcom/google/common/collect/FluentIterable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -156,7 +156,7 @@
 .end method
 
 .method preOrderIterator(Ljava/lang/Object;)Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -176,7 +176,7 @@
 .end method
 
 .method public final preOrderTraversal(Ljava/lang/Object;)Lcom/google/common/collect/FluentIterable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",

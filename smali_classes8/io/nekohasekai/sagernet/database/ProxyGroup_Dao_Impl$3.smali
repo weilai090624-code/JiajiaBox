@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/ProxyGroup_Dao_Impl;Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/database/ProxyGroup_Dao_Impl;
     .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method protected bind(Landroidx/sqlite/db/SupportSQLiteStatement;Lio/nekohasekai/sagernet/database/ProxyGroup;)V
-    .locals 6
+    .registers 9
     .param p1, "statement"    # Landroidx/sqlite/db/SupportSQLiteStatement;
     .param p2, "entity"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -105,15 +105,15 @@
 
     const/4 v2, 0x4
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_24
 
     .line 104
     invoke-interface {p1, v2}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 106
-    :cond_0
+    :cond_24
     invoke-virtual {p2}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getName()Ljava/lang/String;
 
     move-result-object v1
@@ -121,7 +121,7 @@
     invoke-interface {p1, v2, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 108
-    :goto_0
+    :goto_2b
     invoke-virtual {p2}, Lio/nekohasekai/sagernet/database/ProxyGroup;->getType()I
 
     move-result v1
@@ -203,7 +203,7 @@
 .end method
 
 .method protected bridge synthetic bind(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -224,7 +224,7 @@
 .end method
 
 .method protected createQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 93
     const-string v0, "UPDATE OR ABORT `proxy_groups` SET `id` = ?,`userOrder` = ?,`ungrouped` = ?,`name` = ?,`type` = ?,`subscription` = ?,`order` = ?,`isSelector` = ?,`frontProxy` = ?,`landingProxy` = ? WHERE `id` = ?"

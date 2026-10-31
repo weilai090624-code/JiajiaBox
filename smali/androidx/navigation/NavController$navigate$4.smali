@@ -59,7 +59,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/Ref$BooleanRef;Landroidx/navigation/NavController;Landroidx/navigation/NavDestination;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 6
 
     iput-object p1, p0, Landroidx/navigation/NavController$navigate$4;->$navigated:Lkotlin/jvm/internal/Ref$BooleanRef;
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 1719
@@ -95,7 +95,7 @@
 .end method
 
 .method public final invoke(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 9
+    .registers 11
     .param p1, "it"    # Landroidx/navigation/NavBackStackEntry;
 
     const-string v0, "it"

@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/properties/Delegates;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public final notNull()Lkotlin/properties/ReadWriteProperty;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -93,7 +93,7 @@
 .end method
 
 .method public final observable(Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Lkotlin/properties/ReadWriteProperty;
-    .locals 2
+    .registers 5
     .param p1, "initialValue"    # Ljava/lang/Object;
     .param p2, "onChange"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -132,7 +132,7 @@
 .end method
 
 .method public final vetoable(Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Lkotlin/properties/ReadWriteProperty;
-    .locals 2
+    .registers 5
     .param p1, "initialValue"    # Ljava/lang/Object;
     .param p2, "onChange"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;

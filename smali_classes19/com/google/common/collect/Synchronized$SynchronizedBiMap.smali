@@ -65,7 +65,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/BiMap;Ljava/lang/Object;Lcom/google/common/collect/BiMap;)V
-    .locals 0
+    .registers 4
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -99,7 +99,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/BiMap;Ljava/lang/Object;Lcom/google/common/collect/BiMap;Lcom/google/common/collect/Synchronized$1;)V
-    .locals 0
+    .registers 5
     .param p1, "x0"    # Lcom/google/common/collect/BiMap;
     .param p2, "x1"    # Ljava/lang/Object;
     .param p3, "x2"    # Lcom/google/common/collect/BiMap;
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method delegate()Lcom/google/common/collect/BiMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -136,7 +136,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1203
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedBiMap;, "Lcom/google/common/collect/Synchronized$SynchronizedBiMap<TK;TV;>;"
@@ -148,7 +148,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 1203
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedBiMap;, "Lcom/google/common/collect/Synchronized$SynchronizedBiMap<TK;TV;>;"
@@ -160,7 +160,7 @@
 .end method
 
 .method public forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -179,7 +179,7 @@
     monitor-enter v0
 
     .line 1234
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;->delegate()Lcom/google/common/collect/BiMap;
 
     move-result-object v1
@@ -193,18 +193,18 @@
     return-object v1
 
     .line 1235
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public inverse()Lcom/google/common/collect/BiMap;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -220,10 +220,10 @@
     monitor-enter v0
 
     .line 1241
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 1242
     new-instance v1, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;
@@ -243,7 +243,7 @@
     iput-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
     .line 1244
-    :cond_0
+    :cond_18
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
     monitor-exit v0
@@ -251,18 +251,18 @@
     return-object v1
 
     .line 1245
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_3 .. :try_end_1e} :catchall_1c
 
     throw v1
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 1203
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedBiMap;, "Lcom/google/common/collect/Synchronized$SynchronizedBiMap<TK;TV;>;"
@@ -274,7 +274,7 @@
 .end method
 
 .method public values()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -290,10 +290,10 @@
     monitor-enter v0
 
     .line 1223
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;->valueSet:Ljava/util/Set;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 1224
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;->delegate()Lcom/google/common/collect/BiMap;
@@ -313,7 +313,7 @@
     iput-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;->valueSet:Ljava/util/Set;
 
     .line 1226
-    :cond_0
+    :cond_17
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;->valueSet:Ljava/util/Set;
 
     monitor-exit v0
@@ -321,12 +321,12 @@
     return-object v1
 
     .line 1227
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_3 .. :try_end_1d} :catchall_1b
 
     throw v1
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/base/Joiner;)V
-    .locals 1
+    .registers 3
     .param p1, "prototype"    # Lcom/google/common/base/Joiner;
 
     .line 86
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/base/Joiner;Lcom/google/common/base/Joiner$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/base/Joiner;
     .param p2, "x1"    # Lcom/google/common/base/Joiner$1;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "separator"    # Ljava/lang/String;
 
     .line 82
@@ -67,7 +67,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/base/Joiner;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/base/Joiner;
 
     .line 69
@@ -77,7 +77,7 @@
 .end method
 
 .method private static iterable(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 4
     .param p0, "first"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -113,7 +113,7 @@
 .end method
 
 .method public static on(C)Lcom/google/common/base/Joiner;
-    .locals 2
+    .registers 3
     .param p0, "separator"    # C
 
     .line 77
@@ -129,7 +129,7 @@
 .end method
 
 .method public static on(Ljava/lang/String;)Lcom/google/common/base/Joiner;
-    .locals 1
+    .registers 2
     .param p0, "separator"    # Ljava/lang/String;
 
     .line 72
@@ -143,7 +143,7 @@
 
 # virtual methods
 .method public appendTo(Ljava/lang/Appendable;Ljava/lang/Iterable;)Ljava/lang/Appendable;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -177,7 +177,7 @@
 .end method
 
 .method public final varargs appendTo(Ljava/lang/Appendable;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Appendable;
-    .locals 1
+    .registers 6
     .param p2, "first"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -220,7 +220,7 @@
 .end method
 
 .method public appendTo(Ljava/lang/Appendable;Ljava/util/Iterator;)Ljava/lang/Appendable;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -249,7 +249,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 117
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -263,12 +263,12 @@
     invoke-interface {p1, v0}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
     .line 118
-    :goto_0
+    :goto_14
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 119
     iget-object v0, p0, Lcom/google/common/base/Joiner;->separator:Ljava/lang/String;
@@ -286,15 +286,15 @@
 
     invoke-interface {p1, v0}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 123
-    :cond_0
+    :cond_2b
     return-object p1
 .end method
 
 .method public final appendTo(Ljava/lang/Appendable;[Ljava/lang/Object;)Ljava/lang/Appendable;
-    .locals 1
+    .registers 4
     .param p2, "parts"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -326,7 +326,7 @@
 .end method
 
 .method public final appendTo(Ljava/lang/StringBuilder;Ljava/lang/Iterable;)Ljava/lang/StringBuilder;
-    .locals 1
+    .registers 4
     .param p1, "builder"    # Ljava/lang/StringBuilder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -354,7 +354,7 @@
 .end method
 
 .method public final varargs appendTo(Ljava/lang/StringBuilder;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    .locals 1
+    .registers 6
     .param p1, "builder"    # Ljava/lang/StringBuilder;
     .param p2, "first"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -379,7 +379,7 @@
 .end method
 
 .method public final appendTo(Ljava/lang/StringBuilder;Ljava/util/Iterator;)Ljava/lang/StringBuilder;
-    .locals 2
+    .registers 5
     .param p1, "builder"    # Ljava/lang/StringBuilder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -397,8 +397,8 @@
     .local p2, "parts":Ljava/util/Iterator;, "Ljava/util/Iterator<+Ljava/lang/Object;>;"
     :try_start_0
     invoke-virtual {p0, p1, p2}, Lcom/google/common/base/Joiner;->appendTo(Ljava/lang/Appendable;Ljava/util/Iterator;)Ljava/lang/Appendable;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3} :catch_5
 
     .line 172
     nop
@@ -407,7 +407,7 @@
     return-object p1
 
     .line 170
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 171
@@ -420,7 +420,7 @@
 .end method
 
 .method public final appendTo(Ljava/lang/StringBuilder;[Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    .locals 1
+    .registers 4
     .param p1, "builder"    # Ljava/lang/StringBuilder;
     .param p2, "parts"    # [Ljava/lang/Object;
 
@@ -437,7 +437,7 @@
 .end method
 
 .method public final join(Ljava/lang/Iterable;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -463,7 +463,7 @@
 .end method
 
 .method public final varargs join(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 5
     .param p1, "first"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -487,7 +487,7 @@
 .end method
 
 .method public final join(Ljava/util/Iterator;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -517,7 +517,7 @@
 .end method
 
 .method public final join([Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "parts"    # [Ljava/lang/Object;
 
     .line 223
@@ -533,7 +533,7 @@
 .end method
 
 .method public skipNulls()Lcom/google/common/base/Joiner;
-    .locals 1
+    .registers 2
 
     .line 264
     new-instance v0, Lcom/google/common/base/Joiner$2;
@@ -544,7 +544,7 @@
 .end method
 
 .method toString(Ljava/lang/Object;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "part"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -556,25 +556,25 @@
     .line 492
     instance-of v0, p1, Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     move-object v0, p1
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method public useForNull(Ljava/lang/String;)Lcom/google/common/base/Joiner;
-    .locals 1
+    .registers 3
     .param p1, "nullText"    # Ljava/lang/String;
 
     .line 240
@@ -589,7 +589,7 @@
 .end method
 
 .method public withKeyValueSeparator(C)Lcom/google/common/base/Joiner$MapJoiner;
-    .locals 1
+    .registers 3
     .param p1, "keyValueSeparator"    # C
 
     .line 306
@@ -605,7 +605,7 @@
 .end method
 
 .method public withKeyValueSeparator(Ljava/lang/String;)Lcom/google/common/base/Joiner$MapJoiner;
-    .locals 2
+    .registers 4
     .param p1, "keyValueSeparator"    # Ljava/lang/String;
 
     .line 314

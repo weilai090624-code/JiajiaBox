@@ -34,7 +34,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/reflect/Types$ClassOwnership;
-    .locals 3
+    .registers 3
 
     .line 109
     const/4 v0, 0x2
@@ -57,7 +57,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 110
     new-instance v0, Lcom/google/common/reflect/Types$ClassOwnership$1;
@@ -99,7 +99,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -113,7 +113,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/reflect/Types$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # I
     .param p3, "x2"    # Lcom/google/common/reflect/Types$1;
@@ -125,7 +125,7 @@
 .end method
 
 .method private static detectJvmBehavior()Lcom/google/common/reflect/Types$ClassOwnership;
-    .locals 8
+    .registers 8
 
     .line 136
     new-instance v0, Lcom/google/common/reflect/Types$ClassOwnership$3;
@@ -163,8 +163,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_1c
+    if-ge v4, v3, :cond_30
 
     aget-object v5, v2, v4
 
@@ -180,20 +180,20 @@
 
     move-result-object v7
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_2d
 
     .line 142
     return-object v5
 
     .line 140
     .end local v5    # "behavior":Lcom/google/common/reflect/Types$ClassOwnership;
-    :cond_0
+    :cond_2d
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 145
-    :cond_1
+    :cond_30
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
@@ -202,7 +202,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/reflect/Types$ClassOwnership;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 109
@@ -218,7 +218,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/reflect/Types$ClassOwnership;
-    .locals 1
+    .registers 1
 
     .line 109
     sget-object v0, Lcom/google/common/reflect/Types$ClassOwnership;->$VALUES:[Lcom/google/common/reflect/Types$ClassOwnership;

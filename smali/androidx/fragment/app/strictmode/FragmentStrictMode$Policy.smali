@@ -96,7 +96,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     new-instance v0, Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy$Companion;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Set;Landroidx/fragment/app/strictmode/FragmentStrictMode$OnViolationListener;Ljava/util/Map;)V
-    .locals 4
+    .registers 8
     .param p1, "flags"    # Ljava/util/Set;
     .param p2, "listener"    # Landroidx/fragment/app/strictmode/FragmentStrictMode$OnViolationListener;
     .param p3, "allowedViolations"    # Ljava/util/Map;
@@ -188,12 +188,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_22
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3e
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -218,12 +218,12 @@
     .local v2, "value":Ljava/util/Set;
     invoke-interface {v0, v3, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_22
 
     .line 483
     .end local v2    # "value":Ljava/util/Set;
     .end local v3    # "key":Ljava/lang/String;
-    :cond_0
+    :cond_3e
     iput-object v0, p0, Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;->mAllowedViolations:Ljava/util/Map;
 
     .line 484
@@ -237,7 +237,7 @@
 
 # virtual methods
 .method public final getFlags$fragment_release()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -254,7 +254,7 @@
 .end method
 
 .method public final getListener$fragment_release()Landroidx/fragment/app/strictmode/FragmentStrictMode$OnViolationListener;
-    .locals 1
+    .registers 2
 
     .line 319
     iget-object v0, p0, Landroidx/fragment/app/strictmode/FragmentStrictMode$Policy;->listener:Landroidx/fragment/app/strictmode/FragmentStrictMode$OnViolationListener;
@@ -263,7 +263,7 @@
 .end method
 
 .method public final getMAllowedViolations$fragment_release()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

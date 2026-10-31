@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 83
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/Serializable$CREATOR;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -54,7 +54,7 @@
 .end method
 
 .method public newArray(I)[Lmoe/matsuri/nb4a/proxy/neko/NekoBean;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -72,7 +72,7 @@
 .end method
 
 .method public bridge synthetic newInstance()Lio/nekohasekai/sagernet/fmt/Serializable;
-    .locals 1
+    .registers 2
 
     .line 83
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/proxy/neko/NekoBean$1;->newInstance()Lmoe/matsuri/nb4a/proxy/neko/NekoBean;
@@ -83,7 +83,7 @@
 .end method
 
 .method public newInstance()Lmoe/matsuri/nb4a/proxy/neko/NekoBean;
-    .locals 1
+    .registers 2
 
     .line 87
     new-instance v0, Lmoe/matsuri/nb4a/proxy/neko/NekoBean;

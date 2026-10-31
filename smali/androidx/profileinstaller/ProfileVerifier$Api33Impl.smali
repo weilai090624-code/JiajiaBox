@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 617
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getPackageInfo(Landroid/content/pm/PackageManager;Landroid/content/Context;)Landroid/content/pm/PackageInfo;
-    .locals 3
+    .registers 5
     .param p0, "packageManager"    # Landroid/content/pm/PackageManager;
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;

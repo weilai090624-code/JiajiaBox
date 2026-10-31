@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 262
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static canScheduleExactAlarms(Landroid/app/AlarmManager;)Z
-    .locals 2
+    .registers 3
     .param p0, "alarmManager"    # Landroid/app/AlarmManager;
 
     .line 255
@@ -33,7 +33,7 @@
 
     const/16 v1, 0x1f
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 256
     invoke-static {p0}, Landroidx/core/app/AlarmManagerCompat$Api31Impl;->canScheduleExactAlarms(Landroid/app/AlarmManager;)Z
@@ -43,14 +43,14 @@
     return v0
 
     .line 258
-    :cond_0
+    :cond_b
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static setAlarmClock(Landroid/app/AlarmManager;JLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .locals 1
+    .registers 6
     .param p0, "alarmManager"    # Landroid/app/AlarmManager;
     .param p1, "triggerTime"    # J
     .param p3, "showIntent"    # Landroid/app/PendingIntent;
@@ -75,7 +75,7 @@
 .end method
 
 .method public static setAndAllowWhileIdle(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
-    .locals 2
+    .registers 7
     .param p0, "alarmManager"    # Landroid/app/AlarmManager;
     .param p1, "type"    # I
     .param p2, "triggerAtMillis"    # J
@@ -86,24 +86,24 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 124
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/app/AlarmManagerCompat$Api23Impl;->setAndAllowWhileIdle(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 126
-    :cond_0
+    :cond_a
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
     .line 128
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method public static setExact(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
-    .locals 0
+    .registers 5
     .param p0, "alarmManager"    # Landroid/app/AlarmManager;
     .param p1, "type"    # I
     .param p2, "triggerAtMillis"    # J
@@ -117,7 +117,7 @@
 .end method
 
 .method public static setExactAndAllowWhileIdle(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
-    .locals 2
+    .registers 7
     .param p0, "alarmManager"    # Landroid/app/AlarmManager;
     .param p1, "type"    # I
     .param p2, "triggerAtMillis"    # J
@@ -128,18 +128,18 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 225
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/app/AlarmManagerCompat$Api23Impl;->setExactAndAllowWhileIdle(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 227
-    :cond_0
+    :cond_a
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/app/AlarmManagerCompat;->setExact(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
 
     .line 229
-    :goto_0
+    :goto_d
     return-void
 .end method

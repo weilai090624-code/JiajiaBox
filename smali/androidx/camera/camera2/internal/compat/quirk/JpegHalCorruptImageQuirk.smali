@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 43
     new-instance v0, Ljava/util/HashSet;
@@ -75,7 +75,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_34
 
     .line 57
     sget-object v0, Landroidx/camera/camera2/internal/compat/quirk/JpegHalCorruptImageQuirk;->SUPPORTED_HARDWARE_LEVELS:Ljava/util/Set;
@@ -89,12 +89,12 @@
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 59
-    :cond_0
+    :cond_34
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -103,7 +103,7 @@
 .end method
 
 .method static load(Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)Z
-    .locals 4
+    .registers 5
     .param p0, "characteristicsCompat"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -151,7 +151,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_30
 
     sget-object v1, Landroidx/camera/camera2/internal/compat/quirk/JpegHalCorruptImageQuirk;->SUPPORTED_HARDWARE_LEVELS:Ljava/util/Set;
 
@@ -164,16 +164,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_30
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_30
     const/4 v1, 0x0
 
     .line 65
-    :goto_0
+    :goto_31
     return v1
 .end method

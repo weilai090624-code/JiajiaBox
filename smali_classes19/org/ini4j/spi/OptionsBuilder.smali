@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method private getConfig()Lorg/ini4j/Config;
-    .locals 1
+    .registers 2
 
     .line 105
     iget-object v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_options:Lorg/ini4j/Options;
@@ -38,7 +38,7 @@
 .end method
 
 .method protected static newInstance()Lorg/ini4j/spi/OptionsBuilder;
-    .locals 1
+    .registers 1
 
     .line 100
     const-class v0, Lorg/ini4j/spi/OptionsBuilder;
@@ -53,7 +53,7 @@
 .end method
 
 .method public static newInstance(Lorg/ini4j/Options;)Lorg/ini4j/spi/OptionsBuilder;
-    .locals 1
+    .registers 2
     .param p0, "opts"    # Lorg/ini4j/Options;
 
     .line 29
@@ -70,7 +70,7 @@
 .end method
 
 .method private putComment(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
 
     .line 118
@@ -82,7 +82,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 120
     iget-object v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_options:Lorg/ini4j/Options;
@@ -92,12 +92,12 @@
     invoke-virtual {v0, p1, v1}, Lorg/ini4j/Options;->putComment(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     .line 122
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method private setHeaderComment()V
-    .locals 2
+    .registers 3
 
     .line 110
     invoke-direct {p0}, Lorg/ini4j/spi/OptionsBuilder;->getConfig()Lorg/ini4j/Config;
@@ -108,7 +108,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 112
     iget-object v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_options:Lorg/ini4j/Options;
@@ -118,44 +118,44 @@
     invoke-virtual {v0, v1}, Lorg/ini4j/Options;->setComment(Ljava/lang/String;)V
 
     .line 114
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 
 # virtual methods
 .method public endOptions()V
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_lastComment:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-boolean v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_header:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 47
     invoke-direct {p0}, Lorg/ini4j/spi/OptionsBuilder;->setHeaderComment()V
 
     .line 49
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public handleComment(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "comment"    # Ljava/lang/String;
 
     .line 53
     iget-object v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_lastComment:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-boolean v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_header:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 55
     invoke-direct {p0}, Lorg/ini4j/spi/OptionsBuilder;->setHeaderComment()V
@@ -166,7 +166,7 @@
     iput-boolean v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_header:Z
 
     .line 59
-    :cond_0
+    :cond_e
     iput-object p1, p0, Lorg/ini4j/spi/OptionsBuilder;->_lastComment:Ljava/lang/String;
 
     .line 60
@@ -174,7 +174,7 @@
 .end method
 
 .method public handleOption(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -187,49 +187,49 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 66
     iget-object v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_options:Lorg/ini4j/Options;
 
     invoke-virtual {v0, p1, p2}, Lorg/ini4j/Options;->add(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 70
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_options:Lorg/ini4j/Options;
 
     invoke-virtual {v0, p1, p2}, Lorg/ini4j/Options;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 73
-    :goto_0
+    :goto_15
     iget-object v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_lastComment:Ljava/lang/String;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_27
 
     .line 75
     iget-boolean v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_header:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 77
     invoke-direct {p0}, Lorg/ini4j/spi/OptionsBuilder;->setHeaderComment()V
 
-    goto :goto_1
+    goto :goto_24
 
     .line 81
-    :cond_1
+    :cond_21
     invoke-direct {p0, p1}, Lorg/ini4j/spi/OptionsBuilder;->putComment(Ljava/lang/String;)V
 
     .line 84
-    :goto_1
+    :goto_24
     const/4 v0, 0x0
 
     iput-object v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_lastComment:Ljava/lang/String;
 
     .line 87
-    :cond_2
+    :cond_27
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_header:Z
@@ -239,7 +239,7 @@
 .end method
 
 .method public setOptions(Lorg/ini4j/Options;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Lorg/ini4j/Options;
 
     .line 38
@@ -250,7 +250,7 @@
 .end method
 
 .method public startOptions()V
-    .locals 1
+    .registers 2
 
     .line 92
     invoke-direct {p0}, Lorg/ini4j/spi/OptionsBuilder;->getConfig()Lorg/ini4j/Config;
@@ -261,7 +261,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 94
     const/4 v0, 0x1
@@ -269,6 +269,6 @@
     iput-boolean v0, p0, Lorg/ini4j/spi/OptionsBuilder;->_header:Z
 
     .line 96
-    :cond_0
+    :cond_d
     return-void
 .end method

@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 53
     const-string v0, "_COROUTINE"
@@ -50,7 +50,7 @@
 .end method
 
 .method public static final synthetic access$artificialFrame(Ljava/lang/Throwable;Ljava/lang/String;)Ljava/lang/StackTraceElement;
-    .locals 1
+    .registers 3
     .param p0, "$receiver"    # Ljava/lang/Throwable;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -63,7 +63,7 @@
 .end method
 
 .method private static final artificialFrame(Ljava/lang/Throwable;Ljava/lang/String;)Ljava/lang/StackTraceElement;
-    .locals 7
+    .registers 9
     .param p0, "$this$artificialFrame"    # Ljava/lang/Throwable;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -126,7 +126,7 @@
 .end method
 
 .method public static final getARTIFICIAL_FRAME_PACKAGE_NAME()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 53
     sget-object v0, L_COROUTINE/CoroutineDebuggingKt;->ARTIFICIAL_FRAME_PACKAGE_NAME:Ljava/lang/String;

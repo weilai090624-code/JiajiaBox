@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 415
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContracts$GetMultipleContents$Companion;-><init>()V
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public final getClipDataUris$activity_release(Landroid/content/Intent;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p1, "$this$getClipDataUris"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -91,7 +91,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 963
     .local v1, "data":Landroid/net/Uri;
@@ -104,20 +104,20 @@
     .line 421
     .end local v1    # "data":Landroid/net/Uri;
     .end local v2    # "$i$a$-let-ActivityResultContracts$GetMultipleContents$Companion$getClipDataUris$1":I
-    :cond_0
+    :cond_14
     invoke-virtual {p1}, Landroid/content/Intent;->getClipData()Landroid/content/ClipData;
 
     move-result-object v1
 
     .line 422
     .local v1, "clipData":Landroid/content/ClipData;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_25
 
     invoke-virtual {v0}, Ljava/util/LinkedHashSet;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_25
 
     .line 423
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
@@ -127,8 +127,8 @@
     return-object v2
 
     .line 424
-    :cond_1
-    if-eqz v1, :cond_3
+    :cond_25
+    if-eqz v1, :cond_3e
 
     .line 425
     const/4 v2, 0x0
@@ -138,8 +138,8 @@
 
     move-result v3
 
-    :goto_0
-    if-ge v2, v3, :cond_3
+    :goto_2c
+    if-ge v2, v3, :cond_3e
 
     .line 426
     invoke-virtual {v1, v2}, Landroid/content/ClipData;->getItemAt(I)Landroid/content/ClipData$Item;
@@ -152,21 +152,21 @@
 
     .line 427
     .local v4, "uri":Landroid/net/Uri;
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3b
 
     .line 428
     invoke-virtual {v0, v4}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
     .line 425
     .end local v4    # "uri":Landroid/net/Uri;
-    :cond_2
+    :cond_3b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 432
     .end local v2    # "i":I
-    :cond_3
+    :cond_3e
     new-instance v2, Ljava/util/ArrayList;
 
     move-object v3, v0

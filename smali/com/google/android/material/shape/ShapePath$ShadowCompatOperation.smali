@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 406
     new-instance v0, Landroid/graphics/Matrix;
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 404
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method public final draw(Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V
-    .locals 1
+    .registers 5
     .param p1, "shadowRenderer"    # Lcom/google/android/material/shadow/ShadowRenderer;
     .param p2, "shadowElevation"    # I
     .param p3, "canvas"    # Landroid/graphics/Canvas;

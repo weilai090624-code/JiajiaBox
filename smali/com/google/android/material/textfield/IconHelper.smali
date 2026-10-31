@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method static applyIconTint(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/internal/CheckableImageButton;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 3
+    .registers 7
     .param p0, "textInputLayout"    # Lcom/google/android/material/textfield/TextInputLayout;
     .param p1, "iconView"    # Lcom/google/android/material/internal/CheckableImageButton;
     .param p2, "iconTintList"    # Landroid/content/res/ColorStateList;
@@ -27,7 +27,7 @@
 
     .line 82
     .local v0, "icon":Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
     .line 83
     invoke-static {v0}, Landroidx/core/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
@@ -39,13 +39,13 @@
     move-result-object v0
 
     .line 84
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_2b
 
     invoke-virtual {p2}, Landroid/content/res/ColorStateList;->isStateful()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2b
 
     .line 86
     nop
@@ -74,98 +74,98 @@
 
     .line 90
     .end local v1    # "color":I
-    goto :goto_0
+    goto :goto_2e
 
     .line 91
-    :cond_0
+    :cond_2b
     invoke-static {v0, p2}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 93
-    :goto_0
-    if-eqz p3, :cond_1
+    :goto_2e
+    if-eqz p3, :cond_33
 
     .line 94
     invoke-static {v0, p3}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 98
-    :cond_1
+    :cond_33
     invoke-virtual {p1}, Lcom/google/android/material/internal/CheckableImageButton;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    if-eq v1, v0, :cond_2
+    if-eq v1, v0, :cond_3c
 
     .line 99
     invoke-virtual {p1, v0}, Lcom/google/android/material/internal/CheckableImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 101
-    :cond_2
+    :cond_3c
     return-void
 .end method
 
 .method static convertScaleType(I)Landroid/widget/ImageView$ScaleType;
-    .locals 1
+    .registers 2
     .param p0, "scaleType"    # I
 
     .line 161
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_18
 
     .line 175
-    :pswitch_0
+    :pswitch_3
     sget-object v0, Landroid/widget/ImageView$ScaleType;->CENTER:Landroid/widget/ImageView$ScaleType;
 
     return-object v0
 
     .line 173
-    :pswitch_1
+    :pswitch_6
     sget-object v0, Landroid/widget/ImageView$ScaleType;->CENTER_INSIDE:Landroid/widget/ImageView$ScaleType;
 
     return-object v0
 
     .line 171
-    :pswitch_2
+    :pswitch_9
     sget-object v0, Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;
 
     return-object v0
 
     .line 169
-    :pswitch_3
+    :pswitch_c
     sget-object v0, Landroid/widget/ImageView$ScaleType;->FIT_END:Landroid/widget/ImageView$ScaleType;
 
     return-object v0
 
     .line 167
-    :pswitch_4
+    :pswitch_f
     sget-object v0, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
 
     return-object v0
 
     .line 165
-    :pswitch_5
+    :pswitch_12
     sget-object v0, Landroid/widget/ImageView$ScaleType;->FIT_START:Landroid/widget/ImageView$ScaleType;
 
     return-object v0
 
     .line 163
-    :pswitch_6
+    :pswitch_15
     sget-object v0, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
+        :pswitch_15
+        :pswitch_12
+        :pswitch_f
+        :pswitch_c
         :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
+        :pswitch_9
+        :pswitch_6
     .end packed-switch
 .end method
 
 .method private static mergeIconState(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/internal/CheckableImageButton;)[I
-    .locals 6
+    .registers 8
     .param p0, "textInputLayout"    # Lcom/google/android/material/textfield/TextInputLayout;
     .param p1, "iconView"    # Lcom/google/android/material/internal/CheckableImageButton;
 
@@ -209,7 +209,7 @@
 .end method
 
 .method static refreshIconDrawableState(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/internal/CheckableImageButton;Landroid/content/res/ColorStateList;)V
-    .locals 3
+    .registers 6
     .param p0, "textInputLayout"    # Lcom/google/android/material/textfield/TextInputLayout;
     .param p1, "iconView"    # Lcom/google/android/material/internal/CheckableImageButton;
     .param p2, "colorStateList"    # Landroid/content/res/ColorStateList;
@@ -225,20 +225,20 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_33
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_33
 
     invoke-virtual {p2}, Landroid/content/res/ColorStateList;->isStateful()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
-    goto :goto_0
+    goto :goto_33
 
     .line 115
-    :cond_0
+    :cond_13
     nop
 
     .line 117
@@ -280,13 +280,13 @@
 
     .line 112
     .end local v1    # "color":I
-    :cond_1
-    :goto_0
+    :cond_33
+    :goto_33
     return-void
 .end method
 
 .method static setCompatRippleBackgroundIfNeeded(Lcom/google/android/material/internal/CheckableImageButton;)V
-    .locals 3
+    .registers 4
     .param p0, "iconView"    # Lcom/google/android/material/internal/CheckableImageButton;
 
     .line 139
@@ -294,7 +294,7 @@
 
     const/16 v1, 0x16
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_1c
 
     .line 143
     nop
@@ -325,12 +325,12 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/internal/CheckableImageButton;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 147
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method private static setIconClickable(Lcom/google/android/material/internal/CheckableImageButton;Landroid/view/View$OnLongClickListener;)V
-    .locals 4
+    .registers 6
     .param p0, "iconView"    # Lcom/google/android/material/internal/CheckableImageButton;
     .param p1, "onLongClickListener"    # Landroid/view/View$OnLongClickListener;
 
@@ -345,28 +345,28 @@
 
     const/4 v2, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v3, 0x0
 
     .line 60
     .local v3, "iconLongClickable":Z
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_b
+    if-nez v0, :cond_f
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_10
 
-    :cond_1
+    :cond_f
     const/4 v1, 0x1
 
     .line 61
     .local v1, "iconFocusable":Z
-    :cond_2
+    :cond_10
     invoke-virtual {p0, v1}, Lcom/google/android/material/internal/CheckableImageButton;->setFocusable(Z)V
 
     .line 62
@@ -382,17 +382,17 @@
     nop
 
     .line 67
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_20
 
     .line 68
-    goto :goto_1
+    goto :goto_21
 
     .line 69
-    :cond_3
+    :cond_20
     const/4 v2, 0x2
 
     .line 65
-    :goto_1
+    :goto_21
     invoke-static {p0, v2}, Landroidx/core/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
 
     .line 70
@@ -400,7 +400,7 @@
 .end method
 
 .method static setIconMinSize(Lcom/google/android/material/internal/CheckableImageButton;I)V
-    .locals 0
+    .registers 2
     .param p0, "iconView"    # Lcom/google/android/material/internal/CheckableImageButton;
     .param p1, "iconSize"    # I
 
@@ -415,7 +415,7 @@
 .end method
 
 .method static setIconOnClickListener(Lcom/google/android/material/internal/CheckableImageButton;Landroid/view/View$OnClickListener;Landroid/view/View$OnLongClickListener;)V
-    .locals 0
+    .registers 3
     .param p0, "iconView"    # Lcom/google/android/material/internal/CheckableImageButton;
     .param p1, "onClickListener"    # Landroid/view/View$OnClickListener;
     .param p2, "onLongClickListener"    # Landroid/view/View$OnLongClickListener;
@@ -431,7 +431,7 @@
 .end method
 
 .method static setIconOnLongClickListener(Lcom/google/android/material/internal/CheckableImageButton;Landroid/view/View$OnLongClickListener;)V
-    .locals 0
+    .registers 2
     .param p0, "iconView"    # Lcom/google/android/material/internal/CheckableImageButton;
     .param p1, "onLongClickListener"    # Landroid/view/View$OnLongClickListener;
 
@@ -446,7 +446,7 @@
 .end method
 
 .method static setIconScaleType(Lcom/google/android/material/internal/CheckableImageButton;Landroid/widget/ImageView$ScaleType;)V
-    .locals 0
+    .registers 2
     .param p0, "iconView"    # Lcom/google/android/material/internal/CheckableImageButton;
     .param p1, "scaleType"    # Landroid/widget/ImageView$ScaleType;
 

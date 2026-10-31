@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method static isInstanceOfThrowableClass(Ljava/lang/Throwable;Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .param p0, "t"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation

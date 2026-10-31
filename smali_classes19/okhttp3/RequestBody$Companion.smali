@@ -51,7 +51,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 99
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/RequestBody$Companion;-><init>()V
 
@@ -68,16 +68,16 @@
 .end method
 
 .method public static synthetic create$default(Lokhttp3/RequestBody$Companion;Ljava/io/File;Lokhttp3/MediaType;ILjava/lang/Object;)Lokhttp3/RequestBody;
-    .locals 0
+    .registers 5
 
     .line 179
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokhttp3/RequestBody$Companion;->create(Ljava/io/File;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
 
     move-result-object p0
@@ -86,16 +86,16 @@
 .end method
 
 .method public static synthetic create$default(Lokhttp3/RequestBody$Companion;Ljava/io/FileDescriptor;Lokhttp3/MediaType;ILjava/lang/Object;)Lokhttp3/RequestBody;
-    .locals 0
+    .registers 5
 
     .line 141
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokhttp3/RequestBody$Companion;->create(Ljava/io/FileDescriptor;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
 
     move-result-object p0
@@ -104,16 +104,16 @@
 .end method
 
 .method public static synthetic create$default(Lokhttp3/RequestBody$Companion;Ljava/lang/String;Lokhttp3/MediaType;ILjava/lang/Object;)Lokhttp3/RequestBody;
-    .locals 0
+    .registers 5
 
     .line 107
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokhttp3/RequestBody$Companion;->create(Ljava/lang/String;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
 
     move-result-object p0
@@ -122,21 +122,21 @@
 .end method
 
 .method public static synthetic create$default(Lokhttp3/RequestBody$Companion;Lokhttp3/MediaType;[BIIILjava/lang/Object;)Lokhttp3/RequestBody;
-    .locals 0
+    .registers 7
 
     .line 223
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     .line 226
     const/4 p3, 0x0
 
     .line 223
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_c
 
     .line 227
     nop
@@ -148,7 +148,7 @@
     array-length p4, p2
 
     .line 223
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2, p3, p4}, Lokhttp3/RequestBody$Companion;->create(Lokhttp3/MediaType;[BII)Lokhttp3/RequestBody;
 
     move-result-object p0
@@ -157,16 +157,16 @@
 .end method
 
 .method public static synthetic create$default(Lokhttp3/RequestBody$Companion;Lokio/ByteString;Lokhttp3/MediaType;ILjava/lang/Object;)Lokhttp3/RequestBody;
-    .locals 0
+    .registers 5
 
     .line 126
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokhttp3/RequestBody$Companion;->create(Lokio/ByteString;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
 
     move-result-object p0
@@ -175,30 +175,30 @@
 .end method
 
 .method public static synthetic create$default(Lokhttp3/RequestBody$Companion;[BLokhttp3/MediaType;IIILjava/lang/Object;)Lokhttp3/RequestBody;
-    .locals 0
+    .registers 7
 
     .line 159
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     .line 160
     const/4 p2, 0x0
 
     .line 159
-    :cond_0
+    :cond_5
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_a
 
     .line 161
     const/4 p3, 0x0
 
     .line 159
-    :cond_1
+    :cond_a
     and-int/lit8 p5, p5, 0x4
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_11
 
     .line 162
     nop
@@ -210,7 +210,7 @@
     array-length p4, p1
 
     .line 159
-    :cond_2
+    :cond_11
     invoke-virtual {p0, p1, p2, p3, p4}, Lokhttp3/RequestBody$Companion;->create([BLokhttp3/MediaType;II)Lokhttp3/RequestBody;
 
     move-result-object p0
@@ -221,7 +221,7 @@
 
 # virtual methods
 .method public final create(Ljava/io/File;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 4
     .param p1, "$this$asRequestBody"    # Ljava/io/File;
     .param p2, "contentType"    # Lokhttp3/MediaType;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -242,7 +242,7 @@
 .end method
 
 .method public final create(Ljava/io/FileDescriptor;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 4
     .param p1, "$this$toRequestBody"    # Ljava/io/FileDescriptor;
     .param p2, "contentType"    # Lokhttp3/MediaType;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -263,7 +263,7 @@
 .end method
 
 .method public final create(Ljava/lang/String;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
-    .locals 6
+    .registers 9
     .param p1, "$this$toRequestBody"    # Ljava/lang/String;
     .param p2, "contentType"    # Lokhttp3/MediaType;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -282,7 +282,7 @@
 
     .line 110
     .local v1, "finalContentType":Lokhttp3/MediaType;
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2f
 
     .line 111
     const/4 v2, 0x1
@@ -295,7 +295,7 @@
 
     .line 112
     .local v2, "resolvedCharset":Ljava/nio/charset/Charset;
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2e
 
     .line 113
     sget-object v0, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
@@ -325,16 +325,16 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 116
-    :cond_0
+    :cond_2e
     move-object v0, v2
 
     .line 119
     .end local v2    # "resolvedCharset":Ljava/nio/charset/Charset;
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     invoke-virtual {p1, v0}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
     move-result-object v2
@@ -357,7 +357,7 @@
 .end method
 
 .method public final create(Lokhttp3/MediaType;Ljava/io/File;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 4
     .param p1, "contentType"    # Lokhttp3/MediaType;
     .param p2, "file"    # Ljava/io/File;
     .annotation runtime Lkotlin/Deprecated;
@@ -387,7 +387,7 @@
 .end method
 
 .method public final create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 4
     .param p1, "contentType"    # Lokhttp3/MediaType;
     .param p2, "content"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
@@ -417,7 +417,7 @@
 .end method
 
 .method public final create(Lokhttp3/MediaType;Lokio/ByteString;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 4
     .param p1, "contentType"    # Lokhttp3/MediaType;
     .param p2, "content"    # Lokio/ByteString;
     .annotation runtime Lkotlin/Deprecated;
@@ -447,7 +447,7 @@
 .end method
 
 .method public final create(Lokhttp3/MediaType;[B)Lokhttp3/RequestBody;
-    .locals 8
+    .registers 11
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -488,7 +488,7 @@
 .end method
 
 .method public final create(Lokhttp3/MediaType;[BI)Lokhttp3/RequestBody;
-    .locals 8
+    .registers 12
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Moved to extension function. Put the \'content\' argument first to fix Java"
@@ -529,7 +529,7 @@
 .end method
 
 .method public final create(Lokhttp3/MediaType;[BII)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 6
     .param p1, "contentType"    # Lokhttp3/MediaType;
     .param p2, "content"    # [B
     .param p3, "offset"    # I
@@ -561,7 +561,7 @@
 .end method
 
 .method public final create(Lokio/ByteString;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
-    .locals 1
+    .registers 4
     .param p1, "$this$toRequestBody"    # Lokio/ByteString;
     .param p2, "contentType"    # Lokhttp3/MediaType;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -582,7 +582,7 @@
 .end method
 
 .method public final create([B)Lokhttp3/RequestBody;
-    .locals 8
+    .registers 10
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -612,7 +612,7 @@
 .end method
 
 .method public final create([BLokhttp3/MediaType;)Lokhttp3/RequestBody;
-    .locals 8
+    .registers 11
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -642,7 +642,7 @@
 .end method
 
 .method public final create([BLokhttp3/MediaType;I)Lokhttp3/RequestBody;
-    .locals 8
+    .registers 12
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -672,7 +672,7 @@
 .end method
 
 .method public final create([BLokhttp3/MediaType;II)Lokhttp3/RequestBody;
-    .locals 7
+    .registers 12
     .param p1, "$this$toRequestBody"    # [B
     .param p2, "contentType"    # Lokhttp3/MediaType;
     .param p3, "offset"    # I

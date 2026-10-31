@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 699
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getResultsSource(Landroid/content/Intent;)I
-    .locals 1
+    .registers 2
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 710
@@ -38,7 +38,7 @@
 .end method
 
 .method static setResultsSource(Landroid/content/Intent;I)V
-    .locals 0
+    .registers 2
     .param p0, "intent"    # Landroid/content/Intent;
     .param p1, "source"    # I
 

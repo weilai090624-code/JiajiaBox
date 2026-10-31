@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 0
+    .registers 2
     .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getCameraCaptureResult()Landroidx/camera/core/impl/CameraCaptureResult;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/camera/core/internal/CameraCaptureResultImageInfo;->mCameraCaptureResult:Landroidx/camera/core/impl/CameraCaptureResult;
@@ -45,7 +45,7 @@
 .end method
 
 .method public getRotationDegrees()I
-    .locals 1
+    .registers 2
 
     .line 47
     const/4 v0, 0x0
@@ -54,7 +54,7 @@
 .end method
 
 .method public getTagBundle()Landroidx/camera/core/impl/TagBundle;
-    .locals 1
+    .registers 2
 
     .line 37
     iget-object v0, p0, Landroidx/camera/core/internal/CameraCaptureResultImageInfo;->mCameraCaptureResult:Landroidx/camera/core/impl/CameraCaptureResult;
@@ -67,7 +67,7 @@
 .end method
 
 .method public getTimestamp()J
-    .locals 2
+    .registers 3
 
     .line 42
     iget-object v0, p0, Landroidx/camera/core/internal/CameraCaptureResultImageInfo;->mCameraCaptureResult:Landroidx/camera/core/impl/CameraCaptureResult;
@@ -80,7 +80,7 @@
 .end method
 
 .method public populateExifData(Landroidx/camera/core/impl/utils/ExifData$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "exifBuilder"    # Landroidx/camera/core/impl/utils/ExifData$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

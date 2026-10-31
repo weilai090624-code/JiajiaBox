@@ -80,7 +80,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$GPkRTYmr_tXrdbWXg4atNFRvxrk(Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;Ljava/util/List;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;->accept$lambda-1(Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;Ljava/util/List;)V
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Activity;Ljava/util/concurrent/Executor;Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 5
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroidx/core/util/Consumer;
@@ -133,7 +133,7 @@
 .end method
 
 .method private static final accept$lambda-1(Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;
     .param p1, "$splitsWithActivity"    # Ljava/util/List;
 
@@ -156,7 +156,7 @@
 
 # virtual methods
 .method public final accept(Ljava/util/List;)V
-    .locals 10
+    .registers 12
     .param p1, "splitInfoList"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -199,13 +199,13 @@
 
     move-result-object v5
 
-    :cond_0
-    :goto_0
+    :cond_17
+    :goto_17
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_31
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -229,15 +229,15 @@
 
     .end local v7    # "splitState":Landroidx/window/embedding/SplitInfo;
     .end local v8    # "$i$a$-filter-ExtensionEmbeddingBackend$SplitListenerWrapper$accept$splitsWithActivity$1":I
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_17
 
     invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_17
 
     .line 214
     .end local v6    # "element$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_31
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -261,13 +261,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3f
 
     .line 150
     return-void
 
     .line 152
-    :cond_2
+    :cond_3f
     iput-object v0, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;->lastValue:Ljava/util/List;
 
     .line 153
@@ -284,7 +284,7 @@
 .end method
 
 .method public final getCallback()Landroidx/core/util/Consumer;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

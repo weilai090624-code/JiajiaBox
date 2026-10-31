@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 45
     new-instance v0, Landroidx/emoji2/text/flatbuffer/Utf8Old$$ExternalSyntheticLambda0;
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Landroidx/emoji2/text/flatbuffer/Utf8;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method static synthetic lambda$static$0()Landroidx/emoji2/text/flatbuffer/Utf8Old$Cache;
-    .locals 1
+    .registers 1
 
     .line 46
     new-instance v0, Landroidx/emoji2/text/flatbuffer/Utf8Old$Cache;
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public decodeUtf8(Ljava/nio/ByteBuffer;II)Ljava/lang/String;
-    .locals 4
+    .registers 8
     .param p1, "buffer"    # Ljava/nio/ByteBuffer;
     .param p2, "offset"    # I
     .param p3, "length"    # I
@@ -100,7 +100,7 @@
     invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 93
-    :try_start_0
+    :try_start_19
     invoke-virtual {v0, p1}, Ljava/nio/charset/CharsetDecoder;->decode(Ljava/nio/ByteBuffer;)Ljava/nio/CharBuffer;
 
     move-result-object v1
@@ -110,14 +110,14 @@
     invoke-virtual {v1}, Ljava/nio/CharBuffer;->toString()Ljava/lang/String;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/nio/charset/CharacterCodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/nio/charset/CharacterCodingException; {:try_start_19 .. :try_end_21} :catch_22
 
     return-object v2
 
     .line 95
     .end local v1    # "result":Ljava/nio/CharBuffer;
-    :catch_0
+    :catch_22
     move-exception v1
 
     .line 96
@@ -132,7 +132,7 @@
 .end method
 
 .method public encodeUtf8(Ljava/lang/CharSequence;Ljava/nio/ByteBuffer;)V
-    .locals 2
+    .registers 5
     .param p1, "in"    # Ljava/lang/CharSequence;
     .param p2, "out"    # Ljava/nio/ByteBuffer;
 
@@ -149,13 +149,13 @@
     .local v0, "cache":Landroidx/emoji2/text/flatbuffer/Utf8Old$Cache;
     iget-object v1, v0, Landroidx/emoji2/text/flatbuffer/Utf8Old$Cache;->lastInput:Ljava/lang/CharSequence;
 
-    if-eq v1, p1, :cond_0
+    if-eq v1, p1, :cond_f
 
     .line 80
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/Utf8Old;->encodedLength(Ljava/lang/CharSequence;)I
 
     .line 82
-    :cond_0
+    :cond_f
     iget-object v1, v0, Landroidx/emoji2/text/flatbuffer/Utf8Old$Cache;->lastOutput:Ljava/nio/ByteBuffer;
 
     invoke-virtual {p2, v1}, Ljava/nio/ByteBuffer;->put(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
@@ -165,7 +165,7 @@
 .end method
 
 .method public encodedLength(Ljava/lang/CharSequence;)I
-    .locals 7
+    .registers 9
     .param p1, "in"    # Ljava/lang/CharSequence;
 
     .line 53
@@ -199,7 +199,7 @@
     .local v1, "estimated":I
     iget-object v2, v0, Landroidx/emoji2/text/flatbuffer/Utf8Old$Cache;->lastOutput:Ljava/nio/ByteBuffer;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     iget-object v2, v0, Landroidx/emoji2/text/flatbuffer/Utf8Old$Cache;->lastOutput:Ljava/nio/ByteBuffer;
 
@@ -207,10 +207,10 @@
 
     move-result v2
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_2e
 
     .line 56
-    :cond_0
+    :cond_22
     const/16 v2, 0x80
 
     invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
@@ -224,7 +224,7 @@
     iput-object v2, v0, Landroidx/emoji2/text/flatbuffer/Utf8Old$Cache;->lastOutput:Ljava/nio/ByteBuffer;
 
     .line 58
-    :cond_1
+    :cond_2e
     iget-object v2, v0, Landroidx/emoji2/text/flatbuffer/Utf8Old$Cache;->lastOutput:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
@@ -235,21 +235,21 @@
     .line 60
     instance-of v2, p1, Ljava/nio/CharBuffer;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3d
 
     move-object v2, p1
 
     check-cast v2, Ljava/nio/CharBuffer;
 
-    goto :goto_0
+    goto :goto_41
 
     .line 61
-    :cond_2
+    :cond_3d
     invoke-static {p1}, Ljava/nio/CharBuffer;->wrap(Ljava/lang/CharSequence;)Ljava/nio/CharBuffer;
 
     move-result-object v2
 
-    :goto_0
+    :goto_41
     nop
 
     .line 62
@@ -270,19 +270,19 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_5e
 
     .line 65
-    :try_start_0
+    :try_start_51
     invoke-virtual {v3}, Ljava/nio/charset/CoderResult;->throwException()V
-    :try_end_0
-    .catch Ljava/nio/charset/CharacterCodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_54
+    .catch Ljava/nio/charset/CharacterCodingException; {:try_start_51 .. :try_end_54} :catch_55
 
     .line 68
-    goto :goto_1
+    goto :goto_5e
 
     .line 66
-    :catch_0
+    :catch_55
     move-exception v4
 
     .line 67
@@ -297,8 +297,8 @@
 
     .line 70
     .end local v4    # "e":Ljava/nio/charset/CharacterCodingException;
-    :cond_3
-    :goto_1
+    :cond_5e
+    :goto_5e
     iget-object v4, v0, Landroidx/emoji2/text/flatbuffer/Utf8Old$Cache;->lastOutput:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v4}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;

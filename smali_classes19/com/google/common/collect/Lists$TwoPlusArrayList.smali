@@ -68,7 +68,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -125,7 +125,7 @@
 
     .line 367
     .local p0, "this":Lcom/google/common/collect/Lists$TwoPlusArrayList;, "Lcom/google/common/collect/Lists$TwoPlusArrayList<TE;>;"
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_18
 
     .line 374
     invoke-virtual {p0}, Lcom/google/common/collect/Lists$TwoPlusArrayList;->size()I
@@ -144,28 +144,28 @@
     return-object v0
 
     .line 371
-    :pswitch_0
+    :pswitch_11
     iget-object v0, p0, Lcom/google/common/collect/Lists$TwoPlusArrayList;->second:Ljava/lang/Object;
 
     return-object v0
 
     .line 369
-    :pswitch_1
+    :pswitch_14
     iget-object v0, p0, Lcom/google/common/collect/Lists$TwoPlusArrayList;->first:Ljava/lang/Object;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_14
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 361
     .local p0, "this":Lcom/google/common/collect/Lists$TwoPlusArrayList;, "Lcom/google/common/collect/Lists$TwoPlusArrayList<TE;>;"

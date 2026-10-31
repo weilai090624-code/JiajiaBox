@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/internal/StateListAnimator;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/internal/StateListAnimator;
 
     .line 45
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 48
@@ -42,7 +42,7 @@
 
     iget-object v0, v0, Lcom/google/android/material/internal/StateListAnimator;->runningAnimator:Landroid/animation/ValueAnimator;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_b
 
     .line 49
     iget-object v0, p0, Lcom/google/android/material/internal/StateListAnimator$1;->this$0:Lcom/google/android/material/internal/StateListAnimator;
@@ -52,6 +52,6 @@
     iput-object v1, v0, Lcom/google/android/material/internal/StateListAnimator;->runningAnimator:Landroid/animation/ValueAnimator;
 
     .line 51
-    :cond_0
+    :cond_b
     return-void
 .end method

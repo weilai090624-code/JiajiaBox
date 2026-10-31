@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public evaluate(FFFF)Lcom/google/android/material/transition/FadeModeResult;
-    .locals 3
+    .registers 8
     .param p1, "progress"    # F
     .param p2, "fadeStartFraction"    # F
     .param p3, "fadeEndFraction"    # F

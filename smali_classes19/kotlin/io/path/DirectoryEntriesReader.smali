@@ -72,7 +72,7 @@
 
 # direct methods
 .method public constructor <init>(Z)V
-    .locals 1
+    .registers 3
     .param p1, "followLinks"    # Z
 
     .line 159
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public final getFollowLinks()Z
-    .locals 1
+    .registers 2
 
     .line 159
     iget-boolean v0, p0, Lkotlin/io/path/DirectoryEntriesReader;->followLinks:Z
@@ -103,7 +103,7 @@
 .end method
 
 .method public bridge synthetic preVisitDirectory(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/nio/file/attribute/BasicFileAttributes;
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public preVisitDirectory(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
-    .locals 3
+    .registers 6
     .param p1, "dir"    # Ljava/nio/file/Path;
     .param p2, "attrs"    # Ljava/nio/file/attribute/BasicFileAttributes;
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public final readEntries(Lkotlin/io/path/PathNode;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p1, "directoryNode"    # Lkotlin/io/path/PathNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -233,7 +233,7 @@
 .end method
 
 .method public bridge synthetic visitFile(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/nio/file/attribute/BasicFileAttributes;
 
@@ -250,7 +250,7 @@
 .end method
 
 .method public visitFile(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
-    .locals 3
+    .registers 6
     .param p1, "file"    # Ljava/nio/file/Path;
     .param p2, "attrs"    # Ljava/nio/file/attribute/BasicFileAttributes;
 

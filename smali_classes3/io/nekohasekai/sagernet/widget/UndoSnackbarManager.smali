@@ -94,7 +94,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$KT_rYdve__iasjvnmsFhlB5ards(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->remove$lambda$1$lambda$0(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;Landroid/view/View;)V
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/ThemedActivity;Lio/nekohasekai/sagernet/widget/UndoSnackbarManager$Interface;)V
-    .locals 1
+    .registers 4
     .param p1, "activity"    # Lio/nekohasekai/sagernet/ui/ThemedActivity;
     .param p2, "callback"    # Lio/nekohasekai/sagernet/widget/UndoSnackbarManager$Interface;
     .annotation system Ldalvik/annotation/Signature;
@@ -150,7 +150,7 @@
 .end method
 
 .method public static final synthetic access$getCallback$p(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)Lio/nekohasekai/sagernet/widget/UndoSnackbarManager$Interface;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
     .line 14
@@ -160,7 +160,7 @@
 .end method
 
 .method public static final synthetic access$getLast$p(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)Lcom/google/android/material/snackbar/Snackbar;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
     .line 14
@@ -170,7 +170,7 @@
 .end method
 
 .method public static final synthetic access$getRecycleBin$p(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
     .line 14
@@ -180,7 +180,7 @@
 .end method
 
 .method public static final synthetic access$setLast$p(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;Lcom/google/android/material/snackbar/Snackbar;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
     .param p1, "<set-?>"    # Lcom/google/android/material/snackbar/Snackbar;
 
@@ -191,7 +191,7 @@
 .end method
 
 .method private static final remove$lambda$1$lambda$0(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
     .param p1, "it"    # Landroid/view/View;
 
@@ -220,28 +220,28 @@
 
 # virtual methods
 .method public final flush()Lkotlin/Unit;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;->last:Lcom/google/android/material/snackbar/Snackbar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     invoke-virtual {v0}, Lcom/google/android/material/snackbar/Snackbar;->dismiss()V
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return-object v0
 .end method
 
 .method public final remove(Ljava/util/Collection;)V
-    .locals 6
+    .registers 8
     .param p1, "items"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -350,7 +350,7 @@
 .end method
 
 .method public final varargs remove([Lkotlin/Pair;)V
-    .locals 1
+    .registers 3
     .param p1, "items"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/SpecialEffectsController$Operation;Landroidx/core/os/CancellationSignal;ZZ)V
-    .locals 2
+    .registers 7
     .param p1, "operation"    # Landroidx/fragment/app/SpecialEffectsController$Operation;
     .param p2, "signal"    # Landroidx/core/os/CancellationSignal;
     .param p3, "isPop"    # Z
@@ -40,10 +40,10 @@
 
     sget-object v1, Landroidx/fragment/app/SpecialEffectsController$Operation$State;->VISIBLE:Landroidx/fragment/app/SpecialEffectsController$Operation$State;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_36
 
     .line 920
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_16
 
     .line 921
     invoke-virtual {p1}, Landroidx/fragment/app/SpecialEffectsController$Operation;->getFragment()Landroidx/fragment/app/Fragment;
@@ -54,10 +54,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 922
-    :cond_0
+    :cond_16
     invoke-virtual {p1}, Landroidx/fragment/app/SpecialEffectsController$Operation;->getFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
@@ -66,11 +66,11 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1e
     iput-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mTransition:Ljava/lang/Object;
 
     .line 925
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_2b
 
     .line 926
     invoke-virtual {p1}, Landroidx/fragment/app/SpecialEffectsController$Operation;->getFragment()Landroidx/fragment/app/Fragment;
@@ -81,10 +81,10 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_33
 
     .line 927
-    :cond_1
+    :cond_2b
     invoke-virtual {p1}, Landroidx/fragment/app/SpecialEffectsController$Operation;->getFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
@@ -93,14 +93,14 @@
 
     move-result v0
 
-    :goto_1
+    :goto_33
     iput-boolean v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mOverlapAllowed:Z
 
-    goto :goto_3
+    goto :goto_4e
 
     .line 929
-    :cond_2
-    if-eqz p3, :cond_3
+    :cond_36
+    if-eqz p3, :cond_41
 
     .line 930
     invoke-virtual {p1}, Landroidx/fragment/app/SpecialEffectsController$Operation;->getFragment()Landroidx/fragment/app/Fragment;
@@ -111,10 +111,10 @@
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_49
 
     .line 931
-    :cond_3
+    :cond_41
     invoke-virtual {p1}, Landroidx/fragment/app/SpecialEffectsController$Operation;->getFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
@@ -123,7 +123,7 @@
 
     move-result-object v0
 
-    :goto_2
+    :goto_49
     iput-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mTransition:Ljava/lang/Object;
 
     .line 933
@@ -132,11 +132,11 @@
     iput-boolean v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mOverlapAllowed:Z
 
     .line 935
-    :goto_3
-    if-eqz p4, :cond_5
+    :goto_4e
+    if-eqz p4, :cond_6a
 
     .line 936
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_5e
 
     .line 937
     nop
@@ -152,10 +152,10 @@
 
     iput-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mSharedElementTransition:Ljava/lang/Object;
 
-    goto :goto_4
+    goto :goto_6d
 
     .line 940
-    :cond_4
+    :cond_5e
     nop
 
     .line 941
@@ -169,25 +169,25 @@
 
     iput-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mSharedElementTransition:Ljava/lang/Object;
 
-    goto :goto_4
+    goto :goto_6d
 
     .line 944
-    :cond_5
+    :cond_6a
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mSharedElementTransition:Ljava/lang/Object;
 
     .line 946
-    :goto_4
+    :goto_6d
     return-void
 .end method
 
 .method private getHandlingImpl(Ljava/lang/Object;)Landroidx/fragment/app/FragmentTransitionImpl;
-    .locals 3
+    .registers 5
     .param p1, "transition"    # Ljava/lang/Object;
 
     .line 985
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 986
     const/4 v0, 0x0
@@ -195,10 +195,10 @@
     return-object v0
 
     .line 988
-    :cond_0
+    :cond_4
     sget-object v0, Landroidx/fragment/app/FragmentTransition;->PLATFORM_IMPL:Landroidx/fragment/app/FragmentTransitionImpl;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     sget-object v0, Landroidx/fragment/app/FragmentTransition;->PLATFORM_IMPL:Landroidx/fragment/app/FragmentTransitionImpl;
 
@@ -207,7 +207,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 990
     sget-object v0, Landroidx/fragment/app/FragmentTransition;->PLATFORM_IMPL:Landroidx/fragment/app/FragmentTransitionImpl;
@@ -215,10 +215,10 @@
     return-object v0
 
     .line 992
-    :cond_1
+    :cond_13
     sget-object v0, Landroidx/fragment/app/FragmentTransition;->SUPPORT_IMPL:Landroidx/fragment/app/FragmentTransitionImpl;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     sget-object v0, Landroidx/fragment/app/FragmentTransition;->SUPPORT_IMPL:Landroidx/fragment/app/FragmentTransitionImpl;
 
@@ -227,7 +227,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     .line 994
     sget-object v0, Landroidx/fragment/app/FragmentTransition;->SUPPORT_IMPL:Landroidx/fragment/app/FragmentTransitionImpl;
@@ -235,7 +235,7 @@
     return-object v0
 
     .line 996
-    :cond_2
+    :cond_22
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -289,7 +289,7 @@
 
 # virtual methods
 .method getHandlingImpl()Landroidx/fragment/app/FragmentTransitionImpl;
-    .locals 5
+    .registers 6
 
     .line 968
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mTransition:Ljava/lang/Object;
@@ -309,16 +309,16 @@
 
     .line 971
     .local v1, "sharedElementTransitionImpl":Landroidx/fragment/app/FragmentTransitionImpl;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4c
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4c
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 973
-    :cond_0
+    :cond_13
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -377,23 +377,23 @@
     throw v2
 
     .line 980
-    :cond_1
-    :goto_0
-    if-eqz v0, :cond_2
+    :cond_4c
+    :goto_4c
+    if-eqz v0, :cond_50
 
     move-object v2, v0
 
-    goto :goto_1
+    goto :goto_51
 
-    :cond_2
+    :cond_50
     move-object v2, v1
 
-    :goto_1
+    :goto_51
     return-object v2
 .end method
 
 .method public getSharedElementTransition()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 963
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mSharedElementTransition:Ljava/lang/Object;
@@ -402,7 +402,7 @@
 .end method
 
 .method getTransition()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 950
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mTransition:Ljava/lang/Object;
@@ -411,26 +411,26 @@
 .end method
 
 .method public hasSharedElementTransition()Z
-    .locals 1
+    .registers 2
 
     .line 958
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mSharedElementTransition:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method isOverlapAllowed()Z
-    .locals 1
+    .registers 2
 
     .line 954
     iget-boolean v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$TransitionInfo;->mOverlapAllowed:Z

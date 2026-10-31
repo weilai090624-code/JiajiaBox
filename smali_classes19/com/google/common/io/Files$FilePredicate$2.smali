@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 911
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public apply(Ljava/io/File;)Z
-    .locals 1
+    .registers 3
     .param p1, "file"    # Ljava/io/File;
 
     .line 914
@@ -41,7 +41,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 911
     check-cast p1, Ljava/io/File;
@@ -54,7 +54,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 919
     const-string v0, "Files.isFile()"

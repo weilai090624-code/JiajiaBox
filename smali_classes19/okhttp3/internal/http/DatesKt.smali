@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 32
     new-instance v0, Lokhttp3/internal/http/DatesKt$STANDARD_DATE_FORMAT$1;
@@ -195,7 +195,7 @@
 .end method
 
 .method public static final toHttpDateOrNull(Ljava/lang/String;)Ljava/util/Date;
-    .locals 15
+    .registers 16
     .param p0, "$this$toHttpDateOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -215,24 +215,24 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     return-object v3
 
     .line 72
-    :cond_1
+    :cond_17
     new-instance v0, Ljava/text/ParsePosition;
 
     invoke-direct {v0, v2}, Ljava/text/ParsePosition;-><init>(I)V
@@ -263,13 +263,13 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_2
+    if-ne v5, v6, :cond_34
 
     .line 77
     return-object v4
 
     .line 79
-    :cond_2
+    :cond_34
     sget-object v5, Lokhttp3/internal/http/DatesKt;->BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS:[Ljava/lang/String;
 
     monitor-enter v5
@@ -278,16 +278,16 @@
 
     .line 80
     .local v6, "$i$a$-synchronized-DatesKt$toHttpDateOrNull$1":I
-    :try_start_0
+    :try_start_38
     sget-object v7, Lokhttp3/internal/http/DatesKt;->BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS:[Ljava/lang/String;
 
     array-length v7, v7
 
-    if-lez v7, :cond_6
+    if-lez v7, :cond_73
 
     const/4 v8, 0x0
 
-    :cond_3
+    :cond_3e
     move v9, v8
 
     .local v9, "i":I
@@ -300,7 +300,7 @@
 
     .line 82
     .local v10, "format":Ljava/text/DateFormat;
-    if-nez v10, :cond_4
+    if-nez v10, :cond_60
 
     .line 83
     new-instance v11, Ljava/text/SimpleDateFormat;
@@ -340,7 +340,7 @@
     aput-object v10, v11, v9
 
     .line 90
-    :cond_4
+    :cond_60
     invoke-virtual {v0, v2}, Ljava/text/ParsePosition;->setIndex(I)V
 
     .line 91
@@ -354,10 +354,10 @@
     invoke-virtual {v0}, Ljava/text/ParsePosition;->getIndex()I
 
     move-result v11
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6c
+    .catchall {:try_start_38 .. :try_end_6c} :catchall_78
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_71
 
     .line 98
     nop
@@ -372,19 +372,19 @@
     .line 80
     .restart local v6    # "$i$a$-synchronized-DatesKt$toHttpDateOrNull$1":I
     .restart local v9    # "i":I
-    :cond_5
-    if-lt v8, v7, :cond_3
+    :cond_71
+    if-lt v8, v7, :cond_3e
 
     .line 101
     .end local v9    # "i":I
-    :cond_6
+    :cond_73
     nop
 
     .end local v6    # "$i$a$-synchronized-DatesKt$toHttpDateOrNull$1":I
-    :try_start_1
+    :try_start_74
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_76
+    .catchall {:try_start_74 .. :try_end_76} :catchall_78
 
     .line 79
     monitor-exit v5
@@ -393,7 +393,7 @@
     return-object v3
 
     .line 79
-    :catchall_0
+    :catchall_78
     move-exception v1
 
     monitor-exit v5
@@ -402,7 +402,7 @@
 .end method
 
 .method public static final toHttpDateString(Ljava/util/Date;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "$this$toHttpDateString"    # Ljava/util/Date;
 
     const-string v0, "<this>"

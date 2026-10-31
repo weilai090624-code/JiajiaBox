@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Landroid/transition/PathMotion;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method private static getControlPoint(FFFF)Landroid/graphics/PointF;
-    .locals 1
+    .registers 5
     .param p0, "startX"    # F
     .param p1, "startY"    # F
     .param p2, "endX"    # F
@@ -23,7 +23,7 @@
     .line 51
     cmpl-float v0, p1, p3
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_a
 
     .line 52
     new-instance v0, Landroid/graphics/PointF;
@@ -33,7 +33,7 @@
     return-object v0
 
     .line 54
-    :cond_0
+    :cond_a
     new-instance v0, Landroid/graphics/PointF;
 
     invoke-direct {v0, p0, p3}, Landroid/graphics/PointF;-><init>(FF)V
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getPath(FFFF)Landroid/graphics/Path;
-    .locals 4
+    .registers 9
     .param p1, "startX"    # F
     .param p2, "startY"    # F
     .param p3, "endX"    # F

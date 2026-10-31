@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public getFloatValue(Ljava/lang/Object;Ljava/lang/String;I)F
-    .locals 4
+    .registers 8
     .param p1, "view"    # Ljava/lang/Object;
     .param p2, "type"    # Ljava/lang/String;
     .param p3, "element"    # I
@@ -51,13 +51,13 @@
 
     const/high16 v1, 0x7fc00000    # Float.NaN
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 64
     return v1
 
     .line 66
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/KeyCache;->map:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -68,18 +68,18 @@
 
     .line 67
     .local v0, "array":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[F>;"
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_2c
 
     invoke-virtual {v0, p2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1c
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 70
-    :cond_1
+    :cond_1c
     invoke-virtual {v0, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
@@ -88,16 +88,16 @@
 
     .line 71
     .local v2, "vArray":[F
-    if-nez v2, :cond_2
+    if-nez v2, :cond_25
 
     .line 72
     return v1
 
     .line 74
-    :cond_2
+    :cond_25
     array-length v3, v2
 
-    if-le v3, p3, :cond_3
+    if-le v3, p3, :cond_2b
 
     .line 75
     aget v1, v2, p3
@@ -105,18 +105,18 @@
     return v1
 
     .line 77
-    :cond_3
+    :cond_2b
     return v1
 
     .line 68
     .end local v2    # "vArray":[F
-    :cond_4
-    :goto_0
+    :cond_2c
+    :goto_2c
     return v1
 .end method
 
 .method public setFloatValue(Ljava/lang/Object;Ljava/lang/String;IF)V
-    .locals 3
+    .registers 8
     .param p1, "view"    # Ljava/lang/Object;
     .param p2, "type"    # Ljava/lang/String;
     .param p3, "element"    # I
@@ -129,7 +129,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 32
     new-instance v0, Ljava/util/HashMap;
@@ -157,10 +157,10 @@
     .line 37
     .end local v0    # "array":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[F>;"
     .end local v1    # "vArray":[F
-    goto :goto_0
+    goto :goto_5a
 
     .line 38
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/utils/KeyCache;->map:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -171,7 +171,7 @@
 
     .line 39
     .restart local v0    # "array":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[F>;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2c
 
     .line 40
     new-instance v1, Ljava/util/HashMap;
@@ -181,12 +181,12 @@
     move-object v0, v1
 
     .line 43
-    :cond_1
+    :cond_2c
     invoke-virtual {v0, p2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_41
 
     .line 44
     add-int/lit8 v1, p3, 0x1
@@ -207,10 +207,10 @@
 
     .line 48
     .end local v1    # "vArray":[F
-    goto :goto_0
+    goto :goto_5a
 
     .line 49
-    :cond_2
+    :cond_41
     invoke-virtual {v0, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -219,7 +219,7 @@
 
     .line 50
     .restart local v1    # "vArray":[F
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4c
 
     .line 51
     const/4 v2, 0x0
@@ -227,10 +227,10 @@
     new-array v1, v2, [F
 
     .line 53
-    :cond_3
+    :cond_4c
     array-length v2, v1
 
-    if-gt v2, p3, :cond_4
+    if-gt v2, p3, :cond_55
 
     .line 54
     add-int/lit8 v2, p3, 0x1
@@ -240,7 +240,7 @@
     move-result-object v1
 
     .line 56
-    :cond_4
+    :cond_55
     aput p4, v1, p3
 
     .line 57
@@ -249,6 +249,6 @@
     .line 60
     .end local v0    # "array":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[F>;"
     .end local v1    # "vArray":[F
-    :goto_0
+    :goto_5a
     return-void
 .end method

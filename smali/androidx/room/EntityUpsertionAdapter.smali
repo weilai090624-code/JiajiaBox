@@ -88,7 +88,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/EntityInsertionAdapter;Landroidx/room/EntityDeletionOrUpdateAdapter;)V
-    .locals 1
+    .registers 4
     .param p1, "insertionAdapter"    # Landroidx/room/EntityInsertionAdapter;
     .param p2, "updateAdapter"    # Landroidx/room/EntityDeletionOrUpdateAdapter;
     .annotation system Ldalvik/annotation/Signature;
@@ -123,7 +123,7 @@
 .end method
 
 .method private final checkUniquenessException(Landroid/database/sqlite/SQLiteConstraintException;)V
-    .locals 7
+    .registers 9
     .param p1, "ex"    # Landroid/database/sqlite/SQLiteConstraintException;
 
     .line 213
@@ -131,7 +131,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3b
 
     .line 215
     .local v0, "message":Ljava/lang/String;
@@ -149,7 +149,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_35
 
     .line 216
     move-object v1, v0
@@ -170,7 +170,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_35
 
     .line 217
     move-object v1, v0
@@ -185,45 +185,45 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_33
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_0
+    :cond_33
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_36
 
-    :cond_1
-    :goto_0
+    :cond_35
+    :goto_35
     nop
 
     .line 214
-    :goto_1
+    :goto_36
     move v1, v3
 
     .line 219
     .local v1, "hasUniqueConstraintEx":Z
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3a
 
     .line 222
     return-void
 
     .line 220
-    :cond_2
+    :cond_3a
     throw p1
 
     .line 213
     .end local v0    # "message":Ljava/lang/String;
     .end local v1    # "hasUniqueConstraintEx":Z
-    :cond_3
+    :cond_3b
     throw p1
 .end method
 
 
 # virtual methods
 .method public final upsert(Ljava/lang/Iterable;)V
-    .locals 8
+    .registers 10
     .param p1, "entities"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -249,12 +249,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -271,17 +271,17 @@
     nop
 
     .line 91
-    :try_start_0
+    :try_start_18
     iget-object v6, p0, Landroidx/room/EntityUpsertionAdapter;->insertionAdapter:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v6, v4}, Landroidx/room/EntityInsertionAdapter;->insert(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_18 .. :try_end_1d} :catch_1e
 
-    goto :goto_1
+    goto :goto_27
 
     .line 92
-    :catch_0
+    :catch_1e
     move-exception v6
 
     .line 93
@@ -295,7 +295,7 @@
 
     .line 96
     .end local v6    # "ex":Landroid/database/sqlite/SQLiteConstraintException;
-    :goto_1
+    :goto_27
     nop
 
     .line 227
@@ -304,10 +304,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_b
 
     .line 228
-    :cond_0
+    :cond_2a
     nop
 
     .line 97
@@ -317,7 +317,7 @@
 .end method
 
 .method public final upsert(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "entity"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -329,17 +329,17 @@
     nop
 
     .line 63
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/room/EntityUpsertionAdapter;->insertionAdapter:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityInsertionAdapter;->insert(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_1 .. :try_end_6} :catch_7
 
-    goto :goto_0
+    goto :goto_10
 
     .line 64
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 65
@@ -353,12 +353,12 @@
 
     .line 68
     .end local v0    # "ex":Landroid/database/sqlite/SQLiteConstraintException;
-    :goto_0
+    :goto_10
     return-void
 .end method
 
 .method public final upsert([Ljava/lang/Object;)V
-    .locals 9
+    .registers 11
     .param p1, "entities"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -382,8 +382,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_9
+    if-ge v3, v2, :cond_24
 
     aget-object v4, v0, v3
 
@@ -398,17 +398,17 @@
     nop
 
     .line 80
-    :try_start_0
+    :try_start_10
     iget-object v7, p0, Landroidx/room/EntityUpsertionAdapter;->insertionAdapter:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v7, v5}, Landroidx/room/EntityInsertionAdapter;->insert(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_10 .. :try_end_15} :catch_16
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 81
-    :catch_0
+    :catch_16
     move-exception v7
 
     .line 82
@@ -422,7 +422,7 @@
 
     .line 85
     .end local v7    # "ex":Landroid/database/sqlite/SQLiteConstraintException;
-    :goto_1
+    :goto_1f
     nop
 
     .line 225
@@ -433,10 +433,10 @@
     .end local v4    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 226
-    :cond_0
+    :cond_24
     nop
 
     .line 86
@@ -446,7 +446,7 @@
 .end method
 
 .method public final upsertAndReturnId(Ljava/lang/Object;)J
-    .locals 3
+    .registers 5
     .param p1, "entity"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -458,19 +458,19 @@
     nop
 
     .line 109
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/room/EntityUpsertionAdapter;->insertionAdapter:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityInsertionAdapter;->insertAndReturnId(Ljava/lang/Object;)J
 
     move-result-wide v0
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_1 .. :try_end_7} :catch_8
 
-    goto :goto_0
+    goto :goto_14
 
     .line 110
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 111
@@ -489,12 +489,12 @@
 
     .line 108
     .end local v0    # "ex":Landroid/database/sqlite/SQLiteConstraintException;
-    :goto_0
+    :goto_14
     return-wide v0
 .end method
 
 .method public final upsertAndReturnIdsArray(Ljava/util/Collection;)[J
-    .locals 8
+    .registers 10
     .param p1, "entities"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -523,8 +523,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_10
+    if-ge v3, v1, :cond_30
 
     .line 138
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -536,19 +536,19 @@
     nop
 
     .line 140
-    :try_start_0
+    :try_start_17
     iget-object v5, p0, Landroidx/room/EntityUpsertionAdapter;->insertionAdapter:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v5, v4}, Landroidx/room/EntityInsertionAdapter;->insertAndReturnId(Ljava/lang/Object;)J
 
     move-result-wide v5
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_17 .. :try_end_1d} :catch_1e
 
-    goto :goto_1
+    goto :goto_2a
 
     .line 141
-    :catch_0
+    :catch_1e
     move-exception v5
 
     .line 142
@@ -566,7 +566,7 @@
     move-wide v5, v6
 
     .end local v5    # "ex":Landroid/database/sqlite/SQLiteConstraintException;
-    :goto_1
+    :goto_2a
     nop
 
     .end local v4    # "entity":Ljava/lang/Object;
@@ -575,14 +575,14 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 137
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_30
     return-object v2
 .end method
 
 .method public final upsertAndReturnIdsArray([Ljava/lang/Object;)[J
-    .locals 6
+    .registers 8
     .param p1, "entities"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -601,14 +601,14 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_9
+    if-ge v2, v0, :cond_28
 
     .line 125
     nop
 
     .line 126
-    :try_start_0
+    :try_start_c
     iget-object v3, p0, Landroidx/room/EntityUpsertionAdapter;->insertionAdapter:Landroidx/room/EntityInsertionAdapter;
 
     aget-object v4, p1, v2
@@ -616,13 +616,13 @@
     invoke-virtual {v3, v4}, Landroidx/room/EntityInsertionAdapter;->insertAndReturnId(Ljava/lang/Object;)J
 
     move-result-wide v3
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_c .. :try_end_14} :catch_15
 
-    goto :goto_1
+    goto :goto_23
 
     .line 127
-    :catch_0
+    :catch_15
     move-exception v3
 
     .line 128
@@ -642,20 +642,20 @@
     move-wide v3, v4
 
     .end local v3    # "ex":Landroid/database/sqlite/SQLiteConstraintException;
-    :goto_1
+    :goto_23
     aput-wide v3, v1, v2
 
     add-int/lit8 v2, v2, 0x1
 
     .line 124
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_28
     return-object v1
 .end method
 
 .method public final upsertAndReturnIdsArrayBox(Ljava/util/Collection;)[Ljava/lang/Long;
-    .locals 8
+    .registers 10
     .param p1, "entities"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -685,8 +685,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_10
+    if-ge v3, v1, :cond_34
 
     .line 192
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -698,19 +698,19 @@
     nop
 
     .line 194
-    :try_start_0
+    :try_start_17
     iget-object v5, p0, Landroidx/room/EntityUpsertionAdapter;->insertionAdapter:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v5, v4}, Landroidx/room/EntityInsertionAdapter;->insertAndReturnId(Ljava/lang/Object;)J
 
     move-result-wide v5
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_17 .. :try_end_1d} :catch_1e
 
-    goto :goto_1
+    goto :goto_2a
 
     .line 195
-    :catch_0
+    :catch_1e
     move-exception v5
 
     .line 196
@@ -728,7 +728,7 @@
     move-wide v5, v6
 
     .end local v5    # "ex":Landroid/database/sqlite/SQLiteConstraintException;
-    :goto_1
+    :goto_2a
     nop
 
     .end local v4    # "entity":Ljava/lang/Object;
@@ -741,14 +741,14 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 191
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_34
     return-object v2
 .end method
 
 .method public final upsertAndReturnIdsArrayBox([Ljava/lang/Object;)[Ljava/lang/Long;
-    .locals 6
+    .registers 8
     .param p1, "entities"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -768,14 +768,14 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_9
+    if-ge v2, v0, :cond_2c
 
     .line 179
     nop
 
     .line 180
-    :try_start_0
+    :try_start_c
     iget-object v3, p0, Landroidx/room/EntityUpsertionAdapter;->insertionAdapter:Landroidx/room/EntityInsertionAdapter;
 
     aget-object v4, p1, v2
@@ -783,13 +783,13 @@
     invoke-virtual {v3, v4}, Landroidx/room/EntityInsertionAdapter;->insertAndReturnId(Ljava/lang/Object;)J
 
     move-result-wide v3
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_c .. :try_end_14} :catch_15
 
-    goto :goto_1
+    goto :goto_23
 
     .line 181
-    :catch_0
+    :catch_15
     move-exception v3
 
     .line 182
@@ -809,7 +809,7 @@
     move-wide v3, v4
 
     .end local v3    # "ex":Landroid/database/sqlite/SQLiteConstraintException;
-    :goto_1
+    :goto_23
     invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
@@ -819,14 +819,14 @@
     add-int/lit8 v2, v2, 0x1
 
     .line 178
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_2c
     return-object v1
 .end method
 
 .method public final upsertAndReturnIdsList(Ljava/util/Collection;)Ljava/util/List;
-    .locals 12
+    .registers 14
     .param p1, "entities"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -868,12 +868,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_13
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_43
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -890,7 +890,7 @@
     nop
 
     .line 167
-    :try_start_0
+    :try_start_20
     iget-object v9, p0, Landroidx/room/EntityUpsertionAdapter;->insertionAdapter:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v9, v7}, Landroidx/room/EntityInsertionAdapter;->insertAndReturnId(Ljava/lang/Object;)J
@@ -902,13 +902,13 @@
     move-result-object v9
 
     invoke-interface {v1, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2d
+    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_20 .. :try_end_2d} :catch_2e
 
-    goto :goto_1
+    goto :goto_40
 
     .line 168
-    :catch_0
+    :catch_2e
     move-exception v9
 
     .line 169
@@ -931,7 +931,7 @@
 
     .line 173
     .end local v9    # "ex":Landroid/database/sqlite/SQLiteConstraintException;
-    :goto_1
+    :goto_40
     nop
 
     .line 231
@@ -940,10 +940,10 @@
     nop
 
     .end local v6    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_13
 
     .line 232
-    :cond_0
+    :cond_43
     nop
 
     .line 174
@@ -962,7 +962,7 @@
 .end method
 
 .method public final upsertAndReturnIdsList([Ljava/lang/Object;)Ljava/util/List;
-    .locals 13
+    .registers 15
     .param p1, "entities"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1000,8 +1000,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v6, v5, :cond_0
+    :goto_f
+    if-ge v6, v5, :cond_3b
 
     aget-object v7, v3, v6
 
@@ -1016,7 +1016,7 @@
     nop
 
     .line 153
-    :try_start_0
+    :try_start_16
     iget-object v10, p0, Landroidx/room/EntityUpsertionAdapter;->insertionAdapter:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v10, v8}, Landroidx/room/EntityInsertionAdapter;->insertAndReturnId(Ljava/lang/Object;)J
@@ -1028,13 +1028,13 @@
     move-result-object v10
 
     invoke-interface {v1, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_23
+    .catch Landroid/database/sqlite/SQLiteConstraintException; {:try_start_16 .. :try_end_23} :catch_24
 
-    goto :goto_1
+    goto :goto_36
 
     .line 154
-    :catch_0
+    :catch_24
     move-exception v10
 
     .line 155
@@ -1057,7 +1057,7 @@
 
     .line 159
     .end local v10    # "ex":Landroid/database/sqlite/SQLiteConstraintException;
-    :goto_1
+    :goto_36
     nop
 
     .line 229
@@ -1068,10 +1068,10 @@
     .end local v7    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 230
-    :cond_0
+    :cond_3b
     nop
 
     .line 160

@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -38,7 +38,7 @@
     .line 34
     iget-object v0, p0, Lorg/objenesis/instantiator/basic/AccessibleInstantiator;->constructor:Ljava/lang/reflect/Constructor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 35
     iget-object v0, p0, Lorg/objenesis/instantiator/basic/AccessibleInstantiator;->constructor:Ljava/lang/reflect/Constructor;
@@ -48,6 +48,6 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
 
     .line 37
-    :cond_0
+    :cond_d
     return-void
 .end method

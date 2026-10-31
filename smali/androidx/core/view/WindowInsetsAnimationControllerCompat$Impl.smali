@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 229
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method finish(Z)V
-    .locals 0
+    .registers 2
     .param p1, "shown"    # Z
 
     .line 268
@@ -36,7 +36,7 @@
 .end method
 
 .method public getCurrentAlpha()F
-    .locals 1
+    .registers 2
 
     .line 254
     const/4 v0, 0x0
@@ -45,7 +45,7 @@
 .end method
 
 .method public getCurrentFraction()F
-    .locals 1
+    .registers 2
 
     .line 250
     const/4 v0, 0x0
@@ -54,7 +54,7 @@
 .end method
 
 .method public getCurrentInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 245
     sget-object v0, Landroidx/core/graphics/Insets;->NONE:Landroidx/core/graphics/Insets;
@@ -63,7 +63,7 @@
 .end method
 
 .method public getHiddenStateInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 235
     sget-object v0, Landroidx/core/graphics/Insets;->NONE:Landroidx/core/graphics/Insets;
@@ -72,7 +72,7 @@
 .end method
 
 .method public getShownStateInsets()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 240
     sget-object v0, Landroidx/core/graphics/Insets;->NONE:Landroidx/core/graphics/Insets;
@@ -81,7 +81,7 @@
 .end method
 
 .method public getTypes()I
-    .locals 1
+    .registers 2
 
     .line 259
     const/4 v0, 0x0
@@ -90,7 +90,7 @@
 .end method
 
 .method isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 275
     const/4 v0, 0x1
@@ -99,7 +99,7 @@
 .end method
 
 .method isFinished()Z
-    .locals 1
+    .registers 2
 
     .line 271
     const/4 v0, 0x0
@@ -108,7 +108,7 @@
 .end method
 
 .method public setInsetsAndAlpha(Landroidx/core/graphics/Insets;FF)V
-    .locals 0
+    .registers 4
     .param p1, "insets"    # Landroidx/core/graphics/Insets;
     .param p2, "alpha"    # F
     .param p3, "fraction"    # F

@@ -46,7 +46,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$RVGBGM2xruKt09oNs5IO7l8PwD0(Lmoe/matsuri/nb4a/ui/LongClickSwitchPreference;Landroid/view/View;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lmoe/matsuri/nb4a/ui/LongClickSwitchPreference;->onBindViewHolder$lambda$0(Lmoe/matsuri/nb4a/ui/LongClickSwitchPreference;Landroid/view/View;)Z
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 8
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 8
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -143,7 +143,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -167,21 +167,21 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 7
 
     .line 12
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     .line 13
     const/4 p2, 0x0
 
     .line 12
-    :cond_0
+    :cond_5
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_15
 
     .line 13
     nop
@@ -199,16 +199,16 @@
     move-result p3
 
     .line 12
-    :cond_1
+    :cond_15
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_1a
 
     .line 15
     const/4 p4, 0x0
 
     .line 12
-    :cond_2
+    :cond_1a
     invoke-direct {p0, p1, p2, p3, p4}, Lmoe/matsuri/nb4a/ui/LongClickSwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     .line 16
@@ -216,32 +216,32 @@
 .end method
 
 .method private static final onBindViewHolder$lambda$0(Lmoe/matsuri/nb4a/ui/LongClickSwitchPreference;Landroid/view/View;)Z
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lmoe/matsuri/nb4a/ui/LongClickSwitchPreference;
     .param p1, "it"    # Landroid/view/View;
 
     .line 25
     iget-object v0, p0, Lmoe/matsuri/nb4a/ui/LongClickSwitchPreference;->mLongClickListener:Landroid/view/View$OnLongClickListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-interface {v0, p1}, Landroid/view/View$OnLongClickListener;->onLongClick(Landroid/view/View;)Z
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 
 # virtual methods
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 2
+    .registers 4
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     const-string v0, "holder"
@@ -271,7 +271,7 @@
 .end method
 
 .method public final setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
-    .locals 1
+    .registers 3
     .param p1, "longClickListener"    # Landroid/view/View$OnLongClickListener;
 
     const-string v0, "longClickListener"

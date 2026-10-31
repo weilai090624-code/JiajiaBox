@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroidx/lifecycle/SavedStateHandle;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "handle"    # Landroidx/lifecycle/SavedStateHandle;
 
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public final attachToLifecycle(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/Lifecycle;)V
-    .locals 2
+    .registers 5
     .param p1, "registry"    # Landroidx/savedstate/SavedStateRegistry;
     .param p2, "lifecycle"    # Landroidx/lifecycle/Lifecycle;
 
@@ -105,7 +105,7 @@
     .line 29
     iget-boolean v0, p0, Landroidx/lifecycle/SavedStateHandleController;->isAttached:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 30
     const/4 v0, 0x1
@@ -134,7 +134,7 @@
     return-void
 
     .line 42
-    :cond_0
+    :cond_23
     const/4 v0, 0x0
 
     .line 29
@@ -156,7 +156,7 @@
 .end method
 
 .method public final getHandle()Landroidx/lifecycle/SavedStateHandle;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Landroidx/lifecycle/SavedStateHandleController;->handle:Landroidx/lifecycle/SavedStateHandle;
@@ -165,7 +165,7 @@
 .end method
 
 .method public final isAttached()Z
-    .locals 1
+    .registers 2
 
     .line 25
     iget-boolean v0, p0, Landroidx/lifecycle/SavedStateHandleController;->isAttached:Z
@@ -174,7 +174,7 @@
 .end method
 
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -189,7 +189,7 @@
     .line 36
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_1c
 
     .line 37
     const/4 v0, 0x0
@@ -208,6 +208,6 @@
     invoke-virtual {v0, v1}, Landroidx/lifecycle/Lifecycle;->removeObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     .line 40
-    :cond_0
+    :cond_1c
     return-void
 .end method

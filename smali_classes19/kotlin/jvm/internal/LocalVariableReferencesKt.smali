@@ -25,7 +25,7 @@
 
 # direct methods
 .method public static final synthetic access$notSupportedError()Ljava/lang/Void;
-    .locals 1
+    .registers 1
 
     .line 1
     invoke-static {}, Lkotlin/jvm/internal/LocalVariableReferencesKt;->notSupportedError()Ljava/lang/Void;
@@ -36,7 +36,7 @@
 .end method
 
 .method private static final notSupportedError()Ljava/lang/Void;
-    .locals 2
+    .registers 2
 
     .line 13
     new-instance v0, Ljava/lang/UnsupportedOperationException;

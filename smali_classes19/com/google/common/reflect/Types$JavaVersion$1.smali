@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 557
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/GenericArrayType;
-    .locals 1
+    .registers 3
     .param p1, "componentType"    # Ljava/lang/reflect/Type;
 
     .line 560
@@ -41,7 +41,7 @@
 .end method
 
 .method bridge synthetic newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 0
+    .registers 2
 
     .line 557
     invoke-virtual {p0, p1}, Lcom/google/common/reflect/Types$JavaVersion$1;->newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/GenericArrayType;
@@ -52,7 +52,7 @@
 .end method
 
 .method usedInGenericType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 3
+    .registers 5
     .param p1, "type"    # Ljava/lang/reflect/Type;
 
     .line 565
@@ -61,7 +61,7 @@
     .line 566
     instance-of v0, p1, Ljava/lang/Class;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 567
     move-object v0, p1
@@ -74,7 +74,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 569
     new-instance v1, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;
@@ -89,6 +89,6 @@
 
     .line 572
     .end local v0    # "cls":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_0
+    :cond_1a
     return-object p1
 .end method

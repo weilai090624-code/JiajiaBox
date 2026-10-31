@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/DirectedGraphConnections$1;Ljava/util/Iterator;Ljava/util/Set;)V
-    .locals 0
+    .registers 4
     .param p1, "this$1"    # Lcom/google/common/graph/DirectedGraphConnections$1;
 
     .line 244
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method protected computeNext()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TN;"
@@ -60,14 +60,14 @@
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections$1$1;, "Lcom/google/common/graph/DirectedGraphConnections$1$1;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$1$1;->val$nodeConnections:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 249
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$1$1;->val$nodeConnections:Ljava/util/Iterator;
@@ -90,7 +90,7 @@
 
     .line 251
     .local v1, "added":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     .line 252
     iget-object v2, v0, Lcom/google/common/graph/DirectedGraphConnections$NodeConnection;->node:Ljava/lang/Object;
@@ -100,11 +100,11 @@
     .line 254
     .end local v0    # "nodeConnection":Lcom/google/common/graph/DirectedGraphConnections$NodeConnection;, "Lcom/google/common/graph/DirectedGraphConnections$NodeConnection<TN;>;"
     .end local v1    # "added":Z
-    :cond_0
-    goto :goto_0
+    :cond_1e
+    goto :goto_1
 
     .line 255
-    :cond_1
+    :cond_1f
     invoke-virtual {p0}, Lcom/google/common/graph/DirectedGraphConnections$1$1;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

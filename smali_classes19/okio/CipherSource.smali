@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/BufferedSource;Ljavax/crypto/Cipher;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Lokio/BufferedSource;
     .param p2, "cipher"    # Ljavax/crypto/Cipher;
 
@@ -114,17 +114,17 @@
     .line 32
     iget v0, p0, Lokio/CipherSource;->blockSize:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_27
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_28
+    if-eqz v0, :cond_2c
 
     .line 33
     nop
@@ -133,7 +133,7 @@
     return-void
 
     .line 115
-    :cond_1
+    :cond_2c
     const/4 v0, 0x0
 
     .line 32
@@ -163,7 +163,7 @@
 .end method
 
 .method private final doFinal()V
-    .locals 8
+    .registers 9
 
     .line 88
     iget-object v0, p0, Lokio/CipherSource;->cipher:Ljavax/crypto/Cipher;
@@ -176,12 +176,12 @@
 
     .line 89
     .local v0, "outputSize":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     return-void
 
     .line 92
-    :cond_0
+    :cond_a
     iget-object v1, p0, Lokio/CipherSource;->buffer:Lokio/Buffer;
 
     invoke-virtual {v1, v0}, Lokio/Buffer;->writableSegment$okio(I)Lokio/Segment;
@@ -226,7 +226,7 @@
 
     iget v4, v1, Lokio/Segment;->limit:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_3b
 
     .line 101
     iget-object v3, p0, Lokio/CipherSource;->buffer:Lokio/Buffer;
@@ -241,17 +241,17 @@
     invoke-static {v1}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     .line 104
-    :cond_1
+    :cond_3b
     return-void
 .end method
 
 .method private final refill()V
-    .locals 5
+    .registers 6
 
     .line 48
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lokio/CipherSource;->buffer:Lokio/Buffer;
 
     invoke-virtual {v0}, Lokio/Buffer;->size()J
@@ -262,7 +262,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_20
 
     .line 49
     iget-object v0, p0, Lokio/CipherSource;->source:Lokio/BufferedSource;
@@ -271,7 +271,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 50
     const/4 v0, 0x1
@@ -282,22 +282,22 @@
     invoke-direct {p0}, Lokio/CipherSource;->doFinal()V
 
     .line 52
-    goto :goto_1
+    goto :goto_20
 
     .line 54
-    :cond_0
+    :cond_1c
     invoke-direct {p0}, Lokio/CipherSource;->update()V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 57
-    :cond_1
-    :goto_1
+    :cond_20
+    :goto_20
     return-void
 .end method
 
 .method private final update()V
-    .locals 10
+    .registers 11
 
     .line 60
     iget-object v0, p0, Lokio/CipherSource;->source:Lokio/BufferedSource;
@@ -338,25 +338,25 @@
     .line 65
     .end local v2    # "size":I
     .local v8, "size":I
-    :goto_0
+    :goto_19
     const/16 v2, 0x2000
 
-    if-le v1, v2, :cond_2
+    if-le v1, v2, :cond_5a
 
     .line 66
     iget v2, p0, Lokio/CipherSource;->blockSize:I
 
-    if-le v8, v2, :cond_0
+    if-le v8, v2, :cond_23
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     const/4 v2, 0x0
 
-    :goto_1
-    if-eqz v2, :cond_1
+    :goto_24
+    if-eqz v2, :cond_30
 
     .line 67
     iget v2, p0, Lokio/CipherSource;->blockSize:I
@@ -370,10 +370,10 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 115
-    :cond_1
+    :cond_30
     const/4 v2, 0x0
 
     .line 66
@@ -420,7 +420,7 @@
     throw v3
 
     .line 70
-    :cond_2
+    :cond_5a
     iget-object v2, p0, Lokio/CipherSource;->buffer:Lokio/Buffer;
 
     invoke-virtual {v2, v1}, Lokio/Buffer;->writableSegment$okio(I)Lokio/Segment;
@@ -481,7 +481,7 @@
 
     iget v4, v9, Lokio/Segment;->limit:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_97
 
     .line 82
     iget-object v3, p0, Lokio/CipherSource;->buffer:Lokio/Buffer;
@@ -496,14 +496,14 @@
     invoke-static {v9}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     .line 85
-    :cond_3
+    :cond_97
     return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -525,7 +525,7 @@
 .end method
 
 .method public final getCipher()Ljavax/crypto/Cipher;
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lokio/CipherSource;->cipher:Ljavax/crypto/Cipher;
@@ -534,7 +534,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 3
+    .registers 7
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -552,35 +552,35 @@
 
     cmp-long v2, p2, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_4
+    :goto_e
+    if-eqz v2, :cond_3e
 
     .line 38
     iget-boolean v2, p0, Lokio/CipherSource;->closed:Z
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_2e
 
     .line 39
     cmp-long v2, p2, v0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_19
 
     return-wide v0
 
     .line 40
-    :cond_1
+    :cond_19
     iget-boolean v0, p0, Lokio/CipherSource;->final:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_24
 
     iget-object v0, p0, Lokio/CipherSource;->buffer:Lokio/Buffer;
 
@@ -591,7 +591,7 @@
     return-wide v0
 
     .line 42
-    :cond_2
+    :cond_24
     invoke-direct {p0}, Lokio/CipherSource;->refill()V
 
     .line 44
@@ -604,7 +604,7 @@
     return-wide v0
 
     .line 115
-    :cond_3
+    :cond_2e
     const/4 v0, 0x0
 
     .line 38
@@ -627,7 +627,7 @@
     throw v0
 
     .line 115
-    :cond_4
+    :cond_3e
     const/4 v0, 0x0
 
     .line 37
@@ -657,7 +657,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 106
     iget-object v0, p0, Lokio/CipherSource;->source:Lokio/BufferedSource;

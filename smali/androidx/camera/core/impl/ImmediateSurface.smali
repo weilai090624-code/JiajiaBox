@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/Surface;)V
-    .locals 0
+    .registers 2
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public provideSurface()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

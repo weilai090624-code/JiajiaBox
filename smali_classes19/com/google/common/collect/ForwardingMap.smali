@@ -34,7 +34,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 65
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 89
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
@@ -61,7 +61,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -81,7 +81,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -101,7 +101,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 58
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
@@ -123,7 +123,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -147,7 +147,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -155,7 +155,7 @@
 
     .line 137
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingMap;->delegate()Ljava/util/Map;
 
@@ -165,25 +165,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -213,7 +213,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 142
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
@@ -229,7 +229,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 77
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
@@ -245,7 +245,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -268,7 +268,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -302,7 +302,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -325,7 +325,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -355,7 +355,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 72
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
@@ -371,7 +371,7 @@
 .end method
 
 .method protected standardClear()V
-    .locals 1
+    .registers 2
 
     .line 189
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
@@ -390,7 +390,7 @@
 .end method
 
 .method protected standardContainsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -406,7 +406,7 @@
 .end method
 
 .method protected standardContainsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -422,7 +422,7 @@
 .end method
 
 .method protected standardEquals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -438,7 +438,7 @@
 .end method
 
 .method protected standardHashCode()I
-    .locals 1
+    .registers 2
 
     .line 299
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
@@ -454,7 +454,7 @@
 .end method
 
 .method protected standardIsEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 277
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
@@ -476,7 +476,7 @@
 .end method
 
 .method protected standardPutAll(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -495,7 +495,7 @@
 .end method
 
 .method protected standardRemove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -523,12 +523,12 @@
 
     .line 170
     .local v0, "entryIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     .line 171
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -547,7 +547,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     .line 173
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -564,18 +564,18 @@
     .line 177
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     .end local v2    # "value":Ljava/lang/Object;, "TV;"
-    :cond_0
-    goto :goto_0
+    :cond_26
+    goto :goto_8
 
     .line 178
-    :cond_1
+    :cond_27
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method protected standardToString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 310
     .local p0, "this":Lcom/google/common/collect/ForwardingMap;, "Lcom/google/common/collect/ForwardingMap<TK;TV;>;"
@@ -587,7 +587,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

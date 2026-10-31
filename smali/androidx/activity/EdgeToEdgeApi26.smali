@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 275
     invoke-direct {p0}, Landroidx/activity/EdgeToEdgeBase;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public setUp(Landroidx/activity/SystemBarStyle;Landroidx/activity/SystemBarStyle;Landroid/view/Window;Landroid/view/View;ZZ)V
-    .locals 3
+    .registers 10
     .param p1, "statusBarStyle"    # Landroidx/activity/SystemBarStyle;
     .param p2, "navigationBarStyle"    # Landroidx/activity/SystemBarStyle;
     .param p3, "window"    # Landroid/view/Window;

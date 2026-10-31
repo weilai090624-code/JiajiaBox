@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 .end method
 
 .method static synthetic lambda$installAfterDelay$1(Landroid/content/Context;)V
-    .locals 0
+    .registers 1
     .param p0, "appContext"    # Landroid/content/Context;
 
     .line 108
@@ -49,7 +49,7 @@
 .end method
 
 .method static synthetic lambda$writeInBackground$2(Landroid/content/Context;)V
-    .locals 0
+    .registers 1
     .param p0, "context"    # Landroid/content/Context;
 
     .line 136
@@ -59,7 +59,7 @@
 .end method
 
 .method private static writeInBackground(Landroid/content/Context;)V
-    .locals 8
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
 
     .line 129
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public create(Landroid/content/Context;)Landroidx/profileinstaller/ProfileInstallerInitializer$Result;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     .line 75
@@ -104,7 +104,7 @@
 
     const/16 v1, 0x18
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     .line 77
     new-instance v0, Landroidx/profileinstaller/ProfileInstallerInitializer$Result;
@@ -114,7 +114,7 @@
     return-object v0
 
     .line 81
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic create(Landroid/content/Context;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -159,7 +159,7 @@
 .end method
 
 .method public dependencies()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -180,7 +180,7 @@
 .end method
 
 .method installAfterDelay(Landroid/content/Context;)V
-    .locals 6
+    .registers 8
     .param p1, "appContext"    # Landroid/content/Context;
 
     .line 99
@@ -188,7 +188,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
     .line 101
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -200,11 +200,11 @@
     move-result-object v0
 
     .local v0, "handler":Landroid/os/Handler;
-    goto :goto_0
+    goto :goto_18
 
     .line 103
     .end local v0    # "handler":Landroid/os/Handler;
-    :cond_0
+    :cond_f
     new-instance v0, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -215,7 +215,7 @@
 
     .line 105
     .restart local v0    # "handler":Landroid/os/Handler;
-    :goto_0
+    :goto_18
     new-instance v1, Ljava/util/Random;
 
     invoke-direct {v1}, Ljava/util/Random;-><init>()V
@@ -251,7 +251,7 @@
 .end method
 
 .method synthetic lambda$create$0$androidx-profileinstaller-ProfileInstallerInitializer(Landroid/content/Context;J)V
-    .locals 0
+    .registers 4
     .param p1, "appContext"    # Landroid/content/Context;
     .param p2, "frameTimeNanos"    # J
 

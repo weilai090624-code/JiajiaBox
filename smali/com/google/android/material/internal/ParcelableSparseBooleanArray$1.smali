@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/internal/ParcelableSparseBooleanArray;
-    .locals 7
+    .registers 9
     .param p1, "source"    # Landroid/os/Parcel;
 
     .line 75
@@ -72,8 +72,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v0, :cond_0
+    :goto_14
+    if-ge v4, v0, :cond_20
 
     .line 85
     aget v5, v2, v4
@@ -85,16 +85,16 @@
     .line 84
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 88
     .end local v4    # "i":I
-    :cond_0
+    :cond_20
     return-object v1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 71
     invoke-virtual {p0, p1}, Lcom/google/android/material/internal/ParcelableSparseBooleanArray$1;->createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/internal/ParcelableSparseBooleanArray;
@@ -105,7 +105,7 @@
 .end method
 
 .method public newArray(I)[Lcom/google/android/material/internal/ParcelableSparseBooleanArray;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 94
@@ -115,7 +115,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 71
     invoke-virtual {p0, p1}, Lcom/google/android/material/internal/ParcelableSparseBooleanArray$1;->newArray(I)[Lcom/google/android/material/internal/ParcelableSparseBooleanArray;

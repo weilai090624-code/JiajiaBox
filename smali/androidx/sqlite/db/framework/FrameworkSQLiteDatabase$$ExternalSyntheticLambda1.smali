@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lkotlin/jvm/functions/Function4;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public final newCursor(Landroid/database/sqlite/SQLiteDatabase;Landroid/database/sqlite/SQLiteCursorDriver;Ljava/lang/String;Landroid/database/sqlite/SQLiteQuery;)Landroid/database/Cursor;
-    .locals 1
+    .registers 6
 
     .line 0
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase$$ExternalSyntheticLambda1;->f$0:Lkotlin/jvm/functions/Function4;

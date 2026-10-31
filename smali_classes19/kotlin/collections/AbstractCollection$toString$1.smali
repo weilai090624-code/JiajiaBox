@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/collections/AbstractCollection;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public final invoke(Ljava/lang/Object;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "it"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -94,25 +94,25 @@
     .line 27
     iget-object v0, p0, Lkotlin/collections/AbstractCollection$toString$1;->this$0:Lkotlin/collections/AbstractCollection;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_7
 
     const-string v0, "(this Collection)"
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_7
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_b
     check-cast v0, Ljava/lang/CharSequence;
 
     return-object v0
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 26

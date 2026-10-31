@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/widget/ActivityChooserView;
 
     .line 254
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 2
+    .registers 5
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 

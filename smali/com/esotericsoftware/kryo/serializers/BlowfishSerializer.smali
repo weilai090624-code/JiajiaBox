@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/Serializer;[B)V
-    .locals 2
+    .registers 5
     .param p1, "serializer"    # Lcom/esotericsoftware/kryo/Serializer;
     .param p2, "key"    # [B
 
@@ -37,7 +37,7 @@
 .end method
 
 .method private static getCipher(I)Ljavax/crypto/Cipher;
-    .locals 2
+    .registers 3
     .param p0, "mode"    # I
 
     .line 75
@@ -53,15 +53,15 @@
     sget-object v1, Lcom/esotericsoftware/kryo/serializers/BlowfishSerializer;->keySpec:Ljavax/crypto/spec/SecretKeySpec;
 
     invoke-virtual {v0, p0, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_b} :catch_c
 
     .line 77
     return-object v0
 
     .line 78
     .end local v0    # "cipher":Ljavax/crypto/Cipher;
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 79
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "original"    # Ljava/lang/Object;
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 5
+    .registers 9
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p3, "type"    # Ljava/lang/Class;
@@ -127,7 +127,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 5
+    .registers 9
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Ljava/lang/Object;
@@ -163,10 +163,10 @@
     invoke-virtual {v2}, Lcom/esotericsoftware/kryo/io/Output;->flush()V
 
     .line 57
-    :try_start_0
+    :try_start_19
     invoke-virtual {v1}, Ljavax/crypto/CipherOutputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1c
+    .catch Ljava/io/IOException; {:try_start_19 .. :try_end_1c} :catch_1e
 
     .line 60
     nop
@@ -175,7 +175,7 @@
     return-void
 
     .line 58
-    :catch_0
+    :catch_1e
     move-exception v3
 
     .line 59

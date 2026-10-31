@@ -58,7 +58,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 623
     const-class v0, Lj$/util/stream/SpinedBuffer;
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/SpinedBuffer$OfPrimitive;IIII)V
-    .locals 1
+    .registers 7
     .param p1, "this$0"    # Lj$/util/stream/SpinedBuffer$OfPrimitive;
     .param p2, "firstSpineIndex"    # I
     .param p3, "lastSpineIndex"    # I
@@ -98,18 +98,18 @@
     .line 652
     iget-object v0, p1, Lj$/util/stream/SpinedBuffer$OfPrimitive;->spine:[Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     iget-object v0, p1, Lj$/util/stream/SpinedBuffer$OfPrimitive;->curChunk:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_15
     iget-object v0, p1, Lj$/util/stream/SpinedBuffer$OfPrimitive;->spine:[Ljava/lang/Object;
 
     aget-object v0, v0, p2
 
-    :goto_0
+    :goto_19
     iput-object v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splChunk:Ljava/lang/Object;
 
     .line 653
@@ -136,7 +136,7 @@
 .end method
 
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 674
     .local p0, "this":Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;, "Ljava/util/stream/SpinedBuffer$OfPrimitive<TE;TT_ARR;TT_CONS;>.BaseSpliterator<TT_SPLITR;>;"
@@ -146,7 +146,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 5
+    .registers 6
 
     .line 664
     .local p0, "this":Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;, "Ljava/util/stream/SpinedBuffer$OfPrimitive<TE;TT_ARR;TT_CONS;>.BaseSpliterator<TT_SPLITR;>;"
@@ -154,7 +154,7 @@
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineIndex:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 665
     iget v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineElementFence:I
@@ -167,10 +167,10 @@
 
     sub-long/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_28
 
     .line 669
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->this$0:Lj$/util/stream/SpinedBuffer$OfPrimitive;
 
     iget-object v0, v0, Lj$/util/stream/SpinedBuffer$OfPrimitive;->priorElementCount:[J
@@ -202,12 +202,12 @@
     sub-long v0, v1, v3
 
     .line 664
-    :goto_0
+    :goto_28
     return-wide v0
 .end method
 
 .method public forEachRemaining(Ljava/lang/Object;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)V"
@@ -224,22 +224,22 @@
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineIndex:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_15
 
     iget v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splSpineIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineIndex:I
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_52
 
     iget v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splElementIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineElementFence:I
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_52
 
     .line 702
-    :cond_0
+    :cond_15
     iget v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splElementIndex:I
 
     .line 704
@@ -247,10 +247,10 @@
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splSpineIndex:I
 
     .local v1, "sp":I
-    :goto_0
+    :goto_19
     iget v2, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineIndex:I
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_32
 
     .line 705
     iget-object v2, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->this$0:Lj$/util/stream/SpinedBuffer$OfPrimitive;
@@ -278,22 +278,22 @@
     .end local v2    # "chunk":Ljava/lang/Object;, "TT_ARR;"
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 710
     .end local v1    # "sp":I
-    :cond_1
+    :cond_32
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splSpineIndex:I
 
     iget v2, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineIndex:I
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_3b
 
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splChunk:Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_43
 
-    :cond_2
+    :cond_3b
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->this$0:Lj$/util/stream/SpinedBuffer$OfPrimitive;
 
     iget-object v1, v1, Lj$/util/stream/SpinedBuffer$OfPrimitive;->spine:[Ljava/lang/Object;
@@ -304,7 +304,7 @@
 
     .line 711
     .local v1, "chunk":Ljava/lang/Object;, "TT_ARR;"
-    :goto_1
+    :goto_43
     iget-object v2, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->this$0:Lj$/util/stream/SpinedBuffer$OfPrimitive;
 
     iget v3, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineElementFence:I
@@ -324,12 +324,12 @@
     .line 716
     .end local v0    # "i":I
     .end local v1    # "chunk":Ljava/lang/Object;, "TT_ARR;"
-    :cond_3
+    :cond_52
     return-void
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$forEachRemaining(Lj$/util/Spliterator;Ljava/util/function/Consumer;)V
 
@@ -337,7 +337,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -347,7 +347,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -357,7 +357,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -376,7 +376,7 @@
 .end method
 
 .method public tryAdvance(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)Z"
@@ -395,29 +395,29 @@
 
     const/4 v2, 0x0
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_18
 
     iget v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splSpineIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineIndex:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     iget v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splElementIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineElementFence:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_17
 
-    goto :goto_0
+    goto :goto_18
 
     .line 693
-    :cond_0
+    :cond_17
     return v2
 
     .line 683
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splChunk:Ljava/lang/Object;
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splElementIndex:I
@@ -441,7 +441,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_4d
 
     .line 686
     iput v2, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splElementIndex:I
@@ -458,13 +458,13 @@
 
     iget-object v0, v0, Lj$/util/stream/SpinedBuffer$OfPrimitive;->spine:[Ljava/lang/Object;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4d
 
     iget v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splSpineIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineIndex:I
 
-    if-gt v0, v1, :cond_2
+    if-gt v0, v1, :cond_4d
 
     .line 689
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->this$0:Lj$/util/stream/SpinedBuffer$OfPrimitive;
@@ -478,12 +478,12 @@
     iput-object v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splChunk:Ljava/lang/Object;
 
     .line 691
-    :cond_2
+    :cond_4d
     return v3
 .end method
 
 .method public trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT_SP",
@@ -497,7 +497,7 @@
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineIndex:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_34
 
     .line 722
     iget v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splSpineIndex:I
@@ -557,14 +557,14 @@
 
     .line 730
     .end local v0    # "ret":Lj$/util/Spliterator$OfPrimitive;, "TT_SPLITR;"
-    :cond_0
+    :cond_34
     iget v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splSpineIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineIndex:I
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_53
 
     .line 731
     iget v0, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->lastSpineElementFence:I
@@ -577,13 +577,13 @@
 
     .line 732
     .local v0, "t":I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_45
 
     .line 733
     return-object v2
 
     .line 735
-    :cond_1
+    :cond_45
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splChunk:Ljava/lang/Object;
 
     iget v2, p0, Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;->splElementIndex:I
@@ -606,12 +606,12 @@
     .line 741
     .end local v0    # "t":I
     .end local v1    # "ret":Lj$/util/Spliterator$OfPrimitive;, "TT_SPLITR;"
-    :cond_2
+    :cond_53
     return-object v2
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 623
     .local p0, "this":Lj$/util/stream/SpinedBuffer$OfPrimitive$BaseSpliterator;, "Ljava/util/stream/SpinedBuffer$OfPrimitive<TE;TT_ARR;TT_CONS;>.BaseSpliterator<TT_SPLITR;>;"

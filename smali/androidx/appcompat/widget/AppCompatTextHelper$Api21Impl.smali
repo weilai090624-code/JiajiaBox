@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 799
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
-    .locals 1
+    .registers 2
     .param p0, "languageTag"    # Ljava/lang/String;
 
     .line 805

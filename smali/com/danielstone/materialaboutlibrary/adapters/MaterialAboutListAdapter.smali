@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 181
     new-instance v0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$1;
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 40
     invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;-><init>()V
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager;)V
-    .locals 2
+    .registers 4
     .param p1, "customViewTypeManager"    # Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager;
 
     .line 46
@@ -137,7 +137,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;)Landroid/content/Context;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;
 
     .line 29
@@ -147,7 +147,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;)Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;
 
     .line 29
@@ -159,7 +159,7 @@
 
 # virtual methods
 .method getData()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -180,7 +180,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 128
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->differ:Landroidx/recyclerview/widget/AsyncListDiffer;
@@ -197,7 +197,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 4
+    .registers 6
     .param p1, "position"    # I
 
     .line 123
@@ -233,7 +233,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
+    .registers 3
 
     .line 29
     check-cast p1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;
@@ -244,7 +244,7 @@
 .end method
 
 .method public onBindViewHolder(Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;I)V
-    .locals 7
+    .registers 10
     .param p1, "holder"    # Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;
     .param p2, "position"    # I
 
@@ -267,7 +267,7 @@
 
     instance-of v1, v1, Landroidx/cardview/widget/CardView;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2b
 
     .line 69
     iget-object v1, p1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->cardView:Landroid/view/View;
@@ -282,15 +282,15 @@
 
     .line 71
     .local v2, "cardColor":I
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 72
     invoke-virtual {v1, v2}, Landroidx/cardview/widget/CardView;->setCardBackgroundColor(I)V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 74
-    :cond_0
+    :cond_20
     invoke-virtual {v1}, Landroidx/cardview/widget/CardView;->getCardBackgroundColor()Landroid/content/res/ColorStateList;
 
     move-result-object v3
@@ -304,8 +304,8 @@
     .line 78
     .end local v1    # "cardView":Landroidx/cardview/widget/CardView;
     .end local v2    # "cardColor":I
-    :cond_1
-    :goto_0
+    :cond_2b
+    :goto_2b
     invoke-virtual {v0}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -325,28 +325,28 @@
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 82
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_41
 
     .line 83
     iget-object v3, p1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->title:Landroid/widget/TextView;
 
     invoke-virtual {v3, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_1
+    goto :goto_50
 
     .line 84
-    :cond_2
-    if-eqz v2, :cond_3
+    :cond_41
+    if-eqz v2, :cond_49
 
     .line 85
     iget-object v3, p1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->title:Landroid/widget/TextView;
 
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(I)V
 
-    goto :goto_1
+    goto :goto_50
 
     .line 87
-    :cond_3
+    :cond_49
     iget-object v3, p1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->title:Landroid/widget/TextView;
 
     const/16 v5, 0x8
@@ -354,7 +354,7 @@
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 90
-    :goto_1
+    :goto_50
     invoke-virtual {v0}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->getTitleColor()I
 
     move-result v3
@@ -367,20 +367,20 @@
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_73
 
     .line 93
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_64
 
     .line 94
     iget-object v5, p1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->title:Landroid/widget/TextView;
 
     invoke-virtual {v5, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    goto :goto_2
+    goto :goto_73
 
     .line 96
-    :cond_4
+    :cond_64
     iget-object v5, p1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->title:Landroid/widget/TextView;
 
     iget-object v6, p1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->title:Landroid/widget/TextView;
@@ -396,13 +396,13 @@
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setTextColor(I)V
 
     .line 101
-    :cond_5
-    :goto_2
+    :cond_73
+    :goto_73
     iget-object v5, p1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->cardView:Landroid/view/View;
 
     instance-of v5, v5, Lcom/google/android/material/card/MaterialCardView;
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_aa
 
     .line 102
     iget-object v5, p1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->cardView:Landroid/view/View;
@@ -415,7 +415,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_98
 
     .line 104
     iget-object v4, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->context:Landroid/content/Context;
@@ -439,10 +439,10 @@
 
     invoke-virtual {v5, v4}, Lcom/google/android/material/card/MaterialCardView;->setCardElevation(F)V
 
-    goto :goto_3
+    goto :goto_aa
 
     .line 107
-    :cond_6
+    :cond_98
     invoke-virtual {v5, v4}, Lcom/google/android/material/card/MaterialCardView;->setStrokeWidth(I)V
 
     .line 108
@@ -462,13 +462,13 @@
 
     .line 113
     .end local v5    # "materialCardView":Lcom/google/android/material/card/MaterialCardView;
-    :cond_7
-    :goto_3
+    :cond_aa
+    :goto_aa
     invoke-virtual {v0}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->getCustomAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     move-result-object v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_b8
 
     .line 114
     invoke-virtual {v0}, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;->getCustomAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -477,10 +477,10 @@
 
     invoke-virtual {p1, v4}, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->useCustomAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
 
-    goto :goto_4
+    goto :goto_c6
 
     .line 116
-    :cond_8
+    :cond_b8
     invoke-virtual {p1}, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;->useMaterialAboutItemAdapter()V
 
     .line 117
@@ -495,12 +495,12 @@
     invoke-virtual {v4, v5}, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutItemAdapter;->setData(Ljava/util/ArrayList;)V
 
     .line 119
-    :goto_4
+    :goto_c6
     return-void
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 0
+    .registers 3
 
     .line 29
     invoke-virtual {p0, p1, p2}, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;
@@ -511,7 +511,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter$MaterialAboutListViewHolder;
-    .locals 3
+    .registers 6
     .param p1, "viewGroup"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -525,7 +525,7 @@
     .line 55
     instance-of v0, p1, Landroidx/recyclerview/widget/RecyclerView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 56
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -561,7 +561,7 @@
 
     .line 60
     .end local v0    # "view":Landroid/view/View;
-    :cond_0
+    :cond_25
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Not bound to RecyclerView"
@@ -572,7 +572,7 @@
 .end method
 
 .method public setData(Ljava/util/ArrayList;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -594,12 +594,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -617,10 +617,10 @@
 
     .line 135
     .end local v2    # "card":Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
-    goto :goto_0
+    goto :goto_9
 
     .line 136
-    :cond_0
+    :cond_1d
     iget-object v1, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;->differ:Landroidx/recyclerview/widget/AsyncListDiffer;
 
     invoke-virtual {v1, v0}, Landroidx/recyclerview/widget/AsyncListDiffer;->submitList(Ljava/util/List;)V

@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Ljavax/net/ssl/X509TrustManager;Ljava/lang/reflect/Method;)V
-    .locals 1
+    .registers 4
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
     .param p2, "findByIssuerAndSignatureMethod"    # Ljava/lang/reflect/Method;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method private final component1()Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;->trustManager:Ljavax/net/ssl/X509TrustManager;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method private final component2()Ljava/lang/reflect/Method;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;->findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
 
@@ -104,22 +104,22 @@
 .end method
 
 .method public static synthetic copy$default(Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;Ljavax/net/ssl/X509TrustManager;Ljava/lang/reflect/Method;ILjava/lang/Object;)Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;
-    .locals 0
+    .registers 5
 
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     iget-object p1, p0, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;->trustManager:Ljavax/net/ssl/X509TrustManager;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_c
 
     iget-object p2, p0, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;->findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2}, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;->copy(Ljavax/net/ssl/X509TrustManager;Ljava/lang/reflect/Method;)Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;
 
     move-result-object p0
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public final copy(Ljavax/net/ssl/X509TrustManager;Ljava/lang/reflect/Method;)Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;
-    .locals 1
+    .registers 4
 
     const-string v0, "trustManager"
 
@@ -148,24 +148,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;
@@ -178,11 +178,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-object v3, p0, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;->findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
 
     iget-object v1, v1, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;->findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
@@ -191,16 +191,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_23
 
     return v2
 
-    :cond_3
+    :cond_23
     return v0
 .end method
 
 .method public findByIssuerAndSignature(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;
-    .locals 4
+    .registers 6
     .param p1, "cert"    # Ljava/security/cert/X509Certificate;
 
     const-string v0, "cert"
@@ -211,7 +211,7 @@
     nop
 
     .line 123
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;->findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
 
     .line 124
@@ -230,7 +230,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     check-cast v0, Ljava/security/cert/TrustAnchor;
 
@@ -241,10 +241,10 @@
     move-result-object v1
 
     .end local v0    # "trustAnchor":Ljava/security/cert/TrustAnchor;
-    goto :goto_0
+    goto :goto_2a
 
     .line 123
-    :cond_0
+    :cond_1d
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type java.security.cert.TrustAnchor"
@@ -253,13 +253,13 @@
 
     .end local p1    # "cert":Ljava/security/cert/X509Certificate;
     throw v0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/IllegalAccessException; {:try_start_6 .. :try_end_25} :catch_2b
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_6 .. :try_end_25} :catch_25
 
     .line 128
     .restart local p1    # "cert":Ljava/security/cert/X509Certificate;
-    :catch_0
+    :catch_25
     move-exception v0
 
     .line 129
@@ -272,11 +272,11 @@
 
     .line 122
     .end local v0    # "_":Ljava/lang/reflect/InvocationTargetException;
-    :goto_0
+    :goto_2a
     return-object v1
 
     .line 126
-    :catch_1
+    :catch_2b
     move-exception v0
 
     .line 127
@@ -295,7 +295,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform$CustomTrustRootIndex;->trustManager:Ljavax/net/ssl/X509TrustManager;
 
@@ -317,7 +317,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 63
     new-instance v0, Lj$/util/Spliterators$EmptySpliterator$OfRef;
@@ -77,7 +77,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,25 +86,25 @@
 .end method
 
 .method private static checkFromToBounds(III)V
-    .locals 3
+    .registers 6
     .param p0, "arrayLength"    # I
     .param p1, "origin"    # I
     .param p2, "fence"    # I
 
     .line 386
-    if-gt p1, p2, :cond_2
+    if-gt p1, p2, :cond_13
 
     .line 390
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_d
 
     .line 393
-    if-gt p2, p0, :cond_0
+    if-gt p2, p0, :cond_7
 
     .line 396
     return-void
 
     .line 394
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     invoke-direct {v0, p2}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(I)V
@@ -112,7 +112,7 @@
     throw v0
 
     .line 391
-    :cond_1
+    :cond_d
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     invoke-direct {v0, p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(I)V
@@ -120,7 +120,7 @@
     throw v0
 
     .line 387
-    :cond_2
+    :cond_13
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -163,7 +163,7 @@
 .end method
 
 .method public static emptyDoubleSpliterator()Lj$/util/Spliterator$OfDouble;
-    .locals 1
+    .registers 1
 
     .line 108
     sget-object v0, Lj$/util/Spliterators;->EMPTY_DOUBLE_SPLITERATOR:Lj$/util/Spliterator$OfDouble;
@@ -172,7 +172,7 @@
 .end method
 
 .method public static emptyIntSpliterator()Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 1
 
     .line 76
     sget-object v0, Lj$/util/Spliterators;->EMPTY_INT_SPLITERATOR:Lj$/util/Spliterator$OfInt;
@@ -181,7 +181,7 @@
 .end method
 
 .method public static emptyLongSpliterator()Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 1
 
     .line 92
     sget-object v0, Lj$/util/Spliterators;->EMPTY_LONG_SPLITERATOR:Lj$/util/Spliterator$OfLong;
@@ -190,7 +190,7 @@
 .end method
 
 .method public static emptySpliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -208,7 +208,7 @@
 .end method
 
 .method public static iterator(Lj$/util/Spliterator$OfDouble;)Lj$/util/PrimitiveIterator$OfDouble;
-    .locals 1
+    .registers 2
     .param p0, "spliterator"    # Lj$/util/Spliterator$OfDouble;
 
     .line 802
@@ -223,7 +223,7 @@
 .end method
 
 .method public static iterator(Lj$/util/Spliterator$OfInt;)Lj$/util/PrimitiveIterator$OfInt;
-    .locals 1
+    .registers 2
     .param p0, "spliterator"    # Lj$/util/Spliterator$OfInt;
 
     .line 712
@@ -238,7 +238,7 @@
 .end method
 
 .method public static iterator(Lj$/util/Spliterator$OfLong;)Lj$/util/PrimitiveIterator$OfLong;
-    .locals 1
+    .registers 2
     .param p0, "spliterator"    # Lj$/util/Spliterator$OfLong;
 
     .line 757
@@ -253,7 +253,7 @@
 .end method
 
 .method public static iterator(Lj$/util/Spliterator;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -279,7 +279,7 @@
 .end method
 
 .method public static spliterator(Lj$/util/PrimitiveIterator$OfDouble;JI)Lj$/util/Spliterator$OfDouble;
-    .locals 2
+    .registers 6
     .param p0, "iterator"    # Lj$/util/PrimitiveIterator$OfDouble;
     .param p1, "size"    # J
     .param p3, "characteristics"    # I
@@ -299,7 +299,7 @@
 .end method
 
 .method public static spliterator([DI)Lj$/util/Spliterator$OfDouble;
-    .locals 2
+    .registers 4
     .param p0, "array"    # [D
     .param p1, "additionalCharacteristics"    # I
 
@@ -318,7 +318,7 @@
 .end method
 
 .method public static spliterator([DIII)Lj$/util/Spliterator$OfDouble;
-    .locals 1
+    .registers 5
     .param p0, "array"    # [D
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -344,7 +344,7 @@
 .end method
 
 .method public static spliterator(Lj$/util/PrimitiveIterator$OfInt;JI)Lj$/util/Spliterator$OfInt;
-    .locals 2
+    .registers 6
     .param p0, "iterator"    # Lj$/util/PrimitiveIterator$OfInt;
     .param p1, "size"    # J
     .param p3, "characteristics"    # I
@@ -364,7 +364,7 @@
 .end method
 
 .method public static spliterator([II)Lj$/util/Spliterator$OfInt;
-    .locals 2
+    .registers 4
     .param p0, "array"    # [I
     .param p1, "additionalCharacteristics"    # I
 
@@ -383,7 +383,7 @@
 .end method
 
 .method public static spliterator([IIII)Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 5
     .param p0, "array"    # [I
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -409,7 +409,7 @@
 .end method
 
 .method public static spliterator(Lj$/util/PrimitiveIterator$OfLong;JI)Lj$/util/Spliterator$OfLong;
-    .locals 2
+    .registers 6
     .param p0, "iterator"    # Lj$/util/PrimitiveIterator$OfLong;
     .param p1, "size"    # J
     .param p3, "characteristics"    # I
@@ -429,7 +429,7 @@
 .end method
 
 .method public static spliterator([JI)Lj$/util/Spliterator$OfLong;
-    .locals 2
+    .registers 4
     .param p0, "array"    # [J
     .param p1, "additionalCharacteristics"    # I
 
@@ -448,7 +448,7 @@
 .end method
 
 .method public static spliterator([JIII)Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 5
     .param p0, "array"    # [J
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -474,7 +474,7 @@
 .end method
 
 .method public static spliterator(Ljava/util/Collection;I)Lj$/util/Spliterator;
-    .locals 2
+    .registers 4
     .param p1, "characteristics"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -504,7 +504,7 @@
 .end method
 
 .method public static spliterator(Ljava/util/Iterator;JI)Lj$/util/Spliterator;
-    .locals 2
+    .registers 6
     .param p1, "size"    # J
     .param p3, "characteristics"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -535,7 +535,7 @@
 .end method
 
 .method public static spliterator([Ljava/lang/Object;I)Lj$/util/Spliterator;
-    .locals 2
+    .registers 4
     .param p0, "array"    # [Ljava/lang/Object;
     .param p1, "additionalCharacteristics"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -565,7 +565,7 @@
 .end method
 
 .method public static spliterator([Ljava/lang/Object;III)Lj$/util/Spliterator;
-    .locals 1
+    .registers 5
     .param p0, "array"    # [Ljava/lang/Object;
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -602,7 +602,7 @@
 .end method
 
 .method public static spliteratorUnknownSize(Lj$/util/PrimitiveIterator$OfDouble;I)Lj$/util/Spliterator$OfDouble;
-    .locals 2
+    .registers 4
     .param p0, "iterator"    # Lj$/util/PrimitiveIterator$OfDouble;
     .param p1, "characteristics"    # I
 
@@ -621,7 +621,7 @@
 .end method
 
 .method public static spliteratorUnknownSize(Lj$/util/PrimitiveIterator$OfInt;I)Lj$/util/Spliterator$OfInt;
-    .locals 2
+    .registers 4
     .param p0, "iterator"    # Lj$/util/PrimitiveIterator$OfInt;
     .param p1, "characteristics"    # I
 
@@ -640,7 +640,7 @@
 .end method
 
 .method public static spliteratorUnknownSize(Lj$/util/PrimitiveIterator$OfLong;I)Lj$/util/Spliterator$OfLong;
-    .locals 2
+    .registers 4
     .param p0, "iterator"    # Lj$/util/PrimitiveIterator$OfLong;
     .param p1, "characteristics"    # I
 
@@ -659,7 +659,7 @@
 .end method
 
 .method public static spliteratorUnknownSize(Ljava/util/Iterator;I)Lj$/util/Spliterator;
-    .locals 2
+    .registers 4
     .param p1, "characteristics"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -73,13 +73,13 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     const/16 v0, 0xb
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_46
 
     sput-object v0, Landroidx/navigation/common/R$styleable;->NavAction:[I
 
@@ -133,7 +133,7 @@
 
     return-void
 
-    :array_0
+    :array_46
     .array-data 4
         0x10100d0
         0x7f04016b
@@ -150,7 +150,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

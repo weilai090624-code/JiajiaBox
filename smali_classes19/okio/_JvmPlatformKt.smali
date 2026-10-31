@@ -44,7 +44,7 @@
 
 # direct methods
 .method public static final asUtf8ToByteArray(Ljava/lang/String;)[B
-    .locals 2
+    .registers 3
     .param p0, "$this$asUtf8ToByteArray"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -66,7 +66,7 @@
 .end method
 
 .method public static final synchronized(Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "lock"    # Ljava/lang/Object;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -94,18 +94,18 @@
     .local v0, "$i$f$synchronized":I
     monitor-enter p0
 
-    :try_start_0
+    :try_start_c
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_c .. :try_end_10} :catchall_12
 
     monitor-exit p0
 
     return-object v1
 
-    :catchall_0
+    :catchall_12
     move-exception v1
 
     monitor-exit p0
@@ -114,7 +114,7 @@
 .end method
 
 .method public static final toUtf8String([B)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "$this$toUtf8String"    # [B
 
     const-string v0, "<this>"

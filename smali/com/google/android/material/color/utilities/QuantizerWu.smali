@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method static bottom(Lcom/google/android/material/color/utilities/QuantizerWu$Box;Lcom/google/android/material/color/utilities/QuantizerWu$Direction;[I)I
-    .locals 4
+    .registers 7
     .param p0, "cube"    # Lcom/google/android/material/color/utilities/QuantizerWu$Box;
     .param p1, "direction"    # Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
     .param p2, "moment"    # [I
@@ -64,7 +64,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_c4
 
     .line 352
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -92,7 +92,7 @@
     throw v0
 
     .line 347
-    :pswitch_0
+    :pswitch_25
     iget v0, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->r1:I
 
     iget v1, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->g1:I
@@ -156,7 +156,7 @@
     return v0
 
     .line 342
-    :pswitch_1
+    :pswitch_5a
     iget v0, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->r1:I
 
     iget v1, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->g0:I
@@ -220,7 +220,7 @@
     return v0
 
     .line 337
-    :pswitch_2
+    :pswitch_8f
     iget v0, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->r0:I
 
     iget v1, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->g1:I
@@ -283,16 +283,16 @@
     .line 337
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_c4
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_8f
+        :pswitch_5a
+        :pswitch_25
     .end packed-switch
 .end method
 
 .method static getIndex(III)I
-    .locals 2
+    .registers 5
     .param p0, "r"    # I
     .param p1, "g"    # I
     .param p2, "b"    # I
@@ -318,7 +318,7 @@
 .end method
 
 .method static top(Lcom/google/android/material/color/utilities/QuantizerWu$Box;Lcom/google/android/material/color/utilities/QuantizerWu$Direction;I[I)I
-    .locals 3
+    .registers 7
     .param p0, "cube"    # Lcom/google/android/material/color/utilities/QuantizerWu$Box;
     .param p1, "direction"    # Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
     .param p2, "position"    # I
@@ -333,7 +333,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_aa
 
     .line 373
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -361,7 +361,7 @@
     throw v0
 
     .line 368
-    :pswitch_0
+    :pswitch_25
     iget v0, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->r1:I
 
     iget v1, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->g1:I
@@ -415,7 +415,7 @@
     return v0
 
     .line 363
-    :pswitch_1
+    :pswitch_51
     iget v0, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->r1:I
 
     iget v1, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->b1:I
@@ -469,7 +469,7 @@
     return v0
 
     .line 358
-    :pswitch_2
+    :pswitch_7d
     iget v0, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->g1:I
 
     iget v1, p0, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->b1:I
@@ -524,16 +524,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_aa
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_7d
+        :pswitch_51
+        :pswitch_25
     .end packed-switch
 .end method
 
 .method static volume(Lcom/google/android/material/color/utilities/QuantizerWu$Box;[I)I
-    .locals 4
+    .registers 6
     .param p0, "cube"    # Lcom/google/android/material/color/utilities/QuantizerWu$Box;
     .param p1, "moment"    # [I
 
@@ -662,7 +662,7 @@
 
 # virtual methods
 .method constructHistogram(Ljava/util/Map;)V
-    .locals 18
+    .registers 20
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -712,12 +712,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_21
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_9b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -879,15 +879,15 @@
 
     move-object/from16 v1, v16
 
-    goto :goto_0
+    goto :goto_21
 
     .line 95
-    :cond_0
+    :cond_9b
     return-void
 .end method
 
 .method createBoxes(I)Lcom/google/android/material/color/utilities/QuantizerWu$CreateBoxesResult;
-    .locals 14
+    .registers 16
     .param p1, "maxColorCount"    # I
 
     .line 137
@@ -899,8 +899,8 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p1, :cond_0
+    :goto_5
+    if-ge v0, p1, :cond_14
 
     .line 139
     iget-object v1, p0, Lcom/google/android/material/color/utilities/QuantizerWu;->cubes:[Lcom/google/android/material/color/utilities/QuantizerWu$Box;
@@ -916,11 +916,11 @@
     .line 138
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 141
     .end local v0    # "i":I
-    :cond_0
+    :cond_14
     new-array v0, p1, [D
 
     .line 142
@@ -955,8 +955,8 @@
     const/4 v5, 0x1
 
     .local v5, "i":I
-    :goto_1
-    if-ge v5, p1, :cond_7
+    :goto_26
+    if-ge v5, p1, :cond_86
 
     .line 150
     iget-object v6, p0, Lcom/google/android/material/color/utilities/QuantizerWu;->cubes:[Lcom/google/android/material/color/utilities/QuantizerWu$Box;
@@ -977,7 +977,7 @@
 
     const-wide/16 v7, 0x0
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_66
 
     .line 151
     iget-object v6, p0, Lcom/google/android/material/color/utilities/QuantizerWu;->cubes:[Lcom/google/android/material/color/utilities/QuantizerWu$Box;
@@ -988,7 +988,7 @@
 
     const/4 v9, 0x1
 
-    if-le v6, v9, :cond_1
+    if-le v6, v9, :cond_4e
 
     iget-object v6, p0, Lcom/google/android/material/color/utilities/QuantizerWu;->cubes:[Lcom/google/android/material/color/utilities/QuantizerWu$Box;
 
@@ -998,12 +998,12 @@
 
     move-result-wide v10
 
-    goto :goto_2
+    goto :goto_4f
 
-    :cond_1
+    :cond_4e
     move-wide v10, v7
 
-    :goto_2
+    :goto_4f
     aput-wide v10, v0, v4
 
     .line 152
@@ -1013,7 +1013,7 @@
 
     iget v6, v6, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->vol:I
 
-    if-le v6, v9, :cond_2
+    if-le v6, v9, :cond_62
 
     iget-object v6, p0, Lcom/google/android/material/color/utilities/QuantizerWu;->cubes:[Lcom/google/android/material/color/utilities/QuantizerWu$Box;
 
@@ -1023,25 +1023,25 @@
 
     move-result-wide v9
 
-    goto :goto_3
+    goto :goto_63
 
-    :cond_2
+    :cond_62
     move-wide v9, v7
 
-    :goto_3
+    :goto_63
     aput-wide v9, v0, v5
 
-    goto :goto_4
+    goto :goto_6a
 
     .line 154
-    :cond_3
+    :cond_66
     aput-wide v7, v0, v4
 
     .line 155
     add-int/lit8 v5, v5, -0x1
 
     .line 158
-    :goto_4
+    :goto_6a
     const/4 v4, 0x0
 
     .line 160
@@ -1052,15 +1052,15 @@
     const/4 v6, 0x1
 
     .local v6, "j":I
-    :goto_5
-    if-gt v6, v5, :cond_5
+    :goto_6e
+    if-gt v6, v5, :cond_7c
 
     .line 162
     aget-wide v11, v0, v6
 
     cmpl-double v13, v11, v9
 
-    if-lez v13, :cond_4
+    if-lez v13, :cond_79
 
     .line 163
     aget-wide v9, v0, v6
@@ -1069,35 +1069,35 @@
     move v4, v6
 
     .line 161
-    :cond_4
+    :cond_79
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_5
+    goto :goto_6e
 
     .line 167
     .end local v6    # "j":I
-    :cond_5
+    :cond_7c
     cmpg-double v6, v9, v7
 
-    if-gtz v6, :cond_6
+    if-gtz v6, :cond_83
 
     .line 168
     add-int/lit8 v3, v5, 0x1
 
     .line 169
-    goto :goto_6
+    goto :goto_86
 
     .line 149
     .end local v9    # "temp":D
-    :cond_6
+    :cond_83
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
     .line 173
     .end local v5    # "i":I
-    :cond_7
-    :goto_6
+    :cond_86
+    :goto_86
     new-instance v2, Lcom/google/android/material/color/utilities/QuantizerWu$CreateBoxesResult;
 
     invoke-direct {v2, p1, v3}, Lcom/google/android/material/color/utilities/QuantizerWu$CreateBoxesResult;-><init>(II)V
@@ -1106,7 +1106,7 @@
 .end method
 
 .method createMoments()V
-    .locals 23
+    .registers 24
 
     .line 98
     move-object/from16 v0, p0
@@ -1114,10 +1114,10 @@
     const/4 v1, 0x1
 
     .local v1, "r":I
-    :goto_0
+    :goto_3
     const/16 v2, 0x21
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_af
 
     .line 99
     new-array v3, v2, [I
@@ -1143,8 +1143,8 @@
     const/4 v8, 0x1
 
     .local v8, "g":I
-    :goto_1
-    if-ge v8, v2, :cond_1
+    :goto_12
+    if-ge v8, v2, :cond_ab
 
     .line 106
     const/4 v9, 0x0
@@ -1170,8 +1170,8 @@
     const/4 v15, 0x1
 
     .local v15, "b":I
-    :goto_2
-    if-ge v15, v2, :cond_0
+    :goto_1b
+    if-ge v15, v2, :cond_a5
 
     .line 112
     invoke-static {v1, v8, v15}, Lcom/google/android/material/color/utilities/QuantizerWu;->getIndex(III)I
@@ -1341,7 +1341,7 @@
 
     const/16 v2, 0x21
 
-    goto/16 :goto_2
+    goto/16 :goto_1b
 
     .line 105
     .end local v11    # "lineG":I
@@ -1350,12 +1350,12 @@
     .end local v15    # "b":I
     .end local v17    # "line":I
     .end local v18    # "lineR":I
-    :cond_0
+    :cond_a5
     add-int/lit8 v8, v8, 0x1
 
     const/16 v2, 0x21
 
-    goto/16 :goto_1
+    goto/16 :goto_12
 
     .line 98
     .end local v3    # "area":[I
@@ -1364,19 +1364,19 @@
     .end local v6    # "areaB":[I
     .end local v7    # "area2":[D
     .end local v8    # "g":I
-    :cond_1
+    :cond_ab
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_3
 
     .line 134
     .end local v1    # "r":I
-    :cond_2
+    :cond_af
     return-void
 .end method
 
 .method createResult(I)Ljava/util/List;
-    .locals 9
+    .registers 11
     .param p1, "colorCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1397,8 +1397,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p1, :cond_1
+    :goto_6
+    if-ge v1, p1, :cond_42
 
     .line 179
     iget-object v2, p0, Lcom/google/android/material/color/utilities/QuantizerWu;->cubes:[Lcom/google/android/material/color/utilities/QuantizerWu$Box;
@@ -1415,7 +1415,7 @@
 
     .line 181
     .local v3, "weight":I
-    if-lez v3, :cond_0
+    if-lez v3, :cond_3f
 
     .line 182
     iget-object v4, p0, Lcom/google/android/material/color/utilities/QuantizerWu;->momentsR:[I
@@ -1481,19 +1481,19 @@
     .end local v5    # "g":I
     .end local v6    # "b":I
     .end local v7    # "color":I
-    :cond_0
+    :cond_3f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 189
     .end local v1    # "i":I
-    :cond_1
+    :cond_42
     return-object v0
 .end method
 
 .method cut(Lcom/google/android/material/color/utilities/QuantizerWu$Box;Lcom/google/android/material/color/utilities/QuantizerWu$Box;)Ljava/lang/Boolean;
-    .locals 21
+    .registers 24
     .param p1, "one"    # Lcom/google/android/material/color/utilities/QuantizerWu$Box;
     .param p2, "two"    # Lcom/google/android/material/color/utilities/QuantizerWu$Box;
 
@@ -1628,16 +1628,16 @@
     .local v5, "maxB":D
     cmpl-double v7, v1, v3
 
-    if-ltz v7, :cond_1
+    if-ltz v7, :cond_71
 
     cmpl-double v7, v1, v5
 
-    if-ltz v7, :cond_1
+    if-ltz v7, :cond_71
 
     .line 228
     iget v7, v9, Lcom/google/android/material/color/utilities/QuantizerWu$MaximizeResult;->cutLocation:I
 
-    if-gez v7, :cond_0
+    if-gez v7, :cond_6e
 
     .line 229
     const/4 v7, 0x0
@@ -1649,37 +1649,37 @@
     return-object v7
 
     .line 231
-    :cond_0
+    :cond_6e
     sget-object v7, Lcom/google/android/material/color/utilities/QuantizerWu$Direction;->RED:Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
 
     .local v7, "cutDirection":Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
-    goto :goto_0
+    goto :goto_7e
 
     .line 232
     .end local v7    # "cutDirection":Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
-    :cond_1
+    :cond_71
     cmpl-double v7, v3, v1
 
-    if-ltz v7, :cond_2
+    if-ltz v7, :cond_7c
 
     cmpl-double v7, v3, v5
 
-    if-ltz v7, :cond_2
+    if-ltz v7, :cond_7c
 
     .line 233
     sget-object v7, Lcom/google/android/material/color/utilities/QuantizerWu$Direction;->GREEN:Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
 
     .restart local v7    # "cutDirection":Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
-    goto :goto_0
+    goto :goto_7e
 
     .line 235
     .end local v7    # "cutDirection":Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
-    :cond_2
+    :cond_7c
     sget-object v7, Lcom/google/android/material/color/utilities/QuantizerWu$Direction;->BLUE:Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
 
     .line 238
     .restart local v7    # "cutDirection":Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
-    :goto_0
+    :goto_7e
     iget v8, v10, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->r1:I
 
     iput v8, v11, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->r1:I
@@ -1703,12 +1703,12 @@
 
     aget v8, v8, v18
 
-    packed-switch v8, :pswitch_data_0
+    packed-switch v8, :pswitch_data_fc
 
-    goto :goto_1
+    goto :goto_c9
 
     .line 256
-    :pswitch_0
+    :pswitch_96
     iget v8, v0, Lcom/google/android/material/color/utilities/QuantizerWu$MaximizeResult;->cutLocation:I
 
     iput v8, v10, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->b1:I
@@ -1728,10 +1728,10 @@
 
     iput v8, v11, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->b0:I
 
-    goto :goto_1
+    goto :goto_c9
 
     .line 250
-    :pswitch_1
+    :pswitch_a7
     iget v8, v12, Lcom/google/android/material/color/utilities/QuantizerWu$MaximizeResult;->cutLocation:I
 
     iput v8, v10, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->g1:I
@@ -1752,10 +1752,10 @@
     iput v8, v11, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->b0:I
 
     .line 254
-    goto :goto_1
+    goto :goto_c9
 
     .line 244
-    :pswitch_2
+    :pswitch_b8
     iget v8, v9, Lcom/google/android/material/color/utilities/QuantizerWu$MaximizeResult;->cutLocation:I
 
     iput v8, v10, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->r1:I
@@ -1779,7 +1779,7 @@
     nop
 
     .line 263
-    :goto_1
+    :goto_c9
     iget v8, v10, Lcom/google/android/material/color/utilities/QuantizerWu$Box;->r1:I
 
     move-object/from16 v18, v0
@@ -1844,16 +1844,16 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_fc
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_b8
+        :pswitch_a7
+        :pswitch_96
     .end packed-switch
 .end method
 
 .method maximize(Lcom/google/android/material/color/utilities/QuantizerWu$Box;Lcom/google/android/material/color/utilities/QuantizerWu$Direction;IIIIII)Lcom/google/android/material/color/utilities/QuantizerWu$MaximizeResult;
-    .locals 24
+    .registers 33
     .param p1, "cube"    # Lcom/google/android/material/color/utilities/QuantizerWu$Box;
     .param p2, "direction"    # Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
     .param p3, "first"    # I
@@ -1929,10 +1929,10 @@
     move/from16 v14, p3
 
     .local v14, "i":I
-    :goto_0
+    :goto_27
     move/from16 v15, p4
 
-    if-ge v14, v15, :cond_3
+    if-ge v14, v15, :cond_9d
 
     .line 291
     move/from16 v16, v10
@@ -1987,7 +1987,7 @@
     .line 295
     .end local v13    # "halfW":I
     .local v12, "halfW":I
-    if-nez v12, :cond_0
+    if-nez v12, :cond_55
 
     .line 296
     move/from16 v18, v4
@@ -2000,10 +2000,10 @@
 
     move v11, v3
 
-    goto :goto_2
+    goto :goto_90
 
     .line 299
-    :cond_0
+    :cond_55
     mul-int v13, v10, v10
 
     mul-int v16, v3, v3
@@ -2046,13 +2046,13 @@
     sub-int v12, p8, v12
 
     .line 307
-    if-nez v12, :cond_1
+    if-nez v12, :cond_72
 
     .line 308
-    goto :goto_1
+    goto :goto_8d
 
     .line 311
-    :cond_1
+    :cond_72
     mul-int v13, v10, v10
 
     mul-int v16, v3, v3
@@ -2076,7 +2076,7 @@
     .line 315
     cmpl-double v13, v20, v7
 
-    if-lez v13, :cond_2
+    if-lez v13, :cond_8d
 
     .line 316
     move-wide/from16 v7, v20
@@ -2090,14 +2090,14 @@
 
     move v11, v3
 
-    goto :goto_2
+    goto :goto_90
 
     .line 290
     .end local v0    # "tempNumerator":D
     .end local v4    # "tempDenominator":D
     .end local v20    # "temp":D
-    :cond_2
-    :goto_1
+    :cond_8d
+    :goto_8d
     move v13, v12
 
     move v12, v11
@@ -2108,7 +2108,7 @@
     .local v11, "halfG":I
     .local v12, "halfB":I
     .restart local v13    # "halfW":I
-    :goto_2
+    :goto_90
     add-int/lit8 v14, v14, 0x1
 
     move-object/from16 v0, p0
@@ -2121,7 +2121,7 @@
 
     move/from16 v5, v19
 
-    goto :goto_0
+    goto :goto_27
 
     .line 320
     .end local v14    # "i":I
@@ -2131,7 +2131,7 @@
     .local v3, "bottomR":I
     .local v4, "bottomG":I
     .restart local v5    # "bottomB":I
-    :cond_3
+    :cond_9d
     new-instance v0, Lcom/google/android/material/color/utilities/QuantizerWu$MaximizeResult;
 
     invoke-direct {v0, v9, v7, v8}, Lcom/google/android/material/color/utilities/QuantizerWu$MaximizeResult;-><init>(ID)V
@@ -2140,7 +2140,7 @@
 .end method
 
 .method public quantize([II)Lcom/google/android/material/color/utilities/QuantizerResult;
-    .locals 8
+    .registers 11
     .param p1, "pixels"    # [I
     .param p2, "colorCount"    # I
 
@@ -2187,12 +2187,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_24
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_41
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2220,10 +2220,10 @@
 
     .line 63
     .end local v5    # "color":I
-    goto :goto_0
+    goto :goto_24
 
     .line 64
-    :cond_0
+    :cond_41
     new-instance v4, Lcom/google/android/material/color/utilities/QuantizerResult;
 
     invoke-direct {v4, v3}, Lcom/google/android/material/color/utilities/QuantizerResult;-><init>(Ljava/util/Map;)V
@@ -2232,7 +2232,7 @@
 .end method
 
 .method variance(Lcom/google/android/material/color/utilities/QuantizerWu$Box;)D
-    .locals 11
+    .registers 13
     .param p1, "cube"    # Lcom/google/android/material/color/utilities/QuantizerWu$Box;
 
     .line 193

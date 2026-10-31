@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(II)I
-    .locals 4
+    .registers 6
 
     int-to-long v0, p0
 
@@ -19,11 +19,11 @@
 
     cmp-long p1, v0, v2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     return p0
 
-    :cond_0
+    :cond_a
     new-instance p0, Ljava/lang/ArithmeticException;
 
     invoke-direct {p0}, Ljava/lang/ArithmeticException;-><init>()V

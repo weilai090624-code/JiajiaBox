@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Lcom/google/common/base/ExtraObjectsMethodsForWeb;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public static equal(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "a"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -30,33 +30,33 @@
     .end param
 
     .line 54
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_d
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_e
     return v0
 .end method
 
 .method public static varargs hashCode([Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
     .param p0, "objects"    # [Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation

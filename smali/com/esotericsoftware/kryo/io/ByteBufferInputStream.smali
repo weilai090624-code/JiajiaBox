@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "bufferSize"    # I
 
     .line 38
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Ljava/nio/ByteBuffer;)V
-    .locals 0
+    .registers 2
     .param p1, "byteBuffer"    # Ljava/nio/ByteBuffer;
 
     .line 42
@@ -53,7 +53,7 @@
 .end method
 
 .method private flipBuffer(Ljava/nio/Buffer;)V
-    .locals 0
+    .registers 2
     .param p1, "buffer"    # Ljava/nio/Buffer;
 
     .line 72
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public available()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -84,7 +84,7 @@
 .end method
 
 .method public getByteBuffer()Ljava/nio/ByteBuffer;
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/ByteBufferInputStream;->byteBuffer:Ljava/nio/ByteBuffer;
@@ -93,7 +93,7 @@
 .end method
 
 .method public read()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -107,14 +107,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, -0x1
 
     return v0
 
     .line 56
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/ByteBufferInputStream;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->get()B
@@ -127,7 +127,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 2
+    .registers 6
     .param p1, "bytes"    # [B
     .param p2, "offset"    # I
     .param p3, "length"    # I
@@ -138,14 +138,14 @@
     .end annotation
 
     .line 60
-    if-nez p3, :cond_0
+    if-nez p3, :cond_4
 
     const/4 v0, 0x0
 
     return v0
 
     .line 61
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/ByteBufferInputStream;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->remaining()I
@@ -158,14 +158,14 @@
 
     .line 62
     .local v0, "count":I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
     const/4 v1, -0x1
 
     return v1
 
     .line 63
-    :cond_1
+    :cond_12
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/ByteBufferInputStream;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1, p1, p2, v0}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
@@ -175,7 +175,7 @@
 .end method
 
 .method public setByteBuffer(Ljava/nio/ByteBuffer;)V
-    .locals 0
+    .registers 2
     .param p1, "byteBuffer"    # Ljava/nio/ByteBuffer;
 
     .line 51

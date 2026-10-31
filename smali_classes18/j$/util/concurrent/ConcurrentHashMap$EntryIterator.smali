@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>([Lj$/util/concurrent/ConcurrentHashMap$Node;IIILj$/util/concurrent/ConcurrentHashMap;)V
-    .locals 0
+    .registers 6
     .param p2, "size"    # I
     .param p3, "index"    # I
     .param p4, "limit"    # I
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 3486
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$EntryIterator;, "Ljava/util/concurrent/ConcurrentHashMap$EntryIterator<TK;TV;>;"
@@ -73,7 +73,7 @@
 .end method
 
 .method public final next()Ljava/util/Map$Entry;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,7 +89,7 @@
     move-object v1, v0
 
     .local v1, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 3497
     iget-object v0, v1, Lj$/util/concurrent/ConcurrentHashMap$Node;->key:Ljava/lang/Object;
@@ -117,7 +117,7 @@
     .line 3496
     .end local v0    # "k":Ljava/lang/Object;, "TK;"
     .end local v2    # "v":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

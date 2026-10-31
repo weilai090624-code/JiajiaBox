@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "result"    # I
 
     .line 301
@@ -41,7 +41,7 @@
 .end method
 
 .method constructor <init>(Landroid/graphics/Typeface;)V
-    .locals 1
+    .registers 3
     .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .line 307
@@ -62,20 +62,20 @@
 
 # virtual methods
 .method isSuccess()Z
-    .locals 1
+    .registers 2
 
     .line 314
     iget v0, p0, Landroidx/core/provider/FontRequestWorker$TypefaceResult;->mResult:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method

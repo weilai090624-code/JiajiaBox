@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;FF)V
-    .locals 0
+    .registers 4
 
     .line 182
     iput-object p1, p0, Lcom/google/android/material/transition/ScaleProvider$1;->val$view:Landroid/view/View;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 185

@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 316
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper$Companion;-><init>()V
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final getWrappedDb(Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$DBRefHolder;Landroid/database/sqlite/SQLiteDatabase;)Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;
-    .locals 4
+    .registers 7
     .param p1, "refHolder"    # Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$DBRefHolder;
     .param p2, "sqLiteDatabase"    # Landroid/database/sqlite/SQLiteDatabase;
 
@@ -83,25 +83,25 @@
 
     .line 322
     .local v0, "dbRef":Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     invoke-virtual {v0, p2}, Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;->isDelegate(Landroid/database/sqlite/SQLiteDatabase;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 325
-    :cond_0
+    :cond_18
     move-object v1, v0
 
-    goto :goto_1
+    goto :goto_24
 
     .line 323
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     new-instance v1, Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;
 
     invoke-direct {v1, p2}, Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;-><init>(Landroid/database/sqlite/SQLiteDatabase;)V
@@ -119,6 +119,6 @@
     .line 322
     .end local v2    # "it":Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;
     .end local v3    # "$i$a$-also-FrameworkSQLiteOpenHelper$OpenHelper$Companion$getWrappedDb$1":I
-    :goto_1
+    :goto_24
     return-object v1
 .end method

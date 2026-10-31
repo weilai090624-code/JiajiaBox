@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 36
     const-wide v0, 0x4014666666666667L    # 5.1000000000000005
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 8
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
 
     .line 45
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>(ZIIIF)V
-    .locals 0
+    .registers 6
     .param p1, "elevationOverlayEnabled"    # Z
     .param p2, "elevationOverlayColor"    # I
     .param p3, "elevationOverlayAccentColor"    # I
@@ -127,7 +127,7 @@
 .end method
 
 .method private isThemeSurfaceColor(I)Z
-    .locals 2
+    .registers 4
     .param p1, "color"    # I
 
     .line 193
@@ -139,23 +139,23 @@
 
     iget v1, p0, Lcom/google/android/material/elevation/ElevationOverlayProvider;->colorSurface:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 
 # virtual methods
 .method public calculateOverlayAlpha(F)I
-    .locals 2
+    .registers 4
     .param p1, "elevation"    # F
 
     .line 150
@@ -175,7 +175,7 @@
 .end method
 
 .method public calculateOverlayAlphaFraction(F)F
-    .locals 3
+    .registers 5
     .param p1, "elevation"    # F
 
     .line 158
@@ -185,16 +185,16 @@
 
     cmpg-float v0, v0, v1
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_27
 
     cmpg-float v0, p1, v1
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_c
 
-    goto :goto_0
+    goto :goto_27
 
     .line 161
-    :cond_0
+    :cond_c
     iget v0, p0, Lcom/google/android/material/elevation/ElevationOverlayProvider;->displayDensity:F
 
     div-float v0, p1, v0
@@ -235,13 +235,13 @@
     .line 159
     .end local v0    # "elevationDp":F
     .end local v1    # "alphaFraction":F
-    :cond_1
-    :goto_0
+    :cond_27
+    :goto_27
     return v1
 .end method
 
 .method public compositeOverlay(IF)I
-    .locals 6
+    .registers 9
     .param p1, "backgroundColor"    # I
     .param p2, "elevation"    # F
 
@@ -279,11 +279,11 @@
 
     cmpl-float v4, v0, v4
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_29
 
     iget v4, p0, Lcom/google/android/material/elevation/ElevationOverlayProvider;->elevationOverlayAccentColor:I
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_29
 
     .line 138
     iget v4, p0, Lcom/google/android/material/elevation/ElevationOverlayProvider;->elevationOverlayAccentColor:I
@@ -303,7 +303,7 @@
 
     .line 142
     .end local v4    # "overlayAccentColor":I
-    :cond_0
+    :cond_29
     invoke-static {v3, v1}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
 
     move-result v4
@@ -312,7 +312,7 @@
 .end method
 
 .method public compositeOverlay(IFLandroid/view/View;)I
-    .locals 1
+    .registers 5
     .param p1, "backgroundColor"    # I
     .param p2, "elevation"    # F
     .param p3, "overlayView"    # Landroid/view/View;
@@ -333,20 +333,20 @@
 .end method
 
 .method public compositeOverlayIfNeeded(IF)I
-    .locals 1
+    .registers 4
     .param p1, "backgroundColor"    # I
     .param p2, "elevation"    # F
 
     .line 109
     iget-boolean v0, p0, Lcom/google/android/material/elevation/ElevationOverlayProvider;->elevationOverlayEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-direct {p0, p1}, Lcom/google/android/material/elevation/ElevationOverlayProvider;->isThemeSurfaceColor(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 110
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/elevation/ElevationOverlayProvider;->compositeOverlay(IF)I
@@ -356,12 +356,12 @@
     return v0
 
     .line 112
-    :cond_0
+    :cond_f
     return p1
 .end method
 
 .method public compositeOverlayIfNeeded(IFLandroid/view/View;)I
-    .locals 1
+    .registers 5
     .param p1, "backgroundColor"    # I
     .param p2, "elevation"    # F
     .param p3, "overlayView"    # Landroid/view/View;
@@ -382,7 +382,7 @@
 .end method
 
 .method public compositeOverlayWithThemeSurfaceColorIfNeeded(F)I
-    .locals 1
+    .registers 3
     .param p1, "elevation"    # F
 
     .line 85
@@ -396,7 +396,7 @@
 .end method
 
 .method public compositeOverlayWithThemeSurfaceColorIfNeeded(FLandroid/view/View;)I
-    .locals 1
+    .registers 4
     .param p1, "elevation"    # F
     .param p2, "overlayView"    # Landroid/view/View;
 
@@ -416,7 +416,7 @@
 .end method
 
 .method public getParentAbsoluteElevation(Landroid/view/View;)F
-    .locals 1
+    .registers 3
     .param p1, "overlayView"    # Landroid/view/View;
 
     .line 189
@@ -428,7 +428,7 @@
 .end method
 
 .method public getThemeElevationOverlayColor()I
-    .locals 1
+    .registers 2
 
     .line 175
     iget v0, p0, Lcom/google/android/material/elevation/ElevationOverlayProvider;->elevationOverlayColor:I
@@ -437,7 +437,7 @@
 .end method
 
 .method public getThemeSurfaceColor()I
-    .locals 1
+    .registers 2
 
     .line 181
     iget v0, p0, Lcom/google/android/material/elevation/ElevationOverlayProvider;->colorSurface:I
@@ -446,7 +446,7 @@
 .end method
 
 .method public isThemeElevationOverlayEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 169
     iget-boolean v0, p0, Lcom/google/android/material/elevation/ElevationOverlayProvider;->elevationOverlayEnabled:Z

@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Dialog;Landroid/graphics/Rect;)V
-    .locals 1
+    .registers 4
     .param p1, "dialog"    # Landroid/app/Dialog;
     .param p2, "insets"    # Landroid/graphics/Rect;
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 11
+    .registers 14
     .param p1, "view"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 
@@ -137,13 +137,13 @@
 
     const/4 v7, 0x0
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_38
 
     .line 63
     return v7
 
     .line 65
-    :cond_0
+    :cond_38
     invoke-static {p2}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
     move-result-object v6
@@ -156,7 +156,7 @@
 
     const/4 v9, 0x1
 
-    if-ne v8, v9, :cond_1
+    if-ne v8, v9, :cond_47
 
     .line 67
     const/4 v8, 0x4
@@ -164,12 +164,12 @@
     invoke-virtual {v6, v8}, Landroid/view/MotionEvent;->setAction(I)V
 
     .line 71
-    :cond_1
+    :cond_47
     sget v8, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v10, 0x1c
 
-    if-ge v8, v10, :cond_2
+    if-ge v8, v10, :cond_5d
 
     .line 72
     invoke-virtual {v6, v7}, Landroid/view/MotionEvent;->setAction(I)V
@@ -194,7 +194,7 @@
     invoke-virtual {v6, v7, v8}, Landroid/view/MotionEvent;->setLocation(FF)V
 
     .line 75
-    :cond_2
+    :cond_5d
     invoke-virtual {p1}, Landroid/view/View;->performClick()Z
 
     .line 76

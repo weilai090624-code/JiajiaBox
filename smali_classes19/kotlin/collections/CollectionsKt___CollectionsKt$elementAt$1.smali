@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
 
     iput p1, p0, Lkotlin/collections/CollectionsKt___CollectionsKt$elementAt$1;->$index:I
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public final invoke(I)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "it"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -110,7 +110,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 88

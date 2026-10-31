@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 34
     const/4 v0, 0x0
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 0
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -59,7 +59,7 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 3
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -80,7 +80,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 54
     sget v1, Landroidx/appcompat/R$styleable;->PopupWindow_overlapAnchor:I
@@ -94,7 +94,7 @@
     invoke-direct {p0, v1}, Landroidx/appcompat/widget/AppCompatPopupWindow;->setSupportOverlapAnchor(Z)V
 
     .line 57
-    :cond_0
+    :cond_18
     sget v1, Landroidx/appcompat/R$styleable;->PopupWindow_android_popupBackground:I
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -111,32 +111,32 @@
 .end method
 
 .method private setSupportOverlapAnchor(Z)V
-    .locals 1
+    .registers 3
     .param p1, "overlapAnchor"    # Z
 
     .line 90
     sget-boolean v0, Landroidx/appcompat/widget/AppCompatPopupWindow;->COMPAT_OVERLAP_ANCHOR:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 91
     iput-boolean p1, p0, Landroidx/appcompat/widget/AppCompatPopupWindow;->mOverlapAnchor:Z
 
-    goto :goto_0
+    goto :goto_a
 
     .line 93
-    :cond_0
+    :cond_7
     invoke-static {p0, p1}, Landroidx/core/widget/PopupWindowCompat;->setOverlapAnchor(Landroid/widget/PopupWindow;Z)V
 
     .line 95
-    :goto_0
+    :goto_a
     return-void
 .end method
 
 
 # virtual methods
 .method public showAsDropDown(Landroid/view/View;II)V
-    .locals 1
+    .registers 5
     .param p1, "anchor"    # Landroid/view/View;
     .param p2, "xoff"    # I
     .param p3, "yoff"    # I
@@ -144,11 +144,11 @@
     .line 64
     sget-boolean v0, Landroidx/appcompat/widget/AppCompatPopupWindow;->COMPAT_OVERLAP_ANCHOR:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-boolean v0, p0, Landroidx/appcompat/widget/AppCompatPopupWindow;->mOverlapAnchor:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 66
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
@@ -158,7 +158,7 @@
     sub-int/2addr p3, v0
 
     .line 68
-    :cond_0
+    :cond_d
     invoke-super {p0, p1, p2, p3}, Landroid/widget/PopupWindow;->showAsDropDown(Landroid/view/View;II)V
 
     .line 69
@@ -166,7 +166,7 @@
 .end method
 
 .method public showAsDropDown(Landroid/view/View;III)V
-    .locals 1
+    .registers 6
     .param p1, "anchor"    # Landroid/view/View;
     .param p2, "xoff"    # I
     .param p3, "yoff"    # I
@@ -175,11 +175,11 @@
     .line 73
     sget-boolean v0, Landroidx/appcompat/widget/AppCompatPopupWindow;->COMPAT_OVERLAP_ANCHOR:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-boolean v0, p0, Landroidx/appcompat/widget/AppCompatPopupWindow;->mOverlapAnchor:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 75
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
@@ -189,7 +189,7 @@
     sub-int/2addr p3, v0
 
     .line 77
-    :cond_0
+    :cond_d
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/PopupWindow;->showAsDropDown(Landroid/view/View;III)V
 
     .line 78
@@ -197,7 +197,7 @@
 .end method
 
 .method public update(Landroid/view/View;IIII)V
-    .locals 6
+    .registers 12
     .param p1, "anchor"    # Landroid/view/View;
     .param p2, "xoff"    # I
     .param p3, "yoff"    # I
@@ -207,11 +207,11 @@
     .line 82
     sget-boolean v0, Landroidx/appcompat/widget/AppCompatPopupWindow;->COMPAT_OVERLAP_ANCHOR:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-boolean v0, p0, Landroidx/appcompat/widget/AppCompatPopupWindow;->mOverlapAnchor:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 84
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
@@ -221,7 +221,7 @@
     sub-int/2addr p3, v0
 
     .line 86
-    :cond_0
+    :cond_d
     move-object v0, p0
 
     move-object v1, p1

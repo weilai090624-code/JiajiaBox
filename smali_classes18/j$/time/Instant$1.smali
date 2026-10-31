@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 852
     invoke-static {}, Lj$/time/temporal/ChronoUnit;->values()[Lj$/time/temporal/ChronoUnit;
@@ -37,7 +37,7 @@
 
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_a
     sget-object v1, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoUnit:[I
 
     sget-object v2, Lj$/time/temporal/ChronoUnit;->NANOS:Lj$/time/temporal/ChronoUnit;
@@ -47,18 +47,18 @@
     move-result v2
 
     aput v0, v1, v2
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_14} :catch_15
 
-    goto :goto_0
+    goto :goto_16
 
-    :catch_0
+    :catch_15
     move-exception v1
 
-    :goto_0
+    :goto_16
     const/4 v1, 0x2
 
-    :try_start_1
+    :try_start_17
     sget-object v2, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoUnit:[I
 
     sget-object v3, Lj$/time/temporal/ChronoUnit;->MICROS:Lj$/time/temporal/ChronoUnit;
@@ -68,18 +68,18 @@
     move-result v3
 
     aput v1, v2, v3
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_21
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_17 .. :try_end_21} :catch_22
 
-    goto :goto_1
+    goto :goto_23
 
-    :catch_1
+    :catch_22
     move-exception v2
 
-    :goto_1
+    :goto_23
     const/4 v2, 0x3
 
-    :try_start_2
+    :try_start_24
     sget-object v3, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoUnit:[I
 
     sget-object v4, Lj$/time/temporal/ChronoUnit;->MILLIS:Lj$/time/temporal/ChronoUnit;
@@ -89,18 +89,18 @@
     move-result v4
 
     aput v2, v3, v4
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_2e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_24 .. :try_end_2e} :catch_2f
 
-    goto :goto_2
+    goto :goto_30
 
-    :catch_2
+    :catch_2f
     move-exception v3
 
-    :goto_2
+    :goto_30
     const/4 v3, 0x4
 
-    :try_start_3
+    :try_start_31
     sget-object v4, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoUnit:[I
 
     sget-object v5, Lj$/time/temporal/ChronoUnit;->SECONDS:Lj$/time/temporal/ChronoUnit;
@@ -110,16 +110,16 @@
     move-result v5
 
     aput v3, v4, v5
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_3b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_31 .. :try_end_3b} :catch_3c
 
-    goto :goto_3
+    goto :goto_3d
 
-    :catch_3
+    :catch_3c
     move-exception v4
 
-    :goto_3
-    :try_start_4
+    :goto_3d
+    :try_start_3d
     sget-object v4, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoUnit:[I
 
     sget-object v5, Lj$/time/temporal/ChronoUnit;->MINUTES:Lj$/time/temporal/ChronoUnit;
@@ -131,16 +131,16 @@
     const/4 v6, 0x5
 
     aput v6, v4, v5
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
+    :try_end_48
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3d .. :try_end_48} :catch_49
 
-    goto :goto_4
+    goto :goto_4a
 
-    :catch_4
+    :catch_49
     move-exception v4
 
-    :goto_4
-    :try_start_5
+    :goto_4a
+    :try_start_4a
     sget-object v4, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoUnit:[I
 
     sget-object v5, Lj$/time/temporal/ChronoUnit;->HOURS:Lj$/time/temporal/ChronoUnit;
@@ -152,16 +152,16 @@
     const/4 v6, 0x6
 
     aput v6, v4, v5
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
+    :try_end_55
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4a .. :try_end_55} :catch_56
 
-    goto :goto_5
+    goto :goto_57
 
-    :catch_5
+    :catch_56
     move-exception v4
 
-    :goto_5
-    :try_start_6
+    :goto_57
+    :try_start_57
     sget-object v4, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoUnit:[I
 
     sget-object v5, Lj$/time/temporal/ChronoUnit;->HALF_DAYS:Lj$/time/temporal/ChronoUnit;
@@ -173,16 +173,16 @@
     const/4 v6, 0x7
 
     aput v6, v4, v5
-    :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
+    :try_end_62
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_57 .. :try_end_62} :catch_63
 
-    goto :goto_6
+    goto :goto_64
 
-    :catch_6
+    :catch_63
     move-exception v4
 
-    :goto_6
-    :try_start_7
+    :goto_64
+    :try_start_64
     sget-object v4, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoUnit:[I
 
     sget-object v5, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
@@ -194,16 +194,16 @@
     const/16 v6, 0x8
 
     aput v6, v4, v5
-    :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_7
+    :try_end_70
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_64 .. :try_end_70} :catch_71
 
-    goto :goto_7
+    goto :goto_72
 
-    :catch_7
+    :catch_71
     move-exception v4
 
     .line 560
-    :goto_7
+    :goto_72
     invoke-static {}, Lj$/time/temporal/ChronoField;->values()[Lj$/time/temporal/ChronoField;
 
     move-result-object v4
@@ -214,7 +214,7 @@
 
     sput-object v4, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoField:[I
 
-    :try_start_8
+    :try_start_7b
     sget-object v4, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoField:[I
 
     sget-object v5, Lj$/time/temporal/ChronoField;->NANO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -224,16 +224,16 @@
     move-result v5
 
     aput v0, v4, v5
-    :try_end_8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_8
+    :try_end_85
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7b .. :try_end_85} :catch_86
 
-    goto :goto_8
+    goto :goto_87
 
-    :catch_8
+    :catch_86
     move-exception v0
 
-    :goto_8
-    :try_start_9
+    :goto_87
+    :try_start_87
     sget-object v0, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoField:[I
 
     sget-object v4, Lj$/time/temporal/ChronoField;->MICRO_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -243,16 +243,16 @@
     move-result v4
 
     aput v1, v0, v4
-    :try_end_9
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_9
+    :try_end_91
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_87 .. :try_end_91} :catch_92
 
-    goto :goto_9
+    goto :goto_93
 
-    :catch_9
+    :catch_92
     move-exception v0
 
-    :goto_9
-    :try_start_a
+    :goto_93
+    :try_start_93
     sget-object v0, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoField:[I
 
     sget-object v1, Lj$/time/temporal/ChronoField;->MILLI_OF_SECOND:Lj$/time/temporal/ChronoField;
@@ -262,16 +262,16 @@
     move-result v1
 
     aput v2, v0, v1
-    :try_end_a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_a
+    :try_end_9d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_93 .. :try_end_9d} :catch_9e
 
-    goto :goto_a
+    goto :goto_9f
 
-    :catch_a
+    :catch_9e
     move-exception v0
 
-    :goto_a
-    :try_start_b
+    :goto_9f
+    :try_start_9f
     sget-object v0, Lj$/time/Instant$1;->$SwitchMap$java$time$temporal$ChronoField:[I
 
     sget-object v1, Lj$/time/temporal/ChronoField;->INSTANT_SECONDS:Lj$/time/temporal/ChronoField;
@@ -281,14 +281,14 @@
     move-result v1
 
     aput v3, v0, v1
-    :try_end_b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_b
+    :try_end_a9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9f .. :try_end_a9} :catch_aa
 
-    goto :goto_b
+    goto :goto_ab
 
-    :catch_b
+    :catch_aa
     move-exception v0
 
-    :goto_b
+    :goto_ab
     return-void
 .end method

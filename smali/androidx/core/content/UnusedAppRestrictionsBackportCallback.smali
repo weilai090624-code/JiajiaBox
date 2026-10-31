@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "callback"    # Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportCallback;
 
     .line 39
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public onResult(ZZ)V
-    .locals 1
+    .registers 4
     .param p1, "success"    # Z
     .param p2, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;

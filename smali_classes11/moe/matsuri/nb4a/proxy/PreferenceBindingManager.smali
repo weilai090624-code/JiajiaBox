@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public final add(Lmoe/matsuri/nb4a/proxy/PreferenceBinding;)Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
-    .locals 1
+    .registers 3
     .param p1, "b"    # Lmoe/matsuri/nb4a/proxy/PreferenceBinding;
 
     const-string v0, "b"
@@ -95,7 +95,7 @@
 .end method
 
 .method public final fromCacheAll(Ljava/lang/Object;)V
-    .locals 6
+    .registers 8
     .param p1, "bean"    # Ljava/lang/Object;
 
     const-string v0, "bean"
@@ -116,12 +116,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_25
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -151,10 +151,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_e
 
     .line 37
-    :cond_0
+    :cond_25
     nop
 
     .line 19
@@ -164,7 +164,7 @@
 .end method
 
 .method public final getItems()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -181,7 +181,7 @@
 .end method
 
 .method public final setPreferenceFragment(Landroidx/preference/PreferenceFragmentCompat;)V
-    .locals 6
+    .registers 8
     .param p1, "pf"    # Landroidx/preference/PreferenceFragmentCompat;
 
     const-string v0, "pf"
@@ -202,12 +202,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -234,10 +234,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_e
 
     .line 41
-    :cond_0
+    :cond_22
     nop
 
     .line 32
@@ -247,7 +247,7 @@
 .end method
 
 .method public final writeToCacheAll(Ljava/lang/Object;)V
-    .locals 6
+    .registers 8
     .param p1, "bean"    # Ljava/lang/Object;
 
     const-string v0, "bean"
@@ -268,12 +268,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_25
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -303,10 +303,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_e
 
     .line 39
-    :cond_0
+    :cond_25
     nop
 
     .line 26

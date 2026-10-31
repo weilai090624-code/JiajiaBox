@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/loader/content/Loader;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/loader/content/Loader;
 
     .line 58
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public deliverSelfNotifications()Z
-    .locals 1
+    .registers 2
 
     .line 64
     .local p0, "this":Landroidx/loader/content/Loader$ForceLoadContentObserver;, "Landroidx/loader/content/Loader<TD;>.ForceLoadContentObserver;"
@@ -51,7 +51,7 @@
 .end method
 
 .method public onChange(Z)V
-    .locals 1
+    .registers 3
     .param p1, "selfChange"    # Z
 
     .line 69

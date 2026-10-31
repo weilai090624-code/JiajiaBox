@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/LocalCache$LocalManualCache;Ljava/util/concurrent/Callable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/cache/LocalCache$LocalManualCache;
 
     .line 4693
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public load(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public onChanged(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)V"
@@ -105,7 +105,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_17
 
     .line 170
     iget-object v0, p0, Landroidx/lifecycle/MediatorLiveData$Source;->mLiveData:Landroidx/lifecycle/LiveData;
@@ -122,12 +122,12 @@
     invoke-interface {v0, p1}, Landroidx/lifecycle/Observer;->onChanged(Ljava/lang/Object;)V
 
     .line 173
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method plug()V
-    .locals 1
+    .registers 2
 
     .line 160
     .local p0, "this":Landroidx/lifecycle/MediatorLiveData$Source;, "Landroidx/lifecycle/MediatorLiveData$Source<TV;>;"
@@ -140,7 +140,7 @@
 .end method
 
 .method unplug()V
-    .locals 1
+    .registers 2
 
     .line 164
     .local p0, "this":Landroidx/lifecycle/MediatorLiveData$Source;, "Landroidx/lifecycle/MediatorLiveData$Source<TV;>;"

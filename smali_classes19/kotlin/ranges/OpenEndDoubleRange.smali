@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(DD)V
-    .locals 0
+    .registers 5
     .param p1, "start"    # D
     .param p3, "endExclusive"    # D
 
@@ -84,30 +84,30 @@
 .end method
 
 .method private final lessThanOrEquals(DD)Z
-    .locals 1
+    .registers 6
     .param p1, "a"    # D
     .param p3, "b"    # D
 
     .line 143
     cmpg-double v0, p1, p3
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 
 # virtual methods
 .method public contains(D)Z
-    .locals 3
+    .registers 6
     .param p1, "value"    # D
 
     .line 145
@@ -115,27 +115,27 @@
 
     cmpl-double v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_e
 
     iget-wide v0, p0, Lkotlin/ranges/OpenEndDoubleRange;->_endExclusive:D
 
     cmpg-double v2, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public bridge synthetic contains(Ljava/lang/Comparable;)Z
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Comparable;
 
     .line 134
@@ -155,7 +155,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 149
@@ -163,7 +163,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_37
 
     invoke-virtual {p0}, Lkotlin/ranges/OpenEndDoubleRange;->isEmpty()Z
 
@@ -171,7 +171,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     move-object v0, p1
 
@@ -181,10 +181,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_35
 
     .line 150
-    :cond_0
+    :cond_15
     iget-wide v3, p0, Lkotlin/ranges/OpenEndDoubleRange;->_start:D
 
     move-object v0, p1
@@ -195,17 +195,17 @@
 
     cmpg-double v0, v3, v5
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_22
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_4
+    :goto_23
+    if-eqz v0, :cond_37
 
     iget-wide v3, p0, Lkotlin/ranges/OpenEndDoubleRange;->_endExclusive:D
 
@@ -217,33 +217,33 @@
 
     cmpg-double v0, v3, v5
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_32
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_2
+    :cond_32
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_4
+    :goto_33
+    if-eqz v0, :cond_37
 
-    :cond_3
+    :cond_35
     const/4 v1, 0x1
 
-    goto :goto_2
+    goto :goto_38
 
-    :cond_4
+    :cond_37
     nop
 
     .line 149
-    :goto_2
+    :goto_38
     return v1
 .end method
 
 .method public bridge synthetic getEndExclusive()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 134
     invoke-virtual {p0}, Lkotlin/ranges/OpenEndDoubleRange;->getEndExclusive()Ljava/lang/Double;
@@ -256,7 +256,7 @@
 .end method
 
 .method public getEndExclusive()Ljava/lang/Double;
-    .locals 2
+    .registers 3
 
     .line 141
     iget-wide v0, p0, Lkotlin/ranges/OpenEndDoubleRange;->_endExclusive:D
@@ -269,7 +269,7 @@
 .end method
 
 .method public bridge synthetic getStart()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 134
     invoke-virtual {p0}, Lkotlin/ranges/OpenEndDoubleRange;->getStart()Ljava/lang/Double;
@@ -282,7 +282,7 @@
 .end method
 
 .method public getStart()Ljava/lang/Double;
-    .locals 2
+    .registers 3
 
     .line 140
     iget-wide v0, p0, Lkotlin/ranges/OpenEndDoubleRange;->_start:D
@@ -295,20 +295,20 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 154
     invoke-virtual {p0}, Lkotlin/ranges/OpenEndDoubleRange;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_8
     iget-wide v0, p0, Lkotlin/ranges/OpenEndDoubleRange;->_start:D
 
     invoke-static {v0, v1}, Lkotlin/ranges/ClosedDoubleRange$$ExternalSyntheticBackport0;->m(D)I
@@ -325,12 +325,12 @@
 
     add-int/2addr v0, v1
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 5
+    .registers 6
 
     .line 146
     iget-wide v0, p0, Lkotlin/ranges/OpenEndDoubleRange;->_start:D
@@ -339,21 +339,21 @@
 
     cmpg-double v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 157
     new-instance v0, Ljava/lang/StringBuilder;

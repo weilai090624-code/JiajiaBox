@@ -52,7 +52,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$sfgetEMPTY_DOUBLE_ARRAY()[D
-    .locals 1
+    .registers 1
 
     sget-object v0, Lj$/util/stream/Nodes;->EMPTY_DOUBLE_ARRAY:[D
 
@@ -60,7 +60,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$sfgetEMPTY_INT_ARRAY()[I
-    .locals 1
+    .registers 1
 
     sget-object v0, Lj$/util/stream/Nodes;->EMPTY_INT_ARRAY:[I
 
@@ -68,7 +68,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$sfgetEMPTY_LONG_ARRAY()[J
-    .locals 1
+    .registers 1
 
     sget-object v0, Lj$/util/stream/Nodes;->EMPTY_LONG_ARRAY:[J
 
@@ -76,7 +76,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 67
     new-instance v0, Lj$/util/stream/Nodes$EmptyNode$OfRef;
@@ -129,7 +129,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -145,7 +145,7 @@
 .end method
 
 .method static builder()Lj$/util/stream/Node$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -165,7 +165,7 @@
 .end method
 
 .method static builder(JLjava/util/function/IntFunction;)Lj$/util/stream/Node$Builder;
-    .locals 3
+    .registers 6
     .param p0, "exactSizeIfKnown"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -185,34 +185,34 @@
 
     cmp-long v2, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_13
 
     const-wide/32 v0, 0x7ffffff7
 
     cmp-long v2, p0, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_13
 
     .line 176
     new-instance v0, Lj$/util/stream/Nodes$FixedNodeBuilder;
 
     invoke-direct {v0, p0, p1, p2}, Lj$/util/stream/Nodes$FixedNodeBuilder;-><init>(JLjava/util/function/IntFunction;)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 177
-    :cond_0
+    :cond_13
     invoke-static {}, Lj$/util/stream/Nodes;->builder()Lj$/util/stream/Node$Builder;
 
     move-result-object v0
 
     .line 175
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method static castingArray()Ljava/util/function/IntFunction;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -232,7 +232,7 @@
 .end method
 
 .method public static collect(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;ZLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 5
+    .registers 9
     .param p2, "flattenTree"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -266,7 +266,7 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_35
 
     const/16 v2, 0x4000
 
@@ -274,14 +274,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     .line 330
     const-wide/32 v2, 0x7ffffff7
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_2d
 
     .line 332
     long-to-int v2, v0
@@ -309,7 +309,7 @@
 
     .line 331
     .end local v2    # "array":[Ljava/lang/Object;, "[TP_OUT;"
-    :cond_0
+    :cond_2d
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -319,7 +319,7 @@
     throw v2
 
     .line 336
-    :cond_1
+    :cond_35
     new-instance v2, Lj$/util/stream/Nodes$CollectorTask$OfRef;
 
     invoke-direct {v2, p0, p3, p1}, Lj$/util/stream/Nodes$CollectorTask$OfRef;-><init>(Lj$/util/stream/PipelineHelper;Ljava/util/function/IntFunction;Lj$/util/Spliterator;)V
@@ -332,23 +332,23 @@
 
     .line 337
     .local v2, "node":Lj$/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_47
 
     invoke-static {v2, p3}, Lj$/util/stream/Nodes;->flatten(Lj$/util/stream/Node;Ljava/util/function/IntFunction;)Lj$/util/stream/Node;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_48
 
-    :cond_2
+    :cond_47
     move-object v3, v2
 
-    :goto_0
+    :goto_48
     return-object v3
 .end method
 
 .method public static collectDouble(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Z)Lj$/util/stream/Node$OfDouble;
-    .locals 5
+    .registers 8
     .param p2, "flattenTree"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -377,7 +377,7 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_31
 
     const/16 v2, 0x4000
 
@@ -385,14 +385,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_31
 
     .line 443
     const-wide/32 v2, 0x7ffffff7
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_29
 
     .line 445
     long-to-int v2, v0
@@ -416,7 +416,7 @@
 
     .line 444
     .end local v2    # "array":[D
-    :cond_0
+    :cond_29
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -426,7 +426,7 @@
     throw v2
 
     .line 450
-    :cond_1
+    :cond_31
     new-instance v2, Lj$/util/stream/Nodes$CollectorTask$OfDouble;
 
     invoke-direct {v2, p0, p1}, Lj$/util/stream/Nodes$CollectorTask$OfDouble;-><init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)V
@@ -439,23 +439,23 @@
 
     .line 451
     .local v2, "node":Lj$/util/stream/Node$OfDouble;
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_43
 
     invoke-static {v2}, Lj$/util/stream/Nodes;->flattenDouble(Lj$/util/stream/Node$OfDouble;)Lj$/util/stream/Node$OfDouble;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_44
 
-    :cond_2
+    :cond_43
     move-object v3, v2
 
-    :goto_0
+    :goto_44
     return-object v3
 .end method
 
 .method public static collectInt(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Z)Lj$/util/stream/Node$OfInt;
-    .locals 5
+    .registers 8
     .param p2, "flattenTree"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -484,7 +484,7 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_31
 
     const/16 v2, 0x4000
 
@@ -492,14 +492,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_31
 
     .line 367
     const-wide/32 v2, 0x7ffffff7
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_29
 
     .line 369
     long-to-int v2, v0
@@ -523,7 +523,7 @@
 
     .line 368
     .end local v2    # "array":[I
-    :cond_0
+    :cond_29
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -533,7 +533,7 @@
     throw v2
 
     .line 374
-    :cond_1
+    :cond_31
     new-instance v2, Lj$/util/stream/Nodes$CollectorTask$OfInt;
 
     invoke-direct {v2, p0, p1}, Lj$/util/stream/Nodes$CollectorTask$OfInt;-><init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)V
@@ -546,23 +546,23 @@
 
     .line 375
     .local v2, "node":Lj$/util/stream/Node$OfInt;
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_43
 
     invoke-static {v2}, Lj$/util/stream/Nodes;->flattenInt(Lj$/util/stream/Node$OfInt;)Lj$/util/stream/Node$OfInt;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_44
 
-    :cond_2
+    :cond_43
     move-object v3, v2
 
-    :goto_0
+    :goto_44
     return-object v3
 .end method
 
 .method public static collectLong(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Z)Lj$/util/stream/Node$OfLong;
-    .locals 5
+    .registers 8
     .param p2, "flattenTree"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -591,7 +591,7 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_31
 
     const/16 v2, 0x4000
 
@@ -599,14 +599,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_31
 
     .line 405
     const-wide/32 v2, 0x7ffffff7
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_29
 
     .line 407
     long-to-int v2, v0
@@ -630,7 +630,7 @@
 
     .line 406
     .end local v2    # "array":[J
-    :cond_0
+    :cond_29
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -640,7 +640,7 @@
     throw v2
 
     .line 412
-    :cond_1
+    :cond_31
     new-instance v2, Lj$/util/stream/Nodes$CollectorTask$OfLong;
 
     invoke-direct {v2, p0, p1}, Lj$/util/stream/Nodes$CollectorTask$OfLong;-><init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)V
@@ -653,23 +653,23 @@
 
     .line 413
     .local v2, "node":Lj$/util/stream/Node$OfLong;
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_43
 
     invoke-static {v2}, Lj$/util/stream/Nodes;->flattenLong(Lj$/util/stream/Node$OfLong;)Lj$/util/stream/Node$OfLong;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_44
 
-    :cond_2
+    :cond_43
     move-object v3, v2
 
-    :goto_0
+    :goto_44
     return-object v3
 .end method
 
 .method static conc(Lj$/util/stream/StreamShape;Lj$/util/stream/Node;Lj$/util/stream/Node;)Lj$/util/stream/Node;
-    .locals 3
+    .registers 6
     .param p0, "shape"    # Lj$/util/stream/StreamShape;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -697,7 +697,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_4e
 
     .line 132
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -725,7 +725,7 @@
     throw v0
 
     .line 130
-    :pswitch_0
+    :pswitch_24
     new-instance v0, Lj$/util/stream/Nodes$ConcNode$OfDouble;
 
     move-object v1, p1
@@ -741,7 +741,7 @@
     return-object v0
 
     .line 128
-    :pswitch_1
+    :pswitch_30
     new-instance v0, Lj$/util/stream/Nodes$ConcNode$OfLong;
 
     move-object v1, p1
@@ -757,7 +757,7 @@
     return-object v0
 
     .line 126
-    :pswitch_2
+    :pswitch_3c
     new-instance v0, Lj$/util/stream/Nodes$ConcNode$OfInt;
 
     move-object v1, p1
@@ -773,24 +773,24 @@
     return-object v0
 
     .line 124
-    :pswitch_3
+    :pswitch_48
     new-instance v0, Lj$/util/stream/Nodes$ConcNode;
 
     invoke-direct {v0, p1, p2}, Lj$/util/stream/Nodes$ConcNode;-><init>(Lj$/util/stream/Node;Lj$/util/stream/Node;)V
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_4e
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_48
+        :pswitch_3c
+        :pswitch_30
+        :pswitch_24
     .end packed-switch
 .end method
 
 .method static doubleBuilder()Lj$/util/stream/Node$Builder$OfDouble;
-    .locals 1
+    .registers 1
 
     .line 298
     new-instance v0, Lj$/util/stream/Nodes$DoubleSpinedNodeBuilder;
@@ -801,7 +801,7 @@
 .end method
 
 .method static doubleBuilder(J)Lj$/util/stream/Node$Builder$OfDouble;
-    .locals 3
+    .registers 5
     .param p0, "exactSizeIfKnown"    # J
 
     .line 287
@@ -809,34 +809,34 @@
 
     cmp-long v2, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_13
 
     const-wide/32 v0, 0x7ffffff7
 
     cmp-long v2, p0, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_13
 
     .line 288
     new-instance v0, Lj$/util/stream/Nodes$DoubleFixedNodeBuilder;
 
     invoke-direct {v0, p0, p1}, Lj$/util/stream/Nodes$DoubleFixedNodeBuilder;-><init>(J)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 289
-    :cond_0
+    :cond_13
     invoke-static {}, Lj$/util/stream/Nodes;->doubleBuilder()Lj$/util/stream/Node$Builder$OfDouble;
 
     move-result-object v0
 
     .line 287
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method static emptyNode(Lj$/util/stream/StreamShape;)Lj$/util/stream/Node;
-    .locals 3
+    .registers 4
     .param p0, "shape"    # Lj$/util/stream/StreamShape;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -859,7 +859,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_30
 
     .line 97
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -887,40 +887,40 @@
     throw v0
 
     .line 95
-    :pswitch_0
+    :pswitch_24
     sget-object v0, Lj$/util/stream/Nodes;->EMPTY_DOUBLE_NODE:Lj$/util/stream/Node$OfDouble;
 
     return-object v0
 
     .line 94
-    :pswitch_1
+    :pswitch_27
     sget-object v0, Lj$/util/stream/Nodes;->EMPTY_LONG_NODE:Lj$/util/stream/Node$OfLong;
 
     return-object v0
 
     .line 93
-    :pswitch_2
+    :pswitch_2a
     sget-object v0, Lj$/util/stream/Nodes;->EMPTY_INT_NODE:Lj$/util/stream/Node$OfInt;
 
     return-object v0
 
     .line 92
-    :pswitch_3
+    :pswitch_2d
     sget-object v0, Lj$/util/stream/Nodes;->EMPTY_NODE:Lj$/util/stream/Node;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_30
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2d
+        :pswitch_2a
+        :pswitch_27
+        :pswitch_24
     .end packed-switch
 .end method
 
 .method public static flatten(Lj$/util/stream/Node;Ljava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -942,7 +942,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2f
 
     .line 474
     invoke-interface {p0}, Lj$/util/stream/Node;->count()J
@@ -955,7 +955,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_27
 
     .line 477
     long-to-int v2, v0
@@ -987,7 +987,7 @@
 
     .line 476
     .end local v2    # "array":[Ljava/lang/Object;, "[TT;"
-    :cond_0
+    :cond_27
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -998,12 +998,12 @@
 
     .line 481
     .end local v0    # "size":J
-    :cond_1
+    :cond_2f
     return-object p0
 .end method
 
 .method public static flattenDouble(Lj$/util/stream/Node$OfDouble;)Lj$/util/stream/Node$OfDouble;
-    .locals 6
+    .registers 7
     .param p0, "node"    # Lj$/util/stream/Node$OfDouble;
 
     .line 551
@@ -1011,7 +1011,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2b
 
     .line 552
     invoke-interface {p0}, Lj$/util/stream/Node$OfDouble;->count()J
@@ -1024,7 +1024,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_23
 
     .line 555
     long-to-int v2, v0
@@ -1052,7 +1052,7 @@
 
     .line 554
     .end local v2    # "array":[D
-    :cond_0
+    :cond_23
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -1063,12 +1063,12 @@
 
     .line 559
     .end local v0    # "size":J
-    :cond_1
+    :cond_2b
     return-object p0
 .end method
 
 .method public static flattenInt(Lj$/util/stream/Node$OfInt;)Lj$/util/stream/Node$OfInt;
-    .locals 6
+    .registers 7
     .param p0, "node"    # Lj$/util/stream/Node$OfInt;
 
     .line 499
@@ -1076,7 +1076,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2b
 
     .line 500
     invoke-interface {p0}, Lj$/util/stream/Node$OfInt;->count()J
@@ -1089,7 +1089,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_23
 
     .line 503
     long-to-int v2, v0
@@ -1117,7 +1117,7 @@
 
     .line 502
     .end local v2    # "array":[I
-    :cond_0
+    :cond_23
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -1128,12 +1128,12 @@
 
     .line 507
     .end local v0    # "size":J
-    :cond_1
+    :cond_2b
     return-object p0
 .end method
 
 .method public static flattenLong(Lj$/util/stream/Node$OfLong;)Lj$/util/stream/Node$OfLong;
-    .locals 6
+    .registers 7
     .param p0, "node"    # Lj$/util/stream/Node$OfLong;
 
     .line 525
@@ -1141,7 +1141,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2b
 
     .line 526
     invoke-interface {p0}, Lj$/util/stream/Node$OfLong;->count()J
@@ -1154,7 +1154,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_23
 
     .line 529
     long-to-int v2, v0
@@ -1182,7 +1182,7 @@
 
     .line 528
     .end local v2    # "array":[J
-    :cond_0
+    :cond_23
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -1193,12 +1193,12 @@
 
     .line 533
     .end local v0    # "size":J
-    :cond_1
+    :cond_2b
     return-object p0
 .end method
 
 .method static intBuilder()Lj$/util/stream/Node$Builder$OfInt;
-    .locals 1
+    .registers 1
 
     .line 224
     new-instance v0, Lj$/util/stream/Nodes$IntSpinedNodeBuilder;
@@ -1209,7 +1209,7 @@
 .end method
 
 .method static intBuilder(J)Lj$/util/stream/Node$Builder$OfInt;
-    .locals 3
+    .registers 5
     .param p0, "exactSizeIfKnown"    # J
 
     .line 213
@@ -1217,34 +1217,34 @@
 
     cmp-long v2, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_13
 
     const-wide/32 v0, 0x7ffffff7
 
     cmp-long v2, p0, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_13
 
     .line 214
     new-instance v0, Lj$/util/stream/Nodes$IntFixedNodeBuilder;
 
     invoke-direct {v0, p0, p1}, Lj$/util/stream/Nodes$IntFixedNodeBuilder;-><init>(J)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 215
-    :cond_0
+    :cond_13
     invoke-static {}, Lj$/util/stream/Nodes;->intBuilder()Lj$/util/stream/Node$Builder$OfInt;
 
     move-result-object v0
 
     .line 213
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method static synthetic lambda$castingArray$0(I)[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "size"    # I
 
     .line 77
@@ -1254,7 +1254,7 @@
 .end method
 
 .method static longBuilder()Lj$/util/stream/Node$Builder$OfLong;
-    .locals 1
+    .registers 1
 
     .line 261
     new-instance v0, Lj$/util/stream/Nodes$LongSpinedNodeBuilder;
@@ -1265,7 +1265,7 @@
 .end method
 
 .method static longBuilder(J)Lj$/util/stream/Node$Builder$OfLong;
-    .locals 3
+    .registers 5
     .param p0, "exactSizeIfKnown"    # J
 
     .line 250
@@ -1273,34 +1273,34 @@
 
     cmp-long v2, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_13
 
     const-wide/32 v0, 0x7ffffff7
 
     cmp-long v2, p0, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_13
 
     .line 251
     new-instance v0, Lj$/util/stream/Nodes$LongFixedNodeBuilder;
 
     invoke-direct {v0, p0, p1}, Lj$/util/stream/Nodes$LongFixedNodeBuilder;-><init>(J)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 252
-    :cond_0
+    :cond_13
     invoke-static {}, Lj$/util/stream/Nodes;->longBuilder()Lj$/util/stream/Node$Builder$OfLong;
 
     move-result-object v0
 
     .line 250
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method static node([D)Lj$/util/stream/Node$OfDouble;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [D
 
     .line 275
@@ -1312,7 +1312,7 @@
 .end method
 
 .method static node([I)Lj$/util/stream/Node$OfInt;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [I
 
     .line 201
@@ -1324,7 +1324,7 @@
 .end method
 
 .method static node([J)Lj$/util/stream/Node$OfLong;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [J
 
     .line 238
@@ -1336,7 +1336,7 @@
 .end method
 
 .method static node(Ljava/util/Collection;)Lj$/util/stream/Node;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1359,7 +1359,7 @@
 .end method
 
 .method static node([Ljava/lang/Object;)Lj$/util/stream/Node;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

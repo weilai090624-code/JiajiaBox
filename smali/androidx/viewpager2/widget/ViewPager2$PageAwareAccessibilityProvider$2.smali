@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;
 
     .line 1341
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public perform(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "arguments"    # Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;
 

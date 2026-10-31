@@ -76,7 +76,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$0sNsUdVD3QenIrnQ9NJ_gPQ5x8k(Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->execute$lambda$0(Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;)V
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/activity/ComponentActivity;)V
-    .locals 4
+    .registers 6
     .param p1, "this$0"    # Landroidx/activity/ComponentActivity;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -115,13 +115,13 @@
 .end method
 
 .method private static final execute$lambda$0(Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;)V
-    .locals 1
+    .registers 2
     .param p0, "this$0"    # Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;
 
     .line 1087
     iget-object v0, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->currentRunnable:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 1088
     iget-object v0, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->currentRunnable:Ljava/lang/Runnable;
@@ -136,14 +136,14 @@
     iput-object v0, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->currentRunnable:Ljava/lang/Runnable;
 
     .line 1091
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 
 # virtual methods
 .method public activityDestroyed()V
-    .locals 2
+    .registers 3
 
     .line 1064
     iget-object v0, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->this$0:Landroidx/activity/ComponentActivity;
@@ -188,7 +188,7 @@
 .end method
 
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 3
+    .registers 5
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     const-string v0, "runnable"
@@ -217,7 +217,7 @@
     .local v0, "decorView":Landroid/view/View;
     iget-boolean v1, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->onDrawScheduled:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_31
 
     .line 1078
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -232,21 +232,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2d
 
     .line 1079
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
-    goto :goto_0
+    goto :goto_39
 
     .line 1081
-    :cond_0
+    :cond_2d
     invoke-virtual {v0}, Landroid/view/View;->postInvalidate()V
 
-    goto :goto_0
+    goto :goto_39
 
     .line 1086
-    :cond_1
+    :cond_31
     new-instance v1, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl$$ExternalSyntheticLambda0;
 
     invoke-direct {v1, p0}, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl$$ExternalSyntheticLambda0;-><init>(Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;)V
@@ -254,12 +254,12 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->postOnAnimation(Ljava/lang/Runnable;)V
 
     .line 1093
-    :goto_0
+    :goto_39
     return-void
 .end method
 
 .method public final getCurrentRunnable()Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
 
     .line 1053
     iget-object v0, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->currentRunnable:Ljava/lang/Runnable;
@@ -268,7 +268,7 @@
 .end method
 
 .method public final getEndWatchTimeMillis()J
-    .locals 2
+    .registers 3
 
     .line 1052
     iget-wide v0, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->endWatchTimeMillis:J
@@ -277,7 +277,7 @@
 .end method
 
 .method public final getOnDrawScheduled()Z
-    .locals 1
+    .registers 2
 
     .line 1054
     iget-boolean v0, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->onDrawScheduled:Z
@@ -286,7 +286,7 @@
 .end method
 
 .method public onDraw()V
-    .locals 7
+    .registers 8
 
     .line 1096
     iget-object v0, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->currentRunnable:Ljava/lang/Runnable;
@@ -295,7 +295,7 @@
     .local v0, "runnable":Ljava/lang/Runnable;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     .line 1098
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
@@ -316,7 +316,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_46
 
     .line 1101
     iput-boolean v1, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->onDrawScheduled:Z
@@ -338,10 +338,10 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_0
+    goto :goto_46
 
     .line 1104
-    :cond_0
+    :cond_2a
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
@@ -350,7 +350,7 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_46
 
     .line 1107
     iput-boolean v1, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->onDrawScheduled:Z
@@ -373,13 +373,13 @@
     invoke-virtual {v1, v2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
     .line 1110
-    :cond_1
-    :goto_0
+    :cond_46
+    :goto_46
     return-void
 .end method
 
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 1117
     iget-object v0, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->this$0:Landroidx/activity/ComponentActivity;
@@ -407,7 +407,7 @@
 .end method
 
 .method public final setCurrentRunnable(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/Runnable;
 
     .line 1053
@@ -417,7 +417,7 @@
 .end method
 
 .method public final setOnDrawScheduled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 1054
@@ -427,7 +427,7 @@
 .end method
 
 .method public viewCreated(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     const-string/jumbo v0, "view"
@@ -437,7 +437,7 @@
     .line 1057
     iget-boolean v0, p0, Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutorImpl;->onDrawScheduled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 1058
     const/4 v0, 0x1
@@ -456,6 +456,6 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnDrawListener(Landroid/view/ViewTreeObserver$OnDrawListener;)V
 
     .line 1061
-    :cond_0
+    :cond_17
     return-void
 .end method

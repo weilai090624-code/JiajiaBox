@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/zxing/common/reedsolomon/GenericGF;)V
-    .locals 3
+    .registers 5
     .param p1, "field"    # Lcom/google/zxing/common/reedsolomon/GenericGF;
 
     .line 33
@@ -55,7 +55,7 @@
 .end method
 
 .method private buildGenerator(I)Lcom/google/zxing/common/reedsolomon/GenericGFPoly;
-    .locals 8
+    .registers 10
     .param p1, "degree"    # I
 
     .line 40
@@ -65,7 +65,7 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_47
 
     .line 41
     iget-object v0, p0, Lcom/google/zxing/common/reedsolomon/ReedSolomonEncoder;->cachedGenerators:Ljava/util/List;
@@ -95,8 +95,8 @@
     move-result v1
 
     .local v1, "d":I
-    :goto_0
-    if-gt v1, p1, :cond_0
+    :goto_1e
+    if-gt v1, p1, :cond_47
 
     .line 43
     new-instance v3, Lcom/google/zxing/common/reedsolomon/GenericGFPoly;
@@ -144,12 +144,12 @@
     .end local v3    # "nextGenerator":Lcom/google/zxing/common/reedsolomon/GenericGFPoly;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 49
     .end local v0    # "lastGenerator":Lcom/google/zxing/common/reedsolomon/GenericGFPoly;
     .end local v1    # "d":I
-    :cond_0
+    :cond_47
     iget-object v0, p0, Lcom/google/zxing/common/reedsolomon/ReedSolomonEncoder;->cachedGenerators:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -164,12 +164,12 @@
 
 # virtual methods
 .method public encode([II)V
-    .locals 8
+    .registers 11
     .param p1, "toEncode"    # [I
     .param p2, "ecBytes"    # I
 
     .line 53
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_44
 
     .line 56
     array-length v0, p1
@@ -182,7 +182,7 @@
     .local v1, "dataBytes":I
     move v1, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_3c
 
     .line 60
     invoke-direct {p0, p2}, Lcom/google/zxing/common/reedsolomon/ReedSolomonEncoder;->buildGenerator(I)Lcom/google/zxing/common/reedsolomon/GenericGFPoly;
@@ -236,8 +236,8 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_0
-    if-ge v6, v5, :cond_0
+    :goto_2c
+    if-ge v6, v5, :cond_35
 
     .line 69
     add-int v7, v1, v6
@@ -247,11 +247,11 @@
     .line 68
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 71
     .end local v6    # "i":I
-    :cond_0
+    :cond_35
     add-int v6, v1, v5
 
     array-length v7, v4
@@ -266,7 +266,7 @@
     .end local v2    # "infoCoefficients":[I
     .end local v4    # "coefficients":[I
     .end local v5    # "numZeroCoefficients":I
-    :cond_1
+    :cond_3c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "No data bytes provided"
@@ -277,7 +277,7 @@
 
     .line 54
     .end local v1    # "dataBytes":I
-    :cond_2
+    :cond_44
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "No error correction bytes"

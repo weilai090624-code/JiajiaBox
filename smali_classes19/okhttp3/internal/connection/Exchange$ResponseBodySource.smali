@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/connection/Exchange;Lokio/Source;J)V
-    .locals 5
+    .registers 10
     .param p1, "this$0"    # Lokhttp3/internal/connection/Exchange;
     .param p2, "delegate"    # Lokio/Source;
     .param p3, "contentLength"    # J
@@ -117,7 +117,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_21
 
     .line 273
     const/4 v0, 0x0
@@ -125,7 +125,7 @@
     invoke-virtual {p0, v0}, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->complete(Ljava/io/IOException;)Ljava/io/IOException;
 
     .line 275
-    :cond_0
+    :cond_21
     nop
 
     .line 262
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -145,12 +145,12 @@
     .line 311
     iget-boolean v0, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 312
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->closed:Z
@@ -159,21 +159,21 @@
     nop
 
     .line 314
-    :try_start_0
+    :try_start_9
     invoke-super {p0}, Lokio/ForwardingSource;->close()V
 
     .line 315
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->complete(Ljava/io/IOException;)Ljava/io/IOException;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_10} :catch_11
 
     .line 319
     return-void
 
     .line 316
-    :catch_0
+    :catch_11
     move-exception v0
 
     .line 317
@@ -186,7 +186,7 @@
 .end method
 
 .method public final complete(Ljava/io/IOException;)Ljava/io/IOException;
-    .locals 8
+    .registers 10
     .param p1, "e"    # Ljava/io/IOException;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -199,22 +199,22 @@
     .line 322
     iget-boolean v0, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->completed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object p1
 
     .line 323
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->completed:Z
 
     .line 325
-    if-nez p1, :cond_1
+    if-nez p1, :cond_22
 
     iget-boolean v0, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->invokeStartEvent:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 326
     const/4 v0, 0x0
@@ -239,7 +239,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/EventListener;->responseBodyStart(Lokhttp3/Call;)V
 
     .line 329
-    :cond_1
+    :cond_22
     iget-object v2, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->this$0:Lokhttp3/internal/connection/Exchange;
 
     iget-wide v3, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->bytesReceived:J
@@ -258,7 +258,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 10
+    .registers 14
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -274,13 +274,13 @@
     .line 279
     iget-boolean v0, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->closed:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_7c
 
     .line 280
     nop
 
     .line 281
-    :try_start_0
+    :try_start_a
     invoke-virtual {p0}, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->delegate()Lokio/Source;
 
     move-result-object v0
@@ -293,7 +293,7 @@
     .local v0, "read":J
     iget-boolean v2, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->invokeStartEvent:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2a
 
     .line 284
     const/4 v2, 0x0
@@ -318,14 +318,14 @@
     invoke-virtual {v2, v3}, Lokhttp3/EventListener;->responseBodyStart(Lokhttp3/Call;)V
 
     .line 288
-    :cond_0
+    :cond_2a
     const/4 v2, 0x0
 
     const-wide/16 v3, -0x1
 
     cmp-long v5, v0, v3
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_35
 
     .line 289
     invoke-virtual {p0, v2}, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->complete(Ljava/io/IOException;)Ljava/io/IOException;
@@ -334,7 +334,7 @@
     return-wide v3
 
     .line 293
-    :cond_1
+    :cond_35
     iget-wide v5, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->bytesReceived:J
 
     add-long/2addr v5, v0
@@ -345,18 +345,18 @@
 
     cmp-long v9, v7, v3
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_6a
 
     iget-wide v3, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->contentLength:J
 
     cmp-long v7, v5, v3
 
-    if-gtz v7, :cond_2
+    if-gtz v7, :cond_45
 
-    goto :goto_0
+    goto :goto_6a
 
     .line 295
-    :cond_2
+    :cond_45
     new-instance v2, Ljava/net/ProtocolException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -398,8 +398,8 @@
     .line 298
     .restart local p1    # "sink":Lokio/Buffer;
     .restart local p2    # "byteCount":J
-    :cond_3
-    :goto_0
+    :cond_6a
+    :goto_6a
     iput-wide v5, p0, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->bytesReceived:J
 
     .line 299
@@ -407,21 +407,21 @@
 
     cmp-long v7, v5, v3
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_75
 
     .line 300
     invoke-virtual {p0, v2}, Lokhttp3/internal/connection/Exchange$ResponseBodySource;->complete(Ljava/io/IOException;)Ljava/io/IOException;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_75
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_75} :catch_76
 
     .line 303
-    :cond_4
+    :cond_75
     return-wide v0
 
     .line 304
     .end local v0    # "read":J
     .end local v5    # "newBytesReceived":J
-    :catch_0
+    :catch_76
     move-exception v0
 
     .line 305
@@ -434,7 +434,7 @@
 
     .line 334
     .end local v0    # "e":Ljava/io/IOException;
-    :cond_5
+    :cond_7c
     const/4 v0, 0x0
 
     .line 279

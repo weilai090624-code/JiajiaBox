@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public final invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 0
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/PreferencesKt;->$r8$lambda$UahzvZBR3Uh_BtS-BeGgr7apo3A()Ljava/util/Set;

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$get(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)I
-    .locals 6
+    .registers 8
     .param p0, "_this"    # Lj$/time/temporal/TemporalAccessor;
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
@@ -20,7 +20,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_43
 
     .line 222
     invoke-interface {p0, p1}, Lj$/time/temporal/TemporalAccessor;->getLong(Lj$/time/temporal/TemporalField;)J
@@ -33,7 +33,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_16
 
     .line 226
     long-to-int v3, v1
@@ -41,7 +41,7 @@
     return v3
 
     .line 224
-    :cond_0
+    :cond_16
     new-instance v3, Lj$/time/DateTimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -88,7 +88,7 @@
 
     .line 220
     .end local v1    # "value":J
-    :cond_1
+    :cond_43
     new-instance v1, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -121,7 +121,7 @@
 .end method
 
 .method public static $default$query(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 309
@@ -130,26 +130,26 @@
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_18
 
     .line 310
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->chronology()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_18
 
     .line 311
     invoke-static {}, Lj$/time/temporal/TemporalQueries;->precision()Lj$/time/temporal/TemporalQuery;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_13
 
-    goto :goto_0
+    goto :goto_18
 
     .line 314
-    :cond_0
+    :cond_13
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalQuery;->queryFrom(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Object;
 
     move-result-object v0
@@ -157,29 +157,29 @@
     return-object v0
 
     .line 312
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static $default$range(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 3
+    .registers 5
     .param p0, "_this"    # Lj$/time/temporal/TemporalAccessor;
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 170
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     .line 171
     invoke-interface {p0, p1}, Lj$/time/temporal/TemporalAccessor;->isSupported(Lj$/time/temporal/TemporalField;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 172
     invoke-interface {p1}, Lj$/time/temporal/TemporalField;->range()Lj$/time/temporal/ValueRange;
@@ -189,7 +189,7 @@
     return-object v0
 
     .line 174
-    :cond_0
+    :cond_f
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -215,7 +215,7 @@
     throw v0
 
     .line 176
-    :cond_1
+    :cond_28
     const-string v0, "field"
 
     invoke-static {p1, v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;

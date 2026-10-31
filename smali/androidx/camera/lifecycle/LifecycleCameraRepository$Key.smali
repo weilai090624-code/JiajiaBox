@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 463
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static create(Landroidx/lifecycle/LifecycleOwner;Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;)Landroidx/camera/lifecycle/LifecycleCameraRepository$Key;
-    .locals 1
+    .registers 3
     .param p0, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
     .param p1, "cameraId"    # Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;
     .annotation system Ldalvik/annotation/MethodParameters;

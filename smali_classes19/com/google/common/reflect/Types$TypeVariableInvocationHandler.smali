@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 373
     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->builder()Lcom/google/common/collect/ImmutableMap$Builder;
@@ -62,8 +62,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_c
+    if-ge v3, v2, :cond_2c
 
     aget-object v4, v1, v3
 
@@ -79,25 +79,25 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_29
 
     .line 377
     const/4 v5, 0x1
 
-    :try_start_0
+    :try_start_1d
     invoke-virtual {v4, v5}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/security/AccessControlException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_20
+    .catch Ljava/security/AccessControlException; {:try_start_1d .. :try_end_20} :catch_21
 
     .line 381
-    goto :goto_1
+    goto :goto_22
 
     .line 378
-    :catch_0
+    :catch_21
     move-exception v5
 
     .line 382
-    :goto_1
+    :goto_22
     invoke-virtual {v4}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
     move-result-object v5
@@ -106,13 +106,13 @@
 
     .line 374
     .end local v4    # "method":Ljava/lang/reflect/Method;
-    :cond_0
+    :cond_29
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 385
-    :cond_1
+    :cond_2c
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap$Builder;->build()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v1
@@ -125,7 +125,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/reflect/Types$TypeVariableImpl;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -146,7 +146,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/reflect/Types$TypeVariableInvocationHandler;)Lcom/google/common/reflect/Types$TypeVariableImpl;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/reflect/Types$TypeVariableInvocationHandler;
 
     .line 369
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 8
     .param p1, "proxy"    # Ljava/lang/Object;
     .param p2, "method"    # Ljava/lang/reflect/Method;
     .param p3, "args"    # [Ljava/lang/Object;
@@ -191,22 +191,22 @@
 
     .line 400
     .local v1, "typeVariableMethod":Ljava/lang/reflect/Method;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 404
-    :try_start_0
+    :try_start_e
     iget-object v2, p0, Lcom/google/common/reflect/Types$TypeVariableInvocationHandler;->typeVariableImpl:Lcom/google/common/reflect/Types$TypeVariableImpl;
 
     invoke-virtual {v1, v2, p3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_e .. :try_end_14} :catch_15
 
     return-object v2
 
     .line 405
-    :catch_0
+    :catch_15
     move-exception v2
 
     .line 406
@@ -219,7 +219,7 @@
 
     .line 401
     .end local v2    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :cond_0
+    :cond_1b
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v2, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V

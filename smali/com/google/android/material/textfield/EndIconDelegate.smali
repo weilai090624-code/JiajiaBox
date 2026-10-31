@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/EndCompoundLayout;)V
-    .locals 1
+    .registers 3
     .param p1, "endLayout"    # Lcom/google/android/material/textfield/EndCompoundLayout;
 
     .line 48
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method afterEditTextChanged(Landroid/text/Editable;)V
-    .locals 0
+    .registers 2
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 180
@@ -58,7 +58,7 @@
 .end method
 
 .method beforeEditTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -69,7 +69,7 @@
 .end method
 
 .method getIconContentDescriptionResId()I
-    .locals 1
+    .registers 2
 
     .line 71
     const/4 v0, 0x0
@@ -78,7 +78,7 @@
 .end method
 
 .method getIconDrawableResId()I
-    .locals 1
+    .registers 2
 
     .line 65
     const/4 v0, 0x0
@@ -87,7 +87,7 @@
 .end method
 
 .method getOnEditTextFocusChangeListener()Landroid/view/View$OnFocusChangeListener;
-    .locals 1
+    .registers 2
 
     .line 146
     const/4 v0, 0x0
@@ -96,7 +96,7 @@
 .end method
 
 .method getOnIconClickListener()Landroid/view/View$OnClickListener;
-    .locals 1
+    .registers 2
 
     .line 138
     const/4 v0, 0x0
@@ -105,7 +105,7 @@
 .end method
 
 .method getOnIconViewFocusChangeListener()Landroid/view/View$OnFocusChangeListener;
-    .locals 1
+    .registers 2
 
     .line 154
     const/4 v0, 0x0
@@ -114,7 +114,7 @@
 .end method
 
 .method getTouchExplorationStateChangeListener()Landroidx/core/view/accessibility/AccessibilityManagerCompat$TouchExplorationStateChangeListener;
-    .locals 1
+    .registers 2
 
     .line 162
     const/4 v0, 0x0
@@ -123,7 +123,7 @@
 .end method
 
 .method isBoxBackgroundModeSupported(I)Z
-    .locals 1
+    .registers 3
     .param p1, "boxBackgroundMode"    # I
 
     .line 122
@@ -133,7 +133,7 @@
 .end method
 
 .method isIconActivable()Z
-    .locals 1
+    .registers 2
 
     .line 95
     const/4 v0, 0x0
@@ -142,7 +142,7 @@
 .end method
 
 .method isIconActivated()Z
-    .locals 1
+    .registers 2
 
     .line 105
     const/4 v0, 0x0
@@ -151,7 +151,7 @@
 .end method
 
 .method isIconCheckable()Z
-    .locals 1
+    .registers 2
 
     .line 80
     const/4 v0, 0x0
@@ -160,7 +160,7 @@
 .end method
 
 .method isIconChecked()Z
-    .locals 1
+    .registers 2
 
     .line 88
     const/4 v0, 0x0
@@ -169,7 +169,7 @@
 .end method
 
 .method onEditTextAttached(Landroid/widget/EditText;)V
-    .locals 0
+    .registers 2
     .param p1, "editText"    # Landroid/widget/EditText;
 
     .line 166
@@ -177,7 +177,7 @@
 .end method
 
 .method onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 0
+    .registers 3
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -186,7 +186,7 @@
 .end method
 
 .method onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 3
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
@@ -195,7 +195,7 @@
 .end method
 
 .method onSuffixVisibilityChanged(Z)V
-    .locals 0
+    .registers 2
     .param p1, "visible"    # Z
 
     .line 131
@@ -203,7 +203,7 @@
 .end method
 
 .method final refreshIconState()V
-    .locals 2
+    .registers 3
 
     .line 195
     iget-object v0, p0, Lcom/google/android/material/textfield/EndIconDelegate;->endLayout:Lcom/google/android/material/textfield/EndCompoundLayout;
@@ -217,14 +217,14 @@
 .end method
 
 .method setUp()V
-    .locals 0
+    .registers 1
 
     .line 56
     return-void
 .end method
 
 .method shouldTintIconOnError()Z
-    .locals 1
+    .registers 2
 
     .line 113
     const/4 v0, 0x0
@@ -233,7 +233,7 @@
 .end method
 
 .method tearDown()V
-    .locals 0
+    .registers 1
 
     .line 60
     return-void

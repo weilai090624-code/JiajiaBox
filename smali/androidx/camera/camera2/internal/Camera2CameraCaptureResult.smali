@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/impl/TagBundle;Landroid/hardware/camera2/CaptureResult;)V
-    .locals 0
+    .registers 3
     .param p1, "tagBundle"    # Landroidx/camera/core/impl/TagBundle;
     .param p2, "captureResult"    # Landroid/hardware/camera2/CaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public getAeState()Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;
-    .locals 3
+    .registers 4
 
     .line 117
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
@@ -63,7 +63,7 @@
 
     .line 118
     .local v0, "state":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 119
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;->UNKNOWN:Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;
@@ -71,12 +71,12 @@
     return-object v1
 
     .line 121
-    :cond_0
+    :cond_f
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_40
 
     .line 135
     new-instance v1, Ljava/lang/StringBuilder;
@@ -107,48 +107,48 @@
     return-object v1
 
     .line 128
-    :pswitch_0
+    :pswitch_31
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;->FLASH_REQUIRED:Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;
 
     return-object v1
 
     .line 132
-    :pswitch_1
+    :pswitch_34
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;->LOCKED:Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;
 
     return-object v1
 
     .line 130
-    :pswitch_2
+    :pswitch_37
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;->CONVERGED:Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;
 
     return-object v1
 
     .line 126
-    :pswitch_3
+    :pswitch_3a
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;->SEARCHING:Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;
 
     return-object v1
 
     .line 123
-    :pswitch_4
+    :pswitch_3d
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;->INACTIVE:Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_40
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_3
+        :pswitch_3d
+        :pswitch_3a
+        :pswitch_37
+        :pswitch_34
+        :pswitch_31
+        :pswitch_3a
     .end packed-switch
 .end method
 
 .method public getAfMode()Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
-    .locals 3
+    .registers 4
 
     .line 58
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
@@ -163,7 +163,7 @@
 
     .line 59
     .local v0, "mode":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 60
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->UNKNOWN:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
@@ -171,12 +171,12 @@
     return-object v1
 
     .line 62
-    :cond_0
+    :cond_f
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_3a
 
     .line 74
     new-instance v1, Ljava/lang/StringBuilder;
@@ -207,36 +207,36 @@
     return-object v1
 
     .line 71
-    :pswitch_0
+    :pswitch_31
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->ON_CONTINUOUS_AUTO:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
     return-object v1
 
     .line 68
-    :pswitch_1
+    :pswitch_34
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->ON_MANUAL_AUTO:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
     return-object v1
 
     .line 65
-    :pswitch_2
+    :pswitch_37
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->OFF:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_3a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_2
+        :pswitch_37
+        :pswitch_34
+        :pswitch_34
+        :pswitch_31
+        :pswitch_31
+        :pswitch_37
     .end packed-switch
 .end method
 
 .method public getAfState()Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;
-    .locals 3
+    .registers 4
 
     .line 86
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
@@ -251,7 +251,7 @@
 
     .line 87
     .local v0, "state":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 88
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;->UNKNOWN:Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;
@@ -259,12 +259,12 @@
     return-object v1
 
     .line 90
-    :cond_0
+    :cond_f
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_40
 
     .line 105
     new-instance v1, Ljava/lang/StringBuilder;
@@ -295,49 +295,49 @@
     return-object v1
 
     .line 100
-    :pswitch_0
+    :pswitch_31
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;->LOCKED_NOT_FOCUSED:Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;
 
     return-object v1
 
     .line 98
-    :pswitch_1
+    :pswitch_34
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;->LOCKED_FOCUSED:Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;
 
     return-object v1
 
     .line 102
-    :pswitch_2
+    :pswitch_37
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;->FOCUSED:Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;
 
     return-object v1
 
     .line 96
-    :pswitch_3
+    :pswitch_3a
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;->SCANNING:Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;
 
     return-object v1
 
     .line 92
-    :pswitch_4
+    :pswitch_3d
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;->INACTIVE:Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_40
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_3
-        :pswitch_1
-        :pswitch_0
-        :pswitch_3
+        :pswitch_3d
+        :pswitch_3a
+        :pswitch_37
+        :pswitch_3a
+        :pswitch_34
+        :pswitch_31
+        :pswitch_3a
     .end packed-switch
 .end method
 
 .method public getAwbState()Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;
-    .locals 3
+    .registers 4
 
     .line 147
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
@@ -352,7 +352,7 @@
 
     .line 148
     .local v0, "state":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 149
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;->UNKNOWN:Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;
@@ -360,12 +360,12 @@
     return-object v1
 
     .line 151
-    :cond_0
+    :cond_f
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_3e
 
     .line 162
     new-instance v1, Ljava/lang/StringBuilder;
@@ -396,42 +396,42 @@
     return-object v1
 
     .line 159
-    :pswitch_0
+    :pswitch_31
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;->LOCKED:Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;
 
     return-object v1
 
     .line 157
-    :pswitch_1
+    :pswitch_34
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;->CONVERGED:Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;
 
     return-object v1
 
     .line 155
-    :pswitch_2
+    :pswitch_37
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;->METERING:Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;
 
     return-object v1
 
     .line 153
-    :pswitch_3
+    :pswitch_3a
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;->INACTIVE:Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;
 
     return-object v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3e
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3a
+        :pswitch_37
+        :pswitch_34
+        :pswitch_31
     .end packed-switch
 .end method
 
 .method public getCaptureResult()Landroid/hardware/camera2/CaptureResult;
-    .locals 1
+    .registers 2
 
     .line 272
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
@@ -440,7 +440,7 @@
 .end method
 
 .method public getFlashState()Landroidx/camera/core/impl/CameraCaptureMetaData$FlashState;
-    .locals 3
+    .registers 4
 
     .line 174
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
@@ -455,7 +455,7 @@
 
     .line 175
     .local v0, "state":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 176
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$FlashState;->UNKNOWN:Landroidx/camera/core/impl/CameraCaptureMetaData$FlashState;
@@ -463,12 +463,12 @@
     return-object v1
 
     .line 178
-    :cond_0
+    :cond_f
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_3a
 
     .line 189
     new-instance v1, Ljava/lang/StringBuilder;
@@ -499,35 +499,35 @@
     return-object v1
 
     .line 186
-    :pswitch_0
+    :pswitch_31
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$FlashState;->FIRED:Landroidx/camera/core/impl/CameraCaptureMetaData$FlashState;
 
     return-object v1
 
     .line 183
-    :pswitch_1
+    :pswitch_34
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$FlashState;->READY:Landroidx/camera/core/impl/CameraCaptureMetaData$FlashState;
 
     return-object v1
 
     .line 181
-    :pswitch_2
+    :pswitch_37
     sget-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$FlashState;->NONE:Landroidx/camera/core/impl/CameraCaptureMetaData$FlashState;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_3a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_37
+        :pswitch_37
+        :pswitch_34
+        :pswitch_31
+        :pswitch_31
     .end packed-switch
 .end method
 
 .method public getTagBundle()Landroidx/camera/core/impl/TagBundle;
-    .locals 1
+    .registers 2
 
     .line 207
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mTagBundle:Landroidx/camera/core/impl/TagBundle;
@@ -536,7 +536,7 @@
 .end method
 
 .method public getTimestamp()J
-    .locals 3
+    .registers 4
 
     .line 196
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
@@ -551,7 +551,7 @@
 
     .line 197
     .local v0, "timestamp":Ljava/lang/Long;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 198
     const-wide/16 v1, -0x1
@@ -559,7 +559,7 @@
     return-wide v1
 
     .line 201
-    :cond_0
+    :cond_f
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v1
@@ -568,7 +568,7 @@
 .end method
 
 .method public populateExifData(Landroidx/camera/core/impl/utils/ExifData$Builder;)V
-    .locals 9
+    .registers 11
     .param p1, "exifData"    # Landroidx/camera/core/impl/utils/ExifData$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -595,7 +595,7 @@
 
     .line 217
     .local v0, "cropRegion":Landroid/graphics/Rect;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 218
     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
@@ -614,7 +614,7 @@
     invoke-virtual {v1, v2}, Landroidx/camera/core/impl/utils/ExifData$Builder;->setImageHeight(I)Landroidx/camera/core/impl/utils/ExifData$Builder;
 
     .line 223
-    :cond_0
+    :cond_1e
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
 
     sget-object v2, Landroid/hardware/camera2/CaptureResult;->JPEG_ORIENTATION:Landroid/hardware/camera2/CaptureResult$Key;
@@ -627,7 +627,7 @@
 
     .line 224
     .local v1, "jpegOrientation":Ljava/lang/Integer;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_31
 
     .line 225
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
@@ -637,7 +637,7 @@
     invoke-virtual {p1, v2}, Landroidx/camera/core/impl/utils/ExifData$Builder;->setOrientationDegrees(I)Landroidx/camera/core/impl/utils/ExifData$Builder;
 
     .line 229
-    :cond_1
+    :cond_31
     iget-object v2, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
 
     sget-object v3, Landroid/hardware/camera2/CaptureResult;->SENSOR_EXPOSURE_TIME:Landroid/hardware/camera2/CaptureResult$Key;
@@ -650,7 +650,7 @@
 
     .line 230
     .local v2, "exposureTimeNs":Ljava/lang/Long;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_44
 
     .line 231
     invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
@@ -660,7 +660,7 @@
     invoke-virtual {p1, v3, v4}, Landroidx/camera/core/impl/utils/ExifData$Builder;->setExposureTimeNanos(J)Landroidx/camera/core/impl/utils/ExifData$Builder;
 
     .line 235
-    :cond_2
+    :cond_44
     iget-object v3, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
 
     sget-object v4, Landroid/hardware/camera2/CaptureResult;->LENS_APERTURE:Landroid/hardware/camera2/CaptureResult$Key;
@@ -673,7 +673,7 @@
 
     .line 236
     .local v3, "aperture":Ljava/lang/Float;
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_57
 
     .line 237
     invoke-virtual {v3}, Ljava/lang/Float;->floatValue()F
@@ -683,7 +683,7 @@
     invoke-virtual {p1, v4}, Landroidx/camera/core/impl/utils/ExifData$Builder;->setLensFNumber(F)Landroidx/camera/core/impl/utils/ExifData$Builder;
 
     .line 241
-    :cond_3
+    :cond_57
     iget-object v4, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
 
     sget-object v5, Landroid/hardware/camera2/CaptureResult;->SENSOR_SENSITIVITY:Landroid/hardware/camera2/CaptureResult$Key;
@@ -696,14 +696,14 @@
 
     .line 242
     .local v4, "iso":Ljava/lang/Integer;
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_8f
 
     .line 243
     sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v6, 0x18
 
-    if-lt v5, v6, :cond_4
+    if-lt v5, v6, :cond_88
 
     .line 244
     iget-object v5, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
@@ -719,7 +719,7 @@
 
     .line 246
     .local v5, "postRawSensitivityBoost":Ljava/lang/Integer;
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_88
 
     .line 247
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
@@ -746,7 +746,7 @@
 
     .line 250
     .end local v5    # "postRawSensitivityBoost":Ljava/lang/Integer;
-    :cond_4
+    :cond_88
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v5
@@ -754,7 +754,7 @@
     invoke-virtual {p1, v5}, Landroidx/camera/core/impl/utils/ExifData$Builder;->setIso(I)Landroidx/camera/core/impl/utils/ExifData$Builder;
 
     .line 254
-    :cond_5
+    :cond_8f
     iget-object v5, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
 
     sget-object v6, Landroid/hardware/camera2/CaptureResult;->LENS_FOCAL_LENGTH:Landroid/hardware/camera2/CaptureResult$Key;
@@ -767,7 +767,7 @@
 
     .line 255
     .local v5, "focalLength":Ljava/lang/Float;
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_a2
 
     .line 256
     invoke-virtual {v5}, Ljava/lang/Float;->floatValue()F
@@ -777,7 +777,7 @@
     invoke-virtual {p1, v6}, Landroidx/camera/core/impl/utils/ExifData$Builder;->setFocalLength(F)Landroidx/camera/core/impl/utils/ExifData$Builder;
 
     .line 260
-    :cond_6
+    :cond_a2
     iget-object v6, p0, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
 
     sget-object v7, Landroid/hardware/camera2/CaptureResult;->CONTROL_AWB_MODE:Landroid/hardware/camera2/CaptureResult$Key;
@@ -790,7 +790,7 @@
 
     .line 261
     .local v6, "whiteBalanceMode":Ljava/lang/Integer;
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_bb
 
     .line 262
     sget-object v7, Landroidx/camera/core/impl/utils/ExifData$WhiteBalanceMode;->AUTO:Landroidx/camera/core/impl/utils/ExifData$WhiteBalanceMode;
@@ -801,17 +801,17 @@
 
     move-result v8
 
-    if-nez v8, :cond_7
+    if-nez v8, :cond_b8
 
     .line 264
     sget-object v7, Landroidx/camera/core/impl/utils/ExifData$WhiteBalanceMode;->MANUAL:Landroidx/camera/core/impl/utils/ExifData$WhiteBalanceMode;
 
     .line 266
-    :cond_7
+    :cond_b8
     invoke-virtual {p1, v7}, Landroidx/camera/core/impl/utils/ExifData$Builder;->setWhiteBalanceMode(Landroidx/camera/core/impl/utils/ExifData$WhiteBalanceMode;)Landroidx/camera/core/impl/utils/ExifData$Builder;
 
     .line 268
     .end local v7    # "wbMode":Landroidx/camera/core/impl/utils/ExifData$WhiteBalanceMode;
-    :cond_8
+    :cond_bb
     return-void
 .end method

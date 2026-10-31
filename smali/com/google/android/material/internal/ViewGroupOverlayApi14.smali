@@ -8,7 +8,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "hostView"    # Landroid/view/ViewGroup;
     .param p3, "requestingView"    # Landroid/view/View;
@@ -21,7 +21,7 @@
 .end method
 
 .method static createFrom(Landroid/view/ViewGroup;)Lcom/google/android/material/internal/ViewGroupOverlayApi14;
-    .locals 1
+    .registers 2
     .param p0, "viewGroup"    # Landroid/view/ViewGroup;
 
     .line 31
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public add(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 36
@@ -50,7 +50,7 @@
 .end method
 
 .method public remove(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 41

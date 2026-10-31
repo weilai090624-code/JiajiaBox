@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5171
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static callCompatInsetAnimationCallback(Landroid/view/WindowInsets;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "insets"    # Landroid/view/WindowInsets;
     .param p1, "v"    # Landroid/view/View;
 
@@ -42,18 +42,18 @@
 
     .line 5263
     .local v0, "insetsAnimationCallback":Landroid/view/View$OnApplyWindowInsetsListener;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 5264
     invoke-interface {v0, p1, p0}, Landroid/view/View$OnApplyWindowInsetsListener;->onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
     .line 5266
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method static computeSystemWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;Landroid/graphics/Rect;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 2
+    .registers 5
     .param p0, "v"    # Landroid/view/View;
     .param p1, "insets"    # Landroidx/core/view/WindowInsetsCompat;
     .param p2, "outLocalInsets"    # Landroid/graphics/Rect;
@@ -65,7 +65,7 @@
 
     .line 5186
     .local v0, "platformInsets":Landroid/view/WindowInsets;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 5187
     nop
@@ -83,7 +83,7 @@
     return-object v1
 
     .line 5190
-    :cond_0
+    :cond_10
     invoke-virtual {p2}, Landroid/graphics/Rect;->setEmpty()V
 
     .line 5191
@@ -91,7 +91,7 @@
 .end method
 
 .method static dispatchNestedFling(Landroid/view/View;FFZ)Z
-    .locals 1
+    .registers 5
     .param p0, "view"    # Landroid/view/View;
     .param p1, "velocityX"    # F
     .param p2, "velocityY"    # F
@@ -106,7 +106,7 @@
 .end method
 
 .method static dispatchNestedPreFling(Landroid/view/View;FF)Z
-    .locals 1
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "velocityX"    # F
     .param p2, "velocityY"    # F
@@ -120,7 +120,7 @@
 .end method
 
 .method static dispatchNestedPreScroll(Landroid/view/View;II[I[I)Z
-    .locals 1
+    .registers 6
     .param p0, "view"    # Landroid/view/View;
     .param p1, "dx"    # I
     .param p2, "dy"    # I
@@ -136,7 +136,7 @@
 .end method
 
 .method static dispatchNestedScroll(Landroid/view/View;IIII[I)Z
-    .locals 1
+    .registers 7
     .param p0, "view"    # Landroid/view/View;
     .param p1, "dxConsumed"    # I
     .param p2, "dyConsumed"    # I
@@ -153,7 +153,7 @@
 .end method
 
 .method static getBackgroundTintList(Landroid/view/View;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5332
@@ -165,7 +165,7 @@
 .end method
 
 .method static getBackgroundTintMode(Landroid/view/View;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5337
@@ -177,7 +177,7 @@
 .end method
 
 .method static getElevation(Landroid/view/View;)F
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5317
@@ -189,7 +189,7 @@
 .end method
 
 .method public static getRootWindowInsets(Landroid/view/View;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 1
+    .registers 2
     .param p0, "v"    # Landroid/view/View;
 
     .line 5179
@@ -201,7 +201,7 @@
 .end method
 
 .method static getTransitionName(Landroid/view/View;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5322
@@ -213,7 +213,7 @@
 .end method
 
 .method static getTranslationZ(Landroid/view/View;)F
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5302
@@ -225,7 +225,7 @@
 .end method
 
 .method static getZ(Landroid/view/View;)F
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5282
@@ -237,7 +237,7 @@
 .end method
 
 .method static hasNestedScrollingParent(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5367
@@ -249,7 +249,7 @@
 .end method
 
 .method static isImportantForAccessibility(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5312
@@ -261,7 +261,7 @@
 .end method
 
 .method static isNestedScrollingEnabled(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5352
@@ -273,7 +273,7 @@
 .end method
 
 .method static setBackgroundTintList(Landroid/view/View;Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
@@ -285,7 +285,7 @@
 .end method
 
 .method static setBackgroundTintMode(Landroid/view/View;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
@@ -297,7 +297,7 @@
 .end method
 
 .method static setElevation(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "elevation"    # F
 
@@ -309,7 +309,7 @@
 .end method
 
 .method static setNestedScrollingEnabled(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "enabled"    # Z
 
@@ -321,7 +321,7 @@
 .end method
 
 .method static setOnApplyWindowInsetsListener(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V
-    .locals 2
+    .registers 4
     .param p0, "v"    # Landroid/view/View;
     .param p1, "listener"    # Landroidx/core/view/OnApplyWindowInsetsListener;
 
@@ -330,7 +330,7 @@
 
     const/16 v1, 0x1e
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_b
 
     .line 5201
     sget v0, Landroidx/core/R$id;->tag_on_apply_window_listener:I
@@ -338,8 +338,8 @@
     invoke-virtual {p0, v0, p1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     .line 5204
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_b
+    if-nez p1, :cond_19
 
     .line 5207
     sget v0, Landroidx/core/R$id;->tag_window_insets_animation_callback:I
@@ -360,7 +360,7 @@
 
     .line 5214
     .end local v0    # "compatInsetsAnimationCallback":Landroid/view/View$OnApplyWindowInsetsListener;
-    :cond_1
+    :cond_19
     new-instance v0, Landroidx/core/view/ViewCompat$Api21Impl$1;
 
     invoke-direct {v0, p0, p1}, Landroidx/core/view/ViewCompat$Api21Impl$1;-><init>(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V
@@ -372,7 +372,7 @@
 .end method
 
 .method static setTransitionName(Landroid/view/View;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "transitionName"    # Ljava/lang/String;
 
@@ -384,7 +384,7 @@
 .end method
 
 .method static setTranslationZ(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "translationZ"    # F
 
@@ -396,7 +396,7 @@
 .end method
 
 .method static setZ(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "z"    # F
 
@@ -408,7 +408,7 @@
 .end method
 
 .method static startNestedScroll(Landroid/view/View;I)Z
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "axes"    # I
 
@@ -421,7 +421,7 @@
 .end method
 
 .method static stopNestedScroll(Landroid/view/View;)V
-    .locals 0
+    .registers 1
     .param p0, "view"    # Landroid/view/View;
 
     .line 5362

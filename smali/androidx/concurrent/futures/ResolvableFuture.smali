@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     .local p0, "this":Landroidx/concurrent/futures/ResolvableFuture;, "Landroidx/concurrent/futures/ResolvableFuture<TV;>;"
@@ -28,7 +28,7 @@
 .end method
 
 .method public static create()Landroidx/concurrent/futures/ResolvableFuture;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public set(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)Z"
@@ -68,7 +68,7 @@
 .end method
 
 .method public setException(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 55
@@ -81,7 +81,7 @@
 .end method
 
 .method public setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

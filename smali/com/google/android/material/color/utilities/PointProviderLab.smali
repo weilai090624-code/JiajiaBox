@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public distance([D[D)D
-    .locals 11
+    .registers 14
     .param p1, "one"    # [D
     .param p2, "two"    # [D
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public fromInt(I)[D
-    .locals 11
+    .registers 13
     .param p1, "argb"    # I
 
     .line 37
@@ -104,7 +104,7 @@
 .end method
 
 .method public toInt([D)I
-    .locals 7
+    .registers 9
     .param p1, "lab"    # [D
 
     .line 44

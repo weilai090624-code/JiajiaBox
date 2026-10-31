@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static getBinder(Landroid/os/Bundle;Ljava/lang/String;)Landroid/os/IBinder;
-    .locals 1
+    .registers 3
     .param p0, "bundle"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getParcelable(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -59,7 +59,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 72
     invoke-static {p0, p1, p2}, Landroidx/core/os/BundleCompat$Api33Impl;->getParcelable(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
@@ -69,7 +69,7 @@
     return-object v0
 
     .line 74
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v0
@@ -80,21 +80,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_18
     return-object v1
 .end method
 
 .method public static getParcelableArray(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)[Landroid/os/Parcelable;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -116,7 +116,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 109
     invoke-static {p0, p1, p2}, Landroidx/core/os/BundleCompat$Api33Impl;->getParcelableArray(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)[Ljava/lang/Object;
@@ -128,7 +128,7 @@
     return-object v0
 
     .line 111
-    :cond_0
+    :cond_d
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
 
     move-result-object v0
@@ -137,7 +137,7 @@
 .end method
 
 .method public static getParcelableArrayList(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/ArrayList;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -160,7 +160,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 146
     invoke-static {p0, p1, p2}, Landroidx/core/os/BundleCompat$Api33Impl;->getParcelableArrayList(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/ArrayList;
@@ -170,7 +170,7 @@
     return-object v0
 
     .line 148
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -179,7 +179,7 @@
 .end method
 
 .method public static getSerializable(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Ljava/io/Serializable;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -200,7 +200,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 239
     invoke-static {p0, p1, p2}, Landroidx/core/os/BundleCompat$Api33Impl;->getSerializable(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Ljava/io/Serializable;
@@ -210,7 +210,7 @@
     return-object v0
 
     .line 241
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
 
     move-result-object v0
@@ -221,21 +221,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_18
     return-object v1
 .end method
 
 .method public static getSparseParcelableArray(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Landroid/util/SparseArray;
-    .locals 2
+    .registers 5
     .param p0, "in"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -258,7 +258,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 177
     invoke-static {p0, p1, p2}, Landroidx/core/os/BundleCompat$Api33Impl;->getSparseParcelableArray(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Landroid/util/SparseArray;
@@ -268,7 +268,7 @@
     return-object v0
 
     .line 179
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getSparseParcelableArray(Ljava/lang/String;)Landroid/util/SparseArray;
 
     move-result-object v0
@@ -277,7 +277,7 @@
 .end method
 
 .method public static putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
-    .locals 0
+    .registers 3
     .param p0, "bundle"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "binder"    # Landroid/os/IBinder;

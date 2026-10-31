@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/viewpager2/widget/ViewPager2;
 
     .line 1288
@@ -36,19 +36,19 @@
 
 # virtual methods
 .method public handlesLmPerformAccessibilityAction(I)Z
-    .locals 1
+    .registers 3
     .param p1, "action"    # I
 
     .line 1291
     const/16 v0, 0x2000
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_8
 
     const/16 v0, 0x1000
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_12
 
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$BasicAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     .line 1293
@@ -56,22 +56,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x0
 
     .line 1291
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public handlesRvGetAccessibilityClassName()Z
-    .locals 1
+    .registers 2
 
     .line 1316
     const/4 v0, 0x1
@@ -80,7 +80,7 @@
 .end method
 
 .method public onLmInitializeAccessibilityNodeInfo(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 3
     .param p1, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
     .line 1307
@@ -90,7 +90,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 1308
     sget-object v0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;->ACTION_SCROLL_BACKWARD:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
@@ -108,12 +108,12 @@
     invoke-virtual {p1, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setScrollable(Z)V
 
     .line 1312
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onLmPerformAccessibilityAction(I)Z
-    .locals 1
+    .registers 3
     .param p1, "action"    # I
 
     .line 1298
@@ -121,7 +121,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 1301
     const/4 v0, 0x0
@@ -129,7 +129,7 @@
     return v0
 
     .line 1299
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -138,14 +138,14 @@
 .end method
 
 .method public onRvGetAccessibilityClassName()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 1321
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$BasicAccessibilityProvider;->handlesRvGetAccessibilityClassName()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1324
     const-string v0, "androidx.viewpager.widget.ViewPager"
@@ -153,7 +153,7 @@
     return-object v0
 
     .line 1322
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V

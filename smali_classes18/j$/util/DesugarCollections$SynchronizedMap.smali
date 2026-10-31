@@ -82,7 +82,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,7 +113,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/Map;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p2, "mutex"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -141,7 +141,7 @@
 .end method
 
 .method private instantiateCollection(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 3
+    .registers 6
     .param p2, "mutex"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,7 +164,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 338
     invoke-static {p1}, Ljava/util/Collections;->synchronizedCollection(Ljava/util/Collection;)Ljava/util/Collection;
@@ -174,8 +174,8 @@
     return-object v0
 
     .line 341
-    :cond_0
-    :try_start_0
+    :cond_b
+    :try_start_b
     invoke-static {}, Lj$/util/DesugarCollections;->-$$Nest$sfgetSYNCHRONIZED_COLLECTION_CONSTRUCTOR()Ljava/lang/reflect/Constructor;
 
     move-result-object v0
@@ -197,30 +197,30 @@
     move-result-object v0
 
     check-cast v0, Ljava/util/Collection;
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/InstantiationException; {:try_start_b .. :try_end_1e} :catch_23
+    .catch Ljava/lang/IllegalAccessException; {:try_start_b .. :try_end_1e} :catch_21
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_b .. :try_end_1e} :catch_1f
 
     return-object v0
 
     .line 342
-    :catch_0
+    :catch_1f
     move-exception v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_1
+    :catch_21
     move-exception v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_2
+    :catch_23
     move-exception v0
 
     .line 345
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_24
     new-instance v1, Ljava/lang/Error;
 
     const-string v2, "Unable to instantiate a synchronized list."
@@ -231,7 +231,7 @@
 .end method
 
 .method private instantiateSet(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 3
+    .registers 6
     .param p2, "mutex"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -254,7 +254,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 321
     invoke-static {p1}, Ljava/util/Collections;->synchronizedSet(Ljava/util/Set;)Ljava/util/Set;
@@ -264,8 +264,8 @@
     return-object v0
 
     .line 324
-    :cond_0
-    :try_start_0
+    :cond_b
+    :try_start_b
     invoke-static {}, Lj$/util/DesugarCollections;->-$$Nest$sfgetSYNCHRONIZED_SET_CONSTRUCTOR()Ljava/lang/reflect/Constructor;
 
     move-result-object v0
@@ -287,30 +287,30 @@
     move-result-object v0
 
     check-cast v0, Ljava/util/Set;
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/InstantiationException; {:try_start_b .. :try_end_1e} :catch_23
+    .catch Ljava/lang/IllegalAccessException; {:try_start_b .. :try_end_1e} :catch_21
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_b .. :try_end_1e} :catch_1f
 
     return-object v0
 
     .line 325
-    :catch_0
+    :catch_1f
     move-exception v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_1
+    :catch_21
     move-exception v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_2
+    :catch_23
     move-exception v0
 
     .line 328
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_24
     new-instance v1, Ljava/lang/Error;
 
     const-string v2, "Unable to instantiate a synchronized list."
@@ -321,7 +321,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectOutputStream;
 
     .line 436
@@ -330,7 +330,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     monitor-exit v0
@@ -339,12 +339,12 @@
     return-void
 
     .line 436
-    :catchall_0
+    :catchall_8
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_3 .. :try_end_a} :catchall_8
 
     throw v1
 .end method
@@ -352,7 +352,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 308
     .local p0, "this":Lj$/util/DesugarCollections$SynchronizedMap;, "Ljava/util/DesugarCollections$SynchronizedMap<TK;TV;>;"
@@ -360,7 +360,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->clear()V
@@ -371,18 +371,18 @@
     return-void
 
     .line 308
-    :catchall_0
+    :catchall_a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw v1
 .end method
 
 .method public compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -399,7 +399,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1, p2}, Lj$/util/Map$-EL;->compute(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
@@ -410,18 +410,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -438,7 +438,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1, p2}, Lj$/util/Map$-EL;->computeIfAbsent(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
@@ -449,18 +449,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -477,7 +477,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1, p2}, Lj$/util/Map$-EL;->computeIfPresent(Ljava/util/Map;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
@@ -488,18 +488,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 289
@@ -508,7 +508,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -519,18 +519,18 @@
 
     return v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 292
@@ -539,7 +539,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->containsValue(Ljava/lang/Object;)Z
@@ -550,18 +550,18 @@
 
     return v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -578,10 +578,10 @@
     monitor-enter v0
 
     .line 359
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->entrySet:Ljava/util/Set;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     .line 360
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
@@ -599,7 +599,7 @@
     iput-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->entrySet:Ljava/util/Set;
 
     .line 361
-    :cond_0
+    :cond_15
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->entrySet:Ljava/util/Set;
 
     monitor-exit v0
@@ -607,23 +607,23 @@
     return-object v1
 
     .line 362
-    :catchall_0
+    :catchall_19
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_3 .. :try_end_1b} :catchall_19
 
     throw v1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 374
     .local p0, "this":Lj$/util/DesugarCollections$SynchronizedMap;, "Ljava/util/DesugarCollections$SynchronizedMap<TK;TV;>;"
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 375
     const/4 v0, 0x1
@@ -631,12 +631,12 @@
     return v0
 
     .line 376
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lj$/util/DesugarCollections$SynchronizedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_7
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
@@ -647,18 +647,18 @@
 
     return v1
 
-    :catchall_0
+    :catchall_f
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_7 .. :try_end_11} :catchall_f
 
     throw v1
 .end method
 
 .method public forEach(Ljava/util/function/BiConsumer;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -674,7 +674,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1}, Lj$/util/Map$-EL;->forEach(Ljava/util/Map;Ljava/util/function/BiConsumer;)V
@@ -685,18 +685,18 @@
     return-void
 
     .line 392
-    :catchall_0
+    :catchall_a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw v1
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -712,7 +712,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -723,18 +723,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "k"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -751,7 +751,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1, p2}, Lj$/util/Map$-EL;->getOrDefault(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -762,18 +762,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 379
     .local p0, "this":Lj$/util/DesugarCollections$SynchronizedMap;, "Ljava/util/DesugarCollections$SynchronizedMap<TK;TV;>;"
@@ -781,7 +781,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->hashCode()I
@@ -792,18 +792,18 @@
 
     return v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 286
     .local p0, "this":Lj$/util/DesugarCollections$SynchronizedMap;, "Ljava/util/DesugarCollections$SynchronizedMap<TK;TV;>;"
@@ -811,7 +811,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
@@ -822,18 +822,18 @@
 
     return v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -849,10 +849,10 @@
     monitor-enter v0
 
     .line 351
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->keySet:Ljava/util/Set;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     .line 352
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
@@ -870,7 +870,7 @@
     iput-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->keySet:Ljava/util/Set;
 
     .line 353
-    :cond_0
+    :cond_15
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->keySet:Ljava/util/Set;
 
     monitor-exit v0
@@ -878,18 +878,18 @@
     return-object v1
 
     .line 354
-    :catchall_0
+    :catchall_19
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_3 .. :try_end_1b} :catchall_19
 
     throw v1
 .end method
 
 .method public merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;",
@@ -907,7 +907,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1, p2, p3}, Lj$/util/Map$-EL;->merge(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
@@ -918,18 +918,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -944,7 +944,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -955,18 +955,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -982,7 +982,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
@@ -993,18 +993,18 @@
     return-void
 
     .line 305
-    :catchall_0
+    :catchall_a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw v1
 .end method
 
 .method public putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -1019,7 +1019,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1, p2}, Lj$/util/Map$-EL;->putIfAbsent(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1030,18 +1030,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1057,7 +1057,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1068,18 +1068,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -1089,7 +1089,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1, p2}, Lj$/util/Map$-EL;->remove(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -1100,18 +1100,18 @@
 
     return v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -1126,7 +1126,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1, p2}, Lj$/util/Map$-EL;->replace(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1137,18 +1137,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;TV;)Z"
@@ -1164,7 +1164,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1, p2, p3}, Lj$/util/Map$-EL;->replace(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -1175,18 +1175,18 @@
 
     return v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public replaceAll(Ljava/util/function/BiFunction;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1202,7 +1202,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-static {v1, p1}, Lj$/util/Map$-EL;->replaceAll(Ljava/util/Map;Ljava/util/function/BiFunction;)V
@@ -1213,18 +1213,18 @@
     return-void
 
     .line 396
-    :catchall_0
+    :catchall_a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw v1
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 283
     .local p0, "this":Lj$/util/DesugarCollections$SynchronizedMap;, "Ljava/util/DesugarCollections$SynchronizedMap<TK;TV;>;"
@@ -1232,7 +1232,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->size()I
@@ -1243,18 +1243,18 @@
 
     return v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 382
     .local p0, "this":Lj$/util/DesugarCollections$SynchronizedMap;, "Ljava/util/DesugarCollections$SynchronizedMap<TK;TV;>;"
@@ -1262,7 +1262,7 @@
 
     monitor-enter v0
 
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1273,18 +1273,18 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1300,10 +1300,10 @@
     monitor-enter v0
 
     .line 367
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->values:Ljava/util/Collection;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     .line 368
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->m:Ljava/util/Map;
@@ -1321,7 +1321,7 @@
     iput-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->values:Ljava/util/Collection;
 
     .line 369
-    :cond_0
+    :cond_15
     iget-object v1, p0, Lj$/util/DesugarCollections$SynchronizedMap;->values:Ljava/util/Collection;
 
     monitor-exit v0
@@ -1329,12 +1329,12 @@
     return-object v1
 
     .line 370
-    :catchall_0
+    :catchall_19
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_3 .. :try_end_1b} :catchall_19
 
     throw v1
 .end method

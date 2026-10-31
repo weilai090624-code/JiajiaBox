@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "isFocusSuccess"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -31,7 +31,7 @@
 .end method
 
 .method public static create(Z)Landroidx/camera/core/FocusMeteringResult;
-    .locals 1
+    .registers 2
     .param p0, "isFocusSuccess"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -51,7 +51,7 @@
 .end method
 
 .method public static emptyInstance()Landroidx/camera/core/FocusMeteringResult;
-    .locals 2
+    .registers 2
 
     .line 32
     new-instance v0, Landroidx/camera/core/FocusMeteringResult;
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public isFocusSuccessful()Z
-    .locals 1
+    .registers 2
 
     .line 53
     iget-boolean v0, p0, Landroidx/camera/core/FocusMeteringResult;->mIsFocusSuccessful:Z

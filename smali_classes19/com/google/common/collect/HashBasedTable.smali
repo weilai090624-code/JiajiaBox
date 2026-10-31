@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Lcom/google/common/collect/HashBasedTable$Factory;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,7 +58,7 @@
 .end method
 
 .method public static create()Lcom/google/common/collect/HashBasedTable;
-    .locals 4
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -92,7 +92,7 @@
 .end method
 
 .method public static create(II)Lcom/google/common/collect/HashBasedTable;
-    .locals 3
+    .registers 5
     .param p0, "expectedRows"    # I
     .param p1, "expectedCellsPerRow"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -133,7 +133,7 @@
 .end method
 
 .method public static create(Lcom/google/common/collect/Table;)Lcom/google/common/collect/HashBasedTable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -167,7 +167,7 @@
 
 # virtual methods
 .method public bridge synthetic cellSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -179,7 +179,7 @@
 .end method
 
 .method public bridge synthetic clear()V
-    .locals 0
+    .registers 1
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -189,7 +189,7 @@
 .end method
 
 .method public bridge synthetic column(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 0
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -201,7 +201,7 @@
 .end method
 
 .method public bridge synthetic columnKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -213,7 +213,7 @@
 .end method
 
 .method public bridge synthetic columnMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -225,7 +225,7 @@
 .end method
 
 .method public bridge synthetic contains(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -245,7 +245,7 @@
 .end method
 
 .method public bridge synthetic containsColumn(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -261,7 +261,7 @@
 .end method
 
 .method public bridge synthetic containsRow(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -277,7 +277,7 @@
 .end method
 
 .method public bridge synthetic containsValue(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -293,7 +293,7 @@
 .end method
 
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -309,7 +309,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -331,7 +331,7 @@
 .end method
 
 .method public bridge synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -343,7 +343,7 @@
 .end method
 
 .method public bridge synthetic isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -355,7 +355,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -369,7 +369,7 @@
 .end method
 
 .method public bridge synthetic putAll(Lcom/google/common/collect/Table;)V
-    .locals 0
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -379,7 +379,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -401,7 +401,7 @@
 .end method
 
 .method public bridge synthetic row(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 0
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -413,7 +413,7 @@
 .end method
 
 .method public bridge synthetic rowKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -425,7 +425,7 @@
 .end method
 
 .method public bridge synthetic rowMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -437,7 +437,7 @@
 .end method
 
 .method public bridge synthetic size()I
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -449,7 +449,7 @@
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"
@@ -461,7 +461,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/HashBasedTable;, "Lcom/google/common/collect/HashBasedTable<TR;TC;TV;>;"

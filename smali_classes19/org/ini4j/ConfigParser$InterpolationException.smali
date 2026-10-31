@@ -20,7 +20,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
 
     .line 365

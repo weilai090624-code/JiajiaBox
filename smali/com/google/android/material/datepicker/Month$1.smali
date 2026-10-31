@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 204
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/datepicker/Month;
-    .locals 3
+    .registers 5
     .param p1, "source"    # Landroid/os/Parcel;
 
     .line 208
@@ -63,7 +63,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 204
     invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/Month$1;->createFromParcel(Landroid/os/Parcel;)Lcom/google/android/material/datepicker/Month;
@@ -74,7 +74,7 @@
 .end method
 
 .method public newArray(I)[Lcom/google/android/material/datepicker/Month;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 216
@@ -84,7 +84,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 204
     invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/Month$1;->newArray(I)[Lcom/google/android/material/datepicker/Month;

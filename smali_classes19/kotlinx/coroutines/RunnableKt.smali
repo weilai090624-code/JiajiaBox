@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final Runnable(Lkotlin/jvm/functions/Function0;)Ljava/lang/Runnable;
-    .locals 2
+    .registers 3
     .param p0, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,20 +64,20 @@
 
 # virtual methods
 .method activeStateChanged(Z)V
-    .locals 2
+    .registers 4
     .param p1, "newActive"    # Z
 
     .line 475
     .local p0, "this":Landroidx/lifecycle/LiveData$ObserverWrapper;, "Landroidx/lifecycle/LiveData<TT;>.ObserverWrapper;"
     iget-boolean v0, p0, Landroidx/lifecycle/LiveData$ObserverWrapper;->mActive:Z
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 476
     return-void
 
     .line 480
-    :cond_0
+    :cond_5
     iput-boolean p1, p0, Landroidx/lifecycle/LiveData$ObserverWrapper;->mActive:Z
 
     .line 481
@@ -85,22 +85,22 @@
 
     iget-boolean v1, p0, Landroidx/lifecycle/LiveData$ObserverWrapper;->mActive:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_f
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v1, -0x1
 
-    :goto_0
+    :goto_10
     invoke-virtual {v0, v1}, Landroidx/lifecycle/LiveData;->changeActiveCounter(I)V
 
     .line 482
     iget-boolean v0, p0, Landroidx/lifecycle/LiveData$ObserverWrapper;->mActive:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1c
 
     .line 483
     iget-object v0, p0, Landroidx/lifecycle/LiveData$ObserverWrapper;->this$0:Landroidx/lifecycle/LiveData;
@@ -108,12 +108,12 @@
     invoke-virtual {v0, p0}, Landroidx/lifecycle/LiveData;->dispatchingValue(Landroidx/lifecycle/LiveData$ObserverWrapper;)V
 
     .line 485
-    :cond_2
+    :cond_1c
     return-void
 .end method
 
 .method detachObserver()V
-    .locals 0
+    .registers 1
 
     .line 472
     .local p0, "this":Landroidx/lifecycle/LiveData$ObserverWrapper;, "Landroidx/lifecycle/LiveData<TT;>.ObserverWrapper;"
@@ -121,7 +121,7 @@
 .end method
 
 .method isAttachedTo(Landroidx/lifecycle/LifecycleOwner;)Z
-    .locals 1
+    .registers 3
     .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
 
     .line 468

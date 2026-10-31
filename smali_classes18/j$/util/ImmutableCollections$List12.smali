@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -77,7 +77,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TE;)V"
@@ -109,7 +109,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/ObjectInputStream;
 
     .line 395
@@ -124,7 +124,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 6
+    .registers 7
 
     .line 399
     .local p0, "this":Lj$/util/ImmutableCollections$List12;, "Ljava/util/ImmutableCollections$List12<TE;>;"
@@ -134,7 +134,7 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 400
     new-instance v0, Lj$/util/CollSer;
@@ -150,7 +150,7 @@
     return-object v0
 
     .line 402
-    :cond_0
+    :cond_12
     new-instance v0, Lj$/util/CollSer;
 
     iget-object v3, p0, Lj$/util/ImmutableCollections$List12;->e0:Ljava/lang/Object;
@@ -173,7 +173,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -183,7 +183,7 @@
 
     .line 386
     .local p0, "this":Lj$/util/ImmutableCollections$List12;, "Ljava/util/ImmutableCollections$List12<TE;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     .line 387
     iget-object v0, p0, Lj$/util/ImmutableCollections$List12;->e0:Ljava/lang/Object;
@@ -191,14 +191,14 @@
     return-object v0
 
     .line 388
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_f
 
     iget-object v0, p0, Lj$/util/ImmutableCollections$List12;->e1:Ljava/lang/Object;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     .line 389
     iget-object v0, p0, Lj$/util/ImmutableCollections$List12;->e1:Ljava/lang/Object;
@@ -206,7 +206,7 @@
     return-object v0
 
     .line 391
-    :cond_1
+    :cond_f
     invoke-virtual {p0, p1}, Lj$/util/ImmutableCollections$List12;->outOfBounds(I)Ljava/lang/IndexOutOfBoundsException;
 
     move-result-object v0
@@ -215,21 +215,21 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 381
     .local p0, "this":Lj$/util/ImmutableCollections$List12;, "Ljava/util/ImmutableCollections$List12<TE;>;"
     iget-object v0, p0, Lj$/util/ImmutableCollections$List12;->e1:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x2
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_7
     return v0
 .end method

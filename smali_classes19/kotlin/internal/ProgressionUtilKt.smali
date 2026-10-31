@@ -34,7 +34,7 @@
 
 # direct methods
 .method private static final differenceModulo(III)I
-    .locals 2
+    .registers 5
     .param p0, "a"    # I
     .param p1, "b"    # I
     .param p2, "c"    # I
@@ -58,7 +58,7 @@
 .end method
 
 .method private static final differenceModulo(JJJ)J
-    .locals 4
+    .registers 10
     .param p0, "a"    # J
     .param p2, "b"    # J
     .param p4, "c"    # J
@@ -82,7 +82,7 @@
 .end method
 
 .method public static final getProgressionLastElement(III)I
-    .locals 2
+    .registers 5
     .param p0, "start"    # I
     .param p1, "end"    # I
     .param p2, "step"    # I
@@ -91,35 +91,35 @@
     nop
 
     .line 46
-    if-lez p2, :cond_1
+    if-lez p2, :cond_d
 
-    if-lt p0, p1, :cond_0
+    if-lt p0, p1, :cond_6
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_6
     invoke-static {p1, p0, p2}, Lkotlin/internal/ProgressionUtilKt;->differenceModulo(III)I
 
     move-result v0
 
     sub-int v0, p1, v0
 
-    goto :goto_1
+    goto :goto_19
 
     .line 47
-    :cond_1
-    if-gez p2, :cond_3
+    :cond_d
+    if-gez p2, :cond_1a
 
-    if-gt p0, p1, :cond_2
+    if-gt p0, p1, :cond_13
 
     .line 49
-    :goto_0
+    :goto_11
     move v0, p1
 
-    goto :goto_1
+    goto :goto_19
 
     .line 47
-    :cond_2
+    :cond_13
     neg-int v0, p2
 
     invoke-static {p0, p1, v0}, Lkotlin/internal/ProgressionUtilKt;->differenceModulo(III)I
@@ -129,11 +129,11 @@
     add-int/2addr v0, p1
 
     .line 49
-    :goto_1
+    :goto_19
     return v0
 
     .line 48
-    :cond_3
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Step is zero."
@@ -144,7 +144,7 @@
 .end method
 
 .method public static final getProgressionLastElement(JJJ)J
-    .locals 7
+    .registers 13
     .param p0, "start"    # J
     .param p2, "end"    # J
     .param p4, "step"    # J
@@ -157,15 +157,15 @@
 
     cmp-long v2, p4, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_16
 
     cmp-long v0, p0, p2
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_c
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_c
     move-wide v0, p2
 
     move-wide v2, p0
@@ -178,26 +178,26 @@
 
     sub-long v0, p2, v0
 
-    goto :goto_1
+    goto :goto_28
 
     .line 70
-    :cond_1
+    :cond_16
     cmp-long v2, p4, v0
 
-    if-gez v2, :cond_3
+    if-gez v2, :cond_29
 
     cmp-long v0, p0, p2
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_20
 
     .line 72
-    :goto_0
+    :goto_1e
     move-wide v0, p2
 
-    goto :goto_1
+    goto :goto_28
 
     .line 70
-    :cond_2
+    :cond_20
     neg-long v5, p4
 
     move-wide v1, p0
@@ -211,11 +211,11 @@
     add-long/2addr v0, p2
 
     .line 72
-    :goto_1
+    :goto_28
     return-wide v0
 
     .line 71
-    :cond_3
+    :cond_29
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Step is zero."
@@ -226,7 +226,7 @@
 .end method
 
 .method private static final mod(II)I
-    .locals 2
+    .registers 4
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -235,21 +235,21 @@
 
     .line 11
     .local v0, "mod":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_6
 
     move v1, v0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     add-int v1, v0, p1
 
-    :goto_0
+    :goto_8
     return v1
 .end method
 
 .method private static final mod(JJ)J
-    .locals 5
+    .registers 9
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -262,15 +262,15 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_a
 
     move-wide v2, v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     add-long v2, v0, p2
 
-    :goto_0
+    :goto_c
     return-wide v2
 .end method

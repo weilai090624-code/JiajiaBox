@@ -68,7 +68,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "limit"    # I
 
     .line 319
@@ -104,16 +104,16 @@
 .end method
 
 .method public synthetic constructor <init>(IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 319
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const/16 p1, 0x40
 
-    :cond_0
+    :cond_6
     invoke-direct {p0, p1}, Lkotlin/io/path/ExceptionsCollector;-><init>(I)V
 
     return-void
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public final collect(Ljava/lang/Exception;)V
-    .locals 3
+    .registers 5
     .param p1, "exception"    # Ljava/lang/Exception;
 
     const-string v0, "exception"
@@ -147,24 +147,24 @@
 
     iget v2, p0, Lkotlin/io/path/ExceptionsCollector;->limit:I
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_16
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_17
     move v0, v1
 
     .line 339
     .local v0, "shouldCollect":Z
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_41
 
     .line 340
     iget-object v1, p0, Lkotlin/io/path/ExceptionsCollector;->path:Ljava/nio/file/Path;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3a
 
     .line 343
     new-instance v1, Ljava/nio/file/FileSystemException;
@@ -193,14 +193,14 @@
 
     check-cast v1, Ljava/lang/Exception;
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 345
-    :cond_1
+    :cond_3a
     move-object v1, p1
 
     .line 340
-    :goto_1
+    :goto_3b
     nop
 
     .line 347
@@ -211,12 +211,12 @@
 
     .line 349
     .end local v1    # "restoredException":Ljava/lang/Exception;
-    :cond_2
+    :cond_41
     return-void
 .end method
 
 .method public final enterEntry(Ljava/nio/file/Path;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/nio/file/Path;
 
     const-string v0, "name"
@@ -226,18 +226,18 @@
     .line 328
     iget-object v0, p0, Lkotlin/io/path/ExceptionsCollector;->path:Ljava/nio/file/Path;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-interface {v0, p1}, Ljava/nio/file/Path;->resolve(Ljava/nio/file/Path;)Ljava/nio/file/Path;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     iput-object v0, p0, Lkotlin/io/path/ExceptionsCollector;->path:Ljava/nio/file/Path;
 
     .line 329
@@ -245,7 +245,7 @@
 .end method
 
 .method public final exitEntry(Ljava/nio/file/Path;)V
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/nio/file/Path;
 
     const-string v0, "name"
@@ -257,41 +257,41 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-interface {v0}, Ljava/nio/file/Path;->getFileName()Ljava/nio/file/Path;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move-object v0, v1
 
-    :goto_0
+    :goto_10
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     .line 333
     iget-object v0, p0, Lkotlin/io/path/ExceptionsCollector;->path:Ljava/nio/file/Path;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     invoke-interface {v0}, Ljava/nio/file/Path;->getParent()Ljava/nio/file/Path;
 
     move-result-object v1
 
-    :cond_1
+    :cond_1e
     iput-object v1, p0, Lkotlin/io/path/ExceptionsCollector;->path:Ljava/nio/file/Path;
 
     .line 334
     return-void
 
     .line 332
-    :cond_2
+    :cond_21
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Failed requirement."
@@ -306,7 +306,7 @@
 .end method
 
 .method public final getCollectedExceptions()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -323,7 +323,7 @@
 .end method
 
 .method public final getPath()Ljava/nio/file/Path;
-    .locals 1
+    .registers 2
 
     .line 325
     iget-object v0, p0, Lkotlin/io/path/ExceptionsCollector;->path:Ljava/nio/file/Path;
@@ -332,7 +332,7 @@
 .end method
 
 .method public final getTotalExceptions()I
-    .locals 1
+    .registers 2
 
     .line 320
     iget v0, p0, Lkotlin/io/path/ExceptionsCollector;->totalExceptions:I
@@ -341,7 +341,7 @@
 .end method
 
 .method public final setPath(Ljava/nio/file/Path;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/nio/file/Path;
 
     .line 325

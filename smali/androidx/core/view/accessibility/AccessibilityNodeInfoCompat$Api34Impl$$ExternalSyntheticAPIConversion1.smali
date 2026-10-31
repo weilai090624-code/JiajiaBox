@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(Landroid/view/accessibility/AccessibilityNodeInfo;)Lj$/time/Duration;
-    .locals 0
+    .registers 1
 
     .line 0
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->getMinDurationBetweenContentChanges()Ljava/time/Duration;

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/dynamicanimation/animation/AnimationHandler$AnimationCallbackDispatcher;)V
-    .locals 1
+    .registers 3
     .param p1, "dispatcher"    # Landroidx/dynamicanimation/animation/AnimationHandler$AnimationCallbackDispatcher;
 
     .line 203
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method postFrameCallback()V
-    .locals 2
+    .registers 3
 
     .line 214
     iget-object v0, p0, Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackProvider16;->mChoreographer:Landroid/view/Choreographer;

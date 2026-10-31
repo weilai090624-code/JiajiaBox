@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static make(Landroid/content/Context;Landroid/net/Uri;)Landroidx/core/provider/FontProvider$ContentQueryWrapper;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "uri"    # Landroid/net/Uri;
 
@@ -14,7 +14,7 @@
 
     const/16 v1, 0x18
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     .line 242
     new-instance v0, Landroidx/core/provider/FontProvider$ContentQueryWrapperApi16Impl;
@@ -24,7 +24,7 @@
     return-object v0
 
     .line 244
-    :cond_0
+    :cond_c
     new-instance v0, Landroidx/core/provider/FontProvider$ContentQueryWrapperApi24Impl;
 
     invoke-direct {v0, p0, p1}, Landroidx/core/provider/FontProvider$ContentQueryWrapperApi24Impl;-><init>(Landroid/content/Context;Landroid/net/Uri;)V

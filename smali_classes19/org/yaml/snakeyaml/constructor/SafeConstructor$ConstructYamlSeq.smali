@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/constructor/SafeConstructor;)V
-    .locals 0
+    .registers 2
 
     .line 527
     iput-object p1, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlSeq;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 530
@@ -50,7 +50,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 532
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlSeq;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -62,7 +62,7 @@
     return-object v1
 
     .line 534
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlSeq;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
 
     invoke-virtual {v1, v0}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->constructSequence(Lorg/yaml/snakeyaml/nodes/SequenceNode;)Ljava/util/List;
@@ -73,7 +73,7 @@
 .end method
 
 .method public construct2ndStep(Lorg/yaml/snakeyaml/nodes/Node;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .param p2, "data"    # Ljava/lang/Object;
 
@@ -82,7 +82,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 542
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructYamlSeq;->this$0:Lorg/yaml/snakeyaml/constructor/SafeConstructor;
@@ -101,7 +101,7 @@
     return-void
 
     .line 544
-    :cond_0
+    :cond_12
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v1, Ljava/lang/StringBuilder;

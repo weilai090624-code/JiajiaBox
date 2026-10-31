@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/activity/result/ActivityResultRegistry$generateRandomNumber$1;
 
@@ -63,7 +63,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public final invoke()Ljava/lang/Integer;
-    .locals 2
+    .registers 3
 
     .line 378
     sget-object v0, Lkotlin/random/Random;->Default:Lkotlin/random/Random$Default;
@@ -98,7 +98,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 377
     invoke-virtual {p0}, Landroidx/activity/result/ActivityResultRegistry$generateRandomNumber$1;->invoke()Ljava/lang/Integer;

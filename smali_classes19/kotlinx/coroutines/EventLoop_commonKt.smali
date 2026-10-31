@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 143
     new-instance v0, Lkotlinx/coroutines/internal/Symbol;
@@ -83,7 +83,7 @@
 .end method
 
 .method public static final synthetic access$getCLOSED_EMPTY$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/EventLoop_commonKt;->CLOSED_EMPTY:Lkotlinx/coroutines/internal/Symbol;
@@ -92,7 +92,7 @@
 .end method
 
 .method public static final synthetic access$getDISPOSED_TASK$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/EventLoop_commonKt;->DISPOSED_TASK:Lkotlinx/coroutines/internal/Symbol;
@@ -101,7 +101,7 @@
 .end method
 
 .method public static final delayNanosToMillis(J)J
-    .locals 2
+    .registers 4
     .param p0, "timeNanos"    # J
 
     .line 166
@@ -113,7 +113,7 @@
 .end method
 
 .method public static final delayToNanos(J)J
-    .locals 3
+    .registers 5
     .param p0, "timeMillis"    # J
 
     .line 159
@@ -124,29 +124,29 @@
 
     cmp-long v2, p0, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_8
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 161
-    :cond_0
+    :cond_8
     const-wide v0, 0x8637bd05af6L
 
     cmp-long v2, p0, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_17
 
     const-wide v0, 0x7fffffffffffffffL
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 162
-    :cond_1
+    :cond_17
     const-wide/32 v0, 0xf4240
 
     mul-long v0, v0, p0
 
     .line 163
-    :goto_0
+    :goto_1c
     return-wide v0
 .end method

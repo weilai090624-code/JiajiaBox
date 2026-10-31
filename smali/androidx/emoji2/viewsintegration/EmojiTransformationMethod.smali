@@ -12,7 +12,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/text/method/TransformationMethod;)V
-    .locals 0
+    .registers 2
     .param p1, "transformationMethod"    # Landroid/text/method/TransformationMethod;
 
     .line 39
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public getOriginalTransformationMethod()Landroid/text/method/TransformationMethod;
-    .locals 1
+    .registers 2
 
     .line 81
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTransformationMethod;->mTransformationMethod:Landroid/text/method/TransformationMethod;
@@ -37,7 +37,7 @@
 .end method
 
 .method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 4
     .param p1, "source"    # Ljava/lang/CharSequence;
     .param p2, "view"    # Landroid/view/View;
 
@@ -46,16 +46,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 46
     return-object p1
 
     .line 49
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTransformationMethod;->mTransformationMethod:Landroid/text/method/TransformationMethod;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 50
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTransformationMethod;->mTransformationMethod:Landroid/text/method/TransformationMethod;
@@ -65,8 +65,8 @@
     move-result-object p1
 
     .line 53
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_11
+    if-eqz p1, :cond_28
 
     .line 54
     invoke-static {}, Landroidx/emoji2/text/EmojiCompat;->get()Landroidx/emoji2/text/EmojiCompat;
@@ -77,12 +77,12 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2a
 
-    goto :goto_0
+    goto :goto_28
 
     .line 56
-    :pswitch_0
+    :pswitch_1f
     invoke-static {}, Landroidx/emoji2/text/EmojiCompat;->get()Landroidx/emoji2/text/EmojiCompat;
 
     move-result-object v0
@@ -94,20 +94,20 @@
     return-object v0
 
     .line 64
-    :cond_2
-    :goto_0
+    :cond_28
+    :goto_28
     return-object p1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2a
     .packed-switch 0x1
-        :pswitch_0
+        :pswitch_1f
     .end packed-switch
 .end method
 
 .method public onFocusChanged(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V
-    .locals 7
+    .registers 13
     .param p1, "view"    # Landroid/view/View;
     .param p2, "sourceText"    # Ljava/lang/CharSequence;
     .param p3, "focused"    # Z
@@ -117,7 +117,7 @@
     .line 70
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiTransformationMethod;->mTransformationMethod:Landroid/text/method/TransformationMethod;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 71
     iget-object v1, p0, Landroidx/emoji2/viewsintegration/EmojiTransformationMethod;->mTransformationMethod:Landroid/text/method/TransformationMethod;
@@ -135,6 +135,6 @@
     invoke-interface/range {v1 .. v6}, Landroid/text/method/TransformationMethod;->onFocusChanged(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V
 
     .line 74
-    :cond_0
+    :cond_e
     return-void
 .end method

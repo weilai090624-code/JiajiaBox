@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ExecutorService;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Ljava/util/concurrent/ExecutorService;
 
     .line 527
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public final awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Throws;
@@ -62,7 +62,7 @@
 .end method
 
 .method public final execute(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 558
@@ -75,7 +75,7 @@
 .end method
 
 .method public final isShutdown()Z
-    .locals 1
+    .registers 2
 
     .line 538
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;->delegate:Ljava/util/concurrent/ExecutorService;
@@ -88,7 +88,7 @@
 .end method
 
 .method public final isTerminated()Z
-    .locals 1
+    .registers 2
 
     .line 543
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;->delegate:Ljava/util/concurrent/ExecutorService;
@@ -101,7 +101,7 @@
 .end method
 
 .method public final shutdown()V
-    .locals 1
+    .registers 2
 
     .line 548
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;->delegate:Ljava/util/concurrent/ExecutorService;
@@ -113,7 +113,7 @@
 .end method
 
 .method public final shutdownNow()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -134,7 +134,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 563
     invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)V
-    .locals 0
+    .registers 3
 
     .line 599
     iput-object p1, p0, Lcom/google/common/collect/Multisets$4;->val$multiset1:Lcom/google/common/collect/Multiset;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 608
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -57,7 +57,7 @@
 .end method
 
 .method public count(Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -74,11 +74,11 @@
     .local v0, "count1":I
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_a
     iget-object v2, p0, Lcom/google/common/collect/Multisets$4;->val$multiset2:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v2, p1}, Lcom/google/common/collect/Multiset;->count(Ljava/lang/Object;)I
@@ -91,12 +91,12 @@
 
     move-result v1
 
-    :goto_0
+    :goto_16
     return v1
 .end method
 
 .method distinctElements()I
-    .locals 1
+    .registers 2
 
     .line 652
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$4;->entryIterator()Ljava/util/Iterator;
@@ -111,7 +111,7 @@
 .end method
 
 .method elementIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -141,7 +141,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(JLkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .param p1, "time"    # J
     .param p3, "uCont"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public nameString$kotlinx_coroutines_core()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 163
     new-instance v0, Ljava/lang/StringBuilder;
@@ -126,7 +126,7 @@
 .end method
 
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 159
     iget-wide v0, p0, Lkotlinx/coroutines/TimeoutCoroutine;->time:J

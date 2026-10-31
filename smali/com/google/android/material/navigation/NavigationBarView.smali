@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 16
+    .registers 21
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -168,7 +168,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_7c
 
     .line 167
     iget-object v3, v0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -183,10 +183,10 @@
     .line 167
     invoke-virtual {v3, v5}, Lcom/google/android/material/navigation/NavigationBarMenuView;->setIconTintList(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_8a
 
     .line 170
-    :cond_0
+    :cond_7c
     iget-object v3, v0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
 
     iget-object v5, v0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -202,7 +202,7 @@
     invoke-virtual {v3, v5}, Lcom/google/android/material/navigation/NavigationBarMenuView;->setIconTintList(Landroid/content/res/ColorStateList;)V
 
     .line 174
-    :goto_0
+    :goto_8a
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_itemIconSize:I
 
     .line 177
@@ -234,7 +234,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_af
 
     .line 181
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_itemTextAppearanceInactive:I
@@ -248,14 +248,14 @@
     invoke-virtual {v0, v3}, Lcom/google/android/material/navigation/NavigationBarView;->setItemTextAppearanceInactive(I)V
 
     .line 185
-    :cond_1
+    :cond_af
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_itemTextAppearanceActive:I
 
     invoke-virtual {v2, v3}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_c0
 
     .line 186
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_itemTextAppearanceActive:I
@@ -269,14 +269,14 @@
     invoke-virtual {v0, v3}, Lcom/google/android/material/navigation/NavigationBarView;->setItemTextAppearanceActive(I)V
 
     .line 190
-    :cond_2
+    :cond_c0
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_itemTextColor:I
 
     invoke-virtual {v2, v3}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_d1
 
     .line 191
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_itemTextColor:I
@@ -288,12 +288,12 @@
     invoke-virtual {v0, v3}, Lcom/google/android/material/navigation/NavigationBarView;->setItemTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 194
-    :cond_3
+    :cond_d1
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/navigation/NavigationBarView;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_df
 
     invoke-virtual/range {p0 .. p0}, Lcom/google/android/material/navigation/NavigationBarView;->getBackground()Landroid/graphics/drawable/Drawable;
 
@@ -301,10 +301,10 @@
 
     instance-of v3, v3, Landroid/graphics/drawable/ColorDrawable;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_e6
 
     .line 196
-    :cond_4
+    :cond_df
     invoke-direct {v0, v1}, Lcom/google/android/material/navigation/NavigationBarView;->createMaterialShapeDrawableBackground(Landroid/content/Context;)Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     move-result-object v3
@@ -312,14 +312,14 @@
     invoke-static {v0, v3}, Landroidx/core/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
     .line 199
-    :cond_5
+    :cond_e6
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_itemPaddingTop:I
 
     invoke-virtual {v2, v3}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_f7
 
     .line 200
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_itemPaddingTop:I
@@ -333,14 +333,14 @@
     invoke-virtual {v0, v3}, Lcom/google/android/material/navigation/NavigationBarView;->setItemPaddingTop(I)V
 
     .line 204
-    :cond_6
+    :cond_f7
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_itemPaddingBottom:I
 
     invoke-virtual {v2, v3}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_108
 
     .line 205
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_itemPaddingBottom:I
@@ -354,14 +354,14 @@
     invoke-virtual {v0, v3}, Lcom/google/android/material/navigation/NavigationBarView;->setItemPaddingBottom(I)V
 
     .line 209
-    :cond_7
+    :cond_108
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_elevation:I
 
     invoke-virtual {v2, v3}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_11a
 
     .line 210
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_elevation:I
@@ -375,7 +375,7 @@
     invoke-virtual {v0, v3}, Lcom/google/android/material/navigation/NavigationBarView;->setElevation(F)V
 
     .line 213
-    :cond_8
+    :cond_11a
     sget v3, Lcom/google/android/material/R$styleable;->NavigationBarView_backgroundTint:I
 
     .line 214
@@ -417,17 +417,17 @@
 
     .line 224
     .local v6, "itemBackground":I
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_143
 
     .line 225
     iget-object v7, v0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
 
     invoke-virtual {v7, v6}, Lcom/google/android/material/navigation/NavigationBarMenuView;->setItemBackgroundRes(I)V
 
-    goto :goto_1
+    goto :goto_14c
 
     .line 227
-    :cond_9
+    :cond_143
     sget v7, Lcom/google/android/material/R$styleable;->NavigationBarView_itemRippleColor:I
 
     .line 228
@@ -439,7 +439,7 @@
     invoke-virtual {v0, v7}, Lcom/google/android/material/navigation/NavigationBarView;->setItemRippleColor(Landroid/content/res/ColorStateList;)V
 
     .line 232
-    :goto_1
+    :goto_14c
     sget v7, Lcom/google/android/material/R$styleable;->NavigationBarView_itemActiveIndicatorStyle:I
 
     .line 233
@@ -449,7 +449,7 @@
 
     .line 235
     .local v7, "activeIndicatorStyleResId":I
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_196
 
     .line 236
     invoke-virtual {v0, v4}, Lcom/google/android/material/navigation/NavigationBarView;->setItemActiveIndicatorEnabled(Z)V
@@ -547,14 +547,14 @@
     .end local v13    # "itemActiveIndicatorColor":Landroid/content/res/ColorStateList;
     .end local v14    # "shapeAppearanceResId":I
     .end local v15    # "itemActiveIndicatorShapeAppearance":Lcom/google/android/material/shape/ShapeAppearanceModel;
-    :cond_a
+    :cond_196
     sget v4, Lcom/google/android/material/R$styleable;->NavigationBarView_menu:I
 
     invoke-virtual {v2, v4}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_1a7
 
     .line 276
     sget v4, Lcom/google/android/material/R$styleable;->NavigationBarView_menu:I
@@ -566,7 +566,7 @@
     invoke-virtual {v0, v4}, Lcom/google/android/material/navigation/NavigationBarView;->inflateMenu(I)V
 
     .line 279
-    :cond_b
+    :cond_1a7
     invoke-virtual {v2}, Landroidx/appcompat/widget/TintTypedArray;->recycle()V
 
     .line 281
@@ -588,7 +588,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/navigation/NavigationBarView;)Lcom/google/android/material/navigation/NavigationBarView$OnItemReselectedListener;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/navigation/NavigationBarView;
 
     .line 80
@@ -598,7 +598,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/navigation/NavigationBarView;)Lcom/google/android/material/navigation/NavigationBarView$OnItemSelectedListener;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/navigation/NavigationBarView;
 
     .line 80
@@ -608,7 +608,7 @@
 .end method
 
 .method private createMaterialShapeDrawableBackground(Landroid/content/Context;)Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     .line 301
@@ -626,7 +626,7 @@
     .local v1, "originalBackground":Landroid/graphics/drawable/Drawable;
     instance-of v2, v1, Landroid/graphics/drawable/ColorDrawable;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     .line 304
     move-object v2, v1
@@ -646,7 +646,7 @@
     invoke-virtual {v0, v2}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setFillColor(Landroid/content/res/ColorStateList;)V
 
     .line 307
-    :cond_0
+    :cond_1b
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->initializeElevationOverlay(Landroid/content/Context;)V
 
     .line 308
@@ -654,12 +654,12 @@
 .end method
 
 .method private getMenuInflater()Landroid/view/MenuInflater;
-    .locals 2
+    .registers 3
 
     .line 865
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuInflater:Landroid/view/MenuInflater;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 866
     new-instance v0, Landroidx/appcompat/view/SupportMenuInflater;
@@ -673,7 +673,7 @@
     iput-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuInflater:Landroid/view/MenuInflater;
 
     .line 868
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuInflater:Landroid/view/MenuInflater;
 
     return-object v0
@@ -685,7 +685,7 @@
 .end method
 
 .method public getBadge(I)Lcom/google/android/material/badge/BadgeDrawable;
-    .locals 1
+    .registers 3
     .param p1, "menuItemId"    # I
 
     .line 800
@@ -699,7 +699,7 @@
 .end method
 
 .method public getItemActiveIndicatorColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 675
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -712,7 +712,7 @@
 .end method
 
 .method public getItemActiveIndicatorHeight()I
-    .locals 1
+    .registers 2
 
     .line 615
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -725,7 +725,7 @@
 .end method
 
 .method public getItemActiveIndicatorMarginHorizontal()I
-    .locals 1
+    .registers 2
 
     .line 635
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -738,7 +738,7 @@
 .end method
 
 .method public getItemActiveIndicatorShapeAppearance()Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 1
+    .registers 2
 
     .line 655
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -751,7 +751,7 @@
 .end method
 
 .method public getItemActiveIndicatorWidth()I
-    .locals 1
+    .registers 2
 
     .line 596
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -764,7 +764,7 @@
 .end method
 
 .method public getItemBackground()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 499
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -777,7 +777,7 @@
 .end method
 
 .method public getItemBackgroundResource()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -792,7 +792,7 @@
 .end method
 
 .method public getItemIconSize()I
-    .locals 1
+    .registers 2
 
     .line 438
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -805,7 +805,7 @@
 .end method
 
 .method public getItemIconTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 393
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -818,7 +818,7 @@
 .end method
 
 .method public getItemPaddingBottom()I
-    .locals 1
+    .registers 2
 
     .line 561
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -831,7 +831,7 @@
 .end method
 
 .method public getItemPaddingTop()I
-    .locals 1
+    .registers 2
 
     .line 545
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -844,7 +844,7 @@
 .end method
 
 .method public getItemRippleColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 524
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -857,7 +857,7 @@
 .end method
 
 .method public getItemTextAppearanceActive()I
-    .locals 1
+    .registers 2
 
     .line 779
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -870,7 +870,7 @@
 .end method
 
 .method public getItemTextAppearanceInactive()I
-    .locals 1
+    .registers 2
 
     .line 760
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -883,7 +883,7 @@
 .end method
 
 .method public getItemTextColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 451
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -896,7 +896,7 @@
 .end method
 
 .method public getLabelVisibilityMode()I
-    .locals 1
+    .registers 2
 
     .line 741
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -912,7 +912,7 @@
 .end method
 
 .method public getMenu()Landroid/view/Menu;
-    .locals 1
+    .registers 2
 
     .line 357
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menu:Lcom/google/android/material/navigation/NavigationBarMenu;
@@ -921,7 +921,7 @@
 .end method
 
 .method public getMenuView()Landroidx/appcompat/view/menu/MenuView;
-    .locals 1
+    .registers 2
 
     .line 368
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -930,7 +930,7 @@
 .end method
 
 .method public getOrCreateBadge(I)Lcom/google/android/material/badge/BadgeDrawable;
-    .locals 1
+    .registers 3
     .param p1, "menuItemId"    # I
 
     .line 813
@@ -944,7 +944,7 @@
 .end method
 
 .method public getPresenter()Lcom/google/android/material/navigation/NavigationBarPresenter;
-    .locals 1
+    .registers 2
 
     .line 879
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->presenter:Lcom/google/android/material/navigation/NavigationBarPresenter;
@@ -953,7 +953,7 @@
 .end method
 
 .method public getSelectedItemId()I
-    .locals 1
+    .registers 2
 
     .line 694
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -966,7 +966,7 @@
 .end method
 
 .method public inflateMenu(I)V
-    .locals 3
+    .registers 5
     .param p1, "resId"    # I
 
     .line 379
@@ -1002,7 +1002,7 @@
 .end method
 
 .method public isItemActiveIndicatorEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 577
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -1015,7 +1015,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 0
+    .registers 1
 
     .line 313
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
@@ -1028,13 +1028,13 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 3
+    .registers 5
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .line 894
     instance-of v0, p1, Lcom/google/android/material/navigation/NavigationBarView$SavedState;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 895
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onRestoreInstanceState(Landroid/os/Parcelable;)V
@@ -1043,7 +1043,7 @@
     return-void
 
     .line 898
-    :cond_0
+    :cond_8
     move-object v0, p1
 
     check-cast v0, Lcom/google/android/material/navigation/NavigationBarView$SavedState;
@@ -1068,7 +1068,7 @@
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 4
+    .registers 5
 
     .line 885
     invoke-super {p0}, Landroid/widget/FrameLayout;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -1101,7 +1101,7 @@
 .end method
 
 .method public removeBadge(I)V
-    .locals 1
+    .registers 3
     .param p1, "menuItemId"    # I
 
     .line 824
@@ -1114,7 +1114,7 @@
 .end method
 
 .method public setElevation(F)V
-    .locals 0
+    .registers 2
     .param p1, "elevation"    # F
 
     .line 325
@@ -1131,7 +1131,7 @@
 .end method
 
 .method public setItemActiveIndicatorColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "csl"    # Landroid/content/res/ColorStateList;
 
     .line 684
@@ -1144,7 +1144,7 @@
 .end method
 
 .method public setItemActiveIndicatorEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "enabled"    # Z
 
     .line 586
@@ -1157,7 +1157,7 @@
 .end method
 
 .method public setItemActiveIndicatorHeight(I)V
-    .locals 1
+    .registers 3
     .param p1, "height"    # I
 
     .line 624
@@ -1170,7 +1170,7 @@
 .end method
 
 .method public setItemActiveIndicatorMarginHorizontal(I)V
-    .locals 1
+    .registers 3
     .param p1, "horizontalMargin"    # I
 
     .line 645
@@ -1183,7 +1183,7 @@
 .end method
 
 .method public setItemActiveIndicatorShapeAppearance(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 1
+    .registers 3
     .param p1, "shapeAppearance"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 665
@@ -1196,7 +1196,7 @@
 .end method
 
 .method public setItemActiveIndicatorWidth(I)V
-    .locals 1
+    .registers 3
     .param p1, "width"    # I
 
     .line 605
@@ -1209,7 +1209,7 @@
 .end method
 
 .method public setItemBackground(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "background"    # Landroid/graphics/drawable/Drawable;
 
     .line 512
@@ -1222,7 +1222,7 @@
 .end method
 
 .method public setItemBackgroundResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 488
@@ -1235,7 +1235,7 @@
 .end method
 
 .method public setItemIconSize(I)V
-    .locals 1
+    .registers 3
     .param p1, "iconSize"    # I
 
     .line 415
@@ -1248,7 +1248,7 @@
 .end method
 
 .method public setItemIconSizeRes(I)V
-    .locals 1
+    .registers 3
     .param p1, "iconSizeRes"    # I
 
     .line 427
@@ -1267,7 +1267,7 @@
 .end method
 
 .method public setItemIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
     .line 403
@@ -1280,7 +1280,7 @@
 .end method
 
 .method public setItemOnTouchListener(ILandroid/view/View$OnTouchListener;)V
-    .locals 1
+    .registers 4
     .param p1, "menuItemId"    # I
     .param p2, "onTouchListener"    # Landroid/view/View$OnTouchListener;
 
@@ -1294,7 +1294,7 @@
 .end method
 
 .method public setItemPaddingBottom(I)V
-    .locals 1
+    .registers 3
     .param p1, "paddingBottom"    # I
 
     .line 568
@@ -1307,7 +1307,7 @@
 .end method
 
 .method public setItemPaddingTop(I)V
-    .locals 1
+    .registers 3
     .param p1, "paddingTop"    # I
 
     .line 553
@@ -1320,7 +1320,7 @@
 .end method
 
 .method public setItemRippleColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "itemRippleColor"    # Landroid/content/res/ColorStateList;
 
     .line 536
@@ -1333,7 +1333,7 @@
 .end method
 
 .method public setItemTextAppearanceActive(I)V
-    .locals 1
+    .registers 3
     .param p1, "textAppearanceRes"    # I
 
     .line 769
@@ -1346,7 +1346,7 @@
 .end method
 
 .method public setItemTextAppearanceInactive(I)V
-    .locals 1
+    .registers 3
     .param p1, "textAppearanceRes"    # I
 
     .line 750
@@ -1359,7 +1359,7 @@
 .end method
 
 .method public setItemTextColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "textColor"    # Landroid/content/res/ColorStateList;
 
     .line 462
@@ -1372,7 +1372,7 @@
 .end method
 
 .method public setLabelVisibilityMode(I)V
-    .locals 2
+    .registers 4
     .param p1, "labelVisibilityMode"    # I
 
     .line 727
@@ -1382,7 +1382,7 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_13
 
     .line 728
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationBarView;->menuView:Lcom/google/android/material/navigation/NavigationBarMenuView;
@@ -1397,12 +1397,12 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/navigation/NavigationBarPresenter;->updateMenuView(Z)V
 
     .line 731
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public setOnItemReselectedListener(Lcom/google/android/material/navigation/NavigationBarView$OnItemReselectedListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/google/android/material/navigation/NavigationBarView$OnItemReselectedListener;
 
     .line 351
@@ -1413,7 +1413,7 @@
 .end method
 
 .method public setOnItemSelectedListener(Lcom/google/android/material/navigation/NavigationBarView$OnItemSelectedListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/google/android/material/navigation/NavigationBarView$OnItemSelectedListener;
 
     .line 340
@@ -1424,7 +1424,7 @@
 .end method
 
 .method public setSelectedItemId(I)V
-    .locals 4
+    .registers 6
     .param p1, "itemId"    # I
 
     .line 704
@@ -1436,7 +1436,7 @@
 
     .line 705
     .local v0, "item":Landroid/view/MenuItem;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 706
     iget-object v1, p0, Lcom/google/android/material/navigation/NavigationBarView;->menu:Lcom/google/android/material/navigation/NavigationBarMenu;
@@ -1449,7 +1449,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 707
     const/4 v1, 0x1
@@ -1457,6 +1457,6 @@
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
     .line 710
-    :cond_0
+    :cond_17
     return-void
 .end method

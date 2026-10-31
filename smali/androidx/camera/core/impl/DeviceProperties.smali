@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static create()Landroidx/camera/core/impl/DeviceProperties;
-    .locals 3
+    .registers 3
 
     .line 33
     sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
@@ -31,7 +31,7 @@
 .end method
 
 .method public static create(Ljava/lang/String;Ljava/lang/String;I)Landroidx/camera/core/impl/DeviceProperties;
-    .locals 1
+    .registers 4
     .param p0, "manufacturer"    # Ljava/lang/String;
     .param p1, "model"    # Ljava/lang/String;
     .param p2, "sdkVersion"    # I

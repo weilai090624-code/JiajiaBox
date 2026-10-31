@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/core/provider/FontRequest;II)V
-    .locals 1
+    .registers 5
     .param p1, "request"    # Landroidx/core/provider/FontRequest;
     .param p2, "strategy"    # I
     .param p3, "timeoutMs"    # I
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/core/provider/FontRequest;IILjava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p1, "request"    # Landroidx/core/provider/FontRequest;
     .param p2, "strategy"    # I
     .param p3, "timeoutMs"    # I
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public getFetchStrategy()I
-    .locals 1
+    .registers 2
 
     .line 103
     iget v0, p0, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mStrategy:I
@@ -81,7 +81,7 @@
 .end method
 
 .method public getRequest()Landroidx/core/provider/FontRequest;
-    .locals 1
+    .registers 2
 
     .line 99
     iget-object v0, p0, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mRequest:Landroidx/core/provider/FontRequest;
@@ -90,7 +90,7 @@
 .end method
 
 .method public getSystemFontFamilyName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 112
     iget-object v0, p0, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mSystemFontFamilyName:Ljava/lang/String;
@@ -99,7 +99,7 @@
 .end method
 
 .method public getTimeout()I
-    .locals 1
+    .registers 2
 
     .line 107
     iget v0, p0, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mTimeoutMs:I

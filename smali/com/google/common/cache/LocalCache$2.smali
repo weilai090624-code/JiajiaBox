@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 897
     invoke-direct {p0}, Ljava/util/AbstractQueue;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -58,7 +58,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 900
@@ -68,7 +68,7 @@
 .end method
 
 .method public peek()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 905
     const/4 v0, 0x0
@@ -77,7 +77,7 @@
 .end method
 
 .method public poll()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 910
     const/4 v0, 0x0
@@ -86,7 +86,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 915
     const/4 v0, 0x0

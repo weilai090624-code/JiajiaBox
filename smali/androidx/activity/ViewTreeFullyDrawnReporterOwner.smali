@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final get(Landroid/view/View;)Landroidx/activity/FullyDrawnReporterOwner;
-    .locals 5
+    .registers 6
     .param p0, "$this$findViewTreeFullyDrawnReporterOwner"    # Landroid/view/View;
 
     const-string v0, "<this>"
@@ -43,10 +43,10 @@
 
     .line 48
     .local v0, "currentView":Landroid/view/View;
-    :goto_0
+    :goto_6
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_27
 
     .line 49
     sget v2, Landroidx/activity/R$id;->report_drawn:I
@@ -57,50 +57,50 @@
 
     instance-of v3, v2, Landroidx/activity/FullyDrawnReporterOwner;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_16
 
     check-cast v2, Landroidx/activity/FullyDrawnReporterOwner;
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     move-object v2, v1
 
     .line 50
     .local v2, "reporterOwner":Landroidx/activity/FullyDrawnReporterOwner;
-    :goto_1
-    if-eqz v2, :cond_1
+    :goto_17
+    if-eqz v2, :cond_1a
 
     .line 51
     return-object v2
 
     .line 53
-    :cond_1
+    :cond_1a
     invoke-static {v0}, Landroidx/core/viewtree/ViewTree;->getParentOrViewTreeDisjointParent(Landroid/view/View;)Landroid/view/ViewParent;
 
     move-result-object v3
 
     instance-of v4, v3, Landroid/view/View;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_25
 
     move-object v1, v3
 
     check-cast v1, Landroid/view/View;
 
-    :cond_2
+    :cond_25
     move-object v0, v1
 
     .end local v2    # "reporterOwner":Landroidx/activity/FullyDrawnReporterOwner;
-    goto :goto_0
+    goto :goto_6
 
     .line 55
-    :cond_3
+    :cond_27
     return-object v1
 .end method
 
 .method public static final set(Landroid/view/View;Landroidx/activity/FullyDrawnReporterOwner;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$setViewTreeFullyDrawnReporterOwner"    # Landroid/view/View;
     .param p1, "fullyDrawnReporterOwner"    # Landroidx/activity/FullyDrawnReporterOwner;
 

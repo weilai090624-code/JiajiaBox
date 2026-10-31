@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1069
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroidx/concurrent/futures/AbstractResolvableFuture$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Landroidx/concurrent/futures/AbstractResolvableFuture$1;
 
     .line 1069

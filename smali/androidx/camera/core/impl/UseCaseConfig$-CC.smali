@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$getCameraSelector(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/CameraSelector;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
 
     .line 247
@@ -22,7 +22,7 @@
 .end method
 
 .method public static $default$getCameraSelector(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/CameraSelector;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
     .param p1, "valueIfMissing"    # Landroidx/camera/core/CameraSelector;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -50,7 +50,7 @@
 .end method
 
 .method public static $default$getCaptureOptionUnpacker(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
 
     .line 201
@@ -67,7 +67,7 @@
 .end method
 
 .method public static $default$getCaptureOptionUnpacker(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;)Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
     .param p1, "valueIfMissing"    # Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -95,7 +95,7 @@
 .end method
 
 .method public static $default$getDefaultCaptureConfig(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/impl/CaptureConfig;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
 
     .line 133
@@ -112,7 +112,7 @@
 .end method
 
 .method public static $default$getDefaultCaptureConfig(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/CaptureConfig;)Landroidx/camera/core/impl/CaptureConfig;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
     .param p1, "valueIfMissing"    # Landroidx/camera/core/impl/CaptureConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -140,7 +140,7 @@
 .end method
 
 .method public static $default$getDefaultSessionConfig(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/impl/SessionConfig;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
 
     .line 104
@@ -157,7 +157,7 @@
 .end method
 
 .method public static $default$getDefaultSessionConfig(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/SessionConfig;)Landroidx/camera/core/impl/SessionConfig;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
     .param p1, "valueIfMissing"    # Landroidx/camera/core/impl/SessionConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -185,7 +185,7 @@
 .end method
 
 .method public static $default$getSessionOptionUnpacker(Landroidx/camera/core/impl/UseCaseConfig;)Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
 
     .line 167
@@ -202,7 +202,7 @@
 .end method
 
 .method public static $default$getSessionOptionUnpacker(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;)Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
     .param p1, "valueIfMissing"    # Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -230,7 +230,7 @@
 .end method
 
 .method public static $default$getSurfaceOccupancyPriority(Landroidx/camera/core/impl/UseCaseConfig;)I
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
 
     .line 224
@@ -251,7 +251,7 @@
 .end method
 
 .method public static $default$getSurfaceOccupancyPriority(Landroidx/camera/core/impl/UseCaseConfig;I)I
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Landroidx/camera/core/impl/UseCaseConfig;
     .param p1, "valueIfMissing"    # I
     .annotation system Ldalvik/annotation/MethodParameters;

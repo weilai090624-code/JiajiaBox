@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 604
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getAlphabeticModifiers(Landroid/view/MenuItem;)I
-    .locals 1
+    .registers 2
     .param p0, "menuItem"    # Landroid/view/MenuItem;
 
     .line 653
@@ -38,7 +38,7 @@
 .end method
 
 .method static getContentDescription(Landroid/view/MenuItem;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "menuItem"    # Landroid/view/MenuItem;
 
     .line 615
@@ -50,7 +50,7 @@
 .end method
 
 .method static getIconTintList(Landroid/view/MenuItem;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
     .param p0, "menuItem"    # Landroid/view/MenuItem;
 
     .line 663
@@ -62,7 +62,7 @@
 .end method
 
 .method static getIconTintMode(Landroid/view/MenuItem;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
     .param p0, "menuItem"    # Landroid/view/MenuItem;
 
     .line 673
@@ -74,7 +74,7 @@
 .end method
 
 .method static getNumericModifiers(Landroid/view/MenuItem;)I
-    .locals 1
+    .registers 2
     .param p0, "menuItem"    # Landroid/view/MenuItem;
 
     .line 642
@@ -86,7 +86,7 @@
 .end method
 
 .method static getTooltipText(Landroid/view/MenuItem;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "menuItem"    # Landroid/view/MenuItem;
 
     .line 625
@@ -98,7 +98,7 @@
 .end method
 
 .method static setAlphabeticShortcut(Landroid/view/MenuItem;CI)Landroid/view/MenuItem;
-    .locals 1
+    .registers 4
     .param p0, "menuItem"    # Landroid/view/MenuItem;
     .param p1, "alphaChar"    # C
     .param p2, "alphaModifiers"    # I
@@ -112,7 +112,7 @@
 .end method
 
 .method static setContentDescription(Landroid/view/MenuItem;Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .locals 1
+    .registers 3
     .param p0, "menuItem"    # Landroid/view/MenuItem;
     .param p1, "contentDescription"    # Ljava/lang/CharSequence;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method static setIconTintList(Landroid/view/MenuItem;Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
-    .locals 1
+    .registers 3
     .param p0, "menuItem"    # Landroid/view/MenuItem;
     .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
@@ -138,7 +138,7 @@
 .end method
 
 .method static setIconTintMode(Landroid/view/MenuItem;Landroid/graphics/PorterDuff$Mode;)Landroid/view/MenuItem;
-    .locals 1
+    .registers 3
     .param p0, "menuItem"    # Landroid/view/MenuItem;
     .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
@@ -151,7 +151,7 @@
 .end method
 
 .method static setNumericShortcut(Landroid/view/MenuItem;CI)Landroid/view/MenuItem;
-    .locals 1
+    .registers 4
     .param p0, "menuItem"    # Landroid/view/MenuItem;
     .param p1, "numericChar"    # C
     .param p2, "numericModifiers"    # I
@@ -165,7 +165,7 @@
 .end method
 
 .method static setShortcut(Landroid/view/MenuItem;CCII)Landroid/view/MenuItem;
-    .locals 1
+    .registers 6
     .param p0, "menuItem"    # Landroid/view/MenuItem;
     .param p1, "numericChar"    # C
     .param p2, "alphaChar"    # C
@@ -181,7 +181,7 @@
 .end method
 
 .method static setTooltipText(Landroid/view/MenuItem;Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .locals 1
+    .registers 3
     .param p0, "menuItem"    # Landroid/view/MenuItem;
     .param p1, "tooltipText"    # Ljava/lang/CharSequence;
 

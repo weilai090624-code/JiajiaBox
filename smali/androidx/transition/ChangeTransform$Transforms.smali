@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 473
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "that"    # Ljava/lang/Object;
 
     .line 491
@@ -111,13 +111,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 492
     return v1
 
     .line 494
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Landroidx/transition/ChangeTransform$Transforms;
@@ -130,7 +130,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4a
 
     iget v2, v0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationY:F
 
@@ -138,7 +138,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4a
 
     iget v2, v0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationZ:F
 
@@ -146,7 +146,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4a
 
     iget v2, v0, Landroidx/transition/ChangeTransform$Transforms;->mScaleX:F
 
@@ -154,7 +154,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4a
 
     iget v2, v0, Landroidx/transition/ChangeTransform$Transforms;->mScaleY:F
 
@@ -162,7 +162,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4a
 
     iget v2, v0, Landroidx/transition/ChangeTransform$Transforms;->mRotationX:F
 
@@ -170,7 +170,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4a
 
     iget v2, v0, Landroidx/transition/ChangeTransform$Transforms;->mRotationY:F
 
@@ -178,7 +178,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4a
 
     iget v2, v0, Landroidx/transition/ChangeTransform$Transforms;->mRotationZ:F
 
@@ -186,16 +186,16 @@
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4a
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_4a
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .registers 6
 
     .line 507
     iget v0, p0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationX:F
@@ -206,7 +206,7 @@
 
     cmpl-float v0, v0, v2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget v0, p0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationX:F
 
@@ -214,21 +214,21 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     .line 508
     .local v0, "code":I
-    :goto_0
+    :goto_10
     mul-int/lit8 v3, v0, 0x1f
 
     iget v4, p0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationY:F
 
     cmpl-float v4, v4, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1f
 
     iget v4, p0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationY:F
 
@@ -236,12 +236,12 @@
 
     move-result v4
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_20
     add-int/2addr v3, v4
 
     .line 509
@@ -253,7 +253,7 @@
 
     cmpl-float v4, v4, v2
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_30
 
     iget v4, p0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationZ:F
 
@@ -261,12 +261,12 @@
 
     move-result v4
 
-    goto :goto_2
+    goto :goto_31
 
-    :cond_2
+    :cond_30
     const/4 v4, 0x0
 
-    :goto_2
+    :goto_31
     add-int/2addr v0, v4
 
     .line 510
@@ -278,7 +278,7 @@
 
     cmpl-float v4, v4, v2
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_41
 
     iget v4, p0, Landroidx/transition/ChangeTransform$Transforms;->mScaleX:F
 
@@ -286,12 +286,12 @@
 
     move-result v4
 
-    goto :goto_3
+    goto :goto_42
 
-    :cond_3
+    :cond_41
     const/4 v4, 0x0
 
-    :goto_3
+    :goto_42
     add-int/2addr v3, v4
 
     .line 511
@@ -303,7 +303,7 @@
 
     cmpl-float v4, v4, v2
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_52
 
     iget v4, p0, Landroidx/transition/ChangeTransform$Transforms;->mScaleY:F
 
@@ -311,12 +311,12 @@
 
     move-result v4
 
-    goto :goto_4
+    goto :goto_53
 
-    :cond_4
+    :cond_52
     const/4 v4, 0x0
 
-    :goto_4
+    :goto_53
     add-int/2addr v0, v4
 
     .line 512
@@ -328,7 +328,7 @@
 
     cmpl-float v4, v4, v2
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_63
 
     iget v4, p0, Landroidx/transition/ChangeTransform$Transforms;->mRotationX:F
 
@@ -336,12 +336,12 @@
 
     move-result v4
 
-    goto :goto_5
+    goto :goto_64
 
-    :cond_5
+    :cond_63
     const/4 v4, 0x0
 
-    :goto_5
+    :goto_64
     add-int/2addr v3, v4
 
     .line 513
@@ -353,7 +353,7 @@
 
     cmpl-float v4, v4, v2
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_74
 
     iget v4, p0, Landroidx/transition/ChangeTransform$Transforms;->mRotationY:F
 
@@ -361,12 +361,12 @@
 
     move-result v4
 
-    goto :goto_6
+    goto :goto_75
 
-    :cond_6
+    :cond_74
     const/4 v4, 0x0
 
-    :goto_6
+    :goto_75
     add-int/2addr v0, v4
 
     .line 514
@@ -378,7 +378,7 @@
 
     cmpl-float v2, v4, v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_84
 
     iget v1, p0, Landroidx/transition/ChangeTransform$Transforms;->mRotationZ:F
 
@@ -386,7 +386,7 @@
 
     move-result v1
 
-    :cond_7
+    :cond_84
     add-int/2addr v3, v1
 
     .line 515
@@ -396,7 +396,7 @@
 .end method
 
 .method public restore(Landroid/view/View;)V
-    .locals 9
+    .registers 11
     .param p1, "view"    # Landroid/view/View;
 
     .line 485

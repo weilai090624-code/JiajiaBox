@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 472
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder;, "Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder<TK0;TV0;>;"
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public bridge synthetic build()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
 
     .line 469
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder;, "Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder<TK0;TV0;>;"
@@ -52,7 +52,7 @@
 .end method
 
 .method public bridge synthetic build(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/Multimap;
-    .locals 0
+    .registers 2
 
     .line 469
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder;, "Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder<TK0;TV0;>;"
@@ -64,7 +64,7 @@
 .end method
 
 .method public bridge synthetic build()Lcom/google/common/collect/SetMultimap;
-    .locals 1
+    .registers 2
 
     .line 469
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder;, "Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder<TK0;TV0;>;"
@@ -76,7 +76,7 @@
 .end method
 
 .method public bridge synthetic build(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/SetMultimap;
-    .locals 0
+    .registers 2
 
     .line 469
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder;, "Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder<TK0;TV0;>;"
@@ -98,7 +98,7 @@
 .end method
 
 .method public build(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/SortedSetMultimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:TK0;V:TV0;>(",

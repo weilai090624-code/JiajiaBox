@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static iterate(ILjava/util/function/IntPredicate;Ljava/util/function/IntUnaryOperator;)Lj$/util/stream/IntStream;
-    .locals 8
+    .registers 11
     .param p0, "seed"    # I
     .param p1, "hasNext"    # Ljava/util/function/IntPredicate;
     .param p2, "next"    # Ljava/util/function/IntUnaryOperator;

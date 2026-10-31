@@ -14,7 +14,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 48
     invoke-direct {p0}, Lcom/google/common/escape/Escaper;-><init>()V
@@ -23,20 +23,20 @@
 .end method
 
 .method private static growBuffer([CII)[C
-    .locals 2
+    .registers 5
     .param p0, "dest"    # [C
     .param p1, "index"    # I
     .param p2, "size"    # I
 
     .line 166
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_b
 
     .line 169
     new-array v0, p2, [C
 
     .line 170
     .local v0, "copy":[C
-    if-lez p1, :cond_0
+    if-lez p1, :cond_a
 
     .line 171
     const/4 v1, 0x0
@@ -44,12 +44,12 @@
     invoke-static {p0, v1, v0, v1, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 173
-    :cond_0
+    :cond_a
     return-object v0
 
     .line 167
     .end local v0    # "copy":[C
-    :cond_1
+    :cond_b
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "Cannot increase internal buffer any further"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "string"    # Ljava/lang/String;
 
     .line 59
@@ -78,8 +78,8 @@
     const/4 v1, 0x0
 
     .local v1, "index":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_8
+    if-ge v1, v0, :cond_1c
 
     .line 63
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
@@ -90,7 +90,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 64
     invoke-virtual {p0, p1, v1}, Lcom/google/common/escape/CharEscaper;->escapeSlow(Ljava/lang/String;I)Ljava/lang/String;
@@ -100,14 +100,14 @@
     return-object v2
 
     .line 62
-    :cond_0
+    :cond_19
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 67
     .end local v1    # "index":I
-    :cond_1
+    :cond_1c
     return-object p1
 .end method
 
@@ -117,7 +117,7 @@
 .end method
 
 .method protected final escapeSlow(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 11
+    .registers 14
     .param p1, "s"    # Ljava/lang/String;
     .param p2, "index"    # I
 
@@ -146,10 +146,10 @@
 
     .line 110
     .local v4, "lastEscape":I
-    :goto_0
+    :goto_b
     const/4 v5, 0x0
 
-    if-ge p2, v0, :cond_4
+    if-ge p2, v0, :cond_3c
 
     .line 113
     invoke-virtual {p1, p2}, Ljava/lang/String;->charAt(I)C
@@ -162,13 +162,13 @@
 
     .line 116
     .local v6, "r":[C
-    if-nez v6, :cond_0
+    if-nez v6, :cond_19
 
     .line 117
-    goto :goto_1
+    goto :goto_39
 
     .line 120
-    :cond_0
+    :cond_19
     array-length v7, v6
 
     .line 121
@@ -183,7 +183,7 @@
 
     .line 127
     .local v9, "sizeNeeded":I
-    if-ge v2, v9, :cond_1
+    if-ge v2, v9, :cond_2b
 
     .line 128
     sub-int v10, v0, p2
@@ -198,8 +198,8 @@
     move-result-object v1
 
     .line 133
-    :cond_1
-    if-lez v8, :cond_2
+    :cond_2b
+    if-lez v8, :cond_31
 
     .line 134
     invoke-virtual {p1, v4, p2, v1, v3}, Ljava/lang/String;->getChars(II[CI)V
@@ -208,8 +208,8 @@
     add-int/2addr v3, v8
 
     .line 139
-    :cond_2
-    if-lez v7, :cond_3
+    :cond_31
+    if-lez v7, :cond_37
 
     .line 140
     invoke-static {v6, v5, v1, v3, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -218,7 +218,7 @@
     add-int/2addr v3, v7
 
     .line 143
-    :cond_3
+    :cond_37
     add-int/lit8 v4, p2, 0x1
 
     .line 110
@@ -226,25 +226,25 @@
     .end local v7    # "rlen":I
     .end local v8    # "charsSkipped":I
     .end local v9    # "sizeNeeded":I
-    :goto_1
+    :goto_39
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 147
-    :cond_4
+    :cond_3c
     sub-int v6, v0, v4
 
     .line 148
     .local v6, "charsLeft":I
-    if-lez v6, :cond_6
+    if-lez v6, :cond_4c
 
     .line 149
     add-int v7, v3, v6
 
     .line 150
     .local v7, "sizeNeeded":I
-    if-ge v2, v7, :cond_5
+    if-ge v2, v7, :cond_48
 
     .line 153
     invoke-static {v1, v3, v7}, Lcom/google/common/escape/CharEscaper;->growBuffer([CII)[C
@@ -252,7 +252,7 @@
     move-result-object v1
 
     .line 155
-    :cond_5
+    :cond_48
     invoke-virtual {p1, v4, v0, v1, v3}, Ljava/lang/String;->getChars(II[CI)V
 
     .line 156
@@ -260,7 +260,7 @@
 
     .line 158
     .end local v7    # "sizeNeeded":I
-    :cond_6
+    :cond_4c
     new-instance v7, Ljava/lang/String;
 
     invoke-direct {v7, v1, v5, v3}, Ljava/lang/String;-><init>([CII)V

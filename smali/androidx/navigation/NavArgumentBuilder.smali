@@ -69,7 +69,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 213
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public final build()Landroidx/navigation/NavArgument;
-    .locals 1
+    .registers 2
 
     .line 257
     iget-object v0, p0, Landroidx/navigation/NavArgumentBuilder;->builder:Landroidx/navigation/NavArgument$Builder;
@@ -101,7 +101,7 @@
 .end method
 
 .method public final getDefaultValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 247
     iget-object v0, p0, Landroidx/navigation/NavArgumentBuilder;->defaultValue:Ljava/lang/Object;
@@ -110,7 +110,7 @@
 .end method
 
 .method public final getNullable()Z
-    .locals 1
+    .registers 2
 
     .line 236
     iget-boolean v0, p0, Landroidx/navigation/NavArgumentBuilder;->nullable:Z
@@ -119,7 +119,7 @@
 .end method
 
 .method public final getType()Landroidx/navigation/NavType;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -131,11 +131,11 @@
     .line 230
     iget-object v0, p0, Landroidx/navigation/NavArgumentBuilder;->_type:Landroidx/navigation/NavType;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "NavType has not been set on this builder."
@@ -146,7 +146,7 @@
 .end method
 
 .method public final setDefaultValue(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 249
@@ -162,7 +162,7 @@
 .end method
 
 .method public final setNullable(Z)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Z
 
     .line 238
@@ -178,7 +178,7 @@
 .end method
 
 .method public final setType(Landroidx/navigation/NavType;)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Landroidx/navigation/NavType;
     .annotation system Ldalvik/annotation/Signature;
         value = {

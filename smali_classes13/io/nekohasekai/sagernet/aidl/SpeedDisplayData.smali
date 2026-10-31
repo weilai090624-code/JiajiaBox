@@ -98,7 +98,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData$Creator;
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 15
+    .registers 16
 
     const/16 v13, 0x3f
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public constructor <init>(JJJJJJ)V
-    .locals 0
+    .registers 13
     .param p1, "txRateProxy"    # J
     .param p3, "rxRateProxy"    # J
     .param p5, "txRateDirect"    # J
@@ -172,93 +172,93 @@
 .end method
 
 .method public synthetic constructor <init>(JJJJJJILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 13
+    .registers 28
 
     .line 7
     and-int/lit8 v0, p13, 0x1
 
     const-wide/16 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 9
     move-wide v3, v1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 7
-    :cond_0
+    :cond_8
     move-wide v3, p1
 
-    :goto_0
+    :goto_9
     and-int/lit8 v0, p13, 0x2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     .line 10
     move-wide v5, v1
 
-    goto :goto_1
+    goto :goto_11
 
     .line 7
-    :cond_1
+    :cond_f
     move-wide/from16 v5, p3
 
-    :goto_1
+    :goto_11
     and-int/lit8 v0, p13, 0x4
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_17
 
     .line 11
     move-wide v7, v1
 
-    goto :goto_2
+    goto :goto_19
 
     .line 7
-    :cond_2
+    :cond_17
     move-wide/from16 v7, p5
 
-    :goto_2
+    :goto_19
     and-int/lit8 v0, p13, 0x8
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_1f
 
     .line 12
     move-wide v9, v1
 
-    goto :goto_3
+    goto :goto_21
 
     .line 7
-    :cond_3
+    :cond_1f
     move-wide/from16 v9, p7
 
-    :goto_3
+    :goto_21
     and-int/lit8 v0, p13, 0x10
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_27
 
     .line 16
     move-wide v11, v1
 
-    goto :goto_4
+    goto :goto_29
 
     .line 7
-    :cond_4
+    :cond_27
     move-wide/from16 v11, p9
 
-    :goto_4
+    :goto_29
     and-int/lit8 v0, p13, 0x20
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_2e
 
     .line 17
-    goto :goto_5
+    goto :goto_30
 
     .line 7
-    :cond_5
+    :cond_2e
     move-wide/from16 v1, p11
 
-    :goto_5
+    :goto_30
     move-object p1, p0
 
     move-wide p2, v3
@@ -280,82 +280,82 @@
 .end method
 
 .method public static synthetic copy$default(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;JJJJJJILjava/lang/Object;)Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
-    .locals 13
+    .registers 28
 
     move-object v0, p0
 
     and-int/lit8 v1, p13, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8
 
     iget-wide v1, v0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txRateProxy:J
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-wide v1, p1
 
-    :goto_0
+    :goto_9
     and-int/lit8 v3, p13, 0x2
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_10
 
     iget-wide v3, v0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxRateProxy:J
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
+    :cond_10
     move-wide/from16 v3, p3
 
-    :goto_1
+    :goto_12
     and-int/lit8 v5, p13, 0x4
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_19
 
     iget-wide v5, v0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txRateDirect:J
 
-    goto :goto_2
+    goto :goto_1b
 
-    :cond_2
+    :cond_19
     move-wide/from16 v5, p5
 
-    :goto_2
+    :goto_1b
     and-int/lit8 v7, p13, 0x8
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_22
 
     iget-wide v7, v0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxRateDirect:J
 
-    goto :goto_3
+    goto :goto_24
 
-    :cond_3
+    :cond_22
     move-wide/from16 v7, p7
 
-    :goto_3
+    :goto_24
     and-int/lit8 v9, p13, 0x10
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_2b
 
     iget-wide v9, v0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txTotal:J
 
-    goto :goto_4
+    goto :goto_2d
 
-    :cond_4
+    :cond_2b
     move-wide/from16 v9, p9
 
-    :goto_4
+    :goto_2d
     and-int/lit8 v11, p13, 0x20
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_34
 
     iget-wide v11, v0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxTotal:J
 
-    goto :goto_5
+    goto :goto_36
 
-    :cond_5
+    :cond_34
     move-wide/from16 v11, p11
 
-    :goto_5
+    :goto_36
     move-wide p1, v1
 
     move-wide/from16 p3, v3
@@ -378,7 +378,7 @@
 
 # virtual methods
 .method public final component1()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txRateProxy:J
 
@@ -386,7 +386,7 @@
 .end method
 
 .method public final component2()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxRateProxy:J
 
@@ -394,7 +394,7 @@
 .end method
 
 .method public final component3()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txRateDirect:J
 
@@ -402,7 +402,7 @@
 .end method
 
 .method public final component4()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxRateDirect:J
 
@@ -410,7 +410,7 @@
 .end method
 
 .method public final component5()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txTotal:J
 
@@ -418,7 +418,7 @@
 .end method
 
 .method public final component6()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxTotal:J
 
@@ -426,7 +426,7 @@
 .end method
 
 .method public final copy(JJJJJJ)Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
-    .locals 14
+    .registers 27
 
     new-instance v13, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
@@ -450,7 +450,7 @@
 .end method
 
 .method public final describeContents()I
-    .locals 1
+    .registers 2
 
     .line 6
     nop
@@ -462,24 +462,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
@@ -490,71 +490,71 @@
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_16
 
     return v2
 
-    :cond_2
+    :cond_16
     iget-wide v3, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxRateProxy:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxRateProxy:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     iget-wide v3, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txRateDirect:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txRateDirect:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_28
 
     return v2
 
-    :cond_4
+    :cond_28
     iget-wide v3, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxRateDirect:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxRateDirect:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_31
 
     return v2
 
-    :cond_5
+    :cond_31
     iget-wide v3, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txTotal:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txTotal:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_3a
 
     return v2
 
-    :cond_6
+    :cond_3a
     iget-wide v3, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxTotal:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxTotal:J
 
     cmp-long v1, v3, v5
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_43
 
     return v2
 
-    :cond_7
+    :cond_43
     return v0
 .end method
 
 .method public final getRxRateDirect()J
-    .locals 2
+    .registers 3
 
     .line 12
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxRateDirect:J
@@ -563,7 +563,7 @@
 .end method
 
 .method public final getRxRateProxy()J
-    .locals 2
+    .registers 3
 
     .line 10
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxRateProxy:J
@@ -572,7 +572,7 @@
 .end method
 
 .method public final getRxTotal()J
-    .locals 2
+    .registers 3
 
     .line 17
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->rxTotal:J
@@ -581,7 +581,7 @@
 .end method
 
 .method public final getTxRateDirect()J
-    .locals 2
+    .registers 3
 
     .line 11
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txRateDirect:J
@@ -590,7 +590,7 @@
 .end method
 
 .method public final getTxRateProxy()J
-    .locals 2
+    .registers 3
 
     .line 9
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txRateProxy:J
@@ -599,7 +599,7 @@
 .end method
 
 .method public final getTxTotal()J
-    .locals 2
+    .registers 3
 
     .line 16
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txTotal:J
@@ -608,7 +608,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->txRateProxy:J
 
@@ -670,7 +670,7 @@
 .end method
 
 .method public final setRxRateDirect(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 12
@@ -680,7 +680,7 @@
 .end method
 
 .method public final setRxRateProxy(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 10
@@ -690,7 +690,7 @@
 .end method
 
 .method public final setRxTotal(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 17
@@ -700,7 +700,7 @@
 .end method
 
 .method public final setTxRateDirect(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 11
@@ -710,7 +710,7 @@
 .end method
 
 .method public final setTxRateProxy(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 9
@@ -720,7 +720,7 @@
 .end method
 
 .method public final setTxTotal(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 16
@@ -730,7 +730,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -822,7 +822,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+    .registers 5
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

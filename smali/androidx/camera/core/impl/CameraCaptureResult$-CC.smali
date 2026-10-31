@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$populateExifData(Landroidx/camera/core/impl/CameraCaptureResult;Landroidx/camera/core/impl/utils/ExifData$Builder;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .param p1, "exifBuilder"    # Landroidx/camera/core/impl/utils/ExifData$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;

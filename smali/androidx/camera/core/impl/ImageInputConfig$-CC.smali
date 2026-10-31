@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$getInputFormat(Landroidx/camera/core/impl/ImageInputConfig;)I
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageInputConfig;
 
     .line 41

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 151
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;-><init>()V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;
-    .locals 1
+    .registers 2
 
     .line 151
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer$VersionFieldSerializerConfig;->clone()Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer$VersionFieldSerializerConfig;
@@ -47,7 +47,7 @@
 .end method
 
 .method public clone()Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer$VersionFieldSerializerConfig;
-    .locals 1
+    .registers 2
 
     .line 155
     invoke-super {p0}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->clone()Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;
@@ -60,7 +60,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -76,7 +76,7 @@
 .end method
 
 .method public getCompatible()Z
-    .locals 1
+    .registers 2
 
     .line 166
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/VersionFieldSerializer$VersionFieldSerializerConfig;->compatible:Z
@@ -85,7 +85,7 @@
 .end method
 
 .method public setCompatible(Z)V
-    .locals 2
+    .registers 4
     .param p1, "compatible"    # Z
 
     .line 161
@@ -94,7 +94,7 @@
     .line 162
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -119,6 +119,6 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 163
-    :cond_0
+    :cond_1e
     return-void
 .end method

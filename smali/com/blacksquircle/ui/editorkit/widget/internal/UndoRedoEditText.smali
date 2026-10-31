@@ -85,7 +85,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
 
     const-string v0, "context"
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
 
     const-string v0, "context"
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -164,27 +164,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 25
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 27
     const/4 p2, 0x0
 
     .line 25
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 28
     const p3, 0x101006b
 
     .line 25
-    :cond_1
+    :cond_c
     invoke-direct {p0, p1, p2, p3}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 135
@@ -194,7 +194,7 @@
 
 # virtual methods
 .method public final canRedo()Z
-    .locals 1
+    .registers 2
 
     .line 88
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->redoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
@@ -207,7 +207,7 @@
 .end method
 
 .method public final canUndo()Z
-    .locals 1
+    .registers 2
 
     .line 87
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->undoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
@@ -220,7 +220,7 @@
 .end method
 
 .method public final clearUndoHistory()V
-    .locals 1
+    .registers 2
 
     .line 82
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->undoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
@@ -235,17 +235,17 @@
     .line 84
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->onUndoRedoChangedListener:Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-interface {v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;->onUndoRedoChanged()V
 
     .line 85
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method protected doBeforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 3
+    .registers 8
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -257,14 +257,14 @@
     .line 40
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->isDoingUndoRedo:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_31
 
     .line 41
     const v0, 0x7fffffff
 
     const/4 v1, 0x0
 
-    if-ge p3, v0, :cond_1
+    if-ge p3, v0, :cond_24
 
     .line 42
     new-instance v0, Lcom/blacksquircle/ui/editorkit/model/TextChange;
@@ -273,7 +273,7 @@
     nop
 
     .line 44
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     add-int v1, p2, p3
 
@@ -281,7 +281,7 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_18
     invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -296,10 +296,10 @@
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 48
-    :cond_1
+    :cond_24
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->undoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->removeAll()V
@@ -313,16 +313,16 @@
     nop
 
     .line 41
-    :goto_0
+    :goto_2f
     iput-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->textLastChange:Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
     .line 53
-    :cond_2
+    :cond_31
     return-void
 .end method
 
 .method protected doOnTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 4
+    .registers 9
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
@@ -334,28 +334,28 @@
     .line 57
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->isDoingUndoRedo:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_bc
 
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->textLastChange:Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_bc
 
     .line 58
     const v0, 0x7fffffff
 
     const/4 v1, 0x0
 
-    if-ge p4, v0, :cond_a
+    if-ge p4, v0, :cond_a9
 
     .line 59
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->textLastChange:Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
-    goto :goto_1
+    goto :goto_27
 
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_16
+    if-eqz p1, :cond_1f
 
     add-int v2, p2, p4
 
@@ -363,12 +363,12 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     move-object v2, v1
 
-    :goto_0
+    :goto_20
     invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
@@ -376,41 +376,41 @@
     invoke-virtual {v0, v2}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->setNewText(Ljava/lang/String;)V
 
     .line 60
-    :goto_1
+    :goto_27
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->textLastChange:Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_35
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getStart()I
 
     move-result v0
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_35
 
     const/4 v0, 0x1
 
-    goto :goto_2
+    goto :goto_36
 
-    :cond_2
+    :cond_35
     const/4 v0, 0x0
 
-    :goto_2
-    if-eqz v0, :cond_b
+    :goto_36
+    if-eqz v0, :cond_b3
 
     .line 61
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->textLastChange:Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_52
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getOldText()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_52
 
     check-cast v0, Ljava/lang/CharSequence;
 
@@ -418,43 +418,43 @@
 
     move-result v0
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_4c
 
     const/4 v0, 0x1
 
-    goto :goto_3
+    goto :goto_4d
 
-    :cond_3
+    :cond_4c
     const/4 v0, 0x0
 
-    :goto_3
+    :goto_4d
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    goto :goto_4
+    goto :goto_53
 
-    :cond_4
+    :cond_52
     move-object v0, v1
 
-    :goto_4
+    :goto_53
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_7f
 
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->textLastChange:Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_75
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getNewText()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_75
 
     check-cast v0, Ljava/lang/CharSequence;
 
@@ -462,67 +462,67 @@
 
     move-result v0
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_6f
 
-    goto :goto_5
+    goto :goto_70
 
-    :cond_5
+    :cond_6f
     const/4 v2, 0x0
 
-    :goto_5
+    :goto_70
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    goto :goto_6
+    goto :goto_76
 
-    :cond_6
+    :cond_75
     move-object v0, v1
 
-    :goto_6
+    :goto_76
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_b3
 
     .line 62
-    :cond_7
+    :cond_7f
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->textLastChange:Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_88
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getOldText()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_7
+    goto :goto_89
 
-    :cond_8
+    :cond_88
     move-object v0, v1
 
-    :goto_7
+    :goto_89
     iget-object v2, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->textLastChange:Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_92
 
     invoke-virtual {v2}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getNewText()Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_8
+    goto :goto_93
 
-    :cond_9
+    :cond_92
     move-object v2, v1
 
-    :goto_8
+    :goto_93
     invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_b3
 
     .line 64
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->undoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
@@ -538,10 +538,10 @@
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->removeAll()V
 
-    goto :goto_9
+    goto :goto_b3
 
     .line 68
-    :cond_a
+    :cond_a9
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->undoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->removeAll()V
@@ -552,24 +552,24 @@
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->removeAll()V
 
     .line 71
-    :cond_b
-    :goto_9
+    :cond_b3
+    :goto_b3
     iput-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->textLastChange:Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
     .line 72
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->onUndoRedoChangedListener:Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_bc
 
     invoke-interface {v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;->onUndoRedoChanged()V
 
     .line 74
-    :cond_c
+    :cond_bc
     return-void
 .end method
 
 .method public final getOnUndoRedoChangedListener()Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->onUndoRedoChangedListener:Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;
@@ -578,7 +578,7 @@
 .end method
 
 .method public final getRedoStack()Lcom/blacksquircle/ui/editorkit/model/UndoStack;
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->redoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
@@ -587,7 +587,7 @@
 .end method
 
 .method public final getUndoStack()Lcom/blacksquircle/ui/editorkit/model/UndoStack;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->undoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
@@ -596,7 +596,7 @@
 .end method
 
 .method public final redo()V
-    .locals 5
+    .registers 6
 
     .line 115
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->redoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
@@ -611,7 +611,7 @@
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_49
 
     .line 117
     const/4 v1, 0x1
@@ -684,29 +684,29 @@
 
     iput-boolean v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->isDoingUndoRedo:Z
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 127
-    :cond_0
+    :cond_49
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->undoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->removeAll()V
 
     .line 129
-    :goto_0
+    :goto_4e
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->onUndoRedoChangedListener:Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_55
 
     invoke-interface {v1}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;->onUndoRedoChanged()V
 
     .line 130
-    :cond_1
+    :cond_55
     return-void
 .end method
 
 .method public final setOnUndoRedoChangedListener(Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;
 
     .line 33
@@ -716,7 +716,7 @@
 .end method
 
 .method public final setRedoStack(Lcom/blacksquircle/ui/editorkit/model/UndoStack;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lcom/blacksquircle/ui/editorkit/model/UndoStack;
 
     const-string v0, "<set-?>"
@@ -730,7 +730,7 @@
 .end method
 
 .method public setTextContent(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     const-string/jumbo v0, "text"
@@ -743,17 +743,17 @@
     .line 78
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->onUndoRedoChangedListener:Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-interface {v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;->onUndoRedoChanged()V
 
     .line 79
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public final setUndoStack(Lcom/blacksquircle/ui/editorkit/model/UndoStack;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lcom/blacksquircle/ui/editorkit/model/UndoStack;
 
     const-string v0, "<set-?>"
@@ -767,7 +767,7 @@
 .end method
 
 .method public final undo()V
-    .locals 5
+    .registers 6
 
     .line 91
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->undoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
@@ -782,7 +782,7 @@
 
     move-result v1
 
-    if-ltz v1, :cond_3
+    if-ltz v1, :cond_77
 
     .line 93
     const/4 v1, 0x1
@@ -802,7 +802,7 @@
 
     move-result v2
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_28
 
     .line 95
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->getText()Landroid/text/Editable;
@@ -816,7 +816,7 @@
     invoke-virtual {v0, v1}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->setStart(I)V
 
     .line 97
-    :cond_0
+    :cond_28
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->getStart()I
 
     move-result v1
@@ -833,13 +833,13 @@
 
     .line 98
     .local v1, "end":I
-    if-gez v1, :cond_1
+    if-gez v1, :cond_38
 
     .line 99
     const/4 v1, 0x0
 
     .line 101
-    :cond_1
+    :cond_38
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->getText()Landroid/text/Editable;
 
     move-result-object v2
@@ -848,7 +848,7 @@
 
     move-result v2
 
-    if-le v1, v2, :cond_2
+    if-le v1, v2, :cond_4a
 
     .line 102
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->getText()Landroid/text/Editable;
@@ -860,7 +860,7 @@
     move-result v1
 
     .line 104
-    :cond_2
+    :cond_4a
     iget-object v2, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->redoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
 
     invoke-virtual {v2, v0}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->push(Lcom/blacksquircle/ui/editorkit/model/TextChange;)V
@@ -909,23 +909,23 @@
     iput-boolean v2, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->isDoingUndoRedo:Z
 
     .end local v1    # "end":I
-    goto :goto_0
+    goto :goto_7c
 
     .line 109
-    :cond_3
+    :cond_77
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->undoStack:Lcom/blacksquircle/ui/editorkit/model/UndoStack;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/editorkit/model/UndoStack;->removeAll()V
 
     .line 111
-    :goto_0
+    :goto_7c
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->onUndoRedoChangedListener:Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_83
 
     invoke-interface {v1}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText$OnUndoRedoChangedListener;->onUndoRedoChanged()V
 
     .line 112
-    :cond_4
+    :cond_83
     return-void
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 168
     .local p0, "this":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<TT;>;"
@@ -36,7 +36,7 @@
 .end method
 
 .method public static create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
-    .locals 1
+    .registers 3
     .param p0, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -74,7 +74,7 @@
 .end method
 
 .method public static create(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;)Landroidx/camera/core/impl/Config$Option;
-    .locals 1
+    .registers 4
     .param p0, "id"    # Ljava/lang/String;
     .param p2, "token"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;

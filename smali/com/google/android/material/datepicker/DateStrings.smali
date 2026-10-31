@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method static getDateRangeString(Ljava/lang/Long;Ljava/lang/Long;)Landroidx/core/util/Pair;
-    .locals 1
+    .registers 3
     .param p0, "start"    # Ljava/lang/Long;
     .param p1, "end"    # Ljava/lang/Long;
     .annotation system Ldalvik/annotation/Signature;
@@ -41,7 +41,7 @@
 .end method
 
 .method static getDateRangeString(Ljava/lang/Long;Ljava/lang/Long;Ljava/text/SimpleDateFormat;)Landroidx/core/util/Pair;
-    .locals 7
+    .registers 10
     .param p0, "start"    # Ljava/lang/Long;
     .param p1, "end"    # Ljava/lang/Long;
     .param p2, "userDefinedDateFormat"    # Ljava/text/SimpleDateFormat;
@@ -62,9 +62,9 @@
     .line 173
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     .line 174
     invoke-static {v0, v0}, Landroidx/core/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/core/util/Pair;
@@ -74,8 +74,8 @@
     return-object v0
 
     .line 175
-    :cond_0
-    if-nez p0, :cond_1
+    :cond_a
+    if-nez p0, :cond_19
 
     .line 176
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
@@ -93,8 +93,8 @@
     return-object v0
 
     .line 177
-    :cond_1
-    if-nez p1, :cond_2
+    :cond_19
+    if-nez p1, :cond_28
 
     .line 178
     invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
@@ -112,7 +112,7 @@
     return-object v0
 
     .line 181
-    :cond_2
+    :cond_28
     invoke-static {}, Lcom/google/android/material/datepicker/UtcDates;->getTodayCalendar()Ljava/util/Calendar;
 
     move-result-object v0
@@ -145,7 +145,7 @@
     invoke-virtual {v2, v3, v4}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
     .line 187
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_64
 
     .line 188
     new-instance v3, Ljava/util/Date;
@@ -189,7 +189,7 @@
     .line 192
     .end local v3    # "startDate":Ljava/util/Date;
     .end local v4    # "endDate":Ljava/util/Date;
-    :cond_3
+    :cond_64
     const/4 v3, 0x1
 
     invoke-virtual {v1, v3}, Ljava/util/Calendar;->get(I)I
@@ -200,7 +200,7 @@
 
     move-result v5
 
-    if-ne v4, v5, :cond_5
+    if-ne v4, v5, :cond_b5
 
     .line 193
     invoke-virtual {v1, v3}, Ljava/util/Calendar;->get(I)I
@@ -211,7 +211,7 @@
 
     move-result v3
 
-    if-ne v4, v3, :cond_4
+    if-ne v4, v3, :cond_97
 
     .line 194
     nop
@@ -249,7 +249,7 @@
     return-object v3
 
     .line 197
-    :cond_4
+    :cond_97
     nop
 
     .line 198
@@ -285,7 +285,7 @@
     return-object v3
 
     .line 201
-    :cond_5
+    :cond_b5
     nop
 
     .line 202
@@ -322,7 +322,7 @@
 .end method
 
 .method static getDateString(J)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "timeInMillis"    # J
 
     .line 120
@@ -336,12 +336,12 @@
 .end method
 
 .method static getDateString(JLjava/text/SimpleDateFormat;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p0, "timeInMillis"    # J
     .param p2, "userDefinedDateFormat"    # Ljava/text/SimpleDateFormat;
 
     .line 135
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_c
 
     .line 136
     new-instance v0, Ljava/util/Date;
@@ -358,12 +358,12 @@
 
     .line 138
     .end local v0    # "date":Ljava/util/Date;
-    :cond_0
+    :cond_c
     invoke-static {p0, p1}, Lcom/google/android/material/datepicker/DateStrings;->isDateWithinCurrentYear(J)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 139
     invoke-static {p0, p1}, Lcom/google/android/material/datepicker/DateStrings;->getMonthDay(J)Ljava/lang/String;
@@ -373,7 +373,7 @@
     return-object v0
 
     .line 141
-    :cond_1
+    :cond_17
     invoke-static {p0, p1}, Lcom/google/android/material/datepicker/DateStrings;->getYearMonthDay(J)Ljava/lang/String;
 
     move-result-object v0
@@ -382,7 +382,7 @@
 .end method
 
 .method static getDayContentDescription(Landroid/content/Context;JZZZ)Ljava/lang/String;
-    .locals 5
+    .registers 11
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "dayInMillis"    # J
     .param p3, "isToday"    # Z
@@ -400,7 +400,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_16
 
     .line 223
     sget v3, Lcom/google/android/material/R$string;->mtrl_picker_today_description:I
@@ -420,8 +420,8 @@
     move-result-object v0
 
     .line 227
-    :cond_0
-    if-eqz p4, :cond_1
+    :cond_16
+    if-eqz p4, :cond_27
 
     .line 228
     sget v3, Lcom/google/android/material/R$string;->mtrl_picker_start_date_description:I
@@ -443,8 +443,8 @@
     return-object v1
 
     .line 230
-    :cond_1
-    if-eqz p5, :cond_2
+    :cond_27
+    if-eqz p5, :cond_38
 
     .line 231
     sget v3, Lcom/google/android/material/R$string;->mtrl_picker_end_date_description:I
@@ -466,12 +466,12 @@
     return-object v1
 
     .line 234
-    :cond_2
+    :cond_38
     return-object v0
 .end method
 
 .method static getMonthDay(J)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "timeInMillis"    # J
 
     .line 64
@@ -487,7 +487,7 @@
 .end method
 
 .method static getMonthDay(JLjava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p0, "timeInMillis"    # J
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -496,7 +496,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_14
 
     .line 79
     invoke-static {p2}, Lcom/google/android/material/datepicker/UtcDates;->getAbbrMonthDayFormat(Ljava/util/Locale;)Landroid/icu/text/DateFormat;
@@ -514,7 +514,7 @@
     return-object v0
 
     .line 81
-    :cond_0
+    :cond_14
     invoke-static {p2}, Lcom/google/android/material/datepicker/UtcDates;->getMediumNoYear(Ljava/util/Locale;)Ljava/text/DateFormat;
 
     move-result-object v0
@@ -531,7 +531,7 @@
 .end method
 
 .method static getMonthDayOfWeekDay(J)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "timeInMillis"    # J
 
     .line 85
@@ -547,7 +547,7 @@
 .end method
 
 .method static getMonthDayOfWeekDay(JLjava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p0, "timeInMillis"    # J
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -556,7 +556,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_14
 
     .line 90
     invoke-static {p2}, Lcom/google/android/material/datepicker/UtcDates;->getAbbrMonthWeekdayDayFormat(Ljava/util/Locale;)Landroid/icu/text/DateFormat;
@@ -574,7 +574,7 @@
     return-object v0
 
     .line 92
-    :cond_0
+    :cond_14
     invoke-static {p2}, Lcom/google/android/material/datepicker/UtcDates;->getFullFormat(Ljava/util/Locale;)Ljava/text/DateFormat;
 
     move-result-object v0
@@ -591,7 +591,7 @@
 .end method
 
 .method static getOptionalYearMonthDayOfWeekDay(J)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "timeInMillis"    # J
 
     .line 113
@@ -599,7 +599,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 114
     invoke-static {p0, p1}, Lcom/google/android/material/datepicker/DateStrings;->getMonthDayOfWeekDay(J)Ljava/lang/String;
@@ -609,7 +609,7 @@
     return-object v0
 
     .line 116
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Lcom/google/android/material/datepicker/DateStrings;->getYearMonthDayOfWeekDay(J)Ljava/lang/String;
 
     move-result-object v0
@@ -618,7 +618,7 @@
 .end method
 
 .method static getYearContentDescription(Landroid/content/Context;I)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "year"    # I
 
@@ -635,7 +635,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_1f
 
     .line 246
     sget v0, Lcom/google/android/material/R$string;->mtrl_picker_navigate_to_current_year_description:I
@@ -661,7 +661,7 @@
     return-object v0
 
     .line 249
-    :cond_0
+    :cond_1f
     sget v0, Lcom/google/android/material/R$string;->mtrl_picker_navigate_to_year_description:I
 
     .line 250
@@ -686,7 +686,7 @@
 .end method
 
 .method static getYearMonth(J)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "timeInMillis"    # J
 
     .line 38
@@ -704,7 +704,7 @@
 .end method
 
 .method static getYearMonthDay(J)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "timeInMillis"    # J
 
     .line 43
@@ -720,7 +720,7 @@
 .end method
 
 .method static getYearMonthDay(JLjava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p0, "timeInMillis"    # J
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -729,7 +729,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_14
 
     .line 58
     invoke-static {p2}, Lcom/google/android/material/datepicker/UtcDates;->getYearAbbrMonthDayFormat(Ljava/util/Locale;)Landroid/icu/text/DateFormat;
@@ -747,7 +747,7 @@
     return-object v0
 
     .line 60
-    :cond_0
+    :cond_14
     invoke-static {p2}, Lcom/google/android/material/datepicker/UtcDates;->getMediumFormat(Ljava/util/Locale;)Ljava/text/DateFormat;
 
     move-result-object v0
@@ -764,7 +764,7 @@
 .end method
 
 .method static getYearMonthDayOfWeekDay(J)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "timeInMillis"    # J
 
     .line 96
@@ -780,7 +780,7 @@
 .end method
 
 .method static getYearMonthDayOfWeekDay(JLjava/util/Locale;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p0, "timeInMillis"    # J
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -789,7 +789,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_14
 
     .line 101
     invoke-static {p2}, Lcom/google/android/material/datepicker/UtcDates;->getYearAbbrMonthWeekdayDayFormat(Ljava/util/Locale;)Landroid/icu/text/DateFormat;
@@ -807,7 +807,7 @@
     return-object v0
 
     .line 103
-    :cond_0
+    :cond_14
     invoke-static {p2}, Lcom/google/android/material/datepicker/UtcDates;->getFullFormat(Ljava/util/Locale;)Ljava/text/DateFormat;
 
     move-result-object v0
@@ -824,7 +824,7 @@
 .end method
 
 .method private static isDateWithinCurrentYear(J)Z
-    .locals 5
+    .registers 7
     .param p0, "timeInMillis"    # J
 
     .line 145
@@ -853,13 +853,13 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_17
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_18
     return v2
 .end method

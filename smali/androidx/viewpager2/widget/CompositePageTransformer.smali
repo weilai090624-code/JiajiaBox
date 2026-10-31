@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public addTransformer(Landroidx/viewpager2/widget/ViewPager2$PageTransformer;)V
-    .locals 1
+    .registers 3
     .param p1, "transformer"    # Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
 
     .line 42
@@ -51,7 +51,7 @@
 .end method
 
 .method public removeTransformer(Landroidx/viewpager2/widget/ViewPager2$PageTransformer;)V
-    .locals 1
+    .registers 3
     .param p1, "transformer"    # Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
 
     .line 47
@@ -64,7 +64,7 @@
 .end method
 
 .method public transformPage(Landroid/view/View;F)V
-    .locals 2
+    .registers 5
     .param p1, "page"    # Landroid/view/View;
     .param p2, "position"    # F
 
@@ -75,12 +75,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -94,9 +94,9 @@
 
     .line 54
     .end local v1    # "transformer":Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
-    goto :goto_0
+    goto :goto_6
 
     .line 55
-    :cond_0
+    :cond_16
     return-void
 .end method

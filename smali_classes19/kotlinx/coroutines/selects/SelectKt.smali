@@ -101,7 +101,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 178
     sget-object v0, Lkotlinx/coroutines/selects/SelectKt$DUMMY_PROCESS_RESULT_FUNCTION$1;->INSTANCE:Lkotlinx/coroutines/selects/SelectKt$DUMMY_PROCESS_RESULT_FUNCTION$1;
@@ -159,29 +159,29 @@
 .end method
 
 .method public static synthetic OnCancellationConstructor$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic ProcessResultFunction$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic RegistrationFunction$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private static final TrySelectDetailedResult(I)Lkotlinx/coroutines/selects/TrySelectDetailedResult;
-    .locals 3
+    .registers 4
     .param p0, "trySelectInternalResult"    # I
 
     .line 855
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_2c
 
     .line 859
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -214,42 +214,42 @@
     throw v0
 
     .line 859
-    :pswitch_0
+    :pswitch_20
     sget-object v0, Lkotlinx/coroutines/selects/TrySelectDetailedResult;->ALREADY_SELECTED:Lkotlinx/coroutines/selects/TrySelectDetailedResult;
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 858
-    :pswitch_1
+    :pswitch_23
     sget-object v0, Lkotlinx/coroutines/selects/TrySelectDetailedResult;->CANCELLED:Lkotlinx/coroutines/selects/TrySelectDetailedResult;
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 857
-    :pswitch_2
+    :pswitch_26
     sget-object v0, Lkotlinx/coroutines/selects/TrySelectDetailedResult;->REREGISTER:Lkotlinx/coroutines/selects/TrySelectDetailedResult;
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 856
-    :pswitch_3
+    :pswitch_29
     sget-object v0, Lkotlinx/coroutines/selects/TrySelectDetailedResult;->SUCCESSFUL:Lkotlinx/coroutines/selects/TrySelectDetailedResult;
 
     .line 861
-    :goto_0
+    :goto_2b
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_29
+        :pswitch_26
+        :pswitch_23
+        :pswitch_20
     .end packed-switch
 .end method
 
 .method public static final synthetic access$TrySelectDetailedResult(I)Lkotlinx/coroutines/selects/TrySelectDetailedResult;
-    .locals 1
+    .registers 2
     .param p0, "trySelectInternalResult"    # I
 
     .line 1
@@ -261,7 +261,7 @@
 .end method
 
 .method public static final synthetic access$getDUMMY_PROCESS_RESULT_FUNCTION$p()Lkotlin/jvm/functions/Function3;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/selects/SelectKt;->DUMMY_PROCESS_RESULT_FUNCTION:Lkotlin/jvm/functions/Function3;
@@ -270,7 +270,7 @@
 .end method
 
 .method public static final synthetic access$getNO_RESULT$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/selects/SelectKt;->NO_RESULT:Lkotlinx/coroutines/internal/Symbol;
@@ -279,7 +279,7 @@
 .end method
 
 .method public static final synthetic access$getSTATE_CANCELLED$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/selects/SelectKt;->STATE_CANCELLED:Lkotlinx/coroutines/internal/Symbol;
@@ -288,7 +288,7 @@
 .end method
 
 .method public static final synthetic access$getSTATE_COMPLETED$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/selects/SelectKt;->STATE_COMPLETED:Lkotlinx/coroutines/internal/Symbol;
@@ -297,7 +297,7 @@
 .end method
 
 .method public static final synthetic access$getSTATE_REG$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/selects/SelectKt;->STATE_REG:Lkotlinx/coroutines/internal/Symbol;
@@ -306,7 +306,7 @@
 .end method
 
 .method public static final synthetic access$tryResume(Lkotlinx/coroutines/CancellableContinuation;Lkotlin/jvm/functions/Function1;)Z
-    .locals 1
+    .registers 3
     .param p0, "$receiver"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "onCancellation"    # Lkotlin/jvm/functions/Function1;
 
@@ -319,7 +319,7 @@
 .end method
 
 .method public static final getPARAM_CLAUSE_0()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 872
     sget-object v0, Lkotlinx/coroutines/selects/SelectKt;->PARAM_CLAUSE_0:Lkotlinx/coroutines/internal/Symbol;
@@ -328,7 +328,7 @@
 .end method
 
 .method public static final select(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -382,7 +382,7 @@
 .end method
 
 .method private static final select$$forInline(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -416,7 +416,7 @@
 .end method
 
 .method private static final tryResume(Lkotlinx/coroutines/CancellableContinuation;Lkotlin/jvm/functions/Function1;)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$tryResume"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "onCancellation"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -443,7 +443,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const/4 v0, 0x0
 
@@ -451,7 +451,7 @@
 
     .line 842
     .local v0, "token":Ljava/lang/Object;
-    :cond_0
+    :cond_b
     invoke-interface {p0, v0}, Lkotlinx/coroutines/CancellableContinuation;->completeResume(Ljava/lang/Object;)V
 
     .line 843

@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
 
     .line 75
@@ -90,7 +90,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
 
     .line 75
@@ -100,7 +100,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
 
     .line 75
@@ -110,7 +110,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
 
     .line 75
@@ -120,7 +120,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
 
     .line 75
@@ -130,7 +130,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)Landroidx/recyclerview/widget/RecyclerView$Adapter;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
 
     .line 75
@@ -140,7 +140,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
 
     .line 75
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public addItem(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
-    .locals 1
+    .registers 3
     .param p1, "item"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
 
     .line 124
@@ -165,7 +165,7 @@
 .end method
 
 .method public build()Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
-    .locals 2
+    .registers 3
 
     .line 134
     new-instance v0, Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
@@ -178,7 +178,7 @@
 .end method
 
 .method public cardColor(I)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
-    .locals 0
+    .registers 2
     .param p1, "cardColor"    # I
 
     .line 109
@@ -189,7 +189,7 @@
 .end method
 
 .method public customAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
-    .locals 0
+    .registers 2
     .param p1, "customAdapter"    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     .line 129
@@ -200,7 +200,7 @@
 .end method
 
 .method public outline(Z)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
-    .locals 0
+    .registers 2
     .param p1, "outline"    # Z
 
     .line 119
@@ -211,7 +211,7 @@
 .end method
 
 .method public title(I)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
-    .locals 1
+    .registers 3
     .param p1, "titleRes"    # I
 
     .line 98
@@ -227,7 +227,7 @@
 .end method
 
 .method public title(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 92
@@ -243,7 +243,7 @@
 .end method
 
 .method public titleColor(I)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard$Builder;
-    .locals 0
+    .registers 2
     .param p1, "color"    # I
 
     .line 104

@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/selects/SelectInstance;Lkotlinx/coroutines/selects/OnTimeout;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Lkotlinx/coroutines/selects/OnTimeout$register$$inlined$Runnable$1;->$select$inlined:Lkotlinx/coroutines/selects/SelectInstance;
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .registers 5
 
     .line 17
     const/4 v0, 0x0

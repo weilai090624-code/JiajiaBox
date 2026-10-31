@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "src"    # Landroid/view/View;
 
     .line 68
@@ -104,12 +104,12 @@
 .end method
 
 .method private clearCallbacks()V
-    .locals 2
+    .registers 3
 
     .line 216
     iget-object v0, p0, Landroidx/appcompat/widget/ForwardingListener;->mTriggerLongPress:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 217
     iget-object v0, p0, Landroidx/appcompat/widget/ForwardingListener;->mSrc:Landroid/view/View;
@@ -119,10 +119,10 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     .line 220
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/appcompat/widget/ForwardingListener;->mDisallowIntercept:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 221
     iget-object v0, p0, Landroidx/appcompat/widget/ForwardingListener;->mSrc:Landroid/view/View;
@@ -132,12 +132,12 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     .line 223
-    :cond_1
+    :cond_16
     return-void
 .end method
 
 .method private onTouchForwarded(Landroid/view/MotionEvent;)Z
-    .locals 9
+    .registers 11
     .param p1, "srcEvent"    # Landroid/view/MotionEvent;
 
     .line 259
@@ -153,18 +153,18 @@
     .local v1, "popup":Landroidx/appcompat/view/menu/ShowableListMenu;
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_46
 
     invoke-interface {v1}, Landroidx/appcompat/view/menu/ShowableListMenu;->isShowing()Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_10
 
-    goto :goto_2
+    goto :goto_46
 
     .line 265
-    :cond_0
+    :cond_10
     invoke-interface {v1}, Landroidx/appcompat/view/menu/ShowableListMenu;->getListView()Landroid/widget/ListView;
 
     move-result-object v3
@@ -173,18 +173,18 @@
 
     .line 266
     .local v3, "dst":Landroidx/appcompat/widget/DropDownListView;
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_45
 
     invoke-virtual {v3}, Landroidx/appcompat/widget/DropDownListView;->isShown()Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_1f
 
-    goto :goto_1
+    goto :goto_45
 
     .line 271
-    :cond_1
+    :cond_1f
     invoke-static {p1}, Landroid/view/MotionEvent;->obtainNoHistory(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
     move-result-object v4
@@ -216,29 +216,29 @@
     .local v6, "action":I
     const/4 v7, 0x1
 
-    if-eq v6, v7, :cond_2
+    if-eq v6, v7, :cond_3e
 
     const/4 v8, 0x3
 
-    if-eq v6, v8, :cond_2
+    if-eq v6, v8, :cond_3e
 
     const/4 v8, 0x1
 
-    goto :goto_0
+    goto :goto_3f
 
-    :cond_2
+    :cond_3e
     const/4 v8, 0x0
 
     .line 284
     .local v8, "keepForwarding":Z
-    :goto_0
-    if-eqz v5, :cond_3
+    :goto_3f
+    if-eqz v5, :cond_44
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_44
 
     const/4 v2, 0x1
 
-    :cond_3
+    :cond_44
     return v2
 
     .line 267
@@ -246,19 +246,19 @@
     .end local v5    # "handled":Z
     .end local v6    # "action":I
     .end local v8    # "keepForwarding":Z
-    :cond_4
-    :goto_1
+    :cond_45
+    :goto_45
     return v2
 
     .line 262
     .end local v3    # "dst":Landroidx/appcompat/widget/DropDownListView;
-    :cond_5
-    :goto_2
+    :cond_46
+    :goto_46
     return v2
 .end method
 
 .method private onTouchObserved(Landroid/view/MotionEvent;)Z
-    .locals 7
+    .registers 9
     .param p1, "srcEvent"    # Landroid/view/MotionEvent;
 
     .line 170
@@ -272,25 +272,25 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     .line 172
     return v2
 
     .line 175
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v1
 
     .line 176
     .local v1, "actionMasked":I
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_6a
 
-    goto :goto_0
+    goto :goto_68
 
     .line 191
-    :pswitch_0
+    :pswitch_12
     iget v3, p0, Landroidx/appcompat/widget/ForwardingListener;->mActivePointerId:I
 
     invoke-virtual {p1, v3}, Landroid/view/MotionEvent;->findPointerIndex(I)I
@@ -299,7 +299,7 @@
 
     .line 192
     .local v3, "activePointerIndex":I
-    if-ltz v3, :cond_4
+    if-ltz v3, :cond_68
 
     .line 193
     invoke-virtual {p1, v3}, Landroid/view/MotionEvent;->getX(I)F
@@ -320,7 +320,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_36
 
     .line 198
     invoke-direct {p0}, Landroidx/appcompat/widget/ForwardingListener;->clearCallbacks()V
@@ -340,18 +340,18 @@
     .line 204
     .end local v4    # "x":F
     .end local v5    # "y":F
-    :cond_1
-    goto :goto_0
+    :cond_36
+    goto :goto_68
 
     .line 208
     .end local v3    # "activePointerIndex":I
-    :pswitch_1
+    :pswitch_37
     invoke-direct {p0}, Landroidx/appcompat/widget/ForwardingListener;->clearCallbacks()V
 
-    goto :goto_0
+    goto :goto_68
 
     .line 178
-    :pswitch_2
+    :pswitch_3b
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v3
@@ -361,7 +361,7 @@
     .line 180
     iget-object v3, p0, Landroidx/appcompat/widget/ForwardingListener;->mDisallowIntercept:Ljava/lang/Runnable;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_4c
 
     .line 181
     new-instance v3, Landroidx/appcompat/widget/ForwardingListener$DisallowIntercept;
@@ -371,7 +371,7 @@
     iput-object v3, p0, Landroidx/appcompat/widget/ForwardingListener;->mDisallowIntercept:Ljava/lang/Runnable;
 
     .line 183
-    :cond_2
+    :cond_4c
     iget-object v3, p0, Landroidx/appcompat/widget/ForwardingListener;->mDisallowIntercept:Ljava/lang/Runnable;
 
     iget v4, p0, Landroidx/appcompat/widget/ForwardingListener;->mTapTimeout:I
@@ -383,7 +383,7 @@
     .line 185
     iget-object v3, p0, Landroidx/appcompat/widget/ForwardingListener;->mTriggerLongPress:Ljava/lang/Runnable;
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_5f
 
     .line 186
     new-instance v3, Landroidx/appcompat/widget/ForwardingListener$TriggerLongPress;
@@ -393,7 +393,7 @@
     iput-object v3, p0, Landroidx/appcompat/widget/ForwardingListener;->mTriggerLongPress:Ljava/lang/Runnable;
 
     .line 188
-    :cond_3
+    :cond_5f
     iget-object v3, p0, Landroidx/appcompat/widget/ForwardingListener;->mTriggerLongPress:Ljava/lang/Runnable;
 
     iget v4, p0, Landroidx/appcompat/widget/ForwardingListener;->mLongPressTimeout:I
@@ -406,23 +406,23 @@
     nop
 
     .line 212
-    :cond_4
-    :goto_0
+    :cond_68
+    :goto_68
     return v2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_3b
+        :pswitch_37
+        :pswitch_12
+        :pswitch_37
     .end packed-switch
 .end method
 
 .method private static pointInView(Landroid/view/View;FFF)Z
-    .locals 2
+    .registers 6
     .param p0, "view"    # Landroid/view/View;
     .param p1, "localX"    # F
     .param p2, "localY"    # F
@@ -433,13 +433,13 @@
 
     cmpl-float v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_2a
 
     neg-float v0, p3
 
     cmpl-float v0, p2, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_2a
 
     .line 289
     invoke-virtual {p0}, Landroid/view/View;->getRight()I
@@ -458,7 +458,7 @@
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_2a
 
     .line 290
     invoke-virtual {p0}, Landroid/view/View;->getBottom()I
@@ -477,22 +477,22 @@
 
     cmpg-float v0, p2, v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_2a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_2a
     const/4 v0, 0x0
 
     .line 288
-    :goto_0
+    :goto_2b
     return v0
 .end method
 
 .method private toGlobalMotionEvent(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 
@@ -523,7 +523,7 @@
 .end method
 
 .method private toLocalMotionEvent(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 4
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 
@@ -563,7 +563,7 @@
 .end method
 
 .method protected onForwardingStarted()Z
-    .locals 2
+    .registers 3
 
     .line 139
     invoke-virtual {p0}, Landroidx/appcompat/widget/ForwardingListener;->getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
@@ -572,26 +572,26 @@
 
     .line 140
     .local v0, "popup":Landroidx/appcompat/view/menu/ShowableListMenu;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-interface {v0}, Landroidx/appcompat/view/menu/ShowableListMenu;->isShowing()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 141
     invoke-interface {v0}, Landroidx/appcompat/view/menu/ShowableListMenu;->show()V
 
     .line 143
-    :cond_0
+    :cond_f
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method protected onForwardingStopped()Z
-    .locals 2
+    .registers 3
 
     .line 156
     invoke-virtual {p0}, Landroidx/appcompat/widget/ForwardingListener;->getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
@@ -600,26 +600,26 @@
 
     .line 157
     .local v0, "popup":Landroidx/appcompat/view/menu/ShowableListMenu;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-interface {v0}, Landroidx/appcompat/view/menu/ShowableListMenu;->isShowing()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 158
     invoke-interface {v0}, Landroidx/appcompat/view/menu/ShowableListMenu;->dismiss()V
 
     .line 160
-    :cond_0
+    :cond_f
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method onLongPress()V
-    .locals 13
+    .registers 14
 
     .line 226
     invoke-direct {p0}, Landroidx/appcompat/widget/ForwardingListener;->clearCallbacks()V
@@ -633,29 +633,29 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_38
 
     invoke-virtual {v0}, Landroid/view/View;->isLongClickable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
-    goto :goto_0
+    goto :goto_38
 
     .line 235
-    :cond_0
+    :cond_12
     invoke-virtual {p0}, Landroidx/appcompat/widget/ForwardingListener;->onForwardingStarted()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_19
 
     .line 236
     return-void
 
     .line 240
-    :cond_1
+    :cond_19
     invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
@@ -703,13 +703,13 @@
     .line 232
     .end local v1    # "e":Landroid/view/MotionEvent;
     .end local v11    # "now":J
-    :cond_2
-    :goto_0
+    :cond_38
+    :goto_38
     return-void
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 16
+    .registers 19
     .param p1, "v"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 
@@ -726,62 +726,62 @@
 
     const/4 v4, 0x0
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1b
 
     .line 97
     invoke-direct {v0, v1}, Landroidx/appcompat/widget/ForwardingListener;->onTouchForwarded(Landroid/view/MotionEvent;)Z
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_19
 
     invoke-virtual/range {p0 .. p0}, Landroidx/appcompat/widget/ForwardingListener;->onForwardingStopped()Z
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_17
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_17
     const/4 v5, 0x0
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     const/4 v5, 0x1
 
     .local v5, "forwarding":Z
-    :goto_1
-    goto :goto_3
+    :goto_1a
+    goto :goto_42
 
     .line 99
     .end local v5    # "forwarding":Z
-    :cond_2
+    :cond_1b
     invoke-direct {v0, v1}, Landroidx/appcompat/widget/ForwardingListener;->onTouchObserved(Landroid/view/MotionEvent;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_29
 
     invoke-virtual/range {p0 .. p0}, Landroidx/appcompat/widget/ForwardingListener;->onForwardingStarted()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_29
 
     const/4 v5, 0x1
 
-    goto :goto_2
+    goto :goto_2a
 
-    :cond_3
+    :cond_29
     const/4 v5, 0x0
 
     .line 101
     .restart local v5    # "forwarding":Z
-    :goto_2
-    if-eqz v5, :cond_4
+    :goto_2a
+    if-eqz v5, :cond_42
 
     .line 103
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -818,27 +818,27 @@
     .line 111
     .end local v6    # "e":Landroid/view/MotionEvent;
     .end local v14    # "now":J
-    :cond_4
-    :goto_3
+    :cond_42
+    :goto_42
     iput-boolean v5, v0, Landroidx/appcompat/widget/ForwardingListener;->mForwarding:Z
 
     .line 112
-    if-nez v5, :cond_6
+    if-nez v5, :cond_4a
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_49
 
-    goto :goto_4
+    goto :goto_4a
 
-    :cond_5
+    :cond_49
     const/4 v3, 0x0
 
-    :cond_6
-    :goto_4
+    :cond_4a
+    :goto_4a
     return v3
 .end method
 
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "v"    # Landroid/view/View;
 
     .line 117
@@ -846,7 +846,7 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     .line 121
@@ -862,7 +862,7 @@
     .line 124
     iget-object v0, p0, Landroidx/appcompat/widget/ForwardingListener;->mDisallowIntercept:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 125
     iget-object v0, p0, Landroidx/appcompat/widget/ForwardingListener;->mSrc:Landroid/view/View;
@@ -872,6 +872,6 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     .line 127
-    :cond_0
+    :cond_11
     return-void
 .end method

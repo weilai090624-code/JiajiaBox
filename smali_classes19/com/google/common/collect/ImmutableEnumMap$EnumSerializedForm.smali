@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/EnumMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method readResolve()Ljava/lang/Object;
-    .locals 3
+    .registers 4
 
     .line 114
     .local p0, "this":Lcom/google/common/collect/ImmutableEnumMap$EnumSerializedForm;, "Lcom/google/common/collect/ImmutableEnumMap$EnumSerializedForm<TK;TV;>;"

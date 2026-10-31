@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/yaml/snakeyaml/representer/BaseRepresenter;)V
-    .locals 0
+    .registers 2
 
     .line 52
     iput-object p1, p0, Lorg/yaml/snakeyaml/representer/BaseRepresenter$1;->this$0:Lorg/yaml/snakeyaml/representer/BaseRepresenter;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "x0"    # Ljava/lang/Object;
     .param p2, "x1"    # Ljava/lang/Object;
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Lorg/yaml/snakeyaml/nodes/Node;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Lorg/yaml/snakeyaml/nodes/Node;
 

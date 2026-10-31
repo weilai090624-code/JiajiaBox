@@ -178,7 +178,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$CKOqfoc9I8lK3Xa2M4exE1qyq2s()J
-    .locals 2
+    .registers 2
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->shortAnimTime_delegate$lambda$9()J
 
@@ -188,7 +188,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$DT1QHt4GQUtsPGKljREPXnfJWx0(Landroid/view/View;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->needReload$lambda$10(Landroid/view/View;)V
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$FFKTu8iypU9srBTOezbycfAMUqQ()Ljava/lang/reflect/Method;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->parseNumericAddress_delegate$lambda$5()Ljava/lang/reflect/Method;
 
@@ -206,7 +206,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$JGYhihhCR8gQcuwLZE81rBvyuGw(Landroidx/fragment/app/Fragment;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->needRestart$lambda$11(Landroidx/fragment/app/Fragment;Landroid/view/View;)V
 
@@ -214,7 +214,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$UJE4g4nZZRy4ruCtmzkJk1-6938(Landroidx/recyclerview/widget/RecyclerView;I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->scrollTo$lambda$8(Landroidx/recyclerview/widget/RecyclerView;I)V
 
@@ -222,7 +222,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$ZXHNG-dynb9eKrfmk2FjocpkrD4(Landroidx/recyclerview/widget/RecyclerView;I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->scrollTo$lambda$7(Landroidx/recyclerview/widget/RecyclerView;I)V
 
@@ -230,7 +230,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$u_4wj2rCPpRq0_fhVAc4nRRfgUs()Z
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->isExpert_delegate$lambda$13()Z
 
@@ -240,7 +240,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 84
     const-class v0, Ljava/net/Socket;
@@ -307,7 +307,7 @@
 .end method
 
 .method public static final blankAsNull(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$blankAsNull"    # Ljava/lang/String;
 
     .line 63
@@ -315,41 +315,41 @@
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
     invoke-static {v0}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_f
 
-    :cond_1
-    :goto_0
+    :cond_e
+    :goto_e
     const/4 v0, 0x1
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_f
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto :goto_14
 
-    :cond_2
+    :cond_13
     move-object v0, p0
 
-    :goto_2
+    :goto_14
     return-object v0
 .end method
 
 .method public static final broadcastReceiver(Lkotlin/jvm/functions/Function2;)Landroid/content/BroadcastReceiver;
-    .locals 1
+    .registers 2
     .param p0, "callback"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -381,7 +381,7 @@
 .end method
 
 .method public static final crossFadeFrom(Landroid/view/View;Landroid/view/View;)V
-    .locals 6
+    .registers 8
     .param p0, "$this$crossFadeFrom"    # Landroid/view/View;
     .param p1, "other"    # Landroid/view/View;
 
@@ -415,20 +415,20 @@
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
     .line 206
     .end local v0    # "$this$isVisible$iv":Landroid/view/View;
     .end local v1    # "$i$f$isVisible":I
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_1d
+    if-eqz v0, :cond_2e
 
     move-object v0, p1
 
@@ -443,23 +443,23 @@
 
     const/16 v5, 0x8
 
-    if-ne v2, v5, :cond_1
+    if-ne v2, v5, :cond_2a
 
-    goto :goto_1
+    goto :goto_2b
 
-    :cond_1
+    :cond_2a
     const/4 v3, 0x0
 
     .line 206
     .end local v0    # "$this$isGone$iv":Landroid/view/View;
     .end local v1    # "$i$f$isGone":I
-    :goto_1
-    if-eqz v3, :cond_2
+    :goto_2b
+    if-eqz v3, :cond_2e
 
     return-void
 
     .line 207
-    :cond_2
+    :cond_2e
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setAlpha(F)V
@@ -515,7 +515,7 @@
 .end method
 
 .method public static final forEachTry(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)V
-    .locals 7
+    .registers 9
     .param p0, "$this$forEachTry"    # Ljava/lang/Iterable;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -552,12 +552,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -565,26 +565,26 @@
 
     .line 68
     .local v3, "element":Ljava/lang/Object;
-    :try_start_0
+    :try_start_1a
     invoke-interface {p1, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/Exception; {:try_start_1a .. :try_end_1d} :catch_1e
 
-    goto :goto_0
+    goto :goto_10
 
     .line 69
-    :catch_0
+    :catch_1e
     move-exception v4
 
     .line 70
     .local v4, "e":Ljava/lang/Exception;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_23
 
     move-object v1, v4
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_23
     move-object v5, v1
 
     check-cast v5, Ljava/lang/Throwable;
@@ -597,22 +597,22 @@
 
     .end local v3    # "element":Ljava/lang/Object;
     .end local v4    # "e":Ljava/lang/Exception;
-    goto :goto_0
+    goto :goto_10
 
     .line 72
-    :cond_1
-    if-nez v1, :cond_2
+    :cond_2d
+    if-nez v1, :cond_30
 
     .line 75
     return-void
 
     .line 73
-    :cond_2
+    :cond_30
     throw v1
 .end method
 
 .method public static final getApp()Lio/nekohasekai/sagernet/SagerNet;
-    .locals 1
+    .registers 1
 
     .line 197
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -625,7 +625,7 @@
 .end method
 
 .method public static final getColorAttr(Landroid/content/Context;I)I
-    .locals 5
+    .registers 7
     .param p0, "$this$getColorAttr"    # Landroid/content/Context;
     .param p1, "resId"    # I
 
@@ -675,7 +675,7 @@
 .end method
 
 .method public static final getColour(Landroid/content/Context;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$getColour"    # Landroid/content/Context;
     .param p1, "colorRes"    # I
 
@@ -692,7 +692,7 @@
 .end method
 
 .method public static final getFileDescriptor(Ljava/net/Socket;)Ljava/io/FileDescriptor;
-    .locals 2
+    .registers 3
     .param p0, "$this$fileDescriptor"    # Ljava/net/Socket;
 
     const-string v0, "<this>"
@@ -720,7 +720,7 @@
 .end method
 
 .method public static final getInt(Ljava/io/FileDescriptor;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$int"    # Ljava/io/FileDescriptor;
 
     const-string v0, "<this>"
@@ -752,7 +752,7 @@
 .end method
 
 .method private static final getParseNumericAddress()Ljava/lang/reflect/Method;
-    .locals 1
+    .registers 1
 
     .line 146
     sget-object v0, Lio/nekohasekai/sagernet/ktx/UtilsKt;->parseNumericAddress$delegate:Lkotlin/Lazy;
@@ -767,7 +767,7 @@
 .end method
 
 .method public static final getReadableMessage(Ljava/lang/Throwable;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "$this$readableMessage"    # Ljava/lang/Throwable;
 
     const-string v0, "<this>"
@@ -791,37 +791,37 @@
 
     check-cast v3, Ljava/lang/CharSequence;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_19
 
     invoke-static {v3}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_17
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_17
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     const/4 v3, 0x1
 
     .end local v1    # "it":Ljava/lang/String;
     .end local v2    # "$i$a$-takeIf-UtilsKt$readableMessage$1":I
-    :goto_1
-    if-nez v3, :cond_2
+    :goto_1a
+    if-nez v3, :cond_1d
 
-    goto :goto_2
+    goto :goto_1e
 
-    :cond_2
+    :cond_1d
     const/4 v0, 0x0
 
-    :goto_2
-    if-nez v0, :cond_3
+    :goto_1e
+    if-nez v0, :cond_28
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -831,12 +831,12 @@
 
     move-result-object v0
 
-    :cond_3
+    :cond_28
     return-object v0
 .end method
 
 .method public static final getShortAnimTime()J
-    .locals 2
+    .registers 2
 
     .line 199
     sget-object v0, Lio/nekohasekai/sagernet/ktx/UtilsKt;->shortAnimTime$delegate:Lkotlin/Lazy;
@@ -855,7 +855,7 @@
 .end method
 
 .method public static final getValue(Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/Object;Lkotlin/reflect/KProperty;)I
-    .locals 1
+    .registers 4
     .param p0, "$this$getValue"    # Ljava/util/concurrent/atomic/AtomicInteger;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -886,7 +886,7 @@
 .end method
 
 .method public static final getValue(Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/Object;Lkotlin/reflect/KProperty;)J
-    .locals 2
+    .registers 5
     .param p0, "$this$getValue"    # Ljava/util/concurrent/atomic/AtomicLong;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -917,7 +917,7 @@
 .end method
 
 .method public static final getValue(Ljava/util/Map;Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getValue"    # Ljava/util/Map;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -952,7 +952,7 @@
 .end method
 
 .method public static final getValue(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getValue"    # Ljava/util/concurrent/atomic/AtomicReference;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -986,7 +986,7 @@
 .end method
 
 .method public static final getValue(Lkotlin/reflect/KProperty0;Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getValue"    # Lkotlin/reflect/KProperty0;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -1020,7 +1020,7 @@
 .end method
 
 .method public static final getValue(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/lang/Object;Lkotlin/reflect/KProperty;)Z
-    .locals 1
+    .registers 4
     .param p0, "$this$getValue"    # Ljava/util/concurrent/atomic/AtomicBoolean;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -1051,7 +1051,7 @@
 .end method
 
 .method public static final isExpert()Z
-    .locals 1
+    .registers 1
 
     .line 292
     sget-object v0, Lio/nekohasekai/sagernet/ktx/UtilsKt;->isExpert$delegate:Lkotlin/Lazy;
@@ -1070,12 +1070,12 @@
 .end method
 
 .method private static final isExpert_delegate$lambda$13()Z
-    .locals 1
+    .registers 1
 
     .line 292
     sget-boolean v0, Lio/nekohasekai/sagernet/BuildConfig;->DEBUG:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
@@ -1083,25 +1083,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public static final listenForPackageChanges(Landroid/content/Context;ZLkotlin/jvm/functions/Function0;)Landroid/content/BroadcastReceiver;
-    .locals 8
+    .registers 11
     .param p0, "$this$listenForPackageChanges"    # Landroid/content/Context;
     .param p1, "onetime"    # Z
     .param p2, "callback"    # Lkotlin/jvm/functions/Function0;
@@ -1190,18 +1190,18 @@
 .end method
 
 .method public static synthetic listenForPackageChanges$default(Landroid/content/Context;ZLkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroid/content/BroadcastReceiver;
-    .locals 0
+    .registers 5
 
     .line 115
     const/4 p4, 0x1
 
     and-int/2addr p3, p4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p1, 0x1
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->listenForPackageChanges(Landroid/content/Context;ZLkotlin/jvm/functions/Function0;)Landroid/content/BroadcastReceiver;
 
     move-result-object p0
@@ -1210,7 +1210,7 @@
 .end method
 
 .method public static final needReload(Landroidx/fragment/app/Fragment;)V
-    .locals 3
+    .registers 4
     .param p0, "$this$needReload"    # Landroidx/fragment/app/Fragment;
 
     const-string v0, "<this>"
@@ -1228,7 +1228,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
     .line 245
     const v0, 0x7f1301f0
@@ -1261,12 +1261,12 @@
     invoke-virtual {v0}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
     .line 249
-    :cond_0
+    :cond_32
     return-void
 .end method
 
 .method private static final needReload$lambda$10(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0, "it"    # Landroid/view/View;
 
     .line 246
@@ -1279,7 +1279,7 @@
 .end method
 
 .method public static final needRestart(Landroidx/fragment/app/Fragment;)V
-    .locals 3
+    .registers 4
     .param p0, "$this$needRestart"    # Landroidx/fragment/app/Fragment;
 
     const-string v0, "<this>"
@@ -1311,7 +1311,7 @@
 .end method
 
 .method private static final needRestart$lambda$11(Landroidx/fragment/app/Fragment;Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p0, "$this_needRestart"    # Landroidx/fragment/app/Fragment;
     .param p1, "it"    # Landroid/view/View;
 
@@ -1331,7 +1331,7 @@
 .end method
 
 .method public static final parseNumericAddress(Ljava/lang/String;)Ljava/net/InetAddress;
-    .locals 6
+    .registers 7
     .param p0, "$this$parseNumericAddress"    # Ljava/lang/String;
 
     .line 153
@@ -1341,7 +1341,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_32
 
     sget v0, Landroid/system/OsConstants;->AF_INET6:I
 
@@ -1351,7 +1351,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .local v0, "it":Ljava/net/InetAddress;
     const/4 v2, 0x0
@@ -1362,13 +1362,13 @@
 
     const/16 v4, 0x1d
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_1a
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_1a
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getParseNumericAddress()Ljava/lang/reflect/Method;
 
     move-result-object v3
@@ -1394,7 +1394,7 @@
     check-cast v1, Ljava/net/InetAddress;
 
     .line 156
-    :goto_0
+    :goto_2f
     nop
 
     .line 153
@@ -1402,16 +1402,16 @@
     .end local v2    # "$i$a$-let-UtilsKt$parseNumericAddress$4":I
     nop
 
-    :cond_1
+    :cond_31
     move-object v0, v1
 
     .line 157
-    :cond_2
+    :cond_32
     return-object v0
 .end method
 
 .method private static final parseNumericAddress_delegate$lambda$5()Ljava/lang/reflect/Method;
-    .locals 5
+    .registers 5
 
     .line 147
     const-class v0, Ljava/net/InetAddress;
@@ -1454,64 +1454,64 @@
 .end method
 
 .method public static final parsePort(Ljava/lang/String;II)I
-    .locals 2
+    .registers 5
     .param p0, "str"    # Ljava/lang/String;
     .param p1, "default"    # I
     .param p2, "min"    # I
 
     .line 106
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     invoke-static {p0}, Lkotlin/text/StringsKt;->toIntOrNull(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move v0, p1
 
     .line 107
     .local v0, "value":I
-    :goto_0
-    if-lt v0, p2, :cond_2
+    :goto_e
+    if-lt v0, p2, :cond_18
 
     const v1, 0xffff
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_16
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_16
     move v1, v0
 
-    goto :goto_2
+    goto :goto_19
 
-    :cond_2
-    :goto_1
+    :cond_18
+    :goto_18
     move v1, p1
 
-    :goto_2
+    :goto_19
     return v1
 .end method
 
 .method public static synthetic parsePort$default(Ljava/lang/String;IIILjava/lang/Object;)I
-    .locals 0
+    .registers 5
 
     .line 105
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     const/16 p2, 0x401
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->parsePort(Ljava/lang/String;II)I
 
     move-result p0
@@ -1520,7 +1520,7 @@
 .end method
 
 .method public static final pathSafe(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "$this$pathSafe"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -1542,7 +1542,7 @@
 .end method
 
 .method public static final remove(Landroidx/preference/Preference;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$remove"    # Landroidx/preference/Preference;
 
     const-string v0, "<this>"
@@ -1564,7 +1564,7 @@
 .end method
 
 .method public static final resolveResourceId(Landroid/content/res/Resources$Theme;I)I
-    .locals 2
+    .registers 4
     .param p0, "$this$resolveResourceId"    # Landroid/content/res/Resources$Theme;
     .param p1, "resId"    # I
 
@@ -1585,7 +1585,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 135
     iget v1, v0, Landroid/util/TypedValue;->resourceId:I
@@ -1593,7 +1593,7 @@
     return v1
 
     .line 134
-    :cond_0
+    :cond_14
     new-instance v1, Landroid/content/res/Resources$NotFoundException;
 
     invoke-direct {v1}, Landroid/content/res/Resources$NotFoundException;-><init>()V
@@ -1602,7 +1602,7 @@
 .end method
 
 .method public static final scrollTo(Landroidx/recyclerview/widget/RecyclerView;IZ)V
-    .locals 3
+    .registers 6
     .param p0, "$this$scrollTo"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p1, "index"    # I
     .param p2, "force"    # Z
@@ -1612,7 +1612,7 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 178
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_f
 
     new-instance v0, Lio/nekohasekai/sagernet/ktx/UtilsKt$$ExternalSyntheticLambda4;
 
@@ -1621,7 +1621,7 @@
     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView;->post(Ljava/lang/Runnable;)Z
 
     .line 181
-    :cond_0
+    :cond_f
     new-instance v0, Lio/nekohasekai/sagernet/ktx/UtilsKt$$ExternalSyntheticLambda5;
 
     invoke-direct {v0, p0, p1}, Lio/nekohasekai/sagernet/ktx/UtilsKt$$ExternalSyntheticLambda5;-><init>(Landroidx/recyclerview/widget/RecyclerView;I)V
@@ -1639,23 +1639,23 @@
 .end method
 
 .method public static synthetic scrollTo$default(Landroidx/recyclerview/widget/RecyclerView;IZILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 177
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->scrollTo(Landroidx/recyclerview/widget/RecyclerView;IZ)V
 
     return-void
 .end method
 
 .method private static final scrollTo$lambda$7(Landroidx/recyclerview/widget/RecyclerView;I)V
-    .locals 0
+    .registers 2
     .param p0, "$this_scrollTo"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p1, "$index"    # I
 
@@ -1667,7 +1667,7 @@
 .end method
 
 .method private static final scrollTo$lambda$8(Landroidx/recyclerview/widget/RecyclerView;I)V
-    .locals 3
+    .registers 5
     .param p0, "$this_scrollTo"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p1, "$index"    # I
 
@@ -1675,12 +1675,12 @@
     nop
 
     .line 183
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getContext()Landroid/content/Context;
 
@@ -1693,23 +1693,23 @@
     check-cast v2, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller;
 
     invoke-virtual {v0, v2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->startSmoothScroll(Landroidx/recyclerview/widget/RecyclerView$SmoothScroller;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_15} :catch_16
 
-    goto :goto_0
+    goto :goto_17
 
     .line 192
-    :catch_0
+    :catch_16
     move-exception v0
 
     .line 194
-    :cond_0
-    :goto_0
+    :cond_17
+    :goto_17
     return-void
 .end method
 
 .method public static final setValue(Ljava/util/Map;Ljava/lang/Object;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "$this$setValue"    # Ljava/util/Map;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -1737,24 +1737,24 @@
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 333
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_10
 
     .line 335
     invoke-interface {p0, p1, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_13
 
     .line 339
-    :cond_0
+    :cond_10
     invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 343
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method public static final setValue(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/lang/Object;Lkotlin/reflect/KProperty;Z)V
-    .locals 1
+    .registers 5
     .param p0, "$this$setValue"    # Ljava/util/concurrent/atomic/AtomicBoolean;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -1784,7 +1784,7 @@
 .end method
 
 .method public static final setValue(Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/Object;Lkotlin/reflect/KProperty;I)V
-    .locals 1
+    .registers 5
     .param p0, "$this$setValue"    # Ljava/util/concurrent/atomic/AtomicInteger;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -1814,7 +1814,7 @@
 .end method
 
 .method public static final setValue(Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/Object;Lkotlin/reflect/KProperty;J)V
-    .locals 1
+    .registers 6
     .param p0, "$this$setValue"    # Ljava/util/concurrent/atomic/AtomicLong;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -1844,7 +1844,7 @@
 .end method
 
 .method public static final setValue(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "$this$setValue"    # Ljava/util/concurrent/atomic/AtomicReference;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -1877,7 +1877,7 @@
 .end method
 
 .method public static final setValue(Lkotlin/reflect/KMutableProperty0;Ljava/lang/Object;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "$this$setValue"    # Lkotlin/reflect/KMutableProperty0;
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
@@ -1910,7 +1910,7 @@
 .end method
 
 .method private static final shortAnimTime_delegate$lambda$9()J
-    .locals 2
+    .registers 2
 
     .line 200
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
@@ -1933,7 +1933,7 @@
 .end method
 
 .method public static final showAllowingStateLoss(Landroidx/fragment/app/DialogFragment;Landroidx/fragment/app/FragmentManager;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$showAllowingStateLoss"    # Landroidx/fragment/app/DialogFragment;
     .param p1, "fragmentManager"    # Landroidx/fragment/app/FragmentManager;
 
@@ -1956,7 +1956,7 @@
 .end method
 
 .method public static final showAllowingStateLoss(Landroidx/fragment/app/DialogFragment;Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p0, "$this$showAllowingStateLoss"    # Landroidx/fragment/app/DialogFragment;
     .param p1, "fragmentManager"    # Landroidx/fragment/app/FragmentManager;
     .param p2, "tag"    # Ljava/lang/String;
@@ -1974,35 +1974,35 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     invoke-virtual {p0, p1, p2}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
     .line 162
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public static synthetic showAllowingStateLoss$default(Landroidx/fragment/app/DialogFragment;Landroidx/fragment/app/FragmentManager;Ljava/lang/String;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 159
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 160
     const/4 p2, 0x0
 
     .line 159
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->showAllowingStateLoss(Landroidx/fragment/app/DialogFragment;Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public static final snackbar(Landroidx/fragment/app/Fragment;I)Lcom/google/android/material/snackbar/Snackbar;
-    .locals 2
+    .registers 4
     .param p0, "$this$snackbar"    # Landroidx/fragment/app/Fragment;
     .param p1, "textId"    # I
 
@@ -2029,7 +2029,7 @@
 .end method
 
 .method public static final snackbar(Landroidx/fragment/app/Fragment;Ljava/lang/CharSequence;)Lcom/google/android/material/snackbar/Snackbar;
-    .locals 2
+    .registers 4
     .param p0, "$this$snackbar"    # Landroidx/fragment/app/Fragment;
     .param p1, "text"    # Ljava/lang/CharSequence;
 
@@ -2060,7 +2060,7 @@
 .end method
 
 .method public static final startFilesForResult(Landroidx/fragment/app/Fragment;Landroidx/activity/result/ActivityResultLauncher;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p0, "$this$startFilesForResult"    # Landroidx/fragment/app/Fragment;
     .param p1, "launcher"    # Landroidx/activity/result/ActivityResultLauncher;
     .param p2, "input"    # Ljava/lang/String;
@@ -2092,26 +2092,26 @@
     nop
 
     .line 236
-    :try_start_0
+    :try_start_10
     invoke-virtual {p1, p2}, Landroidx/activity/result/ActivityResultLauncher;->launch(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_10 .. :try_end_13} :catch_16
+    .catch Ljava/lang/SecurityException; {:try_start_10 .. :try_end_13} :catch_14
 
     return-void
 
     .line 238
-    :catch_0
+    :catch_14
     move-exception v0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 237
-    :catch_1
+    :catch_16
     move-exception v0
 
     .line 240
-    :goto_0
+    :goto_17
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v0
@@ -2145,7 +2145,7 @@
 .end method
 
 .method public static final startFilesForResult(Lio/nekohasekai/sagernet/ui/ThemedActivity;Landroidx/activity/result/ActivityResultLauncher;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p0, "$this$startFilesForResult"    # Lio/nekohasekai/sagernet/ui/ThemedActivity;
     .param p1, "launcher"    # Landroidx/activity/result/ActivityResultLauncher;
     .param p2, "input"    # Ljava/lang/String;
@@ -2177,26 +2177,26 @@
     nop
 
     .line 225
-    :try_start_0
+    :try_start_10
     invoke-virtual {p1, p2}, Landroidx/activity/result/ActivityResultLauncher;->launch(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_10 .. :try_end_13} :catch_16
+    .catch Ljava/lang/SecurityException; {:try_start_10 .. :try_end_13} :catch_14
 
     return-void
 
     .line 227
-    :catch_0
+    :catch_14
     move-exception v0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 226
-    :catch_1
+    :catch_16
     move-exception v0
 
     .line 229
-    :goto_0
+    :goto_17
     const v0, 0x7f1300f7
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->getString(I)Ljava/lang/String;
@@ -2220,7 +2220,7 @@
 .end method
 
 .method public static final triggerFullRestart(Landroid/content/Context;)V
-    .locals 2
+    .registers 3
     .param p0, "ctx"    # Landroid/content/Context;
 
     const-string v0, "ctx"
@@ -2243,7 +2243,7 @@
 .end method
 
 .method public static final tryResume(Lkotlin/coroutines/Continuation;Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$tryResume"    # Lkotlin/coroutines/Continuation;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -2264,7 +2264,7 @@
     nop
 
     .line 299
-    :try_start_0
+    :try_start_6
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2272,22 +2272,22 @@
     move-result-object v0
 
     invoke-interface {p0, v0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/IllegalStateException; {:try_start_6 .. :try_end_f} :catch_10
 
-    goto :goto_0
+    goto :goto_11
 
     .line 300
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 302
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public static final tryResumeWithException(Lkotlin/coroutines/Continuation;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$tryResumeWithException"    # Lkotlin/coroutines/Continuation;
     .param p1, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
@@ -2314,7 +2314,7 @@
     nop
 
     .line 306
-    :try_start_0
+    :try_start_b
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {p1}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
@@ -2326,22 +2326,22 @@
     move-result-object v0
 
     invoke-interface {p0, v0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/lang/IllegalStateException; {:try_start_b .. :try_end_18} :catch_19
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 307
-    :catch_0
+    :catch_19
     move-exception v0
 
     .line 309
-    :goto_0
+    :goto_1a
     return-void
 .end method
 
 .method public static final unUrlSafe(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$unUrlSafe"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -2359,7 +2359,7 @@
 .end method
 
 .method public static final urlSafe(Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 8
     .param p0, "$this$urlSafe"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -2395,7 +2395,7 @@
 .end method
 
 .method public static final useCancellable(Ljava/net/HttpURLConnection;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 13
+    .registers 16
     .param p0, "$this$useCancellable"    # Ljava/net/HttpURLConnection;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -2515,12 +2515,12 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_47
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 356
-    :cond_0
+    :cond_47
     nop
 
     .line 91

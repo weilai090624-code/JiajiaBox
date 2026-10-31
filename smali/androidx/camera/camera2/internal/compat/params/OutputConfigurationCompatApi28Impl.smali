@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/Surface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -28,7 +28,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "outputConfiguration"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -47,7 +47,7 @@
 .end method
 
 .method static wrap(Landroid/hardware/camera2/params/OutputConfiguration;)Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi28Impl;
-    .locals 1
+    .registers 2
     .param p0, "outputConfiguration"    # Landroid/hardware/camera2/params/OutputConfiguration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public getMaxSharedSurfaceCount()I
-    .locals 1
+    .registers 2
 
     .line 60
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi28Impl;->getOutputConfiguration()Ljava/lang/Object;
@@ -86,7 +86,7 @@
 .end method
 
 .method public getOutputConfiguration()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 80
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi28Impl;->mObject:Ljava/lang/Object;
@@ -102,7 +102,7 @@
 .end method
 
 .method public getPhysicalCameraId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 75
     const/4 v0, 0x0
@@ -111,7 +111,7 @@
 .end method
 
 .method public removeSurface(Landroid/view/Surface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -136,7 +136,7 @@
 .end method
 
 .method public setPhysicalCameraId(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "physicalCameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

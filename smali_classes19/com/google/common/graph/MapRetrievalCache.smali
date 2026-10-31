@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,7 +73,7 @@
 .end method
 
 .method private addToCache(Lcom/google/common/graph/MapRetrievalCache$CacheEntry;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -97,7 +97,7 @@
 .end method
 
 .method private addToCache(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method clearCache()V
-    .locals 1
+    .registers 2
 
     .line 88
     .local p0, "this":Lcom/google/common/graph/MapRetrievalCache;, "Lcom/google/common/graph/MapRetrievalCache<TK;TV;>;"
@@ -140,7 +140,7 @@
 .end method
 
 .method get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,30 +164,30 @@
 
     .line 46
     .local v0, "value":Ljava/lang/Object;, "TV;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 47
     return-object v0
 
     .line 50
-    :cond_0
+    :cond_a
     invoke-virtual {p0, p1}, Lcom/google/common/graph/MapRetrievalCache;->getWithoutCaching(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 51
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 52
     invoke-direct {p0, p1, v0}, Lcom/google/common/graph/MapRetrievalCache;->addToCache(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 54
-    :cond_1
+    :cond_13
     return-object v0
 .end method
 
 .method getIfCached(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -211,22 +211,22 @@
 
     .line 63
     .local v0, "value":Ljava/lang/Object;, "TV;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 64
     return-object v0
 
     .line 72
-    :cond_0
+    :cond_7
     iget-object v1, p0, Lcom/google/common/graph/MapRetrievalCache;->cacheEntry1:Lcom/google/common/graph/MapRetrievalCache$CacheEntry;
 
     .line 73
     .local v1, "entry":Lcom/google/common/graph/MapRetrievalCache$CacheEntry;, "Lcom/google/common/graph/MapRetrievalCache$CacheEntry<TK;TV;>;"
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_12
 
     iget-object v2, v1, Lcom/google/common/graph/MapRetrievalCache$CacheEntry;->key:Ljava/lang/Object;
 
-    if-ne v2, p1, :cond_1
+    if-ne v2, p1, :cond_12
 
     .line 74
     iget-object v2, v1, Lcom/google/common/graph/MapRetrievalCache$CacheEntry;->value:Ljava/lang/Object;
@@ -234,15 +234,15 @@
     return-object v2
 
     .line 76
-    :cond_1
+    :cond_12
     iget-object v1, p0, Lcom/google/common/graph/MapRetrievalCache;->cacheEntry2:Lcom/google/common/graph/MapRetrievalCache$CacheEntry;
 
     .line 77
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_20
 
     iget-object v2, v1, Lcom/google/common/graph/MapRetrievalCache$CacheEntry;->key:Ljava/lang/Object;
 
-    if-ne v2, p1, :cond_2
+    if-ne v2, p1, :cond_20
 
     .line 80
     invoke-direct {p0, v1}, Lcom/google/common/graph/MapRetrievalCache;->addToCache(Lcom/google/common/graph/MapRetrievalCache$CacheEntry;)V
@@ -253,7 +253,7 @@
     return-object v2
 
     .line 83
-    :cond_2
+    :cond_20
     const/4 v2, 0x0
 
     return-object v2

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/util/Iterator;)V
-    .locals 0
+    .registers 2
 
     .line 467
     iput-object p1, p0, Lcom/google/common/collect/Iterators$3;->val$elements:[Ljava/util/Iterator;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 472
     iget v0, p0, Lcom/google/common/collect/Iterators$3;->index:I
@@ -56,21 +56,21 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 467
     invoke-virtual {p0}, Lcom/google/common/collect/Iterators$3;->next()Ljava/util/Iterator;
@@ -81,7 +81,7 @@
 .end method
 
 .method public next()Ljava/util/Iterator;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TI;"
@@ -93,7 +93,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 484
     iget-object v0, p0, Lcom/google/common/collect/Iterators$3;->val$elements:[Ljava/util/Iterator;
@@ -130,7 +130,7 @@
 
     .line 478
     .end local v0    # "result":Ljava/util/Iterator;, "TI;"
-    :cond_0
+    :cond_20
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

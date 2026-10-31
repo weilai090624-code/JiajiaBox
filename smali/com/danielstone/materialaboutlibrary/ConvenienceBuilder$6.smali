@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 0
+    .registers 3
 
     .line 312
     iput-object p1, p0, Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$6;->val$c:Landroid/content/Context;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onClick()V
-    .locals 4
+    .registers 5
 
     .line 316
     :try_start_0
@@ -49,14 +49,14 @@
     iget-object v1, p0, Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder$6;->val$mapIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_7} :catch_8
 
     .line 320
-    goto :goto_0
+    goto :goto_15
 
     .line 317
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 319
@@ -75,6 +75,6 @@
 
     .line 321
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_15
     return-void
 .end method

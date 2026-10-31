@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 2921
     const/16 v0, 0x7d0
@@ -43,7 +43,7 @@
 .end method
 
 .method constructor <init>(Lj$/time/temporal/TemporalField;IIILj$/time/chrono/ChronoLocalDate;)V
-    .locals 7
+    .registers 13
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "minWidth"    # I
     .param p3, "maxWidth"    # I
@@ -70,22 +70,22 @@
     .line 2938
     const/4 v0, 0x1
 
-    if-lt p2, v0, :cond_5
+    if-lt p2, v0, :cond_7f
 
     const/16 v1, 0xa
 
-    if-gt p2, v1, :cond_5
+    if-gt p2, v1, :cond_7f
 
     .line 2941
-    if-lt p3, v0, :cond_4
+    if-lt p3, v0, :cond_66
 
-    if-gt p3, v1, :cond_4
+    if-gt p3, v1, :cond_66
 
     .line 2944
-    if-lt p3, p2, :cond_3
+    if-lt p3, p2, :cond_43
 
     .line 2948
-    if-nez p5, :cond_2
+    if-nez p5, :cond_42
 
     .line 2949
     invoke-interface {p1}, Lj$/time/temporal/TemporalField;->range()Lj$/time/temporal/ValueRange;
@@ -98,7 +98,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     .line 2952
     int-to-long v0, p4
@@ -113,12 +113,12 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_32
 
-    goto :goto_0
+    goto :goto_42
 
     .line 2953
-    :cond_0
+    :cond_32
     new-instance v0, Lj$/time/DateTimeException;
 
     const-string v1, "Unable to add printer-parser as the range exceeds the capacity of an int"
@@ -128,7 +128,7 @@
     throw v0
 
     .line 2950
-    :cond_1
+    :cond_3a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The base value must be within the range of the field"
@@ -138,12 +138,12 @@
     throw v0
 
     .line 2956
-    :cond_2
-    :goto_0
+    :cond_42
+    :goto_42
     return-void
 
     .line 2945
-    :cond_3
+    :cond_43
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -179,7 +179,7 @@
     throw v0
 
     .line 2942
-    :cond_4
+    :cond_66
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -205,7 +205,7 @@
     throw v0
 
     .line 2939
-    :cond_5
+    :cond_7f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -232,7 +232,7 @@
 .end method
 
 .method private constructor <init>(Lj$/time/temporal/TemporalField;IIILj$/time/chrono/ChronoLocalDate;I)V
-    .locals 6
+    .registers 13
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "minWidth"    # I
     .param p3, "maxWidth"    # I
@@ -266,7 +266,7 @@
 .end method
 
 .method synthetic constructor <init>(Lj$/time/temporal/TemporalField;IIILj$/time/chrono/ChronoLocalDate;ILj$/time/format/DateTimeFormatterBuilder-IA;)V
-    .locals 0
+    .registers 8
 
     invoke-direct/range {p0 .. p6}, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;-><init>(Lj$/time/temporal/TemporalField;IIILj$/time/chrono/ChronoLocalDate;I)V
 
@@ -276,7 +276,7 @@
 
 # virtual methods
 .method getValue(Lj$/time/format/DateTimePrintContext;J)J
-    .locals 8
+    .registers 12
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "value"    # J
 
@@ -293,7 +293,7 @@
     .local v2, "baseValue":I
     iget-object v3, p0, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->baseDate:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1e
 
     .line 2981
     invoke-virtual {p1}, Lj$/time/format/DateTimePrintContext;->getTemporal()Lj$/time/temporal/TemporalAccessor;
@@ -320,12 +320,12 @@
 
     .line 2984
     .end local v3    # "chrono":Lj$/time/chrono/Chronology;
-    :cond_0
+    :cond_1e
     int-to-long v3, v2
 
     cmp-long v5, p2, v3
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_38
 
     int-to-long v3, v2
 
@@ -339,7 +339,7 @@
 
     cmp-long v5, p2, v3
 
-    if-gez v5, :cond_1
+    if-gez v5, :cond_38
 
     .line 2986
     sget-object v3, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->EXCEED_POINTS:[J
@@ -353,7 +353,7 @@
     return-wide v3
 
     .line 2989
-    :cond_1
+    :cond_38
     sget-object v3, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->EXCEED_POINTS:[J
 
     iget v4, p0, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->maxWidth:I
@@ -366,7 +366,7 @@
 .end method
 
 .method isFixedWidth(Lj$/time/format/DateTimeParseContext;)Z
-    .locals 1
+    .registers 3
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
 
     .line 3061
@@ -374,7 +374,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 3062
     const/4 v0, 0x0
@@ -382,7 +382,7 @@
     return v0
 
     .line 3064
-    :cond_0
+    :cond_8
     invoke-super {p0, p1}, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;->isFixedWidth(Lj$/time/format/DateTimeParseContext;)Z
 
     move-result v0
@@ -391,7 +391,7 @@
 .end method
 
 .method synthetic lambda$setValue$0$java-time-format-DateTimeFormatterBuilder$ReducedPrinterParser(Lj$/time/format/DateTimeParseContext;JIILj$/time/chrono/Chronology;)V
-    .locals 0
+    .registers 7
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "initialValue"    # J
     .param p4, "errorPos"    # I
@@ -406,7 +406,7 @@
 .end method
 
 .method setValue(Lj$/time/format/DateTimeParseContext;JII)I
-    .locals 17
+    .registers 23
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "value"    # J
     .param p4, "errorPos"    # I
@@ -421,7 +421,7 @@
     .local v0, "baseValue":I
     iget-object v1, v7, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->baseDate:Lj$/time/chrono/ChronoLocalDate;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2f
 
     .line 2996
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->getEffectiveChronology()Lj$/time/chrono/Chronology;
@@ -469,31 +469,31 @@
 
     move v0, v9
 
-    goto :goto_0
+    goto :goto_31
 
     .line 2995
     .end local v3    # "initialValue":J
     .end local v8    # "chrono":Lj$/time/chrono/Chronology;
     .end local v9    # "baseValue":I
     .restart local v0    # "baseValue":I
-    :cond_0
+    :cond_2f
     move-object/from16 v1, p1
 
     .line 3010
-    :goto_0
+    :goto_31
     sub-int v2, p5, p4
 
     .line 3011
     .local v2, "parseLen":I
     iget v3, v7, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->minWidth:I
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_58
 
     const-wide/16 v3, 0x0
 
     cmp-long v5, p2, v3
 
-    if-ltz v5, :cond_3
+    if-ltz v5, :cond_58
 
     .line 3012
     sget-object v3, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->EXCEED_POINTS:[J
@@ -516,43 +516,43 @@
 
     .line 3015
     .local v10, "basePart":J
-    if-lez v0, :cond_1
+    if-lez v0, :cond_4c
 
     .line 3016
     add-long v12, v10, p2
 
     .end local p2    # "value":J
     .local v12, "value":J
-    goto :goto_1
+    goto :goto_4e
 
     .line 3018
     .end local v12    # "value":J
     .restart local p2    # "value":J
-    :cond_1
+    :cond_4c
     sub-long v12, v10, p2
 
     .line 3020
     .end local p2    # "value":J
     .restart local v12    # "value":J
-    :goto_1
+    :goto_4e
     int-to-long v14, v0
 
     cmp-long v3, v12, v14
 
-    if-gez v3, :cond_2
+    if-gez v3, :cond_56
 
     .line 3021
     add-long/2addr v12, v4
 
     move-wide v3, v12
 
-    goto :goto_2
+    goto :goto_5a
 
     .line 3020
-    :cond_2
+    :cond_56
     move-wide v3, v12
 
-    goto :goto_2
+    goto :goto_5a
 
     .line 3024
     .end local v4    # "range":J
@@ -560,12 +560,12 @@
     .end local v10    # "basePart":J
     .end local v12    # "value":J
     .restart local p2    # "value":J
-    :cond_3
+    :cond_58
     move-wide/from16 v3, p2
 
     .end local p2    # "value":J
     .local v3, "value":J
-    :goto_2
+    :goto_5a
     iget-object v12, v7, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->field:Lj$/time/temporal/TemporalField;
 
     move-object/from16 v11, p1
@@ -584,7 +584,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 3069
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -661,7 +661,7 @@
 .end method
 
 .method bridge synthetic withFixedWidth()Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
-    .locals 1
+    .registers 2
 
     .line 2917
     invoke-virtual {p0}, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->withFixedWidth()Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;
@@ -672,20 +672,20 @@
 .end method
 
 .method withFixedWidth()Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;
-    .locals 9
+    .registers 10
 
     .line 3034
     iget v0, p0, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->subsequentWidth:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
     .line 3035
     return-object p0
 
     .line 3037
-    :cond_0
+    :cond_6
     new-instance v0, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;
 
     iget-object v3, p0, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -708,7 +708,7 @@
 .end method
 
 .method bridge synthetic withSubsequentWidth(I)Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
-    .locals 0
+    .registers 2
 
     .line 2917
     invoke-virtual {p0, p1}, Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;->withSubsequentWidth(I)Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;
@@ -719,7 +719,7 @@
 .end method
 
 .method withSubsequentWidth(I)Lj$/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;
-    .locals 8
+    .registers 10
     .param p1, "subsequentWidth"    # I
 
     .line 3048

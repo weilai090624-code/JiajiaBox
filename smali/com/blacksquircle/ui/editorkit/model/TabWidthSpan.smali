@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "width"    # I
 
     .line 23
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Ljava/lang/CharSequence;IIFIIILandroid/graphics/Paint;)V
-    .locals 1
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "start"    # I
@@ -88,7 +88,7 @@
 .end method
 
 .method public getSize(Landroid/graphics/Paint;Ljava/lang/CharSequence;IILandroid/graphics/Paint$FontMetricsInt;)I
-    .locals 2
+    .registers 8
     .param p1, "paint"    # Landroid/graphics/Paint;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "start"    # I

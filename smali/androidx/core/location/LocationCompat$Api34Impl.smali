@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 527
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getMslAltitudeAccuracyMeters(Landroid/location/Location;)F
-    .locals 1
+    .registers 2
     .param p0, "location"    # Landroid/location/Location;
 
     .line 552
@@ -38,7 +38,7 @@
 .end method
 
 .method static getMslAltitudeMeters(Landroid/location/Location;)D
-    .locals 2
+    .registers 3
     .param p0, "location"    # Landroid/location/Location;
 
     .line 532
@@ -50,7 +50,7 @@
 .end method
 
 .method static hasMslAltitude(Landroid/location/Location;)Z
-    .locals 1
+    .registers 2
     .param p0, "location"    # Landroid/location/Location;
 
     .line 542
@@ -62,7 +62,7 @@
 .end method
 
 .method static hasMslAltitudeAccuracy(Landroid/location/Location;)Z
-    .locals 1
+    .registers 2
     .param p0, "location"    # Landroid/location/Location;
 
     .line 563
@@ -74,7 +74,7 @@
 .end method
 
 .method static removeMslAltitude(Landroid/location/Location;)V
-    .locals 0
+    .registers 1
     .param p0, "location"    # Landroid/location/Location;
 
     .line 547
@@ -85,7 +85,7 @@
 .end method
 
 .method static removeMslAltitudeAccuracy(Landroid/location/Location;)V
-    .locals 0
+    .registers 1
     .param p0, "location"    # Landroid/location/Location;
 
     .line 568
@@ -96,7 +96,7 @@
 .end method
 
 .method static setMslAltitudeAccuracyMeters(Landroid/location/Location;F)V
-    .locals 0
+    .registers 2
     .param p0, "location"    # Landroid/location/Location;
     .param p1, "mslAltitudeAccuracyMeters"    # F
 
@@ -108,7 +108,7 @@
 .end method
 
 .method static setMslAltitudeMeters(Landroid/location/Location;D)V
-    .locals 0
+    .registers 3
     .param p0, "location"    # Landroid/location/Location;
     .param p1, "mslAltitudeMeters"    # D
 

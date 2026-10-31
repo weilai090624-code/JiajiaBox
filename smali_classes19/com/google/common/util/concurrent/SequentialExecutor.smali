@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 53
     const-class v0, Lcom/google/common/util/concurrent/SequentialExecutor;
@@ -63,7 +63,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 88
@@ -109,7 +109,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/util/concurrent/SequentialExecutor;)Ljava/util/Deque;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/SequentialExecutor;
 
     .line 52
@@ -119,7 +119,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/util/concurrent/SequentialExecutor;)Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/SequentialExecutor;
 
     .line 52
@@ -129,7 +129,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/google/common/util/concurrent/SequentialExecutor;Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;)Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/SequentialExecutor;
     .param p1, "x1"    # Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method static synthetic access$308(Lcom/google/common/util/concurrent/SequentialExecutor;)J
-    .locals 4
+    .registers 5
     .param p0, "x0"    # Lcom/google/common/util/concurrent/SequentialExecutor;
 
     .line 52
@@ -156,7 +156,7 @@
 .end method
 
 .method static synthetic access$400()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 1
 
     .line 52
     sget-object v0, Lcom/google/common/util/concurrent/SequentialExecutor;->log:Ljava/util/logging/Logger;
@@ -167,7 +167,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 9
+    .registers 11
     .param p1, "task"    # Ljava/lang/Runnable;
 
     .line 100
@@ -179,23 +179,23 @@
     monitor-enter v0
 
     .line 106
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->workerRunningState:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
     sget-object v2, Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;->RUNNING:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
-    if-eq v1, v2, :cond_7
+    if-eq v1, v2, :cond_7b
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->workerRunningState:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
     sget-object v2, Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;->QUEUED:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_13
 
-    goto :goto_3
+    goto :goto_7b
 
     .line 111
-    :cond_0
+    :cond_13
     iget-wide v1, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->workerRunCount:J
 
     .line 119
@@ -217,23 +217,23 @@
 
     .line 133
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_24
+    .catchall {:try_start_6 .. :try_end_24} :catchall_82
 
     .line 136
     const/4 v0, 0x1
 
     const/4 v4, 0x0
 
-    :try_start_1
+    :try_start_26
     iget-object v5, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->executor:Ljava/util/concurrent/Executor;
 
     iget-object v6, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->worker:Lcom/google/common/util/concurrent/SequentialExecutor$QueueWorker;
 
     invoke-interface {v5, v6}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/Error; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_2d
+    .catch Ljava/lang/RuntimeException; {:try_start_26 .. :try_end_2d} :catch_54
+    .catch Ljava/lang/Error; {:try_start_26 .. :try_end_2d} :catch_52
 
     .line 149
     nop
@@ -243,42 +243,42 @@
 
     sget-object v6, Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;->QUEUING:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
-    if-eq v5, v6, :cond_1
+    if-eq v5, v6, :cond_35
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_1
+    :cond_35
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_36
     move v5, v0
 
     .line 163
     .local v5, "alreadyMarkedQueued":Z
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3a
 
     .line 164
     return-void
 
     .line 166
-    :cond_2
+    :cond_3a
     iget-object v6, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->queue:Ljava/util/Deque;
 
     monitor-enter v6
 
     .line 167
-    :try_start_2
+    :try_start_3d
     iget-wide v7, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->workerRunCount:J
 
     cmp-long v0, v7, v1
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4d
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->workerRunningState:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
     sget-object v4, Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;->QUEUING:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
-    if-ne v0, v4, :cond_3
+    if-ne v0, v4, :cond_4d
 
     .line 168
     sget-object v0, Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;->QUEUED:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
@@ -286,54 +286,54 @@
     iput-object v0, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->workerRunningState:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
     .line 170
-    :cond_3
+    :cond_4d
     monitor-exit v6
 
     .line 171
     return-void
 
     .line 170
-    :catchall_0
+    :catchall_4f
     move-exception v0
 
     monitor-exit v6
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_51
+    .catchall {:try_start_3d .. :try_end_51} :catchall_4f
 
     throw v0
 
     .line 137
     .end local v5    # "alreadyMarkedQueued":Z
-    :catch_0
+    :catch_52
     move-exception v5
 
-    goto :goto_1
+    goto :goto_55
 
-    :catch_1
+    :catch_54
     move-exception v5
 
     .line 138
     .local v5, "t":Ljava/lang/Throwable;
-    :goto_1
+    :goto_55
     iget-object v6, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->queue:Ljava/util/Deque;
 
     monitor-enter v6
 
     .line 139
-    :try_start_3
+    :try_start_58
     iget-object v7, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->workerRunningState:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
     sget-object v8, Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;->IDLE:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
-    if-eq v7, v8, :cond_4
+    if-eq v7, v8, :cond_64
 
     iget-object v7, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->workerRunningState:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
     sget-object v8, Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;->QUEUING:Lcom/google/common/util/concurrent/SequentialExecutor$WorkerRunningState;
 
-    if-ne v7, v8, :cond_5
+    if-ne v7, v8, :cond_6d
 
-    :cond_4
+    :cond_64
     iget-object v7, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->queue:Ljava/util/Deque;
 
     .line 141
@@ -341,21 +341,21 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6d
 
-    goto :goto_2
+    goto :goto_6e
 
-    :cond_5
+    :cond_6d
     const/4 v0, 0x0
 
     .line 144
     .local v0, "removed":Z
-    :goto_2
+    :goto_6e
     instance-of v4, v5, Ljava/util/concurrent/RejectedExecutionException;
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_76
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_76
 
     .line 147
     .end local v0    # "removed":Z
@@ -366,7 +366,7 @@
 
     .line 145
     .restart local v0    # "removed":Z
-    :cond_6
+    :cond_76
     nop
 
     .end local v1    # "oldRunCount":J
@@ -379,12 +379,12 @@
     .restart local v1    # "oldRunCount":J
     .restart local v3    # "submittedTask":Ljava/lang/Runnable;
     .restart local p1    # "task":Ljava/lang/Runnable;
-    :catchall_1
+    :catchall_78
     move-exception v0
 
     monitor-exit v6
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_7a
+    .catchall {:try_start_58 .. :try_end_7a} :catchall_78
 
     throw v0
 
@@ -392,9 +392,9 @@
     .end local v1    # "oldRunCount":J
     .end local v3    # "submittedTask":Ljava/lang/Runnable;
     .end local v5    # "t":Ljava/lang/Throwable;
-    :cond_7
-    :goto_3
-    :try_start_4
+    :cond_7b
+    :goto_7b
+    :try_start_7b
     iget-object v1, p0, Lcom/google/common/util/concurrent/SequentialExecutor;->queue:Ljava/util/Deque;
 
     invoke-interface {v1, p1}, Ljava/util/Deque;->add(Ljava/lang/Object;)Z
@@ -405,18 +405,18 @@
     return-void
 
     .line 133
-    :catchall_2
+    :catchall_82
     move-exception v1
 
     monitor-exit v0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_84
+    .catchall {:try_start_7b .. :try_end_84} :catchall_82
 
     throw v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 265
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I

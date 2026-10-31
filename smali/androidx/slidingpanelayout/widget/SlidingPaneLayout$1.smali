@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/slidingpanelayout/widget/SlidingPaneLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/slidingpanelayout/widget/SlidingPaneLayout;
 
     .line 299
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onFoldingFeatureChange(Landroidx/window/layout/FoldingFeature;)V
-    .locals 4
+    .registers 6
     .param p1, "foldingFeature"    # Landroidx/window/layout/FoldingFeature;
 
     .line 302

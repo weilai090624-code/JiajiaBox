@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -150,7 +150,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 2
+    .registers 4
     .param p1, "other"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 71
@@ -319,7 +319,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerTreatment;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -329,7 +329,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/EdgeTreatment;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -339,7 +339,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/EdgeTreatment;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -349,7 +349,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/EdgeTreatment;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -359,7 +359,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerTreatment;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -369,7 +369,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerTreatment;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -379,7 +379,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerTreatment;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -389,7 +389,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerSize;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -399,7 +399,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerSize;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -409,7 +409,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerSize;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -419,7 +419,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerSize;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -429,7 +429,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/EdgeTreatment;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 45
@@ -439,13 +439,13 @@
 .end method
 
 .method private static compatCornerTreatmentSize(Lcom/google/android/material/shape/CornerTreatment;)F
-    .locals 1
+    .registers 2
     .param p0, "treatment"    # Lcom/google/android/material/shape/CornerTreatment;
 
     .line 448
     instance-of v0, p0, Lcom/google/android/material/shape/RoundedCornerTreatment;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 449
     move-object v0, p0
@@ -457,10 +457,10 @@
     return v0
 
     .line 450
-    :cond_0
+    :cond_a
     instance-of v0, p0, Lcom/google/android/material/shape/CutCornerTreatment;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 451
     move-object v0, p0
@@ -472,7 +472,7 @@
     return v0
 
     .line 453
-    :cond_1
+    :cond_14
     const/high16 v0, -0x40800000    # -1.0f
 
     return v0
@@ -481,7 +481,7 @@
 
 # virtual methods
 .method public build()Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 2
+    .registers 3
 
     .line 459
     new-instance v0, Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -494,7 +494,7 @@
 .end method
 
 .method public setAllCornerSizes(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 3
     .param p1, "cornerSize"    # F
 
     .line 136
@@ -522,7 +522,7 @@
 .end method
 
 .method public setAllCornerSizes(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 3
     .param p1, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
     .line 126
@@ -550,7 +550,7 @@
 .end method
 
 .method public setAllCorners(IF)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 4
     .param p1, "cornerFamily"    # I
     .param p2, "cornerSize"    # F
 
@@ -573,7 +573,7 @@
 .end method
 
 .method public setAllCorners(Lcom/google/android/material/shape/CornerTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 3
     .param p1, "cornerTreatment"    # Lcom/google/android/material/shape/CornerTreatment;
 
     .line 112
@@ -601,7 +601,7 @@
 .end method
 
 .method public setAllEdges(Lcom/google/android/material/shape/EdgeTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 3
     .param p1, "edgeTreatment"    # Lcom/google/android/material/shape/EdgeTreatment;
 
     .line 392
@@ -629,7 +629,7 @@
 .end method
 
 .method public setBottomEdge(Lcom/google/android/material/shape/EdgeTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 0
+    .registers 2
     .param p1, "bottomEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
 
     .line 442
@@ -640,7 +640,7 @@
 .end method
 
 .method public setBottomLeftCorner(IF)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 4
     .param p1, "cornerFamily"    # I
     .param p2, "cornerSize"    # F
 
@@ -663,7 +663,7 @@
 .end method
 
 .method public setBottomLeftCorner(ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 4
     .param p1, "cornerFamily"    # I
     .param p2, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
@@ -686,7 +686,7 @@
 .end method
 
 .method public setBottomLeftCorner(Lcom/google/android/material/shape/CornerTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 2
+    .registers 4
     .param p1, "bottomLeftCorner"    # Lcom/google/android/material/shape/CornerTreatment;
 
     .line 375
@@ -703,18 +703,18 @@
 
     cmpl-float v1, v0, v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 379
     invoke-virtual {p0, v0}, Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;->setBottomLeftCornerSize(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 381
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method public setBottomLeftCornerSize(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 3
     .param p1, "cornerSize"    # F
 
     .line 194
@@ -729,7 +729,7 @@
 .end method
 
 .method public setBottomLeftCornerSize(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 0
+    .registers 2
     .param p1, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
     .line 202
@@ -740,7 +740,7 @@
 .end method
 
 .method public setBottomRightCorner(IF)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 4
     .param p1, "cornerFamily"    # I
     .param p2, "cornerSize"    # F
 
@@ -763,7 +763,7 @@
 .end method
 
 .method public setBottomRightCorner(ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 4
     .param p1, "cornerFamily"    # I
     .param p2, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
@@ -786,7 +786,7 @@
 .end method
 
 .method public setBottomRightCorner(Lcom/google/android/material/shape/CornerTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 2
+    .registers 4
     .param p1, "bottomRightCorner"    # Lcom/google/android/material/shape/CornerTreatment;
 
     .line 330
@@ -803,18 +803,18 @@
 
     cmpl-float v1, v0, v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 334
     invoke-virtual {p0, v0}, Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;->setBottomRightCornerSize(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 336
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method public setBottomRightCornerSize(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 3
     .param p1, "cornerSize"    # F
 
     .line 178
@@ -829,7 +829,7 @@
 .end method
 
 .method public setBottomRightCornerSize(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 0
+    .registers 2
     .param p1, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
     .line 186
@@ -840,7 +840,7 @@
 .end method
 
 .method public setLeftEdge(Lcom/google/android/material/shape/EdgeTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 0
+    .registers 2
     .param p1, "leftEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
 
     .line 406
@@ -851,7 +851,7 @@
 .end method
 
 .method public setRightEdge(Lcom/google/android/material/shape/EdgeTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 0
+    .registers 2
     .param p1, "rightEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
 
     .line 430
@@ -862,7 +862,7 @@
 .end method
 
 .method public setTopEdge(Lcom/google/android/material/shape/EdgeTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 0
+    .registers 2
     .param p1, "topEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
 
     .line 418
@@ -873,7 +873,7 @@
 .end method
 
 .method public setTopLeftCorner(IF)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 4
     .param p1, "cornerFamily"    # I
     .param p2, "cornerSize"    # F
 
@@ -896,7 +896,7 @@
 .end method
 
 .method public setTopLeftCorner(ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 4
     .param p1, "cornerFamily"    # I
     .param p2, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
@@ -919,7 +919,7 @@
 .end method
 
 .method public setTopLeftCorner(Lcom/google/android/material/shape/CornerTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 2
+    .registers 4
     .param p1, "topLeftCorner"    # Lcom/google/android/material/shape/CornerTreatment;
 
     .line 241
@@ -936,18 +936,18 @@
 
     cmpl-float v1, v0, v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 245
     invoke-virtual {p0, v0}, Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;->setTopLeftCornerSize(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 247
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method public setTopLeftCornerSize(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 3
     .param p1, "cornerSize"    # F
 
     .line 146
@@ -962,7 +962,7 @@
 .end method
 
 .method public setTopLeftCornerSize(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 0
+    .registers 2
     .param p1, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
     .line 154
@@ -973,7 +973,7 @@
 .end method
 
 .method public setTopRightCorner(IF)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 4
     .param p1, "cornerFamily"    # I
     .param p2, "cornerSize"    # F
 
@@ -996,7 +996,7 @@
 .end method
 
 .method public setTopRightCorner(ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 4
     .param p1, "cornerFamily"    # I
     .param p2, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
@@ -1019,7 +1019,7 @@
 .end method
 
 .method public setTopRightCorner(Lcom/google/android/material/shape/CornerTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 2
+    .registers 4
     .param p1, "topRightCorner"    # Lcom/google/android/material/shape/CornerTreatment;
 
     .line 285
@@ -1036,18 +1036,18 @@
 
     cmpl-float v1, v0, v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 289
     invoke-virtual {p0, v0}, Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;->setTopRightCornerSize(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     .line 291
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method public setTopRightCornerSize(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 1
+    .registers 3
     .param p1, "cornerSize"    # F
 
     .line 162
@@ -1062,7 +1062,7 @@
 .end method
 
 .method public setTopRightCornerSize(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
-    .locals 0
+    .registers 2
     .param p1, "cornerSize"    # Lcom/google/android/material/shape/CornerSize;
 
     .line 170

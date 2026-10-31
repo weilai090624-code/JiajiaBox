@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 6
+    .registers 7
 
     const/4 v4, 0x7
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(ZZLjava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "playStore"    # Z
     .param p2, "fdroid"    # Z
     .param p3, "downloadLink"    # Ljava/lang/String;
@@ -109,38 +109,38 @@
 .end method
 
 .method public synthetic constructor <init>(ZZLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
+    .registers 7
 
     .line 49
     and-int/lit8 p5, p4, 0x1
 
     const/4 v0, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     .line 50
     const/4 p1, 0x1
 
     .line 49
-    :cond_0
+    :cond_6
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_b
 
     .line 51
     const/4 p2, 0x1
 
     .line 49
-    :cond_1
+    :cond_b
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_11
 
     .line 52
     const-string p3, "https://matsuridayo.github.io/"
 
     .line 49
-    :cond_2
+    :cond_11
     invoke-direct {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;-><init>(ZZLjava/lang/String;)V
 
     .line 53
@@ -148,29 +148,29 @@
 .end method
 
 .method public static synthetic copy$default(Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;ZZLjava/lang/String;ILjava/lang/Object;)Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;
-    .locals 0
+    .registers 6
 
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     iget-boolean p1, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->playStore:Z
 
-    :cond_0
+    :cond_6
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_c
 
     iget-boolean p2, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->fdroid:Z
 
-    :cond_1
+    :cond_c
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_12
 
     iget-object p3, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->downloadLink:Ljava/lang/String;
 
-    :cond_2
+    :cond_12
     invoke-virtual {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->copy(ZZLjava/lang/String;)Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;
 
     move-result-object p0
@@ -181,7 +181,7 @@
 
 # virtual methods
 .method public final component1()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->playStore:Z
 
@@ -189,7 +189,7 @@
 .end method
 
 .method public final component2()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->fdroid:Z
 
@@ -197,7 +197,7 @@
 .end method
 
 .method public final component3()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->downloadLink:Ljava/lang/String;
 
@@ -205,7 +205,7 @@
 .end method
 
 .method public final copy(ZZLjava/lang/String;)Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;
-    .locals 1
+    .registers 5
 
     const-string v0, "downloadLink"
 
@@ -219,24 +219,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;
@@ -245,20 +245,20 @@
 
     iget-boolean v4, v1, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->playStore:Z
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_14
 
     return v2
 
-    :cond_2
+    :cond_14
     iget-boolean v3, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->fdroid:Z
 
     iget-boolean v4, v1, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->fdroid:Z
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     return v2
 
-    :cond_3
+    :cond_1b
     iget-object v3, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->downloadLink:Ljava/lang/String;
 
     iget-object v1, v1, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->downloadLink:Ljava/lang/String;
@@ -267,16 +267,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_26
 
     return v2
 
-    :cond_4
+    :cond_26
     return v0
 .end method
 
 .method public final getDownloadLink()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->downloadLink:Ljava/lang/String;
@@ -285,7 +285,7 @@
 .end method
 
 .method public final getFdroid()Z
-    .locals 1
+    .registers 2
 
     .line 51
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->fdroid:Z
@@ -294,7 +294,7 @@
 .end method
 
 .method public final getPlayStore()Z
-    .locals 1
+    .registers 2
 
     .line 50
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->playStore:Z
@@ -303,7 +303,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;->playStore:Z
 
@@ -335,7 +335,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

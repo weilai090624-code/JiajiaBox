@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/Toolbar;)V
-    .locals 1
+    .registers 3
     .param p1, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
 
     .line 611
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public getActionBarThemedContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 639
     iget-object v0, p0, Landroidx/appcompat/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroidx/appcompat/widget/Toolbar;
@@ -70,7 +70,7 @@
 .end method
 
 .method public getThemeUpIndicator()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 634
     iget-object v0, p0, Landroidx/appcompat/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mDefaultUpIndicator:Landroid/graphics/drawable/Drawable;
@@ -79,7 +79,7 @@
 .end method
 
 .method public isNavigationVisible()Z
-    .locals 1
+    .registers 2
 
     .line 644
     const/4 v0, 0x1
@@ -88,11 +88,11 @@
 .end method
 
 .method public setActionBarDescription(I)V
-    .locals 2
+    .registers 4
     .param p1, "contentDescRes"    # I
 
     .line 625
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     .line 626
     iget-object v0, p0, Landroidx/appcompat/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroidx/appcompat/widget/Toolbar;
@@ -101,21 +101,21 @@
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/Toolbar;->setNavigationContentDescription(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 628
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/appcompat/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroidx/appcompat/widget/Toolbar;
 
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/Toolbar;->setNavigationContentDescription(I)V
 
     .line 630
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public setActionBarUpIndicator(Landroid/graphics/drawable/Drawable;I)V
-    .locals 1
+    .registers 4
     .param p1, "upDrawable"    # Landroid/graphics/drawable/Drawable;
     .param p2, "contentDescRes"    # I
 

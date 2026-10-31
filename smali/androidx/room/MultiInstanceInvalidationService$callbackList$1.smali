@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/room/MultiInstanceInvalidationService;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/room/MultiInstanceInvalidationService;
 
     iput-object p1, p0, Landroidx/room/MultiInstanceInvalidationService$callbackList$1;->this$0:Landroidx/room/MultiInstanceInvalidationService;
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public bridge synthetic onCallbackDied(Landroid/os/IInterface;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Landroid/os/IInterface;
     .param p2, "p1"    # Ljava/lang/Object;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public onCallbackDied(Landroidx/room/IMultiInstanceInvalidationCallback;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "callback"    # Landroidx/room/IMultiInstanceInvalidationCallback;
     .param p2, "cookie"    # Ljava/lang/Object;
 

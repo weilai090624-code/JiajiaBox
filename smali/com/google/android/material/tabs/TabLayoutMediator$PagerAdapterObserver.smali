@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/tabs/TabLayoutMediator;)V
-    .locals 0
+    .registers 2
 
     .line 287
     iput-object p1, p0, Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;->this$0:Lcom/google/android/material/tabs/TabLayoutMediator;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 1
+    .registers 2
 
     .line 291
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;->this$0:Lcom/google/android/material/tabs/TabLayoutMediator;
@@ -45,7 +45,7 @@
 .end method
 
 .method public onItemRangeChanged(II)V
-    .locals 1
+    .registers 4
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public onItemRangeChanged(IILjava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
     .param p3, "payload"    # Ljava/lang/Object;
@@ -74,7 +74,7 @@
 .end method
 
 .method public onItemRangeInserted(II)V
-    .locals 1
+    .registers 4
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public onItemRangeMoved(III)V
-    .locals 1
+    .registers 5
     .param p1, "fromPosition"    # I
     .param p2, "toPosition"    # I
     .param p3, "itemCount"    # I
@@ -103,7 +103,7 @@
 .end method
 
 .method public onItemRangeRemoved(II)V
-    .locals 1
+    .registers 4
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 

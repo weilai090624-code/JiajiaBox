@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/browser/customtabs/CustomTabsSessionToken;)V
-    .locals 3
+    .registers 5
     .param p1, "session"    # Landroidx/browser/customtabs/CustomTabsSessionToken;
 
     .line 53
@@ -45,7 +45,7 @@
 
     .line 55
     .local v0, "binder":Landroid/os/IBinder;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 58
     invoke-static {v0}, Landroid/support/customtabs/ICustomTabsCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/support/customtabs/ICustomTabsCallback;
@@ -58,7 +58,7 @@
     return-void
 
     .line 56
-    :cond_0
+    :cond_17
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Provided session must have binder."
@@ -69,26 +69,26 @@
 .end method
 
 .method private isBoundToService()Z
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mService:Landroid/support/customtabs/IPostMessageService;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method private notifyMessageChannelReadyInternal(Landroid/os/Bundle;)Z
-    .locals 4
+    .registers 6
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 167
@@ -96,32 +96,32 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 168
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     .line 170
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mService:Landroid/support/customtabs/IPostMessageService;
 
     iget-object v3, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mSessionBinder:Landroid/support/customtabs/ICustomTabsCallback;
 
     invoke-interface {v2, v3, p1}, Landroid/support/customtabs/IPostMessageService;->onMessageChannelReady(Landroid/support/customtabs/ICustomTabsCallback;Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_10} :catch_16
+    .catchall {:try_start_9 .. :try_end_10} :catchall_14
 
     .line 173
     nop
 
     .line 174
-    :try_start_1
+    :try_start_11
     monitor-exit v0
 
     .line 175
@@ -130,13 +130,13 @@
     return v0
 
     .line 174
-    :catchall_0
+    :catchall_14
     move-exception v1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 171
-    :catch_0
+    :catch_16
     move-exception v2
 
     .line 172
@@ -147,10 +147,10 @@
 
     .line 174
     .end local v2    # "e":Landroid/os/RemoteException;
-    :goto_0
+    :goto_19
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_11 .. :try_end_1a} :catchall_14
 
     throw v1
 .end method
@@ -158,13 +158,13 @@
 
 # virtual methods
 .method public bindSessionToPostMessageService(Landroid/content/Context;)Z
-    .locals 2
+    .registers 4
     .param p1, "appContext"    # Landroid/content/Context;
 
     .line 100
     iget-object v0, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mPackageName:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 104
     iget-object v0, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mPackageName:Ljava/lang/String;
@@ -176,7 +176,7 @@
     return v0
 
     .line 101
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "setPackageName must be called before bindSessionToPostMessageService."
@@ -187,7 +187,7 @@
 .end method
 
 .method public bindSessionToPostMessageService(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "packageName"    # Ljava/lang/String;
 
@@ -215,7 +215,7 @@
 
     .line 85
     .local v1, "success":Z
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     .line 86
     const-string v2, "PostMessageServConn"
@@ -225,12 +225,12 @@
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 88
-    :cond_0
+    :cond_1c
     return v1
 .end method
 
 .method public cleanup(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 238
@@ -238,17 +238,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {p0, p1}, Landroidx/browser/customtabs/PostMessageServiceConnection;->unbindFromContext(Landroid/content/Context;)V
 
     .line 239
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public final notifyMessageChannelReady(Landroid/os/Bundle;)Z
-    .locals 1
+    .registers 3
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 151
@@ -265,7 +265,7 @@
 .end method
 
 .method public onDisconnectChannel(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "appContext"    # Landroid/content/Context;
 
     .line 215
@@ -276,7 +276,7 @@
 .end method
 
 .method public final onNotifyMessageChannelReady(Landroid/os/Bundle;)Z
-    .locals 1
+    .registers 3
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 140
@@ -288,7 +288,7 @@
 .end method
 
 .method public final onPostMessage(Ljava/lang/String;Landroid/os/Bundle;)Z
-    .locals 1
+    .registers 4
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "extras"    # Landroid/os/Bundle;
 
@@ -301,31 +301,31 @@
 .end method
 
 .method public onPostMessageServiceConnected()V
-    .locals 1
+    .registers 2
 
     .line 222
     iget-boolean v0, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mMessageChannelCreated:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroidx/browser/customtabs/PostMessageServiceConnection;->notifyMessageChannelReadyInternal(Landroid/os/Bundle;)Z
 
     .line 223
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method public onPostMessageServiceDisconnected()V
-    .locals 0
+    .registers 1
 
     .line 228
     return-void
 .end method
 
 .method public final onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Landroid/content/ComponentName;
     .param p2, "service"    # Landroid/os/IBinder;
 
@@ -344,7 +344,7 @@
 .end method
 
 .method public final onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .line 130
@@ -360,7 +360,7 @@
 .end method
 
 .method public final postMessage(Ljava/lang/String;Landroid/os/Bundle;)Z
-    .locals 4
+    .registers 7
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "extras"    # Landroid/os/Bundle;
 
@@ -369,32 +369,32 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 199
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     .line 201
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mService:Landroid/support/customtabs/IPostMessageService;
 
     iget-object v3, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mSessionBinder:Landroid/support/customtabs/ICustomTabsCallback;
 
     invoke-interface {v2, v3, p1, p2}, Landroid/support/customtabs/IPostMessageService;->onPostMessage(Landroid/support/customtabs/ICustomTabsCallback;Ljava/lang/String;Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_10} :catch_16
+    .catchall {:try_start_9 .. :try_end_10} :catchall_14
 
     .line 204
     nop
 
     .line 205
-    :try_start_1
+    :try_start_11
     monitor-exit v0
 
     .line 206
@@ -403,13 +403,13 @@
     return v0
 
     .line 205
-    :catchall_0
+    :catchall_14
     move-exception v1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 202
-    :catch_0
+    :catch_16
     move-exception v2
 
     .line 203
@@ -420,16 +420,16 @@
 
     .line 205
     .end local v2    # "e":Landroid/os/RemoteException;
-    :goto_0
+    :goto_19
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_11 .. :try_end_1a} :catchall_14
 
     throw v1
 .end method
 
 .method public setPackageName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "packageName"    # Ljava/lang/String;
 
     .line 69
@@ -440,7 +440,7 @@
 .end method
 
 .method public unbindFromContext(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 116
@@ -448,7 +448,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 117
     invoke-virtual {p1, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
@@ -459,6 +459,6 @@
     iput-object v0, p0, Landroidx/browser/customtabs/PostMessageServiceConnection;->mService:Landroid/support/customtabs/IPostMessageService;
 
     .line 120
-    :cond_0
+    :cond_c
     return-void
 .end method

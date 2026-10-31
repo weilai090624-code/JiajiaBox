@@ -13,7 +13,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 665
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static getInstance()Landroidx/work/WorkManager;
-    .locals 3
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -34,13 +34,13 @@
 
     .line 164
     .local v0, "workManager":Landroidx/work/WorkManager;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 170
     return-object v0
 
     .line 165
-    :cond_0
+    :cond_7
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "WorkManager is not initialized properly.  The most likely cause is that you disabled WorkManagerInitializer in your manifest but forgot to call WorkManager#initialize in your Application#onCreate or a ContentProvider."
@@ -51,7 +51,7 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Landroidx/work/WorkManager;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -71,7 +71,7 @@
 .end method
 
 .method public static initialize(Landroid/content/Context;Landroidx/work/Configuration;)V
-    .locals 0
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "configuration"    # Landroidx/work/Configuration;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -93,7 +93,7 @@
 .end method
 
 .method public static isInitialized()Z
-    .locals 1
+    .registers 1
 
     .line 219
     invoke-static {}, Landroidx/work/impl/WorkManagerImpl;->isInitialized()Z
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Landroidx/work/OneTimeWorkRequest;)Landroidx/work/WorkContinuation;
-    .locals 1
+    .registers 5
     .param p1, "uniqueWorkName"    # Ljava/lang/String;
     .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
     .param p3, "work"    # Landroidx/work/OneTimeWorkRequest;
@@ -163,7 +163,7 @@
 .end method
 
 .method public final beginWith(Landroidx/work/OneTimeWorkRequest;)Landroidx/work/WorkContinuation;
-    .locals 1
+    .registers 3
     .param p1, "work"    # Landroidx/work/OneTimeWorkRequest;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -255,7 +255,7 @@
 .end method
 
 .method public final enqueue(Landroidx/work/WorkRequest;)Landroidx/work/Operation;
-    .locals 1
+    .registers 3
     .param p1, "workRequest"    # Landroidx/work/WorkRequest;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -316,7 +316,7 @@
 .end method
 
 .method public enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Landroidx/work/OneTimeWorkRequest;)Landroidx/work/Operation;
-    .locals 1
+    .registers 5
     .param p1, "uniqueWorkName"    # Ljava/lang/String;
     .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
     .param p3, "work"    # Landroidx/work/OneTimeWorkRequest;

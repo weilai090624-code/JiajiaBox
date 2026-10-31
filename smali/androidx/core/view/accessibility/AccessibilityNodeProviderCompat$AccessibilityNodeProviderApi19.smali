@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "compat"    # Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
 
     .line 44
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public createAccessibilityNodeInfo(I)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .locals 2
+    .registers 4
     .param p1, "virtualViewId"    # I
 
     .line 50
@@ -49,7 +49,7 @@
 
     .line 52
     .local v0, "compatInfo":Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 53
     const/4 v1, 0x0
@@ -57,7 +57,7 @@
     return-object v1
 
     .line 55
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v1
@@ -66,7 +66,7 @@
 .end method
 
 .method public findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
-    .locals 6
+    .registers 9
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "virtualViewId"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -90,7 +90,7 @@
 
     .line 64
     .local v0, "compatInfos":Ljava/util/List;, "Ljava/util/List<Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 65
     const/4 v1, 0x0
@@ -98,7 +98,7 @@
     return-object v1
 
     .line 67
-    :cond_0
+    :cond_a
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -114,8 +114,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_14
+    if-ge v3, v2, :cond_26
 
     .line 70
     invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -136,16 +136,16 @@
     .end local v4    # "infoCompat":Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 73
     .end local v3    # "i":I
-    :cond_1
+    :cond_26
     return-object v1
 .end method
 
 .method public findFocus(I)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .locals 2
+    .registers 4
     .param p1, "focus"    # I
 
     .line 84
@@ -157,7 +157,7 @@
 
     .line 85
     .local v0, "compatInfo":Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 86
     const/4 v1, 0x0
@@ -165,7 +165,7 @@
     return-object v1
 
     .line 88
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v1
@@ -174,7 +174,7 @@
 .end method
 
 .method public performAction(IILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
     .param p1, "virtualViewId"    # I
     .param p2, "action"    # I
     .param p3, "arguments"    # Landroid/os/Bundle;

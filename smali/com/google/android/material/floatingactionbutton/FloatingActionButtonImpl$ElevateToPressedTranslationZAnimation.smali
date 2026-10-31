@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;)V
-    .locals 1
+    .registers 3
 
     .line 899
     iput-object p1, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ElevateToPressedTranslationZAnimation;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method protected getTargetShadowSize()F
-    .locals 2
+    .registers 3
 
     .line 903
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ElevateToPressedTranslationZAnimation;->this$0:Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;

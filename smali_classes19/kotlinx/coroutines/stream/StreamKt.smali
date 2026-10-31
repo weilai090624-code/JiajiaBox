@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final consumeAsFlow(Lj$/util/stream/Stream;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "$this$consumeAsFlow"    # Lj$/util/stream/Stream;
     .annotation system Ldalvik/annotation/Signature;
         value = {

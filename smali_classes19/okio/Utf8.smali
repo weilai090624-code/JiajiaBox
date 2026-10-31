@@ -77,7 +77,7 @@
 
 # direct methods
 .method public static final isIsoControl(I)Z
-    .locals 4
+    .registers 5
     .param p0, "codePoint"    # I
 
     const/4 v0, 0x0
@@ -88,52 +88,52 @@
 
     const/4 v2, 0x0
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_b
 
     const/16 v3, 0x1f
 
-    if-gt p0, v3, :cond_0
+    if-gt p0, v3, :cond_b
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v3, 0x0
 
-    :goto_0
-    if-nez v3, :cond_3
+    :goto_c
+    if-nez v3, :cond_1d
 
     const/16 v3, 0x7f
 
-    if-gt v3, p0, :cond_1
+    if-gt v3, p0, :cond_18
 
     const/16 v3, 0x9f
 
-    if-gt p0, v3, :cond_1
+    if-gt p0, v3, :cond_18
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v3, 0x0
 
-    :goto_1
-    if-eqz v3, :cond_2
+    :goto_19
+    if-eqz v3, :cond_1c
 
-    goto :goto_2
+    goto :goto_1d
 
-    :cond_2
+    :cond_1c
     const/4 v1, 0x0
 
-    :cond_3
-    :goto_2
+    :cond_1d
+    :goto_1d
     return v1
 .end method
 
 .method public static final isUtf8Continuation(B)Z
-    .locals 4
+    .registers 5
     .param p0, "byte"    # B
 
     const/4 v0, 0x0
@@ -158,21 +158,21 @@
     .end local v3    # "$i$f$and":I
     const/16 v2, 0x80
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_d
     return v1
 .end method
 
 .method public static final process2Utf8Bytes([BIILkotlin/jvm/functions/Function1;)I
-    .locals 9
+    .registers 13
     .param p0, "$this$process2Utf8Bytes"    # [B
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
@@ -212,7 +212,7 @@
     .line 396
     const/4 v3, 0x1
 
-    if-gt p2, v1, :cond_0
+    if-gt p2, v1, :cond_1b
 
     .line 397
     invoke-interface {p3, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -221,7 +221,7 @@
     return v3
 
     .line 402
-    :cond_0
+    :cond_1b
     aget-byte v1, p0, p1
 
     .line 403
@@ -254,19 +254,19 @@
     .end local v8    # "$i$f$and":I
     const/16 v7, 0x80
 
-    if-ne v6, v7, :cond_1
+    if-ne v6, v7, :cond_2d
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     const/4 v6, 0x0
 
     .line 404
     .end local v5    # "$i$f$isUtf8Continuation":I
-    :goto_0
-    if-nez v6, :cond_2
+    :goto_2e
+    if-nez v6, :cond_34
 
     .line 405
     invoke-interface {p3, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -275,7 +275,7 @@
     return v3
 
     .line 411
-    :cond_2
+    :cond_34
     nop
 
     .line 412
@@ -298,15 +298,15 @@
     nop
 
     .line 417
-    if-ge v3, v7, :cond_3
+    if-ge v3, v7, :cond_43
 
     .line 418
     invoke-interface {p3, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 421
-    :cond_3
+    :cond_43
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -314,14 +314,14 @@
     invoke-interface {p3, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 424
-    :goto_1
+    :goto_4a
     const/4 v2, 0x2
 
     return v2
 .end method
 
 .method public static final process3Utf8Bytes([BIILkotlin/jvm/functions/Function1;)I
-    .locals 16
+    .registers 20
     .param p0, "$this$process3Utf8Bytes"    # [B
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
@@ -373,7 +373,7 @@
 
     const/4 v9, 0x2
 
-    if-gt v1, v4, :cond_3
+    if-gt v1, v4, :cond_3a
 
     .line 441
     invoke-interface {v2, v7}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -381,7 +381,7 @@
     .line 442
     add-int/lit8 v4, p1, 0x1
 
-    if-le v1, v4, :cond_2
+    if-le v1, v4, :cond_39
 
     add-int/lit8 v4, p1, 0x1
 
@@ -408,29 +408,29 @@
     .end local v10    # "other$iv$iv":I
     .end local v11    # "$this$and$iv$iv":B
     .end local v12    # "$i$f$and":I
-    if-ne v10, v5, :cond_0
+    if-ne v10, v5, :cond_35
 
     const/4 v6, 0x1
 
     .line 442
     .end local v4    # "byte$iv":B
     .end local v7    # "$i$f$isUtf8Continuation":I
-    :cond_0
-    if-nez v6, :cond_1
+    :cond_35
+    if-nez v6, :cond_38
 
-    goto :goto_0
+    goto :goto_39
 
     .line 448
-    :cond_1
+    :cond_38
     return v9
 
     .line 445
-    :cond_2
-    :goto_0
+    :cond_39
+    :goto_39
     return v8
 
     .line 452
-    :cond_3
+    :cond_3a
     aget-byte v4, v0, p1
 
     .line 453
@@ -461,19 +461,19 @@
     .end local v12    # "other$iv$iv":I
     .end local v13    # "$this$and$iv$iv":B
     .end local v14    # "$i$f$and":I
-    if-ne v12, v5, :cond_4
+    if-ne v12, v5, :cond_4a
 
     const/4 v11, 0x1
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_4
+    :cond_4a
     const/4 v11, 0x0
 
     .line 454
     .end local v11    # "$i$f$isUtf8Continuation":I
-    :goto_1
-    if-nez v11, :cond_5
+    :goto_4b
+    if-nez v11, :cond_51
 
     .line 455
     invoke-interface {v2, v7}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -482,7 +482,7 @@
     return v8
 
     .line 458
-    :cond_5
+    :cond_51
     add-int/lit8 v11, p1, 0x2
 
     aget-byte v11, v0, v11
@@ -509,19 +509,19 @@
     .end local v13    # "other$iv$iv":I
     .end local v14    # "$this$and$iv$iv":B
     .end local v15    # "$i$f$and":I
-    if-ne v13, v5, :cond_6
+    if-ne v13, v5, :cond_5f
 
     const/4 v5, 0x1
 
-    goto :goto_2
+    goto :goto_60
 
-    :cond_6
+    :cond_5f
     const/4 v5, 0x0
 
     .line 459
     .end local v12    # "$i$f$isUtf8Continuation":I
-    :goto_2
-    if-nez v5, :cond_7
+    :goto_60
+    if-nez v5, :cond_66
 
     .line 460
     invoke-interface {v2, v7}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -530,7 +530,7 @@
     return v9
 
     .line 466
-    :cond_7
+    :cond_66
     nop
 
     .line 467
@@ -563,35 +563,35 @@
     .line 473
     const/16 v9, 0x800
 
-    if-ge v5, v9, :cond_8
+    if-ge v5, v9, :cond_7c
 
     .line 474
     invoke-interface {v2, v7}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_94
 
     .line 476
-    :cond_8
+    :cond_7c
     const v9, 0xd800
 
-    if-gt v9, v5, :cond_9
+    if-gt v9, v5, :cond_87
 
     const v9, 0xdfff
 
-    if-gt v5, v9, :cond_9
+    if-gt v5, v9, :cond_87
 
     const/4 v6, 0x1
 
-    :cond_9
-    if-eqz v6, :cond_a
+    :cond_87
+    if-eqz v6, :cond_8d
 
     .line 477
     invoke-interface {v2, v7}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_94
 
     .line 480
-    :cond_a
+    :cond_8d
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
@@ -599,14 +599,14 @@
     invoke-interface {v2, v6}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 483
-    :goto_3
+    :goto_94
     const/4 v6, 0x3
 
     return v6
 .end method
 
 .method public static final process4Utf8Bytes([BIILkotlin/jvm/functions/Function1;)I
-    .locals 17
+    .registers 21
     .param p0, "$this$process4Utf8Bytes"    # [B
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
@@ -660,7 +660,7 @@
 
     const/4 v10, 0x3
 
-    if-gt v1, v4, :cond_6
+    if-gt v1, v4, :cond_52
 
     .line 501
     invoke-interface {v2, v8}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -668,7 +668,7 @@
     .line 502
     add-int/lit8 v4, p1, 0x1
 
-    if-le v1, v4, :cond_5
+    if-le v1, v4, :cond_51
 
     add-int/lit8 v4, p1, 0x1
 
@@ -695,28 +695,28 @@
     .end local v11    # "other$iv$iv":I
     .end local v12    # "$this$and$iv$iv":B
     .end local v13    # "$i$f$and":I
-    if-ne v11, v6, :cond_0
+    if-ne v11, v6, :cond_37
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_38
 
-    :cond_0
+    :cond_37
     const/4 v4, 0x0
 
     .line 502
     .end local v4    # "byte$iv":B
     .end local v8    # "$i$f$isUtf8Continuation":I
-    :goto_0
-    if-nez v4, :cond_1
+    :goto_38
+    if-nez v4, :cond_3b
 
-    goto :goto_2
+    goto :goto_51
 
     .line 506
-    :cond_1
+    :cond_3b
     add-int/lit8 v4, p1, 0x2
 
-    if-le v1, v4, :cond_4
+    if-le v1, v4, :cond_50
 
     add-int/lit8 v4, p1, 0x2
 
@@ -743,34 +743,34 @@
     .end local v11    # "other$iv$iv":I
     .end local v12    # "$this$and$iv$iv":B
     .end local v13    # "$i$f$and":I
-    if-ne v11, v6, :cond_2
+    if-ne v11, v6, :cond_4c
 
     const/4 v7, 0x1
 
     .line 506
     .end local v4    # "byte$iv":B
     .end local v8    # "$i$f$isUtf8Continuation":I
-    :cond_2
-    if-nez v7, :cond_3
+    :cond_4c
+    if-nez v7, :cond_4f
 
-    goto :goto_1
+    goto :goto_50
 
     .line 512
-    :cond_3
+    :cond_4f
     return v10
 
     .line 509
-    :cond_4
-    :goto_1
+    :cond_50
+    :goto_50
     return v5
 
     .line 505
-    :cond_5
-    :goto_2
+    :cond_51
+    :goto_51
     return v9
 
     .line 516
-    :cond_6
+    :cond_52
     aget-byte v4, v0, p1
 
     .line 517
@@ -801,19 +801,19 @@
     .end local v13    # "other$iv$iv":I
     .end local v14    # "$this$and$iv$iv":B
     .end local v15    # "$i$f$and":I
-    if-ne v13, v6, :cond_7
+    if-ne v13, v6, :cond_62
 
     const/4 v12, 0x1
 
-    goto :goto_3
+    goto :goto_63
 
-    :cond_7
+    :cond_62
     const/4 v12, 0x0
 
     .line 518
     .end local v12    # "$i$f$isUtf8Continuation":I
-    :goto_3
-    if-nez v12, :cond_8
+    :goto_63
+    if-nez v12, :cond_69
 
     .line 519
     invoke-interface {v2, v8}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -822,7 +822,7 @@
     return v9
 
     .line 522
-    :cond_8
+    :cond_69
     add-int/lit8 v12, p1, 0x2
 
     aget-byte v12, v0, v12
@@ -849,19 +849,19 @@
     .end local v14    # "other$iv$iv":I
     .end local v15    # "$this$and$iv$iv":B
     .end local v16    # "$i$f$and":I
-    if-ne v14, v6, :cond_9
+    if-ne v14, v6, :cond_78
 
     const/4 v13, 0x1
 
-    goto :goto_4
+    goto :goto_79
 
-    :cond_9
+    :cond_78
     const/4 v13, 0x0
 
     .line 523
     .end local v13    # "$i$f$isUtf8Continuation":I
-    :goto_4
-    if-nez v13, :cond_a
+    :goto_79
+    if-nez v13, :cond_7f
 
     .line 524
     invoke-interface {v2, v8}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -870,7 +870,7 @@
     return v5
 
     .line 527
-    :cond_a
+    :cond_7f
     add-int/lit8 v5, p1, 0x3
 
     aget-byte v5, v0, v5
@@ -897,19 +897,19 @@
     .end local v14    # "other$iv$iv":I
     .end local v15    # "$this$and$iv$iv":B
     .end local v16    # "$i$f$and":I
-    if-ne v14, v6, :cond_b
+    if-ne v14, v6, :cond_8e
 
     const/4 v6, 0x1
 
-    goto :goto_5
+    goto :goto_8f
 
-    :cond_b
+    :cond_8e
     const/4 v6, 0x0
 
     .line 528
     .end local v13    # "$i$f$isUtf8Continuation":I
-    :goto_5
-    if-nez v6, :cond_c
+    :goto_8f
+    if-nez v6, :cond_95
 
     .line 529
     invoke-interface {v2, v8}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -918,7 +918,7 @@
     return v10
 
     .line 535
-    :cond_c
+    :cond_95
     nop
 
     .line 536
@@ -957,46 +957,46 @@
     .line 543
     const v10, 0x10ffff
 
-    if-le v6, v10, :cond_d
+    if-le v6, v10, :cond_af
 
     .line 544
     invoke-interface {v2, v8}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_6
+    goto :goto_cf
 
     .line 546
-    :cond_d
+    :cond_af
     const v10, 0xd800
 
-    if-gt v10, v6, :cond_e
+    if-gt v10, v6, :cond_ba
 
     const v10, 0xdfff
 
-    if-gt v6, v10, :cond_e
+    if-gt v6, v10, :cond_ba
 
     const/4 v7, 0x1
 
-    :cond_e
-    if-eqz v7, :cond_f
+    :cond_ba
+    if-eqz v7, :cond_c0
 
     .line 547
     invoke-interface {v2, v8}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_6
+    goto :goto_cf
 
     .line 549
-    :cond_f
+    :cond_c0
     const/high16 v7, 0x10000
 
-    if-ge v6, v7, :cond_10
+    if-ge v6, v7, :cond_c8
 
     .line 550
     invoke-interface {v2, v8}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_6
+    goto :goto_cf
 
     .line 553
-    :cond_10
+    :cond_c8
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
@@ -1004,14 +1004,14 @@
     invoke-interface {v2, v7}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 556
-    :goto_6
+    :goto_cf
     const/4 v7, 0x4
 
     return v7
 .end method
 
 .method public static final processUtf16Chars([BIILkotlin/jvm/functions/Function1;)V
-    .locals 24
+    .registers 28
     .param p0, "$this$processUtf16Chars"    # [B
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
@@ -1049,9 +1049,9 @@
 
     .line 260
     .local v4, "index":I
-    :cond_0
-    :goto_0
-    if-ge v4, v1, :cond_2a
+    :cond_13
+    :goto_13
+    if-ge v4, v1, :cond_308
 
     .line 261
     aget-byte v5, v0, v4
@@ -1061,7 +1061,7 @@
     nop
 
     .line 263
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_38
 
     .line 265
     int-to-char v6, v5
@@ -1076,12 +1076,12 @@
     add-int/lit8 v4, v4, 0x1
 
     .line 270
-    :goto_1
-    if-ge v4, v1, :cond_0
+    :goto_24
+    if-ge v4, v1, :cond_13
 
     aget-byte v6, v0, v4
 
-    if-ltz v6, :cond_0
+    if-ltz v6, :cond_13
 
     .line 271
     add-int/lit8 v6, v4, 0x1
@@ -1100,12 +1100,12 @@
 
     move v4, v6
 
-    goto :goto_1
+    goto :goto_24
 
     .line 274
     .end local v6    # "index":I
     .restart local v4    # "index":I
-    :cond_1
+    :cond_38
     const/4 v6, 0x5
 
     .local v6, "other$iv":I
@@ -1126,7 +1126,7 @@
 
     const/16 v8, 0x80
 
-    if-ne v6, v7, :cond_6
+    if-ne v6, v7, :cond_9f
 
     .line 276
     move-object/from16 v6, p0
@@ -1138,7 +1138,7 @@
     .local v7, "$i$f$process2Utf8Bytes":I
     add-int/lit8 v12, v4, 0x1
 
-    if-gt v1, v12, :cond_2
+    if-gt v1, v12, :cond_59
 
     .line 704
     const v8, 0xfffd
@@ -1163,10 +1163,10 @@
     .end local v9    # "$i$a$-process2Utf8Bytes-Utf8$processUtf16Chars$1":I
     const/4 v9, 0x1
 
-    goto :goto_4
+    goto :goto_9c
 
     .line 709
-    :cond_2
+    :cond_59
     aget-byte v12, v6, v4
 
     .line 710
@@ -1197,19 +1197,19 @@
     .end local v15    # "other$iv$iv$iv":I
     .end local v16    # "$this$and$iv$iv$iv":B
     .end local v17    # "$i$f$and":I
-    if-ne v15, v8, :cond_3
+    if-ne v15, v8, :cond_6c
 
     const/4 v10, 0x1
 
-    goto :goto_2
+    goto :goto_6d
 
-    :cond_3
+    :cond_6c
     const/4 v10, 0x0
 
     .line 711
     .end local v14    # "$i$f$isUtf8Continuation":I
-    :goto_2
-    if-nez v10, :cond_4
+    :goto_6d
+    if-nez v10, :cond_7f
 
     .line 714
     const v8, 0xfffd
@@ -1234,10 +1234,10 @@
     .end local v9    # "$i$a$-process2Utf8Bytes-Utf8$processUtf16Chars$1":I
     const/4 v9, 0x1
 
-    goto :goto_4
+    goto :goto_9c
 
     .line 720
-    :cond_4
+    :cond_7f
     nop
 
     .line 721
@@ -1260,7 +1260,7 @@
     nop
 
     .line 726
-    if-ge v10, v8, :cond_5
+    if-ge v10, v8, :cond_8f
 
     .line 727
     const v8, 0xfffd
@@ -1269,12 +1269,12 @@
     const/4 v11, 0x0
 
     .local v11, "$i$a$-process2Utf8Bytes-Utf8$processUtf16Chars$1":I
-    goto :goto_3
+    goto :goto_91
 
     .line 730
     .end local v8    # "it":I
     .end local v11    # "$i$a$-process2Utf8Bytes-Utf8$processUtf16Chars$1":I
-    :cond_5
+    :cond_8f
     move v8, v10
 
     .restart local v8    # "it":I
@@ -1282,7 +1282,7 @@
 
     .line 276
     .restart local v11    # "$i$a$-process2Utf8Bytes-Utf8$processUtf16Chars$1":I
-    :goto_3
+    :goto_91
     int-to-char v14, v8
 
     invoke-static {v14}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -1304,13 +1304,13 @@
     .end local v10    # "codePoint$iv":I
     .end local v12    # "b0$iv":B
     .end local v13    # "b1$iv":B
-    :goto_4
+    :goto_9c
     add-int/2addr v4, v9
 
-    goto/16 :goto_0
+    goto/16 :goto_13
 
     .line 278
-    :cond_6
+    :cond_9f
     const/4 v6, 0x4
 
     .local v6, "other$iv":I
@@ -1331,7 +1331,7 @@
 
     const v13, 0xd800
 
-    if-ne v6, v7, :cond_12
+    if-ne v6, v7, :cond_160
 
     .line 280
     move-object/from16 v6, p0
@@ -1343,7 +1343,7 @@
     .local v7, "$i$f$process3Utf8Bytes":I
     add-int/lit8 v15, v4, 0x2
 
-    if-gt v1, v15, :cond_a
+    if-gt v1, v15, :cond_de
 
     .line 737
     const v12, 0xfffd
@@ -1368,7 +1368,7 @@
     .end local v13    # "$i$a$-process3Utf8Bytes-Utf8$processUtf16Chars$2":I
     add-int/lit8 v12, v4, 0x1
 
-    if-le v1, v12, :cond_9
+    if-le v1, v12, :cond_db
 
     add-int/lit8 v12, v4, 0x1
 
@@ -1395,38 +1395,38 @@
     .end local v14    # "other$iv$iv$iv":I
     .end local v15    # "$this$and$iv$iv$iv":B
     .end local v16    # "$i$f$and":I
-    if-ne v14, v8, :cond_7
+    if-ne v14, v8, :cond_d4
 
     const/4 v10, 0x1
 
-    goto :goto_5
+    goto :goto_d5
 
-    :cond_7
+    :cond_d4
     const/4 v10, 0x0
 
     .line 738
     .end local v12    # "byte$iv$iv":B
     .end local v13    # "$i$f$isUtf8Continuation":I
-    :goto_5
-    if-nez v10, :cond_8
+    :goto_d5
+    if-nez v10, :cond_d8
 
-    goto :goto_6
+    goto :goto_db
 
     .line 744
-    :cond_8
+    :cond_d8
     const/4 v9, 0x2
 
-    goto/16 :goto_c
+    goto/16 :goto_15d
 
     .line 741
-    :cond_9
-    :goto_6
+    :cond_db
+    :goto_db
     const/4 v9, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_15d
 
     .line 748
-    :cond_a
+    :cond_de
     aget-byte v15, v6, v4
 
     .line 749
@@ -1457,19 +1457,19 @@
     .end local v18    # "other$iv$iv$iv":I
     .end local v19    # "$this$and$iv$iv$iv":B
     .end local v20    # "$i$f$and":I
-    if-ne v9, v8, :cond_b
+    if-ne v9, v8, :cond_f2
 
     const/4 v9, 0x1
 
-    goto :goto_7
+    goto :goto_f3
 
-    :cond_b
+    :cond_f2
     const/4 v9, 0x0
 
     .line 750
     .end local v17    # "$i$f$isUtf8Continuation":I
-    :goto_7
-    if-nez v9, :cond_c
+    :goto_f3
+    if-nez v9, :cond_105
 
     .line 752
     const v8, 0xfffd
@@ -1494,10 +1494,10 @@
     .end local v9    # "$i$a$-process3Utf8Bytes-Utf8$processUtf16Chars$2":I
     const/4 v9, 0x1
 
-    goto :goto_c
+    goto :goto_15d
 
     .line 755
-    :cond_c
+    :cond_105
     add-int/lit8 v9, v4, 0x2
 
     aget-byte v9, v6, v9
@@ -1524,19 +1524,19 @@
     .end local v18    # "other$iv$iv$iv":I
     .end local v19    # "$this$and$iv$iv$iv":B
     .end local v20    # "$i$f$and":I
-    if-ne v10, v8, :cond_d
+    if-ne v10, v8, :cond_117
 
     const/4 v8, 0x1
 
-    goto :goto_8
+    goto :goto_118
 
-    :cond_d
+    :cond_117
     const/4 v8, 0x0
 
     .line 756
     .end local v17    # "$i$f$isUtf8Continuation":I
-    :goto_8
-    if-nez v8, :cond_e
+    :goto_118
+    if-nez v8, :cond_12a
 
     .line 758
     const v8, 0xfffd
@@ -1561,10 +1561,10 @@
     .end local v10    # "$i$a$-process3Utf8Bytes-Utf8$processUtf16Chars$2":I
     const/4 v9, 0x2
 
-    goto :goto_c
+    goto :goto_15d
 
     .line 764
-    :cond_e
+    :cond_12a
     nop
 
     .line 765
@@ -1597,7 +1597,7 @@
     .line 771
     const/16 v10, 0x800
 
-    if-ge v8, v10, :cond_f
+    if-ge v8, v10, :cond_14b
 
     .line 772
     const v10, 0xfffd
@@ -1607,7 +1607,7 @@
 
     .line 280
     .local v11, "$i$a$-process3Utf8Bytes-Utf8$processUtf16Chars$2":I
-    :goto_9
+    :goto_140
     int-to-char v12, v10
 
     invoke-static {v12}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -1620,23 +1620,23 @@
 
     .end local v10    # "it":I
     .end local v11    # "$i$a$-process3Utf8Bytes-Utf8$processUtf16Chars$2":I
-    goto :goto_b
+    goto :goto_15c
 
     .line 774
-    :cond_f
-    if-gt v13, v8, :cond_10
+    :cond_14b
+    if-gt v13, v8, :cond_151
 
-    if-gt v8, v12, :cond_10
+    if-gt v8, v12, :cond_151
 
     const/4 v10, 0x1
 
-    goto :goto_a
+    goto :goto_152
 
-    :cond_10
+    :cond_151
     const/4 v10, 0x0
 
-    :goto_a
-    if-eqz v10, :cond_11
+    :goto_152
+    if-eqz v10, :cond_159
 
     .line 775
     const v10, 0xfffd
@@ -1645,24 +1645,24 @@
     const/4 v11, 0x0
 
     .restart local v11    # "$i$a$-process3Utf8Bytes-Utf8$processUtf16Chars$2":I
-    goto :goto_9
+    goto :goto_140
 
     .line 778
     .end local v10    # "it":I
     .end local v11    # "$i$a$-process3Utf8Bytes-Utf8$processUtf16Chars$2":I
-    :cond_11
+    :cond_159
     move v10, v8
 
     .restart local v10    # "it":I
     const/4 v11, 0x0
 
     .restart local v11    # "$i$a$-process3Utf8Bytes-Utf8$processUtf16Chars$2":I
-    goto :goto_9
+    goto :goto_140
 
     .line 781
     .end local v10    # "it":I
     .end local v11    # "$i$a$-process3Utf8Bytes-Utf8$processUtf16Chars$2":I
-    :goto_b
+    :goto_15c
     const/4 v9, 0x3
 
     .line 280
@@ -1672,13 +1672,13 @@
     .end local v9    # "b2$iv":B
     .end local v15    # "b0$iv":B
     .end local v16    # "b1$iv":B
-    :goto_c
+    :goto_15d
     add-int/2addr v4, v9
 
-    goto/16 :goto_0
+    goto/16 :goto_13
 
     .line 282
-    :cond_12
+    :cond_160
     const/4 v6, 0x3
 
     .local v6, "other$iv":I
@@ -1697,7 +1697,7 @@
     .end local v10    # "$i$f$shr":I
     const v9, 0xfffd
 
-    if-ne v6, v7, :cond_29
+    if-ne v6, v7, :cond_2fd
 
     .line 284
     move-object/from16 v6, p0
@@ -1713,7 +1713,7 @@
 
     const v16, 0xd7c0
 
-    if-gt v1, v10, :cond_1a
+    if-gt v1, v10, :cond_1d4
 
     .line 785
     const v10, 0xfffd
@@ -1723,7 +1723,7 @@
 
     .line 285
     .local v12, "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    if-eq v10, v9, :cond_13
+    if-eq v10, v9, :cond_195
 
     .line 290
     ushr-int/lit8 v9, v10, 0xa
@@ -1751,10 +1751,10 @@
 
     invoke-interface {v2, v9}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_d
+    goto :goto_19c
 
     .line 294
-    :cond_13
+    :cond_195
     invoke-static {v9}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v9
@@ -1762,7 +1762,7 @@
     invoke-interface {v2, v9}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 296
-    :goto_d
+    :goto_19c
     nop
 
     .end local v10    # "codePoint":I
@@ -1772,7 +1772,7 @@
     .line 786
     add-int/lit8 v9, v4, 0x1
 
-    if-le v1, v9, :cond_19
+    if-le v1, v9, :cond_1d1
 
     add-int/lit8 v9, v4, 0x1
 
@@ -1799,28 +1799,28 @@
     .end local v12    # "other$iv$iv$iv":I
     .end local v13    # "$this$and$iv$iv$iv":B
     .end local v15    # "$i$f$and":I
-    if-ne v12, v8, :cond_14
+    if-ne v12, v8, :cond_1b1
 
     const/4 v9, 0x1
 
-    goto :goto_e
+    goto :goto_1b2
 
-    :cond_14
+    :cond_1b1
     const/4 v9, 0x0
 
     .line 786
     .end local v9    # "byte$iv$iv":B
     .end local v10    # "$i$f$isUtf8Continuation":I
-    :goto_e
-    if-nez v9, :cond_15
+    :goto_1b2
+    if-nez v9, :cond_1b5
 
-    goto :goto_11
+    goto :goto_1d1
 
     .line 790
-    :cond_15
+    :cond_1b5
     add-int/lit8 v9, v4, 0x2
 
-    if-le v1, v9, :cond_18
+    if-le v1, v9, :cond_1ce
 
     add-int/lit8 v9, v4, 0x2
 
@@ -1847,45 +1847,45 @@
     .end local v12    # "other$iv$iv$iv":I
     .end local v13    # "$this$and$iv$iv$iv":B
     .end local v15    # "$i$f$and":I
-    if-ne v12, v8, :cond_16
+    if-ne v12, v8, :cond_1c7
 
     const/4 v10, 0x1
 
-    goto :goto_f
+    goto :goto_1c8
 
-    :cond_16
+    :cond_1c7
     const/4 v10, 0x0
 
     .line 790
     .end local v9    # "byte$iv$iv":B
     .end local v10    # "$i$f$isUtf8Continuation":I
-    :goto_f
-    if-nez v10, :cond_17
+    :goto_1c8
+    if-nez v10, :cond_1cb
 
-    goto :goto_10
+    goto :goto_1ce
 
     .line 795
-    :cond_17
+    :cond_1cb
     const/4 v9, 0x3
 
-    goto/16 :goto_1c
+    goto/16 :goto_2fa
 
     .line 792
-    :cond_18
-    :goto_10
+    :cond_1ce
+    :goto_1ce
     const/4 v9, 0x2
 
-    goto/16 :goto_1c
+    goto/16 :goto_2fa
 
     .line 789
-    :cond_19
-    :goto_11
+    :cond_1d1
+    :goto_1d1
     const/4 v9, 0x1
 
-    goto/16 :goto_1c
+    goto/16 :goto_2fa
 
     .line 799
-    :cond_1a
+    :cond_1d4
     aget-byte v10, v6, v4
 
     .line 800
@@ -1916,19 +1916,19 @@
     .end local v19    # "other$iv$iv$iv":I
     .end local v20    # "$this$and$iv$iv$iv":B
     .end local v23    # "$i$f$and":I
-    if-ne v11, v8, :cond_1b
+    if-ne v11, v8, :cond_1e8
 
     const/4 v11, 0x1
 
-    goto :goto_12
+    goto :goto_1e9
 
-    :cond_1b
+    :cond_1e8
     const/4 v11, 0x0
 
     .line 801
     .end local v18    # "$i$f$isUtf8Continuation":I
-    :goto_12
-    if-nez v11, :cond_1d
+    :goto_1e9
+    if-nez v11, :cond_216
 
     .line 803
     const v8, 0xfffd
@@ -1938,7 +1938,7 @@
 
     .line 285
     .local v11, "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    if-eq v8, v9, :cond_1c
+    if-eq v8, v9, :cond_209
 
     .line 290
     ushr-int/lit8 v9, v8, 0xa
@@ -1966,10 +1966,10 @@
 
     invoke-interface {v2, v9}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_13
+    goto :goto_210
 
     .line 294
-    :cond_1c
+    :cond_209
     invoke-static {v9}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v9
@@ -1977,7 +1977,7 @@
     invoke-interface {v2, v9}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 296
-    :goto_13
+    :goto_210
     nop
 
     .end local v8    # "codePoint":I
@@ -1987,10 +1987,10 @@
     .line 804
     const/4 v9, 0x1
 
-    goto/16 :goto_1c
+    goto/16 :goto_2fa
 
     .line 806
-    :cond_1d
+    :cond_216
     add-int/lit8 v11, v4, 0x2
 
     aget-byte v11, v6, v11
@@ -2017,19 +2017,19 @@
     .end local v19    # "other$iv$iv$iv":I
     .end local v20    # "$this$and$iv$iv$iv":B
     .end local v23    # "$i$f$and":I
-    if-ne v14, v8, :cond_1e
+    if-ne v14, v8, :cond_228
 
     const/4 v14, 0x1
 
-    goto :goto_14
+    goto :goto_229
 
-    :cond_1e
+    :cond_228
     const/4 v14, 0x0
 
     .line 807
     .end local v18    # "$i$f$isUtf8Continuation":I
-    :goto_14
-    if-nez v14, :cond_20
+    :goto_229
+    if-nez v14, :cond_256
 
     .line 809
     const v8, 0xfffd
@@ -2039,7 +2039,7 @@
 
     .line 285
     .local v12, "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    if-eq v8, v9, :cond_1f
+    if-eq v8, v9, :cond_249
 
     .line 290
     ushr-int/lit8 v9, v8, 0xa
@@ -2067,10 +2067,10 @@
 
     invoke-interface {v2, v9}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_15
+    goto :goto_250
 
     .line 294
-    :cond_1f
+    :cond_249
     invoke-static {v9}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v9
@@ -2078,7 +2078,7 @@
     invoke-interface {v2, v9}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 296
-    :goto_15
+    :goto_250
     nop
 
     .end local v8    # "codePoint":I
@@ -2088,10 +2088,10 @@
     .line 810
     const/4 v9, 0x2
 
-    goto/16 :goto_1c
+    goto/16 :goto_2fa
 
     .line 812
-    :cond_20
+    :cond_256
     add-int/lit8 v14, v4, 0x3
 
     aget-byte v14, v6, v14
@@ -2118,19 +2118,19 @@
     .end local v19    # "other$iv$iv$iv":I
     .end local v20    # "$this$and$iv$iv$iv":B
     .end local v21    # "$i$f$and":I
-    if-ne v12, v8, :cond_21
+    if-ne v12, v8, :cond_268
 
     const/4 v8, 0x1
 
-    goto :goto_16
+    goto :goto_269
 
-    :cond_21
+    :cond_268
     const/4 v8, 0x0
 
     .line 813
     .end local v18    # "$i$f$isUtf8Continuation":I
-    :goto_16
-    if-nez v8, :cond_23
+    :goto_269
+    if-nez v8, :cond_295
 
     .line 815
     const v8, 0xfffd
@@ -2140,7 +2140,7 @@
 
     .line 285
     .restart local v12    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    if-eq v8, v9, :cond_22
+    if-eq v8, v9, :cond_289
 
     .line 290
     ushr-int/lit8 v9, v8, 0xa
@@ -2168,10 +2168,10 @@
 
     invoke-interface {v2, v9}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_17
+    goto :goto_290
 
     .line 294
-    :cond_22
+    :cond_289
     invoke-static {v9}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v9
@@ -2179,7 +2179,7 @@
     invoke-interface {v2, v9}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 296
-    :goto_17
+    :goto_290
     nop
 
     .end local v8    # "codePoint":I
@@ -2189,10 +2189,10 @@
     .line 816
     const/4 v9, 0x3
 
-    goto :goto_1c
+    goto :goto_2fa
 
     .line 821
-    :cond_23
+    :cond_295
     nop
 
     .line 822
@@ -2231,7 +2231,7 @@
     .line 829
     const v12, 0x10ffff
 
-    if-le v8, v12, :cond_25
+    if-le v8, v12, :cond_2d4
 
     .line 830
     const v12, 0xfffd
@@ -2241,10 +2241,10 @@
 
     .line 285
     .local v13, "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    if-eq v12, v9, :cond_24
+    if-eq v12, v9, :cond_2c9
 
     .line 290
-    :goto_18
+    :goto_2b1
     ushr-int/lit8 v9, v12, 0xa
 
     add-int v9, v9, v16
@@ -2270,10 +2270,10 @@
 
     invoke-interface {v2, v9}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_19
+    goto :goto_2d0
 
     .line 294
-    :cond_24
+    :cond_2c9
     invoke-static {v9}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v9
@@ -2281,32 +2281,32 @@
     invoke-interface {v2, v9}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 296
-    :goto_19
+    :goto_2d0
     nop
 
     .end local v12    # "codePoint":I
     .end local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
     sget-object v9, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_1b
+    goto :goto_2f9
 
     .line 832
-    :cond_25
-    if-gt v13, v8, :cond_26
+    :cond_2d4
+    if-gt v13, v8, :cond_2de
 
     const v12, 0xdfff
 
-    if-gt v8, v12, :cond_26
+    if-gt v8, v12, :cond_2de
 
     const/16 v22, 0x1
 
-    goto :goto_1a
+    goto :goto_2e0
 
-    :cond_26
+    :cond_2de
     const/16 v22, 0x0
 
-    :goto_1a
-    if-eqz v22, :cond_27
+    :goto_2e0
+    if-eqz v22, :cond_2e9
 
     .line 833
     const v12, 0xfffd
@@ -2316,18 +2316,18 @@
 
     .line 285
     .restart local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    if-eq v12, v9, :cond_24
+    if-eq v12, v9, :cond_2c9
 
     .line 290
-    goto :goto_18
+    goto :goto_2b1
 
     .line 835
     .end local v12    # "codePoint":I
     .end local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    :cond_27
+    :cond_2e9
     const/high16 v12, 0x10000
 
-    if-ge v8, v12, :cond_28
+    if-ge v8, v12, :cond_2f4
 
     .line 836
     const v12, 0xfffd
@@ -2337,15 +2337,15 @@
 
     .line 285
     .restart local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    if-eq v12, v9, :cond_24
+    if-eq v12, v9, :cond_2c9
 
     .line 290
-    goto :goto_18
+    goto :goto_2b1
 
     .line 839
     .end local v12    # "codePoint":I
     .end local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    :cond_28
+    :cond_2f4
     move v12, v8
 
     .restart local v12    # "codePoint":I
@@ -2353,15 +2353,15 @@
 
     .line 285
     .restart local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    if-eq v12, v9, :cond_24
+    if-eq v12, v9, :cond_2c9
 
     .line 290
-    goto :goto_18
+    goto :goto_2b1
 
     .line 842
     .end local v12    # "codePoint":I
     .end local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf16Chars$3":I
-    :goto_1b
+    :goto_2f9
     const/4 v9, 0x4
 
     .line 284
@@ -2372,13 +2372,13 @@
     .end local v11    # "b2$iv":B
     .end local v14    # "b3$iv":B
     .end local v17    # "b1$iv":B
-    :goto_1c
+    :goto_2fa
     add-int/2addr v4, v9
 
-    goto/16 :goto_0
+    goto/16 :goto_13
 
     .line 301
-    :cond_29
+    :cond_2fd
     invoke-static {v9}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v6
@@ -2388,16 +2388,16 @@
     .line 302
     add-int/lit8 v4, v4, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_13
 
     .line 306
     .end local v5    # "b0":B
-    :cond_2a
+    :cond_308
     return-void
 .end method
 
 .method public static final processUtf8Bytes(Ljava/lang/String;IILkotlin/jvm/functions/Function1;)V
-    .locals 10
+    .registers 14
     .param p0, "$this$processUtf8Bytes"    # Ljava/lang/String;
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
@@ -2431,9 +2431,9 @@
 
     .line 139
     .local v1, "index":I
-    :cond_0
-    :goto_0
-    if-ge v1, p2, :cond_8
+    :cond_c
+    :goto_c
+    if-ge v1, p2, :cond_109
 
     .line 140
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -2451,7 +2451,7 @@
 
     move-result v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_41
 
     .line 145
     int-to-byte v4, v2
@@ -2466,8 +2466,8 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 149
-    :goto_1
-    if-ge v1, p2, :cond_0
+    :goto_25
+    if-ge v1, p2, :cond_c
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
@@ -2477,7 +2477,7 @@
 
     move-result v4
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_c
 
     .line 150
     add-int/lit8 v4, v1, 0x1
@@ -2498,19 +2498,19 @@
 
     move v1, v4
 
-    goto :goto_1
+    goto :goto_25
 
     .line 154
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_1
+    :cond_41
     const/16 v4, 0x800
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->compare(II)I
 
     move-result v4
 
-    if-gez v4, :cond_2
+    if-gez v4, :cond_63
 
     .line 157
     shr-int/lit8 v4, v2, 0x6
@@ -2541,10 +2541,10 @@
     .line 160
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 163
-    :cond_2
+    :cond_63
     const v4, 0xd800
 
     const v5, 0xdfff
@@ -2553,21 +2553,21 @@
 
     const/4 v7, 0x1
 
-    if-gt v4, v2, :cond_3
+    if-gt v4, v2, :cond_71
 
-    if-gt v2, v5, :cond_3
+    if-gt v2, v5, :cond_71
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_72
 
-    :cond_3
+    :cond_71
     const/4 v4, 0x0
 
-    :goto_2
+    :goto_72
     const/16 v8, 0x3f
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_9d
 
     .line 166
     shr-int/lit8 v4, v2, 0xc
@@ -2613,22 +2613,22 @@
     .line 170
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_c
 
     .line 177
-    :cond_4
+    :cond_9d
     const v4, 0xdbff
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->compare(II)I
 
     move-result v4
 
-    if-gtz v4, :cond_7
+    if-gtz v4, :cond_fe
 
     .line 178
     add-int/lit8 v4, v1, 0x1
 
-    if-le p2, v4, :cond_7
+    if-le p2, v4, :cond_fe
 
     .line 179
     add-int/lit8 v4, v1, 0x1
@@ -2639,19 +2639,19 @@
 
     const v9, 0xdc00
 
-    if-gt v9, v4, :cond_5
+    if-gt v9, v4, :cond_b8
 
-    if-gt v4, v5, :cond_5
+    if-gt v4, v5, :cond_b8
 
     const/4 v6, 0x1
 
-    :cond_5
-    if-nez v6, :cond_6
+    :cond_b8
+    if-nez v6, :cond_bb
 
-    goto :goto_3
+    goto :goto_fe
 
     .line 188
-    :cond_6
+    :cond_bb
     shl-int/lit8 v4, v2, 0xa
 
     add-int/lit8 v5, v1, 0x1
@@ -2737,12 +2737,12 @@
     .end local v4    # "codePoint":I
     add-int/lit8 v1, v1, 0x2
 
-    goto/16 :goto_0
+    goto/16 :goto_c
 
     .line 181
     .restart local v2    # "c":C
-    :cond_7
-    :goto_3
+    :cond_fe
+    :goto_fe
     invoke-static {v8}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
     move-result-object v3
@@ -2752,16 +2752,16 @@
     .line 182
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_c
 
     .line 204
     .end local v2    # "c":C
-    :cond_8
+    :cond_109
     return-void
 .end method
 
 .method public static final processUtf8CodePoints([BIILkotlin/jvm/functions/Function1;)V
-    .locals 22
+    .registers 26
     .param p0, "$this$processUtf8CodePoints"    # [B
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
@@ -2799,9 +2799,9 @@
 
     .line 213
     .local v4, "index":I
-    :cond_0
-    :goto_0
-    if-ge v4, v1, :cond_25
+    :cond_13
+    :goto_13
+    if-ge v4, v1, :cond_26a
 
     .line 214
     aget-byte v5, v0, v4
@@ -2811,7 +2811,7 @@
     nop
 
     .line 216
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_36
 
     .line 218
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2824,12 +2824,12 @@
     add-int/lit8 v4, v4, 0x1
 
     .line 222
-    :goto_1
-    if-ge v4, v1, :cond_0
+    :goto_23
+    if-ge v4, v1, :cond_13
 
     aget-byte v6, v0, v4
 
-    if-ltz v6, :cond_0
+    if-ltz v6, :cond_13
 
     .line 223
     add-int/lit8 v6, v4, 0x1
@@ -2846,12 +2846,12 @@
 
     move v4, v6
 
-    goto :goto_1
+    goto :goto_23
 
     .line 226
     .end local v6    # "index":I
     .restart local v4    # "index":I
-    :cond_1
+    :cond_36
     const/4 v6, 0x5
 
     .local v6, "other$iv":I
@@ -2872,7 +2872,7 @@
 
     const/16 v8, 0x80
 
-    if-ne v6, v7, :cond_6
+    if-ne v6, v7, :cond_9a
 
     .line 228
     move-object/from16 v6, p0
@@ -2884,7 +2884,7 @@
     .local v7, "$i$f$process2Utf8Bytes":I
     add-int/lit8 v12, v4, 0x1
 
-    if-gt v1, v12, :cond_2
+    if-gt v1, v12, :cond_56
 
     .line 563
     const v8, 0xfffd
@@ -2907,10 +2907,10 @@
     .end local v9    # "$i$a$-process2Utf8Bytes-Utf8$processUtf8CodePoints$1":I
     const/4 v9, 0x1
 
-    goto :goto_4
+    goto :goto_97
 
     .line 568
-    :cond_2
+    :cond_56
     aget-byte v12, v6, v4
 
     .line 569
@@ -2941,19 +2941,19 @@
     .end local v15    # "other$iv$iv$iv":I
     .end local v16    # "$this$and$iv$iv$iv":B
     .end local v17    # "$i$f$and":I
-    if-ne v15, v8, :cond_3
+    if-ne v15, v8, :cond_69
 
     const/4 v10, 0x1
 
-    goto :goto_2
+    goto :goto_6a
 
-    :cond_3
+    :cond_69
     const/4 v10, 0x0
 
     .line 570
     .end local v14    # "$i$f$isUtf8Continuation":I
-    :goto_2
-    if-nez v10, :cond_4
+    :goto_6a
+    if-nez v10, :cond_7b
 
     .line 573
     const v8, 0xfffd
@@ -2976,10 +2976,10 @@
     .end local v9    # "$i$a$-process2Utf8Bytes-Utf8$processUtf8CodePoints$1":I
     const/4 v9, 0x1
 
-    goto :goto_4
+    goto :goto_97
 
     .line 579
-    :cond_4
+    :cond_7b
     nop
 
     .line 580
@@ -3002,7 +3002,7 @@
     nop
 
     .line 585
-    if-ge v10, v8, :cond_5
+    if-ge v10, v8, :cond_8b
 
     .line 586
     const v8, 0xfffd
@@ -3011,12 +3011,12 @@
     const/4 v11, 0x0
 
     .local v11, "$i$a$-process2Utf8Bytes-Utf8$processUtf8CodePoints$1":I
-    goto :goto_3
+    goto :goto_8d
 
     .line 589
     .end local v8    # "it":I
     .end local v11    # "$i$a$-process2Utf8Bytes-Utf8$processUtf8CodePoints$1":I
-    :cond_5
+    :cond_8b
     move v8, v10
 
     .restart local v8    # "it":I
@@ -3024,7 +3024,7 @@
 
     .line 228
     .restart local v11    # "$i$a$-process2Utf8Bytes-Utf8$processUtf8CodePoints$1":I
-    :goto_3
+    :goto_8d
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v14
@@ -3044,13 +3044,13 @@
     .end local v10    # "codePoint$iv":I
     .end local v12    # "b0$iv":B
     .end local v13    # "b1$iv":B
-    :goto_4
+    :goto_97
     add-int/2addr v4, v9
 
-    goto/16 :goto_0
+    goto/16 :goto_13
 
     .line 230
-    :cond_6
+    :cond_9a
     const/4 v6, 0x4
 
     .local v6, "other$iv":I
@@ -3071,7 +3071,7 @@
 
     const v13, 0xd800
 
-    if-ne v6, v7, :cond_12
+    if-ne v6, v7, :cond_157
 
     .line 232
     move-object/from16 v6, p0
@@ -3083,7 +3083,7 @@
     .local v7, "$i$f$process3Utf8Bytes":I
     add-int/lit8 v15, v4, 0x2
 
-    if-gt v1, v15, :cond_a
+    if-gt v1, v15, :cond_d8
 
     .line 596
     const v12, 0xfffd
@@ -3106,7 +3106,7 @@
     .end local v13    # "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2":I
     add-int/lit8 v12, v4, 0x1
 
-    if-le v1, v12, :cond_9
+    if-le v1, v12, :cond_d5
 
     add-int/lit8 v12, v4, 0x1
 
@@ -3133,38 +3133,38 @@
     .end local v14    # "other$iv$iv$iv":I
     .end local v15    # "$this$and$iv$iv$iv":B
     .end local v16    # "$i$f$and":I
-    if-ne v14, v8, :cond_7
+    if-ne v14, v8, :cond_ce
 
     const/4 v10, 0x1
 
-    goto :goto_5
+    goto :goto_cf
 
-    :cond_7
+    :cond_ce
     const/4 v10, 0x0
 
     .line 597
     .end local v12    # "byte$iv$iv":B
     .end local v13    # "$i$f$isUtf8Continuation":I
-    :goto_5
-    if-nez v10, :cond_8
+    :goto_cf
+    if-nez v10, :cond_d2
 
-    goto :goto_6
+    goto :goto_d5
 
     .line 603
-    :cond_8
+    :cond_d2
     const/4 v9, 0x2
 
-    goto/16 :goto_c
+    goto/16 :goto_154
 
     .line 600
-    :cond_9
-    :goto_6
+    :cond_d5
+    :goto_d5
     const/4 v9, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_154
 
     .line 607
-    :cond_a
+    :cond_d8
     aget-byte v15, v6, v4
 
     .line 608
@@ -3195,19 +3195,19 @@
     .end local v18    # "other$iv$iv$iv":I
     .end local v19    # "$this$and$iv$iv$iv":B
     .end local v20    # "$i$f$and":I
-    if-ne v9, v8, :cond_b
+    if-ne v9, v8, :cond_ec
 
     const/4 v9, 0x1
 
-    goto :goto_7
+    goto :goto_ed
 
-    :cond_b
+    :cond_ec
     const/4 v9, 0x0
 
     .line 609
     .end local v17    # "$i$f$isUtf8Continuation":I
-    :goto_7
-    if-nez v9, :cond_c
+    :goto_ed
+    if-nez v9, :cond_fe
 
     .line 611
     const v8, 0xfffd
@@ -3230,10 +3230,10 @@
     .end local v9    # "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2":I
     const/4 v9, 0x1
 
-    goto :goto_c
+    goto :goto_154
 
     .line 614
-    :cond_c
+    :cond_fe
     add-int/lit8 v9, v4, 0x2
 
     aget-byte v9, v6, v9
@@ -3260,19 +3260,19 @@
     .end local v18    # "other$iv$iv$iv":I
     .end local v19    # "$this$and$iv$iv$iv":B
     .end local v20    # "$i$f$and":I
-    if-ne v10, v8, :cond_d
+    if-ne v10, v8, :cond_110
 
     const/4 v8, 0x1
 
-    goto :goto_8
+    goto :goto_111
 
-    :cond_d
+    :cond_110
     const/4 v8, 0x0
 
     .line 615
     .end local v17    # "$i$f$isUtf8Continuation":I
-    :goto_8
-    if-nez v8, :cond_e
+    :goto_111
+    if-nez v8, :cond_122
 
     .line 617
     const v8, 0xfffd
@@ -3295,10 +3295,10 @@
     .end local v10    # "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2":I
     const/4 v9, 0x2
 
-    goto :goto_c
+    goto :goto_154
 
     .line 623
-    :cond_e
+    :cond_122
     nop
 
     .line 624
@@ -3331,7 +3331,7 @@
     .line 630
     const/16 v10, 0x800
 
-    if-ge v8, v10, :cond_f
+    if-ge v8, v10, :cond_142
 
     .line 631
     const v10, 0xfffd
@@ -3341,7 +3341,7 @@
 
     .line 232
     .local v11, "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2":I
-    :goto_9
+    :goto_138
     invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v12
@@ -3352,23 +3352,23 @@
 
     .end local v10    # "it":I
     .end local v11    # "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2":I
-    goto :goto_b
+    goto :goto_153
 
     .line 633
-    :cond_f
-    if-gt v13, v8, :cond_10
+    :cond_142
+    if-gt v13, v8, :cond_148
 
-    if-gt v8, v12, :cond_10
+    if-gt v8, v12, :cond_148
 
     const/4 v10, 0x1
 
-    goto :goto_a
+    goto :goto_149
 
-    :cond_10
+    :cond_148
     const/4 v10, 0x0
 
-    :goto_a
-    if-eqz v10, :cond_11
+    :goto_149
+    if-eqz v10, :cond_150
 
     .line 634
     const v10, 0xfffd
@@ -3377,24 +3377,24 @@
     const/4 v11, 0x0
 
     .restart local v11    # "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2":I
-    goto :goto_9
+    goto :goto_138
 
     .line 637
     .end local v10    # "it":I
     .end local v11    # "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2":I
-    :cond_11
+    :cond_150
     move v10, v8
 
     .restart local v10    # "it":I
     const/4 v11, 0x0
 
     .restart local v11    # "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2":I
-    goto :goto_9
+    goto :goto_138
 
     .line 640
     .end local v10    # "it":I
     .end local v11    # "$i$a$-process3Utf8Bytes-Utf8$processUtf8CodePoints$2":I
-    :goto_b
+    :goto_153
     const/4 v9, 0x3
 
     .line 232
@@ -3404,13 +3404,13 @@
     .end local v9    # "b2$iv":B
     .end local v15    # "b0$iv":B
     .end local v16    # "b1$iv":B
-    :goto_c
+    :goto_154
     add-int/2addr v4, v9
 
-    goto/16 :goto_0
+    goto/16 :goto_13
 
     .line 234
-    :cond_12
+    :cond_157
     const/4 v6, 0x3
 
     .local v6, "other$iv":I
@@ -3427,7 +3427,7 @@
     .end local v6    # "other$iv":I
     .end local v9    # "$this$shr$iv":B
     .end local v10    # "$i$f$shr":I
-    if-ne v6, v7, :cond_24
+    if-ne v6, v7, :cond_25c
 
     .line 236
     move-object/from16 v6, p0
@@ -3439,7 +3439,7 @@
     .local v7, "$i$f$process4Utf8Bytes":I
     add-int/lit8 v9, v4, 0x3
 
-    if-gt v1, v9, :cond_19
+    if-gt v1, v9, :cond_1a7
 
     .line 644
     const v9, 0xfffd
@@ -3462,7 +3462,7 @@
     .end local v10    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
     add-int/lit8 v9, v4, 0x1
 
-    if-le v1, v9, :cond_18
+    if-le v1, v9, :cond_1a4
 
     add-int/lit8 v9, v4, 0x1
 
@@ -3489,28 +3489,28 @@
     .end local v12    # "other$iv$iv$iv":I
     .end local v13    # "$this$and$iv$iv$iv":B
     .end local v15    # "$i$f$and":I
-    if-ne v12, v8, :cond_13
+    if-ne v12, v8, :cond_184
 
     const/4 v9, 0x1
 
-    goto :goto_d
+    goto :goto_185
 
-    :cond_13
+    :cond_184
     const/4 v9, 0x0
 
     .line 645
     .end local v9    # "byte$iv$iv":B
     .end local v10    # "$i$f$isUtf8Continuation":I
-    :goto_d
-    if-nez v9, :cond_14
+    :goto_185
+    if-nez v9, :cond_188
 
-    goto :goto_10
+    goto :goto_1a4
 
     .line 649
-    :cond_14
+    :cond_188
     add-int/lit8 v9, v4, 0x2
 
-    if-le v1, v9, :cond_17
+    if-le v1, v9, :cond_1a1
 
     add-int/lit8 v9, v4, 0x2
 
@@ -3537,45 +3537,45 @@
     .end local v12    # "other$iv$iv$iv":I
     .end local v13    # "$this$and$iv$iv$iv":B
     .end local v15    # "$i$f$and":I
-    if-ne v12, v8, :cond_15
+    if-ne v12, v8, :cond_19a
 
     const/4 v10, 0x1
 
-    goto :goto_e
+    goto :goto_19b
 
-    :cond_15
+    :cond_19a
     const/4 v10, 0x0
 
     .line 649
     .end local v9    # "byte$iv$iv":B
     .end local v10    # "$i$f$isUtf8Continuation":I
-    :goto_e
-    if-nez v10, :cond_16
+    :goto_19b
+    if-nez v10, :cond_19e
 
-    goto :goto_f
+    goto :goto_1a1
 
     .line 654
-    :cond_16
+    :cond_19e
     const/4 v9, 0x3
 
-    goto/16 :goto_17
+    goto/16 :goto_259
 
     .line 651
-    :cond_17
-    :goto_f
+    :cond_1a1
+    :goto_1a1
     const/4 v9, 0x2
 
-    goto/16 :goto_17
+    goto/16 :goto_259
 
     .line 648
-    :cond_18
-    :goto_10
+    :cond_1a4
+    :goto_1a4
     const/4 v9, 0x1
 
-    goto/16 :goto_17
+    goto/16 :goto_259
 
     .line 658
-    :cond_19
+    :cond_1a7
     aget-byte v9, v6, v4
 
     .line 659
@@ -3606,19 +3606,19 @@
     .end local v16    # "other$iv$iv$iv":I
     .end local v17    # "$this$and$iv$iv$iv":B
     .end local v18    # "$i$f$and":I
-    if-ne v11, v8, :cond_1a
+    if-ne v11, v8, :cond_1ba
 
     const/4 v11, 0x1
 
-    goto :goto_11
+    goto :goto_1bb
 
-    :cond_1a
+    :cond_1ba
     const/4 v11, 0x0
 
     .line 660
     .end local v15    # "$i$f$isUtf8Continuation":I
-    :goto_11
-    if-nez v11, :cond_1b
+    :goto_1bb
+    if-nez v11, :cond_1cd
 
     .line 662
     const v8, 0xfffd
@@ -3641,10 +3641,10 @@
     .end local v11    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
     const/4 v9, 0x1
 
-    goto/16 :goto_17
+    goto/16 :goto_259
 
     .line 665
-    :cond_1b
+    :cond_1cd
     add-int/lit8 v11, v4, 0x2
 
     aget-byte v11, v6, v11
@@ -3671,19 +3671,19 @@
     .end local v16    # "other$iv$iv$iv":I
     .end local v17    # "$this$and$iv$iv$iv":B
     .end local v18    # "$i$f$and":I
-    if-ne v14, v8, :cond_1c
+    if-ne v14, v8, :cond_1de
 
     const/4 v14, 0x1
 
-    goto :goto_12
+    goto :goto_1df
 
-    :cond_1c
+    :cond_1de
     const/4 v14, 0x0
 
     .line 666
     .end local v15    # "$i$f$isUtf8Continuation":I
-    :goto_12
-    if-nez v14, :cond_1d
+    :goto_1df
+    if-nez v14, :cond_1f1
 
     .line 668
     const v8, 0xfffd
@@ -3706,10 +3706,10 @@
     .end local v12    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
     const/4 v9, 0x2
 
-    goto/16 :goto_17
+    goto/16 :goto_259
 
     .line 671
-    :cond_1d
+    :cond_1f1
     add-int/lit8 v14, v4, 0x3
 
     aget-byte v14, v6, v14
@@ -3736,19 +3736,19 @@
     .end local v16    # "other$iv$iv$iv":I
     .end local v17    # "$this$and$iv$iv$iv":B
     .end local v18    # "$i$f$and":I
-    if-ne v12, v8, :cond_1e
+    if-ne v12, v8, :cond_202
 
     const/4 v8, 0x1
 
-    goto :goto_13
+    goto :goto_203
 
-    :cond_1e
+    :cond_202
     const/4 v8, 0x0
 
     .line 672
     .end local v15    # "$i$f$isUtf8Continuation":I
-    :goto_13
-    if-nez v8, :cond_1f
+    :goto_203
+    if-nez v8, :cond_214
 
     .line 674
     const v8, 0xfffd
@@ -3771,10 +3771,10 @@
     .end local v12    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
     const/4 v9, 0x3
 
-    goto :goto_17
+    goto :goto_259
 
     .line 680
-    :cond_1f
+    :cond_214
     nop
 
     .line 681
@@ -3813,7 +3813,7 @@
     .line 688
     const v12, 0x10ffff
 
-    if-le v8, v12, :cond_20
+    if-le v8, v12, :cond_238
 
     .line 689
     const v12, 0xfffd
@@ -3823,7 +3823,7 @@
 
     .line 236
     .local v13, "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
-    :goto_14
+    :goto_22e
     invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v15
@@ -3834,25 +3834,25 @@
 
     .end local v12    # "it":I
     .end local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
-    goto :goto_16
+    goto :goto_257
 
     .line 691
-    :cond_20
-    if-gt v13, v8, :cond_21
+    :cond_238
+    if-gt v13, v8, :cond_242
 
     const v12, 0xdfff
 
-    if-gt v8, v12, :cond_21
+    if-gt v8, v12, :cond_242
 
     const/16 v21, 0x1
 
-    goto :goto_15
+    goto :goto_244
 
-    :cond_21
+    :cond_242
     const/16 v21, 0x0
 
-    :goto_15
-    if-eqz v21, :cond_22
+    :goto_244
+    if-eqz v21, :cond_24b
 
     .line 692
     const v12, 0xfffd
@@ -3861,15 +3861,15 @@
     const/4 v13, 0x0
 
     .restart local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
-    goto :goto_14
+    goto :goto_22e
 
     .line 694
     .end local v12    # "it":I
     .end local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
-    :cond_22
+    :cond_24b
     const/high16 v12, 0x10000
 
-    if-ge v8, v12, :cond_23
+    if-ge v8, v12, :cond_254
 
     .line 695
     const v12, 0xfffd
@@ -3878,24 +3878,24 @@
     const/4 v13, 0x0
 
     .restart local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
-    goto :goto_14
+    goto :goto_22e
 
     .line 698
     .end local v12    # "it":I
     .end local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
-    :cond_23
+    :cond_254
     move v12, v8
 
     .restart local v12    # "it":I
     const/4 v13, 0x0
 
     .restart local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
-    goto :goto_14
+    goto :goto_22e
 
     .line 701
     .end local v12    # "it":I
     .end local v13    # "$i$a$-process4Utf8Bytes-Utf8$processUtf8CodePoints$3":I
-    :goto_16
+    :goto_257
     const/4 v12, 0x4
 
     const/4 v9, 0x4
@@ -3908,13 +3908,13 @@
     .end local v10    # "b1$iv":B
     .end local v11    # "b2$iv":B
     .end local v14    # "b3$iv":B
-    :goto_17
+    :goto_259
     add-int/2addr v4, v9
 
-    goto/16 :goto_0
+    goto/16 :goto_13
 
     .line 241
-    :cond_24
+    :cond_25c
     const v6, 0xfffd
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -3927,15 +3927,15 @@
     add-int/lit8 v4, v4, 0x1
 
     .end local v5    # "b0":B
-    goto/16 :goto_0
+    goto/16 :goto_13
 
     .line 246
-    :cond_25
+    :cond_26a
     return-void
 .end method
 
 .method public static final size(Ljava/lang/String;)J
-    .locals 3
+    .registers 4
 
     const-string v0, "<this>"
 
@@ -3955,7 +3955,7 @@
 .end method
 
 .method public static final size(Ljava/lang/String;I)J
-    .locals 3
+    .registers 5
 
     const-string v0, "<this>"
 
@@ -3975,7 +3975,7 @@
 .end method
 
 .method public static final size(Ljava/lang/String;II)J
-    .locals 10
+    .registers 13
     .param p0, "$this$utf8Size"    # Ljava/lang/String;
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
@@ -3989,45 +3989,45 @@
 
     const/4 v1, 0x1
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_b
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_d
+    :goto_c
+    if-eqz v2, :cond_ca
 
     .line 79
-    if-lt p2, p1, :cond_1
+    if-lt p2, p1, :cond_12
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v2, 0x0
 
-    :goto_1
-    if-eqz v2, :cond_c
+    :goto_13
+    if-eqz v2, :cond_a0
 
     .line 80
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-gt p2, v2, :cond_2
+    if-gt p2, v2, :cond_1c
 
-    goto :goto_2
+    goto :goto_1d
 
-    :cond_2
+    :cond_1c
     const/4 v1, 0x0
 
-    :goto_2
-    if-eqz v1, :cond_b
+    :goto_1d
+    if-eqz v1, :cond_72
 
     .line 82
     const-wide/16 v1, 0x0
@@ -4038,8 +4038,8 @@
 
     .line 84
     .local v3, "i":I
-    :goto_3
-    if-ge v3, p2, :cond_a
+    :goto_22
+    if-ge v3, p2, :cond_71
 
     .line 85
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
@@ -4052,7 +4052,7 @@
 
     const-wide/16 v6, 0x1
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_32
 
     .line 89
     add-long/2addr v1, v6
@@ -4060,13 +4060,13 @@
     .line 90
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_22
 
     .line 91
-    :cond_3
+    :cond_32
     const/16 v5, 0x800
 
-    if-ge v4, v5, :cond_4
+    if-ge v4, v5, :cond_3c
 
     .line 93
     const/4 v5, 0x2
@@ -4078,25 +4078,25 @@
     .line 94
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_22
 
     .line 95
-    :cond_4
+    :cond_3c
     const v5, 0xd800
 
-    if-lt v4, v5, :cond_9
+    if-lt v4, v5, :cond_6b
 
     const v5, 0xdfff
 
-    if-le v4, v5, :cond_5
+    if-le v4, v5, :cond_47
 
-    goto :goto_6
+    goto :goto_6b
 
     .line 100
-    :cond_5
+    :cond_47
     add-int/lit8 v8, v3, 0x1
 
-    if-ge v8, p2, :cond_6
+    if-ge v8, p2, :cond_52
 
     add-int/lit8 v8, v3, 0x1
 
@@ -4104,28 +4104,28 @@
 
     move-result v8
 
-    goto :goto_4
+    goto :goto_53
 
-    :cond_6
+    :cond_52
     const/4 v8, 0x0
 
     .line 101
     .local v8, "low":I
-    :goto_4
+    :goto_53
     const v9, 0xdbff
 
-    if-gt v4, v9, :cond_8
+    if-gt v4, v9, :cond_67
 
     const v9, 0xdc00
 
-    if-lt v8, v9, :cond_8
+    if-lt v8, v9, :cond_67
 
-    if-le v8, v5, :cond_7
+    if-le v8, v5, :cond_60
 
-    goto :goto_5
+    goto :goto_67
 
     .line 107
-    :cond_7
+    :cond_60
     const/4 v5, 0x4
 
     int-to-long v5, v5
@@ -4139,24 +4139,24 @@
     .end local v8    # "low":I
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_3
+    goto :goto_22
 
     .line 103
     .restart local v4    # "c":I
     .restart local v8    # "low":I
-    :cond_8
-    :goto_5
+    :cond_67
+    :goto_67
     add-long/2addr v1, v6
 
     .line 104
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_22
 
     .line 97
     .end local v8    # "low":I
-    :cond_9
-    :goto_6
+    :cond_6b
+    :goto_6b
     const/4 v5, 0x3
 
     int-to-long v5, v5
@@ -4166,17 +4166,17 @@
     .line 98
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_22
 
     .line 113
     .end local v4    # "c":I
-    :cond_a
+    :cond_71
     return-wide v1
 
     .line 559
     .end local v1    # "result":J
     .end local v3    # "i":I
-    :cond_b
+    :cond_72
     const/4 v0, 0x0
 
     .line 80
@@ -4227,7 +4227,7 @@
     throw v1
 
     .line 559
-    :cond_c
+    :cond_a0
     const/4 v0, 0x0
 
     .line 79
@@ -4274,7 +4274,7 @@
     throw v1
 
     .line 559
-    :cond_d
+    :cond_ca
     const/4 v0, 0x0
 
     .line 78
@@ -4304,25 +4304,25 @@
 .end method
 
 .method public static synthetic size$default(Ljava/lang/String;IIILjava/lang/Object;)J
-    .locals 0
+    .registers 5
 
     .line 77
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_d
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p2
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2}, Lokio/Utf8;->size(Ljava/lang/String;II)J
 
     move-result-wide p0

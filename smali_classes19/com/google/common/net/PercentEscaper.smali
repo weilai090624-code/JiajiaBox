@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 59
     const/4 v0, 0x1
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Z)V
-    .locals 2
+    .registers 5
     .param p1, "safeChars"    # Ljava/lang/String;
     .param p2, "plusForSpace"    # Z
 
@@ -67,7 +67,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_34
 
     .line 96
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -81,7 +81,7 @@
     move-result-object p1
 
     .line 99
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2b
 
     const-string v0, " "
 
@@ -89,12 +89,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 100
-    :cond_0
+    :cond_23
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "plusForSpace cannot be specified when space is a \'safe\' character"
@@ -104,8 +104,8 @@
     throw v0
 
     .line 103
-    :cond_1
-    :goto_0
+    :cond_2b
+    :goto_2b
     iput-boolean p2, p0, Lcom/google/common/net/PercentEscaper;->plusForSpace:Z
 
     .line 104
@@ -119,7 +119,7 @@
     return-void
 
     .line 93
-    :cond_2
+    :cond_34
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Alphanumeric characters are always \'safe\' and should not be explicitly specified"
@@ -130,7 +130,7 @@
 .end method
 
 .method private static createSafeOctets(Ljava/lang/String;)[Z
-    .locals 7
+    .registers 8
     .param p0, "safeChars"    # Ljava/lang/String;
 
     .line 113
@@ -150,8 +150,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_8
+    if-ge v4, v2, :cond_13
 
     aget-char v5, v1, v4
 
@@ -165,10 +165,10 @@
     .end local v5    # "c":C
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 118
-    :cond_0
+    :cond_13
     add-int/lit8 v2, v0, 0x1
 
     new-array v2, v2, [Z
@@ -177,8 +177,8 @@
     .local v2, "octets":[Z
     array-length v4, v1
 
-    :goto_1
-    if-ge v3, v4, :cond_1
+    :goto_18
+    if-ge v3, v4, :cond_22
 
     aget-char v5, v1, v3
 
@@ -192,17 +192,17 @@
     .end local v5    # "c":C
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
     .line 122
-    :cond_1
+    :cond_22
     return-object v2
 .end method
 
 
 # virtual methods
 .method public escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "s"    # Ljava/lang/String;
 
     .line 147
@@ -218,8 +218,8 @@
     const/4 v1, 0x0
 
     .local v1, "index":I
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_8
+    if-ge v1, v0, :cond_22
 
     .line 150
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
@@ -232,27 +232,27 @@
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_1d
 
     iget-object v3, p0, Lcom/google/common/net/PercentEscaper;->safeOctets:[Z
 
     aget-boolean v3, v3, v2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1a
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 149
     .end local v2    # "c":C
-    :cond_0
+    :cond_1a
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 152
     .restart local v2    # "c":C
-    :cond_1
-    :goto_1
+    :cond_1d
+    :goto_1d
     invoke-virtual {p0, p1, v1}, Lcom/google/common/net/PercentEscaper;->escapeSlow(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v3
@@ -262,12 +262,12 @@
     .line 155
     .end local v1    # "index":I
     .end local v2    # "c":C
-    :cond_2
+    :cond_22
     return-object p1
 .end method
 
 .method protected escape(I)[C
-    .locals 12
+    .registers 14
     .param p1, "cp"    # I
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -277,13 +277,13 @@
 
     array-length v0, v0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_d
 
     iget-object v0, p0, Lcom/google/common/net/PercentEscaper;->safeOctets:[Z
 
     aget-boolean v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 165
     const/4 v0, 0x0
@@ -291,14 +291,14 @@
     return-object v0
 
     .line 166
-    :cond_0
+    :cond_d
     const/16 v0, 0x20
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_18
 
     iget-boolean v0, p0, Lcom/google/common/net/PercentEscaper;->plusForSpace:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 167
     sget-object v0, Lcom/google/common/net/PercentEscaper;->PLUS_SIGN:[C
@@ -306,7 +306,7 @@
     return-object v0
 
     .line 168
-    :cond_1
+    :cond_18
     const/16 v0, 0x7f
 
     const/4 v1, 0x1
@@ -319,7 +319,7 @@
 
     const/4 v5, 0x3
 
-    if-gt p1, v0, :cond_2
+    if-gt p1, v0, :cond_37
 
     .line 171
     new-array v0, v5, [C
@@ -351,7 +351,7 @@
 
     .line 176
     .end local v0    # "dest":[C
-    :cond_2
+    :cond_37
     const/16 v0, 0x7ff
 
     const/4 v6, 0x5
@@ -362,7 +362,7 @@
 
     const/4 v9, 0x4
 
-    if-gt p1, v0, :cond_3
+    if-gt p1, v0, :cond_6b
 
     .line 179
     new-array v0, v7, [C
@@ -426,14 +426,14 @@
 
     .line 190
     .end local v0    # "dest":[C
-    :cond_3
+    :cond_6b
     const v0, 0xffff
 
     const/16 v10, 0x9
 
     const/4 v11, 0x7
 
-    if-gt p1, v0, :cond_4
+    if-gt p1, v0, :cond_ac
 
     .line 193
     new-array v0, v10, [C
@@ -517,10 +517,10 @@
 
     .line 208
     .end local v0    # "dest":[C
-    :cond_4
+    :cond_ac
     const v0, 0x10ffff
 
-    if-gt p1, v0, :cond_5
+    if-gt p1, v0, :cond_107
 
     .line 209
     const/16 v0, 0xc
@@ -641,7 +641,7 @@
 
     .line 233
     .end local v0    # "dest":[C
-    :cond_5
+    :cond_107
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -670,7 +670,7 @@
 .end method
 
 .method protected nextEscapeIndex(Ljava/lang/CharSequence;II)I
-    .locals 2
+    .registers 6
     .param p1, "csq"    # Ljava/lang/CharSequence;
     .param p2, "index"    # I
     .param p3, "end"    # I
@@ -679,8 +679,8 @@
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 132
-    :goto_0
-    if-ge p2, p3, :cond_1
+    :goto_3
+    if-ge p2, p3, :cond_18
 
     .line 133
     invoke-interface {p1, p2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -693,26 +693,26 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_18
 
     iget-object v1, p0, Lcom/google/common/net/PercentEscaper;->safeOctets:[Z
 
     aget-boolean v1, v1, v0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     .line 135
-    goto :goto_1
+    goto :goto_18
 
     .line 132
     .end local v0    # "c":C
-    :cond_0
+    :cond_15
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 138
-    :cond_1
-    :goto_1
+    :cond_18
+    :goto_18
     return p2
 .end method

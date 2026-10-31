@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 2
+    .registers 5
     .param p1, "width"    # I
     .param p2, "height"    # I
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public clear(B)V
-    .locals 4
+    .registers 6
     .param p1, "value"    # B
 
     .line 71
@@ -66,8 +66,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_4
+    if-ge v2, v1, :cond_e
 
     aget-object v3, v0, v2
 
@@ -77,15 +77,15 @@
     .line 71
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 74
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public get(II)B
-    .locals 1
+    .registers 4
     .param p1, "x"    # I
     .param p2, "y"    # I
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public getArray()[[B
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->bytes:[[B
@@ -109,7 +109,7 @@
 .end method
 
 .method public getHeight()I
-    .locals 1
+    .registers 2
 
     .line 40
     iget v0, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->height:I
@@ -118,7 +118,7 @@
 .end method
 
 .method public getWidth()I
-    .locals 1
+    .registers 2
 
     .line 44
     iget v0, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->width:I
@@ -127,7 +127,7 @@
 .end method
 
 .method public set(IIB)V
-    .locals 1
+    .registers 5
     .param p1, "x"    # I
     .param p2, "y"    # I
     .param p3, "value"    # B
@@ -144,7 +144,7 @@
 .end method
 
 .method public set(III)V
-    .locals 2
+    .registers 6
     .param p1, "x"    # I
     .param p2, "y"    # I
     .param p3, "value"    # I
@@ -163,7 +163,7 @@
 .end method
 
 .method public set(IIZ)V
-    .locals 2
+    .registers 6
     .param p1, "x"    # I
     .param p2, "y"    # I
     .param p3, "value"    # Z
@@ -182,7 +182,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 78
     new-instance v0, Ljava/lang/StringBuilder;
@@ -204,10 +204,10 @@
     const/4 v1, 0x0
 
     .local v1, "y":I
-    :goto_0
+    :goto_10
     iget v2, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->height:I
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_3f
 
     .line 80
     iget-object v2, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->bytes:[[B
@@ -219,34 +219,34 @@
     const/4 v3, 0x0
 
     .local v3, "x":I
-    :goto_1
+    :goto_19
     iget v4, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->width:I
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_37
 
     .line 82
     aget-byte v4, v2, v3
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_44
 
     .line 90
     const-string v4, "  "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_34
 
     .line 87
-    :pswitch_0
+    :pswitch_28
     const-string v4, " 1"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 88
-    goto :goto_2
+    goto :goto_34
 
     .line 84
-    :pswitch_1
+    :pswitch_2e
     const-string v4, " 0"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -255,14 +255,14 @@
     nop
 
     .line 81
-    :goto_2
+    :goto_34
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
     .line 94
     .end local v3    # "x":I
-    :cond_0
+    :cond_37
     const/16 v3, 0xa
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -271,20 +271,20 @@
     .end local v2    # "bytesY":[B
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 96
     .end local v1    # "y":I
-    :cond_1
+    :cond_3f
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_44
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2e
+        :pswitch_28
     .end packed-switch
 .end method

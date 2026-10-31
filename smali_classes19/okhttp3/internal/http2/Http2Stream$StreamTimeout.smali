@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/http2/Http2Stream;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lokhttp3/internal/http2/Http2Stream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public final exitAndThrowIfTimedOut()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -80,13 +80,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 685
     return-void
 
     .line 684
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lokhttp3/internal/http2/Http2Stream$StreamTimeout;->newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
@@ -97,7 +97,7 @@
 .end method
 
 .method protected newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
-    .locals 4
+    .registers 6
     .param p1, "cause"    # Ljava/io/IOException;
 
     .line 675
@@ -114,7 +114,7 @@
 
     .line 676
     .local v2, "$i$a$-apply-Http2Stream$StreamTimeout$newTimeoutException$1":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     .line 677
     move-object v3, p1
@@ -124,7 +124,7 @@
     invoke-virtual {v1, v3}, Ljava/net/SocketTimeoutException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 679
-    :cond_0
+    :cond_11
     nop
 
     .line 675
@@ -136,7 +136,7 @@
 .end method
 
 .method protected timedOut()V
-    .locals 2
+    .registers 3
 
     .line 670
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Stream$StreamTimeout;->this$0:Lokhttp3/internal/http2/Http2Stream;

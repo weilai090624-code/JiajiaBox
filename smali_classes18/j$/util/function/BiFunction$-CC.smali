@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$andThen(Ljava/util/function/BiFunction;Ljava/util/function/Function;)Ljava/util/function/BiFunction;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/BiFunction;
 
     .line 69
@@ -21,7 +21,7 @@
 .end method
 
 .method public static synthetic $private$lambda$andThen$0(Ljava/util/function/BiFunction;Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p0, "_this"    # Ljava/util/function/BiFunction;
     .param p1, "after"    # Ljava/util/function/Function;
     .param p2, "t"    # Ljava/lang/Object;

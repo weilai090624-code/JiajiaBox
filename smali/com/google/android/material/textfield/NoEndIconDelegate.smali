@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/EndCompoundLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "endLayout"    # Lcom/google/android/material/textfield/EndCompoundLayout;
 
     .line 26

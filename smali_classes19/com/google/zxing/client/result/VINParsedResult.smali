@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ICLjava/lang/String;)V
-    .locals 1
+    .registers 11
     .param p1, "vin"    # Ljava/lang/String;
     .param p2, "worldManufacturerID"    # Ljava/lang/String;
     .param p3, "vehicleDescriptorSection"    # Ljava/lang/String;
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public getCountryCode()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 73
     iget-object v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->countryCode:Ljava/lang/String;
@@ -84,7 +84,7 @@
 .end method
 
 .method public getDisplayResult()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 94
     new-instance v0, Ljava/lang/StringBuilder;
@@ -132,7 +132,7 @@
     .line 98
     iget-object v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->countryCode:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
     .line 99
     iget-object v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->countryCode:Ljava/lang/String;
@@ -144,7 +144,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 101
-    :cond_0
+    :cond_35
     iget v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->modelYear:I
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
@@ -180,7 +180,7 @@
 .end method
 
 .method public getModelYear()I
-    .locals 1
+    .registers 2
 
     .line 81
     iget v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->modelYear:I
@@ -189,7 +189,7 @@
 .end method
 
 .method public getPlantCode()C
-    .locals 1
+    .registers 2
 
     .line 85
     iget-char v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->plantCode:C
@@ -198,7 +198,7 @@
 .end method
 
 .method public getSequentialNumber()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 89
     iget-object v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->sequentialNumber:Ljava/lang/String;
@@ -207,7 +207,7 @@
 .end method
 
 .method public getVIN()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->vin:Ljava/lang/String;
@@ -216,7 +216,7 @@
 .end method
 
 .method public getVehicleAttributes()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 77
     iget-object v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->vehicleAttributes:Ljava/lang/String;
@@ -225,7 +225,7 @@
 .end method
 
 .method public getVehicleDescriptorSection()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 65
     iget-object v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->vehicleDescriptorSection:Ljava/lang/String;
@@ -234,7 +234,7 @@
 .end method
 
 .method public getVehicleIdentifierSection()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 69
     iget-object v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->vehicleIdentifierSection:Ljava/lang/String;
@@ -243,7 +243,7 @@
 .end method
 
 .method public getWorldManufacturerID()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 61
     iget-object v0, p0, Lcom/google/zxing/client/result/VINParsedResult;->worldManufacturerID:Ljava/lang/String;

@@ -46,7 +46,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 226
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/room/RoomOpenHelper$Companion;-><init>()V
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public final hasEmptySchema$room_runtime_release(Landroidx/sqlite/db/SupportSQLiteDatabase;)Z
-    .locals 7
+    .registers 9
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -100,7 +100,7 @@
 
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_13
     move-object v3, v2
 
     check-cast v3, Landroid/database/Cursor;
@@ -116,15 +116,15 @@
 
     const/4 v6, 0x0
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_25
 
     invoke-interface {v3, v6}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_13 .. :try_end_22} :catchall_2a
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_25
 
     const/4 v6, 0x1
 
@@ -132,7 +132,7 @@
     .end local v1    # "$i$f$useCursor":I
     .end local v3    # "cursor":Landroid/database/Cursor;
     .end local v4    # "$i$a$-useCursor-RoomOpenHelper$Companion$hasEmptySchema$1":I
-    :cond_0
+    :cond_25
     const/4 v0, 0x0
 
     invoke-static {v2, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -141,21 +141,21 @@
 
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
-    :catchall_0
+    :catchall_2a
     move-exception v3
 
     .end local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v1    # "$i$f$useCursor":I
     .end local p1    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :try_start_1
+    :try_start_2b
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2c
+    .catchall {:try_start_2b .. :try_end_2c} :catchall_2c
 
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
     .restart local p1    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :catchall_1
+    :catchall_2c
     move-exception v4
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -164,7 +164,7 @@
 .end method
 
 .method public final hasRoomMasterTable$room_runtime_release(Landroidx/sqlite/db/SupportSQLiteDatabase;)Z
-    .locals 7
+    .registers 9
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -199,7 +199,7 @@
 
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_13
     move-object v3, v2
 
     check-cast v3, Landroid/database/Cursor;
@@ -215,15 +215,15 @@
 
     const/4 v6, 0x0
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_25
 
     invoke-interface {v3, v6}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_13 .. :try_end_22} :catchall_2a
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_25
 
     const/4 v6, 0x1
 
@@ -231,7 +231,7 @@
     .end local v1    # "$i$f$useCursor":I
     .end local v3    # "cursor":Landroid/database/Cursor;
     .end local v4    # "$i$a$-useCursor-RoomOpenHelper$Companion$hasRoomMasterTable$1":I
-    :cond_0
+    :cond_25
     const/4 v0, 0x0
 
     invoke-static {v2, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -240,21 +240,21 @@
 
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
-    :catchall_0
+    :catchall_2a
     move-exception v3
 
     .end local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v1    # "$i$f$useCursor":I
     .end local p1    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :try_start_1
+    :try_start_2b
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2c
+    .catchall {:try_start_2b .. :try_end_2c} :catchall_2c
 
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
     .restart local p1    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :catchall_1
+    :catchall_2c
     move-exception v4
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V

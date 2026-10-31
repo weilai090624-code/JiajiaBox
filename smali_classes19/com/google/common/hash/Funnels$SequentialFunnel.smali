@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/hash/Funnel;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -84,7 +84,7 @@
     .local p0, "this":Lcom/google/common/hash/Funnels$SequentialFunnel;, "Lcom/google/common/hash/Funnels$SequentialFunnel<TE;>;"
     instance-of v0, p1, Lcom/google/common/hash/Funnels$SequentialFunnel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 197
     move-object v0, p1
@@ -105,14 +105,14 @@
 
     .line 200
     .end local v0    # "funnel":Lcom/google/common/hash/Funnels$SequentialFunnel;, "Lcom/google/common/hash/Funnels$SequentialFunnel<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public funnel(Ljava/lang/Iterable;Lcom/google/common/hash/PrimitiveSink;)V
-    .locals 3
+    .registers 6
     .param p2, "into"    # Lcom/google/common/hash/PrimitiveSink;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -131,12 +131,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -150,15 +150,15 @@
 
     .line 186
     .end local v1    # "e":Ljava/lang/Object;, "TE;"
-    goto :goto_0
+    goto :goto_4
 
     .line 187
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public bridge synthetic funnel(Ljava/lang/Object;Lcom/google/common/hash/PrimitiveSink;)V
-    .locals 0
+    .registers 3
 
     .line 174
     .local p0, "this":Lcom/google/common/hash/Funnels$SequentialFunnel;, "Lcom/google/common/hash/Funnels$SequentialFunnel<TE;>;"
@@ -170,7 +170,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 205
     .local p0, "this":Lcom/google/common/hash/Funnels$SequentialFunnel;, "Lcom/google/common/hash/Funnels$SequentialFunnel<TE;>;"
@@ -192,7 +192,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 191
     .local p0, "this":Lcom/google/common/hash/Funnels$SequentialFunnel;, "Lcom/google/common/hash/Funnels$SequentialFunnel<TE;>;"

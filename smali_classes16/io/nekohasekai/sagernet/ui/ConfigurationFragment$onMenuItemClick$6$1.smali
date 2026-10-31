@@ -77,7 +77,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$30UeT2JUtGwLsh-8xh5nl0gizsk(Ljava/util/List;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$6$1;->invokeSuspend$lambda$1(Ljava/util/List;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/content/DialogInterface;I)V
 
@@ -85,7 +85,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Ljava/util/List;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,7 +112,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$1(Ljava/util/List;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/content/DialogInterface;I)V
-    .locals 6
+    .registers 10
     .param p0, "$toClear"    # Ljava/util/List;
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
@@ -121,12 +121,12 @@
 
     move-result-object p2
 
-    :goto_0
+    :goto_4
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p3
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_5f
 
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -160,13 +160,13 @@
 
     check-cast v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5e
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getAdapter()Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5e
 
     .local v0, "$this$invokeSuspend_u24lambda_u241_u24lambda_u240":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
     const/4 v1, 0x0
@@ -191,7 +191,7 @@
 
     .line 532
     .local v2, "index":I
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_5c
 
     .line 533
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->getConfigurationIdList()Ljava/util/List;
@@ -219,21 +219,21 @@
     invoke-virtual {v0, v2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->notifyItemRemoved(I)V
 
     .line 537
-    :cond_0
+    :cond_5c
     nop
 
     .line 530
     .end local v0    # "$this$invokeSuspend_u24lambda_u241_u24lambda_u240":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
     .end local v1    # "$i$a$-apply-ConfigurationFragment$onMenuItemClick$6$1$1$1":I
     .end local v2    # "index":I
-    goto :goto_0
+    goto :goto_4
 
     .end local p3    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_1
-    goto :goto_0
+    :cond_5e
+    goto :goto_4
 
     .line 539
-    :cond_2
+    :cond_5f
     new-instance p2, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$6$1$1$2;
 
     const/4 p3, 0x0
@@ -251,7 +251,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -278,7 +278,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -292,7 +292,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -321,14 +321,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 525
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$6$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_4a
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -338,7 +338,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 526
@@ -398,8 +398,8 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

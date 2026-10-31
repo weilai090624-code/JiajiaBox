@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/plugin/PluginManager;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,7 +77,7 @@
 .end method
 
 .method private final initNative(Ljava/lang/String;)Lio/nekohasekai/sagernet/plugin/PluginManager$InitResult;
-    .locals 5
+    .registers 7
     .param p1, "pluginId"    # Ljava/lang/String;
 
     .line 43
@@ -95,27 +95,27 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     return-object v1
 
     .line 46
     .local v0, "info":Landroid/content/pm/ProviderInfo;
-    :cond_0
+    :cond_c
     iget-object v2, v0, Landroid/content/pm/ProviderInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_27
 
     .line 47
     nop
 
     .line 48
-    :try_start_0
+    :try_start_11
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/plugin/PluginManager;->initNativeInternal(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     .line 99
     .local v2, "it":Ljava/lang/String;
@@ -126,15 +126,15 @@
     new-instance v4, Lio/nekohasekai/sagernet/plugin/PluginManager$InitResult;
 
     invoke-direct {v4, v2, v0}, Lio/nekohasekai/sagernet/plugin/PluginManager$InitResult;-><init>(Ljava/lang/String;Landroid/content/pm/ProviderInfo;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_11 .. :try_end_1d} :catchall_1e
 
     return-object v4
 
     .line 49
     .end local v2    # "it":Ljava/lang/String;
     .end local v3    # "$i$a$-let-PluginManager$initNative$1":I
-    :catchall_0
+    :catchall_1e
     move-exception v2
 
     .line 50
@@ -147,20 +147,20 @@
 
     .line 52
     .end local v2    # "t":Ljava/lang/Throwable;
-    :cond_1
+    :cond_26
     return-object v1
 
     .line 55
-    :cond_2
+    :cond_27
     nop
 
     .line 56
-    :try_start_1
+    :try_start_28
     invoke-direct {p0, v0}, Lio/nekohasekai/sagernet/plugin/PluginManager;->initNativeFaster(Landroid/content/pm/ProviderInfo;)Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_3d
 
     .line 99
     .local v2, "it":Ljava/lang/String;
@@ -171,15 +171,15 @@
     new-instance v4, Lio/nekohasekai/sagernet/plugin/PluginManager$InitResult;
 
     invoke-direct {v4, v2, v0}, Lio/nekohasekai/sagernet/plugin/PluginManager$InitResult;-><init>(Ljava/lang/String;Landroid/content/pm/ProviderInfo;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_34
+    .catchall {:try_start_28 .. :try_end_34} :catchall_35
 
     return-object v4
 
     .line 57
     .end local v2    # "it":Ljava/lang/String;
     .end local v3    # "$i$a$-let-PluginManager$initNative$2":I
-    :catchall_1
+    :catchall_35
     move-exception v2
 
     .line 58
@@ -192,7 +192,7 @@
 
     .line 61
     .end local v2    # "t":Ljava/lang/Throwable;
-    :cond_3
+    :cond_3d
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     const-string v3, "Init native returns empty result"
@@ -204,7 +204,7 @@
 .end method
 
 .method private final initNativeFaster(Landroid/content/pm/ProviderInfo;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p1, "provider"    # Landroid/content/pm/ProviderInfo;
 
     .line 82
@@ -222,7 +222,7 @@
     move-result-object v0
 
     .line 82
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_37
 
     .line 81
     nop
@@ -258,7 +258,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2b
 
     .line 85
     nop
@@ -276,14 +276,14 @@
     .line 82
     .end local v0    # "relativePath":Ljava/lang/String;
     .end local v1    # "$i$a$-let-PluginManager$initNativeFaster$1":I
-    goto :goto_0
+    goto :goto_38
 
     .line 84
     .restart local v0    # "relativePath":Ljava/lang/String;
     .restart local v1    # "$i$a$-let-PluginManager$initNativeFaster$1":I
     .restart local v3    # "$this$initNativeFaster_u24lambda_u243_u24lambda_u242":Ljava/io/File;
     .restart local v4    # "$i$a$-apply-PluginManager$initNativeFaster$1$1":I
-    :cond_0
+    :cond_2b
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v5, "Check failed."
@@ -301,16 +301,16 @@
     .end local v1    # "$i$a$-let-PluginManager$initNativeFaster$1":I
     .end local v3    # "$this$initNativeFaster_u24lambda_u243_u24lambda_u242":Ljava/io/File;
     .end local v4    # "$i$a$-apply-PluginManager$initNativeFaster$1$1":I
-    :cond_1
+    :cond_37
     const/4 v0, 0x0
 
     .line 81
-    :goto_0
+    :goto_38
     return-object v0
 .end method
 
 .method private final initNativeInternal(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "pluginId"    # Ljava/lang/String;
 
     .line 73
@@ -323,7 +323,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const-string v0, "libhysteria.so"
 
@@ -331,17 +331,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_20
 
     .line 75
-    :cond_0
+    :cond_10
     const-string v0, "hysteria2-plugin"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     const-string v0, "libhysteria2.so"
 
@@ -349,19 +349,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_20
 
     .line 76
-    :cond_1
+    :cond_1f
     const/4 v0, 0x0
 
     .line 73
-    :goto_0
+    :goto_20
     return-object v0
 .end method
 
 .method private static final initNativeInternal$soIfExist(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "soName"    # Ljava/lang/String;
 
     .line 67
@@ -387,7 +387,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 69
     invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -397,7 +397,7 @@
     return-object v1
 
     .line 71
-    :cond_0
+    :cond_1c
     const/4 v1, 0x0
 
     return-object v1
@@ -406,7 +406,7 @@
 
 # virtual methods
 .method public final init(Ljava/lang/String;)Lio/nekohasekai/sagernet/plugin/PluginManager$InitResult;
-    .locals 3
+    .registers 5
     .param p1, "pluginId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -427,24 +427,24 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_11
+    if-eqz v0, :cond_15
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 29
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
     .line 31
@@ -452,25 +452,25 @@
     nop
 
     .line 32
-    :try_start_0
+    :try_start_17
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/plugin/PluginManager;->initNative(Ljava/lang/String;)Lio/nekohasekai/sagernet/plugin/PluginManager$InitResult;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_17 .. :try_end_1b} :catchall_1f
 
     .line 33
     .local v1, "result":Lio/nekohasekai/sagernet/plugin/PluginManager$InitResult;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1e
 
     return-object v1
 
     .end local v1    # "result":Lio/nekohasekai/sagernet/plugin/PluginManager$InitResult;
-    :cond_2
-    goto :goto_1
+    :cond_1e
+    goto :goto_26
 
     .line 34
-    :catchall_0
+    :catchall_1f
     move-exception v1
 
     .line 35
@@ -484,8 +484,8 @@
 
     .line 39
     .end local v1    # "t":Ljava/lang/Throwable;
-    :goto_1
-    if-nez v0, :cond_3
+    :goto_26
+    if-nez v0, :cond_30
 
     new-instance v1, Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException;
 
@@ -493,17 +493,17 @@
 
     check-cast v1, Ljava/lang/Throwable;
 
-    goto :goto_2
+    goto :goto_31
 
-    :cond_3
+    :cond_30
     move-object v1, v0
 
-    :goto_2
+    :goto_31
     throw v1
 .end method
 
 .method public final loadString(Landroid/content/pm/ComponentInfo;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 7
     .param p1, "$this$loadString"    # Landroid/content/pm/ComponentInfo;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -526,19 +526,19 @@
     .local v0, "value":Ljava/lang/Object;
     instance-of v1, v0, Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
     check-cast v1, Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 91
-    :cond_0
+    :cond_18
     instance-of v1, v0, Ljava/lang/Integer;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_38
 
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
@@ -569,22 +569,22 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 94
-    :cond_1
-    if-nez v0, :cond_2
+    :cond_38
+    if-nez v0, :cond_3c
 
     const/4 v1, 0x0
 
     .line 96
     .end local v0    # "value":Ljava/lang/Object;
-    :goto_0
+    :goto_3b
     return-object v1
 
     .line 94
     .restart local v0    # "value":Ljava/lang/Object;
-    :cond_2
+    :cond_3c
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 95

@@ -69,7 +69,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,7 +123,7 @@
 .end method
 
 .method public final invoke(ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -155,7 +155,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
 
     move-object v0, p1
 
@@ -177,14 +177,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 218
     iget v0, p0, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_20
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -194,7 +194,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v0, p0
@@ -204,25 +204,25 @@
     iget v1, v0, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1$1;->I$0:I
 
     .local v1, "it":I
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1a
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .end local v1    # "it":I
-    :cond_0
+    :cond_1a
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1b
     invoke-static {v2}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
     move-result-object v1
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_20
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

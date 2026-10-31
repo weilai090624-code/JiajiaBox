@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>([CZ)V
-    .locals 1
+    .registers 4
 
     iput-object p1, p0, Lkotlin/text/StringsKt__StringsKt$rangesDelimitedBy$1;->$delimiters:[C
 
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/CharSequence;I)Lkotlin/Pair;
-    .locals 4
+    .registers 7
     .param p1, "$this$$receiver"    # Ljava/lang/CharSequence;
     .param p2, "currentIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -140,13 +140,13 @@
 
     .line 1255
     .local v1, "$i$a$-let-StringsKt__StringsKt$rangesDelimitedBy$1$1":I
-    if-gez v0, :cond_0
+    if-gez v0, :cond_12
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_12
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -163,6 +163,6 @@
 
     .end local v0    # "it":I
     .end local v1    # "$i$a$-let-StringsKt__StringsKt$rangesDelimitedBy$1$1":I
-    :goto_0
+    :goto_1f
     return-object v2
 .end method

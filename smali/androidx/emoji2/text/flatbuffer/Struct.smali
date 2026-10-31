@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method public __reset()V
-    .locals 2
+    .registers 3
 
     .line 57
     const/4 v0, 0x0
@@ -36,7 +36,7 @@
 .end method
 
 .method protected __reset(ILjava/nio/ByteBuffer;)V
-    .locals 1
+    .registers 4
     .param p1, "_i"    # I
     .param p2, "_bb"    # Ljava/nio/ByteBuffer;
 
@@ -46,20 +46,20 @@
     .line 40
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/Struct;->bb:Ljava/nio/ByteBuffer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 41
     iput p1, p0, Landroidx/emoji2/text/flatbuffer/Struct;->bb_pos:I
 
-    goto :goto_0
+    goto :goto_c
 
     .line 43
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     iput v0, p0, Landroidx/emoji2/text/flatbuffer/Struct;->bb_pos:I
 
     .line 45
-    :goto_0
+    :goto_c
     return-void
 .end method

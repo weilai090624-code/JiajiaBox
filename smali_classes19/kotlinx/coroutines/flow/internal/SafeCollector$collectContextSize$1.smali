@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/flow/internal/SafeCollector$collectContextSize$1;
 
@@ -69,7 +69,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public final invoke(ILkotlin/coroutines/CoroutineContext$Element;)Ljava/lang/Integer;
-    .locals 0
+    .registers 3
     .param p1, "count"    # I
 
     .line 31
@@ -95,7 +95,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 

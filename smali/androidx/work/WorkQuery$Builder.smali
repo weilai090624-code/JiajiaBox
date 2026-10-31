@@ -58,7 +58,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 191
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,7 +96,7 @@
 .end method
 
 .method public static fromIds(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -131,7 +131,7 @@
 .end method
 
 .method public static fromStates(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -166,7 +166,7 @@
 .end method
 
 .method public static fromTags(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -201,7 +201,7 @@
 .end method
 
 .method public static fromUniqueWorkNames(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -238,7 +238,7 @@
 
 # virtual methods
 .method public addIds(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -269,7 +269,7 @@
 .end method
 
 .method public addStates(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -300,7 +300,7 @@
 .end method
 
 .method public addTags(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -331,7 +331,7 @@
 .end method
 
 .method public addUniqueWorkNames(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -362,7 +362,7 @@
 .end method
 
 .method public build()Landroidx/work/WorkQuery;
-    .locals 2
+    .registers 3
 
     .line 309
     iget-object v0, p0, Landroidx/work/WorkQuery$Builder;->mIds:Ljava/util/List;
@@ -371,7 +371,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     iget-object v0, p0, Landroidx/work/WorkQuery$Builder;->mUniqueWorkNames:Ljava/util/List;
 
@@ -380,7 +380,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     iget-object v0, p0, Landroidx/work/WorkQuery$Builder;->mTags:Ljava/util/List;
 
@@ -389,7 +389,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     iget-object v0, p0, Landroidx/work/WorkQuery$Builder;->mStates:Ljava/util/List;
 
@@ -398,12 +398,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
-    goto :goto_0
+    goto :goto_29
 
     .line 314
-    :cond_0
+    :cond_21
     const-string v0, "Must specify ids, uniqueNames, tags or states when building a WorkQuery"
 
     .line 316
@@ -416,8 +416,8 @@
 
     .line 319
     .end local v0    # "message":Ljava/lang/String;
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     new-instance v0, Landroidx/work/WorkQuery;
 
     invoke-direct {v0, p0}, Landroidx/work/WorkQuery;-><init>(Landroidx/work/WorkQuery$Builder;)V

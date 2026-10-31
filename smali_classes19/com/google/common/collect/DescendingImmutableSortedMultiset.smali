@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableSortedMultiset;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public count(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -73,7 +73,7 @@
 .end method
 
 .method public descendingMultiset()Lcom/google/common/collect/ImmutableSortedMultiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic descendingMultiset()Lcom/google/common/collect/SortedMultiset;
-    .locals 1
+    .registers 2
 
     .line 25
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedMultiset;, "Lcom/google/common/collect/DescendingImmutableSortedMultiset<TE;>;"
@@ -102,7 +102,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
 
     .line 25
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedMultiset;, "Lcom/google/common/collect/DescendingImmutableSortedMultiset<TE;>;"
@@ -114,7 +114,7 @@
 .end method
 
 .method public elementSet()Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -139,7 +139,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
 
     .line 25
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedMultiset;, "Lcom/google/common/collect/DescendingImmutableSortedMultiset<TE;>;"
@@ -151,7 +151,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 25
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedMultiset;, "Lcom/google/common/collect/DescendingImmutableSortedMultiset<TE;>;"
@@ -163,7 +163,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
 
     .line 25
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedMultiset;, "Lcom/google/common/collect/DescendingImmutableSortedMultiset<TE;>;"
@@ -175,7 +175,7 @@
 .end method
 
 .method public firstEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -199,7 +199,7 @@
 .end method
 
 .method getEntry(I)Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -235,7 +235,7 @@
 .end method
 
 .method public headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
-    .locals 1
+    .registers 4
     .param p2, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -264,7 +264,7 @@
 .end method
 
 .method public bridge synthetic headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
-    .locals 0
+    .registers 3
 
     .line 25
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedMultiset;, "Lcom/google/common/collect/DescendingImmutableSortedMultiset<TE;>;"
@@ -276,7 +276,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 84
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedMultiset;, "Lcom/google/common/collect/DescendingImmutableSortedMultiset<TE;>;"
@@ -290,7 +290,7 @@
 .end method
 
 .method public lastEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -314,7 +314,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 54
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedMultiset;, "Lcom/google/common/collect/DescendingImmutableSortedMultiset<TE;>;"
@@ -328,7 +328,7 @@
 .end method
 
 .method public tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
-    .locals 1
+    .registers 4
     .param p2, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -357,7 +357,7 @@
 .end method
 
 .method public bridge synthetic tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
-    .locals 0
+    .registers 3
 
     .line 25
     .local p0, "this":Lcom/google/common/collect/DescendingImmutableSortedMultiset;, "Lcom/google/common/collect/DescendingImmutableSortedMultiset<TE;>;"

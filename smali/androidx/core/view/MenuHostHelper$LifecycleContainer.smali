@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/LifecycleEventObserver;)V
-    .locals 1
+    .registers 4
     .param p1, "lifecycle"    # Landroidx/lifecycle/Lifecycle;
     .param p2, "observer"    # Landroidx/lifecycle/LifecycleEventObserver;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method clearObservers()V
-    .locals 2
+    .registers 3
 
     .line 218
     iget-object v0, p0, Landroidx/core/view/MenuHostHelper$LifecycleContainer;->mLifecycle:Landroidx/lifecycle/Lifecycle;

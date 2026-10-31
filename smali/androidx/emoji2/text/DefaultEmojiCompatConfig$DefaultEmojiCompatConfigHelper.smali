@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 262
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getProviderInfo(Landroid/content/pm/ResolveInfo;)Landroid/content/pm/ProviderInfo;
-    .locals 2
+    .registers 4
     .param p1, "resolveInfo"    # Landroid/content/pm/ResolveInfo;
 
     .line 291
@@ -41,7 +41,7 @@
 .end method
 
 .method public getSigningSignatures(Landroid/content/pm/PackageManager;Ljava/lang/String;)[Landroid/content/pm/Signature;
-    .locals 2
+    .registers 5
     .param p1, "packageManager"    # Landroid/content/pm/PackageManager;
     .param p2, "providerPackage"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -65,7 +65,7 @@
 .end method
 
 .method public queryIntentContentProviders(Landroid/content/pm/PackageManager;Landroid/content/Intent;I)Ljava/util/List;
-    .locals 1
+    .registers 5
     .param p1, "packageManager"    # Landroid/content/pm/PackageManager;
     .param p2, "intent"    # Landroid/content/Intent;
     .param p3, "flags"    # I

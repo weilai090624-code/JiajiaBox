@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method private putComment(Lorg/ini4j/CommentedMap;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p2, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 133
     iget-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_lastComment:Ljava/lang/String;
@@ -56,12 +56,12 @@
     invoke-interface {p1, p2, v0}, Lorg/ini4j/CommentedMap;->putComment(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     .line 135
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method private setHeaderComment()V
-    .locals 2
+    .registers 3
 
     .line 123
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->getConfig()Lorg/ini4j/Config;
@@ -72,7 +72,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 125
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->getProfile()Lorg/ini4j/Profile;
@@ -84,34 +84,34 @@
     invoke-interface {v0, v1}, Lorg/ini4j/Profile;->setComment(Ljava/lang/String;)V
 
     .line 127
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 
 # virtual methods
 .method public endIni()V
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_lastComment:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-boolean v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_header:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 35
     invoke-direct {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->setHeaderComment()V
 
     .line 37
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public endSection()V
-    .locals 1
+    .registers 2
 
     .line 41
     const/4 v0, 0x0
@@ -126,7 +126,7 @@
 .end method
 
 .method getCurrentSection()Lorg/ini4j/Profile$Section;
-    .locals 1
+    .registers 2
 
     .line 118
     iget-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_currentSection:Lorg/ini4j/Profile$Section;
@@ -138,17 +138,17 @@
 .end method
 
 .method public handleComment(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "comment"    # Ljava/lang/String;
 
     .line 46
     iget-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_lastComment:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-boolean v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_header:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 48
     const/4 v0, 0x0
@@ -159,7 +159,7 @@
     invoke-direct {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->setHeaderComment()V
 
     .line 52
-    :cond_0
+    :cond_e
     iput-object p1, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_lastComment:Ljava/lang/String;
 
     .line 53
@@ -167,7 +167,7 @@
 .end method
 
 .method public handleOption(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -185,26 +185,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 60
     iget-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_currentSection:Lorg/ini4j/Profile$Section;
 
     invoke-interface {v0, p1, p2}, Lorg/ini4j/Profile$Section;->add(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 64
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_currentSection:Lorg/ini4j/Profile$Section;
 
     invoke-interface {v0, p1, p2}, Lorg/ini4j/Profile$Section;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 67
-    :goto_0
+    :goto_18
     iget-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_lastComment:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 69
     iget-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_currentSection:Lorg/ini4j/Profile$Section;
@@ -217,12 +217,12 @@
     iput-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_lastComment:Ljava/lang/String;
 
     .line 72
-    :cond_1
+    :cond_24
     return-void
 .end method
 
 .method public startIni()V
-    .locals 1
+    .registers 2
 
     .line 76
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->getConfig()Lorg/ini4j/Config;
@@ -233,7 +233,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 78
     const/4 v0, 0x1
@@ -241,12 +241,12 @@
     iput-boolean v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_header:Z
 
     .line 80
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public startSection(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "sectionName"    # Ljava/lang/String;
 
     .line 84
@@ -258,7 +258,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 86
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->getProfile()Lorg/ini4j/Profile;
@@ -271,10 +271,10 @@
 
     iput-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_currentSection:Lorg/ini4j/Profile$Section;
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 90
-    :cond_0
+    :cond_15
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->getProfile()Lorg/ini4j/Profile;
 
     move-result-object v0
@@ -287,7 +287,7 @@
 
     .line 92
     .local v0, "s":Lorg/ini4j/Profile$Section;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2a
 
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->getProfile()Lorg/ini4j/Profile;
 
@@ -297,33 +297,33 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_1
+    :cond_2a
     move-object v1, v0
 
-    :goto_0
+    :goto_2b
     iput-object v1, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_currentSection:Lorg/ini4j/Profile$Section;
 
     .line 95
     .end local v0    # "s":Lorg/ini4j/Profile$Section;
-    :goto_1
+    :goto_2d
     iget-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_lastComment:Ljava/lang/String;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_43
 
     .line 97
     iget-boolean v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_header:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_39
 
     .line 99
     invoke-direct {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->setHeaderComment()V
 
-    goto :goto_2
+    goto :goto_40
 
     .line 103
-    :cond_2
+    :cond_39
     invoke-virtual {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->getProfile()Lorg/ini4j/Profile;
 
     move-result-object v0
@@ -331,13 +331,13 @@
     invoke-direct {p0, v0, p1}, Lorg/ini4j/spi/AbstractProfileBuilder;->putComment(Lorg/ini4j/CommentedMap;Ljava/lang/String;)V
 
     .line 106
-    :goto_2
+    :goto_40
     const/4 v0, 0x0
 
     iput-object v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_lastComment:Ljava/lang/String;
 
     .line 109
-    :cond_3
+    :cond_43
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lorg/ini4j/spi/AbstractProfileBuilder;->_header:Z

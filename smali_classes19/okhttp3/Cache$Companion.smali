@@ -66,7 +66,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 703
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/Cache$Companion;-><init>()V
 
@@ -83,7 +83,7 @@
 .end method
 
 .method private final varyFields(Lokhttp3/Headers;)Ljava/util/Set;
-    .locals 13
+    .registers 15
     .param p1, "$this$varyFields"    # Lokhttp3/Headers;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -105,13 +105,13 @@
 
     move-result v1
 
-    if-lez v1, :cond_5
+    if-lez v1, :cond_69
 
     const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    :cond_0
+    :cond_9
     move v4, v3
 
     .local v4, "i":I
@@ -130,20 +130,20 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_19
 
     .line 750
-    goto :goto_1
+    goto :goto_67
 
     .line 753
-    :cond_1
+    :cond_19
     invoke-virtual {p1, v4}, Lokhttp3/Headers;->value(I)Ljava/lang/String;
 
     move-result-object v6
 
     .line 754
     .local v6, "value":Ljava/lang/String;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2d
 
     .line 755
     new-instance v7, Ljava/util/TreeSet;
@@ -161,7 +161,7 @@
     check-cast v0, Ljava/util/Set;
 
     .line 757
-    :cond_2
+    :cond_2d
     move-object v7, v6
 
     check-cast v7, Ljava/lang/CharSequence;
@@ -188,12 +188,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_42
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_67
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -203,7 +203,7 @@
 
     .line 758
     .local v7, "varyField":Ljava/lang/String;
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_5f
 
     move-object v8, v7
 
@@ -219,9 +219,9 @@
 
     invoke-interface {v0, v8}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_42
 
-    :cond_3
+    :cond_5f
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type kotlin.CharSequence"
@@ -233,30 +233,30 @@
     .line 748
     .end local v6    # "value":Ljava/lang/String;
     .end local v7    # "varyField":Ljava/lang/String;
-    :cond_4
-    :goto_1
-    if-lt v3, v1, :cond_0
+    :cond_67
+    :goto_67
+    if-lt v3, v1, :cond_9
 
     .line 761
     .end local v4    # "i":I
-    :cond_5
-    if-nez v0, :cond_6
+    :cond_69
+    if-nez v0, :cond_70
 
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v1
 
-    goto :goto_2
+    goto :goto_71
 
-    :cond_6
+    :cond_70
     move-object v1, v0
 
-    :goto_2
+    :goto_71
     return-object v1
 .end method
 
 .method private final varyHeaders(Lokhttp3/Headers;Lokhttp3/Headers;)Lokhttp3/Headers;
-    .locals 7
+    .registers 10
     .param p1, "requestHeaders"    # Lokhttp3/Headers;
     .param p2, "responseHeaders"    # Lokhttp3/Headers;
 
@@ -271,14 +271,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     sget-object v1, Lokhttp3/internal/Util;->EMPTY_HEADERS:Lokhttp3/Headers;
 
     return-object v1
 
     .line 783
-    :cond_0
+    :cond_d
     new-instance v1, Lokhttp3/Headers$Builder;
 
     invoke-direct {v1}, Lokhttp3/Headers$Builder;-><init>()V
@@ -289,11 +289,11 @@
 
     move-result v2
 
-    if-lez v2, :cond_3
+    if-lez v2, :cond_2f
 
     const/4 v3, 0x0
 
-    :cond_1
+    :cond_19
     move v4, v3
 
     .local v4, "i":I
@@ -310,7 +310,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_2d
 
     .line 787
     invoke-virtual {p1, v4}, Lokhttp3/Headers;->value(I)Ljava/lang/String;
@@ -321,12 +321,12 @@
 
     .line 784
     .end local v5    # "fieldName":Ljava/lang/String;
-    :cond_2
-    if-lt v3, v2, :cond_1
+    :cond_2d
+    if-lt v3, v2, :cond_19
 
     .line 790
     .end local v4    # "i":I
-    :cond_3
+    :cond_2f
     invoke-virtual {v1}, Lokhttp3/Headers$Builder;->build()Lokhttp3/Headers;
 
     move-result-object v2
@@ -337,7 +337,7 @@
 
 # virtual methods
 .method public final hasVaryAll(Lokhttp3/Response;)Z
-    .locals 2
+    .registers 4
     .param p1, "$this$hasVaryAll"    # Lokhttp3/Response;
 
     const-string v0, "<this>"
@@ -363,7 +363,7 @@
 .end method
 
 .method public final key(Lokhttp3/HttpUrl;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "url"    # Lokhttp3/HttpUrl;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -395,7 +395,7 @@
 .end method
 
 .method public final readInt$okhttp(Lokio/BufferedSource;)I
-    .locals 6
+    .registers 8
     .param p1, "source"    # Lokio/BufferedSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -411,7 +411,7 @@
     nop
 
     .line 715
-    :try_start_0
+    :try_start_6
     invoke-interface {p1}, Lokio/BufferedSource;->readDecimalLong()J
 
     move-result-wide v0
@@ -428,13 +428,13 @@
 
     cmp-long v5, v0, v3
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_2b
 
     const-wide/32 v3, 0x7fffffff
 
     cmp-long v5, v0, v3
 
-    if-gtz v5, :cond_1
+    if-gtz v5, :cond_2b
 
     move-object v3, v2
 
@@ -444,17 +444,17 @@
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_26
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_26
     const/4 v3, 0x0
 
-    :goto_0
-    if-nez v3, :cond_1
+    :goto_27
+    if-nez v3, :cond_2b
 
     .line 720
     long-to-int v3, v0
@@ -462,7 +462,7 @@
     return v3
 
     .line 718
-    :cond_1
+    :cond_2b
     new-instance v3, Ljava/io/IOException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -497,14 +497,14 @@
 
     .end local p1    # "source":Lokio/BufferedSource;
     throw v3
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4e
+    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_4e} :catch_4e
 
     .line 721
     .end local v0    # "result":J
     .end local v2    # "line":Ljava/lang/String;
     .restart local p1    # "source":Lokio/BufferedSource;
-    :catch_0
+    :catch_4e
     move-exception v0
 
     .line 722
@@ -521,7 +521,7 @@
 .end method
 
 .method public final varyHeaders(Lokhttp3/Response;)Lokhttp3/Headers;
-    .locals 3
+    .registers 5
     .param p1, "$this$varyHeaders"    # Lokhttp3/Response;
 
     const-string v0, "<this>"
@@ -559,7 +559,7 @@
 .end method
 
 .method public final varyMatches(Lokhttp3/Response;Lokhttp3/Headers;Lokhttp3/Request;)Z
-    .locals 9
+    .registers 13
     .param p1, "cachedResponse"    # Lokhttp3/Response;
     .param p2, "cachedRequest"    # Lokhttp3/Headers;
     .param p3, "newRequest"    # Lokhttp3/Request;
@@ -596,7 +596,7 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_29
 
     move-object v2, v0
 
@@ -606,22 +606,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_29
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 796
-    :cond_0
+    :cond_29
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_2d
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -651,20 +651,20 @@
 
     .end local v5    # "it":Ljava/lang/String;
     .end local v6    # "$i$a$-none-Cache$Companion$varyMatches$1":I
-    if-nez v7, :cond_1
+    if-nez v7, :cond_2d
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 797
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_4b
     nop
 
     .line 735
     .end local v0    # "$this$none$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$none":I
-    :goto_0
+    :goto_4c
     return v3
 .end method

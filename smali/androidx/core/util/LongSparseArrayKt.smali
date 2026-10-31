@@ -66,7 +66,7 @@
 
 # direct methods
 .method public static final contains(Landroid/util/LongSparseArray;J)Z
-    .locals 2
+    .registers 5
     .param p0, "$this$contains"    # Landroid/util/LongSparseArray;
     .param p1, "key"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -87,21 +87,21 @@
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public static final containsKey(Landroid/util/LongSparseArray;J)Z
-    .locals 2
+    .registers 5
     .param p0, "$this$containsKey"    # Landroid/util/LongSparseArray;
     .param p1, "key"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -122,21 +122,21 @@
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public static final containsValue(Landroid/util/LongSparseArray;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$containsValue"    # Landroid/util/LongSparseArray;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -157,21 +157,21 @@
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public static final forEach(Landroid/util/LongSparseArray;Lkotlin/jvm/functions/Function2;)V
-    .locals 5
+    .registers 7
     .param p0, "$this$forEach"    # Landroid/util/LongSparseArray;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -201,8 +201,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_0
+    :goto_6
+    if-ge v1, v2, :cond_1a
 
     .line 78
     invoke-virtual {p0, v1}, Landroid/util/LongSparseArray;->keyAt(I)J
@@ -222,16 +222,16 @@
     .line 77
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 80
     .end local v1    # "index":I
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public static final getOrDefault(Landroid/util/LongSparseArray;JLjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "$this$getOrDefault"    # Landroid/util/LongSparseArray;
     .param p1, "key"    # J
     .param p3, "defaultValue"    # Ljava/lang/Object;
@@ -253,16 +253,16 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_8
 
     move-object v1, p3
 
-    :cond_0
+    :cond_8
     return-object v1
 .end method
 
 .method public static final getOrElse(Landroid/util/LongSparseArray;JLkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "$this$getOrElse"    # Landroid/util/LongSparseArray;
     .param p1, "key"    # J
     .param p3, "defaultValue"    # Lkotlin/jvm/functions/Function0;
@@ -286,18 +286,18 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
     invoke-interface {p3}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
 
-    :cond_0
+    :cond_b
     return-object v1
 .end method
 
 .method public static final getSize(Landroid/util/LongSparseArray;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$size"    # Landroid/util/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -321,7 +321,7 @@
 .end method
 
 .method public static final isEmpty(Landroid/util/LongSparseArray;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isEmpty"    # Landroid/util/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -341,21 +341,21 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public static final isNotEmpty(Landroid/util/LongSparseArray;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isNotEmpty"    # Landroid/util/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -375,21 +375,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     return v1
 .end method
 
 .method public static final keyIterator(Landroid/util/LongSparseArray;)Lkotlin/collections/LongIterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$keyIterator"    # Landroid/util/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -414,7 +414,7 @@
 .end method
 
 .method public static final plus(Landroid/util/LongSparseArray;Landroid/util/LongSparseArray;)Landroid/util/LongSparseArray;
-    .locals 3
+    .registers 5
     .param p0, "$this$plus"    # Landroid/util/LongSparseArray;
     .param p1, "other"    # Landroid/util/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -458,7 +458,7 @@
 .end method
 
 .method public static final putAll(Landroid/util/LongSparseArray;Landroid/util/LongSparseArray;)V
-    .locals 8
+    .registers 10
     .param p0, "$this$putAll"    # Landroid/util/LongSparseArray;
     .param p1, "other"    # Landroid/util/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -488,8 +488,8 @@
 
     move-result v3
 
-    :goto_0
-    if-ge v2, v3, :cond_0
+    :goto_7
+    if-ge v2, v3, :cond_19
 
     .line 101
     invoke-virtual {v0, v2}, Landroid/util/LongSparseArray;->keyAt(I)J
@@ -517,11 +517,11 @@
     .line 100
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 103
     .end local v2    # "index$iv":I
-    :cond_0
+    :cond_19
     nop
 
     .line 73
@@ -531,7 +531,7 @@
 .end method
 
 .method public static final remove(Landroid/util/LongSparseArray;JLjava/lang/Object;)Z
-    .locals 2
+    .registers 6
     .param p0, "$this$remove"    # Landroid/util/LongSparseArray;
     .param p1, "key"    # J
     .param p3, "value"    # Ljava/lang/Object;
@@ -552,7 +552,7 @@
 
     .line 65
     .local v0, "index":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_15
 
     invoke-virtual {p0, v0}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
 
@@ -562,7 +562,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 66
     invoke-virtual {p0, v0}, Landroid/util/LongSparseArray;->removeAt(I)V
@@ -573,14 +573,14 @@
     return v1
 
     .line 69
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public static final set(Landroid/util/LongSparseArray;JLjava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "$this$set"    # Landroid/util/LongSparseArray;
     .param p1, "key"    # J
     .param p3, "value"    # Ljava/lang/Object;
@@ -604,7 +604,7 @@
 .end method
 
 .method public static final valueIterator(Landroid/util/LongSparseArray;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$valueIterator"    # Landroid/util/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {

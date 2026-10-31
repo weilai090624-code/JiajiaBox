@@ -89,7 +89,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;)V
-    .locals 1
+    .registers 3
     .param p1, "kvPairDao"    # Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
 
     const-string v0, "kvPairDao"
@@ -114,7 +114,7 @@
 .end method
 
 .method private final fireChangeListener(Ljava/lang/String;)V
-    .locals 8
+    .registers 10
     .param p1, "key"    # Ljava/lang/String;
 
     .line 73
@@ -126,7 +126,7 @@
 
     .line 74
     .local v1, "$i$a$-synchronized-RoomPreferenceDataStore$fireChangeListener$listeners$1":I
-    :try_start_0
+    :try_start_4
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->listeners:Ljava/util/HashSet;
 
     check-cast v2, Ljava/lang/Iterable;
@@ -134,8 +134,8 @@
     invoke-static {v2}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_4 .. :try_end_c} :catchall_2e
 
     .line 73
     .end local v1    # "$i$a$-synchronized-RoomPreferenceDataStore$fireChangeListener$listeners$1":I
@@ -158,12 +158,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_16
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2c
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -191,10 +191,10 @@
     nop
 
     .end local v4    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_16
 
     .line 93
-    :cond_0
+    :cond_2c
     nop
 
     .line 77
@@ -204,7 +204,7 @@
 
     .line 73
     .end local v0    # "listeners":Ljava/util/List;
-    :catchall_0
+    :catchall_2e
     move-exception v1
 
     monitor-exit v0
@@ -215,7 +215,7 @@
 
 # virtual methods
 .method public final getBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -229,23 +229,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getBoolean()Ljava/lang/Boolean;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public getBoolean(Ljava/lang/String;Z)Z
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # Z
 
@@ -258,23 +258,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     move v0, p2
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public getFloat(Ljava/lang/String;F)F
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # F
 
@@ -287,23 +287,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     move v0, p2
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public final getFloat(Ljava/lang/String;)Ljava/lang/Float;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -317,23 +317,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getFloat()Ljava/lang/Float;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public getInt(Ljava/lang/String;I)I
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # I
 
@@ -346,23 +346,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     move v0, p2
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public final getInt(Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -376,13 +376,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getLong()Ljava/lang/Long;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
@@ -394,17 +394,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1e
     return-object v0
 .end method
 
 .method public getLong(Ljava/lang/String;J)J
-    .locals 2
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # J
 
@@ -417,23 +417,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     move-wide v0, p2
 
-    :goto_0
+    :goto_11
     return-wide v0
 .end method
 
 .method public final getLong(Ljava/lang/String;)Ljava/lang/Long;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -447,23 +447,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getLong()Ljava/lang/Long;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public final getString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -477,23 +477,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # Ljava/lang/String;
 
@@ -506,16 +506,16 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     move-object v0, p2
 
-    :cond_0
+    :cond_c
     return-object v0
 .end method
 
 .method public final getStringSet(Ljava/lang/String;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -539,23 +539,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getStringSet()Ljava/util/Set;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public getStringSet(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defValue"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -580,16 +580,16 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     move-object v0, p2
 
-    :cond_0
+    :cond_c
     return-object v0
 .end method
 
 .method public final putBoolean(Ljava/lang/String;Ljava/lang/Boolean;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Boolean;
 
@@ -598,25 +598,25 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 26
-    if-nez p2, :cond_0
+    if-nez p2, :cond_b
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->remove(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_b
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     invoke-virtual {p0, p1, v0}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putBoolean(Ljava/lang/String;Z)V
 
-    :goto_0
+    :goto_12
     return-void
 .end method
 
 .method public putBoolean(Ljava/lang/String;Z)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Z
 
@@ -645,7 +645,7 @@
 .end method
 
 .method public putFloat(Ljava/lang/String;F)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # F
 
@@ -674,7 +674,7 @@
 .end method
 
 .method public final putFloat(Ljava/lang/String;Ljava/lang/Float;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Float;
 
@@ -683,25 +683,25 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 29
-    if-nez p2, :cond_0
+    if-nez p2, :cond_b
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->remove(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_b
     invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
 
     move-result v0
 
     invoke-virtual {p0, p1, v0}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putFloat(Ljava/lang/String;F)V
 
-    :goto_0
+    :goto_12
     return-void
 .end method
 
 .method public putInt(Ljava/lang/String;I)V
-    .locals 4
+    .registers 7
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # I
 
@@ -732,7 +732,7 @@
 .end method
 
 .method public final putInt(Ljava/lang/String;Ljava/lang/Integer;)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Integer;
 
@@ -741,13 +741,13 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 32
-    if-nez p2, :cond_0
+    if-nez p2, :cond_b
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->remove(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_b
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
@@ -756,12 +756,12 @@
 
     invoke-virtual {p0, p1, v0, v1}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putLong(Ljava/lang/String;J)V
 
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method public putLong(Ljava/lang/String;J)V
-    .locals 2
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # J
 
@@ -790,7 +790,7 @@
 .end method
 
 .method public final putLong(Ljava/lang/String;Ljava/lang/Long;)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Long;
 
@@ -799,25 +799,25 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 34
-    if-nez p2, :cond_0
+    if-nez p2, :cond_b
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->remove(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_b
     invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
     invoke-virtual {p0, p1, v0, v1}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->putLong(Ljava/lang/String;J)V
 
-    :goto_0
+    :goto_12
     return-void
 .end method
 
 .method public putString(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -826,14 +826,14 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 55
-    if-nez p2, :cond_0
+    if-nez p2, :cond_b
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->remove(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 56
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->kvPairDao:Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
 
     new-instance v1, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
@@ -850,12 +850,12 @@
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->fireChangeListener(Ljava/lang/String;)V
 
     .line 58
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method public putStringSet(Ljava/lang/String;Ljava/util/Set;)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "values"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -873,14 +873,14 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 61
-    if-nez p2, :cond_0
+    if-nez p2, :cond_b
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->remove(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 62
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->kvPairDao:Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
 
     new-instance v1, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
@@ -897,12 +897,12 @@
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->fireChangeListener(Ljava/lang/String;)V
 
     .line 64
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method public final registerChangeListener(Lio/nekohasekai/sagernet/database/preference/OnPreferenceDataStoreChangeListener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Lio/nekohasekai/sagernet/database/preference/OnPreferenceDataStoreChangeListener;
 
     const-string v0, "listener"
@@ -918,12 +918,12 @@
 
     .line 81
     .local v1, "$i$a$-synchronized-RoomPreferenceDataStore$registerChangeListener$1":I
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->listeners:Ljava/util/HashSet;
 
     invoke-virtual {v2, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_9 .. :try_end_e} :catchall_10
 
     .line 80
     .end local v1    # "$i$a$-synchronized-RoomPreferenceDataStore$registerChangeListener$1":I
@@ -933,7 +933,7 @@
     return-void
 
     .line 80
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
@@ -942,7 +942,7 @@
 .end method
 
 .method public final remove(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -962,7 +962,7 @@
 .end method
 
 .method public final reset()I
-    .locals 1
+    .registers 2
 
     .line 15
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->kvPairDao:Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Dao;
@@ -975,7 +975,7 @@
 .end method
 
 .method public final unregisterChangeListener(Lio/nekohasekai/sagernet/database/preference/OnPreferenceDataStoreChangeListener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Lio/nekohasekai/sagernet/database/preference/OnPreferenceDataStoreChangeListener;
 
     const-string v0, "listener"
@@ -991,12 +991,12 @@
 
     .line 87
     .local v1, "$i$a$-synchronized-RoomPreferenceDataStore$unregisterChangeListener$1":I
-    :try_start_0
+    :try_start_9
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/preference/RoomPreferenceDataStore;->listeners:Ljava/util/HashSet;
 
     invoke-virtual {v2, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_9 .. :try_end_e} :catchall_10
 
     .line 86
     .end local v1    # "$i$a$-synchronized-RoomPreferenceDataStore$unregisterChangeListener$1":I
@@ -1006,7 +1006,7 @@
     return-void
 
     .line 86
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0

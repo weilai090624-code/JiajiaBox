@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/app/SharedElementCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "callback"    # Landroidx/core/app/SharedElementCallback;
 
     .line 714
@@ -34,7 +34,7 @@
 .end method
 
 .method static synthetic lambda$onSharedElementsArrived$0(Landroid/app/SharedElementCallback$OnSharedElementsReadyListener;)V
-    .locals 0
+    .registers 1
     .param p0, "listener"    # Landroid/app/SharedElementCallback$OnSharedElementsReadyListener;
 
     .line 759
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onCaptureSharedElementSnapshot(Landroid/view/View;Landroid/graphics/Matrix;Landroid/graphics/RectF;)Landroid/os/Parcelable;
-    .locals 1
+    .registers 5
     .param p1, "sharedElement"    # Landroid/view/View;
     .param p2, "viewToGlobalMatrix"    # Landroid/graphics/Matrix;
     .param p3, "screenBounds"    # Landroid/graphics/RectF;
@@ -62,7 +62,7 @@
 .end method
 
 .method public onCreateSnapshotView(Landroid/content/Context;Landroid/os/Parcelable;)Landroid/view/View;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "snapshot"    # Landroid/os/Parcelable;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public onMapSharedElements(Ljava/util/List;Ljava/util/Map;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -103,7 +103,7 @@
 .end method
 
 .method public onRejectSharedElements(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -124,7 +124,7 @@
 .end method
 
 .method public onSharedElementEnd(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -153,7 +153,7 @@
 .end method
 
 .method public onSharedElementStart(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -182,7 +182,7 @@
 .end method
 
 .method public onSharedElementsArrived(Ljava/util/List;Ljava/util/List;Landroid/app/SharedElementCallback$OnSharedElementsReadyListener;)V
-    .locals 2
+    .registers 6
     .param p3, "listener"    # Landroid/app/SharedElementCallback$OnSharedElementsReadyListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {

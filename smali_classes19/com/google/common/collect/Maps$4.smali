@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Set;)V
-    .locals 0
+    .registers 2
 
     .line 1070
     iput-object p1, p0, Lcom/google/common/collect/Maps$4;->val$set:Ljava/util/Set;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -61,7 +61,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,7 +80,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1070
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$4;->delegate()Ljava/util/Set;
@@ -91,7 +91,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 1070
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$4;->delegate()Ljava/util/Set;
@@ -102,7 +102,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 263
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method private static byteArrayContains([[B[B)Z
-    .locals 5
+    .registers 7
     .param p0, "array"    # [[B
     .param p1, "expected"    # [B
 
@@ -34,8 +34,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_3
+    if-ge v2, v0, :cond_12
 
     aget-object v3, p0, v2
 
@@ -45,7 +45,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_f
 
     .line 248
     const/4 v0, 0x1
@@ -54,18 +54,18 @@
 
     .line 246
     .end local v3    # "item":[B
-    :cond_0
+    :cond_f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 251
-    :cond_1
+    :cond_12
     return v1
 .end method
 
 .method private static computeSHA256Digest([B)[B
-    .locals 3
+    .registers 4
     .param p0, "bytes"    # [B
 
     .line 256
@@ -79,13 +79,13 @@
     invoke-virtual {v0, p0}, Ljava/security/MessageDigest;->digest([B)[B
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_a} :catch_b
 
     return-object v0
 
     .line 257
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 259
@@ -100,7 +100,7 @@
 .end method
 
 .method public static getLongVersionCode(Landroid/content/pm/PackageInfo;)J
-    .locals 2
+    .registers 3
     .param p0, "info"    # Landroid/content/pm/PackageInfo;
 
     .line 51
@@ -108,7 +108,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 52
     invoke-static {p0}, Landroidx/core/content/pm/PackageInfoCompat$Api28Impl;->getLongVersionCode(Landroid/content/pm/PackageInfo;)J
@@ -118,7 +118,7 @@
     return-wide v0
 
     .line 54
-    :cond_0
+    :cond_b
     iget v0, p0, Landroid/content/pm/PackageInfo;->versionCode:I
 
     int-to-long v0, v0
@@ -127,7 +127,7 @@
 .end method
 
 .method public static getSignatures(Landroid/content/pm/PackageManager;Ljava/lang/String;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p0, "packageManager"    # Landroid/content/pm/PackageManager;
     .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -153,7 +153,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1e
 
     .line 89
     const/high16 v0, 0x8000000
@@ -172,7 +172,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 93
     invoke-static {v1}, Landroidx/core/content/pm/PackageInfoCompat$Api28Impl;->getApkContentsSigners(Landroid/content/pm/SigningInfo;)[Landroid/content/pm/Signature;
@@ -180,11 +180,11 @@
     move-result-object v2
 
     .local v2, "array":[Landroid/content/pm/Signature;
-    goto :goto_0
+    goto :goto_1d
 
     .line 95
     .end local v2    # "array":[Landroid/content/pm/Signature;
-    :cond_0
+    :cond_19
     invoke-static {v1}, Landroidx/core/content/pm/PackageInfoCompat$Api28Impl;->getSigningCertificateHistory(Landroid/content/pm/SigningInfo;)[Landroid/content/pm/Signature;
 
     move-result-object v2
@@ -193,12 +193,12 @@
     .end local v0    # "pkgInfo":Landroid/content/pm/PackageInfo;
     .end local v1    # "signingInfo":Landroid/content/pm/SigningInfo;
     .restart local v2    # "array":[Landroid/content/pm/Signature;
-    :goto_0
-    goto :goto_1
+    :goto_1d
+    goto :goto_26
 
     .line 100
     .end local v2    # "array":[Landroid/content/pm/Signature;
-    :cond_1
+    :cond_1e
     const/16 v0, 0x40
 
     invoke-virtual {p0, p1, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
@@ -212,8 +212,8 @@
     .line 106
     .end local v0    # "pkgInfo":Landroid/content/pm/PackageInfo;
     .restart local v2    # "array":[Landroid/content/pm/Signature;
-    :goto_1
-    if-nez v2, :cond_2
+    :goto_26
+    if-nez v2, :cond_2d
 
     .line 107
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
@@ -223,7 +223,7 @@
     return-object v0
 
     .line 109
-    :cond_2
+    :cond_2d
     invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -232,7 +232,7 @@
 .end method
 
 .method public static hasSignatures(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/util/Map;Z)Z
-    .locals 10
+    .registers 14
     .param p0, "packageManager"    # Landroid/content/pm/PackageManager;
     .param p1, "packageName"    # Ljava/lang/String;
     .param p3, "matchExact"    # Z
@@ -262,13 +262,13 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 143
     return v1
 
     .line 146
-    :cond_0
+    :cond_8
     invoke-interface {p2}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v0
@@ -279,14 +279,14 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     const-string v4, "Unsupported certificate type "
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_84
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -296,7 +296,7 @@
 
     .line 154
     .local v3, "bytes":[B
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_6b
 
     .line 158
     invoke-interface {p2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -307,14 +307,14 @@
 
     .line 159
     .local v5, "type":Ljava/lang/Integer;
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_52
 
     .line 164
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v6
 
-    packed-switch v6, :pswitch_data_0
+    packed-switch v6, :pswitch_data_146
 
     .line 169
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -350,18 +350,18 @@
     throw v1
 
     .line 167
-    :pswitch_0
+    :pswitch_50
     nop
 
     .line 172
     .end local v3    # "bytes":[B
     .end local v5    # "type":Ljava/lang/Integer;
-    goto :goto_0
+    goto :goto_10
 
     .line 160
     .restart local v3    # "bytes":[B
     .restart local v5    # "type":Ljava/lang/Integer;
-    :cond_1
+    :cond_52
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -388,7 +388,7 @@
 
     .line 155
     .end local v5    # "type":Ljava/lang/Integer;
-    :cond_2
+    :cond_6b
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -415,7 +415,7 @@
 
     .line 175
     .end local v3    # "bytes":[B
-    :cond_3
+    :cond_84
     invoke-static {p0, p1}, Landroidx/core/content/pm/PackageInfoCompat;->getSignatures(Landroid/content/pm/PackageManager;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v2
@@ -424,25 +424,25 @@
     .local v2, "signers":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/Signature;>;"
     const/4 v3, 0x1
 
-    if-nez p3, :cond_6
+    if-nez p3, :cond_b4
 
     sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v6, 0x1c
 
-    if-lt v5, v6, :cond_6
+    if-lt v5, v6, :cond_b4
 
     .line 185
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :goto_1
+    :goto_95
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_b3
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -468,7 +468,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_b2
 
     .line 189
     return v1
@@ -476,20 +476,20 @@
     .line 191
     .end local v5    # "bytes":[B
     .end local v6    # "type":Ljava/lang/Integer;
-    :cond_4
-    goto :goto_1
+    :cond_b2
+    goto :goto_95
 
     .line 193
-    :cond_5
+    :cond_b3
     return v3
 
     .line 197
-    :cond_6
+    :cond_b4
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_145
 
     .line 198
     invoke-interface {p2}, Ljava/util/Map;->size()I
@@ -500,9 +500,9 @@
 
     move-result v6
 
-    if-gt v5, v6, :cond_b
+    if-gt v5, v6, :cond_145
 
-    if-eqz p3, :cond_7
+    if-eqz p3, :cond_d1
 
     .line 199
     invoke-interface {p2}, Ljava/util/Map;->size()I
@@ -513,12 +513,12 @@
 
     move-result v6
 
-    if-eq v5, v6, :cond_7
+    if-eq v5, v6, :cond_d1
 
-    goto :goto_3
+    goto :goto_145
 
     .line 204
-    :cond_7
+    :cond_d1
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
@@ -533,7 +533,7 @@
 
     .line 206
     .local v6, "sha256Digests":[[B
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_fc
 
     .line 208
     invoke-interface {v2}, Ljava/util/List;->size()I
@@ -546,12 +546,12 @@
     const/4 v7, 0x0
 
     .local v7, "index":I
-    :goto_2
+    :goto_e3
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v8
 
-    if-ge v7, v8, :cond_8
+    if-ge v7, v8, :cond_fc
 
     .line 210
     invoke-interface {v2, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -573,11 +573,11 @@
     .line 209
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_2
+    goto :goto_e3
 
     .line 214
     .end local v7    # "index":I
-    :cond_8
+    :cond_fc
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
@@ -586,7 +586,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_a
+    if-eqz v8, :cond_144
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -608,7 +608,7 @@
 
     move-result v9
 
-    packed-switch v9, :pswitch_data_1
+    packed-switch v9, :pswitch_data_14e
 
     .line 235
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -634,18 +634,18 @@
     throw v1
 
     .line 229
-    :pswitch_1
+    :pswitch_130
     invoke-static {v6, v7}, Landroidx/core/content/pm/PackageInfoCompat;->byteArrayContains([[B[B)Z
 
     move-result v4
 
-    if-nez v4, :cond_9
+    if-nez v4, :cond_143
 
     .line 230
     return v1
 
     .line 221
-    :pswitch_2
+    :pswitch_137
     new-instance v4, Landroid/content/pm/Signature;
 
     invoke-direct {v4, v7}, Landroid/content/pm/Signature;-><init>([B)V
@@ -656,38 +656,38 @@
 
     move-result v9
 
-    if-nez v9, :cond_9
+    if-nez v9, :cond_143
 
     .line 223
     return v1
 
     .line 239
     .end local v4    # "expectedSignature":Landroid/content/pm/Signature;
-    :cond_9
+    :cond_143
     return v3
 
     .line 242
     .end local v7    # "bytes":[B
     .end local v8    # "type":Ljava/lang/Integer;
-    :cond_a
+    :cond_144
     return v1
 
     .line 200
     .end local v5    # "hasSha256":Z
     .end local v6    # "sha256Digests":[[B
-    :cond_b
-    :goto_3
+    :cond_145
+    :goto_145
     return v1
 
-    :pswitch_data_0
+    :pswitch_data_146
     .packed-switch 0x0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_50
+        :pswitch_50
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_14e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
+        :pswitch_137
+        :pswitch_130
     .end packed-switch
 .end method

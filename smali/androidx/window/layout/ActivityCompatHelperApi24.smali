@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/layout/ActivityCompatHelperApi24;
 
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public final isInMultiWindowMode(Landroid/app/Activity;)Z
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"

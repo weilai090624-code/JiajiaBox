@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Iterator;Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 3
 
     .line 664
     iput-object p1, p0, Lcom/google/common/collect/Iterators$5;->val$unfiltered:Ljava/util/Iterator;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method protected computeNext()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -57,14 +57,14 @@
     .line 668
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/Iterators$5;->val$unfiltered:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 669
     iget-object v0, p0, Lcom/google/common/collect/Iterators$5;->val$unfiltered:Ljava/util/Iterator;
@@ -81,18 +81,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 671
     return-object v0
 
     .line 673
     .end local v0    # "element":Ljava/lang/Object;, "TT;"
-    :cond_0
-    goto :goto_0
+    :cond_18
+    goto :goto_1
 
     .line 674
-    :cond_1
+    :cond_19
     invoke-virtual {p0}, Lcom/google/common/collect/Iterators$5;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

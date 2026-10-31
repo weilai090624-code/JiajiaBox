@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/NavigableMap;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractMapBasedMultimap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public ceiling(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -88,7 +88,7 @@
 .end method
 
 .method public descendingIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -111,7 +111,7 @@
 .end method
 
 .method public descendingSet()Ljava/util/NavigableSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -140,7 +140,7 @@
 .end method
 
 .method public floor(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -169,7 +169,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;)Ljava/util/NavigableSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -195,7 +195,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -230,7 +230,7 @@
 .end method
 
 .method public bridge synthetic headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -246,7 +246,7 @@
 .end method
 
 .method public higher(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -275,7 +275,7 @@
 .end method
 
 .method public lower(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -304,7 +304,7 @@
 .end method
 
 .method public pollFirst()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -328,7 +328,7 @@
 .end method
 
 .method public pollLast()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -352,7 +352,7 @@
 .end method
 
 .method sortedMap()Ljava/util/NavigableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -375,7 +375,7 @@
 .end method
 
 .method bridge synthetic sortedMap()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
 
     .line 1052
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableKeySet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableKeySet;"
@@ -387,7 +387,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/NavigableSet;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -420,7 +420,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 3
+    .registers 8
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -463,7 +463,7 @@
 .end method
 
 .method public bridge synthetic subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -483,7 +483,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Ljava/util/NavigableSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -509,7 +509,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -544,7 +544,7 @@
 .end method
 
 .method public bridge synthetic tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

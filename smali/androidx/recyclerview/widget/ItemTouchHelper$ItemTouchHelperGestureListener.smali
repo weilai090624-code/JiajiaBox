@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper;)V
-    .locals 0
+    .registers 2
 
     .line 2329
     iput-object p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method doNotReactToLongPress()V
-    .locals 1
+    .registers 2
 
     .line 2337
     const/4 v0, 0x0
@@ -53,7 +53,7 @@
 .end method
 
 .method public onDown(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "e"    # Landroid/view/MotionEvent;
 
     .line 2342
@@ -63,19 +63,19 @@
 .end method
 
 .method public onLongPress(Landroid/view/MotionEvent;)V
-    .locals 9
+    .registers 11
     .param p1, "e"    # Landroid/view/MotionEvent;
 
     .line 2347
     iget-boolean v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->mShouldReactToLongPress:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 2348
     return-void
 
     .line 2350
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
 
     invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ItemTouchHelper;->findChildView(Landroid/view/MotionEvent;)Landroid/view/View;
@@ -84,7 +84,7 @@
 
     .line 2351
     .local v0, "child":Landroid/view/View;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_62
 
     .line 2352
     iget-object v1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
@@ -97,7 +97,7 @@
 
     .line 2353
     .local v1, "vh":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_62
 
     .line 2354
     iget-object v2, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
@@ -112,13 +112,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_26
 
     .line 2355
     return-void
 
     .line 2357
-    :cond_1
+    :cond_26
     const/4 v2, 0x0
 
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
@@ -131,7 +131,7 @@
 
     iget v3, v3, Landroidx/recyclerview/widget/ItemTouchHelper;->mActivePointerId:I
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_62
 
     .line 2362
     iget-object v3, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
@@ -185,7 +185,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_62
 
     .line 2373
     iget-object v6, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
@@ -200,6 +200,6 @@
     .end local v3    # "index":I
     .end local v4    # "x":F
     .end local v5    # "y":F
-    :cond_2
+    :cond_62
     return-void
 .end method

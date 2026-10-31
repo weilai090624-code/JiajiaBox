@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/RoomWarnings$Companion;
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         message = "This type should not be instantiated as it contains only static methods. "
     .end annotation

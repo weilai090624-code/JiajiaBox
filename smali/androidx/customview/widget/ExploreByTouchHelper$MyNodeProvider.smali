@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/customview/widget/ExploreByTouchHelper;)V
-    .locals 0
+    .registers 2
 
     .line 1245
     iput-object p1, p0, Landroidx/customview/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroidx/customview/widget/ExploreByTouchHelper;
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public createAccessibilityNodeInfo(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 2
+    .registers 4
     .param p1, "virtualViewId"    # I
 
     .line 1252
@@ -55,32 +55,32 @@
 .end method
 
 .method public findFocus(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 2
+    .registers 4
     .param p1, "focusType"    # I
 
     .line 1264
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_8
 
     .line 1265
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroidx/customview/widget/ExploreByTouchHelper;
 
     iget v0, v0, Landroidx/customview/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroidx/customview/widget/ExploreByTouchHelper;
 
     iget v0, v0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
     .line 1266
     .local v0, "focusedId":I
-    :goto_0
+    :goto_c
     const/high16 v1, -0x80000000
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_12
 
     .line 1267
     const/4 v1, 0x0
@@ -88,7 +88,7 @@
     return-object v1
 
     .line 1269
-    :cond_1
+    :cond_12
     invoke-virtual {p0, v0}, Landroidx/customview/widget/ExploreByTouchHelper$MyNodeProvider;->createAccessibilityNodeInfo(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
     move-result-object v1
@@ -97,7 +97,7 @@
 .end method
 
 .method public performAction(IILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
     .param p1, "virtualViewId"    # I
     .param p2, "action"    # I
     .param p3, "arguments"    # Landroid/os/Bundle;

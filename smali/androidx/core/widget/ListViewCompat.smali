@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method public static canScrollList(Landroid/widget/ListView;I)Z
-    .locals 1
+    .registers 3
     .param p0, "listView"    # Landroid/widget/ListView;
     .param p1, "direction"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -35,7 +35,7 @@
 .end method
 
 .method public static scrollListBy(Landroid/widget/ListView;I)V
-    .locals 0
+    .registers 2
     .param p0, "listView"    # Landroid/widget/ListView;
     .param p1, "y"    # I
     .annotation runtime Ljava/lang/Deprecated;

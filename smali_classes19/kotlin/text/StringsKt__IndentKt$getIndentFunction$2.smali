@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lkotlin/text/StringsKt__IndentKt$getIndentFunction$2;->$indent:Ljava/lang/String;
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 111
@@ -82,7 +82,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "line"    # Ljava/lang/String;
 
     const-string v0, "line"

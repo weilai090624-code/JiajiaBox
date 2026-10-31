@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/GhostViewPort;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/transition/GhostViewPort;
 
     .line 52
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .locals 2
+    .registers 3
 
     .line 56
     iget-object v0, p0, Landroidx/transition/GhostViewPort$1;->this$0:Landroidx/transition/GhostViewPort;
@@ -49,13 +49,13 @@
 
     iget-object v0, v0, Landroidx/transition/GhostViewPort;->mStartParent:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     iget-object v0, p0, Landroidx/transition/GhostViewPort$1;->this$0:Landroidx/transition/GhostViewPort;
 
     iget-object v0, v0, Landroidx/transition/GhostViewPort;->mStartView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 58
     iget-object v0, p0, Landroidx/transition/GhostViewPort$1;->this$0:Landroidx/transition/GhostViewPort;
@@ -88,7 +88,7 @@
     iput-object v1, v0, Landroidx/transition/GhostViewPort;->mStartView:Landroid/view/View;
 
     .line 63
-    :cond_0
+    :cond_2c
     const/4 v0, 0x1
 
     return v0

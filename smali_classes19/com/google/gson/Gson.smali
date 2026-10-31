@@ -154,7 +154,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 115
     const/4 v0, 0x0
@@ -189,7 +189,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 21
+    .registers 22
 
     move-object/from16 v0, p0
 
@@ -253,7 +253,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/gson/internal/Excluder;Lcom/google/gson/FieldNamingStrategy;Ljava/util/Map;ZZZZZZZZLcom/google/gson/LongSerializationPolicy;Ljava/lang/String;IILjava/util/List;Ljava/util/List;Ljava/util/List;Lcom/google/gson/ToNumberStrategy;Lcom/google/gson/ToNumberStrategy;)V
-    .locals 18
+    .registers 39
     .param p1, "excluder"    # Lcom/google/gson/internal/Excluder;
     .param p2, "fieldNamingStrategy"    # Lcom/google/gson/FieldNamingStrategy;
     .param p4, "serializeNulls"    # Z
@@ -674,7 +674,7 @@
     .line 283
     sget-boolean v7, Lcom/google/gson/internal/sql/SqlTypesSupport;->SUPPORTS_SQL_TYPES:Z
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_169
 
     .line 284
     sget-object v7, Lcom/google/gson/internal/sql/SqlTypesSupport;->TIME_FACTORY:Lcom/google/gson/TypeAdapterFactory;
@@ -692,7 +692,7 @@
     invoke-interface {v6, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 289
-    :cond_0
+    :cond_169
     sget-object v7, Lcom/google/gson/internal/bind/ArrayTypeAdapter;->FACTORY:Lcom/google/gson/TypeAdapterFactory;
 
     invoke-interface {v6, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -762,26 +762,26 @@
 .end method
 
 .method private static assertFullConsumption(Ljava/lang/Object;Lcom/google/gson/stream/JsonReader;)V
-    .locals 2
+    .registers 4
     .param p0, "obj"    # Ljava/lang/Object;
     .param p1, "reader"    # Lcom/google/gson/stream/JsonReader;
 
     .line 963
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_21
 
-    :try_start_0
+    :try_start_2
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v0
 
     sget-object v1, Lcom/google/gson/stream/JsonToken;->END_DOCUMENT:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
-    goto :goto_0
+    goto :goto_21
 
     .line 964
-    :cond_0
+    :cond_b
     new-instance v0, Lcom/google/gson/JsonIOException;
 
     const-string v1, "JSON document was not fully consumed."
@@ -791,14 +791,14 @@
     .end local p0    # "obj":Ljava/lang/Object;
     .end local p1    # "reader":Lcom/google/gson/stream/JsonReader;
     throw v0
-    :try_end_0
-    .catch Lcom/google/gson/stream/MalformedJsonException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Lcom/google/gson/stream/MalformedJsonException; {:try_start_2 .. :try_end_13} :catch_1a
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_13} :catch_13
 
     .line 968
     .restart local p0    # "obj":Ljava/lang/Object;
     .restart local p1    # "reader":Lcom/google/gson/stream/JsonReader;
-    :catch_0
+    :catch_13
     move-exception v0
 
     .line 969
@@ -811,7 +811,7 @@
 
     .line 966
     .end local v0    # "e":Ljava/io/IOException;
-    :catch_1
+    :catch_1a
     move-exception v0
 
     .line 967
@@ -824,8 +824,8 @@
 
     .line 970
     .end local v0    # "e":Lcom/google/gson/stream/MalformedJsonException;
-    :cond_1
-    :goto_0
+    :cond_21
+    :goto_21
     nop
 
     .line 971
@@ -833,7 +833,7 @@
 .end method
 
 .method private static atomicLongAdapter(Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -862,7 +862,7 @@
 .end method
 
 .method private static atomicLongArrayAdapter(Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -891,7 +891,7 @@
 .end method
 
 .method static checkValidFloatingPoint(D)V
-    .locals 3
+    .registers 5
     .param p0, "value"    # D
 
     .line 401
@@ -899,19 +899,19 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     invoke-static {p0, p1}, Ljava/lang/Double;->isInfinite(D)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 406
     return-void
 
     .line 402
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -938,7 +938,7 @@
 .end method
 
 .method private doubleAdapter(Z)Lcom/google/gson/TypeAdapter;
-    .locals 1
+    .registers 3
     .param p1, "serializeSpecialFloatingPointValues"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -950,7 +950,7 @@
     .end annotation
 
     .line 353
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 354
     sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters;->DOUBLE:Lcom/google/gson/TypeAdapter;
@@ -958,7 +958,7 @@
     return-object v0
 
     .line 356
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/gson/Gson$1;
 
     invoke-direct {v0, p0}, Lcom/google/gson/Gson$1;-><init>(Lcom/google/gson/Gson;)V
@@ -967,7 +967,7 @@
 .end method
 
 .method private floatAdapter(Z)Lcom/google/gson/TypeAdapter;
-    .locals 1
+    .registers 3
     .param p1, "serializeSpecialFloatingPointValues"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -979,7 +979,7 @@
     .end annotation
 
     .line 377
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 378
     sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters;->FLOAT:Lcom/google/gson/TypeAdapter;
@@ -987,7 +987,7 @@
     return-object v0
 
     .line 380
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/gson/Gson$2;
 
     invoke-direct {v0, p0}, Lcom/google/gson/Gson$2;-><init>(Lcom/google/gson/Gson;)V
@@ -996,7 +996,7 @@
 .end method
 
 .method private static longAdapter(Lcom/google/gson/LongSerializationPolicy;)Lcom/google/gson/TypeAdapter;
-    .locals 1
+    .registers 2
     .param p0, "longSerializationPolicy"    # Lcom/google/gson/LongSerializationPolicy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1012,7 +1012,7 @@
     .line 409
     sget-object v0, Lcom/google/gson/LongSerializationPolicy;->DEFAULT:Lcom/google/gson/LongSerializationPolicy;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_7
 
     .line 410
     sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters;->LONG:Lcom/google/gson/TypeAdapter;
@@ -1020,7 +1020,7 @@
     return-object v0
 
     .line 412
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/google/gson/Gson$3;
 
     invoke-direct {v0}, Lcom/google/gson/Gson$3;-><init>()V
@@ -1031,7 +1031,7 @@
 
 # virtual methods
 .method public excluder()Lcom/google/gson/internal/Excluder;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1042,7 +1042,7 @@
 .end method
 
 .method public fieldNamingStrategy()Lcom/google/gson/FieldNamingStrategy;
-    .locals 1
+    .registers 2
 
     .line 329
     iget-object v0, p0, Lcom/google/gson/Gson;->fieldNamingStrategy:Lcom/google/gson/FieldNamingStrategy;
@@ -1051,7 +1051,7 @@
 .end method
 
 .method public fromJson(Lcom/google/gson/JsonElement;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "json"    # Lcom/google/gson/JsonElement;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1090,7 +1090,7 @@
 .end method
 
 .method public fromJson(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "json"    # Lcom/google/gson/JsonElement;
     .param p2, "typeOfT"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
@@ -1111,7 +1111,7 @@
     .end annotation
 
     .line 1059
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 1060
     const/4 v0, 0x0
@@ -1119,7 +1119,7 @@
     return-object v0
 
     .line 1062
-    :cond_0
+    :cond_4
     new-instance v0, Lcom/google/gson/internal/bind/JsonTreeReader;
 
     invoke-direct {v0, p1}, Lcom/google/gson/internal/bind/JsonTreeReader;-><init>(Lcom/google/gson/JsonElement;)V
@@ -1132,7 +1132,7 @@
 .end method
 
 .method public fromJson(Lcom/google/gson/stream/JsonReader;Ljava/lang/reflect/Type;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p1, "reader"    # Lcom/google/gson/stream/JsonReader;
     .param p2, "typeOfT"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
@@ -1169,7 +1169,7 @@
     invoke-virtual {p1, v2}, Lcom/google/gson/stream/JsonReader;->setLenient(Z)V
 
     .line 987
-    :try_start_0
+    :try_start_9
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     .line 988
@@ -1191,12 +1191,12 @@
     invoke-virtual {v3, p1}, Lcom/google/gson/TypeAdapter;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_0
-    .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/AssertionError; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catch Ljava/io/EOFException; {:try_start_9 .. :try_end_19} :catch_50
+    .catch Ljava/lang/IllegalStateException; {:try_start_9 .. :try_end_19} :catch_49
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_19} :catch_42
+    .catch Ljava/lang/AssertionError; {:try_start_9 .. :try_end_19} :catch_20
+    .catchall {:try_start_9 .. :try_end_19} :catchall_1e
 
     .line 992
     .local v4, "object":Ljava/lang/Object;, "TT;"
@@ -1212,18 +1212,18 @@
     .end local v2    # "typeToken":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
     .end local v3    # "typeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<TT;>;"
     .end local v4    # "object":Ljava/lang/Object;, "TT;"
-    :catchall_0
+    :catchall_1e
     move-exception v2
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 1007
-    :catch_0
+    :catch_20
     move-exception v2
 
     .line 1008
     .local v2, "e":Ljava/lang/AssertionError;
-    :try_start_1
+    :try_start_21
     new-instance v3, Ljava/lang/AssertionError;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1270,7 +1270,7 @@
     .restart local v1    # "oldLenient":Z
     .restart local p1    # "reader":Lcom/google/gson/stream/JsonReader;
     .restart local p2    # "typeOfT":Ljava/lang/reflect/Type;
-    :catch_1
+    :catch_42
     move-exception v2
 
     .line 1006
@@ -1291,7 +1291,7 @@
     .restart local v1    # "oldLenient":Z
     .restart local p1    # "reader":Lcom/google/gson/stream/JsonReader;
     .restart local p2    # "typeOfT":Ljava/lang/reflect/Type;
-    :catch_2
+    :catch_49
     move-exception v2
 
     .line 1003
@@ -1305,8 +1305,8 @@
     .end local p1    # "reader":Lcom/google/gson/stream/JsonReader;
     .end local p2    # "typeOfT":Ljava/lang/reflect/Type;
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_50
+    .catchall {:try_start_21 .. :try_end_50} :catchall_1e
 
     .line 993
     .end local v2    # "e":Ljava/lang/IllegalStateException;
@@ -1314,12 +1314,12 @@
     .restart local v1    # "oldLenient":Z
     .restart local p1    # "reader":Lcom/google/gson/stream/JsonReader;
     .restart local p2    # "typeOfT":Ljava/lang/reflect/Type;
-    :catch_3
+    :catch_50
     move-exception v2
 
     .line 998
     .local v2, "e":Ljava/io/EOFException;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_59
 
     .line 999
     nop
@@ -1333,8 +1333,8 @@
     return-object v3
 
     .line 1001
-    :cond_0
-    :try_start_2
+    :cond_59
+    :try_start_59
     new-instance v3, Lcom/google/gson/JsonSyntaxException;
 
     invoke-direct {v3, v2}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/Throwable;)V
@@ -1344,8 +1344,8 @@
     .end local p1    # "reader":Lcom/google/gson/stream/JsonReader;
     .end local p2    # "typeOfT":Ljava/lang/reflect/Type;
     throw v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_5f
+    .catchall {:try_start_59 .. :try_end_5f} :catchall_1e
 
     .line 1012
     .end local v2    # "e":Ljava/io/EOFException;
@@ -1353,7 +1353,7 @@
     .restart local v1    # "oldLenient":Z
     .restart local p1    # "reader":Lcom/google/gson/stream/JsonReader;
     .restart local p2    # "typeOfT":Ljava/lang/reflect/Type;
-    :goto_0
+    :goto_5f
     invoke-virtual {p1, v1}, Lcom/google/gson/stream/JsonReader;->setLenient(Z)V
 
     .line 1013
@@ -1361,7 +1361,7 @@
 .end method
 
 .method public fromJson(Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "json"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1410,7 +1410,7 @@
 .end method
 
 .method public fromJson(Ljava/io/Reader;Ljava/lang/reflect/Type;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "json"    # Ljava/io/Reader;
     .param p2, "typeOfT"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
@@ -1451,7 +1451,7 @@
 .end method
 
 .method public fromJson(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "json"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1490,7 +1490,7 @@
 .end method
 
 .method public fromJson(Ljava/lang/String;Ljava/lang/reflect/Type;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "json"    # Ljava/lang/String;
     .param p2, "typeOfT"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
@@ -1511,7 +1511,7 @@
     .end annotation
 
     .line 901
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 902
     const/4 v0, 0x0
@@ -1519,7 +1519,7 @@
     return-object v0
 
     .line 904
-    :cond_0
+    :cond_4
     new-instance v0, Ljava/io/StringReader;
 
     invoke-direct {v0, p1}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
@@ -1536,7 +1536,7 @@
 .end method
 
 .method public getAdapter(Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1553,16 +1553,16 @@
     .local p1, "type":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
     iget-object v0, p0, Lcom/google/gson/Gson;->typeTokenCache:Ljava/util/Map;
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     sget-object v1, Lcom/google/gson/Gson;->NULL_KEY_SURROGATE:Lcom/google/gson/reflect/TypeToken;
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     move-object v1, p1
 
-    :goto_0
+    :goto_8
     invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -1571,13 +1571,13 @@
 
     .line 478
     .local v0, "cached":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<*>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 479
     return-object v0
 
     .line 482
-    :cond_1
+    :cond_11
     iget-object v1, p0, Lcom/google/gson/Gson;->calls:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -1592,7 +1592,7 @@
 
     .line 484
     .local v2, "requiresThreadLocalCleanup":Z
-    if-nez v1, :cond_2
+    if-nez v1, :cond_28
 
     .line 485
     new-instance v3, Ljava/util/HashMap;
@@ -1610,7 +1610,7 @@
     const/4 v2, 0x1
 
     .line 491
-    :cond_2
+    :cond_28
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -1619,14 +1619,14 @@
 
     .line 492
     .local v3, "ongoingCall":Lcom/google/gson/Gson$FutureTypeAdapter;, "Lcom/google/gson/Gson$FutureTypeAdapter<TT;>;"
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_31
 
     .line 493
     return-object v3
 
     .line 497
-    :cond_3
-    :try_start_0
+    :cond_31
+    :try_start_31
     new-instance v4, Lcom/google/gson/Gson$FutureTypeAdapter;
 
     invoke-direct {v4}, Lcom/google/gson/Gson$FutureTypeAdapter;-><init>()V
@@ -1642,12 +1642,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_3f
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_66
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1663,7 +1663,7 @@
 
     .line 502
     .local v7, "candidate":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<TT;>;"
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_65
 
     .line 503
     invoke-virtual {v4, v7}, Lcom/google/gson/Gson$FutureTypeAdapter;->setDelegate(Lcom/google/gson/TypeAdapter;)V
@@ -1672,8 +1672,8 @@
     iget-object v5, p0, Lcom/google/gson/Gson;->typeTokenCache:Ljava/util/Map;
 
     invoke-interface {v5, p1, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_59
+    .catchall {:try_start_31 .. :try_end_59} :catchall_7f
 
     .line 505
     nop
@@ -1682,7 +1682,7 @@
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 512
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_64
 
     .line 513
     iget-object v5, p0, Lcom/google/gson/Gson;->calls:Ljava/lang/ThreadLocal;
@@ -1690,18 +1690,18 @@
     invoke-virtual {v5}, Ljava/lang/ThreadLocal;->remove()V
 
     .line 505
-    :cond_4
+    :cond_64
     return-object v7
 
     .line 507
     .end local v6    # "factory":Lcom/google/gson/TypeAdapterFactory;
     .end local v7    # "candidate":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<TT;>;"
-    :cond_5
-    goto :goto_1
+    :cond_65
+    goto :goto_3f
 
     .line 508
-    :cond_6
-    :try_start_1
+    :cond_66
+    :try_start_66
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1730,8 +1730,8 @@
     .end local v3    # "ongoingCall":Lcom/google/gson/Gson$FutureTypeAdapter;, "Lcom/google/gson/Gson$FutureTypeAdapter<TT;>;"
     .end local p1    # "type":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
     throw v5
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7f
+    .catchall {:try_start_66 .. :try_end_7f} :catchall_7f
 
     .line 510
     .end local v4    # "call":Lcom/google/gson/Gson$FutureTypeAdapter;, "Lcom/google/gson/Gson$FutureTypeAdapter<TT;>;"
@@ -1740,13 +1740,13 @@
     .restart local v2    # "requiresThreadLocalCleanup":Z
     .restart local v3    # "ongoingCall":Lcom/google/gson/Gson$FutureTypeAdapter;, "Lcom/google/gson/Gson$FutureTypeAdapter<TT;>;"
     .restart local p1    # "type":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
-    :catchall_0
+    :catchall_7f
     move-exception v4
 
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 512
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8a
 
     .line 513
     iget-object v5, p0, Lcom/google/gson/Gson;->calls:Ljava/lang/ThreadLocal;
@@ -1754,12 +1754,12 @@
     invoke-virtual {v5}, Ljava/lang/ThreadLocal;->remove()V
 
     .line 515
-    :cond_7
+    :cond_8a
     throw v4
 .end method
 
 .method public getAdapter(Ljava/lang/Class;)Lcom/google/gson/TypeAdapter;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1786,7 +1786,7 @@
 .end method
 
 .method public getDelegateAdapter(Lcom/google/gson/TypeAdapterFactory;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 4
+    .registers 7
     .param p1, "skipPast"    # Lcom/google/gson/TypeAdapterFactory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1809,13 +1809,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 572
     iget-object p1, p0, Lcom/google/gson/Gson;->jsonAdapterFactory:Lcom/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory;
 
     .line 575
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 576
@@ -1826,13 +1826,13 @@
 
     move-result-object v1
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_2b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1842,25 +1842,25 @@
 
     .line 577
     .local v2, "factory":Lcom/google/gson/TypeAdapterFactory;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_23
 
     .line 578
-    if-ne v2, p1, :cond_1
+    if-ne v2, p1, :cond_11
 
     .line 579
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 584
-    :cond_2
+    :cond_23
     invoke-interface {v2, p0, p2}, Lcom/google/gson/TypeAdapterFactory;->create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
 
     move-result-object v3
 
     .line 585
     .local v3, "candidate":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<TT;>;"
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2a
 
     .line 586
     return-object v3
@@ -1868,11 +1868,11 @@
     .line 588
     .end local v2    # "factory":Lcom/google/gson/TypeAdapterFactory;
     .end local v3    # "candidate":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<TT;>;"
-    :cond_3
-    goto :goto_0
+    :cond_2a
+    goto :goto_11
 
     .line 589
-    :cond_4
+    :cond_2b
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1899,7 +1899,7 @@
 .end method
 
 .method public htmlSafe()Z
-    .locals 1
+    .registers 2
 
     .line 349
     iget-boolean v0, p0, Lcom/google/gson/Gson;->htmlSafe:Z
@@ -1908,7 +1908,7 @@
 .end method
 
 .method public newBuilder()Lcom/google/gson/GsonBuilder;
-    .locals 1
+    .registers 2
 
     .line 311
     new-instance v0, Lcom/google/gson/GsonBuilder;
@@ -1919,7 +1919,7 @@
 .end method
 
 .method public newJsonReader(Ljava/io/Reader;)Lcom/google/gson/stream/JsonReader;
-    .locals 2
+    .registers 4
     .param p1, "reader"    # Ljava/io/Reader;
 
     .line 826
@@ -1938,7 +1938,7 @@
 .end method
 
 .method public newJsonWriter(Ljava/io/Writer;)Lcom/google/gson/stream/JsonWriter;
-    .locals 2
+    .registers 4
     .param p1, "writer"    # Ljava/io/Writer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1949,7 +1949,7 @@
     .line 804
     iget-boolean v0, p0, Lcom/google/gson/Gson;->generateNonExecutableJson:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 805
     const-string v0, ")]}\'\n"
@@ -1957,7 +1957,7 @@
     invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 807
-    :cond_0
+    :cond_9
     new-instance v0, Lcom/google/gson/stream/JsonWriter;
 
     invoke-direct {v0, p1}, Lcom/google/gson/stream/JsonWriter;-><init>(Ljava/io/Writer;)V
@@ -1966,7 +1966,7 @@
     .local v0, "jsonWriter":Lcom/google/gson/stream/JsonWriter;
     iget-boolean v1, p0, Lcom/google/gson/Gson;->prettyPrinting:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     .line 809
     const-string v1, "  "
@@ -1974,7 +1974,7 @@
     invoke-virtual {v0, v1}, Lcom/google/gson/stream/JsonWriter;->setIndent(Ljava/lang/String;)V
 
     .line 811
-    :cond_1
+    :cond_17
     iget-boolean v1, p0, Lcom/google/gson/Gson;->htmlSafe:Z
 
     invoke-virtual {v0, v1}, Lcom/google/gson/stream/JsonWriter;->setHtmlSafe(Z)V
@@ -1994,7 +1994,7 @@
 .end method
 
 .method public serializeNulls()Z
-    .locals 1
+    .registers 2
 
     .line 339
     iget-boolean v0, p0, Lcom/google/gson/Gson;->serializeNulls:Z
@@ -2003,7 +2003,7 @@
 .end method
 
 .method public toJson(Lcom/google/gson/JsonElement;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "jsonElement"    # Lcom/google/gson/JsonElement;
 
     .line 769
@@ -2024,11 +2024,11 @@
 .end method
 
 .method public toJson(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "src"    # Ljava/lang/Object;
 
     .line 658
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     .line 659
     sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
@@ -2040,7 +2040,7 @@
     return-object v0
 
     .line 661
-    :cond_0
+    :cond_9
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -2053,7 +2053,7 @@
 .end method
 
 .method public toJson(Ljava/lang/Object;Ljava/lang/reflect/Type;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "src"    # Ljava/lang/Object;
     .param p2, "typeOfSrc"    # Ljava/lang/reflect/Type;
 
@@ -2075,7 +2075,7 @@
 .end method
 
 .method public toJson(Lcom/google/gson/JsonElement;Lcom/google/gson/stream/JsonWriter;)V
-    .locals 7
+    .registers 10
     .param p1, "jsonElement"    # Lcom/google/gson/JsonElement;
     .param p2, "writer"    # Lcom/google/gson/stream/JsonWriter;
     .annotation system Ldalvik/annotation/Throws;
@@ -2118,12 +2118,12 @@
     invoke-virtual {p2, v3}, Lcom/google/gson/stream/JsonWriter;->setSerializeNulls(Z)V
 
     .line 843
-    :try_start_0
+    :try_start_1a
     invoke-static {p1, p2}, Lcom/google/gson/internal/Streams;->write(Lcom/google/gson/JsonElement;Lcom/google/gson/stream/JsonWriter;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/AssertionError; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catch Ljava/io/IOException; {:try_start_1a .. :try_end_1d} :catch_4c
+    .catch Ljava/lang/AssertionError; {:try_start_1a .. :try_end_1d} :catch_2a
+    .catchall {:try_start_1a .. :try_end_1d} :catchall_28
 
     .line 851
     invoke-virtual {p2, v0}, Lcom/google/gson/stream/JsonWriter;->setLenient(Z)V
@@ -2141,18 +2141,18 @@
     return-void
 
     .line 851
-    :catchall_0
+    :catchall_28
     move-exception v3
 
-    goto :goto_0
+    goto :goto_53
 
     .line 846
-    :catch_0
+    :catch_2a
     move-exception v3
 
     .line 847
     .local v3, "e":Ljava/lang/AssertionError;
-    :try_start_1
+    :try_start_2b
     new-instance v4, Ljava/lang/AssertionError;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2201,7 +2201,7 @@
     .restart local v2    # "oldSerializeNulls":Z
     .restart local p1    # "jsonElement":Lcom/google/gson/JsonElement;
     .restart local p2    # "writer":Lcom/google/gson/stream/JsonWriter;
-    :catch_1
+    :catch_4c
     move-exception v3
 
     .line 845
@@ -2216,8 +2216,8 @@
     .end local p1    # "jsonElement":Lcom/google/gson/JsonElement;
     .end local p2    # "writer":Lcom/google/gson/stream/JsonWriter;
     throw v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_53
+    .catchall {:try_start_2b .. :try_end_53} :catchall_28
 
     .line 851
     .end local v3    # "e":Ljava/io/IOException;
@@ -2226,7 +2226,7 @@
     .restart local v2    # "oldSerializeNulls":Z
     .restart local p1    # "jsonElement":Lcom/google/gson/JsonElement;
     .restart local p2    # "writer":Lcom/google/gson/stream/JsonWriter;
-    :goto_0
+    :goto_53
     invoke-virtual {p2, v0}, Lcom/google/gson/stream/JsonWriter;->setLenient(Z)V
 
     .line 852
@@ -2240,7 +2240,7 @@
 .end method
 
 .method public toJson(Lcom/google/gson/JsonElement;Ljava/lang/Appendable;)V
-    .locals 2
+    .registers 5
     .param p1, "jsonElement"    # Lcom/google/gson/JsonElement;
     .param p2, "writer"    # Ljava/lang/Appendable;
     .annotation system Ldalvik/annotation/Throws;
@@ -2262,8 +2262,8 @@
     .line 785
     .local v0, "jsonWriter":Lcom/google/gson/stream/JsonWriter;
     invoke-virtual {p0, p1, v0}, Lcom/google/gson/Gson;->toJson(Lcom/google/gson/JsonElement;Lcom/google/gson/stream/JsonWriter;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_b} :catch_d
 
     .line 788
     .end local v0    # "jsonWriter":Lcom/google/gson/stream/JsonWriter;
@@ -2273,7 +2273,7 @@
     return-void
 
     .line 786
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 787
@@ -2286,7 +2286,7 @@
 .end method
 
 .method public toJson(Ljava/lang/Object;Ljava/lang/Appendable;)V
-    .locals 1
+    .registers 4
     .param p1, "src"    # Ljava/lang/Object;
     .param p2, "writer"    # Ljava/lang/Appendable;
     .annotation system Ldalvik/annotation/Throws;
@@ -2296,7 +2296,7 @@
     .end annotation
 
     .line 700
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 701
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -2305,21 +2305,21 @@
 
     invoke-virtual {p0, p1, v0, p2}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;Ljava/lang/reflect/Type;Ljava/lang/Appendable;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 703
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
     invoke-virtual {p0, v0, p2}, Lcom/google/gson/Gson;->toJson(Lcom/google/gson/JsonElement;Ljava/lang/Appendable;)V
 
     .line 705
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public toJson(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/stream/JsonWriter;)V
-    .locals 8
+    .registers 12
     .param p1, "src"    # Ljava/lang/Object;
     .param p2, "typeOfSrc"    # Ljava/lang/reflect/Type;
     .param p3, "writer"    # Lcom/google/gson/stream/JsonWriter;
@@ -2373,12 +2373,12 @@
     invoke-virtual {p3, v4}, Lcom/google/gson/stream/JsonWriter;->setSerializeNulls(Z)V
 
     .line 747
-    :try_start_0
+    :try_start_22
     invoke-virtual {v0, p3, p1}, Lcom/google/gson/TypeAdapter;->write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/AssertionError; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catch Ljava/io/IOException; {:try_start_22 .. :try_end_25} :catch_54
+    .catch Ljava/lang/AssertionError; {:try_start_22 .. :try_end_25} :catch_32
+    .catchall {:try_start_22 .. :try_end_25} :catchall_30
 
     .line 755
     invoke-virtual {p3, v1}, Lcom/google/gson/stream/JsonWriter;->setLenient(Z)V
@@ -2396,18 +2396,18 @@
     return-void
 
     .line 755
-    :catchall_0
+    :catchall_30
     move-exception v4
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 750
-    :catch_0
+    :catch_32
     move-exception v4
 
     .line 751
     .local v4, "e":Ljava/lang/AssertionError;
-    :try_start_1
+    :try_start_33
     new-instance v5, Ljava/lang/AssertionError;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2460,7 +2460,7 @@
     .restart local p1    # "src":Ljava/lang/Object;
     .restart local p2    # "typeOfSrc":Ljava/lang/reflect/Type;
     .restart local p3    # "writer":Lcom/google/gson/stream/JsonWriter;
-    :catch_1
+    :catch_54
     move-exception v4
 
     .line 749
@@ -2477,8 +2477,8 @@
     .end local p2    # "typeOfSrc":Ljava/lang/reflect/Type;
     .end local p3    # "writer":Lcom/google/gson/stream/JsonWriter;
     throw v5
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5b
+    .catchall {:try_start_33 .. :try_end_5b} :catchall_30
 
     .line 755
     .end local v4    # "e":Ljava/io/IOException;
@@ -2489,7 +2489,7 @@
     .restart local p1    # "src":Ljava/lang/Object;
     .restart local p2    # "typeOfSrc":Ljava/lang/reflect/Type;
     .restart local p3    # "writer":Lcom/google/gson/stream/JsonWriter;
-    :goto_0
+    :goto_5b
     invoke-virtual {p3, v1}, Lcom/google/gson/stream/JsonWriter;->setLenient(Z)V
 
     .line 756
@@ -2503,7 +2503,7 @@
 .end method
 
 .method public toJson(Ljava/lang/Object;Ljava/lang/reflect/Type;Ljava/lang/Appendable;)V
-    .locals 2
+    .registers 6
     .param p1, "src"    # Ljava/lang/Object;
     .param p2, "typeOfSrc"    # Ljava/lang/reflect/Type;
     .param p3, "writer"    # Ljava/lang/Appendable;
@@ -2526,8 +2526,8 @@
     .line 726
     .local v0, "jsonWriter":Lcom/google/gson/stream/JsonWriter;
     invoke-virtual {p0, p1, p2, v0}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/stream/JsonWriter;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_b} :catch_d
 
     .line 729
     .end local v0    # "jsonWriter":Lcom/google/gson/stream/JsonWriter;
@@ -2537,7 +2537,7 @@
     return-void
 
     .line 727
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 728
@@ -2550,11 +2550,11 @@
 .end method
 
 .method public toJsonTree(Ljava/lang/Object;)Lcom/google/gson/JsonElement;
-    .locals 1
+    .registers 3
     .param p1, "src"    # Ljava/lang/Object;
 
     .line 616
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     .line 617
     sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
@@ -2562,7 +2562,7 @@
     return-object v0
 
     .line 619
-    :cond_0
+    :cond_5
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -2575,7 +2575,7 @@
 .end method
 
 .method public toJsonTree(Ljava/lang/Object;Ljava/lang/reflect/Type;)Lcom/google/gson/JsonElement;
-    .locals 2
+    .registers 5
     .param p1, "src"    # Ljava/lang/Object;
     .param p2, "typeOfSrc"    # Ljava/lang/reflect/Type;
 
@@ -2597,7 +2597,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 1092
     new-instance v0, Ljava/lang/StringBuilder;

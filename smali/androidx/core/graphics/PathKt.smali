@@ -39,7 +39,7 @@
 
 # direct methods
 .method public static final and(Landroid/graphics/Path;Landroid/graphics/Path;)Landroid/graphics/Path;
-    .locals 5
+    .registers 7
     .param p0, "$this$and"    # Landroid/graphics/Path;
     .param p1, "p"    # Landroid/graphics/Path;
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public static final flatten(Landroid/graphics/Path;F)Ljava/lang/Iterable;
-    .locals 1
+    .registers 3
     .param p0, "$this$flatten"    # Landroid/graphics/Path;
     .param p1, "error"    # F
     .annotation system Ldalvik/annotation/Signature;
@@ -97,16 +97,16 @@
 .end method
 
 .method public static synthetic flatten$default(Landroid/graphics/Path;FILjava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 4
 
     .line 36
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const/high16 p1, 0x3f000000    # 0.5f
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Landroidx/core/graphics/PathKt;->flatten(Landroid/graphics/Path;F)Ljava/lang/Iterable;
 
     move-result-object p0
@@ -115,7 +115,7 @@
 .end method
 
 .method public static final minus(Landroid/graphics/Path;Landroid/graphics/Path;)Landroid/graphics/Path;
-    .locals 5
+    .registers 7
     .param p0, "$this$minus"    # Landroid/graphics/Path;
     .param p1, "p"    # Landroid/graphics/Path;
 
@@ -148,7 +148,7 @@
 .end method
 
 .method public static final or(Landroid/graphics/Path;Landroid/graphics/Path;)Landroid/graphics/Path;
-    .locals 7
+    .registers 9
     .param p0, "$this$or"    # Landroid/graphics/Path;
     .param p1, "p"    # Landroid/graphics/Path;
 
@@ -193,7 +193,7 @@
 .end method
 
 .method public static final plus(Landroid/graphics/Path;Landroid/graphics/Path;)Landroid/graphics/Path;
-    .locals 5
+    .registers 7
     .param p0, "$this$plus"    # Landroid/graphics/Path;
     .param p1, "p"    # Landroid/graphics/Path;
 
@@ -226,7 +226,7 @@
 .end method
 
 .method public static final xor(Landroid/graphics/Path;Landroid/graphics/Path;)Landroid/graphics/Path;
-    .locals 5
+    .registers 7
     .param p0, "$this$xor"    # Landroid/graphics/Path;
     .param p1, "p"    # Landroid/graphics/Path;
 

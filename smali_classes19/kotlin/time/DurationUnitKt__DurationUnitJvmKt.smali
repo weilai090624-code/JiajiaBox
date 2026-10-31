@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public static final convertDurationUnit(DLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)D
-    .locals 7
+    .registers 11
     .param p0, "value"    # D
     .param p2, "sourceUnit"    # Lkotlin/time/DurationUnit;
     .param p3, "targetUnit"    # Lkotlin/time/DurationUnit;
@@ -83,7 +83,7 @@
 
     cmp-long v6, v0, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_22
 
     .line 72
     long-to-double v2, v0
@@ -93,7 +93,7 @@
     return-wide v2
 
     .line 74
-    :cond_0
+    :cond_22
     invoke-virtual {p2}, Lkotlin/time/DurationUnit;->getTimeUnit$kotlin_stdlib()Ljava/util/concurrent/TimeUnit;
 
     move-result-object v4
@@ -116,7 +116,7 @@
 .end method
 
 .method public static final convertDurationUnit(JLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)J
-    .locals 2
+    .registers 6
     .param p0, "value"    # J
     .param p2, "sourceUnit"    # Lkotlin/time/DurationUnit;
     .param p3, "targetUnit"    # Lkotlin/time/DurationUnit;
@@ -146,7 +146,7 @@
 .end method
 
 .method public static final convertDurationUnitOverflow(JLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)J
-    .locals 2
+    .registers 6
     .param p0, "value"    # J
     .param p2, "sourceUnit"    # Lkotlin/time/DurationUnit;
     .param p3, "targetUnit"    # Lkotlin/time/DurationUnit;
@@ -176,7 +176,7 @@
 .end method
 
 .method public static final toDurationUnit(Ljava/util/concurrent/TimeUnit;)Lkotlin/time/DurationUnit;
-    .locals 2
+    .registers 3
     .param p0, "$this$toDurationUnit"    # Ljava/util/concurrent/TimeUnit;
 
     const-string v0, "<this>"
@@ -192,7 +192,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2c
 
     .line 65
     new-instance v0, Lkotlin/NoWhenBranchMatchedException;
@@ -201,65 +201,65 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_16
     sget-object v0, Lkotlin/time/DurationUnit;->DAYS:Lkotlin/time/DurationUnit;
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 64
-    :pswitch_1
+    :pswitch_19
     sget-object v0, Lkotlin/time/DurationUnit;->HOURS:Lkotlin/time/DurationUnit;
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 63
-    :pswitch_2
+    :pswitch_1c
     sget-object v0, Lkotlin/time/DurationUnit;->MINUTES:Lkotlin/time/DurationUnit;
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 62
-    :pswitch_3
+    :pswitch_1f
     sget-object v0, Lkotlin/time/DurationUnit;->SECONDS:Lkotlin/time/DurationUnit;
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 61
-    :pswitch_4
+    :pswitch_22
     sget-object v0, Lkotlin/time/DurationUnit;->MILLISECONDS:Lkotlin/time/DurationUnit;
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 60
-    :pswitch_5
+    :pswitch_25
     sget-object v0, Lkotlin/time/DurationUnit;->MICROSECONDS:Lkotlin/time/DurationUnit;
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 59
-    :pswitch_6
+    :pswitch_28
     sget-object v0, Lkotlin/time/DurationUnit;->NANOSECONDS:Lkotlin/time/DurationUnit;
 
     .line 66
-    :goto_0
+    :goto_2a
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_28
+        :pswitch_25
+        :pswitch_22
+        :pswitch_1f
+        :pswitch_1c
+        :pswitch_19
+        :pswitch_16
     .end packed-switch
 .end method
 
 .method public static final toTimeUnit(Lkotlin/time/DurationUnit;)Ljava/util/concurrent/TimeUnit;
-    .locals 1
+    .registers 2
     .param p0, "$this$toTimeUnit"    # Lkotlin/time/DurationUnit;
 
     const-string v0, "<this>"

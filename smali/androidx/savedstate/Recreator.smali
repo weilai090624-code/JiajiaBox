@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/savedstate/Recreator$Companion;
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/savedstate/SavedStateRegistryOwner;)V
-    .locals 1
+    .registers 3
     .param p1, "owner"    # Landroidx/savedstate/SavedStateRegistryOwner;
 
     const-string v0, "owner"
@@ -93,14 +93,14 @@
 .end method
 
 .method private final reflectiveNew(Ljava/lang/String;)V
-    .locals 6
+    .registers 8
     .param p1, "className"    # Ljava/lang/String;
 
     .line 48
     const-string v0, "Class "
 
     .line 49
-    :try_start_0
+    :try_start_2
     const-class v1, Landroidx/savedstate/Recreator;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -124,8 +124,8 @@
     const-string/jumbo v3, "{\n                Class.\u2026class.java)\n            }"
 
     invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_19
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_19} :catch_7f
 
     .line 47
     nop
@@ -135,14 +135,14 @@
     nop
 
     .line 56
-    :try_start_1
+    :try_start_1b
     new-array v3, v2, [Ljava/lang/Class;
 
     invoke-virtual {v1, v3}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
-    :try_end_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_21
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1b .. :try_end_21} :catch_5a
 
     .line 55
     nop
@@ -160,7 +160,7 @@
     nop
 
     .line 66
-    :try_start_2
+    :try_start_28
     new-array v2, v2, [Ljava/lang/Object;
 
     invoke-virtual {v0, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
@@ -173,8 +173,8 @@
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     check-cast v2, Landroidx/savedstate/SavedStateRegistry$AutoRecreated;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_36
+    .catch Ljava/lang/Exception; {:try_start_28 .. :try_end_36} :catch_3d
 
     .line 64
     nop
@@ -190,7 +190,7 @@
 
     .line 67
     .end local v2    # "newInstance":Landroidx/savedstate/SavedStateRegistry$AutoRecreated;
-    :catch_0
+    :catch_3d
     move-exception v2
 
     .line 68
@@ -226,7 +226,7 @@
     .line 57
     .end local v0    # "constructor":Ljava/lang/reflect/Constructor;
     .end local v2    # "e":Ljava/lang/Exception;
-    :catch_1
+    :catch_5a
     move-exception v2
 
     .line 58
@@ -273,7 +273,7 @@
     .line 51
     .end local v1    # "clazz":Ljava/lang/Class;
     .end local v2    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_2
+    :catch_7f
     move-exception v1
 
     .line 52
@@ -314,7 +314,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 4
+    .registers 7
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -329,7 +329,7 @@
     .line 29
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_CREATE:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_3
+    if-ne p2, v0, :cond_50
 
     .line 32
     invoke-interface {p1}, Landroidx/lifecycle/LifecycleOwner;->getLifecycle()Landroidx/lifecycle/Lifecycle;
@@ -357,21 +357,21 @@
     move-result-object v0
 
     .line 33
-    if-nez v0, :cond_0
+    if-nez v0, :cond_28
 
     .line 34
     return-void
 
     .line 35
     .local v0, "bundle":Landroid/os/Bundle;
-    :cond_0
+    :cond_28
     const-string v1, "classes_to_restore"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_47
 
     check-cast v1, Ljava/util/List;
 
@@ -381,12 +381,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_36
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_46
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -399,15 +399,15 @@
     invoke-direct {p0, v3}, Landroidx/savedstate/Recreator;->reflectiveNew(Ljava/lang/String;)V
 
     .end local v3    # "className":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_36
 
     .line 44
-    :cond_1
+    :cond_46
     return-void
 
     .line 36
     .end local v1    # "classes":Ljava/util/List;
-    :cond_2
+    :cond_47
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 37
@@ -422,7 +422,7 @@
 
     .line 30
     .end local v0    # "bundle":Landroid/os/Bundle;
-    :cond_3
+    :cond_50
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "Next event must be ON_CREATE"

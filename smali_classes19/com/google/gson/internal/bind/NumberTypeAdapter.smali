@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 39
     sget-object v0, Lcom/google/gson/ToNumberPolicy;->LAZILY_PARSED_NUMBER:Lcom/google/gson/ToNumberPolicy;
@@ -38,7 +38,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/gson/ToNumberStrategy;)V
-    .locals 0
+    .registers 2
     .param p1, "toNumberStrategy"    # Lcom/google/gson/ToNumberStrategy;
 
     .line 43
@@ -52,13 +52,13 @@
 .end method
 
 .method public static getFactory(Lcom/google/gson/ToNumberStrategy;)Lcom/google/gson/TypeAdapterFactory;
-    .locals 1
+    .registers 2
     .param p0, "toNumberStrategy"    # Lcom/google/gson/ToNumberStrategy;
 
     .line 58
     sget-object v0, Lcom/google/gson/ToNumberPolicy;->LAZILY_PARSED_NUMBER:Lcom/google/gson/ToNumberPolicy;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_7
 
     .line 59
     sget-object v0, Lcom/google/gson/internal/bind/NumberTypeAdapter;->LAZILY_PARSED_NUMBER_FACTORY:Lcom/google/gson/TypeAdapterFactory;
@@ -66,7 +66,7 @@
     return-object v0
 
     .line 61
-    :cond_0
+    :cond_7
     invoke-static {p0}, Lcom/google/gson/internal/bind/NumberTypeAdapter;->newFactory(Lcom/google/gson/ToNumberStrategy;)Lcom/google/gson/TypeAdapterFactory;
 
     move-result-object v0
@@ -75,7 +75,7 @@
 .end method
 
 .method private static newFactory(Lcom/google/gson/ToNumberStrategy;)Lcom/google/gson/TypeAdapterFactory;
-    .locals 2
+    .registers 3
     .param p0, "toNumberStrategy"    # Lcom/google/gson/ToNumberStrategy;
 
     .line 48
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Number;
-    .locals 4
+    .registers 6
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -118,7 +118,7 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_42
 
     .line 75
     new-instance v1, Lcom/google/gson/JsonSyntaxException;
@@ -160,7 +160,7 @@
     throw v1
 
     .line 73
-    :pswitch_0
+    :pswitch_36
     iget-object v1, p0, Lcom/google/gson/internal/bind/NumberTypeAdapter;->toNumberStrategy:Lcom/google/gson/ToNumberStrategy;
 
     invoke-interface {v1, p1}, Lcom/google/gson/ToNumberStrategy;->readNumber(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Number;
@@ -170,7 +170,7 @@
     return-object v1
 
     .line 69
-    :pswitch_1
+    :pswitch_3d
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
 
     .line 70
@@ -178,16 +178,16 @@
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_42
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_3d
+        :pswitch_36
+        :pswitch_36
     .end packed-switch
 .end method
 
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -203,7 +203,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Number;)V
-    .locals 0
+    .registers 3
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .param p2, "value"    # Ljava/lang/Number;
     .annotation system Ldalvik/annotation/Throws;
@@ -220,7 +220,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Z)V
-    .locals 0
+    .registers 2
     .param p1, "success"    # Z
 
     .line 253
@@ -34,7 +34,7 @@
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/TrustedWebActivityServiceConnection$ResultArgs;
-    .locals 2
+    .registers 3
     .param p0, "bundle"    # Landroid/os/Bundle;
 
     .line 258
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public toBundle()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 263
     new-instance v0, Landroid/os/Bundle;

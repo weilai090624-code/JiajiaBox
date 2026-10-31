@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/MessageThreadUtil;Landroidx/recyclerview/widget/ThreadUtil$MainThreadCallback;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Landroidx/recyclerview/widget/MessageThreadUtil;
 
     .line 30
@@ -87,7 +87,7 @@
 .end method
 
 .method private sendMessage(Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;)V
-    .locals 2
+    .registers 4
     .param p1, "msg"    # Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
     .line 54
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public addTile(ILandroidx/recyclerview/widget/TileList$Tile;)V
-    .locals 1
+    .registers 4
     .param p1, "generation"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -136,7 +136,7 @@
 .end method
 
 .method public removeTile(II)V
-    .locals 1
+    .registers 4
     .param p1, "generation"    # I
     .param p2, "position"    # I
 
@@ -155,7 +155,7 @@
 .end method
 
 .method public updateItemCount(II)V
-    .locals 1
+    .registers 4
     .param p1, "generation"    # I
     .param p2, "itemCount"    # I
 

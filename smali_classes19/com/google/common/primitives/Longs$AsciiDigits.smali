@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 330
     const/16 v0, 0x80
@@ -37,10 +37,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_9
     const/16 v2, 0xa
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_15
 
     .line 333
     add-int/lit8 v2, v1, 0x30
@@ -52,18 +52,18 @@
     .line 332
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 335
     .end local v1    # "i":I
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
     .restart local v1    # "i":I
-    :goto_1
+    :goto_16
     const/16 v2, 0x1a
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2b
 
     .line 336
     add-int/lit8 v2, v1, 0x41
@@ -86,11 +86,11 @@
     .line 335
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_16
 
     .line 339
     .end local v1    # "i":I
-    :cond_1
+    :cond_2b
     sput-object v0, Lcom/google/common/primitives/Longs$AsciiDigits;->asciiDigits:[B
 
     .line 340
@@ -99,7 +99,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 325
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,23 +108,23 @@
 .end method
 
 .method static digit(C)I
-    .locals 1
+    .registers 2
     .param p0, "c"    # C
 
     .line 343
     const/16 v0, 0x80
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_9
 
     sget-object v0, Lcom/google/common/primitives/Longs$AsciiDigits;->asciiDigits:[B
 
     aget-byte v0, v0, p0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_a
     return v0
 .end method

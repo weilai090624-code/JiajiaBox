@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableCollection;Lcom/google/common/collect/ImmutableList;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,7 +68,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ImmutableCollection;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2, "array"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -94,7 +94,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ImmutableCollection;[Ljava/lang/Object;I)V
-    .locals 1
+    .registers 5
     .param p2, "array"    # [Ljava/lang/Object;
     .param p3, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method copyIntoArray([Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1, "dst"    # [Ljava/lang/Object;
     .param p2, "offset"    # I
 
@@ -139,7 +139,7 @@
 .end method
 
 .method delegateCollection()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -156,7 +156,7 @@
 .end method
 
 .method delegateList()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -173,7 +173,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -193,7 +193,7 @@
 .end method
 
 .method internalArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -209,7 +209,7 @@
 .end method
 
 .method internalArrayEnd()I
-    .locals 1
+    .registers 2
 
     .line 85
     .local p0, "this":Lcom/google/common/collect/RegularImmutableAsList;, "Lcom/google/common/collect/RegularImmutableAsList<TE;>;"
@@ -223,7 +223,7 @@
 .end method
 
 .method internalArrayStart()I
-    .locals 1
+    .registers 2
 
     .line 80
     .local p0, "this":Lcom/google/common/collect/RegularImmutableAsList;, "Lcom/google/common/collect/RegularImmutableAsList<TE;>;"
@@ -237,7 +237,7 @@
 .end method
 
 .method public listIterator(I)Lcom/google/common/collect/UnmodifiableListIterator;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -259,7 +259,7 @@
 .end method
 
 .method public bridge synthetic listIterator(I)Ljava/util/ListIterator;
-    .locals 0
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/collect/RegularImmutableAsList;, "Lcom/google/common/collect/RegularImmutableAsList<TE;>;"

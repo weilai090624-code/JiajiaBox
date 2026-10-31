@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$updateSelectedCallback$1;->this$0:Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public onPageScrolled(IFI)V
-    .locals 3
+    .registers 7
     .param p1, "position"    # I
     .param p2, "positionOffset"    # F
     .param p3, "positionOffsetPixels"    # I
@@ -79,7 +79,7 @@
 
     move-result v0
 
-    if-le v0, p1, :cond_0
+    if-le v0, p1, :cond_29
 
     .line 150
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -107,6 +107,6 @@
     invoke-virtual {v0, v1, v2}, Lio/nekohasekai/sagernet/database/DataStore;->setSelectedGroup(J)V
 
     .line 152
-    :cond_0
+    :cond_29
     return-void
 .end method

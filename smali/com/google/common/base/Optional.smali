@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 120
     .local p0, "this":Lcom/google/common/base/Optional;, "Lcom/google/common/base/Optional<TT;>;"
@@ -41,7 +41,7 @@
 .end method
 
 .method public static absent()Lcom/google/common/base/Optional;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -61,7 +61,7 @@
 .end method
 
 .method public static fromNullable(Ljava/lang/Object;)Lcom/google/common/base/Optional;
-    .locals 1
+    .registers 2
     .param p0    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -78,25 +78,25 @@
 
     .line 117
     .local p0, "nullableReference":Ljava/lang/Object;, "TT;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     invoke-static {}, Lcom/google/common/base/Optional;->absent()Lcom/google/common/base/Optional;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_7
     new-instance v0, Lcom/google/common/base/Present;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Present;-><init>(Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public static of(Ljava/lang/Object;)Lcom/google/common/base/Optional;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -121,7 +121,7 @@
 .end method
 
 .method public static presentInstances(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

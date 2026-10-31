@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/String;Lorg/yaml/snakeyaml/comments/CommentType;)V
-    .locals 0
+    .registers 5
     .param p1, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p2, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "value"    # Ljava/lang/String;
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/events/CommentEvent;)V
-    .locals 4
+    .registers 6
     .param p1, "event"    # Lorg/yaml/snakeyaml/events/CommentEvent;
 
     .line 31
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public getCommentType()Lorg/yaml/snakeyaml/comments/CommentType;
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentLine;->commentType:Lorg/yaml/snakeyaml/comments/CommentType;
@@ -79,7 +79,7 @@
 .end method
 
 .method public getEndMark()Lorg/yaml/snakeyaml/error/Mark;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentLine;->endMark:Lorg/yaml/snakeyaml/error/Mark;
@@ -88,7 +88,7 @@
 .end method
 
 .method public getStartMark()Lorg/yaml/snakeyaml/error/Mark;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentLine;->startMark:Lorg/yaml/snakeyaml/error/Mark;
@@ -97,7 +97,7 @@
 .end method
 
 .method public getValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentLine;->value:Ljava/lang/String;
@@ -106,7 +106,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 63
     new-instance v0, Ljava/lang/StringBuilder;

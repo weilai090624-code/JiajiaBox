@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeTraverser;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -72,7 +72,7 @@
 .end method
 
 .method private expand(Ljava/lang/Object;)Lcom/google/common/collect/TreeTraverser$PostOrderNode;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method protected computeNext()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -118,14 +118,14 @@
     .local p0, "this":Lcom/google/common/collect/TreeTraverser$PostOrderIterator;, "Lcom/google/common/collect/TreeTraverser<TT;>.PostOrderIterator;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/TreeTraverser$PostOrderIterator;->stack:Ljava/util/ArrayDeque;
 
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_32
 
     .line 205
     iget-object v0, p0, Lcom/google/common/collect/TreeTraverser$PostOrderIterator;->stack:Ljava/util/ArrayDeque;
@@ -144,7 +144,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2a
 
     .line 207
     iget-object v1, v0, Lcom/google/common/collect/TreeTraverser$PostOrderNode;->childIterator:Ljava/util/Iterator;
@@ -169,11 +169,11 @@
 
     .line 213
     .end local v0    # "top":Lcom/google/common/collect/TreeTraverser$PostOrderNode;, "Lcom/google/common/collect/TreeTraverser$PostOrderNode<TT;>;"
-    goto :goto_0
+    goto :goto_1
 
     .line 210
     .restart local v0    # "top":Lcom/google/common/collect/TreeTraverser$PostOrderNode;, "Lcom/google/common/collect/TreeTraverser$PostOrderNode<TT;>;"
-    :cond_0
+    :cond_2a
     iget-object v1, p0, Lcom/google/common/collect/TreeTraverser$PostOrderIterator;->stack:Ljava/util/ArrayDeque;
 
     invoke-virtual {v1}, Ljava/util/ArrayDeque;->removeLast()Ljava/lang/Object;
@@ -185,7 +185,7 @@
 
     .line 214
     .end local v0    # "top":Lcom/google/common/collect/TreeTraverser$PostOrderNode;, "Lcom/google/common/collect/TreeTraverser$PostOrderNode<TT;>;"
-    :cond_1
+    :cond_32
     invoke-virtual {p0}, Lcom/google/common/collect/TreeTraverser$PostOrderIterator;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

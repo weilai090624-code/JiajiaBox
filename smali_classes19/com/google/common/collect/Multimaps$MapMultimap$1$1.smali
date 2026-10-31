@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multimaps$MapMultimap$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/common/collect/Multimaps$MapMultimap$1;
 
     .line 1047
@@ -48,13 +48,13 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 1052
     .local p0, "this":Lcom/google/common/collect/Multimaps$MapMultimap$1$1;, "Lcom/google/common/collect/Multimaps$MapMultimap$1$1;"
     iget v0, p0, Lcom/google/common/collect/Multimaps$MapMultimap$1$1;->i:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$MapMultimap$1$1;->this$1:Lcom/google/common/collect/Multimaps$MapMultimap$1;
 
@@ -70,21 +70,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -100,7 +100,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 1061
     iget v0, p0, Lcom/google/common/collect/Multimaps$MapMultimap$1$1;->i:I
@@ -131,7 +131,7 @@
     return-object v0
 
     .line 1059
-    :cond_0
+    :cond_1f
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -140,7 +140,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     .line 1071
     .local p0, "this":Lcom/google/common/collect/Multimaps$MapMultimap$1$1;, "Lcom/google/common/collect/Multimaps$MapMultimap$1$1;"
@@ -148,14 +148,14 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v1}, Lcom/google/common/collect/CollectPreconditions;->checkRemove(Z)V
 
     .line 1072

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroidx/camera/core/impl/DeferrableSurface;)V
-    .locals 0
+    .registers 3
     .param p1, "s"    # Ljava/lang/String;
     .param p2, "surface"    # Landroidx/camera/core/impl/DeferrableSurface;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public getDeferrableSurface()Landroidx/camera/core/impl/DeferrableSurface;
-    .locals 1
+    .registers 2
 
     .line 80
     iget-object v0, p0, Landroidx/camera/core/impl/DeferrableSurface$SurfaceClosedException;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;

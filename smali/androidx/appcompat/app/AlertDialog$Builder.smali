@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 313
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "themeResId"    # I
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public create()Landroidx/appcompat/app/AlertDialog;
-    .locals 3
+    .registers 4
 
     .line 983
     new-instance v0, Landroidx/appcompat/app/AlertDialog;
@@ -105,7 +105,7 @@
 
     iget-boolean v1, v1, Landroidx/appcompat/app/AlertController$AlertParams;->mCancelable:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 987
     const/4 v1, 0x1
@@ -113,7 +113,7 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
 
     .line 989
-    :cond_0
+    :cond_23
     iget-object v1, p0, Landroidx/appcompat/app/AlertDialog$Builder;->P:Landroidx/appcompat/app/AlertController$AlertParams;
 
     iget-object v1, v1, Landroidx/appcompat/app/AlertController$AlertParams;->mOnCancelListener:Landroid/content/DialogInterface$OnCancelListener;
@@ -132,7 +132,7 @@
 
     iget-object v1, v1, Landroidx/appcompat/app/AlertController$AlertParams;->mOnKeyListener:Landroid/content/DialogInterface$OnKeyListener;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3e
 
     .line 992
     iget-object v1, p0, Landroidx/appcompat/app/AlertDialog$Builder;->P:Landroidx/appcompat/app/AlertController$AlertParams;
@@ -142,12 +142,12 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)V
 
     .line 994
-    :cond_1
+    :cond_3e
     return-object v0
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 358
     iget-object v0, p0, Landroidx/appcompat/app/AlertDialog$Builder;->P:Landroidx/appcompat/app/AlertController$AlertParams;
@@ -158,7 +158,7 @@
 .end method
 
 .method public setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 4
     .param p1, "adapter"    # Landroid/widget/ListAdapter;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -177,7 +177,7 @@
 .end method
 
 .method public setCancelable(Z)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "cancelable"    # Z
 
     .line 579
@@ -190,7 +190,7 @@
 .end method
 
 .method public setCursor(Landroid/database/Cursor;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 5
     .param p1, "cursor"    # Landroid/database/Cursor;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
     .param p3, "labelColumn"    # Ljava/lang/String;
@@ -215,7 +215,7 @@
 .end method
 
 .method public setCustomTitle(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "customTitleView"    # Landroid/view/View;
 
     .line 398
@@ -228,7 +228,7 @@
 .end method
 
 .method public setIcon(I)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "iconId"    # I
 
     .line 430
@@ -241,7 +241,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 445
@@ -254,7 +254,7 @@
 .end method
 
 .method public setIconAttribute(I)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 3
+    .registers 5
     .param p1, "attrId"    # I
 
     .line 459
@@ -288,7 +288,7 @@
 .end method
 
 .method public setInverseBackgroundForced(Z)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "useInverseBackground"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -303,7 +303,7 @@
 .end method
 
 .method public setItems(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 5
     .param p1, "itemsId"    # I
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -334,7 +334,7 @@
 .end method
 
 .method public setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 4
     .param p1, "items"    # [Ljava/lang/CharSequence;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -353,7 +353,7 @@
 .end method
 
 .method public setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 4
     .param p1, "messageId"    # I
 
     .line 408
@@ -374,7 +374,7 @@
 .end method
 
 .method public setMessage(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "message"    # Ljava/lang/CharSequence;
 
     .line 418
@@ -387,7 +387,7 @@
 .end method
 
 .method public setMultiChoiceItems(I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 6
     .param p1, "itemsId"    # I
     .param p2, "checkedItems"    # [Z
     .param p3, "listener"    # Landroid/content/DialogInterface$OnMultiChoiceClickListener;
@@ -431,7 +431,7 @@
 .end method
 
 .method public setMultiChoiceItems(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 7
     .param p1, "cursor"    # Landroid/database/Cursor;
     .param p2, "isCheckedColumn"    # Ljava/lang/String;
     .param p3, "labelColumn"    # Ljava/lang/String;
@@ -469,7 +469,7 @@
 .end method
 
 .method public setMultiChoiceItems([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 6
     .param p1, "items"    # [Ljava/lang/CharSequence;
     .param p2, "checkedItems"    # [Z
     .param p3, "listener"    # Landroid/content/DialogInterface$OnMultiChoiceClickListener;
@@ -501,7 +501,7 @@
 .end method
 
 .method public setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 5
     .param p1, "textId"    # I
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -528,7 +528,7 @@
 .end method
 
 .method public setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -547,7 +547,7 @@
 .end method
 
 .method public setNegativeButtonIcon(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 533
@@ -560,7 +560,7 @@
 .end method
 
 .method public setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 5
     .param p1, "textId"    # I
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -587,7 +587,7 @@
 .end method
 
 .method public setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -606,7 +606,7 @@
 .end method
 
 .method public setNeutralButtonIcon(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 569
@@ -619,7 +619,7 @@
 .end method
 
 .method public setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "onCancelListener"    # Landroid/content/DialogInterface$OnCancelListener;
 
     .line 600
@@ -632,7 +632,7 @@
 .end method
 
 .method public setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "onDismissListener"    # Landroid/content/DialogInterface$OnDismissListener;
 
     .line 610
@@ -645,7 +645,7 @@
 .end method
 
 .method public setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/widget/AdapterView$OnItemSelectedListener;
 
     .line 868
@@ -658,7 +658,7 @@
 .end method
 
 .method public setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "onKeyListener"    # Landroid/content/DialogInterface$OnKeyListener;
 
     .line 620
@@ -671,7 +671,7 @@
 .end method
 
 .method public setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 5
     .param p1, "textId"    # I
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -698,7 +698,7 @@
 .end method
 
 .method public setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
@@ -717,7 +717,7 @@
 .end method
 
 .method public setPositiveButtonIcon(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 497
@@ -730,7 +730,7 @@
 .end method
 
 .method public setRecycleOnMeasureEnabled(Z)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "enabled"    # Z
 
     .line 966
@@ -743,7 +743,7 @@
 .end method
 
 .method public setSingleChoiceItems(IILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 6
     .param p1, "itemsId"    # I
     .param p2, "checkedItem"    # I
     .param p3, "listener"    # Landroid/content/DialogInterface$OnClickListener;
@@ -787,7 +787,7 @@
 .end method
 
 .method public setSingleChoiceItems(Landroid/database/Cursor;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 7
     .param p1, "cursor"    # Landroid/database/Cursor;
     .param p2, "checkedItem"    # I
     .param p3, "labelColumn"    # Ljava/lang/String;
@@ -825,7 +825,7 @@
 .end method
 
 .method public setSingleChoiceItems(Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 6
     .param p1, "adapter"    # Landroid/widget/ListAdapter;
     .param p2, "checkedItem"    # I
     .param p3, "listener"    # Landroid/content/DialogInterface$OnClickListener;
@@ -857,7 +857,7 @@
 .end method
 
 .method public setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 6
     .param p1, "items"    # [Ljava/lang/CharSequence;
     .param p2, "checkedItem"    # I
     .param p3, "listener"    # Landroid/content/DialogInterface$OnClickListener;
@@ -889,7 +889,7 @@
 .end method
 
 .method public setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 4
     .param p1, "titleId"    # I
 
     .line 367
@@ -910,7 +910,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 377
@@ -923,7 +923,7 @@
 .end method
 
 .method public setView(I)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 4
     .param p1, "layoutResId"    # I
 
     .line 881
@@ -950,7 +950,7 @@
 .end method
 
 .method public setView(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 902
@@ -975,7 +975,7 @@
 .end method
 
 .method public setView(Landroid/view/View;IIII)Landroidx/appcompat/app/AlertDialog$Builder;
-    .locals 2
+    .registers 8
     .param p1, "view"    # Landroid/view/View;
     .param p2, "viewSpacingLeft"    # I
     .param p3, "viewSpacingTop"    # I
@@ -1028,7 +1028,7 @@
 .end method
 
 .method public show()Landroidx/appcompat/app/AlertDialog;
-    .locals 1
+    .registers 2
 
     .line 1008
     invoke-virtual {p0}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;

@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method private static clamp(I)I
-    .locals 2
+    .registers 3
     .param p0, "c"    # I
 
     .line 42
@@ -56,7 +56,7 @@
 .end method
 
 .method public static log(Ljava/lang/String;)V
-    .locals 7
+    .registers 8
     .param p0, "str"    # Ljava/lang/String;
 
     .line 87
@@ -208,7 +208,7 @@
     .line 93
     sget-object v4, Landroidx/constraintlayout/core/motion/utils/Utils;->ourHandle:Landroidx/constraintlayout/core/motion/utils/Utils$DebugHandle;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_a9
 
     .line 94
     sget-object v4, Landroidx/constraintlayout/core/motion/utils/Utils;->ourHandle:Landroidx/constraintlayout/core/motion/utils/Utils$DebugHandle;
@@ -236,12 +236,12 @@
     invoke-interface {v4, v5}, Landroidx/constraintlayout/core/motion/utils/Utils$DebugHandle;->message(Ljava/lang/String;)V
 
     .line 96
-    :cond_0
+    :cond_a9
     return-void
 .end method
 
 .method public static log(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "value"    # Ljava/lang/String;
 
@@ -277,7 +277,7 @@
 .end method
 
 .method public static logStack(Ljava/lang/String;I)V
-    .locals 7
+    .registers 9
     .param p0, "msg"    # Ljava/lang/String;
     .param p1, "n"    # I
 
@@ -308,8 +308,8 @@
     const/4 v2, 0x1
 
     .local v2, "i":I
-    :goto_0
-    if-gt v2, p1, :cond_0
+    :goto_13
+    if-gt v2, p1, :cond_84
 
     .line 79
     aget-object v3, v0, v2
@@ -426,16 +426,16 @@
     .end local v4    # "stack":Ljava/lang/String;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 84
     .end local v2    # "i":I
-    :cond_0
+    :cond_84
     return-void
 .end method
 
 .method public static loge(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "value"    # Ljava/lang/String;
 
@@ -471,7 +471,7 @@
 .end method
 
 .method public static rgbaTocColor(FFFF)I
-    .locals 6
+    .registers 10
     .param p0, "r"    # F
     .param p1, "g"    # F
     .param p2, "b"    # F
@@ -538,7 +538,7 @@
 .end method
 
 .method public static setDebugHandle(Landroidx/constraintlayout/core/motion/utils/Utils$DebugHandle;)V
-    .locals 0
+    .registers 1
     .param p0, "handle"    # Landroidx/constraintlayout/core/motion/utils/Utils$DebugHandle;
 
     .line 72
@@ -549,7 +549,7 @@
 .end method
 
 .method public static socketSend(Ljava/lang/String;)V
-    .locals 3
+    .registers 4
     .param p0, "str"    # Ljava/lang/String;
 
     .line 32
@@ -578,16 +578,16 @@
 
     .line 35
     invoke-virtual {v1}, Ljava/io/OutputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_17} :catch_18
 
     .line 38
     .end local v0    # "socket":Ljava/net/Socket;
     .end local v1    # "out":Ljava/io/OutputStream;
-    goto :goto_0
+    goto :goto_1c
 
     .line 36
-    :catch_0
+    :catch_18
     move-exception v0
 
     .line 37
@@ -596,14 +596,14 @@
 
     .line 39
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 
 # virtual methods
 .method public getInterpolatedColor([F)I
-    .locals 7
+    .registers 9
     .param p1, "value"    # [F
 
     .line 51

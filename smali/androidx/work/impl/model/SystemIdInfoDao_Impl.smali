@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/RoomDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "__db"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -69,7 +69,7 @@
 .end method
 
 .method public static getRequiredConverters()Ljava/util/List;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public getSystemIdInfo(Landroidx/work/impl/model/WorkGenerationalId;)Landroidx/work/impl/model/SystemIdInfo;
-    .locals 1
+    .registers 3
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -110,7 +110,7 @@
 .end method
 
 .method public getSystemIdInfo(Ljava/lang/String;I)Landroidx/work/impl/model/SystemIdInfo;
-    .locals 11
+    .registers 14
     .param p1, "workSpecId"    # Ljava/lang/String;
     .param p2, "generation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -143,19 +143,19 @@
 
     .line 123
     .local v2, "_argIndex":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 124
     invoke-virtual {v1, v2}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 126
-    :cond_0
+    :cond_10
     invoke-virtual {v1, v2, p1}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
 
     .line 128
-    :goto_0
+    :goto_13
     const/4 v2, 0x2
 
     .line 129
@@ -181,7 +181,7 @@
 
     .line 133
     .local v3, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_25
     const-string/jumbo v4, "work_spec_id"
 
     invoke-static {v3, v4}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
@@ -210,31 +210,31 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_5a
 
     .line 139
     invoke-interface {v3, v4}, Landroid/database/Cursor;->isNull(I)Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_47
 
     .line 140
     const/4 v7, 0x0
 
     .local v7, "_tmpWorkSpecId":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_4b
 
     .line 142
     .end local v7    # "_tmpWorkSpecId":Ljava/lang/String;
-    :cond_1
+    :cond_47
     invoke-interface {v3, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
     .line 145
     .restart local v7    # "_tmpWorkSpecId":Ljava/lang/String;
-    :goto_1
+    :goto_4b
     invoke-interface {v3, v5}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v8
@@ -250,8 +250,8 @@
     new-instance v10, Landroidx/work/impl/model/SystemIdInfo;
 
     invoke-direct {v10, v7, v8, v9}, Landroidx/work/impl/model/SystemIdInfo;-><init>(Ljava/lang/String;II)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_58
+    .catchall {:try_start_25 .. :try_end_58} :catchall_63
 
     move-object v7, v10
 
@@ -259,16 +259,16 @@
     .end local v8    # "_tmpGeneration":I
     .end local v9    # "_tmpSystemId":I
     .local v7, "_result":Landroidx/work/impl/model/SystemIdInfo;
-    goto :goto_2
+    goto :goto_5b
 
     .line 150
     .end local v7    # "_result":Landroidx/work/impl/model/SystemIdInfo;
-    :cond_2
+    :cond_5a
     const/4 v7, 0x0
 
     .line 152
     .restart local v7    # "_result":Landroidx/work/impl/model/SystemIdInfo;
-    :goto_2
+    :goto_5b
     nop
 
     .line 154
@@ -285,7 +285,7 @@
     .end local v5    # "_cursorIndexOfGeneration":I
     .end local v6    # "_cursorIndexOfSystemId":I
     .end local v7    # "_result":Landroidx/work/impl/model/SystemIdInfo;
-    :catchall_0
+    :catchall_63
     move-exception v4
 
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
@@ -298,7 +298,7 @@
 .end method
 
 .method public getWorkSpecIds()Ljava/util/List;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -338,7 +338,7 @@
 
     .line 166
     .local v3, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_15
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-interface {v3}, Landroid/database/Cursor;->getCount()I
@@ -349,48 +349,48 @@
 
     .line 167
     .local v4, "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :goto_0
+    :goto_1e
     invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_35
 
     .line 169
     invoke-interface {v3, v2}, Landroid/database/Cursor;->isNull(I)Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2c
 
     .line 170
     const/4 v5, 0x0
 
     .local v5, "_item":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_30
 
     .line 172
     .end local v5    # "_item":Ljava/lang/String;
-    :cond_0
+    :cond_2c
     invoke-interface {v3, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
     .line 174
     .restart local v5    # "_item":Ljava/lang/String;
-    :goto_1
+    :goto_30
     invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_15 .. :try_end_33} :catchall_3d
 
     .line 175
     nop
 
     .end local v5    # "_item":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1e
 
     .line 176
-    :cond_1
+    :cond_35
     nop
 
     .line 178
@@ -404,7 +404,7 @@
 
     .line 178
     .end local v4    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :catchall_0
+    :catchall_3d
     move-exception v2
 
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
@@ -417,7 +417,7 @@
 .end method
 
 .method public insertSystemIdInfo(Landroidx/work/impl/model/SystemIdInfo;)V
-    .locals 2
+    .registers 4
     .param p1, "systemIdInfo"    # Landroidx/work/impl/model/SystemIdInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -439,7 +439,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 69
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__insertionAdapterOfSystemIdInfo:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityInsertionAdapter;->insert(Ljava/lang/Object;)V
@@ -448,8 +448,8 @@
     iget-object v0, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_1b
 
     .line 72
     iget-object v0, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -463,7 +463,7 @@
     return-void
 
     .line 72
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     iget-object v1, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -475,7 +475,7 @@
 .end method
 
 .method public removeSystemIdInfo(Landroidx/work/impl/model/WorkGenerationalId;)V
-    .locals 0
+    .registers 2
     .param p1, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -494,7 +494,7 @@
 .end method
 
 .method public removeSystemIdInfo(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -523,33 +523,33 @@
 
     .line 103
     .local v1, "_argIndex":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_12
 
     .line 104
     invoke-interface {v0, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 106
-    :cond_0
+    :cond_12
     invoke-interface {v0, v1, p1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 108
-    :goto_0
+    :goto_15
     iget-object v2, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 110
-    :try_start_0
+    :try_start_1a
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     .line 111
     iget-object v2, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_1a .. :try_end_22} :catchall_2e
 
     .line 113
     iget-object v2, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -568,7 +568,7 @@
     return-void
 
     .line 113
-    :catchall_0
+    :catchall_2e
     move-exception v2
 
     iget-object v3, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -585,7 +585,7 @@
 .end method
 
 .method public removeSystemIdInfo(Ljava/lang/String;I)V
-    .locals 4
+    .registers 7
     .param p1, "workSpecId"    # Ljava/lang/String;
     .param p2, "generation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -617,19 +617,19 @@
 
     .line 81
     .local v1, "_argIndex":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_12
 
     .line 82
     invoke-interface {v0, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 84
-    :cond_0
+    :cond_12
     invoke-interface {v0, v1, p1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 86
-    :goto_0
+    :goto_15
     const/4 v1, 0x2
 
     .line 87
@@ -643,15 +643,15 @@
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 90
-    :try_start_0
+    :try_start_1f
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     .line 91
     iget-object v2, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_1f .. :try_end_27} :catchall_33
 
     .line 93
     iget-object v2, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -670,7 +670,7 @@
     return-void
 
     .line 93
-    :catchall_0
+    :catchall_33
     move-exception v2
 
     iget-object v3, p0, Landroidx/work/impl/model/SystemIdInfoDao_Impl;->__db:Landroidx/room/RoomDatabase;

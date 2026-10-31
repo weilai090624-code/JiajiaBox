@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Set;ZZZIIFI)V
-    .locals 1
+    .registers 10
     .param p1, "filters"    # Ljava/util/Set;
     .param p2, "finishPrimaryWithSecondary"    # Z
     .param p3, "finishSecondaryWithPrimary"    # Z
@@ -135,7 +135,7 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/util/Set;ZZZIIFIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 7
+    .registers 18
 
     .line 31
     move/from16 v0, p9
@@ -144,100 +144,100 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     .line 41
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
     .line 31
-    :cond_0
+    :cond_9
     move v1, p2
 
-    :goto_0
+    :goto_a
     and-int/lit8 v3, v0, 0x4
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_10
 
     .line 47
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_11
 
     .line 31
-    :cond_1
+    :cond_10
     move v3, p3
 
-    :goto_1
+    :goto_11
     and-int/lit8 v4, v0, 0x8
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_17
 
     .line 54
     const/4 v4, 0x0
 
-    goto :goto_2
+    goto :goto_18
 
     .line 31
-    :cond_2
+    :cond_17
     move v4, p4
 
-    :goto_2
+    :goto_18
     and-int/lit8 v5, v0, 0x10
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_1e
 
     .line 56
     const/4 v5, 0x0
 
-    goto :goto_3
+    goto :goto_1f
 
     .line 31
-    :cond_3
+    :cond_1e
     move v5, p5
 
-    :goto_3
+    :goto_1f
     and-int/lit8 v6, v0, 0x20
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_24
 
     .line 57
-    goto :goto_4
+    goto :goto_25
 
     .line 31
-    :cond_4
+    :cond_24
     move v2, p6
 
-    :goto_4
+    :goto_25
     and-int/lit8 v6, v0, 0x40
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_2c
 
     .line 58
     const/high16 v6, 0x3f000000    # 0.5f
 
-    goto :goto_5
+    goto :goto_2d
 
     .line 31
-    :cond_5
+    :cond_2c
     move v6, p7
 
-    :goto_5
+    :goto_2d
     and-int/lit16 v0, v0, 0x80
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_33
 
     .line 60
     const/4 v0, 0x3
 
-    goto :goto_6
+    goto :goto_34
 
     .line 31
-    :cond_6
+    :cond_33
     move v0, p8
 
-    :goto_6
+    :goto_34
     move-object p2, p0
 
     move-object p3, p1
@@ -265,38 +265,38 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 92
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 93
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/window/embedding/SplitPairRule;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 95
-    :cond_1
+    :cond_a
     invoke-super {p0, p1}, Landroidx/window/embedding/SplitRule;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_11
 
     return v2
 
     .line 96
-    :cond_2
+    :cond_11
     iget-object v1, p0, Landroidx/window/embedding/SplitPairRule;->filters:Ljava/util/Set;
 
     move-object v3, p1
@@ -309,12 +309,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_1f
 
     return v2
 
     .line 97
-    :cond_3
+    :cond_1f
     iget-boolean v1, p0, Landroidx/window/embedding/SplitPairRule;->finishPrimaryWithSecondary:Z
 
     move-object v3, p1
@@ -323,12 +323,12 @@
 
     iget-boolean v3, v3, Landroidx/window/embedding/SplitPairRule;->finishPrimaryWithSecondary:Z
 
-    if-eq v1, v3, :cond_4
+    if-eq v1, v3, :cond_29
 
     return v2
 
     .line 98
-    :cond_4
+    :cond_29
     iget-boolean v1, p0, Landroidx/window/embedding/SplitPairRule;->finishSecondaryWithPrimary:Z
 
     move-object v3, p1
@@ -337,12 +337,12 @@
 
     iget-boolean v3, v3, Landroidx/window/embedding/SplitPairRule;->finishSecondaryWithPrimary:Z
 
-    if-eq v1, v3, :cond_5
+    if-eq v1, v3, :cond_33
 
     return v2
 
     .line 99
-    :cond_5
+    :cond_33
     iget-boolean v1, p0, Landroidx/window/embedding/SplitPairRule;->clearTop:Z
 
     move-object v3, p1
@@ -351,17 +351,17 @@
 
     iget-boolean v3, v3, Landroidx/window/embedding/SplitPairRule;->clearTop:Z
 
-    if-eq v1, v3, :cond_6
+    if-eq v1, v3, :cond_3d
 
     return v2
 
     .line 101
-    :cond_6
+    :cond_3d
     return v0
 .end method
 
 .method public final getClearTop()Z
-    .locals 1
+    .registers 2
 
     .line 54
     iget-boolean v0, p0, Landroidx/window/embedding/SplitPairRule;->clearTop:Z
@@ -370,7 +370,7 @@
 .end method
 
 .method public final getFilters()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -387,7 +387,7 @@
 .end method
 
 .method public final getFinishPrimaryWithSecondary()Z
-    .locals 1
+    .registers 2
 
     .line 41
     iget-boolean v0, p0, Landroidx/window/embedding/SplitPairRule;->finishPrimaryWithSecondary:Z
@@ -396,7 +396,7 @@
 .end method
 
 .method public final getFinishSecondaryWithPrimary()Z
-    .locals 1
+    .registers 2
 
     .line 47
     iget-boolean v0, p0, Landroidx/window/embedding/SplitPairRule;->finishSecondaryWithPrimary:Z
@@ -405,7 +405,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 105
     invoke-super {p0}, Landroidx/window/embedding/SplitRule;->hashCode()I
@@ -470,7 +470,7 @@
 .end method
 
 .method public final plus$window_release(Landroidx/window/embedding/SplitPairFilter;)Landroidx/window/embedding/SplitPairRule;
-    .locals 11
+    .registers 13
     .param p1, "filter"    # Landroidx/window/embedding/SplitPairFilter;
 
     const-string v0, "filter"

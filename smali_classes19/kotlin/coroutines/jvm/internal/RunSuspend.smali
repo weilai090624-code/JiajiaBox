@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public final await()V
-    .locals 3
+    .registers 4
 
     .line 34
     monitor-enter p0
@@ -84,16 +84,16 @@
 
     .line 35
     .local v0, "$i$a$-synchronized-RunSuspend$await$1":I
-    :goto_0
+    :goto_2
     nop
 
     .line 36
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lkotlin/coroutines/jvm/internal/RunSuspend;->result:Lkotlin/Result;
 
     .line 37
     .local v1, "result":Lkotlin/Result;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
     const-string v2, "null cannot be cast to non-null type java.lang.Object"
 
@@ -105,17 +105,17 @@
 
     invoke-virtual {v2}, Ljava/lang/Object;->wait()V
 
-    goto :goto_0
+    goto :goto_2
 
     .line 39
-    :cond_0
+    :cond_13
     invoke-virtual {v1}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
 
     move-result-object v2
 
     invoke-static {v2}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_3 .. :try_end_1a} :catchall_1d
 
     .line 40
     nop
@@ -126,7 +126,7 @@
 
     return-void
 
-    :catchall_0
+    :catchall_1d
     move-exception v0
 
     monitor-exit p0
@@ -135,7 +135,7 @@
 .end method
 
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 25
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -146,7 +146,7 @@
 .end method
 
 .method public final getResult-xLWZpok()Lkotlin/Result;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -163,7 +163,7 @@
 .end method
 
 .method public resumeWith(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "result"    # Ljava/lang/Object;
 
     .line 29
@@ -173,7 +173,7 @@
 
     .line 30
     .local v0, "$i$a$-synchronized-RunSuspend$resumeWith$1":I
-    :try_start_0
+    :try_start_2
     invoke-static {p1}, Lkotlin/Result;->box-impl(Ljava/lang/Object;)Lkotlin/Result;
 
     move-result-object v1
@@ -196,8 +196,8 @@
 
     .end local v0    # "$i$a$-synchronized-RunSuspend$resumeWith$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_2 .. :try_end_16} :catchall_18
 
     .line 29
     monitor-exit p0
@@ -206,7 +206,7 @@
     return-void
 
     .line 29
-    :catchall_0
+    :catchall_18
     move-exception v0
 
     monitor-exit p0
@@ -215,7 +215,7 @@
 .end method
 
 .method public final setResult(Lkotlin/Result;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lkotlin/Result;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 176
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;->this$0:Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
@@ -111,17 +111,17 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 152
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;->this$0:Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->getProxyList()Ljava/util/ArrayList;
@@ -140,30 +140,30 @@
 
     move-result-wide v0
 
-    :goto_0
+    :goto_17
     return-wide v0
 .end method
 
 .method public getItemViewType(I)I
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 156
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public final move(II)V
-    .locals 5
+    .registers 8
     .param p1, "from"    # I
     .param p2, "to"    # I
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 3
+    .registers 6
     .param p1, "holder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "position"    # I
 
@@ -247,7 +247,7 @@
     .line 168
     instance-of v0, p1, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$AddHolder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 169
     move-object v0, p1
@@ -256,13 +256,13 @@
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$AddHolder;->bind()V
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 170
-    :cond_0
+    :cond_10
     instance-of v0, p1, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 171
     move-object v0, p1
@@ -290,13 +290,13 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;->bind(Lio/nekohasekai/sagernet/database/ProxyEntity;)V
 
     .line 173
-    :cond_1
-    :goto_0
+    :cond_2d
+    :goto_2d
     return-void
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 5
+    .registers 8
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -309,7 +309,7 @@
 
     const/4 v1, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_21
 
     .line 161
     new-instance v2, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$AddHolder;
@@ -332,10 +332,10 @@
 
     check-cast v2, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
-    goto :goto_0
+    goto :goto_37
 
     .line 163
-    :cond_0
+    :cond_21
     new-instance v2, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;->this$0:Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
@@ -357,12 +357,12 @@
     check-cast v2, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 160
-    :goto_0
+    :goto_37
     return-object v2
 .end method
 
 .method public final reload(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 18
+    .registers 20
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -441,14 +441,14 @@
 
     move-result-object v8
 
-    :goto_0
+    :goto_2c
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
     const/4 v10, 0x0
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_5f
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -489,17 +489,17 @@
 
     .end local v15    # "it":Ljava/lang/String;
     .end local v16    # "$i$a$-takeIf-ChainSettingsActivity$ProxiesAdapter$reload$idList$1$1":I
-    if-nez v17, :cond_0
+    if-nez v17, :cond_4c
 
     move-object v15, v13
 
-    goto :goto_1
+    goto :goto_4d
 
-    :cond_0
+    :cond_4c
     move-object v15, v10
 
-    :goto_1
-    if-eqz v15, :cond_1
+    :goto_4d
+    if-eqz v15, :cond_57
 
     invoke-static {v15}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
@@ -512,8 +512,8 @@
     .line 304
     .end local v13    # "it":Ljava/lang/String;
     .end local v14    # "$i$a$-mapNotNull-ChainSettingsActivity$ProxiesAdapter$reload$idList$1":I
-    :cond_1
-    if-eqz v10, :cond_2
+    :cond_57
+    if-eqz v10, :cond_5d
 
     .line 307
     .local v10, "it$iv$iv":Ljava/lang/Object;
@@ -528,14 +528,14 @@
     .end local v11    # "element$iv$iv":Ljava/lang/Object;
     .end local v12    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv$iv":I
     .end local v13    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv$iv":I
-    :cond_2
+    :cond_5d
     nop
 
     .end local v9    # "element$iv$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_2c
 
     .line 308
-    :cond_3
+    :cond_5f
     nop
 
     .line 309
@@ -569,7 +569,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_de
 
     .line 127
     sget-object v2, Lio/nekohasekai/sagernet/database/ProfileManager;->INSTANCE:Lio/nekohasekai/sagernet/database/ProfileManager;
@@ -609,12 +609,12 @@
 
     move-result-object v7
 
-    :goto_2
+    :goto_8b
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_a9
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -648,11 +648,11 @@
     .end local v11    # "$i$a$-map-ChainSettingsActivity$ProxiesAdapter$reload$profiles$1":I
     invoke-interface {v4, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_8b
 
     .line 313
     .end local v8    # "item$iv$iv":Ljava/lang/Object;
-    :cond_4
+    :cond_a9
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;
@@ -678,12 +678,12 @@
 
     move-result-object v3
 
-    :goto_3
+    :goto_b7
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_de
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -713,19 +713,19 @@
 
     check-cast v7, Lio/nekohasekai/sagernet/database/ProxyEntity;
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_da
 
-    goto :goto_3
+    goto :goto_b7
 
-    :cond_5
+    :cond_da
     invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_b7
 
     .line 132
     .end local v2    # "profiles":Ljava/util/Map;
     .end local v4    # "id":J
-    :cond_6
+    :cond_de
     new-instance v2, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter$reload$2;
 
     invoke-direct {v2, v0, v10}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter$reload$2;-><init>(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;Lkotlin/coroutines/Continuation;)V
@@ -742,11 +742,11 @@
 
     move-result-object v4
 
-    if-ne v2, v4, :cond_7
+    if-ne v2, v4, :cond_f2
 
     return-object v2
 
-    :cond_7
+    :cond_f2
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 135
@@ -754,7 +754,7 @@
 .end method
 
 .method public final remove(I)V
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 146

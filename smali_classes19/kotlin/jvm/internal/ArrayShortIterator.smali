@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>([S)V
-    .locals 1
+    .registers 3
     .param p1, "array"    # [S
 
     const-string v0, "array"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 25
     iget v0, p0, Lkotlin/jvm/internal/ArrayShortIterator;->index:I
@@ -67,21 +67,21 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public nextShort()S
-    .locals 3
+    .registers 4
 
     .line 26
     :try_start_0
@@ -94,12 +94,12 @@
     iput v2, p0, Lkotlin/jvm/internal/ArrayShortIterator;->index:I
 
     aget-short v0, v0, v1
-    :try_end_0
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_a} :catch_b
 
     return v0
 
-    :catch_0
+    :catch_b
     move-exception v0
 
     .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;

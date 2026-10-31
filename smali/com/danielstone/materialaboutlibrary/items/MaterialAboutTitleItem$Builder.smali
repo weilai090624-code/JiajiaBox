@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 283
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
 
     .line 283
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
 
     .line 283
@@ -91,7 +91,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
 
     .line 283
@@ -101,7 +101,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
 
     .line 283
@@ -111,7 +111,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
 
     .line 283
@@ -121,7 +121,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
 
     .line 283
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public build()Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 2
+    .registers 3
 
     .line 347
     new-instance v0, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
@@ -146,7 +146,7 @@
 .end method
 
 .method public desc(I)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
-    .locals 1
+    .registers 3
     .param p1, "desc"    # I
 
     .line 318
@@ -162,7 +162,7 @@
 .end method
 
 .method public desc(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
-    .locals 1
+    .registers 3
     .param p1, "desc"    # Ljava/lang/CharSequence;
 
     .line 311
@@ -178,7 +178,7 @@
 .end method
 
 .method public icon(I)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
-    .locals 1
+    .registers 3
     .param p1, "iconRes"    # I
 
     .line 331
@@ -194,7 +194,7 @@
 .end method
 
 .method public icon(Landroid/graphics/drawable/Drawable;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
-    .locals 1
+    .registers 3
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 324
@@ -210,7 +210,7 @@
 .end method
 
 .method public setOnClickAction(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
-    .locals 0
+    .registers 2
     .param p1, "onClickAction"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
     .line 337
@@ -221,7 +221,7 @@
 .end method
 
 .method public setOnLongClickAction(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
-    .locals 0
+    .registers 2
     .param p1, "onLongClickAction"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
 
     .line 342
@@ -232,7 +232,7 @@
 .end method
 
 .method public text(I)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
-    .locals 1
+    .registers 3
     .param p1, "text"    # I
 
     .line 305
@@ -248,7 +248,7 @@
 .end method
 
 .method public text(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem$Builder;
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .line 298

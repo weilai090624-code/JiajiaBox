@@ -120,7 +120,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -158,7 +158,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
 
     const-string v0, "context"
 
@@ -182,7 +182,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 11
+    .registers 15
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -218,7 +218,7 @@
     iput-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->drawDisappearingViewsFirst:Z
 
     .line 110
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_7b
 
     .line 111
     const/4 v0, 0x0
@@ -268,7 +268,7 @@
 
     .line 114
     .local v9, "$i$a$-withStyledAttributes$default-FragmentContainerView$1":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_42
 
     .line 115
     sget v10, Landroidx/fragment/R$styleable;->FragmentContainerView_android_name:I
@@ -281,7 +281,7 @@
     const-string v1, "android:name"
 
     .line 118
-    :cond_0
+    :cond_42
     nop
 
     .line 353
@@ -298,18 +298,18 @@
     .end local v4    # "defStyleAttr$iv":I
     .end local v5    # "defStyleRes$iv":I
     .end local v6    # "$i$f$withStyledAttributes":I
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_7b
 
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentContainerView;->isInEditMode()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_50
 
-    goto :goto_0
+    goto :goto_7b
 
     .line 120
-    :cond_1
+    :cond_50
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     .line 121
@@ -363,24 +363,24 @@
     .line 126
     .end local v0    # "name":Ljava/lang/Object;
     .end local v1    # "attribute":Ljava/lang/Object;
-    :cond_2
-    :goto_0
+    :cond_7b
+    :goto_7b
     return-void
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 105
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 108
     const/4 p3, 0x0
 
     .line 105
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2, p3}, Landroidx/fragment/app/FragmentContainerView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 126
@@ -388,7 +388,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;Landroidx/fragment/app/FragmentManager;)V
-    .locals 12
+    .registers 16
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "fm"    # Landroidx/fragment/app/FragmentManager;
@@ -477,7 +477,7 @@
 
     .line 136
     .local v10, "$i$a$-withStyledAttributes$default-FragmentContainerView$2":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_46
 
     .line 137
     sget v11, Landroidx/fragment/R$styleable;->FragmentContainerView_android_name:I
@@ -487,7 +487,7 @@
     move-result-object v1
 
     .line 139
-    :cond_0
+    :cond_46
     sget v11, Landroidx/fragment/R$styleable;->FragmentContainerView_android_tag:I
 
     invoke-virtual {v9, v11}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -523,17 +523,17 @@
 
     .line 145
     .local v4, "existingFragment":Landroidx/fragment/app/Fragment;
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_bd
 
     .line 146
     const/4 v5, -0x1
 
-    if-ne v3, v5, :cond_2
+    if-ne v3, v5, :cond_95
 
     .line 147
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_76
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -553,14 +553,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_78
 
-    :cond_1
+    :cond_76
     const-string v0, ""
 
     .line 148
     .local v0, "tagMessage":Ljava/lang/String;
-    :goto_0
+    :goto_78
     new-instance v5, Ljava/lang/IllegalStateException;
 
     .line 149
@@ -593,7 +593,7 @@
 
     .line 153
     .end local v0    # "tagMessage":Ljava/lang/String;
-    :cond_2
+    :cond_95
     invoke-virtual {p3}, Landroidx/fragment/app/FragmentManager;->getFragmentFactory()Landroidx/fragment/app/FragmentFactory;
 
     move-result-object v5
@@ -643,7 +643,7 @@
 
     .line 160
     .end local v5    # "containerFragment":Landroidx/fragment/app/Fragment;
-    :cond_3
+    :cond_bd
     invoke-virtual {p3, p0}, Landroidx/fragment/app/FragmentManager;->onContainerAvailable(Landroidx/fragment/app/FragmentContainerView;)V
 
     .line 161
@@ -651,7 +651,7 @@
 .end method
 
 .method private final addDisappearingFragmentView(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 322
@@ -661,7 +661,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 323
     iget-object v0, p0, Landroidx/fragment/app/FragmentContainerView;->disappearingFragmentChildren:Ljava/util/List;
@@ -669,14 +669,14 @@
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 325
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 
 # virtual methods
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
-    .locals 3
+    .registers 7
     .param p1, "child"    # Landroid/view/View;
     .param p2, "index"    # I
     .param p3, "params"    # Landroid/view/ViewGroup$LayoutParams;
@@ -690,7 +690,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 272
     invoke-super {p0, p1, p2, p3}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
@@ -699,7 +699,7 @@
     return-void
 
     .line 266
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     .line 268
@@ -750,7 +750,7 @@
 .end method
 
 .method public dispatchApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 5
+    .registers 7
     .param p1, "insets"    # Landroid/view/WindowInsets;
 
     const-string v0, "insets"
@@ -770,7 +770,7 @@
     .local v0, "insetsCompat":Landroidx/core/view/WindowInsetsCompat;
     iget-object v1, p0, Landroidx/fragment/app/FragmentContainerView;->applyWindowInsetsListener:Landroid/view/View$OnApplyWindowInsetsListener;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     .line 206
     sget-object v1, Landroidx/fragment/app/FragmentContainerView$Api20Impl;->INSTANCE:Landroidx/fragment/app/FragmentContainerView$Api20Impl;
@@ -792,10 +792,10 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 209
-    :cond_0
+    :cond_26
     move-object v1, p0
 
     check-cast v1, Landroid/view/View;
@@ -805,7 +805,7 @@
     move-result-object v1
 
     .line 204
-    :goto_0
+    :goto_2d
     const-string v2, "if (applyWindowInsetsLis\u2026, insetsCompat)\n        }"
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -816,7 +816,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_49
 
     .line 212
     const/4 v2, 0x0
@@ -826,8 +826,8 @@
 
     move-result v3
 
-    :goto_1
-    if-ge v2, v3, :cond_1
+    :goto_3d
+    if-ge v2, v3, :cond_49
 
     .line 213
     invoke-virtual {p0, v2}, Landroidx/fragment/app/FragmentContainerView;->getChildAt(I)Landroid/view/View;
@@ -839,16 +839,16 @@
     .line 212
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 216
     .end local v2    # "i":I
-    :cond_1
+    :cond_49
     return-object p1
 .end method
 
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
-    .locals 8
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     const-string v0, "canvas"
@@ -858,7 +858,7 @@
     .line 220
     iget-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->drawDisappearingViewsFirst:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 221
     iget-object v0, p0, Landroidx/fragment/app/FragmentContainerView;->disappearingFragmentChildren:Ljava/util/List;
@@ -874,12 +874,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_12
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -907,16 +907,16 @@
     .end local v3    # "element$iv":Ljava/lang/Object;
     .end local v4    # "child":Landroid/view/View;
     .end local v5    # "$i$a$-forEach-FragmentContainerView$dispatchDraw$1":I
-    goto :goto_0
+    goto :goto_12
 
     .line 362
-    :cond_0
+    :cond_29
     nop
 
     .line 225
     .end local v0    # "$this$forEach$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$forEach":I
-    :cond_1
+    :cond_2a
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchDraw(Landroid/graphics/Canvas;)V
 
     .line 226
@@ -924,7 +924,7 @@
 .end method
 
 .method protected drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
-    .locals 1
+    .registers 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "drawingTime"    # J
@@ -940,7 +940,7 @@
     .line 229
     iget-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->drawDisappearingViewsFirst:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     iget-object v0, p0, Landroidx/fragment/app/FragmentContainerView;->disappearingFragmentChildren:Ljava/util/List;
 
@@ -950,7 +950,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 231
     iget-object v0, p0, Landroidx/fragment/app/FragmentContainerView;->disappearingFragmentChildren:Ljava/util/List;
@@ -959,7 +959,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 232
     const/4 v0, 0x0
@@ -967,7 +967,7 @@
     return v0
 
     .line 235
-    :cond_0
+    :cond_22
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/FrameLayout;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
 
     move-result v0
@@ -976,7 +976,7 @@
 .end method
 
 .method public endViewTransition(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     const-string/jumbo v0, "view"
@@ -995,7 +995,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 248
     const/4 v0, 0x1
@@ -1003,7 +1003,7 @@
     iput-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->drawDisappearingViewsFirst:Z
 
     .line 250
-    :cond_0
+    :cond_16
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->endViewTransition(Landroid/view/View;)V
 
     .line 251
@@ -1011,7 +1011,7 @@
 .end method
 
 .method public final getFragment()Landroidx/fragment/app/Fragment;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<F:",
@@ -1041,7 +1041,7 @@
 .end method
 
 .method public onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 1
+    .registers 3
     .param p1, "insets"    # Landroid/view/WindowInsets;
 
     const-string v0, "insets"
@@ -1053,7 +1053,7 @@
 .end method
 
 .method public removeAllViewsInLayout()V
-    .locals 3
+    .registers 4
 
     .line 308
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentContainerView;->getChildCount()I
@@ -1063,10 +1063,10 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
+    :goto_6
     const/4 v1, -0x1
 
-    if-ge v1, v0, :cond_0
+    if-ge v1, v0, :cond_19
 
     .line 309
     invoke-virtual {p0, v0}, Landroidx/fragment/app/FragmentContainerView;->getChildAt(I)Landroid/view/View;
@@ -1085,11 +1085,11 @@
     .end local v1    # "view":Landroid/view/View;
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 312
     .end local v0    # "i":I
-    :cond_0
+    :cond_19
     invoke-super {p0}, Landroid/widget/FrameLayout;->removeAllViewsInLayout()V
 
     .line 313
@@ -1097,7 +1097,7 @@
 .end method
 
 .method public removeView(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     const-string/jumbo v0, "view"
@@ -1115,7 +1115,7 @@
 .end method
 
 .method public removeViewAt(I)V
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 276
@@ -1139,7 +1139,7 @@
 .end method
 
 .method public removeViewInLayout(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     const-string/jumbo v0, "view"
@@ -1157,7 +1157,7 @@
 .end method
 
 .method public removeViews(II)V
-    .locals 4
+    .registers 7
     .param p1, "start"    # I
     .param p2, "count"    # I
 
@@ -1167,8 +1167,8 @@
     .local v0, "i":I
     add-int v1, p1, p2
 
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_3
+    if-ge v0, v1, :cond_15
 
     .line 293
     invoke-virtual {p0, v0}, Landroidx/fragment/app/FragmentContainerView;->getChildAt(I)Landroid/view/View;
@@ -1187,11 +1187,11 @@
     .end local v2    # "view":Landroid/view/View;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 296
     .end local v0    # "i":I
-    :cond_0
+    :cond_15
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->removeViews(II)V
 
     .line 297
@@ -1199,7 +1199,7 @@
 .end method
 
 .method public removeViewsInLayout(II)V
-    .locals 4
+    .registers 7
     .param p1, "start"    # I
     .param p2, "count"    # I
 
@@ -1209,8 +1209,8 @@
     .local v0, "i":I
     add-int v1, p1, p2
 
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_3
+    if-ge v0, v1, :cond_15
 
     .line 301
     invoke-virtual {p0, v0}, Landroidx/fragment/app/FragmentContainerView;->getChildAt(I)Landroid/view/View;
@@ -1229,11 +1229,11 @@
     .end local v2    # "view":Landroid/view/View;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 304
     .end local v0    # "i":I
-    :cond_0
+    :cond_15
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->removeViewsInLayout(II)V
 
     .line 305
@@ -1241,7 +1241,7 @@
 .end method
 
 .method public final setDrawDisappearingViewsLast(Z)V
-    .locals 0
+    .registers 2
     .param p1, "drawDisappearingViewsFirst"    # Z
 
     .line 256
@@ -1252,7 +1252,7 @@
 .end method
 
 .method public setLayoutTransition(Landroid/animation/LayoutTransition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroid/animation/LayoutTransition;
 
     .line 176
@@ -1273,7 +1273,7 @@
 .end method
 
 .method public setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroid/view/View$OnApplyWindowInsetsListener;
 
     const-string v0, "listener"
@@ -1288,7 +1288,7 @@
 .end method
 
 .method public startViewTransition(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     const-string/jumbo v0, "view"
@@ -1300,7 +1300,7 @@
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_11
 
     .line 240
     iget-object v0, p0, Landroidx/fragment/app/FragmentContainerView;->transitioningFragmentViews:Ljava/util/List;
@@ -1308,7 +1308,7 @@
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 242
-    :cond_0
+    :cond_11
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->startViewTransition(Landroid/view/View;)V
 
     .line 243

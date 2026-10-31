@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Application;)V
-    .locals 1
+    .registers 3
     .param p1, "application"    # Landroid/app/Application;
 
     const-string v0, "application"
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public getApplication()Landroid/app/Application;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

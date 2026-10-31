@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 127
     const/4 v0, 0x0
@@ -71,7 +71,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 144
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -81,7 +81,7 @@
 .end method
 
 .method public static addDynamicShortcuts(Landroid/content/Context;Ljava/util/List;)Z
-    .locals 6
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -107,18 +107,18 @@
 
     const/16 v3, 0x1d
 
-    if-gt v2, v3, :cond_0
+    if-gt v2, v3, :cond_e
 
     .line 330
     invoke-static {p0, v1}, Landroidx/core/content/pm/ShortcutManagerCompat;->convertUriIconsToBitmapIcons(Landroid/content/Context;Ljava/util/List;)V
 
     .line 332
-    :cond_0
+    :cond_e
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x19
 
-    if-lt v2, v3, :cond_2
+    if-lt v2, v3, :cond_41
 
     .line 333
     new-instance v2, Ljava/util/ArrayList;
@@ -131,12 +131,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1d
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_31
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -154,10 +154,10 @@
 
     .line 336
     .end local v4    # "item":Landroidx/core/content/pm/ShortcutInfoCompat;
-    goto :goto_0
+    goto :goto_1d
 
     .line 337
-    :cond_1
+    :cond_31
     const-class v3, Landroid/content/pm/ShortcutManager;
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -170,7 +170,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_41
 
     .line 338
     const/4 v0, 0x0
@@ -179,7 +179,7 @@
 
     .line 342
     .end local v2    # "shortcuts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ShortcutInfo;>;"
-    :cond_2
+    :cond_41
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     move-result-object v2
@@ -195,12 +195,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_50
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_60
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -214,15 +214,15 @@
 
     .line 345
     .end local v3    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_1
+    goto :goto_50
 
     .line 346
-    :cond_3
+    :cond_60
     return v0
 .end method
 
 .method static convertUriIconToBitmapIcon(Landroid/content/Context;Landroidx/core/content/pm/ShortcutInfoCompat;)Z
-    .locals 6
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "info"    # Landroidx/core/content/pm/ShortcutInfoCompat;
 
@@ -231,13 +231,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 558
     return v1
 
     .line 560
-    :cond_0
+    :cond_6
     iget-object v0, p1, Landroidx/core/content/pm/ShortcutInfoCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     iget v0, v0, Landroidx/core/graphics/drawable/IconCompat;->mType:I
@@ -248,17 +248,17 @@
 
     const/4 v3, 0x6
 
-    if-eq v0, v3, :cond_1
+    if-eq v0, v3, :cond_12
 
     const/4 v4, 0x4
 
-    if-eq v0, v4, :cond_1
+    if-eq v0, v4, :cond_12
 
     .line 562
     return v2
 
     .line 564
-    :cond_1
+    :cond_12
     iget-object v4, p1, Landroidx/core/content/pm/ShortcutInfoCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     invoke-virtual {v4, p0}, Landroidx/core/graphics/drawable/IconCompat;->getUriInputStream(Landroid/content/Context;)Ljava/io/InputStream;
@@ -267,42 +267,42 @@
 
     .line 565
     .local v4, "is":Ljava/io/InputStream;
-    if-nez v4, :cond_2
+    if-nez v4, :cond_1b
 
     .line 566
     return v1
 
     .line 568
-    :cond_2
+    :cond_1b
     invoke-static {v4}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
     move-result-object v5
 
     .line 569
     .local v5, "bitmap":Landroid/graphics/Bitmap;
-    if-nez v5, :cond_3
+    if-nez v5, :cond_22
 
     .line 570
     return v1
 
     .line 572
-    :cond_3
-    if-ne v0, v3, :cond_4
+    :cond_22
+    if-ne v0, v3, :cond_29
 
     .line 573
     invoke-static {v5}, Landroidx/core/graphics/drawable/IconCompat;->createWithAdaptiveBitmap(Landroid/graphics/Bitmap;)Landroidx/core/graphics/drawable/IconCompat;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 574
-    :cond_4
+    :cond_29
     invoke-static {v5}, Landroidx/core/graphics/drawable/IconCompat;->createWithBitmap(Landroid/graphics/Bitmap;)Landroidx/core/graphics/drawable/IconCompat;
 
     move-result-object v1
 
-    :goto_0
+    :goto_2d
     iput-object v1, p1, Landroidx/core/content/pm/ShortcutInfoCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     .line 575
@@ -310,7 +310,7 @@
 .end method
 
 .method static convertUriIconsToBitmapIcons(Landroid/content/Context;Ljava/util/List;)V
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -334,12 +334,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -353,23 +353,23 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1e
 
     .line 584
     invoke-interface {p1, v2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     .line 586
     .end local v2    # "info":Landroidx/core/content/pm/ShortcutInfoCompat;
-    :cond_0
-    goto :goto_0
+    :cond_1e
+    goto :goto_9
 
     .line 587
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method public static createShortcutResultIntent(Landroid/content/Context;Landroidx/core/content/pm/ShortcutInfoCompat;)Landroid/content/Intent;
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "shortcut"    # Landroidx/core/content/pm/ShortcutInfoCompat;
 
@@ -382,7 +382,7 @@
 
     const/16 v2, 0x1a
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_17
 
     .line 242
     const-class v1, Landroid/content/pm/ShortcutManager;
@@ -403,8 +403,8 @@
     move-result-object v0
 
     .line 245
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_17
+    if-nez v0, :cond_1f
 
     .line 246
     new-instance v1, Landroid/content/Intent;
@@ -414,7 +414,7 @@
     move-object v0, v1
 
     .line 248
-    :cond_1
+    :cond_1f
     invoke-virtual {p1, v0}, Landroidx/core/content/pm/ShortcutInfoCompat;->addToIntent(Landroid/content/Intent;)Landroid/content/Intent;
 
     move-result-object v1
@@ -423,7 +423,7 @@
 .end method
 
 .method public static disableShortcuts(Landroid/content/Context;Ljava/util/List;Ljava/lang/CharSequence;)V
-    .locals 2
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p2, "disabledMessage"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -444,7 +444,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 609
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -459,7 +459,7 @@
     invoke-virtual {v0, p1, p2}, Landroid/content/pm/ShortcutManager;->disableShortcuts(Ljava/util/List;Ljava/lang/CharSequence;)V
 
     .line 613
-    :cond_0
+    :cond_11
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     move-result-object v0
@@ -475,12 +475,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_20
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_30
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -494,15 +494,15 @@
 
     .line 616
     .end local v1    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_0
+    goto :goto_20
 
     .line 617
-    :cond_1
+    :cond_30
     return-void
 .end method
 
 .method public static enableShortcuts(Landroid/content/Context;Ljava/util/List;)V
-    .locals 5
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -528,7 +528,7 @@
 
     const/16 v2, 0x19
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_35
 
     .line 640
     new-instance v1, Ljava/util/ArrayList;
@@ -545,12 +545,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -566,10 +566,10 @@
 
     .line 643
     .end local v3    # "shortcut":Landroidx/core/content/pm/ShortcutInfoCompat;
-    goto :goto_0
+    goto :goto_18
 
     .line 644
-    :cond_0
+    :cond_2a
     const-class v2, Landroid/content/pm/ShortcutManager;
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -582,7 +582,7 @@
 
     .line 647
     .end local v1    # "shortcutIds":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :cond_1
+    :cond_35
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     move-result-object v1
@@ -598,12 +598,12 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_44
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_54
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -617,15 +617,15 @@
 
     .line 650
     .end local v2    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_1
+    goto :goto_44
 
     .line 651
-    :cond_2
+    :cond_54
     return-void
 .end method
 
 .method public static getDynamicShortcuts(Landroid/content/Context;)Ljava/util/List;
-    .locals 5
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -643,7 +643,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_39
 
     .line 498
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -675,12 +675,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1f
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_38
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -702,17 +702,17 @@
 
     .line 503
     .end local v3    # "item":Landroid/content/pm/ShortcutInfo;
-    goto :goto_0
+    goto :goto_1f
 
     .line 504
-    :cond_0
+    :cond_38
     return-object v1
 
     .line 508
     .end local v0    # "shortcuts":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ShortcutInfo;>;"
     .end local v1    # "compats":Ljava/util/List;, "Ljava/util/List<Landroidx/core/content/pm/ShortcutInfoCompat;>;"
-    :cond_1
-    :try_start_0
+    :cond_39
+    :try_start_39
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     move-result-object v0
@@ -720,13 +720,13 @@
     invoke-virtual {v0}, Landroidx/core/content/pm/ShortcutInfoCompatSaver;->getShortcuts()Ljava/util/List;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_41
+    .catch Ljava/lang/Exception; {:try_start_39 .. :try_end_41} :catch_42
 
     return-object v0
 
     .line 509
-    :catch_0
+    :catch_42
     move-exception v0
 
     .line 513
@@ -738,7 +738,7 @@
 .end method
 
 .method private static getIconDimensionInternal(Landroid/content/Context;Z)I
-    .locals 6
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "isHorizontal"    # Z
 
@@ -758,40 +758,40 @@
     .local v0, "am":Landroid/app/ActivityManager;
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     invoke-virtual {v0}, Landroid/app/ActivityManager;->isLowRamDevice()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v2, 0x1
 
     .line 835
     .local v2, "isLowRamDevice":Z
-    :goto_1
-    if-eqz v2, :cond_2
+    :goto_16
+    if-eqz v2, :cond_1b
 
     .line 836
     const/16 v3, 0x30
 
-    goto :goto_2
+    goto :goto_1d
 
-    :cond_2
+    :cond_1b
     const/16 v3, 0x60
 
     .line 835
-    :goto_2
+    :goto_1d
     invoke-static {v1, v3}, Ljava/lang/Math;->max(II)I
 
     move-result v1
@@ -808,16 +808,16 @@
 
     .line 838
     .local v3, "displayMetrics":Landroid/util/DisplayMetrics;
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2e
 
     iget v4, v3, Landroid/util/DisplayMetrics;->xdpi:F
 
-    goto :goto_3
+    goto :goto_30
 
-    :cond_3
+    :cond_2e
     iget v4, v3, Landroid/util/DisplayMetrics;->ydpi:F
 
-    :goto_3
+    :goto_30
     const/high16 v5, 0x43200000    # 160.0f
 
     div-float/2addr v4, v5
@@ -834,7 +834,7 @@
 .end method
 
 .method public static getIconMaxHeight(Landroid/content/Context;)I
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 402
@@ -845,7 +845,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_16
 
     .line 404
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -863,7 +863,7 @@
     return v0
 
     .line 406
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getIconDimensionInternal(Landroid/content/Context;Z)I
@@ -874,7 +874,7 @@
 .end method
 
 .method public static getIconMaxWidth(Landroid/content/Context;)I
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 391
@@ -885,7 +885,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_16
 
     .line 393
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -903,7 +903,7 @@
     return v0
 
     .line 395
-    :cond_0
+    :cond_16
     const/4 v0, 0x1
 
     invoke-static {p0, v0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getIconDimensionInternal(Landroid/content/Context;Z)I
@@ -914,7 +914,7 @@
 .end method
 
 .method public static getMaxShortcutCountPerActivity(Landroid/content/Context;)I
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 354
@@ -925,7 +925,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_16
 
     .line 356
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -943,14 +943,14 @@
     return v0
 
     .line 359
-    :cond_0
+    :cond_16
     const/4 v0, 0x5
 
     return v0
 .end method
 
 .method static getShortcutInfoChangeListeners()Ljava/util/List;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -967,7 +967,7 @@
 .end method
 
 .method private static getShortcutInfoCompatWithLowestRank(Ljava/util/List;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -992,12 +992,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_6
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_21
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1011,7 +1011,7 @@
 
     move-result v4
 
-    if-le v4, v0, :cond_0
+    if-le v4, v0, :cond_20
 
     .line 808
     invoke-virtual {v3}, Landroidx/core/content/pm/ShortcutInfoCompat;->getId()Ljava/lang/String;
@@ -1025,16 +1025,16 @@
 
     .line 811
     .end local v3    # "s":Landroidx/core/content/pm/ShortcutInfoCompat;
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_6
 
     .line 812
-    :cond_1
+    :cond_21
     return-object v1
 .end method
 
 .method private static getShortcutInfoListeners(Landroid/content/Context;)Ljava/util/List;
-    .locals 16
+    .registers 17
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1050,7 +1050,7 @@
     .line 866
     sget-object v0, Landroidx/core/content/pm/ShortcutManagerCompat;->sShortcutInfoChangeListeners:Ljava/util/List;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_79
 
     .line 867
     new-instance v0, Ljava/util/ArrayList;
@@ -1099,12 +1099,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_28
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_73
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1120,24 +1120,24 @@
 
     .line 878
     .local v7, "activityInfo":Landroid/content/pm/ActivityInfo;
-    if-nez v7, :cond_0
+    if-nez v7, :cond_3a
 
     .line 879
-    goto :goto_0
+    goto :goto_28
 
     .line 881
-    :cond_0
+    :cond_3a
     iget-object v8, v7, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     .line 882
     .local v8, "metaData":Landroid/os/Bundle;
-    if-nez v8, :cond_1
+    if-nez v8, :cond_3f
 
     .line 883
-    goto :goto_0
+    goto :goto_28
 
     .line 885
-    :cond_1
+    :cond_3f
     nop
 
     .line 886
@@ -1149,14 +1149,14 @@
 
     .line 887
     .local v9, "shortcutListenerImplName":Ljava/lang/String;
-    if-nez v9, :cond_2
+    if-nez v9, :cond_49
 
     .line 888
-    goto :goto_0
+    goto :goto_28
 
     .line 891
-    :cond_2
-    :try_start_0
+    :cond_49
+    :try_start_49
     const-class v0, Landroidx/core/content/pm/ShortcutManagerCompat;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -1204,8 +1204,8 @@
 
     .line 894
     invoke-interface {v1, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6f
+    .catch Ljava/lang/Exception; {:try_start_49 .. :try_end_6f} :catch_71
 
     .line 896
     nop
@@ -1213,9 +1213,9 @@
     .end local v0    # "loader":Ljava/lang/ClassLoader;
     .end local v11    # "listener":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v12    # "getInstanceMethod":Ljava/lang/reflect/Method;
-    goto :goto_1
+    goto :goto_72
 
-    :catch_0
+    :catch_71
     move-exception v0
 
     .line 897
@@ -1223,31 +1223,31 @@
     .end local v7    # "activityInfo":Landroid/content/pm/ActivityInfo;
     .end local v8    # "metaData":Landroid/os/Bundle;
     .end local v9    # "shortcutListenerImplName":Ljava/lang/String;
-    :goto_1
-    goto :goto_0
+    :goto_72
+    goto :goto_28
 
     .line 901
     .end local v2    # "packageManager":Landroid/content/pm/PackageManager;
     .end local v3    # "activityIntent":Landroid/content/Intent;
     .end local v4    # "resolveInfos":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    :cond_3
+    :cond_73
     sget-object v0, Landroidx/core/content/pm/ShortcutManagerCompat;->sShortcutInfoChangeListeners:Ljava/util/List;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_79
 
     .line 902
     sput-object v1, Landroidx/core/content/pm/ShortcutManagerCompat;->sShortcutInfoChangeListeners:Ljava/util/List;
 
     .line 905
     .end local v1    # "result":Ljava/util/List;, "Ljava/util/List<Landroidx/core/content/pm/ShortcutInfoChangeListener;>;"
-    :cond_4
+    :cond_79
     sget-object v0, Landroidx/core/content/pm/ShortcutManagerCompat;->sShortcutInfoChangeListeners:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method private static getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
-    .locals 7
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1262,17 +1262,17 @@
     .line 844
     sget-object v0, Landroidx/core/content/pm/ShortcutManagerCompat;->sShortcutInfoCompatSaver:Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3f
 
     .line 845
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_34
 
     .line 847
-    :try_start_0
+    :try_start_a
     const-class v0, Landroidx/core/content/pm/ShortcutManagerCompat;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -1320,26 +1320,26 @@
     check-cast v2, Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     sput-object v2, Landroidx/core/content/pm/ShortcutManagerCompat;->sShortcutInfoCompatSaver:Landroidx/core/content/pm/ShortcutInfoCompatSaver;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_31
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_31} :catch_32
 
     .end local v0    # "loader":Ljava/lang/ClassLoader;
     .end local v1    # "saver":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v3    # "getInstanceMethod":Ljava/lang/reflect/Method;
-    goto :goto_0
+    goto :goto_33
 
     .line 853
-    :catch_0
+    :catch_32
     move-exception v0
 
-    :goto_0
+    :goto_33
     nop
 
     .line 856
-    :cond_0
+    :cond_34
     sget-object v0, Landroidx/core/content/pm/ShortcutManagerCompat;->sShortcutInfoCompatSaver:Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3f
 
     .line 858
     new-instance v0, Landroidx/core/content/pm/ShortcutInfoCompatSaver$NoopImpl;
@@ -1349,14 +1349,14 @@
     sput-object v0, Landroidx/core/content/pm/ShortcutManagerCompat;->sShortcutInfoCompatSaver:Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     .line 861
-    :cond_1
+    :cond_3f
     sget-object v0, Landroidx/core/content/pm/ShortcutManagerCompat;->sShortcutInfoCompatSaver:Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     return-object v0
 .end method
 
 .method public static getShortcuts(Landroid/content/Context;I)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "matchFlags"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1375,7 +1375,7 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_17
 
     .line 283
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -1401,12 +1401,12 @@
 
     .line 286
     .end local v0    # "shortcuts":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ShortcutInfo;>;"
-    :cond_0
+    :cond_17
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_4
+    if-lt v0, v1, :cond_50
 
     .line 287
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -1427,7 +1427,7 @@
     .local v1, "shortcuts":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ShortcutInfo;>;"
     and-int/lit8 v2, p1, 0x1
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     .line 290
     invoke-virtual {v0}, Landroid/content/pm/ShortcutManager;->getManifestShortcuts()Ljava/util/List;
@@ -1437,10 +1437,10 @@
     invoke-interface {v1, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 292
-    :cond_1
+    :cond_35
     and-int/lit8 v2, p1, 0x2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_40
 
     .line 293
     invoke-virtual {v0}, Landroid/content/pm/ShortcutManager;->getDynamicShortcuts()Ljava/util/List;
@@ -1450,10 +1450,10 @@
     invoke-interface {v1, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 295
-    :cond_2
+    :cond_40
     and-int/lit8 v2, p1, 0x4
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4b
 
     .line 296
     invoke-virtual {v0}, Landroid/content/pm/ShortcutManager;->getPinnedShortcuts()Ljava/util/List;
@@ -1463,7 +1463,7 @@
     invoke-interface {v1, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 298
-    :cond_3
+    :cond_4b
     invoke-static {p0, v1}, Landroidx/core/content/pm/ShortcutInfoCompat;->fromShortcuts(Landroid/content/Context;Ljava/util/List;)Ljava/util/List;
 
     move-result-object v2
@@ -1473,13 +1473,13 @@
     .line 300
     .end local v0    # "manager":Landroid/content/pm/ShortcutManager;
     .end local v1    # "shortcuts":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ShortcutInfo;>;"
-    :cond_4
+    :cond_50
     and-int/lit8 v0, p1, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_5e
 
     .line 302
-    :try_start_0
+    :try_start_54
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     move-result-object v0
@@ -1487,17 +1487,17 @@
     invoke-virtual {v0}, Landroidx/core/content/pm/ShortcutInfoCompatSaver;->getShortcuts()Ljava/util/List;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5c
+    .catch Ljava/lang/Exception; {:try_start_54 .. :try_end_5c} :catch_5d
 
     return-object v0
 
     .line 303
-    :catch_0
+    :catch_5d
     move-exception v0
 
     .line 307
-    :cond_5
+    :cond_5e
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
@@ -1506,7 +1506,7 @@
 .end method
 
 .method public static isRateLimitingActive(Landroid/content/Context;)Z
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 371
@@ -1517,7 +1517,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_16
 
     .line 373
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -1535,7 +1535,7 @@
     return v0
 
     .line 376
-    :cond_0
+    :cond_16
     const/4 v0, 0x3
 
     invoke-static {p0, v0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcuts(Landroid/content/Context;I)Ljava/util/List;
@@ -1551,22 +1551,22 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_27
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v0, 0x0
 
     .line 376
-    :goto_0
+    :goto_28
     return v0
 .end method
 
 .method public static isRequestPinShortcutSupported(Landroid/content/Context;)Z
-    .locals 6
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
 
     .line 153
@@ -1574,7 +1574,7 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_13
 
     .line 154
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -1592,7 +1592,7 @@
     return v0
 
     .line 157
-    :cond_0
+    :cond_13
     const-string v0, "com.android.launcher.permission.INSTALL_SHORTCUT"
 
     invoke-static {p0, v0}, Landroidx/core/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
@@ -1601,13 +1601,13 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1d
 
     .line 159
     return v2
 
     .line 161
-    :cond_1
+    :cond_1d
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -1626,12 +1626,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_30
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_50
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1651,27 +1651,27 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_4e
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_4d
 
-    goto :goto_1
+    goto :goto_4e
 
     .line 167
     .end local v3    # "info":Landroid/content/pm/ResolveInfo;
     .end local v4    # "permission":Ljava/lang/String;
-    :cond_2
-    goto :goto_0
+    :cond_4d
+    goto :goto_30
 
     .line 165
     .restart local v3    # "info":Landroid/content/pm/ResolveInfo;
     .restart local v4    # "permission":Ljava/lang/String;
-    :cond_3
-    :goto_1
+    :cond_4e
+    :goto_4e
     const/4 v0, 0x1
 
     return v0
@@ -1679,12 +1679,12 @@
     .line 168
     .end local v3    # "info":Landroid/content/pm/ResolveInfo;
     .end local v4    # "permission":Ljava/lang/String;
-    :cond_4
+    :cond_50
     return v2
 .end method
 
 .method public static pushDynamicShortcut(Landroid/content/Context;Landroidx/core/content/pm/ShortcutInfoCompat;)Z
-    .locals 7
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "shortcut"    # Landroidx/core/content/pm/ShortcutInfoCompat;
 
@@ -1701,14 +1701,14 @@
 
     const/4 v2, 0x1
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_30
 
     .line 754
     invoke-virtual {p1, v2}, Landroidx/core/content/pm/ShortcutInfoCompat;->isExcludedFromSurfaces(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     .line 755
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoListeners(Landroid/content/Context;)Ljava/util/List;
@@ -1719,12 +1719,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1742,14 +1742,14 @@
 
     .line 757
     .end local v1    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_0
+    goto :goto_1b
 
     .line 758
-    :cond_0
+    :cond_2f
     return v2
 
     .line 760
-    :cond_1
+    :cond_30
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getMaxShortcutCountPerActivity(Landroid/content/Context;)I
 
     move-result v0
@@ -1758,29 +1758,29 @@
     .local v0, "maxShortcutCount":I
     const/4 v1, 0x0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_38
 
     .line 762
     return v1
 
     .line 764
-    :cond_2
+    :cond_38
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v4, 0x1d
 
-    if-gt v3, v4, :cond_3
+    if-gt v3, v4, :cond_41
 
     .line 765
     invoke-static {p0, p1}, Landroidx/core/content/pm/ShortcutManagerCompat;->convertUriIconToBitmapIcon(Landroid/content/Context;Landroidx/core/content/pm/ShortcutInfoCompat;)Z
 
     .line 767
-    :cond_3
+    :cond_41
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v4, 0x1e
 
-    if-lt v3, v4, :cond_4
+    if-lt v3, v4, :cond_57
 
     .line 768
     const-class v3, Landroid/content/pm/ShortcutManager;
@@ -1799,15 +1799,15 @@
     .line 768
     invoke-virtual {v3, v4}, Landroid/content/pm/ShortcutManager;->pushDynamicShortcut(Landroid/content/pm/ShortcutInfo;)V
 
-    goto :goto_1
+    goto :goto_95
 
     .line 770
-    :cond_4
+    :cond_57
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v4, 0x19
 
-    if-lt v3, v4, :cond_7
+    if-lt v3, v4, :cond_95
 
     .line 771
     const-class v3, Landroid/content/pm/ShortcutManager;
@@ -1824,13 +1824,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6c
 
     .line 773
     return v1
 
     .line 775
-    :cond_5
+    :cond_6c
     invoke-virtual {v3}, Landroid/content/pm/ShortcutManager;->getDynamicShortcuts()Ljava/util/List;
 
     move-result-object v4
@@ -1841,7 +1841,7 @@
 
     move-result v5
 
-    if-lt v5, v0, :cond_6
+    if-lt v5, v0, :cond_86
 
     .line 777
     nop
@@ -1863,7 +1863,7 @@
     invoke-virtual {v3, v5}, Landroid/content/pm/ShortcutManager;->removeDynamicShortcuts(Ljava/util/List;)V
 
     .line 780
-    :cond_6
+    :cond_86
     new-array v5, v2, [Landroid/content/pm/ShortcutInfo;
 
     invoke-virtual {p1}, Landroidx/core/content/pm/ShortcutInfoCompat;->toShortcutInfo()Landroid/content/pm/ShortcutInfo;
@@ -1881,15 +1881,15 @@
     .line 782
     .end local v3    # "sm":Landroid/content/pm/ShortcutManager;
     .end local v4    # "shortcuts":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ShortcutInfo;>;"
-    :cond_7
-    :goto_1
+    :cond_95
+    :goto_95
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     move-result-object v3
 
     .line 784
     .local v3, "saver":Landroidx/core/content/pm/ShortcutInfoCompatSaver;, "Landroidx/core/content/pm/ShortcutInfoCompatSaver<*>;"
-    :try_start_0
+    :try_start_99
     invoke-virtual {v3}, Landroidx/core/content/pm/ShortcutInfoCompatSaver;->getShortcuts()Ljava/util/List;
 
     move-result-object v4
@@ -1900,7 +1900,7 @@
 
     move-result v5
 
-    if-lt v5, v0, :cond_8
+    if-lt v5, v0, :cond_b3
 
     .line 786
     nop
@@ -1922,7 +1922,7 @@
     invoke-virtual {v3, v5}, Landroidx/core/content/pm/ShortcutInfoCompatSaver;->removeShortcuts(Ljava/util/List;)Ljava/lang/Object;
 
     .line 789
-    :cond_8
+    :cond_b3
     new-array v5, v2, [Landroidx/core/content/pm/ShortcutInfoCompat;
 
     aput-object p1, v5, v1
@@ -1932,9 +1932,9 @@
     move-result-object v5
 
     invoke-virtual {v3, v5}, Landroidx/core/content/pm/ShortcutInfoCompatSaver;->addShortcuts(Ljava/util/List;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_be
+    .catch Ljava/lang/Exception; {:try_start_99 .. :try_end_be} :catch_108
+    .catchall {:try_start_99 .. :try_end_be} :catchall_e3
 
     .line 790
     nop
@@ -1948,12 +1948,12 @@
 
     move-result-object v1
 
-    :goto_2
+    :goto_c7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_db
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1971,10 +1971,10 @@
 
     .line 796
     .end local v5    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_2
+    goto :goto_c7
 
     .line 797
-    :cond_9
+    :cond_db
     invoke-virtual {p1}, Landroidx/core/content/pm/ShortcutInfoCompat;->getId()Ljava/lang/String;
 
     move-result-object v1
@@ -1986,7 +1986,7 @@
 
     .line 794
     .end local v4    # "oldShortcuts":Ljava/util/List;, "Ljava/util/List<Landroidx/core/content/pm/ShortcutInfoCompat;>;"
-    :catchall_0
+    :catchall_e3
     move-exception v1
 
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoListeners(Landroid/content/Context;)Ljava/util/List;
@@ -1997,12 +1997,12 @@
 
     move-result-object v2
 
-    :goto_3
+    :goto_ec
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_100
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2020,10 +2020,10 @@
 
     .line 796
     .end local v4    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_3
+    goto :goto_ec
 
     .line 797
-    :cond_a
+    :cond_100
     invoke-virtual {p1}, Landroidx/core/content/pm/ShortcutInfoCompat;->getId()Ljava/lang/String;
 
     move-result-object v2
@@ -2034,7 +2034,7 @@
     throw v1
 
     .line 791
-    :catch_0
+    :catch_108
     move-exception v2
 
     .line 794
@@ -2046,12 +2046,12 @@
 
     move-result-object v2
 
-    :goto_4
+    :goto_111
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_125
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2069,10 +2069,10 @@
 
     .line 796
     .end local v4    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_4
+    goto :goto_111
 
     .line 797
-    :cond_b
+    :cond_125
     invoke-virtual {p1}, Landroidx/core/content/pm/ShortcutInfoCompat;->getId()Ljava/lang/String;
 
     move-result-object v2
@@ -2087,7 +2087,7 @@
 .end method
 
 .method public static removeAllDynamicShortcuts(Landroid/content/Context;)V
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 680
@@ -2095,7 +2095,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 681
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -2109,7 +2109,7 @@
     invoke-virtual {v0}, Landroid/content/pm/ShortcutManager;->removeAllDynamicShortcuts()V
 
     .line 684
-    :cond_0
+    :cond_11
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     move-result-object v0
@@ -2125,12 +2125,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_20
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_30
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2144,15 +2144,15 @@
 
     .line 687
     .end local v1    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_0
+    goto :goto_20
 
     .line 688
-    :cond_1
+    :cond_30
     return-void
 .end method
 
 .method public static removeDynamicShortcuts(Landroid/content/Context;Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2170,7 +2170,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 663
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -2184,7 +2184,7 @@
     invoke-virtual {v0, p1}, Landroid/content/pm/ShortcutManager;->removeDynamicShortcuts(Ljava/util/List;)V
 
     .line 666
-    :cond_0
+    :cond_11
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     move-result-object v0
@@ -2200,12 +2200,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_20
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_30
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2219,15 +2219,15 @@
 
     .line 669
     .end local v1    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_0
+    goto :goto_20
 
     .line 670
-    :cond_1
+    :cond_30
     return-void
 .end method
 
 .method public static removeLongLivedShortcuts(Landroid/content/Context;Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2245,7 +2245,7 @@
 
     const/16 v1, 0x1e
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_a
 
     .line 704
     invoke-static {p0, p1}, Landroidx/core/content/pm/ShortcutManagerCompat;->removeDynamicShortcuts(Landroid/content/Context;Ljava/util/List;)V
@@ -2254,7 +2254,7 @@
     return-void
 
     .line 708
-    :cond_0
+    :cond_a
     const-class v0, Landroid/content/pm/ShortcutManager;
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -2281,12 +2281,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_24
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_34
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2300,15 +2300,15 @@
 
     .line 712
     .end local v1    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_0
+    goto :goto_24
 
     .line 713
-    :cond_1
+    :cond_34
     return-void
 .end method
 
 .method private static removeShortcutsExcludedFromSurface(Ljava/util/List;I)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p1, "surfaces"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2331,12 +2331,12 @@
 
     const/16 v1, 0x20
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_a
 
     return-object p0
 
     .line 913
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
@@ -2347,12 +2347,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_13
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_29
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2366,23 +2366,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_28
 
     .line 916
     invoke-interface {v0, v2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     .line 918
     .end local v2    # "si":Landroidx/core/content/pm/ShortcutInfoCompat;
-    :cond_1
-    goto :goto_0
+    :cond_28
+    goto :goto_13
 
     .line 919
-    :cond_2
+    :cond_29
     return-object v0
 .end method
 
 .method public static reportShortcutUsed(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "shortcutId"    # Ljava/lang/String;
 
@@ -2397,7 +2397,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_17
 
     .line 431
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -2411,7 +2411,7 @@
     invoke-virtual {v0, p1}, Landroid/content/pm/ShortcutManager;->reportShortcutUsed(Ljava/lang/String;)V
 
     .line 434
-    :cond_0
+    :cond_17
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoListeners(Landroid/content/Context;)Ljava/util/List;
 
     move-result-object v0
@@ -2420,12 +2420,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_33
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2443,15 +2443,15 @@
 
     .line 436
     .end local v1    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_0
+    goto :goto_1f
 
     .line 437
-    :cond_1
+    :cond_33
     return-void
 .end method
 
 .method public static requestPinShortcut(Landroid/content/Context;Landroidx/core/content/pm/ShortcutInfoCompat;Landroid/content/IntentSender;)Z
-    .locals 12
+    .registers 15
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "shortcut"    # Landroidx/core/content/pm/ShortcutInfoCompat;
     .param p2, "callback"    # Landroid/content/IntentSender;
@@ -2465,25 +2465,25 @@
 
     const/4 v3, 0x1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_f
 
     .line 192
     invoke-virtual {p1, v3}, Landroidx/core/content/pm/ShortcutInfoCompat;->isExcludedFromSurfaces(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 194
     return v2
 
     .line 196
-    :cond_0
+    :cond_f
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_26
 
     .line 197
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -2507,18 +2507,18 @@
     return v0
 
     .line 201
-    :cond_1
+    :cond_26
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->isRequestPinShortcutSupported(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2d
 
     .line 202
     return v2
 
     .line 204
-    :cond_2
+    :cond_2d
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.launcher.action.INSTALL_SHORTCUT"
@@ -2531,7 +2531,7 @@
 
     .line 207
     .local v0, "intent":Landroid/content/Intent;
-    if-nez p2, :cond_3
+    if-nez p2, :cond_3e
 
     .line 208
     invoke-virtual {p0, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
@@ -2540,7 +2540,7 @@
     return v3
 
     .line 213
-    :cond_3
+    :cond_3e
     new-instance v7, Landroidx/core/content/pm/ShortcutManagerCompat$1;
 
     invoke-direct {v7, p2}, Landroidx/core/content/pm/ShortcutManagerCompat$1;-><init>(Landroid/content/IntentSender;)V
@@ -2566,7 +2566,7 @@
 .end method
 
 .method public static setDynamicShortcuts(Landroid/content/Context;Ljava/util/List;)Z
-    .locals 6
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2598,7 +2598,7 @@
 
     const/16 v3, 0x19
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_42
 
     .line 470
     new-instance v2, Ljava/util/ArrayList;
@@ -2615,12 +2615,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1e
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_32
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2638,10 +2638,10 @@
 
     .line 473
     .end local v4    # "compat":Landroidx/core/content/pm/ShortcutInfoCompat;
-    goto :goto_0
+    goto :goto_1e
 
     .line 474
-    :cond_0
+    :cond_32
     const-class v3, Landroid/content/pm/ShortcutManager;
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -2654,7 +2654,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_42
 
     .line 475
     const/4 v0, 0x0
@@ -2663,7 +2663,7 @@
 
     .line 478
     .end local v2    # "shortcuts":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ShortcutInfo;>;"
-    :cond_1
+    :cond_42
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     move-result-object v2
@@ -2686,12 +2686,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_58
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_6b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2708,15 +2708,15 @@
 
     .line 484
     .end local v3    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_1
+    goto :goto_58
 
     .line 485
-    :cond_2
+    :cond_6b
     return v0
 .end method
 
 .method static setShortcutInfoChangeListeners(Ljava/util/List;)V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2735,7 +2735,7 @@
 .end method
 
 .method static setShortcutInfoCompatSaver(Landroidx/core/content/pm/ShortcutInfoCompatSaver;)V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2754,7 +2754,7 @@
 .end method
 
 .method public static updateShortcuts(Landroid/content/Context;Ljava/util/List;)Z
-    .locals 6
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2780,18 +2780,18 @@
 
     const/16 v3, 0x1d
 
-    if-gt v2, v3, :cond_0
+    if-gt v2, v3, :cond_e
 
     .line 535
     invoke-static {p0, v1}, Landroidx/core/content/pm/ShortcutManagerCompat;->convertUriIconsToBitmapIcons(Landroid/content/Context;Ljava/util/List;)V
 
     .line 537
-    :cond_0
+    :cond_e
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x19
 
-    if-lt v2, v3, :cond_2
+    if-lt v2, v3, :cond_41
 
     .line 538
     new-instance v2, Ljava/util/ArrayList;
@@ -2804,12 +2804,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1d
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_31
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2827,10 +2827,10 @@
 
     .line 541
     .end local v4    # "item":Landroidx/core/content/pm/ShortcutInfoCompat;
-    goto :goto_0
+    goto :goto_1d
 
     .line 542
-    :cond_1
+    :cond_31
     const-class v3, Landroid/content/pm/ShortcutManager;
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -2843,7 +2843,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_41
 
     .line 543
     const/4 v0, 0x0
@@ -2852,7 +2852,7 @@
 
     .line 547
     .end local v2    # "shortcuts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ShortcutInfo;>;"
-    :cond_2
+    :cond_41
     invoke-static {p0}, Landroidx/core/content/pm/ShortcutManagerCompat;->getShortcutInfoSaverInstance(Landroid/content/Context;)Landroidx/core/content/pm/ShortcutInfoCompatSaver;
 
     move-result-object v2
@@ -2868,12 +2868,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_50
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_60
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2887,9 +2887,9 @@
 
     .line 550
     .end local v3    # "listener":Landroidx/core/content/pm/ShortcutInfoChangeListener;
-    goto :goto_1
+    goto :goto_50
 
     .line 551
-    :cond_3
+    :cond_60
     return v0
 .end method

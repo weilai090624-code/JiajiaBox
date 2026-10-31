@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 78
     new-instance v0, Lcom/google/common/net/PercentEscaper;
@@ -59,7 +59,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 .end method
 
 .method public static urlFormParameterEscaper()Lcom/google/common/escape/Escaper;
-    .locals 1
+    .registers 1
 
     .line 75
     sget-object v0, Lcom/google/common/net/UrlEscapers;->URL_FORM_PARAMETER_ESCAPER:Lcom/google/common/escape/Escaper;
@@ -77,7 +77,7 @@
 .end method
 
 .method public static urlFragmentEscaper()Lcom/google/common/escape/Escaper;
-    .locals 1
+    .registers 1
 
     .line 143
     sget-object v0, Lcom/google/common/net/UrlEscapers;->URL_FRAGMENT_ESCAPER:Lcom/google/common/escape/Escaper;
@@ -86,7 +86,7 @@
 .end method
 
 .method public static urlPathSegmentEscaper()Lcom/google/common/escape/Escaper;
-    .locals 1
+    .registers 1
 
     .line 111
     sget-object v0, Lcom/google/common/net/UrlEscapers;->URL_PATH_SEGMENT_ESCAPER:Lcom/google/common/escape/Escaper;

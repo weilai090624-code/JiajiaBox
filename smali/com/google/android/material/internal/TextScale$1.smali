@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/internal/TextScale;Landroid/widget/TextView;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/internal/TextScale;
 
     .line 79
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
     .param p1, "valueAnimator"    # Landroid/animation/ValueAnimator;
 
     .line 82

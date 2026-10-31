@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/CameraController;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/view/CameraController;
     .param p2, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onRotationChanged(I)V
-    .locals 1
+    .registers 3
     .param p1, "rotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

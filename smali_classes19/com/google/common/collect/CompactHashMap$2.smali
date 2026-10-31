@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/CompactHashMap;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/CompactHashMap;
 
     .line 810
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method bridge synthetic getOutput(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 810
     .local p0, "this":Lcom/google/common/collect/CompactHashMap$2;, "Lcom/google/common/collect/CompactHashMap$2;"
@@ -58,7 +58,7 @@
 .end method
 
 .method getOutput(I)Ljava/util/Map$Entry;
-    .locals 2
+    .registers 4
     .param p1, "entry"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

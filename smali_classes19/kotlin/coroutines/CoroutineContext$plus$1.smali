@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/coroutines/CoroutineContext$plus$1;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public final invoke(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext$Element;)Lkotlin/coroutines/CoroutineContext;
-    .locals 6
+    .registers 9
     .param p1, "acc"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
 
@@ -125,16 +125,16 @@
     .local v0, "removed":Lkotlin/coroutines/CoroutineContext;
     sget-object v1, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1a
 
     move-object v1, p2
 
     check-cast v1, Lkotlin/coroutines/CoroutineContext;
 
-    goto :goto_1
+    goto :goto_58
 
     .line 36
-    :cond_0
+    :cond_1a
     sget-object v1, Lkotlin/coroutines/ContinuationInterceptor;->Key:Lkotlin/coroutines/ContinuationInterceptor$Key;
 
     check-cast v1, Lkotlin/coroutines/CoroutineContext$Key;
@@ -147,16 +147,16 @@
 
     .line 37
     .local v1, "interceptor":Lkotlin/coroutines/ContinuationInterceptor;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2c
 
     new-instance v2, Lkotlin/coroutines/CombinedContext;
 
     invoke-direct {v2, v0, p2}, Lkotlin/coroutines/CombinedContext;-><init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext$Element;)V
 
-    goto :goto_0
+    goto :goto_55
 
     .line 38
-    :cond_1
+    :cond_2c
     sget-object v2, Lkotlin/coroutines/ContinuationInterceptor;->Key:Lkotlin/coroutines/ContinuationInterceptor$Key;
 
     check-cast v2, Lkotlin/coroutines/CoroutineContext$Key;
@@ -169,7 +169,7 @@
     .local v2, "left":Lkotlin/coroutines/CoroutineContext;
     sget-object v3, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_45
 
     new-instance v3, Lkotlin/coroutines/CombinedContext;
 
@@ -185,10 +185,10 @@
 
     move-object v2, v3
 
-    goto :goto_0
+    goto :goto_55
 
     .line 40
-    :cond_2
+    :cond_45
     new-instance v3, Lkotlin/coroutines/CombinedContext;
 
     new-instance v4, Lkotlin/coroutines/CombinedContext;
@@ -207,12 +207,12 @@
 
     .end local v1    # "interceptor":Lkotlin/coroutines/ContinuationInterceptor;
     .end local v2    # "left":Lkotlin/coroutines/CoroutineContext;
-    :goto_0
+    :goto_55
     move-object v1, v2
 
     check-cast v1, Lkotlin/coroutines/CoroutineContext;
 
     .line 42
-    :goto_1
+    :goto_58
     return-object v1
 .end method

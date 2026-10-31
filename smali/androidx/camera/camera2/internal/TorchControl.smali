@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/Camera2CameraControlImpl;Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;Ljava/util/concurrent/Executor;)V
-    .locals 3
+    .registers 7
     .param p1, "camera2CameraControlImpl"    # Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
     .param p2, "cameraCharacteristics"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
@@ -92,22 +92,22 @@
     .local v0, "hasFlashUnit":Ljava/lang/Boolean;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_22
     iput-boolean v2, p0, Landroidx/camera/camera2/internal/TorchControl;->mHasFlashUnit:Z
 
     .line 81
@@ -133,7 +133,7 @@
 .end method
 
 .method private setLiveDataValue(Landroidx/lifecycle/MutableLiveData;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -162,26 +162,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 184
     invoke-virtual {p1, p2}, Landroidx/lifecycle/MutableLiveData;->setValue(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 186
-    :cond_0
+    :cond_a
     invoke-virtual {p1, p2}, Landroidx/lifecycle/MutableLiveData;->postValue(Ljava/lang/Object;)V
 
     .line 188
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 
 # virtual methods
 .method enableTorch(Z)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 4
     .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -204,7 +204,7 @@
     .line 136
     iget-boolean v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mHasFlashUnit:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 137
     const-string v0, "TorchControl"
@@ -227,7 +227,7 @@
     return-object v0
 
     .line 141
-    :cond_0
+    :cond_17
     iget-object v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mTorchState:Landroidx/lifecycle/MutableLiveData;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -249,7 +249,7 @@
 .end method
 
 .method enableTorchInternal(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Z)V
-    .locals 3
+    .registers 6
     .param p2, "enabled"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -275,7 +275,7 @@
     .local p1, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Ljava/lang/Void;>;"
     iget-boolean v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mIsActive:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 167
     iget-object v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mTorchState:Landroidx/lifecycle/MutableLiveData;
@@ -301,7 +301,7 @@
     return-void
 
     .line 172
-    :cond_0
+    :cond_19
     iput-boolean p2, p0, Landroidx/camera/camera2/internal/TorchControl;->mTargetTorchEnabled:Z
 
     .line 173
@@ -321,7 +321,7 @@
     .line 175
     iget-object v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_39
 
     .line 176
     iget-object v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -335,7 +335,7 @@
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
     .line 179
-    :cond_1
+    :cond_39
     iput-object p1, p0, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 180
@@ -343,7 +343,7 @@
 .end method
 
 .method getTorchState()Landroidx/lifecycle/LiveData;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -360,7 +360,7 @@
 .end method
 
 .method synthetic lambda$enableTorch$0$androidx-camera-camera2-internal-TorchControl(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Z)V
-    .locals 0
+    .registers 3
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .param p2, "enabled"    # Z
 
@@ -371,7 +371,7 @@
 .end method
 
 .method synthetic lambda$enableTorch$1$androidx-camera-camera2-internal-TorchControl(ZLandroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "enabled"    # Z
     .param p2, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .annotation system Ldalvik/annotation/Throws;
@@ -412,7 +412,7 @@
 .end method
 
 .method setActive(Z)V
-    .locals 3
+    .registers 5
     .param p1, "isActive"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -426,22 +426,22 @@
     .line 92
     iget-boolean v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mIsActive:Z
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 93
     return-void
 
     .line 96
-    :cond_0
+    :cond_5
     iput-boolean p1, p0, Landroidx/camera/camera2/internal/TorchControl;->mIsActive:Z
 
     .line 98
-    if-nez p1, :cond_2
+    if-nez p1, :cond_31
 
     .line 99
     iget-boolean v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mTargetTorchEnabled:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 100
     const/4 v0, 0x0
@@ -463,10 +463,10 @@
     invoke-direct {p0, v1, v0}, Landroidx/camera/camera2/internal/TorchControl;->setLiveDataValue(Landroidx/lifecycle/MutableLiveData;Ljava/lang/Object;)V
 
     .line 105
-    :cond_1
+    :cond_1e
     iget-object v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_31
 
     .line 106
     iget-object v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -485,6 +485,6 @@
     iput-object v0, p0, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 111
-    :cond_2
+    :cond_31
     return-void
 .end method

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,17 +43,17 @@
 .end method
 
 .method private static final assert(Z)V
-    .locals 2
+    .registers 3
     .param p0, "value"    # Z
 
     .line 23
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 24
     return-void
 
     .line 40
-    :cond_0
+    :cond_3
     const/4 v0, 0x0
 
     .line 23
@@ -71,7 +71,7 @@
 .end method
 
 .method private static final assert(ZLkotlin/jvm/functions/Function0;)V
-    .locals 2
+    .registers 4
     .param p0, "value"    # Z
     .param p1, "lazyMessage"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -92,13 +92,13 @@
     nop
 
     .line 33
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 38
     return-void
 
     .line 34
-    :cond_0
+    :cond_9
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0

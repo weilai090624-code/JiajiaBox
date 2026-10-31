@@ -127,7 +127,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "pluginId"    # Ljava/lang/String;
 
     const-string v0, "pluginId"
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public addLine(II)V
-    .locals 0
+    .registers 3
     .param p1, "lineNumber"    # I
     .param p2, "lineStart"    # I
 
@@ -154,7 +154,7 @@
 .end method
 
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 0
+    .registers 2
     .param p1, "text"    # Landroid/text/Editable;
 
     .line 77
@@ -162,7 +162,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -173,7 +173,7 @@
 .end method
 
 .method public drawBehind(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 62
@@ -181,7 +181,7 @@
 .end method
 
 .method protected final getColorScheme()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 42
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -196,7 +196,7 @@
 .end method
 
 .method protected final getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->_editText:Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -207,7 +207,7 @@
 .end method
 
 .method protected final getLanguage()Lcom/blacksquircle/ui/language/base/Language;
-    .locals 1
+    .registers 2
 
     .line 40
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -222,7 +222,7 @@
 .end method
 
 .method public final getPluginId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 30
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->pluginId:Ljava/lang/String;
@@ -231,7 +231,7 @@
 .end method
 
 .method protected final getRedoStack()Lcom/blacksquircle/ui/editorkit/model/UndoStack;
-    .locals 1
+    .registers 2
 
     .line 48
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -246,7 +246,7 @@
 .end method
 
 .method protected final getStructure()Lcom/blacksquircle/ui/language/base/model/TextStructure;
-    .locals 1
+    .registers 2
 
     .line 44
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -261,7 +261,7 @@
 .end method
 
 .method protected final getUndoStack()Lcom/blacksquircle/ui/editorkit/model/UndoStack;
-    .locals 1
+    .registers 2
 
     .line 46
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->getEditText()Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
@@ -276,26 +276,26 @@
 .end method
 
 .method protected final isAttached()Z
-    .locals 1
+    .registers 2
 
     .line 37
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->_editText:Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public onAttached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 1
+    .registers 3
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -324,7 +324,7 @@
 .end method
 
 .method public onColorSchemeChanged(Lcom/blacksquircle/ui/editorkit/model/ColorScheme;)V
-    .locals 1
+    .registers 3
     .param p1, "colorScheme"    # Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     const-string v0, "colorScheme"
@@ -336,7 +336,7 @@
 .end method
 
 .method public onDetached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 1
+    .registers 3
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -353,7 +353,7 @@
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 63
@@ -361,7 +361,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 4
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
 
@@ -372,7 +372,7 @@
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 4
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
 
@@ -383,7 +383,7 @@
 .end method
 
 .method public onLanguageChanged(Lcom/blacksquircle/ui/language/base/Language;)V
-    .locals 0
+    .registers 2
     .param p1, "language"    # Lcom/blacksquircle/ui/language/base/Language;
 
     .line 66
@@ -391,7 +391,7 @@
 .end method
 
 .method public onLayout(ZIIII)V
-    .locals 0
+    .registers 6
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -403,7 +403,7 @@
 .end method
 
 .method public onMeasure(II)V
-    .locals 0
+    .registers 3
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -412,7 +412,7 @@
 .end method
 
 .method public onScrollChanged(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "horiz"    # I
     .param p2, "vert"    # I
     .param p3, "oldHoriz"    # I
@@ -423,7 +423,7 @@
 .end method
 
 .method public onSelectionChanged(II)V
-    .locals 0
+    .registers 3
     .param p1, "selStart"    # I
     .param p2, "selEnd"    # I
 
@@ -432,7 +432,7 @@
 .end method
 
 .method public onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -443,7 +443,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
@@ -454,7 +454,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     const-string v0, "event"
@@ -468,7 +468,7 @@
 .end method
 
 .method public processLine(III)V
-    .locals 0
+    .registers 4
     .param p1, "lineNumber"    # I
     .param p2, "lineStart"    # I
     .param p3, "lineEnd"    # I
@@ -478,7 +478,7 @@
 .end method
 
 .method public removeLine(I)V
-    .locals 0
+    .registers 2
     .param p1, "lineNumber"    # I
 
     .line 81
@@ -486,29 +486,29 @@
 .end method
 
 .method protected final requireContext()Landroid/content/Context;
-    .locals 3
+    .registers 4
 
     .line 89
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->_editText:Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_a
+    if-eqz v0, :cond_d
 
     .line 90
     return-object v0
 
-    :cond_1
+    :cond_d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -541,7 +541,7 @@
 .end method
 
 .method public setTextContent(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     const-string/jumbo v0, "text"
@@ -553,7 +553,7 @@
 .end method
 
 .method public setTextSize(F)V
-    .locals 0
+    .registers 2
     .param p1, "size"    # F
 
     .line 84
@@ -561,7 +561,7 @@
 .end method
 
 .method public setTypeface(Landroid/graphics/Typeface;)V
-    .locals 0
+    .registers 2
     .param p1, "tf"    # Landroid/graphics/Typeface;
 
     .line 85
@@ -569,7 +569,7 @@
 .end method
 
 .method public showDropDown()V
-    .locals 0
+    .registers 1
 
     .line 87
     return-void

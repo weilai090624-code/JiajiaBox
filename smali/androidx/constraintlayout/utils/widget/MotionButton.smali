@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -124,7 +124,7 @@
 .end method
 
 .method static synthetic access$000(Landroidx/constraintlayout/utils/widget/MotionButton;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/constraintlayout/utils/widget/MotionButton;
 
     .line 58
@@ -134,7 +134,7 @@
 .end method
 
 .method static synthetic access$100(Landroidx/constraintlayout/utils/widget/MotionButton;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/constraintlayout/utils/widget/MotionButton;
 
     .line 58
@@ -144,7 +144,7 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -164,7 +164,7 @@
     invoke-virtual {p0, v0, v0, v0, v0}, Landroidx/constraintlayout/utils/widget/MotionButton;->setPadding(IIII)V
 
     .line 82
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_3b
 
     .line 83
     invoke-virtual {p0}, Landroidx/constraintlayout/utils/widget/MotionButton;->getContext()Landroid/content/Context;
@@ -189,8 +189,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_15
+    if-ge v2, v1, :cond_38
 
     .line 87
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -203,7 +203,7 @@
 
     const/4 v5, 0x0
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_29
 
     .line 89
     nop
@@ -215,13 +215,13 @@
 
     invoke-virtual {p0, v4}, Landroidx/constraintlayout/utils/widget/MotionButton;->setRound(F)V
 
-    goto :goto_1
+    goto :goto_35
 
     .line 92
-    :cond_0
+    :cond_29
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_roundPercent:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_35
 
     .line 93
     nop
@@ -235,28 +235,28 @@
 
     .line 86
     .end local v3    # "attr":I
-    :cond_1
-    :goto_1
+    :cond_35
+    :goto_35
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 98
     .end local v2    # "i":I
-    :cond_2
+    :cond_38
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 100
     .end local v0    # "a":Landroid/content/res/TypedArray;
     .end local v1    # "N":I
-    :cond_3
+    :cond_3b
     return-void
 .end method
 
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 1
+    .registers 3
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -278,18 +278,18 @@
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatButton;->draw(Landroid/graphics/Canvas;)V
 
     .line 239
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 240
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 242
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public getRound()F
-    .locals 1
+    .registers 2
 
     .line 225
     iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mRound:F
@@ -298,7 +298,7 @@
 .end method
 
 .method public getRoundPercent()F
-    .locals 1
+    .registers 2
 
     .line 216
     iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mRoundPercent:F
@@ -307,7 +307,7 @@
 .end method
 
 .method public setRound(F)V
-    .locals 8
+    .registers 10
     .param p1, "round"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -323,7 +323,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 161
     iput p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mRound:F
@@ -345,7 +345,7 @@
 
     .line 167
     .end local v0    # "tmp":F
-    :cond_0
+    :cond_12
     iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mRound:F
 
     const/4 v1, 0x1
@@ -354,18 +354,18 @@
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
     .line 168
     .local v0, "change":Z
-    :goto_0
+    :goto_1d
     iput p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mRound:F
 
     .line 170
@@ -375,12 +375,12 @@
 
     cmpl-float v3, v3, v4
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_72
 
     .line 171
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mPath:Landroid/graphics/Path;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_31
 
     .line 172
     new-instance v2, Landroid/graphics/Path;
@@ -390,10 +390,10 @@
     iput-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mPath:Landroid/graphics/Path;
 
     .line 174
-    :cond_2
+    :cond_31
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mRect:Landroid/graphics/RectF;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_3c
 
     .line 175
     new-instance v2, Landroid/graphics/RectF;
@@ -403,13 +403,13 @@
     iput-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mRect:Landroid/graphics/RectF;
 
     .line 177
-    :cond_3
+    :cond_3c
     nop
 
     .line 178
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_4d
 
     .line 179
     new-instance v2, Landroidx/constraintlayout/utils/widget/MotionButton$2;
@@ -424,7 +424,7 @@
     invoke-virtual {p0, v2}, Landroidx/constraintlayout/utils/widget/MotionButton;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
     .line 189
-    :cond_4
+    :cond_4d
     invoke-virtual {p0, v1}, Landroidx/constraintlayout/utils/widget/MotionButton;->setClipToOutline(Z)V
 
     .line 192
@@ -469,18 +469,18 @@
     .line 197
     .end local v1    # "w":I
     .end local v2    # "h":I
-    goto :goto_1
+    goto :goto_76
 
     .line 198
-    :cond_5
+    :cond_72
     nop
 
     .line 199
     invoke-virtual {p0, v2}, Landroidx/constraintlayout/utils/widget/MotionButton;->setClipToOutline(Z)V
 
     .line 202
-    :goto_1
-    if-eqz v0, :cond_6
+    :goto_76
+    if-eqz v0, :cond_7c
 
     .line 203
     nop
@@ -489,12 +489,12 @@
     invoke-virtual {p0}, Landroidx/constraintlayout/utils/widget/MotionButton;->invalidateOutline()V
 
     .line 208
-    :cond_6
+    :cond_7c
     return-void
 .end method
 
 .method public setRoundPercent(F)V
-    .locals 8
+    .registers 10
     .param p1, "round"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -514,18 +514,18 @@
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     .line 111
     .local v0, "change":Z
-    :goto_0
+    :goto_b
     iput p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mRoundPercent:F
 
     .line 112
@@ -535,12 +535,12 @@
 
     cmpl-float v3, v3, v4
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_68
 
     .line 113
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mPath:Landroid/graphics/Path;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1f
 
     .line 114
     new-instance v2, Landroid/graphics/Path;
@@ -550,10 +550,10 @@
     iput-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mPath:Landroid/graphics/Path;
 
     .line 116
-    :cond_1
+    :cond_1f
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mRect:Landroid/graphics/RectF;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2a
 
     .line 117
     new-instance v2, Landroid/graphics/RectF;
@@ -563,13 +563,13 @@
     iput-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mRect:Landroid/graphics/RectF;
 
     .line 119
-    :cond_2
+    :cond_2a
     nop
 
     .line 120
     iget-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_3b
 
     .line 121
     new-instance v2, Landroidx/constraintlayout/utils/widget/MotionButton$1;
@@ -584,7 +584,7 @@
     invoke-virtual {p0, v2}, Landroidx/constraintlayout/utils/widget/MotionButton;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
     .line 132
-    :cond_3
+    :cond_3b
     invoke-virtual {p0, v1}, Landroidx/constraintlayout/utils/widget/MotionButton;->setClipToOutline(Z)V
 
     .line 134
@@ -642,18 +642,18 @@
     .end local v1    # "w":I
     .end local v2    # "h":I
     .end local v3    # "r":F
-    goto :goto_1
+    goto :goto_6c
 
     .line 141
-    :cond_4
+    :cond_68
     nop
 
     .line 142
     invoke-virtual {p0, v2}, Landroidx/constraintlayout/utils/widget/MotionButton;->setClipToOutline(Z)V
 
     .line 145
-    :goto_1
-    if-eqz v0, :cond_5
+    :goto_6c
+    if-eqz v0, :cond_72
 
     .line 146
     nop
@@ -662,6 +662,6 @@
     invoke-virtual {p0}, Landroidx/constraintlayout/utils/widget/MotionButton;->invalidateOutline()V
 
     .line 151
-    :cond_5
+    :cond_72
     return-void
 .end method

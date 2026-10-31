@@ -84,7 +84,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Callable;Lkotlinx/coroutines/CancellableContinuation;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -154,7 +154,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -183,14 +183,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 85
     iget v0, p0, Landroidx/room/CoroutinesRoom$Companion$execute$4$job$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3e
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -200,7 +200,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v0, p0
@@ -211,7 +211,7 @@
     nop
 
     .line 87
-    :try_start_0
+    :try_start_15
     iget-object v1, v0, Landroidx/room/CoroutinesRoom$Companion$execute$4$job$1;->$callable:Ljava/util/concurrent/Callable;
 
     invoke-interface {v1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
@@ -231,14 +231,14 @@
     move-result-object v3
 
     invoke-interface {v2, v3}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_15 .. :try_end_28} :catchall_29
 
     .end local v1    # "result":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_3b
 
     .line 89
-    :catchall_0
+    :catchall_29
     move-exception v1
 
     .line 90
@@ -261,13 +261,13 @@
 
     .line 92
     .end local v1    # "exception":Ljava/lang/Throwable;
-    :goto_0
+    :goto_3b
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_3e
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

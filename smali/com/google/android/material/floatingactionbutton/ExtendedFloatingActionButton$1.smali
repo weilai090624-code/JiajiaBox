@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
     .line 241
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public getHeight()I
-    .locals 1
+    .registers 2
 
     .line 249
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$1;->this$0:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -50,7 +50,7 @@
 .end method
 
 .method public getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-    .locals 3
+    .registers 4
 
     .line 264
     new-instance v0, Landroid/view/ViewGroup$LayoutParams;
@@ -69,7 +69,7 @@
 .end method
 
 .method public getPaddingEnd()I
-    .locals 1
+    .registers 2
 
     .line 259
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$1;->this$0:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -82,7 +82,7 @@
 .end method
 
 .method public getPaddingStart()I
-    .locals 1
+    .registers 2
 
     .line 254
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$1;->this$0:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
@@ -95,7 +95,7 @@
 .end method
 
 .method public getWidth()I
-    .locals 1
+    .registers 2
 
     .line 244
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$1;->this$0:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;

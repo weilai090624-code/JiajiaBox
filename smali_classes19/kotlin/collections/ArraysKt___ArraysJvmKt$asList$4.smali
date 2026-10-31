@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>([J)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # [J
 
     iput-object p1, p0, Lkotlin/collections/ArraysKt___ArraysJvmKt$asList$4;->$this_asList:[J
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public contains(J)Z
-    .locals 1
+    .registers 4
     .param p1, "element"    # J
 
     .line 185
@@ -94,19 +94,19 @@
 .end method
 
 .method public final bridge contains(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 182
     instance-of v0, p1, Ljava/lang/Long;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Number;
@@ -123,7 +123,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Long;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 186
@@ -139,7 +139,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 182
@@ -151,7 +151,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 183
     iget-object v0, p0, Lkotlin/collections/ArraysKt___ArraysJvmKt$asList$4;->$this_asList:[J
@@ -162,7 +162,7 @@
 .end method
 
 .method public indexOf(J)I
-    .locals 1
+    .registers 4
     .param p1, "element"    # J
 
     .line 187
@@ -176,19 +176,19 @@
 .end method
 
 .method public final bridge indexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 182
     instance-of v0, p1, Ljava/lang/Long;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Number;
@@ -205,28 +205,28 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 184
     iget-object v0, p0, Lkotlin/collections/ArraysKt___ArraysJvmKt$asList$4;->$this_asList:[J
 
     array-length v0, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public lastIndexOf(J)I
-    .locals 1
+    .registers 4
     .param p1, "element"    # J
 
     .line 188
@@ -240,19 +240,19 @@
 .end method
 
 .method public final bridge lastIndexOf(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 182
     instance-of v0, p1, Ljava/lang/Long;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Number;

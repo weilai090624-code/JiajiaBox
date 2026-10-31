@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 84
     new-instance v0, Landroidx/work/multiprocess/parcelable/ParcelableData$1;
@@ -67,7 +67,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 3
+    .registers 5
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 73
@@ -89,8 +89,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_d
+    if-ge v2, v1, :cond_15
 
     .line 79
     invoke-direct {p0, p1, v0}, Landroidx/work/multiprocess/parcelable/ParcelableData;->addEntry(Landroid/os/Parcel;Ljava/util/Map;)V
@@ -98,11 +98,11 @@
     .line 77
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 81
     .end local v2    # "i":I
-    :cond_0
+    :cond_15
     new-instance v2, Landroidx/work/Data;
 
     invoke-direct {v2, v0}, Landroidx/work/Data;-><init>(Ljava/util/Map;)V
@@ -114,7 +114,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/Data;)V
-    .locals 0
+    .registers 2
     .param p1, "data"    # Landroidx/work/Data;
 
     .line 69
@@ -128,7 +128,7 @@
 .end method
 
 .method private addEntry(Landroid/os/Parcel;Ljava/util/Map;)V
-    .locals 4
+    .registers 7
     .param p1, "parcel"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -153,7 +153,7 @@
 
     .line 197
     .local v1, "value":Ljava/lang/Object;
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_a2
 
     .line 243
     new-instance v2, Ljava/lang/StringBuilder;
@@ -184,16 +184,16 @@
 
     .line 240
     .end local v2    # "message":Ljava/lang/String;
-    :pswitch_0
+    :pswitch_21
     invoke-virtual {p1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
 
     move-result-object v1
 
     .line 241
-    goto/16 :goto_0
+    goto/16 :goto_9a
 
     .line 237
-    :pswitch_1
+    :pswitch_27
     invoke-virtual {p1}, Landroid/os/Parcel;->createDoubleArray()[D
 
     move-result-object v2
@@ -203,10 +203,10 @@
     move-result-object v1
 
     .line 238
-    goto/16 :goto_0
+    goto/16 :goto_9a
 
     .line 234
-    :pswitch_2
+    :pswitch_31
     invoke-virtual {p1}, Landroid/os/Parcel;->createFloatArray()[F
 
     move-result-object v2
@@ -216,10 +216,10 @@
     move-result-object v1
 
     .line 235
-    goto :goto_0
+    goto :goto_9a
 
     .line 231
-    :pswitch_3
+    :pswitch_3a
     invoke-virtual {p1}, Landroid/os/Parcel;->createLongArray()[J
 
     move-result-object v2
@@ -229,10 +229,10 @@
     move-result-object v1
 
     .line 232
-    goto :goto_0
+    goto :goto_9a
 
     .line 228
-    :pswitch_4
+    :pswitch_43
     invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v2
@@ -242,10 +242,10 @@
     move-result-object v1
 
     .line 229
-    goto :goto_0
+    goto :goto_9a
 
     .line 225
-    :pswitch_5
+    :pswitch_4c
     invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v2
@@ -255,10 +255,10 @@
     move-result-object v1
 
     .line 226
-    goto :goto_0
+    goto :goto_9a
 
     .line 222
-    :pswitch_6
+    :pswitch_55
     invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
 
     move-result-object v2
@@ -268,19 +268,19 @@
     move-result-object v1
 
     .line 223
-    goto :goto_0
+    goto :goto_9a
 
     .line 219
-    :pswitch_7
+    :pswitch_5e
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 220
-    goto :goto_0
+    goto :goto_9a
 
     .line 216
-    :pswitch_8
+    :pswitch_63
     invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v2
@@ -290,10 +290,10 @@
     move-result-object v1
 
     .line 217
-    goto :goto_0
+    goto :goto_9a
 
     .line 213
-    :pswitch_9
+    :pswitch_6c
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v2
@@ -303,10 +303,10 @@
     move-result-object v1
 
     .line 214
-    goto :goto_0
+    goto :goto_9a
 
     .line 210
-    :pswitch_a
+    :pswitch_75
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
@@ -316,10 +316,10 @@
     move-result-object v1
 
     .line 211
-    goto :goto_0
+    goto :goto_9a
 
     .line 207
-    :pswitch_b
+    :pswitch_7e
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -329,10 +329,10 @@
     move-result-object v1
 
     .line 208
-    goto :goto_0
+    goto :goto_9a
 
     .line 201
-    :pswitch_c
+    :pswitch_87
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v2
@@ -342,10 +342,10 @@
     move-result-object v1
 
     .line 202
-    goto :goto_0
+    goto :goto_9a
 
     .line 204
-    :pswitch_d
+    :pswitch_90
     invoke-static {p1}, Landroidx/work/multiprocess/parcelable/ParcelUtils;->readBooleanValue(Landroid/os/Parcel;)Z
 
     move-result v2
@@ -355,14 +355,14 @@
     move-result-object v1
 
     .line 205
-    goto :goto_0
+    goto :goto_9a
 
     .line 199
-    :pswitch_e
+    :pswitch_99
     nop
 
     .line 246
-    :goto_0
+    :goto_9a
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -374,44 +374,44 @@
     .line 248
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_a2
     .packed-switch 0x0
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_99
+        :pswitch_90
+        :pswitch_87
+        :pswitch_7e
+        :pswitch_75
+        :pswitch_6c
+        :pswitch_63
+        :pswitch_5e
+        :pswitch_55
+        :pswitch_4c
+        :pswitch_43
+        :pswitch_3a
+        :pswitch_31
+        :pswitch_27
+        :pswitch_21
     .end packed-switch
 .end method
 
 .method private writeToParcel(Landroid/os/Parcel;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 4
+    .registers 8
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
 
     .line 123
-    if-nez p3, :cond_0
+    if-nez p3, :cond_8
 
     .line 124
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    goto/16 :goto_0
+    goto/16 :goto_11d
 
     .line 126
-    :cond_0
+    :cond_8
     invoke-virtual {p3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -420,7 +420,7 @@
     .local v0, "valueType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-class v1, Ljava/lang/Boolean;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_20
 
     .line 128
     const/4 v1, 0x1
@@ -442,12 +442,12 @@
 
     .line 131
     .end local v1    # "booleanValue":Z
-    goto/16 :goto_0
+    goto/16 :goto_11d
 
-    :cond_1
+    :cond_20
     const-class v1, Ljava/lang/Byte;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_34
 
     .line 132
     const/4 v1, 0x2
@@ -469,12 +469,12 @@
 
     .line 135
     .end local v1    # "byteValue":B
-    goto/16 :goto_0
+    goto/16 :goto_11d
 
-    :cond_2
+    :cond_34
     const-class v1, Ljava/lang/Integer;
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_48
 
     .line 136
     const/4 v1, 0x3
@@ -496,12 +496,12 @@
 
     .line 139
     .end local v1    # "intValue":I
-    goto/16 :goto_0
+    goto/16 :goto_11d
 
-    :cond_3
+    :cond_48
     const-class v1, Ljava/lang/Long;
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_5c
 
     .line 140
     const/4 v1, 0x4
@@ -523,12 +523,12 @@
 
     .line 143
     .end local v1    # "longValue":Ljava/lang/Long;
-    goto/16 :goto_0
+    goto/16 :goto_11d
 
-    :cond_4
+    :cond_5c
     const-class v1, Ljava/lang/Float;
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_70
 
     .line 144
     const/4 v1, 0x5
@@ -550,12 +550,12 @@
 
     .line 147
     .end local v1    # "floatValue":F
-    goto/16 :goto_0
+    goto/16 :goto_11d
 
-    :cond_5
+    :cond_70
     const-class v1, Ljava/lang/Double;
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_84
 
     .line 148
     const/4 v1, 0x6
@@ -577,12 +577,12 @@
 
     .line 151
     .end local v1    # "doubleValue":D
-    goto/16 :goto_0
+    goto/16 :goto_11d
 
-    :cond_6
+    :cond_84
     const-class v1, Ljava/lang/String;
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_94
 
     .line 152
     const/4 v1, 0x7
@@ -600,12 +600,12 @@
 
     .line 155
     .end local v1    # "stringValue":Ljava/lang/String;
-    goto/16 :goto_0
+    goto/16 :goto_11d
 
-    :cond_7
+    :cond_94
     const-class v1, [Ljava/lang/Boolean;
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_a9
 
     .line 156
     const/16 v1, 0x8
@@ -627,12 +627,12 @@
 
     .line 159
     .end local v1    # "booleanArray":[Ljava/lang/Boolean;
-    goto/16 :goto_0
+    goto/16 :goto_11d
 
-    :cond_8
+    :cond_a9
     const-class v1, [Ljava/lang/Byte;
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_bd
 
     .line 160
     const/16 v1, 0x9
@@ -654,12 +654,12 @@
 
     .line 163
     .end local v1    # "byteArray":[Ljava/lang/Byte;
-    goto :goto_0
+    goto :goto_11d
 
-    :cond_9
+    :cond_bd
     const-class v1, [Ljava/lang/Integer;
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_d1
 
     .line 164
     const/16 v1, 0xa
@@ -681,12 +681,12 @@
 
     .line 167
     .end local v1    # "integerArray":[Ljava/lang/Integer;
-    goto :goto_0
+    goto :goto_11d
 
-    :cond_a
+    :cond_d1
     const-class v1, [Ljava/lang/Long;
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_e5
 
     .line 168
     const/16 v1, 0xb
@@ -708,12 +708,12 @@
 
     .line 171
     .end local v1    # "longArray":[Ljava/lang/Long;
-    goto :goto_0
+    goto :goto_11d
 
-    :cond_b
+    :cond_e5
     const-class v1, [Ljava/lang/Float;
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_f9
 
     .line 172
     const/16 v1, 0xc
@@ -735,12 +735,12 @@
 
     .line 175
     .end local v1    # "floatArray":[Ljava/lang/Float;
-    goto :goto_0
+    goto :goto_11d
 
-    :cond_c
+    :cond_f9
     const-class v1, [Ljava/lang/Double;
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_10d
 
     .line 176
     const/16 v1, 0xd
@@ -762,12 +762,12 @@
 
     .line 179
     .end local v1    # "doubleArray":[Ljava/lang/Double;
-    goto :goto_0
+    goto :goto_11d
 
-    :cond_d
+    :cond_10d
     const-class v1, [Ljava/lang/String;
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_121
 
     .line 180
     const/16 v1, 0xe
@@ -789,7 +789,7 @@
 
     .line 190
     .end local v0    # "valueType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :goto_0
+    :goto_11d
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 191
@@ -797,7 +797,7 @@
 
     .line 185
     .restart local v0    # "valueType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_e
+    :cond_121
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -832,7 +832,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 104
     const/4 v0, 0x0
@@ -841,7 +841,7 @@
 .end method
 
 .method public getData()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     .line 99
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableData;->mData:Landroidx/work/Data;
@@ -850,7 +850,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 5
+    .registers 8
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
@@ -878,12 +878,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_15
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -907,9 +907,9 @@
 
     .line 114
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
-    goto :goto_0
+    goto :goto_15
 
     .line 115
-    :cond_0
+    :cond_2f
     return-void
 .end method

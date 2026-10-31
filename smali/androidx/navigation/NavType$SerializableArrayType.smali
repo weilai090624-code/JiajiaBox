@@ -83,7 +83,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
     .param p1, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -111,13 +111,13 @@
     move-result v0
 
     .line 831
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4d
 
     .line 834
     nop
 
     .line 836
-    :try_start_0
+    :try_start_13
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -149,10 +149,10 @@
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_34
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_13 .. :try_end_34} :catch_43
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3b
 
     .line 834
     nop
@@ -169,8 +169,8 @@
     return-void
 
     .line 836
-    :cond_0
-    :try_start_1
+    :cond_3b
+    :try_start_3b
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type java.lang.Class<kotlin.Array<D of androidx.navigation.NavType.SerializableArrayType>>"
@@ -179,12 +179,12 @@
 
     .end local p1    # "type":Ljava/lang/Class;
     throw v0
-    :try_end_1
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_43
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_3b .. :try_end_43} :catch_43
 
     .line 837
     .restart local p1    # "type":Ljava/lang/Class;
-    :catch_0
+    :catch_43
     move-exception v0
 
     .line 838
@@ -201,7 +201,7 @@
 
     .line 831
     .end local v0    # "e":Ljava/lang/ClassNotFoundException;
-    :cond_1
+    :cond_4d
     const/4 v0, 0x0
 
     .line 833
@@ -240,19 +240,19 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 817
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 818
-    :cond_0
-    if-eqz p1, :cond_2
+    :cond_4
+    if-eqz p1, :cond_21
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -266,12 +266,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
-    goto :goto_0
+    goto :goto_21
 
     .line 819
-    :cond_1
+    :cond_15
     move-object v0, p1
 
     check-cast v0, Landroidx/navigation/NavType$SerializableArrayType;
@@ -290,15 +290,15 @@
 
     .line 818
     .end local v0    # "that":Landroidx/navigation/NavType$SerializableArrayType;
-    :cond_2
-    :goto_0
+    :cond_21
+    :goto_21
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public bridge synthetic get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -311,7 +311,7 @@
 .end method
 
 .method public get(Landroid/os/Bundle;Ljava/lang/String;)[Ljava/io/Serializable;
-    .locals 1
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -342,7 +342,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 797
     iget-object v0, p0, Landroidx/navigation/NavType$SerializableArrayType;->arrayType:Ljava/lang/Class;
@@ -359,7 +359,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 824
     iget-object v0, p0, Landroidx/navigation/NavType$SerializableArrayType;->arrayType:Ljava/lang/Class;
@@ -372,7 +372,7 @@
 .end method
 
 .method public bridge synthetic parseValue(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 792
@@ -384,7 +384,7 @@
 .end method
 
 .method public parseValue(Ljava/lang/String;)[Ljava/io/Serializable;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -409,7 +409,7 @@
 .end method
 
 .method public bridge synthetic put(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
@@ -425,7 +425,7 @@
 .end method
 
 .method public put(Landroid/os/Bundle;Ljava/lang/String;[Ljava/io/Serializable;)V
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # [Ljava/io/Serializable;

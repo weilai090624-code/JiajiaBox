@@ -74,7 +74,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 30
     new-instance v0, Lcom/google/common/collect/SparseImmutableTable;
@@ -101,7 +101,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableSet;Lcom/google/common/collect/ImmutableSet;)V
-    .locals 15
+    .registers 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,12 +141,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_10
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_23
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -162,10 +162,10 @@
 
     .line 54
     .end local v4    # "row":Ljava/lang/Object;, "TR;"
-    goto :goto_0
+    goto :goto_10
 
     .line 55
-    :cond_0
+    :cond_23
     invoke-static {}, Lcom/google/common/collect/Maps;->newLinkedHashMap()Ljava/util/LinkedHashMap;
 
     move-result-object v3
@@ -176,12 +176,12 @@
 
     move-result-object v4
 
-    :goto_1
+    :goto_2b
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3e
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -197,10 +197,10 @@
 
     .line 58
     .end local v5    # "col":Ljava/lang/Object;, "TC;"
-    goto :goto_1
+    goto :goto_2b
 
     .line 59
-    :cond_1
+    :cond_3e
     invoke-virtual/range {p1 .. p1}, Lcom/google/common/collect/ImmutableList;->size()I
 
     move-result v4
@@ -220,12 +220,12 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_2
+    :goto_4b
     invoke-virtual/range {p1 .. p1}, Lcom/google/common/collect/ImmutableList;->size()I
 
     move-result v7
 
-    if-ge v6, v7, :cond_2
+    if-ge v6, v7, :cond_a2
 
     .line 62
     move-object/from16 v7, p1
@@ -328,9 +328,9 @@
     .end local v13    # "oldValue":Ljava/lang/Object;, "TV;"
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_4b
 
-    :cond_2
+    :cond_a2
     move-object/from16 v7, p1
 
     .line 78
@@ -360,12 +360,12 @@
 
     move-result-object v8
 
-    :goto_3
+    :goto_b9
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_d7
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -393,10 +393,10 @@
 
     .line 84
     .end local v9    # "row":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TR;Ljava/util/Map<TC;TV;>;>;"
-    goto :goto_3
+    goto :goto_b9
 
     .line 85
-    :cond_3
+    :cond_d7
     invoke-virtual {v6}, Lcom/google/common/collect/ImmutableMap$Builder;->build()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v8
@@ -423,12 +423,12 @@
 
     move-result-object v9
 
-    :goto_4
+    :goto_ee
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_10c
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -456,10 +456,10 @@
 
     .line 91
     .end local v10    # "col":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TC;Ljava/util/Map<TR;TV;>;>;"
-    goto :goto_4
+    goto :goto_ee
 
     .line 92
-    :cond_4
+    :cond_10c
     invoke-virtual {v8}, Lcom/google/common/collect/ImmutableMap$Builder;->build()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v9
@@ -473,7 +473,7 @@
 
 # virtual methods
 .method public columnMap()Lcom/google/common/collect/ImmutableMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -498,7 +498,7 @@
 .end method
 
 .method public bridge synthetic columnMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 26
     .local p0, "this":Lcom/google/common/collect/SparseImmutableTable;, "Lcom/google/common/collect/SparseImmutableTable<TR;TC;TV;>;"
@@ -510,7 +510,7 @@
 .end method
 
 .method createSerializedForm()Lcom/google/common/collect/ImmutableTable$SerializedForm;
-    .locals 7
+    .registers 8
 
     .line 134
     .local p0, "this":Lcom/google/common/collect/SparseImmutableTable;, "Lcom/google/common/collect/SparseImmutableTable<TR;TC;TV;>;"
@@ -548,12 +548,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1b
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_41
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -593,12 +593,12 @@
     .end local v4    # "cell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<TR;TC;TV;>;"
     move v2, v5
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 141
     .end local v5    # "i":I
     .restart local v2    # "i":I
-    :cond_0
+    :cond_41
     iget-object v3, p0, Lcom/google/common/collect/SparseImmutableTable;->cellRowIndices:[I
 
     invoke-static {p0, v3, v1}, Lcom/google/common/collect/ImmutableTable$SerializedForm;->create(Lcom/google/common/collect/ImmutableTable;[I[I)Lcom/google/common/collect/ImmutableTable$SerializedForm;
@@ -609,7 +609,7 @@
 .end method
 
 .method getCell(I)Lcom/google/common/collect/Table$Cell;
-    .locals 8
+    .registers 10
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -695,7 +695,7 @@
 .end method
 
 .method getValue(I)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -751,7 +751,7 @@
 .end method
 
 .method public rowMap()Lcom/google/common/collect/ImmutableMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -776,7 +776,7 @@
 .end method
 
 .method public bridge synthetic rowMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 26
     .local p0, "this":Lcom/google/common/collect/SparseImmutableTable;, "Lcom/google/common/collect/SparseImmutableTable<TR;TC;TV;>;"
@@ -788,7 +788,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 111
     .local p0, "this":Lcom/google/common/collect/SparseImmutableTable;, "Lcom/google/common/collect/SparseImmutableTable<TR;TC;TV;>;"

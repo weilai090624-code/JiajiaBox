@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "routes"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public final getRoutes()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -102,7 +102,7 @@
 .end method
 
 .method public final hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 181
     iget v0, p0, Lokhttp3/internal/connection/RouteSelector$Selection;->nextRouteIndex:I
@@ -113,28 +113,28 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public final next()Lokhttp3/Route;
-    .locals 3
+    .registers 4
 
     .line 184
     invoke-virtual {p0}, Lokhttp3/internal/connection/RouteSelector$Selection;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 185
     iget-object v0, p0, Lokhttp3/internal/connection/RouteSelector$Selection;->routes:Ljava/util/List;
@@ -154,7 +154,7 @@
     return-object v0
 
     .line 184
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

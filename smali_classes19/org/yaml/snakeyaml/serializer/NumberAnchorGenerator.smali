@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "lastAnchorId"    # I
 
     .line 26
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public nextAnchor(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 31

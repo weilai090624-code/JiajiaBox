@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "arity"    # I
 
     .line 10
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public getArity()I
-    .locals 1
+    .registers 2
 
     .line 10
     iget v0, p0, Lkotlin/jvm/internal/Lambda;->arity:I
@@ -77,7 +77,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 11
     invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->renderLambdaToString(Lkotlin/jvm/internal/Lambda;)Ljava/lang/String;

@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ConcurrentHashMultiset;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/ConcurrentHashMultiset;
 
     .line 528
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 528
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$3;, "Lcom/google/common/collect/ConcurrentHashMultiset$3;"
@@ -71,7 +71,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,7 +89,7 @@
 .end method
 
 .method public next()Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -115,7 +115,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 528
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$3;, "Lcom/google/common/collect/ConcurrentHashMultiset$3;"
@@ -127,7 +127,7 @@
 .end method
 
 .method public remove()V
-    .locals 3
+    .registers 4
 
     .line 544
     .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$3;, "Lcom/google/common/collect/ConcurrentHashMultiset$3;"
@@ -135,16 +135,16 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     const-string v2, "no calls to next() since the last call to remove()"
 
     invoke-static {v0, v2}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V

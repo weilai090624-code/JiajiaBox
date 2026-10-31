@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 177
     sget-object v0, Ljava/util/concurrent/TimeUnit;->DAYS:Ljava/util/concurrent/TimeUnit;
@@ -53,7 +53,7 @@
 .end method
 
 .method public static final synthetic access$getPRUNE_THRESHOLD_MILLIS$p()J
-    .locals 2
+    .registers 2
 
     .line 1
     sget-wide v0, Landroidx/work/impl/WorkDatabaseKt;->PRUNE_THRESHOLD_MILLIS:J

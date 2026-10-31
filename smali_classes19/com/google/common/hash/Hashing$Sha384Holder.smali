@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 266
     new-instance v0, Lcom/google/common/hash/MessageDigestHashFunction;
@@ -37,7 +37,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 265
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

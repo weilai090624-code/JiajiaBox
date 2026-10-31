@@ -12,7 +12,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/card/MaterialCardView;)V
-    .locals 0
+    .registers 2
     .param p1, "rootView"    # Lcom/google/android/material/card/MaterialCardView;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -34,7 +34,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;
-    .locals 2
+    .registers 3
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -46,7 +46,7 @@
     .end annotation
 
     .line 46
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 50
     new-instance v0, Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;
@@ -60,7 +60,7 @@
     return-object v0
 
     .line 47
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "rootView"
@@ -71,7 +71,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -95,7 +95,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -123,13 +123,13 @@
 
     .line 38
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 39
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 41
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;
 
     move-result-object v1
@@ -140,7 +140,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;->getRoot()Lcom/google/android/material/card/MaterialCardView;
@@ -151,7 +151,7 @@
 .end method
 
 .method public getRoot()Lcom/google/android/material/card/MaterialCardView;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutAddEntityBinding;->rootView:Lcom/google/android/material/card/MaterialCardView;

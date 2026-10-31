@@ -116,7 +116,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/utils/Theme;
 
@@ -133,7 +133,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -142,7 +142,7 @@
 .end method
 
 .method private final defaultTheme()I
-    .locals 1
+    .registers 2
 
     .line 34
     const/4 v0, 0x2
@@ -153,7 +153,7 @@
 
 # virtual methods
 .method public final apply(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -172,7 +172,7 @@
 .end method
 
 .method public final applyDialog(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -191,7 +191,7 @@
 .end method
 
 .method public final applyNightTheme()V
-    .locals 1
+    .registers 2
 
     .line 132
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/utils/Theme;->getNightMode()I
@@ -205,7 +205,7 @@
 .end method
 
 .method public final getCurrentNightMode()I
-    .locals 1
+    .registers 2
 
     .line 106
     sget v0, Lio/nekohasekai/sagernet/utils/Theme;->currentNightMode:I
@@ -214,7 +214,7 @@
 .end method
 
 .method public final getDialogTheme()I
-    .locals 1
+    .registers 2
 
     .line 49
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -231,11 +231,11 @@
 .end method
 
 .method public final getDialogTheme(I)I
-    .locals 1
+    .registers 3
     .param p1, "theme"    # I
 
     .line 80
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_60
 
     .line 102
     invoke-direct {p0}, Lio/nekohasekai/sagernet/utils/Theme;->defaultTheme()I
@@ -246,171 +246,171 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 101
-    :pswitch_0
+    :pswitch_c
     const v0, 0x7f140290
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 100
-    :pswitch_1
+    :pswitch_10
     const v0, 0x7f140292
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 99
-    :pswitch_2
+    :pswitch_14
     const v0, 0x7f140298
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 98
-    :pswitch_3
+    :pswitch_18
     const v0, 0x7f140293
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 97
-    :pswitch_4
+    :pswitch_1c
     const v0, 0x7f140295
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 96
-    :pswitch_5
+    :pswitch_20
     const v0, 0x7f14029d
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 95
-    :pswitch_6
+    :pswitch_24
     const v0, 0x7f14028f
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 94
-    :pswitch_7
+    :pswitch_28
     const v0, 0x7f1402a2
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 93
-    :pswitch_8
+    :pswitch_2c
     const v0, 0x7f14029c
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 92
-    :pswitch_9
+    :pswitch_30
     const v0, 0x7f14029b
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 91
-    :pswitch_a
+    :pswitch_34
     const v0, 0x7f140297
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 90
-    :pswitch_b
+    :pswitch_38
     const v0, 0x7f1402a1
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 89
-    :pswitch_c
+    :pswitch_3c
     const v0, 0x7f140294
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 88
-    :pswitch_d
+    :pswitch_40
     const v0, 0x7f14029a
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 87
-    :pswitch_e
+    :pswitch_44
     const v0, 0x7f140291
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 86
-    :pswitch_f
+    :pswitch_48
     const v0, 0x7f140299
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 85
-    :pswitch_10
+    :pswitch_4c
     const v0, 0x7f140296
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 84
-    :pswitch_11
+    :pswitch_50
     const v0, 0x7f14029f
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 82
-    :pswitch_12
+    :pswitch_54
     const v0, 0x7f14028e
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 83
-    :pswitch_13
+    :pswitch_58
     const v0, 0x7f14029e
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 81
-    :pswitch_14
+    :pswitch_5c
     const v0, 0x7f1402a0
 
     .line 80
-    :goto_0
+    :goto_5f
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_60
     .packed-switch 0x1
+        :pswitch_5c
+        :pswitch_58
+        :pswitch_54
+        :pswitch_50
+        :pswitch_4c
+        :pswitch_48
+        :pswitch_44
+        :pswitch_40
+        :pswitch_3c
+        :pswitch_38
+        :pswitch_34
+        :pswitch_30
+        :pswitch_2c
+        :pswitch_28
+        :pswitch_24
+        :pswitch_20
+        :pswitch_1c
+        :pswitch_18
         :pswitch_14
-        :pswitch_13
-        :pswitch_12
-        :pswitch_11
         :pswitch_10
-        :pswitch_f
-        :pswitch_e
-        :pswitch_d
         :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
     .end packed-switch
 .end method
 
 .method public final getNightMode()I
-    .locals 2
+    .registers 3
 
     .line 108
     sget v0, Lio/nekohasekai/sagernet/utils/Theme;->currentNightMode:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 109
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -422,7 +422,7 @@
     sput v0, Lio/nekohasekai/sagernet/utils/Theme;->currentNightMode:I
 
     .line 111
-    :cond_0
+    :cond_d
     sget v0, Lio/nekohasekai/sagernet/utils/Theme;->currentNightMode:I
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/utils/Theme;->getNightMode(I)I
@@ -433,49 +433,49 @@
 .end method
 
 .method public final getNightMode(I)I
-    .locals 1
+    .registers 3
     .param p1, "mode"    # I
 
     .line 115
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_c
 
     .line 119
     const/4 v0, 0x3
 
-    goto :goto_0
+    goto :goto_a
 
     .line 118
-    :pswitch_0
+    :pswitch_5
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 117
-    :pswitch_1
+    :pswitch_7
     const/4 v0, 0x2
 
-    goto :goto_0
+    goto :goto_a
 
     .line 116
-    :pswitch_2
+    :pswitch_9
     const/4 v0, -0x1
 
     .line 115
-    :goto_0
+    :goto_a
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_9
+        :pswitch_7
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public final getTheme()I
-    .locals 1
+    .registers 2
 
     .line 45
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -492,11 +492,11 @@
 .end method
 
 .method public final getTheme(I)I
-    .locals 1
+    .registers 3
     .param p1, "theme"    # I
 
     .line 53
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_60
 
     .line 75
     invoke-direct {p0}, Lio/nekohasekai/sagernet/utils/Theme;->defaultTheme()I
@@ -507,164 +507,164 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 74
-    :pswitch_0
+    :pswitch_c
     const v0, 0x7f140287
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 73
-    :pswitch_1
+    :pswitch_10
     const v0, 0x7f140289
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 72
-    :pswitch_2
+    :pswitch_14
     const v0, 0x7f1402a4
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 71
-    :pswitch_3
+    :pswitch_18
     const v0, 0x7f14028a
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 70
-    :pswitch_4
+    :pswitch_1c
     const v0, 0x7f14028c
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 69
-    :pswitch_5
+    :pswitch_20
     const v0, 0x7f1402a9
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 68
-    :pswitch_6
+    :pswitch_24
     const v0, 0x7f140286
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 67
-    :pswitch_7
+    :pswitch_28
     const v0, 0x7f1402ae
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 66
-    :pswitch_8
+    :pswitch_2c
     const v0, 0x7f1402a8
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 65
-    :pswitch_9
+    :pswitch_30
     const v0, 0x7f1402a7
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 64
-    :pswitch_a
+    :pswitch_34
     const v0, 0x7f1402a3
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 63
-    :pswitch_b
+    :pswitch_38
     const v0, 0x7f1402ad
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 62
-    :pswitch_c
+    :pswitch_3c
     const v0, 0x7f14028b
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 61
-    :pswitch_d
+    :pswitch_40
     const v0, 0x7f1402a6
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 60
-    :pswitch_e
+    :pswitch_44
     const v0, 0x7f140288
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 59
-    :pswitch_f
+    :pswitch_48
     const v0, 0x7f1402a5
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 58
-    :pswitch_10
+    :pswitch_4c
     const v0, 0x7f14028d
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 57
-    :pswitch_11
+    :pswitch_50
     const v0, 0x7f1402ab
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 55
-    :pswitch_12
+    :pswitch_54
     const v0, 0x7f140285
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 56
-    :pswitch_13
+    :pswitch_58
     const v0, 0x7f1402aa
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 54
-    :pswitch_14
+    :pswitch_5c
     const v0, 0x7f1402ac
 
     .line 53
-    :goto_0
+    :goto_5f
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_60
     .packed-switch 0x1
+        :pswitch_5c
+        :pswitch_58
+        :pswitch_54
+        :pswitch_50
+        :pswitch_4c
+        :pswitch_48
+        :pswitch_44
+        :pswitch_40
+        :pswitch_3c
+        :pswitch_38
+        :pswitch_34
+        :pswitch_30
+        :pswitch_2c
+        :pswitch_28
+        :pswitch_24
+        :pswitch_20
+        :pswitch_1c
+        :pswitch_18
         :pswitch_14
-        :pswitch_13
-        :pswitch_12
-        :pswitch_11
         :pswitch_10
-        :pswitch_f
-        :pswitch_e
-        :pswitch_d
         :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
     .end packed-switch
 .end method
 
 .method public final setCurrentNightMode(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 106
@@ -674,7 +674,7 @@
 .end method
 
 .method public final usingNightMode()Z
-    .locals 4
+    .registers 5
 
     .line 124
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -687,7 +687,7 @@
 
     const/4 v2, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     .line 127
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
@@ -708,28 +708,28 @@
 
     const/16 v3, 0x20
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_23
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 126
-    :pswitch_0
-    goto :goto_0
+    :pswitch_21
+    goto :goto_23
 
     .line 125
-    :pswitch_1
+    :pswitch_22
     const/4 v1, 0x1
 
     .line 124
-    :cond_0
-    :goto_0
+    :cond_23
+    :goto_23
     return v1
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_22
+        :pswitch_21
     .end packed-switch
 .end method

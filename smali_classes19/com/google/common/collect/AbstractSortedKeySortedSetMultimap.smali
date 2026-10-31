@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/SortedMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public bridge synthetic asMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 34
     .local p0, "this":Lcom/google/common/collect/AbstractSortedKeySortedSetMultimap;, "Lcom/google/common/collect/AbstractSortedKeySortedSetMultimap<TK;TV;>;"
@@ -57,7 +57,7 @@
 .end method
 
 .method public asMap()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -80,7 +80,7 @@
 .end method
 
 .method bridge synthetic backingMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 34
     .local p0, "this":Lcom/google/common/collect/AbstractSortedKeySortedSetMultimap;, "Lcom/google/common/collect/AbstractSortedKeySortedSetMultimap<TK;TV;>;"
@@ -92,7 +92,7 @@
 .end method
 
 .method backingMap()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -115,7 +115,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -134,7 +134,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 34
     .local p0, "this":Lcom/google/common/collect/AbstractSortedKeySortedSetMultimap;, "Lcom/google/common/collect/AbstractSortedKeySortedSetMultimap<TK;TV;>;"
@@ -146,7 +146,7 @@
 .end method
 
 .method public keySet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

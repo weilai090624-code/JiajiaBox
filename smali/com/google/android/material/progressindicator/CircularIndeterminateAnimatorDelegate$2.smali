@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;
 
     .line 107
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 110
@@ -50,7 +50,7 @@
 
     iget-object v0, v0, Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;->animatorCompleteCallback:Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 113
     iget-object v0, p0, Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate$2;->this$0:Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;
@@ -64,6 +64,6 @@
     invoke-virtual {v0, v1}, Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;->onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
 
     .line 115
-    :cond_0
+    :cond_19
     return-void
 .end method

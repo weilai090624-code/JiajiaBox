@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialTextInputPicker;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialTextInputPicker;
 
     .line 89
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onIncompleteSelectionChanged()V
-    .locals 2
+    .registers 3
 
     .line 99
     .local p0, "this":Lcom/google/android/material/datepicker/MaterialTextInputPicker$1;, "Lcom/google/android/material/datepicker/MaterialTextInputPicker$1;"
@@ -54,12 +54,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -73,15 +73,15 @@
 
     .line 101
     .end local v1    # "listener":Lcom/google/android/material/datepicker/OnSelectionChangedListener;, "Lcom/google/android/material/datepicker/OnSelectionChangedListener<TS;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 102
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public onSelectionChanged(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TS;)V"
@@ -99,12 +99,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -118,9 +118,9 @@
 
     .line 94
     .end local v1    # "listener":Lcom/google/android/material/datepicker/OnSelectionChangedListener;, "Lcom/google/android/material/datepicker/OnSelectionChangedListener<TS;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 95
-    :cond_0
+    :cond_18
     return-void
 .end method

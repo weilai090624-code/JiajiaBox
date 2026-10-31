@@ -38,7 +38,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 554
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$Reference;, "Lcom/google/common/collect/TreeMultiset$Reference<TT;>;"
@@ -48,7 +48,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/TreeMultiset$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/collect/TreeMultiset$1;
 
     .line 554
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public checkAndSet(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -82,7 +82,7 @@
     .local p2, "newValue":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$Reference;->value:Ljava/lang/Object;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_7
 
     .line 566
     iput-object p2, p0, Lcom/google/common/collect/TreeMultiset$Reference;->value:Ljava/lang/Object;
@@ -91,7 +91,7 @@
     return-void
 
     .line 564
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -100,7 +100,7 @@
 .end method
 
 .method clear()V
-    .locals 1
+    .registers 2
 
     .line 570
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$Reference;, "Lcom/google/common/collect/TreeMultiset$Reference<TT;>;"
@@ -113,7 +113,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"

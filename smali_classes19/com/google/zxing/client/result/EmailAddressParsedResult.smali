@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 6
+    .registers 8
     .param p1, "to"    # Ljava/lang/String;
 
     .line 34
@@ -42,7 +42,7 @@
 .end method
 
 .method constructor <init>([Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 7
     .param p1, "tos"    # [Ljava/lang/String;
     .param p2, "ccs"    # [Ljava/lang/String;
     .param p3, "bccs"    # [Ljava/lang/String;
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public getBCCs()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lcom/google/zxing/client/result/EmailAddressParsedResult;->bccs:[Ljava/lang/String;
@@ -85,7 +85,7 @@
 .end method
 
 .method public getBody()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 76
     iget-object v0, p0, Lcom/google/zxing/client/result/EmailAddressParsedResult;->body:Ljava/lang/String;
@@ -94,7 +94,7 @@
 .end method
 
 .method public getCCs()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Lcom/google/zxing/client/result/EmailAddressParsedResult;->ccs:[Ljava/lang/String;
@@ -103,7 +103,7 @@
 .end method
 
 .method public getDisplayResult()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 90
     new-instance v0, Ljava/lang/StringBuilder;
@@ -147,24 +147,24 @@
 .end method
 
 .method public getEmailAddress()Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 56
     iget-object v0, p0, Lcom/google/zxing/client/result/EmailAddressParsedResult;->tos:[Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/google/zxing/client/result/EmailAddressParsedResult;->tos:[Ljava/lang/String;
 
     array-length v0, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/zxing/client/result/EmailAddressParsedResult;->tos:[Ljava/lang/String;
 
     const/4 v1, 0x0
@@ -173,15 +173,15 @@
 
     return-object v0
 
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public getMailtoURI()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -192,7 +192,7 @@
 .end method
 
 .method public getSubject()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Lcom/google/zxing/client/result/EmailAddressParsedResult;->subject:Ljava/lang/String;
@@ -201,7 +201,7 @@
 .end method
 
 .method public getTos()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Lcom/google/zxing/client/result/EmailAddressParsedResult;->tos:[Ljava/lang/String;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/PreferenceGroup;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/PreferenceGroup;
 
     .line 73
@@ -37,13 +37,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 76
     monitor-enter p0
 
     .line 77
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/preference/PreferenceGroup$1;->this$0:Landroidx/preference/PreferenceGroup;
 
     iget-object v0, v0, Landroidx/preference/PreferenceGroup;->mIdRecycleCache:Landroidx/collection/SimpleArrayMap;
@@ -57,12 +57,12 @@
     return-void
 
     .line 78
-    :catchall_0
+    :catchall_a
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_1 .. :try_end_c} :catchall_a
 
     throw v0
 .end method

@@ -94,7 +94,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroidx/room/AutoCloser;)V
-    .locals 1
+    .registers 4
     .param p1, "sql"    # Ljava/lang/String;
     .param p2, "autoCloser"    # Landroidx/room/AutoCloser;
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public static final synthetic access$doBinds(Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement;Landroidx/sqlite/db/SupportSQLiteStatement;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement;
     .param p1, "supportSQLiteStatement"    # Landroidx/sqlite/db/SupportSQLiteStatement;
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public static final synthetic access$getSql$p(Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement;
 
     .line 461
@@ -148,7 +148,7 @@
 .end method
 
 .method private final doBinds(Landroidx/sqlite/db/SupportSQLiteStatement;)V
-    .locals 11
+    .registers 13
     .param p1, "supportSQLiteStatement"    # Landroidx/sqlite/db/SupportSQLiteStatement;
 
     .line 478
@@ -169,12 +169,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_a
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_60
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -185,12 +185,12 @@
 
     .end local v2    # "index$iv":I
     .local v5, "index$iv":I
-    if-gez v2, :cond_0
+    if-gez v2, :cond_1b
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
     .local v2, "i":I
-    :cond_0
+    :cond_1b
     const/4 v6, 0x0
 
     .line 479
@@ -207,18 +207,18 @@
 
     .line 481
     .local v8, "bind":Ljava/lang/Object;
-    if-nez v8, :cond_1
+    if-nez v8, :cond_2a
 
     .line 482
     invoke-interface {p1, v7}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 484
-    :cond_1
+    :cond_2a
     instance-of v9, v8, Ljava/lang/Long;
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_39
 
     .line 485
     move-object v9, v8
@@ -231,13 +231,13 @@
 
     invoke-interface {p1, v7, v9, v10}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindLong(IJ)V
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 487
-    :cond_2
+    :cond_39
     instance-of v9, v8, Ljava/lang/Double;
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_48
 
     .line 488
     move-object v9, v8
@@ -250,13 +250,13 @@
 
     invoke-interface {p1, v7, v9, v10}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindDouble(ID)V
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 490
-    :cond_3
+    :cond_48
     instance-of v9, v8, Ljava/lang/String;
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_53
 
     .line 491
     move-object v9, v8
@@ -265,13 +265,13 @@
 
     invoke-interface {p1, v7, v9}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 493
-    :cond_4
+    :cond_53
     instance-of v9, v8, [B
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_5d
 
     .line 494
     move-object v9, v8
@@ -282,8 +282,8 @@
 
     .line 497
     .end local v8    # "bind":Ljava/lang/Object;
-    :cond_5
-    :goto_1
+    :cond_5d
+    :goto_5d
     nop
 
     .line 573
@@ -293,12 +293,12 @@
     move v2, v5
 
     .end local v4    # "item$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_a
 
     .line 574
     .end local v5    # "index$iv":I
     .local v2, "index$iv":I
-    :cond_6
+    :cond_60
     nop
 
     .line 498
@@ -309,7 +309,7 @@
 .end method
 
 .method private final executeSqliteStatementWithRefCount(Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -340,7 +340,7 @@
 .end method
 
 .method private final saveBinds(ILjava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "bindIndex"    # I
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -355,7 +355,7 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1d
 
     .line 504
     iget-object v1, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement;->binds:Ljava/util/ArrayList;
@@ -365,10 +365,10 @@
     move-result v1
 
     .local v1, "i":I
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_1d
 
     .line 505
-    :goto_0
+    :goto_12
     iget-object v2, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement;->binds:Ljava/util/ArrayList;
 
     const/4 v3, 0x0
@@ -376,15 +376,15 @@
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 504
-    if-eq v1, v0, :cond_0
+    if-eq v1, v0, :cond_1d
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 508
     .end local v1    # "i":I
-    :cond_0
+    :cond_1d
     iget-object v1, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement;->binds:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0, p2}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
@@ -396,7 +396,7 @@
 
 # virtual methods
 .method public bindBlob(I[B)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # [B
 
@@ -412,7 +412,7 @@
 .end method
 
 .method public bindDouble(ID)V
-    .locals 1
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # D
 
@@ -428,7 +428,7 @@
 .end method
 
 .method public bindLong(IJ)V
-    .locals 1
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # J
 
@@ -444,7 +444,7 @@
 .end method
 
 .method public bindNull(I)V
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 547
@@ -457,7 +457,7 @@
 .end method
 
 .method public bindString(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/String;
 
@@ -473,7 +473,7 @@
 .end method
 
 .method public clearBindings()V
-    .locals 1
+    .registers 2
 
     .line 567
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement;->binds:Ljava/util/ArrayList;
@@ -485,7 +485,7 @@
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -497,7 +497,7 @@
 .end method
 
 .method public execute()V
-    .locals 1
+    .registers 2
 
     .line 517
     sget-object v0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement$execute$1;->INSTANCE:Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement$execute$1;
@@ -511,7 +511,7 @@
 .end method
 
 .method public executeInsert()J
-    .locals 2
+    .registers 3
 
     .line 529
     sget-object v0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement$executeInsert$1;->INSTANCE:Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement$executeInsert$1;
@@ -532,7 +532,7 @@
 .end method
 
 .method public executeUpdateDelete()I
-    .locals 1
+    .registers 2
 
     .line 524
     sget-object v0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement$executeUpdateDelete$1;->INSTANCE:Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement$executeUpdateDelete$1;
@@ -553,7 +553,7 @@
 .end method
 
 .method public simpleQueryForLong()J
-    .locals 2
+    .registers 3
 
     .line 535
     sget-object v0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement$simpleQueryForLong$1;->INSTANCE:Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement$simpleQueryForLong$1;
@@ -574,7 +574,7 @@
 .end method
 
 .method public simpleQueryForString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 541
     sget-object v0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement$simpleQueryForString$1;->INSTANCE:Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSqliteStatement$simpleQueryForString$1;

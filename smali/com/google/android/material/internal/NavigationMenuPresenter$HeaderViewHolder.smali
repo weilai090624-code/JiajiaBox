@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "itemView"    # Landroid/view/View;
 
     .line 479

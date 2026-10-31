@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1470
     new-instance v0, Lcom/google/common/base/CharMatcher$Invisible;
@@ -37,7 +37,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 1473
     const-string v0, "\u0000\u007f\u00ad\u0600\u061c\u06dd\u070f\u08e2\u1680\u180e\u2000\u2028\u205f\u2066\u3000\ud800\ufeff\ufff9"

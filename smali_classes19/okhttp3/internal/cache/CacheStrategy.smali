@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/cache/CacheStrategy$Companion;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/Request;Lokhttp3/Response;)V
-    .locals 0
+    .registers 3
     .param p1, "networkRequest"    # Lokhttp3/Request;
     .param p2, "cacheResponse"    # Lokhttp3/Response;
 
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public final getCacheResponse()Lokhttp3/Response;
-    .locals 1
+    .registers 2
 
     .line 49
     iget-object v0, p0, Lokhttp3/internal/cache/CacheStrategy;->cacheResponse:Lokhttp3/Response;
@@ -96,7 +96,7 @@
 .end method
 
 .method public final getNetworkRequest()Lokhttp3/Request;
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Lokhttp3/internal/cache/CacheStrategy;->networkRequest:Lokhttp3/Request;

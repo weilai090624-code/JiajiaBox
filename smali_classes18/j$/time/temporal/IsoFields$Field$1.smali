@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 291
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILj$/time/temporal/IsoFields-IA;)V
-    .locals 0
+    .registers 4
 
     invoke-direct {p0, p1, p2}, Lj$/time/temporal/IsoFields$Field$1;-><init>(Ljava/lang/String;I)V
 
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public adjustInto(Lj$/time/temporal/Temporal;J)Lj$/time/temporal/Temporal;
-    .locals 7
+    .registers 11
     .param p2, "newValue"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -82,7 +82,7 @@
 .end method
 
 .method public getBaseUnit()Lj$/time/temporal/TemporalUnit;
-    .locals 1
+    .registers 2
 
     .line 294
     sget-object v0, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
@@ -91,7 +91,7 @@
 .end method
 
 .method public getFrom(Lj$/time/temporal/TemporalAccessor;)J
-    .locals 7
+    .registers 9
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 327
@@ -99,7 +99,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     .line 330
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_YEAR:Lj$/time/temporal/ChronoField;
@@ -140,16 +140,16 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2a
 
     const/4 v6, 0x4
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_2a
     const/4 v6, 0x0
 
-    :goto_0
+    :goto_2b
     add-int/2addr v5, v6
 
     aget v4, v4, v5
@@ -164,7 +164,7 @@
     .end local v0    # "doy":I
     .end local v1    # "moy":I
     .end local v2    # "year":J
-    :cond_1
+    :cond_32
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v1, "Unsupported field: DayOfQuarter"
@@ -175,7 +175,7 @@
 .end method
 
 .method public getRangeUnit()Lj$/time/temporal/TemporalUnit;
-    .locals 1
+    .registers 2
 
     .line 298
     sget-object v0, Lj$/time/temporal/IsoFields;->QUARTER_YEARS:Lj$/time/temporal/TemporalUnit;
@@ -184,7 +184,7 @@
 .end method
 
 .method public isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 306
@@ -194,7 +194,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     sget-object v0, Lj$/time/temporal/ChronoField;->MONTH_OF_YEAR:Lj$/time/temporal/ChronoField;
 
@@ -202,7 +202,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     sget-object v0, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
 
@@ -211,28 +211,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     invoke-static {p1}, Lj$/time/temporal/IsoFields;->isIso(Lj$/time/temporal/TemporalAccessor;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v0, 0x0
 
     .line 306
-    :goto_0
+    :goto_21
     return v0
 .end method
 
 .method public range()Lj$/time/temporal/ValueRange;
-    .locals 6
+    .registers 7
 
     .line 302
     const-wide/16 v2, 0x5a
@@ -249,7 +249,7 @@
 .end method
 
 .method public rangeRefinedBy(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
-    .locals 9
+    .registers 11
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 311
@@ -257,7 +257,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4e
 
     .line 314
     sget-object v0, Lj$/time/temporal/IsoFields$Field$1;->QUARTER_OF_YEAR:Lj$/time/temporal/IsoFields$Field;
@@ -274,7 +274,7 @@
 
     cmp-long v6, v0, v4
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2a
 
     .line 316
     sget-object v6, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
@@ -291,14 +291,14 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_23
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_23
     const-wide/16 v2, 0x5a
 
-    :goto_0
+    :goto_25
     invoke-static {v4, v5, v2, v3}, Lj$/time/temporal/ValueRange;->of(JJ)Lj$/time/temporal/ValueRange;
 
     move-result-object v2
@@ -307,12 +307,12 @@
 
     .line 318
     .end local v6    # "year":J
-    :cond_1
+    :cond_2a
     const-wide/16 v6, 0x2
 
     cmp-long v8, v0, v6
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_35
 
     .line 319
     invoke-static {v4, v5, v2, v3}, Lj$/time/temporal/ValueRange;->of(JJ)Lj$/time/temporal/ValueRange;
@@ -322,23 +322,23 @@
     return-object v2
 
     .line 320
-    :cond_2
+    :cond_35
     const-wide/16 v2, 0x3
 
     cmp-long v6, v0, v2
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_47
 
     const-wide/16 v2, 0x4
 
     cmp-long v6, v0, v2
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_42
 
-    goto :goto_1
+    goto :goto_47
 
     .line 323
-    :cond_3
+    :cond_42
     invoke-virtual {p0}, Lj$/time/temporal/IsoFields$Field$1;->range()Lj$/time/temporal/ValueRange;
 
     move-result-object v2
@@ -346,8 +346,8 @@
     return-object v2
 
     .line 321
-    :cond_4
-    :goto_1
+    :cond_47
+    :goto_47
     const-wide/16 v2, 0x5c
 
     invoke-static {v4, v5, v2, v3}, Lj$/time/temporal/ValueRange;->of(JJ)Lj$/time/temporal/ValueRange;
@@ -358,7 +358,7 @@
 
     .line 312
     .end local v0    # "qoy":J
-    :cond_5
+    :cond_4e
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     const-string v1, "Unsupported field: DayOfQuarter"
@@ -369,7 +369,7 @@
 .end method
 
 .method public resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 16
+    .registers 20
     .param p2, "partialTemporal"    # Lj$/time/temporal/TemporalAccessor;
     .param p3, "resolverStyle"    # Lj$/time/format/ResolverStyle;
     .annotation system Ldalvik/annotation/Signature;
@@ -414,14 +414,14 @@
 
     .line 348
     .local v4, "qoyLong":Ljava/lang/Long;
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_a0
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1c
 
-    goto/16 :goto_2
+    goto/16 :goto_a0
 
     .line 351
-    :cond_0
+    :cond_1c
     sget-object v5, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
@@ -459,7 +459,7 @@
 
     const/4 v12, 0x1
 
-    if-ne v2, v8, :cond_1
+    if-ne v2, v8, :cond_56
 
     .line 356
     invoke-static {v5, v12, v12}, Lj$/time/LocalDate;->of(III)Lj$/time/LocalDate;
@@ -488,11 +488,11 @@
 
     move-result-wide v6
 
-    goto :goto_1
+    goto :goto_8e
 
     .line 359
     .end local v8    # "date":Lj$/time/LocalDate;
-    :cond_1
+    :cond_56
     sget-object v8, Lj$/time/temporal/IsoFields$Field$1;->QUARTER_OF_YEAR:Lj$/time/temporal/IsoFields$Field;
 
     invoke-virtual {v8}, Lj$/time/temporal/IsoFields$Field;->range()Lj$/time/temporal/ValueRange;
@@ -525,19 +525,19 @@
     .local v9, "date":Lj$/time/LocalDate;
     cmp-long v12, v6, v10
 
-    if-ltz v12, :cond_2
+    if-ltz v12, :cond_79
 
     const-wide/16 v12, 0x5a
 
     cmp-long v14, v6, v12
 
-    if-lez v14, :cond_4
+    if-lez v14, :cond_8c
 
     .line 362
-    :cond_2
+    :cond_79
     sget-object v12, Lj$/time/format/ResolverStyle;->STRICT:Lj$/time/format/ResolverStyle;
 
-    if-ne v2, v12, :cond_3
+    if-ne v2, v12, :cond_85
 
     .line 363
     invoke-virtual {v0, v9}, Lj$/time/temporal/IsoFields$Field$1;->rangeRefinedBy(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
@@ -546,10 +546,10 @@
 
     invoke-virtual {v12, v6, v7, v0}, Lj$/time/temporal/ValueRange;->checkValidValue(JLj$/time/temporal/TemporalField;)J
 
-    goto :goto_0
+    goto :goto_8c
 
     .line 365
-    :cond_3
+    :cond_85
     invoke-virtual/range {p0 .. p0}, Lj$/time/temporal/IsoFields$Field$1;->range()Lj$/time/temporal/ValueRange;
 
     move-result-object v12
@@ -557,8 +557,8 @@
     invoke-virtual {v12, v6, v7, v0}, Lj$/time/temporal/ValueRange;->checkValidValue(JLj$/time/temporal/TemporalField;)J
 
     .line 368
-    :cond_4
-    :goto_0
+    :cond_8c
+    :goto_8c
     sub-long/2addr v6, v10
 
     move-object v8, v9
@@ -566,7 +566,7 @@
     .line 370
     .end local v9    # "date":Lj$/time/LocalDate;
     .local v8, "date":Lj$/time/LocalDate;
-    :goto_1
+    :goto_8e
     invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 371
@@ -590,15 +590,15 @@
     .end local v5    # "y":I
     .end local v6    # "doq":J
     .end local v8    # "date":Lj$/time/LocalDate;
-    :cond_5
-    :goto_2
+    :cond_a0
+    :goto_a0
     const/4 v5, 0x0
 
     return-object v5
 .end method
 
 .method public bridge synthetic resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/temporal/TemporalAccessor;
-    .locals 0
+    .registers 4
 
     .line 291
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/temporal/IsoFields$Field$1;->resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
@@ -609,7 +609,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 377
     const-string v0, "DayOfQuarter"

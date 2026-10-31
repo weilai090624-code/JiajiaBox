@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic lambda$showKeyboardWithAutoHideBehavior$0([Landroid/widget/EditText;Landroid/view/View;Z)V
-    .locals 4
+    .registers 7
     .param p0, "editTexts"    # [Landroid/widget/EditText;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "hasFocus"    # Z
@@ -15,8 +15,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_2
+    if-ge v1, v0, :cond_10
 
     aget-object v2, p0, v1
 
@@ -26,20 +26,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
     .line 139
     return-void
 
     .line 137
     .end local v2    # "editText":Landroid/widget/EditText;
-    :cond_0
+    :cond_d
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 142
-    :cond_1
+    :cond_10
     invoke-static {p1}, Lcom/google/android/material/internal/ViewUtils;->hideKeyboard(Landroid/view/View;)V
 
     .line 143
@@ -47,19 +47,19 @@
 .end method
 
 .method public static varargs showKeyboardWithAutoHideBehavior([Landroid/widget/EditText;)V
-    .locals 5
+    .registers 6
     .param p0, "editTexts"    # [Landroid/widget/EditText;
 
     .line 131
     array-length v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4
 
     .line 132
     return-void
 
     .line 135
-    :cond_0
+    :cond_4
     new-instance v0, Lcom/google/android/material/datepicker/DateSelector$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p0}, Lcom/google/android/material/datepicker/DateSelector$$ExternalSyntheticLambda0;-><init>([Landroid/widget/EditText;)V
@@ -72,8 +72,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_c
+    if-ge v3, v1, :cond_16
 
     aget-object v4, p0, v3
 
@@ -85,10 +85,10 @@
     .end local v4    # "editText":Landroid/widget/EditText;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 149
-    :cond_1
+    :cond_16
     aget-object v1, p0, v2
 
     invoke-static {v1}, Lcom/google/android/material/internal/ViewUtils;->requestFocusAndShowKeyboard(Landroid/view/View;)V

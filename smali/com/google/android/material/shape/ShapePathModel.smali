@@ -10,7 +10,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Lcom/google/android/material/shape/ShapeAppearanceModel;-><init>()V
@@ -21,7 +21,7 @@
 
 # virtual methods
 .method public setAllCorners(Lcom/google/android/material/shape/CornerTreatment;)V
-    .locals 0
+    .registers 2
     .param p1, "cornerTreatment"    # Lcom/google/android/material/shape/CornerTreatment;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -43,7 +43,7 @@
 .end method
 
 .method public setAllEdges(Lcom/google/android/material/shape/EdgeTreatment;)V
-    .locals 0
+    .registers 2
     .param p1, "edgeTreatment"    # Lcom/google/android/material/shape/EdgeTreatment;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -65,7 +65,7 @@
 .end method
 
 .method public setBottomEdge(Lcom/google/android/material/shape/EdgeTreatment;)V
-    .locals 0
+    .registers 2
     .param p1, "bottomEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -78,7 +78,7 @@
 .end method
 
 .method public setBottomLeftCorner(Lcom/google/android/material/shape/CornerTreatment;)V
-    .locals 0
+    .registers 2
     .param p1, "bottomLeftCorner"    # Lcom/google/android/material/shape/CornerTreatment;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -91,7 +91,7 @@
 .end method
 
 .method public setBottomRightCorner(Lcom/google/android/material/shape/CornerTreatment;)V
-    .locals 0
+    .registers 2
     .param p1, "bottomRightCorner"    # Lcom/google/android/material/shape/CornerTreatment;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -104,7 +104,7 @@
 .end method
 
 .method public setCornerTreatments(Lcom/google/android/material/shape/CornerTreatment;Lcom/google/android/material/shape/CornerTreatment;Lcom/google/android/material/shape/CornerTreatment;Lcom/google/android/material/shape/CornerTreatment;)V
-    .locals 0
+    .registers 5
     .param p1, "topLeftCorner"    # Lcom/google/android/material/shape/CornerTreatment;
     .param p2, "topRightCorner"    # Lcom/google/android/material/shape/CornerTreatment;
     .param p3, "bottomRightCorner"    # Lcom/google/android/material/shape/CornerTreatment;
@@ -129,7 +129,7 @@
 .end method
 
 .method public setEdgeTreatments(Lcom/google/android/material/shape/EdgeTreatment;Lcom/google/android/material/shape/EdgeTreatment;Lcom/google/android/material/shape/EdgeTreatment;Lcom/google/android/material/shape/EdgeTreatment;)V
-    .locals 0
+    .registers 5
     .param p1, "leftEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
     .param p2, "topEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
     .param p3, "rightEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
@@ -154,7 +154,7 @@
 .end method
 
 .method public setLeftEdge(Lcom/google/android/material/shape/EdgeTreatment;)V
-    .locals 0
+    .registers 2
     .param p1, "leftEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -167,7 +167,7 @@
 .end method
 
 .method public setRightEdge(Lcom/google/android/material/shape/EdgeTreatment;)V
-    .locals 0
+    .registers 2
     .param p1, "rightEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -180,7 +180,7 @@
 .end method
 
 .method public setTopEdge(Lcom/google/android/material/shape/EdgeTreatment;)V
-    .locals 0
+    .registers 2
     .param p1, "topEdge"    # Lcom/google/android/material/shape/EdgeTreatment;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -193,7 +193,7 @@
 .end method
 
 .method public setTopLeftCorner(Lcom/google/android/material/shape/CornerTreatment;)V
-    .locals 0
+    .registers 2
     .param p1, "topLeftCorner"    # Lcom/google/android/material/shape/CornerTreatment;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -206,7 +206,7 @@
 .end method
 
 .method public setTopRightCorner(Lcom/google/android/material/shape/CornerTreatment;)V
-    .locals 0
+    .registers 2
     .param p1, "topRightCorner"    # Lcom/google/android/material/shape/CornerTreatment;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation

@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/button/MaterialButtonToggleGroup;)V
-    .locals 0
+    .registers 2
 
     .line 791
     iput-object p1, p0, Lcom/google/android/material/button/MaterialButtonToggleGroup$PressedStateTracker;->this$0:Lcom/google/android/material/button/MaterialButtonToggleGroup;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/button/MaterialButtonToggleGroup;Lcom/google/android/material/button/MaterialButtonToggleGroup$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/android/material/button/MaterialButtonToggleGroup;
     .param p2, "x1"    # Lcom/google/android/material/button/MaterialButtonToggleGroup$1;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onPressedChanged(Lcom/google/android/material/button/MaterialButton;Z)V
-    .locals 1
+    .registers 4
     .param p1, "button"    # Lcom/google/android/material/button/MaterialButton;
     .param p2, "isPressed"    # Z
 

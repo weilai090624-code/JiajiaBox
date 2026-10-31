@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 81
     new-instance v0, Landroidx/constraintlayout/core/state/State$Helper;
@@ -160,7 +160,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -174,7 +174,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/constraintlayout/core/state/State$Helper;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 80
@@ -190,7 +190,7 @@
 .end method
 
 .method public static values()[Landroidx/constraintlayout/core/state/State$Helper;
-    .locals 1
+    .registers 1
 
     .line 80
     sget-object v0, Landroidx/constraintlayout/core/state/State$Helper;->$VALUES:[Landroidx/constraintlayout/core/state/State$Helper;

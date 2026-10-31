@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$add(Lj$/util/stream/Stream$Builder;Ljava/lang/Object;)Lj$/util/stream/Stream$Builder;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/Stream$Builder;
 
     .line 1429

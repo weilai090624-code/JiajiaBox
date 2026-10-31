@@ -85,7 +85,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,7 +143,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p2, Lkotlin/coroutines/Continuation;
 
@@ -155,7 +155,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;",
@@ -183,7 +183,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -194,7 +194,7 @@
 
     const/4 v2, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_38
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -204,7 +204,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_12
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$filterNot$1;
@@ -215,11 +215,11 @@
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_2c
 
     .end local v0    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$filterNot$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -238,18 +238,18 @@
     move-result-object v3
 
     .end local v3    # "it":Ljava/lang/Object;
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_2a
 
     return-object v0
 
-    :cond_0
+    :cond_2a
     move-object v0, p1
 
     move-object p1, v3
 
     .end local p1    # "$result":Ljava/lang/Object;
     .local v0, "$result":Ljava/lang/Object;
-    :goto_0
+    :goto_2c
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -264,9 +264,9 @@
 
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_38
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_12
     .end packed-switch
 .end method

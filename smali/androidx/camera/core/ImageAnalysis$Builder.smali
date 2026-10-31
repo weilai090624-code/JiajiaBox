@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 613
     invoke-static {}, Landroidx/camera/core/impl/MutableOptionsBundle;->create()Landroidx/camera/core/impl/MutableOptionsBundle;
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>(Landroidx/camera/core/impl/MutableOptionsBundle;)V
-    .locals 4
+    .registers 6
     .param p1, "mutableConfig"    # Landroidx/camera/core/impl/MutableOptionsBundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -87,7 +87,7 @@
 
     .line 621
     .local v0, "oldConfigClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3c
 
     const-class v1, Landroidx/camera/core/ImageAnalysis;
 
@@ -95,12 +95,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 622
-    :cond_0
+    :cond_19
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -136,8 +136,8 @@
     throw v1
 
     .line 629
-    :cond_1
-    :goto_0
+    :cond_3c
+    :goto_3c
     const-class v1, Landroidx/camera/core/ImageAnalysis;
 
     invoke-virtual {p0, v1}, Landroidx/camera/core/ImageAnalysis$Builder;->setTargetClass(Ljava/lang/Class;)Landroidx/camera/core/ImageAnalysis$Builder;
@@ -147,7 +147,7 @@
 .end method
 
 .method static fromConfig(Landroidx/camera/core/impl/Config;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 3
     .param p0, "configuration"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -171,7 +171,7 @@
 .end method
 
 .method public static fromConfig(Landroidx/camera/core/impl/ImageAnalysisConfig;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 3
     .param p0, "configuration"    # Landroidx/camera/core/impl/ImageAnalysisConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -197,7 +197,7 @@
 
 # virtual methods
 .method public build()Landroidx/camera/core/ImageAnalysis;
-    .locals 3
+    .registers 4
 
     .line 744
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
@@ -212,7 +212,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 745
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
@@ -225,12 +225,12 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
-    goto :goto_0
+    goto :goto_22
 
     .line 746
-    :cond_0
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Cannot use both setTargetResolution and setTargetAspectRatio on the same config."
@@ -240,8 +240,8 @@
     throw v0
 
     .line 750
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     new-instance v0, Landroidx/camera/core/ImageAnalysis;
 
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis$Builder;->getUseCaseConfig()Landroidx/camera/core/impl/ImageAnalysisConfig;
@@ -254,7 +254,7 @@
 .end method
 
 .method public bridge synthetic build()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 604
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis$Builder;->build()Landroidx/camera/core/ImageAnalysis;
@@ -265,7 +265,7 @@
 .end method
 
 .method public getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
-    .locals 1
+    .registers 2
 
     .line 717
     iget-object v0, p0, Landroidx/camera/core/ImageAnalysis$Builder;->mMutableConfig:Landroidx/camera/core/impl/MutableOptionsBundle;
@@ -274,7 +274,7 @@
 .end method
 
 .method public getUseCaseConfig()Landroidx/camera/core/impl/ImageAnalysisConfig;
-    .locals 2
+    .registers 3
 
     .line 729
     new-instance v0, Landroidx/camera/core/impl/ImageAnalysisConfig;
@@ -291,7 +291,7 @@
 .end method
 
 .method public bridge synthetic getUseCaseConfig()Landroidx/camera/core/impl/UseCaseConfig;
-    .locals 1
+    .registers 2
 
     .line 604
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis$Builder;->getUseCaseConfig()Landroidx/camera/core/impl/ImageAnalysisConfig;
@@ -302,7 +302,7 @@
 .end method
 
 .method public setBackgroundExecutor(Ljava/util/concurrent/Executor;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -327,7 +327,7 @@
 .end method
 
 .method public bridge synthetic setBackgroundExecutor(Ljava/util/concurrent/Executor;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -346,7 +346,7 @@
 .end method
 
 .method public setBackpressureStrategy(I)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 3
+    .registers 5
     .param p1, "strategy"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -375,7 +375,7 @@
 .end method
 
 .method public setCameraSelector(Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "cameraSelector"    # Landroidx/camera/core/CameraSelector;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -400,7 +400,7 @@
 .end method
 
 .method public bridge synthetic setCameraSelector(Landroidx/camera/core/CameraSelector;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -419,7 +419,7 @@
 .end method
 
 .method public setCaptureOptionUnpacker(Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "optionUnpacker"    # Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -444,7 +444,7 @@
 .end method
 
 .method public bridge synthetic setCaptureOptionUnpacker(Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -463,7 +463,7 @@
 .end method
 
 .method public setDefaultCaptureConfig(Landroidx/camera/core/impl/CaptureConfig;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "captureConfig"    # Landroidx/camera/core/impl/CaptureConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -488,7 +488,7 @@
 .end method
 
 .method public bridge synthetic setDefaultCaptureConfig(Landroidx/camera/core/impl/CaptureConfig;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -507,7 +507,7 @@
 .end method
 
 .method public setDefaultResolution(Landroid/util/Size;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "resolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -532,7 +532,7 @@
 .end method
 
 .method public bridge synthetic setDefaultResolution(Landroid/util/Size;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -551,7 +551,7 @@
 .end method
 
 .method public setDefaultSessionConfig(Landroidx/camera/core/impl/SessionConfig;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -576,7 +576,7 @@
 .end method
 
 .method public bridge synthetic setDefaultSessionConfig(Landroidx/camera/core/impl/SessionConfig;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -595,7 +595,7 @@
 .end method
 
 .method public setImageQueueDepth(I)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 3
+    .registers 5
     .param p1, "depth"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -624,7 +624,7 @@
 .end method
 
 .method public setImageReaderProxyProvider(Landroidx/camera/core/ImageReaderProxyProvider;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "imageReaderProxyProvider"    # Landroidx/camera/core/ImageReaderProxyProvider;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -649,7 +649,7 @@
 .end method
 
 .method public setMaxResolution(Landroid/util/Size;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "resolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -674,7 +674,7 @@
 .end method
 
 .method public bridge synthetic setMaxResolution(Landroid/util/Size;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -693,7 +693,7 @@
 .end method
 
 .method public setSessionOptionUnpacker(Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "optionUnpacker"    # Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -718,7 +718,7 @@
 .end method
 
 .method public bridge synthetic setSessionOptionUnpacker(Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -737,7 +737,7 @@
 .end method
 
 .method public setSupportedResolutions(Ljava/util/List;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -775,7 +775,7 @@
 .end method
 
 .method public bridge synthetic setSupportedResolutions(Ljava/util/List;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -794,7 +794,7 @@
 .end method
 
 .method public setSurfaceOccupancyPriority(I)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 3
+    .registers 5
     .param p1, "priority"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -823,7 +823,7 @@
 .end method
 
 .method public bridge synthetic setSurfaceOccupancyPriority(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -842,7 +842,7 @@
 .end method
 
 .method public setTargetAspectRatio(I)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 3
+    .registers 5
     .param p1, "aspectRatio"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -871,7 +871,7 @@
 .end method
 
 .method public bridge synthetic setTargetAspectRatio(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -890,7 +890,7 @@
 .end method
 
 .method public setTargetClass(Ljava/lang/Class;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -933,7 +933,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_38
 
     .line 764
     new-instance v0, Ljava/lang/StringBuilder;
@@ -972,12 +972,12 @@
 
     .line 768
     .end local v0    # "targetName":Ljava/lang/String;
-    :cond_0
+    :cond_38
     return-object p0
 .end method
 
 .method public bridge synthetic setTargetClass(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -996,7 +996,7 @@
 .end method
 
 .method public setTargetName(Ljava/lang/String;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "targetName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1021,7 +1021,7 @@
 .end method
 
 .method public bridge synthetic setTargetName(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1040,7 +1040,7 @@
 .end method
 
 .method public setTargetResolution(Landroid/util/Size;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "resolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1066,7 +1066,7 @@
 .end method
 
 .method public bridge synthetic setTargetResolution(Landroid/util/Size;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1085,7 +1085,7 @@
 .end method
 
 .method public setTargetRotation(I)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 3
+    .registers 5
     .param p1, "rotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1114,7 +1114,7 @@
 .end method
 
 .method public bridge synthetic setTargetRotation(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -1133,7 +1133,7 @@
 .end method
 
 .method public setUseCaseEventCallback(Landroidx/camera/core/UseCase$EventCallback;)Landroidx/camera/core/ImageAnalysis$Builder;
-    .locals 2
+    .registers 4
     .param p1, "useCaseEventCallback"    # Landroidx/camera/core/UseCase$EventCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1158,7 +1158,7 @@
 .end method
 
 .method public bridge synthetic setUseCaseEventCallback(Landroidx/camera/core/UseCase$EventCallback;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000

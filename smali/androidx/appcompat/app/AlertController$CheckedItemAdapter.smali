@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;II[Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "resource"    # I
     .param p3, "textViewResourceId"    # I
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getItemId(I)J
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 1114
@@ -50,7 +50,7 @@
 .end method
 
 .method public hasStableIds()Z
-    .locals 1
+    .registers 2
 
     .line 1109
     const/4 v0, 0x1

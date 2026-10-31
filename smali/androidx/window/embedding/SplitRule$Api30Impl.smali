@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/embedding/SplitRule$Api30Impl;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final getBounds(Landroid/view/WindowMetrics;)Landroid/graphics/Rect;
-    .locals 2
+    .registers 4
     .param p1, "windowMetrics"    # Landroid/view/WindowMetrics;
 
     const-string/jumbo v0, "windowMetrics"

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final getLayoutDirection(Ljava/util/Locale;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$layoutDirection"    # Ljava/util/Locale;
 
     const/4 v0, 0x0

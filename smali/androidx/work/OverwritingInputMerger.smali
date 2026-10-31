@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Landroidx/work/InputMerger;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public merge(Ljava/util/List;)Landroidx/work/Data;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -54,12 +54,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -77,10 +77,10 @@
 
     .line 41
     .end local v3    # "input":Landroidx/work/Data;
-    goto :goto_0
+    goto :goto_e
 
     .line 43
-    :cond_0
+    :cond_22
     invoke-virtual {v0, v1}, Landroidx/work/Data$Builder;->putAll(Ljava/util/Map;)Landroidx/work/Data$Builder;
 
     .line 44

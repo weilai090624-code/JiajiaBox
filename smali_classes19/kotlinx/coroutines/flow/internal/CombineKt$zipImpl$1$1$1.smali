@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/CompletableJob;Lkotlinx/coroutines/flow/FlowCollector;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 106
@@ -105,7 +105,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p1, "it"    # Ljava/lang/Throwable;
 
     .line 108
@@ -115,7 +115,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-object v0, p0, Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$1;->$collectJob:Lkotlinx/coroutines/CompletableJob;
 
@@ -130,6 +130,6 @@
     invoke-interface {v0, v1}, Lkotlinx/coroutines/CompletableJob;->cancel(Ljava/util/concurrent/CancellationException;)V
 
     .line 109
-    :cond_0
+    :cond_16
     return-void
 .end method

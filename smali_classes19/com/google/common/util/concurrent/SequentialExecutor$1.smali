@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/SequentialExecutor;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/SequentialExecutor;
 
     .line 120
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 123
     iget-object v0, p0, Lcom/google/common/util/concurrent/SequentialExecutor$1;->val$task:Ljava/lang/Runnable;
@@ -49,7 +49,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 128
     iget-object v0, p0, Lcom/google/common/util/concurrent/SequentialExecutor$1;->val$task:Ljava/lang/Runnable;

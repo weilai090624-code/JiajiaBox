@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AsyncFunction;)V
-    .locals 0
+    .registers 2
 
     .line 832
     iput-object p1, p0, Lcom/google/common/util/concurrent/ClosingFuture$6;->val$function:Lcom/google/common/util/concurrent/AsyncFunction;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 4
     .param p1, "closer"    # Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
     .annotation system Ldalvik/annotation/Signature;
         value = {

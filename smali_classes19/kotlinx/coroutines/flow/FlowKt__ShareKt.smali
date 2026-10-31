@@ -71,7 +71,7 @@
 
 # direct methods
 .method public static final asSharedFlow(Lkotlinx/coroutines/flow/MutableSharedFlow;)Lkotlinx/coroutines/flow/SharedFlow;
-    .locals 3
+    .registers 4
     .param p0, "$this$asSharedFlow"    # Lkotlinx/coroutines/flow/MutableSharedFlow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -102,7 +102,7 @@
 .end method
 
 .method public static final asStateFlow(Lkotlinx/coroutines/flow/MutableStateFlow;)Lkotlinx/coroutines/flow/StateFlow;
-    .locals 3
+    .registers 4
     .param p0, "$this$asStateFlow"    # Lkotlinx/coroutines/flow/MutableStateFlow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -133,7 +133,7 @@
 .end method
 
 .method private static final configureSharing$FlowKt__ShareKt(Lkotlinx/coroutines/flow/Flow;I)Lkotlinx/coroutines/flow/SharingConfig;
-    .locals 7
+    .registers 9
     .param p0, "$this$configureSharing"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "replay"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -157,29 +157,29 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_17
 
     .line 427
     const/4 v0, 0x0
 
     .line 160
     .local v0, "$i$a$-assert-FlowKt__ShareKt$configureSharing$1":I
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     .end local v0    # "$i$a$-assert-FlowKt__ShareKt$configureSharing$1":I
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_11
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_11
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -187,8 +187,8 @@
     throw v0
 
     .line 161
-    :cond_2
-    :goto_1
+    :cond_17
+    :goto_17
     sget-object v0, Lkotlinx/coroutines/channels/Channel;->Factory:Lkotlinx/coroutines/channels/Channel$Factory;
 
     invoke-virtual {v0}, Lkotlinx/coroutines/channels/Channel$Factory;->getCHANNEL_DEFAULT_CAPACITY$kotlinx_coroutines_core()I
@@ -205,7 +205,7 @@
     .local v0, "defaultExtraCapacity":I
     instance-of v3, p0, Lkotlinx/coroutines/flow/internal/ChannelFlow;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_67
 
     .line 165
     move-object v3, p0
@@ -218,7 +218,7 @@
 
     .line 166
     .local v3, "upstream":Lkotlinx/coroutines/flow/Flow;
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_67
 
     .line 167
     new-instance v4, Lkotlinx/coroutines/flow/SharingConfig;
@@ -233,20 +233,20 @@
 
     iget v5, v5, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_76
 
     .line 177
-    :pswitch_0
+    :pswitch_3a
     move-object v1, p0
 
     check-cast v1, Lkotlinx/coroutines/flow/internal/ChannelFlow;
 
     iget v1, v1, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
-    goto :goto_2
+    goto :goto_59
 
     .line 171
-    :pswitch_1
+    :pswitch_40
     nop
 
     .line 172
@@ -258,7 +258,7 @@
 
     sget-object v6, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne v5, v6, :cond_4
+    if-ne v5, v6, :cond_55
 
     .line 173
     move-object v1, p0
@@ -267,29 +267,29 @@
 
     iget v1, v1, Lkotlinx/coroutines/flow/internal/ChannelFlow;->capacity:I
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_53
 
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_59
 
-    :cond_3
+    :cond_53
     move v1, v0
 
-    goto :goto_2
+    goto :goto_59
 
     .line 174
-    :cond_4
-    if-nez p1, :cond_5
+    :cond_55
+    if-nez p1, :cond_58
 
-    goto :goto_2
+    goto :goto_59
 
     .line 175
-    :cond_5
+    :cond_58
     const/4 v1, 0x0
 
     .line 179
-    :goto_2
+    :goto_59
     move-object v2, p0
 
     check-cast v2, Lkotlinx/coroutines/flow/internal/ChannelFlow;
@@ -310,7 +310,7 @@
 
     .line 185
     .end local v3    # "upstream":Lkotlinx/coroutines/flow/Flow;
-    :cond_6
+    :cond_67
     new-instance v1, Lkotlinx/coroutines/flow/SharingConfig;
 
     .line 186
@@ -334,17 +334,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_76
     .packed-switch -0x3
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_40
+        :pswitch_40
+        :pswitch_3a
+        :pswitch_40
     .end packed-switch
 .end method
 
 .method private static final launchSharing$FlowKt__ShareKt(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/MutableSharedFlow;Lkotlinx/coroutines/flow/SharingStarted;Ljava/lang/Object;)Lkotlinx/coroutines/Job;
-    .locals 8
+    .registers 14
     .param p0, "$this$launchSharing"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "upstream"    # Lkotlinx/coroutines/flow/Flow;
@@ -379,18 +379,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     sget-object v0, Lkotlinx/coroutines/CoroutineStart;->DEFAULT:Lkotlinx/coroutines/CoroutineStart;
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     sget-object v0, Lkotlinx/coroutines/CoroutineStart;->UNDISPATCHED:Lkotlinx/coroutines/CoroutineStart;
 
     .line 209
     .local v0, "start":Lkotlinx/coroutines/CoroutineStart;
-    :goto_0
+    :goto_11
     new-instance v7, Lkotlinx/coroutines/flow/FlowKt__ShareKt$launchSharing$1;
 
     const/4 v6, 0x0
@@ -417,7 +417,7 @@
 .end method
 
 .method private static final launchSharingDeferred$FlowKt__ShareKt(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CompletableDeferred;)V
-    .locals 8
+    .registers 12
     .param p0, "$this$launchSharingDeferred"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "upstream"    # Lkotlinx/coroutines/flow/Flow;
@@ -465,7 +465,7 @@
 .end method
 
 .method public static final onSubscription(Lkotlinx/coroutines/flow/SharedFlow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/SharedFlow;
-    .locals 1
+    .registers 3
     .param p0, "$this$onSubscription"    # Lkotlinx/coroutines/flow/SharedFlow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -501,7 +501,7 @@
 .end method
 
 .method public static final shareIn(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/flow/SharingStarted;I)Lkotlinx/coroutines/flow/SharedFlow;
-    .locals 9
+    .registers 13
     .param p0, "$this$shareIn"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "scope"    # Lkotlinx/coroutines/CoroutineScope;
     .param p2, "started"    # Lkotlinx/coroutines/flow/SharingStarted;
@@ -579,18 +579,18 @@
 .end method
 
 .method public static synthetic shareIn$default(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/flow/SharingStarted;IILjava/lang/Object;)Lkotlinx/coroutines/flow/SharedFlow;
-    .locals 0
+    .registers 6
 
     .line 135
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 138
     const/4 p3, 0x0
 
     .line 135
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlinx/coroutines/flow/FlowKt;->shareIn(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/flow/SharingStarted;I)Lkotlinx/coroutines/flow/SharedFlow;
 
     move-result-object p0
@@ -599,7 +599,7 @@
 .end method
 
 .method public static final stateIn(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$stateIn"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "scope"    # Lkotlinx/coroutines/CoroutineScope;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -651,7 +651,7 @@
 .end method
 
 .method public static final stateIn(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/flow/SharingStarted;Ljava/lang/Object;)Lkotlinx/coroutines/flow/StateFlow;
-    .locals 8
+    .registers 12
     .param p0, "$this$stateIn"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "scope"    # Lkotlinx/coroutines/CoroutineScope;
     .param p2, "started"    # Lkotlinx/coroutines/flow/SharingStarted;

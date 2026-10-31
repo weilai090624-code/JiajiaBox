@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/reflect/ClassPath;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/reflect/ClassPath;
 
     .line 171
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/reflect/ClassPath$ClassInfo;)Z
-    .locals 1
+    .registers 3
     .param p1, "info"    # Lcom/google/common/reflect/ClassPath$ClassInfo;
 
     .line 174
@@ -52,7 +52,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 171
     check-cast p1, Lcom/google/common/reflect/ClassPath$ClassInfo;

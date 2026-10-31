@@ -36,7 +36,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/card/MaterialCardView;Landroid/widget/LinearLayout;Lcom/google/android/material/card/MaterialCardView;Landroid/widget/LinearLayout;Landroidx/appcompat/widget/AppCompatImageView;Landroidx/appcompat/widget/SwitchCompat;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/LinearLayout;Landroidx/appcompat/widget/AppCompatImageView;Landroid/widget/LinearLayout;Landroidx/appcompat/widget/AppCompatImageView;)V
-    .locals 0
+    .registers 14
     .param p1, "rootView"    # Lcom/google/android/material/card/MaterialCardView;
     .param p2, "container"    # Landroid/widget/LinearLayout;
     .param p3, "content"    # Lcom/google/android/material/card/MaterialCardView;
@@ -130,7 +130,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutRouteItemBinding;
-    .locals 29
+    .registers 30
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -156,7 +156,7 @@
 
     .line 112
     .local v2, "container":Landroid/widget/LinearLayout;
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_bf
 
     .line 116
     move-object/from16 v17, v0
@@ -178,7 +178,7 @@
 
     .line 120
     .local v18, "contentLin":Landroid/widget/LinearLayout;
-    if-eqz v18, :cond_9
+    if-eqz v18, :cond_be
 
     .line 124
     const v1, 0x7f0a0112
@@ -194,7 +194,7 @@
 
     .line 126
     .local v19, "edit":Landroidx/appcompat/widget/AppCompatImageView;
-    if-eqz v19, :cond_8
+    if-eqz v19, :cond_bd
 
     .line 130
     const v1, 0x7f0a011a
@@ -210,7 +210,7 @@
 
     .line 132
     .local v20, "enable":Landroidx/appcompat/widget/SwitchCompat;
-    if-eqz v20, :cond_7
+    if-eqz v20, :cond_bc
 
     .line 136
     const v1, 0x7f0a021e
@@ -226,7 +226,7 @@
 
     .line 138
     .local v21, "profileName":Landroid/widget/TextView;
-    if-eqz v21, :cond_6
+    if-eqz v21, :cond_bb
 
     .line 142
     const v1, 0x7f0a0220
@@ -242,7 +242,7 @@
 
     .line 144
     .local v22, "profileType":Landroid/widget/TextView;
-    if-eqz v22, :cond_5
+    if-eqz v22, :cond_ba
 
     .line 148
     const v1, 0x7f0a0233
@@ -258,7 +258,7 @@
 
     .line 150
     .local v23, "routeOutbound":Landroid/widget/TextView;
-    if-eqz v23, :cond_4
+    if-eqz v23, :cond_b9
 
     .line 154
     const v1, 0x7f0a0264
@@ -274,7 +274,7 @@
 
     .line 156
     .local v24, "share":Landroid/widget/LinearLayout;
-    if-eqz v24, :cond_3
+    if-eqz v24, :cond_b8
 
     .line 160
     const v1, 0x7f0a0265
@@ -290,7 +290,7 @@
 
     .line 162
     .local v25, "shareIcon":Landroidx/appcompat/widget/AppCompatImageView;
-    if-eqz v25, :cond_2
+    if-eqz v25, :cond_b7
 
     .line 166
     const v1, 0x7f0a0266
@@ -306,7 +306,7 @@
 
     .line 168
     .local v26, "shareLayer":Landroid/widget/LinearLayout;
-    if-eqz v26, :cond_1
+    if-eqz v26, :cond_b6
 
     .line 172
     const v1, 0x7f0a0291
@@ -322,7 +322,7 @@
 
     .line 174
     .local v27, "subscription":Landroidx/appcompat/widget/AppCompatImageView;
-    if-eqz v27, :cond_0
+    if-eqz v27, :cond_b5
 
     .line 178
     new-instance v28, Lio/nekohasekai/sagernet/databinding/LayoutRouteItemBinding;
@@ -362,63 +362,63 @@
     return-object v28
 
     .line 175
-    :cond_0
-    goto :goto_0
+    :cond_b5
+    goto :goto_c0
 
     .line 169
     .end local v27    # "subscription":Landroidx/appcompat/widget/AppCompatImageView;
-    :cond_1
-    goto :goto_0
+    :cond_b6
+    goto :goto_c0
 
     .line 163
     .end local v26    # "shareLayer":Landroid/widget/LinearLayout;
-    :cond_2
-    goto :goto_0
+    :cond_b7
+    goto :goto_c0
 
     .line 157
     .end local v25    # "shareIcon":Landroidx/appcompat/widget/AppCompatImageView;
-    :cond_3
-    goto :goto_0
+    :cond_b8
+    goto :goto_c0
 
     .line 151
     .end local v24    # "share":Landroid/widget/LinearLayout;
-    :cond_4
-    goto :goto_0
+    :cond_b9
+    goto :goto_c0
 
     .line 145
     .end local v23    # "routeOutbound":Landroid/widget/TextView;
-    :cond_5
-    goto :goto_0
+    :cond_ba
+    goto :goto_c0
 
     .line 139
     .end local v22    # "profileType":Landroid/widget/TextView;
-    :cond_6
-    goto :goto_0
+    :cond_bb
+    goto :goto_c0
 
     .line 133
     .end local v21    # "profileName":Landroid/widget/TextView;
-    :cond_7
-    goto :goto_0
+    :cond_bc
+    goto :goto_c0
 
     .line 127
     .end local v20    # "enable":Landroidx/appcompat/widget/SwitchCompat;
-    :cond_8
-    goto :goto_0
+    :cond_bd
+    goto :goto_c0
 
     .line 121
     .end local v19    # "edit":Landroidx/appcompat/widget/AppCompatImageView;
-    :cond_9
-    goto :goto_0
+    :cond_be
+    goto :goto_c0
 
     .line 113
     .end local v17    # "content":Lcom/google/android/material/card/MaterialCardView;
     .end local v18    # "contentLin":Landroid/widget/LinearLayout;
-    :cond_a
+    :cond_bf
     nop
 
     .line 182
     .end local v2    # "container":Landroid/widget/LinearLayout;
-    :goto_0
+    :goto_c0
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -443,7 +443,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutRouteItemBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -467,7 +467,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutRouteItemBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -495,13 +495,13 @@
 
     .line 98
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 99
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 101
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutRouteItemBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutRouteItemBinding;
 
     move-result-object v1
@@ -512,7 +512,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutRouteItemBinding;->getRoot()Lcom/google/android/material/card/MaterialCardView;
@@ -523,7 +523,7 @@
 .end method
 
 .method public getRoot()Lcom/google/android/material/card/MaterialCardView;
-    .locals 1
+    .registers 2
 
     .line 86
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutRouteItemBinding;->rootView:Lcom/google/android/material/card/MaterialCardView;

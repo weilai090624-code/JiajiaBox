@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/foreground/SystemForegroundService;ILandroid/app/Notification;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/work/impl/foreground/SystemForegroundService;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 148
     iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundService$2;->this$0:Landroidx/work/impl/foreground/SystemForegroundService;

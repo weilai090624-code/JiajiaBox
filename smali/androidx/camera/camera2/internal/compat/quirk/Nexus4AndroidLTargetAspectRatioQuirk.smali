@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     const-string v0, "NEXUS 4"
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method static load()Z
-    .locals 2
+    .registers 2
 
     .line 41
     sget-object v0, Landroid/os/Build;->BRAND:Ljava/lang/String;
@@ -63,13 +63,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_24
 
     sget-object v0, Landroidx/camera/camera2/internal/compat/quirk/Nexus4AndroidLTargetAspectRatioQuirk;->DEVICE_MODELS:Ljava/util/List;
 
@@ -84,24 +84,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_24
     const/4 v0, 0x0
 
     .line 41
-    :goto_0
+    :goto_25
     return v0
 .end method
 
 
 # virtual methods
 .method public getCorrectedAspectRatio()I
-    .locals 1
+    .registers 2
 
     .line 50
     const/4 v0, 0x2

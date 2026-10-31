@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "wrappedCallback"    # Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public onActive(Landroid/hardware/camera2/CameraCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -77,7 +77,7 @@
 .end method
 
 .method public onCaptureQueueEmpty(Landroid/hardware/camera2/CameraCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -102,7 +102,7 @@
 .end method
 
 .method public onClosed(Landroid/hardware/camera2/CameraCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -127,7 +127,7 @@
 .end method
 
 .method public onConfigureFailed(Landroid/hardware/camera2/CameraCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -152,7 +152,7 @@
 .end method
 
 .method public onConfigured(Landroid/hardware/camera2/CameraCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -177,7 +177,7 @@
 .end method
 
 .method public onReady(Landroid/hardware/camera2/CameraCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -202,7 +202,7 @@
 .end method
 
 .method public onSurfacePrepared(Landroid/hardware/camera2/CameraCaptureSession;Landroid/view/Surface;)V
-    .locals 2
+    .registers 5
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;

@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(JLjava/lang/Runnable;)V
-    .locals 0
+    .registers 4
     .param p1, "nanoTime"    # J
     .param p3, "block"    # Ljava/lang/Runnable;
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 501
     iget-object v0, p0, Lkotlinx/coroutines/EventLoopImplBase$DelayedRunnableTask;->block:Ljava/lang/Runnable;
@@ -76,7 +76,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 502
     new-instance v0, Ljava/lang/StringBuilder;

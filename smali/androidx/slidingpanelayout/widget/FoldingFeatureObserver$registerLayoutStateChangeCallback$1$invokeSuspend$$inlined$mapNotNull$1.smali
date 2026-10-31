@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/Flow;Landroidx/slidingpanelayout/widget/FoldingFeatureObserver;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Landroidx/slidingpanelayout/widget/FoldingFeatureObserver$registerLayoutStateChangeCallback$1$invokeSuspend$$inlined$mapNotNull$1;->$this_unsafeTransform$inlined:Lkotlinx/coroutines/flow/Flow;
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .param p1, "collector"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
 
@@ -119,12 +119,12 @@
 
     move-result-object v7
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_1b
 
     return-object v6
 
     .line 116
-    :cond_0
+    :cond_1b
     nop
 
     .line 117

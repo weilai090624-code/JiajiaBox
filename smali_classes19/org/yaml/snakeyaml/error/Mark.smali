@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IIILjava/lang/String;I)V
-    .locals 7
+    .registers 14
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "index"    # I
     .param p3, "line"    # I
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;III[CI)V
-    .locals 7
+    .registers 14
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "index"    # I
     .param p3, "line"    # I
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;III[II)V
-    .locals 0
+    .registers 7
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "index"    # I
     .param p3, "line"    # I
@@ -122,7 +122,7 @@
 .end method
 
 .method private isLineBreak(I)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # I
 
     .line 69
@@ -136,7 +136,7 @@
 .end method
 
 .method private static toCodePoints([C)[I
-    .locals 5
+    .registers 6
     .param p0, "str"    # [C
 
     .line 35
@@ -158,10 +158,10 @@
     const/4 v2, 0x0
 
     .local v2, "c":I
-    :goto_0
+    :goto_a
     array-length v3, p0
 
-    if-ge v1, v3, :cond_0
+    if-ge v1, v3, :cond_1b
 
     .line 37
     invoke-static {p0, v1}, Ljava/lang/Character;->codePointAt([CI)I
@@ -183,19 +183,19 @@
     .end local v3    # "cp":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 41
     .end local v1    # "i":I
     .end local v2    # "c":I
-    :cond_0
+    :cond_1b
     return-object v0
 .end method
 
 
 # virtual methods
 .method public getBuffer()[I
-    .locals 1
+    .registers 2
 
     .line 159
     iget-object v0, p0, Lorg/yaml/snakeyaml/error/Mark;->buffer:[I
@@ -204,7 +204,7 @@
 .end method
 
 .method public getColumn()I
-    .locals 1
+    .registers 2
 
     .line 147
     iget v0, p0, Lorg/yaml/snakeyaml/error/Mark;->column:I
@@ -213,7 +213,7 @@
 .end method
 
 .method public getIndex()I
-    .locals 1
+    .registers 2
 
     .line 155
     iget v0, p0, Lorg/yaml/snakeyaml/error/Mark;->index:I
@@ -222,7 +222,7 @@
 .end method
 
 .method public getLine()I
-    .locals 1
+    .registers 2
 
     .line 139
     iget v0, p0, Lorg/yaml/snakeyaml/error/Mark;->line:I
@@ -231,7 +231,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 131
     iget-object v0, p0, Lorg/yaml/snakeyaml/error/Mark;->name:Ljava/lang/String;
@@ -240,7 +240,7 @@
 .end method
 
 .method public getPointer()I
-    .locals 1
+    .registers 2
 
     .line 163
     iget v0, p0, Lorg/yaml/snakeyaml/error/Mark;->pointer:I
@@ -249,7 +249,7 @@
 .end method
 
 .method public get_snippet()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 113
     const/4 v0, 0x4
@@ -264,7 +264,7 @@
 .end method
 
 .method public get_snippet(II)Ljava/lang/String;
-    .locals 10
+    .registers 13
     .param p1, "indent"    # I
     .param p2, "max_length"    # I
 
@@ -289,8 +289,8 @@
 
     .line 76
     .local v2, "head":Ljava/lang/String;
-    :cond_0
-    if-lez v1, :cond_1
+    :cond_b
+    if-lez v1, :cond_28
 
     iget-object v3, p0, Lorg/yaml/snakeyaml/error/Mark;->buffer:[I
 
@@ -302,7 +302,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_28
 
     .line 77
     add-int/lit8 v1, v1, -0x1
@@ -316,7 +316,7 @@
 
     cmpl-float v3, v3, v0
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_b
 
     .line 79
     const-string v2, " ... "
@@ -328,7 +328,7 @@
     nop
 
     .line 84
-    :cond_1
+    :cond_28
     const-string v3, ""
 
     .line 85
@@ -337,12 +337,12 @@
 
     .line 86
     .local v4, "end":I
-    :cond_2
+    :cond_2c
     iget-object v5, p0, Lorg/yaml/snakeyaml/error/Mark;->buffer:[I
 
     array-length v5, v5
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_4b
 
     iget-object v5, p0, Lorg/yaml/snakeyaml/error/Mark;->buffer:[I
 
@@ -352,7 +352,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_4b
 
     .line 87
     add-int/lit8 v4, v4, 0x1
@@ -366,7 +366,7 @@
 
     cmpl-float v5, v5, v0
 
-    if-lez v5, :cond_2
+    if-lez v5, :cond_2c
 
     .line 89
     const-string v3, " ... "
@@ -378,7 +378,7 @@
     nop
 
     .line 95
-    :cond_3
+    :cond_4b
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -388,10 +388,10 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_0
+    :goto_51
     const-string v7, " "
 
-    if-ge v6, p1, :cond_4
+    if-ge v6, p1, :cond_5b
 
     .line 97
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -399,19 +399,19 @@
     .line 96
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_51
 
     .line 99
     .end local v6    # "i":I
-    :cond_4
+    :cond_5b
     invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 100
     move v6, v1
 
     .restart local v6    # "i":I
-    :goto_1
-    if-ge v6, v4, :cond_5
+    :goto_5f
+    if-ge v6, v4, :cond_6b
 
     .line 101
     iget-object v8, p0, Lorg/yaml/snakeyaml/error/Mark;->buffer:[I
@@ -423,11 +423,11 @@
     .line 100
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_5f
 
     .line 103
     .end local v6    # "i":I
-    :cond_5
+    :cond_6b
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 104
@@ -439,7 +439,7 @@
     const/4 v6, 0x0
 
     .restart local v6    # "i":I
-    :goto_2
+    :goto_74
     iget v8, p0, Lorg/yaml/snakeyaml/error/Mark;->pointer:I
 
     add-int/2addr v8, p1
@@ -452,7 +452,7 @@
 
     add-int/2addr v8, v9
 
-    if-ge v6, v8, :cond_6
+    if-ge v6, v8, :cond_85
 
     .line 106
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -460,11 +460,11 @@
     .line 105
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_74
 
     .line 108
     .end local v6    # "i":I
-    :cond_6
+    :cond_85
     const-string v6, "^"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -478,7 +478,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 118
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/error/Mark;->get_snippet()Ljava/lang/String;

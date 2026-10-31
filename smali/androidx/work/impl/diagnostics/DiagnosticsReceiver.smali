@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 38
     const-string v0, "DiagnosticsRcvr"
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -50,13 +50,13 @@
     .end annotation
 
     .line 42
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3
 
     .line 43
     return-void
 
     .line 45
-    :cond_0
+    :cond_3
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
@@ -68,7 +68,7 @@
     invoke-virtual {v0, v1, v2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 47
-    :try_start_0
+    :try_start_e
     invoke-static {p1}, Landroidx/work/WorkManager;->getInstance(Landroid/content/Context;)Landroidx/work/WorkManager;
 
     move-result-object v0
@@ -82,17 +82,17 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroidx/work/WorkManager;->enqueue(Landroidx/work/WorkRequest;)Landroidx/work/Operation;
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/IllegalStateException; {:try_start_e .. :try_end_1b} :catch_1d
 
     .line 51
     nop
 
     .end local v0    # "workManager":Landroidx/work/WorkManager;
-    goto :goto_0
+    goto :goto_29
 
     .line 49
-    :catch_0
+    :catch_1d
     move-exception v0
 
     .line 50
@@ -109,6 +109,6 @@
 
     .line 52
     .end local v0    # "exception":Ljava/lang/IllegalStateException;
-    :goto_0
+    :goto_29
     return-void
 .end method

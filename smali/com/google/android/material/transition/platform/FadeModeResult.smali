@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>(IIZ)V
-    .locals 0
+    .registers 4
     .param p1, "startAlpha"    # I
     .param p2, "endAlpha"    # I
     .param p3, "endOnTop"    # Z
@@ -35,7 +35,7 @@
 .end method
 
 .method static endOnTop(II)Lcom/google/android/material/transition/platform/FadeModeResult;
-    .locals 2
+    .registers 4
     .param p0, "startAlpha"    # I
     .param p1, "endAlpha"    # I
 
@@ -50,7 +50,7 @@
 .end method
 
 .method static startOnTop(II)Lcom/google/android/material/transition/platform/FadeModeResult;
-    .locals 2
+    .registers 4
     .param p0, "startAlpha"    # I
     .param p1, "endAlpha"    # I
 

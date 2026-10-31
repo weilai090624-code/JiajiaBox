@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "lineNumber"    # I
     .param p3, "columnNumber"    # I
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final getColumnNumber()I
-    .locals 1
+    .registers 2
 
     .line 22
     iget v0, p0, Lcom/blacksquircle/ui/language/base/exception/ParseException;->columnNumber:I
@@ -71,7 +71,7 @@
 .end method
 
 .method public final getLineNumber()I
-    .locals 1
+    .registers 2
 
     .line 21
     iget v0, p0, Lcom/blacksquircle/ui/language/base/exception/ParseException;->lineNumber:I

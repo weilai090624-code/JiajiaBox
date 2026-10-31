@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 363
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static addListener(Landroid/transition/Transition;Landroid/transition/Transition$TransitionListener;)V
-    .locals 0
+    .registers 2
     .param p0, "transition"    # Landroid/transition/Transition;
     .param p1, "listener"    # Landroid/transition/Transition$TransitionListener;
 
@@ -37,7 +37,7 @@
 .end method
 
 .method static removeListener(Landroid/transition/Transition;Landroid/transition/Transition$TransitionListener;)V
-    .locals 0
+    .registers 2
     .param p0, "transition"    # Landroid/transition/Transition;
     .param p1, "listener"    # Landroid/transition/Transition$TransitionListener;
 

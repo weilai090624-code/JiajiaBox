@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMultimap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -78,7 +78,7 @@
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$EntryCollection;, "Lcom/google/common/collect/ImmutableMultimap$EntryCollection<TK;TV;>;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 572
     move-object v0, p1
@@ -105,14 +105,14 @@
 
     .line 575
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 561
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$EntryCollection;, "Lcom/google/common/collect/ImmutableMultimap$EntryCollection<TK;TV;>;"
@@ -126,7 +126,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 547
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$EntryCollection;, "Lcom/google/common/collect/ImmutableMultimap$EntryCollection<TK;TV;>;"
@@ -160,7 +160,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 566
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$EntryCollection;, "Lcom/google/common/collect/ImmutableMultimap$EntryCollection<TK;TV;>;"

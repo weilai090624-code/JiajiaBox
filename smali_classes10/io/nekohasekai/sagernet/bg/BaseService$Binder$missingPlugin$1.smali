@@ -71,7 +71,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$WwaeARG8RUtnkK5ZW_xGW8nLcbQ(Ljava/lang/String;Ljava/lang/String;Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/bg/BaseService$Binder$missingPlugin$1;->invokeSuspend$lambda$0(Ljava/lang/String;Ljava/lang/String;Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/bg/BaseService$Binder;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$0(Ljava/lang/String;Ljava/lang/String;Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
-    .locals 1
+    .registers 4
     .param p0, "$profileName"    # Ljava/lang/String;
     .param p1, "$pluginName"    # Ljava/lang/String;
     .param p2, "it"    # Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -149,7 +149,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -192,7 +192,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -201,7 +201,7 @@
     .line 160
     iget v1, p0, Lio/nekohasekai/sagernet/bg/BaseService$Binder$missingPlugin$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_38
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -212,13 +212,13 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_34
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 161
@@ -252,23 +252,23 @@
     move-result-object v1
 
     .end local v1    # "profileName":Ljava/lang/String;
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_34
 
     .line 160
     return-object v0
 
     .line 163
-    :cond_0
-    :goto_0
+    :cond_34
+    :goto_34
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_38
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

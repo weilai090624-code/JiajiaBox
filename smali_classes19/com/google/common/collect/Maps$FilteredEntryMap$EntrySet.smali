@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/Maps$FilteredEntryMap;)V
-    .locals 0
+    .registers 2
 
     .line 2929
     .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>.EntrySet;"
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/Maps$FilteredEntryMap;Lcom/google/common/collect/Maps$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/Maps$FilteredEntryMap;
     .param p2, "x1"    # Lcom/google/common/collect/Maps$1;
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 2928
     .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>.EntrySet;"
@@ -66,7 +66,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 2928
     .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>.EntrySet;"
@@ -78,7 +78,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -98,7 +98,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

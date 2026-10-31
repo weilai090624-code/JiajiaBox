@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method static loadQuirks()Ljava/util/List;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -36,7 +36,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 43
     new-instance v1, Landroidx/camera/core/internal/compat/quirk/IncompleteCameraListQuirk;
@@ -46,12 +46,12 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 46
-    :cond_0
+    :cond_13
     invoke-static {}, Landroidx/camera/core/internal/compat/quirk/ImageCaptureRotationOptionQuirk;->load()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     .line 47
     new-instance v1, Landroidx/camera/core/internal/compat/quirk/ImageCaptureRotationOptionQuirk;
@@ -61,12 +61,12 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 50
-    :cond_1
+    :cond_21
     invoke-static {}, Landroidx/camera/core/internal/compat/quirk/ImageCaptureWashedOutImageQuirk;->load()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     .line 51
     new-instance v1, Landroidx/camera/core/internal/compat/quirk/ImageCaptureWashedOutImageQuirk;
@@ -76,6 +76,6 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 54
-    :cond_2
+    :cond_2f
     return-object v0
 .end method

@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 84
     const/4 v0, 0x2
@@ -47,7 +47,7 @@
 .end method
 
 .method private constructor <init>([[C)V
-    .locals 0
+    .registers 2
     .param p1, "replacementArray"    # [[C
 
     .line 57
@@ -61,7 +61,7 @@
 .end method
 
 .method public static create(Ljava/util/Map;)Lcom/google/common/escape/ArrayBasedEscaperMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,7 +87,7 @@
 .end method
 
 .method static createReplacementArray(Ljava/util/Map;)[[C
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,7 +107,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 73
     sget-object v0, Lcom/google/common/escape/ArrayBasedEscaperMap;->EMPTY_REPLACEMENT_ARRAY:[[C
@@ -115,7 +115,7 @@
     return-object v0
 
     .line 75
-    :cond_0
+    :cond_c
     invoke-interface {p0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v0
@@ -146,12 +146,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_26
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_43
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -179,17 +179,17 @@
 
     .line 79
     .end local v3    # "c":Ljava/lang/Character;
-    goto :goto_0
+    goto :goto_26
 
     .line 80
-    :cond_1
+    :cond_43
     return-object v1
 .end method
 
 
 # virtual methods
 .method getReplacementArray()[[C
-    .locals 1
+    .registers 2
 
     .line 63
     iget-object v0, p0, Lcom/google/common/escape/ArrayBasedEscaperMap;->replacementArray:[[C

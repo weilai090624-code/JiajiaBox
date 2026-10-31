@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 0
+    .registers 2
 
     .line 13551
     iput-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimatorRestoreListener;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationFinished(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 3
+    .registers 5
     .param p1, "item"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 13556
@@ -50,17 +50,17 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mShadowingHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 13558
     iput-object v1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mShadowedHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 13562
-    :cond_0
+    :cond_f
     iput-object v1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mShadowingHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 13563
@@ -68,7 +68,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2f
 
     .line 13564
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimatorRestoreListener;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -79,13 +79,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2f
 
     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isTmpDetached()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     .line 13565
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimatorRestoreListener;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -97,6 +97,6 @@
     invoke-virtual {v0, v1, v2}, Landroidx/recyclerview/widget/RecyclerView;->removeDetachedView(Landroid/view/View;Z)V
 
     .line 13568
-    :cond_1
+    :cond_2f
     return-void
 .end method

@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokio/Path$Companion;-><init>()V
 
@@ -62,16 +62,16 @@
 .end method
 
 .method public static synthetic get$default(Lokio/Path$Companion;Ljava/io/File;ZILjava/lang/Object;)Lokio/Path;
-    .locals 0
+    .registers 5
 
     .line 121
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokio/Path$Companion;->get(Ljava/io/File;Z)Lokio/Path;
 
     move-result-object p0
@@ -80,18 +80,18 @@
 .end method
 
 .method public static synthetic get$default(Lokio/Path$Companion;Ljava/lang/String;ZILjava/lang/Object;)Lokio/Path;
-    .locals 0
+    .registers 5
 
     .line 118
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 128
     const/4 p2, 0x0
 
     .line 118
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokio/Path$Companion;->get(Ljava/lang/String;Z)Lokio/Path;
 
     move-result-object p0
@@ -100,16 +100,16 @@
 .end method
 
 .method public static synthetic get$default(Lokio/Path$Companion;Ljava/nio/file/Path;ZILjava/lang/Object;)Lokio/Path;
-    .locals 0
+    .registers 5
 
     .line 125
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokio/Path$Companion;->get(Ljava/nio/file/Path;Z)Lokio/Path;
 
     move-result-object p0
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public final get(Ljava/io/File;)Lokio/Path;
-    .locals 3
+    .registers 5
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public final get(Ljava/io/File;Z)Lokio/Path;
-    .locals 2
+    .registers 5
     .param p1, "$this$toOkioPath"    # Ljava/io/File;
     .param p2, "normalize"    # Z
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -169,7 +169,7 @@
 .end method
 
 .method public final get(Ljava/lang/String;)Lokio/Path;
-    .locals 3
+    .registers 5
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -191,7 +191,7 @@
 .end method
 
 .method public final get(Ljava/lang/String;Z)Lokio/Path;
-    .locals 1
+    .registers 4
     .param p1, "$this$toPath"    # Ljava/lang/String;
     .param p2, "normalize"    # Z
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -210,7 +210,7 @@
 .end method
 
 .method public final get(Ljava/nio/file/Path;)Lokio/Path;
-    .locals 3
+    .registers 5
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -232,7 +232,7 @@
 .end method
 
 .method public final get(Ljava/nio/file/Path;Z)Lokio/Path;
-    .locals 1
+    .registers 4
     .param p1, "$this$toOkioPath"    # Ljava/nio/file/Path;
     .param p2, "normalize"    # Z
     .annotation runtime Lkotlin/jvm/JvmStatic;

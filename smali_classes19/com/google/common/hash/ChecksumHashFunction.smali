@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/hash/ImmutableSupplier;ILjava/lang/String;)V
-    .locals 2
+    .registers 6
     .param p2, "bits"    # I
     .param p3, "toString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -74,24 +74,24 @@
     .line 39
     const/16 v0, 0x20
 
-    if-eq p2, v0, :cond_1
+    if-eq p2, v0, :cond_16
 
     const/16 v0, 0x40
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_17
     const-string v1, "bits (%s) must be either 32 or 64"
 
     invoke-static {v0, v1, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
@@ -113,7 +113,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/hash/ChecksumHashFunction;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/hash/ChecksumHashFunction;
 
     .line 31
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public bits()I
-    .locals 1
+    .registers 2
 
     .line 46
     iget v0, p0, Lcom/google/common/hash/ChecksumHashFunction;->bits:I
@@ -134,7 +134,7 @@
 .end method
 
 .method public newHasher()Lcom/google/common/hash/Hasher;
-    .locals 3
+    .registers 4
 
     .line 51
     new-instance v0, Lcom/google/common/hash/ChecksumHashFunction$ChecksumHasher;
@@ -155,7 +155,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Lcom/google/common/hash/ChecksumHashFunction;->toString:Ljava/lang/String;

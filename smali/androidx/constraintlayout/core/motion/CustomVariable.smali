@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/core/motion/CustomVariable;)V
-    .locals 1
+    .registers 3
     .param p1, "c"    # Landroidx/constraintlayout/core/motion/CustomVariable;
 
     .line 36
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/constraintlayout/core/motion/CustomVariable;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Landroidx/constraintlayout/core/motion/CustomVariable;
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "attributeType"    # I
 
@@ -152,7 +152,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;IF)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # F
@@ -189,7 +189,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;II)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # I
@@ -221,26 +221,26 @@
     .line 54
     const/16 v0, 0x385
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_1a
 
     .line 55
     int-to-float v0, p3
 
     iput v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 57
-    :cond_0
+    :cond_1a
     iput p3, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
     .line 59
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "attributeType"    # I
     .param p3, "value"    # Ljava/lang/Object;
@@ -277,7 +277,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # Ljava/lang/String;
@@ -314,7 +314,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;IZ)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # Z
@@ -351,7 +351,7 @@
 .end method
 
 .method private static clamp(I)I
-    .locals 2
+    .registers 3
     .param p0, "c"    # I
 
     .line 348
@@ -381,7 +381,7 @@
 .end method
 
 .method public static colorString(I)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "v"    # I
 
     .line 74
@@ -441,7 +441,7 @@
 .end method
 
 .method public static hsvToRgb(FFF)I
-    .locals 9
+    .registers 12
     .param p0, "hue"    # F
     .param p1, "saturation"    # F
     .param p2, "value"    # F
@@ -521,7 +521,7 @@
     .local v2, "v":I
     const/high16 v5, -0x1000000
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_68
 
     .line 274
     const/4 v5, 0x0
@@ -529,7 +529,7 @@
     return v5
 
     .line 271
-    :pswitch_0
+    :pswitch_37
     shl-int/lit8 v7, v2, 0x10
 
     shl-int/lit8 v8, v3, 0x8
@@ -543,7 +543,7 @@
     return v5
 
     .line 269
-    :pswitch_1
+    :pswitch_3f
     shl-int/lit8 v7, v4, 0x10
 
     shl-int/lit8 v8, v3, 0x8
@@ -557,7 +557,7 @@
     return v5
 
     .line 267
-    :pswitch_2
+    :pswitch_47
     shl-int/lit8 v7, v3, 0x10
 
     shl-int/lit8 v8, v6, 0x8
@@ -571,7 +571,7 @@
     return v5
 
     .line 265
-    :pswitch_3
+    :pswitch_4f
     shl-int/lit8 v7, v3, 0x10
 
     shl-int/lit8 v8, v2, 0x8
@@ -585,7 +585,7 @@
     return v5
 
     .line 263
-    :pswitch_4
+    :pswitch_57
     shl-int/lit8 v7, v6, 0x10
 
     shl-int/lit8 v8, v2, 0x8
@@ -599,7 +599,7 @@
     return v5
 
     .line 261
-    :pswitch_5
+    :pswitch_5f
     shl-int/lit8 v7, v2, 0x10
 
     shl-int/lit8 v8, v4, 0x8
@@ -614,19 +614,19 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_68
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5f
+        :pswitch_57
+        :pswitch_4f
+        :pswitch_47
+        :pswitch_3f
+        :pswitch_37
     .end packed-switch
 .end method
 
 .method public static rgbaTocColor(FFFF)I
-    .locals 6
+    .registers 10
     .param p0, "r"    # F
     .param p1, "g"    # F
     .param p2, "b"    # F
@@ -695,18 +695,18 @@
 
 # virtual methods
 .method public applyToWidget(Landroidx/constraintlayout/core/motion/MotionWidget;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroidx/constraintlayout/core/motion/MotionWidget;
 
     .line 402
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_30
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 412
-    :pswitch_0
+    :pswitch_6
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mName:Ljava/lang/String;
 
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
@@ -716,10 +716,10 @@
     invoke-virtual {p1, v0, v1, v2}, Landroidx/constraintlayout/core/motion/MotionWidget;->setCustomAttribute(Ljava/lang/String;IZ)V
 
     .line 413
-    goto :goto_0
+    goto :goto_2e
 
     .line 409
-    :pswitch_1
+    :pswitch_10
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mName:Ljava/lang/String;
 
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
@@ -729,10 +729,10 @@
     invoke-virtual {p1, v0, v1, v2}, Landroidx/constraintlayout/core/motion/MotionWidget;->setCustomAttribute(Ljava/lang/String;ILjava/lang/String;)V
 
     .line 410
-    goto :goto_0
+    goto :goto_2e
 
     .line 416
-    :pswitch_2
+    :pswitch_1a
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mName:Ljava/lang/String;
 
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
@@ -741,10 +741,10 @@
 
     invoke-virtual {p1, v0, v1, v2}, Landroidx/constraintlayout/core/motion/MotionWidget;->setCustomAttribute(Ljava/lang/String;IF)V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 406
-    :pswitch_3
+    :pswitch_24
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mName:Ljava/lang/String;
 
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
@@ -757,25 +757,25 @@
     nop
 
     .line 419
-    :goto_0
+    :goto_2e
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_30
     .packed-switch 0x384
-        :pswitch_3
-        :pswitch_2
-        :pswitch_3
-        :pswitch_1
-        :pswitch_0
-        :pswitch_2
-        :pswitch_3
+        :pswitch_24
+        :pswitch_1a
+        :pswitch_24
+        :pswitch_10
+        :pswitch_6
+        :pswitch_1a
+        :pswitch_24
     .end packed-switch
 .end method
 
 .method public copy()Landroidx/constraintlayout/core/motion/CustomVariable;
-    .locals 1
+    .registers 2
 
     .line 33
     new-instance v0, Landroidx/constraintlayout/core/motion/CustomVariable;
@@ -786,134 +786,134 @@
 .end method
 
 .method public diff(Landroidx/constraintlayout/core/motion/CustomVariable;)Z
-    .locals 4
+    .registers 6
     .param p1, "CustomAttribute"    # Landroidx/constraintlayout/core/motion/CustomVariable;
 
     .line 284
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_45
 
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
 
     iget v2, p1, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_a
 
-    goto :goto_0
+    goto :goto_45
 
     .line 287
-    :cond_0
+    :cond_a
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
 
     const/4 v2, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_46
 
     .line 302
     return v0
 
     .line 300
-    :pswitch_0
+    :pswitch_11
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
     iget v3, p1, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
     cmpl-float v1, v1, v3
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1a
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_1a
     return v0
 
     .line 298
-    :pswitch_1
+    :pswitch_1b
     iget-boolean v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mBooleanValue:Z
 
     iget-boolean v3, p1, Landroidx/constraintlayout/core/motion/CustomVariable;->mBooleanValue:Z
 
-    if-ne v1, v3, :cond_2
+    if-ne v1, v3, :cond_22
 
     const/4 v0, 0x1
 
-    :cond_2
+    :cond_22
     return v0
 
     .line 296
-    :pswitch_2
+    :pswitch_23
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
     iget v3, p1, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
-    if-ne v1, v3, :cond_3
+    if-ne v1, v3, :cond_2a
 
     const/4 v0, 0x1
 
-    :cond_3
+    :cond_2a
     return v0
 
     .line 294
-    :pswitch_3
+    :pswitch_2b
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
     iget v3, p1, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
-    if-ne v1, v3, :cond_4
+    if-ne v1, v3, :cond_32
 
     const/4 v0, 0x1
 
-    :cond_4
+    :cond_32
     return v0
 
     .line 292
-    :pswitch_4
+    :pswitch_33
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
     iget v3, p1, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
     cmpl-float v1, v1, v3
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_3c
 
     const/4 v0, 0x1
 
-    :cond_5
+    :cond_3c
     return v0
 
     .line 290
-    :pswitch_5
+    :pswitch_3d
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
     iget v3, p1, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
-    if-ne v1, v3, :cond_6
+    if-ne v1, v3, :cond_44
 
     const/4 v0, 0x1
 
-    :cond_6
+    :cond_44
     return v0
 
     .line 285
-    :cond_7
-    :goto_0
+    :cond_45
+    :goto_45
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_46
     .packed-switch 0x384
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_5
+        :pswitch_3d
+        :pswitch_33
+        :pswitch_2b
+        :pswitch_23
+        :pswitch_1b
+        :pswitch_11
+        :pswitch_3d
     .end packed-switch
 .end method
 
 .method public getBooleanValue()Z
-    .locals 1
+    .registers 2
 
     .line 103
     iget-boolean v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mBooleanValue:Z
@@ -922,7 +922,7 @@
 .end method
 
 .method public getColorValue()I
-    .locals 1
+    .registers 2
 
     .line 111
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
@@ -931,7 +931,7 @@
 .end method
 
 .method public getFloatValue()F
-    .locals 1
+    .registers 2
 
     .line 107
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
@@ -940,7 +940,7 @@
 .end method
 
 .method public getIntegerValue()I
-    .locals 1
+    .registers 2
 
     .line 115
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
@@ -949,7 +949,7 @@
 .end method
 
 .method public getInterpolatedColor([F)I
-    .locals 7
+    .registers 9
     .param p1, "value"    # [F
 
     .line 357
@@ -1055,7 +1055,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 422
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mName:Ljava/lang/String;
@@ -1064,7 +1064,7 @@
 .end method
 
 .method public getStringValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 119
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mStringValue:Ljava/lang/String;
@@ -1073,7 +1073,7 @@
 .end method
 
 .method public getType()I
-    .locals 1
+    .registers 2
 
     .line 99
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
@@ -1082,12 +1082,12 @@
 .end method
 
 .method public getValueToInterpolate()F
-    .locals 2
+    .registers 3
 
     .line 175
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2c
 
     .line 189
     const/high16 v0, 0x7fc00000    # Float.NaN
@@ -1095,29 +1095,29 @@
     return v0
 
     .line 187
-    :pswitch_0
+    :pswitch_8
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
     return v0
 
     .line 185
-    :pswitch_1
+    :pswitch_b
     iget-boolean v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mBooleanValue:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 
     .line 183
-    :pswitch_2
+    :pswitch_14
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Cannot interpolate String"
@@ -1127,7 +1127,7 @@
     throw v0
 
     .line 181
-    :pswitch_3
+    :pswitch_1c
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Color does not have a single color to interpolate"
@@ -1137,13 +1137,13 @@
     throw v0
 
     .line 179
-    :pswitch_4
+    :pswitch_24
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
     return v0
 
     .line 177
-    :pswitch_5
+    :pswitch_27
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
     int-to-float v0, v0
@@ -1152,19 +1152,19 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x384
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_27
+        :pswitch_24
+        :pswitch_1c
+        :pswitch_14
+        :pswitch_b
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method public getValuesToInterpolate([F)V
-    .locals 13
+    .registers 15
     .param p1, "ret"    # [F
 
     .line 193
@@ -1172,39 +1172,39 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_6e
 
-    goto :goto_1
+    goto :goto_6d
 
     .line 219
-    :pswitch_0
+    :pswitch_7
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
     aput v0, p1, v1
 
-    goto :goto_1
+    goto :goto_6d
 
     .line 216
-    :pswitch_1
+    :pswitch_c
     iget-boolean v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mBooleanValue:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     aput v0, p1, v1
 
     .line 217
-    goto :goto_1
+    goto :goto_6d
 
     .line 214
-    :pswitch_2
+    :pswitch_17
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Cannot interpolate String"
@@ -1214,7 +1214,7 @@
     throw v0
 
     .line 201
-    :pswitch_3
+    :pswitch_1f
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
     shr-int/lit8 v0, v0, 0x18
@@ -1313,7 +1313,7 @@
     aput v1, p1, v6
 
     .line 212
-    goto :goto_1
+    goto :goto_6d
 
     .line 198
     .end local v0    # "a":I
@@ -1323,16 +1323,16 @@
     .end local v5    # "f_r":F
     .end local v7    # "f_g":F
     .end local v8    # "f_b":F
-    :pswitch_4
+    :pswitch_62
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
     aput v0, p1, v1
 
     .line 199
-    goto :goto_1
+    goto :goto_6d
 
     .line 195
-    :pswitch_5
+    :pswitch_67
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
     int-to-float v0, v0
@@ -1343,58 +1343,58 @@
     nop
 
     .line 222
-    :goto_1
+    :goto_6d
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch 0x384
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_67
+        :pswitch_62
+        :pswitch_1f
+        :pswitch_17
+        :pswitch_c
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method public isContinuous()Z
-    .locals 1
+    .registers 2
 
     .line 128
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_a
 
     .line 134
-    :pswitch_0
+    :pswitch_5
     const/4 v0, 0x1
 
     return v0
 
     .line 132
-    :pswitch_1
+    :pswitch_7
     const/4 v0, 0x0
 
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a
     .packed-switch 0x387
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_7
+        :pswitch_7
+        :pswitch_5
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method public numberOfInterpolatedValues()I
-    .locals 1
+    .registers 2
 
     .line 161
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_a
 
     .line 165
     const/4 v0, 0x1
@@ -1402,21 +1402,21 @@
     return v0
 
     .line 163
-    :pswitch_0
+    :pswitch_7
     const/4 v0, 0x4
 
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a
     .packed-switch 0x386
-        :pswitch_0
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method public setBooleanValue(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 143
@@ -1427,7 +1427,7 @@
 .end method
 
 .method public setFloatValue(F)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # F
 
     .line 139
@@ -1438,7 +1438,7 @@
 .end method
 
 .method public setIntValue(I)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # I
 
     .line 147
@@ -1449,7 +1449,7 @@
 .end method
 
 .method public setInterpolatedValue(Landroidx/constraintlayout/core/motion/MotionWidget;[F)V
-    .locals 8
+    .registers 11
     .param p1, "view"    # Landroidx/constraintlayout/core/motion/MotionWidget;
     .param p2, "value"    # [F
 
@@ -1460,12 +1460,12 @@
 
     const/4 v2, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_9e
 
-    goto/16 :goto_1
+    goto/16 :goto_9d
 
     .line 383
-    :pswitch_0
+    :pswitch_9
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mName:Ljava/lang/String;
 
     iget v3, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
@@ -1476,21 +1476,21 @@
 
     cmpl-float v4, v4, v5
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_16
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_17
     invoke-virtual {p1, v0, v3, v1}, Landroidx/constraintlayout/core/motion/MotionWidget;->setCustomAttribute(Ljava/lang/String;IZ)V
 
     .line 384
-    goto/16 :goto_1
+    goto/16 :goto_9d
 
     .line 381
-    :pswitch_1
+    :pswitch_1c
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1518,7 +1518,7 @@
     throw v0
 
     .line 372
-    :pswitch_2
+    :pswitch_38
     aget v0, p2, v2
 
     float-to-double v2, v0
@@ -1620,7 +1620,7 @@
     invoke-virtual {p1, v5, v6, v4}, Landroidx/constraintlayout/core/motion/MotionWidget;->setCustomAttribute(Ljava/lang/String;II)V
 
     .line 378
-    goto :goto_1
+    goto :goto_9d
 
     .line 387
     .end local v0    # "r":I
@@ -1628,7 +1628,7 @@
     .end local v2    # "a":I
     .end local v3    # "b":I
     .end local v4    # "color":I
-    :pswitch_3
+    :pswitch_88
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mName:Ljava/lang/String;
 
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
@@ -1637,10 +1637,10 @@
 
     invoke-virtual {p1, v0, v1, v2}, Landroidx/constraintlayout/core/motion/MotionWidget;->setCustomAttribute(Ljava/lang/String;IF)V
 
-    goto :goto_1
+    goto :goto_9d
 
     .line 369
-    :pswitch_4
+    :pswitch_92
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mName:Ljava/lang/String;
 
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
@@ -1655,23 +1655,23 @@
     nop
 
     .line 390
-    :goto_1
+    :goto_9d
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_9e
     .packed-switch 0x384
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_3
-        :pswitch_1
+        :pswitch_92
+        :pswitch_88
+        :pswitch_38
+        :pswitch_1c
+        :pswitch_9
+        :pswitch_88
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method public setStringValue(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/String;
 
     .line 151
@@ -1682,18 +1682,18 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 324
     iget v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_40
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 342
-    :pswitch_0
+    :pswitch_6
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Float;
@@ -1704,10 +1704,10 @@
 
     iput v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 339
-    :pswitch_1
+    :pswitch_10
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Boolean;
@@ -1719,10 +1719,10 @@
     iput-boolean v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mBooleanValue:Z
 
     .line 340
-    goto :goto_0
+    goto :goto_3e
 
     .line 336
-    :pswitch_2
+    :pswitch_1a
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -1730,10 +1730,10 @@
     iput-object v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mStringValue:Ljava/lang/String;
 
     .line 337
-    goto :goto_0
+    goto :goto_3e
 
     .line 333
-    :pswitch_3
+    :pswitch_20
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Integer;
@@ -1745,10 +1745,10 @@
     iput v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
     .line 334
-    goto :goto_0
+    goto :goto_3e
 
     .line 330
-    :pswitch_4
+    :pswitch_2a
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Float;
@@ -1760,10 +1760,10 @@
     iput v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
     .line 331
-    goto :goto_0
+    goto :goto_3e
 
     .line 327
-    :pswitch_5
+    :pswitch_34
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Integer;
@@ -1778,25 +1778,25 @@
     nop
 
     .line 345
-    :goto_0
+    :goto_3e
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_40
     .packed-switch 0x384
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_5
+        :pswitch_34
+        :pswitch_2a
+        :pswitch_20
+        :pswitch_1a
+        :pswitch_10
+        :pswitch_6
+        :pswitch_34
     .end packed-switch
 .end method
 
 .method public setValue([F)V
-    .locals 10
+    .registers 12
     .param p1, "value"    # [F
 
     .line 225
@@ -1808,32 +1808,32 @@
 
     const/4 v4, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_74
 
-    goto :goto_1
+    goto :goto_73
 
     .line 247
-    :pswitch_0
+    :pswitch_a
     aget v0, p1, v4
 
     float-to-double v5, v0
 
     cmpl-double v0, v5, v2
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_12
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_13
     iput-boolean v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mBooleanValue:Z
 
-    goto :goto_1
+    goto :goto_73
 
     .line 245
-    :pswitch_1
+    :pswitch_16
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Cannot interpolate String"
@@ -1843,7 +1843,7 @@
     throw v0
 
     .line 235
-    :pswitch_2
+    :pswitch_1e
     aget v0, p1, v4
 
     .line 236
@@ -1943,7 +1943,7 @@
     iput v6, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mIntegerValue:I
 
     .line 243
-    goto :goto_1
+    goto :goto_73
 
     .line 232
     .end local v0    # "f_r":F
@@ -1953,16 +1953,16 @@
     .end local v4    # "f_b":F
     .end local v5    # "r":I
     .end local v7    # "g":I
-    :pswitch_3
+    :pswitch_68
     aget v0, p1, v4
 
     iput v0, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mFloatValue:F
 
     .line 233
-    goto :goto_1
+    goto :goto_73
 
     .line 228
-    :pswitch_4
+    :pswitch_6d
     aget v0, p1, v4
 
     float-to-int v0, v0
@@ -1973,23 +1973,23 @@
     nop
 
     .line 250
-    :goto_1
+    :goto_73
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_74
     .packed-switch 0x384
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_3
-        :pswitch_4
+        :pswitch_6d
+        :pswitch_68
+        :pswitch_1e
+        :pswitch_16
+        :pswitch_a
+        :pswitch_68
+        :pswitch_6d
     .end packed-switch
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 80
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2016,7 +2016,7 @@
     .local v0, "str":Ljava/lang/String;
     iget v1, p0, Landroidx/constraintlayout/core/motion/CustomVariable;->mType:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_ae
 
     .line 95
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2040,7 +2040,7 @@
     return-object v1
 
     .line 93
-    :pswitch_0
+    :pswitch_2e
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2062,7 +2062,7 @@
     return-object v1
 
     .line 91
-    :pswitch_1
+    :pswitch_42
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2088,7 +2088,7 @@
     return-object v1
 
     .line 89
-    :pswitch_2
+    :pswitch_5a
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2110,7 +2110,7 @@
     return-object v1
 
     .line 87
-    :pswitch_3
+    :pswitch_6e
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2136,7 +2136,7 @@
     return-object v1
 
     .line 85
-    :pswitch_4
+    :pswitch_86
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2158,7 +2158,7 @@
     return-object v1
 
     .line 83
-    :pswitch_5
+    :pswitch_9a
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2179,13 +2179,13 @@
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_ae
     .packed-switch 0x384
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_9a
+        :pswitch_86
+        :pswitch_6e
+        :pswitch_5a
+        :pswitch_42
+        :pswitch_2e
     .end packed-switch
 .end method

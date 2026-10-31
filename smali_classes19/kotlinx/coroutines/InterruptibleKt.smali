@@ -48,7 +48,7 @@
 
 # direct methods
 .method public static final synthetic access$runInterruptibleInExpectedContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "coroutineContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final runInterruptible(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -97,12 +97,12 @@
 .end method
 
 .method public static synthetic runInterruptible$default(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 5
 
     .line 40
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_8
 
     .line 41
     sget-object p0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -110,7 +110,7 @@
     check-cast p0, Lkotlin/coroutines/CoroutineContext;
 
     .line 40
-    :cond_0
+    :cond_8
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/InterruptibleKt;->runInterruptible(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p0
@@ -119,7 +119,7 @@
 .end method
 
 .method private static final runInterruptibleInExpectedContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "coroutineContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -137,7 +137,7 @@
     nop
 
     .line 49
-    :try_start_0
+    :try_start_1
     new-instance v0, Lkotlinx/coroutines/ThreadState;
 
     invoke-static {p0}, Lkotlinx/coroutines/JobKt;->getJob(Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/Job;
@@ -149,29 +149,29 @@
     .line 50
     .local v0, "threadState":Lkotlinx/coroutines/ThreadState;
     invoke-virtual {v0}, Lkotlinx/coroutines/ThreadState;->setup()V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_d} :catch_1b
 
     .line 51
     nop
 
     .line 52
-    :try_start_1
+    :try_start_e
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_12
+    .catchall {:try_start_e .. :try_end_12} :catchall_16
 
     .line 54
-    :try_start_2
+    :try_start_12
     invoke-virtual {v0}, Lkotlinx/coroutines/ThreadState;->clearInterrupt()V
 
     .line 52
     return-object v1
 
     .line 54
-    :catchall_0
+    :catchall_16
     move-exception v1
 
     invoke-virtual {v0}, Lkotlinx/coroutines/ThreadState;->clearInterrupt()V
@@ -179,14 +179,14 @@
     .end local p0    # "coroutineContext":Lkotlin/coroutines/CoroutineContext;
     .end local p1    # "block":Lkotlin/jvm/functions/Function0;
     throw v1
-    :try_end_2
-    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/InterruptedException; {:try_start_12 .. :try_end_1b} :catch_1b
 
     .line 56
     .end local v0    # "threadState":Lkotlinx/coroutines/ThreadState;
     .restart local p0    # "coroutineContext":Lkotlin/coroutines/CoroutineContext;
     .restart local p1    # "block":Lkotlin/jvm/functions/Function0;
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 57

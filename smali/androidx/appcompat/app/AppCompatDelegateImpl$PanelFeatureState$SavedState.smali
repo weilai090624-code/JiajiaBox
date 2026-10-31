@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 3327
     new-instance v0, Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState$1;
@@ -52,7 +52,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3297
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method static readFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
-    .locals 3
+    .registers 5
     .param p0, "source"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
 
@@ -86,20 +86,20 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_13
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_14
     iput-boolean v2, v0, Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->isOpen:Z
 
     .line 3320
     iget-boolean v1, v0, Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->isOpen:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     .line 3321
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readBundle(Ljava/lang/ClassLoader;)Landroid/os/Bundle;
@@ -109,14 +109,14 @@
     iput-object v1, v0, Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->menuState:Landroid/os/Bundle;
 
     .line 3324
-    :cond_1
+    :cond_20
     return-object v0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 3302
     const/4 v0, 0x0
@@ -125,7 +125,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
@@ -142,7 +142,7 @@
     .line 3310
     iget-boolean v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->isOpen:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 3311
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->menuState:Landroid/os/Bundle;
@@ -150,6 +150,6 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
     .line 3313
-    :cond_0
+    :cond_13
     return-void
 .end method

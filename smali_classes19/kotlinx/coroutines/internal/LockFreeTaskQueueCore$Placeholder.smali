@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "index"    # I
 
     .line 268

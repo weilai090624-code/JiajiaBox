@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 979
     .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 984
     .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
@@ -53,7 +53,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -73,7 +73,7 @@
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -97,7 +97,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 999
     .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
@@ -133,7 +133,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -151,21 +151,21 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     return v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1012
     .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"

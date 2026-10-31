@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     .local p0, "this":Lcom/google/common/collect/RangeGwtSerializationDependencies;, "Lcom/google/common/collect/RangeGwtSerializationDependencies<TC;>;"

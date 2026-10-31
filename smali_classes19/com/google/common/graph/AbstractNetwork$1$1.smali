@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/AbstractNetwork$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/google/common/graph/AbstractNetwork$1;
 
     .line 70
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -55,13 +55,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 95
     return v1
 
     .line 97
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lcom/google/common/graph/EndpointPair;
@@ -74,7 +74,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_37
 
     iget-object v2, p0, Lcom/google/common/graph/AbstractNetwork$1$1;->this$1:Lcom/google/common/graph/AbstractNetwork$1;
 
@@ -91,7 +91,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_37
 
     iget-object v2, p0, Lcom/google/common/graph/AbstractNetwork$1$1;->this$1:Lcom/google/common/graph/AbstractNetwork$1;
 
@@ -112,22 +112,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_37
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_38
 
-    :cond_1
+    :cond_37
     nop
 
     .line 98
-    :goto_0
+    :goto_38
     return v1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -165,7 +165,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 85
     .local p0, "this":Lcom/google/common/graph/AbstractNetwork$1$1;, "Lcom/google/common/graph/AbstractNetwork$1$1;"

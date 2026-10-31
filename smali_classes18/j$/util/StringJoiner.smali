@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "delimiter"    # Ljava/lang/CharSequence;
 
     .line 100
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 5
     .param p1, "delimiter"    # Ljava/lang/CharSequence;
     .param p2, "prefix"    # Ljava/lang/CharSequence;
     .param p3, "suffix"    # Ljava/lang/CharSequence;
@@ -83,14 +83,14 @@
 .end method
 
 .method private compactElts()V
-    .locals 7
+    .registers 8
 
     .line 241
     iget v0, p0, Lj$/util/StringJoiner;->size:I
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_38
 
     .line 242
     iget v0, p0, Lj$/util/StringJoiner;->len:I
@@ -114,7 +114,7 @@
 
     .line 245
     .local v3, "k":I
-    :cond_0
+    :cond_13
     iget-object v5, p0, Lj$/util/StringJoiner;->delimiter:Ljava/lang/String;
 
     invoke-static {v5, v0, v3}, Lj$/util/StringJoiner;->getChars(Ljava/lang/String;[CI)I
@@ -146,7 +146,7 @@
 
     iget v5, p0, Lj$/util/StringJoiner;->size:I
 
-    if-lt v2, v5, :cond_0
+    if-lt v2, v5, :cond_13
 
     .line 249
     iput v1, p0, Lj$/util/StringJoiner;->size:I
@@ -164,12 +164,12 @@
     .end local v0    # "chars":[C
     .end local v2    # "i":I
     .end local v3    # "k":I
-    :cond_1
+    :cond_38
     return-void
 .end method
 
 .method private static getChars(Ljava/lang/String;[CI)I
-    .locals 2
+    .registers 5
     .param p0, "s"    # Ljava/lang/String;
     .param p1, "chars"    # [C
     .param p2, "start"    # I
@@ -192,7 +192,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/CharSequence;)Lj$/util/StringJoiner;
-    .locals 4
+    .registers 6
     .param p1, "newElement"    # Ljava/lang/CharSequence;
 
     .line 199
@@ -204,7 +204,7 @@
     .local v0, "elt":Ljava/lang/String;
     iget-object v1, p0, Lj$/util/StringJoiner;->elts:[Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 201
     const/16 v1, 0x8
@@ -213,17 +213,17 @@
 
     iput-object v1, p0, Lj$/util/StringJoiner;->elts:[Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 203
-    :cond_0
+    :cond_f
     iget v1, p0, Lj$/util/StringJoiner;->size:I
 
     iget-object v2, p0, Lj$/util/StringJoiner;->elts:[Ljava/lang/String;
 
     array-length v2, v2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_24
 
     .line 204
     iget-object v1, p0, Lj$/util/StringJoiner;->elts:[Ljava/lang/String;
@@ -241,7 +241,7 @@
     iput-object v1, p0, Lj$/util/StringJoiner;->elts:[Ljava/lang/String;
 
     .line 205
-    :cond_1
+    :cond_24
     iget v1, p0, Lj$/util/StringJoiner;->len:I
 
     iget-object v2, p0, Lj$/util/StringJoiner;->delimiter:Ljava/lang/String;
@@ -255,7 +255,7 @@
     iput v1, p0, Lj$/util/StringJoiner;->len:I
 
     .line 207
-    :goto_0
+    :goto_2f
     iget v1, p0, Lj$/util/StringJoiner;->len:I
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -282,16 +282,16 @@
 .end method
 
 .method public length()I
-    .locals 2
+    .registers 3
 
     .line 265
     iget v0, p0, Lj$/util/StringJoiner;->size:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     iget-object v0, p0, Lj$/util/StringJoiner;->emptyValue:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lj$/util/StringJoiner;->emptyValue:Ljava/lang/String;
 
@@ -299,10 +299,10 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 266
-    :cond_0
+    :cond_f
     iget v0, p0, Lj$/util/StringJoiner;->len:I
 
     iget-object v1, p0, Lj$/util/StringJoiner;->prefix:Ljava/lang/String;
@@ -322,12 +322,12 @@
     add-int/2addr v0, v1
 
     .line 265
-    :goto_0
+    :goto_1f
     return v0
 .end method
 
 .method public merge(Lj$/util/StringJoiner;)Lj$/util/StringJoiner;
-    .locals 2
+    .registers 4
     .param p1, "other"    # Lj$/util/StringJoiner;
 
     .line 232
@@ -336,13 +336,13 @@
     .line 233
     iget-object v0, p1, Lj$/util/StringJoiner;->elts:[Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 234
     return-object p0
 
     .line 236
-    :cond_0
+    :cond_8
     invoke-direct {p1}, Lj$/util/StringJoiner;->compactElts()V
 
     .line 237
@@ -360,7 +360,7 @@
 .end method
 
 .method public setEmptyValue(Ljava/lang/CharSequence;)Lj$/util/StringJoiner;
-    .locals 1
+    .registers 3
     .param p1, "emptyValue"    # Ljava/lang/CharSequence;
 
     .line 145
@@ -384,18 +384,18 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     .line 166
     iget-object v0, p0, Lj$/util/StringJoiner;->elts:[Ljava/lang/String;
 
     .line 167
     .local v0, "elts":[Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     iget-object v1, p0, Lj$/util/StringJoiner;->emptyValue:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     .line 168
     iget-object v1, p0, Lj$/util/StringJoiner;->emptyValue:Ljava/lang/String;
@@ -403,7 +403,7 @@
     return-object v1
 
     .line 170
-    :cond_0
+    :cond_b
     iget v1, p0, Lj$/util/StringJoiner;->size:I
 
     .line 171
@@ -426,26 +426,26 @@
     .local v2, "addLen":I
     const/4 v3, 0x0
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_28
 
     .line 173
     invoke-direct {p0}, Lj$/util/StringJoiner;->compactElts()V
 
     .line 174
-    if-nez v1, :cond_1
+    if-nez v1, :cond_25
 
     const-string v3, ""
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_1
+    :cond_25
     aget-object v3, v0, v3
 
-    :goto_0
+    :goto_27
     return-object v3
 
     .line 176
-    :cond_2
+    :cond_28
     iget-object v4, p0, Lj$/util/StringJoiner;->delimiter:Ljava/lang/String;
 
     .line 177
@@ -466,7 +466,7 @@
 
     .line 179
     .local v6, "k":I
-    if-lez v1, :cond_3
+    if-lez v1, :cond_50
 
     .line 180
     aget-object v3, v0, v3
@@ -481,8 +481,8 @@
     const/4 v3, 0x1
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v1, :cond_3
+    :goto_3f
+    if-ge v3, v1, :cond_50
 
     .line 182
     invoke-static {v4, v5, v6}, Lj$/util/StringJoiner;->getChars(Ljava/lang/String;[CI)I
@@ -503,11 +503,11 @@
     .line 181
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 186
     .end local v3    # "i":I
-    :cond_3
+    :cond_50
     iget-object v3, p0, Lj$/util/StringJoiner;->suffix:Ljava/lang/String;
 
     invoke-static {v3, v5, v6}, Lj$/util/StringJoiner;->getChars(Ljava/lang/String;[CI)I

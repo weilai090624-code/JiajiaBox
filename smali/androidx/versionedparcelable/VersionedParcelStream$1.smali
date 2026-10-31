@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/versionedparcelable/VersionedParcelStream;Ljava/io/InputStream;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/versionedparcelable/VersionedParcelStream;
     .param p2, "x0"    # Ljava/io/InputStream;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public read()I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -49,7 +49,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_18
 
     iget-object v0, p0, Landroidx/versionedparcelable/VersionedParcelStream$1;->this$0:Landroidx/versionedparcelable/VersionedParcelStream;
 
@@ -59,12 +59,12 @@
 
     iget v1, v1, Landroidx/versionedparcelable/VersionedParcelStream;->mFieldSize:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_12
 
-    goto :goto_0
+    goto :goto_18
 
     .line 89
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/io/IOException;
 
     invoke-direct {v0}, Ljava/io/IOException;-><init>()V
@@ -72,8 +72,8 @@
     throw v0
 
     .line 91
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-super {p0}, Ljava/io/FilterInputStream;->read()I
 
     move-result v0
@@ -93,7 +93,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 3
+    .registers 7
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -110,7 +110,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_18
 
     iget-object v0, p0, Landroidx/versionedparcelable/VersionedParcelStream$1;->this$0:Landroidx/versionedparcelable/VersionedParcelStream;
 
@@ -120,12 +120,12 @@
 
     iget v1, v1, Landroidx/versionedparcelable/VersionedParcelStream;->mFieldSize:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_12
 
-    goto :goto_0
+    goto :goto_18
 
     .line 99
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/io/IOException;
 
     invoke-direct {v0}, Ljava/io/IOException;-><init>()V
@@ -133,15 +133,15 @@
     throw v0
 
     .line 101
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-super {p0, p1, p2, p3}, Ljava/io/FilterInputStream;->read([BII)I
 
     move-result v0
 
     .line 102
     .local v0, "read":I
-    if-lez v0, :cond_2
+    if-lez v0, :cond_25
 
     .line 103
     iget-object v1, p0, Landroidx/versionedparcelable/VersionedParcelStream$1;->this$0:Landroidx/versionedparcelable/VersionedParcelStream;
@@ -153,12 +153,12 @@
     iput v2, v1, Landroidx/versionedparcelable/VersionedParcelStream;->mCount:I
 
     .line 105
-    :cond_2
+    :cond_25
     return v0
 .end method
 
 .method public skip(J)J
-    .locals 5
+    .registers 8
     .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -173,7 +173,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_18
 
     iget-object v0, p0, Landroidx/versionedparcelable/VersionedParcelStream$1;->this$0:Landroidx/versionedparcelable/VersionedParcelStream;
 
@@ -183,12 +183,12 @@
 
     iget v1, v1, Landroidx/versionedparcelable/VersionedParcelStream;->mFieldSize:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_12
 
-    goto :goto_0
+    goto :goto_18
 
     .line 111
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/io/IOException;
 
     invoke-direct {v0}, Ljava/io/IOException;-><init>()V
@@ -196,8 +196,8 @@
     throw v0
 
     .line 113
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-super {p0, p1, p2}, Ljava/io/FilterInputStream;->skip(J)J
 
     move-result-wide v0
@@ -208,7 +208,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_2a
 
     .line 115
     iget-object v2, p0, Landroidx/versionedparcelable/VersionedParcelStream$1;->this$0:Landroidx/versionedparcelable/VersionedParcelStream;
@@ -222,6 +222,6 @@
     iput v3, v2, Landroidx/versionedparcelable/VersionedParcelStream;->mCount:I
 
     .line 117
-    :cond_2
+    :cond_2a
     return-wide v0
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 349
     invoke-direct {p0}, Lcom/google/common/cache/CacheBuilderSpec$LongParser;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method protected parseLong(Lcom/google/common/cache/CacheBuilderSpec;J)V
-    .locals 5
+    .registers 9
     .param p1, "spec"    # Lcom/google/common/cache/CacheBuilderSpec;
     .param p2, "value"    # J
 
@@ -38,16 +38,16 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     const-string v3, "maximum weight was already set to "
 
     iget-object v4, p1, Lcom/google/common/cache/CacheBuilderSpec;->maximumWeight:Ljava/lang/Long;
@@ -57,14 +57,14 @@
     .line 354
     iget-object v0, p1, Lcom/google/common/cache/CacheBuilderSpec;->maximumSize:Ljava/lang/Long;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_16
     const-string v0, "maximum size was already set to "
 
     iget-object v2, p1, Lcom/google/common/cache/CacheBuilderSpec;->maximumSize:Ljava/lang/Long;

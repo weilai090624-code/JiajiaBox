@@ -38,7 +38,7 @@
 
 # direct methods
 .method public static final tryDelegateConstrainedWorkSpec(Landroidx/work/impl/model/WorkSpec;)Landroidx/work/impl/model/WorkSpec;
-    .locals 33
+    .registers 34
     .param p0, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
 
     move-object/from16 v0, p0
@@ -68,33 +68,33 @@
 
     .line 42
     .local v30, "isConstraintTrackingWorker":Z
-    if-nez v30, :cond_2
+    if-nez v30, :cond_87
 
     .line 43
     invoke-virtual {v15}, Landroidx/work/Constraints;->requiresBatteryNotLow()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2a
 
     invoke-virtual {v15}, Landroidx/work/Constraints;->requiresStorageNotLow()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_25
     move-object/from16 v31, v14
 
     move-object/from16 v32, v15
 
-    goto :goto_1
+    goto :goto_8b
 
     .line 45
-    :cond_1
-    :goto_0
+    :cond_2a
+    :goto_2a
     new-instance v1, Landroidx/work/Data$Builder;
 
     invoke-direct {v1}, Landroidx/work/Data$Builder;-><init>()V
@@ -215,7 +215,7 @@
     .end local v32    # "constraints":Landroidx/work/Constraints;
     .restart local v14    # "workerClassName":Ljava/lang/String;
     .restart local v15    # "constraints":Landroidx/work/Constraints;
-    :cond_2
+    :cond_87
     move-object/from16 v31, v14
 
     move-object/from16 v32, v15
@@ -225,12 +225,12 @@
     .end local v15    # "constraints":Landroidx/work/Constraints;
     .restart local v31    # "workerClassName":Ljava/lang/String;
     .restart local v32    # "constraints":Landroidx/work/Constraints;
-    :goto_1
+    :goto_8b
     return-object p0
 .end method
 
 .method private static final usesScheduler(Ljava/util/List;Ljava/lang/String;)Z
-    .locals 9
+    .registers 11
     .param p0, "schedulers"    # Ljava/util/List;
     .param p1, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -251,7 +251,7 @@
     .line 75
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_2
     invoke-static {p1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v1
@@ -269,7 +269,7 @@
     .local v3, "$i$f$any":I
     instance-of v4, v2, Ljava/util/Collection;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_18
 
     move-object v4, v2
 
@@ -279,22 +279,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_18
 
-    goto :goto_0
+    goto :goto_37
 
     .line 83
-    :cond_0
+    :cond_18
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :cond_1
+    :cond_1c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_36
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -317,32 +317,32 @@
     invoke-virtual {v1, v8}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v8
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_32
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_32} :catch_38
 
     .line 83
     .end local v6    # "scheduler":Landroidx/work/impl/Scheduler;
     .end local v7    # "$i$a$-any-EnqueueUtilsKt$usesScheduler$1":I
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_1c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_37
 
     .line 84
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_36
     nop
 
     .line 76
     .end local v2    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v3    # "$i$f$any":I
-    :goto_0
+    :goto_37
     return v0
 
     .line 77
     .end local v1    # "klass":Ljava/lang/Class;
-    :catch_0
+    :catch_38
     move-exception v1
 
     .line 78
@@ -355,7 +355,7 @@
 .end method
 
 .method public static final wrapInConstraintTrackingWorkerIfNeeded(Ljava/util/List;Landroidx/work/impl/model/WorkSpec;)Landroidx/work/impl/model/WorkSpec;
-    .locals 3
+    .registers 5
     .param p0, "schedulers"    # Ljava/util/List;
     .param p1, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
     .annotation system Ldalvik/annotation/Signature;
@@ -389,31 +389,31 @@
 
     const/4 v2, 0x0
 
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_18
 
     const/16 v1, 0x1a
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_18
 
     const/4 v2, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_18
+    if-eqz v2, :cond_1f
 
     .line 62
     invoke-static {p1}, Landroidx/work/impl/utils/EnqueueUtilsKt;->tryDelegateConstrainedWorkSpec(Landroidx/work/impl/model/WorkSpec;)Landroidx/work/impl/model/WorkSpec;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_33
 
     .line 63
-    :cond_1
+    :cond_1f
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x16
 
-    if-gt v0, v1, :cond_2
+    if-gt v0, v1, :cond_32
 
     .line 64
     const-string v0, "androidx.work.impl.background.gcm.GcmScheduler"
@@ -422,20 +422,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_32
 
     .line 65
     invoke-static {p1}, Landroidx/work/impl/utils/EnqueueUtilsKt;->tryDelegateConstrainedWorkSpec(Landroidx/work/impl/model/WorkSpec;)Landroidx/work/impl/model/WorkSpec;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_33
 
     .line 66
-    :cond_2
+    :cond_32
     move-object v0, p1
 
     .line 60
-    :goto_0
+    :goto_33
     return-object v0
 .end method

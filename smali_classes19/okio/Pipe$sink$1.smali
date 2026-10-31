@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Pipe;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Lokio/Pipe;
 
     iput-object p1, p0, Lokio/Pipe$sink$1;->this$0:Lokio/Pipe;
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 15
+    .registers 16
 
     .line 103
     const/4 v0, 0x0
@@ -105,14 +105,14 @@
 
     .line 105
     .local v4, "$i$a$-synchronized-Pipe$sink$1$close$1":I
-    :try_start_0
+    :try_start_c
     invoke-virtual {v2}, Lokio/Pipe;->getSinkClosed$okio()Z
 
     move-result v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_10
+    .catchall {:try_start_c .. :try_end_10} :catchall_f7
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_14
 
     .end local v1    # "lock$iv":Ljava/lang/Object;
     .end local v3    # "$i$f$synchronized":I
@@ -125,20 +125,20 @@
     .restart local v1    # "lock$iv":Ljava/lang/Object;
     .restart local v3    # "$i$f$synchronized":I
     .restart local v4    # "$i$a$-synchronized-Pipe$sink$1$close$1":I
-    :cond_0
-    :try_start_1
+    :cond_14
+    :try_start_14
     invoke-virtual {v2}, Lokio/Pipe;->getFoldedSink$okio()Lokio/Sink;
 
     move-result-object v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_45
 
     .line 112
     invoke-virtual {v2}, Lokio/Pipe;->getSourceClosed$okio()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_37
 
     invoke-virtual {v2}, Lokio/Pipe;->getBuffer$okio()Lokio/Buffer;
 
@@ -152,11 +152,11 @@
 
     cmp-long v9, v5, v7
 
-    if-gtz v9, :cond_1
+    if-gtz v9, :cond_2f
 
-    goto :goto_0
+    goto :goto_37
 
-    :cond_1
+    :cond_2f
     new-instance v2, Ljava/io/IOException;
 
     const-string v5, "source is closed"
@@ -172,8 +172,8 @@
     .restart local v0    # "delegate":Ljava/lang/Object;
     .restart local v1    # "lock$iv":Ljava/lang/Object;
     .restart local v3    # "$i$f$synchronized":I
-    :cond_2
-    :goto_0
+    :cond_37
+    :goto_37
     const/4 v5, 0x1
 
     invoke-virtual {v2, v5}, Lokio/Pipe;->setSinkClosed$okio(Z)V
@@ -188,10 +188,10 @@
     invoke-virtual {v2}, Ljava/lang/Object;->notifyAll()V
 
     .line 115
-    goto :goto_1
+    goto :goto_49
 
     .line 107
-    :cond_3
+    :cond_45
     move-object v2, v5
 
     .local v2, "it":Lokio/Sink;
@@ -208,10 +208,10 @@
     .end local v2    # "it":Lokio/Sink;
     .end local v4    # "$i$a$-synchronized-Pipe$sink$1$close$1":I
     .end local v5    # "$i$a$-let-Pipe$sink$1$close$1$1":I
-    :goto_1
+    :goto_49
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    :try_end_4b
+    .catchall {:try_start_14 .. :try_end_4b} :catchall_f7
 
     monitor-exit v1
 
@@ -221,11 +221,11 @@
     .line 117
     .end local v1    # "lock$iv":Ljava/lang/Object;
     .end local v3    # "$i$f$synchronized":I
-    if-nez v0, :cond_4
+    if-nez v0, :cond_51
 
-    goto/16 :goto_3
+    goto/16 :goto_e6
 
-    :cond_4
+    :cond_51
     iget-object v1, p0, Lokio/Pipe$sink$1;->this$0:Lokio/Pipe;
 
     .local v1, "this_$iv":Lokio/Pipe;
@@ -283,7 +283,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_c0
 
     .line 316
     invoke-virtual {v4}, Lokio/Timeout;->deadlineNanoTime()J
@@ -296,7 +296,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_98
 
     .line 318
     invoke-virtual {v4}, Lokio/Timeout;->deadlineNanoTime()J
@@ -314,7 +314,7 @@
     invoke-virtual {v4, v11, v12}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 320
-    :cond_5
+    :cond_98
     nop
 
     .line 321
@@ -329,15 +329,15 @@
 
     .line 117
     .local v13, "$i$a$-forward-Pipe$sink$1$close$2":I
-    :try_start_2
+    :try_start_9c
     invoke-interface {v12}, Lokio/Sink;->close()V
 
     .end local v11    # "$i$a$-intersectWith-Pipe$forward$1$iv":I
     .end local v12    # "$this$close_u24lambda_u2d10":Lokio/Sink;
     .end local v13    # "$i$a$-forward-Pipe$sink$1$close$2":I
     sget-object v11, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_a1
+    .catchall {:try_start_9c .. :try_end_a1} :catchall_b0
 
     .line 323
     sget-object v11, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -349,16 +349,16 @@
 
     move-result v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_af
 
     .line 325
     invoke-virtual {v4, v9, v10}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 321
-    :cond_6
-    goto :goto_2
+    :cond_af
+    goto :goto_e5
 
-    :catchall_0
+    :catchall_b0
     move-exception v11
 
     .line 323
@@ -371,22 +371,22 @@
 
     move-result v12
 
-    if-eqz v12, :cond_7
+    if-eqz v12, :cond_bf
 
     .line 325
     invoke-virtual {v4, v9, v10}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
-    :cond_7
+    :cond_bf
     throw v11
 
     .line 329
     .end local v9    # "originalDeadline$iv$iv":J
-    :cond_8
+    :cond_c0
     invoke-virtual {v5}, Lokio/Timeout;->hasDeadline()Z
 
     move-result v9
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_cd
 
     .line 330
     invoke-virtual {v5}, Lokio/Timeout;->deadlineNanoTime()J
@@ -396,7 +396,7 @@
     invoke-virtual {v4, v9, v10}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 332
-    :cond_9
+    :cond_cd
     nop
 
     .line 333
@@ -411,15 +411,15 @@
 
     .line 117
     .local v11, "$i$a$-forward-Pipe$sink$1$close$2":I
-    :try_start_3
+    :try_start_d1
     invoke-interface {v10}, Lokio/Sink;->close()V
 
     .end local v9    # "$i$a$-intersectWith-Pipe$forward$1$iv":I
     .end local v10    # "$this$close_u24lambda_u2d10":Lokio/Sink;
     .end local v11    # "$i$a$-forward-Pipe$sink$1$close$2":I
     sget-object v9, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_d6
+    .catchall {:try_start_d1 .. :try_end_d6} :catchall_e7
 
     .line 335
     sget-object v9, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -431,13 +431,13 @@
 
     move-result v9
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_e4
 
     .line 337
     invoke-virtual {v4}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
     .line 333
-    :cond_a
+    :cond_e4
     nop
 
     .line 338
@@ -445,14 +445,14 @@
     .end local v5    # "other$iv$iv":Lokio/Timeout;
     .end local v6    # "$i$f$intersectWith":I
     .end local v7    # "originalTimeout$iv$iv":J
-    :goto_2
+    :goto_e5
     nop
 
     .line 118
     .end local v1    # "this_$iv":Lokio/Pipe;
     .end local v2    # "$this$forward$iv":Lokio/Sink;
     .end local v3    # "$i$f$forward":I
-    :goto_3
+    :goto_e6
     return-void
 
     .line 333
@@ -463,7 +463,7 @@
     .restart local v5    # "other$iv$iv":Lokio/Timeout;
     .restart local v6    # "$i$f$intersectWith":I
     .restart local v7    # "originalTimeout$iv$iv":J
-    :catchall_1
+    :catchall_e7
     move-exception v9
 
     .line 335
@@ -476,12 +476,12 @@
 
     move-result v10
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_f6
 
     .line 337
     invoke-virtual {v4}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
-    :cond_b
+    :cond_f6
     throw v9
 
     .line 115
@@ -492,7 +492,7 @@
     .end local v7    # "originalTimeout$iv$iv":J
     .local v1, "lock$iv":Ljava/lang/Object;
     .local v3, "$i$f$synchronized":I
-    :catchall_2
+    :catchall_f7
     move-exception v2
 
     monitor-exit v1
@@ -501,7 +501,7 @@
 .end method
 
 .method public flush()V
-    .locals 15
+    .registers 16
 
     .line 84
     const/4 v0, 0x0
@@ -527,33 +527,33 @@
 
     .line 86
     .local v4, "$i$a$-synchronized-Pipe$sink$1$flush$1":I
-    :try_start_0
+    :try_start_c
     invoke-virtual {v2}, Lokio/Pipe;->getSinkClosed$okio()Z
 
     move-result v5
 
-    if-nez v5, :cond_c
+    if-nez v5, :cond_f6
 
     .line 87
     invoke-virtual {v2}, Lokio/Pipe;->getCanceled$okio()Z
 
     move-result v5
 
-    if-nez v5, :cond_b
+    if-nez v5, :cond_ee
 
     .line 89
     invoke-virtual {v2}, Lokio/Pipe;->getFoldedSink$okio()Lokio/Sink;
 
     move-result-object v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3c
 
     .line 94
     invoke-virtual {v2}, Lokio/Pipe;->getSourceClosed$okio()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3b
 
     invoke-virtual {v2}, Lokio/Pipe;->getBuffer$okio()Lokio/Buffer;
 
@@ -567,12 +567,12 @@
 
     cmp-long v2, v5, v7
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_33
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 95
-    :cond_0
+    :cond_33
     new-instance v2, Ljava/io/IOException;
 
     const-string v5, "source is closed"
@@ -588,12 +588,12 @@
     .restart local v0    # "delegate":Ljava/lang/Object;
     .restart local v1    # "lock$iv":Ljava/lang/Object;
     .restart local v3    # "$i$f$synchronized":I
-    :cond_1
-    :goto_0
-    goto :goto_1
+    :cond_3b
+    :goto_3b
+    goto :goto_40
 
     .line 89
-    :cond_2
+    :cond_3c
     move-object v2, v5
 
     .local v2, "it":Lokio/Sink;
@@ -610,10 +610,10 @@
     .end local v2    # "it":Lokio/Sink;
     .end local v4    # "$i$a$-synchronized-Pipe$sink$1$flush$1":I
     .end local v5    # "$i$a$-let-Pipe$sink$1$flush$1$2":I
-    :goto_1
+    :goto_40
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_42
+    .catchall {:try_start_c .. :try_end_42} :catchall_105
 
     monitor-exit v1
 
@@ -623,11 +623,11 @@
     .line 99
     .end local v1    # "lock$iv":Ljava/lang/Object;
     .end local v3    # "$i$f$synchronized":I
-    if-nez v0, :cond_3
+    if-nez v0, :cond_48
 
-    goto/16 :goto_3
+    goto/16 :goto_dd
 
-    :cond_3
+    :cond_48
     iget-object v1, p0, Lokio/Pipe$sink$1;->this$0:Lokio/Pipe;
 
     .local v1, "this_$iv":Lokio/Pipe;
@@ -685,7 +685,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_b7
 
     .line 287
     invoke-virtual {v4}, Lokio/Timeout;->deadlineNanoTime()J
@@ -698,7 +698,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_8f
 
     .line 289
     invoke-virtual {v4}, Lokio/Timeout;->deadlineNanoTime()J
@@ -716,7 +716,7 @@
     invoke-virtual {v4, v11, v12}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 291
-    :cond_4
+    :cond_8f
     nop
 
     .line 292
@@ -731,15 +731,15 @@
 
     .line 99
     .local v13, "$i$a$-forward-Pipe$sink$1$flush$2":I
-    :try_start_1
+    :try_start_93
     invoke-interface {v12}, Lokio/Sink;->flush()V
 
     .end local v11    # "$i$a$-intersectWith-Pipe$forward$1$iv":I
     .end local v12    # "$this$flush_u24lambda_u2d7":Lokio/Sink;
     .end local v13    # "$i$a$-forward-Pipe$sink$1$flush$2":I
     sget-object v11, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_98
+    .catchall {:try_start_93 .. :try_end_98} :catchall_a7
 
     .line 294
     sget-object v11, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -751,16 +751,16 @@
 
     move-result v11
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_a6
 
     .line 296
     invoke-virtual {v4, v9, v10}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 292
-    :cond_5
-    goto :goto_2
+    :cond_a6
+    goto :goto_dc
 
-    :catchall_0
+    :catchall_a7
     move-exception v11
 
     .line 294
@@ -773,22 +773,22 @@
 
     move-result v12
 
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_b6
 
     .line 296
     invoke-virtual {v4, v9, v10}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
-    :cond_6
+    :cond_b6
     throw v11
 
     .line 300
     .end local v9    # "originalDeadline$iv$iv":J
-    :cond_7
+    :cond_b7
     invoke-virtual {v5}, Lokio/Timeout;->hasDeadline()Z
 
     move-result v9
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_c4
 
     .line 301
     invoke-virtual {v5}, Lokio/Timeout;->deadlineNanoTime()J
@@ -798,7 +798,7 @@
     invoke-virtual {v4, v9, v10}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 303
-    :cond_8
+    :cond_c4
     nop
 
     .line 304
@@ -813,15 +813,15 @@
 
     .line 99
     .local v11, "$i$a$-forward-Pipe$sink$1$flush$2":I
-    :try_start_2
+    :try_start_c8
     invoke-interface {v10}, Lokio/Sink;->flush()V
 
     .end local v9    # "$i$a$-intersectWith-Pipe$forward$1$iv":I
     .end local v10    # "$this$flush_u24lambda_u2d7":Lokio/Sink;
     .end local v11    # "$i$a$-forward-Pipe$sink$1$flush$2":I
     sget-object v9, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_cd
+    .catchall {:try_start_c8 .. :try_end_cd} :catchall_de
 
     .line 306
     sget-object v9, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -833,13 +833,13 @@
 
     move-result v9
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_db
 
     .line 308
     invoke-virtual {v4}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
     .line 304
-    :cond_9
+    :cond_db
     nop
 
     .line 309
@@ -847,14 +847,14 @@
     .end local v5    # "other$iv$iv":Lokio/Timeout;
     .end local v6    # "$i$f$intersectWith":I
     .end local v7    # "originalTimeout$iv$iv":J
-    :goto_2
+    :goto_dc
     nop
 
     .line 100
     .end local v1    # "this_$iv":Lokio/Pipe;
     .end local v2    # "$this$forward$iv":Lokio/Sink;
     .end local v3    # "$i$f$forward":I
-    :goto_3
+    :goto_dd
     return-void
 
     .line 304
@@ -865,7 +865,7 @@
     .restart local v5    # "other$iv$iv":Lokio/Timeout;
     .restart local v6    # "$i$f$intersectWith":I
     .restart local v7    # "originalTimeout$iv$iv":J
-    :catchall_1
+    :catchall_de
     move-exception v9
 
     .line 306
@@ -878,12 +878,12 @@
 
     move-result v10
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_ed
 
     .line 308
     invoke-virtual {v4}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
-    :cond_a
+    :cond_ed
     throw v9
 
     .line 87
@@ -894,8 +894,8 @@
     .local v1, "lock$iv":Ljava/lang/Object;
     .local v3, "$i$f$synchronized":I
     .local v4, "$i$a$-synchronized-Pipe$sink$1$flush$1":I
-    :cond_b
-    :try_start_3
+    :cond_ee
+    :try_start_ee
     new-instance v2, Ljava/io/IOException;
 
     const-string v5, "canceled"
@@ -911,7 +911,7 @@
     .restart local v0    # "delegate":Ljava/lang/Object;
     .restart local v1    # "lock$iv":Ljava/lang/Object;
     .restart local v3    # "$i$f$synchronized":I
-    :cond_c
+    :cond_f6
     const/4 v2, 0x0
 
     .line 86
@@ -933,15 +933,15 @@
     .end local v1    # "lock$iv":Ljava/lang/Object;
     .end local v3    # "$i$f$synchronized":I
     throw v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_105
+    .catchall {:try_start_ee .. :try_end_105} :catchall_105
 
     .line 97
     .end local v4    # "$i$a$-synchronized-Pipe$sink$1$flush$1":I
     .restart local v0    # "delegate":Ljava/lang/Object;
     .restart local v1    # "lock$iv":Ljava/lang/Object;
     .restart local v3    # "$i$f$synchronized":I
-    :catchall_2
+    :catchall_105
     move-exception v2
 
     monitor-exit v1
@@ -950,7 +950,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 120
     iget-object v0, p0, Lokio/Pipe$sink$1;->timeout:Lokio/Timeout;
@@ -959,7 +959,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 18
+    .registers 22
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -998,47 +998,47 @@
 
     .line 55
     .local v6, "$i$a$-synchronized-Pipe$sink$1$write$1":I
-    :try_start_0
+    :try_start_16
     invoke-virtual {v0}, Lokio/Pipe;->getSinkClosed$okio()Z
 
     move-result v7
 
-    if-nez v7, :cond_e
+    if-nez v7, :cond_147
 
     .line 56
     invoke-virtual {v0}, Lokio/Pipe;->getCanceled$okio()Z
 
     move-result v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_4
+    :try_end_20
+    .catchall {:try_start_16 .. :try_end_20} :catchall_156
 
-    if-nez v7, :cond_d
+    if-nez v7, :cond_13f
 
     move-wide/from16 v7, p2
 
     .line 58
     .local v7, "byteCount":J
-    :goto_0
+    :goto_24
     const-wide/16 v9, 0x0
 
     cmp-long v11, v7, v9
 
-    if-lez v11, :cond_4
+    if-lez v11, :cond_84
 
     .line 59
-    :try_start_1
+    :try_start_2a
     invoke-virtual {v0}, Lokio/Pipe;->getFoldedSink$okio()Lokio/Sink;
 
     move-result-object v11
 
-    if-nez v11, :cond_3
+    if-nez v11, :cond_7d
 
     .line 64
     invoke-virtual {v0}, Lokio/Pipe;->getSourceClosed$okio()Z
 
     move-result v11
 
-    if-nez v11, :cond_2
+    if-nez v11, :cond_75
 
     .line 66
     invoke-virtual {v0}, Lokio/Pipe;->getMaxBufferSize$okio()J
@@ -1059,7 +1059,7 @@
     .local v11, "bufferSpaceAvailable":J
     cmp-long v13, v11, v9
 
-    if-nez v13, :cond_1
+    if-nez v13, :cond_5f
 
     .line 68
     iget-object v9, v1, Lokio/Pipe$sink$1;->timeout:Lokio/Timeout;
@@ -1075,13 +1075,13 @@
 
     move-result v9
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_57
 
     .line 70
-    goto :goto_0
+    goto :goto_24
 
     .line 69
-    :cond_0
+    :cond_57
     new-instance v0, Ljava/io/IOException;
 
     const-string v9, "canceled"
@@ -1103,7 +1103,7 @@
     .restart local v7    # "byteCount":J
     .restart local p1    # "source":Lokio/Buffer;
     .restart local p2    # "byteCount":J
-    :cond_1
+    :cond_5f
     invoke-static {v11, v12, v7, v8}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v9
@@ -1130,10 +1130,10 @@
 
     .end local v9    # "bytesToWrite":J
     .end local v11    # "bufferSpaceAvailable":J
-    goto :goto_0
+    goto :goto_24
 
     .line 64
-    :cond_2
+    :cond_75
     new-instance v0, Ljava/io/IOException;
 
     const-string v9, "source is closed"
@@ -1147,8 +1147,8 @@
     .end local p1    # "source":Lokio/Buffer;
     .end local p2    # "byteCount":J
     throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7d
+    .catchall {:try_start_2a .. :try_end_7d} :catchall_81
 
     .line 59
     .restart local v3    # "delegate":Ljava/lang/Object;
@@ -1157,7 +1157,7 @@
     .restart local v7    # "byteCount":J
     .restart local p1    # "source":Lokio/Buffer;
     .restart local p2    # "byteCount":J
-    :cond_3
+    :cond_7d
     move-object v0, v11
 
     .local v0, "it":Lokio/Sink;
@@ -1168,27 +1168,27 @@
     move-object v3, v0
 
     .line 61
-    goto :goto_1
+    goto :goto_85
 
     .line 78
     .end local v0    # "it":Lokio/Sink;
     .end local v6    # "$i$a$-synchronized-Pipe$sink$1$write$1":I
     .end local v9    # "$i$a$-let-Pipe$sink$1$write$1$2":I
-    :catchall_0
+    :catchall_81
     move-exception v0
 
-    goto/16 :goto_4
+    goto/16 :goto_159
 
     .restart local v6    # "$i$a$-synchronized-Pipe$sink$1$write$1":I
-    :cond_4
+    :cond_84
     nop
 
     .end local v6    # "$i$a$-synchronized-Pipe$sink$1$write$1":I
-    :goto_1
-    :try_start_2
+    :goto_85
+    :try_start_85
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_3
+    :try_end_87
+    .catchall {:try_start_85 .. :try_end_87} :catchall_13b
 
     monitor-exit v4
 
@@ -1198,13 +1198,13 @@
     .line 80
     .end local v4    # "lock$iv":Ljava/lang/Object;
     .end local v5    # "$i$f$synchronized":I
-    if-nez v3, :cond_5
+    if-nez v3, :cond_8f
 
     move-object/from16 v16, v3
 
-    goto/16 :goto_3
+    goto/16 :goto_12a
 
-    :cond_5
+    :cond_8f
     iget-object v4, v1, Lokio/Pipe$sink$1;->this$0:Lokio/Pipe;
 
     .local v4, "this_$iv":Lokio/Pipe;
@@ -1278,7 +1278,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_104
 
     .line 258
     invoke-virtual {v9}, Lokio/Timeout;->deadlineNanoTime()J
@@ -1291,7 +1291,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_dc
 
     .line 260
     invoke-virtual {v9}, Lokio/Timeout;->deadlineNanoTime()J
@@ -1309,7 +1309,7 @@
     invoke-virtual {v9, v0, v1}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 262
-    :cond_6
+    :cond_dc
     nop
 
     .line 263
@@ -1324,15 +1324,15 @@
 
     .line 80
     .local v14, "$i$a$-forward-Pipe$sink$1$write$2":I
-    :try_start_3
+    :try_start_e0
     invoke-interface {v1, v2, v7, v8}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
     .end local v0    # "$i$a$-intersectWith-Pipe$forward$1$iv":I
     .end local v1    # "$this$write_u24lambda_u2d3":Lokio/Sink;
     .end local v14    # "$i$a$-forward-Pipe$sink$1$write$2":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_e5
+    .catchall {:try_start_e0 .. :try_end_e5} :catchall_f4
 
     .line 265
     sget-object v0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -1344,16 +1344,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_f3
 
     .line 267
     invoke-virtual {v9, v3, v4}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 263
-    :cond_7
-    goto :goto_2
+    :cond_f3
+    goto :goto_129
 
-    :catchall_1
+    :catchall_f4
     move-exception v0
 
     .line 265
@@ -1366,22 +1366,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_103
 
     .line 267
     invoke-virtual {v9, v3, v4}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
-    :cond_8
+    :cond_103
     throw v0
 
     .line 271
     .end local v3    # "originalDeadline$iv$iv":J
-    :cond_9
+    :cond_104
     invoke-virtual {v10}, Lokio/Timeout;->hasDeadline()Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_111
 
     .line 272
     invoke-virtual {v10}, Lokio/Timeout;->deadlineNanoTime()J
@@ -1391,7 +1391,7 @@
     invoke-virtual {v9, v0, v1}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 274
-    :cond_a
+    :cond_111
     nop
 
     .line 275
@@ -1406,15 +1406,15 @@
 
     .line 80
     .local v3, "$i$a$-forward-Pipe$sink$1$write$2":I
-    :try_start_4
+    :try_start_115
     invoke-interface {v1, v2, v7, v8}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
     .end local v0    # "$i$a$-intersectWith-Pipe$forward$1$iv":I
     .end local v1    # "$this$write_u24lambda_u2d3":Lokio/Sink;
     .end local v3    # "$i$a$-forward-Pipe$sink$1$write$2":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_11a
+    .catchall {:try_start_115 .. :try_end_11a} :catchall_12b
 
     .line 277
     sget-object v0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -1426,13 +1426,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_128
 
     .line 279
     invoke-virtual {v9}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
     .line 275
-    :cond_b
+    :cond_128
     nop
 
     .line 280
@@ -1440,14 +1440,14 @@
     .end local v10    # "other$iv$iv":Lokio/Timeout;
     .end local v11    # "$i$f$intersectWith":I
     .end local v12    # "originalTimeout$iv$iv":J
-    :goto_2
+    :goto_129
     nop
 
     .line 81
     .end local v5    # "$this$forward$iv":Lokio/Sink;
     .end local v6    # "$i$f$forward":I
     .end local v17    # "this_$iv":Lokio/Pipe;
-    :goto_3
+    :goto_12a
     return-void
 
     .line 275
@@ -1458,7 +1458,7 @@
     .restart local v11    # "$i$f$intersectWith":I
     .restart local v12    # "originalTimeout$iv$iv":J
     .restart local v17    # "this_$iv":Lokio/Pipe;
-    :catchall_2
+    :catchall_12b
     move-exception v0
 
     .line 277
@@ -1471,12 +1471,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_13a
 
     .line 279
     invoke-virtual {v9}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
-    :cond_c
+    :cond_13a
     throw v0
 
     .line 78
@@ -1490,22 +1490,22 @@
     .local v3, "delegate":Ljava/lang/Object;
     .local v4, "lock$iv":Ljava/lang/Object;
     .local v5, "$i$f$synchronized":I
-    :catchall_3
+    :catchall_13b
     move-exception v0
 
     move-object/from16 v16, v3
 
     .end local v3    # "delegate":Ljava/lang/Object;
     .restart local v16    # "delegate":Ljava/lang/Object;
-    goto :goto_4
+    goto :goto_159
 
     .line 56
     .end local v7    # "byteCount":J
     .end local v16    # "delegate":Ljava/lang/Object;
     .restart local v3    # "delegate":Ljava/lang/Object;
     .local v6, "$i$a$-synchronized-Pipe$sink$1$write$1":I
-    :cond_d
-    :try_start_5
+    :cond_13f
+    :try_start_13f
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "canceled"
@@ -1525,7 +1525,7 @@
     .restart local v5    # "$i$f$synchronized":I
     .restart local p1    # "source":Lokio/Buffer;
     .restart local p2    # "byteCount":J
-    :cond_e
+    :cond_147
     const/4 v0, 0x0
 
     .line 55
@@ -1549,8 +1549,8 @@
     .end local p1    # "source":Lokio/Buffer;
     .end local p2    # "byteCount":J
     throw v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_4
+    :try_end_156
+    .catchall {:try_start_13f .. :try_end_156} :catchall_156
 
     .line 78
     .end local v6    # "$i$a$-synchronized-Pipe$sink$1$write$1":I
@@ -1559,13 +1559,13 @@
     .restart local v5    # "$i$f$synchronized":I
     .restart local p1    # "source":Lokio/Buffer;
     .restart local p2    # "byteCount":J
-    :catchall_4
+    :catchall_156
     move-exception v0
 
     move-wide/from16 v7, p2
 
     .restart local v7    # "byteCount":J
-    :goto_4
+    :goto_159
     monitor-exit v4
 
     throw v0

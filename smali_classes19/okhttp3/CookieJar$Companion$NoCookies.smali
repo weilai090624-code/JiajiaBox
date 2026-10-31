@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public loadForRequest(Lokhttp3/HttpUrl;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "url"    # Lokhttp3/HttpUrl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,7 +83,7 @@
 .end method
 
 .method public saveFromResponse(Lokhttp3/HttpUrl;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p1, "url"    # Lokhttp3/HttpUrl;
     .param p2, "cookies"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;

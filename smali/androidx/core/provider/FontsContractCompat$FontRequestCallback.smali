@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 469
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public onTypefaceRequestFailed(I)V
-    .locals 0
+    .registers 2
     .param p1, "reason"    # I
 
     .line 490
@@ -64,7 +64,7 @@
 .end method
 
 .method public onTypefaceRetrieved(Landroid/graphics/Typeface;)V
-    .locals 0
+    .registers 2
     .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .line 477

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public handleDeleteSurroundingText(Landroid/view/inputmethod/InputConnection;Landroid/text/Editable;IIZ)Z
-    .locals 1
+    .registers 7
     .param p1, "inputConnection"    # Landroid/view/inputmethod/InputConnection;
     .param p2, "editable"    # Landroid/text/Editable;
     .param p3, "beforeLength"    # I
@@ -43,7 +43,7 @@
 .end method
 
 .method public updateEditorInfoAttrs(Landroid/view/inputmethod/EditorInfo;)V
-    .locals 1
+    .registers 3
     .param p1, "outAttrs"    # Landroid/view/inputmethod/EditorInfo;
 
     .line 95
@@ -51,7 +51,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 96
     invoke-static {}, Landroidx/emoji2/text/EmojiCompat;->get()Landroidx/emoji2/text/EmojiCompat;
@@ -61,6 +61,6 @@
     invoke-virtual {v0, p1}, Landroidx/emoji2/text/EmojiCompat;->updateEditorInfo(Landroid/view/inputmethod/EditorInfo;)V
 
     .line 98
-    :cond_0
+    :cond_d
     return-void
 .end method

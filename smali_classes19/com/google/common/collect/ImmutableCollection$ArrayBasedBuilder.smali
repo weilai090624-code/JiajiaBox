@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initialCapacity"    # I
 
     .line 473
@@ -61,7 +61,7 @@
 .end method
 
 .method private getReadyToExpandTo(I)V
-    .locals 3
+    .registers 5
     .param p1, "minCapacity"    # I
 
     .line 485
@@ -72,7 +72,7 @@
 
     const/4 v1, 0x0
 
-    if-ge v0, p1, :cond_0
+    if-ge v0, p1, :cond_18
 
     .line 486
     iget-object v0, p0, Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder;->contents:[Ljava/lang/Object;
@@ -95,13 +95,13 @@
     .line 488
     iput-boolean v1, p0, Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder;->forceCopy:Z
 
-    goto :goto_0
+    goto :goto_28
 
     .line 489
-    :cond_0
+    :cond_18
     iget-boolean v0, p0, Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder;->forceCopy:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     .line 490
     iget-object v0, p0, Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder;->contents:[Ljava/lang/Object;
@@ -118,15 +118,15 @@
     iput-boolean v1, p0, Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder;->forceCopy:Z
 
     .line 493
-    :cond_1
-    :goto_0
+    :cond_28
+    :goto_28
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",
@@ -163,7 +163,7 @@
 .end method
 
 .method public bridge synthetic add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 0
+    .registers 2
 
     .line 467
     .local p0, "this":Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder;, "Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder<TE;>;"
@@ -175,7 +175,7 @@
 .end method
 
 .method public varargs add([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TE;)",
@@ -196,7 +196,7 @@
 .end method
 
 .method public addAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -212,7 +212,7 @@
     .local p1, "elements":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     instance-of v0, p1, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 530
     move-object v0, p1
@@ -234,7 +234,7 @@
     .line 532
     instance-of v1, v0, Lcom/google/common/collect/ImmutableCollection;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 533
     move-object v1, v0
@@ -259,7 +259,7 @@
     .line 538
     .end local v0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     .end local v1    # "immutableCollection":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<*>;"
-    :cond_0
+    :cond_23
     invoke-super {p0, p1}, Lcom/google/common/collect/ImmutableCollection$Builder;->addAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableCollection$Builder;
 
     .line 539
@@ -267,7 +267,7 @@
 .end method
 
 .method final addAll([Ljava/lang/Object;I)V
-    .locals 3
+    .registers 6
     .param p1, "elements"    # [Ljava/lang/Object;
     .param p2, "n"    # I
 

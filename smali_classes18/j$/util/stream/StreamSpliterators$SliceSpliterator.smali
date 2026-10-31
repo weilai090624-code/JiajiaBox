@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 610
     const-class v0, Lj$/util/stream/StreamSpliterators;
@@ -69,7 +69,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;JJJJ)V
-    .locals 0
+    .registers 10
     .param p2, "sliceOrigin"    # J
     .param p4, "sliceFence"    # J
     .param p6, "origin"    # J
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 686
     .local p0, "this":Lj$/util/stream/StreamSpliterators$SliceSpliterator;, "Ljava/util/stream/StreamSpliterators$SliceSpliterator<TT;TT_SPLITR;>;"
@@ -126,7 +126,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 6
+    .registers 7
 
     .line 681
     .local p0, "this":Lj$/util/stream/StreamSpliterators$SliceSpliterator;, "Ljava/util/stream/StreamSpliterators$SliceSpliterator<TT;TT_SPLITR;>;"
@@ -136,7 +136,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_14
 
     .line 682
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->fence:J
@@ -151,13 +151,13 @@
 
     sub-long/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const-wide/16 v0, 0x0
 
     .line 681
-    :goto_0
+    :goto_16
     return-wide v0
 .end method
 
@@ -173,7 +173,7 @@
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 16
+    .registers 17
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT_SP",
@@ -193,27 +193,27 @@
 
     cmp-long v5, v0, v2
 
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_c
 
     .line 636
     return-object v4
 
     .line 638
-    :cond_0
+    :cond_c
     iget-wide v0, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
     iget-wide v2, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->fence:J
 
     cmp-long v5, v0, v2
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_15
 
     .line 639
     return-object v4
 
     .line 648
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     iget-object v0, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->s:Lj$/util/Spliterator;
 
     invoke-interface {v0}, Lj$/util/Spliterator;->trySplit()Lj$/util/Spliterator;
@@ -222,13 +222,13 @@
 
     .line 649
     .local v11, "leftSplit":Lj$/util/Spliterator;, "TT_SPLITR;"
-    if-nez v11, :cond_2
+    if-nez v11, :cond_1e
 
     .line 650
     return-object v4
 
     .line 652
-    :cond_2
+    :cond_1e
     iget-wide v0, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
     invoke-interface {v11}, Lj$/util/Spliterator;->estimateSize()J
@@ -251,20 +251,20 @@
 
     cmp-long v2, v0, v14
 
-    if-ltz v2, :cond_3
+    if-ltz v2, :cond_35
 
     .line 658
     iput-wide v14, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 660
-    :cond_3
+    :cond_35
     iget-wide v0, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->sliceFence:J
 
     cmp-long v2, v14, v0
 
-    if-ltz v2, :cond_4
+    if-ltz v2, :cond_40
 
     .line 664
     iput-object v11, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->s:Lj$/util/Spliterator;
@@ -276,27 +276,27 @@
     .end local v11    # "leftSplit":Lj$/util/Spliterator;, "TT_SPLITR;"
     .end local v12    # "leftSplitFenceUnbounded":J
     .end local v14    # "leftSplitFence":J
-    :goto_1
-    goto :goto_0
+    :goto_3f
+    goto :goto_15
 
     .line 667
     .restart local v11    # "leftSplit":Lj$/util/Spliterator;, "TT_SPLITR;"
     .restart local v12    # "leftSplitFenceUnbounded":J
     .restart local v14    # "leftSplitFence":J
-    :cond_4
+    :cond_40
     iget-wide v0, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
     iget-wide v2, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->sliceOrigin:J
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_5
+    if-ltz v4, :cond_51
 
     iget-wide v0, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->sliceFence:J
 
     cmp-long v2, v12, v0
 
-    if-gtz v2, :cond_5
+    if-gtz v2, :cond_51
 
     .line 670
     iput-wide v14, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->index:J
@@ -305,7 +305,7 @@
     return-object v11
 
     .line 675
-    :cond_5
+    :cond_51
     iget-wide v2, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->sliceOrigin:J
 
     iget-wide v4, v10, Lj$/util/stream/StreamSpliterators$SliceSpliterator;->sliceFence:J

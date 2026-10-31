@@ -80,7 +80,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 9
+    .registers 10
 
     .line 13
     const/4 v0, 0x1
@@ -274,7 +274,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/WireGuardSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;
@@ -287,7 +287,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;
-    .locals 1
+    .registers 2
 
     .line 15
     new-instance v0, Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;
@@ -298,7 +298,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 3
+    .registers 7
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -376,7 +376,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 13
@@ -390,7 +390,7 @@
 .end method
 
 .method public init(Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;
 
     const-string v0, "<this>"
@@ -407,7 +407,7 @@
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 13
@@ -421,7 +421,7 @@
 .end method
 
 .method public serialize(Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/wireguard/WireGuardBean;
 
     const-string v0, "<this>"

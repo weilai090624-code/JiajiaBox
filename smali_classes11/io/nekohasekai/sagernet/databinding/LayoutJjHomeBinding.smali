@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/FrameLayout;Lio/nekohasekai/sagernet/ui/JJGlassCapsule;Landroid/widget/TextView;Landroidx/recyclerview/widget/RecyclerView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/LinearLayout;Lio/nekohasekai/sagernet/ui/JJGlassToolbar;)V
-    .locals 0
+    .registers 9
     .param p1, "rootView"    # Landroid/widget/FrameLayout;
     .param p2, "jjCapsule"    # Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
     .param p3, "jjConnectBtn"    # Landroid/widget/TextView;
@@ -90,7 +90,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutJjHomeBinding;
-    .locals 19
+    .registers 20
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -116,7 +116,7 @@
 
     .line 90
     .local v2, "jjCapsule":Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_71
 
     .line 94
     const v1, 0x7f0a0175
@@ -132,7 +132,7 @@
 
     .line 96
     .local v12, "jjConnectBtn":Landroid/widget/TextView;
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_70
 
     .line 100
     const v1, 0x7f0a0177
@@ -148,7 +148,7 @@
 
     .line 102
     .local v13, "jjNodeList":Landroidx/recyclerview/widget/RecyclerView;
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_6f
 
     .line 106
     const v1, 0x7f0a017a
@@ -164,7 +164,7 @@
 
     .line 108
     .local v14, "jjStateHint":Landroid/widget/TextView;
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_6e
 
     .line 112
     const v1, 0x7f0a017b
@@ -180,7 +180,7 @@
 
     .line 114
     .local v15, "jjStateTitle":Landroid/widget/TextView;
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_6d
 
     .line 118
     const v1, 0x7f0a017c
@@ -196,7 +196,7 @@
 
     .line 120
     .local v16, "jjStateView":Landroid/widget/LinearLayout;
-    if-eqz v16, :cond_1
+    if-eqz v16, :cond_6c
 
     .line 124
     const v1, 0x7f0a02ba
@@ -212,7 +212,7 @@
 
     .line 126
     .local v17, "toolbar":Lio/nekohasekai/sagernet/ui/JJGlassToolbar;
-    if-eqz v17, :cond_0
+    if-eqz v17, :cond_6b
 
     .line 130
     new-instance v18, Lio/nekohasekai/sagernet/databinding/LayoutJjHomeBinding;
@@ -242,42 +242,42 @@
     return-object v18
 
     .line 127
-    :cond_0
-    goto :goto_0
+    :cond_6b
+    goto :goto_72
 
     .line 121
     .end local v17    # "toolbar":Lio/nekohasekai/sagernet/ui/JJGlassToolbar;
-    :cond_1
-    goto :goto_0
+    :cond_6c
+    goto :goto_72
 
     .line 115
     .end local v16    # "jjStateView":Landroid/widget/LinearLayout;
-    :cond_2
-    goto :goto_0
+    :cond_6d
+    goto :goto_72
 
     .line 109
     .end local v15    # "jjStateTitle":Landroid/widget/TextView;
-    :cond_3
-    goto :goto_0
+    :cond_6e
+    goto :goto_72
 
     .line 103
     .end local v14    # "jjStateHint":Landroid/widget/TextView;
-    :cond_4
-    goto :goto_0
+    :cond_6f
+    goto :goto_72
 
     .line 97
     .end local v13    # "jjNodeList":Landroidx/recyclerview/widget/RecyclerView;
-    :cond_5
-    goto :goto_0
+    :cond_70
+    goto :goto_72
 
     .line 91
     .end local v12    # "jjConnectBtn":Landroid/widget/TextView;
-    :cond_6
+    :cond_71
     nop
 
     .line 133
     .end local v2    # "jjCapsule":Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
-    :goto_0
+    :goto_72
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -302,7 +302,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutJjHomeBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -326,7 +326,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutJjHomeBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -354,13 +354,13 @@
 
     .line 76
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 77
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 79
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutJjHomeBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutJjHomeBinding;
 
     move-result-object v1
@@ -371,7 +371,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutJjHomeBinding;->getRoot()Landroid/widget/FrameLayout;
@@ -382,7 +382,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/FrameLayout;
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutJjHomeBinding;->rootView:Landroid/widget/FrameLayout;

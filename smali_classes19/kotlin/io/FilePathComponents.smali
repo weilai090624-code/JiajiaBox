@@ -69,7 +69,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p1, "root"    # Ljava/io/File;
     .param p2, "segments"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -103,22 +103,22 @@
 .end method
 
 .method public static synthetic copy$default(Lkotlin/io/FilePathComponents;Ljava/io/File;Ljava/util/List;ILjava/lang/Object;)Lkotlin/io/FilePathComponents;
-    .locals 0
+    .registers 5
 
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     iget-object p1, p0, Lkotlin/io/FilePathComponents;->root:Ljava/io/File;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_c
 
     iget-object p2, p0, Lkotlin/io/FilePathComponents;->segments:Ljava/util/List;
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2}, Lkotlin/io/FilePathComponents;->copy(Ljava/io/File;Ljava/util/List;)Lkotlin/io/FilePathComponents;
 
     move-result-object p0
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public final component1()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlin/io/FilePathComponents;->root:Ljava/io/File;
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public final component2()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -153,7 +153,7 @@
 .end method
 
 .method public final copy(Ljava/io/File;Ljava/util/List;)Lkotlin/io/FilePathComponents;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -182,24 +182,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlin/io/FilePathComponents;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lkotlin/io/FilePathComponents;
@@ -212,11 +212,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-object v3, p0, Lkotlin/io/FilePathComponents;->segments:Ljava/util/List;
 
     iget-object v1, v1, Lkotlin/io/FilePathComponents;->segments:Ljava/util/List;
@@ -225,16 +225,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_23
 
     return v2
 
-    :cond_3
+    :cond_23
     return v0
 .end method
 
 .method public final getRoot()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 95
     iget-object v0, p0, Lkotlin/io/FilePathComponents;->root:Ljava/io/File;
@@ -243,7 +243,7 @@
 .end method
 
 .method public final getRootName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 100
     iget-object v0, p0, Lkotlin/io/FilePathComponents;->root:Ljava/io/File;
@@ -260,7 +260,7 @@
 .end method
 
 .method public final getSegments()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -277,7 +277,7 @@
 .end method
 
 .method public final getSize()I
-    .locals 1
+    .registers 2
 
     .line 110
     iget-object v0, p0, Lkotlin/io/FilePathComponents;->segments:Ljava/util/List;
@@ -290,7 +290,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Lkotlin/io/FilePathComponents;->root:Ljava/io/File;
 
@@ -312,7 +312,7 @@
 .end method
 
 .method public final isRooted()Z
-    .locals 2
+    .registers 3
 
     .line 105
     iget-object v0, p0, Lkotlin/io/FilePathComponents;->root:Ljava/io/File;
@@ -331,34 +331,34 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_16
     return v0
 .end method
 
 .method public final subPath(II)Ljava/io/File;
-    .locals 11
+    .registers 14
     .param p1, "beginIndex"    # I
     .param p2, "endIndex"    # I
 
     .line 117
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_2f
 
-    if-gt p1, p2, :cond_0
+    if-gt p1, p2, :cond_2f
 
     invoke-virtual {p0}, Lkotlin/io/FilePathComponents;->getSize()I
 
     move-result v0
 
-    if-gt p2, v0, :cond_0
+    if-gt p2, v0, :cond_2f
 
     .line 120
     new-instance v0, Ljava/io/File;
@@ -406,7 +406,7 @@
     return-object v0
 
     .line 118
-    :cond_0
+    :cond_2f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -415,7 +415,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

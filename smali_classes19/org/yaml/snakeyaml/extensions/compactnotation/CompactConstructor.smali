@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 40
     const-string v0, "\\p{Alpha}.*\\s*\\((?:,?\\s*(?:(?:\\w*)|(?:\\p{Alpha}\\w*\\s*=.+))\\s*)+\\)"
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Lorg/yaml/snakeyaml/constructor/Constructor;-><init>()V
@@ -68,7 +68,7 @@
 .end method
 
 .method static synthetic access$000(Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;Lorg/yaml/snakeyaml/nodes/SequenceNode;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/nodes/SequenceNode;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$100(Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;Lorg/yaml/snakeyaml/nodes/ScalarNode;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;
     .param p1, "x1"    # Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
@@ -94,12 +94,12 @@
 .end method
 
 .method private getCompactConstruct()Lorg/yaml/snakeyaml/constructor/Construct;
-    .locals 1
+    .registers 2
 
     .line 123
     iget-object v0, p0, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;->compactConstruct:Lorg/yaml/snakeyaml/constructor/Construct;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 124
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;->createCompactConstruct()Lorg/yaml/snakeyaml/constructor/Construct;
@@ -109,7 +109,7 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;->compactConstruct:Lorg/yaml/snakeyaml/constructor/Construct;
 
     .line 126
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;->compactConstruct:Lorg/yaml/snakeyaml/constructor/Construct;
 
     return-object v0
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method protected applySequence(Ljava/lang/Object;Ljava/util/List;)V
-    .locals 3
+    .registers 6
     .param p1, "bean"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -155,8 +155,8 @@
     .line 205
     .local v0, "property":Lorg/yaml/snakeyaml/introspector/Property;
     invoke-virtual {v0, p1, p2}, Lorg/yaml/snakeyaml/introspector/Property;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_17} :catch_19
 
     .line 208
     .end local v0    # "property":Lorg/yaml/snakeyaml/introspector/Property;
@@ -166,7 +166,7 @@
     return-void
 
     .line 206
-    :catch_0
+    :catch_19
     move-exception v0
 
     .line 207
@@ -179,7 +179,7 @@
 .end method
 
 .method protected constructCompactFormat(Lorg/yaml/snakeyaml/nodes/ScalarNode;Lorg/yaml/snakeyaml/extensions/compactnotation/CompactData;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/ScalarNode;
     .param p2, "data"    # Lorg/yaml/snakeyaml/extensions/compactnotation/CompactData;
 
@@ -202,8 +202,8 @@
     .line 51
     .local v1, "properties":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-virtual {p0, v0, v1}, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;->setProperties(Ljava/lang/Object;Ljava/util/Map;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_10} :catch_11
 
     .line 52
     return-object v0
@@ -211,7 +211,7 @@
     .line 53
     .end local v0    # "obj":Ljava/lang/Object;
     .end local v1    # "properties":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    :catch_0
+    :catch_11
     move-exception v0
 
     .line 54
@@ -224,7 +224,7 @@
 .end method
 
 .method protected createCompactConstruct()Lorg/yaml/snakeyaml/constructor/Construct;
-    .locals 1
+    .registers 2
 
     .line 130
     new-instance v0, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor$ConstructCompactObject;
@@ -235,7 +235,7 @@
 .end method
 
 .method protected createInstance(Lorg/yaml/snakeyaml/nodes/ScalarNode;Lorg/yaml/snakeyaml/extensions/compactnotation/CompactData;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/ScalarNode;
     .param p2, "data"    # Lorg/yaml/snakeyaml/extensions/compactnotation/CompactData;
     .annotation system Ldalvik/annotation/Throws;
@@ -270,10 +270,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_13
     array-length v3, v1
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1d
 
     .line 63
     const-class v3, Ljava/lang/String;
@@ -283,11 +283,11 @@
     .line 61
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 65
     .end local v2    # "i":I
-    :cond_0
+    :cond_1d
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v2
@@ -315,7 +315,7 @@
 .end method
 
 .method public getCompactData(Ljava/lang/String;)Lorg/yaml/snakeyaml/extensions/compactnotation/CompactData;
-    .locals 13
+    .registers 15
     .param p1, "scalar"    # Ljava/lang/String;
 
     .line 88
@@ -327,26 +327,26 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 89
     return-object v1
 
     .line 91
-    :cond_0
+    :cond_a
     const/16 v0, 0x28
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_13
 
     .line 92
     return-object v1
 
     .line 94
-    :cond_1
+    :cond_13
     sget-object v0, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;->FIRST_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -359,7 +359,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7b
 
     .line 96
     const/4 v2, 0x1
@@ -392,13 +392,13 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_39
 
     .line 100
     return-object v5
 
     .line 101
-    :cond_2
+    :cond_39
     const-string v6, "\\s*,\\s*"
 
     invoke-virtual {v4, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -410,10 +410,10 @@
     const/4 v7, 0x0
 
     .local v7, "i":I
-    :goto_0
+    :goto_40
     array-length v8, v6
 
-    if-ge v7, v8, :cond_5
+    if-ge v7, v8, :cond_7a
 
     .line 103
     aget-object v8, v6, v7
@@ -426,7 +426,7 @@
 
     move-result v9
 
-    if-gez v9, :cond_3
+    if-gez v9, :cond_55
 
     .line 105
     invoke-virtual {v5}, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactData;->getArguments()Ljava/util/List;
@@ -435,10 +435,10 @@
 
     invoke-interface {v9, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_76
 
     .line 107
-    :cond_3
+    :cond_55
     sget-object v9, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;->PROPERTY_NAME_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v9, v8}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -451,7 +451,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_79
 
     .line 109
     invoke-virtual {v9, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -486,22 +486,22 @@
     .line 102
     .end local v8    # "section":Ljava/lang/String;
     .end local v9    # "sm":Ljava/util/regex/Matcher;
-    :goto_1
+    :goto_76
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_40
 
     .line 113
     .restart local v8    # "section":Ljava/lang/String;
     .restart local v9    # "sm":Ljava/util/regex/Matcher;
-    :cond_4
+    :cond_79
     return-object v1
 
     .line 117
     .end local v7    # "i":I
     .end local v8    # "section":Ljava/lang/String;
     .end local v9    # "sm":Ljava/util/regex/Matcher;
-    :cond_5
+    :cond_7a
     return-object v5
 
     .line 119
@@ -509,18 +509,18 @@
     .end local v4    # "content":Ljava/lang/String;
     .end local v5    # "data":Lorg/yaml/snakeyaml/extensions/compactnotation/CompactData;
     .end local v6    # "names":[Ljava/lang/String;
-    :cond_6
+    :cond_7b
     return-object v1
 .end method
 
 .method protected getConstructor(Lorg/yaml/snakeyaml/nodes/Node;)Lorg/yaml/snakeyaml/constructor/Construct;
-    .locals 7
+    .registers 9
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 135
     instance-of v0, p1, Lorg/yaml/snakeyaml/nodes/MappingNode;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_39
 
     .line 136
     move-object v0, p1
@@ -541,7 +541,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_55
 
     .line 139
     const/4 v2, 0x0
@@ -562,7 +562,7 @@
     .local v3, "key":Lorg/yaml/snakeyaml/nodes/Node;
     instance-of v4, v3, Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_55
 
     .line 142
     move-object v4, v3
@@ -585,7 +585,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_55
 
     .line 144
     invoke-direct {p0}, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;->getCompactConstruct()Lorg/yaml/snakeyaml/constructor/Construct;
@@ -600,10 +600,10 @@
     .end local v2    # "tuple":Lorg/yaml/snakeyaml/nodes/NodeTuple;
     .end local v3    # "key":Lorg/yaml/snakeyaml/nodes/Node;
     .end local v4    # "scalar":Lorg/yaml/snakeyaml/nodes/ScalarNode;
-    :cond_0
+    :cond_39
     instance-of v0, p1, Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_55
 
     .line 149
     move-object v0, p1
@@ -626,7 +626,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_56
 
     .line 151
     invoke-direct {p0}, Lorg/yaml/snakeyaml/extensions/compactnotation/CompactConstructor;->getCompactConstruct()Lorg/yaml/snakeyaml/constructor/Construct;
@@ -637,11 +637,11 @@
 
     .line 148
     .end local v0    # "scalar":Lorg/yaml/snakeyaml/nodes/ScalarNode;
-    :cond_1
+    :cond_55
     nop
 
     .line 154
-    :cond_2
+    :cond_56
     invoke-super {p0, p1}, Lorg/yaml/snakeyaml/constructor/Constructor;->getConstructor(Lorg/yaml/snakeyaml/nodes/Node;)Lorg/yaml/snakeyaml/constructor/Construct;
 
     move-result-object v0
@@ -650,7 +650,7 @@
 .end method
 
 .method protected getSequencePropertyName(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -677,12 +677,12 @@
     move-result-object v1
 
     .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Lorg/yaml/snakeyaml/introspector/Property;>;"
-    :goto_0
+    :goto_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_28
 
     .line 220
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -703,24 +703,24 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_27
 
     .line 222
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     .line 224
     .end local v2    # "property":Lorg/yaml/snakeyaml/introspector/Property;
-    :cond_0
-    goto :goto_0
+    :cond_27
+    goto :goto_c
 
     .line 225
     .end local v1    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Lorg/yaml/snakeyaml/introspector/Property;>;"
-    :cond_1
+    :cond_28
     invoke-interface {v0}, Ljava/util/Set;->size()I
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_63
 
     .line 227
     invoke-interface {v0}, Ljava/util/Set;->size()I
@@ -729,7 +729,7 @@
 
     const/4 v2, 0x1
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_44
 
     .line 233
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
@@ -749,7 +749,7 @@
     return-object v1
 
     .line 228
-    :cond_2
+    :cond_44
     new-instance v1, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -781,7 +781,7 @@
     throw v1
 
     .line 226
-    :cond_3
+    :cond_63
     new-instance v1, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -808,7 +808,7 @@
 .end method
 
 .method protected setProperties(Ljava/lang/Object;Ljava/util/Map;)V
-    .locals 8
+    .registers 11
     .param p1, "bean"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -829,7 +829,7 @@
 
     .line 72
     .local p2, "data":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_76
 
     .line 75
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -841,12 +841,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_75
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -878,14 +878,14 @@
 
     .line 79
     .local v3, "property":Lorg/yaml/snakeyaml/introspector/Property;
-    :try_start_0
+    :try_start_28
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v4
 
     invoke-virtual {v3, p1, v4}, Lorg/yaml/snakeyaml/introspector/Property;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2f
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_28 .. :try_end_2f} :catch_31
 
     .line 83
     nop
@@ -894,13 +894,13 @@
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     .end local v2    # "key":Ljava/lang/String;
     .end local v3    # "property":Lorg/yaml/snakeyaml/introspector/Property;
-    goto :goto_0
+    goto :goto_a
 
     .line 80
     .restart local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     .restart local v2    # "key":Ljava/lang/String;
     .restart local v3    # "property":Lorg/yaml/snakeyaml/introspector/Property;
-    :catch_0
+    :catch_31
     move-exception v4
 
     .line 81
@@ -977,11 +977,11 @@
     .end local v2    # "key":Ljava/lang/String;
     .end local v3    # "property":Lorg/yaml/snakeyaml/introspector/Property;
     .end local v4    # "e":Ljava/lang/IllegalArgumentException;
-    :cond_0
+    :cond_75
     return-void
 
     .line 73
-    :cond_1
+    :cond_76
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Data for Compact Object Notation cannot be null."

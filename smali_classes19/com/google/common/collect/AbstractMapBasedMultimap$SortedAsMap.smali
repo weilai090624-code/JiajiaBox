@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/SortedMap;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -98,7 +98,7 @@
 .end method
 
 .method bridge synthetic createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 1449
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$SortedAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.SortedAsMap;"
@@ -110,7 +110,7 @@
 .end method
 
 .method createKeySet()Ljava/util/SortedSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -135,7 +135,7 @@
 .end method
 
 .method public firstKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -195,7 +195,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 1449
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$SortedAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.SortedAsMap;"
@@ -207,7 +207,7 @@
 .end method
 
 .method public keySet()Ljava/util/SortedSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -222,7 +222,7 @@
 
     .line 1500
     .local v0, "result":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TK;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$SortedAsMap;->createKeySet()Ljava/util/SortedSet;
 
@@ -230,17 +230,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$SortedAsMap;->sortedKeySet:Ljava/util/SortedSet;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public lastKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -264,7 +264,7 @@
 .end method
 
 .method sortedMap()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -285,7 +285,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -326,7 +326,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

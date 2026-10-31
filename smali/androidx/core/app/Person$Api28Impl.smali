@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 403
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static fromAndroidPerson(Landroid/app/Person;)Landroidx/core/app/Person;
-    .locals 2
+    .registers 3
     .param p0, "person"    # Landroid/app/Person;
 
     .line 409
@@ -48,7 +48,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 413
     invoke-virtual {p0}, Landroid/app/Person;->getIcon()Landroid/graphics/drawable/Icon;
@@ -59,14 +59,14 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 414
-    :cond_0
+    :cond_1c
     const/4 v1, 0x0
 
     .line 411
-    :goto_0
+    :goto_1d
     invoke-virtual {v0, v1}, Landroidx/core/app/Person$Builder;->setIcon(Landroidx/core/graphics/drawable/IconCompat;)Landroidx/core/app/Person$Builder;
 
     move-result-object v0
@@ -117,7 +117,7 @@
 .end method
 
 .method static toAndroidPerson(Landroidx/core/app/Person;)Landroid/app/Person;
-    .locals 2
+    .registers 3
     .param p0, "person"    # Landroidx/core/app/Person;
 
     .line 425
@@ -139,7 +139,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     invoke-virtual {p0}, Landroidx/core/app/Person;->getIcon()Landroidx/core/graphics/drawable/IconCompat;
 
@@ -149,12 +149,12 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1d
     invoke-virtual {v0, v1}, Landroid/app/Person$Builder;->setIcon(Landroid/graphics/drawable/Icon;)Landroid/app/Person$Builder;
 
     move-result-object v0

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/multiprocess/ListenableWorkerImplClient;Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/work/multiprocess/RemoteCallback;Landroidx/work/multiprocess/RemoteDispatcher;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/work/multiprocess/ListenableWorkerImplClient;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 127
     :try_start_0
@@ -86,26 +86,26 @@
     invoke-direct {v2, p0, v0}, Landroidx/work/multiprocess/ListenableWorkerImplClient$1$1;-><init>(Landroidx/work/multiprocess/ListenableWorkerImplClient$1;Landroidx/work/multiprocess/IListenableWorkerImpl;)V
 
     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_1d} :catch_20
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_1d} :catch_1e
 
     .line 144
     .end local v0    # "iListenableWorker":Landroidx/work/multiprocess/IListenableWorkerImpl;
-    goto :goto_1
+    goto :goto_31
 
     .line 140
-    :catch_0
+    :catch_1e
     move-exception v0
 
-    goto :goto_0
+    goto :goto_21
 
-    :catch_1
+    :catch_20
     move-exception v0
 
     .line 141
     .local v0, "exception":Ljava/lang/Exception;
-    :goto_0
+    :goto_21
     const-string v1, "Unable to bind to service"
 
     .line 142
@@ -126,6 +126,6 @@
     .line 145
     .end local v0    # "exception":Ljava/lang/Exception;
     .end local v1    # "message":Ljava/lang/String;
-    :goto_1
+    :goto_31
     return-void
 .end method

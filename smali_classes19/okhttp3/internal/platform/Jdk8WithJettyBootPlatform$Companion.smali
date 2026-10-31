@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 123
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$Companion;-><init>()V
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public final buildIfSupported()Lokhttp3/internal/platform/Platform;
-    .locals 17
+    .registers 18
 
     .line 125
     const-string v0, "java.specification.version"
@@ -74,7 +74,7 @@
     .line 128
     const/4 v2, 0x0
 
-    :try_start_0
+    :try_start_a
     const-string v0, "jvmVersion"
 
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -82,28 +82,28 @@
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/NumberFormatException; {:try_start_a .. :try_end_13} :catch_18
 
     .line 129
     .local v0, "version":I
     const/16 v3, 0x9
 
-    if-lt v0, v3, :cond_0
+    if-lt v0, v3, :cond_19
 
     return-object v2
 
     .line 130
     .end local v0    # "version":I
-    :catch_0
+    :catch_18
     move-exception v0
 
     .line 135
-    :cond_0
+    :cond_19
     nop
 
     .line 136
-    :try_start_1
+    :try_start_1a
     const-string v0, "org.eclipse.jetty.alpn.ALPN"
 
     .line 137
@@ -245,9 +245,9 @@
     invoke-direct/range {v7 .. v12}, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform;-><init>(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Class;)V
 
     check-cast v16, Lokhttp3/internal/platform/Platform;
-    :try_end_1
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_91
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1a .. :try_end_91} :catch_94
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1a .. :try_end_91} :catch_92
 
     return-object v16
 
@@ -260,16 +260,16 @@
     .end local v13    # "serverProviderClass":Ljava/lang/Class;
     .end local v14    # "putMethod":Ljava/lang/reflect/Method;
     .end local v15    # "getMethod":Ljava/lang/reflect/Method;
-    :catch_1
+    :catch_92
     move-exception v0
 
-    goto :goto_0
+    goto :goto_95
 
     .line 146
-    :catch_2
+    :catch_94
     move-exception v0
 
     .line 150
-    :goto_0
+    :goto_95
     return-object v2
 .end method

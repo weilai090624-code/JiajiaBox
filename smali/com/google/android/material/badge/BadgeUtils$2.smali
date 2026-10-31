@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View$AccessibilityDelegate;Lcom/google/android/material/badge/BadgeDrawable;)V
-    .locals 0
+    .registers 3
     .param p1, "arg0"    # Landroid/view/View$AccessibilityDelegate;
 
     .line 147
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 

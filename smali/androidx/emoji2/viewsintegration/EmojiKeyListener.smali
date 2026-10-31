@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/text/method/KeyListener;)V
-    .locals 1
+    .registers 3
     .param p1, "keyListener"    # Landroid/text/method/KeyListener;
 
     .line 40
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>(Landroid/text/method/KeyListener;Landroidx/emoji2/viewsintegration/EmojiKeyListener$EmojiCompatHandleKeyDownHelper;)V
-    .locals 0
+    .registers 3
     .param p1, "keyListener"    # Landroid/text/method/KeyListener;
     .param p2, "emojiCompatKeydownHelper"    # Landroidx/emoji2/viewsintegration/EmojiKeyListener$EmojiCompatHandleKeyDownHelper;
 
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public clearMetaKeyState(Landroid/view/View;Landroid/text/Editable;I)V
-    .locals 1
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "content"    # Landroid/text/Editable;
     .param p3, "states"    # I
@@ -72,7 +72,7 @@
 .end method
 
 .method public getInputType()I
-    .locals 1
+    .registers 2
 
     .line 51
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiKeyListener;->mKeyListener:Landroid/text/method/KeyListener;
@@ -85,7 +85,7 @@
 .end method
 
 .method public onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
-    .locals 2
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "content"    # Landroid/text/Editable;
     .param p3, "keyCode"    # I
@@ -101,7 +101,7 @@
 
     .line 58
     .local v0, "result":Z
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v1, p0, Landroidx/emoji2/viewsintegration/EmojiKeyListener;->mKeyListener:Landroid/text/method/KeyListener;
 
@@ -109,25 +109,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_14
     return v1
 .end method
 
 .method public onKeyOther(Landroid/view/View;Landroid/text/Editable;Landroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "text"    # Landroid/text/Editable;
     .param p3, "event"    # Landroid/view/KeyEvent;
@@ -143,7 +143,7 @@
 .end method
 
 .method public onKeyUp(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "text"    # Landroid/text/Editable;
     .param p3, "keyCode"    # I

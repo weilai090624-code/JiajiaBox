@@ -22,7 +22,7 @@
 
 # direct methods
 .method varargs constructor <init>(I[Lcom/google/zxing/qrcode/decoder/Version$ECB;)V
-    .locals 0
+    .registers 3
     .param p1, "ecCodewordsPerBlock"    # I
     .param p2, "ecBlocks"    # [Lcom/google/zxing/qrcode/decoder/Version$ECB;
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getECBlocks()[Lcom/google/zxing/qrcode/decoder/Version$ECB;
-    .locals 1
+    .registers 2
 
     .line 210
     iget-object v0, p0, Lcom/google/zxing/qrcode/decoder/Version$ECBlocks;->ecBlocks:[Lcom/google/zxing/qrcode/decoder/Version$ECB;
@@ -51,7 +51,7 @@
 .end method
 
 .method public getECCodewordsPerBlock()I
-    .locals 1
+    .registers 2
 
     .line 194
     iget v0, p0, Lcom/google/zxing/qrcode/decoder/Version$ECBlocks;->ecCodewordsPerBlock:I
@@ -60,7 +60,7 @@
 .end method
 
 .method public getNumBlocks()I
-    .locals 6
+    .registers 7
 
     .line 198
     const/4 v0, 0x0
@@ -73,8 +73,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_5
+    if-ge v3, v2, :cond_11
 
     aget-object v4, v1, v3
 
@@ -90,15 +90,15 @@
     .end local v4    # "ecBlock":Lcom/google/zxing/qrcode/decoder/Version$ECB;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 202
-    :cond_0
+    :cond_11
     return v0
 .end method
 
 .method public getTotalECCodewords()I
-    .locals 2
+    .registers 3
 
     .line 206
     iget v0, p0, Lcom/google/zxing/qrcode/decoder/Version$ECBlocks;->ecCodewordsPerBlock:I

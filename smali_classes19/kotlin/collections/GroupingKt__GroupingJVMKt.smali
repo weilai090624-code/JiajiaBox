@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public static final eachCount(Lkotlin/collections/Grouping;)Ljava/util/Map;
-    .locals 20
+    .registers 21
     .param p0, "$this$eachCount"    # Lkotlin/collections/Grouping;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -99,12 +99,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_17
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_63
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -124,22 +124,22 @@
 
     .line 57
     .local v9, "accumulator$iv$iv":Ljava/lang/Object;
-    if-nez v9, :cond_0
+    if-nez v9, :cond_33
 
     invoke-interface {v0, v8}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-nez v11, :cond_0
+    if-nez v11, :cond_33
 
     const/4 v11, 0x1
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_0
+    :cond_33
     const/4 v11, 0x0
 
-    :goto_1
+    :goto_34
     move-object v12, v9
 
     .local v12, "acc$iv":Ljava/lang/Object;
@@ -154,7 +154,7 @@
 
     .line 53
     .local v15, "$i$a$-aggregateTo-GroupingKt__GroupingKt$foldTo$1$iv":I
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_42
 
     const/16 v16, 0x0
 
@@ -166,12 +166,12 @@
 
     .line 53
     .end local v16    # "$i$a$-foldTo-GroupingKt__GroupingJVMKt$eachCount$1":I
-    goto :goto_2
+    goto :goto_44
 
-    :cond_1
+    :cond_42
     move-object/from16 v17, v12
 
-    :goto_2
+    :goto_44
     move-object/from16 v10, v17
 
     check-cast v10, Lkotlin/jvm/internal/Ref$IntRef;
@@ -223,7 +223,7 @@
 
     move-object/from16 v2, v18
 
-    goto :goto_0
+    goto :goto_17
 
     .line 59
     .end local v7    # "e$iv$iv":Ljava/lang/Object;
@@ -231,7 +231,7 @@
     .end local v9    # "accumulator$iv$iv":Ljava/lang/Object;
     .end local v18    # "$this$foldTo$iv":Lkotlin/collections/Grouping;
     .restart local v2    # "$this$foldTo$iv":Lkotlin/collections/Grouping;
-    :cond_2
+    :cond_63
     move-object/from16 v18, v2
 
     .line 53
@@ -255,12 +255,12 @@
 
     move-result-object v1
 
-    :goto_3
+    :goto_70
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_97
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -300,9 +300,9 @@
 
     invoke-interface {v3, v2}, Ljava/util/Map$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_70
 
-    :cond_3
+    :cond_97
     invoke-static {v0}, Lkotlin/jvm/internal/TypeIntrinsics;->asMutableMap(Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v0
@@ -311,7 +311,7 @@
 .end method
 
 .method private static final mapValuesInPlace(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 8
+    .registers 10
     .param p0, "$this$mapValuesInPlace"    # Ljava/util/Map;
     .param p1, "f"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -358,12 +358,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_15
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_36
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -402,10 +402,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_15
 
     .line 61
-    :cond_0
+    :cond_36
     nop
 
     .line 51

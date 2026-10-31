@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 34
     const/16 v0, 0x20
@@ -350,7 +350,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "formatInfo"    # I
 
     .line 72
@@ -379,7 +379,7 @@
 .end method
 
 .method static decodeFormatInformation(II)Lcom/google/zxing/qrcode/decoder/FormatInformation;
-    .locals 3
+    .registers 5
     .param p0, "maskedFormatInfo1"    # I
     .param p1, "maskedFormatInfo2"    # I
 
@@ -394,13 +394,13 @@
     .local v1, "formatInfo":Lcom/google/zxing/qrcode/decoder/FormatInformation;
     move-object v1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 93
     return-object v1
 
     .line 98
-    :cond_0
+    :cond_9
     xor-int/lit16 v0, p0, 0x5412
 
     xor-int/lit16 v2, p1, 0x5412
@@ -413,7 +413,7 @@
 .end method
 
 .method private static doDecodeFormatInformation(II)Lcom/google/zxing/qrcode/decoder/FormatInformation;
-    .locals 11
+    .registers 13
     .param p0, "maskedFormatInfo1"    # I
     .param p1, "maskedFormatInfo2"    # I
 
@@ -442,8 +442,8 @@
 
     const/4 v8, 0x0
 
-    :goto_0
-    if-ge v8, v3, :cond_4
+    :goto_d
+    if-ge v8, v3, :cond_3c
 
     aget-object v9, v2, v8
 
@@ -459,14 +459,14 @@
 
     const/4 v10, 0x1
 
-    if-eq v9, p0, :cond_3
+    if-eq v9, p0, :cond_34
 
-    if-ne v4, p1, :cond_0
+    if-ne v4, p1, :cond_1b
 
-    goto :goto_1
+    goto :goto_34
 
     .line 112
-    :cond_0
+    :cond_1b
     invoke-static {p0, v4}, Lcom/google/zxing/qrcode/decoder/FormatInformation;->numBitsDiffering(II)I
 
     move-result v9
@@ -475,7 +475,7 @@
     .local v5, "bitsDifference":I
     move v5, v9
 
-    if-ge v9, v0, :cond_1
+    if-ge v9, v0, :cond_25
 
     .line 114
     aget v1, v7, v10
@@ -484,8 +484,8 @@
     move v0, v5
 
     .line 117
-    :cond_1
-    if-eq p0, p1, :cond_2
+    :cond_25
+    if-eq p0, p1, :cond_31
 
     .line 119
     invoke-static {p1, v4}, Lcom/google/zxing/qrcode/decoder/FormatInformation;->numBitsDiffering(II)I
@@ -495,7 +495,7 @@
     .line 120
     move v5, v9
 
-    if-ge v9, v0, :cond_2
+    if-ge v9, v0, :cond_31
 
     .line 121
     aget v1, v7, v10
@@ -507,14 +507,14 @@
     .end local v4    # "targetInfo":I
     .end local v5    # "bitsDifference":I
     .end local v7    # "decodeInfo":[I
-    :cond_2
+    :cond_31
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 110
-    :cond_3
-    :goto_1
+    :cond_34
+    :goto_34
     new-instance v2, Lcom/google/zxing/qrcode/decoder/FormatInformation;
 
     aget v3, v7, v10
@@ -524,10 +524,10 @@
     return-object v2
 
     .line 128
-    :cond_4
+    :cond_3c
     const/4 v2, 0x3
 
-    if-gt v0, v2, :cond_5
+    if-gt v0, v2, :cond_45
 
     .line 129
     new-instance v2, Lcom/google/zxing/qrcode/decoder/FormatInformation;
@@ -537,14 +537,14 @@
     return-object v2
 
     .line 131
-    :cond_5
+    :cond_45
     const/4 v2, 0x0
 
     return-object v2
 .end method
 
 .method static numBitsDiffering(II)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -561,7 +561,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 149
@@ -569,13 +569,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 150
     return v1
 
     .line 152
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lcom/google/zxing/qrcode/decoder/FormatInformation;
@@ -586,22 +586,22 @@
 
     iget-object v3, v0, Lcom/google/zxing/qrcode/decoder/FormatInformation;->errorCorrectionLevel:Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_16
 
     iget-byte v2, p0, Lcom/google/zxing/qrcode/decoder/FormatInformation;->dataMask:B
 
     iget-byte v3, v0, Lcom/google/zxing/qrcode/decoder/FormatInformation;->dataMask:B
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_16
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_16
     return v1
 .end method
 
 .method getDataMask()B
-    .locals 1
+    .registers 2
 
     .line 139
     iget-byte v0, p0, Lcom/google/zxing/qrcode/decoder/FormatInformation;->dataMask:B
@@ -610,7 +610,7 @@
 .end method
 
 .method getErrorCorrectionLevel()Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
-    .locals 1
+    .registers 2
 
     .line 135
     iget-object v0, p0, Lcom/google/zxing/qrcode/decoder/FormatInformation;->errorCorrectionLevel:Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
@@ -619,7 +619,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 144
     iget-object v0, p0, Lcom/google/zxing/qrcode/decoder/FormatInformation;->errorCorrectionLevel:Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;

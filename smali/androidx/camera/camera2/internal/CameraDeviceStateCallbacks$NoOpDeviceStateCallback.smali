@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 65
     invoke-direct {p0}, Landroid/hardware/camera2/CameraDevice$StateCallback;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onClosed(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 0
+    .registers 2
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -43,7 +43,7 @@
 .end method
 
 .method public onDisconnected(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 0
+    .registers 2
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -59,7 +59,7 @@
 .end method
 
 .method public onError(Landroid/hardware/camera2/CameraDevice;I)V
-    .locals 0
+    .registers 3
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .param p2, "error"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -78,7 +78,7 @@
 .end method
 
 .method public onOpened(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 0
+    .registers 2
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

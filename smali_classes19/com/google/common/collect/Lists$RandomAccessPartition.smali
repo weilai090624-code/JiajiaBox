@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;I)V
-    .locals 0
+    .registers 3
     .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/CancellableContinuationImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "child"    # Lkotlinx/coroutines/CancellableContinuationImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 1444
@@ -82,7 +82,7 @@
 .end method
 
 .method public invoke(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 1450

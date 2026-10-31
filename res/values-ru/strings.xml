@@ -100,8 +100,8 @@
     <string name="call_notification_screening_text">Фильтрация входящего вызова</string>
     <string name="certificates">Сертификаты</string>
     <string name="chain_settings">Настройки цепочки</string>
-    <string name="character_counter_content_description" formatted="false">Введено символов: %1$d из %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Превышено ограничение на количество символов (%1$d из %2$d)</string>
+    <string name="character_counter_content_description">Введено символов: %1$d из %2$d</string>
+    <string name="character_counter_overflowed_content_description">Превышено ограничение на количество символов (%1$d из %2$d)</string>
     <string name="check_update_no">Обновления не найдены.</string>
     <string name="check_update_preview">Проверить наличие обновлений предварительной версии</string>
     <string name="check_update_release">Проверить наличие обновлений релизнойной версии</string>
@@ -316,7 +316,7 @@
     <string name="mtrl_picker_out_of_range">Вне диапазона: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Дата начала – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – дата окончания</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Выберите диапазон дат</string>
     <string name="mtrl_picker_range_header_unselected">Дата начала – дата окончания</string>
     <string name="mtrl_picker_save">Сохранить</string>
@@ -470,7 +470,7 @@
     <string name="sniff_override">Результат проверки для адрес назначения</string>
     <string name="sniff_routing">Перехватывать результат для Маршрутизации</string>
     <string name="speed">%s/с</string>
-    <string name="speed_detail" formatted="false">"Прокси ：%1$s↑ %2$s↓ 
+    <string name="speed_detail">"Прокси ：%1$s↑ %2$s↓ 
 Прямой ：%3$s↑%4$s↓"</string>
     <string name="speed_interval">Интервал обновления уведомлений о скорости</string>
     <string name="ss_cat">Настройки Shadowsocks</string>
@@ -498,7 +498,7 @@
     <string name="subscription_used">%s Использовано</string>
     <string name="subscription_user_agent">UserAgent</string>
     <string name="subscriptions">Подписки</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="tcp_connections">%d TCP-соединений</string>
     <string name="tcp_keep_alive_interval">Интервал доставки пакетов TCP keep-alive</string>
     <string name="telegram">Канал обновлений в Telegram</string>
@@ -521,7 +521,7 @@
     <string name="unsaved_changes_prompt">Есть несохраненные изменения. Сохранить?</string>
     <string name="update_all_subscription">Обновить все подписки</string>
     <string name="update_current_subscription">Обновить подписку текущей группы</string>
-    <string name="update_dialog_message" formatted="false">"Текущая версия: %1$s
+    <string name="update_dialog_message">"Текущая версия: %1$s
 Доступная версия: %2$s
 Хотите загрузить её?"</string>
     <string name="update_dialog_title">Доступна новая версия</string>

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(II)V
-    .locals 1
+    .registers 4
     .param p1, "startColor"    # I
     .param p2, "endColor"    # I
 
@@ -41,14 +41,14 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_12
 
     iput-object v0, p0, Landroidx/core/content/res/GradientColorInflaterCompat$ColorStops;->mOffsets:[F
 
     .line 229
     return-void
 
-    :array_0
+    :array_12
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -56,7 +56,7 @@
 .end method
 
 .method constructor <init>(III)V
-    .locals 1
+    .registers 5
     .param p1, "startColor"    # I
     .param p2, "centerColor"    # I
     .param p3, "endColor"    # I
@@ -76,14 +76,14 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_12
 
     iput-object v0, p0, Landroidx/core/content/res/GradientColorInflaterCompat$ColorStops;->mOffsets:[F
 
     .line 234
     return-void
 
-    :array_0
+    :array_12
     .array-data 4
         0x0
         0x3f000000    # 0.5f
@@ -92,7 +92,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/List;Ljava/util/List;)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -130,8 +130,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_10
+    if-ge v1, v0, :cond_31
 
     .line 221
     iget-object v2, p0, Landroidx/core/content/res/GradientColorInflaterCompat$ColorStops;->mColors:[I
@@ -166,10 +166,10 @@
     .line 220
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 224
     .end local v1    # "i":I
-    :cond_0
+    :cond_31
     return-void
 .end method

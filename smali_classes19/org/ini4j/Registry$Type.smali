@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .registers 15
 
     .line 37
     new-instance v0, Lorg/ini4j/Registry$Type;
@@ -307,8 +307,8 @@
     const/4 v2, 0x0
 
     .local v2, "i$":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_d7
+    if-ge v2, v1, :cond_e7
 
     aget-object v3, v0, v2
 
@@ -326,13 +326,13 @@
     .end local v3    # "t":Lorg/ini4j/Registry$Type;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d7
 
     .line 61
     .end local v0    # "arr$":[Lorg/ini4j/Registry$Type;
     .end local v1    # "len$":I
     .end local v2    # "i$":I
-    :cond_0
+    :cond_e7
     const/16 v0, 0x3a
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
@@ -354,7 +354,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p3, "prefix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -375,7 +375,7 @@
 .end method
 
 .method public static fromString(Ljava/lang/String;)Lorg/ini4j/Registry$Type;
-    .locals 1
+    .registers 2
     .param p0, "str"    # Ljava/lang/String;
 
     .line 73
@@ -391,7 +391,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/ini4j/Registry$Type;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 35
@@ -407,7 +407,7 @@
 .end method
 
 .method public static values()[Lorg/ini4j/Registry$Type;
-    .locals 1
+    .registers 1
 
     .line 35
     sget-object v0, Lorg/ini4j/Registry$Type;->$VALUES:[Lorg/ini4j/Registry$Type;
@@ -424,7 +424,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 78
     iget-object v0, p0, Lorg/ini4j/Registry$Type;->_prefix:Ljava/lang/String;

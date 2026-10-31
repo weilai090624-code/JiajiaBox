@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/InputStream;Lcom/esotericsoftware/kryo/Kryo;)V
-    .locals 0
+    .registers 3
     .param p1, "in"    # Ljava/io/InputStream;
     .param p2, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .annotation system Ldalvik/annotation/Throws;
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method protected resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
-    .locals 4
+    .registers 6
     .param p1, "type"    # Ljava/io/ObjectStreamClass;
 
     .line 86
@@ -62,13 +62,13 @@
     invoke-static {v0, v2, v1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_f} :catch_10
 
     return-object v0
 
     .line 87
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 88

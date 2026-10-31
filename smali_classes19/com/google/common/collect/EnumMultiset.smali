@@ -59,7 +59,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/EnumMultiset;)[Ljava/lang/Enum;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/EnumMultiset;
 
     .line 48
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/collect/EnumMultiset;)[I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/EnumMultiset;
 
     .line 48
@@ -126,7 +126,7 @@
 .end method
 
 .method static synthetic access$210(Lcom/google/common/collect/EnumMultiset;)I
-    .locals 2
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/collect/EnumMultiset;
 
     .line 48
@@ -140,7 +140,7 @@
 .end method
 
 .method static synthetic access$322(Lcom/google/common/collect/EnumMultiset;J)J
-    .locals 2
+    .registers 5
     .param p0, "x0"    # Lcom/google/common/collect/EnumMultiset;
     .param p1, "x1"    # J
 
@@ -155,7 +155,7 @@
 .end method
 
 .method private checkIsE(Ljava/lang/Object;)V
-    .locals 5
+    .registers 7
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 111
@@ -167,13 +167,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 115
     return-void
 
     .line 113
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/ClassCastException;
 
     iget-object v1, p0, Lcom/google/common/collect/EnumMultiset;->type:Ljava/lang/Class;
@@ -240,7 +240,7 @@
 .end method
 
 .method public static create(Ljava/lang/Class;)Lcom/google/common/collect/EnumMultiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -263,7 +263,7 @@
 .end method
 
 .method public static create(Ljava/lang/Iterable;)Lcom/google/common/collect/EnumMultiset;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -316,7 +316,7 @@
 .end method
 
 .method public static create(Ljava/lang/Iterable;Ljava/lang/Class;)Lcom/google/common/collect/EnumMultiset;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -347,7 +347,7 @@
 .end method
 
 .method private isActuallyE(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -359,7 +359,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 99
     move-object v0, p1
@@ -378,28 +378,28 @@
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_18
 
     iget-object v3, p0, Lcom/google/common/collect/EnumMultiset;->enumConstants:[Ljava/lang/Enum;
 
     aget-object v3, v3, v2
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_18
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_18
     return v1
 
     .line 103
     .end local v0    # "e":Ljava/lang/Enum;, "Ljava/lang/Enum<*>;"
     .end local v2    # "index":I
-    :cond_1
+    :cond_19
     return v1
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -451,7 +451,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -478,7 +478,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Enum;I)I
-    .locals 8
+    .registers 11
     .param p2, "occurrences"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -497,7 +497,7 @@
     invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
     .line 143
-    if-nez p2, :cond_0
+    if-nez p2, :cond_f
 
     .line 144
     invoke-virtual {p0, p1}, Lcom/google/common/collect/EnumMultiset;->count(Ljava/lang/Object;)I
@@ -507,7 +507,7 @@
     return v0
 
     .line 146
-    :cond_0
+    :cond_f
     invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
@@ -534,16 +534,16 @@
 
     cmp-long v7, v2, v4
 
-    if-gtz v7, :cond_1
+    if-gtz v7, :cond_24
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_24
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_25
     const-string v5, "too many occurrences: %s"
 
     invoke-static {v4, v5, v2, v3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -556,7 +556,7 @@
     aput v5, v4, v0
 
     .line 151
-    if-nez v1, :cond_2
+    if-nez v1, :cond_36
 
     .line 152
     iget v4, p0, Lcom/google/common/collect/EnumMultiset;->distinctElements:I
@@ -566,7 +566,7 @@
     iput v4, p0, Lcom/google/common/collect/EnumMultiset;->distinctElements:I
 
     .line 154
-    :cond_2
+    :cond_36
     iget-wide v4, p0, Lcom/google/common/collect/EnumMultiset;->size:J
 
     int-to-long v6, p2
@@ -580,7 +580,7 @@
 .end method
 
 .method public bridge synthetic add(Ljava/lang/Object;I)I
-    .locals 0
+    .registers 3
 
     .line 46
     .local p0, "this":Lcom/google/common/collect/EnumMultiset;, "Lcom/google/common/collect/EnumMultiset<TE;>;"
@@ -594,7 +594,7 @@
 .end method
 
 .method public clear()V
-    .locals 4
+    .registers 5
 
     .line 206
     .local p0, "this":Lcom/google/common/collect/EnumMultiset;, "Lcom/google/common/collect/EnumMultiset<TE;>;"
@@ -617,7 +617,7 @@
 .end method
 
 .method public bridge synthetic contains(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -633,7 +633,7 @@
 .end method
 
 .method public count(Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -641,18 +641,18 @@
 
     .line 130
     .local p0, "this":Lcom/google/common/collect/EnumMultiset;, "Lcom/google/common/collect/EnumMultiset<TE;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_15
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/EnumMultiset;->isActuallyE(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_0
+    goto :goto_15
 
     .line 133
-    :cond_0
+    :cond_9
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Enum;
@@ -671,15 +671,15 @@
 
     .line 131
     .end local v0    # "e":Ljava/lang/Enum;, "Ljava/lang/Enum<*>;"
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method distinctElements()I
-    .locals 1
+    .registers 2
 
     .line 119
     .local p0, "this":Lcom/google/common/collect/EnumMultiset;, "Lcom/google/common/collect/EnumMultiset<TE;>;"
@@ -689,7 +689,7 @@
 .end method
 
 .method elementIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -708,7 +708,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 46
     .local p0, "this":Lcom/google/common/collect/EnumMultiset;, "Lcom/google/common/collect/EnumMultiset<TE;>;"
@@ -720,7 +720,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -740,7 +740,7 @@
 .end method
 
 .method public bridge synthetic entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 46
     .local p0, "this":Lcom/google/common/collect/EnumMultiset;, "Lcom/google/common/collect/EnumMultiset<TE;>;"
@@ -752,7 +752,7 @@
 .end method
 
 .method public bridge synthetic isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 46
     .local p0, "this":Lcom/google/common/collect/EnumMultiset;, "Lcom/google/common/collect/EnumMultiset<TE;>;"
@@ -764,7 +764,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -783,7 +783,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;I)I
-    .locals 8
+    .registers 11
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -794,18 +794,18 @@
     .local p0, "this":Lcom/google/common/collect/EnumMultiset;, "Lcom/google/common/collect/EnumMultiset<TE;>;"
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_44
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/EnumMultiset;->isActuallyE(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
-    goto :goto_1
+    goto :goto_44
 
     .line 166
-    :cond_0
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Ljava/lang/Enum;
@@ -817,7 +817,7 @@
     invoke-static {p2, v2}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
     .line 168
-    if-nez p2, :cond_1
+    if-nez p2, :cond_19
 
     .line 169
     invoke-virtual {p0, p1}, Lcom/google/common/collect/EnumMultiset;->count(Ljava/lang/Object;)I
@@ -827,7 +827,7 @@
     return v0
 
     .line 171
-    :cond_1
+    :cond_19
     invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v2
@@ -840,14 +840,14 @@
 
     .line 173
     .local v3, "oldCount":I
-    if-nez v3, :cond_2
+    if-nez v3, :cond_24
 
     .line 174
     return v0
 
     .line 175
-    :cond_2
-    if-gt v3, p2, :cond_3
+    :cond_24
+    if-gt v3, p2, :cond_37
 
     .line 176
     iget-object v4, p0, Lcom/google/common/collect/EnumMultiset;->counts:[I
@@ -870,10 +870,10 @@
 
     iput-wide v4, p0, Lcom/google/common/collect/EnumMultiset;->size:J
 
-    goto :goto_0
+    goto :goto_43
 
     .line 180
-    :cond_3
+    :cond_37
     iget-object v0, p0, Lcom/google/common/collect/EnumMultiset;->counts:[I
 
     sub-int v4, v3, p2
@@ -890,20 +890,20 @@
     iput-wide v4, p0, Lcom/google/common/collect/EnumMultiset;->size:J
 
     .line 183
-    :goto_0
+    :goto_43
     return v3
 
     .line 164
     .end local v1    # "e":Ljava/lang/Enum;, "Ljava/lang/Enum<*>;"
     .end local v2    # "index":I
     .end local v3    # "oldCount":I
-    :cond_4
-    :goto_1
+    :cond_44
+    :goto_44
     return v0
 .end method
 
 .method public setCount(Ljava/lang/Enum;I)I
-    .locals 6
+    .registers 9
     .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -950,9 +950,9 @@
     iput-wide v2, p0, Lcom/google/common/collect/EnumMultiset;->size:J
 
     .line 196
-    if-nez v1, :cond_0
+    if-nez v1, :cond_27
 
-    if-lez p2, :cond_0
+    if-lez p2, :cond_27
 
     .line 197
     iget v2, p0, Lcom/google/common/collect/EnumMultiset;->distinctElements:I
@@ -961,13 +961,13 @@
 
     iput v2, p0, Lcom/google/common/collect/EnumMultiset;->distinctElements:I
 
-    goto :goto_0
+    goto :goto_31
 
     .line 198
-    :cond_0
-    if-lez v1, :cond_1
+    :cond_27
+    if-lez v1, :cond_31
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_31
 
     .line 199
     iget v2, p0, Lcom/google/common/collect/EnumMultiset;->distinctElements:I
@@ -977,13 +977,13 @@
     iput v2, p0, Lcom/google/common/collect/EnumMultiset;->distinctElements:I
 
     .line 201
-    :cond_1
-    :goto_0
+    :cond_31
+    :goto_31
     return v1
 .end method
 
 .method public bridge synthetic setCount(Ljava/lang/Object;I)I
-    .locals 0
+    .registers 3
 
     .line 46
     .local p0, "this":Lcom/google/common/collect/EnumMultiset;, "Lcom/google/common/collect/EnumMultiset<TE;>;"
@@ -997,7 +997,7 @@
 .end method
 
 .method public bridge synthetic setCount(Ljava/lang/Object;II)Z
-    .locals 0
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1013,7 +1013,7 @@
 .end method
 
 .method public size()I
-    .locals 2
+    .registers 3
 
     .line 124
     .local p0, "this":Lcom/google/common/collect/EnumMultiset;, "Lcom/google/common/collect/EnumMultiset<TE;>;"

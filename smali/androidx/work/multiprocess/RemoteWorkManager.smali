@@ -5,7 +5,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Landroidx/work/multiprocess/RemoteWorkManager;
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -39,13 +39,13 @@
 
     .line 365
     .local v1, "remoteWorkManager":Landroidx/work/multiprocess/RemoteWorkManager;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     .line 369
     return-object v1
 
     .line 367
-    :cond_0
+    :cond_b
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Unable to initialize RemoteWorkManager"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Landroidx/work/OneTimeWorkRequest;)Landroidx/work/multiprocess/RemoteWorkContinuation;
-    .locals 1
+    .registers 5
     .param p1, "uniqueWorkName"    # Ljava/lang/String;
     .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
     .param p3, "work"    # Landroidx/work/OneTimeWorkRequest;
@@ -115,7 +115,7 @@
 .end method
 
 .method public final beginWith(Landroidx/work/OneTimeWorkRequest;)Landroidx/work/multiprocess/RemoteWorkContinuation;
-    .locals 1
+    .registers 3
     .param p1, "work"    # Landroidx/work/OneTimeWorkRequest;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -332,7 +332,7 @@
 .end method
 
 .method public final enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Landroidx/work/OneTimeWorkRequest;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 5
     .param p1, "uniqueWorkName"    # Ljava/lang/String;
     .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
     .param p3, "work"    # Landroidx/work/OneTimeWorkRequest;

@@ -76,7 +76,7 @@
 
     const-string p2, ""
 
-    const/16 v0, 0xa
+    const/16 v0, 0xb
 
     const/4 v1, 0x0
 

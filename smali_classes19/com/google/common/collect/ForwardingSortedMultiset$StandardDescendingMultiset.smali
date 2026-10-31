@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/collect/ForwardingSortedMultiset;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/ForwardingSortedMultiset;
 
     .line 107
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method forwardMultiset()Lcom/google/common/collect/SortedMultiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

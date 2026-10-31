@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map$Entry;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1664
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedEntry;, "Lcom/google/common/collect/Synchronized$SynchronizedEntry<TK;TV;>;"
@@ -75,7 +75,7 @@
 .end method
 
 .method delegate()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -96,7 +96,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -109,7 +109,7 @@
     monitor-enter v0
 
     .line 1681
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -123,18 +123,18 @@
     return v1
 
     .line 1682
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public getKey()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -148,7 +148,7 @@
     monitor-enter v0
 
     .line 1695
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -162,18 +162,18 @@
     return-object v1
 
     .line 1696
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -187,7 +187,7 @@
     monitor-enter v0
 
     .line 1702
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -201,18 +201,18 @@
     return-object v1
 
     .line 1703
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 1687
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedEntry;, "Lcom/google/common/collect/Synchronized$SynchronizedEntry<TK;TV;>;"
@@ -221,7 +221,7 @@
     monitor-enter v0
 
     .line 1688
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -235,18 +235,18 @@
     return v1
 
     .line 1689
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -261,7 +261,7 @@
     monitor-enter v0
 
     .line 1709
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -275,12 +275,12 @@
     return-object v1
 
     .line 1710
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method

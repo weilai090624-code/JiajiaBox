@@ -72,7 +72,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 131
     new-instance v0, Landroidx/recyclerview/widget/AsyncListDiffer$MainThreadExecutor;
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/recyclerview/widget/ListUpdateCallback;Landroidx/recyclerview/widget/AsyncDifferConfig;)V
-    .locals 1
+    .registers 4
     .param p1, "listUpdateCallback"    # Landroidx/recyclerview/widget/ListUpdateCallback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -129,7 +129,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 182
     invoke-virtual {p2}, Landroidx/recyclerview/widget/AsyncDifferConfig;->getMainThreadExecutor()Ljava/util/concurrent/Executor;
@@ -138,21 +138,21 @@
 
     iput-object v0, p0, Landroidx/recyclerview/widget/AsyncListDiffer;->mMainThreadExecutor:Ljava/util/concurrent/Executor;
 
-    goto :goto_0
+    goto :goto_26
 
     .line 184
-    :cond_0
+    :cond_22
     sget-object v0, Landroidx/recyclerview/widget/AsyncListDiffer;->sMainThreadExecutor:Ljava/util/concurrent/Executor;
 
     iput-object v0, p0, Landroidx/recyclerview/widget/AsyncListDiffer;->mMainThreadExecutor:Ljava/util/concurrent/Executor;
 
     .line 186
-    :goto_0
+    :goto_26
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView$Adapter;Landroidx/recyclerview/widget/DiffUtil$ItemCallback;)V
-    .locals 2
+    .registers 5
     .param p1, "adapter"    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -187,7 +187,7 @@
 .end method
 
 .method private onCurrentListChanged(Ljava/util/List;Ljava/lang/Runnable;)V
-    .locals 3
+    .registers 6
     .param p2, "commitCallback"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -208,12 +208,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -229,24 +229,24 @@
 
     .line 377
     .end local v1    # "listener":Landroidx/recyclerview/widget/AsyncListDiffer$ListListener;, "Landroidx/recyclerview/widget/AsyncListDiffer$ListListener<TT;>;"
-    goto :goto_0
+    goto :goto_6
 
     .line 378
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_18
+    if-eqz p2, :cond_1d
 
     .line 379
     invoke-interface {p2}, Ljava/lang/Runnable;->run()V
 
     .line 381
-    :cond_1
+    :cond_1d
     return-void
 .end method
 
 
 # virtual methods
 .method public addListListener(Landroidx/recyclerview/widget/AsyncListDiffer$ListListener;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -267,7 +267,7 @@
 .end method
 
 .method public getCurrentList()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -284,7 +284,7 @@
 .end method
 
 .method latchList(Ljava/util/List;Landroidx/recyclerview/widget/DiffUtil$DiffResult;Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 6
     .param p2, "diffResult"    # Landroidx/recyclerview/widget/DiffUtil$DiffResult;
     .param p3, "commitCallback"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
@@ -327,7 +327,7 @@
 .end method
 
 .method public removeListListener(Landroidx/recyclerview/widget/AsyncListDiffer$ListListener;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -348,7 +348,7 @@
 .end method
 
 .method public submitList(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -369,7 +369,7 @@
 .end method
 
 .method public submitList(Ljava/util/List;Ljava/lang/Runnable;)V
-    .locals 10
+    .registers 13
     .param p2, "commitCallback"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -394,27 +394,27 @@
     .local v5, "runGeneration":I
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListDiffer;->mList:Ljava/util/List;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_10
 
     .line 258
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_f
 
     .line 259
     invoke-interface {p2}, Ljava/lang/Runnable;->run()V
 
     .line 261
-    :cond_0
+    :cond_f
     return-void
 
     .line 264
-    :cond_1
+    :cond_10
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListDiffer;->mReadOnlyList:Ljava/util/List;
 
     .line 267
     .local v0, "previousList":Ljava/util/List;, "Ljava/util/List<TT;>;"
     const/4 v1, 0x0
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_2d
 
     .line 269
     iget-object v2, p0, Landroidx/recyclerview/widget/AsyncListDiffer;->mList:Ljava/util/List;
@@ -449,10 +449,10 @@
 
     .line 279
     .end local v2    # "countRemoved":I
-    :cond_2
+    :cond_2d
     iget-object v2, p0, Landroidx/recyclerview/widget/AsyncListDiffer;->mList:Ljava/util/List;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_46
 
     .line 280
     iput-object p1, p0, Landroidx/recyclerview/widget/AsyncListDiffer;->mList:Ljava/util/List;
@@ -480,7 +480,7 @@
     return-void
 
     .line 288
-    :cond_3
+    :cond_46
     iget-object v7, p0, Landroidx/recyclerview/widget/AsyncListDiffer;->mList:Ljava/util/List;
 
     .line 289

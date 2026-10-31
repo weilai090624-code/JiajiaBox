@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 36
     const/4 v0, 0x1
@@ -83,7 +83,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/RegularImmutableSortedSet;[JII)V
-    .locals 0
+    .registers 5
     .param p2, "cumulativeCounts"    # [J
     .param p3, "offset"    # I
     .param p4, "length"    # I
@@ -117,7 +117,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/Comparator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -156,7 +156,7 @@
 .end method
 
 .method private getCount(I)I
-    .locals 5
+    .registers 7
     .param p1, "index"    # I
 
     .line 62
@@ -189,7 +189,7 @@
 
 # virtual methods
 .method public count(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -205,23 +205,23 @@
 
     .line 85
     .local v0, "index":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_d
 
     invoke-direct {p0, v0}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->getCount(I)I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method public bridge synthetic elementSet()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
 
     .line 32
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSortedMultiset;, "Lcom/google/common/collect/RegularImmutableSortedMultiset<TE;>;"
@@ -233,7 +233,7 @@
 .end method
 
 .method public elementSet()Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -250,7 +250,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
 
     .line 32
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSortedMultiset;, "Lcom/google/common/collect/RegularImmutableSortedMultiset<TE;>;"
@@ -262,7 +262,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 32
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSortedMultiset;, "Lcom/google/common/collect/RegularImmutableSortedMultiset<TE;>;"
@@ -274,7 +274,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
 
     .line 32
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSortedMultiset;, "Lcom/google/common/collect/RegularImmutableSortedMultiset<TE;>;"
@@ -286,7 +286,7 @@
 .end method
 
 .method public firstEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -304,25 +304,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->getEntry(I)Lcom/google/common/collect/Multiset$Entry;
 
     move-result-object v0
 
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 .method getEntry(I)Lcom/google/common/collect/Multiset$Entry;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -356,7 +356,7 @@
 .end method
 
 .method getSubMultiset(II)Lcom/google/common/collect/ImmutableSortedMultiset;
-    .locals 5
+    .registers 8
     .param p1, "from"    # I
     .param p2, "to"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -374,7 +374,7 @@
     invoke-static {p1, p2, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
 
     .line 112
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_10
 
     .line 113
     invoke-virtual {p0}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->comparator()Ljava/util/Comparator;
@@ -388,18 +388,18 @@
     return-object v0
 
     .line 114
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_10
+    if-nez p1, :cond_17
 
     iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_17
 
     .line 115
     return-object p0
 
     .line 117
-    :cond_1
+    :cond_17
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->elementSet:Lcom/google/common/collect/RegularImmutableSortedSet;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/RegularImmutableSortedSet;->getSubSet(II)Lcom/google/common/collect/RegularImmutableSortedSet;
@@ -424,7 +424,7 @@
 .end method
 
 .method public headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
-    .locals 4
+    .registers 7
     .param p2, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -449,16 +449,16 @@
 
     const/4 v3, 0x0
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_e
     invoke-virtual {v0, p1, v1}, Lcom/google/common/collect/RegularImmutableSortedSet;->headIndex(Ljava/lang/Object;Z)I
 
     move-result v0
@@ -471,7 +471,7 @@
 .end method
 
 .method public bridge synthetic headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
-    .locals 0
+    .registers 3
 
     .line 32
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSortedMultiset;, "Lcom/google/common/collect/RegularImmutableSortedMultiset<TE;>;"
@@ -483,7 +483,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 3
+    .registers 4
 
     .line 125
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSortedMultiset;, "Lcom/google/common/collect/RegularImmutableSortedMultiset<TE;>;"
@@ -491,7 +491,7 @@
 
     const/4 v1, 0x1
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_f
 
     iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
 
@@ -501,20 +501,20 @@
 
     sub-int/2addr v2, v1
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_e
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     return v1
 .end method
 
 .method public lastEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -532,13 +532,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_8
     iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
 
     add-int/lit8 v0, v0, -0x1
@@ -547,12 +547,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 .method public size()I
-    .locals 5
+    .registers 6
 
     .line 90
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSortedMultiset;, "Lcom/google/common/collect/RegularImmutableSortedMultiset<TE;>;"
@@ -584,7 +584,7 @@
 .end method
 
 .method public tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
-    .locals 3
+    .registers 6
     .param p2, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -608,16 +608,16 @@
 
     sget-object v2, Lcom/google/common/collect/BoundType;->CLOSED:Lcom/google/common/collect/BoundType;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_d
     invoke-virtual {v0, p1, v1}, Lcom/google/common/collect/RegularImmutableSortedSet;->tailIndex(Ljava/lang/Object;Z)I
 
     move-result v0
@@ -633,7 +633,7 @@
 .end method
 
 .method public bridge synthetic tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
-    .locals 0
+    .registers 3
 
     .line 32
     .local p0, "this":Lcom/google/common/collect/RegularImmutableSortedMultiset;, "Lcom/google/common/collect/RegularImmutableSortedMultiset<TE;>;"

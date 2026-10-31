@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;)V
-    .locals 1
+    .registers 3
     .param p1, "spec"    # Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;
 
     .line 40
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public adjustCanvas(Landroid/graphics/Canvas;Landroid/graphics/Rect;F)V
-    .locals 7
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "bounds"    # Landroid/graphics/Rect;
     .param p3, "trackThicknessFraction"    # F
@@ -136,20 +136,20 @@
 
     const/high16 v4, 0x3f800000    # 1.0f
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_49
 
     .line 76
     invoke-virtual {p1, v2, v4}, Landroid/graphics/Canvas;->scale(FF)V
 
     .line 79
-    :cond_0
+    :cond_49
     iget-object v1, p0, Lcom/google/android/material/progressindicator/LinearDrawingDelegate;->drawable:Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;
 
     invoke-virtual {v1}, Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;->isShowing()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_5a
 
     iget-object v1, p0, Lcom/google/android/material/progressindicator/LinearDrawingDelegate;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
@@ -159,9 +159,9 @@
 
     const/4 v6, 0x1
 
-    if-eq v1, v6, :cond_2
+    if-eq v1, v6, :cond_6b
 
-    :cond_1
+    :cond_5a
     iget-object v1, p0, Lcom/google/android/material/progressindicator/LinearDrawingDelegate;->drawable:Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;
 
     .line 80
@@ -169,7 +169,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6e
 
     iget-object v1, p0, Lcom/google/android/material/progressindicator/LinearDrawingDelegate;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
@@ -179,21 +179,21 @@
 
     const/4 v6, 0x2
 
-    if-ne v1, v6, :cond_3
+    if-ne v1, v6, :cond_6e
 
     .line 82
-    :cond_2
+    :cond_6b
     invoke-virtual {p1, v4, v2}, Landroid/graphics/Canvas;->scale(FF)V
 
     .line 85
-    :cond_3
+    :cond_6e
     iget-object v1, p0, Lcom/google/android/material/progressindicator/LinearDrawingDelegate;->drawable:Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;
 
     invoke-virtual {v1}, Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;->isShowing()Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_7e
 
     iget-object v1, p0, Lcom/google/android/material/progressindicator/LinearDrawingDelegate;->drawable:Lcom/google/android/material/progressindicator/DrawableWithAnimatedVisibilityChange;
 
@@ -201,10 +201,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_8d
 
     .line 86
-    :cond_4
+    :cond_7e
     iget-object v1, p0, Lcom/google/android/material/progressindicator/LinearDrawingDelegate;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
     check-cast v1, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;
@@ -222,7 +222,7 @@
     invoke-virtual {p1, v5, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 91
-    :cond_5
+    :cond_8d
     iget v1, p0, Lcom/google/android/material/progressindicator/LinearDrawingDelegate;->trackLength:F
 
     neg-float v1, v1
@@ -272,7 +272,7 @@
 .end method
 
 .method public fillIndicator(Landroid/graphics/Canvas;Landroid/graphics/Paint;FFI)V
-    .locals 6
+    .registers 12
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "paint"    # Landroid/graphics/Paint;
     .param p3, "startFraction"    # F
@@ -282,13 +282,13 @@
     .line 117
     cmpl-float v0, p3, p4
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 118
     return-void
 
     .line 122
-    :cond_0
+    :cond_5
     iget v0, p0, Lcom/google/android/material/progressindicator/LinearDrawingDelegate;->trackLength:F
 
     neg-float v0, v0
@@ -379,7 +379,7 @@
 .end method
 
 .method fillTrack(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
-    .locals 7
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "paint"    # Landroid/graphics/Paint;
 
@@ -454,7 +454,7 @@
 .end method
 
 .method public getPreferredHeight()I
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearDrawingDelegate;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
@@ -467,7 +467,7 @@
 .end method
 
 .method public getPreferredWidth()I
-    .locals 1
+    .registers 2
 
     .line 45
     const/4 v0, -0x1

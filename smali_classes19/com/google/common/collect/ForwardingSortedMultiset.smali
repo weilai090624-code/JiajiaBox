@@ -32,7 +32,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedMultiset;, "Lcom/google/common/collect/ForwardingSortedMultiset<TE;>;"
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -67,7 +67,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
 
     .line 47
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedMultiset;, "Lcom/google/common/collect/ForwardingSortedMultiset<TE;>;"
@@ -89,7 +89,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 47
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedMultiset;, "Lcom/google/common/collect/ForwardingSortedMultiset<TE;>;"
@@ -101,7 +101,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 47
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedMultiset;, "Lcom/google/common/collect/ForwardingSortedMultiset<TE;>;"
@@ -113,7 +113,7 @@
 .end method
 
 .method public descendingMultiset()Lcom/google/common/collect/SortedMultiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -136,7 +136,7 @@
 .end method
 
 .method public elementSet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -159,7 +159,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 47
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedMultiset;, "Lcom/google/common/collect/ForwardingSortedMultiset<TE;>;"
@@ -171,7 +171,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
 
     .line 47
     .local p0, "this":Lcom/google/common/collect/ForwardingSortedMultiset;, "Lcom/google/common/collect/ForwardingSortedMultiset<TE;>;"
@@ -183,7 +183,7 @@
 .end method
 
 .method public firstEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -209,7 +209,7 @@
 .end method
 
 .method public headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -240,7 +240,7 @@
 .end method
 
 .method public lastEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -266,7 +266,7 @@
 .end method
 
 .method public pollFirstEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -292,7 +292,7 @@
 .end method
 
 .method public pollLastEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -318,7 +318,7 @@
 .end method
 
 .method protected standardFirstEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -346,7 +346,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 131
     const/4 v1, 0x0
@@ -354,7 +354,7 @@
     return-object v1
 
     .line 133
-    :cond_0
+    :cond_10
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -379,7 +379,7 @@
 .end method
 
 .method protected standardLastEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -411,7 +411,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     .line 154
     const/4 v1, 0x0
@@ -419,7 +419,7 @@
     return-object v1
 
     .line 156
-    :cond_0
+    :cond_14
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -444,7 +444,7 @@
 .end method
 
 .method protected standardPollFirstEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -472,7 +472,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 176
     const/4 v1, 0x0
@@ -480,7 +480,7 @@
     return-object v1
 
     .line 178
-    :cond_0
+    :cond_10
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -509,7 +509,7 @@
 .end method
 
 .method protected standardPollLastEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -541,7 +541,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     .line 201
     const/4 v1, 0x0
@@ -549,7 +549,7 @@
     return-object v1
 
     .line 203
-    :cond_0
+    :cond_14
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -578,7 +578,7 @@
 .end method
 
 .method protected standardSubMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
-    .locals 1
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -617,7 +617,7 @@
 .end method
 
 .method public subMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
-    .locals 1
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -656,7 +656,7 @@
 .end method
 
 .method public tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

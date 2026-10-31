@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroidx/work/Data;)V
-    .locals 1
+    .registers 4
     .param p1, "workSpecId"    # Ljava/lang/String;
     .param p2, "progress"    # Landroidx/work/Data;
 
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public final getProgress()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Landroidx/work/impl/model/WorkProgress;->progress:Landroidx/work/Data;
@@ -77,7 +77,7 @@
 .end method
 
 .method public final getWorkSpecId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Landroidx/work/impl/model/WorkProgress;->workSpecId:Ljava/lang/String;

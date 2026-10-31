@@ -79,7 +79,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 45
     const/4 v0, 0x0
@@ -149,7 +149,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/Reader;
 
     .line 572
@@ -183,7 +183,7 @@
 .end method
 
 .method private final yyResetPosition()V
-    .locals 2
+    .registers 3
 
     .line 691
     const/4 v0, 0x1
@@ -226,7 +226,7 @@
 .end method
 
 .method private static zzCMap(I)I
-    .locals 4
+    .registers 5
     .param p0, "input"    # I
 
     .line 580
@@ -236,13 +236,13 @@
     .local v0, "offset":I
     sget-object v1, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->ZZ_CMAP_BLOCKS:[I
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_9
 
     aget v1, v1, v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_9
     sget-object v2, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->ZZ_CMAP_TOP:[I
 
     shr-int/lit8 v3, p0, 0x8
@@ -253,12 +253,12 @@
 
     aget v1, v1, v2
 
-    :goto_0
+    :goto_12
     return v1
 .end method
 
 .method private zzRefill()Z
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -270,7 +270,7 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_33
 
     .line 594
     iget v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzEndRead:I
@@ -330,7 +330,7 @@
     iput v1, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzStartRead:I
 
     .line 608
-    :cond_0
+    :cond_33
     iget v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzCurrentPos:I
 
     iget-object v2, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzBuffer:[C
@@ -341,7 +341,7 @@
 
     sub-int/2addr v2, v3
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_57
 
     .line 610
     iget-object v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzBuffer:[C
@@ -379,7 +379,7 @@
 
     .line 618
     .end local v0    # "newBuffer":[C
-    :cond_1
+    :cond_57
     iget-object v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzBuffer:[C
 
     array-length v0, v0
@@ -402,12 +402,12 @@
 
     .line 622
     .local v2, "numRead":I
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_9f
 
     .line 626
     const/4 v3, 0x1
 
-    if-lez v2, :cond_5
+    if-lez v2, :cond_9e
 
     .line 627
     iget v4, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzEndRead:I
@@ -429,10 +429,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_9d
 
     .line 629
-    if-ne v2, v0, :cond_2
+    if-ne v2, v0, :cond_88
 
     .line 630
     iget v4, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzEndRead:I
@@ -444,10 +444,10 @@
     .line 631
     iput v3, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzFinalHighSurrogate:I
 
-    goto :goto_0
+    goto :goto_9d
 
     .line 633
-    :cond_2
+    :cond_88
     iget-object v4, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzReader:Ljava/io/Reader;
 
     invoke-virtual {v4}, Ljava/io/Reader;->read()I
@@ -458,13 +458,13 @@
     .local v4, "c":I
     const/4 v5, -0x1
 
-    if-ne v4, v5, :cond_3
+    if-ne v4, v5, :cond_92
 
     .line 635
     return v3
 
     .line 637
-    :cond_3
+    :cond_92
     iget-object v3, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzBuffer:[C
 
     iget v5, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzEndRead:I
@@ -479,16 +479,16 @@
 
     .line 642
     .end local v4    # "c":I
-    :cond_4
-    :goto_0
+    :cond_9d
+    :goto_9d
     return v1
 
     .line 646
-    :cond_5
+    :cond_9e
     return v3
 
     .line 623
-    :cond_6
+    :cond_9f
     new-instance v1, Ljava/io/IOException;
 
     const-string v3, "Reader returned 0 characters. See JFlex examples/zero-reader for a workaround."
@@ -499,7 +499,7 @@
 .end method
 
 .method private static zzScanError(I)V
-    .locals 3
+    .registers 4
     .param p0, "errorCode"    # I
 
     .line 785
@@ -507,16 +507,16 @@
     sget-object v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->ZZ_ERROR_MSG:[Ljava/lang/String;
 
     aget-object v0, v0, p0
-    :try_end_0
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_4} :catch_5
 
     .line 788
     .local v0, "message":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_c
 
     .line 786
     .end local v0    # "message":Ljava/lang/String;
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 787
@@ -531,7 +531,7 @@
 
     .line 790
     .local v0, "message":Ljava/lang/String;
-    :goto_0
+    :goto_c
     new-instance v1, Ljava/lang/Error;
 
     invoke-direct {v1, v0}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V
@@ -540,7 +540,7 @@
 .end method
 
 .method private static zzUnpackAction(Ljava/lang/String;I[I)I
-    .locals 6
+    .registers 9
     .param p0, "packed"    # Ljava/lang/String;
     .param p1, "offset"    # I
     .param p2, "result"    # [I
@@ -560,8 +560,8 @@
 
     .line 298
     .local v2, "l":I
-    :goto_0
-    if-ge v0, v2, :cond_1
+    :goto_6
+    if-ge v0, v2, :cond_21
 
     .line 299
     add-int/lit8 v3, v0, 0x1
@@ -584,7 +584,7 @@
 
     .line 301
     .local v3, "value":I
-    :goto_1
+    :goto_14
     add-int/lit8 v5, v1, 0x1
 
     .end local v1    # "j":I
@@ -593,7 +593,7 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_1f
 
     .line 302
     .end local v0    # "count":I
@@ -602,15 +602,15 @@
 
     move v1, v5
 
-    goto :goto_0
+    goto :goto_6
 
     .line 301
     .restart local v0    # "count":I
     .restart local v3    # "value":I
-    :cond_0
+    :cond_1f
     move v1, v5
 
-    goto :goto_1
+    goto :goto_14
 
     .line 303
     .end local v3    # "value":I
@@ -618,12 +618,12 @@
     .end local v5    # "j":I
     .local v0, "i":I
     .restart local v1    # "j":I
-    :cond_1
+    :cond_21
     return v1
 .end method
 
 .method private static zzUnpackAction()[I
-    .locals 3
+    .registers 3
 
     .line 288
     const/16 v0, 0x4f
@@ -647,7 +647,7 @@
 .end method
 
 .method private static zzUnpackAttribute(Ljava/lang/String;I[I)I
-    .locals 6
+    .registers 9
     .param p0, "packed"    # Ljava/lang/String;
     .param p1, "offset"    # I
     .param p2, "result"    # [I
@@ -667,8 +667,8 @@
 
     .line 491
     .local v2, "l":I
-    :goto_0
-    if-ge v0, v2, :cond_1
+    :goto_6
+    if-ge v0, v2, :cond_21
 
     .line 492
     add-int/lit8 v3, v0, 0x1
@@ -691,7 +691,7 @@
 
     .line 494
     .local v3, "value":I
-    :goto_1
+    :goto_14
     add-int/lit8 v5, v1, 0x1
 
     .end local v1    # "j":I
@@ -700,7 +700,7 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_1f
 
     .line 495
     .end local v0    # "count":I
@@ -709,15 +709,15 @@
 
     move v1, v5
 
-    goto :goto_0
+    goto :goto_6
 
     .line 494
     .restart local v0    # "count":I
     .restart local v3    # "value":I
-    :cond_0
+    :cond_1f
     move v1, v5
 
-    goto :goto_1
+    goto :goto_14
 
     .line 496
     .end local v3    # "value":I
@@ -725,12 +725,12 @@
     .end local v5    # "j":I
     .local v0, "i":I
     .restart local v1    # "j":I
-    :cond_1
+    :cond_21
     return v1
 .end method
 
 .method private static zzUnpackAttribute()[I
-    .locals 3
+    .registers 3
 
     .line 481
     const/16 v0, 0x4f
@@ -754,7 +754,7 @@
 .end method
 
 .method private static zzUnpackRowMap(Ljava/lang/String;I[I)I
-    .locals 6
+    .registers 9
     .param p0, "packed"    # Ljava/lang/String;
     .param p1, "offset"    # I
     .param p2, "result"    # [I
@@ -774,8 +774,8 @@
 
     .line 335
     .local v2, "l":I
-    :goto_0
-    if-ge v0, v2, :cond_0
+    :goto_6
+    if-ge v0, v2, :cond_1e
 
     .line 336
     add-int/lit8 v3, v0, 0x1
@@ -812,19 +812,19 @@
 
     move v0, v5
 
-    goto :goto_0
+    goto :goto_6
 
     .line 339
     .end local v4    # "j":I
     .end local v5    # "i":I
     .local v0, "i":I
     .restart local v1    # "j":I
-    :cond_0
+    :cond_1e
     return v1
 .end method
 
 .method private static zzUnpackRowMap()[I
-    .locals 3
+    .registers 3
 
     .line 325
     const/16 v0, 0x4f
@@ -848,7 +848,7 @@
 .end method
 
 .method private static zzUnpackTrans(Ljava/lang/String;I[I)I
-    .locals 6
+    .registers 9
     .param p0, "packed"    # Ljava/lang/String;
     .param p1, "offset"    # I
     .param p2, "result"    # [I
@@ -868,8 +868,8 @@
 
     .line 442
     .local v2, "l":I
-    :goto_0
-    if-ge v0, v2, :cond_1
+    :goto_6
+    if-ge v0, v2, :cond_23
 
     .line 443
     add-int/lit8 v3, v0, 0x1
@@ -895,7 +895,7 @@
     add-int/lit8 v3, v3, -0x1
 
     .line 446
-    :goto_1
+    :goto_16
     add-int/lit8 v5, v1, 0x1
 
     .end local v1    # "j":I
@@ -904,7 +904,7 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_21
 
     .line 447
     .end local v0    # "count":I
@@ -913,15 +913,15 @@
 
     move v1, v5
 
-    goto :goto_0
+    goto :goto_6
 
     .line 446
     .restart local v0    # "count":I
     .restart local v3    # "value":I
-    :cond_0
+    :cond_21
     move v1, v5
 
-    goto :goto_1
+    goto :goto_16
 
     .line 448
     .end local v3    # "value":I
@@ -929,12 +929,12 @@
     .end local v5    # "j":I
     .local v0, "i":I
     .restart local v1    # "j":I
-    :cond_1
+    :cond_23
     return v1
 .end method
 
 .method private static zzUnpackTrans()[I
-    .locals 3
+    .registers 3
 
     .line 432
     const/16 v0, 0xa2c
@@ -958,7 +958,7 @@
 .end method
 
 .method private static zzUnpackcmap_blocks(Ljava/lang/String;I[I)I
-    .locals 6
+    .registers 9
     .param p0, "packed"    # Ljava/lang/String;
     .param p1, "offset"    # I
     .param p2, "result"    # [I
@@ -978,8 +978,8 @@
 
     .line 264
     .local v2, "l":I
-    :goto_0
-    if-ge v0, v2, :cond_1
+    :goto_6
+    if-ge v0, v2, :cond_21
 
     .line 265
     add-int/lit8 v3, v0, 0x1
@@ -1002,7 +1002,7 @@
 
     .line 267
     .local v3, "value":I
-    :goto_1
+    :goto_14
     add-int/lit8 v5, v1, 0x1
 
     .end local v1    # "j":I
@@ -1011,7 +1011,7 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_1f
 
     .line 268
     .end local v0    # "count":I
@@ -1020,15 +1020,15 @@
 
     move v1, v5
 
-    goto :goto_0
+    goto :goto_6
 
     .line 267
     .restart local v0    # "count":I
     .restart local v3    # "value":I
-    :cond_0
+    :cond_1f
     move v1, v5
 
-    goto :goto_1
+    goto :goto_14
 
     .line 269
     .end local v3    # "value":I
@@ -1036,12 +1036,12 @@
     .end local v5    # "j":I
     .local v0, "i":I
     .restart local v1    # "j":I
-    :cond_1
+    :cond_21
     return v1
 .end method
 
 .method private static zzUnpackcmap_blocks()[I
-    .locals 3
+    .registers 3
 
     .line 254
     const/16 v0, 0x5400
@@ -1065,7 +1065,7 @@
 .end method
 
 .method private static zzUnpackcmap_top(Ljava/lang/String;I[I)I
-    .locals 6
+    .registers 9
     .param p0, "packed"    # Ljava/lang/String;
     .param p1, "offset"    # I
     .param p2, "result"    # [I
@@ -1085,8 +1085,8 @@
 
     .line 82
     .local v2, "l":I
-    :goto_0
-    if-ge v0, v2, :cond_1
+    :goto_6
+    if-ge v0, v2, :cond_21
 
     .line 83
     add-int/lit8 v3, v0, 0x1
@@ -1109,7 +1109,7 @@
 
     .line 85
     .local v3, "value":I
-    :goto_1
+    :goto_14
     add-int/lit8 v5, v1, 0x1
 
     .end local v1    # "j":I
@@ -1118,7 +1118,7 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_1f
 
     .line 86
     .end local v0    # "count":I
@@ -1127,15 +1127,15 @@
 
     move v1, v5
 
-    goto :goto_0
+    goto :goto_6
 
     .line 85
     .restart local v0    # "count":I
     .restart local v3    # "value":I
-    :cond_0
+    :cond_1f
     move v1, v5
 
-    goto :goto_1
+    goto :goto_14
 
     .line 87
     .end local v3    # "value":I
@@ -1143,12 +1143,12 @@
     .end local v5    # "j":I
     .local v0, "i":I
     .restart local v1    # "j":I
-    :cond_1
+    :cond_21
     return v1
 .end method
 
 .method private static zzUnpackcmap_top()[I
-    .locals 3
+    .registers 3
 
     .line 72
     const/16 v0, 0x1100
@@ -1174,7 +1174,7 @@
 
 # virtual methods
 .method public advance()Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
-    .locals 16
+    .registers 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1204,7 +1204,7 @@
 
     .line 835
     .local v5, "zzAttrL":[I
-    :goto_0
+    :goto_c
     iget v6, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzMarkedPos:I
 
     .line 837
@@ -1230,12 +1230,12 @@
 
     .line 843
     .local v8, "zzCurrentPosL":I
-    :goto_1
+    :goto_1b
     const/4 v9, 0x0
 
     const/4 v10, 0x1
 
-    if-ge v8, v6, :cond_1
+    if-ge v8, v6, :cond_51
 
     .line 845
     invoke-static {v2, v8, v6}, Ljava/lang/Character;->codePointAt([CII)I
@@ -1250,7 +1250,7 @@
 
     .line 847
     .local v12, "zzCharCount":I
-    sparse-switch v11, :sswitch_data_0
+    sparse-switch v11, :sswitch_data_152
 
     .line 871
     const/4 v7, 0x0
@@ -1262,10 +1262,10 @@
 
     iput v9, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->yycolumn:I
 
-    goto :goto_2
+    goto :goto_4f
 
     .line 858
-    :sswitch_0
+    :sswitch_31
     iget v13, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->yyline:I
 
     add-int/2addr v13, v10
@@ -1279,10 +1279,10 @@
     const/4 v7, 0x1
 
     .line 861
-    goto :goto_2
+    goto :goto_4f
 
     .line 853
-    :sswitch_1
+    :sswitch_3a
     iget v13, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->yyline:I
 
     add-int/2addr v13, v10
@@ -1296,19 +1296,19 @@
     const/4 v7, 0x0
 
     .line 856
-    goto :goto_2
+    goto :goto_4f
 
     .line 863
-    :sswitch_2
-    if-eqz v7, :cond_0
+    :sswitch_43
+    if-eqz v7, :cond_47
 
     .line 864
     const/4 v7, 0x0
 
-    goto :goto_2
+    goto :goto_4f
 
     .line 866
-    :cond_0
+    :cond_47
     iget v13, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->yyline:I
 
     add-int/2addr v13, v10
@@ -1322,49 +1322,49 @@
     nop
 
     .line 844
-    :goto_2
+    :goto_4f
     add-int/2addr v8, v12
 
-    goto :goto_1
+    goto :goto_1b
 
     .line 876
     .end local v11    # "zzCh":I
     .end local v12    # "zzCharCount":I
-    :cond_1
-    if-eqz v7, :cond_7
+    :cond_51
+    if-eqz v7, :cond_7d
 
     .line 880
     const/16 v11, 0xa
 
-    if-ge v6, v1, :cond_3
+    if-ge v6, v1, :cond_5d
 
     .line 881
     aget-char v12, v2, v6
 
-    if-ne v12, v11, :cond_2
+    if-ne v12, v11, :cond_5c
 
     const/4 v9, 0x1
 
     .local v9, "zzPeek":Z
-    :cond_2
-    goto :goto_3
+    :cond_5c
+    goto :goto_76
 
     .line 882
     .end local v9    # "zzPeek":Z
-    :cond_3
+    :cond_5d
     iget-boolean v12, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzAtEOF:Z
 
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_63
 
     .line 883
     const/4 v9, 0x0
 
     .restart local v9    # "zzPeek":Z
-    goto :goto_3
+    goto :goto_76
 
     .line 885
     .end local v9    # "zzPeek":Z
-    :cond_4
+    :cond_63
     invoke-direct/range {p0 .. p0}, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzRefill()Z
 
     move-result v12
@@ -1380,29 +1380,29 @@
     iget-object v2, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzBuffer:[C
 
     .line 889
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_71
 
     .line 890
     const/4 v9, 0x0
 
     .restart local v9    # "zzPeek":Z
-    goto :goto_3
+    goto :goto_76
 
     .line 892
     .end local v9    # "zzPeek":Z
-    :cond_5
+    :cond_71
     aget-char v13, v2, v6
 
-    if-ne v13, v11, :cond_6
+    if-ne v13, v11, :cond_76
 
     const/4 v9, 0x1
 
     .line 894
     .end local v12    # "eof":Z
     .restart local v9    # "zzPeek":Z
-    :cond_6
-    :goto_3
-    if-eqz v9, :cond_7
+    :cond_76
+    :goto_76
+    if-eqz v9, :cond_7d
 
     iget v11, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->yyline:I
 
@@ -1412,7 +1412,7 @@
 
     .line 896
     .end local v9    # "zzPeek":Z
-    :cond_7
+    :cond_7d
     const/4 v9, -0x1
 
     .line 898
@@ -1441,17 +1441,17 @@
     .local v11, "zzAttributes":I
     and-int/lit8 v12, v11, 0x1
 
-    if-ne v12, v10, :cond_8
+    if-ne v12, v10, :cond_95
 
     .line 905
     iget v9, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzState:I
 
     .line 912
-    :cond_8
-    :goto_4
+    :cond_95
+    :goto_95
     const/4 v12, -0x1
 
-    if-ge v8, v1, :cond_9
+    if-ge v8, v1, :cond_a2
 
     .line 913
     invoke-static {v2, v8, v1}, Ljava/lang/Character;->codePointAt([CII)I
@@ -1466,25 +1466,25 @@
 
     add-int/2addr v8, v14
 
-    goto :goto_5
+    goto :goto_c7
 
     .line 916
     .end local v13    # "zzInput":I
-    :cond_9
+    :cond_a2
     iget-boolean v13, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzAtEOF:Z
 
-    if-eqz v13, :cond_a
+    if-eqz v13, :cond_a8
 
     .line 917
     const/4 v13, -0x1
 
     .line 918
     .restart local v13    # "zzInput":I
-    goto :goto_6
+    goto :goto_e8
 
     .line 922
     .end local v13    # "zzInput":I
-    :cond_a
+    :cond_a8
     iput v8, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzCurrentPos:I
 
     .line 923
@@ -1509,7 +1509,7 @@
     iget v1, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzEndRead:I
 
     .line 930
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_bd
 
     .line 931
     const/4 v14, -0x1
@@ -1518,11 +1518,11 @@
     .local v14, "zzInput":I
     move v13, v14
 
-    goto :goto_6
+    goto :goto_e8
 
     .line 935
     .end local v14    # "zzInput":I
-    :cond_b
+    :cond_bd
     invoke-static {v2, v8, v1}, Ljava/lang/Character;->codePointAt([CII)I
 
     move-result v14
@@ -1540,7 +1540,7 @@
     .line 939
     .end local v14    # "zzInput":I
     .local v13, "zzInput":I
-    :goto_5
+    :goto_c7
     iget v14, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzState:I
 
     aget v14, v4, v14
@@ -1555,12 +1555,12 @@
 
     .line 940
     .local v14, "zzNext":I
-    if-ne v14, v12, :cond_c
+    if-ne v14, v12, :cond_d5
 
-    goto :goto_6
+    goto :goto_e8
 
     .line 941
-    :cond_c
+    :cond_d5
     iput v14, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzState:I
 
     .line 943
@@ -1571,7 +1571,7 @@
     .line 944
     and-int/lit8 v15, v11, 0x1
 
-    if-ne v15, v10, :cond_10
+    if-ne v15, v10, :cond_14f
 
     .line 945
     iget v9, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzState:I
@@ -1584,21 +1584,21 @@
 
     const/16 v10, 0x8
 
-    if-ne v15, v10, :cond_f
+    if-ne v15, v10, :cond_14e
 
     .line 954
     .end local v14    # "zzNext":I
-    :goto_6
+    :goto_e8
     iput v6, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzMarkedPos:I
 
     .line 956
-    if-ne v13, v12, :cond_d
+    if-ne v13, v12, :cond_f8
 
     iget v10, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzStartRead:I
 
     iget v12, v0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzCurrentPos:I
 
-    if-ne v10, v12, :cond_d
+    if-ne v10, v12, :cond_f8
 
     .line 957
     const/4 v10, 0x1
@@ -1611,194 +1611,194 @@
     return-object v10
 
     .line 963
-    :cond_d
-    if-gez v9, :cond_e
+    :cond_f8
+    if-gez v9, :cond_fc
 
     move v10, v9
 
-    goto :goto_7
+    goto :goto_100
 
-    :cond_e
+    :cond_fc
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->ZZ_ACTION:[I
 
     aget v10, v10, v9
 
-    :goto_7
-    packed-switch v10, :pswitch_data_0
+    :goto_100
+    packed-switch v10, :pswitch_data_170
 
     .line 1050
     const/4 v10, 0x1
 
     invoke-static {v10}, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzScanError(I)V
 
-    goto :goto_8
+    goto :goto_14c
 
     .line 1048
-    :pswitch_0
-    goto :goto_8
+    :pswitch_108
+    goto :goto_14c
 
     .line 1043
-    :pswitch_1
-    goto :goto_8
+    :pswitch_109
+    goto :goto_14c
 
     .line 1038
-    :pswitch_2
-    goto :goto_8
+    :pswitch_10a
+    goto :goto_14c
 
     .line 1033
-    :pswitch_3
-    goto :goto_8
+    :pswitch_10b
+    goto :goto_14c
 
     .line 1028
-    :pswitch_4
-    goto :goto_8
+    :pswitch_10c
+    goto :goto_14c
 
     .line 1023
-    :pswitch_5
-    goto :goto_8
+    :pswitch_10d
+    goto :goto_14c
 
     .line 1018
-    :pswitch_6
-    goto :goto_8
+    :pswitch_10e
+    goto :goto_14c
 
     .line 1013
-    :pswitch_7
-    goto :goto_8
+    :pswitch_10f
+    goto :goto_14c
 
     .line 1008
-    :pswitch_8
-    goto :goto_8
+    :pswitch_110
+    goto :goto_14c
 
     .line 1003
-    :pswitch_9
-    goto :goto_8
+    :pswitch_111
+    goto :goto_14c
 
     .line 998
-    :pswitch_a
-    goto :goto_8
+    :pswitch_112
+    goto :goto_14c
 
     .line 993
-    :pswitch_b
-    goto :goto_8
+    :pswitch_113
+    goto :goto_14c
 
     .line 988
-    :pswitch_c
-    goto :goto_8
+    :pswitch_114
+    goto :goto_14c
 
     .line 983
-    :pswitch_d
-    goto :goto_8
+    :pswitch_115
+    goto :goto_14c
 
     .line 978
-    :pswitch_e
-    goto :goto_8
+    :pswitch_116
+    goto :goto_14c
 
     .line 973
-    :pswitch_f
-    goto :goto_8
+    :pswitch_117
+    goto :goto_14c
 
     .line 968
-    :pswitch_10
-    goto :goto_8
+    :pswitch_118
+    goto :goto_14c
 
     .line 1045
-    :pswitch_11
+    :pswitch_119
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->FALSE:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 1040
-    :pswitch_12
+    :pswitch_11c
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->TRUE:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 1035
-    :pswitch_13
+    :pswitch_11f
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->NULL:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 1030
-    :pswitch_14
+    :pswitch_122
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->LINE_COMMENT:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 1025
-    :pswitch_15
+    :pswitch_125
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->BLOCK_COMMENT:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 1020
-    :pswitch_16
+    :pswitch_128
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->RBRACE:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 1015
-    :pswitch_17
+    :pswitch_12b
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->LBRACE:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 1010
-    :pswitch_18
+    :pswitch_12e
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->RBRACK:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 1005
-    :pswitch_19
+    :pswitch_131
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->LBRACK:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 1000
-    :pswitch_1a
+    :pswitch_134
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->COLON:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 995
-    :pswitch_1b
+    :pswitch_137
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->COMMA:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 990
-    :pswitch_1c
+    :pswitch_13a
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->SINGLE_QUOTED_STRING:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 985
-    :pswitch_1d
+    :pswitch_13d
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->DOUBLE_QUOTED_STRING:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 980
-    :pswitch_1e
+    :pswitch_140
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->BAD_CHARACTER:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 975
-    :pswitch_1f
+    :pswitch_143
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->WHITESPACE:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 970
-    :pswitch_20
+    :pswitch_146
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->IDENTIFIER:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
 
     .line 965
-    :pswitch_21
+    :pswitch_149
     sget-object v10, Lcom/blacksquircle/ui/language/json/lexer/JsonToken;->NUMBER:Lcom/blacksquircle/ui/language/json/lexer/JsonToken;
 
     return-object v10
@@ -1806,75 +1806,75 @@
     .line 1053
     .end local v7    # "zzR":Z
     .end local v11    # "zzAttributes":I
-    :goto_8
-    goto/16 :goto_0
+    :goto_14c
+    goto/16 :goto_c
 
     .line 947
     .restart local v7    # "zzR":Z
     .restart local v11    # "zzAttributes":I
     .restart local v14    # "zzNext":I
-    :cond_f
+    :cond_14e
     const/4 v10, 0x1
 
     .line 950
     .end local v14    # "zzNext":I
-    :cond_10
-    goto/16 :goto_4
+    :cond_14f
+    goto/16 :goto_95
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_152
     .sparse-switch
-        0xa -> :sswitch_2
-        0xb -> :sswitch_1
-        0xc -> :sswitch_1
-        0xd -> :sswitch_0
-        0x85 -> :sswitch_1
-        0x2028 -> :sswitch_1
-        0x2029 -> :sswitch_1
+        0xa -> :sswitch_43
+        0xb -> :sswitch_3a
+        0xc -> :sswitch_3a
+        0xd -> :sswitch_31
+        0x85 -> :sswitch_3a
+        0x2028 -> :sswitch_3a
+        0x2029 -> :sswitch_3a
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_170
     .packed-switch 0x1
-        :pswitch_21
-        :pswitch_20
-        :pswitch_1f
-        :pswitch_1e
-        :pswitch_1d
-        :pswitch_1c
-        :pswitch_1b
-        :pswitch_1a
-        :pswitch_19
-        :pswitch_18
-        :pswitch_17
-        :pswitch_16
-        :pswitch_15
-        :pswitch_14
-        :pswitch_13
-        :pswitch_12
-        :pswitch_11
-        :pswitch_10
-        :pswitch_f
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_149
+        :pswitch_146
+        :pswitch_143
+        :pswitch_140
+        :pswitch_13d
+        :pswitch_13a
+        :pswitch_137
+        :pswitch_134
+        :pswitch_131
+        :pswitch_12e
+        :pswitch_12b
+        :pswitch_128
+        :pswitch_125
+        :pswitch_122
+        :pswitch_11f
+        :pswitch_11c
+        :pswitch_119
+        :pswitch_118
+        :pswitch_117
+        :pswitch_116
+        :pswitch_115
+        :pswitch_114
+        :pswitch_113
+        :pswitch_112
+        :pswitch_111
+        :pswitch_110
+        :pswitch_10f
+        :pswitch_10e
+        :pswitch_10d
+        :pswitch_10c
+        :pswitch_10b
+        :pswitch_10a
+        :pswitch_109
+        :pswitch_108
     .end packed-switch
 .end method
 
 .method public final getTokenEnd()I
-    .locals 2
+    .registers 3
 
     .line 563
     invoke-virtual {p0}, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->getTokenStart()I
@@ -1891,7 +1891,7 @@
 .end method
 
 .method public final getTokenStart()I
-    .locals 2
+    .registers 3
 
     .line 559
     iget-wide v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->yychar:J
@@ -1902,7 +1902,7 @@
 .end method
 
 .method public final yyatEOF()Z
-    .locals 1
+    .registers 2
 
     .line 710
     iget-boolean v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzAtEOF:Z
@@ -1911,7 +1911,7 @@
 .end method
 
 .method public final yybegin(I)V
-    .locals 0
+    .registers 2
     .param p1, "newState"    # I
 
     .line 730
@@ -1922,7 +1922,7 @@
 .end method
 
 .method public final yycharat(I)C
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 754
@@ -1938,7 +1938,7 @@
 .end method
 
 .method public final yyclose()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1958,7 +1958,7 @@
     .line 659
     iget-object v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzReader:Ljava/io/Reader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 660
     iget-object v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzReader:Ljava/io/Reader;
@@ -1966,12 +1966,12 @@
     invoke-virtual {v0}, Ljava/io/Reader;->close()V
 
     .line 662
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public final yylength()I
-    .locals 2
+    .registers 3
 
     .line 764
     iget v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzMarkedPos:I
@@ -1984,7 +1984,7 @@
 .end method
 
 .method public yypushback(I)V
-    .locals 1
+    .registers 3
     .param p1, "number"    # I
 
     .line 803
@@ -1992,7 +1992,7 @@
 
     move-result v0
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_a
 
     .line 804
     const/4 v0, 0x2
@@ -2000,7 +2000,7 @@
     invoke-static {v0}, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzScanError(I)V
 
     .line 806
-    :cond_0
+    :cond_a
     iget v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzMarkedPos:I
 
     sub-int/2addr v0, p1
@@ -2012,7 +2012,7 @@
 .end method
 
 .method public final yyreset(Ljava/io/Reader;)V
-    .locals 2
+    .registers 4
     .param p1, "reader"    # Ljava/io/Reader;
 
     .line 678
@@ -2036,7 +2036,7 @@
 
     const/16 v1, 0x4000
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_15
 
     .line 683
     new-array v0, v1, [C
@@ -2044,12 +2044,12 @@
     iput-object v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzBuffer:[C
 
     .line 685
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public final yystate()I
-    .locals 1
+    .registers 2
 
     .line 720
     iget v0, p0, Lcom/blacksquircle/ui/language/json/lexer/JsonLexer;->zzLexicalState:I
@@ -2058,7 +2058,7 @@
 .end method
 
 .method public final yytext()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 740
     new-instance v0, Ljava/lang/String;

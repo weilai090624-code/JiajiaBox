@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "delegate"    # Ljava/lang/Object;
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -47,16 +47,16 @@
     iput-object v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedObject;->delegate:Ljava/lang/Object;
 
     .line 77
-    if-nez p2, :cond_0
+    if-nez p2, :cond_d
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v0, p2
 
-    :goto_0
+    :goto_e
     iput-object v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedObject;->mutex:Ljava/lang/Object;
 
     .line 78
@@ -64,7 +64,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -78,7 +78,7 @@
     monitor-enter v0
 
     .line 101
-    :try_start_0
+    :try_start_3
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 102
@@ -88,12 +88,12 @@
     return-void
 
     .line 102
-    :catchall_0
+    :catchall_8
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_3 .. :try_end_a} :catchall_8
 
     throw v1
 .end method
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 81
     iget-object v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedObject;->delegate:Ljava/lang/Object;
@@ -110,7 +110,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 88
     iget-object v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedObject;->mutex:Ljava/lang/Object;
@@ -118,7 +118,7 @@
     monitor-enter v0
 
     .line 89
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedObject;->delegate:Ljava/lang/Object;
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -130,12 +130,12 @@
     return-object v1
 
     .line 90
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw v1
 .end method

@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "taskMode"    # I
 
     .line 70
@@ -53,14 +53,14 @@
 
 # virtual methods
 .method public afterTask()V
-    .locals 0
+    .registers 1
 
     .line 73
     return-void
 .end method
 
 .method public getTaskMode()I
-    .locals 1
+    .registers 2
 
     .line 70
     iget v0, p0, Lkotlinx/coroutines/scheduling/TaskContextImpl;->taskMode:I

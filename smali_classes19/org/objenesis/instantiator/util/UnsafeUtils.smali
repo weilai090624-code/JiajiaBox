@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 36
     :try_start_0
@@ -20,8 +20,8 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_8} :catch_1f
 
     .line 39
     .local v0, "f":Ljava/lang/reflect/Field;
@@ -35,7 +35,7 @@
     .line 42
     const/4 v1, 0x0
 
-    :try_start_1
+    :try_start_e
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -43,8 +43,8 @@
     check-cast v1, Lsun/misc/Unsafe;
 
     sput-object v1, Lorg/objenesis/instantiator/util/UnsafeUtils;->unsafe:Lsun/misc/Unsafe;
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_16
+    .catch Ljava/lang/IllegalAccessException; {:try_start_e .. :try_end_16} :catch_18
 
     .line 45
     nop
@@ -55,7 +55,7 @@
 
     .line 43
     .restart local v0    # "f":Ljava/lang/reflect/Field;
-    :catch_0
+    :catch_18
     move-exception v1
 
     .line 44
@@ -69,7 +69,7 @@
     .line 37
     .end local v0    # "f":Ljava/lang/reflect/Field;
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    :catch_1
+    :catch_1f
     move-exception v0
 
     .line 38
@@ -82,7 +82,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -91,7 +91,7 @@
 .end method
 
 .method public static getUnsafe()Lsun/misc/Unsafe;
-    .locals 1
+    .registers 1
 
     .line 51
     sget-object v0, Lorg/objenesis/instantiator/util/UnsafeUtils;->unsafe:Lsun/misc/Unsafe;

@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 346
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method private static findOffsetInfo(Landroidx/emoji2/text/MetadataListReader$OpenTypeReader;)Landroidx/emoji2/text/MetadataListReader$OffsetInfo;
-    .locals 14
+    .registers 15
     .param p0, "reader"    # Landroidx/emoji2/text/MetadataListReader$OpenTypeReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -58,7 +58,7 @@
 
     const-string v3, "Cannot read metadata."
 
-    if-gt v1, v2, :cond_5
+    if-gt v1, v2, :cond_76
 
     .line 128
     const/4 v2, 0x6
@@ -73,8 +73,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_15
+    if-ge v2, v1, :cond_2f
 
     .line 132
     invoke-interface {p0}, Landroidx/emoji2/text/MetadataListReader$OpenTypeReader;->readTag()I
@@ -97,31 +97,31 @@
     .line 138
     const v9, 0x6d657461
 
-    if-ne v9, v6, :cond_0
+    if-ne v9, v6, :cond_2c
 
     .line 139
     move-wide v4, v7
 
     .line 140
-    goto :goto_1
+    goto :goto_2f
 
     .line 131
     .end local v6    # "tag":I
     .end local v7    # "offset":J
-    :cond_0
+    :cond_2c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 144
     .end local v2    # "i":I
-    :cond_1
-    :goto_1
+    :cond_2f
+    :goto_2f
     const-wide/16 v6, -0x1
 
     cmp-long v0, v4, v6
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_70
 
     .line 146
     invoke-interface {p0}, Landroidx/emoji2/text/MetadataListReader$OpenTypeReader;->getPosition()J
@@ -149,12 +149,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_2
+    :goto_49
     int-to-long v8, v0
 
     cmp-long v2, v8, v6
 
-    if-gez v2, :cond_4
+    if-gez v2, :cond_70
 
     .line 152
     invoke-interface {p0}, Landroidx/emoji2/text/MetadataListReader$OpenTypeReader;->readTag()I
@@ -177,29 +177,29 @@
     .local v10, "dataLength":J
     const v12, 0x456d6a69
 
-    if-eq v12, v2, :cond_3
+    if-eq v12, v2, :cond_68
 
     const v12, 0x656d6a69
 
-    if-ne v12, v2, :cond_2
+    if-ne v12, v2, :cond_65
 
-    goto :goto_3
+    goto :goto_68
 
     .line 151
     .end local v2    # "tag":I
     .end local v8    # "dataOffset":J
     .end local v10    # "dataLength":J
-    :cond_2
+    :cond_65
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_49
 
     .line 156
     .restart local v2    # "tag":I
     .restart local v8    # "dataOffset":J
     .restart local v10    # "dataLength":J
-    :cond_3
-    :goto_3
+    :cond_68
+    :goto_68
     new-instance v3, Landroidx/emoji2/text/MetadataListReader$OffsetInfo;
 
     add-long v12, v8, v4
@@ -214,7 +214,7 @@
     .end local v6    # "mapsCount":J
     .end local v8    # "dataOffset":J
     .end local v10    # "dataLength":J
-    :cond_4
+    :cond_70
     new-instance v0, Ljava/io/IOException;
 
     invoke-direct {v0, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
@@ -223,7 +223,7 @@
 
     .line 125
     .end local v4    # "metaOffset":J
-    :cond_5
+    :cond_76
     new-instance v0, Ljava/io/IOException;
 
     invoke-direct {v0, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
@@ -232,7 +232,7 @@
 .end method
 
 .method static read(Landroid/content/res/AssetManager;Ljava/lang/String;)Landroidx/emoji2/text/flatbuffer/MetadataList;
-    .locals 3
+    .registers 5
     .param p0, "assetManager"    # Landroid/content/res/AssetManager;
     .param p1, "assetPath"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -248,47 +248,47 @@
 
     .line 107
     .local v0, "inputStream":Ljava/io/InputStream;
-    :try_start_0
+    :try_start_4
     invoke-static {v0}, Landroidx/emoji2/text/MetadataListReader;->read(Ljava/io/InputStream;)Landroidx/emoji2/text/flatbuffer/MetadataList;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_4 .. :try_end_8} :catchall_e
 
     .line 108
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
     .line 107
-    :cond_0
+    :cond_d
     return-object v1
 
     .line 106
-    :catchall_0
+    :catchall_e
     move-exception v1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
-    :try_start_1
+    :try_start_11
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_14
+    .catchall {:try_start_11 .. :try_end_14} :catchall_15
 
-    goto :goto_0
+    goto :goto_19
 
-    :catchall_1
+    :catchall_15
     move-exception v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     throw v1
 .end method
 
 .method static read(Ljava/io/InputStream;)Landroidx/emoji2/text/flatbuffer/MetadataList;
-    .locals 9
+    .registers 10
     .param p0, "inputStream"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -354,7 +354,7 @@
 
     cmp-long v8, v4, v6
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_35
 
     .line 80
     invoke-static {v2}, Landroidx/emoji2/text/flatbuffer/MetadataList;->getRootAsMetadataList(Ljava/nio/ByteBuffer;)Landroidx/emoji2/text/flatbuffer/MetadataList;
@@ -364,7 +364,7 @@
     return-object v4
 
     .line 77
-    :cond_0
+    :cond_35
     new-instance v4, Ljava/io/IOException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -405,7 +405,7 @@
 .end method
 
 .method static read(Ljava/nio/ByteBuffer;)Landroidx/emoji2/text/flatbuffer/MetadataList;
-    .locals 5
+    .registers 6
     .param p0, "byteBuffer"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -449,7 +449,7 @@
 .end method
 
 .method static toUnsignedInt(I)J
-    .locals 4
+    .registers 5
     .param p0, "value"    # I
 
     .line 192
@@ -463,7 +463,7 @@
 .end method
 
 .method static toUnsignedShort(S)I
-    .locals 1
+    .registers 2
     .param p0, "value"    # S
 
     .line 187

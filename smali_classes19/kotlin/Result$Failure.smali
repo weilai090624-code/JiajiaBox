@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "exception"    # Ljava/lang/Throwable;
 
     const-string v0, "exception"
@@ -73,13 +73,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 109
     instance-of v0, p1, Lkotlin/Result$Failure;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lkotlin/Result$Failure;->exception:Ljava/lang/Throwable;
 
@@ -93,21 +93,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 110
     iget-object v0, p0, Lkotlin/Result$Failure;->exception:Ljava/lang/Throwable;
@@ -120,7 +120,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 111
     new-instance v0, Ljava/lang/StringBuilder;

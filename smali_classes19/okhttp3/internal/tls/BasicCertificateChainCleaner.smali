@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/tls/BasicCertificateChainCleaner$Companion;
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/internal/tls/TrustRootIndex;)V
-    .locals 1
+    .registers 3
     .param p1, "trustRootIndex"    # Lokhttp3/internal/tls/TrustRootIndex;
 
     const-string v0, "trustRootIndex"
@@ -93,7 +93,7 @@
 .end method
 
 .method private final verifySignature(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z
-    .locals 2
+    .registers 5
     .param p1, "toVerify"    # Ljava/security/cert/X509Certificate;
     .param p2, "signingCert"    # Ljava/security/cert/X509Certificate;
 
@@ -112,32 +112,32 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 101
     return v1
 
     .line 103
-    :cond_0
+    :cond_10
     nop
 
     .line 104
-    :try_start_0
+    :try_start_11
     invoke-virtual {p2}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;)V
-    :try_end_0
-    .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/security/GeneralSecurityException; {:try_start_11 .. :try_end_18} :catch_1a
 
     .line 105
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 106
-    :catch_0
+    :catch_1a
     move-exception v0
 
     .line 107
@@ -146,14 +146,14 @@
 
     .line 103
     .end local v0    # "verifyFailed":Ljava/security/GeneralSecurityException;
-    :goto_0
+    :goto_1c
     return v1
 .end method
 
 
 # virtual methods
 .method public clean(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
-    .locals 10
+    .registers 13
     .param p1, "chain"    # Ljava/util/List;
     .param p2, "hostname"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -223,7 +223,7 @@
     .local v2, "foundTrustedCertificate":Z
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_29
     move v4, v3
 
     .local v4, "c":I
@@ -254,45 +254,45 @@
 
     .line 62
     .local v7, "trustedCert":Ljava/security/cert/X509Certificate;
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_57
 
     .line 63
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v8
 
-    if-gt v8, v5, :cond_0
+    if-gt v8, v5, :cond_4b
 
     invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_4e
 
     .line 64
-    :cond_0
+    :cond_4b
     invoke-interface {v1, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 66
-    :cond_1
+    :cond_4e
     invoke-direct {p0, v7, v7}, Lokhttp3/internal/tls/BasicCertificateChainCleaner;->verifySignature(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_55
 
     .line 67
     return-object v1
 
     .line 69
-    :cond_2
+    :cond_55
     const/4 v2, 0x1
 
     .line 70
-    goto :goto_1
+    goto :goto_7b
 
     .line 75
-    :cond_3
+    :cond_57
     invoke-interface {v0}, Ljava/util/Deque;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
@@ -303,19 +303,19 @@
 
     .line 76
     .local v5, "i":Ljava/util/Iterator;
-    :cond_4
+    :cond_60
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_94
 
     .line 77
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_8c
 
     check-cast v8, Ljava/security/cert/X509Certificate;
 
@@ -325,7 +325,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_60
 
     .line 79
     invoke-interface {v5}, Ljava/util/Iterator;->remove()V
@@ -341,16 +341,16 @@
     .end local v6    # "toVerify":Ljava/security/cert/X509Certificate;
     .end local v7    # "trustedCert":Ljava/security/cert/X509Certificate;
     .end local v8    # "signingCert":Ljava/security/cert/X509Certificate;
-    :goto_1
+    :goto_7b
     const/16 v5, 0x9
 
-    if-ge v3, v5, :cond_5
+    if-ge v3, v5, :cond_80
 
-    goto :goto_0
+    goto :goto_29
 
     .line 95
     .end local v4    # "c":I
-    :cond_5
+    :cond_80
     new-instance v3, Ljavax/net/ssl/SSLPeerUnverifiedException;
 
     const-string v4, "Certificate chain too long: "
@@ -368,7 +368,7 @@
     .restart local v5    # "i":Ljava/util/Iterator;
     .restart local v6    # "toVerify":Ljava/security/cert/X509Certificate;
     .restart local v7    # "trustedCert":Ljava/security/cert/X509Certificate;
-    :cond_6
+    :cond_8c
     new-instance v3, Ljava/lang/NullPointerException;
 
     const-string v8, "null cannot be cast to non-null type java.security.cert.X509Certificate"
@@ -378,14 +378,14 @@
     throw v3
 
     .line 86
-    :cond_7
-    if-eqz v2, :cond_8
+    :cond_94
+    if-eqz v2, :cond_97
 
     .line 87
     return-object v1
 
     .line 91
-    :cond_8
+    :cond_97
     new-instance v3, Ljavax/net/ssl/SSLPeerUnverifiedException;
 
     .line 92
@@ -402,22 +402,22 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 116
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 117
-    goto :goto_0
+    goto :goto_17
 
     .line 119
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lokhttp3/internal/tls/BasicCertificateChainCleaner;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     move-object v1, p1
 
@@ -431,20 +431,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
     .line 116
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 112
     iget-object v0, p0, Lokhttp3/internal/tls/BasicCertificateChainCleaner;->trustRootIndex:Lokhttp3/internal/tls/TrustRootIndex;

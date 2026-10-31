@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,12 +64,12 @@
 .end method
 
 .method private final buildClassName(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/ComponentName;
-    .locals 13
+    .registers 16
     .param p1, "pkg"    # Ljava/lang/String;
     .param p2, "clsSeq"    # Ljava/lang/CharSequence;
 
     .line 281
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_7f
 
     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
 
@@ -77,17 +77,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_4
+    :goto_c
+    if-nez v0, :cond_7f
 
     .line 284
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -104,7 +104,7 @@
     .local v2, "c":C
     const/16 v3, 0x2e
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_24
 
     .line 287
     new-instance v1, Landroid/content/ComponentName;
@@ -118,7 +118,7 @@
     return-object v1
 
     .line 289
-    :cond_1
+    :cond_24
     move-object v4, p1
 
     .line 290
@@ -147,7 +147,7 @@
 
     .line 292
     .local v6, "pkgDividerIndex":I
-    if-lez v6, :cond_2
+    if-lez v6, :cond_4d
 
     .line 293
     invoke-virtual {v0, v1, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -174,14 +174,14 @@
     move-object v5, v1
 
     .line 296
-    :cond_2
+    :cond_4d
     const-string v1, "*"
 
     invoke-static {v5, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_79
 
     move-object v7, v5
 
@@ -201,7 +201,7 @@
 
     move-result v1
 
-    if-gez v1, :cond_3
+    if-gez v1, :cond_79
 
     .line 297
     new-instance v1, Ljava/lang/StringBuilder;
@@ -228,7 +228,7 @@
 
     .line 302
     .end local v1    # "b":Ljava/lang/StringBuilder;
-    :cond_3
+    :cond_79
     new-instance v1, Landroid/content/ComponentName;
 
     invoke-direct {v1, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
@@ -241,7 +241,7 @@
     .end local v4    # "pkgString":Ljava/lang/String;
     .end local v5    # "clsString":Ljava/lang/String;
     .end local v6    # "pkgDividerIndex":I
-    :cond_4
+    :cond_7f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Activity name must not be null"
@@ -252,7 +252,7 @@
 .end method
 
 .method private final parseActivityFilter(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)Landroidx/window/embedding/ActivityFilter;
-    .locals 6
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parser"    # Landroid/content/res/XmlResourceParser;
 
@@ -355,7 +355,7 @@
 .end method
 
 .method private final parseSplitActivityRule(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)Landroidx/window/embedding/ActivityRule;
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parser"    # Landroid/content/res/XmlResourceParser;
 
@@ -424,7 +424,7 @@
 .end method
 
 .method private final parseSplitPairFilter(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)Landroidx/window/embedding/SplitPairFilter;
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parser"    # Landroid/content/res/XmlResourceParser;
 
@@ -563,7 +563,7 @@
 .end method
 
 .method private final parseSplitPairRule(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)Landroidx/window/embedding/SplitPairRule;
-    .locals 21
+    .registers 24
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parser"    # Landroid/content/res/XmlResourceParser;
 
@@ -778,7 +778,7 @@
 .end method
 
 .method private final parseSplitPlaceholderRule(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)Landroidx/window/embedding/SplitPlaceholderRule;
-    .locals 16
+    .registers 19
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parser"    # Landroid/content/res/XmlResourceParser;
 
@@ -991,7 +991,7 @@
 .end method
 
 .method private final parseSplitXml(Landroid/content/Context;I)Ljava/util/Set;
-    .locals 10
+    .registers 13
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "splitResourceId"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1018,7 +1018,7 @@
     nop
 
     .line 45
-    :try_start_0
+    :try_start_6
     invoke-virtual {v0, p2}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
     move-result-object v2
@@ -1026,8 +1026,8 @@
     const-string v3, "resources.getXml(splitResourceId)"
 
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_6 .. :try_end_f} :catch_f8
 
     move-object v1, v2
 
@@ -1062,31 +1062,31 @@
 
     .line 58
     .local v7, "lastSplitActivityConfig":Landroidx/window/embedding/ActivityRule;
-    :goto_0
+    :goto_20
     const/4 v8, 0x1
 
-    if-eq v4, v8, :cond_d
+    if-eq v4, v8, :cond_f4
 
     .line 59
     const/4 v8, 0x3
 
-    if-ne v4, v8, :cond_0
+    if-ne v4, v8, :cond_2c
 
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
     move-result v8
 
-    if-le v8, v3, :cond_d
+    if-le v8, v3, :cond_f4
 
     .line 61
-    :cond_0
+    :cond_2c
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->getEventType()I
 
     move-result v8
 
     const/4 v9, 0x2
 
-    if-ne v8, v9, :cond_c
+    if-ne v8, v9, :cond_ee
 
     const-string/jumbo v8, "split-config"
 
@@ -1098,39 +1098,39 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_42
 
-    goto/16 :goto_3
+    goto/16 :goto_ee
 
     .line 65
-    :cond_1
+    :cond_42
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v8
 
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_e8
 
     invoke-virtual {v8}, Ljava/lang/String;->hashCode()I
 
     move-result v9
 
-    sparse-switch v9, :sswitch_data_0
+    sparse-switch v9, :sswitch_data_fc
 
-    goto/16 :goto_2
+    goto/16 :goto_e8
 
-    :sswitch_0
+    :sswitch_51
     const-string v9, "SplitPlaceholderRule"
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_5b
 
-    goto/16 :goto_2
+    goto/16 :goto_e8
 
     .line 74
-    :cond_2
+    :cond_5b
     invoke-direct {p0, p1, v1}, Landroidx/window/embedding/SplitRuleParser;->parseSplitPlaceholderRule(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)Landroidx/window/embedding/SplitPlaceholderRule;
 
     move-result-object v8
@@ -1149,22 +1149,22 @@
     const/4 v5, 0x0
 
     .end local v8    # "placeholderConfig":Landroidx/window/embedding/SplitPlaceholderRule;
-    goto/16 :goto_2
+    goto/16 :goto_e8
 
     .line 65
-    :sswitch_1
+    :sswitch_67
     const-string v9, "ActivityRule"
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_3
+    if-nez v8, :cond_71
 
-    goto/16 :goto_2
+    goto/16 :goto_e8
 
     .line 92
-    :cond_3
+    :cond_71
     invoke-direct {p0, p1, v1}, Landroidx/window/embedding/SplitRuleParser;->parseSplitActivityRule(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)Landroidx/window/embedding/ActivityRule;
 
     move-result-object v8
@@ -1183,23 +1183,23 @@
     move-object v7, v8
 
     .end local v8    # "activityConfig":Landroidx/window/embedding/ActivityRule;
-    goto/16 :goto_2
+    goto/16 :goto_e8
 
     .line 65
-    :sswitch_2
+    :sswitch_7d
     const-string v9, "SplitPairFilter"
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_4
+    if-nez v8, :cond_86
 
-    goto :goto_2
+    goto :goto_e8
 
     .line 81
-    :cond_4
-    if-eqz v5, :cond_5
+    :cond_86
+    if-eqz v5, :cond_97
 
     .line 86
     invoke-direct {p0, p1, v1}, Landroidx/window/embedding/SplitRuleParser;->parseSplitPairFilter(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)Landroidx/window/embedding/SplitPairFilter;
@@ -1218,11 +1218,11 @@
     .line 89
     invoke-virtual {v2, v5}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_e8
 
     .line 82
     .end local v8    # "splitFilter":Landroidx/window/embedding/SplitPairFilter;
-    :cond_5
+    :cond_97
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
     .line 83
@@ -1236,19 +1236,19 @@
     throw v8
 
     .line 65
-    :sswitch_3
+    :sswitch_a0
     const-string v9, "SplitPairRule"
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_a9
 
-    goto :goto_2
+    goto :goto_e8
 
     .line 67
-    :cond_6
+    :cond_a9
     invoke-direct {p0, p1, v1}, Landroidx/window/embedding/SplitRuleParser;->parseSplitPairRule(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)Landroidx/window/embedding/SplitPairRule;
 
     move-result-object v8
@@ -1267,30 +1267,30 @@
     const/4 v7, 0x0
 
     .end local v8    # "splitConfig":Landroidx/window/embedding/SplitPairRule;
-    goto :goto_2
+    goto :goto_e8
 
     .line 65
-    :sswitch_4
+    :sswitch_b4
     const-string v9, "ActivityFilter"
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_7
+    if-nez v8, :cond_bd
 
-    goto :goto_2
+    goto :goto_e8
 
     .line 99
-    :cond_7
-    if-nez v7, :cond_9
+    :cond_bd
+    if-nez v7, :cond_cb
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_c2
 
-    goto :goto_1
+    goto :goto_cb
 
     .line 100
-    :cond_8
+    :cond_c2
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
     .line 101
@@ -1304,15 +1304,15 @@
     throw v8
 
     .line 104
-    :cond_9
-    :goto_1
+    :cond_cb
+    :goto_cb
     invoke-direct {p0, p1, v1}, Landroidx/window/embedding/SplitRuleParser;->parseActivityFilter(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)Landroidx/window/embedding/ActivityFilter;
 
     move-result-object v8
 
     .line 105
     .local v8, "activityFilter":Landroidx/window/embedding/ActivityFilter;
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_dc
 
     .line 106
     invoke-virtual {v2, v7}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
@@ -1325,11 +1325,11 @@
     .line 108
     invoke-virtual {v2, v7}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_e8
 
     .line 109
-    :cond_a
-    if-eqz v6, :cond_b
+    :cond_dc
+    if-eqz v6, :cond_e8
 
     .line 110
     invoke-virtual {v2, v6}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
@@ -1344,26 +1344,26 @@
 
     .line 116
     .end local v8    # "activityFilter":Landroidx/window/embedding/ActivityFilter;
-    :cond_b
-    :goto_2
+    :cond_e8
+    :goto_e8
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v4
 
-    goto/16 :goto_0
+    goto/16 :goto_20
 
     .line 62
-    :cond_c
-    :goto_3
+    :cond_ee
+    :goto_ee
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v4
 
     .line 63
-    goto/16 :goto_0
+    goto/16 :goto_20
 
     .line 119
-    :cond_d
+    :cond_f4
     move-object v8, v2
 
     check-cast v8, Ljava/util/Set;
@@ -1377,7 +1377,7 @@
     .end local v5    # "lastSplitPairConfig":Landroidx/window/embedding/SplitPairRule;
     .end local v6    # "lastSplitPlaceholderConfig":Landroidx/window/embedding/SplitPlaceholderRule;
     .end local v7    # "lastSplitActivityConfig":Landroidx/window/embedding/ActivityRule;
-    :catch_0
+    :catch_f8
     move-exception v2
 
     .line 48
@@ -1388,20 +1388,20 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_fc
     .sparse-switch
-        0x1e7baf87 -> :sswitch_4
-        0x1f056610 -> :sswitch_3
-        0x5e21258c -> :sswitch_2
-        0x6ae032cb -> :sswitch_1
-        0x7a3f98b5 -> :sswitch_0
+        0x1e7baf87 -> :sswitch_b4
+        0x1f056610 -> :sswitch_a0
+        0x5e21258c -> :sswitch_7d
+        0x6ae032cb -> :sswitch_67
+        0x7a3f98b5 -> :sswitch_51
     .end sparse-switch
 .end method
 
 
 # virtual methods
 .method public final parseSplitRules$window_release(Landroid/content/Context;I)Ljava/util/Set;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "staticRuleResourceId"    # I
     .annotation system Ldalvik/annotation/Signature;

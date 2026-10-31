@@ -124,7 +124,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair$Companion;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -169,7 +169,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "parcel"    # Landroid/os/Parcel;
 
     const-string v0, "parcel"
@@ -209,7 +209,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -227,7 +227,7 @@
 .end method
 
 .method public static synthetic getInt$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Use long."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -242,7 +242,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 167
     const/4 v0, 0x0
@@ -251,14 +251,14 @@
 .end method
 
 .method public final getBoolean()Ljava/lang/Boolean;
-    .locals 2
+    .registers 3
 
     .line 62
     iget v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->valueType:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_18
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->value:[B
 
@@ -270,36 +270,36 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_13
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_19
     return-object v0
 .end method
 
 .method public final getFloat()Ljava/lang/Float;
-    .locals 2
+    .registers 3
 
     .line 64
     iget v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->valueType:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->value:[B
 
@@ -315,24 +315,24 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public final getInt()Ljava/lang/Integer;
-    .locals 2
+    .registers 3
 
     .line 69
     iget v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->valueType:I
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->value:[B
 
@@ -348,17 +348,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public final getKey()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->key:Ljava/lang/String;
@@ -367,20 +367,20 @@
 .end method
 
 .method public final getLong()Ljava/lang/Long;
-    .locals 2
+    .registers 3
 
     .line 71
     iget v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->valueType:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_26
 
     .line 75
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_25
 
     .line 74
-    :pswitch_0
+    :pswitch_7
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->value:[B
 
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
@@ -395,10 +395,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_25
 
     .line 73
-    :pswitch_1
+    :pswitch_16
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->value:[B
 
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
@@ -416,25 +416,25 @@
     move-result-object v0
 
     .line 76
-    :goto_0
+    :goto_25
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x3
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method public final getString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 78
     iget v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->valueType:I
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     new-instance v0, Ljava/lang/String;
 
@@ -444,17 +444,17 @@
 
     invoke-direct {v0, v1, v2}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 .method public final getStringSet()Ljava/util/Set;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -469,7 +469,7 @@
 
     const/4 v1, 0x6
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_2f
 
     .line 81
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->value:[B
@@ -486,12 +486,12 @@
 
     .line 83
     .local v1, "result":Ljava/util/HashSet;
-    :goto_0
+    :goto_10
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2a
 
     .line 84
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->getInt()I
@@ -513,11 +513,11 @@
 
     invoke-virtual {v1, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_10
 
     .line 88
     .end local v2    # "chArr":[B
-    :cond_0
+    :cond_2a
     nop
 
     .end local v0    # "buffer":Ljava/nio/ByteBuffer;
@@ -526,18 +526,18 @@
 
     check-cast v0, Ljava/util/Set;
 
-    goto :goto_1
+    goto :goto_30
 
     .line 89
-    :cond_1
+    :cond_2f
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_30
     return-object v0
 .end method
 
 .method public final getValue()[B
-    .locals 1
+    .registers 2
 
     .line 59
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->value:[B
@@ -546,7 +546,7 @@
 .end method
 
 .method public final getValueType()I
-    .locals 1
+    .registers 2
 
     .line 58
     iget v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->valueType:I
@@ -555,7 +555,7 @@
 .end method
 
 .method public final put(F)Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    .locals 1
+    .registers 3
     .param p1, "value"    # F
 
     .line 104
@@ -585,7 +585,7 @@
 .end method
 
 .method public final put(I)Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use long."
@@ -618,7 +618,7 @@
 .end method
 
 .method public final put(J)Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    .locals 1
+    .registers 4
     .param p1, "value"    # J
 
     .line 118
@@ -648,7 +648,7 @@
 .end method
 
 .method public final put(Ljava/lang/String;)Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
 
     const-string v0, "value"
@@ -678,7 +678,7 @@
 .end method
 
 .method public final put(Ljava/util/Set;)Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    .locals 6
+    .registers 8
     .param p1, "value"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -718,12 +718,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_16
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_43
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -764,10 +764,10 @@
     invoke-virtual {v0, v4}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
     .end local v3    # "v":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_16
 
     .line 138
-    :cond_0
+    :cond_43
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v2
@@ -779,7 +779,7 @@
 .end method
 
 .method public final put(Z)Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Z
 
     .line 98
@@ -809,7 +809,7 @@
 .end method
 
 .method public final setKey(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -824,7 +824,7 @@
 .end method
 
 .method public final setValue([B)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # [B
 
     const-string v0, "<set-?>"
@@ -838,7 +838,7 @@
 .end method
 
 .method public final setValueType(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 58
@@ -848,63 +848,63 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 144
     iget v0, p0, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->valueType:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2e
 
     .line 150
-    :pswitch_0
+    :pswitch_5
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 149
-    :pswitch_1
+    :pswitch_7
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getStringSet()Ljava/util/Set;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 148
-    :pswitch_2
+    :pswitch_c
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 147
-    :pswitch_3
+    :pswitch_11
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getLong()Ljava/lang/Long;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 146
-    :pswitch_4
+    :pswitch_16
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getFloat()Ljava/lang/Float;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 145
-    :pswitch_5
+    :pswitch_1b
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/database/preference/KeyValuePair;->getBoolean()Ljava/lang/Boolean;
 
     move-result-object v0
 
     .line 144
-    :goto_0
+    :goto_1f
     nop
 
     .line 151
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     .line 144
     nop
@@ -915,33 +915,33 @@
     move-result-object v0
 
     .line 144
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 151
-    :cond_0
+    :cond_2a
     const-string v0, "null"
 
     .line 144
-    :goto_1
+    :goto_2c
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2e
     .packed-switch 0x1
+        :pswitch_1b
+        :pswitch_16
         :pswitch_5
-        :pswitch_4
-        :pswitch_0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_11
+        :pswitch_c
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

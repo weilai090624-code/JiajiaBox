@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -82,7 +82,7 @@
 .end method
 
 .method private final saveArgsToCache(ILjava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "bindIndex"    # I
     .param p2, "value"    # Ljava/lang/Object;
 
@@ -97,7 +97,7 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1d
 
     .line 57
     iget-object v1, p0, Landroidx/room/QueryInterceptorProgram;->bindArgsCache:Ljava/util/List;
@@ -107,10 +107,10 @@
     move-result v1
 
     .local v1, "i":I
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_1d
 
     .line 58
-    :goto_0
+    :goto_12
     iget-object v2, p0, Landroidx/room/QueryInterceptorProgram;->bindArgsCache:Ljava/util/List;
 
     const/4 v3, 0x0
@@ -118,15 +118,15 @@
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 57
-    if-eq v1, v0, :cond_0
+    if-eq v1, v0, :cond_1d
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 61
     .end local v1    # "i":I
-    :cond_0
+    :cond_1d
     iget-object v1, p0, Landroidx/room/QueryInterceptorProgram;->bindArgsCache:Ljava/util/List;
 
     invoke-interface {v1, v0, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method public bindBlob(I[B)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # [B
 
@@ -154,7 +154,7 @@
 .end method
 
 .method public bindDouble(ID)V
-    .locals 1
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # D
 
@@ -170,7 +170,7 @@
 .end method
 
 .method public bindLong(IJ)V
-    .locals 1
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # J
 
@@ -186,7 +186,7 @@
 .end method
 
 .method public bindNull(I)V
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 28
@@ -199,7 +199,7 @@
 .end method
 
 .method public bindString(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/String;
 
@@ -215,7 +215,7 @@
 .end method
 
 .method public clearBindings()V
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Landroidx/room/QueryInterceptorProgram;->bindArgsCache:Ljava/util/List;
@@ -227,14 +227,14 @@
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
 
     .line 51
     return-void
 .end method
 
 .method public final getBindArgsCache$room_runtime_release()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

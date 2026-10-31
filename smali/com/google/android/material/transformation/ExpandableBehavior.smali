@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 67
     invoke-direct {p0}, Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;-><init>()V
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/transformation/ExpandableBehavior;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/transformation/ExpandableBehavior;
 
     .line 43
@@ -72,7 +72,7 @@
 .end method
 
 .method private didStateChange(Z)Z
-    .locals 4
+    .registers 6
     .param p1, "expanded"    # Z
 
     .line 150
@@ -80,39 +80,39 @@
 
     const/4 v1, 0x1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_f
 
     .line 152
     iget v2, p0, Lcom/google/android/material/transformation/ExpandableBehavior;->currentState:I
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_d
 
     iget v2, p0, Lcom/google/android/material/transformation/ExpandableBehavior;->currentState:I
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_e
     return v0
 
     .line 155
-    :cond_2
+    :cond_f
     iget v2, p0, Lcom/google/android/material/transformation/ExpandableBehavior;->currentState:I
 
-    if-ne v2, v1, :cond_3
+    if-ne v2, v1, :cond_14
 
     const/4 v0, 0x1
 
-    :cond_3
+    :cond_14
     return v0
 .end method
 
 .method public static from(Landroid/view/View;Ljava/lang/Class;)Lcom/google/android/material/transformation/ExpandableBehavior;
-    .locals 4
+    .registers 6
     .param p0, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -135,7 +135,7 @@
     .local v0, "params":Landroid/view/ViewGroup$LayoutParams;
     instance-of v1, v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_22
 
     .line 172
     move-object v1, v0
@@ -151,7 +151,7 @@
     .local v1, "behavior":Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;, "Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior<*>;"
     instance-of v2, v1, Lcom/google/android/material/transformation/ExpandableBehavior;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     .line 177
     invoke-virtual {p1, v1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
@@ -163,7 +163,7 @@
     return-object v2
 
     .line 175
-    :cond_0
+    :cond_1a
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "The view is not associated with ExpandableBehavior"
@@ -174,7 +174,7 @@
 
     .line 170
     .end local v1    # "behavior":Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;, "Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior<*>;"
-    :cond_1
+    :cond_22
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "The view is not a child of CoordinatorLayout"
@@ -187,7 +187,7 @@
 
 # virtual methods
 .method protected findExpandableWidget(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)Lcom/google/android/material/expandable/ExpandableWidget;
-    .locals 5
+    .registers 8
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
 
@@ -206,8 +206,8 @@
     move-result v2
 
     .local v2, "size":I
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_9
+    if-ge v1, v2, :cond_1e
 
     .line 141
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -222,7 +222,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1b
 
     .line 143
     move-object v4, v3
@@ -233,15 +233,15 @@
 
     .line 140
     .end local v3    # "dependency":Landroid/view/View;
-    :cond_0
+    :cond_1b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 146
     .end local v1    # "i":I
     .end local v2    # "size":I
-    :cond_1
+    :cond_1e
     const/4 v1, 0x0
 
     return-object v1
@@ -251,7 +251,7 @@
 .end method
 
 .method public onDependentViewChanged(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
-    .locals 5
+    .registers 9
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "dependency"    # Landroid/view/View;
@@ -273,7 +273,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_25
 
     .line 129
     invoke-interface {v0}, Lcom/google/android/material/expandable/ExpandableWidget;->isExpanded()Z
@@ -282,16 +282,16 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v2, 0x2
 
-    :goto_0
+    :goto_17
     iput v2, p0, Lcom/google/android/material/transformation/ExpandableBehavior;->currentState:I
 
     .line 130
@@ -310,7 +310,7 @@
     return v2
 
     .line 133
-    :cond_1
+    :cond_25
     const/4 v2, 0x0
 
     return v2
@@ -320,7 +320,7 @@
 .end method
 
 .method public onLayoutChild(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z
-    .locals 4
+    .registers 8
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "layoutDirection"    # I
@@ -330,7 +330,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 99
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/transformation/ExpandableBehavior;->findExpandableWidget(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)Lcom/google/android/material/expandable/ExpandableWidget;
@@ -339,7 +339,7 @@
 
     .line 100
     .local v0, "dep":Lcom/google/android/material/expandable/ExpandableWidget;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     invoke-interface {v0}, Lcom/google/android/material/expandable/ExpandableWidget;->isExpanded()Z
 
@@ -349,23 +349,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_30
 
     .line 101
     invoke-interface {v0}, Lcom/google/android/material/expandable/ExpandableWidget;->isExpanded()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v1, 0x2
 
-    :goto_0
+    :goto_1f
     iput v1, p0, Lcom/google/android/material/transformation/ExpandableBehavior;->currentState:I
 
     .line 102
@@ -390,7 +390,7 @@
     .line 120
     .end local v0    # "dep":Lcom/google/android/material/expandable/ExpandableWidget;
     .end local v1    # "expectedState":I
-    :cond_1
+    :cond_30
     const/4 v0, 0x0
 
     return v0

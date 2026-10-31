@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 97
     invoke-direct {p0}, Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getHTMLElement()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 104
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityViewCommand$MoveHtmlArguments;->mBundle:Landroid/os/Bundle;

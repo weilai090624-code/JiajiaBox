@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method static createCaptureBundle(Ljava/util/List;)Landroidx/camera/core/impl/CaptureBundle;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -52,7 +52,7 @@
 .end method
 
 .method static varargs createCaptureBundle([Landroidx/camera/core/impl/CaptureStage;)Landroidx/camera/core/impl/CaptureBundle;
-    .locals 2
+    .registers 3
     .param p0, "captureStages"    # [Landroidx/camera/core/impl/CaptureStage;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -76,7 +76,7 @@
 .end method
 
 .method static singleDefaultCaptureBundle()Landroidx/camera/core/impl/CaptureBundle;
-    .locals 3
+    .registers 3
 
     .line 35
     const/4 v0, 0x1

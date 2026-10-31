@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 29
     new-instance v0, Lcom/google/common/hash/Crc32cHashFunction;
@@ -36,7 +36,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Lcom/google/common/hash/AbstractHashFunction;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public bits()I
-    .locals 1
+    .registers 2
 
     .line 33
     const/16 v0, 0x20
@@ -56,7 +56,7 @@
 .end method
 
 .method public newHasher()Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 2
 
     .line 38
     new-instance v0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;
@@ -67,7 +67,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 43
     const-string v0, "Hashing.crc32c()"

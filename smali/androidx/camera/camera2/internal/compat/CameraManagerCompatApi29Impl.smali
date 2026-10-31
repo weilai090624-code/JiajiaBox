@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public getCameraCharacteristics(Ljava/lang/String;)Landroid/hardware/camera2/CameraCharacteristics;
-    .locals 2
+    .registers 4
     .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -50,13 +50,13 @@
     invoke-virtual {v0, p1}, Landroid/hardware/camera2/CameraManager;->getCameraCharacteristics(Ljava/lang/String;)Landroid/hardware/camera2/CameraCharacteristics;
 
     move-result-object v0
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
     .line 58
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 59
@@ -69,7 +69,7 @@
 .end method
 
 .method public openCamera(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraDevice$StateCallback;)V
-    .locals 2
+    .registers 6
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroid/hardware/camera2/CameraDevice$StateCallback;
@@ -97,8 +97,8 @@
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraManagerCompatApi29Impl;->mCameraManager:Landroid/hardware/camera2/CameraManager;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/hardware/camera2/CameraManager;->openCamera(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraDevice$StateCallback;)V
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 47
     nop
@@ -107,7 +107,7 @@
     return-void
 
     .line 45
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 46

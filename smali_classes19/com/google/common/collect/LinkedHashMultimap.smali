@@ -53,7 +53,7 @@
 
 # direct methods
 .method private constructor <init>(II)V
-    .locals 2
+    .registers 5
     .param p1, "keyCapacity"    # I
     .param p2, "valueSetCapacity"    # I
 
@@ -97,7 +97,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
     .param p1, "x1"    # Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
 
@@ -108,7 +108,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/common/collect/LinkedHashMultimap;)Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/LinkedHashMultimap;
 
     .line 84
@@ -118,7 +118,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
     .param p1, "x1"    # Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
 
@@ -129,7 +129,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
 
     .line 84
@@ -139,7 +139,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
 
     .line 84
@@ -149,7 +149,7 @@
 .end method
 
 .method public static create()Lcom/google/common/collect/LinkedHashMultimap;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -175,7 +175,7 @@
 .end method
 
 .method public static create(II)Lcom/google/common/collect/LinkedHashMultimap;
-    .locals 3
+    .registers 5
     .param p0, "expectedKeys"    # I
     .param p1, "expectedValuesPerKey"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -209,7 +209,7 @@
 .end method
 
 .method public static create(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/LinkedHashMultimap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -249,7 +249,7 @@
 .end method
 
 .method private static deleteFromMultimap(Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;)V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -279,7 +279,7 @@
 .end method
 
 .method private static deleteFromValueSet(Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;)V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -309,7 +309,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 7
+    .registers 9
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -359,8 +359,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_1e
+    if-ge v2, v0, :cond_2e
 
     .line 619
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
@@ -379,11 +379,11 @@
     .end local v3    # "key":Ljava/lang/Object;, "TK;"
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 622
     .end local v2    # "i":I
-    :cond_0
+    :cond_2e
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readInt()I
 
     move-result v2
@@ -393,8 +393,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v2, :cond_1
+    :goto_33
+    if-ge v3, v2, :cond_4f
 
     .line 625
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
@@ -428,11 +428,11 @@
     .end local v5    # "value":Ljava/lang/Object;, "TV;"
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
     .line 634
     .end local v3    # "i":I
-    :cond_1
+    :cond_4f
     invoke-virtual {p0, v1}, Lcom/google/common/collect/LinkedHashMultimap;->setMap(Ljava/util/Map;)V
 
     .line 635
@@ -440,7 +440,7 @@
 .end method
 
 .method private static succeedsInMultimap(Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -468,7 +468,7 @@
 .end method
 
 .method private static succeedsInValueSet(Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -496,7 +496,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 3
+    .registers 5
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -528,12 +528,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_16
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -545,10 +545,10 @@
 
     .line 601
     .end local v1    # "key":Ljava/lang/Object;, "TK;"
-    goto :goto_0
+    goto :goto_16
 
     .line 602
-    :cond_0
+    :cond_24
     invoke-virtual {p0}, Lcom/google/common/collect/LinkedHashMultimap;->size()I
 
     move-result v0
@@ -564,12 +564,12 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_33
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -594,17 +594,17 @@
 
     .line 606
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    goto :goto_1
+    goto :goto_33
 
     .line 607
-    :cond_1
+    :cond_4e
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic asMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 82
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap;, "Lcom/google/common/collect/LinkedHashMultimap<TK;TV;>;"
@@ -616,7 +616,7 @@
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 587
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap;, "Lcom/google/common/collect/LinkedHashMultimap<TK;TV;>;"
@@ -634,7 +634,7 @@
 .end method
 
 .method public bridge synthetic containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -654,7 +654,7 @@
 .end method
 
 .method public bridge synthetic containsKey(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -670,7 +670,7 @@
 .end method
 
 .method public bridge synthetic containsValue(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -686,7 +686,7 @@
 .end method
 
 .method bridge synthetic createCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 82
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap;, "Lcom/google/common/collect/LinkedHashMultimap<TK;TV;>;"
@@ -698,7 +698,7 @@
 .end method
 
 .method createCollection(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -724,7 +724,7 @@
 .end method
 
 .method createCollection()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -745,7 +745,7 @@
 .end method
 
 .method public bridge synthetic entries()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 82
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap;, "Lcom/google/common/collect/LinkedHashMultimap<TK;TV;>;"
@@ -757,7 +757,7 @@
 .end method
 
 .method public entries()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -777,7 +777,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -797,7 +797,7 @@
 .end method
 
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -813,7 +813,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -829,7 +829,7 @@
 .end method
 
 .method public bridge synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     .line 82
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap;, "Lcom/google/common/collect/LinkedHashMultimap<TK;TV;>;"
@@ -841,7 +841,7 @@
 .end method
 
 .method public bridge synthetic isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 82
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap;, "Lcom/google/common/collect/LinkedHashMultimap<TK;TV;>;"
@@ -853,7 +853,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -872,7 +872,7 @@
 .end method
 
 .method public bridge synthetic keys()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
 
     .line 82
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap;, "Lcom/google/common/collect/LinkedHashMultimap<TK;TV;>;"
@@ -884,7 +884,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -904,7 +904,7 @@
 .end method
 
 .method public bridge synthetic putAll(Lcom/google/common/collect/Multimap;)Z
-    .locals 0
+    .registers 2
 
     .line 82
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap;, "Lcom/google/common/collect/LinkedHashMultimap<TK;TV;>;"
@@ -916,7 +916,7 @@
 .end method
 
 .method public bridge synthetic putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -932,7 +932,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -952,7 +952,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -968,7 +968,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -984,7 +984,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1011,7 +1011,7 @@
 .end method
 
 .method public bridge synthetic size()I
-    .locals 1
+    .registers 2
 
     .line 82
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap;, "Lcom/google/common/collect/LinkedHashMultimap<TK;TV;>;"
@@ -1023,7 +1023,7 @@
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 82
     .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap;, "Lcom/google/common/collect/LinkedHashMultimap<TK;TV;>;"
@@ -1035,7 +1035,7 @@
 .end method
 
 .method valueIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1058,7 +1058,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

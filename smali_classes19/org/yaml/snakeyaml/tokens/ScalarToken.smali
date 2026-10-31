@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Z)V
-    .locals 6
+    .registers 11
     .param p1, "value"    # Ljava/lang/String;
     .param p2, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ZLorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;)V
-    .locals 2
+    .registers 8
     .param p1, "value"    # Ljava/lang/String;
     .param p2, "plain"    # Z
     .param p3, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -56,7 +56,7 @@
     iput-boolean p2, p0, Lorg/yaml/snakeyaml/tokens/ScalarToken;->plain:Z
 
     .line 34
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_c
 
     .line 35
     iput-object p5, p0, Lorg/yaml/snakeyaml/tokens/ScalarToken;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -65,7 +65,7 @@
     return-void
 
     .line 34
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Style must be provided."
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public getPlain()Z
-    .locals 1
+    .registers 2
 
     .line 39
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/tokens/ScalarToken;->plain:Z
@@ -87,7 +87,7 @@
 .end method
 
 .method public getStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Lorg/yaml/snakeyaml/tokens/ScalarToken;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -96,7 +96,7 @@
 .end method
 
 .method public getTokenId()Lorg/yaml/snakeyaml/tokens/Token$ID;
-    .locals 1
+    .registers 2
 
     .line 52
     sget-object v0, Lorg/yaml/snakeyaml/tokens/Token$ID;->Scalar:Lorg/yaml/snakeyaml/tokens/Token$ID;
@@ -105,7 +105,7 @@
 .end method
 
 .method public getValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Lorg/yaml/snakeyaml/tokens/ScalarToken;->value:Ljava/lang/String;

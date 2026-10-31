@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 2
+    .registers 5
     .param p1, "downstream"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "emitContext"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -150,11 +150,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     return-object v0
 
-    :cond_0
+    :cond_11
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0

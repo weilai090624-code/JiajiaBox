@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 280
     invoke-direct {p0}, Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;-><init>()V
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public bridge synthetic allocateLocked(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "flow"    # Ljava/lang/Object;
 
     .line 280
@@ -98,7 +98,7 @@
 .end method
 
 .method public allocateLocked(Lkotlinx/coroutines/flow/SharedFlowImpl;)Z
-    .locals 5
+    .registers 7
     .param p1, "flow"    # Lkotlinx/coroutines/flow/SharedFlowImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -115,14 +115,14 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_a
 
     const/4 v0, 0x0
 
     return v0
 
     .line 289
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Lkotlinx/coroutines/flow/SharedFlowImpl;->updateNewCollectorIndexLocked$kotlinx_coroutines_core()J
 
     move-result-wide v0
@@ -136,7 +136,7 @@
 .end method
 
 .method public bridge synthetic freeLocked(Ljava/lang/Object;)[Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 3
     .param p1, "flow"    # Ljava/lang/Object;
 
     .line 280
@@ -152,7 +152,7 @@
 .end method
 
 .method public freeLocked(Lkotlinx/coroutines/flow/SharedFlowImpl;)[Lkotlin/coroutines/Continuation;
-    .locals 6
+    .registers 8
     .param p1, "flow"    # Lkotlinx/coroutines/flow/SharedFlowImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -170,7 +170,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1b
 
     .line 732
     const/4 v0, 0x0
@@ -183,22 +183,22 @@
 
     cmp-long v5, v1, v3
 
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_11
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
     .end local v0    # "$i$a$-assert-SharedFlowSlot$freeLocked$1":I
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_12
+    if-eqz v1, :cond_15
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_15
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -206,8 +206,8 @@
     throw v0
 
     .line 295
-    :cond_2
-    :goto_1
+    :cond_1b
+    :goto_1b
     iget-wide v0, p0, Lkotlinx/coroutines/flow/SharedFlowSlot;->index:J
 
     .line 296

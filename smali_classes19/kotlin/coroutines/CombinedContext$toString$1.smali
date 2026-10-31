@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/coroutines/CombinedContext$toString$1;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/String;Lkotlin/coroutines/CoroutineContext$Element;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "acc"    # Ljava/lang/String;
     .param p2, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
 
@@ -121,25 +121,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_16
+    if-eqz v0, :cond_1d
 
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_1
+    :cond_1d
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -162,6 +162,6 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_34
     return-object v0
 .end method

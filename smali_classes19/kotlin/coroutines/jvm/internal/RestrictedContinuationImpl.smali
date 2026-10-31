@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 4
+    .registers 6
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -51,7 +51,7 @@
     nop
 
     .line 85
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_25
 
     move-object v0, p1
 
@@ -66,17 +66,17 @@
 
     sget-object v3, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_12
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_13
+    if-eqz v2, :cond_17
 
     .line 89
     nop
@@ -84,12 +84,12 @@
     .line 85
     .end local v0    # "it":Lkotlin/coroutines/Continuation;
     .end local v1    # "$i$a$-let-RestrictedContinuationImpl$1":I
-    goto :goto_1
+    goto :goto_25
 
     .line 86
     .restart local v0    # "it":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$i$a$-let-RestrictedContinuationImpl$1":I
-    :cond_1
+    :cond_17
     const/4 v2, 0x0
 
     .line 87
@@ -113,8 +113,8 @@
     .line 90
     .end local v0    # "it":Lkotlin/coroutines/Continuation;
     .end local v1    # "$i$a$-let-RestrictedContinuationImpl$1":I
-    :cond_2
-    :goto_1
+    :cond_25
+    :goto_25
     nop
 
     .line 81
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 93
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;

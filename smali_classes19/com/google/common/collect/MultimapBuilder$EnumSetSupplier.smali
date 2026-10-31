@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 258
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$EnumSetSupplier;, "Lcom/google/common/collect/MultimapBuilder$EnumSetSupplier<TV;>;"
@@ -86,7 +86,7 @@
 .end method
 
 .method public get()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

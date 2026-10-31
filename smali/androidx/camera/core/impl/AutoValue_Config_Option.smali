@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "id"    # Ljava/lang/String;
     .param p3, "token"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -65,13 +65,13 @@
     invoke-direct {p0}, Landroidx/camera/core/impl/Config$Option;-><init>()V
 
     .line 21
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_16
 
     .line 24
     iput-object p1, p0, Landroidx/camera/core/impl/AutoValue_Config_Option;->id:Ljava/lang/String;
 
     .line 25
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_e
 
     .line 28
     iput-object p2, p0, Landroidx/camera/core/impl/AutoValue_Config_Option;->valueClass:Ljava/lang/Class;
@@ -83,7 +83,7 @@
     return-void
 
     .line 26
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null valueClass"
@@ -93,7 +93,7 @@
     throw v0
 
     .line 22
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null id"
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -121,18 +121,18 @@
     .local p0, "this":Landroidx/camera/core/impl/AutoValue_Config_Option;, "Landroidx/camera/core/impl/AutoValue_Config_Option<TT;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 62
     return v0
 
     .line 64
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/camera/core/impl/Config$Option;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3e
 
     .line 65
     move-object v1, p1
@@ -151,7 +151,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3c
 
     iget-object v3, p0, Landroidx/camera/core/impl/AutoValue_Config_Option;->valueClass:Ljava/lang/Class;
 
@@ -164,22 +164,22 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3c
 
     iget-object v3, p0, Landroidx/camera/core/impl/AutoValue_Config_Option;->token:Ljava/lang/Object;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2f
 
     .line 68
     invoke-virtual {v1}, Landroidx/camera/core/impl/Config$Option;->getToken()Ljava/lang/Object;
 
     move-result-object v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3c
 
-    goto :goto_0
+    goto :goto_3b
 
-    :cond_1
+    :cond_2f
     iget-object v3, p0, Landroidx/camera/core/impl/AutoValue_Config_Option;->token:Ljava/lang/Object;
 
     invoke-virtual {v1}, Landroidx/camera/core/impl/Config$Option;->getToken()Ljava/lang/Object;
@@ -190,26 +190,26 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3c
 
-    :goto_0
-    goto :goto_1
+    :goto_3b
+    goto :goto_3d
 
-    :cond_2
+    :cond_3c
     const/4 v0, 0x0
 
     .line 66
-    :goto_1
+    :goto_3d
     return v0
 
     .line 70
     .end local v1    # "that":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
-    :cond_3
+    :cond_3e
     return v2
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 35
     .local p0, "this":Landroidx/camera/core/impl/AutoValue_Config_Option;, "Landroidx/camera/core/impl/AutoValue_Config_Option<TT;>;"
@@ -219,7 +219,7 @@
 .end method
 
 .method public getToken()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 47
     .local p0, "this":Landroidx/camera/core/impl/AutoValue_Config_Option;, "Landroidx/camera/core/impl/AutoValue_Config_Option<TT;>;"
@@ -229,7 +229,7 @@
 .end method
 
 .method public getValueClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -246,7 +246,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 75
     .local p0, "this":Landroidx/camera/core/impl/AutoValue_Config_Option;, "Landroidx/camera/core/impl/AutoValue_Config_Option<TT;>;"
@@ -285,20 +285,20 @@
     .line 81
     iget-object v1, p0, Landroidx/camera/core/impl/AutoValue_Config_Option;->token:Ljava/lang/Object;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1e
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_1e
     iget-object v1, p0, Landroidx/camera/core/impl/AutoValue_Config_Option;->token:Ljava/lang/Object;
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    :goto_0
+    :goto_24
     xor-int/2addr v0, v1
 
     .line 82
@@ -306,7 +306,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 52
     .local p0, "this":Landroidx/camera/core/impl/AutoValue_Config_Option;, "Landroidx/camera/core/impl/AutoValue_Config_Option<TT;>;"

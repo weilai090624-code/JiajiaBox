@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/util/List;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;)V
-    .locals 2
+    .registers 7
     .param p1, "sessionType"    # I
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .param p4, "cb"    # Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
@@ -66,7 +66,7 @@
 
     const/16 v1, 0x1c
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_11
 
     .line 87
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatBaseImpl;
@@ -75,10 +75,10 @@
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 90
-    :cond_0
+    :cond_11
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatApi28Impl;
 
     invoke-direct {v0, p1, p2, p3, p4}, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatApi28Impl;-><init>(ILjava/util/List;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;)V
@@ -86,12 +86,12 @@
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;
 
     .line 93
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method private constructor <init>(Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "impl"    # Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -113,7 +113,7 @@
 .end method
 
 .method public static transformFromCompat(Ljava/util/List;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -151,12 +151,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -176,15 +176,15 @@
 
     .line 142
     .end local v2    # "outputConfiguration":Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;
-    goto :goto_0
+    goto :goto_d
 
     .line 144
-    :cond_0
+    :cond_23
     return-object v0
 .end method
 
 .method static transformToCompat(Ljava/util/List;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -222,12 +222,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -245,15 +245,15 @@
 
     .line 129
     .end local v2    # "outputConfiguration":Landroid/hardware/camera2/params/OutputConfiguration;
-    goto :goto_0
+    goto :goto_d
 
     .line 131
-    :cond_0
+    :cond_21
     return-object v0
 .end method
 
 .method public static wrap(Ljava/lang/Object;)Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;
-    .locals 3
+    .registers 4
     .param p0, "sessionConfiguration"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -267,24 +267,24 @@
     .line 112
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 113
     return-object v0
 
     .line 115
-    :cond_0
+    :cond_4
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1c
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_b
 
     .line 116
     return-object v0
 
     .line 119
-    :cond_1
+    :cond_b
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;
 
     new-instance v1, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatApi28Impl;
@@ -299,7 +299,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -313,7 +313,7 @@
     .line 252
     instance-of v0, p1, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 253
     const/4 v0, 0x0
@@ -321,7 +321,7 @@
     return v0
 
     .line 256
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;
 
     move-object v1, p1
@@ -338,7 +338,7 @@
 .end method
 
 .method public getExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 181
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;
@@ -351,7 +351,7 @@
 .end method
 
 .method public getInputConfiguration()Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;
-    .locals 1
+    .registers 2
 
     .line 190
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;
@@ -364,7 +364,7 @@
 .end method
 
 .method public getOutputConfigurations()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -385,7 +385,7 @@
 .end method
 
 .method public getSessionParameters()Landroid/hardware/camera2/CaptureRequest;
-    .locals 1
+    .registers 2
 
     .line 212
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;
@@ -398,7 +398,7 @@
 .end method
 
 .method public getSessionType()I
-    .locals 1
+    .registers 2
 
     .line 154
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;
@@ -411,7 +411,7 @@
 .end method
 
 .method public getStateCallback()Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
-    .locals 1
+    .registers 2
 
     .line 172
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;
@@ -424,7 +424,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 261
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;
@@ -437,7 +437,7 @@
 .end method
 
 .method public setInputConfiguration(Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;)V
-    .locals 1
+    .registers 3
     .param p1, "input"    # Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -458,7 +458,7 @@
 .end method
 
 .method public setSessionParameters(Landroid/hardware/camera2/CaptureRequest;)V
-    .locals 1
+    .registers 3
     .param p1, "params"    # Landroid/hardware/camera2/CaptureRequest;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -479,7 +479,7 @@
 .end method
 
 .method public unwrap()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 247
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat$SessionConfigurationCompatImpl;

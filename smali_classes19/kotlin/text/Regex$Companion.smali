@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 316
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/text/Regex$Companion;-><init>()V
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final synthetic access$ensureUnicodeCase(Lkotlin/text/Regex$Companion;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/text/Regex$Companion;
     .param p1, "flags"    # I
 
@@ -74,29 +74,29 @@
 .end method
 
 .method private final ensureUnicodeCase(I)I
-    .locals 1
+    .registers 3
     .param p1, "flags"    # I
 
     .line 335
     and-int/lit8 v0, p1, 0x2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     or-int/lit8 v0, p1, 0x40
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     move v0, p1
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 
 # virtual methods
 .method public final escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "literal"    # Ljava/lang/String;
 
     const-string v0, "literal"
@@ -116,7 +116,7 @@
 .end method
 
 .method public final escapeReplacement(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "literal"    # Ljava/lang/String;
 
     const-string v0, "literal"
@@ -136,7 +136,7 @@
 .end method
 
 .method public final fromLiteral(Ljava/lang/String;)Lkotlin/text/Regex;
-    .locals 2
+    .registers 4
     .param p1, "literal"    # Ljava/lang/String;
 
     const-string v0, "literal"

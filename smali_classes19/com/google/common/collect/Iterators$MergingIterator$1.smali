@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Iterators$MergingIterator;Ljava/util/Comparator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Iterators$MergingIterator;
 
     .line 1323
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public compare(Lcom/google/common/collect/PeekingIterator;Lcom/google/common/collect/PeekingIterator;)I
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,7 +80,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 1323
     .local p0, "this":Lcom/google/common/collect/Iterators$MergingIterator$1;, "Lcom/google/common/collect/Iterators$MergingIterator$1;"

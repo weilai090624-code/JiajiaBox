@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkManagerImpl;Ljava/util/UUID;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method runInternal()Landroidx/work/WorkInfo;
-    .locals 3
+    .registers 4
 
     .line 103
     iget-object v0, p0, Landroidx/work/impl/utils/StatusRunnable$2;->val$workManager:Landroidx/work/impl/WorkManagerImpl;
@@ -85,23 +85,23 @@
 
     .line 107
     .local v1, "workInfoPojo":Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     invoke-virtual {v1}, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->toWorkInfo()Landroidx/work/WorkInfo;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1d
     return-object v2
 .end method
 
 .method bridge synthetic runInternal()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 100
     invoke-virtual {p0}, Landroidx/work/impl/utils/StatusRunnable$2;->runInternal()Landroidx/work/WorkInfo;

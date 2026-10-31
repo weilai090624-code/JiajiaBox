@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,12 +78,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_14
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_45
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -111,7 +111,7 @@
 
     .line 180
     .local v3, "methodReferences":Ljava/util/List;, "Ljava/util/List<Landroidx/lifecycle/ClassesInfoCache$MethodReference;>;"
-    if-nez v3, :cond_0
+    if-nez v3, :cond_3b
 
     .line 181
     new-instance v4, Ljava/util/ArrayList;
@@ -126,7 +126,7 @@
     invoke-interface {v4, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 184
-    :cond_0
+    :cond_3b
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v4
@@ -139,15 +139,15 @@
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroidx/lifecycle/ClassesInfoCache$MethodReference;Landroidx/lifecycle/Lifecycle$Event;>;"
     .end local v2    # "event":Landroidx/lifecycle/Lifecycle$Event;
     .end local v3    # "methodReferences":Ljava/util/List;, "Ljava/util/List<Landroidx/lifecycle/ClassesInfoCache$MethodReference;>;"
-    goto :goto_0
+    goto :goto_14
 
     .line 186
-    :cond_1
+    :cond_45
     return-void
 .end method
 
 .method private static invokeMethodsForEvent(Ljava/util/List;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
     .param p3, "mWrapped"    # Ljava/lang/Object;
@@ -166,7 +166,7 @@
 
     .line 197
     .local p0, "handlers":Ljava/util/List;, "Ljava/util/List<Landroidx/lifecycle/ClassesInfoCache$MethodReference;>;"
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_16
 
     .line 198
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -176,8 +176,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_8
+    if-ltz v0, :cond_16
 
     .line 199
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -191,18 +191,18 @@
     .line 198
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 202
     .end local v0    # "i":I
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 
 # virtual methods
 .method invokeCallbacks(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
     .param p3, "target"    # Ljava/lang/Object;

@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1332
     new-instance v0, Lcom/google/common/reflect/TypeToken$TypeCollector$1;
@@ -73,7 +73,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1330
     .local p0, "this":Lcom/google/common/reflect/TypeToken$TypeCollector;, "Lcom/google/common/reflect/TypeToken$TypeCollector<TK;>;"
@@ -83,7 +83,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/reflect/TypeToken$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/reflect/TypeToken$1;
 
     .line 1330
@@ -94,7 +94,7 @@
 .end method
 
 .method private collectTypes(Ljava/lang/Object;Ljava/util/Map;)I
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -117,7 +117,7 @@
 
     .line 1408
     .local v0, "existing":Ljava/lang/Integer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 1410
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -127,7 +127,7 @@
     return v1
 
     .line 1413
-    :cond_0
+    :cond_d
     invoke-virtual {p0, p1}, Lcom/google/common/reflect/TypeToken$TypeCollector;->getRawType(Ljava/lang/Object;)Ljava/lang/Class;
 
     move-result-object v1
@@ -146,12 +146,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1d
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_30
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -169,17 +169,17 @@
 
     .line 1416
     .end local v3    # "interfaceType":Ljava/lang/Object;, "TK;"
-    goto :goto_0
+    goto :goto_1d
 
     .line 1417
-    :cond_1
+    :cond_30
     invoke-virtual {p0, p1}, Lcom/google/common/reflect/TypeToken$TypeCollector;->getSuperclass(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     .line 1418
     .local v2, "superclass":Ljava/lang/Object;, "TK;"
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3e
 
     .line 1419
     invoke-direct {p0, v2, p2}, Lcom/google/common/reflect/TypeToken$TypeCollector;->collectTypes(Ljava/lang/Object;Ljava/util/Map;)I
@@ -191,7 +191,7 @@
     move-result v1
 
     .line 1426
-    :cond_2
+    :cond_3e
     add-int/lit8 v3, v1, 0x1
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -207,7 +207,7 @@
 .end method
 
 .method private static sortKeysByValue(Ljava/util/Map;Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -247,7 +247,7 @@
 
 # virtual methods
 .method final classesOnly()Lcom/google/common/reflect/TypeToken$TypeCollector;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -266,7 +266,7 @@
 .end method
 
 .method collectTypes(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -290,12 +290,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -307,10 +307,10 @@
 
     .line 1400
     .end local v2    # "type":Ljava/lang/Object;, "TK;"
-    goto :goto_0
+    goto :goto_8
 
     .line 1401
-    :cond_0
+    :cond_16
     invoke-static {}, Lcom/google/common/collect/Ordering;->natural()Lcom/google/common/collect/Ordering;
 
     move-result-object v1
@@ -327,7 +327,7 @@
 .end method
 
 .method final collectTypes(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",

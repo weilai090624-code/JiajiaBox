@@ -36,7 +36,7 @@
 
 # direct methods
 .method private static synthetic $values()[Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;
-    .locals 3
+    .registers 3
 
     .line 1107
     const/4 v0, 0x4
@@ -71,7 +71,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 1108
     new-instance v0, Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;
@@ -128,7 +128,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -153,7 +153,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -177,7 +177,7 @@
 .end method
 
 .method public static values()[Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;
-    .locals 1
+    .registers 1
 
     .line 1107
     sget-object v0, Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;->$VALUES:[Landroidx/constraintlayout/motion/widget/MotionLayout$TransitionState;

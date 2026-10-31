@@ -100,7 +100,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Map;Lcom/google/common/collect/AbstractBiMap;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,7 +128,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/Map;Lcom/google/common/collect/AbstractBiMap;Lcom/google/common/collect/AbstractBiMap$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/util/Map;
     .param p2, "x1"    # Lcom/google/common/collect/AbstractBiMap;
     .param p3, "x2"    # Lcom/google/common/collect/AbstractBiMap$1;
@@ -141,7 +141,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/Map;Ljava/util/Map;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -166,7 +166,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/collect/AbstractBiMap;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/AbstractBiMap;
 
     .line 51
@@ -176,7 +176,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/collect/AbstractBiMap;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/collect/AbstractBiMap;
     .param p1, "x1"    # Ljava/lang/Object;
 
@@ -189,7 +189,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/collect/AbstractBiMap;Ljava/lang/Object;ZLjava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 5
     .param p0, "x0"    # Lcom/google/common/collect/AbstractBiMap;
     .param p1, "x1"    # Ljava/lang/Object;
     .param p2, "x2"    # Z
@@ -203,7 +203,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/collect/AbstractBiMap;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/AbstractBiMap;
     .param p1, "x1"    # Ljava/lang/Object;
 
@@ -214,7 +214,7 @@
 .end method
 
 .method private putInBothMaps(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -249,7 +249,7 @@
 
     .line 137
     .local v0, "containedKey":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractBiMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -259,14 +259,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 138
     return-object p2
 
     .line 140
-    :cond_0
-    if-eqz p3, :cond_1
+    :cond_17
+    if-eqz p3, :cond_21
 
     .line 141
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractBiMap;->inverse()Lcom/google/common/collect/BiMap;
@@ -275,10 +275,10 @@
 
     invoke-interface {v1, p2}, Lcom/google/common/collect/BiMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 143
-    :cond_1
+    :cond_21
     invoke-virtual {p0, p2}, Lcom/google/common/collect/AbstractBiMap;->containsValue(Ljava/lang/Object;)Z
 
     move-result v1
@@ -290,7 +290,7 @@
     invoke-static {v1, v2, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
 
     .line 145
-    :goto_0
+    :goto_2c
     iget-object v1, p0, Lcom/google/common/collect/AbstractBiMap;->delegate:Ljava/util/Map;
 
     invoke-interface {v1, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -306,7 +306,7 @@
 .end method
 
 .method private removeFromBothMaps(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -343,7 +343,7 @@
 .end method
 
 .method private removeFromInverseMap(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -368,7 +368,7 @@
 .end method
 
 .method private updateInverseMap(Ljava/lang/Object;ZLjava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -393,7 +393,7 @@
     .local p1, "key":Ljava/lang/Object;, "TK;"
     .local p3, "oldValue":Ljava/lang/Object;, "TV;"
     .local p4, "newValue":Ljava/lang/Object;, "TV;"
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_9
 
     .line 157
     invoke-static {p3}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
@@ -403,7 +403,7 @@
     invoke-direct {p0, v0}, Lcom/google/common/collect/AbstractBiMap;->removeFromInverseMap(Ljava/lang/Object;)V
 
     .line 159
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/google/common/collect/AbstractBiMap;->inverse:Lcom/google/common/collect/AbstractBiMap;
 
     iget-object v0, v0, Lcom/google/common/collect/AbstractBiMap;->delegate:Ljava/util/Map;
@@ -417,7 +417,7 @@
 
 # virtual methods
 .method checkKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -438,7 +438,7 @@
 .end method
 
 .method checkValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -459,7 +459,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 193
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap;, "Lcom/google/common/collect/AbstractBiMap<TK;TV;>;"
@@ -479,7 +479,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -497,7 +497,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap;, "Lcom/google/common/collect/AbstractBiMap<TK;TV;>;"
@@ -509,7 +509,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -526,7 +526,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -542,7 +542,7 @@
 
     .line 297
     .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     new-instance v1, Lcom/google/common/collect/AbstractBiMap$EntrySet;
 
@@ -552,17 +552,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractBiMap;->entrySet:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v1, v0
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method
 
 .method entrySetIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -594,7 +594,7 @@
 .end method
 
 .method public forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -626,7 +626,7 @@
 .end method
 
 .method public inverse()Lcom/google/common/collect/BiMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -643,7 +643,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -658,7 +658,7 @@
 
     .line 209
     .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<TK;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     new-instance v1, Lcom/google/common/collect/AbstractBiMap$KeySet;
 
@@ -668,17 +668,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractBiMap;->keySet:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v1, v0
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method
 
 .method makeInverse(Ljava/util/Map;)Lcom/google/common/collect/AbstractBiMap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -700,7 +700,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -732,7 +732,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -752,12 +752,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -779,15 +779,15 @@
 
     .line 188
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 189
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -809,23 +809,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/AbstractBiMap;->removeFromBothMaps(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method setDelegates(Ljava/util/Map;Ljava/util/Map;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -846,31 +846,31 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 93
     iget-object v0, p0, Lcom/google/common/collect/AbstractBiMap;->inverse:Lcom/google/common/collect/AbstractBiMap;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_13
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 94
@@ -888,14 +888,14 @@
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 96
-    if-eq p1, p2, :cond_2
+    if-eq p1, p2, :cond_27
 
-    goto :goto_2
+    goto :goto_28
 
-    :cond_2
+    :cond_27
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_28
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 97
@@ -913,7 +913,7 @@
 .end method
 
 .method setInverse(Lcom/google/common/collect/AbstractBiMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -932,7 +932,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/AbstractBiMap;, "Lcom/google/common/collect/AbstractBiMap<TK;TV;>;"
@@ -944,7 +944,7 @@
 .end method
 
 .method public values()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -959,7 +959,7 @@
 
     .line 258
     .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     new-instance v1, Lcom/google/common/collect/AbstractBiMap$ValueSet;
 
@@ -969,11 +969,11 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractBiMap;->valueSet:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v1, v0
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method

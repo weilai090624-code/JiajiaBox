@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method private calcY(F)F
-    .locals 4
+    .registers 6
     .param p1, "time"    # F
 
     .line 111
@@ -76,7 +76,7 @@
 
     cmpg-float v0, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_1f
 
     .line 113
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage1Velocity:F
@@ -104,12 +104,12 @@
     return v0
 
     .line 115
-    :cond_0
+    :cond_1f
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mNumberOfStages:I
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_27
 
     .line 116
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage1EndPosition:F
@@ -117,7 +117,7 @@
     return v0
 
     .line 118
-    :cond_1
+    :cond_27
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage1Duration:F
 
     sub-float/2addr p1, v0
@@ -127,7 +127,7 @@
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_47
 
     .line 121
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage1EndPosition:F
@@ -159,12 +159,12 @@
     return v0
 
     .line 123
-    :cond_2
+    :cond_47
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mNumberOfStages:I
 
     const/4 v3, 0x2
 
-    if-ne v0, v3, :cond_3
+    if-ne v0, v3, :cond_4f
 
     .line 124
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage2EndPosition:F
@@ -172,7 +172,7 @@
     return v0
 
     .line 126
-    :cond_3
+    :cond_4f
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage2Duration:F
 
     sub-float/2addr p1, v0
@@ -182,7 +182,7 @@
 
     cmpg-float v0, p1, v0
 
-    if-gtz v0, :cond_4
+    if-gtz v0, :cond_6c
 
     .line 129
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage2EndPosition:F
@@ -210,7 +210,7 @@
     return v0
 
     .line 131
-    :cond_4
+    :cond_6c
     iput-boolean v2, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mDone:Z
 
     .line 132
@@ -220,7 +220,7 @@
 .end method
 
 .method private setup(FFFFF)V
-    .locals 15
+    .registers 21
     .param p1, "velocity"    # F
     .param p2, "distance"    # F
     .param p3, "maxAcceleration"    # F
@@ -243,25 +243,25 @@
 
     cmpl-float v4, p1, v3
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_11
 
     .line 166
     const v4, 0x38d1b717    # 1.0E-4f
 
     .end local p1    # "velocity":F
     .local v4, "velocity":F
-    goto :goto_0
+    goto :goto_13
 
     .line 165
     .end local v4    # "velocity":F
     .restart local p1    # "velocity":F
-    :cond_0
+    :cond_11
     move/from16 v4, p1
 
     .line 168
     .end local p1    # "velocity":F
     .restart local v4    # "velocity":F
-    :goto_0
+    :goto_13
     iput v4, v0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage1Velocity:F
 
     .line 169
@@ -283,7 +283,7 @@
 
     cmpg-float v10, v4, v3
 
-    if-gez v10, :cond_2
+    if-gez v10, :cond_8b
 
     .line 173
     neg-float v10, v4
@@ -316,7 +316,7 @@
     .local v13, "peak_v":F
     cmpg-float v14, v13, v2
 
-    if-gez v14, :cond_1
+    if-gez v14, :cond_5a
 
     .line 178
     const-string v8, "backward accelerate, decelerate"
@@ -368,7 +368,7 @@
     return-void
 
     .line 190
-    :cond_1
+    :cond_5a
     const-string v3, "backward accelerate cruse decelerate"
 
     iput-object v3, v0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mType:Ljava/lang/String;
@@ -445,10 +445,10 @@
     .end local v11    # "reversDistanceTraveled":F
     .end local v12    # "totalDistance":F
     .end local v13    # "peak_v":F
-    :cond_2
+    :cond_8b
     cmpl-float v10, v6, v1
 
-    if-ltz v10, :cond_3
+    if-ltz v10, :cond_a2
 
     .line 209
     const-string v8, "hard stop"
@@ -483,7 +483,7 @@
 
     .line 219
     .end local v7    # "time":F
-    :cond_3
+    :cond_a2
     sub-float v10, v1, v6
 
     .line 220
@@ -496,7 +496,7 @@
 
     cmpg-float v12, v12, p5
 
-    if-gez v12, :cond_4
+    if-gez v12, :cond_c3
 
     .line 222
     const-string v7, "cruse decelerate"
@@ -533,7 +533,7 @@
     return-void
 
     .line 234
-    :cond_4
+    :cond_c3
     mul-float v12, p3, v1
 
     mul-float v13, v4, v4
@@ -566,7 +566,7 @@
     .line 237
     cmpg-float v13, v12, v2
 
-    if-gez v13, :cond_5
+    if-gez v13, :cond_ff
 
     .line 238
     const-string v8, "accelerate decelerate"
@@ -615,7 +615,7 @@
     return-void
 
     .line 250
-    :cond_5
+    :cond_ff
     const-string v3, "accelerate cruse decelerate"
 
     iput-object v3, v0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mType:Ljava/lang/String;
@@ -689,7 +689,7 @@
 
 # virtual methods
 .method public config(FFFFFF)V
-    .locals 6
+    .registers 13
     .param p1, "currentPos"    # F
     .param p2, "destination"    # F
     .param p3, "currentVelocity"    # F
@@ -708,17 +708,17 @@
     .line 139
     cmpl-float v1, p1, p2
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_a
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_a
     iput-boolean v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mBackwards:Z
 
     .line 140
     iget-boolean v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mBackwards:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 141
     neg-float v1, p3
@@ -735,10 +735,10 @@
 
     invoke-direct/range {v0 .. v5}, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->setup(FFFFF)V
 
-    goto :goto_0
+    goto :goto_25
 
     .line 143
-    :cond_1
+    :cond_1b
     sub-float v2, p2, p1
 
     move-object v0, p0
@@ -754,12 +754,12 @@
     invoke-direct/range {v0 .. v5}, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->setup(FFFFF)V
 
     .line 145
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method public debug(Ljava/lang/String;F)Ljava/lang/String;
-    .locals 8
+    .registers 11
     .param p1, "desc"    # Ljava/lang/String;
     .param p2, "time"    # F
 
@@ -810,16 +810,16 @@
 
     iget-boolean v3, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mBackwards:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_33
 
     const-string v3, "backwards"
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_0
+    :cond_33
     const-string v3, "forward "
 
-    :goto_0
+    :goto_35
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -916,7 +916,7 @@
 
     const/4 v6, 0x1
 
-    if-le v2, v6, :cond_1
+    if-le v2, v6, :cond_c8
 
     .line 52
     new-instance v2, Ljava/lang/StringBuilder;
@@ -970,12 +970,12 @@
     move-result-object v0
 
     .line 55
-    :cond_1
+    :cond_c8
     iget v2, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mNumberOfStages:I
 
     const/4 v7, 0x2
 
-    if-le v2, v7, :cond_2
+    if-le v2, v7, :cond_100
 
     .line 56
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1029,12 +1029,12 @@
     move-result-object v0
 
     .line 59
-    :cond_2
+    :cond_100
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage1Duration:F
 
     cmpg-float v1, p2, v1
 
-    if-gtz v1, :cond_3
+    if-gtz v1, :cond_11f
 
     .line 60
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1063,10 +1063,10 @@
     return-object v0
 
     .line 63
-    :cond_3
+    :cond_11f
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mNumberOfStages:I
 
-    if-ne v1, v6, :cond_4
+    if-ne v1, v6, :cond_13b
 
     .line 64
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1095,7 +1095,7 @@
     return-object v0
 
     .line 67
-    :cond_4
+    :cond_13b
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage1Duration:F
 
     sub-float/2addr p2, v1
@@ -1105,7 +1105,7 @@
 
     cmpg-float v1, p2, v1
 
-    if-gez v1, :cond_5
+    if-gez v1, :cond_15c
 
     .line 70
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1134,10 +1134,10 @@
     return-object v0
 
     .line 73
-    :cond_5
+    :cond_15c
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mNumberOfStages:I
 
-    if-ne v1, v7, :cond_6
+    if-ne v1, v7, :cond_178
 
     .line 74
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1166,7 +1166,7 @@
     return-object v0
 
     .line 77
-    :cond_6
+    :cond_178
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage2Duration:F
 
     sub-float/2addr p2, v1
@@ -1176,7 +1176,7 @@
 
     cmpg-float v1, p2, v1
 
-    if-gez v1, :cond_7
+    if-gez v1, :cond_199
 
     .line 80
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1205,7 +1205,7 @@
     return-object v0
 
     .line 83
-    :cond_7
+    :cond_199
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1233,7 +1233,7 @@
 .end method
 
 .method public getInterpolation(F)F
-    .locals 2
+    .registers 4
     .param p1, "v"    # F
 
     .line 148
@@ -1248,30 +1248,30 @@
     .line 150
     iget-boolean v1, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mBackwards:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStartPosition:F
 
     sub-float/2addr v1, v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_e
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStartPosition:F
 
     add-float/2addr v1, v0
 
-    :goto_0
+    :goto_11
     return v1
 .end method
 
 .method public getVelocity()F
-    .locals 1
+    .registers 2
 
     .line 154
     iget-boolean v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mBackwards:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mLastPosition:F
 
@@ -1281,21 +1281,21 @@
 
     neg-float v0, v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_c
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mLastPosition:F
 
     invoke-virtual {p0, v0}, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->getVelocity(F)F
 
     move-result v0
 
-    :goto_0
+    :goto_12
     return v0
 .end method
 
 .method public getVelocity(F)F
-    .locals 3
+    .registers 5
     .param p1, "x"    # F
 
     .line 88
@@ -1303,7 +1303,7 @@
 
     cmpg-float v0, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_14
 
     .line 89
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage1Velocity:F
@@ -1325,12 +1325,12 @@
     return v0
 
     .line 91
-    :cond_0
+    :cond_14
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mNumberOfStages:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1b
 
     .line 92
     const/4 v0, 0x0
@@ -1338,7 +1338,7 @@
     return v0
 
     .line 94
-    :cond_1
+    :cond_1b
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage1Duration:F
 
     sub-float/2addr p1, v0
@@ -1348,7 +1348,7 @@
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_32
 
     .line 97
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage2Velocity:F
@@ -1370,12 +1370,12 @@
     return v0
 
     .line 99
-    :cond_2
+    :cond_32
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mNumberOfStages:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_3a
 
     .line 100
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage2EndPosition:F
@@ -1383,7 +1383,7 @@
     return v0
 
     .line 102
-    :cond_3
+    :cond_3a
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage2Duration:F
 
     sub-float/2addr p1, v0
@@ -1393,7 +1393,7 @@
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_4
+    if-gez v0, :cond_4e
 
     .line 105
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage3Velocity:F
@@ -1411,14 +1411,14 @@
     return v0
 
     .line 107
-    :cond_4
+    :cond_4e
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage3EndPosition:F
 
     return v0
 .end method
 
 .method public isStopped()Z
-    .locals 3
+    .registers 4
 
     .line 159
     invoke-virtual {p0}, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->getVelocity()F
@@ -1429,7 +1429,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1a
 
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/StopLogicEngine;->mStage3EndPosition:F
 
@@ -1443,15 +1443,15 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return v0
 .end method

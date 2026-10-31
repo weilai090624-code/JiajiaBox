@@ -116,7 +116,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -174,7 +174,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlin/sequences/SequenceScope;
 
@@ -188,7 +188,7 @@
 .end method
 
 .method public final invoke(Lkotlin/sequences/SequenceScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -218,7 +218,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -227,7 +227,7 @@
     .line 2364
     iget v1, p0, Lkotlin/sequences/SequencesKt___SequencesKt$runningReduce$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_82
 
     .end local p0    # "this":Lkotlin/sequences/SequencesKt___SequencesKt$runningReduce$1;
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -240,7 +240,7 @@
 
     .restart local p0    # "this":Lkotlin/sequences/SequencesKt___SequencesKt$runningReduce$1;
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     iget-object v1, p0, Lkotlin/sequences/SequencesKt___SequencesKt$runningReduce$1;->L$2:Ljava/lang/Object;
 
     .local v1, "accumulator":Ljava/lang/Object;
@@ -258,12 +258,12 @@
 
     move-object v4, p0
 
-    goto :goto_2
+    goto :goto_7d
 
     .end local v1    # "accumulator":Ljava/lang/Object;
     .end local v2    # "iterator":Ljava/util/Iterator;
     .end local v3    # "$this$sequence":Lkotlin/sequences/SequenceScope;
-    :pswitch_1
+    :pswitch_20
     iget-object v1, p0, Lkotlin/sequences/SequencesKt___SequencesKt$runningReduce$1;->L$2:Ljava/lang/Object;
 
     .restart local v1    # "accumulator":Ljava/lang/Object;
@@ -279,13 +279,13 @@
     .restart local v3    # "$this$sequence":Lkotlin/sequences/SequenceScope;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_59
 
     .end local v1    # "accumulator":Ljava/lang/Object;
     .end local v2    # "iterator":Ljava/util/Iterator;
     .end local v3    # "$this$sequence":Lkotlin/sequences/SequenceScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_2e
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -309,7 +309,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_7e
 
     .line 2367
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -336,24 +336,24 @@
 
     move-result-object v4
 
-    if-ne v4, v0, :cond_0
+    if-ne v4, v0, :cond_59
 
     .line 2364
     return-object v0
 
     .line 2369
-    :cond_0
-    :goto_0
+    :cond_59
+    :goto_59
     move-object v4, p0
 
     .end local p0    # "this":Lkotlin/sequences/SequencesKt___SequencesKt$runningReduce$1;
     .local v4, "this":Lkotlin/sequences/SequencesKt___SequencesKt$runningReduce$1;
-    :goto_1
+    :goto_5a
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_7f
 
     .line 2370
     iget-object v5, v4, Lkotlin/sequences/SequencesKt___SequencesKt$runningReduce$1;->$operation:Lkotlin/jvm/functions/Function2;
@@ -385,35 +385,35 @@
 
     move-result-object v5
 
-    if-ne v5, v0, :cond_1
+    if-ne v5, v0, :cond_7d
 
     .line 2364
     return-object v0
 
     .line 2371
-    :cond_1
-    :goto_2
-    goto :goto_1
+    :cond_7d
+    :goto_7d
+    goto :goto_5a
 
     .line 2366
     .end local v1    # "accumulator":Ljava/lang/Object;
     .end local v4    # "this":Lkotlin/sequences/SequencesKt___SequencesKt$runningReduce$1;
-    :cond_2
+    :cond_7e
     move-object v4, p0
 
     .line 2374
     .end local v2    # "iterator":Ljava/util/Iterator;
     .end local v3    # "$this$sequence":Lkotlin/sequences/SequenceScope;
     .restart local v4    # "this":Lkotlin/sequences/SequencesKt___SequencesKt$runningReduce$1;
-    :cond_3
+    :cond_7f
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_82
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2e
+        :pswitch_20
+        :pswitch_11
     .end packed-switch
 .end method

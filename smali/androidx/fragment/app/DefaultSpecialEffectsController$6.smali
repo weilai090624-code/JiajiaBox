@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/DefaultSpecialEffectsController;Landroidx/fragment/app/SpecialEffectsController$Operation;Landroidx/fragment/app/SpecialEffectsController$Operation;ZLandroidx/collection/ArrayMap;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Landroidx/fragment/app/DefaultSpecialEffectsController;
 
     .line 530
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 533
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$6;->val$lastIn:Landroidx/fragment/app/SpecialEffectsController$Operation;

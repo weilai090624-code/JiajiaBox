@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/text/Charsets;
 
@@ -145,7 +145,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -156,12 +156,12 @@
 
 # virtual methods
 .method public final UTF32()Ljava/nio/charset/Charset;
-    .locals 4
+    .registers 5
 
     .line 68
     sget-object v0, Lkotlin/text/Charsets;->utf_32:Ljava/nio/charset/Charset;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     move-object v0, p0
 
@@ -196,17 +196,17 @@
     move-object v0, v2
 
     .line 72
-    :cond_0
+    :cond_17
     return-object v0
 .end method
 
 .method public final UTF32_BE()Ljava/nio/charset/Charset;
-    .locals 4
+    .registers 5
 
     .line 96
     sget-object v0, Lkotlin/text/Charsets;->utf_32be:Ljava/nio/charset/Charset;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     move-object v0, p0
 
@@ -241,17 +241,17 @@
     move-object v0, v2
 
     .line 100
-    :cond_0
+    :cond_17
     return-object v0
 .end method
 
 .method public final UTF32_LE()Ljava/nio/charset/Charset;
-    .locals 4
+    .registers 5
 
     .line 82
     sget-object v0, Lkotlin/text/Charsets;->utf_32le:Ljava/nio/charset/Charset;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     move-object v0, p0
 
@@ -286,6 +286,6 @@
     move-object v0, v2
 
     .line 86
-    :cond_0
+    :cond_17
     return-object v0
 .end method

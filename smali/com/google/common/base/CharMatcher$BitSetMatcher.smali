@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/BitSet;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "table"    # Ljava/util/BitSet;
     .param p2, "description"    # Ljava/lang/String;
 
@@ -38,7 +38,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_16
 
     .line 989
     invoke-virtual {p1}, Ljava/util/BitSet;->clone()Ljava/lang/Object;
@@ -50,7 +50,7 @@
     check-cast p1, Ljava/util/BitSet;
 
     .line 992
-    :cond_0
+    :cond_16
     iput-object p1, p0, Lcom/google/common/base/CharMatcher$BitSetMatcher;->table:Ljava/util/BitSet;
 
     .line 993
@@ -58,7 +58,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/BitSet;Ljava/lang/String;Lcom/google/common/base/CharMatcher$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/util/BitSet;
     .param p2, "x1"    # Ljava/lang/String;
     .param p3, "x2"    # Lcom/google/common/base/CharMatcher$1;
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public matches(C)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
 
     .line 997
@@ -86,7 +86,7 @@
 .end method
 
 .method setBits(Ljava/util/BitSet;)V
-    .locals 1
+    .registers 3
     .param p1, "bitSet"    # Ljava/util/BitSet;
 
     .line 1002

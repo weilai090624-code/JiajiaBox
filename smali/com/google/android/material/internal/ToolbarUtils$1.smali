@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public compare(Landroid/view/View;Landroid/view/View;)I
-    .locals 2
+    .registers 5
     .param p1, "view1"    # Landroid/view/View;
     .param p2, "view2"    # Landroid/view/View;
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 49
     check-cast p1, Landroid/view/View;

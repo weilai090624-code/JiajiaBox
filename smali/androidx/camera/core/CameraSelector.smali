@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 47
     new-instance v0, Landroidx/camera/core/CameraSelector$Builder;
@@ -79,7 +79,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/LinkedHashSet;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public filter(Ljava/util/LinkedHashSet;)Ljava/util/LinkedHashSet;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -146,12 +146,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -169,10 +169,10 @@
 
     .line 135
     .end local v2    # "camera":Landroidx/camera/core/impl/CameraInternal;
-    goto :goto_0
+    goto :goto_9
 
     .line 137
-    :cond_0
+    :cond_1d
     invoke-virtual {p0, v0}, Landroidx/camera/core/CameraSelector;->filter(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v1
@@ -189,12 +189,12 @@
 
     move-result-object v3
 
-    :goto_1
+    :goto_2a
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_44
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -212,23 +212,23 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_43
 
     .line 142
     invoke-virtual {v2, v4}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
     .line 144
     .end local v4    # "camera":Landroidx/camera/core/impl/CameraInternal;
-    :cond_1
-    goto :goto_1
+    :cond_43
+    goto :goto_2a
 
     .line 146
-    :cond_2
+    :cond_44
     return-object v2
 .end method
 
 .method public filter(Ljava/util/List;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -270,12 +270,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_44
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -298,25 +298,25 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_3c
 
     .line 108
     invoke-interface {v0, v1}, Ljava/util/List;->containsAll(Ljava/util/Collection;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_34
 
     .line 111
     invoke-interface {v0, v1}, Ljava/util/List;->retainAll(Ljava/util/Collection;)Z
 
     .line 112
     .end local v3    # "filter":Landroidx/camera/core/CameraFilter;
-    goto :goto_0
+    goto :goto_10
 
     .line 109
     .restart local v3    # "filter":Landroidx/camera/core/CameraFilter;
-    :cond_0
+    :cond_34
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v4, "The output isn\'t contained in the input."
@@ -326,7 +326,7 @@
     throw v2
 
     .line 107
-    :cond_1
+    :cond_3c
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v4, "No available camera can be found."
@@ -337,12 +337,12 @@
 
     .line 114
     .end local v3    # "filter":Landroidx/camera/core/CameraFilter;
-    :cond_2
+    :cond_44
     return-object v1
 .end method
 
 .method public getCameraFilterSet()Ljava/util/LinkedHashSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -359,7 +359,7 @@
 .end method
 
 .method public getLensFacing()Ljava/lang/Integer;
-    .locals 5
+    .registers 6
 
     .line 174
     const/4 v0, 0x0
@@ -372,12 +372,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_36
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -389,7 +389,7 @@
     .local v2, "filter":Landroidx/camera/core/CameraFilter;
     instance-of v3, v2, Landroidx/camera/core/impl/LensFacingCameraFilter;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_35
 
     .line 177
     move-object v3, v2
@@ -406,25 +406,25 @@
 
     .line 178
     .local v3, "newLensFacing":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_26
 
     .line 179
     move-object v0, v3
 
-    goto :goto_1
+    goto :goto_35
 
     .line 180
-    :cond_0
+    :cond_26
     invoke-virtual {v0, v3}, Ljava/lang/Integer;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2d
 
-    goto :goto_1
+    goto :goto_35
 
     .line 185
-    :cond_1
+    :cond_2d
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v4, "Multiple conflicting lens facing requirements exist."
@@ -436,17 +436,17 @@
     .line 189
     .end local v2    # "filter":Landroidx/camera/core/CameraFilter;
     .end local v3    # "newLensFacing":Ljava/lang/Integer;
-    :cond_2
-    :goto_1
-    goto :goto_0
+    :cond_35
+    :goto_35
+    goto :goto_7
 
     .line 191
-    :cond_3
+    :cond_36
     return-object v0
 .end method
 
 .method public select(Ljava/util/LinkedHashSet;)Landroidx/camera/core/impl/CameraInternal;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;)V
-    .locals 1
+    .registers 3
     .param p1, "stopwatch"    # Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
 
     .line 203
@@ -45,7 +45,7 @@
 .end method
 
 .method private canAcquire(JJ)Z
-    .locals 3
+    .registers 8
     .param p1, "nowMicros"    # J
     .param p3, "timeoutMicros"    # J
 
@@ -58,34 +58,34 @@
 
     cmp-long v2, v0, p1
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method private static checkPermits(I)V
-    .locals 2
+    .registers 3
     .param p0, "permits"    # I
 
     .line 433
-    if-lez p0, :cond_0
+    if-lez p0, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     const-string v1, "Requested permits (%s) must be positive"
 
     invoke-static {v0, v1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
@@ -95,7 +95,7 @@
 .end method
 
 .method public static create(D)Lcom/google/common/util/concurrent/RateLimiter;
-    .locals 1
+    .registers 3
     .param p0, "permitsPerSecond"    # D
 
     .line 128
@@ -111,7 +111,7 @@
 .end method
 
 .method public static create(DJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/RateLimiter;
-    .locals 10
+    .registers 15
     .param p0, "permitsPerSecond"    # D
     .param p2, "warmupPeriod"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -121,16 +121,16 @@
 
     cmp-long v2, p2, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     const-string v1, "warmupPeriod must not be negative: %s"
 
     invoke-static {v0, v1, p2, p3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -160,7 +160,7 @@
 .end method
 
 .method static create(DJLjava/util/concurrent/TimeUnit;DLcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;)Lcom/google/common/util/concurrent/RateLimiter;
-    .locals 8
+    .registers 16
     .param p0, "permitsPerSecond"    # D
     .param p2, "warmupPeriod"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -191,7 +191,7 @@
 .end method
 
 .method static create(DLcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;)Lcom/google/common/util/concurrent/RateLimiter;
-    .locals 3
+    .registers 6
     .param p0, "permitsPerSecond"    # D
     .param p2, "stopwatch"    # Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
 
@@ -211,26 +211,26 @@
 .end method
 
 .method private mutex()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 191
     iget-object v0, p0, Lcom/google/common/util/concurrent/RateLimiter;->mutexDoNotUseDirectly:Ljava/lang/Object;
 
     .line 192
     .local v0, "mutex":Ljava/lang/Object;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     .line 193
     monitor-enter p0
 
     .line 194
-    :try_start_0
+    :try_start_5
     iget-object v1, p0, Lcom/google/common/util/concurrent/RateLimiter;->mutexDoNotUseDirectly:Ljava/lang/Object;
 
     move-object v0, v1
 
     .line 195
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 196
     new-instance v1, Ljava/lang/Object;
@@ -242,30 +242,30 @@
     iput-object v1, p0, Lcom/google/common/util/concurrent/RateLimiter;->mutexDoNotUseDirectly:Ljava/lang/Object;
 
     .line 198
-    :cond_0
+    :cond_12
     monitor-exit p0
 
-    goto :goto_0
+    goto :goto_17
 
-    :catchall_0
+    :catchall_14
     move-exception v1
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_5 .. :try_end_16} :catchall_14
 
     throw v1
 
     .line 200
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     return-object v0
 .end method
 
 
 # virtual methods
 .method public acquire()D
-    .locals 2
+    .registers 3
 
     .line 260
     const/4 v0, 0x1
@@ -278,7 +278,7 @@
 .end method
 
 .method public acquire(I)D
-    .locals 8
+    .registers 10
     .param p1, "permits"    # I
 
     .line 274
@@ -321,7 +321,7 @@
 .end method
 
 .method public final getRate()D
-    .locals 3
+    .registers 4
 
     .line 242
     invoke-direct {p0}, Lcom/google/common/util/concurrent/RateLimiter;->mutex()Ljava/lang/Object;
@@ -331,7 +331,7 @@
     monitor-enter v0
 
     .line 243
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/RateLimiter;->doGetRate()D
 
     move-result-wide v1
@@ -341,12 +341,12 @@
     return-wide v1
 
     .line 244
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_5 .. :try_end_d} :catchall_b
 
     throw v1
 .end method
@@ -355,7 +355,7 @@
 .end method
 
 .method final reserve(I)J
-    .locals 3
+    .registers 5
     .param p1, "permits"    # I
 
     .line 286
@@ -369,7 +369,7 @@
     monitor-enter v0
 
     .line 288
-    :try_start_0
+    :try_start_8
     iget-object v1, p0, Lcom/google/common/util/concurrent/RateLimiter;->stopwatch:Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
 
     invoke-virtual {v1}, Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;->readMicros()J
@@ -385,18 +385,18 @@
     return-wide v1
 
     .line 289
-    :catchall_0
+    :catchall_14
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_8 .. :try_end_16} :catchall_14
 
     throw v1
 .end method
 
 .method final reserveAndGetWaitLength(IJ)J
-    .locals 6
+    .registers 10
     .param p1, "permits"    # I
     .param p2, "nowMicros"    # J
 
@@ -422,7 +422,7 @@
 .end method
 
 .method public final setRate(D)V
-    .locals 3
+    .registers 6
     .param p1, "permitsPerSecond"    # D
 
     .line 226
@@ -430,23 +430,23 @@
 
     cmpl-double v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_e
 
     .line 227
     invoke-static {p1, p2}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     const-string v1, "rate must be positive"
 
     .line 226
@@ -460,7 +460,7 @@
     monitor-enter v0
 
     .line 229
-    :try_start_0
+    :try_start_19
     iget-object v1, p0, Lcom/google/common/util/concurrent/RateLimiter;->stopwatch:Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
 
     invoke-virtual {v1}, Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;->readMicros()J
@@ -476,18 +476,18 @@
     return-void
 
     .line 230
-    :catchall_0
+    :catchall_24
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_19 .. :try_end_26} :catchall_24
 
     throw v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 397
     sget-object v0, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
@@ -518,7 +518,7 @@
 .end method
 
 .method public tryAcquire()Z
-    .locals 4
+    .registers 5
 
     .line 333
     const-wide/16 v0, 0x0
@@ -535,7 +535,7 @@
 .end method
 
 .method public tryAcquire(I)Z
-    .locals 3
+    .registers 5
     .param p1, "permits"    # I
 
     .line 320
@@ -551,7 +551,7 @@
 .end method
 
 .method public tryAcquire(IJLjava/util/concurrent/TimeUnit;)Z
-    .locals 7
+    .registers 12
     .param p1, "permits"    # I
     .param p2, "timeout"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -579,7 +579,7 @@
     monitor-enter v2
 
     .line 353
-    :try_start_0
+    :try_start_12
     iget-object v3, p0, Lcom/google/common/util/concurrent/RateLimiter;->stopwatch:Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
 
     invoke-virtual {v3}, Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;->readMicros()J
@@ -592,7 +592,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_21
 
     .line 355
     monitor-exit v2
@@ -602,7 +602,7 @@
     return v2
 
     .line 357
-    :cond_0
+    :cond_21
     invoke-virtual {p0, p1, v3, v4}, Lcom/google/common/util/concurrent/RateLimiter;->reserveAndGetWaitLength(IJ)J
 
     move-result-wide v5
@@ -612,8 +612,8 @@
     .line 359
     .local v3, "microsToWait":J
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_12 .. :try_end_27} :catchall_2e
 
     .line 360
     iget-object v2, p0, Lcom/google/common/util/concurrent/RateLimiter;->stopwatch:Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
@@ -627,19 +627,19 @@
 
     .line 359
     .end local v3    # "microsToWait":J
-    :catchall_0
+    :catchall_2e
     move-exception v3
 
-    :try_start_1
+    :try_start_2f
     monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_30
+    .catchall {:try_start_2f .. :try_end_30} :catchall_2e
 
     throw v3
 .end method
 
 .method public tryAcquire(JLjava/util/concurrent/TimeUnit;)Z
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 

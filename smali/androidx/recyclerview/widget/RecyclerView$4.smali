@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 667
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public processAppeared(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)V
-    .locals 1
+    .registers 5
     .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "preInfo"    # Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
     .param p3, "info"    # Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
@@ -52,7 +52,7 @@
 .end method
 
 .method public processDisappeared(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)V
-    .locals 1
+    .registers 5
     .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "info"    # Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
     .param p3, "postInfo"    # Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
@@ -74,7 +74,7 @@
 .end method
 
 .method public processPersistent(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)V
-    .locals 1
+    .registers 5
     .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "preInfo"    # Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
     .param p3, "postInfo"    # Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
@@ -89,7 +89,7 @@
 
     iget-boolean v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mDataSetHasChangedAfterLayout:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 689
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$4;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -100,17 +100,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 691
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$4;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->postAnimationRunner()V
 
-    goto :goto_0
+    goto :goto_29
 
     .line 693
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$4;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mItemAnimator:Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;
@@ -119,7 +119,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 694
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$4;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -127,13 +127,13 @@
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->postAnimationRunner()V
 
     .line 696
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     return-void
 .end method
 
 .method public unused(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 3
+    .registers 5
     .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 700

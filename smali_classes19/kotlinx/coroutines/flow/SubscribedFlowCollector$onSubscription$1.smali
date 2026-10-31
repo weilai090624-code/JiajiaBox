@@ -67,7 +67,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/flow/SubscribedFlowCollector;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
 
     iput-object p1, p0, Lkotlinx/coroutines/flow/SubscribedFlowCollector$onSubscription$1;->result:Ljava/lang/Object;
 

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(J)I
-    .locals 2
+    .registers 4
 
     .line 0
     const/16 v0, 0x20

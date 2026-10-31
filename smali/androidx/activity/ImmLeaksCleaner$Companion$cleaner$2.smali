@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/activity/ImmLeaksCleaner$Companion$cleaner$2;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -78,13 +78,13 @@
 
 # virtual methods
 .method public final invoke()Landroidx/activity/ImmLeaksCleaner$Cleaner;
-    .locals 7
+    .registers 8
 
     .line 112
     nop
 
     .line 113
-    :try_start_0
+    :try_start_1
     const-class v0, Landroid/view/inputmethod/InputMethodManager;
 
     .line 115
@@ -178,13 +178,13 @@
     .end local v2    # "nextServedViewField":Ljava/lang/reflect/Field;
     .end local v3    # "hField":Ljava/lang/reflect/Field;
     check-cast v4, Landroidx/activity/ImmLeaksCleaner$Cleaner;
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3d
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_1 .. :try_end_3d} :catch_3e
 
-    goto :goto_0
+    goto :goto_44
 
     .line 120
-    :catch_0
+    :catch_3e
     move-exception v0
 
     .line 122
@@ -197,12 +197,12 @@
 
     .line 123
     .end local v0    # "e":Ljava/lang/NoSuchFieldException;
-    :goto_0
+    :goto_44
     return-object v4
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 111
     invoke-virtual {p0}, Landroidx/activity/ImmLeaksCleaner$Companion$cleaner$2;->invoke()Landroidx/activity/ImmLeaksCleaner$Cleaner;

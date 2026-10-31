@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method private static constructorToString(Ljava/lang/reflect/Constructor;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,13 +76,13 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_2a
     array-length v3, v1
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_40
 
     .line 38
-    if-lez v2, :cond_0
+    if-lez v2, :cond_34
 
     .line 39
     const-string v3, ", "
@@ -90,7 +90,7 @@
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 41
-    :cond_0
+    :cond_34
     aget-object v3, v1, v2
 
     invoke-virtual {v3}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -102,11 +102,11 @@
     .line 37
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 44
     .end local v2    # "i":I
-    :cond_1
+    :cond_40
     const/16 v2, 0x29
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -121,7 +121,7 @@
 .end method
 
 .method public static makeAccessible(Ljava/lang/reflect/Field;)V
-    .locals 4
+    .registers 5
     .param p0, "field"    # Ljava/lang/reflect/Field;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -132,10 +132,10 @@
     .line 19
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_4} :catch_6
 
     .line 24
     nop
@@ -144,7 +144,7 @@
     return-void
 
     .line 20
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 21
@@ -204,7 +204,7 @@
 .end method
 
 .method public static tryMakeAccessible(Ljava/lang/reflect/Constructor;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -218,10 +218,10 @@
     .local p0, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0, v0}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_4} :catch_6
 
     .line 58
     const/4 v0, 0x0
@@ -229,7 +229,7 @@
     return-object v0
 
     .line 59
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 60

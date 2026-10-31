@@ -68,7 +68,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 13224
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method assertLayoutStep(I)V
-    .locals 3
+    .registers 5
     .param p1, "accepted"    # I
 
     .line 13230
@@ -126,13 +126,13 @@
 
     and-int/2addr v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 13235
     return-void
 
     .line 13231
-    :cond_0
+    :cond_6
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -181,7 +181,7 @@
 .end method
 
 .method public didStructureChange()Z
-    .locals 1
+    .registers 2
 
     .line 13449
     iget-boolean v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mStructureChanged:Z
@@ -190,7 +190,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "resourceId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -203,7 +203,7 @@
     .line 13401
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mData:Landroid/util/SparseArray;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 13402
     const/4 v0, 0x0
@@ -211,7 +211,7 @@
     return-object v0
 
     .line 13404
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mData:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -222,12 +222,12 @@
 .end method
 
 .method public getItemCount()I
-    .locals 2
+    .registers 3
 
     .line 13477
     iget-boolean v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mInPreLayout:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 13478
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mPreviousLayoutItemCount:I
@@ -236,19 +236,19 @@
 
     sub-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 13479
-    :cond_0
+    :cond_a
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mItemCount:I
 
     .line 13477
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method public getRemainingScrollHorizontal()I
-    .locals 1
+    .registers 2
 
     .line 13490
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mRemainingScrollHorizontal:I
@@ -257,7 +257,7 @@
 .end method
 
 .method public getRemainingScrollVertical()I
-    .locals 1
+    .registers 2
 
     .line 13501
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mRemainingScrollVertical:I
@@ -266,7 +266,7 @@
 .end method
 
 .method public getTargetScrollPosition()I
-    .locals 1
+    .registers 2
 
     .line 13431
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mTargetPosition:I
@@ -275,28 +275,28 @@
 .end method
 
 .method public hasTargetScrollPosition()Z
-    .locals 2
+    .registers 3
 
     .line 13441
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mTargetPosition:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public isMeasuring()Z
-    .locals 1
+    .registers 2
 
     .line 13344
     iget-boolean v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mIsMeasuring:Z
@@ -305,7 +305,7 @@
 .end method
 
 .method public isPreLayout()Z
-    .locals 1
+    .registers 2
 
     .line 13353
     iget-boolean v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mInPreLayout:Z
@@ -314,7 +314,7 @@
 .end method
 
 .method prepareForNestedPrefetch(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 1
+    .registers 3
     .param p1, "adapter"    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     .line 13322
@@ -345,14 +345,14 @@
 .end method
 
 .method public put(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "resourceId"    # I
     .param p2, "data"    # Ljava/lang/Object;
 
     .line 13416
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mData:Landroid/util/SparseArray;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 13417
     new-instance v0, Landroid/util/SparseArray;
@@ -362,7 +362,7 @@
     iput-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mData:Landroid/util/SparseArray;
 
     .line 13419
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mData:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
@@ -372,19 +372,19 @@
 .end method
 
 .method public remove(I)V
-    .locals 1
+    .registers 3
     .param p1, "resourceId"    # I
 
     .line 13385
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mData:Landroid/util/SparseArray;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 13386
     return-void
 
     .line 13388
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mData:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->remove(I)V
@@ -394,7 +394,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 13506
     new-instance v0, Ljava/lang/StringBuilder;
@@ -535,7 +535,7 @@
 .end method
 
 .method public willRunPredictiveAnimations()Z
-    .locals 1
+    .registers 2
 
     .line 13364
     iget-boolean v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
@@ -544,7 +544,7 @@
 .end method
 
 .method public willRunSimpleAnimations()Z
-    .locals 1
+    .registers 2
 
     .line 13375
     iget-boolean v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mRunSimpleAnimations:Z

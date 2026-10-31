@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentTransitionCompat21;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 8
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentTransitionCompat21;
 
     .line 225
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public onTransitionCancel(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 246
@@ -69,7 +69,7 @@
 .end method
 
 .method public onTransitionEnd(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 241
@@ -80,7 +80,7 @@
 .end method
 
 .method public onTransitionPause(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 250
@@ -88,7 +88,7 @@
 .end method
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 254
@@ -96,7 +96,7 @@
 .end method
 
 .method public onTransitionStart(Landroid/transition/Transition;)V
-    .locals 4
+    .registers 6
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 228
@@ -104,7 +104,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 229
     iget-object v0, p0, Landroidx/fragment/app/FragmentTransitionCompat21$3;->this$0:Landroidx/fragment/app/FragmentTransitionCompat21;
@@ -116,10 +116,10 @@
     invoke-virtual {v0, v2, v3, v1}, Landroidx/fragment/app/FragmentTransitionCompat21;->replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
     .line 231
-    :cond_0
+    :cond_e
     iget-object v0, p0, Landroidx/fragment/app/FragmentTransitionCompat21$3;->val$exitTransition:Ljava/lang/Object;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 232
     iget-object v0, p0, Landroidx/fragment/app/FragmentTransitionCompat21$3;->this$0:Landroidx/fragment/app/FragmentTransitionCompat21;
@@ -131,10 +131,10 @@
     invoke-virtual {v0, v2, v3, v1}, Landroidx/fragment/app/FragmentTransitionCompat21;->replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
     .line 234
-    :cond_1
+    :cond_1b
     iget-object v0, p0, Landroidx/fragment/app/FragmentTransitionCompat21$3;->val$sharedElementTransition:Ljava/lang/Object;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     .line 235
     iget-object v0, p0, Landroidx/fragment/app/FragmentTransitionCompat21$3;->this$0:Landroidx/fragment/app/FragmentTransitionCompat21;
@@ -146,6 +146,6 @@
     invoke-virtual {v0, v2, v3, v1}, Landroidx/fragment/app/FragmentTransitionCompat21;->replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
     .line 237
-    :cond_2
+    :cond_28
     return-void
 .end method

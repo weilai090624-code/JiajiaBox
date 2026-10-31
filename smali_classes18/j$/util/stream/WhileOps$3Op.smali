@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lj$/util/stream/AbstractPipeline;Lj$/util/stream/StreamShape;ILjava/util/function/LongPredicate;)V
-    .locals 0
+    .registers 5
     .param p2, "inputShape"    # Lj$/util/stream/StreamShape;
     .param p3, "opFlags"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic lambda$opEvaluateParallelLazy$0(I)[Ljava/lang/Long;
-    .locals 1
+    .registers 2
     .param p0, "x$0"    # I
 
     .line 493
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method opEvaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Ljava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -114,7 +114,7 @@
 .end method
 
 .method opEvaluateParallelLazy(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -144,7 +144,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 493
     new-instance v0, Lj$/util/stream/WhileOps$3Op$$ExternalSyntheticLambda0;
@@ -164,7 +164,7 @@
     return-object v0
 
     .line 497
-    :cond_0
+    :cond_1a
     new-instance v0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong$Dropping;
 
     .line 498
@@ -185,7 +185,7 @@
 .end method
 
 .method opWrapSink(ILj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 1
+    .registers 4
     .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -211,7 +211,7 @@
 .end method
 
 .method public opWrapSink(Lj$/util/stream/Sink;Z)Lj$/util/stream/WhileOps$DropWhileSink;
-    .locals 1
+    .registers 4
     .param p2, "retainAndCountDroppedElements"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {

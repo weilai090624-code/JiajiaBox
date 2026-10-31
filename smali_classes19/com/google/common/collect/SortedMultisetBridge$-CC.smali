@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$elementSet(Lcom/google/common/collect/SortedMultisetBridge;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/collect/SortedMultisetBridge;
 
     .line 30

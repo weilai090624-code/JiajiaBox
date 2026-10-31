@@ -92,7 +92,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/math/MathKt__MathHKt;-><init>()V
 
@@ -100,7 +100,7 @@
 .end method
 
 .method private static final IEEErem(DD)D
-    .locals 2
+    .registers 6
     .param p0, "$this$IEEErem"    # D
     .param p2, "divisor"    # D
 
@@ -113,7 +113,7 @@
 .end method
 
 .method private static final IEEErem(FF)F
-    .locals 4
+    .registers 6
     .param p0, "$this$IEEErem"    # F
     .param p1, "divisor"    # F
 
@@ -132,7 +132,7 @@
 .end method
 
 .method private static final abs(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 431
@@ -144,7 +144,7 @@
 .end method
 
 .method private static final abs(F)F
-    .locals 1
+    .registers 2
     .param p0, "x"    # F
 
     .line 978
@@ -156,7 +156,7 @@
 .end method
 
 .method private static final abs(I)I
-    .locals 1
+    .registers 2
     .param p0, "n"    # I
 
     .line 1196
@@ -168,7 +168,7 @@
 .end method
 
 .method private static final abs(J)J
-    .locals 2
+    .registers 4
     .param p0, "n"    # J
 
     .line 1245
@@ -180,7 +180,7 @@
 .end method
 
 .method private static final acos(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 88
@@ -192,7 +192,7 @@
 .end method
 
 .method private static final acos(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 692
@@ -208,7 +208,7 @@
 .end method
 
 .method public static final acosh(D)D
-    .locals 8
+    .registers 10
     .param p0, "x"    # D
 
     .line 210
@@ -219,19 +219,19 @@
 
     cmpg-double v2, p0, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_a
 
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 213
-    :cond_0
+    :cond_a
     sget-wide v0, Lkotlin/math/Constants;->upper_taylor_2_bound:D
 
     cmpl-double v2, p0, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_18
 
     .line 215
     invoke-static {p0, p1}, Ljava/lang/Math;->log(D)D
@@ -242,10 +242,10 @@
 
     add-double/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 217
-    :cond_1
+    :cond_18
     const/4 v0, 0x1
 
     int-to-double v0, v0
@@ -256,7 +256,7 @@
 
     cmpl-double v6, v2, v4
 
-    if-ltz v6, :cond_2
+    if-ltz v6, :cond_2f
 
     .line 218
     mul-double v2, p0, p0
@@ -273,10 +273,10 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 221
-    :cond_2
+    :cond_2f
     sub-double v0, p0, v0
 
     invoke-static {v0, v1}, Ljava/lang/Math;->sqrt(D)D
@@ -293,7 +293,7 @@
 
     cmpl-double v6, v0, v4
 
-    if-ltz v6, :cond_3
+    if-ltz v6, :cond_45
 
     .line 226
     mul-double v4, v0, v0
@@ -309,7 +309,7 @@
     sub-double/2addr v2, v4
 
     .line 229
-    :cond_3
+    :cond_45
     const-wide/high16 v4, 0x4000000000000000L    # 2.0
 
     invoke-static {v4, v5}, Ljava/lang/Math;->sqrt(D)D
@@ -323,12 +323,12 @@
     .line 231
     .end local v0    # "y":D
     .end local v2    # "result":D
-    :goto_0
+    :goto_4e
     return-wide v0
 .end method
 
 .method private static final acosh(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 786
@@ -344,7 +344,7 @@
 .end method
 
 .method private static final asin(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 77
@@ -356,7 +356,7 @@
 .end method
 
 .method private static final asin(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 681
@@ -372,7 +372,7 @@
 .end method
 
 .method public static final asinh(D)D
-    .locals 7
+    .registers 9
     .param p0, "x"    # D
 
     .line 172
@@ -383,7 +383,7 @@
 
     cmpl-double v2, p0, v0
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_38
 
     .line 174
     sget-wide v0, Lkotlin/math/Constants;->upper_taylor_n_bound:D
@@ -392,14 +392,14 @@
 
     cmpl-double v3, p0, v0
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_2a
 
     .line 175
     sget-wide v0, Lkotlin/math/Constants;->upper_taylor_2_bound:D
 
     cmpl-double v3, p0, v0
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_1c
 
     .line 177
     invoke-static {p0, p1}, Ljava/lang/Math;->log(D)D
@@ -410,10 +410,10 @@
 
     add-double/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 180
-    :cond_0
+    :cond_1c
     const/4 v0, 0x2
 
     int-to-double v0, v0
@@ -432,10 +432,10 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 183
-    :cond_1
+    :cond_2a
     mul-double v0, p0, p0
 
     int-to-double v2, v2
@@ -452,17 +452,17 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 185
-    :cond_2
+    :cond_38
     sget-wide v0, Lkotlin/math/Constants;->taylor_n_bound:D
 
     neg-double v0, v0
 
     cmpg-double v2, p0, v0
 
-    if-gtz v2, :cond_3
+    if-gtz v2, :cond_46
 
     neg-double v0, p0
 
@@ -472,10 +472,10 @@
 
     neg-double v0, v0
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 188
-    :cond_3
+    :cond_46
     move-wide v0, p0
 
     .line 189
@@ -488,7 +488,7 @@
 
     cmpl-double v6, v2, v4
 
-    if-ltz v6, :cond_4
+    if-ltz v6, :cond_59
 
     .line 191
     mul-double v2, p0, p0
@@ -504,17 +504,17 @@
     sub-double/2addr v0, v2
 
     .line 193
-    :cond_4
+    :cond_59
     nop
 
     .line 195
     .end local v0    # "result":D
-    :goto_0
+    :goto_5a
     return-wide v0
 .end method
 
 .method private static final asinh(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 772
@@ -530,7 +530,7 @@
 .end method
 
 .method private static final atan(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 99
@@ -542,7 +542,7 @@
 .end method
 
 .method private static final atan(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 703
@@ -558,7 +558,7 @@
 .end method
 
 .method private static final atan2(DD)D
-    .locals 2
+    .registers 6
     .param p0, "y"    # D
     .param p2, "x"    # D
 
@@ -571,7 +571,7 @@
 .end method
 
 .method private static final atan2(FF)F
-    .locals 4
+    .registers 6
     .param p0, "y"    # F
     .param p1, "x"    # F
 
@@ -590,7 +590,7 @@
 .end method
 
 .method public static final atanh(D)D
-    .locals 7
+    .registers 9
     .param p0, "x"    # D
 
     .line 246
@@ -602,7 +602,7 @@
 
     cmpg-double v4, v0, v2
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_1e
 
     .line 247
     move-wide v0, p0
@@ -617,7 +617,7 @@
 
     cmpl-double v6, v2, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_1d
 
     .line 249
     mul-double v2, p0, p0
@@ -633,12 +633,12 @@
     add-double/2addr v0, v2
 
     .line 251
-    :cond_0
+    :cond_1d
     return-wide v0
 
     .line 253
     .end local v0    # "result":D
-    :cond_1
+    :cond_1e
     const/4 v0, 0x1
 
     int-to-double v0, v0
@@ -663,7 +663,7 @@
 .end method
 
 .method private static final atanh(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 801
@@ -679,7 +679,7 @@
 .end method
 
 .method private static final cbrt(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 480
@@ -691,7 +691,7 @@
 .end method
 
 .method private static final cbrt(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 1027
@@ -707,7 +707,7 @@
 .end method
 
 .method private static final ceil(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 381
@@ -719,7 +719,7 @@
 .end method
 
 .method private static final ceil(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 928
@@ -735,7 +735,7 @@
 .end method
 
 .method private static final cos(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 57
@@ -747,7 +747,7 @@
 .end method
 
 .method private static final cos(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 661
@@ -763,7 +763,7 @@
 .end method
 
 .method private static final cosh(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 142
@@ -775,7 +775,7 @@
 .end method
 
 .method private static final cosh(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 746
@@ -791,7 +791,7 @@
 .end method
 
 .method private static final exp(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 287
@@ -803,7 +803,7 @@
 .end method
 
 .method private static final exp(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 834
@@ -819,7 +819,7 @@
 .end method
 
 .method private static final expm1(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 303
@@ -831,7 +831,7 @@
 .end method
 
 .method private static final expm1(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 850
@@ -847,7 +847,7 @@
 .end method
 
 .method private static final floor(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 393
@@ -859,7 +859,7 @@
 .end method
 
 .method private static final floor(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 940
@@ -875,7 +875,7 @@
 .end method
 
 .method private static final getAbsoluteValue(D)D
-    .locals 2
+    .registers 4
     .param p0, "$this$absoluteValue"    # D
 
     .line 536
@@ -887,7 +887,7 @@
 .end method
 
 .method private static final getAbsoluteValue(F)F
-    .locals 1
+    .registers 2
     .param p0, "$this$absoluteValue"    # F
 
     .line 1082
@@ -899,7 +899,7 @@
 .end method
 
 .method private static final getAbsoluteValue(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$absoluteValue"    # I
 
     .line 1222
@@ -911,7 +911,7 @@
 .end method
 
 .method private static final getAbsoluteValue(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$absoluteValue"    # J
 
     .line 1271
@@ -923,31 +923,31 @@
 .end method
 
 .method public static synthetic getAbsoluteValue$annotations(D)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public static synthetic getAbsoluteValue$annotations(F)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getAbsoluteValue$annotations(I)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getAbsoluteValue$annotations(J)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method private static final getSign(D)D
-    .locals 2
+    .registers 4
     .param p0, "$this$sign"    # D
 
     .line 549
@@ -959,7 +959,7 @@
 .end method
 
 .method private static final getSign(F)F
-    .locals 1
+    .registers 2
     .param p0, "$this$sign"    # F
 
     .line 1095
@@ -971,7 +971,7 @@
 .end method
 
 .method public static final getSign(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$sign"    # I
 
     .line 1231
@@ -983,7 +983,7 @@
 .end method
 
 .method public static final getSign(J)I
-    .locals 1
+    .registers 3
     .param p0, "$this$sign"    # J
 
     .line 1280
@@ -995,31 +995,31 @@
 .end method
 
 .method public static synthetic getSign$annotations(D)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public static synthetic getSign$annotations(F)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getSign$annotations(I)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static synthetic getSign$annotations(J)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method private static final getUlp(D)D
-    .locals 2
+    .registers 4
     .param p0, "$this$ulp"    # D
 
     .line 579
@@ -1031,7 +1031,7 @@
 .end method
 
 .method private static final getUlp(F)F
-    .locals 1
+    .registers 2
     .param p0, "$this$ulp"    # F
 
     .line 1125
@@ -1043,19 +1043,19 @@
 .end method
 
 .method public static synthetic getUlp$annotations(D)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public static synthetic getUlp$annotations(F)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method private static final hypot(DD)D
-    .locals 2
+    .registers 6
     .param p0, "x"    # D
     .param p2, "y"    # D
 
@@ -1068,7 +1068,7 @@
 .end method
 
 .method private static final hypot(FF)F
-    .locals 4
+    .registers 6
     .param p0, "x"    # F
     .param p1, "y"    # F
 
@@ -1087,7 +1087,7 @@
 .end method
 
 .method private static final ln(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 334
@@ -1099,7 +1099,7 @@
 .end method
 
 .method private static final ln(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 881
@@ -1115,7 +1115,7 @@
 .end method
 
 .method private static final ln1p(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 369
@@ -1127,7 +1127,7 @@
 .end method
 
 .method private static final ln1p(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 916
@@ -1143,7 +1143,7 @@
 .end method
 
 .method public static final log(DD)D
-    .locals 4
+    .registers 8
     .param p0, "x"    # D
     .param p2, "base"    # D
 
@@ -1152,28 +1152,28 @@
 
     cmpg-double v2, p2, v0
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_1c
 
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
 
     cmpg-double v2, p2, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_12
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 320
-    :cond_1
+    :cond_12
     invoke-static {p0, p1}, Ljava/lang/Math;->log(D)D
 
     move-result-wide v0
@@ -1187,15 +1187,15 @@
     return-wide v0
 
     .line 319
-    :cond_2
-    :goto_1
+    :cond_1c
+    :goto_1c
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
 
     return-wide v0
 .end method
 
 .method public static final log(FF)F
-    .locals 4
+    .registers 6
     .param p0, "x"    # F
     .param p1, "base"    # F
 
@@ -1204,28 +1204,28 @@
 
     cmpg-float v0, p1, v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_1e
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpg-float v0, p1, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_11
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 867
-    :cond_1
+    :cond_11
     float-to-double v0, p0
 
     invoke-static {v0, v1}, Ljava/lang/Math;->log(D)D
@@ -1245,15 +1245,15 @@
     return v0
 
     .line 866
-    :cond_2
-    :goto_1
+    :cond_1e
+    :goto_1e
     const/high16 v0, 0x7fc00000    # Float.NaN
 
     return v0
 .end method
 
 .method private static final log10(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 343
@@ -1265,7 +1265,7 @@
 .end method
 
 .method private static final log10(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 890
@@ -1281,7 +1281,7 @@
 .end method
 
 .method public static final log2(D)D
-    .locals 4
+    .registers 6
     .param p0, "x"    # D
 
     .line 351
@@ -1297,7 +1297,7 @@
 .end method
 
 .method public static final log2(F)F
-    .locals 4
+    .registers 5
     .param p0, "x"    # F
 
     .line 898
@@ -1317,7 +1317,7 @@
 .end method
 
 .method private static final max(DD)D
-    .locals 2
+    .registers 6
     .param p0, "a"    # D
     .param p2, "b"    # D
 
@@ -1330,7 +1330,7 @@
 .end method
 
 .method private static final max(FF)F
-    .locals 1
+    .registers 3
     .param p0, "a"    # F
     .param p1, "b"    # F
 
@@ -1343,7 +1343,7 @@
 .end method
 
 .method private static final max(II)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -1356,7 +1356,7 @@
 .end method
 
 .method private static final max(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -1369,7 +1369,7 @@
 .end method
 
 .method private static final min(DD)D
-    .locals 2
+    .registers 6
     .param p0, "a"    # D
     .param p2, "b"    # D
 
@@ -1382,7 +1382,7 @@
 .end method
 
 .method private static final min(FF)F
-    .locals 1
+    .registers 3
     .param p0, "a"    # F
     .param p1, "b"    # F
 
@@ -1395,7 +1395,7 @@
 .end method
 
 .method private static final min(II)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -1408,7 +1408,7 @@
 .end method
 
 .method private static final min(JJ)J
-    .locals 2
+    .registers 6
     .param p0, "a"    # J
     .param p2, "b"    # J
 
@@ -1421,7 +1421,7 @@
 .end method
 
 .method private static final nextDown(D)D
-    .locals 2
+    .registers 4
     .param p0, "$this$nextDown"    # D
 
     .line 593
@@ -1435,7 +1435,7 @@
 .end method
 
 .method private static final nextDown(F)F
-    .locals 2
+    .registers 3
     .param p0, "$this$nextDown"    # F
 
     .line 1139
@@ -1449,7 +1449,7 @@
 .end method
 
 .method private static final nextTowards(DD)D
-    .locals 2
+    .registers 6
     .param p0, "$this$nextTowards"    # D
     .param p2, "to"    # D
 
@@ -1462,7 +1462,7 @@
 .end method
 
 .method private static final nextTowards(FF)F
-    .locals 2
+    .registers 4
     .param p0, "$this$nextTowards"    # F
     .param p1, "to"    # F
 
@@ -1477,7 +1477,7 @@
 .end method
 
 .method private static final nextUp(D)D
-    .locals 2
+    .registers 4
     .param p0, "$this$nextUp"    # D
 
     .line 586
@@ -1489,7 +1489,7 @@
 .end method
 
 .method private static final nextUp(F)F
-    .locals 1
+    .registers 2
     .param p0, "$this$nextUp"    # F
 
     .line 1132
@@ -1501,7 +1501,7 @@
 .end method
 
 .method private static final pow(DD)D
-    .locals 2
+    .registers 6
     .param p0, "$this$pow"    # D
     .param p2, "x"    # D
 
@@ -1514,7 +1514,7 @@
 .end method
 
 .method private static final pow(DI)D
-    .locals 2
+    .registers 5
     .param p0, "$this$pow"    # D
     .param p2, "n"    # I
 
@@ -1529,7 +1529,7 @@
 .end method
 
 .method private static final pow(FF)F
-    .locals 4
+    .registers 6
     .param p0, "$this$pow"    # F
     .param p1, "x"    # F
 
@@ -1548,7 +1548,7 @@
 .end method
 
 .method private static final pow(FI)F
-    .locals 4
+    .registers 6
     .param p0, "$this$pow"    # F
     .param p1, "n"    # I
 
@@ -1567,7 +1567,7 @@
 .end method
 
 .method private static final round(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 418
@@ -1579,7 +1579,7 @@
 .end method
 
 .method private static final round(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 965
@@ -1595,7 +1595,7 @@
 .end method
 
 .method public static final roundToInt(D)I
-    .locals 3
+    .registers 5
     .param p0, "$this$roundToInt"    # D
 
     .line 618
@@ -1606,33 +1606,33 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_23
 
     .line 620
     const-wide v0, 0x41dfffffffc00000L    # 2.147483647E9
 
     cmpl-double v2, p0, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_14
 
     const v0, 0x7fffffff
 
-    goto :goto_0
+    goto :goto_22
 
     .line 621
-    :cond_0
+    :cond_14
     const-wide/high16 v0, -0x3e20000000000000L    # -2.147483648E9
 
     cmpg-double v2, p0, v0
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_1d
 
     const/high16 v0, -0x80000000
 
-    goto :goto_0
+    goto :goto_22
 
     .line 622
-    :cond_1
+    :cond_1d
     invoke-static {p0, p1}, Ljava/lang/Math;->round(D)J
 
     move-result-wide v0
@@ -1640,11 +1640,11 @@
     long-to-int v0, v0
 
     .line 623
-    :goto_0
+    :goto_22
     return v0
 
     .line 619
-    :cond_2
+    :cond_23
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Cannot round NaN value."
@@ -1655,7 +1655,7 @@
 .end method
 
 .method public static final roundToInt(F)I
-    .locals 2
+    .registers 3
     .param p0, "$this$roundToInt"    # F
 
     .line 1165
@@ -1663,7 +1663,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-static {p0}, Ljava/lang/Math;->round(F)I
 
@@ -1671,7 +1671,7 @@
 
     return v0
 
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Cannot round NaN value."
@@ -1682,7 +1682,7 @@
 .end method
 
 .method public static final roundToLong(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$roundToLong"    # D
 
     .line 637
@@ -1690,7 +1690,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-static {p0, p1}, Ljava/lang/Math;->round(D)J
 
@@ -1698,7 +1698,7 @@
 
     return-wide v0
 
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Cannot round NaN value."
@@ -1709,7 +1709,7 @@
 .end method
 
 .method public static final roundToLong(F)J
-    .locals 2
+    .registers 3
     .param p0, "$this$roundToLong"    # F
 
     .line 1178
@@ -1723,7 +1723,7 @@
 .end method
 
 .method private static final sign(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 444
@@ -1735,7 +1735,7 @@
 .end method
 
 .method private static final sign(F)F
-    .locals 1
+    .registers 2
     .param p0, "x"    # F
 
     .line 991
@@ -1747,7 +1747,7 @@
 .end method
 
 .method private static final sin(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 48
@@ -1759,7 +1759,7 @@
 .end method
 
 .method private static final sin(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 652
@@ -1775,7 +1775,7 @@
 .end method
 
 .method private static final sinh(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 131
@@ -1787,7 +1787,7 @@
 .end method
 
 .method private static final sinh(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 735
@@ -1803,7 +1803,7 @@
 .end method
 
 .method private static final sqrt(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 275
@@ -1815,7 +1815,7 @@
 .end method
 
 .method private static final sqrt(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 822
@@ -1831,7 +1831,7 @@
 .end method
 
 .method private static final tan(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 66
@@ -1843,7 +1843,7 @@
 .end method
 
 .method private static final tan(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 670
@@ -1859,7 +1859,7 @@
 .end method
 
 .method private static final tanh(D)D
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 154
@@ -1871,7 +1871,7 @@
 .end method
 
 .method private static final tanh(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 758
@@ -1887,7 +1887,7 @@
 .end method
 
 .method public static final truncate(D)D
-    .locals 3
+    .registers 5
     .param p0, "x"    # D
 
     .line 404
@@ -1898,50 +1898,50 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1e
 
     invoke-static {p0, p1}, Ljava/lang/Double;->isInfinite(D)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 406
-    :cond_0
+    :cond_e
     const-wide/16 v0, 0x0
 
     cmpl-double v2, p0, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_19
 
     invoke-static {p0, p1}, Ljava/lang/Math;->floor(D)D
 
     move-result-wide v0
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 407
-    :cond_1
+    :cond_19
     invoke-static {p0, p1}, Ljava/lang/Math;->ceil(D)D
 
     move-result-wide v0
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 405
-    :cond_2
-    :goto_0
+    :cond_1e
+    :goto_1e
     move-wide v0, p0
 
     .line 408
-    :goto_1
+    :goto_1f
     return-wide v0
 .end method
 
 .method public static final truncate(F)F
-    .locals 2
+    .registers 3
     .param p0, "x"    # F
 
     .line 951
@@ -1952,23 +1952,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_21
 
     invoke-static {p0}, Ljava/lang/Float;->isInfinite(F)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
-    goto :goto_0
+    goto :goto_21
 
     .line 953
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     cmpl-float v0, p0, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_1a
 
     float-to-double v0, p0
 
@@ -1978,10 +1978,10 @@
 
     double-to-float v0, v0
 
-    goto :goto_1
+    goto :goto_22
 
     .line 954
-    :cond_1
+    :cond_1a
     float-to-double v0, p0
 
     invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
@@ -1990,20 +1990,20 @@
 
     double-to-float v0, v0
 
-    goto :goto_1
+    goto :goto_22
 
     .line 952
-    :cond_2
-    :goto_0
+    :cond_21
+    :goto_21
     move v0, p0
 
     .line 955
-    :goto_1
+    :goto_22
     return v0
 .end method
 
 .method private static final withSign(DD)D
-    .locals 2
+    .registers 6
     .param p0, "$this$withSign"    # D
     .param p2, "sign"    # D
 
@@ -2016,7 +2016,7 @@
 .end method
 
 .method private static final withSign(DI)D
-    .locals 2
+    .registers 5
     .param p0, "$this$withSign"    # D
     .param p2, "sign"    # I
 
@@ -2031,7 +2031,7 @@
 .end method
 
 .method private static final withSign(FF)F
-    .locals 1
+    .registers 3
     .param p0, "$this$withSign"    # F
     .param p1, "sign"    # F
 
@@ -2044,7 +2044,7 @@
 .end method
 
 .method private static final withSign(FI)F
-    .locals 1
+    .registers 3
     .param p0, "$this$withSign"    # F
     .param p1, "sign"    # I
 

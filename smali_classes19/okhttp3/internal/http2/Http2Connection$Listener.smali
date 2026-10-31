@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/http2/Http2Connection$Listener$Companion;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 961
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public onSettings(Lokhttp3/internal/http2/Http2Connection;Lokhttp3/internal/http2/Settings;)V
-    .locals 1
+    .registers 4
     .param p1, "connection"    # Lokhttp3/internal/http2/Http2Connection;
     .param p2, "settings"    # Lokhttp3/internal/http2/Settings;
 

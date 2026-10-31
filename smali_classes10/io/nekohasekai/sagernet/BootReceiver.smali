@@ -54,7 +54,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$mhMB_K4k6Ax6wGSEjA3lPmTvB4M()Landroid/content/ComponentName;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/BootReceiver;->componentName_delegate$lambda$0()Landroid/content/ComponentName;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/BootReceiver$Companion;
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -98,7 +98,7 @@
 .end method
 
 .method public static final synthetic access$getComponentName$delegate$cp()Lkotlin/Lazy;
-    .locals 1
+    .registers 1
 
     .line 14
     sget-object v0, Lio/nekohasekai/sagernet/BootReceiver;->componentName$delegate:Lkotlin/Lazy;
@@ -107,7 +107,7 @@
 .end method
 
 .method private static final componentName_delegate$lambda$0()Landroid/content/ComponentName;
-    .locals 3
+    .registers 3
 
     .line 16
     new-instance v0, Landroid/content/ComponentName;
@@ -128,7 +128,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -160,7 +160,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_24
 
     .line 31
     sget-object v0, Lio/nekohasekai/sagernet/BootReceiver;->Companion:Lio/nekohasekai/sagernet/BootReceiver$Companion;
@@ -171,45 +171,45 @@
     return-void
 
     .line 35
-    :cond_0
+    :cond_24
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3d
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
     move-result v3
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_6e
 
-    goto :goto_0
+    goto :goto_3d
 
-    :pswitch_0
+    :pswitch_33
     const-string v3, "android.intent.action.LOCKED_BOOT_COMPLETED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3d
 
     .line 36
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto :goto_53
 
     .line 37
-    :cond_1
-    :goto_0
+    :cond_3d
+    :goto_3d
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x18
 
-    if-lt v0, v3, :cond_3
+    if-lt v0, v3, :cond_52
 
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
@@ -221,22 +221,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_50
 
-    goto :goto_1
+    goto :goto_52
 
-    :cond_2
+    :cond_50
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto :goto_53
 
-    :cond_3
-    :goto_1
+    :cond_52
+    :goto_52
     const/4 v0, 0x1
 
     .line 35
-    :goto_2
-    if-eqz v0, :cond_4
+    :goto_53
+    if-eqz v0, :cond_63
 
     .line 38
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -249,35 +249,35 @@
 
     cmp-long v0, v3, v5
 
-    if-lez v0, :cond_4
+    if-lez v0, :cond_63
 
     const/4 v1, 0x1
 
-    goto :goto_3
+    goto :goto_64
 
-    :cond_4
+    :cond_63
     nop
 
     .line 35
-    :goto_3
+    :goto_64
     move v0, v1
 
     .line 40
     .local v0, "doStart":Z
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6c
 
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/SagerNet$Companion;->startService()V
 
     .line 41
-    :cond_5
+    :cond_6c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch -0x35f22cb2
-        :pswitch_0
+        :pswitch_33
     .end packed-switch
 .end method

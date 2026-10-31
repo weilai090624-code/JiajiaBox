@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/WorkTimer;Landroidx/work/impl/model/WorkGenerationalId;)V
-    .locals 0
+    .registers 3
     .param p1, "workTimer"    # Landroidx/work/impl/utils/WorkTimer;
     .param p2, "id"    # Landroidx/work/impl/model/WorkGenerationalId;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .registers 9
 
     .line 130
     iget-object v0, p0, Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;->mWorkTimer:Landroidx/work/impl/utils/WorkTimer;
@@ -69,7 +69,7 @@
     monitor-enter v0
 
     .line 131
-    :try_start_0
+    :try_start_5
     iget-object v1, p0, Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;->mWorkTimer:Landroidx/work/impl/utils/WorkTimer;
 
     iget-object v1, v1, Landroidx/work/impl/utils/WorkTimer;->mTimerMap:Ljava/util/Map;
@@ -84,7 +84,7 @@
 
     .line 132
     .local v1, "removed":Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     .line 134
     iget-object v2, p0, Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;->mWorkTimer:Landroidx/work/impl/utils/WorkTimer;
@@ -102,7 +102,7 @@
 
     .line 136
     .local v2, "listener":Landroidx/work/impl/utils/WorkTimer$TimeLimitExceededListener;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     .line 137
     iget-object v3, p0, Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;->mWorkGenerationalId:Landroidx/work/impl/model/WorkGenerationalId;
@@ -111,11 +111,11 @@
 
     .line 139
     .end local v2    # "listener":Landroidx/work/impl/utils/WorkTimer$TimeLimitExceededListener;
-    :cond_0
-    goto :goto_0
+    :cond_26
+    goto :goto_3e
 
     .line 140
-    :cond_1
+    :cond_27
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v2
@@ -142,19 +142,19 @@
 
     .line 143
     .end local v1    # "removed":Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;
-    :goto_0
+    :goto_3e
     monitor-exit v0
 
     .line 144
     return-void
 
     .line 143
-    :catchall_0
+    :catchall_40
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_42
+    .catchall {:try_start_5 .. :try_end_42} :catchall_40
 
     throw v1
 .end method

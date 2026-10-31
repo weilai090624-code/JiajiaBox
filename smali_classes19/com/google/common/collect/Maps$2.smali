@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Iterator;)V
-    .locals 0
+    .registers 2
 
     .line 128
     .local p1, "backingIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+Ljava/util/Map$Entry<TK;TV;>;>;"
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method bridge synthetic transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -51,7 +51,7 @@
 .end method
 
 .method transform(Ljava/util/Map$Entry;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 

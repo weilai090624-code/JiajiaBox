@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 29
     new-instance v0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;
@@ -38,7 +38,7 @@
 .end method
 
 .method private constructor <init>(II)V
-    .locals 4
+    .registers 7
     .param p1, "modulus"    # I
     .param p2, "generator"    # I
 
@@ -66,8 +66,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p1, :cond_0
+    :goto_f
+    if-ge v1, p1, :cond_1c
 
     .line 43
     iget-object v2, p0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->expTable:[I
@@ -82,18 +82,18 @@
     .line 42
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 46
     .end local v1    # "i":I
-    :cond_0
+    :cond_1c
     const/4 v1, 0x0
 
     .restart local v1    # "i":I
-    :goto_1
+    :goto_1d
     add-int/lit8 v2, p1, -0x1
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2c
 
     .line 47
     iget-object v2, p0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->logTable:[I
@@ -107,11 +107,11 @@
     .line 46
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 50
     .end local v1    # "i":I
-    :cond_1
+    :cond_2c
     new-instance v1, Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
 
     const/4 v2, 0x0
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method add(II)I
-    .locals 2
+    .registers 5
     .param p1, "a"    # I
     .param p2, "b"    # I
 
@@ -159,15 +159,15 @@
 .end method
 
 .method buildMonomial(II)Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
-    .locals 3
+    .registers 6
     .param p1, "degree"    # I
     .param p2, "coefficient"    # I
 
     .line 64
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_16
 
     .line 67
-    if-nez p2, :cond_0
+    if-nez p2, :cond_7
 
     .line 68
     iget-object v0, p0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->zero:Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
@@ -175,7 +175,7 @@
     return-object v0
 
     .line 70
-    :cond_0
+    :cond_7
     add-int/lit8 v0, p1, 0x1
 
     new-array v0, v0, [I
@@ -199,7 +199,7 @@
 
     .line 65
     .end local v1    # "coefficients":[I
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -208,7 +208,7 @@
 .end method
 
 .method exp(I)I
-    .locals 1
+    .registers 3
     .param p1, "a"    # I
 
     .line 84
@@ -220,7 +220,7 @@
 .end method
 
 .method getOne()Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->one:Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
@@ -229,7 +229,7 @@
 .end method
 
 .method getSize()I
-    .locals 1
+    .registers 2
 
     .line 109
     iget v0, p0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->modulus:I
@@ -238,7 +238,7 @@
 .end method
 
 .method getZero()Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
-    .locals 1
+    .registers 2
 
     .line 56
     iget-object v0, p0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->zero:Lcom/google/zxing/pdf417/decoder/ec/ModulusPoly;
@@ -247,11 +247,11 @@
 .end method
 
 .method inverse(I)I
-    .locals 3
+    .registers 5
     .param p1, "a"    # I
 
     .line 95
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     .line 98
     iget-object v0, p0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->expTable:[I
@@ -271,7 +271,7 @@
     return v0
 
     .line 96
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/ArithmeticException;
 
     invoke-direct {v0}, Ljava/lang/ArithmeticException;-><init>()V
@@ -280,11 +280,11 @@
 .end method
 
 .method log(I)I
-    .locals 1
+    .registers 3
     .param p1, "a"    # I
 
     .line 88
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 91
     iget-object v0, p0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->logTable:[I
@@ -294,7 +294,7 @@
     return v0
 
     .line 89
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -303,19 +303,19 @@
 .end method
 
 .method multiply(II)I
-    .locals 3
+    .registers 6
     .param p1, "a"    # I
     .param p2, "b"    # I
 
     .line 102
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_18
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
-    goto :goto_0
+    goto :goto_18
 
     .line 105
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->expTable:[I
 
     iget-object v1, p0, Lcom/google/zxing/pdf417/decoder/ec/ModulusGF;->logTable:[I
@@ -339,15 +339,15 @@
     return v0
 
     .line 103
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method subtract(II)I
-    .locals 2
+    .registers 5
     .param p1, "a"    # I
     .param p2, "b"    # I
 

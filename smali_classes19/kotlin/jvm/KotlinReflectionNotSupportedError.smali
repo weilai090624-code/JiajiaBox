@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 11
     const-string v0, "Kotlin reflection implementation is not found at runtime. Make sure you have kotlin-reflect.jar in the classpath"
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
 
     .line 13
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "cause"    # Ljava/lang/Throwable;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 17

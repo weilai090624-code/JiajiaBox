@@ -40,7 +40,7 @@
 
 # direct methods
 .method public static final synthetic access$resumeUndispatched(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "$receiver"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "result"    # Ljava/lang/Object;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public static final synthetic access$resumeUndispatchedWithException(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p0, "$receiver"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "exception"    # Ljava/lang/Throwable;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method private static final resumeUndispatched(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$resumeUndispatched"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "result"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -92,15 +92,15 @@
 
     .line 132
     .local v0, "dispatcher":Lkotlinx/coroutines/CoroutineDispatcher;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 133
     invoke-interface {p0, v0, p1}, Lkotlinx/coroutines/CancellableContinuation;->resumeUndispatched(Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 135
-    :cond_0
+    :cond_14
     move-object v1, p0
 
     check-cast v1, Lkotlin/coroutines/Continuation;
@@ -114,12 +114,12 @@
     invoke-interface {v1, v2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 137
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 .method private static final resumeUndispatchedWithException(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$resumeUndispatchedWithException"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
@@ -149,15 +149,15 @@
 
     .line 142
     .local v0, "dispatcher":Lkotlinx/coroutines/CoroutineDispatcher;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 143
     invoke-interface {p0, v0, p1}, Lkotlinx/coroutines/CancellableContinuation;->resumeUndispatchedWithException(Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_24
 
     .line 145
-    :cond_0
+    :cond_14
     move-object v1, p0
 
     check-cast v1, Lkotlin/coroutines/Continuation;
@@ -175,12 +175,12 @@
     invoke-interface {v1, v2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 147
-    :goto_0
+    :goto_24
     return-void
 .end method
 
 .method public static final selectOld(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -220,15 +220,15 @@
     nop
 
     .line 108
-    :try_start_0
+    :try_start_9
     invoke-interface {p0, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_d
 
-    goto :goto_0
+    goto :goto_11
 
     .line 109
-    :catchall_0
+    :catchall_d
     move-exception v4
 
     .line 110
@@ -237,7 +237,7 @@
 
     .line 112
     .end local v4    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_11
     invoke-virtual {v3}, Lkotlinx/coroutines/selects/SelectBuilderImpl;->getResult()Ljava/lang/Object;
 
     move-result-object v1
@@ -250,16 +250,16 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1e
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_0
+    :cond_1e
     return-object v1
 .end method
 
 .method private static final selectOld$$forInline(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -301,15 +301,15 @@
     nop
 
     .line 108
-    :try_start_0
+    :try_start_b
     invoke-interface {p0, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_b .. :try_end_e} :catchall_f
 
-    goto :goto_0
+    goto :goto_13
 
     .line 109
-    :catchall_0
+    :catchall_f
     move-exception v4
 
     .line 110
@@ -318,7 +318,7 @@
 
     .line 112
     .end local v4    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_13
     invoke-virtual {v3}, Lkotlinx/coroutines/selects/SelectBuilderImpl;->getResult()Ljava/lang/Object;
 
     move-result-object v4
@@ -331,7 +331,7 @@
 
     move-result-object v1
 
-    if-ne v4, v1, :cond_0
+    if-ne v4, v1, :cond_23
 
     move-object v1, p1
 
@@ -339,12 +339,12 @@
 
     invoke-static {v1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_0
+    :cond_23
     return-object v4
 .end method
 
 .method public static final selectUnbiasedOld(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -384,15 +384,15 @@
     nop
 
     .line 122
-    :try_start_0
+    :try_start_9
     invoke-interface {p0, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_9 .. :try_end_c} :catchall_d
 
-    goto :goto_0
+    goto :goto_11
 
     .line 123
-    :catchall_0
+    :catchall_d
     move-exception v4
 
     .line 124
@@ -401,7 +401,7 @@
 
     .line 126
     .end local v4    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_11
     invoke-virtual {v3}, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;->initSelectResult()Ljava/lang/Object;
 
     move-result-object v1
@@ -414,17 +414,17 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1e
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 127
-    :cond_0
+    :cond_1e
     return-object v1
 .end method
 
 .method private static final selectUnbiasedOld$$forInline(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -466,15 +466,15 @@
     nop
 
     .line 122
-    :try_start_0
+    :try_start_b
     invoke-interface {p0, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_b .. :try_end_e} :catchall_f
 
-    goto :goto_0
+    goto :goto_13
 
     .line 123
-    :catchall_0
+    :catchall_f
     move-exception v4
 
     .line 124
@@ -483,7 +483,7 @@
 
     .line 126
     .end local v4    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_13
     invoke-virtual {v3}, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;->initSelectResult()Ljava/lang/Object;
 
     move-result-object v4
@@ -496,7 +496,7 @@
 
     move-result-object v1
 
-    if-ne v4, v1, :cond_0
+    if-ne v4, v1, :cond_23
 
     move-object v1, p1
 
@@ -505,6 +505,6 @@
     invoke-static {v1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 127
-    :cond_0
+    :cond_23
     return-object v4
 .end method

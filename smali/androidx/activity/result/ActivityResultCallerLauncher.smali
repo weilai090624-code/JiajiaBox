@@ -103,7 +103,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/activity/result/ActivityResultLauncher;Landroidx/activity/result/contract/ActivityResultContract;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "launcher"    # Landroidx/activity/result/ActivityResultLauncher;
     .param p2, "callerContract"    # Landroidx/activity/result/contract/ActivityResultContract;
     .param p3, "callerInput"    # Ljava/lang/Object;
@@ -162,7 +162,7 @@
 .end method
 
 .method private final getResultContract()Landroidx/activity/result/contract/ActivityResultContract;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -187,7 +187,7 @@
 
 # virtual methods
 .method public final getCallerContract()Landroidx/activity/result/contract/ActivityResultContract;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -203,7 +203,7 @@
 .end method
 
 .method public final getCallerInput()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TI;"
@@ -217,7 +217,7 @@
 .end method
 
 .method public getContract()Landroidx/activity/result/contract/ActivityResultContract;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -234,7 +234,7 @@
 .end method
 
 .method public bridge synthetic launch(Ljava/lang/Object;Landroidx/core/app/ActivityOptionsCompat;)V
-    .locals 1
+    .registers 4
     .param p1, "input"    # Ljava/lang/Object;
     .param p2, "options"    # Landroidx/core/app/ActivityOptionsCompat;
 
@@ -249,7 +249,7 @@
 .end method
 
 .method public launch(Lkotlin/Unit;Landroidx/core/app/ActivityOptionsCompat;)V
-    .locals 2
+    .registers 5
     .param p1, "input"    # Lkotlin/Unit;
     .param p2, "options"    # Landroidx/core/app/ActivityOptionsCompat;
 
@@ -269,7 +269,7 @@
 .end method
 
 .method public unregister()V
-    .locals 1
+    .registers 2
 
     .line 129
     iget-object v0, p0, Landroidx/activity/result/ActivityResultCallerLauncher;->launcher:Landroidx/activity/result/ActivityResultLauncher;

@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 238
     nop
@@ -103,7 +103,7 @@
 .end method
 
 .method public static final synthetic access$getANDROID_VIEWMODEL_SIGNATURE$p()Ljava/util/List;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Landroidx/lifecycle/SavedStateViewModelFactoryKt;->ANDROID_VIEWMODEL_SIGNATURE:Ljava/util/List;
@@ -112,7 +112,7 @@
 .end method
 
 .method public static final synthetic access$getVIEWMODEL_SIGNATURE$p()Ljava/util/List;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Landroidx/lifecycle/SavedStateViewModelFactoryKt;->VIEWMODEL_SIGNATURE:Ljava/util/List;
@@ -121,7 +121,7 @@
 .end method
 
 .method public static final findMatchingConstructor(Ljava/lang/Class;Ljava/util/List;)Ljava/lang/reflect/Constructor;
-    .locals 7
+    .registers 9
     .param p0, "modelClass"    # Ljava/lang/Class;
     .param p1, "signature"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -161,8 +161,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_3
+    :goto_16
+    if-ge v2, v1, :cond_74
 
     aget-object v3, v0, v2
 
@@ -188,7 +188,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_35
 
     .line 254
     const-string v0, "null cannot be cast to non-null type java.lang.reflect.Constructor<T of androidx.lifecycle.SavedStateViewModelFactoryKt.findMatchingConstructor>"
@@ -198,7 +198,7 @@
     return-object v3
 
     .line 256
-    :cond_0
+    :cond_35
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v5
@@ -207,7 +207,7 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_2
+    if-ne v5, v6, :cond_71
 
     move-object v5, p1
 
@@ -217,12 +217,12 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_49
 
-    goto :goto_1
+    goto :goto_71
 
     .line 257
-    :cond_1
+    :cond_49
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     .line 258
@@ -270,21 +270,21 @@
     .line 250
     .end local v3    # "constructor":Ljava/lang/reflect/Constructor;
     .end local v4    # "parameterTypes":Ljava/util/List;
-    :cond_2
-    :goto_1
+    :cond_71
+    :goto_71
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 263
-    :cond_3
+    :cond_74
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static final varargs newInstance(Ljava/lang/Class;Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Landroidx/lifecycle/ViewModel;
-    .locals 4
+    .registers 7
     .param p0, "modelClass"    # Ljava/lang/Class;
     .param p1, "constructor"    # Ljava/lang/reflect/Constructor;
     .param p2, "params"    # [Ljava/lang/Object;
@@ -318,7 +318,7 @@
     nop
 
     .line 226
-    :try_start_0
+    :try_start_10
     array-length v0, p2
 
     invoke-static {p2, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -330,16 +330,16 @@
     move-result-object v0
 
     check-cast v0, Landroidx/lifecycle/ViewModel;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/IllegalAccessException; {:try_start_10 .. :try_end_1b} :catch_5d
+    .catch Ljava/lang/InstantiationException; {:try_start_10 .. :try_end_1b} :catch_3a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_10 .. :try_end_1b} :catch_1c
 
     .line 225
     return-object v0
 
     .line 231
-    :catch_0
+    :catch_1c
     move-exception v0
 
     .line 232
@@ -376,7 +376,7 @@
 
     .line 229
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_3a
     move-exception v0
 
     .line 230
@@ -417,7 +417,7 @@
 
     .line 227
     .end local v0    # "e":Ljava/lang/InstantiationException;
-    :catch_2
+    :catch_5d
     move-exception v0
 
     .line 228

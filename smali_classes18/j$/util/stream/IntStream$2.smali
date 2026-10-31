@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(JILjava/util/function/IntUnaryOperator;ILjava/util/function/IntPredicate;)V
-    .locals 0
+    .registers 7
     .param p1, "est"    # J
     .param p3, "additionalCharacteristics"    # I
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 970
     check-cast p1, Ljava/util/function/IntConsumer;
@@ -60,7 +60,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/IntConsumer;)V
-    .locals 2
+    .registers 4
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 996
@@ -69,13 +69,13 @@
     .line 997
     iget-boolean v0, p0, Lj$/util/stream/IntStream$2;->finished:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 998
     return-void
 
     .line 999
-    :cond_0
+    :cond_8
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lj$/util/stream/IntStream$2;->finished:Z
@@ -83,7 +83,7 @@
     .line 1000
     iget-boolean v0, p0, Lj$/util/stream/IntStream$2;->started:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Lj$/util/stream/IntStream$2;->val$next:Ljava/util/function/IntUnaryOperator;
 
@@ -93,21 +93,21 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_18
     iget v0, p0, Lj$/util/stream/IntStream$2;->val$seed:I
 
     .line 1001
     .local v0, "t":I
-    :goto_0
+    :goto_1a
     iget-object v1, p0, Lj$/util/stream/IntStream$2;->val$hasNext:Ljava/util/function/IntPredicate;
 
     invoke-interface {v1, v0}, Ljava/util/function/IntPredicate;->test(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2c
 
     .line 1002
     invoke-interface {p1, v0}, Ljava/util/function/IntConsumer;->accept(I)V
@@ -119,15 +119,15 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 1005
-    :cond_2
+    :cond_2c
     return-void
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 970
     check-cast p1, Ljava/util/function/IntConsumer;
@@ -140,7 +140,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/IntConsumer;)Z
-    .locals 4
+    .registers 6
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 976
@@ -151,18 +151,18 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 978
     return v1
 
     .line 980
-    :cond_0
+    :cond_9
     iget-boolean v0, p0, Lj$/util/stream/IntStream$2;->started:Z
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 981
     iget-object v0, p0, Lj$/util/stream/IntStream$2;->val$next:Ljava/util/function/IntUnaryOperator;
@@ -174,11 +174,11 @@
     move-result v0
 
     .local v0, "t":I
-    goto :goto_0
+    goto :goto_1b
 
     .line 983
     .end local v0    # "t":I
-    :cond_1
+    :cond_17
     iget v0, p0, Lj$/util/stream/IntStream$2;->val$seed:I
 
     .line 984
@@ -186,14 +186,14 @@
     iput-boolean v2, p0, Lj$/util/stream/IntStream$2;->started:Z
 
     .line 986
-    :goto_0
+    :goto_1b
     iget-object v3, p0, Lj$/util/stream/IntStream$2;->val$hasNext:Ljava/util/function/IntPredicate;
 
     invoke-interface {v3, v0}, Ljava/util/function/IntPredicate;->test(I)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_26
 
     .line 987
     iput-boolean v2, p0, Lj$/util/stream/IntStream$2;->finished:Z
@@ -202,7 +202,7 @@
     return v1
 
     .line 990
-    :cond_2
+    :cond_26
     iput v0, p0, Lj$/util/stream/IntStream$2;->prev:I
 
     invoke-interface {p1, v0}, Ljava/util/function/IntConsumer;->accept(I)V

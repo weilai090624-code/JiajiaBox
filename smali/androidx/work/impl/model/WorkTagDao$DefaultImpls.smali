@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static insertTags(Landroidx/work/impl/model/WorkTagDao;Ljava/lang/String;Ljava/util/Set;)V
-    .locals 7
+    .registers 10
     .param p0, "$this"    # Landroidx/work/impl/model/WorkTagDao;
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "tags"    # Ljava/util/Set;
@@ -67,12 +67,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_13
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -100,10 +100,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_13
 
     .line 67
-    :cond_0
+    :cond_2b
     nop
 
     .line 64

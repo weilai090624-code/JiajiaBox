@@ -94,7 +94,7 @@
 
 # direct methods
 .method constructor <init>([Lkotlinx/coroutines/flow/Flow;ILjava/util/concurrent/atomic/AtomicInteger;Lkotlinx/coroutines/channels/Channel;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -165,7 +165,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -179,7 +179,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -208,7 +208,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -221,7 +221,7 @@
 
     const/4 v3, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_64
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -231,28 +231,28 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_13
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;
     .local p1, "$result":Ljava/lang/Object;
-    :try_start_0
+    :try_start_14
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_14 .. :try_end_17} :catchall_18
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 37
-    :catchall_0
+    :catchall_18
     move-exception v1
 
-    goto :goto_1
+    goto :goto_54
 
     .line 29
     .end local v0    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1a
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -263,7 +263,7 @@
     nop
 
     .line 31
-    :try_start_1
+    :try_start_1f
     iget-object v4, v1, Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;->$flows:[Lkotlinx/coroutines/flow/Flow;
 
     iget v5, v1, Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;->$i:I
@@ -289,29 +289,29 @@
     invoke-interface {v4, v5, v6}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_39
+    .catchall {:try_start_1f .. :try_end_39} :catchall_50
 
-    if-ne v4, v0, :cond_0
+    if-ne v4, v0, :cond_3c
 
     .line 29
     return-object v0
 
     .line 31
-    :cond_0
+    :cond_3c
     move-object v0, v1
 
     .line 37
     .end local v1    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;
     .restart local v0    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;
-    :goto_0
+    :goto_3d
     iget-object v1, v0, Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;->$nonClosed:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_4c
 
     .line 38
     iget-object v1, v0, Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;->$resultChannel:Lkotlinx/coroutines/channels/Channel;
@@ -321,7 +321,7 @@
     invoke-static {v1, v3, v2, v3}, Lkotlinx/coroutines/channels/SendChannel$DefaultImpls;->close$default(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Throwable;ILjava/lang/Object;)Z
 
     .line 40
-    :cond_1
+    :cond_4c
     nop
 
     .line 41
@@ -332,7 +332,7 @@
     .line 37
     .end local v0    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;
     .restart local v1    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;
-    :catchall_1
+    :catchall_50
     move-exception v0
 
     move-object v8, v1
@@ -343,14 +343,14 @@
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;
     .restart local v0    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;
-    :goto_1
+    :goto_54
     iget-object v4, v0, Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;->$nonClosed:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v4}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_63
 
     .line 38
     iget-object v4, v0, Lkotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$1;->$resultChannel:Lkotlinx/coroutines/channels/Channel;
@@ -359,12 +359,12 @@
 
     invoke-static {v4, v3, v2, v3}, Lkotlinx/coroutines/channels/SendChannel$DefaultImpls;->close$default(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Throwable;ILjava/lang/Object;)Z
 
-    :cond_2
+    :cond_63
     throw v1
 
-    :pswitch_data_0
+    :pswitch_data_64
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_13
     .end packed-switch
 .end method

@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentTransitionImpl;ILjava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 7
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentTransitionImpl;
 
     .line 198
@@ -57,16 +57,16 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 201
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget v1, p0, Landroidx/fragment/app/FragmentTransitionImpl$1;->val$numSharedElements:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_2e
 
     .line 202
     iget-object v1, p0, Landroidx/fragment/app/FragmentTransitionImpl$1;->val$sharedElementsIn:Ljava/util/ArrayList;
@@ -109,10 +109,10 @@
     .line 201
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 205
     .end local v0    # "i":I
-    :cond_0
+    :cond_2e
     return-void
 .end method

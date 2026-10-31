@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>([Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -89,7 +89,7 @@
 .end method
 
 .method synthetic constructor <init>([Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/util/concurrent/Futures$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # [Lcom/google/common/util/concurrent/ListenableFuture;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/Futures$1;
 
@@ -101,7 +101,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;Lcom/google/common/collect/ImmutableList;I)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;
     .param p1, "x1"    # Lcom/google/common/collect/ImmutableList;
     .param p2, "x2"    # I
@@ -113,7 +113,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;Z)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;
     .param p1, "x1"    # Z
 
@@ -124,7 +124,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;)[Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;
 
     .line 967
@@ -134,7 +134,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;)Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;
 
     .line 967
@@ -144,7 +144,7 @@
 .end method
 
 .method private recordCompletion()V
-    .locals 5
+    .registers 6
 
     .line 1017
     .local p0, "this":Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;, "Lcom/google/common/util/concurrent/Futures$InCompletionOrderState<TT;>;"
@@ -154,11 +154,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     iget-boolean v0, p0, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->wasCancelled:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 1018
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->inputFutures:[Lcom/google/common/util/concurrent/ListenableFuture;
@@ -167,14 +167,14 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_10
+    if-ge v2, v1, :cond_1e
 
     aget-object v3, v0, v2
 
     .line 1019
     .local v3, "toCancel":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TT;>;"
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     .line 1020
     iget-boolean v4, p0, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->shouldInterrupt:Z
@@ -183,18 +183,18 @@
 
     .line 1018
     .end local v3    # "toCancel":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TT;>;"
-    :cond_0
+    :cond_1b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 1024
-    :cond_1
+    :cond_1e
     return-void
 .end method
 
 .method private recordInputCompletion(Lcom/google/common/collect/ImmutableList;I)V
-    .locals 3
+    .registers 6
     .param p2, "inputFutureIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -230,12 +230,12 @@
     iget v1, p0, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->delegateIndex:I
 
     .local v1, "i":I
-    :goto_0
+    :goto_11
     invoke-virtual {p1}, Lcom/google/common/collect/ImmutableList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2e
 
     .line 1003
     invoke-virtual {p1, v1}, Lcom/google/common/collect/ImmutableList;->get(I)Ljava/lang/Object;
@@ -248,7 +248,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2b
 
     .line 1004
     invoke-direct {p0}, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->recordCompletion()V
@@ -262,14 +262,14 @@
     return-void
 
     .line 1002
-    :cond_0
+    :cond_2b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1013
     .end local v1    # "i":I
-    :cond_1
+    :cond_2e
     invoke-virtual {p1}, Lcom/google/common/collect/ImmutableList;->size()I
 
     move-result v1
@@ -281,7 +281,7 @@
 .end method
 
 .method private recordOutputCancellation(Z)V
-    .locals 1
+    .registers 3
     .param p1, "interruptIfRunning"    # Z
 
     .line 984
@@ -291,7 +291,7 @@
     iput-boolean v0, p0, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->wasCancelled:Z
 
     .line 987
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     .line 988
     const/4 v0, 0x0
@@ -299,7 +299,7 @@
     iput-boolean v0, p0, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->shouldInterrupt:Z
 
     .line 990
-    :cond_0
+    :cond_8
     invoke-direct {p0}, Lcom/google/common/util/concurrent/Futures$InCompletionOrderState;->recordCompletion()V
 
     .line 991

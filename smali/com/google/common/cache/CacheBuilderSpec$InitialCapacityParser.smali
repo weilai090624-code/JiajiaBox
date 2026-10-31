@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 326
     invoke-direct {p0}, Lcom/google/common/cache/CacheBuilderSpec$IntegerParser;-><init>()V
@@ -27,23 +27,23 @@
 
 # virtual methods
 .method protected parseInteger(Lcom/google/common/cache/CacheBuilderSpec;I)V
-    .locals 3
+    .registers 6
     .param p1, "spec"    # Lcom/google/common/cache/CacheBuilderSpec;
     .param p2, "value"    # I
 
     .line 329
     iget-object v0, p1, Lcom/google/common/cache/CacheBuilderSpec;->initialCapacity:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string v1, "initial capacity was already set to "
 
     iget-object v2, p1, Lcom/google/common/cache/CacheBuilderSpec;->initialCapacity:Ljava/lang/Integer;

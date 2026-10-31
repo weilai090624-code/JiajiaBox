@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/widget/QRCodeDialog$Companion;
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Landroidx/fragment/app/DialogFragment;-><init>()V
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "url"    # Ljava/lang/String;
     .param p2, "displayName"    # Ljava/lang/String;
 
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public bridge synthetic onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 1
+    .registers 5
     .param p1, "p0"    # Landroid/view/LayoutInflater;
     .param p2, "p1"    # Landroid/view/ViewGroup;
     .param p3, "p2"    # Landroid/os/Bundle;
@@ -161,7 +161,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/widget/LinearLayout;
-    .locals 20
+    .registers 24
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -183,7 +183,7 @@
     nop
 
     .line 54
-    :try_start_0
+    :try_start_a
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/widget/QRCodeDialog;->requireContext()Landroid/content/Context;
 
     move-result-object v0
@@ -210,16 +210,16 @@
 
     .line 57
     .local v5, "width":I
-    if-le v4, v5, :cond_0
+    if-le v4, v5, :cond_23
 
     move v6, v5
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     move v6, v4
 
-    :goto_0
+    :goto_24
     move v2, v6
 
     .line 58
@@ -232,39 +232,39 @@
     invoke-static {v6, v7}, Lkotlin/math/MathKt;->roundToInt(D)I
 
     move-result v6
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Lcom/google/zxing/WriterException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_31
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_31} :catch_36
+    .catch Lcom/google/zxing/WriterException; {:try_start_a .. :try_end_31} :catch_33
 
     move v2, v6
 
-    goto :goto_1
+    goto :goto_37
 
     .line 97
     .end local v0    # "displayMetrics":Landroid/util/DisplayMetrics;
     .end local v2    # "pixelMin":I
     .end local v4    # "height":I
     .end local v5    # "width":I
-    :catch_0
+    :catch_33
     move-exception v0
 
-    goto/16 :goto_8
+    goto/16 :goto_138
 
     .line 59
     .restart local v2    # "pixelMin":I
-    :catch_1
+    :catch_36
     move-exception v0
 
     .line 62
-    :goto_1
-    if-lez v2, :cond_1
+    :goto_37
+    if-lez v2, :cond_3b
 
     move v0, v2
 
-    goto :goto_2
+    goto :goto_46
 
-    :cond_1
-    :try_start_1
+    :cond_3b
+    :try_start_3b
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/widget/QRCodeDialog;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -277,12 +277,12 @@
 
     .line 65
     .local v0, "size":I
-    :goto_2
+    :goto_46
     invoke-virtual/range {p0 .. p0}, Lio/nekohasekai/sagernet/widget/QRCodeDialog;->getArguments()Landroid/os/Bundle;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_53
 
     const-string v5, "io.nekohasekai.sagernet.QRCodeDialog.KEY_URL"
 
@@ -290,12 +290,12 @@
 
     move-result-object v4
 
-    goto :goto_3
+    goto :goto_54
 
-    :cond_2
+    :cond_53
     const/4 v4, 0x0
 
-    :goto_3
+    :goto_54
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     move-object v10, v4
@@ -306,7 +306,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_65
 
     const-string v5, "io.nekohasekai.sagernet.QRCodeDialog.KEY_NAME"
 
@@ -314,12 +314,12 @@
 
     move-result-object v4
 
-    goto :goto_4
+    goto :goto_66
 
-    :cond_3
+    :cond_65
     const/4 v4, 0x0
 
-    :goto_4
+    :goto_66
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     move-object v11, v4
@@ -346,7 +346,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_88
 
     sget-object v4, Lcom/google/zxing/EncodeHintType;->CHARACTER_SET:Lcom/google/zxing/EncodeHintType;
 
@@ -359,7 +359,7 @@
     invoke-interface {v12, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 70
-    :cond_4
+    :cond_88
     new-instance v4, Lcom/google/zxing/MultiFormatWriter;
 
     invoke-direct {v4}, Lcom/google/zxing/MultiFormatWriter;-><init>()V
@@ -451,23 +451,23 @@
     move/from16 v3, v18
 
     .local v3, "x":I
-    :goto_5
-    if-ge v3, v0, :cond_7
+    :goto_ce
+    if-ge v3, v0, :cond_101
 
     const/16 v18, 0x0
 
     move/from16 v8, v18
 
     .local v8, "y":I
-    :goto_6
-    if-ge v8, v0, :cond_6
+    :goto_d4
+    if-ge v8, v0, :cond_f6
 
     .line 83
     invoke-virtual {v4, v3, v8}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
 
     move-result v18
 
-    if-eqz v18, :cond_5
+    if-eqz v18, :cond_e3
 
     const/high16 v18, -0x1000000
 
@@ -475,9 +475,9 @@
 
     const/high16 v0, -0x1000000
 
-    goto :goto_7
+    goto :goto_e8
 
-    :cond_5
+    :cond_e3
     const/16 v18, -0x1
 
     move/from16 v19, v0
@@ -486,7 +486,7 @@
 
     .end local v0    # "size":I
     .local v19, "size":I
-    :goto_7
+    :goto_e8
     move-object/from16 v1, v16
 
     .end local v16    # "$this$onCreateView_u24lambda_u243_u24lambda_u241_u24lambda_u240":Landroid/graphics/Bitmap;
@@ -502,13 +502,13 @@
 
     move-object/from16 v1, p1
 
-    goto :goto_6
+    goto :goto_d4
 
     .end local v1    # "$this$onCreateView_u24lambda_u243_u24lambda_u241_u24lambda_u240":Landroid/graphics/Bitmap;
     .end local v19    # "size":I
     .restart local v0    # "size":I
     .restart local v16    # "$this$onCreateView_u24lambda_u243_u24lambda_u241_u24lambda_u240":Landroid/graphics/Bitmap;
-    :cond_6
+    :cond_f6
     move/from16 v19, v0
 
     move-object/from16 v1, v16
@@ -524,13 +524,13 @@
 
     move-object/from16 v1, p1
 
-    goto :goto_5
+    goto :goto_ce
 
     .end local v1    # "$this$onCreateView_u24lambda_u243_u24lambda_u241_u24lambda_u240":Landroid/graphics/Bitmap;
     .end local v19    # "size":I
     .restart local v0    # "size":I
     .restart local v16    # "$this$onCreateView_u24lambda_u243_u24lambda_u241_u24lambda_u240":Landroid/graphics/Bitmap;
-    :cond_7
+    :cond_101
     move/from16 v19, v0
 
     move-object/from16 v1, v16
@@ -607,8 +607,8 @@
     check-cast v0, Landroid/view/View;
 
     invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-    :try_end_1
-    .catch Lcom/google/zxing/WriterException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_135
+    .catch Lcom/google/zxing/WriterException; {:try_start_3b .. :try_end_135} :catch_33
 
     .line 96
     nop
@@ -624,11 +624,11 @@
     .end local v11    # "displayName":Ljava/lang/String;
     .end local v12    # "hints":Ljava/util/Map;
     .end local v19    # "size":I
-    goto :goto_9
+    goto :goto_164
 
     .line 98
     .local v0, "e":Lcom/google/zxing/WriterException;
-    :goto_8
+    :goto_138
     sget-object v1, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     move-object v2, v0
@@ -676,6 +676,6 @@
 
     .line 102
     .end local v0    # "e":Lcom/google/zxing/WriterException;
-    :goto_9
+    :goto_164
     return-object v3
 .end method

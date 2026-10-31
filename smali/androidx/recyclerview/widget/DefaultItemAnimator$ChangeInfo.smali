@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 3
     .param p1, "oldHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "newHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIII)V
-    .locals 0
+    .registers 7
     .param p1, "oldHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "newHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p3, "fromX"    # I
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 91
     new-instance v0, Ljava/lang/StringBuilder;

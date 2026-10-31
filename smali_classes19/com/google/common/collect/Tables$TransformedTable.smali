@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Table;Lcom/google/common/base/Function;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method cellFunction()Lcom/google/common/base/Function;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -116,7 +116,7 @@
 .end method
 
 .method cellIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -150,7 +150,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 391
     .local p0, "this":Lcom/google/common/collect/Tables$TransformedTable;, "Lcom/google/common/collect/Tables$TransformedTable<TR;TC;TV1;TV2;>;"
@@ -163,7 +163,7 @@
 .end method
 
 .method public column(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -195,7 +195,7 @@
 .end method
 
 .method public columnKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -216,7 +216,7 @@
 .end method
 
 .method public columnMap()Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -249,7 +249,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -271,7 +271,7 @@
 .end method
 
 .method createValues()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -298,7 +298,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -325,7 +325,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 380
     iget-object v0, p0, Lcom/google/common/collect/Tables$TransformedTable;->function:Lcom/google/common/base/Function;
@@ -344,19 +344,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
     .line 381
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     .line 379
-    :goto_0
+    :goto_18
     return-object v0
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -391,7 +391,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/Table;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -411,7 +411,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -438,7 +438,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 413
     iget-object v0, p0, Lcom/google/common/collect/Tables$TransformedTable;->function:Lcom/google/common/base/Function;
@@ -457,19 +457,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_18
 
     .line 414
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     .line 411
-    :goto_0
+    :goto_18
     return-object v0
 .end method
 
 .method public row(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -501,7 +501,7 @@
 .end method
 
 .method public rowKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -522,7 +522,7 @@
 .end method
 
 .method public rowMap()Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -555,7 +555,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 386
     .local p0, "this":Lcom/google/common/collect/Tables$TransformedTable;, "Lcom/google/common/collect/Tables$TransformedTable<TR;TC;TV1;TV2;>;"

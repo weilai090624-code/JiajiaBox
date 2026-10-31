@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/collect/ForwardingNavigableMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/ForwardingNavigableMap;
 
     .line 306
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method protected entryIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -62,7 +62,7 @@
 .end method
 
 .method forward()Ljava/util/NavigableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 4
+    .registers 5
 
     .line 33
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public cbSelectorUpdate(J)V
-    .locals 0
+    .registers 3
     .param p1, "id"    # J
 
     .line 33
@@ -90,7 +90,7 @@
 .end method
 
 .method public cbSpeedUpdate(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
-    .locals 0
+    .registers 2
     .param p1, "stats"    # Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
     .line 33
@@ -100,7 +100,7 @@
 .end method
 
 .method public cbTrafficUpdate(Lio/nekohasekai/sagernet/aidl/TrafficData;)V
-    .locals 0
+    .registers 2
     .param p1, "data"    # Lio/nekohasekai/sagernet/aidl/TrafficData;
 
     .line 33
@@ -110,7 +110,7 @@
 .end method
 
 .method public missingPlugin(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "profileName"    # Ljava/lang/String;
     .param p2, "pluginName"    # Ljava/lang/String;
 
@@ -121,7 +121,7 @@
 .end method
 
 .method public onBinderDied()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/SagerConnection$Callback$DefaultImpls;->onBinderDied(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;)V
@@ -130,7 +130,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 37
@@ -154,7 +154,7 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_28
 
     .line 40
     move-object v0, p0
@@ -184,12 +184,12 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutManager;->reportShortcutUsed(Ljava/lang/String;)V
 
     .line 42
-    :cond_0
+    :cond_28
     return-void
 .end method
 
 .method protected onDestroy()V
-    .locals 2
+    .registers 3
 
     .line 55
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/QuickEnableShortcut;->connection:Lio/nekohasekai/sagernet/bg/SagerConnection;
@@ -208,7 +208,7 @@
 .end method
 
 .method public onServiceConnected(Lio/nekohasekai/sagernet/aidl/ISagerNetService;)V
-    .locals 2
+    .registers 4
     .param p1, "service"    # Lio/nekohasekai/sagernet/aidl/ISagerNetService;
 
     const-string v0, "service"
@@ -230,7 +230,7 @@
     .local v0, "state":Lio/nekohasekai/sagernet/bg/BaseService$State;
     sget-object v1, Lio/nekohasekai/sagernet/bg/BaseService$State;->Stopped:Lio/nekohasekai/sagernet/bg/BaseService$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_18
 
     .line 47
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -238,7 +238,7 @@
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/SagerNet$Companion;->startService()V
 
     .line 49
-    :cond_0
+    :cond_18
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/QuickEnableShortcut;->finish()V
 
     .line 50
@@ -246,7 +246,7 @@
 .end method
 
 .method public onServiceDisconnected()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/SagerConnection$Callback$DefaultImpls;->onServiceDisconnected(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;)V
@@ -255,7 +255,7 @@
 .end method
 
 .method public stateChanged(Lio/nekohasekai/sagernet/bg/BaseService$State;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "state"    # Lio/nekohasekai/sagernet/bg/BaseService$State;
     .param p2, "profileName"    # Ljava/lang/String;
     .param p3, "msg"    # Ljava/lang/String;

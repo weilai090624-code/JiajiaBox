@@ -69,7 +69,7 @@
 
 # direct methods
 .method public static final commonClose(Lokio/RealBufferedSink;)V
-    .locals 7
+    .registers 8
     .param p0, "$this$commonClose"    # Lokio/RealBufferedSink;
 
     const-string v0, "<this>"
@@ -82,12 +82,12 @@
     .local v0, "$i$f$commonClose":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     return-void
 
     .line 193
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
     .line 194
@@ -102,7 +102,7 @@
 
     .line 243
     .local v3, "$i$f$getBuffer":I
-    :try_start_0
+    :try_start_f
     iget-object v4, v2, Lokio/RealBufferedSink;->bufferField:Lokio/Buffer;
 
     .line 195
@@ -116,7 +116,7 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_2f
 
     .line 196
     iget-object v2, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
@@ -150,13 +150,13 @@
     move-result-wide v3
 
     invoke-interface {v2, v5, v3, v4}, Lokio/Sink;->write(Lokio/Buffer;J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_f .. :try_end_2c} :catchall_2d
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 198
-    :catchall_0
+    :catchall_2d
     move-exception v2
 
     .line 199
@@ -165,51 +165,51 @@
 
     .line 202
     .end local v2    # "e":Ljava/lang/Throwable;
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     nop
 
     .line 203
-    :try_start_1
+    :try_start_30
     iget-object v2, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
 
     invoke-interface {v2}, Lokio/Sink;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_35
+    .catchall {:try_start_30 .. :try_end_35} :catchall_36
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 204
-    :catchall_1
+    :catchall_36
     move-exception v2
 
     .line 205
     .restart local v2    # "e":Ljava/lang/Throwable;
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3a
 
     move-object v1, v2
 
     .line 208
     .end local v2    # "e":Ljava/lang/Throwable;
-    :cond_2
-    :goto_1
+    :cond_3a
+    :goto_3a
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lokio/RealBufferedSink;->closed:Z
 
     .line 210
-    if-nez v1, :cond_3
+    if-nez v1, :cond_40
 
     .line 211
     return-void
 
     .line 210
-    :cond_3
+    :cond_40
     throw v1
 .end method
 
 .method public static final commonEmit(Lokio/RealBufferedSink;)Lokio/BufferedSink;
-    .locals 6
+    .registers 7
     .param p0, "$this$commonEmit"    # Lokio/RealBufferedSink;
 
     const-string v0, "<this>"
@@ -222,7 +222,7 @@
     .local v0, "$i$f$commonEmit":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_25
 
     .line 175
     move-object v1, p0
@@ -247,7 +247,7 @@
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_21
 
     iget-object v3, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
 
@@ -266,7 +266,7 @@
     invoke-interface {v3, v4, v1, v2}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
     .line 177
-    :cond_0
+    :cond_21
     move-object v3, p0
 
     check-cast v3, Lokio/BufferedSink;
@@ -275,7 +275,7 @@
 
     .line 217
     .end local v1    # "byteCount":J
-    :cond_1
+    :cond_25
     const/4 v1, 0x0
 
     .line 174
@@ -299,7 +299,7 @@
 .end method
 
 .method public static final commonEmitCompleteSegments(Lokio/RealBufferedSink;)Lokio/BufferedSink;
-    .locals 6
+    .registers 7
     .param p0, "$this$commonEmitCompleteSegments"    # Lokio/RealBufferedSink;
 
     const-string v0, "<this>"
@@ -312,7 +312,7 @@
     .local v0, "$i$f$commonEmitCompleteSegments":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_25
 
     .line 168
     move-object v1, p0
@@ -337,7 +337,7 @@
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_21
 
     iget-object v3, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
 
@@ -356,7 +356,7 @@
     invoke-interface {v3, v4, v1, v2}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
     .line 170
-    :cond_0
+    :cond_21
     move-object v3, p0
 
     check-cast v3, Lokio/BufferedSink;
@@ -365,7 +365,7 @@
 
     .line 217
     .end local v1    # "byteCount":J
-    :cond_1
+    :cond_25
     const/4 v1, 0x0
 
     .line 167
@@ -389,7 +389,7 @@
 .end method
 
 .method public static final commonFlush(Lokio/RealBufferedSink;)V
-    .locals 6
+    .registers 7
     .param p0, "$this$commonFlush"    # Lokio/RealBufferedSink;
 
     const-string v0, "<this>"
@@ -402,7 +402,7 @@
     .local v0, "$i$f$commonFlush":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2f
 
     .line 182
     move-object v1, p0
@@ -425,7 +425,7 @@
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_29
 
     .line 183
     iget-object v1, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
@@ -461,7 +461,7 @@
     invoke-interface {v1, v2, v3, v4}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
     .line 185
-    :cond_0
+    :cond_29
     iget-object v1, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
 
     invoke-interface {v1}, Lokio/Sink;->flush()V
@@ -470,7 +470,7 @@
     return-void
 
     .line 217
-    :cond_1
+    :cond_2f
     const/4 v1, 0x0
 
     .line 181
@@ -494,7 +494,7 @@
 .end method
 
 .method public static final commonTimeout(Lokio/RealBufferedSink;)Lokio/Timeout;
-    .locals 2
+    .registers 3
     .param p0, "$this$commonTimeout"    # Lokio/RealBufferedSink;
 
     const-string v0, "<this>"
@@ -515,7 +515,7 @@
 .end method
 
 .method public static final commonToString(Lokio/RealBufferedSink;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$commonToString"    # Lokio/RealBufferedSink;
 
     const-string v0, "<this>"
@@ -556,7 +556,7 @@
 .end method
 
 .method public static final commonWrite(Lokio/RealBufferedSink;Lokio/ByteString;)Lokio/BufferedSink;
-    .locals 3
+    .registers 5
     .param p0, "$this$commonWrite"    # Lokio/RealBufferedSink;
     .param p1, "byteString"    # Lokio/ByteString;
 
@@ -574,7 +574,7 @@
     .local v0, "$i$f$commonWrite":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 38
     move-object v1, p0
@@ -599,7 +599,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     .line 37
@@ -623,7 +623,7 @@
 .end method
 
 .method public static final commonWrite(Lokio/RealBufferedSink;Lokio/ByteString;II)Lokio/BufferedSink;
-    .locals 3
+    .registers 7
     .param p0, "$this$commonWrite"    # Lokio/RealBufferedSink;
     .param p1, "byteString"    # Lokio/ByteString;
     .param p2, "offset"    # I
@@ -643,7 +643,7 @@
     .local v0, "$i$f$commonWrite":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 48
     move-object v1, p0
@@ -668,7 +668,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     .line 47
@@ -692,7 +692,7 @@
 .end method
 
 .method public static final commonWrite(Lokio/RealBufferedSink;Lokio/Source;J)Lokio/BufferedSink;
-    .locals 8
+    .registers 12
     .param p0, "$this$commonWrite"    # Lokio/RealBufferedSink;
     .param p1, "source"    # Lokio/Source;
     .param p2, "byteCount"    # J
@@ -713,12 +713,12 @@
 
     .line 103
     .local v1, "byteCount":J
-    :goto_0
+    :goto_c
     const-wide/16 v3, 0x0
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_1
+    if-lez v5, :cond_2b
 
     .line 104
     move-object v3, p0
@@ -743,7 +743,7 @@
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_25
 
     .line 106
     sub-long/2addr v1, v3
@@ -751,10 +751,10 @@
     .line 107
     invoke-virtual {p0}, Lokio/RealBufferedSink;->emitCompleteSegments()Lokio/BufferedSink;
 
-    goto :goto_0
+    goto :goto_c
 
     .line 105
-    :cond_0
+    :cond_25
     new-instance v5, Ljava/io/EOFException;
 
     invoke-direct {v5}, Ljava/io/EOFException;-><init>()V
@@ -763,7 +763,7 @@
 
     .line 109
     .end local v3    # "read":J
-    :cond_1
+    :cond_2b
     move-object v3, p0
 
     check-cast v3, Lokio/BufferedSink;
@@ -772,7 +772,7 @@
 .end method
 
 .method public static final commonWrite(Lokio/RealBufferedSink;[B)Lokio/BufferedSink;
-    .locals 3
+    .registers 5
     .param p0, "$this$commonWrite"    # Lokio/RealBufferedSink;
     .param p1, "source"    # [B
 
@@ -790,7 +790,7 @@
     .local v0, "$i$f$commonWrite":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 76
     move-object v1, p0
@@ -815,7 +815,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     .line 75
@@ -839,7 +839,7 @@
 .end method
 
 .method public static final commonWrite(Lokio/RealBufferedSink;[BII)Lokio/BufferedSink;
-    .locals 3
+    .registers 7
     .param p0, "$this$commonWrite"    # Lokio/RealBufferedSink;
     .param p1, "source"    # [B
     .param p2, "offset"    # I
@@ -859,7 +859,7 @@
     .local v0, "$i$f$commonWrite":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 86
     move-object v1, p0
@@ -884,7 +884,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     .line 85
@@ -908,7 +908,7 @@
 .end method
 
 .method public static final commonWrite(Lokio/RealBufferedSink;Lokio/Buffer;J)V
-    .locals 3
+    .registers 7
     .param p0, "$this$commonWrite"    # Lokio/RealBufferedSink;
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
@@ -927,7 +927,7 @@
     .local v0, "$i$f$commonWrite":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     .line 32
     move-object v1, p0
@@ -951,7 +951,7 @@
     return-void
 
     .line 217
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
     .line 31
@@ -975,7 +975,7 @@
 .end method
 
 .method public static final commonWriteAll(Lokio/RealBufferedSink;Lokio/Source;)J
-    .locals 8
+    .registers 10
     .param p0, "$this$commonWriteAll"    # Lokio/RealBufferedSink;
     .param p1, "source"    # Lokio/Source;
 
@@ -995,7 +995,7 @@
 
     .line 92
     .local v1, "totalBytesRead":J
-    :goto_0
+    :goto_d
     nop
 
     .line 93
@@ -1023,7 +1023,7 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_1f
 
     .line 98
     .end local v3    # "readCount":J
@@ -1031,17 +1031,17 @@
 
     .line 95
     .restart local v3    # "readCount":J
-    :cond_0
+    :cond_1f
     add-long/2addr v1, v3
 
     .line 96
     invoke-virtual {p0}, Lokio/RealBufferedSink;->emitCompleteSegments()Lokio/BufferedSink;
 
-    goto :goto_0
+    goto :goto_d
 .end method
 
 .method public static final commonWriteByte(Lokio/RealBufferedSink;I)Lokio/BufferedSink;
-    .locals 3
+    .registers 5
     .param p0, "$this$commonWriteByte"    # Lokio/RealBufferedSink;
     .param p1, "b"    # I
 
@@ -1055,7 +1055,7 @@
     .local v0, "$i$f$commonWriteByte":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 114
     move-object v1, p0
@@ -1080,7 +1080,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 113
@@ -1104,7 +1104,7 @@
 .end method
 
 .method public static final commonWriteDecimalLong(Lokio/RealBufferedSink;J)Lokio/BufferedSink;
-    .locals 3
+    .registers 6
     .param p0, "$this$commonWriteDecimalLong"    # Lokio/RealBufferedSink;
     .param p1, "v"    # J
 
@@ -1118,7 +1118,7 @@
     .local v0, "$i$f$commonWriteDecimalLong":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 156
     move-object v1, p0
@@ -1143,7 +1143,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 155
@@ -1167,7 +1167,7 @@
 .end method
 
 .method public static final commonWriteHexadecimalUnsignedLong(Lokio/RealBufferedSink;J)Lokio/BufferedSink;
-    .locals 3
+    .registers 6
     .param p0, "$this$commonWriteHexadecimalUnsignedLong"    # Lokio/RealBufferedSink;
     .param p1, "v"    # J
 
@@ -1181,7 +1181,7 @@
     .local v0, "$i$f$commonWriteHexadecimalUnsignedLong":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 162
     move-object v1, p0
@@ -1206,7 +1206,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 161
@@ -1230,7 +1230,7 @@
 .end method
 
 .method public static final commonWriteInt(Lokio/RealBufferedSink;I)Lokio/BufferedSink;
-    .locals 3
+    .registers 5
     .param p0, "$this$commonWriteInt"    # Lokio/RealBufferedSink;
     .param p1, "i"    # I
 
@@ -1244,7 +1244,7 @@
     .local v0, "$i$f$commonWriteInt":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 132
     move-object v1, p0
@@ -1269,7 +1269,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 131
@@ -1293,7 +1293,7 @@
 .end method
 
 .method public static final commonWriteIntLe(Lokio/RealBufferedSink;I)Lokio/BufferedSink;
-    .locals 3
+    .registers 5
     .param p0, "$this$commonWriteIntLe"    # Lokio/RealBufferedSink;
     .param p1, "i"    # I
 
@@ -1307,7 +1307,7 @@
     .local v0, "$i$f$commonWriteIntLe":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 138
     move-object v1, p0
@@ -1332,7 +1332,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 137
@@ -1356,7 +1356,7 @@
 .end method
 
 .method public static final commonWriteLong(Lokio/RealBufferedSink;J)Lokio/BufferedSink;
-    .locals 3
+    .registers 6
     .param p0, "$this$commonWriteLong"    # Lokio/RealBufferedSink;
     .param p1, "v"    # J
 
@@ -1370,7 +1370,7 @@
     .local v0, "$i$f$commonWriteLong":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 144
     move-object v1, p0
@@ -1395,7 +1395,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 143
@@ -1419,7 +1419,7 @@
 .end method
 
 .method public static final commonWriteLongLe(Lokio/RealBufferedSink;J)Lokio/BufferedSink;
-    .locals 3
+    .registers 6
     .param p0, "$this$commonWriteLongLe"    # Lokio/RealBufferedSink;
     .param p1, "v"    # J
 
@@ -1433,7 +1433,7 @@
     .local v0, "$i$f$commonWriteLongLe":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 150
     move-object v1, p0
@@ -1458,7 +1458,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 149
@@ -1482,7 +1482,7 @@
 .end method
 
 .method public static final commonWriteShort(Lokio/RealBufferedSink;I)Lokio/BufferedSink;
-    .locals 3
+    .registers 5
     .param p0, "$this$commonWriteShort"    # Lokio/RealBufferedSink;
     .param p1, "s"    # I
 
@@ -1496,7 +1496,7 @@
     .local v0, "$i$f$commonWriteShort":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 120
     move-object v1, p0
@@ -1521,7 +1521,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 119
@@ -1545,7 +1545,7 @@
 .end method
 
 .method public static final commonWriteShortLe(Lokio/RealBufferedSink;I)Lokio/BufferedSink;
-    .locals 3
+    .registers 5
     .param p0, "$this$commonWriteShortLe"    # Lokio/RealBufferedSink;
     .param p1, "s"    # I
 
@@ -1559,7 +1559,7 @@
     .local v0, "$i$f$commonWriteShortLe":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 126
     move-object v1, p0
@@ -1584,7 +1584,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 125
@@ -1608,7 +1608,7 @@
 .end method
 
 .method public static final commonWriteUtf8(Lokio/RealBufferedSink;Ljava/lang/String;)Lokio/BufferedSink;
-    .locals 3
+    .registers 5
     .param p0, "$this$commonWriteUtf8"    # Lokio/RealBufferedSink;
     .param p1, "string"    # Ljava/lang/String;
 
@@ -1626,7 +1626,7 @@
     .local v0, "$i$f$commonWriteUtf8":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 54
     move-object v1, p0
@@ -1651,7 +1651,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     .line 53
@@ -1675,7 +1675,7 @@
 .end method
 
 .method public static final commonWriteUtf8(Lokio/RealBufferedSink;Ljava/lang/String;II)Lokio/BufferedSink;
-    .locals 3
+    .registers 7
     .param p0, "$this$commonWriteUtf8"    # Lokio/RealBufferedSink;
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "beginIndex"    # I
@@ -1695,7 +1695,7 @@
     .local v0, "$i$f$commonWriteUtf8":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 64
     move-object v1, p0
@@ -1720,7 +1720,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     .line 63
@@ -1744,7 +1744,7 @@
 .end method
 
 .method public static final commonWriteUtf8CodePoint(Lokio/RealBufferedSink;I)Lokio/BufferedSink;
-    .locals 3
+    .registers 5
     .param p0, "$this$commonWriteUtf8CodePoint"    # Lokio/RealBufferedSink;
     .param p1, "codePoint"    # I
 
@@ -1758,7 +1758,7 @@
     .local v0, "$i$f$commonWriteUtf8CodePoint":I
     iget-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 70
     move-object v1, p0
@@ -1783,7 +1783,7 @@
     return-object v1
 
     .line 217
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
     .line 69

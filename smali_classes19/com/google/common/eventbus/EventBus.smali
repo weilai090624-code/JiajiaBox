@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 153
     const-class v0, Lcom/google/common/eventbus/EventBus;
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 164
     const-string v0, "default"
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/common/eventbus/SubscriberExceptionHandler;)V
-    .locals 3
+    .registers 5
     .param p1, "exceptionHandler"    # Lcom/google/common/eventbus/SubscriberExceptionHandler;
 
     .line 188
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "identifier"    # Ljava/lang/String;
 
     .line 174
@@ -115,7 +115,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;Ljava/util/concurrent/Executor;Lcom/google/common/eventbus/Dispatcher;Lcom/google/common/eventbus/SubscriberExceptionHandler;)V
-    .locals 1
+    .registers 6
     .param p1, "identifier"    # Ljava/lang/String;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "dispatcher"    # Lcom/google/common/eventbus/Dispatcher;
@@ -174,7 +174,7 @@
 
 # virtual methods
 .method final executor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 217
     iget-object v0, p0, Lcom/google/common/eventbus/EventBus;->executor:Ljava/util/concurrent/Executor;
@@ -183,7 +183,7 @@
 .end method
 
 .method handleSubscriberException(Ljava/lang/Throwable;Lcom/google/common/eventbus/SubscriberExceptionContext;)V
-    .locals 6
+    .registers 9
     .param p1, "e"    # Ljava/lang/Throwable;
     .param p2, "context"    # Lcom/google/common/eventbus/SubscriberExceptionContext;
 
@@ -194,18 +194,18 @@
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 225
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Lcom/google/common/eventbus/EventBus;->exceptionHandler:Lcom/google/common/eventbus/SubscriberExceptionHandler;
 
     invoke-interface {v0, p1, p2}, Lcom/google/common/eventbus/SubscriberExceptionHandler;->handleException(Ljava/lang/Throwable;Lcom/google/common/eventbus/SubscriberExceptionContext;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_6 .. :try_end_b} :catchall_c
 
     .line 232
-    goto :goto_0
+    goto :goto_25
 
     .line 226
-    :catchall_0
+    :catchall_c
     move-exception v0
 
     .line 228
@@ -240,12 +240,12 @@
 
     .line 233
     .end local v0    # "e2":Ljava/lang/Throwable;
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method public final identifier()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 212
     iget-object v0, p0, Lcom/google/common/eventbus/EventBus;->identifier:Ljava/lang/String;
@@ -254,7 +254,7 @@
 .end method
 
 .method public post(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "event"    # Ljava/lang/Object;
 
     .line 265
@@ -270,20 +270,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 267
     iget-object v1, p0, Lcom/google/common/eventbus/EventBus;->dispatcher:Lcom/google/common/eventbus/Dispatcher;
 
     invoke-virtual {v1, p1, v0}, Lcom/google/common/eventbus/Dispatcher;->dispatch(Ljava/lang/Object;Ljava/util/Iterator;)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 268
-    :cond_0
+    :cond_12
     instance-of v1, p1, Lcom/google/common/eventbus/DeadEvent;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1e
 
     .line 270
     new-instance v1, Lcom/google/common/eventbus/DeadEvent;
@@ -293,13 +293,13 @@
     invoke-virtual {p0, v1}, Lcom/google/common/eventbus/EventBus;->post(Ljava/lang/Object;)V
 
     .line 272
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     return-void
 .end method
 
 .method public register(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 241
@@ -312,7 +312,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 276
     invoke-static {p0}, Lcom/google/common/base/MoreObjects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
@@ -333,7 +333,7 @@
 .end method
 
 .method public unregister(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 251

@@ -70,7 +70,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 12
+    .registers 12
 
     .line 389
     const-string/jumbo v10, "triggerReceiver"

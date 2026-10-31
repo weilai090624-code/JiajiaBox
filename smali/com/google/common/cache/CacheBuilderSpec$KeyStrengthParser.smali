@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/cache/LocalCache$Strength;)V
-    .locals 0
+    .registers 2
     .param p1, "strength"    # Lcom/google/common/cache/LocalCache$Strength;
 
     .line 375
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public parse(Lcom/google/common/cache/CacheBuilderSpec;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .registers 8
     .param p1, "spec"    # Lcom/google/common/cache/CacheBuilderSpec;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/String;
@@ -52,16 +52,16 @@
 
     const/4 v1, 0x0
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_7
     const-string v3, "key %s does not take values"
 
     invoke-static {v2, v3, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -69,14 +69,14 @@
     .line 382
     iget-object v2, p1, Lcom/google/common/cache/CacheBuilderSpec;->keyStrength:Lcom/google/common/cache/LocalCache$Strength;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_11
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_12
     const-string v1, "%s was already set to %s"
 
     iget-object v2, p1, Lcom/google/common/cache/CacheBuilderSpec;->keyStrength:Lcom/google/common/cache/LocalCache$Strength;

@@ -50,7 +50,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$CVsR10o-YJP4IN5741Ey9yO9s50(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/future/FutureKt;->asDeferred$lambda$4(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/lang/Object;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$nhDb5E9NjAZTF31felWqlfP4Z1A(Lkotlinx/coroutines/Job;Ljava/lang/Object;Ljava/lang/Throwable;)Lkotlin/Unit;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/future/FutureKt;->setupCancellation$lambda$2(Lkotlinx/coroutines/Job;Ljava/lang/Object;Ljava/lang/Throwable;)Lkotlin/Unit;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final asCompletableFuture(Lkotlinx/coroutines/Deferred;)Ljava/util/concurrent/CompletableFuture;
-    .locals 2
+    .registers 3
     .param p0, "$this$asCompletableFuture"    # Lkotlinx/coroutines/Deferred;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -111,7 +111,7 @@
 .end method
 
 .method public static final asCompletableFuture(Lkotlinx/coroutines/Job;)Ljava/util/concurrent/CompletableFuture;
-    .locals 2
+    .registers 3
     .param p0, "$this$asCompletableFuture"    # Lkotlinx/coroutines/Job;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -147,7 +147,7 @@
 .end method
 
 .method public static final asDeferred(Ljava/util/concurrent/CompletionStage;)Lkotlinx/coroutines/Deferred;
-    .locals 6
+    .registers 7
     .param p0, "$this$asDeferred"    # Ljava/util/concurrent/CompletionStage;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -176,13 +176,13 @@
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_38
 
     .line 120
     nop
 
     .line 122
-    :try_start_0
+    :try_start_d
     invoke-virtual {v0}, Ljava/util/concurrent/CompletableFuture;->get()Ljava/lang/Object;
 
     move-result-object v1
@@ -192,45 +192,45 @@
     move-result-object v1
 
     check-cast v1, Lkotlinx/coroutines/Deferred;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_d .. :try_end_17} :catchall_18
 
-    goto :goto_1
+    goto :goto_37
 
     .line 123
-    :catchall_0
+    :catchall_18
     move-exception v1
 
     .line 125
     .local v1, "e":Ljava/lang/Throwable;
     instance-of v4, v1, Ljava/util/concurrent/ExecutionException;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_21
 
     move-object v4, v1
 
     check-cast v4, Ljava/util/concurrent/ExecutionException;
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     move-object v4, v3
 
-    :goto_0
-    if-eqz v4, :cond_1
+    :goto_22
+    if-eqz v4, :cond_2a
 
     invoke-virtual {v4}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
 
     move-result-object v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_2b
 
-    :cond_1
+    :cond_2a
     move-object v4, v1
 
     .line 126
     .local v4, "original":Ljava/lang/Throwable;
-    :cond_2
+    :cond_2b
     invoke-static {v3, v2, v3}, Lkotlinx/coroutines/CompletableDeferredKt;->CompletableDeferred$default(Lkotlinx/coroutines/Job;ILjava/lang/Object;)Lkotlinx/coroutines/CompletableDeferred;
 
     move-result-object v2
@@ -254,11 +254,11 @@
 
     .line 120
     .end local v1    # "e":Ljava/lang/Throwable;
-    :goto_1
+    :goto_37
     return-object v1
 
     .line 129
-    :cond_3
+    :cond_38
     invoke-static {v3, v2, v3}, Lkotlinx/coroutines/CompletableDeferredKt;->CompletableDeferred$default(Lkotlinx/coroutines/Job;ILjava/lang/Object;)Lkotlinx/coroutines/CompletableDeferred;
 
     move-result-object v1
@@ -297,7 +297,7 @@
 .end method
 
 .method private static final asDeferred$lambda$4(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$tmp0"    # Lkotlin/jvm/functions/Function2;
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/lang/Throwable;
@@ -311,7 +311,7 @@
 .end method
 
 .method public static final await(Ljava/util/concurrent/CompletionStage;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
     .param p0, "$this$await"    # Ljava/util/concurrent/CompletionStage;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -338,23 +338,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     .line 164
     nop
 
     .line 166
-    :try_start_0
+    :try_start_b
     invoke-virtual {v0}, Ljava/util/concurrent/CompletableFuture;->get()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_b .. :try_end_f} :catch_10
 
     return-object v1
 
     .line 167
-    :catch_0
+    :catch_10
     move-exception v1
 
     .line 168
@@ -363,18 +363,18 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     move-object v2, v1
 
     check-cast v2, Ljava/lang/Throwable;
 
-    :cond_0
+    :cond_1a
     throw v2
 
     .line 172
     .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
-    :cond_1
+    :cond_1b
     const/4 v1, 0x0
 
     .line 199
@@ -457,12 +457,12 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_56
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 209
-    :cond_2
+    :cond_56
     nop
 
     .line 172
@@ -471,7 +471,7 @@
 .end method
 
 .method public static final future(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;)Ljava/util/concurrent/CompletableFuture;
-    .locals 4
+    .registers 8
     .param p0, "$this$future"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "start"    # Lkotlinx/coroutines/CoroutineStart;
@@ -502,7 +502,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 40
     invoke-static {p0, p1}, Lkotlinx/coroutines/CoroutineContextKt;->newCoroutineContext(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
@@ -539,7 +539,7 @@
     .end local v0    # "newContext":Lkotlin/coroutines/CoroutineContext;
     .end local v1    # "future":Ljava/util/concurrent/CompletableFuture;
     .end local v2    # "coroutine":Lkotlinx/coroutines/future/CompletableFutureCoroutine;
-    :cond_0
+    :cond_1e
     const/4 v0, 0x0
 
     .line 39
@@ -575,12 +575,12 @@
 .end method
 
 .method public static synthetic future$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
-    .locals 0
+    .registers 6
 
     .line 34
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     .line 35
     sget-object p1, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -588,16 +588,16 @@
     check-cast p1, Lkotlin/coroutines/CoroutineContext;
 
     .line 34
-    :cond_0
+    :cond_8
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_e
 
     .line 36
     sget-object p2, Lkotlinx/coroutines/CoroutineStart;->DEFAULT:Lkotlinx/coroutines/CoroutineStart;
 
     .line 34
-    :cond_1
+    :cond_e
     invoke-static {p0, p1, p2, p3}, Lkotlinx/coroutines/future/FutureKt;->future(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;)Ljava/util/concurrent/CompletableFuture;
 
     move-result-object p0
@@ -606,7 +606,7 @@
 .end method
 
 .method private static final setupCancellation(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CompletableFuture;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$setupCancellation"    # Lkotlinx/coroutines/Job;
     .param p1, "future"    # Ljava/util/concurrent/CompletableFuture;
     .annotation system Ldalvik/annotation/Signature;
@@ -630,14 +630,14 @@
 .end method
 
 .method private static final setupCancellation$lambda$2(Lkotlinx/coroutines/Job;Ljava/lang/Object;Ljava/lang/Throwable;)Lkotlin/Unit;
-    .locals 3
+    .registers 6
     .param p0, "$this_setupCancellation"    # Lkotlinx/coroutines/Job;
     .param p2, "exception"    # Ljava/lang/Throwable;
 
     .line 103
     const/4 p1, 0x0
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_14
 
     move-object v0, p2
 
@@ -648,14 +648,14 @@
     .local v1, "$i$a$-let-FutureKt$setupCancellation$1$1":I
     instance-of v2, v0, Ljava/util/concurrent/CancellationException;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     move-object p1, v0
 
     check-cast p1, Ljava/util/concurrent/CancellationException;
 
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_c
+    if-nez p1, :cond_14
 
     const-string p1, "CompletableFuture was completed exceptionally"
 
@@ -666,7 +666,7 @@
     .line 103
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-let-FutureKt$setupCancellation$1$1":I
-    :cond_1
+    :cond_14
     invoke-interface {p0, p1}, Lkotlinx/coroutines/Job;->cancel(Ljava/util/concurrent/CancellationException;)V
 
     .line 106

@@ -183,7 +183,7 @@
         <item name="defaultScrollFlagsEnabled">true</item>
         <item name="elevation">@dimen/m3_searchbar_elevation</item>
         <item name="enforceMaterialTheme">true</item>
-        <item name="hideNavigationIcon">false</item>
+        <item name="iconSize">false</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Search</item>
         <item name="maxButtonHeight">@dimen/m3_searchbar_height</item>
         <item name="shapeAppearance">?shapeAppearanceMediumComponent</item>

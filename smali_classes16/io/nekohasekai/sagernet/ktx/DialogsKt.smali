@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final alert(Landroid/content/Context;Ljava/lang/String;)Landroidx/appcompat/app/AlertDialog;
-    .locals 3
+    .registers 5
     .param p0, "$this$alert"    # Landroid/content/Context;
     .param p1, "text"    # Ljava/lang/String;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public static final alert(Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/appcompat/app/AlertDialog;
-    .locals 2
+    .registers 4
     .param p0, "$this$alert"    # Landroidx/fragment/app/Fragment;
     .param p1, "text"    # Ljava/lang/String;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public static final tryToShow(Landroidx/appcompat/app/AlertDialog;)V
-    .locals 3
+    .registers 4
     .param p0, "$this$tryToShow"    # Landroidx/appcompat/app/AlertDialog;
 
     const-string v0, "<this>"
@@ -126,7 +126,7 @@
     nop
 
     .line 21
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Landroidx/appcompat/app/AlertDialog;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -143,18 +143,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_24
 
     .line 23
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_1a} :catch_1b
 
     .end local v0    # "activity":Landroid/app/Activity;
-    goto :goto_0
+    goto :goto_24
 
     .line 25
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 26
@@ -169,7 +169,7 @@
 
     .line 28
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_24
+    :goto_24
     return-void
 .end method

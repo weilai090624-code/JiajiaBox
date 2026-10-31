@@ -31,7 +31,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 53
     .local p0, "this":Lcom/google/common/reflect/TypeParameter;, "Lcom/google/common/reflect/TypeParameter<TT;>;"
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -74,7 +74,7 @@
     .local p0, "this":Lcom/google/common/reflect/TypeParameter;, "Lcom/google/common/reflect/TypeParameter<TT;>;"
     instance-of v0, p1, Lcom/google/common/reflect/TypeParameter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 67
     move-object v0, p1
@@ -95,14 +95,14 @@
 
     .line 70
     .end local v0    # "that":Lcom/google/common/reflect/TypeParameter;, "Lcom/google/common/reflect/TypeParameter<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public final hashCode()I
-    .locals 1
+    .registers 2
 
     .line 61
     .local p0, "this":Lcom/google/common/reflect/TypeParameter;, "Lcom/google/common/reflect/TypeParameter<TT;>;"
@@ -116,7 +116,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 75
     .local p0, "this":Lcom/google/common/reflect/TypeParameter;, "Lcom/google/common/reflect/TypeParameter<TT;>;"

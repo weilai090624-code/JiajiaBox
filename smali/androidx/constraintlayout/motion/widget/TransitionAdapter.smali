@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public onTransitionChange(Landroidx/constraintlayout/motion/widget/MotionLayout;IIF)V
-    .locals 0
+    .registers 5
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .param p2, "startId"    # I
     .param p3, "endId"    # I
@@ -44,7 +44,7 @@
 .end method
 
 .method public onTransitionCompleted(Landroidx/constraintlayout/motion/widget/MotionLayout;I)V
-    .locals 0
+    .registers 3
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .param p2, "currentId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -63,7 +63,7 @@
 .end method
 
 .method public onTransitionStarted(Landroidx/constraintlayout/motion/widget/MotionLayout;II)V
-    .locals 0
+    .registers 4
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .param p2, "startId"    # I
     .param p3, "endId"    # I
@@ -85,7 +85,7 @@
 .end method
 
 .method public onTransitionTrigger(Landroidx/constraintlayout/motion/widget/MotionLayout;IZF)V
-    .locals 0
+    .registers 5
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .param p2, "triggerId"    # I
     .param p3, "positive"    # Z

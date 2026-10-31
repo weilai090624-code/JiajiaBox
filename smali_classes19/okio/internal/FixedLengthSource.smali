@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/Source;JZ)V
-    .locals 1
+    .registers 6
     .param p1, "delegate"    # Lokio/Source;
     .param p2, "size"    # J
     .param p4, "truncate"    # Z
@@ -71,7 +71,7 @@
 .end method
 
 .method private final truncateToSize(Lokio/Buffer;J)V
-    .locals 2
+    .registers 6
     .param p1, "$this$truncateToSize"    # Lokio/Buffer;
     .param p2, "newSize"    # J
 
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public read(Lokio/Buffer;J)J
-    .locals 17
+    .registers 21
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -127,19 +127,19 @@
 
     cmp-long v10, v2, v4
 
-    if-lez v10, :cond_0
+    if-lez v10, :cond_1a
 
     move-wide/from16 v4, p2
 
     move-wide v2, v8
 
-    goto :goto_0
+    goto :goto_32
 
     .line 47
-    :cond_0
+    :cond_1a
     iget-boolean v2, v0, Lokio/internal/FixedLengthSource;->truncate:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2f
 
     .line 48
     iget-wide v2, v0, Lokio/internal/FixedLengthSource;->size:J
@@ -152,12 +152,12 @@
     .local v2, "remaining":J
     cmp-long v4, v2, v8
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_28
 
     return-wide v6
 
     .line 50
-    :cond_1
+    :cond_28
     move-wide/from16 v4, p2
 
     invoke-static {v4, v5, v2, v3}, Ljava/lang/Math;->min(JJ)J
@@ -165,16 +165,16 @@
     move-result-wide v2
 
     .end local v2    # "remaining":J
-    goto :goto_0
+    goto :goto_32
 
     .line 52
-    :cond_2
+    :cond_2f
     move-wide/from16 v4, p2
 
     move-wide v2, v4
 
     .line 45
-    :goto_0
+    :goto_32
     nop
 
     .line 55
@@ -187,7 +187,7 @@
     .local v10, "result":J
     cmp-long v12, v10, v6
 
-    if-eqz v12, :cond_3
+    if-eqz v12, :cond_40
 
     iget-wide v12, v0, Lokio/internal/FixedLengthSource;->bytesReceived:J
 
@@ -196,33 +196,33 @@
     iput-wide v12, v0, Lokio/internal/FixedLengthSource;->bytesReceived:J
 
     .line 60
-    :cond_3
+    :cond_40
     iget-wide v12, v0, Lokio/internal/FixedLengthSource;->bytesReceived:J
 
     iget-wide v14, v0, Lokio/internal/FixedLengthSource;->size:J
 
     cmp-long v16, v12, v14
 
-    if-gez v16, :cond_4
+    if-gez v16, :cond_4c
 
     cmp-long v12, v10, v6
 
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_54
 
-    :cond_4
+    :cond_4c
     iget-wide v6, v0, Lokio/internal/FixedLengthSource;->bytesReceived:J
 
     iget-wide v12, v0, Lokio/internal/FixedLengthSource;->size:J
 
     cmp-long v14, v6, v12
 
-    if-lez v14, :cond_7
+    if-lez v14, :cond_94
 
     .line 61
-    :cond_5
+    :cond_54
     cmp-long v6, v10, v8
 
-    if-lez v6, :cond_6
+    if-lez v6, :cond_6d
 
     iget-wide v6, v0, Lokio/internal/FixedLengthSource;->bytesReceived:J
 
@@ -230,7 +230,7 @@
 
     cmp-long v12, v6, v8
 
-    if-lez v12, :cond_6
+    if-lez v12, :cond_6d
 
     .line 63
     invoke-virtual/range {p1 .. p1}, Lokio/Buffer;->size()J
@@ -248,7 +248,7 @@
     invoke-direct {v0, v1, v6, v7}, Lokio/internal/FixedLengthSource;->truncateToSize(Lokio/Buffer;J)V
 
     .line 65
-    :cond_6
+    :cond_6d
     new-instance v6, Ljava/io/IOException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -288,6 +288,6 @@
     throw v6
 
     .line 68
-    :cond_7
+    :cond_94
     return-wide v10
 .end method

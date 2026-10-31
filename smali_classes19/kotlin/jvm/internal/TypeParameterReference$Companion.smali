@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/jvm/internal/TypeParameterReference$Companion;-><init>()V
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final toString(Lkotlin/reflect/KTypeParameter;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "typeParameter"    # Lkotlin/reflect/KTypeParameter;
 
     const-string v0, "typeParameter"
@@ -95,27 +95,27 @@
 
     aget v3, v4, v3
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_3a
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_1b
+    goto :goto_27
 
     .line 51
-    :pswitch_1
+    :pswitch_1c
     const-string v3, "out "
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 50
-    :pswitch_2
+    :pswitch_22
     const-string v3, "in "
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 54
-    :goto_0
+    :goto_27
     invoke-interface {p1}, Lkotlin/reflect/KTypeParameter;->getName()Ljava/lang/String;
 
     move-result-object v3
@@ -141,10 +141,10 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3a
     .packed-switch 0x1
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
+        :pswitch_1b
+        :pswitch_22
+        :pswitch_1c
     .end packed-switch
 .end method

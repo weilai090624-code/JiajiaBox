@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 57
     invoke-direct {p0}, Landroidx/camera/core/impl/CameraCaptureCallback;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 0
+    .registers 2
     .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -43,7 +43,7 @@
 .end method
 
 .method public onCaptureFailed(Landroidx/camera/core/impl/CameraCaptureFailure;)V
-    .locals 0
+    .registers 2
     .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -111,7 +111,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/bg/SagerConnection$Companion;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public constructor <init>(IZ)V
-    .locals 1
+    .registers 4
     .param p1, "connectionId"    # I
     .param p2, "listenForDeath"    # Z
 
@@ -150,18 +150,18 @@
 .end method
 
 .method public synthetic constructor <init>(IZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 18
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 20
     const/4 p2, 0x0
 
     .line 18
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Lio/nekohasekai/sagernet/bg/SagerConnection;-><init>(IZ)V
 
     .line 21
@@ -169,7 +169,7 @@
 .end method
 
 .method public static final synthetic access$getCallback$p(Lio/nekohasekai/sagernet/bg/SagerConnection;)Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/SagerConnection;
 
     .line 18
@@ -179,7 +179,7 @@
 .end method
 
 .method public static final synthetic access$getRestartingApp$cp()Z
-    .locals 1
+    .registers 1
 
     .line 18
     sget-boolean v0, Lio/nekohasekai/sagernet/bg/SagerConnection;->restartingApp:Z
@@ -188,7 +188,7 @@
 .end method
 
 .method public static final synthetic access$setRestartingApp$cp(Z)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Z
 
     .line 18
@@ -198,38 +198,38 @@
 .end method
 
 .method private final unregisterCallback()V
-    .locals 2
+    .registers 3
 
     .line 149
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->service:Lio/nekohasekai/sagernet/aidl/ISagerNetService;
 
     .line 150
     .local v0, "service":Lio/nekohasekai/sagernet/aidl/ISagerNetService;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-boolean v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->callbackRegistered:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 151
-    :try_start_0
+    :try_start_8
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->serviceCallback:Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1;
 
     check-cast v1, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
     invoke-interface {v0, v1}, Lio/nekohasekai/sagernet/aidl/ISagerNetService;->unregisterCallback(Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_f} :catch_10
 
-    goto :goto_0
+    goto :goto_11
 
     .line 152
-    :catch_0
+    :catch_10
     move-exception v1
 
     .line 154
-    :cond_0
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->callbackRegistered:Z
@@ -241,7 +241,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 4
+    .registers 5
 
     .line 141
     const/4 v0, 0x0
@@ -256,12 +256,12 @@
     .line 143
     sget-boolean v1, Lio/nekohasekai/sagernet/bg/SagerConnection;->restartingApp:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_19
 
     .line 144
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->callback:Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 183
     .local v1, "it":Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
@@ -280,12 +280,12 @@
     .line 146
     .end local v1    # "it":Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
     .end local v2    # "$i$a$-also-SagerConnection$binderDied$1":I
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public final connect(Landroid/content/Context;Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "callback"    # Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
@@ -296,12 +296,12 @@
     .line 158
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->connectionActive:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return-void
 
     .line 159
-    :cond_0
+    :cond_a
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->connectionActive:Z
@@ -309,17 +309,17 @@
     .line 160
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->callback:Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_13
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_2
+    :goto_14
+    if-eqz v1, :cond_35
 
     .line 161
     iput-object p2, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->callback:Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
@@ -358,7 +358,7 @@
 
     .line 160
     .end local v1    # "intent":Landroid/content/Intent;
-    :cond_2
+    :cond_35
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Check failed."
@@ -373,7 +373,7 @@
 .end method
 
 .method public final disconnect(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -386,27 +386,27 @@
     .line 168
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->connectionActive:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 169
-    :try_start_0
+    :try_start_c
     move-object v0, p0
 
     check-cast v0, Landroid/content/ServiceConnection;
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_c .. :try_end_12} :catch_13
 
-    goto :goto_0
+    goto :goto_14
 
     .line 170
-    :catch_0
+    :catch_13
     move-exception v0
 
     .line 172
-    :cond_0
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->connectionActive:Z
@@ -414,31 +414,31 @@
     .line 173
     iget-boolean v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->listenForDeath:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     .line 174
-    :try_start_1
+    :try_start_1b
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->binder:Landroid/os/IBinder;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     move-object v2, p0
 
     check-cast v2, Landroid/os/IBinder$DeathRecipient;
 
     invoke-interface {v1, v2, v0}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
-    :try_end_1
-    .catch Ljava/util/NoSuchElementException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_25
+    .catch Ljava/util/NoSuchElementException; {:try_start_1b .. :try_end_25} :catch_26
 
-    goto :goto_1
+    goto :goto_27
 
     .line 175
-    :catch_1
+    :catch_26
     move-exception v0
 
     .line 177
-    :cond_1
-    :goto_1
+    :cond_27
+    :goto_27
     const/4 v0, 0x0
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->binder:Landroid/os/IBinder;
@@ -454,7 +454,7 @@
 .end method
 
 .method public final getService()Lio/nekohasekai/sagernet/aidl/ISagerNetService;
-    .locals 1
+    .registers 2
 
     .line 107
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->service:Lio/nekohasekai/sagernet/aidl/ISagerNetService;
@@ -463,7 +463,7 @@
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 3
+    .registers 6
     .param p1, "name"    # Landroid/content/ComponentName;
     .param p2, "binder"    # Landroid/os/IBinder;
 
@@ -489,10 +489,10 @@
     nop
 
     .line 123
-    :try_start_0
+    :try_start_11
     iget-boolean v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->listenForDeath:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     move-object v1, p0
 
@@ -503,10 +503,10 @@
     invoke-interface {p2, v1, v2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
     .line 124
-    :cond_0
+    :cond_1c
     iget-boolean v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->callbackRegistered:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2d
 
     .line 125
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->serviceCallback:Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1;
@@ -522,10 +522,10 @@
 
     iput-boolean v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->callbackRegistered:Z
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 124
-    :cond_1
+    :cond_2d
     const-string v1, "Check failed."
 
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -540,14 +540,14 @@
     .end local p1    # "name":Landroid/content/ComponentName;
     .end local p2    # "binder":Landroid/os/IBinder;
     throw v2
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Landroid/os/RemoteException; {:try_start_11 .. :try_end_39} :catch_39
 
     .line 127
     .restart local v0    # "service":Lio/nekohasekai/sagernet/aidl/ISagerNetService;
     .restart local p1    # "name":Landroid/content/ComponentName;
     .restart local p2    # "binder":Landroid/os/IBinder;
-    :catch_0
+    :catch_39
     move-exception v1
 
     .line 128
@@ -556,20 +556,20 @@
 
     .line 130
     .end local v1    # "e":Landroid/os/RemoteException;
-    :goto_0
+    :goto_3d
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->callback:Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_44
 
     invoke-interface {v1, v0}, Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;->onServiceConnected(Lio/nekohasekai/sagernet/aidl/ISagerNetService;)V
 
     .line 131
-    :cond_2
+    :cond_44
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .line 134
@@ -578,12 +578,12 @@
     .line 135
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->callback:Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     invoke-interface {v0}, Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;->onServiceDisconnected()V
 
     .line 136
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->service:Lio/nekohasekai/sagernet/aidl/ISagerNetService;
@@ -596,7 +596,7 @@
 .end method
 
 .method public final setService(Lio/nekohasekai/sagernet/aidl/ISagerNetService;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/aidl/ISagerNetService;
 
     .line 107
@@ -606,7 +606,7 @@
 .end method
 
 .method public final updateConnectionId(I)V
-    .locals 2
+    .registers 4
     .param p1, "id"    # I
 
     .line 110
@@ -616,23 +616,23 @@
     nop
 
     .line 112
-    :try_start_0
+    :try_start_3
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->service:Lio/nekohasekai/sagernet/aidl/ISagerNetService;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/SagerConnection;->serviceCallback:Lio/nekohasekai/sagernet/bg/SagerConnection$serviceCallback$1;
 
     check-cast v1, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
     invoke-interface {v0, v1, p1}, Lio/nekohasekai/sagernet/aidl/ISagerNetService;->registerCallback(Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_e} :catch_f
 
-    goto :goto_0
+    goto :goto_13
 
     .line 113
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 114
@@ -641,7 +641,7 @@
 
     .line 116
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_13
+    :goto_13
     return-void
 .end method

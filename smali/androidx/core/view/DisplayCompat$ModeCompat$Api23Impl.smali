@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 396
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getPhysicalHeight(Landroid/view/Display$Mode;)I
-    .locals 1
+    .registers 2
     .param p0, "mode"    # Landroid/view/Display$Mode;
 
     .line 407
@@ -38,7 +38,7 @@
 .end method
 
 .method static getPhysicalWidth(Landroid/view/Display$Mode;)I
-    .locals 1
+    .registers 2
     .param p0, "mode"    # Landroid/view/Display$Mode;
 
     .line 402

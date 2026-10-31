@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 590
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static addDataResultToIntent(Landroidx/core/app/RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
-    .locals 1
+    .registers 4
     .param p0, "remoteInput"    # Landroidx/core/app/RemoteInput;
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
@@ -54,7 +54,7 @@
 .end method
 
 .method static getAllowedDataTypes(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "remoteInput"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,7 +80,7 @@
 .end method
 
 .method static getDataResultsFromIntent(Landroid/content/Intent;Ljava/lang/String;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p0, "intent"    # Landroid/content/Intent;
     .param p1, "remoteInputResultKey"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -105,7 +105,7 @@
 .end method
 
 .method static setAllowDataType(Landroid/app/RemoteInput$Builder;Ljava/lang/String;Z)Landroid/app/RemoteInput$Builder;
-    .locals 1
+    .registers 4
     .param p0, "builder"    # Landroid/app/RemoteInput$Builder;
     .param p1, "mimeType"    # Ljava/lang/String;
     .param p2, "doAllow"    # Z

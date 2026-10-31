@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -94,7 +94,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>([BII)V
-    .locals 6
+    .registers 10
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -120,7 +120,7 @@
 
     const/16 v0, 0x34
 
-    if-gt p3, v0, :cond_2
+    if-gt p3, v0, :cond_4d
 
     add-int/lit8 p3, p2, 0x8
 
@@ -148,8 +148,8 @@
 
     const/4 v2, 0x1
 
-    :goto_0
-    if-ge v2, p3, :cond_1
+    :goto_25
+    if-ge v2, p3, :cond_48
 
     iget-object v3, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -161,55 +161,55 @@
 
     const/4 v5, 0x3
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_54
 
-    :pswitch_0
-    goto :goto_1
+    :pswitch_33
+    goto :goto_45
 
-    :pswitch_1
+    :pswitch_34
     const/4 v5, 0x4
 
-    goto :goto_1
+    goto :goto_45
 
-    :pswitch_2
+    :pswitch_36
     add-int/lit8 v2, v2, 0x1
 
     const/16 v5, 0x9
 
-    goto :goto_1
+    goto :goto_45
 
-    :pswitch_3
+    :pswitch_3b
     const/4 v5, 0x5
 
-    goto :goto_1
+    goto :goto_45
 
-    :pswitch_4
+    :pswitch_3d
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
     move-result v3
 
     add-int/2addr v5, v3
 
-    if-le v5, v1, :cond_0
+    if-le v5, v1, :cond_45
 
     move v1, v5
 
-    :cond_0
-    :goto_1
+    :cond_45
+    :goto_45
     add-int/2addr p2, v5
 
     add-int/2addr v2, v0
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_48
     iput v1, p0, Lcom/esotericsoftware/asm/ClassReader;->d:I
 
     iput p2, p0, Lcom/esotericsoftware/asm/ClassReader;->header:I
 
     return-void
 
-    :cond_2
+    :cond_4d
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -218,31 +218,31 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_54
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_0
-        :pswitch_3
-        :pswitch_3
-        :pswitch_2
-        :pswitch_2
-        :pswitch_0
-        :pswitch_0
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_3
+        :pswitch_3d
+        :pswitch_33
+        :pswitch_3b
+        :pswitch_3b
+        :pswitch_36
+        :pswitch_36
+        :pswitch_33
+        :pswitch_33
+        :pswitch_3b
+        :pswitch_3b
+        :pswitch_3b
+        :pswitch_3b
+        :pswitch_33
+        :pswitch_33
+        :pswitch_34
+        :pswitch_33
+        :pswitch_33
+        :pswitch_3b
     .end packed-switch
 .end method
 
 .method private a()I
-    .locals 4
+    .registers 5
 
     iget v0, p0, Lcom/esotericsoftware/asm/ClassReader;->header:I
 
@@ -264,8 +264,8 @@
 
     move-result v1
 
-    :goto_0
-    if-lez v1, :cond_1
+    :goto_13
+    if-lez v1, :cond_2e
 
     add-int/lit8 v2, v0, 0x8
 
@@ -273,8 +273,8 @@
 
     move-result v2
 
-    :goto_1
-    if-lez v2, :cond_0
+    :goto_1b
+    if-lez v2, :cond_29
 
     add-int/lit8 v3, v0, 0xc
 
@@ -288,24 +288,24 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_0
+    :cond_29
     add-int/lit8 v0, v0, 0x8
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_2e
     add-int/lit8 v0, v0, 0x2
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
     move-result v1
 
-    :goto_2
-    if-lez v1, :cond_3
+    :goto_34
+    if-lez v1, :cond_4f
 
     add-int/lit8 v2, v0, 0x8
 
@@ -313,8 +313,8 @@
 
     move-result v2
 
-    :goto_3
-    if-lez v2, :cond_2
+    :goto_3c
+    if-lez v2, :cond_4a
 
     add-int/lit8 v3, v0, 0xc
 
@@ -328,23 +328,23 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_3
+    goto :goto_3c
 
-    :cond_2
+    :cond_4a
     add-int/lit8 v0, v0, 0x8
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_2
+    goto :goto_34
 
-    :cond_3
+    :cond_4f
     add-int/lit8 v0, v0, 0x2
 
     return v0
 .end method
 
 .method private a(IZZLcom/esotericsoftware/asm/Context;)I
-    .locals 11
+    .registers 16
 
     iget-object v6, p4, Lcom/esotericsoftware/asm/Context;->c:[C
 
@@ -352,7 +352,7 @@
 
     const/16 v0, 0xff
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_11
 
     iget-object p2, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
@@ -364,9 +364,9 @@
 
     move v3, v1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_11
     const/4 p2, -0x1
 
     iput p2, p4, Lcom/esotericsoftware/asm/Context;->o:I
@@ -375,7 +375,7 @@
 
     const/16 p1, 0xff
 
-    :goto_0
+    :goto_17
     const/4 p2, 0x0
 
     iput p2, p4, Lcom/esotericsoftware/asm/Context;->r:I
@@ -386,20 +386,20 @@
 
     const/4 v8, 0x1
 
-    if-ge p1, v2, :cond_1
+    if-ge p1, v2, :cond_26
 
     iput v1, p4, Lcom/esotericsoftware/asm/Context;->p:I
 
     iput p2, p4, Lcom/esotericsoftware/asm/Context;->t:I
 
-    goto/16 :goto_7
+    goto/16 :goto_d6
 
-    :cond_1
+    :cond_26
     const/16 v2, 0x80
 
     const/4 v9, 0x4
 
-    if-ge p1, v2, :cond_2
+    if-ge p1, v2, :cond_3d
 
     add-int/lit8 p1, p1, -0x40
 
@@ -421,9 +421,9 @@
 
     iput v8, p4, Lcom/esotericsoftware/asm/Context;->t:I
 
-    goto/16 :goto_7
+    goto/16 :goto_d6
 
-    :cond_2
+    :cond_3d
     invoke-virtual {p0, v3}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
     move-result v10
@@ -432,7 +432,7 @@
 
     const/16 v2, 0xf7
 
-    if-ne p1, v2, :cond_4
+    if-ne p1, v2, :cond_58
 
     iget-object v1, p4, Lcom/esotericsoftware/asm/Context;->u:[Ljava/lang/Object;
 
@@ -452,22 +452,22 @@
 
     iput v8, p4, Lcom/esotericsoftware/asm/Context;->t:I
 
-    :cond_3
-    :goto_1
+    :cond_55
+    :goto_55
     move p1, v10
 
-    goto/16 :goto_7
+    goto/16 :goto_d6
 
-    :cond_4
+    :cond_58
     const/16 v2, 0xf8
 
     const/16 v4, 0xfb
 
     const/4 v9, 0x2
 
-    if-lt p1, v2, :cond_5
+    if-lt p1, v2, :cond_6f
 
-    if-ge p1, v4, :cond_5
+    if-ge p1, v4, :cond_6f
 
     iput v9, p4, Lcom/esotericsoftware/asm/Context;->p:I
 
@@ -483,36 +483,36 @@
 
     iput p1, p4, Lcom/esotericsoftware/asm/Context;->q:I
 
-    goto :goto_4
+    goto :goto_9c
 
-    :cond_5
-    if-ne p1, v4, :cond_6
+    :cond_6f
+    if-ne p1, v4, :cond_74
 
     iput v1, p4, Lcom/esotericsoftware/asm/Context;->p:I
 
-    goto :goto_4
+    goto :goto_9c
 
-    :cond_6
-    if-ge p1, v0, :cond_9
+    :cond_74
+    if-ge p1, v0, :cond_9f
 
-    if-eqz p3, :cond_7
+    if-eqz p3, :cond_7b
 
     iget p3, p4, Lcom/esotericsoftware/asm/Context;->q:I
 
-    goto :goto_2
+    goto :goto_7c
 
-    :cond_7
+    :cond_7b
     const/4 p3, 0x0
 
-    :goto_2
+    :goto_7c
     add-int/lit16 p1, p1, -0xfb
 
     move v2, p3
 
     move p3, p1
 
-    :goto_3
-    if-lez p3, :cond_8
+    :goto_80
+    if-lez p3, :cond_91
 
     iget-object v1, p4, Lcom/esotericsoftware/asm/Context;->s:[Ljava/lang/Object;
 
@@ -532,9 +532,9 @@
 
     move v2, v9
 
-    goto :goto_3
+    goto :goto_80
 
-    :cond_8
+    :cond_91
     iput v8, p4, Lcom/esotericsoftware/asm/Context;->p:I
 
     iput p1, p4, Lcom/esotericsoftware/asm/Context;->r:I
@@ -547,12 +547,12 @@
 
     iput p1, p4, Lcom/esotericsoftware/asm/Context;->q:I
 
-    :goto_4
+    :goto_9c
     iput p2, p4, Lcom/esotericsoftware/asm/Context;->t:I
 
-    goto :goto_1
+    goto :goto_55
 
-    :cond_9
+    :cond_9f
     iput p2, p4, Lcom/esotericsoftware/asm/Context;->p:I
 
     invoke-virtual {p0, v3}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
@@ -567,8 +567,8 @@
 
     const/4 v2, 0x0
 
-    :goto_5
-    if-lez p1, :cond_a
+    :goto_ac
+    if-lez p1, :cond_bd
 
     iget-object v1, p4, Lcom/esotericsoftware/asm/Context;->s:[Ljava/lang/Object;
 
@@ -588,9 +588,9 @@
 
     move v2, p3
 
-    goto :goto_5
+    goto :goto_ac
 
-    :cond_a
+    :cond_bd
     invoke-virtual {p0, v3}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
     move-result p1
@@ -601,8 +601,8 @@
 
     const/4 v2, 0x0
 
-    :goto_6
-    if-lez p1, :cond_3
+    :goto_c5
+    if-lez p1, :cond_55
 
     iget-object v1, p4, Lcom/esotericsoftware/asm/Context;->u:[Ljava/lang/Object;
 
@@ -622,9 +622,9 @@
 
     move v2, p2
 
-    goto :goto_6
+    goto :goto_c5
 
-    :goto_7
+    :goto_d6
     iget p2, p4, Lcom/esotericsoftware/asm/Context;->o:I
 
     add-int/2addr p1, v8
@@ -641,13 +641,13 @@
 .end method
 
 .method private a(I[CLjava/lang/String;Lcom/esotericsoftware/asm/AnnotationVisitor;)I
-    .locals 6
+    .registers 11
 
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
-    if-nez p4, :cond_0
+    if-nez p4, :cond_21
 
     iget-object p3, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
@@ -657,18 +657,18 @@
 
     const/4 p4, 0x0
 
-    sparse-switch p3, :sswitch_data_0
+    sparse-switch p3, :sswitch_data_1d6
 
     add-int/lit8 p1, p1, 0x3
 
     return p1
 
-    :sswitch_0
+    :sswitch_11
     add-int/lit8 p1, p1, 0x5
 
     return p1
 
-    :sswitch_1
+    :sswitch_14
     add-int/2addr p1, v1
 
     invoke-direct {p0, p1, p2, v0, p4}, Lcom/esotericsoftware/asm/ClassReader;->a(I[CZLcom/esotericsoftware/asm/AnnotationVisitor;)I
@@ -677,7 +677,7 @@
 
     return p1
 
-    :sswitch_2
+    :sswitch_1a
     add-int/lit8 p1, p1, 0x3
 
     invoke-direct {p0, p1, p2, v1, p4}, Lcom/esotericsoftware/asm/ClassReader;->a(I[CZLcom/esotericsoftware/asm/AnnotationVisitor;)I
@@ -686,7 +686,7 @@
 
     return p1
 
-    :cond_0
+    :cond_21
     iget-object v2, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
     add-int/lit8 v3, p1, 0x1
@@ -695,18 +695,18 @@
 
     and-int/lit16 p1, p1, 0xff
 
-    sparse-switch p1, :sswitch_data_1
+    sparse-switch p1, :sswitch_data_1e4
 
-    goto/16 :goto_d
+    goto/16 :goto_1d4
 
-    :sswitch_3
+    :sswitch_2e
     invoke-virtual {p0, v3, p2}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
 
     move-result-object p1
 
-    goto/16 :goto_a
+    goto/16 :goto_197
 
-    :sswitch_4
+    :sswitch_34
     invoke-virtual {p0, v3, p2}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
 
     move-result-object p1
@@ -721,9 +721,9 @@
 
     add-int/lit8 v3, v3, 0x4
 
-    goto/16 :goto_d
+    goto/16 :goto_1d4
 
-    :sswitch_5
+    :sswitch_45
     invoke-virtual {p0, v3, p2}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
 
     move-result-object p1
@@ -732,16 +732,16 @@
 
     move-result-object p1
 
-    goto/16 :goto_a
+    goto/16 :goto_197
 
-    :sswitch_6
+    :sswitch_4f
     invoke-virtual {p0, v3}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
     move-result p1
 
     add-int/lit8 v3, v3, 0x2
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_62
 
     add-int/lit8 v3, v3, -0x2
 
@@ -755,7 +755,7 @@
 
     return p1
 
-    :cond_1
+    :cond_62
     iget-object v2, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
     add-int/lit8 v4, v3, 0x1
@@ -764,7 +764,7 @@
 
     and-int/lit16 v2, v2, 0xff
 
-    sparse-switch v2, :sswitch_data_2
+    sparse-switch v2, :sswitch_data_21a
 
     add-int/lit8 v4, v4, -0x3
 
@@ -776,15 +776,15 @@
 
     move-result v3
 
-    goto/16 :goto_d
+    goto/16 :goto_1d4
 
-    :sswitch_7
+    :sswitch_79
     new-array p2, p1, [Z
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, p1, :cond_3
+    :goto_7c
+    if-ge v2, p1, :cond_96
 
     iget-object v3, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -798,34 +798,34 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_8e
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_8f
 
-    :cond_2
+    :cond_8e
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_8f
     aput-boolean v3, p2, v2
 
     add-int/lit8 v4, v4, 0x3
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7c
 
-    :cond_3
+    :cond_96
     invoke-virtual {p4, p3, p2}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_165
 
-    :sswitch_8
+    :sswitch_9b
     new-array p2, p1, [S
 
-    :goto_2
-    if-ge v0, p1, :cond_4
+    :goto_9d
+    if-ge v0, p1, :cond_b3
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -847,18 +847,18 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_9d
 
-    :cond_4
+    :cond_b3
     invoke-virtual {p4, p3, p2}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_165
 
-    :sswitch_9
+    :sswitch_b8
     new-array p2, p1, [J
 
-    :goto_3
-    if-ge v0, p1, :cond_5
+    :goto_ba
+    if-ge v0, p1, :cond_cf
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -878,18 +878,18 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_ba
 
-    :cond_5
+    :cond_cf
     invoke-virtual {p4, p3, p2}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_165
 
-    :sswitch_a
+    :sswitch_d4
     new-array p2, p1, [I
 
-    :goto_4
-    if-ge v0, p1, :cond_6
+    :goto_d6
+    if-ge v0, p1, :cond_eb
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -909,18 +909,18 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_d6
 
-    :cond_6
+    :cond_eb
     invoke-virtual {p4, p3, p2}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_165
 
-    :sswitch_b
+    :sswitch_f0
     new-array p2, p1, [F
 
-    :goto_5
-    if-ge v0, p1, :cond_7
+    :goto_f2
+    if-ge v0, p1, :cond_10b
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -944,18 +944,18 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_5
+    goto :goto_f2
 
-    :cond_7
+    :cond_10b
     invoke-virtual {p4, p3, p2}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_9
+    goto :goto_165
 
-    :sswitch_c
+    :sswitch_10f
     new-array p2, p1, [D
 
-    :goto_6
-    if-ge v0, p1, :cond_8
+    :goto_111
+    if-ge v0, p1, :cond_12a
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -979,18 +979,18 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_111
 
-    :cond_8
+    :cond_12a
     invoke-virtual {p4, p3, p2}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_9
+    goto :goto_165
 
-    :sswitch_d
+    :sswitch_12e
     new-array p2, p1, [C
 
-    :goto_7
-    if-ge v0, p1, :cond_9
+    :goto_130
+    if-ge v0, p1, :cond_146
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -1012,18 +1012,18 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_130
 
-    :cond_9
+    :cond_146
     invoke-virtual {p4, p3, p2}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_9
+    goto :goto_165
 
-    :sswitch_e
+    :sswitch_14a
     new-array p2, p1, [B
 
-    :goto_8
-    if-ge v0, p1, :cond_a
+    :goto_14c
+    if-ge v0, p1, :cond_162
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -1045,17 +1045,17 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_14c
 
-    :cond_a
+    :cond_162
     invoke-virtual {p4, p3, p2}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    :goto_9
+    :goto_165
     add-int/lit8 v3, v4, -0x1
 
-    goto :goto_d
+    goto :goto_1d4
 
-    :sswitch_f
+    :sswitch_168
     iget-object p1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
     invoke-virtual {p0, v3}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
@@ -1068,18 +1068,18 @@
 
     move-result p1
 
-    if-nez p1, :cond_b
+    if-nez p1, :cond_179
 
     sget-object p1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    goto :goto_a
+    goto :goto_197
 
-    :cond_b
+    :cond_179
     sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    goto :goto_a
+    goto :goto_197
 
-    :sswitch_10
+    :sswitch_17c
     iget-object p1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
     invoke-virtual {p0, v3}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
@@ -1098,9 +1098,9 @@
 
     invoke-direct {p2, p1}, Ljava/lang/Short;-><init>(S)V
 
-    goto :goto_b
+    goto :goto_1c0
 
-    :sswitch_11
+    :sswitch_18f
     invoke-virtual {p0, v3}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
     move-result p1
@@ -1109,12 +1109,12 @@
 
     move-result-object p1
 
-    :goto_a
+    :goto_197
     invoke-virtual {p4, p3, p1}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_c
+    goto :goto_1c3
 
-    :sswitch_12
+    :sswitch_19b
     iget-object p1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
     invoke-virtual {p0, v3}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
@@ -1133,9 +1133,9 @@
 
     invoke-direct {p2, p1}, Ljava/lang/Character;-><init>(C)V
 
-    goto :goto_b
+    goto :goto_1c0
 
-    :sswitch_13
+    :sswitch_1ae
     iget-object p1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
     invoke-virtual {p0, v3}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
@@ -1154,15 +1154,15 @@
 
     invoke-direct {p2, p1}, Ljava/lang/Byte;-><init>(B)V
 
-    :goto_b
+    :goto_1c0
     invoke-virtual {p4, p3, p2}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    :goto_c
+    :goto_1c3
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_d
+    goto :goto_1d4
 
-    :sswitch_14
+    :sswitch_1c6
     add-int/lit8 p1, v3, 0x2
 
     invoke-virtual {p0, v3, p2}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
@@ -1177,50 +1177,50 @@
 
     move-result v3
 
-    :goto_d
+    :goto_1d4
     return v3
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_1d6
     .sparse-switch
-        0x40 -> :sswitch_2
-        0x5b -> :sswitch_1
-        0x65 -> :sswitch_0
+        0x40 -> :sswitch_1a
+        0x5b -> :sswitch_14
+        0x65 -> :sswitch_11
     .end sparse-switch
 
-    :sswitch_data_1
+    :sswitch_data_1e4
     .sparse-switch
-        0x40 -> :sswitch_14
-        0x42 -> :sswitch_13
-        0x43 -> :sswitch_12
-        0x44 -> :sswitch_11
-        0x46 -> :sswitch_11
-        0x49 -> :sswitch_11
-        0x4a -> :sswitch_11
-        0x53 -> :sswitch_10
-        0x5a -> :sswitch_f
-        0x5b -> :sswitch_6
-        0x63 -> :sswitch_5
-        0x65 -> :sswitch_4
-        0x73 -> :sswitch_3
+        0x40 -> :sswitch_1c6
+        0x42 -> :sswitch_1ae
+        0x43 -> :sswitch_19b
+        0x44 -> :sswitch_18f
+        0x46 -> :sswitch_18f
+        0x49 -> :sswitch_18f
+        0x4a -> :sswitch_18f
+        0x53 -> :sswitch_17c
+        0x5a -> :sswitch_168
+        0x5b -> :sswitch_4f
+        0x63 -> :sswitch_45
+        0x65 -> :sswitch_34
+        0x73 -> :sswitch_2e
     .end sparse-switch
 
-    :sswitch_data_2
+    :sswitch_data_21a
     .sparse-switch
-        0x42 -> :sswitch_e
-        0x43 -> :sswitch_d
-        0x44 -> :sswitch_c
-        0x46 -> :sswitch_b
-        0x49 -> :sswitch_a
-        0x4a -> :sswitch_9
-        0x53 -> :sswitch_8
-        0x5a -> :sswitch_7
+        0x42 -> :sswitch_14a
+        0x43 -> :sswitch_12e
+        0x44 -> :sswitch_10f
+        0x46 -> :sswitch_f0
+        0x49 -> :sswitch_d4
+        0x4a -> :sswitch_b8
+        0x53 -> :sswitch_9b
+        0x5a -> :sswitch_79
     .end sparse-switch
 .end method
 
 .method private a(I[CZLcom/esotericsoftware/asm/AnnotationVisitor;)I
-    .locals 1
+    .registers 6
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -1228,10 +1228,10 @@
 
     add-int/lit8 p1, p1, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_17
 
-    :goto_0
-    if-lez v0, :cond_1
+    :goto_8
+    if-lez v0, :cond_21
 
     add-int/lit8 p3, p1, 0x2
 
@@ -1245,11 +1245,11 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
-    :goto_1
-    if-lez v0, :cond_1
+    :cond_17
+    :goto_17
+    if-lez v0, :cond_21
 
     const/4 p3, 0x0
 
@@ -1259,19 +1259,19 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    if-eqz p4, :cond_2
+    :cond_21
+    if-eqz p4, :cond_26
 
     invoke-virtual {p4}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visitEnd()V
 
-    :cond_2
+    :cond_26
     return p1
 .end method
 
 .method private a(Lcom/esotericsoftware/asm/ClassVisitor;Lcom/esotericsoftware/asm/Context;I)I
-    .locals 27
+    .registers 31
 
     move-object/from16 v8, p0
 
@@ -1327,8 +1327,8 @@
 
     const/4 v7, 0x0
 
-    :goto_0
-    if-lez v16, :cond_a
+    :goto_2e
+    if-lez v16, :cond_f2
 
     add-int/lit8 v0, v11, 0x2
 
@@ -1342,7 +1342,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_52
 
     add-int/lit8 v0, v11, 0x8
 
@@ -1350,29 +1350,29 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4a
 
     move-object/from16 v19, v15
 
-    goto/16 :goto_3
+    goto/16 :goto_e3
 
-    :cond_0
+    :cond_4a
     invoke-virtual {v8, v0, v10}, Lcom/esotericsoftware/asm/ClassReader;->readConst(I[C)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object/from16 v19, v0
 
-    goto/16 :goto_3
+    goto/16 :goto_e3
 
-    :cond_1
+    :cond_52
     const-string v0, "Signature"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_62
 
     add-int/lit8 v0, v11, 0x8
 
@@ -1380,92 +1380,92 @@
 
     move-result-object v18
 
-    goto/16 :goto_3
+    goto/16 :goto_e3
 
-    :cond_2
+    :cond_62
     const-string v0, "Deprecated"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_72
 
     const/high16 v0, 0x20000
 
-    :goto_1
+    :goto_6c
     or-int v0, v17, v0
 
     move/from16 v17, v0
 
-    goto/16 :goto_3
+    goto/16 :goto_e3
 
-    :cond_3
+    :cond_72
     const-string v0, "Synthetic"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7e
 
     const v0, 0x41000
 
-    goto :goto_1
+    goto :goto_6c
 
-    :cond_4
+    :cond_7e
     const-string v0, "RuntimeVisibleAnnotations"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8a
 
     add-int/lit8 v7, v11, 0x8
 
-    goto/16 :goto_3
+    goto/16 :goto_e3
 
-    :cond_5
+    :cond_8a
     const-string v0, "RuntimeVisibleTypeAnnotations"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_95
 
     add-int/lit8 v5, v11, 0x8
 
-    goto :goto_3
+    goto :goto_e3
 
-    :cond_6
+    :cond_95
     const-string v0, "RuntimeInvisibleAnnotations"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_a0
 
     add-int/lit8 v6, v11, 0x8
 
-    goto :goto_3
+    goto :goto_e3
 
-    :cond_7
+    :cond_a0
     const-string v0, "RuntimeInvisibleTypeAnnotations"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_ab
 
     add-int/lit8 v4, v11, 0x8
 
-    goto :goto_3
+    goto :goto_e3
 
-    :cond_8
+    :cond_ab
     iget-object v1, v9, Lcom/esotericsoftware/asm/Context;->a:[Lcom/esotericsoftware/asm/Attribute;
 
     add-int/lit8 v20, v11, 0x8
@@ -1510,27 +1510,27 @@
 
     move-object/from16 v0, v24
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_db
 
     iput-object v0, v3, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
     move/from16 v6, p3
 
-    goto :goto_2
+    goto :goto_de
 
-    :cond_9
+    :cond_db
     move/from16 v6, p3
 
     move-object v3, v0
 
-    :goto_2
+    :goto_de
     move v7, v9
 
     move/from16 v4, v25
 
     move/from16 v5, v26
 
-    :goto_3
+    :goto_e3
     add-int/lit8 v0, v11, 0x4
 
     invoke-virtual {v8, v0}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
@@ -1545,9 +1545,9 @@
 
     move-object/from16 v9, p2
 
-    goto/16 :goto_0
+    goto/16 :goto_2e
 
-    :cond_a
+    :cond_f2
     move-object v0, v3
 
     move/from16 v25, v4
@@ -1576,14 +1576,14 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_b
+    if-nez v4, :cond_10d
 
     return v1
 
-    :cond_b
+    :cond_10d
     const/4 v5, 0x1
 
-    if-eqz v9, :cond_c
+    if-eqz v9, :cond_129
 
     invoke-virtual {v8, v9}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -1591,8 +1591,8 @@
 
     add-int/lit8 v7, v9, 0x2
 
-    :goto_4
-    if-lez v6, :cond_c
+    :goto_116
+    if-lez v6, :cond_129
 
     add-int/lit8 v9, v7, 0x2
 
@@ -1610,10 +1610,10 @@
 
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_4
+    goto :goto_116
 
-    :cond_c
-    if-eqz p3, :cond_d
+    :cond_129
+    if-eqz p3, :cond_146
 
     move/from16 v12, p3
 
@@ -1623,8 +1623,8 @@
 
     add-int/lit8 v7, v12, 0x2
 
-    :goto_5
-    if-lez v6, :cond_d
+    :goto_133
+    if-lez v6, :cond_146
 
     add-int/lit8 v9, v7, 0x2
 
@@ -1642,12 +1642,12 @@
 
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_5
+    goto :goto_133
 
-    :cond_d
+    :cond_146
     move/from16 v12, v26
 
-    if-eqz v12, :cond_e
+    if-eqz v12, :cond_16d
 
     invoke-virtual {v8, v12}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -1655,8 +1655,8 @@
 
     add-int/lit8 v7, v12, 0x2
 
-    :goto_6
-    if-lez v6, :cond_e
+    :goto_150
+    if-lez v6, :cond_16d
 
     move-object/from16 v9, p2
 
@@ -1684,14 +1684,14 @@
 
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_6
+    goto :goto_150
 
-    :cond_e
+    :cond_16d
     move-object/from16 v9, p2
 
     move/from16 v12, v25
 
-    if-eqz v12, :cond_f
+    if-eqz v12, :cond_194
 
     invoke-virtual {v8, v12}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -1699,8 +1699,8 @@
 
     add-int/lit8 v7, v12, 0x2
 
-    :goto_7
-    if-lez v6, :cond_f
+    :goto_179
+    if-lez v6, :cond_194
 
     invoke-direct {v8, v9, v7}, Lcom/esotericsoftware/asm/ClassReader;->a(Lcom/esotericsoftware/asm/Context;I)I
 
@@ -1726,11 +1726,11 @@
 
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_7
+    goto :goto_179
 
-    :cond_f
-    :goto_8
-    if-eqz v0, :cond_10
+    :cond_194
+    :goto_194
+    if-eqz v0, :cond_19f
 
     iget-object v2, v0, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
@@ -1740,16 +1740,16 @@
 
     move-object v0, v2
 
-    goto :goto_8
+    goto :goto_194
 
-    :cond_10
+    :cond_19f
     invoke-virtual {v4}, Lcom/esotericsoftware/asm/FieldVisitor;->visitEnd()V
 
     return v1
 .end method
 
 .method private a(Lcom/esotericsoftware/asm/Context;I)I
-    .locals 7
+    .registers 10
 
     invoke-virtual {p0, p2}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
 
@@ -1759,26 +1759,26 @@
 
     const/high16 v2, -0x1000000
 
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v1, :sswitch_data_86
 
     const/16 v3, 0x43
 
-    if-ge v1, v3, :cond_0
+    if-ge v1, v3, :cond_69
 
     const/16 v2, -0x100
 
-    goto :goto_1
+    goto :goto_69
 
-    :sswitch_0
+    :sswitch_12
     const v1, -0xffff01
 
     and-int/2addr v0, v1
 
     add-int/lit8 p2, p2, 0x4
 
-    goto :goto_2
+    goto :goto_6c
 
-    :sswitch_1
+    :sswitch_19
     and-int/2addr v0, v2
 
     add-int/lit8 v1, p2, 0x1
@@ -1803,8 +1803,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_2f
+    if-ge v2, v1, :cond_6c
 
     invoke-virtual {p0, p2}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -1852,52 +1852,52 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
-    :sswitch_2
+    :sswitch_5f
     and-int/2addr v0, v2
 
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_2
+    goto :goto_6c
 
-    :sswitch_3
+    :sswitch_63
     const/high16 v1, -0x10000
 
     and-int/2addr v0, v1
 
     add-int/lit8 p2, p2, 0x2
 
-    goto :goto_2
+    goto :goto_6c
 
-    :cond_0
-    :goto_1
+    :cond_69
+    :goto_69
     and-int/2addr v0, v2
 
     add-int/lit8 p2, p2, 0x3
 
-    :cond_1
-    :goto_2
+    :cond_6c
+    :goto_6c
     invoke-virtual {p0, p2}, Lcom/esotericsoftware/asm/ClassReader;->readByte(I)I
 
     move-result v1
 
     iput v0, p1, Lcom/esotericsoftware/asm/Context;->i:I
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_76
 
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_7d
 
-    :cond_2
+    :cond_76
     new-instance v0, Lcom/esotericsoftware/asm/TypePath;
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
     invoke-direct {v0, v2, p2}, Lcom/esotericsoftware/asm/TypePath;-><init>([BI)V
 
-    :goto_3
+    :goto_7d
     iput-object v0, p1, Lcom/esotericsoftware/asm/Context;->j:Lcom/esotericsoftware/asm/TypePath;
 
     add-int/lit8 p2, p2, 0x1
@@ -1910,26 +1910,26 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_86
     .sparse-switch
-        0x0 -> :sswitch_3
-        0x1 -> :sswitch_3
-        0x13 -> :sswitch_2
-        0x14 -> :sswitch_2
-        0x15 -> :sswitch_2
-        0x16 -> :sswitch_3
-        0x40 -> :sswitch_1
-        0x41 -> :sswitch_1
-        0x47 -> :sswitch_0
-        0x48 -> :sswitch_0
-        0x49 -> :sswitch_0
-        0x4a -> :sswitch_0
-        0x4b -> :sswitch_0
+        0x0 -> :sswitch_63
+        0x1 -> :sswitch_63
+        0x13 -> :sswitch_5f
+        0x14 -> :sswitch_5f
+        0x15 -> :sswitch_5f
+        0x16 -> :sswitch_63
+        0x40 -> :sswitch_19
+        0x41 -> :sswitch_19
+        0x47 -> :sswitch_12
+        0x48 -> :sswitch_12
+        0x49 -> :sswitch_12
+        0x4a -> :sswitch_12
+        0x4b -> :sswitch_12
     .end sparse-switch
 .end method
 
 .method private a([Ljava/lang/Object;II[C[Lcom/esotericsoftware/asm/Label;)I
-    .locals 2
+    .registers 8
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
@@ -1939,7 +1939,7 @@
 
     and-int/lit16 p3, p3, 0xff
 
-    packed-switch p3, :pswitch_data_0
+    packed-switch p3, :pswitch_data_42
 
     invoke-virtual {p0, v1}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -1951,85 +1951,85 @@
 
     aput-object p3, p1, p2
 
-    goto :goto_0
+    goto :goto_1c
 
-    :pswitch_0
+    :pswitch_16
     invoke-virtual {p0, v1, p4}, Lcom/esotericsoftware/asm/ClassReader;->readClass(I[C)Ljava/lang/String;
 
     move-result-object p3
 
     aput-object p3, p1, p2
 
-    :goto_0
+    :goto_1c
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_1
+    goto :goto_41
 
-    :pswitch_1
+    :pswitch_1f
     sget-object p3, Lcom/esotericsoftware/asm/Opcodes;->UNINITIALIZED_THIS:Ljava/lang/Integer;
 
     aput-object p3, p1, p2
 
-    goto :goto_1
+    goto :goto_41
 
-    :pswitch_2
+    :pswitch_24
     sget-object p3, Lcom/esotericsoftware/asm/Opcodes;->NULL:Ljava/lang/Integer;
 
     aput-object p3, p1, p2
 
-    goto :goto_1
+    goto :goto_41
 
-    :pswitch_3
+    :pswitch_29
     sget-object p3, Lcom/esotericsoftware/asm/Opcodes;->LONG:Ljava/lang/Integer;
 
     aput-object p3, p1, p2
 
-    goto :goto_1
+    goto :goto_41
 
-    :pswitch_4
+    :pswitch_2e
     sget-object p3, Lcom/esotericsoftware/asm/Opcodes;->DOUBLE:Ljava/lang/Integer;
 
     aput-object p3, p1, p2
 
-    goto :goto_1
+    goto :goto_41
 
-    :pswitch_5
+    :pswitch_33
     sget-object p3, Lcom/esotericsoftware/asm/Opcodes;->FLOAT:Ljava/lang/Integer;
 
     aput-object p3, p1, p2
 
-    goto :goto_1
+    goto :goto_41
 
-    :pswitch_6
+    :pswitch_38
     sget-object p3, Lcom/esotericsoftware/asm/Opcodes;->INTEGER:Ljava/lang/Integer;
 
     aput-object p3, p1, p2
 
-    goto :goto_1
+    goto :goto_41
 
-    :pswitch_7
+    :pswitch_3d
     sget-object p3, Lcom/esotericsoftware/asm/Opcodes;->TOP:Ljava/lang/Integer;
 
     aput-object p3, p1, p2
 
-    :goto_1
+    :goto_41
     return v1
 
-    :pswitch_data_0
+    :pswitch_data_42
     .packed-switch 0x0
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3d
+        :pswitch_38
+        :pswitch_33
+        :pswitch_2e
+        :pswitch_29
+        :pswitch_24
+        :pswitch_1f
+        :pswitch_16
     .end packed-switch
 .end method
 
 .method private a([Lcom/esotericsoftware/asm/Attribute;Ljava/lang/String;II[CI[Lcom/esotericsoftware/asm/Label;)Lcom/esotericsoftware/asm/Attribute;
-    .locals 11
+    .registers 19
 
     move-object v0, p1
 
@@ -2037,10 +2037,10 @@
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_3
     array-length v3, v0
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_23
 
     aget-object v3, v0, v2
 
@@ -2050,7 +2050,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     aget-object v4, v0, v2
 
@@ -2072,12 +2072,12 @@
 
     return-object v0
 
-    :cond_0
+    :cond_20
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_1
+    :cond_23
     new-instance v3, Lcom/esotericsoftware/asm/Attribute;
 
     invoke-direct {v3, p2}, Lcom/esotericsoftware/asm/Attribute;-><init>(Ljava/lang/String;)V
@@ -2102,7 +2102,7 @@
 .end method
 
 .method private a(II[C)Ljava/lang/String;
-    .locals 8
+    .registers 12
 
     add-int/2addr p2, p1
 
@@ -2116,8 +2116,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge p1, p2, :cond_2
+    :goto_7
+    if-ge p1, p2, :cond_45
 
     add-int/lit8 v5, p1, 0x1
 
@@ -2125,25 +2125,25 @@
 
     const/4 v6, 0x1
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_4c
 
-    goto :goto_2
+    goto :goto_43
 
-    :pswitch_0
+    :pswitch_12
     shl-int/lit8 v3, v4, 0x6
 
     and-int/lit8 p1, p1, 0x3f
 
     or-int/2addr p1, v3
 
-    :goto_1
+    :goto_17
     int-to-char v4, p1
 
     const/4 v3, 0x1
 
-    goto :goto_2
+    goto :goto_43
 
-    :pswitch_1
+    :pswitch_1a
     add-int/lit8 v3, v2, 0x1
 
     shl-int/lit8 v6, v4, 0x6
@@ -2160,14 +2160,14 @@
 
     const/4 v3, 0x0
 
-    goto :goto_2
+    goto :goto_43
 
-    :pswitch_2
+    :pswitch_27
     and-int/lit16 p1, p1, 0xff
 
     const/16 v7, 0x80
 
-    if-ge p1, v7, :cond_0
+    if-ge p1, v7, :cond_34
 
     add-int/lit8 v6, v2, 0x1
 
@@ -2177,34 +2177,34 @@
 
     move v2, v6
 
-    goto :goto_2
+    goto :goto_43
 
-    :cond_0
+    :cond_34
     const/16 v3, 0xe0
 
-    if-ge p1, v3, :cond_1
+    if-ge p1, v3, :cond_3f
 
     const/16 v3, 0xbf
 
-    if-le p1, v3, :cond_1
+    if-le p1, v3, :cond_3f
 
     and-int/lit8 p1, p1, 0x1f
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_3f
     and-int/lit8 p1, p1, 0xf
 
     int-to-char v4, p1
 
     const/4 v3, 0x2
 
-    :goto_2
+    :goto_43
     move p1, v5
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_2
+    :cond_45
     new-instance p1, Ljava/lang/String;
 
     invoke-direct {p1, p3, v1, v2}, Ljava/lang/String;-><init>([CII)V
@@ -2213,16 +2213,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4c
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_27
+        :pswitch_1a
+        :pswitch_12
     .end packed-switch
 .end method
 
 .method private a(Lcom/esotericsoftware/asm/ClassWriter;[Lcom/esotericsoftware/asm/Item;[C)V
-    .locals 9
+    .registers 13
 
     invoke-direct {p0}, Lcom/esotericsoftware/asm/ClassReader;->a()I
 
@@ -2232,8 +2232,8 @@
 
     move-result v1
 
-    :goto_0
-    if-lez v1, :cond_3
+    :goto_8
+    if-lez v1, :cond_91
 
     add-int/lit8 v2, v0, 0x2
 
@@ -2247,7 +2247,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_84
 
     add-int/lit8 v1, v0, 0x8
 
@@ -2261,8 +2261,8 @@
 
     move v4, v2
 
-    :goto_1
-    if-ge v3, v1, :cond_1
+    :goto_22
+    if-ge v3, v1, :cond_6b
 
     sub-int v5, v4, v0
 
@@ -2286,8 +2286,8 @@
 
     move-result v7
 
-    :goto_2
-    if-lez v7, :cond_0
+    :goto_3a
+    if-lez v7, :cond_50
 
     add-int/lit8 v8, v4, 0x4
 
@@ -2309,9 +2309,9 @@
 
     add-int/lit8 v7, v7, -0x1
 
-    goto :goto_2
+    goto :goto_3a
 
-    :cond_0
+    :cond_50
     add-int/lit8 v4, v4, 0x4
 
     new-instance v7, Lcom/esotericsoftware/asm/Item;
@@ -2338,9 +2338,9 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_6b
     add-int/lit8 v0, v0, 0x4
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
@@ -2365,7 +2365,7 @@
 
     return-void
 
-    :cond_2
+    :cond_84
     add-int/lit8 v2, v0, 0x4
 
     invoke-virtual {p0, v2}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
@@ -2378,14 +2378,14 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_8
 
-    :cond_3
+    :cond_91
     return-void
 .end method
 
 .method private a(Lcom/esotericsoftware/asm/Context;)V
-    .locals 9
+    .registers 11
 
     iget-object v0, p1, Lcom/esotericsoftware/asm/Context;->g:Ljava/lang/String;
 
@@ -2399,7 +2399,7 @@
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_28
 
     const-string v2, "<init>"
 
@@ -2409,15 +2409,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     sget-object v2, Lcom/esotericsoftware/asm/Opcodes;->UNINITIALIZED_THIS:Ljava/lang/Integer;
 
     aput-object v2, v1, v4
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_1b
     iget v2, p0, Lcom/esotericsoftware/asm/ClassReader;->header:I
 
     add-int/lit8 v2, v2, 0x2
@@ -2430,13 +2430,13 @@
 
     aput-object v2, v1, v4
 
-    :goto_0
+    :goto_27
     const/4 v4, 0x1
 
-    :cond_1
+    :cond_28
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_29
     add-int/lit8 v5, v2, 0x1
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
@@ -2445,47 +2445,47 @@
 
     const/16 v7, 0x3b
 
-    sparse-switch v6, :sswitch_data_0
+    sparse-switch v6, :sswitch_data_94
 
     iput v4, p1, Lcom/esotericsoftware/asm/Context;->q:I
 
     return-void
 
-    :goto_2
-    :sswitch_0
+    :goto_37
+    :sswitch_37
     invoke-virtual {v0, v5}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
 
     const/16 v8, 0x5b
 
-    if-ne v6, v8, :cond_2
+    if-ne v6, v8, :cond_42
 
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_2
+    goto :goto_37
 
-    :cond_2
+    :cond_42
     invoke-virtual {v0, v5}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
 
     const/16 v8, 0x4c
 
-    if-ne v6, v8, :cond_3
+    if-ne v6, v8, :cond_53
 
-    :goto_3
+    :goto_4a
     add-int/lit8 v5, v5, 0x1
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
 
-    if-eq v6, v7, :cond_3
+    if-eq v6, v7, :cond_53
 
-    goto :goto_3
+    goto :goto_4a
 
-    :cond_3
+    :cond_53
     add-int/lit8 v6, v4, 0x1
 
     add-int/2addr v5, v3
@@ -2500,23 +2500,23 @@
 
     move v4, v6
 
-    goto :goto_1
+    goto :goto_29
 
-    :sswitch_1
+    :sswitch_5f
     move v2, v5
 
-    :goto_4
+    :goto_60
     invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
 
-    if-eq v6, v7, :cond_4
+    if-eq v6, v7, :cond_69
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4
+    goto :goto_60
 
-    :cond_4
+    :cond_69
     add-int/lit8 v6, v4, 0x1
 
     add-int/lit8 v7, v2, 0x1
@@ -2531,66 +2531,66 @@
 
     move v2, v7
 
-    goto :goto_1
+    goto :goto_29
 
-    :sswitch_2
+    :sswitch_76
     add-int/lit8 v2, v4, 0x1
 
     sget-object v6, Lcom/esotericsoftware/asm/Opcodes;->LONG:Ljava/lang/Integer;
 
     aput-object v6, v1, v4
 
-    goto :goto_5
+    goto :goto_91
 
-    :sswitch_3
+    :sswitch_7d
     add-int/lit8 v2, v4, 0x1
 
     sget-object v6, Lcom/esotericsoftware/asm/Opcodes;->FLOAT:Ljava/lang/Integer;
 
     aput-object v6, v1, v4
 
-    goto :goto_5
+    goto :goto_91
 
-    :sswitch_4
+    :sswitch_84
     add-int/lit8 v2, v4, 0x1
 
     sget-object v6, Lcom/esotericsoftware/asm/Opcodes;->DOUBLE:Ljava/lang/Integer;
 
     aput-object v6, v1, v4
 
-    goto :goto_5
+    goto :goto_91
 
-    :sswitch_5
+    :sswitch_8b
     add-int/lit8 v2, v4, 0x1
 
     sget-object v6, Lcom/esotericsoftware/asm/Opcodes;->INTEGER:Ljava/lang/Integer;
 
     aput-object v6, v1, v4
 
-    :goto_5
+    :goto_91
     move v4, v2
 
     move v2, v5
 
-    goto :goto_1
+    goto :goto_29
 
-    :sswitch_data_0
+    :sswitch_data_94
     .sparse-switch
-        0x42 -> :sswitch_5
-        0x43 -> :sswitch_5
-        0x44 -> :sswitch_4
-        0x46 -> :sswitch_3
-        0x49 -> :sswitch_5
-        0x4a -> :sswitch_2
-        0x4c -> :sswitch_1
-        0x53 -> :sswitch_5
-        0x5a -> :sswitch_5
-        0x5b -> :sswitch_0
+        0x42 -> :sswitch_8b
+        0x43 -> :sswitch_8b
+        0x44 -> :sswitch_84
+        0x46 -> :sswitch_7d
+        0x49 -> :sswitch_8b
+        0x4a -> :sswitch_76
+        0x4c -> :sswitch_5f
+        0x53 -> :sswitch_8b
+        0x5a -> :sswitch_8b
+        0x5b -> :sswitch_37
     .end sparse-switch
 .end method
 
 .method private a(Lcom/esotericsoftware/asm/MethodVisitor;Lcom/esotericsoftware/asm/Context;I)V
-    .locals 40
+    .registers 44
 
     move-object/from16 v7, p0
 
@@ -2638,12 +2638,12 @@
 
     move/from16 v0, v16
 
-    :goto_0
+    :goto_2f
     const/16 v4, 0x84
 
     const/4 v3, 0x1
 
-    if-ge v0, v6, :cond_3
+    if-ge v0, v6, :cond_cb
 
     sub-int v1, v0, v16
 
@@ -2655,28 +2655,28 @@
 
     aget-byte v2, v17, v2
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_956
 
-    :cond_0
-    :pswitch_0
+    :cond_41
+    :pswitch_41
     add-int/lit8 v0, v0, 0x4
 
-    goto :goto_0
+    goto :goto_2f
 
-    :pswitch_1
+    :pswitch_44
     add-int/lit8 v1, v0, 0x1
 
     aget-byte v1, v8, v1
 
     and-int/lit16 v1, v1, 0xff
 
-    if-ne v1, v4, :cond_0
+    if-ne v1, v4, :cond_41
 
     add-int/lit8 v0, v0, 0x6
 
-    goto :goto_0
+    goto :goto_2f
 
-    :pswitch_2
+    :pswitch_4f
     add-int/lit8 v0, v0, 0x4
 
     and-int/lit8 v2, v1, 0x3
@@ -2697,8 +2697,8 @@
 
     move-result v2
 
-    :goto_1
-    if-lez v2, :cond_1
+    :goto_62
+    if-lez v2, :cond_73
 
     add-int/lit8 v3, v0, 0xc
 
@@ -2714,14 +2714,14 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_1
+    goto :goto_62
 
-    :cond_1
+    :cond_73
     add-int/lit8 v0, v0, 0x8
 
-    goto :goto_0
+    goto :goto_2f
 
-    :pswitch_3
+    :pswitch_76
     add-int/lit8 v0, v0, 0x4
 
     and-int/lit8 v2, v1, 0x3
@@ -2752,8 +2752,8 @@
 
     add-int/2addr v2, v3
 
-    :goto_2
-    if-lez v2, :cond_2
+    :goto_91
+    if-lez v2, :cond_a2
 
     add-int/lit8 v3, v0, 0xc
 
@@ -2769,14 +2769,14 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_2
+    goto :goto_91
 
-    :cond_2
+    :cond_a2
     add-int/lit8 v0, v0, 0xc
 
-    goto :goto_0
+    goto :goto_2f
 
-    :pswitch_4
+    :pswitch_a5
     add-int/lit8 v2, v0, 0x1
 
     invoke-virtual {v7, v2}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
@@ -2787,9 +2787,9 @@
 
     invoke-virtual {v7, v1, v5}, Lcom/esotericsoftware/asm/ClassReader;->readLabel(I[Lcom/esotericsoftware/asm/Label;)Lcom/esotericsoftware/asm/Label;
 
-    goto :goto_3
+    goto :goto_bb
 
-    :pswitch_5
+    :pswitch_b0
     add-int/lit8 v2, v0, 0x1
 
     invoke-virtual {v7, v2}, Lcom/esotericsoftware/asm/ClassReader;->readShort(I)S
@@ -2800,37 +2800,37 @@
 
     invoke-virtual {v7, v1, v5}, Lcom/esotericsoftware/asm/ClassReader;->readLabel(I[Lcom/esotericsoftware/asm/Label;)Lcom/esotericsoftware/asm/Label;
 
-    goto :goto_4
+    goto :goto_bf
 
-    :goto_3
-    :pswitch_6
+    :goto_bb
+    :pswitch_bb
     add-int/lit8 v0, v0, 0x5
 
-    goto/16 :goto_0
+    goto/16 :goto_2f
 
-    :goto_4
-    :pswitch_7
+    :goto_bf
+    :pswitch_bf
     add-int/lit8 v0, v0, 0x3
 
-    goto/16 :goto_0
+    goto/16 :goto_2f
 
-    :pswitch_8
+    :pswitch_c3
     add-int/lit8 v0, v0, 0x2
 
-    goto/16 :goto_0
+    goto/16 :goto_2f
 
-    :pswitch_9
+    :pswitch_c7
     add-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_2f
 
-    :cond_3
+    :cond_cb
     invoke-virtual {v7, v0}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
     move-result v1
 
-    :goto_5
-    if-lez v1, :cond_4
+    :goto_cf
+    if-lez v1, :cond_108
 
     add-int/lit8 v2, v0, 0x2
 
@@ -2886,9 +2886,9 @@
 
     const/16 v10, 0x8
 
-    goto :goto_5
+    goto :goto_cf
 
-    :cond_4
+    :cond_108
     add-int/lit8 v0, v0, 0x2
 
     iget v1, v14, Lcom/esotericsoftware/asm/Context;->b:I
@@ -2897,16 +2897,16 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_113
 
     const/4 v4, 0x1
 
-    goto :goto_6
+    goto :goto_114
 
-    :cond_5
+    :cond_113
     const/4 v4, 0x0
 
-    :goto_6
+    :goto_114
     invoke-virtual {v7, v0}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
     move-result v1
@@ -2937,10 +2937,10 @@
 
     const/16 v29, -0x1
 
-    :goto_7
+    :goto_130
     const/16 v10, 0x43
 
-    if-lez v20, :cond_1d
+    if-lez v20, :cond_34f
 
     add-int/lit8 v2, v19, 0x2
 
@@ -2954,13 +2954,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_1ac
 
     iget v2, v14, Lcom/esotericsoftware/asm/Context;->b:I
 
     and-int/lit8 v2, v2, 0x2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_1a5
 
     add-int/lit8 v2, v19, 0x8
 
@@ -2970,8 +2970,8 @@
 
     move/from16 v10, v19
 
-    :goto_8
-    if-lez v3, :cond_8
+    :goto_150
+    if-lez v3, :cond_195
 
     move-object/from16 v32, v0
 
@@ -2985,7 +2985,7 @@
 
     aget-object v23, v5, v1
 
-    if-nez v23, :cond_6
+    if-nez v23, :cond_171
 
     move/from16 v23, v0
 
@@ -3003,14 +3003,14 @@
 
     iput v2, v0, Lcom/esotericsoftware/asm/Label;->a:I
 
-    goto :goto_9
+    goto :goto_175
 
-    :cond_6
+    :cond_171
     move/from16 v23, v0
 
     move/from16 v34, v2
 
-    :goto_9
+    :goto_175
     add-int/lit8 v10, v10, 0xc
 
     invoke-virtual {v7, v10}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
@@ -3021,7 +3021,7 @@
 
     aget-object v0, v5, v1
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_18a
 
     invoke-virtual {v7, v1, v5}, Lcom/esotericsoftware/asm/ClassReader;->readLabel(I[Lcom/esotericsoftware/asm/Label;)Lcom/esotericsoftware/asm/Label;
 
@@ -3035,7 +3035,7 @@
 
     iput v1, v0, Lcom/esotericsoftware/asm/Label;->a:I
 
-    :cond_7
+    :cond_18a
     add-int/lit8 v3, v3, -0x1
 
     move/from16 v10, v23
@@ -3046,9 +3046,9 @@
 
     move/from16 v2, v34
 
-    goto :goto_8
+    goto :goto_150
 
-    :cond_8
+    :cond_195
     move-object/from16 v32, v0
 
     move-object/from16 v33, v1
@@ -3063,19 +3063,19 @@
 
     move/from16 v23, v34
 
-    goto/16 :goto_12
+    goto/16 :goto_2c0
 
-    :cond_9
+    :cond_1a5
     move-object/from16 v32, v0
 
     move-object/from16 v33, v1
 
-    :cond_a
+    :cond_1a9
     const/4 v3, 0x1
 
-    goto/16 :goto_10
+    goto/16 :goto_2b6
 
-    :cond_b
+    :cond_1ac
     move-object/from16 v32, v0
 
     move-object/from16 v33, v1
@@ -3086,26 +3086,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1bc
 
     add-int/lit8 v24, v19, 0x8
 
-    goto/16 :goto_10
+    goto/16 :goto_2b6
 
-    :cond_c
+    :cond_1bc
     const-string v0, "LineNumberTable"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_20b
 
     iget v0, v14, Lcom/esotericsoftware/asm/Context;->b:I
 
     and-int/lit8 v0, v0, 0x2
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_1a9
 
     add-int/lit8 v0, v19, 0x8
 
@@ -3115,8 +3115,8 @@
 
     move/from16 v1, v19
 
-    :goto_a
-    if-lez v0, :cond_a
+    :goto_1d2
+    if-lez v0, :cond_1a9
 
     add-int/lit8 v2, v1, 0xa
 
@@ -3126,7 +3126,7 @@
 
     aget-object v3, v5, v2
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_1ea
 
     invoke-virtual {v7, v2, v5}, Lcom/esotericsoftware/asm/ClassReader;->readLabel(I[Lcom/esotericsoftware/asm/Label;)Lcom/esotericsoftware/asm/Label;
 
@@ -3140,17 +3140,17 @@
 
     iput v10, v3, Lcom/esotericsoftware/asm/Label;->a:I
 
-    :cond_d
+    :cond_1ea
     aget-object v2, v5, v2
 
-    :goto_b
+    :goto_1ec
     iget v3, v2, Lcom/esotericsoftware/asm/Label;->b:I
 
-    if-lez v3, :cond_f
+    if-lez v3, :cond_1fe
 
     iget-object v3, v2, Lcom/esotericsoftware/asm/Label;->k:Lcom/esotericsoftware/asm/Label;
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_1fb
 
     new-instance v3, Lcom/esotericsoftware/asm/Label;
 
@@ -3158,12 +3158,12 @@
 
     iput-object v3, v2, Lcom/esotericsoftware/asm/Label;->k:Lcom/esotericsoftware/asm/Label;
 
-    :cond_e
+    :cond_1fb
     iget-object v2, v2, Lcom/esotericsoftware/asm/Label;->k:Lcom/esotericsoftware/asm/Label;
 
-    goto :goto_b
+    goto :goto_1ec
 
-    :cond_f
+    :cond_1fe
     add-int/lit8 v3, v1, 0xc
 
     invoke-virtual {v7, v3}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
@@ -3176,16 +3176,16 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_a
+    goto :goto_1d2
 
-    :cond_10
+    :cond_20b
     const-string v0, "RuntimeVisibleTypeAnnotations"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_23e
 
     add-int/lit8 v0, v19, 0x8
 
@@ -3197,7 +3197,7 @@
 
     array-length v2, v0
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_22f
 
     const/4 v2, 0x0
 
@@ -3207,11 +3207,11 @@
 
     move-result v3
 
-    if-ge v3, v10, :cond_11
+    if-ge v3, v10, :cond_227
 
-    goto :goto_c
+    goto :goto_22f
 
-    :cond_11
+    :cond_227
     aget v3, v0, v2
 
     add-int/2addr v3, v1
@@ -3220,13 +3220,13 @@
 
     move-result v1
 
-    goto :goto_d
+    goto :goto_230
 
-    :cond_12
-    :goto_c
+    :cond_22f
+    :goto_22f
     const/4 v1, -0x1
 
-    :goto_d
+    :goto_230
     move/from16 v28, v1
 
     move/from16 v37, v4
@@ -3241,16 +3241,16 @@
 
     move-object/from16 v0, v32
 
-    goto/16 :goto_15
+    goto/16 :goto_339
 
-    :cond_13
+    :cond_23e
     const-string v0, "RuntimeInvisibleTypeAnnotations"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_26d
 
     add-int/lit8 v0, v19, 0x8
 
@@ -3262,7 +3262,7 @@
 
     array-length v2, v0
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_262
 
     aget v2, v0, v1
 
@@ -3270,11 +3270,11 @@
 
     move-result v2
 
-    if-ge v2, v10, :cond_14
+    if-ge v2, v10, :cond_259
 
-    goto :goto_e
+    goto :goto_262
 
-    :cond_14
+    :cond_259
     aget v2, v0, v1
 
     const/4 v3, 0x1
@@ -3285,15 +3285,15 @@
 
     move-result v1
 
-    goto :goto_f
+    goto :goto_264
 
-    :cond_15
-    :goto_e
+    :cond_262
+    :goto_262
     const/4 v3, 0x1
 
     const/4 v1, -0x1
 
-    :goto_f
+    :goto_264
     move/from16 v29, v1
 
     move/from16 v37, v4
@@ -3302,9 +3302,9 @@
 
     move/from16 v38, v6
 
-    goto :goto_11
+    goto :goto_2be
 
-    :cond_16
+    :cond_26d
     const/4 v3, 0x1
 
     const-string v0, "StackMapTable"
@@ -3313,13 +3313,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_28b
 
     iget v0, v14, Lcom/esotericsoftware/asm/Context;->b:I
 
     and-int/lit8 v0, v0, 0x4
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_2b6
 
     add-int/lit8 v21, v19, 0xa
 
@@ -3335,22 +3335,22 @@
 
     move-result v27
 
-    goto :goto_10
+    goto :goto_2b6
 
-    :cond_17
+    :cond_28b
     const-string v0, "StackMap"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_2c3
 
     iget v0, v14, Lcom/esotericsoftware/asm/Context;->b:I
 
     and-int/lit8 v0, v0, 0x4
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_2b6
 
     add-int/lit8 v21, v19, 0xa
 
@@ -3380,10 +3380,10 @@
 
     const/16 v25, 0x0
 
-    goto/16 :goto_15
+    goto/16 :goto_339
 
-    :cond_18
-    :goto_10
+    :cond_2b6
+    :goto_2b6
     move/from16 v37, v4
 
     move-object/from16 p3, v5
@@ -3392,25 +3392,25 @@
 
     move-object/from16 v0, v32
 
-    :goto_11
+    :goto_2be
     move-object/from16 v1, v33
 
-    :goto_12
+    :goto_2c0
     const/4 v15, -0x1
 
-    goto/16 :goto_15
+    goto/16 :goto_339
 
-    :cond_19
+    :cond_2c3
     move-object/from16 v10, v26
 
     const/4 v1, 0x0
 
-    :goto_13
+    :goto_2c6
     iget-object v0, v14, Lcom/esotericsoftware/asm/Context;->a:[Lcom/esotericsoftware/asm/Attribute;
 
     array-length v0, v0
 
-    if-ge v1, v0, :cond_1c
+    if-ge v1, v0, :cond_328
 
     iget-object v0, v14, Lcom/esotericsoftware/asm/Context;->a:[Lcom/esotericsoftware/asm/Attribute;
 
@@ -3422,7 +3422,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_307
 
     iget-object v0, v14, Lcom/esotericsoftware/asm/Context;->a:[Lcom/esotericsoftware/asm/Attribute;
 
@@ -3468,15 +3468,15 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_316
 
     iput-object v10, v0, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
     move-object v10, v0
 
-    goto :goto_14
+    goto :goto_316
 
-    :cond_1a
+    :cond_307
     move-object/from16 v30, v2
 
     move/from16 v37, v4
@@ -3493,8 +3493,8 @@
 
     move/from16 v32, v1
 
-    :cond_1b
-    :goto_14
+    :cond_316
+    :goto_316
     add-int/lit8 v1, v32, 0x1
 
     move-object/from16 v15, p1
@@ -3513,9 +3513,9 @@
 
     const/4 v3, 0x1
 
-    goto :goto_13
+    goto :goto_2c6
 
-    :cond_1c
+    :cond_328
     move/from16 v37, v4
 
     move-object/from16 p3, v5
@@ -3534,7 +3534,7 @@
 
     move-object/from16 v1, v36
 
-    :goto_15
+    :goto_339
     add-int/lit8 v2, v19, 0x4
 
     invoke-virtual {v7, v2}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
@@ -3555,9 +3555,9 @@
 
     move/from16 v6, v38
 
-    goto/16 :goto_7
+    goto/16 :goto_130
 
-    :cond_1d
+    :cond_34f
     move-object/from16 v35, v0
 
     move-object/from16 v36, v1
@@ -3570,7 +3570,7 @@
 
     const/4 v15, -0x1
 
-    if-eqz v21, :cond_21
+    if-eqz v21, :cond_3a9
 
     iput v15, v14, Lcom/esotericsoftware/asm/Context;->o:I
 
@@ -3594,25 +3594,25 @@
 
     move/from16 v6, v37
 
-    if-eqz v6, :cond_1e
+    if-eqz v6, :cond_376
 
     invoke-direct {v7, v14}, Lcom/esotericsoftware/asm/ClassReader;->a(Lcom/esotericsoftware/asm/Context;)V
 
-    :cond_1e
+    :cond_376
     move/from16 v0, v21
 
-    :goto_16
+    :goto_378
     add-int v1, v21, v22
 
     add-int/lit8 v1, v1, -0x2
 
-    if-ge v0, v1, :cond_20
+    if-ge v0, v1, :cond_3a5
 
     aget-byte v1, v8, v0
 
     const/16 v2, 0x8
 
-    if-ne v1, v2, :cond_1f
+    if-ne v1, v2, :cond_39e
 
     add-int/lit8 v1, v0, 0x1
 
@@ -3620,9 +3620,9 @@
 
     move-result v1
 
-    if-ltz v1, :cond_1f
+    if-ltz v1, :cond_39e
 
-    if-ge v1, v9, :cond_1f
+    if-ge v1, v9, :cond_39e
 
     add-int v2, v16, v1
 
@@ -3632,55 +3632,55 @@
 
     const/16 v3, 0xbb
 
-    if-ne v2, v3, :cond_1f
+    if-ne v2, v3, :cond_39e
 
     move-object/from16 v5, p3
 
     invoke-virtual {v7, v1, v5}, Lcom/esotericsoftware/asm/ClassReader;->readLabel(I[Lcom/esotericsoftware/asm/Label;)Lcom/esotericsoftware/asm/Label;
 
-    goto :goto_17
+    goto :goto_3a0
 
-    :cond_1f
+    :cond_39e
     move-object/from16 v5, p3
 
-    :goto_17
+    :goto_3a0
     add-int/lit8 v0, v0, 0x1
 
     move-object/from16 p3, v5
 
-    goto :goto_16
+    goto :goto_378
 
-    :cond_20
+    :cond_3a5
     move-object/from16 v5, p3
 
     move-object v3, v14
 
-    goto :goto_18
+    goto :goto_3ae
 
-    :cond_21
+    :cond_3a9
     move-object/from16 v5, p3
 
     move/from16 v6, v37
 
     const/4 v3, 0x0
 
-    :goto_18
+    :goto_3ae
     move/from16 v4, v16
 
     const/16 v17, 0x0
 
     const/16 v19, 0x0
 
-    :goto_19
+    :goto_3b4
     move/from16 v2, v38
 
-    if-ge v4, v2, :cond_3a
+    if-ge v4, v2, :cond_7db
 
     sub-int v1, v4, v16
 
     aget-object v0, v5, v1
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_3ea
 
     iget-object v15, v0, Lcom/esotericsoftware/asm/Label;->k:Lcom/esotericsoftware/asm/Label;
 
@@ -3700,11 +3700,11 @@
 
     and-int/lit8 v10, v10, 0x2
 
-    if-nez v10, :cond_23
+    if-nez v10, :cond_3ec
 
     iget v10, v0, Lcom/esotericsoftware/asm/Label;->b:I
 
-    if-lez v10, :cond_23
+    if-lez v10, :cond_3ec
 
     iget v10, v0, Lcom/esotericsoftware/asm/Label;->b:I
 
@@ -3712,8 +3712,8 @@
 
     move-object/from16 v10, v20
 
-    :goto_1a
-    if-eqz v10, :cond_23
+    :goto_3dc
+    if-eqz v10, :cond_3ec
 
     move/from16 v38, v2
 
@@ -3725,46 +3725,46 @@
 
     move/from16 v2, v38
 
-    goto :goto_1a
+    goto :goto_3dc
 
-    :cond_22
+    :cond_3ea
     move-object/from16 v15, p1
 
-    :cond_23
+    :cond_3ec
     move/from16 v38, v2
 
     move-object v10, v3
 
-    :goto_1b
-    if-eqz v10, :cond_29
+    :goto_3ef
+    if-eqz v10, :cond_48c
 
     iget v0, v10, Lcom/esotericsoftware/asm/Context;->o:I
 
-    if-eq v0, v1, :cond_24
+    if-eq v0, v1, :cond_3fb
 
     iget v0, v10, Lcom/esotericsoftware/asm/Context;->o:I
 
     const/4 v2, -0x1
 
-    if-ne v0, v2, :cond_29
+    if-ne v0, v2, :cond_48c
 
-    goto :goto_1c
+    goto :goto_3fc
 
-    :cond_24
+    :cond_3fb
     const/4 v2, -0x1
 
-    :goto_1c
+    :goto_3fc
     iget v0, v10, Lcom/esotericsoftware/asm/Context;->o:I
 
-    if-eq v0, v2, :cond_27
+    if-eq v0, v2, :cond_44c
 
-    if-eqz v25, :cond_26
+    if-eqz v25, :cond_42c
 
-    if-eqz v6, :cond_25
+    if-eqz v6, :cond_405
 
-    goto :goto_1d
+    goto :goto_42c
 
-    :cond_25
+    :cond_405
     iget v2, v10, Lcom/esotericsoftware/asm/Context;->p:I
 
     iget v3, v10, Lcom/esotericsoftware/asm/Context;->r:I
@@ -3805,10 +3805,10 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/esotericsoftware/asm/MethodVisitor;->visitFrame(II[Ljava/lang/Object;I[Ljava/lang/Object;)V
 
-    goto :goto_1e
+    goto :goto_45d
 
-    :cond_26
-    :goto_1d
+    :cond_42c
+    :goto_42c
     move/from16 v20, v4
 
     move-object/from16 v22, v5
@@ -3841,9 +3841,9 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/esotericsoftware/asm/MethodVisitor;->visitFrame(II[Ljava/lang/Object;I[Ljava/lang/Object;)V
 
-    goto :goto_1e
+    goto :goto_45d
 
-    :cond_27
+    :cond_44c
     move/from16 v20, v4
 
     move-object/from16 v22, v5
@@ -3862,8 +3862,8 @@
 
     move/from16 v9, v25
 
-    :goto_1e
-    if-lez v27, :cond_28
+    :goto_45d
+    if-lez v27, :cond_478
 
     invoke-direct {v7, v12, v9, v6, v10}, Lcom/esotericsoftware/asm/ClassReader;->a(IZZLcom/esotericsoftware/asm/Context;)I
 
@@ -3889,9 +3889,9 @@
 
     move/from16 v21, v0
 
-    goto/16 :goto_1b
+    goto/16 :goto_3ef
 
-    :cond_28
+    :cond_478
     move/from16 v25, v9
 
     move v1, v11
@@ -3912,9 +3912,9 @@
 
     move/from16 v12, v34
 
-    goto/16 :goto_1b
+    goto/16 :goto_3ef
 
-    :cond_29
+    :cond_48c
     move/from16 v20, v4
 
     move-object/from16 v22, v5
@@ -3941,9 +3941,9 @@
 
     aget-byte v0, v0, v5
 
-    packed-switch v0, :pswitch_data_1
+    packed-switch v0, :pswitch_data_97e
 
-    :pswitch_a
+    :pswitch_4a8
     move/from16 v37, v6
 
     move/from16 v31, v9
@@ -3968,9 +3968,9 @@
 
     add-int/lit8 v4, v20, 0x4
 
-    goto/16 :goto_2c
+    goto/16 :goto_70e
 
-    :pswitch_b
+    :pswitch_4c3
     add-int/lit8 v4, v20, 0x1
 
     aget-byte v0, v8, v4
@@ -3979,7 +3979,7 @@
 
     const/16 v4, 0x84
 
-    if-ne v0, v4, :cond_2a
+    if-ne v0, v4, :cond_4df
 
     add-int/lit8 v0, v20, 0x2
 
@@ -3997,9 +3997,9 @@
 
     add-int/lit8 v0, v20, 0x6
 
-    goto :goto_1f
+    goto :goto_4ea
 
-    :cond_2a
+    :cond_4df
     add-int/lit8 v1, v20, 0x2
 
     invoke-virtual {v7, v1}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
@@ -4010,7 +4010,7 @@
 
     add-int/lit8 v0, v20, 0x4
 
-    :goto_1f
+    :goto_4ea
     move v4, v0
 
     move/from16 v37, v6
@@ -4025,9 +4025,9 @@
 
     const/16 v18, 0x8
 
-    goto/16 :goto_25
+    goto/16 :goto_5e2
 
-    :pswitch_c
+    :pswitch_4f9
     const/16 v4, 0x84
 
     add-int/lit8 v0, v20, 0x4
@@ -4058,8 +4058,8 @@
 
     const/4 v4, 0x0
 
-    :goto_20
-    if-ge v4, v2, :cond_2b
+    :goto_514
+    if-ge v4, v2, :cond_530
 
     invoke-virtual {v7, v0}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
 
@@ -4087,9 +4087,9 @@
 
     move/from16 v2, v20
 
-    goto :goto_20
+    goto :goto_514
 
-    :cond_2b
+    :cond_530
     aget-object v1, v22, v1
 
     invoke-virtual {v15, v1, v3, v5}, Lcom/esotericsoftware/asm/MethodVisitor;->visitLookupSwitchInsn(Lcom/esotericsoftware/asm/Label;[I[Lcom/esotericsoftware/asm/Label;)V
@@ -4098,9 +4098,9 @@
 
     move/from16 v37, v6
 
-    goto/16 :goto_24
+    goto/16 :goto_5da
 
-    :pswitch_d
+    :pswitch_53a
     const/16 v18, 0x8
 
     add-int/lit8 v4, v20, 0x4
@@ -4143,8 +4143,8 @@
 
     const/4 v4, 0x0
 
-    :goto_21
-    if-ge v4, v3, :cond_2c
+    :goto_55f
+    if-ge v4, v3, :cond_570
 
     invoke-virtual {v7, v6}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
 
@@ -4160,18 +4160,18 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_21
+    goto :goto_55f
 
-    :cond_2c
+    :cond_570
     aget-object v1, v22, v1
 
     invoke-virtual {v15, v0, v2, v1, v5}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTableSwitchInsn(IILcom/esotericsoftware/asm/Label;[Lcom/esotericsoftware/asm/Label;)V
 
     move v4, v6
 
-    goto :goto_24
+    goto :goto_5da
 
-    :pswitch_e
+    :pswitch_577
     move/from16 v37, v6
 
     const/16 v18, 0x8
@@ -4188,9 +4188,9 @@
 
     invoke-virtual {v15, v0, v1}, Lcom/esotericsoftware/asm/MethodVisitor;->visitIincInsn(II)V
 
-    goto :goto_23
+    goto :goto_5d8
 
-    :pswitch_f
+    :pswitch_589
     move/from16 v37, v6
 
     const/16 v18, 0x8
@@ -4207,9 +4207,9 @@
 
     invoke-virtual {v15, v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitLdcInsn(Ljava/lang/Object;)V
 
-    goto :goto_23
+    goto :goto_5d8
 
-    :pswitch_10
+    :pswitch_59b
     move/from16 v37, v6
 
     const/16 v18, 0x8
@@ -4228,9 +4228,9 @@
 
     add-int/lit8 v4, v20, 0x2
 
-    goto :goto_24
+    goto :goto_5da
 
-    :pswitch_11
+    :pswitch_5af
     move/from16 v37, v6
 
     const/4 v6, 0x1
@@ -4251,12 +4251,12 @@
 
     invoke-virtual {v15, v5, v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitJumpInsn(ILcom/esotericsoftware/asm/Label;)V
 
-    :goto_22
+    :goto_5c3
     add-int/lit8 v4, v20, 0x5
 
-    goto :goto_24
+    goto :goto_5da
 
-    :pswitch_12
+    :pswitch_5c6
     move/from16 v37, v6
 
     const/4 v6, 0x1
@@ -4275,10 +4275,10 @@
 
     invoke-virtual {v15, v5, v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitJumpInsn(ILcom/esotericsoftware/asm/Label;)V
 
-    :goto_23
+    :goto_5d8
     add-int/lit8 v4, v20, 0x3
 
-    :goto_24
+    :goto_5da
     move/from16 v31, v9
 
     move/from16 v0, v17
@@ -4287,12 +4287,12 @@
 
     move-object/from16 v9, v36
 
-    :goto_25
+    :goto_5e2
     const/16 v25, 0x84
 
-    goto/16 :goto_2d
+    goto/16 :goto_714
 
-    :pswitch_13
+    :pswitch_5e6
     move/from16 v37, v6
 
     const/4 v6, 0x1
@@ -4339,8 +4339,8 @@
 
     const/4 v5, 0x0
 
-    :goto_26
-    if-ge v5, v3, :cond_2d
+    :goto_612
+    if-ge v5, v3, :cond_624
 
     invoke-virtual {v7, v1}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -4358,9 +4358,9 @@
 
     const/4 v6, 0x1
 
-    goto :goto_26
+    goto :goto_612
 
-    :cond_2d
+    :cond_624
     iget-object v1, v7, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
     add-int/lit8 v0, v0, 0x2
@@ -4383,9 +4383,9 @@
 
     invoke-virtual {v15, v1, v0, v2, v4}, Lcom/esotericsoftware/asm/MethodVisitor;->visitInvokeDynamicInsn(Ljava/lang/String;Ljava/lang/String;Lcom/esotericsoftware/asm/Handle;[Ljava/lang/Object;)V
 
-    goto :goto_22
+    goto :goto_5c3
 
-    :pswitch_14
+    :pswitch_63c
     move/from16 v37, v6
 
     const/16 v18, 0x8
@@ -4406,16 +4406,16 @@
 
     const/16 v2, 0xb
 
-    if-ne v1, v2, :cond_2e
+    if-ne v1, v2, :cond_654
 
     const/4 v6, 0x1
 
-    goto :goto_27
+    goto :goto_655
 
-    :cond_2e
+    :cond_654
     const/4 v6, 0x0
 
-    :goto_27
+    :goto_655
     invoke-virtual {v7, v0, v13}, Lcom/esotericsoftware/asm/ClassReader;->readClass(I[C)Ljava/lang/String;
 
     move-result-object v2
@@ -4442,7 +4442,7 @@
 
     const/16 v0, 0xb6
 
-    if-ge v5, v0, :cond_2f
+    if-ge v5, v0, :cond_67a
 
     invoke-virtual {v15, v5, v2, v3, v4}, Lcom/esotericsoftware/asm/MethodVisitor;->visitFieldInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -4452,9 +4452,9 @@
 
     move v9, v5
 
-    goto :goto_28
+    goto :goto_686
 
-    :cond_2f
+    :cond_67a
     move-object/from16 v0, p1
 
     move v1, v5
@@ -4469,16 +4469,16 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
 
-    :goto_28
+    :goto_686
     const/16 v0, 0xb9
 
-    if-ne v9, v0, :cond_31
+    if-ne v9, v0, :cond_6ea
 
     add-int/lit8 v4, v20, 0x5
 
-    goto/16 :goto_2c
+    goto/16 :goto_70e
 
-    :pswitch_15
+    :pswitch_68e
     move/from16 v37, v6
 
     move/from16 v31, v9
@@ -4497,9 +4497,9 @@
 
     invoke-virtual {v15, v9, v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitTypeInsn(ILjava/lang/String;)V
 
-    goto :goto_29
+    goto :goto_6ea
 
-    :pswitch_16
+    :pswitch_6a1
     move/from16 v37, v6
 
     move/from16 v31, v9
@@ -4512,7 +4512,7 @@
 
     const/16 v0, 0x36
 
-    if-le v9, v0, :cond_30
+    if-le v9, v0, :cond_6b9
 
     add-int/lit8 v5, v9, -0x3b
 
@@ -4524,9 +4524,9 @@
 
     invoke-virtual {v15, v1, v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitVarInsn(II)V
 
-    goto :goto_2b
+    goto :goto_70c
 
-    :cond_30
+    :cond_6b9
     add-int/lit8 v5, v9, -0x1a
 
     shr-int/lit8 v0, v5, 0x2
@@ -4537,9 +4537,9 @@
 
     invoke-virtual {v15, v0, v1}, Lcom/esotericsoftware/asm/MethodVisitor;->visitVarInsn(II)V
 
-    goto :goto_2b
+    goto :goto_70c
 
-    :pswitch_17
+    :pswitch_6c5
     move/from16 v37, v6
 
     move/from16 v31, v9
@@ -4558,9 +4558,9 @@
 
     invoke-virtual {v15, v9, v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitVarInsn(II)V
 
-    goto :goto_2a
+    goto :goto_6fd
 
-    :pswitch_18
+    :pswitch_6d8
     move/from16 v37, v6
 
     move/from16 v31, v9
@@ -4579,13 +4579,13 @@
 
     invoke-virtual {v15, v9, v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitIntInsn(II)V
 
-    :cond_31
-    :goto_29
+    :cond_6ea
+    :goto_6ea
     add-int/lit8 v4, v20, 0x3
 
-    goto :goto_2c
+    goto :goto_70e
 
-    :pswitch_19
+    :pswitch_6ed
     move/from16 v37, v6
 
     move/from16 v31, v9
@@ -4602,12 +4602,12 @@
 
     invoke-virtual {v15, v9, v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitIntInsn(II)V
 
-    :goto_2a
+    :goto_6fd
     add-int/lit8 v4, v20, 0x2
 
-    goto :goto_2c
+    goto :goto_70e
 
-    :pswitch_1a
+    :pswitch_700
     move/from16 v37, v6
 
     move/from16 v31, v9
@@ -4620,26 +4620,26 @@
 
     invoke-virtual {v15, v9}, Lcom/esotericsoftware/asm/MethodVisitor;->visitInsn(I)V
 
-    :goto_2b
+    :goto_70c
     add-int/lit8 v4, v20, 0x1
 
-    :goto_2c
+    :goto_70e
     move/from16 v0, v17
 
     move/from16 v1, v28
 
     move-object/from16 v9, v36
 
-    :goto_2d
-    if-eqz v9, :cond_35
+    :goto_714
+    if-eqz v9, :cond_751
 
     array-length v2, v9
 
-    if-ge v0, v2, :cond_35
+    if-ge v0, v2, :cond_751
 
-    if-gt v1, v11, :cond_35
+    if-gt v1, v11, :cond_751
 
-    if-ne v1, v11, :cond_32
+    if-ne v1, v11, :cond_735
 
     aget v1, v9, v0
 
@@ -4665,12 +4665,12 @@
 
     invoke-direct {v7, v2, v13, v6, v1}, Lcom/esotericsoftware/asm/ClassReader;->a(I[CZLcom/esotericsoftware/asm/AnnotationVisitor;)I
 
-    :cond_32
+    :cond_735
     add-int/lit8 v0, v0, 0x1
 
     array-length v1, v9
 
-    if-ge v0, v1, :cond_34
+    if-ge v0, v1, :cond_74f
 
     aget v1, v9, v0
 
@@ -4680,11 +4680,11 @@
 
     const/16 v2, 0x43
 
-    if-ge v1, v2, :cond_33
+    if-ge v1, v2, :cond_745
 
-    goto :goto_2e
+    goto :goto_74f
 
-    :cond_33
+    :cond_745
     aget v1, v9, v0
 
     const/4 v2, 0x1
@@ -4697,31 +4697,31 @@
 
     move v1, v2
 
-    goto :goto_2d
+    goto :goto_714
 
-    :cond_34
-    :goto_2e
+    :cond_74f
+    :goto_74f
     const/4 v1, -0x1
 
-    goto :goto_2d
+    goto :goto_714
 
-    :cond_35
+    :cond_751
     move/from16 v2, v19
 
     move/from16 v3, v29
 
     move-object/from16 v6, v35
 
-    :goto_2f
-    if-eqz v6, :cond_39
+    :goto_757
+    if-eqz v6, :cond_7af
 
     array-length v5, v6
 
-    if-ge v2, v5, :cond_39
+    if-ge v2, v5, :cond_7af
 
-    if-gt v3, v11, :cond_39
+    if-gt v3, v11, :cond_7af
 
-    if-ne v3, v11, :cond_36
+    if-ne v3, v11, :cond_780
 
     aget v3, v6, v2
 
@@ -4755,9 +4755,9 @@
 
     invoke-direct {v7, v5, v13, v1, v0}, Lcom/esotericsoftware/asm/ClassReader;->a(I[CZLcom/esotericsoftware/asm/AnnotationVisitor;)I
 
-    goto :goto_30
+    goto :goto_787
 
-    :cond_36
+    :cond_780
     move/from16 v17, v0
 
     move/from16 v19, v1
@@ -4766,12 +4766,12 @@
 
     const/4 v10, 0x0
 
-    :goto_30
+    :goto_787
     add-int/lit8 v2, v2, 0x1
 
     array-length v0, v6
 
-    if-ge v2, v0, :cond_38
+    if-ge v2, v0, :cond_7a3
 
     aget v0, v6, v2
 
@@ -4781,11 +4781,11 @@
 
     const/16 v1, 0x43
 
-    if-ge v0, v1, :cond_37
+    if-ge v0, v1, :cond_797
 
-    goto :goto_31
+    goto :goto_7a5
 
-    :cond_37
+    :cond_797
     aget v0, v6, v2
 
     const/16 v28, 0x1
@@ -4798,26 +4798,26 @@
 
     move v3, v0
 
-    goto :goto_32
+    goto :goto_7a8
 
-    :cond_38
+    :cond_7a3
     const/16 v1, 0x43
 
-    :goto_31
+    :goto_7a5
     const/16 v28, 0x1
 
     const/4 v3, -0x1
 
-    :goto_32
+    :goto_7a8
     move/from16 v0, v17
 
     move/from16 v1, v19
 
     move-object/from16 v10, v20
 
-    goto :goto_2f
+    goto :goto_757
 
-    :cond_39
+    :cond_7af
     move/from16 v17, v0
 
     move/from16 v19, v1
@@ -4862,9 +4862,9 @@
 
     move/from16 v12, v34
 
-    goto/16 :goto_19
+    goto/16 :goto_3b4
 
-    :cond_3a
+    :cond_7db
     move-object/from16 v15, p1
 
     move-object/from16 v22, v5
@@ -4885,26 +4885,26 @@
 
     aget-object v0, v22, v21
 
-    if-eqz v0, :cond_3b
+    if-eqz v0, :cond_7f5
 
     aget-object v0, v22, v21
 
     invoke-virtual {v15, v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitLabel(Lcom/esotericsoftware/asm/Label;)V
 
-    :cond_3b
+    :cond_7f5
     iget v0, v14, Lcom/esotericsoftware/asm/Context;->b:I
 
     and-int/lit8 v0, v0, 0x2
 
-    if-nez v0, :cond_40
+    if-nez v0, :cond_895
 
     move/from16 v0, v23
 
-    if-eqz v0, :cond_40
+    if-eqz v0, :cond_895
 
     move/from16 v1, v24
 
-    if-eqz v1, :cond_3d
+    if-eqz v1, :cond_82d
 
     add-int/lit8 v24, v1, 0x2
 
@@ -4918,8 +4918,8 @@
 
     move/from16 v2, v24
 
-    :goto_33
-    if-lez v1, :cond_3c
+    :goto_80f
+    if-lez v1, :cond_82b
 
     add-int/lit8 v1, v1, -0x1
 
@@ -4949,17 +4949,17 @@
 
     add-int/lit8 v2, v2, 0xa
 
-    goto :goto_33
+    goto :goto_80f
 
-    :cond_3c
+    :cond_82b
     move-object v8, v3
 
-    goto :goto_34
+    goto :goto_82e
 
-    :cond_3d
+    :cond_82d
     const/4 v8, 0x0
 
-    :goto_34
+    :goto_82e
     add-int/lit8 v23, v0, 0x2
 
     invoke-virtual {v7, v0}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
@@ -4970,8 +4970,8 @@
 
     move/from16 v12, v23
 
-    :goto_35
-    if-lez v11, :cond_40
+    :goto_837
+    if-lez v11, :cond_895
 
     invoke-virtual {v7, v12}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -4989,24 +4989,24 @@
 
     move-result v5
 
-    if-eqz v8, :cond_3f
+    if-eqz v8, :cond_866
 
     const/4 v2, 0x0
 
-    :goto_36
+    :goto_84c
     array-length v3, v8
 
-    if-ge v2, v3, :cond_3f
+    if-ge v2, v3, :cond_866
 
     aget v3, v8, v2
 
-    if-ne v3, v0, :cond_3e
+    if-ne v3, v0, :cond_863
 
     add-int/lit8 v3, v2, 0x1
 
     aget v3, v8, v3
 
-    if-ne v3, v5, :cond_3e
+    if-ne v3, v5, :cond_863
 
     add-int/lit8 v2, v2, 0x2
 
@@ -5018,17 +5018,17 @@
 
     move-object v3, v2
 
-    goto :goto_37
+    goto :goto_867
 
-    :cond_3e
+    :cond_863
     add-int/lit8 v2, v2, 0x3
 
-    goto :goto_36
+    goto :goto_84c
 
-    :cond_3f
+    :cond_866
     const/4 v3, 0x0
 
-    :goto_37
+    :goto_867
     add-int/lit8 v2, v12, 0x4
 
     invoke-virtual {v7, v2, v13}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
@@ -5077,23 +5077,23 @@
 
     const/16 v28, 0x1
 
-    goto :goto_35
+    goto :goto_837
 
-    :cond_40
+    :cond_895
     move-object/from16 v39, v6
 
     const/4 v15, 0x1
 
     const/16 v0, 0x20
 
-    if-eqz v9, :cond_42
+    if-eqz v9, :cond_8f3
 
     const/4 v2, 0x0
 
-    :goto_38
+    :goto_89d
     array-length v1, v9
 
-    if-ge v2, v1, :cond_42
+    if-ge v2, v1, :cond_8f3
 
     aget v1, v9, v2
 
@@ -5103,7 +5103,7 @@
 
     shr-int/2addr v1, v15
 
-    if-ne v1, v0, :cond_41
+    if-ne v1, v0, :cond_8dd
 
     aget v1, v9, v2
 
@@ -5163,9 +5163,9 @@
 
     invoke-direct {v7, v3, v0, v4, v8}, Lcom/esotericsoftware/asm/ClassReader;->a(I[CZLcom/esotericsoftware/asm/AnnotationVisitor;)I
 
-    goto :goto_39
+    goto :goto_8e6
 
-    :cond_41
+    :cond_8dd
     move-object/from16 v1, p1
 
     move-object/from16 v17, v9
@@ -5178,7 +5178,7 @@
 
     const/4 v4, 0x1
 
-    :goto_39
+    :goto_8e6
     add-int/lit8 v2, v2, 0x1
 
     move-object v13, v0
@@ -5195,9 +5195,9 @@
 
     const/4 v15, 0x1
 
-    goto :goto_38
+    goto :goto_89d
 
-    :cond_42
+    :cond_8f3
     move-object/from16 v1, p1
 
     move-object v0, v13
@@ -5210,14 +5210,14 @@
 
     move-object/from16 v3, v39
 
-    if-eqz v3, :cond_44
+    if-eqz v3, :cond_941
 
     const/4 v2, 0x0
 
-    :goto_3a
+    :goto_8ff
     array-length v8, v3
 
-    if-ge v2, v8, :cond_44
+    if-ge v2, v8, :cond_941
 
     aget v8, v3, v2
 
@@ -5229,7 +5229,7 @@
 
     const/16 v15, 0x20
 
-    if-ne v8, v15, :cond_43
+    if-ne v8, v15, :cond_938
 
     aget v8, v3, v2
 
@@ -5273,25 +5273,25 @@
 
     invoke-direct {v7, v3, v0, v4, v8}, Lcom/esotericsoftware/asm/ClassReader;->a(I[CZLcom/esotericsoftware/asm/AnnotationVisitor;)I
 
-    goto :goto_3b
+    goto :goto_93c
 
-    :cond_43
+    :cond_938
     move-object/from16 v35, v3
 
     const/16 v16, 0x20
 
-    :goto_3b
+    :goto_93c
     add-int/lit8 v2, v2, 0x1
 
     move-object/from16 v3, v35
 
-    goto :goto_3a
+    goto :goto_8ff
 
-    :cond_44
+    :cond_941
     move-object/from16 v0, v26
 
-    :goto_3c
-    if-eqz v0, :cond_45
+    :goto_943
+    if-eqz v0, :cond_94f
 
     iget-object v2, v0, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
@@ -5303,9 +5303,9 @@
 
     move-object v0, v2
 
-    goto :goto_3c
+    goto :goto_943
 
-    :cond_45
+    :cond_94f
     move/from16 v0, v34
 
     invoke-virtual {v1, v0, v5}, Lcom/esotericsoftware/asm/MethodVisitor;->visitMaxs(II)V
@@ -5314,62 +5314,62 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_956
     .packed-switch 0x0
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_8
-        :pswitch_9
-        :pswitch_7
-        :pswitch_7
-        :pswitch_6
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_8
-        :pswitch_7
-        :pswitch_7
-        :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_c7
+        :pswitch_c3
+        :pswitch_bf
+        :pswitch_c3
+        :pswitch_c7
+        :pswitch_bf
+        :pswitch_bf
+        :pswitch_bb
+        :pswitch_bb
+        :pswitch_b0
+        :pswitch_a5
+        :pswitch_c3
+        :pswitch_bf
+        :pswitch_bf
+        :pswitch_76
+        :pswitch_4f
+        :pswitch_41
+        :pswitch_44
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_97e
     .packed-switch 0x0
-        :pswitch_1a
-        :pswitch_19
-        :pswitch_18
-        :pswitch_17
-        :pswitch_16
-        :pswitch_15
-        :pswitch_14
-        :pswitch_14
-        :pswitch_13
-        :pswitch_12
-        :pswitch_11
-        :pswitch_10
-        :pswitch_f
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_a
-        :pswitch_b
+        :pswitch_700
+        :pswitch_6ed
+        :pswitch_6d8
+        :pswitch_6c5
+        :pswitch_6a1
+        :pswitch_68e
+        :pswitch_63c
+        :pswitch_63c
+        :pswitch_5e6
+        :pswitch_5c6
+        :pswitch_5af
+        :pswitch_59b
+        :pswitch_589
+        :pswitch_577
+        :pswitch_53a
+        :pswitch_4f9
+        :pswitch_4a8
+        :pswitch_4c3
     .end packed-switch
 .end method
 
 .method private static a(Ljava/io/InputStream;Z)[B
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_7
+    if-eqz p0, :cond_49
 
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0}, Ljava/io/InputStream;->available()I
 
     move-result v0
@@ -5380,8 +5380,8 @@
 
     const/4 v2, 0x0
 
-    :cond_0
-    :goto_0
+    :cond_a
+    :goto_a
     array-length v3, v0
 
     sub-int/2addr v3, v2
@@ -5392,53 +5392,53 @@
 
     const/4 v4, -0x1
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_22
 
     array-length v3, v0
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_1c
 
     new-array v3, v2, [B
 
     invoke-static {v0, v1, v3, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_2 .. :try_end_1b} :catchall_42
 
     move-object v0, v3
 
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_1c
+    if-eqz p1, :cond_21
 
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
 
-    :cond_2
+    :cond_21
     return-object v0
 
-    :cond_3
+    :cond_22
     add-int/2addr v2, v3
 
-    :try_start_1
+    :try_start_23
     array-length v3, v0
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_a
 
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
 
     move-result v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_23 .. :try_end_2a} :catchall_42
 
-    if-gez v3, :cond_5
+    if-gez v3, :cond_32
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_31
 
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
 
-    :cond_4
+    :cond_31
     return-object v0
 
-    :cond_5
-    :try_start_2
+    :cond_32
+    :try_start_32
     array-length v4, v0
 
     add-int/lit16 v4, v4, 0x3e8
@@ -5452,26 +5452,26 @@
     int-to-byte v3, v3
 
     aput-byte v3, v4, v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3f
+    .catchall {:try_start_32 .. :try_end_3f} :catchall_42
 
     move v2, v0
 
     move-object v0, v4
 
-    goto :goto_0
+    goto :goto_a
 
-    :catchall_0
+    :catchall_42
     move-exception v0
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_48
 
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
 
-    :cond_6
+    :cond_48
     throw v0
 
-    :cond_7
+    :cond_49
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Class not found"
@@ -5482,7 +5482,7 @@
 .end method
 
 .method private a(Lcom/esotericsoftware/asm/MethodVisitor;Lcom/esotericsoftware/asm/Context;IZ)[I
-    .locals 10
+    .registers 15
 
     iget-object v0, p2, Lcom/esotericsoftware/asm/Context;->c:[C
 
@@ -5496,8 +5496,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_3
+    :goto_b
+    if-ge v3, v1, :cond_7a
 
     aput p3, v2, v3
 
@@ -5507,27 +5507,27 @@
 
     ushr-int/lit8 v5, v4, 0x18
 
-    sparse-switch v5, :sswitch_data_0
+    sparse-switch v5, :sswitch_data_7c
 
-    :cond_0
+    :cond_18
     add-int/lit8 p3, p3, 0x3
 
-    goto :goto_2
+    goto :goto_47
 
-    :sswitch_0
+    :sswitch_1b
     add-int/lit8 p3, p3, 0x4
 
-    goto :goto_2
+    goto :goto_47
 
-    :sswitch_1
+    :sswitch_1e
     add-int/lit8 v6, p3, 0x1
 
     invoke-virtual {p0, v6}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
     move-result v6
 
-    :goto_1
-    if-lez v6, :cond_0
+    :goto_24
+    if-lez v6, :cond_18
 
     add-int/lit8 v7, p3, 0x3
 
@@ -5555,17 +5555,17 @@
 
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_1
+    goto :goto_24
 
-    :sswitch_2
+    :sswitch_42
     add-int/lit8 p3, p3, 0x1
 
-    goto :goto_2
+    goto :goto_47
 
-    :sswitch_3
+    :sswitch_45
     add-int/lit8 p3, p3, 0x2
 
-    :goto_2
+    :goto_47
     invoke-virtual {p0, p3}, Lcom/esotericsoftware/asm/ClassReader;->readByte(I)I
 
     move-result v6
@@ -5576,20 +5576,20 @@
 
     const/4 v9, 0x1
 
-    if-ne v5, v7, :cond_2
+    if-ne v5, v7, :cond_6e
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_54
 
-    goto :goto_3
+    goto :goto_5b
 
-    :cond_1
+    :cond_54
     new-instance v8, Lcom/esotericsoftware/asm/TypePath;
 
     iget-object v5, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
     invoke-direct {v8, v5, p3}, Lcom/esotericsoftware/asm/TypePath;-><init>([BI)V
 
-    :goto_3
+    :goto_5b
     mul-int/lit8 v6, v6, 0x2
 
     add-int/2addr v6, v9
@@ -5610,9 +5610,9 @@
 
     move-result p3
 
-    goto :goto_4
+    goto :goto_77
 
-    :cond_2
+    :cond_6e
     add-int/lit8 p3, p3, 0x3
 
     mul-int/lit8 v6, v6, 0x2
@@ -5623,36 +5623,36 @@
 
     move-result p3
 
-    :goto_4
+    :goto_77
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_3
+    :cond_7a
     return-object v2
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_7c
     .sparse-switch
-        0x0 -> :sswitch_3
-        0x1 -> :sswitch_3
-        0x13 -> :sswitch_2
-        0x14 -> :sswitch_2
-        0x15 -> :sswitch_2
-        0x16 -> :sswitch_3
-        0x40 -> :sswitch_1
-        0x41 -> :sswitch_1
-        0x47 -> :sswitch_0
-        0x48 -> :sswitch_0
-        0x49 -> :sswitch_0
-        0x4a -> :sswitch_0
-        0x4b -> :sswitch_0
+        0x0 -> :sswitch_45
+        0x1 -> :sswitch_45
+        0x13 -> :sswitch_42
+        0x14 -> :sswitch_42
+        0x15 -> :sswitch_42
+        0x16 -> :sswitch_45
+        0x40 -> :sswitch_1e
+        0x41 -> :sswitch_1e
+        0x47 -> :sswitch_1b
+        0x48 -> :sswitch_1b
+        0x49 -> :sswitch_1b
+        0x4a -> :sswitch_1b
+        0x4b -> :sswitch_1b
     .end sparse-switch
 .end method
 
 .method private b(Lcom/esotericsoftware/asm/ClassVisitor;Lcom/esotericsoftware/asm/Context;I)I
-    .locals 31
+    .registers 35
 
     move-object/from16 v8, p0
 
@@ -5720,8 +5720,8 @@
 
     const/16 v19, 0x0
 
-    :goto_0
-    if-lez v14, :cond_10
+    :goto_37
+    if-lez v14, :cond_174
 
     add-int/lit8 v13, v15, 0x2
 
@@ -5737,7 +5737,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_68
 
     iget v0, v9, Lcom/esotericsoftware/asm/Context;->b:I
 
@@ -5745,18 +5745,18 @@
 
     and-int/2addr v0, v13
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_57
 
     add-int/lit8 v0, v15, 0x8
 
     move/from16 v19, v0
 
-    :goto_1
+    :goto_53
     move/from16 v0, v21
 
-    goto/16 :goto_7
+    goto/16 :goto_167
 
-    :cond_0
+    :cond_57
     move/from16 v27, v1
 
     move/from16 v28, v2
@@ -5769,21 +5769,21 @@
 
     move-object/from16 v22, v7
 
-    :goto_2
+    :goto_62
     move/from16 v26, v21
 
     move-object/from16 v21, v6
 
-    goto/16 :goto_6
+    goto/16 :goto_158
 
-    :cond_1
+    :cond_68
     const-string v0, "Exceptions"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_8e
 
     add-int/lit8 v0, v15, 0x8
 
@@ -5801,8 +5801,8 @@
 
     const/4 v13, 0x0
 
-    :goto_3
-    if-ge v13, v0, :cond_2
+    :goto_7e
+    if-ge v13, v0, :cond_8b
 
     invoke-virtual {v8, v1, v10}, Lcom/esotericsoftware/asm/ClassReader;->readClass(I[C)Ljava/lang/String;
 
@@ -5814,14 +5814,14 @@
 
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_3
+    goto :goto_7e
 
-    :cond_2
+    :cond_8b
     move/from16 v17, v1
 
-    goto :goto_4
+    goto :goto_9e
 
-    :cond_3
+    :cond_8e
     move/from16 v20, v1
 
     const-string v0, "Signature"
@@ -5830,7 +5830,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_a1
 
     add-int/lit8 v0, v15, 0x8
 
@@ -5838,25 +5838,25 @@
 
     move-result-object v7
 
-    :goto_4
+    :goto_9e
     move/from16 v1, v20
 
-    goto :goto_1
+    goto :goto_53
 
-    :cond_4
+    :cond_a1
     const-string v0, "Deprecated"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_bc
 
     iget v0, v9, Lcom/esotericsoftware/asm/Context;->e:I
 
     const/high16 v1, 0x20000
 
-    :goto_5
+    :goto_ad
     or-int/2addr v0, v1
 
     iput v0, v9, Lcom/esotericsoftware/asm/Context;->e:I
@@ -5873,130 +5873,130 @@
 
     move/from16 v27, v20
 
-    goto :goto_2
+    goto :goto_62
 
-    :cond_5
+    :cond_bc
     const-string v0, "RuntimeVisibleAnnotations"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_c7
 
     add-int/lit8 v5, v15, 0x8
 
-    goto :goto_4
+    goto :goto_9e
 
-    :cond_6
+    :cond_c7
     const-string v0, "RuntimeVisibleTypeAnnotations"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_d2
 
     add-int/lit8 v2, v15, 0x8
 
-    goto :goto_4
+    goto :goto_9e
 
-    :cond_7
+    :cond_d2
     const-string v0, "AnnotationDefault"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_dd
 
     add-int/lit8 v3, v15, 0x8
 
-    goto :goto_4
+    goto :goto_9e
 
-    :cond_8
+    :cond_dd
     const-string v0, "Synthetic"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_eb
 
     iget v0, v9, Lcom/esotericsoftware/asm/Context;->e:I
 
     const v1, 0x41000
 
-    goto :goto_5
+    goto :goto_ad
 
-    :cond_9
+    :cond_eb
     const-string v0, "RuntimeInvisibleAnnotations"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_f6
 
     add-int/lit8 v4, v15, 0x8
 
-    goto :goto_4
+    goto :goto_9e
 
-    :cond_a
+    :cond_f6
     const-string v0, "RuntimeInvisibleTypeAnnotations"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_102
 
     add-int/lit8 v1, v15, 0x8
 
-    goto/16 :goto_1
+    goto/16 :goto_53
 
-    :cond_b
+    :cond_102
     const-string v0, "RuntimeVisibleParameterAnnotations"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_10d
 
     add-int/lit8 v18, v15, 0x8
 
-    goto :goto_4
+    goto :goto_9e
 
-    :cond_c
+    :cond_10d
     const-string v0, "RuntimeInvisibleParameterAnnotations"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_11a
 
     add-int/lit8 v0, v15, 0x8
 
     move/from16 v1, v20
 
-    goto :goto_7
+    goto :goto_167
 
-    :cond_d
+    :cond_11a
     const-string v0, "MethodParameters"
 
     invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_126
 
     add-int/lit8 v16, v15, 0x8
 
-    goto/16 :goto_4
+    goto/16 :goto_9e
 
-    :cond_e
+    :cond_126
     iget-object v1, v9, Lcom/esotericsoftware/asm/Context;->a:[Lcom/esotericsoftware/asm/Attribute;
 
     add-int/lit8 v22, v15, 0x8
@@ -6045,14 +6045,14 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_158
 
     iput-object v12, v0, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
     move-object v12, v0
 
-    :cond_f
-    :goto_6
+    :cond_158
+    :goto_158
     move v3, v13
 
     move-object/from16 v6, v21
@@ -6069,7 +6069,7 @@
 
     move/from16 v5, v30
 
-    :goto_7
+    :goto_167
     add-int/lit8 v13, v15, 0x4
 
     invoke-virtual {v8, v13}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
@@ -6082,9 +6082,9 @@
 
     add-int/lit8 v14, v14, -0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_37
 
-    :cond_10
+    :cond_174
     move/from16 v26, v0
 
     move/from16 v27, v1
@@ -6119,14 +6119,14 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_198
 
     return v15
 
-    :cond_11
+    :cond_198
     instance-of v1, v0, Lcom/esotericsoftware/asm/MethodWriter;
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_1d7
 
     move-object v1, v0
 
@@ -6136,30 +6136,30 @@
 
     iget-object v2, v2, Lcom/esotericsoftware/asm/ClassWriter;->M:Lcom/esotericsoftware/asm/ClassReader;
 
-    if-ne v2, v8, :cond_15
+    if-ne v2, v8, :cond_1d7
 
     iget-object v2, v1, Lcom/esotericsoftware/asm/MethodWriter;->g:Ljava/lang/String;
 
     move-object/from16 v7, v22
 
-    if-ne v7, v2, :cond_15
+    if-ne v7, v2, :cond_1d7
 
-    if-nez v21, :cond_12
+    if-nez v21, :cond_1b2
 
     iget v2, v1, Lcom/esotericsoftware/asm/MethodWriter;->j:I
 
-    if-nez v2, :cond_15
+    if-nez v2, :cond_1d7
 
-    goto :goto_9
+    goto :goto_1d0
 
-    :cond_12
+    :cond_1b2
     move-object/from16 v6, v21
 
     array-length v2, v6
 
     iget v3, v1, Lcom/esotericsoftware/asm/MethodWriter;->j:I
 
-    if-ne v2, v3, :cond_15
+    if-ne v2, v3, :cond_1d7
 
     array-length v2, v6
 
@@ -6167,8 +6167,8 @@
 
     sub-int/2addr v2, v3
 
-    :goto_8
-    if-ltz v2, :cond_14
+    :goto_1bc
+    if-ltz v2, :cond_1d0
 
     add-int/lit8 v3, v17, -0x2
 
@@ -6180,19 +6180,19 @@
 
     move-result v5
 
-    if-eq v4, v5, :cond_13
+    if-eq v4, v5, :cond_1cb
 
-    goto :goto_a
+    goto :goto_1d7
 
-    :cond_13
+    :cond_1cb
     add-int/lit8 v2, v2, -0x1
 
     move/from16 v17, v3
 
-    goto :goto_8
+    goto :goto_1bc
 
-    :cond_14
-    :goto_9
+    :cond_1d0
+    :goto_1d0
     iput v11, v1, Lcom/esotericsoftware/asm/MethodWriter;->h:I
 
     sub-int v0, v15, v11
@@ -6201,9 +6201,9 @@
 
     return v15
 
-    :cond_15
-    :goto_a
-    if-eqz v16, :cond_16
+    :cond_1d7
+    :goto_1d7
+    if-eqz v16, :cond_1f8
 
     iget-object v1, v8, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
@@ -6217,8 +6217,8 @@
 
     move/from16 v2, v16
 
-    :goto_b
-    if-lez v1, :cond_16
+    :goto_1e4
+    if-lez v1, :cond_1f8
 
     invoke-virtual {v8, v2, v10}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
 
@@ -6236,10 +6236,10 @@
 
     add-int/lit8 v2, v2, 0x4
 
-    goto :goto_b
+    goto :goto_1e4
 
-    :cond_16
-    if-eqz v13, :cond_17
+    :cond_1f8
+    if-eqz v13, :cond_207
 
     invoke-virtual {v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitAnnotationDefault()Lcom/esotericsoftware/asm/AnnotationVisitor;
 
@@ -6249,14 +6249,14 @@
 
     invoke-direct {v8, v13, v10, v2, v1}, Lcom/esotericsoftware/asm/ClassReader;->a(I[CLjava/lang/String;Lcom/esotericsoftware/asm/AnnotationVisitor;)I
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_207
 
     invoke-virtual {v1}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visitEnd()V
 
-    :cond_17
+    :cond_207
     move/from16 v5, v30
 
-    if-eqz v5, :cond_18
+    if-eqz v5, :cond_225
 
     invoke-virtual {v8, v5}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -6264,8 +6264,8 @@
 
     add-int/lit8 v5, v5, 0x2
 
-    :goto_c
-    if-lez v1, :cond_18
+    :goto_211
+    if-lez v1, :cond_225
 
     add-int/lit8 v2, v5, 0x2
 
@@ -6285,12 +6285,12 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_c
+    goto :goto_211
 
-    :cond_18
+    :cond_225
     move/from16 v4, v29
 
-    if-eqz v4, :cond_19
+    if-eqz v4, :cond_245
 
     invoke-virtual {v8, v4}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -6298,8 +6298,8 @@
 
     add-int/lit8 v4, v4, 0x2
 
-    :goto_d
-    if-lez v1, :cond_19
+    :goto_22f
+    if-lez v1, :cond_245
 
     add-int/lit8 v2, v4, 0x2
 
@@ -6323,12 +6323,12 @@
 
     move v4, v2
 
-    goto :goto_d
+    goto :goto_22f
 
-    :cond_19
+    :cond_245
     move/from16 v2, v28
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_26b
 
     invoke-virtual {v8, v2}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -6336,8 +6336,8 @@
 
     add-int/lit8 v2, v2, 0x2
 
-    :goto_e
-    if-lez v1, :cond_1a
+    :goto_24f
+    if-lez v1, :cond_26b
 
     invoke-direct {v8, v9, v2}, Lcom/esotericsoftware/asm/ClassReader;->a(Lcom/esotericsoftware/asm/Context;I)I
 
@@ -6365,12 +6365,12 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_e
+    goto :goto_24f
 
-    :cond_1a
+    :cond_26b
     move/from16 v1, v27
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_292
 
     invoke-virtual {v8, v1}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -6378,8 +6378,8 @@
 
     add-int/lit8 v1, v1, 0x2
 
-    :goto_f
-    if-lez v2, :cond_1b
+    :goto_275
+    if-lez v2, :cond_292
 
     invoke-direct {v8, v9, v1}, Lcom/esotericsoftware/asm/ClassReader;->a(Lcom/esotericsoftware/asm/Context;I)I
 
@@ -6409,29 +6409,29 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_f
+    goto :goto_275
 
-    :cond_1b
+    :cond_292
     const/4 v4, 0x1
 
     move/from16 v1, v18
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_29a
 
     invoke-direct {v8, v0, v9, v1, v4}, Lcom/esotericsoftware/asm/ClassReader;->b(Lcom/esotericsoftware/asm/MethodVisitor;Lcom/esotericsoftware/asm/Context;IZ)V
 
-    :cond_1c
+    :cond_29a
     move/from16 v1, v26
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_2a2
 
     const/4 v2, 0x0
 
     invoke-direct {v8, v0, v9, v1, v2}, Lcom/esotericsoftware/asm/ClassReader;->b(Lcom/esotericsoftware/asm/MethodVisitor;Lcom/esotericsoftware/asm/Context;IZ)V
 
-    :cond_1d
-    :goto_10
-    if-eqz v12, :cond_1e
+    :cond_2a2
+    :goto_2a2
+    if-eqz v12, :cond_2ae
 
     iget-object v1, v12, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
@@ -6443,25 +6443,25 @@
 
     move-object v12, v1
 
-    goto :goto_10
+    goto :goto_2a2
 
-    :cond_1e
+    :cond_2ae
     move/from16 v12, v19
 
-    if-eqz v12, :cond_1f
+    if-eqz v12, :cond_2b8
 
     invoke-virtual {v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitCode()V
 
     invoke-direct {v8, v0, v9, v12}, Lcom/esotericsoftware/asm/ClassReader;->a(Lcom/esotericsoftware/asm/MethodVisitor;Lcom/esotericsoftware/asm/Context;I)V
 
-    :cond_1f
+    :cond_2b8
     invoke-virtual {v0}, Lcom/esotericsoftware/asm/MethodVisitor;->visitEnd()V
 
     return v15
 .end method
 
 .method private b(Lcom/esotericsoftware/asm/MethodVisitor;Lcom/esotericsoftware/asm/Context;IZ)V
-    .locals 6
+    .registers 11
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
@@ -6485,8 +6485,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v0, :cond_1
+    :goto_12
+    if-ge v3, v0, :cond_22
 
     const-string v4, "Ljava/lang/Synthetic;"
 
@@ -6494,22 +6494,22 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1f
 
     invoke-virtual {v4}, Lcom/esotericsoftware/asm/AnnotationVisitor;->visitEnd()V
 
-    :cond_0
+    :cond_1f
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_1
+    :cond_22
     iget-object p2, p2, Lcom/esotericsoftware/asm/Context;->c:[C
 
-    :goto_1
+    :goto_24
     add-int v2, p3, v0
 
-    if-ge v3, v2, :cond_3
+    if-ge v3, v2, :cond_45
 
     invoke-virtual {p0, v1}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -6517,8 +6517,8 @@
 
     add-int/lit8 v1, v1, 0x2
 
-    :goto_2
-    if-lez v2, :cond_2
+    :goto_2e
+    if-lez v2, :cond_42
 
     invoke-virtual {p0, v1, p2}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
 
@@ -6538,21 +6538,21 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_2
+    goto :goto_2e
 
-    :cond_2
+    :cond_42
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_3
+    :cond_45
     return-void
 .end method
 
 
 # virtual methods
 .method a(Lcom/esotericsoftware/asm/ClassWriter;)V
-    .locals 11
+    .registers 13
 
     iget v0, p0, Lcom/esotericsoftware/asm/ClassReader;->d:I
 
@@ -6568,8 +6568,8 @@
 
     const/4 v4, 0x1
 
-    :goto_0
-    if-ge v4, v1, :cond_2
+    :goto_b
+    if-ge v4, v1, :cond_f3
 
     iget-object v5, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -6587,27 +6587,27 @@
 
     const/4 v8, 0x0
 
-    packed-switch v6, :pswitch_data_0
+    packed-switch v6, :pswitch_data_110
 
-    :pswitch_0
+    :pswitch_20
     invoke-virtual {p0, v5, v0}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
 
     move-result-object v5
 
-    :cond_0
-    :goto_1
+    :cond_24
+    :goto_24
     invoke-virtual {v7, v6, v5, v8, v8}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_e7
 
-    :pswitch_1
+    :pswitch_29
     iget-object v6, p1, Lcom/esotericsoftware/asm/ClassWriter;->A:Lcom/esotericsoftware/asm/ByteVector;
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_30
 
     invoke-direct {p0, p1, v2, v0}, Lcom/esotericsoftware/asm/ClassReader;->a(Lcom/esotericsoftware/asm/ClassWriter;[Lcom/esotericsoftware/asm/Item;[C)V
 
-    :cond_1
+    :cond_30
     iget-object v6, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
     add-int/lit8 v8, v5, 0x2
@@ -6634,9 +6634,9 @@
 
     invoke-virtual {v7, v8, v6, v5}, Lcom/esotericsoftware/asm/Item;->a(Ljava/lang/String;Ljava/lang/String;I)V
 
-    goto/16 :goto_3
+    goto/16 :goto_e7
 
-    :pswitch_2
+    :pswitch_4d
     iget-object v6, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
     add-int/lit8 v8, v5, 0x1
@@ -6679,9 +6679,9 @@
 
     invoke-virtual {v7, v5, v6, v9, v8}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_e7
 
-    :pswitch_3
+    :pswitch_79
     invoke-virtual {p0, v5, v0}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
 
     move-result-object v9
@@ -6694,9 +6694,9 @@
 
     invoke-virtual {v7, v6, v9, v5, v8}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_e7
 
-    :pswitch_4
+    :pswitch_87
     iget-object v8, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
     add-int/lit8 v9, v5, 0x2
@@ -6723,9 +6723,9 @@
 
     invoke-virtual {v7, v6, v5, v9, v8}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_e7
 
-    :pswitch_5
+    :pswitch_a3
     invoke-virtual {p0, v5}, Lcom/esotericsoftware/asm/ClassReader;->readLong(I)J
 
     move-result-wide v5
@@ -6736,21 +6736,21 @@
 
     invoke-virtual {v7, v5, v6}, Lcom/esotericsoftware/asm/Item;->a(D)V
 
-    goto :goto_2
+    goto :goto_b6
 
-    :pswitch_6
+    :pswitch_af
     invoke-virtual {p0, v5}, Lcom/esotericsoftware/asm/ClassReader;->readLong(I)J
 
     move-result-wide v5
 
     invoke-virtual {v7, v5, v6}, Lcom/esotericsoftware/asm/Item;->a(J)V
 
-    :goto_2
+    :goto_b6
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_e7
 
-    :pswitch_7
+    :pswitch_b9
     invoke-virtual {p0, v5}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
 
     move-result v5
@@ -6761,23 +6761,23 @@
 
     invoke-virtual {v7, v5}, Lcom/esotericsoftware/asm/Item;->a(F)V
 
-    goto :goto_3
+    goto :goto_e7
 
-    :pswitch_8
+    :pswitch_c5
     invoke-virtual {p0, v5}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
 
     move-result v5
 
     invoke-virtual {v7, v5}, Lcom/esotericsoftware/asm/Item;->a(I)V
 
-    goto :goto_3
+    goto :goto_e7
 
-    :pswitch_9
+    :pswitch_cd
     iget-object v5, p0, Lcom/esotericsoftware/asm/ClassReader;->c:[Ljava/lang/String;
 
     aget-object v5, v5, v4
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_24
 
     iget-object v5, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -6797,9 +6797,9 @@
 
     aput-object v5, v9, v4
 
-    goto/16 :goto_1
+    goto/16 :goto_24
 
-    :goto_3
+    :goto_e7
     iget v5, v7, Lcom/esotericsoftware/asm/Item;->j:I
 
     rem-int/2addr v5, v1
@@ -6812,9 +6812,9 @@
 
     add-int/2addr v4, v3
 
-    goto/16 :goto_0
+    goto/16 :goto_b
 
-    :cond_2
+    :cond_f3
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
     aget v0, v0, v3
@@ -6849,31 +6849,31 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_110
     .packed-switch 0x1
-        :pswitch_9
-        :pswitch_0
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_0
-        :pswitch_0
-        :pswitch_4
-        :pswitch_4
-        :pswitch_4
-        :pswitch_3
-        :pswitch_0
-        :pswitch_0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
+        :pswitch_cd
+        :pswitch_20
+        :pswitch_c5
+        :pswitch_b9
+        :pswitch_af
+        :pswitch_a3
+        :pswitch_20
+        :pswitch_20
+        :pswitch_87
+        :pswitch_87
+        :pswitch_87
+        :pswitch_79
+        :pswitch_20
+        :pswitch_20
+        :pswitch_4d
+        :pswitch_20
+        :pswitch_20
+        :pswitch_29
     .end packed-switch
 .end method
 
 .method public accept(Lcom/esotericsoftware/asm/ClassVisitor;I)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -6885,7 +6885,7 @@
 .end method
 
 .method public accept(Lcom/esotericsoftware/asm/ClassVisitor;[Lcom/esotericsoftware/asm/Attribute;I)V
-    .locals 35
+    .registers 39
 
     move-object/from16 v8, p0
 
@@ -6939,8 +6939,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v7, :cond_0
+    :goto_34
+    if-ge v2, v7, :cond_41
 
     invoke-virtual {v8, v0, v11}, Lcom/esotericsoftware/asm/ClassReader;->readClass(I[C)Ljava/lang/String;
 
@@ -6952,9 +6952,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_41
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/ClassReader;->a()I
 
     move-result v0
@@ -6995,8 +6995,8 @@
 
     const/16 v26, 0x0
 
-    :goto_1
-    if-lez v17, :cond_10
+    :goto_65
+    if-lez v17, :cond_1b5
 
     add-int/lit8 v4, v16, 0x2
 
@@ -7010,7 +7010,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_7f
 
     add-int/lit8 v3, v16, 0x8
 
@@ -7018,34 +7018,34 @@
 
     move-result-object v3
 
-    :goto_2
+    :goto_7b
     move-object/from16 v28, v6
 
-    goto/16 :goto_7
+    goto/16 :goto_1a3
 
-    :cond_1
+    :cond_7f
     const-string v5, "InnerClasses"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_8c
 
     add-int/lit8 v4, v16, 0x8
 
     move/from16 v25, v4
 
-    goto :goto_2
+    goto :goto_7b
 
-    :cond_2
+    :cond_8c
     const-string v5, "EnclosingMethod"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_b7
 
     add-int/lit8 v4, v16, 0x8
 
@@ -7059,7 +7059,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_b4
 
     iget-object v1, v8, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -7079,19 +7079,19 @@
 
     move-result-object v1
 
-    :cond_3
+    :cond_b4
     move-object/from16 v20, v4
 
-    goto :goto_2
+    goto :goto_7b
 
-    :cond_4
+    :cond_b7
     const-string v5, "Signature"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_c6
 
     add-int/lit8 v4, v16, 0x8
 
@@ -7099,73 +7099,73 @@
 
     move-result-object v19
 
-    goto :goto_2
+    goto :goto_7b
 
-    :cond_5
+    :cond_c6
     const-string v5, "RuntimeVisibleAnnotations"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_d1
 
     add-int/lit8 v0, v16, 0x8
 
-    goto :goto_2
+    goto :goto_7b
 
-    :cond_6
+    :cond_d1
     const-string v5, "RuntimeVisibleTypeAnnotations"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_de
 
     add-int/lit8 v4, v16, 0x8
 
     move/from16 v23, v4
 
-    goto :goto_2
+    goto :goto_7b
 
-    :cond_7
+    :cond_de
     const-string v5, "Deprecated"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_eb
 
     const/high16 v4, 0x20000
 
-    :goto_3
+    :goto_e8
     or-int v18, v18, v4
 
-    goto :goto_2
+    goto :goto_7b
 
-    :cond_8
+    :cond_eb
     const-string v5, "Synthetic"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_f7
 
     const v4, 0x41000
 
-    goto :goto_3
+    goto :goto_e8
 
-    :cond_9
+    :cond_f7
     const-string v5, "SourceDebugExtension"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_10f
 
     add-int/lit8 v2, v16, 0x4
 
@@ -7181,46 +7181,46 @@
 
     move-result-object v2
 
-    goto/16 :goto_2
+    goto/16 :goto_7b
 
-    :cond_a
+    :cond_10f
     const-string v5, "RuntimeInvisibleAnnotations"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_11d
 
     add-int/lit8 v4, v16, 0x8
 
     move/from16 v22, v4
 
-    goto/16 :goto_2
+    goto/16 :goto_7b
 
-    :cond_b
+    :cond_11d
     const-string v5, "RuntimeInvisibleTypeAnnotations"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_12b
 
     add-int/lit8 v4, v16, 0x8
 
     move/from16 v24, v4
 
-    goto/16 :goto_2
+    goto/16 :goto_7b
 
-    :cond_c
+    :cond_12b
     const-string v5, "BootstrapMethods"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_167
 
     add-int/lit8 v4, v16, 0x8
 
@@ -7234,8 +7234,8 @@
 
     const/4 v7, 0x0
 
-    :goto_4
-    if-ge v7, v4, :cond_d
+    :goto_13e
+    if-ge v7, v4, :cond_157
 
     aput v29, v5, v7
 
@@ -7259,9 +7259,9 @@
 
     move/from16 v0, v31
 
-    goto :goto_4
+    goto :goto_13e
 
-    :cond_d
+    :cond_157
     move/from16 v31, v0
 
     iput-object v5, v12, Lcom/esotericsoftware/asm/Context;->d:[I
@@ -7278,9 +7278,9 @@
 
     move/from16 v32, v31
 
-    goto :goto_5
+    goto :goto_19a
 
-    :cond_e
+    :cond_167
     move/from16 v31, v0
 
     add-int/lit8 v5, v16, 0x8
@@ -7333,19 +7333,19 @@
 
     move-object/from16 v7, v26
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_19a
 
     iput-object v7, v0, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
     move-object/from16 v26, v0
 
-    goto :goto_6
+    goto :goto_19c
 
-    :cond_f
-    :goto_5
+    :cond_19a
+    :goto_19a
     move-object/from16 v26, v7
 
-    :goto_6
+    :goto_19c
     move-object v3, v13
 
     move/from16 v0, v32
@@ -7354,7 +7354,7 @@
 
     move-object/from16 v2, v34
 
-    :goto_7
+    :goto_1a3
     add-int/lit8 v4, v16, 0x4
 
     invoke-virtual {v8, v4}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
@@ -7371,9 +7371,9 @@
 
     move-object/from16 v6, v28
 
-    goto/16 :goto_1
+    goto/16 :goto_65
 
-    :cond_10
+    :cond_1b5
     move/from16 v32, v0
 
     move-object/from16 v33, v1
@@ -7412,21 +7412,21 @@
 
     and-int/lit8 v0, v10, 0x2
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_1e3
 
     move-object/from16 v2, v34
 
-    if-nez v13, :cond_11
+    if-nez v13, :cond_1e0
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_1e3
 
-    :cond_11
+    :cond_1e0
     invoke-virtual {v9, v13, v2}, Lcom/esotericsoftware/asm/ClassVisitor;->visitSource(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_12
+    :cond_1e3
     move-object/from16 v4, v20
 
-    if-eqz v4, :cond_13
+    if-eqz v4, :cond_1ee
 
     move-object/from16 v0, v21
 
@@ -7434,10 +7434,10 @@
 
     invoke-virtual {v9, v4, v0, v1}, Lcom/esotericsoftware/asm/ClassVisitor;->visitOuterClass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_13
+    :cond_1ee
     move/from16 v0, v32
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_20c
 
     invoke-virtual {v8, v0}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -7445,8 +7445,8 @@
 
     add-int/lit8 v0, v0, 0x2
 
-    :goto_8
-    if-lez v1, :cond_14
+    :goto_1f8
+    if-lez v1, :cond_20c
 
     add-int/lit8 v2, v0, 0x2
 
@@ -7466,12 +7466,12 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_8
+    goto :goto_1f8
 
-    :cond_14
+    :cond_20c
     move/from16 v5, v22
 
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_22d
 
     invoke-virtual {v8, v5}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -7481,8 +7481,8 @@
 
     move/from16 v1, v22
 
-    :goto_9
-    if-lez v0, :cond_15
+    :goto_218
+    if-lez v0, :cond_22d
 
     add-int/lit8 v2, v1, 0x2
 
@@ -7504,14 +7504,14 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_9
+    goto :goto_218
 
-    :cond_15
+    :cond_22d
     const/4 v3, 0x0
 
     move/from16 v5, v23
 
-    if-eqz v5, :cond_16
+    if-eqz v5, :cond_256
 
     invoke-virtual {v8, v5}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -7521,8 +7521,8 @@
 
     move/from16 v1, v23
 
-    :goto_a
-    if-lez v0, :cond_16
+    :goto_23a
+    if-lez v0, :cond_256
 
     invoke-direct {v8, v12, v1}, Lcom/esotericsoftware/asm/ClassReader;->a(Lcom/esotericsoftware/asm/Context;I)I
 
@@ -7550,12 +7550,12 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_a
+    goto :goto_23a
 
-    :cond_16
+    :cond_256
     move/from16 v5, v24
 
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_27e
 
     invoke-virtual {v8, v5}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
@@ -7565,8 +7565,8 @@
 
     move/from16 v1, v24
 
-    :goto_b
-    if-lez v0, :cond_17
+    :goto_262
+    if-lez v0, :cond_27e
 
     invoke-direct {v8, v12, v1}, Lcom/esotericsoftware/asm/ClassReader;->a(Lcom/esotericsoftware/asm/Context;I)I
 
@@ -7594,11 +7594,11 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_b
+    goto :goto_262
 
-    :cond_17
-    :goto_c
-    if-eqz v7, :cond_18
+    :cond_27e
+    :goto_27e
+    if-eqz v7, :cond_28a
 
     iget-object v0, v7, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
@@ -7610,12 +7610,12 @@
 
     move-object v7, v0
 
-    goto :goto_c
+    goto :goto_27e
 
-    :cond_18
+    :cond_28a
     move/from16 v5, v25
 
-    if-eqz v5, :cond_19
+    if-eqz v5, :cond_2b6
 
     add-int/lit8 v25, v5, 0x2
 
@@ -7625,8 +7625,8 @@
 
     move/from16 v1, v25
 
-    :goto_d
-    if-lez v0, :cond_19
+    :goto_296
+    if-lez v0, :cond_2b6
 
     invoke-virtual {v8, v1, v11}, Lcom/esotericsoftware/asm/ClassReader;->readClass(I[C)Ljava/lang/String;
 
@@ -7656,9 +7656,9 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_d
+    goto :goto_296
 
-    :cond_19
+    :cond_2b6
     iget v0, v8, Lcom/esotericsoftware/asm/ClassReader;->header:I
 
     add-int/lit8 v0, v0, 0xa
@@ -7673,8 +7673,8 @@
 
     move-result v1
 
-    :goto_e
-    if-lez v1, :cond_1a
+    :goto_2c3
+    if-lez v1, :cond_2cc
 
     invoke-direct {v8, v9, v12, v0}, Lcom/esotericsoftware/asm/ClassReader;->a(Lcom/esotericsoftware/asm/ClassVisitor;Lcom/esotericsoftware/asm/Context;I)I
 
@@ -7682,9 +7682,9 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_e
+    goto :goto_2c3
 
-    :cond_1a
+    :cond_2cc
     add-int/lit8 v0, v0, 0x2
 
     add-int/lit8 v1, v0, -0x2
@@ -7693,8 +7693,8 @@
 
     move-result v1
 
-    :goto_f
-    if-lez v1, :cond_1b
+    :goto_2d4
+    if-lez v1, :cond_2dd
 
     invoke-direct {v8, v9, v12, v0}, Lcom/esotericsoftware/asm/ClassReader;->b(Lcom/esotericsoftware/asm/ClassVisitor;Lcom/esotericsoftware/asm/Context;I)I
 
@@ -7702,16 +7702,16 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_f
+    goto :goto_2d4
 
-    :cond_1b
+    :cond_2dd
     invoke-virtual/range {p1 .. p1}, Lcom/esotericsoftware/asm/ClassVisitor;->visitEnd()V
 
     return-void
 .end method
 
 .method public getAccess()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/esotericsoftware/asm/ClassReader;->header:I
 
@@ -7723,7 +7723,7 @@
 .end method
 
 .method public getClassName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     iget v0, p0, Lcom/esotericsoftware/asm/ClassReader;->header:I
 
@@ -7741,7 +7741,7 @@
 .end method
 
 .method public getInterfaces()[Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     iget v0, p0, Lcom/esotericsoftware/asm/ClassReader;->header:I
 
@@ -7753,7 +7753,7 @@
 
     new-array v2, v1, [Ljava/lang/String;
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1e
 
     iget v3, p0, Lcom/esotericsoftware/asm/ClassReader;->d:I
 
@@ -7761,8 +7761,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v1, :cond_0
+    :goto_11
+    if-ge v4, v1, :cond_1e
 
     add-int/lit8 v0, v0, 0x2
 
@@ -7774,14 +7774,14 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_1e
     return-object v2
 .end method
 
 .method public getItem(I)I
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -7791,7 +7791,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -7801,7 +7801,7 @@
 .end method
 
 .method public getMaxStringLength()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/esotericsoftware/asm/ClassReader;->d:I
 
@@ -7809,7 +7809,7 @@
 .end method
 
 .method public getSuperName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     iget v0, p0, Lcom/esotericsoftware/asm/ClassReader;->header:I
 
@@ -7827,7 +7827,7 @@
 .end method
 
 .method public readByte(I)I
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
@@ -7839,7 +7839,7 @@
 .end method
 
 .method public readClass(I[C)Ljava/lang/String;
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -7857,7 +7857,7 @@
 .end method
 
 .method public readConst(I[C)Ljava/lang/Object;
-    .locals 6
+    .registers 9
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
@@ -7869,7 +7869,7 @@
 
     aget-byte v0, v0, v1
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_8e
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassReader;->readByte(I)I
 
@@ -7895,13 +7895,13 @@
 
     const/16 v4, 0xb
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_6e
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_70
 
-    :sswitch_0
+    :sswitch_27
     invoke-virtual {p0, p1, p2}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
 
     move-result-object p1
@@ -7912,14 +7912,14 @@
 
     return-object p1
 
-    :sswitch_1
+    :sswitch_30
     invoke-virtual {p0, p1, p2}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
 
     move-result-object p1
 
     return-object p1
 
-    :sswitch_2
+    :sswitch_35
     invoke-virtual {p0, p1, p2}, Lcom/esotericsoftware/asm/ClassReader;->readUTF8(I[C)Ljava/lang/String;
 
     move-result-object p1
@@ -7930,7 +7930,7 @@
 
     return-object p1
 
-    :sswitch_3
+    :sswitch_3e
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassReader;->readLong(I)J
 
     move-result-wide p1
@@ -7945,7 +7945,7 @@
 
     return-object v0
 
-    :sswitch_4
+    :sswitch_4c
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassReader;->readLong(I)J
 
     move-result-wide p1
@@ -7956,7 +7956,7 @@
 
     return-object v0
 
-    :sswitch_5
+    :sswitch_56
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
 
     move-result p1
@@ -7971,7 +7971,7 @@
 
     return-object p2
 
-    :sswitch_6
+    :sswitch_64
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
 
     move-result p1
@@ -7982,12 +7982,12 @@
 
     return-object p2
 
-    :cond_0
+    :cond_6e
     const/4 v2, 0x0
 
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_70
     invoke-virtual {p0, p1, p2}, Lcom/esotericsoftware/asm/ClassReader;->readClass(I[C)Ljava/lang/String;
 
     move-result-object v2
@@ -8020,20 +8020,20 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_8e
     .sparse-switch
-        0x3 -> :sswitch_6
-        0x4 -> :sswitch_5
-        0x5 -> :sswitch_4
-        0x6 -> :sswitch_3
-        0x7 -> :sswitch_2
-        0x8 -> :sswitch_1
-        0x10 -> :sswitch_0
+        0x3 -> :sswitch_64
+        0x4 -> :sswitch_56
+        0x5 -> :sswitch_4c
+        0x6 -> :sswitch_3e
+        0x7 -> :sswitch_35
+        0x8 -> :sswitch_30
+        0x10 -> :sswitch_27
     .end sparse-switch
 .end method
 
 .method public readInt(I)I
-    .locals 3
+    .registers 5
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
@@ -8075,11 +8075,11 @@
 .end method
 
 .method protected readLabel(I[Lcom/esotericsoftware/asm/Label;)Lcom/esotericsoftware/asm/Label;
-    .locals 1
+    .registers 4
 
     aget-object v0, p2, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     new-instance v0, Lcom/esotericsoftware/asm/Label;
 
@@ -8087,14 +8087,14 @@
 
     aput-object v0, p2, p1
 
-    :cond_0
+    :cond_b
     aget-object p1, p2, p1
 
     return-object p1
 .end method
 
 .method public readLong(I)J
-    .locals 6
+    .registers 8
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassReader;->readInt(I)I
 
@@ -8124,7 +8124,7 @@
 .end method
 
 .method public readShort(I)S
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 
@@ -8148,28 +8148,28 @@
 .end method
 
 .method public readUTF8(I[C)Ljava/lang/String;
-    .locals 3
+    .registers 6
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/asm/ClassReader;->readUnsignedShort(I)I
 
     move-result v0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_23
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_9
     iget-object p1, p0, Lcom/esotericsoftware/asm/ClassReader;->c:[Ljava/lang/String;
 
     aget-object p1, p1, v0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_10
 
     return-object p1
 
-    :cond_1
+    :cond_10
     iget-object p1, p0, Lcom/esotericsoftware/asm/ClassReader;->a:[I
 
     aget p1, p1, v0
@@ -8190,15 +8190,15 @@
 
     return-object p1
 
-    :cond_2
-    :goto_0
+    :cond_23
+    :goto_23
     const/4 p1, 0x0
 
     return-object p1
 .end method
 
 .method public readUnsignedShort(I)I
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassReader;->b:[B
 

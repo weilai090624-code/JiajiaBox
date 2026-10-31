@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/tabs/TabLayout;)V
-    .locals 1
+    .registers 3
     .param p1, "tabLayout"    # Lcom/google/android/material/tabs/TabLayout;
 
     .line 3501
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public onPageScrollStateChanged(I)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # I
 
     .line 3507
@@ -77,7 +77,7 @@
 
     .line 3510
     .local v0, "tabLayout":Lcom/google/android/material/tabs/TabLayout;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 3511
     iget v1, p0, Lcom/google/android/material/tabs/TabLayout$TabLayoutOnPageChangeListener;->scrollState:I
@@ -85,12 +85,12 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/tabs/TabLayout;->updateViewPagerScrollState(I)V
 
     .line 3513
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public onPageScrolled(IFI)V
-    .locals 6
+    .registers 10
     .param p1, "position"    # I
     .param p2, "positionOffset"    # F
     .param p3, "positionOffsetPixels"    # I
@@ -106,7 +106,7 @@
 
     .line 3519
     .local v0, "tabLayout":Lcom/google/android/material/tabs/TabLayout;
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_25
 
     .line 3522
     iget v1, p0, Lcom/google/android/material/tabs/TabLayout$TabLayoutOnPageChangeListener;->scrollState:I
@@ -117,51 +117,51 @@
 
     const/4 v4, 0x1
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_18
 
     iget v1, p0, Lcom/google/android/material/tabs/TabLayout$TabLayoutOnPageChangeListener;->previousScrollState:I
 
-    if-ne v1, v4, :cond_0
+    if-ne v1, v4, :cond_16
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v1, 0x1
 
     .line 3527
     .local v1, "updateText":Z
-    :goto_1
+    :goto_19
     iget v5, p0, Lcom/google/android/material/tabs/TabLayout$TabLayoutOnPageChangeListener;->scrollState:I
 
-    if-ne v5, v3, :cond_2
+    if-ne v5, v3, :cond_21
 
     iget v3, p0, Lcom/google/android/material/tabs/TabLayout$TabLayoutOnPageChangeListener;->previousScrollState:I
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_22
 
-    :cond_2
+    :cond_21
     const/4 v2, 0x1
 
     .line 3529
     .local v2, "updateIndicator":Z
-    :cond_3
+    :cond_22
     invoke-virtual {v0, p1, p2, v1, v2}, Lcom/google/android/material/tabs/TabLayout;->setScrollPosition(IFZZ)V
 
     .line 3531
     .end local v1    # "updateText":Z
     .end local v2    # "updateIndicator":Z
-    :cond_4
+    :cond_25
     return-void
 .end method
 
 .method public onPageSelected(I)V
-    .locals 3
+    .registers 5
     .param p1, "position"    # I
 
     .line 3535
@@ -175,51 +175,51 @@
 
     .line 3536
     .local v0, "tabLayout":Lcom/google/android/material/tabs/TabLayout;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2e
 
     .line 3537
     invoke-virtual {v0}, Lcom/google/android/material/tabs/TabLayout;->getSelectedTabPosition()I
 
     move-result v1
 
-    if-eq v1, p1, :cond_2
+    if-eq v1, p1, :cond_2e
 
     .line 3538
     invoke-virtual {v0}, Lcom/google/android/material/tabs/TabLayout;->getTabCount()I
 
     move-result v1
 
-    if-ge p1, v1, :cond_2
+    if-ge p1, v1, :cond_2e
 
     .line 3541
     iget v1, p0, Lcom/google/android/material/tabs/TabLayout$TabLayoutOnPageChangeListener;->scrollState:I
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_26
 
     iget v1, p0, Lcom/google/android/material/tabs/TabLayout$TabLayoutOnPageChangeListener;->scrollState:I
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_24
 
     iget v1, p0, Lcom/google/android/material/tabs/TabLayout$TabLayoutOnPageChangeListener;->previousScrollState:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_24
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_24
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_27
 
-    :cond_1
-    :goto_0
+    :cond_26
+    :goto_26
     const/4 v1, 0x1
 
     .line 3545
     .local v1, "updateIndicator":Z
-    :goto_1
+    :goto_27
     invoke-virtual {v0, p1}, Lcom/google/android/material/tabs/TabLayout;->getTabAt(I)Lcom/google/android/material/tabs/TabLayout$Tab;
 
     move-result-object v2
@@ -228,12 +228,12 @@
 
     .line 3547
     .end local v1    # "updateIndicator":Z
-    :cond_2
+    :cond_2e
     return-void
 .end method
 
 .method reset()V
-    .locals 1
+    .registers 2
 
     .line 3550
     const/4 v0, 0x0

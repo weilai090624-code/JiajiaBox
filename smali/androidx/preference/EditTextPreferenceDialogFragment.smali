@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -31,7 +31,7 @@
 .end method
 
 .method private getEditTextPreference()Landroidx/preference/EditTextPreference;
-    .locals 1
+    .registers 2
 
     .line 96
     invoke-virtual {p0}, Landroidx/preference/EditTextPreferenceDialogFragment;->getPreference()Landroidx/preference/DialogPreference;
@@ -44,7 +44,7 @@
 .end method
 
 .method public static newInstance(Ljava/lang/String;)Landroidx/preference/EditTextPreferenceDialogFragment;
-    .locals 3
+    .registers 4
     .param p0, "key"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method protected needInputMethod()Z
-    .locals 1
+    .registers 2
 
     .line 104
     const/4 v0, 0x1
@@ -87,7 +87,7 @@
 .end method
 
 .method protected onBindDialogView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 80
@@ -112,7 +112,7 @@
     .line 85
     iget-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragment;->mEditText:Landroid/widget/EditText;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     .line 90
     iget-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragment;->mEditText:Landroid/widget/EditText;
@@ -140,7 +140,7 @@
     return-void
 
     .line 86
-    :cond_0
+    :cond_2e
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Dialog view must contain an EditText with id @android:id/edit"
@@ -151,14 +151,14 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 64
     invoke-super {p0, p1}, Landroidx/preference/PreferenceDialogFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 65
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 66
     invoke-direct {p0}, Landroidx/preference/EditTextPreferenceDialogFragment;->getEditTextPreference()Landroidx/preference/EditTextPreference;
@@ -171,10 +171,10 @@
 
     iput-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragment;->mText:Ljava/lang/CharSequence;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 68
-    :cond_0
+    :cond_10
     const-string v0, "EditTextPreferenceDialogFragment.text"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
@@ -184,18 +184,18 @@
     iput-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragment;->mText:Ljava/lang/CharSequence;
 
     .line 70
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method public onDialogClosed(Z)V
-    .locals 2
+    .registers 4
     .param p1, "positiveResult"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 114
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1d
 
     .line 115
     iget-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragment;->mEditText:Landroid/widget/EditText;
@@ -218,7 +218,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 117
     invoke-direct {p0}, Landroidx/preference/EditTextPreferenceDialogFragment;->getEditTextPreference()Landroidx/preference/EditTextPreference;
@@ -229,12 +229,12 @@
 
     .line 120
     .end local v0    # "value":Ljava/lang/String;
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "outState"    # Landroid/os/Bundle;
 
     .line 74

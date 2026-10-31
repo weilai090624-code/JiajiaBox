@@ -12,7 +12,7 @@
 
 # direct methods
 .method private synthetic constructor <init>(Ljava/util/Spliterator;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -22,18 +22,18 @@
 .end method
 
 .method public static synthetic convert(Ljava/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :cond_4
     instance-of v0, p0, Lj$/util/Spliterator$Wrapper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     check-cast p0, Lj$/util/Spliterator$Wrapper;
 
@@ -41,10 +41,10 @@
 
     return-object p0
 
-    :cond_1
+    :cond_d
     instance-of v0, p0, Ljava/util/Spliterator$OfPrimitive;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_18
 
     check-cast p0, Ljava/util/Spliterator$OfPrimitive;
 
@@ -54,7 +54,7 @@
 
     return-object p0
 
-    :cond_2
+    :cond_18
     new-instance v0, Lj$/util/Spliterator$VivifiedWrapper;
 
     invoke-direct {v0, p0}, Lj$/util/Spliterator$VivifiedWrapper;-><init>(Ljava/util/Spliterator;)V
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public synthetic characteristics()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 
@@ -77,19 +77,19 @@
 .end method
 
 .method public synthetic equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 
     instance-of v1, p1, Lj$/util/Spliterator$VivifiedWrapper;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     check-cast p1, Lj$/util/Spliterator$VivifiedWrapper;
 
     iget-object p1, p1, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 
-    :cond_0
+    :cond_a
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p1
@@ -98,7 +98,7 @@
 .end method
 
 .method public synthetic estimateSize()J
-    .locals 2
+    .registers 3
 
     iget-object v0, p0, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     iget-object v0, p0, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 
@@ -156,7 +156,7 @@
 .end method
 
 .method public synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 
@@ -168,7 +168,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 
@@ -180,7 +180,7 @@
 .end method
 
 .method public synthetic trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/util/Spliterator$VivifiedWrapper;->wrappedValue:Ljava/util/Spliterator;
 

@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -123,27 +123,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 11
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 12
     const/4 p2, 0x0
 
     .line 11
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     .line 13
     const/4 p3, 0x0
 
     .line 11
-    :cond_1
+    :cond_a
     invoke-direct {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/widget/AutoCollapseTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 14
@@ -153,7 +153,7 @@
 
 # virtual methods
 .method protected onFocusChanged(ZILandroid/graphics/Rect;)V
-    .locals 1
+    .registers 5
     .param p1, "focused"    # Z
     .param p2, "direction"    # I
     .param p3, "previouslyFocusedRect"    # Landroid/graphics/Rect;
@@ -162,24 +162,24 @@
     nop
 
     .line 29
-    :try_start_0
+    :try_start_1
     invoke-super {p0, p1, p2, p3}, Landroidx/appcompat/widget/AppCompatTextView;->onFocusChanged(ZILandroid/graphics/Rect;)V
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_4} :catch_5
 
-    goto :goto_0
+    goto :goto_6
 
     .line 30
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 31
-    :goto_0
+    :goto_6
     return-void
 .end method
 
 .method protected onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 4
+    .registers 9
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "lengthBefore"    # I
@@ -195,37 +195,37 @@
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v2, 0x1
 
     .local v0, "$this$isGone$iv":Landroid/view/View;
     .local v2, "value$iv":Z
-    :goto_1
+    :goto_13
     const/4 v3, 0x0
 
     .line 41
     .local v3, "$i$f$setGone":I
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_18
 
     const/16 v1, 0x8
 
-    :cond_2
+    :cond_18
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 42
@@ -239,24 +239,24 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 2
+    .registers 4
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 34
     nop
 
     .line 35
-    :try_start_0
+    :try_start_1
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatTextView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_5} :catch_6
 
-    goto :goto_0
+    goto :goto_9
 
     .line 36
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 37
@@ -267,6 +267,6 @@
 
     .line 38
     .end local v0    # "e":Ljava/lang/IndexOutOfBoundsException;
-    :goto_0
+    :goto_9
     return v0
 .end method

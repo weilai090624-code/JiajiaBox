@@ -93,7 +93,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/navigation/NavBackStackEntryState$Companion;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
     .param p1, "inParcel"    # Landroid/os/Parcel;
 
     const-string v0, "inParcel"
@@ -179,7 +179,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 1
+    .registers 3
     .param p1, "entry"    # Landroidx/navigation/NavBackStackEntry;
 
     const-string v0, "entry"
@@ -233,7 +233,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 64
     const/4 v0, 0x0
@@ -242,7 +242,7 @@
 .end method
 
 .method public final getArgs()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 29
     iget-object v0, p0, Landroidx/navigation/NavBackStackEntryState;->args:Landroid/os/Bundle;
@@ -251,7 +251,7 @@
 .end method
 
 .method public final getDestinationId()I
-    .locals 1
+    .registers 2
 
     .line 28
     iget v0, p0, Landroidx/navigation/NavBackStackEntryState;->destinationId:I
@@ -260,7 +260,7 @@
 .end method
 
 .method public final getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 27
     iget-object v0, p0, Landroidx/navigation/NavBackStackEntryState;->id:Ljava/lang/String;
@@ -269,7 +269,7 @@
 .end method
 
 .method public final getSavedState()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 30
     iget-object v0, p0, Landroidx/navigation/NavBackStackEntryState;->savedState:Landroid/os/Bundle;
@@ -278,7 +278,7 @@
 .end method
 
 .method public final instantiate(Landroid/content/Context;Landroidx/navigation/NavDestination;Landroidx/lifecycle/Lifecycle$State;Landroidx/navigation/NavControllerViewModel;)Landroidx/navigation/NavBackStackEntry;
-    .locals 9
+    .registers 14
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "destination"    # Landroidx/navigation/NavDestination;
     .param p3, "hostLifecycleState"    # Landroidx/lifecycle/Lifecycle$State;
@@ -299,7 +299,7 @@
     .line 53
     iget-object v0, p0, Landroidx/navigation/NavBackStackEntryState;->args:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     move-object v1, v0
 
@@ -320,12 +320,12 @@
     .line 53
     .end local v1    # "$this$instantiate_u24lambda_u2d0":Landroid/os/Bundle;
     .end local v2    # "$i$a$-apply-NavBackStackEntryState$instantiate$args$1":I
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1f
     move-object v4, v0
 
     .line 56
@@ -360,7 +360,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "i"    # I
 

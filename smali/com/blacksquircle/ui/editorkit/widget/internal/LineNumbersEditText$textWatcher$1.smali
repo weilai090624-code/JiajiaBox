@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;
 
     iput-object p1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText$textWatcher$1;->this$0:Lcom/blacksquircle/ui/editorkit/widget/internal/LineNumbersEditText;
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 1
+    .registers 3
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 58
@@ -80,7 +80,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -96,7 +96,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I

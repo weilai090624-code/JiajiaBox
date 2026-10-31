@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/String;Lkotlinx/coroutines/channels/Channel;)V
-    .locals 0
+    .registers 3
     .param p1, "$tableNames"    # [Ljava/lang/String;
     .param p2, "$observerChannel"    # Lkotlinx/coroutines/channels/Channel;
     .annotation system Ldalvik/annotation/Signature;
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public onInvalidated(Ljava/util/Set;)V
-    .locals 2
+    .registers 4
     .param p1, "tables"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {

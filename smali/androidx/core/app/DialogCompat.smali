@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static requireViewById(Landroid/app/Dialog;I)Landroid/view/View;
-    .locals 3
+    .registers 5
     .param p0, "dialog"    # Landroid/app/Dialog;
     .param p1, "id"    # I
 
@@ -32,7 +32,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 58
     invoke-static {p0, p1}, Landroidx/core/app/DialogCompat$Api28Impl;->requireViewById(Landroid/app/Dialog;I)Ljava/lang/Object;
@@ -44,20 +44,20 @@
     return-object v0
 
     .line 60
-    :cond_0
+    :cond_d
     invoke-virtual {p0, p1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     .line 61
     .local v0, "view":Landroid/view/View;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 65
     return-object v0
 
     .line 62
-    :cond_1
+    :cond_14
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "ID does not reference a View inside this Dialog"

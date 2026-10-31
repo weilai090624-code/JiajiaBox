@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
 
     .line 177
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lkotlinx/coroutines/Job;)V
-    .locals 0
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "coroutine"    # Lkotlinx/coroutines/Job;
 
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public bridge synthetic createCopy()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     .line 169
     invoke-virtual {p0}, Lkotlinx/coroutines/TimeoutCancellationException;->createCopy()Lkotlinx/coroutines/TimeoutCancellationException;
@@ -96,7 +96,7 @@
 .end method
 
 .method public createCopy()Lkotlinx/coroutines/TimeoutCancellationException;
-    .locals 4
+    .registers 5
 
     .line 181
     new-instance v0, Lkotlinx/coroutines/TimeoutCancellationException;
@@ -105,11 +105,11 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     const-string v1, ""
 
-    :cond_0
+    :cond_a
     iget-object v2, p0, Lkotlinx/coroutines/TimeoutCancellationException;->coroutine:Lkotlinx/coroutines/Job;
 
     invoke-direct {v0, v1, v2}, Lkotlinx/coroutines/TimeoutCancellationException;-><init>(Ljava/lang/String;Lkotlinx/coroutines/Job;)V

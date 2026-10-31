@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 1091
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method mulMod(JJJ)J
-    .locals 2
+    .registers 9
     .param p1, "a"    # J
     .param p3, "b"    # J
     .param p5, "m"    # J
@@ -43,7 +43,7 @@
 .end method
 
 .method squareMod(JJ)J
-    .locals 2
+    .registers 7
     .param p1, "a"    # J
     .param p3, "m"    # J
 

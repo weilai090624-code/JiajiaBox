@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Iterable;)V
-    .locals 0
+    .registers 2
 
     .line 1002
     iput-object p1, p0, Lcom/google/common/collect/Iterables$8;->val$iterable:Ljava/lang/Iterable;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -54,7 +54,7 @@
 
     instance-of v0, v0, Ljava/util/Queue;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 1006
     new-instance v0, Lcom/google/common/collect/ConsumingQueueIterator;
@@ -65,10 +65,10 @@
 
     invoke-direct {v0, v1}, Lcom/google/common/collect/ConsumingQueueIterator;-><init>(Ljava/util/Queue;)V
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 1007
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lcom/google/common/collect/Iterables$8;->val$iterable:Ljava/lang/Iterable;
 
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -80,12 +80,12 @@
     move-result-object v0
 
     .line 1005
-    :goto_0
+    :goto_1a
     return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1012
     const-string v0, "Iterables.consumingIterable(...)"

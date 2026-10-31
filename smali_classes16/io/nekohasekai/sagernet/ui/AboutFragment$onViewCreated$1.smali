@@ -71,7 +71,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Lio/nekohasekai/sagernet/databinding/LayoutAboutBinding;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +125,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,7 +168,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -177,7 +177,7 @@
     .line 35
     iget v1, p0, Lio/nekohasekai/sagernet/ui/AboutFragment$onViewCreated$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_68
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -188,13 +188,13 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_64
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 36
@@ -229,13 +229,13 @@
 
     instance-of v1, v3, Ljava/io/BufferedReader;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3d
 
     check-cast v3, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_0
+    :cond_3d
     new-instance v1, Ljava/io/BufferedReader;
 
     const/16 v2, 0x2000
@@ -244,7 +244,7 @@
 
     move-object v3, v1
 
-    :goto_0
+    :goto_45
     check-cast v3, Ljava/io/Reader;
 
     invoke-static {v3}, Lkotlin/io/TextStreamsKt;->readText(Ljava/io/Reader;)Ljava/lang/String;
@@ -278,23 +278,23 @@
     move-result-object v1
 
     .end local v1    # "license":Ljava/lang/String;
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_64
 
     .line 35
     return-object v0
 
     .line 42
-    :cond_1
-    :goto_1
+    :cond_64
+    :goto_64
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_68
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

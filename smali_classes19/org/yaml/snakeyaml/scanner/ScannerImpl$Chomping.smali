@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Boolean;I)V
-    .locals 0
+    .registers 3
     .param p1, "value"    # Ljava/lang/Boolean;
     .param p2, "increment"    # I
 
@@ -42,12 +42,12 @@
 
 # virtual methods
 .method public chompTailIsNotFalse()Z
-    .locals 1
+    .registers 2
 
     .line 2405
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl$Chomping;->value:Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl$Chomping;->value:Ljava/lang/Boolean;
 
@@ -55,30 +55,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public chompTailIsTrue()Z
-    .locals 1
+    .registers 2
 
     .line 2409
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl$Chomping;->value:Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl$Chomping;->value:Ljava/lang/Boolean;
 
@@ -86,21 +86,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public getIncrement()I
-    .locals 1
+    .registers 2
 
     .line 2413
     iget v0, p0, Lorg/yaml/snakeyaml/scanner/ScannerImpl$Chomping;->increment:I

@@ -32,7 +32,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/math/LongMath$MillerRabinTester;
-    .locals 3
+    .registers 3
 
     .line 1089
     const/4 v0, 0x2
@@ -55,7 +55,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 1091
     new-instance v0, Lcom/google/common/math/LongMath$MillerRabinTester$1;
@@ -90,7 +90,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -104,7 +104,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/math/LongMath$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # I
     .param p3, "x2"    # Lcom/google/common/math/LongMath$1;
@@ -116,7 +116,7 @@
 .end method
 
 .method private powMod(JJJ)J
-    .locals 9
+    .registers 16
     .param p1, "a"    # J
     .param p3, "p"    # J
     .param p5, "m"    # J
@@ -126,12 +126,12 @@
 
     .line 1193
     .local v0, "res":J
-    :goto_0
+    :goto_2
     const-wide/16 v2, 0x0
 
     cmp-long v4, p3, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1e
 
     .line 1194
     const-wide/16 v4, 0x1
@@ -140,7 +140,7 @@
 
     cmp-long v6, v4, v2
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_17
 
     .line 1195
     move-object v2, p0
@@ -156,7 +156,7 @@
     move-result-wide v0
 
     .line 1197
-    :cond_0
+    :cond_17
     invoke-virtual {p0, p1, p2, p5, p6}, Lcom/google/common/math/LongMath$MillerRabinTester;->squareMod(JJ)J
 
     move-result-wide p1
@@ -166,15 +166,15 @@
 
     shr-long/2addr p3, v2
 
-    goto :goto_0
+    goto :goto_2
 
     .line 1199
-    :cond_1
+    :cond_1e
     return-wide v0
 .end method
 
 .method static test(JJ)Z
-    .locals 3
+    .registers 7
     .param p0, "base"    # J
     .param p2, "n"    # J
 
@@ -183,16 +183,16 @@
 
     cmp-long v2, p2, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_c
 
     sget-object v0, Lcom/google/common/math/LongMath$MillerRabinTester;->SMALL:Lcom/google/common/math/LongMath$MillerRabinTester;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_c
     sget-object v0, Lcom/google/common/math/LongMath$MillerRabinTester;->LARGE:Lcom/google/common/math/LongMath$MillerRabinTester;
 
-    :goto_0
+    :goto_e
     invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/common/math/LongMath$MillerRabinTester;->testWitness(JJ)Z
 
     move-result v0
@@ -201,7 +201,7 @@
 .end method
 
 .method private testWitness(JJ)Z
-    .locals 17
+    .registers 22
     .param p1, "base"    # J
     .param p3, "n"    # J
 
@@ -235,13 +235,13 @@
 
     cmp-long v2, v14, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_19
 
     .line 1208
     return v16
 
     .line 1211
-    :cond_0
+    :cond_19
     move-object/from16 v0, p0
 
     move-wide v1, v14
@@ -258,28 +258,28 @@
     .local v0, "a":J
     cmp-long v2, v0, v9
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_28
 
     .line 1216
     return v16
 
     .line 1218
-    :cond_1
+    :cond_28
     const/4 v2, 0x0
 
     .line 1219
     .local v2, "j":I
-    :goto_0
+    :goto_29
     sub-long v3, v7, v9
 
     cmp-long v5, v0, v3
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_3c
 
     .line 1220
     add-int/lit8 v2, v2, 0x1
 
-    if-ne v2, v11, :cond_2
+    if-ne v2, v11, :cond_35
 
     .line 1221
     const/4 v3, 0x0
@@ -287,24 +287,24 @@
     return v3
 
     .line 1223
-    :cond_2
+    :cond_35
     move-object/from16 v3, p0
 
     invoke-virtual {v3, v0, v1, v7, v8}, Lcom/google/common/math/LongMath$MillerRabinTester;->squareMod(JJ)J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_29
 
     .line 1225
-    :cond_3
+    :cond_3c
     move-object/from16 v3, p0
 
     return v16
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/math/LongMath$MillerRabinTester;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 1089
@@ -320,7 +320,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/math/LongMath$MillerRabinTester;
-    .locals 1
+    .registers 1
 
     .line 1089
     sget-object v0, Lcom/google/common/math/LongMath$MillerRabinTester;->$VALUES:[Lcom/google/common/math/LongMath$MillerRabinTester;

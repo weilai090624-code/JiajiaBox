@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlin/jvm/functions/Function0;)V
-    .locals 0
+    .registers 3
     .param p1, "$node"    # Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
     .param p2, "$condition"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic prepare(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "affected"    # Ljava/lang/Object;
 
     .line 73
@@ -95,7 +95,7 @@
 .end method
 
 .method public prepare(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "affected"    # Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
     .line 74
@@ -111,17 +111,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_10
     invoke-static {}, Lkotlinx/coroutines/internal/LockFreeLinkedListKt;->getCONDITION_FALSE()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method

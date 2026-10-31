@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,7 +64,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ImmutableMap;Lcom/google/common/reflect/ImmutableTypeToInstanceMap$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/ImmutableMap;
     .param p2, "x1"    # Lcom/google/common/reflect/ImmutableTypeToInstanceMap$1;
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/reflect/ImmutableTypeToInstanceMap$Builder;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -98,7 +98,7 @@
 .end method
 
 .method public static of()Lcom/google/common/reflect/ImmutableTypeToInstanceMap;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -122,7 +122,7 @@
 .end method
 
 .method private trustedGet(Lcom/google/common/reflect/TypeToken;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -146,7 +146,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 31
     .local p0, "this":Lcom/google/common/reflect/ImmutableTypeToInstanceMap;, "Lcom/google/common/reflect/ImmutableTypeToInstanceMap<TB;>;"
@@ -158,7 +158,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -176,7 +176,7 @@
 .end method
 
 .method public getInstance(Lcom/google/common/reflect/TypeToken;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -200,7 +200,7 @@
 .end method
 
 .method public getInstance(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -224,7 +224,7 @@
 .end method
 
 .method public put(Lcom/google/common/reflect/TypeToken;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -248,7 +248,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -264,7 +264,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -289,7 +289,7 @@
 .end method
 
 .method public putInstance(Lcom/google/common/reflect/TypeToken;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -313,7 +313,7 @@
 .end method
 
 .method public putInstance(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",

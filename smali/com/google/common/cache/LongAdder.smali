@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Lcom/google/common/cache/Striped64;-><init>()V
@@ -27,7 +27,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -61,7 +61,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public add(J)V
-    .locals 12
+    .registers 15
     .param p1, "x"    # J
 
     .line 68
@@ -95,7 +95,7 @@
     move-object v1, v0
 
     .local v1, "as":[Lcom/google/common/cache/Striped64$Cell;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     iget-wide v2, p0, Lcom/google/common/cache/LongAdder;->base:J
 
@@ -108,11 +108,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3d
 
     .line 69
     .end local v4    # "b":J
-    :cond_0
+    :cond_10
     const/4 v0, 0x1
 
     .line 70
@@ -128,9 +128,9 @@
     move-object v3, v2
 
     .local v3, "hc":[I
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3a
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3a
 
     array-length v2, v1
 
@@ -139,7 +139,7 @@
     .local v4, "n":I
     const/4 v5, 0x1
 
-    if-lt v2, v5, :cond_1
+    if-lt v2, v5, :cond_3a
 
     add-int/lit8 v2, v4, -0x1
 
@@ -154,7 +154,7 @@
     move-object v5, v2
 
     .local v5, "a":Lcom/google/common/cache/Striped64$Cell;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3a
 
     iget-wide v6, v5, Lcom/google/common/cache/Striped64$Cell;->value:J
 
@@ -170,23 +170,23 @@
 
     move v0, v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_3d
 
     .end local v4    # "n":I
     .end local v5    # "a":Lcom/google/common/cache/Striped64$Cell;
     .end local v8    # "v":J
-    :cond_1
+    :cond_3a
     invoke-virtual {p0, p1, p2, v3, v0}, Lcom/google/common/cache/LongAdder;->retryUpdate(J[IZ)V
 
     .line 76
     .end local v0    # "uncontended":Z
     .end local v3    # "hc":[I
-    :cond_2
+    :cond_3d
     return-void
 .end method
 
 .method public decrement()V
-    .locals 2
+    .registers 3
 
     .line 86
     const-wide/16 v0, -0x1
@@ -198,7 +198,7 @@
 .end method
 
 .method public doubleValue()D
-    .locals 2
+    .registers 3
 
     .line 180
     invoke-virtual {p0}, Lcom/google/common/cache/LongAdder;->sum()J
@@ -211,7 +211,7 @@
 .end method
 
 .method public floatValue()F
-    .locals 2
+    .registers 3
 
     .line 174
     invoke-virtual {p0}, Lcom/google/common/cache/LongAdder;->sum()J
@@ -224,7 +224,7 @@
 .end method
 
 .method final fn(JJ)J
-    .locals 2
+    .registers 7
     .param p1, "v"    # J
     .param p3, "x"    # J
 
@@ -235,7 +235,7 @@
 .end method
 
 .method public increment()V
-    .locals 2
+    .registers 3
 
     .line 81
     const-wide/16 v0, 0x1
@@ -247,7 +247,7 @@
 .end method
 
 .method public intValue()I
-    .locals 2
+    .registers 3
 
     .line 168
     invoke-virtual {p0}, Lcom/google/common/cache/LongAdder;->sum()J
@@ -260,7 +260,7 @@
 .end method
 
 .method public longValue()J
-    .locals 2
+    .registers 3
 
     .line 162
     invoke-virtual {p0}, Lcom/google/common/cache/LongAdder;->sum()J
@@ -271,7 +271,7 @@
 .end method
 
 .method public reset()V
-    .locals 2
+    .registers 3
 
     .line 117
     const-wide/16 v0, 0x0
@@ -283,7 +283,7 @@
 .end method
 
 .method public sum()J
-    .locals 8
+    .registers 9
 
     .line 98
     iget-wide v0, p0, Lcom/google/common/cache/LongAdder;->base:J
@@ -294,7 +294,7 @@
 
     .line 100
     .local v2, "as":[Lcom/google/common/cache/Striped64$Cell;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_14
 
     .line 101
     array-length v3, v2
@@ -304,15 +304,15 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_8
+    if-ge v4, v3, :cond_14
 
     .line 103
     aget-object v5, v2, v4
 
     .line 104
     .local v5, "a":Lcom/google/common/cache/Striped64$Cell;
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_11
 
     iget-wide v6, v5, Lcom/google/common/cache/Striped64$Cell;->value:J
 
@@ -320,20 +320,20 @@
 
     .line 102
     .end local v5    # "a":Lcom/google/common/cache/Striped64$Cell;
-    :cond_0
+    :cond_11
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 107
     .end local v3    # "n":I
     .end local v4    # "i":I
-    :cond_1
+    :cond_14
     return-wide v0
 .end method
 
 .method public sumThenReset()J
-    .locals 10
+    .registers 11
 
     .line 129
     iget-wide v0, p0, Lcom/google/common/cache/LongAdder;->base:J
@@ -349,7 +349,7 @@
     iput-wide v3, p0, Lcom/google/common/cache/LongAdder;->base:J
 
     .line 132
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1a
 
     .line 133
     array-length v5, v2
@@ -359,15 +359,15 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_0
-    if-ge v6, v5, :cond_1
+    :goto_c
+    if-ge v6, v5, :cond_1a
 
     .line 135
     aget-object v7, v2, v6
 
     .line 136
     .local v7, "a":Lcom/google/common/cache/Striped64$Cell;
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_17
 
     .line 137
     iget-wide v8, v7, Lcom/google/common/cache/Striped64$Cell;->value:J
@@ -379,20 +379,20 @@
 
     .line 134
     .end local v7    # "a":Lcom/google/common/cache/Striped64$Cell;
-    :cond_0
+    :cond_17
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 142
     .end local v5    # "n":I
     .end local v6    # "i":I
-    :cond_1
+    :cond_1a
     return-wide v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 152
     invoke-virtual {p0}, Lcom/google/common/cache/LongAdder;->sum()J

@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1142
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 

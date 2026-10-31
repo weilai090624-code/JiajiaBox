@@ -82,7 +82,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlin/sequences/SequenceScope;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public final invoke(Lkotlin/sequences/SequenceScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -179,7 +179,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -188,7 +188,7 @@
     .line 408
     iget v1, p0, Landroidx/core/view/ViewKt$allViews$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_5c
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -198,18 +198,18 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Landroidx/core/view/ViewKt$allViews$1;
     .local p1, "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_57
 
     .end local v0    # "this":Landroidx/core/view/ViewKt$allViews$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_16
     move-object v1, p0
 
     .local v1, "this":Landroidx/core/view/ViewKt$allViews$1;
@@ -221,12 +221,12 @@
     .local v2, "$this$sequence":Lkotlin/sequences/SequenceScope;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_38
 
     .end local v1    # "this":Landroidx/core/view/ViewKt$allViews$1;
     .end local v2    # "$this$sequence":Lkotlin/sequences/SequenceScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_1f
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -255,19 +255,19 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_38
 
     .line 408
     return-object v0
 
     .line 410
-    :cond_0
-    :goto_0
+    :cond_38
+    :goto_38
     iget-object v3, v1, Landroidx/core/view/ViewKt$allViews$1;->$this_allViews:Landroid/view/View;
 
     instance-of v3, v3, Landroid/view/ViewGroup;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_58
 
     .line 411
     iget-object v3, v1, Landroidx/core/view/ViewKt$allViews$1;->$this_allViews:Landroid/view/View;
@@ -295,34 +295,34 @@
     move-result-object v2
 
     .end local v2    # "$this$sequence":Lkotlin/sequences/SequenceScope;
-    if-ne v2, v0, :cond_1
+    if-ne v2, v0, :cond_56
 
     .line 408
     return-object v0
 
     .line 411
-    :cond_1
+    :cond_56
     move-object v0, v1
 
     .line 413
     .end local v1    # "this":Landroidx/core/view/ViewKt$allViews$1;
     .restart local v0    # "this":Landroidx/core/view/ViewKt$allViews$1;
-    :goto_1
+    :goto_57
     move-object v1, v0
 
     .end local v0    # "this":Landroidx/core/view/ViewKt$allViews$1;
     .restart local v1    # "this":Landroidx/core/view/ViewKt$allViews$1;
-    :cond_2
+    :cond_58
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5c
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1f
+        :pswitch_16
+        :pswitch_11
     .end packed-switch
 .end method

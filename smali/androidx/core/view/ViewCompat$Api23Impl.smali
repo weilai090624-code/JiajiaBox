@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5386
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static getRootWindowInsets(Landroid/view/View;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 3
+    .registers 4
     .param p0, "v"    # Landroid/view/View;
 
     .line 5392
@@ -36,14 +36,14 @@
 
     .line 5393
     .local v0, "wi":Landroid/view/WindowInsets;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 5395
-    :cond_0
+    :cond_8
     invoke-static {v0}, Landroidx/core/view/WindowInsetsCompat;->toWindowInsetsCompat(Landroid/view/WindowInsets;)Landroidx/core/view/WindowInsetsCompat;
 
     move-result-object v1
@@ -64,7 +64,7 @@
 .end method
 
 .method static getScrollIndicators(Landroid/view/View;)I
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5415
@@ -76,7 +76,7 @@
 .end method
 
 .method static setScrollIndicators(Landroid/view/View;I)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "indicators"    # I
 
@@ -88,7 +88,7 @@
 .end method
 
 .method static setScrollIndicators(Landroid/view/View;II)V
-    .locals 0
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "indicators"    # I
     .param p2, "mask"    # I

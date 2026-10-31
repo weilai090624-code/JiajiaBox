@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 645
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 664
     const-string v0, "ByteStreams.nullOutputStream()"
@@ -36,7 +36,7 @@
 .end method
 
 .method public write(I)V
-    .locals 0
+    .registers 2
     .param p1, "b"    # I
 
     .line 648
@@ -44,7 +44,7 @@
 .end method
 
 .method public write([B)V
-    .locals 0
+    .registers 2
     .param p1, "b"    # [B
 
     .line 653
@@ -55,7 +55,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 0
+    .registers 4
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I

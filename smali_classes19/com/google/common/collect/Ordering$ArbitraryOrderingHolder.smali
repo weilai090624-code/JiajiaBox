@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 321
     new-instance v0, Lcom/google/common/collect/Ordering$ArbitraryOrdering;
@@ -41,7 +41,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 320
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

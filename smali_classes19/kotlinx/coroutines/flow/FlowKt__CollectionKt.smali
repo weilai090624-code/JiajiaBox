@@ -39,7 +39,7 @@
 
 # direct methods
 .method public static final toCollection(Lkotlinx/coroutines/flow/Flow;Ljava/util/Collection;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -57,7 +57,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__CollectionKt$toCollection$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -69,7 +69,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__CollectionKt$toCollection$1;->label:I
 
@@ -77,14 +77,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__CollectionKt$toCollection$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__CollectionKt$toCollection$1;
 
     invoke-direct {v0, p2}, Lkotlinx/coroutines/flow/FlowKt__CollectionKt$toCollection$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -98,7 +98,7 @@
     .line 25
     iget v2, p2, Lkotlinx/coroutines/flow/FlowKt__CollectionKt$toCollection$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_4e
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -112,7 +112,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p0, p2, Lkotlinx/coroutines/flow/FlowKt__CollectionKt$toCollection$1;->L$0:Ljava/lang/Object;
 
     check-cast p0, Ljava/util/Collection;
@@ -120,10 +120,10 @@
     .local p0, "destination":Ljava/util/Collection;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_4c
 
     .end local p0    # "destination":Ljava/util/Collection;
-    :pswitch_1
+    :pswitch_35
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 26
@@ -146,32 +146,32 @@
     move-result-object p0
 
     .end local p0    # "$this$toCollection":Lkotlinx/coroutines/flow/Flow;
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_4b
 
     .line 25
     return-object v1
 
     .line 26
-    :cond_1
+    :cond_4b
     move-object p0, p1
 
     .line 29
     .end local p1    # "destination":Ljava/util/Collection;
     .local p0, "destination":Ljava/util/Collection;
-    :goto_1
+    :goto_4c
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final toList(Lkotlinx/coroutines/flow/Flow;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$toList"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "destination"    # Ljava/util/List;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -205,12 +205,12 @@
 .end method
 
 .method public static synthetic toList$default(Lkotlinx/coroutines/flow/Flow;Ljava/util/List;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 5
 
     .line 15
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_b
 
     new-instance p1, Ljava/util/ArrayList;
 
@@ -218,7 +218,7 @@
 
     check-cast p1, Ljava/util/List;
 
-    :cond_0
+    :cond_b
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/flow/FlowKt;->toList(Lkotlinx/coroutines/flow/Flow;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p0
@@ -227,7 +227,7 @@
 .end method
 
 .method public static final toSet(Lkotlinx/coroutines/flow/Flow;Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$toSet"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "destination"    # Ljava/util/Set;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -261,12 +261,12 @@
 .end method
 
 .method public static synthetic toSet$default(Lkotlinx/coroutines/flow/Flow;Ljava/util/Set;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 5
 
     .line 20
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_b
 
     new-instance p1, Ljava/util/LinkedHashSet;
 
@@ -274,7 +274,7 @@
 
     check-cast p1, Ljava/util/Set;
 
-    :cond_0
+    :cond_b
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/flow/FlowKt;->toSet(Lkotlinx/coroutines/flow/Flow;Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p0

@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 659
     new-instance v0, Landroid/graphics/RectF;
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(FFFF)V
-    .locals 0
+    .registers 5
     .param p1, "left"    # F
     .param p2, "top"    # F
     .param p3, "right"    # F
@@ -91,7 +91,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
     .line 658
@@ -103,7 +103,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
     .line 658
@@ -115,7 +115,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
     .line 658
@@ -127,7 +127,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
     .line 658
@@ -139,7 +139,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathArcOperation;
     .param p1, "x1"    # F
 
@@ -150,7 +150,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathArcOperation;
     .param p1, "x1"    # F
 
@@ -161,7 +161,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
     .line 658
@@ -173,7 +173,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/shape/ShapePath$PathArcOperation;
 
     .line 658
@@ -185,7 +185,7 @@
 .end method
 
 .method private getBottom()F
-    .locals 1
+    .registers 2
 
     .line 722
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->bottom:F
@@ -194,7 +194,7 @@
 .end method
 
 .method private getLeft()F
-    .locals 1
+    .registers 2
 
     .line 710
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->left:F
@@ -203,7 +203,7 @@
 .end method
 
 .method private getRight()F
-    .locals 1
+    .registers 2
 
     .line 718
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->right:F
@@ -212,7 +212,7 @@
 .end method
 
 .method private getStartAngle()F
-    .locals 1
+    .registers 2
 
     .line 742
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->startAngle:F
@@ -221,7 +221,7 @@
 .end method
 
 .method private getSweepAngle()F
-    .locals 1
+    .registers 2
 
     .line 746
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->sweepAngle:F
@@ -230,7 +230,7 @@
 .end method
 
 .method private getTop()F
-    .locals 1
+    .registers 2
 
     .line 714
     iget v0, p0, Lcom/google/android/material/shape/ShapePath$PathArcOperation;->top:F
@@ -239,7 +239,7 @@
 .end method
 
 .method private setBottom(F)V
-    .locals 0
+    .registers 2
     .param p1, "bottom"    # F
 
     .line 738
@@ -250,7 +250,7 @@
 .end method
 
 .method private setLeft(F)V
-    .locals 0
+    .registers 2
     .param p1, "left"    # F
 
     .line 726
@@ -261,7 +261,7 @@
 .end method
 
 .method private setRight(F)V
-    .locals 0
+    .registers 2
     .param p1, "right"    # F
 
     .line 734
@@ -272,7 +272,7 @@
 .end method
 
 .method private setStartAngle(F)V
-    .locals 0
+    .registers 2
     .param p1, "startAngle"    # F
 
     .line 750
@@ -283,7 +283,7 @@
 .end method
 
 .method private setSweepAngle(F)V
-    .locals 0
+    .registers 2
     .param p1, "sweepAngle"    # F
 
     .line 754
@@ -294,7 +294,7 @@
 .end method
 
 .method private setTop(F)V
-    .locals 0
+    .registers 2
     .param p1, "top"    # F
 
     .line 730
@@ -307,7 +307,7 @@
 
 # virtual methods
 .method public applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
-    .locals 6
+    .registers 9
     .param p1, "transform"    # Landroid/graphics/Matrix;
     .param p2, "path"    # Landroid/graphics/Path;
 

@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/Rect;II)V
-    .locals 2
+    .registers 6
     .param p1, "cropRect"    # Landroid/graphics/Rect;
     .param p2, "rotationDegrees"    # I
     .param p3, "targetRotation"    # I
@@ -34,7 +34,7 @@
     invoke-direct {p0}, Landroidx/camera/core/SurfaceRequest$TransformationInfo;-><init>()V
 
     .line 23
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 26
     iput-object p1, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_TransformationInfo;->cropRect:Landroid/graphics/Rect;
@@ -49,7 +49,7 @@
     return-void
 
     .line 24
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null cropRect"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -76,18 +76,18 @@
     .line 61
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 62
     return v0
 
     .line 64
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/camera/core/SurfaceRequest$TransformationInfo;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2b
 
     .line 65
     move-object v1, p1
@@ -106,7 +106,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_29
 
     iget v3, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_TransformationInfo;->rotationDegrees:I
 
@@ -115,7 +115,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_29
 
     iget v3, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_TransformationInfo;->targetRotation:I
 
@@ -124,25 +124,25 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_29
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_29
     const/4 v0, 0x0
 
     .line 66
-    :goto_0
+    :goto_2a
     return v0
 
     .line 70
     .end local v1    # "that":Landroidx/camera/core/SurfaceRequest$TransformationInfo;
-    :cond_2
+    :cond_2b
     return v2
 .end method
 
 .method public getCropRect()Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_TransformationInfo;->cropRect:Landroid/graphics/Rect;
@@ -151,7 +151,7 @@
 .end method
 
 .method public getRotationDegrees()I
-    .locals 1
+    .registers 2
 
     .line 40
     iget v0, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_TransformationInfo;->rotationDegrees:I
@@ -160,7 +160,7 @@
 .end method
 
 .method public getTargetRotation()I
-    .locals 1
+    .registers 2
 
     .line 47
     iget v0, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_TransformationInfo;->targetRotation:I
@@ -169,7 +169,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 75
     const/4 v0, 0x1
@@ -210,7 +210,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 52
     new-instance v0, Ljava/lang/StringBuilder;

@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 45
     .local p0, "this":Lcom/google/common/collect/AbstractSortedMultiset;, "Lcom/google/common/collect/AbstractSortedMultiset<TE;>;"
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/Comparator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -113,7 +113,7 @@
 .end method
 
 .method createDescendingMultiset()Lcom/google/common/collect/SortedMultiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -132,7 +132,7 @@
 .end method
 
 .method createElementSet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -151,7 +151,7 @@
 .end method
 
 .method bridge synthetic createElementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/AbstractSortedMultiset;, "Lcom/google/common/collect/AbstractSortedMultiset<TE;>;"
@@ -174,7 +174,7 @@
 .end method
 
 .method descendingIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -197,7 +197,7 @@
 .end method
 
 .method public descendingMultiset()Lcom/google/common/collect/SortedMultiset;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -212,7 +212,7 @@
 
     .line 130
     .local v0, "result":Lcom/google/common/collect/SortedMultiset;, "Lcom/google/common/collect/SortedMultiset<TE;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractSortedMultiset;->createDescendingMultiset()Lcom/google/common/collect/SortedMultiset;
 
@@ -220,17 +220,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractSortedMultiset;->descendingMultiset:Lcom/google/common/collect/SortedMultiset;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public elementSet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -251,7 +251,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/AbstractSortedMultiset;, "Lcom/google/common/collect/AbstractSortedMultiset<TE;>;"
@@ -263,7 +263,7 @@
 .end method
 
 .method public bridge synthetic elementSet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Lcom/google/common/collect/AbstractSortedMultiset;, "Lcom/google/common/collect/AbstractSortedMultiset<TE;>;"
@@ -275,7 +275,7 @@
 .end method
 
 .method public firstEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -299,7 +299,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -307,17 +307,17 @@
 
     check-cast v1, Lcom/google/common/collect/Multiset$Entry;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     return-object v1
 .end method
 
 .method public lastEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -341,7 +341,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -349,17 +349,17 @@
 
     check-cast v1, Lcom/google/common/collect/Multiset$Entry;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     return-object v1
 .end method
 
 .method public pollFirstEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -383,7 +383,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     .line 86
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -414,14 +414,14 @@
 
     .line 91
     .end local v1    # "result":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<TE;>;"
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public pollLastEntry()Lcom/google/common/collect/Multiset$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -445,7 +445,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     .line 99
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -476,14 +476,14 @@
 
     .line 104
     .end local v1    # "result":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<TE;>;"
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public subMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
-    .locals 1
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

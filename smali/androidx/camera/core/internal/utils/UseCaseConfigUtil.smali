@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static updateTargetRotationAndRelatedConfigs(Landroidx/camera/core/impl/UseCaseConfig$Builder;I)V
-    .locals 9
+    .registers 11
     .param p1, "newRotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -53,12 +53,12 @@
 
     .line 46
     .local v2, "oldRotation":I
-    if-eq v2, v1, :cond_0
+    if-eq v2, v1, :cond_f
 
-    if-eq v2, p1, :cond_1
+    if-eq v2, p1, :cond_15
 
     .line 47
-    :cond_0
+    :cond_f
     move-object v3, p0
 
     check-cast v3, Landroidx/camera/core/impl/ImageOutputConfig$Builder;
@@ -66,17 +66,17 @@
     invoke-interface {v3, p1}, Landroidx/camera/core/impl/ImageOutputConfig$Builder;->setTargetRotation(I)Ljava/lang/Object;
 
     .line 50
-    :cond_1
-    if-eq v2, v1, :cond_4
+    :cond_15
+    if-eq v2, v1, :cond_4b
 
-    if-eq p1, v1, :cond_4
+    if-eq p1, v1, :cond_4b
 
-    if-ne v2, p1, :cond_2
+    if-ne v2, p1, :cond_1c
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 56
-    :cond_2
+    :cond_1c
     invoke-static {v2}, Landroidx/camera/core/impl/utils/CameraOrientationUtil;->surfaceRotationToDegrees(I)I
 
     move-result v1
@@ -99,7 +99,7 @@
 
     const/16 v5, 0x5a
 
-    if-ne v4, v5, :cond_3
+    if-ne v4, v5, :cond_4a
 
     .line 67
     const/4 v4, 0x0
@@ -110,7 +110,7 @@
 
     .line 69
     .local v4, "targetResolution":Landroid/util/Size;
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4a
 
     .line 72
     move-object v5, p0
@@ -136,13 +136,13 @@
 
     .line 77
     .end local v4    # "targetResolution":Landroid/util/Size;
-    :cond_3
+    :cond_4a
     return-void
 
     .line 53
     .end local v1    # "oldRotationDegrees":I
     .end local v3    # "newRotationDegrees":I
-    :cond_4
-    :goto_0
+    :cond_4b
+    :goto_4b
     return-void
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 187
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/ImmutableSerializer;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method static read(Lcom/esotericsoftware/kryo/io/Input;)Lj$/time/ZoneOffset;
-    .locals 2
+    .registers 3
     .param p0, "in"    # Lcom/esotericsoftware/kryo/io/Input;
 
     .line 206
@@ -45,18 +45,18 @@
     .local v0, "offsetByte":I
     const/16 v1, 0x7f
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readInt()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     mul-int/lit16 v1, v0, 0x384
 
-    :goto_0
+    :goto_f
     invoke-static {v1}, Lj$/time/ZoneOffset;->ofTotalSeconds(I)Lj$/time/ZoneOffset;
 
     move-result-object v1
@@ -65,7 +65,7 @@
 .end method
 
 .method static write(Lcom/esotericsoftware/kryo/io/Output;Lj$/time/ZoneOffset;)V
-    .locals 3
+    .registers 5
     .param p0, "out"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p1, "obj"    # Lj$/time/ZoneOffset;
 
@@ -80,35 +80,35 @@
 
     const/16 v2, 0x7f
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     div-int/lit16 v1, v0, 0x384
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/16 v1, 0x7f
 
     .line 195
     .local v1, "offsetByte":I
-    :goto_0
+    :goto_f
     invoke-virtual {p0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
 
     .line 196
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_17
 
     .line 197
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(I)V
 
     .line 199
-    :cond_1
+    :cond_17
     return-void
 .end method
 
 
 # virtual methods
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Lj$/time/ZoneOffset;
-    .locals 1
+    .registers 5
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "in"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p3, "type"    # Ljava/lang/Class;
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 187
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/TimeSerializers$ZoneOffsetSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Lj$/time/ZoneOffset;
@@ -133,7 +133,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Lj$/time/ZoneOffset;)V
-    .locals 0
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "out"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "obj"    # Lj$/time/ZoneOffset;
@@ -146,7 +146,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 187
     check-cast p3, Lj$/time/ZoneOffset;

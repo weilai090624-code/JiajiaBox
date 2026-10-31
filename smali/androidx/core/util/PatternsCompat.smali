@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 200
     nop
@@ -412,7 +412,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 396
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

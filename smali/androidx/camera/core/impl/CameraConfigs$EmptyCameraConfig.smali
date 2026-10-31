@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public synthetic containsOption(Landroidx/camera/core/impl/Config$Option;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$containsOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Z
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public synthetic findOptions(Ljava/lang/String;Landroidx/camera/core/impl/Config$OptionMatcher;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$findOptions(Landroidx/camera/core/impl/ReadableConfig;Ljava/lang/String;Landroidx/camera/core/impl/Config$OptionMatcher;)V
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public synthetic getCameraFilter()Landroidx/camera/core/CameraFilter;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/CameraConfig$-CC;->$default$getCameraFilter(Landroidx/camera/core/impl/CameraConfig;)Landroidx/camera/core/CameraFilter;
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public getConfig()Landroidx/camera/core/impl/Config;
-    .locals 1
+    .registers 2
 
     .line 58
     invoke-static {}, Landroidx/camera/core/impl/OptionsBundle;->emptyBundle()Landroidx/camera/core/impl/OptionsBundle;
@@ -80,7 +80,7 @@
 .end method
 
 .method public synthetic getOptionPriority(Landroidx/camera/core/impl/Config$Option;)Landroidx/camera/core/impl/Config$OptionPriority;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$getOptionPriority(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Landroidx/camera/core/impl/Config$OptionPriority;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public synthetic getPriorities(Landroidx/camera/core/impl/Config$Option;)Ljava/util/Set;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$getPriorities(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Ljava/util/Set;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public getUseCaseConfigFactory()Landroidx/camera/core/impl/UseCaseConfigFactory;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Landroidx/camera/core/impl/CameraConfigs$EmptyCameraConfig;->mUseCaseConfigFactory:Landroidx/camera/core/impl/UseCaseConfigFactory;
@@ -109,7 +109,7 @@
 .end method
 
 .method public synthetic listOptions()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$listOptions(Landroidx/camera/core/impl/ReadableConfig;)Ljava/util/Set;
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public synthetic retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$retrieveOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
 
@@ -129,7 +129,7 @@
 .end method
 
 .method public synthetic retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$retrieveOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public synthetic retrieveOptionWithPriority(Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$retrieveOptionWithPriority(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;)Ljava/lang/Object;
 

@@ -126,7 +126,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/cache2/Relay$Companion;
 
@@ -162,7 +162,7 @@
 .end method
 
 .method private constructor <init>(Ljava/io/RandomAccessFile;Lokio/Source;JLokio/ByteString;J)V
-    .locals 1
+    .registers 9
     .param p1, "file"    # Ljava/io/RandomAccessFile;
     .param p2, "upstream"    # Lokio/Source;
     .param p3, "upstreamPos"    # J
@@ -197,16 +197,16 @@
     .line 81
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->upstream:Lokio/Source;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     iput-boolean v0, p0, Lokhttp3/internal/cache2/Relay;->complete:Z
 
     .line 84
@@ -221,7 +221,7 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/io/RandomAccessFile;Lokio/Source;JLokio/ByteString;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 9
 
     invoke-direct/range {p0 .. p7}, Lokhttp3/internal/cache2/Relay;-><init>(Ljava/io/RandomAccessFile;Lokio/Source;JLokio/ByteString;J)V
 
@@ -229,7 +229,7 @@
 .end method
 
 .method public static final synthetic access$writeHeader(Lokhttp3/internal/cache2/Relay;Lokio/ByteString;JJ)V
-    .locals 0
+    .registers 6
     .param p0, "$this"    # Lokhttp3/internal/cache2/Relay;
     .param p1, "prefix"    # Lokio/ByteString;
     .param p2, "upstreamSize"    # J
@@ -242,7 +242,7 @@
 .end method
 
 .method private final writeHeader(Lokio/ByteString;JJ)V
-    .locals 8
+    .registers 14
     .param p1, "prefix"    # Lokio/ByteString;
     .param p2, "upstreamSize"    # J
     .param p4, "metadataSize"    # J
@@ -281,17 +281,17 @@
 
     cmp-long v2, v4, v6
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1c
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_1d
+    if-eqz v2, :cond_3c
 
     .line 106
     nop
@@ -334,7 +334,7 @@
     .end local v3    # "header":Lokio/Buffer;
     .local v0, "$this$writeHeader_u24lambda_u2d0":Lokio/Buffer;
     .restart local v1    # "$i$a$-apply-Relay$writeHeader$header$1":I
-    :cond_1
+    :cond_3c
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Failed requirement."
@@ -351,7 +351,7 @@
 .end method
 
 .method private final writeMetadata(J)V
-    .locals 7
+    .registers 10
     .param p1, "upstreamSize"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -412,7 +412,7 @@
 
 # virtual methods
 .method public final commit(J)V
-    .locals 8
+    .registers 11
     .param p1, "upstreamSize"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -473,7 +473,7 @@
     .local v0, "$i$a$-synchronized-Relay$commit$1":I
     const/4 v1, 0x1
 
-    :try_start_0
+    :try_start_2d
     invoke-virtual {p0, v1}, Lokhttp3/internal/cache2/Relay;->setComplete(Z)V
 
     .line 134
@@ -481,8 +481,8 @@
 
     .end local v0    # "$i$a$-synchronized-Relay$commit$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_2d .. :try_end_33} :catchall_42
 
     .line 132
     monitor-exit p0
@@ -490,17 +490,17 @@
     .line 136
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->upstream:Lokio/Source;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_39
 
-    goto :goto_0
+    goto :goto_3e
 
-    :cond_0
+    :cond_39
     check-cast v0, Ljava/io/Closeable;
 
     invoke-static {v0}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 137
-    :goto_0
+    :goto_3e
     const/4 v0, 0x0
 
     iput-object v0, p0, Lokhttp3/internal/cache2/Relay;->upstream:Lokio/Source;
@@ -509,7 +509,7 @@
     return-void
 
     .line 132
-    :catchall_0
+    :catchall_42
     move-exception v0
 
     monitor-exit p0
@@ -518,7 +518,7 @@
 .end method
 
 .method public final getBuffer()Lokio/Buffer;
-    .locals 1
+    .registers 2
 
     .line 84
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->buffer:Lokio/Buffer;
@@ -527,7 +527,7 @@
 .end method
 
 .method public final getBufferMaxSize()J
-    .locals 2
+    .registers 3
 
     .line 69
     iget-wide v0, p0, Lokhttp3/internal/cache2/Relay;->bufferMaxSize:J
@@ -536,7 +536,7 @@
 .end method
 
 .method public final getComplete()Z
-    .locals 1
+    .registers 2
 
     .line 81
     iget-boolean v0, p0, Lokhttp3/internal/cache2/Relay;->complete:Z
@@ -545,7 +545,7 @@
 .end method
 
 .method public final getFile()Ljava/io/RandomAccessFile;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
@@ -554,7 +554,7 @@
 .end method
 
 .method public final getSourceCount()I
-    .locals 1
+    .registers 2
 
     .line 90
     iget v0, p0, Lokhttp3/internal/cache2/Relay;->sourceCount:I
@@ -563,7 +563,7 @@
 .end method
 
 .method public final getUpstream()Lokio/Source;
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->upstream:Lokio/Source;
@@ -572,7 +572,7 @@
 .end method
 
 .method public final getUpstreamBuffer()Lokio/Buffer;
-    .locals 1
+    .registers 2
 
     .line 78
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->upstreamBuffer:Lokio/Buffer;
@@ -581,7 +581,7 @@
 .end method
 
 .method public final getUpstreamPos()J
-    .locals 2
+    .registers 3
 
     .line 63
     iget-wide v0, p0, Lokhttp3/internal/cache2/Relay;->upstreamPos:J
@@ -590,7 +590,7 @@
 .end method
 
 .method public final getUpstreamReader()Ljava/lang/Thread;
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->upstreamReader:Ljava/lang/Thread;
@@ -599,26 +599,26 @@
 .end method
 
 .method public final isClosed()Z
-    .locals 1
+    .registers 2
 
     .line 93
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public final metadata()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     .line 140
     iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->metadata:Lokio/ByteString;
@@ -627,7 +627,7 @@
 .end method
 
 .method public final newSource()Lokio/Source;
-    .locals 2
+    .registers 3
 
     .line 148
     monitor-enter p0
@@ -636,14 +636,14 @@
 
     .line 149
     .local v0, "$i$a$-synchronized-Relay$newSource$1":I
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0}, Lokhttp3/internal/cache2/Relay;->getFile()Ljava/io/RandomAccessFile;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_2 .. :try_end_6} :catchall_1d
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
     .end local v0    # "$i$a$-synchronized-Relay$newSource$1":I
     monitor-exit p0
@@ -654,8 +654,8 @@
 
     .line 150
     .restart local v0    # "$i$a$-synchronized-Relay$newSource$1":I
-    :cond_0
-    :try_start_1
+    :cond_b
+    :try_start_b
     invoke-virtual {p0}, Lokhttp3/internal/cache2/Relay;->getSourceCount()I
 
     move-result v1
@@ -663,8 +663,8 @@
     add-int/lit8 v1, v1, 0x1
 
     invoke-virtual {p0, v1}, Lokhttp3/internal/cache2/Relay;->setSourceCount(I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_14
+    .catchall {:try_start_b .. :try_end_14} :catchall_1d
 
     .line 148
     .end local v0    # "$i$a$-synchronized-Relay$newSource$1":I
@@ -680,7 +680,7 @@
     return-object v0
 
     .line 148
-    :catchall_0
+    :catchall_1d
     move-exception v0
 
     monitor-exit p0
@@ -689,7 +689,7 @@
 .end method
 
 .method public final setComplete(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 81
@@ -699,7 +699,7 @@
 .end method
 
 .method public final setFile(Ljava/io/RandomAccessFile;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/io/RandomAccessFile;
 
     .line 54
@@ -709,7 +709,7 @@
 .end method
 
 .method public final setSourceCount(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 90
@@ -719,7 +719,7 @@
 .end method
 
 .method public final setUpstream(Lokio/Source;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokio/Source;
 
     .line 60
@@ -729,7 +729,7 @@
 .end method
 
 .method public final setUpstreamPos(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 63
@@ -739,7 +739,7 @@
 .end method
 
 .method public final setUpstreamReader(Ljava/lang/Thread;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/Thread;
 
     .line 72

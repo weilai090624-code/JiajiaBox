@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 43
@@ -20,7 +20,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -47,13 +47,13 @@
 
 # virtual methods
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
-    .locals 2
+    .registers 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 57
     iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 58
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchDraw(Landroid/graphics/Canvas;)V
@@ -62,7 +62,7 @@
     return-void
 
     .line 61
-    :cond_0
+    :cond_8
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     move-result v0
@@ -84,7 +84,7 @@
 .end method
 
 .method public resetClipBoundsAndCornerRadius()V
-    .locals 1
+    .registers 2
 
     .line 68
     const/4 v0, 0x0
@@ -99,7 +99,7 @@
 .end method
 
 .method public updateClipBoundsAndCornerRadius(FFFFF)V
-    .locals 1
+    .registers 7
     .param p1, "left"    # F
     .param p2, "top"    # F
     .param p3, "right"    # F
@@ -118,7 +118,7 @@
 .end method
 
 .method public updateClipBoundsAndCornerRadius(Landroid/graphics/Rect;F)V
-    .locals 7
+    .registers 10
     .param p1, "rect"    # Landroid/graphics/Rect;
     .param p2, "cornerRadius"    # F
 
@@ -150,14 +150,14 @@
 .end method
 
 .method public updateClipBoundsAndCornerRadius(Landroid/graphics/RectF;F)V
-    .locals 2
+    .registers 5
     .param p1, "rectF"    # Landroid/graphics/RectF;
     .param p2, "cornerRadius"    # F
 
     .line 82
     iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 83
     new-instance v0, Landroid/graphics/Path;
@@ -167,7 +167,7 @@
     iput-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
 
     .line 85
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->reset()V

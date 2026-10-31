@@ -38,24 +38,24 @@
 
 # direct methods
 .method public static final checkWindowSizeStep(II)V
-    .locals 4
+    .registers 6
     .param p0, "size"    # I
     .param p1, "step"    # I
 
     .line 9
-    if-lez p0, :cond_0
+    if-lez p0, :cond_6
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_7
+    if-nez v0, :cond_51
 
     const/4 v0, 0x0
 
@@ -63,7 +63,7 @@
     .local v0, "$i$a$-require-SlidingWindowKt$checkWindowSizeStep$1":I
     const-string v1, " must be greater than zero."
 
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_30
 
     .line 11
     new-instance v2, Ljava/lang/StringBuilder;
@@ -98,10 +98,10 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_47
 
     .line 13
-    :cond_1
+    :cond_30
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -126,7 +126,7 @@
 
     .line 9
     .end local v0    # "$i$a$-require-SlidingWindowKt$checkWindowSizeStep$1":I
-    :goto_1
+    :goto_47
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -138,12 +138,12 @@
     throw v0
 
     .line 15
-    :cond_2
+    :cond_51
     return-void
 .end method
 
 .method public static final windowedIterator(Ljava/util/Iterator;IIZZ)Ljava/util/Iterator;
-    .locals 8
+    .registers 13
     .param p0, "iterator"    # Ljava/util/Iterator;
     .param p1, "size"    # I
     .param p2, "step"    # I
@@ -171,7 +171,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     sget-object v0, Lkotlin/collections/EmptyIterator;->INSTANCE:Lkotlin/collections/EmptyIterator;
 
@@ -180,7 +180,7 @@
     return-object v0
 
     .line 24
-    :cond_0
+    :cond_10
     new-instance v0, Lkotlin/collections/SlidingWindowKt$windowedIterator$1;
 
     const/4 v7, 0x0
@@ -209,7 +209,7 @@
 .end method
 
 .method public static final windowedSequence(Lkotlin/sequences/Sequence;IIZZ)Lkotlin/sequences/Sequence;
-    .locals 7
+    .registers 12
     .param p0, "$this$windowedSequence"    # Lkotlin/sequences/Sequence;
     .param p1, "size"    # I
     .param p2, "step"    # I

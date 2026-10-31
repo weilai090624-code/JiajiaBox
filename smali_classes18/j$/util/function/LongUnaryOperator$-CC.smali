@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$andThen(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/LongUnaryOperator;
     .param p1, "after"    # Ljava/util/function/LongUnaryOperator;
 
@@ -21,7 +21,7 @@
 .end method
 
 .method public static $default$compose(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/LongUnaryOperator;
     .param p1, "before"    # Ljava/util/function/LongUnaryOperator;
 
@@ -37,7 +37,7 @@
 .end method
 
 .method public static synthetic $private$lambda$andThen$1(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;J)J
-    .locals 2
+    .registers 6
     .param p0, "_this"    # Ljava/util/function/LongUnaryOperator;
     .param p1, "after"    # Ljava/util/function/LongUnaryOperator;
     .param p2, "t"    # J
@@ -55,7 +55,7 @@
 .end method
 
 .method public static synthetic $private$lambda$compose$0(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;J)J
-    .locals 2
+    .registers 6
     .param p0, "_this"    # Ljava/util/function/LongUnaryOperator;
     .param p1, "before"    # Ljava/util/function/LongUnaryOperator;
     .param p2, "v"    # J
@@ -73,7 +73,7 @@
 .end method
 
 .method public static identity()Ljava/util/function/LongUnaryOperator;
-    .locals 1
+    .registers 1
 
     .line 93
     new-instance v0, Lj$/util/function/LongUnaryOperator$$ExternalSyntheticLambda0;
@@ -84,7 +84,7 @@
 .end method
 
 .method public static synthetic lambda$identity$2(J)J
-    .locals 0
+    .registers 2
     .param p0, "t"    # J
 
     .line 93

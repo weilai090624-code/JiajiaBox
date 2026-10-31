@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 258
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
-    .locals 3
+    .registers 5
     .param p1, "message"    # Landroid/os/Message;
 
     .line 261
@@ -38,7 +38,7 @@
 
     const/4 v1, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1a
 
     .line 269
     const/4 v0, 0x0
@@ -46,7 +46,7 @@
     return v0
 
     .line 266
-    :pswitch_0
+    :pswitch_8
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;
@@ -59,7 +59,7 @@
     return v1
 
     .line 263
-    :pswitch_1
+    :pswitch_12
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/google/android/material/snackbar/BaseTransientBottomBar;
@@ -69,9 +69,9 @@
     .line 264
     return v1
 
-    :pswitch_data_0
+    :pswitch_data_1a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_12
+        :pswitch_8
     .end packed-switch
 .end method

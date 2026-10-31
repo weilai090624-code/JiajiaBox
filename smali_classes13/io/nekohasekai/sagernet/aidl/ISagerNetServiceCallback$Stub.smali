@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 36
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
-    .locals 2
+    .registers 3
     .param p0, "obj"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -66,7 +66,7 @@
     .end annotation
 
     .line 45
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 46
     const/4 v0, 0x0
@@ -74,7 +74,7 @@
     return-object v0
 
     .line 48
-    :cond_0
+    :cond_4
     const-string v0, "io.nekohasekai.sagernet.aidl.ISagerNetServiceCallback"
 
     invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -83,11 +83,11 @@
 
     .line 49
     .local v0, "iin":Landroid/os/IInterface;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     .line 50
     move-object v1, v0
@@ -97,7 +97,7 @@
     return-object v1
 
     .line 52
-    :cond_1
+    :cond_14
     new-instance v1, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub$Proxy;
 
     invoke-direct {v1, p0}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
@@ -106,7 +106,7 @@
 .end method
 
 .method public static getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
-    .locals 1
+    .registers 1
 
     .line 255
     sget-object v0, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub$Proxy;->sDefaultImpl:Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
@@ -115,7 +115,7 @@
 .end method
 
 .method public static setDefaultImpl(Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Z
-    .locals 1
+    .registers 2
     .param p0, "impl"    # Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -129,9 +129,9 @@
     .line 248
     sget-object v0, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub$Proxy;->sDefaultImpl:Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     .line 249
     sput-object p0, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub$Proxy;->sDefaultImpl:Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
@@ -142,7 +142,7 @@
     return v0
 
     .line 252
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     return v0
@@ -151,14 +151,14 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 0
+    .registers 1
 
     .line 56
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 5
+    .registers 10
     .param p1, "code"    # I
     .param p2, "data"    # Landroid/os/Parcel;
     .param p3, "reply"    # Landroid/os/Parcel;
@@ -191,7 +191,7 @@
     .local v0, "descriptor":Ljava/lang/String;
     const/4 v1, 0x1
 
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_6a
 
     .line 126
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
@@ -201,14 +201,14 @@
     return v1
 
     .line 65
-    :sswitch_0
+    :sswitch_b
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 66
     return v1
 
     .line 118
-    :sswitch_1
+    :sswitch_f
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 120
@@ -225,7 +225,7 @@
 
     .line 105
     .end local v2    # "_arg0":J
-    :sswitch_2
+    :sswitch_1a
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 107
@@ -233,7 +233,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2c
 
     .line 108
     sget-object v2, Lio/nekohasekai/sagernet/aidl/TrafficData;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -245,16 +245,16 @@
     check-cast v2, Lio/nekohasekai/sagernet/aidl/TrafficData;
 
     .local v2, "_arg0":Lio/nekohasekai/sagernet/aidl/TrafficData;
-    goto :goto_0
+    goto :goto_2d
 
     .line 111
     .end local v2    # "_arg0":Lio/nekohasekai/sagernet/aidl/TrafficData;
-    :cond_0
+    :cond_2c
     const/4 v2, 0x0
 
     .line 113
     .restart local v2    # "_arg0":Lio/nekohasekai/sagernet/aidl/TrafficData;
-    :goto_0
+    :goto_2d
     invoke-virtual {p0, v2}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->cbTrafficUpdate(Lio/nekohasekai/sagernet/aidl/TrafficData;)V
 
     .line 114
@@ -262,7 +262,7 @@
 
     .line 92
     .end local v2    # "_arg0":Lio/nekohasekai/sagernet/aidl/TrafficData;
-    :sswitch_3
+    :sswitch_31
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 94
@@ -270,7 +270,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_43
 
     .line 95
     sget-object v2, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -282,16 +282,16 @@
     check-cast v2, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
     .local v2, "_arg0":Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
-    goto :goto_1
+    goto :goto_44
 
     .line 98
     .end local v2    # "_arg0":Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
-    :cond_1
+    :cond_43
     const/4 v2, 0x0
 
     .line 100
     .restart local v2    # "_arg0":Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
-    :goto_1
+    :goto_44
     invoke-virtual {p0, v2}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->cbSpeedUpdate(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
 
     .line 101
@@ -299,7 +299,7 @@
 
     .line 82
     .end local v2    # "_arg0":Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
-    :sswitch_4
+    :sswitch_48
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 84
@@ -323,7 +323,7 @@
     .line 70
     .end local v2    # "_arg0":Ljava/lang/String;
     .end local v3    # "_arg1":Ljava/lang/String;
-    :sswitch_5
+    :sswitch_57
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 72
@@ -350,13 +350,13 @@
     .line 78
     return v1
 
-    :sswitch_data_0
+    :sswitch_data_6a
     .sparse-switch
-        0x1 -> :sswitch_5
-        0x2 -> :sswitch_4
-        0x3 -> :sswitch_3
-        0x4 -> :sswitch_2
-        0x5 -> :sswitch_1
-        0x5f4e5446 -> :sswitch_0
+        0x1 -> :sswitch_57
+        0x2 -> :sswitch_48
+        0x3 -> :sswitch_31
+        0x4 -> :sswitch_1a
+        0x5 -> :sswitch_f
+        0x5f4e5446 -> :sswitch_b
     .end sparse-switch
 .end method

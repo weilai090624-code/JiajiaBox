@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Intent;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -46,7 +46,7 @@
 .end method
 
 .method private grantUriPermissionToProvider(Landroid/content/Context;)V
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     .line 52
@@ -56,12 +56,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -83,17 +83,17 @@
 
     .line 55
     .end local v1    # "uri":Landroid/net/Uri;
-    goto :goto_0
+    goto :goto_6
 
     .line 56
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 
 # virtual methods
 .method public getIntent()Landroid/content/Intent;
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityIntent;->mIntent:Landroid/content/Intent;
@@ -102,7 +102,7 @@
 .end method
 
 .method public launchTrustedWebActivity(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 47

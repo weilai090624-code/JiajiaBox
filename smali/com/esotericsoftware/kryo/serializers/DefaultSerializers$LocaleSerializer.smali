@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 768
     new-instance v0, Ljava/util/Locale;
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 766
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/ImmutableSerializer;-><init>()V
@@ -65,7 +65,7 @@
 .end method
 
 .method protected static isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .registers 5
     .param p0, "locale"    # Ljava/util/Locale;
     .param p1, "language"    # Ljava/lang/String;
     .param p2, "country"    # Ljava/lang/String;
@@ -80,7 +80,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     invoke-virtual {p0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
@@ -90,7 +90,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 824
     invoke-virtual {p0}, Ljava/util/Locale;->getVariant()Ljava/lang/String;
@@ -101,24 +101,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v0, 0x0
 
     .line 823
-    :goto_0
+    :goto_21
     return v0
 .end method
 
 
 # virtual methods
 .method protected create(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Locale;
-    .locals 2
+    .registers 6
     .param p1, "language"    # Ljava/lang/String;
     .param p2, "country"    # Ljava/lang/String;
     .param p3, "variant"    # Ljava/lang/String;
@@ -134,15 +134,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     return-object v0
 
     .line 777
-    :cond_0
+    :cond_b
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1a
 
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
@@ -150,280 +150,280 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     return-object v1
 
     .line 779
-    :cond_1
+    :cond_1a
     sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_25
 
     sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     return-object v1
 
     .line 780
-    :cond_2
+    :cond_25
     sget-object v1, Ljava/util/Locale;->GERMAN:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_30
 
     sget-object v1, Ljava/util/Locale;->GERMAN:Ljava/util/Locale;
 
     return-object v1
 
     .line 781
-    :cond_3
+    :cond_30
     sget-object v1, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->SPANISH:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3b
 
     sget-object v1, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->SPANISH:Ljava/util/Locale;
 
     return-object v1
 
     .line 782
-    :cond_4
+    :cond_3b
     sget-object v1, Ljava/util/Locale;->FRENCH:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_46
 
     sget-object v1, Ljava/util/Locale;->FRENCH:Ljava/util/Locale;
 
     return-object v1
 
     .line 783
-    :cond_5
+    :cond_46
     sget-object v1, Ljava/util/Locale;->ITALIAN:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_51
 
     sget-object v1, Ljava/util/Locale;->ITALIAN:Ljava/util/Locale;
 
     return-object v1
 
     .line 784
-    :cond_6
+    :cond_51
     sget-object v1, Ljava/util/Locale;->JAPANESE:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_5c
 
     sget-object v1, Ljava/util/Locale;->JAPANESE:Ljava/util/Locale;
 
     return-object v1
 
     .line 785
-    :cond_7
+    :cond_5c
     sget-object v1, Ljava/util/Locale;->KOREAN:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_67
 
     sget-object v1, Ljava/util/Locale;->KOREAN:Ljava/util/Locale;
 
     return-object v1
 
     .line 786
-    :cond_8
+    :cond_67
     sget-object v1, Ljava/util/Locale;->SIMPLIFIED_CHINESE:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_72
 
     sget-object v1, Ljava/util/Locale;->SIMPLIFIED_CHINESE:Ljava/util/Locale;
 
     return-object v1
 
     .line 787
-    :cond_9
+    :cond_72
     sget-object v1, Ljava/util/Locale;->CHINESE:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_7d
 
     sget-object v1, Ljava/util/Locale;->CHINESE:Ljava/util/Locale;
 
     return-object v1
 
     .line 788
-    :cond_a
+    :cond_7d
     sget-object v1, Ljava/util/Locale;->TRADITIONAL_CHINESE:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_88
 
     sget-object v1, Ljava/util/Locale;->TRADITIONAL_CHINESE:Ljava/util/Locale;
 
     return-object v1
 
     .line 790
-    :cond_b
+    :cond_88
     sget-object v1, Ljava/util/Locale;->UK:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_93
 
     sget-object v1, Ljava/util/Locale;->UK:Ljava/util/Locale;
 
     return-object v1
 
     .line 791
-    :cond_c
+    :cond_93
     sget-object v1, Ljava/util/Locale;->GERMANY:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_9e
 
     sget-object v1, Ljava/util/Locale;->GERMANY:Ljava/util/Locale;
 
     return-object v1
 
     .line 792
-    :cond_d
+    :cond_9e
     sget-object v1, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->SPAIN:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_a9
 
     sget-object v1, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->SPAIN:Ljava/util/Locale;
 
     return-object v1
 
     .line 793
-    :cond_e
+    :cond_a9
     sget-object v1, Ljava/util/Locale;->FRANCE:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_b4
 
     sget-object v1, Ljava/util/Locale;->FRANCE:Ljava/util/Locale;
 
     return-object v1
 
     .line 794
-    :cond_f
+    :cond_b4
     sget-object v1, Ljava/util/Locale;->ITALY:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_bf
 
     sget-object v1, Ljava/util/Locale;->ITALY:Ljava/util/Locale;
 
     return-object v1
 
     .line 795
-    :cond_10
+    :cond_bf
     sget-object v1, Ljava/util/Locale;->JAPAN:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_ca
 
     sget-object v1, Ljava/util/Locale;->JAPAN:Ljava/util/Locale;
 
     return-object v1
 
     .line 796
-    :cond_11
+    :cond_ca
     sget-object v1, Ljava/util/Locale;->KOREA:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_d5
 
     sget-object v1, Ljava/util/Locale;->KOREA:Ljava/util/Locale;
 
     return-object v1
 
     .line 803
-    :cond_12
+    :cond_d5
     sget-object v1, Ljava/util/Locale;->CANADA:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_e0
 
     sget-object v1, Ljava/util/Locale;->CANADA:Ljava/util/Locale;
 
     return-object v1
 
     .line 804
-    :cond_13
+    :cond_e0
     sget-object v1, Ljava/util/Locale;->CANADA_FRENCH:Ljava/util/Locale;
 
     invoke-static {v1, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->isSameLocale(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_eb
 
     sget-object v1, Ljava/util/Locale;->CANADA_FRENCH:Ljava/util/Locale;
 
     return-object v1
 
     .line 806
-    :cond_14
+    :cond_eb
     new-instance v1, Ljava/util/Locale;
 
     invoke-direct {v1, p1, p2, p3}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
@@ -432,7 +432,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 766
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$LocaleSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Locale;
@@ -443,7 +443,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Locale;
-    .locals 4
+    .registers 8
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -487,7 +487,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 766
     check-cast p3, Ljava/util/Locale;
@@ -498,7 +498,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/Locale;)V
-    .locals 1
+    .registers 5
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "l"    # Ljava/util/Locale;

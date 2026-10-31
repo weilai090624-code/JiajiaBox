@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackProvider14;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackProvider14;
 
     .line 230
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 233
     iget-object v0, p0, Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackProvider14$1;->this$0:Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackProvider14;

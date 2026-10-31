@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/viewpager2/widget/ViewPager2;
 
     .line 263
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onChildViewAttachedToWindow(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 266
@@ -56,17 +56,17 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_11
 
     iget v1, v0, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;->height:I
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_11
 
     .line 273
     return-void
 
     .line 270
-    :cond_0
+    :cond_11
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Pages must fill the whole ViewPager2 (use match_parent)"
@@ -77,7 +77,7 @@
 .end method
 
 .method public onChildViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 278

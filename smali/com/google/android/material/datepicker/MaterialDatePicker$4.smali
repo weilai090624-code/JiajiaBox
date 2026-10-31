@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialDatePicker;ILandroid/view/View;I)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialDatePicker;
 
     .line 402
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
-    .locals 6
+    .registers 9
     .param p1, "v"    # Landroid/view/View;
     .param p2, "insets"    # Landroidx/core/view/WindowInsetsCompat;
 
@@ -70,7 +70,7 @@
     .local v0, "topInset":I
     iget v1, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$4;->val$originalHeaderHeight:I
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_24
 
     .line 407
     iget-object v1, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$4;->val$headerLayout:Landroid/view/View;
@@ -97,7 +97,7 @@
     invoke-virtual {v1, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 410
-    :cond_0
+    :cond_24
     iget-object v1, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$4;->val$headerLayout:Landroid/view/View;
 
     iget-object v2, p0, Lcom/google/android/material/datepicker/MaterialDatePicker$4;->val$headerLayout:Landroid/view/View;

@@ -25,7 +25,7 @@
 
 # direct methods
 .method public static final synthetic access$repr(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Ljava/lang/String;
 
     .line 1
@@ -37,7 +37,7 @@
 .end method
 
 .method private static final repr(Ljava/lang/String;)Ljava/lang/String;
-    .locals 8
+    .registers 9
     .param p0, "$this$repr"    # Ljava/lang/String;
 
     .line 605
@@ -63,8 +63,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_6
+    :goto_11
+    if-ge v5, v4, :cond_58
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->charAt(I)C
 
@@ -75,87 +75,87 @@
     nop
 
     .line 609
-    if-ne v6, v3, :cond_0
+    if-ne v6, v3, :cond_20
 
     const-string v7, "\\\""
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_55
 
     .line 610
-    :cond_0
+    :cond_20
     const/16 v7, 0x5c
 
-    if-ne v6, v7, :cond_1
+    if-ne v6, v7, :cond_2a
 
     const-string v7, "\\\\"
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_55
 
     .line 611
-    :cond_1
+    :cond_2a
     const/16 v7, 0x8
 
-    if-ne v6, v7, :cond_2
+    if-ne v6, v7, :cond_34
 
     const-string v7, "\\b"
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_55
 
     .line 612
-    :cond_2
+    :cond_34
     const/16 v7, 0xa
 
-    if-ne v6, v7, :cond_3
+    if-ne v6, v7, :cond_3e
 
     const-string v7, "\\n"
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_55
 
     .line 613
-    :cond_3
+    :cond_3e
     const/16 v7, 0xd
 
-    if-ne v6, v7, :cond_4
+    if-ne v6, v7, :cond_48
 
     const-string v7, "\\r"
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_55
 
     .line 614
-    :cond_4
+    :cond_48
     const/16 v7, 0x9
 
-    if-ne v6, v7, :cond_5
+    if-ne v6, v7, :cond_52
 
     const-string v7, "\\t"
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_55
 
     .line 615
-    :cond_5
+    :cond_52
     invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 607
     .end local v6    # "c":C
-    :goto_1
+    :goto_55
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 618
-    :cond_6
+    :cond_58
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 619

@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method protected static appendPattern([ZI[IZ)I
-    .locals 8
+    .registers 12
     .param p0, "target"    # [Z
     .param p1, "pos"    # I
     .param p2, "pattern"    # [I
@@ -38,8 +38,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_2
+    :goto_5
+    if-ge v4, v2, :cond_1e
 
     aget v5, p2, v4
 
@@ -48,8 +48,8 @@
     const/4 v6, 0x0
 
     .local v6, "j":I
-    :goto_1
-    if-ge v6, v5, :cond_0
+    :goto_a
+    if-ge v6, v5, :cond_14
 
     .line 106
     add-int/lit8 v7, p1, 0x1
@@ -63,41 +63,41 @@
 
     move p1, v7
 
-    goto :goto_1
+    goto :goto_a
 
     .line 108
     .end local v6    # "j":I
     .end local v7    # "pos":I
     .restart local p1    # "pos":I
-    :cond_0
+    :cond_14
     add-int/2addr v1, v5
 
     .line 109
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
     const/4 v6, 0x1
 
-    goto :goto_2
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v6, 0x0
 
-    :goto_2
+    :goto_1a
     move v0, v6
 
     .line 104
     .end local v5    # "len":I
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 111
-    :cond_2
+    :cond_1e
     return v1
 .end method
 
 .method private static renderResult([ZIII)Lcom/google/zxing/common/BitMatrix;
-    .locals 10
+    .registers 14
     .param p0, "code"    # [Z
     .param p1, "width"    # I
     .param p2, "height"    # I
@@ -154,13 +154,13 @@
     move v8, v5
 
     .local v8, "outputX":I
-    :goto_0
-    if-ge v7, v1, :cond_1
+    :goto_1c
+    if-ge v7, v1, :cond_2a
 
     .line 86
     aget-boolean v9, p0, v7
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_26
 
     .line 87
     const/4 v9, 0x0
@@ -168,24 +168,24 @@
     invoke-virtual {v6, v8, v9, v4, v3}, Lcom/google/zxing/common/BitMatrix;->setRegion(IIII)V
 
     .line 85
-    :cond_0
+    :cond_26
     add-int/lit8 v7, v7, 0x1
 
     add-int/2addr v8, v4
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 90
     .end local v7    # "inputX":I
     .end local v8    # "outputX":I
-    :cond_1
+    :cond_2a
     return-object v6
 .end method
 
 
 # virtual methods
 .method public final encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;II)Lcom/google/zxing/common/BitMatrix;
-    .locals 6
+    .registers 11
     .param p1, "contents"    # Ljava/lang/String;
     .param p2, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p3, "width"    # I
@@ -217,7 +217,7 @@
 .end method
 
 .method public encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;)Lcom/google/zxing/common/BitMatrix;
-    .locals 3
+    .registers 9
     .param p1, "contents"    # Ljava/lang/String;
     .param p2, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p3, "width"    # I
@@ -247,12 +247,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4e
 
     .line 57
-    if-ltz p3, :cond_1
+    if-ltz p3, :cond_2f
 
-    if-ltz p4, :cond_1
+    if-ltz p4, :cond_2f
 
     .line 62
     invoke-virtual {p0}, Lcom/google/zxing/oned/OneDimensionalCodeWriter;->getDefaultMargin()I
@@ -261,7 +261,7 @@
 
     .line 63
     .local v0, "sidesMargin":I
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_26
 
     sget-object v1, Lcom/google/zxing/EncodeHintType;->MARGIN:Lcom/google/zxing/EncodeHintType;
 
@@ -269,7 +269,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     .line 64
     sget-object v1, Lcom/google/zxing/EncodeHintType;->MARGIN:Lcom/google/zxing/EncodeHintType;
@@ -287,7 +287,7 @@
     move-result v0
 
     .line 67
-    :cond_0
+    :cond_26
     invoke-virtual {p0, p1}, Lcom/google/zxing/oned/OneDimensionalCodeWriter;->encode(Ljava/lang/String;)[Z
 
     move-result-object v1
@@ -301,7 +301,7 @@
 
     .line 58
     .end local v0    # "sidesMargin":I
-    :cond_1
+    :cond_2f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -333,7 +333,7 @@
     throw v0
 
     .line 54
-    :cond_2
+    :cond_4e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Found empty contents"
@@ -347,7 +347,7 @@
 .end method
 
 .method public getDefaultMargin()I
-    .locals 1
+    .registers 2
 
     .line 117
     const/16 v0, 0xa

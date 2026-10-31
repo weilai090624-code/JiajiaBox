@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
-    .locals 0
+    .registers 2
     .param p1, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 326
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;->mDispatcher:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;

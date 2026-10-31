@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -65,7 +65,7 @@
 .end method
 
 .method static varargs createComboCallback([Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;)Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
-    .locals 2
+    .registers 3
     .param p0, "callbacks"    # [Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public onActive(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -109,12 +109,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -128,15 +128,15 @@
 
     .line 69
     .end local v1    # "callback":Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 70
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onCaptureQueueEmpty(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -154,12 +154,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -173,15 +173,15 @@
 
     .line 77
     .end local v1    # "callback":Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 78
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onClosed(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -199,12 +199,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -218,15 +218,15 @@
 
     .line 98
     .end local v1    # "callback":Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 99
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onConfigureFailed(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -244,12 +244,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -263,15 +263,15 @@
 
     .line 91
     .end local v1    # "callback":Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 92
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onConfigured(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -289,12 +289,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -308,15 +308,15 @@
 
     .line 84
     .end local v1    # "callback":Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 85
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onReady(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -334,12 +334,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -353,15 +353,15 @@
 
     .line 62
     .end local v1    # "callback":Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 63
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method onSessionFinished(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -379,12 +379,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -398,15 +398,15 @@
 
     .line 105
     .end local v1    # "callback":Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 106
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onSurfacePrepared(Landroidx/camera/camera2/internal/SynchronizedCaptureSession;Landroid/view/Surface;)V
-    .locals 2
+    .registers 5
     .param p1, "session"    # Landroidx/camera/camera2/internal/SynchronizedCaptureSession;
     .param p2, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -427,12 +427,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -446,9 +446,9 @@
 
     .line 55
     .end local v1    # "callback":Landroidx/camera/camera2/internal/SynchronizedCaptureSession$StateCallback;
-    goto :goto_0
+    goto :goto_6
 
     .line 56
-    :cond_0
+    :cond_16
     return-void
 .end method

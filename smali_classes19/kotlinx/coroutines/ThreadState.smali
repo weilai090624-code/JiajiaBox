@@ -78,7 +78,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/ThreadState;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public constructor <init>(Lkotlinx/coroutines/Job;)V
-    .locals 1
+    .registers 3
     .param p1, "job"    # Lkotlinx/coroutines/Job;
 
     .line 66
@@ -114,7 +114,7 @@
 .end method
 
 .method private final invalidState(I)Ljava/lang/Void;
-    .locals 3
+    .registers 5
     .param p1, "state"    # I
 
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -148,7 +148,7 @@
 .end method
 
 .method private final loop$atomicfu(Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -165,7 +165,7 @@
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v1
@@ -176,13 +176,13 @@
 
     invoke-interface {p2, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public final clearInterrupt()V
-    .locals 7
+    .registers 8
 
     sget-object v0, Lkotlinx/coroutines/ThreadState;->_state$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -193,7 +193,7 @@
     const/4 v2, 0x0
 
     .local v2, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_4
     invoke-virtual {v0, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v3
@@ -203,10 +203,10 @@
 
     .line 121
     .local v4, "$i$a$-loop$atomicfu-ThreadState$clearInterrupt$1":I
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_2e
 
     .line 137
-    :pswitch_0
+    :pswitch_c
     invoke-direct {p0, v3}, Lkotlinx/coroutines/ThreadState;->invalidState(I)Ljava/lang/Void;
 
     new-instance v5, Lkotlin/KotlinNothingValueException;
@@ -216,18 +216,18 @@
     throw v5
 
     .line 134
-    :pswitch_1
+    :pswitch_15
     invoke-static {}, Ljava/lang/Thread;->interrupted()Z
 
     .line 135
     return-void
 
     .line 124
-    :pswitch_2
-    goto :goto_1
+    :pswitch_19
+    goto :goto_2b
 
     .line 122
-    :pswitch_3
+    :pswitch_1a
     sget-object v5, Lkotlinx/coroutines/ThreadState;->_state$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     const/4 v6, 0x1
@@ -236,41 +236,41 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2b
 
     .line 123
     iget-object v5, p0, Lkotlinx/coroutines/ThreadState;->cancelHandle:Lkotlinx/coroutines/DisposableHandle;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2a
 
     invoke-interface {v5}, Lkotlinx/coroutines/DisposableHandle;->dispose()V
 
     .line 124
-    :cond_0
+    :cond_2a
     return-void
 
     .line 139
-    :cond_1
-    :goto_1
+    :cond_2b
+    :goto_2b
     nop
 
     .end local v3    # "state":I
     .end local v4    # "$i$a$-loop$atomicfu-ThreadState$clearInterrupt$1":I
-    goto :goto_0
+    goto :goto_4
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2e
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
+        :pswitch_1a
+        :pswitch_c
+        :pswitch_19
+        :pswitch_15
     .end packed-switch
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 66
@@ -286,7 +286,7 @@
 .end method
 
 .method public invoke(Ljava/lang/Throwable;)V
-    .locals 7
+    .registers 9
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     sget-object v0, Lkotlinx/coroutines/ThreadState;->_state$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
@@ -298,7 +298,7 @@
     const/4 v2, 0x0
 
     .local v2, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_4
     invoke-virtual {v0, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v3
@@ -308,7 +308,7 @@
 
     .line 145
     .local v4, "$i$a$-loop$atomicfu-ThreadState$invoke$1":I
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_2e
 
     .line 156
     invoke-direct {p0, v3}, Lkotlinx/coroutines/ThreadState;->invalidState(I)Ljava/lang/Void;
@@ -320,11 +320,11 @@
     throw v5
 
     .line 155
-    :pswitch_0
+    :pswitch_15
     return-void
 
     .line 148
-    :pswitch_1
+    :pswitch_16
     sget-object v5, Lkotlinx/coroutines/ThreadState;->_state$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     const/4 v6, 0x2
@@ -333,7 +333,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2b
 
     .line 149
     iget-object v5, p0, Lkotlinx/coroutines/ThreadState;->targetThread:Ljava/lang/Thread;
@@ -351,26 +351,26 @@
     return-void
 
     .line 158
-    :cond_0
+    :cond_2b
     nop
 
     .end local v3    # "state":I
     .end local v4    # "$i$a$-loop$atomicfu-ThreadState$invoke$1":I
-    goto :goto_0
+    goto :goto_4
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_16
+        :pswitch_15
+        :pswitch_15
+        :pswitch_15
     .end packed-switch
 .end method
 
 .method public final setup()V
-    .locals 7
+    .registers 8
 
     .line 103
     iget-object v0, p0, Lkotlinx/coroutines/ThreadState;->job:Lkotlinx/coroutines/Job;
@@ -396,7 +396,7 @@
     const/4 v2, 0x0
 
     .local v2, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_10
     invoke-virtual {v0, p0}, Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;->get(Ljava/lang/Object;)I
 
     move-result v3
@@ -406,10 +406,10 @@
 
     .line 106
     .local v4, "$i$a$-loop$atomicfu-ThreadState$setup$1":I
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_2e
 
     .line 111
-    :pswitch_0
+    :pswitch_18
     invoke-direct {p0, v3}, Lkotlinx/coroutines/ThreadState;->invalidState(I)Ljava/lang/Void;
 
     new-instance v5, Lkotlin/KotlinNothingValueException;
@@ -419,11 +419,11 @@
     throw v5
 
     .line 110
-    :pswitch_1
+    :pswitch_21
     return-void
 
     .line 108
-    :pswitch_2
+    :pswitch_22
     sget-object v5, Lkotlinx/coroutines/ThreadState;->_state$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     const/4 v6, 0x0
@@ -432,23 +432,23 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2c
 
     return-void
 
     .line 113
-    :cond_0
+    :cond_2c
     nop
 
     .end local v3    # "state":I
     .end local v4    # "$i$a$-loop$atomicfu-ThreadState$setup$1":I
-    goto :goto_0
+    goto :goto_10
 
-    :pswitch_data_0
+    :pswitch_data_2e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
-        :pswitch_1
+        :pswitch_22
+        :pswitch_18
+        :pswitch_21
+        :pswitch_21
     .end packed-switch
 .end method

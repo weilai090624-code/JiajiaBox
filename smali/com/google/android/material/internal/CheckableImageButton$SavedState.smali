@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 180
     new-instance v0, Lcom/google/android/material/internal/CheckableImageButton$SavedState$1;
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 0
+    .registers 3
     .param p1, "source"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 162
@@ -71,7 +71,7 @@
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 177
@@ -81,14 +81,14 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     iput-boolean v1, p0, Lcom/google/android/material/internal/CheckableImageButton$SavedState;->checked:Z
 
     .line 178
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

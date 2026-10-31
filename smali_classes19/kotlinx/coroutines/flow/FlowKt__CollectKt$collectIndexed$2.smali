@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function3;)V
-    .locals 0
+    .registers 2
     .param p1, "$action"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -132,7 +132,7 @@
 
     .line 119
     .local v2, "$i$f$checkIndexOverflow":I
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_1e
 
     .line 122
     nop
@@ -152,11 +152,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     return-object v0
 
-    :cond_0
+    :cond_1b
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
@@ -164,7 +164,7 @@
     .line 120
     .restart local v1    # "index$iv":I
     .restart local v2    # "$i$f$checkIndexOverflow":I
-    :cond_1
+    :cond_1e
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v3, "Index overflow has happened"
@@ -175,7 +175,7 @@
 .end method
 
 .method public emit$$forInline(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -207,7 +207,7 @@
 
     .line 119
     .local v2, "$i$f$checkIndexOverflow":I
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_1b
 
     .line 122
     nop
@@ -228,7 +228,7 @@
     .line 120
     .restart local v1    # "index$iv":I
     .restart local v2    # "$i$f$checkIndexOverflow":I
-    :cond_0
+    :cond_1b
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v3, "Index overflow has happened"

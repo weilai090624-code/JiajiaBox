@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/text/StringsKt__AppendableKt;-><init>()V
 
@@ -57,7 +57,7 @@
 .end method
 
 .method private static final getIndentFunction$StringsKt__IndentKt(Ljava/lang/String;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .param p0, "indent"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,26 +83,26 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_d
+    if-eqz v0, :cond_14
 
     sget-object v0, Lkotlin/text/StringsKt__IndentKt$getIndentFunction$1;->INSTANCE:Lkotlin/text/StringsKt__IndentKt$getIndentFunction$1;
 
     check-cast v0, Lkotlin/jvm/functions/Function1;
 
-    goto :goto_1
+    goto :goto_1b
 
     .line 111
-    :cond_1
+    :cond_14
     new-instance v0, Lkotlin/text/StringsKt__IndentKt$getIndentFunction$2;
 
     invoke-direct {v0, p0}, Lkotlin/text/StringsKt__IndentKt$getIndentFunction$2;-><init>(Ljava/lang/String;)V
@@ -110,12 +110,12 @@
     check-cast v0, Lkotlin/jvm/functions/Function1;
 
     .line 112
-    :goto_1
+    :goto_1b
     return-object v0
 .end method
 
 .method private static final indentWidth$StringsKt__IndentKt(Ljava/lang/String;)I
-    .locals 8
+    .registers 9
     .param p0, "$this$indentWidth"    # Ljava/lang/String;
 
     .line 107
@@ -135,10 +135,10 @@
 
     move-result v3
 
-    :goto_0
+    :goto_9
     const/4 v4, -0x1
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_1b
 
     .line 193
     invoke-interface {v0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -157,26 +157,26 @@
     .line 193
     .end local v5    # "it":C
     .end local v6    # "$i$a$-indexOfFirst-StringsKt__IndentKt$indentWidth$1":I
-    if-nez v7, :cond_0
+    if-nez v7, :cond_18
 
     .line 194
-    goto :goto_1
+    goto :goto_1c
 
     .line 192
-    :cond_0
+    :cond_18
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 197
     .end local v2    # "index$iv":I
-    :cond_1
+    :cond_1b
     const/4 v2, -0x1
 
     .line 107
     .end local v0    # "$this$indexOfFirst$iv":Ljava/lang/CharSequence;
     .end local v1    # "$i$f$indexOfFirst":I
-    :goto_1
+    :goto_1c
     move v0, v2
 
     .line 130
@@ -185,7 +185,7 @@
 
     .line 107
     .local v1, "$i$a$-let-StringsKt__IndentKt$indentWidth$2":I
-    if-ne v0, v4, :cond_2
+    if-ne v0, v4, :cond_25
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -195,12 +195,12 @@
 
     .end local v0    # "it":I
     .end local v1    # "$i$a$-let-StringsKt__IndentKt$indentWidth$2":I
-    :cond_2
+    :cond_25
     return v0
 .end method
 
 .method public static final prependIndent(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 11
+    .registers 13
     .param p0, "$this$prependIndent"    # Ljava/lang/String;
     .param p1, "indent"    # Ljava/lang/String;
 
@@ -261,16 +261,16 @@
 .end method
 
 .method public static synthetic prependIndent$default(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 92
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const-string p1, "    "
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Lkotlin/text/StringsKt;->prependIndent(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -279,7 +279,7 @@
 .end method
 
 .method private static final reindent$StringsKt__IndentKt(Ljava/util/List;ILkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 20
+    .registers 24
     .param p0, "$this$reindent"    # Ljava/util/List;
     .param p1, "resultSizeEstimate"    # I
     .param p2, "indentAddFunction"    # Lkotlin/jvm/functions/Function1;
@@ -352,12 +352,12 @@
 
     move-result-object v10
 
-    :goto_0
+    :goto_1a
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_94
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -368,7 +368,7 @@
 
     .end local v9    # "index$iv$iv$iv":I
     .local v12, "index$iv$iv$iv":I
-    if-gez v9, :cond_1
+    if-gez v9, :cond_3d
 
     const/4 v13, 0x3
 
@@ -380,13 +380,13 @@
 
     move-result v13
 
-    if-eqz v13, :cond_0
+    if-eqz v13, :cond_35
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_3d
 
-    :cond_0
+    :cond_35
     new-instance v9, Ljava/lang/ArithmeticException;
 
     const-string v10, "Index overflow has happened."
@@ -396,8 +396,8 @@
     throw v9
 
     .local v9, "index$iv$iv":I
-    :cond_1
-    :goto_1
+    :cond_3d
+    :goto_3d
     move-object v13, v11
 
     .local v13, "element$iv$iv":Ljava/lang/Object;
@@ -417,7 +417,7 @@
 
     .line 121
     .local v17, "$i$a$-mapIndexedNotNull-StringsKt__IndentKt$reindent$1":I
-    if-eqz v16, :cond_2
+    if-eqz v16, :cond_4f
 
     move/from16 v18, v0
 
@@ -426,14 +426,14 @@
     .end local v16    # "index":I
     .local v0, "index":I
     .local v18, "$i$f$reindent":I
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_66
 
-    goto :goto_2
+    goto :goto_53
 
     .end local v18    # "$i$f$reindent":I
     .local v0, "$i$f$reindent":I
     .restart local v16    # "index":I
-    :cond_2
+    :cond_4f
     move/from16 v18, v0
 
     move/from16 v0, v16
@@ -441,7 +441,7 @@
     .end local v16    # "index":I
     .local v0, "index":I
     .restart local v18    # "$i$f$reindent":I
-    :goto_2
+    :goto_53
     move-object/from16 v16, v15
 
     check-cast v16, Ljava/lang/CharSequence;
@@ -450,7 +450,7 @@
 
     move-result v16
 
-    if-eqz v16, :cond_3
+    if-eqz v16, :cond_66
 
     .line 122
     const/16 v16, 0x0
@@ -461,10 +461,10 @@
 
     move-object/from16 v1, p2
 
-    goto :goto_3
+    goto :goto_87
 
     .line 124
-    :cond_3
+    :cond_66
     move/from16 v16, v0
 
     move-object/from16 v0, p3
@@ -479,7 +479,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_83
 
     move/from16 v19, v1
 
@@ -493,18 +493,18 @@
 
     check-cast v0, Ljava/lang/String;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_81
 
-    goto :goto_3
+    goto :goto_87
 
-    :cond_4
+    :cond_81
     move-object v15, v0
 
-    goto :goto_3
+    goto :goto_87
 
     .end local v19    # "lastIndex":I
     .restart local v1    # "lastIndex":I
-    :cond_5
+    :cond_83
     move/from16 v19, v1
 
     move-object/from16 v1, p2
@@ -515,8 +515,8 @@
     .end local v16    # "index":I
     .end local v17    # "$i$a$-mapIndexedNotNull-StringsKt__IndentKt$reindent$1":I
     .restart local v19    # "lastIndex":I
-    :goto_3
-    if-eqz v15, :cond_6
+    :goto_87
+    if-eqz v15, :cond_8e
 
     move-object v0, v15
 
@@ -534,7 +534,7 @@
     .end local v13    # "element$iv$iv":Ljava/lang/Object;
     .end local v14    # "$i$a$-forEachIndexed-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1$iv$iv":I
     .end local v15    # "$i$a$-let-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1$1$iv$iv":I
-    :cond_6
+    :cond_8e
     move v9, v12
 
     move/from16 v0, v18
@@ -542,7 +542,7 @@
     move/from16 v1, v19
 
     .end local v11    # "item$iv$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1a
 
     .line 212
     .end local v12    # "index$iv$iv$iv":I
@@ -551,7 +551,7 @@
     .local v0, "$i$f$reindent":I
     .restart local v1    # "lastIndex":I
     .local v9, "index$iv$iv$iv":I
-    :cond_7
+    :cond_94
     move/from16 v18, v0
 
     .line 213
@@ -630,7 +630,7 @@
 .end method
 
 .method public static final replaceIndent(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 27
+    .registers 29
     .param p0, "$this$replaceIndent"    # Ljava/lang/String;
     .param p1, "newIndent"    # Ljava/lang/String;
 
@@ -687,13 +687,13 @@
 
     move-result-object v8
 
-    :cond_0
-    :goto_0
+    :cond_27
+    :goto_27
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_42
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -720,15 +720,15 @@
     .line 162
     .end local v10    # "p0":Ljava/lang/String;
     .end local v11    # "$i$a$-filter-StringsKt__IndentKt$replaceIndent$minCommonIndent$1":I
-    if-nez v12, :cond_0
+    if-nez v12, :cond_27
 
     invoke-interface {v5, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_27
 
     .line 163
     .end local v9    # "element$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_42
     nop
 
     .end local v5    # "destination$iv$iv":Ljava/util/Collection;
@@ -776,12 +776,12 @@
 
     move-result-object v8
 
-    :goto_1
+    :goto_5d
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_77
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -811,11 +811,11 @@
     .line 166
     invoke-interface {v5, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 167
     .end local v9    # "item$iv$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_77
     nop
 
     .end local v5    # "destination$iv$iv":Ljava/util/Collection;
@@ -839,20 +839,20 @@
     check-cast v3, Ljava/lang/Integer;
 
     .line 78
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_8a
 
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
-    goto :goto_2
+    goto :goto_8b
 
     .line 81
-    :cond_3
+    :cond_8a
     const/4 v3, 0x0
 
     .line 78
-    :goto_2
+    :goto_8b
     nop
 
     .line 83
@@ -930,12 +930,12 @@
 
     move-result-object v17
 
-    :goto_3
+    :goto_ba
     invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v18
 
-    if-eqz v18, :cond_a
+    if-eqz v18, :cond_116
 
     invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -946,12 +946,12 @@
 
     .end local v16    # "index$iv$iv$iv$iv":I
     .local v19, "index$iv$iv$iv$iv":I
-    if-gez v16, :cond_4
+    if-gez v16, :cond_cb
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
     .local v16, "index$iv$iv$iv":I
-    :cond_4
+    :cond_cb
     move-object/from16 v20, v18
 
     .local v20, "element$iv$iv$iv":Ljava/lang/Object;
@@ -971,24 +971,24 @@
 
     .line 183
     .local v24, "$i$a$-mapIndexedNotNull-StringsKt__IndentKt$reindent$1$iv":I
-    if-eqz v23, :cond_5
+    if-eqz v23, :cond_de
 
     move/from16 v0, v23
 
     .end local v23    # "index$iv":I
     .local v0, "index$iv":I
-    if-ne v0, v8, :cond_6
+    if-ne v0, v8, :cond_ef
 
-    goto :goto_4
+    goto :goto_e0
 
     .end local v0    # "index$iv":I
     .restart local v23    # "index$iv":I
-    :cond_5
+    :cond_de
     move/from16 v0, v23
 
     .end local v23    # "index$iv":I
     .restart local v0    # "index$iv":I
-    :goto_4
+    :goto_e0
     move-object/from16 v23, v22
 
     check-cast v23, Ljava/lang/CharSequence;
@@ -997,17 +997,17 @@
 
     move-result v23
 
-    if-eqz v23, :cond_6
+    if-eqz v23, :cond_ef
 
     .line 184
     const/16 v23, 0x0
 
     move-object/from16 v22, v23
 
-    goto :goto_5
+    goto :goto_108
 
     .line 186
-    :cond_6
+    :cond_ef
     move-object/from16 v23, v22
 
     .local v23, "line":Ljava/lang/String;
@@ -1029,7 +1029,7 @@
     .line 186
     .end local v0    # "line":Ljava/lang/String;
     .end local v25    # "$i$a$-reindent-StringsKt__IndentKt$replaceIndent$1":I
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_108
 
     invoke-interface {v5, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1037,20 +1037,20 @@
 
     check-cast v0, Ljava/lang/String;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_106
 
-    goto :goto_5
+    goto :goto_108
 
-    :cond_7
+    :cond_106
     move-object/from16 v22, v0
 
     .line 180
     .end local v22    # "value$iv":Ljava/lang/String;
     .end local v24    # "$i$a$-mapIndexedNotNull-StringsKt__IndentKt$reindent$1$iv":I
     .end local v26    # "index$iv":I
-    :cond_8
-    :goto_5
-    if-eqz v22, :cond_9
+    :cond_108
+    :goto_108
+    if-eqz v22, :cond_111
 
     move-object/from16 v0, v22
 
@@ -1068,18 +1068,18 @@
     .end local v20    # "element$iv$iv$iv":Ljava/lang/Object;
     .end local v21    # "$i$a$-forEachIndexed-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1$iv$iv$iv":I
     .end local v22    # "$i$a$-let-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1$1$iv$iv$iv":I
-    :cond_9
+    :cond_111
     move-object/from16 v0, p0
 
     move/from16 v16, v19
 
     .end local v18    # "item$iv$iv$iv$iv":Ljava/lang/Object;
-    goto :goto_3
+    goto :goto_ba
 
     .line 188
     .end local v19    # "index$iv$iv$iv$iv":I
     .local v16, "index$iv$iv$iv$iv":I
-    :cond_a
+    :cond_116
     nop
 
     .line 189
@@ -1162,16 +1162,16 @@
 .end method
 
 .method public static synthetic replaceIndent$default(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 75
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const-string p1, ""
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Lkotlin/text/StringsKt;->replaceIndent(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -1180,7 +1180,7 @@
 .end method
 
 .method public static final replaceIndentByMargin(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 36
+    .registers 39
     .param p0, "$this$replaceIndentByMargin"    # Ljava/lang/String;
     .param p1, "newIndent"    # Ljava/lang/String;
     .param p2, "marginPrefix"    # Ljava/lang/String;
@@ -1212,7 +1212,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_149
 
     .line 40
     move-object v1, v0
@@ -1300,12 +1300,12 @@
 
     move-result-object v21
 
-    :goto_0
+    :goto_59
     invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_111
 
     invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1316,12 +1316,12 @@
 
     .end local v1    # "index$iv$iv$iv$iv":I
     .local v23, "index$iv$iv$iv$iv":I
-    if-gez v1, :cond_0
+    if-gez v1, :cond_6a
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
     .local v1, "index$iv$iv$iv":I
-    :cond_0
+    :cond_6a
     move-object/from16 v24, v22
 
     .local v24, "element$iv$iv$iv":Ljava/lang/Object;
@@ -1347,11 +1347,11 @@
     .local v28, "$i$a$-mapIndexedNotNull-StringsKt__IndentKt$reindent$1$iv":I
     const/16 v29, 0x0
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_7e
 
-    if-ne v5, v14, :cond_2
+    if-ne v5, v14, :cond_8d
 
-    :cond_1
+    :cond_7e
     move-object/from16 v1, v27
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -1360,17 +1360,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_8d
 
     .line 147
     move-object v7, v6
 
     move-object/from16 v27, v29
 
-    goto/16 :goto_4
+    goto/16 :goto_100
 
     .line 149
-    :cond_2
+    :cond_8d
     move-object/from16 v4, v27
 
     .local v4, "line":Ljava/lang/String;
@@ -1394,14 +1394,14 @@
 
     move-result v0
 
-    :goto_1
+    :goto_9a
     move/from16 v31, v2
 
     .end local v2    # "$i$f$indexOfFirst":I
     .local v31, "$i$f$indexOfFirst":I
     const/4 v2, -0x1
 
-    if-ge v3, v0, :cond_4
+    if-ge v3, v0, :cond_b1
 
     .line 151
     invoke-interface {v1, v3}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1420,28 +1420,28 @@
     .line 151
     .end local v32    # "it":C
     .end local v33    # "$i$a$-indexOfFirst-StringsKt__IndentKt$replaceIndentByMargin$2$firstNonWhitespaceIndex$1":I
-    if-nez v34, :cond_3
+    if-nez v34, :cond_ac
 
     .line 152
-    goto :goto_2
+    goto :goto_b2
 
     .line 150
-    :cond_3
+    :cond_ac
     add-int/lit8 v3, v3, 0x1
 
     move/from16 v2, v31
 
-    goto :goto_1
+    goto :goto_9a
 
     .line 155
     .end local v3    # "index$iv":I
-    :cond_4
+    :cond_b1
     const/4 v3, -0x1
 
     .line 43
     .end local v1    # "$this$indexOfFirst$iv":Ljava/lang/CharSequence;
     .end local v31    # "$i$f$indexOfFirst":I
-    :goto_2
+    :goto_b2
     move v0, v3
 
     .line 45
@@ -1449,7 +1449,7 @@
     nop
 
     .line 46
-    if-ne v0, v2, :cond_5
+    if-ne v0, v2, :cond_bd
 
     move-object v3, v4
 
@@ -1459,10 +1459,10 @@
 
     move-object/from16 v1, v29
 
-    goto :goto_3
+    goto :goto_f2
 
     .line 47
-    :cond_5
+    :cond_bd
     const/16 v31, 0x4
 
     const/16 v32, 0x0
@@ -1497,7 +1497,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_ee
 
     invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
 
@@ -1521,12 +1521,12 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_f2
 
     .line 48
     .end local v3    # "line":Ljava/lang/String;
     .restart local v35    # "line":Ljava/lang/String;
-    :cond_6
+    :cond_ee
     move-object/from16 v3, v35
 
     .end local v35    # "line":Ljava/lang/String;
@@ -1534,14 +1534,14 @@
     move-object/from16 v1, v29
 
     .line 49
-    :goto_3
+    :goto_f2
     nop
 
     .line 149
     .end local v0    # "firstNonWhitespaceIndex":I
     .end local v3    # "line":Ljava/lang/String;
     .end local v30    # "$i$a$-reindent-StringsKt__IndentKt$replaceIndentByMargin$2":I
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_100
 
     invoke-interface {v11, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1549,20 +1549,20 @@
 
     check-cast v0, Ljava/lang/String;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_fe
 
-    goto :goto_4
+    goto :goto_100
 
-    :cond_7
+    :cond_fe
     move-object/from16 v27, v0
 
     .line 143
     .end local v27    # "value$iv":Ljava/lang/String;
     .end local v28    # "$i$a$-mapIndexedNotNull-StringsKt__IndentKt$reindent$1$iv":I
     .end local v33    # "index$iv":I
-    :cond_8
-    :goto_4
-    if-eqz v27, :cond_9
+    :cond_100
+    :goto_100
+    if-eqz v27, :cond_108
 
     move-object/from16 v0, v27
 
@@ -1580,7 +1580,7 @@
     .end local v24    # "element$iv$iv$iv":Ljava/lang/Object;
     .end local v25    # "index$iv$iv$iv":I
     .end local v26    # "$i$a$-forEachIndexed-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1$iv$iv$iv":I
-    :cond_9
+    :cond_108
     move-object/from16 v0, p0
 
     move-object v6, v7
@@ -1590,14 +1590,14 @@
     move-object/from16 v7, p2
 
     .end local v22    # "item$iv$iv$iv$iv":Ljava/lang/Object;
-    goto/16 :goto_0
+    goto/16 :goto_59
 
     .line 157
     .end local v7    # "destination$iv$iv$iv":Ljava/util/Collection;
     .end local v23    # "index$iv$iv$iv$iv":I
     .local v1, "index$iv$iv$iv$iv":I
     .restart local v6    # "destination$iv$iv$iv":Ljava/util/Collection;
-    :cond_a
+    :cond_111
     move-object v7, v6
 
     .line 158
@@ -1682,7 +1682,7 @@
 
     .line 130
     .end local v9    # "lines":Ljava/util/List;
-    :cond_b
+    :cond_149
     const/4 v0, 0x0
 
     .line 39
@@ -1704,23 +1704,23 @@
 .end method
 
 .method public static synthetic replaceIndentByMargin$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 38
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     const-string p1, ""
 
-    :cond_0
+    :cond_6
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_c
 
     const-string p2, "|"
 
-    :cond_1
+    :cond_c
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->replaceIndentByMargin(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -1729,7 +1729,7 @@
 .end method
 
 .method public static final trimIndent(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$trimIndent"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -1747,7 +1747,7 @@
 .end method
 
 .method public static final trimMargin(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this$trimMargin"    # Ljava/lang/String;
     .param p1, "marginPrefix"    # Ljava/lang/String;
 
@@ -1770,16 +1770,16 @@
 .end method
 
 .method public static synthetic trimMargin$default(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 27
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const-string p1, "|"
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Lkotlin/text/StringsKt;->trimMargin(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0

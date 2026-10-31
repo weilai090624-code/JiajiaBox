@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 71
     new-instance v0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean$1;
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/internal/InternalBean;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->clone()Lmoe/matsuri/nb4a/proxy/config/ConfigBean;
@@ -58,7 +58,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -74,7 +74,7 @@
 .end method
 
 .method public clone()Lmoe/matsuri/nb4a/proxy/config/ConfigBean;
-    .locals 2
+    .registers 3
 
     .line 68
     new-instance v0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;
@@ -95,7 +95,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -138,7 +138,7 @@
 .end method
 
 .method public displayName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 45
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->name:Ljava/lang/String;
@@ -147,7 +147,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 46
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->name:Ljava/lang/String;
@@ -155,7 +155,7 @@
     return-object v0
 
     .line 48
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -186,14 +186,14 @@
 .end method
 
 .method public displayType()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 53
     const-string v0, "type"
 
     iget-object v1, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->type:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_7b
 
     iget-object v1, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->type:Ljava/lang/Integer;
 
@@ -203,7 +203,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_7b
 
     iget-object v1, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->config:Ljava/lang/String;
 
@@ -211,10 +211,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_7b
 
     .line 55
-    :try_start_0
+    :try_start_17
     sget-object v1, Lmoe/matsuri/nb4a/utils/JavaUtil;->gson:Lcom/google/gson/Gson;
 
     iget-object v2, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->config:Ljava/lang/String;
@@ -229,13 +229,13 @@
 
     .line 56
     .local v1, "json":Lcom/google/gson/JsonObject;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_79
 
     invoke-virtual {v1, v0}, Lcom/google/gson/JsonObject;->has(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_79
 
     .line 57
     new-instance v2, Ljava/lang/StringBuilder;
@@ -250,6 +250,62 @@
 
     move-result-object v0
 
+    const-string v3, "nowhere"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_49
+
+    const-string v3, "newhere"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_49
+
+    return-object v0
+
+    :cond_49
+    const-string v3, "net"
+
+    invoke-virtual {v1, v3}, Lcom/google/gson/JsonObject;->has(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_67
+
+    const-string v3, "net"
+
+    invoke-virtual {v1, v3}, Lcom/google/gson/JsonObject;->get(Ljava/lang/String;)Lcom/google/gson/JsonElement;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/google/gson/JsonElement;->getAsString()Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object v2, v3
+
+    const-string v3, "udp"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_67
+
+    const-string v0, "newhere\u00b7udp"
+
+    return-object v0
+
+    :cond_67
+    const-string v0, "newhere\u00b7tcp"
+
+    return-object v0
+
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -263,26 +319,26 @@
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_78
+    .catch Ljava/lang/Exception; {:try_start_17 .. :try_end_78} :catch_7a
 
     return-object v0
 
     .line 60
     .end local v1    # "json":Lcom/google/gson/JsonObject;
-    :cond_0
-    goto :goto_0
+    :cond_79
+    goto :goto_7b
 
     .line 59
-    :catch_0
+    :catch_7a
     move-exception v0
 
     .line 62
-    :cond_1
-    :goto_0
+    :cond_7b
+    :goto_7b
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->type:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_8a
 
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->type:Ljava/lang/Integer;
 
@@ -290,21 +346,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_8a
 
     const-string v0, "sing-box config"
 
-    goto :goto_1
+    goto :goto_8c
 
-    :cond_2
+    :cond_8a
     const-string v0, "sing-box outbound"
 
-    :goto_1
+    :goto_8c
     return-object v0
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/internal/InternalBean;->initializeDefaultValues()V
@@ -312,7 +368,7 @@
     .line 23
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->type:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x0
 
@@ -323,22 +379,22 @@
     iput-object v0, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->type:Ljava/lang/Integer;
 
     .line 24
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->config:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
     const-string v0, ""
 
     iput-object v0, p0, Lmoe/matsuri/nb4a/proxy/config/ConfigBean;->config:Ljava/lang/String;
 
     .line 25
-    :cond_1
+    :cond_16
     return-void
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

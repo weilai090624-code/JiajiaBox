@@ -63,7 +63,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/ViewBoundsCheck$Callback;)V
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Landroidx/recyclerview/widget/ViewBoundsCheck$Callback;
 
     .line 131
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method findOneViewWithinBoundFlags(IIII)Landroid/view/View;
-    .locals 9
+    .registers 14
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .param p3, "preferredBoundFlags"    # I
@@ -109,18 +109,18 @@
 
     .line 215
     .local v1, "end":I
-    if-le p2, p1, :cond_0
+    if-le p2, p1, :cond_10
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v2, -0x1
 
     .line 216
     .local v2, "next":I
-    :goto_0
+    :goto_11
     const/4 v3, 0x0
 
     .line 217
@@ -128,8 +128,8 @@
     move v4, p1
 
     .local v4, "i":I
-    :goto_1
-    if-eq v4, p2, :cond_3
+    :goto_13
+    if-eq v4, p2, :cond_58
 
     .line 218
     iget-object v5, p0, Landroidx/recyclerview/widget/ViewBoundsCheck;->mCallback:Landroidx/recyclerview/widget/ViewBoundsCheck$Callback;
@@ -161,7 +161,7 @@
     invoke-virtual {v8, v0, v1, v6, v7}, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->setBounds(IIII)V
 
     .line 222
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_41
 
     .line 223
     iget-object v8, p0, Landroidx/recyclerview/widget/ViewBoundsCheck;->mBoundFlags:Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;
@@ -180,14 +180,14 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_41
 
     .line 227
     return-object v5
 
     .line 230
-    :cond_1
-    if-eqz p4, :cond_2
+    :cond_41
+    if-eqz p4, :cond_56
 
     .line 231
     iget-object v8, p0, Landroidx/recyclerview/widget/ViewBoundsCheck;->mBoundFlags:Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;
@@ -206,7 +206,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_56
 
     .line 234
     move-object v3, v5
@@ -215,19 +215,19 @@
     .end local v5    # "child":Landroid/view/View;
     .end local v6    # "childStart":I
     .end local v7    # "childEnd":I
-    :cond_2
+    :cond_56
     add-int/2addr v4, v2
 
-    goto :goto_1
+    goto :goto_13
 
     .line 238
     .end local v4    # "i":I
-    :cond_3
+    :cond_58
     return-object v3
 .end method
 
 .method isViewWithinBoundFlags(Landroid/view/View;I)Z
-    .locals 5
+    .registers 8
     .param p1, "child"    # Landroid/view/View;
     .param p2, "boundsFlags"    # I
 
@@ -263,7 +263,7 @@
     invoke-virtual {v0, v1, v2, v3, v4}, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->setBounds(IIII)V
 
     .line 250
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_30
 
     .line 251
     iget-object v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck;->mBoundFlags:Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;
@@ -285,7 +285,7 @@
     return v0
 
     .line 255
-    :cond_0
+    :cond_30
     const/4 v0, 0x0
 
     return v0

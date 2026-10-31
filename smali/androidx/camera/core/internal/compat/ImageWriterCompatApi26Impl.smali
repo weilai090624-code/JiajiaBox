@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 40
     :try_start_0
@@ -44,14 +44,14 @@
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/internal/compat/ImageWriterCompatApi26Impl;->sNewInstanceMethod:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_1a} :catch_1b
 
     .line 44
-    goto :goto_0
+    goto :goto_23
 
     .line 42
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 43
@@ -64,12 +64,12 @@
 
     .line 45
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_0
+    :goto_23
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,7 +79,7 @@
 .end method
 
 .method static newInstance(Landroid/view/Surface;II)Landroid/media/ImageWriter;
-    .locals 6
+    .registers 9
     .param p0, "surface"    # Landroid/view/Surface;
     .param p1, "maxImages"    # I
     .param p2, "format"    # I
@@ -105,10 +105,10 @@
 
     const/16 v2, 0x1a
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_2d
 
     .line 53
-    :try_start_0
+    :try_start_7
     sget-object v1, Landroidx/camera/core/internal/compat/ImageWriterCompatApi26Impl;->sNewInstanceMethod:Ljava/lang/reflect/Method;
 
     .line 54
@@ -148,29 +148,29 @@
     move-result-object v1
 
     check-cast v1, Landroid/media/ImageWriter;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_28
+    .catch Ljava/lang/IllegalAccessException; {:try_start_7 .. :try_end_28} :catch_2b
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_7 .. :try_end_28} :catch_29
 
     return-object v1
 
     .line 55
-    :catch_0
+    :catch_29
     move-exception v1
 
-    goto :goto_0
+    goto :goto_2c
 
-    :catch_1
+    :catch_2b
     move-exception v1
 
     .line 56
     .local v1, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_2c
     move-object v0, v1
 
     .line 60
     .end local v1    # "e":Ljava/lang/ReflectiveOperationException;
-    :cond_0
+    :cond_2d
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Unable to invoke newInstance(Surface, int, int) via reflection."

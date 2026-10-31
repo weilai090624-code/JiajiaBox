@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public config(FFF)V
-    .locals 0
+    .registers 4
     .param p1, "velocity"    # F
     .param p2, "position"    # F
     .param p3, "maxAcceleration"    # F
@@ -87,7 +87,7 @@
 .end method
 
 .method public getInterpolation(F)F
-    .locals 4
+    .registers 6
     .param p1, "time"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -107,7 +107,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_33
 
     .line 2056
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->initalV:F
@@ -118,7 +118,7 @@
 
     cmpg-float v0, v0, p1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_18
 
     .line 2057
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->initalV:F
@@ -128,7 +128,7 @@
     div-float p1, v0, v1
 
     .line 2059
-    :cond_0
+    :cond_18
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iget v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->initalV:F
@@ -166,7 +166,7 @@
 
     .line 2064
     .end local v0    # "pos":F
-    :cond_1
+    :cond_33
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->initalV:F
 
     neg-float v0, v0
@@ -177,7 +177,7 @@
 
     cmpg-float v0, v0, p1
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_44
 
     .line 2065
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->initalV:F
@@ -189,7 +189,7 @@
     div-float p1, v0, v1
 
     .line 2067
-    :cond_2
+    :cond_44
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     iget v1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->initalV:F
@@ -227,7 +227,7 @@
 .end method
 
 .method public getVelocity()F
-    .locals 1
+    .registers 2
 
     .line 2075
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;

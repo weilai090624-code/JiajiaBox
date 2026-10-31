@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/RoomDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "__db"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -103,7 +103,7 @@
 .end method
 
 .method public static getRequiredConverters()Ljava/util/List;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public allRules()Ljava/util/List;
-    .locals 39
+    .registers 40
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -166,7 +166,7 @@
 
     .line 312
     .local v5, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_17
     const-string v0, "id"
 
     invoke-static {v5, v0}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
@@ -268,8 +268,8 @@
     invoke-static {v5, v1}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_65
+    .catchall {:try_start_17 .. :try_end_65} :catchall_ed
 
     .line 325
     .local v1, "_cursorIndexOfOutbound":I
@@ -277,14 +277,14 @@
 
     .end local v2    # "_sql":Ljava/lang/String;
     .local v16, "_sql":Ljava/lang/String;
-    :try_start_1
+    :try_start_67
     const-string v2, "packages"
 
     invoke-static {v5, v2}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_6d
+    .catchall {:try_start_67 .. :try_end_6d} :catchall_e9
 
     .line 326
     .local v2, "_cursorIndexOfPackages":I
@@ -292,7 +292,7 @@
 
     .end local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .local v17, "_statement":Landroidx/room/RoomSQLiteQuery;
-    :try_start_2
+    :try_start_6f
     new-instance v4, Ljava/util/ArrayList;
 
     move/from16 v18, v2
@@ -309,12 +309,12 @@
 
     .line 327
     .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Lio/nekohasekai/sagernet/database/RuleEntity;>;"
-    :goto_0
+    :goto_7b
     invoke-interface {v5}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_df
 
     .line 330
     invoke-interface {v5, v0}, Landroid/database/Cursor;->getLong(I)J
@@ -347,20 +347,20 @@
 
     .line 340
     .local v4, "_tmp":I
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_9c
 
     const/16 v19, 0x1
 
     const/16 v26, 0x1
 
-    goto :goto_1
+    goto :goto_9e
 
-    :cond_0
+    :cond_9c
     const/16 v26, 0x0
 
     .line 342
     .local v26, "_tmpEnabled":Z
-    :goto_1
+    :goto_9e
     invoke-interface {v5, v10}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v27
@@ -446,8 +446,8 @@
     .local v0, "_item":Lio/nekohasekai/sagernet/database/RuleEntity;
     .local v38, "_cursorIndexOfPackages":I
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_da
+    .catchall {:try_start_6f .. :try_end_da} :catchall_e7
 
     .line 363
     move/from16 v0, v37
@@ -471,14 +471,14 @@
     .end local v33    # "_tmpProtocol":Ljava/lang/String;
     .end local v34    # "_tmpOutbound":J
     .end local v36    # "_tmpPackages":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    goto :goto_0
+    goto :goto_7b
 
     .line 364
     .end local v37    # "_cursorIndexOfId":I
     .end local v38    # "_cursorIndexOfPackages":I
     .local v0, "_cursorIndexOfId":I
     .local v18, "_cursorIndexOfPackages":I
-    :cond_1
+    :cond_df
     nop
 
     .line 366
@@ -506,27 +506,27 @@
     .end local v14    # "_cursorIndexOfNetwork":I
     .end local v15    # "_cursorIndexOfSource":I
     .end local v18    # "_cursorIndexOfPackages":I
-    :catchall_0
+    :catchall_e7
     move-exception v0
 
-    goto :goto_2
+    goto :goto_f2
 
     .end local v17    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .local v4, "_statement":Landroidx/room/RoomSQLiteQuery;
-    :catchall_1
+    :catchall_e9
     move-exception v0
 
     move-object/from16 v17, v4
 
     .end local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .restart local v17    # "_statement":Landroidx/room/RoomSQLiteQuery;
-    goto :goto_2
+    goto :goto_f2
 
     .end local v16    # "_sql":Ljava/lang/String;
     .end local v17    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .local v2, "_sql":Ljava/lang/String;
     .restart local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
-    :catchall_2
+    :catchall_ed
     move-exception v0
 
     move-object/from16 v16, v2
@@ -537,7 +537,7 @@
     .end local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .restart local v16    # "_sql":Ljava/lang/String;
     .restart local v17    # "_statement":Landroidx/room/RoomSQLiteQuery;
-    :goto_2
+    :goto_f2
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
 
     .line 367
@@ -548,7 +548,7 @@
 .end method
 
 .method public checkVpnNeeded()Ljava/util/List;
-    .locals 39
+    .registers 40
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -590,7 +590,7 @@
 
     .line 246
     .local v5, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_17
     const-string v0, "id"
 
     invoke-static {v5, v0}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
@@ -692,8 +692,8 @@
     invoke-static {v5, v1}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_65
+    .catchall {:try_start_17 .. :try_end_65} :catchall_ed
 
     .line 259
     .local v1, "_cursorIndexOfOutbound":I
@@ -701,14 +701,14 @@
 
     .end local v2    # "_sql":Ljava/lang/String;
     .local v16, "_sql":Ljava/lang/String;
-    :try_start_1
+    :try_start_67
     const-string v2, "packages"
 
     invoke-static {v5, v2}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_6d
+    .catchall {:try_start_67 .. :try_end_6d} :catchall_e9
 
     .line 260
     .local v2, "_cursorIndexOfPackages":I
@@ -716,7 +716,7 @@
 
     .end local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .local v17, "_statement":Landroidx/room/RoomSQLiteQuery;
-    :try_start_2
+    :try_start_6f
     new-instance v4, Ljava/util/ArrayList;
 
     move/from16 v18, v2
@@ -733,12 +733,12 @@
 
     .line 261
     .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Lio/nekohasekai/sagernet/database/RuleEntity;>;"
-    :goto_0
+    :goto_7b
     invoke-interface {v5}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_df
 
     .line 264
     invoke-interface {v5, v0}, Landroid/database/Cursor;->getLong(I)J
@@ -771,20 +771,20 @@
 
     .line 274
     .local v4, "_tmp":I
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_9c
 
     const/16 v19, 0x1
 
     const/16 v26, 0x1
 
-    goto :goto_1
+    goto :goto_9e
 
-    :cond_0
+    :cond_9c
     const/16 v26, 0x0
 
     .line 276
     .local v26, "_tmpEnabled":Z
-    :goto_1
+    :goto_9e
     invoke-interface {v5, v10}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v27
@@ -870,8 +870,8 @@
     .local v0, "_item":Lio/nekohasekai/sagernet/database/RuleEntity;
     .local v38, "_cursorIndexOfPackages":I
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_da
+    .catchall {:try_start_6f .. :try_end_da} :catchall_e7
 
     .line 297
     move/from16 v0, v37
@@ -895,14 +895,14 @@
     .end local v33    # "_tmpProtocol":Ljava/lang/String;
     .end local v34    # "_tmpOutbound":J
     .end local v36    # "_tmpPackages":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    goto :goto_0
+    goto :goto_7b
 
     .line 298
     .end local v37    # "_cursorIndexOfId":I
     .end local v38    # "_cursorIndexOfPackages":I
     .local v0, "_cursorIndexOfId":I
     .local v18, "_cursorIndexOfPackages":I
-    :cond_1
+    :cond_df
     nop
 
     .line 300
@@ -930,27 +930,27 @@
     .end local v14    # "_cursorIndexOfNetwork":I
     .end local v15    # "_cursorIndexOfSource":I
     .end local v18    # "_cursorIndexOfPackages":I
-    :catchall_0
+    :catchall_e7
     move-exception v0
 
-    goto :goto_2
+    goto :goto_f2
 
     .end local v17    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .local v4, "_statement":Landroidx/room/RoomSQLiteQuery;
-    :catchall_1
+    :catchall_e9
     move-exception v0
 
     move-object/from16 v17, v4
 
     .end local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .restart local v17    # "_statement":Landroidx/room/RoomSQLiteQuery;
-    goto :goto_2
+    goto :goto_f2
 
     .end local v16    # "_sql":Ljava/lang/String;
     .end local v17    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .local v2, "_sql":Ljava/lang/String;
     .restart local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
-    :catchall_2
+    :catchall_ed
     move-exception v0
 
     move-object/from16 v16, v2
@@ -961,7 +961,7 @@
     .end local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .restart local v16    # "_sql":Ljava/lang/String;
     .restart local v17    # "_statement":Landroidx/room/RoomSQLiteQuery;
-    :goto_2
+    :goto_f2
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
 
     .line 301
@@ -972,7 +972,7 @@
 .end method
 
 .method public createRule(Lio/nekohasekai/sagernet/database/RuleEntity;)J
-    .locals 3
+    .registers 5
     .param p1, "rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -994,7 +994,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 134
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__insertionAdapterOfRuleEntity:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityInsertionAdapter;->insertAndReturnId(Ljava/lang/Object;)J
@@ -1006,8 +1006,8 @@
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_a .. :try_end_15} :catchall_1c
 
     .line 136
     nop
@@ -1022,7 +1022,7 @@
 
     .line 138
     .end local v0    # "_result":J
-    :catchall_0
+    :catchall_1c
     move-exception v0
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -1034,7 +1034,7 @@
 .end method
 
 .method public deleteById(J)I
-    .locals 4
+    .registers 7
     .param p1, "ruleId"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1066,15 +1066,15 @@
     invoke-interface {v0, v1, p1, p2}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindLong(IJ)V
 
     .line 209
-    :try_start_0
+    :try_start_f
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->beginTransaction()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_14
+    .catchall {:try_start_f .. :try_end_14} :catchall_31
 
     .line 211
-    :try_start_1
+    :try_start_14
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     move-result v2
@@ -1084,19 +1084,19 @@
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_14 .. :try_end_1d} :catchall_29
 
     .line 213
     nop
 
     .line 215
-    :try_start_2
+    :try_start_1e
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->endTransaction()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_23
+    .catchall {:try_start_1e .. :try_end_23} :catchall_31
 
     .line 218
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__preparedStmtOfDeleteById:Landroidx/room/SharedSQLiteStatement;
@@ -1108,10 +1108,10 @@
 
     .line 215
     .end local v2    # "_result":I
-    :catchall_0
+    :catchall_29
     move-exception v2
 
-    :try_start_3
+    :try_start_2a
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v3}, Landroidx/room/RoomDatabase;->endTransaction()V
@@ -1123,14 +1123,14 @@
     .end local v1    # "_argIndex":I
     .end local p1    # "ruleId":J
     throw v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_31
+    .catchall {:try_start_2a .. :try_end_31} :catchall_31
 
     .line 218
     .restart local v0    # "_stmt":Landroidx/sqlite/db/SupportSQLiteStatement;
     .restart local v1    # "_argIndex":I
     .restart local p1    # "ruleId":J
-    :catchall_1
+    :catchall_31
     move-exception v2
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__preparedStmtOfDeleteById:Landroidx/room/SharedSQLiteStatement;
@@ -1142,7 +1142,7 @@
 .end method
 
 .method public deleteRule(Lio/nekohasekai/sagernet/database/RuleEntity;)V
-    .locals 2
+    .registers 4
     .param p1, "rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1164,7 +1164,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 159
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__deletionAdapterOfRuleEntity:Landroidx/room/EntityDeletionOrUpdateAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityDeletionOrUpdateAdapter;->handle(Ljava/lang/Object;)I
@@ -1173,8 +1173,8 @@
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_1b
 
     .line 162
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -1188,7 +1188,7 @@
     return-void
 
     .line 162
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -1200,7 +1200,7 @@
 .end method
 
 .method public deleteRules(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -1231,7 +1231,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 171
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__deletionAdapterOfRuleEntity:Landroidx/room/EntityDeletionOrUpdateAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityDeletionOrUpdateAdapter;->handleMultiple(Ljava/lang/Iterable;)I
@@ -1240,8 +1240,8 @@
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_1b
 
     .line 174
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -1255,7 +1255,7 @@
     return-void
 
     .line 174
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -1267,7 +1267,7 @@
 .end method
 
 .method public enabledRules(Z)Ljava/util/List;
-    .locals 41
+    .registers 43
     .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1334,7 +1334,7 @@
 
     .line 381
     .local v7, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_1f
     const-string v0, "id"
 
     invoke-static {v7, v0}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
@@ -1420,8 +1420,8 @@
     invoke-static {v7, v1}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_4
+    :try_end_61
+    .catchall {:try_start_1f .. :try_end_61} :catchall_104
 
     .line 392
     .local v1, "_cursorIndexOfSource":I
@@ -1429,14 +1429,14 @@
 
     .end local v2    # "_sql":Ljava/lang/String;
     .local v16, "_sql":Ljava/lang/String;
-    :try_start_1
+    :try_start_63
     const-string v2, "protocol"
 
     invoke-static {v7, v2}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
+    :try_end_69
+    .catchall {:try_start_63 .. :try_end_69} :catchall_fc
 
     .line 393
     .local v2, "_cursorIndexOfProtocol":I
@@ -1444,14 +1444,14 @@
 
     .end local v5    # "_argIndex":I
     .local v17, "_argIndex":I
-    :try_start_2
+    :try_start_6b
     const-string v5, "outbound"
 
     invoke-static {v7, v5}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_71
+    .catchall {:try_start_6b .. :try_end_71} :catchall_f6
 
     .line 394
     .local v5, "_cursorIndexOfOutbound":I
@@ -1459,14 +1459,14 @@
 
     .end local v6    # "_tmp":I
     .local v18, "_tmp":I
-    :try_start_3
+    :try_start_73
     const-string v6, "packages"
 
     invoke-static {v7, v6}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v6
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_79
+    .catchall {:try_start_73 .. :try_end_79} :catchall_f2
 
     .line 395
     .local v6, "_cursorIndexOfPackages":I
@@ -1474,7 +1474,7 @@
 
     .end local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .local v19, "_statement":Landroidx/room/RoomSQLiteQuery;
-    :try_start_4
+    :try_start_7b
     new-instance v4, Ljava/util/ArrayList;
 
     move/from16 v20, v6
@@ -1489,12 +1489,12 @@
 
     .line 396
     .local v4, "_result":Ljava/util/List;, "Ljava/util/List<Lio/nekohasekai/sagernet/database/RuleEntity;>;"
-    :goto_0
+    :goto_86
     invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_e8
 
     .line 399
     invoke-interface {v7, v0}, Landroid/database/Cursor;->getLong(I)J
@@ -1527,18 +1527,18 @@
 
     .line 409
     .local v6, "_tmp_1":I
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_a5
 
     const/16 v28, 0x1
 
-    goto :goto_1
+    goto :goto_a7
 
-    :cond_0
+    :cond_a5
     const/16 v28, 0x0
 
     .line 411
     .local v28, "_tmpEnabled":Z
-    :goto_1
+    :goto_a7
     invoke-interface {v7, v13}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v29
@@ -1624,8 +1624,8 @@
     .local v0, "_item":Lio/nekohasekai/sagernet/database/RuleEntity;
     .local v40, "_cursorIndexOfPackages":I
     invoke-interface {v4, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_e3
+    .catchall {:try_start_7b .. :try_end_e3} :catchall_f0
 
     .line 432
     move/from16 v0, v39
@@ -1649,14 +1649,14 @@
     .end local v35    # "_tmpProtocol":Ljava/lang/String;
     .end local v36    # "_tmpOutbound":J
     .end local v38    # "_tmpPackages":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    goto :goto_0
+    goto :goto_86
 
     .line 433
     .end local v39    # "_cursorIndexOfId":I
     .end local v40    # "_cursorIndexOfPackages":I
     .local v0, "_cursorIndexOfId":I
     .local v20, "_cursorIndexOfPackages":I
-    :cond_1
+    :cond_e8
     nop
 
     .line 435
@@ -1684,27 +1684,27 @@
     .end local v14    # "_cursorIndexOfIp":I
     .end local v15    # "_cursorIndexOfPort":I
     .end local v20    # "_cursorIndexOfPackages":I
-    :catchall_0
+    :catchall_f0
     move-exception v0
 
-    goto :goto_2
+    goto :goto_10d
 
     .end local v19    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .local v4, "_statement":Landroidx/room/RoomSQLiteQuery;
-    :catchall_1
+    :catchall_f2
     move-exception v0
 
     move-object/from16 v19, v4
 
     .end local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .restart local v19    # "_statement":Landroidx/room/RoomSQLiteQuery;
-    goto :goto_2
+    goto :goto_10d
 
     .end local v18    # "_tmp":I
     .end local v19    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .restart local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .local v6, "_tmp":I
-    :catchall_2
+    :catchall_f6
     move-exception v0
 
     move-object/from16 v19, v4
@@ -1715,7 +1715,7 @@
     .end local v6    # "_tmp":I
     .restart local v18    # "_tmp":I
     .restart local v19    # "_statement":Landroidx/room/RoomSQLiteQuery;
-    goto :goto_2
+    goto :goto_10d
 
     .end local v17    # "_argIndex":I
     .end local v18    # "_tmp":I
@@ -1723,7 +1723,7 @@
     .restart local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .local v5, "_argIndex":I
     .restart local v6    # "_tmp":I
-    :catchall_3
+    :catchall_fc
     move-exception v0
 
     move-object/from16 v19, v4
@@ -1738,7 +1738,7 @@
     .restart local v17    # "_argIndex":I
     .restart local v18    # "_tmp":I
     .restart local v19    # "_statement":Landroidx/room/RoomSQLiteQuery;
-    goto :goto_2
+    goto :goto_10d
 
     .end local v16    # "_sql":Ljava/lang/String;
     .end local v17    # "_argIndex":I
@@ -1748,7 +1748,7 @@
     .restart local v4    # "_statement":Landroidx/room/RoomSQLiteQuery;
     .restart local v5    # "_argIndex":I
     .restart local v6    # "_tmp":I
-    :catchall_4
+    :catchall_104
     move-exception v0
 
     move-object/from16 v16, v2
@@ -1767,7 +1767,7 @@
     .restart local v17    # "_argIndex":I
     .restart local v18    # "_tmp":I
     .restart local v19    # "_statement":Landroidx/room/RoomSQLiteQuery;
-    :goto_2
+    :goto_10d
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     .line 436
@@ -1778,7 +1778,7 @@
 .end method
 
 .method public getById(J)Lio/nekohasekai/sagernet/database/RuleEntity;
-    .locals 39
+    .registers 42
     .param p1, "ruleId"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1832,7 +1832,7 @@
 
     .line 475
     .local v8, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_1e
     const-string v0, "id"
 
     invoke-static {v8, v0}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
@@ -1910,8 +1910,8 @@
     invoke-static {v8, v1}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_5a
+    .catchall {:try_start_1e .. :try_end_5a} :catchall_d9
 
     .line 485
     .local v1, "_cursorIndexOfNetwork":I
@@ -1919,14 +1919,14 @@
 
     .end local v2    # "_sql":Ljava/lang/String;
     .local v18, "_sql":Ljava/lang/String;
-    :try_start_1
+    :try_start_5c
     const-string v2, "source"
 
     invoke-static {v8, v2}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_62
+    .catchall {:try_start_5c .. :try_end_62} :catchall_d5
 
     .line 486
     .local v2, "_cursorIndexOfSource":I
@@ -1934,7 +1934,7 @@
 
     .end local v5    # "_argIndex":I
     .local v19, "_argIndex":I
-    :try_start_2
+    :try_start_64
     const-string v5, "protocol"
 
     invoke-static {v8, v5}, Landroidx/room/util/CursorUtil;->getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
@@ -1963,7 +1963,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_1
+    if-eqz v20, :cond_c9
 
     .line 492
     invoke-interface {v8, v0}, Landroid/database/Cursor;->getLong(I)J
@@ -1996,18 +1996,18 @@
 
     .line 502
     .local v20, "_tmp":I
-    if-eqz v20, :cond_0
+    if-eqz v20, :cond_95
 
     const/16 v28, 0x1
 
-    goto :goto_0
+    goto :goto_97
 
-    :cond_0
+    :cond_95
     const/16 v28, 0x0
 
     .line 504
     .local v28, "_tmpEnabled":Z
-    :goto_0
+    :goto_97
     invoke-interface {v8, v14}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v29
@@ -2073,8 +2073,8 @@
     move-object/from16 v21, v17
 
     invoke-direct/range {v21 .. v38}, Lio/nekohasekai/sagernet/database/RuleEntity;-><init>(JLjava/lang/String;Ljava/lang/String;JZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/util/Set;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_c6
+    .catchall {:try_start_64 .. :try_end_c6} :catchall_d3
 
     move-object/from16 v16, v17
 
@@ -2095,16 +2095,16 @@
     .end local v36    # "_tmpOutbound":J
     .end local v38    # "_tmpPackages":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     .local v16, "_result":Lio/nekohasekai/sagernet/database/RuleEntity;
-    goto :goto_1
+    goto :goto_cb
 
     .line 525
     .end local v16    # "_result":Lio/nekohasekai/sagernet/database/RuleEntity;
-    :cond_1
+    :cond_c9
     const/16 v16, 0x0
 
     .line 527
     .restart local v16    # "_result":Lio/nekohasekai/sagernet/database/RuleEntity;
-    :goto_1
+    :goto_cb
     nop
 
     .line 529
@@ -2132,27 +2132,27 @@
     .end local v14    # "_cursorIndexOfDomains":I
     .end local v15    # "_cursorIndexOfIp":I
     .end local v16    # "_result":Lio/nekohasekai/sagernet/database/RuleEntity;
-    :catchall_0
+    :catchall_d3
     move-exception v0
 
-    goto :goto_2
+    goto :goto_de
 
     .end local v19    # "_argIndex":I
     .local v5, "_argIndex":I
-    :catchall_1
+    :catchall_d5
     move-exception v0
 
     move/from16 v19, v5
 
     .end local v5    # "_argIndex":I
     .restart local v19    # "_argIndex":I
-    goto :goto_2
+    goto :goto_de
 
     .end local v18    # "_sql":Ljava/lang/String;
     .end local v19    # "_argIndex":I
     .local v2, "_sql":Ljava/lang/String;
     .restart local v5    # "_argIndex":I
-    :catchall_2
+    :catchall_d9
     move-exception v0
 
     move-object/from16 v18, v2
@@ -2163,7 +2163,7 @@
     .end local v5    # "_argIndex":I
     .restart local v18    # "_sql":Ljava/lang/String;
     .restart local v19    # "_argIndex":I
-    :goto_2
+    :goto_de
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     .line 530
@@ -2174,7 +2174,7 @@
 .end method
 
 .method public insert(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -2205,7 +2205,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 147
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__insertionAdapterOfRuleEntity:Landroidx/room/EntityInsertionAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityInsertionAdapter;->insert(Ljava/lang/Iterable;)V
@@ -2214,8 +2214,8 @@
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_1b
 
     .line 150
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -2229,7 +2229,7 @@
     return-void
 
     .line 150
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -2241,7 +2241,7 @@
 .end method
 
 .method public nextOrder()Ljava/lang/Long;
-    .locals 6
+    .registers 7
 
     .line 442
     const-string v0, "SELECT MAX(userOrder) + 1 FROM rules"
@@ -2273,29 +2273,29 @@
 
     .line 448
     .local v3, "_cursor":Landroid/database/Cursor;
-    :try_start_0
+    :try_start_15
     invoke-interface {v3}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2d
 
     .line 450
     invoke-interface {v3, v2}, Landroid/database/Cursor;->isNull(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_23
 
     .line 451
     const/4 v2, 0x0
 
     .local v2, "_tmp":Ljava/lang/Long;
-    goto :goto_0
+    goto :goto_2b
 
     .line 453
     .end local v2    # "_tmp":Ljava/lang/Long;
-    :cond_0
+    :cond_23
     invoke-interface {v3, v2}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v4
@@ -2303,26 +2303,26 @@
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_15 .. :try_end_2b} :catchall_36
 
     .line 455
     .restart local v2    # "_tmp":Ljava/lang/Long;
-    :goto_0
+    :goto_2b
     nop
 
     .line 456
     .local v2, "_result":Ljava/lang/Long;
-    goto :goto_1
+    goto :goto_2e
 
     .line 457
     .end local v2    # "_result":Ljava/lang/Long;
-    :cond_1
+    :cond_2d
     const/4 v2, 0x0
 
     .line 459
     .restart local v2    # "_result":Ljava/lang/Long;
-    :goto_1
+    :goto_2e
     nop
 
     .line 461
@@ -2336,7 +2336,7 @@
 
     .line 461
     .end local v2    # "_result":Ljava/lang/Long;
-    :catchall_0
+    :catchall_36
     move-exception v2
 
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
@@ -2349,7 +2349,7 @@
 .end method
 
 .method public reset()V
-    .locals 3
+    .registers 4
 
     .line 224
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -2365,31 +2365,31 @@
 
     .line 227
     .local v0, "_stmt":Landroidx/sqlite/db/SupportSQLiteStatement;
-    :try_start_0
+    :try_start_b
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v1}, Landroidx/room/RoomDatabase;->beginTransaction()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_10
+    .catchall {:try_start_b .. :try_end_10} :catchall_2d
 
     .line 229
-    :try_start_1
+    :try_start_10
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->executeUpdateDelete()I
 
     .line 230
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v1}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_18
+    .catchall {:try_start_10 .. :try_end_18} :catchall_25
 
     .line 232
-    :try_start_2
+    :try_start_18
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v1}, Landroidx/room/RoomDatabase;->endTransaction()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_1d
+    .catchall {:try_start_18 .. :try_end_1d} :catchall_2d
 
     .line 233
     nop
@@ -2406,10 +2406,10 @@
     return-void
 
     .line 232
-    :catchall_0
+    :catchall_25
     move-exception v1
 
-    :try_start_3
+    :try_start_26
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v2}, Landroidx/room/RoomDatabase;->endTransaction()V
@@ -2419,12 +2419,12 @@
 
     .end local v0    # "_stmt":Landroidx/sqlite/db/SupportSQLiteStatement;
     throw v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_2d
+    .catchall {:try_start_26 .. :try_end_2d} :catchall_2d
 
     .line 235
     .restart local v0    # "_stmt":Landroidx/sqlite/db/SupportSQLiteStatement;
-    :catchall_1
+    :catchall_2d
     move-exception v1
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__preparedStmtOfReset:Landroidx/room/SharedSQLiteStatement;
@@ -2436,7 +2436,7 @@
 .end method
 
 .method public updateRule(Lio/nekohasekai/sagernet/database/RuleEntity;)V
-    .locals 2
+    .registers 4
     .param p1, "rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2458,7 +2458,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 183
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__updateAdapterOfRuleEntity:Landroidx/room/EntityDeletionOrUpdateAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityDeletionOrUpdateAdapter;->handle(Ljava/lang/Object;)I
@@ -2467,8 +2467,8 @@
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_1b
 
     .line 186
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -2482,7 +2482,7 @@
     return-void
 
     .line 186
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -2494,7 +2494,7 @@
 .end method
 
 .method public updateRules(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -2525,7 +2525,7 @@
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 195
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__updateAdapterOfRuleEntity:Landroidx/room/EntityDeletionOrUpdateAdapter;
 
     invoke-virtual {v0, p1}, Landroidx/room/EntityDeletionOrUpdateAdapter;->handleMultiple(Ljava/lang/Iterable;)I
@@ -2534,8 +2534,8 @@
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_1b
 
     .line 198
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;
@@ -2549,7 +2549,7 @@
     return-void
 
     .line 198
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/database/RuleEntity_Dao_Impl;->__db:Landroidx/room/RoomDatabase;

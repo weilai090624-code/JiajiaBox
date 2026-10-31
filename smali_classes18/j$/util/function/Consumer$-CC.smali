@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/Consumer;
 
     .line 64
@@ -21,7 +21,7 @@
 .end method
 
 .method public static synthetic $private$lambda$andThen$0(Ljava/util/function/Consumer;Ljava/util/function/Consumer;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/Consumer;
     .param p1, "after"    # Ljava/util/function/Consumer;
     .param p2, "t"    # Ljava/lang/Object;

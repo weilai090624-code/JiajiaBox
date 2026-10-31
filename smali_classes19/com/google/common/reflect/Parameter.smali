@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/reflect/Invokable;ILcom/google/common/reflect/TypeToken;[Ljava/lang/annotation/Annotation;)V
-    .locals 1
+    .registers 6
     .param p2, "position"    # I
     .param p4, "annotations"    # [Ljava/lang/annotation/Annotation;
     .annotation system Ldalvik/annotation/Signature;
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -99,7 +99,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 116
     move-object v0, p1
@@ -112,7 +112,7 @@
 
     iget v3, v0, Lcom/google/common/reflect/Parameter;->position:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_19
 
     iget-object v2, p0, Lcom/google/common/reflect/Parameter;->declaration:Lcom/google/common/reflect/Invokable;
 
@@ -122,21 +122,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_19
     return v1
 
     .line 119
     .end local v0    # "that":Lcom/google/common/reflect/Parameter;
-    :cond_1
+    :cond_1a
     return v1
 .end method
 
 .method public getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -161,12 +161,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -180,7 +180,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     .line 71
     invoke-virtual {p1, v1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
@@ -193,18 +193,18 @@
 
     .line 73
     .end local v1    # "annotation":Ljava/lang/annotation/Annotation;
-    :cond_0
-    goto :goto_0
+    :cond_22
+    goto :goto_9
 
     .line 74
-    :cond_1
+    :cond_23
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public getAnnotations()[Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 2
 
     .line 79
     invoke-virtual {p0}, Lcom/google/common/reflect/Parameter;->getDeclaredAnnotations()[Ljava/lang/annotation/Annotation;
@@ -215,7 +215,7 @@
 .end method
 
 .method public getAnnotationsByType(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -236,7 +236,7 @@
 .end method
 
 .method public getDeclaredAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -279,7 +279,7 @@
 .end method
 
 .method public getDeclaredAnnotations()[Ljava/lang/annotation/Annotation;
-    .locals 2
+    .registers 3
 
     .line 92
     iget-object v0, p0, Lcom/google/common/reflect/Parameter;->annotations:Lcom/google/common/collect/ImmutableList;
@@ -298,7 +298,7 @@
 .end method
 
 .method public getDeclaredAnnotationsByType(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -337,7 +337,7 @@
 .end method
 
 .method public getDeclaringInvokable()Lcom/google/common/reflect/Invokable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -353,7 +353,7 @@
 .end method
 
 .method public getType()Lcom/google/common/reflect/TypeToken;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -369,7 +369,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 124
     iget v0, p0, Lcom/google/common/reflect/Parameter;->position:I
@@ -378,7 +378,7 @@
 .end method
 
 .method public isAnnotationPresent(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -395,21 +395,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 129
     iget-object v0, p0, Lcom/google/common/reflect/Parameter;->type:Lcom/google/common/reflect/TypeToken;

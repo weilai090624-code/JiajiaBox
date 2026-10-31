@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(ILcom/google/android/material/snackbar/SnackbarManager$Callback;)V
-    .locals 1
+    .registers 4
     .param p1, "duration"    # I
     .param p2, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
@@ -56,11 +56,11 @@
 
 # virtual methods
 .method isSnackbar(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
     .line 185
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->callback:Ljava/lang/ref/WeakReference;
 
@@ -68,15 +68,15 @@
 
     move-result-object v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public getCorrectedAeMode(I)I
-    .locals 2
+    .registers 4
     .param p1, "aeMode"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -38,11 +38,11 @@
 
     .line 36
     .local v0, "autoFlashQuirk":Landroidx/camera/camera2/internal/compat/quirk/CrashWhenTakingPhotoWithAutoFlashAEModeQuirk;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const/4 v1, 0x2
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_f
 
     .line 37
     const/4 v1, 0x1
@@ -50,6 +50,6 @@
     return v1
 
     .line 39
-    :cond_0
+    :cond_f
     return p1
 .end method

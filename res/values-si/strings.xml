@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">එන ඇමතුම</string>
     <string name="call_notification_ongoing_text">කරගෙන යන ඇමතුම</string>
     <string name="call_notification_screening_text">එන ඇමතුමක් පරීක්ෂා කරන්න</string>
-    <string name="character_counter_content_description" formatted="false">අනුලකුණු %2$dන් %1$dක් ඇතුළු කෙරිණි</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">අනුලකුණු සීමාව %2$dකින් %1$d ඉක්ම විය</string>
+    <string name="character_counter_content_description">අනුලකුණු %2$dන් %1$dක් ඇතුළු කෙරිණි</string>
+    <string name="character_counter_overflowed_content_description">අනුලකුණු සීමාව %2$dකින් %1$d ඉක්ම විය</string>
     <string name="clear_text_end_icon_content_description">පෙළ හිස් කරන්න</string>
     <string name="copy">පිටපත් කරන්න</string>
     <string name="copy_toast_msg">සබැඳිය පසුරු පුවරුවට පිටපත් කෙරිණි</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">පරාසයෙන් පිටත: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">ආරම්භක දිනය – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – නිමා වන දිනය</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">පරාසය තෝරන්න</string>
     <string name="mtrl_picker_range_header_unselected">ආරම්භක දිනය – නිමා වන දිනය</string>
     <string name="mtrl_picker_save">සුරකින්න</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" පසුරු පුවරුවට පිටපත් කරන ලදී.</string>
     <string name="search_menu_title">සෙවීම</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ක්‍රියාවිරහිතයි</string>
     <string name="v7_preference_on">ක්‍රියාත්මකයි</string>
 </resources>

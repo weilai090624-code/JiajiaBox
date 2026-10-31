@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 280
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static setTouchModal(Landroid/widget/PopupWindow;Z)V
-    .locals 0
+    .registers 2
     .param p0, "popupWindow"    # Landroid/widget/PopupWindow;
     .param p1, "touchModal"    # Z
 

@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity$onCreate$lambda$5$$inlined$addTextChangedListener$default$1;->this$0:Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 4
+    .registers 6
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 82
@@ -88,7 +88,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     .line 99
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity$onCreate$lambda$5$$inlined$addTextChangedListener$default$1;->this$0:Lio/nekohasekai/sagernet/ui/profile/ConfigEditActivity;
@@ -103,7 +103,7 @@
     invoke-virtual {v2, v3}, Lio/nekohasekai/sagernet/database/DataStore;->setDirty(Z)V
 
     .line 102
-    :cond_0
+    :cond_15
     nop
 
     .line 82
@@ -116,7 +116,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -138,7 +138,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I

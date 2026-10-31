@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 275
     new-instance v0, Lcom/google/common/collect/MapMaker;
@@ -104,7 +104,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;)V
-    .locals 1
+    .registers 3
     .param p1, "policy"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;
 
     .line 459
@@ -124,7 +124,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$1;
 
@@ -135,7 +135,7 @@
 .end method
 
 .method private aboutToAcquire(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingLock;)V
-    .locals 3
+    .registers 5
     .param p1, "lock"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingLock;
 
     .line 719
@@ -143,7 +143,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 720
     sget-object v0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory;->acquiredLocks:Ljava/lang/ThreadLocal;
@@ -172,12 +172,12 @@
     .line 725
     .end local v0    # "acquiredLockList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;>;"
     .end local v1    # "node":Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method static synthetic access$100()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 1
 
     .line 167
     sget-object v0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory;->logger:Ljava/util/logging/Logger;
@@ -186,7 +186,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/util/concurrent/CycleDetectingLockFactory;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingLock;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory;
     .param p1, "x1"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingLock;
 
@@ -197,7 +197,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingLock;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingLock;
 
     .line 167
@@ -207,7 +207,7 @@
 .end method
 
 .method static createNodes(Ljava/lang/Class;)Ljava/util/Map;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -254,8 +254,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v6, v4, :cond_0
+    :goto_12
+    if-ge v6, v4, :cond_28
 
     aget-object v7, v1, v6
 
@@ -281,15 +281,15 @@
     .end local v8    # "node":Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 320
-    :cond_0
+    :cond_28
     const/4 v4, 0x1
 
     .local v4, "i":I
-    :goto_1
-    if-ge v4, v2, :cond_1
+    :goto_29
+    if-ge v4, v2, :cond_3d
 
     .line 321
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -309,18 +309,18 @@
     .line 320
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_29
 
     .line 324
     .end local v4    # "i":I
-    :cond_1
+    :cond_3d
     const/4 v4, 0x0
 
     .restart local v4    # "i":I
-    :goto_2
+    :goto_3e
     add-int/lit8 v5, v2, -0x1
 
-    if-ge v4, v5, :cond_2
+    if-ge v4, v5, :cond_56
 
     .line 325
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -342,11 +342,11 @@
     .line 324
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_3e
 
     .line 327
     .end local v4    # "i":I
-    :cond_2
+    :cond_56
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object v4
@@ -355,7 +355,7 @@
 .end method
 
 .method private static getLockName(Ljava/lang/Enum;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -425,7 +425,7 @@
 .end method
 
 .method private static getOrCreateNodes(Ljava/lang/Class;)Ljava/util/Map;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -452,13 +452,13 @@
 
     .line 293
     .local v0, "existing":Ljava/util/Map;, "Ljava/util/Map<TE;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 294
     return-object v0
 
     .line 296
-    :cond_0
+    :cond_b
     invoke-static {p0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory;->createNodes(Ljava/lang/Class;)Ljava/util/Map;
 
     move-result-object v1
@@ -486,7 +486,7 @@
 .end method
 
 .method private static lockStateChanged(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingLock;)V
-    .locals 4
+    .registers 5
     .param p0, "lock"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingLock;
 
     .line 733
@@ -494,7 +494,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_27
 
     .line 734
     sget-object v0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory;->acquiredLocks:Ljava/lang/ThreadLocal;
@@ -520,39 +520,39 @@
     add-int/lit8 v2, v2, -0x1
 
     .local v2, "i":I
-    :goto_0
-    if-ltz v2, :cond_1
+    :goto_18
+    if-ltz v2, :cond_27
 
     .line 739
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    if-ne v3, v1, :cond_0
+    if-ne v3, v1, :cond_24
 
     .line 740
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     .line 741
-    goto :goto_1
+    goto :goto_27
 
     .line 738
-    :cond_0
+    :cond_24
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 745
     .end local v0    # "acquiredLockList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;>;"
     .end local v1    # "node":Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
     .end local v2    # "i":I
-    :cond_1
-    :goto_1
+    :cond_27
+    :goto_27
     return-void
 .end method
 
 .method public static newInstance(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;)Lcom/google/common/util/concurrent/CycleDetectingLockFactory;
-    .locals 1
+    .registers 2
     .param p0, "policy"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;
 
     .line 238
@@ -564,7 +564,7 @@
 .end method
 
 .method public static newInstanceWithExplicitOrdering(Ljava/lang/Class;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;)Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;
-    .locals 2
+    .registers 4
     .param p1, "policy"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -604,7 +604,7 @@
 
 # virtual methods
 .method public newReentrantLock(Ljava/lang/String;)Ljava/util/concurrent/locks/ReentrantLock;
-    .locals 1
+    .registers 3
     .param p1, "lockName"    # Ljava/lang/String;
 
     .line 243
@@ -618,7 +618,7 @@
 .end method
 
 .method public newReentrantLock(Ljava/lang/String;Z)Ljava/util/concurrent/locks/ReentrantLock;
-    .locals 3
+    .registers 6
     .param p1, "lockName"    # Ljava/lang/String;
     .param p2, "fair"    # Z
 
@@ -627,17 +627,17 @@
 
     sget-object v1, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policies;->DISABLED:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policies;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     .line 252
     new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-direct {v0, p2}, Ljava/util/concurrent/locks/ReentrantLock;-><init>(Z)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 253
-    :cond_0
+    :cond_c
     new-instance v0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantLock;
 
     new-instance v1, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
@@ -649,12 +649,12 @@
     invoke-direct {v0, p0, v1, p2, v2}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantLock;-><init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;ZLcom/google/common/util/concurrent/CycleDetectingLockFactory$1;)V
 
     .line 251
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public newReentrantReadWriteLock(Ljava/lang/String;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
-    .locals 1
+    .registers 3
     .param p1, "lockName"    # Ljava/lang/String;
 
     .line 258
@@ -668,7 +668,7 @@
 .end method
 
 .method public newReentrantReadWriteLock(Ljava/lang/String;Z)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
-    .locals 3
+    .registers 6
     .param p1, "lockName"    # Ljava/lang/String;
     .param p2, "fair"    # Z
 
@@ -677,17 +677,17 @@
 
     sget-object v1, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policies;->DISABLED:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policies;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     .line 268
     new-instance v0, Ljava/util/concurrent/locks/ReentrantReadWriteLock;
 
     invoke-direct {v0, p2}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;-><init>(Z)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 269
-    :cond_0
+    :cond_c
     new-instance v0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;
 
     new-instance v1, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
@@ -699,6 +699,6 @@
     invoke-direct {v0, p0, v1, p2, v2}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;-><init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;ZLcom/google/common/util/concurrent/CycleDetectingLockFactory$1;)V
 
     .line 267
-    :goto_0
+    :goto_17
     return-object v0
 .end method

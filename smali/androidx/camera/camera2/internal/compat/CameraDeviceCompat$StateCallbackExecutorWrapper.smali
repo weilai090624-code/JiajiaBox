@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraDevice$StateCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "wrappedCallback"    # Landroid/hardware/camera2/CameraDevice$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public onClosed(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 2
+    .registers 4
     .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -77,7 +77,7 @@
 .end method
 
 .method public onDisconnected(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 2
+    .registers 4
     .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -102,7 +102,7 @@
 .end method
 
 .method public onError(Landroid/hardware/camera2/CameraDevice;I)V
-    .locals 2
+    .registers 5
     .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
     .param p2, "error"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -130,7 +130,7 @@
 .end method
 
 .method public onOpened(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 2
+    .registers 4
     .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method static makeDouble(Lj$/util/stream/AbstractPipeline;)Lj$/util/stream/DoubleStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -61,7 +61,7 @@
 .end method
 
 .method static makeInt(Lj$/util/stream/AbstractPipeline;)Lj$/util/stream/IntStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -85,7 +85,7 @@
 .end method
 
 .method static makeLong(Lj$/util/stream/AbstractPipeline;)Lj$/util/stream/LongStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -109,7 +109,7 @@
 .end method
 
 .method static makeRef(Lj$/util/stream/AbstractPipeline;)Lj$/util/stream/Stream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -132,7 +132,7 @@
 .end method
 
 .method static makeRef(Lj$/util/stream/AbstractPipeline;Ljava/util/Comparator;)Lj$/util/stream/Stream;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

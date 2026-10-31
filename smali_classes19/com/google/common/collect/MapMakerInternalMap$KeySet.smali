@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/MapMakerInternalMap;
 
     .line 2688
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 2717
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$KeySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.KeySet;"
@@ -57,7 +57,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 2707
@@ -72,7 +72,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 2702
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$KeySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.KeySet;"
@@ -86,7 +86,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -107,7 +107,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 2712
@@ -118,21 +118,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 2697
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$KeySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;TE;TS;>.KeySet;"

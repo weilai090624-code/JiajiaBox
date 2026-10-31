@@ -81,7 +81,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lio/nekohasekai/sagernet/bg/BaseService$State;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x5
 
@@ -121,7 +121,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 23
+    .registers 23
 
     .line 39
     new-instance v8, Lio/nekohasekai/sagernet/bg/BaseService$State;
@@ -246,7 +246,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZZZ)V
-    .locals 0
+    .registers 6
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .param p3, "canStop"    # Z
@@ -275,53 +275,53 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 7
+    .registers 15
 
     .line 31
     and-int/lit8 p7, p6, 0x1
 
     const/4 v0, 0x0
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_7
 
     .line 32
     const/4 v4, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 31
-    :cond_0
+    :cond_7
     move v4, p3
 
-    :goto_0
+    :goto_8
     and-int/lit8 p3, p6, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_e
 
     .line 33
     const/4 v5, 0x0
 
-    goto :goto_1
+    goto :goto_f
 
     .line 31
-    :cond_1
+    :cond_e
     move v5, p4
 
-    :goto_1
+    :goto_f
     and-int/lit8 p3, p6, 0x4
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_15
 
     .line 34
     const/4 v6, 0x0
 
-    goto :goto_2
+    goto :goto_16
 
     .line 31
-    :cond_2
+    :cond_15
     move v6, p5
 
-    :goto_2
+    :goto_16
     move-object v1, p0
 
     move-object v2, p1
@@ -335,7 +335,7 @@
 .end method
 
 .method public static getEntries()Lkotlin/enums/EnumEntries;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -352,7 +352,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lio/nekohasekai/sagernet/bg/BaseService$State;
-    .locals 1
+    .registers 2
     .param p0, "value"    # Ljava/lang/String;
 
     const-class v0, Lio/nekohasekai/sagernet/bg/BaseService$State;
@@ -368,7 +368,7 @@
 .end method
 
 .method public static values()[Lio/nekohasekai/sagernet/bg/BaseService$State;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lio/nekohasekai/sagernet/bg/BaseService$State;->$VALUES:[Lio/nekohasekai/sagernet/bg/BaseService$State;
 
@@ -385,7 +385,7 @@
 
 # virtual methods
 .method public final getCanStop()Z
-    .locals 1
+    .registers 2
 
     .line 32
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$State;->canStop:Z
@@ -394,7 +394,7 @@
 .end method
 
 .method public final getConnected()Z
-    .locals 1
+    .registers 2
 
     .line 34
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$State;->connected:Z
@@ -403,7 +403,7 @@
 .end method
 
 .method public final getStarted()Z
-    .locals 1
+    .registers 2
 
     .line 33
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$State;->started:Z

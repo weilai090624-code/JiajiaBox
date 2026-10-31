@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
-    .locals 3
+    .registers 6
     .param p2, "workTaskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/StandardTable;)V
-    .locals 1
+    .registers 3
 
     .line 669
     .local p0, "this":Lcom/google/common/collect/StandardTable$ColumnKeySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.ColumnKeySet;"
@@ -41,7 +41,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/StandardTable;
     .param p2, "x1"    # Lcom/google/common/collect/StandardTable$1;
 
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -73,7 +73,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -94,7 +94,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -102,7 +102,7 @@
 
     .line 682
     .local p0, "this":Lcom/google/common/collect/StandardTable$ColumnKeySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.ColumnKeySet;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 683
     const/4 v0, 0x0
@@ -110,7 +110,7 @@
     return v0
 
     .line 685
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 686
@@ -129,12 +129,12 @@
 
     .line 687
     .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map<TC;TV;>;>;"
-    :goto_0
+    :goto_11
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_32
 
     .line 688
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -153,7 +153,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_31
 
     .line 690
     const/4 v0, 0x1
@@ -163,23 +163,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_31
 
     .line 692
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     .line 695
     .end local v2    # "map":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    :cond_1
-    goto :goto_0
+    :cond_31
+    goto :goto_11
 
     .line 696
-    :cond_2
+    :cond_32
     return v0
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -212,12 +212,12 @@
 
     .line 704
     .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map<TC;TV;>;>;"
-    :goto_0
+    :goto_10
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     .line 705
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -240,7 +240,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_34
 
     .line 709
     const/4 v0, 0x1
@@ -250,23 +250,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_34
 
     .line 711
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     .line 714
     .end local v2    # "map":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_34
+    goto :goto_10
 
     .line 715
-    :cond_1
+    :cond_35
     return v0
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -299,12 +299,12 @@
 
     .line 723
     .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map<TC;TV;>;>;"
-    :goto_0
+    :goto_10
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_31
 
     .line 724
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -323,7 +323,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_30
 
     .line 726
     const/4 v0, 0x1
@@ -333,23 +333,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_30
 
     .line 728
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     .line 731
     .end local v2    # "map":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_30
+    goto :goto_10
 
     .line 732
-    :cond_1
+    :cond_31
     return v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 677
     .local p0, "this":Lcom/google/common/collect/StandardTable$ColumnKeySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.ColumnKeySet;"

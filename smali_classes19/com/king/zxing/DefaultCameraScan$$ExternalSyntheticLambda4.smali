@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lcom/king/zxing/DefaultCameraScan;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public synthetic onSensorChanged(F)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-static {p0, p1}, Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener$-CC;->$default$onSensorChanged(Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener;F)V
@@ -34,7 +34,7 @@
 .end method
 
 .method public final onSensorChanged(ZF)V
-    .locals 1
+    .registers 4
 
     .line 0
     iget-object v0, p0, Lcom/king/zxing/DefaultCameraScan$$ExternalSyntheticLambda4;->f$0:Lcom/king/zxing/DefaultCameraScan;

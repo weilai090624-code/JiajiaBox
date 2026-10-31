@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap;I)V
-    .locals 0
+    .registers 3
     .param p2, "mask"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/collect/Sets$SubSet;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/Sets$SubSet;
 
     .line 1461
@@ -79,7 +79,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/collect/Sets$SubSet;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/Sets$SubSet;
 
     .line 1461
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -109,7 +109,7 @@
 
     .line 1501
     .local v0, "index":Ljava/lang/Integer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     iget v1, p0, Lcom/google/common/collect/Sets$SubSet;->mask:I
 
@@ -123,19 +123,19 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_18
     return v3
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -154,7 +154,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1495
     .local p0, "this":Lcom/google/common/collect/Sets$SubSet;, "Lcom/google/common/collect/Sets$SubSet<TE;>;"

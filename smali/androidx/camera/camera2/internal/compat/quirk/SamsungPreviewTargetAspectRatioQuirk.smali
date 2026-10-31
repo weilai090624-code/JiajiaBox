@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 38
     const-string v0, "SM-J710MN"
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method static load()Z
-    .locals 2
+    .registers 2
 
     .line 44
     sget-object v0, Landroid/os/Build;->BRAND:Ljava/lang/String;
@@ -65,7 +65,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     sget-object v0, Landroidx/camera/camera2/internal/compat/quirk/SamsungPreviewTargetAspectRatioQuirk;->DEVICE_MODELS:Ljava/util/List;
 
@@ -80,24 +80,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v0, 0x0
 
     .line 44
-    :goto_0
+    :goto_1f
     return v0
 .end method
 
 
 # virtual methods
 .method public require16_9(Landroidx/camera/core/impl/Config;)Z
-    .locals 1
+    .registers 3
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

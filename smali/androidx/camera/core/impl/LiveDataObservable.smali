@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 50
     .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable;, "Landroidx/camera/core/impl/LiveDataObservable<TT;>;"
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public addObserver(Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/Observable$Observer;)V
-    .locals 5
+    .registers 8
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -108,7 +108,7 @@
     monitor-enter v0
 
     .line 112
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/impl/LiveDataObservable;->mObservers:Ljava/util/Map;
 
     invoke-interface {v1, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -119,13 +119,13 @@
 
     .line 113
     .local v1, "oldAdapter":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter<TT;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 114
     invoke-virtual {v1}, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;->disable()V
 
     .line 117
-    :cond_0
+    :cond_10
     new-instance v2, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;
 
     invoke-direct {v2, p1, p2}, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;-><init>(Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/Observable$Observer;)V
@@ -156,18 +156,18 @@
     return-void
 
     .line 128
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_3 .. :try_end_2a} :catchall_28
 
     throw v1
 .end method
 
 .method public fetchData()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -190,7 +190,7 @@
 .end method
 
 .method public getLiveData()Landroidx/lifecycle/LiveData;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -208,7 +208,7 @@
 .end method
 
 .method public postError(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "error"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -234,7 +234,7 @@
 .end method
 
 .method public postValue(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -266,7 +266,7 @@
 .end method
 
 .method public removeObserver(Landroidx/camera/core/impl/Observable$Observer;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -292,7 +292,7 @@
     monitor-enter v0
 
     .line 134
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/impl/LiveDataObservable;->mObservers:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -303,7 +303,7 @@
 
     .line 136
     .local v1, "adapter":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter<TT;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 137
     invoke-virtual {v1}, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;->disable()V
@@ -321,19 +321,19 @@
 
     .line 145
     .end local v1    # "adapter":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter<TT;>;"
-    :cond_0
+    :cond_1c
     monitor-exit v0
 
     .line 146
     return-void
 
     .line 145
-    :catchall_0
+    :catchall_1e
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_3 .. :try_end_20} :catchall_1e
 
     throw v1
 .end method

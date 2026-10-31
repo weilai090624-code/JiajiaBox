@@ -36,7 +36,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/collect/AbstractIterator$State;
-    .locals 3
+    .registers 3
 
     .line 73
     const/4 v0, 0x4
@@ -71,7 +71,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 75
     new-instance v0, Lcom/google/common/collect/AbstractIterator$State;
@@ -128,7 +128,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -142,7 +142,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/collect/AbstractIterator$State;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 73
@@ -158,7 +158,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/collect/AbstractIterator$State;
-    .locals 1
+    .registers 1
 
     .line 73
     sget-object v0, Lcom/google/common/collect/AbstractIterator$State;->$VALUES:[Lcom/google/common/collect/AbstractIterator$State;

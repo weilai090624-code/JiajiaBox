@@ -84,7 +84,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/platform/android/AndroidSocketAdapter$Companion;
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 5
+    .registers 7
     .param p1, "sslSocketClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -207,7 +207,7 @@
 .end method
 
 .method public static final synthetic access$getPlayProviderFactory$cp()Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
-    .locals 1
+    .registers 1
 
     .line 33
     sget-object v0, Lokhttp3/internal/platform/android/AndroidSocketAdapter;->playProviderFactory:Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
@@ -218,7 +218,7 @@
 
 # virtual methods
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 5
+    .registers 9
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -247,13 +247,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4a
 
     .line 52
     nop
 
     .line 54
-    :try_start_0
+    :try_start_11
     iget-object v0, p0, Lokhttp3/internal/platform/android/AndroidSocketAdapter;->setUseSessionTickets:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x1
@@ -271,7 +271,7 @@
     invoke-virtual {v0, p1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 56
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_2b
 
     .line 58
     iget-object v0, p0, Lokhttp3/internal/platform/android/AndroidSocketAdapter;->setHostname:Ljava/lang/reflect/Method;
@@ -283,7 +283,7 @@
     invoke-virtual {v0, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 62
-    :cond_0
+    :cond_2b
     iget-object v0, p0, Lokhttp3/internal/platform/android/AndroidSocketAdapter;->setAlpnProtocols:Ljava/lang/reflect/Method;
 
     .line 63
@@ -302,14 +302,14 @@
 
     .line 62
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3b
+    .catch Ljava/lang/IllegalAccessException; {:try_start_11 .. :try_end_3b} :catch_43
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_11 .. :try_end_3b} :catch_3c
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 68
-    :catch_0
+    :catch_3c
     move-exception v0
 
     .line 69
@@ -322,7 +322,7 @@
 
     .line 66
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_43
     move-exception v0
 
     .line 67
@@ -335,13 +335,13 @@
 
     .line 72
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :cond_1
-    :goto_0
+    :cond_4a
+    :goto_4a
     return-void
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -355,17 +355,17 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 77
     return-object v1
 
     .line 80
-    :cond_0
+    :cond_d
     nop
 
     .line 81
-    :try_start_0
+    :try_start_e
     iget-object v0, p0, Lokhttp3/internal/platform/android/AndroidSocketAdapter;->getAlpnSelectedProtocol:Ljava/lang/reflect/Method;
 
     const/4 v2, 0x0
@@ -380,7 +380,7 @@
 
     .line 82
     .local v0, "alpnResult":[B
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     sget-object v2, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
@@ -391,18 +391,18 @@
     new-instance v3, Ljava/lang/String;
 
     invoke-direct {v3, v0, v2}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/lang/NullPointerException; {:try_start_e .. :try_end_27} :catch_37
+    .catch Ljava/lang/IllegalAccessException; {:try_start_e .. :try_end_27} :catch_30
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_e .. :try_end_27} :catch_29
 
     move-object v1, v3
 
-    goto :goto_0
+    goto :goto_47
 
     .line 91
     .end local v0    # "alpnResult":[B
-    :catch_0
+    :catch_29
     move-exception v0
 
     .line 92
@@ -415,7 +415,7 @@
 
     .line 89
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_30
     move-exception v0
 
     .line 90
@@ -428,7 +428,7 @@
 
     .line 83
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :catch_2
+    :catch_37
     move-exception v0
 
     .line 85
@@ -444,7 +444,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_48
 
     .line 87
     move-object v2, v1
@@ -453,18 +453,18 @@
 
     .line 80
     .end local v0    # "e":Ljava/lang/NullPointerException;
-    :cond_1
-    :goto_0
+    :cond_47
+    :goto_47
     return-object v1
 
     .line 87
     .restart local v0    # "e":Ljava/lang/NullPointerException;
-    :cond_2
+    :cond_48
     throw v0
 .end method
 
 .method public isSupported()Z
-    .locals 1
+    .registers 2
 
     .line 41
     sget-object v0, Lokhttp3/internal/platform/AndroidPlatform;->Companion:Lokhttp3/internal/platform/AndroidPlatform$Companion;
@@ -477,7 +477,7 @@
 .end method
 
 .method public matchesSocket(Ljavax/net/ssl/SSLSocket;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -495,7 +495,7 @@
 .end method
 
 .method public matchesSocketFactory(Ljavax/net/ssl/SSLSocketFactory;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 33
@@ -507,7 +507,7 @@
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 33

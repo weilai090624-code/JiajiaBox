@@ -30,26 +30,26 @@
 
 # direct methods
 .method public static final checkParallelism(I)V
-    .locals 3
+    .registers 4
     .param p0, "$this$checkParallelism"    # I
 
     .line 133
     const/4 v0, 0x1
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_4
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_5
+    if-eqz v0, :cond_8
 
     return-void
 
     .line 135
-    :cond_1
+    :cond_8
     const/4 v0, 0x0
 
     .line 133

@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method public static deriveDimension(IFLandroid/util/DisplayMetrics;)F
-    .locals 3
+    .registers 6
     .param p0, "unitToConvertTo"    # I
     .param p1, "pixelValue"    # F
     .param p2, "metrics"    # Landroid/util/DisplayMetrics;
@@ -39,7 +39,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 96
     invoke-static {p0, p1, p2}, Landroidx/core/util/TypedValueCompat$Api34Impl;->deriveDimension(IFLandroid/util/DisplayMetrics;)F
@@ -49,10 +49,10 @@
     return v0
 
     .line 99
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_6e
 
     .line 134
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -80,18 +80,18 @@
     throw v0
 
     .line 128
-    :pswitch_0
+    :pswitch_28
     iget v1, p2, Landroid/util/DisplayMetrics;->xdpi:F
 
     cmpl-float v1, v1, v0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2f
 
     .line 129
     return v0
 
     .line 131
-    :cond_1
+    :cond_2f
     iget v0, p2, Landroid/util/DisplayMetrics;->xdpi:F
 
     div-float v0, p1, v0
@@ -103,18 +103,18 @@
     return v0
 
     .line 122
-    :pswitch_1
+    :pswitch_38
     iget v1, p2, Landroid/util/DisplayMetrics;->xdpi:F
 
     cmpl-float v1, v1, v0
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3f
 
     .line 123
     return v0
 
     .line 125
-    :cond_2
+    :cond_3f
     iget v0, p2, Landroid/util/DisplayMetrics;->xdpi:F
 
     div-float v0, p1, v0
@@ -122,18 +122,18 @@
     return v0
 
     .line 116
-    :pswitch_2
+    :pswitch_44
     iget v1, p2, Landroid/util/DisplayMetrics;->xdpi:F
 
     cmpl-float v1, v1, v0
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4b
 
     .line 117
     return v0
 
     .line 119
-    :cond_3
+    :cond_4b
     iget v0, p2, Landroid/util/DisplayMetrics;->xdpi:F
 
     div-float v0, p1, v0
@@ -145,18 +145,18 @@
     return v0
 
     .line 111
-    :pswitch_3
+    :pswitch_54
     iget v1, p2, Landroid/util/DisplayMetrics;->scaledDensity:F
 
     cmpl-float v1, v1, v0
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_5b
 
     .line 112
     return v0
 
     .line 114
-    :cond_4
+    :cond_5b
     iget v0, p2, Landroid/util/DisplayMetrics;->scaledDensity:F
 
     div-float v0, p1, v0
@@ -164,18 +164,18 @@
     return v0
 
     .line 104
-    :pswitch_4
+    :pswitch_60
     iget v1, p2, Landroid/util/DisplayMetrics;->density:F
 
     cmpl-float v1, v1, v0
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_67
 
     .line 105
     return v0
 
     .line 107
-    :cond_5
+    :cond_67
     iget v0, p2, Landroid/util/DisplayMetrics;->density:F
 
     div-float v0, p1, v0
@@ -183,24 +183,24 @@
     return v0
 
     .line 101
-    :pswitch_5
+    :pswitch_6c
     return p1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6c
+        :pswitch_60
+        :pswitch_54
+        :pswitch_44
+        :pswitch_38
+        :pswitch_28
     .end packed-switch
 .end method
 
 .method public static dpToPx(FLandroid/util/DisplayMetrics;)F
-    .locals 1
+    .registers 3
     .param p0, "dpValue"    # F
     .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
@@ -215,7 +215,7 @@
 .end method
 
 .method public static getUnitFromComplexDimension(I)I
-    .locals 1
+    .registers 2
     .param p0, "complexDimension"    # I
 
     .line 75
@@ -227,7 +227,7 @@
 .end method
 
 .method public static pxToDp(FLandroid/util/DisplayMetrics;)F
-    .locals 1
+    .registers 3
     .param p0, "pixelValue"    # F
     .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
@@ -242,7 +242,7 @@
 .end method
 
 .method public static pxToSp(FLandroid/util/DisplayMetrics;)F
-    .locals 1
+    .registers 3
     .param p0, "pixelValue"    # F
     .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
@@ -257,7 +257,7 @@
 .end method
 
 .method public static spToPx(FLandroid/util/DisplayMetrics;)F
-    .locals 1
+    .registers 3
     .param p0, "spValue"    # F
     .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 

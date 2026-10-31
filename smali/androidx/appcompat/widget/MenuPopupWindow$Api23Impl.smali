@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 263
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static setEnterTransition(Landroid/widget/PopupWindow;Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p0, "popupWindow"    # Landroid/widget/PopupWindow;
     .param p1, "enterTransition"    # Landroid/transition/Transition;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static setExitTransition(Landroid/widget/PopupWindow;Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p0, "popupWindow"    # Landroid/widget/PopupWindow;
     .param p1, "exitTransition"    # Landroid/transition/Transition;
 

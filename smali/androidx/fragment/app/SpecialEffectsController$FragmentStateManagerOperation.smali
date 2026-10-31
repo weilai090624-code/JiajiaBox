@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/SpecialEffectsController$Operation$State;Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;Landroidx/fragment/app/FragmentStateManager;Landroidx/core/os/CancellationSignal;)V
-    .locals 1
+    .registers 6
     .param p1, "finalState"    # Landroidx/fragment/app/SpecialEffectsController$Operation$State;
     .param p2, "lifecycleImpact"    # Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
     .param p3, "fragmentStateManager"    # Landroidx/fragment/app/FragmentStateManager;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public complete()V
-    .locals 1
+    .registers 2
 
     .line 770
     invoke-super {p0}, Landroidx/fragment/app/SpecialEffectsController$Operation;->complete()V
@@ -58,7 +58,7 @@
 .end method
 
 .method onStart()V
-    .locals 6
+    .registers 7
 
     .line 733
     invoke-virtual {p0}, Landroidx/fragment/app/SpecialEffectsController$FragmentStateManagerOperation;->getLifecycleImpact()Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
@@ -73,7 +73,7 @@
 
     const/4 v4, 0x2
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_73
 
     .line 734
     iget-object v0, p0, Landroidx/fragment/app/SpecialEffectsController$FragmentStateManagerOperation;->mFragmentStateManager:Landroidx/fragment/app/FragmentStateManager;
@@ -92,7 +92,7 @@
 
     .line 736
     .local v1, "focusedView":Landroid/view/View;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_42
 
     .line 737
     invoke-virtual {v0, v1}, Landroidx/fragment/app/Fragment;->setFocusedView(Landroid/view/View;)V
@@ -102,7 +102,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_42
 
     .line 739
     new-instance v4, Ljava/lang/StringBuilder;
@@ -134,7 +134,7 @@
     invoke-static {v3, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 743
-    :cond_0
+    :cond_42
     invoke-virtual {p0}, Landroidx/fragment/app/SpecialEffectsController$FragmentStateManagerOperation;->getFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v2
@@ -151,7 +151,7 @@
 
     const/4 v4, 0x0
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_59
 
     .line 748
     iget-object v3, p0, Landroidx/fragment/app/SpecialEffectsController$FragmentStateManagerOperation;->mFragmentStateManager:Landroidx/fragment/app/FragmentStateManager;
@@ -162,20 +162,20 @@
     invoke-virtual {v2, v4}, Landroid/view/View;->setAlpha(F)V
 
     .line 753
-    :cond_1
+    :cond_59
     invoke-virtual {v2}, Landroid/view/View;->getAlpha()F
 
     move-result v3
 
     cmpl-float v3, v3, v4
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_6b
 
     invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_6b
 
     .line 754
     const/4 v3, 0x4
@@ -183,7 +183,7 @@
     invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
 
     .line 756
-    :cond_2
+    :cond_6b
     invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->getPostOnViewCreatedAlpha()F
 
     move-result v3
@@ -193,17 +193,17 @@
     .end local v0    # "fragment":Landroidx/fragment/app/Fragment;
     .end local v1    # "focusedView":Landroid/view/View;
     .end local v2    # "view":Landroid/view/View;
-    goto :goto_0
+    goto :goto_bb
 
     .line 757
-    :cond_3
+    :cond_73
     invoke-virtual {p0}, Landroidx/fragment/app/SpecialEffectsController$FragmentStateManagerOperation;->getLifecycleImpact()Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
     move-result-object v0
 
     sget-object v1, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;->REMOVING:Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_bb
 
     .line 758
     iget-object v0, p0, Landroidx/fragment/app/SpecialEffectsController$FragmentStateManagerOperation;->mFragmentStateManager:Landroidx/fragment/app/FragmentStateManager;
@@ -224,7 +224,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_b7
 
     .line 761
     new-instance v4, Ljava/lang/StringBuilder;
@@ -270,19 +270,19 @@
     invoke-static {v3, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 764
-    :cond_4
+    :cond_b7
     invoke-virtual {v1}, Landroid/view/View;->clearFocus()V
 
-    goto :goto_1
+    goto :goto_bc
 
     .line 757
     .end local v0    # "fragment":Landroidx/fragment/app/Fragment;
     .end local v1    # "view":Landroid/view/View;
-    :cond_5
-    :goto_0
+    :cond_bb
+    :goto_bb
     nop
 
     .line 766
-    :goto_1
+    :goto_bc
     return-void
 .end method

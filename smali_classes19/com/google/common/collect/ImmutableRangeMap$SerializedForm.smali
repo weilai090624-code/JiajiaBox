@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method createRangeMap()Ljava/lang/Object;
-    .locals 5
+    .registers 6
 
     .line 395
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap$SerializedForm;, "Lcom/google/common/collect/ImmutableRangeMap$SerializedForm<TK;TV;>;"
@@ -92,12 +92,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_29
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -121,10 +121,10 @@
 
     .line 398
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lcom/google/common/collect/Range<TK;>;TV;>;"
-    goto :goto_0
+    goto :goto_f
 
     .line 399
-    :cond_0
+    :cond_29
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableRangeMap$Builder;->build()Lcom/google/common/collect/ImmutableRangeMap;
 
     move-result-object v1
@@ -133,7 +133,7 @@
 .end method
 
 .method readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 387
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap$SerializedForm;, "Lcom/google/common/collect/ImmutableRangeMap$SerializedForm<TK;TV;>;"
@@ -143,7 +143,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 388
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeMap;->of()Lcom/google/common/collect/ImmutableRangeMap;
@@ -153,7 +153,7 @@
     return-object v0
 
     .line 390
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeMap$SerializedForm;->createRangeMap()Ljava/lang/Object;
 
     move-result-object v0

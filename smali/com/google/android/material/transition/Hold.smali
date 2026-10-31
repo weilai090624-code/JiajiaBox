@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Landroidx/transition/Visibility;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 3
+    .registers 8
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "startValues"    # Landroidx/transition/TransitionValues;
@@ -41,7 +41,7 @@
 .end method
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 3
+    .registers 8
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "startValues"    # Landroidx/transition/TransitionValues;

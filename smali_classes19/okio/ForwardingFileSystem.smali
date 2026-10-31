@@ -72,7 +72,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/FileSystem;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lokio/FileSystem;
 
     const-string v0, "delegate"
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public appendingSink(Lokio/Path;Z)Lokio/Sink;
-    .locals 2
+    .registers 5
     .param p1, "file"    # Lokio/Path;
     .param p2, "mustExist"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -124,7 +124,7 @@
 .end method
 
 .method public atomicMove(Lokio/Path;Lokio/Path;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Lokio/Path;
     .param p2, "target"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
@@ -165,7 +165,7 @@
 .end method
 
 .method public canonicalize(Lokio/Path;)Lokio/Path;
-    .locals 3
+    .registers 5
     .param p1, "path"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -202,7 +202,7 @@
 .end method
 
 .method public createDirectory(Lokio/Path;Z)V
-    .locals 2
+    .registers 5
     .param p1, "dir"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -233,7 +233,7 @@
 .end method
 
 .method public createSymlink(Lokio/Path;Lokio/Path;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Lokio/Path;
     .param p2, "target"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
@@ -274,7 +274,7 @@
 .end method
 
 .method public final delegate()Lokio/FileSystem;
-    .locals 1
+    .registers 2
 
     .line 107
     iget-object v0, p0, Lokio/ForwardingFileSystem;->delegate:Lokio/FileSystem;
@@ -283,7 +283,7 @@
 .end method
 
 .method public delete(Lokio/Path;Z)V
-    .locals 2
+    .registers 5
     .param p1, "path"    # Lokio/Path;
     .param p2, "mustExist"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -314,7 +314,7 @@
 .end method
 
 .method public list(Lokio/Path;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p1, "dir"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -376,12 +376,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_22
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_38
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -408,10 +408,10 @@
 
     .line 244
     .end local v7    # "item$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_22
 
     .line 246
-    :cond_0
+    :cond_38
     nop
 
     .line 166
@@ -431,7 +431,7 @@
 .end method
 
 .method public listOrNull(Lokio/Path;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p1, "dir"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -463,7 +463,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     const/4 v1, 0x0
 
@@ -471,7 +471,7 @@
 
     .line 174
     .local v2, "result":Ljava/util/List;
-    :cond_0
+    :cond_15
     move-object v3, v2
 
     check-cast v3, Ljava/lang/Iterable;
@@ -494,12 +494,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_26
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_3c
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -526,10 +526,10 @@
 
     .line 247
     .end local v7    # "item$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_26
 
     .line 249
-    :cond_1
+    :cond_3c
     nop
 
     .line 174
@@ -549,7 +549,7 @@
 .end method
 
 .method public listRecursively(Lokio/Path;Z)Lkotlin/sequences/Sequence;
-    .locals 3
+    .registers 6
     .param p1, "dir"    # Lokio/Path;
     .param p2, "followSymlinks"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -598,7 +598,7 @@
 .end method
 
 .method public metadataOrNull(Lokio/Path;)Lokio/FileMetadata;
-    .locals 14
+    .registers 16
     .param p1, "path"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -625,13 +625,13 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     const/4 v1, 0x0
 
     return-object v1
 
-    :cond_0
+    :cond_15
     move-object v13, v2
 
     .line 156
@@ -640,12 +640,12 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1d
 
     return-object v13
 
     .line 158
-    :cond_1
+    :cond_1d
     invoke-virtual {v13}, Lokio/FileMetadata;->getSymlinkTarget()Lokio/Path;
 
     move-result-object v2
@@ -686,7 +686,7 @@
 .end method
 
 .method public onPathParameter(Lokio/Path;Ljava/lang/String;Ljava/lang/String;)Lokio/Path;
-    .locals 1
+    .registers 5
     .param p1, "path"    # Lokio/Path;
     .param p2, "functionName"    # Ljava/lang/String;
     .param p3, "parameterName"    # Ljava/lang/String;
@@ -708,7 +708,7 @@
 .end method
 
 .method public onPathResult(Lokio/Path;Ljava/lang/String;)Lokio/Path;
-    .locals 1
+    .registers 4
     .param p1, "path"    # Lokio/Path;
     .param p2, "functionName"    # Ljava/lang/String;
 
@@ -725,7 +725,7 @@
 .end method
 
 .method public openReadOnly(Lokio/Path;)Lokio/FileHandle;
-    .locals 2
+    .registers 4
     .param p1, "file"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -756,7 +756,7 @@
 .end method
 
 .method public openReadWrite(Lokio/Path;ZZ)Lokio/FileHandle;
-    .locals 2
+    .registers 6
     .param p1, "file"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
     .param p3, "mustExist"    # Z
@@ -789,7 +789,7 @@
 .end method
 
 .method public sink(Lokio/Path;Z)Lokio/Sink;
-    .locals 2
+    .registers 5
     .param p1, "file"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -821,7 +821,7 @@
 .end method
 
 .method public source(Lokio/Path;)Lokio/Source;
-    .locals 2
+    .registers 4
     .param p1, "file"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -852,7 +852,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 241
     new-instance v0, Ljava/lang/StringBuilder;

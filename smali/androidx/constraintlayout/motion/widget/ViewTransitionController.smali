@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
-    .locals 1
+    .registers 3
     .param p1, "layout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$000(Landroidx/constraintlayout/motion/widget/ViewTransitionController;)Landroidx/constraintlayout/motion/widget/MotionLayout;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Landroidx/constraintlayout/motion/widget/ViewTransitionController;
 
     .line 35
@@ -102,7 +102,7 @@
 .end method
 
 .method private listenForSharedVariable(Landroidx/constraintlayout/motion/widget/ViewTransition;Z)V
-    .locals 11
+    .registers 14
     .param p1, "viewTransition"    # Landroidx/constraintlayout/motion/widget/ViewTransition;
     .param p2, "isSet"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -160,7 +160,7 @@
 .end method
 
 .method private varargs viewTransition(Landroidx/constraintlayout/motion/widget/ViewTransition;[Landroid/view/View;)V
-    .locals 8
+    .registers 11
     .param p1, "vt"    # Landroidx/constraintlayout/motion/widget/ViewTransition;
     .param p2, "view"    # [Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -187,12 +187,12 @@
 
     const/4 v2, 0x2
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_41
 
     .line 73
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2d
 
     .line 74
     iget-object v1, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->TAG:Ljava/lang/String;
@@ -229,7 +229,7 @@
     return-void
 
     .line 78
-    :cond_0
+    :cond_2d
     iget-object v1, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     invoke-virtual {v1, v0}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getConstraintSet(I)Landroidx/constraintlayout/widget/ConstraintSet;
@@ -238,13 +238,13 @@
 
     .line 79
     .local v7, "current":Landroidx/constraintlayout/widget/ConstraintSet;
-    if-nez v7, :cond_1
+    if-nez v7, :cond_36
 
     .line 80
     return-void
 
     .line 82
-    :cond_1
+    :cond_36
     iget-object v3, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     move-object v1, p1
@@ -261,10 +261,10 @@
 
     .line 83
     .end local v7    # "current":Landroidx/constraintlayout/widget/ConstraintSet;
-    goto :goto_0
+    goto :goto_4b
 
     .line 84
-    :cond_2
+    :cond_41
     iget-object v3, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     const/4 v5, 0x0
@@ -280,14 +280,14 @@
     invoke-virtual/range {v1 .. v6}, Landroidx/constraintlayout/motion/widget/ViewTransition;->applyTransition(Landroidx/constraintlayout/motion/widget/ViewTransitionController;Landroidx/constraintlayout/motion/widget/MotionLayout;ILandroidx/constraintlayout/widget/ConstraintSet;[Landroid/view/View;)V
 
     .line 86
-    :goto_0
+    :goto_4b
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Landroidx/constraintlayout/motion/widget/ViewTransition;)V
-    .locals 2
+    .registers 4
     .param p1, "viewTransition"    # Landroidx/constraintlayout/motion/widget/ViewTransition;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -315,24 +315,24 @@
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     .line 50
     const/4 v0, 0x1
 
     invoke-direct {p0, p1, v0}, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->listenForSharedVariable(Landroidx/constraintlayout/motion/widget/ViewTransition;Z)V
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 51
-    :cond_0
+    :cond_14
     invoke-virtual {p1}, Landroidx/constraintlayout/motion/widget/ViewTransition;->getStateTransition()I
 
     move-result v0
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1f
 
     .line 52
     const/4 v0, 0x0
@@ -340,13 +340,13 @@
     invoke-direct {p0, p1, v0}, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->listenForSharedVariable(Landroidx/constraintlayout/motion/widget/ViewTransition;Z)V
 
     .line 54
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     return-void
 .end method
 
 .method addAnimation(Landroidx/constraintlayout/motion/widget/ViewTransition$Animate;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroidx/constraintlayout/motion/widget/ViewTransition$Animate;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -360,7 +360,7 @@
     .line 196
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->animations:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 197
     new-instance v0, Ljava/util/ArrayList;
@@ -370,7 +370,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->animations:Ljava/util/ArrayList;
 
     .line 199
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->animations:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -380,30 +380,30 @@
 .end method
 
 .method animate()V
-    .locals 2
+    .registers 3
 
     .line 210
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->animations:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 211
     return-void
 
     .line 213
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->animations:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -417,10 +417,10 @@
 
     .line 215
     .end local v1    # "animation":Landroidx/constraintlayout/motion/widget/ViewTransition$Animate;
-    goto :goto_0
+    goto :goto_b
 
     .line 216
-    :cond_1
+    :cond_1b
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->animations:Ljava/util/ArrayList;
 
     iget-object v1, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->removeList:Ljava/util/ArrayList;
@@ -439,7 +439,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_32
 
     .line 219
     const/4 v0, 0x0
@@ -447,12 +447,12 @@
     iput-object v0, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->animations:Ljava/util/ArrayList;
 
     .line 221
-    :cond_2
+    :cond_32
     return-void
 .end method
 
 .method applyViewTransition(ILandroidx/constraintlayout/motion/widget/MotionController;)Z
-    .locals 3
+    .registers 6
     .param p1, "viewTransitionId"    # I
     .param p2, "motionController"    # Landroidx/constraintlayout/motion/widget/MotionController;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -473,12 +473,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -492,7 +492,7 @@
 
     move-result v2
 
-    if-ne v2, p1, :cond_0
+    if-ne v2, p1, :cond_1f
 
     .line 230
     iget-object v0, v1, Landroidx/constraintlayout/motion/widget/ViewTransition;->mKeyFrames:Landroidx/constraintlayout/motion/widget/KeyFrames;
@@ -506,18 +506,18 @@
 
     .line 233
     .end local v1    # "viewTransition":Landroidx/constraintlayout/motion/widget/ViewTransition;
-    :cond_0
-    goto :goto_0
+    :cond_1f
+    goto :goto_6
 
     .line 234
-    :cond_1
+    :cond_20
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method enableViewTransition(IZ)V
-    .locals 3
+    .registers 6
     .param p1, "id"    # I
     .param p2, "enable"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -538,12 +538,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1d
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -557,27 +557,27 @@
 
     move-result v2
 
-    if-ne v2, p1, :cond_0
+    if-ne v2, p1, :cond_1c
 
     .line 91
     invoke-virtual {v1, p2}, Landroidx/constraintlayout/motion/widget/ViewTransition;->setEnabled(Z)V
 
     .line 92
-    goto :goto_1
+    goto :goto_1d
 
     .line 94
     .end local v1    # "viewTransition":Landroidx/constraintlayout/motion/widget/ViewTransition;
-    :cond_0
-    goto :goto_0
+    :cond_1c
+    goto :goto_6
 
     .line 95
-    :cond_1
-    :goto_1
+    :cond_1d
+    :goto_1d
     return-void
 .end method
 
 .method invalidate()V
-    .locals 1
+    .registers 2
 
     .line 224
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -589,7 +589,7 @@
 .end method
 
 .method isViewTransitionEnabled(I)Z
-    .locals 3
+    .registers 5
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -607,12 +607,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -626,7 +626,7 @@
 
     move-result v2
 
-    if-ne v2, p1, :cond_0
+    if-ne v2, p1, :cond_1d
 
     .line 100
     invoke-virtual {v1}, Landroidx/constraintlayout/motion/widget/ViewTransition;->isEnabled()Z
@@ -637,18 +637,18 @@
 
     .line 102
     .end local v1    # "viewTransition":Landroidx/constraintlayout/motion/widget/ViewTransition;
-    :cond_0
-    goto :goto_0
+    :cond_1d
+    goto :goto_6
 
     .line 103
-    :cond_1
+    :cond_1e
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method remove(I)V
-    .locals 4
+    .registers 6
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -670,12 +670,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -689,23 +689,23 @@
 
     move-result v3
 
-    if-ne v3, p1, :cond_0
+    if-ne v3, p1, :cond_1b
 
     .line 60
     move-object v0, v2
 
     .line 61
-    goto :goto_1
+    goto :goto_1c
 
     .line 63
     .end local v2    # "viewTransition":Landroidx/constraintlayout/motion/widget/ViewTransition;
-    :cond_0
-    goto :goto_0
+    :cond_1b
+    goto :goto_7
 
     .line 64
-    :cond_1
-    :goto_1
-    if-eqz v0, :cond_2
+    :cond_1c
+    :goto_1c
+    if-eqz v0, :cond_26
 
     .line 65
     const/4 v1, 0x0
@@ -718,12 +718,12 @@
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     .line 68
-    :cond_2
+    :cond_26
     return-void
 .end method
 
 .method removeAnimation(Landroidx/constraintlayout/motion/widget/ViewTransition$Animate;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroidx/constraintlayout/motion/widget/ViewTransition$Animate;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -744,7 +744,7 @@
 .end method
 
 .method touchEvent(Landroid/view/MotionEvent;)V
-    .locals 18
+    .registers 20
     .param p1, "event"    # Landroid/view/MotionEvent;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -768,16 +768,16 @@
     .local v7, "currentId":I
     const/4 v0, -0x1
 
-    if-ne v7, v0, :cond_0
+    if-ne v7, v0, :cond_c
 
     .line 143
     return-void
 
     .line 145
-    :cond_0
+    :cond_c
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->mRelatedViews:Ljava/util/HashSet;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4b
 
     .line 146
     new-instance v0, Ljava/util/HashSet;
@@ -793,12 +793,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -819,8 +819,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v2, :cond_2
+    :goto_30
+    if-ge v3, v2, :cond_4a
 
     .line 150
     iget-object v4, v6, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -835,7 +835,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_47
 
     .line 152
     invoke-virtual {v4}, Landroid/view/View;->getId()I
@@ -851,20 +851,20 @@
     .line 149
     .end local v4    # "view":Landroid/view/View;
     .end local v5    # "id":I
-    :cond_1
+    :cond_47
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_30
 
     .line 157
     .end local v1    # "viewTransition":Landroidx/constraintlayout/motion/widget/ViewTransition;
     .end local v2    # "count":I
     .end local v3    # "i":I
-    :cond_2
-    goto :goto_0
+    :cond_4a
+    goto :goto_1d
 
     .line 160
-    :cond_3
+    :cond_4b
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v8
@@ -893,7 +893,7 @@
     .local v11, "action":I
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->animations:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7f
 
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->animations:Ljava/util/ArrayList;
 
@@ -901,7 +901,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_7f
 
     .line 165
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->animations:Ljava/util/ArrayList;
@@ -910,12 +910,12 @@
 
     move-result-object v0
 
-    :goto_2
+    :goto_6f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_7f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -929,16 +929,16 @@
 
     .line 167
     .end local v1    # "animation":Landroidx/constraintlayout/motion/widget/ViewTransition$Animate;
-    goto :goto_2
+    goto :goto_6f
 
     .line 169
-    :cond_4
-    packed-switch v11, :pswitch_data_0
+    :cond_7f
+    packed-switch v11, :pswitch_data_e4
 
-    goto :goto_6
+    goto :goto_e2
 
     .line 173
-    :pswitch_0
+    :pswitch_83
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
     invoke-virtual {v0, v7}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getConstraintSet(I)Landroidx/constraintlayout/widget/ConstraintSet;
@@ -953,12 +953,12 @@
 
     move-result-object v13
 
-    :goto_3
+    :goto_8f
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_e2
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -974,7 +974,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_e1
 
     .line 176
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->mRelatedViews:Ljava/util/HashSet;
@@ -983,12 +983,12 @@
 
     move-result-object v15
 
-    :goto_4
+    :goto_a8
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_e1
 
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1004,13 +1004,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_bc
 
     .line 178
-    goto :goto_4
+    goto :goto_a8
 
     .line 180
-    :cond_5
+    :cond_bc
     invoke-virtual {v5, v10}, Landroid/view/View;->getHitRect(Landroid/graphics/Rect;)V
 
     .line 181
@@ -1022,7 +1022,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_de
 
     .line 182
     iget-object v2, v6, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->mMotionLayout:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -1053,41 +1053,41 @@
 
     invoke-virtual/range {v0 .. v5}, Landroidx/constraintlayout/motion/widget/ViewTransition;->applyTransition(Landroidx/constraintlayout/motion/widget/ViewTransitionController;Landroidx/constraintlayout/motion/widget/MotionLayout;ILandroidx/constraintlayout/widget/ConstraintSet;[Landroid/view/View;)V
 
-    goto :goto_5
+    goto :goto_e0
 
     .line 181
     .end local v17    # "view":Landroid/view/View;
     .restart local v5    # "view":Landroid/view/View;
-    :cond_6
+    :cond_de
     move-object/from16 v17, v5
 
     .line 185
     .end local v5    # "view":Landroid/view/View;
-    :goto_5
-    goto :goto_4
+    :goto_e0
+    goto :goto_a8
 
     .line 187
     .end local v14    # "viewTransition":Landroidx/constraintlayout/motion/widget/ViewTransition;
-    :cond_7
-    goto :goto_3
+    :cond_e1
+    goto :goto_8f
 
     .line 190
     .end local v12    # "current":Landroidx/constraintlayout/widget/ConstraintSet;
-    :cond_8
-    :goto_6
+    :cond_e2
+    :goto_e2
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_e4
     .packed-switch 0x0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_83
+        :pswitch_83
     .end packed-switch
 .end method
 
 .method varargs viewTransition(I[Landroid/view/View;)V
-    .locals 9
+    .registers 12
     .param p1, "id"    # I
     .param p2, "views"    # [Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1118,12 +1118,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_47
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1137,7 +1137,7 @@
 
     move-result v4
 
-    if-ne v4, p1, :cond_2
+    if-ne v4, p1, :cond_46
 
     .line 117
     move-object v0, v3
@@ -1149,8 +1149,8 @@
 
     const/4 v6, 0x0
 
-    :goto_1
-    if-ge v6, v4, :cond_1
+    :goto_22
+    if-ge v6, v4, :cond_32
 
     aget-object v7, p2, v6
 
@@ -1160,25 +1160,25 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_2f
 
     .line 120
     invoke-virtual {v1, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 118
     .end local v7    # "view":Landroid/view/View;
-    :cond_0
+    :cond_2f
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 123
-    :cond_1
+    :cond_32
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_46
 
     .line 124
     new-array v4, v5, [Landroid/view/View;
@@ -1196,12 +1196,12 @@
 
     .line 128
     .end local v3    # "viewTransition":Landroidx/constraintlayout/motion/widget/ViewTransition;
-    :cond_2
-    goto :goto_0
+    :cond_46
+    goto :goto_c
 
     .line 129
-    :cond_3
-    if-nez v0, :cond_4
+    :cond_47
+    if-nez v0, :cond_51
 
     .line 130
     iget-object v2, p0, Landroidx/constraintlayout/motion/widget/ViewTransitionController;->TAG:Ljava/lang/String;
@@ -1214,6 +1214,6 @@
     return-void
 
     .line 133
-    :cond_4
+    :cond_51
     return-void
 .end method

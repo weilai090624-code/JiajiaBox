@@ -32,7 +32,7 @@
 
 # direct methods
 .method public static final navArgument(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Landroidx/navigation/NamedNavArgument;
-    .locals 2
+    .registers 4
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "builder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;

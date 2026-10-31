@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 38
     const/high16 v0, 0x3f800000    # 1.0f
@@ -20,7 +20,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method public static setDefaultSystemAnimatorDurationScale(F)V
-    .locals 0
+    .registers 1
     .param p0, "scale"    # F
 
     .line 60
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getSystemAnimatorDurationScale(Landroid/content/ContentResolver;)F
-    .locals 2
+    .registers 4
     .param p1, "contentResolver"    # Landroid/content/ContentResolver;
 
     .line 42

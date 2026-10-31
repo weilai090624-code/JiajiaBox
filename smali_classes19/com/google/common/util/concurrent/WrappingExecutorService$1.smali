@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/WrappingExecutorService;Ljava/util/concurrent/Callable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/WrappingExecutorService;
 
     .line 66
@@ -37,15 +37,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 70
     :try_start_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/WrappingExecutorService$1;->val$wrapped:Ljava/util/concurrent/Callable;
 
     invoke-interface {v0}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 74
     nop
@@ -54,7 +54,7 @@
     return-void
 
     .line 71
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 72

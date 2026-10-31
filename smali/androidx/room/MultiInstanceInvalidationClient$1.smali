@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/room/MultiInstanceInvalidationClient;[Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "$receiver"    # Landroidx/room/MultiInstanceInvalidationClient;
     .param p2, "$super_call_param$1"    # [Ljava/lang/String;
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public isRemote$room_runtime_release()Z
-    .locals 1
+    .registers 2
 
     .line 109
     const/4 v0, 0x1
@@ -75,7 +75,7 @@
 .end method
 
 .method public onInvalidated(Ljava/util/Set;)V
-    .locals 6
+    .registers 8
     .param p1, "tables"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,24 +101,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 98
     return-void
 
     .line 101
-    :cond_0
+    :cond_13
     nop
 
     .line 102
-    :try_start_0
+    :try_start_14
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient$1;->this$0:Landroidx/room/MultiInstanceInvalidationClient;
 
     invoke-virtual {v0}, Landroidx/room/MultiInstanceInvalidationClient;->getService()Landroidx/room/IMultiInstanceInvalidationService;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3f
 
     iget-object v1, p0, Landroidx/room/MultiInstanceInvalidationClient$1;->this$0:Landroidx/room/MultiInstanceInvalidationClient;
 
@@ -154,13 +154,13 @@
 
     .line 102
     invoke-interface {v0, v1, v5}, Landroidx/room/IMultiInstanceInvalidationService;->broadcastInvalidation(I[Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_33
+    .catch Landroid/os/RemoteException; {:try_start_14 .. :try_end_33} :catch_34
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 103
-    :catch_0
+    :catch_34
     move-exception v0
 
     .line 104
@@ -177,7 +177,7 @@
 
     .line 106
     .end local v0    # "e":Landroid/os/RemoteException;
-    :cond_1
-    :goto_0
+    :cond_3f
+    :goto_3f
     return-void
 .end method

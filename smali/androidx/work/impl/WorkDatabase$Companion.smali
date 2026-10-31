@@ -43,7 +43,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$d9uKx9JAMiDvrmcMenix4D379lU(Landroid/content/Context;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/work/impl/WorkDatabase$Companion;->create$lambda$0(Landroid/content/Context;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 112
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/work/impl/WorkDatabase$Companion;-><init>()V
 
@@ -70,7 +70,7 @@
 .end method
 
 .method private static final create$lambda$0(Landroid/content/Context;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 3
+    .registers 5
     .param p0, "$context"    # Landroid/content/Context;
     .param p1, "configuration"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;
 
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public final create(Landroid/content/Context;Ljava/util/concurrent/Executor;Z)Landroidx/work/impl/WorkDatabase;
-    .locals 8
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "queryExecutor"    # Ljava/util/concurrent/Executor;
     .param p3, "useTestDatabase"    # Z
@@ -149,7 +149,7 @@
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 129
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_17
 
     .line 130
     const-class v0, Landroidx/work/impl/WorkDatabase;
@@ -163,10 +163,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_28
 
     .line 133
-    :cond_0
+    :cond_17
     const-class v0, Landroidx/work/impl/WorkDatabase;
 
     const-string v1, "androidx.work.workdb"
@@ -185,7 +185,7 @@
     move-result-object v0
 
     .line 129
-    :goto_0
+    :goto_28
     nop
 
     .line 143

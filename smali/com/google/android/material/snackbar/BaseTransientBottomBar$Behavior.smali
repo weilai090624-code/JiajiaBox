@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1387
     invoke-direct {p0}, Lcom/google/android/material/behavior/SwipeDismissBehavior;-><init>()V
@@ -45,7 +45,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;
     .param p1, "x1"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method private setBaseTransientBottomBar(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public canSwipeDismissView(Landroid/view/View;)Z
-    .locals 1
+    .registers 3
     .param p1, "child"    # Landroid/view/View;
 
     .line 1398
@@ -92,7 +92,7 @@
 .end method
 
 .method public onInterceptTouchEvent(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 5
     .param p1, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "event"    # Landroid/view/MotionEvent;

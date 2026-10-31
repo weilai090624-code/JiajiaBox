@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/ViewTypeStorage$SharedIdRangeViewTypeStorage;Landroidx/recyclerview/widget/NestedAdapterWrapper;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/recyclerview/widget/ViewTypeStorage$SharedIdRangeViewTypeStorage;
     .param p2, "wrapper"    # Landroidx/recyclerview/widget/NestedAdapterWrapper;
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public dispose()V
-    .locals 2
+    .registers 3
 
     .line 115
     iget-object v0, p0, Landroidx/recyclerview/widget/ViewTypeStorage$SharedIdRangeViewTypeStorage$WrapperViewTypeLookup;->this$0:Landroidx/recyclerview/widget/ViewTypeStorage$SharedIdRangeViewTypeStorage;
@@ -58,7 +58,7 @@
 .end method
 
 .method public globalToLocal(I)I
-    .locals 0
+    .registers 2
     .param p1, "globalType"    # I
 
     .line 110
@@ -66,7 +66,7 @@
 .end method
 
 .method public localToGlobal(I)I
-    .locals 2
+    .registers 4
     .param p1, "localType"    # I
 
     .line 96
@@ -82,7 +82,7 @@
 
     .line 98
     .local v0, "wrappers":Ljava/util/List;, "Ljava/util/List<Landroidx/recyclerview/widget/NestedAdapterWrapper;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 99
     new-instance v1, Ljava/util/ArrayList;
@@ -99,14 +99,14 @@
     invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 102
-    :cond_0
+    :cond_19
     iget-object v1, p0, Landroidx/recyclerview/widget/ViewTypeStorage$SharedIdRangeViewTypeStorage$WrapperViewTypeLookup;->mWrapper:Landroidx/recyclerview/widget/NestedAdapterWrapper;
 
     invoke-interface {v0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_26
 
     .line 103
     iget-object v1, p0, Landroidx/recyclerview/widget/ViewTypeStorage$SharedIdRangeViewTypeStorage$WrapperViewTypeLookup;->mWrapper:Landroidx/recyclerview/widget/NestedAdapterWrapper;
@@ -114,6 +114,6 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 105
-    :cond_1
+    :cond_26
     return p1
 .end method

@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/work/impl/WorkerUpdater$updateWorkImpl$type$1;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 48
@@ -93,7 +93,7 @@
 .end method
 
 .method public final invoke(Landroidx/work/impl/model/WorkSpec;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "spec"    # Landroidx/work/impl/model/WorkSpec;
 
     const-string/jumbo v0, "spec"
@@ -105,15 +105,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const-string v0, "Periodic"
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const-string v0, "OneTime"
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method

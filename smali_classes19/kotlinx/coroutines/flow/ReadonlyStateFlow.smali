@@ -85,7 +85,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/StateFlow;Lkotlinx/coroutines/Job;)V
-    .locals 0
+    .registers 3
     .param p1, "flow"    # Lkotlinx/coroutines/flow/StateFlow;
     .param p2, "job"    # Lkotlinx/coroutines/Job;
     .annotation system Ldalvik/annotation/Signature;
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,7 +136,7 @@
 .end method
 
 .method public fuse(Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 5
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
     .param p3, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
@@ -165,7 +165,7 @@
 .end method
 
 .method public getReplayCache()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -184,7 +184,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"

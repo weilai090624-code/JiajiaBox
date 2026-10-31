@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initSize"    # I
 
     .line 23
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 40
     .local p0, "this":Lorg/yaml/snakeyaml/util/ArrayStack;, "Lorg/yaml/snakeyaml/util/ArrayStack<TT;>;"
@@ -61,7 +61,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Lorg/yaml/snakeyaml/util/ArrayStack;, "Lorg/yaml/snakeyaml/util/ArrayStack<TT;>;"
@@ -75,7 +75,7 @@
 .end method
 
 .method public pop()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -102,7 +102,7 @@
 .end method
 
 .method public push(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"

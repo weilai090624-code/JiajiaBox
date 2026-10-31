@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
     .param p1, "remote"    # Landroid/os/IBinder;
 
     .line 89
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -48,7 +48,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 98
     sget-object v0, Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportCallback$Stub$Proxy;->DESCRIPTOR:Ljava/lang/String;
@@ -57,7 +57,7 @@
 .end method
 
 .method public onIsPermissionRevocationEnabledForAppResult(ZZ)V
-    .locals 4
+    .registers 7
     .param p1, "success"    # Z
     .param p2, "isEnabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -73,7 +73,7 @@
 
     .line 113
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     sget-object v1, Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportCallback$Stub$Proxy;->DESCRIPTOR:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -83,24 +83,24 @@
 
     const/4 v2, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_10
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 115
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_16
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_16
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 116
@@ -109,8 +109,8 @@
     const/4 v3, 0x0
 
     invoke-interface {v1, v2, v0, v3, v2}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_4 .. :try_end_1f} :catchall_24
 
     .line 119
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -122,7 +122,7 @@
     return-void
 
     .line 119
-    :catchall_0
+    :catchall_24
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

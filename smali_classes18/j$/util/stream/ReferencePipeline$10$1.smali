@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/ReferencePipeline$10;Lj$/util/stream/Sink;)V
-    .locals 2
+    .registers 5
     .param p1, "this$1"    # Lj$/util/stream/ReferencePipeline$10;
 
     .line 394
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TP_OUT;)V"
@@ -82,13 +82,13 @@
 
     .line 409
     .local v0, "result":Lj$/util/stream/LongStream;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3f
 
     .line 410
-    :try_start_0
+    :try_start_c
     iget-boolean v1, p0, Lj$/util/stream/ReferencePipeline$10$1;->cancellationRequestedCalled:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     .line 411
     invoke-interface {v0}, Lj$/util/stream/LongStream;->sequential()Lj$/util/stream/LongStream;
@@ -99,10 +99,10 @@
 
     invoke-interface {v1, v2}, Lj$/util/stream/LongStream;->forEach(Ljava/util/function/LongConsumer;)V
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 414
-    :cond_0
+    :cond_1a
     invoke-interface {v0}, Lj$/util/stream/LongStream;->sequential()Lj$/util/stream/LongStream;
 
     move-result-object v1
@@ -113,65 +113,65 @@
 
     .line 415
     .local v1, "s":Lj$/util/Spliterator$OfLong;
-    :cond_1
+    :cond_22
     iget-object v2, p0, Lj$/util/stream/ReferencePipeline$10$1;->downstream:Lj$/util/stream/Sink;
 
     invoke-interface {v2}, Lj$/util/stream/Sink;->cancellationRequested()Z
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_3f
 
     iget-object v2, p0, Lj$/util/stream/ReferencePipeline$10$1;->downstreamAsLong:Ljava/util/function/LongConsumer;
 
     invoke-interface {v1, v2}, Lj$/util/Spliterator$OfLong;->tryAdvance(Ljava/util/function/LongConsumer;)Z
 
     move-result v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_30
+    .catchall {:try_start_c .. :try_end_30} :catchall_33
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_22
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 408
     .end local v1    # "s":Lj$/util/Spliterator$OfLong;
-    :catchall_0
+    :catchall_33
     move-exception v1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3e
 
-    :try_start_1
+    :try_start_36
     invoke-interface {v0}, Lj$/util/stream/LongStream;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_39
+    .catchall {:try_start_36 .. :try_end_39} :catchall_3a
 
-    goto :goto_0
+    goto :goto_3e
 
-    :catchall_1
+    :catchall_3a
     move-exception v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :cond_2
-    :goto_0
+    :cond_3e
+    :goto_3e
     throw v1
 
     .line 418
-    :cond_3
-    :goto_1
-    if-eqz v0, :cond_4
+    :cond_3f
+    :goto_3f
+    if-eqz v0, :cond_44
 
     invoke-interface {v0}, Lj$/util/stream/LongStream;->close()V
 
     .line 419
     .end local v0    # "result":Lj$/util/stream/LongStream;
-    :cond_4
+    :cond_44
     return-void
 .end method
 
 .method public begin(J)V
-    .locals 3
+    .registers 6
     .param p1, "size"    # J
 
     .line 403
@@ -187,7 +187,7 @@
 .end method
 
 .method public cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     .line 423
     .local p0, "this":Lj$/util/stream/ReferencePipeline$10$1;, "Ljava/util/stream/ReferencePipeline$10$1;"

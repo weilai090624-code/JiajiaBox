@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,21 +14,21 @@
 .end method
 
 .method public static getActivity(Landroid/content/Context;)Landroid/app/Activity;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
 
     .line 41
     nop
 
-    :goto_0
+    :goto_1
     instance-of v0, p0, Landroid/content/ContextWrapper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 42
     instance-of v0, p0, Landroid/app/Activity;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 43
     move-object v0, p0
@@ -38,7 +38,7 @@
     return-object v0
 
     .line 45
-    :cond_0
+    :cond_d
     move-object v0, p0
 
     check-cast v0, Landroid/content/ContextWrapper;
@@ -47,10 +47,10 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_1
 
     .line 47
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
     return-object v0

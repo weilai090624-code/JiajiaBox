@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     invoke-direct {p0}, Landroidx/fragment/app/Fragment;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public static newInstance()Lcom/king/zxing/CaptureFragment;
-    .locals 2
+    .registers 2
 
     .line 50
     new-instance v0, Landroid/os/Bundle;
@@ -55,12 +55,12 @@
 .end method
 
 .method private releaseCamera()V
-    .locals 1
+    .registers 2
 
     .line 121
     iget-object v0, p0, Lcom/king/zxing/CaptureFragment;->mCameraScan:Lcom/king/zxing/CameraScan;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 122
     iget-object v0, p0, Lcom/king/zxing/CaptureFragment;->mCameraScan:Lcom/king/zxing/CameraScan;
@@ -68,14 +68,14 @@
     invoke-virtual {v0}, Lcom/king/zxing/CameraScan;->release()V
 
     .line 124
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 
 # virtual methods
 .method public createRootView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 2
+    .registers 5
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public getCameraScan()Lcom/king/zxing/CameraScan;
-    .locals 1
+    .registers 2
 
     .line 224
     iget-object v0, p0, Lcom/king/zxing/CaptureFragment;->mCameraScan:Lcom/king/zxing/CameraScan;
@@ -103,7 +103,7 @@
 .end method
 
 .method public getFlashlightId()I
-    .locals 1
+    .registers 2
 
     .line 216
     sget v0, Lcom/king/zxing/R$id;->ivFlashlight:I
@@ -112,7 +112,7 @@
 .end method
 
 .method public getLayoutId()I
-    .locals 1
+    .registers 2
 
     .line 191
     sget v0, Lcom/king/zxing/R$layout;->zxl_capture:I
@@ -121,7 +121,7 @@
 .end method
 
 .method public getPreviewViewId()I
-    .locals 1
+    .registers 2
 
     .line 208
     sget v0, Lcom/king/zxing/R$id;->previewView:I
@@ -130,7 +130,7 @@
 .end method
 
 .method public getRootView()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 240
     iget-object v0, p0, Lcom/king/zxing/CaptureFragment;->mRootView:Landroid/view/View;
@@ -139,7 +139,7 @@
 .end method
 
 .method public getViewfinderViewId()I
-    .locals 1
+    .registers 2
 
     .line 199
     sget v0, Lcom/king/zxing/R$id;->viewfinderView:I
@@ -148,7 +148,7 @@
 .end method
 
 .method public initCameraScan()V
-    .locals 2
+    .registers 3
 
     .line 99
     new-instance v0, Lcom/king/zxing/DefaultCameraScan;
@@ -169,7 +169,7 @@
 .end method
 
 .method public initUI()V
-    .locals 4
+    .registers 5
 
     .line 72
     iget-object v0, p0, Lcom/king/zxing/CaptureFragment;->mRootView:Landroid/view/View;
@@ -193,7 +193,7 @@
 
     .line 74
     .local v0, "viewfinderViewId":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 75
     iget-object v1, p0, Lcom/king/zxing/CaptureFragment;->mRootView:Landroid/view/View;
@@ -207,14 +207,14 @@
     iput-object v1, p0, Lcom/king/zxing/CaptureFragment;->viewfinderView:Lcom/king/zxing/ViewfinderView;
 
     .line 77
-    :cond_0
+    :cond_1e
     invoke-virtual {p0}, Lcom/king/zxing/CaptureFragment;->getFlashlightId()I
 
     move-result v1
 
     .line 78
     .local v1, "ivFlashlightId":I
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3a
 
     .line 79
     iget-object v2, p0, Lcom/king/zxing/CaptureFragment;->mRootView:Landroid/view/View;
@@ -228,7 +228,7 @@
     .line 80
     iget-object v2, p0, Lcom/king/zxing/CaptureFragment;->ivFlashlight:Landroid/view/View;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3a
 
     .line 81
     iget-object v2, p0, Lcom/king/zxing/CaptureFragment;->ivFlashlight:Landroid/view/View;
@@ -240,7 +240,7 @@
     invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 84
-    :cond_1
+    :cond_3a
     invoke-virtual {p0}, Lcom/king/zxing/CaptureFragment;->initCameraScan()V
 
     .line 85
@@ -251,7 +251,7 @@
 .end method
 
 .method public isContentView(I)Z
-    .locals 1
+    .registers 3
     .param p1, "layoutId"    # I
 
     .line 172
@@ -261,7 +261,7 @@
 .end method
 
 .method synthetic lambda$initUI$0$com-king-zxing-CaptureFragment(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "v"    # Landroid/view/View;
 
     .line 81
@@ -271,7 +271,7 @@
 .end method
 
 .method protected onClickFlashlight()V
-    .locals 0
+    .registers 1
 
     .line 92
     invoke-virtual {p0}, Lcom/king/zxing/CaptureFragment;->toggleTorchState()V
@@ -281,7 +281,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 2
+    .registers 6
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -297,7 +297,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 62
     invoke-virtual {p0, p1, p2}, Lcom/king/zxing/CaptureFragment;->createRootView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
@@ -307,7 +307,7 @@
     iput-object v1, p0, Lcom/king/zxing/CaptureFragment;->mRootView:Landroid/view/View;
 
     .line 64
-    :cond_0
+    :cond_10
     invoke-virtual {p0}, Lcom/king/zxing/CaptureFragment;->initUI()V
 
     .line 65
@@ -317,7 +317,7 @@
 .end method
 
 .method public onDestroy()V
-    .locals 0
+    .registers 1
 
     .line 162
     invoke-direct {p0}, Lcom/king/zxing/CaptureFragment;->releaseCamera()V
@@ -330,7 +330,7 @@
 .end method
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
-    .locals 1
+    .registers 5
     .param p1, "requestCode"    # I
     .param p2, "permissions"    # [Ljava/lang/String;
     .param p3, "grantResults"    # [I
@@ -341,18 +341,18 @@
     .line 142
     const/16 v0, 0x86
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     .line 143
     invoke-virtual {p0, p2, p3}, Lcom/king/zxing/CaptureFragment;->requestCameraPermissionResult([Ljava/lang/String;[I)V
 
     .line 145
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public onScanResultCallback(Lcom/google/zxing/Result;)Z
-    .locals 1
+    .registers 3
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 234
@@ -362,7 +362,7 @@
 .end method
 
 .method public synthetic onScanResultFailure()V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lcom/king/zxing/CameraScan$OnScanResultCallback$-CC;->$default$onScanResultFailure(Lcom/king/zxing/CameraScan$OnScanResultCallback;)V
 
@@ -370,7 +370,7 @@
 .end method
 
 .method public requestCameraPermissionResult([Ljava/lang/String;[I)V
-    .locals 1
+    .registers 4
     .param p1, "permissions"    # [Ljava/lang/String;
     .param p2, "grantResults"    # [I
 
@@ -381,15 +381,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 154
     invoke-virtual {p0}, Lcom/king/zxing/CaptureFragment;->startCamera()V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 156
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Lcom/king/zxing/CaptureFragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v0
@@ -397,17 +397,17 @@
     invoke-virtual {v0}, Landroidx/fragment/app/FragmentActivity;->finish()V
 
     .line 158
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method public startCamera()V
-    .locals 2
+    .registers 3
 
     .line 107
     iget-object v0, p0, Lcom/king/zxing/CaptureFragment;->mCameraScan:Lcom/king/zxing/CameraScan;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 108
     invoke-virtual {p0}, Lcom/king/zxing/CaptureFragment;->getContext()Landroid/content/Context;
@@ -420,17 +420,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 109
     iget-object v0, p0, Lcom/king/zxing/CaptureFragment;->mCameraScan:Lcom/king/zxing/CameraScan;
 
     invoke-virtual {v0}, Lcom/king/zxing/CameraScan;->startCamera()V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 111
-    :cond_0
+    :cond_16
     const-string v0, "checkPermissionResult != PERMISSION_GRANTED"
 
     invoke-static {v0}, Lcom/king/zxing/util/LogUtils;->d(Ljava/lang/String;)V
@@ -441,18 +441,18 @@
     invoke-static {p0, v1, v0}, Lcom/king/zxing/util/PermissionUtils;->requestPermission(Landroidx/fragment/app/Fragment;Ljava/lang/String;I)V
 
     .line 115
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     return-void
 .end method
 
 .method protected toggleTorchState()V
-    .locals 3
+    .registers 4
 
     .line 130
     iget-object v0, p0, Lcom/king/zxing/CaptureFragment;->mCameraScan:Lcom/king/zxing/CameraScan;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 131
     iget-object v0, p0, Lcom/king/zxing/CaptureFragment;->mCameraScan:Lcom/king/zxing/CameraScan;
@@ -472,7 +472,7 @@
     .line 133
     iget-object v1, p0, Lcom/king/zxing/CaptureFragment;->ivFlashlight:Landroid/view/View;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 134
     iget-object v1, p0, Lcom/king/zxing/CaptureFragment;->ivFlashlight:Landroid/view/View;
@@ -483,6 +483,6 @@
 
     .line 137
     .end local v0    # "isTorch":Z
-    :cond_0
+    :cond_1c
     return-void
 .end method

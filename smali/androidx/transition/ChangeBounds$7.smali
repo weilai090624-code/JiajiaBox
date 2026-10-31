@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/ChangeBounds;Landroidx/transition/ChangeBounds$ViewBounds;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/transition/ChangeBounds;
 
     .line 326

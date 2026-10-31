@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5503
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static addKeyboardNavigationClusters(Landroid/view/View;Ljava/util/Collection;I)V
-    .locals 0
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p2, "direction"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -48,7 +48,7 @@
 .end method
 
 .method public static getAutofillId(Landroid/view/View;)Landroid/view/autofill/AutofillId;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5586
@@ -60,7 +60,7 @@
 .end method
 
 .method static getImportantForAutofill(Landroid/view/View;)I
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5571
@@ -72,7 +72,7 @@
 .end method
 
 .method static getNextClusterForwardId(Landroid/view/View;)I
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5519
@@ -84,7 +84,7 @@
 .end method
 
 .method static hasExplicitFocusable(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5566
@@ -96,7 +96,7 @@
 .end method
 
 .method static isFocusedByDefault(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5539
@@ -108,7 +108,7 @@
 .end method
 
 .method static isImportantForAutofill(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5581
@@ -120,7 +120,7 @@
 .end method
 
 .method static isKeyboardNavigationCluster(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5529
@@ -132,7 +132,7 @@
 .end method
 
 .method static keyboardNavigationClusterSearch(Landroid/view/View;Landroid/view/View;I)Landroid/view/View;
-    .locals 1
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "currentCluster"    # Landroid/view/View;
     .param p2, "direction"    # I
@@ -146,7 +146,7 @@
 .end method
 
 .method static restoreDefaultFocus(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5561
@@ -158,7 +158,7 @@
 .end method
 
 .method static varargs setAutofillHints(Landroid/view/View;[Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "autofillHints"    # [Ljava/lang/String;
 
@@ -170,7 +170,7 @@
 .end method
 
 .method static setFocusedByDefault(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "isFocusedByDefault"    # Z
 
@@ -182,7 +182,7 @@
 .end method
 
 .method static setImportantForAutofill(Landroid/view/View;I)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "mode"    # I
 
@@ -194,7 +194,7 @@
 .end method
 
 .method static setKeyboardNavigationCluster(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "isCluster"    # Z
 
@@ -206,7 +206,7 @@
 .end method
 
 .method static setNextClusterForwardId(Landroid/view/View;I)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "nextClusterForwardId"    # I
 
@@ -218,7 +218,7 @@
 .end method
 
 .method static setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .param p1, "tooltipText"    # Ljava/lang/CharSequence;
 

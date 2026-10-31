@@ -96,7 +96,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Landroidx/window/core/Logger;Landroidx/window/core/SpecificationComputer$VerificationMode;)V
-    .locals 7
+    .registers 13
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "tag"    # Ljava/lang/String;
     .param p3, "message"    # Ljava/lang/String;
@@ -209,7 +209,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_60
 
     .end local v3    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v4    # "$i$f$toTypedArray":I
@@ -236,7 +236,7 @@
     .restart local v3    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v4    # "$i$f$toTypedArray":I
     .restart local v5    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_0
+    :cond_60
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v6, "null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>"
@@ -249,7 +249,7 @@
 
 # virtual methods
 .method public compute()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -267,7 +267,7 @@
 
     aget v0, v1, v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2a
 
     .line 168
     new-instance v0, Lkotlin/NoWhenBranchMatchedException;
@@ -276,11 +276,11 @@
 
     throw v0
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_13
+    goto :goto_24
 
     .line 165
-    :pswitch_1
+    :pswitch_14
     iget-object v0, p0, Landroidx/window/core/FailedSpecification;->logger:Landroidx/window/core/Logger;
 
     iget-object v1, p0, Landroidx/window/core/FailedSpecification;->tag:Ljava/lang/String;
@@ -299,29 +299,29 @@
     nop
 
     .line 162
-    :goto_0
+    :goto_24
     const/4 v0, 0x0
 
     return-object v0
 
     .line 163
-    :pswitch_2
+    :pswitch_26
     iget-object v0, p0, Landroidx/window/core/FailedSpecification;->exception:Landroidx/window/core/WindowStrictModeException;
 
     throw v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2a
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_26
+        :pswitch_14
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method public final getException()Landroidx/window/core/WindowStrictModeException;
-    .locals 1
+    .registers 2
 
     .line 152
     iget-object v0, p0, Landroidx/window/core/FailedSpecification;->exception:Landroidx/window/core/WindowStrictModeException;
@@ -330,7 +330,7 @@
 .end method
 
 .method public final getLogger()Landroidx/window/core/Logger;
-    .locals 1
+    .registers 2
 
     .line 148
     iget-object v0, p0, Landroidx/window/core/FailedSpecification;->logger:Landroidx/window/core/Logger;
@@ -339,7 +339,7 @@
 .end method
 
 .method public final getMessage()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 147
     iget-object v0, p0, Landroidx/window/core/FailedSpecification;->message:Ljava/lang/String;
@@ -348,7 +348,7 @@
 .end method
 
 .method public final getTag()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 146
     iget-object v0, p0, Landroidx/window/core/FailedSpecification;->tag:Ljava/lang/String;
@@ -357,7 +357,7 @@
 .end method
 
 .method public final getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -371,7 +371,7 @@
 .end method
 
 .method public final getVerificationMode()Landroidx/window/core/SpecificationComputer$VerificationMode;
-    .locals 1
+    .registers 2
 
     .line 149
     iget-object v0, p0, Landroidx/window/core/FailedSpecification;->verificationMode:Landroidx/window/core/SpecificationComputer$VerificationMode;
@@ -380,7 +380,7 @@
 .end method
 
 .method public require(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Landroidx/window/core/SpecificationComputer;
-    .locals 1
+    .registers 4
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "condition"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;

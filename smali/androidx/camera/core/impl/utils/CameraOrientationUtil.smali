@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public static degreesToSurfaceRotation(I)I
-    .locals 4
+    .registers 5
     .param p0, "degrees"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -35,7 +35,7 @@
 
     .line 115
     .local v0, "surfaceRotation":I
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_26
 
     .line 129
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -63,48 +63,48 @@
     throw v1
 
     .line 126
-    :sswitch_0
+    :sswitch_1d
     const/4 v0, 0x3
 
     .line 127
-    goto :goto_0
+    goto :goto_25
 
     .line 123
-    :sswitch_1
+    :sswitch_1f
     const/4 v0, 0x2
 
     .line 124
-    goto :goto_0
+    goto :goto_25
 
     .line 120
-    :sswitch_2
+    :sswitch_21
     const/4 v0, 0x1
 
     .line 121
-    goto :goto_0
+    goto :goto_25
 
     .line 117
-    :sswitch_3
+    :sswitch_23
     const/4 v0, 0x0
 
     .line 118
     nop
 
     .line 132
-    :goto_0
+    :goto_25
     return v0
 
-    :sswitch_data_0
+    :sswitch_data_26
     .sparse-switch
-        0x0 -> :sswitch_3
-        0x5a -> :sswitch_2
-        0xb4 -> :sswitch_1
-        0x10e -> :sswitch_0
+        0x0 -> :sswitch_23
+        0x5a -> :sswitch_21
+        0xb4 -> :sswitch_1f
+        0x10e -> :sswitch_1d
     .end sparse-switch
 .end method
 
 .method public static getRelativeImageRotation(IIZ)I
-    .locals 8
+    .registers 11
     .param p0, "destRotationDegrees"    # I
     .param p1, "sourceRotationDegrees"    # I
     .param p2, "isOppositeFacing"    # Z
@@ -122,7 +122,7 @@
     .end annotation
 
     .line 50
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_9
 
     .line 51
     sub-int v0, p1, p0
@@ -132,25 +132,25 @@
     rem-int/lit16 v0, v0, 0x168
 
     .local v0, "result":I
-    goto :goto_0
+    goto :goto_d
 
     .line 53
     .end local v0    # "result":I
-    :cond_0
+    :cond_9
     add-int v0, p1, p0
 
     rem-int/lit16 v0, v0, 0x168
 
     .line 55
     .restart local v0    # "result":I
-    :goto_0
+    :goto_d
     const-string v1, "CameraOrientationUtil"
 
     invoke-static {v1}, Landroidx/camera/core/Logger;->isDebugEnabled(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3e
 
     .line 56
     nop
@@ -203,12 +203,12 @@
     invoke-static {v1, v2}, Landroidx/camera/core/Logger;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 64
-    :cond_1
+    :cond_3e
     return v0
 .end method
 
 .method public static surfaceRotationToDegrees(I)I
-    .locals 3
+    .registers 4
     .param p0, "rotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -220,7 +220,7 @@
     .end annotation
 
     .line 81
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_28
 
     .line 95
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -248,34 +248,34 @@
     throw v0
 
     .line 92
-    :pswitch_0
+    :pswitch_1c
     const/16 v0, 0x10e
 
     .line 93
     .local v0, "rotationDegrees":I
-    goto :goto_0
+    goto :goto_27
 
     .line 89
     .end local v0    # "rotationDegrees":I
-    :pswitch_1
+    :pswitch_1f
     const/16 v0, 0xb4
 
     .line 90
     .restart local v0    # "rotationDegrees":I
-    goto :goto_0
+    goto :goto_27
 
     .line 86
     .end local v0    # "rotationDegrees":I
-    :pswitch_2
+    :pswitch_22
     const/16 v0, 0x5a
 
     .line 87
     .restart local v0    # "rotationDegrees":I
-    goto :goto_0
+    goto :goto_27
 
     .line 83
     .end local v0    # "rotationDegrees":I
-    :pswitch_3
+    :pswitch_25
     const/4 v0, 0x0
 
     .line 84
@@ -283,14 +283,14 @@
     nop
 
     .line 98
-    :goto_0
+    :goto_27
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_25
+        :pswitch_22
+        :pswitch_1f
+        :pswitch_1c
     .end packed-switch
 .end method

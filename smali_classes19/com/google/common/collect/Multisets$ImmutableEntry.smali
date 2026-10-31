@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;I)V
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public final getCount()I
-    .locals 1
+    .registers 2
 
     .line 241
     .local p0, "this":Lcom/google/common/collect/Multisets$ImmutableEntry;, "Lcom/google/common/collect/Multisets$ImmutableEntry<TE;>;"
@@ -94,7 +94,7 @@
 .end method
 
 .method public final getElement()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public nextInBucket()Lcom/google/common/collect/Multisets$ImmutableEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

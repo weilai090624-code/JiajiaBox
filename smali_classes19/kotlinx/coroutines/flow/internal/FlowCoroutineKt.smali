@@ -42,7 +42,7 @@
 
 # direct methods
 .method public static final flowScope(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -98,17 +98,17 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 34
-    :cond_0
+    :cond_1b
     return-object v0
 .end method
 
 .method public static final scopedFlow(Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "block"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
         value = {

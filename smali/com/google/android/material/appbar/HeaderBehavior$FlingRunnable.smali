@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/appbar/HeaderBehavior;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)V
-    .locals 0
+    .registers 4
     .param p2, "parent"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -63,19 +63,19 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 270
     .local p0, "this":Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;, "Lcom/google/android/material/appbar/HeaderBehavior<TV;>.FlingRunnable;"
     iget-object v0, p0, Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;->layout:Landroid/view/View;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_34
 
     iget-object v0, p0, Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;->this$0:Lcom/google/android/material/appbar/HeaderBehavior;
 
     iget-object v0, v0, Lcom/google/android/material/appbar/HeaderBehavior;->scroller:Landroid/widget/OverScroller;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_34
 
     .line 271
     iget-object v0, p0, Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;->this$0:Lcom/google/android/material/appbar/HeaderBehavior;
@@ -86,7 +86,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 272
     iget-object v0, p0, Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;->this$0:Lcom/google/android/material/appbar/HeaderBehavior;
@@ -110,10 +110,10 @@
 
     invoke-static {v0, p0}, Landroidx/core/view/ViewCompat;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_34
 
     .line 276
-    :cond_0
+    :cond_2b
     iget-object v0, p0, Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;->this$0:Lcom/google/android/material/appbar/HeaderBehavior;
 
     iget-object v1, p0, Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;->parent:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
@@ -123,7 +123,7 @@
     invoke-virtual {v0, v1, v2}, Lcom/google/android/material/appbar/HeaderBehavior;->onFlingFinished(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)V
 
     .line 279
-    :cond_1
-    :goto_0
+    :cond_34
+    :goto_34
     return-void
 .end method

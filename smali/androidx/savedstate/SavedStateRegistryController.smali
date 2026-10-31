@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/savedstate/SavedStateRegistryController$Companion;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructor <init>(Landroidx/savedstate/SavedStateRegistryOwner;)V
-    .locals 1
+    .registers 3
     .param p1, "owner"    # Landroidx/savedstate/SavedStateRegistryOwner;
 
     .line 28
@@ -94,7 +94,7 @@
 .end method
 
 .method public synthetic constructor <init>(Landroidx/savedstate/SavedStateRegistryOwner;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0, p1}, Landroidx/savedstate/SavedStateRegistryController;-><init>(Landroidx/savedstate/SavedStateRegistryOwner;)V
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public static final create(Landroidx/savedstate/SavedStateRegistryOwner;)Landroidx/savedstate/SavedStateRegistryController;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public final getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Landroidx/savedstate/SavedStateRegistryController;->savedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
@@ -127,7 +127,7 @@
 .end method
 
 .method public final performAttach()V
-    .locals 4
+    .registers 5
 
     .line 44
     iget-object v0, p0, Landroidx/savedstate/SavedStateRegistryController;->owner:Landroidx/savedstate/SavedStateRegistryOwner;
@@ -146,17 +146,17 @@
 
     const/4 v3, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_11
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_12
+    if-eqz v1, :cond_28
 
     .line 48
     new-instance v1, Landroidx/savedstate/Recreator;
@@ -181,7 +181,7 @@
     return-void
 
     .line 45
-    :cond_1
+    :cond_28
     const/4 v1, 0x0
 
     .line 46
@@ -204,19 +204,19 @@
 .end method
 
 .method public final performRestore(Landroid/os/Bundle;)V
-    .locals 4
+    .registers 6
     .param p1, "savedState"    # Landroid/os/Bundle;
 
     .line 62
     iget-boolean v0, p0, Landroidx/savedstate/SavedStateRegistryController;->attached:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 63
     invoke-virtual {p0}, Landroidx/savedstate/SavedStateRegistryController;->performAttach()V
 
     .line 65
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/savedstate/SavedStateRegistryController;->owner:Landroidx/savedstate/SavedStateRegistryOwner;
 
     invoke-interface {v0}, Landroidx/savedstate/SavedStateRegistryOwner;->getLifecycle()Landroidx/lifecycle/Lifecycle;
@@ -235,7 +235,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1f
 
     .line 69
     iget-object v1, p0, Landroidx/savedstate/SavedStateRegistryController;->savedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
@@ -246,7 +246,7 @@
     return-void
 
     .line 66
-    :cond_1
+    :cond_1f
     const/4 v1, 0x0
 
     .line 67
@@ -287,7 +287,7 @@
 .end method
 
 .method public final performSave(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "outBundle"    # Landroid/os/Bundle;
 
     const-string v0, "outBundle"

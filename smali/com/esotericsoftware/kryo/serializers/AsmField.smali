@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;Lcom/esotericsoftware/kryo/serializers/FieldSerializer;Lcom/esotericsoftware/kryo/util/Generics$GenericType;)V
-    .locals 0
+    .registers 4
     .param p1, "field"    # Ljava/lang/reflect/Field;
     .param p2, "serializer"    # Lcom/esotericsoftware/kryo/serializers/FieldSerializer;
     .param p3, "genericType"    # Lcom/esotericsoftware/kryo/util/Generics$GenericType;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public copy(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 7
+    .registers 10
     .param p1, "original"    # Ljava/lang/Object;
     .param p2, "copy"    # Ljava/lang/Object;
 
@@ -45,7 +45,7 @@
 
     const-string v1, " ("
 
-    :try_start_0
+    :try_start_4
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/AsmField;->access:Lcom/esotericsoftware/reflectasm/FieldAccess;
 
     iget v3, p0, Lcom/esotericsoftware/kryo/serializers/AsmField;->accessIndex:I
@@ -67,9 +67,9 @@
     move-result-object v4
 
     invoke-virtual {v2, p2, v3, v4}, Lcom/esotericsoftware/reflectasm/FieldAccess;->set(Ljava/lang/Object;ILjava/lang/Object;)V
-    :try_end_0
-    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_4 .. :try_end_1b} :catch_48
+    .catchall {:try_start_4 .. :try_end_1b} :catchall_1d
 
     .line 55
     nop
@@ -78,7 +78,7 @@
     return-void
 
     .line 51
-    :catchall_0
+    :catchall_1d
     move-exception v2
 
     .line 52
@@ -129,7 +129,7 @@
     .line 48
     .end local v2    # "t":Ljava/lang/Throwable;
     .end local v3    # "ex":Lcom/esotericsoftware/kryo/KryoException;
-    :catch_0
+    :catch_48
     move-exception v2
 
     .line 49
@@ -173,7 +173,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -194,7 +194,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;

@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method clip(Landroid/graphics/Canvas;)V
-    .locals 2
+    .registers 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 83
@@ -68,17 +68,17 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_c
 
     .line 84
     iget-object v0, p0, Lcom/google/android/material/transition/MaskEvaluator;->path:Landroid/graphics/Path;
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
 
-    goto :goto_0
+    goto :goto_18
 
     .line 86
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lcom/google/android/material/transition/MaskEvaluator;->startPath:Landroid/graphics/Path;
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
@@ -91,12 +91,12 @@
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;Landroid/graphics/Region$Op;)Z
 
     .line 89
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method evaluate(FLcom/google/android/material/shape/ShapeAppearanceModel;Lcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/RectF;Lcom/google/android/material/transition/MaterialContainerTransform$ProgressThresholds;)V
-    .locals 10
+    .registers 18
     .param p1, "progress"    # F
     .param p2, "startShapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p3, "endShapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -172,7 +172,7 @@
 
     const/16 v2, 0x17
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_40
 
     .line 77
     iget-object v1, v0, Lcom/google/android/material/transition/MaskEvaluator;->path:Landroid/graphics/Path;
@@ -186,12 +186,12 @@
     invoke-virtual {v1, v2, v3, v4}, Landroid/graphics/Path;->op(Landroid/graphics/Path;Landroid/graphics/Path;Landroid/graphics/Path$Op;)Z
 
     .line 79
-    :cond_0
+    :cond_40
     return-void
 .end method
 
 .method getCurrentShapeAppearanceModel()Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object v0, p0, Lcom/google/android/material/transition/MaskEvaluator;->currentShapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -200,7 +200,7 @@
 .end method
 
 .method getPath()Landroid/graphics/Path;
-    .locals 1
+    .registers 2
 
     .line 92
     iget-object v0, p0, Lcom/google/android/material/transition/MaskEvaluator;->path:Landroid/graphics/Path;

@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/util/Iterator;)V
-    .locals 0
+    .registers 3
 
     .line 958
     iput p1, p0, Lcom/google/common/collect/Iterators$7;->val$limitSize:I
@@ -50,14 +50,14 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 963
     iget v0, p0, Lcom/google/common/collect/Iterators$7;->count:I
 
     iget v1, p0, Lcom/google/common/collect/Iterators$7;->val$limitSize:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_10
 
     iget-object v0, p0, Lcom/google/common/collect/Iterators$7;->val$iterator:Ljava/util/Iterator;
 
@@ -65,21 +65,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -94,7 +94,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 972
     iget v0, p0, Lcom/google/common/collect/Iterators$7;->count:I
@@ -113,7 +113,7 @@
     return-object v0
 
     .line 970
-    :cond_0
+    :cond_13
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -122,7 +122,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 978
     iget-object v0, p0, Lcom/google/common/collect/Iterators$7;->val$iterator:Ljava/util/Iterator;

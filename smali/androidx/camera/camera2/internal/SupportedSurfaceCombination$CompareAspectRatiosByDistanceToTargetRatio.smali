@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/util/Rational;)V
-    .locals 0
+    .registers 2
     .param p1, "targetRatio"    # Landroid/util/Rational;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public compare(Landroid/util/Rational;Landroid/util/Rational;)I
-    .locals 4
+    .registers 7
     .param p1, "lhs"    # Landroid/util/Rational;
     .param p2, "rhs"    # Landroid/util/Rational;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -75,7 +75,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 1320
     const/4 v0, 0x0
@@ -83,7 +83,7 @@
     return v0
 
     .line 1323
-    :cond_0
+    :cond_8
     invoke-virtual {p1}, Landroid/util/Rational;->floatValue()F
 
     move-result v0
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,

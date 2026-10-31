@@ -25,7 +25,7 @@
 
 # direct methods
 .method public static final synthetic any(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$any"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -42,7 +42,7 @@
 .end method
 
 .method public static final cancelConsumed(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p0, "$this$cancelConsumed"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
@@ -62,7 +62,7 @@
 .end method
 
 .method public static final consume(Lkotlinx/coroutines/channels/BroadcastChannel;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$consume"    # Lkotlinx/coroutines/channels/BroadcastChannel;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -95,7 +95,7 @@
 .end method
 
 .method public static final consume(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$consume"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -123,7 +123,7 @@
 .end method
 
 .method public static final consumeEach(Lkotlinx/coroutines/channels/BroadcastChannel;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$consumeEach"    # Lkotlinx/coroutines/channels/BroadcastChannel;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -160,7 +160,7 @@
 .end method
 
 .method public static final consumeEach(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$consumeEach"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -192,7 +192,7 @@
 .end method
 
 .method public static final consumes(Lkotlinx/coroutines/channels/ReceiveChannel;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .param p0, "$this$consumes"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -215,7 +215,7 @@
 .end method
 
 .method public static final varargs consumesAll([Lkotlinx/coroutines/channels/ReceiveChannel;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .param p0, "channels"    # [Lkotlinx/coroutines/channels/ReceiveChannel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -238,7 +238,7 @@
 .end method
 
 .method public static final synthetic count(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$count"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -255,7 +255,7 @@
 .end method
 
 .method public static final synthetic distinct(Lkotlinx/coroutines/channels/ReceiveChannel;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 2
     .param p0, "$this$distinct"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -271,7 +271,7 @@
 .end method
 
 .method public static final distinctBy(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$distinctBy"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function2;
@@ -305,7 +305,7 @@
 .end method
 
 .method public static synthetic distinctBy$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->distinctBy$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -316,7 +316,7 @@
 .end method
 
 .method public static final synthetic drop(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$drop"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "n"    # I
     .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
@@ -334,7 +334,7 @@
 .end method
 
 .method public static synthetic drop$default(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlin/coroutines/CoroutineContext;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->drop$default(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlin/coroutines/CoroutineContext;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -345,7 +345,7 @@
 .end method
 
 .method public static final synthetic dropWhile(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$dropWhile"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function2;
@@ -363,7 +363,7 @@
 .end method
 
 .method public static synthetic dropWhile$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->dropWhile$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -374,7 +374,7 @@
 .end method
 
 .method public static final synthetic elementAt(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$elementAt"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "index"    # I
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -392,7 +392,7 @@
 .end method
 
 .method public static final synthetic elementAtOrNull(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$elementAtOrNull"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "index"    # I
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -410,7 +410,7 @@
 .end method
 
 .method public static final filter(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$filter"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function2;
@@ -444,7 +444,7 @@
 .end method
 
 .method public static synthetic filter$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->filter$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -455,7 +455,7 @@
 .end method
 
 .method public static final synthetic filterIndexed(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$filterIndexed"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function3;
@@ -473,7 +473,7 @@
 .end method
 
 .method public static synthetic filterIndexed$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->filterIndexed$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -484,7 +484,7 @@
 .end method
 
 .method public static final synthetic filterNot(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$filterNot"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function2;
@@ -502,7 +502,7 @@
 .end method
 
 .method public static synthetic filterNot$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->filterNot$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -513,7 +513,7 @@
 .end method
 
 .method public static final filterNotNull(Lkotlinx/coroutines/channels/ReceiveChannel;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 2
     .param p0, "$this$filterNotNull"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -536,7 +536,7 @@
 .end method
 
 .method public static final synthetic filterNotNullTo(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/util/Collection;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$filterNotNullTo"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -554,7 +554,7 @@
 .end method
 
 .method public static final synthetic filterNotNullTo(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlinx/coroutines/channels/SendChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$filterNotNullTo"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "destination"    # Lkotlinx/coroutines/channels/SendChannel;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -572,7 +572,7 @@
 .end method
 
 .method public static final synthetic first(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$first"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -589,7 +589,7 @@
 .end method
 
 .method public static final synthetic firstOrNull(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$firstOrNull"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -606,7 +606,7 @@
 .end method
 
 .method public static final synthetic flatMap(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$flatMap"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -624,7 +624,7 @@
 .end method
 
 .method public static synthetic flatMap$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->flatMap$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -635,7 +635,7 @@
 .end method
 
 .method public static final synthetic indexOf(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$indexOf"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "element"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -653,7 +653,7 @@
 .end method
 
 .method public static final synthetic last(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$last"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -670,7 +670,7 @@
 .end method
 
 .method public static final synthetic lastIndexOf(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$lastIndexOf"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "element"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -688,7 +688,7 @@
 .end method
 
 .method public static final synthetic lastOrNull(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$lastOrNull"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -705,7 +705,7 @@
 .end method
 
 .method public static final map(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$map"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -739,7 +739,7 @@
 .end method
 
 .method public static synthetic map$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->map$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -750,7 +750,7 @@
 .end method
 
 .method public static final mapIndexed(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$mapIndexed"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function3;
@@ -786,7 +786,7 @@
 .end method
 
 .method public static synthetic mapIndexed$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->mapIndexed$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -797,7 +797,7 @@
 .end method
 
 .method public static final synthetic mapIndexedNotNull(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$mapIndexedNotNull"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function3;
@@ -815,7 +815,7 @@
 .end method
 
 .method public static synthetic mapIndexedNotNull$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->mapIndexedNotNull$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -826,7 +826,7 @@
 .end method
 
 .method public static final synthetic mapNotNull(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$mapNotNull"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -844,7 +844,7 @@
 .end method
 
 .method public static synthetic mapNotNull$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->mapNotNull$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -855,7 +855,7 @@
 .end method
 
 .method public static final synthetic maxWith(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/util/Comparator;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$maxWith"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -873,7 +873,7 @@
 .end method
 
 .method public static final synthetic minWith(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/util/Comparator;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$minWith"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -891,7 +891,7 @@
 .end method
 
 .method public static final synthetic none(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$none"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -908,7 +908,7 @@
 .end method
 
 .method public static final synthetic onReceiveOrNull(Lkotlinx/coroutines/channels/ReceiveChannel;)Lkotlinx/coroutines/selects/SelectClause1;
-    .locals 1
+    .registers 2
     .param p0, "$this$onReceiveOrNull"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -924,7 +924,7 @@
 .end method
 
 .method public static final synthetic receiveOrNull(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$receiveOrNull"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -945,7 +945,7 @@
 .end method
 
 .method public static final synthetic requireNoNulls(Lkotlinx/coroutines/channels/ReceiveChannel;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 2
     .param p0, "$this$requireNoNulls"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
@@ -961,7 +961,7 @@
 .end method
 
 .method public static final synthetic sendBlocking(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p0, "$this$sendBlocking"    # Lkotlinx/coroutines/channels/SendChannel;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation runtime Lkotlin/Deprecated;
@@ -980,7 +980,7 @@
 .end method
 
 .method public static final synthetic single(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$single"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -997,7 +997,7 @@
 .end method
 
 .method public static final synthetic singleOrNull(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$singleOrNull"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -1014,7 +1014,7 @@
 .end method
 
 .method public static final synthetic take(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$take"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "n"    # I
     .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
@@ -1032,7 +1032,7 @@
 .end method
 
 .method public static synthetic take$default(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlin/coroutines/CoroutineContext;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->take$default(Lkotlinx/coroutines/channels/ReceiveChannel;ILkotlin/coroutines/CoroutineContext;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -1043,7 +1043,7 @@
 .end method
 
 .method public static final synthetic takeWhile(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 4
     .param p0, "$this$takeWhile"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function2;
@@ -1061,7 +1061,7 @@
 .end method
 
 .method public static synthetic takeWhile$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 5
 
     .line 1
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->takeWhile$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -1072,7 +1072,7 @@
 .end method
 
 .method public static final toChannel(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlinx/coroutines/channels/SendChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$toChannel"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "destination"    # Lkotlinx/coroutines/channels/SendChannel;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -1100,7 +1100,7 @@
 .end method
 
 .method public static final toCollection(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/util/Collection;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$toCollection"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -1128,7 +1128,7 @@
 .end method
 
 .method public static final toList(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$toList"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1155,7 +1155,7 @@
 .end method
 
 .method public static final toMap(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$toMap"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -1187,7 +1187,7 @@
 .end method
 
 .method public static final synthetic toMap(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$toMap"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -1204,7 +1204,7 @@
 .end method
 
 .method public static final synthetic toMutableList(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$toMutableList"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -1221,7 +1221,7 @@
 .end method
 
 .method public static final toMutableSet(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$toMutableSet"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1248,7 +1248,7 @@
 .end method
 
 .method public static final synthetic toSet(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$toSet"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation runtime Lkotlin/Deprecated;
@@ -1265,7 +1265,7 @@
 .end method
 
 .method public static final trySendBlocking(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$trySendBlocking"    # Lkotlinx/coroutines/channels/SendChannel;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -1288,7 +1288,7 @@
 .end method
 
 .method public static final synthetic withIndex(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 3
     .param p0, "$this$withIndex"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation runtime Lkotlin/Deprecated;
@@ -1305,7 +1305,7 @@
 .end method
 
 .method public static synthetic withIndex$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 4
 
     .line 1
     invoke-static {p0, p1, p2, p3}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->withIndex$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -1316,7 +1316,7 @@
 .end method
 
 .method public static final synthetic zip(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlinx/coroutines/channels/ReceiveChannel;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 3
     .param p0, "$this$zip"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "other"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .annotation runtime Lkotlin/Deprecated;
@@ -1333,7 +1333,7 @@
 .end method
 
 .method public static final zip(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 1
+    .registers 5
     .param p0, "$this$zip"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p1, "other"    # Lkotlinx/coroutines/channels/ReceiveChannel;
     .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
@@ -1368,7 +1368,7 @@
 .end method
 
 .method public static synthetic zip$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 6
 
     .line 1
     invoke-static/range {p0 .. p5}, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt;->zip$default(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;

@@ -67,7 +67,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/navigation/Navigator;)V
-    .locals 1
+    .registers 3
     .param p1, "fragmentNavigator"    # Landroidx/navigation/Navigator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -91,7 +91,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/navigation/NavigatorProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "navigatorProvider"    # Landroidx/navigation/NavigatorProvider;
 
     const-string v0, "navigatorProvider"
@@ -113,27 +113,27 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 354
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1d
 
     instance-of v1, p1, Landroidx/navigation/fragment/FragmentNavigator$Destination;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_8
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 355
-    :cond_0
+    :cond_8
     invoke-super {p0, p1}, Landroidx/navigation/NavDestination;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     iget-object v1, p0, Landroidx/navigation/fragment/FragmentNavigator$Destination;->_className:Ljava/lang/String;
 
@@ -147,35 +147,35 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_1c
     return v0
 
     .line 354
-    :cond_2
-    :goto_0
+    :cond_1d
+    :goto_1d
     return v0
 .end method
 
 .method public final getClassName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 337
     iget-object v0, p0, Landroidx/navigation/fragment/FragmentNavigator$Destination;->_className:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 338
     iget-object v0, p0, Landroidx/navigation/fragment/FragmentNavigator$Destination;->_className:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     return-object v0
 
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type kotlin.String"
@@ -185,7 +185,7 @@
     throw v0
 
     .line 440
-    :cond_1
+    :cond_11
     const/4 v0, 0x0
 
     .line 337
@@ -207,7 +207,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 359
     invoke-super {p0}, Landroidx/navigation/NavDestination;->hashCode()I
@@ -220,18 +220,18 @@
 
     iget-object v2, p0, Landroidx/navigation/fragment/FragmentNavigator$Destination;->_className:Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_f
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_10
     add-int/2addr v1, v2
 
     .line 361
@@ -241,7 +241,7 @@
 .end method
 
 .method public onInflate(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -291,12 +291,12 @@
 
     .line 314
     .local v4, "className":Ljava/lang/String;
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2a
 
     invoke-virtual {p0, v4}, Landroidx/navigation/fragment/FragmentNavigator$Destination;->setClassName(Ljava/lang/String;)Landroidx/navigation/fragment/FragmentNavigator$Destination;
 
     .line 315
-    :cond_0
+    :cond_2a
     nop
 
     .end local v2    # "array":Landroid/content/res/TypedArray;
@@ -326,7 +326,7 @@
 .end method
 
 .method public final setClassName(Ljava/lang/String;)Landroidx/navigation/fragment/FragmentNavigator$Destination;
-    .locals 1
+    .registers 3
     .param p1, "className"    # Ljava/lang/String;
 
     const-string v0, "className"
@@ -341,7 +341,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 342
     new-instance v0, Ljava/lang/StringBuilder;
@@ -364,23 +364,23 @@
     .line 345
     iget-object v1, p0, Landroidx/navigation/fragment/FragmentNavigator$Destination;->_className:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 346
     const-string v1, "null"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_20
 
     .line 348
-    :cond_0
+    :cond_1b
     iget-object v1, p0, Landroidx/navigation/fragment/FragmentNavigator$Destination;->_className:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 350
-    :goto_0
+    :goto_20
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

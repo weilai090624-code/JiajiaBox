@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/CollectionsKt__MutableCollectionsKt;-><init>()V
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public static final synthetic access$reverseElementIndex(Ljava/util/List;I)I
-    .locals 1
+    .registers 3
     .param p0, "$receiver"    # Ljava/util/List;
     .param p1, "index"    # I
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public static final synthetic access$reverseIteratorIndex(Ljava/util/List;I)I
-    .locals 1
+    .registers 3
     .param p0, "$receiver"    # Ljava/util/List;
     .param p1, "index"    # I
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public static final synthetic access$reversePositionIndex(Ljava/util/List;I)I
-    .locals 1
+    .registers 3
     .param p0, "$receiver"    # Ljava/util/List;
     .param p1, "index"    # I
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public static final asReversed(Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$asReversed"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -113,7 +113,7 @@
 .end method
 
 .method public static final asReversedMutable(Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$asReversed"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -142,7 +142,7 @@
 .end method
 
 .method private static final reverseElementIndex$CollectionsKt__ReversedViewsKt(Ljava/util/List;I)I
-    .locals 5
+    .registers 7
     .param p0, "$this$reverseElementIndex"    # Ljava/util/List;
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -156,23 +156,23 @@
     .line 65
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_b
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->getLastIndex(Ljava/util/List;)I
 
     move-result v1
 
-    if-gt p1, v1, :cond_0
+    if-gt p1, v1, :cond_b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_c
+    if-eqz v1, :cond_14
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->getLastIndex(Ljava/util/List;)I
 
@@ -182,7 +182,7 @@
 
     return v0
 
-    :cond_1
+    :cond_14
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -233,7 +233,7 @@
 .end method
 
 .method private static final reverseIteratorIndex$CollectionsKt__ReversedViewsKt(Ljava/util/List;I)I
-    .locals 1
+    .registers 3
     .param p0, "$this$reverseIteratorIndex"    # Ljava/util/List;
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -255,7 +255,7 @@
 .end method
 
 .method private static final reversePositionIndex$CollectionsKt__ReversedViewsKt(Ljava/util/List;I)I
-    .locals 5
+    .registers 7
     .param p0, "$this$reversePositionIndex"    # Ljava/util/List;
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -269,23 +269,23 @@
     .line 68
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_b
 
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-gt p1, v1, :cond_0
+    if-gt p1, v1, :cond_b
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_c
+    if-eqz v1, :cond_14
 
     invoke-interface {p0}, Ljava/util/List;->size()I
 
@@ -295,7 +295,7 @@
 
     return v0
 
-    :cond_1
+    :cond_14
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;

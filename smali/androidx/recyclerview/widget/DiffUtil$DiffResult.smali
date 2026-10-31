@@ -58,7 +58,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/DiffUtil$Callback;Ljava/util/List;[I[IZ)V
-    .locals 2
+    .registers 8
     .param p1, "callback"    # Landroidx/recyclerview/widget/DiffUtil$Callback;
     .param p3, "oldItemStatuses"    # [I
     .param p4, "newItemStatuses"    # [I
@@ -129,7 +129,7 @@
 .end method
 
 .method private addEdgeDiagonals()V
-    .locals 6
+    .registers 7
 
     .line 683
     iget-object v0, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mDiagonals:Ljava/util/List;
@@ -140,13 +140,13 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mDiagonals:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -157,19 +157,19 @@
 
     .line 685
     .local v0, "first":Landroidx/recyclerview/widget/DiffUtil$Diagonal;
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_13
+    if-eqz v0, :cond_1d
 
     iget v2, v0, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->x:I
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1d
 
     iget v2, v0, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->y:I
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_27
 
     .line 686
-    :cond_1
+    :cond_1d
     iget-object v2, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mDiagonals:Ljava/util/List;
 
     new-instance v3, Landroidx/recyclerview/widget/DiffUtil$Diagonal;
@@ -179,7 +179,7 @@
     invoke-interface {v2, v1, v3}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     .line 689
-    :cond_2
+    :cond_27
     iget-object v2, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mDiagonals:Ljava/util/List;
 
     new-instance v3, Landroidx/recyclerview/widget/DiffUtil$Diagonal;
@@ -197,7 +197,7 @@
 .end method
 
 .method private findMatchingAddition(I)V
-    .locals 9
+    .registers 11
     .param p1, "posX"    # I
 
     .line 738
@@ -216,8 +216,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_3
+    :goto_8
+    if-ge v2, v1, :cond_4a
 
     .line 741
     iget-object v3, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mDiagonals:Ljava/util/List;
@@ -230,17 +230,17 @@
 
     .line 742
     .local v3, "diagonal":Landroidx/recyclerview/widget/DiffUtil$Diagonal;
-    :goto_1
+    :goto_12
     iget v4, v3, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->y:I
 
-    if-ge v0, v4, :cond_2
+    if-ge v0, v4, :cond_43
 
     .line 744
     iget-object v4, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mNewItemStatuses:[I
 
     aget v4, v4, v0
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_40
 
     .line 745
     iget-object v4, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mCallback:Landroidx/recyclerview/widget/DiffUtil$Callback;
@@ -251,7 +251,7 @@
 
     .line 746
     .local v4, "matching":Z
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_40
 
     .line 748
     iget-object v5, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mCallback:Landroidx/recyclerview/widget/DiffUtil$Callback;
@@ -262,17 +262,17 @@
 
     .line 749
     .local v5, "contentsMatching":Z
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2f
 
     const/16 v6, 0x8
 
-    goto :goto_2
+    goto :goto_30
 
     .line 750
-    :cond_0
+    :cond_2f
     const/4 v6, 0x4
 
-    :goto_2
+    :goto_30
     nop
 
     .line 752
@@ -301,13 +301,13 @@
     .end local v4    # "matching":Z
     .end local v5    # "contentsMatching":Z
     .end local v6    # "changeFlag":I
-    :cond_1
+    :cond_40
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_12
 
     .line 759
-    :cond_2
+    :cond_43
     invoke-virtual {v3}, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->endY()I
 
     move-result v0
@@ -316,16 +316,16 @@
     .end local v3    # "diagonal":Landroidx/recyclerview/widget/DiffUtil$Diagonal;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 761
     .end local v2    # "i":I
-    :cond_3
+    :cond_4a
     return-void
 .end method
 
 .method private findMatchingItems()V
-    .locals 9
+    .registers 10
 
     .line 698
     iget-object v0, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mDiagonals:Ljava/util/List;
@@ -334,12 +334,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -352,10 +352,10 @@
     const/4 v2, 0x0
 
     .local v2, "offset":I
-    :goto_1
+    :goto_13
     iget v3, v1, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->size:I
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_39
 
     .line 700
     iget v3, v1, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->x:I
@@ -378,18 +378,18 @@
 
     .line 703
     .local v5, "theSame":Z
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_27
 
     const/4 v6, 0x1
 
-    goto :goto_2
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     const/4 v6, 0x2
 
     .line 704
     .local v6, "changeFlag":I
-    :goto_2
+    :goto_28
     iget-object v7, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mOldItemStatuses:[I
 
     shl-int/lit8 v8, v4, 0x4
@@ -414,30 +414,30 @@
     .end local v6    # "changeFlag":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_13
 
     .line 707
     .end local v1    # "diagonal":Landroidx/recyclerview/widget/DiffUtil$Diagonal;
     .end local v2    # "offset":I
-    :cond_1
-    goto :goto_0
+    :cond_39
+    goto :goto_6
 
     .line 709
-    :cond_2
+    :cond_3a
     iget-boolean v0, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mDetectMoves:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_41
 
     .line 712
     invoke-direct {p0}, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->findMoveMatches()V
 
     .line 714
-    :cond_3
+    :cond_41
     return-void
 .end method
 
 .method private findMoveMatches()V
-    .locals 4
+    .registers 5
 
     .line 718
     const/4 v0, 0x0
@@ -450,12 +450,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_28
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -465,44 +465,44 @@
 
     .line 720
     .local v2, "diagonal":Landroidx/recyclerview/widget/DiffUtil$Diagonal;
-    :goto_1
+    :goto_13
     iget v3, v2, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->x:I
 
-    if-ge v0, v3, :cond_1
+    if-ge v0, v3, :cond_23
 
     .line 721
     iget-object v3, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mOldItemStatuses:[I
 
     aget v3, v3, v0
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_20
 
     .line 723
     invoke-direct {p0, v0}, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->findMatchingAddition(I)V
 
     .line 725
-    :cond_0
+    :cond_20
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_13
 
     .line 728
-    :cond_1
+    :cond_23
     invoke-virtual {v2}, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->endX()I
 
     move-result v0
 
     .line 729
     .end local v2    # "diagonal":Landroidx/recyclerview/widget/DiffUtil$Diagonal;
-    goto :goto_0
+    goto :goto_7
 
     .line 730
-    :cond_2
+    :cond_28
     return-void
 .end method
 
 .method private static getPostponedUpdate(Ljava/util/Collection;IZ)Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
-    .locals 4
+    .registers 7
     .param p1, "posInList"    # I
     .param p2, "removal"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -527,12 +527,12 @@
 
     .line 977
     .local v1, "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;>;"
-    :goto_0
+    :goto_5
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     .line 978
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -545,11 +545,11 @@
     .local v2, "update":Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
     iget v3, v2, Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;->posInOwnerList:I
 
-    if-ne v3, p1, :cond_0
+    if-ne v3, p1, :cond_1e
 
     iget-boolean v3, v2, Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;->removal:Z
 
-    if-ne v3, p2, :cond_0
+    if-ne v3, p2, :cond_1e
 
     .line 980
     move-object v0, v2
@@ -558,21 +558,21 @@
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     .line 982
-    goto :goto_1
+    goto :goto_1f
 
     .line 984
     .end local v2    # "update":Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
-    :cond_0
-    goto :goto_0
+    :cond_1e
+    goto :goto_5
 
     .line 985
-    :cond_1
-    :goto_1
+    :cond_1f
+    :goto_1f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_3b
 
     .line 987
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -583,7 +583,7 @@
 
     .line 988
     .restart local v2    # "update":Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_34
 
     .line 989
     iget v3, v2, Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;->currentPos:I
@@ -592,10 +592,10 @@
 
     iput v3, v2, Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;->currentPos:I
 
-    goto :goto_2
+    goto :goto_3a
 
     .line 991
-    :cond_2
+    :cond_34
     iget v3, v2, Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;->currentPos:I
 
     add-int/lit8 v3, v3, 0x1
@@ -604,26 +604,26 @@
 
     .line 993
     .end local v2    # "update":Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
-    :goto_2
-    goto :goto_1
+    :goto_3a
+    goto :goto_1f
 
     .line 994
-    :cond_3
+    :cond_3b
     return-object v0
 .end method
 
 
 # virtual methods
 .method public convertNewPositionToOld(I)I
-    .locals 3
+    .registers 5
     .param p1, "newListPosition"    # I
 
     .line 795
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_13
 
     iget v0, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mNewListSize:I
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v0, :cond_13
 
     .line 799
     iget-object v0, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mNewItemStatuses:[I
@@ -634,7 +634,7 @@
     .local v0, "status":I
     and-int/lit8 v1, v0, 0xf
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 801
     const/4 v1, -0x1
@@ -642,14 +642,14 @@
     return v1
 
     .line 803
-    :cond_0
+    :cond_10
     shr-int/lit8 v1, v0, 0x4
 
     return v1
 
     .line 796
     .end local v0    # "status":I
-    :cond_1
+    :cond_13
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -688,15 +688,15 @@
 .end method
 
 .method public convertOldPositionToNew(I)I
-    .locals 3
+    .registers 5
     .param p1, "oldListPosition"    # I
 
     .line 773
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_13
 
     iget v0, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mOldListSize:I
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v0, :cond_13
 
     .line 777
     iget-object v0, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mOldItemStatuses:[I
@@ -707,7 +707,7 @@
     .local v0, "status":I
     and-int/lit8 v1, v0, 0xf
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 779
     const/4 v1, -0x1
@@ -715,14 +715,14 @@
     return v1
 
     .line 781
-    :cond_0
+    :cond_10
     shr-int/lit8 v1, v0, 0x4
 
     return v1
 
     .line 774
     .end local v0    # "status":I
-    :cond_1
+    :cond_13
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -761,7 +761,7 @@
 .end method
 
 .method public dispatchUpdatesTo(Landroidx/recyclerview/widget/ListUpdateCallback;)V
-    .locals 18
+    .registers 20
     .param p1, "updateCallback"    # Landroidx/recyclerview/widget/ListUpdateCallback;
 
     .line 855
@@ -771,7 +771,7 @@
 
     instance-of v2, v1, Landroidx/recyclerview/widget/BatchingListUpdateCallback;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     .line 856
     move-object v2, v1
@@ -779,11 +779,11 @@
     check-cast v2, Landroidx/recyclerview/widget/BatchingListUpdateCallback;
 
     .local v2, "batchingCallback":Landroidx/recyclerview/widget/BatchingListUpdateCallback;
-    goto :goto_0
+    goto :goto_12
 
     .line 858
     .end local v2    # "batchingCallback":Landroidx/recyclerview/widget/BatchingListUpdateCallback;
-    :cond_0
+    :cond_c
     new-instance v2, Landroidx/recyclerview/widget/BatchingListUpdateCallback;
 
     invoke-direct {v2, v1}, Landroidx/recyclerview/widget/BatchingListUpdateCallback;-><init>(Landroidx/recyclerview/widget/ListUpdateCallback;)V
@@ -795,7 +795,7 @@
     .line 868
     .end local p1    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .local v1, "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
-    :goto_0
+    :goto_12
     iget v3, v0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mOldListSize:I
 
     .line 870
@@ -825,8 +825,8 @@
     sub-int/2addr v7, v8
 
     .local v7, "diagonalIndex":I
-    :goto_1
-    if-ltz v7, :cond_b
+    :goto_25
+    if-ltz v7, :cond_107
 
     .line 878
     iget-object v9, v0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mDiagonals:Ljava/util/List;
@@ -851,10 +851,10 @@
 
     .line 884
     .local v11, "endY":I
-    :goto_2
+    :goto_37
     const/4 v12, 0x0
 
-    if-le v5, v10, :cond_4
+    if-le v5, v10, :cond_91
 
     .line 885
     add-int/lit8 v5, v5, -0x1
@@ -868,7 +868,7 @@
     .local v13, "status":I
     and-int/lit8 v14, v13, 0xc
 
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_81
 
     .line 889
     shr-int/lit8 v14, v13, 0x4
@@ -881,7 +881,7 @@
 
     .line 893
     .local v12, "postponedUpdate":Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_70
 
     .line 895
     iget v15, v12, Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;->currentPos:I
@@ -897,7 +897,7 @@
     .line 897
     and-int/lit8 v8, v13, 0x4
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_6a
 
     .line 898
     iget-object v8, v0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mCallback:Landroidx/recyclerview/widget/DiffUtil$Callback;
@@ -922,7 +922,7 @@
     .local v17, "posY":I
     invoke-virtual {v2, v1, v6, v8}, Landroidx/recyclerview/widget/BatchingListUpdateCallback;->onChanged(IILjava/lang/Object;)V
 
-    goto :goto_3
+    goto :goto_6f
 
     .line 897
     .end local v8    # "changePayload":Ljava/lang/Object;
@@ -930,7 +930,7 @@
     .end local v17    # "posY":I
     .restart local v1    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .restart local v6    # "posY":I
-    :cond_1
+    :cond_6a
     move-object/from16 v16, v1
 
     move/from16 v17, v6
@@ -943,15 +943,15 @@
     .end local v15    # "updatedNewPos":I
     .restart local v16    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .restart local v17    # "posY":I
-    :goto_3
-    goto :goto_4
+    :goto_6f
+    goto :goto_80
 
     .line 903
     .end local v16    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .end local v17    # "posY":I
     .restart local v1    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .restart local v6    # "posY":I
-    :cond_2
+    :cond_70
     move-object/from16 v16, v1
 
     move/from16 v17, v6
@@ -975,15 +975,15 @@
     .line 909
     .end local v12    # "postponedUpdate":Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
     .end local v14    # "newPos":I
-    :goto_4
-    goto :goto_5
+    :goto_80
+    goto :goto_8b
 
     .line 911
     .end local v16    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .end local v17    # "posY":I
     .restart local v1    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .restart local v6    # "posY":I
-    :cond_3
+    :cond_81
     move-object/from16 v16, v1
 
     move/from16 v17, v6
@@ -1001,21 +1001,21 @@
 
     .line 914
     .end local v13    # "status":I
-    :goto_5
+    :goto_8b
     move-object/from16 v1, v16
 
     move/from16 v6, v17
 
     const/4 v8, 0x1
 
-    goto :goto_2
+    goto :goto_37
 
     .line 884
     .end local v16    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .end local v17    # "posY":I
     .restart local v1    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .restart local v6    # "posY":I
-    :cond_4
+    :cond_91
     move-object/from16 v16, v1
 
     move/from16 v17, v6
@@ -1023,8 +1023,8 @@
     .line 915
     .end local v1    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .restart local v16    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
-    :goto_6
-    if-le v6, v11, :cond_8
+    :goto_95
+    if-le v6, v11, :cond_d5
 
     .line 916
     add-int/lit8 v6, v6, -0x1
@@ -1038,7 +1038,7 @@
     .local v1, "status":I
     and-int/lit8 v8, v1, 0xc
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_cd
 
     .line 922
     shr-int/lit8 v8, v1, 0x4
@@ -1053,7 +1053,7 @@
 
     .line 927
     .local v14, "postponedUpdate":Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
-    if-nez v14, :cond_5
+    if-nez v14, :cond_b6
 
     .line 929
     new-instance v13, Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
@@ -1066,10 +1066,10 @@
 
     const/4 v15, 0x1
 
-    goto :goto_7
+    goto :goto_cc
 
     .line 938
-    :cond_5
+    :cond_b6
     iget v13, v14, Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;->currentPos:I
 
     sub-int v13, v3, v13
@@ -1085,7 +1085,7 @@
     .line 940
     and-int/lit8 v17, v1, 0x4
 
-    if-eqz v17, :cond_6
+    if-eqz v17, :cond_cc
 
     .line 941
     iget-object v12, v0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mCallback:Landroidx/recyclerview/widget/DiffUtil$Callback;
@@ -1103,12 +1103,12 @@
     .end local v12    # "changePayload":Ljava/lang/Object;
     .end local v13    # "updatedOldPos":I
     .end local v14    # "postponedUpdate":Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
-    :cond_6
-    :goto_7
-    goto :goto_8
+    :cond_cc
+    :goto_cc
+    goto :goto_d3
 
     .line 947
-    :cond_7
+    :cond_cd
     const/4 v15, 0x1
 
     invoke-virtual {v2, v5, v15}, Landroidx/recyclerview/widget/BatchingListUpdateCallback;->onInserted(II)V
@@ -1118,13 +1118,13 @@
 
     .line 950
     .end local v1    # "status":I
-    :goto_8
+    :goto_d3
     const/4 v12, 0x0
 
-    goto :goto_6
+    goto :goto_95
 
     .line 952
-    :cond_8
+    :cond_d5
     iget v1, v9, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->x:I
 
     .line 953
@@ -1138,10 +1138,10 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_9
+    :goto_da
     iget v8, v9, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->size:I
 
-    if-ge v6, v8, :cond_a
+    if-ge v6, v8, :cond_fa
 
     .line 956
     iget-object v8, v0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mOldItemStatuses:[I
@@ -1152,7 +1152,7 @@
 
     const/4 v12, 0x2
 
-    if-ne v8, v12, :cond_9
+    if-ne v8, v12, :cond_f2
 
     .line 957
     iget-object v8, v0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mCallback:Landroidx/recyclerview/widget/DiffUtil$Callback;
@@ -1167,15 +1167,15 @@
 
     invoke-virtual {v2, v1, v12, v8}, Landroidx/recyclerview/widget/BatchingListUpdateCallback;->onChanged(IILjava/lang/Object;)V
 
-    goto :goto_a
+    goto :goto_f3
 
     .line 956
     .end local v8    # "changePayload":Ljava/lang/Object;
-    :cond_9
+    :cond_f2
     const/4 v12, 0x1
 
     .line 960
-    :goto_a
+    :goto_f3
     add-int/lit8 v1, v1, 0x1
 
     .line 961
@@ -1184,9 +1184,9 @@
     .line 954
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_9
+    goto :goto_da
 
-    :cond_a
+    :cond_fa
     const/4 v12, 0x1
 
     .line 964
@@ -1210,14 +1210,14 @@
 
     const/4 v8, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_25
 
     .line 967
     .end local v7    # "diagonalIndex":I
     .end local v16    # "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .local v1, "updateCallback":Landroidx/recyclerview/widget/ListUpdateCallback;
     .local v5, "posX":I
-    :cond_b
+    :cond_107
     invoke-virtual {v2}, Landroidx/recyclerview/widget/BatchingListUpdateCallback;->dispatchLastEvent()V
 
     .line 968
@@ -1225,7 +1225,7 @@
 .end method
 
 .method public dispatchUpdatesTo(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 1
+    .registers 3
     .param p1, "adapter"    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     .line 840

@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(JILjava/util/function/UnaryOperator;Ljava/lang/Object;Ljava/util/function/Predicate;)V
-    .locals 0
+    .registers 7
     .param p1, "est"    # J
     .param p3, "additionalCharacteristics"    # I
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,13 +78,13 @@
     .line 1308
     iget-boolean v0, p0, Lj$/util/stream/Stream$2;->finished:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 1309
     return-void
 
     .line 1310
-    :cond_0
+    :cond_8
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lj$/util/stream/Stream$2;->finished:Z
@@ -92,7 +92,7 @@
     .line 1311
     iget-boolean v0, p0, Lj$/util/stream/Stream$2;->started:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Lj$/util/stream/Stream$2;->val$next:Ljava/util/function/UnaryOperator;
 
@@ -102,27 +102,27 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_18
     iget-object v0, p0, Lj$/util/stream/Stream$2;->val$seed:Ljava/lang/Object;
 
     .line 1312
     .local v0, "t":Ljava/lang/Object;, "TT;"
-    :goto_0
+    :goto_1a
     const/4 v1, 0x0
 
     iput-object v1, p0, Lj$/util/stream/Stream$2;->prev:Ljava/lang/Object;
 
     .line 1313
-    :goto_1
+    :goto_1d
     iget-object v1, p0, Lj$/util/stream/Stream$2;->val$hasNext:Ljava/util/function/Predicate;
 
     invoke-interface {v1, v0}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     .line 1314
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
@@ -134,15 +134,15 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 1317
-    :cond_2
+    :cond_2f
     return-void
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,18 +160,18 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1288
     return v1
 
     .line 1290
-    :cond_0
+    :cond_9
     iget-boolean v0, p0, Lj$/util/stream/Stream$2;->started:Z
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 1291
     iget-object v0, p0, Lj$/util/stream/Stream$2;->val$next:Ljava/util/function/UnaryOperator;
@@ -183,11 +183,11 @@
     move-result-object v0
 
     .local v0, "t":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_1b
 
     .line 1293
     .end local v0    # "t":Ljava/lang/Object;, "TT;"
-    :cond_1
+    :cond_17
     iget-object v0, p0, Lj$/util/stream/Stream$2;->val$seed:Ljava/lang/Object;
 
     .line 1294
@@ -195,14 +195,14 @@
     iput-boolean v2, p0, Lj$/util/stream/Stream$2;->started:Z
 
     .line 1296
-    :goto_0
+    :goto_1b
     iget-object v3, p0, Lj$/util/stream/Stream$2;->val$hasNext:Ljava/util/function/Predicate;
 
     invoke-interface {v3, v0}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_29
 
     .line 1297
     const/4 v3, 0x0
@@ -216,7 +216,7 @@
     return v1
 
     .line 1301
-    :cond_2
+    :cond_29
     iput-object v0, p0, Lj$/util/stream/Stream$2;->prev:Ljava/lang/Object;
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V

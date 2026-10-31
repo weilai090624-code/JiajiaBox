@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final synthetic OneTimeWorkRequestBuilder()Landroidx/work/OneTimeWorkRequest$Builder;
-    .locals 4
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<W:",
@@ -65,7 +65,7 @@
 .end method
 
 .method public static final setInputMerger(Landroidx/work/OneTimeWorkRequest$Builder;Lkotlin/reflect/KClass;)Landroidx/work/OneTimeWorkRequest$Builder;
-    .locals 2
+    .registers 4
     .param p0, "$this$setInputMerger"    # Landroidx/work/OneTimeWorkRequest$Builder;
     .param p1, "inputMerger"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;

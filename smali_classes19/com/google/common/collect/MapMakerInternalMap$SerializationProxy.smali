@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap$Strength;Lcom/google/common/collect/MapMakerInternalMap$Strength;Lcom/google/common/base/Equivalence;Lcom/google/common/base/Equivalence;ILjava/util/concurrent/ConcurrentMap;)V
-    .locals 0
+    .registers 7
     .param p1, "keyStrength"    # Lcom/google/common/collect/MapMakerInternalMap$Strength;
     .param p2, "valueStrength"    # Lcom/google/common/collect/MapMakerInternalMap$Strength;
     .param p5, "concurrencyLevel"    # I
@@ -64,7 +64,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -98,7 +98,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 2948
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$SerializationProxy;, "Lcom/google/common/collect/MapMakerInternalMap$SerializationProxy<TK;TV;>;"
@@ -108,7 +108,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {

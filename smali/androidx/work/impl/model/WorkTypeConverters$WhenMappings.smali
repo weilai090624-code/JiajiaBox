@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     invoke-static {}, Landroidx/work/WorkInfo$State;->values()[Landroidx/work/WorkInfo$State;
 
@@ -48,7 +48,7 @@
 
     const/4 v1, 0x1
 
-    :try_start_0
+    :try_start_8
     sget-object v2, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
     invoke-virtual {v2}, Landroidx/work/WorkInfo$State;->ordinal()I
@@ -56,18 +56,18 @@
     move-result v2
 
     aput v1, v0, v2
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_10} :catch_11
 
-    goto :goto_0
+    goto :goto_12
 
-    :catch_0
+    :catch_11
     move-exception v2
 
-    :goto_0
+    :goto_12
     const/4 v2, 0x2
 
-    :try_start_1
+    :try_start_13
     sget-object v3, Landroidx/work/WorkInfo$State;->RUNNING:Landroidx/work/WorkInfo$State;
 
     invoke-virtual {v3}, Landroidx/work/WorkInfo$State;->ordinal()I
@@ -75,18 +75,18 @@
     move-result v3
 
     aput v2, v0, v3
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_13 .. :try_end_1b} :catch_1c
 
-    goto :goto_1
+    goto :goto_1d
 
-    :catch_1
+    :catch_1c
     move-exception v3
 
-    :goto_1
+    :goto_1d
     const/4 v3, 0x3
 
-    :try_start_2
+    :try_start_1e
     sget-object v4, Landroidx/work/WorkInfo$State;->SUCCEEDED:Landroidx/work/WorkInfo$State;
 
     invoke-virtual {v4}, Landroidx/work/WorkInfo$State;->ordinal()I
@@ -94,18 +94,18 @@
     move-result v4
 
     aput v3, v0, v4
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_26
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1e .. :try_end_26} :catch_27
 
-    goto :goto_2
+    goto :goto_28
 
-    :catch_2
+    :catch_27
     move-exception v4
 
-    :goto_2
+    :goto_28
     const/4 v4, 0x4
 
-    :try_start_3
+    :try_start_29
     sget-object v5, Landroidx/work/WorkInfo$State;->FAILED:Landroidx/work/WorkInfo$State;
 
     invoke-virtual {v5}, Landroidx/work/WorkInfo$State;->ordinal()I
@@ -113,18 +113,18 @@
     move-result v5
 
     aput v4, v0, v5
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_31
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_29 .. :try_end_31} :catch_32
 
-    goto :goto_3
+    goto :goto_33
 
-    :catch_3
+    :catch_32
     move-exception v5
 
-    :goto_3
+    :goto_33
     const/4 v5, 0x5
 
-    :try_start_4
+    :try_start_34
     sget-object v6, Landroidx/work/WorkInfo$State;->BLOCKED:Landroidx/work/WorkInfo$State;
 
     invoke-virtual {v6}, Landroidx/work/WorkInfo$State;->ordinal()I
@@ -132,16 +132,16 @@
     move-result v6
 
     aput v5, v0, v6
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
+    :try_end_3c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_34 .. :try_end_3c} :catch_3d
 
-    goto :goto_4
+    goto :goto_3e
 
-    :catch_4
+    :catch_3d
     move-exception v6
 
-    :goto_4
-    :try_start_5
+    :goto_3e
+    :try_start_3e
     sget-object v6, Landroidx/work/WorkInfo$State;->CANCELLED:Landroidx/work/WorkInfo$State;
 
     invoke-virtual {v6}, Landroidx/work/WorkInfo$State;->ordinal()I
@@ -151,15 +151,15 @@
     const/4 v7, 0x6
 
     aput v7, v0, v6
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
+    :try_end_47
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3e .. :try_end_47} :catch_48
 
-    goto :goto_5
+    goto :goto_49
 
-    :catch_5
+    :catch_48
     move-exception v6
 
-    :goto_5
+    :goto_49
     sput-object v0, Landroidx/work/impl/model/WorkTypeConverters$WhenMappings;->$EnumSwitchMapping$0:[I
 
     invoke-static {}, Landroidx/work/BackoffPolicy;->values()[Landroidx/work/BackoffPolicy;
@@ -170,7 +170,7 @@
 
     new-array v0, v0, [I
 
-    :try_start_6
+    :try_start_52
     sget-object v6, Landroidx/work/BackoffPolicy;->EXPONENTIAL:Landroidx/work/BackoffPolicy;
 
     invoke-virtual {v6}, Landroidx/work/BackoffPolicy;->ordinal()I
@@ -178,16 +178,16 @@
     move-result v6
 
     aput v1, v0, v6
-    :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
+    :try_end_5a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_52 .. :try_end_5a} :catch_5b
 
-    goto :goto_6
+    goto :goto_5c
 
-    :catch_6
+    :catch_5b
     move-exception v6
 
-    :goto_6
-    :try_start_7
+    :goto_5c
+    :try_start_5c
     sget-object v6, Landroidx/work/BackoffPolicy;->LINEAR:Landroidx/work/BackoffPolicy;
 
     invoke-virtual {v6}, Landroidx/work/BackoffPolicy;->ordinal()I
@@ -195,15 +195,15 @@
     move-result v6
 
     aput v2, v0, v6
-    :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_7
+    :try_end_64
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5c .. :try_end_64} :catch_65
 
-    goto :goto_7
+    goto :goto_66
 
-    :catch_7
+    :catch_65
     move-exception v6
 
-    :goto_7
+    :goto_66
     sput-object v0, Landroidx/work/impl/model/WorkTypeConverters$WhenMappings;->$EnumSwitchMapping$1:[I
 
     invoke-static {}, Landroidx/work/NetworkType;->values()[Landroidx/work/NetworkType;
@@ -214,7 +214,7 @@
 
     new-array v0, v0, [I
 
-    :try_start_8
+    :try_start_6f
     sget-object v6, Landroidx/work/NetworkType;->NOT_REQUIRED:Landroidx/work/NetworkType;
 
     invoke-virtual {v6}, Landroidx/work/NetworkType;->ordinal()I
@@ -222,16 +222,16 @@
     move-result v6
 
     aput v1, v0, v6
-    :try_end_8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_8
+    :try_end_77
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6f .. :try_end_77} :catch_78
 
-    goto :goto_8
+    goto :goto_79
 
-    :catch_8
+    :catch_78
     move-exception v6
 
-    :goto_8
-    :try_start_9
+    :goto_79
+    :try_start_79
     sget-object v6, Landroidx/work/NetworkType;->CONNECTED:Landroidx/work/NetworkType;
 
     invoke-virtual {v6}, Landroidx/work/NetworkType;->ordinal()I
@@ -239,16 +239,16 @@
     move-result v6
 
     aput v2, v0, v6
-    :try_end_9
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_9
+    :try_end_81
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_79 .. :try_end_81} :catch_82
 
-    goto :goto_9
+    goto :goto_83
 
-    :catch_9
+    :catch_82
     move-exception v6
 
-    :goto_9
-    :try_start_a
+    :goto_83
+    :try_start_83
     sget-object v6, Landroidx/work/NetworkType;->UNMETERED:Landroidx/work/NetworkType;
 
     invoke-virtual {v6}, Landroidx/work/NetworkType;->ordinal()I
@@ -256,16 +256,16 @@
     move-result v6
 
     aput v3, v0, v6
-    :try_end_a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_a
+    :try_end_8b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_83 .. :try_end_8b} :catch_8c
 
-    goto :goto_a
+    goto :goto_8d
 
-    :catch_a
+    :catch_8c
     move-exception v3
 
-    :goto_a
-    :try_start_b
+    :goto_8d
+    :try_start_8d
     sget-object v3, Landroidx/work/NetworkType;->NOT_ROAMING:Landroidx/work/NetworkType;
 
     invoke-virtual {v3}, Landroidx/work/NetworkType;->ordinal()I
@@ -273,16 +273,16 @@
     move-result v3
 
     aput v4, v0, v3
-    :try_end_b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_b
+    :try_end_95
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8d .. :try_end_95} :catch_96
 
-    goto :goto_b
+    goto :goto_97
 
-    :catch_b
+    :catch_96
     move-exception v3
 
-    :goto_b
-    :try_start_c
+    :goto_97
+    :try_start_97
     sget-object v3, Landroidx/work/NetworkType;->METERED:Landroidx/work/NetworkType;
 
     invoke-virtual {v3}, Landroidx/work/NetworkType;->ordinal()I
@@ -290,15 +290,15 @@
     move-result v3
 
     aput v5, v0, v3
-    :try_end_c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_c
+    :try_end_9f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_97 .. :try_end_9f} :catch_a0
 
-    goto :goto_c
+    goto :goto_a1
 
-    :catch_c
+    :catch_a0
     move-exception v3
 
-    :goto_c
+    :goto_a1
     sput-object v0, Landroidx/work/impl/model/WorkTypeConverters$WhenMappings;->$EnumSwitchMapping$2:[I
 
     invoke-static {}, Landroidx/work/OutOfQuotaPolicy;->values()[Landroidx/work/OutOfQuotaPolicy;
@@ -309,7 +309,7 @@
 
     new-array v0, v0, [I
 
-    :try_start_d
+    :try_start_aa
     sget-object v3, Landroidx/work/OutOfQuotaPolicy;->RUN_AS_NON_EXPEDITED_WORK_REQUEST:Landroidx/work/OutOfQuotaPolicy;
 
     invoke-virtual {v3}, Landroidx/work/OutOfQuotaPolicy;->ordinal()I
@@ -317,16 +317,16 @@
     move-result v3
 
     aput v1, v0, v3
-    :try_end_d
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_d
+    :try_end_b2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_aa .. :try_end_b2} :catch_b3
 
-    goto :goto_d
+    goto :goto_b4
 
-    :catch_d
+    :catch_b3
     move-exception v1
 
-    :goto_d
-    :try_start_e
+    :goto_b4
+    :try_start_b4
     sget-object v1, Landroidx/work/OutOfQuotaPolicy;->DROP_WORK_REQUEST:Landroidx/work/OutOfQuotaPolicy;
 
     invoke-virtual {v1}, Landroidx/work/OutOfQuotaPolicy;->ordinal()I
@@ -334,15 +334,15 @@
     move-result v1
 
     aput v2, v0, v1
-    :try_end_e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_e
+    :try_end_bc
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b4 .. :try_end_bc} :catch_bd
 
-    goto :goto_e
+    goto :goto_be
 
-    :catch_e
+    :catch_bd
     move-exception v1
 
-    :goto_e
+    :goto_be
     sput-object v0, Landroidx/work/impl/model/WorkTypeConverters$WhenMappings;->$EnumSwitchMapping$3:[I
 
     return-void

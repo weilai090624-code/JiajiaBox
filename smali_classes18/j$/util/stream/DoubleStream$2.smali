@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(JILjava/util/function/DoubleUnaryOperator;DLjava/util/function/DoublePredicate;)V
-    .locals 0
+    .registers 8
     .param p1, "est"    # J
     .param p3, "additionalCharacteristics"    # I
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 1030
     check-cast p1, Ljava/util/function/DoubleConsumer;
@@ -60,7 +60,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/DoubleConsumer;)V
-    .locals 3
+    .registers 5
     .param p1, "action"    # Ljava/util/function/DoubleConsumer;
 
     .line 1056
@@ -69,13 +69,13 @@
     .line 1057
     iget-boolean v0, p0, Lj$/util/stream/DoubleStream$2;->finished:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 1058
     return-void
 
     .line 1059
-    :cond_0
+    :cond_8
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lj$/util/stream/DoubleStream$2;->finished:Z
@@ -83,7 +83,7 @@
     .line 1060
     iget-boolean v0, p0, Lj$/util/stream/DoubleStream$2;->started:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Lj$/util/stream/DoubleStream$2;->val$next:Ljava/util/function/DoubleUnaryOperator;
 
@@ -93,21 +93,21 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_18
     iget-wide v0, p0, Lj$/util/stream/DoubleStream$2;->val$seed:D
 
     .line 1061
     .local v0, "t":D
-    :goto_0
+    :goto_1a
     iget-object v2, p0, Lj$/util/stream/DoubleStream$2;->val$hasNext:Ljava/util/function/DoublePredicate;
 
     invoke-interface {v2, v0, v1}, Ljava/util/function/DoublePredicate;->test(D)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2c
 
     .line 1062
     invoke-interface {p1, v0, v1}, Ljava/util/function/DoubleConsumer;->accept(D)V
@@ -119,15 +119,15 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 1065
-    :cond_2
+    :cond_2c
     return-void
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 1030
     check-cast p1, Ljava/util/function/DoubleConsumer;
@@ -140,7 +140,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/DoubleConsumer;)Z
-    .locals 5
+    .registers 7
     .param p1, "action"    # Ljava/util/function/DoubleConsumer;
 
     .line 1036
@@ -151,18 +151,18 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1038
     return v1
 
     .line 1040
-    :cond_0
+    :cond_9
     iget-boolean v0, p0, Lj$/util/stream/DoubleStream$2;->started:Z
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 1041
     iget-object v0, p0, Lj$/util/stream/DoubleStream$2;->val$next:Ljava/util/function/DoubleUnaryOperator;
@@ -174,11 +174,11 @@
     move-result-wide v3
 
     .local v3, "t":D
-    goto :goto_0
+    goto :goto_1b
 
     .line 1043
     .end local v3    # "t":D
-    :cond_1
+    :cond_17
     iget-wide v3, p0, Lj$/util/stream/DoubleStream$2;->val$seed:D
 
     .line 1044
@@ -186,14 +186,14 @@
     iput-boolean v2, p0, Lj$/util/stream/DoubleStream$2;->started:Z
 
     .line 1046
-    :goto_0
+    :goto_1b
     iget-object v0, p0, Lj$/util/stream/DoubleStream$2;->val$hasNext:Ljava/util/function/DoublePredicate;
 
     invoke-interface {v0, v3, v4}, Ljava/util/function/DoublePredicate;->test(D)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_26
 
     .line 1047
     iput-boolean v2, p0, Lj$/util/stream/DoubleStream$2;->finished:Z
@@ -202,7 +202,7 @@
     return v1
 
     .line 1050
-    :cond_2
+    :cond_26
     iput-wide v3, p0, Lj$/util/stream/DoubleStream$2;->prev:D
 
     invoke-interface {p1, v3, v4}, Ljava/util/function/DoubleConsumer;->accept(D)V

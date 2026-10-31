@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableRangeMap;Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/Range;Lcom/google/common/collect/ImmutableRangeMap;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Lcom/google/common/collect/ImmutableRangeMap;
 
     .line 343
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public bridge synthetic asDescendingMapOfRanges()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 343
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap$2;, "Lcom/google/common/collect/ImmutableRangeMap$2;"
@@ -60,7 +60,7 @@
 .end method
 
 .method public bridge synthetic asMapOfRanges()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 343
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap$2;, "Lcom/google/common/collect/ImmutableRangeMap$2;"
@@ -72,7 +72,7 @@
 .end method
 
 .method public subRangeMap(Lcom/google/common/collect/Range;)Lcom/google/common/collect/ImmutableRangeMap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,7 +92,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 347
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeMap$2;->val$outer:Lcom/google/common/collect/ImmutableRangeMap;
@@ -110,7 +110,7 @@
     return-object v0
 
     .line 349
-    :cond_0
+    :cond_15
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeMap;->of()Lcom/google/common/collect/ImmutableRangeMap;
 
     move-result-object v0
@@ -119,7 +119,7 @@
 .end method
 
 .method public bridge synthetic subRangeMap(Lcom/google/common/collect/Range;)Lcom/google/common/collect/RangeMap;
-    .locals 0
+    .registers 2
 
     .line 343
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap$2;, "Lcom/google/common/collect/ImmutableRangeMap$2;"

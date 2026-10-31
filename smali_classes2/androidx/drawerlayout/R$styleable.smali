@@ -103,7 +103,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     const v0, 0x7f040036
 
@@ -133,7 +133,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_42
 
     sput-object v0, Landroidx/drawerlayout/R$styleable;->FontFamily:[I
 
@@ -141,7 +141,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_54
 
     sput-object v0, Landroidx/drawerlayout/R$styleable;->FontFamilyFont:[I
 
@@ -149,7 +149,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_2
+    fill-array-data v0, :array_6c
 
     sput-object v0, Landroidx/drawerlayout/R$styleable;->GradientColor:[I
 
@@ -163,7 +163,7 @@
 
     return-void
 
-    :array_0
+    :array_42
     .array-data 4
         0x7f04020e
         0x7f04020f
@@ -174,7 +174,7 @@
         0x7f040214
     .end array-data
 
-    :array_1
+    :array_54
     .array-data 4
         0x1010532
         0x1010533
@@ -188,7 +188,7 @@
         0x7f04051a
     .end array-data
 
-    :array_2
+    :array_6c
     .array-data 4
         0x101019d
         0x101019e
@@ -206,7 +206,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

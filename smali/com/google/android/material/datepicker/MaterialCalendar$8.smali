@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialCalendar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/datepicker/MaterialCalendar;
 
     .line 459
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 462

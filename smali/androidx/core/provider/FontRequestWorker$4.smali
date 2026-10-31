@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public accept(Landroidx/core/provider/FontRequestWorker$TypefaceResult;)V
-    .locals 4
+    .registers 6
     .param p1, "typefaceResult"    # Landroidx/core/provider/FontRequestWorker$TypefaceResult;
 
     .line 210
@@ -59,7 +59,7 @@
     monitor-enter v0
 
     .line 211
-    :try_start_0
+    :try_start_3
     sget-object v1, Landroidx/core/provider/FontRequestWorker;->PENDING_REPLIES:Landroidx/collection/SimpleArrayMap;
 
     iget-object v2, p0, Landroidx/core/provider/FontRequestWorker$4;->val$id:Ljava/lang/String;
@@ -72,7 +72,7 @@
 
     .line 212
     .local v1, "replies":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/core/util/Consumer<Landroidx/core/provider/FontRequestWorker$TypefaceResult;>;>;"
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     .line 213
     monitor-exit v0
@@ -80,7 +80,7 @@
     return-void
 
     .line 215
-    :cond_0
+    :cond_11
     sget-object v2, Landroidx/core/provider/FontRequestWorker;->PENDING_REPLIES:Landroidx/collection/SimpleArrayMap;
 
     iget-object v3, p0, Landroidx/core/provider/FontRequestWorker$4;->val$id:Ljava/lang/String;
@@ -89,19 +89,19 @@
 
     .line 216
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_3 .. :try_end_19} :catchall_2d
 
     .line 217
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1a
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_2c
 
     .line 218
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -115,28 +115,28 @@
     .line 217
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 220
     .end local v0    # "i":I
-    :cond_1
+    :cond_2c
     return-void
 
     .line 216
     .end local v1    # "replies":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/core/util/Consumer<Landroidx/core/provider/FontRequestWorker$TypefaceResult;>;>;"
-    :catchall_0
+    :catchall_2d
     move-exception v1
 
-    :try_start_1
+    :try_start_2e
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_2e .. :try_end_2f} :catchall_2d
 
     throw v1
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 206
     check-cast p1, Landroidx/core/provider/FontRequestWorker$TypefaceResult;

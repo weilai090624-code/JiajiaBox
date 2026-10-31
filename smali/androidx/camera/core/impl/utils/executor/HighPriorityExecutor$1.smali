@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/executor/HighPriorityExecutor;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/core/impl/utils/executor/HighPriorityExecutor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 2
+    .registers 4
     .param p1, "r"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

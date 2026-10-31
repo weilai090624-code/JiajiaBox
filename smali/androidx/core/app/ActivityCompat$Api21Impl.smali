@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 839
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static finishAfterTransition(Landroid/app/Activity;)V
-    .locals 0
+    .registers 1
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 845
@@ -37,7 +37,7 @@
 .end method
 
 .method static postponeEnterTransition(Landroid/app/Activity;)V
-    .locals 0
+    .registers 1
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 862
@@ -48,7 +48,7 @@
 .end method
 
 .method static setEnterSharedElementCallback(Landroid/app/Activity;Landroid/app/SharedElementCallback;)V
-    .locals 0
+    .registers 2
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "callback"    # Landroid/app/SharedElementCallback;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method static setExitSharedElementCallback(Landroid/app/Activity;Landroid/app/SharedElementCallback;)V
-    .locals 0
+    .registers 2
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "callback"    # Landroid/app/SharedElementCallback;
 
@@ -72,7 +72,7 @@
 .end method
 
 .method static startPostponedEnterTransition(Landroid/app/Activity;)V
-    .locals 0
+    .registers 1
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 867

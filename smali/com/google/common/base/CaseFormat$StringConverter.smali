@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/CaseFormat;Lcom/google/common/base/CaseFormat;)V
-    .locals 1
+    .registers 4
     .param p1, "sourceFormat"    # Lcom/google/common/base/CaseFormat;
     .param p2, "targetFormat"    # Lcom/google/common/base/CaseFormat;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method protected bridge synthetic doBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 162
     check-cast p1, Ljava/lang/String;
@@ -84,7 +84,7 @@
 .end method
 
 .method protected doBackward(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/lang/String;
 
     .line 180
@@ -100,7 +100,7 @@
 .end method
 
 .method protected bridge synthetic doForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 162
     check-cast p1, Ljava/lang/String;
@@ -113,7 +113,7 @@
 .end method
 
 .method protected doForward(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/lang/String;
 
     .line 175
@@ -129,7 +129,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -140,7 +140,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 186
     move-object v0, p1
@@ -157,7 +157,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     iget-object v2, p0, Lcom/google/common/base/CaseFormat$StringConverter;->targetFormat:Lcom/google/common/base/CaseFormat;
 
@@ -167,21 +167,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1d
     return v1
 
     .line 189
     .end local v0    # "that":Lcom/google/common/base/CaseFormat$StringConverter;
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 194
     iget-object v0, p0, Lcom/google/common/base/CaseFormat$StringConverter;->sourceFormat:Lcom/google/common/base/CaseFormat;
@@ -202,7 +202,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 199
     iget-object v0, p0, Lcom/google/common/base/CaseFormat$StringConverter;->sourceFormat:Lcom/google/common/base/CaseFormat;

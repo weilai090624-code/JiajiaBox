@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/function/Supplier;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public forEachRemaining(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)V"
@@ -87,7 +87,7 @@
 .end method
 
 .method public tryAdvance(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)Z"
@@ -111,7 +111,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 559
     .local p0, "this":Lj$/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive;, "Ljava/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;"

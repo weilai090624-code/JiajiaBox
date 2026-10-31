@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/activity/ComponentActivity;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/activity/ActivityViewModelLazyKt$viewModels$2;->$this_viewModels:Landroidx/activity/ComponentActivity;
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/viewmodel/CreationExtras;
-    .locals 1
+    .registers 2
 
     .line 51
     iget-object v0, p0, Landroidx/activity/ActivityViewModelLazyKt$viewModels$2;->$this_viewModels:Landroidx/activity/ComponentActivity;
@@ -79,7 +79,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 51
     invoke-virtual {p0}, Landroidx/activity/ActivityViewModelLazyKt$viewModels$2;->invoke()Landroidx/lifecycle/viewmodel/CreationExtras;

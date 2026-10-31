@@ -86,7 +86,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/Lifecycle$Event;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlinx/coroutines/CoroutineScope;Landroidx/lifecycle/Lifecycle$Event;Lkotlinx/coroutines/CancellableContinuation;Lkotlinx/coroutines/sync/Mutex;Lkotlin/jvm/functions/Function2;)V
-    .locals 0
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public final onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 7
+    .registers 10
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     const-string v0, "<anonymous parameter 0>"
@@ -152,7 +152,7 @@
 
     const/4 v0, 0x0
 
-    if-ne p2, p1, :cond_0
+    if-ne p2, p1, :cond_2a
 
     .line 106
     iget-object p1, p0, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1;->$launchedJob:Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -189,10 +189,10 @@
     return-void
 
     .line 117
-    :cond_0
+    :cond_2a
     iget-object p1, p0, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1;->$cancelWorkEvent:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, p1, :cond_2
+    if-ne p2, p1, :cond_3e
 
     .line 118
     iget-object p1, p0, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1;->$launchedJob:Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -201,23 +201,23 @@
 
     check-cast p1, Lkotlinx/coroutines/Job;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3a
 
     const/4 v1, 0x1
 
     invoke-static {p1, v0, v1, v0}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 119
-    :cond_1
+    :cond_3a
     iget-object p1, p0, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1;->$launchedJob:Lkotlin/jvm/internal/Ref$ObjectRef;
 
     iput-object v0, p1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 121
-    :cond_2
+    :cond_3e
     sget-object p1, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, p1, :cond_3
+    if-ne p2, p1, :cond_51
 
     .line 122
     iget-object p1, p0, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1;->$cont:Lkotlinx/coroutines/CancellableContinuation;
@@ -235,6 +235,6 @@
     invoke-interface {p1, v0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 124
-    :cond_3
+    :cond_51
     return-void
 .end method

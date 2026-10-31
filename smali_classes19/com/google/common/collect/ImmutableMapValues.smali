@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/ImmutableMapValues;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/ImmutableMapValues;
 
     .line 33
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public asList()Lcom/google/common/collect/ImmutableList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -104,7 +104,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -112,7 +112,7 @@
 
     .line 64
     .local p0, "this":Lcom/google/common/collect/ImmutableMapValues;, "Lcom/google/common/collect/ImmutableMapValues<TK;TV;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapValues;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
@@ -122,21 +122,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 69
     .local p0, "this":Lcom/google/common/collect/ImmutableMapValues;, "Lcom/google/common/collect/ImmutableMapValues<TK;TV;>;"
@@ -146,7 +146,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -165,7 +165,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 31
     .local p0, "this":Lcom/google/common/collect/ImmutableMapValues;, "Lcom/google/common/collect/ImmutableMapValues<TK;TV;>;"
@@ -177,7 +177,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 42
     .local p0, "this":Lcom/google/common/collect/ImmutableMapValues;, "Lcom/google/common/collect/ImmutableMapValues<TK;TV;>;"
@@ -191,7 +191,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 96
     .local p0, "this":Lcom/google/common/collect/ImmutableMapValues;, "Lcom/google/common/collect/ImmutableMapValues<TK;TV;>;"

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public asList()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -77,7 +77,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -95,7 +95,7 @@
 .end method
 
 .method copyIntoArray([Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1, "dst"    # [Ljava/lang/Object;
     .param p2, "offset"    # I
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public final hashCode()I
-    .locals 1
+    .registers 2
 
     .line 76
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableSet;, "Lcom/google/common/collect/SingletonImmutableSet<TE;>;"
@@ -126,7 +126,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 65
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableSet;, "Lcom/google/common/collect/SingletonImmutableSet<TE;>;"
@@ -136,7 +136,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -157,7 +157,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableSet;, "Lcom/google/common/collect/SingletonImmutableSet<TE;>;"
@@ -169,7 +169,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 45
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableSet;, "Lcom/google/common/collect/SingletonImmutableSet<TE;>;"
@@ -179,7 +179,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 81
     .local p0, "this":Lcom/google/common/collect/SingletonImmutableSet;, "Lcom/google/common/collect/SingletonImmutableSet<TE;>;"

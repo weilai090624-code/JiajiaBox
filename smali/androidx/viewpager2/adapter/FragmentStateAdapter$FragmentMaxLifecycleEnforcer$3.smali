@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;
 
     .line 653
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 

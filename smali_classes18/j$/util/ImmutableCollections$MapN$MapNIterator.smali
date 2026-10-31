@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/ImmutableCollections$MapN;)V
-    .locals 2
+    .registers 4
     .param p1, "this$0"    # Lj$/util/ImmutableCollections$MapN;
 
     .line 896
@@ -55,7 +55,7 @@
     .line 898
     iget v0, p0, Lj$/util/ImmutableCollections$MapN$MapNIterator;->remaining:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_1e
 
     .line 899
     sget v0, Lj$/util/ImmutableCollections;->SALT:I
@@ -75,12 +75,12 @@
     iput v0, p0, Lj$/util/ImmutableCollections$MapN$MapNIterator;->idx:I
 
     .line 901
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method private nextIndex()I
-    .locals 2
+    .registers 3
 
     .line 909
     .local p0, "this":Lj$/util/ImmutableCollections$MapN$MapNIterator;, "Ljava/util/ImmutableCollections$MapN<TK;TV;>.MapNIterator;"
@@ -90,7 +90,7 @@
     .local v0, "idx":I
     sget v1, Lj$/util/ImmutableCollections;->SALT:I
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_11
 
     .line 911
     add-int/lit8 v0, v0, 0x2
@@ -101,18 +101,18 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1c
 
     .line 912
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 915
-    :cond_0
+    :cond_11
     add-int/lit8 v0, v0, -0x2
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_1c
 
     .line 916
     iget-object v1, p0, Lj$/util/ImmutableCollections$MapN$MapNIterator;->this$0:Lj$/util/ImmutableCollections$MapN;
@@ -124,8 +124,8 @@
     add-int/lit8 v0, v1, -0x2
 
     .line 919
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     iput v0, p0, Lj$/util/ImmutableCollections$MapN$MapNIterator;->idx:I
 
     return v0
@@ -134,27 +134,27 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 905
     .local p0, "this":Lj$/util/ImmutableCollections$MapN$MapNIterator;, "Ljava/util/ImmutableCollections$MapN<TK;TV;>.MapNIterator;"
     iget v0, p0, Lj$/util/ImmutableCollections$MapN$MapNIterator;->remaining:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 890
     .local p0, "this":Lj$/util/ImmutableCollections$MapN$MapNIterator;, "Ljava/util/ImmutableCollections$MapN<TK;TV;>.MapNIterator;"
@@ -166,7 +166,7 @@
 .end method
 
 .method public next()Ljava/util/Map$Entry;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -181,10 +181,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 925
-    :goto_0
+    :goto_6
     iget-object v0, p0, Lj$/util/ImmutableCollections$MapN$MapNIterator;->this$0:Lj$/util/ImmutableCollections$MapN;
 
     iget-object v0, v0, Lj$/util/ImmutableCollections$MapN;->table:[Ljava/lang/Object;
@@ -195,12 +195,12 @@
 
     aget-object v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    goto :goto_0
+    goto :goto_6
 
     .line 927
-    :cond_0
+    :cond_13
     new-instance v0, Lj$/util/KeyValueHolder;
 
     iget-object v1, p0, Lj$/util/ImmutableCollections$MapN$MapNIterator;->this$0:Lj$/util/ImmutableCollections$MapN;
@@ -236,7 +236,7 @@
 
     .line 932
     .end local v0    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_1
+    :cond_31
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

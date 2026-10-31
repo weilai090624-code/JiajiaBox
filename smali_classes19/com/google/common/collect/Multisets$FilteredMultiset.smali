@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multiset;Lcom/google/common/base/Predicate;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;I)I
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -130,7 +130,7 @@
 .end method
 
 .method public count(Ljava/lang/Object;)I
-    .locals 4
+    .registers 6
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -148,7 +148,7 @@
     .local v0, "count":I
     const/4 v1, 0x0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_14
 
     .line 336
     move-object v2, p1
@@ -161,21 +161,21 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_13
 
     move v1, v0
 
-    :cond_0
+    :cond_13
     return v1
 
     .line 339
     .end local v2    # "e":Ljava/lang/Object;, "TE;"
-    :cond_1
+    :cond_14
     return v1
 .end method
 
 .method createElementSet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -202,7 +202,7 @@
 .end method
 
 .method createEntrySet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -234,7 +234,7 @@
 .end method
 
 .method elementIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -255,7 +255,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -277,7 +277,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -304,7 +304,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 290
     .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
@@ -316,7 +316,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -330,7 +330,7 @@
     invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
     .line 352
-    if-nez p2, :cond_0
+    if-nez p2, :cond_c
 
     .line 353
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multisets$FilteredMultiset;->count(Ljava/lang/Object;)I
@@ -340,12 +340,12 @@
     return v0
 
     .line 355
-    :cond_0
+    :cond_c
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multisets$FilteredMultiset;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     iget-object v0, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;->unfiltered:Lcom/google/common/collect/Multiset;
 
@@ -353,11 +353,11 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1a
     return v0
 .end method

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 146
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public command(Lkotlinx/coroutines/flow/StateFlow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p1, "subscriptionCount"    # Lkotlinx/coroutines/flow/StateFlow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -73,7 +73,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 149
     const-string v0, "SharingStarted.Eagerly"

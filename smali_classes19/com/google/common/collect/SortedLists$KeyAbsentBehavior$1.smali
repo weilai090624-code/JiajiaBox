@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 158
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method resultIndex(I)I
-    .locals 1
+    .registers 3
     .param p1, "higherIndex"    # I
 
     .line 161

@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 55
     const/4 v0, 0x1
@@ -65,21 +65,21 @@
 
     const/16 v2, 0x16
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_a
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     sput-boolean v0, Lcom/google/android/material/button/MaterialButtonHelper;->IS_LOLLIPOP:Z
 
     return-void
 .end method
 
 .method constructor <init>(Lcom/google/android/material/button/MaterialButton;Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 1
+    .registers 4
     .param p1, "button"    # Lcom/google/android/material/button/MaterialButton;
     .param p2, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method private createBackground()Landroid/graphics/drawable/Drawable;
-    .locals 9
+    .registers 10
 
     .line 215
     new-instance v0, Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -142,7 +142,7 @@
     .line 219
     iget-object v2, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 220
     iget-object v2, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -150,7 +150,7 @@
     invoke-static {v0, v2}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 222
-    :cond_0
+    :cond_1e
     iget v2, p0, Lcom/google/android/material/button/MaterialButtonHelper;->strokeWidth:I
 
     int-to-float v2, v2
@@ -180,7 +180,7 @@
     .line 229
     iget-boolean v5, p0, Lcom/google/android/material/button/MaterialButtonHelper;->shouldDrawSurfaceColorStroke:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_41
 
     .line 230
     iget-object v5, p0, Lcom/google/android/material/button/MaterialButtonHelper;->materialButton:Lcom/google/android/material/button/MaterialButton;
@@ -191,14 +191,14 @@
 
     move-result v5
 
-    goto :goto_0
+    goto :goto_42
 
     .line 231
-    :cond_1
+    :cond_41
     const/4 v5, 0x0
 
     .line 227
-    :goto_0
+    :goto_42
     invoke-virtual {v2, v4, v5}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setStroke(FI)V
 
     .line 233
@@ -208,7 +208,7 @@
 
     const/4 v6, 0x1
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_7b
 
     .line 234
     new-instance v4, Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -263,7 +263,7 @@
     return-object v3
 
     .line 245
-    :cond_2
+    :cond_7b
     new-instance v4, Lcom/google/android/material/ripple/RippleDrawableCompat;
 
     iget-object v7, p0, Lcom/google/android/material/button/MaterialButtonHelper;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -315,13 +315,13 @@
 .end method
 
 .method private getMaterialShapeDrawable(Z)Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 3
+    .registers 5
     .param p1, "getSurfaceColorStrokeDrawable"    # Z
 
     .line 341
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleDrawable:Landroid/graphics/drawable/LayerDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_34
 
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleDrawable:Landroid/graphics/drawable/LayerDrawable;
 
@@ -329,12 +329,12 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_34
 
     .line 342
     sget-boolean v0, Lcom/google/android/material/button/MaterialButtonHelper;->IS_MIN_LOLLIPOP:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 343
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleDrawable:Landroid/graphics/drawable/LayerDrawable;
@@ -374,7 +374,7 @@
     .line 348
     .end local v0    # "insetDrawable":Landroid/graphics/drawable/InsetDrawable;
     .end local v1    # "layerDrawable":Landroid/graphics/drawable/LayerDrawable;
-    :cond_0
+    :cond_29
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleDrawable:Landroid/graphics/drawable/LayerDrawable;
 
     .line 349
@@ -390,14 +390,14 @@
     return-object v0
 
     .line 353
-    :cond_1
+    :cond_34
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private getSurfaceColorStrokeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 1
+    .registers 2
 
     .line 379
     const/4 v0, 0x1
@@ -410,7 +410,7 @@
 .end method
 
 .method private setVerticalInsets(II)V
-    .locals 9
+    .registers 12
     .param p1, "newInsetTop"    # I
     .param p2, "newInsetBottom"    # I
 
@@ -463,13 +463,13 @@
     .line 454
     iget-boolean v6, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundOverwritten:Z
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_27
 
     .line 455
     invoke-direct {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->updateBackground()V
 
     .line 458
-    :cond_0
+    :cond_27
     iget-object v6, p0, Lcom/google/android/material/button/MaterialButtonHelper;->materialButton:Lcom/google/android/material/button/MaterialButton;
 
     add-int v7, v1, p1
@@ -487,7 +487,7 @@
 .end method
 
 .method private updateBackground()V
-    .locals 2
+    .registers 3
 
     .line 146
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->materialButton:Lcom/google/android/material/button/MaterialButton;
@@ -505,7 +505,7 @@
 
     .line 148
     .local v0, "materialShapeDrawable":Lcom/google/android/material/shape/MaterialShapeDrawable;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 149
     iget v1, p0, Lcom/google/android/material/button/MaterialButtonHelper;->elevation:I
@@ -524,22 +524,22 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setState([I)Z
 
     .line 154
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method private updateButtonShape(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 5
+    .registers 7
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 385
     sget-boolean v0, Lcom/google/android/material/button/MaterialButtonHelper;->IS_LOLLIPOP:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     iget-boolean v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundOverwritten:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_29
 
     .line 387
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->materialButton:Lcom/google/android/material/button/MaterialButton;
@@ -586,15 +586,15 @@
     .end local v1    # "paddingTop":I
     .end local v2    # "paddingEnd":I
     .end local v3    # "paddingBottom":I
-    goto :goto_0
+    goto :goto_50
 
     .line 396
-    :cond_0
+    :cond_29
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->getMaterialShapeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     .line 397
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->getMaterialShapeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -604,12 +604,12 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     .line 399
-    :cond_1
+    :cond_36
     invoke-direct {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->getSurfaceColorStrokeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_43
 
     .line 400
     invoke-direct {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->getSurfaceColorStrokeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -619,12 +619,12 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     .line 402
-    :cond_2
+    :cond_43
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->getMaskDrawable()Lcom/google/android/material/shape/Shapeable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_50
 
     .line 403
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->getMaskDrawable()Lcom/google/android/material/shape/Shapeable;
@@ -634,13 +634,13 @@
     invoke-interface {v0, p1}, Lcom/google/android/material/shape/Shapeable;->setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     .line 406
-    :cond_3
-    :goto_0
+    :cond_50
+    :goto_50
     return-void
 .end method
 
 .method private updateStroke()V
-    .locals 5
+    .registers 6
 
     .line 310
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->getMaterialShapeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -655,7 +655,7 @@
 
     .line 312
     .local v1, "surfaceColorStrokeDrawable":Lcom/google/android/material/shape/MaterialShapeDrawable;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     .line 313
     iget v2, p0, Lcom/google/android/material/button/MaterialButtonHelper;->strokeWidth:I
@@ -667,7 +667,7 @@
     invoke-virtual {v0, v2, v3}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setStroke(FLandroid/content/res/ColorStateList;)V
 
     .line 314
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     .line 315
     iget v2, p0, Lcom/google/android/material/button/MaterialButtonHelper;->strokeWidth:I
@@ -677,7 +677,7 @@
     .line 317
     iget-boolean v3, p0, Lcom/google/android/material/button/MaterialButtonHelper;->shouldDrawSurfaceColorStroke:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_24
 
     .line 318
     iget-object v3, p0, Lcom/google/android/material/button/MaterialButtonHelper;->materialButton:Lcom/google/android/material/button/MaterialButton;
@@ -688,23 +688,23 @@
 
     move-result v3
 
-    goto :goto_0
+    goto :goto_25
 
     .line 319
-    :cond_0
+    :cond_24
     const/4 v3, 0x0
 
     .line 315
-    :goto_0
+    :goto_25
     invoke-virtual {v1, v2, v3}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setStroke(FI)V
 
     .line 322
-    :cond_1
+    :cond_28
     return-void
 .end method
 
 .method private wrapDrawableWithInset(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/InsetDrawable;
-    .locals 7
+    .registers 9
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 175
@@ -730,7 +730,7 @@
 
 # virtual methods
 .method getCornerRadius()I
-    .locals 1
+    .registers 2
 
     .line 336
     iget v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->cornerRadius:I
@@ -739,7 +739,7 @@
 .end method
 
 .method public getInsetBottom()I
-    .locals 1
+    .registers 2
 
     .line 437
     iget v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->insetBottom:I
@@ -748,7 +748,7 @@
 .end method
 
 .method public getInsetTop()I
-    .locals 1
+    .registers 2
 
     .line 467
     iget v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->insetTop:I
@@ -757,12 +757,12 @@
 .end method
 
 .method public getMaskDrawable()Lcom/google/android/material/shape/Shapeable;
-    .locals 3
+    .registers 4
 
     .line 410
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleDrawable:Landroid/graphics/drawable/LayerDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleDrawable:Landroid/graphics/drawable/LayerDrawable;
 
@@ -772,7 +772,7 @@
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_28
 
     .line 411
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleDrawable:Landroid/graphics/drawable/LayerDrawable;
@@ -783,7 +783,7 @@
 
     const/4 v2, 0x2
 
-    if-le v0, v2, :cond_0
+    if-le v0, v2, :cond_1f
 
     .line 413
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleDrawable:Landroid/graphics/drawable/LayerDrawable;
@@ -797,7 +797,7 @@
     return-object v0
 
     .line 416
-    :cond_0
+    :cond_1f
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleDrawable:Landroid/graphics/drawable/LayerDrawable;
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/LayerDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -809,14 +809,14 @@
     return-object v0
 
     .line 419
-    :cond_1
+    :cond_28
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method getMaterialShapeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 1
+    .registers 2
 
     .line 358
     const/4 v0, 0x0
@@ -829,7 +829,7 @@
 .end method
 
 .method getRippleColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 283
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleColor:Landroid/content/res/ColorStateList;
@@ -838,7 +838,7 @@
 .end method
 
 .method getShapeAppearanceModel()Lcom/google/android/material/shape/ShapeAppearanceModel;
-    .locals 1
+    .registers 2
 
     .line 429
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -847,7 +847,7 @@
 .end method
 
 .method getStrokeColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 295
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->strokeColor:Landroid/content/res/ColorStateList;
@@ -856,7 +856,7 @@
 .end method
 
 .method getStrokeWidth()I
-    .locals 1
+    .registers 2
 
     .line 306
     iget v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->strokeWidth:I
@@ -865,7 +865,7 @@
 .end method
 
 .method getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 188
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundTint:Landroid/content/res/ColorStateList;
@@ -874,7 +874,7 @@
 .end method
 
 .method getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
 
     .line 201
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -883,7 +883,7 @@
 .end method
 
 .method isBackgroundOverwritten()Z
-    .locals 1
+    .registers 2
 
     .line 170
     iget-boolean v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundOverwritten:Z
@@ -892,7 +892,7 @@
 .end method
 
 .method isCheckable()Z
-    .locals 1
+    .registers 2
 
     .line 366
     iget-boolean v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->checkable:Z
@@ -901,7 +901,7 @@
 .end method
 
 .method isToggleCheckedStateOnClick()Z
-    .locals 1
+    .registers 2
 
     .line 370
     iget-boolean v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->toggleCheckedStateOnClick:Z
@@ -910,7 +910,7 @@
 .end method
 
 .method loadFromAttributes(Landroid/content/res/TypedArray;)V
-    .locals 9
+    .registers 11
     .param p1, "attributes"    # Landroid/content/res/TypedArray;
 
     .line 89
@@ -964,7 +964,7 @@
 
     const/4 v3, -0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_41
 
     .line 98
     sget v0, Lcom/google/android/material/R$styleable;->MaterialButton_cornerRadius:I
@@ -992,7 +992,7 @@
     iput-boolean v2, p0, Lcom/google/android/material/button/MaterialButtonHelper;->cornerRadiusSet:Z
 
     .line 103
-    :cond_0
+    :cond_41
     sget v0, Lcom/google/android/material/R$styleable;->MaterialButton_strokeWidth:I
 
     invoke-virtual {p1, v0, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1136,19 +1136,19 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_bd
 
     .line 132
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->setBackgroundOverwritten()V
 
-    goto :goto_0
+    goto :goto_c0
 
     .line 134
-    :cond_1
+    :cond_bd
     invoke-direct {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->updateBackground()V
 
     .line 137
-    :goto_0
+    :goto_c0
     iget-object v4, p0, Lcom/google/android/material/button/MaterialButtonHelper;->materialButton:Lcom/google/android/material/button/MaterialButton;
 
     iget v5, p0, Lcom/google/android/material/button/MaterialButtonHelper;->insetLeft:I
@@ -1174,7 +1174,7 @@
 .end method
 
 .method setBackgroundColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 262
@@ -1182,7 +1182,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 263
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->getMaterialShapeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1192,12 +1192,12 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setTint(I)V
 
     .line 265
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method setBackgroundOverwritten()V
-    .locals 2
+    .registers 3
 
     .line 162
     const/4 v0, 0x1
@@ -1223,7 +1223,7 @@
 .end method
 
 .method setCheckable(Z)V
-    .locals 0
+    .registers 2
     .param p1, "checkable"    # Z
 
     .line 362
@@ -1234,20 +1234,20 @@
 .end method
 
 .method setCornerRadius(I)V
-    .locals 2
+    .registers 4
     .param p1, "cornerRadius"    # I
 
     .line 327
     iget-boolean v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->cornerRadiusSet:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     iget v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->cornerRadius:I
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_17
 
     .line 328
-    :cond_0
+    :cond_8
     iput p1, p0, Lcom/google/android/material/button/MaterialButtonHelper;->cornerRadius:I
 
     .line 329
@@ -1267,12 +1267,12 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/button/MaterialButtonHelper;->setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     .line 333
-    :cond_1
+    :cond_17
     return-void
 .end method
 
 .method public setInsetBottom(I)V
-    .locals 1
+    .registers 3
     .param p1, "newInsetBottom"    # I
 
     .line 433
@@ -1285,7 +1285,7 @@
 .end method
 
 .method public setInsetTop(I)V
-    .locals 1
+    .registers 3
     .param p1, "newInsetTop"    # I
 
     .line 441
@@ -1298,13 +1298,13 @@
 .end method
 
 .method setRippleColor(Landroid/content/res/ColorStateList;)V
-    .locals 2
+    .registers 4
     .param p1, "rippleColor"    # Landroid/content/res/ColorStateList;
 
     .line 268
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleColor:Landroid/content/res/ColorStateList;
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_41
 
     .line 269
     iput-object p1, p0, Lcom/google/android/material/button/MaterialButtonHelper;->rippleColor:Landroid/content/res/ColorStateList;
@@ -1312,7 +1312,7 @@
     .line 270
     sget-boolean v0, Lcom/google/android/material/button/MaterialButtonHelper;->IS_MIN_LOLLIPOP:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->materialButton:Lcom/google/android/material/button/MaterialButton;
 
@@ -1322,7 +1322,7 @@
 
     instance-of v0, v0, Landroid/graphics/drawable/RippleDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 271
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->materialButton:Lcom/google/android/material/button/MaterialButton;
@@ -1340,13 +1340,13 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/RippleDrawable;->setColor(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_41
 
     .line 273
-    :cond_0
+    :cond_24
     sget-boolean v0, Lcom/google/android/material/button/MaterialButtonHelper;->IS_MIN_LOLLIPOP:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_41
 
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->materialButton:Lcom/google/android/material/button/MaterialButton;
 
@@ -1357,7 +1357,7 @@
 
     instance-of v0, v0, Lcom/google/android/material/ripple/RippleDrawableCompat;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_41
 
     .line 275
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->materialButton:Lcom/google/android/material/button/MaterialButton;
@@ -1376,13 +1376,13 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/ripple/RippleDrawableCompat;->setTintList(Landroid/content/res/ColorStateList;)V
 
     .line 279
-    :cond_1
-    :goto_0
+    :cond_41
+    :goto_41
     return-void
 .end method
 
 .method setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 0
+    .registers 2
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     .line 423
@@ -1396,7 +1396,7 @@
 .end method
 
 .method setShouldDrawSurfaceColorStroke(Z)V
-    .locals 0
+    .registers 2
     .param p1, "shouldDrawSurfaceColorStroke"    # Z
 
     .line 205
@@ -1410,13 +1410,13 @@
 .end method
 
 .method setStrokeColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "strokeColor"    # Landroid/content/res/ColorStateList;
 
     .line 287
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->strokeColor:Landroid/content/res/ColorStateList;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 288
     iput-object p1, p0, Lcom/google/android/material/button/MaterialButtonHelper;->strokeColor:Landroid/content/res/ColorStateList;
@@ -1425,18 +1425,18 @@
     invoke-direct {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->updateStroke()V
 
     .line 291
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method setStrokeWidth(I)V
-    .locals 1
+    .registers 3
     .param p1, "strokeWidth"    # I
 
     .line 299
     iget v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->strokeWidth:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 300
     iput p1, p0, Lcom/google/android/material/button/MaterialButtonHelper;->strokeWidth:I
@@ -1445,18 +1445,18 @@
     invoke-direct {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->updateStroke()V
 
     .line 303
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
-    .locals 2
+    .registers 4
     .param p1, "tintList"    # Landroid/content/res/ColorStateList;
 
     .line 179
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundTint:Landroid/content/res/ColorStateList;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_15
 
     .line 180
     iput-object p1, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundTint:Landroid/content/res/ColorStateList;
@@ -1466,7 +1466,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 182
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->getMaterialShapeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1478,18 +1478,18 @@
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 185
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 2
+    .registers 4
     .param p1, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 192
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_19
 
     .line 193
     iput-object p1, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -1499,11 +1499,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->backgroundTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 195
     invoke-virtual {p0}, Lcom/google/android/material/button/MaterialButtonHelper;->getMaterialShapeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -1515,12 +1515,12 @@
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 198
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method setToggleCheckedStateOnClick(Z)V
-    .locals 0
+    .registers 2
     .param p1, "toggleCheckedStateOnClick"    # Z
 
     .line 374
@@ -1531,14 +1531,14 @@
 .end method
 
 .method updateMaskBounds(II)V
-    .locals 5
+    .registers 8
     .param p1, "height"    # I
     .param p2, "width"    # I
 
     .line 256
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->maskDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 257
     iget-object v0, p0, Lcom/google/android/material/button/MaterialButtonHelper;->maskDrawable:Landroid/graphics/drawable/Drawable;
@@ -1558,6 +1558,6 @@
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 259
-    :cond_0
+    :cond_15
     return-void
 .end method

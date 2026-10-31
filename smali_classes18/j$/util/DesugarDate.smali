@@ -4,7 +4,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -12,7 +12,7 @@
 .end method
 
 .method public static from(Lj$/time/Instant;)Ljava/util/Date;
-    .locals 3
+    .registers 4
     .param p0, "instant"    # Lj$/time/Instant;
 
     .line 1362
@@ -24,13 +24,13 @@
     move-result-wide v1
 
     invoke-direct {v0, v1, v2}, Ljava/util/Date;-><init>(J)V
-    :try_end_0
-    .catch Ljava/lang/ArithmeticException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/ArithmeticException; {:try_start_0 .. :try_end_9} :catch_a
 
     return-object v0
 
     .line 1363
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 1364
@@ -43,7 +43,7 @@
 .end method
 
 .method public static toInstant(Ljava/util/Date;)Lj$/time/Instant;
-    .locals 2
+    .registers 3
     .param p0, "this"    # Ljava/util/Date;
 
     .line 1380

@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;)V
-    .locals 7
+    .registers 10
 
     const-string/jumbo v0, "store"
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;Landroidx/lifecycle/viewmodel/CreationExtras;)V
-    .locals 1
+    .registers 5
     .param p1, "store"    # Landroidx/lifecycle/ViewModelStore;
     .param p2, "factory"    # Landroidx/lifecycle/ViewModelProvider$Factory;
     .param p3, "defaultCreationExtras"    # Landroidx/lifecycle/viewmodel/CreationExtras;
@@ -132,12 +132,12 @@
 .end method
 
 .method public synthetic constructor <init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;Landroidx/lifecycle/viewmodel/CreationExtras;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 51
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_8
 
     .line 54
     sget-object p3, Landroidx/lifecycle/viewmodel/CreationExtras$Empty;->INSTANCE:Landroidx/lifecycle/viewmodel/CreationExtras$Empty;
@@ -145,7 +145,7 @@
     check-cast p3, Landroidx/lifecycle/viewmodel/CreationExtras;
 
     .line 51
-    :cond_0
+    :cond_8
     invoke-direct {p0, p1, p2, p3}, Landroidx/lifecycle/ViewModelProvider;-><init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;Landroidx/lifecycle/viewmodel/CreationExtras;)V
 
     .line 359
@@ -153,7 +153,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/lifecycle/ViewModelStoreOwner;)V
-    .locals 3
+    .registers 5
     .param p1, "owner"    # Landroidx/lifecycle/ViewModelStoreOwner;
 
     const-string v0, "owner"
@@ -181,7 +181,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/lifecycle/ViewModelStoreOwner;Landroidx/lifecycle/ViewModelProvider$Factory;)V
-    .locals 2
+    .registers 5
     .param p1, "owner"    # Landroidx/lifecycle/ViewModelStoreOwner;
     .param p2, "factory"    # Landroidx/lifecycle/ViewModelProvider$Factory;
 
@@ -219,7 +219,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 3
+    .registers 5
     .param p1, "modelClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -240,7 +240,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 153
     .local v0, "canonicalName":Ljava/lang/String;
@@ -270,7 +270,7 @@
 
     .line 152
     .end local v0    # "canonicalName":Ljava/lang/String;
-    :cond_0
+    :cond_23
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Local and anonymous classes can not be ViewModels"
@@ -281,7 +281,7 @@
 .end method
 
 .method public get(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 6
+    .registers 9
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "modelClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -316,31 +316,31 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2e
 
     .line 174
     iget-object v1, p0, Landroidx/lifecycle/ViewModelProvider;->factory:Landroidx/lifecycle/ViewModelProvider$Factory;
 
     instance-of v2, v1, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     check-cast v1, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_1f
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_20
+    if-eqz v1, :cond_28
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     invoke-virtual {v1, v0}, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;->onRequery(Landroidx/lifecycle/ViewModel;)V
 
     .line 175
-    :cond_1
+    :cond_28
     const-string v1, "null cannot be cast to non-null type T of androidx.lifecycle.ViewModelProvider.get"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
@@ -348,7 +348,7 @@
     return-object v0
 
     .line 178
-    :cond_2
+    :cond_2e
     nop
 
     .line 182
@@ -368,7 +368,7 @@
     nop
 
     .line 187
-    :try_start_0
+    :try_start_3c
     iget-object v2, p0, Landroidx/lifecycle/ViewModelProvider;->factory:Landroidx/lifecycle/ViewModelProvider$Factory;
 
     move-object v3, v1
@@ -378,13 +378,13 @@
     invoke-interface {v2, p2, v3}, Landroidx/lifecycle/ViewModelProvider$Factory;->create(Ljava/lang/Class;Landroidx/lifecycle/viewmodel/CreationExtras;)Landroidx/lifecycle/ViewModel;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_45
+    .catch Ljava/lang/AbstractMethodError; {:try_start_3c .. :try_end_45} :catch_46
 
-    goto :goto_1
+    goto :goto_4e
 
     .line 188
-    :catch_0
+    :catch_46
     move-exception v2
 
     .line 189
@@ -399,7 +399,7 @@
 
     .line 190
     .end local v2    # "e":Ljava/lang/AbstractMethodError;
-    :goto_1
+    :goto_4e
     move-object v3, v2
 
     .line 376

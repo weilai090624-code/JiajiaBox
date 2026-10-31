@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public toggleHDRPlus(ILandroidx/camera/camera2/impl/Camera2ImplConfig$Builder;)V
-    .locals 3
+    .registers 6
     .param p1, "captureMode"    # I
     .param p2, "builder"    # Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -41,19 +41,19 @@
 
     .line 46
     .local v0, "quirk":Landroidx/camera/camera2/internal/compat/quirk/ImageCapturePixelHDRPlusQuirk;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 47
     return-void
 
     .line 50
-    :cond_0
-    packed-switch p1, :pswitch_data_0
+    :cond_b
+    packed-switch p1, :pswitch_data_26
 
-    goto :goto_0
+    goto :goto_25
 
     .line 57
-    :pswitch_0
+    :pswitch_f
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_ENABLE_ZSL:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x0
@@ -64,10 +64,10 @@
 
     invoke-virtual {p2, v1, v2}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->setCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
-    goto :goto_0
+    goto :goto_25
 
     .line 53
-    :pswitch_1
+    :pswitch_1a
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_ENABLE_ZSL:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x1
@@ -82,12 +82,12 @@
     nop
 
     .line 60
-    :goto_0
+    :goto_25
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_f
     .end packed-switch
 .end method

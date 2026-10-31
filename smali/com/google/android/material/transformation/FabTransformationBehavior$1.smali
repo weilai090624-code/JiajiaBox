@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/transformation/FabTransformationBehavior;ZLandroid/view/View;Landroid/view/View;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/android/material/transformation/FabTransformationBehavior;
 
     .line 169
@@ -46,13 +46,13 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 182
     iget-boolean v0, p0, Lcom/google/android/material/transformation/FabTransformationBehavior$1;->val$expanded:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 183
     iget-object v0, p0, Lcom/google/android/material/transformation/FabTransformationBehavior$1;->val$child:Landroid/view/View;
@@ -76,18 +76,18 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 188
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 172
     iget-boolean v0, p0, Lcom/google/android/material/transformation/FabTransformationBehavior$1;->val$expanded:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 173
     iget-object v0, p0, Lcom/google/android/material/transformation/FabTransformationBehavior$1;->val$child:Landroid/view/View;
@@ -111,6 +111,6 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 178
-    :cond_0
+    :cond_16
     return-void
 .end method

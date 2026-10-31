@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap;Lcom/google/common/collect/ImmutableList;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +78,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap;[Ljava/util/Map$Entry;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method copyIntoArray([Ljava/lang/Object;I)I
-    .locals 1
+    .registers 4
     .param p1, "dst"    # [Ljava/lang/Object;
     .param p2, "offset"    # I
 
@@ -122,7 +122,7 @@
 .end method
 
 .method createAsList()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -140,7 +140,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -162,7 +162,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 35
     .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet$RegularEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet$RegularEntrySet<TK;TV;>;"
@@ -174,7 +174,7 @@
 .end method
 
 .method map()Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

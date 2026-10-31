@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method public static checkedCast(J)I
-    .locals 5
+    .registers 7
     .param p0, "value"    # J
 
     .line 95
@@ -41,16 +41,16 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     const-string v1, "out of range: %s"
 
     invoke-static {v0, v1, p0, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -62,7 +62,7 @@
 .end method
 
 .method public static compare(II)I
-    .locals 2
+    .registers 4
     .param p0, "a"    # I
     .param p1, "b"    # I
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static decode(Ljava/lang/String;)I
-    .locals 6
+    .registers 7
     .param p0, "stringValue"    # Ljava/lang/String;
 
     .line 317
@@ -93,7 +93,7 @@
 
     .line 320
     .local v0, "request":Lcom/google/common/primitives/ParseRequest;
-    :try_start_0
+    :try_start_4
     iget-object v1, v0, Lcom/google/common/primitives/ParseRequest;->rawValue:Ljava/lang/String;
 
     iget v2, v0, Lcom/google/common/primitives/ParseRequest;->radix:I
@@ -101,13 +101,13 @@
     invoke-static {v1, v2}, Lcom/google/common/primitives/UnsignedInts;->parseUnsignedInt(Ljava/lang/String;I)I
 
     move-result v1
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_c} :catch_d
 
     return v1
 
     .line 321
-    :catch_0
+    :catch_d
     move-exception v1
 
     .line 322
@@ -124,20 +124,20 @@
 
     const-string v5, "Error parsing value: "
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_21
 
     invoke-virtual {v5, v3}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_21
     new-instance v3, Ljava/lang/String;
 
     invoke-direct {v3, v5}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_26
     invoke-direct {v2, v3}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
     .line 324
@@ -149,7 +149,7 @@
 .end method
 
 .method public static divide(II)I
-    .locals 4
+    .registers 6
     .param p0, "dividend"    # I
     .param p1, "divisor"    # I
 
@@ -170,7 +170,7 @@
 .end method
 
 .method static flip(I)I
-    .locals 1
+    .registers 2
     .param p0, "value"    # I
 
     .line 57
@@ -182,7 +182,7 @@
 .end method
 
 .method public static varargs join(Ljava/lang/String;[I)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "separator"    # Ljava/lang/String;
     .param p1, "array"    # [I
 
@@ -192,7 +192,7 @@
     .line 168
     array-length v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 169
     const-string v0, ""
@@ -200,7 +200,7 @@
     return-object v0
 
     .line 173
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/StringBuilder;
 
     array-length v1, p1
@@ -225,10 +225,10 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_1c
     array-length v2, p1
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2f
 
     .line 176
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -246,11 +246,11 @@
     .line 175
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 178
     .end local v1    # "i":I
-    :cond_1
+    :cond_2f
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -259,7 +259,7 @@
 .end method
 
 .method public static lexicographicalComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -275,7 +275,7 @@
 .end method
 
 .method public static varargs max([I)I
-    .locals 3
+    .registers 4
     .param p0, "array"    # [I
 
     .line 147
@@ -283,16 +283,16 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 148
@@ -307,10 +307,10 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_1
+    :goto_11
     array-length v2, p0
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_20
 
     .line 150
     aget v2, p0, v1
@@ -321,21 +321,21 @@
 
     .line 151
     .local v2, "next":I
-    if-le v2, v0, :cond_1
+    if-le v2, v0, :cond_1d
 
     .line 152
     move v0, v2
 
     .line 149
     .end local v2    # "next":I
-    :cond_1
+    :cond_1d
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_11
 
     .line 155
     .end local v1    # "i":I
-    :cond_2
+    :cond_20
     invoke-static {v0}, Lcom/google/common/primitives/UnsignedInts;->flip(I)I
 
     move-result v1
@@ -344,7 +344,7 @@
 .end method
 
 .method public static varargs min([I)I
-    .locals 3
+    .registers 4
     .param p0, "array"    # [I
 
     .line 127
@@ -352,16 +352,16 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 128
@@ -376,10 +376,10 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_1
+    :goto_11
     array-length v2, p0
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_20
 
     .line 130
     aget v2, p0, v1
@@ -390,21 +390,21 @@
 
     .line 131
     .local v2, "next":I
-    if-ge v2, v0, :cond_1
+    if-ge v2, v0, :cond_1d
 
     .line 132
     move v0, v2
 
     .line 129
     .end local v2    # "next":I
-    :cond_1
+    :cond_1d
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_11
 
     .line 135
     .end local v1    # "i":I
-    :cond_2
+    :cond_20
     invoke-static {v0}, Lcom/google/common/primitives/UnsignedInts;->flip(I)I
 
     move-result v1
@@ -413,7 +413,7 @@
 .end method
 
 .method public static parseUnsignedInt(Ljava/lang/String;)I
-    .locals 1
+    .registers 2
     .param p0, "s"    # Ljava/lang/String;
 
     .line 340
@@ -427,7 +427,7 @@
 .end method
 
 .method public static parseUnsignedInt(Ljava/lang/String;I)I
-    .locals 5
+    .registers 7
     .param p0, "string"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -447,7 +447,7 @@
 
     cmp-long v4, v2, v0
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_13
 
     .line 364
     long-to-int v2, v0
@@ -455,7 +455,7 @@
     return v2
 
     .line 361
-    :cond_0
+    :cond_13
     new-instance v2, Ljava/lang/NumberFormatException;
 
     invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -508,7 +508,7 @@
 .end method
 
 .method public static remainder(II)I
-    .locals 4
+    .registers 6
     .param p0, "dividend"    # I
     .param p1, "divisor"    # I
 
@@ -529,7 +529,7 @@
 .end method
 
 .method public static saturatedCast(J)I
-    .locals 3
+    .registers 5
     .param p0, "value"    # J
 
     .line 109
@@ -537,7 +537,7 @@
 
     cmp-long v2, p0, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_8
 
     .line 110
     const/4 v0, 0x0
@@ -545,12 +545,12 @@
     return v0
 
     .line 111
-    :cond_0
+    :cond_8
     const-wide v0, 0x100000000L
 
     cmp-long v2, p0, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_13
 
     .line 112
     const/4 v0, -0x1
@@ -558,14 +558,14 @@
     return v0
 
     .line 114
-    :cond_1
+    :cond_13
     long-to-int v0, p0
 
     return v0
 .end method
 
 .method public static sort([I)V
-    .locals 2
+    .registers 3
     .param p0, "array"    # [I
 
     .line 221
@@ -583,7 +583,7 @@
 .end method
 
 .method public static sort([III)V
-    .locals 2
+    .registers 5
     .param p0, "array"    # [I
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -600,8 +600,8 @@
     move v0, p1
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p2, :cond_0
+    :goto_8
+    if-ge v0, p2, :cond_15
 
     .line 235
     aget v1, p0, v0
@@ -615,19 +615,19 @@
     .line 234
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 237
     .end local v0    # "i":I
-    :cond_0
+    :cond_15
     invoke-static {p0, p1, p2}, Ljava/util/Arrays;->sort([III)V
 
     .line 238
     move v0, p1
 
     .restart local v0    # "i":I
-    :goto_1
-    if-ge v0, p2, :cond_1
+    :goto_19
+    if-ge v0, p2, :cond_26
 
     .line 239
     aget v1, p0, v0
@@ -641,16 +641,16 @@
     .line 238
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
     .line 241
     .end local v0    # "i":I
-    :cond_1
+    :cond_26
     return-void
 .end method
 
 .method public static sortDescending([I)V
-    .locals 2
+    .registers 3
     .param p0, "array"    # [I
 
     .line 250
@@ -668,7 +668,7 @@
 .end method
 
 .method public static sortDescending([III)V
-    .locals 3
+    .registers 6
     .param p0, "array"    # [I
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -685,10 +685,10 @@
     move v0, p1
 
     .local v0, "i":I
-    :goto_0
+    :goto_8
     const v1, 0x7fffffff
 
-    if-ge v0, p2, :cond_0
+    if-ge v0, p2, :cond_15
 
     .line 264
     aget v2, p0, v0
@@ -700,19 +700,19 @@
     .line 263
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 266
     .end local v0    # "i":I
-    :cond_0
+    :cond_15
     invoke-static {p0, p1, p2}, Ljava/util/Arrays;->sort([III)V
 
     .line 267
     move v0, p1
 
     .restart local v0    # "i":I
-    :goto_1
-    if-ge v0, p2, :cond_1
+    :goto_19
+    if-ge v0, p2, :cond_23
 
     .line 268
     aget v2, p0, v0
@@ -724,16 +724,16 @@
     .line 267
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
     .line 270
     .end local v0    # "i":I
-    :cond_1
+    :cond_23
     return-void
 .end method
 
 .method public static toLong(I)J
-    .locals 4
+    .registers 5
     .param p0, "value"    # I
 
     .line 81
@@ -747,7 +747,7 @@
 .end method
 
 .method public static toString(I)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "x"    # I
 
     .line 373
@@ -761,7 +761,7 @@
 .end method
 
 .method public static toString(II)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "x"    # I
     .param p1, "radix"    # I
 

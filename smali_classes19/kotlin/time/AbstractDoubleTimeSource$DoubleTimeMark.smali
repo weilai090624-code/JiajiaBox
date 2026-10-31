@@ -71,7 +71,7 @@
 
 # direct methods
 .method private constructor <init>(DLkotlin/time/AbstractDoubleTimeSource;J)V
-    .locals 1
+    .registers 7
     .param p1, "startedAt"    # D
     .param p3, "timeSource"    # Lkotlin/time/AbstractDoubleTimeSource;
     .param p4, "offset"    # J
@@ -94,7 +94,7 @@
 .end method
 
 .method public synthetic constructor <init>(DLkotlin/time/AbstractDoubleTimeSource;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 7
 
     invoke-direct/range {p0 .. p5}, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;-><init>(DLkotlin/time/AbstractDoubleTimeSource;J)V
 
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 105
@@ -120,7 +120,7 @@
 .end method
 
 .method public compareTo(Lkotlin/time/ComparableTimeMark;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lkotlin/time/ComparableTimeMark;
 
     .line 105
@@ -132,7 +132,7 @@
 .end method
 
 .method public elapsedNow-UwyO8pc()J
-    .locals 4
+    .registers 5
 
     .line 107
     iget-object v0, p0, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;->timeSource:Lkotlin/time/AbstractDoubleTimeSource;
@@ -165,13 +165,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 121
     instance-of v0, p1, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     iget-object v0, p0, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;->timeSource:Lkotlin/time/AbstractDoubleTimeSource;
 
@@ -185,7 +185,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     move-object v0, p1
 
@@ -205,21 +205,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_26
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_27
     return v0
 .end method
 
 .method public hasNotPassedNow()Z
-    .locals 1
+    .registers 2
 
     .line 105
     invoke-static {p0}, Lkotlin/time/ComparableTimeMark$DefaultImpls;->hasNotPassedNow(Lkotlin/time/ComparableTimeMark;)Z
@@ -230,7 +230,7 @@
 .end method
 
 .method public hasPassedNow()Z
-    .locals 1
+    .registers 2
 
     .line 105
     invoke-static {p0}, Lkotlin/time/ComparableTimeMark$DefaultImpls;->hasPassedNow(Lkotlin/time/ComparableTimeMark;)Z
@@ -241,7 +241,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 125
     iget-wide v0, p0, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;->startedAt:D
@@ -270,7 +270,7 @@
 .end method
 
 .method public minus-LRDsOJo(J)Lkotlin/time/ComparableTimeMark;
-    .locals 1
+    .registers 4
     .param p1, "duration"    # J
 
     .line 105
@@ -282,7 +282,7 @@
 .end method
 
 .method public bridge synthetic minus-LRDsOJo(J)Lkotlin/time/TimeMark;
-    .locals 1
+    .registers 4
     .param p1, "duration"    # J
 
     .line 105
@@ -296,7 +296,7 @@
 .end method
 
 .method public minus-UwyO8pc(Lkotlin/time/ComparableTimeMark;)J
-    .locals 6
+    .registers 8
     .param p1, "other"    # Lkotlin/time/ComparableTimeMark;
 
     const-string v0, "other"
@@ -306,7 +306,7 @@
     .line 111
     instance-of v0, p1, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_65
 
     iget-object v0, p0, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;->timeSource:Lkotlin/time/AbstractDoubleTimeSource;
 
@@ -320,7 +320,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_65
 
     .line 114
     iget-wide v0, p0, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;->offset:J
@@ -335,7 +335,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
     iget-wide v0, p0, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;->offset:J
 
@@ -343,7 +343,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
     sget-object v0, Lkotlin/time/Duration;->Companion:Lkotlin/time/Duration$Companion;
 
@@ -354,7 +354,7 @@
     return-wide v0
 
     .line 115
-    :cond_0
+    :cond_32
     iget-wide v0, p0, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;->offset:J
 
     move-object v2, p1
@@ -399,7 +399,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_60
 
     sget-object v4, Lkotlin/time/Duration;->Companion:Lkotlin/time/Duration$Companion;
 
@@ -407,20 +407,20 @@
 
     move-result-wide v4
 
-    goto :goto_0
+    goto :goto_64
 
-    :cond_1
+    :cond_60
     invoke-static {v2, v3, v0, v1}, Lkotlin/time/Duration;->plus-LRDsOJo(JJ)J
 
     move-result-wide v4
 
-    :goto_0
+    :goto_64
     return-wide v4
 
     .line 112
     .end local v0    # "offsetDiff":J
     .end local v2    # "startedAtDiff":J
-    :cond_2
+    :cond_65
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -457,7 +457,7 @@
 .end method
 
 .method public plus-LRDsOJo(J)Lkotlin/time/ComparableTimeMark;
-    .locals 8
+    .registers 11
     .param p1, "duration"    # J
 
     .line 108
@@ -485,7 +485,7 @@
 .end method
 
 .method public bridge synthetic plus-LRDsOJo(J)Lkotlin/time/TimeMark;
-    .locals 1
+    .registers 4
     .param p1, "duration"    # J
 
     .line 105
@@ -499,7 +499,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 128
     new-instance v0, Ljava/lang/StringBuilder;

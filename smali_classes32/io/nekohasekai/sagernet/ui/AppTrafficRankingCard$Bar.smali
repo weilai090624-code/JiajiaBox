@@ -26,10 +26,10 @@
 .method constructor <init>(Landroid/content/Context;)V
     .registers 3
 
-    .line 161
+    .line 164
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 160
+    .line 163
     new-instance p1, Landroid/graphics/Paint;
 
     const/4 v0, 0x1
@@ -48,7 +48,7 @@
 
     move-object/from16 v0, p0
 
-    .line 162
+    .line 165
     invoke-super/range {p0 .. p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Bar;->paint:Landroid/graphics/Paint;
@@ -59,7 +59,7 @@
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Bar;->paint:Landroid/graphics/Paint;
 
-    const/16 v2, 0x10
+    const/16 v2, 0x16
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setAlpha(I)V
 
@@ -105,7 +105,7 @@
 
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/AppTrafficRankingCard$Bar;->paint:Landroid/graphics/Paint;
 
-    const/16 v2, 0x64
+    const/16 v2, 0x76
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setAlpha(I)V
 

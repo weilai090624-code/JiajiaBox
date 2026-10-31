@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 96
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -124,7 +124,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_d6
 
     iput-object v0, p0, Lcom/google/android/material/timepicker/ClockFaceView;->gradientPositions:[F
 
@@ -254,19 +254,19 @@
     nop
 
     .line 135
-    if-nez v5, :cond_0
+    if-nez v5, :cond_90
 
     move v6, v3
 
-    goto :goto_0
+    goto :goto_94
 
-    :cond_0
+    :cond_90
     invoke-virtual {v5}, Landroid/content/res/ColorStateList;->getDefaultColor()I
 
     move-result v6
 
     .line 134
-    :goto_0
+    :goto_94
     invoke-virtual {p0, v6}, Lcom/google/android/material/timepicker/ClockFaceView;->setBackgroundColor(I)V
 
     .line 137
@@ -340,7 +340,7 @@
     .line 202
     return-void
 
-    :array_0
+    :array_d6
     .array-data 4
         0x0
         0x3f666666    # 0.9f
@@ -349,7 +349,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/timepicker/ClockFaceView;)Lcom/google/android/material/timepicker/ClockHandView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/ClockFaceView;
 
     .line 68
@@ -359,7 +359,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/timepicker/ClockFaceView;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/ClockFaceView;
 
     .line 68
@@ -369,7 +369,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/timepicker/ClockFaceView;)Landroid/util/SparseArray;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/ClockFaceView;
 
     .line 68
@@ -379,7 +379,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/timepicker/ClockFaceView;)Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/ClockFaceView;
 
     .line 68
@@ -389,7 +389,7 @@
 .end method
 
 .method private findIntersectingTextView()V
-    .locals 6
+    .registers 7
 
     .line 293
     iget-object v0, p0, Lcom/google/android/material/timepicker/ClockFaceView;->clockHandView:Lcom/google/android/material/timepicker/ClockHandView;
@@ -409,14 +409,14 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_b
     iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
 
     invoke-virtual {v3}, Landroid/util/SparseArray;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_37
 
     .line 296
     iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
@@ -429,23 +429,23 @@
 
     .line 297
     .local v3, "tv":Landroid/widget/TextView;
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1e
 
     .line 298
-    goto :goto_2
+    goto :goto_34
 
     .line 302
-    :cond_0
-    if-ne v3, v1, :cond_1
+    :cond_1e
+    if-ne v3, v1, :cond_22
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_1
+    :cond_22
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_23
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setSelected(Z)V
 
     .line 305
@@ -467,19 +467,19 @@
     .line 295
     .end local v3    # "tv":Landroid/widget/TextView;
     .end local v4    # "radialGradient":Landroid/graphics/RadialGradient;
-    :goto_2
+    :goto_34
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 309
     .end local v2    # "i":I
-    :cond_2
+    :cond_37
     return-void
 .end method
 
 .method private getGradientForTextView(Landroid/graphics/RectF;Landroid/widget/TextView;)Landroid/graphics/RadialGradient;
-    .locals 8
+    .registers 11
     .param p1, "selectorBox"    # Landroid/graphics/RectF;
     .param p2, "tv"    # Landroid/widget/TextView;
 
@@ -526,7 +526,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2b
 
     .line 341
     const/4 v0, 0x0
@@ -534,7 +534,7 @@
     return-object v0
 
     .line 344
-    :cond_0
+    :cond_2b
     new-instance v0, Landroid/graphics/RadialGradient;
 
     .line 345
@@ -583,7 +583,7 @@
 .end method
 
 .method private getSelectedTextView(Landroid/graphics/RectF;)Landroid/widget/TextView;
-    .locals 6
+    .registers 8
     .param p1, "selectorBox"    # Landroid/graphics/RectF;
 
     .line 313
@@ -598,14 +598,14 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_5
     iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
 
     invoke-virtual {v3}, Landroid/util/SparseArray;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_40
 
     .line 317
     iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
@@ -618,13 +618,13 @@
 
     .line 318
     .local v3, "tv":Landroid/widget/TextView;
-    if-nez v3, :cond_0
+    if-nez v3, :cond_18
 
     .line 319
-    goto :goto_1
+    goto :goto_3d
 
     .line 321
-    :cond_0
+    :cond_18
     iget-object v4, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->getHitRect(Landroid/graphics/Rect;)V
@@ -660,7 +660,7 @@
     .local v4, "area":F
     cmpg-float v5, v4, v0
 
-    if-gez v5, :cond_1
+    if-gez v5, :cond_3d
 
     .line 326
     move v0, v4
@@ -671,20 +671,20 @@
     .line 316
     .end local v3    # "tv":Landroid/widget/TextView;
     .end local v4    # "area":F
-    :cond_1
-    :goto_1
+    :cond_3d
+    :goto_3d
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 331
     .end local v2    # "i":I
-    :cond_2
+    :cond_40
     return-object v1
 .end method
 
 .method private static max3(FFF)F
-    .locals 1
+    .registers 4
     .param p0, "a"    # F
     .param p1, "b"    # F
     .param p2, "c"    # F
@@ -702,7 +702,7 @@
 .end method
 
 .method private updateTextViews(I)V
-    .locals 10
+    .registers 12
     .param p1, "contentDescription"    # I
 
     .line 214
@@ -731,7 +731,7 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_10
     iget-object v4, p0, Lcom/google/android/material/timepicker/ClockFaceView;->values:[Ljava/lang/String;
 
     array-length v4, v4
@@ -740,7 +740,7 @@
 
     move-result v4
 
-    if-ge v3, v4, :cond_4
+    if-ge v3, v4, :cond_85
 
     .line 219
     iget-object v4, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
@@ -757,7 +757,7 @@
 
     array-length v5, v5
 
-    if-lt v3, v5, :cond_0
+    if-lt v3, v5, :cond_2f
 
     .line 221
     invoke-virtual {p0, v4}, Lcom/google/android/material/timepicker/ClockFaceView;->removeView(Landroid/view/View;)V
@@ -768,13 +768,13 @@
     invoke-virtual {v5, v3}, Landroid/util/SparseArray;->remove(I)V
 
     .line 223
-    goto :goto_1
+    goto :goto_82
 
     .line 226
-    :cond_0
+    :cond_2f
     const/4 v5, 0x0
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_43
 
     .line 227
     sget v6, Lcom/google/android/material/R$layout;->material_clockface_textview:I
@@ -796,7 +796,7 @@
     invoke-virtual {p0, v4}, Lcom/google/android/material/timepicker/ClockFaceView;->addView(Landroid/view/View;)V
 
     .line 232
-    :cond_1
+    :cond_43
     iget-object v6, p0, Lcom/google/android/material/timepicker/ClockFaceView;->values:[Ljava/lang/String;
 
     aget-object v6, v6, v3
@@ -830,13 +830,13 @@
     invoke-virtual {v4, v8, v9}, Landroid/widget/TextView;->setTag(ILjava/lang/Object;)V
 
     .line 237
-    if-le v6, v7, :cond_2
+    if-le v6, v7, :cond_63
 
     .line 238
     const/4 v0, 0x1
 
     .line 241
-    :cond_2
+    :cond_63
     iget-object v8, p0, Lcom/google/android/material/timepicker/ClockFaceView;->valueAccessibilityDelegate:Landroidx/core/view/AccessibilityDelegateCompat;
 
     invoke-static {v4, v8}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
@@ -847,7 +847,7 @@
     invoke-virtual {v4, v8}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 244
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_82
 
     .line 245
     invoke-virtual {p0}, Lcom/google/android/material/timepicker/ClockFaceView;->getResources()Landroid/content/res/Resources;
@@ -874,15 +874,15 @@
     .end local v4    # "textView":Landroid/widget/TextView;
     .end local v6    # "level":I
     .end local v8    # "res":Landroid/content/res/Resources;
-    :cond_3
-    :goto_1
+    :cond_82
+    :goto_82
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 250
     .end local v3    # "i":I
-    :cond_4
+    :cond_85
     iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->clockHandView:Lcom/google/android/material/timepicker/ClockHandView;
 
     invoke-virtual {v3, v0}, Lcom/google/android/material/timepicker/ClockHandView;->setMultiLevel(Z)V
@@ -894,7 +894,7 @@
 
 # virtual methods
 .method getCurrentLevel()I
-    .locals 1
+    .registers 2
 
     .line 384
     iget-object v0, p0, Lcom/google/android/material/timepicker/ClockFaceView;->clockHandView:Lcom/google/android/material/timepicker/ClockHandView;
@@ -907,7 +907,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 4
+    .registers 6
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 263
@@ -941,7 +941,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 0
+    .registers 6
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -959,7 +959,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 8
+    .registers 11
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -1034,7 +1034,7 @@
 .end method
 
 .method public onRotate(FZ)V
-    .locals 2
+    .registers 5
     .param p1, "rotation"    # F
     .param p2, "animating"    # Z
 
@@ -1051,7 +1051,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_13
 
     .line 356
     iput p1, p0, Lcom/google/android/material/timepicker/ClockFaceView;->currentHandRotation:F
@@ -1060,12 +1060,12 @@
     invoke-direct {p0}, Lcom/google/android/material/timepicker/ClockFaceView;->findIntersectingTextView()V
 
     .line 359
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method setCurrentLevel(I)V
-    .locals 1
+    .registers 3
     .param p1, "level"    # I
 
     .line 388
@@ -1078,7 +1078,7 @@
 .end method
 
 .method public setHandRotation(F)V
-    .locals 1
+    .registers 3
     .param p1, "rotation"    # F
 
     .line 288
@@ -1094,7 +1094,7 @@
 .end method
 
 .method public setRadius(I)V
-    .locals 2
+    .registers 4
     .param p1, "radius"    # I
 
     .line 275
@@ -1102,7 +1102,7 @@
 
     move-result v0
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_12
 
     .line 276
     invoke-super {p0, p1}, Lcom/google/android/material/timepicker/RadialViewGroup;->setRadius(I)V
@@ -1117,12 +1117,12 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/timepicker/ClockHandView;->setCircleRadius(I)V
 
     .line 279
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public setValues([Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "values"    # [Ljava/lang/String;
     .param p2, "contentDescription"    # I
 
@@ -1137,7 +1137,7 @@
 .end method
 
 .method protected updateLayoutParams()V
-    .locals 3
+    .registers 4
 
     .line 255
     invoke-super {p0}, Lcom/google/android/material/timepicker/RadialViewGroup;->updateLayoutParams()V
@@ -1146,14 +1146,14 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_4
     iget-object v1, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1b
 
     .line 257
     iget-object v1, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
@@ -1171,10 +1171,10 @@
     .line 256
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 259
     .end local v0    # "i":I
-    :cond_0
+    :cond_1b
     return-void
 .end method

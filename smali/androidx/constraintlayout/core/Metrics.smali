@@ -101,7 +101,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public reset()V
-    .locals 2
+    .registers 3
 
     .line 115
     const-wide/16 v0, 0x0
@@ -226,7 +226,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 71
     new-instance v0, Ljava/lang/StringBuilder;

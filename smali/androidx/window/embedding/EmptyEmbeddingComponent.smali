@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 100
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public setEmbeddingRules(Ljava/util/Set;)V
-    .locals 1
+    .registers 3
     .param p1, "splitRules"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -70,7 +70,7 @@
 .end method
 
 .method public setSplitInfoCallback(Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
     .param p1, "consumer"    # Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {

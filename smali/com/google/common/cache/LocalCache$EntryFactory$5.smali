@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 493
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method newEntry(Lcom/google/common/cache/LocalCache$Segment;Ljava/lang/Object;ILcom/google/common/cache/ReferenceEntry;)Lcom/google/common/cache/ReferenceEntry;
-    .locals 2
+    .registers 7
     .param p3, "hash"    # I
     .param p4    # Lcom/google/common/cache/ReferenceEntry;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;

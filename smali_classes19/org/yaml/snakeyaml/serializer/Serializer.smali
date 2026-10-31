@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/emitter/Emitable;Lorg/yaml/snakeyaml/resolver/Resolver;Lorg/yaml/snakeyaml/DumperOptions;Lorg/yaml/snakeyaml/nodes/Tag;)V
-    .locals 1
+    .registers 6
     .param p1, "emitter"    # Lorg/yaml/snakeyaml/emitter/Emitable;
     .param p2, "resolver"    # Lorg/yaml/snakeyaml/resolver/Resolver;
     .param p3, "opts"    # Lorg/yaml/snakeyaml/DumperOptions;
@@ -89,7 +89,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 70
     invoke-virtual {p3}, Lorg/yaml/snakeyaml/DumperOptions;->getVersion()Lorg/yaml/snakeyaml/DumperOptions$Version;
@@ -99,7 +99,7 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->useVersion:Lorg/yaml/snakeyaml/DumperOptions$Version;
 
     .line 72
-    :cond_0
+    :cond_1f
     invoke-virtual {p3}, Lorg/yaml/snakeyaml/DumperOptions;->getTags()Ljava/util/Map;
 
     move-result-object v0
@@ -140,7 +140,7 @@
 .end method
 
 .method private anchorNode(Lorg/yaml/snakeyaml/nodes/Node;)V
-    .locals 2
+    .registers 4
 
     .line 122
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/nodes/Node;->getNodeId()Lorg/yaml/snakeyaml/nodes/NodeId;
@@ -149,7 +149,7 @@
 
     sget-object v1, Lorg/yaml/snakeyaml/nodes/NodeId;->anchor:Lorg/yaml/snakeyaml/nodes/NodeId;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 123
     check-cast p1, Lorg/yaml/snakeyaml/nodes/AnchorNode;
@@ -159,14 +159,14 @@
     move-result-object p1
 
     .line 125
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->anchors:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     .line 126
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->anchors:Ljava/util/Map;
@@ -178,7 +178,7 @@
     check-cast v0, Ljava/lang/String;
 
     .line 127
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2b
 
     .line 128
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->anchorGenerator:Lorg/yaml/snakeyaml/serializer/AnchorGenerator;
@@ -193,18 +193,18 @@
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 131
-    :cond_1
-    goto :goto_3
+    :cond_2b
+    goto :goto_8f
 
     .line 132
-    :cond_2
+    :cond_2c
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->anchors:Ljava/util/Map;
 
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/nodes/Node;->getAnchor()Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3b
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->anchorGenerator:Lorg/yaml/snakeyaml/serializer/AnchorGenerator;
 
@@ -212,12 +212,12 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_3
+    :cond_3b
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_3c
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 133
@@ -233,12 +233,12 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_90
 
-    goto :goto_3
+    goto :goto_8f
 
     .line 142
-    :pswitch_0
+    :pswitch_4f
     check-cast p1, Lorg/yaml/snakeyaml/nodes/MappingNode;
 
     .line 143
@@ -251,12 +251,12 @@
 
     move-result-object p1
 
-    :goto_1
+    :goto_59
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8f
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -281,10 +281,10 @@
     invoke-direct {p0, v0}, Lorg/yaml/snakeyaml/serializer/Serializer;->anchorNode(Lorg/yaml/snakeyaml/nodes/Node;)V
 
     .line 149
-    goto :goto_1
+    goto :goto_59
 
     .line 135
-    :pswitch_1
+    :pswitch_74
     check-cast p1, Lorg/yaml/snakeyaml/nodes/SequenceNode;
 
     .line 136
@@ -297,12 +297,12 @@
 
     move-result-object p1
 
-    :goto_2
+    :goto_7e
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_8e
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -314,26 +314,26 @@
     invoke-direct {p0, v0}, Lorg/yaml/snakeyaml/serializer/Serializer;->anchorNode(Lorg/yaml/snakeyaml/nodes/Node;)V
 
     .line 139
-    goto :goto_2
+    goto :goto_7e
 
     .line 140
-    :cond_4
+    :cond_8e
     nop
 
     .line 153
-    :cond_5
-    :goto_3
+    :cond_8f
+    :goto_8f
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_90
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_74
+        :pswitch_4f
     .end packed-switch
 .end method
 
 .method private serializeComments(Ljava/util/List;)V
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -351,24 +351,24 @@
 
     .line 218
     .local p1, "comments":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/comments/CommentLine;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 219
     return-void
 
     .line 221
-    :cond_0
+    :cond_3
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_7
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -407,16 +407,16 @@
     .line 225
     .end local v1    # "line":Lorg/yaml/snakeyaml/comments/CommentLine;
     .end local v2    # "commentEvent":Lorg/yaml/snakeyaml/events/CommentEvent;
-    goto :goto_0
+    goto :goto_7
 
     .line 226
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_1
+    :cond_2e
     return-void
 .end method
 
 .method private serializeNode(Lorg/yaml/snakeyaml/nodes/Node;Lorg/yaml/snakeyaml/nodes/Node;)V
-    .locals 26
+    .registers 29
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .param p2, "parent"    # Lorg/yaml/snakeyaml/nodes/Node;
     .annotation system Ldalvik/annotation/Throws;
@@ -434,7 +434,7 @@
 
     sget-object v2, Lorg/yaml/snakeyaml/nodes/NodeId;->anchor:Lorg/yaml/snakeyaml/nodes/NodeId;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_13
 
     .line 158
     move-object/from16 v1, p1
@@ -447,18 +447,18 @@
 
     .end local p1    # "node":Lorg/yaml/snakeyaml/nodes/Node;
     .local v1, "node":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_0
+    goto :goto_15
 
     .line 157
     .end local v1    # "node":Lorg/yaml/snakeyaml/nodes/Node;
     .restart local p1    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_0
+    :cond_13
     move-object/from16 v1, p1
 
     .line 160
     .end local p1    # "node":Lorg/yaml/snakeyaml/nodes/Node;
     .restart local v1    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :goto_0
+    :goto_15
     iget-object v2, v0, Lorg/yaml/snakeyaml/serializer/Serializer;->anchors:Ljava/util/Map;
 
     invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -477,7 +477,7 @@
 
     const/4 v10, 0x0
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_34
 
     .line 162
     iget-object v3, v0, Lorg/yaml/snakeyaml/serializer/Serializer;->emitter:Lorg/yaml/snakeyaml/emitter/Emitable;
@@ -490,10 +490,10 @@
 
     move-object/from16 v24, v2
 
-    goto/16 :goto_3
+    goto/16 :goto_1d0
 
     .line 164
-    :cond_1
+    :cond_34
     iget-object v3, v0, Lorg/yaml/snakeyaml/serializer/Serializer;->serializedNodes:Ljava/util/Set;
 
     invoke-interface {v3, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -515,9 +515,9 @@
 
     const/4 v5, 0x0
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_1d2
 
-    :pswitch_0
+    :pswitch_4a
     move-object v10, v5
 
     .local v10, "defaultTag":Lorg/yaml/snakeyaml/nodes/Tag;
@@ -592,7 +592,7 @@
 
     sget-object v4, Lorg/yaml/snakeyaml/nodes/Tag;->COMMENT:Lorg/yaml/snakeyaml/nodes/Tag;
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_1cb
 
     .line 201
     iget-object v7, v0, Lorg/yaml/snakeyaml/serializer/Serializer;->emitter:Lorg/yaml/snakeyaml/emitter/Emitable;
@@ -655,7 +655,7 @@
     move-result-object v2
 
     .local v2, "i$":Ljava/util/Iterator;
-    goto/16 :goto_2
+    goto/16 :goto_192
 
     .line 167
     .end local v10    # "defaultTag":Lorg/yaml/snakeyaml/nodes/Tag;
@@ -672,7 +672,7 @@
     .end local v24    # "tAlias":Ljava/lang/String;
     .end local v25    # "mnode":Lorg/yaml/snakeyaml/nodes/MappingNode;
     .local v2, "tAlias":Ljava/lang/String;
-    :pswitch_1
+    :pswitch_b1
     move-object v11, v1
 
     check-cast v11, Lorg/yaml/snakeyaml/nodes/ScalarNode;
@@ -789,7 +789,7 @@
     .line 178
     move-object/from16 v24, v2
 
-    goto/16 :goto_3
+    goto/16 :goto_1d0
 
     .line 165
     .end local v3    # "event":Lorg/yaml/snakeyaml/events/ScalarEvent;
@@ -797,7 +797,7 @@
     .end local v11    # "scalarNode":Lorg/yaml/snakeyaml/nodes/ScalarNode;
     .end local v12    # "detectedTag":Lorg/yaml/snakeyaml/nodes/Tag;
     .end local v13    # "defaultTag":Lorg/yaml/snakeyaml/nodes/Tag;
-    :pswitch_2
+    :pswitch_119
     move-object v11, v5
 
     .local v11, "defaultTag":Lorg/yaml/snakeyaml/nodes/Tag;
@@ -899,12 +899,12 @@
     move-result-object v4
 
     .local v4, "i$":Ljava/util/Iterator;
-    :goto_1
+    :goto_166
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_176
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -918,11 +918,11 @@
 
     .line 189
     .end local v5    # "item":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_1
+    goto :goto_166
 
     .line 190
     .end local v4    # "i$":Ljava/util/Iterator;
-    :cond_2
+    :cond_176
     iget-object v4, v0, Lorg/yaml/snakeyaml/serializer/Serializer;->emitter:Lorg/yaml/snakeyaml/emitter/Emitable;
 
     new-instance v5, Lorg/yaml/snakeyaml/events/SequenceEndEvent;
@@ -950,7 +950,7 @@
     .line 193
     move-object/from16 v24, v2
 
-    goto :goto_3
+    goto :goto_1d0
 
     .line 203
     .end local v3    # "list":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/nodes/Node;>;"
@@ -968,12 +968,12 @@
     .restart local v20    # "implicitTag":Lorg/yaml/snakeyaml/nodes/Tag;
     .restart local v24    # "tAlias":Ljava/lang/String;
     .restart local v25    # "mnode":Lorg/yaml/snakeyaml/nodes/MappingNode;
-    :goto_2
+    :goto_192
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_1af
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1008,12 +1008,12 @@
     .end local v3    # "row":Lorg/yaml/snakeyaml/nodes/NodeTuple;
     .end local v4    # "key":Lorg/yaml/snakeyaml/nodes/Node;
     .end local v5    # "value":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_2
+    goto :goto_192
 
     .line 203
     .end local v6    # "mnode":Lorg/yaml/snakeyaml/nodes/MappingNode;
     .restart local v25    # "mnode":Lorg/yaml/snakeyaml/nodes/MappingNode;
-    :cond_3
+    :cond_1af
     move-object/from16 v6, v25
 
     .line 209
@@ -1044,7 +1044,7 @@
 
     invoke-direct {v0, v2}, Lorg/yaml/snakeyaml/serializer/Serializer;->serializeComments(Ljava/util/List;)V
 
-    goto :goto_3
+    goto :goto_1d0
 
     .line 200
     .end local v6    # "mnode":Lorg/yaml/snakeyaml/nodes/MappingNode;
@@ -1053,7 +1053,7 @@
     .local v2, "tAlias":Ljava/lang/String;
     .restart local v8    # "mnode":Lorg/yaml/snakeyaml/nodes/MappingNode;
     .restart local v9    # "implicitTag":Lorg/yaml/snakeyaml/nodes/Tag;
-    :cond_4
+    :cond_1cb
     move-object/from16 v24, v2
 
     move-object v6, v8
@@ -1075,23 +1075,23 @@
     .end local v18    # "implicitM":Z
     .end local v19    # "map":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/nodes/NodeTuple;>;"
     .restart local v24    # "tAlias":Ljava/lang/String;
-    :goto_3
+    :goto_1d0
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1d2
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_119
+        :pswitch_4a
+        :pswitch_b1
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1101,7 +1101,7 @@
     .line 92
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->closed:Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     .line 94
     sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
@@ -1112,7 +1112,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_27
 
     .line 95
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->emitter:Lorg/yaml/snakeyaml/emitter/Emitable;
@@ -1141,11 +1141,11 @@
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
     .line 101
-    :cond_0
+    :cond_27
     return-void
 
     .line 93
-    :cond_1
+    :cond_28
     new-instance v0, Lorg/yaml/snakeyaml/serializer/SerializerException;
 
     const-string v1, "serializer is not opened"
@@ -1156,7 +1156,7 @@
 .end method
 
 .method public open()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1166,7 +1166,7 @@
     .line 81
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->closed:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 82
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->emitter:Lorg/yaml/snakeyaml/emitter/Emitable;
@@ -1188,7 +1188,7 @@
     return-void
 
     .line 84
-    :cond_0
+    :cond_14
     sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     iget-object v1, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->closed:Ljava/lang/Boolean;
@@ -1197,7 +1197,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 85
     new-instance v0, Lorg/yaml/snakeyaml/serializer/SerializerException;
@@ -1209,7 +1209,7 @@
     throw v0
 
     .line 87
-    :cond_1
+    :cond_26
     new-instance v0, Lorg/yaml/snakeyaml/serializer/SerializerException;
 
     const-string v1, "serializer is already opened"
@@ -1220,7 +1220,7 @@
 .end method
 
 .method public serialize(Lorg/yaml/snakeyaml/nodes/Node;)V
-    .locals 8
+    .registers 10
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1231,7 +1231,7 @@
     .line 104
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->closed:Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4e
 
     .line 106
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->closed:Ljava/lang/Boolean;
@@ -1240,7 +1240,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_46
 
     .line 109
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->emitter:Lorg/yaml/snakeyaml/emitter/Emitable;
@@ -1269,7 +1269,7 @@
     .line 112
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->explicitRoot:Lorg/yaml/snakeyaml/nodes/Tag;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 113
     iget-object v0, p0, Lorg/yaml/snakeyaml/serializer/Serializer;->explicitRoot:Lorg/yaml/snakeyaml/nodes/Tag;
@@ -1277,7 +1277,7 @@
     invoke-virtual {p1, v0}, Lorg/yaml/snakeyaml/nodes/Node;->setTag(Lorg/yaml/snakeyaml/nodes/Tag;)V
 
     .line 115
-    :cond_0
+    :cond_2b
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lorg/yaml/snakeyaml/serializer/Serializer;->serializeNode(Lorg/yaml/snakeyaml/nodes/Node;Lorg/yaml/snakeyaml/nodes/Node;)V
@@ -1307,7 +1307,7 @@
     return-void
 
     .line 107
-    :cond_1
+    :cond_46
     new-instance v0, Lorg/yaml/snakeyaml/serializer/SerializerException;
 
     const-string v1, "serializer is closed"
@@ -1317,7 +1317,7 @@
     throw v0
 
     .line 105
-    :cond_2
+    :cond_4e
     new-instance v0, Lorg/yaml/snakeyaml/serializer/SerializerException;
 
     const-string v1, "serializer is not opened"

@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/coroutines/CombinedContext$Serialized$Companion;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>([Lkotlin/coroutines/CoroutineContext;)V
-    .locals 1
+    .registers 3
     .param p1, "elements"    # [Lkotlin/coroutines/CoroutineContext;
 
     const-string v0, "elements"
@@ -98,7 +98,7 @@
 .end method
 
 .method private final readResolve()Ljava/lang/Object;
-    .locals 10
+    .registers 11
 
     .line 193
     iget-object v0, p0, Lkotlin/coroutines/CombinedContext$Serialized;->elements:[Lkotlin/coroutines/CoroutineContext;
@@ -119,8 +119,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_0
+    :goto_8
+    if-ge v5, v4, :cond_19
 
     aget-object v6, v0, v5
 
@@ -150,10 +150,10 @@
     .end local v6    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 199
-    :cond_0
+    :cond_19
     nop
 
     .line 193
@@ -167,7 +167,7 @@
 
 # virtual methods
 .method public final getElements()[Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 188
     iget-object v0, p0, Lkotlin/coroutines/CombinedContext$Serialized;->elements:[Lkotlin/coroutines/CoroutineContext;

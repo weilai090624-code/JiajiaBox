@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Lcom/google/zxing/client/result/ResultParser;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public bridge synthetic parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/ParsedResult;
-    .locals 0
+    .registers 2
 
     .line 38
     invoke-virtual {p0, p1}, Lcom/google/zxing/client/result/WifiResultParser;->parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/WifiParsedResult;
@@ -27,7 +27,7 @@
 .end method
 
 .method public parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/WifiParsedResult;
-    .locals 19
+    .registers 21
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 42
@@ -51,13 +51,13 @@
 
     const/4 v3, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 44
     return-object v3
 
     .line 46
-    :cond_0
+    :cond_11
     const/4 v0, 0x5
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -85,18 +85,18 @@
 
     .end local v6    # "ssid":Ljava/lang/String;
     .local v8, "ssid":Ljava/lang/String;
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_6c
 
     invoke-virtual {v8}, Ljava/lang/String;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2a
 
-    goto :goto_0
+    goto :goto_6c
 
     .line 51
-    :cond_1
+    :cond_2a
     const-string v2, "P:"
 
     invoke-static {v2, v0, v4, v5}, Lcom/google/zxing/client/result/WifiResultParser;->matchSinglePrefixedField(Ljava/lang/String;Ljava/lang/String;CZ)Ljava/lang/String;
@@ -115,13 +115,13 @@
     .local v1, "type":Ljava/lang/String;
     move-object v1, v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3b
 
     .line 54
     const-string v1, "nopass"
 
     .line 56
-    :cond_2
+    :cond_3b
     const-string v3, "H:"
 
     invoke-static {v3, v0, v4, v5}, Lcom/google/zxing/client/result/WifiResultParser;->matchSinglePrefixedField(Ljava/lang/String;Ljava/lang/String;CZ)Ljava/lang/String;
@@ -194,7 +194,7 @@
     .end local v16    # "identity":Ljava/lang/String;
     .end local v17    # "anonymousIdentity":Ljava/lang/String;
     .end local v18    # "eapMethod":Ljava/lang/String;
-    :cond_3
-    :goto_0
+    :cond_6c
+    :goto_6c
     return-object v3
 .end method

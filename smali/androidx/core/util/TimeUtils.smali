@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 38
     new-instance v0, Ljava/lang/Object;
@@ -39,7 +39,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 179
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method private static accumField(IIZI)I
-    .locals 1
+    .registers 5
     .param p0, "amt"    # I
     .param p1, "suffix"    # I
     .param p2, "always"    # Z
@@ -57,68 +57,68 @@
     .line 42
     const/16 v0, 0x63
 
-    if-gt p0, v0, :cond_5
+    if-gt p0, v0, :cond_21
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     const/4 v0, 0x3
 
-    if-lt p3, v0, :cond_0
+    if-lt p3, v0, :cond_a
 
-    goto :goto_2
+    goto :goto_21
 
     .line 45
-    :cond_0
+    :cond_a
     const/16 v0, 0x9
 
-    if-gt p0, v0, :cond_4
+    if-gt p0, v0, :cond_1e
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_14
 
     const/4 v0, 0x2
 
-    if-lt p3, v0, :cond_1
+    if-lt p3, v0, :cond_14
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 48
-    :cond_1
-    if-nez p2, :cond_3
+    :cond_14
+    if-nez p2, :cond_1b
 
-    if-lez p0, :cond_2
+    if-lez p0, :cond_19
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 51
-    :cond_2
+    :cond_19
     const/4 v0, 0x0
 
     return v0
 
     .line 49
-    :cond_3
-    :goto_0
+    :cond_1b
+    :goto_1b
     add-int/lit8 v0, p1, 0x1
 
     return v0
 
     .line 46
-    :cond_4
-    :goto_1
+    :cond_1e
+    :goto_1e
     add-int/lit8 v0, p1, 0x2
 
     return v0
 
     .line 43
-    :cond_5
-    :goto_2
+    :cond_21
+    :goto_21
     add-int/lit8 v0, p1, 0x3
 
     return v0
 .end method
 
 .method public static formatDuration(JJLjava/io/PrintWriter;)V
-    .locals 3
+    .registers 8
     .param p0, "time"    # J
     .param p2, "now"    # J
     .param p4, "pw"    # Ljava/io/PrintWriter;
@@ -128,7 +128,7 @@
 
     cmp-long v2, p0, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_c
 
     .line 173
     const-string v0, "--"
@@ -139,7 +139,7 @@
     return-void
 
     .line 176
-    :cond_0
+    :cond_c
     sub-long v0, p0, p2
 
     const/4 v2, 0x0
@@ -151,7 +151,7 @@
 .end method
 
 .method public static formatDuration(JLjava/io/PrintWriter;)V
-    .locals 1
+    .registers 4
     .param p0, "duration"    # J
     .param p2, "pw"    # Ljava/io/PrintWriter;
 
@@ -165,7 +165,7 @@
 .end method
 
 .method public static formatDuration(JLjava/io/PrintWriter;I)V
-    .locals 5
+    .registers 9
     .param p0, "duration"    # J
     .param p2, "pw"    # Ljava/io/PrintWriter;
     .param p3, "fieldLen"    # I
@@ -176,7 +176,7 @@
     monitor-enter v0
 
     .line 160
-    :try_start_0
+    :try_start_3
     invoke-static {p0, p1, p3}, Landroidx/core/util/TimeUtils;->formatDurationLocked(JI)I
 
     move-result v1
@@ -201,18 +201,18 @@
     return-void
 
     .line 162
-    :catchall_0
+    :catchall_14
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_3 .. :try_end_16} :catchall_14
 
     throw v1
 .end method
 
 .method public static formatDuration(JLjava/lang/StringBuilder;)V
-    .locals 4
+    .registers 7
     .param p0, "duration"    # J
     .param p2, "builder"    # Ljava/lang/StringBuilder;
 
@@ -224,7 +224,7 @@
     .line 152
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_4
     invoke-static {p0, p1, v1}, Landroidx/core/util/TimeUtils;->formatDurationLocked(JI)I
 
     move-result v2
@@ -245,18 +245,18 @@
     return-void
 
     .line 154
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_4 .. :try_end_12} :catchall_10
 
     throw v1
 .end method
 
 .method private static formatDurationLocked(JI)I
-    .locals 27
+    .registers 30
     .param p0, "duration"    # J
     .param p2, "fieldLen"    # I
 
@@ -269,7 +269,7 @@
 
     array-length v3, v3
 
-    if-ge v3, v2, :cond_0
+    if-ge v3, v2, :cond_d
 
     .line 80
     new-array v3, v2, [C
@@ -277,7 +277,7 @@
     sput-object v3, Landroidx/core/util/TimeUtils;->sFormatStr:[C
 
     .line 83
-    :cond_0
+    :cond_d
     sget-object v3, Landroidx/core/util/TimeUtils;->sFormatStr:[C
 
     .line 85
@@ -288,7 +288,7 @@
 
     cmp-long v7, v0, v5
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_26
 
     .line 86
     const/4 v5, 0x0
@@ -300,16 +300,16 @@
     .line 88
     .end local p2    # "fieldLen":I
     .local v2, "fieldLen":I
-    :goto_0
-    if-ge v5, v2, :cond_1
+    :goto_1a
+    if-ge v5, v2, :cond_1f
 
     .line 89
     aput-char v4, v3, v5
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 91
-    :cond_1
+    :cond_1f
     const/16 v4, 0x30
 
     aput-char v4, v3, v5
@@ -323,10 +323,10 @@
     .end local v2    # "fieldLen":I
     .end local v5    # "pos":I
     .restart local p2    # "fieldLen":I
-    :cond_2
+    :cond_26
     cmp-long v7, v0, v5
 
-    if-lez v7, :cond_3
+    if-lez v7, :cond_2e
 
     .line 97
     const/16 v5, 0x2b
@@ -334,11 +334,11 @@
     move v10, v5
 
     .local v5, "prefix":C
-    goto :goto_1
+    goto :goto_32
 
     .line 99
     .end local v5    # "prefix":C
-    :cond_3
+    :cond_2e
     const/16 v5, 0x2d
 
     .line 100
@@ -352,7 +352,7 @@
     .end local p0    # "duration":J
     .local v0, "duration":J
     .local v10, "prefix":C
-    :goto_1
+    :goto_32
     const-wide/16 v5, 0x3e8
 
     rem-long v7, v0, v5
@@ -385,7 +385,7 @@
     .local v8, "minutes":I
     const v9, 0x15180
 
-    if-le v5, v9, :cond_4
+    if-le v5, v9, :cond_4e
 
     .line 108
     div-int v6, v5, v9
@@ -397,19 +397,19 @@
 
     move v12, v6
 
-    goto :goto_2
+    goto :goto_4f
 
     .line 107
-    :cond_4
+    :cond_4e
     move v12, v6
 
     .line 111
     .end local v6    # "days":I
     .local v12, "days":I
-    :goto_2
+    :goto_4f
     const/16 v6, 0xe10
 
-    if-le v5, v6, :cond_5
+    if-le v5, v6, :cond_5a
 
     .line 112
     div-int/lit16 v7, v5, 0xe10
@@ -421,19 +421,19 @@
 
     move v13, v7
 
-    goto :goto_3
+    goto :goto_5b
 
     .line 111
-    :cond_5
+    :cond_5a
     move v13, v7
 
     .line 115
     .end local v7    # "hours":I
     .local v13, "hours":I
-    :goto_3
+    :goto_5b
     const/16 v6, 0x3c
 
-    if-le v5, v6, :cond_6
+    if-le v5, v6, :cond_67
 
     .line 116
     div-int/lit8 v8, v5, 0x3c
@@ -447,10 +447,10 @@
 
     move v15, v8
 
-    goto :goto_4
+    goto :goto_69
 
     .line 115
-    :cond_6
+    :cond_67
     move v14, v5
 
     move v15, v8
@@ -460,7 +460,7 @@
     .end local v8    # "minutes":I
     .local v14, "seconds":I
     .local v15, "minutes":I
-    :goto_4
+    :goto_69
     const/4 v5, 0x0
 
     .line 122
@@ -473,7 +473,7 @@
 
     const/4 v7, 0x1
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_a5
 
     .line 123
     invoke-static {v12, v7, v8, v8}, Landroidx/core/util/TimeUtils;->accumField(IIZI)I
@@ -482,11 +482,11 @@
 
     .line 124
     .local v6, "myLen":I
-    if-lez v6, :cond_7
+    if-lez v6, :cond_78
 
     const/4 v8, 0x1
 
-    :cond_7
+    :cond_78
     invoke-static {v13, v7, v8, v9}, Landroidx/core/util/TimeUtils;->accumField(IIZI)I
 
     move-result v8
@@ -494,16 +494,16 @@
     add-int/2addr v6, v8
 
     .line 125
-    if-lez v6, :cond_8
+    if-lez v6, :cond_81
 
     const/4 v8, 0x1
 
-    goto :goto_5
+    goto :goto_82
 
-    :cond_8
+    :cond_81
     const/4 v8, 0x0
 
-    :goto_5
+    :goto_82
     invoke-static {v15, v7, v8, v9}, Landroidx/core/util/TimeUtils;->accumField(IIZI)I
 
     move-result v8
@@ -511,16 +511,16 @@
     add-int/2addr v6, v8
 
     .line 126
-    if-lez v6, :cond_9
+    if-lez v6, :cond_8b
 
     const/4 v8, 0x1
 
-    goto :goto_6
+    goto :goto_8c
 
-    :cond_9
+    :cond_8b
     const/4 v8, 0x0
 
-    :goto_6
+    :goto_8c
     invoke-static {v14, v7, v8, v9}, Landroidx/core/util/TimeUtils;->accumField(IIZI)I
 
     move-result v8
@@ -528,16 +528,16 @@
     add-int/2addr v6, v8
 
     .line 127
-    if-lez v6, :cond_a
+    if-lez v6, :cond_95
 
     const/4 v8, 0x3
 
-    goto :goto_7
+    goto :goto_96
 
-    :cond_a
+    :cond_95
     const/4 v8, 0x0
 
-    :goto_7
+    :goto_96
     invoke-static {v11, v9, v7, v8}, Landroidx/core/util/TimeUtils;->accumField(IIZI)I
 
     move-result v8
@@ -547,8 +547,8 @@
     add-int/2addr v6, v8
 
     .line 128
-    :goto_8
-    if-ge v6, v2, :cond_b
+    :goto_9c
+    if-ge v6, v2, :cond_a5
 
     .line 129
     aput-char v4, v3, v5
@@ -559,11 +559,11 @@
     .line 131
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_8
+    goto :goto_9c
 
     .line 135
     .end local v6    # "myLen":I
-    :cond_b
+    :cond_a5
     aput-char v10, v3, v5
 
     .line 136
@@ -576,16 +576,16 @@
 
     .line 139
     .local v8, "start":I
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_af
 
     const/4 v4, 0x1
 
-    goto :goto_9
+    goto :goto_b0
 
-    :cond_c
+    :cond_af
     const/4 v4, 0x0
 
-    :goto_9
+    :goto_b0
     move/from16 v18, v4
 
     .line 140
@@ -627,26 +627,26 @@
 
     .end local v22    # "start":I
     .restart local v8    # "start":I
-    if-eq v9, v8, :cond_d
+    if-eq v9, v8, :cond_d3
 
     const/16 v17, 0x1
 
-    goto :goto_a
+    goto :goto_d5
 
-    :cond_d
+    :cond_d3
     const/16 v17, 0x0
 
-    :goto_a
-    if-eqz v18, :cond_e
+    :goto_d5
+    if-eqz v18, :cond_da
 
     const/16 v20, 0x2
 
-    goto :goto_b
+    goto :goto_dc
 
-    :cond_e
+    :cond_da
     const/16 v20, 0x0
 
-    :goto_b
+    :goto_dc
     const/16 v6, 0x68
 
     move-object v4, v3
@@ -678,26 +678,26 @@
 
     .end local v24    # "start":I
     .restart local v8    # "start":I
-    if-eq v9, v8, :cond_f
+    if-eq v9, v8, :cond_f4
 
     const/16 v17, 0x1
 
-    goto :goto_c
+    goto :goto_f6
 
-    :cond_f
+    :cond_f4
     const/16 v17, 0x0
 
-    :goto_c
-    if-eqz v18, :cond_10
+    :goto_f6
+    if-eqz v18, :cond_fb
 
     const/16 v20, 0x2
 
-    goto :goto_d
+    goto :goto_fd
 
-    :cond_10
+    :cond_fb
     const/16 v20, 0x0
 
-    :goto_d
+    :goto_fd
     const/16 v6, 0x6d
 
     move-object v4, v3
@@ -729,22 +729,22 @@
 
     .end local v25    # "start":I
     .restart local v8    # "start":I
-    if-eq v9, v8, :cond_11
+    if-eq v9, v8, :cond_113
 
-    goto :goto_e
+    goto :goto_115
 
-    :cond_11
+    :cond_113
     const/16 v21, 0x0
 
-    :goto_e
-    if-eqz v18, :cond_12
+    :goto_115
+    if-eqz v18, :cond_118
 
-    goto :goto_f
+    goto :goto_11a
 
-    :cond_12
+    :cond_118
     const/16 v19, 0x0
 
-    :goto_f
+    :goto_11a
     const/16 v6, 0x73
 
     move-object v4, v3
@@ -772,27 +772,27 @@
     .line 144
     .end local v17    # "pos":I
     .restart local v9    # "pos":I
-    if-eqz v18, :cond_13
+    if-eqz v18, :cond_132
 
     move/from16 v8, v26
 
     .end local v26    # "start":I
     .restart local v8    # "start":I
-    if-eq v9, v8, :cond_14
+    if-eq v9, v8, :cond_134
 
-    goto :goto_10
+    goto :goto_136
 
     .end local v8    # "start":I
     .restart local v26    # "start":I
-    :cond_13
+    :cond_132
     move/from16 v8, v26
 
     .end local v26    # "start":I
     .restart local v8    # "start":I
-    :cond_14
+    :cond_134
     const/16 v16, 0x0
 
-    :goto_10
+    :goto_136
     const/16 v6, 0x6d
 
     const/16 v17, 0x1
@@ -833,7 +833,7 @@
 .end method
 
 .method private static printField([CICIZI)I
-    .locals 3
+    .registers 9
     .param p0, "formatStr"    # [C
     .param p1, "amt"    # I
     .param p2, "suffix"    # C
@@ -842,29 +842,29 @@
     .param p5, "zeropad"    # I
 
     .line 56
-    if-nez p4, :cond_0
+    if-nez p4, :cond_4
 
-    if-lez p1, :cond_7
+    if-lez p1, :cond_3c
 
     .line 57
-    :cond_0
+    :cond_4
     move v0, p3
 
     .line 58
     .local v0, "startPos":I
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     const/4 v1, 0x3
 
-    if-ge p5, v1, :cond_2
+    if-ge p5, v1, :cond_e
 
-    :cond_1
+    :cond_a
     const/16 v1, 0x63
 
-    if-le p1, v1, :cond_3
+    if-le p1, v1, :cond_1a
 
     .line 59
-    :cond_2
+    :cond_e
     div-int/lit8 v1, p1, 0x64
 
     .line 60
@@ -885,22 +885,22 @@
 
     .line 64
     .end local v1    # "dig":I
-    :cond_3
-    if-eqz p4, :cond_4
+    :cond_1a
+    if-eqz p4, :cond_1f
 
     const/4 v1, 0x2
 
-    if-ge p5, v1, :cond_5
+    if-ge p5, v1, :cond_25
 
-    :cond_4
+    :cond_1f
     const/16 v1, 0x9
 
-    if-gt p1, v1, :cond_5
+    if-gt p1, v1, :cond_25
 
-    if-eq v0, p3, :cond_6
+    if-eq v0, p3, :cond_31
 
     .line 65
-    :cond_5
+    :cond_25
     div-int/lit8 v1, p1, 0xa
 
     .line 66
@@ -921,7 +921,7 @@
 
     .line 70
     .end local v1    # "dig":I
-    :cond_6
+    :cond_31
     add-int/lit8 v1, p1, 0x30
 
     int-to-char v1, v1
@@ -939,6 +939,6 @@
 
     .line 75
     .end local v0    # "startPos":I
-    :cond_7
+    :cond_3c
     return p3
 .end method

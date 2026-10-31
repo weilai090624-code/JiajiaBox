@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Iterator;)V
-    .locals 1
+    .registers 3
     .param p1, "iterator"    # Ljava/util/Iterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public final hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 40
     iget-object v0, p0, Lkotlin/collections/IndexingIterator;->iterator:Ljava/util/Iterator;
@@ -102,7 +102,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 38
     invoke-virtual {p0}, Lkotlin/collections/IndexingIterator;->next()Lkotlin/collections/IndexedValue;
@@ -113,7 +113,7 @@
 .end method
 
 .method public final next()Lkotlin/collections/IndexedValue;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -131,11 +131,11 @@
 
     iput v2, p0, Lkotlin/collections/IndexingIterator;->index:I
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_d
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    :cond_0
+    :cond_d
     iget-object v2, p0, Lkotlin/collections/IndexingIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -148,7 +148,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

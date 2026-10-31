@@ -115,7 +115,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 4
     .param p1, "map"    # Ljava/util/Map;
     .param p2, "default"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 99
     invoke-virtual {p0}, Lkotlin/collections/MutableMapWithDefaultImpl;->getMap()Ljava/util/Map;
@@ -162,7 +162,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 89
@@ -178,7 +178,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 90
@@ -194,7 +194,7 @@
 .end method
 
 .method public final bridge entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -213,7 +213,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 84
@@ -229,7 +229,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -252,7 +252,7 @@
 .end method
 
 .method public getEntries()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -275,7 +275,7 @@
 .end method
 
 .method public getKeys()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -297,7 +297,7 @@
 .end method
 
 .method public getMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -313,7 +313,7 @@
 .end method
 
 .method public getOrImplicitDefault(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -337,13 +337,13 @@
 
     .line 106
     .local v2, "value$iv":Ljava/lang/Object;
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1a
 
     .line 107
     const/4 v3, 0x0
@@ -360,22 +360,22 @@
     .end local v3    # "$i$a$-getOrElseNullable-MutableMapWithDefaultImpl$getOrImplicitDefault$1":I
     move-object v2, v3
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 110
-    :cond_0
+    :cond_1a
     nop
 
     .line 101
     .end local v0    # "$this$getOrElseNullable$iv":Ljava/util/Map;
     .end local v1    # "$i$f$getOrElseNullable":I
     .end local v2    # "value$iv":Ljava/lang/Object;
-    :goto_0
+    :goto_1b
     return-object v2
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 87
     invoke-virtual {p0}, Lkotlin/collections/MutableMapWithDefaultImpl;->getMap()Ljava/util/Map;
@@ -390,7 +390,7 @@
 .end method
 
 .method public getValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -412,7 +412,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 85
     invoke-virtual {p0}, Lkotlin/collections/MutableMapWithDefaultImpl;->getMap()Ljava/util/Map;
@@ -427,7 +427,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 88
     invoke-virtual {p0}, Lkotlin/collections/MutableMapWithDefaultImpl;->getMap()Ljava/util/Map;
@@ -442,7 +442,7 @@
 .end method
 
 .method public final bridge keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -460,7 +460,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -482,7 +482,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "from"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -507,7 +507,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -530,7 +530,7 @@
 .end method
 
 .method public final bridge size()I
-    .locals 1
+    .registers 2
 
     .line 83
     invoke-virtual {p0}, Lkotlin/collections/MutableMapWithDefaultImpl;->getSize()I
@@ -541,7 +541,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 86
     invoke-virtual {p0}, Lkotlin/collections/MutableMapWithDefaultImpl;->getMap()Ljava/util/Map;
@@ -556,7 +556,7 @@
 .end method
 
 .method public final bridge values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

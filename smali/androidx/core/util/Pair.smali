@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;TS;)V"
@@ -60,7 +60,7 @@
 .end method
 
 .method public static create(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/core/util/Pair;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 52
@@ -95,13 +95,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 53
     return v1
 
     .line 55
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Landroidx/core/util/Pair;
@@ -116,7 +116,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1e
 
     iget-object v2, v0, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
 
@@ -126,16 +126,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1e
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 66
     .local p0, "this":Landroidx/core/util/Pair;, "Landroidx/core/util/Pair<TF;TS;>;"
@@ -143,41 +143,41 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_d
     iget-object v2, p0, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_12
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_12
     iget-object v1, p0, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    :goto_1
+    :goto_18
     xor-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 72
     .local p0, "this":Landroidx/core/util/Pair;, "Landroidx/core/util/Pair<TF;TS;>;"

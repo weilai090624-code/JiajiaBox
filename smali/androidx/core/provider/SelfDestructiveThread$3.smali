@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/provider/SelfDestructiveThread;Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/Callable;Ljava/util/concurrent/locks/ReentrantLock;Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/locks/Condition;)V
-    .locals 0
+    .registers 7
     .param p1, "this$0"    # Landroidx/core/provider/SelfDestructiveThread;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 179
     :try_start_0
@@ -75,24 +75,24 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_b} :catch_c
 
     .line 182
-    goto :goto_0
+    goto :goto_d
 
     .line 180
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 183
-    :goto_0
+    :goto_d
     iget-object v0, p0, Landroidx/core/provider/SelfDestructiveThread$3;->val$lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 185
-    :try_start_1
+    :try_start_12
     iget-object v0, p0, Landroidx/core/provider/SelfDestructiveThread$3;->val$running:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -103,8 +103,8 @@
     iget-object v0, p0, Landroidx/core/provider/SelfDestructiveThread$3;->val$cond:Ljava/util/concurrent/locks/Condition;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Condition;->signal()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_24
 
     .line 188
     iget-object v0, p0, Landroidx/core/provider/SelfDestructiveThread$3;->val$lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -118,7 +118,7 @@
     return-void
 
     .line 188
-    :catchall_0
+    :catchall_24
     move-exception v0
 
     iget-object v1, p0, Landroidx/core/provider/SelfDestructiveThread$3;->val$lock:Ljava/util/concurrent/locks/ReentrantLock;

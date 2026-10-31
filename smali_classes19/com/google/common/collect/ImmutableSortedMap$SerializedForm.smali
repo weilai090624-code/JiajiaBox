@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableSortedMap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method bridge synthetic makeBuilder(I)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 0
+    .registers 2
 
     .line 1103
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$SerializedForm;, "Lcom/google/common/collect/ImmutableSortedMap$SerializedForm<TK;TV;>;"
@@ -83,7 +83,7 @@
 .end method
 
 .method makeBuilder(I)Lcom/google/common/collect/ImmutableSortedMap$Builder;
-    .locals 2
+    .registers 4
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

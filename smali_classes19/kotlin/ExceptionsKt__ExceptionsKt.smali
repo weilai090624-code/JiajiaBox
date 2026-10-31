@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public static final addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$addSuppressed"    # Ljava/lang/Throwable;
     .param p1, "exception"    # Ljava/lang/Throwable;
 
@@ -68,7 +68,7 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 70
-    if-eq p0, p1, :cond_0
+    if-eq p0, p1, :cond_11
 
     .line 71
     sget-object v0, Lkotlin/internal/PlatformImplementationsKt;->IMPLEMENTATIONS:Lkotlin/internal/PlatformImplementations;
@@ -76,12 +76,12 @@
     invoke-virtual {v0, p0, p1}, Lkotlin/internal/PlatformImplementations;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .line 72
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public static final getStackTrace(Ljava/lang/Throwable;)[Ljava/lang/StackTraceElement;
-    .locals 1
+    .registers 2
     .param p0, "$this$stackTrace"    # Ljava/lang/Throwable;
 
     const-string v0, "<this>"
@@ -99,13 +99,13 @@
 .end method
 
 .method public static synthetic getStackTrace$annotations(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static final getSuppressedExceptions(Ljava/lang/Throwable;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$suppressedExceptions"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -133,13 +133,13 @@
 .end method
 
 .method public static synthetic getSuppressedExceptions$annotations(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method private static final printStackTrace(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$printStackTrace"    # Ljava/lang/Throwable;
 
     const-string v0, "<this>"
@@ -153,7 +153,7 @@
 .end method
 
 .method private static final printStackTrace(Ljava/lang/Throwable;Ljava/io/PrintStream;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$printStackTrace"    # Ljava/lang/Throwable;
     .param p1, "stream"    # Ljava/io/PrintStream;
 
@@ -172,7 +172,7 @@
 .end method
 
 .method private static final printStackTrace(Ljava/lang/Throwable;Ljava/io/PrintWriter;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$printStackTrace"    # Ljava/lang/Throwable;
     .param p1, "writer"    # Ljava/io/PrintWriter;
 
@@ -191,7 +191,7 @@
 .end method
 
 .method public static final stackTraceToString(Ljava/lang/Throwable;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "$this$stackTraceToString"    # Ljava/lang/Throwable;
 
     const-string v0, "<this>"

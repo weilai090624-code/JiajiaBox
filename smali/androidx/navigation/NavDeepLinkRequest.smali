@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Intent;)V
-    .locals 3
+    .registers 5
     .param p1, "intent"    # Landroid/content/Intent;
 
     const-string v0, "intent"
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "action"    # Ljava/lang/String;
     .param p3, "mimeType"    # Ljava/lang/String;
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public getAction()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkRequest;->action:Ljava/lang/String;
@@ -110,7 +110,7 @@
 .end method
 
 .method public getMimeType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkRequest;->mimeType:Ljava/lang/String;
@@ -119,7 +119,7 @@
 .end method
 
 .method public getUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkRequest;->uri:Landroid/net/Uri;
@@ -128,7 +128,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 62
     new-instance v0, Ljava/lang/StringBuilder;
@@ -151,7 +151,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     .line 66
     const-string v1, " uri="
@@ -170,12 +170,12 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 69
-    :cond_0
+    :cond_26
     invoke-virtual {p0}, Landroidx/navigation/NavDeepLinkRequest;->getAction()Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_38
 
     .line 70
     const-string v1, " action="
@@ -190,12 +190,12 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 73
-    :cond_1
+    :cond_38
     invoke-virtual {p0}, Landroidx/navigation/NavDeepLinkRequest;->getMimeType()Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4a
 
     .line 74
     const-string v1, " mimetype="
@@ -210,7 +210,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 77
-    :cond_2
+    :cond_4a
     const-string v1, " }"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

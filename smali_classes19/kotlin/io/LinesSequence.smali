@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/BufferedReader;)V
-    .locals 1
+    .registers 3
     .param p1, "reader"    # Ljava/io/BufferedReader;
 
     const-string v0, "reader"
@@ -63,7 +63,7 @@
 .end method
 
 .method public static final synthetic access$getReader$p(Lkotlin/io/LinesSequence;)Ljava/io/BufferedReader;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/io/LinesSequence;
 
     .line 77
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

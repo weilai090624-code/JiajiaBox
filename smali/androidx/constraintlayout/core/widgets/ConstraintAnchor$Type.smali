@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
+    .registers 11
 
     .line 91
     new-instance v0, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -185,7 +185,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -199,7 +199,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 91
@@ -215,7 +215,7 @@
 .end method
 
 .method public static values()[Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
-    .locals 1
+    .registers 1
 
     .line 91
     sget-object v0, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->$VALUES:[Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;

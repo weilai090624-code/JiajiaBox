@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator$OfInt;JJ)V
-    .locals 0
+    .registers 6
     .param p1, "s"    # Lj$/util/Spliterator$OfInt;
     .param p2, "skip"    # J
     .param p4, "limit"    # J
@@ -50,7 +50,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator$OfInt;Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfInt;)V
-    .locals 0
+    .registers 3
     .param p1, "s"    # Lj$/util/Spliterator$OfInt;
     .param p2, "parent"    # Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfInt;
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # I
 
     .line 1151
@@ -75,7 +75,7 @@
 .end method
 
 .method protected bridge synthetic acceptConsumed(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 1135
     check-cast p1, Ljava/util/function/IntConsumer;
@@ -86,7 +86,7 @@
 .end method
 
 .method protected acceptConsumed(Ljava/util/function/IntConsumer;)V
-    .locals 1
+    .registers 3
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 1156
@@ -99,7 +99,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 
@@ -109,7 +109,7 @@
 .end method
 
 .method protected bufferCreate(I)Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfInt;
-    .locals 1
+    .registers 3
     .param p1, "initialCapacity"    # I
 
     .line 1161
@@ -121,7 +121,7 @@
 .end method
 
 .method protected bridge synthetic bufferCreate(I)Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive;
-    .locals 0
+    .registers 2
 
     .line 1135
     invoke-virtual {p0, p1}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfInt;->bufferCreate(I)Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfInt;
@@ -132,7 +132,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)V
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/util/function/IntConsumer;)V
-    .locals 0
+    .registers 2
 
     .line 1135
     invoke-super {p0, p1}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->forEachRemaining(Ljava/lang/Object;)V
@@ -149,7 +149,7 @@
 .end method
 
 .method protected makeSpliterator(Lj$/util/Spliterator$OfInt;)Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 3
     .param p1, "s"    # Lj$/util/Spliterator$OfInt;
 
     .line 1166
@@ -161,7 +161,7 @@
 .end method
 
 .method protected bridge synthetic makeSpliterator(Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 0
+    .registers 2
 
     .line 1135
     check-cast p1, Lj$/util/Spliterator$OfInt;
@@ -174,7 +174,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)Z
 
@@ -184,7 +184,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/util/function/IntConsumer;)Z
-    .locals 0
+    .registers 2
 
     .line 1135
     invoke-super {p0, p1}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->tryAdvance(Ljava/lang/Object;)Z
@@ -195,7 +195,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 2
 
     .line 1135
     invoke-super {p0}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;->trySplit()Lj$/util/Spliterator;

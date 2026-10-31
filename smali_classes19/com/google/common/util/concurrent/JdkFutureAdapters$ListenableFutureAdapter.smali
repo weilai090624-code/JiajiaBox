@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 103
     new-instance v0, Lcom/google/common/util/concurrent/ThreadFactoryBuilder;
@@ -97,7 +97,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/concurrent/Future;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -118,7 +118,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/concurrent/Future;Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 5
     .param p2, "adapterExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -174,7 +174,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;)Ljava/util/concurrent/Future;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;
 
     .line 100
@@ -184,7 +184,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;)Lcom/google/common/util/concurrent/ExecutionList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;
 
     .line 100
@@ -196,7 +196,7 @@
 
 # virtual methods
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 3
+    .registers 6
     .param p1, "listener"    # Ljava/lang/Runnable;
     .param p2, "exec"    # Ljava/util/concurrent/Executor;
 
@@ -217,7 +217,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 144
     iget-object v0, p0, Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;->delegate:Ljava/util/concurrent/Future;
@@ -226,7 +226,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 147
     iget-object v0, p0, Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;->executionList:Lcom/google/common/util/concurrent/ExecutionList;
@@ -237,7 +237,7 @@
     return-void
 
     .line 152
-    :cond_0
+    :cond_1d
     iget-object v0, p0, Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;->adapterExecutor:Ljava/util/concurrent/Executor;
 
     new-instance v1, Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter$1;
@@ -247,12 +247,12 @@
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     .line 171
-    :cond_1
+    :cond_27
     return-void
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 100
     .local p0, "this":Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;, "Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter<TV;>;"
@@ -264,7 +264,7 @@
 .end method
 
 .method protected delegate()Ljava/util/concurrent/Future;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

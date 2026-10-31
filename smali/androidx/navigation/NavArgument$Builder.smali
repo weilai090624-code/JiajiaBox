@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,12 +77,12 @@
 
 # virtual methods
 .method public final build()Landroidx/navigation/NavArgument;
-    .locals 5
+    .registers 6
 
     .line 168
     iget-object v0, p0, Landroidx/navigation/NavArgument$Builder;->type:Landroidx/navigation/NavType;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     sget-object v0, Landroidx/navigation/NavType;->Companion:Landroidx/navigation/NavType$Companion;
 
@@ -94,7 +94,7 @@
 
     .line 169
     .local v0, "finalType":Landroidx/navigation/NavType;
-    :cond_0
+    :cond_c
     new-instance v1, Landroidx/navigation/NavArgument;
 
     iget-boolean v2, p0, Landroidx/navigation/NavArgument$Builder;->isNullable:Z
@@ -109,7 +109,7 @@
 .end method
 
 .method public final setDefaultValue(Ljava/lang/Object;)Landroidx/navigation/NavArgument$Builder;
-    .locals 1
+    .registers 3
     .param p1, "defaultValue"    # Ljava/lang/Object;
 
     .line 156
@@ -125,7 +125,7 @@
 .end method
 
 .method public final setIsNullable(Z)Landroidx/navigation/NavArgument$Builder;
-    .locals 0
+    .registers 2
     .param p1, "isNullable"    # Z
 
     .line 144
@@ -136,7 +136,7 @@
 .end method
 
 .method public final setType(Landroidx/navigation/NavType;)Landroidx/navigation/NavArgument$Builder;
-    .locals 1
+    .registers 3
     .param p1, "type"    # Landroidx/navigation/NavType;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;I)V
-    .locals 1
+    .registers 4
 
     iput-object p1, p0, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$backStackEntry$2;->$this_navGraphViewModels:Landroidx/fragment/app/Fragment;
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public final invoke()Landroidx/navigation/NavBackStackEntry;
-    .locals 2
+    .registers 3
 
     .line 64
     iget-object v0, p0, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$backStackEntry$2;->$this_navGraphViewModels:Landroidx/fragment/app/Fragment;
@@ -93,7 +93,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 63
     invoke-virtual {p0}, Landroidx/navigation/NavGraphViewModelLazyKt$navGraphViewModels$backStackEntry$2;->invoke()Landroidx/navigation/NavBackStackEntry;

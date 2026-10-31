@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$predecessors(Lcom/google/common/graph/Graph;Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/graph/Graph;
 
     .line 104
@@ -18,7 +18,7 @@
 .end method
 
 .method public static bridge synthetic $default$successors(Lcom/google/common/graph/Graph;Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/graph/Graph;
 
     .line 104

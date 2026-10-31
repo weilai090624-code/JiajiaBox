@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 221
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/cache/CacheInterceptor$Companion;-><init>()V
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public static final synthetic access$combine(Lokhttp3/internal/cache/CacheInterceptor$Companion;Lokhttp3/Headers;Lokhttp3/Headers;)Lokhttp3/Headers;
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Lokhttp3/internal/cache/CacheInterceptor$Companion;
     .param p1, "cachedHeaders"    # Lokhttp3/Headers;
     .param p2, "networkHeaders"    # Lokhttp3/Headers;
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final synthetic access$stripBody(Lokhttp3/internal/cache/CacheInterceptor$Companion;Lokhttp3/Response;)Lokhttp3/Response;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/cache/CacheInterceptor$Companion;
     .param p1, "response"    # Lokhttp3/Response;
 
@@ -91,7 +91,7 @@
 .end method
 
 .method private final combine(Lokhttp3/Headers;Lokhttp3/Headers;)Lokhttp3/Headers;
-    .locals 11
+    .registers 14
     .param p1, "cachedHeaders"    # Lokhttp3/Headers;
     .param p2, "networkHeaders"    # Lokhttp3/Headers;
 
@@ -110,11 +110,11 @@
 
     const/4 v3, 0x0
 
-    if-lez v1, :cond_4
+    if-lez v1, :cond_42
 
     const/4 v4, 0x0
 
-    :cond_0
+    :cond_e
     move v5, v4
 
     .local v5, "index":I
@@ -139,7 +139,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2b
 
     const/4 v8, 0x2
 
@@ -151,54 +151,54 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2b
 
     .line 240
-    goto :goto_0
+    goto :goto_40
 
     .line 242
-    :cond_1
+    :cond_2b
     invoke-direct {p0, v6}, Lokhttp3/internal/cache/CacheInterceptor$Companion;->isContentSpecificHeader(Ljava/lang/String;)Z
 
     move-result v8
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_3d
 
     .line 243
     invoke-direct {p0, v6}, Lokhttp3/internal/cache/CacheInterceptor$Companion;->isEndToEnd(Ljava/lang/String;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_3d
 
     .line 244
     invoke-virtual {p2, v6}, Lokhttp3/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
-    if-nez v8, :cond_3
+    if-nez v8, :cond_40
 
     .line 245
-    :cond_2
+    :cond_3d
     invoke-virtual {v0, v6, v7}, Lokhttp3/Headers$Builder;->addLenient$okhttp(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
     .line 235
     .end local v6    # "fieldName":Ljava/lang/String;
     .end local v7    # "value":Ljava/lang/String;
-    :cond_3
-    :goto_0
-    if-lt v4, v1, :cond_0
+    :cond_40
+    :goto_40
+    if-lt v4, v1, :cond_e
 
     .line 249
     .end local v5    # "index":I
-    :cond_4
+    :cond_42
     invoke-virtual {p2}, Lokhttp3/Headers;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_7
+    if-lez v1, :cond_63
 
-    :cond_5
+    :cond_48
     move v4, v3
 
     .local v4, "index":I
@@ -215,13 +215,13 @@
 
     move-result v6
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_61
 
     invoke-direct {p0, v5}, Lokhttp3/internal/cache/CacheInterceptor$Companion;->isEndToEnd(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_61
 
     .line 252
     invoke-virtual {p2, v4}, Lokhttp3/Headers;->value(I)Ljava/lang/String;
@@ -232,12 +232,12 @@
 
     .line 249
     .end local v5    # "fieldName":Ljava/lang/String;
-    :cond_6
-    if-lt v3, v1, :cond_5
+    :cond_61
+    if-lt v3, v1, :cond_48
 
     .line 256
     .end local v4    # "index":I
-    :cond_7
+    :cond_63
     invoke-virtual {v0}, Lokhttp3/Headers$Builder;->build()Lokhttp3/Headers;
 
     move-result-object v1
@@ -246,7 +246,7 @@
 .end method
 
 .method private final isContentSpecificHeader(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "fieldName"    # Ljava/lang/String;
 
     .line 279
@@ -258,7 +258,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     .line 280
     const-string v0, "Content-Encoding"
@@ -267,7 +267,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     .line 281
     const-string v0, "Content-Type"
@@ -276,26 +276,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     nop
 
     .line 279
-    :goto_1
+    :goto_1d
     return v1
 .end method
 
 .method private final isEndToEnd(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "fieldName"    # Ljava/lang/String;
 
     .line 264
@@ -307,7 +307,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_42
 
     .line 265
     const-string v0, "Keep-Alive"
@@ -316,7 +316,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_42
 
     .line 266
     const-string v0, "Proxy-Authenticate"
@@ -325,7 +325,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_42
 
     .line 267
     const-string v0, "Proxy-Authorization"
@@ -334,7 +334,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_42
 
     .line 268
     const-string v0, "TE"
@@ -343,7 +343,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_42
 
     .line 269
     const-string v0, "Trailers"
@@ -352,7 +352,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_42
 
     .line 270
     const-string v0, "Transfer-Encoding"
@@ -361,7 +361,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_42
 
     .line 271
     const-string v0, "Upgrade"
@@ -370,38 +370,38 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_42
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_0
+    :cond_42
     const/4 v1, 0x0
 
     .line 264
-    :goto_0
+    :goto_43
     return v1
 .end method
 
 .method private final stripBody(Lokhttp3/Response;)Lokhttp3/Response;
-    .locals 2
+    .registers 4
     .param p1, "response"    # Lokhttp3/Response;
 
     .line 224
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_5
     invoke-virtual {p1}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
     move-result-object v1
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_9
+    if-eqz v1, :cond_18
 
     .line 225
     invoke-virtual {p1}, Lokhttp3/Response;->newBuilder()Lokhttp3/Response$Builder;
@@ -416,13 +416,13 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_19
 
     .line 227
-    :cond_1
+    :cond_18
     move-object v0, p1
 
     .line 224
-    :goto_1
+    :goto_19
     return-object v0
 .end method

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ScheduledExecutorService;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Ljava/util/concurrent/ScheduledExecutorService;
 
     .line 574
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
-    .locals 3
+    .registers 8
     .param p1, "command"    # Ljava/lang/Runnable;
     .param p2, "delay"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -96,7 +96,7 @@
 .end method
 
 .method public schedule(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
-    .locals 3
+    .registers 8
     .param p2, "delay"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -137,7 +137,7 @@
 .end method
 
 .method public bridge synthetic schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
+    .registers 5
 
     .line 567
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic schedule(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
+    .registers 5
 
     .line 567
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->schedule(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
@@ -159,7 +159,7 @@
 .end method
 
 .method public scheduleAtFixedRate(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
-    .locals 8
+    .registers 15
     .param p1, "command"    # Ljava/lang/Runnable;
     .param p2, "initialDelay"    # J
     .param p4, "period"    # J
@@ -207,7 +207,7 @@
 .end method
 
 .method public bridge synthetic scheduleAtFixedRate(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
+    .registers 7
 
     .line 567
     invoke-virtual/range {p0 .. p6}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->scheduleAtFixedRate(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
@@ -218,7 +218,7 @@
 .end method
 
 .method public scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
-    .locals 8
+    .registers 15
     .param p1, "command"    # Ljava/lang/Runnable;
     .param p2, "initialDelay"    # J
     .param p4, "delay"    # J
@@ -267,7 +267,7 @@
 .end method
 
 .method public bridge synthetic scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
+    .registers 7
 
     .line 567
     invoke-virtual/range {p0 .. p6}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;

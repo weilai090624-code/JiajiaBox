@@ -88,7 +88,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)V
-    .locals 0
+    .registers 5
     .param p1, "$onBackStarted"    # Lkotlin/jvm/functions/Function1;
     .param p2, "$onBackProgressed"    # Lkotlin/jvm/functions/Function1;
     .param p3, "$onBackInvoked"    # Lkotlin/jvm/functions/Function0;
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public onBackCancelled()V
-    .locals 1
+    .registers 2
 
     .line 367
     iget-object v0, p0, Landroidx/activity/OnBackPressedDispatcher$Api34Impl$createOnBackAnimationCallback$1;->$onBackCancelled:Lkotlin/jvm/functions/Function0;
@@ -144,7 +144,7 @@
 .end method
 
 .method public onBackInvoked()V
-    .locals 1
+    .registers 2
 
     .line 363
     iget-object v0, p0, Landroidx/activity/OnBackPressedDispatcher$Api34Impl$createOnBackAnimationCallback$1;->$onBackInvoked:Lkotlin/jvm/functions/Function0;
@@ -156,7 +156,7 @@
 .end method
 
 .method public onBackProgressed(Landroid/window/BackEvent;)V
-    .locals 2
+    .registers 4
     .param p1, "backEvent"    # Landroid/window/BackEvent;
 
     const-string v0, "backEvent"
@@ -177,7 +177,7 @@
 .end method
 
 .method public onBackStarted(Landroid/window/BackEvent;)V
-    .locals 2
+    .registers 4
     .param p1, "backEvent"    # Landroid/window/BackEvent;
 
     const-string v0, "backEvent"

@@ -62,7 +62,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/collections/AbstractSet$Companion;
 
@@ -76,7 +76,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Lkotlin/collections/AbstractCollection;-><init>()V
@@ -87,28 +87,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 23
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 24
-    :cond_0
+    :cond_4
     instance-of v0, p1, Ljava/util/Set;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     const/4 v0, 0x0
 
     return v0
 
     .line 25
-    :cond_1
+    :cond_a
     sget-object v0, Lkotlin/collections/AbstractSet;->Companion:Lkotlin/collections/AbstractSet$Companion;
 
     move-object v1, p0
@@ -127,7 +127,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 31
     sget-object v0, Lkotlin/collections/AbstractSet;->Companion:Lkotlin/collections/AbstractSet$Companion;
@@ -144,7 +144,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

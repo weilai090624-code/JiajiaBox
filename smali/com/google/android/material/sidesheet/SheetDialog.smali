@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 51
     sget v0, Lcom/google/android/material/R$id;->coordinator:I
@@ -61,7 +61,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 65
@@ -75,7 +75,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;III)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "theme"    # I
     .param p3, "themeAttr"    # I
@@ -105,13 +105,13 @@
 .end method
 
 .method private ensureContainerAndBehavior()V
-    .locals 3
+    .registers 4
 
     .line 183
     .local p0, "this":Lcom/google/android/material/sidesheet/SheetDialog;, "Lcom/google/android/material/sidesheet/SheetDialog<TC;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->container:Landroid/widget/FrameLayout;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_30
 
     .line 184
     invoke-virtual {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->getContext()Landroid/content/Context;
@@ -162,57 +162,57 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/sidesheet/SheetDialog;->addSheetCancelOnHideCallback(Lcom/google/android/material/sidesheet/Sheet;)V
 
     .line 189
-    :cond_0
+    :cond_30
     return-void
 .end method
 
 .method private getContainer()Landroid/widget/FrameLayout;
-    .locals 1
+    .registers 2
 
     .line 195
     .local p0, "this":Lcom/google/android/material/sidesheet/SheetDialog;, "Lcom/google/android/material/sidesheet/SheetDialog<TC;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->container:Landroid/widget/FrameLayout;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 196
     invoke-direct {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->ensureContainerAndBehavior()V
 
     .line 198
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->container:Landroid/widget/FrameLayout;
 
     return-object v0
 .end method
 
 .method private getSheet()Landroid/widget/FrameLayout;
-    .locals 1
+    .registers 2
 
     .line 203
     .local p0, "this":Lcom/google/android/material/sidesheet/SheetDialog;, "Lcom/google/android/material/sidesheet/SheetDialog<TC;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->sheet:Landroid/widget/FrameLayout;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 204
     invoke-direct {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->ensureContainerAndBehavior()V
 
     .line 206
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->sheet:Landroid/widget/FrameLayout;
 
     return-object v0
 .end method
 
 .method private static getThemeResId(Landroid/content/Context;III)I
-    .locals 3
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "themeId"    # I
     .param p2, "themeAttr"    # I
     .param p3, "defaultTheme"    # I
 
     .line 288
-    if-nez p1, :cond_1
+    if-nez p1, :cond_16
 
     .line 290
     new-instance v0, Landroid/util/TypedValue;
@@ -231,32 +231,32 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 292
     iget p1, v0, Landroid/util/TypedValue;->resourceId:I
 
-    goto :goto_0
+    goto :goto_16
 
     .line 295
-    :cond_0
+    :cond_15
     move p1, p3
 
     .line 298
     .end local v0    # "outValue":Landroid/util/TypedValue;
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     return p1
 .end method
 
 .method private shouldWindowCloseOnTouchOutside()Z
-    .locals 3
+    .registers 4
 
     .line 273
     .local p0, "this":Lcom/google/android/material/sidesheet/SheetDialog;, "Lcom/google/android/material/sidesheet/SheetDialog<TC;>;"
     iget-boolean v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->canceledOnTouchOutsideSet:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 274
     nop
@@ -296,14 +296,14 @@
 
     .line 280
     .end local v0    # "a":Landroid/content/res/TypedArray;
-    :cond_0
+    :cond_21
     iget-boolean v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->canceledOnTouchOutside:Z
 
     return v0
 .end method
 
 .method private wrapInSheet(ILandroid/view/View;Landroid/view/ViewGroup$LayoutParams;)Landroid/view/View;
-    .locals 4
+    .registers 8
     .param p1, "layoutResId"    # I
     .param p2, "view"    # Landroid/view/View;
     .param p3, "params"    # Landroid/view/ViewGroup$LayoutParams;
@@ -327,9 +327,9 @@
 
     .line 223
     .local v0, "coordinator":Landroidx/coordinatorlayout/widget/CoordinatorLayout;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1c
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1c
 
     .line 224
     invoke-virtual {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->getLayoutInflater()Landroid/view/LayoutInflater;
@@ -343,7 +343,7 @@
     move-result-object p2
 
     .line 227
-    :cond_0
+    :cond_1c
     invoke-direct {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->getSheet()Landroid/widget/FrameLayout;
 
     move-result-object v1
@@ -353,19 +353,19 @@
     invoke-virtual {v1}, Landroid/widget/FrameLayout;->removeAllViews()V
 
     .line 229
-    if-nez p3, :cond_1
+    if-nez p3, :cond_29
 
     .line 230
     invoke-virtual {v1, p2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 232
-    :cond_1
+    :cond_29
     invoke-virtual {v1, p2, p3}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 235
-    :goto_0
+    :goto_2c
     sget v2, Lcom/google/android/material/sidesheet/SheetDialog;->TOUCH_OUTSIDE_ID:I
 
     .line 236
@@ -414,7 +414,7 @@
 .end method
 
 .method public cancel()V
-    .locals 3
+    .registers 4
 
     .line 144
     .local p0, "this":Lcom/google/android/material/sidesheet/SheetDialog;, "Lcom/google/android/material/sidesheet/SheetDialog<TC;>;"
@@ -426,7 +426,7 @@
     .local v0, "behavior":Lcom/google/android/material/sidesheet/Sheet;, "Lcom/google/android/material/sidesheet/Sheet<TC;>;"
     iget-boolean v1, p0, Lcom/google/android/material/sidesheet/SheetDialog;->dismissWithAnimation:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     invoke-interface {v0}, Lcom/google/android/material/sidesheet/Sheet;->getState()I
 
@@ -434,28 +434,28 @@
 
     const/4 v2, 0x5
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_10
 
-    goto :goto_0
+    goto :goto_14
 
     .line 149
-    :cond_0
+    :cond_10
     invoke-interface {v0, v2}, Lcom/google/android/material/sidesheet/Sheet;->setState(I)V
 
-    goto :goto_1
+    goto :goto_17
 
     .line 147
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     invoke-super {p0}, Landroidx/appcompat/app/AppCompatDialog;->cancel()V
 
     .line 151
-    :goto_1
+    :goto_17
     return-void
 .end method
 
 .method getBehavior()Lcom/google/android/material/sidesheet/Sheet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -468,13 +468,13 @@
     .local p0, "this":Lcom/google/android/material/sidesheet/SheetDialog;, "Lcom/google/android/material/sidesheet/SheetDialog<TC;>;"
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->behavior:Lcom/google/android/material/sidesheet/Sheet;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 213
     invoke-direct {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->ensureContainerAndBehavior()V
 
     .line 215
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->behavior:Lcom/google/android/material/sidesheet/Sheet;
 
     return-object v0
@@ -502,7 +502,7 @@
 .end method
 
 .method public isDismissWithSheetAnimationEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 178
     .local p0, "this":Lcom/google/android/material/sidesheet/SheetDialog;, "Lcom/google/android/material/sidesheet/SheetDialog<TC;>;"
@@ -512,37 +512,37 @@
 .end method
 
 .method synthetic lambda$wrapInSheet$0$com-google-android-material-sidesheet-SheetDialog(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 239
     .local p0, "this":Lcom/google/android/material/sidesheet/SheetDialog;, "Lcom/google/android/material/sidesheet/SheetDialog<TC;>;"
     iget-boolean v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->cancelable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     invoke-virtual {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->isShowing()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     invoke-direct {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->shouldWindowCloseOnTouchOutside()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 240
     invoke-virtual {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->cancel()V
 
     .line 242
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 96
@@ -556,7 +556,7 @@
 
     .line 98
     .local v0, "window":Landroid/view/Window;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 99
     nop
@@ -576,7 +576,7 @@
 
     const/16 v2, 0x17
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1e
 
     .line 108
     const/high16 v1, 0x4000000
@@ -584,18 +584,18 @@
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
     .line 111
-    :cond_0
+    :cond_1e
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1, v1}, Landroid/view/Window;->setLayout(II)V
 
     .line 113
-    :cond_1
+    :cond_22
     return-void
 .end method
 
 .method protected onStart()V
-    .locals 2
+    .registers 3
 
     .line 125
     .local p0, "this":Lcom/google/android/material/sidesheet/SheetDialog;, "Lcom/google/android/material/sidesheet/SheetDialog<TC;>;"
@@ -604,7 +604,7 @@
     .line 126
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->behavior:Lcom/google/android/material/sidesheet/Sheet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->behavior:Lcom/google/android/material/sidesheet/Sheet;
 
@@ -614,7 +614,7 @@
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     .line 127
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->behavior:Lcom/google/android/material/sidesheet/Sheet;
@@ -626,12 +626,12 @@
     invoke-interface {v0, v1}, Lcom/google/android/material/sidesheet/Sheet;->setState(I)V
 
     .line 129
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public setCancelable(Z)V
-    .locals 1
+    .registers 3
     .param p1, "cancelable"    # Z
 
     .line 117
@@ -641,18 +641,18 @@
     .line 118
     iget-boolean v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->cancelable:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 119
     iput-boolean p1, p0, Lcom/google/android/material/sidesheet/SheetDialog;->cancelable:Z
 
     .line 121
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setCanceledOnTouchOutside(Z)V
-    .locals 2
+    .registers 4
     .param p1, "cancel"    # Z
 
     .line 155
@@ -662,17 +662,17 @@
     .line 156
     const/4 v0, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     iget-boolean v1, p0, Lcom/google/android/material/sidesheet/SheetDialog;->cancelable:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     .line 157
     iput-boolean v0, p0, Lcom/google/android/material/sidesheet/SheetDialog;->cancelable:Z
 
     .line 159
-    :cond_0
+    :cond_c
     iput-boolean p1, p0, Lcom/google/android/material/sidesheet/SheetDialog;->canceledOnTouchOutside:Z
 
     .line 160
@@ -683,7 +683,7 @@
 .end method
 
 .method public setContentView(I)V
-    .locals 1
+    .registers 3
     .param p1, "layoutResId"    # I
 
     .line 81
@@ -701,7 +701,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 86
@@ -721,7 +721,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
@@ -740,7 +740,7 @@
 .end method
 
 .method public setDismissWithSheetAnimationEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "dismissWithAnimation"    # Z
 
     .line 170

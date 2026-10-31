@@ -136,7 +136,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$6QA3PDUWQNkJ8R6pPzixMc7qrz0(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->onCleared$lambda$7(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$9dDfHvFak-bfx9FughaW6R2YdSo(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;ILio/nekohasekai/sagernet/database/RuleEntity;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->onUpdated$lambda$4(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;ILio/nekohasekai/sagernet/database/RuleEntity;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
 
@@ -152,7 +152,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$RdpIKUoavEEhz4kxc9y3uj8q0_U(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Lio/nekohasekai/sagernet/database/RuleEntity;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->onAdd$lambda$2(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Lio/nekohasekai/sagernet/database/RuleEntity;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
 
@@ -160,7 +160,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$UvR4RXJhiYylMWw-UbrvJ33ek_I(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;ILio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->onRemoved$lambda$6(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;ILio/nekohasekai/sagernet/ui/RouteFragment;)V
 
@@ -168,7 +168,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$tuTY7gz1ztIWnM4Pgsv2Cf4r8ew(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Ljava/util/List;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->reload$lambda$0(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Ljava/util/List;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
 
@@ -176,7 +176,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 2
+    .registers 4
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -225,7 +225,7 @@
 .end method
 
 .method public static final synthetic access$getUpdated$p(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;)Ljava/util/HashSet;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
 
     .line 128
@@ -235,7 +235,7 @@
 .end method
 
 .method private static final onAdd$lambda$2(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Lio/nekohasekai/sagernet/database/RuleEntity;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
     .param p1, "$rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
     .param p2, "this$1"    # Lio/nekohasekai/sagernet/ui/RouteFragment;
@@ -270,7 +270,7 @@
 .end method
 
 .method private static final onCleared$lambda$7(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
     .param p1, "this$1"    # Lio/nekohasekai/sagernet/ui/RouteFragment;
 
@@ -298,7 +298,7 @@
 .end method
 
 .method private static final onRemoved$lambda$6(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;ILio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
     .param p1, "$index"    # I
     .param p2, "this$1"    # Lio/nekohasekai/sagernet/ui/RouteFragment;
@@ -329,7 +329,7 @@
 .end method
 
 .method private static final onUpdated$lambda$4(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;ILio/nekohasekai/sagernet/database/RuleEntity;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 2
+    .registers 6
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
     .param p1, "$index"    # I
     .param p2, "$rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
@@ -361,7 +361,7 @@
 .end method
 
 .method private static final reload$lambda$0(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Ljava/util/List;Lio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
     .param p1, "$rules"    # Ljava/util/List;
     .param p2, "this$1"    # Lio/nekohasekai/sagernet/ui/RouteFragment;
@@ -394,7 +394,7 @@
 
 # virtual methods
 .method public commit(Ljava/util/List;)V
-    .locals 10
+    .registers 12
     .param p1, "actions"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -445,12 +445,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_1c
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_34
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -478,11 +478,11 @@
     .end local v8    # "$i$a$-map-RouteFragment$RuleAdapter$commit$rules$1":I
     invoke-interface {v2, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 314
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_34
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -515,7 +515,7 @@
 .end method
 
 .method public final commitMove()Lkotlinx/coroutines/Job;
-    .locals 3
+    .registers 4
 
     .line 198
     new-instance v0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$commitMove$1;
@@ -537,7 +537,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 171
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->ruleList:Ljava/util/ArrayList;
@@ -552,18 +552,18 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 175
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     const-wide/16 v0, 0x0
 
     return-wide v0
 
     .line 176
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->ruleList:Ljava/util/ArrayList;
 
     add-int/lit8 v1, p1, -0x1
@@ -582,25 +582,25 @@
 .end method
 
 .method public getItemViewType(I)I
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 158
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
     return v0
 
     .line 159
-    :cond_0
+    :cond_4
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public final getRuleList()Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -617,7 +617,7 @@
 .end method
 
 .method public final move(II)V
-    .locals 13
+    .registers 16
     .param p1, "from"    # I
     .param p2, "to"    # I
 
@@ -646,7 +646,7 @@
     .local v2, "previousOrder":J
     new-instance v4, Lkotlin/Pair;
 
-    if-ge p1, p2, :cond_0
+    if-ge p1, p2, :cond_28
 
     const/4 v5, 0x1
 
@@ -664,9 +664,9 @@
 
     invoke-direct {v4, v5, v6}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_0
+    :cond_28
     const/4 v5, -0x1
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -681,7 +681,7 @@
 
     invoke-direct {v4, v5, v6}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_36
     invoke-virtual {v4}, Lkotlin/Pair;->component1()Ljava/lang/Object;
 
     move-result-object v5
@@ -714,18 +714,18 @@
 
     move-result v8
 
-    if-lez v8, :cond_1
+    if-lez v8, :cond_56
 
-    if-le v6, v7, :cond_2
+    if-le v6, v7, :cond_5a
 
-    :cond_1
-    if-gez v8, :cond_3
+    :cond_56
+    if-gez v8, :cond_7d
 
-    if-gt v7, v6, :cond_3
+    if-gt v7, v6, :cond_7d
 
     .line 185
-    :cond_2
-    :goto_1
+    :cond_5a
+    :goto_5a
     iget-object v9, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->ruleList:Ljava/util/ArrayList;
 
     add-int v10, v6, v5
@@ -764,15 +764,15 @@
     .line 184
     .end local v9    # "next":Lio/nekohasekai/sagernet/database/RuleEntity;
     .end local v10    # "order":J
-    if-eq v6, v7, :cond_3
+    if-eq v6, v7, :cond_7d
 
     add-int/2addr v6, v8
 
-    goto :goto_1
+    goto :goto_5a
 
     .line 192
     .end local v6    # "i":I
-    :cond_3
+    :cond_7d
     invoke-virtual {v0, v2, v3}, Lio/nekohasekai/sagernet/database/RuleEntity;->setUserOrder(J)V
 
     .line 193
@@ -795,7 +795,7 @@
 .end method
 
 .method public onAdd(Lio/nekohasekai/sagernet/database/RuleEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -832,7 +832,7 @@
 .end method
 
 .method public onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 3
+    .registers 6
     .param p1, "holder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "position"    # I
 
@@ -843,7 +843,7 @@
     .line 163
     instance-of v0, p1, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$DocumentHolder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 164
     move-object v0, p1
@@ -852,13 +852,13 @@
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$DocumentHolder;->bind()V
 
-    goto :goto_0
+    goto :goto_29
 
     .line 165
-    :cond_0
+    :cond_10
     instance-of v0, p1, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 166
     move-object v0, p1
@@ -882,13 +882,13 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;->bind(Lio/nekohasekai/sagernet/database/RuleEntity;)V
 
     .line 168
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     return-void
 .end method
 
 .method public onCleared(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -923,7 +923,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 4
+    .registers 7
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -936,7 +936,7 @@
 
     const/4 v1, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1f
 
     .line 151
     new-instance v2, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$DocumentHolder;
@@ -957,10 +957,10 @@
 
     check-cast v2, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
-    goto :goto_0
+    goto :goto_33
 
     .line 153
-    :cond_0
+    :cond_1f
     new-instance v2, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$RuleHolder;
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->this$0:Lio/nekohasekai/sagernet/ui/RouteFragment;
@@ -980,12 +980,12 @@
     check-cast v2, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 150
-    :goto_0
+    :goto_33
     return-object v2
 .end method
 
 .method public onRemoved(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 11
+    .registers 15
     .param p1, "ruleId"    # J
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1017,14 +1017,14 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_a
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     const/4 v5, -0x1
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2b
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1047,47 +1047,47 @@
 
     cmp-long v10, v8, p1
 
-    if-nez v10, :cond_0
+    if-nez v10, :cond_23
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     const/4 v8, 0x0
 
     .line 324
     .end local v6    # "it":Lio/nekohasekai/sagernet/database/RuleEntity;
     .end local v7    # "$i$a$-indexOfFirst-RouteFragment$RuleAdapter$onRemoved$index$1":I
-    :goto_1
-    if-eqz v8, :cond_1
+    :goto_24
+    if-eqz v8, :cond_27
 
     .line 325
-    goto :goto_2
+    goto :goto_2c
 
     .line 326
-    :cond_1
+    :cond_27
     nop
 
     .end local v4    # "item$iv":Ljava/lang/Object;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 328
-    :cond_2
+    :cond_2b
     const/4 v2, -0x1
 
     .line 244
     .end local v0    # "$this$indexOfFirst$iv":Ljava/util/List;
     .end local v1    # "$i$f$indexOfFirst":I
     .end local v2    # "index$iv":I
-    :goto_2
+    :goto_2c
     move v0, v2
 
     .line 245
     .local v0, "index":I
-    if-ne v0, v5, :cond_4
+    if-ne v0, v5, :cond_47
 
     .line 246
     new-instance v1, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$onRemoved$2;
@@ -1108,18 +1108,18 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_44
 
     return-object v1
 
-    :cond_3
+    :cond_44
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 254
     return-object v1
 
     .line 249
-    :cond_4
+    :cond_47
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->this$0:Lio/nekohasekai/sagernet/ui/RouteFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/RouteFragment;->getRuleListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -1141,7 +1141,7 @@
 .end method
 
 .method public onUpdated(Lio/nekohasekai/sagernet/database/RuleEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 13
+    .registers 16
     .param p1, "rule"    # Lio/nekohasekai/sagernet/database/RuleEntity;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -1174,14 +1174,14 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_a
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     const/4 v5, -0x1
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2f
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1208,54 +1208,54 @@
 
     cmp-long v12, v8, v10
 
-    if-nez v12, :cond_0
+    if-nez v12, :cond_27
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     const/4 v8, 0x0
 
     .line 317
     .end local v6    # "it":Lio/nekohasekai/sagernet/database/RuleEntity;
     .end local v7    # "$i$a$-indexOfFirst-RouteFragment$RuleAdapter$onUpdated$index$1":I
-    :goto_1
-    if-eqz v8, :cond_1
+    :goto_28
+    if-eqz v8, :cond_2b
 
     .line 318
-    goto :goto_2
+    goto :goto_30
 
     .line 319
-    :cond_1
+    :cond_2b
     nop
 
     .end local v4    # "item$iv":Ljava/lang/Object;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 321
-    :cond_2
+    :cond_2f
     const/4 v2, -0x1
 
     .line 234
     .end local v0    # "$this$indexOfFirst$iv":Ljava/util/List;
     .end local v1    # "$i$f$indexOfFirst":I
     .end local v2    # "index$iv":I
-    :goto_2
+    :goto_30
     move v0, v2
 
     .line 235
     .local v0, "index":I
-    if-ne v0, v5, :cond_3
+    if-ne v0, v5, :cond_36
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 236
-    :cond_3
+    :cond_36
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;->this$0:Lio/nekohasekai/sagernet/ui/RouteFragment;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/RouteFragment;->getRuleListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -1277,7 +1277,7 @@
 .end method
 
 .method public final reload(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1292,7 +1292,7 @@
 
     instance-of v0, p1, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$reload$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -1304,7 +1304,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$reload$1;->label:I
 
@@ -1312,15 +1312,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$reload$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$reload$1;
 
     invoke-direct {v0, p0, p1}, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$reload$1;-><init>(Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$reload$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -1331,7 +1331,7 @@
     .line 131
     iget v3, v0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$reload$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_62
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -1345,7 +1345,7 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     iget-object v2, v0, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$reload$1;->L$0:Ljava/lang/Object;
 
     check-cast v2, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
@@ -1355,10 +1355,10 @@
 
     move-object v4, v1
 
-    goto :goto_1
+    goto :goto_48
 
     .end local v2    # "this":Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
-    :pswitch_1
+    :pswitch_35
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v3, p0
@@ -1377,19 +1377,19 @@
 
     move-result-object v4
 
-    if-ne v4, v2, :cond_1
+    if-ne v4, v2, :cond_47
 
     .line 131
     return-object v2
 
     .line 132
-    :cond_1
+    :cond_47
     move-object v2, v3
 
     .line 131
     .end local v3    # "this":Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
     .restart local v2    # "this":Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
-    :goto_1
+    :goto_48
     move-object v3, v4
 
     check-cast v3, Ljava/util/List;
@@ -1419,15 +1419,15 @@
 
     return-object v4
 
-    :pswitch_data_0
+    :pswitch_data_62
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public final remove(I)V
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 207
@@ -1445,7 +1445,7 @@
 .end method
 
 .method public undo(Ljava/util/List;)V
-    .locals 5
+    .registers 7
     .param p1, "actions"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1467,12 +1467,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_30
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1510,9 +1510,9 @@
 
     .end local v1    # "item":Lio/nekohasekai/sagernet/database/RuleEntity;
     .end local v2    # "index":I
-    goto :goto_0
+    goto :goto_9
 
     .line 216
-    :cond_0
+    :cond_30
     return-void
 .end method

@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 2
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "tooltipText"    # Ljava/lang/CharSequence;
 
@@ -32,18 +32,18 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 47
     invoke-static {p0, p1}, Landroidx/appcompat/widget/TooltipCompat$Api26Impl;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 49
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Landroidx/appcompat/widget/TooltipCompatHandler;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
     .line 51
-    :goto_0
+    :goto_d
     return-void
 .end method

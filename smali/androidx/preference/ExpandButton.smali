@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/util/List;J)V
-    .locals 2
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p3, "parentId"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -44,7 +44,7 @@
 .end method
 
 .method private initLayout()V
-    .locals 1
+    .registers 2
 
     .line 47
     sget v0, Landroidx/preference/R$layout;->expand_button:I
@@ -71,7 +71,7 @@
 .end method
 
 .method private setSummary(Ljava/util/List;)V
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -97,13 +97,13 @@
 
     move-result-object v2
 
-    :cond_0
-    :goto_0
+    :cond_a
+    :goto_a
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_5d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -121,13 +121,13 @@
     .local v4, "title":Ljava/lang/CharSequence;
     instance-of v5, v3, Landroidx/preference/PreferenceGroup;
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2a
 
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_2a
 
     .line 66
     move-object v5, v3
@@ -137,7 +137,7 @@
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 68
-    :cond_1
+    :cond_2a
     invoke-virtual {v3}, Landroidx/preference/Preference;->getParent()Landroidx/preference/PreferenceGroup;
 
     move-result-object v5
@@ -146,12 +146,12 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3f
 
     .line 69
     instance-of v5, v3, Landroidx/preference/PreferenceGroup;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_a
 
     .line 70
     move-object v5, v3
@@ -160,26 +160,26 @@
 
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_a
 
     .line 74
-    :cond_2
+    :cond_3f
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_5c
 
     .line 75
-    if-nez v0, :cond_3
+    if-nez v0, :cond_49
 
     .line 76
     move-object v0, v4
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 78
-    :cond_3
+    :cond_49
     invoke-virtual {p0}, Landroidx/preference/ExpandButton;->getContext()Landroid/content/Context;
 
     move-result-object v5
@@ -205,12 +205,12 @@
     .line 82
     .end local v3    # "preference":Landroidx/preference/Preference;
     .end local v4    # "title":Ljava/lang/CharSequence;
-    :cond_4
-    :goto_1
-    goto :goto_0
+    :cond_5c
+    :goto_5c
+    goto :goto_a
 
     .line 83
-    :cond_5
+    :cond_5d
     invoke-virtual {p0, v0}, Landroidx/preference/ExpandButton;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 84
@@ -220,7 +220,7 @@
 
 # virtual methods
 .method getId()J
-    .locals 2
+    .registers 3
 
     .line 94
     iget-wide v0, p0, Landroidx/preference/ExpandButton;->mId:J
@@ -229,7 +229,7 @@
 .end method
 
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 1
+    .registers 3
     .param p1, "holder"    # Landroidx/preference/PreferenceViewHolder;
 
     .line 88

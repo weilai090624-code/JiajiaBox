@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/util/concurrent/ThreadPoolExecutor;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Ljava/util/concurrent/ThreadPoolExecutor;
 
     .line 65
@@ -38,7 +38,7 @@
 .end method
 
 .method public static addDelayedShutdownHook(Ljava/util/concurrent/ExecutorService;JLjava/util/concurrent/TimeUnit;)V
-    .locals 1
+    .registers 5
     .param p0, "service"    # Ljava/util/concurrent/ExecutorService;
     .param p1, "terminationTimeout"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -55,7 +55,7 @@
 .end method
 
 .method public static directExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 1
 
     .line 425
     sget-object v0, Lcom/google/common/util/concurrent/DirectExecutor;->INSTANCE:Lcom/google/common/util/concurrent/DirectExecutor;
@@ -64,7 +64,7 @@
 .end method
 
 .method public static getExitingExecutorService(Ljava/util/concurrent/ThreadPoolExecutor;)Ljava/util/concurrent/ExecutorService;
-    .locals 1
+    .registers 2
     .param p0, "executor"    # Ljava/util/concurrent/ThreadPoolExecutor;
 
     .line 105
@@ -80,7 +80,7 @@
 .end method
 
 .method public static getExitingExecutorService(Ljava/util/concurrent/ThreadPoolExecutor;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ExecutorService;
-    .locals 1
+    .registers 5
     .param p0, "executor"    # Ljava/util/concurrent/ThreadPoolExecutor;
     .param p1, "terminationTimeout"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -98,7 +98,7 @@
 .end method
 
 .method public static getExitingScheduledExecutorService(Ljava/util/concurrent/ScheduledThreadPoolExecutor;)Ljava/util/concurrent/ScheduledExecutorService;
-    .locals 1
+    .registers 2
     .param p0, "executor"    # Ljava/util/concurrent/ScheduledThreadPoolExecutor;
 
     .line 147
@@ -114,7 +114,7 @@
 .end method
 
 .method public static getExitingScheduledExecutorService(Ljava/util/concurrent/ScheduledThreadPoolExecutor;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledExecutorService;
-    .locals 1
+    .registers 5
     .param p0, "executor"    # Ljava/util/concurrent/ScheduledThreadPoolExecutor;
     .param p1, "terminationTimeout"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -134,7 +134,7 @@
 .end method
 
 .method static invokeAnyImpl(Lcom/google/common/util/concurrent/ListeningExecutorService;Ljava/util/Collection;ZJLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 22
+    .registers 28
     .param p0, "executorService"    # Lcom/google/common/util/concurrent/ListeningExecutorService;
     .param p2, "timed"    # Z
     .param p3, "timeout"    # J
@@ -181,16 +181,16 @@
 
     .line 699
     .local v2, "ntasks":I
-    if-lez v2, :cond_0
+    if-lez v2, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 700
@@ -220,30 +220,30 @@
 
     .line 714
     .local v0, "ee":Ljava/util/concurrent/ExecutionException;
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2f
 
-    :try_start_0
+    :try_start_27
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v11
 
-    goto :goto_1
+    goto :goto_31
 
     .line 759
     .end local v0    # "ee":Ljava/util/concurrent/ExecutionException;
-    :catchall_0
+    :catchall_2c
     move-exception v0
 
-    goto/16 :goto_6
+    goto/16 :goto_e3
 
     .line 714
     .restart local v0    # "ee":Ljava/util/concurrent/ExecutionException;
-    :cond_1
+    :cond_2f
     const-wide/16 v11, 0x0
 
     .line 715
     .local v11, "lastTime":J
-    :goto_1
+    :goto_31
     invoke-interface/range {p1 .. p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v13
@@ -261,8 +261,8 @@
     move-result-object v14
 
     invoke-interface {v4, v14}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_42
+    .catchall {:try_start_27 .. :try_end_42} :catchall_2c
 
     .line 718
     add-int/lit8 v2, v2, -0x1
@@ -289,8 +289,8 @@
     .local v9, "ntasks":I
     .local v10, "timeoutNanos":J
     .local v14, "lastTime":J
-    :goto_2
-    :try_start_1
+    :goto_4d
+    :try_start_4d
     invoke-interface {v5}, Ljava/util/concurrent/BlockingQueue;->poll()Ljava/lang/Object;
 
     move-result-object v12
@@ -299,10 +299,10 @@
 
     .line 723
     .local v12, "f":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<TT;>;"
-    if-nez v12, :cond_7
+    if-nez v12, :cond_9e
 
     .line 724
-    if-lez v9, :cond_2
+    if-lez v9, :cond_6b
 
     .line 725
     add-int/lit8 v9, v9, -0x1
@@ -325,18 +325,18 @@
     .line 727
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_9e
 
     .line 728
-    :cond_2
-    if-nez v0, :cond_4
+    :cond_6b
+    if-nez v0, :cond_79
 
     .line 729
     nop
 
     .line 754
     .end local v12    # "f":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<TT;>;"
-    if-nez v2, :cond_3
+    if-nez v2, :cond_77
 
     .line 755
     new-instance v3, Ljava/util/concurrent/ExecutionException;
@@ -348,7 +348,7 @@
     move-object v2, v3
 
     .line 757
-    :cond_3
+    :cond_77
     nop
 
     .end local v4    # "futures":Ljava/util/List;, "Ljava/util/List<Ljava/util/concurrent/Future<TT;>;>;"
@@ -373,8 +373,8 @@
     .restart local p2    # "timed":Z
     .restart local p3    # "timeout":J
     .restart local p5    # "unit":Ljava/util/concurrent/TimeUnit;
-    :cond_4
-    if-eqz p2, :cond_6
+    :cond_79
+    if-eqz p2, :cond_97
 
     .line 731
     sget-object v3, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -388,7 +388,7 @@
     move-object v12, v3
 
     .line 732
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_91
 
     .line 735
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -406,10 +406,10 @@
 
     .line 738
     .end local v17    # "now":J
-    goto :goto_3
+    goto :goto_9e
 
     .line 733
-    :cond_5
+    :cond_91
     new-instance v3, Ljava/util/concurrent/TimeoutException;
 
     invoke-direct {v3}, Ljava/util/concurrent/TimeoutException;-><init>()V
@@ -435,21 +435,21 @@
     .restart local p2    # "timed":Z
     .restart local p3    # "timeout":J
     .restart local p5    # "unit":Ljava/util/concurrent/TimeUnit;
-    :cond_6
+    :cond_97
     invoke-interface {v5}, Ljava/util/concurrent/BlockingQueue;->take()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/util/concurrent/Future;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_9d
+    .catchall {:try_start_4d .. :try_end_9d} :catchall_e0
 
     move-object v12, v3
 
     .line 742
-    :cond_7
-    :goto_3
-    if-eqz v12, :cond_9
+    :cond_9e
+    :goto_9e
+    if-eqz v12, :cond_da
 
     .line 743
     add-int/lit8 v3, v0, -0x1
@@ -457,26 +457,26 @@
     .line 745
     .end local v0    # "active":I
     .local v3, "active":I
-    :try_start_2
+    :try_start_a2
     invoke-interface {v12}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_2
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_a6
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_a2 .. :try_end_a6} :catch_d1
+    .catch Ljava/lang/RuntimeException; {:try_start_a2 .. :try_end_a6} :catch_c4
+    .catchall {:try_start_a2 .. :try_end_a6} :catchall_e0
 
     .line 759
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v16
 
-    :goto_4
+    :goto_aa
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_8
+    if-eqz v17, :cond_c3
 
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -502,16 +502,16 @@
 
     move-object/from16 v2, v17
 
-    goto :goto_4
+    goto :goto_aa
 
     .line 745
     .end local v17    # "ee":Ljava/util/concurrent/ExecutionException;
     .restart local v2    # "ee":Ljava/util/concurrent/ExecutionException;
-    :cond_8
+    :cond_c3
     return-object v0
 
     .line 748
-    :catch_0
+    :catch_c4
     move-exception v0
 
     move-object/from16 v17, v2
@@ -524,12 +524,12 @@
 
     .line 749
     .local v0, "rex":Ljava/lang/RuntimeException;
-    :try_start_3
+    :try_start_c9
     new-instance v1, Ljava/util/concurrent/ExecutionException;
 
     invoke-direct {v1, v0}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_ce
+    .catchall {:try_start_c9 .. :try_end_ce} :catchall_e0
 
     move-object v2, v1
 
@@ -537,13 +537,13 @@
 
     .end local v17    # "ee":Ljava/util/concurrent/ExecutionException;
     .local v1, "ee":Ljava/util/concurrent/ExecutionException;
-    goto :goto_5
+    goto :goto_dc
 
     .line 746
     .end local v0    # "rex":Ljava/lang/RuntimeException;
     .end local v1    # "ee":Ljava/util/concurrent/ExecutionException;
     .restart local v2    # "ee":Ljava/util/concurrent/ExecutionException;
-    :catch_1
+    :catch_d1
     move-exception v0
 
     move-object/from16 v17, v2
@@ -565,28 +565,28 @@
 
     move v0, v3
 
-    goto :goto_5
+    goto :goto_dc
 
     .line 742
     .end local v3    # "active":I
     .local v0, "active":I
     .restart local v2    # "ee":Ljava/util/concurrent/ExecutionException;
-    :cond_9
+    :cond_da
     move-object/from16 v17, v2
 
     .line 752
     .end local v12    # "f":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<TT;>;"
-    :goto_5
+    :goto_dc
     move-object/from16 v1, p0
 
-    goto/16 :goto_2
+    goto/16 :goto_4d
 
     .line 759
     .end local v0    # "active":I
     .end local v2    # "ee":Ljava/util/concurrent/ExecutionException;
     .end local v13    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<+Ljava/util/concurrent/Callable<TT;>;>;"
     .end local v14    # "lastTime":J
-    :catchall_1
+    :catchall_e0
     move-exception v0
 
     move v2, v9
@@ -596,17 +596,17 @@
     .end local v10    # "timeoutNanos":J
     .local v2, "ntasks":I
     .local v9, "timeoutNanos":J
-    :goto_6
+    :goto_e3
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_7
+    :goto_e7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_f8
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -622,15 +622,15 @@
 
     .line 761
     .end local v3    # "f":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<TT;>;"
-    goto :goto_7
+    goto :goto_e7
 
     .line 762
-    :cond_a
+    :cond_f8
     throw v0
 .end method
 
 .method private static isAppEngineWithApiClasses()Z
-    .locals 4
+    .registers 4
 
     .line 824
     const-string v0, "com.google.appengine.runtime.environment"
@@ -641,25 +641,25 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 825
     return v1
 
     .line 828
-    :cond_0
-    :try_start_0
+    :cond_a
+    :try_start_a
     const-string v0, "com.google.appengine.api.utils.SystemProperty"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_4
+    :try_end_f
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_a .. :try_end_f} :catch_31
 
     .line 831
     nop
 
     .line 834
-    :try_start_1
+    :try_start_10
     const-string v0, "com.google.apphosting.api.ApiProxy"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -683,22 +683,22 @@
     invoke-virtual {v0, v3, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_1
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_25
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_10 .. :try_end_25} :catch_2f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_10 .. :try_end_25} :catch_2d
+    .catch Ljava/lang/IllegalAccessException; {:try_start_10 .. :try_end_25} :catch_2b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_10 .. :try_end_25} :catch_29
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     const/4 v1, 0x1
 
     .line 834
-    :cond_1
+    :cond_28
     return v1
 
     .line 847
-    :catch_0
+    :catch_29
     move-exception v0
 
     .line 849
@@ -707,7 +707,7 @@
 
     .line 844
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_1
+    :catch_2b
     move-exception v0
 
     .line 846
@@ -716,7 +716,7 @@
 
     .line 841
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :catch_2
+    :catch_2d
     move-exception v0
 
     .line 843
@@ -725,7 +725,7 @@
 
     .line 838
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_3
+    :catch_2f
     move-exception v0
 
     .line 840
@@ -734,7 +734,7 @@
 
     .line 829
     .end local v0    # "e":Ljava/lang/ClassNotFoundException;
-    :catch_4
+    :catch_31
     move-exception v0
 
     .line 830
@@ -743,26 +743,26 @@
 .end method
 
 .method public static listeningDecorator(Ljava/util/concurrent/ExecutorService;)Lcom/google/common/util/concurrent/ListeningExecutorService;
-    .locals 2
+    .registers 3
     .param p0, "delegate"    # Ljava/util/concurrent/ExecutorService;
 
     .line 492
     instance-of v0, p0, Lcom/google/common/util/concurrent/ListeningExecutorService;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 493
     move-object v0, p0
 
     check-cast v0, Lcom/google/common/util/concurrent/ListeningExecutorService;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 494
-    :cond_0
+    :cond_8
     instance-of v0, p0, Ljava/util/concurrent/ScheduledExecutorService;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 495
     new-instance v0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;
@@ -773,48 +773,48 @@
 
     invoke-direct {v0, v1}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;-><init>(Ljava/util/concurrent/ScheduledExecutorService;)V
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 496
-    :cond_1
+    :cond_15
     new-instance v0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;
 
     invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;-><init>(Ljava/util/concurrent/ExecutorService;)V
 
     .line 492
-    :goto_0
+    :goto_1a
     return-object v0
 .end method
 
 .method public static listeningDecorator(Ljava/util/concurrent/ScheduledExecutorService;)Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;
-    .locals 1
+    .registers 2
     .param p0, "delegate"    # Ljava/util/concurrent/ScheduledExecutorService;
 
     .line 518
     instance-of v0, p0, Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 519
     move-object v0, p0
 
     check-cast v0, Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;
 
-    goto :goto_0
+    goto :goto_d
 
     .line 520
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;
 
     invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;-><init>(Ljava/util/concurrent/ScheduledExecutorService;)V
 
     .line 518
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 .method public static newDirectExecutorService()Lcom/google/common/util/concurrent/ListeningExecutorService;
-    .locals 2
+    .registers 2
 
     .line 370
     new-instance v0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;
@@ -827,7 +827,7 @@
 .end method
 
 .method public static newSequentialExecutor(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
     .param p0, "delegate"    # Ljava/util/concurrent/Executor;
 
     .line 472
@@ -839,7 +839,7 @@
 .end method
 
 .method static newThread(Ljava/lang/String;Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 2
+    .registers 4
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
@@ -860,25 +860,25 @@
 
     .line 863
     .local v0, "result":Ljava/lang/Thread;
-    :try_start_0
+    :try_start_e
     invoke-virtual {v0, p0}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/SecurityException; {:try_start_e .. :try_end_11} :catch_12
 
     .line 866
-    goto :goto_0
+    goto :goto_13
 
     .line 864
-    :catch_0
+    :catch_12
     move-exception v1
 
     .line 867
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public static platformThreadFactory()Ljava/util/concurrent/ThreadFactory;
-    .locals 5
+    .registers 5
 
     .line 798
     const-string v0, "Couldn\'t invoke ThreadManager.currentRequestThreadFactory"
@@ -887,7 +887,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     .line 799
     invoke-static {}, Ljava/util/concurrent/Executors;->defaultThreadFactory()Ljava/util/concurrent/ThreadFactory;
@@ -897,8 +897,8 @@
     return-object v0
 
     .line 802
-    :cond_0
-    :try_start_0
+    :cond_d
+    :try_start_d
     const-string v1, "com.google.appengine.api.ThreadManager"
 
     .line 803
@@ -927,17 +927,17 @@
     move-result-object v1
 
     check-cast v1, Ljava/util/concurrent/ThreadFactory;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/IllegalAccessException; {:try_start_d .. :try_end_25} :catch_3e
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_d .. :try_end_25} :catch_37
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_d .. :try_end_25} :catch_30
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_d .. :try_end_25} :catch_26
 
     .line 802
     return-object v1
 
     .line 817
-    :catch_0
+    :catch_26
     move-exception v0
 
     .line 818
@@ -954,7 +954,7 @@
 
     .line 815
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_30
     move-exception v1
 
     .line 816
@@ -967,7 +967,7 @@
 
     .line 813
     .end local v1    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_2
+    :catch_37
     move-exception v1
 
     .line 814
@@ -980,7 +980,7 @@
 
     .line 811
     .end local v1    # "e":Ljava/lang/ClassNotFoundException;
-    :catch_3
+    :catch_3e
     move-exception v1
 
     .line 812
@@ -993,7 +993,7 @@
 .end method
 
 .method static rejectionPropagatingExecutor(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 3
     .param p0, "delegate"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1017,13 +1017,13 @@
 
     move-result-object v0
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_d
 
     .line 1016
     return-object p0
 
     .line 1018
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/util/concurrent/MoreExecutors$5;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/util/concurrent/MoreExecutors$5;-><init>(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AbstractFuture;)V
@@ -1032,7 +1032,7 @@
 .end method
 
 .method static renamingDecorator(Ljava/util/concurrent/Executor;Lcom/google/common/base/Supplier;)Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 3
     .param p0, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1061,7 +1061,7 @@
 .end method
 
 .method static renamingDecorator(Ljava/util/concurrent/ExecutorService;Lcom/google/common/base/Supplier;)Ljava/util/concurrent/ExecutorService;
-    .locals 1
+    .registers 3
     .param p0, "service"    # Ljava/util/concurrent/ExecutorService;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1090,7 +1090,7 @@
 .end method
 
 .method static renamingDecorator(Ljava/util/concurrent/ScheduledExecutorService;Lcom/google/common/base/Supplier;)Ljava/util/concurrent/ScheduledExecutorService;
-    .locals 1
+    .registers 3
     .param p0, "service"    # Ljava/util/concurrent/ScheduledExecutorService;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1119,7 +1119,7 @@
 .end method
 
 .method public static shutdownAndAwaitTermination(Ljava/util/concurrent/ExecutorService;JLjava/util/concurrent/TimeUnit;)Z
-    .locals 4
+    .registers 8
     .param p0, "service"    # Ljava/util/concurrent/ExecutorService;
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -1138,14 +1138,14 @@
     invoke-interface {p0}, Ljava/util/concurrent/ExecutorService;->shutdown()V
 
     .line 989
-    :try_start_0
+    :try_start_a
     sget-object v2, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-interface {p0, v0, v1, v2}, Ljava/util/concurrent/ExecutorService;->awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     .line 991
     invoke-interface {p0}, Ljava/util/concurrent/ExecutorService;->shutdownNow()Ljava/util/List;
@@ -1154,15 +1154,15 @@
     sget-object v2, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-interface {p0, v0, v1, v2}, Ljava/util/concurrent/ExecutorService;->awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/InterruptedException; {:try_start_a .. :try_end_1a} :catch_1b
 
     .line 1000
-    :cond_0
-    goto :goto_0
+    :cond_1a
+    goto :goto_26
 
     .line 995
-    :catch_0
+    :catch_1b
     move-exception v2
 
     .line 997
@@ -1178,7 +1178,7 @@
 
     .line 1001
     .end local v2    # "ie":Ljava/lang/InterruptedException;
-    :goto_0
+    :goto_26
     invoke-interface {p0}, Ljava/util/concurrent/ExecutorService;->isTerminated()Z
 
     move-result v2
@@ -1187,7 +1187,7 @@
 .end method
 
 .method private static submitAndAddQueueListener(Lcom/google/common/util/concurrent/ListeningExecutorService;Ljava/util/concurrent/Callable;Ljava/util/concurrent/BlockingQueue;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 6
     .param p0, "executorService"    # Lcom/google/common/util/concurrent/ListeningExecutorService;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1231,7 +1231,7 @@
 .end method
 
 .method private static useDaemonThreadFactory(Ljava/util/concurrent/ThreadPoolExecutor;)V
-    .locals 2
+    .registers 3
     .param p0, "executor"    # Ljava/util/concurrent/ThreadPoolExecutor;
 
     .line 232

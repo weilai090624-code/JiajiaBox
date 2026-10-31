@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "compat"    # Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
 
     .line 96
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public addExtraDataToAccessibilityNodeInfo(ILandroid/view/accessibility/AccessibilityNodeInfo;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 7
     .param p1, "virtualViewId"    # I
     .param p2, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
     .param p3, "extraDataKey"    # Ljava/lang/String;

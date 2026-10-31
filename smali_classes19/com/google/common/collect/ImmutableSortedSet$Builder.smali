@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Comparator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder;
-    .locals 0
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -79,7 +79,7 @@
 .end method
 
 .method public bridge synthetic add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 0
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic add([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 0
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -103,7 +103,7 @@
 .end method
 
 .method public bridge synthetic add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet$Builder;
-    .locals 0
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -115,7 +115,7 @@
 .end method
 
 .method public bridge synthetic add([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet$Builder;
-    .locals 0
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -127,7 +127,7 @@
 .end method
 
 .method public add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",
@@ -146,7 +146,7 @@
 .end method
 
 .method public varargs add([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TE;)",
@@ -165,7 +165,7 @@
 .end method
 
 .method public bridge synthetic addAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 0
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -177,7 +177,7 @@
 .end method
 
 .method public bridge synthetic addAll(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableCollection$Builder;
-    .locals 0
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -189,7 +189,7 @@
 .end method
 
 .method public bridge synthetic addAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSet$Builder;
-    .locals 0
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -201,7 +201,7 @@
 .end method
 
 .method public bridge synthetic addAll(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableSet$Builder;
-    .locals 0
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -213,7 +213,7 @@
 .end method
 
 .method public addAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -234,7 +234,7 @@
 .end method
 
 .method public addAll(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -255,7 +255,7 @@
 .end method
 
 .method public bridge synthetic build()Lcom/google/common/collect/ImmutableCollection;
-    .locals 1
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -267,7 +267,7 @@
 .end method
 
 .method public bridge synthetic build()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -279,7 +279,7 @@
 .end method
 
 .method public build()Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -320,7 +320,7 @@
 .end method
 
 .method bridge synthetic combine(Lcom/google/common/collect/ImmutableSet$Builder;)Lcom/google/common/collect/ImmutableSet$Builder;
-    .locals 0
+    .registers 2
 
     .line 418
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$Builder;, "Lcom/google/common/collect/ImmutableSortedSet$Builder<TE;>;"
@@ -332,7 +332,7 @@
 .end method
 
 .method combine(Lcom/google/common/collect/ImmutableSet$Builder;)Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

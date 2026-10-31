@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 76
@@ -50,7 +50,7 @@
 .end method
 
 .method private getBackportCallback()Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportCallback;
-    .locals 1
+    .registers 2
 
     .line 122
     new-instance v0, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection$1;
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public connectAndFetchResult(Landroidx/concurrent/futures/ResolvableFuture;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,7 +77,7 @@
     .local p1, "resultFuture":Landroidx/concurrent/futures/ResolvableFuture;, "Landroidx/concurrent/futures/ResolvableFuture<Ljava/lang/Integer;>;"
     iget-boolean v0, p0, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;->mHasBoundService:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_24
 
     .line 104
     const/4 v0, 0x1
@@ -121,7 +121,7 @@
 
     .line 101
     .end local v1    # "intent":Landroid/content/Intent;
-    :cond_0
+    :cond_24
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Each UnusedAppRestrictionsBackportServiceConnection can only be bound once."
@@ -132,12 +132,12 @@
 .end method
 
 .method public disconnectFromService()V
-    .locals 2
+    .registers 3
 
     .line 114
     iget-boolean v0, p0, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;->mHasBoundService:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 117
     const/4 v0, 0x0
@@ -153,7 +153,7 @@
     return-void
 
     .line 115
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "bindService must be called before unbind"
@@ -164,7 +164,7 @@
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 3
+    .registers 6
     .param p1, "name"    # Landroid/content/ComponentName;
     .param p2, "service"    # Landroid/os/IBinder;
 
@@ -179,7 +179,7 @@
     iput-object v0, p0, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;->mUnusedAppRestrictionsService:Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportService;
 
     .line 86
-    :try_start_0
+    :try_start_7
     iget-object v0, p0, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;->mUnusedAppRestrictionsService:Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportService;
 
     .line 87
@@ -189,14 +189,14 @@
 
     .line 86
     invoke-interface {v0, v1}, Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportService;->isPermissionRevocationEnabledForApp(Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportCallback;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_10} :catch_11
 
     .line 91
-    goto :goto_0
+    goto :goto_1c
 
     .line 88
-    :catch_0
+    :catch_11
     move-exception v0
 
     .line 90
@@ -213,12 +213,12 @@
 
     .line 92
     .end local v0    # "e":Landroid/os/RemoteException;
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .line 96

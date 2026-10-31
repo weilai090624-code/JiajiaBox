@@ -26,7 +26,7 @@
 
 # direct methods
 .method protected constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 52
@@ -40,7 +40,7 @@
 .end method
 
 .method protected constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "size"    # I
     .param p2, "position"    # I
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public final hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 73
     .local p0, "this":Lcom/google/common/collect/AbstractIndexedListIterator;, "Lcom/google/common/collect/AbstractIndexedListIterator<TE;>;"
@@ -83,41 +83,41 @@
 
     iget v1, p0, Lcom/google/common/collect/AbstractIndexedListIterator;->size:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public final hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 92
     .local p0, "this":Lcom/google/common/collect/AbstractIndexedListIterator;, "Lcom/google/common/collect/AbstractIndexedListIterator<TE;>;"
     iget v0, p0, Lcom/google/common/collect/AbstractIndexedListIterator;->position:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public final next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -133,7 +133,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 82
     iget v0, p0, Lcom/google/common/collect/AbstractIndexedListIterator;->position:I
@@ -149,7 +149,7 @@
     return-object v0
 
     .line 80
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -158,7 +158,7 @@
 .end method
 
 .method public final nextIndex()I
-    .locals 1
+    .registers 2
 
     .line 87
     .local p0, "this":Lcom/google/common/collect/AbstractIndexedListIterator;, "Lcom/google/common/collect/AbstractIndexedListIterator<TE;>;"
@@ -168,7 +168,7 @@
 .end method
 
 .method public final previous()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -184,7 +184,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 101
     iget v0, p0, Lcom/google/common/collect/AbstractIndexedListIterator;->position:I
@@ -200,7 +200,7 @@
     return-object v0
 
     .line 99
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -209,7 +209,7 @@
 .end method
 
 .method public final previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 106
     .local p0, "this":Lcom/google/common/collect/AbstractIndexedListIterator;, "Lcom/google/common/collect/AbstractIndexedListIterator<TE;>;"

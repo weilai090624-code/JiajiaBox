@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lmoe/matsuri/nb4a/SingBoxOptionsUtil;
 
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method private static final domainStrategy$auto2(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p0, "key"    # Ljava/lang/String;
     .param p1, "newS"    # Ljava/lang/String;
 
@@ -70,11 +70,11 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const-string v0, ""
 
-    :cond_0
+    :cond_e
     move-object v1, v0
 
     const/4 v5, 0x4
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public final domainStrategy(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "tag"    # Ljava/lang/String;
 
     const-string v0, "tag"
@@ -116,7 +116,7 @@
 
     const-string v1, ""
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 14
     const-string v0, "domain_strategy_for_remote"
@@ -125,17 +125,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 17
-    :cond_0
+    :cond_17
     const-string v0, "dns-direct"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 18
     const-string v0, "domain_strategy_for_direct"
@@ -144,10 +144,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 23
-    :cond_1
+    :cond_26
     const-string v0, "domain_strategy_for_server"
 
     const-string v1, "prefer_ipv4"
@@ -157,6 +157,6 @@
     move-result-object v0
 
     .line 12
-    :goto_0
+    :goto_2e
     return-object v0
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;Landroidx/camera/core/impl/LiveDataObservable$Result;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 243
     .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;"
@@ -64,20 +64,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 245
     return-void
 
     .line 248
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;->val$result:Landroidx/camera/core/impl/LiveDataObservable$Result;
 
     invoke-virtual {v0}, Landroidx/camera/core/impl/LiveDataObservable$Result;->completedSuccessfully()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 249
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;->this$0:Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;
@@ -92,10 +92,10 @@
 
     invoke-interface {v0, v1}, Landroidx/camera/core/impl/Observable$Observer;->onNewData(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 251
-    :cond_1
+    :cond_21
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;->val$result:Landroidx/camera/core/impl/LiveDataObservable$Result;
 
     invoke-virtual {v0}, Landroidx/camera/core/impl/LiveDataObservable$Result;->getError()Ljava/lang/Throwable;
@@ -118,6 +118,6 @@
     invoke-interface {v0, v1}, Landroidx/camera/core/impl/Observable$Observer;->onError(Ljava/lang/Throwable;)V
 
     .line 254
-    :goto_0
+    :goto_37
     return-void
 .end method

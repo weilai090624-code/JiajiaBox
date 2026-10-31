@@ -44,7 +44,7 @@
 
 # direct methods
 .method public static final getBlobOrNull(Landroid/database/Cursor;I)[B
-    .locals 2
+    .registers 4
     .param p0, "$this$getBlobOrNull"    # Landroid/database/Cursor;
     .param p1, "index"    # I
 
@@ -56,23 +56,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_9
     invoke-interface {p0, p1}, Landroid/database/Cursor;->getBlob(I)[B
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     return-object v1
 .end method
 
 .method public static final getDoubleOrNull(Landroid/database/Cursor;I)Ljava/lang/Double;
-    .locals 3
+    .registers 5
     .param p0, "$this$getDoubleOrNull"    # Landroid/database/Cursor;
     .param p1, "index"    # I
 
@@ -84,13 +84,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_9
     invoke-interface {p0, p1}, Landroid/database/Cursor;->getDouble(I)D
 
     move-result-wide v1
@@ -99,12 +99,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method public static final getFloatOrNull(Landroid/database/Cursor;I)Ljava/lang/Float;
-    .locals 2
+    .registers 4
     .param p0, "$this$getFloatOrNull"    # Landroid/database/Cursor;
     .param p1, "index"    # I
 
@@ -116,13 +116,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_9
     invoke-interface {p0, p1}, Landroid/database/Cursor;->getFloat(I)F
 
     move-result v1
@@ -131,12 +131,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method public static final getIntOrNull(Landroid/database/Cursor;I)Ljava/lang/Integer;
-    .locals 2
+    .registers 4
     .param p0, "$this$getIntOrNull"    # Landroid/database/Cursor;
     .param p1, "index"    # I
 
@@ -148,13 +148,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_9
     invoke-interface {p0, p1}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v1
@@ -163,12 +163,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method public static final getLongOrNull(Landroid/database/Cursor;I)Ljava/lang/Long;
-    .locals 3
+    .registers 5
     .param p0, "$this$getLongOrNull"    # Landroid/database/Cursor;
     .param p1, "index"    # I
 
@@ -180,13 +180,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_9
     invoke-interface {p0, p1}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v1
@@ -195,12 +195,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method public static final getShortOrNull(Landroid/database/Cursor;I)Ljava/lang/Short;
-    .locals 2
+    .registers 4
     .param p0, "$this$getShortOrNull"    # Landroid/database/Cursor;
     .param p1, "index"    # I
 
@@ -212,13 +212,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_9
     invoke-interface {p0, p1}, Landroid/database/Cursor;->getShort(I)S
 
     move-result v1
@@ -227,12 +227,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method public static final getStringOrNull(Landroid/database/Cursor;I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$getStringOrNull"    # Landroid/database/Cursor;
     .param p1, "index"    # I
 
@@ -244,17 +244,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_9
     invoke-interface {p0, p1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     return-object v1
 .end method

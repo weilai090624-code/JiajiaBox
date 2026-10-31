@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/internal/NavigationMenuItemView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/internal/NavigationMenuItemView;
 
     .line 77
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 

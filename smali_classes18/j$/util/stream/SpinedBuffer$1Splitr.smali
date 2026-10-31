@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 280
     const-class v0, Lj$/util/stream/SpinedBuffer;
@@ -60,7 +60,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/SpinedBuffer;IIII)V
-    .locals 1
+    .registers 7
     .param p1, "this$0"    # Lj$/util/stream/SpinedBuffer;
     .param p2, "firstSpineIndex"    # I
     .param p3, "lastSpineIndex"    # I
@@ -91,18 +91,18 @@
     .line 308
     iget-object v0, p1, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     iget-object v0, p1, Lj$/util/stream/SpinedBuffer;->curChunk:[Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_15
     iget-object v0, p1, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
 
     aget-object v0, v0, p2
 
-    :goto_0
+    :goto_19
     iput-object v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splChunk:[Ljava/lang/Object;
 
     .line 309
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 323
     .local p0, "this":Lj$/util/stream/SpinedBuffer$1Splitr;, "Ljava/util/stream/SpinedBuffer$1Splitr;"
@@ -122,7 +122,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 5
+    .registers 6
 
     .line 313
     .local p0, "this":Lj$/util/stream/SpinedBuffer$1Splitr;, "Ljava/util/stream/SpinedBuffer$1Splitr;"
@@ -130,7 +130,7 @@
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineIndex:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 314
     iget v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineElementFence:I
@@ -143,10 +143,10 @@
 
     sub-long/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_28
 
     .line 318
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->this$0:Lj$/util/stream/SpinedBuffer;
 
     iget-object v0, v0, Lj$/util/stream/SpinedBuffer;->priorElementCount:[J
@@ -178,12 +178,12 @@
     sub-long v0, v1, v3
 
     .line 313
-    :goto_0
+    :goto_28
     return-wide v0
 .end method
 
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -202,22 +202,22 @@
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineIndex:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_15
 
     iget v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splSpineIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineIndex:I
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_57
 
     iget v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splElementIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineElementFence:I
 
-    if-ge v0, v1, :cond_5
+    if-ge v0, v1, :cond_57
 
     .line 351
-    :cond_0
+    :cond_15
     iget v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splElementIndex:I
 
     .line 353
@@ -225,10 +225,10 @@
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splSpineIndex:I
 
     .local v1, "sp":I
-    :goto_0
+    :goto_19
     iget v2, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineIndex:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_32
 
     .line 354
     iget-object v2, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->this$0:Lj$/util/stream/SpinedBuffer;
@@ -239,10 +239,10 @@
 
     .line 355
     .local v2, "chunk":[Ljava/lang/Object;, "[TE;"
-    :goto_1
+    :goto_23
     array-length v3, v2
 
-    if-ge v0, v3, :cond_1
+    if-ge v0, v3, :cond_2e
 
     .line 356
     aget-object v3, v2, v0
@@ -252,32 +252,32 @@
     .line 355
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
     .line 358
-    :cond_1
+    :cond_2e
     const/4 v0, 0x0
 
     .line 353
     .end local v2    # "chunk":[Ljava/lang/Object;, "[TE;"
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 361
     .end local v1    # "sp":I
-    :cond_2
+    :cond_32
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splSpineIndex:I
 
     iget v2, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineIndex:I
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_3b
 
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splChunk:[Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_43
 
-    :cond_3
+    :cond_3b
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->this$0:Lj$/util/stream/SpinedBuffer;
 
     iget-object v1, v1, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
@@ -288,13 +288,13 @@
 
     .line 362
     .local v1, "chunk":[Ljava/lang/Object;, "[TE;"
-    :goto_2
+    :goto_43
     iget v2, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineElementFence:I
 
     .line 363
     .local v2, "hElementIndex":I
-    :goto_3
-    if-ge v0, v2, :cond_4
+    :goto_45
+    if-ge v0, v2, :cond_4f
 
     .line 364
     aget-object v3, v1, v0
@@ -304,10 +304,10 @@
     .line 363
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_45
 
     .line 367
-    :cond_4
+    :cond_4f
     iget v3, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineIndex:I
 
     iput v3, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splSpineIndex:I
@@ -321,12 +321,12 @@
     .end local v0    # "i":I
     .end local v1    # "chunk":[Ljava/lang/Object;, "[TE;"
     .end local v2    # "hElementIndex":I
-    :cond_5
+    :cond_57
     return-void
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -336,7 +336,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -346,7 +346,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -356,7 +356,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -377,29 +377,29 @@
 
     const/4 v2, 0x0
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_18
 
     iget v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splSpineIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineIndex:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     iget v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splElementIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineElementFence:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_17
 
-    goto :goto_0
+    goto :goto_18
 
     .line 342
-    :cond_0
+    :cond_17
     return v2
 
     .line 332
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splChunk:[Ljava/lang/Object;
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splElementIndex:I
@@ -421,7 +421,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_4a
 
     .line 335
     iput v2, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splElementIndex:I
@@ -438,13 +438,13 @@
 
     iget-object v0, v0, Lj$/util/stream/SpinedBuffer;->spine:[[Ljava/lang/Object;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4a
 
     iget v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splSpineIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineIndex:I
 
-    if-gt v0, v1, :cond_2
+    if-gt v0, v1, :cond_4a
 
     .line 338
     iget-object v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->this$0:Lj$/util/stream/SpinedBuffer;
@@ -458,12 +458,12 @@
     iput-object v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splChunk:[Ljava/lang/Object;
 
     .line 340
-    :cond_2
+    :cond_4a
     return v3
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 8
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -478,7 +478,7 @@
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineIndex:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_33
 
     .line 376
     new-instance v0, Lj$/util/stream/SpinedBuffer$1Splitr;
@@ -536,14 +536,14 @@
 
     .line 384
     .end local v0    # "ret":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TE;>;"
-    :cond_0
+    :cond_33
     iget v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splSpineIndex:I
 
     iget v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineIndex:I
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_55
 
     .line 385
     iget v0, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->lastSpineElementFence:I
@@ -556,13 +556,13 @@
 
     .line 386
     .local v0, "t":I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_44
 
     .line 387
     return-object v2
 
     .line 389
-    :cond_1
+    :cond_44
     iget-object v1, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splChunk:[Ljava/lang/Object;
 
     iget v2, p0, Lj$/util/stream/SpinedBuffer$1Splitr;->splElementIndex:I
@@ -589,6 +589,6 @@
     .line 395
     .end local v0    # "t":I
     .end local v1    # "ret":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TE;>;"
-    :cond_2
+    :cond_55
     return-object v2
 .end method

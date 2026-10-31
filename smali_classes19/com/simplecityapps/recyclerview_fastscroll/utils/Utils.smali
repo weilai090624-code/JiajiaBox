@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static isRtl(Landroid/content/res/Resources;)Z
-    .locals 2
+    .registers 3
     .param p0, "res"    # Landroid/content/res/Resources;
 
     .line 51
@@ -31,20 +31,20 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
     .line 51
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method public static toPixels(Landroid/content/res/Resources;F)I
-    .locals 1
+    .registers 3
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "dp"    # F
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public static toScreenPixels(Landroid/content/res/Resources;F)I
-    .locals 2
+    .registers 4
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "sp"    # F
 

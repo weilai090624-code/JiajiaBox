@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/Clock;J)V
-    .locals 0
+    .registers 4
     .param p1, "baseClock"    # Lj$/time/Clock;
     .param p2, "tickNanos"    # J
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 727
@@ -57,7 +57,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 728
     move-object v0, p1
@@ -74,7 +74,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     iget-wide v2, p0, Lj$/time/Clock$TickClock;->tickNanos:J
 
@@ -82,21 +82,21 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1b
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1b
     return v1
 
     .line 731
     .end local v0    # "other":Lj$/time/Clock$TickClock;
-    :cond_1
+    :cond_1c
     return v1
 .end method
 
 .method public getZone()Lj$/time/ZoneId;
-    .locals 1
+    .registers 2
 
     .line 700
     iget-object v0, p0, Lj$/time/Clock$TickClock;->baseClock:Lj$/time/Clock;
@@ -109,7 +109,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .registers 7
 
     .line 735
     iget-object v0, p0, Lj$/time/Clock$TickClock;->baseClock:Lj$/time/Clock;
@@ -136,7 +136,7 @@
 .end method
 
 .method public instant()Lj$/time/Instant;
-    .locals 7
+    .registers 8
 
     .line 716
     iget-wide v0, p0, Lj$/time/Clock$TickClock;->tickNanos:J
@@ -149,7 +149,7 @@
 
     cmp-long v6, v0, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_20
 
     .line 717
     iget-object v0, p0, Lj$/time/Clock$TickClock;->baseClock:Lj$/time/Clock;
@@ -178,7 +178,7 @@
 
     .line 720
     .end local v0    # "millis":J
-    :cond_0
+    :cond_20
     iget-object v0, p0, Lj$/time/Clock$TickClock;->baseClock:Lj$/time/Clock;
 
     invoke-virtual {v0}, Lj$/time/Clock;->instant()Lj$/time/Instant;
@@ -211,7 +211,7 @@
 .end method
 
 .method public millis()J
-    .locals 6
+    .registers 7
 
     .line 711
     iget-object v0, p0, Lj$/time/Clock$TickClock;->baseClock:Lj$/time/Clock;
@@ -238,7 +238,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 739
     iget-object v0, p0, Lj$/time/Clock$TickClock;->baseClock:Lj$/time/Clock;
@@ -287,7 +287,7 @@
 .end method
 
 .method public withZone(Lj$/time/ZoneId;)Lj$/time/Clock;
-    .locals 4
+    .registers 6
     .param p1, "zone"    # Lj$/time/ZoneId;
 
     .line 704
@@ -301,13 +301,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 705
     return-object p0
 
     .line 707
-    :cond_0
+    :cond_d
     new-instance v0, Lj$/time/Clock$TickClock;
 
     iget-object v1, p0, Lj$/time/Clock$TickClock;->baseClock:Lj$/time/Clock;

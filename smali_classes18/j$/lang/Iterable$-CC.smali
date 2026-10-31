@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$forEach(Ljava/lang/Iterable;Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Ljava/lang/Iterable;
 
     .line 73
@@ -17,12 +17,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_7
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -34,15 +34,15 @@
 
     .line 76
     .end local v1    # "t":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_7
 
     .line 77
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public static $default$spliterator(Ljava/lang/Iterable;)Lj$/util/Spliterator;
-    .locals 2
+    .registers 3
     .param p0, "_this"    # Ljava/lang/Iterable;
 
     .line 101

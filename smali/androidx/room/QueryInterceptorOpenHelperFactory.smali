@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Ljava/util/concurrent/Executor;Landroidx/room/RoomDatabase$QueryCallback;)V
-    .locals 1
+    .registers 5
     .param p1, "delegate"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
     .param p2, "queryCallbackExecutor"    # Ljava/util/concurrent/Executor;
     .param p3, "queryCallback"    # Landroidx/room/RoomDatabase$QueryCallback;
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public create(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 4
+    .registers 6
     .param p1, "configuration"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;
 
     const-string v0, "configuration"

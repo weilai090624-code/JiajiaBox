@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 151
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public bridge synthetic getResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 151
     invoke-virtual {p0}, Lcom/google/common/io/Resources$1;->getResult()Ljava/util/List;
@@ -70,7 +70,7 @@
 .end method
 
 .method public getResult()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -87,7 +87,7 @@
 .end method
 
 .method public processLine(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "line"    # Ljava/lang/String;
 
     .line 156

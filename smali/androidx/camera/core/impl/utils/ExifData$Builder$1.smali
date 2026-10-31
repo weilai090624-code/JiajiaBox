@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 416
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public hasMoreElements()Z
-    .locals 2
+    .registers 3
 
     .line 421
     iget v0, p0, Landroidx/camera/core/impl/utils/ExifData$Builder$1;->mIfdIndex:I
@@ -59,21 +59,21 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public bridge synthetic nextElement()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 416
     invoke-virtual {p0}, Landroidx/camera/core/impl/utils/ExifData$Builder$1;->nextElement()Ljava/util/HashMap;
@@ -84,7 +84,7 @@
 .end method
 
 .method public nextElement()Ljava/util/HashMap;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -112,8 +112,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_d
+    if-ge v3, v2, :cond_19
 
     aget-object v4, v1, v3
 
@@ -127,10 +127,10 @@
     .end local v4    # "tag":Landroidx/camera/core/impl/utils/ExifTag;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 431
-    :cond_0
+    :cond_19
     iget v1, p0, Landroidx/camera/core/impl/utils/ExifData$Builder$1;->mIfdIndex:I
 
     add-int/lit8 v1, v1, 0x1

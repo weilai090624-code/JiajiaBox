@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 194
     new-instance v0, Landroidx/core/provider/FontProvider$$ExternalSyntheticLambda0;
@@ -39,7 +39,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method private static convertToByteArrayList([Landroid/content/pm/Signature;)Ljava/util/List;
-    .locals 5
+    .registers 6
     .param p0, "signatures"    # [Landroid/content/pm/Signature;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,8 +71,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_7
+    if-ge v2, v1, :cond_15
 
     aget-object v3, p0, v2
 
@@ -88,15 +88,15 @@
     .end local v3    # "signature":Landroid/content/pm/Signature;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 224
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method private static equalsByteArrayList(Ljava/util/List;Ljava/util/List;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -120,22 +120,22 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_c
 
     .line 209
     return v2
 
     .line 211
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_29
 
     .line 212
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -154,27 +154,27 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_26
 
     .line 213
     return v2
 
     .line 211
-    :cond_1
+    :cond_26
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 216
     .end local v0    # "i":I
-    :cond_2
+    :cond_29
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method private static getCertificates(Landroidx/core/provider/FontRequest;Landroid/content/res/Resources;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "request"    # Landroidx/core/provider/FontRequest;
     .param p1, "resources"    # Landroid/content/res/Resources;
     .annotation system Ldalvik/annotation/Signature;
@@ -194,7 +194,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 188
     invoke-virtual {p0}, Landroidx/core/provider/FontRequest;->getCertificates()Ljava/util/List;
@@ -204,7 +204,7 @@
     return-object v0
 
     .line 190
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Landroidx/core/provider/FontRequest;->getCertificatesArrayResId()I
 
     move-result v0
@@ -219,7 +219,7 @@
 .end method
 
 .method static getFontFamilyResult(Landroid/content/Context;Landroidx/core/provider/FontRequest;Landroid/os/CancellationSignal;)Landroidx/core/provider/FontsContractCompat$FontFamilyResult;
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "request"    # Landroidx/core/provider/FontRequest;
     .param p2, "cancellationSignal"    # Landroid/os/CancellationSignal;
@@ -248,7 +248,7 @@
 
     .line 59
     .local v0, "providerInfo":Landroid/content/pm/ProviderInfo;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 60
     const/4 v1, 0x1
@@ -262,7 +262,7 @@
     return-object v1
 
     .line 63
-    :cond_0
+    :cond_16
     iget-object v1, v0, Landroid/content/pm/ProviderInfo;->authority:Ljava/lang/String;
 
     invoke-static {p0, p1, v1, p2}, Landroidx/core/provider/FontProvider;->query(Landroid/content/Context;Landroidx/core/provider/FontRequest;Ljava/lang/String;Landroid/os/CancellationSignal;)[Landroidx/core/provider/FontsContractCompat$FontInfo;
@@ -281,7 +281,7 @@
 .end method
 
 .method static getProvider(Landroid/content/pm/PackageManager;Landroidx/core/provider/FontRequest;Landroid/content/res/Resources;)Landroid/content/pm/ProviderInfo;
-    .locals 8
+    .registers 11
     .param p0, "packageManager"    # Landroid/content/pm/PackageManager;
     .param p1, "request"    # Landroidx/core/provider/FontRequest;
     .param p2, "resources"    # Landroid/content/res/Resources;
@@ -306,7 +306,7 @@
 
     .line 81
     .local v1, "info":Landroid/content/pm/ProviderInfo;
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_78
 
     .line 86
     iget-object v2, v1, Landroid/content/pm/ProviderInfo;->packageName:Ljava/lang/String;
@@ -319,7 +319,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_51
 
     .line 95
     iget-object v2, v1, Landroid/content/pm/ProviderInfo;->packageName:Ljava/lang/String;
@@ -354,12 +354,12 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_0
+    :goto_2f
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_4f
 
     .line 102
     new-instance v6, Ljava/util/ArrayList;
@@ -383,21 +383,21 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_4c
 
     .line 105
     return-object v1
 
     .line 100
     .end local v6    # "requestSignatures":Ljava/util/List;, "Ljava/util/List<[B>;"
-    :cond_0
+    :cond_4c
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 108
     .end local v5    # "i":I
-    :cond_1
+    :cond_4f
     const/4 v5, 0x0
 
     return-object v5
@@ -406,7 +406,7 @@
     .end local v2    # "packageInfo":Landroid/content/pm/PackageInfo;
     .end local v3    # "signatures":Ljava/util/List;, "Ljava/util/List<[B>;"
     .end local v4    # "requestCertificatesList":Ljava/util/List;, "Ljava/util/List<Ljava/util/List<[B>;>;"
-    :cond_2
+    :cond_51
     new-instance v2, Landroid/content/pm/PackageManager$NameNotFoundException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -447,7 +447,7 @@
     throw v2
 
     .line 82
-    :cond_3
+    :cond_78
     new-instance v2, Landroid/content/pm/PackageManager$NameNotFoundException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -474,7 +474,7 @@
 .end method
 
 .method static synthetic lambda$static$0([B[B)I
-    .locals 3
+    .registers 5
     .param p0, "l"    # [B
     .param p1, "r"    # [B
 
@@ -483,7 +483,7 @@
 
     array-length v1, p1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     .line 196
     array-length v0, p0
@@ -495,21 +495,21 @@
     return v0
 
     .line 198
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_9
     array-length v1, p0
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_1b
 
     .line 199
     aget-byte v1, p0, v0
 
     aget-byte v2, p1, v0
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_18
 
     .line 200
     aget-byte v1, p0, v0
@@ -521,21 +521,21 @@
     return v1
 
     .line 198
-    :cond_1
+    :cond_18
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 203
     .end local v0    # "i":I
-    :cond_2
+    :cond_1b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method static query(Landroid/content/Context;Landroidx/core/provider/FontRequest;Ljava/lang/String;Landroid/os/CancellationSignal;)[Landroidx/core/provider/FontsContractCompat$FontInfo;
-    .locals 23
+    .registers 27
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "request"    # Landroidx/core/provider/FontRequest;
     .param p2, "authority"    # Ljava/lang/String;
@@ -613,7 +613,7 @@
 
     .line 133
     .local v14, "queryWrapper":Landroidx/core/provider/FontProvider$ContentQueryWrapper;
-    :try_start_0
+    :try_start_39
     const-string v4, "_id"
 
     const-string v5, "file_id"
@@ -661,13 +661,13 @@
     move-object v12, v0
 
     .line 143
-    if-eqz v12, :cond_7
+    if-eqz v12, :cond_107
 
     invoke-interface {v12}, Landroid/database/Cursor;->getCount()I
 
     move-result v4
 
-    if-lez v4, :cond_7
+    if-lez v4, :cond_107
 
     .line 144
     const-string v4, "result_code"
@@ -725,27 +725,27 @@
 
     .line 156
     .local v10, "italicColumnIndex":I
-    :goto_0
+    :goto_91
     invoke-interface {v12}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v15
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_95
+    .catchall {:try_start_39 .. :try_end_95} :catchall_11c
 
-    if-eqz v15, :cond_6
+    if-eqz v15, :cond_100
 
     .line 157
     const/4 v15, -0x1
 
-    if-eq v4, v15, :cond_0
+    if-eq v4, v15, :cond_a4
 
     .line 158
-    :try_start_1
+    :try_start_9a
     invoke-interface {v12, v4}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v16
 
-    goto :goto_1
+    goto :goto_a6
 
     .line 178
     .end local v4    # "resultCodeColumnIndex":I
@@ -755,12 +755,12 @@
     .end local v8    # "ttcIndexColumnIndex":I
     .end local v9    # "weightColumnIndex":I
     .end local v10    # "italicColumnIndex":I
-    :catchall_0
+    :catchall_9f
     move-exception v0
 
     move-object/from16 v19, v3
 
-    goto/16 :goto_7
+    goto/16 :goto_11f
 
     .line 159
     .restart local v4    # "resultCodeColumnIndex":I
@@ -770,32 +770,32 @@
     .restart local v8    # "ttcIndexColumnIndex":I
     .restart local v9    # "weightColumnIndex":I
     .restart local v10    # "italicColumnIndex":I
-    :cond_0
+    :cond_a4
     const/16 v16, 0x0
 
-    :goto_1
+    :goto_a6
     move/from16 v17, v16
 
     .line 160
     .local v17, "resultCode":I
-    if-eq v8, v15, :cond_1
+    if-eq v8, v15, :cond_af
 
     .line 161
     invoke-interface {v12, v8}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v16
 
-    goto :goto_2
+    goto :goto_b1
 
-    :cond_1
+    :cond_af
     const/16 v16, 0x0
 
-    :goto_2
+    :goto_b1
     move/from16 v18, v16
 
     .line 163
     .local v18, "ttcIndex":I
-    if-ne v7, v15, :cond_2
+    if-ne v7, v15, :cond_c4
 
     .line 164
     invoke-interface {v12, v5}, Landroid/database/Cursor;->getLong(I)J
@@ -813,19 +813,19 @@
     invoke-static {v11, v0, v1}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
 
     move-result-object v19
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_c1
+    .catchall {:try_start_9a .. :try_end_c1} :catchall_9f
 
     move-object/from16 v0, v19
 
     .line 166
     .local v0, "fileUri":Landroid/net/Uri;
-    goto :goto_3
+    goto :goto_ce
 
     .line 167
     .end local v0    # "fileUri":Landroid/net/Uri;
-    :cond_2
-    :try_start_2
+    :cond_c4
+    :try_start_c4
     invoke-interface {v12, v7}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v0
@@ -835,39 +835,39 @@
     invoke-static {v3, v0, v1}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
 
     move-result-object v19
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_cc
+    .catchall {:try_start_c4 .. :try_end_cc} :catchall_11c
 
     move-object/from16 v0, v19
 
     .line 171
     .local v0, "fileUri":Landroid/net/Uri;
-    :goto_3
-    if-eq v9, v15, :cond_3
+    :goto_ce
+    if-eq v9, v15, :cond_d5
 
-    :try_start_3
+    :try_start_d0
     invoke-interface {v12, v9}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_d4
+    .catchall {:try_start_d0 .. :try_end_d4} :catchall_9f
 
-    goto :goto_4
+    goto :goto_d7
 
-    :cond_3
+    :cond_d5
     const/16 v1, 0x190
 
     .line 172
     .local v1, "weight":I
-    :goto_4
-    if-eq v10, v15, :cond_4
+    :goto_d7
+    if-eq v10, v15, :cond_e3
 
-    :try_start_4
+    :try_start_d9
     invoke-interface {v12, v10}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v15
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_dd
+    .catchall {:try_start_d9 .. :try_end_dd} :catchall_11c
 
     move-object/from16 v19, v3
 
@@ -875,23 +875,23 @@
     .local v19, "fileBaseUri":Landroid/net/Uri;
     const/4 v3, 0x1
 
-    if-ne v15, v3, :cond_5
+    if-ne v15, v3, :cond_e5
 
-    goto :goto_5
+    goto :goto_e6
 
     .end local v19    # "fileBaseUri":Landroid/net/Uri;
     .restart local v3    # "fileBaseUri":Landroid/net/Uri;
-    :cond_4
+    :cond_e3
     move-object/from16 v19, v3
 
     .end local v3    # "fileBaseUri":Landroid/net/Uri;
     .restart local v19    # "fileBaseUri":Landroid/net/Uri;
-    :cond_5
+    :cond_e5
     const/4 v3, 0x0
 
     .line 174
     .local v3, "italic":Z
-    :goto_5
+    :goto_e6
     move/from16 v15, v17
 
     move/from16 v17, v4
@@ -905,14 +905,14 @@
     .local v15, "resultCode":I
     .local v17, "resultCodeColumnIndex":I
     .local v18, "idColumnIndex":I
-    :try_start_5
+    :try_start_ee
     invoke-static {v0, v4, v1, v3, v15}, Landroidx/core/provider/FontsContractCompat$FontInfo;->create(Landroid/net/Uri;IIZI)Landroidx/core/provider/FontsContractCompat$FontInfo;
 
     move-result-object v5
 
     invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_f5
+    .catchall {:try_start_ee .. :try_end_f5} :catchall_fe
 
     .line 175
     move-object/from16 v1, p2
@@ -928,7 +928,7 @@
     .end local v3    # "italic":Z
     .end local v4    # "ttcIndex":I
     .end local v15    # "resultCode":I
-    goto :goto_0
+    goto :goto_91
 
     .line 178
     .end local v6    # "projection":[Ljava/lang/String;
@@ -938,10 +938,10 @@
     .end local v10    # "italicColumnIndex":I
     .end local v17    # "resultCodeColumnIndex":I
     .end local v18    # "idColumnIndex":I
-    :catchall_1
+    :catchall_fe
     move-exception v0
 
-    goto :goto_7
+    goto :goto_11f
 
     .line 156
     .end local v19    # "fileBaseUri":Landroid/net/Uri;
@@ -953,7 +953,7 @@
     .restart local v8    # "ttcIndexColumnIndex":I
     .restart local v9    # "weightColumnIndex":I
     .restart local v10    # "italicColumnIndex":I
-    :cond_6
+    :cond_100
     move-object/from16 v19, v3
 
     move/from16 v17, v4
@@ -966,7 +966,7 @@
     .restart local v17    # "resultCodeColumnIndex":I
     .restart local v18    # "idColumnIndex":I
     .restart local v19    # "fileBaseUri":Landroid/net/Uri;
-    goto :goto_6
+    goto :goto_109
 
     .line 143
     .end local v7    # "fileIdColumnIndex":I
@@ -977,21 +977,21 @@
     .end local v18    # "idColumnIndex":I
     .end local v19    # "fileBaseUri":Landroid/net/Uri;
     .restart local v3    # "fileBaseUri":Landroid/net/Uri;
-    :cond_7
+    :cond_107
     move-object/from16 v19, v3
 
     .line 178
     .end local v3    # "fileBaseUri":Landroid/net/Uri;
     .end local v6    # "projection":[Ljava/lang/String;
     .restart local v19    # "fileBaseUri":Landroid/net/Uri;
-    :goto_6
-    if-eqz v12, :cond_8
+    :goto_109
+    if-eqz v12, :cond_10e
 
     .line 179
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
     .line 181
-    :cond_8
+    :cond_10e
     invoke-interface {v14}, Landroidx/core/provider/FontProvider$ContentQueryWrapper;->close()V
 
     .line 182
@@ -1013,21 +1013,21 @@
     .line 178
     .end local v19    # "fileBaseUri":Landroid/net/Uri;
     .restart local v3    # "fileBaseUri":Landroid/net/Uri;
-    :catchall_2
+    :catchall_11c
     move-exception v0
 
     move-object/from16 v19, v3
 
     .end local v3    # "fileBaseUri":Landroid/net/Uri;
     .restart local v19    # "fileBaseUri":Landroid/net/Uri;
-    :goto_7
-    if-eqz v12, :cond_9
+    :goto_11f
+    if-eqz v12, :cond_124
 
     .line 179
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
     .line 181
-    :cond_9
+    :cond_124
     invoke-interface {v14}, Landroidx/core/provider/FontProvider$ContentQueryWrapper;->close()V
 
     .line 182

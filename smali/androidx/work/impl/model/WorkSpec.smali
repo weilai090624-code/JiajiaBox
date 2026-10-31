@@ -176,7 +176,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$kxU3gfKzoZdfGv8GSpkPecoJFFM(Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER$lambda$1(Ljava/util/List;)Ljava/util/List;
 
@@ -186,7 +186,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/work/impl/model/WorkSpec$Companion;
 
@@ -220,7 +220,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroidx/work/WorkInfo$State;Ljava/lang/String;Ljava/lang/String;Landroidx/work/Data;Landroidx/work/Data;JJJLandroidx/work/Constraints;ILandroidx/work/BackoffPolicy;JJJJZLandroidx/work/OutOfQuotaPolicy;II)V
-    .locals 16
+    .registers 44
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "state"    # Landroidx/work/WorkInfo$State;
     .param p3, "workerClassName"    # Ljava/lang/String;
@@ -384,48 +384,48 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;Landroidx/work/WorkInfo$State;Ljava/lang/String;Ljava/lang/String;Landroidx/work/Data;Landroidx/work/Data;JJJLandroidx/work/Constraints;ILandroidx/work/BackoffPolicy;JJJJZLandroidx/work/OutOfQuotaPolicy;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 30
+    .registers 60
 
     .line 46
     move/from16 v0, p28
 
     and-int/lit8 v1, v0, 0x2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     .line 54
     sget-object v1, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
     move-object v4, v1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 46
-    :cond_0
+    :cond_a
     move-object/from16 v4, p2
 
-    :goto_0
+    :goto_c
     and-int/lit8 v1, v0, 0x8
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_13
 
     .line 62
     const/4 v1, 0x0
 
     move-object v6, v1
 
-    goto :goto_1
+    goto :goto_15
 
     .line 46
-    :cond_1
+    :cond_13
     move-object/from16 v6, p4
 
-    :goto_1
+    :goto_15
     and-int/lit8 v1, v0, 0x10
 
     const-string v2, "EMPTY"
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_22
 
     .line 66
     sget-object v1, Landroidx/work/Data;->EMPTY:Landroidx/work/Data;
@@ -434,16 +434,16 @@
 
     move-object v7, v1
 
-    goto :goto_2
+    goto :goto_24
 
     .line 46
-    :cond_2
+    :cond_22
     move-object/from16 v7, p5
 
-    :goto_2
+    :goto_24
     and-int/lit8 v1, v0, 0x20
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2f
 
     .line 70
     sget-object v1, Landroidx/work/Data;->EMPTY:Landroidx/work/Data;
@@ -452,231 +452,231 @@
 
     move-object v8, v1
 
-    goto :goto_3
+    goto :goto_31
 
     .line 46
-    :cond_3
+    :cond_2f
     move-object/from16 v8, p6
 
-    :goto_3
+    :goto_31
     and-int/lit8 v1, v0, 0x40
 
     const-wide/16 v2, 0x0
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_39
 
     .line 74
     move-wide v9, v2
 
-    goto :goto_4
+    goto :goto_3b
 
     .line 46
-    :cond_4
+    :cond_39
     move-wide/from16 v9, p7
 
-    :goto_4
+    :goto_3b
     and-int/lit16 v1, v0, 0x80
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_41
 
     .line 78
     move-wide v11, v2
 
-    goto :goto_5
+    goto :goto_43
 
     .line 46
-    :cond_5
+    :cond_41
     move-wide/from16 v11, p9
 
-    :goto_5
+    :goto_43
     and-int/lit16 v1, v0, 0x100
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_49
 
     .line 82
     move-wide v13, v2
 
-    goto :goto_6
+    goto :goto_4b
 
     .line 46
-    :cond_6
+    :cond_49
     move-wide/from16 v13, p11
 
-    :goto_6
+    :goto_4b
     and-int/lit16 v1, v0, 0x200
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_53
 
     .line 86
     sget-object v1, Landroidx/work/Constraints;->NONE:Landroidx/work/Constraints;
 
     move-object v15, v1
 
-    goto :goto_7
+    goto :goto_55
 
     .line 46
-    :cond_7
+    :cond_53
     move-object/from16 v15, p13
 
-    :goto_7
+    :goto_55
     and-int/lit16 v1, v0, 0x400
 
     const/4 v5, 0x0
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_5d
 
     .line 91
     const/16 v16, 0x0
 
-    goto :goto_8
+    goto :goto_5f
 
     .line 46
-    :cond_8
+    :cond_5d
     move/from16 v16, p14
 
-    :goto_8
+    :goto_5f
     and-int/lit16 v1, v0, 0x800
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_68
 
     .line 95
     sget-object v1, Landroidx/work/BackoffPolicy;->EXPONENTIAL:Landroidx/work/BackoffPolicy;
 
     move-object/from16 v17, v1
 
-    goto :goto_9
+    goto :goto_6a
 
     .line 46
-    :cond_9
+    :cond_68
     move-object/from16 v17, p15
 
-    :goto_9
+    :goto_6a
     and-int/lit16 v1, v0, 0x1000
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_71
 
     .line 99
     const-wide/16 v18, 0x7530
 
-    goto :goto_a
+    goto :goto_73
 
     .line 46
-    :cond_a
+    :cond_71
     move-wide/from16 v18, p16
 
-    :goto_a
+    :goto_73
     and-int/lit16 v1, v0, 0x2000
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_7a
 
     .line 106
     move-wide/from16 v20, v2
 
-    goto :goto_b
+    goto :goto_7c
 
     .line 46
-    :cond_b
+    :cond_7a
     move-wide/from16 v20, p18
 
-    :goto_b
+    :goto_7c
     and-int/lit16 v1, v0, 0x4000
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_83
 
     .line 110
     move-wide/from16 v22, v2
 
-    goto :goto_c
+    goto :goto_85
 
     .line 46
-    :cond_c
+    :cond_83
     move-wide/from16 v22, p20
 
-    :goto_c
+    :goto_85
     const v1, 0x8000
 
     and-int/2addr v1, v0
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_90
 
     .line 122
     const-wide/16 v1, -0x1
 
     move-wide/from16 v24, v1
 
-    goto :goto_d
+    goto :goto_92
 
     .line 46
-    :cond_d
+    :cond_90
     move-wide/from16 v24, p22
 
-    :goto_d
+    :goto_92
     const/high16 v1, 0x10000
 
     and-int/2addr v1, v0
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_9a
 
     .line 130
     const/16 v26, 0x0
 
-    goto :goto_e
+    goto :goto_9c
 
     .line 46
-    :cond_e
+    :cond_9a
     move/from16 v26, p24
 
-    :goto_e
+    :goto_9c
     const/high16 v1, 0x20000
 
     and-int/2addr v1, v0
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_a6
 
     .line 138
     sget-object v1, Landroidx/work/OutOfQuotaPolicy;->RUN_AS_NON_EXPEDITED_WORK_REQUEST:Landroidx/work/OutOfQuotaPolicy;
 
     move-object/from16 v27, v1
 
-    goto :goto_f
+    goto :goto_a8
 
     .line 46
-    :cond_f
+    :cond_a6
     move-object/from16 v27, p25
 
-    :goto_f
+    :goto_a8
     const/high16 v1, 0x40000
 
     and-int/2addr v1, v0
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_b0
 
     .line 145
     const/16 v28, 0x0
 
-    goto :goto_10
+    goto :goto_b2
 
     .line 46
-    :cond_10
+    :cond_b0
     move/from16 v28, p26
 
-    :goto_10
+    :goto_b2
     const/high16 v1, 0x80000
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_ba
 
     .line 148
     const/16 v29, 0x0
 
-    goto :goto_11
+    goto :goto_bc
 
     .line 46
-    :cond_11
+    :cond_ba
     move/from16 v29, p27
 
-    :goto_11
+    :goto_bc
     move-object/from16 v2, p0
 
     move-object/from16 v3, p1
@@ -690,7 +690,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroidx/work/impl/model/WorkSpec;)V
-    .locals 33
+    .registers 36
     .param p1, "newId"    # Ljava/lang/String;
     .param p2, "other"    # Landroidx/work/impl/model/WorkSpec;
 
@@ -882,7 +882,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 30
+    .registers 33
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "workerClassName_"    # Ljava/lang/String;
 
@@ -955,11 +955,11 @@
 .end method
 
 .method private static final WORK_INFO_MAPPER$lambda$1(Ljava/util/List;)Ljava/util/List;
-    .locals 9
+    .registers 10
     .param p0, "input"    # Ljava/util/List;
 
     .line 400
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_34
 
     move-object v0, p0
 
@@ -994,12 +994,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_19
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2f
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1025,11 +1025,11 @@
     .end local v8    # "$i$a$-map-WorkSpec$Companion$WORK_INFO_MAPPER$1$1":I
     invoke-interface {v2, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_19
 
     .line 411
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_2f
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -1042,18 +1042,18 @@
 
     .end local v0    # "$this$map$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$map":I
-    goto :goto_1
+    goto :goto_35
 
     .line 400
-    :cond_1
+    :cond_34
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_35
     return-object v2
 .end method
 
 .method public static synthetic copy$default(Landroidx/work/impl/model/WorkSpec;Ljava/lang/String;Landroidx/work/WorkInfo$State;Ljava/lang/String;Ljava/lang/String;Landroidx/work/Data;Landroidx/work/Data;JJJLandroidx/work/Constraints;ILandroidx/work/BackoffPolicy;JJJJZLandroidx/work/OutOfQuotaPolicy;IIILjava/lang/Object;)Landroidx/work/impl/model/WorkSpec;
-    .locals 17
+    .registers 47
 
     move-object/from16 v0, p0
 
@@ -1061,270 +1061,270 @@
 
     and-int/lit8 v2, v1, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_b
 
     iget-object v2, v0, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     move-object/from16 v2, p1
 
-    :goto_0
+    :goto_d
     and-int/lit8 v3, v1, 0x2
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_14
 
     iget-object v3, v0, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_14
     move-object/from16 v3, p2
 
-    :goto_1
+    :goto_16
     and-int/lit8 v4, v1, 0x4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1d
 
     iget-object v4, v0, Landroidx/work/impl/model/WorkSpec;->workerClassName:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_2
+    :cond_1d
     move-object/from16 v4, p3
 
-    :goto_2
+    :goto_1f
     and-int/lit8 v5, v1, 0x8
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_26
 
     iget-object v5, v0, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
 
-    goto :goto_3
+    goto :goto_28
 
-    :cond_3
+    :cond_26
     move-object/from16 v5, p4
 
-    :goto_3
+    :goto_28
     and-int/lit8 v6, v1, 0x10
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_2f
 
     iget-object v6, v0, Landroidx/work/impl/model/WorkSpec;->input:Landroidx/work/Data;
 
-    goto :goto_4
+    goto :goto_31
 
-    :cond_4
+    :cond_2f
     move-object/from16 v6, p5
 
-    :goto_4
+    :goto_31
     and-int/lit8 v7, v1, 0x20
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_38
 
     iget-object v7, v0, Landroidx/work/impl/model/WorkSpec;->output:Landroidx/work/Data;
 
-    goto :goto_5
+    goto :goto_3a
 
-    :cond_5
+    :cond_38
     move-object/from16 v7, p6
 
-    :goto_5
+    :goto_3a
     and-int/lit8 v8, v1, 0x40
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_41
 
     iget-wide v8, v0, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
 
-    goto :goto_6
+    goto :goto_43
 
-    :cond_6
+    :cond_41
     move-wide/from16 v8, p7
 
-    :goto_6
+    :goto_43
     and-int/lit16 v10, v1, 0x80
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_4a
 
     iget-wide v10, v0, Landroidx/work/impl/model/WorkSpec;->intervalDuration:J
 
-    goto :goto_7
+    goto :goto_4c
 
-    :cond_7
+    :cond_4a
     move-wide/from16 v10, p9
 
-    :goto_7
+    :goto_4c
     and-int/lit16 v12, v1, 0x100
 
-    if-eqz v12, :cond_8
+    if-eqz v12, :cond_53
 
     iget-wide v12, v0, Landroidx/work/impl/model/WorkSpec;->flexDuration:J
 
-    goto :goto_8
+    goto :goto_55
 
-    :cond_8
+    :cond_53
     move-wide/from16 v12, p11
 
-    :goto_8
+    :goto_55
     and-int/lit16 v14, v1, 0x200
 
-    if-eqz v14, :cond_9
+    if-eqz v14, :cond_5c
 
     iget-object v14, v0, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
 
-    goto :goto_9
+    goto :goto_5e
 
-    :cond_9
+    :cond_5c
     move-object/from16 v14, p13
 
-    :goto_9
+    :goto_5e
     and-int/lit16 v15, v1, 0x400
 
-    if-eqz v15, :cond_a
+    if-eqz v15, :cond_65
 
     iget v15, v0, Landroidx/work/impl/model/WorkSpec;->runAttemptCount:I
 
-    goto :goto_a
+    goto :goto_67
 
-    :cond_a
+    :cond_65
     move/from16 v15, p14
 
-    :goto_a
+    :goto_67
     move/from16 p14, v15
 
     and-int/lit16 v15, v1, 0x800
 
-    if-eqz v15, :cond_b
+    if-eqz v15, :cond_70
 
     iget-object v15, v0, Landroidx/work/impl/model/WorkSpec;->backoffPolicy:Landroidx/work/BackoffPolicy;
 
-    goto :goto_b
+    goto :goto_72
 
-    :cond_b
+    :cond_70
     move-object/from16 v15, p15
 
-    :goto_b
+    :goto_72
     move-object/from16 p15, v15
 
     and-int/lit16 v15, v1, 0x1000
 
     move-object/from16 p13, v14
 
-    if-eqz v15, :cond_c
+    if-eqz v15, :cond_7d
 
     iget-wide v14, v0, Landroidx/work/impl/model/WorkSpec;->backoffDelayDuration:J
 
-    goto :goto_c
+    goto :goto_7f
 
-    :cond_c
+    :cond_7d
     move-wide/from16 v14, p16
 
-    :goto_c
+    :goto_7f
     move-wide/from16 p16, v14
 
     and-int/lit16 v14, v1, 0x2000
 
-    if-eqz v14, :cond_d
+    if-eqz v14, :cond_88
 
     iget-wide v14, v0, Landroidx/work/impl/model/WorkSpec;->lastEnqueueTime:J
 
-    goto :goto_d
+    goto :goto_8a
 
-    :cond_d
+    :cond_88
     move-wide/from16 v14, p18
 
-    :goto_d
+    :goto_8a
     move-wide/from16 p18, v14
 
     and-int/lit16 v14, v1, 0x4000
 
-    if-eqz v14, :cond_e
+    if-eqz v14, :cond_93
 
     iget-wide v14, v0, Landroidx/work/impl/model/WorkSpec;->minimumRetentionDuration:J
 
-    goto :goto_e
+    goto :goto_95
 
-    :cond_e
+    :cond_93
     move-wide/from16 v14, p20
 
-    :goto_e
+    :goto_95
     const v16, 0x8000
 
     and-int v16, v1, v16
 
     move-wide/from16 p20, v14
 
-    if-eqz v16, :cond_f
+    if-eqz v16, :cond_a1
 
     iget-wide v14, v0, Landroidx/work/impl/model/WorkSpec;->scheduleRequestedAt:J
 
-    goto :goto_f
+    goto :goto_a3
 
-    :cond_f
+    :cond_a1
     move-wide/from16 v14, p22
 
-    :goto_f
+    :goto_a3
     const/high16 v16, 0x10000
 
     and-int v16, v1, v16
 
     move-wide/from16 p22, v14
 
-    if-eqz v16, :cond_10
+    if-eqz v16, :cond_ae
 
     iget-boolean v14, v0, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
-    goto :goto_10
+    goto :goto_b0
 
-    :cond_10
+    :cond_ae
     move/from16 v14, p24
 
-    :goto_10
+    :goto_b0
     const/high16 v15, 0x20000
 
     and-int/2addr v15, v1
 
-    if-eqz v15, :cond_11
+    if-eqz v15, :cond_b8
 
     iget-object v15, v0, Landroidx/work/impl/model/WorkSpec;->outOfQuotaPolicy:Landroidx/work/OutOfQuotaPolicy;
 
-    goto :goto_11
+    goto :goto_ba
 
-    :cond_11
+    :cond_b8
     move-object/from16 v15, p25
 
-    :goto_11
+    :goto_ba
     const/high16 v16, 0x40000
 
     and-int v16, v1, v16
 
     move-object/from16 p25, v15
 
-    if-eqz v16, :cond_12
+    if-eqz v16, :cond_c5
 
     iget v15, v0, Landroidx/work/impl/model/WorkSpec;->periodCount:I
 
-    goto :goto_12
+    goto :goto_c7
 
-    :cond_12
+    :cond_c5
     move/from16 v15, p26
 
-    :goto_12
+    :goto_c7
     const/high16 v16, 0x80000
 
     and-int v1, v1, v16
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_d0
 
     iget v1, v0, Landroidx/work/impl/model/WorkSpec;->generation:I
 
-    goto :goto_13
+    goto :goto_d2
 
-    :cond_13
+    :cond_d0
     move/from16 v1, p27
 
-    :goto_13
+    :goto_d2
     move-object/from16 p1, v2
 
     move-object/from16 p2, v3
@@ -1359,7 +1359,7 @@
 
 # virtual methods
 .method public final calculateNextRunTime()J
-    .locals 11
+    .registers 12
 
     .line 275
     invoke-virtual {p0}, Landroidx/work/impl/model/WorkSpec;->isBackedOff()Z
@@ -1370,23 +1370,23 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_31
 
     .line 276
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->backoffPolicy:Landroidx/work/BackoffPolicy;
 
     sget-object v3, Landroidx/work/BackoffPolicy;->LINEAR:Landroidx/work/BackoffPolicy;
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_f
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_f
     move v0, v1
 
     .line 277
     .local v0, "isLinearBackoff":Z
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     iget-wide v1, p0, Landroidx/work/impl/model/WorkSpec;->backoffDelayDuration:J
 
@@ -1396,10 +1396,10 @@
 
     mul-long v1, v1, v3
 
-    goto :goto_0
+    goto :goto_25
 
     .line 278
-    :cond_1
+    :cond_1a
     iget-wide v3, p0, Landroidx/work/impl/model/WorkSpec;->backoffDelayDuration:J
 
     long-to-float v1, v3
@@ -1418,7 +1418,7 @@
     float-to-long v1, v1
 
     .line 277
-    :goto_0
+    :goto_25
     nop
 
     .line 282
@@ -1435,24 +1435,24 @@
 
     .end local v0    # "isLinearBackoff":Z
     .end local v1    # "delay":J
-    goto :goto_3
+    goto :goto_7a
 
     .line 283
-    :cond_2
+    :cond_31
     invoke-virtual {p0}, Landroidx/work/impl/model/WorkSpec;->isPeriodic()Z
 
     move-result v0
 
     const-wide/16 v3, 0x0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_69
 
     .line 284
     iget v0, p0, Landroidx/work/impl/model/WorkSpec;->periodCount:I
 
     iget-wide v5, p0, Landroidx/work/impl/model/WorkSpec;->lastEnqueueTime:J
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_42
 
     iget-wide v7, p0, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
 
@@ -1460,28 +1460,28 @@
 
     .line 285
     .local v5, "start":J
-    :cond_3
+    :cond_42
     iget-wide v7, p0, Landroidx/work/impl/model/WorkSpec;->flexDuration:J
 
     iget-wide v9, p0, Landroidx/work/impl/model/WorkSpec;->intervalDuration:J
 
     cmp-long v0, v7, v9
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_4b
 
     const/4 v1, 0x1
 
-    :cond_4
+    :cond_4b
     move v0, v1
 
     .line 286
     .local v0, "isFlexApplicable":Z
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5e
 
     .line 296
     iget v1, p0, Landroidx/work/impl/model/WorkSpec;->periodCount:I
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_58
 
     const/4 v1, -0x1
 
@@ -1491,7 +1491,7 @@
 
     mul-long v3, v3, v1
 
-    :cond_5
+    :cond_58
     move-wide v1, v3
 
     .line 297
@@ -1503,20 +1503,20 @@
     add-long/2addr v3, v1
 
     .end local v1    # "offset":J
-    goto :goto_3
+    goto :goto_7a
 
     .line 304
-    :cond_6
+    :cond_5e
     iget v1, p0, Landroidx/work/impl/model/WorkSpec;->periodCount:I
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_63
 
-    goto :goto_1
+    goto :goto_65
 
-    :cond_7
+    :cond_63
     iget-wide v3, p0, Landroidx/work/impl/model/WorkSpec;->intervalDuration:J
 
-    :goto_1
+    :goto_65
     move-wide v1, v3
 
     .line 305
@@ -1526,40 +1526,40 @@
     .end local v0    # "isFlexApplicable":Z
     .end local v1    # "offset":J
     .end local v5    # "start":J
-    goto :goto_3
+    goto :goto_7a
 
     .line 310
-    :cond_8
+    :cond_69
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->lastEnqueueTime:J
 
     cmp-long v2, v0, v3
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_74
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    goto :goto_2
+    goto :goto_76
 
-    :cond_9
+    :cond_74
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->lastEnqueueTime:J
 
     .line 311
     .local v0, "start":J
-    :goto_2
+    :goto_76
     iget-wide v2, p0, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
 
     add-long v3, v0, v2
 
     .line 275
     .end local v0    # "start":J
-    :goto_3
+    :goto_7a
     return-wide v3
 .end method
 
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
 
@@ -1567,7 +1567,7 @@
 .end method
 
 .method public final component10()Landroidx/work/Constraints;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
 
@@ -1575,7 +1575,7 @@
 .end method
 
 .method public final component11()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Landroidx/work/impl/model/WorkSpec;->runAttemptCount:I
 
@@ -1583,7 +1583,7 @@
 .end method
 
 .method public final component12()Landroidx/work/BackoffPolicy;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->backoffPolicy:Landroidx/work/BackoffPolicy;
 
@@ -1591,7 +1591,7 @@
 .end method
 
 .method public final component13()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->backoffDelayDuration:J
 
@@ -1599,7 +1599,7 @@
 .end method
 
 .method public final component14()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->lastEnqueueTime:J
 
@@ -1607,7 +1607,7 @@
 .end method
 
 .method public final component15()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->minimumRetentionDuration:J
 
@@ -1615,7 +1615,7 @@
 .end method
 
 .method public final component16()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->scheduleRequestedAt:J
 
@@ -1623,7 +1623,7 @@
 .end method
 
 .method public final component17()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
@@ -1631,7 +1631,7 @@
 .end method
 
 .method public final component18()Landroidx/work/OutOfQuotaPolicy;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->outOfQuotaPolicy:Landroidx/work/OutOfQuotaPolicy;
 
@@ -1639,7 +1639,7 @@
 .end method
 
 .method public final component19()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Landroidx/work/impl/model/WorkSpec;->periodCount:I
 
@@ -1647,7 +1647,7 @@
 .end method
 
 .method public final component2()Landroidx/work/WorkInfo$State;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
@@ -1655,7 +1655,7 @@
 .end method
 
 .method public final component20()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Landroidx/work/impl/model/WorkSpec;->generation:I
 
@@ -1663,7 +1663,7 @@
 .end method
 
 .method public final component3()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->workerClassName:Ljava/lang/String;
 
@@ -1671,7 +1671,7 @@
 .end method
 
 .method public final component4()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
 
@@ -1679,7 +1679,7 @@
 .end method
 
 .method public final component5()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->input:Landroidx/work/Data;
 
@@ -1687,7 +1687,7 @@
 .end method
 
 .method public final component6()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->output:Landroidx/work/Data;
 
@@ -1695,7 +1695,7 @@
 .end method
 
 .method public final component7()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
 
@@ -1703,7 +1703,7 @@
 .end method
 
 .method public final component8()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->intervalDuration:J
 
@@ -1711,7 +1711,7 @@
 .end method
 
 .method public final component9()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->flexDuration:J
 
@@ -1719,7 +1719,7 @@
 .end method
 
 .method public final copy(Ljava/lang/String;Landroidx/work/WorkInfo$State;Ljava/lang/String;Ljava/lang/String;Landroidx/work/Data;Landroidx/work/Data;JJJLandroidx/work/Constraints;ILandroidx/work/BackoffPolicy;JJJJZLandroidx/work/OutOfQuotaPolicy;II)Landroidx/work/impl/model/WorkSpec;
-    .locals 30
+    .registers 58
 
     move-object/from16 v1, p1
 
@@ -1821,24 +1821,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/work/impl/model/WorkSpec;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Landroidx/work/impl/model/WorkSpec;
@@ -1851,20 +1851,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec;->workerClassName:Ljava/lang/String;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec;->workerClassName:Ljava/lang/String;
@@ -1873,11 +1873,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_2a
 
     return v2
 
-    :cond_4
+    :cond_2a
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
@@ -1886,11 +1886,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_35
 
     return v2
 
-    :cond_5
+    :cond_35
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec;->input:Landroidx/work/Data;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec;->input:Landroidx/work/Data;
@@ -1899,11 +1899,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_40
 
     return v2
 
-    :cond_6
+    :cond_40
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec;->output:Landroidx/work/Data;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec;->output:Landroidx/work/Data;
@@ -1912,44 +1912,44 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_4b
 
     return v2
 
-    :cond_7
+    :cond_4b
     iget-wide v3, p0, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
 
     iget-wide v5, v1, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_54
 
     return v2
 
-    :cond_8
+    :cond_54
     iget-wide v3, p0, Landroidx/work/impl/model/WorkSpec;->intervalDuration:J
 
     iget-wide v5, v1, Landroidx/work/impl/model/WorkSpec;->intervalDuration:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_5d
 
     return v2
 
-    :cond_9
+    :cond_5d
     iget-wide v3, p0, Landroidx/work/impl/model/WorkSpec;->flexDuration:J
 
     iget-wide v5, v1, Landroidx/work/impl/model/WorkSpec;->flexDuration:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_66
 
     return v2
 
-    :cond_a
+    :cond_66
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
@@ -1958,114 +1958,114 @@
 
     move-result v3
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_71
 
     return v2
 
-    :cond_b
+    :cond_71
     iget v3, p0, Landroidx/work/impl/model/WorkSpec;->runAttemptCount:I
 
     iget v4, v1, Landroidx/work/impl/model/WorkSpec;->runAttemptCount:I
 
-    if-eq v3, v4, :cond_c
+    if-eq v3, v4, :cond_78
 
     return v2
 
-    :cond_c
+    :cond_78
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec;->backoffPolicy:Landroidx/work/BackoffPolicy;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec;->backoffPolicy:Landroidx/work/BackoffPolicy;
 
-    if-eq v3, v4, :cond_d
+    if-eq v3, v4, :cond_7f
 
     return v2
 
-    :cond_d
+    :cond_7f
     iget-wide v3, p0, Landroidx/work/impl/model/WorkSpec;->backoffDelayDuration:J
 
     iget-wide v5, v1, Landroidx/work/impl/model/WorkSpec;->backoffDelayDuration:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_88
 
     return v2
 
-    :cond_e
+    :cond_88
     iget-wide v3, p0, Landroidx/work/impl/model/WorkSpec;->lastEnqueueTime:J
 
     iget-wide v5, v1, Landroidx/work/impl/model/WorkSpec;->lastEnqueueTime:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_f
+    if-eqz v7, :cond_91
 
     return v2
 
-    :cond_f
+    :cond_91
     iget-wide v3, p0, Landroidx/work/impl/model/WorkSpec;->minimumRetentionDuration:J
 
     iget-wide v5, v1, Landroidx/work/impl/model/WorkSpec;->minimumRetentionDuration:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_10
+    if-eqz v7, :cond_9a
 
     return v2
 
-    :cond_10
+    :cond_9a
     iget-wide v3, p0, Landroidx/work/impl/model/WorkSpec;->scheduleRequestedAt:J
 
     iget-wide v5, v1, Landroidx/work/impl/model/WorkSpec;->scheduleRequestedAt:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_11
+    if-eqz v7, :cond_a3
 
     return v2
 
-    :cond_11
+    :cond_a3
     iget-boolean v3, p0, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
     iget-boolean v4, v1, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
-    if-eq v3, v4, :cond_12
+    if-eq v3, v4, :cond_aa
 
     return v2
 
-    :cond_12
+    :cond_aa
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec;->outOfQuotaPolicy:Landroidx/work/OutOfQuotaPolicy;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec;->outOfQuotaPolicy:Landroidx/work/OutOfQuotaPolicy;
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_b1
 
     return v2
 
-    :cond_13
+    :cond_b1
     iget v3, p0, Landroidx/work/impl/model/WorkSpec;->periodCount:I
 
     iget v4, v1, Landroidx/work/impl/model/WorkSpec;->periodCount:I
 
-    if-eq v3, v4, :cond_14
+    if-eq v3, v4, :cond_b8
 
     return v2
 
-    :cond_14
+    :cond_b8
     iget v3, p0, Landroidx/work/impl/model/WorkSpec;->generation:I
 
     iget v1, v1, Landroidx/work/impl/model/WorkSpec;->generation:I
 
-    if-eq v3, v1, :cond_15
+    if-eq v3, v1, :cond_bf
 
     return v2
 
-    :cond_15
+    :cond_bf
     return v0
 .end method
 
 .method public final getGeneration()I
-    .locals 1
+    .registers 2
 
     .line 148
     iget v0, p0, Landroidx/work/impl/model/WorkSpec;->generation:I
@@ -2074,7 +2074,7 @@
 .end method
 
 .method public final getPeriodCount()I
-    .locals 1
+    .registers 2
 
     .line 145
     iget v0, p0, Landroidx/work/impl/model/WorkSpec;->periodCount:I
@@ -2083,7 +2083,7 @@
 .end method
 
 .method public final hasConstraints()Z
-    .locals 2
+    .registers 3
 
     .line 319
     sget-object v0, Landroidx/work/Constraints;->NONE:Landroidx/work/Constraints;
@@ -2100,7 +2100,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
 
@@ -2132,20 +2132,20 @@
 
     iget-object v2, p0, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_20
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_20
     iget-object v2, p0, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v2
 
-    :goto_0
+    :goto_26
     add-int/2addr v1, v2
 
     mul-int/lit8 v0, v1, 0x1f
@@ -2268,11 +2268,11 @@
 
     iget-boolean v2, p0, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_96
 
     const/4 v2, 0x1
 
-    :cond_1
+    :cond_96
     add-int/2addr v0, v2
 
     mul-int/lit8 v1, v0, 0x1f
@@ -2301,32 +2301,32 @@
 .end method
 
 .method public final isBackedOff()Z
-    .locals 2
+    .registers 3
 
     .line 195
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
     sget-object v1, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     iget v0, p0, Landroidx/work/impl/model/WorkSpec;->runAttemptCount:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public final isPeriodic()Z
-    .locals 5
+    .registers 6
 
     .line 193
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->intervalDuration:J
@@ -2335,21 +2335,21 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public final setBackoffDelayDuration(J)V
-    .locals 9
+    .registers 12
     .param p1, "backoffDelayDuration"    # J
 
     .line 181
@@ -2357,7 +2357,7 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_12
 
     .line 182
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -2371,12 +2371,12 @@
     invoke-virtual {v0, v1, v2}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 184
-    :cond_0
+    :cond_12
     const-wide/16 v0, 0x2710
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_23
 
     .line 185
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -2390,7 +2390,7 @@
     invoke-virtual {v0, v1, v2}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 188
-    :cond_1
+    :cond_23
     nop
 
     .line 189
@@ -2412,7 +2412,7 @@
 .end method
 
 .method public final setPeriodCount(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 145
@@ -2422,7 +2422,7 @@
 .end method
 
 .method public final setPeriodic(J)V
-    .locals 5
+    .registers 8
     .param p1, "intervalDuration"    # J
 
     .line 203
@@ -2430,7 +2430,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_13
 
     .line 204
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -2449,7 +2449,7 @@
     invoke-virtual {v2, v3, v4}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 210
-    :cond_0
+    :cond_13
     nop
 
     .line 211
@@ -2470,7 +2470,7 @@
 .end method
 
 .method public final setPeriodic(JJ)V
-    .locals 9
+    .registers 14
     .param p1, "intervalDuration"    # J
     .param p3, "flexDuration"    # J
 
@@ -2479,7 +2479,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_13
 
     .line 224
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -2498,7 +2498,7 @@
     invoke-virtual {v2, v3, v4}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 231
-    :cond_0
+    :cond_13
     invoke-static {p1, p2, v0, v1}, Lkotlin/ranges/RangesKt;->coerceAtLeast(JJ)J
 
     move-result-wide v0
@@ -2510,7 +2510,7 @@
 
     cmp-long v2, p3, v0
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_2c
 
     .line 234
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -2529,12 +2529,12 @@
     invoke-virtual {v0, v1, v2}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 240
-    :cond_1
+    :cond_2c
     iget-wide v0, p0, Landroidx/work/impl/model/WorkSpec;->intervalDuration:J
 
     cmp-long v2, p3, v0
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_4e
 
     .line 241
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -2567,7 +2567,7 @@
     invoke-virtual {v0, v1, v2}, Landroidx/work/Logger;->warning(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 246
-    :cond_2
+    :cond_4e
     const-wide/32 v5, 0x493e0
 
     iget-wide v7, p0, Landroidx/work/impl/model/WorkSpec;->intervalDuration:J
@@ -2585,7 +2585,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 323
     new-instance v0, Ljava/lang/StringBuilder;

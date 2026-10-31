@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)V"
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public copyFor(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;Lcom/google/common/cache/ReferenceEntry;)Lcom/google/common/cache/LocalCache$ValueReference;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,7 +86,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -101,7 +101,7 @@
 .end method
 
 .method public getEntry()Lcom/google/common/cache/ReferenceEntry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -118,7 +118,7 @@
 .end method
 
 .method public getWeight()I
-    .locals 1
+    .registers 2
 
     .line 1551
     .local p0, "this":Lcom/google/common/cache/LocalCache$StrongValueReference;, "Lcom/google/common/cache/LocalCache$StrongValueReference<TK;TV;>;"
@@ -128,7 +128,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 1572
     .local p0, "this":Lcom/google/common/cache/LocalCache$StrongValueReference;, "Lcom/google/common/cache/LocalCache$StrongValueReference<TK;TV;>;"
@@ -138,7 +138,7 @@
 .end method
 
 .method public isLoading()Z
-    .locals 1
+    .registers 2
 
     .line 1567
     .local p0, "this":Lcom/google/common/cache/LocalCache$StrongValueReference;, "Lcom/google/common/cache/LocalCache$StrongValueReference<TK;TV;>;"
@@ -148,7 +148,7 @@
 .end method
 
 .method public notifyNewValue(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)V"
@@ -162,7 +162,7 @@
 .end method
 
 .method public waitForValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

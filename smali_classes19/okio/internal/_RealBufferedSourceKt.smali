@@ -83,7 +83,7 @@
 
 # direct methods
 .method public static final commonClose(Lokio/RealBufferedSource;)V
-    .locals 3
+    .registers 4
     .param p0, "$this$commonClose"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -96,12 +96,12 @@
     .local v0, "$i$f$commonClose":I
     iget-boolean v1, p0, Lokio/RealBufferedSource;->closed:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     return-void
 
     .line 391
-    :cond_0
+    :cond_b
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lokio/RealBufferedSource;->closed:Z
@@ -131,7 +131,7 @@
 .end method
 
 .method public static final commonExhausted(Lokio/RealBufferedSource;)Z
-    .locals 6
+    .registers 7
     .param p0, "$this$commonExhausted"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -144,7 +144,7 @@
     .local v0, "$i$f$commonExhausted":I
     iget-boolean v1, p0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2a
 
     .line 49
     move-object v1, p0
@@ -163,7 +163,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     iget-object v1, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
 
@@ -189,20 +189,20 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_28
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_29
     return v1
 
     .line 400
-    :cond_1
+    :cond_2a
     const/4 v1, 0x0
 
     .line 48
@@ -226,7 +226,7 @@
 .end method
 
 .method public static final commonIndexOf(Lokio/RealBufferedSource;BJJ)J
-    .locals 18
+    .registers 24
     .param p0, "$this$commonIndexOf"    # Lokio/RealBufferedSource;
     .param p1, "b"    # B
     .param p2, "fromIndex"    # J
@@ -251,7 +251,7 @@
     .line 312
     iget-boolean v3, v0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_8e
 
     .line 313
     const-wide/16 v3, 0x0
@@ -260,27 +260,27 @@
 
     cmp-long v6, v3, v1
 
-    if-gtz v6, :cond_0
+    if-gtz v6, :cond_1d
 
     cmp-long v3, v1, v9
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_1d
 
     const/4 v5, 0x1
 
-    :cond_0
-    if-eqz v5, :cond_5
+    :cond_1d
+    if-eqz v5, :cond_64
 
     move-wide v12, v1
 
     .line 315
     .local v12, "fromIndex":J
-    :goto_0
+    :goto_20
     const-wide/16 v14, -0x1
 
     cmp-long v3, v12, v9
 
-    if-gez v3, :cond_4
+    if-gez v3, :cond_63
 
     .line 316
     move-object/from16 v3, p0
@@ -309,12 +309,12 @@
     .local v3, "result":J
     cmp-long v5, v3, v14
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_39
 
     return-wide v3
 
     .line 321
-    :cond_1
+    :cond_39
     move-object/from16 v5, p0
 
     .local v5, "this_$iv":Lokio/RealBufferedSource;
@@ -335,7 +335,7 @@
     .local v5, "lastBufferSize":J
     cmp-long v7, v5, v9
 
-    if-gez v7, :cond_3
+    if-gez v7, :cond_60
 
     iget-object v7, v0, Lokio/RealBufferedSource;->source:Lokio/Source;
 
@@ -363,40 +363,40 @@
 
     cmp-long v7, v3, v14
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_5b
 
-    goto :goto_1
+    goto :goto_62
 
     .line 325
-    :cond_2
+    :cond_5b
     invoke-static {v12, v13, v5, v6}, Ljava/lang/Math;->max(JJ)J
 
     move-result-wide v12
 
     .end local v5    # "lastBufferSize":J
     .end local v16    # "result":J
-    goto :goto_0
+    goto :goto_20
 
     .line 322
     .restart local v3    # "result":J
     .restart local v5    # "lastBufferSize":J
-    :cond_3
+    :cond_60
     move-wide/from16 v16, v3
 
     .end local v3    # "result":J
     .restart local v16    # "result":J
-    :goto_1
+    :goto_62
     return-wide v14
 
     .line 327
     .end local v5    # "lastBufferSize":J
     .end local v16    # "result":J
-    :cond_4
+    :cond_63
     return-wide v14
 
     .line 400
     .end local v12    # "fromIndex":J
-    :cond_5
+    :cond_64
     const/4 v3, 0x0
 
     .line 313
@@ -443,7 +443,7 @@
     throw v4
 
     .line 400
-    :cond_6
+    :cond_8e
     const/4 v3, 0x0
 
     .line 312
@@ -467,7 +467,7 @@
 .end method
 
 .method public static final commonIndexOf(Lokio/RealBufferedSource;Lokio/ByteString;J)J
-    .locals 15
+    .registers 19
     .param p0, "$this$commonIndexOf"    # Lokio/RealBufferedSource;
     .param p1, "bytes"    # Lokio/ByteString;
     .param p2, "fromIndex"    # J
@@ -494,10 +494,10 @@
     .local v3, "fromIndex":J
     iget-boolean v5, v0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_4c
 
     .line 334
-    :goto_0
+    :goto_14
     nop
 
     .line 335
@@ -523,12 +523,12 @@
 
     cmp-long v9, v5, v7
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_24
 
     return-wide v5
 
     .line 338
-    :cond_0
+    :cond_24
     move-object v9, p0
 
     .local v9, "this_$iv":Lokio/RealBufferedSource;
@@ -569,12 +569,12 @@
 
     cmp-long v13, v11, v7
 
-    if-nez v13, :cond_1
+    if-nez v13, :cond_3d
 
     return-wide v7
 
     .line 342
-    :cond_1
+    :cond_3d
     invoke-virtual/range {p1 .. p1}, Lokio/ByteString;->size()I
 
     move-result v7
@@ -593,10 +593,10 @@
 
     .end local v5    # "result":J
     .end local v9    # "lastBufferSize":J
-    goto :goto_0
+    goto :goto_14
 
     .line 400
-    :cond_2
+    :cond_4c
     const/4 v5, 0x0
 
     .line 332
@@ -620,7 +620,7 @@
 .end method
 
 .method public static final commonIndexOfElement(Lokio/RealBufferedSource;Lokio/ByteString;J)J
-    .locals 15
+    .registers 19
     .param p0, "$this$commonIndexOfElement"    # Lokio/RealBufferedSource;
     .param p1, "targetBytes"    # Lokio/ByteString;
     .param p2, "fromIndex"    # J
@@ -647,10 +647,10 @@
     .local v3, "fromIndex":J
     iget-boolean v5, v0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_42
 
     .line 350
-    :goto_0
+    :goto_14
     nop
 
     .line 351
@@ -676,12 +676,12 @@
 
     cmp-long v9, v5, v7
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_24
 
     return-wide v5
 
     .line 354
-    :cond_0
+    :cond_24
     move-object v9, p0
 
     .local v9, "this_$iv":Lokio/RealBufferedSource;
@@ -722,22 +722,22 @@
 
     cmp-long v13, v11, v7
 
-    if-nez v13, :cond_1
+    if-nez v13, :cond_3d
 
     return-wide v7
 
     .line 358
-    :cond_1
+    :cond_3d
     invoke-static {v3, v4, v9, v10}, Ljava/lang/Math;->max(JJ)J
 
     move-result-wide v3
 
     .end local v5    # "result":J
     .end local v9    # "lastBufferSize":J
-    goto :goto_0
+    goto :goto_14
 
     .line 400
-    :cond_2
+    :cond_42
     const/4 v5, 0x0
 
     .line 348
@@ -761,7 +761,7 @@
 .end method
 
 .method public static final commonPeek(Lokio/RealBufferedSource;)Lokio/BufferedSource;
-    .locals 3
+    .registers 4
     .param p0, "$this$commonPeek"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -790,7 +790,7 @@
 .end method
 
 .method public static final commonRangeEquals(Lokio/RealBufferedSource;JLokio/ByteString;II)Z
-    .locals 9
+    .registers 15
     .param p0, "$this$commonRangeEquals"    # Lokio/RealBufferedSource;
     .param p1, "offset"    # J
     .param p3, "bytes"    # Lokio/ByteString;
@@ -811,7 +811,7 @@
     .local v0, "$i$f$commonRangeEquals":I
     iget-boolean v1, p0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_49
 
     .line 370
     const-wide/16 v1, 0x0
@@ -820,13 +820,13 @@
 
     cmp-long v4, p1, v1
 
-    if-ltz v4, :cond_5
+    if-ltz v4, :cond_48
 
     .line 371
-    if-ltz p4, :cond_5
+    if-ltz p4, :cond_48
 
     .line 372
-    if-ltz p5, :cond_5
+    if-ltz p5, :cond_48
 
     .line 373
     invoke-virtual {p3}, Lokio/ByteString;->size()I
@@ -835,19 +835,19 @@
 
     sub-int/2addr v1, p4
 
-    if-ge v1, p5, :cond_0
+    if-ge v1, p5, :cond_22
 
-    goto :goto_0
+    goto :goto_48
 
     .line 377
-    :cond_0
+    :cond_22
     const/4 v1, 0x1
 
-    if-lez p5, :cond_4
+    if-lez p5, :cond_47
 
     const/4 v2, 0x0
 
-    :cond_1
+    :cond_26
     move v4, v2
 
     .local v4, "i":I
@@ -868,12 +868,12 @@
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_34
 
     return v3
 
     .line 380
-    :cond_2
+    :cond_34
     move-object v7, p0
 
     .local v7, "this_$iv":Lokio/RealBufferedSource;
@@ -896,27 +896,27 @@
 
     move-result v8
 
-    if-eq v7, v8, :cond_3
+    if-eq v7, v8, :cond_45
 
     return v3
 
     .line 377
     .end local v5    # "bufferOffset":J
-    :cond_3
-    if-lt v2, p5, :cond_1
+    :cond_45
+    if-lt v2, p5, :cond_26
 
     .line 382
     .end local v4    # "i":I
-    :cond_4
+    :cond_47
     return v1
 
     .line 375
-    :cond_5
-    :goto_0
+    :cond_48
+    :goto_48
     return v3
 
     .line 400
-    :cond_6
+    :cond_49
     const/4 v1, 0x0
 
     .line 368
@@ -940,7 +940,7 @@
 .end method
 
 .method public static final commonRead(Lokio/RealBufferedSource;[BII)I
-    .locals 8
+    .registers 12
     .param p0, "$this$commonRead"    # Lokio/RealBufferedSource;
     .param p1, "sink"    # [B
     .param p2, "offset"    # I
@@ -989,7 +989,7 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_34
 
     .line 134
     iget-object v1, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
@@ -1018,7 +1018,7 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_34
 
     const/4 v3, -0x1
 
@@ -1026,7 +1026,7 @@
 
     .line 138
     .end local v1    # "read":J
-    :cond_0
+    :cond_34
     move-object v1, p0
 
     .local v1, "this_$iv":Lokio/RealBufferedSource;
@@ -1081,7 +1081,7 @@
 .end method
 
 .method public static final commonRead(Lokio/RealBufferedSource;Lokio/Buffer;J)J
-    .locals 6
+    .registers 10
     .param p0, "$this$commonRead"    # Lokio/RealBufferedSource;
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
@@ -1102,22 +1102,22 @@
 
     cmp-long v3, p2, v1
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_13
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_3
+    :goto_14
+    if-eqz v3, :cond_5e
 
     .line 36
     iget-boolean v3, p0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_4e
 
     .line 38
     move-object v3, p0
@@ -1138,7 +1138,7 @@
 
     cmp-long v5, v3, v1
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_39
 
     .line 39
     iget-object v1, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
@@ -1167,13 +1167,13 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_39
 
     return-wide v3
 
     .line 43
     .end local v1    # "read":J
-    :cond_1
+    :cond_39
     move-object v1, p0
 
     .local v1, "this_$iv":Lokio/RealBufferedSource;
@@ -1216,7 +1216,7 @@
 
     .line 400
     .end local v1    # "toRead":J
-    :cond_2
+    :cond_4e
     const/4 v1, 0x0
 
     .line 36
@@ -1239,7 +1239,7 @@
     throw v1
 
     .line 400
-    :cond_3
+    :cond_5e
     const/4 v1, 0x0
 
     .line 35
@@ -1269,7 +1269,7 @@
 .end method
 
 .method public static final commonReadAll(Lokio/RealBufferedSource;Lokio/Sink;)J
-    .locals 10
+    .registers 12
     .param p0, "$this$commonReadAll"    # Lokio/RealBufferedSource;
     .param p1, "sink"    # Lokio/Sink;
 
@@ -1289,8 +1289,8 @@
 
     .line 156
     .local v1, "totalBytesWritten":J
-    :cond_0
-    :goto_0
+    :cond_d
+    :goto_d
     iget-object v3, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
 
     move-object v4, p0
@@ -1317,7 +1317,7 @@
 
     cmp-long v9, v3, v5
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_36
 
     .line 157
     move-object v3, p0
@@ -1340,7 +1340,7 @@
     .local v3, "emitByteCount":J
     cmp-long v5, v3, v7
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_d
 
     .line 159
     add-long/2addr v1, v3
@@ -1361,10 +1361,10 @@
     invoke-interface {p1, v5, v3, v4}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
     .end local v3    # "emitByteCount":J
-    goto :goto_0
+    goto :goto_d
 
     .line 163
-    :cond_1
+    :cond_36
     move-object v3, p0
 
     .local v3, "this_$iv":Lokio/RealBufferedSource;
@@ -1383,7 +1383,7 @@
 
     cmp-long v5, v3, v7
 
-    if-lez v5, :cond_2
+    if-lez v5, :cond_5a
 
     .line 164
     move-object v3, p0
@@ -1436,12 +1436,12 @@
     invoke-interface {p1, v3, v4, v5}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
     .line 167
-    :cond_2
+    :cond_5a
     return-wide v1
 .end method
 
 .method public static final commonReadByte(Lokio/RealBufferedSource;)B
-    .locals 3
+    .registers 4
     .param p0, "$this$commonReadByte"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -1477,7 +1477,7 @@
 .end method
 
 .method public static final commonReadByteArray(Lokio/RealBufferedSource;)[B
-    .locals 3
+    .registers 4
     .param p0, "$this$commonReadByteArray"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -1525,7 +1525,7 @@
 .end method
 
 .method public static final commonReadByteArray(Lokio/RealBufferedSource;J)[B
-    .locals 3
+    .registers 6
     .param p0, "$this$commonReadByteArray"    # Lokio/RealBufferedSource;
     .param p1, "byteCount"    # J
 
@@ -1560,7 +1560,7 @@
 .end method
 
 .method public static final commonReadByteString(Lokio/RealBufferedSource;)Lokio/ByteString;
-    .locals 3
+    .registers 4
     .param p0, "$this$commonReadByteString"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -1608,7 +1608,7 @@
 .end method
 
 .method public static final commonReadByteString(Lokio/RealBufferedSource;J)Lokio/ByteString;
-    .locals 3
+    .registers 6
     .param p0, "$this$commonReadByteString"    # Lokio/RealBufferedSource;
     .param p1, "byteCount"    # J
 
@@ -1643,7 +1643,7 @@
 .end method
 
 .method public static final commonReadDecimalLong(Lokio/RealBufferedSource;)J
-    .locals 9
+    .registers 10
     .param p0, "$this$commonReadDecimalLong"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -1663,14 +1663,14 @@
 
     .line 260
     .local v3, "pos":J
-    :goto_0
+    :goto_d
     add-long v5, v3, v1
 
     invoke-virtual {p0, v5, v6}, Lokio/RealBufferedSource;->request(J)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_59
 
     .line 261
     move-object v5, p0
@@ -1695,47 +1695,47 @@
 
     int-to-byte v6, v6
 
-    if-lt v5, v6, :cond_0
+    if-lt v5, v6, :cond_27
 
     const/16 v6, 0x39
 
     int-to-byte v6, v6
 
-    if-le v5, v6, :cond_1
+    if-le v5, v6, :cond_33
 
-    :cond_0
+    :cond_27
     const-wide/16 v6, 0x0
 
     cmp-long v8, v3, v6
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_35
 
     const/16 v8, 0x2d
 
     int-to-byte v8, v8
 
-    if-eq v5, v8, :cond_1
+    if-eq v5, v8, :cond_33
 
-    goto :goto_1
+    goto :goto_35
 
     .line 269
-    :cond_1
+    :cond_33
     add-long/2addr v3, v1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 264
-    :cond_2
-    :goto_1
+    :cond_35
+    :goto_35
     cmp-long v1, v3, v6
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3a
 
     .line 267
-    goto :goto_2
+    goto :goto_59
 
     .line 265
-    :cond_3
+    :cond_3a
     new-instance v1, Ljava/lang/NumberFormatException;
 
     const/16 v2, 0x10
@@ -1768,8 +1768,8 @@
 
     .line 272
     .end local v5    # "b":B
-    :cond_4
-    :goto_2
+    :cond_59
+    :goto_59
     move-object v1, p0
 
     .local v1, "this_$iv":Lokio/RealBufferedSource;
@@ -1790,7 +1790,7 @@
 .end method
 
 .method public static final commonReadFully(Lokio/RealBufferedSource;Lokio/Buffer;J)V
-    .locals 4
+    .registers 8
     .param p0, "$this$commonReadFully"    # Lokio/RealBufferedSource;
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
@@ -1810,10 +1810,10 @@
     nop
 
     .line 144
-    :try_start_0
+    :try_start_c
     invoke-virtual {p0, p2, p3}, Lokio/RealBufferedSource;->require(J)V
-    :try_end_0
-    .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/io/EOFException; {:try_start_c .. :try_end_f} :catch_17
 
     .line 151
     move-object v1, p0
@@ -1834,7 +1834,7 @@
     return-void
 
     .line 145
-    :catch_0
+    :catch_17
     move-exception v1
 
     .line 147
@@ -1860,7 +1860,7 @@
 .end method
 
 .method public static final commonReadFully(Lokio/RealBufferedSource;[B)V
-    .locals 8
+    .registers 10
     .param p0, "$this$commonReadFully"    # Lokio/RealBufferedSource;
     .param p1, "sink"    # [B
 
@@ -1879,14 +1879,14 @@
     nop
 
     .line 115
-    :try_start_0
+    :try_start_c
     array-length v1, p1
 
     int-to-long v1, v1
 
     invoke-virtual {p0, v1, v2}, Lokio/RealBufferedSource;->require(J)V
-    :try_end_0
-    .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/io/EOFException; {:try_start_c .. :try_end_11} :catch_19
 
     .line 127
     move-object v1, p0
@@ -1907,7 +1907,7 @@
     return-void
 
     .line 116
-    :catch_0
+    :catch_19
     move-exception v1
 
     .line 118
@@ -1916,7 +1916,7 @@
 
     .line 119
     .local v2, "offset":I
-    :goto_0
+    :goto_1b
     move-object v3, p0
 
     .local v3, "this_$iv":Lokio/RealBufferedSource;
@@ -1937,7 +1937,7 @@
 
     cmp-long v7, v3, v5
 
-    if-lez v7, :cond_1
+    if-lez v7, :cond_45
 
     .line 120
     move-object v3, p0
@@ -1978,17 +1978,17 @@
     .local v3, "read":I
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_3f
 
     .line 122
     add-int/2addr v2, v3
 
     .end local v3    # "read":I
-    goto :goto_0
+    goto :goto_1b
 
     .line 121
     .restart local v3    # "read":I
-    :cond_0
+    :cond_3f
     new-instance v4, Ljava/lang/AssertionError;
 
     invoke-direct {v4}, Ljava/lang/AssertionError;-><init>()V
@@ -1997,12 +1997,12 @@
 
     .line 124
     .end local v3    # "read":I
-    :cond_1
+    :cond_45
     throw v1
 .end method
 
 .method public static final commonReadHexadecimalUnsignedLong(Lokio/RealBufferedSource;)J
-    .locals 6
+    .registers 7
     .param p0, "$this$commonReadHexadecimalUnsignedLong"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -2022,7 +2022,7 @@
 
     .line 279
     .local v1, "pos":I
-    :goto_0
+    :goto_c
     add-int/lit8 v2, v1, 0x1
 
     int-to-long v2, v2
@@ -2031,7 +2031,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_62
 
     .line 280
     move-object v2, p0
@@ -2058,62 +2058,62 @@
 
     int-to-byte v3, v3
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_28
 
     const/16 v3, 0x39
 
     int-to-byte v3, v3
 
-    if-le v2, v3, :cond_2
+    if-le v2, v3, :cond_3d
 
     .line 282
-    :cond_0
+    :cond_28
     const/16 v3, 0x61
 
     int-to-byte v3, v3
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_32
 
     const/16 v3, 0x66
 
     int-to-byte v3, v3
 
-    if-le v2, v3, :cond_2
+    if-le v2, v3, :cond_3d
 
     .line 283
-    :cond_1
+    :cond_32
     const/16 v3, 0x41
 
     int-to-byte v3, v3
 
-    if-lt v2, v3, :cond_3
+    if-lt v2, v3, :cond_40
 
     const/16 v3, 0x46
 
     int-to-byte v3, v3
 
-    if-le v2, v3, :cond_2
+    if-le v2, v3, :cond_3d
 
-    goto :goto_1
+    goto :goto_40
 
     .line 291
-    :cond_2
+    :cond_3d
     add-int/lit8 v1, v1, 0x1
 
     .end local v2    # "b":B
-    goto :goto_0
+    goto :goto_c
 
     .line 286
     .restart local v2    # "b":B
-    :cond_3
-    :goto_1
-    if-eqz v1, :cond_4
+    :cond_40
+    :goto_40
+    if-eqz v1, :cond_43
 
     .line 289
-    goto :goto_2
+    goto :goto_62
 
     .line 287
-    :cond_4
+    :cond_43
     new-instance v3, Ljava/lang/NumberFormatException;
 
     const/16 v4, 0x10
@@ -2146,8 +2146,8 @@
 
     .line 294
     .end local v2    # "b":B
-    :cond_5
-    :goto_2
+    :cond_62
+    :goto_62
     move-object v2, p0
 
     .local v2, "this_$iv":Lokio/RealBufferedSource;
@@ -2168,7 +2168,7 @@
 .end method
 
 .method public static final commonReadInt(Lokio/RealBufferedSource;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$commonReadInt"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -2204,7 +2204,7 @@
 .end method
 
 .method public static final commonReadIntLe(Lokio/RealBufferedSource;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$commonReadIntLe"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -2240,7 +2240,7 @@
 .end method
 
 .method public static final commonReadLong(Lokio/RealBufferedSource;)J
-    .locals 3
+    .registers 4
     .param p0, "$this$commonReadLong"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -2276,7 +2276,7 @@
 .end method
 
 .method public static final commonReadLongLe(Lokio/RealBufferedSource;)J
-    .locals 3
+    .registers 4
     .param p0, "$this$commonReadLongLe"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -2312,7 +2312,7 @@
 .end method
 
 .method public static final commonReadShort(Lokio/RealBufferedSource;)S
-    .locals 3
+    .registers 4
     .param p0, "$this$commonReadShort"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -2348,7 +2348,7 @@
 .end method
 
 .method public static final commonReadShortLe(Lokio/RealBufferedSource;)S
-    .locals 3
+    .registers 4
     .param p0, "$this$commonReadShortLe"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -2384,7 +2384,7 @@
 .end method
 
 .method public static final commonReadUtf8(Lokio/RealBufferedSource;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$commonReadUtf8"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -2432,7 +2432,7 @@
 .end method
 
 .method public static final commonReadUtf8(Lokio/RealBufferedSource;J)Ljava/lang/String;
-    .locals 3
+    .registers 6
     .param p0, "$this$commonReadUtf8"    # Lokio/RealBufferedSource;
     .param p1, "byteCount"    # J
 
@@ -2467,7 +2467,7 @@
 .end method
 
 .method public static final commonReadUtf8CodePoint(Lokio/RealBufferedSource;)I
-    .locals 4
+    .registers 5
     .param p0, "$this$commonReadUtf8CodePoint"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -2510,43 +2510,43 @@
 
     const/16 v3, 0xc0
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_22
 
     const-wide/16 v2, 0x2
 
     invoke-virtual {p0, v2, v3}, Lokio/RealBufferedSource;->require(J)V
 
-    goto :goto_0
+    goto :goto_39
 
     .line 219
-    :cond_0
+    :cond_22
     and-int/lit16 v2, v1, 0xf0
 
     const/16 v3, 0xe0
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_2e
 
     const-wide/16 v2, 0x3
 
     invoke-virtual {p0, v2, v3}, Lokio/RealBufferedSource;->require(J)V
 
-    goto :goto_0
+    goto :goto_39
 
     .line 220
-    :cond_1
+    :cond_2e
     and-int/lit16 v2, v1, 0xf8
 
     const/16 v3, 0xf0
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_39
 
     const-wide/16 v2, 0x4
 
     invoke-virtual {p0, v2, v3}, Lokio/RealBufferedSource;->require(J)V
 
     .line 223
-    :cond_2
-    :goto_0
+    :cond_39
+    :goto_39
     move-object v2, p0
 
     .local v2, "this_$iv":Lokio/RealBufferedSource;
@@ -2567,7 +2567,7 @@
 .end method
 
 .method public static final commonReadUtf8Line(Lokio/RealBufferedSource;)Ljava/lang/String;
-    .locals 8
+    .registers 9
     .param p0, "$this$commonReadUtf8Line"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -2592,7 +2592,7 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_33
 
     .line 184
     move-object v3, p0
@@ -2615,7 +2615,7 @@
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_2e
 
     .line 185
     move-object v3, p0
@@ -2638,20 +2638,20 @@
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 187
-    :cond_0
+    :cond_2e
     const/4 v3, 0x0
 
     move-object v4, v3
 
     check-cast v4, Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 190
-    :cond_1
+    :cond_33
     move-object v3, p0
 
     .restart local v3    # "this_$iv":Lokio/RealBufferedSource;
@@ -2669,12 +2669,12 @@
     move-result-object v3
 
     .line 183
-    :goto_0
+    :goto_3b
     return-object v3
 .end method
 
 .method public static final commonReadUtf8LineStrict(Lokio/RealBufferedSource;J)Ljava/lang/String;
-    .locals 22
+    .registers 25
     .param p0, "$this$commonReadUtf8LineStrict"    # Lokio/RealBufferedSource;
     .param p1, "limit"    # J
 
@@ -2694,17 +2694,17 @@
 
     cmp-long v2, v7, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_4
+    :goto_13
+    if-eqz v0, :cond_dd
 
     .line 196
     const-wide/16 v10, 0x1
@@ -2713,16 +2713,16 @@
 
     cmp-long v0, v7, v12
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
     move-wide v0, v12
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_1
+    :cond_22
     add-long v0, v7, v10
 
-    :goto_1
+    :goto_24
     move-wide v14, v0
 
     .line 197
@@ -2751,7 +2751,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_44
 
     move-object/from16 v2, p0
 
@@ -2772,17 +2772,17 @@
     return-object v2
 
     .line 199
-    :cond_2
+    :cond_44
     cmp-long v2, v14, v12
 
-    if-gez v2, :cond_3
+    if-gez v2, :cond_7c
 
     .line 200
     invoke-virtual {v6, v14, v15}, Lokio/RealBufferedSource;->request(J)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_7c
 
     move-object/from16 v2, p0
 
@@ -2806,7 +2806,7 @@
 
     int-to-byte v3, v3
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_7c
 
     .line 201
     add-long/2addr v10, v14
@@ -2815,7 +2815,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_7c
 
     move-object/from16 v2, p0
 
@@ -2835,7 +2835,7 @@
 
     move/from16 v3, v16
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_7c
 
     .line 203
     move-object/from16 v2, p0
@@ -2857,7 +2857,7 @@
     return-object v2
 
     .line 205
-    :cond_3
+    :cond_7c
     new-instance v17, Lokio/Buffer;
 
     invoke-direct/range {v17 .. v17}, Lokio/Buffer;-><init>()V
@@ -2997,7 +2997,7 @@
     .end local v0    # "newline":J
     .end local v14    # "scanLength":J
     .end local v17    # "data":Lokio/Buffer;
-    :cond_4
+    :cond_dd
     const/4 v0, 0x0
 
     .line 195
@@ -3027,7 +3027,7 @@
 .end method
 
 .method public static final commonRequest(Lokio/RealBufferedSource;J)Z
-    .locals 8
+    .registers 11
     .param p0, "$this$commonRequest"    # Lokio/RealBufferedSource;
     .param p1, "byteCount"    # J
 
@@ -3047,25 +3047,25 @@
 
     cmp-long v5, p1, v1
 
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_10
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_4
+    :goto_11
+    if-eqz v1, :cond_47
 
     .line 58
     iget-boolean v1, p0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_37
 
     .line 59
-    :cond_1
+    :cond_17
     move-object v1, p0
 
     .local v1, "this_$iv":Lokio/RealBufferedSource;
@@ -3084,7 +3084,7 @@
 
     cmp-long v5, v1, p1
 
-    if-gez v5, :cond_2
+    if-gez v5, :cond_36
 
     .line 60
     iget-object v1, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
@@ -3111,16 +3111,16 @@
 
     cmp-long v7, v1, v5
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_17
 
     return v4
 
     .line 62
-    :cond_2
+    :cond_36
     return v3
 
     .line 400
-    :cond_3
+    :cond_37
     const/4 v1, 0x0
 
     .line 58
@@ -3143,7 +3143,7 @@
     throw v1
 
     .line 400
-    :cond_4
+    :cond_47
     const/4 v1, 0x0
 
     .line 57
@@ -3173,7 +3173,7 @@
 .end method
 
 .method public static final commonRequire(Lokio/RealBufferedSource;J)V
-    .locals 2
+    .registers 5
     .param p0, "$this$commonRequire"    # Lokio/RealBufferedSource;
     .param p1, "byteCount"    # J
 
@@ -3189,13 +3189,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     .line 54
     return-void
 
     .line 53
-    :cond_0
+    :cond_d
     new-instance v1, Ljava/io/EOFException;
 
     invoke-direct {v1}, Ljava/io/EOFException;-><init>()V
@@ -3204,7 +3204,7 @@
 .end method
 
 .method public static final commonSelect(Lokio/RealBufferedSource;Lokio/Options;)I
-    .locals 8
+    .registers 10
     .param p0, "$this$commonSelect"    # Lokio/RealBufferedSource;
     .param p1, "options"    # Lokio/Options;
 
@@ -3222,10 +3222,10 @@
     .local v0, "$i$f$commonSelect":I
     iget-boolean v1, p0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_44
 
     .line 83
-    :cond_0
+    :cond_f
     nop
 
     .line 84
@@ -3251,7 +3251,7 @@
     .local v1, "index":I
     const/4 v2, -0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_54
 
     .line 95
     invoke-virtual {p1}, Lokio/Options;->getByteStrings$okio()[Lokio/ByteString;
@@ -3287,11 +3287,11 @@
 
     .line 87
     .end local v2    # "selectedSize":I
-    :pswitch_0
+    :pswitch_30
     return v2
 
     .line 91
-    :pswitch_1
+    :pswitch_31
     iget-object v3, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
 
     move-object v4, p0
@@ -3316,13 +3316,13 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_f
 
     return v2
 
     .line 400
     .end local v1    # "index":I
-    :cond_1
+    :cond_44
     const/4 v1, 0x0
 
     .line 81
@@ -3344,15 +3344,15 @@
 
     throw v1
 
-    :pswitch_data_0
+    :pswitch_data_54
     .packed-switch -0x2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_31
+        :pswitch_30
     .end packed-switch
 .end method
 
 .method public static final commonSkip(Lokio/RealBufferedSource;J)V
-    .locals 8
+    .registers 11
     .param p0, "$this$commonSkip"    # Lokio/RealBufferedSource;
     .param p1, "byteCount"    # J
 
@@ -3370,15 +3370,15 @@
     .local v1, "byteCount":J
     iget-boolean v3, p0, Lokio/RealBufferedSource;->closed:Z
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_4c
 
     .line 300
-    :goto_0
+    :goto_b
     const-wide/16 v3, 0x0
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_2
+    if-lez v5, :cond_4b
 
     .line 301
     move-object v5, p0
@@ -3399,7 +3399,7 @@
 
     cmp-long v7, v5, v3
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_36
 
     iget-object v3, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
 
@@ -3425,12 +3425,12 @@
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_30
 
-    goto :goto_1
+    goto :goto_36
 
     .line 302
-    :cond_0
+    :cond_30
     new-instance v3, Ljava/io/EOFException;
 
     invoke-direct {v3}, Ljava/io/EOFException;-><init>()V
@@ -3438,8 +3438,8 @@
     throw v3
 
     .line 304
-    :cond_1
-    :goto_1
+    :cond_36
+    :goto_36
     move-object v3, p0
 
     .local v3, "this_$iv":Lokio/RealBufferedSource;
@@ -3480,14 +3480,14 @@
     sub-long/2addr v1, v3
 
     .end local v3    # "toSkip":J
-    goto :goto_0
+    goto :goto_b
 
     .line 308
-    :cond_2
+    :cond_4b
     return-void
 
     .line 400
-    :cond_3
+    :cond_4c
     const/4 v3, 0x0
 
     .line 299
@@ -3511,7 +3511,7 @@
 .end method
 
 .method public static final commonTimeout(Lokio/RealBufferedSource;)Lokio/Timeout;
-    .locals 2
+    .registers 3
     .param p0, "$this$commonTimeout"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"
@@ -3532,7 +3532,7 @@
 .end method
 
 .method public static final commonToString(Lokio/RealBufferedSource;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$commonToString"    # Lokio/RealBufferedSource;
 
     const-string v0, "<this>"

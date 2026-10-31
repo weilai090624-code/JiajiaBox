@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(ILandroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "destinationId"    # I
     .param p2, "arguments"    # Landroid/os/Bundle;
 
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public final getArguments()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/navigation/NavDeepLinkBuilder$DeepLinkDestination;->arguments:Landroid/os/Bundle;
@@ -78,7 +78,7 @@
 .end method
 
 .method public final getDestinationId()I
-    .locals 1
+    .registers 2
 
     .line 56
     iget v0, p0, Landroidx/navigation/NavDeepLinkBuilder$DeepLinkDestination;->destinationId:I

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 426
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public static failure()Landroidx/work/ListenableWorker$Result;
-    .locals 1
+    .registers 1
 
     .line 396
     new-instance v0, Landroidx/work/ListenableWorker$Result$Failure;
@@ -45,7 +45,7 @@
 .end method
 
 .method public static failure(Landroidx/work/Data;)Landroidx/work/ListenableWorker$Result;
-    .locals 1
+    .registers 2
     .param p0, "outputData"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -65,7 +65,7 @@
 .end method
 
 .method public static retry()Landroidx/work/ListenableWorker$Result;
-    .locals 1
+    .registers 1
 
     .line 382
     new-instance v0, Landroidx/work/ListenableWorker$Result$Retry;
@@ -76,7 +76,7 @@
 .end method
 
 .method public static success()Landroidx/work/ListenableWorker$Result;
-    .locals 1
+    .registers 1
 
     .line 356
     new-instance v0, Landroidx/work/ListenableWorker$Result$Success;
@@ -87,7 +87,7 @@
 .end method
 
 .method public static success(Landroidx/work/Data;)Landroidx/work/ListenableWorker$Result;
-    .locals 1
+    .registers 2
     .param p0, "outputData"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

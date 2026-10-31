@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 84
     const/4 v0, 0x0
@@ -37,25 +37,25 @@
 .end method
 
 .method constructor <init>(Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;)V
-    .locals 0
+    .registers 2
     .param p1, "state"    # Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
 
     .line 410
     invoke-direct {p0}, Landroidx/appcompat/graphics/drawable/DrawableContainerCompat;-><init>()V
 
     .line 411
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 412
     invoke-virtual {p0, p1}, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->setConstantState(Landroidx/appcompat/graphics/drawable/DrawableContainerCompat$DrawableContainerState;)V
 
     .line 414
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method constructor <init>(Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;Landroid/content/res/Resources;)V
-    .locals 2
+    .registers 5
     .param p1, "state"    # Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
     .param p2, "res"    # Landroid/content/res/Resources;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method private inflateChildElements(Landroid/content/Context;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 16
+    .registers 22
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "r"    # Landroid/content/res/Resources;
     .param p3, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
@@ -115,7 +115,7 @@
 
     .line 179
     .local v3, "innerDepth":I
-    :goto_0
+    :goto_c
     invoke-interface/range {p3 .. p3}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v5
@@ -123,7 +123,7 @@
     move v6, v5
 
     .local v6, "type":I
-    if-eq v5, v4, :cond_9
+    if-eq v5, v4, :cond_a1
 
     .line 180
     invoke-interface/range {p3 .. p3}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
@@ -133,36 +133,36 @@
     move v7, v5
 
     .local v7, "depth":I
-    if-ge v5, v3, :cond_1
+    if-ge v5, v3, :cond_26
 
     const/4 v5, 0x3
 
-    if-eq v6, v5, :cond_0
+    if-eq v6, v5, :cond_1e
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_0
+    :cond_1e
     move-object/from16 v14, p1
 
     move-object/from16 v9, p2
 
     move-object/from16 v10, p5
 
-    goto/16 :goto_5
+    goto/16 :goto_a7
 
     .line 182
-    :cond_1
-    :goto_1
+    :cond_26
+    :goto_26
     const/4 v5, 0x2
 
-    if-eq v6, v5, :cond_2
+    if-eq v6, v5, :cond_2a
 
     .line 183
-    goto :goto_0
+    goto :goto_c
 
     .line 185
-    :cond_2
-    if-gt v7, v3, :cond_8
+    :cond_2a
+    if-gt v7, v3, :cond_98
 
     invoke-interface/range {p3 .. p3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
@@ -174,13 +174,13 @@
 
     move-result v8
 
-    if-nez v8, :cond_3
+    if-nez v8, :cond_39
 
     .line 186
-    goto :goto_0
+    goto :goto_c
 
     .line 190
-    :cond_3
+    :cond_39
     sget-object v8, Landroidx/appcompat/resources/R$styleable;->StateListDrawableItem:[I
 
     move-object/from16 v9, p2
@@ -207,7 +207,7 @@
 
     .line 195
     .local v12, "drawableId":I
-    if-lez v12, :cond_4
+    if-lez v12, :cond_58
 
     .line 196
     invoke-static {}, Landroidx/appcompat/widget/ResourceManagerInternal;->get()Landroidx/appcompat/widget/ResourceManagerInternal;
@@ -220,14 +220,14 @@
 
     move-result-object v11
 
-    goto :goto_2
+    goto :goto_5a
 
     .line 195
-    :cond_4
+    :cond_58
     move-object/from16 v14, p1
 
     .line 198
-    :goto_2
+    :goto_5a
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 199
@@ -237,10 +237,10 @@
 
     .line 203
     .local v13, "states":[I
-    if-nez v11, :cond_7
+    if-nez v11, :cond_92
 
     .line 204
-    :goto_3
+    :goto_63
     invoke-interface/range {p3 .. p3}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v15
@@ -249,15 +249,15 @@
 
     const/4 v4, 0x4
 
-    if-ne v15, v4, :cond_5
+    if-ne v15, v4, :cond_6d
 
     const/4 v4, 0x1
 
-    goto :goto_3
+    goto :goto_63
 
     .line 207
-    :cond_5
-    if-ne v6, v5, :cond_6
+    :cond_6d
+    if-ne v6, v5, :cond_75
 
     .line 213
     nop
@@ -267,10 +267,10 @@
 
     move-result-object v11
 
-    goto :goto_4
+    goto :goto_92
 
     .line 208
-    :cond_6
+    :cond_75
     new-instance v4, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -301,8 +301,8 @@
     throw v4
 
     .line 219
-    :cond_7
-    :goto_4
+    :cond_92
+    :goto_92
     invoke-virtual {v2, v13, v11}, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;->addStateSet([ILandroid/graphics/drawable/Drawable;)I
 
     .line 220
@@ -312,10 +312,10 @@
     .end local v13    # "states":[I
     const/4 v4, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_c
 
     .line 185
-    :cond_8
+    :cond_98
     move-object/from16 v14, p1
 
     move-object/from16 v9, p2
@@ -324,11 +324,11 @@
 
     const/4 v4, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_c
 
     .line 179
     .end local v7    # "depth":I
-    :cond_9
+    :cond_a1
     move-object/from16 v14, p1
 
     move-object/from16 v9, p2
@@ -336,12 +336,12 @@
     move-object/from16 v10, p5
 
     .line 221
-    :goto_5
+    :goto_a7
     return-void
 .end method
 
 .method private updateStateFromTypedArray(Landroid/content/res/TypedArray;)V
-    .locals 3
+    .registers 5
     .param p1, "a"    # Landroid/content/res/TypedArray;
 
     .line 152
@@ -424,12 +424,12 @@
 
 # virtual methods
 .method public addState([ILandroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 4
     .param p1, "stateSet"    # [I
     .param p2, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 95
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_e
 
     .line 96
     iget-object v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->mStateListState:Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
@@ -444,12 +444,12 @@
     invoke-virtual {p0, v0}, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->onStateChange([I)Z
 
     .line 100
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public applyTheme(Landroid/content/res/Resources$Theme;)V
-    .locals 1
+    .registers 3
     .param p1, "theme"    # Landroid/content/res/Resources$Theme;
 
     .line 387
@@ -467,7 +467,7 @@
 .end method
 
 .method clearMutated()V
-    .locals 1
+    .registers 2
 
     .line 320
     invoke-super {p0}, Landroidx/appcompat/graphics/drawable/DrawableContainerCompat;->clearMutated()V
@@ -482,7 +482,7 @@
 .end method
 
 .method bridge synthetic cloneConstantState()Landroidx/appcompat/graphics/drawable/DrawableContainerCompat$DrawableContainerState;
-    .locals 1
+    .registers 2
 
     .line 74
     invoke-virtual {p0}, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->cloneConstantState()Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
@@ -493,7 +493,7 @@
 .end method
 
 .method cloneConstantState()Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
-    .locals 3
+    .registers 4
 
     .line 315
     new-instance v0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
@@ -508,7 +508,7 @@
 .end method
 
 .method extractStateSet(Landroid/util/AttributeSet;)[I
-    .locals 7
+    .registers 9
     .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .line 230
@@ -529,8 +529,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_8
+    if-ge v3, v1, :cond_25
 
     .line 234
     invoke-interface {p1, v3}, Landroid/util/AttributeSet;->getAttributeNameResource(I)I
@@ -539,7 +539,7 @@
 
     .line 235
     .local v4, "stateResId":I
-    sparse-switch v4, :sswitch_data_0
+    sparse-switch v4, :sswitch_data_2a
 
     .line 244
     add-int/lit8 v5, v0, 0x1
@@ -552,30 +552,30 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1e
 
     .line 245
     move v6, v4
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 242
     .end local v5    # "j":I
     .restart local v0    # "j":I
-    :sswitch_0
-    goto :goto_2
+    :sswitch_1c
+    goto :goto_22
 
     .line 237
-    :sswitch_1
-    goto :goto_2
+    :sswitch_1d
+    goto :goto_22
 
     .line 245
     .end local v0    # "j":I
     .restart local v5    # "j":I
-    :cond_0
+    :cond_1e
     neg-int v6, v4
 
-    :goto_1
+    :goto_1f
     aput v6, v2, v0
 
     move v0, v5
@@ -584,14 +584,14 @@
     .end local v4    # "stateResId":I
     .end local v5    # "j":I
     .restart local v0    # "j":I
-    :goto_2
+    :goto_22
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 248
     .end local v3    # "i":I
-    :cond_1
+    :cond_25
     invoke-static {v2, v0}, Landroid/util/StateSet;->trimStateSet([II)[I
 
     move-result-object v2
@@ -599,16 +599,16 @@
     .line 249
     return-object v2
 
-    :sswitch_data_0
+    :sswitch_data_2a
     .sparse-switch
-        0x0 -> :sswitch_1
-        0x10100d0 -> :sswitch_0
-        0x1010199 -> :sswitch_0
+        0x0 -> :sswitch_1d
+        0x10100d0 -> :sswitch_1c
+        0x1010199 -> :sswitch_1c
     .end sparse-switch
 .end method
 
 .method getStateCount()I
-    .locals 1
+    .registers 2
 
     .line 264
     iget-object v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->mStateListState:Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
@@ -621,7 +621,7 @@
 .end method
 
 .method getStateDrawable(I)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 288
@@ -635,7 +635,7 @@
 .end method
 
 .method getStateDrawableIndex([I)I
-    .locals 1
+    .registers 3
     .param p1, "stateSet"    # [I
 
     .line 300
@@ -649,7 +649,7 @@
 .end method
 
 .method getStateListState()Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
-    .locals 1
+    .registers 2
 
     .line 253
     iget-object v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->mStateListState:Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
@@ -658,7 +658,7 @@
 .end method
 
 .method getStateSet(I)[I
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 276
@@ -672,7 +672,7 @@
 .end method
 
 .method public inflate(Landroid/content/Context;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 3
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "r"    # Landroid/content/res/Resources;
     .param p3, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
@@ -728,7 +728,7 @@
 .end method
 
 .method public isStateful()Z
-    .locals 1
+    .registers 2
 
     .line 104
     const/4 v0, 0x1
@@ -737,18 +737,18 @@
 .end method
 
 .method public mutate()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 306
     iget-boolean v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->mMutated:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     invoke-super {p0}, Landroidx/appcompat/graphics/drawable/DrawableContainerCompat;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_12
 
     .line 307
     iget-object v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->mStateListState:Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
@@ -761,12 +761,12 @@
     iput-boolean v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->mMutated:Z
 
     .line 310
-    :cond_0
+    :cond_12
     return-object p0
 .end method
 
 .method protected onStateChange([I)Z
-    .locals 4
+    .registers 6
     .param p1, "stateSet"    # [I
 
     .line 109
@@ -784,7 +784,7 @@
 
     .line 115
     .local v1, "idx":I
-    if-gez v1, :cond_0
+    if-gez v1, :cond_14
 
     .line 116
     iget-object v2, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->mStateListState:Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
@@ -796,32 +796,32 @@
     move-result v1
 
     .line 118
-    :cond_0
+    :cond_14
     invoke-virtual {p0, v1}, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->selectDrawable(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1f
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_1
+    :cond_1d
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_2
-    :goto_0
+    :cond_1f
+    :goto_1f
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_20
     return v2
 .end method
 
 .method setConstantState(Landroidx/appcompat/graphics/drawable/DrawableContainerCompat$DrawableContainerState;)V
-    .locals 1
+    .registers 3
     .param p1, "state"    # Landroidx/appcompat/graphics/drawable/DrawableContainerCompat$DrawableContainerState;
 
     .line 393
@@ -830,7 +830,7 @@
     .line 394
     instance-of v0, p1, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 395
     move-object v0, p1
@@ -840,6 +840,6 @@
     iput-object v0, p0, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;->mStateListState:Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;
 
     .line 397
-    :cond_0
+    :cond_c
     return-void
 .end method

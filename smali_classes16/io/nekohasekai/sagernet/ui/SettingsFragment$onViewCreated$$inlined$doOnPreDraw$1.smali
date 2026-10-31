@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;Lio/nekohasekai/sagernet/ui/SettingsFragment;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/SettingsFragment$onViewCreated$$inlined$doOnPreDraw$1;->$this_doOnPreDraw:Landroid/view/View;
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .registers 6
 
     .line 81
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/SettingsFragment$onViewCreated$$inlined$doOnPreDraw$1;->$this_doOnPreDraw:Landroid/view/View;
@@ -84,7 +84,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2a
 
     .line 416
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/SettingsFragment$onViewCreated$$inlined$doOnPreDraw$1;->this$0:Lio/nekohasekai/sagernet/ui/SettingsFragment;
@@ -112,7 +112,7 @@
     invoke-virtual {v2}, Landroidx/fragment/app/FragmentTransaction;->commitAllowingStateLoss()I
 
     .line 420
-    :cond_0
+    :cond_2a
     nop
 
     .line 81

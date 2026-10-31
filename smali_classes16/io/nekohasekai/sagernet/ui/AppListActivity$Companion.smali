@@ -43,7 +43,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/AppListActivity$Companion;-><init>()V
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public static final synthetic access$getCachedApps(Lio/nekohasekai/sagernet/ui/AppListActivity$Companion;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/AppListActivity$Companion;
 
     .line 45
@@ -72,7 +72,7 @@
 .end method
 
 .method private final getCachedApps()Ljava/util/Map;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

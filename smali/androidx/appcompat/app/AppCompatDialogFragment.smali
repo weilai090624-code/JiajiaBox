@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Landroidx/fragment/app/DialogFragment;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "contentLayoutId"    # I
 
     .line 48
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 54
@@ -48,14 +48,14 @@
 .end method
 
 .method public setupDialog(Landroid/app/Dialog;I)V
-    .locals 3
+    .registers 6
     .param p1, "dialog"    # Landroid/app/Dialog;
     .param p2, "style"    # I
 
     .line 61
     instance-of v0, p1, Landroidx/appcompat/app/AppCompatDialog;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 63
     move-object v0, p1
@@ -64,12 +64,12 @@
 
     .line 64
     .local v0, "acd":Landroidx/appcompat/app/AppCompatDialog;
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_1e
 
-    goto :goto_0
+    goto :goto_18
 
     .line 66
-    :pswitch_0
+    :pswitch_b
     invoke-virtual {p1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
@@ -79,30 +79,30 @@
     invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
 
     .line 72
-    :pswitch_1
+    :pswitch_14
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AppCompatDialog;->supportRequestWindowFeature(I)Z
 
     .line 74
     .end local v0    # "acd":Landroidx/appcompat/app/AppCompatDialog;
-    :goto_0
-    goto :goto_1
+    :goto_18
+    goto :goto_1c
 
     .line 76
-    :cond_0
+    :cond_19
     invoke-super {p0, p1, p2}, Landroidx/fragment/app/DialogFragment;->setupDialog(Landroid/app/Dialog;I)V
 
     .line 78
-    :goto_1
+    :goto_1c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_14
+        :pswitch_14
+        :pswitch_b
     .end packed-switch
 .end method

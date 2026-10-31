@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMap$keys$1;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .param p1, "k"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

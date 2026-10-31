@@ -36,7 +36,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/base/Suppliers$SupplierFunctionImpl;
-    .locals 3
+    .registers 3
 
     .line 377
     const/4 v0, 0x1
@@ -53,7 +53,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 378
     new-instance v0, Lcom/google/common/base/Suppliers$SupplierFunctionImpl;
@@ -77,7 +77,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -91,7 +91,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/base/Suppliers$SupplierFunctionImpl;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 377
@@ -107,7 +107,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/base/Suppliers$SupplierFunctionImpl;
-    .locals 1
+    .registers 1
 
     .line 377
     sget-object v0, Lcom/google/common/base/Suppliers$SupplierFunctionImpl;->$VALUES:[Lcom/google/common/base/Suppliers$SupplierFunctionImpl;
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/base/Supplier;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 389
     const-string v0, "Suppliers.supplierFunction()"

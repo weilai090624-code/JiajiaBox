@@ -114,7 +114,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     .local p0, "this":Lcom/google/common/collect/AbstractMultimap;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>;"
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public asMap()Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -143,7 +143,7 @@
 
     .line 212
     .local v0, "result":Ljava/util/Map;, "Ljava/util/Map<TK;Ljava/util/Collection<TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMultimap;->createAsMap()Ljava/util/Map;
 
@@ -151,17 +151,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractMultimap;->asMap:Ljava/util/Map;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -185,27 +185,27 @@
 
     .line 62
     .local v0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-interface {v0, p2}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_15
     return v1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -225,12 +225,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -244,7 +244,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 52
     const/4 v0, 0x1
@@ -253,11 +253,11 @@
 
     .line 54
     .end local v1    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_c
 
     .line 56
-    :cond_1
+    :cond_21
     const/4 v0, 0x0
 
     return v0
@@ -317,7 +317,7 @@
 .end method
 
 .method public entries()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -333,7 +333,7 @@
 
     .line 117
     .local v0, "result":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/Map$Entry<TK;TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMultimap;->createEntries()Ljava/util/Collection;
 
@@ -341,12 +341,12 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractMultimap;->entries:Ljava/util/Collection;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
@@ -362,7 +362,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -378,7 +378,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 234
     .local p0, "this":Lcom/google/common/collect/AbstractMultimap;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>;"
@@ -394,7 +394,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 45
     .local p0, "this":Lcom/google/common/collect/AbstractMultimap;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>;"
@@ -402,21 +402,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -431,7 +431,7 @@
 
     .line 155
     .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<TK;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMultimap;->createKeySet()Ljava/util/Set;
 
@@ -439,17 +439,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractMultimap;->keySet:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public keys()Lcom/google/common/collect/Multiset;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -464,7 +464,7 @@
 
     .line 165
     .local v0, "result":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TK;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMultimap;->createKeys()Lcom/google/common/collect/Multiset;
 
@@ -472,17 +472,17 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractMultimap;->keys:Lcom/google/common/collect/Multiset;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -513,7 +513,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/Multimap;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -537,12 +537,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -568,15 +568,15 @@
 
     .line 99
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    goto :goto_0
+    goto :goto_9
 
     .line 100
-    :cond_0
+    :cond_23
     return v0
 .end method
 
 .method public putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
-    .locals 4
+    .registers 7
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -602,7 +602,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 85
     move-object v0, p2
@@ -615,7 +615,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1d
 
     invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractMultimap;->get(Ljava/lang/Object;)Ljava/util/Collection;
 
@@ -625,19 +625,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1e
     return v1
 
     .line 88
     .end local v0    # "valueCollection":Ljava/util/Collection;, "Ljava/util/Collection<+TV;>;"
-    :cond_1
+    :cond_1f
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -648,7 +648,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_34
 
     invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractMultimap;->get(Ljava/lang/Object;)Ljava/util/Collection;
 
@@ -658,19 +658,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_34
 
-    goto :goto_1
+    goto :goto_35
 
-    :cond_2
+    :cond_34
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_35
     return v1
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -694,27 +694,27 @@
 
     .line 69
     .local v0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-interface {v0, p2}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_15
     return v1
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -749,7 +749,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 245
     .local p0, "this":Lcom/google/common/collect/AbstractMultimap;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>;"
@@ -765,7 +765,7 @@
 .end method
 
 .method valueIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -792,7 +792,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -807,7 +807,7 @@
 
     .line 175
     .local v0, "result":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMultimap;->createValues()Ljava/util/Collection;
 
@@ -815,11 +815,11 @@
 
     iput-object v1, p0, Lcom/google/common/collect/AbstractMultimap;->values:Ljava/util/Collection;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v1, v0
 
-    :goto_0
+    :goto_c
     return-object v1
 .end method

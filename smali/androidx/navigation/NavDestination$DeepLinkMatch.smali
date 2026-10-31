@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/navigation/NavDestination;Landroid/os/Bundle;ZZI)V
-    .locals 1
+    .registers 7
     .param p1, "destination"    # Landroidx/navigation/NavDestination;
     .param p2, "matchingArgs"    # Landroid/os/Bundle;
     .param p3, "isExactDeepLink"    # Z
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public compareTo(Landroidx/navigation/NavDestination$DeepLinkMatch;)I
-    .locals 4
+    .registers 6
     .param p1, "other"    # Landroidx/navigation/NavDestination$DeepLinkMatch;
 
     const-string v0, "other"
@@ -122,61 +122,61 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-boolean v0, p1, Landroidx/navigation/NavDestination$DeepLinkMatch;->isExactDeepLink:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 79
     return v1
 
     .line 80
-    :cond_0
+    :cond_f
     iget-boolean v0, p0, Landroidx/navigation/NavDestination$DeepLinkMatch;->isExactDeepLink:Z
 
     const/4 v2, -0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
     iget-boolean v0, p1, Landroidx/navigation/NavDestination$DeepLinkMatch;->isExactDeepLink:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 81
     return v2
 
     .line 83
-    :cond_1
+    :cond_19
     iget-object v0, p0, Landroidx/navigation/NavDestination$DeepLinkMatch;->matchingArgs:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     iget-object v0, p1, Landroidx/navigation/NavDestination$DeepLinkMatch;->matchingArgs:Landroid/os/Bundle;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_22
 
     .line 84
     return v1
 
     .line 85
-    :cond_2
+    :cond_22
     iget-object v0, p0, Landroidx/navigation/NavDestination$DeepLinkMatch;->matchingArgs:Landroid/os/Bundle;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2b
 
     iget-object v0, p1, Landroidx/navigation/NavDestination$DeepLinkMatch;->matchingArgs:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2b
 
     .line 86
     return v2
 
     .line 88
-    :cond_3
+    :cond_2b
     iget-object v0, p0, Landroidx/navigation/NavDestination$DeepLinkMatch;->matchingArgs:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_45
 
     .line 89
     iget-object v0, p0, Landroidx/navigation/NavDestination$DeepLinkMatch;->matchingArgs:Landroid/os/Bundle;
@@ -197,47 +197,47 @@
 
     .line 90
     .local v0, "sizeDifference":I
-    if-lez v0, :cond_4
+    if-lez v0, :cond_42
 
     .line 91
     return v1
 
     .line 92
-    :cond_4
-    if-gez v0, :cond_5
+    :cond_42
+    if-gez v0, :cond_45
 
     .line 93
     return v2
 
     .line 96
     .end local v0    # "sizeDifference":I
-    :cond_5
+    :cond_45
     iget-boolean v0, p0, Landroidx/navigation/NavDestination$DeepLinkMatch;->hasMatchingAction:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4e
 
     iget-boolean v0, p1, Landroidx/navigation/NavDestination$DeepLinkMatch;->hasMatchingAction:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_4e
 
     .line 97
     return v1
 
     .line 98
-    :cond_6
+    :cond_4e
     iget-boolean v0, p0, Landroidx/navigation/NavDestination$DeepLinkMatch;->hasMatchingAction:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_57
 
     iget-boolean v0, p1, Landroidx/navigation/NavDestination$DeepLinkMatch;->hasMatchingAction:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_57
 
     .line 99
     return v2
 
     .line 101
-    :cond_7
+    :cond_57
     iget v0, p0, Landroidx/navigation/NavDestination$DeepLinkMatch;->mimeTypeMatchLevel:I
 
     iget v1, p1, Landroidx/navigation/NavDestination$DeepLinkMatch;->mimeTypeMatchLevel:I
@@ -248,7 +248,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 67
@@ -264,7 +264,7 @@
 .end method
 
 .method public final getDestination()Landroidx/navigation/NavDestination;
-    .locals 1
+    .registers 2
 
     .line 69
     iget-object v0, p0, Landroidx/navigation/NavDestination$DeepLinkMatch;->destination:Landroidx/navigation/NavDestination;
@@ -273,7 +273,7 @@
 .end method
 
 .method public final getMatchingArgs()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Landroidx/navigation/NavDestination$DeepLinkMatch;->matchingArgs:Landroid/os/Bundle;

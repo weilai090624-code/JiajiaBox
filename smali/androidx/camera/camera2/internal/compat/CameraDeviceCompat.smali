@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/hardware/camera2/CameraDevice;Landroid/os/Handler;)V
-    .locals 2
+    .registers 5
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .param p2, "compatHandler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -46,7 +46,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 61
     new-instance v0, Landroidx/camera/camera2/internal/compat/CameraDeviceCompatApi28Impl;
@@ -55,15 +55,15 @@
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraDeviceCompat;->mImpl:Landroidx/camera/camera2/internal/compat/CameraDeviceCompat$CameraDeviceCompatImpl;
 
-    goto :goto_0
+    goto :goto_31
 
     .line 62
-    :cond_0
+    :cond_11
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1e
 
     .line 63
     invoke-static {p1, p2}, Landroidx/camera/camera2/internal/compat/CameraDeviceCompatApi24Impl;->create(Landroid/hardware/camera2/CameraDevice;Landroid/os/Handler;)Landroidx/camera/camera2/internal/compat/CameraDeviceCompatApi24Impl;
@@ -72,15 +72,15 @@
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraDeviceCompat;->mImpl:Landroidx/camera/camera2/internal/compat/CameraDeviceCompat$CameraDeviceCompatImpl;
 
-    goto :goto_0
+    goto :goto_31
 
     .line 64
-    :cond_1
+    :cond_1e
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_2b
 
     .line 65
     invoke-static {p1, p2}, Landroidx/camera/camera2/internal/compat/CameraDeviceCompatApi23Impl;->create(Landroid/hardware/camera2/CameraDevice;Landroid/os/Handler;)Landroidx/camera/camera2/internal/compat/CameraDeviceCompatApi23Impl;
@@ -89,10 +89,10 @@
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraDeviceCompat;->mImpl:Landroidx/camera/camera2/internal/compat/CameraDeviceCompat$CameraDeviceCompatImpl;
 
-    goto :goto_0
+    goto :goto_31
 
     .line 67
-    :cond_2
+    :cond_2b
     invoke-static {p1, p2}, Landroidx/camera/camera2/internal/compat/CameraDeviceCompatBaseImpl;->create(Landroid/hardware/camera2/CameraDevice;Landroid/os/Handler;)Landroidx/camera/camera2/internal/compat/CameraDeviceCompatBaseImpl;
 
     move-result-object v0
@@ -100,12 +100,12 @@
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraDeviceCompat;->mImpl:Landroidx/camera/camera2/internal/compat/CameraDeviceCompat$CameraDeviceCompatImpl;
 
     .line 69
-    :goto_0
+    :goto_31
     return-void
 .end method
 
 .method public static toCameraDeviceCompat(Landroid/hardware/camera2/CameraDevice;)Landroidx/camera/camera2/internal/compat/CameraDeviceCompat;
-    .locals 1
+    .registers 2
     .param p0, "captureSession"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -133,7 +133,7 @@
 .end method
 
 .method public static toCameraDeviceCompat(Landroid/hardware/camera2/CameraDevice;Landroid/os/Handler;)Landroidx/camera/camera2/internal/compat/CameraDeviceCompat;
-    .locals 1
+    .registers 3
     .param p0, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .param p1, "compatHandler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public createCaptureSession(Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;)V
-    .locals 1
+    .registers 3
     .param p1, "config"    # Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -185,7 +185,7 @@
 .end method
 
 .method public toCameraDevice()Landroid/hardware/camera2/CameraDevice;
-    .locals 1
+    .registers 2
 
     .line 114
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraDeviceCompat;->mImpl:Landroidx/camera/camera2/internal/compat/CameraDeviceCompat$CameraDeviceCompatImpl;

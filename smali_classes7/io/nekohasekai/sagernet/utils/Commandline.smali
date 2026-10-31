@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/utils/Commandline;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public final toString(Ljava/lang/Iterable;)Ljava/lang/String;
-    .locals 12
+    .registers 14
     .param p1, "args"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,14 +80,14 @@
     .end annotation
 
     .line 38
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     const-string v0, ""
 
     return-object v0
 
     .line 40
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -98,12 +98,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_98
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -121,24 +121,24 @@
 
     move-result v3
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_25
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     const/4 v3, 0x0
 
-    :goto_1
-    if-eqz v3, :cond_2
+    :goto_26
+    if-eqz v3, :cond_2d
 
     const/16 v3, 0x20
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 43
-    :cond_2
+    :cond_2d
     move-object v3, v2
 
     check-cast v3, Ljava/lang/CharSequence;
@@ -178,12 +178,12 @@
 
     move-result-object v8
 
-    :goto_2
+    :goto_4a
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_65
 
     move-object v9, v8
 
@@ -215,11 +215,11 @@
     .line 144
     invoke-interface {v5, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_4a
 
     .line 145
     .end local v9    # "item$iv$iv":I
-    :cond_3
+    :cond_65
     nop
 
     .end local v5    # "destination$iv$iv":Ljava/util/Collection;
@@ -246,12 +246,12 @@
 
     move-result-object v5
 
-    :goto_3
+    :goto_71
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_95
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -271,15 +271,15 @@
 
     .line 44
     .local v8, "$i$a$-forEach-Commandline$toString$2":I
-    sparse-switch v7, :sswitch_data_0
+    sparse-switch v7, :sswitch_data_a2
 
     .line 49
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    goto :goto_92
 
     .line 46
-    :sswitch_0
+    :sswitch_8a
     const/16 v9, 0x5c
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -288,7 +288,7 @@
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 51
-    :goto_4
+    :goto_92
     nop
 
     .line 146
@@ -297,19 +297,19 @@
     nop
 
     .end local v6    # "element$iv":Ljava/lang/Object;
-    goto :goto_3
+    goto :goto_71
 
     .line 147
-    :cond_4
+    :cond_95
     nop
 
     .end local v2    # "arg":Ljava/lang/String;
     .end local v3    # "$this$forEach$iv":Ljava/lang/Iterable;
     .end local v4    # "$i$f$forEach":I
-    goto/16 :goto_0
+    goto/16 :goto_e
 
     .line 53
-    :cond_5
+    :cond_98
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -320,17 +320,17 @@
 
     return-object v1
 
-    :sswitch_data_0
+    :sswitch_data_a2
     .sparse-switch
-        0x20 -> :sswitch_0
-        0x22 -> :sswitch_0
-        0x27 -> :sswitch_0
-        0x5c -> :sswitch_0
+        0x20 -> :sswitch_8a
+        0x22 -> :sswitch_8a
+        0x27 -> :sswitch_8a
+        0x5c -> :sswitch_8a
     .end sparse-switch
 .end method
 
 .method public final toString([Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "args"    # [Ljava/lang/String;
 
     const-string v0, "args"
@@ -350,7 +350,7 @@
 .end method
 
 .method public final translateCommandline(Ljava/lang/String;)[Ljava/lang/String;
-    .locals 16
+    .registers 18
     .param p1, "toProcess"    # Ljava/lang/String;
 
     .line 73
@@ -358,7 +358,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_132
 
     move-object v2, v0
 
@@ -370,22 +370,22 @@
 
     const/4 v3, 0x1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_11
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_12
+    if-eqz v2, :cond_16
 
-    goto/16 :goto_8
+    goto/16 :goto_132
 
     .line 79
-    :cond_1
+    :cond_16
     const/4 v2, 0x0
 
     .line 80
@@ -430,12 +430,12 @@
 
     .line 89
     .local v11, "lastTokenIsSlash":Z
-    :goto_1
+    :goto_2d
     invoke-virtual {v7}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
     move-result v12
 
-    if-eqz v12, :cond_12
+    if-eqz v12, :cond_c2
 
     .line 90
     invoke-virtual {v7}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -449,13 +449,13 @@
     .line 92
     const-string v13, "\'"
 
-    if-ne v6, v4, :cond_3
+    if-ne v6, v4, :cond_49
 
     invoke-static {v13, v12}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_45
 
     .line 93
     const/4 v10, 0x1
@@ -463,30 +463,30 @@
     .line 94
     move v6, v2
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 95
-    :cond_2
+    :cond_45
     invoke-virtual {v9, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 96
-    :cond_3
+    :cond_49
     const-string v14, "\""
 
     const-string v15, "\\"
 
-    if-ne v6, v5, :cond_9
+    if-ne v6, v5, :cond_79
 
     .line 97
     invoke-static {v12, v14}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_5f
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_5c
 
     .line 98
     invoke-virtual {v9, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -494,26 +494,26 @@
     .line 99
     const/4 v11, 0x0
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 101
-    :cond_4
+    :cond_5c
     const/4 v10, 0x1
 
     .line 102
     move v6, v2
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 104
-    :cond_5
+    :cond_5f
     invoke-static {v12, v15}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_7
+    if-eqz v13, :cond_6f
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_6c
 
     .line 105
     invoke-virtual {v9, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -521,21 +521,21 @@
     .line 106
     const/4 v13, 0x0
 
-    goto :goto_2
+    goto :goto_6d
 
     .line 107
-    :cond_6
+    :cond_6c
     const/4 v13, 0x1
 
     .line 104
-    :goto_2
+    :goto_6d
     move v11, v13
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 109
-    :cond_7
-    if-eqz v11, :cond_8
+    :cond_6f
+    if-eqz v11, :cond_75
 
     .line 110
     invoke-virtual {v9, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -544,17 +544,17 @@
     const/4 v11, 0x0
 
     .line 113
-    :cond_8
+    :cond_75
     invoke-virtual {v9, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 117
-    :cond_9
+    :cond_79
     nop
 
     .line 118
-    if-eqz v11, :cond_a
+    if-eqz v11, :cond_81
 
     .line 119
     invoke-virtual {v9, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -562,55 +562,55 @@
     .line 120
     const/4 v11, 0x0
 
-    goto :goto_4
+    goto :goto_bf
 
     .line 122
-    :cond_a
+    :cond_81
     invoke-static {v15, v12}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v15
 
-    if-eqz v15, :cond_b
+    if-eqz v15, :cond_89
 
     const/4 v11, 0x1
 
-    goto :goto_4
+    goto :goto_bf
 
     .line 123
-    :cond_b
+    :cond_89
     invoke-static {v13, v12}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_c
+    if-eqz v13, :cond_91
 
     move v6, v4
 
-    goto :goto_4
+    goto :goto_bf
 
     .line 124
-    :cond_c
+    :cond_91
     invoke-static {v14, v12}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_d
+    if-eqz v13, :cond_99
 
     move v6, v5
 
-    goto :goto_4
+    goto :goto_bf
 
     .line 125
-    :cond_d
+    :cond_99
     const-string v13, " "
 
     invoke-static {v13, v12}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_10
+    if-eqz v13, :cond_bc
 
-    if-nez v10, :cond_f
+    if-nez v10, :cond_b1
 
     move-object v13, v9
 
@@ -620,20 +620,20 @@
 
     move-result v13
 
-    if-lez v13, :cond_e
+    if-lez v13, :cond_ae
 
     const/4 v13, 0x1
 
-    goto :goto_3
+    goto :goto_af
 
-    :cond_e
+    :cond_ae
     const/4 v13, 0x0
 
-    :goto_3
-    if-eqz v13, :cond_11
+    :goto_af
+    if-eqz v13, :cond_bf
 
     .line 126
-    :cond_f
+    :cond_b1
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v13
@@ -643,23 +643,23 @@
     .line 127
     invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    goto :goto_4
+    goto :goto_bf
 
     .line 129
-    :cond_10
+    :cond_bc
     invoke-virtual {v9, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 131
-    :cond_11
-    :goto_4
+    :cond_bf
+    :goto_bf
     const/4 v10, 0x0
 
     .end local v12    # "nextTok":Ljava/lang/String;
-    goto/16 :goto_1
+    goto/16 :goto_2d
 
     .line 135
-    :cond_12
-    if-nez v10, :cond_14
+    :cond_c2
+    if-nez v10, :cond_d2
 
     move-object v12, v9
 
@@ -669,19 +669,19 @@
 
     move-result v12
 
-    if-lez v12, :cond_13
+    if-lez v12, :cond_cf
 
     const/4 v12, 0x1
 
-    goto :goto_5
+    goto :goto_d0
 
-    :cond_13
+    :cond_cf
     const/4 v12, 0x0
 
-    :goto_5
-    if-eqz v12, :cond_15
+    :goto_d0
+    if-eqz v12, :cond_d9
 
-    :cond_14
+    :cond_d2
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v12
@@ -689,31 +689,31 @@
     invoke-virtual {v8, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 136
-    :cond_15
-    if-eq v6, v4, :cond_16
+    :cond_d9
+    if-eq v6, v4, :cond_df
 
-    if-eq v6, v5, :cond_16
+    if-eq v6, v5, :cond_df
 
     const/4 v12, 0x1
 
-    goto :goto_6
+    goto :goto_e0
 
-    :cond_16
+    :cond_df
     const/4 v12, 0x0
 
-    :goto_6
-    if-eqz v12, :cond_19
+    :goto_e0
+    if-eqz v12, :cond_114
 
     .line 137
-    if-nez v11, :cond_17
+    if-nez v11, :cond_e5
 
-    goto :goto_7
+    goto :goto_e6
 
-    :cond_17
+    :cond_e5
     const/4 v3, 0x0
 
-    :goto_7
-    if-eqz v3, :cond_18
+    :goto_e6
+    if-eqz v3, :cond_f6
 
     .line 138
     move-object v3, v8
@@ -744,7 +744,7 @@
     return-object v1
 
     .line 148
-    :cond_18
+    :cond_f6
     const/4 v1, 0x0
 
     .line 137
@@ -779,7 +779,7 @@
     throw v3
 
     .line 148
-    :cond_19
+    :cond_114
     const/4 v1, 0x0
 
     .line 136
@@ -823,8 +823,8 @@
     .end local v9    # "current":Ljava/lang/StringBuilder;
     .end local v10    # "lastTokenHasBeenQuoted":Z
     .end local v11    # "lastTokenIsSlash":Z
-    :cond_1a
-    :goto_8
+    :cond_132
+    :goto_132
     new-array v1, v1, [Ljava/lang/String;
 
     .line 75

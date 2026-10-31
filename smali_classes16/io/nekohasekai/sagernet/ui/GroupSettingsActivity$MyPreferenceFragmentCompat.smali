@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 295
     invoke-direct {p0}, Landroidx/preference/PreferenceFragmentCompat;-><init>()V
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public final getActivity()Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
-    .locals 1
+    .registers 2
 
     .line 297
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat;->activity:Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
@@ -79,7 +79,7 @@
 .end method
 
 .method public onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 4
+    .registers 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
     .param p2, "rootKey"    # Ljava/lang/String;
 
@@ -102,7 +102,7 @@
     nop
 
     .line 302
-    :try_start_0
+    :try_start_10
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat;->requireActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v0
@@ -133,13 +133,13 @@
     .end local v1    # "$this$onCreatePreferences_u24lambda_u240":Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
     .end local v2    # "$i$a$-apply-GroupSettingsActivity$MyPreferenceFragmentCompat$onCreatePreferences$1":I
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat;->activity:Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_26} :catch_27
 
-    goto :goto_0
+    goto :goto_45
 
     .line 305
-    :catch_0
+    :catch_27
     move-exception v0
 
     .line 307
@@ -181,12 +181,12 @@
 
     .line 313
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_45
     return-void
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 8
+    .registers 10
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -202,15 +202,15 @@
 
     const/4 v2, 0x0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_58
 
     .line 341
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_56
 
     .line 323
-    :sswitch_0
+    :sswitch_10
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->getEditingId()J
@@ -221,7 +221,7 @@
 
     cmp-long v0, v3, v5
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_24
 
     .line 324
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -230,10 +230,10 @@
 
     invoke-virtual {v0}, Landroidx/fragment/app/FragmentActivity;->finish()V
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 326
-    :cond_0
+    :cond_24
     new-instance v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$DeleteConfirmationDialogFragment;
 
     invoke-direct {v0}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$DeleteConfirmationDialogFragment;-><init>()V
@@ -282,11 +282,11 @@
     invoke-virtual {v0, v3, v2}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$DeleteConfirmationDialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
     .line 331
-    :goto_0
-    goto :goto_1
+    :goto_4a
+    goto :goto_56
 
     .line 335
-    :sswitch_1
+    :sswitch_4b
     new-instance v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$2;
 
     invoke-direct {v0, p0, v2}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat$onOptionsItemSelected$2;-><init>(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$MyPreferenceFragmentCompat;Lkotlin/coroutines/Continuation;)V
@@ -299,20 +299,20 @@
     nop
 
     .line 342
-    :goto_1
+    :goto_56
     return v1
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_58
     .sparse-switch
-        0x7f0a0036 -> :sswitch_1
-        0x7f0a004d -> :sswitch_0
+        0x7f0a0036 -> :sswitch_4b
+        0x7f0a004d -> :sswitch_10
     .end sparse-switch
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -341,7 +341,7 @@
 .end method
 
 .method public final setActivity(Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
 
     .line 297

@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 14
+    .registers 14
 
     .line 30
     new-instance v0, Lcom/google/errorprone/annotations/Modifier;
@@ -236,7 +236,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -250,7 +250,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/errorprone/annotations/Modifier;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 29
@@ -266,7 +266,7 @@
 .end method
 
 .method public static values()[Lcom/google/errorprone/annotations/Modifier;
-    .locals 1
+    .registers 1
 
     .line 29
     sget-object v0, Lcom/google/errorprone/annotations/Modifier;->$VALUES:[Lcom/google/errorprone/annotations/Modifier;

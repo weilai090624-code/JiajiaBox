@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkManagerImpl;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method runInternal()V
-    .locals 6
+    .registers 7
 
     .line 216
     iget-object v0, p0, Landroidx/work/impl/utils/CancelWorkRunnable$4;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -55,7 +55,7 @@
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 219
-    :try_start_0
+    :try_start_9
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
     move-result-object v1
@@ -72,12 +72,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_15
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_27
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -93,10 +93,10 @@
 
     .line 223
     .end local v4    # "workSpecId":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_15
 
     .line 225
-    :cond_0
+    :cond_27
     new-instance v3, Landroidx/work/impl/utils/PreferenceUtils;
 
     iget-object v4, p0, Landroidx/work/impl/utils/CancelWorkRunnable$4;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -116,8 +116,8 @@
 
     .line 227
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3c
+    .catchall {:try_start_9 .. :try_end_3c} :catchall_41
 
     .line 229
     .end local v1    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
@@ -131,7 +131,7 @@
     return-void
 
     .line 229
-    :catchall_0
+    :catchall_41
     move-exception v1
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V

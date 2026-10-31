@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(FF)V
-    .locals 0
+    .registers 3
     .param p1, "start"    # F
     .param p2, "endExclusive"    # F
 
@@ -84,30 +84,30 @@
 .end method
 
 .method private final lessThanOrEquals(FF)Z
-    .locals 1
+    .registers 4
     .param p1, "a"    # F
     .param p2, "b"    # F
 
     .line 225
     cmpg-float v0, p1, p2
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 
 # virtual methods
 .method public contains(F)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # F
 
     .line 227
@@ -115,27 +115,27 @@
 
     cmpl-float v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_e
 
     iget v0, p0, Lkotlin/ranges/OpenEndFloatRange;->_endExclusive:F
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public bridge synthetic contains(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Comparable;
 
     .line 216
@@ -155,7 +155,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 231
@@ -163,7 +163,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_37
 
     invoke-virtual {p0}, Lkotlin/ranges/OpenEndFloatRange;->isEmpty()Z
 
@@ -171,7 +171,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     move-object v0, p1
 
@@ -181,10 +181,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_35
 
     .line 232
-    :cond_0
+    :cond_15
     iget v0, p0, Lkotlin/ranges/OpenEndFloatRange;->_start:F
 
     move-object v3, p1
@@ -195,17 +195,17 @@
 
     cmpg-float v0, v0, v3
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_22
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_4
+    :goto_23
+    if-eqz v0, :cond_37
 
     iget v0, p0, Lkotlin/ranges/OpenEndFloatRange;->_endExclusive:F
 
@@ -217,33 +217,33 @@
 
     cmpg-float v0, v0, v3
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_32
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_2
+    :cond_32
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_4
+    :goto_33
+    if-eqz v0, :cond_37
 
-    :cond_3
+    :cond_35
     const/4 v1, 0x1
 
-    goto :goto_2
+    goto :goto_38
 
-    :cond_4
+    :cond_37
     nop
 
     .line 231
-    :goto_2
+    :goto_38
     return v1
 .end method
 
 .method public bridge synthetic getEndExclusive()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 216
     invoke-virtual {p0}, Lkotlin/ranges/OpenEndFloatRange;->getEndExclusive()Ljava/lang/Float;
@@ -256,7 +256,7 @@
 .end method
 
 .method public getEndExclusive()Ljava/lang/Float;
-    .locals 1
+    .registers 2
 
     .line 223
     iget v0, p0, Lkotlin/ranges/OpenEndFloatRange;->_endExclusive:F
@@ -269,7 +269,7 @@
 .end method
 
 .method public bridge synthetic getStart()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 216
     invoke-virtual {p0}, Lkotlin/ranges/OpenEndFloatRange;->getStart()Ljava/lang/Float;
@@ -282,7 +282,7 @@
 .end method
 
 .method public getStart()Ljava/lang/Float;
-    .locals 1
+    .registers 2
 
     .line 222
     iget v0, p0, Lkotlin/ranges/OpenEndFloatRange;->_start:F
@@ -295,20 +295,20 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 236
     invoke-virtual {p0}, Lkotlin/ranges/OpenEndFloatRange;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_8
     iget v0, p0, Lkotlin/ranges/OpenEndFloatRange;->_start:F
 
     invoke-static {v0}, Ljava/lang/Float;->floatToIntBits(F)I
@@ -325,12 +325,12 @@
 
     add-int/2addr v0, v1
 
-    :goto_0
+    :goto_17
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 228
     iget v0, p0, Lkotlin/ranges/OpenEndFloatRange;->_start:F
@@ -339,21 +339,21 @@
 
     cmpg-float v0, v0, v1
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 239
     new-instance v0, Ljava/lang/StringBuilder;

@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 391
     const/16 v4, 0xc
@@ -139,7 +139,7 @@
 .end method
 
 .method public static final Semaphore(II)Lkotlinx/coroutines/sync/Semaphore;
-    .locals 1
+    .registers 3
     .param p0, "permits"    # I
     .param p1, "acquiredPermits"    # I
 
@@ -154,16 +154,16 @@
 .end method
 
 .method public static synthetic Semaphore$default(IIILjava/lang/Object;)Lkotlinx/coroutines/sync/Semaphore;
-    .locals 0
+    .registers 4
 
     .line 72
     and-int/lit8 p2, p2, 0x2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lkotlinx/coroutines/sync/SemaphoreKt;->Semaphore(II)Lkotlinx/coroutines/sync/Semaphore;
 
     move-result-object p0
@@ -172,7 +172,7 @@
 .end method
 
 .method public static final synthetic access$createSegment(JLkotlinx/coroutines/sync/SemaphoreSegment;)Lkotlinx/coroutines/sync/SemaphoreSegment;
-    .locals 1
+    .registers 4
     .param p0, "id"    # J
     .param p2, "prev"    # Lkotlinx/coroutines/sync/SemaphoreSegment;
 
@@ -185,7 +185,7 @@
 .end method
 
 .method public static final synthetic access$getBROKEN$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/sync/SemaphoreKt;->BROKEN:Lkotlinx/coroutines/internal/Symbol;
@@ -194,7 +194,7 @@
 .end method
 
 .method public static final synthetic access$getCANCELLED$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/sync/SemaphoreKt;->CANCELLED:Lkotlinx/coroutines/internal/Symbol;
@@ -203,7 +203,7 @@
 .end method
 
 .method public static final synthetic access$getMAX_SPIN_CYCLES$p()I
-    .locals 1
+    .registers 1
 
     .line 1
     sget v0, Lkotlinx/coroutines/sync/SemaphoreKt;->MAX_SPIN_CYCLES:I
@@ -212,7 +212,7 @@
 .end method
 
 .method public static final synthetic access$getPERMIT$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/sync/SemaphoreKt;->PERMIT:Lkotlinx/coroutines/internal/Symbol;
@@ -221,7 +221,7 @@
 .end method
 
 .method public static final synthetic access$getSEGMENT_SIZE$p()I
-    .locals 1
+    .registers 1
 
     .line 1
     sget v0, Lkotlinx/coroutines/sync/SemaphoreKt;->SEGMENT_SIZE:I
@@ -230,7 +230,7 @@
 .end method
 
 .method public static final synthetic access$getTAKEN$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/sync/SemaphoreKt;->TAKEN:Lkotlinx/coroutines/internal/Symbol;
@@ -239,7 +239,7 @@
 .end method
 
 .method private static final createSegment(JLkotlinx/coroutines/sync/SemaphoreSegment;)Lkotlinx/coroutines/sync/SemaphoreSegment;
-    .locals 2
+    .registers 5
     .param p0, "id"    # J
     .param p2, "prev"    # Lkotlinx/coroutines/sync/SemaphoreSegment;
 
@@ -254,7 +254,7 @@
 .end method
 
 .method public static final withPermit(Lkotlinx/coroutines/sync/Semaphore;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -271,7 +271,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/sync/SemaphoreKt$withPermit$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -283,7 +283,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/sync/SemaphoreKt$withPermit$1;->label:I
 
@@ -291,14 +291,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/sync/SemaphoreKt$withPermit$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/sync/SemaphoreKt$withPermit$1;
 
     invoke-direct {v0, p2}, Lkotlinx/coroutines/sync/SemaphoreKt$withPermit$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -312,7 +312,7 @@
     .line 81
     iget v2, p2, Lkotlinx/coroutines/sync/SemaphoreKt$withPermit$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_5e
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -326,7 +326,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$withPermit":I
@@ -342,12 +342,12 @@
     .local v1, "$this$withPermit":Lkotlinx/coroutines/sync/Semaphore;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_4f
 
     .end local v1    # "$this$withPermit":Lkotlinx/coroutines/sync/Semaphore;
     .end local p0    # "$i$f$withPermit":I
     .end local p1    # "action":Lkotlin/jvm/functions/Function0;
-    :pswitch_1
+    :pswitch_3a
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p0, "$this$withPermit":Lkotlinx/coroutines/sync/Semaphore;
@@ -371,13 +371,13 @@
 
     move-result-object v3
 
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_4d
 
     .line 81
     return-object v1
 
     .line 86
-    :cond_1
+    :cond_4d
     move-object v1, p0
 
     move p0, v2
@@ -386,16 +386,16 @@
     .end local v2    # "$i$f$withPermit":I
     .restart local v1    # "$this$withPermit":Lkotlinx/coroutines/sync/Semaphore;
     .local p0, "$i$f$withPermit":I
-    :goto_1
+    :goto_4f
     nop
 
     .line 88
-    :try_start_0
+    :try_start_50
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_54
+    .catchall {:try_start_50 .. :try_end_54} :catchall_58
 
     .line 90
     .end local p1    # "action":Lkotlin/jvm/functions/Function0;
@@ -407,7 +407,7 @@
 
     .line 90
     .restart local v1    # "$this$withPermit":Lkotlinx/coroutines/sync/Semaphore;
-    :catchall_0
+    :catchall_58
     move-exception p1
 
     invoke-interface {v1}, Lkotlinx/coroutines/sync/Semaphore;->release()V
@@ -416,15 +416,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3a
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method private static final withPermit$$forInline(Lkotlinx/coroutines/sync/Semaphore;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$withPermit"    # Lkotlinx/coroutines/sync/Semaphore;
     .param p1, "action"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -455,12 +455,12 @@
     nop
 
     .line 88
-    :try_start_0
+    :try_start_6
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_6 .. :try_end_a} :catchall_e
 
     .line 90
     invoke-interface {p0}, Lkotlinx/coroutines/sync/Semaphore;->release()V
@@ -469,7 +469,7 @@
     return-object v1
 
     .line 90
-    :catchall_0
+    :catchall_e
     move-exception v1
 
     invoke-interface {p0}, Lkotlinx/coroutines/sync/Semaphore;->release()V

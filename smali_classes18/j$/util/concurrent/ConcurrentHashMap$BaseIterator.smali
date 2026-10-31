@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>([Lj$/util/concurrent/ConcurrentHashMap$Node;IIILj$/util/concurrent/ConcurrentHashMap;)V
-    .locals 0
+    .registers 6
     .param p2, "size"    # I
     .param p3, "index"    # I
     .param p4, "limit"    # I
@@ -81,47 +81,47 @@
 
 # virtual methods
 .method public final hasMoreElements()Z
-    .locals 1
+    .registers 2
 
     .line 3435
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$BaseIterator;, "Ljava/util/concurrent/ConcurrentHashMap$BaseIterator<TK;TV;>;"
     iget-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$BaseIterator;->next:Lj$/util/concurrent/ConcurrentHashMap$Node;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public final hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 3434
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$BaseIterator;, "Ljava/util/concurrent/ConcurrentHashMap$BaseIterator<TK;TV;>;"
     iget-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$BaseIterator;->next:Lj$/util/concurrent/ConcurrentHashMap$Node;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public final remove()V
-    .locals 4
+    .registers 5
 
     .line 3439
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$BaseIterator;, "Ljava/util/concurrent/ConcurrentHashMap$BaseIterator<TK;TV;>;"
@@ -130,7 +130,7 @@
     move-object v1, v0
 
     .local v1, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 3441
     const/4 v0, 0x0
@@ -148,7 +148,7 @@
     return-void
 
     .line 3440
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V

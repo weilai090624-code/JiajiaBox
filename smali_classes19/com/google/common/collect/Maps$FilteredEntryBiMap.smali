@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/BiMap;Lcom/google/common/base/Predicate;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,7 +84,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/collect/BiMap;Lcom/google/common/base/Predicate;Lcom/google/common/collect/BiMap;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -114,7 +114,7 @@
 .end method
 
 .method private static inversePredicate(Lcom/google/common/base/Predicate;)Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method public forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -185,7 +185,7 @@
 .end method
 
 .method public inverse()Lcom/google/common/collect/BiMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -202,7 +202,7 @@
 .end method
 
 .method unfiltered()Lcom/google/common/collect/BiMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -221,7 +221,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 3277
     .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryBiMap;, "Lcom/google/common/collect/Maps$FilteredEntryBiMap<TK;TV;>;"
@@ -233,7 +233,7 @@
 .end method
 
 .method public values()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

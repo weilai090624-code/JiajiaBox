@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public cbSelectorUpdate(J)V
-    .locals 0
+    .registers 3
     .param p1, "id"    # J
 
     .line 269
@@ -92,7 +92,7 @@
 .end method
 
 .method public cbSpeedUpdate(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
-    .locals 0
+    .registers 2
     .param p1, "stats"    # Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
     .line 269
@@ -102,7 +102,7 @@
 .end method
 
 .method public cbTrafficUpdate(Lio/nekohasekai/sagernet/aidl/TrafficData;)V
-    .locals 0
+    .registers 2
     .param p1, "data"    # Lio/nekohasekai/sagernet/aidl/TrafficData;
 
     .line 269
@@ -112,7 +112,7 @@
 .end method
 
 .method public final getCallback()Lkotlin/jvm/functions/Function0;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -129,7 +129,7 @@
 .end method
 
 .method public missingPlugin(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "profileName"    # Ljava/lang/String;
     .param p2, "pluginName"    # Ljava/lang/String;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public onBinderDied()V
-    .locals 0
+    .registers 1
 
     .line 269
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/SagerConnection$Callback$DefaultImpls;->onBinderDied(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;)V
@@ -149,7 +149,7 @@
 .end method
 
 .method public onServiceConnected(Lio/nekohasekai/sagernet/aidl/ISagerNetService;)V
-    .locals 1
+    .registers 3
     .param p1, "service"    # Lio/nekohasekai/sagernet/aidl/ISagerNetService;
 
     const-string v0, "service"
@@ -166,7 +166,7 @@
 .end method
 
 .method public onServiceDisconnected()V
-    .locals 0
+    .registers 1
 
     .line 269
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/SagerConnection$Callback$DefaultImpls;->onServiceDisconnected(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;)V
@@ -175,7 +175,7 @@
 .end method
 
 .method public stateChanged(Lio/nekohasekai/sagernet/bg/BaseService$State;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "state"    # Lio/nekohasekai/sagernet/bg/BaseService$State;
     .param p2, "profileName"    # Ljava/lang/String;
     .param p3, "msg"    # Ljava/lang/String;

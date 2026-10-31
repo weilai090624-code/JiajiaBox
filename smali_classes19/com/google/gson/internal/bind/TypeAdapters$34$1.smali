@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/bind/TypeAdapters$34;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/gson/internal/bind/TypeAdapters$34;
 
     .line 911
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,7 +72,7 @@
 
     .line 918
     .local v0, "result":Ljava/lang/Object;, "TT1;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_52
 
     iget-object v1, p0, Lcom/google/gson/internal/bind/TypeAdapters$34$1;->val$requestedType:Ljava/lang/Class;
 
@@ -80,12 +80,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
-    goto :goto_0
+    goto :goto_52
 
     .line 919
-    :cond_0
+    :cond_13
     new-instance v1, Lcom/google/gson/JsonSyntaxException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -150,13 +150,13 @@
     throw v1
 
     .line 922
-    :cond_1
-    :goto_0
+    :cond_52
+    :goto_52
     return-object v0
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .annotation system Ldalvik/annotation/Signature;
         value = {

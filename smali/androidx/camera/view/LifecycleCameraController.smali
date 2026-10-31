@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public bindToLifecycle(Landroidx/lifecycle/LifecycleOwner;)V
-    .locals 0
+    .registers 2
     .param p1, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -59,12 +59,12 @@
 .end method
 
 .method shutDownForTests()V
-    .locals 1
+    .registers 2
 
     .line 144
     iget-object v0, p0, Landroidx/camera/view/LifecycleCameraController;->mCameraProvider:Landroidx/camera/lifecycle/ProcessCameraProvider;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 145
     iget-object v0, p0, Landroidx/camera/view/LifecycleCameraController;->mCameraProvider:Landroidx/camera/lifecycle/ProcessCameraProvider;
@@ -77,12 +77,12 @@
     invoke-virtual {v0}, Landroidx/camera/lifecycle/ProcessCameraProvider;->shutdown()Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 148
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method startCamera()Landroidx/camera/core/Camera;
-    .locals 4
+    .registers 5
 
     .line 121
     iget-object v0, p0, Landroidx/camera/view/LifecycleCameraController;->mLifecycleOwner:Landroidx/lifecycle/LifecycleOwner;
@@ -91,7 +91,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 122
     const-string v0, "Lifecycle is not set."
@@ -102,10 +102,10 @@
     return-object v2
 
     .line 125
-    :cond_0
+    :cond_d
     iget-object v0, p0, Landroidx/camera/view/LifecycleCameraController;->mCameraProvider:Landroidx/camera/lifecycle/ProcessCameraProvider;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     .line 126
     const-string v0, "CameraProvider is not ready."
@@ -116,20 +116,20 @@
     return-object v2
 
     .line 130
-    :cond_1
+    :cond_17
     invoke-virtual {p0}, Landroidx/camera/view/LifecycleCameraController;->createUseCaseGroup()Landroidx/camera/core/UseCaseGroup;
 
     move-result-object v0
 
     .line 131
     .local v0, "useCaseGroup":Landroidx/camera/core/UseCaseGroup;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1e
 
     .line 133
     return-object v2
 
     .line 135
-    :cond_2
+    :cond_1e
     iget-object v1, p0, Landroidx/camera/view/LifecycleCameraController;->mCameraProvider:Landroidx/camera/lifecycle/ProcessCameraProvider;
 
     iget-object v2, p0, Landroidx/camera/view/LifecycleCameraController;->mLifecycleOwner:Landroidx/lifecycle/LifecycleOwner;
@@ -144,7 +144,7 @@
 .end method
 
 .method public unbind()V
-    .locals 1
+    .registers 2
 
     .line 100
     invoke-static {}, Landroidx/camera/core/impl/utils/Threads;->checkMainThread()V
@@ -160,7 +160,7 @@
     .line 103
     iget-object v0, p0, Landroidx/camera/view/LifecycleCameraController;->mCameraProvider:Landroidx/camera/lifecycle/ProcessCameraProvider;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 104
     iget-object v0, p0, Landroidx/camera/view/LifecycleCameraController;->mCameraProvider:Landroidx/camera/lifecycle/ProcessCameraProvider;
@@ -168,6 +168,6 @@
     invoke-virtual {v0}, Landroidx/camera/lifecycle/ProcessCameraProvider;->unbindAll()V
 
     .line 106
-    :cond_0
+    :cond_11
     return-void
 .end method

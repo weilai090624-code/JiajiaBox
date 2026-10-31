@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/view/AccessibilityDelegateCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "compat"    # Landroidx/core/view/AccessibilityDelegateCompat;
 
     .line 66
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public getAccessibilityNodeProvider(Landroid/view/View;)Landroid/view/accessibility/AccessibilityNodeProvider;
-    .locals 2
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
 
     .line 120
@@ -64,7 +64,7 @@
 
     .line 122
     .local v0, "provider":Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 123
     invoke-virtual {v0}, Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;->getProvider()Ljava/lang/Object;
@@ -73,18 +73,18 @@
 
     check-cast v1, Landroid/view/accessibility/AccessibilityNodeProvider;
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     .line 122
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 4
+    .registers 7
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
@@ -158,12 +158,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_31
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_43
 
     .line 93
     invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -177,16 +177,16 @@
     .line 92
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_31
 
     .line 95
     .end local v2    # "i":I
-    :cond_0
+    :cond_43
     return-void
 .end method
 
 .method public onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
@@ -200,7 +200,7 @@
 .end method
 
 .method public onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 1
+    .registers 5
     .param p1, "host"    # Landroid/view/ViewGroup;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "event"    # Landroid/view/accessibility/AccessibilityEvent;
@@ -216,7 +216,7 @@
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
     .param p1, "host"    # Landroid/view/View;
     .param p2, "action"    # I
     .param p3, "args"    # Landroid/os/Bundle;
@@ -232,7 +232,7 @@
 .end method
 
 .method public sendAccessibilityEvent(Landroid/view/View;I)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "eventType"    # I
 
@@ -246,7 +246,7 @@
 .end method
 
 .method public sendAccessibilityEventUnchecked(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 

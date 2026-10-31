@@ -39,616 +39,616 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 109
+    .registers 109
 
     .line 39
     const/4 v0, 0x6
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_47e
 
     new-array v2, v0, [I
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_48e
 
     new-array v3, v0, [I
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_49e
 
     new-array v4, v0, [I
 
-    fill-array-data v4, :array_3
+    fill-array-data v4, :array_4ae
 
     new-array v5, v0, [I
 
-    fill-array-data v5, :array_4
+    fill-array-data v5, :array_4be
 
     new-array v6, v0, [I
 
-    fill-array-data v6, :array_5
+    fill-array-data v6, :array_4ce
 
     new-array v7, v0, [I
 
-    fill-array-data v7, :array_6
+    fill-array-data v7, :array_4de
 
     new-array v8, v0, [I
 
-    fill-array-data v8, :array_7
+    fill-array-data v8, :array_4ee
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_8
+    fill-array-data v9, :array_4fe
 
     new-array v10, v0, [I
 
-    fill-array-data v10, :array_9
+    fill-array-data v10, :array_50e
 
     new-array v11, v0, [I
 
-    fill-array-data v11, :array_a
+    fill-array-data v11, :array_51e
 
     new-array v12, v0, [I
 
-    fill-array-data v12, :array_b
+    fill-array-data v12, :array_52e
 
     new-array v13, v0, [I
 
-    fill-array-data v13, :array_c
+    fill-array-data v13, :array_53e
 
     new-array v14, v0, [I
 
-    fill-array-data v14, :array_d
+    fill-array-data v14, :array_54e
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_e
+    fill-array-data v15, :array_55e
 
     move-object/from16 v16, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_f
+    fill-array-data v15, :array_56e
 
     move-object/from16 v17, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_10
+    fill-array-data v15, :array_57e
 
     move-object/from16 v18, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_11
+    fill-array-data v15, :array_58e
 
     move-object/from16 v19, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_12
+    fill-array-data v15, :array_59e
 
     move-object/from16 v20, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_13
+    fill-array-data v15, :array_5ae
 
     move-object/from16 v21, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_14
+    fill-array-data v15, :array_5be
 
     move-object/from16 v22, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_15
+    fill-array-data v15, :array_5ce
 
     move-object/from16 v23, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_16
+    fill-array-data v15, :array_5de
 
     move-object/from16 v24, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_17
+    fill-array-data v15, :array_5ee
 
     move-object/from16 v25, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_18
+    fill-array-data v15, :array_5fe
 
     move-object/from16 v26, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_19
+    fill-array-data v15, :array_60e
 
     move-object/from16 v27, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1a
+    fill-array-data v15, :array_61e
 
     move-object/from16 v28, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1b
+    fill-array-data v15, :array_62e
 
     move-object/from16 v29, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1c
+    fill-array-data v15, :array_63e
 
     move-object/from16 v30, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1d
+    fill-array-data v15, :array_64e
 
     move-object/from16 v31, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1e
+    fill-array-data v15, :array_65e
 
     move-object/from16 v32, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1f
+    fill-array-data v15, :array_66e
 
     move-object/from16 v33, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_20
+    fill-array-data v15, :array_67e
 
     move-object/from16 v34, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_21
+    fill-array-data v15, :array_68e
 
     move-object/from16 v35, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_22
+    fill-array-data v15, :array_69e
 
     move-object/from16 v36, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_23
+    fill-array-data v15, :array_6ae
 
     move-object/from16 v37, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_24
+    fill-array-data v15, :array_6be
 
     move-object/from16 v38, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_25
+    fill-array-data v15, :array_6ce
 
     move-object/from16 v39, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_26
+    fill-array-data v15, :array_6de
 
     move-object/from16 v40, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_27
+    fill-array-data v15, :array_6ee
 
     move-object/from16 v41, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_28
+    fill-array-data v15, :array_6fe
 
     move-object/from16 v42, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_29
+    fill-array-data v15, :array_70e
 
     move-object/from16 v43, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_2a
+    fill-array-data v15, :array_71e
 
     move-object/from16 v44, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_2b
+    fill-array-data v15, :array_72e
 
     move-object/from16 v45, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_2c
+    fill-array-data v15, :array_73e
 
     move-object/from16 v46, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_2d
+    fill-array-data v15, :array_74e
 
     move-object/from16 v47, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_2e
+    fill-array-data v15, :array_75e
 
     move-object/from16 v48, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_2f
+    fill-array-data v15, :array_76e
 
     move-object/from16 v49, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_30
+    fill-array-data v15, :array_77e
 
     move-object/from16 v50, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_31
+    fill-array-data v15, :array_78e
 
     move-object/from16 v51, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_32
+    fill-array-data v15, :array_79e
 
     move-object/from16 v52, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_33
+    fill-array-data v15, :array_7ae
 
     move-object/from16 v53, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_34
+    fill-array-data v15, :array_7be
 
     move-object/from16 v54, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_35
+    fill-array-data v15, :array_7ce
 
     move-object/from16 v55, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_36
+    fill-array-data v15, :array_7de
 
     move-object/from16 v56, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_37
+    fill-array-data v15, :array_7ee
 
     move-object/from16 v57, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_38
+    fill-array-data v15, :array_7fe
 
     move-object/from16 v58, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_39
+    fill-array-data v15, :array_80e
 
     move-object/from16 v59, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_3a
+    fill-array-data v15, :array_81e
 
     move-object/from16 v60, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_3b
+    fill-array-data v15, :array_82e
 
     move-object/from16 v61, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_3c
+    fill-array-data v15, :array_83e
 
     move-object/from16 v62, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_3d
+    fill-array-data v15, :array_84e
 
     move-object/from16 v63, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_3e
+    fill-array-data v15, :array_85e
 
     move-object/from16 v64, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_3f
+    fill-array-data v15, :array_86e
 
     move-object/from16 v65, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_40
+    fill-array-data v15, :array_87e
 
     move-object/from16 v66, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_41
+    fill-array-data v15, :array_88e
 
     move-object/from16 v67, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_42
+    fill-array-data v15, :array_89e
 
     move-object/from16 v68, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_43
+    fill-array-data v15, :array_8ae
 
     move-object/from16 v69, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_44
+    fill-array-data v15, :array_8be
 
     move-object/from16 v70, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_45
+    fill-array-data v15, :array_8ce
 
     move-object/from16 v71, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_46
+    fill-array-data v15, :array_8de
 
     move-object/from16 v72, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_47
+    fill-array-data v15, :array_8ee
 
     move-object/from16 v73, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_48
+    fill-array-data v15, :array_8fe
 
     move-object/from16 v74, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_49
+    fill-array-data v15, :array_90e
 
     move-object/from16 v75, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_4a
+    fill-array-data v15, :array_91e
 
     move-object/from16 v76, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_4b
+    fill-array-data v15, :array_92e
 
     move-object/from16 v77, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_4c
+    fill-array-data v15, :array_93e
 
     move-object/from16 v78, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_4d
+    fill-array-data v15, :array_94e
 
     move-object/from16 v79, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_4e
+    fill-array-data v15, :array_95e
 
     move-object/from16 v80, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_4f
+    fill-array-data v15, :array_96e
 
     move-object/from16 v81, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_50
+    fill-array-data v15, :array_97e
 
     move-object/from16 v82, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_51
+    fill-array-data v15, :array_98e
 
     move-object/from16 v83, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_52
+    fill-array-data v15, :array_99e
 
     move-object/from16 v84, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_53
+    fill-array-data v15, :array_9ae
 
     move-object/from16 v85, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_54
+    fill-array-data v15, :array_9be
 
     move-object/from16 v86, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_55
+    fill-array-data v15, :array_9ce
 
     move-object/from16 v87, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_56
+    fill-array-data v15, :array_9de
 
     move-object/from16 v88, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_57
+    fill-array-data v15, :array_9ee
 
     move-object/from16 v89, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_58
+    fill-array-data v15, :array_9fe
 
     move-object/from16 v90, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_59
+    fill-array-data v15, :array_a0e
 
     move-object/from16 v91, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_5a
+    fill-array-data v15, :array_a1e
 
     move-object/from16 v92, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_5b
+    fill-array-data v15, :array_a2e
 
     move-object/from16 v93, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_5c
+    fill-array-data v15, :array_a3e
 
     move-object/from16 v94, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_5d
+    fill-array-data v15, :array_a4e
 
     move-object/from16 v95, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_5e
+    fill-array-data v15, :array_a5e
 
     move-object/from16 v96, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_5f
+    fill-array-data v15, :array_a6e
 
     move-object/from16 v97, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_60
+    fill-array-data v15, :array_a7e
 
     move-object/from16 v98, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_61
+    fill-array-data v15, :array_a8e
 
     move-object/from16 v99, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_62
+    fill-array-data v15, :array_a9e
 
     move-object/from16 v100, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_63
+    fill-array-data v15, :array_aae
 
     move-object/from16 v101, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_64
+    fill-array-data v15, :array_abe
 
     move-object/from16 v102, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_65
+    fill-array-data v15, :array_ace
 
     move-object/from16 v103, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_66
+    fill-array-data v15, :array_ade
 
     move-object/from16 v104, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_67
+    fill-array-data v15, :array_aee
 
     move-object/from16 v105, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_68
+    fill-array-data v15, :array_afe
 
     move-object/from16 v106, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_69
+    fill-array-data v15, :array_b0e
 
     const/4 v0, 0x7
 
@@ -656,7 +656,7 @@
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_6a
+    fill-array-data v15, :array_b1e
 
     const/16 v0, 0x6b
 
@@ -1096,7 +1096,7 @@
 
     nop
 
-    :array_0
+    :array_47e
     .array-data 4
         0x2
         0x1
@@ -1106,7 +1106,7 @@
         0x2
     .end array-data
 
-    :array_1
+    :array_48e
     .array-data 4
         0x2
         0x2
@@ -1116,7 +1116,7 @@
         0x2
     .end array-data
 
-    :array_2
+    :array_49e
     .array-data 4
         0x2
         0x2
@@ -1126,7 +1126,7 @@
         0x1
     .end array-data
 
-    :array_3
+    :array_4ae
     .array-data 4
         0x1
         0x2
@@ -1136,7 +1136,7 @@
         0x3
     .end array-data
 
-    :array_4
+    :array_4be
     .array-data 4
         0x1
         0x2
@@ -1146,7 +1146,7 @@
         0x2
     .end array-data
 
-    :array_5
+    :array_4ce
     .array-data 4
         0x1
         0x3
@@ -1156,7 +1156,7 @@
         0x2
     .end array-data
 
-    :array_6
+    :array_4de
     .array-data 4
         0x1
         0x2
@@ -1166,7 +1166,7 @@
         0x3
     .end array-data
 
-    :array_7
+    :array_4ee
     .array-data 4
         0x1
         0x2
@@ -1176,7 +1176,7 @@
         0x2
     .end array-data
 
-    :array_8
+    :array_4fe
     .array-data 4
         0x1
         0x3
@@ -1186,7 +1186,7 @@
         0x2
     .end array-data
 
-    :array_9
+    :array_50e
     .array-data 4
         0x2
         0x2
@@ -1196,7 +1196,7 @@
         0x3
     .end array-data
 
-    :array_a
+    :array_51e
     .array-data 4
         0x2
         0x2
@@ -1206,7 +1206,7 @@
         0x2
     .end array-data
 
-    :array_b
+    :array_52e
     .array-data 4
         0x2
         0x3
@@ -1216,7 +1216,7 @@
         0x2
     .end array-data
 
-    :array_c
+    :array_53e
     .array-data 4
         0x1
         0x1
@@ -1226,7 +1226,7 @@
         0x2
     .end array-data
 
-    :array_d
+    :array_54e
     .array-data 4
         0x1
         0x2
@@ -1236,7 +1236,7 @@
         0x2
     .end array-data
 
-    :array_e
+    :array_55e
     .array-data 4
         0x1
         0x2
@@ -1246,7 +1246,7 @@
         0x1
     .end array-data
 
-    :array_f
+    :array_56e
     .array-data 4
         0x1
         0x1
@@ -1256,7 +1256,7 @@
         0x2
     .end array-data
 
-    :array_10
+    :array_57e
     .array-data 4
         0x1
         0x2
@@ -1266,7 +1266,7 @@
         0x2
     .end array-data
 
-    :array_11
+    :array_58e
     .array-data 4
         0x1
         0x2
@@ -1276,7 +1276,7 @@
         0x1
     .end array-data
 
-    :array_12
+    :array_59e
     .array-data 4
         0x2
         0x2
@@ -1286,7 +1286,7 @@
         0x1
     .end array-data
 
-    :array_13
+    :array_5ae
     .array-data 4
         0x2
         0x2
@@ -1296,7 +1296,7 @@
         0x2
     .end array-data
 
-    :array_14
+    :array_5be
     .array-data 4
         0x2
         0x2
@@ -1306,7 +1306,7 @@
         0x1
     .end array-data
 
-    :array_15
+    :array_5ce
     .array-data 4
         0x2
         0x1
@@ -1316,7 +1316,7 @@
         0x2
     .end array-data
 
-    :array_16
+    :array_5de
     .array-data 4
         0x2
         0x2
@@ -1326,7 +1326,7 @@
         0x2
     .end array-data
 
-    :array_17
+    :array_5ee
     .array-data 4
         0x3
         0x1
@@ -1336,7 +1336,7 @@
         0x1
     .end array-data
 
-    :array_18
+    :array_5fe
     .array-data 4
         0x3
         0x1
@@ -1346,7 +1346,7 @@
         0x2
     .end array-data
 
-    :array_19
+    :array_60e
     .array-data 4
         0x3
         0x2
@@ -1356,7 +1356,7 @@
         0x2
     .end array-data
 
-    :array_1a
+    :array_61e
     .array-data 4
         0x3
         0x2
@@ -1366,7 +1366,7 @@
         0x1
     .end array-data
 
-    :array_1b
+    :array_62e
     .array-data 4
         0x3
         0x1
@@ -1376,7 +1376,7 @@
         0x2
     .end array-data
 
-    :array_1c
+    :array_63e
     .array-data 4
         0x3
         0x2
@@ -1386,7 +1386,7 @@
         0x2
     .end array-data
 
-    :array_1d
+    :array_64e
     .array-data 4
         0x3
         0x2
@@ -1396,7 +1396,7 @@
         0x1
     .end array-data
 
-    :array_1e
+    :array_65e
     .array-data 4
         0x2
         0x1
@@ -1406,7 +1406,7 @@
         0x3
     .end array-data
 
-    :array_1f
+    :array_66e
     .array-data 4
         0x2
         0x1
@@ -1416,7 +1416,7 @@
         0x1
     .end array-data
 
-    :array_20
+    :array_67e
     .array-data 4
         0x2
         0x3
@@ -1426,7 +1426,7 @@
         0x1
     .end array-data
 
-    :array_21
+    :array_68e
     .array-data 4
         0x1
         0x1
@@ -1436,7 +1436,7 @@
         0x3
     .end array-data
 
-    :array_22
+    :array_69e
     .array-data 4
         0x1
         0x3
@@ -1446,7 +1446,7 @@
         0x3
     .end array-data
 
-    :array_23
+    :array_6ae
     .array-data 4
         0x1
         0x3
@@ -1456,7 +1456,7 @@
         0x1
     .end array-data
 
-    :array_24
+    :array_6be
     .array-data 4
         0x1
         0x1
@@ -1466,7 +1466,7 @@
         0x3
     .end array-data
 
-    :array_25
+    :array_6ce
     .array-data 4
         0x1
         0x3
@@ -1476,7 +1476,7 @@
         0x3
     .end array-data
 
-    :array_26
+    :array_6de
     .array-data 4
         0x1
         0x3
@@ -1486,7 +1486,7 @@
         0x1
     .end array-data
 
-    :array_27
+    :array_6ee
     .array-data 4
         0x2
         0x1
@@ -1496,7 +1496,7 @@
         0x3
     .end array-data
 
-    :array_28
+    :array_6fe
     .array-data 4
         0x2
         0x3
@@ -1506,7 +1506,7 @@
         0x3
     .end array-data
 
-    :array_29
+    :array_70e
     .array-data 4
         0x2
         0x3
@@ -1516,7 +1516,7 @@
         0x1
     .end array-data
 
-    :array_2a
+    :array_71e
     .array-data 4
         0x1
         0x1
@@ -1526,7 +1526,7 @@
         0x3
     .end array-data
 
-    :array_2b
+    :array_72e
     .array-data 4
         0x1
         0x1
@@ -1536,7 +1536,7 @@
         0x1
     .end array-data
 
-    :array_2c
+    :array_73e
     .array-data 4
         0x1
         0x3
@@ -1546,7 +1546,7 @@
         0x1
     .end array-data
 
-    :array_2d
+    :array_74e
     .array-data 4
         0x1
         0x1
@@ -1556,7 +1556,7 @@
         0x3
     .end array-data
 
-    :array_2e
+    :array_75e
     .array-data 4
         0x1
         0x1
@@ -1566,7 +1566,7 @@
         0x1
     .end array-data
 
-    :array_2f
+    :array_76e
     .array-data 4
         0x1
         0x3
@@ -1576,7 +1576,7 @@
         0x1
     .end array-data
 
-    :array_30
+    :array_77e
     .array-data 4
         0x3
         0x1
@@ -1586,7 +1586,7 @@
         0x1
     .end array-data
 
-    :array_31
+    :array_78e
     .array-data 4
         0x2
         0x1
@@ -1596,7 +1596,7 @@
         0x1
     .end array-data
 
-    :array_32
+    :array_79e
     .array-data 4
         0x2
         0x3
@@ -1606,7 +1606,7 @@
         0x1
     .end array-data
 
-    :array_33
+    :array_7ae
     .array-data 4
         0x2
         0x1
@@ -1616,7 +1616,7 @@
         0x3
     .end array-data
 
-    :array_34
+    :array_7be
     .array-data 4
         0x2
         0x1
@@ -1626,7 +1626,7 @@
         0x1
     .end array-data
 
-    :array_35
+    :array_7ce
     .array-data 4
         0x2
         0x1
@@ -1636,7 +1636,7 @@
         0x1
     .end array-data
 
-    :array_36
+    :array_7de
     .array-data 4
         0x3
         0x1
@@ -1646,7 +1646,7 @@
         0x3
     .end array-data
 
-    :array_37
+    :array_7ee
     .array-data 4
         0x3
         0x1
@@ -1656,7 +1656,7 @@
         0x1
     .end array-data
 
-    :array_38
+    :array_7fe
     .array-data 4
         0x3
         0x3
@@ -1666,7 +1666,7 @@
         0x1
     .end array-data
 
-    :array_39
+    :array_80e
     .array-data 4
         0x3
         0x1
@@ -1676,7 +1676,7 @@
         0x3
     .end array-data
 
-    :array_3a
+    :array_81e
     .array-data 4
         0x3
         0x1
@@ -1686,7 +1686,7 @@
         0x1
     .end array-data
 
-    :array_3b
+    :array_82e
     .array-data 4
         0x3
         0x3
@@ -1696,7 +1696,7 @@
         0x1
     .end array-data
 
-    :array_3c
+    :array_83e
     .array-data 4
         0x3
         0x1
@@ -1706,7 +1706,7 @@
         0x1
     .end array-data
 
-    :array_3d
+    :array_84e
     .array-data 4
         0x2
         0x2
@@ -1716,7 +1716,7 @@
         0x1
     .end array-data
 
-    :array_3e
+    :array_85e
     .array-data 4
         0x4
         0x3
@@ -1726,7 +1726,7 @@
         0x1
     .end array-data
 
-    :array_3f
+    :array_86e
     .array-data 4
         0x1
         0x1
@@ -1736,7 +1736,7 @@
         0x4
     .end array-data
 
-    :array_40
+    :array_87e
     .array-data 4
         0x1
         0x1
@@ -1746,7 +1746,7 @@
         0x2
     .end array-data
 
-    :array_41
+    :array_88e
     .array-data 4
         0x1
         0x2
@@ -1756,7 +1756,7 @@
         0x4
     .end array-data
 
-    :array_42
+    :array_89e
     .array-data 4
         0x1
         0x2
@@ -1766,7 +1766,7 @@
         0x1
     .end array-data
 
-    :array_43
+    :array_8ae
     .array-data 4
         0x1
         0x4
@@ -1776,7 +1776,7 @@
         0x2
     .end array-data
 
-    :array_44
+    :array_8be
     .array-data 4
         0x1
         0x4
@@ -1786,7 +1786,7 @@
         0x1
     .end array-data
 
-    :array_45
+    :array_8ce
     .array-data 4
         0x1
         0x1
@@ -1796,7 +1796,7 @@
         0x4
     .end array-data
 
-    :array_46
+    :array_8de
     .array-data 4
         0x1
         0x1
@@ -1806,7 +1806,7 @@
         0x2
     .end array-data
 
-    :array_47
+    :array_8ee
     .array-data 4
         0x1
         0x2
@@ -1816,7 +1816,7 @@
         0x4
     .end array-data
 
-    :array_48
+    :array_8fe
     .array-data 4
         0x1
         0x2
@@ -1826,7 +1826,7 @@
         0x1
     .end array-data
 
-    :array_49
+    :array_90e
     .array-data 4
         0x1
         0x4
@@ -1836,7 +1836,7 @@
         0x2
     .end array-data
 
-    :array_4a
+    :array_91e
     .array-data 4
         0x1
         0x4
@@ -1846,7 +1846,7 @@
         0x1
     .end array-data
 
-    :array_4b
+    :array_92e
     .array-data 4
         0x2
         0x4
@@ -1856,7 +1856,7 @@
         0x1
     .end array-data
 
-    :array_4c
+    :array_93e
     .array-data 4
         0x2
         0x2
@@ -1866,7 +1866,7 @@
         0x4
     .end array-data
 
-    :array_4d
+    :array_94e
     .array-data 4
         0x4
         0x1
@@ -1876,7 +1876,7 @@
         0x1
     .end array-data
 
-    :array_4e
+    :array_95e
     .array-data 4
         0x2
         0x4
@@ -1886,7 +1886,7 @@
         0x2
     .end array-data
 
-    :array_4f
+    :array_96e
     .array-data 4
         0x1
         0x3
@@ -1896,7 +1896,7 @@
         0x1
     .end array-data
 
-    :array_50
+    :array_97e
     .array-data 4
         0x1
         0x1
@@ -1906,7 +1906,7 @@
         0x2
     .end array-data
 
-    :array_51
+    :array_98e
     .array-data 4
         0x1
         0x2
@@ -1916,7 +1916,7 @@
         0x2
     .end array-data
 
-    :array_52
+    :array_99e
     .array-data 4
         0x1
         0x2
@@ -1926,7 +1926,7 @@
         0x1
     .end array-data
 
-    :array_53
+    :array_9ae
     .array-data 4
         0x1
         0x1
@@ -1936,7 +1936,7 @@
         0x2
     .end array-data
 
-    :array_54
+    :array_9be
     .array-data 4
         0x1
         0x2
@@ -1946,7 +1946,7 @@
         0x2
     .end array-data
 
-    :array_55
+    :array_9ce
     .array-data 4
         0x1
         0x2
@@ -1956,7 +1956,7 @@
         0x1
     .end array-data
 
-    :array_56
+    :array_9de
     .array-data 4
         0x4
         0x1
@@ -1966,7 +1966,7 @@
         0x2
     .end array-data
 
-    :array_57
+    :array_9ee
     .array-data 4
         0x4
         0x2
@@ -1976,7 +1976,7 @@
         0x2
     .end array-data
 
-    :array_58
+    :array_9fe
     .array-data 4
         0x4
         0x2
@@ -1986,7 +1986,7 @@
         0x1
     .end array-data
 
-    :array_59
+    :array_a0e
     .array-data 4
         0x2
         0x1
@@ -1996,7 +1996,7 @@
         0x1
     .end array-data
 
-    :array_5a
+    :array_a1e
     .array-data 4
         0x2
         0x1
@@ -2006,7 +2006,7 @@
         0x1
     .end array-data
 
-    :array_5b
+    :array_a2e
     .array-data 4
         0x4
         0x1
@@ -2016,7 +2016,7 @@
         0x1
     .end array-data
 
-    :array_5c
+    :array_a3e
     .array-data 4
         0x1
         0x1
@@ -2026,7 +2026,7 @@
         0x3
     .end array-data
 
-    :array_5d
+    :array_a4e
     .array-data 4
         0x1
         0x1
@@ -2036,7 +2036,7 @@
         0x1
     .end array-data
 
-    :array_5e
+    :array_a5e
     .array-data 4
         0x1
         0x3
@@ -2046,37 +2046,37 @@
         0x1
     .end array-data
 
-    :array_5f
+    :array_a6e
     .array-data 4
         0x1
         0x1
         0x4
-        0x1
-        0x1
-        0x3
-    .end array-data
-
-    :array_60
-    .array-data 4
-        0x1
-        0x1
-        0x4
-        0x3
-        0x1
-        0x1
-    .end array-data
-
-    :array_61
-    .array-data 4
-        0x4
-        0x1
-        0x1
         0x1
         0x1
         0x3
     .end array-data
 
-    :array_62
+    :array_a7e
+    .array-data 4
+        0x1
+        0x1
+        0x4
+        0x3
+        0x1
+        0x1
+    .end array-data
+
+    :array_a8e
+    .array-data 4
+        0x4
+        0x1
+        0x1
+        0x1
+        0x1
+        0x3
+    .end array-data
+
+    :array_a9e
     .array-data 4
         0x4
         0x1
@@ -2086,7 +2086,7 @@
         0x1
     .end array-data
 
-    :array_63
+    :array_aae
     .array-data 4
         0x1
         0x1
@@ -2096,7 +2096,7 @@
         0x1
     .end array-data
 
-    :array_64
+    :array_abe
     .array-data 4
         0x1
         0x1
@@ -2106,7 +2106,7 @@
         0x1
     .end array-data
 
-    :array_65
+    :array_ace
     .array-data 4
         0x3
         0x1
@@ -2116,7 +2116,7 @@
         0x1
     .end array-data
 
-    :array_66
+    :array_ade
     .array-data 4
         0x4
         0x1
@@ -2126,7 +2126,7 @@
         0x1
     .end array-data
 
-    :array_67
+    :array_aee
     .array-data 4
         0x2
         0x1
@@ -2136,7 +2136,7 @@
         0x2
     .end array-data
 
-    :array_68
+    :array_afe
     .array-data 4
         0x2
         0x1
@@ -2146,7 +2146,7 @@
         0x4
     .end array-data
 
-    :array_69
+    :array_b0e
     .array-data 4
         0x2
         0x1
@@ -2156,7 +2156,7 @@
         0x2
     .end array-data
 
-    :array_6a
+    :array_b1e
     .array-data 4
         0x2
         0x3
@@ -2169,7 +2169,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Lcom/google/zxing/oned/OneDReader;-><init>()V
@@ -2178,7 +2178,7 @@
 .end method
 
 .method private static decodeCode(Lcom/google/zxing/common/BitArray;[II)I
-    .locals 6
+    .registers 9
     .param p0, "row"    # Lcom/google/zxing/common/BitArray;
     .param p1, "counters"    # [I
     .param p2, "rowOffset"    # I
@@ -2205,12 +2205,12 @@
     .local v2, "d":I
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_8
     sget-object v4, Lcom/google/zxing/oned/Code128Reader;->CODE_PATTERNS:[[I
 
     array-length v4, v4
 
-    if-ge v2, v4, :cond_1
+    if-ge v2, v4, :cond_22
 
     .line 220
     sget-object v4, Lcom/google/zxing/oned/Code128Reader;->CODE_PATTERNS:[[I
@@ -2231,7 +2231,7 @@
 
     cmpg-float v5, v5, v0
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_1f
 
     .line 223
     move v0, v3
@@ -2242,21 +2242,21 @@
     .line 219
     .end local v3    # "variance":F
     .end local v4    # "pattern":[I
-    :cond_0
+    :cond_1f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 228
     .end local v2    # "d":I
-    :cond_1
-    if-ltz v1, :cond_2
+    :cond_22
+    if-ltz v1, :cond_25
 
     .line 229
     return v1
 
     .line 231
-    :cond_2
+    :cond_25
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v2
@@ -2265,7 +2265,7 @@
 .end method
 
 .method private static findStartPattern(Lcom/google/zxing/common/BitArray;)[I
-    .locals 15
+    .registers 16
     .param p0, "row"    # Lcom/google/zxing/common/BitArray;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2311,8 +2311,8 @@
     .local v7, "i":I
     const/4 v8, 0x0
 
-    :goto_0
-    if-ge v7, v0, :cond_6
+    :goto_11
+    if-ge v7, v0, :cond_79
 
     .line 180
     invoke-virtual {p0, v7}, Lcom/google/zxing/common/BitArray;->get(I)Z
@@ -2321,7 +2321,7 @@
 
     const/4 v10, 0x1
 
-    if-eq v9, v6, :cond_0
+    if-eq v9, v6, :cond_20
 
     .line 181
     aget v9, v4, v3
@@ -2330,13 +2330,13 @@
 
     aput v9, v4, v3
 
-    goto :goto_4
+    goto :goto_76
 
     .line 183
-    :cond_0
+    :cond_20
     const/4 v9, 0x5
 
-    if-ne v3, v9, :cond_4
+    if-ne v3, v9, :cond_6d
 
     .line 184
     const/high16 v9, 0x3e800000    # 0.25f
@@ -2350,10 +2350,10 @@
     const/16 v12, 0x67
 
     .local v12, "startCode":I
-    :goto_1
+    :goto_28
     const/16 v13, 0x69
 
-    if-gt v12, v13, :cond_2
+    if-gt v12, v13, :cond_41
 
     .line 187
     sget-object v13, Lcom/google/zxing/oned/Code128Reader;->CODE_PATTERNS:[[I
@@ -2372,7 +2372,7 @@
 
     cmpg-float v13, v13, v9
 
-    if-gez v13, :cond_1
+    if-gez v13, :cond_3e
 
     .line 190
     move v9, v8
@@ -2382,17 +2382,17 @@
 
     .line 186
     .end local v8    # "variance":F
-    :cond_1
+    :cond_3e
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_1
+    goto :goto_28
 
     .line 195
     .end local v12    # "startCode":I
-    :cond_2
+    :cond_41
     const/4 v12, 0x2
 
-    if-ltz v11, :cond_3
+    if-ltz v11, :cond_58
 
     sub-int v13, v7, v5
 
@@ -2409,7 +2409,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_3
+    if-eqz v13, :cond_58
 
     .line 197
     filled-new-array {v5, v7, v11}, [I
@@ -2419,7 +2419,7 @@
     return-object v1
 
     .line 199
-    :cond_3
+    :cond_58
     aget v13, v4, v1
 
     aget v14, v4, v10
@@ -2449,36 +2449,36 @@
     add-int/lit8 v3, v3, -0x1
 
     .line 204
-    goto :goto_2
+    goto :goto_6f
 
     .line 205
-    :cond_4
+    :cond_6d
     add-int/lit8 v3, v3, 0x1
 
     .line 207
-    :goto_2
+    :goto_6f
     aput v10, v4, v3
 
     .line 208
-    if-nez v6, :cond_5
+    if-nez v6, :cond_74
 
-    goto :goto_3
+    goto :goto_75
 
-    :cond_5
+    :cond_74
     const/4 v10, 0x0
 
-    :goto_3
+    :goto_75
     move v6, v10
 
     .line 179
-    :goto_4
+    :goto_76
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 211
     .end local v7    # "i":I
-    :cond_6
+    :cond_79
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v1
@@ -2489,7 +2489,7 @@
 
 # virtual methods
 .method public decodeRow(ILcom/google/zxing/common/BitArray;Ljava/util/Map;)Lcom/google/zxing/Result;
-    .locals 24
+    .registers 28
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -2518,7 +2518,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     sget-object v4, Lcom/google/zxing/DecodeHintType;->ASSUME_GS1:Lcom/google/zxing/DecodeHintType;
 
@@ -2526,17 +2526,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
     .line 241
-    :goto_0
+    :goto_13
     invoke-static/range {p2 .. p2}, Lcom/google/zxing/oned/Code128Reader;->findStartPattern(Lcom/google/zxing/common/BitArray;)[I
 
     move-result-object v4
@@ -2563,7 +2563,7 @@
     invoke-interface {v7, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 248
-    packed-switch v6, :pswitch_data_0
+    packed-switch v6, :pswitch_data_292
 
     .line 259
     invoke-static {}, Lcom/google/zxing/FormatException;->getFormatInstance()Lcom/google/zxing/FormatException;
@@ -2573,32 +2573,32 @@
     throw v0
 
     .line 256
-    :pswitch_0
+    :pswitch_31
     nop
 
     .line 257
     const/16 v12, 0x63
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 253
-    :pswitch_1
+    :pswitch_35
     nop
 
     .line 254
     const/16 v12, 0x64
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 250
-    :pswitch_2
+    :pswitch_39
     nop
 
     .line 251
     const/16 v12, 0x65
 
     .line 262
-    :goto_1
+    :goto_3c
     nop
 
     .line 263
@@ -2662,8 +2662,8 @@
     move/from16 v14, v23
 
     .line 279
-    :goto_2
-    if-nez v16, :cond_1b
+    :goto_63
+    if-nez v16, :cond_1fc
 
     .line 281
     nop
@@ -2691,14 +2691,14 @@
     .line 293
     const/16 v5, 0x6a
 
-    if-eq v12, v5, :cond_1
+    if-eq v12, v5, :cond_7a
 
     .line 294
     const/16 v17, 0x1
 
     .line 298
-    :cond_1
-    if-eq v12, v5, :cond_2
+    :cond_7a
+    if-eq v12, v5, :cond_82
 
     .line 299
     add-int/lit8 v20, v20, 0x1
@@ -2709,7 +2709,7 @@
     add-int v6, v6, v21
 
     .line 304
-    :cond_2
+    :cond_82
     nop
 
     .line 305
@@ -2717,8 +2717,8 @@
 
     const/4 v11, 0x0
 
-    :goto_3
-    if-ge v11, v15, :cond_3
+    :goto_86
+    if-ge v11, v15, :cond_8f
 
     aget v22, v2, v11
 
@@ -2728,25 +2728,25 @@
     .line 305
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_3
+    goto :goto_86
 
     .line 310
-    :cond_3
-    packed-switch v12, :pswitch_data_1
+    :cond_8f
+    packed-switch v12, :pswitch_data_29c
 
     .line 317
     const/16 v11, 0x60
 
     const-string v15, "]C1"
 
-    packed-switch v14, :pswitch_data_2
+    packed-switch v14, :pswitch_data_2a6
 
     const/16 v10, 0x64
 
-    goto/16 :goto_a
+    goto/16 :goto_1de
 
     .line 314
-    :pswitch_3
+    :pswitch_9d
     invoke-static {}, Lcom/google/zxing/FormatException;->getFormatInstance()Lcom/google/zxing/FormatException;
 
     move-result-object v0
@@ -2754,13 +2754,13 @@
     throw v0
 
     .line 320
-    :pswitch_4
+    :pswitch_a2
     const/16 v10, 0x40
 
-    if-ge v12, v10, :cond_5
+    if-ge v12, v10, :cond_bd
 
     .line 321
-    if-ne v9, v3, :cond_4
+    if-ne v9, v3, :cond_af
 
     .line 322
     add-int/lit8 v5, v12, 0x20
@@ -2769,10 +2769,10 @@
 
     invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    goto :goto_b7
 
     .line 324
-    :cond_4
+    :cond_af
     add-int/lit8 v5, v12, 0x20
 
     add-int/lit16 v5, v5, 0x80
@@ -2782,21 +2782,21 @@
     invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 326
-    :goto_4
+    :goto_b7
     const/4 v5, 0x0
 
     const/4 v9, 0x0
 
     const/16 v10, 0x64
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 327
-    :cond_5
-    if-ge v12, v11, :cond_7
+    :cond_bd
+    if-ge v12, v11, :cond_d4
 
     .line 328
-    if-ne v9, v3, :cond_6
+    if-ne v9, v3, :cond_c8
 
     .line 329
     add-int/lit8 v5, v12, -0x40
@@ -2805,10 +2805,10 @@
 
     invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_5
+    goto :goto_ce
 
     .line 331
-    :cond_6
+    :cond_c8
     add-int/lit8 v5, v12, 0x40
 
     int-to-char v5, v5
@@ -2816,64 +2816,64 @@
     invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 333
-    :goto_5
+    :goto_ce
     const/4 v5, 0x0
 
     const/4 v9, 0x0
 
     const/16 v10, 0x64
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 337
-    :cond_7
-    if-eq v12, v5, :cond_8
+    :cond_d4
+    if-eq v12, v5, :cond_d8
 
     .line 338
     const/16 v17, 0x0
 
     .line 340
-    :cond_8
-    packed-switch v12, :pswitch_data_3
+    :cond_d8
+    packed-switch v12, :pswitch_data_2b0
 
-    :pswitch_5
-    goto :goto_6
+    :pswitch_db
+    goto :goto_12d
 
     .line 379
-    :pswitch_6
+    :pswitch_dc
     const/16 v16, 0x1
 
-    goto :goto_6
+    goto :goto_12d
 
     .line 342
-    :pswitch_7
-    if-eqz v1, :cond_c
+    :pswitch_df
+    if-eqz v1, :cond_12d
 
     .line 343
     invoke-virtual {v13}, Ljava/lang/StringBuilder;->length()I
 
     move-result v5
 
-    if-nez v5, :cond_9
+    if-nez v5, :cond_ec
 
     .line 346
     invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_8
+    goto/16 :goto_19d
 
     .line 349
-    :cond_9
+    :cond_ec
     const/16 v5, 0x1d
 
     invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_8
+    goto/16 :goto_19d
 
     .line 358
-    :pswitch_8
-    if-nez v3, :cond_a
+    :pswitch_f3
+    if-nez v3, :cond_ff
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_ff
 
     .line 359
     nop
@@ -2887,13 +2887,13 @@
 
     const/16 v10, 0x64
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 361
-    :cond_a
-    if-eqz v3, :cond_b
+    :cond_ff
+    if-eqz v3, :cond_10b
 
-    if-eqz v9, :cond_b
+    if-eqz v9, :cond_10b
 
     .line 362
     nop
@@ -2907,10 +2907,10 @@
 
     const/16 v10, 0x64
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 365
-    :cond_b
+    :cond_10b
     nop
 
     .line 367
@@ -2920,10 +2920,10 @@
 
     const/16 v10, 0x64
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 373
-    :pswitch_9
+    :pswitch_112
     nop
 
     .line 374
@@ -2933,10 +2933,10 @@
 
     const/16 v14, 0x64
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 376
-    :pswitch_a
+    :pswitch_11a
     nop
 
     .line 377
@@ -2946,10 +2946,10 @@
 
     const/16 v14, 0x63
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 369
-    :pswitch_b
+    :pswitch_122
     nop
 
     .line 370
@@ -2962,27 +2962,27 @@
 
     const/16 v14, 0x64
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 356
-    :pswitch_c
-    goto/16 :goto_8
+    :pswitch_12b
+    goto/16 :goto_19d
 
     .line 383
-    :cond_c
-    :goto_6
+    :cond_12d
+    :goto_12d
     const/4 v5, 0x0
 
     const/16 v10, 0x64
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 385
-    :pswitch_d
-    if-ge v12, v11, :cond_e
+    :pswitch_132
+    if-ge v12, v11, :cond_14b
 
     .line 386
-    if-ne v9, v3, :cond_d
+    if-ne v9, v3, :cond_13d
 
     .line 387
     add-int/lit8 v5, v12, 0x20
@@ -2991,10 +2991,10 @@
 
     invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_7
+    goto :goto_145
 
     .line 389
-    :cond_d
+    :cond_13d
     add-int/lit8 v5, v12, 0x20
 
     add-int/lit16 v5, v5, 0x80
@@ -3004,61 +3004,61 @@
     invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 391
-    :goto_7
+    :goto_145
     const/4 v5, 0x0
 
     const/4 v9, 0x0
 
     const/16 v10, 0x64
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 393
-    :cond_e
-    if-eq v12, v5, :cond_f
+    :cond_14b
+    if-eq v12, v5, :cond_14f
 
     .line 394
     const/16 v17, 0x0
 
     .line 396
-    :cond_f
-    packed-switch v12, :pswitch_data_4
+    :cond_14f
+    packed-switch v12, :pswitch_data_2ca
 
-    :pswitch_e
-    goto :goto_9
+    :pswitch_152
+    goto :goto_1a1
 
     .line 435
-    :pswitch_f
+    :pswitch_153
     const/16 v16, 0x1
 
-    goto :goto_9
+    goto :goto_1a1
 
     .line 398
-    :pswitch_10
-    if-eqz v1, :cond_13
+    :pswitch_156
+    if-eqz v1, :cond_1a1
 
     .line 399
     invoke-virtual {v13}, Ljava/lang/StringBuilder;->length()I
 
     move-result v5
 
-    if-nez v5, :cond_10
+    if-nez v5, :cond_162
 
     .line 402
     invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_8
+    goto :goto_19d
 
     .line 405
-    :cond_10
+    :cond_162
     const/16 v5, 0x1d
 
     invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_8
+    goto :goto_19d
 
     .line 429
-    :pswitch_11
+    :pswitch_168
     nop
 
     .line 430
@@ -3068,13 +3068,13 @@
 
     const/16 v14, 0x65
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 414
-    :pswitch_12
-    if-nez v3, :cond_11
+    :pswitch_170
+    if-nez v3, :cond_17c
 
-    if-eqz v9, :cond_11
+    if-eqz v9, :cond_17c
 
     .line 415
     nop
@@ -3088,13 +3088,13 @@
 
     const/16 v10, 0x64
 
-    goto/16 :goto_b
+    goto/16 :goto_1df
 
     .line 417
-    :cond_11
-    if-eqz v3, :cond_12
+    :cond_17c
+    if-eqz v3, :cond_187
 
-    if-eqz v9, :cond_12
+    if-eqz v9, :cond_187
 
     .line 418
     nop
@@ -3108,10 +3108,10 @@
 
     const/16 v10, 0x64
 
-    goto :goto_b
+    goto :goto_1df
 
     .line 421
-    :cond_12
+    :cond_187
     nop
 
     .line 423
@@ -3121,10 +3121,10 @@
 
     const/16 v10, 0x64
 
-    goto :goto_b
+    goto :goto_1df
 
     .line 432
-    :pswitch_13
+    :pswitch_18d
     nop
 
     .line 433
@@ -3134,10 +3134,10 @@
 
     const/16 v14, 0x63
 
-    goto :goto_b
+    goto :goto_1df
 
     .line 425
-    :pswitch_14
+    :pswitch_194
     nop
 
     .line 426
@@ -3150,39 +3150,39 @@
 
     const/16 v14, 0x65
 
-    goto :goto_b
+    goto :goto_1df
 
     .line 412
-    :pswitch_15
+    :pswitch_19c
     nop
 
     .line 478
-    :goto_8
+    :goto_19d
     const/4 v5, 0x0
 
     const/16 v10, 0x64
 
-    goto :goto_b
+    goto :goto_1df
 
     .line 439
-    :cond_13
-    :goto_9
+    :cond_1a1
+    :goto_1a1
     const/4 v5, 0x0
 
     const/16 v10, 0x64
 
-    goto :goto_b
+    goto :goto_1df
 
     .line 441
-    :pswitch_16
+    :pswitch_1a5
     const/16 v10, 0x64
 
-    if-ge v12, v10, :cond_15
+    if-ge v12, v10, :cond_1b6
 
     .line 442
     const/16 v5, 0xa
 
-    if-ge v12, v5, :cond_14
+    if-ge v12, v5, :cond_1b2
 
     .line 443
     const/16 v5, 0x30
@@ -3190,59 +3190,59 @@
     invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 445
-    :cond_14
+    :cond_1b2
     invoke-virtual {v13, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto :goto_a
+    goto :goto_1de
 
     .line 447
-    :cond_15
-    if-eq v12, v5, :cond_16
+    :cond_1b6
+    if-eq v12, v5, :cond_1ba
 
     .line 448
     const/16 v17, 0x0
 
     .line 450
-    :cond_16
-    packed-switch v12, :pswitch_data_5
+    :cond_1ba
+    packed-switch v12, :pswitch_data_2e4
 
-    :pswitch_17
-    goto :goto_a
+    :pswitch_1bd
+    goto :goto_1de
 
     .line 470
-    :pswitch_18
+    :pswitch_1be
     const/4 v5, 0x0
 
     const/16 v16, 0x1
 
-    goto :goto_b
+    goto :goto_1df
 
     .line 452
-    :pswitch_19
-    if-eqz v1, :cond_18
+    :pswitch_1c2
+    if-eqz v1, :cond_1de
 
     .line 453
     invoke-virtual {v13}, Ljava/lang/StringBuilder;->length()I
 
     move-result v5
 
-    if-nez v5, :cond_17
+    if-nez v5, :cond_1ce
 
     .line 456
     invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_a
+    goto :goto_1de
 
     .line 459
-    :cond_17
+    :cond_1ce
     const/16 v5, 0x1d
 
     invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_a
+    goto :goto_1de
 
     .line 464
-    :pswitch_1a
+    :pswitch_1d4
     nop
 
     .line 465
@@ -3250,10 +3250,10 @@
 
     const/16 v14, 0x65
 
-    goto :goto_b
+    goto :goto_1df
 
     .line 467
-    :pswitch_1b
+    :pswitch_1d9
     nop
 
     .line 468
@@ -3261,36 +3261,36 @@
 
     const/16 v14, 0x64
 
-    goto :goto_b
+    goto :goto_1df
 
     .line 478
-    :cond_18
-    :goto_a
+    :cond_1de
+    :goto_1de
     const/4 v5, 0x0
 
-    :goto_b
-    if-eqz v18, :cond_1a
+    :goto_1df
+    if-eqz v18, :cond_1eb
 
     .line 479
     const/16 v11, 0x65
 
-    if-ne v14, v11, :cond_19
+    if-ne v14, v11, :cond_1e8
 
     const/16 v14, 0x64
 
-    goto :goto_c
+    goto :goto_1ed
 
-    :cond_19
+    :cond_1e8
     const/16 v14, 0x65
 
-    goto :goto_c
+    goto :goto_1ed
 
     .line 478
-    :cond_1a
+    :cond_1eb
     const/16 v11, 0x65
 
     .line 482
-    :goto_c
+    :goto_1ed
     move/from16 v18, v5
 
     const/4 v5, 0x2
@@ -3307,10 +3307,10 @@
 
     move/from16 v19, v23
 
-    goto/16 :goto_2
+    goto/16 :goto_63
 
     .line 484
-    :cond_1b
+    :cond_1fc
     sub-int v1, v8, v12
 
     .line 489
@@ -3345,7 +3345,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_28d
 
     .line 497
     move/from16 v3, v21
@@ -3357,7 +3357,7 @@
     .line 499
     rem-int/lit8 v6, v6, 0x67
 
-    if-ne v6, v3, :cond_20
+    if-ne v6, v3, :cond_288
 
     .line 504
     invoke-virtual {v13}, Ljava/lang/StringBuilder;->length()I
@@ -3365,34 +3365,34 @@
     move-result v0
 
     .line 505
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_283
 
     .line 512
-    if-lez v0, :cond_1d
+    if-lez v0, :cond_23a
 
-    if-eqz v17, :cond_1d
+    if-eqz v17, :cond_23a
 
     .line 513
     const/16 v2, 0x63
 
-    if-ne v14, v2, :cond_1c
+    if-ne v14, v2, :cond_235
 
     .line 514
     add-int/lit8 v2, v0, -0x2
 
     invoke-virtual {v13, v2, v0}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    goto :goto_d
+    goto :goto_23a
 
     .line 516
-    :cond_1c
+    :cond_235
     add-int/lit8 v2, v0, -0x1
 
     invoke-virtual {v13, v2, v0}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
     .line 520
-    :cond_1d
-    :goto_d
+    :cond_23a
+    :goto_23a
     const/4 v0, 0x1
 
     aget v2, v4, v0
@@ -3429,8 +3429,8 @@
     .line 525
     const/4 v5, 0x0
 
-    :goto_e
-    if-ge v5, v1, :cond_1e
+    :goto_250
+    if-ge v5, v1, :cond_261
 
     .line 526
     invoke-interface {v7, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -3448,10 +3448,10 @@
     .line 525
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_e
+    goto :goto_250
 
     .line 529
-    :cond_1e
+    :cond_261
     new-instance v1, Lcom/google/zxing/Result;
 
     .line 530
@@ -3491,7 +3491,7 @@
     return-object v1
 
     .line 507
-    :cond_1f
+    :cond_283
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v0
@@ -3499,7 +3499,7 @@
     throw v0
 
     .line 500
-    :cond_20
+    :cond_288
     invoke-static {}, Lcom/google/zxing/ChecksumException;->getChecksumInstance()Lcom/google/zxing/ChecksumException;
 
     move-result-object v0
@@ -3507,72 +3507,72 @@
     throw v0
 
     .line 493
-    :cond_21
+    :cond_28d
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v0
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_292
     .packed-switch 0x67
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_39
+        :pswitch_35
+        :pswitch_31
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_29c
     .packed-switch 0x67
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
+        :pswitch_9d
+        :pswitch_9d
+        :pswitch_9d
     .end packed-switch
 
-    :pswitch_data_2
+    :pswitch_data_2a6
     .packed-switch 0x63
-        :pswitch_16
-        :pswitch_d
-        :pswitch_4
+        :pswitch_1a5
+        :pswitch_132
+        :pswitch_a2
     .end packed-switch
 
-    :pswitch_data_3
+    :pswitch_data_2b0
     .packed-switch 0x60
-        :pswitch_c
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_5
-        :pswitch_5
-        :pswitch_5
-        :pswitch_6
+        :pswitch_12b
+        :pswitch_12b
+        :pswitch_122
+        :pswitch_11a
+        :pswitch_112
+        :pswitch_f3
+        :pswitch_df
+        :pswitch_db
+        :pswitch_db
+        :pswitch_db
+        :pswitch_dc
     .end packed-switch
 
-    :pswitch_data_4
+    :pswitch_data_2ca
     .packed-switch 0x60
-        :pswitch_15
-        :pswitch_15
-        :pswitch_14
-        :pswitch_13
-        :pswitch_12
-        :pswitch_11
-        :pswitch_10
-        :pswitch_e
-        :pswitch_e
-        :pswitch_e
-        :pswitch_f
+        :pswitch_19c
+        :pswitch_19c
+        :pswitch_194
+        :pswitch_18d
+        :pswitch_170
+        :pswitch_168
+        :pswitch_156
+        :pswitch_152
+        :pswitch_152
+        :pswitch_152
+        :pswitch_153
     .end packed-switch
 
-    :pswitch_data_5
+    :pswitch_data_2e4
     .packed-switch 0x64
-        :pswitch_1b
-        :pswitch_1a
-        :pswitch_19
-        :pswitch_17
-        :pswitch_17
-        :pswitch_17
-        :pswitch_18
+        :pswitch_1d9
+        :pswitch_1d4
+        :pswitch_1c2
+        :pswitch_1bd
+        :pswitch_1bd
+        :pswitch_1bd
+        :pswitch_1be
     .end packed-switch
 .end method

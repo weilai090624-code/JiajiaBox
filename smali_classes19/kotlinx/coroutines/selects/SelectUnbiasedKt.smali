@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final selectUnbiased(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -85,7 +85,7 @@
 .end method
 
 .method private static final selectUnbiased$$forInline(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p0, "builder"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;

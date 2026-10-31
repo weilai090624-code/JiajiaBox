@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,7 +53,7 @@
     .line 40
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_4
     move-object v1, v0
 
     check-cast v1, [Ljava/lang/Class;
@@ -63,8 +63,8 @@
     move-result-object v0
 
     iput-object v0, p0, Lorg/objenesis/instantiator/basic/ConstructorInstantiator;->constructor:Ljava/lang/reflect/Constructor;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_d} :catch_f
 
     .line 44
     nop
@@ -73,7 +73,7 @@
     return-void
 
     .line 42
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 43
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -109,13 +109,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_a} :catch_b
 
     return-object v0
 
     .line 51
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 52

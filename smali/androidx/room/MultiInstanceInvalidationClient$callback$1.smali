@@ -44,7 +44,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$J77IKsfKUHkV39IbvPEBkb2BFYg(Landroidx/room/MultiInstanceInvalidationClient;[Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/room/MultiInstanceInvalidationClient$callback$1;->onInvalidation$lambda$0(Landroidx/room/MultiInstanceInvalidationClient;[Ljava/lang/String;)V
 
@@ -52,7 +52,7 @@
 .end method
 
 .method constructor <init>(Landroidx/room/MultiInstanceInvalidationClient;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/room/MultiInstanceInvalidationClient;
 
     iput-object p1, p0, Landroidx/room/MultiInstanceInvalidationClient$callback$1;->this$0:Landroidx/room/MultiInstanceInvalidationClient;
@@ -64,7 +64,7 @@
 .end method
 
 .method private static final onInvalidation$lambda$0(Landroidx/room/MultiInstanceInvalidationClient;[Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Landroidx/room/MultiInstanceInvalidationClient;
     .param p1, "$tables"    # [Ljava/lang/String;
 
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public onInvalidation([Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "tables"    # [Ljava/lang/String;
 
     const-string/jumbo v0, "tables"

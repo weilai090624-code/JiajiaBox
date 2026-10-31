@@ -106,7 +106,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$VQUVr_dYWOjGVr4ju096s2kI-3k(Landroidx/navigation/fragment/DialogFragmentNavigator;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/navigation/fragment/DialogFragmentNavigator;->observer$lambda-3(Landroidx/navigation/fragment/DialogFragmentNavigator;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$oy64nBVrXn_2q6fQ0lG6hFLv40E(Landroidx/navigation/fragment/DialogFragmentNavigator;Landroidx/fragment/app/FragmentManager;Landroidx/fragment/app/Fragment;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/navigation/fragment/DialogFragmentNavigator;->onAttach$lambda-5(Landroidx/navigation/fragment/DialogFragmentNavigator;Landroidx/fragment/app/FragmentManager;Landroidx/fragment/app/Fragment;)V
 
@@ -122,7 +122,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/navigation/fragment/DialogFragmentNavigator$Companion;
 
@@ -136,7 +136,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/fragment/app/FragmentManager;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "fragmentManager"    # Landroidx/fragment/app/FragmentManager;
 
@@ -178,7 +178,7 @@
 .end method
 
 .method private final navigate(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 6
+    .registers 8
     .param p1, "entry"    # Landroidx/navigation/NavBackStackEntry;
 
     .line 125
@@ -204,7 +204,7 @@
 
     const/16 v3, 0x2e
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_2a
 
     .line 128
     new-instance v2, Ljava/lang/StringBuilder;
@@ -230,7 +230,7 @@
     move-result-object v1
 
     .line 130
-    :cond_0
+    :cond_2a
     iget-object v2, p0, Landroidx/navigation/fragment/DialogFragmentNavigator;->fragmentManager:Landroidx/fragment/app/FragmentManager;
 
     invoke-virtual {v2}, Landroidx/fragment/app/FragmentManager;->getFragmentFactory()Landroidx/fragment/app/FragmentFactory;
@@ -265,7 +265,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_71
 
     .line 136
     move-object v3, v2
@@ -312,7 +312,7 @@
 
     .line 133
     .end local v3    # "dialogFragment":Landroidx/fragment/app/DialogFragment;
-    :cond_1
+    :cond_71
     const/4 v3, 0x0
 
     .line 134
@@ -359,7 +359,7 @@
 .end method
 
 .method private static final observer$lambda-3(Landroidx/navigation/fragment/DialogFragmentNavigator;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 11
+    .registers 14
     .param p0, "this$0"    # Landroidx/navigation/fragment/DialogFragmentNavigator;
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
@@ -381,7 +381,7 @@
 
     const/4 v1, 0x0
 
-    if-ne p2, v0, :cond_3
+    if-ne p2, v0, :cond_61
 
     .line 49
     move-object v0, p1
@@ -411,7 +411,7 @@
     .local v3, "$i$f$any":I
     instance-of v4, v2, Ljava/util/Collection;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_36
 
     move-object v4, v2
 
@@ -421,22 +421,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_36
 
-    goto :goto_0
+    goto :goto_59
 
     .line 237
-    :cond_0
+    :cond_36
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :cond_1
+    :cond_3a
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_58
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -466,39 +466,39 @@
 
     .end local v6    # "it":Landroidx/navigation/NavBackStackEntry;
     .end local v7    # "$i$a$-any-DialogFragmentNavigator$observer$1$dialogOnBackStack$1":I
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_3a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_59
 
     .line 238
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_58
     nop
 
     .line 50
     .end local v2    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v3    # "$i$f$any":I
-    :goto_0
+    :goto_59
     nop
 
     .line 51
     .local v1, "dialogOnBackStack":Z
-    if-nez v1, :cond_8
+    if-nez v1, :cond_fb
 
     .line 56
     invoke-virtual {v0}, Landroidx/fragment/app/DialogFragment;->dismiss()V
 
     .end local v0    # "dialogFragment":Landroidx/fragment/app/DialogFragment;
     .end local v1    # "dialogOnBackStack":Z
-    goto/16 :goto_2
+    goto/16 :goto_fb
 
     .line 58
-    :cond_3
+    :cond_61
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_8
+    if-ne p2, v0, :cond_fb
 
     .line 59
     move-object v0, p1
@@ -515,7 +515,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_fb
 
     .line 61
     invoke-virtual {p0}, Landroidx/navigation/fragment/DialogFragmentNavigator;->getState()Landroidx/navigation/NavigatorState;
@@ -551,12 +551,12 @@
 
     .line 240
     .local v5, "iterator$iv":Ljava/util/ListIterator;
-    :cond_4
+    :cond_8a
     invoke-interface {v5}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_a7
 
     .line 241
     invoke-interface {v5}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -588,23 +588,23 @@
 
     .end local v7    # "it":Landroidx/navigation/NavBackStackEntry;
     .end local v8    # "$i$a$-lastOrNull-DialogFragmentNavigator$observer$1$poppedEntry$1":I
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_8a
 
-    goto :goto_1
+    goto :goto_a8
 
     .line 244
     .end local v6    # "element$iv":Ljava/lang/Object;
-    :cond_5
+    :cond_a7
     const/4 v6, 0x0
 
     .line 62
     .end local v3    # "$this$lastOrNull$iv":Ljava/util/List;
     .end local v4    # "$i$f$lastOrNull":I
     .end local v5    # "iterator$iv":Ljava/util/ListIterator;
-    :goto_1
+    :goto_a8
     const-string v3, "Dialog "
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_d9
 
     move-object v4, v6
 
@@ -620,7 +620,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_d5
 
     .line 70
     new-instance v5, Ljava/lang/StringBuilder;
@@ -651,14 +651,14 @@
     invoke-static {v5, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 74
-    :cond_6
+    :cond_d5
     invoke-virtual {p0, v4, v1}, Landroidx/navigation/fragment/DialogFragmentNavigator;->popBackStack(Landroidx/navigation/NavBackStackEntry;Z)V
 
-    goto :goto_2
+    goto :goto_fb
 
     .line 62
     .end local v4    # "poppedEntry":Landroidx/navigation/NavBackStackEntry;
-    :cond_7
+    :cond_d9
     const/4 v1, 0x0
 
     .line 65
@@ -700,13 +700,13 @@
     .line 77
     .end local v0    # "dialogFragment":Landroidx/fragment/app/DialogFragment;
     .end local v2    # "beforePopList":Ljava/util/List;
-    :cond_8
-    :goto_2
+    :cond_fb
+    :goto_fb
     return-void
 .end method
 
 .method private static final onAttach$lambda-5(Landroidx/navigation/fragment/DialogFragmentNavigator;Landroidx/fragment/app/FragmentManager;Landroidx/fragment/app/Fragment;)V
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Landroidx/navigation/fragment/DialogFragmentNavigator;
     .param p2, "childFragment"    # Landroidx/fragment/app/Fragment;
 
@@ -741,7 +741,7 @@
 
     .line 153
     .local p1, "needToAddObserver":Z
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2d
 
     .line 154
     invoke-virtual {p2}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
@@ -755,14 +755,14 @@
     invoke-virtual {v0, v1}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     .line 156
-    :cond_0
+    :cond_2d
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic createDestination()Landroidx/navigation/NavDestination;
-    .locals 1
+    .registers 2
 
     .line 41
     invoke-virtual {p0}, Landroidx/navigation/fragment/DialogFragmentNavigator;->createDestination()Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;
@@ -775,7 +775,7 @@
 .end method
 
 .method public createDestination()Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;
-    .locals 2
+    .registers 3
 
     .line 105
     new-instance v0, Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;
@@ -790,7 +790,7 @@
 .end method
 
 .method public navigate(Ljava/util/List;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)V
-    .locals 2
+    .registers 6
     .param p1, "entries"    # Ljava/util/List;
     .param p2, "navOptions"    # Landroidx/navigation/NavOptions;
     .param p3, "navigatorExtras"    # Landroidx/navigation/Navigator$Extras;
@@ -817,7 +817,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 114
     const-string v0, "DialogFragmentNavigator"
@@ -830,17 +830,17 @@
     return-void
 
     .line 117
-    :cond_0
+    :cond_15
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_19
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_29
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -853,15 +853,15 @@
     invoke-direct {p0, v1}, Landroidx/navigation/fragment/DialogFragmentNavigator;->navigate(Landroidx/navigation/NavBackStackEntry;)V
 
     .end local v1    # "entry":Landroidx/navigation/NavBackStackEntry;
-    goto :goto_0
+    goto :goto_19
 
     .line 120
-    :cond_1
+    :cond_29
     return-void
 .end method
 
 .method public onAttach(Landroidx/navigation/NavigatorState;)V
-    .locals 5
+    .registers 7
     .param p1, "state"    # Landroidx/navigation/NavigatorState;
 
     const-string/jumbo v0, "state"
@@ -886,12 +886,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_17
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -919,13 +919,13 @@
 
     .line 148
     .local v2, "fragment":Landroidx/fragment/app/DialogFragment;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_40
 
     invoke-virtual {v2}, Landroidx/fragment/app/DialogFragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_40
 
     iget-object v4, p0, Landroidx/navigation/fragment/DialogFragmentNavigator;->observer:Landroidx/lifecycle/LifecycleEventObserver;
 
@@ -933,10 +933,10 @@
 
     invoke-virtual {v3, v4}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 149
-    :cond_0
+    :cond_40
     iget-object v3, p0, Landroidx/navigation/fragment/DialogFragmentNavigator;->restoredTagsAwaitingAttach:Ljava/util/Set;
 
     invoke-virtual {v1}, Landroidx/navigation/NavBackStackEntry;->getId()Ljava/lang/String;
@@ -945,12 +945,12 @@
 
     invoke-interface {v3, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_17
 
     .line 151
     .end local v1    # "entry":Landroidx/navigation/NavBackStackEntry;
     .end local v2    # "fragment":Landroidx/fragment/app/DialogFragment;
-    :cond_1
+    :cond_4a
     iget-object v0, p0, Landroidx/navigation/fragment/DialogFragmentNavigator;->fragmentManager:Landroidx/fragment/app/FragmentManager;
 
     new-instance v1, Landroidx/navigation/fragment/DialogFragmentNavigator$$ExternalSyntheticLambda1;
@@ -964,7 +964,7 @@
 .end method
 
 .method public popBackStack(Landroidx/navigation/NavBackStackEntry;Z)V
-    .locals 7
+    .registers 10
     .param p1, "popUpTo"    # Landroidx/navigation/NavBackStackEntry;
     .param p2, "savedState"    # Z
 
@@ -979,7 +979,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 82
     nop
@@ -995,7 +995,7 @@
     return-void
 
     .line 86
-    :cond_0
+    :cond_16
     invoke-virtual {p0}, Landroidx/navigation/fragment/DialogFragmentNavigator;->getState()Landroidx/navigation/NavigatorState;
 
     move-result-object v0
@@ -1043,13 +1043,13 @@
 
     move-result-object v2
 
-    :cond_1
-    :goto_0
+    :cond_3c
+    :goto_3c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_66
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1071,7 +1071,7 @@
 
     .line 96
     .local v4, "existingFragment":Landroidx/fragment/app/Fragment;
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3c
 
     .line 97
     invoke-virtual {v4}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
@@ -1093,10 +1093,10 @@
 
     .end local v3    # "entry":Landroidx/navigation/NavBackStackEntry;
     .end local v4    # "existingFragment":Landroidx/fragment/app/Fragment;
-    goto :goto_0
+    goto :goto_3c
 
     .line 101
-    :cond_2
+    :cond_66
     invoke-virtual {p0}, Landroidx/navigation/fragment/DialogFragmentNavigator;->getState()Landroidx/navigation/NavigatorState;
 
     move-result-object v2

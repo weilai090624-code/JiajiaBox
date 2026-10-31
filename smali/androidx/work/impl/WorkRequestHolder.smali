@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/UUID;Landroidx/work/impl/model/WorkSpec;Ljava/util/Set;)V
-    .locals 0
+    .registers 4
     .param p1, "id"    # Ljava/util/UUID;
     .param p2, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
     .annotation system Ldalvik/annotation/MethodParameters;

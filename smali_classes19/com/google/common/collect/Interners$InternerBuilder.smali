@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/Interners$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/collect/Interners$1;
 
     .line 43
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public build()Lcom/google/common/collect/Interner;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -70,7 +70,7 @@
     .line 81
     iget-boolean v0, p0, Lcom/google/common/collect/Interners$InternerBuilder;->strong:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 82
     iget-object v0, p0, Lcom/google/common/collect/Interners$InternerBuilder;->mapMaker:Lcom/google/common/collect/MapMaker;
@@ -78,7 +78,7 @@
     invoke-virtual {v0}, Lcom/google/common/collect/MapMaker;->weakKeys()Lcom/google/common/collect/MapMaker;
 
     .line 84
-    :cond_0
+    :cond_9
     new-instance v0, Lcom/google/common/collect/Interners$InternerImpl;
 
     iget-object v1, p0, Lcom/google/common/collect/Interners$InternerBuilder;->mapMaker:Lcom/google/common/collect/MapMaker;
@@ -91,7 +91,7 @@
 .end method
 
 .method public concurrencyLevel(I)Lcom/google/common/collect/Interners$InternerBuilder;
-    .locals 1
+    .registers 3
     .param p1, "concurrencyLevel"    # I
 
     .line 76
@@ -104,7 +104,7 @@
 .end method
 
 .method public strong()Lcom/google/common/collect/Interners$InternerBuilder;
-    .locals 1
+    .registers 2
 
     .line 55
     const/4 v0, 0x1
@@ -116,7 +116,7 @@
 .end method
 
 .method public weak()Lcom/google/common/collect/Interners$InternerBuilder;
-    .locals 1
+    .registers 2
 
     .line 66
     const/4 v0, 0x0

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/function/IntFunction;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,7 +63,7 @@
 .end method
 
 .method private flipStream(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)TR;"
@@ -73,7 +73,7 @@
     .line 95
     .local p0, "this":Lj$/util/stream/FlatMapApiFlips$IntFunctionStreamWrapper;, "Ljava/util/stream/FlatMapApiFlips$IntFunctionStreamWrapper<TR;>;"
     .local p1, "maybeStream":Ljava/lang/Object;, "TR;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 96
     const/4 v0, 0x0
@@ -81,10 +81,10 @@
     return-object v0
 
     .line 98
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lj$/util/stream/IntStream;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 99
     move-object v0, p1
@@ -98,10 +98,10 @@
     return-object v0
 
     .line 101
-    :cond_1
+    :cond_10
     instance-of v0, p1, Ljava/util/stream/IntStream;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1c
 
     .line 102
     move-object v0, p1
@@ -115,7 +115,7 @@
     return-object v0
 
     .line 104
-    :cond_2
+    :cond_1c
     const-string v0, "java.util.stream.IntStream"
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public apply(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "arg"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

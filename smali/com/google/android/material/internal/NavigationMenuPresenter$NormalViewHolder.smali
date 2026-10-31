@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View$OnClickListener;)V
-    .locals 2
+    .registers 6
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "parent"    # Landroid/view/ViewGroup;
     .param p3, "listener"    # Landroid/view/View$OnClickListener;

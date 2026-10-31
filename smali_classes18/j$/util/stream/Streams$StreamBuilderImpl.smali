@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 333
     .local p0, "this":Lj$/util/stream/Streams$StreamBuilderImpl;, "Ljava/util/stream/Streams$StreamBuilderImpl<TT;>;"
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -105,7 +105,7 @@
     .local p1, "t":Ljava/lang/Object;, "TT;"
     iget v0, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->count:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 350
     iput-object p1, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->first:Ljava/lang/Object;
@@ -117,18 +117,18 @@
 
     iput v0, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->count:I
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 353
-    :cond_0
+    :cond_d
     iget v0, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->count:I
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_2f
 
     .line 354
     iget-object v0, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->buffer:Lj$/util/stream/SpinedBuffer;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 355
     new-instance v0, Lj$/util/stream/SpinedBuffer;
@@ -152,17 +152,17 @@
     iput v0, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->count:I
 
     .line 360
-    :cond_1
+    :cond_29
     iget-object v0, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->buffer:Lj$/util/stream/SpinedBuffer;
 
     invoke-virtual {v0, p1}, Lj$/util/stream/SpinedBuffer;->accept(Ljava/lang/Object;)V
 
     .line 365
-    :goto_0
+    :goto_2e
     return-void
 
     .line 363
-    :cond_2
+    :cond_2f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -171,7 +171,7 @@
 .end method
 
 .method public add(Ljava/lang/Object;)Lj$/util/stream/Stream$Builder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -190,7 +190,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -200,7 +200,7 @@
 .end method
 
 .method public build()Lj$/util/stream/Stream;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -215,7 +215,7 @@
 
     .line 375
     .local v0, "c":I
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_1f
 
     .line 377
     iget v1, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->count:I
@@ -231,15 +231,15 @@
 
     const/4 v2, 0x0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_14
 
     invoke-static {p0, v2}, Lj$/util/stream/StreamSupport;->stream(Lj$/util/Spliterator;Z)Lj$/util/stream/Stream;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_14
     iget-object v1, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->buffer:Lj$/util/stream/SpinedBuffer;
 
     invoke-virtual {v1}, Lj$/util/stream/SpinedBuffer;->spliterator()Lj$/util/Spliterator;
@@ -250,11 +250,11 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1e
     return-object v1
 
     .line 383
-    :cond_1
+    :cond_1f
     new-instance v1, Ljava/lang/IllegalStateException;
 
     invoke-direct {v1}, Ljava/lang/IllegalStateException;-><init>()V
@@ -263,7 +263,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -282,7 +282,7 @@
 
     const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 409
     iget-object v0, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->first:Ljava/lang/Object;
@@ -295,12 +295,12 @@
     iput v0, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->count:I
 
     .line 412
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -319,7 +319,7 @@
 
     const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     .line 395
     iget-object v0, p0, Lj$/util/stream/Streams$StreamBuilderImpl;->first:Ljava/lang/Object;
@@ -337,7 +337,7 @@
     return v0
 
     .line 400
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     return v0

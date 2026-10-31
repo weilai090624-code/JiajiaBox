@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 1107
     iput-object p1, p0, Lcom/google/common/collect/Iterators$9;->val$value:Ljava/lang/Object;
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 1112
     iget-boolean v0, p0, Lcom/google/common/collect/Iterators$9;->done:Z
@@ -53,7 +53,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -66,7 +66,7 @@
     .line 1118
     iget-boolean v0, p0, Lcom/google/common/collect/Iterators$9;->done:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 1121
     const/4 v0, 0x1
@@ -79,7 +79,7 @@
     return-object v0
 
     .line 1119
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
 
     .line 733
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "who"    # Landroid/graphics/drawable/Drawable;
 
     .line 736
@@ -50,7 +50,7 @@
 .end method
 
 .method public scheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V
-    .locals 1
+    .registers 6
     .param p1, "who"    # Landroid/graphics/drawable/Drawable;
     .param p2, "what"    # Ljava/lang/Runnable;
     .param p3, "when"    # J
@@ -65,7 +65,7 @@
 .end method
 
 .method public unscheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 4
     .param p1, "who"    # Landroid/graphics/drawable/Drawable;
     .param p2, "what"    # Ljava/lang/Runnable;
 

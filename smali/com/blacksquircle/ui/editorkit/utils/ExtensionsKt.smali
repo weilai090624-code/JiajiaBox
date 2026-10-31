@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final getBottomVisibleLine(Landroid/widget/TextView;)I
-    .locals 4
+    .registers 5
     .param p0, "$this$bottomVisibleLine"    # Landroid/widget/TextView;
 
     const-string v0, "<this>"
@@ -44,18 +44,18 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_36
 
     invoke-virtual {p0}, Landroid/widget/TextView;->getLineHeight()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    goto :goto_1
+    goto :goto_36
 
     .line 42
-    :cond_0
+    :cond_13
     invoke-virtual {p0}, Landroid/widget/TextView;->getLayout()Landroid/text/Layout;
 
     move-result-object v0
@@ -76,18 +76,18 @@
 
     .line 43
     .local v0, "line":I
-    if-gez v0, :cond_1
+    if-gez v0, :cond_27
 
     .line 44
     return v1
 
     .line 46
-    :cond_1
+    :cond_27
     invoke-virtual {p0}, Landroid/widget/TextView;->getLineCount()I
 
     move-result v1
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_34
 
     .line 47
     invoke-virtual {p0}, Landroid/widget/TextView;->getLineCount()I
@@ -96,25 +96,25 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_35
 
     .line 49
-    :cond_2
+    :cond_34
     move v1, v0
 
     .line 46
-    :goto_0
+    :goto_35
     return v1
 
     .line 40
     .end local v0    # "line":I
-    :cond_3
-    :goto_1
+    :cond_36
+    :goto_36
     return v1
 .end method
 
 .method public static final getTopVisibleLine(Landroid/widget/TextView;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$topVisibleLine"    # Landroid/widget/TextView;
 
     const-string v0, "<this>"
@@ -128,18 +128,18 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_31
 
     invoke-virtual {p0}, Landroid/widget/TextView;->getLineHeight()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    goto :goto_1
+    goto :goto_31
 
     .line 26
-    :cond_0
+    :cond_13
     invoke-virtual {p0}, Landroid/widget/TextView;->getLayout()Landroid/text/Layout;
 
     move-result-object v0
@@ -154,18 +154,18 @@
 
     .line 27
     .local v0, "line":I
-    if-gez v0, :cond_1
+    if-gez v0, :cond_22
 
     .line 28
     return v1
 
     .line 30
-    :cond_1
+    :cond_22
     invoke-virtual {p0}, Landroid/widget/TextView;->getLineCount()I
 
     move-result v1
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_2f
 
     .line 31
     invoke-virtual {p0}, Landroid/widget/TextView;->getLineCount()I
@@ -174,19 +174,19 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_30
 
     .line 33
-    :cond_2
+    :cond_2f
     move v1, v0
 
     .line 30
-    :goto_0
+    :goto_30
     return v1
 
     .line 24
     .end local v0    # "line":I
-    :cond_3
-    :goto_1
+    :cond_31
+    :goto_31
     return v1
 .end method

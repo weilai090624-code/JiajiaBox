@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     invoke-direct {p0}, Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getExtendSelection()Z
-    .locals 2
+    .registers 3
 
     .line 87
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityViewCommand$MoveAtGranularityArguments;->mBundle:Landroid/os/Bundle;
@@ -42,7 +42,7 @@
 .end method
 
 .method public getGranularity()I
-    .locals 2
+    .registers 3
 
     .line 79
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityViewCommand$MoveAtGranularityArguments;->mBundle:Landroid/os/Bundle;

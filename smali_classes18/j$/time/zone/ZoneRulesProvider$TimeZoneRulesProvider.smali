@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 5
+    .registers 6
 
     .line 460
     invoke-direct {p0}, Lj$/time/zone/ZoneRulesProvider;-><init>()V
@@ -48,8 +48,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_e
+    if-ge v3, v2, :cond_18
 
     aget-object v4, v1, v3
 
@@ -61,10 +61,10 @@
     .end local v4    # "id":Ljava/lang/String;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 465
-    :cond_0
+    :cond_18
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
     move-result-object v1
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method protected provideRules(Ljava/lang/String;Z)Lj$/time/zone/ZoneRules;
-    .locals 3
+    .registers 6
     .param p1, "zoneId"    # Ljava/lang/String;
     .param p2, "forCaching"    # Z
 
@@ -89,7 +89,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 476
     new-instance v0, Lj$/time/zone/ZoneRules;
@@ -103,7 +103,7 @@
     return-object v0
 
     .line 478
-    :cond_0
+    :cond_12
     new-instance v0, Lj$/time/zone/ZoneRulesException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -130,7 +130,7 @@
 .end method
 
 .method protected provideVersions(Ljava/lang/String;)Ljava/util/NavigableMap;
-    .locals 3
+    .registers 5
     .param p1, "zoneId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -168,7 +168,7 @@
 .end method
 
 .method protected provideZoneIds()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

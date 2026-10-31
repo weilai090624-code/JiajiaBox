@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -16,7 +16,7 @@
 .end method
 
 .method public static parseReader(Lcom/google/gson/stream/JsonReader;)Lcom/google/gson/JsonElement;
-    .locals 6
+    .registers 7
     .param p0, "reader"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -41,14 +41,14 @@
     invoke-virtual {p0, v3}, Lcom/google/gson/stream/JsonReader;->setLenient(Z)V
 
     .line 85
-    :try_start_0
+    :try_start_c
     invoke-static {p0}, Lcom/google/gson/internal/Streams;->parse(Lcom/google/gson/stream/JsonReader;)Lcom/google/gson/JsonElement;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/StackOverflowError; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catch Ljava/lang/StackOverflowError; {:try_start_c .. :try_end_10} :catch_32
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_c .. :try_end_10} :catch_16
+    .catchall {:try_start_c .. :try_end_10} :catchall_14
 
     .line 91
     invoke-virtual {p0, v2}, Lcom/google/gson/stream/JsonReader;->setLenient(Z)V
@@ -57,18 +57,18 @@
     return-object v0
 
     .line 91
-    :catchall_0
+    :catchall_14
     move-exception v0
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 88
-    :catch_0
+    :catch_16
     move-exception v3
 
     .line 89
     .local v3, "e":Ljava/lang/OutOfMemoryError;
-    :try_start_1
+    :try_start_17
     new-instance v4, Lcom/google/gson/JsonParseException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -101,7 +101,7 @@
     .end local v3    # "e":Ljava/lang/OutOfMemoryError;
     .restart local v2    # "lenient":Z
     .restart local p0    # "reader":Lcom/google/gson/stream/JsonReader;
-    :catch_1
+    :catch_32
     move-exception v3
 
     .line 87
@@ -133,14 +133,14 @@
     .end local v2    # "lenient":Z
     .end local p0    # "reader":Lcom/google/gson/stream/JsonReader;
     throw v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4e
+    .catchall {:try_start_17 .. :try_end_4e} :catchall_14
 
     .line 91
     .end local v3    # "e":Ljava/lang/StackOverflowError;
     .restart local v2    # "lenient":Z
     .restart local p0    # "reader":Lcom/google/gson/stream/JsonReader;
-    :goto_0
+    :goto_4e
     invoke-virtual {p0, v2}, Lcom/google/gson/stream/JsonReader;->setLenient(Z)V
 
     .line 92
@@ -148,7 +148,7 @@
 .end method
 
 .method public static parseReader(Ljava/io/Reader;)Lcom/google/gson/JsonElement;
-    .locals 4
+    .registers 5
     .param p0, "reader"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -175,7 +175,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_20
 
     invoke-virtual {v0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
@@ -183,12 +183,12 @@
 
     sget-object v3, Lcom/google/gson/stream/JsonToken;->END_DOCUMENT:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_18
 
-    goto :goto_0
+    goto :goto_20
 
     .line 62
-    :cond_0
+    :cond_18
     new-instance v2, Lcom/google/gson/JsonSyntaxException;
 
     const-string v3, "Did not consume the entire document."
@@ -197,21 +197,21 @@
 
     .end local p0    # "reader":Ljava/io/Reader;
     throw v2
-    :try_end_0
-    .catch Lcom/google/gson/stream/MalformedJsonException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_20
+    .catch Lcom/google/gson/stream/MalformedJsonException; {:try_start_0 .. :try_end_20} :catch_2f
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_20} :catch_28
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_20} :catch_21
 
     .line 64
     .restart local p0    # "reader":Ljava/io/Reader;
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     return-object v1
 
     .line 69
     .end local v0    # "jsonReader":Lcom/google/gson/stream/JsonReader;
     .end local v1    # "element":Lcom/google/gson/JsonElement;
-    :catch_0
+    :catch_21
     move-exception v0
 
     .line 70
@@ -224,7 +224,7 @@
 
     .line 67
     .end local v0    # "e":Ljava/lang/NumberFormatException;
-    :catch_1
+    :catch_28
     move-exception v0
 
     .line 68
@@ -237,7 +237,7 @@
 
     .line 65
     .end local v0    # "e":Ljava/io/IOException;
-    :catch_2
+    :catch_2f
     move-exception v0
 
     .line 66
@@ -250,7 +250,7 @@
 .end method
 
 .method public static parseString(Ljava/lang/String;)Lcom/google/gson/JsonElement;
-    .locals 1
+    .registers 2
     .param p0, "json"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -273,7 +273,7 @@
 
 # virtual methods
 .method public parse(Lcom/google/gson/stream/JsonReader;)Lcom/google/gson/JsonElement;
-    .locals 1
+    .registers 3
     .param p1, "json"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -294,7 +294,7 @@
 .end method
 
 .method public parse(Ljava/io/Reader;)Lcom/google/gson/JsonElement;
-    .locals 1
+    .registers 3
     .param p1, "json"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -315,7 +315,7 @@
 .end method
 
 .method public parse(Ljava/lang/String;)Lcom/google/gson/JsonElement;
-    .locals 1
+    .registers 3
     .param p1, "json"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 133
     invoke-direct {p0}, Landroidx/camera/view/video/OutputFileOptions$Builder;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public build()Landroidx/camera/view/video/OutputFileOptions;
-    .locals 10
+    .registers 11
 
     .line 170
     const-string v0, ""
@@ -51,7 +51,7 @@
     .local v0, "missing":Ljava/lang/String;
     iget-object v1, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions$Builder;->metadata:Landroidx/camera/view/video/Metadata;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_19
 
     .line 172
     new-instance v1, Ljava/lang/StringBuilder;
@@ -73,12 +73,12 @@
     move-result-object v0
 
     .line 174
-    :cond_0
+    :cond_19
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_33
 
     .line 177
     new-instance v1, Landroidx/camera/view/video/AutoValue_OutputFileOptions;
@@ -104,7 +104,7 @@
     return-object v1
 
     .line 175
-    :cond_1
+    :cond_33
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -131,7 +131,7 @@
 .end method
 
 .method setContentResolver(Landroid/content/ContentResolver;)Landroidx/camera/view/video/OutputFileOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "contentResolver"    # Landroid/content/ContentResolver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -150,7 +150,7 @@
 .end method
 
 .method setContentValues(Landroid/content/ContentValues;)Landroidx/camera/view/video/OutputFileOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "contentValues"    # Landroid/content/ContentValues;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -169,7 +169,7 @@
 .end method
 
 .method setFile(Ljava/io/File;)Landroidx/camera/view/video/OutputFileOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -188,7 +188,7 @@
 .end method
 
 .method setFileDescriptor(Landroid/os/ParcelFileDescriptor;)Landroidx/camera/view/video/OutputFileOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "fileDescriptor"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -207,7 +207,7 @@
 .end method
 
 .method public setMetadata(Landroidx/camera/view/video/Metadata;)Landroidx/camera/view/video/OutputFileOptions$Builder;
-    .locals 2
+    .registers 4
     .param p1, "metadata"    # Landroidx/camera/view/video/Metadata;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -219,7 +219,7 @@
     .end annotation
 
     .line 162
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 165
     iput-object p1, p0, Landroidx/camera/view/video/AutoValue_OutputFileOptions$Builder;->metadata:Landroidx/camera/view/video/Metadata;
@@ -228,7 +228,7 @@
     return-object p0
 
     .line 163
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null metadata"
@@ -239,7 +239,7 @@
 .end method
 
 .method setSaveCollection(Landroid/net/Uri;)Landroidx/camera/view/video/OutputFileOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "saveCollection"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

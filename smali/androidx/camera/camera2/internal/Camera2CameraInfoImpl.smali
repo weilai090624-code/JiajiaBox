@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)V
-    .locals 1
+    .registers 4
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "cameraCharacteristicsCompat"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -132,7 +132,7 @@
 .end method
 
 .method private logDeviceInfo()V
-    .locals 0
+    .registers 1
 
     .line 197
     invoke-direct {p0}, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->logDeviceLevel()V
@@ -142,7 +142,7 @@
 .end method
 
 .method private logDeviceLevel()V
-    .locals 4
+    .registers 5
 
     .line 203
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->getSupportedHardwareLevel()I
@@ -151,7 +151,7 @@
 
     .line 204
     .local v0, "deviceLevel":I
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_44
 
     .line 221
     new-instance v1, Ljava/lang/StringBuilder;
@@ -173,47 +173,47 @@
     move-result-object v1
 
     .local v1, "levelString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_2a
 
     .line 209
     .end local v1    # "levelString":Ljava/lang/String;
-    :pswitch_0
+    :pswitch_1b
     const-string v1, "INFO_SUPPORTED_HARDWARE_LEVEL_EXTERNAL"
 
     .line 210
     .restart local v1    # "levelString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_2a
 
     .line 218
     .end local v1    # "levelString":Ljava/lang/String;
-    :pswitch_1
+    :pswitch_1e
     const-string v1, "INFO_SUPPORTED_HARDWARE_LEVEL_3"
 
     .line 219
     .restart local v1    # "levelString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_2a
 
     .line 206
     .end local v1    # "levelString":Ljava/lang/String;
-    :pswitch_2
+    :pswitch_21
     const-string v1, "INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY"
 
     .line 207
     .restart local v1    # "levelString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_2a
 
     .line 215
     .end local v1    # "levelString":Ljava/lang/String;
-    :pswitch_3
+    :pswitch_24
     const-string v1, "INFO_SUPPORTED_HARDWARE_LEVEL_FULL"
 
     .line 216
     .restart local v1    # "levelString":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_2a
 
     .line 212
     .end local v1    # "levelString":Ljava/lang/String;
-    :pswitch_4
+    :pswitch_27
     const-string v1, "INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED"
 
     .line 213
@@ -221,7 +221,7 @@
     nop
 
     .line 224
-    :goto_0
+    :goto_2a
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -249,20 +249,20 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_44
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_27
+        :pswitch_24
+        :pswitch_21
+        :pswitch_1e
+        :pswitch_1b
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public addSessionCaptureCallback(Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/CameraCaptureCallback;)V
-    .locals 3
+    .registers 6
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "callback"    # Landroidx/camera/core/impl/CameraCaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -282,15 +282,15 @@
     monitor-enter v0
 
     .line 312
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1e
 
     .line 313
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCaptureCallbacks:Ljava/util/List;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 314
     new-instance v1, Ljava/util/ArrayList;
@@ -300,7 +300,7 @@
     iput-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCaptureCallbacks:Ljava/util/List;
 
     .line 316
-    :cond_0
+    :cond_12
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCaptureCallbacks:Ljava/util/List;
 
     new-instance v2, Landroid/util/Pair;
@@ -315,7 +315,7 @@
     return-void
 
     .line 320
-    :cond_1
+    :cond_1e
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
     invoke-virtual {v1, p1, p2}, Landroidx/camera/camera2/internal/Camera2CameraControlImpl;->addSessionCameraCaptureCallback(Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/CameraCaptureCallback;)V
@@ -327,18 +327,18 @@
     return-void
 
     .line 321
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_3 .. :try_end_27} :catchall_25
 
     throw v1
 .end method
 
 .method public getCamera2CameraInfo()Landroidx/camera/camera2/interop/Camera2CameraInfo;
-    .locals 1
+    .registers 2
 
     .line 357
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraInfo:Landroidx/camera/camera2/interop/Camera2CameraInfo;
@@ -347,7 +347,7 @@
 .end method
 
 .method public getCameraCharacteristicsCompat()Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
-    .locals 1
+    .registers 2
 
     .line 140
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCharacteristicsCompat:Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
@@ -356,7 +356,7 @@
 .end method
 
 .method public getCameraId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 135
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraId:Ljava/lang/String;
@@ -365,7 +365,7 @@
 .end method
 
 .method public getCameraQuirks()Landroidx/camera/core/impl/Quirks;
-    .locals 1
+    .registers 2
 
     .line 349
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraQuirks:Landroidx/camera/core/impl/Quirks;
@@ -374,7 +374,7 @@
 .end method
 
 .method public getExposureState()Landroidx/camera/core/ExposureState;
-    .locals 2
+    .registers 3
 
     .line 281
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mLock:Ljava/lang/Object;
@@ -382,10 +382,10 @@
     monitor-enter v0
 
     .line 282
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 283
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCharacteristicsCompat:Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
@@ -399,7 +399,7 @@
     return-object v1
 
     .line 285
-    :cond_0
+    :cond_f
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
     invoke-virtual {v1}, Landroidx/camera/camera2/internal/Camera2CameraControlImpl;->getExposureControl()Landroidx/camera/camera2/internal/ExposureControl;
@@ -415,18 +415,18 @@
     return-object v1
 
     .line 286
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_3 .. :try_end_1d} :catchall_1b
 
     throw v1
 .end method
 
 .method public getImplementationType()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 303
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->getSupportedHardwareLevel()I
@@ -437,23 +437,23 @@
     .local v0, "hardwareLevel":I
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     .line 305
     const-string v1, "androidx.camera.camera2.legacy"
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     const-string v1, "androidx.camera.camera2"
 
     .line 304
-    :goto_0
+    :goto_c
     return-object v1
 .end method
 
 .method public getLensFacing()Ljava/lang/Integer;
-    .locals 2
+    .registers 3
 
     .line 146
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCharacteristicsCompat:Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
@@ -475,7 +475,7 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_22
 
     .line 154
     const/4 v1, 0x0
@@ -483,7 +483,7 @@
     return-object v1
 
     .line 152
-    :pswitch_0
+    :pswitch_16
     const/4 v1, 0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -493,7 +493,7 @@
     return-object v1
 
     .line 150
-    :pswitch_1
+    :pswitch_1c
     const/4 v1, 0x0
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -502,15 +502,15 @@
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_22
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1c
+        :pswitch_16
     .end packed-switch
 .end method
 
 .method getSensorOrientation()I
-    .locals 2
+    .registers 3
 
     .line 176
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCharacteristicsCompat:Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
@@ -537,7 +537,7 @@
 .end method
 
 .method public getSensorRotationDegrees()I
-    .locals 1
+    .registers 2
 
     .line 192
     const/4 v0, 0x0
@@ -550,7 +550,7 @@
 .end method
 
 .method public getSensorRotationDegrees(I)I
-    .locals 5
+    .registers 7
     .param p1, "relativeRotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -587,7 +587,7 @@
 
     .line 167
     .local v2, "lensFacing":Ljava/lang/Integer;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     .line 168
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
@@ -596,14 +596,14 @@
 
     const/4 v4, 0x1
 
-    if-ne v4, v3, :cond_0
+    if-ne v4, v3, :cond_1b
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_1c
     move v3, v4
 
     .line 169
@@ -624,7 +624,7 @@
 .end method
 
 .method getSupportedHardwareLevel()I
-    .locals 2
+    .registers 3
 
     .line 183
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCharacteristicsCompat:Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
@@ -651,7 +651,7 @@
 .end method
 
 .method public getTorchState()Landroidx/lifecycle/LiveData;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -667,15 +667,15 @@
     monitor-enter v0
 
     .line 239
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1b
 
     .line 240
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectTorchStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 241
     new-instance v1, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
@@ -692,7 +692,7 @@
     iput-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectTorchStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
 
     .line 244
-    :cond_0
+    :cond_17
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectTorchStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
 
     monitor-exit v0
@@ -700,10 +700,10 @@
     return-object v1
 
     .line 248
-    :cond_1
+    :cond_1b
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectTorchStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_23
 
     .line 249
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectTorchStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
@@ -713,7 +713,7 @@
     return-object v1
 
     .line 252
-    :cond_2
+    :cond_23
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
     invoke-virtual {v1}, Landroidx/camera/camera2/internal/Camera2CameraControlImpl;->getTorchControl()Landroidx/camera/camera2/internal/TorchControl;
@@ -729,18 +729,18 @@
     return-object v1
 
     .line 253
-    :catchall_0
+    :catchall_2f
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_31
+    .catchall {:try_start_3 .. :try_end_31} :catchall_2f
 
     throw v1
 .end method
 
 .method public getZoomState()Landroidx/lifecycle/LiveData;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -756,15 +756,15 @@
     monitor-enter v0
 
     .line 260
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1c
 
     .line 261
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectZoomStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 262
     new-instance v1, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
@@ -781,7 +781,7 @@
     iput-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectZoomStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
 
     .line 265
-    :cond_0
+    :cond_18
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectZoomStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
 
     monitor-exit v0
@@ -789,10 +789,10 @@
     return-object v1
 
     .line 269
-    :cond_1
+    :cond_1c
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectZoomStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_24
 
     .line 270
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectZoomStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
@@ -802,7 +802,7 @@
     return-object v1
 
     .line 273
-    :cond_2
+    :cond_24
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
     invoke-virtual {v1}, Landroidx/camera/camera2/internal/Camera2CameraControlImpl;->getZoomControl()Landroidx/camera/camera2/internal/ZoomControl;
@@ -818,18 +818,18 @@
     return-object v1
 
     .line 274
-    :catchall_0
+    :catchall_30
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_3 .. :try_end_32} :catchall_30
 
     throw v1
 .end method
 
 .method public hasFlashUnit()Z
-    .locals 2
+    .registers 3
 
     .line 229
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCharacteristicsCompat:Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
@@ -855,7 +855,7 @@
 .end method
 
 .method linkWithCameraControl(Landroidx/camera/camera2/internal/Camera2CameraControlImpl;)V
-    .locals 6
+    .registers 8
     .param p1, "camera2CameraControlImpl"    # Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -872,13 +872,13 @@
     monitor-enter v0
 
     .line 108
-    :try_start_0
+    :try_start_3
     iput-object p1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
     .line 110
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectZoomStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 111
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectZoomStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
@@ -898,10 +898,10 @@
     invoke-virtual {v1, v2}, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;->redirectTo(Landroidx/lifecycle/LiveData;)V
 
     .line 115
-    :cond_0
+    :cond_18
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectTorchStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2b
 
     .line 116
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mRedirectTorchStateLiveData:Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;
@@ -921,10 +921,10 @@
     invoke-virtual {v1, v2}, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl$RedirectableLiveData;->redirectTo(Landroidx/lifecycle/LiveData;)V
 
     .line 120
-    :cond_1
+    :cond_2b
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCaptureCallbacks:Ljava/util/List;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_52
 
     .line 122
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCaptureCallbacks:Ljava/util/List;
@@ -933,12 +933,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_35
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -962,19 +962,19 @@
 
     .line 125
     .end local v2    # "pair":Landroid/util/Pair;, "Landroid/util/Pair<Landroidx/camera/core/impl/CameraCaptureCallback;Ljava/util/concurrent/Executor;>;"
-    goto :goto_0
+    goto :goto_35
 
     .line 126
-    :cond_2
+    :cond_4f
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCaptureCallbacks:Ljava/util/List;
 
     .line 128
-    :cond_3
+    :cond_52
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_53
+    .catchall {:try_start_3 .. :try_end_53} :catchall_57
 
     .line 129
     invoke-direct {p0}, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->logDeviceInfo()V
@@ -983,19 +983,19 @@
     return-void
 
     .line 128
-    :catchall_0
+    :catchall_57
     move-exception v1
 
-    :try_start_1
+    :try_start_58
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_59
+    .catchall {:try_start_58 .. :try_end_59} :catchall_57
 
     throw v1
 .end method
 
 .method public removeSessionCaptureCallback(Landroidx/camera/core/impl/CameraCaptureCallback;)V
-    .locals 4
+    .registers 6
     .param p1, "callback"    # Landroidx/camera/core/impl/CameraCaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1012,15 +1012,15 @@
     monitor-enter v0
 
     .line 327
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_29
 
     .line 328
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCaptureCallbacks:Ljava/util/List;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     .line 329
     monitor-exit v0
@@ -1028,7 +1028,7 @@
     return-void
 
     .line 331
-    :cond_0
+    :cond_d
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCameraCaptureCallbacks:Ljava/util/List;
 
     .line 332
@@ -1038,12 +1038,12 @@
 
     .line 333
     .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/util/Pair<Landroidx/camera/core/impl/CameraCaptureCallback;Ljava/util/concurrent/Executor;>;>;"
-    :goto_0
+    :goto_13
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_27
 
     .line 334
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1056,25 +1056,25 @@
     .local v2, "pair":Landroid/util/Pair;, "Landroid/util/Pair<Landroidx/camera/core/impl/CameraCaptureCallback;Ljava/util/concurrent/Executor;>;"
     iget-object v3, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    if-ne v3, p1, :cond_1
+    if-ne v3, p1, :cond_26
 
     .line 336
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     .line 338
     .end local v2    # "pair":Landroid/util/Pair;, "Landroid/util/Pair<Landroidx/camera/core/impl/CameraCaptureCallback;Ljava/util/concurrent/Executor;>;"
-    :cond_1
-    goto :goto_0
+    :cond_26
+    goto :goto_13
 
     .line 339
-    :cond_2
+    :cond_27
     monitor-exit v0
 
     return-void
 
     .line 341
     .end local v1    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/util/Pair<Landroidx/camera/core/impl/CameraCaptureCallback;Ljava/util/concurrent/Executor;>;>;"
-    :cond_3
+    :cond_29
     iget-object v1, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->mCamera2CameraControlImpl:Landroidx/camera/camera2/internal/Camera2CameraControlImpl;
 
     invoke-virtual {v1, p1}, Landroidx/camera/camera2/internal/Camera2CameraControlImpl;->removeSessionCameraCaptureCallback(Landroidx/camera/core/impl/CameraCaptureCallback;)V
@@ -1086,12 +1086,12 @@
     return-void
 
     .line 342
-    :catchall_0
+    :catchall_30
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_3 .. :try_end_32} :catchall_30
 
     throw v1
 .end method

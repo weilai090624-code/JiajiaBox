@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 831
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 2
+    .registers 5
     .param p1, "gson"    # Lcom/google/gson/Gson;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,21 +59,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_21
 
     const-class v1, Ljava/lang/Enum;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
-    goto :goto_0
+    goto :goto_21
 
     .line 838
-    :cond_0
+    :cond_11
     invoke-virtual {v0}, Ljava/lang/Class;->isEnum()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1b
 
     .line 839
     invoke-virtual {v0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
@@ -81,7 +81,7 @@
     move-result-object v0
 
     .line 841
-    :cond_1
+    :cond_1b
     new-instance v1, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;
 
     invoke-direct {v1, v0}, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;-><init>(Ljava/lang/Class;)V
@@ -89,8 +89,8 @@
     return-object v1
 
     .line 836
-    :cond_2
-    :goto_0
+    :cond_21
+    :goto_21
     const/4 v1, 0x0
 
     return-object v1

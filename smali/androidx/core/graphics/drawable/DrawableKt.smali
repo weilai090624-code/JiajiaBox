@@ -42,7 +42,7 @@
 
 # direct methods
 .method public static final toBitmap(Landroid/graphics/drawable/Drawable;IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 6
+    .registers 10
     .param p0, "$this$toBitmap"    # Landroid/graphics/drawable/Drawable;
     .param p1, "width"    # I
     .param p2, "height"    # I
@@ -51,7 +51,7 @@
     .line 51
     instance-of v0, p0, Landroid/graphics/drawable/BitmapDrawable;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_53
 
     .line 52
     move-object v0, p0
@@ -62,10 +62,10 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4b
 
     .line 56
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1c
 
     move-object v0, p0
 
@@ -79,10 +79,10 @@
 
     move-result-object v0
 
-    if-ne v0, p3, :cond_3
+    if-ne v0, p3, :cond_53
 
     .line 59
-    :cond_0
+    :cond_1c
     move-object v0, p0
 
     check-cast v0, Landroid/graphics/drawable/BitmapDrawable;
@@ -95,7 +95,7 @@
 
     move-result v0
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_3e
 
     move-object v0, p0
 
@@ -109,7 +109,7 @@
 
     move-result v0
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_3e
 
     .line 60
     move-object v0, p0
@@ -123,7 +123,7 @@
     return-object v0
 
     .line 62
-    :cond_1
+    :cond_3e
     move-object v0, p0
 
     check-cast v0, Landroid/graphics/drawable/BitmapDrawable;
@@ -141,7 +141,7 @@
     return-object v0
 
     .line 54
-    :cond_2
+    :cond_4b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bitmap is null"
@@ -151,7 +151,7 @@
     throw v0
 
     .line 66
-    :cond_3
+    :cond_53
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v0
@@ -215,16 +215,16 @@
 
     .line 68
     .local v0, "oldBottom":I
-    if-nez p3, :cond_4
+    if-nez p3, :cond_6f
 
     sget-object v4, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    goto :goto_0
+    goto :goto_70
 
-    :cond_4
+    :cond_6f
     move-object v4, p3
 
-    :goto_0
+    :goto_70
     invoke-static {p1, p2, v4}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v4
@@ -250,12 +250,12 @@
 .end method
 
 .method public static synthetic toBitmap$default(Landroid/graphics/drawable/Drawable;IILandroid/graphics/Bitmap$Config;ILjava/lang/Object;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 6
 
     .line 46
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     .line 47
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -263,10 +263,10 @@
     move-result p1
 
     .line 46
-    :cond_0
+    :cond_8
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_10
 
     .line 48
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
@@ -274,16 +274,16 @@
     move-result p2
 
     .line 46
-    :cond_1
+    :cond_10
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_15
 
     .line 49
     const/4 p3, 0x0
 
     .line 46
-    :cond_2
+    :cond_15
     invoke-static {p0, p1, p2, p3}, Landroidx/core/graphics/drawable/DrawableKt;->toBitmap(Landroid/graphics/drawable/Drawable;IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object p0
@@ -292,7 +292,7 @@
 .end method
 
 .method public static final toBitmapOrNull(Landroid/graphics/drawable/Drawable;IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 1
+    .registers 5
     .param p0, "$this$toBitmapOrNull"    # Landroid/graphics/drawable/Drawable;
     .param p1, "width"    # I
     .param p2, "height"    # I
@@ -301,7 +301,7 @@
     .line 98
     instance-of v0, p0, Landroid/graphics/drawable/BitmapDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     move-object v0, p0
 
@@ -311,7 +311,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 99
     const/4 v0, 0x0
@@ -319,7 +319,7 @@
     return-object v0
 
     .line 101
-    :cond_0
+    :cond_f
     invoke-static {p0, p1, p2, p3}, Landroidx/core/graphics/drawable/DrawableKt;->toBitmap(Landroid/graphics/drawable/Drawable;IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -328,12 +328,12 @@
 .end method
 
 .method public static synthetic toBitmapOrNull$default(Landroid/graphics/drawable/Drawable;IILandroid/graphics/Bitmap$Config;ILjava/lang/Object;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 6
 
     .line 93
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     .line 94
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -341,10 +341,10 @@
     move-result p1
 
     .line 93
-    :cond_0
+    :cond_8
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_10
 
     .line 95
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
@@ -352,16 +352,16 @@
     move-result p2
 
     .line 93
-    :cond_1
+    :cond_10
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_15
 
     .line 96
     const/4 p3, 0x0
 
     .line 93
-    :cond_2
+    :cond_15
     invoke-static {p0, p1, p2, p3}, Landroidx/core/graphics/drawable/DrawableKt;->toBitmapOrNull(Landroid/graphics/drawable/Drawable;IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object p0
@@ -370,7 +370,7 @@
 .end method
 
 .method public static final updateBounds(Landroid/graphics/drawable/Drawable;IIII)V
-    .locals 0
+    .registers 5
     .param p0, "$this$updateBounds"    # Landroid/graphics/drawable/Drawable;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -385,12 +385,12 @@
 .end method
 
 .method public static synthetic updateBounds$default(Landroid/graphics/drawable/Drawable;IIIIILjava/lang/Object;)V
-    .locals 0
+    .registers 7
 
     .line 110
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_a
 
     .line 111
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -400,10 +400,10 @@
     iget p1, p1, Landroid/graphics/Rect;->left:I
 
     .line 110
-    :cond_0
+    :cond_a
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_14
 
     .line 112
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -413,10 +413,10 @@
     iget p2, p2, Landroid/graphics/Rect;->top:I
 
     .line 110
-    :cond_1
+    :cond_14
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_1e
 
     .line 113
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -426,10 +426,10 @@
     iget p3, p3, Landroid/graphics/Rect;->right:I
 
     .line 110
-    :cond_2
+    :cond_1e
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_28
 
     .line 114
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -439,7 +439,7 @@
     iget p4, p4, Landroid/graphics/Rect;->bottom:I
 
     .line 110
-    :cond_3
+    :cond_28
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/graphics/drawable/DrawableKt;->updateBounds(Landroid/graphics/drawable/Drawable;IIII)V
 
     return-void

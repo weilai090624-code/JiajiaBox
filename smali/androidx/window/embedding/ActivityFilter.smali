@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/ComponentName;Ljava/lang/String;)V
-    .locals 18
+    .registers 21
     .param p1, "componentName"    # Landroid/content/ComponentName;
     .param p2, "intentAction"    # Ljava/lang/String;
 
@@ -115,18 +115,18 @@
 
     const/4 v7, 0x0
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_36
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_37
 
-    :cond_0
+    :cond_36
     const/4 v5, 0x0
 
     .line 53
-    :goto_0
-    if-eqz v5, :cond_9
+    :goto_37
+    if-eqz v5, :cond_c4
 
     .line 57
     move-object v5, v4
@@ -137,18 +137,18 @@
 
     move-result v5
 
-    if-lez v5, :cond_1
+    if-lez v5, :cond_44
 
     const/4 v5, 0x1
 
-    goto :goto_1
+    goto :goto_45
 
-    :cond_1
+    :cond_44
     const/4 v5, 0x0
 
     .line 56
-    :goto_1
-    if-eqz v5, :cond_8
+    :goto_45
+    if-eqz v5, :cond_b6
 
     .line 61
     move-object v5, v3
@@ -169,7 +169,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_70
 
     .line 62
     move-object v12, v3
@@ -196,22 +196,22 @@
 
     sub-int/2addr v9, v6
 
-    if-ne v5, v9, :cond_2
+    if-ne v5, v9, :cond_6e
 
-    goto :goto_2
+    goto :goto_70
 
-    :cond_2
+    :cond_6e
     const/4 v5, 0x0
 
-    goto :goto_3
+    goto :goto_71
 
-    :cond_3
-    :goto_2
+    :cond_70
+    :goto_70
     const/4 v5, 0x1
 
     .line 59
-    :goto_3
-    if-eqz v5, :cond_7
+    :goto_71
+    if-eqz v5, :cond_a8
 
     .line 67
     move-object v5, v4
@@ -224,7 +224,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_95
 
     .line 68
     move-object v8, v4
@@ -251,22 +251,22 @@
 
     sub-int/2addr v8, v6
 
-    if-ne v5, v8, :cond_4
+    if-ne v5, v8, :cond_93
 
-    goto :goto_4
+    goto :goto_95
 
-    :cond_4
+    :cond_93
     const/4 v6, 0x0
 
-    goto :goto_5
+    goto :goto_96
 
-    :cond_5
-    :goto_4
+    :cond_95
+    :goto_95
     nop
 
     .line 65
-    :goto_5
-    if-eqz v6, :cond_6
+    :goto_96
+    if-eqz v6, :cond_9a
 
     .line 71
     .end local v3    # "packageName":Ljava/lang/String;
@@ -279,7 +279,7 @@
     .line 65
     .restart local v3    # "packageName":Ljava/lang/String;
     .restart local v4    # "className":Ljava/lang/String;
-    :cond_6
+    :cond_9a
     const/4 v5, 0x0
 
     .line 70
@@ -301,7 +301,7 @@
     throw v5
 
     .line 59
-    :cond_7
+    :cond_a8
     const/4 v5, 0x0
 
     .line 64
@@ -323,7 +323,7 @@
     throw v5
 
     .line 56
-    :cond_8
+    :cond_b6
     const/4 v5, 0x0
 
     .line 58
@@ -345,7 +345,7 @@
     throw v5
 
     .line 53
-    :cond_9
+    :cond_c4
     const/4 v5, 0x0
 
     .line 55
@@ -370,28 +370,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 105
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 106
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/window/embedding/ActivityFilter;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 108
-    :cond_1
+    :cond_a
     iget-object v1, p0, Landroidx/window/embedding/ActivityFilter;->componentName:Landroid/content/ComponentName;
 
     move-object v3, p1
@@ -404,12 +404,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
     .line 109
-    :cond_2
+    :cond_18
     iget-object v1, p0, Landroidx/window/embedding/ActivityFilter;->intentAction:Ljava/lang/String;
 
     move-object v3, p1
@@ -422,17 +422,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_26
 
     return v2
 
     .line 111
-    :cond_3
+    :cond_26
     return v0
 .end method
 
 .method public final getComponentName()Landroid/content/ComponentName;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Landroidx/window/embedding/ActivityFilter;->componentName:Landroid/content/ComponentName;
@@ -441,7 +441,7 @@
 .end method
 
 .method public final getIntentAction()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Landroidx/window/embedding/ActivityFilter;->intentAction:Ljava/lang/String;
@@ -450,7 +450,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 115
     iget-object v0, p0, Landroidx/window/embedding/ActivityFilter;->componentName:Landroid/content/ComponentName;
@@ -465,18 +465,18 @@
 
     iget-object v2, p0, Landroidx/window/embedding/ActivityFilter;->intentAction:Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_e
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_e
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v2
 
-    :goto_0
+    :goto_12
     add-int/2addr v1, v2
 
     .line 117
@@ -486,7 +486,7 @@
 .end method
 
 .method public final matchesActivity(Landroid/app/Activity;)Z
-    .locals 2
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -502,12 +502,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
     .line 93
     iget-object v0, p0, Landroidx/window/embedding/ActivityFilter;->intentAction:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     iget-object v0, p0, Landroidx/window/embedding/ActivityFilter;->intentAction:Ljava/lang/String;
 
@@ -515,34 +515,34 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1d
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_1d
     invoke-virtual {v1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_21
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
-    :cond_1
+    :cond_27
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_2
+    :cond_29
     const/4 v0, 0x0
 
     .line 91
-    :goto_1
+    :goto_2a
     nop
 
     .line 94
@@ -554,7 +554,7 @@
 .end method
 
 .method public final matchesIntent(Landroid/content/Intent;)Z
-    .locals 3
+    .registers 5
     .param p1, "intent"    # Landroid/content/Intent;
 
     const-string v0, "intent"
@@ -576,16 +576,16 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 76
-    goto :goto_0
+    goto :goto_26
 
     .line 78
-    :cond_0
+    :cond_15
     iget-object v0, p0, Landroidx/window/embedding/ActivityFilter;->intentAction:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     iget-object v0, p0, Landroidx/window/embedding/ActivityFilter;->intentAction:Ljava/lang/String;
 
@@ -597,14 +597,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
-    :cond_1
+    :cond_25
     const/4 v1, 0x1
 
     .line 75
-    :cond_2
-    :goto_0
+    :cond_26
+    :goto_26
     nop
 
     .line 74
@@ -619,7 +619,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 121
     new-instance v0, Ljava/lang/StringBuilder;

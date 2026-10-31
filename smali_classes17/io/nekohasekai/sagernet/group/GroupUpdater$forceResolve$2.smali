@@ -77,7 +77,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/fmt/AbstractBean;Lio/nekohasekai/sagernet/group/GroupUpdater;ZLjava/lang/Long;Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -164,7 +164,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -193,7 +193,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -202,7 +202,7 @@
     .line 60
     iget v1, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_e8
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -213,13 +213,13 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_e4
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_16
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 61
@@ -230,28 +230,28 @@
     nop
 
     .line 63
-    :try_start_0
+    :try_start_1b
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getUnderlyingNetwork()Landroid/net/Network;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/lang/Exception; {:try_start_1b .. :try_end_21} :catch_90
 
     const-string v2, "getAllByName(...)"
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_62
 
     .line 64
-    :try_start_1
+    :try_start_25
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/DataStore;->getEnableFakeDns()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_62
 
     .line 65
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -264,7 +264,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_62
 
     .line 66
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -279,7 +279,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_62
 
     .line 69
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -308,10 +308,10 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_73
 
     .line 74
-    :cond_0
+    :cond_62
     iget-object v1, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$2;->$profile:Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     iget-object v1, v1, Lio/nekohasekai/sagernet/fmt/AbstractBean;->serverAddress:Ljava/lang/String;
@@ -329,7 +329,7 @@
     move-result-object v1
 
     .line 62
-    :goto_0
+    :goto_73
     nop
 
     .line 76
@@ -338,7 +338,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_84
 
     .line 77
     iget-object v2, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$2;->this$0:Lio/nekohasekai/sagernet/group/GroupUpdater;
@@ -350,11 +350,11 @@
     invoke-virtual {v2, v3, v1, v4}, Lio/nekohasekai/sagernet/group/GroupUpdater;->rewriteAddress(Lio/nekohasekai/sagernet/fmt/AbstractBean;Ljava/util/List;Z)V
 
     .end local v1    # "results":Ljava/util/List;
-    goto :goto_1
+    goto :goto_c1
 
     .line 76
     .restart local v1    # "results":Ljava/util/List;
-    :cond_1
+    :cond_84
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "empty response"
@@ -367,13 +367,13 @@
 
     .end local p1    # "$result":Ljava/lang/Object;
     throw v2
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_90
+    .catch Ljava/lang/Exception; {:try_start_25 .. :try_end_90} :catch_90
 
     .line 78
     .end local v1    # "results":Ljava/util/List;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catch_0
+    :catch_90
     move-exception v1
 
     .line 79
@@ -428,10 +428,10 @@
 
     .line 81
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_c1
     iget-object v1, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$2;->$groupId:Ljava/lang/Long;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_e5
 
     .line 82
     iget-object v1, p0, Lio/nekohasekai/sagernet/group/GroupUpdater$forceResolve$2;->$progress:Lio/nekohasekai/sagernet/group/GroupUpdater$Progress;
@@ -465,24 +465,24 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_e4
 
     .line 60
     return-object v0
 
     .line 85
-    :cond_2
-    :goto_2
+    :cond_e4
+    :goto_e4
     nop
 
-    :cond_3
+    :cond_e5
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_e8
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_11
     .end packed-switch
 .end method

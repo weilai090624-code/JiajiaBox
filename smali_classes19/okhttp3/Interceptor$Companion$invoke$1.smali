@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public final intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
-    .locals 1
+    .registers 3
     .param p1, "it"    # Lokhttp3/Interceptor$Chain;
 
     const-string v0, "it"

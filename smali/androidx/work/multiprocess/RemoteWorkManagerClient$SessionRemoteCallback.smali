@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/multiprocess/RemoteWorkManagerClient;)V
-    .locals 0
+    .registers 2
     .param p1, "client"    # Landroidx/work/multiprocess/RemoteWorkManagerClient;
 
     .line 534
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method protected onRequestCompleted()V
-    .locals 4
+    .registers 5
 
     .line 540
     invoke-super {p0}, Landroidx/work/multiprocess/RemoteCallback;->onRequestCompleted()V

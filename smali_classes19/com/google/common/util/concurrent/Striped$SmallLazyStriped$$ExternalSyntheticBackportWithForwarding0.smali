@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(Ljava/util/concurrent/atomic/AtomicReferenceArray;ILjava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
 
     .line 0
     :cond_0
@@ -13,13 +13,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_8
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_8
     invoke-virtual {p0, p1}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0

@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 435
     new-instance v0, Lcom/google/common/primitives/Longs$LongConverter;
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 434
     invoke-direct {p0}, Lcom/google/common/base/Converter;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 453
     sget-object v0, Lcom/google/common/primitives/Longs$LongConverter;->INSTANCE:Lcom/google/common/primitives/Longs$LongConverter;
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method protected bridge synthetic doBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 434
     check-cast p1, Ljava/lang/Long;
@@ -81,7 +81,7 @@
 .end method
 
 .method protected doBackward(Ljava/lang/Long;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Long;
 
     .line 444
@@ -93,7 +93,7 @@
 .end method
 
 .method protected doForward(Ljava/lang/String;)Ljava/lang/Long;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 439
@@ -105,7 +105,7 @@
 .end method
 
 .method protected bridge synthetic doForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 434
     check-cast p1, Ljava/lang/String;
@@ -118,7 +118,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 449
     const-string v0, "Longs.stringConverter()"

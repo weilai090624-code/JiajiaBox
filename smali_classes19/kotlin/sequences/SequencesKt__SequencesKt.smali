@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/sequences/SequencesKt__SequencesJVMKt;-><init>()V
 
@@ -72,7 +72,7 @@
 .end method
 
 .method private static final Sequence(Lkotlin/jvm/functions/Function0;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "iterator"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,7 +104,7 @@
 .end method
 
 .method public static final asSequence(Ljava/util/Iterator;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$asSequence"    # Ljava/util/Iterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -137,7 +137,7 @@
 .end method
 
 .method public static final constrainOnce(Lkotlin/sequences/Sequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$constrainOnce"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -158,25 +158,25 @@
     .line 644
     instance-of v0, p0, Lkotlin/sequences/ConstrainedOnceSequence;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_b
     new-instance v0, Lkotlin/sequences/ConstrainedOnceSequence;
 
     invoke-direct {v0, p0}, Lkotlin/sequences/ConstrainedOnceSequence;-><init>(Lkotlin/sequences/Sequence;)V
 
     check-cast v0, Lkotlin/sequences/Sequence;
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public static final emptySequence()Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -196,7 +196,7 @@
 .end method
 
 .method public static final flatMapIndexed(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 5
     .param p0, "source"    # Lkotlin/sequences/Sequence;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .param p2, "iterator"    # Lkotlin/jvm/functions/Function1;
@@ -254,7 +254,7 @@
 .end method
 
 .method public static final flatten(Lkotlin/sequences/Sequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$flatten"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -287,7 +287,7 @@
 .end method
 
 .method private static final flatten$SequencesKt__SequencesKt(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 4
     .param p0, "$this$flatten"    # Lkotlin/sequences/Sequence;
     .param p1, "iterator"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -311,7 +311,7 @@
     .line 95
     instance-of v0, p0, Lkotlin/sequences/TransformingSequence;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 96
     move-object v0, p0
@@ -325,7 +325,7 @@
     return-object v0
 
     .line 98
-    :cond_0
+    :cond_c
     new-instance v0, Lkotlin/sequences/FlatteningSequence;
 
     sget-object v1, Lkotlin/sequences/SequencesKt__SequencesKt$flatten$3;->INSTANCE:Lkotlin/sequences/SequencesKt__SequencesKt$flatten$3;
@@ -340,7 +340,7 @@
 .end method
 
 .method public static final flattenSequenceOfIterable(Lkotlin/sequences/Sequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$flatten"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -373,7 +373,7 @@
 .end method
 
 .method public static final generateSequence(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 4
     .param p0, "seed"    # Ljava/lang/Object;
     .param p1, "nextFunction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -393,17 +393,17 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 677
-    if-nez p0, :cond_0
+    if-nez p0, :cond_c
 
     .line 678
     sget-object v0, Lkotlin/sequences/EmptySequence;->INSTANCE:Lkotlin/sequences/EmptySequence;
 
     check-cast v0, Lkotlin/sequences/Sequence;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 680
-    :cond_0
+    :cond_c
     new-instance v0, Lkotlin/sequences/GeneratorSequence;
 
     new-instance v1, Lkotlin/sequences/SequencesKt__SequencesKt$generateSequence$2;
@@ -416,12 +416,12 @@
 
     check-cast v0, Lkotlin/sequences/Sequence;
 
-    :goto_0
+    :goto_1a
     return-object v0
 .end method
 
 .method public static final generateSequence(Lkotlin/jvm/functions/Function0;)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 3
     .param p0, "nextFunction"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -460,7 +460,7 @@
 .end method
 
 .method public static final generateSequence(Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 3
     .param p0, "seedFunction"    # Lkotlin/jvm/functions/Function0;
     .param p1, "nextFunction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -496,7 +496,7 @@
 .end method
 
 .method public static final ifEmpty(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function0;)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 4
     .param p0, "$this$ifEmpty"    # Lkotlin/sequences/Sequence;
     .param p1, "defaultValue"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -541,7 +541,7 @@
 .end method
 
 .method private static final orEmpty(Lkotlin/sequences/Sequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$orEmpty"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -556,23 +556,23 @@
     .end annotation
 
     .line 56
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     invoke-static {}, Lkotlin/sequences/SequencesKt;->emptySequence()Lkotlin/sequences/Sequence;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     move-object v0, p0
 
-    :goto_0
+    :goto_8
     return-object v0
 .end method
 
 .method public static final varargs sequenceOf([Ljava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -597,7 +597,7 @@
 .end method
 
 .method public static final shuffled(Lkotlin/sequences/Sequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$shuffled"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -628,7 +628,7 @@
 .end method
 
 .method public static final shuffled(Lkotlin/sequences/Sequence;Lkotlin/random/Random;)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 4
     .param p0, "$this$shuffled"    # Lkotlin/sequences/Sequence;
     .param p1, "random"    # Lkotlin/random/Random;
     .annotation system Ldalvik/annotation/Signature;
@@ -671,7 +671,7 @@
 .end method
 
 .method public static final unzip(Lkotlin/sequences/Sequence;)Lkotlin/Pair;
-    .locals 5
+    .registers 6
     .param p0, "$this$unzip"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -713,12 +713,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_13
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2e
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -741,11 +741,11 @@
 
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_13
 
     .line 117
     .end local v3    # "pair":Lkotlin/Pair;
-    :cond_0
+    :cond_2e
     invoke-static {v0, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
 
     move-result-object v2

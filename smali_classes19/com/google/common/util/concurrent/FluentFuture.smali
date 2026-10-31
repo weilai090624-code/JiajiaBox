@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 123
     .local p0, "this":Lcom/google/common/util/concurrent/FluentFuture;, "Lcom/google/common/util/concurrent/FluentFuture<TV;>;"
@@ -40,7 +40,7 @@
 .end method
 
 .method public static from(Lcom/google/common/util/concurrent/FluentFuture;)Lcom/google/common/util/concurrent/FluentFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -68,7 +68,7 @@
 .end method
 
 .method public static from(Lcom/google/common/util/concurrent/ListenableFuture;)Lcom/google/common/util/concurrent/FluentFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -85,30 +85,30 @@
     .local p0, "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
     instance-of v0, p0, Lcom/google/common/util/concurrent/FluentFuture;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 134
     move-object v0, p0
 
     check-cast v0, Lcom/google/common/util/concurrent/FluentFuture;
 
-    goto :goto_0
+    goto :goto_d
 
     .line 135
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/common/util/concurrent/ForwardingFluentFuture;
 
     invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/ForwardingFluentFuture;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
 
     .line 133
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 
 # virtual methods
 .method public final addCallback(Lcom/google/common/util/concurrent/FutureCallback;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 3
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -130,7 +130,7 @@
 .end method
 
 .method public final catching(Ljava/lang/Class;Lcom/google/common/base/Function;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/FluentFuture;
-    .locals 1
+    .registers 5
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -162,7 +162,7 @@
 .end method
 
 .method public final catchingAsync(Ljava/lang/Class;Lcom/google/common/util/concurrent/AsyncFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/FluentFuture;
-    .locals 1
+    .registers 5
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -194,7 +194,7 @@
 .end method
 
 .method public final transform(Lcom/google/common/base/Function;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/FluentFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -223,7 +223,7 @@
 .end method
 
 .method public final transformAsync(Lcom/google/common/util/concurrent/AsyncFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/FluentFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -252,7 +252,7 @@
 .end method
 
 .method public final withTimeout(JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/ScheduledExecutorService;)Lcom/google/common/util/concurrent/FluentFuture;
-    .locals 1
+    .registers 6
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .param p4, "scheduledExecutor"    # Ljava/util/concurrent/ScheduledExecutorService;

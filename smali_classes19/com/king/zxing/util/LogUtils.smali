@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     const/4 v0, 0x1
@@ -45,7 +45,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,19 +59,19 @@
 .end method
 
 .method public static d(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "msg"    # Ljava/lang/String;
 
     .line 170
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x3
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 171
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -85,25 +85,25 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 172
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static d(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p0, "msg"    # Ljava/lang/String;
     .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 180
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x3
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 181
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -117,24 +117,24 @@
     invoke-static {v0, v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 182
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static d(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 3
     .param p0, "t"    # Ljava/lang/Throwable;
 
     .line 175
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x3
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 176
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -148,24 +148,24 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 177
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static e(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "msg"    # Ljava/lang/String;
 
     .line 233
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x6
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 234
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -179,25 +179,25 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 235
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static e(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p0, "msg"    # Ljava/lang/String;
     .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 243
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x6
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 244
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -211,24 +211,24 @@
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 245
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static e(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 3
     .param p0, "t"    # Ljava/lang/Throwable;
 
     .line 238
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x6
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 239
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -242,12 +242,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 240
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method private static generateTag(Ljava/lang/StackTraceElement;)Ljava/lang/String;
-    .locals 8
+    .registers 9
     .param p0, "caller"    # Ljava/lang/StackTraceElement;
 
     .line 103
@@ -343,7 +343,7 @@
 .end method
 
 .method private static getCallerStackLogTag()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 129
     const/4 v0, 0x5
@@ -360,7 +360,7 @@
 .end method
 
 .method public static getPriority()I
-    .locals 1
+    .registers 1
 
     .line 90
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
@@ -369,7 +369,7 @@
 .end method
 
 .method public static getStackTraceElement(I)Ljava/lang/StackTraceElement;
-    .locals 1
+    .registers 2
     .param p0, "n"    # I
 
     .line 121
@@ -387,7 +387,7 @@
 .end method
 
 .method private static getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "t"    # Ljava/lang/Throwable;
 
     .line 138
@@ -399,19 +399,19 @@
 .end method
 
 .method public static i(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "msg"    # Ljava/lang/String;
 
     .line 191
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x4
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 192
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -425,25 +425,25 @@
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 193
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static i(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p0, "msg"    # Ljava/lang/String;
     .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 201
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x4
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 202
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -457,24 +457,24 @@
     invoke-static {v0, v1, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 203
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static i(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 3
     .param p0, "t"    # Ljava/lang/Throwable;
 
     .line 196
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x4
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 197
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -488,12 +488,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 198
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static isShowLog()Z
-    .locals 1
+    .registers 1
 
     .line 85
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
@@ -502,19 +502,19 @@
 .end method
 
 .method public static print(Ljava/lang/Object;)V
-    .locals 2
+    .registers 3
     .param p0, "obj"    # Ljava/lang/Object;
 
     .line 281
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     .line 282
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -522,24 +522,24 @@
     invoke-virtual {v0, p0}, Ljava/io/PrintStream;->print(Ljava/lang/Object;)V
 
     .line 283
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public static print(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "msg"    # Ljava/lang/String;
 
     .line 276
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     .line 277
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -547,24 +547,24 @@
     invoke-virtual {v0, p0}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
 
     .line 278
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public static printf(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "msg"    # Ljava/lang/String;
 
     .line 293
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_11
 
     .line 294
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -576,24 +576,24 @@
     invoke-virtual {v0, p0, v1}, Ljava/io/PrintStream;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
 
     .line 295
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public static println(Ljava/lang/Object;)V
-    .locals 2
+    .registers 3
     .param p0, "obj"    # Ljava/lang/Object;
 
     .line 310
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     .line 311
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -601,24 +601,24 @@
     invoke-virtual {v0, p0}, Ljava/io/PrintStream;->println(Ljava/lang/Object;)V
 
     .line 312
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public static println(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "msg"    # Ljava/lang/String;
 
     .line 305
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     .line 306
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -626,12 +626,12 @@
     invoke-virtual {v0, p0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 307
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public static setPriority(I)V
-    .locals 0
+    .registers 1
     .param p0, "priority"    # I
 
     .line 95
@@ -642,7 +642,7 @@
 .end method
 
 .method public static setShowLog(Z)V
-    .locals 0
+    .registers 1
     .param p0, "isShowLog"    # Z
 
     .line 80
@@ -653,19 +653,19 @@
 .end method
 
 .method public static v(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "msg"    # Ljava/lang/String;
 
     .line 148
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x2
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 149
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -679,25 +679,25 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 151
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static v(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p0, "msg"    # Ljava/lang/String;
     .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 159
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x2
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 160
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -711,24 +711,24 @@
     invoke-static {v0, v1, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 161
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static v(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 3
     .param p0, "t"    # Ljava/lang/Throwable;
 
     .line 154
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x2
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 155
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -742,24 +742,24 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 156
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static w(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "msg"    # Ljava/lang/String;
 
     .line 212
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x5
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 213
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -773,25 +773,25 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 214
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static w(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p0, "msg"    # Ljava/lang/String;
     .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 222
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x5
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 223
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -805,24 +805,24 @@
     invoke-static {v0, v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 224
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static w(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 3
     .param p0, "t"    # Ljava/lang/Throwable;
 
     .line 217
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x5
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 218
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -836,24 +836,24 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 219
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static wtf(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "msg"    # Ljava/lang/String;
 
     .line 254
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x7
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 255
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -867,25 +867,25 @@
     invoke-static {v0, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 256
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p0, "msg"    # Ljava/lang/String;
     .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 264
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x7
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 265
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -899,24 +899,24 @@
     invoke-static {v0, v1, p1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 266
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static wtf(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 3
     .param p0, "t"    # Ljava/lang/Throwable;
 
     .line 259
     sget-boolean v0, Lcom/king/zxing/util/LogUtils;->isShowLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     sget v0, Lcom/king/zxing/util/LogUtils;->priority:I
 
     const/4 v1, 0x7
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_14
 
     .line 260
     invoke-static {}, Lcom/king/zxing/util/LogUtils;->getCallerStackLogTag()Ljava/lang/String;
@@ -930,6 +930,6 @@
     invoke-static {v0, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 261
-    :cond_0
+    :cond_14
     return-void
 .end method

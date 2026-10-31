@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "patternStr"    # Ljava/lang/String;
 
     .line 46
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/regex/Pattern;)V
-    .locals 1
+    .registers 3
     .param p1, "pattern"    # Ljava/util/regex/Pattern;
 
     .line 54
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p1, "dir"    # Ljava/io/File;
     .param p2, "fileName"    # Ljava/lang/String;
 

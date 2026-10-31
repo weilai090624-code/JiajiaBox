@@ -85,7 +85,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/jvm/functions/Function2;)V
-    .locals 0
+    .registers 3
     .param p1, "collector"    # Lkotlinx/coroutines/flow/FlowCollector;
     .param p2, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -144,7 +144,7 @@
 .end method
 
 .method public final onSubscription(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -158,7 +158,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/flow/SubscribedFlowCollector$onSubscription$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -170,7 +170,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/flow/SubscribedFlowCollector$onSubscription$1;->label:I
 
@@ -178,14 +178,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/flow/SubscribedFlowCollector$onSubscription$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/SubscribedFlowCollector$onSubscription$1;
 
     invoke-direct {v0, p0, p1}, Lkotlinx/coroutines/flow/SubscribedFlowCollector$onSubscription$1;-><init>(Lkotlinx/coroutines/flow/SubscribedFlowCollector;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -199,7 +199,7 @@
     .line 416
     iget v2, p1, Lkotlinx/coroutines/flow/SubscribedFlowCollector$onSubscription$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_84
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -213,12 +213,12 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_7b
 
-    :pswitch_1
+    :pswitch_31
     iget-object v2, p1, Lkotlinx/coroutines/flow/SubscribedFlowCollector$onSubscription$1;->L$1:Ljava/lang/Object;
 
     check-cast v2, Lkotlinx/coroutines/flow/internal/SafeCollector;
@@ -229,16 +229,16 @@
     check-cast v3, Lkotlinx/coroutines/flow/SubscribedFlowCollector;
 
     .local v3, "this":Lkotlinx/coroutines/flow/SubscribedFlowCollector;
-    :try_start_0
+    :try_start_39
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3c
+    .catchall {:try_start_39 .. :try_end_3c} :catchall_7f
 
-    goto :goto_1
+    goto :goto_5e
 
     .end local v2    # "safeCollector":Lkotlinx/coroutines/flow/internal/SafeCollector;
     .end local v3    # "this":Lkotlinx/coroutines/flow/SubscribedFlowCollector;
-    :pswitch_2
+    :pswitch_3d
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v3, p0
@@ -266,7 +266,7 @@
     nop
 
     .line 419
-    :try_start_1
+    :try_start_4e
     iget-object v4, v3, Lkotlinx/coroutines/flow/SubscribedFlowCollector;->action:Lkotlin/jvm/functions/Function2;
 
     iput-object v3, p1, Lkotlinx/coroutines/flow/SubscribedFlowCollector$onSubscription$1;->L$0:Ljava/lang/Object;
@@ -280,17 +280,17 @@
     invoke-interface {v4, v2, p1}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5b
+    .catchall {:try_start_4e .. :try_end_5b} :catchall_7f
 
-    if-ne v4, v1, :cond_1
+    if-ne v4, v1, :cond_5e
 
     .line 416
     return-object v1
 
     .line 421
-    :cond_1
-    :goto_1
+    :cond_5e
+    :goto_5e
     invoke-virtual {v2}, Lkotlinx/coroutines/flow/internal/SafeCollector;->releaseIntercepted()V
 
     .line 422
@@ -302,7 +302,7 @@
 
     instance-of v2, v2, Lkotlinx/coroutines/flow/SubscribedFlowCollector;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_7e
 
     iget-object v2, v3, Lkotlinx/coroutines/flow/SubscribedFlowCollector;->collector:Lkotlinx/coroutines/flow/FlowCollector;
 
@@ -323,25 +323,25 @@
     move-result-object v2
 
     .end local v3    # "this":Lkotlinx/coroutines/flow/SubscribedFlowCollector;
-    if-ne v2, v1, :cond_2
+    if-ne v2, v1, :cond_7b
 
     .line 416
     return-object v1
 
     .line 424
-    :cond_2
-    :goto_2
+    :cond_7b
+    :goto_7b
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     .line 423
-    :cond_3
-    goto :goto_2
+    :cond_7e
+    goto :goto_7b
 
     .line 421
     .restart local v2    # "safeCollector":Lkotlinx/coroutines/flow/internal/SafeCollector;
-    :catchall_0
+    :catchall_7f
     move-exception v1
 
     invoke-virtual {v2}, Lkotlinx/coroutines/flow/internal/SafeCollector;->releaseIntercepted()V
@@ -349,10 +349,10 @@
     .end local v2    # "safeCollector":Lkotlinx/coroutines/flow/internal/SafeCollector;
     throw v1
 
-    :pswitch_data_0
+    :pswitch_data_84
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3d
+        :pswitch_31
+        :pswitch_2d
     .end packed-switch
 .end method

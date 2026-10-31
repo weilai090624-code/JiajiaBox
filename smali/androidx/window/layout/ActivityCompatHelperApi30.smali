@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/layout/ActivityCompatHelperApi30;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final currentWindowBounds(Landroid/app/Activity;)Landroid/graphics/Rect;
-    .locals 2
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -86,7 +86,7 @@
 .end method
 
 .method public final maximumWindowBounds(Landroid/app/Activity;)Landroid/graphics/Rect;
-    .locals 2
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"

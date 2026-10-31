@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/uuid/SecureRandomHolder;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final getInstance()Ljava/security/SecureRandom;
-    .locals 1
+    .registers 2
 
     .line 15
     sget-object v0, Lkotlin/uuid/SecureRandomHolder;->instance:Ljava/security/SecureRandom;

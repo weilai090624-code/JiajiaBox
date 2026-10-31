@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public createViewTypeWrapper(Landroidx/recyclerview/widget/NestedAdapterWrapper;)Landroidx/recyclerview/widget/ViewTypeStorage$ViewTypeLookup;
-    .locals 1
+    .registers 3
     .param p1, "wrapper"    # Landroidx/recyclerview/widget/NestedAdapterWrapper;
 
     .line 72
@@ -68,7 +68,7 @@
 .end method
 
 .method public getWrapperForGlobalType(I)Landroidx/recyclerview/widget/NestedAdapterWrapper;
-    .locals 4
+    .registers 6
     .param p1, "globalViewType"    # I
 
     .line 58
@@ -82,13 +82,13 @@
 
     .line 60
     .local v0, "nestedAdapterWrappers":Ljava/util/List;, "Ljava/util/List<Landroidx/recyclerview/widget/NestedAdapterWrapper;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 65
     const/4 v1, 0x0
@@ -102,7 +102,7 @@
     return-object v1
 
     .line 61
-    :cond_0
+    :cond_18
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -129,7 +129,7 @@
 .end method
 
 .method removeWrapper(Landroidx/recyclerview/widget/NestedAdapterWrapper;)V
-    .locals 3
+    .registers 5
     .param p1, "wrapper"    # Landroidx/recyclerview/widget/NestedAdapterWrapper;
 
     .line 76
@@ -142,8 +142,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_8
+    if-ltz v0, :cond_26
 
     .line 77
     iget-object v1, p0, Landroidx/recyclerview/widget/ViewTypeStorage$SharedIdRangeViewTypeStorage;->mGlobalTypeToWrapper:Landroid/util/SparseArray;
@@ -160,14 +160,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     .line 79
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     .line 80
     iget-object v2, p0, Landroidx/recyclerview/widget/ViewTypeStorage$SharedIdRangeViewTypeStorage;->mGlobalTypeToWrapper:Landroid/util/SparseArray;
@@ -176,13 +176,13 @@
 
     .line 76
     .end local v1    # "wrappers":Ljava/util/List;, "Ljava/util/List<Landroidx/recyclerview/widget/NestedAdapterWrapper;>;"
-    :cond_0
+    :cond_23
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 84
     .end local v0    # "i":I
-    :cond_1
+    :cond_26
     return-void
 .end method

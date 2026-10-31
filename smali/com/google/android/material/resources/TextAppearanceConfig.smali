@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static setShouldLoadFontSynchronously(Z)V
-    .locals 0
+    .registers 1
     .param p0, "flag"    # Z
 
     .line 38
@@ -34,7 +34,7 @@
 .end method
 
 .method public static shouldLoadFontSynchronously()Z
-    .locals 1
+    .registers 1
 
     .line 43
     sget-boolean v0, Lcom/google/android/material/resources/TextAppearanceConfig;->shouldLoadFontSynchronously:Z

@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 38
     .local p0, "this":Lorg/ini4j/BasicMultiMap;, "Lorg/ini4j/BasicMultiMap<TK;TV;>;"
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,7 +87,7 @@
 .end method
 
 .method private getList(Ljava/lang/Object;Z)Ljava/util/List;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "create"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -112,9 +112,9 @@
 
     .line 234
     .local v0, "values":Ljava/util/List;, "Ljava/util/List<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_17
 
     .line 236
     new-instance v1, Ljava/util/ArrayList;
@@ -129,14 +129,14 @@
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 240
-    :cond_0
+    :cond_17
     return-object v0
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -160,7 +160,7 @@
 .end method
 
 .method public add(Ljava/lang/Object;Ljava/lang/Object;I)V
-    .locals 1
+    .registers 5
     .param p3, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -185,7 +185,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 68
     .local p0, "this":Lorg/ini4j/BasicMultiMap;, "Lorg/ini4j/BasicMultiMap<TK;TV;>;"
@@ -198,7 +198,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 73
@@ -213,7 +213,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 78
@@ -233,12 +233,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -252,28 +252,28 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1f
 
     .line 84
     const/4 v0, 0x1
 
     .line 86
-    goto :goto_1
+    goto :goto_20
 
     .line 88
     .end local v2    # "all":Ljava/util/List;, "Ljava/util/List<TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_1f
+    goto :goto_b
 
     .line 90
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_1
-    :goto_1
+    :cond_20
+    :goto_20
     return v0
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -300,12 +300,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -321,16 +321,16 @@
 
     .line 100
     .end local v2    # "key":Ljava/lang/Object;, "TK;"
-    goto :goto_0
+    goto :goto_d
 
     .line 102
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_20
     return-object v0
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -350,13 +350,13 @@
 
     .line 109
     .local v0, "values":Ljava/util/List;, "Ljava/util/List<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_9
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -367,12 +367,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_13
     return-object v1
 .end method
 
 .method public get(Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -393,23 +393,23 @@
 
     .line 116
     .local v0, "values":Ljava/util/List;, "Ljava/util/List<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_9
     invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     return-object v1
 .end method
 
 .method public getAll(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -435,7 +435,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 53
     .local p0, "this":Lorg/ini4j/BasicMultiMap;, "Lorg/ini4j/BasicMultiMap<TK;TV;>;"
@@ -449,7 +449,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -470,7 +470,7 @@
 .end method
 
 .method public length(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
 
     .line 126
@@ -483,21 +483,21 @@
 
     .line 128
     .local v1, "values":Ljava/util/List;, "Ljava/util/List<TV;>;"
-    if-nez v1, :cond_0
+    if-nez v1, :cond_8
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_8
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -524,15 +524,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_10
 
     .line 138
     invoke-interface {v2, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_19
 
     .line 142
-    :cond_0
+    :cond_10
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v3
@@ -544,12 +544,12 @@
     move-result-object v0
 
     .line 145
-    :goto_0
+    :goto_19
     return-object v0
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p3, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -575,7 +575,7 @@
 .end method
 
 .method public putAll(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -613,7 +613,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -627,7 +627,7 @@
     .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     instance-of v0, p1, Lorg/ini4j/MultiMap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 158
     move-object v0, p1
@@ -645,12 +645,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -666,16 +666,16 @@
 
     .line 163
     .end local v2    # "key":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_f
 
     .line 164
     .end local v0    # "mm":Lorg/ini4j/MultiMap;, "Lorg/ini4j/MultiMap<TK;TV;>;"
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_0
-    goto :goto_2
+    :cond_21
+    goto :goto_3c
 
     .line 167
-    :cond_1
+    :cond_22
     invoke-interface {p1}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v0
@@ -685,12 +685,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_1
+    :goto_2a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -706,17 +706,17 @@
 
     .line 170
     .end local v1    # "key":Ljava/lang/Object;, "TK;"
-    goto :goto_1
+    goto :goto_2a
 
     .line 172
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_2
-    :goto_2
+    :cond_3c
+    :goto_3c
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -738,25 +738,25 @@
 
     .line 187
     .local v0, "prev":Ljava/util/List;, "Ljava/util/List<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method public remove(Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -781,7 +781,7 @@
 
     .line 195
     .local v1, "values":Ljava/util/List;, "Ljava/util/List<TV;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 197
     invoke-interface {v1, p2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -793,7 +793,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     .line 200
     iget-object v2, p0, Lorg/ini4j/BasicMultiMap;->_impl:Ljava/util/Map;
@@ -801,12 +801,12 @@
     invoke-interface {v2, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 204
-    :cond_0
+    :cond_17
     return-object v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 209
     .local p0, "this":Lorg/ini4j/BasicMultiMap;, "Lorg/ini4j/BasicMultiMap<TK;TV;>;"
@@ -820,7 +820,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 214
     .local p0, "this":Lorg/ini4j/BasicMultiMap;, "Lorg/ini4j/BasicMultiMap<TK;TV;>;"
@@ -834,7 +834,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -868,12 +868,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_15
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_25
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -887,10 +887,10 @@
 
     .line 224
     .end local v2    # "values":Ljava/util/List;, "Ljava/util/List<TV;>;"
-    goto :goto_0
+    goto :goto_15
 
     .line 226
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_25
     return-object v0
 .end method

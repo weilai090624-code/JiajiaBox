@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/SpecialEffectsController$Operation;Landroidx/core/os/CancellationSignal;Z)V
-    .locals 1
+    .registers 5
     .param p1, "operation"    # Landroidx/fragment/app/SpecialEffectsController$Operation;
     .param p2, "signal"    # Landroidx/core/os/CancellationSignal;
     .param p3, "isPop"    # Z
@@ -47,13 +47,13 @@
 
 # virtual methods
 .method getAnimation(Landroid/content/Context;)Landroidx/fragment/app/FragmentAnim$AnimationOrAnimator;
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     .line 896
     iget-boolean v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$AnimationInfo;->mLoadedAnim:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 897
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$AnimationInfo;->mAnimation:Landroidx/fragment/app/FragmentAnim$AnimationOrAnimator;
@@ -61,7 +61,7 @@
     return-object v0
 
     .line 899
-    :cond_0
+    :cond_7
     nop
 
     .line 900
@@ -86,16 +86,16 @@
 
     const/4 v3, 0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1f
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_20
     iget-boolean v2, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$AnimationInfo;->mIsPop:Z
 
     .line 899

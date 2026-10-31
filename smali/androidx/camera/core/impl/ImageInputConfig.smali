@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 23
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;

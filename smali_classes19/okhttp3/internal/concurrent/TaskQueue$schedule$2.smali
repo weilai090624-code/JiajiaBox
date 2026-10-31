@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function0;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "$block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public runOnce()J
-    .locals 2
+    .registers 3
 
     .line 87
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue$schedule$2;->$block:Lkotlin/jvm/functions/Function0;

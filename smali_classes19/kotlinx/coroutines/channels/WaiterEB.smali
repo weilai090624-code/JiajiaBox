@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/Waiter;)V
-    .locals 0
+    .registers 2
     .param p1, "waiter"    # Lkotlinx/coroutines/Waiter;
 
     .line 2957
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 2958
     new-instance v0, Ljava/lang/StringBuilder;

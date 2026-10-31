@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 101
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method isMasked(II)Z
-    .locals 2
+    .registers 5
     .param p1, "i"    # I
     .param p2, "j"    # I
 
@@ -40,13 +40,13 @@
 
     const/4 v1, 0x3
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_9
 
     const/4 v0, 0x1
 
     return v0
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return v0

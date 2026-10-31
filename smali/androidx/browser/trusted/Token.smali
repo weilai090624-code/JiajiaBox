@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>(Landroidx/browser/trusted/TokenContents;)V
-    .locals 0
+    .registers 2
     .param p1, "contents"    # Landroidx/browser/trusted/TokenContents;
 
     .line 84
@@ -27,7 +27,7 @@
 .end method
 
 .method public static create(Ljava/lang/String;Landroid/content/pm/PackageManager;)Landroidx/browser/trusted/Token;
-    .locals 5
+    .registers 7
     .param p0, "packageName"    # Ljava/lang/String;
     .param p1, "packageManager"    # Landroid/content/pm/PackageManager;
 
@@ -43,13 +43,13 @@
     .local v0, "fingerprints":Ljava/util/List;, "Ljava/util/List<[B>;"
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     return-object v1
 
     .line 67
-    :cond_0
-    :try_start_0
+    :cond_9
+    :try_start_9
     new-instance v2, Landroidx/browser/trusted/Token;
 
     invoke-static {p0, v0}, Landroidx/browser/trusted/TokenContents;->create(Ljava/lang/String;Ljava/util/List;)Landroidx/browser/trusted/TokenContents;
@@ -57,13 +57,13 @@
     move-result-object v3
 
     invoke-direct {v2, v3}, Landroidx/browser/trusted/Token;-><init>(Landroidx/browser/trusted/TokenContents;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_12} :catch_13
 
     return-object v2
 
     .line 68
-    :catch_0
+    :catch_13
     move-exception v2
 
     .line 69
@@ -79,7 +79,7 @@
 .end method
 
 .method public static deserialize([B)Landroidx/browser/trusted/Token;
-    .locals 2
+    .registers 3
     .param p0, "serialized"    # [B
 
     .line 81
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public matches(Ljava/lang/String;Landroid/content/pm/PackageManager;)Z
-    .locals 1
+    .registers 4
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "packageManager"    # Landroid/content/pm/PackageManager;
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public serialize()[B
-    .locals 1
+    .registers 2
 
     .line 95
     iget-object v0, p0, Landroidx/browser/trusted/Token;->mContents:Landroidx/browser/trusted/TokenContents;

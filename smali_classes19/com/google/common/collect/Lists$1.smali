@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 0
+    .registers 2
 
     .line 1090
     .local p1, "backingList":Ljava/util/List;, "Ljava/util/List<TE;>;"
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

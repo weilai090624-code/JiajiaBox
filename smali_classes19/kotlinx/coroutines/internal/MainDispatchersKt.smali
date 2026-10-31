@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 70
     const/4 v0, 0x1
@@ -63,14 +63,14 @@
 .end method
 
 .method private static final createMissingDispatcher(Ljava/lang/Throwable;Ljava/lang/String;)Lkotlinx/coroutines/internal/MissingMainCoroutineDispatcher;
-    .locals 2
+    .registers 4
     .param p0, "cause"    # Ljava/lang/Throwable;
     .param p1, "errorHint"    # Ljava/lang/String;
 
     .line 77
     sget-boolean v0, Lkotlinx/coroutines/internal/MainDispatchersKt;->SUPPORT_MISSING:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     new-instance v0, Lkotlinx/coroutines/internal/MissingMainCoroutineDispatcher;
 
@@ -79,8 +79,8 @@
     .line 78
     return-object v0
 
-    :cond_0
-    if-eqz p0, :cond_1
+    :cond_a
+    if-eqz p0, :cond_f
 
     move-object v0, p0
 
@@ -94,7 +94,7 @@
 
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-let-MainDispatchersKt$createMissingDispatcher$1":I
-    :cond_1
+    :cond_f
     invoke-static {}, Lkotlinx/coroutines/internal/MainDispatchersKt;->throwMissingMainDispatcherException()Ljava/lang/Void;
 
     new-instance v0, Lkotlin/KotlinNothingValueException;
@@ -105,25 +105,25 @@
 .end method
 
 .method static synthetic createMissingDispatcher$default(Ljava/lang/Throwable;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/coroutines/internal/MissingMainCoroutineDispatcher;
-    .locals 1
+    .registers 5
 
     .line 76
     and-int/lit8 p3, p2, 0x1
 
     const/4 v0, 0x0
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     move-object p0, v0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p2, p2, 0x2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_b
 
     move-object p1, v0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1}, Lkotlinx/coroutines/internal/MainDispatchersKt;->createMissingDispatcher(Ljava/lang/Throwable;Ljava/lang/String;)Lkotlinx/coroutines/internal/MissingMainCoroutineDispatcher;
 
     move-result-object p0
@@ -132,13 +132,13 @@
 .end method
 
 .method private static synthetic getSUPPORT_MISSING$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final isMissing(Lkotlinx/coroutines/MainCoroutineDispatcher;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isMissing"    # Lkotlinx/coroutines/MainCoroutineDispatcher;
 
     .line 66
@@ -152,7 +152,7 @@
 .end method
 
 .method public static final throwMissingMainDispatcherException()Ljava/lang/Void;
-    .locals 2
+    .registers 2
 
     .line 81
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -169,7 +169,7 @@
 .end method
 
 .method public static final tryCreateDispatcher(Lkotlinx/coroutines/internal/MainDispatcherFactory;Ljava/util/List;)Lkotlinx/coroutines/MainCoroutineDispatcher;
-    .locals 2
+    .registers 4
     .param p0, "$this$tryCreateDispatcher"    # Lkotlinx/coroutines/internal/MainDispatcherFactory;
     .param p1, "factories"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -188,17 +188,17 @@
     nop
 
     .line 57
-    :try_start_0
+    :try_start_1
     invoke-interface {p0, p1}, Lkotlinx/coroutines/internal/MainDispatcherFactory;->createDispatcher(Ljava/util/List;)Lkotlinx/coroutines/MainCoroutineDispatcher;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_1 .. :try_end_5} :catchall_6
 
-    goto :goto_0
+    goto :goto_12
 
     .line 58
-    :catchall_0
+    :catchall_6
     move-exception v0
 
     .line 59
@@ -217,6 +217,6 @@
 
     .line 60
     .end local v0    # "cause":Ljava/lang/Throwable;
-    :goto_0
+    :goto_12
     return-object v0
 .end method

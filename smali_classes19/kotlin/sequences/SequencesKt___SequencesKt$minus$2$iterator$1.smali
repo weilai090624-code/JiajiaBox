@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;)V"
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public final invoke(Ljava/lang/Object;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 3
     .param p1, "it"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -103,7 +103,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 2642

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static handleFourBytes(BBBB[CI)V
-    .locals 3
+    .registers 9
     .param p0, "byte1"    # B
     .param p1, "byte2"    # B
     .param p2, "byte3"    # B
@@ -43,7 +43,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_41
 
     shl-int/lit8 v0, p0, 0x1c
 
@@ -53,21 +53,21 @@
 
     shr-int/lit8 v0, v0, 0x1e
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_41
 
     .line 149
     invoke-static {p2}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->isNotTrailingByte(B)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_41
 
     .line 150
     invoke-static {p3}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->isNotTrailingByte(B)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_41
 
     .line 153
     and-int/lit8 v0, p0, 0x7
@@ -121,7 +121,7 @@
 
     .line 151
     .end local v0    # "codepoint":I
-    :cond_0
+    :cond_41
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid UTF-8"
@@ -132,7 +132,7 @@
 .end method
 
 .method static handleOneByte(B[CI)V
-    .locals 1
+    .registers 4
     .param p0, "byte1"    # B
     .param p1, "resultArr"    # [C
     .param p2, "resultPos"    # I
@@ -147,7 +147,7 @@
 .end method
 
 .method static handleThreeBytes(BBB[CI)V
-    .locals 2
+    .registers 7
     .param p0, "byte1"    # B
     .param p1, "byte2"    # B
     .param p2, "byte3"    # B
@@ -164,30 +164,30 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2e
 
     const/16 v0, -0x20
 
     const/16 v1, -0x60
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_e
 
-    if-lt p1, v1, :cond_2
+    if-lt p1, v1, :cond_2e
 
-    :cond_0
+    :cond_e
     const/16 v0, -0x13
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_14
 
-    if-ge p1, v1, :cond_2
+    if-ge p1, v1, :cond_2e
 
     .line 130
-    :cond_1
+    :cond_14
     invoke-static {p2}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->isNotTrailingByte(B)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2e
 
     .line 133
     and-int/lit8 v0, p0, 0xf
@@ -217,7 +217,7 @@
     return-void
 
     .line 131
-    :cond_2
+    :cond_2e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid UTF-8"
@@ -228,7 +228,7 @@
 .end method
 
 .method static handleTwoBytes(BB[CI)V
-    .locals 2
+    .registers 6
     .param p0, "byte1"    # B
     .param p1, "byte2"    # B
     .param p2, "resultArr"    # [C
@@ -242,14 +242,14 @@
     .line 113
     const/16 v0, -0x3e
 
-    if-lt p0, v0, :cond_1
+    if-lt p0, v0, :cond_1f
 
     .line 116
     invoke-static {p1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->isNotTrailingByte(B)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 119
     and-int/lit8 v0, p0, 0x1f
@@ -270,7 +270,7 @@
     return-void
 
     .line 117
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid UTF-8: Illegal trailing byte in 2 bytes utf"
@@ -280,7 +280,7 @@
     throw v0
 
     .line 114
-    :cond_1
+    :cond_1f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid UTF-8: Illegal leading byte in 2 bytes utf"
@@ -291,7 +291,7 @@
 .end method
 
 .method private static highSurrogate(I)C
-    .locals 2
+    .registers 3
     .param p0, "codePoint"    # I
 
     .line 176
@@ -307,85 +307,85 @@
 .end method
 
 .method private static isNotTrailingByte(B)Z
-    .locals 1
+    .registers 2
     .param p0, "b"    # B
 
     .line 165
     const/16 v0, -0x41
 
-    if-le p0, v0, :cond_0
+    if-le p0, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method static isOneByte(B)Z
-    .locals 1
+    .registers 2
     .param p0, "b"    # B
 
     .line 87
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method static isThreeBytes(B)Z
-    .locals 1
+    .registers 2
     .param p0, "b"    # B
 
     .line 101
     const/16 v0, -0x10
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method static isTwoBytes(B)Z
-    .locals 1
+    .registers 2
     .param p0, "b"    # B
 
     .line 94
     const/16 v0, -0x20
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method private static lowSurrogate(I)C
-    .locals 2
+    .registers 3
     .param p0, "codePoint"    # I
 
     .line 181
@@ -401,7 +401,7 @@
 .end method
 
 .method private static trailingByteValue(B)I
-    .locals 1
+    .registers 2
     .param p0, "b"    # B
 
     .line 172

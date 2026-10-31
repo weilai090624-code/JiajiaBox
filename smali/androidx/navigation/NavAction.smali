@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 6
+    .registers 8
 
     const/4 v4, 0x6
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(ILandroidx/navigation/NavOptions;)V
-    .locals 6
+    .registers 9
 
     const/4 v4, 0x4
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(ILandroidx/navigation/NavOptions;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 4
     .param p1, "destinationId"    # I
     .param p2, "navOptions"    # Landroidx/navigation/NavOptions;
     .param p3, "defaultArguments"    # Landroid/os/Bundle;
@@ -112,29 +112,29 @@
 .end method
 
 .method public synthetic constructor <init>(ILandroidx/navigation/NavOptions;Landroid/os/Bundle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
+    .registers 7
 
     .line 38
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     .line 48
     move-object p2, v0
 
     .line 38
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     .line 54
     move-object p3, v0
 
     .line 38
-    :cond_1
+    :cond_b
     invoke-direct {p0, p1, p2, p3}, Landroidx/navigation/NavAction;-><init>(ILandroidx/navigation/NavOptions;Landroid/os/Bundle;)V
 
     .line 55
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method public final getDefaultArguments()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Landroidx/navigation/NavAction;->defaultArguments:Landroid/os/Bundle;
@@ -153,7 +153,7 @@
 .end method
 
 .method public final getDestinationId()I
-    .locals 1
+    .registers 2
 
     .line 44
     iget v0, p0, Landroidx/navigation/NavAction;->destinationId:I
@@ -162,7 +162,7 @@
 .end method
 
 .method public final getNavOptions()Landroidx/navigation/NavOptions;
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Landroidx/navigation/NavAction;->navOptions:Landroidx/navigation/NavOptions;
@@ -171,7 +171,7 @@
 .end method
 
 .method public final setDefaultArguments(Landroid/os/Bundle;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroid/os/Bundle;
 
     .line 54
@@ -181,7 +181,7 @@
 .end method
 
 .method public final setNavOptions(Landroidx/navigation/NavOptions;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroidx/navigation/NavOptions;
 
     .line 48

@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory$Companion;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 197
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -98,7 +98,7 @@
 .end method
 
 .method public static final synthetic access$getSInstance$cp()Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;
-    .locals 1
+    .registers 1
 
     .line 197
     sget-object v0, Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;->sInstance:Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;
@@ -107,7 +107,7 @@
 .end method
 
 .method public static final synthetic access$setSInstance$cp(Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;
 
     .line 197
@@ -117,7 +117,7 @@
 .end method
 
 .method public static final getInstance()Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;
-    .locals 1
+    .registers 1
 
     sget-object v0, Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;->Companion:Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory$Companion;
 
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method public create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 4
+    .registers 6
     .param p1, "modelClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -155,7 +155,7 @@
     .line 202
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_9
     new-array v2, v1, [Ljava/lang/Class;
 
     invoke-virtual {p1, v2}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
@@ -174,15 +174,15 @@
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     check-cast v1, Landroidx/lifecycle/ViewModel;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_9 .. :try_end_1d} :catch_54
+    .catch Ljava/lang/InstantiationException; {:try_start_9 .. :try_end_1d} :catch_39
+    .catch Ljava/lang/IllegalAccessException; {:try_start_9 .. :try_end_1d} :catch_1e
 
     return-object v1
 
     .line 207
-    :catch_0
+    :catch_1e
     move-exception v1
 
     .line 208
@@ -215,7 +215,7 @@
 
     .line 205
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    :catch_1
+    :catch_39
     move-exception v1
 
     .line 206
@@ -248,7 +248,7 @@
 
     .line 203
     .end local v1    # "e":Ljava/lang/InstantiationException;
-    :catch_2
+    :catch_54
     move-exception v1
 
     .line 204
@@ -281,7 +281,7 @@
 .end method
 
 .method public synthetic create(Ljava/lang/Class;Landroidx/lifecycle/viewmodel/CreationExtras;)Landroidx/lifecycle/ViewModel;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/lifecycle/ViewModelProvider$Factory$-CC;->$default$create(Landroidx/lifecycle/ViewModelProvider$Factory;Ljava/lang/Class;Landroidx/lifecycle/viewmodel/CreationExtras;)Landroidx/lifecycle/ViewModel;
 

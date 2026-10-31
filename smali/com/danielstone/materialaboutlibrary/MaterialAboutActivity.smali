@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 27
     invoke-direct {p0}, Landroidx/appcompat/app/AppCompatActivity;-><init>()V
@@ -41,7 +41,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;
     .param p1, "x1"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method private assignViews()V
-    .locals 2
+    .registers 3
 
     .line 68
     sget v0, Lcom/danielstone/materialaboutlibrary/R$id;->mal_recyclerview:I
@@ -84,7 +84,7 @@
 .end method
 
 .method private initViews()V
-    .locals 4
+    .registers 5
 
     .line 74
     invoke-virtual {p0}, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->getSupportActionBar()Landroidx/appcompat/app/ActionBar;
@@ -93,7 +93,7 @@
 
     .line 75
     .local v0, "actionBar":Landroidx/appcompat/app/ActionBar;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 76
     const/4 v1, 0x1
@@ -101,7 +101,7 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
     .line 78
-    :cond_0
+    :cond_a
     new-instance v1, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutListAdapter;
 
     invoke-virtual {p0}, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->getViewTypeManager()Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager;
@@ -139,7 +139,7 @@
     .local v1, "animator":Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;
     instance-of v2, v1, Landroidx/recyclerview/widget/SimpleItemAnimator;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_37
 
     .line 83
     move-object v2, v1
@@ -151,16 +151,16 @@
     invoke-virtual {v2, v3}, Landroidx/recyclerview/widget/SimpleItemAnimator;->setSupportsChangeAnimations(Z)V
 
     .line 85
-    :cond_1
+    :cond_37
     return-void
 .end method
 
 .method private onTaskFinished(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;)V
-    .locals 3
+    .registers 5
     .param p1, "materialAboutList"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
 
     .line 115
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_44
 
     .line 116
     iput-object p1, p0, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->list:Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
@@ -185,7 +185,7 @@
 
     const/high16 v2, 0x3f800000    # 1.0f
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_39
 
     .line 120
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
@@ -222,10 +222,10 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    goto :goto_0
+    goto :goto_47
 
     .line 126
-    :cond_0
+    :cond_39
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
     invoke-virtual {v0, v2}, Landroidx/recyclerview/widget/RecyclerView;->setAlpha(F)V
@@ -235,14 +235,14 @@
 
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView;->setTranslationY(F)V
 
-    goto :goto_0
+    goto :goto_47
 
     .line 130
-    :cond_1
+    :cond_44
     invoke-virtual {p0}, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->finish()V
 
     .line 132
-    :goto_0
+    :goto_47
     return-void
 .end method
 
@@ -252,7 +252,7 @@
 .end method
 
 .method protected getList()Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->list:Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
@@ -264,7 +264,7 @@
 .end method
 
 .method public getRecyclerView()Landroidx/recyclerview/widget/RecyclerView;
-    .locals 1
+    .registers 2
 
     .line 44
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
@@ -273,7 +273,7 @@
 .end method
 
 .method protected getViewTypeManager()Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager;
-    .locals 1
+    .registers 2
 
     .line 89
     new-instance v0, Lcom/danielstone/materialaboutlibrary/util/DefaultViewTypeManager;
@@ -284,7 +284,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 49
@@ -302,21 +302,21 @@
 
     .line 54
     .local v0, "title":Ljava/lang/CharSequence;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 55
     sget v1, Lcom/danielstone/materialaboutlibrary/R$string;->mal_title_about:I
 
     invoke-virtual {p0, v1}, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->setTitle(I)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 57
-    :cond_0
+    :cond_14
     invoke-virtual {p0, v0}, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 60
-    :goto_0
+    :goto_17
     invoke-direct {p0}, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->assignViews()V
 
     .line 61
@@ -340,7 +340,7 @@
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 2
+    .registers 4
     .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 107
@@ -350,7 +350,7 @@
 
     const v1, 0x102002c
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 108
     invoke-virtual {p0}, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->onBackPressed()V
@@ -361,7 +361,7 @@
     return v0
 
     .line 111
-    :cond_0
+    :cond_e
     invoke-super {p0, p1}, Landroidx/appcompat/app/AppCompatActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -370,7 +370,7 @@
 .end method
 
 .method protected refreshMaterialAboutList()V
-    .locals 1
+    .registers 2
 
     .line 102
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/MaterialAboutActivity;->list:Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
@@ -382,7 +382,7 @@
 .end method
 
 .method protected setMaterialAboutList(Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;)V
-    .locals 2
+    .registers 4
     .param p1, "materialAboutList"    # Lcom/danielstone/materialaboutlibrary/model/MaterialAboutList;
 
     .line 135
@@ -404,7 +404,7 @@
 .end method
 
 .method protected shouldAnimate()Z
-    .locals 1
+    .registers 2
 
     .line 98
     const/4 v0, 0x1

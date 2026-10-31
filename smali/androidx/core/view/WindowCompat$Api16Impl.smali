@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 140
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static setDecorFitsSystemWindows(Landroid/view/Window;Z)V
-    .locals 4
+    .registers 6
     .param p0, "window"    # Landroid/view/Window;
     .param p1, "decorFitsSystemWindows"    # Z
 
@@ -47,19 +47,19 @@
 
     .line 152
     .local v2, "sysUiVis":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 153
     and-int/lit16 v3, v2, -0x701
 
-    goto :goto_0
+    goto :goto_11
 
     .line 154
-    :cond_0
+    :cond_f
     or-int/lit16 v3, v2, 0x700
 
     .line 152
-    :goto_0
+    :goto_11
     invoke-virtual {v1, v3}, Landroid/view/View;->setSystemUiVisibility(I)V
 
     .line 155

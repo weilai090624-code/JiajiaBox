@@ -60,7 +60,7 @@
 
 # direct methods
 .method public static final component1(J)F
-    .locals 2
+    .registers 4
     .param p0, "$this$component1"    # J
 
     const/4 v0, 0x0
@@ -75,7 +75,7 @@
 .end method
 
 .method public static final component1(Landroid/graphics/Color;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component1"    # Landroid/graphics/Color;
 
     const/4 v0, 0x0
@@ -92,7 +92,7 @@
 .end method
 
 .method public static final component1(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$component1"    # I
 
     const/4 v0, 0x0
@@ -107,7 +107,7 @@
 .end method
 
 .method public static final component2(J)F
-    .locals 2
+    .registers 4
     .param p0, "$this$component2"    # J
 
     const/4 v0, 0x0
@@ -122,7 +122,7 @@
 .end method
 
 .method public static final component2(Landroid/graphics/Color;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component2"    # Landroid/graphics/Color;
 
     const/4 v0, 0x0
@@ -139,7 +139,7 @@
 .end method
 
 .method public static final component2(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$component2"    # I
 
     const/4 v0, 0x0
@@ -154,7 +154,7 @@
 .end method
 
 .method public static final component3(J)F
-    .locals 2
+    .registers 4
     .param p0, "$this$component3"    # J
 
     const/4 v0, 0x0
@@ -169,7 +169,7 @@
 .end method
 
 .method public static final component3(Landroid/graphics/Color;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component3"    # Landroid/graphics/Color;
 
     const/4 v0, 0x0
@@ -186,7 +186,7 @@
 .end method
 
 .method public static final component3(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$component3"    # I
 
     const/4 v0, 0x0
@@ -201,7 +201,7 @@
 .end method
 
 .method public static final component4(J)F
-    .locals 2
+    .registers 4
     .param p0, "$this$component4"    # J
 
     const/4 v0, 0x0
@@ -216,7 +216,7 @@
 .end method
 
 .method public static final component4(Landroid/graphics/Color;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component4"    # Landroid/graphics/Color;
 
     const/4 v0, 0x0
@@ -233,7 +233,7 @@
 .end method
 
 .method public static final component4(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$component4"    # I
 
     const/4 v0, 0x0
@@ -246,7 +246,7 @@
 .end method
 
 .method public static final convertTo(ILandroid/graphics/ColorSpace$Named;)J
-    .locals 3
+    .registers 5
     .param p0, "$this$convertTo"    # I
     .param p1, "colorSpace"    # Landroid/graphics/ColorSpace$Named;
 
@@ -266,7 +266,7 @@
 .end method
 
 .method public static final convertTo(ILandroid/graphics/ColorSpace;)J
-    .locals 3
+    .registers 5
     .param p0, "$this$convertTo"    # I
     .param p1, "colorSpace"    # Landroid/graphics/ColorSpace;
 
@@ -282,7 +282,7 @@
 .end method
 
 .method public static final convertTo(JLandroid/graphics/ColorSpace$Named;)J
-    .locals 3
+    .registers 6
     .param p0, "$this$convertTo"    # J
     .param p2, "colorSpace"    # Landroid/graphics/ColorSpace$Named;
 
@@ -302,7 +302,7 @@
 .end method
 
 .method public static final convertTo(JLandroid/graphics/ColorSpace;)J
-    .locals 3
+    .registers 6
     .param p0, "$this$convertTo"    # J
     .param p2, "colorSpace"    # Landroid/graphics/ColorSpace;
 
@@ -318,7 +318,7 @@
 .end method
 
 .method public static final convertTo(Landroid/graphics/Color;Landroid/graphics/ColorSpace$Named;)Landroid/graphics/Color;
-    .locals 2
+    .registers 4
     .param p0, "$this$convertTo"    # Landroid/graphics/Color;
     .param p1, "colorSpace"    # Landroid/graphics/ColorSpace$Named;
 
@@ -338,7 +338,7 @@
 .end method
 
 .method public static final convertTo(Landroid/graphics/Color;Landroid/graphics/ColorSpace;)Landroid/graphics/Color;
-    .locals 2
+    .registers 4
     .param p0, "$this$convertTo"    # Landroid/graphics/Color;
     .param p1, "colorSpace"    # Landroid/graphics/ColorSpace;
 
@@ -354,7 +354,7 @@
 .end method
 
 .method public static final getAlpha(J)F
-    .locals 2
+    .registers 4
     .param p0, "$this$alpha"    # J
 
     const/4 v0, 0x0
@@ -369,7 +369,7 @@
 .end method
 
 .method public static final getAlpha(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$alpha"    # I
 
     const/4 v0, 0x0
@@ -384,7 +384,7 @@
 .end method
 
 .method public static final getBlue(J)F
-    .locals 2
+    .registers 4
     .param p0, "$this$blue"    # J
 
     const/4 v0, 0x0
@@ -399,7 +399,7 @@
 .end method
 
 .method public static final getBlue(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$blue"    # I
 
     const/4 v0, 0x0
@@ -412,7 +412,7 @@
 .end method
 
 .method public static final getColorSpace(J)Landroid/graphics/ColorSpace;
-    .locals 2
+    .registers 4
     .param p0, "$this$colorSpace"    # J
 
     const/4 v0, 0x0
@@ -427,7 +427,7 @@
 .end method
 
 .method public static final getGreen(J)F
-    .locals 2
+    .registers 4
     .param p0, "$this$green"    # J
 
     const/4 v0, 0x0
@@ -442,7 +442,7 @@
 .end method
 
 .method public static final getGreen(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$green"    # I
 
     const/4 v0, 0x0
@@ -457,7 +457,7 @@
 .end method
 
 .method public static final getLuminance(I)F
-    .locals 2
+    .registers 3
     .param p0, "$this$luminance"    # I
 
     const/4 v0, 0x0
@@ -472,7 +472,7 @@
 .end method
 
 .method public static final getLuminance(J)F
-    .locals 2
+    .registers 4
     .param p0, "$this$luminance"    # J
 
     const/4 v0, 0x0
@@ -487,7 +487,7 @@
 .end method
 
 .method public static final getRed(J)F
-    .locals 2
+    .registers 4
     .param p0, "$this$red"    # J
 
     const/4 v0, 0x0
@@ -502,7 +502,7 @@
 .end method
 
 .method public static final getRed(I)I
-    .locals 2
+    .registers 3
     .param p0, "$this$red"    # I
 
     const/4 v0, 0x0
@@ -517,7 +517,7 @@
 .end method
 
 .method public static final isSrgb(J)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$isSrgb"    # J
 
     const/4 v0, 0x0
@@ -532,7 +532,7 @@
 .end method
 
 .method public static final isWideGamut(J)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$isWideGamut"    # J
 
     const/4 v0, 0x0
@@ -547,7 +547,7 @@
 .end method
 
 .method public static final plus(Landroid/graphics/Color;Landroid/graphics/Color;)Landroid/graphics/Color;
-    .locals 1
+    .registers 3
     .param p0, "$this$plus"    # Landroid/graphics/Color;
     .param p1, "c"    # Landroid/graphics/Color;
 
@@ -560,7 +560,7 @@
 .end method
 
 .method public static final toColor(I)Landroid/graphics/Color;
-    .locals 2
+    .registers 3
     .param p0, "$this$toColor"    # I
 
     const/4 v0, 0x0
@@ -575,7 +575,7 @@
 .end method
 
 .method public static final toColor(J)Landroid/graphics/Color;
-    .locals 2
+    .registers 4
     .param p0, "$this$toColor"    # J
 
     const/4 v0, 0x0
@@ -590,7 +590,7 @@
 .end method
 
 .method public static final toColorInt(J)I
-    .locals 2
+    .registers 4
     .param p0, "$this$toColorInt"    # J
 
     const/4 v0, 0x0
@@ -605,7 +605,7 @@
 .end method
 
 .method public static final toColorInt(Ljava/lang/String;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$toColorInt"    # Ljava/lang/String;
 
     const/4 v0, 0x0
@@ -620,7 +620,7 @@
 .end method
 
 .method public static final toColorLong(I)J
-    .locals 3
+    .registers 4
     .param p0, "$this$toColorLong"    # I
 
     const/4 v0, 0x0

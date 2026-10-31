@@ -136,7 +136,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/RoomSQLiteQuery$Companion;
 
@@ -157,7 +157,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "capacity"    # I
 
     .line 33
@@ -209,7 +209,7 @@
 .end method
 
 .method public synthetic constructor <init>(ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0, p1}, Landroidx/room/RoomSQLiteQuery;-><init>(I)V
 
@@ -217,7 +217,7 @@
 .end method
 
 .method public static final acquire(Ljava/lang/String;I)Landroidx/room/RoomSQLiteQuery;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -231,7 +231,7 @@
 .end method
 
 .method public static final copyFrom(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroidx/room/RoomSQLiteQuery;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -245,31 +245,31 @@
 .end method
 
 .method private static synthetic getBindingTypes$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getBlobBindings$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getDoubleBindings$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getLongBindings$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getStringBindings$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -277,7 +277,7 @@
 
 # virtual methods
 .method public bindBlob(I[B)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # [B
 
@@ -302,7 +302,7 @@
 .end method
 
 .method public bindDouble(ID)V
-    .locals 2
+    .registers 6
     .param p1, "index"    # I
     .param p2, "value"    # D
 
@@ -323,7 +323,7 @@
 .end method
 
 .method public bindLong(IJ)V
-    .locals 2
+    .registers 6
     .param p1, "index"    # I
     .param p2, "value"    # J
 
@@ -344,7 +344,7 @@
 .end method
 
 .method public bindNull(I)V
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 107
@@ -359,7 +359,7 @@
 .end method
 
 .method public bindString(ILjava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/String;
 
@@ -384,7 +384,7 @@
 .end method
 
 .method public bindTo(Landroidx/sqlite/db/SupportSQLiteProgram;)V
-    .locals 5
+    .registers 7
     .param p1, "statement"    # Landroidx/sqlite/db/SupportSQLiteProgram;
 
     const-string/jumbo v0, "statement"
@@ -399,33 +399,33 @@
 
     move-result v1
 
-    if-gt v0, v1, :cond_2
+    if-gt v0, v1, :cond_57
 
     .line 96
-    :goto_0
+    :goto_d
     iget-object v2, p0, Landroidx/room/RoomSQLiteQuery;->bindingTypes:[I
 
     aget v2, v2, v0
 
     const-string v3, "Required value was null."
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_58
 
-    goto :goto_1
+    goto :goto_52
 
     .line 101
-    :pswitch_0
+    :pswitch_17
     iget-object v2, p0, Landroidx/room/RoomSQLiteQuery;->blobBindings:[[B
 
     aget-object v2, v2, v0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {p1, v0, v2}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindBlob(I[B)V
 
-    goto :goto_1
+    goto :goto_52
 
-    :cond_0
+    :cond_21
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -437,18 +437,18 @@
     throw v1
 
     .line 100
-    :pswitch_1
+    :pswitch_2b
     iget-object v2, p0, Landroidx/room/RoomSQLiteQuery;->stringBindings:[Ljava/lang/String;
 
     aget-object v2, v2, v0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     invoke-interface {p1, v0, v2}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindString(ILjava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_52
 
-    :cond_1
+    :cond_35
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -460,54 +460,54 @@
     throw v1
 
     .line 99
-    :pswitch_2
+    :pswitch_3f
     iget-object v2, p0, Landroidx/room/RoomSQLiteQuery;->doubleBindings:[D
 
     aget-wide v3, v2, v0
 
     invoke-interface {p1, v0, v3, v4}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindDouble(ID)V
 
-    goto :goto_1
+    goto :goto_52
 
     .line 98
-    :pswitch_3
+    :pswitch_47
     iget-object v2, p0, Landroidx/room/RoomSQLiteQuery;->longBindings:[J
 
     aget-wide v3, v2, v0
 
     invoke-interface {p1, v0, v3, v4}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindLong(IJ)V
 
-    goto :goto_1
+    goto :goto_52
 
     .line 97
-    :pswitch_4
+    :pswitch_4f
     invoke-interface {p1, v0}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindNull(I)V
 
     .line 95
-    :goto_1
-    if-eq v0, v1, :cond_2
+    :goto_52
+    if-eq v0, v1, :cond_57
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 104
     .end local v0    # "index":I
-    :cond_2
+    :cond_57
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_58
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4f
+        :pswitch_47
+        :pswitch_3f
+        :pswitch_2b
+        :pswitch_17
     .end packed-switch
 .end method
 
 .method public clearBindings()V
-    .locals 2
+    .registers 3
 
     .line 149
     iget-object v0, p0, Landroidx/room/RoomSQLiteQuery;->bindingTypes:[I
@@ -538,14 +538,14 @@
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
 
     .line 132
     return-void
 .end method
 
 .method public final copyArgumentsFrom(Landroidx/room/RoomSQLiteQuery;)V
-    .locals 4
+    .registers 6
     .param p1, "other"    # Landroidx/room/RoomSQLiteQuery;
 
     const-string v0, "other"
@@ -602,7 +602,7 @@
 .end method
 
 .method public getArgCount()I
-    .locals 1
+    .registers 2
 
     .line 60
     iget v0, p0, Landroidx/room/RoomSQLiteQuery;->argCount:I
@@ -611,7 +611,7 @@
 .end method
 
 .method public final getCapacity()I
-    .locals 1
+    .registers 2
 
     .line 35
     iget v0, p0, Landroidx/room/RoomSQLiteQuery;->capacity:I
@@ -620,16 +620,16 @@
 .end method
 
 .method public getSql()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 92
     iget-object v0, p0, Landroidx/room/RoomSQLiteQuery;->query:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Required value was null."
@@ -644,7 +644,7 @@
 .end method
 
 .method public final init(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "query"    # Ljava/lang/String;
     .param p2, "initArgCount"    # I
 
@@ -663,7 +663,7 @@
 .end method
 
 .method public final release()V
-    .locals 4
+    .registers 5
 
     .line 85
     sget-object v0, Landroidx/room/RoomSQLiteQuery;->queryPool:Ljava/util/TreeMap;
@@ -674,7 +674,7 @@
 
     .line 86
     .local v1, "$i$a$-synchronized-RoomSQLiteQuery$release$1":I
-    :try_start_0
+    :try_start_4
     sget-object v2, Landroidx/room/RoomSQLiteQuery;->queryPool:Ljava/util/TreeMap;
 
     check-cast v2, Ljava/util/Map;
@@ -697,8 +697,8 @@
 
     .end local v1    # "$i$a$-synchronized-RoomSQLiteQuery$release$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_4 .. :try_end_19} :catchall_1b
 
     .line 85
     monitor-exit v0
@@ -707,7 +707,7 @@
     return-void
 
     .line 85
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     monitor-exit v0

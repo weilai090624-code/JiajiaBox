@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 115
     new-instance v0, Landroidx/camera/core/impl/CameraControlInternal$1;

@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/CacheLoader$1;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/cache/CacheLoader$1;
 
     .line 201
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public call()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

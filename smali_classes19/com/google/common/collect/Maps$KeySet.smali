@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 3813
     .local p0, "this":Lcom/google/common/collect/Maps$KeySet;, "Lcom/google/common/collect/Maps$KeySet<TK;TV;>;"
@@ -84,7 +84,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -104,7 +104,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 3794
     .local p0, "this":Lcom/google/common/collect/Maps$KeySet;, "Lcom/google/common/collect/Maps$KeySet<TK;TV;>;"
@@ -120,7 +120,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -151,7 +151,7 @@
 .end method
 
 .method map()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -168,7 +168,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -180,7 +180,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 3805
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$KeySet;->map()Ljava/util/Map;
@@ -195,14 +195,14 @@
     return v0
 
     .line 3808
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 3789
     .local p0, "this":Lcom/google/common/collect/Maps$KeySet;, "Lcom/google/common/collect/Maps$KeySet<TK;TV;>;"

@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Cuộc gọi đến</string>
     <string name="call_notification_ongoing_text">Cuộc gọi đang thực hiện</string>
     <string name="call_notification_screening_text">Đang sàng lọc cuộc gọi đến</string>
-    <string name="character_counter_content_description" formatted="false">Đã nhập %1$d trong số %2$d ký tự</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Đã vượt quá giới hạn ký tự %1$d/%2$d</string>
+    <string name="character_counter_content_description">Đã nhập %1$d trong số %2$d ký tự</string>
+    <string name="character_counter_overflowed_content_description">Đã vượt quá giới hạn ký tự %1$d/%2$d</string>
     <string name="clear_text_end_icon_content_description">Xóa văn bản</string>
     <string name="copy">Sao chép</string>
     <string name="copy_toast_msg">Đã sao chép đường liên kết vào bảng nhớ tạm</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Nằm ngoài phạm vi: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Ngày bắt đầu – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Ngày kết thúc</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Chọn dải ô</string>
     <string name="mtrl_picker_range_header_unselected">Ngày bắt đầu – Ngày kết thúc</string>
     <string name="mtrl_picker_save">Lưu</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">Đã sao chép \"%1$s\" vào bảng nhớ tạm.</string>
     <string name="search_menu_title">Tìm kiếm</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">TẮT</string>
     <string name="v7_preference_on">BẬT</string>
 </resources>

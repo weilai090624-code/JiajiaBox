@@ -150,7 +150,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/text/StringsKt__StringsJVMKt;-><init>()V
 
@@ -158,7 +158,7 @@
 .end method
 
 .method public static final synthetic access$findAnyOf(Ljava/lang/CharSequence;Ljava/util/Collection;IZZ)Lkotlin/Pair;
-    .locals 1
+    .registers 6
     .param p0, "$receiver"    # Ljava/lang/CharSequence;
     .param p1, "strings"    # Ljava/util/Collection;
     .param p2, "startIndex"    # I
@@ -174,7 +174,7 @@
 .end method
 
 .method public static final commonPrefixWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Ljava/lang/String;
-    .locals 4
+    .registers 7
     .param p0, "$this$commonPrefixWith"    # Ljava/lang/CharSequence;
     .param p1, "other"    # Ljava/lang/CharSequence;
     .param p2, "ignoreCase"    # Z
@@ -206,8 +206,8 @@
 
     .line 901
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_17
+    if-ge v1, v0, :cond_2a
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -221,22 +221,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2a
 
     .line 902
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 904
-    :cond_0
+    :cond_2a
     add-int/lit8 v2, v1, -0x1
 
     invoke-static {p0, v2}, Lkotlin/text/StringsKt;->hasSurrogatePairAt(Ljava/lang/CharSequence;I)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_3a
 
     add-int/lit8 v2, v1, -0x1
 
@@ -244,14 +244,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3c
 
     .line 905
-    :cond_1
+    :cond_3a
     add-int/lit8 v1, v1, -0x1
 
     .line 907
-    :cond_2
+    :cond_3c
     const/4 v2, 0x0
 
     invoke-interface {p0, v2, v1}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -266,16 +266,16 @@
 .end method
 
 .method public static synthetic commonPrefixWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 897
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->commonPrefixWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Ljava/lang/String;
 
     move-result-object p0
@@ -284,7 +284,7 @@
 .end method
 
 .method public static final commonSuffixWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Ljava/lang/String;
-    .locals 6
+    .registers 9
     .param p0, "$this$commonSuffixWith"    # Ljava/lang/CharSequence;
     .param p1, "other"    # Ljava/lang/CharSequence;
     .param p2, "ignoreCase"    # Z
@@ -320,8 +320,8 @@
 
     .line 924
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_17
+    if-ge v3, v2, :cond_32
 
     sub-int v4, v0, v3
 
@@ -343,15 +343,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_32
 
     .line 925
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 927
-    :cond_0
+    :cond_32
     sub-int v4, v0, v3
 
     add-int/lit8 v4, v4, -0x1
@@ -360,7 +360,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_46
 
     sub-int v4, v1, v3
 
@@ -370,14 +370,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_48
 
     .line 928
-    :cond_1
+    :cond_46
     add-int/lit8 v3, v3, -0x1
 
     .line 930
-    :cond_2
+    :cond_48
     sub-int v4, v0, v3
 
     invoke-interface {p0, v4, v0}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -392,16 +392,16 @@
 .end method
 
 .method public static synthetic commonSuffixWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 918
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->commonSuffixWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Ljava/lang/String;
 
     move-result-object p0
@@ -410,7 +410,7 @@
 .end method
 
 .method public static final contains(Ljava/lang/CharSequence;CZ)Z
-    .locals 7
+    .registers 10
     .param p0, "$this$contains"    # Ljava/lang/CharSequence;
     .param p1, "char"    # C
     .param p2, "ignoreCase"    # Z
@@ -436,21 +436,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public static final contains(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
-    .locals 11
+    .registers 14
     .param p0, "$this$contains"    # Ljava/lang/CharSequence;
     .param p1, "other"    # Ljava/lang/CharSequence;
     .param p2, "ignoreCase"    # Z
@@ -470,7 +470,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 1158
     move-object v4, p1
@@ -491,17 +491,17 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1f
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_0
+    :cond_1f
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_35
 
     .line 1160
-    :cond_1
+    :cond_21
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
@@ -524,19 +524,19 @@
 
     move-result v0
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_34
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_2
+    :cond_34
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_35
     return v1
 .end method
 
 .method private static final contains(Ljava/lang/CharSequence;Lkotlin/text/Regex;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Ljava/lang/CharSequence;
     .param p1, "regex"    # Lkotlin/text/Regex;
 
@@ -557,16 +557,16 @@
 .end method
 
 .method public static synthetic contains$default(Ljava/lang/CharSequence;CZILjava/lang/Object;)Z
-    .locals 0
+    .registers 5
 
     .line 1170
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->contains(Ljava/lang/CharSequence;CZ)Z
 
     move-result p0
@@ -575,16 +575,16 @@
 .end method
 
 .method public static synthetic contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    .locals 0
+    .registers 5
 
     .line 1156
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->contains(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
 
     move-result p0
@@ -593,7 +593,7 @@
 .end method
 
 .method public static final contentEqualsIgnoreCaseImpl(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-    .locals 6
+    .registers 8
     .param p0, "$this$contentEqualsIgnoreCaseImpl"    # Ljava/lang/CharSequence;
     .param p1, "other"    # Ljava/lang/CharSequence;
 
@@ -602,11 +602,11 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 1436
     move-object v0, p0
@@ -624,18 +624,18 @@
     return v0
 
     .line 1439
-    :cond_0
-    if-ne p0, p1, :cond_1
+    :cond_14
+    if-ne p0, p1, :cond_17
 
     return v1
 
     .line 1440
-    :cond_1
+    :cond_17
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_41
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_41
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
@@ -645,12 +645,12 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_27
 
-    goto :goto_1
+    goto :goto_41
 
     .line 1442
-    :cond_2
+    :cond_27
     const/4 v2, 0x0
 
     .local v2, "i":I
@@ -658,8 +658,8 @@
 
     move-result v3
 
-    :goto_0
-    if-ge v2, v3, :cond_4
+    :goto_2c
+    if-ge v2, v3, :cond_40
 
     .line 1443
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -674,41 +674,41 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_3d
 
     .line 1444
     return v0
 
     .line 1442
-    :cond_3
+    :cond_3d
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 1448
     .end local v2    # "i":I
-    :cond_4
+    :cond_40
     return v1
 
     .line 1440
-    :cond_5
-    :goto_1
+    :cond_41
+    :goto_41
     return v0
 .end method
 
 .method public static final contentEqualsImpl(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-    .locals 6
+    .registers 8
     .param p0, "$this$contentEqualsImpl"    # Ljava/lang/CharSequence;
     .param p1, "other"    # Ljava/lang/CharSequence;
 
     .line 1452
     instance-of v0, p0, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 1453
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -718,20 +718,20 @@
     return v0
 
     .line 1456
-    :cond_0
+    :cond_d
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_1
+    if-ne p0, p1, :cond_11
 
     return v0
 
     .line 1457
-    :cond_1
+    :cond_11
     const/4 v1, 0x0
 
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_37
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_37
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
@@ -741,12 +741,12 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_21
 
-    goto :goto_1
+    goto :goto_37
 
     .line 1459
-    :cond_2
+    :cond_21
     const/4 v2, 0x0
 
     .local v2, "i":I
@@ -754,8 +754,8 @@
 
     move-result v3
 
-    :goto_0
-    if-ge v2, v3, :cond_4
+    :goto_26
+    if-ge v2, v3, :cond_36
 
     .line 1460
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -766,30 +766,30 @@
 
     move-result v5
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_33
 
     .line 1461
     return v1
 
     .line 1459
-    :cond_3
+    :cond_33
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 1465
     .end local v2    # "i":I
-    :cond_4
+    :cond_36
     return v0
 
     .line 1457
-    :cond_5
-    :goto_1
+    :cond_37
+    :goto_37
     return v1
 .end method
 
 .method public static final endsWith(Ljava/lang/CharSequence;CZ)Z
-    .locals 1
+    .registers 4
     .param p0, "$this$endsWith"    # Ljava/lang/CharSequence;
     .param p1, "char"    # C
     .param p2, "ignoreCase"    # Z
@@ -803,7 +803,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_1b
 
     invoke-static {p0}, Lkotlin/text/StringsKt;->getLastIndex(Ljava/lang/CharSequence;)I
 
@@ -817,21 +817,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1c
     return v0
 .end method
 
 .method public static final endsWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
-    .locals 8
+    .registers 11
     .param p0, "$this$endsWith"    # Ljava/lang/CharSequence;
     .param p1, "suffix"    # Ljava/lang/CharSequence;
     .param p2, "ignoreCase"    # Z
@@ -845,15 +845,15 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 880
-    if-nez p2, :cond_0
+    if-nez p2, :cond_22
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 881
     move-object v0, p0
@@ -877,7 +877,7 @@
     return v0
 
     .line 883
-    :cond_0
+    :cond_22
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -908,16 +908,16 @@
 .end method
 
 .method public static synthetic endsWith$default(Ljava/lang/CharSequence;CZILjava/lang/Object;)Z
-    .locals 0
+    .registers 5
 
     .line 853
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->endsWith(Ljava/lang/CharSequence;CZ)Z
 
     move-result p0
@@ -926,16 +926,16 @@
 .end method
 
 .method public static synthetic endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    .locals 0
+    .registers 5
 
     .line 879
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->endsWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
 
     move-result p0
@@ -944,7 +944,7 @@
 .end method
 
 .method public static final findAnyOf(Ljava/lang/CharSequence;Ljava/util/Collection;IZ)Lkotlin/Pair;
-    .locals 1
+    .registers 5
     .param p0, "$this$findAnyOf"    # Ljava/lang/CharSequence;
     .param p1, "strings"    # Ljava/util/Collection;
     .param p2, "startIndex"    # I
@@ -982,7 +982,7 @@
 .end method
 
 .method private static final findAnyOf$StringsKt__StringsKt(Ljava/lang/CharSequence;Ljava/util/Collection;IZZ)Lkotlin/Pair;
-    .locals 19
+    .registers 24
     .param p0, "$this$findAnyOf"    # Ljava/lang/CharSequence;
     .param p1, "strings"    # Ljava/util/Collection;
     .param p2, "startIndex"    # I
@@ -1009,7 +1009,7 @@
 
     const/4 v8, 0x0
 
-    if-nez p3, :cond_2
+    if-nez p3, :cond_38
 
     invoke-interface/range {p1 .. p1}, Ljava/util/Collection;->size()I
 
@@ -1017,7 +1017,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_38
 
     .line 1006
     move-object/from16 v0, p1
@@ -1046,27 +1046,27 @@
 
     move/from16 v2, p2
 
-    if-nez p4, :cond_0
+    if-nez p4, :cond_28
 
     invoke-static/range {v0 .. v5}, Lkotlin/text/StringsKt;->indexOf$default(Ljava/lang/CharSequence;Ljava/lang/String;IZILjava/lang/Object;)I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_0
+    :cond_28
     invoke-static/range {v0 .. v5}, Lkotlin/text/StringsKt;->lastIndexOf$default(Ljava/lang/CharSequence;Ljava/lang/String;IZILjava/lang/Object;)I
 
     move-result v0
 
     .line 1008
     .local v0, "index":I
-    :goto_0
-    if-gez v0, :cond_1
+    :goto_2c
+    if-gez v0, :cond_2f
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_1
+    :cond_2f
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -1075,16 +1075,16 @@
 
     move-result-object v8
 
-    :goto_1
+    :goto_37
     return-object v8
 
     .line 1011
     .end local v0    # "index":I
     .end local v9    # "string":Ljava/lang/String;
-    :cond_2
+    :cond_38
     const/4 v0, 0x0
 
-    if-nez p4, :cond_3
+    if-nez p4, :cond_4b
 
     new-instance v1, Lkotlin/ranges/IntRange;
 
@@ -1100,9 +1100,9 @@
 
     check-cast v1, Lkotlin/ranges/IntProgression;
 
-    goto :goto_2
+    goto :goto_57
 
-    :cond_3
+    :cond_4b
     invoke-static/range {p0 .. p0}, Lkotlin/text/StringsKt;->getLastIndex(Ljava/lang/CharSequence;)I
 
     move-result v1
@@ -1115,14 +1115,14 @@
 
     move-result-object v1
 
-    :goto_2
+    :goto_57
     move-object v9, v1
 
     .line 1013
     .local v9, "indices":Lkotlin/ranges/IntProgression;
     instance-of v0, v6, Ljava/lang/String;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_b2
 
     .line 1014
     invoke-virtual {v9}, Lkotlin/ranges/IntProgression;->getFirst()I
@@ -1138,18 +1138,18 @@
 
     move-result v2
 
-    if-lez v2, :cond_4
+    if-lez v2, :cond_6c
 
-    if-le v0, v1, :cond_5
+    if-le v0, v1, :cond_70
 
-    :cond_4
-    if-gez v2, :cond_f
+    :cond_6c
+    if-gez v2, :cond_10a
 
-    if-gt v1, v0, :cond_f
+    if-gt v1, v0, :cond_10a
 
     .line 1015
-    :cond_5
-    :goto_3
+    :cond_70
+    :goto_70
     move-object/from16 v3, p1
 
     check-cast v3, Ljava/lang/Iterable;
@@ -1163,12 +1163,12 @@
 
     move-result-object v5
 
-    :cond_6
+    :cond_79
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_9d
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1207,26 +1207,26 @@
     .line 1637
     .end local v17    # "it":Ljava/lang/String;
     .end local v18    # "$i$a$-firstOrNull-StringsKt__StringsKt$findAnyOf$matchingString$1":I
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_79
 
-    goto :goto_4
+    goto :goto_9f
 
     .line 1638
     .end local v16    # "element$iv":Ljava/lang/Object;
-    :cond_7
+    :cond_9d
     move-object/from16 v16, v8
 
     .line 1015
     .end local v3    # "$this$firstOrNull$iv":Ljava/lang/Iterable;
     .end local v4    # "$i$f$firstOrNull":I
-    :goto_4
+    :goto_9f
     move-object/from16 v3, v16
 
     check-cast v3, Ljava/lang/String;
 
     .line 1016
     .local v3, "matchingString":Ljava/lang/String;
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_ae
 
     .line 1017
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1241,16 +1241,16 @@
 
     .line 1014
     .end local v3    # "matchingString":Ljava/lang/String;
-    :cond_8
-    if-eq v0, v1, :cond_f
+    :cond_ae
+    if-eq v0, v1, :cond_10a
 
     add-int/2addr v0, v2
 
-    goto :goto_3
+    goto :goto_70
 
     .line 1020
     .end local v0    # "index":I
-    :cond_9
+    :cond_b2
     invoke-virtual {v9}, Lkotlin/ranges/IntProgression;->getFirst()I
 
     move-result v0
@@ -1264,22 +1264,22 @@
 
     move-result v11
 
-    if-lez v11, :cond_a
+    if-lez v11, :cond_c2
 
-    if-le v0, v10, :cond_b
+    if-le v0, v10, :cond_c6
 
-    :cond_a
-    if-gez v11, :cond_f
+    :cond_c2
+    if-gez v11, :cond_10a
 
-    if-gt v10, v0, :cond_f
+    if-gt v10, v0, :cond_10a
 
     .line 1021
-    :cond_b
+    :cond_c6
     move v12, v0
 
     .end local v0    # "index":I
     .local v12, "index":I
-    :goto_5
+    :goto_c7
     move-object/from16 v13, p1
 
     check-cast v13, Ljava/lang/Iterable;
@@ -1293,12 +1293,12 @@
 
     move-result-object v15
 
-    :cond_c
+    :cond_d0
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_f5
 
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1337,26 +1337,26 @@
     .line 1639
     .end local v17    # "it":Ljava/lang/String;
     .end local v18    # "$i$a$-firstOrNull-StringsKt__StringsKt$findAnyOf$matchingString$2":I
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_d0
 
-    goto :goto_6
+    goto :goto_f7
 
     .line 1640
     .end local v16    # "element$iv":Ljava/lang/Object;
-    :cond_d
+    :cond_f5
     move-object/from16 v16, v8
 
     .line 1021
     .end local v13    # "$this$firstOrNull$iv":Ljava/lang/Iterable;
     .end local v14    # "$i$f$firstOrNull":I
-    :goto_6
+    :goto_f7
     move-object/from16 v0, v16
 
     check-cast v0, Ljava/lang/String;
 
     .line 1022
     .local v0, "matchingString":Ljava/lang/String;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_106
 
     .line 1023
     invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1371,39 +1371,39 @@
 
     .line 1020
     .end local v0    # "matchingString":Ljava/lang/String;
-    :cond_e
-    if-eq v12, v10, :cond_f
+    :cond_106
+    if-eq v12, v10, :cond_10a
 
     add-int/2addr v12, v11
 
-    goto :goto_5
+    goto :goto_c7
 
     .line 1027
     .end local v12    # "index":I
-    :cond_f
+    :cond_10a
     return-object v8
 .end method
 
 .method public static synthetic findAnyOf$default(Ljava/lang/CharSequence;Ljava/util/Collection;IZILjava/lang/Object;)Lkotlin/Pair;
-    .locals 1
+    .registers 7
 
     .line 1042
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->findAnyOf(Ljava/lang/CharSequence;Ljava/util/Collection;IZ)Lkotlin/Pair;
 
     move-result-object p0
@@ -1412,7 +1412,7 @@
 .end method
 
 .method public static final findLastAnyOf(Ljava/lang/CharSequence;Ljava/util/Collection;IZ)Lkotlin/Pair;
-    .locals 1
+    .registers 5
     .param p0, "$this$findLastAnyOf"    # Ljava/lang/CharSequence;
     .param p1, "strings"    # Ljava/util/Collection;
     .param p2, "startIndex"    # I
@@ -1450,25 +1450,25 @@
 .end method
 
 .method public static synthetic findLastAnyOf$default(Ljava/lang/CharSequence;Ljava/util/Collection;IZILjava/lang/Object;)Lkotlin/Pair;
-    .locals 0
+    .registers 6
 
     .line 1057
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     invoke-static {p0}, Lkotlin/text/StringsKt;->getLastIndex(Ljava/lang/CharSequence;)I
 
     move-result p2
 
-    :cond_0
+    :cond_8
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->findLastAnyOf(Ljava/lang/CharSequence;Ljava/util/Collection;IZ)Lkotlin/Pair;
 
     move-result-object p0
@@ -1477,7 +1477,7 @@
 .end method
 
 .method public static final getIndices(Ljava/lang/CharSequence;)Lkotlin/ranges/IntRange;
-    .locals 3
+    .registers 4
     .param p0, "$this$indices"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -1501,7 +1501,7 @@
 .end method
 
 .method public static final getLastIndex(Ljava/lang/CharSequence;)I
-    .locals 1
+    .registers 2
     .param p0, "$this$lastIndex"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -1519,7 +1519,7 @@
 .end method
 
 .method public static final hasSurrogatePairAt(Ljava/lang/CharSequence;I)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$hasSurrogatePairAt"    # Ljava/lang/CharSequence;
     .param p1, "index"    # I
 
@@ -1532,7 +1532,7 @@
 
     const/4 v1, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_13
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
@@ -1540,17 +1540,17 @@
 
     add-int/lit8 v2, v2, -0x2
 
-    if-gt p1, v2, :cond_0
+    if-gt p1, v2, :cond_13
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_14
+    if-eqz v2, :cond_2d
 
     .line 398
     invoke-interface {p0, p1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1561,7 +1561,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2d
 
     .line 399
     add-int/lit8 v2, p1, 0x1
@@ -1574,20 +1574,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2d
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     const/4 v0, 0x0
 
     .line 397
-    :goto_1
+    :goto_2e
     return v0
 .end method
 
 .method private static final ifBlank(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$ifBlank"    # Ljava/lang/CharSequence;
     .param p1, "defaultValue"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -1614,23 +1614,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     move-object v0, p0
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method private static final ifEmpty(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$ifEmpty"    # Ljava/lang/CharSequence;
     .param p1, "defaultValue"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -1657,33 +1657,33 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_16
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     move-object v0, p0
 
-    :goto_1
+    :goto_17
     return-object v0
 .end method
 
 .method public static final indexOf(Ljava/lang/CharSequence;CIZ)I
-    .locals 2
+    .registers 6
     .param p0, "$this$indexOf"    # Ljava/lang/CharSequence;
     .param p1, "char"    # C
     .param p2, "startIndex"    # I
@@ -1694,16 +1694,16 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 1099
-    if-nez p3, :cond_1
+    if-nez p3, :cond_14
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1102
-    :cond_0
+    :cond_c
     move-object v0, p0
 
     check-cast v0, Ljava/lang/String;
@@ -1712,11 +1712,11 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 1100
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 v0, 0x1
 
     new-array v0, v0, [C
@@ -1730,12 +1730,12 @@
     move-result v0
 
     .line 1099
-    :goto_1
+    :goto_1e
     return v0
 .end method
 
 .method public static final indexOf(Ljava/lang/CharSequence;Ljava/lang/String;IZ)I
-    .locals 9
+    .registers 13
     .param p0, "$this$indexOf"    # Ljava/lang/CharSequence;
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "startIndex"    # I
@@ -1750,16 +1750,16 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 1114
-    if-nez p3, :cond_1
+    if-nez p3, :cond_19
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
-    goto :goto_0
+    goto :goto_19
 
     .line 1117
-    :cond_0
+    :cond_11
     move-object v0, p0
 
     check-cast v0, Ljava/lang/String;
@@ -1768,11 +1768,11 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 1115
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     move-object v2, p1
 
     check-cast v2, Ljava/lang/CharSequence;
@@ -1798,12 +1798,12 @@
     move-result v0
 
     .line 1114
-    :goto_1
+    :goto_2b
     return v0
 .end method
 
 .method private static final indexOf$StringsKt__StringsKt(Ljava/lang/CharSequence;Ljava/lang/CharSequence;IIZZ)I
-    .locals 10
+    .registers 16
     .param p0, "$this$indexOf"    # Ljava/lang/CharSequence;
     .param p1, "other"    # Ljava/lang/CharSequence;
     .param p2, "startIndex"    # I
@@ -1814,7 +1814,7 @@
     .line 985
     const/4 v0, 0x0
 
-    if-nez p5, :cond_0
+    if-nez p5, :cond_17
 
     .line 986
     new-instance v1, Lkotlin/ranges/IntRange;
@@ -1835,10 +1835,10 @@
 
     check-cast v1, Lkotlin/ranges/IntProgression;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 988
-    :cond_0
+    :cond_17
     invoke-static {p0}, Lkotlin/text/StringsKt;->getLastIndex(Ljava/lang/CharSequence;)I
 
     move-result v1
@@ -1856,18 +1856,18 @@
     move-result-object v1
 
     .line 985
-    :goto_0
+    :goto_27
     move-object v0, v1
 
     .line 990
     .local v0, "indices":Lkotlin/ranges/IntProgression;
     instance-of v1, p0, Ljava/lang/String;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5c
 
     instance-of v1, p1, Ljava/lang/String;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5c
 
     .line 991
     invoke-virtual {v0}, Lkotlin/ranges/IntProgression;->getFirst()I
@@ -1883,18 +1883,18 @@
 
     move-result v3
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_40
 
-    if-le v1, v2, :cond_2
+    if-le v1, v2, :cond_44
 
-    :cond_1
-    if-gez v3, :cond_8
+    :cond_40
+    if-gez v3, :cond_84
 
-    if-gt v2, v1, :cond_8
+    if-gt v2, v1, :cond_84
 
     .line 992
-    :cond_2
-    :goto_1
+    :cond_44
+    :goto_44
     move-object v4, p1
 
     check-cast v4, Ljava/lang/String;
@@ -1917,22 +1917,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_58
 
     .line 993
     return v1
 
     .line 991
-    :cond_3
-    if-eq v1, v2, :cond_8
+    :cond_58
+    if-eq v1, v2, :cond_84
 
     add-int/2addr v1, v3
 
-    goto :goto_1
+    goto :goto_44
 
     .line 996
     .end local v1    # "index":I
-    :cond_4
+    :cond_5c
     invoke-virtual {v0}, Lkotlin/ranges/IntProgression;->getFirst()I
 
     move-result v1
@@ -1946,18 +1946,18 @@
 
     move-result v3
 
-    if-lez v3, :cond_5
+    if-lez v3, :cond_6c
 
-    if-le v1, v2, :cond_6
+    if-le v1, v2, :cond_70
 
-    :cond_5
-    if-gez v3, :cond_8
+    :cond_6c
+    if-gez v3, :cond_84
 
-    if-gt v2, v1, :cond_8
+    if-gt v2, v1, :cond_84
 
     .line 997
-    :cond_6
-    :goto_2
+    :cond_70
+    :goto_70
     const/4 v5, 0x0
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -1976,45 +1976,45 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_80
 
     .line 998
     return v1
 
     .line 996
-    :cond_7
-    if-eq v1, v2, :cond_8
+    :cond_80
+    if-eq v1, v2, :cond_84
 
     add-int/2addr v1, v3
 
-    goto :goto_2
+    goto :goto_70
 
     .line 1001
     .end local v1    # "index":I
-    :cond_8
+    :cond_84
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method static synthetic indexOf$StringsKt__StringsKt$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;IIZZILjava/lang/Object;)I
-    .locals 6
+    .registers 14
 
     .line 984
     and-int/lit8 p6, p6, 0x10
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_7
 
     const/4 p5, 0x0
 
     const/4 v5, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     move v5, p5
 
-    :goto_0
+    :goto_8
     move-object v0, p0
 
     move-object v1, p1
@@ -2033,25 +2033,25 @@
 .end method
 
 .method public static synthetic indexOf$default(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
-    .locals 1
+    .registers 7
 
     .line 1098
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->indexOf(Ljava/lang/CharSequence;CIZ)I
 
     move-result p0
@@ -2060,25 +2060,25 @@
 .end method
 
 .method public static synthetic indexOf$default(Ljava/lang/CharSequence;Ljava/lang/String;IZILjava/lang/Object;)I
-    .locals 1
+    .registers 7
 
     .line 1113
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->indexOf(Ljava/lang/CharSequence;Ljava/lang/String;IZ)I
 
     move-result p0
@@ -2087,7 +2087,7 @@
 .end method
 
 .method public static final indexOfAny(Ljava/lang/CharSequence;Ljava/util/Collection;IZ)I
-    .locals 1
+    .registers 5
     .param p0, "$this$indexOfAny"    # Ljava/lang/CharSequence;
     .param p1, "strings"    # Ljava/util/Collection;
     .param p2, "startIndex"    # I
@@ -2117,7 +2117,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     invoke-virtual {v0}, Lkotlin/Pair;->getFirst()Ljava/lang/Object;
 
@@ -2129,17 +2129,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_1d
     return v0
 .end method
 
 .method public static final indexOfAny(Ljava/lang/CharSequence;[CIZ)I
-    .locals 12
+    .registers 16
     .param p0, "$this$indexOfAny"    # Ljava/lang/CharSequence;
     .param p1, "chars"    # [C
     .param p2, "startIndex"    # I
@@ -2156,15 +2156,15 @@
     .line 945
     const/4 v0, 0x1
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_20
 
     array-length v1, p1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_20
 
     instance-of v1, p0, Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     .line 946
     invoke-static {p1}, Lkotlin/collections/ArraysKt;->single([C)C
@@ -2185,7 +2185,7 @@
 
     .line 950
     .end local v0    # "char":C
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
     invoke-static {p2, v1}, Lkotlin/ranges/RangesKt;->coerceAtLeast(II)I
@@ -2197,10 +2197,10 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_4
+    if-gt v2, v3, :cond_4d
 
     .line 951
-    :goto_0
+    :goto_2b
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v4
@@ -2218,8 +2218,8 @@
 
     const/4 v8, 0x0
 
-    :goto_1
-    if-ge v8, v7, :cond_2
+    :goto_33
+    if-ge v8, v7, :cond_44
 
     aget-char v9, v5, v8
 
@@ -2238,68 +2238,68 @@
     .line 1633
     .end local v10    # "it":C
     .end local v11    # "$i$a$-any-StringsKt__StringsKt$indexOfAny$1":I
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_41
 
     const/4 v5, 0x1
 
-    goto :goto_2
+    goto :goto_45
 
     .end local v9    # "element$iv":C
-    :cond_1
+    :cond_41
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
     .line 1634
-    :cond_2
+    :cond_44
     const/4 v5, 0x0
 
     .line 952
     .end local v5    # "$this$any$iv":[C
     .end local v6    # "$i$f$any":I
-    :goto_2
-    if-eqz v5, :cond_3
+    :goto_45
+    if-eqz v5, :cond_48
 
     .line 953
     return v2
 
     .line 950
     .end local v4    # "charAtIndex":C
-    :cond_3
-    if-eq v2, v3, :cond_4
+    :cond_48
+    if-eq v2, v3, :cond_4d
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 955
     .end local v2    # "index":I
-    :cond_4
+    :cond_4d
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public static synthetic indexOfAny$default(Ljava/lang/CharSequence;Ljava/util/Collection;IZILjava/lang/Object;)I
-    .locals 1
+    .registers 7
 
     .line 1071
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->indexOfAny(Ljava/lang/CharSequence;Ljava/util/Collection;IZ)I
 
     move-result p0
@@ -2308,25 +2308,25 @@
 .end method
 
 .method public static synthetic indexOfAny$default(Ljava/lang/CharSequence;[CIZILjava/lang/Object;)I
-    .locals 1
+    .registers 7
 
     .line 944
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->indexOfAny(Ljava/lang/CharSequence;[CIZ)I
 
     move-result p0
@@ -2335,7 +2335,7 @@
 .end method
 
 .method public static final isBlank(Ljava/lang/CharSequence;)Z
-    .locals 7
+    .registers 8
     .param p0, "$this$isBlank"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -2354,12 +2354,12 @@
 
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_1f
 
     invoke-interface {v0, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -2380,29 +2380,29 @@
     .line 1631
     .end local v5    # "it":C
     .end local v6    # "$i$a$-all-StringsKt__StringsKt$isBlank$1":I
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1c
 
-    goto :goto_1
+    goto :goto_20
 
     .end local v4    # "element$iv":C
-    :cond_0
+    :cond_1c
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1632
-    :cond_1
+    :cond_1f
     const/4 v2, 0x1
 
     .line 312
     .end local v0    # "$this$all$iv":Ljava/lang/CharSequence;
     .end local v1    # "$i$f$all":I
-    :goto_1
+    :goto_20
     return v2
 .end method
 
 .method private static final isEmpty(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isEmpty"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -2414,21 +2414,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method private static final isNotBlank(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isNotBlank"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -2446,7 +2446,7 @@
 .end method
 
 .method private static final isNotEmpty(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isNotEmpty"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -2458,83 +2458,83 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method private static final isNullOrBlank(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isNullOrBlank"    # Ljava/lang/CharSequence;
 
     .line 329
     nop
 
     .line 333
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_c
 
     invoke-static {p0}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_d
 
-    :cond_1
-    :goto_0
+    :cond_c
+    :goto_c
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_d
     return v0
 .end method
 
 .method private static final isNullOrEmpty(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isNullOrEmpty"    # Ljava/lang/CharSequence;
 
     .line 284
     nop
 
     .line 288
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_c
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_d
 
-    :cond_1
-    :goto_0
+    :cond_c
+    :goto_c
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_d
     return v0
 .end method
 
 .method public static final iterator(Ljava/lang/CharSequence;)Lkotlin/collections/CharIterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$iterator"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -2553,7 +2553,7 @@
 .end method
 
 .method public static final lastIndexOf(Ljava/lang/CharSequence;CIZ)I
-    .locals 2
+    .registers 6
     .param p0, "$this$lastIndexOf"    # Ljava/lang/CharSequence;
     .param p1, "char"    # C
     .param p2, "startIndex"    # I
@@ -2564,16 +2564,16 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 1129
-    if-nez p3, :cond_1
+    if-nez p3, :cond_14
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1132
-    :cond_0
+    :cond_c
     move-object v0, p0
 
     check-cast v0, Ljava/lang/String;
@@ -2582,11 +2582,11 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 1130
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 v0, 0x1
 
     new-array v0, v0, [C
@@ -2600,12 +2600,12 @@
     move-result v0
 
     .line 1129
-    :goto_1
+    :goto_1e
     return v0
 .end method
 
 .method public static final lastIndexOf(Ljava/lang/CharSequence;Ljava/lang/String;IZ)I
-    .locals 7
+    .registers 11
     .param p0, "$this$lastIndexOf"    # Ljava/lang/CharSequence;
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "startIndex"    # I
@@ -2620,16 +2620,16 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 1144
-    if-nez p3, :cond_1
+    if-nez p3, :cond_19
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
-    goto :goto_0
+    goto :goto_19
 
     .line 1147
-    :cond_0
+    :cond_11
     move-object v0, p0
 
     check-cast v0, Ljava/lang/String;
@@ -2638,11 +2638,11 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_25
 
     .line 1145
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     move-object v2, p1
 
     check-cast v2, Ljava/lang/CharSequence;
@@ -2662,30 +2662,30 @@
     move-result v0
 
     .line 1144
-    :goto_1
+    :goto_25
     return v0
 .end method
 
 .method public static synthetic lastIndexOf$default(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 1128
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     invoke-static {p0}, Lkotlin/text/StringsKt;->getLastIndex(Ljava/lang/CharSequence;)I
 
     move-result p2
 
-    :cond_0
+    :cond_8
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->lastIndexOf(Ljava/lang/CharSequence;CIZ)I
 
     move-result p0
@@ -2694,25 +2694,25 @@
 .end method
 
 .method public static synthetic lastIndexOf$default(Ljava/lang/CharSequence;Ljava/lang/String;IZILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 1143
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     invoke-static {p0}, Lkotlin/text/StringsKt;->getLastIndex(Ljava/lang/CharSequence;)I
 
     move-result p2
 
-    :cond_0
+    :cond_8
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->lastIndexOf(Ljava/lang/CharSequence;Ljava/lang/String;IZ)I
 
     move-result p0
@@ -2721,7 +2721,7 @@
 .end method
 
 .method public static final lastIndexOfAny(Ljava/lang/CharSequence;Ljava/util/Collection;IZ)I
-    .locals 1
+    .registers 5
     .param p0, "$this$lastIndexOfAny"    # Ljava/lang/CharSequence;
     .param p1, "strings"    # Ljava/util/Collection;
     .param p2, "startIndex"    # I
@@ -2751,7 +2751,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     invoke-virtual {v0}, Lkotlin/Pair;->getFirst()Ljava/lang/Object;
 
@@ -2763,17 +2763,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_1d
     return v0
 .end method
 
 .method public static final lastIndexOfAny(Ljava/lang/CharSequence;[CIZ)I
-    .locals 11
+    .registers 15
     .param p0, "$this$lastIndexOfAny"    # Ljava/lang/CharSequence;
     .param p1, "chars"    # [C
     .param p2, "startIndex"    # I
@@ -2790,15 +2790,15 @@
     .line 968
     const/4 v0, 0x1
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_20
 
     array-length v1, p1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_20
 
     instance-of v1, p0, Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     .line 969
     invoke-static {p1}, Lkotlin/collections/ArraysKt;->single([C)C
@@ -2819,7 +2819,7 @@
 
     .line 974
     .end local v0    # "char":C
-    :cond_0
+    :cond_20
     invoke-static {p0}, Lkotlin/text/StringsKt;->getLastIndex(Ljava/lang/CharSequence;)I
 
     move-result v1
@@ -2829,10 +2829,10 @@
     move-result v1
 
     .local v1, "index":I
-    :goto_0
+    :goto_28
     const/4 v2, -0x1
 
-    if-ge v2, v1, :cond_4
+    if-ge v2, v1, :cond_4c
 
     .line 975
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -2854,8 +2854,8 @@
 
     const/4 v7, 0x0
 
-    :goto_1
-    if-ge v7, v5, :cond_2
+    :goto_34
+    if-ge v7, v5, :cond_45
 
     aget-char v8, v3, v7
 
@@ -2874,64 +2874,64 @@
     .line 1635
     .end local v9    # "it":C
     .end local v10    # "$i$a$-any-StringsKt__StringsKt$lastIndexOfAny$1":I
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_42
 
     const/4 v6, 0x1
 
-    goto :goto_2
+    goto :goto_46
 
     .end local v8    # "element$iv":C
-    :cond_1
+    :cond_42
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_34
 
     .line 1636
-    :cond_2
+    :cond_45
     nop
 
     .line 976
     .end local v3    # "$this$any$iv":[C
     .end local v4    # "$i$f$any":I
-    :goto_2
-    if-eqz v6, :cond_3
+    :goto_46
+    if-eqz v6, :cond_49
 
     .line 977
     return v1
 
     .line 974
     .end local v2    # "charAtIndex":C
-    :cond_3
+    :cond_49
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 980
     .end local v1    # "index":I
-    :cond_4
+    :cond_4c
     return v2
 .end method
 
 .method public static synthetic lastIndexOfAny$default(Ljava/lang/CharSequence;Ljava/util/Collection;IZILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 1086
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     invoke-static {p0}, Lkotlin/text/StringsKt;->getLastIndex(Ljava/lang/CharSequence;)I
 
     move-result p2
 
-    :cond_0
+    :cond_8
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->lastIndexOfAny(Ljava/lang/CharSequence;Ljava/util/Collection;IZ)I
 
     move-result p0
@@ -2940,25 +2940,25 @@
 .end method
 
 .method public static synthetic lastIndexOfAny$default(Ljava/lang/CharSequence;[CIZILjava/lang/Object;)I
-    .locals 0
+    .registers 6
 
     .line 967
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     invoke-static {p0}, Lkotlin/text/StringsKt;->getLastIndex(Ljava/lang/CharSequence;)I
 
     move-result p2
 
-    :cond_0
+    :cond_8
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->lastIndexOfAny(Ljava/lang/CharSequence;[CIZ)I
 
     move-result p0
@@ -2967,7 +2967,7 @@
 .end method
 
 .method public static final lineSequence(Ljava/lang/CharSequence;)Lkotlin/sequences/Sequence;
-    .locals 9
+    .registers 10
     .param p0, "$this$lineSequence"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3013,7 +3013,7 @@
 .end method
 
 .method public static final lines(Ljava/lang/CharSequence;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$lines"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3043,7 +3043,7 @@
 .end method
 
 .method private static final matches(Ljava/lang/CharSequence;Lkotlin/text/Regex;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$matches"    # Ljava/lang/CharSequence;
     .param p1, "regex"    # Lkotlin/text/Regex;
 
@@ -3064,25 +3064,25 @@
 .end method
 
 .method private static final orEmpty(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$orEmpty"    # Ljava/lang/String;
 
     .line 349
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     const-string v0, ""
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     move-object v0, p0
 
-    :goto_0
+    :goto_6
     return-object v0
 .end method
 
 .method public static final padEnd(Ljava/lang/CharSequence;IC)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 6
     .param p0, "$this$padEnd"    # Ljava/lang/CharSequence;
     .param p1, "length"    # I
     .param p2, "padChar"    # C
@@ -3092,14 +3092,14 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 253
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_34
 
     .line 255
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_17
 
     .line 256
     const/4 v0, 0x0
@@ -3115,7 +3115,7 @@
     return-object v0
 
     .line 258
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0, p1}, Ljava/lang/StringBuilder;-><init>(I)V
@@ -3134,22 +3134,22 @@
 
     sub-int v2, p1, v2
 
-    if-gt v1, v2, :cond_1
+    if-gt v1, v2, :cond_30
 
     .line 261
-    :goto_0
+    :goto_28
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 260
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_30
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 262
     .end local v1    # "i":I
-    :cond_1
+    :cond_30
     move-object v1, v0
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -3158,7 +3158,7 @@
 
     .line 254
     .end local v0    # "sb":Ljava/lang/StringBuilder;
-    :cond_2
+    :cond_34
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3191,7 +3191,7 @@
 .end method
 
 .method public static final padEnd(Ljava/lang/String;IC)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this$padEnd"    # Ljava/lang/String;
     .param p1, "length"    # I
     .param p2, "padChar"    # C
@@ -3217,16 +3217,16 @@
 .end method
 
 .method public static synthetic padEnd$default(Ljava/lang/CharSequence;ICILjava/lang/Object;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 5
 
     .line 252
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     const/16 p2, 0x20
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->padEnd(Ljava/lang/CharSequence;IC)Ljava/lang/CharSequence;
 
     move-result-object p0
@@ -3235,16 +3235,16 @@
 .end method
 
 .method public static synthetic padEnd$default(Ljava/lang/String;ICILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 274
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     const/16 p2, 0x20
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->padEnd(Ljava/lang/String;IC)Ljava/lang/String;
 
     move-result-object p0
@@ -3253,7 +3253,7 @@
 .end method
 
 .method public static final padStart(Ljava/lang/CharSequence;IC)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 6
     .param p0, "$this$padStart"    # Ljava/lang/CharSequence;
     .param p1, "length"    # I
     .param p2, "padChar"    # C
@@ -3263,14 +3263,14 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 218
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_34
 
     .line 220
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_17
 
     .line 221
     const/4 v0, 0x0
@@ -3286,7 +3286,7 @@
     return-object v0
 
     .line 223
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0, p1}, Ljava/lang/StringBuilder;-><init>(I)V
@@ -3302,22 +3302,22 @@
 
     sub-int v2, p1, v2
 
-    if-gt v1, v2, :cond_1
+    if-gt v1, v2, :cond_2d
 
     .line 225
-    :goto_0
+    :goto_25
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 224
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_2d
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
     .line 226
     .end local v1    # "i":I
-    :cond_1
+    :cond_2d
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     .line 227
@@ -3329,7 +3329,7 @@
 
     .line 219
     .end local v0    # "sb":Ljava/lang/StringBuilder;
-    :cond_2
+    :cond_34
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3362,7 +3362,7 @@
 .end method
 
 .method public static final padStart(Ljava/lang/String;IC)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this$padStart"    # Ljava/lang/String;
     .param p1, "length"    # I
     .param p2, "padChar"    # C
@@ -3388,16 +3388,16 @@
 .end method
 
 .method public static synthetic padStart$default(Ljava/lang/CharSequence;ICILjava/lang/Object;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 5
 
     .line 217
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     const/16 p2, 0x20
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->padStart(Ljava/lang/CharSequence;IC)Ljava/lang/CharSequence;
 
     move-result-object p0
@@ -3406,16 +3406,16 @@
 .end method
 
 .method public static synthetic padStart$default(Ljava/lang/String;ICILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 239
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     const/16 p2, 0x20
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->padStart(Ljava/lang/String;IC)Ljava/lang/String;
 
     move-result-object p0
@@ -3424,7 +3424,7 @@
 .end method
 
 .method private static final rangesDelimitedBy$StringsKt__StringsKt(Ljava/lang/CharSequence;[CIZI)Lkotlin/sequences/Sequence;
-    .locals 2
+    .registers 7
     .param p0, "$this$rangesDelimitedBy"    # Ljava/lang/CharSequence;
     .param p1, "delimiters"    # [C
     .param p2, "startIndex"    # I
@@ -3461,7 +3461,7 @@
 .end method
 
 .method private static final rangesDelimitedBy$StringsKt__StringsKt(Ljava/lang/CharSequence;[Ljava/lang/String;IZI)Lkotlin/sequences/Sequence;
-    .locals 3
+    .registers 8
     .param p0, "$this$rangesDelimitedBy"    # Ljava/lang/CharSequence;
     .param p1, "delimiters"    # [Ljava/lang/String;
     .param p2, "startIndex"    # I
@@ -3506,32 +3506,32 @@
 .end method
 
 .method static synthetic rangesDelimitedBy$StringsKt__StringsKt$default(Ljava/lang/CharSequence;[CIZIILjava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 8
 
     .line 1251
     and-int/lit8 p6, p5, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_10
 
     const/4 p4, 0x0
 
-    :cond_2
+    :cond_10
     invoke-static {p0, p1, p2, p3, p4}, Lkotlin/text/StringsKt__StringsKt;->rangesDelimitedBy$StringsKt__StringsKt(Ljava/lang/CharSequence;[CIZI)Lkotlin/sequences/Sequence;
 
     move-result-object p0
@@ -3540,32 +3540,32 @@
 .end method
 
 .method static synthetic rangesDelimitedBy$StringsKt__StringsKt$default(Ljava/lang/CharSequence;[Ljava/lang/String;IZIILjava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 8
 
     .line 1274
     and-int/lit8 p6, p5, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_10
 
     const/4 p4, 0x0
 
-    :cond_2
+    :cond_10
     invoke-static {p0, p1, p2, p3, p4}, Lkotlin/text/StringsKt__StringsKt;->rangesDelimitedBy$StringsKt__StringsKt(Ljava/lang/CharSequence;[Ljava/lang/String;IZI)Lkotlin/sequences/Sequence;
 
     move-result-object p0
@@ -3574,7 +3574,7 @@
 .end method
 
 .method public static final regionMatchesImpl(Ljava/lang/CharSequence;ILjava/lang/CharSequence;IIZ)Z
-    .locals 4
+    .registers 10
     .param p0, "$this$regionMatchesImpl"    # Ljava/lang/CharSequence;
     .param p1, "thisOffset"    # I
     .param p2, "other"    # Ljava/lang/CharSequence;
@@ -3593,9 +3593,9 @@
     .line 833
     const/4 v0, 0x0
 
-    if-ltz p3, :cond_3
+    if-ltz p3, :cond_39
 
-    if-ltz p1, :cond_3
+    if-ltz p1, :cond_39
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
@@ -3603,7 +3603,7 @@
 
     sub-int/2addr v1, p4
 
-    if-gt p1, v1, :cond_3
+    if-gt p1, v1, :cond_39
 
     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
 
@@ -3611,17 +3611,17 @@
 
     sub-int/2addr v1, p4
 
-    if-le p3, v1, :cond_0
+    if-le p3, v1, :cond_1e
 
-    goto :goto_1
+    goto :goto_39
 
     .line 837
-    :cond_0
+    :cond_1e
     const/4 v1, 0x0
 
     .local v1, "index":I
-    :goto_0
-    if-ge v1, p4, :cond_2
+    :goto_1f
+    if-ge v1, p4, :cond_37
 
     .line 838
     add-int v2, p1, v1
@@ -3640,32 +3640,32 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_34
 
     .line 839
     return v0
 
     .line 837
-    :cond_1
+    :cond_34
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 841
     .end local v1    # "index":I
-    :cond_2
+    :cond_37
     const/4 v0, 0x1
 
     return v0
 
     .line 834
-    :cond_3
-    :goto_1
+    :cond_39
+    :goto_39
     return v0
 .end method
 
 .method public static final removePrefix(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 5
     .param p0, "$this$removePrefix"    # Ljava/lang/CharSequence;
     .param p1, "prefix"    # Ljava/lang/CharSequence;
 
@@ -3688,7 +3688,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 606
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -3706,7 +3706,7 @@
     return-object v0
 
     .line 608
-    :cond_0
+    :cond_20
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -3719,7 +3719,7 @@
 .end method
 
 .method public static final removePrefix(Ljava/lang/String;Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "$this$removePrefix"    # Ljava/lang/String;
     .param p1, "prefix"    # Ljava/lang/CharSequence;
 
@@ -3746,7 +3746,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 617
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -3764,12 +3764,12 @@
     return-object v0
 
     .line 619
-    :cond_0
+    :cond_24
     return-object p0
 .end method
 
 .method public static final removeRange(Ljava/lang/CharSequence;II)Ljava/lang/CharSequence;
-    .locals 4
+    .registers 7
     .param p0, "$this$removeRange"    # Ljava/lang/CharSequence;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -3779,12 +3779,12 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 561
-    if-lt p2, p1, :cond_1
+    if-lt p2, p1, :cond_37
 
     .line 564
     const/4 v0, 0x0
 
-    if-ne p2, p1, :cond_0
+    if-ne p2, p1, :cond_13
 
     .line 565
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -3798,7 +3798,7 @@
     return-object v0
 
     .line 567
-    :cond_0
+    :cond_13
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -3841,7 +3841,7 @@
 
     .line 562
     .end local v1    # "sb":Ljava/lang/StringBuilder;
-    :cond_1
+    :cond_37
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3884,7 +3884,7 @@
 .end method
 
 .method public static final removeRange(Ljava/lang/CharSequence;Lkotlin/ranges/IntRange;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 4
     .param p0, "$this$removeRange"    # Ljava/lang/CharSequence;
     .param p1, "range"    # Lkotlin/ranges/IntRange;
 
@@ -3923,7 +3923,7 @@
 .end method
 
 .method private static final removeRange(Ljava/lang/String;II)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this$removeRange"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -3949,7 +3949,7 @@
 .end method
 
 .method private static final removeRange(Ljava/lang/String;Lkotlin/ranges/IntRange;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this$removeRange"    # Ljava/lang/String;
     .param p1, "range"    # Lkotlin/ranges/IntRange;
 
@@ -3978,7 +3978,7 @@
 .end method
 
 .method public static final removeSuffix(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 5
     .param p0, "$this$removeSuffix"    # Ljava/lang/CharSequence;
     .param p1, "suffix"    # Ljava/lang/CharSequence;
 
@@ -4001,7 +4001,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 628
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -4021,7 +4021,7 @@
     return-object v0
 
     .line 630
-    :cond_0
+    :cond_21
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -4034,7 +4034,7 @@
 .end method
 
 .method public static final removeSuffix(Ljava/lang/String;Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "$this$removeSuffix"    # Ljava/lang/String;
     .param p1, "suffix"    # Ljava/lang/CharSequence;
 
@@ -4061,7 +4061,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 639
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -4085,12 +4085,12 @@
     return-object v0
 
     .line 641
-    :cond_0
+    :cond_29
     return-object p0
 .end method
 
 .method public static final removeSurrounding(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p0, "$this$removeSurrounding"    # Ljava/lang/CharSequence;
     .param p1, "delimiter"    # Ljava/lang/CharSequence;
 
@@ -4111,7 +4111,7 @@
 .end method
 
 .method public static final removeSurrounding(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 4
+    .registers 7
     .param p0, "$this$removeSurrounding"    # Ljava/lang/CharSequence;
     .param p1, "prefix"    # Ljava/lang/CharSequence;
     .param p2, "suffix"    # Ljava/lang/CharSequence;
@@ -4145,7 +4145,7 @@
 
     const/4 v2, 0x0
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_3f
 
     const/4 v0, 0x2
 
@@ -4155,13 +4155,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3f
 
     invoke-static {p0, p2, v2, v0, v1}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3f
 
     .line 651
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -4185,7 +4185,7 @@
     return-object v0
 
     .line 653
-    :cond_0
+    :cond_3f
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -4198,7 +4198,7 @@
 .end method
 
 .method public static final removeSurrounding(Ljava/lang/String;Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this$removeSurrounding"    # Ljava/lang/String;
     .param p1, "delimiter"    # Ljava/lang/CharSequence;
 
@@ -4219,7 +4219,7 @@
 .end method
 
 .method public static final removeSurrounding(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 4
+    .registers 7
     .param p0, "$this$removeSurrounding"    # Ljava/lang/String;
     .param p1, "prefix"    # Ljava/lang/CharSequence;
     .param p2, "suffix"    # Ljava/lang/CharSequence;
@@ -4251,7 +4251,7 @@
 
     add-int/2addr v1, v2
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_4a
 
     move-object v0, p0
 
@@ -4267,7 +4267,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4a
 
     move-object v0, p0
 
@@ -4277,7 +4277,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4a
 
     .line 663
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -4305,12 +4305,12 @@
     return-object v0
 
     .line 665
-    :cond_0
+    :cond_4a
     return-object p0
 .end method
 
 .method private static final replace(Ljava/lang/CharSequence;Lkotlin/text/Regex;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this$replace"    # Ljava/lang/CharSequence;
     .param p1, "regex"    # Lkotlin/text/Regex;
     .param p2, "replacement"    # Ljava/lang/String;
@@ -4336,7 +4336,7 @@
 .end method
 
 .method private static final replace(Ljava/lang/CharSequence;Lkotlin/text/Regex;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this$replace"    # Ljava/lang/CharSequence;
     .param p1, "regex"    # Lkotlin/text/Regex;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -4376,7 +4376,7 @@
 .end method
 
 .method public static final replaceAfter(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 11
     .param p0, "$this$replaceAfter"    # Ljava/lang/String;
     .param p1, "delimiter"    # C
     .param p2, "replacement"    # Ljava/lang/String;
@@ -4417,13 +4417,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     move-object v1, p3
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_20
     add-int/lit8 v1, v0, 0x1
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -4446,12 +4446,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_34
     return-object v1
 .end method
 
 .method public static final replaceAfter(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 11
     .param p0, "$this$replaceAfter"    # Ljava/lang/String;
     .param p1, "delimiter"    # Ljava/lang/String;
     .param p2, "replacement"    # Ljava/lang/String;
@@ -4496,13 +4496,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_25
 
     move-object v1, p3
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_0
+    :cond_25
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -4529,21 +4529,21 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_3c
     return-object v1
 .end method
 
 .method public static synthetic replaceAfter$default(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 704
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     move-object p3, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->replaceAfter(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -4552,16 +4552,16 @@
 .end method
 
 .method public static synthetic replaceAfter$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 713
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     move-object p3, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->replaceAfter(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -4570,7 +4570,7 @@
 .end method
 
 .method public static final replaceAfterLast(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 11
     .param p0, "$this$replaceAfterLast"    # Ljava/lang/String;
     .param p1, "delimiter"    # C
     .param p2, "replacement"    # Ljava/lang/String;
@@ -4611,13 +4611,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     move-object v1, p3
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_20
     add-int/lit8 v1, v0, 0x1
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -4640,12 +4640,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_34
     return-object v1
 .end method
 
 .method public static final replaceAfterLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 11
     .param p0, "$this$replaceAfterLast"    # Ljava/lang/String;
     .param p1, "delimiter"    # Ljava/lang/String;
     .param p2, "replacement"    # Ljava/lang/String;
@@ -4690,13 +4690,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_25
 
     move-object v1, p3
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_0
+    :cond_25
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -4723,21 +4723,21 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_3c
     return-object v1
 .end method
 
 .method public static synthetic replaceAfterLast$default(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 731
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     move-object p3, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->replaceAfterLast(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -4746,16 +4746,16 @@
 .end method
 
 .method public static synthetic replaceAfterLast$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 722
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     move-object p3, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->replaceAfterLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -4764,7 +4764,7 @@
 .end method
 
 .method public static final replaceBefore(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 11
     .param p0, "$this$replaceBefore"    # Ljava/lang/String;
     .param p1, "delimiter"    # C
     .param p2, "replacement"    # Ljava/lang/String;
@@ -4805,13 +4805,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     move-object v1, p3
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_20
     move-object v1, p0
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -4830,12 +4830,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_2f
     return-object v1
 .end method
 
 .method public static final replaceBefore(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 11
     .param p0, "$this$replaceBefore"    # Ljava/lang/String;
     .param p1, "delimiter"    # Ljava/lang/String;
     .param p2, "replacement"    # Ljava/lang/String;
@@ -4880,13 +4880,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_25
 
     move-object v1, p3
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_25
     move-object v1, p0
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -4905,21 +4905,21 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_34
     return-object v1
 .end method
 
 .method public static synthetic replaceBefore$default(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 686
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     move-object p3, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->replaceBefore(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -4928,16 +4928,16 @@
 .end method
 
 .method public static synthetic replaceBefore$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 695
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     move-object p3, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->replaceBefore(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -4946,7 +4946,7 @@
 .end method
 
 .method public static final replaceBeforeLast(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 11
     .param p0, "$this$replaceBeforeLast"    # Ljava/lang/String;
     .param p1, "delimiter"    # C
     .param p2, "replacement"    # Ljava/lang/String;
@@ -4987,13 +4987,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     move-object v1, p3
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_20
     move-object v1, p0
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -5012,12 +5012,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_2f
     return-object v1
 .end method
 
 .method public static final replaceBeforeLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 11
     .param p0, "$this$replaceBeforeLast"    # Ljava/lang/String;
     .param p1, "delimiter"    # Ljava/lang/String;
     .param p2, "replacement"    # Ljava/lang/String;
@@ -5062,13 +5062,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_25
 
     move-object v1, p3
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_25
     move-object v1, p0
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -5087,21 +5087,21 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_34
     return-object v1
 .end method
 
 .method public static synthetic replaceBeforeLast$default(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 740
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     move-object p3, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->replaceBeforeLast(Ljava/lang/String;CLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -5110,16 +5110,16 @@
 .end method
 
 .method public static synthetic replaceBeforeLast$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 6
 
     .line 749
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     move-object p3, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->replaceBeforeLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -5128,7 +5128,7 @@
 .end method
 
 .method private static final replaceFirst(Ljava/lang/CharSequence;Lkotlin/text/Regex;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this$replaceFirst"    # Ljava/lang/CharSequence;
     .param p1, "regex"    # Lkotlin/text/Regex;
     .param p2, "replacement"    # Ljava/lang/String;
@@ -5154,7 +5154,7 @@
 .end method
 
 .method private static final replaceFirstCharWithChar(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "$this$replaceFirstChar"    # Ljava/lang/String;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -5191,17 +5191,17 @@
 
     const/4 v2, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_17
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_18
+    if-eqz v0, :cond_47
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
@@ -5245,17 +5245,17 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_1
+    :cond_47
     move-object v0, p0
 
-    :goto_1
+    :goto_48
     return-object v0
 .end method
 
 .method private static final replaceFirstCharWithCharSequence(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "$this$replaceFirstChar"    # Ljava/lang/String;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -5293,17 +5293,17 @@
 
     const/4 v2, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_17
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_18
+    if-eqz v0, :cond_41
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -5341,17 +5341,17 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_1
+    :cond_41
     move-object v0, p0
 
-    :goto_1
+    :goto_42
     return-object v0
 .end method
 
 .method public static final replaceRange(Ljava/lang/CharSequence;IILjava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 7
     .param p0, "$this$replaceRange"    # Ljava/lang/CharSequence;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -5366,7 +5366,7 @@
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 516
-    if-lt p2, p1, :cond_0
+    if-lt p2, p1, :cond_2d
 
     .line 518
     new-instance v0, Ljava/lang/StringBuilder;
@@ -5408,7 +5408,7 @@
 
     .line 517
     .end local v0    # "sb":Ljava/lang/StringBuilder;
-    :cond_0
+    :cond_2d
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -5451,7 +5451,7 @@
 .end method
 
 .method public static final replaceRange(Ljava/lang/CharSequence;Lkotlin/ranges/IntRange;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 5
     .param p0, "$this$replaceRange"    # Ljava/lang/CharSequence;
     .param p1, "range"    # Lkotlin/ranges/IntRange;
     .param p2, "replacement"    # Ljava/lang/CharSequence;
@@ -5495,7 +5495,7 @@
 .end method
 
 .method private static final replaceRange(Ljava/lang/String;IILjava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 5
     .param p0, "$this$replaceRange"    # Ljava/lang/String;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -5526,7 +5526,7 @@
 .end method
 
 .method private static final replaceRange(Ljava/lang/String;Lkotlin/ranges/IntRange;Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this$replaceRange"    # Ljava/lang/String;
     .param p1, "range"    # Lkotlin/ranges/IntRange;
     .param p2, "replacement"    # Ljava/lang/CharSequence;
@@ -5560,26 +5560,26 @@
 .end method
 
 .method public static final requireNonNegativeLimit(I)V
-    .locals 3
+    .registers 4
     .param p0, "limit"    # I
 
     .line 1283
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_5
+    if-eqz v0, :cond_8
 
     return-void
 
     .line 1641
-    :cond_1
+    :cond_8
     const/4 v0, 0x0
 
     .line 1283
@@ -5615,7 +5615,7 @@
 .end method
 
 .method private static final split(Ljava/lang/CharSequence;Lkotlin/text/Regex;I)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p0, "$this$split"    # Ljava/lang/CharSequence;
     .param p1, "regex"    # Lkotlin/text/Regex;
     .param p2, "limit"    # I
@@ -5648,7 +5648,7 @@
 .end method
 
 .method public static final split(Ljava/lang/CharSequence;[CZI)Ljava/util/List;
-    .locals 9
+    .registers 13
     .param p0, "$this$split"    # Ljava/lang/CharSequence;
     .param p1, "delimiters"    # [C
     .param p2, "ignoreCase"    # Z
@@ -5677,7 +5677,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1a
 
     .line 1343
     const/4 v0, 0x0
@@ -5695,7 +5695,7 @@
     return-object v0
 
     .line 1346
-    :cond_0
+    :cond_1a
     const/4 v6, 0x2
 
     const/4 v7, 0x0
@@ -5747,12 +5747,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_3d
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_53
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5778,11 +5778,11 @@
     .end local v8    # "$i$a$-map-StringsKt__StringsKt$split$2":I
     invoke-interface {v2, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 1649
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_53
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -5800,7 +5800,7 @@
 .end method
 
 .method public static final split(Ljava/lang/CharSequence;[Ljava/lang/String;ZI)Ljava/util/List;
-    .locals 10
+    .registers 14
     .param p0, "$this$split"    # Ljava/lang/CharSequence;
     .param p1, "delimiters"    # [Ljava/lang/String;
     .param p2, "ignoreCase"    # Z
@@ -5831,7 +5831,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_23
 
     .line 1315
     const/4 v0, 0x0
@@ -5848,15 +5848,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1b
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_1
+    :goto_1c
+    if-nez v1, :cond_23
 
     .line 1317
     invoke-static {p0, v2, p2, p3}, Lkotlin/text/StringsKt__StringsKt;->split$StringsKt__StringsKt(Ljava/lang/CharSequence;Ljava/lang/String;ZI)Ljava/util/List;
@@ -5867,7 +5867,7 @@
 
     .line 1321
     .end local v2    # "delimiter":Ljava/lang/String;
-    :cond_1
+    :cond_23
     const/4 v8, 0x2
 
     const/4 v9, 0x0
@@ -5919,12 +5919,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_46
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_5c
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5950,11 +5950,11 @@
     .end local v8    # "$i$a$-map-StringsKt__StringsKt$split$1":I
     invoke-interface {v2, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_46
 
     .line 1645
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_5c
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -5972,7 +5972,7 @@
 .end method
 
 .method private static final split$StringsKt__StringsKt(Ljava/lang/CharSequence;Ljava/lang/String;ZI)Ljava/util/List;
-    .locals 7
+    .registers 11
     .param p0, "$this$split"    # Ljava/lang/CharSequence;
     .param p1, "delimiter"    # Ljava/lang/String;
     .param p2, "ignoreCase"    # Z
@@ -6005,42 +6005,42 @@
     .local v1, "nextIndex":I
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_6
+    if-eq v1, v2, :cond_54
 
     const/4 v3, 0x1
 
-    if-ne p3, v3, :cond_0
+    if-ne p3, v3, :cond_f
 
-    goto :goto_1
+    goto :goto_54
 
     .line 1366
-    :cond_0
-    if-lez p3, :cond_1
+    :cond_f
+    if-lez p3, :cond_12
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v3, 0x0
 
     .line 1367
     .local v3, "isLimited":Z
-    :goto_0
+    :goto_13
     new-instance v4, Ljava/util/ArrayList;
 
     const/16 v5, 0xa
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1d
 
     invoke-static {p3, v5}, Lkotlin/ranges/RangesKt;->coerceAtMost(II)I
 
     move-result v5
 
-    :cond_2
+    :cond_1d
     invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 1369
     .local v4, "result":Ljava/util/ArrayList;
-    :cond_3
+    :cond_20
     invoke-interface {p0, v0, v1}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
     move-result-object v5
@@ -6059,7 +6059,7 @@
     add-int v0, v1, v5
 
     .line 1372
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3b
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
@@ -6067,19 +6067,19 @@
 
     add-int/lit8 v6, p3, -0x1
 
-    if-eq v5, v6, :cond_5
+    if-eq v5, v6, :cond_41
 
     .line 1373
-    :cond_4
+    :cond_3b
     invoke-static {p0, p1, v0, p2}, Lkotlin/text/StringsKt;->indexOf(Ljava/lang/CharSequence;Ljava/lang/String;IZ)I
 
     move-result v1
 
     .line 1374
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_20
 
     .line 1376
-    :cond_5
+    :cond_41
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
@@ -6104,8 +6104,8 @@
     .line 1363
     .end local v3    # "isLimited":Z
     .end local v4    # "result":Ljava/util/ArrayList;
-    :cond_6
-    :goto_1
+    :cond_54
+    :goto_54
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -6118,7 +6118,7 @@
 .end method
 
 .method static synthetic split$default(Ljava/lang/CharSequence;Lkotlin/text/Regex;IILjava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 5
     .param p0, "$this$split_u24default"    # Ljava/lang/CharSequence;
     .param p1, "regex"    # Lkotlin/text/Regex;
     .param p2, "limit"    # I
@@ -6126,11 +6126,11 @@
     .line 1387
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -6147,25 +6147,25 @@
 .end method
 
 .method public static synthetic split$default(Ljava/lang/CharSequence;[CZIILjava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 7
 
     .line 1341
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->split(Ljava/lang/CharSequence;[CZI)Ljava/util/List;
 
     move-result-object p0
@@ -6174,25 +6174,25 @@
 .end method
 
 .method public static synthetic split$default(Ljava/lang/CharSequence;[Ljava/lang/String;ZIILjava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 7
 
     .line 1313
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->split(Ljava/lang/CharSequence;[Ljava/lang/String;ZI)Ljava/util/List;
 
     move-result-object p0
@@ -6201,7 +6201,7 @@
 .end method
 
 .method private static final splitToSequence(Ljava/lang/CharSequence;Lkotlin/text/Regex;I)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 4
     .param p0, "$this$splitToSequence"    # Ljava/lang/CharSequence;
     .param p1, "regex"    # Lkotlin/text/Regex;
     .param p2, "limit"    # I
@@ -6234,7 +6234,7 @@
 .end method
 
 .method public static final splitToSequence(Ljava/lang/CharSequence;[CZI)Lkotlin/sequences/Sequence;
-    .locals 8
+    .registers 12
     .param p0, "$this$splitToSequence"    # Ljava/lang/CharSequence;
     .param p1, "delimiters"    # [C
     .param p2, "ignoreCase"    # Z
@@ -6291,7 +6291,7 @@
 .end method
 
 .method public static final splitToSequence(Ljava/lang/CharSequence;[Ljava/lang/String;ZI)Lkotlin/sequences/Sequence;
-    .locals 8
+    .registers 12
     .param p0, "$this$splitToSequence"    # Ljava/lang/CharSequence;
     .param p1, "delimiters"    # [Ljava/lang/String;
     .param p2, "ignoreCase"    # Z
@@ -6350,7 +6350,7 @@
 .end method
 
 .method static synthetic splitToSequence$default(Ljava/lang/CharSequence;Lkotlin/text/Regex;IILjava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 0
+    .registers 5
     .param p0, "$this$splitToSequence_u24default"    # Ljava/lang/CharSequence;
     .param p1, "regex"    # Lkotlin/text/Regex;
     .param p2, "limit"    # I
@@ -6358,11 +6358,11 @@
     .line 1399
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -6379,25 +6379,25 @@
 .end method
 
 .method public static synthetic splitToSequence$default(Ljava/lang/CharSequence;[CZIILjava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 7
 
     .line 1331
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->splitToSequence(Ljava/lang/CharSequence;[CZI)Lkotlin/sequences/Sequence;
 
     move-result-object p0
@@ -6406,25 +6406,25 @@
 .end method
 
 .method public static synthetic splitToSequence$default(Ljava/lang/CharSequence;[Ljava/lang/String;ZIILjava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 7
 
     .line 1299
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->splitToSequence(Ljava/lang/CharSequence;[Ljava/lang/String;ZI)Lkotlin/sequences/Sequence;
 
     move-result-object p0
@@ -6433,7 +6433,7 @@
 .end method
 
 .method public static final startsWith(Ljava/lang/CharSequence;CZ)Z
-    .locals 2
+    .registers 5
     .param p0, "$this$startsWith"    # Ljava/lang/CharSequence;
     .param p1, "char"    # C
     .param p2, "ignoreCase"    # Z
@@ -6449,7 +6449,7 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_17
 
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -6459,16 +6459,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_17
     return v1
 .end method
 
 .method public static final startsWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZ)Z
-    .locals 7
+    .registers 11
     .param p0, "$this$startsWith"    # Ljava/lang/CharSequence;
     .param p1, "prefix"    # Ljava/lang/CharSequence;
     .param p2, "startIndex"    # I
@@ -6483,15 +6483,15 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 870
-    if-nez p3, :cond_0
+    if-nez p3, :cond_23
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 871
     move-object v1, p0
@@ -6517,7 +6517,7 @@
     return v0
 
     .line 873
-    :cond_0
+    :cond_23
     const/4 v4, 0x0
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -6540,7 +6540,7 @@
 .end method
 
 .method public static final startsWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
-    .locals 7
+    .registers 10
     .param p0, "$this$startsWith"    # Ljava/lang/CharSequence;
     .param p1, "prefix"    # Ljava/lang/CharSequence;
     .param p2, "ignoreCase"    # Z
@@ -6554,15 +6554,15 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 860
-    if-nez p2, :cond_0
+    if-nez p2, :cond_22
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 861
     move-object v0, p0
@@ -6586,7 +6586,7 @@
     return v0
 
     .line 863
-    :cond_0
+    :cond_22
     const/4 v4, 0x0
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -6609,16 +6609,16 @@
 .end method
 
 .method public static synthetic startsWith$default(Ljava/lang/CharSequence;CZILjava/lang/Object;)Z
-    .locals 0
+    .registers 5
 
     .line 847
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->startsWith(Ljava/lang/CharSequence;CZ)Z
 
     move-result p0
@@ -6627,16 +6627,16 @@
 .end method
 
 .method public static synthetic startsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZILjava/lang/Object;)Z
-    .locals 0
+    .registers 6
 
     .line 869
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p3, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3}, Lkotlin/text/StringsKt;->startsWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZ)Z
 
     move-result p0
@@ -6645,16 +6645,16 @@
 .end method
 
 .method public static synthetic startsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    .locals 0
+    .registers 5
 
     .line 859
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->startsWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
 
     move-result p0
@@ -6663,7 +6663,7 @@
 .end method
 
 .method public static final subSequence(Ljava/lang/CharSequence;Lkotlin/ranges/IntRange;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 4
     .param p0, "$this$subSequence"    # Ljava/lang/CharSequence;
     .param p1, "range"    # Lkotlin/ranges/IntRange;
 
@@ -6702,7 +6702,7 @@
 .end method
 
 .method private static final subSequence(Ljava/lang/String;II)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 4
     .param p0, "$this$subSequence"    # Ljava/lang/String;
     .param p1, "start"    # I
     .param p2, "end"    # I
@@ -6727,7 +6727,7 @@
 .end method
 
 .method private static final substring(Ljava/lang/CharSequence;II)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this$substring"    # Ljava/lang/CharSequence;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -6749,7 +6749,7 @@
 .end method
 
 .method public static final substring(Ljava/lang/CharSequence;Lkotlin/ranges/IntRange;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$substring"    # Ljava/lang/CharSequence;
     .param p1, "range"    # Lkotlin/ranges/IntRange;
 
@@ -6792,7 +6792,7 @@
 .end method
 
 .method public static final substring(Ljava/lang/String;Lkotlin/ranges/IntRange;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$substring"    # Ljava/lang/String;
     .param p1, "range"    # Lkotlin/ranges/IntRange;
 
@@ -6835,7 +6835,7 @@
 .end method
 
 .method static synthetic substring$default(Ljava/lang/CharSequence;IIILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
     .param p0, "$this$substring_u24default"    # Ljava/lang/CharSequence;
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
@@ -6843,13 +6843,13 @@
     .line 430
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_8
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result p2
 
-    :cond_0
+    :cond_8
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -6866,7 +6866,7 @@
 .end method
 
 .method public static final substringAfter(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 10
     .param p0, "$this$substringAfter"    # Ljava/lang/String;
     .param p1, "delimiter"    # C
     .param p2, "missingDelimiterValue"    # Ljava/lang/String;
@@ -6902,13 +6902,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_1b
     add-int/lit8 v1, v0, 0x1
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -6923,12 +6923,12 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_2a
     return-object v1
 .end method
 
 .method public static final substringAfter(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 10
     .param p0, "$this$substringAfter"    # Ljava/lang/String;
     .param p1, "delimiter"    # Ljava/lang/String;
     .param p2, "missingDelimiterValue"    # Ljava/lang/String;
@@ -6968,13 +6968,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_20
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -6993,21 +6993,21 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_32
     return-object v1
 .end method
 
 .method public static synthetic substringAfter$default(Ljava/lang/String;CLjava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 459
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     move-object p2, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->substringAfter(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -7016,16 +7016,16 @@
 .end method
 
 .method public static synthetic substringAfter$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 468
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     move-object p2, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->substringAfter(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -7034,7 +7034,7 @@
 .end method
 
 .method public static final substringAfterLast(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 10
     .param p0, "$this$substringAfterLast"    # Ljava/lang/String;
     .param p1, "delimiter"    # C
     .param p2, "missingDelimiterValue"    # Ljava/lang/String;
@@ -7070,13 +7070,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_1b
     add-int/lit8 v1, v0, 0x1
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -7091,12 +7091,12 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_2a
     return-object v1
 .end method
 
 .method public static final substringAfterLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 10
     .param p0, "$this$substringAfterLast"    # Ljava/lang/String;
     .param p1, "delimiter"    # Ljava/lang/String;
     .param p2, "missingDelimiterValue"    # Ljava/lang/String;
@@ -7136,13 +7136,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_20
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -7161,21 +7161,21 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_32
     return-object v1
 .end method
 
 .method public static synthetic substringAfterLast$default(Ljava/lang/String;CLjava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 495
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     move-object p2, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->substringAfterLast(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -7184,16 +7184,16 @@
 .end method
 
 .method public static synthetic substringAfterLast$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 504
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     move-object p2, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->substringAfterLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -7202,7 +7202,7 @@
 .end method
 
 .method public static final substringBefore(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 10
     .param p0, "$this$substringBefore"    # Ljava/lang/String;
     .param p1, "delimiter"    # C
     .param p2, "missingDelimiterValue"    # Ljava/lang/String;
@@ -7238,13 +7238,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -7255,12 +7255,12 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_25
     return-object v1
 .end method
 
 .method public static final substringBefore(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 10
     .param p0, "$this$substringBefore"    # Ljava/lang/String;
     .param p1, "delimiter"    # Ljava/lang/String;
     .param p2, "missingDelimiterValue"    # Ljava/lang/String;
@@ -7300,13 +7300,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -7317,21 +7317,21 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_2a
     return-object v1
 .end method
 
 .method public static synthetic substringBefore$default(Ljava/lang/String;CLjava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 441
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     move-object p2, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->substringBefore(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -7340,16 +7340,16 @@
 .end method
 
 .method public static synthetic substringBefore$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 450
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     move-object p2, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->substringBefore(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -7358,7 +7358,7 @@
 .end method
 
 .method public static final substringBeforeLast(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 10
     .param p0, "$this$substringBeforeLast"    # Ljava/lang/String;
     .param p1, "delimiter"    # C
     .param p2, "missingDelimiterValue"    # Ljava/lang/String;
@@ -7394,13 +7394,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -7411,12 +7411,12 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_25
     return-object v1
 .end method
 
 .method public static final substringBeforeLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 10
     .param p0, "$this$substringBeforeLast"    # Ljava/lang/String;
     .param p1, "delimiter"    # Ljava/lang/String;
     .param p2, "missingDelimiterValue"    # Ljava/lang/String;
@@ -7456,13 +7456,13 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_20
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -7473,21 +7473,21 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_2a
     return-object v1
 .end method
 
 .method public static synthetic substringBeforeLast$default(Ljava/lang/String;CLjava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 477
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     move-object p2, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->substringBeforeLast(Ljava/lang/String;CLjava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -7496,16 +7496,16 @@
 .end method
 
 .method public static synthetic substringBeforeLast$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 5
 
     .line 486
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     move-object p2, p0
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt;->substringBeforeLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -7514,7 +7514,7 @@
 .end method
 
 .method public static final toBooleanStrict(Ljava/lang/String;)Z
-    .locals 3
+    .registers 4
     .param p0, "$this$toBooleanStrict"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -7531,30 +7531,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 1480
-    :cond_0
+    :cond_10
     const-string v0, "false"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     const/4 v0, 0x0
 
     .line 1482
-    :goto_0
+    :goto_19
     return v0
 
     .line 1481
-    :cond_1
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -7581,7 +7581,7 @@
 .end method
 
 .method public static final toBooleanStrictOrNull(Ljava/lang/String;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
     .param p0, "$this$toBooleanStrictOrNull"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -7598,7 +7598,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     const/4 v0, 0x1
 
@@ -7606,17 +7606,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_23
 
     .line 1496
-    :cond_0
+    :cond_14
     const-string v0, "false"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     const/4 v0, 0x0
 
@@ -7624,19 +7624,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_23
 
     .line 1497
-    :cond_1
+    :cond_22
     const/4 v0, 0x0
 
     .line 1498
-    :goto_0
+    :goto_23
     return-object v0
 .end method
 
 .method public static final trim(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 8
+    .registers 9
     .param p0, "$this$trim"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -7667,22 +7667,22 @@
 
     .line 1603
     .local v4, "startFound$iv":Z
-    :goto_0
-    if-gt v2, v3, :cond_4
+    :goto_f
+    if-gt v2, v3, :cond_30
 
     .line 1604
-    if-nez v4, :cond_0
+    if-nez v4, :cond_15
 
     move v5, v2
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     move v5, v3
 
     .line 1605
     .local v5, "index$iv":I
-    :goto_1
+    :goto_16
     invoke-interface {v0, v5}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v6
@@ -7703,42 +7703,42 @@
 
     .line 1607
     .local v6, "match$iv":Z
-    if-nez v4, :cond_2
+    if-nez v4, :cond_29
 
     .line 1608
-    if-nez v6, :cond_1
+    if-nez v6, :cond_26
 
     .line 1609
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 1611
-    :cond_1
+    :cond_26
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 1613
-    :cond_2
-    if-nez v6, :cond_3
+    :cond_29
+    if-nez v6, :cond_2c
 
     .line 1614
-    goto :goto_2
+    goto :goto_30
 
     .line 1616
-    :cond_3
+    :cond_2c
     nop
 
     .end local v5    # "index$iv":I
     .end local v6    # "match$iv":Z
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 1620
-    :cond_4
-    :goto_2
+    :cond_30
+    :goto_30
     add-int/lit8 v5, v3, 0x1
 
     invoke-interface {v0, v2, v5}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -7755,7 +7755,7 @@
 .end method
 
 .method public static final trim(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/CharSequence;
-    .locals 6
+    .registers 8
     .param p0, "$this$trim"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7799,22 +7799,22 @@
 
     .line 84
     .local v3, "startFound":Z
-    :goto_0
-    if-gt v1, v2, :cond_4
+    :goto_13
+    if-gt v1, v2, :cond_3c
 
     .line 85
-    if-nez v3, :cond_0
+    if-nez v3, :cond_19
 
     move v4, v1
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     move v4, v2
 
     .line 86
     .local v4, "index":I
-    :goto_1
+    :goto_1a
     invoke-interface {p0, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v5
@@ -7835,42 +7835,42 @@
 
     .line 88
     .local v5, "match":Z
-    if-nez v3, :cond_2
+    if-nez v3, :cond_35
 
     .line 89
-    if-nez v5, :cond_1
+    if-nez v5, :cond_32
 
     .line 90
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 92
-    :cond_1
+    :cond_32
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 94
-    :cond_2
-    if-nez v5, :cond_3
+    :cond_35
+    if-nez v5, :cond_38
 
     .line 95
-    goto :goto_2
+    goto :goto_3c
 
     .line 97
-    :cond_3
+    :cond_38
     nop
 
     .end local v4    # "index":I
     .end local v5    # "match":Z
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 101
-    :cond_4
-    :goto_2
+    :cond_3c
+    :goto_3c
     add-int/lit8 v4, v2, 0x1
 
     invoke-interface {p0, v1, v4}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -7881,7 +7881,7 @@
 .end method
 
 .method public static final varargs trim(Ljava/lang/CharSequence;[C)Ljava/lang/CharSequence;
-    .locals 8
+    .registers 10
     .param p0, "$this$trim"    # Ljava/lang/CharSequence;
     .param p1, "chars"    # [C
 
@@ -7917,22 +7917,22 @@
 
     .line 1536
     .local v4, "startFound$iv":Z
-    :goto_0
-    if-gt v2, v3, :cond_4
+    :goto_14
+    if-gt v2, v3, :cond_35
 
     .line 1537
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1a
 
     move v5, v2
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     move v5, v3
 
     .line 1538
     .local v5, "index$iv":I
-    :goto_1
+    :goto_1b
     invoke-interface {v0, v5}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v6
@@ -7953,42 +7953,42 @@
 
     .line 1540
     .local v6, "match$iv":Z
-    if-nez v4, :cond_2
+    if-nez v4, :cond_2e
 
     .line 1541
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2b
 
     .line 1542
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1544
-    :cond_1
+    :cond_2b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1546
-    :cond_2
-    if-nez v6, :cond_3
+    :cond_2e
+    if-nez v6, :cond_31
 
     .line 1547
-    goto :goto_2
+    goto :goto_35
 
     .line 1549
-    :cond_3
+    :cond_31
     nop
 
     .end local v5    # "index$iv":I
     .end local v6    # "match$iv":Z
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1553
-    :cond_4
-    :goto_2
+    :cond_35
+    :goto_35
     add-int/lit8 v5, v3, 0x1
 
     invoke-interface {v0, v2, v5}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -8005,7 +8005,7 @@
 .end method
 
 .method private static final trim(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$trim"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -8029,7 +8029,7 @@
 .end method
 
 .method public static final trim(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p0, "$this$trim"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8082,22 +8082,22 @@
 
     .line 1504
     .local v5, "startFound$iv":Z
-    :goto_0
-    if-gt v3, v4, :cond_4
+    :goto_17
+    if-gt v3, v4, :cond_40
 
     .line 1505
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1d
 
     move v6, v3
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move v6, v4
 
     .line 1506
     .local v6, "index$iv":I
-    :goto_1
+    :goto_1e
     invoke-interface {v1, v6}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v7
@@ -8118,42 +8118,42 @@
 
     .line 1508
     .local v7, "match$iv":Z
-    if-nez v5, :cond_2
+    if-nez v5, :cond_39
 
     .line 1509
-    if-nez v7, :cond_1
+    if-nez v7, :cond_36
 
     .line 1510
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 1512
-    :cond_1
+    :cond_36
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 1514
-    :cond_2
-    if-nez v7, :cond_3
+    :cond_39
+    if-nez v7, :cond_3c
 
     .line 1515
-    goto :goto_2
+    goto :goto_40
 
     .line 1517
-    :cond_3
+    :cond_3c
     nop
 
     .end local v6    # "index$iv":I
     .end local v7    # "match$iv":Z
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 1521
-    :cond_4
-    :goto_2
+    :cond_40
+    :goto_40
     add-int/lit8 v6, v4, 0x1
 
     invoke-interface {v1, v3, v6}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -8174,7 +8174,7 @@
 .end method
 
 .method public static final varargs trim(Ljava/lang/String;[C)Ljava/lang/String;
-    .locals 10
+    .registers 12
     .param p0, "$this$trim"    # Ljava/lang/String;
     .param p1, "chars"    # [C
 
@@ -8219,22 +8219,22 @@
 
     .line 1559
     .local v6, "startFound$iv$iv":Z
-    :goto_0
-    if-gt v4, v5, :cond_4
+    :goto_18
+    if-gt v4, v5, :cond_39
 
     .line 1560
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1e
 
     move v7, v4
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     move v7, v5
 
     .line 1561
     .local v7, "index$iv$iv":I
-    :goto_1
+    :goto_1f
     invoke-interface {v2, v7}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v8
@@ -8255,42 +8255,42 @@
 
     .line 1563
     .local v8, "match$iv$iv":Z
-    if-nez v6, :cond_2
+    if-nez v6, :cond_32
 
     .line 1564
-    if-nez v8, :cond_1
+    if-nez v8, :cond_2f
 
     .line 1565
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 1567
-    :cond_1
+    :cond_2f
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 1569
-    :cond_2
-    if-nez v8, :cond_3
+    :cond_32
+    if-nez v8, :cond_35
 
     .line 1570
-    goto :goto_2
+    goto :goto_39
 
     .line 1572
-    :cond_3
+    :cond_35
     nop
 
     .end local v7    # "index$iv$iv":I
     .end local v8    # "match$iv$iv":Z
     add-int/lit8 v5, v5, -0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 1576
-    :cond_4
-    :goto_2
+    :cond_39
+    :goto_39
     add-int/lit8 v7, v5, 0x1
 
     invoke-interface {v2, v4, v7}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -8314,7 +8314,7 @@
 .end method
 
 .method public static final trimEnd(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 6
+    .registers 7
     .param p0, "$this$trimEnd"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -8335,9 +8335,9 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_27
 
-    :cond_0
+    :cond_f
     move v3, v2
 
     .local v3, "index$iv":I
@@ -8360,7 +8360,7 @@
     .line 1627
     .end local v4    # "p0":C
     .end local v5    # "$i$a$-trimEnd-StringsKt__StringsKt$trimEnd$3":I
-    if-nez v4, :cond_1
+    if-nez v4, :cond_25
 
     .line 1628
     add-int/lit8 v2, v3, 0x1
@@ -8371,15 +8371,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 1626
-    :cond_1
-    if-gez v2, :cond_0
+    :cond_25
+    if-gez v2, :cond_f
 
     .line 1630
     .end local v3    # "index$iv":I
-    :cond_2
+    :cond_27
     const-string v2, ""
 
     check-cast v2, Ljava/lang/CharSequence;
@@ -8387,12 +8387,12 @@
     .line 199
     .end local v0    # "$this$trimEnd$iv":Ljava/lang/CharSequence;
     .end local v1    # "$i$f$trimEnd":I
-    :goto_0
+    :goto_2b
     return-object v2
 .end method
 
 .method public static final trimEnd(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/CharSequence;
-    .locals 4
+    .registers 6
     .param p0, "$this$trimEnd"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8426,9 +8426,9 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_34
 
-    :cond_0
+    :cond_13
     move v2, v1
 
     .local v2, "index":I
@@ -8453,7 +8453,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_32
 
     .line 133
     add-int/lit8 v1, v2, 0x1
@@ -8467,12 +8467,12 @@
     return-object v1
 
     .line 131
-    :cond_1
-    if-gez v1, :cond_0
+    :cond_32
+    if-gez v1, :cond_13
 
     .line 135
     .end local v2    # "index":I
-    :cond_2
+    :cond_34
     const-string v1, ""
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -8481,7 +8481,7 @@
 .end method
 
 .method public static final varargs trimEnd(Ljava/lang/CharSequence;[C)Ljava/lang/CharSequence;
-    .locals 6
+    .registers 8
     .param p0, "$this$trimEnd"    # Ljava/lang/CharSequence;
     .param p1, "chars"    # [C
 
@@ -8507,9 +8507,9 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_2c
 
-    :cond_0
+    :cond_14
     move v3, v2
 
     .local v3, "index$iv":I
@@ -8532,7 +8532,7 @@
     .line 1589
     .end local v4    # "it":C
     .end local v5    # "$i$a$-trimEnd-StringsKt__StringsKt$trimEnd$1":I
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2a
 
     .line 1590
     add-int/lit8 v2, v3, 0x1
@@ -8543,15 +8543,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_30
 
     .line 1588
-    :cond_1
-    if-gez v2, :cond_0
+    :cond_2a
+    if-gez v2, :cond_14
 
     .line 1592
     .end local v3    # "index$iv":I
-    :cond_2
+    :cond_2c
     const-string v2, ""
 
     check-cast v2, Ljava/lang/CharSequence;
@@ -8559,12 +8559,12 @@
     .line 167
     .end local v0    # "$this$trimEnd$iv":Ljava/lang/CharSequence;
     .end local v1    # "$i$f$trimEnd":I
-    :goto_0
+    :goto_30
     return-object v2
 .end method
 
 .method private static final trimEnd(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$trimEnd"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -8588,7 +8588,7 @@
 .end method
 
 .method public static final trimEnd(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p0, "$this$trimEnd"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8631,9 +8631,9 @@
 
     add-int/lit8 v3, v3, -0x1
 
-    if-ltz v3, :cond_2
+    if-ltz v3, :cond_38
 
-    :cond_0
+    :cond_17
     move v4, v3
 
     .local v4, "index$iv":I
@@ -8658,7 +8658,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_36
 
     .line 1529
     add-int/lit8 v3, v4, 0x1
@@ -8669,15 +8669,15 @@
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 1527
-    :cond_1
-    if-gez v3, :cond_0
+    :cond_36
+    if-gez v3, :cond_17
 
     .line 1531
     .end local v4    # "index$iv":I
-    :cond_2
+    :cond_38
     const-string v3, ""
 
     check-cast v3, Ljava/lang/CharSequence;
@@ -8685,7 +8685,7 @@
     .line 142
     .end local v1    # "$this$trimEnd$iv":Ljava/lang/CharSequence;
     .end local v2    # "$i$f$trimEnd":I
-    :goto_0
+    :goto_3c
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -8694,7 +8694,7 @@
 .end method
 
 .method public static final varargs trimEnd(Ljava/lang/String;[C)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p0, "$this$trimEnd"    # Ljava/lang/String;
     .param p1, "chars"    # [C
 
@@ -8729,9 +8729,9 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_30
 
-    :cond_0
+    :cond_18
     move v5, v4
 
     .local v5, "index$iv$iv":I
@@ -8754,7 +8754,7 @@
     .line 1595
     .end local v6    # "it":C
     .end local v7    # "$i$a$-trimEnd-StringsKt__StringsKt$trimEnd$2":I
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2e
 
     .line 1596
     add-int/lit8 v4, v5, 0x1
@@ -8765,15 +8765,15 @@
 
     move-result-object v4
 
-    goto :goto_0
+    goto :goto_34
 
     .line 1594
-    :cond_1
-    if-gez v4, :cond_0
+    :cond_2e
+    if-gez v4, :cond_18
 
     .line 1598
     .end local v5    # "index$iv$iv":I
-    :cond_2
+    :cond_30
     const-string v4, ""
 
     check-cast v4, Ljava/lang/CharSequence;
@@ -8781,7 +8781,7 @@
     .line 1593
     .end local v2    # "$this$trimEnd$iv$iv":Ljava/lang/CharSequence;
     .end local v3    # "$i$f$trimEnd":I
-    :goto_0
+    :goto_34
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -8793,7 +8793,7 @@
 .end method
 
 .method public static final trimStart(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 6
+    .registers 7
     .param p0, "$this$trimStart"    # Ljava/lang/CharSequence;
 
     const-string v0, "<this>"
@@ -8815,8 +8815,8 @@
 
     move-result v3
 
-    :goto_0
-    if-ge v2, v3, :cond_1
+    :goto_c
+    if-ge v2, v3, :cond_25
 
     .line 1622
     invoke-interface {v0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -8835,7 +8835,7 @@
     .line 1622
     .end local v4    # "p0":C
     .end local v5    # "$i$a$-trimStart-StringsKt__StringsKt$trimStart$3":I
-    if-nez v4, :cond_0
+    if-nez v4, :cond_22
 
     .line 1623
     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
@@ -8846,17 +8846,17 @@
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_2a
 
     .line 1621
-    :cond_0
+    :cond_22
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 1625
     .end local v2    # "index$iv":I
-    :cond_1
+    :cond_25
     const-string v2, ""
 
     move-object v3, v2
@@ -8866,12 +8866,12 @@
     .line 188
     .end local v0    # "$this$trimStart$iv":Ljava/lang/CharSequence;
     .end local v1    # "$i$f$trimStart":I
-    :goto_1
+    :goto_2a
     return-object v3
 .end method
 
 .method public static final trimStart(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/CharSequence;
-    .locals 4
+    .registers 6
     .param p0, "$this$trimStart"    # Ljava/lang/CharSequence;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8906,8 +8906,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_10
+    if-ge v1, v2, :cond_32
 
     .line 115
     invoke-interface {p0, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -8928,7 +8928,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2f
 
     .line 116
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -8942,14 +8942,14 @@
     return-object v2
 
     .line 114
-    :cond_0
+    :cond_2f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 118
     .end local v1    # "index":I
-    :cond_1
+    :cond_32
     const-string v1, ""
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -8958,7 +8958,7 @@
 .end method
 
 .method public static final varargs trimStart(Ljava/lang/CharSequence;[C)Ljava/lang/CharSequence;
-    .locals 6
+    .registers 8
     .param p0, "$this$trimStart"    # Ljava/lang/CharSequence;
     .param p1, "chars"    # [C
 
@@ -8985,8 +8985,8 @@
 
     move-result v3
 
-    :goto_0
-    if-ge v2, v3, :cond_1
+    :goto_11
+    if-ge v2, v3, :cond_2a
 
     .line 1578
     invoke-interface {v0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -9005,7 +9005,7 @@
     .line 1578
     .end local v4    # "it":C
     .end local v5    # "$i$a$-trimStart-StringsKt__StringsKt$trimStart$1":I
-    if-nez v4, :cond_0
+    if-nez v4, :cond_27
 
     .line 1579
     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
@@ -9016,17 +9016,17 @@
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 1577
-    :cond_0
+    :cond_27
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1581
     .end local v2    # "index$iv":I
-    :cond_1
+    :cond_2a
     const-string v2, ""
 
     move-object v3, v2
@@ -9036,12 +9036,12 @@
     .line 157
     .end local v0    # "$this$trimStart$iv":Ljava/lang/CharSequence;
     .end local v1    # "$i$f$trimStart":I
-    :goto_1
+    :goto_2f
     return-object v3
 .end method
 
 .method private static final trimStart(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$trimStart"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -9065,7 +9065,7 @@
 .end method
 
 .method public static final trimStart(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p0, "$this$trimStart"    # Ljava/lang/String;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -9109,8 +9109,8 @@
 
     move-result v4
 
-    :goto_0
-    if-ge v3, v4, :cond_1
+    :goto_14
+    if-ge v3, v4, :cond_36
 
     .line 1523
     invoke-interface {v1, v3}, Ljava/lang/CharSequence;->charAt(I)C
@@ -9131,7 +9131,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_33
 
     .line 1524
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
@@ -9142,17 +9142,17 @@
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 1522
-    :cond_0
+    :cond_33
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1526
     .end local v3    # "index$iv":I
-    :cond_1
+    :cond_36
     const-string v3, ""
 
     move-object v4, v3
@@ -9162,7 +9162,7 @@
     .line 125
     .end local v1    # "$this$trimStart$iv":Ljava/lang/CharSequence;
     .end local v2    # "$i$f$trimStart":I
-    :goto_1
+    :goto_3b
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -9171,7 +9171,7 @@
 .end method
 
 .method public static final varargs trimStart(Ljava/lang/String;[C)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p0, "$this$trimStart"    # Ljava/lang/String;
     .param p1, "chars"    # [C
 
@@ -9207,8 +9207,8 @@
 
     move-result v5
 
-    :goto_0
-    if-ge v4, v5, :cond_1
+    :goto_15
+    if-ge v4, v5, :cond_2e
 
     .line 1584
     invoke-interface {v2, v4}, Ljava/lang/CharSequence;->charAt(I)C
@@ -9227,7 +9227,7 @@
     .line 1584
     .end local v6    # "it":C
     .end local v7    # "$i$a$-trimStart-StringsKt__StringsKt$trimStart$2":I
-    if-nez v6, :cond_0
+    if-nez v6, :cond_2b
 
     .line 1585
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
@@ -9238,17 +9238,17 @@
 
     move-result-object v5
 
-    goto :goto_1
+    goto :goto_33
 
     .line 1583
-    :cond_0
+    :cond_2b
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 1587
     .end local v4    # "index$iv$iv":I
-    :cond_1
+    :cond_2e
     const-string v4, ""
 
     move-object v5, v4
@@ -9258,7 +9258,7 @@
     .line 1582
     .end local v2    # "$this$trimStart$iv$iv":Ljava/lang/CharSequence;
     .end local v3    # "$i$f$trimStart":I
-    :goto_1
+    :goto_33
     invoke-virtual {v5}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0

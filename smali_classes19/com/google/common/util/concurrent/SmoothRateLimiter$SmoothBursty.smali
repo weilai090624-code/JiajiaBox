@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;D)V
-    .locals 1
+    .registers 5
     .param p1, "stopwatch"    # Lcom/google/common/util/concurrent/RateLimiter$SleepingStopwatch;
     .param p2, "maxBurstSeconds"    # D
 
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method coolDownIntervalMicros()D
-    .locals 2
+    .registers 3
 
     .line 308
     iget-wide v0, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothBursty;->stableIntervalMicros:D
@@ -48,7 +48,7 @@
 .end method
 
 .method doSetRate(DD)V
-    .locals 6
+    .registers 11
     .param p1, "permitsPerSecond"    # D
     .param p3, "stableIntervalMicros"    # D
 
@@ -68,17 +68,17 @@
 
     cmpl-double v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_13
 
     .line 292
     iget-wide v2, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothBursty;->maxPermits:D
 
     iput-wide v2, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothBursty;->storedPermits:D
 
-    goto :goto_1
+    goto :goto_24
 
     .line 294
-    :cond_0
+    :cond_13
     nop
 
     .line 295
@@ -86,13 +86,13 @@
 
     cmpl-double v4, v0, v2
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_1b
 
     .line 296
-    goto :goto_0
+    goto :goto_22
 
     .line 297
-    :cond_1
+    :cond_1b
     iget-wide v2, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothBursty;->storedPermits:D
 
     iget-wide v4, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothBursty;->maxPermits:D
@@ -101,16 +101,16 @@
 
     div-double/2addr v2, v0
 
-    :goto_0
+    :goto_22
     iput-wide v2, p0, Lcom/google/common/util/concurrent/SmoothRateLimiter$SmoothBursty;->storedPermits:D
 
     .line 299
-    :goto_1
+    :goto_24
     return-void
 .end method
 
 .method storedPermitsToWaitTime(DD)J
-    .locals 2
+    .registers 7
     .param p1, "storedPermits"    # D
     .param p3, "permitsToTake"    # D
 

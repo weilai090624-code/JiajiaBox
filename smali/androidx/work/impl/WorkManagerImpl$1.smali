@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkManagerImpl;Landroidx/work/impl/utils/futures/SettableFuture;Landroidx/work/impl/utils/PreferenceUtils;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 554
     :try_start_0
@@ -80,14 +80,14 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_0 .. :try_end_f} :catchall_10
 
     .line 557
-    goto :goto_0
+    goto :goto_16
 
     .line 555
-    :catchall_0
+    :catchall_10
     move-exception v0
 
     .line 556
@@ -98,6 +98,6 @@
 
     .line 558
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_16
     return-void
 .end method

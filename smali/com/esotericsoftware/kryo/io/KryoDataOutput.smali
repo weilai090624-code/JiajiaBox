@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/io/Output;)V
-    .locals 0
+    .registers 2
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
 
     .line 30
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -46,7 +46,7 @@
 .end method
 
 .method public setOutput(Lcom/esotericsoftware/kryo/io/Output;)V
-    .locals 0
+    .registers 2
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
 
     .line 35
@@ -57,7 +57,7 @@
 .end method
 
 .method public write(I)V
-    .locals 1
+    .registers 3
     .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -75,7 +75,7 @@
 .end method
 
 .method public write([B)V
-    .locals 1
+    .registers 3
     .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -93,7 +93,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 1
+    .registers 5
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -113,7 +113,7 @@
 .end method
 
 .method public writeBoolean(Z)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -131,7 +131,7 @@
 .end method
 
 .method public writeByte(I)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -149,7 +149,7 @@
 .end method
 
 .method public writeBytes(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p1, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -167,8 +167,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_5
+    if-ge v1, v0, :cond_14
 
     .line 85
     iget-object v2, p0, Lcom/esotericsoftware/kryo/io/KryoDataOutput;->output:Lcom/esotericsoftware/kryo/io/Output;
@@ -184,16 +184,16 @@
     .line 84
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 87
     .end local v1    # "i":I
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public writeChar(I)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -213,7 +213,7 @@
 .end method
 
 .method public writeChars(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -231,8 +231,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_5
+    if-ge v1, v0, :cond_1e
 
     .line 92
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
@@ -260,16 +260,16 @@
     .end local v2    # "v":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 96
     .end local v1    # "i":I
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public writeDouble(D)V
-    .locals 1
+    .registers 4
     .param p1, "v"    # D
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -287,7 +287,7 @@
 .end method
 
 .method public writeFloat(F)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -305,7 +305,7 @@
 .end method
 
 .method public writeInt(I)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -323,7 +323,7 @@
 .end method
 
 .method public writeLong(J)V
-    .locals 1
+    .registers 4
     .param p1, "v"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -341,7 +341,7 @@
 .end method
 
 .method public writeShort(I)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -359,7 +359,7 @@
 .end method
 
 .method public writeUTF(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "s"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {

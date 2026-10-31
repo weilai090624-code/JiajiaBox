@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/File;Ljava/lang/String;Ljava/lang/ClassLoader;)V
-    .locals 1
+    .registers 5
     .param p1, "file"    # Ljava/io/File;
     .param p2, "resourceName"    # Ljava/lang/String;
     .param p3, "loader"    # Ljava/lang/ClassLoader;
@@ -64,7 +64,7 @@
 .end method
 
 .method static of(Ljava/io/File;Ljava/lang/String;Ljava/lang/ClassLoader;)Lcom/google/common/reflect/ClassPath$ResourceInfo;
-    .locals 1
+    .registers 4
     .param p0, "file"    # Ljava/io/File;
     .param p1, "resourceName"    # Ljava/lang/String;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
@@ -76,7 +76,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 223
     new-instance v0, Lcom/google/common/reflect/ClassPath$ClassInfo;
@@ -86,7 +86,7 @@
     return-object v0
 
     .line 225
-    :cond_0
+    :cond_e
     new-instance v0, Lcom/google/common/reflect/ClassPath$ResourceInfo;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/google/common/reflect/ClassPath$ResourceInfo;-><init>(Ljava/io/File;Ljava/lang/String;Ljava/lang/ClassLoader;)V
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public final asByteSource()Lcom/google/common/io/ByteSource;
-    .locals 1
+    .registers 2
 
     .line 259
     invoke-virtual {p0}, Lcom/google/common/reflect/ClassPath$ResourceInfo;->url()Ljava/net/URL;
@@ -112,7 +112,7 @@
 .end method
 
 .method public final asCharSource(Ljava/nio/charset/Charset;)Lcom/google/common/io/CharSource;
-    .locals 1
+    .registers 3
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 271
@@ -128,7 +128,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -139,7 +139,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 292
     move-object v0, p1
@@ -156,27 +156,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     iget-object v2, p0, Lcom/google/common/reflect/ClassPath$ResourceInfo;->loader:Ljava/lang/ClassLoader;
 
     iget-object v3, v0, Lcom/google/common/reflect/ClassPath$ResourceInfo;->loader:Ljava/lang/ClassLoader;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_19
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_19
     return v1
 
     .line 295
     .end local v0    # "that":Lcom/google/common/reflect/ClassPath$ResourceInfo;
-    :cond_1
+    :cond_1a
     return v1
 .end method
 
 .method final getFile()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 281
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$ResourceInfo;->file:Ljava/io/File;
@@ -185,7 +185,7 @@
 .end method
 
 .method public final getResourceName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 276
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$ResourceInfo;->resourceName:Ljava/lang/String;
@@ -194,7 +194,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 286
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$ResourceInfo;->resourceName:Ljava/lang/String;
@@ -207,7 +207,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 301
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$ResourceInfo;->resourceName:Ljava/lang/String;
@@ -216,7 +216,7 @@
 .end method
 
 .method public final url()Ljava/net/URL;
-    .locals 3
+    .registers 4
 
     .line 244
     iget-object v0, p0, Lcom/google/common/reflect/ClassPath$ResourceInfo;->loader:Ljava/lang/ClassLoader;
@@ -229,13 +229,13 @@
 
     .line 245
     .local v0, "url":Ljava/net/URL;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 248
     return-object v0
 
     .line 246
-    :cond_0
+    :cond_b
     new-instance v1, Ljava/util/NoSuchElementException;
 
     iget-object v2, p0, Lcom/google/common/reflect/ClassPath$ResourceInfo;->resourceName:Ljava/lang/String;

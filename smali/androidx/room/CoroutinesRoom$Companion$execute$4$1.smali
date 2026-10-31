@@ -56,7 +56,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/CancellationSignal;Lkotlinx/coroutines/Job;)V
-    .locals 1
+    .registers 4
 
     iput-object p1, p0, Landroidx/room/CoroutinesRoom$Companion$execute$4$1;->$cancellationSignal:Landroid/os/CancellationSignal;
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 93
@@ -88,7 +88,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p1, "it"    # Ljava/lang/Throwable;
 
     .line 94
@@ -97,7 +97,7 @@
     .line 95
     iget-object v0, p0, Landroidx/room/CoroutinesRoom$Companion$execute$4$1;->$cancellationSignal:Landroid/os/CancellationSignal;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 96
     iget-object v0, p0, Landroidx/room/CoroutinesRoom$Companion$execute$4$1;->$cancellationSignal:Landroid/os/CancellationSignal;
@@ -105,7 +105,7 @@
     invoke-static {v0}, Landroidx/sqlite/db/SupportSQLiteCompat$Api16Impl;->cancel(Landroid/os/CancellationSignal;)V
 
     .line 99
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/room/CoroutinesRoom$Companion$execute$4$1;->$job:Lkotlinx/coroutines/Job;
 
     const/4 v1, 0x1

@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/platform/android/BouncyCastleSocketAdapter$Companion;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -91,7 +91,7 @@
 .end method
 
 .method public static final synthetic access$getFactory$cp()Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Lokhttp3/internal/platform/android/BouncyCastleSocketAdapter;->factory:Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 7
+    .registers 11
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -131,7 +131,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3b
 
     .line 48
     move-object v0, p1
@@ -171,7 +171,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_33
 
     .end local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v3    # "$i$f$toTypedArray":I
@@ -184,13 +184,13 @@
     .line 55
     invoke-interface {v0, v1}, Lorg/bouncycastle/jsse/BCSSLSocket;->setParameters(Lorg/bouncycastle/jsse/BCSSLParameters;)V
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 70
     .restart local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v3    # "$i$f$toTypedArray":I
     .restart local v4    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_0
+    :cond_33
     new-instance v5, Ljava/lang/NullPointerException;
 
     const-string v6, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -205,13 +205,13 @@
     .end local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v3    # "$i$f$toTypedArray":I
     .end local v4    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_1
-    :goto_0
+    :cond_3b
+    :goto_3b
     return-void
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -231,40 +231,40 @@
 
     .line 36
     .local v1, "protocol":Ljava/lang/String;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_10
     const-string v2, ""
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_16
+    if-eqz v2, :cond_1b
 
     const/4 v2, 0x0
 
     move-object v1, v2
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 37
-    :cond_1
+    :cond_1b
     nop
 
     .line 35
     .end local v1    # "protocol":Ljava/lang/String;
-    :goto_1
+    :goto_1c
     return-object v1
 .end method
 
 .method public isSupported()Z
-    .locals 1
+    .registers 2
 
     .line 30
     sget-object v0, Lokhttp3/internal/platform/BouncyCastlePlatform;->Companion:Lokhttp3/internal/platform/BouncyCastlePlatform$Companion;
@@ -277,7 +277,7 @@
 .end method
 
 .method public matchesSocket(Ljavax/net/ssl/SSLSocket;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -291,7 +291,7 @@
 .end method
 
 .method public matchesSocketFactory(Ljavax/net/ssl/SSLSocketFactory;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 27
@@ -303,7 +303,7 @@
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 27

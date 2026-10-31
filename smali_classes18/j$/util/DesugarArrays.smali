@@ -4,7 +4,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -12,21 +12,21 @@
 .end method
 
 .method static deepEquals0(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p0, "e1"    # Ljava/lang/Object;
     .param p1, "e2"    # Ljava/lang/Object;
 
     .line 4825
-    if-eqz p0, :cond_9
+    if-eqz p0, :cond_b5
 
     .line 4829
     instance-of v0, p0, [Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     instance-of v0, p1, [Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 4830
     move-object v0, p0
@@ -42,18 +42,18 @@
     move-result v0
 
     .local v0, "eq":Z
-    goto/16 :goto_0
+    goto/16 :goto_b4
 
     .line 4831
     .end local v0    # "eq":Z
-    :cond_0
+    :cond_16
     instance-of v0, p0, [B
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     instance-of v0, p1, [B
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 4832
     move-object v0, p0
@@ -69,18 +69,18 @@
     move-result v0
 
     .restart local v0    # "eq":Z
-    goto/16 :goto_0
+    goto/16 :goto_b4
 
     .line 4833
     .end local v0    # "eq":Z
-    :cond_1
+    :cond_2a
     instance-of v0, p0, [S
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3e
 
     instance-of v0, p1, [S
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3e
 
     .line 4834
     move-object v0, p0
@@ -96,18 +96,18 @@
     move-result v0
 
     .restart local v0    # "eq":Z
-    goto/16 :goto_0
+    goto/16 :goto_b4
 
     .line 4835
     .end local v0    # "eq":Z
-    :cond_2
+    :cond_3e
     instance-of v0, p0, [I
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_51
 
     instance-of v0, p1, [I
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_51
 
     .line 4836
     move-object v0, p0
@@ -123,18 +123,18 @@
     move-result v0
 
     .restart local v0    # "eq":Z
-    goto :goto_0
+    goto :goto_b4
 
     .line 4837
     .end local v0    # "eq":Z
-    :cond_3
+    :cond_51
     instance-of v0, p0, [J
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_64
 
     instance-of v0, p1, [J
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_64
 
     .line 4838
     move-object v0, p0
@@ -150,18 +150,18 @@
     move-result v0
 
     .restart local v0    # "eq":Z
-    goto :goto_0
+    goto :goto_b4
 
     .line 4839
     .end local v0    # "eq":Z
-    :cond_4
+    :cond_64
     instance-of v0, p0, [C
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_77
 
     instance-of v0, p1, [C
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_77
 
     .line 4840
     move-object v0, p0
@@ -177,18 +177,18 @@
     move-result v0
 
     .restart local v0    # "eq":Z
-    goto :goto_0
+    goto :goto_b4
 
     .line 4841
     .end local v0    # "eq":Z
-    :cond_5
+    :cond_77
     instance-of v0, p0, [F
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8a
 
     instance-of v0, p1, [F
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8a
 
     .line 4842
     move-object v0, p0
@@ -204,18 +204,18 @@
     move-result v0
 
     .restart local v0    # "eq":Z
-    goto :goto_0
+    goto :goto_b4
 
     .line 4843
     .end local v0    # "eq":Z
-    :cond_6
+    :cond_8a
     instance-of v0, p0, [D
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_9d
 
     instance-of v0, p1, [D
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_9d
 
     .line 4844
     move-object v0, p0
@@ -231,18 +231,18 @@
     move-result v0
 
     .restart local v0    # "eq":Z
-    goto :goto_0
+    goto :goto_b4
 
     .line 4845
     .end local v0    # "eq":Z
-    :cond_7
+    :cond_9d
     instance-of v0, p0, [Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_b0
 
     instance-of v0, p1, [Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_b0
 
     .line 4846
     move-object v0, p0
@@ -258,23 +258,23 @@
     move-result v0
 
     .restart local v0    # "eq":Z
-    goto :goto_0
+    goto :goto_b4
 
     .line 4848
     .end local v0    # "eq":Z
-    :cond_8
+    :cond_b0
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     .line 4849
     .restart local v0    # "eq":Z
-    :goto_0
+    :goto_b4
     return v0
 
     .line 4826
     .end local v0    # "eq":Z
-    :cond_9
+    :cond_b5
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "e1 is null!"
@@ -285,7 +285,7 @@
 .end method
 
 .method static synthetic lambda$parallelSetAll$0([Ljava/lang/Object;Ljava/util/function/IntFunction;I)V
-    .locals 1
+    .registers 4
     .param p0, "array"    # [Ljava/lang/Object;
     .param p1, "generator"    # Ljava/util/function/IntFunction;
     .param p2, "i"    # I
@@ -301,7 +301,7 @@
 .end method
 
 .method static synthetic lambda$parallelSetAll$1([ILjava/util/function/IntUnaryOperator;I)V
-    .locals 1
+    .registers 4
     .param p0, "array"    # [I
     .param p1, "generator"    # Ljava/util/function/IntUnaryOperator;
     .param p2, "i"    # I
@@ -317,7 +317,7 @@
 .end method
 
 .method static synthetic lambda$parallelSetAll$2([JLjava/util/function/IntToLongFunction;I)V
-    .locals 2
+    .registers 5
     .param p0, "array"    # [J
     .param p1, "generator"    # Ljava/util/function/IntToLongFunction;
     .param p2, "i"    # I
@@ -333,7 +333,7 @@
 .end method
 
 .method static synthetic lambda$parallelSetAll$3([DLjava/util/function/IntToDoubleFunction;I)V
-    .locals 2
+    .registers 5
     .param p0, "array"    # [D
     .param p1, "generator"    # Ljava/util/function/IntToDoubleFunction;
     .param p2, "i"    # I
@@ -349,7 +349,7 @@
 .end method
 
 .method public static parallelSetAll([DLjava/util/function/IntToDoubleFunction;)V
-    .locals 2
+    .registers 4
     .param p0, "array"    # [D
     .param p1, "generator"    # Ljava/util/function/IntToDoubleFunction;
 
@@ -380,7 +380,7 @@
 .end method
 
 .method public static parallelSetAll([ILjava/util/function/IntUnaryOperator;)V
-    .locals 2
+    .registers 4
     .param p0, "array"    # [I
     .param p1, "generator"    # Ljava/util/function/IntUnaryOperator;
 
@@ -411,7 +411,7 @@
 .end method
 
 .method public static parallelSetAll([JLjava/util/function/IntToLongFunction;)V
-    .locals 2
+    .registers 4
     .param p0, "array"    # [J
     .param p1, "generator"    # Ljava/util/function/IntToLongFunction;
 
@@ -442,7 +442,7 @@
 .end method
 
 .method public static parallelSetAll([Ljava/lang/Object;Ljava/util/function/IntFunction;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -482,7 +482,7 @@
 .end method
 
 .method public static setAll([DLjava/util/function/IntToDoubleFunction;)V
-    .locals 3
+    .registers 5
     .param p0, "array"    # [D
     .param p1, "generator"    # Ljava/util/function/IntToDoubleFunction;
 
@@ -493,10 +493,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_4
     array-length v1, p0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_10
 
     .line 5428
     invoke-interface {p1, v0}, Ljava/util/function/IntToDoubleFunction;->applyAsDouble(I)D
@@ -508,16 +508,16 @@
     .line 5427
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 5429
     .end local v0    # "i":I
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public static setAll([ILjava/util/function/IntUnaryOperator;)V
-    .locals 2
+    .registers 4
     .param p0, "array"    # [I
     .param p1, "generator"    # Ljava/util/function/IntUnaryOperator;
 
@@ -528,10 +528,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_4
     array-length v1, p0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_10
 
     .line 5314
     invoke-interface {p1, v0}, Ljava/util/function/IntUnaryOperator;->applyAsInt(I)I
@@ -543,16 +543,16 @@
     .line 5313
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 5315
     .end local v0    # "i":I
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public static setAll([JLjava/util/function/IntToLongFunction;)V
-    .locals 3
+    .registers 5
     .param p0, "array"    # [J
     .param p1, "generator"    # Ljava/util/function/IntToLongFunction;
 
@@ -563,10 +563,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_4
     array-length v1, p0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_10
 
     .line 5371
     invoke-interface {p1, v0}, Ljava/util/function/IntToLongFunction;->applyAsLong(I)J
@@ -578,16 +578,16 @@
     .line 5370
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 5372
     .end local v0    # "i":I
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public static setAll([Ljava/lang/Object;Ljava/util/function/IntFunction;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -607,10 +607,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_4
     array-length v1, p0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_10
 
     .line 5256
     invoke-interface {p1, v0}, Ljava/util/function/IntFunction;->apply(I)Ljava/lang/Object;
@@ -622,16 +622,16 @@
     .line 5255
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 5257
     .end local v0    # "i":I
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public static spliterator([D)Lj$/util/Spliterator$OfDouble;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [D
 
     .line 5599
@@ -645,7 +645,7 @@
 .end method
 
 .method public static spliterator([DII)Lj$/util/Spliterator$OfDouble;
-    .locals 1
+    .registers 4
     .param p0, "array"    # [D
     .param p1, "startInclusive"    # I
     .param p2, "endExclusive"    # I
@@ -661,7 +661,7 @@
 .end method
 
 .method public static spliterator([I)Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [I
 
     .line 5516
@@ -675,7 +675,7 @@
 .end method
 
 .method public static spliterator([III)Lj$/util/Spliterator$OfInt;
-    .locals 1
+    .registers 4
     .param p0, "array"    # [I
     .param p1, "startInclusive"    # I
     .param p2, "endExclusive"    # I
@@ -691,7 +691,7 @@
 .end method
 
 .method public static spliterator([J)Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [J
 
     .line 5557
@@ -705,7 +705,7 @@
 .end method
 
 .method public static spliterator([JII)Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 4
     .param p0, "array"    # [J
     .param p1, "startInclusive"    # I
     .param p2, "endExclusive"    # I
@@ -721,7 +721,7 @@
 .end method
 
 .method public static spliterator([Ljava/lang/Object;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -744,7 +744,7 @@
 .end method
 
 .method public static spliterator([Ljava/lang/Object;II)Lj$/util/Spliterator;
-    .locals 1
+    .registers 4
     .param p1, "startInclusive"    # I
     .param p2, "endExclusive"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -769,7 +769,7 @@
 .end method
 
 .method public static stream([D)Lj$/util/stream/DoubleStream;
-    .locals 2
+    .registers 3
     .param p0, "array"    # [D
 
     .line 5735
@@ -785,7 +785,7 @@
 .end method
 
 .method public static stream([DII)Lj$/util/stream/DoubleStream;
-    .locals 2
+    .registers 5
     .param p0, "array"    # [D
     .param p1, "startInclusive"    # I
     .param p2, "endExclusive"    # I
@@ -805,7 +805,7 @@
 .end method
 
 .method public static stream([I)Lj$/util/stream/IntStream;
-    .locals 2
+    .registers 3
     .param p0, "array"    # [I
 
     .line 5671
@@ -821,7 +821,7 @@
 .end method
 
 .method public static stream([III)Lj$/util/stream/IntStream;
-    .locals 2
+    .registers 5
     .param p0, "array"    # [I
     .param p1, "startInclusive"    # I
     .param p2, "endExclusive"    # I
@@ -841,7 +841,7 @@
 .end method
 
 .method public static stream([J)Lj$/util/stream/LongStream;
-    .locals 2
+    .registers 3
     .param p0, "array"    # [J
 
     .line 5703
@@ -857,7 +857,7 @@
 .end method
 
 .method public static stream([JII)Lj$/util/stream/LongStream;
-    .locals 2
+    .registers 5
     .param p0, "array"    # [J
     .param p1, "startInclusive"    # I
     .param p2, "endExclusive"    # I
@@ -877,7 +877,7 @@
 .end method
 
 .method public static stream([Ljava/lang/Object;)Lj$/util/stream/Stream;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -902,7 +902,7 @@
 .end method
 
 .method public static stream([Ljava/lang/Object;II)Lj$/util/stream/Stream;
-    .locals 2
+    .registers 5
     .param p1, "startInclusive"    # I
     .param p2, "endExclusive"    # I
     .annotation system Ldalvik/annotation/Signature;

@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 240
     new-instance v0, Landroidx/preference/MultiSelectListPreference$SavedState$1;
@@ -53,7 +53,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .locals 3
+    .registers 5
     .param p1, "source"    # Landroid/os/Parcel;
 
     .line 256
@@ -89,7 +89,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 266
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+    .registers 5
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "lensFacing"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public filter(Ljava/util/List;)Ljava/util/List;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -70,12 +70,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_31
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -102,7 +102,7 @@
 
     .line 50
     .local v3, "lensFacing":Ljava/lang/Integer;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_30
 
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
@@ -110,7 +110,7 @@
 
     iget v5, p0, Landroidx/camera/core/impl/LensFacingCameraFilter;->mLensFacing:I
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_30
 
     .line 51
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -118,16 +118,16 @@
     .line 53
     .end local v2    # "cameraInfo":Landroidx/camera/core/CameraInfo;
     .end local v3    # "lensFacing":Ljava/lang/Integer;
-    :cond_0
-    goto :goto_0
+    :cond_30
+    goto :goto_9
 
     .line 55
-    :cond_1
+    :cond_31
     return-object v0
 .end method
 
 .method public getLensFacing()I
-    .locals 1
+    .registers 2
 
     .line 61
     iget v0, p0, Landroidx/camera/core/impl/LensFacingCameraFilter;->mLensFacing:I

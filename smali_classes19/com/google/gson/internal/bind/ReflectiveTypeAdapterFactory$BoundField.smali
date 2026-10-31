@@ -24,7 +24,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;ZZ)V
-    .locals 0
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "serialized"    # Z
     .param p3, "deserialized"    # Z

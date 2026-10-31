@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final parseTrojan(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
-    .locals 7
+    .registers 8
     .param p0, "server"    # Ljava/lang/String;
 
     const-string v0, "server"
@@ -61,7 +61,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5f
 
     .line 11
     .local v0, "link":Lokhttp3/HttpUrl;
@@ -93,7 +93,7 @@
     move-result-object v4
 
     .line 14
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_49
 
     .line 13
     nop
@@ -113,7 +113,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_42
 
     const-string v6, "true"
 
@@ -121,9 +121,9 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_49
 
-    :cond_0
+    :cond_42
     const/4 v6, 0x1
 
     invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -135,14 +135,14 @@
     .line 15
     .end local v4    # "$this$parseTrojan_u24lambda_u242_u24lambda_u240":Ljava/lang/String;
     .end local v5    # "$i$a$-apply-TrojanFmtKt$parseTrojan$1$1":I
-    :cond_1
+    :cond_49
     const-string v4, "peer"
 
     invoke-virtual {v0, v4}, Lokhttp3/HttpUrl;->queryParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_5d
 
     .line 20
     .local v4, "$this$parseTrojan_u24lambda_u242_u24lambda_u241":Ljava/lang/String;
@@ -158,14 +158,14 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_5d
 
     iput-object v4, v2, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;->sni:Ljava/lang/String;
 
     .line 16
     .end local v4    # "$this$parseTrojan_u24lambda_u242_u24lambda_u241":Ljava/lang/String;
     .end local v5    # "$i$a$-apply-TrojanFmtKt$parseTrojan$1$2":I
-    :cond_2
+    :cond_5d
     nop
 
     .line 11
@@ -175,7 +175,7 @@
 
     .line 8
     .end local v0    # "link":Lokhttp3/HttpUrl;
-    :cond_3
+    :cond_5f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 9

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 6124
     invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$EdgeEffectFactory;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method protected createEdgeEffect(Landroidx/recyclerview/widget/RecyclerView;I)Landroid/widget/EdgeEffect;
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "direction"    # I
 

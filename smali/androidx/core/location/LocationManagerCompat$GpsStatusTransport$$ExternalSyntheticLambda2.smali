@@ -16,7 +16,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroidx/core/location/LocationManagerCompat$GpsStatusTransport;Ljava/util/concurrent/Executor;I)V
-    .locals 0
+    .registers 4
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .registers 4
 
     .line 0
     iget-object v0, p0, Landroidx/core/location/LocationManagerCompat$GpsStatusTransport$$ExternalSyntheticLambda2;->f$0:Landroidx/core/location/LocationManagerCompat$GpsStatusTransport;

@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/format/DateTimeFormatter;)V
-    .locals 2
+    .registers 4
     .param p1, "formatter"    # Lj$/time/format/DateTimeFormatter;
 
     .line 121
@@ -77,12 +77,12 @@
 .end method
 
 .method static charEqualsIgnoreCase(CC)Z
-    .locals 2
+    .registers 4
     .param p0, "c1"    # C
     .param p1, "c2"    # C
 
     .line 256
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_19
 
     .line 257
     invoke-static {p0}, Ljava/lang/Character;->toUpperCase(C)C
@@ -93,7 +93,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_19
 
     .line 258
     invoke-static {p0}, Ljava/lang/Character;->toLowerCase(C)C
@@ -104,26 +104,26 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     const/4 v0, 0x1
 
     .line 256
-    :goto_1
+    :goto_1a
     return v0
 .end method
 
 .method private currentParsed()Lj$/time/format/Parsed;
-    .locals 2
+    .registers 3
 
     .line 310
     iget-object v0, p0, Lj$/time/format/DateTimeParseContext;->parsed:Ljava/util/ArrayList;
@@ -148,7 +148,7 @@
 
 # virtual methods
 .method addChronoChangedListener(Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,7 +162,7 @@
     .local p1, "listener":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<Ljava/time/chrono/Chronology;>;"
     iget-object v0, p0, Lj$/time/format/DateTimeParseContext;->chronoListeners:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 402
     new-instance v0, Ljava/util/ArrayList;
@@ -172,7 +172,7 @@
     iput-object v0, p0, Lj$/time/format/DateTimeParseContext;->chronoListeners:Ljava/util/ArrayList;
 
     .line 404
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lj$/time/format/DateTimeParseContext;->chronoListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -182,7 +182,7 @@
 .end method
 
 .method charEquals(CC)Z
-    .locals 1
+    .registers 4
     .param p1, "ch1"    # C
     .param p2, "ch2"    # C
 
@@ -191,23 +191,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_c
 
     .line 243
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 
     .line 245
-    :cond_1
+    :cond_c
     invoke-static {p1, p2}, Lj$/time/format/DateTimeParseContext;->charEqualsIgnoreCase(CC)Z
 
     move-result v0
@@ -216,7 +216,7 @@
 .end method
 
 .method copy()Lj$/time/format/DateTimeParseContext;
-    .locals 2
+    .registers 3
 
     .line 131
     new-instance v0, Lj$/time/format/DateTimeParseContext;
@@ -241,11 +241,11 @@
 .end method
 
 .method endOptional(Z)V
-    .locals 2
+    .registers 4
     .param p1, "successful"    # Z
 
     .line 296
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     .line 297
     iget-object v0, p0, Lj$/time/format/DateTimeParseContext;->parsed:Ljava/util/ArrayList;
@@ -260,10 +260,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 299
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lj$/time/format/DateTimeParseContext;->parsed:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lj$/time/format/DateTimeParseContext;->parsed:Ljava/util/ArrayList;
@@ -277,12 +277,12 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     .line 301
-    :goto_0
+    :goto_1d
     return-void
 .end method
 
 .method getDecimalStyle()Lj$/time/format/DecimalStyle;
-    .locals 1
+    .registers 2
 
     .line 158
     iget-object v0, p0, Lj$/time/format/DateTimeParseContext;->formatter:Lj$/time/format/DateTimeFormatter;
@@ -295,7 +295,7 @@
 .end method
 
 .method getEffectiveChronology()Lj$/time/chrono/Chronology;
-    .locals 2
+    .registers 3
 
     .line 167
     invoke-direct {p0}, Lj$/time/format/DateTimeParseContext;->currentParsed()Lj$/time/format/Parsed;
@@ -306,7 +306,7 @@
 
     .line 168
     .local v0, "chrono":Lj$/time/chrono/Chronology;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 169
     iget-object v1, p0, Lj$/time/format/DateTimeParseContext;->formatter:Lj$/time/format/DateTimeFormatter;
@@ -316,18 +316,18 @@
     move-result-object v0
 
     .line 170
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 171
     sget-object v0, Lj$/time/chrono/IsoChronology;->INSTANCE:Lj$/time/chrono/IsoChronology;
 
     .line 174
-    :cond_0
+    :cond_12
     return-object v0
 .end method
 
 .method getLocale()Ljava/util/Locale;
-    .locals 1
+    .registers 2
 
     .line 147
     iget-object v0, p0, Lj$/time/format/DateTimeParseContext;->formatter:Lj$/time/format/DateTimeFormatter;
@@ -340,7 +340,7 @@
 .end method
 
 .method getParsed(Lj$/time/temporal/TemporalField;)Ljava/lang/Long;
-    .locals 1
+    .registers 3
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 348
@@ -360,7 +360,7 @@
 .end method
 
 .method isCaseSensitive()Z
-    .locals 1
+    .registers 2
 
     .line 184
     iget-boolean v0, p0, Lj$/time/format/DateTimeParseContext;->caseSensitive:Z
@@ -369,7 +369,7 @@
 .end method
 
 .method isStrict()Z
-    .locals 1
+    .registers 2
 
     .line 270
     iget-boolean v0, p0, Lj$/time/format/DateTimeParseContext;->strict:Z
@@ -378,7 +378,7 @@
 .end method
 
 .method setCaseSensitive(Z)V
-    .locals 0
+    .registers 2
     .param p1, "caseSensitive"    # Z
 
     .line 193
@@ -389,7 +389,7 @@
 .end method
 
 .method setParsed(Lj$/time/ZoneId;)V
-    .locals 1
+    .registers 3
     .param p1, "zone"    # Lj$/time/ZoneId;
 
     .line 416
@@ -409,7 +409,7 @@
 .end method
 
 .method setParsed(Lj$/time/chrono/Chronology;)V
-    .locals 5
+    .registers 7
     .param p1, "chrono"    # Lj$/time/chrono/Chronology;
 
     .line 382
@@ -427,7 +427,7 @@
     .line 384
     iget-object v0, p0, Lj$/time/format/DateTimeParseContext;->chronoListeners:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
     iget-object v0, p0, Lj$/time/format/DateTimeParseContext;->chronoListeners:Ljava/util/ArrayList;
 
@@ -435,7 +435,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_33
 
     .line 386
     const/4 v0, 0x1
@@ -463,8 +463,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_29
+    if-ge v3, v2, :cond_33
 
     aget-object v4, v1, v3
 
@@ -476,17 +476,17 @@
     .end local v4    # "l":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<Ljava/time/chrono/Chronology;>;"
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
     .line 393
     .end local v0    # "tmp":[Ljava/util/function/Consumer;, "[Ljava/util/function/Consumer<Ljava/time/chrono/Chronology;>;"
     .end local v1    # "listeners":[Ljava/util/function/Consumer;, "[Ljava/util/function/Consumer<Ljava/time/chrono/Chronology;>;"
-    :cond_0
+    :cond_33
     return-void
 .end method
 
 .method setParsedField(Lj$/time/temporal/TemporalField;JII)I
-    .locals 4
+    .registers 10
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "value"    # J
     .param p4, "errorPos"    # I
@@ -516,7 +516,7 @@
 
     .line 366
     .local v0, "old":Ljava/lang/Long;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
@@ -524,21 +524,21 @@
 
     cmp-long v3, v1, p2
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_21
 
     not-int v1, p4
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     move v1, p5
 
-    :goto_0
+    :goto_22
     return v1
 .end method
 
 .method setParsedLeapSecond()V
-    .locals 2
+    .registers 3
 
     .line 424
     invoke-direct {p0}, Lj$/time/format/DateTimeParseContext;->currentParsed()Lj$/time/format/Parsed;
@@ -554,7 +554,7 @@
 .end method
 
 .method setStrict(Z)V
-    .locals 0
+    .registers 2
     .param p1, "strict"    # Z
 
     .line 279
@@ -565,7 +565,7 @@
 .end method
 
 .method startOptional()V
-    .locals 2
+    .registers 3
 
     .line 287
     iget-object v0, p0, Lj$/time/format/DateTimeParseContext;->parsed:Ljava/util/ArrayList;
@@ -585,7 +585,7 @@
 .end method
 
 .method subSequenceEquals(Ljava/lang/CharSequence;ILjava/lang/CharSequence;II)Z
-    .locals 6
+    .registers 12
     .param p1, "cs1"    # Ljava/lang/CharSequence;
     .param p2, "offset1"    # I
     .param p3, "cs2"    # Ljava/lang/CharSequence;
@@ -601,7 +601,7 @@
 
     const/4 v2, 0x0
 
-    if-gt v0, v1, :cond_6
+    if-gt v0, v1, :cond_59
 
     add-int v0, p4, p5
 
@@ -609,24 +609,24 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_12
 
-    goto :goto_3
+    goto :goto_59
 
     .line 212
-    :cond_0
+    :cond_12
     invoke-virtual {p0}, Lj$/time/format/DateTimeParseContext;->isCaseSensitive()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2e
 
     .line 213
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p5, :cond_2
+    :goto_19
+    if-ge v0, p5, :cond_2d
 
     .line 214
     add-int v1, p2, v0
@@ -645,7 +645,7 @@
 
     .line 216
     .local v3, "ch2":C
-    if-eq v1, v3, :cond_1
+    if-eq v1, v3, :cond_2a
 
     .line 217
     return v2
@@ -653,22 +653,22 @@
     .line 213
     .end local v1    # "ch1":C
     .end local v3    # "ch2":C
-    :cond_1
+    :cond_2a
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .end local v0    # "i":I
-    :cond_2
-    goto :goto_2
+    :cond_2d
+    goto :goto_57
 
     .line 221
-    :cond_3
+    :cond_2e
     const/4 v0, 0x0
 
     .restart local v0    # "i":I
-    :goto_1
-    if-ge v0, p5, :cond_5
+    :goto_2f
+    if-ge v0, p5, :cond_57
 
     .line 222
     add-int v1, p2, v0
@@ -687,7 +687,7 @@
 
     .line 224
     .restart local v3    # "ch2":C
-    if-eq v1, v3, :cond_4
+    if-eq v1, v3, :cond_54
 
     invoke-static {v1}, Ljava/lang/Character;->toUpperCase(C)C
 
@@ -697,7 +697,7 @@
 
     move-result v5
 
-    if-eq v4, v5, :cond_4
+    if-eq v4, v5, :cond_54
 
     .line 225
     invoke-static {v1}, Ljava/lang/Character;->toLowerCase(C)C
@@ -708,7 +708,7 @@
 
     move-result v5
 
-    if-eq v4, v5, :cond_4
+    if-eq v4, v5, :cond_54
 
     .line 226
     return v2
@@ -716,27 +716,27 @@
     .line 221
     .end local v1    # "ch1":C
     .end local v3    # "ch2":C
-    :cond_4
+    :cond_54
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 230
     .end local v0    # "i":I
-    :cond_5
-    :goto_2
+    :cond_57
+    :goto_57
     const/4 v0, 0x1
 
     return v0
 
     .line 210
-    :cond_6
-    :goto_3
+    :cond_59
+    :goto_59
     return v2
 .end method
 
 .method toResolved(Lj$/time/format/ResolverStyle;Ljava/util/Set;)Lj$/time/temporal/TemporalAccessor;
-    .locals 2
+    .registers 5
     .param p1, "resolverStyle"    # Lj$/time/format/ResolverStyle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -766,20 +766,20 @@
     .line 330
     iget-object v1, v0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     iget-object v1, v0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_11
     iget-object v1, p0, Lj$/time/format/DateTimeParseContext;->formatter:Lj$/time/format/DateTimeFormatter;
 
     invoke-virtual {v1}, Lj$/time/format/DateTimeFormatter;->getZone()Lj$/time/ZoneId;
 
     move-result-object v1
 
-    :goto_0
+    :goto_17
     iput-object v1, v0, Lj$/time/format/Parsed;->zone:Lj$/time/ZoneId;
 
     .line 331
@@ -791,7 +791,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 435
     invoke-direct {p0}, Lj$/time/format/DateTimeParseContext;->currentParsed()Lj$/time/format/Parsed;
@@ -806,7 +806,7 @@
 .end method
 
 .method toUnresolved()Lj$/time/format/Parsed;
-    .locals 1
+    .registers 2
 
     .line 319
     invoke-direct {p0}, Lj$/time/format/DateTimeParseContext;->currentParsed()Lj$/time/format/Parsed;

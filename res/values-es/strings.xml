@@ -105,8 +105,8 @@
     <string name="call_notification_screening_text">Filtrando una llamada entrante</string>
     <string name="certificates">Certificados</string>
     <string name="chain_settings">Ajustes de la cadena</string>
-    <string name="character_counter_content_description" formatted="false">Caracteres introducidos: %1$d de %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Límite de caracteres superado (%1$d de %2$d)</string>
+    <string name="character_counter_content_description">Caracteres introducidos: %1$d de %2$d</string>
+    <string name="character_counter_overflowed_content_description">Límite de caracteres superado (%1$d de %2$d)</string>
     <string name="circular_reference">Referencia circular</string>
     <string name="circular_reference_sum">La ruta no puede contenerse a sí misma.</string>
     <string name="clear_logcat">Borrar Logcat</string>
@@ -312,7 +312,7 @@
     <string name="mtrl_picker_out_of_range">Fuera del periodo válido: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Fecha de inicio–%1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s–Fecha de finalización</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Selecciona un periodo</string>
     <string name="mtrl_picker_range_header_unselected">Fecha de inicio–Fecha de finalización</string>
     <string name="mtrl_picker_save">Guardar</string>
@@ -462,7 +462,7 @@ Si debe usar esto, pruebe N=2 primero para ver si resuelve sus problemas. Se rec
     <string name="show_system_apps">Mostrar aplicaciones del sistema</string>
     <string name="sni">Indicación del nombre del servidor</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"Proxy： %1$s↑ %2$s↓
+    <string name="speed_detail">"Proxy： %1$s↑ %2$s↓
 Directo： %3$s↑ %4$s↓"</string>
     <string name="speed_interval">Intervalo de actualización de notificación de velocidad</string>
     <string name="ss_cat">Ajustes de Shadowsocks</string>
@@ -489,7 +489,7 @@ Directo： %3$s↑ %4$s↓"</string>
     <string name="subscription_used">%s usado</string>
     <string name="subscription_user_agent">Agente de usuario</string>
     <string name="subscriptions">Suscripciones</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="tcp_connections">%d conexiones TCP</string>
     <string name="tcp_keep_alive_interval">TCP mantiene activo el intervalo de entrega de paquetes</string>
     <string name="telegram">Canal de actualización de Telegram</string>
@@ -497,7 +497,7 @@ Directo： %3$s↑ %4$s↓"</string>
     <string name="tile_title">Conmutador</string>
     <string name="tls">Usar TLS</string>
     <string name="tools_network">Red</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="traffic_downlink" formatted="false">%s | %s/s ↓</string>
     <string name="traffic_downlink_total">%s ↓</string>
     <string name="traffic_sniffing">Activar rastreo de tráfico</string>

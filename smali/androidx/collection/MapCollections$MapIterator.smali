@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/collection/MapCollections;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/collection/MapCollections;
 
     .line 79
@@ -76,27 +76,27 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 137
     .local p0, "this":Landroidx/collection/MapCollections$MapIterator;, "Landroidx/collection/MapCollections<TK;TV;>.MapIterator;"
     iget-boolean v0, p0, Landroidx/collection/MapCollections$MapIterator;->mEntryValid:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_36
 
     .line 141
     instance-of v0, p1, Ljava/util/Map$Entry;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 142
     return v1
 
     .line 144
-    :cond_0
+    :cond_a
     move-object v0, p1
 
     check-cast v0, Ljava/util/Map$Entry;
@@ -119,7 +119,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_34
 
     .line 146
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -140,22 +140,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_34
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_1
+    :cond_34
     nop
 
     .line 145
-    :goto_0
+    :goto_35
     return v1
 
     .line 138
     .end local v0    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_2
+    :cond_36
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This container does not support retaining Map.Entry objects"
@@ -166,7 +166,7 @@
 .end method
 
 .method public getKey()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -177,7 +177,7 @@
     .local p0, "this":Landroidx/collection/MapCollections$MapIterator;, "Landroidx/collection/MapCollections<TK;TV;>.MapIterator;"
     iget-boolean v0, p0, Landroidx/collection/MapCollections$MapIterator;->mEntryValid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 114
     iget-object v0, p0, Landroidx/collection/MapCollections$MapIterator;->this$0:Landroidx/collection/MapCollections;
@@ -193,7 +193,7 @@
     return-object v0
 
     .line 111
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This container does not support retaining Map.Entry objects"
@@ -204,7 +204,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -215,7 +215,7 @@
     .local p0, "this":Landroidx/collection/MapCollections$MapIterator;, "Landroidx/collection/MapCollections<TK;TV;>.MapIterator;"
     iget-boolean v0, p0, Landroidx/collection/MapCollections$MapIterator;->mEntryValid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 123
     iget-object v0, p0, Landroidx/collection/MapCollections$MapIterator;->this$0:Landroidx/collection/MapCollections;
@@ -231,7 +231,7 @@
     return-object v0
 
     .line 120
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This container does not support retaining Map.Entry objects"
@@ -242,7 +242,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 86
     .local p0, "this":Landroidx/collection/MapCollections$MapIterator;, "Landroidx/collection/MapCollections<TK;TV;>.MapIterator;"
@@ -250,27 +250,27 @@
 
     iget v1, p0, Landroidx/collection/MapCollections$MapIterator;->mEnd:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .registers 6
 
     .line 151
     .local p0, "this":Landroidx/collection/MapCollections$MapIterator;, "Landroidx/collection/MapCollections<TK;TV;>.MapIterator;"
     iget-boolean v0, p0, Landroidx/collection/MapCollections$MapIterator;->mEntryValid:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_27
 
     .line 155
     iget-object v0, p0, Landroidx/collection/MapCollections$MapIterator;->this$0:Landroidx/collection/MapCollections;
@@ -297,29 +297,29 @@
 
     .line 157
     .local v1, "value":Ljava/lang/Object;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1a
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
 
-    :goto_0
-    if-nez v1, :cond_1
+    :goto_1e
+    if-nez v1, :cond_21
 
-    goto :goto_1
+    goto :goto_25
 
     .line 158
-    :cond_1
+    :cond_21
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    :goto_1
+    :goto_25
     xor-int/2addr v2, v3
 
     .line 157
@@ -328,7 +328,7 @@
     .line 152
     .end local v0    # "key":Ljava/lang/Object;
     .end local v1    # "value":Ljava/lang/Object;
-    :cond_2
+    :cond_27
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This container does not support retaining Map.Entry objects"
@@ -339,7 +339,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Landroidx/collection/MapCollections$MapIterator;, "Landroidx/collection/MapCollections<TK;TV;>.MapIterator;"
@@ -351,7 +351,7 @@
 .end method
 
 .method public next()Ljava/util/Map$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -366,7 +366,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 92
     iget v0, p0, Landroidx/collection/MapCollections$MapIterator;->mIndex:I
@@ -384,7 +384,7 @@
     return-object p0
 
     .line 91
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -393,13 +393,13 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     .line 99
     .local p0, "this":Landroidx/collection/MapCollections$MapIterator;, "Landroidx/collection/MapCollections<TK;TV;>.MapIterator;"
     iget-boolean v0, p0, Landroidx/collection/MapCollections$MapIterator;->mEntryValid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 102
     iget-object v0, p0, Landroidx/collection/MapCollections$MapIterator;->this$0:Landroidx/collection/MapCollections;
@@ -431,7 +431,7 @@
     return-void
 
     .line 100
-    :cond_0
+    :cond_1b
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -440,7 +440,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -452,7 +452,7 @@
     .local p1, "object":Ljava/lang/Object;, "TV;"
     iget-boolean v0, p0, Landroidx/collection/MapCollections$MapIterator;->mEntryValid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 132
     iget-object v0, p0, Landroidx/collection/MapCollections$MapIterator;->this$0:Landroidx/collection/MapCollections;
@@ -466,7 +466,7 @@
     return-object v0
 
     .line 129
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This container does not support retaining Map.Entry objects"
@@ -477,7 +477,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 163
     .local p0, "this":Landroidx/collection/MapCollections$MapIterator;, "Landroidx/collection/MapCollections<TK;TV;>.MapIterator;"

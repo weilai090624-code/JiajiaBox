@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Iterable;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)V
-    .locals 0
+    .registers 5
     .param p1, "flows"    # Ljava/lang/Iterable;
     .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p3, "capacity"    # I
@@ -101,12 +101,12 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/Iterable;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 7
 
     .line 80
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_8
 
     .line 82
     sget-object p2, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -114,25 +114,25 @@
     check-cast p2, Lkotlin/coroutines/CoroutineContext;
 
     .line 80
-    :cond_0
+    :cond_8
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_d
 
     .line 83
     const/4 p3, -0x2
 
     .line 80
-    :cond_1
+    :cond_d
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_13
 
     .line 84
     sget-object p4, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
     .line 80
-    :cond_2
+    :cond_13
     invoke-direct {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/flow/internal/ChannelLimitedFlowMerge;-><init>(Ljava/lang/Iterable;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)V
 
     .line 99
@@ -142,7 +142,7 @@
 
 # virtual methods
 .method protected collectTo(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 13
+    .registers 16
     .param p1, "scope"    # Lkotlinx/coroutines/channels/ProducerScope;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -180,12 +180,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_f
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_31
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -230,10 +230,10 @@
     .end local v4    # "element$iv":Ljava/lang/Object;
     .end local v5    # "flow":Lkotlinx/coroutines/flow/Flow;
     .end local v6    # "$i$a$-forEach-ChannelLimitedFlowMerge$collectTo$2":I
-    goto :goto_0
+    goto :goto_f
 
     .line 102
-    :cond_0
+    :cond_31
     nop
 
     .line 98
@@ -245,7 +245,7 @@
 .end method
 
 .method protected create(Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/internal/ChannelFlow;
-    .locals 2
+    .registers 6
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
     .param p3, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
@@ -274,7 +274,7 @@
 .end method
 
 .method public produceImpl(Lkotlinx/coroutines/CoroutineScope;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 3
+    .registers 5
     .param p1, "scope"    # Lkotlinx/coroutines/CoroutineScope;
     .annotation system Ldalvik/annotation/Signature;
         value = {

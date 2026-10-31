@@ -21,7 +21,7 @@
 
 # direct methods
 .method private constructor <init>(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
-    .locals 1
+    .registers 3
     .param p1, "layoutManager"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     .line 46
@@ -47,7 +47,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;Landroidx/recyclerview/widget/OrientationHelper$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
     .param p2, "x1"    # Landroidx/recyclerview/widget/OrientationHelper$1;
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public static createHorizontalHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/OrientationHelper;
-    .locals 1
+    .registers 2
     .param p0, "layoutManager"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     .line 258
@@ -70,12 +70,12 @@
 .end method
 
 .method public static createOrientationHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;I)Landroidx/recyclerview/widget/OrientationHelper;
-    .locals 2
+    .registers 4
     .param p0, "layoutManager"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
     .param p1, "orientation"    # I
 
     .line 241
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_16
 
     .line 247
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -87,7 +87,7 @@
     throw v0
 
     .line 245
-    :pswitch_0
+    :pswitch_b
     invoke-static {p0}, Landroidx/recyclerview/widget/OrientationHelper;->createVerticalHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/OrientationHelper;
 
     move-result-object v0
@@ -95,7 +95,7 @@
     return-object v0
 
     .line 243
-    :pswitch_1
+    :pswitch_10
     invoke-static {p0}, Landroidx/recyclerview/widget/OrientationHelper;->createHorizontalHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/OrientationHelper;
 
     move-result-object v0
@@ -104,15 +104,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_16
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_10
+        :pswitch_b
     .end packed-switch
 .end method
 
 .method public static createVerticalHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/OrientationHelper;
-    .locals 1
+    .registers 2
     .param p0, "layoutManager"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     .line 356
@@ -147,7 +147,7 @@
 .end method
 
 .method public getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Landroidx/recyclerview/widget/OrientationHelper;->mLayoutManager:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -168,20 +168,20 @@
 .end method
 
 .method public getTotalSpaceChange()I
-    .locals 2
+    .registers 3
 
     .line 78
     const/high16 v0, -0x80000000
 
     iget v1, p0, Landroidx/recyclerview/widget/OrientationHelper;->mLastTotalSpace:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Landroidx/recyclerview/widget/OrientationHelper;->getTotalSpace()I
 
     move-result v0
@@ -190,7 +190,7 @@
 
     sub-int/2addr v0, v1
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
@@ -207,7 +207,7 @@
 .end method
 
 .method public onLayoutComplete()V
-    .locals 1
+    .registers 2
 
     .line 64
     invoke-virtual {p0}, Landroidx/recyclerview/widget/OrientationHelper;->getTotalSpace()I

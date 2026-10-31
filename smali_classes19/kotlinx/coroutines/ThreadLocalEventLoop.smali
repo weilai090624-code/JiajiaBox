@@ -58,7 +58,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/ThreadLocalEventLoop;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 125
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public final currentOrNull$kotlinx_coroutines_core()Lkotlinx/coroutines/EventLoop;
-    .locals 1
+    .registers 2
 
     .line 132
     sget-object v0, Lkotlinx/coroutines/ThreadLocalEventLoop;->ref:Ljava/lang/ThreadLocal;
@@ -109,7 +109,7 @@
 .end method
 
 .method public final getEventLoop$kotlinx_coroutines_core()Lkotlinx/coroutines/EventLoop;
-    .locals 4
+    .registers 5
 
     .line 129
     sget-object v0, Lkotlinx/coroutines/ThreadLocalEventLoop;->ref:Ljava/lang/ThreadLocal;
@@ -120,7 +120,7 @@
 
     check-cast v0, Lkotlinx/coroutines/EventLoop;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     invoke-static {}, Lkotlinx/coroutines/EventLoopKt;->createEventLoop()Lkotlinx/coroutines/EventLoop;
 
@@ -140,12 +140,12 @@
 
     .end local v1    # "it":Lkotlinx/coroutines/EventLoop;
     .end local v2    # "$i$a$-also-ThreadLocalEventLoop$eventLoop$1":I
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method public final resetEventLoop$kotlinx_coroutines_core()V
-    .locals 2
+    .registers 3
 
     .line 135
     sget-object v0, Lkotlinx/coroutines/ThreadLocalEventLoop;->ref:Ljava/lang/ThreadLocal;
@@ -159,7 +159,7 @@
 .end method
 
 .method public final setEventLoop$kotlinx_coroutines_core(Lkotlinx/coroutines/EventLoop;)V
-    .locals 1
+    .registers 3
     .param p1, "eventLoop"    # Lkotlinx/coroutines/EventLoop;
 
     .line 139

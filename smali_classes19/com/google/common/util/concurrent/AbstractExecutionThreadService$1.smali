@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractExecutionThreadService;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/AbstractExecutionThreadService;
 
     .line 43
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method protected final doStart()V
-    .locals 2
+    .registers 3
 
     .line 46
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;->this$0:Lcom/google/common/util/concurrent/AbstractExecutionThreadService;
@@ -66,7 +66,7 @@
 .end method
 
 .method protected doStop()V
-    .locals 1
+    .registers 2
 
     .line 95
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;->this$0:Lcom/google/common/util/concurrent/AbstractExecutionThreadService;
@@ -78,7 +78,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 100
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;->this$0:Lcom/google/common/util/concurrent/AbstractExecutionThreadService;

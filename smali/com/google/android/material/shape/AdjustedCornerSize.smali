@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(FLcom/google/android/material/shape/CornerSize;)V
-    .locals 1
+    .registers 4
     .param p1, "adjustment"    # F
     .param p2, "other"    # Lcom/google/android/material/shape/CornerSize;
 
@@ -22,10 +22,10 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 39
-    :goto_0
+    :goto_3
     instance-of v0, p2, Lcom/google/android/material/shape/AdjustedCornerSize;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 40
     move-object v0, p2
@@ -43,10 +43,10 @@
 
     add-float/2addr p1, v0
 
-    goto :goto_0
+    goto :goto_3
 
     .line 44
-    :cond_0
+    :cond_13
     iput-object p2, p0, Lcom/google/android/material/shape/AdjustedCornerSize;->other:Lcom/google/android/material/shape/CornerSize;
 
     .line 45
@@ -59,30 +59,30 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 55
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 56
     return v0
 
     .line 58
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/android/material/shape/AdjustedCornerSize;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 59
     return v2
 
     .line 61
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/android/material/shape/AdjustedCornerSize;
@@ -97,7 +97,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_20
 
     iget v3, p0, Lcom/google/android/material/shape/AdjustedCornerSize;->adjustment:F
 
@@ -105,19 +105,19 @@
 
     cmpl-float v3, v3, v4
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_20
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_2
+    :cond_20
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_21
     return v0
 .end method
 
 .method public getCornerSize(Landroid/graphics/RectF;)F
-    .locals 2
+    .registers 4
     .param p1, "bounds"    # Landroid/graphics/RectF;
 
     .line 50
@@ -141,7 +141,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 67
     iget-object v0, p0, Lcom/google/android/material/shape/AdjustedCornerSize;->other:Lcom/google/android/material/shape/CornerSize;

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public static final varargs findField(Ljava/lang/Class;[Ljava/lang/String;)Ljava/lang/reflect/Field;
-    .locals 9
+    .registers 11
     .param p0, "$this$findField"    # Ljava/lang/Class;
     .param p1, "name"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -75,8 +75,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_e
+    if-ge v3, v2, :cond_27
 
     aget-object v4, v0, v3
 
@@ -91,7 +91,7 @@
     nop
 
     .line 77
-    :try_start_0
+    :try_start_15
     invoke-virtual {p0, v5}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v7
@@ -101,15 +101,15 @@
     const/4 v8, 0x1
 
     invoke-virtual {v7, v8}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_15 .. :try_end_1d} :catchall_1e
 
     .line 79
     return-object v7
 
     .line 80
     .end local v7    # "field":Ljava/lang/reflect/Field;
-    :catchall_0
+    :catchall_1e
     move-exception v7
 
     .line 81
@@ -128,10 +128,10 @@
     .end local v4    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 95
-    :cond_0
+    :cond_27
     nop
 
     .line 84
@@ -143,7 +143,7 @@
 .end method
 
 .method public static final setCursorDrawableColor(Landroid/widget/TextView;I)V
-    .locals 10
+    .registers 12
     .param p0, "$this$setCursorDrawableColor"    # Landroid/widget/TextView;
     .param p1, "color"    # I
 
@@ -158,7 +158,7 @@
 
     const/4 v2, 0x2
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_35
 
     .line 37
     new-instance v0, Landroid/graphics/drawable/GradientDrawable;
@@ -216,8 +216,8 @@
     .line 48
     .end local v0    # "gradient":Landroid/graphics/drawable/GradientDrawable;
     .end local v1    # "width":F
-    :cond_0
-    :try_start_0
+    :cond_35
+    :try_start_35
     const-class v0, Landroid/widget/TextView;
 
     .line 49
@@ -235,38 +235,38 @@
     .local v0, "editorField":Ljava/lang/reflect/Field;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_1
+    :cond_49
     move-object v3, v1
 
-    :goto_0
-    if-nez v3, :cond_2
+    :goto_4a
+    if-nez v3, :cond_4d
 
     move-object v3, p0
 
     .line 52
     .local v3, "editor":Ljava/lang/Object;
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_4d
+    if-eqz v0, :cond_54
 
     invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_56
 
-    :cond_3
+    :cond_54
     const-class v4, Landroid/widget/TextView;
 
     .line 51
-    :goto_1
+    :goto_56
     nop
 
     .line 53
@@ -286,32 +286,32 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_6b
 
     invoke-virtual {v5, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
 
-    goto :goto_2
+    goto :goto_6c
 
-    :cond_4
+    :cond_6b
     move-object v5, v1
 
     .line 53
-    :goto_2
+    :goto_6c
     instance-of v6, v5, Ljava/lang/Integer;
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_73
 
     check-cast v5, Ljava/lang/Integer;
 
-    goto :goto_3
+    goto :goto_74
 
-    :cond_5
+    :cond_73
     move-object v5, v1
 
-    :goto_3
-    if-eqz v5, :cond_9
+    :goto_74
+    if-eqz v5, :cond_bf
 
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
@@ -328,7 +328,7 @@
     move-result-object v6
 
     .line 56
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_be
 
     .line 55
     nop
@@ -339,22 +339,22 @@
     move-result-object v6
 
     .line 55
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_be
 
     .line 58
     .local v6, "tintedCursorDrawable":Landroid/graphics/drawable/Drawable;
     sget v7, Landroid/os/Build$VERSION;->SDK_INT:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8d
+    .catchall {:try_start_35 .. :try_end_8d} :catchall_c0
 
     const/16 v8, 0x1c
 
     const-string v9, "mDrawableForCursor"
 
-    if-lt v7, v8, :cond_6
+    if-lt v7, v8, :cond_9c
 
     .line 59
-    :try_start_1
+    :try_start_93
     filled-new-array {v9}, [Ljava/lang/String;
 
     move-result-object v1
@@ -363,27 +363,27 @@
 
     move-result-object v1
 
-    goto :goto_4
+    goto :goto_9d
 
     .line 61
-    :cond_6
+    :cond_9c
     nop
 
     .line 58
-    :goto_4
+    :goto_9d
     nop
 
     .line 63
     .local v1, "cursorField":Ljava/lang/reflect/Field;
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_a4
 
     .line 64
     invoke-virtual {v1, v3, v6}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_5
+    goto :goto_c4
 
     .line 67
-    :cond_7
+    :cond_a4
     nop
 
     .line 66
@@ -398,7 +398,7 @@
     move-result-object v7
 
     .line 67
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_c4
 
     .line 66
     nop
@@ -415,8 +415,8 @@
     aput-object v6, v2, v8
 
     invoke-virtual {v7, v3, v2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_bd
+    .catchall {:try_start_93 .. :try_end_bd} :catchall_c0
 
     .end local v0    # "editorField":Ljava/lang/reflect/Field;
     .end local v1    # "cursorField":Ljava/lang/reflect/Field;
@@ -424,26 +424,26 @@
     .end local v4    # "editorClass":Ljava/lang/Class;
     .end local v5    # "cursorRes":I
     .end local v6    # "tintedCursorDrawable":Landroid/graphics/drawable/Drawable;
-    goto :goto_5
+    goto :goto_c4
 
     .line 56
     .restart local v0    # "editorField":Ljava/lang/reflect/Field;
     .restart local v3    # "editor":Ljava/lang/Object;
     .restart local v4    # "editorClass":Ljava/lang/Class;
     .restart local v5    # "cursorRes":I
-    :cond_8
+    :cond_be
     return-void
 
     .line 54
     .end local v5    # "cursorRes":I
-    :cond_9
+    :cond_bf
     return-void
 
     .line 69
     .end local v0    # "editorField":Ljava/lang/reflect/Field;
     .end local v3    # "editor":Ljava/lang/Object;
     .end local v4    # "editorClass":Ljava/lang/Class;
-    :catchall_0
+    :catchall_c0
     move-exception v0
 
     .line 70
@@ -452,13 +452,13 @@
 
     .line 72
     .end local v0    # "e":Ljava/lang/Throwable;
-    :cond_a
-    :goto_5
+    :cond_c4
+    :goto_c4
     return-void
 .end method
 
 .method public static final tinted(Landroid/graphics/drawable/Drawable;I)Landroid/graphics/drawable/Drawable;
-    .locals 3
+    .registers 5
     .param p0, "$this$tinted"    # Landroid/graphics/drawable/Drawable;
     .param p1, "color"    # I
 
@@ -472,7 +472,7 @@
     .line 88
     instance-of v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     move-object v0, p0
 
@@ -492,13 +492,13 @@
 
     .end local v0    # "$this$tinted_u24lambda_u241":Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat;
     .end local v1    # "$i$a$-apply-ReflectionKt$tinted$1":I
-    goto :goto_0
+    goto :goto_25
 
     .line 89
-    :cond_0
+    :cond_16
     instance-of v0, p0, Landroid/graphics/drawable/VectorDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     move-object v0, p0
 
@@ -519,13 +519,13 @@
     .line 93
     .end local v0    # "$this$tinted_u24lambda_u242":Landroid/graphics/drawable/VectorDrawable;
     .end local v1    # "$i$a$-apply-ReflectionKt$tinted$2":I
-    :goto_0
+    :goto_25
     move-object v0, p0
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 90
-    :cond_1
+    :cond_27
     invoke-static {p0}, Landroidx/core/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -563,6 +563,6 @@
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 93
-    :goto_1
+    :goto_3c
     return-object v0
 .end method

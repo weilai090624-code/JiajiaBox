@@ -34,7 +34,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;
-    .locals 3
+    .registers 3
 
     .line 263
     const/4 v0, 0x3
@@ -63,7 +63,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 264
     new-instance v0, Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;
@@ -109,7 +109,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -123,7 +123,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 263
@@ -139,7 +139,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;
-    .locals 1
+    .registers 1
 
     .line 263
     sget-object v0, Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;->$VALUES:[Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;

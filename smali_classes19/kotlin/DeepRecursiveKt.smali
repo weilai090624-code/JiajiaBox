@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 126
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final synthetic access$getUNDEFINED_RESULT$p()Ljava/lang/Object;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlin/DeepRecursiveKt;->UNDEFINED_RESULT:Ljava/lang/Object;
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final invoke(Lkotlin/DeepRecursiveFunction;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$invoke"    # Lkotlin/DeepRecursiveFunction;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

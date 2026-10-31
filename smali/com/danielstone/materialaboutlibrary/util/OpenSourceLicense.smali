@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 6
     new-instance v0, Lcom/danielstone/materialaboutlibrary/util/OpenSourceLicense;
@@ -97,7 +97,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -111,7 +111,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/danielstone/materialaboutlibrary/util/OpenSourceLicense;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 5
@@ -127,7 +127,7 @@
 .end method
 
 .method public static values()[Lcom/danielstone/materialaboutlibrary/util/OpenSourceLicense;
-    .locals 1
+    .registers 1
 
     .line 5
     sget-object v0, Lcom/danielstone/materialaboutlibrary/util/OpenSourceLicense;->$VALUES:[Lcom/danielstone/materialaboutlibrary/util/OpenSourceLicense;
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method public getResourceId()I
-    .locals 2
+    .registers 3
 
     .line 9
     sget-object v0, Lcom/danielstone/materialaboutlibrary/util/OpenSourceLicense$1;->$SwitchMap$com$danielstone$materialaboutlibrary$util$OpenSourceLicense:[I
@@ -155,7 +155,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1a
 
     .line 19
     const/4 v0, -0x1
@@ -163,36 +163,36 @@
     return v0
 
     .line 17
-    :pswitch_0
+    :pswitch_d
     sget v0, Lcom/danielstone/materialaboutlibrary/R$string;->license_bsd:I
 
     return v0
 
     .line 15
-    :pswitch_1
+    :pswitch_10
     sget v0, Lcom/danielstone/materialaboutlibrary/R$string;->license_gpl:I
 
     return v0
 
     .line 13
-    :pswitch_2
+    :pswitch_13
     sget v0, Lcom/danielstone/materialaboutlibrary/R$string;->license_mit:I
 
     return v0
 
     .line 11
-    :pswitch_3
+    :pswitch_16
     sget v0, Lcom/danielstone/materialaboutlibrary/R$string;->license_apache2:I
 
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1a
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_13
+        :pswitch_10
+        :pswitch_d
     .end packed-switch
 .end method

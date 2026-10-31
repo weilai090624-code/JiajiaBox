@@ -14,7 +14,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageProxy;I)V
-    .locals 0
+    .registers 3
     .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
     .param p2, "captureId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/camera/core/ImageProxy;Ljava/lang/String;)V
-    .locals 4
+    .registers 7
     .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
     .param p2, "tagBundleKey"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -66,7 +66,7 @@
 
     .line 49
     .local v0, "imageInfo":Landroidx/camera/core/ImageInfo;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 53
     invoke-interface {v0}, Landroidx/camera/core/ImageInfo;->getTagBundle()Landroidx/camera/core/impl/TagBundle;
@@ -79,7 +79,7 @@
 
     .line 55
     .local v1, "tagValue":Ljava/lang/Integer;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 59
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
@@ -95,7 +95,7 @@
     return-void
 
     .line 56
-    :cond_0
+    :cond_1c
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "ImageProxy has no associated tag"
@@ -106,7 +106,7 @@
 
     .line 50
     .end local v1    # "tagValue":Ljava/lang/Integer;
-    :cond_1
+    :cond_24
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "ImageProxy has no associated ImageInfo"
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 74
     iget-object v0, p0, Landroidx/camera/core/impl/SingleImageProxyBundle;->mImageProxy:Landroidx/camera/core/ImageProxy;
@@ -131,7 +131,7 @@
 .end method
 
 .method public getCaptureIds()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -156,7 +156,7 @@
 .end method
 
 .method public getImageProxy(I)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 4
     .param p1, "captureId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -179,7 +179,7 @@
     .line 80
     iget v0, p0, Landroidx/camera/core/impl/SingleImageProxyBundle;->mCaptureId:I
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_10
 
     .line 81
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -195,7 +195,7 @@
     return-object v0
 
     .line 84
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroidx/camera/core/impl/SingleImageProxyBundle;->mImageProxy:Landroidx/camera/core/ImageProxy;
 
     invoke-static {v0}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;

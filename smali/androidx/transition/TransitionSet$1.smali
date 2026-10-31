@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/TransitionSet;Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/transition/TransitionSet;
 
     .line 503
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 506

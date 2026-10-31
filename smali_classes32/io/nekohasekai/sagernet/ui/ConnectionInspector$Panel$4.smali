@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
@@ -24,13 +24,13 @@
 
 
 # virtual methods
-.method public final run()V
-    .registers 2
+.method public final onClick(Landroid/view/View;)V
+    .registers 3
 
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel$4;->f$0:Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 
-    invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;->lambda$new$0$io-nekohasekai-sagernet-ui-ConnectionInspector$Panel()V
+    invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;->lambda$new$1$io-nekohasekai-sagernet-ui-ConnectionInspector$Panel(Landroid/view/View;)V
 
     return-void
 .end method

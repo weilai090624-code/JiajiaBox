@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/io/ByteSource;JJ)V
-    .locals 5
+    .registers 11
     .param p2, "offset"    # J
     .param p4, "length"    # J
 
@@ -42,16 +42,16 @@
 
     cmp-long v3, p2, v1
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_f
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_10
     const-string v4, "offset (%s) may not be negative"
 
     invoke-static {v3, v4, p2, p3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -59,14 +59,14 @@
     .line 503
     cmp-long v3, p4, v1
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_1a
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 p1, 0x0
 
-    :goto_1
+    :goto_1b
     const-string v0, "length (%s) may not be negative"
 
     invoke-static {p1, v0, p4, p5}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -82,7 +82,7 @@
 .end method
 
 .method private sliceStream(Ljava/io/InputStream;)Ljava/io/InputStream;
-    .locals 5
+    .registers 7
     .param p1, "in"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -97,17 +97,17 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_33
 
     .line 522
-    :try_start_0
+    :try_start_8
     iget-wide v0, p0, Lcom/google/common/io/ByteSource$SlicedByteSource;->offset:J
 
     invoke-static {p1, v0, v1}, Lcom/google/common/io/ByteStreams;->skipUpTo(Ljava/io/InputStream;J)J
 
     move-result-wide v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_8 .. :try_end_e} :catchall_21
 
     .line 531
     .local v0, "skipped":J
@@ -118,7 +118,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_33
 
     .line 535
     invoke-virtual {p1}, Ljava/io/InputStream;->close()V
@@ -136,7 +136,7 @@
 
     .line 523
     .end local v0    # "skipped":J
-    :catchall_0
+    :catchall_21
     move-exception v0
 
     .line 524
@@ -150,7 +150,7 @@
     invoke-virtual {v1, p1}, Lcom/google/common/io/Closer;->register(Ljava/io/Closeable;)Ljava/io/Closeable;
 
     .line 527
-    :try_start_1
+    :try_start_29
     invoke-virtual {v1, v0}, Lcom/google/common/io/Closer;->rethrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
     move-result-object v2
@@ -159,14 +159,14 @@
     .end local v1    # "closer":Lcom/google/common/io/Closer;
     .end local p1    # "in":Ljava/io/InputStream;
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2e
+    .catchall {:try_start_29 .. :try_end_2e} :catchall_2e
 
     .line 529
     .restart local v0    # "e":Ljava/lang/Throwable;
     .restart local v1    # "closer":Lcom/google/common/io/Closer;
     .restart local p1    # "in":Ljava/io/InputStream;
-    :catchall_1
+    :catchall_2e
     move-exception v2
 
     invoke-virtual {v1}, Lcom/google/common/io/Closer;->close()V
@@ -177,7 +177,7 @@
     .line 539
     .end local v0    # "e":Ljava/lang/Throwable;
     .end local v1    # "closer":Lcom/google/common/io/Closer;
-    :cond_0
+    :cond_33
     iget-wide v0, p0, Lcom/google/common/io/ByteSource$SlicedByteSource;->length:J
 
     invoke-static {p1, v0, v1}, Lcom/google/common/io/ByteStreams;->limit(Ljava/io/InputStream;J)Ljava/io/InputStream;
@@ -190,7 +190,7 @@
 
 # virtual methods
 .method public isEmpty()Z
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -204,31 +204,31 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_11
 
     invoke-super {p0}, Lcom/google/common/io/ByteSource;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_12
     return v0
 .end method
 
 .method public openBufferedStream()Ljava/io/InputStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -250,7 +250,7 @@
 .end method
 
 .method public openStream()Ljava/io/InputStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -272,7 +272,7 @@
 .end method
 
 .method public sizeIfKnown()Lcom/google/common/base/Optional;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -295,7 +295,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2d
 
     .line 561
     invoke-virtual {v0}, Lcom/google/common/base/Optional;->get()Ljava/lang/Object;
@@ -339,7 +339,7 @@
     .line 565
     .end local v1    # "unslicedSize":J
     .end local v3    # "off":J
-    :cond_0
+    :cond_2d
     invoke-static {}, Lcom/google/common/base/Optional;->absent()Lcom/google/common/base/Optional;
 
     move-result-object v1
@@ -348,7 +348,7 @@
 .end method
 
 .method public slice(JJ)Lcom/google/common/io/ByteSource;
-    .locals 7
+    .registers 12
     .param p1, "offset"    # J
     .param p3, "length"    # J
 
@@ -361,16 +361,16 @@
 
     cmp-long v4, p1, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_a
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_b
     const-string v5, "offset (%s) may not be negative"
 
     invoke-static {v4, v5, p1, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -378,14 +378,14 @@
     .line 545
     cmp-long v4, p3, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_15
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_16
     const-string v1, "length (%s) may not be negative"
 
     invoke-static {v0, v1, p3, p4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -399,17 +399,17 @@
     .local v0, "maxLength":J
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_2
+    if-gtz v4, :cond_27
 
     .line 548
     invoke-static {}, Lcom/google/common/io/ByteSource;->empty()Lcom/google/common/io/ByteSource;
 
     move-result-object v2
 
-    goto :goto_2
+    goto :goto_34
 
     .line 549
-    :cond_2
+    :cond_27
     iget-object v2, p0, Lcom/google/common/io/ByteSource$SlicedByteSource;->this$0:Lcom/google/common/io/ByteSource;
 
     iget-wide v3, p0, Lcom/google/common/io/ByteSource$SlicedByteSource;->offset:J
@@ -425,12 +425,12 @@
     move-result-object v2
 
     .line 547
-    :goto_2
+    :goto_34
     return-object v2
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 570
     iget-object v0, p0, Lcom/google/common/io/ByteSource$SlicedByteSource;->this$0:Lcom/google/common/io/ByteSource;

@@ -61,7 +61,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lkotlinx/android/extensions/CacheImplementation;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x3
 
@@ -89,7 +89,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 25
     new-instance v0, Lkotlinx/android/extensions/CacheImplementation;
@@ -157,7 +157,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -173,7 +173,7 @@
 .end method
 
 .method public static final synthetic access$getDEFAULT$cp()Lkotlinx/android/extensions/CacheImplementation;
-    .locals 1
+    .registers 1
 
     .line 23
     sget-object v0, Lkotlinx/android/extensions/CacheImplementation;->DEFAULT:Lkotlinx/android/extensions/CacheImplementation;
@@ -182,7 +182,7 @@
 .end method
 
 .method public static getEntries()Lkotlin/enums/EnumEntries;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -199,7 +199,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lkotlinx/android/extensions/CacheImplementation;
-    .locals 1
+    .registers 2
     .param p0, "value"    # Ljava/lang/String;
 
     const-class v0, Lkotlinx/android/extensions/CacheImplementation;
@@ -215,7 +215,7 @@
 .end method
 
 .method public static values()[Lkotlinx/android/extensions/CacheImplementation;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lkotlinx/android/extensions/CacheImplementation;->$VALUES:[Lkotlinx/android/extensions/CacheImplementation;
 

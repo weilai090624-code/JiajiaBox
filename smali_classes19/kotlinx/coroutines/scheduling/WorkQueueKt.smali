@@ -61,7 +61,7 @@
 
 # direct methods
 .method public static final getMaskForStealingMode(Lkotlinx/coroutines/scheduling/Task;)I
-    .locals 5
+    .registers 6
     .param p0, "$this$maskForStealingMode"    # Lkotlinx/coroutines/scheduling/Task;
 
     const/4 v0, 0x0
@@ -83,26 +83,26 @@
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_e
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v3, 0x0
 
     .line 25
     .end local v1    # "$this$isBlocking$iv":Lkotlinx/coroutines/scheduling/Task;
     .end local v2    # "$i$f$isBlocking":I
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_f
+    if-eqz v3, :cond_12
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v4, 0x2
 
-    :goto_1
+    :goto_13
     return v4
 .end method

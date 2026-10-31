@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 305
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getAxisVelocity(Landroid/view/VelocityTracker;I)F
-    .locals 1
+    .registers 3
     .param p0, "velocityTracker"    # Landroid/view/VelocityTracker;
     .param p1, "axis"    # I
 
@@ -39,7 +39,7 @@
 .end method
 
 .method static getAxisVelocity(Landroid/view/VelocityTracker;II)F
-    .locals 1
+    .registers 4
     .param p0, "velocityTracker"    # Landroid/view/VelocityTracker;
     .param p1, "axis"    # I
     .param p2, "id"    # I
@@ -53,7 +53,7 @@
 .end method
 
 .method static isAxisSupported(Landroid/view/VelocityTracker;I)Z
-    .locals 1
+    .registers 3
     .param p0, "velocityTracker"    # Landroid/view/VelocityTracker;
     .param p1, "axis"    # I
 

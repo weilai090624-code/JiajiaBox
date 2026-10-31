@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 54
     const-string v0, "ListenableWorkerImpl"
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 73
@@ -125,7 +125,7 @@
 .end method
 
 .method private executeWorkRequest(Ljava/lang/String;Ljava/lang/String;Landroidx/work/WorkerParameters;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 5
+    .registers 9
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "workerClassName"    # Ljava/lang/String;
     .param p3, "workerParameters"    # Landroidx/work/WorkerParameters;
@@ -197,15 +197,15 @@
     monitor-enter v1
 
     .line 178
-    :try_start_0
+    :try_start_33
     iget-object v2, p0, Landroidx/work/multiprocess/ListenableWorkerImpl;->mFutureMap:Ljava/util/Map;
 
     invoke-interface {v2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 179
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_39
+    .catchall {:try_start_33 .. :try_end_39} :catchall_48
 
     .line 180
     iget-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImpl;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
@@ -224,13 +224,13 @@
     return-object v0
 
     .line 179
-    :catchall_0
+    :catchall_48
     move-exception v2
 
-    :try_start_1
+    :try_start_49
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_49 .. :try_end_4a} :catchall_48
 
     throw v2
 .end method
@@ -238,7 +238,7 @@
 
 # virtual methods
 .method public interrupt([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 6
+    .registers 9
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
@@ -301,11 +301,11 @@
     sget-object v2, Landroidx/work/multiprocess/ListenableWorkerImpl;->sLock:Ljava/lang/Object;
 
     monitor-enter v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_35
+    .catchall {:try_start_0 .. :try_end_35} :catchall_58
 
     .line 148
-    :try_start_1
+    :try_start_35
     iget-object v3, p0, Landroidx/work/multiprocess/ListenableWorkerImpl;->mFutureMap:Ljava/util/Map;
 
     invoke-interface {v3, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -317,14 +317,14 @@
     .line 149
     .local v3, "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/work/ListenableWorker$Result;>;"
     monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3e
+    .catchall {:try_start_35 .. :try_end_3e} :catchall_55
 
     .line 150
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_4f
 
     .line 151
-    :try_start_2
+    :try_start_40
     iget-object v2, p0, Landroidx/work/multiprocess/ListenableWorkerImpl;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     invoke-interface {v2}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getSerialTaskExecutor()Landroidx/work/impl/utils/taskexecutor/SerialExecutor;
@@ -338,47 +338,47 @@
     .line 152
     invoke-interface {v2, v4}, Landroidx/work/impl/utils/taskexecutor/SerialExecutor;->execute(Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_54
 
     .line 161
-    :cond_0
+    :cond_4f
     sget-object v2, Landroidx/work/multiprocess/ListenableWorkerImpl;->sEMPTY:[B
 
     invoke-static {p2, v2}, Landroidx/work/multiprocess/ListenableCallback$ListenableCallbackRunnable;->reportSuccess(Landroidx/work/multiprocess/IWorkManagerImplCallback;[B)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_54
+    .catchall {:try_start_40 .. :try_end_54} :catchall_58
 
     .line 165
     .end local v0    # "parcelableWorkerParameters":Landroidx/work/multiprocess/parcelable/ParcelableWorkerParameters;
     .end local v1    # "id":Ljava/lang/String;
     .end local v3    # "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/work/ListenableWorker$Result;>;"
-    :goto_0
-    goto :goto_1
+    :goto_54
+    goto :goto_5c
 
     .line 149
     .restart local v0    # "parcelableWorkerParameters":Landroidx/work/multiprocess/parcelable/ParcelableWorkerParameters;
     .restart local v1    # "id":Ljava/lang/String;
-    :catchall_0
+    :catchall_55
     move-exception v3
 
-    :try_start_3
+    :try_start_56
     monitor-exit v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_57
+    .catchall {:try_start_56 .. :try_end_57} :catchall_55
 
     .end local p1    # "request":[B
     .end local p2    # "callback":Landroidx/work/multiprocess/IWorkManagerImplCallback;
-    :try_start_4
+    :try_start_57
     throw v3
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_58
+    .catchall {:try_start_57 .. :try_end_58} :catchall_58
 
     .line 163
     .end local v0    # "parcelableWorkerParameters":Landroidx/work/multiprocess/parcelable/ParcelableWorkerParameters;
     .end local v1    # "id":Ljava/lang/String;
     .restart local p1    # "request":[B
     .restart local p2    # "callback":Landroidx/work/multiprocess/IWorkManagerImplCallback;
-    :catchall_1
+    :catchall_58
     move-exception v0
 
     .line 164
@@ -387,12 +387,12 @@
 
     .line 166
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_1
+    :goto_5c
     return-void
 .end method
 
 .method synthetic lambda$executeWorkRequest$0$androidx-work-multiprocess-ListenableWorkerImpl(Ljava/lang/String;Landroidx/work/WorkerParameters;Landroidx/work/impl/utils/futures/SettableFuture;)V
-    .locals 4
+    .registers 8
     .param p1, "workerClassName"    # Ljava/lang/String;
     .param p2, "workerParameters"    # Landroidx/work/WorkerParameters;
     .param p3, "future"    # Landroidx/work/impl/utils/futures/SettableFuture;
@@ -414,7 +414,7 @@
 
     .line 185
     .local v0, "worker":Landroidx/work/ListenableWorker;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_33
 
     .line 186
     new-instance v1, Ljava/lang/StringBuilder;
@@ -457,10 +457,10 @@
 
     .line 192
     .end local v1    # "message":Ljava/lang/String;
-    :cond_0
+    :cond_33
     instance-of v1, v0, Landroidx/work/multiprocess/RemoteListenableWorker;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_66
 
     .line 193
     new-instance v1, Ljava/lang/StringBuilder;
@@ -514,7 +514,7 @@
 
     .line 200
     .end local v1    # "message":Ljava/lang/String;
-    :cond_1
+    :cond_66
     move-object v1, v0
 
     check-cast v1, Landroidx/work/multiprocess/RemoteListenableWorker;
@@ -526,18 +526,18 @@
     move-result-object v2
 
     invoke-virtual {p3, v2}, Landroidx/work/impl/utils/futures/SettableFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_70
+    .catchall {:try_start_0 .. :try_end_70} :catchall_72
 
     .line 204
     nop
 
     .end local v0    # "worker":Landroidx/work/ListenableWorker;
     .end local v1    # "remoteListenableWorker":Landroidx/work/multiprocess/RemoteListenableWorker;
-    goto :goto_0
+    goto :goto_76
 
     .line 202
-    :catchall_0
+    :catchall_72
     move-exception v0
 
     .line 203
@@ -546,12 +546,12 @@
 
     .line 205
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_76
     return-void
 .end method
 
 .method public startWork([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 9
+    .registers 12
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
@@ -673,8 +673,8 @@
 
     .line 111
     invoke-interface {v5, v6, v7}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_64
+    .catchall {:try_start_0 .. :try_end_64} :catchall_65
 
     .line 133
     .end local v0    # "parcelableRemoteWorkRequest":Landroidx/work/multiprocess/parcelable/ParcelableRemoteWorkRequest;
@@ -683,10 +683,10 @@
     .end local v3    # "id":Ljava/lang/String;
     .end local v4    # "workerClassName":Ljava/lang/String;
     .end local v5    # "futureResult":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/work/ListenableWorker$Result;>;"
-    goto :goto_0
+    goto :goto_69
 
     .line 131
-    :catchall_0
+    :catchall_65
     move-exception v0
 
     .line 132
@@ -695,6 +695,6 @@
 
     .line 134
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_69
     return-void
 .end method

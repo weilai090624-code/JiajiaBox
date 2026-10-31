@@ -5,30 +5,30 @@
 
 # direct methods
 .method public static synthetic m(II)I
-    .locals 1
+    .registers 3
 
     rem-int v0, p0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 p0, 0x0
 
     return p0
 
-    :cond_0
+    :cond_6
     xor-int/2addr p0, p1
 
     shr-int/lit8 p0, p0, 0x1f
 
     or-int/lit8 p0, p0, 0x1
 
-    if-lez p0, :cond_1
+    if-lez p0, :cond_e
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_1
+    :cond_e
     add-int/2addr v0, p1
 
-    :goto_0
+    :goto_f
     return v0
 .end method

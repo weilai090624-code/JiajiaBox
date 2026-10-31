@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/customview/widget/ViewDragHelper;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/customview/widget/ViewDragHelper;
 
     .line 342
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 345
     iget-object v0, p0, Landroidx/customview/widget/ViewDragHelper$2;->this$0:Landroidx/customview/widget/ViewDragHelper;

@@ -78,7 +78,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory$Companion;
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 48
     invoke-direct {p0}, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;-><init>()V
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/savedstate/SavedStateRegistryOwner;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p1, "owner"    # Landroidx/savedstate/SavedStateRegistryOwner;
     .param p2, "defaultArgs"    # Landroid/os/Bundle;
 
@@ -134,7 +134,7 @@
 .end method
 
 .method private final create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 3
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "modelClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -189,7 +189,7 @@
 
 # virtual methods
 .method public create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 3
+    .registers 5
     .param p1, "modelClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -210,13 +210,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 119
     .local v0, "canonicalName":Ljava/lang/String;
     iget-object v1, p0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->lifecycle:Landroidx/lifecycle/Lifecycle;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 126
     invoke-direct {p0, v0, p1}, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
@@ -226,7 +226,7 @@
     return-object v1
 
     .line 120
-    :cond_0
+    :cond_14
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     .line 121
@@ -241,7 +241,7 @@
 
     .line 118
     .end local v0    # "canonicalName":Ljava/lang/String;
-    :cond_1
+    :cond_1d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Local and anonymous classes can not be ViewModels"
@@ -252,7 +252,7 @@
 .end method
 
 .method public create(Ljava/lang/Class;Landroidx/lifecycle/viewmodel/CreationExtras;)Landroidx/lifecycle/ViewModel;
-    .locals 2
+    .registers 5
     .param p1, "modelClass"    # Ljava/lang/Class;
     .param p2, "extras"    # Landroidx/lifecycle/viewmodel/CreationExtras;
     .annotation system Ldalvik/annotation/Signature;
@@ -284,23 +284,23 @@
 
     check-cast v0, Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 87
     .local v0, "key":Ljava/lang/String;
     iget-object v1, p0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->savedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 88
     invoke-direct {p0, v0, p1}, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_25
 
     .line 90
-    :cond_0
+    :cond_1d
     invoke-static {p2}, Landroidx/lifecycle/SavedStateHandleSupport;->createSavedStateHandle(Landroidx/lifecycle/viewmodel/CreationExtras;)Landroidx/lifecycle/SavedStateHandle;
 
     move-result-object v1
@@ -310,12 +310,12 @@
     move-result-object v1
 
     .line 87
-    :goto_0
+    :goto_25
     return-object v1
 
     .line 83
     .end local v0    # "key":Ljava/lang/String;
-    :cond_1
+    :cond_26
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 84
@@ -345,7 +345,7 @@
 .end method
 
 .method public onRequery(Landroidx/lifecycle/ViewModel;)V
-    .locals 2
+    .registers 4
     .param p1, "viewModel"    # Landroidx/lifecycle/ViewModel;
 
     const-string/jumbo v0, "viewModel"
@@ -355,7 +355,7 @@
     .line 150
     iget-object v0, p0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->savedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 151
     iget-object v0, p0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->savedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
@@ -369,6 +369,6 @@
     invoke-static {p1, v0, v1}, Landroidx/lifecycle/LegacySavedStateHandleController;->attachHandleIfNeeded(Landroidx/lifecycle/ViewModel;Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/Lifecycle;)V
 
     .line 153
-    :cond_0
+    :cond_17
     return-void
 .end method

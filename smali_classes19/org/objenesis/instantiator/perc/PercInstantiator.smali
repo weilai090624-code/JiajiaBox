@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,7 +70,7 @@
     aput-object p1, v1, v2
 
     .line 46
-    :try_start_0
+    :try_start_15
     const-class v1, Ljava/io/ObjectInputStream;
 
     const-string v3, "newInstance"
@@ -95,9 +95,9 @@
     iget-object v0, p0, Lorg/objenesis/instantiator/perc/PercInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Ljava/lang/RuntimeException; {:try_start_15 .. :try_end_2e} :catch_32
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_15 .. :try_end_2e} :catch_30
 
     .line 52
     nop
@@ -106,17 +106,17 @@
     return-void
 
     .line 50
-    :catch_0
+    :catch_30
     move-exception v0
 
-    goto :goto_0
+    goto :goto_33
 
-    :catch_1
+    :catch_32
     move-exception v0
 
     .line 51
     .local v0, "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_33
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -146,13 +146,13 @@
     invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_9} :catch_a
 
     return-object v0
 
     .line 59
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 60

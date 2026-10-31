@@ -93,7 +93,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 40
     const-class v0, Landroidx/camera/core/impl/SessionConfig;

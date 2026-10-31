@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FilteredKeySetMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/FilteredKeySetMultimap;
 
     .line 70
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -58,7 +58,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 73
     .local p0, "this":Lcom/google/common/collect/FilteredKeySetMultimap$EntrySet;, "Lcom/google/common/collect/FilteredKeySetMultimap<TK;TV;>.EntrySet;"

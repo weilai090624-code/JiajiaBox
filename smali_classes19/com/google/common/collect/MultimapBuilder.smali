@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 72
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder;, "Lcom/google/common/collect/MultimapBuilder<TK0;TV0;>;"
@@ -50,7 +50,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/MultimapBuilder$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/collect/MultimapBuilder$1;
 
     .line 66
@@ -61,7 +61,7 @@
 .end method
 
 .method public static enumKeys(Ljava/lang/Class;)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K0:",
@@ -87,7 +87,7 @@
 .end method
 
 .method public static hashKeys()Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -108,7 +108,7 @@
 .end method
 
 .method public static hashKeys(I)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
-    .locals 1
+    .registers 2
     .param p0, "expectedKeys"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -133,7 +133,7 @@
 .end method
 
 .method public static linkedHashKeys()Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -154,7 +154,7 @@
 .end method
 
 .method public static linkedHashKeys(I)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
-    .locals 1
+    .registers 2
     .param p0, "expectedKeys"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -179,7 +179,7 @@
 .end method
 
 .method public static treeKeys()Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -202,7 +202,7 @@
 .end method
 
 .method public static treeKeys(Ljava/util/Comparator;)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K0:",
@@ -240,7 +240,7 @@
 .end method
 
 .method public build(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:TK0;V:TV0;>(",

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 47
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public getMaxHeight()I
-    .locals 1
+    .registers 2
 
     .line 89
     iget v0, p0, Landroidx/preference/internal/PreferenceImageView;->mMaxHeight:I
@@ -101,7 +101,7 @@
 .end method
 
 .method public getMaxWidth()I
-    .locals 1
+    .registers 2
 
     .line 78
     iget v0, p0, Landroidx/preference/internal/PreferenceImageView;->mMaxWidth:I
@@ -110,7 +110,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 6
+    .registers 9
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -125,12 +125,12 @@
 
     const/high16 v2, -0x80000000
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_d
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1f
 
     .line 96
-    :cond_0
+    :cond_d
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v3
@@ -143,14 +143,14 @@
 
     .line 98
     .local v4, "maxWidth":I
-    if-eq v4, v1, :cond_2
+    if-eq v4, v1, :cond_1f
 
-    if-lt v4, v3, :cond_1
+    if-lt v4, v3, :cond_1b
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1f
 
     .line 100
-    :cond_1
+    :cond_1b
     invoke-static {v4, v2}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result p1
@@ -158,19 +158,19 @@
     .line 104
     .end local v3    # "widthSize":I
     .end local v4    # "maxWidth":I
-    :cond_2
+    :cond_1f
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v3
 
     .line 105
     .local v3, "heightMode":I
-    if-eq v3, v2, :cond_3
+    if-eq v3, v2, :cond_27
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_39
 
     .line 106
-    :cond_3
+    :cond_27
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v4
@@ -183,14 +183,14 @@
 
     .line 108
     .local v5, "maxHeight":I
-    if-eq v5, v1, :cond_5
+    if-eq v5, v1, :cond_39
 
-    if-lt v5, v4, :cond_4
+    if-lt v5, v4, :cond_35
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_39
 
     .line 110
-    :cond_4
+    :cond_35
     invoke-static {v5, v2}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result p2
@@ -198,7 +198,7 @@
     .line 114
     .end local v4    # "heightSize":I
     .end local v5    # "maxHeight":I
-    :cond_5
+    :cond_39
     invoke-super {p0, p1, p2}, Landroid/widget/ImageView;->onMeasure(II)V
 
     .line 115
@@ -206,7 +206,7 @@
 .end method
 
 .method public setMaxHeight(I)V
-    .locals 0
+    .registers 2
     .param p1, "maxHeight"    # I
 
     .line 83
@@ -220,7 +220,7 @@
 .end method
 
 .method public setMaxWidth(I)V
-    .locals 0
+    .registers 2
     .param p1, "maxWidth"    # I
 
     .line 72

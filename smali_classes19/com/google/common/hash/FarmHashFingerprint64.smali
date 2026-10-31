@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 43
     new-instance v0, Lcom/google/common/hash/FarmHashFingerprint64;
@@ -33,7 +33,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Lcom/google/common/hash/AbstractNonStreamingHashFunction;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method static fingerprint([BII)J
-    .locals 2
+    .registers 5
     .param p0, "bytes"    # [B
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -50,12 +50,12 @@
     .line 70
     const/16 v0, 0x20
 
-    if-gt p2, v0, :cond_1
+    if-gt p2, v0, :cond_12
 
     .line 71
     const/16 v0, 0x10
 
-    if-gt p2, v0, :cond_0
+    if-gt p2, v0, :cond_d
 
     .line 72
     invoke-static {p0, p1, p2}, Lcom/google/common/hash/FarmHashFingerprint64;->hashLength0to16([BII)J
@@ -65,7 +65,7 @@
     return-wide v0
 
     .line 74
-    :cond_0
+    :cond_d
     invoke-static {p0, p1, p2}, Lcom/google/common/hash/FarmHashFingerprint64;->hashLength17to32([BII)J
 
     move-result-wide v0
@@ -73,10 +73,10 @@
     return-wide v0
 
     .line 76
-    :cond_1
+    :cond_12
     const/16 v0, 0x40
 
-    if-gt p2, v0, :cond_2
+    if-gt p2, v0, :cond_1b
 
     .line 77
     invoke-static {p0, p1, p2}, Lcom/google/common/hash/FarmHashFingerprint64;->hashLength33To64([BII)J
@@ -86,7 +86,7 @@
     return-wide v0
 
     .line 79
-    :cond_2
+    :cond_1b
     invoke-static {p0, p1, p2}, Lcom/google/common/hash/FarmHashFingerprint64;->hashLength65Plus([BII)J
 
     move-result-wide v0
@@ -95,7 +95,7 @@
 .end method
 
 .method private static hashLength0to16([BII)J
-    .locals 19
+    .registers 22
     .param p0, "bytes"    # [B
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -109,7 +109,7 @@
 
     const/16 v4, 0x8
 
-    if-lt v1, v4, :cond_0
+    if-lt v1, v4, :cond_39
 
     .line 120
     mul-int/lit8 v5, v1, 0x2
@@ -180,10 +180,10 @@
     .end local v13    # "b":J
     .end local v15    # "c":J
     .end local v17    # "d":J
-    :cond_0
+    :cond_39
     const/4 v5, 0x4
 
-    if-lt v1, v5, :cond_1
+    if-lt v1, v5, :cond_61
 
     .line 128
     mul-int/lit8 v4, v1, 0x2
@@ -241,8 +241,8 @@
     .line 132
     .end local v2    # "a":J
     .end local v6    # "mul":J
-    :cond_1
-    if-lez v1, :cond_2
+    :cond_61
+    if-lez v1, :cond_90
 
     .line 133
     aget-byte v5, v0, p1
@@ -309,12 +309,12 @@
     .end local v6    # "b":B
     .end local v7    # "c":B
     .end local v8    # "y":I
-    :cond_2
+    :cond_90
     return-wide v2
 .end method
 
 .method private static hashLength16(JJJ)J
-    .locals 7
+    .registers 13
     .param p0, "u"    # J
     .param p2, "v"    # J
     .param p4, "mul"    # J
@@ -353,7 +353,7 @@
 .end method
 
 .method private static hashLength17to32([BII)J
-    .locals 17
+    .registers 20
     .param p0, "bytes"    # [B
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -459,7 +459,7 @@
 .end method
 
 .method private static hashLength33To64([BII)J
-    .locals 29
+    .registers 32
     .param p0, "bytes"    # [B
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -663,7 +663,7 @@
 .end method
 
 .method private static hashLength65Plus([BII)J
-    .locals 32
+    .registers 35
     .param p0, "bytes"    # [B
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -747,7 +747,7 @@
     .local v0, "z":J
     .local v9, "offset":I
     .local v14, "last64offset":I
-    :goto_0
+    :goto_39
     add-long v15, v4, v2
 
     const/4 v10, 0x0
@@ -905,7 +905,7 @@
     add-int/lit8 v9, v9, 0x40
 
     .line 198
-    if-ne v9, v13, :cond_0
+    if-ne v9, v13, :cond_171
 
     .line 199
     const-wide/16 v0, 0xff
@@ -1146,7 +1146,7 @@
     .local v13, "end":I
     .restart local v14    # "last64offset":I
     .local v20, "y":J
-    :cond_0
+    :cond_171
     move/from16 v22, v13
 
     move/from16 v23, v14
@@ -1161,11 +1161,11 @@
 
     move-wide/from16 v2, v20
 
-    goto/16 :goto_0
+    goto/16 :goto_39
 .end method
 
 .method private static shiftMix(J)J
-    .locals 2
+    .registers 4
     .param p0, "val"    # J
 
     .line 84
@@ -1179,7 +1179,7 @@
 .end method
 
 .method private static weakHashLength32WithSeeds([BIJJ[J)V
-    .locals 18
+    .registers 25
     .param p0, "bytes"    # [B
     .param p1, "offset"    # I
     .param p2, "seedA"    # J
@@ -1276,7 +1276,7 @@
 
 # virtual methods
 .method public bits()I
-    .locals 1
+    .registers 2
 
     .line 58
     const/16 v0, 0x40
@@ -1285,7 +1285,7 @@
 .end method
 
 .method public hashBytes([BII)Lcom/google/common/hash/HashCode;
-    .locals 2
+    .registers 6
     .param p1, "input"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -1310,7 +1310,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 63
     const-string v0, "Hashing.farmHashFingerprint64()"

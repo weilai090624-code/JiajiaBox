@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$minus(Lj$/time/temporal/Temporal;JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
-    .locals 3
+    .registers 7
     .param p0, "_this"    # Lj$/time/temporal/Temporal;
     .param p1, "amountToSubtract"    # J
     .param p3, "unit"    # Lj$/time/temporal/TemporalUnit;
@@ -15,7 +15,7 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_16
 
     const-wide v0, 0x7fffffffffffffffL
 
@@ -29,21 +29,21 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_16
     neg-long v0, p1
 
     invoke-interface {p0, v0, v1, p3}, Lj$/time/temporal/Temporal;->plus(JLj$/time/temporal/TemporalUnit;)Lj$/time/temporal/Temporal;
 
     move-result-object v0
 
-    :goto_0
+    :goto_1b
     return-object v0
 .end method
 
 .method public static $default$minus(Lj$/time/temporal/Temporal;Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/time/temporal/Temporal;
     .param p1, "amount"    # Lj$/time/temporal/TemporalAmount;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public static $default$plus(Lj$/time/temporal/Temporal;Lj$/time/temporal/TemporalAmount;)Lj$/time/temporal/Temporal;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/time/temporal/Temporal;
     .param p1, "amount"    # Lj$/time/temporal/TemporalAmount;
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public static $default$with(Lj$/time/temporal/Temporal;Lj$/time/temporal/TemporalAdjuster;)Lj$/time/temporal/Temporal;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/time/temporal/Temporal;
     .param p1, "adjuster"    # Lj$/time/temporal/TemporalAdjuster;
 

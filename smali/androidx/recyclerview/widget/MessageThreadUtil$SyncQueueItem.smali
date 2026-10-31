@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 180
     new-instance v0, Ljava/lang/Object;
@@ -53,7 +53,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 177
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method static obtainMessage(III)Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    .locals 7
+    .registers 10
     .param p0, "what"    # I
     .param p1, "arg1"    # I
     .param p2, "arg2"    # I
@@ -90,7 +90,7 @@
 .end method
 
 .method static obtainMessage(IIIIIILjava/lang/Object;)Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    .locals 3
+    .registers 10
     .param p0, "what"    # I
     .param p1, "arg1"    # I
     .param p2, "arg2"    # I
@@ -105,10 +105,10 @@
     monitor-enter v0
 
     .line 206
-    :try_start_0
+    :try_start_3
     sget-object v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->sPool:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     .line 207
     new-instance v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
@@ -116,11 +116,11 @@
     invoke-direct {v1}, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;-><init>()V
 
     .local v1, "item":Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    goto :goto_0
+    goto :goto_18
 
     .line 209
     .end local v1    # "item":Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    :cond_0
+    :cond_d
     sget-object v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->sPool:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
     .line 210
@@ -137,7 +137,7 @@
     iput-object v2, v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->next:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
     .line 213
-    :goto_0
+    :goto_18
     iput p0, v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->what:I
 
     .line 214
@@ -165,18 +165,18 @@
 
     .line 221
     .end local v1    # "item":Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_3 .. :try_end_2a} :catchall_28
 
     throw v1
 .end method
 
 .method static obtainMessage(IILjava/lang/Object;)Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    .locals 7
+    .registers 10
     .param p0, "what"    # I
     .param p1, "arg1"    # I
     .param p2, "data"    # Ljava/lang/Object;
@@ -206,7 +206,7 @@
 
 # virtual methods
 .method recycle()V
-    .locals 2
+    .registers 3
 
     .line 191
     const/4 v0, 0x0
@@ -237,10 +237,10 @@
     monitor-enter v0
 
     .line 195
-    :try_start_0
+    :try_start_15
     sget-object v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->sPool:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 196
     sget-object v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->sPool:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
@@ -248,7 +248,7 @@
     iput-object v1, p0, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->next:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
     .line 198
-    :cond_0
+    :cond_1d
     sput-object p0, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->sPool:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
     .line 199
@@ -258,12 +258,12 @@
     return-void
 
     .line 199
-    :catchall_0
+    :catchall_21
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_15 .. :try_end_23} :catchall_21
 
     throw v1
 .end method

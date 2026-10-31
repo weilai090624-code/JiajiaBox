@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 2126
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static refreshAutoCompleteResults(Landroid/widget/AutoCompleteTextView;)V
-    .locals 0
+    .registers 1
     .param p0, "autoCompleteTextView"    # Landroid/widget/AutoCompleteTextView;
 
     .line 2137
@@ -37,7 +37,7 @@
 .end method
 
 .method static setInputMethodMode(Landroidx/appcompat/widget/SearchView$SearchAutoComplete;I)V
-    .locals 0
+    .registers 2
     .param p0, "searchAutoComplete"    # Landroidx/appcompat/widget/SearchView$SearchAutoComplete;
     .param p1, "mode"    # I
 

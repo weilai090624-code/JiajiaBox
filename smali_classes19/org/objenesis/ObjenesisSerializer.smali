@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 31
     new-instance v0, Lorg/objenesis/strategy/SerializingInstantiatorStrategy;
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .locals 1
+    .registers 3
     .param p1, "useCache"    # Z
 
     .line 41

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$add(Lj$/util/stream/DoubleStream$Builder;D)Lj$/util/stream/DoubleStream$Builder;
-    .locals 0
+    .registers 3
     .param p0, "_this"    # Lj$/util/stream/DoubleStream$Builder;
     .param p1, "t"    # D
 

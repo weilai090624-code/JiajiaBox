@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 19
     sget-object v0, Lokio/-DeprecatedOkio;->INSTANCE:Lokio/-DeprecatedOkio;
@@ -53,7 +53,7 @@
 .end method
 
 .method public static final getOkio()Lokio/-DeprecatedOkio;
-    .locals 1
+    .registers 1
 
     .line 19
     sget-object v0, Lokio/-DeprecatedUpgrade;->Okio:Lokio/-DeprecatedOkio;
@@ -62,7 +62,7 @@
 .end method
 
 .method public static final getUtf8()Lokio/-DeprecatedUtf8;
-    .locals 1
+    .registers 1
 
     .line 20
     sget-object v0, Lokio/-DeprecatedUpgrade;->Utf8:Lokio/-DeprecatedUtf8;

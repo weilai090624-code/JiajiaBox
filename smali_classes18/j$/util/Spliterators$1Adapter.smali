@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -88,7 +88,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -98,12 +98,12 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 680
     iget-boolean v0, p0, Lj$/util/Spliterators$1Adapter;->valueReady:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 681
     iget-object v0, p0, Lj$/util/Spliterators$1Adapter;->val$spliterator:Lj$/util/Spliterator;
@@ -111,14 +111,14 @@
     invoke-interface {v0, p0}, Lj$/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
     .line 682
-    :cond_0
+    :cond_9
     iget-boolean v0, p0, Lj$/util/Spliterators$1Adapter;->valueReady:Z
 
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -128,18 +128,18 @@
     .line 687
     iget-boolean v0, p0, Lj$/util/Spliterators$1Adapter;->valueReady:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     invoke-virtual {p0}, Lj$/util/Spliterators$1Adapter;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
-    goto :goto_0
+    goto :goto_11
 
     .line 688
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -147,8 +147,8 @@
     throw v0
 
     .line 690
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lj$/util/Spliterators$1Adapter;->valueReady:Z

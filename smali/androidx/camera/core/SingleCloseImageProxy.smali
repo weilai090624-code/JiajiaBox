@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageProxy;)V
-    .locals 1
+    .registers 3
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -35,15 +35,15 @@
 
 # virtual methods
 .method public declared-synchronized close()V
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 38
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Landroidx/camera/core/SingleCloseImageProxy;->mClosed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 39
     const/4 v0, 0x1
@@ -52,24 +52,24 @@
 
     .line 40
     invoke-super {p0}, Landroidx/camera/core/ForwardingImageProxy;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_1 .. :try_end_b} :catchall_d
 
     .line 42
     .end local p0    # "this":Landroidx/camera/core/SingleCloseImageProxy;
-    :cond_0
+    :cond_b
     monitor-exit p0
 
     return-void
 
     .line 37
-    :catchall_0
+    :catchall_d
     move-exception v0
 
-    :try_start_1
+    :try_start_e
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_f
+    .catchall {:try_start_e .. :try_end_f} :catchall_d
 
     throw v0
 .end method

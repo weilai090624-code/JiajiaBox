@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Comparator;)V
-    .locals 0
+    .registers 2
 
     .line 491
     iput-object p1, p0, Lcom/google/common/collect/ImmutableSortedMap$1;->val$comparator:Ljava/util/Comparator;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -68,7 +68,7 @@
 .end method
 
 .method public compare(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
-    .locals 3
+    .registers 6
     .param p1    # Ljava/util/Map$Entry;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation

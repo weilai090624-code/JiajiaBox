@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 305
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static canScheduleExactAlarms(Landroid/app/AlarmManager;)Z
-    .locals 1
+    .registers 2
     .param p0, "alarmManager"    # Landroid/app/AlarmManager;
 
     .line 311

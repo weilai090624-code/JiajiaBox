@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/LocalCache$Segment;Ljava/lang/Object;ILcom/google/common/cache/LocalCache$LoadingValueReference;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Lcom/google/common/cache/LocalCache$Segment;
 
     .line 2209
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 2213
     .local p0, "this":Lcom/google/common/cache/LocalCache$Segment$1;, "Lcom/google/common/cache/LocalCache$Segment$1;"
@@ -70,14 +70,14 @@
     iget-object v4, p0, Lcom/google/common/cache/LocalCache$Segment$1;->val$loadingFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/google/common/cache/LocalCache$Segment;->getAndRecordStats(Ljava/lang/Object;ILcom/google/common/cache/LocalCache$LoadingValueReference;Lcom/google/common/util/concurrent/ListenableFuture;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_0 .. :try_end_d} :catchall_e
 
     .line 2217
-    goto :goto_0
+    goto :goto_1d
 
     .line 2214
-    :catchall_0
+    :catchall_e
     move-exception v0
 
     .line 2215
@@ -97,6 +97,6 @@
 
     .line 2218
     .end local v0    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_1d
     return-void
 .end method

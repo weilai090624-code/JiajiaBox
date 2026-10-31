@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 33
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
@@ -70,7 +70,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/RegularImmutableBiMap;, "Lcom/google/common/collect/RegularImmutableBiMap<TK;TV;>;"
@@ -102,7 +102,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/Object;[Ljava/lang/Object;ILcom/google/common/collect/RegularImmutableBiMap;)V
-    .locals 1
+    .registers 6
     .param p1, "valueHashTable"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -148,7 +148,7 @@
 .end method
 
 .method constructor <init>([Ljava/lang/Object;I)V
-    .locals 3
+    .registers 6
     .param p1, "alternatingKeysAndValues"    # [Ljava/lang/Object;
     .param p2, "size"    # I
 
@@ -170,20 +170,20 @@
     .line 56
     const/4 v1, 0x2
 
-    if-lt p2, v1, :cond_0
+    if-lt p2, v1, :cond_12
 
     invoke-static {p2}, Lcom/google/common/collect/ImmutableSet;->chooseTableSize(I)I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
     .line 57
     .local v1, "tableSize":I
-    :goto_0
+    :goto_13
     nop
 
     .line 58
@@ -218,7 +218,7 @@
 
 # virtual methods
 .method createEntrySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -244,7 +244,7 @@
 .end method
 
 .method createKeySet()Lcom/google/common/collect/ImmutableSet;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -275,7 +275,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -308,7 +308,7 @@
 
     .line 98
     .local v0, "result":Ljava/lang/Object;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 99
     const/4 v1, 0x0
@@ -316,12 +316,12 @@
     return-object v1
 
     .line 101
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method public bridge synthetic inverse()Lcom/google/common/collect/BiMap;
-    .locals 1
+    .registers 2
 
     .line 29
     .local p0, "this":Lcom/google/common/collect/RegularImmutableBiMap;, "Lcom/google/common/collect/RegularImmutableBiMap<TK;TV;>;"
@@ -333,7 +333,7 @@
 .end method
 
 .method public inverse()Lcom/google/common/collect/ImmutableBiMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -350,7 +350,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 121
     .local p0, "this":Lcom/google/common/collect/RegularImmutableBiMap;, "Lcom/google/common/collect/RegularImmutableBiMap<TK;TV;>;"
@@ -360,7 +360,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 80
     .local p0, "this":Lcom/google/common/collect/RegularImmutableBiMap;, "Lcom/google/common/collect/RegularImmutableBiMap<TK;TV;>;"

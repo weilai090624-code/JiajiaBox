@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
     .param p1, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -98,7 +98,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 779
     iput-object p1, p0, Landroidx/navigation/NavType$EnumType;->type:Ljava/lang/Class;
@@ -110,7 +110,7 @@
     return-void
 
     .line 845
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
     .line 778
@@ -148,7 +148,7 @@
 
 # virtual methods
 .method public getName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 756
     iget-object v0, p0, Landroidx/navigation/NavType$EnumType;->type:Ljava/lang/Class;
@@ -165,7 +165,7 @@
 .end method
 
 .method public bridge synthetic parseValue(Ljava/lang/String;)Ljava/io/Serializable;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 750
@@ -179,7 +179,7 @@
 .end method
 
 .method public parseValue(Ljava/lang/String;)Ljava/lang/Enum;
-    .locals 9
+    .registers 11
     .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -213,8 +213,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_15
+    if-ge v3, v2, :cond_2c
 
     aget-object v4, v0, v3
 
@@ -240,32 +240,32 @@
 
     .end local v5    # "constant":Ljava/lang/Enum;
     .end local v6    # "$i$a$-firstOrNull-NavType$EnumType$parseValue$1":I
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_29
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_0
+    :cond_29
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 847
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_2c
     const/4 v4, 0x0
 
     .line 767
     .end local v0    # "$this$firstOrNull$iv":[Ljava/lang/Object;
     .end local v1    # "$i$f$firstOrNull":I
-    :goto_1
+    :goto_2d
     check-cast v4, Ljava/lang/Enum;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_32
 
     return-object v4
 
     .line 769
-    :cond_2
+    :cond_32
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     .line 770
@@ -316,7 +316,7 @@
 .end method
 
 .method public bridge synthetic parseValue(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 750

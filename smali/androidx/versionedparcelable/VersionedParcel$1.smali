@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/versionedparcelable/VersionedParcel;Ljava/io/InputStream;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/versionedparcelable/VersionedParcel;
     .param p2, "x0"    # Ljava/io/InputStream;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method protected resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
-    .locals 3
+    .registers 5
     .param p1, "osClass"    # Ljava/io/ObjectStreamClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -77,13 +77,13 @@
 
     .line 1541
     .local v0, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 1542
     return-object v0
 
     .line 1544
-    :cond_0
+    :cond_14
     invoke-super {p0, p1}, Ljava/io/ObjectInputStream;->resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
 
     move-result-object v1

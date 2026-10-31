@@ -118,7 +118,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/flow/FlowCollector;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -159,7 +159,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -196,7 +196,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -210,7 +210,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -239,7 +239,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 24
+    .registers 26
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -254,7 +254,7 @@
 
     const/4 v4, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_be
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -264,7 +264,7 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_15
     move-object/from16 v2, p0
 
     .local v2, "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1;
@@ -278,31 +278,31 @@
     check-cast v6, Lkotlinx/coroutines/channels/ReceiveChannel;
 
     .local v6, "second":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :try_start_0
+    :try_start_1e
     invoke-static {v5}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_1e .. :try_end_21} :catch_26
+    .catchall {:try_start_1e .. :try_end_21} :catchall_23
 
-    goto/16 :goto_0
+    goto/16 :goto_a7
 
     .line 139
-    :catchall_0
+    :catchall_23
     move-exception v0
 
-    goto/16 :goto_3
+    goto/16 :goto_b9
 
     .line 136
-    :catch_0
+    :catch_26
     move-exception v0
 
-    goto/16 :goto_1
+    goto/16 :goto_b0
 
     .line 87
     .end local v2    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1;
     .end local v5    # "$result":Ljava/lang/Object;
     .end local v6    # "second":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :pswitch_1
+    :pswitch_29
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p0
@@ -371,7 +371,7 @@
     nop
 
     .line 124
-    :try_start_1
+    :try_start_60
     invoke-interface {v6}, Lkotlinx/coroutines/CoroutineScope;->getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object v15
@@ -443,44 +443,44 @@
     invoke-static/range {v17 .. v23}, Lkotlinx/coroutines/flow/internal/ChannelFlowKt;->withContextUndispatched$default(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v9
-    :try_end_1
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_a3
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_60 .. :try_end_a3} :catch_ae
+    .catchall {:try_start_60 .. :try_end_a3} :catchall_ab
 
     .end local v6    # "$this$coroutineScope":Lkotlinx/coroutines/CoroutineScope;
     .end local v8    # "collectJob":Lkotlinx/coroutines/CompletableJob;
     .end local v15    # "scopeContext":Lkotlin/coroutines/CoroutineContext;
     .end local v16    # "cnt":Ljava/lang/Object;
-    if-ne v9, v0, :cond_0
+    if-ne v9, v0, :cond_a6
 
     .line 87
     return-object v0
 
     .line 126
-    :cond_0
+    :cond_a6
     move-object v6, v7
 
     .line 139
     .end local v7    # "second":Lkotlinx/coroutines/channels/ReceiveChannel;
     .local v6, "second":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :goto_0
+    :goto_a7
     invoke-static {v6, v4, v3, v4}, Lkotlinx/coroutines/channels/ReceiveChannel$DefaultImpls;->cancel$default(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 140
     .end local v6    # "second":Lkotlinx/coroutines/channels/ReceiveChannel;
-    goto :goto_2
+    goto :goto_b6
 
     .line 139
     .restart local v7    # "second":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :catchall_1
+    :catchall_ab
     move-exception v0
 
     move-object v6, v7
 
-    goto :goto_3
+    goto :goto_b9
 
     .line 136
-    :catch_1
+    :catch_ae
     move-exception v0
 
     move-object v6, v7
@@ -489,27 +489,27 @@
     .end local v7    # "second":Lkotlinx/coroutines/channels/ReceiveChannel;
     .local v0, "e":Lkotlinx/coroutines/flow/internal/AbortFlowException;
     .restart local v6    # "second":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :goto_1
-    :try_start_2
+    :goto_b0
+    :try_start_b0
     iget-object v7, v2, Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1;->$this_unsafeFlow:Lkotlinx/coroutines/flow/FlowCollector;
 
     invoke-static {v0, v7}, Lkotlinx/coroutines/flow/internal/FlowExceptions_commonKt;->checkOwnership(Lkotlinx/coroutines/flow/internal/AbortFlowException;Lkotlinx/coroutines/flow/FlowCollector;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_b5
+    .catchall {:try_start_b0 .. :try_end_b5} :catchall_23
 
     .end local v0    # "e":Lkotlinx/coroutines/flow/internal/AbortFlowException;
-    goto :goto_0
+    goto :goto_a7
 
     .line 141
     .end local v6    # "second":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :goto_2
+    :goto_b6
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 139
     .restart local v6    # "second":Lkotlinx/coroutines/channels/ReceiveChannel;
-    :goto_3
+    :goto_b9
     invoke-static {v6, v4, v3, v4}, Lkotlinx/coroutines/channels/ReceiveChannel$DefaultImpls;->cancel$default(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .end local v6    # "second":Lkotlinx/coroutines/channels/ReceiveChannel;
@@ -517,9 +517,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_be
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_29
+        :pswitch_15
     .end packed-switch
 .end method

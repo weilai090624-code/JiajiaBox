@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/tabs/TabLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/tabs/TabLayout;
 
     .line 1898
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+    .registers 5
     .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
     .line 1901

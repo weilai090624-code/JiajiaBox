@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>([Lkotlinx/coroutines/channels/ReceiveChannel;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 17
@@ -102,7 +102,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 8
+    .registers 10
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 18
@@ -116,8 +116,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_5
+    if-ge v3, v2, :cond_1b
 
     aget-object v4, v1, v3
 
@@ -126,28 +126,28 @@
     nop
 
     .line 21
-    :try_start_0
+    :try_start_a
     invoke-static {v4, p1}, Lkotlinx/coroutines/channels/ChannelsKt;->cancelConsumed(Lkotlinx/coroutines/channels/ReceiveChannel;Ljava/lang/Throwable;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_a .. :try_end_d} :catchall_e
 
-    goto :goto_1
+    goto :goto_18
 
     .line 22
-    :catchall_0
+    :catchall_e
     move-exception v5
 
     .line 23
     .local v5, "e":Ljava/lang/Throwable;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 24
     move-object v0, v5
 
-    goto :goto_1
+    goto :goto_18
 
     .line 26
-    :cond_0
+    :cond_13
     move-object v6, v0
 
     .local v6, "$this$addSuppressedThrowable$iv":Ljava/lang/Throwable;
@@ -162,20 +162,20 @@
     .end local v5    # "e":Ljava/lang/Throwable;
     .end local v6    # "$this$addSuppressedThrowable$iv":Ljava/lang/Throwable;
     .end local v7    # "$i$f$addSuppressedThrowable":I
-    :goto_1
+    :goto_18
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 29
-    :cond_1
-    if-nez v0, :cond_2
+    :cond_1b
+    if-nez v0, :cond_1e
 
     .line 30
     return-void
 
     .line 29
-    :cond_2
+    :cond_1e
     move-object v1, v0
 
     .line 481

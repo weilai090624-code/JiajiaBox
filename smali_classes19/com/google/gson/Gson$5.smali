@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/TypeAdapter;)V
-    .locals 0
+    .registers 2
 
     .line 443
     iput-object p1, p0, Lcom/google/gson/Gson$5;->val$longAdapter:Lcom/google/gson/TypeAdapter;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -57,7 +57,7 @@
 .end method
 
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/util/concurrent/atomic/AtomicLongArray;
-    .locals 6
+    .registers 8
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -75,12 +75,12 @@
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->beginArray()V
 
     .line 454
-    :goto_0
+    :goto_8
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     .line 455
     iget-object v1, p0, Lcom/google/gson/Gson$5;->val$longAdapter:Lcom/google/gson/TypeAdapter;
@@ -105,10 +105,10 @@
 
     .line 457
     .end local v1    # "value":J
-    goto :goto_0
+    goto :goto_8
 
     .line 458
-    :cond_0
+    :cond_22
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->endArray()V
 
     .line 459
@@ -127,8 +127,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v1, :cond_1
+    :goto_2f
+    if-ge v3, v1, :cond_41
 
     .line 462
     invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -146,16 +146,16 @@
     .line 461
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 464
     .end local v3    # "i":I
-    :cond_1
+    :cond_41
     return-object v2
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -171,7 +171,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/util/concurrent/atomic/AtomicLongArray;)V
-    .locals 5
+    .registers 8
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .param p2, "value"    # Ljava/util/concurrent/atomic/AtomicLongArray;
     .annotation system Ldalvik/annotation/Throws;
@@ -192,8 +192,8 @@
     move-result v1
 
     .local v1, "length":I
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_8
+    if-ge v0, v1, :cond_1a
 
     .line 447
     iget-object v2, p0, Lcom/google/gson/Gson$5;->val$longAdapter:Lcom/google/gson/TypeAdapter;
@@ -211,12 +211,12 @@
     .line 446
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 449
     .end local v0    # "i":I
     .end local v1    # "length":I
-    :cond_0
+    :cond_1a
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonWriter;->endArray()Lcom/google/gson/stream/JsonWriter;
 
     .line 450

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -27,7 +27,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 7
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -103,11 +103,11 @@
     .line 93
     iget v1, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->indicatorDirection:I
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_2e
 
     const/4 v6, 0x1
 
-    :cond_0
+    :cond_2e
     iput-boolean v6, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->drawHorizontallyInverse:Z
 
     .line 95
@@ -117,17 +117,17 @@
 
 # virtual methods
 .method validateSpec()V
-    .locals 2
+    .registers 3
 
     .line 99
     iget v0, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->indeterminateAnimationType:I
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1f
 
     .line 101
     iget v0, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->trackCornerRadius:I
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_17
 
     .line 107
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;->indicatorColors:[I
@@ -136,12 +136,12 @@
 
     const/4 v1, 0x3
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 110
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Contiguous indeterminate animation must be used with 3 or more indicator colors."
@@ -151,7 +151,7 @@
     throw v0
 
     .line 104
-    :cond_1
+    :cond_17
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Rounded corners are not supported in contiguous indeterminate animation."
@@ -161,7 +161,7 @@
     throw v0
 
     .line 114
-    :cond_2
-    :goto_0
+    :cond_1f
+    :goto_1f
     return-void
 .end method

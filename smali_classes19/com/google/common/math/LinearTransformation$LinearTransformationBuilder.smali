@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(DD)V
-    .locals 0
+    .registers 5
     .param p1, "x1"    # D
     .param p3, "y1"    # D
 
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(DDLcom/google/common/math/LinearTransformation$1;)V
-    .locals 0
+    .registers 6
     .param p1, "x0"    # D
     .param p3, "x1"    # D
     .param p5, "x2"    # Lcom/google/common/math/LinearTransformation$1;
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public and(DD)Lcom/google/common/math/LinearTransformation;
-    .locals 5
+    .registers 10
     .param p1, "x2"    # D
     .param p3, "y2"    # D
 
@@ -67,22 +67,22 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-static {p3, p4}, Lcom/google/common/math/DoubleUtils;->isFinite(D)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 78
@@ -90,21 +90,21 @@
 
     cmpl-double v0, p1, v3
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2d
 
     .line 79
     iget-wide v3, p0, Lcom/google/common/math/LinearTransformation$LinearTransformationBuilder;->y1:D
 
     cmpl-double v0, p3, v3
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_22
     invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 80
@@ -117,7 +117,7 @@
     return-object v0
 
     .line 82
-    :cond_2
+    :cond_2d
     iget-wide v0, p0, Lcom/google/common/math/LinearTransformation$LinearTransformationBuilder;->y1:D
 
     sub-double v0, p3, v0
@@ -136,7 +136,7 @@
 .end method
 
 .method public withSlope(D)Lcom/google/common/math/LinearTransformation;
-    .locals 4
+    .registers 7
     .param p1, "slope"    # D
 
     .line 92
@@ -153,7 +153,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 94
     iget-wide v0, p0, Lcom/google/common/math/LinearTransformation$LinearTransformationBuilder;->y1:D
@@ -174,7 +174,7 @@
 
     .line 97
     .end local v0    # "yIntercept":D
-    :cond_0
+    :cond_1c
     new-instance v0, Lcom/google/common/math/LinearTransformation$VerticalLinearTransformation;
 
     iget-wide v1, p0, Lcom/google/common/math/LinearTransformation$LinearTransformationBuilder;->x1:D

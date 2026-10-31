@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 126
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static doubleQuickSort([I[FII)V
-    .locals 5
+    .registers 9
     .param p0, "key"    # [I
     .param p1, "value"    # [F
     .param p2, "low"    # I
@@ -58,9 +58,9 @@
     aput p2, v0, v2
 
     .line 133
-    :cond_0
-    :goto_0
-    if-lez v1, :cond_1
+    :cond_e
+    :goto_e
+    if-lez v1, :cond_33
 
     .line 134
     add-int/lit8 v1, v1, -0x1
@@ -73,7 +73,7 @@
     aget p3, v0, v1
 
     .line 136
-    if-ge p2, p3, :cond_0
+    if-ge p2, p3, :cond_e
 
     .line 137
     invoke-static {p0, p1, p2, p3}, Landroidx/constraintlayout/core/motion/utils/SplineSet$Sort;->partition([I[FII)I
@@ -115,15 +115,15 @@
 
     .line 142
     .end local v2    # "p":I
-    goto :goto_0
+    goto :goto_e
 
     .line 144
-    :cond_1
+    :cond_33
     return-void
 .end method
 
 .method private static partition([I[FII)I
-    .locals 4
+    .registers 8
     .param p0, "array"    # [I
     .param p1, "value"    # [F
     .param p2, "low"    # I
@@ -141,13 +141,13 @@
     move v2, p2
 
     .local v2, "j":I
-    :goto_0
-    if-ge v2, p3, :cond_1
+    :goto_4
+    if-ge v2, p3, :cond_12
 
     .line 150
     aget v3, p0, v2
 
-    if-gt v3, v0, :cond_0
+    if-gt v3, v0, :cond_f
 
     .line 151
     invoke-static {p0, p1, v1, v2}, Landroidx/constraintlayout/core/motion/utils/SplineSet$Sort;->swap([I[FII)V
@@ -156,14 +156,14 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 149
-    :cond_0
+    :cond_f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 155
     .end local v2    # "j":I
-    :cond_1
+    :cond_12
     invoke-static {p0, p1, v1, p3}, Landroidx/constraintlayout/core/motion/utils/SplineSet$Sort;->swap([I[FII)V
 
     .line 156
@@ -171,7 +171,7 @@
 .end method
 
 .method private static swap([I[FII)V
-    .locals 3
+    .registers 7
     .param p0, "array"    # [I
     .param p1, "value"    # [F
     .param p2, "a"    # I

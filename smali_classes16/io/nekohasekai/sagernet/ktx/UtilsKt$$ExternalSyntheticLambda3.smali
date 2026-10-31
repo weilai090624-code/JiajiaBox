@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-static {p1}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->$r8$lambda$DT1QHt4GQUtsPGKljREPXnfJWx0(Landroid/view/View;)V

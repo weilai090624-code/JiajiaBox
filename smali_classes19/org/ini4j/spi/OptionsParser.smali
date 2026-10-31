@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 34
     const-string v0, ":="
@@ -25,7 +25,7 @@
 .end method
 
 .method public static newInstance()Lorg/ini4j/spi/OptionsParser;
-    .locals 1
+    .registers 1
 
     .line 39
     const-class v0, Lorg/ini4j/spi/OptionsParser;
@@ -40,7 +40,7 @@
 .end method
 
 .method public static newInstance(Lorg/ini4j/Config;)Lorg/ini4j/spi/OptionsParser;
-    .locals 1
+    .registers 2
     .param p0, "config"    # Lorg/ini4j/Config;
 
     .line 44
@@ -57,7 +57,7 @@
 .end method
 
 .method private parse(Lorg/ini4j/spi/IniSource;Lorg/ini4j/spi/OptionsHandler;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Lorg/ini4j/spi/IniSource;
     .param p2, "handler"    # Lorg/ini4j/spi/OptionsHandler;
     .annotation system Ldalvik/annotation/Throws;
@@ -76,8 +76,8 @@
     move-result-object v0
 
     .local v0, "line":Ljava/lang/String;
-    :goto_0
-    if-eqz v0, :cond_0
+    :goto_7
+    if-eqz v0, :cond_15
 
     .line 71
     invoke-virtual {p1}, Lorg/ini4j/spi/IniSource;->getLineNumber()I
@@ -91,11 +91,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_7
 
     .line 74
     .end local v0    # "line":Ljava/lang/String;
-    :cond_0
+    :cond_15
     invoke-interface {p2}, Lorg/ini4j/spi/OptionsHandler;->endOptions()V
 
     .line 75
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public parse(Ljava/io/InputStream;Lorg/ini4j/spi/OptionsHandler;)V
-    .locals 1
+    .registers 4
     .param p1, "input"    # Ljava/io/InputStream;
     .param p2, "handler"    # Lorg/ini4j/spi/OptionsHandler;
     .annotation system Ldalvik/annotation/Throws;
@@ -127,7 +127,7 @@
 .end method
 
 .method public parse(Ljava/io/Reader;Lorg/ini4j/spi/OptionsHandler;)V
-    .locals 1
+    .registers 4
     .param p1, "input"    # Ljava/io/Reader;
     .param p2, "handler"    # Lorg/ini4j/spi/OptionsHandler;
     .annotation system Ldalvik/annotation/Throws;
@@ -149,7 +149,7 @@
 .end method
 
 .method public parse(Ljava/net/URL;Lorg/ini4j/spi/OptionsHandler;)V
-    .locals 1
+    .registers 4
     .param p1, "input"    # Ljava/net/URL;
     .param p2, "handler"    # Lorg/ini4j/spi/OptionsHandler;
     .annotation system Ldalvik/annotation/Throws;

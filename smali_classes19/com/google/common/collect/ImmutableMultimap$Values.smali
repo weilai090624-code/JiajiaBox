@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMultimap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -85,7 +85,7 @@
 .end method
 
 .method copyIntoArray([Ljava/lang/Object;I)I
-    .locals 2
+    .registers 5
     .param p1, "dst"    # [Ljava/lang/Object;
     .param p2, "offset"    # I
 
@@ -103,12 +103,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -124,15 +124,15 @@
 
     .line 737
     .end local v1    # "valueCollection":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<TV;>;"
-    goto :goto_0
+    goto :goto_c
 
     .line 738
-    :cond_0
+    :cond_1d
     return p2
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 748
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Values;, "Lcom/google/common/collect/ImmutableMultimap$Values<TK;TV;>;"
@@ -142,7 +142,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -163,7 +163,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 715
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Values;, "Lcom/google/common/collect/ImmutableMultimap$Values<TK;TV;>;"
@@ -175,7 +175,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 743
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Values;, "Lcom/google/common/collect/ImmutableMultimap$Values<TK;TV;>;"

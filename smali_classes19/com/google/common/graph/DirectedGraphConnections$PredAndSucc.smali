@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "successorValue"    # Ljava/lang/Object;
 
     .line 62
@@ -34,7 +34,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
 
     .line 59

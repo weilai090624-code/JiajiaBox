@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "event"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +57,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Object;Ljava/util/Iterator;Lcom/google/common/eventbus/Dispatcher$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/lang/Object;
     .param p2, "x1"    # Ljava/util/Iterator;
     .param p3, "x2"    # Lcom/google/common/eventbus/Dispatcher$1;
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;
 
     .line 119
@@ -79,7 +79,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;
 
     .line 119

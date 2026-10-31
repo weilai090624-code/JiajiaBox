@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/RegularImmutableMultiset;)V
-    .locals 0
+    .registers 2
 
     .line 75
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>.ElementSet;"
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/RegularImmutableMultiset;Lcom/google/common/collect/RegularImmutableMultiset$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/RegularImmutableMultiset;
     .param p2, "x1"    # Lcom/google/common/collect/RegularImmutableMultiset$1;
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -71,7 +71,7 @@
 .end method
 
 .method get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -93,7 +93,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 89
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>.ElementSet;"
@@ -103,7 +103,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 94
     .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>.ElementSet;"

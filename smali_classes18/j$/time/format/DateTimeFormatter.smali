@@ -89,7 +89,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetresolverFields(Lj$/time/format/DateTimeFormatter;)Ljava/util/Set;
-    .locals 0
+    .registers 1
 
     iget-object p0, p0, Lj$/time/format/DateTimeFormatter;->resolverFields:Ljava/util/Set;
 
@@ -97,7 +97,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$fgetresolverStyle(Lj$/time/format/DateTimeFormatter;)Lj$/time/format/ResolverStyle;
-    .locals 0
+    .registers 1
 
     iget-object p0, p0, Lj$/time/format/DateTimeFormatter;->resolverStyle:Lj$/time/format/ResolverStyle;
 
@@ -105,7 +105,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$mparseResolved0(Lj$/time/format/DateTimeFormatter;Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/temporal/TemporalAccessor;
-    .locals 0
+    .registers 3
 
     invoke-direct {p0, p1, p2}, Lj$/time/format/DateTimeFormatter;->parseResolved0(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/temporal/TemporalAccessor;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$mparseUnresolved0(Lj$/time/format/DateTimeFormatter;Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/format/DateTimeParseContext;
-    .locals 0
+    .registers 3
 
     invoke-direct {p0, p1, p2}, Lj$/time/format/DateTimeFormatter;->parseUnresolved0(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/format/DateTimeParseContext;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 14
+    .registers 14
 
     .line 740
     new-instance v0, Lj$/time/format/DateTimeFormatterBuilder;
@@ -1143,7 +1143,7 @@
 .end method
 
 .method constructor <init>(Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;Ljava/util/Locale;Lj$/time/format/DecimalStyle;Lj$/time/format/ResolverStyle;Ljava/util/Set;Lj$/time/chrono/Chronology;Lj$/time/ZoneId;)V
-    .locals 1
+    .registers 9
     .param p1, "printerParser"    # Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;
     .param p2, "locale"    # Ljava/util/Locale;
     .param p3, "decimalStyle"    # Lj$/time/format/DecimalStyle;
@@ -1228,7 +1228,7 @@
 .end method
 
 .method private createError(Ljava/lang/CharSequence;Ljava/lang/RuntimeException;)Lj$/time/format/DateTimeParseException;
-    .locals 6
+    .registers 9
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "ex"    # Ljava/lang/RuntimeException;
 
@@ -1241,7 +1241,7 @@
 
     const/16 v2, 0x40
 
-    if-le v0, v2, :cond_0
+    if-le v0, v2, :cond_25
 
     .line 1966
     invoke-interface {p1, v1, v2}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -1271,18 +1271,18 @@
     move-result-object v0
 
     .local v0, "abbr":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_29
 
     .line 1968
     .end local v0    # "abbr":Ljava/lang/String;
-    :cond_0
+    :cond_25
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 1970
     .restart local v0    # "abbr":Ljava/lang/String;
-    :goto_0
+    :goto_29
     new-instance v2, Lj$/time/format/DateTimeParseException;
 
     invoke-virtual {p2}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
@@ -1323,13 +1323,13 @@
 .end method
 
 .method static synthetic lambda$static$0(Lj$/time/temporal/TemporalAccessor;)Lj$/time/Period;
-    .locals 1
+    .registers 2
     .param p0, "t"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 1354
     instance-of v0, p0, Lj$/time/format/Parsed;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 1355
     move-object v0, p0
@@ -1341,20 +1341,20 @@
     return-object v0
 
     .line 1357
-    :cond_0
+    :cond_a
     sget-object v0, Lj$/time/Period;->ZERO:Lj$/time/Period;
 
     return-object v0
 .end method
 
 .method static synthetic lambda$static$1(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
     .param p0, "t"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 1395
     instance-of v0, p0, Lj$/time/format/Parsed;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 1396
     move-object v0, p0
@@ -1370,14 +1370,14 @@
     return-object v0
 
     .line 1398
-    :cond_0
+    :cond_e
     sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     return-object v0
 .end method
 
 .method public static ofLocalizedDate(Lj$/time/format/FormatStyle;)Lj$/time/format/DateTimeFormatter;
-    .locals 3
+    .registers 4
     .param p0, "dateStyle"    # Lj$/time/format/FormatStyle;
 
     .line 614
@@ -1410,7 +1410,7 @@
 .end method
 
 .method public static ofLocalizedDateTime(Lj$/time/format/FormatStyle;)Lj$/time/format/DateTimeFormatter;
-    .locals 3
+    .registers 4
     .param p0, "dateTimeStyle"    # Lj$/time/format/FormatStyle;
 
     .line 676
@@ -1441,7 +1441,7 @@
 .end method
 
 .method public static ofLocalizedDateTime(Lj$/time/format/FormatStyle;Lj$/time/format/FormatStyle;)Lj$/time/format/DateTimeFormatter;
-    .locals 3
+    .registers 5
     .param p0, "dateStyle"    # Lj$/time/format/FormatStyle;
     .param p1, "timeStyle"    # Lj$/time/format/FormatStyle;
 
@@ -1478,7 +1478,7 @@
 .end method
 
 .method public static ofLocalizedTime(Lj$/time/format/FormatStyle;)Lj$/time/format/DateTimeFormatter;
-    .locals 3
+    .registers 4
     .param p0, "timeStyle"    # Lj$/time/format/FormatStyle;
 
     .line 645
@@ -1511,7 +1511,7 @@
 .end method
 
 .method public static ofPattern(Ljava/lang/String;)Lj$/time/format/DateTimeFormatter;
-    .locals 1
+    .registers 2
     .param p0, "pattern"    # Ljava/lang/String;
 
     .line 563
@@ -1531,7 +1531,7 @@
 .end method
 
 .method public static ofPattern(Ljava/lang/String;Ljava/util/Locale;)Lj$/time/format/DateTimeFormatter;
-    .locals 1
+    .registers 3
     .param p0, "pattern"    # Ljava/lang/String;
     .param p1, "locale"    # Ljava/util/Locale;
 
@@ -1552,42 +1552,42 @@
 .end method
 
 .method private parseResolved0(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/temporal/TemporalAccessor;
-    .locals 7
+    .registers 10
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "position"    # Ljava/text/ParsePosition;
 
     .line 1988
     const/4 v0, 0x0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_5
     new-instance v1, Ljava/text/ParsePosition;
 
     invoke-direct {v1, v0}, Ljava/text/ParsePosition;-><init>(I)V
 
     .line 1989
     .local v1, "pos":Ljava/text/ParsePosition;
-    :goto_0
+    :goto_a
     invoke-direct {p0, p1, v1}, Lj$/time/format/DateTimeFormatter;->parseUnresolved0(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/format/DateTimeParseContext;
 
     move-result-object v2
 
     .line 1990
     .local v2, "context":Lj$/time/format/DateTimeParseContext;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2c
 
     invoke-virtual {v1}, Ljava/text/ParsePosition;->getErrorIndex()I
 
     move-result v3
 
-    if-gez v3, :cond_2
+    if-gez v3, :cond_2c
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_23
 
     invoke-virtual {v1}, Ljava/text/ParsePosition;->getIndex()I
 
@@ -1597,12 +1597,12 @@
 
     move-result v4
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_23
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 2005
-    :cond_1
+    :cond_23
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter;->resolverStyle:Lj$/time/format/ResolverStyle;
 
     iget-object v3, p0, Lj$/time/format/DateTimeFormatter;->resolverFields:Ljava/util/Set;
@@ -1614,15 +1614,15 @@
     return-object v0
 
     .line 1992
-    :cond_2
-    :goto_1
+    :cond_2c
+    :goto_2c
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
     const/16 v4, 0x40
 
-    if-le v3, v4, :cond_3
+    if-le v3, v4, :cond_50
 
     .line 1993
     invoke-interface {p1, v0, v4}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -1652,25 +1652,25 @@
     move-result-object v0
 
     .local v0, "abbr":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_54
 
     .line 1995
     .end local v0    # "abbr":Ljava/lang/String;
-    :cond_3
+    :cond_50
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 1997
     .restart local v0    # "abbr":Ljava/lang/String;
-    :goto_2
+    :goto_54
     invoke-virtual {v1}, Ljava/text/ParsePosition;->getErrorIndex()I
 
     move-result v3
 
     const-string v4, "Text \'"
 
-    if-ltz v3, :cond_4
+    if-ltz v3, :cond_85
 
     .line 1998
     new-instance v3, Lj$/time/format/DateTimeParseException;
@@ -1715,7 +1715,7 @@
     throw v3
 
     .line 2001
-    :cond_4
+    :cond_85
     new-instance v3, Lj$/time/format/DateTimeParseException;
 
     .line 2002
@@ -1759,7 +1759,7 @@
 .end method
 
 .method private parseUnresolved0(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/format/DateTimeParseContext;
-    .locals 3
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "position"    # Ljava/text/ParsePosition;
 
@@ -1793,7 +1793,7 @@
     move-result v1
 
     .line 2061
-    if-gez v1, :cond_0
+    if-gez v1, :cond_21
 
     .line 2062
     not-int v2, v1
@@ -1806,7 +1806,7 @@
     return-object v2
 
     .line 2065
-    :cond_0
+    :cond_21
     invoke-virtual {p2, v1}, Ljava/text/ParsePosition;->setIndex(I)V
 
     .line 2066
@@ -1814,7 +1814,7 @@
 .end method
 
 .method public static final parsedExcessDays()Lj$/time/temporal/TemporalQuery;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1831,7 +1831,7 @@
 .end method
 
 .method public static final parsedLeapSecond()Lj$/time/temporal/TemporalQuery;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1850,7 +1850,7 @@
 
 # virtual methods
 .method public format(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 1769
@@ -1873,7 +1873,7 @@
 .end method
 
 .method public formatTo(Lj$/time/temporal/TemporalAccessor;Ljava/lang/Appendable;)V
-    .locals 3
+    .registers 6
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
     .param p2, "appendable"    # Ljava/lang/Appendable;
 
@@ -1888,7 +1888,7 @@
     invoke-static {p2, v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1794
-    :try_start_0
+    :try_start_a
     new-instance v0, Lj$/time/format/DateTimePrintContext;
 
     invoke-direct {v0, p1, p0}, Lj$/time/format/DateTimePrintContext;-><init>(Lj$/time/temporal/TemporalAccessor;Lj$/time/format/DateTimeFormatter;)V
@@ -1897,7 +1897,7 @@
     .local v0, "context":Lj$/time/format/DateTimePrintContext;
     instance-of v1, p2, Ljava/lang/StringBuilder;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 1796
     iget-object v1, p0, Lj$/time/format/DateTimeFormatter;->printerParser:Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;
@@ -1908,10 +1908,10 @@
 
     invoke-virtual {v1, v0, v2}, Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;->format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 1799
-    :cond_0
+    :cond_1c
     new-instance v1, Ljava/lang/StringBuilder;
 
     const/16 v2, 0x20
@@ -1926,20 +1926,20 @@
 
     .line 1801
     invoke-interface {p2, v1}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_2b} :catch_2d
 
     .line 1805
     .end local v0    # "context":Lj$/time/format/DateTimePrintContext;
     .end local v1    # "buf":Ljava/lang/StringBuilder;
-    :goto_0
+    :goto_2b
     nop
 
     .line 1806
     return-void
 
     .line 1803
-    :catch_0
+    :catch_2d
     move-exception v0
 
     .line 1804
@@ -1956,7 +1956,7 @@
 .end method
 
 .method public getChronology()Lj$/time/chrono/Chronology;
-    .locals 1
+    .registers 2
 
     .line 1501
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter;->chrono:Lj$/time/chrono/Chronology;
@@ -1965,7 +1965,7 @@
 .end method
 
 .method public getDecimalStyle()Lj$/time/format/DecimalStyle;
-    .locals 1
+    .registers 2
 
     .line 1472
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter;->decimalStyle:Lj$/time/format/DecimalStyle;
@@ -1974,7 +1974,7 @@
 .end method
 
 .method public getLocale()Ljava/util/Locale;
-    .locals 1
+    .registers 2
 
     .line 1437
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter;->locale:Ljava/util/Locale;
@@ -1983,7 +1983,7 @@
 .end method
 
 .method public getResolverFields()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2000,7 +2000,7 @@
 .end method
 
 .method public getResolverStyle()Lj$/time/format/ResolverStyle;
-    .locals 1
+    .registers 2
 
     .line 1613
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter;->resolverStyle:Lj$/time/format/ResolverStyle;
@@ -2009,7 +2009,7 @@
 .end method
 
 .method public getZone()Lj$/time/ZoneId;
-    .locals 1
+    .registers 2
 
     .line 1555
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter;->zone:Lj$/time/ZoneId;
@@ -2018,7 +2018,7 @@
 .end method
 
 .method public parse(Ljava/lang/CharSequence;)Lj$/time/temporal/TemporalAccessor;
-    .locals 2
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .line 1825
@@ -2029,18 +2029,18 @@
     .line 1827
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_6
     invoke-direct {p0, p1, v0}, Lj$/time/format/DateTimeFormatter;->parseResolved0(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/temporal/TemporalAccessor;
 
     move-result-object v0
-    :try_end_0
-    .catch Lj$/time/format/DateTimeParseException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Lj$/time/format/DateTimeParseException; {:try_start_6 .. :try_end_a} :catch_11
+    .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_a} :catch_b
 
     return-object v0
 
     .line 1830
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 1831
@@ -2053,7 +2053,7 @@
 
     .line 1828
     .end local v0    # "ex":Ljava/lang/RuntimeException;
-    :catch_1
+    :catch_11
     move-exception v0
 
     .line 1829
@@ -2062,7 +2062,7 @@
 .end method
 
 .method public parse(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/temporal/TemporalAccessor;
-    .locals 2
+    .registers 5
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "position"    # Ljava/text/ParsePosition;
 
@@ -2077,19 +2077,19 @@
     invoke-static {p2, v0}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1869
-    :try_start_0
+    :try_start_a
     invoke-direct {p0, p1, p2}, Lj$/time/format/DateTimeFormatter;->parseResolved0(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/temporal/TemporalAccessor;
 
     move-result-object v0
-    :try_end_0
-    .catch Lj$/time/format/DateTimeParseException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Lj$/time/format/DateTimeParseException; {:try_start_a .. :try_end_e} :catch_17
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_a .. :try_end_e} :catch_15
+    .catch Ljava/lang/RuntimeException; {:try_start_a .. :try_end_e} :catch_f
 
     return-object v0
 
     .line 1872
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 1873
@@ -2102,22 +2102,22 @@
 
     .line 1870
     .end local v0    # "ex":Ljava/lang/RuntimeException;
-    :catch_1
+    :catch_15
     move-exception v0
 
-    goto :goto_0
+    goto :goto_18
 
-    :catch_2
+    :catch_17
     move-exception v0
 
     .line 1871
     .restart local v0    # "ex":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_18
     throw v0
 .end method
 
 .method public parse(Ljava/lang/CharSequence;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "text"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2144,7 +2144,7 @@
     .line 1901
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_b
     invoke-direct {p0, p1, v0}, Lj$/time/format/DateTimeFormatter;->parseResolved0(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/temporal/TemporalAccessor;
 
     move-result-object v0
@@ -2152,14 +2152,14 @@
     invoke-interface {v0, p2}, Lj$/time/temporal/TemporalAccessor;->query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Lj$/time/format/DateTimeParseException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Lj$/time/format/DateTimeParseException; {:try_start_b .. :try_end_13} :catch_1a
+    .catch Ljava/lang/RuntimeException; {:try_start_b .. :try_end_13} :catch_14
 
     return-object v0
 
     .line 1904
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 1905
@@ -2172,7 +2172,7 @@
 
     .line 1902
     .end local v0    # "ex":Ljava/lang/RuntimeException;
-    :catch_1
+    :catch_1a
     move-exception v0
 
     .line 1903
@@ -2181,7 +2181,7 @@
 .end method
 
 .method public varargs parseBest(Ljava/lang/CharSequence;[Lj$/time/temporal/TemporalQuery;)Lj$/time/temporal/TemporalAccessor;
-    .locals 5
+    .registers 8
     .param p1, "text"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2210,12 +2210,12 @@
 
     const/4 v1, 0x2
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_34
 
     .line 1947
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_f
     invoke-direct {p0, p1, v0}, Lj$/time/format/DateTimeFormatter;->parseResolved0(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/temporal/TemporalAccessor;
 
     move-result-object v0
@@ -2226,41 +2226,41 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_15
+    if-ge v2, v1, :cond_24
 
     aget-object v3, p2, v2
-    :try_end_0
-    .catch Lj$/time/format/DateTimeParseException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_19
+    .catch Lj$/time/format/DateTimeParseException; {:try_start_f .. :try_end_19} :catch_32
+    .catch Ljava/lang/RuntimeException; {:try_start_f .. :try_end_19} :catch_2c
 
     .line 1950
     .local v3, "query":Lj$/time/temporal/TemporalQuery;, "Ljava/time/temporal/TemporalQuery<*>;"
-    :try_start_1
+    :try_start_19
     invoke-interface {v0, v3}, Lj$/time/temporal/TemporalAccessor;->query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Lj$/time/temporal/TemporalAccessor;
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Lj$/time/format/DateTimeParseException; {:try_start_1 .. :try_end_1} :catch_2
+    :try_end_1f
+    .catch Ljava/lang/RuntimeException; {:try_start_19 .. :try_end_1f} :catch_20
+    .catch Lj$/time/format/DateTimeParseException; {:try_start_19 .. :try_end_1f} :catch_32
 
     return-object v4
 
     .line 1951
-    :catch_0
+    :catch_20
     move-exception v4
 
     .line 1948
     .end local v3    # "query":Lj$/time/temporal/TemporalQuery;, "Ljava/time/temporal/TemporalQuery<*>;"
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 1955
-    :cond_0
-    :try_start_2
+    :cond_24
+    :try_start_24
     new-instance v1, Lj$/time/DateTimeException;
 
     const-string v2, "Unable to convert parsed text using any of the specified queries"
@@ -2270,15 +2270,15 @@
     .end local p1    # "text":Ljava/lang/CharSequence;
     .end local p2    # "queries":[Lj$/time/temporal/TemporalQuery;, "[Ljava/time/temporal/TemporalQuery<*>;"
     throw v1
-    :try_end_2
-    .catch Lj$/time/format/DateTimeParseException; {:try_start_2 .. :try_end_2} :catch_2
-    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_2c
+    .catch Lj$/time/format/DateTimeParseException; {:try_start_24 .. :try_end_2c} :catch_32
+    .catch Ljava/lang/RuntimeException; {:try_start_24 .. :try_end_2c} :catch_2c
 
     .line 1958
     .end local v0    # "resolved":Lj$/time/temporal/TemporalAccessor;
     .restart local p1    # "text":Ljava/lang/CharSequence;
     .restart local p2    # "queries":[Lj$/time/temporal/TemporalQuery;, "[Ljava/time/temporal/TemporalQuery<*>;"
-    :catch_1
+    :catch_2c
     move-exception v0
 
     .line 1959
@@ -2291,7 +2291,7 @@
 
     .line 1956
     .end local v0    # "ex":Ljava/lang/RuntimeException;
-    :catch_2
+    :catch_32
     move-exception v0
 
     .line 1957
@@ -2300,7 +2300,7 @@
 
     .line 1944
     .end local v0    # "ex":Lj$/time/format/DateTimeParseException;
-    :cond_1
+    :cond_34
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "At least two queries must be specified"
@@ -2311,7 +2311,7 @@
 .end method
 
 .method public parseUnresolved(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Lj$/time/temporal/TemporalAccessor;
-    .locals 2
+    .registers 5
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "position"    # Ljava/text/ParsePosition;
 
@@ -2322,7 +2322,7 @@
 
     .line 2049
     .local v0, "context":Lj$/time/format/DateTimeParseContext;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 2050
     const/4 v1, 0x0
@@ -2330,7 +2330,7 @@
     return-object v1
 
     .line 2052
-    :cond_0
+    :cond_8
     invoke-virtual {v0}, Lj$/time/format/DateTimeParseContext;->toUnresolved()Lj$/time/format/Parsed;
 
     move-result-object v1
@@ -2339,7 +2339,7 @@
 .end method
 
 .method public toFormat()Ljava/text/Format;
-    .locals 2
+    .registers 3
 
     .line 2094
     new-instance v0, Lj$/time/format/DateTimeFormatter$ClassicFormat;
@@ -2352,7 +2352,7 @@
 .end method
 
 .method public toFormat(Lj$/time/temporal/TemporalQuery;)Ljava/text/Format;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2377,7 +2377,7 @@
 .end method
 
 .method toPrinterParser(Z)Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;
-    .locals 1
+    .registers 3
     .param p1, "optional"    # Z
 
     .line 2077
@@ -2391,7 +2391,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 2126
     iget-object v0, p0, Lj$/time/format/DateTimeFormatter;->printerParser:Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;
@@ -2408,13 +2408,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_10
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -2427,7 +2427,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1a
     move-object v0, v1
 
     .line 2128
@@ -2435,7 +2435,7 @@
 .end method
 
 .method public withChronology(Lj$/time/chrono/Chronology;)Lj$/time/format/DateTimeFormatter;
-    .locals 9
+    .registers 11
     .param p1, "chrono"    # Lj$/time/chrono/Chronology;
 
     .line 1538
@@ -2445,13 +2445,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1539
     return-object p0
 
     .line 1541
-    :cond_0
+    :cond_9
     new-instance v0, Lj$/time/format/DateTimeFormatter;
 
     iget-object v2, p0, Lj$/time/format/DateTimeFormatter;->printerParser:Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;
@@ -2476,7 +2476,7 @@
 .end method
 
 .method public withDecimalStyle(Lj$/time/format/DecimalStyle;)Lj$/time/format/DateTimeFormatter;
-    .locals 9
+    .registers 11
     .param p1, "decimalStyle"    # Lj$/time/format/DecimalStyle;
 
     .line 1484
@@ -2486,13 +2486,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1485
     return-object p0
 
     .line 1487
-    :cond_0
+    :cond_9
     new-instance v0, Lj$/time/format/DateTimeFormatter;
 
     iget-object v2, p0, Lj$/time/format/DateTimeFormatter;->printerParser:Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;
@@ -2517,7 +2517,7 @@
 .end method
 
 .method public withLocale(Ljava/util/Locale;)Lj$/time/format/DateTimeFormatter;
-    .locals 9
+    .registers 11
     .param p1, "locale"    # Ljava/util/Locale;
 
     .line 1459
@@ -2527,13 +2527,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1460
     return-object p0
 
     .line 1462
-    :cond_0
+    :cond_9
     new-instance v0, Lj$/time/format/DateTimeFormatter;
 
     iget-object v2, p0, Lj$/time/format/DateTimeFormatter;->printerParser:Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;
@@ -2558,7 +2558,7 @@
 .end method
 
 .method public withResolverFields(Ljava/util/Set;)Lj$/time/format/DateTimeFormatter;
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2577,14 +2577,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1750
     return-object p0
 
     .line 1752
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_9
+    if-eqz p1, :cond_14
 
     .line 1753
     new-instance v0, Ljava/util/HashSet;
@@ -2596,7 +2596,7 @@
     move-result-object p1
 
     .line 1755
-    :cond_1
+    :cond_14
     new-instance v8, Lj$/time/format/DateTimeFormatter;
 
     iget-object v1, p0, Lj$/time/format/DateTimeFormatter;->printerParser:Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;
@@ -2621,7 +2621,7 @@
 .end method
 
 .method public varargs withResolverFields([Lj$/time/temporal/TemporalField;)Lj$/time/format/DateTimeFormatter;
-    .locals 10
+    .registers 12
     .param p1, "resolverFields"    # [Lj$/time/temporal/TemporalField;
 
     .line 1698
@@ -2629,7 +2629,7 @@
 
     .line 1699
     .local v0, "fields":Ljava/util/Set;, "Ljava/util/Set<Ljava/time/temporal/TemporalField;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     .line 1701
     new-instance v1, Ljava/util/HashSet;
@@ -2645,20 +2645,20 @@
     move-result-object v0
 
     .line 1703
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lj$/time/format/DateTimeFormatter;->resolverFields:Ljava/util/Set;
 
     invoke-static {v1, v0}, Lj$/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     .line 1704
     return-object p0
 
     .line 1706
-    :cond_1
+    :cond_19
     new-instance v9, Lj$/time/format/DateTimeFormatter;
 
     iget-object v2, p0, Lj$/time/format/DateTimeFormatter;->printerParser:Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;
@@ -2683,7 +2683,7 @@
 .end method
 
 .method public withResolverStyle(Lj$/time/format/ResolverStyle;)Lj$/time/format/DateTimeFormatter;
-    .locals 9
+    .registers 11
     .param p1, "resolverStyle"    # Lj$/time/format/ResolverStyle;
 
     .line 1636
@@ -2698,13 +2698,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 1638
     return-object p0
 
     .line 1640
-    :cond_0
+    :cond_e
     new-instance v0, Lj$/time/format/DateTimeFormatter;
 
     iget-object v2, p0, Lj$/time/format/DateTimeFormatter;->printerParser:Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;
@@ -2729,7 +2729,7 @@
 .end method
 
 .method public withZone(Lj$/time/ZoneId;)Lj$/time/format/DateTimeFormatter;
-    .locals 9
+    .registers 11
     .param p1, "zone"    # Lj$/time/ZoneId;
 
     .line 1595
@@ -2739,13 +2739,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1596
     return-object p0
 
     .line 1598
-    :cond_0
+    :cond_9
     new-instance v0, Lj$/time/format/DateTimeFormatter;
 
     iget-object v2, p0, Lj$/time/format/DateTimeFormatter;->printerParser:Lj$/time/format/DateTimeFormatterBuilder$CompositePrinterParser;

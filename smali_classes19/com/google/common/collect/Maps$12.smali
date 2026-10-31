@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map$Entry;Lcom/google/common/collect/Maps$EntryTransformer;)V
-    .locals 0
+    .registers 3
 
     .line 2014
     iput-object p1, p0, Lcom/google/common/collect/Maps$12;->val$entry:Ljava/util/Map$Entry;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 

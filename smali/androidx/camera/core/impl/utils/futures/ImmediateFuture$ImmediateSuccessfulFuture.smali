@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 98
     new-instance v0, Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateSuccessfulFuture;
@@ -63,7 +63,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -109,7 +109,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 118
     .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateSuccessfulFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateSuccessfulFuture<TV;>;"

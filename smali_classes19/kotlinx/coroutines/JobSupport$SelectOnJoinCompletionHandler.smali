@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/JobSupport;Lkotlinx/coroutines/selects/SelectInstance;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lkotlinx/coroutines/JobSupport;
     .param p2, "select"    # Lkotlinx/coroutines/selects/SelectInstance;
     .annotation system Ldalvik/annotation/Signature;
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 581
@@ -97,7 +97,7 @@
 .end method
 
 .method public invoke(Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 585

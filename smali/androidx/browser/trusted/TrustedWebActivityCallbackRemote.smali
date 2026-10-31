@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/support/customtabs/trusted/ITrustedWebActivityCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "callbackBinder"    # Landroid/support/customtabs/trusted/ITrustedWebActivityCallback;
 
     .line 34
@@ -23,36 +23,36 @@
 .end method
 
 .method static fromBinder(Landroid/os/IBinder;)Landroidx/browser/trusted/TrustedWebActivityCallbackRemote;
-    .locals 2
+    .registers 3
     .param p0, "binder"    # Landroid/os/IBinder;
 
     .line 43
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_9
 
     .line 44
-    :cond_0
+    :cond_5
     invoke-static {p0}, Landroid/support/customtabs/trusted/ITrustedWebActivityCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/support/customtabs/trusted/ITrustedWebActivityCallback;
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     nop
 
     .line 45
     .local v1, "callbackBinder":Landroid/support/customtabs/trusted/ITrustedWebActivityCallback;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_d
 
     .line 46
     return-object v0
 
     .line 48
-    :cond_1
+    :cond_d
     new-instance v0, Landroidx/browser/trusted/TrustedWebActivityCallbackRemote;
 
     invoke-direct {v0, v1}, Landroidx/browser/trusted/TrustedWebActivityCallbackRemote;-><init>(Landroid/support/customtabs/trusted/ITrustedWebActivityCallback;)V
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public runExtraCallback(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
     .param p1, "callbackName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;

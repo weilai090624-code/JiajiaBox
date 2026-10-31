@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokhttp3/internal/http/ExchangeCodec$Companion;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

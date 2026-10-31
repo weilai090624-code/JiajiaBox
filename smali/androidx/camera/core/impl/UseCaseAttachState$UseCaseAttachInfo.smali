@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/SessionConfig;)V
-    .locals 1
+    .registers 3
     .param p1, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method getActive()Z
-    .locals 1
+    .registers 2
 
     .line 255
     iget-boolean v0, p0, Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;->mActive:Z
@@ -65,7 +65,7 @@
 .end method
 
 .method getAttached()Z
-    .locals 1
+    .registers 2
 
     .line 247
     iget-boolean v0, p0, Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;->mAttached:Z
@@ -74,7 +74,7 @@
 .end method
 
 .method getSessionConfig()Landroidx/camera/core/impl/SessionConfig;
-    .locals 1
+    .registers 2
 
     .line 243
     iget-object v0, p0, Landroidx/camera/core/impl/UseCaseAttachState$UseCaseAttachInfo;->mSessionConfig:Landroidx/camera/core/impl/SessionConfig;
@@ -83,7 +83,7 @@
 .end method
 
 .method setActive(Z)V
-    .locals 0
+    .registers 2
     .param p1, "active"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -102,7 +102,7 @@
 .end method
 
 .method setAttached(Z)V
-    .locals 0
+    .registers 2
     .param p1, "attached"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/sqlite/db/SupportSQLiteQuery;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase$query$cursorFactory$1;->$query:Landroidx/sqlite/db/SupportSQLiteQuery;
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final invoke(Landroid/database/sqlite/SQLiteDatabase;Landroid/database/sqlite/SQLiteCursorDriver;Ljava/lang/String;Landroid/database/sqlite/SQLiteQuery;)Landroid/database/sqlite/SQLiteCursor;
-    .locals 2
+    .registers 7
     .param p2, "masterQuery"    # Landroid/database/sqlite/SQLiteCursorDriver;
     .param p3, "editTable"    # Ljava/lang/String;
     .param p4, "sqLiteQuery"    # Landroid/database/sqlite/SQLiteQuery;
@@ -111,7 +111,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 9
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
     .param p3, "p3"    # Ljava/lang/Object;

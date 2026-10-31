@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final synchronized(Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "lock"    # Ljava/lang/Object;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -62,12 +62,12 @@
     .local v1, "$i$f$synchronizedImpl":I
     monitor-enter p0
 
-    :try_start_0
+    :try_start_4
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_4 .. :try_end_8} :catchall_a
 
     monitor-exit p0
 
@@ -77,7 +77,7 @@
 
     .line 34
     .restart local v1    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_a
     move-exception v2
 
     monitor-exit p0

@@ -185,7 +185,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/navigation/NavDestination$Companion;
 
@@ -208,7 +208,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/navigation/Navigator;)V
-    .locals 2
+    .registers 4
     .param p1, "navigator"    # Landroidx/navigation/Navigator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -248,7 +248,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "navigatorName"    # Ljava/lang/String;
 
     const-string v0, "navigatorName"
@@ -291,7 +291,7 @@
 .end method
 
 .method public static final synthetic access$getClasses$cp()Ljava/util/Map;
-    .locals 1
+    .registers 1
 
     .line 50
     sget-object v0, Landroidx/navigation/NavDestination;->classes:Ljava/util/Map;
@@ -300,25 +300,25 @@
 .end method
 
 .method public static synthetic buildDeepLinkIds$default(Landroidx/navigation/NavDestination;Landroidx/navigation/NavDestination;ILjava/lang/Object;)[I
-    .locals 0
+    .registers 4
 
     .line 377
-    if-nez p3, :cond_1
+    if-nez p3, :cond_c
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1}, Landroidx/navigation/NavDestination;->buildDeepLinkIds(Landroidx/navigation/NavDestination;)[I
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
+    :cond_c
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: buildDeepLinkIds"
@@ -329,7 +329,7 @@
 .end method
 
 .method public static final getDisplayName(Landroid/content/Context;I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -343,7 +343,7 @@
 .end method
 
 .method public static final getHierarchy(Landroidx/navigation/NavDestination;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -365,7 +365,7 @@
 .end method
 
 .method protected static final parseClassFromName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C:",
@@ -393,7 +393,7 @@
 .end method
 
 .method public static final parseClassFromNameInternal(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C:",
@@ -423,7 +423,7 @@
 
 # virtual methods
 .method public final addArgument(Ljava/lang/String;Landroidx/navigation/NavArgument;)V
-    .locals 1
+    .registers 4
     .param p1, "argumentName"    # Ljava/lang/String;
     .param p2, "argument"    # Landroidx/navigation/NavArgument;
 
@@ -445,7 +445,7 @@
 .end method
 
 .method public final addDeepLink(Landroidx/navigation/NavDeepLink;)V
-    .locals 10
+    .registers 12
     .param p1, "navDeepLink"    # Landroidx/navigation/NavDeepLink;
 
     const-string v0, "navDeepLink"
@@ -476,13 +476,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_17
+    :goto_17
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_47
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -507,25 +507,25 @@
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_38
 
     invoke-virtual {v5}, Landroidx/navigation/NavArgument;->isDefaultValuePresent()Z
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_38
 
     const/4 v7, 0x1
 
-    goto :goto_1
+    goto :goto_39
 
-    :cond_1
+    :cond_38
     const/4 v7, 0x0
 
     .end local v5    # "it":Landroidx/navigation/NavArgument;
     .end local v6    # "$i$a$-filterValues-NavDestination$addDeepLink$missingRequiredArguments$1":I
-    :goto_1
-    if-eqz v7, :cond_0
+    :goto_39
+    if-eqz v7, :cond_17
 
     .line 692
     invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -538,11 +538,11 @@
 
     invoke-virtual {v2, v5, v6}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_17
 
     .line 695
     .end local v4    # "entry$iv":Ljava/util/Map$Entry;
-    :cond_2
+    :cond_47
     move-object v0, v2
 
     check-cast v0, Ljava/util/Map;
@@ -583,13 +583,13 @@
 
     move-result-object v5
 
-    :cond_3
-    :goto_2
+    :cond_5f
+    :goto_5f
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_7b
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -615,15 +615,15 @@
 
     .end local v7    # "it":Ljava/lang/String;
     .end local v8    # "$i$a$-filter-NavDestination$addDeepLink$missingRequiredArguments$2":I
-    if-nez v9, :cond_3
+    if-nez v9, :cond_5f
 
     invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_5f
 
     .line 698
     .end local v6    # "element$iv$iv":Ljava/lang/Object;
-    :cond_4
+    :cond_7b
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -648,7 +648,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_8d
 
     .line 327
     iget-object v1, p0, Landroidx/navigation/NavDestination;->deepLinks:Ljava/util/List;
@@ -659,7 +659,7 @@
     return-void
 
     .line 322
-    :cond_5
+    :cond_8d
     const/4 v1, 0x0
 
     .line 323
@@ -724,7 +724,7 @@
 .end method
 
 .method public final addDeepLink(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "uriPattern"    # Ljava/lang/String;
 
     const-string/jumbo v0, "uriPattern"
@@ -751,35 +751,35 @@
 .end method
 
 .method public final addInDefaultArgs(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 6
+    .registers 8
     .param p1, "args"    # Landroid/os/Bundle;
 
     .line 492
-    if-nez p1, :cond_2
+    if-nez p1, :cond_14
 
     iget-object v0, p0, Landroidx/navigation/NavDestination;->_arguments:Ljava/util/Map;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_10
+    if-eqz v0, :cond_14
 
     .line 493
     const/4 v0, 0x0
@@ -787,7 +787,7 @@
     return-object v0
 
     .line 495
-    :cond_2
+    :cond_14
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -804,12 +804,12 @@
 
     move-result-object v1
 
-    :goto_2
+    :goto_23
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_3f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -836,11 +836,11 @@
 
     .end local v2    # "value":Landroidx/navigation/NavArgument;
     .end local v3    # "key":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_23
 
     .line 499
-    :cond_3
-    if-eqz p1, :cond_5
+    :cond_3f
+    if-eqz p1, :cond_a3
 
     .line 500
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
@@ -856,12 +856,12 @@
 
     move-result-object v1
 
-    :goto_3
+    :goto_4e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_a3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -888,11 +888,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_6d
 
-    goto :goto_3
+    goto :goto_4e
 
-    :cond_4
+    :cond_6d
     const/4 v1, 0x0
 
     .line 503
@@ -954,12 +954,12 @@
     .line 508
     .end local v2    # "value":Landroidx/navigation/NavArgument;
     .end local v3    # "key":Ljava/lang/String;
-    :cond_5
+    :cond_a3
     return-object v0
 .end method
 
 .method public final buildDeepLinkIds()[I
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -973,7 +973,7 @@
 .end method
 
 .method public final buildDeepLinkIds(Landroidx/navigation/NavDestination;)[I
-    .locals 11
+    .registers 13
     .param p1, "previousDestination"    # Landroidx/navigation/NavDestination;
 
     .line 378
@@ -987,7 +987,7 @@
 
     .line 381
     .local v1, "current":Landroidx/navigation/NavDestination;
-    :cond_0
+    :cond_6
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     iget-object v2, v1, Landroidx/navigation/NavDestination;->parent:Landroidx/navigation/NavGraph;
@@ -997,17 +997,17 @@
     nop
 
     .line 384
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_11
 
     iget-object v3, p1, Landroidx/navigation/NavDestination;->parent:Landroidx/navigation/NavGraph;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_1
+    :cond_11
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_2
+    :goto_12
+    if-eqz v3, :cond_25
 
     .line 385
     iget-object v3, p1, Landroidx/navigation/NavDestination;->parent:Landroidx/navigation/NavGraph;
@@ -1020,17 +1020,17 @@
 
     move-result-object v3
 
-    if-ne v3, v1, :cond_2
+    if-ne v3, v1, :cond_25
 
     .line 387
     invoke-virtual {v0, v1}, Lkotlin/collections/ArrayDeque;->addFirst(Ljava/lang/Object;)V
 
     .line 388
-    goto :goto_1
+    goto :goto_3e
 
     .line 390
-    :cond_2
-    if-eqz v2, :cond_3
+    :cond_25
+    if-eqz v2, :cond_2f
 
     invoke-virtual {v2}, Landroidx/navigation/NavGraph;->getStartDestinationId()I
 
@@ -1038,35 +1038,35 @@
 
     iget v4, v1, Landroidx/navigation/NavDestination;->id:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_32
 
     .line 391
-    :cond_3
+    :cond_2f
     invoke-virtual {v0, v1}, Lkotlin/collections/ArrayDeque;->addFirst(Ljava/lang/Object;)V
 
     .line 393
-    :cond_4
+    :cond_32
     invoke-static {v2, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_39
 
     .line 394
-    goto :goto_1
+    goto :goto_3e
 
     .line 396
-    :cond_5
+    :cond_39
     move-object v1, v2
 
     check-cast v1, Landroidx/navigation/NavDestination;
 
     .line 397
-    if-nez v1, :cond_0
+    if-nez v1, :cond_6
 
     .line 398
     .end local v2    # "parent":Landroidx/navigation/NavGraph;
-    :goto_1
+    :goto_3e
     move-object v2, v0
 
     check-cast v2, Ljava/lang/Iterable;
@@ -1106,12 +1106,12 @@
 
     move-result-object v7
 
-    :goto_2
+    :goto_5b
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_73
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1138,11 +1138,11 @@
 
     invoke-interface {v4, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_5b
 
     .line 702
     .end local v8    # "item$iv$iv":Ljava/lang/Object;
-    :cond_6
+    :cond_73
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;
@@ -1166,22 +1166,22 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 12
+    .registers 14
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 534
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_16d
 
     instance-of v1, p1, Landroidx/navigation/NavDestination;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
-    goto/16 :goto_a
+    goto/16 :goto_16d
 
     .line 536
-    :cond_0
+    :cond_9
     iget-object v1, p0, Landroidx/navigation/NavDestination;->deepLinks:Ljava/util/List;
 
     check-cast v1, Ljava/lang/Iterable;
@@ -1210,18 +1210,18 @@
 
     const/4 v3, 0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_27
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v1, 0x0
 
     .line 538
     .local v1, "equalDeepLinks":Z
-    :goto_0
+    :goto_28
     iget-object v2, p0, Landroidx/navigation/NavDestination;->actions:Landroidx/collection/SparseArrayCompat;
 
     invoke-virtual {v2}, Landroidx/collection/SparseArrayCompat;->size()I
@@ -1238,7 +1238,7 @@
 
     move-result v4
 
-    if-ne v2, v4, :cond_6
+    if-ne v2, v4, :cond_95
 
     .line 539
     iget-object v2, p0, Landroidx/navigation/NavDestination;->actions:Landroidx/collection/SparseArrayCompat;
@@ -1260,12 +1260,12 @@
 
     move-result-object v5
 
-    :cond_2
+    :cond_48
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_63
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1293,21 +1293,21 @@
 
     .end local v7    # "it":Landroidx/navigation/NavAction;
     .end local v8    # "$i$a$-all-NavDestination$equals$equalActions$1":I
-    if-nez v7, :cond_2
+    if-nez v7, :cond_48
 
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_64
 
     .line 704
     .end local v6    # "element$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_63
     const/4 v2, 0x1
 
     .end local v2    # "$this$all$iv":Lkotlin/sequences/Sequence;
     .end local v4    # "$i$f$all":I
-    :goto_1
-    if-eqz v2, :cond_6
+    :goto_64
+    if-eqz v2, :cond_95
 
     .line 540
     move-object v2, p1
@@ -1333,12 +1333,12 @@
 
     move-result-object v5
 
-    :cond_4
+    :cond_78
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_90
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1362,31 +1362,31 @@
 
     .end local v7    # "it":Landroidx/navigation/NavAction;
     .end local v8    # "$i$a$-all-NavDestination$equals$equalActions$2":I
-    if-nez v7, :cond_4
+    if-nez v7, :cond_78
 
     const/4 v2, 0x0
 
-    goto :goto_2
+    goto :goto_91
 
     .line 706
     .end local v6    # "element$iv":Ljava/lang/Object;
-    :cond_5
+    :cond_90
     const/4 v2, 0x1
 
     .end local v2    # "$this$all$iv":Lkotlin/sequences/Sequence;
     .end local v4    # "$i$f$all":I
-    :goto_2
-    if-eqz v2, :cond_6
+    :goto_91
+    if-eqz v2, :cond_95
 
     const/4 v2, 0x1
 
-    goto :goto_3
+    goto :goto_96
 
-    :cond_6
+    :cond_95
     const/4 v2, 0x0
 
     .line 538
-    :goto_3
+    :goto_96
     nop
 
     .line 542
@@ -1411,7 +1411,7 @@
 
     move-result v5
 
-    if-ne v4, v5, :cond_d
+    if-ne v4, v5, :cond_14b
 
     .line 543
     invoke-virtual {p0}, Landroidx/navigation/NavDestination;->getArguments()Ljava/util/Map;
@@ -1431,12 +1431,12 @@
 
     move-result-object v6
 
-    :cond_7
+    :cond_b9
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_f9
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1468,7 +1468,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_f3
 
     .line 545
     move-object v10, p1
@@ -1495,36 +1495,36 @@
 
     move-result v10
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_f3
 
     const/4 v10, 0x1
 
-    goto :goto_4
+    goto :goto_f4
 
-    :cond_8
+    :cond_f3
     const/4 v10, 0x0
 
     .line 544
-    :goto_4
+    :goto_f4
     nop
 
     .end local v8    # "it":Ljava/util/Map$Entry;
     .end local v9    # "$i$a$-all-NavDestination$equals$equalArguments$1":I
-    if-nez v10, :cond_7
+    if-nez v10, :cond_b9
 
     const/4 v4, 0x0
 
-    goto :goto_5
+    goto :goto_fa
 
     .line 708
     .end local v7    # "element$iv":Ljava/lang/Object;
-    :cond_9
+    :cond_f9
     const/4 v4, 0x1
 
     .end local v4    # "$this$all$iv":Lkotlin/sequences/Sequence;
     .end local v5    # "$i$f$all":I
-    :goto_5
-    if-eqz v4, :cond_d
+    :goto_fa
+    if-eqz v4, :cond_14b
 
     .line 547
     move-object v4, p1
@@ -1548,12 +1548,12 @@
 
     move-result-object v6
 
-    :cond_a
+    :cond_10c
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_146
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1581,7 +1581,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_140
 
     .line 549
     invoke-virtual {p0}, Landroidx/navigation/NavDestination;->getArguments()Ljava/util/Map;
@@ -1604,46 +1604,46 @@
 
     move-result v10
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_140
 
     const/4 v10, 0x1
 
-    goto :goto_6
+    goto :goto_141
 
-    :cond_b
+    :cond_140
     const/4 v10, 0x0
 
     .line 548
-    :goto_6
+    :goto_141
     nop
 
     .end local v8    # "it":Ljava/util/Map$Entry;
     .end local v9    # "$i$a$-all-NavDestination$equals$equalArguments$2":I
-    if-nez v10, :cond_a
+    if-nez v10, :cond_10c
 
     const/4 v4, 0x0
 
-    goto :goto_7
+    goto :goto_147
 
     .line 710
     .end local v7    # "element$iv":Ljava/lang/Object;
-    :cond_c
+    :cond_146
     const/4 v4, 0x1
 
     .end local v4    # "$this$all$iv":Lkotlin/sequences/Sequence;
     .end local v5    # "$i$f$all":I
-    :goto_7
-    if-eqz v4, :cond_d
+    :goto_147
+    if-eqz v4, :cond_14b
 
     const/4 v4, 0x1
 
-    goto :goto_8
+    goto :goto_14c
 
-    :cond_d
+    :cond_14b
     const/4 v4, 0x0
 
     .line 542
-    :goto_8
+    :goto_14c
     nop
 
     .line 552
@@ -1656,7 +1656,7 @@
 
     iget v6, v6, Landroidx/navigation/NavDestination;->id:I
 
-    if-ne v5, v6, :cond_e
+    if-ne v5, v6, :cond_16b
 
     .line 553
     iget-object v5, p0, Landroidx/navigation/NavDestination;->route:Ljava/lang/String;
@@ -1671,39 +1671,39 @@
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_16b
 
     .line 554
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_16b
 
     .line 555
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_16b
 
     .line 556
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_16b
 
     const/4 v0, 0x1
 
-    goto :goto_9
+    goto :goto_16c
 
-    :cond_e
+    :cond_16b
     nop
 
     .line 552
-    :goto_9
+    :goto_16c
     return v0
 
     .line 534
     .end local v1    # "equalDeepLinks":Z
     .end local v2    # "equalActions":Z
     .end local v4    # "equalArguments":Z
-    :cond_f
-    :goto_a
+    :cond_16d
+    :goto_16d
     return v0
 .end method
 
 .method public final getAction(I)Landroidx/navigation/NavAction;
-    .locals 3
+    .registers 5
     .param p1, "id"    # I
 
     .line 420
@@ -1715,13 +1715,13 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/navigation/NavDestination;->actions:Landroidx/collection/SparseArrayCompat;
 
     invoke-virtual {v0, p1}, Landroidx/collection/SparseArrayCompat;->get(I)Ljava/lang/Object;
@@ -1732,12 +1732,12 @@
 
     .line 422
     .local v0, "destination":Landroidx/navigation/NavAction;
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_13
+    if-nez v0, :cond_20
 
     iget-object v2, p0, Landroidx/navigation/NavDestination;->parent:Landroidx/navigation/NavGraph;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_21
 
     move-object v1, v2
 
@@ -1753,18 +1753,18 @@
 
     .end local v1    # "$this$getAction_u24lambda_u2d7":Landroidx/navigation/NavGraph;
     .end local v2    # "$i$a$-run-NavDestination$getAction$1":I
-    goto :goto_1
+    goto :goto_21
 
-    :cond_1
+    :cond_20
     move-object v1, v0
 
-    :cond_2
-    :goto_1
+    :cond_21
+    :goto_21
     return-object v1
 .end method
 
 .method public final getArguments()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1786,12 +1786,12 @@
 .end method
 
 .method public getDisplayName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 204
     iget-object v0, p0, Landroidx/navigation/NavDestination;->idName:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     iget v0, p0, Landroidx/navigation/NavDestination;->id:I
 
@@ -1799,12 +1799,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public final getId()I
-    .locals 1
+    .registers 2
 
     .line 171
     iget v0, p0, Landroidx/navigation/NavDestination;->id:I
@@ -1813,7 +1813,7 @@
 .end method
 
 .method public final getLabel()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 118
     iget-object v0, p0, Landroidx/navigation/NavDestination;->label:Ljava/lang/CharSequence;
@@ -1822,7 +1822,7 @@
 .end method
 
 .method public final getNavigatorName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Landroidx/navigation/NavDestination;->navigatorName:Ljava/lang/String;
@@ -1831,7 +1831,7 @@
 .end method
 
 .method public final getParent()Landroidx/navigation/NavGraph;
-    .locals 1
+    .registers 2
 
     .line 109
     iget-object v0, p0, Landroidx/navigation/NavDestination;->parent:Landroidx/navigation/NavGraph;
@@ -1840,7 +1840,7 @@
 .end method
 
 .method public final getRoute()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 185
     iget-object v0, p0, Landroidx/navigation/NavDestination;->route:Ljava/lang/String;
@@ -1849,7 +1849,7 @@
 .end method
 
 .method public hasDeepLink(Landroid/net/Uri;)Z
-    .locals 2
+    .registers 4
     .param p1, "deepLink"    # Landroid/net/Uri;
 
     const-string v0, "deepLink"
@@ -1871,7 +1871,7 @@
 .end method
 
 .method public hasDeepLink(Landroidx/navigation/NavDeepLinkRequest;)Z
-    .locals 1
+    .registers 3
     .param p1, "deepLinkRequest"    # Landroidx/navigation/NavDeepLinkRequest;
 
     const-string v0, "deepLinkRequest"
@@ -1883,21 +1883,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 15
+    .registers 16
 
     .line 561
     const/4 v0, 0x0
@@ -1912,18 +1912,18 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_f
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_10
     add-int/2addr v1, v2
 
     .line 563
@@ -1942,12 +1942,12 @@
 
     move-result-object v4
 
-    :goto_1
+    :goto_1a
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_58
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1969,18 +1969,18 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_35
 
     invoke-virtual {v9}, Ljava/lang/Object;->hashCode()I
 
     move-result v9
 
-    goto :goto_2
+    goto :goto_36
 
-    :cond_1
+    :cond_35
     const/4 v9, 0x0
 
-    :goto_2
+    :goto_36
     add-int/2addr v8, v9
 
     .line 565
@@ -1992,18 +1992,18 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_44
 
     invoke-virtual {v9}, Ljava/lang/Object;->hashCode()I
 
     move-result v9
 
-    goto :goto_3
+    goto :goto_45
 
-    :cond_2
+    :cond_44
     const/4 v9, 0x0
 
-    :goto_3
+    :goto_45
     add-int/2addr v1, v9
 
     .line 566
@@ -2015,18 +2015,18 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_53
 
     invoke-virtual {v9}, Ljava/lang/Object;->hashCode()I
 
     move-result v9
 
-    goto :goto_4
+    goto :goto_54
 
-    :cond_3
+    :cond_53
     const/4 v9, 0x0
 
-    :goto_4
+    :goto_54
     add-int v1, v8, v9
 
     .line 567
@@ -2035,10 +2035,10 @@
     .end local v5    # "element$iv":Ljava/lang/Object;
     .end local v6    # "it":Landroidx/navigation/NavDeepLink;
     .end local v7    # "$i$a$-forEach-NavDestination$hashCode$1":I
-    goto :goto_1
+    goto :goto_1a
 
     .line 712
-    :cond_4
+    :cond_58
     nop
 
     .line 568
@@ -2057,12 +2057,12 @@
     .restart local v2    # "$i$f$forEach":I
     nop
 
-    :goto_5
+    :goto_61
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_c7
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2095,18 +2095,18 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_83
 
     invoke-virtual {v8}, Ljava/lang/Object;->hashCode()I
 
     move-result v8
 
-    goto :goto_6
+    goto :goto_84
 
-    :cond_5
+    :cond_83
     const/4 v8, 0x0
 
-    :goto_6
+    :goto_84
     add-int/2addr v1, v8
 
     .line 571
@@ -2116,13 +2116,13 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_c5
 
     invoke-virtual {v7}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
     move-result-object v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_c5
 
     const-string v8, "keySet()"
 
@@ -2139,12 +2139,12 @@
 
     move-result-object v9
 
-    :goto_7
+    :goto_9d
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_c4
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2172,18 +2172,18 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_bf
 
     invoke-virtual {v14}, Ljava/lang/Object;->hashCode()I
 
     move-result v14
 
-    goto :goto_8
+    goto :goto_c0
 
-    :cond_6
+    :cond_bf
     const/4 v14, 0x0
 
-    :goto_8
+    :goto_c0
     add-int v1, v13, v14
 
     .line 573
@@ -2192,25 +2192,25 @@
     .end local v10    # "element$iv":Ljava/lang/Object;
     .end local v11    # "it":Ljava/lang/String;
     .end local v12    # "$i$a$-forEach-NavDestination$hashCode$2$1":I
-    goto :goto_7
+    goto :goto_9d
 
     .line 715
-    :cond_7
+    :cond_c4
     nop
 
     .line 574
     .end local v7    # "$this$forEach$iv":Ljava/lang/Iterable;
     .end local v8    # "$i$f$forEach":I
-    :cond_8
+    :cond_c5
     nop
 
     .end local v4    # "element$iv":Ljava/lang/Object;
     .end local v5    # "value":Landroidx/navigation/NavAction;
     .end local v6    # "$i$a$-forEach-NavDestination$hashCode$2":I
-    goto :goto_5
+    goto :goto_61
 
     .line 716
-    :cond_9
+    :cond_c7
     nop
 
     .line 575
@@ -2235,12 +2235,12 @@
 
     move-result-object v4
 
-    :goto_9
+    :goto_d7
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_101
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2277,18 +2277,18 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_fd
 
     invoke-virtual {v9}, Ljava/lang/Object;->hashCode()I
 
     move-result v9
 
-    goto :goto_a
+    goto :goto_fe
 
-    :cond_a
+    :cond_fd
     const/4 v9, 0x0
 
-    :goto_a
+    :goto_fe
     add-int/2addr v1, v9
 
     .line 578
@@ -2299,10 +2299,10 @@
     .end local v5    # "element$iv":Ljava/lang/Object;
     .end local v6    # "it":Ljava/lang/String;
     .end local v7    # "$i$a$-forEach-NavDestination$hashCode$3":I
-    goto :goto_9
+    goto :goto_d7
 
     .line 718
-    :cond_b
+    :cond_101
     nop
 
     .line 579
@@ -2312,7 +2312,7 @@
 .end method
 
 .method public matchDeepLink(Landroidx/navigation/NavDeepLinkRequest;)Landroidx/navigation/NavDestination$DeepLinkMatch;
-    .locals 19
+    .registers 21
     .param p1, "navDeepLinkRequest"    # Landroidx/navigation/NavDeepLinkRequest;
 
     move-object/from16 v6, p0
@@ -2332,13 +2332,13 @@
 
     const/4 v8, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 341
     return-object v8
 
     .line 343
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     .line 344
@@ -2353,13 +2353,13 @@
 
     .end local v0    # "bestMatch":Landroidx/navigation/NavDestination$DeepLinkMatch;
     .local v10, "bestMatch":Landroidx/navigation/NavDestination$DeepLinkMatch;
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_81
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2377,7 +2377,7 @@
 
     .line 347
     .local v12, "uri":Landroid/net/Uri;
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_37
 
     invoke-virtual/range {p0 .. p0}, Landroidx/navigation/NavDestination;->getArguments()Ljava/util/Map;
 
@@ -2387,13 +2387,13 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_2
+    :cond_37
     move-object v0, v8
 
     .line 346
-    :goto_1
+    :goto_38
     move-object v13, v0
 
     .line 348
@@ -2404,7 +2404,7 @@
 
     .line 349
     .local v14, "requestAction":Ljava/lang/String;
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_4b
 
     .line 350
     invoke-virtual {v11}, Landroidx/navigation/NavDeepLink;->getAction()Ljava/lang/String;
@@ -2415,17 +2415,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4b
 
     const/4 v0, 0x1
 
-    goto :goto_2
+    goto :goto_4c
 
-    :cond_3
+    :cond_4b
     const/4 v0, 0x0
 
     .line 349
-    :goto_2
+    :goto_4c
     move v15, v0
 
     .line 351
@@ -2438,31 +2438,31 @@
     .local v5, "mimeType":Ljava/lang/String;
     const/4 v0, -0x1
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_59
 
     invoke-virtual {v11, v5}, Landroidx/navigation/NavDeepLink;->getMimeTypeMatchRating(Ljava/lang/String;)I
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_5a
 
-    :cond_4
+    :cond_59
     const/4 v1, -0x1
 
     .line 352
-    :goto_3
+    :goto_5a
     move v4, v1
 
     .line 354
     .local v4, "mimeTypeMatchLevel":I
-    if-nez v13, :cond_5
+    if-nez v13, :cond_61
 
-    if-nez v15, :cond_5
+    if-nez v15, :cond_61
 
-    if-le v4, v0, :cond_1
+    if-le v4, v0, :cond_1b
 
     .line 355
-    :cond_5
+    :cond_61
     new-instance v16, Landroidx/navigation/NavDestination$DeepLinkMatch;
 
     .line 356
@@ -2496,16 +2496,16 @@
 
     .line 359
     .local v0, "newMatch":Landroidx/navigation/NavDestination$DeepLinkMatch;
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_7f
 
     invoke-virtual {v0, v10}, Landroidx/navigation/NavDestination$DeepLinkMatch;->compareTo(Landroidx/navigation/NavDestination$DeepLinkMatch;)I
 
     move-result v1
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_1b
 
     .line 360
-    :cond_6
+    :cond_7f
     move-object v10, v0
 
     .end local v0    # "newMatch":Landroidx/navigation/NavDestination$DeepLinkMatch;
@@ -2516,15 +2516,15 @@
     .end local v15    # "matchingAction":Z
     .end local v17    # "mimeTypeMatchLevel":I
     .end local v18    # "mimeType":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1b
 
     .line 364
-    :cond_7
+    :cond_81
     return-object v10
 .end method
 
 .method public onInflate(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -2578,7 +2578,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_41
 
     .line 159
     sget v4, Landroidx/navigation/common/R$styleable;->Navigator_android_id:I
@@ -2603,7 +2603,7 @@
     iput-object v4, p0, Landroidx/navigation/NavDestination;->idName:Ljava/lang/String;
 
     .line 162
-    :cond_0
+    :cond_41
     sget v4, Landroidx/navigation/common/R$styleable;->Navigator_android_label:I
 
     invoke-virtual {v2, v4}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
@@ -2641,7 +2641,7 @@
 .end method
 
 .method public final putAction(II)V
-    .locals 7
+    .registers 10
     .param p1, "actionId"    # I
     .param p2, "destId"    # I
 
@@ -2669,7 +2669,7 @@
 .end method
 
 .method public final putAction(ILandroidx/navigation/NavAction;)V
-    .locals 3
+    .registers 6
     .param p1, "actionId"    # I
     .param p2, "action"    # Landroidx/navigation/NavAction;
 
@@ -2682,20 +2682,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     .line 451
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_10
+    if-eqz v0, :cond_18
 
     .line 452
     iget-object v0, p0, Landroidx/navigation/NavDestination;->actions:Landroidx/collection/SparseArrayCompat;
@@ -2706,7 +2706,7 @@
     return-void
 
     .line 686
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     .line 451
@@ -2727,7 +2727,7 @@
     throw v0
 
     .line 445
-    :cond_2
+    :cond_26
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     .line 446
@@ -2772,7 +2772,7 @@
 .end method
 
 .method public final removeAction(I)V
-    .locals 1
+    .registers 3
     .param p1, "actionId"    # I
 
     .line 461
@@ -2785,7 +2785,7 @@
 .end method
 
 .method public final removeArgument(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "argumentName"    # Ljava/lang/String;
 
     const-string v0, "argumentName"
@@ -2802,7 +2802,7 @@
 .end method
 
 .method public final setId(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 173
@@ -2818,7 +2818,7 @@
 .end method
 
 .method public final setLabel(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/CharSequence;
 
     .line 118
@@ -2828,7 +2828,7 @@
 .end method
 
 .method public final setParent(Landroidx/navigation/NavGraph;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroidx/navigation/NavGraph;
 
     .line 112
@@ -2838,21 +2838,21 @@
 .end method
 
 .method public final setRoute(Ljava/lang/String;)V
-    .locals 10
+    .registers 12
     .param p1, "route"    # Ljava/lang/String;
 
     .line 187
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 188
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroidx/navigation/NavDestination;->setId(I)V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 190
-    :cond_0
+    :cond_7
     move-object v0, p1
 
     check-cast v0, Ljava/lang/CharSequence;
@@ -2861,7 +2861,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_59
 
     .line 191
     sget-object v0, Landroidx/navigation/NavDestination;->Companion:Landroidx/navigation/NavDestination$Companion;
@@ -2883,7 +2883,7 @@
 
     .line 195
     .end local v0    # "internalRoute":Ljava/lang/String;
-    :goto_0
+    :goto_20
     iget-object v0, p0, Landroidx/navigation/NavDestination;->deepLinks:Ljava/util/List;
 
     check-cast v0, Ljava/util/Collection;
@@ -2901,12 +2901,12 @@
 
     move-result-object v3
 
-    :cond_1
+    :cond_2d
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4e
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2940,19 +2940,19 @@
 
     .end local v5    # "it":Landroidx/navigation/NavDeepLink;
     .end local v6    # "$i$a$-firstOrNull-NavDestination$route$2":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2d
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 688
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_4e
     const/4 v4, 0x0
 
     .line 195
     .end local v1    # "$this$firstOrNull$iv":Ljava/lang/Iterable;
     .end local v2    # "$i$f$firstOrNull":I
-    :goto_1
+    :goto_4f
     invoke-static {v0}, Lkotlin/jvm/internal/TypeIntrinsics;->asMutableCollection(Ljava/lang/Object;)Ljava/util/Collection;
 
     move-result-object v0
@@ -2966,7 +2966,7 @@
     return-void
 
     .line 686
-    :cond_3
+    :cond_59
     const/4 v0, 0x0
 
     .line 190
@@ -2988,7 +2988,7 @@
 .end method
 
 .method public supportsActions()Z
-    .locals 1
+    .registers 2
 
     .line 408
     const/4 v0, 0x1
@@ -2997,7 +2997,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 512
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3024,7 +3024,7 @@
     .line 515
     iget-object v1, p0, Landroidx/navigation/NavDestination;->idName:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_28
 
     .line 516
     const-string v1, "0x"
@@ -3040,16 +3040,16 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 519
-    :cond_0
+    :cond_28
     iget-object v1, p0, Landroidx/navigation/NavDestination;->idName:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 521
-    :goto_0
+    :goto_2d
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3059,27 +3059,27 @@
 
     check-cast v1, Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_41
 
     invoke-static {v1}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3f
 
-    goto :goto_1
+    goto :goto_41
 
-    :cond_1
+    :cond_3f
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_42
 
-    :cond_2
-    :goto_1
+    :cond_41
+    :goto_41
     const/4 v1, 0x1
 
-    :goto_2
-    if-nez v1, :cond_3
+    :goto_42
+    if-nez v1, :cond_4e
 
     .line 523
     const-string v1, " route="
@@ -3092,10 +3092,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 526
-    :cond_3
+    :cond_4e
     iget-object v1, p0, Landroidx/navigation/NavDestination;->label:Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5c
 
     .line 527
     const-string v1, " label="
@@ -3108,7 +3108,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     .line 530
-    :cond_4
+    :cond_5c
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     new-instance v0, Lcom/google/zxing/common/DefaultGridSampler;
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method protected static checkAndNudgePoints(Lcom/google/zxing/common/BitMatrix;[F)V
-    .locals 10
+    .registers 12
     .param p0, "image"    # Lcom/google/zxing/common/BitMatrix;
     .param p1, "points"    # [F
     .annotation system Ldalvik/annotation/Throws;
@@ -60,16 +60,16 @@
     const/4 v3, 0x0
 
     .local v3, "offset":I
-    :goto_0
+    :goto_a
     array-length v4, p1
 
     const/4 v5, 0x0
 
     const/4 v6, -0x1
 
-    if-ge v3, v4, :cond_5
+    if-ge v3, v4, :cond_4a
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4a
 
     .line 126
     aget v4, p1, v3
@@ -86,19 +86,19 @@
 
     .line 128
     .local v7, "y":I
-    if-lt v4, v6, :cond_4
+    if-lt v4, v6, :cond_45
 
-    if-gt v4, v0, :cond_4
+    if-gt v4, v0, :cond_45
 
-    if-lt v7, v6, :cond_4
+    if-lt v7, v6, :cond_45
 
-    if-gt v7, v1, :cond_4
+    if-gt v7, v1, :cond_45
 
     .line 131
     const/4 v2, 0x0
 
     .line 132
-    if-ne v4, v6, :cond_0
+    if-ne v4, v6, :cond_28
 
     .line 133
     aput v5, p1, v3
@@ -106,11 +106,11 @@
     .line 134
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_30
 
     .line 135
-    :cond_0
-    if-ne v4, v0, :cond_1
+    :cond_28
+    if-ne v4, v0, :cond_30
 
     .line 136
     add-int/lit8 v8, v0, -0x1
@@ -123,9 +123,9 @@
     const/4 v2, 0x1
 
     .line 139
-    :cond_1
-    :goto_1
-    if-ne v7, v6, :cond_2
+    :cond_30
+    :goto_30
+    if-ne v7, v6, :cond_38
 
     .line 140
     add-int/lit8 v6, v3, 0x1
@@ -135,11 +135,11 @@
     .line 141
     const/4 v2, 0x1
 
-    goto :goto_2
+    goto :goto_42
 
     .line 142
-    :cond_2
-    if-ne v7, v1, :cond_3
+    :cond_38
+    if-ne v7, v1, :cond_42
 
     .line 143
     add-int/lit8 v5, v3, 0x1
@@ -156,16 +156,16 @@
     .line 125
     .end local v4    # "x":I
     .end local v7    # "y":I
-    :cond_3
-    :goto_2
+    :cond_42
+    :goto_42
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_0
+    goto :goto_a
 
     .line 129
     .restart local v4    # "x":I
     .restart local v7    # "y":I
-    :cond_4
+    :cond_45
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v5
@@ -176,7 +176,7 @@
     .end local v3    # "offset":I
     .end local v4    # "x":I
     .end local v7    # "y":I
-    :cond_5
+    :cond_4a
     const/4 v2, 0x1
 
     .line 149
@@ -185,10 +185,10 @@
     add-int/lit8 v3, v3, -0x2
 
     .restart local v3    # "offset":I
-    :goto_3
-    if-ltz v3, :cond_b
+    :goto_4e
+    if-ltz v3, :cond_8b
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_8b
 
     .line 150
     aget v4, p1, v3
@@ -205,19 +205,19 @@
 
     .line 152
     .restart local v7    # "y":I
-    if-lt v4, v6, :cond_a
+    if-lt v4, v6, :cond_86
 
-    if-gt v4, v0, :cond_a
+    if-gt v4, v0, :cond_86
 
-    if-lt v7, v6, :cond_a
+    if-lt v7, v6, :cond_86
 
-    if-gt v7, v1, :cond_a
+    if-gt v7, v1, :cond_86
 
     .line 155
     const/4 v2, 0x0
 
     .line 156
-    if-ne v4, v6, :cond_6
+    if-ne v4, v6, :cond_69
 
     .line 157
     aput v5, p1, v3
@@ -225,11 +225,11 @@
     .line 158
     const/4 v2, 0x1
 
-    goto :goto_4
+    goto :goto_71
 
     .line 159
-    :cond_6
-    if-ne v4, v0, :cond_7
+    :cond_69
+    if-ne v4, v0, :cond_71
 
     .line 160
     add-int/lit8 v8, v0, -0x1
@@ -242,9 +242,9 @@
     const/4 v2, 0x1
 
     .line 163
-    :cond_7
-    :goto_4
-    if-ne v7, v6, :cond_8
+    :cond_71
+    :goto_71
+    if-ne v7, v6, :cond_79
 
     .line 164
     add-int/lit8 v8, v3, 0x1
@@ -254,11 +254,11 @@
     .line 165
     const/4 v2, 0x1
 
-    goto :goto_5
+    goto :goto_83
 
     .line 166
-    :cond_8
-    if-ne v7, v1, :cond_9
+    :cond_79
+    if-ne v7, v1, :cond_83
 
     .line 167
     add-int/lit8 v8, v3, 0x1
@@ -275,16 +275,16 @@
     .line 149
     .end local v4    # "x":I
     .end local v7    # "y":I
-    :cond_9
-    :goto_5
+    :cond_83
+    :goto_83
     add-int/lit8 v3, v3, -0x2
 
-    goto :goto_3
+    goto :goto_4e
 
     .line 153
     .restart local v4    # "x":I
     .restart local v7    # "y":I
-    :cond_a
+    :cond_86
     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
 
     move-result-object v5
@@ -295,12 +295,12 @@
     .end local v3    # "offset":I
     .end local v4    # "x":I
     .end local v7    # "y":I
-    :cond_b
+    :cond_8b
     return-void
 .end method
 
 .method public static getInstance()Lcom/google/zxing/common/GridSampler;
-    .locals 1
+    .registers 1
 
     .line 55
     sget-object v0, Lcom/google/zxing/common/GridSampler;->gridSampler:Lcom/google/zxing/common/GridSampler;
@@ -309,7 +309,7 @@
 .end method
 
 .method public static setGridSampler(Lcom/google/zxing/common/GridSampler;)V
-    .locals 0
+    .registers 1
     .param p0, "newGridSampler"    # Lcom/google/zxing/common/GridSampler;
 
     .line 48

@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/Lifecycle;)V
-    .locals 1
+    .registers 3
     .param p1, "lifecycle"    # Landroidx/lifecycle/Lifecycle;
 
     const-string v0, "lifecycle"
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public final addObserver(Landroidx/lifecycle/LifecycleEventObserver;)V
-    .locals 2
+    .registers 4
     .param p1, "observer"    # Landroidx/lifecycle/LifecycleEventObserver;
 
     const-string v0, "observer"
@@ -118,7 +118,7 @@
 .end method
 
 .method public final clearObservers()V
-    .locals 8
+    .registers 9
 
     .line 402
     iget-object v0, p0, Landroidx/activity/result/ActivityResultRegistry$LifecycleContainer;->observers:Ljava/util/List;
@@ -134,12 +134,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_9
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_21
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -169,10 +169,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_9
 
     .line 424
-    :cond_0
+    :cond_21
     nop
 
     .line 403
@@ -187,7 +187,7 @@
 .end method
 
 .method public final getLifecycle()Landroidx/lifecycle/Lifecycle;
-    .locals 1
+    .registers 2
 
     .line 393
     iget-object v0, p0, Landroidx/activity/result/ActivityResultRegistry$LifecycleContainer;->lifecycle:Landroidx/lifecycle/Lifecycle;

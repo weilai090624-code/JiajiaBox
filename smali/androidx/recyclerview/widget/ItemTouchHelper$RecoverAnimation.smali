@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIFFFF)V
-    .locals 2
+    .registers 10
     .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "animationType"    # I
     .param p3, "actionState"    # I
@@ -95,7 +95,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_3e
 
     invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -134,7 +134,7 @@
 
     nop
 
-    :array_0
+    :array_3e
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .registers 2
 
     .line 2447
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mValueAnimator:Landroid/animation/ValueAnimator;
@@ -156,7 +156,7 @@
 .end method
 
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 2486
@@ -169,7 +169,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 2478
@@ -177,7 +177,7 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 2479
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
@@ -185,7 +185,7 @@
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->setIsRecyclable(Z)V
 
     .line 2481
-    :cond_0
+    :cond_a
     iput-boolean v1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mEnded:Z
 
     .line 2482
@@ -193,7 +193,7 @@
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 2492
@@ -201,7 +201,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 2474
@@ -209,7 +209,7 @@
 .end method
 
 .method public setDuration(J)V
-    .locals 1
+    .registers 4
     .param p1, "duration"    # J
 
     .line 2438
@@ -222,7 +222,7 @@
 .end method
 
 .method public setFraction(F)V
-    .locals 0
+    .registers 2
     .param p1, "fraction"    # F
 
     .line 2451
@@ -233,7 +233,7 @@
 .end method
 
 .method public start()V
-    .locals 2
+    .registers 3
 
     .line 2442
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
@@ -252,7 +252,7 @@
 .end method
 
 .method public update()V
-    .locals 4
+    .registers 5
 
     .line 2459
     iget v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mStartDx:F
@@ -261,7 +261,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 2460
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
@@ -274,10 +274,10 @@
 
     iput v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mX:F
 
-    goto :goto_0
+    goto :goto_21
 
     .line 2462
-    :cond_0
+    :cond_13
     iget v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mStartDx:F
 
     iget v1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mFraction:F
@@ -295,14 +295,14 @@
     iput v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mX:F
 
     .line 2464
-    :goto_0
+    :goto_21
     iget v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mStartDy:F
 
     iget v1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mTargetY:F
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_34
 
     .line 2465
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
@@ -315,10 +315,10 @@
 
     iput v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mY:F
 
-    goto :goto_1
+    goto :goto_42
 
     .line 2467
-    :cond_1
+    :cond_34
     iget v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mStartDy:F
 
     iget v1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mFraction:F
@@ -336,6 +336,6 @@
     iput v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mY:F
 
     .line 2469
-    :goto_1
+    :goto_42
     return-void
 .end method

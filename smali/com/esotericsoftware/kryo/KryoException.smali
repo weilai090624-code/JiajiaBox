@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
 
     .line 36
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "cause"    # Ljava/lang/Throwable;
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 40
@@ -55,16 +55,16 @@
 
 # virtual methods
 .method public addTrace(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "info"    # Ljava/lang/String;
 
     .line 56
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1c
 
     .line 57
     iget-object v0, p0, Lcom/esotericsoftware/kryo/KryoException;->trace:Ljava/lang/StringBuffer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     new-instance v0, Ljava/lang/StringBuffer;
 
@@ -75,7 +75,7 @@
     iput-object v0, p0, Lcom/esotericsoftware/kryo/KryoException;->trace:Ljava/lang/StringBuffer;
 
     .line 58
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/esotericsoftware/kryo/KryoException;->trace:Ljava/lang/StringBuffer;
 
     const/16 v1, 0xa
@@ -91,7 +91,7 @@
     return-void
 
     .line 56
-    :cond_1
+    :cond_1c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "info cannot be null."
@@ -102,12 +102,12 @@
 .end method
 
 .method public getMessage()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 44
     iget-object v0, p0, Lcom/esotericsoftware/kryo/KryoException;->trace:Ljava/lang/StringBuffer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     invoke-super {p0}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
 
@@ -116,7 +116,7 @@
     return-object v0
 
     .line 45
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/StringBuffer;
 
     const/16 v1, 0x200
@@ -136,14 +136,14 @@
 
     move-result v1
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_22
 
     const/16 v1, 0xa
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 48
-    :cond_1
+    :cond_22
     const-string v1, "Serialization trace:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;

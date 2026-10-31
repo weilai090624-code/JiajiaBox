@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/Image$Plane;)V
-    .locals 0
+    .registers 2
     .param p1, "plane"    # Landroid/media/Image$Plane;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -47,19 +47,19 @@
 
 # virtual methods
 .method public declared-synchronized getBuffer()Ljava/nio/ByteBuffer;
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 120
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy$PlaneProxy;->mPlane:Landroid/media/Image$Plane;
 
     invoke-virtual {v0}, Landroid/media/Image$Plane;->getBuffer()Ljava/nio/ByteBuffer;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     monitor-exit p0
 
@@ -67,31 +67,31 @@
 
     .line 120
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method
 
 .method public declared-synchronized getPixelStride()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 114
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy$PlaneProxy;->mPlane:Landroid/media/Image$Plane;
 
     invoke-virtual {v0}, Landroid/media/Image$Plane;->getPixelStride()I
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     monitor-exit p0
 
@@ -99,31 +99,31 @@
 
     .line 114
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method
 
 .method public declared-synchronized getRowStride()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 109
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Landroidx/camera/core/AndroidImageProxy$PlaneProxy;->mPlane:Landroid/media/Image$Plane;
 
     invoke-virtual {v0}, Landroid/media/Image$Plane;->getRowStride()I
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     monitor-exit p0
 
@@ -131,13 +131,13 @@
 
     .line 109
     .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method

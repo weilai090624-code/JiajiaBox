@@ -49,7 +49,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 16
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
@@ -71,7 +71,7 @@
 .end method
 
 .method public final bridge size()I
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-virtual {p0}, Lkotlin/collections/AbstractMutableCollection;->getSize()I

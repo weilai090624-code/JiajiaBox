@@ -16,7 +16,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 33
     const-wide/16 v0, 0x0
@@ -40,7 +40,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public static defaultValue(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -72,12 +72,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_4e
 
     .line 46
     sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_10
 
     .line 47
     sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
@@ -85,12 +85,12 @@
     return-object v0
 
     .line 48
-    :cond_0
+    :cond_10
     sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
     const/4 v1, 0x0
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_1a
 
     .line 49
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -100,10 +100,10 @@
     return-object v0
 
     .line 50
-    :cond_1
+    :cond_1a
     sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_23
 
     .line 51
     invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
@@ -113,10 +113,10 @@
     return-object v0
 
     .line 52
-    :cond_2
+    :cond_23
     sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_2c
 
     .line 53
     invoke-static {v1}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
@@ -126,10 +126,10 @@
     return-object v0
 
     .line 54
-    :cond_3
+    :cond_2c
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_35
 
     .line 55
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -139,10 +139,10 @@
     return-object v0
 
     .line 56
-    :cond_4
+    :cond_35
     sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_40
 
     .line 57
     const-wide/16 v0, 0x0
@@ -154,10 +154,10 @@
     return-object v0
 
     .line 58
-    :cond_5
+    :cond_40
     sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_47
 
     .line 59
     sget-object v0, Lcom/google/common/base/Defaults;->FLOAT_DEFAULT:Ljava/lang/Float;
@@ -165,10 +165,10 @@
     return-object v0
 
     .line 60
-    :cond_6
+    :cond_47
     sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_7
+    if-ne p0, v0, :cond_4e
 
     .line 61
     sget-object v0, Lcom/google/common/base/Defaults;->DOUBLE_DEFAULT:Ljava/lang/Double;
@@ -176,7 +176,7 @@
     return-object v0
 
     .line 64
-    :cond_7
+    :cond_4e
     const/4 v0, 0x0
 
     return-object v0

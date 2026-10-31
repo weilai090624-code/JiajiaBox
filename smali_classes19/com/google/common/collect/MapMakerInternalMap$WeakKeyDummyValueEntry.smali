@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;ILcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry;)V
-    .locals 0
+    .registers 5
     .param p3, "hash"    # I
     .param p4    # Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method copy(Ljava/lang/ref/ReferenceQueue;Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry;)Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,7 +104,7 @@
 .end method
 
 .method public getValue()Lcom/google/common/collect/MapMaker$Dummy;
-    .locals 1
+    .registers 2
 
     .line 688
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry;, "Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry<TK;>;"
@@ -114,7 +114,7 @@
 .end method
 
 .method public bridge synthetic getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 678
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry;, "Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry<TK;>;"
@@ -126,7 +126,7 @@
 .end method
 
 .method setValue(Lcom/google/common/collect/MapMaker$Dummy;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Lcom/google/common/collect/MapMaker$Dummy;
 
     .line 691

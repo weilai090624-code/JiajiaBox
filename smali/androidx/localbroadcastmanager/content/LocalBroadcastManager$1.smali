@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/localbroadcastmanager/content/LocalBroadcastManager;Landroid/os/Looper;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/localbroadcastmanager/content/LocalBroadcastManager;
     .param p2, "x0"    # Landroid/os/Looper;
 
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .registers 3
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 119
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_10
 
     .line 124
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 121
-    :pswitch_0
+    :pswitch_9
     iget-object v0, p0, Landroidx/localbroadcastmanager/content/LocalBroadcastManager$1;->this$0:Landroidx/localbroadcastmanager/content/LocalBroadcastManager;
 
     invoke-virtual {v0}, Landroidx/localbroadcastmanager/content/LocalBroadcastManager;->executePendingBroadcasts()V
@@ -58,11 +58,11 @@
     nop
 
     .line 126
-    :goto_0
+    :goto_f
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_10
     .packed-switch 0x1
-        :pswitch_0
+        :pswitch_9
     .end packed-switch
 .end method

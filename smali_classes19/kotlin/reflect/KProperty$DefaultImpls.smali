@@ -26,13 +26,13 @@
 
 # direct methods
 .method public static synthetic isConst$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isLateinit$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

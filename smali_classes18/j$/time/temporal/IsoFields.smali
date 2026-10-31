@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 195
     sget-object v0, Lj$/time/temporal/IsoFields$Field;->DAY_OF_QUARTER:Lj$/time/temporal/IsoFields$Field;
@@ -64,7 +64,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 282
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 .end method
 
 .method static isIso(Lj$/time/temporal/TemporalAccessor;)Z
-    .locals 2
+    .registers 3
     .param p0, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 736

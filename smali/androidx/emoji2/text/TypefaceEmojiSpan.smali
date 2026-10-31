@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/emoji2/text/EmojiMetadata;)V
-    .locals 0
+    .registers 2
     .param p1, "metadata"    # Landroidx/emoji2/text/EmojiMetadata;
 
     .line 49
@@ -20,12 +20,12 @@
 .end method
 
 .method private static getDebugPaint()Landroid/graphics/Paint;
-    .locals 2
+    .registers 2
 
     .line 65
     sget-object v0, Landroidx/emoji2/text/TypefaceEmojiSpan;->sDebugPaint:Landroid/graphics/Paint;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 66
     new-instance v0, Landroid/text/TextPaint;
@@ -55,7 +55,7 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 70
-    :cond_0
+    :cond_1f
     sget-object v0, Landroidx/emoji2/text/TypefaceEmojiSpan;->sDebugPaint:Landroid/graphics/Paint;
 
     return-object v0
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Ljava/lang/CharSequence;IIFIIILandroid/graphics/Paint;)V
-    .locals 9
+    .registers 19
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "start"    # I
@@ -86,7 +86,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 58
     move v7, p6
@@ -115,16 +115,16 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    goto :goto_0
+    goto :goto_24
 
     .line 57
-    :cond_0
+    :cond_21
     move v7, p6
 
     move/from16 v8, p8
 
     .line 60
-    :goto_0
+    :goto_24
     invoke-virtual {p0}, Landroidx/emoji2/text/TypefaceEmojiSpan;->getMetadata()Landroidx/emoji2/text/EmojiMetadata;
 
     move-result-object v0

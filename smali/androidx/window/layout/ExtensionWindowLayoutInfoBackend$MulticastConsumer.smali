@@ -88,7 +88,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public accept(Landroidx/window/extensions/layout/WindowLayoutInfo;)V
-    .locals 9
+    .registers 11
     .param p1, "value"    # Landroidx/window/extensions/layout/WindowLayoutInfo;
 
     const-string/jumbo v0, "value"
@@ -142,7 +142,7 @@
 
     .line 106
     .local v1, "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$MulticastConsumer$accept$1":I
-    :try_start_0
+    :try_start_e
     sget-object v2, Landroidx/window/layout/ExtensionsWindowLayoutInfoAdapter;->INSTANCE:Landroidx/window/layout/ExtensionsWindowLayoutInfoAdapter;
 
     iget-object v3, p0, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;->activity:Landroid/app/Activity;
@@ -167,12 +167,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_21
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_35
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -195,10 +195,10 @@
     .end local v5    # "element$iv":Ljava/lang/Object;
     .end local v6    # "consumer":Landroidx/core/util/Consumer;
     .end local v7    # "$i$a$-forEach-ExtensionWindowLayoutInfoBackend$MulticastConsumer$accept$1$1":I
-    goto :goto_0
+    goto :goto_21
 
     .line 130
-    :cond_0
+    :cond_35
     nop
 
     .line 108
@@ -208,8 +208,8 @@
 
     .end local v1    # "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$MulticastConsumer$accept$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_39
+    .catchall {:try_start_e .. :try_end_39} :catchall_3d
 
     .line 105
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -218,7 +218,7 @@
     return-void
 
     .line 105
-    :catchall_0
+    :catchall_3d
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -227,7 +227,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Ljava/lang/Object;
 
     .line 94
@@ -241,7 +241,7 @@
 .end method
 
 .method public final addListener(Landroidx/core/util/Consumer;)V
-    .locals 4
+    .registers 6
     .param p1, "listener"    # Landroidx/core/util/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -267,16 +267,16 @@
 
     .line 113
     .local v1, "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$MulticastConsumer$addListener$1":I
-    :try_start_0
+    :try_start_d
     iget-object v2, p0, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;->lastKnownValue:Landroidx/window/layout/WindowLayoutInfo;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
-    goto :goto_0
+    goto :goto_16
 
     .line 131
     .local v2, "value":Landroidx/window/layout/WindowLayoutInfo;
-    :cond_0
+    :cond_12
     const/4 v3, 0x0
 
     .line 113
@@ -286,12 +286,12 @@
     .line 114
     .end local v2    # "value":Landroidx/window/layout/WindowLayoutInfo;
     .end local v3    # "$i$a$-let-ExtensionWindowLayoutInfoBackend$MulticastConsumer$addListener$1$1":I
-    :goto_0
+    :goto_16
     iget-object v2, p0, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;->registeredListeners:Ljava/util/Set;
 
     invoke-interface {v2, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_d .. :try_end_1b} :catchall_1f
 
     .line 112
     .end local v1    # "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$MulticastConsumer$addListener$1":I
@@ -301,7 +301,7 @@
     return-void
 
     .line 112
-    :catchall_0
+    :catchall_1f
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -310,7 +310,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -320,7 +320,7 @@
 .end method
 
 .method public final isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 125
     iget-object v0, p0, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;->registeredListeners:Ljava/util/Set;
@@ -333,7 +333,7 @@
 .end method
 
 .method public final removeListener(Landroidx/core/util/Consumer;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Landroidx/core/util/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -359,12 +359,12 @@
 
     .line 120
     .local v1, "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$MulticastConsumer$removeListener$1":I
-    :try_start_0
+    :try_start_d
     iget-object v2, p0, Landroidx/window/layout/ExtensionWindowLayoutInfoBackend$MulticastConsumer;->registeredListeners:Ljava/util/Set;
 
     invoke-interface {v2, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_d .. :try_end_12} :catchall_16
 
     .line 119
     .end local v1    # "$i$a$-withLock-ExtensionWindowLayoutInfoBackend$MulticastConsumer$removeListener$1":I
@@ -374,7 +374,7 @@
     return-void
 
     .line 119
-    :catchall_0
+    :catchall_16
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V

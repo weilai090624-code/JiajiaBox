@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Iterable;I)V
-    .locals 0
+    .registers 3
 
     .line 914
     iput-object p1, p0, Lcom/google/common/collect/Iterables$6;->val$iterable:Ljava/lang/Iterable;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -58,7 +58,7 @@
 
     instance-of v0, v0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 918
     iget-object v0, p0, Lcom/google/common/collect/Iterables$6;->val$iterable:Ljava/lang/Iterable;
@@ -96,7 +96,7 @@
     .line 922
     .end local v0    # "list":Ljava/util/List;, "Ljava/util/List<TT;>;"
     .end local v1    # "toSkip":I
-    :cond_0
+    :cond_21
     iget-object v0, p0, Lcom/google/common/collect/Iterables$6;->val$iterable:Ljava/lang/Iterable;
 
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;

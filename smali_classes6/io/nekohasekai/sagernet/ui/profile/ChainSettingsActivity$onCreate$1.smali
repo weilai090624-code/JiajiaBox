@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;)V
-    .locals 2
+    .registers 4
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$onCreate$1;->this$0:Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public getDragDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
-    .locals 1
+    .registers 4
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -90,25 +90,25 @@
     .line 84
     instance-of v0, p2, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 85
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;->getDragDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 86
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public getSwipeDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
-    .locals 1
+    .registers 4
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -123,25 +123,25 @@
     .line 77
     instance-of v0, p2, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 78
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;->getSwipeDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 79
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public onMove(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
-    .locals 3
+    .registers 7
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p3, "target"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
@@ -161,14 +161,14 @@
     .line 93
     instance-of v0, p3, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProfileHolder;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 94
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$onCreate$1;->this$0:Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity;->getConfigurationAdapter()Lio/nekohasekai/sagernet/ui/profile/ChainSettingsActivity$ProxiesAdapter;
@@ -195,12 +195,12 @@
     const/4 v0, 0x1
 
     .line 93
-    :goto_0
+    :goto_2a
     return v0
 .end method
 
 .method public onSwiped(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 2
+    .registers 5
     .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "direction"    # I
 

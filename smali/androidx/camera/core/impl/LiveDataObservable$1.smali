@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/LiveDataObservable;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/core/impl/LiveDataObservable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public attachCompleter(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10

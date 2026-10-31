@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 783
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static isLaunchedFromBubble(Landroid/app/Activity;)Z
-    .locals 1
+    .registers 2
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 789
@@ -38,7 +38,7 @@
 .end method
 
 .method static shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/lang/String;)Z
-    .locals 7
+    .registers 9
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "permission"    # Ljava/lang/String;
 
@@ -87,32 +87,32 @@
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_27} :catch_2c
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_27} :catch_2a
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_27} :catch_28
 
     return v2
 
     .line 819
     .end local v0    # "packageManager":Landroid/content/pm/PackageManager;
     .end local v1    # "method":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_28
     move-exception v0
 
-    goto :goto_0
+    goto :goto_2d
 
-    :catch_1
+    :catch_2a
     move-exception v0
 
-    goto :goto_0
+    goto :goto_2d
 
-    :catch_2
+    :catch_2c
     move-exception v0
 
     .line 820
     .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
+    :goto_2d
     invoke-virtual {p0, p1}, Landroid/app/Activity;->shouldShowRequestPermissionRationale(Ljava/lang/String;)Z
 
     move-result v1

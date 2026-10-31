@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     invoke-direct {p0}, Landroidx/emoji2/text/flatbuffer/Utf8;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method private static computeEncodedLength(Ljava/lang/CharSequence;)I
-    .locals 9
+    .registers 10
     .param p0, "sequence"    # Ljava/lang/CharSequence;
 
     .line 75
@@ -40,8 +40,8 @@
 
     .line 80
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_6
+    if-ge v2, v0, :cond_13
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -49,17 +49,17 @@
 
     const/16 v4, 0x80
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_13
 
     .line 81
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 85
-    :cond_0
-    :goto_1
-    if-ge v2, v0, :cond_2
+    :cond_13
+    :goto_13
+    if-ge v2, v0, :cond_2b
 
     .line 86
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -70,7 +70,7 @@
     .local v3, "c":C
     const/16 v4, 0x800
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_25
 
     .line 88
     rsub-int/lit8 v4, v3, 0x7f
@@ -83,11 +83,11 @@
     .end local v3    # "c":C
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_13
 
     .line 90
     .restart local v3    # "c":C
-    :cond_1
+    :cond_25
     invoke-static {p0, v2}, Landroidx/emoji2/text/flatbuffer/Utf8Safe;->encodedLengthGeneral(Ljava/lang/CharSequence;I)I
 
     move-result v4
@@ -99,14 +99,14 @@
 
     .line 95
     .end local v3    # "c":C
-    :cond_2
-    if-lt v1, v0, :cond_3
+    :cond_2b
+    if-lt v1, v0, :cond_2e
 
     .line 100
     return v1
 
     .line 97
-    :cond_3
+    :cond_2e
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -139,7 +139,7 @@
 .end method
 
 .method public static decodeUtf8Array([BII)Ljava/lang/String;
-    .locals 13
+    .registers 16
     .param p0, "bytes"    # [B
     .param p1, "index"    # I
     .param p2, "size"    # I
@@ -159,7 +159,7 @@
 
     const/4 v2, 0x1
 
-    if-ltz v0, :cond_b
+    if-ltz v0, :cond_b4
 
     .line 133
     move v0, p1
@@ -178,8 +178,8 @@
 
     .line 143
     .local v4, "resultPos":I
-    :goto_0
-    if-ge v0, v3, :cond_1
+    :goto_10
+    if-ge v0, v3, :cond_24
 
     .line 144
     aget-byte v5, p0, v0
@@ -190,13 +190,13 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1b
 
     .line 146
-    goto :goto_1
+    goto :goto_24
 
     .line 148
-    :cond_0
+    :cond_1b
     add-int/lit8 v0, v0, 0x1
 
     .line 149
@@ -210,19 +210,19 @@
     .end local v5    # "b":B
     move v4, v6
 
-    goto :goto_0
+    goto :goto_10
 
     .line 152
     .end local v6    # "resultPos":I
     .restart local v4    # "resultPos":I
-    :cond_1
-    :goto_1
+    :cond_24
+    :goto_24
     move v9, v4
 
     .end local v4    # "resultPos":I
     .local v9, "resultPos":I
-    :goto_2
-    if-ge v0, v3, :cond_a
+    :goto_25
+    if-ge v0, v3, :cond_ae
 
     .line 153
     add-int/lit8 v4, v0, 0x1
@@ -237,7 +237,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_4d
 
     .line 155
     add-int/lit8 v5, v9, 0x1
@@ -247,8 +247,8 @@
     invoke-static {v0, v10, v9}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->handleOneByte(B[CI)V
 
     .line 158
-    :goto_3
-    if-ge v4, v3, :cond_3
+    :goto_36
+    if-ge v4, v3, :cond_4a
 
     .line 159
     aget-byte v6, p0, v4
@@ -259,13 +259,13 @@
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_41
 
     .line 161
-    goto :goto_4
+    goto :goto_4a
 
     .line 163
-    :cond_2
+    :cond_41
     add-int/lit8 v4, v4, 0x1
 
     .line 164
@@ -279,35 +279,35 @@
     .end local v6    # "b":B
     move v5, v7
 
-    goto :goto_3
+    goto :goto_36
 
     .line 195
     .end local v0    # "byte1":B
     .end local v7    # "resultPos":I
     .restart local v5    # "resultPos":I
-    :cond_3
-    :goto_4
+    :cond_4a
+    :goto_4a
     move v0, v4
 
     move v9, v5
 
-    goto :goto_5
+    goto :goto_a6
 
     .line 166
     .end local v5    # "resultPos":I
     .restart local v0    # "byte1":B
     .restart local v9    # "resultPos":I
-    :cond_4
+    :cond_4d
     invoke-static {v0}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->isTwoBytes(B)Z
 
     move-result v5
 
     const-string v6, "Invalid UTF-8"
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_69
 
     .line 167
-    if-ge v4, v3, :cond_5
+    if-ge v4, v3, :cond_63
 
     .line 170
     add-int/lit8 v5, v4, 0x1
@@ -326,14 +326,14 @@
 
     move v9, v6
 
-    goto :goto_5
+    goto :goto_a6
 
     .line 168
     .end local v5    # "offset":I
     .end local v6    # "resultPos":I
     .restart local v4    # "offset":I
     .restart local v9    # "resultPos":I
-    :cond_5
+    :cond_63
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -341,17 +341,17 @@
     throw v1
 
     .line 171
-    :cond_6
+    :cond_69
     invoke-static {v0}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->isThreeBytes(B)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_89
 
     .line 172
     add-int/lit8 v5, v3, -0x1
 
-    if-ge v4, v5, :cond_7
+    if-ge v4, v5, :cond_83
 
     .line 175
     add-int/lit8 v5, v4, 0x1
@@ -376,14 +376,14 @@
 
     move v9, v7
 
-    goto :goto_5
+    goto :goto_a6
 
     .line 173
     .end local v6    # "offset":I
     .end local v7    # "resultPos":I
     .restart local v4    # "offset":I
     .restart local v9    # "resultPos":I
-    :cond_7
+    :cond_83
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -391,10 +391,10 @@
     throw v1
 
     .line 182
-    :cond_8
+    :cond_89
     add-int/lit8 v5, v3, -0x2
 
-    if-ge v4, v5, :cond_9
+    if-ge v4, v5, :cond_a8
 
     .line 185
     add-int/lit8 v5, v4, 0x1
@@ -443,13 +443,13 @@
     .end local v12    # "resultPos":I
     .local v0, "offset":I
     .restart local v9    # "resultPos":I
-    :goto_5
-    goto/16 :goto_2
+    :goto_a6
+    goto/16 :goto_25
 
     .line 183
     .local v0, "byte1":B
     .restart local v4    # "offset":I
-    :cond_9
+    :cond_a8
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -459,7 +459,7 @@
     .line 197
     .end local v4    # "offset":I
     .local v0, "offset":I
-    :cond_a
+    :cond_ae
     new-instance v2, Ljava/lang/String;
 
     invoke-direct {v2, v10, v1, v9}, Ljava/lang/String;-><init>([CII)V
@@ -471,7 +471,7 @@
     .end local v3    # "limit":I
     .end local v9    # "resultPos":I
     .end local v10    # "resultArr":[C
-    :cond_b
+    :cond_b4
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     array-length v3, p0
@@ -513,7 +513,7 @@
 .end method
 
 .method public static decodeUtf8Buffer(Ljava/nio/ByteBuffer;II)Ljava/lang/String;
-    .locals 12
+    .registers 15
     .param p0, "buffer"    # Ljava/nio/ByteBuffer;
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -535,7 +535,7 @@
 
     const/4 v2, 0x1
 
-    if-ltz v0, :cond_b
+    if-ltz v0, :cond_c9
 
     .line 209
     add-int v0, p1, p2
@@ -550,8 +550,8 @@
 
     .line 218
     .local v3, "resultPos":I
-    :goto_0
-    if-ge p1, v0, :cond_1
+    :goto_12
+    if-ge p1, v0, :cond_28
 
     .line 219
     invoke-virtual {p0, p1}, Ljava/nio/ByteBuffer;->get(I)B
@@ -564,13 +564,13 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1f
 
     .line 221
-    goto :goto_1
+    goto :goto_28
 
     .line 223
-    :cond_0
+    :cond_1f
     add-int/lit8 p1, p1, 0x1
 
     .line 224
@@ -584,19 +584,19 @@
     .end local v4    # "b":B
     move v3, v5
 
-    goto :goto_0
+    goto :goto_12
 
     .line 227
     .end local v5    # "resultPos":I
     .restart local v3    # "resultPos":I
-    :cond_1
-    :goto_1
+    :cond_28
+    :goto_28
     move v8, v3
 
     .end local v3    # "resultPos":I
     .local v8, "resultPos":I
-    :goto_2
-    if-ge p1, v0, :cond_a
+    :goto_29
+    if-ge p1, v0, :cond_c3
 
     .line 228
     add-int/lit8 v3, p1, 0x1
@@ -613,7 +613,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_56
 
     .line 230
     add-int/lit8 v4, v8, 0x1
@@ -623,8 +623,8 @@
     invoke-static {p1, v9, v8}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->handleOneByte(B[CI)V
 
     .line 233
-    :goto_3
-    if-ge v3, v0, :cond_3
+    :goto_3c
+    if-ge v3, v0, :cond_52
 
     .line 234
     invoke-virtual {p0, v3}, Ljava/nio/ByteBuffer;->get(I)B
@@ -637,13 +637,13 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_49
 
     .line 236
-    goto :goto_4
+    goto :goto_52
 
     .line 238
-    :cond_2
+    :cond_49
     add-int/lit8 v3, v3, 0x1
 
     .line 239
@@ -657,35 +657,35 @@
     .end local v5    # "b":B
     move v4, v6
 
-    goto :goto_3
+    goto :goto_3c
 
     .line 271
     .end local v6    # "resultPos":I
     .end local p1    # "byte1":B
     .restart local v4    # "resultPos":I
-    :cond_3
-    :goto_4
+    :cond_52
+    :goto_52
     move p1, v3
 
     move v8, v4
 
-    goto/16 :goto_5
+    goto/16 :goto_bb
 
     .line 241
     .end local v4    # "resultPos":I
     .restart local v8    # "resultPos":I
     .restart local p1    # "byte1":B
-    :cond_4
+    :cond_56
     invoke-static {p1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->isTwoBytes(B)Z
 
     move-result v4
 
     const-string v5, "Invalid UTF-8"
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_74
 
     .line 242
-    if-ge v3, v0, :cond_5
+    if-ge v3, v0, :cond_6e
 
     .line 245
     add-int/lit8 v4, v3, 0x1
@@ -708,14 +708,14 @@
 
     move v8, v5
 
-    goto :goto_5
+    goto :goto_bb
 
     .line 243
     .end local v4    # "offset":I
     .end local v5    # "resultPos":I
     .restart local v3    # "offset":I
     .restart local v8    # "resultPos":I
-    :cond_5
+    :cond_6e
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -723,17 +723,17 @@
     throw v1
 
     .line 247
-    :cond_6
+    :cond_74
     invoke-static {p1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->isThreeBytes(B)Z
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_98
 
     .line 248
     add-int/lit8 v4, v0, -0x1
 
-    if-ge v3, v4, :cond_7
+    if-ge v3, v4, :cond_92
 
     .line 251
     add-int/lit8 v4, v3, 0x1
@@ -765,14 +765,14 @@
 
     move v8, v6
 
-    goto :goto_5
+    goto :goto_bb
 
     .line 249
     .end local v5    # "offset":I
     .end local v6    # "resultPos":I
     .restart local v3    # "offset":I
     .restart local v8    # "resultPos":I
-    :cond_7
+    :cond_92
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -780,10 +780,10 @@
     throw v1
 
     .line 258
-    :cond_8
+    :cond_98
     add-int/lit8 v4, v0, -0x2
 
-    if-ge v3, v4, :cond_9
+    if-ge v3, v4, :cond_bd
 
     .line 261
     add-int/lit8 v4, v3, 0x1
@@ -842,13 +842,13 @@
     .end local v11    # "resultPos":I
     .restart local v8    # "resultPos":I
     .local p1, "offset":I
-    :goto_5
-    goto/16 :goto_2
+    :goto_bb
+    goto/16 :goto_29
 
     .line 259
     .restart local v3    # "offset":I
     .local p1, "byte1":B
-    :cond_9
+    :cond_bd
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -858,7 +858,7 @@
     .line 273
     .end local v3    # "offset":I
     .local p1, "offset":I
-    :cond_a
+    :cond_c3
     new-instance v2, Ljava/lang/String;
 
     invoke-direct {v2, v9, v1, v8}, Ljava/lang/String;-><init>([CII)V
@@ -869,7 +869,7 @@
     .end local v0    # "limit":I
     .end local v8    # "resultPos":I
     .end local v9    # "resultArr":[C
-    :cond_b
+    :cond_c9
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     .line 205
@@ -915,7 +915,7 @@
 .end method
 
 .method private static encodeUtf8Array(Ljava/lang/CharSequence;[BII)I
-    .locals 10
+    .registers 14
     .param p0, "in"    # Ljava/lang/CharSequence;
     .param p1, "out"    # [B
     .param p2, "offset"    # I
@@ -940,14 +940,14 @@
 
     .line 376
     .local v3, "limit":I
-    :goto_0
+    :goto_8
     const/16 v4, 0x80
 
-    if-ge v2, v0, :cond_0
+    if-ge v2, v0, :cond_1f
 
     add-int v5, v2, v1
 
-    if-ge v5, v3, :cond_0
+    if-ge v5, v3, :cond_1f
 
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -956,7 +956,7 @@
     move v6, v5
 
     .local v6, "c":C
-    if-ge v5, v4, :cond_0
+    if-ge v5, v4, :cond_1f
 
     .line 377
     add-int v4, v1, v2
@@ -968,12 +968,12 @@
     .line 376
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 379
     .end local v6    # "c":C
-    :cond_0
-    if-ne v2, v0, :cond_1
+    :cond_1f
+    if-ne v2, v0, :cond_24
 
     .line 380
     add-int v4, v1, v0
@@ -981,12 +981,12 @@
     return v4
 
     .line 382
-    :cond_1
+    :cond_24
     add-int/2addr v1, v2
 
     .line 383
-    :goto_1
-    if-ge v2, v0, :cond_a
+    :goto_25
+    if-ge v2, v0, :cond_10c
 
     .line 384
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -995,9 +995,9 @@
 
     .line 385
     .local v5, "c":C
-    if-ge v5, v4, :cond_2
+    if-ge v5, v4, :cond_37
 
-    if-ge v1, v3, :cond_2
+    if-ge v1, v3, :cond_37
 
     .line 386
     add-int/lit8 v6, v1, 0x1
@@ -1010,19 +1010,19 @@
 
     move v1, v6
 
-    goto/16 :goto_2
+    goto/16 :goto_bf
 
     .line 387
     .end local v6    # "j":I
     .restart local v1    # "j":I
-    :cond_2
+    :cond_37
     const/16 v6, 0x800
 
-    if-ge v5, v6, :cond_3
+    if-ge v5, v6, :cond_51
 
     add-int/lit8 v6, v3, -0x2
 
-    if-gt v1, v6, :cond_3
+    if-gt v1, v6, :cond_51
 
     .line 388
     add-int/lit8 v6, v1, 0x1
@@ -1050,22 +1050,22 @@
 
     aput-byte v7, p1, v6
 
-    goto :goto_2
+    goto :goto_bf
 
     .line 390
-    :cond_3
+    :cond_51
     const v6, 0xdfff
 
     const v7, 0xd800
 
-    if-lt v5, v7, :cond_4
+    if-lt v5, v7, :cond_5b
 
-    if-ge v6, v5, :cond_5
+    if-ge v6, v5, :cond_7c
 
-    :cond_4
+    :cond_5b
     add-int/lit8 v8, v3, -0x3
 
-    if-gt v1, v8, :cond_5
+    if-gt v1, v8, :cond_7c
 
     .line 392
     add-int/lit8 v6, v1, 0x1
@@ -1110,15 +1110,15 @@
 
     move v1, v6
 
-    goto :goto_2
+    goto :goto_bf
 
     .line 395
     .end local v6    # "j":I
     .restart local v1    # "j":I
-    :cond_5
+    :cond_7c
     add-int/lit8 v8, v3, -0x4
 
-    if-gt v1, v8, :cond_7
+    if-gt v1, v8, :cond_cb
 
     .line 399
     add-int/lit8 v6, v2, 0x1
@@ -1127,7 +1127,7 @@
 
     move-result v7
 
-    if-eq v6, v7, :cond_6
+    if-eq v6, v7, :cond_c3
 
     add-int/lit8 v2, v2, 0x1
 
@@ -1143,7 +1143,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_c3
 
     .line 403
     invoke-static {v5, v7}, Ljava/lang/Character;->toCodePoint(CC)I
@@ -1213,13 +1213,13 @@
     nop
 
     .line 383
-    :goto_2
+    :goto_bf
     add-int/lit8 v2, v2, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_25
 
     .line 401
-    :cond_6
+    :cond_c3
     new-instance v4, Landroidx/emoji2/text/flatbuffer/Utf8Safe$UnpairedSurrogateException;
 
     add-int/lit8 v6, v2, -0x1
@@ -1229,10 +1229,10 @@
     throw v4
 
     .line 411
-    :cond_7
-    if-gt v7, v5, :cond_9
+    :cond_cb
+    if-gt v7, v5, :cond_e9
 
-    if-gt v5, v6, :cond_9
+    if-gt v5, v6, :cond_e9
 
     add-int/lit8 v4, v2, 0x1
 
@@ -1241,7 +1241,7 @@
 
     move-result v6
 
-    if-eq v4, v6, :cond_8
+    if-eq v4, v6, :cond_e3
 
     add-int/lit8 v4, v2, 0x1
 
@@ -1254,10 +1254,10 @@
 
     move-result v4
 
-    if-nez v4, :cond_9
+    if-nez v4, :cond_e9
 
     .line 414
-    :cond_8
+    :cond_e3
     new-instance v4, Landroidx/emoji2/text/flatbuffer/Utf8Safe$UnpairedSurrogateException;
 
     invoke-direct {v4, v2, v0}, Landroidx/emoji2/text/flatbuffer/Utf8Safe$UnpairedSurrogateException;-><init>(II)V
@@ -1265,7 +1265,7 @@
     throw v4
 
     .line 416
-    :cond_9
+    :cond_e9
     new-instance v4, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1302,12 +1302,12 @@
 
     .line 419
     .end local v5    # "c":C
-    :cond_a
+    :cond_10c
     return v1
 .end method
 
 .method private static encodeUtf8Buffer(Ljava/lang/CharSequence;Ljava/nio/ByteBuffer;)V
-    .locals 9
+    .registers 11
     .param p0, "in"    # Ljava/lang/CharSequence;
     .param p1, "out"    # Ljava/nio/ByteBuffer;
 
@@ -1328,12 +1328,12 @@
 
     .line 308
     .local v2, "inIx":I
-    :goto_0
+    :goto_9
     const/16 v3, 0x80
 
-    if-ge v2, v0, :cond_0
+    if-ge v2, v0, :cond_20
 
-    :try_start_0
+    :try_start_d
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v4
@@ -1341,7 +1341,7 @@
     move v5, v4
 
     .local v5, "c":C
-    if-ge v4, v3, :cond_0
+    if-ge v4, v3, :cond_20
 
     .line 309
     add-int v3, v1, v2
@@ -1353,18 +1353,18 @@
     .line 308
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 357
     .end local v5    # "c":C
-    :catch_0
+    :catch_1d
     move-exception v3
 
-    goto/16 :goto_4
+    goto/16 :goto_cc
 
     .line 311
-    :cond_0
-    if-ne v2, v0, :cond_1
+    :cond_20
+    if-ne v2, v0, :cond_28
 
     .line 313
     add-int v3, v1, v2
@@ -1375,12 +1375,12 @@
     return-void
 
     .line 317
-    :cond_1
+    :cond_28
     add-int/2addr v1, v2
 
     .line 318
-    :goto_1
-    if-ge v2, v0, :cond_7
+    :goto_29
+    if-ge v2, v0, :cond_c7
 
     .line 319
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1389,22 +1389,22 @@
 
     .line 320
     .local v4, "c":C
-    if-ge v4, v3, :cond_2
+    if-ge v4, v3, :cond_37
 
     .line 322
     int-to-byte v5, v4
 
     invoke-virtual {p1, v1, v5}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_35
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_d .. :try_end_35} :catch_1d
 
-    goto/16 :goto_3
+    goto/16 :goto_c1
 
     .line 323
-    :cond_2
+    :cond_37
     const/16 v5, 0x800
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_53
 
     .line 327
     add-int/lit8 v5, v1, 0x1
@@ -1417,7 +1417,7 @@
 
     int-to-byte v6, v6
 
-    :try_start_1
+    :try_start_42
     invoke-virtual {p1, v1, v6}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
 
     .line 328
@@ -1428,46 +1428,46 @@
     int-to-byte v1, v1
 
     invoke-virtual {p1, v5, v1}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
-    :try_end_1
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_4c
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_42 .. :try_end_4c} :catch_4f
 
     move v1, v5
 
-    goto/16 :goto_3
+    goto/16 :goto_c1
 
     .line 357
     .end local v4    # "c":C
-    :catch_1
+    :catch_4f
     move-exception v3
 
     move v1, v5
 
-    goto/16 :goto_4
+    goto/16 :goto_cc
 
     .line 329
     .end local v5    # "outIx":I
     .restart local v1    # "outIx":I
     .restart local v4    # "c":C
-    :cond_3
+    :cond_53
     const v5, 0xd800
 
-    if-lt v4, v5, :cond_6
+    if-lt v4, v5, :cond_a5
 
     const v5, 0xdfff
 
-    if-ge v5, v4, :cond_4
+    if-ge v5, v4, :cond_5e
 
-    goto :goto_2
+    goto :goto_a5
 
     .line 343
-    :cond_4
+    :cond_5e
     add-int/lit8 v5, v2, 0x1
 
-    if-eq v5, v0, :cond_5
+    if-eq v5, v0, :cond_9f
 
     add-int/lit8 v2, v2, 0x1
 
-    :try_start_2
+    :try_start_64
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v5
@@ -1479,14 +1479,14 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_9f
 
     .line 347
     invoke-static {v4, v6}, Ljava/lang/Character;->toCodePoint(CC)I
 
     move-result v5
-    :try_end_2
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_73
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_64 .. :try_end_73} :catch_1d
 
     .line 348
     .local v5, "codePoint":I
@@ -1500,10 +1500,10 @@
 
     int-to-byte v8, v8
 
-    :try_start_3
+    :try_start_7a
     invoke-virtual {p1, v1, v8}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
-    :try_end_3
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_3 .. :try_end_3} :catch_2
+    :try_end_7d
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_7a .. :try_end_7d} :catch_9c
 
     .line 349
     add-int/lit8 v1, v7, 0x1
@@ -1518,10 +1518,10 @@
 
     int-to-byte v8, v8
 
-    :try_start_4
+    :try_start_85
     invoke-virtual {p1, v7, v8}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
-    :try_end_4
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_88
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_85 .. :try_end_88} :catch_1d
 
     .line 350
     add-int/lit8 v7, v1, 0x1
@@ -1536,7 +1536,7 @@
 
     int-to-byte v8, v8
 
-    :try_start_5
+    :try_start_90
     invoke-virtual {p1, v1, v8}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
 
     .line 351
@@ -1547,30 +1547,30 @@
     int-to-byte v1, v1
 
     invoke-virtual {p1, v7, v1}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
-    :try_end_5
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_5 .. :try_end_5} :catch_2
+    :try_end_9a
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_90 .. :try_end_9a} :catch_9c
 
     move v1, v7
 
-    goto :goto_3
+    goto :goto_c1
 
     .line 357
     .end local v4    # "c":C
     .end local v5    # "codePoint":I
     .end local v6    # "low":C
-    :catch_2
+    :catch_9c
     move-exception v3
 
     move v1, v7
 
-    goto :goto_4
+    goto :goto_cc
 
     .line 344
     .end local v7    # "outIx":I
     .restart local v1    # "outIx":I
     .restart local v4    # "c":C
-    :cond_5
-    :try_start_6
+    :cond_9f
+    :try_start_9f
     new-instance v3, Landroidx/emoji2/text/flatbuffer/Utf8Safe$UnpairedSurrogateException;
 
     invoke-direct {v3, v2, v0}, Landroidx/emoji2/text/flatbuffer/Utf8Safe$UnpairedSurrogateException;-><init>(II)V
@@ -1581,8 +1581,8 @@
     .end local p0    # "in":Ljava/lang/CharSequence;
     .end local p1    # "out":Ljava/nio/ByteBuffer;
     throw v3
-    :try_end_6
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_6 .. :try_end_6} :catch_0
+    :try_end_a5
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_9f .. :try_end_a5} :catch_1d
 
     .line 334
     .restart local v0    # "inLength":I
@@ -1590,8 +1590,8 @@
     .restart local v2    # "inIx":I
     .restart local p0    # "in":Ljava/lang/CharSequence;
     .restart local p1    # "out":Ljava/nio/ByteBuffer;
-    :cond_6
-    :goto_2
+    :cond_a5
+    :goto_a5
     add-int/lit8 v5, v1, 0x1
 
     .end local v1    # "outIx":I
@@ -1602,10 +1602,10 @@
 
     int-to-byte v6, v6
 
-    :try_start_7
+    :try_start_ac
     invoke-virtual {p1, v1, v6}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
-    :try_end_7
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_7 .. :try_end_7} :catch_1
+    :try_end_af
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_ac .. :try_end_af} :catch_4f
 
     .line 335
     add-int/lit8 v1, v5, 0x1
@@ -1620,7 +1620,7 @@
 
     int-to-byte v6, v6
 
-    :try_start_8
+    :try_start_b7
     invoke-virtual {p1, v5, v6}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
 
     .line 336
@@ -1633,19 +1633,19 @@
     invoke-virtual {p1, v1, v5}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
 
     .line 318
-    :goto_3
+    :goto_c1
     add-int/lit8 v2, v2, 0x1
 
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_29
 
     .line 356
     .end local v4    # "c":C
-    :cond_7
+    :cond_c7
     invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
-    :try_end_8
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_8 .. :try_end_8} :catch_0
+    :try_end_ca
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_b7 .. :try_end_ca} :catch_1d
 
     .line 365
     nop
@@ -1655,7 +1655,7 @@
 
     .line 362
     .local v3, "e":Ljava/lang/IndexOutOfBoundsException;
-    :goto_4
+    :goto_cc
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v4
@@ -1717,7 +1717,7 @@
 .end method
 
 .method private static encodedLengthGeneral(Ljava/lang/CharSequence;I)I
-    .locals 6
+    .registers 8
     .param p0, "sequence"    # Ljava/lang/CharSequence;
     .param p1, "start"    # I
 
@@ -1735,8 +1735,8 @@
     move v2, p1
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_3
+    :goto_6
+    if-ge v2, v0, :cond_36
 
     .line 107
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1747,7 +1747,7 @@
     .local v3, "c":C
     const/16 v4, 0x800
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_16
 
     .line 109
     rsub-int/lit8 v4, v3, 0x7f
@@ -1756,20 +1756,20 @@
 
     add-int/2addr v1, v4
 
-    goto :goto_1
+    goto :goto_33
 
     .line 111
-    :cond_0
+    :cond_16
     add-int/lit8 v1, v1, 0x2
 
     .line 113
     const v4, 0xd800
 
-    if-gt v4, v3, :cond_2
+    if-gt v4, v3, :cond_33
 
     const v4, 0xdfff
 
-    if-gt v3, v4, :cond_2
+    if-gt v3, v4, :cond_33
 
     .line 115
     invoke-static {p0, v2}, Ljava/lang/Character;->codePointAt(Ljava/lang/CharSequence;I)I
@@ -1780,15 +1780,15 @@
     .local v4, "cp":I
     const/high16 v5, 0x10000
 
-    if-lt v4, v5, :cond_1
+    if-lt v4, v5, :cond_2d
 
     .line 119
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
     .line 117
-    :cond_1
+    :cond_2d
     new-instance v5, Landroidx/emoji2/text/flatbuffer/Utf8Safe$UnpairedSurrogateException;
 
     invoke-direct {v5, v2, v0}, Landroidx/emoji2/text/flatbuffer/Utf8Safe$UnpairedSurrogateException;-><init>(II)V
@@ -1798,22 +1798,22 @@
     .line 106
     .end local v3    # "c":C
     .end local v4    # "cp":I
-    :cond_2
-    :goto_1
+    :cond_33
+    :goto_33
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 123
     .end local v2    # "i":I
-    :cond_3
+    :cond_36
     return v1
 .end method
 
 
 # virtual methods
 .method public decodeUtf8(Ljava/nio/ByteBuffer;II)Ljava/lang/String;
-    .locals 2
+    .registers 6
     .param p1, "buffer"    # Ljava/nio/ByteBuffer;
     .param p2, "offset"    # I
     .param p3, "length"    # I
@@ -1828,7 +1828,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 290
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
@@ -1848,7 +1848,7 @@
     return-object v0
 
     .line 292
-    :cond_0
+    :cond_14
     invoke-static {p1, p2, p3}, Landroidx/emoji2/text/flatbuffer/Utf8Safe;->decodeUtf8Buffer(Ljava/nio/ByteBuffer;II)Ljava/lang/String;
 
     move-result-object v0
@@ -1857,7 +1857,7 @@
 .end method
 
 .method public encodeUtf8(Ljava/lang/CharSequence;Ljava/nio/ByteBuffer;)V
-    .locals 4
+    .registers 7
     .param p1, "in"    # Ljava/lang/CharSequence;
     .param p2, "out"    # Ljava/nio/ByteBuffer;
 
@@ -1866,7 +1866,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 434
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->arrayOffset()I
@@ -1904,19 +1904,19 @@
     .line 438
     .end local v0    # "start":I
     .end local v1    # "end":I
-    goto :goto_0
+    goto :goto_24
 
     .line 439
-    :cond_0
+    :cond_21
     invoke-static {p1, p2}, Landroidx/emoji2/text/flatbuffer/Utf8Safe;->encodeUtf8Buffer(Ljava/lang/CharSequence;Ljava/nio/ByteBuffer;)V
 
     .line 441
-    :goto_0
+    :goto_24
     return-void
 .end method
 
 .method public encodedLength(Ljava/lang/CharSequence;)I
-    .locals 1
+    .registers 3
     .param p1, "in"    # Ljava/lang/CharSequence;
 
     .line 278

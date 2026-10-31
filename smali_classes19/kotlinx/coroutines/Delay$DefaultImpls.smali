@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static delay(Lkotlinx/coroutines/Delay;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 10
     .param p0, "$this"    # Lkotlinx/coroutines/Delay;
     .param p1, "time"    # J
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -57,14 +57,14 @@
 
     cmp-long v2, p1, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_9
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 30
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     .line 163
@@ -120,21 +120,21 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_2e
 
     invoke-static {p3}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_1
+    :cond_2e
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_35
 
     return-object v1
 
     .line 173
-    :cond_2
+    :cond_35
     nop
 
     .end local v0    # "$i$f$suspendCancellableCoroutine":I
@@ -145,7 +145,7 @@
 .end method
 
 .method public static invokeOnTimeout(Lkotlinx/coroutines/Delay;JLjava/lang/Runnable;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/DisposableHandle;
-    .locals 1
+    .registers 6
     .param p0, "$this"    # Lkotlinx/coroutines/Delay;
     .param p1, "timeMillis"    # J
     .param p3, "block"    # Ljava/lang/Runnable;

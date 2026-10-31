@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(ILandroidx/core/view/accessibility/AccessibilityNodeInfoCompat;I)V
-    .locals 0
+    .registers 4
     .param p1, "originalClickableSpanId"    # I
     .param p2, "nodeInfoCompat"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
     .param p3, "clickableSpanActionId"    # I
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "unused"    # Landroid/view/View;
 
     .line 67

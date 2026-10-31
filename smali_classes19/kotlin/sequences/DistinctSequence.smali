@@ -69,7 +69,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Lkotlin/sequences/Sequence;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

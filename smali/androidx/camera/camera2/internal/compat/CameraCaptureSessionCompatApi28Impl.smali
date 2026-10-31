@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/CameraCaptureSession;)V
-    .locals 1
+    .registers 3
     .param p1, "captureSession"    # Landroid/hardware/camera2/CameraCaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public captureBurstRequests(Ljava/util/List;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)I
-    .locals 1
+    .registers 5
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "listener"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -74,7 +74,7 @@
 .end method
 
 .method public captureSingleRequest(Landroid/hardware/camera2/CaptureRequest;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)I
-    .locals 1
+    .registers 5
     .param p1, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "listener"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
@@ -108,7 +108,7 @@
 .end method
 
 .method public setRepeatingBurstRequests(Ljava/util/List;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)I
-    .locals 1
+    .registers 5
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "listener"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -154,7 +154,7 @@
 .end method
 
 .method public setSingleRepeatingRequest(Landroid/hardware/camera2/CaptureRequest;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)I
-    .locals 1
+    .registers 5
     .param p1, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "listener"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;

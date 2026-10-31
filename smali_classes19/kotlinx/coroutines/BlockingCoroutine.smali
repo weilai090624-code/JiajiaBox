@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Thread;Lkotlinx/coroutines/EventLoop;)V
-    .locals 1
+    .registers 5
     .param p1, "parentContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "blockedThread"    # Ljava/lang/Thread;
     .param p3, "eventLoop"    # Lkotlinx/coroutines/EventLoop;
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method protected afterCompletion(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Ljava/lang/Object;
 
     .line 72
@@ -99,7 +99,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_20
 
     .line 73
     iget-object v0, p0, Lkotlinx/coroutines/BlockingCoroutine;->blockedThread:Ljava/lang/Thread;
@@ -108,29 +108,29 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     invoke-virtual {v1, v0}, Lkotlinx/coroutines/AbstractTimeSource;->unpark(Ljava/lang/Thread;)V
 
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_1
+    :goto_1b
+    if-nez v1, :cond_20
 
     invoke-static {v0}, Ljava/util/concurrent/locks/LockSupport;->unpark(Ljava/lang/Thread;)V
 
     .line 74
-    :cond_1
+    :cond_20
     return-void
 .end method
 
 .method protected isScopedCoroutine()Z
-    .locals 1
+    .registers 2
 
     .line 68
     const/4 v0, 0x1
@@ -139,7 +139,7 @@
 .end method
 
 .method public final joinBlocking()Ljava/lang/Object;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -151,16 +151,16 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lkotlinx/coroutines/AbstractTimeSource;->registerTimeLoopThread()V
 
     .line 79
-    :cond_0
+    :cond_9
     nop
 
     .line 80
-    :try_start_0
+    :try_start_a
     iget-object v0, p0, Lkotlinx/coroutines/BlockingCoroutine;->eventLoop:Lkotlinx/coroutines/EventLoop;
 
     const/4 v1, 0x1
@@ -169,91 +169,91 @@
 
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     invoke-static {v0, v2, v1, v3}, Lkotlinx/coroutines/EventLoop;->incrementUseCount$default(Lkotlinx/coroutines/EventLoop;ZILjava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_14
+    .catchall {:try_start_a .. :try_end_14} :catchall_85
 
     .line 81
-    :cond_1
+    :cond_14
     nop
 
     .line 82
-    :cond_2
-    :goto_0
+    :cond_15
+    :goto_15
     nop
 
     .line 84
-    :try_start_1
+    :try_start_16
     invoke-static {}, Ljava/lang/Thread;->interrupted()Z
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_6c
 
     .line 85
     iget-object v0, p0, Lkotlinx/coroutines/BlockingCoroutine;->eventLoop:Lkotlinx/coroutines/EventLoop;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_25
 
     invoke-virtual {v0}, Lkotlinx/coroutines/EventLoop;->processNextEvent()J
 
     move-result-wide v4
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_3
+    :cond_25
     const-wide v4, 0x7fffffffffffffffL
 
     .line 87
     .local v4, "parkNanos":J
-    :goto_1
+    :goto_2a
     invoke-virtual {p0}, Lkotlinx/coroutines/BlockingCoroutine;->isCompleted()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_43
 
     .line 88
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3c
 
     invoke-virtual {v0, p0, v4, v5}, Lkotlinx/coroutines/AbstractTimeSource;->parkNanos(Ljava/lang/Object;J)V
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_2
+    goto :goto_3d
 
-    :cond_4
+    :cond_3c
     move-object v0, v3
 
-    :goto_2
-    if-nez v0, :cond_2
+    :goto_3d
+    if-nez v0, :cond_15
 
     invoke-static {p0, v4, v5}, Ljava/util/concurrent/locks/LockSupport;->parkNanos(Ljava/lang/Object;J)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_42
+    .catchall {:try_start_16 .. :try_end_42} :catchall_7c
 
     .end local v4    # "parkNanos":J
-    goto :goto_0
+    goto :goto_15
 
     .line 91
-    :cond_5
-    :try_start_2
+    :cond_43
+    :try_start_43
     iget-object v0, p0, Lkotlinx/coroutines/BlockingCoroutine;->eventLoop:Lkotlinx/coroutines/EventLoop;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4a
 
     invoke-static {v0, v2, v1, v3}, Lkotlinx/coroutines/EventLoop;->decrementUseCount$default(Lkotlinx/coroutines/EventLoop;ZILjava/lang/Object;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_4a
+    .catchall {:try_start_43 .. :try_end_4a} :catchall_85
 
     .line 92
-    :cond_6
+    :cond_4a
     nop
 
     .line 94
@@ -261,12 +261,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_54
 
     invoke-virtual {v0}, Lkotlinx/coroutines/AbstractTimeSource;->unregisterTimeLoopThread()V
 
     .line 95
-    :cond_7
+    :cond_54
     nop
 
     .line 97
@@ -282,20 +282,20 @@
     .local v0, "state":Ljava/lang/Object;
     instance-of v1, v0, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_64
 
     move-object v3, v0
 
     check-cast v3, Lkotlinx/coroutines/CompletedExceptionally;
 
-    :cond_8
-    if-nez v3, :cond_9
+    :cond_64
+    if-nez v3, :cond_67
 
     .line 99
     return-object v0
 
     .line 98
-    :cond_9
+    :cond_67
     move-object v1, v3
 
     .line 103
@@ -312,8 +312,8 @@
     .end local v0    # "state":Ljava/lang/Object;
     .end local v1    # "it":Lkotlinx/coroutines/CompletedExceptionally;
     .end local v2    # "$i$a$-let-BlockingCoroutine$joinBlocking$2":I
-    :cond_a
-    :try_start_3
+    :cond_6c
+    :try_start_6c
     new-instance v0, Ljava/lang/InterruptedException;
 
     invoke-direct {v0}, Ljava/lang/InterruptedException;-><init>()V
@@ -337,37 +337,37 @@
     check-cast v0, Ljava/lang/Throwable;
 
     throw v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_7c
+    .catchall {:try_start_6c .. :try_end_7c} :catchall_7c
 
     .line 91
-    :catchall_0
+    :catchall_7c
     move-exception v0
 
-    :try_start_4
+    :try_start_7d
     iget-object v4, p0, Lkotlinx/coroutines/BlockingCoroutine;->eventLoop:Lkotlinx/coroutines/EventLoop;
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_84
 
     invoke-static {v4, v2, v1, v3}, Lkotlinx/coroutines/EventLoop;->decrementUseCount$default(Lkotlinx/coroutines/EventLoop;ZILjava/lang/Object;)V
 
-    :cond_b
+    :cond_84
     throw v0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_85
+    .catchall {:try_start_7d .. :try_end_85} :catchall_85
 
     .line 94
-    :catchall_1
+    :catchall_85
     move-exception v0
 
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_8f
 
     invoke-virtual {v1}, Lkotlinx/coroutines/AbstractTimeSource;->unregisterTimeLoopThread()V
 
-    :cond_c
+    :cond_8f
     throw v0
 .end method

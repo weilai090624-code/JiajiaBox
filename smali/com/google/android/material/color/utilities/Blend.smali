@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static cam16Ucs(IID)I
-    .locals 26
+    .registers 30
     .param p0, "from"    # I
     .param p1, "to"    # I
     .param p2, "amount"    # D
@@ -110,7 +110,7 @@
 .end method
 
 .method public static harmonize(II)I
-    .locals 14
+    .registers 16
     .param p0, "designColor"    # I
     .param p1, "sourceColor"    # I
 
@@ -206,7 +206,7 @@
 .end method
 
 .method public static hctHue(IID)I
-    .locals 9
+    .registers 13
     .param p0, "from"    # I
     .param p1, "to"    # I
     .param p2, "amount"    # D

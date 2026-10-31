@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/hash/AbstractNonStreamingHashFunction;I)V
-    .locals 0
+    .registers 3
     .param p2, "expectedInputSize"    # I
 
     .line 83
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public hash()Lcom/google/common/hash/HashCode;
-    .locals 4
+    .registers 5
 
     .line 107
     iget-object v0, p0, Lcom/google/common/hash/AbstractNonStreamingHashFunction$BufferingHasher;->this$0:Lcom/google/common/hash/AbstractNonStreamingHashFunction;
@@ -71,7 +71,7 @@
 .end method
 
 .method public putByte(B)Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 3
     .param p1, "b"    # B
 
     .line 89
@@ -84,7 +84,7 @@
 .end method
 
 .method public bridge synthetic putByte(B)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
 
     .line 80
     invoke-virtual {p0, p1}, Lcom/google/common/hash/AbstractNonStreamingHashFunction$BufferingHasher;->putByte(B)Lcom/google/common/hash/Hasher;
@@ -95,7 +95,7 @@
 .end method
 
 .method public putBytes(Ljava/nio/ByteBuffer;)Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 3
     .param p1, "bytes"    # Ljava/nio/ByteBuffer;
 
     .line 101
@@ -108,7 +108,7 @@
 .end method
 
 .method public putBytes([BII)Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 5
     .param p1, "bytes"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -123,7 +123,7 @@
 .end method
 
 .method public bridge synthetic putBytes(Ljava/nio/ByteBuffer;)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 2
 
     .line 80
     invoke-virtual {p0, p1}, Lcom/google/common/hash/AbstractNonStreamingHashFunction$BufferingHasher;->putBytes(Ljava/nio/ByteBuffer;)Lcom/google/common/hash/Hasher;
@@ -134,7 +134,7 @@
 .end method
 
 .method public bridge synthetic putBytes([BII)Lcom/google/common/hash/PrimitiveSink;
-    .locals 0
+    .registers 4
 
     .line 80
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/common/hash/AbstractNonStreamingHashFunction$BufferingHasher;->putBytes([BII)Lcom/google/common/hash/Hasher;

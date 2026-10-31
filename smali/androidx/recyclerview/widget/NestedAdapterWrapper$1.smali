@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/NestedAdapterWrapper;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/NestedAdapterWrapper;
 
     .line 48
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 2
+    .registers 3
 
     .line 51
     iget-object v0, p0, Landroidx/recyclerview/widget/NestedAdapterWrapper$1;->this$0:Landroidx/recyclerview/widget/NestedAdapterWrapper;
@@ -63,7 +63,7 @@
 .end method
 
 .method public onItemRangeChanged(II)V
-    .locals 3
+    .registers 6
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public onItemRangeChanged(IILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
     .param p3, "payload"    # Ljava/lang/Object;
@@ -102,7 +102,7 @@
 .end method
 
 .method public onItemRangeInserted(II)V
-    .locals 2
+    .registers 5
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -129,7 +129,7 @@
 
     iget v0, v0, Landroidx/recyclerview/widget/NestedAdapterWrapper;->mCachedItemCount:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_2b
 
     iget-object v0, p0, Landroidx/recyclerview/widget/NestedAdapterWrapper$1;->this$0:Landroidx/recyclerview/widget/NestedAdapterWrapper;
 
@@ -142,7 +142,7 @@
 
     sget-object v1, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;->PREVENT_WHEN_EMPTY:Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2b
 
     .line 85
     iget-object v0, p0, Landroidx/recyclerview/widget/NestedAdapterWrapper$1;->this$0:Landroidx/recyclerview/widget/NestedAdapterWrapper;
@@ -154,12 +154,12 @@
     invoke-interface {v0, v1}, Landroidx/recyclerview/widget/NestedAdapterWrapper$Callback;->onStateRestorationPolicyChanged(Landroidx/recyclerview/widget/NestedAdapterWrapper;)V
 
     .line 87
-    :cond_0
+    :cond_2b
     return-void
 .end method
 
 .method public onItemRangeMoved(III)V
-    .locals 2
+    .registers 6
     .param p1, "fromPosition"    # I
     .param p2, "toPosition"    # I
     .param p3, "itemCount"    # I
@@ -167,14 +167,14 @@
     .line 105
     const/4 v0, 0x1
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_4
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     const-string v1, "moving more than 1 item is not supported in RecyclerView"
 
     invoke-static {v0, v1}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -193,7 +193,7 @@
 .end method
 
 .method public onItemRangeRemoved(II)V
-    .locals 2
+    .registers 5
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -222,7 +222,7 @@
 
     const/4 v1, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_2c
 
     iget-object v0, p0, Landroidx/recyclerview/widget/NestedAdapterWrapper$1;->this$0:Landroidx/recyclerview/widget/NestedAdapterWrapper;
 
@@ -235,7 +235,7 @@
 
     sget-object v1, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;->PREVENT_WHEN_EMPTY:Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2c
 
     .line 99
     iget-object v0, p0, Landroidx/recyclerview/widget/NestedAdapterWrapper$1;->this$0:Landroidx/recyclerview/widget/NestedAdapterWrapper;
@@ -247,12 +247,12 @@
     invoke-interface {v0, v1}, Landroidx/recyclerview/widget/NestedAdapterWrapper$Callback;->onStateRestorationPolicyChanged(Landroidx/recyclerview/widget/NestedAdapterWrapper;)V
 
     .line 101
-    :cond_0
+    :cond_2c
     return-void
 .end method
 
 .method public onStateRestorationPolicyChanged()V
-    .locals 2
+    .registers 3
 
     .line 116
     iget-object v0, p0, Landroidx/recyclerview/widget/NestedAdapterWrapper$1;->this$0:Landroidx/recyclerview/widget/NestedAdapterWrapper;

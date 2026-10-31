@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Lcom/google/android/material/shadow/ShadowViewDelegate;)V
-    .locals 0
+    .registers 3
     .param p1, "view"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
     .param p2, "shadowViewDelegate"    # Lcom/google/android/material/shadow/ShadowViewDelegate;
 
@@ -29,7 +29,7 @@
 .end method
 
 .method private createDefaultStateListAnimator(FFF)Landroid/animation/StateListAnimator;
-    .locals 11
+    .registers 15
     .param p1, "elevation"    # F
     .param p2, "hoveredFocusedTranslationZ"    # F
     .param p3, "pressedTranslationZ"    # F
@@ -128,13 +128,13 @@
 
     const-wide/16 v7, 0x64
 
-    if-lt v3, v5, :cond_0
+    if-lt v3, v5, :cond_71
 
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v5, 0x18
 
-    if-gt v3, v5, :cond_0
+    if-gt v3, v5, :cond_71
 
     .line 149
     iget-object v3, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -165,7 +165,7 @@
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 153
-    :cond_0
+    :cond_71
     iget-object v3, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     sget-object v5, Landroid/view/View;->TRANSLATION_Z:Landroid/util/Property;
@@ -224,7 +224,7 @@
 .end method
 
 .method private createElevationAnimator(FF)Landroid/animation/Animator;
-    .locals 7
+    .registers 10
     .param p1, "elevation"    # F
     .param p2, "translationZ"    # F
 
@@ -296,7 +296,7 @@
 
 # virtual methods
 .method createBorderDrawable(ILandroid/content/res/ColorStateList;)Lcom/google/android/material/floatingactionbutton/BorderDrawable;
-    .locals 6
+    .registers 9
     .param p1, "borderWidth"    # I
     .param p2, "backgroundTint"    # Landroid/content/res/ColorStateList;
 
@@ -367,7 +367,7 @@
 .end method
 
 .method createShapeDrawable()Lcom/google/android/material/shape/MaterialShapeDrawable;
-    .locals 2
+    .registers 3
 
     .line 243
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->shapeAppearance:Lcom/google/android/material/shape/ShapeAppearanceModel;
@@ -388,7 +388,7 @@
 .end method
 
 .method public getElevation()F
-    .locals 1
+    .registers 2
 
     .line 179
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -401,7 +401,7 @@
 .end method
 
 .method getPadding(Landroid/graphics/Rect;)V
-    .locals 2
+    .registers 4
     .param p1, "rect"    # Landroid/graphics/Rect;
 
     .line 249
@@ -411,20 +411,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 250
     invoke-super {p0, p1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->getPadding(Landroid/graphics/Rect;)V
 
-    goto :goto_0
+    goto :goto_25
 
     .line 251
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->shouldExpandBoundsForA11y()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 252
     iget v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->minTouchTargetSize:I
@@ -445,21 +445,21 @@
 
     .line 254
     .end local v0    # "minPadding":I
-    goto :goto_0
+    goto :goto_25
 
     .line 255
-    :cond_1
+    :cond_21
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0, v0, v0, v0}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 257
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method initializeBackgroundDrawable(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;Landroid/content/res/ColorStateList;I)V
-    .locals 6
+    .registers 11
     .param p1, "backgroundTint"    # Landroid/content/res/ColorStateList;
     .param p2, "backgroundTintMode"    # Landroid/graphics/PorterDuff$Mode;
     .param p3, "rippleColor"    # Landroid/content/res/ColorStateList;
@@ -478,7 +478,7 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setTintList(Landroid/content/res/ColorStateList;)V
 
     .line 66
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_12
 
     .line 67
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->shapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -486,7 +486,7 @@
     invoke-virtual {v0, p2}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
     .line 69
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->shapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     iget-object v1, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -500,7 +500,7 @@
     .line 72
     const/4 v0, 0x0
 
-    if-lez p4, :cond_1
+    if-lez p4, :cond_45
 
     .line 73
     invoke-virtual {p0, p4, p1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->createBorderDrawable(ILandroid/content/res/ColorStateList;)Lcom/google/android/material/floatingactionbutton/BorderDrawable;
@@ -544,11 +544,11 @@
     invoke-direct {v1, v4}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
 
     .local v1, "rippleContent":Landroid/graphics/drawable/Drawable;
-    goto :goto_0
+    goto :goto_49
 
     .line 77
     .end local v1    # "rippleContent":Landroid/graphics/drawable/Drawable;
-    :cond_1
+    :cond_45
     iput-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->borderDrawable:Lcom/google/android/material/floatingactionbutton/BorderDrawable;
 
     .line 78
@@ -556,7 +556,7 @@
 
     .line 81
     .restart local v1    # "rippleContent":Landroid/graphics/drawable/Drawable;
-    :goto_0
+    :goto_49
     new-instance v2, Landroid/graphics/drawable/RippleDrawable;
 
     .line 83
@@ -578,14 +578,14 @@
 .end method
 
 .method jumpDrawableToCurrentState()V
-    .locals 0
+    .registers 1
 
     .line 214
     return-void
 .end method
 
 .method onCompatShadowChanged()V
-    .locals 0
+    .registers 1
 
     .line 184
     invoke-virtual {p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->updatePadding()V
@@ -595,7 +595,7 @@
 .end method
 
 .method onDrawableStateChanged([I)V
-    .locals 3
+    .registers 5
     .param p1, "state"    # [I
 
     .line 194
@@ -603,7 +603,7 @@
 
     const/16 v1, 0x15
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_4f
 
     .line 195
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -614,7 +614,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_45
 
     .line 196
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -630,7 +630,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 198
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
@@ -639,17 +639,17 @@
 
     invoke-virtual {v0, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setTranslationZ(F)V
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 199
-    :cond_0
+    :cond_26
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     invoke-virtual {v0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->isFocused()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3d
 
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
@@ -657,31 +657,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_37
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 202
-    :cond_1
+    :cond_37
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     invoke-virtual {v0, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setTranslationZ(F)V
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 200
-    :cond_2
-    :goto_0
+    :cond_3d
+    :goto_3d
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     iget v1, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->hoveredFocusedTranslationZ:F
 
     invoke-virtual {v0, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setTranslationZ(F)V
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 205
-    :cond_3
+    :cond_45
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     invoke-virtual {v0, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setElevation(F)V
@@ -692,13 +692,13 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setTranslationZ(F)V
 
     .line 209
-    :cond_4
-    :goto_1
+    :cond_4f
+    :goto_4f
     return-void
 .end method
 
 .method onElevationsChanged(FFF)V
-    .locals 2
+    .registers 6
     .param p1, "elevation"    # F
     .param p2, "hoveredFocusedTranslationZ"    # F
     .param p3, "pressedTranslationZ"    # F
@@ -708,17 +708,17 @@
 
     const/16 v1, 0x15
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     .line 107
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     invoke-virtual {v0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->refreshDrawableState()V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 108
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->view:Lcom/google/android/material/floatingactionbutton/FloatingActionButton;
 
     invoke-virtual {v0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getStateListAnimator()Landroid/animation/StateListAnimator;
@@ -727,7 +727,7 @@
 
     iget-object v1, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->stateListAnimator:Landroid/animation/StateListAnimator;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_23
 
     .line 110
     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->createDefaultStateListAnimator(FFF)Landroid/animation/StateListAnimator;
@@ -744,24 +744,24 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setStateListAnimator(Landroid/animation/StateListAnimator;)V
 
     .line 115
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     invoke-virtual {p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->shouldAddPadding()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     .line 116
     invoke-virtual {p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->updatePadding()V
 
     .line 118
-    :cond_2
+    :cond_2c
     return-void
 .end method
 
 .method requirePreDrawListener()Z
-    .locals 1
+    .registers 2
 
     .line 223
     const/4 v0, 0x0
@@ -770,7 +770,7 @@
 .end method
 
 .method setRippleColor(Landroid/content/res/ColorStateList;)V
-    .locals 2
+    .registers 4
     .param p1, "rippleColor"    # Landroid/content/res/ColorStateList;
 
     .line 90
@@ -778,7 +778,7 @@
 
     instance-of v0, v0, Landroid/graphics/drawable/RippleDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 91
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->rippleDrawable:Landroid/graphics/drawable/Drawable;
@@ -792,19 +792,19 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/RippleDrawable;->setColor(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 94
-    :cond_0
+    :cond_12
     invoke-super {p0, p1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->setRippleColor(Landroid/content/res/ColorStateList;)V
 
     .line 96
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method shouldAddPadding()Z
-    .locals 1
+    .registers 2
 
     .line 189
     iget-object v0, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->shadowViewDelegate:Lcom/google/android/material/shadow/ShadowViewDelegate;
@@ -813,31 +813,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     invoke-virtual {p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;->shouldExpandBoundsForA11y()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_12
     return v0
 .end method
 
 .method updateFromViewRotation()V
-    .locals 0
+    .registers 1
 
     .line 219
     return-void

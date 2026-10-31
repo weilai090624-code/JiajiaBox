@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static create(Landroid/util/Size;Landroid/util/Size;Landroid/util/Size;)Landroidx/camera/core/impl/SurfaceSizeDefinition;
-    .locals 1
+    .registers 4
     .param p0, "analysisSize"    # Landroid/util/Size;
     .param p1, "previewSize"    # Landroid/util/Size;
     .param p2, "recordSize"    # Landroid/util/Size;

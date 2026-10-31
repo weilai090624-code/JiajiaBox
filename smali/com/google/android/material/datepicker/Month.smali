@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 203
     new-instance v0, Lcom/google/android/material/datepicker/Month$1;
@@ -62,7 +62,7 @@
 .end method
 
 .method private constructor <init>(Ljava/util/Calendar;)V
-    .locals 4
+    .registers 6
     .param p1, "rawCalendar"    # Ljava/util/Calendar;
 
     .line 59
@@ -136,7 +136,7 @@
 .end method
 
 .method static create(II)Lcom/google/android/material/datepicker/Month;
-    .locals 2
+    .registers 4
     .param p0, "year"    # I
     .param p1, "month"    # I
 
@@ -165,7 +165,7 @@
 .end method
 
 .method static create(J)Lcom/google/android/material/datepicker/Month;
-    .locals 2
+    .registers 4
     .param p0, "timeInMillis"    # J
 
     .line 75
@@ -186,7 +186,7 @@
 .end method
 
 .method static current()Lcom/google/android/material/datepicker/Month;
-    .locals 2
+    .registers 2
 
     .line 102
     new-instance v0, Lcom/google/android/material/datepicker/Month;
@@ -203,7 +203,7 @@
 
 # virtual methods
 .method public compareTo(Lcom/google/android/material/datepicker/Month;)I
-    .locals 2
+    .registers 4
     .param p1, "other"    # Lcom/google/android/material/datepicker/Month;
 
     .line 135
@@ -219,7 +219,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 30
     check-cast p1, Lcom/google/android/material/datepicker/Month;
@@ -232,7 +232,7 @@
 .end method
 
 .method daysFromStartOfWeekToFirstOfMonth(I)I
-    .locals 2
+    .registers 4
     .param p1, "firstDayOfWeek"    # I
 
     .line 106
@@ -246,25 +246,25 @@
     move-result v0
 
     .line 108
-    if-lez p1, :cond_0
+    if-lez p1, :cond_b
 
     move v1, p1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_b
     iget-object v1, p0, Lcom/google/android/material/datepicker/Month;->firstOfMonth:Ljava/util/Calendar;
 
     invoke-virtual {v1}, Ljava/util/Calendar;->getFirstDayOfWeek()I
 
     move-result v1
 
-    :goto_0
+    :goto_11
     sub-int/2addr v0, v1
 
     .line 109
     .local v0, "difference":I
-    if-gez v0, :cond_1
+    if-gez v0, :cond_17
 
     .line 110
     iget v1, p0, Lcom/google/android/material/datepicker/Month;->daysInWeek:I
@@ -272,12 +272,12 @@
     add-int/2addr v0, v1
 
     .line 112
-    :cond_1
+    :cond_17
     return v0
 .end method
 
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 222
     const/4 v0, 0x0
@@ -286,30 +286,30 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 117
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 118
     return v0
 
     .line 120
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/android/material/datepicker/Month;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 121
     return v2
 
     .line 123
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/android/material/datepicker/Month;
@@ -320,25 +320,25 @@
 
     iget v4, v1, Lcom/google/android/material/datepicker/Month;->month:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_1a
 
     iget v3, p0, Lcom/google/android/material/datepicker/Month;->year:I
 
     iget v4, v1, Lcom/google/android/material/datepicker/Month;->year:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_1a
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_2
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method getDay(I)J
-    .locals 3
+    .registers 5
     .param p1, "day"    # I
 
     .line 169
@@ -363,7 +363,7 @@
 .end method
 
 .method getDayOfMonth(J)I
-    .locals 2
+    .registers 5
     .param p1, "date"    # J
 
     .line 175
@@ -388,12 +388,12 @@
 .end method
 
 .method getLongName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 194
     iget-object v0, p0, Lcom/google/android/material/datepicker/Month;->longName:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 195
     iget-object v0, p0, Lcom/google/android/material/datepicker/Month;->firstOfMonth:Ljava/util/Calendar;
@@ -409,14 +409,14 @@
     iput-object v0, p0, Lcom/google/android/material/datepicker/Month;->longName:Ljava/lang/String;
 
     .line 197
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lcom/google/android/material/datepicker/Month;->longName:Ljava/lang/String;
 
     return-object v0
 .end method
 
 .method getStableId()J
-    .locals 2
+    .registers 3
 
     .line 156
     iget-object v0, p0, Lcom/google/android/material/datepicker/Month;->firstOfMonth:Ljava/util/Calendar;
@@ -429,7 +429,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 129
     iget v0, p0, Lcom/google/android/material/datepicker/Month;->month:I
@@ -468,7 +468,7 @@
 .end method
 
 .method monthsLater(I)Lcom/google/android/material/datepicker/Month;
-    .locals 2
+    .registers 4
     .param p1, "months"    # I
 
     .line 186
@@ -493,7 +493,7 @@
 .end method
 
 .method monthsUntil(Lcom/google/android/material/datepicker/Month;)I
-    .locals 3
+    .registers 5
     .param p1, "other"    # Lcom/google/android/material/datepicker/Month;
 
     .line 148
@@ -501,7 +501,7 @@
 
     instance-of v0, v0, Ljava/util/GregorianCalendar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 149
     iget v0, p1, Lcom/google/android/material/datepicker/Month;->year:I
@@ -523,7 +523,7 @@
     return v0
 
     .line 151
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Only Gregorian calendars are supported."
@@ -534,7 +534,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

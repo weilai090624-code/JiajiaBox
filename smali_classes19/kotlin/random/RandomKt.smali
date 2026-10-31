@@ -49,7 +49,7 @@
 
 # direct methods
 .method public static final Random(I)Lkotlin/random/Random;
-    .locals 2
+    .registers 3
     .param p0, "seed"    # I
 
     .line 318
@@ -65,7 +65,7 @@
 .end method
 
 .method public static final Random(J)Lkotlin/random/Random;
-    .locals 4
+    .registers 6
     .param p0, "seed"    # J
 
     .line 333
@@ -87,7 +87,7 @@
 .end method
 
 .method public static final boundsErrorMessage(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "from"    # Ljava/lang/Object;
     .param p1, "until"    # Ljava/lang/Object;
 
@@ -138,29 +138,29 @@
 .end method
 
 .method public static final checkRangeBounds(DD)V
-    .locals 3
+    .registers 7
     .param p0, "from"    # D
     .param p2, "until"    # D
 
     .line 380
     cmpl-double v0, p2, p0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_7
+    if-eqz v0, :cond_a
 
     return-void
 
     .line 384
-    :cond_1
+    :cond_a
     const/4 v0, 0x0
 
     .line 380
@@ -190,27 +190,27 @@
 .end method
 
 .method public static final checkRangeBounds(II)V
-    .locals 3
+    .registers 5
     .param p0, "from"    # I
     .param p1, "until"    # I
 
     .line 378
-    if-le p1, p0, :cond_0
+    if-le p1, p0, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_5
+    if-eqz v0, :cond_8
 
     return-void
 
     .line 384
-    :cond_1
+    :cond_8
     const/4 v0, 0x0
 
     .line 378
@@ -240,29 +240,29 @@
 .end method
 
 .method public static final checkRangeBounds(JJ)V
-    .locals 3
+    .registers 7
     .param p0, "from"    # J
     .param p2, "until"    # J
 
     .line 379
     cmp-long v0, p2, p0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_7
+    if-eqz v0, :cond_a
 
     return-void
 
     .line 384
-    :cond_1
+    :cond_a
     const/4 v0, 0x0
 
     .line 379
@@ -292,7 +292,7 @@
 .end method
 
 .method public static final fastLog2(I)I
-    .locals 1
+    .registers 2
     .param p0, "value"    # I
 
     .line 372
@@ -306,7 +306,7 @@
 .end method
 
 .method public static final nextInt(Lkotlin/random/Random;Lkotlin/ranges/IntRange;)I
-    .locals 3
+    .registers 5
     .param p0, "$this$nextInt"    # Lkotlin/random/Random;
     .param p1, "range"    # Lkotlin/ranges/IntRange;
 
@@ -326,7 +326,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_47
 
     .line 347
     invoke-virtual {p1}, Lkotlin/ranges/IntRange;->getLast()I
@@ -335,7 +335,7 @@
 
     const v1, 0x7fffffff
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_29
 
     invoke-virtual {p1}, Lkotlin/ranges/IntRange;->getFirst()I
 
@@ -351,17 +351,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_46
 
     .line 348
-    :cond_0
+    :cond_29
     invoke-virtual {p1}, Lkotlin/ranges/IntRange;->getFirst()I
 
     move-result v0
 
     const/high16 v1, -0x80000000
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_42
 
     invoke-virtual {p1}, Lkotlin/ranges/IntRange;->getFirst()I
 
@@ -379,20 +379,20 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_46
 
     .line 349
-    :cond_1
+    :cond_42
     invoke-virtual {p0}, Lkotlin/random/Random;->nextInt()I
 
     move-result v0
 
     .line 350
-    :goto_0
+    :goto_46
     return v0
 
     .line 346
-    :cond_2
+    :cond_47
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -419,7 +419,7 @@
 .end method
 
 .method public static final nextLong(Lkotlin/random/Random;Lkotlin/ranges/LongRange;)J
-    .locals 7
+    .registers 9
     .param p0, "$this$nextLong"    # Lkotlin/random/Random;
     .param p1, "range"    # Lkotlin/ranges/LongRange;
 
@@ -439,7 +439,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4c
 
     .line 363
     invoke-virtual {p1}, Lkotlin/ranges/LongRange;->getLast()J
@@ -452,7 +452,7 @@
 
     cmp-long v6, v0, v2
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_2e
 
     invoke-virtual {p1}, Lkotlin/ranges/LongRange;->getFirst()J
 
@@ -468,10 +468,10 @@
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 364
-    :cond_0
+    :cond_2e
     invoke-virtual {p1}, Lkotlin/ranges/LongRange;->getFirst()J
 
     move-result-wide v0
@@ -480,7 +480,7 @@
 
     cmp-long v6, v0, v2
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_47
 
     invoke-virtual {p1}, Lkotlin/ranges/LongRange;->getFirst()J
 
@@ -498,20 +498,20 @@
 
     add-long/2addr v0, v4
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 365
-    :cond_1
+    :cond_47
     invoke-virtual {p0}, Lkotlin/random/Random;->nextLong()J
 
     move-result-wide v0
 
     .line 366
-    :goto_0
+    :goto_4b
     return-wide v0
 
     .line 362
-    :cond_2
+    :cond_4c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -538,7 +538,7 @@
 .end method
 
 .method public static final takeUpperBits(II)I
-    .locals 2
+    .registers 4
     .param p0, "$this$takeUpperBits"    # I
     .param p1, "bitCount"    # I
 

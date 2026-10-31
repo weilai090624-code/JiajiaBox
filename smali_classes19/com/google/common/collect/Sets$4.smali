@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Set;Ljava/util/Set;)V
-    .locals 0
+    .registers 3
 
     .line 896
     iput-object p1, p0, Lcom/google/common/collect/Sets$4;->val$set1:Ljava/util/Set;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -71,7 +71,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 940
     iget-object v0, p0, Lcom/google/common/collect/Sets$4;->val$set1:Ljava/util/Set;
@@ -86,7 +86,7 @@
 .end method
 
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -120,7 +120,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 896
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$4;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
@@ -131,7 +131,7 @@
 .end method
 
 .method public size()I
-    .locals 4
+    .registers 5
 
     .line 924
     const/4 v0, 0x0
@@ -144,12 +144,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -163,30 +163,30 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1b
 
     .line 927
     add-int/lit8 v0, v0, 0x1
 
     .line 929
     .end local v2    # "e":Ljava/lang/Object;, "TE;"
-    :cond_0
-    goto :goto_0
+    :cond_1b
+    goto :goto_7
 
     .line 930
-    :cond_1
+    :cond_1c
     iget-object v1, p0, Lcom/google/common/collect/Sets$4;->val$set2:Ljava/util/Set;
 
     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_1
+    :goto_22
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_37
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -200,17 +200,17 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_36
 
     .line 932
     add-int/lit8 v0, v0, 0x1
 
     .line 934
     .end local v2    # "e":Ljava/lang/Object;, "TE;"
-    :cond_2
-    goto :goto_1
+    :cond_36
+    goto :goto_22
 
     .line 935
-    :cond_3
+    :cond_37
     return v0
 .end method

@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 35
     sget v0, Lcom/google/android/material/R$attr;->sideSheetDialogTheme:I
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 40
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "theme"    # I
 
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method addSheetCancelOnHideCallback(Lcom/google/android/material/sidesheet/Sheet;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,7 +96,7 @@
 .end method
 
 .method public bridge synthetic cancel()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-super {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->cancel()V
@@ -105,7 +105,7 @@
 .end method
 
 .method public bridge synthetic getBehavior()Lcom/google/android/material/sidesheet/Sheet;
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-virtual {p0}, Lcom/google/android/material/sidesheet/SideSheetDialog;->getBehavior()Lcom/google/android/material/sidesheet/SideSheetBehavior;
@@ -116,7 +116,7 @@
 .end method
 
 .method public getBehavior()Lcom/google/android/material/sidesheet/SideSheetBehavior;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -136,7 +136,7 @@
     .local v0, "sheetBehavior":Lcom/google/android/material/sidesheet/Sheet;, "Lcom/google/android/material/sidesheet/Sheet<Lcom/google/android/material/sidesheet/SideSheetCallback;>;"
     instance-of v1, v0, Lcom/google/android/material/sidesheet/SideSheetBehavior;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 103
     move-object v1, v0
@@ -146,7 +146,7 @@
     return-object v1
 
     .line 101
-    :cond_0
+    :cond_c
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "The view is not associated with SideSheetBehavior"
@@ -157,7 +157,7 @@
 .end method
 
 .method getBehaviorFromSheet(Landroid/widget/FrameLayout;)Lcom/google/android/material/sidesheet/Sheet;
-    .locals 1
+    .registers 3
     .param p1, "sheet"    # Landroid/widget/FrameLayout;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -179,7 +179,7 @@
 .end method
 
 .method getDialogId()I
-    .locals 1
+    .registers 2
 
     .line 76
     sget v0, Lcom/google/android/material/R$id;->m3_side_sheet:I
@@ -188,7 +188,7 @@
 .end method
 
 .method getLayoutResId()I
-    .locals 1
+    .registers 2
 
     .line 70
     sget v0, Lcom/google/android/material/R$layout;->m3_side_sheet_dialog:I
@@ -197,7 +197,7 @@
 .end method
 
 .method getStateOnStart()I
-    .locals 1
+    .registers 2
 
     .line 88
     const/4 v0, 0x3
@@ -206,7 +206,7 @@
 .end method
 
 .method public bridge synthetic isDismissWithSheetAnimationEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-super {p0}, Lcom/google/android/material/sidesheet/SheetDialog;->isDismissWithSheetAnimationEnabled()Z
@@ -217,7 +217,7 @@
 .end method
 
 .method public bridge synthetic setCancelable(Z)V
-    .locals 0
+    .registers 2
 
     .line 33
     invoke-super {p0, p1}, Lcom/google/android/material/sidesheet/SheetDialog;->setCancelable(Z)V
@@ -226,7 +226,7 @@
 .end method
 
 .method public bridge synthetic setCanceledOnTouchOutside(Z)V
-    .locals 0
+    .registers 2
 
     .line 33
     invoke-super {p0, p1}, Lcom/google/android/material/sidesheet/SheetDialog;->setCanceledOnTouchOutside(Z)V
@@ -235,7 +235,7 @@
 .end method
 
 .method public bridge synthetic setContentView(I)V
-    .locals 0
+    .registers 2
 
     .line 33
     invoke-super {p0, p1}, Lcom/google/android/material/sidesheet/SheetDialog;->setContentView(I)V
@@ -244,7 +244,7 @@
 .end method
 
 .method public bridge synthetic setContentView(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 33
     invoke-super {p0, p1}, Lcom/google/android/material/sidesheet/SheetDialog;->setContentView(Landroid/view/View;)V
@@ -253,7 +253,7 @@
 .end method
 
 .method public bridge synthetic setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .registers 3
 
     .line 33
     invoke-super {p0, p1, p2}, Lcom/google/android/material/sidesheet/SheetDialog;->setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
@@ -262,7 +262,7 @@
 .end method
 
 .method public bridge synthetic setDismissWithSheetAnimationEnabled(Z)V
-    .locals 0
+    .registers 2
 
     .line 33
     invoke-super {p0, p1}, Lcom/google/android/material/sidesheet/SheetDialog;->setDismissWithSheetAnimationEnabled(Z)V

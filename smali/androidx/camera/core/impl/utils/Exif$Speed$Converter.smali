@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(D)V
-    .locals 0
+    .registers 3
     .param p1, "mph"    # D
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method toKilometersPerHour()D
-    .locals 4
+    .registers 5
 
     .line 652
     iget-wide v0, p0, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;->mMph:D
@@ -57,7 +57,7 @@
 .end method
 
 .method toKnots()D
-    .locals 4
+    .registers 5
 
     .line 660
     iget-wide v0, p0, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;->mMph:D
@@ -70,7 +70,7 @@
 .end method
 
 .method toMetersPerSecond()D
-    .locals 4
+    .registers 5
 
     .line 664
     iget-wide v0, p0, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;->mMph:D
@@ -83,7 +83,7 @@
 .end method
 
 .method toMilesPerHour()D
-    .locals 2
+    .registers 3
 
     .line 656
     iget-wide v0, p0, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;->mMph:D

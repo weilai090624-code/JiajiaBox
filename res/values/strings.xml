@@ -143,9 +143,9 @@ Please grant permissions in the system settings."</string>
     <string name="call_notification_screening_text">Screening an incoming call</string>
     <string name="certificates">Certificates</string>
     <string name="chain_settings">Chain Settings</string>
-    <string name="character_counter_content_description" formatted="false">Characters entered %1$d of %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Character limit exceeded %1$d of %2$d</string>
-    <string name="character_counter_pattern" formatted="false">%1$d/%2$d</string>
+    <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
+    <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
+    <string name="character_counter_pattern">%1$d/%2$d</string>
     <string name="check_update_no">Check successful, but no updates.</string>
     <string name="check_update_preview">Check for preview version updates</string>
     <string name="check_update_release">Check for release version updates</string>
@@ -327,7 +327,9 @@ Please grant permissions in the system settings."</string>
     <string name="item_view_role_description">Tab</string>
     <string name="jj_add_subscription">Add subscription</string>
     <string name="jj_empty_hint">Tap refresh to load the subscription</string>
-    <string name="jj_empty_hint_add">Tap + to add a subscription or import node links\nTap ⇄ to switch groups</string>
+    <string name="jj_empty_hint_add">"Tap + to add a subscription or import node links
+Tap ⇄ to switch groups
+Swipe left to open the extended page"</string>
     <string name="jj_empty_nodes">No nodes yet</string>
     <string name="jj_group_delete_confirm">Confirm delete this group?</string>
     <string name="jj_group_delete_failed">Failed to delete the group, please retry</string>
@@ -368,7 +370,7 @@ Please grant permissions in the system settings."</string>
     <string name="landing_proxy">Landing Proxy</string>
     <string name="leastPing">Ping</string>
     <string name="license">License</string>
-    <string name="license_apache2" formatted="false">"
+    <string name="license_apache2">"
 Copyright %1$s %2$s
  
 Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
@@ -376,7 +378,7 @@ Licensed under the Apache License, Version 2.0 (the \"License\"); you may not us
 http://www.apache.org/licenses/LICENSE-2.0
  
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."</string>
-    <string name="license_bsd" formatted="false">"
+    <string name="license_bsd">"
 Copyright © %1$s  %2$s
  
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -388,7 +390,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS AS IS AND AN
  
 The views and conclusions contained in the software and documentation are those of the authors and should not be interpreted as representing official policies, either expressed or implied, of the FreeBSD Project.
 "</string>
-    <string name="license_gpl" formatted="false">"
+    <string name="license_gpl">"
 Copyright © %1$s  %2$s
  
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -397,7 +399,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
  
 You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses.
 "</string>
-    <string name="license_mit" formatted="false">"
+    <string name="license_mit">"
 MIT License
  
 Copyright © %1$s %2$s
@@ -479,10 +481,10 @@ THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
     <string name="mtrl_checkbox_state_description_unchecked">Not checked</string>
     <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">More than %1$d new notifications</string>
-    <string name="mtrl_exceed_max_badge_number_suffix" formatted="false">%1$d%2$s</string>
+    <string name="mtrl_exceed_max_badge_number_suffix">%1$d%2$s</string>
     <string name="mtrl_picker_a11y_next_month">Change to next month</string>
     <string name="mtrl_picker_a11y_prev_month">Change to previous month</string>
-    <string name="mtrl_picker_announce_current_range_selection" formatted="false">Start date selection: %1$s – End date selection: %2$s</string>
+    <string name="mtrl_picker_announce_current_range_selection">Start date selection: %1$s – End date selection: %2$s</string>
     <string name="mtrl_picker_announce_current_selection">Current selection: %1$s</string>
     <string name="mtrl_picker_announce_current_selection_none">none</string>
     <string name="mtrl_picker_cancel">Cancel</string>
@@ -501,7 +503,7 @@ THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
     <string name="mtrl_picker_out_of_range">Out of range: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Start date – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – End date</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Select Range</string>
     <string name="mtrl_picker_range_header_unselected">Start date – End date</string>
     <string name="mtrl_picker_save">Save</string>
@@ -695,7 +697,7 @@ If you must use this, try N=2 first to see if it solves your issues. Strongly re
     <string name="sniff_override">Sniff result for destination</string>
     <string name="sniff_routing">Sniff result for routing</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"Proxy： %1$s↑ %2$s↓
+    <string name="speed_detail">"Proxy： %1$s↑ %2$s↓
 Direct： %3$s↑ %4$s↓"</string>
     <string name="speed_interval">Speed Notification Update Interval</string>
     <string name="ss_cat">Shadowsocks Settings</string>
@@ -723,7 +725,7 @@ Direct： %3$s↑ %4$s↓"</string>
     <string name="subscription_used">%s Used</string>
     <string name="subscription_user_agent">UserAgent</string>
     <string name="subscriptions">Subscriptions</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="tcp_connections">%d TCP connections</string>
     <string name="tcp_keep_alive_interval">TCP keep active packet delivery interval</string>
     <string name="telegram">Telegram update channel</string>
@@ -733,7 +735,7 @@ Direct： %3$s↑ %4$s↓"</string>
     <string name="tls">Use TLS</string>
     <string name="tls_camouflage_settings">TLS Camouflage Settings</string>
     <string name="tools_network">Network</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="traffic_downlink" formatted="false">%s | %s/s ↓</string>
     <string name="traffic_downlink_total">%s ↓</string>
     <string name="traffic_sniffing">Enable Traffic Sniffing</string>
@@ -753,7 +755,7 @@ Direct： %3$s↑ %4$s↓"</string>
     <string name="unsaved_changes_prompt">Changes not saved. Do you want to save?</string>
     <string name="update_all_subscription">Update all subscriptions</string>
     <string name="update_current_subscription">"Update current Group's subscription"</string>
-    <string name="update_dialog_message" formatted="false">"Current version: %1$s
+    <string name="update_dialog_message">"Current version: %1$s
 Available version: %2$s
 Do you want to download it?"</string>
     <string name="update_dialog_title">New version available</string>

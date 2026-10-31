@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokhttp3/internal/http/HttpMethod;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method public static final permitsRequestBody(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "method"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -75,7 +75,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     const-string v0, "HEAD"
 
@@ -83,21 +83,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_18
     return v0
 .end method
 
 .method public static final requiresRequestBody(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "method"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -113,7 +113,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 27
     const-string v0, "PUT"
@@ -122,7 +122,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 28
     const-string v0, "PATCH"
@@ -131,7 +131,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 29
     const-string v0, "PROPPATCH"
@@ -140,7 +140,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 30
     const-string v0, "REPORT"
@@ -149,27 +149,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_2e
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_31
 
-    :cond_1
-    :goto_0
+    :cond_30
+    :goto_30
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_31
     return v0
 .end method
 
 
 # virtual methods
 .method public final invalidatesCache(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "method"    # Ljava/lang/String;
 
     const-string v0, "method"
@@ -183,7 +183,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 20
     const-string v0, "PATCH"
@@ -192,7 +192,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 21
     const-string v0, "PUT"
@@ -201,7 +201,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 22
     const-string v0, "DELETE"
@@ -210,7 +210,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 23
     const-string v0, "MOVE"
@@ -219,25 +219,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_2e
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_31
 
-    :cond_1
-    :goto_0
+    :cond_30
+    :goto_30
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_31
     return v0
 .end method
 
 .method public final redirectsToGet(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "method"    # Ljava/lang/String;
 
     const-string v0, "method"
@@ -257,7 +257,7 @@
 .end method
 
 .method public final redirectsWithBody(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "method"    # Ljava/lang/String;
 
     const-string v0, "method"

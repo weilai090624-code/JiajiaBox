@@ -21,38 +21,38 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 42
+    .registers 42
 
     .line 30
     const/4 v0, 0x7
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_272
 
     new-array v2, v0, [I
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_284
 
     new-array v3, v0, [I
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_296
 
     new-array v4, v0, [I
 
-    fill-array-data v4, :array_3
+    fill-array-data v4, :array_2a8
 
     new-array v5, v0, [I
 
-    fill-array-data v5, :array_4
+    fill-array-data v5, :array_2ba
 
     new-array v6, v0, [I
 
-    fill-array-data v6, :array_5
+    fill-array-data v6, :array_2cc
 
     new-array v7, v0, [I
 
-    fill-array-data v7, :array_6
+    fill-array-data v7, :array_2de
 
     new-array v8, v0, [[I
 
@@ -124,213 +124,213 @@
     .line 49
     new-array v7, v0, [I
 
-    fill-array-data v7, :array_7
+    fill-array-data v7, :array_2f0
 
     new-array v8, v0, [I
 
-    fill-array-data v8, :array_8
+    fill-array-data v8, :array_302
 
     new-array v10, v0, [I
 
-    fill-array-data v10, :array_9
+    fill-array-data v10, :array_314
 
     new-array v11, v0, [I
 
-    fill-array-data v11, :array_a
+    fill-array-data v11, :array_326
 
     new-array v12, v0, [I
 
-    fill-array-data v12, :array_b
+    fill-array-data v12, :array_338
 
     new-array v13, v0, [I
 
-    fill-array-data v13, :array_c
+    fill-array-data v13, :array_34a
 
     new-array v14, v0, [I
 
-    fill-array-data v14, :array_d
+    fill-array-data v14, :array_35c
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_e
+    fill-array-data v15, :array_36e
 
     new-array v6, v0, [I
 
-    fill-array-data v6, :array_f
+    fill-array-data v6, :array_380
 
     new-array v5, v0, [I
 
-    fill-array-data v5, :array_10
+    fill-array-data v5, :array_392
 
     new-array v4, v0, [I
 
-    fill-array-data v4, :array_11
+    fill-array-data v4, :array_3a4
 
     new-array v3, v0, [I
 
-    fill-array-data v3, :array_12
+    fill-array-data v3, :array_3b6
 
     new-array v2, v0, [I
 
-    fill-array-data v2, :array_13
+    fill-array-data v2, :array_3c8
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_14
+    fill-array-data v1, :array_3da
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_15
+    fill-array-data v9, :array_3ec
 
     move-object/from16 v17, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_16
+    fill-array-data v9, :array_3fe
 
     move-object/from16 v18, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_17
+    fill-array-data v9, :array_410
 
     move-object/from16 v19, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_18
+    fill-array-data v9, :array_422
 
     move-object/from16 v20, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_19
+    fill-array-data v9, :array_434
 
     move-object/from16 v21, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_1a
+    fill-array-data v9, :array_446
 
     move-object/from16 v22, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_1b
+    fill-array-data v9, :array_458
 
     move-object/from16 v23, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_1c
+    fill-array-data v9, :array_46a
 
     move-object/from16 v24, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_1d
+    fill-array-data v9, :array_47c
 
     move-object/from16 v25, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_1e
+    fill-array-data v9, :array_48e
 
     move-object/from16 v26, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_1f
+    fill-array-data v9, :array_4a0
 
     move-object/from16 v27, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_20
+    fill-array-data v9, :array_4b2
 
     move-object/from16 v28, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_21
+    fill-array-data v9, :array_4c4
 
     move-object/from16 v29, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_22
+    fill-array-data v9, :array_4d6
 
     move-object/from16 v30, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_23
+    fill-array-data v9, :array_4e8
 
     move-object/from16 v31, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_24
+    fill-array-data v9, :array_4fa
 
     move-object/from16 v32, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_25
+    fill-array-data v9, :array_50c
 
     move-object/from16 v33, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_26
+    fill-array-data v9, :array_51e
 
     move-object/from16 v34, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_27
+    fill-array-data v9, :array_530
 
     move-object/from16 v35, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_28
+    fill-array-data v9, :array_542
 
     move-object/from16 v36, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_29
+    fill-array-data v9, :array_554
 
     move-object/from16 v37, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_2a
+    fill-array-data v9, :array_566
 
     move-object/from16 v38, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_2b
+    fill-array-data v9, :array_578
 
     move-object/from16 v39, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_2c
+    fill-array-data v9, :array_58a
 
     move-object/from16 v40, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_2d
+    fill-array-data v9, :array_59c
 
     move-object/from16 v41, v9
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_2e
+    fill-array-data v9, :array_5ae
 
     const/16 v0, 0x28
 
@@ -635,7 +635,7 @@
 
     return-void
 
-    :array_0
+    :array_272
     .array-data 4
         0x1
         0x1
@@ -646,7 +646,7 @@
         0x1
     .end array-data
 
-    :array_1
+    :array_284
     .array-data 4
         0x1
         0x0
@@ -657,7 +657,7 @@
         0x1
     .end array-data
 
-    :array_2
+    :array_296
     .array-data 4
         0x1
         0x0
@@ -668,7 +668,7 @@
         0x1
     .end array-data
 
-    :array_3
+    :array_2a8
     .array-data 4
         0x1
         0x0
@@ -679,7 +679,7 @@
         0x1
     .end array-data
 
-    :array_4
+    :array_2ba
     .array-data 4
         0x1
         0x0
@@ -690,7 +690,7 @@
         0x1
     .end array-data
 
-    :array_5
+    :array_2cc
     .array-data 4
         0x1
         0x0
@@ -701,7 +701,7 @@
         0x1
     .end array-data
 
-    :array_6
+    :array_2de
     .array-data 4
         0x1
         0x1
@@ -712,7 +712,7 @@
         0x1
     .end array-data
 
-    :array_7
+    :array_2f0
     .array-data 4
         -0x1
         -0x1
@@ -723,7 +723,7 @@
         -0x1
     .end array-data
 
-    :array_8
+    :array_302
     .array-data 4
         0x6
         0x12
@@ -734,7 +734,7 @@
         -0x1
     .end array-data
 
-    :array_9
+    :array_314
     .array-data 4
         0x6
         0x16
@@ -745,7 +745,7 @@
         -0x1
     .end array-data
 
-    :array_a
+    :array_326
     .array-data 4
         0x6
         0x1a
@@ -756,7 +756,7 @@
         -0x1
     .end array-data
 
-    :array_b
+    :array_338
     .array-data 4
         0x6
         0x1e
@@ -767,7 +767,7 @@
         -0x1
     .end array-data
 
-    :array_c
+    :array_34a
     .array-data 4
         0x6
         0x22
@@ -778,7 +778,7 @@
         -0x1
     .end array-data
 
-    :array_d
+    :array_35c
     .array-data 4
         0x6
         0x16
@@ -789,7 +789,7 @@
         -0x1
     .end array-data
 
-    :array_e
+    :array_36e
     .array-data 4
         0x6
         0x18
@@ -800,7 +800,7 @@
         -0x1
     .end array-data
 
-    :array_f
+    :array_380
     .array-data 4
         0x6
         0x1a
@@ -811,7 +811,7 @@
         -0x1
     .end array-data
 
-    :array_10
+    :array_392
     .array-data 4
         0x6
         0x1c
@@ -822,7 +822,7 @@
         -0x1
     .end array-data
 
-    :array_11
+    :array_3a4
     .array-data 4
         0x6
         0x1e
@@ -833,7 +833,7 @@
         -0x1
     .end array-data
 
-    :array_12
+    :array_3b6
     .array-data 4
         0x6
         0x20
@@ -844,7 +844,7 @@
         -0x1
     .end array-data
 
-    :array_13
+    :array_3c8
     .array-data 4
         0x6
         0x22
@@ -855,7 +855,7 @@
         -0x1
     .end array-data
 
-    :array_14
+    :array_3da
     .array-data 4
         0x6
         0x1a
@@ -866,7 +866,7 @@
         -0x1
     .end array-data
 
-    :array_15
+    :array_3ec
     .array-data 4
         0x6
         0x1a
@@ -877,7 +877,7 @@
         -0x1
     .end array-data
 
-    :array_16
+    :array_3fe
     .array-data 4
         0x6
         0x1a
@@ -888,7 +888,7 @@
         -0x1
     .end array-data
 
-    :array_17
+    :array_410
     .array-data 4
         0x6
         0x1e
@@ -899,7 +899,7 @@
         -0x1
     .end array-data
 
-    :array_18
+    :array_422
     .array-data 4
         0x6
         0x1e
@@ -910,7 +910,7 @@
         -0x1
     .end array-data
 
-    :array_19
+    :array_434
     .array-data 4
         0x6
         0x1e
@@ -921,7 +921,7 @@
         -0x1
     .end array-data
 
-    :array_1a
+    :array_446
     .array-data 4
         0x6
         0x22
@@ -932,7 +932,7 @@
         -0x1
     .end array-data
 
-    :array_1b
+    :array_458
     .array-data 4
         0x6
         0x1c
@@ -943,7 +943,7 @@
         -0x1
     .end array-data
 
-    :array_1c
+    :array_46a
     .array-data 4
         0x6
         0x1a
@@ -954,7 +954,7 @@
         -0x1
     .end array-data
 
-    :array_1d
+    :array_47c
     .array-data 4
         0x6
         0x1e
@@ -965,7 +965,7 @@
         -0x1
     .end array-data
 
-    :array_1e
+    :array_48e
     .array-data 4
         0x6
         0x1c
@@ -976,7 +976,7 @@
         -0x1
     .end array-data
 
-    :array_1f
+    :array_4a0
     .array-data 4
         0x6
         0x20
@@ -987,7 +987,7 @@
         -0x1
     .end array-data
 
-    :array_20
+    :array_4b2
     .array-data 4
         0x6
         0x1e
@@ -998,7 +998,7 @@
         -0x1
     .end array-data
 
-    :array_21
+    :array_4c4
     .array-data 4
         0x6
         0x22
@@ -1009,7 +1009,7 @@
         -0x1
     .end array-data
 
-    :array_22
+    :array_4d6
     .array-data 4
         0x6
         0x1a
@@ -1020,7 +1020,7 @@
         -0x1
     .end array-data
 
-    :array_23
+    :array_4e8
     .array-data 4
         0x6
         0x1e
@@ -1031,7 +1031,7 @@
         -0x1
     .end array-data
 
-    :array_24
+    :array_4fa
     .array-data 4
         0x6
         0x1a
@@ -1042,7 +1042,7 @@
         -0x1
     .end array-data
 
-    :array_25
+    :array_50c
     .array-data 4
         0x6
         0x1e
@@ -1053,7 +1053,7 @@
         -0x1
     .end array-data
 
-    :array_26
+    :array_51e
     .array-data 4
         0x6
         0x22
@@ -1064,7 +1064,7 @@
         -0x1
     .end array-data
 
-    :array_27
+    :array_530
     .array-data 4
         0x6
         0x1e
@@ -1075,7 +1075,7 @@
         -0x1
     .end array-data
 
-    :array_28
+    :array_542
     .array-data 4
         0x6
         0x22
@@ -1086,7 +1086,7 @@
         -0x1
     .end array-data
 
-    :array_29
+    :array_554
     .array-data 4
         0x6
         0x1e
@@ -1097,7 +1097,7 @@
         0x96
     .end array-data
 
-    :array_2a
+    :array_566
     .array-data 4
         0x6
         0x18
@@ -1108,7 +1108,7 @@
         0x9a
     .end array-data
 
-    :array_2b
+    :array_578
     .array-data 4
         0x6
         0x1c
@@ -1119,7 +1119,7 @@
         0x9e
     .end array-data
 
-    :array_2c
+    :array_58a
     .array-data 4
         0x6
         0x20
@@ -1130,7 +1130,7 @@
         0xa2
     .end array-data
 
-    :array_2d
+    :array_59c
     .array-data 4
         0x6
         0x1a
@@ -1141,7 +1141,7 @@
         0xa6
     .end array-data
 
-    :array_2e
+    :array_5ae
     .array-data 4
         0x6
         0x1e
@@ -1154,7 +1154,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 118
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -1164,7 +1164,7 @@
 .end method
 
 .method static buildMatrix(Lcom/google/zxing/common/BitArray;Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;Lcom/google/zxing/qrcode/decoder/Version;ILcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 0
+    .registers 5
     .param p0, "dataBits"    # Lcom/google/zxing/common/BitArray;
     .param p1, "ecLevel"    # Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
     .param p2, "version"    # Lcom/google/zxing/qrcode/decoder/Version;
@@ -1196,12 +1196,12 @@
 .end method
 
 .method static calculateBCHCode(II)I
-    .locals 2
+    .registers 4
     .param p0, "value"    # I
     .param p1, "poly"    # I
 
     .line 304
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_19
 
     .line 309
     invoke-static {p1}, Lcom/google/zxing/qrcode/encoder/MatrixUtil;->findMSBSet(I)I
@@ -1215,12 +1215,12 @@
     shl-int/2addr p0, v1
 
     .line 312
-    :goto_0
+    :goto_9
     invoke-static {p0}, Lcom/google/zxing/qrcode/encoder/MatrixUtil;->findMSBSet(I)I
 
     move-result v1
 
-    if-lt v1, v0, :cond_0
+    if-lt v1, v0, :cond_18
 
     .line 313
     invoke-static {p0}, Lcom/google/zxing/qrcode/encoder/MatrixUtil;->findMSBSet(I)I
@@ -1233,15 +1233,15 @@
 
     xor-int/2addr p0, v1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 316
-    :cond_0
+    :cond_18
     return p0
 
     .line 305
     .end local v0    # "msbSetInPoly":I
-    :cond_1
+    :cond_19
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "0 polynomial"
@@ -1252,7 +1252,7 @@
 .end method
 
 .method static clearMatrix(Lcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 1
+    .registers 2
     .param p0, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
 
     .line 127
@@ -1265,7 +1265,7 @@
 .end method
 
 .method static embedBasicPatterns(Lcom/google/zxing/qrcode/decoder/Version;Lcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 0
+    .registers 2
     .param p0, "version"    # Lcom/google/zxing/qrcode/decoder/Version;
     .param p1, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
     .annotation system Ldalvik/annotation/Throws;
@@ -1291,7 +1291,7 @@
 .end method
 
 .method private static embedDarkDotAtLeftBottomCorner(Lcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 3
+    .registers 4
     .param p0, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1312,7 +1312,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 380
     invoke-virtual {p0}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->getHeight()I
@@ -1329,7 +1329,7 @@
     return-void
 
     .line 378
-    :cond_0
+    :cond_17
     new-instance v0, Lcom/google/zxing/WriterException;
 
     invoke-direct {v0}, Lcom/google/zxing/WriterException;-><init>()V
@@ -1338,7 +1338,7 @@
 .end method
 
 .method static embedDataBits(Lcom/google/zxing/common/BitArray;ILcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 8
+    .registers 11
     .param p0, "dataBits"    # Lcom/google/zxing/common/BitArray;
     .param p1, "maskPattern"    # I
     .param p2, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
@@ -1373,36 +1373,36 @@
 
     .line 229
     .local v3, "y":I
-    :goto_0
-    if-lez v2, :cond_6
+    :goto_e
+    if-lez v2, :cond_54
 
     .line 231
     const/4 v4, 0x6
 
-    if-ne v2, v4, :cond_0
+    if-ne v2, v4, :cond_15
 
     .line 232
     add-int/lit8 v2, v2, -0x1
 
     .line 234
-    :cond_0
-    :goto_1
-    if-ltz v3, :cond_5
+    :cond_15
+    :goto_15
+    if-ltz v3, :cond_4f
 
     invoke-virtual {p2}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->getHeight()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_5
+    if-ge v3, v4, :cond_4f
 
     .line 235
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_2
+    :goto_1e
     const/4 v5, 0x2
 
-    if-ge v4, v5, :cond_4
+    if-ge v4, v5, :cond_4d
 
     .line 236
     sub-int v5, v2, v4
@@ -1417,14 +1417,14 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4a
 
     .line 242
     invoke-virtual {p0}, Lcom/google/zxing/common/BitArray;->getSize()I
 
     move-result v6
 
-    if-ge v0, v6, :cond_1
+    if-ge v0, v6, :cond_3a
 
     .line 243
     invoke-virtual {p0, v0}, Lcom/google/zxing/common/BitArray;->get(I)Z
@@ -1435,25 +1435,25 @@
     .local v6, "bit":Z
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_3b
 
     .line 248
     .end local v6    # "bit":Z
-    :cond_1
+    :cond_3a
     const/4 v6, 0x0
 
     .line 252
     .restart local v6    # "bit":Z
-    :goto_3
+    :goto_3b
     const/4 v7, -0x1
 
-    if-eq p1, v7, :cond_2
+    if-eq p1, v7, :cond_47
 
     invoke-static {p1, v5, v3}, Lcom/google/zxing/qrcode/encoder/MaskUtil;->getDataMaskBit(III)Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_47
 
     .line 253
     xor-int/lit8 v7, v6, 0x1
@@ -1461,26 +1461,26 @@
     move v6, v7
 
     .line 255
-    :cond_2
+    :cond_47
     invoke-virtual {p2, v5, v3, v6}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->set(IIZ)V
 
     .line 235
     .end local v5    # "xx":I
     .end local v6    # "bit":Z
-    :cond_3
+    :cond_4a
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_1e
 
     .line 257
     .end local v4    # "i":I
-    :cond_4
+    :cond_4d
     add-int/2addr v3, v1
 
-    goto :goto_1
+    goto :goto_15
 
     .line 259
-    :cond_5
+    :cond_4f
     neg-int v1, v1
 
     .line 260
@@ -1489,21 +1489,21 @@
     .line 261
     add-int/lit8 v2, v2, -0x2
 
-    goto :goto_0
+    goto :goto_e
 
     .line 264
-    :cond_6
+    :cond_54
     invoke-virtual {p0}, Lcom/google/zxing/common/BitArray;->getSize()I
 
     move-result v4
 
-    if-ne v0, v4, :cond_7
+    if-ne v0, v4, :cond_5b
 
     .line 267
     return-void
 
     .line 265
-    :cond_7
+    :cond_5b
     new-instance v4, Lcom/google/zxing/WriterException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1540,7 +1540,7 @@
 .end method
 
 .method private static embedHorizontalSeparationPattern(IILcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 3
+    .registers 6
     .param p0, "xStart"    # I
     .param p1, "yStart"    # I
     .param p2, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
@@ -1554,10 +1554,10 @@
     const/4 v0, 0x0
 
     .local v0, "x":I
-    :goto_0
+    :goto_1
     const/16 v1, 0x8
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_20
 
     .line 387
     add-int v1, p0, v0
@@ -1570,7 +1570,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 390
     add-int v1, p0, v0
@@ -1582,10 +1582,10 @@
     .line 386
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 388
-    :cond_0
+    :cond_1a
     new-instance v1, Lcom/google/zxing/WriterException;
 
     invoke-direct {v1}, Lcom/google/zxing/WriterException;-><init>()V
@@ -1594,12 +1594,12 @@
 
     .line 392
     .end local v0    # "x":I
-    :cond_1
+    :cond_20
     return-void
 .end method
 
 .method private static embedPositionAdjustmentPattern(IILcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 7
+    .registers 10
     .param p0, "xStart"    # I
     .param p1, "yStart"    # I
     .param p2, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
@@ -1608,10 +1608,10 @@
     const/4 v0, 0x0
 
     .local v0, "y":I
-    :goto_0
+    :goto_1
     const/4 v1, 0x5
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1a
 
     .line 407
     sget-object v2, Lcom/google/zxing/qrcode/encoder/MatrixUtil;->POSITION_ADJUSTMENT_PATTERN:[[I
@@ -1623,8 +1623,8 @@
     const/4 v3, 0x0
 
     .local v3, "x":I
-    :goto_1
-    if-ge v3, v1, :cond_0
+    :goto_9
+    if-ge v3, v1, :cond_17
 
     .line 409
     add-int v4, p0, v3
@@ -1638,24 +1638,24 @@
     .line 408
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_9
 
     .line 406
     .end local v2    # "patternY":[I
     .end local v3    # "x":I
-    :cond_0
+    :cond_17
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 412
     .end local v0    # "y":I
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method private static embedPositionDetectionPattern(IILcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 7
+    .registers 10
     .param p0, "xStart"    # I
     .param p1, "yStart"    # I
     .param p2, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
@@ -1664,10 +1664,10 @@
     const/4 v0, 0x0
 
     .local v0, "y":I
-    :goto_0
+    :goto_1
     const/4 v1, 0x7
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1a
 
     .line 416
     sget-object v2, Lcom/google/zxing/qrcode/encoder/MatrixUtil;->POSITION_DETECTION_PATTERN:[[I
@@ -1679,8 +1679,8 @@
     const/4 v3, 0x0
 
     .local v3, "x":I
-    :goto_1
-    if-ge v3, v1, :cond_0
+    :goto_9
+    if-ge v3, v1, :cond_17
 
     .line 418
     add-int v4, p0, v3
@@ -1694,24 +1694,24 @@
     .line 417
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_9
 
     .line 415
     .end local v2    # "patternY":[I
     .end local v3    # "x":I
-    :cond_0
+    :cond_17
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 421
     .end local v0    # "y":I
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method private static embedPositionDetectionPatternsAndSeparators(Lcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 4
+    .registers 5
     .param p0, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1801,21 +1801,21 @@
 .end method
 
 .method private static embedTimingPatterns(Lcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 4
+    .registers 5
     .param p0, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
 
     .line 362
     const/16 v0, 0x8
 
     .local v0, "i":I
-    :goto_0
+    :goto_2
     invoke-virtual {p0}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->getWidth()I
 
     move-result v1
 
     add-int/lit8 v1, v1, -0x8
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_2c
 
     .line 363
     add-int/lit8 v1, v0, 0x1
@@ -1834,13 +1834,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     .line 366
     invoke-virtual {p0, v0, v2, v1}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->set(III)V
 
     .line 369
-    :cond_0
+    :cond_1c
     invoke-virtual {p0, v2, v0}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->get(II)B
 
     move-result v3
@@ -1849,26 +1849,26 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_29
 
     .line 370
     invoke-virtual {p0, v2, v0, v1}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->set(III)V
 
     .line 362
     .end local v1    # "bit":I
-    :cond_1
+    :cond_29
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 373
     .end local v0    # "i":I
-    :cond_2
+    :cond_2c
     return-void
 .end method
 
 .method static embedTypeInfo(Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;ILcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/WriterException;
@@ -1888,12 +1888,12 @@
 
     const/4 p1, 0x0
 
-    :goto_0
+    :goto_a
     invoke-virtual {v0}, Lcom/google/zxing/common/BitArray;->getSize()I
 
     move-result v1
 
-    if-ge p1, v1, :cond_1
+    if-ge p1, v1, :cond_43
 
     .line 174
     invoke-virtual {v0}, Lcom/google/zxing/common/BitArray;->getSize()I
@@ -1927,7 +1927,7 @@
     .line 182
     const/16 v3, 0x8
 
-    if-ge p1, v3, :cond_0
+    if-ge p1, v3, :cond_34
 
     .line 184
     invoke-virtual {p2}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->getWidth()I
@@ -1942,10 +1942,10 @@
     invoke-virtual {p2, v4, v3, v1}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->set(IIZ)V
 
     .line 187
-    goto :goto_1
+    goto :goto_40
 
     .line 190
-    :cond_0
+    :cond_34
     invoke-virtual {p2}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->getHeight()I
 
     move-result v2
@@ -1960,18 +1960,18 @@
     invoke-virtual {p2, v3, v2, v1}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->set(IIZ)V
 
     .line 171
-    :goto_1
+    :goto_40
     add-int/lit8 p1, p1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 194
-    :cond_1
+    :cond_43
     return-void
 .end method
 
 .method private static embedVerticalSeparationPattern(IILcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 3
+    .registers 6
     .param p0, "xStart"    # I
     .param p1, "yStart"    # I
     .param p2, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
@@ -1985,10 +1985,10 @@
     const/4 v0, 0x0
 
     .local v0, "y":I
-    :goto_0
+    :goto_1
     const/4 v1, 0x7
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1f
 
     .line 398
     add-int v1, p1, v0
@@ -2001,7 +2001,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 401
     add-int v1, p1, v0
@@ -2013,10 +2013,10 @@
     .line 397
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 399
-    :cond_0
+    :cond_19
     new-instance v1, Lcom/google/zxing/WriterException;
 
     invoke-direct {v1}, Lcom/google/zxing/WriterException;-><init>()V
@@ -2025,12 +2025,12 @@
 
     .line 403
     .end local v0    # "y":I
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method static findMSBSet(I)I
-    .locals 1
+    .registers 2
     .param p0, "value"    # I
 
     .line 275
@@ -2044,26 +2044,26 @@
 .end method
 
 .method private static isEmpty(I)Z
-    .locals 1
+    .registers 2
     .param p0, "value"    # I
 
     .line 356
     const/4 v0, -0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_5
 
     const/4 v0, 0x1
 
     return v0
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method static makeTypeInfoBits(Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;ILcom/google/zxing/common/BitArray;)V
-    .locals 6
+    .registers 9
     .param p0, "ecLevel"    # Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;
     .param p1, "maskPattern"    # I
     .param p2, "bits"    # Lcom/google/zxing/common/BitArray;
@@ -2078,7 +2078,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4d
 
     .line 327
     invoke-virtual {p0}, Lcom/google/zxing/qrcode/decoder/ErrorCorrectionLevel;->getBits()I
@@ -2133,13 +2133,13 @@
 
     move-result v2
 
-    if-ne v2, v5, :cond_0
+    if-ne v2, v5, :cond_34
 
     .line 340
     return-void
 
     .line 338
-    :cond_0
+    :cond_34
     new-instance v2, Lcom/google/zxing/WriterException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2168,7 +2168,7 @@
     .end local v0    # "typeInfo":I
     .end local v1    # "bchCode":I
     .end local v3    # "maskBits":Lcom/google/zxing/common/BitArray;
-    :cond_1
+    :cond_4d
     new-instance v0, Lcom/google/zxing/WriterException;
 
     const-string v1, "Invalid mask pattern"
@@ -2179,7 +2179,7 @@
 .end method
 
 .method static makeVersionInfoBits(Lcom/google/zxing/qrcode/decoder/Version;Lcom/google/zxing/common/BitArray;)V
-    .locals 4
+    .registers 6
     .param p0, "version"    # Lcom/google/zxing/qrcode/decoder/Version;
     .param p1, "bits"    # Lcom/google/zxing/common/BitArray;
     .annotation system Ldalvik/annotation/Throws;
@@ -2221,13 +2221,13 @@
 
     const/16 v2, 0x12
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_20
 
     .line 352
     return-void
 
     .line 350
-    :cond_0
+    :cond_20
     new-instance v1, Lcom/google/zxing/WriterException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2254,7 +2254,7 @@
 .end method
 
 .method private static maybeEmbedPositionAdjustmentPatterns(Lcom/google/zxing/qrcode/decoder/Version;Lcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 12
+    .registers 14
     .param p0, "version"    # Lcom/google/zxing/qrcode/decoder/Version;
     .param p1, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
 
@@ -2265,13 +2265,13 @@
 
     const/4 v1, 0x2
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_8
 
     .line 458
     return-void
 
     .line 460
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lcom/google/zxing/qrcode/decoder/Version;->getVersionNumber()I
 
     move-result v0
@@ -2300,8 +2300,8 @@
 
     const/4 v7, 0x0
 
-    :goto_0
-    if-ge v7, v3, :cond_3
+    :goto_19
+    if-ge v7, v3, :cond_40
 
     aget v8, v1, v7
 
@@ -2309,15 +2309,15 @@
     .local v5, "y":I
     move v5, v8
 
-    if-ltz v8, :cond_2
+    if-ltz v8, :cond_3d
 
     .line 464
     array-length v8, v2
 
     const/4 v9, 0x0
 
-    :goto_1
-    if-ge v9, v8, :cond_2
+    :goto_22
+    if-ge v9, v8, :cond_3d
 
     aget v10, v2, v9
 
@@ -2325,7 +2325,7 @@
     .local v6, "x":I
     move v6, v10
 
-    if-ltz v10, :cond_1
+    if-ltz v10, :cond_3a
 
     invoke-virtual {p1, v6, v5}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->get(II)B
 
@@ -2335,7 +2335,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_3a
 
     .line 469
     add-int/lit8 v10, v6, -0x2
@@ -2346,25 +2346,25 @@
 
     .line 464
     .end local v6    # "x":I
-    :cond_1
+    :cond_3a
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 462
     .end local v5    # "y":I
-    :cond_2
+    :cond_3d
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 474
-    :cond_3
+    :cond_40
     return-void
 .end method
 
 .method static maybeEmbedVersionInfo(Lcom/google/zxing/qrcode/decoder/Version;Lcom/google/zxing/qrcode/encoder/ByteMatrix;)V
-    .locals 6
+    .registers 8
     .param p0, "version"    # Lcom/google/zxing/qrcode/decoder/Version;
     .param p1, "matrix"    # Lcom/google/zxing/qrcode/encoder/ByteMatrix;
     .annotation system Ldalvik/annotation/Throws;
@@ -2380,13 +2380,13 @@
 
     const/4 v1, 0x7
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_8
 
     .line 200
     return-void
 
     .line 202
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/zxing/common/BitArray;
 
     invoke-direct {v0}, Lcom/google/zxing/common/BitArray;-><init>()V
@@ -2403,19 +2403,19 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_13
     const/4 v3, 0x6
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_3a
 
     .line 207
     const/4 v3, 0x0
 
     .local v3, "j":I
-    :goto_1
+    :goto_17
     const/4 v4, 0x3
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_37
 
     .line 209
     invoke-virtual {v0, v1}, Lcom/google/zxing/common/BitArray;->get(I)Z
@@ -2452,17 +2452,17 @@
     .end local v4    # "bit":Z
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_17
 
     .line 206
     .end local v3    # "j":I
-    :cond_1
+    :cond_37
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 217
     .end local v2    # "i":I
-    :cond_2
+    :cond_3a
     return-void
 .end method

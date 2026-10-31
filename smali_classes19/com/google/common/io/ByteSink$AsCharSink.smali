@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/io/ByteSink;Ljava/nio/charset/Charset;)V
-    .locals 0
+    .registers 3
     .param p2, "charset"    # Ljava/nio/charset/Charset;
 
     .line 144
@@ -44,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/io/ByteSink;Ljava/nio/charset/Charset;Lcom/google/common/io/ByteSink$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Lcom/google/common/io/ByteSink;
     .param p2, "x1"    # Ljava/nio/charset/Charset;
     .param p3, "x2"    # Lcom/google/common/io/ByteSink$1;
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public openStream()Ljava/io/Writer;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -82,7 +82,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 155
     iget-object v0, p0, Lcom/google/common/io/ByteSink$AsCharSink;->this$0:Lcom/google/common/io/ByteSink;

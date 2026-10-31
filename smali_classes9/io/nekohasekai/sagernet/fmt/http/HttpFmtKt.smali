@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final parseHttp(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/http/HttpBean;
-    .locals 7
+    .registers 8
     .param p0, "link"    # Ljava/lang/String;
 
     const-string v0, "link"
@@ -42,7 +42,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_68
 
     .line 12
     .local v0, "httpUrl":Lokhttp3/HttpUrl;
@@ -56,7 +56,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5c
 
     .line 14
     new-instance v1, Lio/nekohasekai/sagernet/fmt/http/HttpBean;
@@ -143,7 +143,7 @@
     return-object v1
 
     .line 12
-    :cond_0
+    :cond_5c
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Not http proxy"
@@ -158,7 +158,7 @@
 
     .line 10
     .end local v0    # "httpUrl":Lokhttp3/HttpUrl;
-    :cond_1
+    :cond_68
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -189,7 +189,7 @@
 .end method
 
 .method public static final toUri(Lio/nekohasekai/sagernet/fmt/http/HttpBean;)Ljava/lang/String;
-    .locals 6
+    .registers 7
     .param p0, "$this$toUri"    # Lio/nekohasekai/sagernet/fmt/http/HttpBean;
 
     const-string v0, "<this>"
@@ -209,16 +209,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     const-string v1, "https"
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const-string v1, "http"
 
-    :goto_0
+    :goto_18
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->scheme(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     move-result-object v0
@@ -251,16 +251,16 @@
 
     const/4 v4, 0x1
 
-    if-gt v4, v1, :cond_1
+    if-gt v4, v1, :cond_3d
 
     const/high16 v5, 0x10000
 
-    if-ge v1, v5, :cond_1
+    if-ge v1, v5, :cond_3d
 
     const/4 v3, 0x1
 
-    :cond_1
-    if-eqz v3, :cond_2
+    :cond_3d
+    if-eqz v3, :cond_4d
 
     .line 29
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->serverPort:Ljava/lang/Integer;
@@ -276,7 +276,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->port(I)Lokhttp3/HttpUrl$Builder;
 
     .line 32
-    :cond_2
+    :cond_4d
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->username:Ljava/lang/String;
 
     const-string v2, "username"
@@ -289,7 +289,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_64
 
     .line 33
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->username:Ljava/lang/String;
@@ -299,7 +299,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->username(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 35
-    :cond_3
+    :cond_64
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->password:Ljava/lang/String;
 
     const-string v2, "password"
@@ -312,7 +312,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_7b
 
     .line 36
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->password:Ljava/lang/String;
@@ -322,7 +322,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->password(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 38
-    :cond_4
+    :cond_7b
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->sni:Ljava/lang/String;
 
     const-string v2, "sni"
@@ -335,7 +335,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_8f
 
     .line 39
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->sni:Ljava/lang/String;
@@ -343,7 +343,7 @@
     invoke-virtual {v0, v2, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 41
-    :cond_5
+    :cond_8f
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->name:Ljava/lang/String;
 
     const-string v2, "name"
@@ -356,7 +356,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_aa
 
     .line 42
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/http/HttpBean;->name:Ljava/lang/String;
@@ -370,7 +370,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->encodedFragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 45
-    :cond_6
+    :cond_aa
     invoke-virtual {v0}, Lokhttp3/HttpUrl$Builder;->toString()Ljava/lang/String;
 
     move-result-object v1

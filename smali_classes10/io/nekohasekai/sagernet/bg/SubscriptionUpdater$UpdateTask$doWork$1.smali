@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask$doWork$1;->result:Ljava/lang/Object;
 

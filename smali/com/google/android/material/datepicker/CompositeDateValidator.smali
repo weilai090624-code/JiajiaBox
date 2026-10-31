@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 42
     new-instance v0, Lcom/google/android/material/datepicker/CompositeDateValidator$1;
@@ -77,7 +77,7 @@
 .end method
 
 .method private constructor <init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;)V
-    .locals 0
+    .registers 3
     .param p2, "operator"    # Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -105,7 +105,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;Lcom/google/android/material/datepicker/CompositeDateValidator$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/util/List;
     .param p2, "x1"    # Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
     .param p3, "x2"    # Lcom/google/android/material/datepicker/CompositeDateValidator$1;
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic access$000()Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
@@ -126,7 +126,7 @@
 .end method
 
 .method static synthetic access$100()Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->ANY_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
@@ -135,7 +135,7 @@
 .end method
 
 .method public static allOf(Ljava/util/List;)Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -158,7 +158,7 @@
 .end method
 
 .method public static anyOf(Ljava/util/List;)Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -183,7 +183,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 151
     const/4 v0, 0x0
@@ -192,30 +192,30 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 162
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 163
     return v0
 
     .line 166
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/android/material/datepicker/CompositeDateValidator;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 167
     return v2
 
     .line 170
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/android/material/datepicker/CompositeDateValidator;
@@ -230,7 +230,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_26
 
     iget-object v3, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
 
@@ -244,19 +244,19 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_26
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_2
+    :cond_26
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_27
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 177
     iget-object v0, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->validators:Ljava/util/List;
@@ -269,7 +269,7 @@
 .end method
 
 .method public isValid(J)Z
-    .locals 2
+    .registers 5
     .param p1, "date"    # J
 
     .line 146
@@ -285,7 +285,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

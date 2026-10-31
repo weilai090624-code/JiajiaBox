@@ -102,7 +102,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/sync/Mutex;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -165,7 +165,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -179,7 +179,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -208,7 +208,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 10
+    .registers 12
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -217,7 +217,7 @@
     .line 106
     iget v1, p0, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_80
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -227,7 +227,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v0, p0
 
     .local v0, "this":Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1$1;
@@ -246,19 +246,19 @@
     check-cast v4, Lkotlinx/coroutines/sync/Mutex;
 
     .local v4, "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
-    :try_start_0
+    :try_start_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_19 .. :try_end_1c} :catchall_1d
 
-    goto :goto_1
+    goto :goto_6b
 
     .line 174
     .end local v2    # "$i$a$-withLock$default-RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1$1$1":I
-    :catchall_0
+    :catchall_1d
     move-exception v2
 
-    goto/16 :goto_2
+    goto/16 :goto_7c
 
     .line 106
     .end local v0    # "this":Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1$1;
@@ -266,7 +266,7 @@
     .end local v3    # "owner$iv":Ljava/lang/Object;
     .end local v4    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_20
     move-object v1, p0
 
     .local v1, "this":Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1$1;
@@ -288,14 +288,14 @@
     .local v5, "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_4e
 
     .end local v1    # "this":Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1$1;
     .end local v2    # "$i$f$withLock":I
     .end local v4    # "owner$iv":Ljava/lang/Object;
     .end local v5    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_2f
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -335,13 +335,13 @@
 
     move-result-object v6
 
-    if-ne v6, v0, :cond_0
+    if-ne v6, v0, :cond_4b
 
     .line 106
     return-object v0
 
     .line 171
-    :cond_0
+    :cond_4b
     move v9, v5
 
     move-object v5, v2
@@ -351,7 +351,7 @@
     .line 172
     .local v2, "$i$f$withLock":I
     .local v5, "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
-    :goto_0
+    :goto_4e
     nop
 
     .line 173
@@ -359,7 +359,7 @@
 
     .line 110
     .local v6, "$i$a$-withLock$default-RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1$1$1":I
-    :try_start_1
+    :try_start_50
     new-instance v7, Landroidx/lifecycle/RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1$1$1$1;
 
     const/4 v8, 0x0
@@ -379,16 +379,16 @@
     invoke-static {v7, v1}, Lkotlinx/coroutines/CoroutineScopeKt;->coroutineScope(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_63
+    .catchall {:try_start_50 .. :try_end_63} :catchall_75
 
-    if-ne v3, v0, :cond_1
+    if-ne v3, v0, :cond_66
 
     .line 106
     return-object v0
 
     .line 110
-    :cond_1
+    :cond_66
     move-object v0, v1
 
     move v1, v2
@@ -407,11 +407,11 @@
     .local v2, "$i$a$-withLock$default-RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1$1$1":I
     .restart local v3    # "owner$iv":Ljava/lang/Object;
     .local v4, "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
-    :goto_1
-    :try_start_2
+    :goto_6b
+    :try_start_6b
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_6d
+    .catchall {:try_start_6b .. :try_end_6d} :catchall_1d
 
     .line 173
     .end local v2    # "$i$a$-withLock$default-RepeatOnLifecycleKt$repeatOnLifecycle$3$1$1$1$1$1":I
@@ -437,7 +437,7 @@
     .local v2, "$i$f$withLock":I
     .local v4, "owner$iv":Ljava/lang/Object;
     .restart local v5    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
-    :catchall_1
+    :catchall_75
     move-exception v0
 
     move-object v3, v4
@@ -459,15 +459,15 @@
     .local v1, "$i$f$withLock":I
     .restart local v3    # "owner$iv":Ljava/lang/Object;
     .local v4, "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
-    :goto_2
+    :goto_7c
     invoke-interface {v4, v3}, Lkotlinx/coroutines/sync/Mutex;->unlock(Ljava/lang/Object;)V
 
     throw v2
 
-    :pswitch_data_0
+    :pswitch_data_80
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2f
+        :pswitch_20
+        :pswitch_11
     .end packed-switch
 .end method

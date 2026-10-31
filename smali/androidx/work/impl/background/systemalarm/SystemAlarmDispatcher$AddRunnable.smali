@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;Landroid/content/Intent;I)V
-    .locals 0
+    .registers 4
     .param p1, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
     .param p2, "intent"    # Landroid/content/Intent;
     .param p3, "startId"    # I
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 348
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$AddRunnable;->mDispatcher:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;

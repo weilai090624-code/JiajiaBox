@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/activity/result/ActivityResultCallerLauncher;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/activity/result/ActivityResultCallerLauncher;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public bridge synthetic createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public createIntent(Landroid/content/Context;Lkotlin/Unit;)Landroid/content/Intent;
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Lkotlin/Unit;
 
@@ -136,7 +136,7 @@
 .end method
 
 .method public parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;

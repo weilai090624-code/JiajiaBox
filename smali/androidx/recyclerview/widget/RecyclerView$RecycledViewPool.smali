@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 6140
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -84,7 +84,7 @@
 .end method
 
 .method private getScrapDataForType(I)Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool$ScrapData;
-    .locals 2
+    .registers 4
     .param p1, "viewType"    # I
 
     .line 6385
@@ -98,7 +98,7 @@
 
     .line 6386
     .local v0, "scrapData":Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool$ScrapData;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 6387
     new-instance v1, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool$ScrapData;
@@ -113,14 +113,14 @@
     invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 6390
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 
 # virtual methods
 .method attach()V
-    .locals 1
+    .registers 2
 
     .line 6318
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->mAttachCountForClearing:I
@@ -134,7 +134,7 @@
 .end method
 
 .method attachForPoolingContainer(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -154,20 +154,20 @@
 .end method
 
 .method public clear()V
-    .locals 5
+    .registers 6
 
     .line 6198
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_31
 
     .line 6199
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
@@ -186,12 +186,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_17
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -207,10 +207,10 @@
 
     .line 6202
     .end local v3    # "scrap":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    goto :goto_1
+    goto :goto_17
 
     .line 6203
-    :cond_0
+    :cond_29
     iget-object v2, v1, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool$ScrapData;->mScrapHeap:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
@@ -219,16 +219,16 @@
     .end local v1    # "data":Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool$ScrapData;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 6205
     .end local v0    # "i":I
-    :cond_1
+    :cond_31
     return-void
 .end method
 
 .method detach()V
-    .locals 1
+    .registers 2
 
     .line 6322
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->mAttachCountForClearing:I
@@ -242,7 +242,7 @@
 .end method
 
 .method detachForPoolingContainer(Landroidx/recyclerview/widget/RecyclerView$Adapter;Z)V
-    .locals 4
+    .registers 7
     .param p2, "isBeingReplaced"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -265,22 +265,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_41
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_41
 
     .line 6349
     const/4 v0, 0x0
 
     .local v0, "keyIndex":I
-    :goto_0
+    :goto_10
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_41
 
     .line 6350
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
@@ -304,12 +304,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_1
+    :goto_29
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_3e
 
     .line 6352
     nop
@@ -329,24 +329,24 @@
     .line 6351
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_29
 
     .line 6349
     .end local v1    # "scrapHeap":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/recyclerview/widget/RecyclerView$ViewHolder;>;"
     .end local v2    # "i":I
-    :cond_0
+    :cond_3e
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 6358
     .end local v0    # "keyIndex":I
-    :cond_1
+    :cond_41
     return-void
 .end method
 
 .method factorInBindTime(IJ)V
-    .locals 3
+    .registers 7
     .param p1, "viewType"    # I
     .param p2, "bindTimeNs"    # J
 
@@ -370,7 +370,7 @@
 .end method
 
 .method factorInCreateTime(IJ)V
-    .locals 3
+    .registers 7
     .param p1, "viewType"    # I
     .param p2, "createTimeNs"    # J
 
@@ -394,7 +394,7 @@
 .end method
 
 .method public getRecycledView(I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 4
+    .registers 6
     .param p1, "viewType"    # I
 
     .line 6239
@@ -408,7 +408,7 @@
 
     .line 6240
     .local v0, "scrapData":Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool$ScrapData;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     iget-object v1, v0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool$ScrapData;->mScrapHeap:Ljava/util/ArrayList;
 
@@ -416,7 +416,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_32
 
     .line 6241
     iget-object v1, v0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool$ScrapData;->mScrapHeap:Ljava/util/ArrayList;
@@ -430,8 +430,8 @@
     add-int/lit8 v2, v2, -0x1
 
     .local v2, "i":I
-    :goto_0
-    if-ltz v2, :cond_1
+    :goto_1a
+    if-ltz v2, :cond_32
 
     .line 6243
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -444,7 +444,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2f
 
     .line 6244
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
@@ -456,22 +456,22 @@
     return-object v3
 
     .line 6242
-    :cond_0
+    :cond_2f
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 6248
     .end local v1    # "scrapHeap":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/recyclerview/widget/RecyclerView$ViewHolder;>;"
     .end local v2    # "i":I
-    :cond_1
+    :cond_32
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public getRecycledViewCount(I)I
-    .locals 1
+    .registers 3
     .param p1, "viewType"    # I
 
     .line 6226
@@ -489,7 +489,7 @@
 .end method
 
 .method onAdapterChanged(Landroidx/recyclerview/widget/RecyclerView$Adapter;Landroidx/recyclerview/widget/RecyclerView$Adapter;Z)V
-    .locals 1
+    .registers 5
     .param p3, "compatibleWithPrevious"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -504,36 +504,36 @@
     .line 6373
     .local p1, "oldAdapter":Landroidx/recyclerview/widget/RecyclerView$Adapter;, "Landroidx/recyclerview/widget/RecyclerView$Adapter<*>;"
     .local p2, "newAdapter":Landroidx/recyclerview/widget/RecyclerView$Adapter;, "Landroidx/recyclerview/widget/RecyclerView$Adapter<*>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 6374
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->detach()V
 
     .line 6376
-    :cond_0
-    if-nez p3, :cond_1
+    :cond_5
+    if-nez p3, :cond_e
 
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->mAttachCountForClearing:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 6377
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->clear()V
 
     .line 6379
-    :cond_1
-    if-eqz p2, :cond_2
+    :cond_e
+    if-eqz p2, :cond_13
 
     .line 6380
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->attach()V
 
     .line 6382
-    :cond_2
+    :cond_13
     return-void
 .end method
 
 .method public putRecycledView(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 4
+    .registers 6
     .param p1, "scrap"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 6275
@@ -565,7 +565,7 @@
 
     move-result v3
 
-    if-gt v2, v3, :cond_0
+    if-gt v2, v3, :cond_20
 
     .line 6278
     iget-object v2, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
@@ -576,7 +576,7 @@
     return-void
 
     .line 6284
-    :cond_0
+    :cond_20
     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->resetInternal()V
 
     .line 6285
@@ -587,7 +587,7 @@
 .end method
 
 .method runningAverage(JJ)J
-    .locals 6
+    .registers 11
     .param p1, "oldAverage"    # J
     .param p3, "newValue"    # J
 
@@ -596,13 +596,13 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_7
 
     .line 6290
     return-wide p3
 
     .line 6292
-    :cond_0
+    :cond_7
     const-wide/16 v0, 0x4
 
     div-long v2, p1, v0
@@ -619,7 +619,7 @@
 .end method
 
 .method public setMaxRecycledViews(II)V
-    .locals 3
+    .registers 6
     .param p1, "viewType"    # I
     .param p2, "max"    # I
 
@@ -637,12 +637,12 @@
 
     .line 6217
     .local v1, "scrapHeap":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/recyclerview/widget/RecyclerView$ViewHolder;>;"
-    :goto_0
+    :goto_8
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-le v2, p2, :cond_0
+    if-le v2, p2, :cond_18
 
     .line 6218
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -653,15 +653,15 @@
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_8
 
     .line 6220
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method size()I
-    .locals 4
+    .registers 5
 
     .line 6257
     const/4 v0, 0x0
@@ -671,14 +671,14 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     iget-object v2, p0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
 
     invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_1e
 
     .line 6259
     iget-object v2, p0, Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
@@ -693,7 +693,7 @@
 
     .line 6260
     .local v2, "viewHolders":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/recyclerview/widget/RecyclerView$ViewHolder;>;"
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     .line 6261
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -704,19 +704,19 @@
 
     .line 6258
     .end local v2    # "viewHolders":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/recyclerview/widget/RecyclerView$ViewHolder;>;"
-    :cond_0
+    :cond_1b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 6264
     .end local v1    # "i":I
-    :cond_1
+    :cond_1e
     return v0
 .end method
 
 .method willBindInTime(IJJ)Z
-    .locals 5
+    .registers 11
     .param p1, "viewType"    # I
     .param p2, "approxCurrentNs"    # J
     .param p4, "deadlineNs"    # J
@@ -734,31 +734,31 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_15
 
     add-long v2, p2, v0
 
     cmp-long v4, v2, p4
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_13
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_16
     return v2
 .end method
 
 .method willCreateInTime(IJJ)Z
-    .locals 5
+    .registers 11
     .param p1, "viewType"    # I
     .param p2, "approxCurrentNs"    # J
     .param p4, "deadlineNs"    # J
@@ -776,25 +776,25 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_15
 
     add-long v2, p2, v0
 
     cmp-long v4, v2, p4
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_13
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_16
     return v2
 .end method

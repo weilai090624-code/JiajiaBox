@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getBestNameForService(Landroid/content/Context;Landroid/telephony/mbms/ServiceInfo;)Ljava/lang/CharSequence;
-    .locals 7
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "serviceInfo"    # Landroid/telephony/mbms/ServiceInfo;
 
@@ -43,13 +43,13 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 70
     return-object v2
 
     .line 73
-    :cond_0
+    :cond_c
     invoke-interface {v0}, Ljava/util/Set;->size()I
 
     move-result v1
@@ -70,12 +70,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_1b
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_31
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -98,10 +98,10 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 78
-    goto :goto_0
+    goto :goto_1b
 
     .line 80
-    :cond_1
+    :cond_31
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
@@ -122,15 +122,15 @@
 
     .line 82
     .local v5, "bestLocale":Ljava/util/Locale;
-    if-nez v5, :cond_2
+    if-nez v5, :cond_44
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_2
+    :cond_44
     invoke-virtual {p1, v5}, Landroid/telephony/mbms/ServiceInfo;->getNameForLocale(Ljava/util/Locale;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    :goto_1
+    :goto_48
     return-object v2
 .end method

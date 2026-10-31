@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/CameraController;Landroidx/camera/view/video/OnVideoSavedCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/view/CameraController;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public onError(ILjava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 6
     .param p1, "videoCaptureError"    # I
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "cause"    # Ljava/lang/Throwable;
@@ -87,7 +87,7 @@
 .end method
 
 .method public onVideoSaved(Landroidx/camera/core/VideoCapture$OutputFileResults;)V
-    .locals 2
+    .registers 4
     .param p1, "outputFileResults"    # Landroidx/camera/core/VideoCapture$OutputFileResults;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

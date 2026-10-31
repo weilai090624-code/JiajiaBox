@@ -57,7 +57,7 @@
 
 # direct methods
 .method private static final getBit(II)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$getBit"    # I
     .param p1, "bit"    # I
 
@@ -71,19 +71,19 @@
 
     and-int/2addr v1, v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_9
     return v2
 .end method
 
 .method public static final gzip(Lokio/Source;)Lokio/GzipSource;
-    .locals 2
+    .registers 3
     .param p0, "$this$gzip"    # Lokio/Source;
 
     const-string v0, "<this>"

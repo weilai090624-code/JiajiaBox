@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/io/FilesKt__FileTreeWalkKt;-><init>()V
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public static final copyRecursively(Ljava/io/File;Ljava/io/File;ZLkotlin/jvm/functions/Function2;)Z
-    .locals 12
+    .registers 16
     .param p0, "$this$copyRecursively"    # Ljava/io/File;
     .param p1, "target"    # Ljava/io/File;
     .param p2, "overwrite"    # Z
@@ -122,7 +122,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2e
 
     .line 294
     new-instance v0, Lkotlin/io/NoSuchFileException;
@@ -149,22 +149,22 @@
     sget-object v3, Lkotlin/io/OnErrorAction;->TERMINATE:Lkotlin/io/OnErrorAction;
 
     .line 294
-    if-eq v0, v3, :cond_0
+    if-eq v0, v3, :cond_2c
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_2c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_2d
     return v1
 
     .line 297
-    :cond_1
+    :cond_2e
     nop
 
     .line 299
-    :try_start_0
+    :try_start_2f
     invoke-static {p0}, Lkotlin/io/FilesKt;->walkTopDown(Ljava/io/File;)Lkotlin/io/FileTreeWalk;
 
     move-result-object v0
@@ -183,13 +183,13 @@
 
     move-result-object v0
 
-    :cond_2
-    :goto_1
+    :cond_42
+    :goto_42
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_e8
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -203,7 +203,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_69
 
     .line 301
     new-instance v10, Lkotlin/io/NoSuchFileException;
@@ -230,13 +230,13 @@
     sget-object v5, Lkotlin/io/OnErrorAction;->TERMINATE:Lkotlin/io/OnErrorAction;
 
     .line 301
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_42
 
     .line 303
     return v2
 
     .line 305
-    :cond_3
+    :cond_69
     invoke-static {v3, p0}, Lkotlin/io/FilesKt;->toRelativeString(Ljava/io/File;Ljava/io/File;)Ljava/lang/String;
 
     move-result-object v4
@@ -257,74 +257,74 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b8
 
     invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_86
 
     invoke-virtual {v11}, Ljava/io/File;->isDirectory()Z
 
     move-result v4
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_b8
 
     .line 308
-    :cond_4
-    if-nez p2, :cond_5
+    :cond_86
+    if-nez p2, :cond_8a
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_a3
 
     .line 309
-    :cond_5
+    :cond_8a
     invoke-virtual {v11}, Ljava/io/File;->isDirectory()Z
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_9a
 
     .line 310
     invoke-static {v11}, Lkotlin/io/FilesKt;->deleteRecursively(Ljava/io/File;)Z
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_98
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_a3
 
-    :cond_6
+    :cond_98
     const/4 v4, 0x0
 
-    goto :goto_2
+    goto :goto_a3
 
     .line 312
-    :cond_7
+    :cond_9a
     invoke-virtual {v11}, Ljava/io/File;->delete()Z
 
     move-result v4
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_a2
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_a3
 
-    :cond_8
+    :cond_a2
     const/4 v4, 0x0
 
     .line 308
-    :goto_2
+    :goto_a3
     nop
 
     .line 315
     .local v4, "stillExists":Z
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b8
 
     .line 316
     new-instance v5, Lkotlin/io/FileAlreadyExistsException;
@@ -346,31 +346,31 @@
     sget-object v6, Lkotlin/io/OnErrorAction;->TERMINATE:Lkotlin/io/OnErrorAction;
 
     .line 316
-    if-ne v5, v6, :cond_9
+    if-ne v5, v6, :cond_b7
 
     .line 319
     return v2
 
     .line 321
-    :cond_9
-    goto :goto_1
+    :cond_b7
+    goto :goto_42
 
     .line 325
     .end local v4    # "stillExists":Z
-    :cond_a
+    :cond_b8
     invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_c2
 
     .line 326
     invoke-virtual {v11}, Ljava/io/File;->mkdirs()Z
 
-    goto :goto_1
+    goto :goto_42
 
     .line 328
-    :cond_b
+    :cond_c2
     const/4 v8, 0x4
 
     const/4 v9, 0x0
@@ -397,7 +397,7 @@
 
     cmp-long v8, v4, v6
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_42
 
     .line 329
     new-instance v4, Ljava/io/IOException;
@@ -411,10 +411,10 @@
     move-result-object v4
 
     sget-object v5, Lkotlin/io/OnErrorAction;->TERMINATE:Lkotlin/io/OnErrorAction;
-    :try_end_0
-    .catch Lkotlin/io/TerminateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e5
+    .catch Lkotlin/io/TerminateException; {:try_start_2f .. :try_end_e5} :catch_e9
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_42
 
     .line 330
     return v2
@@ -423,11 +423,11 @@
     .end local v3    # "src":Ljava/io/File;
     .end local v10    # "relPath":Ljava/lang/String;
     .end local v11    # "dstFile":Ljava/io/File;
-    :cond_c
+    :cond_e8
     return v1
 
     .line 336
-    :catch_0
+    :catch_e9
     move-exception v0
 
     .line 337
@@ -436,21 +436,21 @@
 .end method
 
 .method public static synthetic copyRecursively$default(Ljava/io/File;Ljava/io/File;ZLkotlin/jvm/functions/Function2;ILjava/lang/Object;)Z
-    .locals 0
+    .registers 6
 
     .line 288
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 290
     const/4 p2, 0x0
 
     .line 288
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     .line 291
     sget-object p3, Lkotlin/io/FilesKt__UtilsKt$copyRecursively$1;->INSTANCE:Lkotlin/io/FilesKt__UtilsKt$copyRecursively$1;
@@ -458,7 +458,7 @@
     check-cast p3, Lkotlin/jvm/functions/Function2;
 
     .line 288
-    :cond_1
+    :cond_d
     invoke-static {p0, p1, p2, p3}, Lkotlin/io/FilesKt;->copyRecursively(Ljava/io/File;Ljava/io/File;ZLkotlin/jvm/functions/Function2;)Z
 
     move-result p0
@@ -467,7 +467,7 @@
 .end method
 
 .method public static final copyTo(Ljava/io/File;Ljava/io/File;ZI)Ljava/io/File;
-    .locals 9
+    .registers 13
     .param p0, "$this$copyTo"    # Ljava/io/File;
     .param p1, "target"    # Ljava/io/File;
     .param p2, "overwrite"    # Z
@@ -486,29 +486,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_83
 
     .line 222
     invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     .line 223
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_27
 
     .line 225
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 226
-    :cond_0
+    :cond_1f
     new-instance v0, Lkotlin/io/FileAlreadyExistsException;
 
     const-string v1, "Tried to overwrite the destination, but failed to delete it."
@@ -518,7 +518,7 @@
     throw v0
 
     .line 224
-    :cond_1
+    :cond_27
     new-instance v0, Lkotlin/io/FileAlreadyExistsException;
 
     const-string v1, "The destination file already exists."
@@ -528,25 +528,25 @@
     throw v0
 
     .line 229
-    :cond_2
-    :goto_0
+    :cond_2f
+    :goto_2f
     invoke-virtual {p0}, Ljava/io/File;->isDirectory()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_44
 
     .line 230
     invoke-virtual {p1}, Ljava/io/File;->mkdirs()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3c
 
-    goto :goto_1
+    goto :goto_74
 
     .line 231
-    :cond_3
+    :cond_3c
     new-instance v0, Lkotlin/io/FileSystemException;
 
     const-string v1, "Failed to create target directory."
@@ -556,16 +556,16 @@
     throw v0
 
     .line 233
-    :cond_4
+    :cond_44
     invoke-virtual {p1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4d
 
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
-    :cond_5
+    :cond_4d
     new-instance v0, Ljava/io/FileInputStream;
 
     .line 235
@@ -573,7 +573,7 @@
 
     check-cast v0, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_54
     move-object v1, v0
 
     check-cast v1, Ljava/io/FileInputStream;
@@ -588,10 +588,10 @@
     invoke-direct {v3, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     check-cast v3, Ljava/io/Closeable;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_5f
+    .catchall {:try_start_54 .. :try_end_5f} :catchall_7c
 
-    :try_start_1
+    :try_start_5f
     move-object v4, v3
 
     check-cast v4, Ljava/io/FileOutputStream;
@@ -610,18 +610,18 @@
     check-cast v7, Ljava/io/OutputStream;
 
     invoke-static {v6, v7, p3}, Lkotlin/io/ByteStreamsKt;->copyTo(Ljava/io/InputStream;Ljava/io/OutputStream;I)J
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_6c
+    .catchall {:try_start_5f .. :try_end_6c} :catchall_75
 
     .line 236
     .end local v4    # "output":Ljava/io/FileOutputStream;
     .end local v5    # "$i$a$-use-FilesKt__UtilsKt$copyTo$1$1":I
     const/4 v4, 0x0
 
-    :try_start_2
+    :try_start_6d
     invoke-static {v3, v4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_70
+    .catchall {:try_start_6d .. :try_end_70} :catchall_7c
 
     .line 238
     nop
@@ -632,13 +632,13 @@
     invoke-static {v0, v4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .line 242
-    :goto_1
+    :goto_74
     return-object p1
 
     .line 236
     .restart local v1    # "input":Ljava/io/FileInputStream;
     .restart local v2    # "$i$a$-use-FilesKt__UtilsKt$copyTo$1":I
-    :catchall_0
+    :catchall_75
     move-exception v4
 
     .end local v1    # "input":Ljava/io/FileInputStream;
@@ -647,10 +647,10 @@
     .end local p1    # "target":Ljava/io/File;
     .end local p2    # "overwrite":Z
     .end local p3    # "bufferSize":I
-    :try_start_3
+    :try_start_76
     throw v4
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_77
+    .catchall {:try_start_76 .. :try_end_77} :catchall_77
 
     .restart local v1    # "input":Ljava/io/FileInputStream;
     .restart local v2    # "$i$a$-use-FilesKt__UtilsKt$copyTo$1":I
@@ -658,10 +658,10 @@
     .restart local p1    # "target":Ljava/io/File;
     .restart local p2    # "overwrite":Z
     .restart local p3    # "bufferSize":I
-    :catchall_1
+    :catchall_77
     move-exception v5
 
-    :try_start_4
+    :try_start_78
     invoke-static {v3, v4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local p0    # "$this$copyTo":Ljava/io/File;
@@ -669,8 +669,8 @@
     .end local p2    # "overwrite":Z
     .end local p3    # "bufferSize":I
     throw v5
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_7c
+    .catchall {:try_start_78 .. :try_end_7c} :catchall_7c
 
     .line 235
     .end local v1    # "input":Ljava/io/FileInputStream;
@@ -679,23 +679,23 @@
     .restart local p1    # "target":Ljava/io/File;
     .restart local p2    # "overwrite":Z
     .restart local p3    # "bufferSize":I
-    :catchall_2
+    :catchall_7c
     move-exception v1
 
     .end local p0    # "$this$copyTo":Ljava/io/File;
     .end local p1    # "target":Ljava/io/File;
     .end local p2    # "overwrite":Z
     .end local p3    # "bufferSize":I
-    :try_start_5
+    :try_start_7d
     throw v1
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_7e
+    .catchall {:try_start_7d .. :try_end_7e} :catchall_7e
 
     .restart local p0    # "$this$copyTo":Ljava/io/File;
     .restart local p1    # "target":Ljava/io/File;
     .restart local p2    # "overwrite":Z
     .restart local p3    # "bufferSize":I
-    :catchall_3
+    :catchall_7e
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -703,7 +703,7 @@
     throw v2
 
     .line 219
-    :cond_6
+    :cond_83
     new-instance v0, Lkotlin/io/NoSuchFileException;
 
     const/4 v7, 0x2
@@ -724,23 +724,23 @@
 .end method
 
 .method public static synthetic copyTo$default(Ljava/io/File;Ljava/io/File;ZIILjava/lang/Object;)Ljava/io/File;
-    .locals 0
+    .registers 6
 
     .line 217
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
     const/16 p3, 0x2000
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2, p3}, Lkotlin/io/FilesKt;->copyTo(Ljava/io/File;Ljava/io/File;ZI)Ljava/io/File;
 
     move-result-object p0
@@ -749,7 +749,7 @@
 .end method
 
 .method public static final createTempDir(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
-    .locals 4
+    .registers 7
     .param p0, "prefix"    # Ljava/lang/String;
     .param p1, "suffix"    # Ljava/lang/String;
     .param p2, "directory"    # Ljava/io/File;
@@ -775,7 +775,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 48
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -783,7 +783,7 @@
     return-object v0
 
     .line 50
-    :cond_0
+    :cond_16
     new-instance v1, Ljava/io/IOException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -816,32 +816,32 @@
 .end method
 
 .method public static synthetic createTempDir$default(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;ILjava/lang/Object;)Ljava/io/File;
-    .locals 1
+    .registers 6
 
     .line 44
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     const-string p0, "tmp"
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p3, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     move-object p1, v0
 
-    :cond_1
+    :cond_c
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_11
 
     move-object p2, v0
 
-    :cond_2
+    :cond_11
     invoke-static {p0, p1, p2}, Lkotlin/io/FilesKt;->createTempDir(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
 
     move-result-object p0
@@ -850,7 +850,7 @@
 .end method
 
 .method public static final createTempFile(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
-    .locals 2
+    .registers 5
     .param p0, "prefix"    # Ljava/lang/String;
     .param p1, "suffix"    # Ljava/lang/String;
     .param p2, "directory"    # Ljava/io/File;
@@ -875,32 +875,32 @@
 .end method
 
 .method public static synthetic createTempFile$default(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;ILjava/lang/Object;)Ljava/io/File;
-    .locals 1
+    .registers 6
 
     .line 84
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     const-string p0, "tmp"
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p3, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     move-object p1, v0
 
-    :cond_1
+    :cond_c
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_11
 
     move-object p2, v0
 
-    :cond_2
+    :cond_11
     invoke-static {p0, p1, p2}, Lkotlin/io/FilesKt;->createTempFile(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
 
     move-result-object p0
@@ -909,7 +909,7 @@
 .end method
 
 .method public static final deleteRecursively(Ljava/io/File;)Z
-    .locals 10
+    .registers 11
     .param p0, "$this$deleteRecursively"    # Ljava/io/File;
 
     const-string v0, "<this>"
@@ -939,12 +939,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_12
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_34
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -967,36 +967,36 @@
 
     move-result v9
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_2d
 
     invoke-virtual {v6}, Ljava/io/File;->exists()Z
 
     move-result v9
 
-    if-nez v9, :cond_1
+    if-nez v9, :cond_31
 
-    :cond_0
-    if-eqz v7, :cond_1
+    :cond_2d
+    if-eqz v7, :cond_31
 
     const/4 v9, 0x1
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_1
+    :cond_31
     const/4 v9, 0x0
 
     .line 476
     .end local v6    # "it":Ljava/io/File;
     .end local v7    # "res":Z
     .end local v8    # "$i$a$-fold-FilesKt__UtilsKt$deleteRecursively$1":I
-    :goto_1
+    :goto_32
     move v3, v9
 
     .end local v5    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_12
 
     .line 477
-    :cond_2
+    :cond_34
     nop
 
     .line 347
@@ -1008,7 +1008,7 @@
 .end method
 
 .method public static final endsWith(Ljava/io/File;Ljava/io/File;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$endsWith"    # Ljava/io/File;
     .param p1, "other"    # Ljava/io/File;
 
@@ -1037,7 +1037,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     .line 387
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -1047,7 +1047,7 @@
     return v2
 
     .line 388
-    :cond_0
+    :cond_1d
     invoke-virtual {v0}, Lkotlin/io/FilePathComponents;->getSize()I
 
     move-result v2
@@ -1060,14 +1060,14 @@
 
     .line 389
     .local v2, "shift":I
-    if-gez v2, :cond_1
+    if-gez v2, :cond_2a
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 390
-    :cond_1
+    :cond_2a
     invoke-virtual {v0}, Lkotlin/io/FilePathComponents;->getSegments()Ljava/util/List;
 
     move-result-object v3
@@ -1089,12 +1089,12 @@
     move-result v3
 
     .line 389
-    :goto_0
+    :goto_3e
     return v3
 .end method
 
 .method public static final endsWith(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$endsWith"    # Ljava/io/File;
     .param p1, "other"    # Ljava/lang/String;
 
@@ -1119,7 +1119,7 @@
 .end method
 
 .method public static final getExtension(Ljava/io/File;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$extension"    # Ljava/io/File;
 
     const-string v0, "<this>"
@@ -1147,7 +1147,7 @@
 .end method
 
 .method public static final getInvariantSeparatorsPath(Ljava/io/File;)Ljava/lang/String;
-    .locals 9
+    .registers 10
     .param p0, "$this$invariantSeparatorsPath"    # Ljava/io/File;
 
     const-string v0, "<this>"
@@ -1161,7 +1161,7 @@
 
     const-string v2, "getPath(...)"
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_20
 
     invoke-virtual {p0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
@@ -1183,21 +1183,21 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_20
     invoke-virtual {p0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_27
     return-object v0
 .end method
 
 .method public static final getNameWithoutExtension(Ljava/io/File;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "$this$nameWithoutExtension"    # Ljava/io/File;
 
     const-string v0, "<this>"
@@ -1227,7 +1227,7 @@
 .end method
 
 .method public static final normalize(Ljava/io/File;)Ljava/io/File;
-    .locals 13
+    .registers 14
     .param p0, "$this$normalize"    # Ljava/io/File;
 
     const-string v0, "<this>"
@@ -1299,7 +1299,7 @@
 .end method
 
 .method private static final normalize$FilesKt__UtilsKt(Ljava/util/List;)Ljava/util/List;
-    .locals 5
+    .registers 6
     .param p0, "$this$normalize"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1331,13 +1331,13 @@
 
     move-result-object v1
 
-    :cond_0
-    :goto_0
+    :cond_f
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_57
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1358,7 +1358,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_f
 
     .line 420
     const-string v4, ".."
@@ -1367,13 +1367,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_53
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_4f
 
     invoke-static {v0}, Lkotlin/collections/CollectionsKt;->last(Ljava/util/List;)Ljava/lang/Object;
 
@@ -1389,7 +1389,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_4f
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -1399,27 +1399,27 @@
 
     invoke-interface {v0, v3}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_1
+    :cond_4f
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_f
 
     .line 421
-    :cond_2
+    :cond_53
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_f
 
     .line 424
     .end local v2    # "file":Ljava/io/File;
-    :cond_3
+    :cond_57
     return-object v0
 .end method
 
 .method private static final normalize$FilesKt__UtilsKt(Lkotlin/io/FilePathComponents;)Lkotlin/io/FilePathComponents;
-    .locals 3
+    .registers 4
     .param p0, "$this$normalize"    # Lkotlin/io/FilePathComponents;
 
     .line 413
@@ -1443,7 +1443,7 @@
 .end method
 
 .method public static final relativeTo(Ljava/io/File;Ljava/io/File;)Ljava/io/File;
-    .locals 2
+    .registers 4
     .param p0, "$this$relativeTo"    # Ljava/io/File;
     .param p1, "base"    # Ljava/io/File;
 
@@ -1468,7 +1468,7 @@
 .end method
 
 .method public static final relativeToOrNull(Ljava/io/File;Ljava/io/File;)Ljava/io/File;
-    .locals 3
+    .registers 5
     .param p0, "$this$relativeToOrNull"    # Ljava/io/File;
     .param p1, "base"    # Ljava/io/File;
 
@@ -1485,7 +1485,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 474
     .local v0, "p0":Ljava/lang/String;
@@ -1499,17 +1499,17 @@
 
     .end local v0    # "p0":Ljava/lang/String;
     .end local v1    # "$i$a$-let-FilesKt__UtilsKt$relativeToOrNull$1":I
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_18
     return-object v2
 .end method
 
 .method public static final relativeToOrSelf(Ljava/io/File;Ljava/io/File;)Ljava/io/File;
-    .locals 3
+    .registers 5
     .param p0, "$this$relativeToOrSelf"    # Ljava/io/File;
     .param p1, "base"    # Ljava/io/File;
 
@@ -1526,7 +1526,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 474
     .local v0, "p0":Ljava/lang/String;
@@ -1540,17 +1540,17 @@
 
     .end local v0    # "p0":Ljava/lang/String;
     .end local v1    # "$i$a$-let-FilesKt__UtilsKt$relativeToOrSelf$1":I
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     move-object v2, p0
 
-    :goto_0
+    :goto_18
     return-object v2
 .end method
 
 .method public static final resolve(Ljava/io/File;Ljava/io/File;)Ljava/io/File;
-    .locals 6
+    .registers 8
     .param p0, "$this$resolve"    # Ljava/io/File;
     .param p1, "relative"    # Ljava/io/File;
 
@@ -1567,13 +1567,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 438
     return-object p1
 
     .line 439
-    :cond_0
+    :cond_11
     invoke-virtual {p0}, Ljava/io/File;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -1594,17 +1594,17 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_26
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_1
+    :cond_26
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_3
+    :goto_27
+    if-nez v1, :cond_54
 
     move-object v1, v0
 
@@ -1620,11 +1620,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_37
 
-    goto :goto_1
+    goto :goto_54
 
-    :cond_2
+    :cond_37
     new-instance v1, Ljava/io/File;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1651,10 +1651,10 @@
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_6a
 
-    :cond_3
-    :goto_1
+    :cond_54
+    :goto_54
     new-instance v1, Ljava/io/File;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1675,12 +1675,12 @@
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    :goto_2
+    :goto_6a
     return-object v1
 .end method
 
 .method public static final resolve(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
-    .locals 1
+    .registers 3
     .param p0, "$this$resolve"    # Ljava/io/File;
     .param p1, "relative"    # Ljava/lang/String;
 
@@ -1705,7 +1705,7 @@
 .end method
 
 .method public static final resolveSibling(Ljava/io/File;Ljava/io/File;)Ljava/io/File;
-    .locals 3
+    .registers 5
     .param p0, "$this$resolveSibling"    # Ljava/io/File;
     .param p1, "relative"    # Ljava/io/File;
 
@@ -1728,7 +1728,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     new-instance v1, Ljava/io/File;
 
@@ -1736,9 +1736,9 @@
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_1c
     invoke-virtual {v0}, Lkotlin/io/FilePathComponents;->getSize()I
 
     move-result v1
@@ -1753,7 +1753,7 @@
 
     .line 462
     .local v1, "parentSubPath":Ljava/io/File;
-    :goto_0
+    :goto_27
     invoke-virtual {v0}, Lkotlin/io/FilePathComponents;->getRoot()Ljava/io/File;
 
     move-result-object v2
@@ -1770,7 +1770,7 @@
 .end method
 
 .method public static final resolveSibling(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
-    .locals 1
+    .registers 3
     .param p0, "$this$resolveSibling"    # Ljava/io/File;
     .param p1, "relative"    # Ljava/lang/String;
 
@@ -1795,7 +1795,7 @@
 .end method
 
 .method public static final startsWith(Ljava/io/File;Ljava/io/File;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$startsWith"    # Ljava/io/File;
     .param p1, "other"    # Ljava/io/File;
 
@@ -1834,13 +1834,13 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_22
 
     .line 360
     return v3
 
     .line 361
-    :cond_0
+    :cond_22
     invoke-virtual {v0}, Lkotlin/io/FilePathComponents;->getSize()I
 
     move-result v2
@@ -1849,12 +1849,12 @@
 
     move-result v4
 
-    if-ge v2, v4, :cond_1
+    if-ge v2, v4, :cond_2d
 
-    goto :goto_0
+    goto :goto_41
 
     .line 362
-    :cond_1
+    :cond_2d
     invoke-virtual {v0}, Lkotlin/io/FilePathComponents;->getSegments()Ljava/util/List;
 
     move-result-object v2
@@ -1876,12 +1876,12 @@
     move-result v3
 
     .line 361
-    :goto_0
+    :goto_41
     return v3
 .end method
 
 .method public static final startsWith(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$startsWith"    # Ljava/io/File;
     .param p1, "other"    # Ljava/lang/String;
 
@@ -1906,7 +1906,7 @@
 .end method
 
 .method public static final toRelativeString(Ljava/io/File;Ljava/io/File;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "$this$toRelativeString"    # Ljava/io/File;
     .param p1, "base"    # Ljava/io/File;
 
@@ -1923,11 +1923,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     return-object v0
 
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1970,7 +1970,7 @@
 .end method
 
 .method private static final toRelativeStringOrNull$FilesKt__UtilsKt(Ljava/io/File;Ljava/io/File;)Ljava/lang/String;
-    .locals 17
+    .registers 19
     .param p0, "$this$toRelativeStringOrNull"    # Ljava/io/File;
     .param p1, "base"    # Ljava/io/File;
 
@@ -2009,13 +2009,13 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_20
 
     .line 156
     return-object v3
 
     .line 159
-    :cond_0
+    :cond_20
     invoke-virtual {v1}, Lkotlin/io/FilePathComponents;->getSize()I
 
     move-result v2
@@ -2045,8 +2045,8 @@
 
     .line 165
     .local v8, "maxSameCount":I
-    :goto_0
-    if-ge v7, v8, :cond_1
+    :goto_30
+    if-ge v7, v8, :cond_4b
 
     invoke-virtual {v0}, Lkotlin/io/FilePathComponents;->getSegments()Ljava/util/List;
 
@@ -2068,15 +2068,15 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_4b
 
     .line 166
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
     .line 167
-    :cond_1
+    :cond_4b
     nop
 
     .line 162
@@ -2097,10 +2097,10 @@
     add-int/lit8 v7, v2, -0x1
 
     .restart local v7    # "i":I
-    if-gt v5, v7, :cond_4
+    if-gt v5, v7, :cond_7c
 
     .line 173
-    :goto_1
+    :goto_56
     invoke-virtual {v1}, Lkotlin/io/FilePathComponents;->getSegments()Ljava/util/List;
 
     move-result-object v8
@@ -2121,17 +2121,17 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_6d
 
     .line 174
     return-object v3
 
     .line 177
-    :cond_2
+    :cond_6d
     invoke-virtual {v6, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 179
-    if-eq v7, v5, :cond_3
+    if-eq v7, v5, :cond_77
 
     .line 180
     sget-char v8, Ljava/io/File;->separatorChar:C
@@ -2139,20 +2139,20 @@
     invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 172
-    :cond_3
-    if-eq v7, v5, :cond_4
+    :cond_77
+    if-eq v7, v5, :cond_7c
 
     add-int/lit8 v7, v7, -0x1
 
-    goto :goto_1
+    goto :goto_56
 
     .line 185
     .end local v7    # "i":I
-    :cond_4
-    if-ge v5, v4, :cond_6
+    :cond_7c
+    if-ge v5, v4, :cond_ab
 
     .line 187
-    if-ge v5, v2, :cond_5
+    if-ge v5, v2, :cond_85
 
     .line 188
     sget-char v3, Ljava/io/File;->separatorChar:C
@@ -2160,7 +2160,7 @@
     invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 190
-    :cond_5
+    :cond_85
     invoke-virtual {v0}, Lkotlin/io/FilePathComponents;->getSegments()Ljava/util/List;
 
     move-result-object v3
@@ -2206,7 +2206,7 @@
     invoke-static/range {v7 .. v16}, Lkotlin/collections/CollectionsKt;->joinTo$default(Ljava/lang/Iterable;Ljava/lang/Appendable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/Appendable;
 
     .line 193
-    :cond_6
+    :cond_ab
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3

@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Class;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -82,12 +82,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -105,7 +105,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 72
     const/4 v0, 0x1
@@ -114,18 +114,18 @@
 
     .line 74
     .end local v1    # "quirk":Landroidx/camera/core/impl/Quirk;
-    :cond_0
-    goto :goto_0
+    :cond_1e
+    goto :goto_6
 
     .line 76
-    :cond_1
+    :cond_1f
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public get(Ljava/lang/Class;)Landroidx/camera/core/impl/Quirk;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -153,12 +153,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -172,18 +172,18 @@
 
     move-result-object v2
 
-    if-ne v2, p1, :cond_0
+    if-ne v2, p1, :cond_19
 
     .line 54
     return-object v1
 
     .line 56
     .end local v1    # "quirk":Landroidx/camera/core/impl/Quirk;
-    :cond_0
-    goto :goto_0
+    :cond_19
+    goto :goto_6
 
     .line 57
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
     return-object v0

@@ -92,7 +92,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/channels/ChannelResult$Companion;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method private synthetic constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "holder"    # Ljava/lang/Object;
 
     .line 407
@@ -125,7 +125,7 @@
 .end method
 
 .method public static final synthetic access$getFailed$cp()Lkotlinx/coroutines/channels/ChannelResult$Failed;
-    .locals 1
+    .registers 1
 
     .line 405
     sget-object v0, Lkotlinx/coroutines/channels/ChannelResult;->failed:Lkotlinx/coroutines/channels/ChannelResult$Failed;
@@ -134,7 +134,7 @@
 .end method
 
 .method public static final synthetic box-impl(Ljava/lang/Object;)Lkotlinx/coroutines/channels/ChannelResult;
-    .locals 1
+    .registers 2
 
     new-instance v0, Lkotlinx/coroutines/channels/ChannelResult;
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public static constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -160,17 +160,17 @@
 .end method
 
 .method public static equals-impl(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     instance-of v0, p1, Lkotlinx/coroutines/channels/ChannelResult;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lkotlinx/coroutines/channels/ChannelResult;
@@ -183,18 +183,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     return v1
 
-    :cond_1
+    :cond_14
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static final equals-impl0(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -204,7 +204,7 @@
 .end method
 
 .method public static final exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
-    .locals 2
+    .registers 3
     .param p0, "arg0"    # Ljava/lang/Object;
 
     .line 458
@@ -212,34 +212,34 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     move-object v0, p0
 
     check-cast v0, Lkotlinx/coroutines/channels/ChannelResult$Closed;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     move-object v0, v1
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_a
+    if-eqz v0, :cond_e
 
     iget-object v1, v0, Lkotlinx/coroutines/channels/ChannelResult$Closed;->cause:Ljava/lang/Throwable;
 
-    :cond_1
+    :cond_e
     return-object v1
 .end method
 
 .method public static synthetic getHolder$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final getOrNull-impl(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -252,21 +252,21 @@
     .line 442
     instance-of v0, p0, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return-object v0
 .end method
 
 .method public static final getOrThrow-impl(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .param p0, "arg0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -279,15 +279,15 @@
     .line 449
     instance-of v0, p0, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-object p0
 
     .line 450
-    :cond_0
+    :cond_5
     instance-of v0, p0, Lkotlinx/coroutines/channels/ChannelResult$Closed;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     move-object v0, p0
 
@@ -295,7 +295,7 @@
 
     iget-object v0, v0, Lkotlinx/coroutines/channels/ChannelResult$Closed;->cause:Ljava/lang/Throwable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     move-object v0, p0
 
@@ -305,7 +305,7 @@
 
     throw v0
 
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 451
@@ -337,25 +337,25 @@
 .end method
 
 .method public static hashCode-impl(Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public static final isClosed-impl(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # Ljava/lang/Object;
 
     .line 436
@@ -365,7 +365,7 @@
 .end method
 
 .method public static final isFailure-impl(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # Ljava/lang/Object;
 
     .line 425
@@ -375,7 +375,7 @@
 .end method
 
 .method public static final isSuccess-impl(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # Ljava/lang/Object;
 
     .line 414
@@ -387,7 +387,7 @@
 .end method
 
 .method public static toString-impl(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "arg0"    # Ljava/lang/Object;
 
     .line 488
@@ -396,7 +396,7 @@
     .line 489
     instance-of v0, p0, Lkotlinx/coroutines/channels/ChannelResult$Closed;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     move-object v0, p0
 
@@ -406,10 +406,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_26
 
     .line 490
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -435,14 +435,14 @@
     move-result-object v0
 
     .line 491
-    :goto_0
+    :goto_26
     return-object v0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lkotlinx/coroutines/channels/ChannelResult;->holder:Ljava/lang/Object;
 
@@ -454,7 +454,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/channels/ChannelResult;->holder:Ljava/lang/Object;
 
@@ -466,7 +466,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 487
     iget-object v0, p0, Lkotlinx/coroutines/channels/ChannelResult;->holder:Ljava/lang/Object;
@@ -480,7 +480,7 @@
 .end method
 
 .method public final synthetic unbox-impl()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlinx/coroutines/channels/ChannelResult;->holder:Ljava/lang/Object;
 

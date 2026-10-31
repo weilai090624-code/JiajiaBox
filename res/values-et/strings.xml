@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Sissetulev kõne</string>
     <string name="call_notification_ongoing_text">Käimasolev kõne</string>
     <string name="call_notification_screening_text">Sissetuleva kõne filtreerimine</string>
-    <string name="character_counter_content_description" formatted="false">Sisestatud tähemärgid: %1$d/%2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Tähemärgipiirang on ületatud: %1$d/%2$d</string>
+    <string name="character_counter_content_description">Sisestatud tähemärgid: %1$d/%2$d</string>
+    <string name="character_counter_overflowed_content_description">Tähemärgipiirang on ületatud: %1$d/%2$d</string>
     <string name="clear_text_end_icon_content_description">Kustuta tekst</string>
     <string name="copy">Kopeerimine</string>
     <string name="copy_toast_msg">Link kopeeriti lõikelauale</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Vahemikust väljas: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Alguskuupäev – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – lõppkuupäev</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
     <string name="mtrl_picker_range_header_title">Valige vahemik</string>
     <string name="mtrl_picker_range_header_unselected">Alguskuupäev – lõppkuupäev</string>
     <string name="mtrl_picker_save">Salvesta</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">„%1$s” on lõikelauale kopeeritud.</string>
     <string name="search_menu_title">Otsing</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">VÄLJAS</string>
     <string name="v7_preference_on">SEES</string>
 </resources>

@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(D)V
-    .locals 4
+    .registers 7
     .param p1, "value"    # D
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -38,7 +38,7 @@
 .end method
 
 .method constructor <init>(JJ)V
-    .locals 0
+    .registers 5
     .param p1, "nominator"    # J
     .param p3, "denominator"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method getDenominator()J
-    .locals 2
+    .registers 3
 
     .line 56
     iget-wide v0, p0, Landroidx/camera/core/impl/utils/LongRational;->mDenominator:J
@@ -77,7 +77,7 @@
 .end method
 
 .method getNumerator()J
-    .locals 2
+    .registers 3
 
     .line 49
     iget-wide v0, p0, Landroidx/camera/core/impl/utils/LongRational;->mNumerator:J
@@ -86,7 +86,7 @@
 .end method
 
 .method toDouble()D
-    .locals 4
+    .registers 5
 
     .line 64
     iget-wide v0, p0, Landroidx/camera/core/impl/utils/LongRational;->mNumerator:J
@@ -103,7 +103,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 70
     new-instance v0, Ljava/lang/StringBuilder;

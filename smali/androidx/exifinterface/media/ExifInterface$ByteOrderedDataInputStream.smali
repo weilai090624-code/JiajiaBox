@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 6127
     sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -100,7 +100,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .locals 1
+    .registers 3
     .param p1, "bytes"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public available()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -140,7 +140,7 @@
 .end method
 
 .method public peek()I
-    .locals 1
+    .registers 2
 
     .line 6167
     iget v0, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mPosition:I
@@ -149,7 +149,7 @@
 .end method
 
 .method public read()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -174,7 +174,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 2
+    .registers 6
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -204,7 +204,7 @@
 .end method
 
 .method public readBoolean()Z
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -229,7 +229,7 @@
 .end method
 
 .method public readByte()B
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -248,7 +248,7 @@
 
     iget v1, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_1c
 
     .line 6246
     iget-object v0, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -259,7 +259,7 @@
 
     .line 6247
     .local v0, "ch":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_16
 
     .line 6250
     int-to-byte v1, v0
@@ -267,7 +267,7 @@
     return v1
 
     .line 6248
-    :cond_0
+    :cond_16
     new-instance v1, Ljava/io/EOFException;
 
     invoke-direct {v1}, Ljava/io/EOFException;-><init>()V
@@ -276,7 +276,7 @@
 
     .line 6244
     .end local v0    # "ch":I
-    :cond_1
+    :cond_1c
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -285,7 +285,7 @@
 .end method
 
 .method public readChar()C
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -310,7 +310,7 @@
 .end method
 
 .method public readDouble()D
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -330,7 +330,7 @@
 .end method
 
 .method public readFloat()F
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -350,7 +350,7 @@
 .end method
 
 .method public readFully([B)V
-    .locals 3
+    .registers 5
     .param p1, "buffer"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -372,7 +372,7 @@
 
     iget v1, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_20
 
     .line 6235
     iget-object v0, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -387,13 +387,13 @@
 
     array-length v1, p1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_18
 
     .line 6238
     return-void
 
     .line 6236
-    :cond_0
+    :cond_18
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "Couldn\'t read up to the length of buffer"
@@ -403,7 +403,7 @@
     throw v0
 
     .line 6233
-    :cond_1
+    :cond_20
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -412,7 +412,7 @@
 .end method
 
 .method public readFully([BII)V
-    .locals 2
+    .registers 6
     .param p1, "buffer"    # [B
     .param p2, "offset"    # I
     .param p3, "length"    # I
@@ -434,7 +434,7 @@
 
     iget v1, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_1c
 
     .line 6224
     iget-object v0, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -443,13 +443,13 @@
 
     move-result v0
 
-    if-ne v0, p3, :cond_0
+    if-ne v0, p3, :cond_14
 
     .line 6227
     return-void
 
     .line 6225
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "Couldn\'t read up to the length of buffer"
@@ -459,7 +459,7 @@
     throw v0
 
     .line 6222
-    :cond_1
+    :cond_1c
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -468,7 +468,7 @@
 .end method
 
 .method public readInt()I
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -487,7 +487,7 @@
 
     iget v1, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_3
+    if-gt v0, v1, :cond_6b
 
     .line 6278
     iget-object v0, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -528,14 +528,14 @@
 
     or-int/2addr v4, v3
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_65
 
     .line 6285
     iget-object v4, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v5, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_3a
 
     .line 6286
     shl-int/lit8 v4, v3, 0x18
@@ -553,12 +553,12 @@
     return v4
 
     .line 6287
-    :cond_0
+    :cond_3a
     iget-object v4, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v5, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_4a
 
     .line 6288
     shl-int/lit8 v4, v0, 0x18
@@ -576,7 +576,7 @@
     return v4
 
     .line 6290
-    :cond_1
+    :cond_4a
     new-instance v4, Ljava/io/IOException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -604,7 +604,7 @@
     throw v4
 
     .line 6283
-    :cond_2
+    :cond_65
     new-instance v4, Ljava/io/EOFException;
 
     invoke-direct {v4}, Ljava/io/EOFException;-><init>()V
@@ -616,7 +616,7 @@
     .end local v1    # "ch2":I
     .end local v2    # "ch3":I
     .end local v3    # "ch4":I
-    :cond_3
+    :cond_6b
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -625,7 +625,7 @@
 .end method
 
 .method public readLine()Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -646,7 +646,7 @@
 .end method
 
 .method public readLong()J
-    .locals 19
+    .registers 20
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -669,7 +669,7 @@
 
     iget v3, v0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v1, v3, :cond_3
+    if-gt v1, v3, :cond_c2
 
     .line 6333
     iget-object v1, v0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -750,7 +750,7 @@
 
     or-int/2addr v10, v9
 
-    if-ltz v10, :cond_2
+    if-ltz v10, :cond_bb
 
     .line 6344
     iget-object v10, v0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
@@ -769,7 +769,7 @@
 
     const/16 v17, 0x38
 
-    if-ne v10, v11, :cond_0
+    if-ne v10, v11, :cond_7a
 
     .line 6345
     int-to-long v10, v9
@@ -831,7 +831,7 @@
     .line 6348
     .end local v2    # "ch2":I
     .restart local v3    # "ch2":I
-    :cond_0
+    :cond_7a
     move v2, v3
 
     .end local v3    # "ch2":I
@@ -840,7 +840,7 @@
 
     sget-object v10, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v3, v10, :cond_1
+    if-ne v3, v10, :cond_a0
 
     .line 6349
     int-to-long v10, v1
@@ -896,7 +896,7 @@
     return-wide v10
 
     .line 6353
-    :cond_1
+    :cond_a0
     new-instance v3, Ljava/io/IOException;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -926,7 +926,7 @@
     .line 6342
     .end local v2    # "ch2":I
     .restart local v3    # "ch2":I
-    :cond_2
+    :cond_bb
     move v2, v3
 
     .end local v3    # "ch2":I
@@ -946,7 +946,7 @@
     .end local v7    # "ch6":I
     .end local v8    # "ch7":I
     .end local v9    # "ch8":I
-    :cond_3
+    :cond_c2
     new-instance v1, Ljava/io/EOFException;
 
     invoke-direct {v1}, Ljava/io/EOFException;-><init>()V
@@ -955,7 +955,7 @@
 .end method
 
 .method public readShort()S
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -974,7 +974,7 @@
 
     iget v1, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_3
+    if-gt v0, v1, :cond_53
 
     .line 6259
     iget-object v0, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -995,14 +995,14 @@
     .local v1, "ch2":I
     or-int v2, v0, v1
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_4d
 
     .line 6264
     iget-object v2, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v3, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_27
 
     .line 6265
     shl-int/lit8 v2, v1, 0x8
@@ -1014,12 +1014,12 @@
     return v2
 
     .line 6266
-    :cond_0
+    :cond_27
     iget-object v2, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v3, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_32
 
     .line 6267
     shl-int/lit8 v2, v0, 0x8
@@ -1031,7 +1031,7 @@
     return v2
 
     .line 6269
-    :cond_1
+    :cond_32
     new-instance v2, Ljava/io/IOException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1059,7 +1059,7 @@
     throw v2
 
     .line 6262
-    :cond_2
+    :cond_4d
     new-instance v2, Ljava/io/EOFException;
 
     invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
@@ -1069,7 +1069,7 @@
     .line 6257
     .end local v0    # "ch1":I
     .end local v1    # "ch2":I
-    :cond_3
+    :cond_53
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -1078,7 +1078,7 @@
 .end method
 
 .method public readUTF()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1103,7 +1103,7 @@
 .end method
 
 .method public readUnsignedByte()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1128,7 +1128,7 @@
 .end method
 
 .method public readUnsignedInt()J
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1150,7 +1150,7 @@
 .end method
 
 .method public readUnsignedShort()I
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1169,7 +1169,7 @@
 
     iget v1, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_3
+    if-gt v0, v1, :cond_51
 
     .line 6310
     iget-object v0, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -1190,14 +1190,14 @@
     .local v1, "ch2":I
     or-int v2, v0, v1
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_4b
 
     .line 6315
     iget-object v2, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v3, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_26
 
     .line 6316
     shl-int/lit8 v2, v1, 0x8
@@ -1207,12 +1207,12 @@
     return v2
 
     .line 6317
-    :cond_0
+    :cond_26
     iget-object v2, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v3, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_30
 
     .line 6318
     shl-int/lit8 v2, v0, 0x8
@@ -1222,7 +1222,7 @@
     return v2
 
     .line 6320
-    :cond_1
+    :cond_30
     new-instance v2, Ljava/io/IOException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1250,7 +1250,7 @@
     throw v2
 
     .line 6313
-    :cond_2
+    :cond_4b
     new-instance v2, Ljava/io/EOFException;
 
     invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
@@ -1260,7 +1260,7 @@
     .line 6308
     .end local v0    # "ch1":I
     .end local v1    # "ch2":I
-    :cond_3
+    :cond_51
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -1269,7 +1269,7 @@
 .end method
 
 .method public seek(J)V
-    .locals 3
+    .registers 6
     .param p1, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1284,7 +1284,7 @@
 
     cmp-long v2, v0, p1
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_17
 
     .line 6154
     const/4 v0, 0x0
@@ -1303,10 +1303,10 @@
 
     invoke-virtual {v0, v1}, Ljava/io/DataInputStream;->mark(I)V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 6158
-    :cond_0
+    :cond_17
     iget v0, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mPosition:I
 
     int-to-long v0, v0
@@ -1314,7 +1314,7 @@
     sub-long/2addr p1, v0
 
     .line 6161
-    :goto_0
+    :goto_1b
     long-to-int v0, p1
 
     invoke-virtual {p0, v0}, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->skipBytes(I)I
@@ -1323,13 +1323,13 @@
 
     long-to-int v1, p1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_24
 
     .line 6164
     return-void
 
     .line 6162
-    :cond_1
+    :cond_24
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "Couldn\'t seek up to the byteCount"
@@ -1340,7 +1340,7 @@
 .end method
 
 .method public setByteOrder(Ljava/nio/ByteOrder;)V
-    .locals 0
+    .registers 2
     .param p1, "byteOrder"    # Ljava/nio/ByteOrder;
 
     .line 6149
@@ -1351,7 +1351,7 @@
 .end method
 
 .method public skipBytes(I)I
-    .locals 4
+    .registers 6
     .param p1, "byteCount"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1376,8 +1376,8 @@
 
     .line 6297
     .local v1, "skipped":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_a
+    if-ge v1, v0, :cond_16
 
     .line 6298
     iget-object v2, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -1390,10 +1390,10 @@
 
     add-int/2addr v1, v2
 
-    goto :goto_0
+    goto :goto_a
 
     .line 6300
-    :cond_0
+    :cond_16
     iget v2, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream;->mPosition:I
 
     add-int/2addr v2, v1

@@ -28,7 +28,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 49
     .local p0, "this":Lcom/google/common/base/Equivalence;, "Lcom/google/common/base/Equivalence<TT;>;"
@@ -38,7 +38,7 @@
 .end method
 
 .method public static equals()Lcom/google/common/base/Equivalence;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -55,7 +55,7 @@
 .end method
 
 .method public static identity()Lcom/google/common/base/Equivalence;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -90,7 +90,7 @@
 .end method
 
 .method public final equivalent(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -109,7 +109,7 @@
     .local p0, "this":Lcom/google/common/base/Equivalence;, "Lcom/google/common/base/Equivalence<TT;>;"
     .local p1, "a":Ljava/lang/Object;, "TT;"
     .local p2, "b":Ljava/lang/Object;, "TT;"
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_4
 
     .line 70
     const/4 v0, 0x1
@@ -117,15 +117,15 @@
     return v0
 
     .line 72
-    :cond_0
-    if-eqz p1, :cond_2
+    :cond_4
+    if-eqz p1, :cond_e
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_9
 
-    goto :goto_0
+    goto :goto_e
 
     .line 75
-    :cond_1
+    :cond_9
     invoke-virtual {p0, p1, p2}, Lcom/google/common/base/Equivalence;->doEquivalent(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
@@ -133,15 +133,15 @@
     return v0
 
     .line 73
-    :cond_2
-    :goto_0
+    :cond_e
+    :goto_e
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public final equivalentTo(Ljava/lang/Object;)Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -165,7 +165,7 @@
 .end method
 
 .method public final hash(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -179,7 +179,7 @@
     .line 103
     .local p0, "this":Lcom/google/common/base/Equivalence;, "Lcom/google/common/base/Equivalence<TT;>;"
     .local p1, "t":Ljava/lang/Object;, "TT;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 104
     const/4 v0, 0x0
@@ -187,7 +187,7 @@
     return v0
 
     .line 106
-    :cond_0
+    :cond_4
     invoke-virtual {p0, p1}, Lcom/google/common/base/Equivalence;->doHash(Ljava/lang/Object;)I
 
     move-result v0
@@ -196,7 +196,7 @@
 .end method
 
 .method public final onResultOf(Lcom/google/common/base/Function;)Lcom/google/common/base/Equivalence;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<F:",
@@ -220,7 +220,7 @@
 .end method
 
 .method public final pairwise()Lcom/google/common/base/Equivalence;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:TT;>()",
@@ -240,7 +240,7 @@
 .end method
 
 .method public final wrap(Ljava/lang/Object;)Lcom/google/common/base/Equivalence$Wrapper;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation

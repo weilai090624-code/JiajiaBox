@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 1
+    .registers 5
     .param p1, "newText"    # Ljava/lang/String;
     .param p2, "oldText"    # Ljava/lang/String;
     .param p3, "start"    # I
@@ -88,29 +88,29 @@
 .end method
 
 .method public static synthetic copy$default(Lcom/blacksquircle/ui/editorkit/model/TextChange;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lcom/blacksquircle/ui/editorkit/model/TextChange;
-    .locals 0
+    .registers 6
 
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     iget-object p1, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->newText:Ljava/lang/String;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_c
 
     iget-object p2, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->oldText:Ljava/lang/String;
 
-    :cond_1
+    :cond_c
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_12
 
     iget p3, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->start:I
 
-    :cond_2
+    :cond_12
     invoke-virtual {p0, p1, p2, p3}, Lcom/blacksquircle/ui/editorkit/model/TextChange;->copy(Ljava/lang/String;Ljava/lang/String;I)Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
     move-result-object p0
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->newText:Ljava/lang/String;
 
@@ -129,7 +129,7 @@
 .end method
 
 .method public final component2()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->oldText:Ljava/lang/String;
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public final component3()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->start:I
 
@@ -145,7 +145,7 @@
 .end method
 
 .method public final copy(Ljava/lang/String;Ljava/lang/String;I)Lcom/blacksquircle/ui/editorkit/model/TextChange;
-    .locals 1
+    .registers 5
 
     const-string v0, "newText"
 
@@ -163,24 +163,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/blacksquircle/ui/editorkit/model/TextChange;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/blacksquircle/ui/editorkit/model/TextChange;
@@ -193,11 +193,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-object v3, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->oldText:Ljava/lang/String;
 
     iget-object v4, v1, Lcom/blacksquircle/ui/editorkit/model/TextChange;->oldText:Ljava/lang/String;
@@ -206,25 +206,25 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_23
 
     return v2
 
-    :cond_3
+    :cond_23
     iget v3, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->start:I
 
     iget v1, v1, Lcom/blacksquircle/ui/editorkit/model/TextChange;->start:I
 
-    if-eq v3, v1, :cond_4
+    if-eq v3, v1, :cond_2a
 
     return v2
 
-    :cond_4
+    :cond_2a
     return v0
 .end method
 
 .method public final getNewText()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->newText:Ljava/lang/String;
@@ -233,7 +233,7 @@
 .end method
 
 .method public final getOldText()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 21
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->oldText:Ljava/lang/String;
@@ -242,7 +242,7 @@
 .end method
 
 .method public final getStart()I
-    .locals 1
+    .registers 2
 
     .line 22
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->start:I
@@ -251,7 +251,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->newText:Ljava/lang/String;
 
@@ -279,7 +279,7 @@
 .end method
 
 .method public final setNewText(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -293,7 +293,7 @@
 .end method
 
 .method public final setOldText(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -307,7 +307,7 @@
 .end method
 
 .method public final setStart(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 22
@@ -317,7 +317,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/TextChange;->newText:Ljava/lang/String;
 

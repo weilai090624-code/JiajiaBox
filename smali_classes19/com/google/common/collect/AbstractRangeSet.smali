@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     .local p0, "this":Lcom/google/common/collect/AbstractRangeSet;, "Lcom/google/common/collect/AbstractRangeSet<TC;>;"
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public add(Lcom/google/common/collect/Range;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 .end method
 
 .method public addAll(Lcom/google/common/collect/RangeSet;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,7 +79,7 @@
 .end method
 
 .method public addAll(Ljava/lang/Iterable;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,12 +96,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -115,15 +115,15 @@
 
     .line 83
     .end local v1    # "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    goto :goto_0
+    goto :goto_4
 
     .line 84
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 56
     .local p0, "this":Lcom/google/common/collect/AbstractRangeSet;, "Lcom/google/common/collect/AbstractRangeSet<TC;>;"
@@ -138,7 +138,7 @@
 .end method
 
 .method public contains(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)Z"
@@ -152,16 +152,16 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
@@ -176,7 +176,7 @@
 .end method
 
 .method public enclosesAll(Lcom/google/common/collect/RangeSet;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -200,7 +200,7 @@
 .end method
 
 .method public enclosesAll(Ljava/lang/Iterable;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -217,12 +217,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -236,7 +236,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_18
 
     .line 68
     const/4 v0, 0x0
@@ -245,18 +245,18 @@
 
     .line 70
     .end local v1    # "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    :cond_0
-    goto :goto_0
+    :cond_18
+    goto :goto_4
 
     .line 71
-    :cond_1
+    :cond_19
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -264,7 +264,7 @@
 
     .line 108
     .local p0, "this":Lcom/google/common/collect/AbstractRangeSet;, "Lcom/google/common/collect/AbstractRangeSet<TC;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 109
     const/4 v0, 0x1
@@ -272,10 +272,10 @@
     return v0
 
     .line 110
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/collect/RangeSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 111
     move-object v0, p1
@@ -300,14 +300,14 @@
 
     .line 114
     .end local v0    # "other":Lcom/google/common/collect/RangeSet;, "Lcom/google/common/collect/RangeSet<*>;"
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public final hashCode()I
-    .locals 1
+    .registers 2
 
     .line 119
     .local p0, "this":Lcom/google/common/collect/AbstractRangeSet;, "Lcom/google/common/collect/AbstractRangeSet<TC;>;"
@@ -323,7 +323,7 @@
 .end method
 
 .method public intersects(Lcom/google/common/collect/Range;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -349,7 +349,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 41
     .local p0, "this":Lcom/google/common/collect/AbstractRangeSet;, "Lcom/google/common/collect/AbstractRangeSet<TC;>;"
@@ -378,7 +378,7 @@
 .end method
 
 .method public remove(Lcom/google/common/collect/Range;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -398,7 +398,7 @@
 .end method
 
 .method public removeAll(Lcom/google/common/collect/RangeSet;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -421,7 +421,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Iterable;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -438,12 +438,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -457,15 +457,15 @@
 
     .line 95
     .end local v1    # "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
-    goto :goto_0
+    goto :goto_4
 
     .line 96
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 124
     .local p0, "this":Lcom/google/common/collect/AbstractRangeSet;, "Lcom/google/common/collect/AbstractRangeSet<TC;>;"

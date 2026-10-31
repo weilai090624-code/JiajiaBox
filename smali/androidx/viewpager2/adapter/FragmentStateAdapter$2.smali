@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/adapter/FragmentStateAdapter;Landroidx/viewpager2/adapter/FragmentViewHolder;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
     .line 347
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -52,13 +52,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 352
     return-void
 
     .line 354
-    :cond_0
+    :cond_9
     invoke-interface {p1}, Landroidx/lifecycle/LifecycleOwner;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
     move-result-object v0
@@ -76,7 +76,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 356
     iget-object v0, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$2;->this$0:Landroidx/viewpager2/adapter/FragmentStateAdapter;
@@ -86,6 +86,6 @@
     invoke-virtual {v0, v1}, Landroidx/viewpager2/adapter/FragmentStateAdapter;->placeFragmentInViewHolder(Landroidx/viewpager2/adapter/FragmentViewHolder;)V
 
     .line 358
-    :cond_1
+    :cond_23
     return-void
 .end method

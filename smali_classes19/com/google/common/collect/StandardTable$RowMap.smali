@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/StandardTable;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/StandardTable;
 
     .line 796
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -68,7 +68,7 @@
 .end method
 
 .method protected createEntrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -108,7 +108,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -134,7 +134,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$RowMap;->this$0:Lcom/google/common/collect/StandardTable;
 
@@ -146,17 +146,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -174,7 +174,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -194,13 +194,13 @@
 
     .line 814
     .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$RowMap;->this$0:Lcom/google/common/collect/StandardTable;
 
     iget-object v0, v0, Lcom/google/common/collect/StandardTable;->backingMap:Ljava/util/Map;
@@ -211,6 +211,6 @@
 
     check-cast v0, Ljava/util/Map;
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method

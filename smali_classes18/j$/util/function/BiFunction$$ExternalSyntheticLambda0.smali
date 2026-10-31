@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/function/BiFunction;Ljava/util/function/Function;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public synthetic andThen(Ljava/util/function/Function;)Ljava/util/function/BiFunction;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/BiFunction$-CC;->$default$andThen(Ljava/util/function/BiFunction;Ljava/util/function/Function;)Ljava/util/function/BiFunction;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
 
     iget-object v0, p0, Lj$/util/function/BiFunction$$ExternalSyntheticLambda0;->f$0:Ljava/util/function/BiFunction;
 

@@ -71,7 +71,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
+    .registers 11
 
     .line 1041
     new-instance v0, Ljava/io/ObjectStreamField;
@@ -167,7 +167,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_7a
 
     .line 1152
     const/16 v0, 0x8
@@ -191,8 +191,8 @@
     const/4 v6, 0x1
 
     .local v6, "i":I
-    :goto_0
-    if-ge v6, v0, :cond_0
+    :goto_68
+    if-ge v6, v0, :cond_75
 
     .line 1155
     shl-long v7, v2, v0
@@ -208,11 +208,11 @@
     .line 1154
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_68
 
     .line 1156
     .end local v6    # "i":I
-    :cond_0
+    :cond_75
     sget-object v0, Lj$/util/concurrent/ThreadLocalRandom;->seeder:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-virtual {v0, v2, v3}, Ljava/util/concurrent/atomic/AtomicLong;->set(J)V
@@ -220,12 +220,12 @@
     .line 1158
     .end local v1    # "seedBytes":[B
     .end local v2    # "s":J
-    :cond_1
+    :cond_7a
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 173
     invoke-direct {p0}, Ljava/util/Random;-><init>()V
@@ -240,7 +240,7 @@
 .end method
 
 .method synthetic constructor <init>(Lj$/util/concurrent/ThreadLocalRandom-IA;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lj$/util/concurrent/ThreadLocalRandom;-><init>()V
 
@@ -248,7 +248,7 @@
 .end method
 
 .method static final advanceProbe(I)I
-    .locals 1
+    .registers 2
     .param p0, "probe"    # I
 
     .line 985
@@ -282,7 +282,7 @@
 .end method
 
 .method public static current()Lj$/util/concurrent/ThreadLocalRandom;
-    .locals 2
+    .registers 2
 
     .line 208
     sget-object v0, Lj$/util/concurrent/ThreadLocalRandom;->instances:Ljava/lang/ThreadLocal;
@@ -297,18 +297,18 @@
     .local v0, "t":Lj$/util/concurrent/ThreadLocalRandom;
     iget v1, v0, Lj$/util/concurrent/ThreadLocalRandom;->threadLocalRandomProbe:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 210
     invoke-static {}, Lj$/util/concurrent/ThreadLocalRandom;->localInit()V
 
     .line 211
-    :cond_0
+    :cond_f
     return-object v0
 .end method
 
 .method static final getProbe()I
-    .locals 1
+    .registers 1
 
     .line 977
     sget-object v0, Lj$/util/concurrent/ThreadLocalRandom;->instances:Ljava/lang/ThreadLocal;
@@ -325,7 +325,7 @@
 .end method
 
 .method static final localInit()V
-    .locals 5
+    .registers 5
 
     .line 185
     sget-object v0, Lj$/util/concurrent/ThreadLocalRandom;->probeGenerator:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -338,18 +338,18 @@
 
     .line 186
     .local v0, "p":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move v1, v0
 
     .line 187
     .local v1, "probe":I
-    :goto_0
+    :goto_e
     sget-object v2, Lj$/util/concurrent/ThreadLocalRandom;->seeder:Ljava/util/concurrent/atomic/AtomicLong;
 
     const-wide v3, -0x4498517a7b3558c5L    # -1.5671250923562117E-22
@@ -384,7 +384,7 @@
 .end method
 
 .method private static mix32(J)I
-    .locals 5
+    .registers 7
     .param p0, "z"    # J
 
     .line 140
@@ -419,7 +419,7 @@
 .end method
 
 .method private static mix64(J)J
-    .locals 5
+    .registers 7
     .param p0, "z"    # J
 
     .line 134
@@ -455,7 +455,7 @@
 .end method
 
 .method static final nextSecondarySeed()I
-    .locals 5
+    .registers 5
 
     .line 1001
     sget-object v0, Lj$/util/concurrent/ThreadLocalRandom;->instances:Ljava/lang/ThreadLocal;
@@ -473,7 +473,7 @@
     move v2, v1
 
     .local v2, "r":I
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 1004
     shl-int/lit8 v1, v2, 0xd
@@ -492,12 +492,12 @@
 
     xor-int/2addr v1, v2
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 1008
     .end local v1    # "r":I
     .restart local v2    # "r":I
-    :cond_0
+    :cond_17
     sget-object v1, Lj$/util/concurrent/ThreadLocalRandom;->seeder:Ljava/util/concurrent/atomic/AtomicLong;
 
     const-wide v3, -0x4498517a7b3558c5L    # -1.5671250923562117E-22
@@ -512,25 +512,25 @@
 
     move v2, v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2b
 
     .line 1009
     const/4 v1, 0x1
 
     .end local v2    # "r":I
     .restart local v1    # "r":I
-    goto :goto_0
+    goto :goto_2c
 
     .line 1008
     .end local v1    # "r":I
     .restart local v2    # "r":I
-    :cond_1
+    :cond_2b
     move v1, v2
 
     .line 1011
     .end local v2    # "r":I
     .restart local v1    # "r":I
-    :goto_0
+    :goto_2c
     iput v1, v0, Lj$/util/concurrent/ThreadLocalRandom;->threadLocalRandomSecondarySeed:I
 
     .line 1012
@@ -538,7 +538,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1067
     invoke-static {}, Lj$/util/concurrent/ThreadLocalRandom;->current()Lj$/util/concurrent/ThreadLocalRandom;
@@ -549,7 +549,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 4
+    .registers 6
     .param p1, "s"    # Ljava/io/ObjectOutputStream;
 
     .line 1054
@@ -582,7 +582,7 @@
 
 # virtual methods
 .method public doubles()Lj$/util/stream/DoubleStream;
-    .locals 10
+    .registers 11
 
     .line 720
     new-instance v9, Lj$/util/concurrent/ThreadLocalRandom$RandomDoublesSpliterator;
@@ -611,14 +611,14 @@
 .end method
 
 .method public doubles(DD)Lj$/util/stream/DoubleStream;
-    .locals 10
+    .registers 15
     .param p1, "randomNumberOrigin"    # D
     .param p3, "randomNumberBound"    # D
 
     .line 770
     cmpg-double v0, p1, p3
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_19
 
     .line 772
     new-instance v0, Lj$/util/concurrent/ThreadLocalRandom$RandomDoublesSpliterator;
@@ -646,7 +646,7 @@
     return-object v0
 
     .line 771
-    :cond_0
+    :cond_19
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be greater than origin"
@@ -657,7 +657,7 @@
 .end method
 
 .method public doubles(J)Lj$/util/stream/DoubleStream;
-    .locals 12
+    .registers 15
     .param p1, "streamSize"    # J
 
     .line 700
@@ -665,7 +665,7 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_1c
 
     .line 702
     new-instance v0, Lj$/util/concurrent/ThreadLocalRandom$RandomDoublesSpliterator;
@@ -693,7 +693,7 @@
     return-object v0
 
     .line 701
-    :cond_0
+    :cond_1c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "size must be non-negative"
@@ -704,7 +704,7 @@
 .end method
 
 .method public doubles(JDD)Lj$/util/stream/DoubleStream;
-    .locals 10
+    .registers 17
     .param p1, "streamSize"    # J
     .param p3, "randomNumberOrigin"    # D
     .param p5, "randomNumberBound"    # D
@@ -714,12 +714,12 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_23
 
     .line 745
     cmpg-double v0, p3, p5
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1b
 
     .line 747
     new-instance v0, Lj$/util/concurrent/ThreadLocalRandom$RandomDoublesSpliterator;
@@ -747,7 +747,7 @@
     return-object v0
 
     .line 746
-    :cond_0
+    :cond_1b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be greater than origin"
@@ -757,7 +757,7 @@
     throw v0
 
     .line 744
-    :cond_1
+    :cond_23
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "size must be non-negative"
@@ -768,7 +768,7 @@
 .end method
 
 .method public synthetic doubles()Ljava/util/stream/DoubleStream;
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->doubles()Lj$/util/stream/DoubleStream;
 
@@ -782,7 +782,7 @@
 .end method
 
 .method public synthetic doubles(DD)Ljava/util/stream/DoubleStream;
-    .locals 0
+    .registers 5
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lj$/util/concurrent/ThreadLocalRandom;->doubles(DD)Lj$/util/stream/DoubleStream;
 
@@ -796,7 +796,7 @@
 .end method
 
 .method public synthetic doubles(J)Ljava/util/stream/DoubleStream;
-    .locals 0
+    .registers 3
 
     invoke-virtual {p0, p1, p2}, Lj$/util/concurrent/ThreadLocalRandom;->doubles(J)Lj$/util/stream/DoubleStream;
 
@@ -810,7 +810,7 @@
 .end method
 
 .method public synthetic doubles(JDD)Ljava/util/stream/DoubleStream;
-    .locals 0
+    .registers 7
 
     invoke-virtual/range {p0 .. p6}, Lj$/util/concurrent/ThreadLocalRandom;->doubles(JDD)Lj$/util/stream/DoubleStream;
 
@@ -824,7 +824,7 @@
 .end method
 
 .method final internalNextDouble(DD)D
-    .locals 6
+    .registers 11
     .param p1, "origin"    # D
     .param p3, "bound"    # D
 
@@ -847,7 +847,7 @@
     .local v0, "r":D
     cmpg-double v2, p1, p3
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_25
 
     .line 317
     sub-double v2, p3, p1
@@ -859,7 +859,7 @@
     .line 318
     cmpl-double v2, v0, p3
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_25
 
     .line 319
     invoke-static {p3, p4}, Ljava/lang/Double;->doubleToLongBits(D)J
@@ -875,12 +875,12 @@
     move-result-wide v0
 
     .line 321
-    :cond_0
+    :cond_25
     return-wide v0
 .end method
 
 .method final internalNextInt(II)I
-    .locals 6
+    .registers 9
     .param p1, "origin"    # I
     .param p2, "bound"    # I
 
@@ -895,7 +895,7 @@
 
     .line 288
     .local v0, "r":I
-    if-ge p1, p2, :cond_4
+    if-ge p1, p2, :cond_3d
 
     .line 289
     sub-int v1, p2, p1
@@ -907,25 +907,25 @@
     .local v2, "m":I
     and-int v3, v1, v2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_17
 
     .line 291
     and-int v3, v0, v2
 
     add-int v0, v3, p1
 
-    goto :goto_2
+    goto :goto_3d
 
     .line 292
-    :cond_0
-    if-lez v1, :cond_2
+    :cond_17
+    if-lez v1, :cond_30
 
     .line 293
     ushr-int/lit8 v3, v0, 0x1
 
     .line 294
     .local v3, "u":I
-    :goto_0
+    :goto_1b
     add-int v4, v3, v2
 
     rem-int v5, v3, v1
@@ -934,7 +934,7 @@
 
     sub-int/2addr v4, v5
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_2e
 
     .line 295
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -947,24 +947,24 @@
 
     ushr-int/lit8 v3, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 297
     .end local v3    # "u":I
-    :cond_1
+    :cond_2e
     add-int/2addr v0, p1
 
-    goto :goto_2
+    goto :goto_3d
 
     .line 300
-    :cond_2
-    :goto_1
-    if-lt v0, p1, :cond_3
+    :cond_30
+    :goto_30
+    if-lt v0, p1, :cond_34
 
-    if-lt v0, p2, :cond_4
+    if-lt v0, p2, :cond_3d
 
     .line 301
-    :cond_3
+    :cond_34
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
 
     move-result-wide v3
@@ -973,18 +973,18 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_30
 
     .line 304
     .end local v1    # "n":I
     .end local v2    # "m":I
-    :cond_4
-    :goto_2
+    :cond_3d
+    :goto_3d
     return v0
 .end method
 
 .method final internalNextLong(JJ)J
-    .locals 16
+    .registers 21
     .param p1, "origin"    # J
     .param p3, "bound"    # J
 
@@ -1001,7 +1001,7 @@
     .local v0, "r":J
     cmp-long v2, p1, p3
 
-    if-gez v2, :cond_4
+    if-gez v2, :cond_4f
 
     .line 260
     sub-long v2, p3, p1
@@ -1019,20 +1019,20 @@
 
     cmp-long v10, v6, v8
 
-    if-nez v10, :cond_0
+    if-nez v10, :cond_1f
 
     .line 262
     and-long v6, v0, v4
 
     add-long v0, v6, p1
 
-    goto :goto_2
+    goto :goto_4f
 
     .line 263
-    :cond_0
+    :cond_1f
     cmp-long v6, v2, v8
 
-    if-lez v6, :cond_2
+    if-lez v6, :cond_3e
 
     .line 264
     const/4 v6, 0x1
@@ -1041,7 +1041,7 @@
 
     .line 265
     .local v10, "u":J
-    :goto_0
+    :goto_26
     add-long v12, v10, v4
 
     rem-long v14, v10, v2
@@ -1052,7 +1052,7 @@
 
     cmp-long v7, v12, v8
 
-    if-gez v7, :cond_1
+    if-gez v7, :cond_3b
 
     .line 266
     invoke-virtual/range {p0 .. p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -1065,28 +1065,28 @@
 
     ushr-long v10, v12, v6
 
-    goto :goto_0
+    goto :goto_26
 
     .line 268
     .end local v10    # "u":J
-    :cond_1
+    :cond_3b
     add-long v0, v0, p1
 
-    goto :goto_2
+    goto :goto_4f
 
     .line 271
-    :cond_2
-    :goto_1
+    :cond_3e
+    :goto_3e
     cmp-long v6, v0, p1
 
-    if-ltz v6, :cond_3
+    if-ltz v6, :cond_46
 
     cmp-long v6, v0, p3
 
-    if-ltz v6, :cond_4
+    if-ltz v6, :cond_4f
 
     .line 272
-    :cond_3
+    :cond_46
     invoke-virtual/range {p0 .. p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
 
     move-result-wide v6
@@ -1095,18 +1095,18 @@
 
     move-result-wide v0
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 275
     .end local v2    # "n":J
     .end local v4    # "m":J
-    :cond_4
-    :goto_2
+    :cond_4f
+    :goto_4f
     return-wide v0
 .end method
 
 .method public ints()Lj$/util/stream/IntStream;
-    .locals 8
+    .registers 9
 
     .line 542
     new-instance v7, Lj$/util/concurrent/ThreadLocalRandom$RandomIntsSpliterator;
@@ -1135,12 +1135,12 @@
 .end method
 
 .method public ints(II)Lj$/util/stream/IntStream;
-    .locals 8
+    .registers 11
     .param p1, "randomNumberOrigin"    # I
     .param p2, "randomNumberBound"    # I
 
     .line 592
-    if-ge p1, p2, :cond_0
+    if-ge p1, p2, :cond_17
 
     .line 594
     new-instance v7, Lj$/util/concurrent/ThreadLocalRandom$RandomIntsSpliterator;
@@ -1168,7 +1168,7 @@
     return-object v0
 
     .line 593
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be greater than origin"
@@ -1179,7 +1179,7 @@
 .end method
 
 .method public ints(J)Lj$/util/stream/IntStream;
-    .locals 10
+    .registers 13
     .param p1, "streamSize"    # J
 
     .line 523
@@ -1187,7 +1187,7 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_19
 
     .line 525
     new-instance v0, Lj$/util/concurrent/ThreadLocalRandom$RandomIntsSpliterator;
@@ -1215,7 +1215,7 @@
     return-object v0
 
     .line 524
-    :cond_0
+    :cond_19
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "size must be non-negative"
@@ -1226,7 +1226,7 @@
 .end method
 
 .method public ints(JII)Lj$/util/stream/IntStream;
-    .locals 10
+    .registers 15
     .param p1, "streamSize"    # J
     .param p3, "randomNumberOrigin"    # I
     .param p4, "randomNumberBound"    # I
@@ -1236,10 +1236,10 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_21
 
     .line 567
-    if-ge p3, p4, :cond_0
+    if-ge p3, p4, :cond_19
 
     .line 569
     new-instance v0, Lj$/util/concurrent/ThreadLocalRandom$RandomIntsSpliterator;
@@ -1267,7 +1267,7 @@
     return-object v0
 
     .line 568
-    :cond_0
+    :cond_19
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be greater than origin"
@@ -1277,7 +1277,7 @@
     throw v0
 
     .line 566
-    :cond_1
+    :cond_21
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "size must be non-negative"
@@ -1288,7 +1288,7 @@
 .end method
 
 .method public synthetic ints()Ljava/util/stream/IntStream;
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->ints()Lj$/util/stream/IntStream;
 
@@ -1302,7 +1302,7 @@
 .end method
 
 .method public synthetic ints(II)Ljava/util/stream/IntStream;
-    .locals 0
+    .registers 3
 
     invoke-virtual {p0, p1, p2}, Lj$/util/concurrent/ThreadLocalRandom;->ints(II)Lj$/util/stream/IntStream;
 
@@ -1316,7 +1316,7 @@
 .end method
 
 .method public synthetic ints(J)Ljava/util/stream/IntStream;
-    .locals 0
+    .registers 3
 
     invoke-virtual {p0, p1, p2}, Lj$/util/concurrent/ThreadLocalRandom;->ints(J)Lj$/util/stream/IntStream;
 
@@ -1330,7 +1330,7 @@
 .end method
 
 .method public synthetic ints(JII)Ljava/util/stream/IntStream;
-    .locals 0
+    .registers 5
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lj$/util/concurrent/ThreadLocalRandom;->ints(JII)Lj$/util/stream/IntStream;
 
@@ -1344,7 +1344,7 @@
 .end method
 
 .method public longs()Lj$/util/stream/LongStream;
-    .locals 10
+    .registers 11
 
     .line 630
     new-instance v9, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;
@@ -1373,7 +1373,7 @@
 .end method
 
 .method public longs(J)Lj$/util/stream/LongStream;
-    .locals 12
+    .registers 15
     .param p1, "streamSize"    # J
 
     .line 611
@@ -1381,7 +1381,7 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_1c
 
     .line 613
     new-instance v0, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;
@@ -1409,7 +1409,7 @@
     return-object v0
 
     .line 612
-    :cond_0
+    :cond_1c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "size must be non-negative"
@@ -1420,14 +1420,14 @@
 .end method
 
 .method public longs(JJ)Lj$/util/stream/LongStream;
-    .locals 10
+    .registers 15
     .param p1, "randomNumberOrigin"    # J
     .param p3, "randomNumberBound"    # J
 
     .line 680
     cmp-long v0, p1, p3
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_19
 
     .line 682
     new-instance v0, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;
@@ -1455,7 +1455,7 @@
     return-object v0
 
     .line 681
-    :cond_0
+    :cond_19
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be greater than origin"
@@ -1466,7 +1466,7 @@
 .end method
 
 .method public longs(JJJ)Lj$/util/stream/LongStream;
-    .locals 10
+    .registers 17
     .param p1, "streamSize"    # J
     .param p3, "randomNumberOrigin"    # J
     .param p5, "randomNumberBound"    # J
@@ -1476,12 +1476,12 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_23
 
     .line 655
     cmp-long v0, p3, p5
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1b
 
     .line 657
     new-instance v0, Lj$/util/concurrent/ThreadLocalRandom$RandomLongsSpliterator;
@@ -1509,7 +1509,7 @@
     return-object v0
 
     .line 656
-    :cond_0
+    :cond_1b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be greater than origin"
@@ -1519,7 +1519,7 @@
     throw v0
 
     .line 654
-    :cond_1
+    :cond_23
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "size must be non-negative"
@@ -1530,7 +1530,7 @@
 .end method
 
 .method public synthetic longs()Ljava/util/stream/LongStream;
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->longs()Lj$/util/stream/LongStream;
 
@@ -1544,7 +1544,7 @@
 .end method
 
 .method public synthetic longs(J)Ljava/util/stream/LongStream;
-    .locals 0
+    .registers 3
 
     invoke-virtual {p0, p1, p2}, Lj$/util/concurrent/ThreadLocalRandom;->longs(J)Lj$/util/stream/LongStream;
 
@@ -1558,7 +1558,7 @@
 .end method
 
 .method public synthetic longs(JJ)Ljava/util/stream/LongStream;
-    .locals 0
+    .registers 5
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lj$/util/concurrent/ThreadLocalRandom;->longs(JJ)Lj$/util/stream/LongStream;
 
@@ -1572,7 +1572,7 @@
 .end method
 
 .method public synthetic longs(JJJ)Ljava/util/stream/LongStream;
-    .locals 0
+    .registers 7
 
     invoke-virtual/range {p0 .. p6}, Lj$/util/concurrent/ThreadLocalRandom;->longs(JJJ)Lj$/util/stream/LongStream;
 
@@ -1586,7 +1586,7 @@
 .end method
 
 .method protected next(I)I
-    .locals 2
+    .registers 4
     .param p1, "bits"    # I
 
     .line 245
@@ -1602,7 +1602,7 @@
 .end method
 
 .method public nextBoolean()Z
-    .locals 2
+    .registers 3
 
     .line 477
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -1613,21 +1613,21 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public nextDouble()D
-    .locals 4
+    .registers 5
 
     .line 434
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -1652,7 +1652,7 @@
 .end method
 
 .method public nextDouble(D)D
-    .locals 6
+    .registers 9
     .param p1, "bound"    # D
 
     .line 447
@@ -1660,7 +1660,7 @@
 
     cmpl-double v2, p1, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_2a
 
     .line 449
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -1687,14 +1687,14 @@
     .local v0, "result":D
     cmpg-double v2, v0, p1
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_1e
 
     move-wide v2, v0
 
-    goto :goto_0
+    goto :goto_29
 
     .line 451
-    :cond_0
+    :cond_1e
     invoke-static {p1, p2}, Ljava/lang/Double;->doubleToLongBits(D)J
 
     move-result-wide v2
@@ -1708,12 +1708,12 @@
     move-result-wide v2
 
     .line 450
-    :goto_0
+    :goto_29
     return-wide v2
 
     .line 448
     .end local v0    # "result":D
-    :cond_1
+    :cond_2a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be positive"
@@ -1724,14 +1724,14 @@
 .end method
 
 .method public nextDouble(DD)D
-    .locals 2
+    .registers 7
     .param p1, "origin"    # D
     .param p3, "bound"    # D
 
     .line 466
     cmpg-double v0, p1, p3
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_9
 
     .line 468
     invoke-virtual {p0, p1, p2, p3, p4}, Lj$/util/concurrent/ThreadLocalRandom;->internalNextDouble(DD)D
@@ -1741,7 +1741,7 @@
     return-wide v0
 
     .line 467
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be greater than origin"
@@ -1752,7 +1752,7 @@
 .end method
 
 .method public nextFloat()F
-    .locals 2
+    .registers 3
 
     .line 488
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -1775,7 +1775,7 @@
 .end method
 
 .method public nextGaussian()D
-    .locals 12
+    .registers 13
 
     .line 493
     sget-object v0, Lj$/util/concurrent/ThreadLocalRandom;->nextLocalGaussian:Ljava/lang/ThreadLocal;
@@ -1788,7 +1788,7 @@
 
     .line 494
     .local v0, "d":Ljava/lang/Double;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 495
     sget-object v1, Lj$/util/concurrent/ThreadLocalRandom;->nextLocalGaussian:Ljava/lang/ThreadLocal;
@@ -1805,7 +1805,7 @@
     return-wide v1
 
     .line 500
-    :cond_0
+    :cond_15
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextDouble()D
 
     move-result-wide v1
@@ -1840,13 +1840,13 @@
     .local v3, "s":D
     cmpl-double v9, v3, v5
 
-    if-gez v9, :cond_0
+    if-gez v9, :cond_15
 
     const-wide/16 v5, 0x0
 
     cmpl-double v9, v3, v5
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_15
 
     .line 504
     const-wide/high16 v5, -0x4000000000000000L    # -2.0
@@ -1882,7 +1882,7 @@
 .end method
 
 .method public nextInt()I
-    .locals 2
+    .registers 3
 
     .line 330
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -1897,11 +1897,11 @@
 .end method
 
 .method public nextInt(I)I
-    .locals 5
+    .registers 7
     .param p1, "bound"    # I
 
     .line 343
-    if-lez p1, :cond_2
+    if-lez p1, :cond_28
 
     .line 345
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -1920,20 +1920,20 @@
     .local v1, "m":I
     and-int v2, p1, v1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
     .line 348
     and-int/2addr v0, v1
 
-    goto :goto_1
+    goto :goto_27
 
     .line 350
-    :cond_0
+    :cond_12
     ushr-int/lit8 v2, v0, 0x1
 
     .line 351
     .local v2, "u":I
-    :goto_0
+    :goto_14
     add-int v3, v2, v1
 
     rem-int v4, v2, p1
@@ -1942,7 +1942,7 @@
 
     sub-int/2addr v3, v4
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_27
 
     .line 352
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -1955,18 +1955,18 @@
 
     ushr-int/lit8 v2, v3, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 355
     .end local v2    # "u":I
-    :cond_1
-    :goto_1
+    :cond_27
+    :goto_27
     return v0
 
     .line 344
     .end local v0    # "r":I
     .end local v1    # "m":I
-    :cond_2
+    :cond_28
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be positive"
@@ -1977,12 +1977,12 @@
 .end method
 
 .method public nextInt(II)I
-    .locals 2
+    .registers 5
     .param p1, "origin"    # I
     .param p2, "bound"    # I
 
     .line 370
-    if-ge p1, p2, :cond_0
+    if-ge p1, p2, :cond_7
 
     .line 372
     invoke-virtual {p0, p1, p2}, Lj$/util/concurrent/ThreadLocalRandom;->internalNextInt(II)I
@@ -1992,7 +1992,7 @@
     return v0
 
     .line 371
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be greater than origin"
@@ -2003,7 +2003,7 @@
 .end method
 
 .method public nextLong()J
-    .locals 2
+    .registers 3
 
     .line 381
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -2018,7 +2018,7 @@
 .end method
 
 .method public nextLong(J)J
-    .locals 13
+    .registers 16
     .param p1, "bound"    # J
 
     .line 394
@@ -2026,7 +2026,7 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_35
 
     .line 396
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -2049,26 +2049,26 @@
 
     cmp-long v8, v6, v0
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_1b
 
     .line 399
     and-long v0, v2, v4
 
     .end local v2    # "r":J
     .local v0, "r":J
-    goto :goto_1
+    goto :goto_34
 
     .line 401
     .end local v0    # "r":J
     .restart local v2    # "r":J
-    :cond_0
+    :cond_1b
     const/4 v6, 0x1
 
     ushr-long v7, v2, v6
 
     .line 402
     .local v7, "u":J
-    :goto_0
+    :goto_1e
     add-long v9, v7, v4
 
     rem-long v11, v7, p1
@@ -2079,7 +2079,7 @@
 
     cmp-long v11, v9, v0
 
-    if-gez v11, :cond_1
+    if-gez v11, :cond_33
 
     .line 403
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom;->nextSeed()J
@@ -2092,23 +2092,23 @@
 
     ushr-long v7, v9, v6
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 402
-    :cond_1
+    :cond_33
     move-wide v0, v2
 
     .line 406
     .end local v2    # "r":J
     .end local v7    # "u":J
     .restart local v0    # "r":J
-    :goto_1
+    :goto_34
     return-wide v0
 
     .line 395
     .end local v0    # "r":J
     .end local v4    # "m":J
-    :cond_2
+    :cond_35
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be positive"
@@ -2119,14 +2119,14 @@
 .end method
 
 .method public nextLong(JJ)J
-    .locals 2
+    .registers 7
     .param p1, "origin"    # J
     .param p3, "bound"    # J
 
     .line 421
     cmp-long v0, p1, p3
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_9
 
     .line 423
     invoke-virtual {p0, p1, p2, p3, p4}, Lj$/util/concurrent/ThreadLocalRandom;->internalNextLong(JJ)J
@@ -2136,7 +2136,7 @@
     return-wide v0
 
     .line 422
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bound must be greater than origin"
@@ -2147,7 +2147,7 @@
 .end method
 
 .method final nextSeed()J
-    .locals 4
+    .registers 5
 
     .line 231
     iget-wide v0, p0, Lj$/util/concurrent/ThreadLocalRandom;->threadLocalRandomSeed:J
@@ -2166,19 +2166,19 @@
 .end method
 
 .method public setSeed(J)V
-    .locals 1
+    .registers 4
     .param p1, "seed"    # J
 
     .line 222
     iget-boolean v0, p0, Lj$/util/concurrent/ThreadLocalRandom;->initialized:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 224
     return-void
 
     .line 223
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

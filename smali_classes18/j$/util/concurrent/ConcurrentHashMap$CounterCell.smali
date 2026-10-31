@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "x"    # J
 
     .line 2562

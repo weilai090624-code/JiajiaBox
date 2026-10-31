@@ -38,7 +38,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/google/android/material/transition/VisibilityAnimatorProvider;Lcom/google/android/material/transition/VisibilityAnimatorProvider;)V
-    .locals 1
+    .registers 4
     .param p2, "secondaryAnimatorProvider"    # Lcom/google/android/material/transition/VisibilityAnimatorProvider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,7 +71,7 @@
 .end method
 
 .method private static addAnimatorIfNeeded(Ljava/util/List;Lcom/google/android/material/transition/VisibilityAnimatorProvider;Landroid/view/ViewGroup;Landroid/view/View;Z)V
-    .locals 1
+    .registers 6
     .param p1, "animatorProvider"    # Lcom/google/android/material/transition/VisibilityAnimatorProvider;
     .param p2, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p3, "view"    # Landroid/view/View;
@@ -91,45 +91,45 @@
 
     .line 147
     .local p0, "animators":Ljava/util/List;, "Ljava/util/List<Landroid/animation/Animator;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 148
     return-void
 
     .line 151
-    :cond_0
-    if-eqz p4, :cond_1
+    :cond_3
+    if-eqz p4, :cond_a
 
     .line 152
     invoke-interface {p1, p2, p3}, Lcom/google/android/material/transition/VisibilityAnimatorProvider;->createAppear(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/animation/Animator;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_e
 
     .line 153
-    :cond_1
+    :cond_a
     invoke-interface {p1, p2, p3}, Lcom/google/android/material/transition/VisibilityAnimatorProvider;->createDisappear(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/animation/Animator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     nop
 
     .line 154
     .local v0, "animator":Landroid/animation/Animator;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_14
 
     .line 155
     invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 157
-    :cond_2
+    :cond_14
     return-void
 .end method
 
 .method private createAnimator(Landroid/view/ViewGroup;Landroid/view/View;Z)Landroid/animation/Animator;
-    .locals 4
+    .registers 8
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "appearing"    # Z
@@ -164,12 +164,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1a
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -183,10 +183,10 @@
 
     .line 133
     .end local v3    # "additionalAnimatorProvider":Lcom/google/android/material/transition/VisibilityAnimatorProvider;
-    goto :goto_0
+    goto :goto_1a
 
     .line 135
-    :cond_0
+    :cond_2a
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -201,7 +201,7 @@
 .end method
 
 .method private maybeApplyThemeValues(Landroid/content/Context;Z)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "appearing"    # Z
 
@@ -235,7 +235,7 @@
 
 # virtual methods
 .method public addAdditionalAnimatorProvider(Lcom/google/android/material/transition/VisibilityAnimatorProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "additionalAnimatorProvider"    # Lcom/google/android/material/transition/VisibilityAnimatorProvider;
 
     .line 87
@@ -249,7 +249,7 @@
 .end method
 
 .method public clearAdditionalAnimatorProvider()V
-    .locals 1
+    .registers 2
 
     .line 107
     .local p0, "this":Lcom/google/android/material/transition/MaterialVisibility;, "Lcom/google/android/material/transition/MaterialVisibility<TP;>;"
@@ -262,7 +262,7 @@
 .end method
 
 .method getDefaultEasingInterpolator(Z)Landroid/animation/TimeInterpolator;
-    .locals 1
+    .registers 3
     .param p1, "appearing"    # Z
 
     .line 177
@@ -273,7 +273,7 @@
 .end method
 
 .method getDurationThemeAttrResId(Z)I
-    .locals 1
+    .registers 3
     .param p1, "appearing"    # Z
 
     .line 167
@@ -284,7 +284,7 @@
 .end method
 
 .method getEasingThemeAttrResId(Z)I
-    .locals 1
+    .registers 3
     .param p1, "appearing"    # Z
 
     .line 172
@@ -295,7 +295,7 @@
 .end method
 
 .method public getPrimaryAnimatorProvider()Lcom/google/android/material/transition/VisibilityAnimatorProvider;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TP;"
@@ -310,7 +310,7 @@
 .end method
 
 .method public getSecondaryAnimatorProvider()Lcom/google/android/material/transition/VisibilityAnimatorProvider;
-    .locals 1
+    .registers 2
 
     .line 65
     .local p0, "this":Lcom/google/android/material/transition/MaterialVisibility;, "Lcom/google/android/material/transition/MaterialVisibility<TP;>;"
@@ -320,7 +320,7 @@
 .end method
 
 .method public onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 1
+    .registers 6
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "startValues"    # Landroidx/transition/TransitionValues;
@@ -338,7 +338,7 @@
 .end method
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 1
+    .registers 6
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "startValues"    # Landroidx/transition/TransitionValues;
@@ -356,7 +356,7 @@
 .end method
 
 .method public removeAdditionalAnimatorProvider(Lcom/google/android/material/transition/VisibilityAnimatorProvider;)Z
-    .locals 1
+    .registers 3
     .param p1, "additionalAnimatorProvider"    # Lcom/google/android/material/transition/VisibilityAnimatorProvider;
 
     .line 97
@@ -371,7 +371,7 @@
 .end method
 
 .method public setSecondaryAnimatorProvider(Lcom/google/android/material/transition/VisibilityAnimatorProvider;)V
-    .locals 0
+    .registers 2
     .param p1, "secondaryAnimatorProvider"    # Lcom/google/android/material/transition/VisibilityAnimatorProvider;
 
     .line 74

@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 31
     new-instance v0, Lorg/yaml/snakeyaml/scanner/Constant;
@@ -114,7 +114,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 6
+    .registers 8
     .param p1, "content"    # Ljava/lang/String;
 
     .line 44
@@ -147,14 +147,14 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_17
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v3
 
     const/4 v4, 0x1
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_2f
 
     .line 48
     invoke-virtual {p1, v2}, Ljava/lang/String;->codePointAt(I)I
@@ -163,34 +163,34 @@
 
     .line 49
     .local v3, "c":I
-    if-ge v3, v0, :cond_0
+    if-ge v3, v0, :cond_29
 
     .line 50
     iget-object v5, p0, Lorg/yaml/snakeyaml/scanner/Constant;->contains:[Z
 
     aput-boolean v4, v5, v3
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 52
-    :cond_0
+    :cond_29
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->appendCodePoint(I)Ljava/lang/StringBuilder;
 
     .line 47
     .end local v3    # "c":I
-    :goto_1
+    :goto_2c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 54
     .end local v2    # "i":I
-    :cond_1
+    :cond_2f
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_3d
 
     .line 55
     iput-boolean v4, p0, Lorg/yaml/snakeyaml/scanner/Constant;->noASCII:Z
@@ -203,33 +203,33 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/scanner/Constant;->content:Ljava/lang/String;
 
     .line 58
-    :cond_2
+    :cond_3d
     return-void
 .end method
 
 
 # virtual methods
 .method public has(I)Z
-    .locals 3
+    .registers 5
     .param p1, "c"    # I
 
     .line 61
     const/16 v0, 0x80
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_9
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/Constant;->contains:[Z
 
     aget-boolean v0, v0, p1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_9
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/scanner/Constant;->noASCII:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     iget-object v0, p0, Lorg/yaml/snakeyaml/scanner/Constant;->content:Ljava/lang/String;
 
@@ -239,21 +239,21 @@
 
     const/4 v2, -0x1
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_19
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1a
     return v0
 .end method
 
 .method public has(ILjava/lang/String;)Z
-    .locals 3
+    .registers 6
     .param p1, "c"    # I
     .param p2, "additional"    # Ljava/lang/String;
 
@@ -262,7 +262,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x0
 
@@ -272,17 +272,17 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_f
     return v0
 .end method
 
 .method public hasNo(I)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # I
 
     .line 65
@@ -296,7 +296,7 @@
 .end method
 
 .method public hasNo(ILjava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p1, "c"    # I
     .param p2, "additional"    # Ljava/lang/String;
 

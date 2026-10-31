@@ -25,7 +25,7 @@
 
 # direct methods
 .method public static final htmlEncode(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "$this$htmlEncode"    # Ljava/lang/String;
 
     const/4 v0, 0x0

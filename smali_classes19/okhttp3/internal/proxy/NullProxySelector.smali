@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokhttp3/internal/proxy/NullProxySelector;
 
@@ -57,7 +57,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/net/ProxySelector;-><init>()V
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public connectFailed(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V
-    .locals 0
+    .registers 4
     .param p1, "uri"    # Ljava/net/URI;
     .param p2, "sa"    # Ljava/net/SocketAddress;
     .param p3, "ioe"    # Ljava/io/IOException;
@@ -78,7 +78,7 @@
 .end method
 
 .method public select(Ljava/net/URI;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p1, "uri"    # Ljava/net/URI;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -92,7 +92,7 @@
     .end annotation
 
     .line 29
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     .line 30
     sget-object v0, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
@@ -104,7 +104,7 @@
     return-object v0
 
     .line 37
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     .line 29

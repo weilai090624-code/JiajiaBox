@@ -69,7 +69,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;JLjava/util/concurrent/TimeUnit;)V
-    .locals 3
+    .registers 8
     .param p1, "workerClass"    # Ljava/lang/Class;
     .param p2, "repeatInterval"    # J
     .param p4, "repeatIntervalTimeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;JLjava/util/concurrent/TimeUnit;JLjava/util/concurrent/TimeUnit;)V
-    .locals 5
+    .registers 13
     .param p1, "workerClass"    # Ljava/lang/Class;
     .param p2, "repeatInterval"    # J
     .param p4, "repeatIntervalTimeUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -170,7 +170,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Lj$/time/Duration;)V
-    .locals 3
+    .registers 6
     .param p1, "workerClass"    # Ljava/lang/Class;
     .param p2, "repeatInterval"    # Lj$/time/Duration;
     .annotation system Ldalvik/annotation/Signature;
@@ -212,7 +212,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Lj$/time/Duration;Lj$/time/Duration;)V
-    .locals 5
+    .registers 9
     .param p1, "workerClass"    # Ljava/lang/Class;
     .param p2, "repeatInterval"    # Lj$/time/Duration;
     .param p3, "flexInterval"    # Lj$/time/Duration;
@@ -266,20 +266,20 @@
 
 # virtual methods
 .method public buildInternal$work_runtime_release()Landroidx/work/PeriodicWorkRequest;
-    .locals 2
+    .registers 3
 
     .line 167
     invoke-virtual {p0}, Landroidx/work/PeriodicWorkRequest$Builder;->getBackoffCriteriaSet$work_runtime_release()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1b
 
     .line 168
     invoke-virtual {p0}, Landroidx/work/PeriodicWorkRequest$Builder;->getWorkSpec$work_runtime_release()Landroidx/work/impl/model/WorkSpec;
@@ -292,22 +292,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     const/4 v0, 0x1
 
     .line 166
-    :goto_1
-    if-eqz v0, :cond_3
+    :goto_1c
+    if-eqz v0, :cond_3a
 
     .line 170
     invoke-virtual {p0}, Landroidx/work/PeriodicWorkRequest$Builder;->getWorkSpec$work_runtime_release()Landroidx/work/impl/model/WorkSpec;
@@ -316,7 +316,7 @@
 
     iget-boolean v0, v0, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2c
 
     .line 171
     new-instance v0, Landroidx/work/PeriodicWorkRequest;
@@ -326,7 +326,7 @@
     return-object v0
 
     .line 255
-    :cond_2
+    :cond_2c
     const/4 v0, 0x0
 
     .line 170
@@ -347,7 +347,7 @@
     throw v0
 
     .line 166
-    :cond_3
+    :cond_3a
     const/4 v0, 0x0
 
     .line 169
@@ -370,7 +370,7 @@
 .end method
 
 .method public bridge synthetic buildInternal$work_runtime_release()Landroidx/work/WorkRequest;
-    .locals 1
+    .registers 2
 
     .line 58
     invoke-virtual {p0}, Landroidx/work/PeriodicWorkRequest$Builder;->buildInternal$work_runtime_release()Landroidx/work/PeriodicWorkRequest;
@@ -383,14 +383,14 @@
 .end method
 
 .method public getThisObject$work_runtime_release()Landroidx/work/PeriodicWorkRequest$Builder;
-    .locals 0
+    .registers 1
 
     .line 175
     return-object p0
 .end method
 
 .method public bridge synthetic getThisObject$work_runtime_release()Landroidx/work/WorkRequest$Builder;
-    .locals 1
+    .registers 2
 
     .line 58
     invoke-virtual {p0}, Landroidx/work/PeriodicWorkRequest$Builder;->getThisObject$work_runtime_release()Landroidx/work/PeriodicWorkRequest$Builder;

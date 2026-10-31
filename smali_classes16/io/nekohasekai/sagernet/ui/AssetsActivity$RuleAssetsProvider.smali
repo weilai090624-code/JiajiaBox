@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "geoipRepo"    # Ljava/lang/String;
     .param p2, "geositeRepo"    # Ljava/lang/String;
 
@@ -122,18 +122,18 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 355
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 357
     move-object p2, p1
 
     .line 355
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/AssetsActivity$RuleAssetsProvider;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 363
@@ -141,7 +141,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "repoByFileName"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -168,15 +168,15 @@
 .end method
 
 .method public static synthetic copy$default(Lio/nekohasekai/sagernet/ui/AssetsActivity$RuleAssetsProvider;Ljava/util/Map;ILjava/lang/Object;)Lio/nekohasekai/sagernet/ui/AssetsActivity$RuleAssetsProvider;
-    .locals 0
+    .registers 4
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity$RuleAssetsProvider;->repoByFileName:Ljava/util/Map;
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/ui/AssetsActivity$RuleAssetsProvider;->copy(Ljava/util/Map;)Lio/nekohasekai/sagernet/ui/AssetsActivity$RuleAssetsProvider;
 
     move-result-object p0
@@ -187,7 +187,7 @@
 
 # virtual methods
 .method public final component1()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -204,7 +204,7 @@
 .end method
 
 .method public final copy(Ljava/util/Map;)Lio/nekohasekai/sagernet/ui/AssetsActivity$RuleAssetsProvider;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -228,24 +228,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/AssetsActivity$RuleAssetsProvider;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lio/nekohasekai/sagernet/ui/AssetsActivity$RuleAssetsProvider;
@@ -258,16 +258,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     return v0
 .end method
 
 .method public final getRepoByFileName()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -285,7 +285,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity$RuleAssetsProvider;->repoByFileName:Ljava/util/Map;
 
@@ -297,7 +297,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

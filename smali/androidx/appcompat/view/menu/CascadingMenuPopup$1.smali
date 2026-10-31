@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/view/menu/CascadingMenuPopup;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
     .line 98
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onGlobalLayout()V
-    .locals 4
+    .registers 5
 
     .line 104
     iget-object v0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
@@ -46,7 +46,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_51
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
@@ -56,7 +56,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_51
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
@@ -77,7 +77,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_51
 
     .line 106
     iget-object v0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
@@ -86,18 +86,18 @@
 
     .line 107
     .local v0, "anchor":Landroid/view/View;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4c
 
     invoke-virtual {v0}, Landroid/view/View;->isShown()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_32
 
-    goto :goto_1
+    goto :goto_4c
 
     .line 111
-    :cond_0
+    :cond_32
     iget-object v1, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
     iget-object v1, v1, Landroidx/appcompat/view/menu/CascadingMenuPopup;->mShowingMenus:Ljava/util/List;
@@ -106,12 +106,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_3a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_51
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -127,17 +127,17 @@
 
     .line 113
     .end local v2    # "info":Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;
-    goto :goto_0
+    goto :goto_3a
 
     .line 108
-    :cond_1
-    :goto_1
+    :cond_4c
+    :goto_4c
     iget-object v1, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
     invoke-virtual {v1}, Landroidx/appcompat/view/menu/CascadingMenuPopup;->dismiss()V
 
     .line 116
     .end local v0    # "anchor":Landroid/view/View;
-    :cond_2
+    :cond_51
     return-void
 .end method

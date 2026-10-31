@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/flow/Flow;I)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$$inlined$unsafeFlow$1;->$this_take$inlined:Lkotlinx/coroutines/flow/Flow;
 
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,7 +91,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$$inlined$unsafeFlow$1$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -103,7 +103,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$$inlined$unsafeFlow$1$1;->label:I
 
@@ -111,14 +111,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$$inlined$unsafeFlow$1$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$$inlined$unsafeFlow$1$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$$inlined$unsafeFlow$1$1;-><init>(Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$$inlined$unsafeFlow$1;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -132,7 +132,7 @@
     .line 106
     iget v2, p2, Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$$inlined$unsafeFlow$1$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_6a
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -146,7 +146,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p1, 0x0
 
     .local p1, "$i$a$-unsafeFlow-FlowKt__LimitKt$take$2":I
@@ -155,23 +155,23 @@
     check-cast v1, Lkotlinx/coroutines/flow/FlowCollector;
 
     .local v1, "$this$take_u24lambda_u244":Lkotlinx/coroutines/flow/FlowCollector;
-    :try_start_0
+    :try_start_32
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_35
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_32 .. :try_end_35} :catch_36
 
-    goto :goto_1
+    goto :goto_5f
 
     .line 117
-    :catch_0
+    :catch_36
     move-exception v2
 
-    goto :goto_2
+    goto :goto_63
 
     .line 106
     .end local v1    # "$this$take_u24lambda_u244":Lkotlinx/coroutines/flow/FlowCollector;
     .end local p1    # "$i$a$-unsafeFlow-FlowKt__LimitKt$take$2":I
-    :pswitch_1
+    :pswitch_38
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v2, p0
@@ -197,7 +197,7 @@
     nop
 
     .line 116
-    :try_start_1
+    :try_start_46
     iget-object v5, v2, Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$$inlined$unsafeFlow$1;->$this_take$inlined:Lkotlinx/coroutines/flow/Flow;
 
     new-instance v6, Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$2$1;
@@ -217,18 +217,18 @@
     invoke-interface {v5, v6, p2}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_1
-    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_5a
+    .catch Lkotlinx/coroutines/flow/internal/AbortFlowException; {:try_start_46 .. :try_end_5a} :catch_60
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__LimitKt$take$$inlined$unsafeFlow$1;
     .end local v4    # "consumed":Lkotlin/jvm/internal/Ref$IntRef;
-    if-ne v5, v1, :cond_1
+    if-ne v5, v1, :cond_5d
 
     .line 106
     return-object v1
 
     .line 116
-    :cond_1
+    :cond_5d
     move-object v1, p1
 
     move p1, v3
@@ -236,14 +236,14 @@
     .end local v3    # "$i$a$-unsafeFlow-FlowKt__LimitKt$take$2":I
     .restart local v1    # "$this$take_u24lambda_u244":Lkotlinx/coroutines/flow/FlowCollector;
     .local p1, "$i$a$-unsafeFlow-FlowKt__LimitKt$take$2":I
-    :goto_1
-    goto :goto_3
+    :goto_5f
+    goto :goto_66
 
     .line 117
     .end local v1    # "$this$take_u24lambda_u244":Lkotlinx/coroutines/flow/FlowCollector;
     .restart local v3    # "$i$a$-unsafeFlow-FlowKt__LimitKt$take$2":I
     .local p1, "$this$take_u24lambda_u244":Lkotlinx/coroutines/flow/FlowCollector;
-    :catch_1
+    :catch_60
     move-exception v2
 
     move-object v1, p1
@@ -255,13 +255,13 @@
     .restart local v1    # "$this$take_u24lambda_u244":Lkotlinx/coroutines/flow/FlowCollector;
     .local v2, "e":Lkotlinx/coroutines/flow/internal/AbortFlowException;
     .local p1, "$i$a$-unsafeFlow-FlowKt__LimitKt$take$2":I
-    :goto_2
+    :goto_63
     invoke-static {v2, v1}, Lkotlinx/coroutines/flow/internal/FlowExceptions_commonKt;->checkOwnership(Lkotlinx/coroutines/flow/internal/AbortFlowException;Lkotlinx/coroutines/flow/FlowCollector;)V
 
     .line 120
     .end local v1    # "$this$take_u24lambda_u244":Lkotlinx/coroutines/flow/FlowCollector;
     .end local v2    # "e":Lkotlinx/coroutines/flow/internal/AbortFlowException;
-    :goto_3
+    :goto_66
     nop
 
     .line 109
@@ -271,9 +271,9 @@
     .line 110
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_6a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_38
+        :pswitch_2d
     .end packed-switch
 .end method

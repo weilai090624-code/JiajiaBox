@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/motion/widget/TouchResponse;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/constraintlayout/motion/widget/TouchResponse;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onScrollChange(Landroidx/core/widget/NestedScrollView;IIII)V
-    .locals 0
+    .registers 6
     .param p1, "v"    # Landroidx/core/widget/NestedScrollView;
     .param p2, "scrollX"    # I
     .param p3, "scrollY"    # I

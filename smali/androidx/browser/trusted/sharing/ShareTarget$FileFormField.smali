@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,19 +67,19 @@
 .end method
 
 .method static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/sharing/ShareTarget$FileFormField;
-    .locals 3
+    .registers 4
     .param p0, "bundle"    # Landroid/os/Bundle;
 
     .line 284
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 285
     return-object v0
 
     .line 287
-    :cond_0
+    :cond_4
     const-string v1, "androidx.browser.trusted.sharing.KEY_FILE_NAME"
 
     invoke-virtual {p0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -96,14 +96,14 @@
 
     .line 289
     .local v2, "acceptedTypes":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1b
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_15
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 292
-    :cond_1
+    :cond_15
     new-instance v0, Landroidx/browser/trusted/sharing/ShareTarget$FileFormField;
 
     invoke-direct {v0, v1, v2}, Landroidx/browser/trusted/sharing/ShareTarget$FileFormField;-><init>(Ljava/lang/String;Ljava/util/List;)V
@@ -111,15 +111,15 @@
     return-object v0
 
     .line 290
-    :cond_2
-    :goto_0
+    :cond_1b
+    :goto_1b
     return-object v0
 .end method
 
 
 # virtual methods
 .method toBundle()Landroid/os/Bundle;
-    .locals 3
+    .registers 4
 
     .line 275
     new-instance v0, Landroid/os/Bundle;

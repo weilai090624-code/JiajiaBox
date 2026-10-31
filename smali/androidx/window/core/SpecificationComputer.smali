@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/core/SpecificationComputer$Companion;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,7 +93,7 @@
 .end method
 
 .method protected final createMessage(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "message"    # Ljava/lang/String;
 

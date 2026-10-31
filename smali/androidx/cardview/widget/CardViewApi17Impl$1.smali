@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/cardview/widget/CardViewApi17Impl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/cardview/widget/CardViewApi17Impl;
 
     .line 30
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public drawRoundRect(Landroid/graphics/Canvas;Landroid/graphics/RectF;FLandroid/graphics/Paint;)V
-    .locals 0
+    .registers 5
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "bounds"    # Landroid/graphics/RectF;
     .param p3, "cornerRadius"    # F

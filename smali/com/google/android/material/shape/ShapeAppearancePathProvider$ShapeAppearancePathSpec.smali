@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/shape/ShapeAppearanceModel;FLandroid/graphics/RectF;Lcom/google/android/material/shape/ShapeAppearancePathProvider$PathListener;Landroid/graphics/Path;)V
-    .locals 0
+    .registers 6
     .param p1, "shapeAppearanceModel"    # Lcom/google/android/material/shape/ShapeAppearanceModel;
     .param p2, "interpolation"    # F
     .param p3, "bounds"    # Landroid/graphics/RectF;

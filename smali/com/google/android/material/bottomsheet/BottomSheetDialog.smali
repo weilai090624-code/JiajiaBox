@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     .line 85
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "theme"    # I
 
@@ -156,7 +156,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
-    .locals 2
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cancelable"    # Z
     .param p3, "cancelListener"    # Landroid/content/DialogInterface$OnCancelListener;
@@ -223,7 +223,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)Lcom/google/android/material/bottomsheet/BottomSheetDialog$EdgeToEdgeCallback;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/bottomsheet/BottomSheetDialog;
 
     .line 68
@@ -233,7 +233,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/bottomsheet/BottomSheetDialog;Lcom/google/android/material/bottomsheet/BottomSheetDialog$EdgeToEdgeCallback;)Lcom/google/android/material/bottomsheet/BottomSheetDialog$EdgeToEdgeCallback;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/bottomsheet/BottomSheetDialog;
     .param p1, "x1"    # Lcom/google/android/material/bottomsheet/BottomSheetDialog$EdgeToEdgeCallback;
 
@@ -244,7 +244,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/bottomsheet/BottomSheetDialog;
 
     .line 68
@@ -254,7 +254,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)Landroid/widget/FrameLayout;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/bottomsheet/BottomSheetDialog;
 
     .line 68
@@ -264,12 +264,12 @@
 .end method
 
 .method private ensureContainerAndBehavior()Landroid/widget/FrameLayout;
-    .locals 3
+    .registers 4
 
     .line 276
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->container:Landroid/widget/FrameLayout;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_42
 
     .line 277
     nop
@@ -341,19 +341,19 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->setHideable(Z)V
 
     .line 287
-    :cond_0
+    :cond_42
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->container:Landroid/widget/FrameLayout;
 
     return-object v0
 .end method
 
 .method private static getThemeResId(Landroid/content/Context;I)I
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "themeId"    # I
 
     .line 385
-    if-nez p1, :cond_1
+    if-nez p1, :cond_19
 
     .line 387
     new-instance v0, Landroid/util/TypedValue;
@@ -374,26 +374,26 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 389
     iget p1, v0, Landroid/util/TypedValue;->resourceId:I
 
-    goto :goto_0
+    goto :goto_19
 
     .line 392
-    :cond_0
+    :cond_17
     sget p1, Lcom/google/android/material/R$style;->Theme_Design_Light_BottomSheetDialog:I
 
     .line 395
     .end local v0    # "outValue":Landroid/util/TypedValue;
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     return p1
 .end method
 
 .method public static setLightStatusBar(Landroid/view/View;Z)V
-    .locals 2
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "isLight"    # Z
     .annotation runtime Ljava/lang/Deprecated;
@@ -404,7 +404,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_14
 
     .line 513
     invoke-virtual {p0}, Landroid/view/View;->getSystemUiVisibility()I
@@ -413,29 +413,29 @@
 
     .line 514
     .local v0, "flags":I
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 515
     or-int/lit16 v0, v0, 0x2000
 
-    goto :goto_0
+    goto :goto_11
 
     .line 517
-    :cond_0
+    :cond_f
     and-int/lit16 v0, v0, -0x2001
 
     .line 519
-    :goto_0
+    :goto_11
     invoke-virtual {p0, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
 
     .line 521
     .end local v0    # "flags":I
-    :cond_1
+    :cond_14
     return-void
 .end method
 
 .method private wrapInBottomSheet(ILandroid/view/View;Landroid/view/ViewGroup$LayoutParams;)Landroid/view/View;
-    .locals 3
+    .registers 7
     .param p1, "layoutResId"    # I
     .param p2, "view"    # Landroid/view/View;
     .param p3, "params"    # Landroid/view/ViewGroup$LayoutParams;
@@ -456,9 +456,9 @@
 
     .line 294
     .local v0, "coordinator":Landroidx/coordinatorlayout/widget/CoordinatorLayout;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1a
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1a
 
     .line 295
     invoke-virtual {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->getLayoutInflater()Landroid/view/LayoutInflater;
@@ -472,10 +472,10 @@
     move-result-object p2
 
     .line 298
-    :cond_0
+    :cond_1a
     iget-boolean v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->edgeToEdgeEnabled:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     .line 299
     iget-object v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->bottomSheet:Landroid/widget/FrameLayout;
@@ -487,29 +487,29 @@
     invoke-static {v1, v2}, Landroidx/core/view/ViewCompat;->setOnApplyWindowInsetsListener(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V
 
     .line 319
-    :cond_1
+    :cond_28
     iget-object v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->bottomSheet:Landroid/widget/FrameLayout;
 
     invoke-virtual {v1}, Landroid/widget/FrameLayout;->removeAllViews()V
 
     .line 320
-    if-nez p3, :cond_2
+    if-nez p3, :cond_35
 
     .line 321
     iget-object v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->bottomSheet:Landroid/widget/FrameLayout;
 
     invoke-virtual {v1, p2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 323
-    :cond_2
+    :cond_35
     iget-object v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->bottomSheet:Landroid/widget/FrameLayout;
 
     invoke-virtual {v1, p2, p3}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 326
-    :goto_0
+    :goto_3a
     sget v1, Lcom/google/android/material/R$id;->touch_outside:I
 
     .line 327
@@ -551,7 +551,7 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 3
+    .registers 4
 
     .line 223
     invoke-virtual {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->getBehavior()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
@@ -562,7 +562,7 @@
     .local v0, "behavior":Lcom/google/android/material/bottomsheet/BottomSheetBehavior;, "Lcom/google/android/material/bottomsheet/BottomSheetBehavior<Landroid/widget/FrameLayout;>;"
     iget-boolean v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->dismissWithAnimation:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->getState()I
 
@@ -570,28 +570,28 @@
 
     const/4 v2, 0x5
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_10
 
-    goto :goto_0
+    goto :goto_14
 
     .line 228
-    :cond_0
+    :cond_10
     invoke-virtual {v0, v2}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->setState(I)V
 
-    goto :goto_1
+    goto :goto_17
 
     .line 226
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     invoke-super {p0}, Landroidx/appcompat/app/AppCompatDialog;->cancel()V
 
     .line 230
-    :goto_1
+    :goto_17
     return-void
 .end method
 
 .method public getBehavior()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -604,20 +604,20 @@
     .line 244
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->behavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 246
     invoke-direct {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->ensureContainerAndBehavior()Landroid/widget/FrameLayout;
 
     .line 248
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->behavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     return-object v0
 .end method
 
 .method public getDismissWithAnimation()Z
-    .locals 1
+    .registers 2
 
     .line 266
     iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->dismissWithAnimation:Z
@@ -626,7 +626,7 @@
 .end method
 
 .method public getEdgeToEdgeEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 271
     iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->edgeToEdgeEnabled:Z
@@ -635,7 +635,7 @@
 .end method
 
 .method public onAttachedToWindow()V
-    .locals 6
+    .registers 7
 
     .line 177
     invoke-super {p0}, Landroidx/appcompat/app/AppCompatDialog;->onAttachedToWindow()V
@@ -647,7 +647,7 @@
 
     .line 179
     .local v0, "window":Landroid/view/Window;
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4b
 
     .line 180
     nop
@@ -659,7 +659,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     .line 183
     invoke-virtual {v0}, Landroid/view/Window;->getNavigationBarColor()I
@@ -672,75 +672,75 @@
 
     const/16 v4, 0xff
 
-    if-ge v1, v4, :cond_0
+    if-ge v1, v4, :cond_1e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v1, 0x0
 
     .line 184
     .local v1, "drawEdgeToEdge":Z
-    :goto_0
+    :goto_1f
     iget-object v4, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->container:Landroid/widget/FrameLayout;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2d
 
     .line 185
     iget-object v4, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->container:Landroid/widget/FrameLayout;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_29
 
     const/4 v5, 0x1
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_1
+    :cond_29
     const/4 v5, 0x0
 
-    :goto_1
+    :goto_2a
     invoke-virtual {v4, v5}, Landroid/widget/FrameLayout;->setFitsSystemWindows(Z)V
 
     .line 187
-    :cond_2
+    :cond_2d
     iget-object v4, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->coordinator:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3b
 
     .line 188
     iget-object v4, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->coordinator:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_37
 
     const/4 v5, 0x1
 
-    goto :goto_2
+    goto :goto_38
 
-    :cond_3
+    :cond_37
     const/4 v5, 0x0
 
-    :goto_2
+    :goto_38
     invoke-virtual {v4, v5}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->setFitsSystemWindows(Z)V
 
     .line 190
-    :cond_4
-    if-nez v1, :cond_5
+    :cond_3b
+    if-nez v1, :cond_3e
 
-    goto :goto_3
+    goto :goto_3f
 
-    :cond_5
+    :cond_3e
     const/4 v2, 0x0
 
-    :goto_3
+    :goto_3f
     invoke-static {v0, v2}, Landroidx/core/view/WindowCompat;->setDecorFitsSystemWindows(Landroid/view/Window;Z)V
 
     .line 192
     .end local v1    # "drawEdgeToEdge":Z
     iget-object v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->edgeToEdgeCallback:Lcom/google/android/material/bottomsheet/BottomSheetDialog$EdgeToEdgeCallback;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_4b
 
     .line 193
     iget-object v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->edgeToEdgeCallback:Lcom/google/android/material/bottomsheet/BottomSheetDialog$EdgeToEdgeCallback;
@@ -748,12 +748,12 @@
     invoke-virtual {v1, v0}, Lcom/google/android/material/bottomsheet/BottomSheetDialog$EdgeToEdgeCallback;->setWindow(Landroid/view/Window;)V
 
     .line 196
-    :cond_6
+    :cond_4b
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 127
@@ -766,7 +766,7 @@
 
     .line 129
     .local v0, "window":Landroid/view/Window;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 130
     nop
@@ -786,7 +786,7 @@
 
     const/16 v2, 0x17
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1e
 
     .line 139
     const/high16 v1, 0x4000000
@@ -794,23 +794,23 @@
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
     .line 142
-    :cond_0
+    :cond_1e
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1, v1}, Landroid/view/Window;->setLayout(II)V
 
     .line 144
-    :cond_1
+    :cond_22
     return-void
 .end method
 
 .method public onDetachedFromWindow()V
-    .locals 2
+    .registers 3
 
     .line 200
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->edgeToEdgeCallback:Lcom/google/android/material/bottomsheet/BottomSheetDialog$EdgeToEdgeCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 201
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->edgeToEdgeCallback:Lcom/google/android/material/bottomsheet/BottomSheetDialog$EdgeToEdgeCallback;
@@ -820,12 +820,12 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/bottomsheet/BottomSheetDialog$EdgeToEdgeCallback;->setWindow(Landroid/view/Window;)V
 
     .line 203
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method protected onStart()V
-    .locals 2
+    .registers 3
 
     .line 169
     invoke-super {p0}, Landroidx/appcompat/app/AppCompatDialog;->onStart()V
@@ -833,7 +833,7 @@
     .line 170
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->behavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->behavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
@@ -843,7 +843,7 @@
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     .line 171
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->behavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
@@ -853,12 +853,12 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->setState(I)V
 
     .line 173
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method removeDefaultCallback()V
-    .locals 2
+    .registers 3
 
     .line 399
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->behavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
@@ -872,7 +872,7 @@
 .end method
 
 .method public setCancelable(Z)V
-    .locals 1
+    .registers 3
     .param p1, "cancelable"    # Z
 
     .line 158
@@ -881,7 +881,7 @@
     .line 159
     iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->cancelable:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_12
 
     .line 160
     iput-boolean p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->cancelable:Z
@@ -889,7 +889,7 @@
     .line 161
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->behavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 162
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->behavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
@@ -897,12 +897,12 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->setHideable(Z)V
 
     .line 165
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public setCanceledOnTouchOutside(Z)V
-    .locals 2
+    .registers 4
     .param p1, "cancel"    # Z
 
     .line 234
@@ -911,17 +911,17 @@
     .line 235
     const/4 v0, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     iget-boolean v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->cancelable:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     .line 236
     iput-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->cancelable:Z
 
     .line 238
-    :cond_0
+    :cond_c
     iput-boolean p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->canceledOnTouchOutside:Z
 
     .line 239
@@ -932,7 +932,7 @@
 .end method
 
 .method public setContentView(I)V
-    .locals 1
+    .registers 3
     .param p1, "layoutResId"    # I
 
     .line 122
@@ -949,7 +949,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 148
@@ -968,7 +968,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
@@ -986,7 +986,7 @@
 .end method
 
 .method public setDismissWithAnimation(Z)V
-    .locals 0
+    .registers 2
     .param p1, "dismissWithAnimation"    # Z
 
     .line 258
@@ -997,12 +997,12 @@
 .end method
 
 .method shouldWindowCloseOnTouchOutside()Z
-    .locals 3
+    .registers 4
 
     .line 374
     iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->canceledOnTouchOutsideSet:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 375
     nop
@@ -1042,7 +1042,7 @@
 
     .line 381
     .end local v0    # "a":Landroid/content/res/TypedArray;
-    :cond_0
+    :cond_21
     iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->canceledOnTouchOutside:Z
 
     return v0

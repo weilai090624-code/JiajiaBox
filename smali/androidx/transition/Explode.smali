@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 45
     new-instance v0, Landroid/view/animation/DecelerateInterpolator;
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 51
     invoke-direct {p0}, Landroidx/transition/Visibility;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -87,7 +87,7 @@
 .end method
 
 .method private static calculateDistance(FF)F
-    .locals 2
+    .registers 4
     .param p0, "x"    # F
     .param p1, "y"    # F
 
@@ -110,7 +110,7 @@
 .end method
 
 .method private static calculateMaxDistance(Landroid/view/View;II)F
-    .locals 4
+    .registers 7
     .param p0, "sceneRoot"    # Landroid/view/View;
     .param p1, "focalX"    # I
     .param p2, "focalY"    # I
@@ -152,7 +152,7 @@
 .end method
 
 .method private calculateOut(Landroid/view/View;Landroid/graphics/Rect;[I)V
-    .locals 20
+    .registers 24
     .param p1, "sceneRoot"    # Landroid/view/View;
     .param p2, "bounds"    # Landroid/graphics/Rect;
     .param p3, "outVector"    # [I
@@ -189,7 +189,7 @@
 
     .line 138
     .local v6, "epicenter":Landroid/graphics/Rect;
-    if-nez v6, :cond_0
+    if-nez v6, :cond_3a
 
     .line 139
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getWidth()I
@@ -233,12 +233,12 @@
     add-int/2addr v8, v9
 
     .local v8, "focalY":I
-    goto :goto_0
+    goto :goto_42
 
     .line 144
     .end local v7    # "focalX":I
     .end local v8    # "focalY":I
-    :cond_0
+    :cond_3a
     invoke-virtual {v6}, Landroid/graphics/Rect;->centerX()I
 
     move-result v7
@@ -251,7 +251,7 @@
 
     .line 148
     .restart local v8    # "focalY":I
-    :goto_0
+    :goto_42
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/Rect;->centerX()I
 
     move-result v9
@@ -280,11 +280,11 @@
 
     cmpl-float v14, v11, v13
 
-    if-nez v14, :cond_1
+    if-nez v14, :cond_72
 
     cmpl-float v13, v12, v13
 
-    if-nez v13, :cond_1
+    if-nez v13, :cond_72
 
     .line 155
     invoke-static {}, Ljava/lang/Math;->random()D
@@ -316,18 +316,18 @@
 
     sub-float v12, v5, v14
 
-    goto :goto_1
+    goto :goto_74
 
     .line 153
     .end local v19    # "epicenter":Landroid/graphics/Rect;
     .restart local v6    # "epicenter":Landroid/graphics/Rect;
-    :cond_1
+    :cond_72
     move-object/from16 v19, v6
 
     .line 158
     .end local v6    # "epicenter":Landroid/graphics/Rect;
     .restart local v19    # "epicenter":Landroid/graphics/Rect;
-    :goto_1
+    :goto_74
     invoke-static {v11, v12}, Landroidx/transition/Explode;->calculateDistance(FF)F
 
     move-result v5
@@ -375,7 +375,7 @@
 .end method
 
 .method private captureValues(Landroidx/transition/TransitionValues;)V
-    .locals 8
+    .registers 10
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 61
@@ -437,7 +437,7 @@
 
 # virtual methods
 .method public captureEndValues(Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 78
@@ -451,7 +451,7 @@
 .end method
 
 .method public captureStartValues(Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 72
@@ -465,7 +465,7 @@
 .end method
 
 .method public onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 18
+    .registers 23
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "startValues"    # Landroidx/transition/TransitionValues;
@@ -476,7 +476,7 @@
 
     move-object/from16 v11, p4
 
-    if-nez v11, :cond_0
+    if-nez v11, :cond_8
 
     .line 87
     const/4 v0, 0x0
@@ -484,7 +484,7 @@
     return-object v0
 
     .line 89
-    :cond_0
+    :cond_8
     iget-object v0, v11, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v1, "android:explode:screenBounds"
@@ -570,7 +570,7 @@
 .end method
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 20
+    .registers 25
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "startValues"    # Landroidx/transition/TransitionValues;
@@ -581,7 +581,7 @@
 
     move-object/from16 v11, p3
 
-    if-nez v11, :cond_0
+    if-nez v11, :cond_8
 
     .line 105
     const/4 v0, 0x0
@@ -589,7 +589,7 @@
     return-object v0
 
     .line 107
-    :cond_0
+    :cond_8
     iget-object v0, v11, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v1, "android:explode:screenBounds"
@@ -650,7 +650,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v17, :cond_1
+    if-eqz v17, :cond_47
 
     .line 118
     aget v4, v17, v3
@@ -682,7 +682,7 @@
     invoke-virtual {v12, v4, v5}, Landroid/graphics/Rect;->offsetTo(II)V
 
     .line 122
-    :cond_1
+    :cond_47
     iget-object v4, v10, Landroidx/transition/Explode;->mTempLoc:[I
 
     move-object/from16 v9, p1

@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroidx/core/provider/FontRequest;Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontProviderHelper;)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "request"    # Landroidx/core/provider/FontRequest;
     .param p3, "fontProviderHelper"    # Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontProviderHelper;
@@ -90,7 +90,7 @@
 .end method
 
 .method private cleanUp()V
-    .locals 5
+    .registers 6
 
     .line 326
     iget-object v0, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mLock:Ljava/lang/Object;
@@ -100,13 +100,13 @@
     .line 327
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_4
     iput-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mCallback:Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
 
     .line 328
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mObserver:Landroid/database/ContentObserver;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     .line 329
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mFontProviderHelper:Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontProviderHelper;
@@ -121,10 +121,10 @@
     iput-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mObserver:Landroid/database/ContentObserver;
 
     .line 332
-    :cond_0
+    :cond_15
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mMainHandler:Landroid/os/Handler;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     .line 333
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mMainHandler:Landroid/os/Handler;
@@ -134,13 +134,13 @@
     invoke-virtual {v2, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 335
-    :cond_1
+    :cond_20
     iput-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mMainHandler:Landroid/os/Handler;
 
     .line 336
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mMyThreadPoolExecutor:Ljava/util/concurrent/ThreadPoolExecutor;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2b
 
     .line 338
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mMyThreadPoolExecutor:Ljava/util/concurrent/ThreadPoolExecutor;
@@ -148,7 +148,7 @@
     invoke-virtual {v2}, Ljava/util/concurrent/ThreadPoolExecutor;->shutdown()V
 
     .line 340
-    :cond_2
+    :cond_2b
     iput-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mExecutor:Ljava/util/concurrent/Executor;
 
     .line 341
@@ -161,18 +161,18 @@
     return-void
 
     .line 342
-    :catchall_0
+    :catchall_31
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_4 .. :try_end_33} :catchall_31
 
     throw v1
 .end method
 
 .method private retrieveFontInfo()Landroidx/core/provider/FontsContractCompat$FontInfo;
-    .locals 4
+    .registers 5
 
     .line 285
     :try_start_0
@@ -185,8 +185,8 @@
     invoke-virtual {v0, v1, v2}, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontProviderHelper;->fetchFonts(Landroid/content/Context;Landroidx/core/provider/FontRequest;)Landroidx/core/provider/FontsContractCompat$FontFamilyResult;
 
     move-result-object v0
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_a} :catch_49
 
     .line 288
     .local v0, "result":Landroidx/core/provider/FontsContractCompat$FontFamilyResult;
@@ -197,7 +197,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_26
 
     .line 292
     invoke-virtual {v0}, Landroidx/core/provider/FontsContractCompat$FontFamilyResult;->getFonts()[Landroidx/core/provider/FontsContractCompat$FontInfo;
@@ -206,11 +206,11 @@
 
     .line 293
     .local v1, "fonts":[Landroidx/core/provider/FontsContractCompat$FontInfo;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     array-length v2, v1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 296
     const/4 v2, 0x0
@@ -220,7 +220,7 @@
     return-object v2
 
     .line 294
-    :cond_0
+    :cond_1e
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "fetchFonts failed (empty result)"
@@ -231,7 +231,7 @@
 
     .line 290
     .end local v1    # "fonts":[Landroidx/core/provider/FontsContractCompat$FontInfo;
-    :cond_1
+    :cond_26
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -268,7 +268,7 @@
 
     .line 286
     .end local v0    # "result":Landroidx/core/provider/FontsContractCompat$FontFamilyResult;
-    :catch_0
+    :catch_49
     move-exception v0
 
     .line 287
@@ -283,7 +283,7 @@
 .end method
 
 .method private scheduleRetry(Landroid/net/Uri;J)V
-    .locals 5
+    .registers 9
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "waitMs"    # J
 
@@ -293,12 +293,12 @@
     monitor-enter v0
 
     .line 303
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mMainHandler:Landroid/os/Handler;
 
     .line 304
     .local v1, "handler":Landroid/os/Handler;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 305
     invoke-static {}, Landroidx/emoji2/text/ConcurrencyHelpers;->mainHandlerAsync()Landroid/os/Handler;
@@ -311,10 +311,10 @@
     iput-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mMainHandler:Landroid/os/Handler;
 
     .line 308
-    :cond_0
+    :cond_e
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mObserver:Landroid/database/ContentObserver;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_22
 
     .line 309
     new-instance v2, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader$1;
@@ -333,10 +333,10 @@
     invoke-virtual {v2, v3, p1, v4}, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontProviderHelper;->registerObserver(Landroid/content/Context;Landroid/net/Uri;Landroid/database/ContentObserver;)V
 
     .line 317
-    :cond_1
+    :cond_22
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mMainHandlerLoadCallback:Ljava/lang/Runnable;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2d
 
     .line 318
     new-instance v2, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader$$ExternalSyntheticLambda1;
@@ -346,7 +346,7 @@
     iput-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mMainHandlerLoadCallback:Ljava/lang/Runnable;
 
     .line 320
-    :cond_2
+    :cond_2d
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mMainHandlerLoadCallback:Ljava/lang/Runnable;
 
     invoke-virtual {v1, v2, p2, p3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
@@ -361,12 +361,12 @@
     return-void
 
     .line 321
-    :catchall_0
+    :catchall_35
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_37
+    .catchall {:try_start_3 .. :try_end_37} :catchall_35
 
     throw v1
 .end method
@@ -374,7 +374,7 @@
 
 # virtual methods
 .method createMetadata()V
-    .locals 8
+    .registers 9
 
     .line 350
     iget-object v0, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mLock:Ljava/lang/Object;
@@ -382,10 +382,10 @@
     monitor-enter v0
 
     .line 351
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mCallback:Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     .line 352
     monitor-exit v0
@@ -393,13 +393,13 @@
     return-void
 
     .line 354
-    :cond_0
+    :cond_9
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_5
+    :try_end_a
+    .catchall {:try_start_3 .. :try_end_a} :catchall_b2
 
     .line 356
-    :try_start_1
+    :try_start_a
     invoke-direct {p0}, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->retrieveFontInfo()Landroidx/core/provider/FontsContractCompat$FontInfo;
 
     move-result-object v0
@@ -414,20 +414,20 @@
     .local v1, "resultCode":I
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_36
 
     .line 361
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
+    :try_end_18
+    .catchall {:try_start_a .. :try_end_18} :catchall_9c
 
     .line 362
-    :try_start_2
+    :try_start_18
     iget-object v3, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mRetryPolicy:Landroidx/emoji2/text/FontRequestEmojiCompatConfig$RetryPolicy;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_31
 
     .line 363
     iget-object v3, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mRetryPolicy:Landroidx/emoji2/text/FontRequestEmojiCompatConfig$RetryPolicy;
@@ -442,7 +442,7 @@
 
     cmp-long v7, v3, v5
 
-    if-ltz v7, :cond_1
+    if-ltz v7, :cond_31
 
     .line 365
     invoke-virtual {v0}, Landroidx/core/provider/FontsContractCompat$FontInfo;->getUri()Landroid/net/Uri;
@@ -458,30 +458,30 @@
 
     .line 369
     .end local v3    # "delayMs":J
-    :cond_1
+    :cond_31
     monitor-exit v2
 
-    goto :goto_0
+    goto :goto_36
 
-    :catchall_0
+    :catchall_33
     move-exception v3
 
     monitor-exit v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_35
+    .catchall {:try_start_18 .. :try_end_35} :catchall_33
 
-    :try_start_3
+    :try_start_35
     throw v3
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+    :try_end_36
+    .catchall {:try_start_35 .. :try_end_36} :catchall_9c
 
     .line 372
-    :cond_2
-    :goto_0
-    if-nez v1, :cond_5
+    :cond_36
+    :goto_36
+    if-nez v1, :cond_7d
 
     .line 378
-    :try_start_4
+    :try_start_38
     const-string v2, "EmojiCompat.FontRequestEmojiCompatConfig.buildTypeface"
 
     invoke-static {v2}, Landroidx/core/os/TraceCompat;->beginSection(Ljava/lang/String;)V
@@ -513,22 +513,22 @@
 
     .line 383
     .local v3, "buffer":Ljava/nio/ByteBuffer;
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_70
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_70
 
     .line 386
     invoke-static {v2, v3}, Landroidx/emoji2/text/MetadataRepo;->create(Landroid/graphics/Typeface;Ljava/nio/ByteBuffer;)Landroidx/emoji2/text/MetadataRepo;
 
     move-result-object v4
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_58
+    .catchall {:try_start_38 .. :try_end_58} :catchall_78
 
     .line 388
     .end local v2    # "typeface":Landroid/graphics/Typeface;
     .end local v3    # "buffer":Ljava/nio/ByteBuffer;
     .local v4, "metadataRepo":Landroidx/emoji2/text/MetadataRepo;
-    :try_start_5
+    :try_start_58
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
 
     .line 389
@@ -538,14 +538,14 @@
     iget-object v2, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_5f
+    .catchall {:try_start_58 .. :try_end_5f} :catchall_9c
 
     .line 391
-    :try_start_6
+    :try_start_5f
     iget-object v3, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mCallback:Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_68
 
     .line 392
     iget-object v3, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mCallback:Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
@@ -553,46 +553,46 @@
     invoke-virtual {v3, v4}, Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;->onLoaded(Landroidx/emoji2/text/MetadataRepo;)V
 
     .line 394
-    :cond_3
+    :cond_68
     monitor-exit v2
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_69
+    .catchall {:try_start_5f .. :try_end_69} :catchall_6d
 
     .line 395
-    :try_start_7
+    :try_start_69
     invoke-direct {p0}, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->cleanUp()V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_3
+    :try_end_6c
+    .catchall {:try_start_69 .. :try_end_6c} :catchall_9c
 
     .line 403
     .end local v0    # "font":Landroidx/core/provider/FontsContractCompat$FontInfo;
     .end local v1    # "resultCode":I
     .end local v4    # "metadataRepo":Landroidx/emoji2/text/MetadataRepo;
-    goto :goto_1
+    goto :goto_ae
 
     .line 394
     .restart local v0    # "font":Landroidx/core/provider/FontsContractCompat$FontInfo;
     .restart local v1    # "resultCode":I
     .restart local v4    # "metadataRepo":Landroidx/emoji2/text/MetadataRepo;
-    :catchall_1
+    :catchall_6d
     move-exception v3
 
-    :try_start_8
+    :try_start_6e
     monitor-exit v2
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    :try_end_6f
+    .catchall {:try_start_6e .. :try_end_6f} :catchall_6d
 
-    :try_start_9
+    :try_start_6f
     throw v3
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_3
+    :try_end_70
+    .catchall {:try_start_6f .. :try_end_70} :catchall_9c
 
     .line 384
     .end local v4    # "metadataRepo":Landroidx/emoji2/text/MetadataRepo;
     .restart local v2    # "typeface":Landroid/graphics/Typeface;
     .restart local v3    # "buffer":Ljava/nio/ByteBuffer;
-    :cond_4
-    :try_start_a
+    :cond_70
+    :try_start_70
     new-instance v4, Ljava/lang/RuntimeException;
 
     const-string v5, "Unable to open file."
@@ -602,25 +602,25 @@
     .end local v0    # "font":Landroidx/core/provider/FontsContractCompat$FontInfo;
     .end local v1    # "resultCode":I
     throw v4
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_2
+    :try_end_78
+    .catchall {:try_start_70 .. :try_end_78} :catchall_78
 
     .line 388
     .end local v2    # "typeface":Landroid/graphics/Typeface;
     .end local v3    # "buffer":Ljava/nio/ByteBuffer;
     .restart local v0    # "font":Landroidx/core/provider/FontsContractCompat$FontInfo;
     .restart local v1    # "resultCode":I
-    :catchall_2
+    :catchall_78
     move-exception v2
 
-    :try_start_b
+    :try_start_79
     invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
 
     .line 389
     throw v2
 
     .line 373
-    :cond_5
+    :cond_7d
     new-instance v2, Ljava/lang/RuntimeException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -650,13 +650,13 @@
     invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_3
+    :try_end_9c
+    .catchall {:try_start_79 .. :try_end_9c} :catchall_9c
 
     .line 396
     .end local v0    # "font":Landroidx/core/provider/FontsContractCompat$FontInfo;
     .end local v1    # "resultCode":I
-    :catchall_3
+    :catchall_9c
     move-exception v0
 
     move-object v1, v0
@@ -668,10 +668,10 @@
     monitor-enter v2
 
     .line 398
-    :try_start_c
+    :try_start_a1
     iget-object v0, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mCallback:Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_aa
 
     .line 399
     iget-object v0, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mCallback:Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
@@ -679,46 +679,46 @@
     invoke-virtual {v0, v1}, Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;->onFailed(Ljava/lang/Throwable;)V
 
     .line 401
-    :cond_6
+    :cond_aa
     monitor-exit v2
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_4
+    :try_end_ab
+    .catchall {:try_start_a1 .. :try_end_ab} :catchall_af
 
     .line 402
     invoke-direct {p0}, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->cleanUp()V
 
     .line 404
     .end local v1    # "t":Ljava/lang/Throwable;
-    :goto_1
+    :goto_ae
     return-void
 
     .line 401
     .restart local v1    # "t":Ljava/lang/Throwable;
-    :catchall_4
+    :catchall_af
     move-exception v0
 
-    :try_start_d
+    :try_start_b0
     monitor-exit v2
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_4
+    :try_end_b1
+    .catchall {:try_start_b0 .. :try_end_b1} :catchall_af
 
     throw v0
 
     .line 354
     .end local v1    # "t":Ljava/lang/Throwable;
-    :catchall_5
+    :catchall_b2
     move-exception v1
 
-    :try_start_e
+    :try_start_b3
     monitor-exit v0
-    :try_end_e
-    .catchall {:try_start_e .. :try_end_e} :catchall_5
+    :try_end_b4
+    .catchall {:try_start_b3 .. :try_end_b4} :catchall_b2
 
     throw v1
 .end method
 
 .method public load(Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;)V
-    .locals 2
+    .registers 4
     .param p1, "loaderCallback"    # Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
 
     .line 258
@@ -732,13 +732,13 @@
     monitor-enter v0
 
     .line 260
-    :try_start_0
+    :try_start_8
     iput-object p1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mCallback:Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
 
     .line 261
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_8 .. :try_end_b} :catchall_f
 
     .line 262
     invoke-virtual {p0}, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->loadInternal()V
@@ -747,19 +747,19 @@
     return-void
 
     .line 261
-    :catchall_0
+    :catchall_f
     move-exception v1
 
-    :try_start_1
+    :try_start_10
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_11
+    .catchall {:try_start_10 .. :try_end_11} :catchall_f
 
     throw v1
 .end method
 
 .method loadInternal()V
-    .locals 3
+    .registers 4
 
     .line 267
     iget-object v0, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mLock:Ljava/lang/Object;
@@ -767,10 +767,10 @@
     monitor-enter v0
 
     .line 268
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mCallback:Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     .line 270
     monitor-exit v0
@@ -778,10 +778,10 @@
     return-void
 
     .line 272
-    :cond_0
+    :cond_9
     iget-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mExecutor:Ljava/util/concurrent/Executor;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_19
 
     .line 273
     const-string v1, "emojiCompat"
@@ -798,7 +798,7 @@
     iput-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mExecutor:Ljava/util/concurrent/Executor;
 
     .line 277
-    :cond_1
+    :cond_19
     iget-object v1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mExecutor:Ljava/util/concurrent/Executor;
 
     new-instance v2, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader$$ExternalSyntheticLambda0;
@@ -814,18 +814,18 @@
     return-void
 
     .line 278
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_3 .. :try_end_27} :catchall_25
 
     throw v1
 .end method
 
 .method public setExecutor(Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 244
@@ -834,7 +834,7 @@
     monitor-enter v0
 
     .line 245
-    :try_start_0
+    :try_start_3
     iput-object p1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mExecutor:Ljava/util/concurrent/Executor;
 
     .line 246
@@ -844,18 +844,18 @@
     return-void
 
     .line 246
-    :catchall_0
+    :catchall_7
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_3 .. :try_end_9} :catchall_7
 
     throw v1
 .end method
 
 .method public setRetryPolicy(Landroidx/emoji2/text/FontRequestEmojiCompatConfig$RetryPolicy;)V
-    .locals 2
+    .registers 4
     .param p1, "policy"    # Landroidx/emoji2/text/FontRequestEmojiCompatConfig$RetryPolicy;
 
     .line 250
@@ -864,7 +864,7 @@
     monitor-enter v0
 
     .line 251
-    :try_start_0
+    :try_start_3
     iput-object p1, p0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontRequestMetadataLoader;->mRetryPolicy:Landroidx/emoji2/text/FontRequestEmojiCompatConfig$RetryPolicy;
 
     .line 252
@@ -874,12 +874,12 @@
     return-void
 
     .line 252
-    :catchall_0
+    :catchall_7
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_3 .. :try_end_9} :catchall_7
 
     throw v1
 .end method

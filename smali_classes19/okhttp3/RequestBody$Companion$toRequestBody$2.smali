@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/MediaType;Ljava/io/FileDescriptor;)V
-    .locals 0
+    .registers 3
     .param p1, "$contentType"    # Lokhttp3/MediaType;
     .param p2, "$receiver"    # Ljava/io/FileDescriptor;
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .registers 2
 
     .line 143
     iget-object v0, p0, Lokhttp3/RequestBody$Companion$toRequestBody$2;->$contentType:Lokhttp3/MediaType;
@@ -74,7 +74,7 @@
 .end method
 
 .method public isOneShot()Z
-    .locals 1
+    .registers 2
 
     .line 145
     const/4 v0, 0x1
@@ -83,7 +83,7 @@
 .end method
 
 .method public writeTo(Lokio/BufferedSink;)V
-    .locals 6
+    .registers 8
     .param p1, "sink"    # Lokio/BufferedSink;
 
     const-string v0, "sink"
@@ -105,7 +105,7 @@
 
     check-cast v2, Ljava/lang/Throwable;
 
-    :try_start_0
+    :try_start_12
     move-object v2, v0
 
     check-cast v2, Ljava/io/FileInputStream;
@@ -128,8 +128,8 @@
     move-result-object v5
 
     invoke-virtual {v4, v5}, Lokio/Buffer;->writeAll(Lokio/Source;)J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_12 .. :try_end_24} :catchall_28
 
     .line 148
     .end local v2    # "it":Ljava/io/FileInputStream;
@@ -140,17 +140,17 @@
     return-void
 
     .line 148
-    :catchall_0
+    :catchall_28
     move-exception v1
 
     .end local p1    # "sink":Lokio/BufferedSink;
-    :try_start_1
+    :try_start_29
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2a
+    .catchall {:try_start_29 .. :try_end_2a} :catchall_2a
 
     .restart local p1    # "sink":Lokio/BufferedSink;
-    :catchall_1
+    :catchall_2a
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager/widget/PagerTabStrip;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/viewpager/widget/PagerTabStrip;
 
     .line 118
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     .line 121

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$build(Lj$/util/stream/Node$Builder$OfInt;)Lj$/util/stream/Node;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/Node$Builder$OfInt;
 
     .line 205

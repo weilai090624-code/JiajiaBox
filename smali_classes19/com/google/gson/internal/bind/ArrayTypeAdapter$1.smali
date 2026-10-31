@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 5
+    .registers 8
     .param p1, "gson"    # Lcom/google/gson/Gson;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,11 +55,11 @@
     .local v0, "type":Ljava/lang/reflect/Type;
     instance-of v1, v0, Ljava/lang/reflect/GenericArrayType;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_17
 
     instance-of v1, v0, Ljava/lang/Class;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     move-object v1, v0
 
@@ -69,16 +69,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_17
 
     .line 44
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
     return-object v1
 
     .line 47
-    :cond_1
+    :cond_17
     invoke-static {v0}, Lcom/google/gson/internal/$Gson$Types;->getArrayComponentType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object v1

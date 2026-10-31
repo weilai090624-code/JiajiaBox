@@ -146,7 +146,7 @@
 .end method
 
 .method static currentTypes(Landroid/content/Context;)Lorg/json/JSONObject;
-    .registers 2
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -154,30 +154,19 @@
     .end annotation
 
     .line 78
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->endpoint(Landroid/content/Context;)Lorg/json/JSONObject;
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConnectionSnapshotCache;->load(Landroid/content/Context;)Lio/nekohasekai/sagernet/ui/ConnectionSnapshotCache$Snapshot;
 
     move-result-object p0
 
-    const-string v0, "types"
+    iget-object p0, p0, Lio/nekohasekai/sagernet/ui/ConnectionSnapshotCache$Snapshot;->types:Lorg/json/JSONObject;
 
-    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object p0
-
-    if-nez p0, :cond_11
-
-    new-instance p0, Lorg/json/JSONObject;
-
-    invoke-direct {p0}, Lorg/json/JSONObject;-><init>()V
-
-    :cond_11
     return-object p0
 .end method
 
 .method public static detail(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
     .registers 8
 
-    .line 88
+    .line 90
     const-string v0, "metadata"
 
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
@@ -788,7 +777,7 @@
 .method public static kind(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
     .registers 6
 
-    .line 86
+    .line 87
     const-string v0, "chains"
 
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -968,7 +957,7 @@
 .method static synthetic lambda$ordered$2(Lorg/json/JSONObject;Lorg/json/JSONObject;)I
     .registers 4
 
-    .line 89
+    .line 91
     const-string v0, "start"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
@@ -1019,78 +1008,20 @@
 .end method
 
 .method public static matches(Lorg/json/JSONObject;Lorg/json/JSONObject;ILjava/lang/String;)Z
-    .registers 9
+    .registers 4
 
-    .line 87
-    invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->kind(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v0, "\u4ee3\u7406"
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-ne p2, v2, :cond_1f
-
-    const-string v3, "rule"
-
-    invoke-virtual {p0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "final"
-
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1e
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1f
-
-    :cond_1e
-    return v1
-
-    :cond_1f
-    const/4 v3, 0x2
-
-    if-ne p2, v3, :cond_29
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_29
-
-    return v1
-
-    :cond_29
-    const/4 v0, 0x3
-
-    if-ne p2, v0, :cond_35
-
-    const-string p2, "\u76f4\u8fde"
-
-    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 89
+    invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->matchesFilter(Lorg/json/JSONObject;Lorg/json/JSONObject;I)Z
 
     move-result p1
 
-    if-nez p1, :cond_35
+    if-eqz p1, :cond_24
 
-    return v1
-
-    :cond_35
     invoke-virtual {p3}, Ljava/lang/String;->isEmpty()Z
 
     move-result p1
 
-    if-nez p1, :cond_53
+    if-nez p1, :cond_22
 
     invoke-virtual {p0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
@@ -1112,22 +1043,94 @@
 
     move-result p0
 
-    if-eqz p0, :cond_52
+    if-eqz p0, :cond_24
 
-    goto :goto_53
+    :cond_22
+    const/4 p0, 0x1
 
-    :cond_52
+    return p0
+
+    :cond_24
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public static matchesFilter(Lorg/json/JSONObject;Lorg/json/JSONObject;I)Z
+    .registers 7
+
+    .line 88
+    invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->kind(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "\u4ee3\u7406"
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-ne p2, v2, :cond_1f
+
+    const-string v3, "rule"
+
+    invoke-virtual {p0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v3, "final"
+
+    invoke-virtual {v3, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1e
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1f
+
+    :cond_1e
     return v1
 
-    :cond_53
-    :goto_53
+    :cond_1f
+    const/4 p0, 0x2
+
+    if-ne p2, p0, :cond_29
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_29
+
+    return v1
+
+    :cond_29
+    const/4 p0, 0x3
+
+    if-ne p2, p0, :cond_35
+
+    const-string p0, "\u76f4\u8fde"
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_35
+
+    return v1
+
+    :cond_35
     return v2
 .end method
 
 .method static ordered(Lorg/json/JSONArray;)Lorg/json/JSONArray;
     .registers 4
 
-    .line 89
+    .line 91
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -1730,6 +1733,26 @@
 .end method
 
 .method static request(Landroid/content/Context;Ljava/lang/String;)Lorg/json/JSONObject;
+    .registers 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    .line 80
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->endpoint(Landroid/content/Context;)Lorg/json/JSONObject;
+
+    move-result-object p0
+
+    invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->request(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static request(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
     .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1737,11 +1760,7 @@
         }
     .end annotation
 
-    .line 81
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->endpoint(Landroid/content/Context;)Lorg/json/JSONObject;
-
-    move-result-object p0
-
+    .line 82
     const-string v0, "address"
 
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
@@ -1752,9 +1771,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_c1
+    if-nez v1, :cond_bd
 
-    .line 82
+    .line 83
     new-instance v1, Ljava/net/URL;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1815,42 +1834,42 @@
 
     invoke-virtual {p1, v0}, Ljava/net/HttpURLConnection;->setInstanceFollowRedirects(Z)V
 
-    .line 83
-    :try_start_56
+    .line 84
+    :try_start_52
     invoke-virtual {p1}, Ljava/net/HttpURLConnection;->getResponseCode()I
 
     move-result p0
 
     const/16 v1, 0xc8
 
-    if-ne p0, v1, :cond_b4
+    if-ne p0, v1, :cond_b0
 
     invoke-virtual {p1}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
 
     move-result-object p0
-    :try_end_62
-    .catchall {:try_start_56 .. :try_end_62} :catchall_bc
+    :try_end_5e
+    .catchall {:try_start_52 .. :try_end_5e} :catchall_b8
 
-    :try_start_62
+    :try_start_5e
     new-instance v1, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
-    :try_end_67
-    .catchall {:try_start_62 .. :try_end_67} :catchall_a8
+    :try_end_63
+    .catchall {:try_start_5e .. :try_end_63} :catchall_a4
 
     const/16 v2, 0x2000
 
-    :try_start_69
+    :try_start_65
     new-array v2, v2, [B
 
-    :goto_6b
+    :goto_67
     invoke-virtual {p0, v2}, Ljava/io/InputStream;->read([B)I
 
     move-result v3
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_87
+    if-eq v3, v4, :cond_83
 
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->size()I
 
@@ -1860,13 +1879,13 @@
 
     const/high16 v5, 0x400000
 
-    if-gt v4, v5, :cond_7f
+    if-gt v4, v5, :cond_7b
 
     invoke-virtual {v1, v2, v0, v3}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    goto :goto_6b
+    goto :goto_67
 
-    :cond_7f
+    :cond_7b
     new-instance v0, Ljava/io/IOException;
 
     const-string v2, "\u8fde\u63a5\u6570\u636e\u8fc7\u591a\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5"
@@ -1875,7 +1894,7 @@
 
     throw v0
 
-    :cond_87
+    :cond_83
     new-instance v0, Lorg/json/JSONObject;
 
     const-string v2, "UTF-8"
@@ -1885,72 +1904,72 @@
     move-result-object v2
 
     invoke-direct {v0, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-    :try_end_92
-    .catchall {:try_start_69 .. :try_end_92} :catchall_9e
+    :try_end_8e
+    .catchall {:try_start_65 .. :try_end_8e} :catchall_9a
 
-    :try_start_92
+    :try_start_8e
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_95
-    .catchall {:try_start_92 .. :try_end_95} :catchall_a8
+    :try_end_91
+    .catchall {:try_start_8e .. :try_end_91} :catchall_a4
 
-    if-eqz p0, :cond_9a
+    if-eqz p0, :cond_96
 
-    :try_start_97
+    :try_start_93
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
-    :try_end_9a
-    .catchall {:try_start_97 .. :try_end_9a} :catchall_bc
+    :try_end_96
+    .catchall {:try_start_93 .. :try_end_96} :catchall_b8
 
-    .line 84
-    :cond_9a
+    .line 85
+    :cond_96
     invoke-virtual {p1}, Ljava/net/HttpURLConnection;->disconnect()V
 
     return-object v0
 
-    :catchall_9e
+    :catchall_9a
     move-exception v0
 
-    .line 83
-    :try_start_9f
+    .line 84
+    :try_start_9b
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_a2
-    .catchall {:try_start_9f .. :try_end_a2} :catchall_a3
+    :try_end_9e
+    .catchall {:try_start_9b .. :try_end_9e} :catchall_9f
 
-    goto :goto_a7
+    goto :goto_a3
 
-    :catchall_a3
+    :catchall_9f
     move-exception v1
 
-    :try_start_a4
+    :try_start_a0
     invoke-virtual {v0, v1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_a7
+    :goto_a3
     throw v0
-    :try_end_a8
-    .catchall {:try_start_a4 .. :try_end_a8} :catchall_a8
+    :try_end_a4
+    .catchall {:try_start_a0 .. :try_end_a4} :catchall_a4
 
-    :catchall_a8
+    :catchall_a4
     move-exception v0
 
-    if-eqz p0, :cond_b3
+    if-eqz p0, :cond_af
 
-    :try_start_ab
+    :try_start_a7
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
-    :try_end_ae
-    .catchall {:try_start_ab .. :try_end_ae} :catchall_af
+    :try_end_aa
+    .catchall {:try_start_a7 .. :try_end_aa} :catchall_ab
 
-    goto :goto_b3
+    goto :goto_af
 
-    :catchall_af
+    :catchall_ab
     move-exception p0
 
-    :try_start_b0
+    :try_start_ac
     invoke-virtual {v0, p0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :cond_b3
-    :goto_b3
+    :cond_af
+    :goto_af
     throw v0
 
-    :cond_b4
+    :cond_b0
     new-instance p0, Ljava/io/IOException;
 
     const-string v0, "\u5185\u6838\u8fde\u63a5\u4fe1\u606f\u6682\u4e0d\u53ef\u7528"
@@ -1958,19 +1977,19 @@
     invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw p0
-    :try_end_bc
-    .catchall {:try_start_b0 .. :try_end_bc} :catchall_bc
+    :try_end_b8
+    .catchall {:try_start_ac .. :try_end_b8} :catchall_b8
 
-    :catchall_bc
+    :catchall_b8
     move-exception p0
 
-    .line 84
+    .line 85
     invoke-virtual {p1}, Ljava/net/HttpURLConnection;->disconnect()V
 
     throw p0
 
-    .line 81
-    :cond_c1
+    .line 82
+    :cond_bd
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "\u8bf7\u5148\u91cd\u65b0\u8fde\u63a5\u4ee3\u7406\uff0c\u4ee5\u542f\u7528\u8fde\u63a5\u8be6\u60c5"
@@ -1983,7 +2002,7 @@
 .method public static show(Landroid/content/Context;)V
     .registers 2
 
-    .line 90
+    .line 92
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;
 
     invoke-direct {v0, p0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$Panel;-><init>(Landroid/content/Context;)V
@@ -1996,7 +2015,7 @@
 .method public static showDetail(Landroid/content/Context;Lorg/json/JSONObject;Lorg/json/JSONObject;)V
     .registers 4
 
-    .line 91
+    .line 93
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;
 
     invoke-direct {v0, p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ConnectionInspector$LiveDetail;-><init>(Landroid/content/Context;Lorg/json/JSONObject;Lorg/json/JSONObject;)V
@@ -2007,7 +2026,7 @@
 .end method
 
 .method static snapshot(Landroid/content/Context;)Lorg/json/JSONObject;
-    .registers 2
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -2015,11 +2034,11 @@
     .end annotation
 
     .line 79
-    const-string v0, "/connections"
-
-    invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->request(Landroid/content/Context;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConnectionSnapshotCache;->load(Landroid/content/Context;)Lio/nekohasekai/sagernet/ui/ConnectionSnapshotCache$Snapshot;
 
     move-result-object p0
+
+    iget-object p0, p0, Lio/nekohasekai/sagernet/ui/ConnectionSnapshotCache$Snapshot;->root:Lorg/json/JSONObject;
 
     return-object p0
 .end method

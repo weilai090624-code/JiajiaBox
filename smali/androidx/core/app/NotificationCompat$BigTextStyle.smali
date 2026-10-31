@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3506
     invoke-direct {p0}, Landroidx/core/app/NotificationCompat$Style;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/core/app/NotificationCompat$Builder;)V
-    .locals 0
+    .registers 2
     .param p1, "builder"    # Landroidx/core/app/NotificationCompat$Builder;
 
     .line 3509
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public addCompatExtras(Landroid/os/Bundle;)V
-    .locals 0
+    .registers 2
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 3579
@@ -64,7 +64,7 @@
 .end method
 
 .method public apply(Landroidx/core/app/NotificationBuilderWithBuilderAccessor;)V
-    .locals 3
+    .registers 5
     .param p1, "builder"    # Landroidx/core/app/NotificationBuilderWithBuilderAccessor;
 
     .line 3554
@@ -96,7 +96,7 @@
     .line 3559
     iget-boolean v2, p0, Landroidx/core/app/NotificationCompat$BigTextStyle;->mSummaryTextSet:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     .line 3560
     iget-object v2, p0, Landroidx/core/app/NotificationCompat$BigTextStyle;->mSummaryText:Ljava/lang/CharSequence;
@@ -104,12 +104,12 @@
     invoke-virtual {v1, v2}, Landroid/app/Notification$BigTextStyle;->setSummaryText(Ljava/lang/CharSequence;)Landroid/app/Notification$BigTextStyle;
 
     .line 3562
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public bigText(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$BigTextStyle;
-    .locals 1
+    .registers 3
     .param p1, "cs"    # Ljava/lang/CharSequence;
 
     .line 3536
@@ -124,7 +124,7 @@
 .end method
 
 .method protected clearCompatExtraKeys(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 3594
@@ -140,7 +140,7 @@
 .end method
 
 .method protected getClassName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 3546
     const-string v0, "androidx.core.app.NotificationCompat$BigTextStyle"
@@ -149,7 +149,7 @@
 .end method
 
 .method protected restoreFromCompatExtras(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 3569
@@ -169,7 +169,7 @@
 .end method
 
 .method public setBigContentTitle(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$BigTextStyle;
-    .locals 1
+    .registers 3
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 3518
@@ -184,7 +184,7 @@
 .end method
 
 .method public setSummaryText(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$BigTextStyle;
-    .locals 1
+    .registers 3
     .param p1, "cs"    # Ljava/lang/CharSequence;
 
     .line 3526

@@ -18,7 +18,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 .end method
 
 .method static synthetic access$000([ZZII)I
-    .locals 1
+    .registers 5
     .param p0, "x0"    # [Z
     .param p1, "x1"    # Z
     .param p2, "x2"    # I
@@ -42,7 +42,7 @@
 .end method
 
 .method static synthetic access$100([ZZII)I
-    .locals 1
+    .registers 5
     .param p0, "x0"    # [Z
     .param p1, "x1"    # Z
     .param p2, "x2"    # I
@@ -57,7 +57,7 @@
 .end method
 
 .method public static varargs asList([Z)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "backingArray"    # [Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,7 +71,7 @@
     .line 372
     array-length v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 373
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
@@ -81,7 +81,7 @@
     return-object v0
 
     .line 375
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;
 
     invoke-direct {v0, p0}, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;-><init>([Z)V
@@ -90,33 +90,33 @@
 .end method
 
 .method public static compare(ZZ)I
-    .locals 1
+    .registers 3
     .param p0, "a"    # Z
     .param p1, "b"    # Z
 
     .line 128
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
-    if-eqz p0, :cond_1
+    :cond_4
+    if-eqz p0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_1
+    :cond_8
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public static varargs concat([[Z)[Z
-    .locals 8
+    .registers 9
     .param p0, "arrays"    # [[Z
 
     .line 236
@@ -130,8 +130,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_4
+    if-ge v3, v1, :cond_d
 
     aget-object v4, p0, v3
 
@@ -145,10 +145,10 @@
     .end local v4    # "array":[Z
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 240
-    :cond_0
+    :cond_d
     new-array v1, v0, [Z
 
     .line 241
@@ -161,8 +161,8 @@
 
     const/4 v5, 0x0
 
-    :goto_1
-    if-ge v5, v4, :cond_1
+    :goto_12
+    if-ge v5, v4, :cond_1f
 
     aget-object v6, p0, v5
 
@@ -181,15 +181,15 @@
     .end local v6    # "array":[Z
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_12
 
     .line 246
-    :cond_1
+    :cond_1f
     return-object v1
 .end method
 
 .method public static contains([ZZ)Z
-    .locals 4
+    .registers 6
     .param p0, "array"    # [Z
     .param p1, "target"    # Z
 
@@ -200,14 +200,14 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_3
+    if-ge v2, v0, :cond_e
 
     aget-boolean v3, p0, v2
 
     .line 144
     .local v3, "value":Z
-    if-ne v3, p1, :cond_0
+    if-ne v3, p1, :cond_b
 
     .line 145
     const/4 v0, 0x1
@@ -216,18 +216,18 @@
 
     .line 143
     .end local v3    # "value":Z
-    :cond_0
+    :cond_b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 148
-    :cond_1
+    :cond_e
     return v1
 .end method
 
 .method public static varargs countTrue([Z)I
-    .locals 4
+    .registers 5
     .param p0, "values"    # [Z
 
     .line 515
@@ -239,32 +239,32 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_3
+    if-ge v2, v1, :cond_e
 
     aget-boolean v3, p0, v2
 
     .line 517
     .local v3, "value":Z
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_b
 
     .line 518
     add-int/lit8 v0, v0, 0x1
 
     .line 516
     .end local v3    # "value":Z
-    :cond_0
+    :cond_b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
     .line 521
-    :cond_1
+    :cond_e
     return v0
 .end method
 
 .method public static ensureCapacity([ZII)[Z
-    .locals 4
+    .registers 7
     .param p0, "array"    # [Z
     .param p1, "minLength"    # I
     .param p2, "padding"    # I
@@ -274,29 +274,29 @@
 
     const/4 v1, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_7
     const-string v3, "Invalid minLength: %s"
 
     invoke-static {v2, v3, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
 
     .line 264
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_f
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_10
     const-string v1, "Invalid padding: %s"
 
     invoke-static {v0, v1, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
@@ -304,7 +304,7 @@
     .line 265
     array-length v0, p0
 
-    if-ge v0, p1, :cond_2
+    if-ge v0, p1, :cond_1f
 
     add-int v0, p1, p2
 
@@ -312,17 +312,17 @@
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_20
 
-    :cond_2
+    :cond_1f
     move-object v0, p0
 
-    :goto_2
+    :goto_20
     return-object v0
 .end method
 
 .method public static falseFirst()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -339,25 +339,25 @@
 .end method
 
 .method public static hashCode(Z)I
-    .locals 1
+    .registers 2
     .param p0, "value"    # Z
 
     .line 111
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     const/16 v0, 0x4cf
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     const/16 v0, 0x4d5
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public static indexOf([ZZ)I
-    .locals 2
+    .registers 4
     .param p0, "array"    # [Z
     .param p1, "target"    # Z
 
@@ -374,7 +374,7 @@
 .end method
 
 .method private static indexOf([ZZII)I
-    .locals 2
+    .registers 6
     .param p0, "array"    # [Z
     .param p1, "target"    # Z
     .param p2, "start"    # I
@@ -384,33 +384,33 @@
     move v0, p2
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p3, :cond_1
+    :goto_1
+    if-ge v0, p3, :cond_b
 
     .line 169
     aget-boolean v1, p0, v0
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_8
 
     .line 170
     return v0
 
     .line 168
-    :cond_0
+    :cond_8
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 173
     .end local v0    # "i":I
-    :cond_1
+    :cond_b
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public static indexOf([Z[Z)I
-    .locals 4
+    .registers 6
     .param p0, "array"    # [Z
     .param p1, "target"    # [Z
 
@@ -427,7 +427,7 @@
     .line 189
     array-length v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 190
     const/4 v0, 0x0
@@ -435,11 +435,11 @@
     return v0
 
     .line 194
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_10
     array-length v1, p0
 
     array-length v2, p1
@@ -448,16 +448,16 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_2b
 
     .line 195
     const/4 v1, 0x0
 
     .local v1, "j":I
-    :goto_1
+    :goto_18
     array-length v2, p1
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_2a
 
     .line 196
     add-int v2, v0, v1
@@ -466,7 +466,7 @@
 
     aget-boolean v3, p1, v1
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_27
 
     .line 197
     nop
@@ -475,30 +475,30 @@
     .end local v1    # "j":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 195
     .restart local v1    # "j":I
-    :cond_1
+    :cond_27
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
     .line 200
     .end local v1    # "j":I
-    :cond_2
+    :cond_2a
     return v0
 
     .line 202
     .end local v0    # "i":I
-    :cond_3
+    :cond_2b
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public static varargs join(Ljava/lang/String;[Z)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "separator"    # Ljava/lang/String;
     .param p1, "array"    # [Z
 
@@ -508,7 +508,7 @@
     .line 279
     array-length v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 280
     const-string v0, ""
@@ -516,7 +516,7 @@
     return-object v0
 
     .line 284
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/StringBuilder;
 
     array-length v1, p1
@@ -537,10 +537,10 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_18
     array-length v2, p1
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_27
 
     .line 287
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -554,11 +554,11 @@
     .line 286
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 289
     .end local v1    # "i":I
-    :cond_1
+    :cond_27
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -567,7 +567,7 @@
 .end method
 
 .method public static lastIndexOf([ZZ)I
-    .locals 2
+    .registers 4
     .param p0, "array"    # [Z
     .param p1, "target"    # Z
 
@@ -584,7 +584,7 @@
 .end method
 
 .method private static lastIndexOf([ZZII)I
-    .locals 2
+    .registers 6
     .param p0, "array"    # [Z
     .param p1, "target"    # Z
     .param p2, "start"    # I
@@ -594,33 +594,33 @@
     add-int/lit8 v0, p3, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-lt v0, p2, :cond_1
+    :goto_2
+    if-lt v0, p2, :cond_c
 
     .line 220
     aget-boolean v1, p0, v0
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_9
 
     .line 221
     return v0
 
     .line 219
-    :cond_0
+    :cond_9
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 224
     .end local v0    # "i":I
-    :cond_1
+    :cond_c
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public static lexicographicalComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -636,7 +636,7 @@
 .end method
 
 .method public static reverse([Z)V
-    .locals 2
+    .registers 3
     .param p0, "array"    # [Z
 
     .line 531
@@ -654,7 +654,7 @@
 .end method
 
 .method public static reverse([ZII)V
-    .locals 4
+    .registers 7
     .param p0, "array"    # [Z
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -674,8 +674,8 @@
     add-int/lit8 v1, p2, -0x1
 
     .local v1, "j":I
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_a
+    if-ge v0, v1, :cond_19
 
     .line 549
     aget-boolean v2, p0, v0
@@ -695,17 +695,17 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 553
     .end local v0    # "i":I
     .end local v1    # "j":I
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public static toArray(Ljava/util/Collection;)[Z
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -719,7 +719,7 @@
     .local p0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/Boolean;>;"
     instance-of v0, p0, Lcom/google/common/primitives/Booleans$BooleanArrayAsList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 346
     move-object v0, p0
@@ -733,7 +733,7 @@
     return-object v0
 
     .line 349
-    :cond_0
+    :cond_c
     invoke-interface {p0}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
 
     move-result-object v0
@@ -751,8 +751,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_14
+    if-ge v3, v1, :cond_27
 
     .line 354
     aget-object v4, v0, v3
@@ -772,16 +772,16 @@
     .line 352
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 356
     .end local v3    # "i":I
-    :cond_1
+    :cond_27
     return-object v2
 .end method
 
 .method public static trueFirst()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

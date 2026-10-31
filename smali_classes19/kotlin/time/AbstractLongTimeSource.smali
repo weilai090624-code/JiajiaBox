@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/time/DurationUnit;)V
-    .locals 1
+    .registers 3
     .param p1, "unit"    # Lkotlin/time/DurationUnit;
 
     const-string v0, "unit"
@@ -87,7 +87,7 @@
 .end method
 
 .method public static final synthetic access$adjustedRead(Lkotlin/time/AbstractLongTimeSource;)J
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lkotlin/time/AbstractLongTimeSource;
 
     .line 26
@@ -99,7 +99,7 @@
 .end method
 
 .method private final adjustedRead()J
-    .locals 4
+    .registers 5
 
     .line 41
     invoke-virtual {p0}, Lkotlin/time/AbstractLongTimeSource;->read()J
@@ -116,7 +116,7 @@
 .end method
 
 .method private final getZero()J
-    .locals 2
+    .registers 3
 
     .line 40
     iget-object v0, p0, Lkotlin/time/AbstractLongTimeSource;->zero$delegate:Lkotlin/Lazy;
@@ -137,7 +137,7 @@
 
 # virtual methods
 .method protected final getUnit()Lkotlin/time/DurationUnit;
-    .locals 1
+    .registers 2
 
     .line 28
     iget-object v0, p0, Lkotlin/time/AbstractLongTimeSource;->unit:Lkotlin/time/DurationUnit;
@@ -146,7 +146,7 @@
 .end method
 
 .method public markNow()Lkotlin/time/ComparableTimeMark;
-    .locals 8
+    .registers 9
 
     .line 87
     new-instance v7, Lkotlin/time/AbstractLongTimeSource$LongTimeMark;
@@ -175,7 +175,7 @@
 .end method
 
 .method public bridge synthetic markNow()Lkotlin/time/TimeMark;
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-virtual {p0}, Lkotlin/time/AbstractLongTimeSource;->markNow()Lkotlin/time/ComparableTimeMark;

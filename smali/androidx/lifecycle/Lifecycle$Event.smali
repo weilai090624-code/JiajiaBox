@@ -82,7 +82,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Landroidx/lifecycle/Lifecycle$Event;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x7
 
@@ -134,7 +134,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 98
     new-instance v0, Landroidx/lifecycle/Lifecycle$Event;
@@ -231,7 +231,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -247,7 +247,7 @@
 .end method
 
 .method public static final downFrom(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -261,7 +261,7 @@
 .end method
 
 .method public static final downTo(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -275,7 +275,7 @@
 .end method
 
 .method public static final upFrom(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -289,7 +289,7 @@
 .end method
 
 .method public static final upTo(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -303,7 +303,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 1
+    .registers 2
 
     const-class v0, Landroidx/lifecycle/Lifecycle$Event;
 
@@ -317,7 +317,7 @@
 .end method
 
 .method public static values()[Landroidx/lifecycle/Lifecycle$Event;
-    .locals 1
+    .registers 1
 
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->$VALUES:[Landroidx/lifecycle/Lifecycle$Event;
 
@@ -333,7 +333,7 @@
 
 # virtual methods
 .method public final getTargetState()Landroidx/lifecycle/Lifecycle$State;
-    .locals 3
+    .registers 4
 
     .line 141
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event$WhenMappings;->$EnumSwitchMapping$0:[I
@@ -344,7 +344,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_30
 
     .line 148
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -372,36 +372,36 @@
     throw v0
 
     .line 145
-    :pswitch_0
+    :pswitch_24
     sget-object v0, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
     return-object v0
 
     .line 144
-    :pswitch_1
+    :pswitch_27
     sget-object v0, Landroidx/lifecycle/Lifecycle$State;->RESUMED:Landroidx/lifecycle/Lifecycle$State;
 
     return-object v0
 
     .line 143
-    :pswitch_2
+    :pswitch_2a
     sget-object v0, Landroidx/lifecycle/Lifecycle$State;->STARTED:Landroidx/lifecycle/Lifecycle$State;
 
     return-object v0
 
     .line 142
-    :pswitch_3
+    :pswitch_2d
     sget-object v0, Landroidx/lifecycle/Lifecycle$State;->CREATED:Landroidx/lifecycle/Lifecycle$State;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_30
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_3
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2d
+        :pswitch_2d
+        :pswitch_2a
+        :pswitch_2a
+        :pswitch_27
+        :pswitch_24
     .end packed-switch
 .end method

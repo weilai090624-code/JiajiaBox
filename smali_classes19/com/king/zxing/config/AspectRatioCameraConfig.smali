@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 5
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
 
     .line 24
@@ -72,7 +72,7 @@
 .end method
 
 .method private aspectRatio(FF)I
-    .locals 3
+    .registers 6
     .param p1, "width"    # F
     .param p2, "height"    # F
 
@@ -107,7 +107,7 @@
 
     cmpg-float v1, v1, v2
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_21
 
     .line 38
     const/4 v1, 0x0
@@ -115,7 +115,7 @@
     return v1
 
     .line 40
-    :cond_0
+    :cond_21
     const/4 v1, 0x1
 
     return v1
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public options(Landroidx/camera/core/CameraSelector$Builder;)Landroidx/camera/core/CameraSelector;
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/camera/core/CameraSelector$Builder;
 
     .line 52
@@ -136,7 +136,7 @@
 .end method
 
 .method public options(Landroidx/camera/core/ImageAnalysis$Builder;)Landroidx/camera/core/ImageAnalysis;
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/camera/core/ImageAnalysis$Builder;
 
     .line 58
@@ -153,7 +153,7 @@
 .end method
 
 .method public options(Landroidx/camera/core/Preview$Builder;)Landroidx/camera/core/Preview;
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/camera/core/Preview$Builder;
 
     .line 46

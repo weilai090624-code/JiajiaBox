@@ -167,7 +167,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$I3ALOzI0SQ31ygHw2RndtES2a3g(Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 7
 
     invoke-static/range {p0 .. p6}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->_init_$lambda$0(Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
 
@@ -177,7 +177,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
 
     const-string v0, "context"
 
@@ -201,7 +201,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
 
     const-string v0, "context"
 
@@ -225,7 +225,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -298,27 +298,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 36
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 38
     const/4 p2, 0x0
 
     .line 36
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 39
     const p3, 0x101006b
 
     .line 36
-    :cond_1
+    :cond_c
     invoke-direct {p0, p1, p2, p3}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 423
@@ -326,7 +326,7 @@
 .end method
 
 .method private static final _init_$lambda$0(Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 8
     .param p0, "this$0"    # Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;
     .param p1, "source"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
@@ -343,19 +343,19 @@
 
     const/4 v0, 0x1
 
-    if-ne p6, v0, :cond_0
+    if-ne p6, v0, :cond_26
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result p6
 
-    if-ge p2, p6, :cond_0
+    if-ge p2, p6, :cond_26
 
     invoke-interface {p4}, Landroid/text/Spanned;->length()I
 
     move-result p6
 
-    if-ge p5, p6, :cond_0
+    if-ge p5, p6, :cond_26
 
     .line 72
     invoke-interface {p1, p2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -366,7 +366,7 @@
     .local p6, "c":C
     const/16 v0, 0x9
 
-    if-ne p6, v0, :cond_0
+    if-ne p6, v0, :cond_26
 
     .line 74
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->tab()Ljava/lang/String;
@@ -379,12 +379,12 @@
 
     .line 77
     .end local p6    # "c":C
-    :cond_0
+    :cond_26
     return-object p1
 .end method
 
 .method public static final synthetic access$getSyntaxHighlightResults$p(Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;
 
     .line 36
@@ -394,7 +394,7 @@
 .end method
 
 .method public static final synthetic access$updateSyntaxHighlighting(Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;)V
-    .locals 0
+    .registers 1
     .param p0, "$this"    # Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;
 
     .line 36
@@ -404,17 +404,17 @@
 .end method
 
 .method private final cancelSyntaxHighlighting()V
-    .locals 1
+    .registers 2
 
     .line 420
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->task:Lcom/blacksquircle/ui/editorkit/utils/StylingTask;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/utils/StylingTask;->cancel()V
 
     .line 421
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->task:Lcom/blacksquircle/ui/editorkit/utils/StylingTask;
@@ -424,7 +424,7 @@
 .end method
 
 .method private final scrollToFindResult()V
-    .locals 5
+    .registers 6
 
     .line 253
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectedFindResult:I
@@ -435,7 +435,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_89
 
     .line 254
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->findResults:Ljava/util/List;
@@ -470,7 +470,7 @@
 
     move-result v2
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_3f
 
     .line 256
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getEnd()I
@@ -493,13 +493,13 @@
 
     move-result v2
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_3f
 
     .line 258
     return-void
 
     .line 260
-    :cond_0
+    :cond_3f
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getLayout()Landroid/text/Layout;
 
     move-result-object v1
@@ -550,18 +550,18 @@
 
     .line 262
     .local v2, "lineTop":I
-    if-le v2, v1, :cond_1
+    if-le v2, v1, :cond_6d
 
     .line 263
     move v2, v1
 
     .line 265
-    :cond_1
+    :cond_6d
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->isHorizontallyScrollableCompat()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_81
 
     .line 266
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getLayout()Landroid/text/Layout;
@@ -578,16 +578,16 @@
 
     float-to-int v3, v3
 
-    goto :goto_0
+    goto :goto_85
 
     .line 268
-    :cond_2
+    :cond_81
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getScrollX()I
 
     move-result v3
 
     .line 265
-    :goto_0
+    :goto_85
     nop
 
     .line 271
@@ -599,12 +599,12 @@
     .end local v1    # "height":I
     .end local v2    # "lineTop":I
     .end local v3    # "scrollX":I
-    :cond_3
+    :cond_89
     return-void
 .end method
 
 .method private final selectResult()V
-    .locals 4
+    .registers 5
 
     .line 247
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->findResults:Ljava/util/List;
@@ -641,7 +641,7 @@
 .end method
 
 .method private final shiftSpans(II)V
-    .locals 6
+    .registers 9
     .param p1, "from"    # I
     .param p2, "byHowMuch"    # I
 
@@ -652,13 +652,13 @@
 
     move-result-object v0
 
-    :cond_0
-    :goto_0
+    :cond_6
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -672,7 +672,7 @@
 
     move-result v2
 
-    if-lt v2, p1, :cond_1
+    if-lt v2, p1, :cond_20
 
     .line 278
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getStart()I
@@ -684,12 +684,12 @@
     invoke-virtual {v1, v2}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->setStart(I)V
 
     .line 280
-    :cond_1
+    :cond_20
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getEnd()I
 
     move-result v2
 
-    if-lt v2, p1, :cond_0
+    if-lt v2, p1, :cond_6
 
     .line 281
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getEnd()I
@@ -701,23 +701,23 @@
     invoke-virtual {v1, v2}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->setEnd(I)V
 
     .end local v1    # "span":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
-    goto :goto_0
+    goto :goto_6
 
     .line 287
-    :cond_2
+    :cond_2f
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->findResults:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :cond_3
-    :goto_1
+    :cond_35
+    :goto_35
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_5e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -731,7 +731,7 @@
 
     move-result v2
 
-    if-le v2, p1, :cond_4
+    if-le v2, p1, :cond_4f
 
     .line 292
     invoke-virtual {v1}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getStart()I
@@ -743,12 +743,12 @@
     invoke-virtual {v1, v2}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->setStart(I)V
 
     .line 294
-    :cond_4
+    :cond_4f
     invoke-virtual {v1}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getEnd()I
 
     move-result v2
 
-    if-lt v2, p1, :cond_3
+    if-lt v2, p1, :cond_35
 
     .line 295
     invoke-virtual {v1}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getEnd()I
@@ -760,13 +760,13 @@
     invoke-virtual {v1, v2}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->setEnd(I)V
 
     .end local v1    # "findResult":Lcom/blacksquircle/ui/editorkit/model/FindResult;
-    goto :goto_1
+    goto :goto_35
 
     .line 298
-    :cond_5
+    :cond_5e
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->isErrorSpansVisible:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_99
 
     .line 299
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getText()Landroid/text/Editable;
@@ -823,8 +823,8 @@
 
     const/4 v3, 0x0
 
-    :goto_2
-    if-ge v3, v1, :cond_6
+    :goto_89
+    if-ge v3, v1, :cond_97
 
     aget-object v4, v0, v3
 
@@ -840,20 +840,20 @@
     .end local v4    # "span":Lcom/blacksquircle/ui/editorkit/model/ErrorSpan;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_89
 
     .line 303
-    :cond_6
+    :cond_97
     iput-boolean v2, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->isErrorSpansVisible:Z
 
     .line 305
     .end local v0    # "spans":[Lcom/blacksquircle/ui/editorkit/model/ErrorSpan;
-    :cond_7
+    :cond_99
     return-void
 .end method
 
 .method private final syntaxHighlight()V
-    .locals 3
+    .registers 4
 
     .line 407
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->cancelSyntaxHighlighting()V
@@ -880,17 +880,17 @@
     .line 416
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->task:Lcom/blacksquircle/ui/editorkit/utils/StylingTask;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/utils/StylingTask;->execute()V
 
     .line 417
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method private final updateSyntaxHighlighting()V
-    .locals 24
+    .registers 25
 
     .line 308
     move-object/from16 v0, p0
@@ -899,7 +899,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_2f2
 
     .line 309
     invoke-virtual/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getLayout()Landroid/text/Layout;
@@ -995,8 +995,8 @@
 
     const/4 v8, 0x0
 
-    :goto_0
-    if-ge v8, v6, :cond_0
+    :goto_4f
+    if-ge v8, v6, :cond_5d
 
     aget-object v9, v4, v8
 
@@ -1012,24 +1012,24 @@
     .end local v9    # "span":Lcom/blacksquircle/ui/editorkit/model/SyntaxHighlightSpan;
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 323
-    :cond_0
+    :cond_5d
     iget-object v6, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->syntaxHighlightResults:Ljava/util/List;
 
     invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
-    :goto_1
+    :goto_63
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
     const/16 v9, 0x21
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_196
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1043,7 +1043,7 @@
 
     move-result v11
 
-    if-ltz v11, :cond_1
+    if-ltz v11, :cond_87
 
     invoke-virtual {v8}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getEnd()I
 
@@ -1057,18 +1057,18 @@
 
     move-result v12
 
-    if-gt v11, v12, :cond_1
+    if-gt v11, v12, :cond_87
 
     const/4 v11, 0x1
 
-    goto :goto_2
+    goto :goto_88
 
-    :cond_1
+    :cond_87
     const/4 v11, 0x0
 
     .line 325
     .local v11, "isInText":Z
-    :goto_2
+    :goto_88
     invoke-virtual {v8}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getStart()I
 
     move-result v12
@@ -1077,71 +1077,71 @@
 
     move-result v13
 
-    if-gt v12, v13, :cond_2
+    if-gt v12, v13, :cond_94
 
     const/4 v12, 0x1
 
-    goto :goto_3
+    goto :goto_95
 
-    :cond_2
+    :cond_94
     const/4 v12, 0x0
 
     .line 326
     .local v12, "isValid":Z
-    :goto_3
+    :goto_95
     invoke-virtual {v8}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getStart()I
 
     move-result v13
 
-    if-gt v1, v13, :cond_3
+    if-gt v1, v13, :cond_9f
 
-    if-gt v13, v2, :cond_3
+    if-gt v13, v2, :cond_9f
 
     const/4 v13, 0x1
 
-    goto :goto_4
+    goto :goto_a0
 
-    :cond_3
+    :cond_9f
     const/4 v13, 0x0
 
-    :goto_4
-    if-nez v13, :cond_5
+    :goto_a0
+    if-nez v13, :cond_b1
 
     .line 327
     invoke-virtual {v8}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getStart()I
 
     move-result v13
 
-    if-gt v13, v2, :cond_4
+    if-gt v13, v2, :cond_af
 
     invoke-virtual {v8}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getEnd()I
 
     move-result v13
 
-    if-lt v13, v1, :cond_4
+    if-lt v13, v1, :cond_af
 
-    goto :goto_5
+    goto :goto_b1
 
-    :cond_4
+    :cond_af
     const/4 v13, 0x0
 
-    goto :goto_6
+    goto :goto_b2
 
-    :cond_5
-    :goto_5
+    :cond_b1
+    :goto_b1
     const/4 v13, 0x1
 
     .line 326
-    :goto_6
+    :goto_b2
     nop
 
     .line 328
     .local v13, "isVisible":Z
-    if-eqz v11, :cond_8
+    if-eqz v11, :cond_193
 
-    if-eqz v12, :cond_8
+    if-eqz v12, :cond_193
 
-    if-eqz v13, :cond_8
+    if-eqz v13, :cond_193
 
     .line 329
     invoke-virtual/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getText()Landroid/text/Editable;
@@ -1167,7 +1167,7 @@
 
     aget v16, v17, v16
 
-    packed-switch v16, :pswitch_data_0
+    packed-switch v16, :pswitch_data_2f4
 
     .line 347
     new-instance v3, Lkotlin/NoWhenBranchMatchedException;
@@ -1176,7 +1176,7 @@
 
     throw v3
 
-    :pswitch_0
+    :pswitch_d6
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getEntityRefColor()I
@@ -1185,10 +1185,10 @@
 
     move/from16 v17, v7
 
-    goto/16 :goto_7
+    goto/16 :goto_160
 
     .line 346
-    :pswitch_1
+    :pswitch_e0
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getAttrValueColor()I
@@ -1197,10 +1197,10 @@
 
     move/from16 v17, v7
 
-    goto/16 :goto_7
+    goto/16 :goto_160
 
     .line 345
-    :pswitch_2
+    :pswitch_ea
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getAttrNameColor()I
@@ -1209,10 +1209,10 @@
 
     move/from16 v17, v7
 
-    goto/16 :goto_7
+    goto/16 :goto_160
 
     .line 344
-    :pswitch_3
+    :pswitch_f4
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getTagNameColor()I
@@ -1221,10 +1221,10 @@
 
     move/from16 v17, v7
 
-    goto/16 :goto_7
+    goto/16 :goto_160
 
     .line 343
-    :pswitch_4
+    :pswitch_fe
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getTagColor()I
@@ -1233,10 +1233,10 @@
 
     move/from16 v17, v7
 
-    goto :goto_7
+    goto :goto_160
 
     .line 342
-    :pswitch_5
+    :pswitch_107
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getCommentColor()I
@@ -1245,10 +1245,10 @@
 
     move/from16 v17, v7
 
-    goto :goto_7
+    goto :goto_160
 
     .line 341
-    :pswitch_6
+    :pswitch_110
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getStringColor()I
@@ -1257,10 +1257,10 @@
 
     move/from16 v17, v7
 
-    goto :goto_7
+    goto :goto_160
 
     .line 340
-    :pswitch_7
+    :pswitch_119
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getMethodColor()I
@@ -1269,10 +1269,10 @@
 
     move/from16 v17, v7
 
-    goto :goto_7
+    goto :goto_160
 
     .line 339
-    :pswitch_8
+    :pswitch_122
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getVariableColor()I
@@ -1281,10 +1281,10 @@
 
     move/from16 v17, v7
 
-    goto :goto_7
+    goto :goto_160
 
     .line 338
-    :pswitch_9
+    :pswitch_12b
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getPreprocessorColor()I
@@ -1293,10 +1293,10 @@
 
     move/from16 v17, v7
 
-    goto :goto_7
+    goto :goto_160
 
     .line 337
-    :pswitch_a
+    :pswitch_134
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getLangConstColor()I
@@ -1305,10 +1305,10 @@
 
     move/from16 v17, v7
 
-    goto :goto_7
+    goto :goto_160
 
     .line 336
-    :pswitch_b
+    :pswitch_13d
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getTypeColor()I
@@ -1317,10 +1317,10 @@
 
     move/from16 v17, v7
 
-    goto :goto_7
+    goto :goto_160
 
     .line 335
-    :pswitch_c
+    :pswitch_146
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getKeywordColor()I
@@ -1329,10 +1329,10 @@
 
     move/from16 v17, v7
 
-    goto :goto_7
+    goto :goto_160
 
     .line 334
-    :pswitch_d
+    :pswitch_14f
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getOperatorColor()I
@@ -1341,10 +1341,10 @@
 
     move/from16 v17, v7
 
-    goto :goto_7
+    goto :goto_160
 
     .line 333
-    :pswitch_e
+    :pswitch_158
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     invoke-virtual {v7}, Lcom/blacksquircle/ui/editorkit/model/ColorScheme;->getNumberColor()I
@@ -1354,7 +1354,7 @@
     move/from16 v17, v7
 
     .line 331
-    :goto_7
+    :goto_160
     const/16 v22, 0x1e
 
     const/16 v23, 0x0
@@ -1379,36 +1379,36 @@
 
     move-result v3
 
-    if-ge v3, v1, :cond_6
+    if-ge v3, v1, :cond_17c
 
     move v3, v1
 
-    goto :goto_8
+    goto :goto_180
 
-    :cond_6
+    :cond_17c
     invoke-virtual {v8}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getStart()I
 
     move-result v3
 
     .line 352
-    :goto_8
+    :goto_180
     invoke-virtual {v8}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getEnd()I
 
     move-result v7
 
-    if-le v7, v2, :cond_7
+    if-le v7, v2, :cond_188
 
     move v7, v2
 
-    goto :goto_9
+    goto :goto_18c
 
-    :cond_7
+    :cond_188
     invoke-virtual {v8}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->getEnd()I
 
     move-result v7
 
     .line 353
-    :goto_9
+    :goto_18c
     nop
 
     .line 329
@@ -1420,24 +1420,24 @@
     .end local v11    # "isInText":Z
     .end local v12    # "isValid":Z
     .end local v13    # "isVisible":Z
-    goto/16 :goto_1
+    goto/16 :goto_63
 
     .line 328
     .restart local v8    # "result":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
     .restart local v11    # "isInText":Z
     .restart local v12    # "isValid":Z
     .restart local v13    # "isVisible":Z
-    :cond_8
+    :cond_193
     const/4 v3, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_63
 
     .line 357
     .end local v8    # "result":Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
     .end local v11    # "isInText":Z
     .end local v12    # "isValid":Z
     .end local v13    # "isVisible":Z
-    :cond_9
+    :cond_196
     const/4 v3, 0x0
 
     iput-boolean v3, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->isSyntaxHighlighting:Z
@@ -1491,8 +1491,8 @@
 
     const/4 v8, 0x0
 
-    :goto_a
-    if-ge v8, v7, :cond_a
+    :goto_1ba
+    if-ge v8, v7, :cond_1c8
 
     aget-object v11, v6, v8
 
@@ -1508,13 +1508,13 @@
     .end local v11    # "span":Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_a
+    goto :goto_1ba
 
     .line 363
-    :cond_a
+    :cond_1c8
     iget-object v7, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->findResultStyleSpan:Lcom/blacksquircle/ui/editorkit/model/StyleSpan;
 
-    if-eqz v7, :cond_14
+    if-eqz v7, :cond_275
 
     .local v7, "styleSpan":Lcom/blacksquircle/ui/editorkit/model/StyleSpan;
     const/4 v8, 0x0
@@ -1527,12 +1527,12 @@
 
     move-result-object v11
 
-    :goto_b
+    :goto_1d3
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
 
-    if-eqz v12, :cond_13
+    if-eqz v12, :cond_26e
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1546,7 +1546,7 @@
 
     move-result v13
 
-    if-ltz v13, :cond_b
+    if-ltz v13, :cond_1f5
 
     invoke-virtual {v12}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getEnd()I
 
@@ -1560,18 +1560,18 @@
 
     move-result v14
 
-    if-gt v13, v14, :cond_b
+    if-gt v13, v14, :cond_1f5
 
     const/4 v13, 0x1
 
-    goto :goto_c
+    goto :goto_1f6
 
-    :cond_b
+    :cond_1f5
     const/4 v13, 0x0
 
     .line 366
     .local v13, "isInText":Z
-    :goto_c
+    :goto_1f6
     invoke-virtual {v12}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getStart()I
 
     move-result v14
@@ -1580,71 +1580,71 @@
 
     move-result v15
 
-    if-gt v14, v15, :cond_c
+    if-gt v14, v15, :cond_202
 
     const/4 v14, 0x1
 
-    goto :goto_d
+    goto :goto_203
 
-    :cond_c
+    :cond_202
     const/4 v14, 0x0
 
     .line 367
     .local v14, "isValid":Z
-    :goto_d
+    :goto_203
     invoke-virtual {v12}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getStart()I
 
     move-result v15
 
-    if-gt v1, v15, :cond_d
+    if-gt v1, v15, :cond_20d
 
-    if-gt v15, v2, :cond_d
+    if-gt v15, v2, :cond_20d
 
     const/4 v15, 0x1
 
-    goto :goto_e
+    goto :goto_20e
 
-    :cond_d
+    :cond_20d
     const/4 v15, 0x0
 
-    :goto_e
-    if-nez v15, :cond_f
+    :goto_20e
+    if-nez v15, :cond_21f
 
     .line 368
     invoke-virtual {v12}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getStart()I
 
     move-result v15
 
-    if-gt v15, v2, :cond_e
+    if-gt v15, v2, :cond_21d
 
     invoke-virtual {v12}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getEnd()I
 
     move-result v15
 
-    if-lt v15, v1, :cond_e
+    if-lt v15, v1, :cond_21d
 
-    goto :goto_f
+    goto :goto_21f
 
-    :cond_e
+    :cond_21d
     const/4 v15, 0x0
 
-    goto :goto_10
+    goto :goto_220
 
-    :cond_f
-    :goto_f
+    :cond_21f
+    :goto_21f
     const/4 v15, 0x1
 
     .line 367
-    :goto_10
+    :goto_220
     nop
 
     .line 369
     .local v15, "isVisible":Z
-    if-eqz v13, :cond_12
+    if-eqz v13, :cond_25f
 
-    if-eqz v14, :cond_12
+    if-eqz v14, :cond_25f
 
-    if-eqz v15, :cond_12
+    if-eqz v15, :cond_25f
 
     .line 370
     invoke-virtual/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getText()Landroid/text/Editable;
@@ -1665,19 +1665,19 @@
 
     move-result v4
 
-    if-ge v4, v1, :cond_10
+    if-ge v4, v1, :cond_23a
 
     move v4, v1
 
-    goto :goto_11
+    goto :goto_23e
 
-    :cond_10
+    :cond_23a
     invoke-virtual {v12}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getStart()I
 
     move-result v4
 
     .line 373
-    :goto_11
+    :goto_23e
     move-object/from16 v18, v6
 
     .end local v6    # "textFindSpans":[Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
@@ -1686,19 +1686,19 @@
 
     move-result v6
 
-    if-le v6, v2, :cond_11
+    if-le v6, v2, :cond_248
 
     move v6, v2
 
-    goto :goto_12
+    goto :goto_24c
 
-    :cond_11
+    :cond_248
     invoke-virtual {v12}, Lcom/blacksquircle/ui/editorkit/model/FindResult;->getEnd()I
 
     move-result v6
 
     .line 374
-    :goto_12
+    :goto_24c
     nop
 
     .line 370
@@ -1724,7 +1724,7 @@
     .end local v13    # "isInText":Z
     .end local v14    # "isValid":Z
     .end local v15    # "isVisible":Z
-    goto/16 :goto_b
+    goto/16 :goto_1d3
 
     .line 369
     .end local v17    # "textSyntaxSpans":[Lcom/blacksquircle/ui/editorkit/model/SyntaxHighlightSpan;
@@ -1737,7 +1737,7 @@
     .restart local v13    # "isInText":Z
     .restart local v14    # "isValid":Z
     .restart local v15    # "isVisible":Z
-    :cond_12
+    :cond_25f
     move-object/from16 v17, v4
 
     move-object/from16 v18, v6
@@ -1758,7 +1758,7 @@
 
     const/16 v9, 0x21
 
-    goto/16 :goto_b
+    goto/16 :goto_1d3
 
     .line 378
     .end local v12    # "result":Lcom/blacksquircle/ui/editorkit/model/FindResult;
@@ -1771,7 +1771,7 @@
     .restart local v4    # "textSyntaxSpans":[Lcom/blacksquircle/ui/editorkit/model/SyntaxHighlightSpan;
     .restart local v6    # "textFindSpans":[Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
     .restart local v7    # "styleSpan":Lcom/blacksquircle/ui/editorkit/model/StyleSpan;
-    :cond_13
+    :cond_26e
     move-object/from16 v17, v4
 
     move-object/from16 v18, v6
@@ -1784,14 +1784,14 @@
     .end local v8    # "$i$a$-let-SyntaxHighlightEditText$updateSyntaxHighlighting$1":I
     .restart local v17    # "textSyntaxSpans":[Lcom/blacksquircle/ui/editorkit/model/SyntaxHighlightSpan;
     .restart local v18    # "textFindSpans":[Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
-    goto :goto_13
+    goto :goto_279
 
     .line 363
     .end local v17    # "textSyntaxSpans":[Lcom/blacksquircle/ui/editorkit/model/SyntaxHighlightSpan;
     .end local v18    # "textFindSpans":[Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
     .restart local v4    # "textSyntaxSpans":[Lcom/blacksquircle/ui/editorkit/model/SyntaxHighlightSpan;
     .restart local v6    # "textFindSpans":[Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
-    :cond_14
+    :cond_275
     move-object/from16 v17, v4
 
     move-object/from16 v18, v6
@@ -1800,13 +1800,13 @@
     .end local v6    # "textFindSpans":[Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
     .restart local v17    # "textSyntaxSpans":[Lcom/blacksquircle/ui/editorkit/model/SyntaxHighlightSpan;
     .restart local v18    # "textFindSpans":[Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
-    :goto_13
+    :goto_279
     nop
 
     .line 380
     iget-boolean v3, v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->useSpacesInsteadOfTabs:Z
 
-    if-nez v3, :cond_17
+    if-nez v3, :cond_2ef
 
     .line 382
     invoke-virtual/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getText()Landroid/text/Editable;
@@ -1857,8 +1857,8 @@
 
     const/4 v7, 0x0
 
-    :goto_14
-    if-ge v7, v4, :cond_15
+    :goto_29f
+    if-ge v7, v4, :cond_2ad
 
     aget-object v5, v3, v7
 
@@ -1874,10 +1874,10 @@
     .end local v5    # "span":Lcom/blacksquircle/ui/editorkit/model/TabWidthSpan;
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_14
+    goto :goto_29f
 
     .line 387
-    :cond_15
+    :cond_2ad
     const-string v4, "\t"
 
     invoke-static {v4}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -1900,13 +1900,13 @@
 
     .line 389
     .local v5, "matcher":Ljava/util/regex/Matcher;
-    :cond_16
-    :goto_15
+    :cond_2bf
+    :goto_2bf
     invoke-virtual {v5}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v6
 
-    if-eqz v6, :cond_17
+    if-eqz v6, :cond_2ef
 
     .line 390
     invoke-virtual {v5}, Ljava/util/regex/Matcher;->start()I
@@ -1925,7 +1925,7 @@
 
     .line 392
     .local v7, "end":I
-    if-ltz v6, :cond_16
+    if-ltz v6, :cond_2bf
 
     invoke-virtual/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getText()Landroid/text/Editable;
 
@@ -1935,7 +1935,7 @@
 
     move-result v8
 
-    if-gt v7, v8, :cond_16
+    if-gt v7, v8, :cond_2bf
 
     .line 393
     invoke-virtual/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getText()Landroid/text/Editable;
@@ -1965,13 +1965,13 @@
 
     .end local v6    # "start":I
     .end local v7    # "end":I
-    goto :goto_15
+    goto :goto_2bf
 
     .line 402
     .end local v3    # "textTabSpans":[Lcom/blacksquircle/ui/editorkit/model/TabWidthSpan;
     .end local v4    # "tabPattern":Ljava/util/regex/Pattern;
     .end local v5    # "matcher":Ljava/util/regex/Matcher;
-    :cond_17
+    :cond_2ef
     invoke-virtual/range {p0 .. p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->postInvalidate()V
 
     .line 404
@@ -1979,35 +1979,35 @@
     .end local v2    # "lineEnd":I
     .end local v17    # "textSyntaxSpans":[Lcom/blacksquircle/ui/editorkit/model/SyntaxHighlightSpan;
     .end local v18    # "textFindSpans":[Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
-    :cond_18
+    :cond_2f2
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2f4
     .packed-switch 0x1
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_158
+        :pswitch_14f
+        :pswitch_146
+        :pswitch_13d
+        :pswitch_134
+        :pswitch_12b
+        :pswitch_122
+        :pswitch_119
+        :pswitch_110
+        :pswitch_107
+        :pswitch_fe
+        :pswitch_f4
+        :pswitch_ea
+        :pswitch_e0
+        :pswitch_d6
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public final clearFindResultSpans()V
-    .locals 7
+    .registers 8
 
     .line 238
     const/4 v0, 0x0
@@ -2070,8 +2070,8 @@
     .local v1, "spans":[Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
     array-length v2, v1
 
-    :goto_0
-    if-ge v0, v2, :cond_0
+    :goto_2d
+    if-ge v0, v2, :cond_3b
 
     aget-object v3, v1, v0
 
@@ -2087,21 +2087,21 @@
     .end local v3    # "span":Lcom/blacksquircle/ui/editorkit/model/FindResultSpan;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 244
-    :cond_0
+    :cond_3b
     return-void
 .end method
 
 .method protected doAfterTextChanged(Landroid/text/Editable;)V
-    .locals 2
+    .registers 4
     .param p1, "text"    # Landroid/text/Editable;
 
     .line 115
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->isSyntaxHighlighting:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 116
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getSelectionStart()I
@@ -2113,7 +2113,7 @@
     invoke-direct {p0, v0, v1}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->shiftSpans(II)V
 
     .line 118
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->addedTextCount:I
@@ -2126,7 +2126,7 @@
 .end method
 
 .method protected doBeforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -2145,13 +2145,13 @@
     .line 101
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->isSyntaxHighlighting:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 102
     invoke-super {p0, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->doBeforeTextChanged(Ljava/lang/CharSequence;III)V
 
     .line 104
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->abortFling()V
 
     .line 105
@@ -2159,7 +2159,7 @@
 .end method
 
 .method protected doOnTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
@@ -2175,18 +2175,18 @@
     .line 109
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->isSyntaxHighlighting:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 110
     invoke-super {p0, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/widget/internal/UndoRedoEditText;->doOnTextChanged(Ljava/lang/CharSequence;III)V
 
     .line 112
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public final find(Lcom/blacksquircle/ui/editorkit/model/FindParams;)V
-    .locals 5
+    .registers 7
     .param p1, "params"    # Lcom/blacksquircle/ui/editorkit/model/FindParams;
 
     const-string v0, "params"
@@ -2207,17 +2207,17 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_7
+    :goto_17
+    if-eqz v0, :cond_f8
 
     .line 156
     nop
@@ -2226,18 +2226,18 @@
     nop
 
     .line 158
-    :try_start_0
+    :try_start_1b
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getRegex()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getMatchCase()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getQuery()Ljava/lang/String;
 
@@ -2247,23 +2247,23 @@
 
     move-result-object v0
 
-    goto/16 :goto_1
+    goto/16 :goto_c5
 
     .line 159
-    :cond_1
+    :cond_31
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getRegex()Z
 
     move-result v0
 
     const/16 v1, 0x42
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4a
 
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getMatchCase()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4a
 
     .line 160
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getQuery()Ljava/lang/String;
@@ -2278,26 +2278,26 @@
 
     move-result-object v0
 
-    goto/16 :goto_1
+    goto/16 :goto_c5
 
     .line 163
-    :cond_2
+    :cond_4a
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getWordsOnly()Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/util/regex/PatternSyntaxException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4e
+    .catch Ljava/util/regex/PatternSyntaxException; {:try_start_1b .. :try_end_4e} :catch_f7
 
     const-string v2, "\\s"
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_76
 
-    :try_start_1
+    :try_start_52
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getMatchCase()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_76
 
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getQuery()Ljava/lang/String;
 
@@ -2327,21 +2327,21 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_c5
 
     .line 164
-    :cond_3
+    :cond_76
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getWordsOnly()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_a5
 
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getMatchCase()Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_a5
 
     .line 165
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getQuery()Ljava/lang/String;
@@ -2380,15 +2380,15 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_c5
 
     .line 168
-    :cond_4
+    :cond_a5
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getMatchCase()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_b8
 
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getQuery()Ljava/lang/String;
 
@@ -2402,10 +2402,10 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_c5
 
     .line 170
-    :cond_5
+    :cond_b8
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->getQuery()Ljava/lang/String;
 
     move-result-object v0
@@ -2423,7 +2423,7 @@
     move-result-object v0
 
     .line 157
-    :goto_1
+    :goto_c5
     nop
 
     .line 174
@@ -2440,12 +2440,12 @@
 
     .line 175
     .local v1, "matcher":Ljava/util/regex/Matcher;
-    :goto_2
+    :goto_d0
     invoke-virtual {v1}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_e9
 
     .line 176
     new-instance v2, Lcom/blacksquircle/ui/editorkit/model/FindResult;
@@ -2466,11 +2466,11 @@
 
     invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_d0
 
     .line 179
     .end local v2    # "findResult":Lcom/blacksquircle/ui/editorkit/model/FindResult;
-    :cond_6
+    :cond_e9
     iget-object v2, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->findResults:Ljava/util/List;
 
     check-cast v2, Ljava/util/Collection;
@@ -2479,24 +2479,24 @@
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_f8
 
     .line 180
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectResult()V
-    :try_end_1
-    .catch Ljava/util/regex/PatternSyntaxException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_f6
+    .catch Ljava/util/regex/PatternSyntaxException; {:try_start_52 .. :try_end_f6} :catch_f7
 
     .end local v0    # "pattern":Ljava/util/regex/Pattern;
     .end local v1    # "matcher":Ljava/util/regex/Matcher;
-    goto :goto_3
+    goto :goto_f8
 
     .line 182
-    :catch_0
+    :catch_f7
     move-exception v0
 
     .line 186
-    :cond_7
-    :goto_3
+    :cond_f8
+    :goto_f8
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->updateSyntaxHighlighting()V
 
     .line 187
@@ -2504,7 +2504,7 @@
 .end method
 
 .method public final find(Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .param p1, "findResults"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2527,12 +2527,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2546,11 +2546,11 @@
 
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_c
 
     .line 194
     .end local v1    # "findResult":Lcom/blacksquircle/ui/editorkit/model/FindResult;
-    :cond_0
+    :cond_1e
     move-object v0, p1
 
     check-cast v0, Ljava/util/Collection;
@@ -2559,13 +2559,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2a
 
     .line 195
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectResult()V
 
     .line 197
-    :cond_1
+    :cond_2a
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->updateSyntaxHighlighting()V
 
     .line 198
@@ -2573,7 +2573,7 @@
 .end method
 
 .method public final findNext()V
-    .locals 2
+    .registers 3
 
     .line 201
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectedFindResult:I
@@ -2586,7 +2586,7 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_15
 
     .line 202
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectedFindResult:I
@@ -2599,17 +2599,17 @@
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectResult()V
 
     .line 205
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public final findPrevious()V
-    .locals 2
+    .registers 3
 
     .line 208
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectedFindResult:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_17
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectedFindResult:I
 
@@ -2619,7 +2619,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_17
 
     .line 209
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectedFindResult:I
@@ -2632,12 +2632,12 @@
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectResult()V
 
     .line 212
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public final getColorScheme()Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->colorScheme:Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
@@ -2646,7 +2646,7 @@
 .end method
 
 .method public final getLanguage()Lcom/blacksquircle/ui/language/base/Language;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->language:Lcom/blacksquircle/ui/language/base/Language;
@@ -2655,7 +2655,7 @@
 .end method
 
 .method public final getTabWidth()I
-    .locals 1
+    .registers 2
 
     .line 55
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->tabWidth:I
@@ -2664,7 +2664,7 @@
 .end method
 
 .method public final getUseSpacesInsteadOfTabs()Z
-    .locals 1
+    .registers 2
 
     .line 54
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->useSpacesInsteadOfTabs:Z
@@ -2673,7 +2673,7 @@
 .end method
 
 .method protected onColorSchemeChanged()V
-    .locals 9
+    .registers 10
 
     .line 127
     new-instance v8, Lcom/blacksquircle/ui/editorkit/model/StyleSpan;
@@ -2747,7 +2747,7 @@
 .end method
 
 .method protected onLanguageChanged()V
-    .locals 0
+    .registers 1
 
     .line 123
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->syntaxHighlight()V
@@ -2757,7 +2757,7 @@
 .end method
 
 .method protected onScrollChanged(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "horiz"    # I
     .param p2, "vert"    # I
     .param p3, "oldHoriz"    # I
@@ -2774,7 +2774,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -2791,7 +2791,7 @@
 .end method
 
 .method public final replaceAllFindResults(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "replaceText"    # Ljava/lang/String;
 
     const-string v0, "replaceText"
@@ -2807,7 +2807,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_49
 
     .line 227
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2831,10 +2831,10 @@
     add-int/lit8 v1, v1, -0x1
 
     .local v1, "index":I
-    :goto_0
+    :goto_22
     const/4 v2, -0x1
 
-    if-ge v2, v1, :cond_0
+    if-ge v2, v1, :cond_40
 
     .line 229
     iget-object v2, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->findResults:Ljava/util/List;
@@ -2866,11 +2866,11 @@
     .end local v2    # "findResultSpan":Lcom/blacksquircle/ui/editorkit/model/FindResult;
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 233
     .end local v1    # "index":I
-    :cond_0
+    :cond_40
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -2881,12 +2881,12 @@
 
     .line 235
     .end local v0    # "stringBuilder":Ljava/lang/StringBuilder;
-    :cond_1
+    :cond_49
     return-void
 .end method
 
 .method public final replaceFindResult(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
     .param p1, "replaceText"    # Ljava/lang/String;
 
     const-string v0, "replaceText"
@@ -2902,7 +2902,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_40
 
     .line 216
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->findResults:Ljava/util/List;
@@ -2949,7 +2949,7 @@
 
     move-result v2
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_40
 
     .line 220
     iget v1, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->selectedFindResult:I
@@ -2960,12 +2960,12 @@
 
     .line 223
     .end local v0    # "findResult":Lcom/blacksquircle/ui/editorkit/model/FindResult;
-    :cond_0
+    :cond_40
     return-void
 .end method
 
 .method public final setColorScheme(Lcom/blacksquircle/ui/editorkit/model/ColorScheme;)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Lcom/blacksquircle/ui/editorkit/model/ColorScheme;
 
     const-string/jumbo v0, "value"
@@ -2983,11 +2983,11 @@
 .end method
 
 .method public final setErrorLine(I)V
-    .locals 10
+    .registers 12
     .param p1, "lineNumber"    # I
 
     .line 143
-    if-lez p1, :cond_0
+    if-lez p1, :cond_46
 
     .line 144
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getStructure()Lcom/blacksquircle/ui/language/base/model/TextStructure;
@@ -3022,7 +3022,7 @@
 
     move-result v2
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_46
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->getText()Landroid/text/Editable;
 
@@ -3032,13 +3032,13 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_46
 
     const/4 v2, -0x1
 
-    if-le v0, v2, :cond_0
+    if-le v0, v2, :cond_46
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_46
 
     .line 147
     const/4 v2, 0x1
@@ -3073,12 +3073,12 @@
     .line 151
     .end local v0    # "lineStart":I
     .end local v1    # "lineEnd":I
-    :cond_0
+    :cond_46
     return-void
 .end method
 
 .method public final setLanguage(Lcom/blacksquircle/ui/language/base/Language;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Lcom/blacksquircle/ui/language/base/Language;
 
     .line 44
@@ -3092,7 +3092,7 @@
 .end method
 
 .method public final setTabWidth(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 55
@@ -3102,7 +3102,7 @@
 .end method
 
 .method public setTextContent(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     const-string/jumbo v0, "text"
@@ -3130,7 +3130,7 @@
 .end method
 
 .method public final setUseSpacesInsteadOfTabs(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 54
@@ -3140,12 +3140,12 @@
 .end method
 
 .method public final tab()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 135
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->useSpacesInsteadOfTabs:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 136
     const-string v0, " "
@@ -3158,13 +3158,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
     .line 138
-    :cond_0
+    :cond_f
     const-string v0, "\t"
 
     .line 135
-    :goto_0
+    :goto_11
     return-object v0
 .end method

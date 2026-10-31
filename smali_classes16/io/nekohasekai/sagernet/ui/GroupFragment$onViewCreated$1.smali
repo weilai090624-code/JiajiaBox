@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/GroupFragment;)V
-    .locals 2
+    .registers 4
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/ui/GroupFragment;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$onViewCreated$1;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment;
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public clearView(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 1
+    .registers 4
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public getDragDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
-    .locals 4
+    .registers 7
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -132,7 +132,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_31
 
     sget-object v1, Lio/nekohasekai/sagernet/group/GroupUpdater;->Companion:Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;
 
@@ -152,12 +152,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
-    goto :goto_0
+    goto :goto_31
 
     .line 90
-    :cond_0
+    :cond_2c
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;->getDragDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
 
     move-result v1
@@ -165,15 +165,15 @@
     return v1
 
     .line 88
-    :cond_1
-    :goto_0
+    :cond_31
+    :goto_31
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public getSwipeDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
-    .locals 4
+    .registers 7
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -200,7 +200,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_31
 
     sget-object v1, Lio/nekohasekai/sagernet/group/GroupUpdater;->Companion:Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;
 
@@ -220,12 +220,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
-    goto :goto_0
+    goto :goto_31
 
     .line 80
-    :cond_0
+    :cond_2c
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;->getSwipeDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
 
     move-result v1
@@ -233,15 +233,15 @@
     return v1
 
     .line 78
-    :cond_1
-    :goto_0
+    :cond_31
+    :goto_31
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public onMove(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
-    .locals 3
+    .registers 7
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p3, "target"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
@@ -282,7 +282,7 @@
 .end method
 
 .method public onSwiped(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 5
+    .registers 8
     .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "direction"    # I
 

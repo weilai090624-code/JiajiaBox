@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 37
     const/4 v0, 0x1
@@ -33,7 +33,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method public static isAsynchronous(Landroid/os/Message;)Z
-    .locals 2
+    .registers 3
     .param p0, "message"    # Landroid/os/Message;
 
     .line 99
@@ -51,7 +51,7 @@
 
     const/16 v1, 0x16
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 100
     invoke-static {p0}, Landroidx/core/os/MessageCompat$Api22Impl;->isAsynchronous(Landroid/os/Message;)Z
@@ -61,25 +61,25 @@
     return v0
 
     .line 102
-    :cond_0
+    :cond_b
     sget-boolean v0, Landroidx/core/os/MessageCompat;->sTryIsAsynchronous:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 106
-    :try_start_0
+    :try_start_10
     invoke-static {p0}, Landroidx/core/os/MessageCompat$Api22Impl;->isAsynchronous(Landroid/os/Message;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_10 .. :try_end_14} :catch_15
 
     return v0
 
     .line 107
-    :catch_0
+    :catch_15
     move-exception v0
 
     .line 108
@@ -88,12 +88,12 @@
 
     .line 111
     .end local v0    # "e":Ljava/lang/NoSuchMethodError;
-    :cond_1
+    :cond_18
     return v1
 .end method
 
 .method public static setAsynchronous(Landroid/os/Message;Z)V
-    .locals 2
+    .registers 4
     .param p0, "message"    # Landroid/os/Message;
     .param p1, "async"    # Z
 
@@ -102,7 +102,7 @@
 
     const/16 v1, 0x16
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 74
     invoke-static {p0, p1}, Landroidx/core/os/MessageCompat$Api22Impl;->setAsynchronous(Landroid/os/Message;Z)V
@@ -111,22 +111,22 @@
     return-void
 
     .line 77
-    :cond_0
+    :cond_a
     sget-boolean v0, Landroidx/core/os/MessageCompat;->sTrySetAsynchronous:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 81
-    :try_start_0
+    :try_start_e
     invoke-static {p0, p1}, Landroidx/core/os/MessageCompat$Api22Impl;->setAsynchronous(Landroid/os/Message;Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_e .. :try_end_11} :catch_12
 
     .line 84
-    goto :goto_0
+    goto :goto_16
 
     .line 82
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 83
@@ -137,7 +137,7 @@
 
     .line 86
     .end local v0    # "e":Ljava/lang/NoSuchMethodError;
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     return-void
 .end method

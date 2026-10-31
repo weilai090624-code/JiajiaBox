@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static getImageTintList(Landroid/widget/ImageView;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/widget/ImageView;
 
     .line 39
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getImageTintMode(Landroid/widget/ImageView;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/widget/ImageView;
 
     .line 76
@@ -53,7 +53,7 @@
 .end method
 
 .method public static setImageTintList(Landroid/widget/ImageView;Landroid/content/res/ColorStateList;)V
-    .locals 2
+    .registers 4
     .param p0, "view"    # Landroid/widget/ImageView;
     .param p1, "tintList"    # Landroid/content/res/ColorStateList;
 
@@ -68,7 +68,7 @@
 
     const/16 v1, 0x15
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_27
 
     .line 58
     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
@@ -77,20 +77,20 @@
 
     .line 59
     .local v0, "imageViewDrawable":Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     invoke-static {p0}, Landroidx/core/widget/ImageViewCompat$Api21Impl;->getImageTintList(Landroid/widget/ImageView;)Landroid/content/res/ColorStateList;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_26
 
     .line 60
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->isStateful()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 61
     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawableState()[I
@@ -100,21 +100,21 @@
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
     .line 63
-    :cond_0
+    :cond_23
     invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 65
     .end local v0    # "imageViewDrawable":Landroid/graphics/drawable/Drawable;
-    :cond_1
+    :cond_26
     nop
 
     .line 69
-    :cond_2
+    :cond_27
     return-void
 .end method
 
 .method public static setImageTintMode(Landroid/widget/ImageView;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 2
+    .registers 4
     .param p0, "view"    # Landroid/widget/ImageView;
     .param p1, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
@@ -129,7 +129,7 @@
 
     const/16 v1, 0x15
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_27
 
     .line 96
     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
@@ -138,20 +138,20 @@
 
     .line 97
     .local v0, "imageViewDrawable":Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     invoke-static {p0}, Landroidx/core/widget/ImageViewCompat$Api21Impl;->getImageTintList(Landroid/widget/ImageView;)Landroid/content/res/ColorStateList;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_26
 
     .line 98
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->isStateful()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 99
     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawableState()[I
@@ -161,15 +161,15 @@
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
     .line 101
-    :cond_0
+    :cond_23
     invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 103
     .end local v0    # "imageViewDrawable":Landroid/graphics/drawable/Drawable;
-    :cond_1
+    :cond_26
     nop
 
     .line 107
-    :cond_2
+    :cond_27
     return-void
 .end method

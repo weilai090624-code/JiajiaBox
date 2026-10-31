@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 29
     new-instance v0, Landroidx/camera/core/impl/utils/Absent;
@@ -44,7 +44,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
@@ -55,7 +55,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 89
     .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
@@ -65,7 +65,7 @@
 .end method
 
 .method static withType()Landroidx/camera/core/impl/utils/Optional;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -98,21 +98,21 @@
 
     .line 75
     .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -131,7 +131,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 80
     .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
@@ -141,7 +141,7 @@
 .end method
 
 .method public isPresent()Z
-    .locals 1
+    .registers 2
 
     .line 41
     .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
@@ -151,7 +151,7 @@
 .end method
 
 .method public or(Landroidx/camera/core/impl/utils/Optional;)Landroidx/camera/core/impl/utils/Optional;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -184,7 +184,7 @@
 .end method
 
 .method public or(Landroidx/core/util/Supplier;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -223,7 +223,7 @@
 .end method
 
 .method public or(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -252,7 +252,7 @@
 .end method
 
 .method public orNull()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -267,7 +267,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 85
     .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"

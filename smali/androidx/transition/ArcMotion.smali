@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 56
     nop
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 66
     invoke-direct {p0}, Landroidx/transition/PathMotion;-><init>()V
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -178,7 +178,7 @@
 .end method
 
 .method private static toTangent(F)F
-    .locals 2
+    .registers 3
     .param p0, "arcInDegrees"    # F
 
     .line 178
@@ -186,13 +186,13 @@
 
     cmpg-float v0, p0, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1a
 
     const/high16 v0, 0x42b40000    # 90.0f
 
     cmpl-float v0, p0, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_1a
 
     .line 181
     const/high16 v0, 0x40000000    # 2.0f
@@ -214,7 +214,7 @@
     return v0
 
     .line 179
-    :cond_0
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Arc must be between 0 and 90 degrees"
@@ -227,7 +227,7 @@
 
 # virtual methods
 .method public getMaximumAngle()F
-    .locals 1
+    .registers 2
 
     .line 174
     iget v0, p0, Landroidx/transition/ArcMotion;->mMaximumAngle:F
@@ -236,7 +236,7 @@
 .end method
 
 .method public getMinimumHorizontalAngle()F
-    .locals 1
+    .registers 2
 
     .line 116
     iget v0, p0, Landroidx/transition/ArcMotion;->mMinimumHorizontalAngle:F
@@ -245,7 +245,7 @@
 .end method
 
 .method public getMinimumVerticalAngle()F
-    .locals 1
+    .registers 2
 
     .line 147
     iget v0, p0, Landroidx/transition/ArcMotion;->mMinimumVerticalAngle:F
@@ -254,7 +254,7 @@
 .end method
 
 .method public getPath(FFFF)Landroid/graphics/Path;
-    .locals 31
+    .registers 36
     .param p1, "startX"    # F
     .param p2, "startY"    # F
     .param p3, "endX"    # F
@@ -314,16 +314,16 @@
     .local v16, "midDist2":F
     cmpl-float v4, v2, p4
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_2c
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_2c
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_2d
     move/from16 v17, v4
 
     .line 225
@@ -338,7 +338,7 @@
 
     cmpg-float v4, v4, v6
 
-    if-gez v4, :cond_2
+    if-gez v4, :cond_59
 
     .line 231
     mul-float v4, v12, v5
@@ -351,7 +351,7 @@
 
     .line 232
     .local v4, "eDistY":F
-    if-eqz v17, :cond_1
+    if-eqz v17, :cond_4a
 
     .line 233
     add-float v6, p4, v4
@@ -361,12 +361,12 @@
     move/from16 v7, p3
 
     .local v7, "ex":F
-    goto :goto_1
+    goto :goto_4e
 
     .line 236
     .end local v6    # "ey":F
     .end local v7    # "ex":F
-    :cond_1
+    :cond_4a
     add-float v6, v2, v4
 
     .line 237
@@ -375,7 +375,7 @@
 
     .line 240
     .restart local v7    # "ex":F
-    :goto_1
+    :goto_4e
     iget v8, v0, Landroidx/transition/ArcMotion;->mMinimumVerticalTangent:F
 
     mul-float v8, v8, v16
@@ -389,20 +389,20 @@
     .local v8, "minimumArcDist2":F
     move/from16 v18, v8
 
-    goto :goto_3
+    goto :goto_7c
 
     .line 244
     .end local v6    # "ey":F
     .end local v7    # "ex":F
     .end local v8    # "minimumArcDist2":F
-    :cond_2
+    :cond_59
     mul-float v4, v11, v5
 
     div-float v4, v13, v4
 
     .line 245
     .local v4, "eDistX":F
-    if-eqz v17, :cond_3
+    if-eqz v17, :cond_69
 
     .line 246
     add-float v6, v1, v4
@@ -418,12 +418,12 @@
     move/from16 v6, v30
 
     .local v7, "ey":F
-    goto :goto_2
+    goto :goto_72
 
     .line 249
     .end local v6    # "ex":F
     .end local v7    # "ey":F
-    :cond_3
+    :cond_69
     sub-float v6, p3, v4
 
     .line 250
@@ -439,7 +439,7 @@
     .line 253
     .local v6, "ey":F
     .local v7, "ex":F
-    :goto_2
+    :goto_72
     iget v8, v0, Landroidx/transition/ArcMotion;->mMinimumHorizontalTangent:F
 
     mul-float v8, v8, v16
@@ -453,7 +453,7 @@
     .line 256
     .end local v4    # "eDistX":F
     .local v18, "minimumArcDist2":F
-    :goto_3
+    :goto_7c
     sub-float v19, v14, v7
 
     .line 257
@@ -486,41 +486,41 @@
     .local v4, "newArcDistance2":F
     cmpg-float v8, v21, v18
 
-    if-gez v8, :cond_4
+    if-gez v8, :cond_98
 
     .line 264
     move/from16 v4, v18
 
     move/from16 v23, v4
 
-    goto :goto_4
+    goto :goto_a3
 
     .line 265
-    :cond_4
+    :cond_98
     cmpl-float v8, v21, v22
 
-    if-lez v8, :cond_5
+    if-lez v8, :cond_a1
 
     .line 266
     move/from16 v4, v22
 
     move/from16 v23, v4
 
-    goto :goto_4
+    goto :goto_a3
 
     .line 265
-    :cond_5
+    :cond_a1
     move/from16 v23, v4
 
     .line 268
     .end local v4    # "newArcDistance2":F
     .local v23, "newArcDistance2":F
-    :goto_4
+    :goto_a3
     const/4 v4, 0x0
 
     cmpl-float v4, v23, v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_c1
 
     .line 269
     div-float v4, v23, v21
@@ -554,12 +554,12 @@
 
     move/from16 v25, v7
 
-    goto :goto_5
+    goto :goto_c5
 
     .line 268
     .end local v4    # "ratio2":F
     .end local v8    # "ratio":F
-    :cond_6
+    :cond_c1
     move/from16 v24, v6
 
     move/from16 v25, v7
@@ -569,7 +569,7 @@
     .end local v7    # "ex":F
     .local v24, "ey":F
     .local v25, "ex":F
-    :goto_5
+    :goto_c5
     add-float v4, v1, v25
 
     div-float v26, v4, v5
@@ -615,7 +615,7 @@
 .end method
 
 .method public setMaximumAngle(F)V
-    .locals 1
+    .registers 3
     .param p1, "angleInDegrees"    # F
 
     .line 160
@@ -633,7 +633,7 @@
 .end method
 
 .method public setMinimumHorizontalAngle(F)V
-    .locals 1
+    .registers 3
     .param p1, "angleInDegrees"    # F
 
     .line 101
@@ -651,7 +651,7 @@
 .end method
 
 .method public setMinimumVerticalAngle(F)V
-    .locals 1
+    .registers 3
     .param p1, "angleInDegrees"    # F
 
     .line 131

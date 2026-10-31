@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/security/MessageDigest;I)V
-    .locals 0
+    .registers 3
     .param p1, "digest"    # Ljava/security/MessageDigest;
     .param p2, "bytes"    # I
 
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/security/MessageDigest;ILcom/google/common/hash/MessageDigestHashFunction$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/security/MessageDigest;
     .param p2, "x1"    # I
     .param p3, "x2"    # Lcom/google/common/hash/MessageDigestHashFunction$1;
@@ -54,7 +54,7 @@
 .end method
 
 .method private checkNotDone()V
-    .locals 2
+    .registers 3
 
     .line 153
     iget-boolean v0, p0, Lcom/google/common/hash/MessageDigestHashFunction$MessageDigestHasher;->done:Z
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public hash()Lcom/google/common/hash/HashCode;
-    .locals 2
+    .registers 3
 
     .line 158
     invoke-direct {p0}, Lcom/google/common/hash/MessageDigestHashFunction$MessageDigestHasher;->checkNotDone()V
@@ -91,7 +91,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     .line 161
     iget-object v0, p0, Lcom/google/common/hash/MessageDigestHashFunction$MessageDigestHasher;->digest:Ljava/security/MessageDigest;
@@ -104,10 +104,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 162
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Lcom/google/common/hash/MessageDigestHashFunction$MessageDigestHasher;->digest:Ljava/security/MessageDigest;
 
     invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
@@ -125,12 +125,12 @@
     move-result-object v0
 
     .line 160
-    :goto_0
+    :goto_2b
     return-object v0
 .end method
 
 .method protected update(B)V
-    .locals 1
+    .registers 3
     .param p1, "b"    # B
 
     .line 136
@@ -146,7 +146,7 @@
 .end method
 
 .method protected update(Ljava/nio/ByteBuffer;)V
-    .locals 1
+    .registers 3
     .param p1, "bytes"    # Ljava/nio/ByteBuffer;
 
     .line 148
@@ -162,7 +162,7 @@
 .end method
 
 .method protected update([BII)V
-    .locals 1
+    .registers 5
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I

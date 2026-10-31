@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -94,7 +94,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -155,7 +155,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -219,7 +219,7 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -234,7 +234,7 @@
     .end annotation
 
     .line 86
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_b3
 
     .line 87
     sget-object v0, Landroidx/constraintlayout/widget/R$styleable;->MotionEffect:[I
@@ -254,8 +254,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_8
+    :goto_d
+    if-ge v2, v1, :cond_99
 
     .line 90
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -270,7 +270,7 @@
 
     const/16 v6, 0x63
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_2f
 
     .line 92
     iget v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStart:I
@@ -294,13 +294,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStart:I
 
-    goto :goto_1
+    goto :goto_95
 
     .line 94
-    :cond_0
+    :cond_2f
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MotionEffect_motionEffect_end:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_48
 
     .line 95
     iget v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectEnd:I
@@ -324,13 +324,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectEnd:I
 
-    goto :goto_1
+    goto :goto_95
 
     .line 97
-    :cond_1
+    :cond_48
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MotionEffect_motionEffect_translationX:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_55
 
     .line 98
     iget v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectTranslationX:I
@@ -341,13 +341,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectTranslationX:I
 
-    goto :goto_1
+    goto :goto_95
 
     .line 99
-    :cond_2
+    :cond_55
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MotionEffect_motionEffect_translationY:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_62
 
     .line 100
     iget v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectTranslationY:I
@@ -358,13 +358,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectTranslationY:I
 
-    goto :goto_1
+    goto :goto_95
 
     .line 101
-    :cond_3
+    :cond_62
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MotionEffect_motionEffect_alpha:I
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_6f
 
     .line 102
     iget v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectAlpha:F
@@ -375,13 +375,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectAlpha:F
 
-    goto :goto_1
+    goto :goto_95
 
     .line 103
-    :cond_4
+    :cond_6f
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MotionEffect_motionEffect_move:I
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_7c
 
     .line 104
     iget v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->fadeMove:I
@@ -392,13 +392,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->fadeMove:I
 
-    goto :goto_1
+    goto :goto_95
 
     .line 105
-    :cond_5
+    :cond_7c
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MotionEffect_motionEffect_strict:I
 
-    if-ne v3, v4, :cond_6
+    if-ne v3, v4, :cond_89
 
     .line 106
     iget-boolean v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStrictMove:Z
@@ -409,13 +409,13 @@
 
     iput-boolean v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStrictMove:Z
 
-    goto :goto_1
+    goto :goto_95
 
     .line 107
-    :cond_6
+    :cond_89
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->MotionEffect_motionEffect_viewTransition:I
 
-    if-ne v3, v4, :cond_7
+    if-ne v3, v4, :cond_95
 
     .line 108
     iget v4, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->viewTransitionId:I
@@ -428,25 +428,25 @@
 
     .line 89
     .end local v3    # "attr":I
-    :cond_7
-    :goto_1
+    :cond_95
+    :goto_95
     add-int/lit8 v2, v2, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_d
 
     .line 111
     .end local v2    # "i":I
-    :cond_8
+    :cond_99
     iget v2, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStart:I
 
     iget v3, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectEnd:I
 
-    if-ne v2, v3, :cond_a
+    if-ne v2, v3, :cond_b0
 
     .line 112
     iget v2, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStart:I
 
-    if-lez v2, :cond_9
+    if-lez v2, :cond_aa
 
     .line 113
     iget v2, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStart:I
@@ -455,10 +455,10 @@
 
     iput v2, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStart:I
 
-    goto :goto_2
+    goto :goto_b0
 
     .line 115
-    :cond_9
+    :cond_aa
     iget v2, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectEnd:I
 
     add-int/lit8 v2, v2, 0x1
@@ -466,21 +466,21 @@
     iput v2, p0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectEnd:I
 
     .line 118
-    :cond_a
-    :goto_2
+    :cond_b0
+    :goto_b0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 120
     .end local v0    # "a":Landroid/content/res/TypedArray;
     .end local v1    # "N":I
-    :cond_b
+    :cond_b3
     return-void
 .end method
 
 
 # virtual methods
 .method public isDecorator()Z
-    .locals 1
+    .registers 2
 
     .line 124
     const/4 v0, 0x1
@@ -489,7 +489,7 @@
 .end method
 
 .method public onPreSetup(Landroidx/constraintlayout/motion/widget/MotionLayout;Ljava/util/HashMap;)V
-    .locals 24
+    .registers 27
     .param p1, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -531,7 +531,7 @@
 
     .line 131
     .local v2, "views":[Landroid/view/View;
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2d
 
     .line 132
     new-instance v3, Ljava/lang/StringBuilder;
@@ -564,7 +564,7 @@
     return-void
 
     .line 138
-    :cond_0
+    :cond_2d
     new-instance v3, Landroidx/constraintlayout/motion/widget/KeyAttributes;
 
     invoke-direct {v3}, Landroidx/constraintlayout/motion/widget/KeyAttributes;-><init>()V
@@ -681,7 +681,7 @@
     .local v9, "translationX2":Landroidx/constraintlayout/motion/widget/KeyAttributes;
     iget v11, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectTranslationX:I
 
-    if-lez v11, :cond_1
+    if-lez v11, :cond_c1
 
     .line 158
     new-instance v11, Landroidx/constraintlayout/motion/widget/KeyAttributes;
@@ -728,7 +728,7 @@
     invoke-virtual {v9, v11}, Landroidx/constraintlayout/motion/widget/KeyAttributes;->setFramePosition(I)V
 
     .line 166
-    :cond_1
+    :cond_c1
     const/4 v11, 0x0
 
     .line 167
@@ -739,7 +739,7 @@
     .local v12, "translationY2":Landroidx/constraintlayout/motion/widget/KeyAttributes;
     iget v13, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectTranslationY:I
 
-    if-lez v13, :cond_2
+    if-lez v13, :cond_f1
 
     .line 169
     new-instance v13, Landroidx/constraintlayout/motion/widget/KeyAttributes;
@@ -786,7 +786,7 @@
     invoke-virtual {v12, v13}, Landroidx/constraintlayout/motion/widget/KeyAttributes;->setFramePosition(I)V
 
     .line 177
-    :cond_2
+    :cond_f1
     iget v13, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->fadeMove:I
 
     .line 178
@@ -797,7 +797,7 @@
 
     const/16 v18, 0x0
 
-    if-ne v14, v15, :cond_a
+    if-ne v14, v15, :cond_168
 
     .line 179
     const/4 v14, 0x4
@@ -811,10 +811,10 @@
     move/from16 v14, v19
 
     .local v14, "i":I
-    :goto_0
+    :goto_101
     array-length v6, v2
 
-    if-ge v14, v6, :cond_8
+    if-ge v14, v6, :cond_155
 
     .line 182
     aget-object v6, v2, v14
@@ -827,13 +827,13 @@
 
     .line 183
     .local v6, "mc":Landroidx/constraintlayout/motion/widget/MotionController;
-    if-nez v6, :cond_3
+    if-nez v6, :cond_10f
 
     .line 184
-    goto :goto_1
+    goto :goto_151
 
     .line 186
-    :cond_3
+    :cond_10f
     invoke-virtual {v6}, Landroidx/constraintlayout/motion/widget/MotionController;->getFinalX()F
 
     move-result v21
@@ -860,7 +860,7 @@
     .local v22, "y":F
     cmpg-float v23, v22, v18
 
-    if-gez v23, :cond_4
+    if-gez v23, :cond_12d
 
     aget v23, v15, v10
 
@@ -869,10 +869,10 @@
     aput v23, v15, v10
 
     .line 191
-    :cond_4
+    :cond_12d
     cmpl-float v23, v22, v18
 
-    if-lez v23, :cond_5
+    if-lez v23, :cond_139
 
     const/16 v19, 0x0
 
@@ -883,10 +883,10 @@
     aput v23, v15, v19
 
     .line 192
-    :cond_5
+    :cond_139
     cmpl-float v23, v21, v18
 
-    if-lez v23, :cond_6
+    if-lez v23, :cond_145
 
     const/16 v16, 0x3
 
@@ -897,10 +897,10 @@
     aput v23, v15, v16
 
     .line 193
-    :cond_6
+    :cond_145
     cmpg-float v23, v21, v18
 
-    if-gez v23, :cond_7
+    if-gez v23, :cond_151
 
     const/16 v17, 0x2
 
@@ -914,17 +914,17 @@
     .end local v6    # "mc":Landroidx/constraintlayout/motion/widget/MotionController;
     .end local v21    # "x":F
     .end local v22    # "y":F
-    :cond_7
-    :goto_1
+    :cond_151
+    :goto_151
     add-int/lit8 v14, v14, 0x1
 
     const/4 v6, 0x0
 
-    goto :goto_0
+    goto :goto_101
 
     .line 195
     .end local v14    # "i":I
-    :cond_8
+    :cond_155
     const/4 v6, 0x0
 
     aget v6, v15, v6
@@ -937,15 +937,15 @@
     const/4 v14, 0x1
 
     .restart local v14    # "i":I
-    :goto_2
+    :goto_15a
     const/4 v10, 0x4
 
-    if-ge v14, v10, :cond_a
+    if-ge v14, v10, :cond_168
 
     .line 198
     aget v10, v15, v14
 
-    if-ge v6, v10, :cond_9
+    if-ge v6, v10, :cond_164
 
     .line 199
     aget v6, v15, v14
@@ -954,25 +954,25 @@
     move v13, v14
 
     .line 197
-    :cond_9
+    :cond_164
     add-int/lit8 v14, v14, 0x1
 
     const/4 v10, 0x1
 
-    goto :goto_2
+    goto :goto_15a
 
     .line 205
     .end local v6    # "max":I
     .end local v14    # "i":I
     .end local v15    # "direction":[I
-    :cond_a
+    :cond_168
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_3
+    :goto_169
     array-length v10, v2
 
-    if-ge v6, v10, :cond_18
+    if-ge v6, v10, :cond_21a
 
     .line 206
     aget-object v10, v2, v6
@@ -985,17 +985,17 @@
 
     .line 207
     .local v10, "mc":Landroidx/constraintlayout/motion/widget/MotionController;
-    if-nez v10, :cond_b
+    if-nez v10, :cond_17c
 
     .line 208
     move-object/from16 v21, v2
 
     move-object/from16 v2, p1
 
-    goto/16 :goto_5
+    goto/16 :goto_212
 
     .line 210
-    :cond_b
+    :cond_17c
     invoke-virtual {v10}, Landroidx/constraintlayout/motion/widget/MotionController;->getFinalX()F
 
     move-result v14
@@ -1024,104 +1024,104 @@
 
     .line 217
     .local v20, "apply":Z
-    if-nez v13, :cond_d
+    if-nez v13, :cond_1a2
 
     .line 218
     cmpl-float v21, v15, v18
 
-    if-lez v21, :cond_13
+    if-lez v21, :cond_1d7
 
     iget-boolean v1, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStrictMove:Z
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_19f
 
     cmpl-float v1, v14, v18
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_1d7
 
     .line 219
-    :cond_c
+    :cond_19f
     const/16 v20, 0x0
 
-    goto :goto_4
+    goto :goto_1d7
 
     .line 221
-    :cond_d
+    :cond_1a2
     const/4 v1, 0x1
 
-    if-ne v13, v1, :cond_f
+    if-ne v13, v1, :cond_1b4
 
     .line 222
     cmpg-float v19, v15, v18
 
-    if-gez v19, :cond_13
+    if-gez v19, :cond_1d7
 
     iget-boolean v1, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStrictMove:Z
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_1b1
 
     cmpl-float v1, v14, v18
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_1d7
 
     .line 223
-    :cond_e
+    :cond_1b1
     const/16 v20, 0x0
 
-    goto :goto_4
+    goto :goto_1d7
 
     .line 225
-    :cond_f
+    :cond_1b4
     const/4 v1, 0x2
 
-    if-ne v13, v1, :cond_11
+    if-ne v13, v1, :cond_1c6
 
     .line 226
     cmpg-float v17, v14, v18
 
-    if-gez v17, :cond_13
+    if-gez v17, :cond_1d7
 
     iget-boolean v1, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStrictMove:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_1c3
 
     cmpl-float v1, v15, v18
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_1d7
 
     .line 227
-    :cond_10
+    :cond_1c3
     const/16 v20, 0x0
 
-    goto :goto_4
+    goto :goto_1d7
 
     .line 229
-    :cond_11
+    :cond_1c6
     const/4 v1, 0x3
 
-    if-ne v13, v1, :cond_13
+    if-ne v13, v1, :cond_1d7
 
     .line 230
     cmpl-float v16, v14, v18
 
-    if-lez v16, :cond_13
+    if-lez v16, :cond_1d7
 
     iget-boolean v1, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectStrictMove:Z
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_1d5
 
     cmpl-float v1, v15, v18
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_1d7
 
     .line 231
-    :cond_12
+    :cond_1d5
     const/16 v20, 0x0
 
     .line 235
-    :cond_13
-    :goto_4
-    if-eqz v20, :cond_17
+    :cond_1d7
+    :goto_1d7
+    if-eqz v20, :cond_20e
 
     .line 236
     iget v1, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->viewTransitionId:I
@@ -1132,7 +1132,7 @@
 
     .end local v2    # "views":[Landroid/view/View;
     .local v21, "views":[Landroid/view/View;
-    if-ne v1, v2, :cond_16
+    if-ne v1, v2, :cond_206
 
     .line 237
     invoke-virtual {v10, v3}, Landroidx/constraintlayout/motion/widget/MotionController;->addKey(Landroidx/constraintlayout/motion/widget/Key;)V
@@ -1149,7 +1149,7 @@
     .line 241
     iget v1, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectTranslationX:I
 
-    if-lez v1, :cond_14
+    if-lez v1, :cond_1f6
 
     .line 242
     invoke-virtual {v10, v8}, Landroidx/constraintlayout/motion/widget/MotionController;->addKey(Landroidx/constraintlayout/motion/widget/Key;)V
@@ -1158,10 +1158,10 @@
     invoke-virtual {v10, v9}, Landroidx/constraintlayout/motion/widget/MotionController;->addKey(Landroidx/constraintlayout/motion/widget/Key;)V
 
     .line 245
-    :cond_14
+    :cond_1f6
     iget v1, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->motionEffectTranslationY:I
 
-    if-lez v1, :cond_15
+    if-lez v1, :cond_203
 
     .line 246
     invoke-virtual {v10, v11}, Landroidx/constraintlayout/motion/widget/MotionController;->addKey(Landroidx/constraintlayout/motion/widget/Key;)V
@@ -1171,28 +1171,28 @@
 
     move-object/from16 v2, p1
 
-    goto :goto_5
+    goto :goto_212
 
     .line 245
-    :cond_15
+    :cond_203
     move-object/from16 v2, p1
 
-    goto :goto_5
+    goto :goto_212
 
     .line 250
-    :cond_16
+    :cond_206
     iget v1, v0, Landroidx/constraintlayout/helper/widget/MotionEffect;->viewTransitionId:I
 
     move-object/from16 v2, p1
 
     invoke-virtual {v2, v1, v10}, Landroidx/constraintlayout/motion/widget/MotionLayout;->applyViewTransition(ILandroidx/constraintlayout/motion/widget/MotionController;)Z
 
-    goto :goto_5
+    goto :goto_212
 
     .line 235
     .end local v21    # "views":[Landroid/view/View;
     .restart local v2    # "views":[Landroid/view/View;
-    :cond_17
+    :cond_20e
     move-object/from16 v21, v2
 
     move-object/from16 v2, p1
@@ -1204,19 +1204,19 @@
     .end local v15    # "y":F
     .end local v20    # "apply":Z
     .restart local v21    # "views":[Landroid/view/View;
-    :goto_5
+    :goto_212
     add-int/lit8 v6, v6, 0x1
 
     move-object/from16 v1, p2
 
     move-object/from16 v2, v21
 
-    goto/16 :goto_3
+    goto/16 :goto_169
 
     .line 254
     .end local v6    # "i":I
     .end local v21    # "views":[Landroid/view/View;
     .restart local v2    # "views":[Landroid/view/View;
-    :cond_18
+    :cond_21a
     return-void
 .end method

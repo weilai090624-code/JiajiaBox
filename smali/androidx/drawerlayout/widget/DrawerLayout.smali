@@ -5759,7 +5759,7 @@
     if-gez v10, :cond_5e
 
     .line 1645
-    invoke-virtual {p0}, Landroidx/drawerlayout/widget/DrawerLayout;->findOpenDrawer()Landroid/view/View;
+    invoke-virtual {p0}, Landroidx/drawerlayout/widget/DrawerLayout;->findVisibleDrawer()Landroid/view/View;
 
     move-result-object v10
 

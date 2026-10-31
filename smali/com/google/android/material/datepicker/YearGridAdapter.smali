@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/datepicker/MaterialCalendar;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,7 +53,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/datepicker/YearGridAdapter;)Lcom/google/android/material/datepicker/MaterialCalendar;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/datepicker/YearGridAdapter;
 
     .line 31
@@ -63,7 +63,7 @@
 .end method
 
 .method private createYearClickListener(I)Landroid/view/View$OnClickListener;
-    .locals 1
+    .registers 3
     .param p1, "year"    # I
 
     .line 80
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Lcom/google/android/material/datepicker/YearGridAdapter;->materialCalendar:Lcom/google/android/material/datepicker/MaterialCalendar;
@@ -94,7 +94,7 @@
 .end method
 
 .method getPositionForYear(I)I
-    .locals 1
+    .registers 3
     .param p1, "year"    # I
 
     .line 98
@@ -116,7 +116,7 @@
 .end method
 
 .method getYearForPosition(I)I
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 102
@@ -138,7 +138,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
+    .registers 3
 
     .line 31
     check-cast p1, Lcom/google/android/material/datepicker/YearGridAdapter$ViewHolder;
@@ -149,7 +149,7 @@
 .end method
 
 .method public onBindViewHolder(Lcom/google/android/material/datepicker/YearGridAdapter$ViewHolder;I)V
-    .locals 9
+    .registers 12
     .param p1, "viewHolder"    # Lcom/google/android/material/datepicker/YearGridAdapter$ViewHolder;
     .param p2, "position"    # I
 
@@ -222,18 +222,18 @@
 
     move-result v3
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_3f
 
     iget-object v3, v1, Lcom/google/android/material/datepicker/CalendarStyle;->todayYear:Lcom/google/android/material/datepicker/CalendarItemStyle;
 
-    goto :goto_0
+    goto :goto_41
 
-    :cond_0
+    :cond_3f
     iget-object v3, v1, Lcom/google/android/material/datepicker/CalendarStyle;->year:Lcom/google/android/material/datepicker/CalendarItemStyle;
 
     .line 68
     .local v3, "style":Lcom/google/android/material/datepicker/CalendarItemStyle;
-    :goto_0
+    :goto_41
     iget-object v5, p0, Lcom/google/android/material/datepicker/YearGridAdapter;->materialCalendar:Lcom/google/android/material/datepicker/MaterialCalendar;
 
     invoke-virtual {v5}, Lcom/google/android/material/datepicker/MaterialCalendar;->getDateSelector()Lcom/google/android/material/datepicker/DateSelector;
@@ -248,12 +248,12 @@
 
     move-result-object v5
 
-    :goto_1
+    :goto_4f
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_6b
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -274,18 +274,18 @@
 
     move-result v7
 
-    if-ne v7, v0, :cond_1
+    if-ne v7, v0, :cond_6a
 
     .line 71
     iget-object v3, v1, Lcom/google/android/material/datepicker/CalendarStyle;->selectedYear:Lcom/google/android/material/datepicker/CalendarItemStyle;
 
     .line 73
     .end local v6    # "day":Ljava/lang/Long;
-    :cond_1
-    goto :goto_1
+    :cond_6a
+    goto :goto_4f
 
     .line 74
-    :cond_2
+    :cond_6b
     iget-object v4, p1, Lcom/google/android/material/datepicker/YearGridAdapter$ViewHolder;->textView:Landroid/widget/TextView;
 
     invoke-virtual {v3, v4}, Lcom/google/android/material/datepicker/CalendarItemStyle;->styleItem(Landroid/widget/TextView;)V
@@ -304,7 +304,7 @@
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 0
+    .registers 3
 
     .line 31
     invoke-virtual {p0, p1, p2}, Lcom/google/android/material/datepicker/YearGridAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/google/android/material/datepicker/YearGridAdapter$ViewHolder;
@@ -315,7 +315,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/google/android/material/datepicker/YearGridAdapter$ViewHolder;
-    .locals 3
+    .registers 6
     .param p1, "viewGroup"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 

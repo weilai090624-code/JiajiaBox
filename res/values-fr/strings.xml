@@ -84,8 +84,8 @@
     <string name="call_notification_ongoing_text">Appel en cours</string>
     <string name="call_notification_screening_text">"Filtrage d'un appel entrant"</string>
     <string name="certificates">Certificats</string>
-    <string name="character_counter_content_description" formatted="false">Caractères saisis %1$d sur %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Nombre maximal de caractères dépassé : %1$d sur %2$d</string>
+    <string name="character_counter_content_description">Caractères saisis %1$d sur %2$d</string>
+    <string name="character_counter_overflowed_content_description">Nombre maximal de caractères dépassé : %1$d sur %2$d</string>
     <string name="circular_reference">Référence circulaire</string>
     <string name="clear_profiles">Effacer</string>
     <string name="clear_profiles_message">Êtes-vous sûr(e) de vouloir supprimer ce groupe ?</string>
@@ -252,7 +252,7 @@
     <string name="mtrl_picker_out_of_range">Hors limite : %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Date de début – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Date de fin</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
     <string name="mtrl_picker_range_header_title">Sélectionnez une période</string>
     <string name="mtrl_picker_range_header_unselected">Date de début – Date de fin</string>
     <string name="mtrl_picker_save">Enregistrer</string>
@@ -356,7 +356,7 @@
     <string name="show_stop_sum">Si vous ne souhaitez pas utiliser Quick Tile comme commutateur</string>
     <string name="show_system_apps">Afficher les applications système</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"Proxy： %1$s↑ %2$s↓ 
+    <string name="speed_detail">"Proxy： %1$s↑ %2$s↓ 
 Directe： %3$s↑ %4$s↓"</string>
     <string name="speed_interval">Intervalle de mise à jour des notifications de vitesse</string>
     <string name="ss_cat">Préférences Shadowsocks</string>
@@ -376,7 +376,7 @@ Directe： %3$s↑ %4$s↓"</string>
     <string name="subscription_update_message">Mise à jour de %s…</string>
     <string name="subscription_used">%s utilisé</string>
     <string name="subscriptions">Souscriptions</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="tcp_connections">%d connexions TCP</string>
     <string name="telegram">Canal de mise à jour Telegram</string>
     <string name="theme">Thème</string>

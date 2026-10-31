@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final synthetic add(Landroidx/fragment/app/FragmentTransaction;ILjava/lang/String;Landroid/os/Bundle;)Landroidx/fragment/app/FragmentTransaction;
-    .locals 3
+    .registers 7
     .param p0, "$this$add"    # Landroidx/fragment/app/FragmentTransaction;
     .param p1, "containerViewId"    # I
     .param p2, "tag"    # Ljava/lang/String;
@@ -89,7 +89,7 @@
 .end method
 
 .method public static final synthetic add(Landroidx/fragment/app/FragmentTransaction;Ljava/lang/String;Landroid/os/Bundle;)Landroidx/fragment/app/FragmentTransaction;
-    .locals 3
+    .registers 6
     .param p0, "$this$add"    # Landroidx/fragment/app/FragmentTransaction;
     .param p1, "tag"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
@@ -146,7 +146,7 @@
 .end method
 
 .method public static synthetic add$default(Landroidx/fragment/app/FragmentTransaction;ILjava/lang/String;Landroid/os/Bundle;ILjava/lang/Object;)Landroidx/fragment/app/FragmentTransaction;
-    .locals 1
+    .registers 7
     .param p0, "$this$add_u24default"    # Landroidx/fragment/app/FragmentTransaction;
     .param p1, "containerViewId"    # I
     .param p2, "tag"    # Ljava/lang/String;
@@ -155,24 +155,24 @@
     .line 39
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 41
     const/4 p2, 0x0
 
     .line 39
-    :cond_0
+    :cond_5
     const/4 p5, 0x4
 
     and-int/2addr p4, p5
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     .line 42
     const/4 p3, 0x0
 
     .line 39
-    :cond_1
+    :cond_a
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -207,7 +207,7 @@
 .end method
 
 .method public static synthetic add$default(Landroidx/fragment/app/FragmentTransaction;Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/Object;)Landroidx/fragment/app/FragmentTransaction;
-    .locals 1
+    .registers 6
     .param p0, "$this$add_u24default"    # Landroidx/fragment/app/FragmentTransaction;
     .param p1, "tag"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
@@ -215,13 +215,13 @@
     .line 58
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 60
     const/4 p2, 0x0
 
     .line 58
-    :cond_0
+    :cond_5
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -262,7 +262,7 @@
 .end method
 
 .method public static final synthetic replace(Landroidx/fragment/app/FragmentTransaction;ILjava/lang/String;Landroid/os/Bundle;)Landroidx/fragment/app/FragmentTransaction;
-    .locals 3
+    .registers 7
     .param p0, "$this$replace"    # Landroidx/fragment/app/FragmentTransaction;
     .param p1, "containerViewId"    # I
     .param p2, "tag"    # Ljava/lang/String;
@@ -317,7 +317,7 @@
 .end method
 
 .method public static synthetic replace$default(Landroidx/fragment/app/FragmentTransaction;ILjava/lang/String;Landroid/os/Bundle;ILjava/lang/Object;)Landroidx/fragment/app/FragmentTransaction;
-    .locals 1
+    .registers 7
     .param p0, "$this$replace_u24default"    # Landroidx/fragment/app/FragmentTransaction;
     .param p1, "containerViewId"    # I
     .param p2, "tag"    # Ljava/lang/String;
@@ -326,24 +326,24 @@
     .line 80
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 82
     const/4 p2, 0x0
 
     .line 80
-    :cond_0
+    :cond_5
     const/4 p5, 0x4
 
     and-int/2addr p4, p5
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     .line 83
     const/4 p3, 0x0
 
     .line 80
-    :cond_1
+    :cond_a
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

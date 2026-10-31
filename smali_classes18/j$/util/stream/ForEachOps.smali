@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static makeDouble(Ljava/util/function/DoubleConsumer;Z)Lj$/util/stream/TerminalOp;
-    .locals 1
+    .registers 3
     .param p0, "action"    # Ljava/util/function/DoubleConsumer;
     .param p1, "ordered"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -51,7 +51,7 @@
 .end method
 
 .method public static makeInt(Ljava/util/function/IntConsumer;Z)Lj$/util/stream/TerminalOp;
-    .locals 1
+    .registers 3
     .param p0, "action"    # Ljava/util/function/IntConsumer;
     .param p1, "ordered"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -78,7 +78,7 @@
 .end method
 
 .method public static makeLong(Ljava/util/function/LongConsumer;Z)Lj$/util/stream/TerminalOp;
-    .locals 1
+    .registers 3
     .param p0, "action"    # Ljava/util/function/LongConsumer;
     .param p1, "ordered"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -105,7 +105,7 @@
 .end method
 
 .method public static makeRef(Ljava/util/function/Consumer;Z)Lj$/util/stream/TerminalOp;
-    .locals 1
+    .registers 3
     .param p1, "ordered"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {

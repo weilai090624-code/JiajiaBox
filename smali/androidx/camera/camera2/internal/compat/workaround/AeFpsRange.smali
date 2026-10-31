@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/impl/Quirks;)V
-    .locals 2
+    .registers 4
     .param p1, "quirks"    # Landroidx/camera/core/impl/Quirks;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -42,17 +42,17 @@
 
     .line 41
     .local v0, "quirk":Landroidx/camera/camera2/internal/compat/quirk/AeFpsRangeLegacyQuirk;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 42
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroidx/camera/camera2/internal/compat/workaround/AeFpsRange;->mAeTargetFpsRange:Landroid/util/Range;
 
-    goto :goto_0
+    goto :goto_17
 
     .line 44
-    :cond_0
+    :cond_11
     invoke-virtual {v0}, Landroidx/camera/camera2/internal/compat/quirk/AeFpsRangeLegacyQuirk;->getRange()Landroid/util/Range;
 
     move-result-object v1
@@ -60,14 +60,14 @@
     iput-object v1, p0, Landroidx/camera/camera2/internal/compat/workaround/AeFpsRange;->mAeTargetFpsRange:Landroid/util/Range;
 
     .line 46
-    :goto_0
+    :goto_17
     return-void
 .end method
 
 
 # virtual methods
 .method public addAeFpsRangeOptions(Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;)V
-    .locals 2
+    .registers 4
     .param p1, "configBuilder"    # Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -81,7 +81,7 @@
     .line 53
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/workaround/AeFpsRange;->mAeTargetFpsRange:Landroid/util/Range;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 54
     sget-object v0, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_TARGET_FPS_RANGE:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -91,6 +91,6 @@
     invoke-virtual {p1, v0, v1}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->setCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
     .line 57
-    :cond_0
+    :cond_b
     return-void
 .end method

@@ -74,7 +74,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$X0bwY9Kj1ilh-P7CP4AkiZO-1LI(Lio/nekohasekai/sagernet/ui/BackupFragment;Lorg/json/JSONObject;Lio/nekohasekai/sagernet/databinding/LayoutImportBinding;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 5
 
     invoke-static {p0, p1, p2, p3, p4}, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3;->invokeSuspend$lambda$0(Lio/nekohasekai/sagernet/ui/BackupFragment;Lorg/json/JSONObject;Lio/nekohasekai/sagernet/databinding/LayoutImportBinding;Landroid/content/DialogInterface;I)V
 
@@ -82,7 +82,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/BackupFragment;Lorg/json/JSONObject;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,7 +107,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$0(Lio/nekohasekai/sagernet/ui/BackupFragment;Lorg/json/JSONObject;Lio/nekohasekai/sagernet/databinding/LayoutImportBinding;Landroid/content/DialogInterface;I)V
-    .locals 6
+    .registers 11
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/BackupFragment;
     .param p1, "$content"    # Lorg/json/JSONObject;
     .param p2, "$import"    # Lio/nekohasekai/sagernet/databinding/LayoutImportBinding;
@@ -206,7 +206,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -233,7 +233,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -247,7 +247,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -276,14 +276,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 217
     iget v0, p0, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_a8
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -293,7 +293,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 218
@@ -324,7 +324,7 @@
 
     const/16 v2, 0x8
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_3e
 
     .line 220
     iget-object v1, v0, Lio/nekohasekai/sagernet/databinding/LayoutImportBinding;->backupConfigurations:Landroid/widget/CheckBox;
@@ -354,7 +354,7 @@
 
     .line 222
     .end local v4    # "$i$f$setVisible":I
-    :cond_0
+    :cond_3e
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3;->$content:Lorg/json/JSONObject;
 
     const-string v3, "rules"
@@ -363,7 +363,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_58
 
     .line 223
     iget-object v1, v0, Lio/nekohasekai/sagernet/databinding/LayoutImportBinding;->backupRules:Landroid/widget/CheckBox;
@@ -393,7 +393,7 @@
 
     .line 225
     .end local v4    # "$i$f$setVisible":I
-    :cond_1
+    :cond_58
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3;->$content:Lorg/json/JSONObject;
 
     const-string v3, "settings"
@@ -402,7 +402,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_72
 
     .line 226
     iget-object v1, v0, Lio/nekohasekai/sagernet/databinding/LayoutImportBinding;->backupSettings:Landroid/widget/CheckBox;
@@ -432,7 +432,7 @@
 
     .line 228
     .end local v4    # "$i$f$setVisible":I
-    :cond_2
+    :cond_72
     new-instance v1, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3;->this$0:Lio/nekohasekai/sagernet/ui/BackupFragment;
@@ -491,8 +491,8 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a8
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

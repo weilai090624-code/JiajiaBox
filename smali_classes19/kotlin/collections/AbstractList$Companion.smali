@@ -64,7 +64,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -73,7 +73,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/collections/AbstractList$Companion;-><init>()V
 
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public final checkBoundsIndexes$kotlin_stdlib(III)V
-    .locals 3
+    .registers 7
     .param p1, "startIndex"    # I
     .param p2, "endIndex"    # I
     .param p3, "size"    # I
@@ -91,18 +91,18 @@
     .line 133
     const-string v0, "startIndex: "
 
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_2a
 
-    if-gt p2, p3, :cond_1
+    if-gt p2, p3, :cond_2a
 
     .line 136
-    if-gt p1, p2, :cond_0
+    if-gt p1, p2, :cond_9
 
     .line 139
     return-void
 
     .line 137
-    :cond_0
+    :cond_9
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -136,7 +136,7 @@
     throw v1
 
     .line 134
-    :cond_1
+    :cond_2a
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -181,20 +181,20 @@
 .end method
 
 .method public final checkElementIndex$kotlin_stdlib(II)V
-    .locals 3
+    .registers 6
     .param p1, "index"    # I
     .param p2, "size"    # I
 
     .line 112
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_5
 
-    if-ge p1, p2, :cond_0
+    if-ge p1, p2, :cond_5
 
     .line 115
     return-void
 
     .line 113
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -231,20 +231,20 @@
 .end method
 
 .method public final checkPositionIndex$kotlin_stdlib(II)V
-    .locals 3
+    .registers 6
     .param p1, "index"    # I
     .param p2, "size"    # I
 
     .line 118
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_5
 
-    if-gt p1, p2, :cond_0
+    if-gt p1, p2, :cond_5
 
     .line 121
     return-void
 
     .line 119
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -281,7 +281,7 @@
 .end method
 
 .method public final checkRangeIndexes$kotlin_stdlib(III)V
-    .locals 3
+    .registers 7
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .param p3, "size"    # I
@@ -289,18 +289,18 @@
     .line 124
     const-string v0, "fromIndex: "
 
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_2a
 
-    if-gt p2, p3, :cond_1
+    if-gt p2, p3, :cond_2a
 
     .line 127
-    if-gt p1, p2, :cond_0
+    if-gt p1, p2, :cond_9
 
     .line 130
     return-void
 
     .line 128
-    :cond_0
+    :cond_9
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -334,7 +334,7 @@
     throw v1
 
     .line 125
-    :cond_1
+    :cond_2a
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -379,7 +379,7 @@
 .end method
 
 .method public final newCapacity$kotlin_stdlib(II)I
-    .locals 3
+    .registers 6
     .param p1, "oldCapacity"    # I
     .param p2, "minCapacity"    # I
 
@@ -392,34 +392,34 @@
     .local v0, "newCapacity":I
     sub-int v1, v0, p2
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_8
 
     .line 148
     move v0, p2
 
     .line 149
-    :cond_0
+    :cond_8
     const v1, 0x7ffffff7
 
     sub-int v2, v0, v1
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_15
 
     .line 150
-    if-le p2, v1, :cond_1
+    if-le p2, v1, :cond_14
 
     const v1, 0x7fffffff
 
-    :cond_1
+    :cond_14
     move v0, v1
 
     .line 151
-    :cond_2
+    :cond_15
     return v0
 .end method
 
 .method public final orderedEquals$kotlin_stdlib(Ljava/util/Collection;Ljava/util/Collection;)Z
-    .locals 6
+    .registers 9
     .param p1, "c"    # Ljava/util/Collection;
     .param p2, "other"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -451,12 +451,12 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_16
 
     return v2
 
     .line 165
-    :cond_0
+    :cond_16
     invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -467,12 +467,12 @@
 
     move-result-object v1
 
-    :cond_1
+    :cond_1e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_33
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -490,7 +490,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_1e
 
     .line 169
     return v2
@@ -498,14 +498,14 @@
     .line 172
     .end local v3    # "elem":Ljava/lang/Object;
     .end local v4    # "elemOther":Ljava/lang/Object;
-    :cond_2
+    :cond_33
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method public final orderedHashCode$kotlin_stdlib(Ljava/util/Collection;)I
-    .locals 5
+    .registers 7
     .param p1, "c"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -528,12 +528,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -543,24 +543,24 @@
     .local v2, "e":Ljava/lang/Object;
     mul-int/lit8 v3, v0, 0x1f
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v4
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_1e
     add-int v0, v3, v4
 
     .end local v2    # "e":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_a
 
     .line 159
-    :cond_1
+    :cond_21
     return v0
 .end method

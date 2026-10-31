@@ -50,7 +50,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$fAq1_qvcjN-iyarnWzlNiVTh4xk()Lmoe/matsuri/nb4a/TempDatabase;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lmoe/matsuri/nb4a/TempDatabase;->instance_delegate$lambda$1()Lmoe/matsuri/nb4a/TempDatabase;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$jBS0XzeN0pTFn0UJEeWiShJ_kLU(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lmoe/matsuri/nb4a/TempDatabase;->instance_delegate$lambda$1$lambda$0(Ljava/lang/Runnable;)V
 
@@ -68,7 +68,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lmoe/matsuri/nb4a/TempDatabase$Companion;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Landroidx/room/RoomDatabase;-><init>()V
@@ -103,7 +103,7 @@
 .end method
 
 .method public static final synthetic access$getInstance$delegate$cp()Lkotlin/Lazy;
-    .locals 1
+    .registers 1
 
     .line 11
     sget-object v0, Lmoe/matsuri/nb4a/TempDatabase;->instance$delegate:Lkotlin/Lazy;
@@ -112,7 +112,7 @@
 .end method
 
 .method private static final instance_delegate$lambda$1()Lmoe/matsuri/nb4a/TempDatabase;
-    .locals 2
+    .registers 2
 
     .line 17
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -159,7 +159,7 @@
 .end method
 
 .method private static final instance_delegate$lambda$1$lambda$0(Ljava/lang/Runnable;)V
-    .locals 7
+    .registers 8
     .param p0, "it"    # Ljava/lang/Runnable;
 
     .line 20

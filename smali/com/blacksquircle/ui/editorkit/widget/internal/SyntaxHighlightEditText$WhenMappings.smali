@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     invoke-static {}, Lcom/blacksquircle/ui/language/base/model/TokenType;->values()[Lcom/blacksquircle/ui/language/base/model/TokenType;
 
@@ -40,7 +40,7 @@
 
     new-array v0, v0, [I
 
-    :try_start_0
+    :try_start_7
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->NUMBER:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -50,16 +50,16 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_10} :catch_11
 
-    goto :goto_0
+    goto :goto_12
 
-    :catch_0
+    :catch_11
     move-exception v1
 
-    :goto_0
-    :try_start_1
+    :goto_12
+    :try_start_12
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->OPERATOR:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -69,16 +69,16 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_12 .. :try_end_1b} :catch_1c
 
-    goto :goto_1
+    goto :goto_1d
 
-    :catch_1
+    :catch_1c
     move-exception v1
 
-    :goto_1
-    :try_start_2
+    :goto_1d
+    :try_start_1d
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->KEYWORD:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -88,16 +88,16 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_26
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1d .. :try_end_26} :catch_27
 
-    goto :goto_2
+    goto :goto_28
 
-    :catch_2
+    :catch_27
     move-exception v1
 
-    :goto_2
-    :try_start_3
+    :goto_28
+    :try_start_28
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->TYPE:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -107,16 +107,16 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_31
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_28 .. :try_end_31} :catch_32
 
-    goto :goto_3
+    goto :goto_33
 
-    :catch_3
+    :catch_32
     move-exception v1
 
-    :goto_3
-    :try_start_4
+    :goto_33
+    :try_start_33
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->LANG_CONST:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -126,16 +126,16 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
+    :try_end_3c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_33 .. :try_end_3c} :catch_3d
 
-    goto :goto_4
+    goto :goto_3e
 
-    :catch_4
+    :catch_3d
     move-exception v1
 
-    :goto_4
-    :try_start_5
+    :goto_3e
+    :try_start_3e
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->PREPROCESSOR:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -145,16 +145,16 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
+    :try_end_47
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3e .. :try_end_47} :catch_48
 
-    goto :goto_5
+    goto :goto_49
 
-    :catch_5
+    :catch_48
     move-exception v1
 
-    :goto_5
-    :try_start_6
+    :goto_49
+    :try_start_49
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->VARIABLE:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -164,16 +164,16 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
+    :try_end_52
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_49 .. :try_end_52} :catch_53
 
-    goto :goto_6
+    goto :goto_54
 
-    :catch_6
+    :catch_53
     move-exception v1
 
-    :goto_6
-    :try_start_7
+    :goto_54
+    :try_start_54
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->METHOD:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -183,16 +183,16 @@
     const/16 v2, 0x8
 
     aput v2, v0, v1
-    :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_7
+    :try_end_5e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_54 .. :try_end_5e} :catch_5f
 
-    goto :goto_7
+    goto :goto_60
 
-    :catch_7
+    :catch_5f
     move-exception v1
 
-    :goto_7
-    :try_start_8
+    :goto_60
+    :try_start_60
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->STRING:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -202,16 +202,16 @@
     const/16 v2, 0x9
 
     aput v2, v0, v1
-    :try_end_8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_8
+    :try_end_6a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_60 .. :try_end_6a} :catch_6b
 
-    goto :goto_8
+    goto :goto_6c
 
-    :catch_8
+    :catch_6b
     move-exception v1
 
-    :goto_8
-    :try_start_9
+    :goto_6c
+    :try_start_6c
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->COMMENT:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -221,16 +221,16 @@
     const/16 v2, 0xa
 
     aput v2, v0, v1
-    :try_end_9
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_9
+    :try_end_76
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6c .. :try_end_76} :catch_77
 
-    goto :goto_9
+    goto :goto_78
 
-    :catch_9
+    :catch_77
     move-exception v1
 
-    :goto_9
-    :try_start_a
+    :goto_78
+    :try_start_78
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->TAG:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -240,16 +240,16 @@
     const/16 v2, 0xb
 
     aput v2, v0, v1
-    :try_end_a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_a
+    :try_end_82
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_78 .. :try_end_82} :catch_83
 
-    goto :goto_a
+    goto :goto_84
 
-    :catch_a
+    :catch_83
     move-exception v1
 
-    :goto_a
-    :try_start_b
+    :goto_84
+    :try_start_84
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->TAG_NAME:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -259,16 +259,16 @@
     const/16 v2, 0xc
 
     aput v2, v0, v1
-    :try_end_b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_b
+    :try_end_8e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_84 .. :try_end_8e} :catch_8f
 
-    goto :goto_b
+    goto :goto_90
 
-    :catch_b
+    :catch_8f
     move-exception v1
 
-    :goto_b
-    :try_start_c
+    :goto_90
+    :try_start_90
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->ATTR_NAME:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -278,16 +278,16 @@
     const/16 v2, 0xd
 
     aput v2, v0, v1
-    :try_end_c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_c
+    :try_end_9a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_90 .. :try_end_9a} :catch_9b
 
-    goto :goto_c
+    goto :goto_9c
 
-    :catch_c
+    :catch_9b
     move-exception v1
 
-    :goto_c
-    :try_start_d
+    :goto_9c
+    :try_start_9c
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->ATTR_VALUE:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -297,16 +297,16 @@
     const/16 v2, 0xe
 
     aput v2, v0, v1
-    :try_end_d
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_d
+    :try_end_a6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9c .. :try_end_a6} :catch_a7
 
-    goto :goto_d
+    goto :goto_a8
 
-    :catch_d
+    :catch_a7
     move-exception v1
 
-    :goto_d
-    :try_start_e
+    :goto_a8
+    :try_start_a8
     sget-object v1, Lcom/blacksquircle/ui/language/base/model/TokenType;->ENTITY_REF:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
     invoke-virtual {v1}, Lcom/blacksquircle/ui/language/base/model/TokenType;->ordinal()I
@@ -316,15 +316,15 @@
     const/16 v2, 0xf
 
     aput v2, v0, v1
-    :try_end_e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_e
+    :try_end_b2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a8 .. :try_end_b2} :catch_b3
 
-    goto :goto_e
+    goto :goto_b4
 
-    :catch_e
+    :catch_b3
     move-exception v1
 
-    :goto_e
+    :goto_b4
     sput-object v0, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText$WhenMappings;->$EnumSwitchMapping$0:[I
 
     return-void

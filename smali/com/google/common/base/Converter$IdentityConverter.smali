@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 591
     new-instance v0, Lcom/google/common/base/Converter$IdentityConverter;
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 590
     .local p0, "this":Lcom/google/common/base/Converter$IdentityConverter;, "Lcom/google/common/base/Converter$IdentityConverter<TT;>;"
@@ -66,7 +66,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 624
     .local p0, "this":Lcom/google/common/base/Converter$IdentityConverter;, "Lcom/google/common/base/Converter$IdentityConverter<TT;>;"
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method doAndThen(Lcom/google/common/base/Converter;)Lcom/google/common/base/Converter;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -106,7 +106,7 @@
 .end method
 
 .method protected doBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
@@ -120,7 +120,7 @@
 .end method
 
 .method protected doForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
@@ -134,7 +134,7 @@
 .end method
 
 .method public reverse()Lcom/google/common/base/Converter$IdentityConverter;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -149,7 +149,7 @@
 .end method
 
 .method public bridge synthetic reverse()Lcom/google/common/base/Converter;
-    .locals 1
+    .registers 2
 
     .line 590
     .local p0, "this":Lcom/google/common/base/Converter$IdentityConverter;, "Lcom/google/common/base/Converter$IdentityConverter<TT;>;"
@@ -161,7 +161,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 620
     .local p0, "this":Lcom/google/common/base/Converter$IdentityConverter;, "Lcom/google/common/base/Converter$IdentityConverter<TT;>;"

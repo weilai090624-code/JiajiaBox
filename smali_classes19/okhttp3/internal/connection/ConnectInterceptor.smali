@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokhttp3/internal/connection/ConnectInterceptor;
 
@@ -49,7 +49,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
-    .locals 11
+    .registers 13
     .param p1, "chain"    # Lokhttp3/Interceptor$Chain;
     .annotation system Ldalvik/annotation/Throws;
         value = {

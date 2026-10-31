@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p2, "name"    # Ljava/lang/String;
 
     .line 3504
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public generateOps(Ljava/util/ArrayList;Ljava/util/ArrayList;)Z
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

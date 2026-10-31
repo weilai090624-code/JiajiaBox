@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static getDialogBackgroundInsets(Landroid/content/Context;II)Landroid/graphics/Rect;
-    .locals 9
+    .registers 12
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "defaultStyleAttribute"    # I
     .param p2, "defaultStyleResource"    # I
@@ -155,7 +155,7 @@
     .local v7, "layoutDirection":I
     const/4 v8, 0x1
 
-    if-ne v7, v8, :cond_0
+    if-ne v7, v8, :cond_64
 
     .line 100
     move v5, v3
@@ -165,7 +165,7 @@
 
     .line 105
     .end local v7    # "layoutDirection":I
-    :cond_0
+    :cond_64
     new-instance v7, Landroid/graphics/Rect;
 
     invoke-direct {v7, v5, v2, v6, v4}, Landroid/graphics/Rect;-><init>(IIII)V
@@ -174,7 +174,7 @@
 .end method
 
 .method public static insetDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;)Landroid/graphics/drawable/InsetDrawable;
-    .locals 7
+    .registers 9
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "backgroundInsets"    # Landroid/graphics/Rect;
 

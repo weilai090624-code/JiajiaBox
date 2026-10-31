@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;Lokio/Timeout;)V
-    .locals 1
+    .registers 4
     .param p1, "input"    # Ljava/io/InputStream;
     .param p2, "timeout"    # Lokio/Timeout;
 
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 112
     iget-object v0, p0, Lokio/InputStreamSource;->input:Ljava/io/InputStream;
@@ -91,7 +91,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 7
+    .registers 11
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -104,33 +104,33 @@
 
     cmp-long v2, p2, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_c
 
     return-wide v0
 
     .line 89
-    :cond_0
+    :cond_c
     const/4 v2, 0x1
 
     cmp-long v3, p2, v0
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_5
+    :goto_14
+    if-eqz v0, :cond_6b
 
     .line 90
     nop
 
     .line 91
-    :try_start_0
+    :try_start_17
     iget-object v0, p0, Lokio/InputStreamSource;->timeout:Lokio/Timeout;
 
     invoke-virtual {v0}, Lokio/Timeout;->throwIfReached()V
@@ -178,14 +178,14 @@
     .local v2, "bytesRead":I
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_4a
 
     .line 96
     iget v3, v0, Lokio/Segment;->pos:I
 
     iget v4, v0, Lokio/Segment;->limit:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_47
 
     .line 98
     invoke-virtual {v0}, Lokio/Segment;->pop()Lokio/Segment;
@@ -198,13 +198,13 @@
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     .line 101
-    :cond_2
+    :cond_47
     const-wide/16 v3, -0x1
 
     return-wide v3
 
     .line 103
-    :cond_3
+    :cond_4a
     iget v3, v0, Lokio/Segment;->limit:I
 
     add-int/2addr v3, v2
@@ -221,8 +221,8 @@
     add-long/2addr v3, v5
 
     invoke-virtual {p1, v3, v4}, Lokio/Buffer;->setSize$okio(J)V
-    :try_end_0
-    .catch Ljava/lang/AssertionError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_58
+    .catch Ljava/lang/AssertionError; {:try_start_17 .. :try_end_58} :catch_5a
 
     .line 105
     int-to-long v3, v2
@@ -233,7 +233,7 @@
     .end local v0    # "tail":Lokio/Segment;
     .end local v1    # "maxToCopy":I
     .end local v2    # "bytesRead":I
-    :catch_0
+    :catch_5a
     move-exception v0
 
     .line 107
@@ -242,7 +242,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6a
 
     new-instance v1, Ljava/io/IOException;
 
@@ -255,12 +255,12 @@
     throw v1
 
     .line 108
-    :cond_4
+    :cond_6a
     throw v0
 
     .line 243
     .end local v0    # "e":Ljava/lang/AssertionError;
-    :cond_5
+    :cond_6b
     const/4 v0, 0x0
 
     .line 89
@@ -290,7 +290,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 114
     iget-object v0, p0, Lokio/InputStreamSource;->timeout:Lokio/Timeout;
@@ -299,7 +299,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 116
     new-instance v0, Ljava/lang/StringBuilder;

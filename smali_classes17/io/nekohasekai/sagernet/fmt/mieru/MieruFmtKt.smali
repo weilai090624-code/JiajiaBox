@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final buildMieruConfig(Lio/nekohasekai/sagernet/fmt/mieru/MieruBean;I)Ljava/lang/String;
-    .locals 17
+    .registers 19
     .param p0, "$this$buildMieruConfig"    # Lio/nekohasekai/sagernet/fmt/mieru/MieruBean;
     .param p1, "port"    # I
 

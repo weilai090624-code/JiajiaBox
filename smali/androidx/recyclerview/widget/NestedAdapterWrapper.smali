@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView$Adapter;Landroidx/recyclerview/widget/NestedAdapterWrapper$Callback;Landroidx/recyclerview/widget/ViewTypeStorage;Landroidx/recyclerview/widget/StableIdStorage$StableIdLookup;)V
-    .locals 2
+    .registers 7
     .param p2, "callback"    # Landroidx/recyclerview/widget/NestedAdapterWrapper$Callback;
     .param p3, "viewTypeStorage"    # Landroidx/recyclerview/widget/ViewTypeStorage;
     .param p4, "stableIdLookup"    # Landroidx/recyclerview/widget/StableIdStorage$StableIdLookup;
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method dispose()V
-    .locals 2
+    .registers 3
 
     .line 137
     iget-object v0, p0, Landroidx/recyclerview/widget/NestedAdapterWrapper;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -121,7 +121,7 @@
 .end method
 
 .method getCachedItemCount()I
-    .locals 1
+    .registers 2
 
     .line 142
     iget v0, p0, Landroidx/recyclerview/widget/NestedAdapterWrapper;->mCachedItemCount:I
@@ -130,7 +130,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 4
+    .registers 6
     .param p1, "localPosition"    # I
 
     .line 161
@@ -152,7 +152,7 @@
 .end method
 
 .method getItemViewType(I)I
-    .locals 2
+    .registers 4
     .param p1, "localPosition"    # I
 
     .line 146
@@ -172,7 +172,7 @@
 .end method
 
 .method onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 1
+    .registers 4
     .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "localPosition"    # I
 
@@ -186,7 +186,7 @@
 .end method
 
 .method onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 2
+    .registers 5
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "globalViewType"    # I
 

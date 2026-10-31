@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/Surface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -50,7 +50,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "outputConfiguration"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public addSurface(Landroid/view/Surface;)V
-    .locals 2
+    .registers 4
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -95,14 +95,14 @@
 
     move-result-object v0
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_21
 
     .line 96
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;->isSurfaceSharingEnabled()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 97
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -114,7 +114,7 @@
     throw v0
 
     .line 102
-    :cond_0
+    :cond_19
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Exceeds maximum number of surfaces"
@@ -124,7 +124,7 @@
     throw v0
 
     .line 93
-    :cond_1
+    :cond_21
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Surface is already added!"
@@ -135,7 +135,7 @@
 .end method
 
 .method public enableSurfaceSharing()V
-    .locals 2
+    .registers 3
 
     .line 63
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;->mObject:Ljava/lang/Object;
@@ -151,7 +151,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -165,7 +165,7 @@
     .line 179
     instance-of v0, p1, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 180
     const/4 v0, 0x0
@@ -173,7 +173,7 @@
     return v0
 
     .line 183
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;->mObject:Ljava/lang/Object;
 
     move-object v1, p1
@@ -190,7 +190,7 @@
 .end method
 
 .method public getMaxSharedSurfaceCount()I
-    .locals 1
+    .registers 2
 
     .line 128
     const/4 v0, 0x1
@@ -199,7 +199,7 @@
 .end method
 
 .method public getOutputConfiguration()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 164
     const/4 v0, 0x0
@@ -208,7 +208,7 @@
 .end method
 
 .method public getPhysicalCameraId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 81
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;->mObject:Ljava/lang/Object;
@@ -221,7 +221,7 @@
 .end method
 
 .method public getSurface()Landroid/view/Surface;
-    .locals 2
+    .registers 3
 
     .line 137
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;->mObject:Ljava/lang/Object;
@@ -236,7 +236,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 139
     const/4 v1, 0x0
@@ -244,7 +244,7 @@
     return-object v1
 
     .line 142
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -257,7 +257,7 @@
 .end method
 
 .method public getSurfaceGroupId()I
-    .locals 1
+    .registers 2
 
     .line 158
     const/4 v0, -0x1
@@ -266,7 +266,7 @@
 .end method
 
 .method public getSurfaces()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -287,7 +287,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 191
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;->mObject:Ljava/lang/Object;
@@ -300,7 +300,7 @@
 .end method
 
 .method isSurfaceSharingEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;->mObject:Ljava/lang/Object;
@@ -313,7 +313,7 @@
 .end method
 
 .method public removeSurface(Landroid/view/Surface;)V
-    .locals 2
+    .registers 4
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -329,7 +329,7 @@
 
     move-result-object v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_e
 
     .line 113
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -341,7 +341,7 @@
     throw v0
 
     .line 118
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Surface is not part of this output configuration"
@@ -352,7 +352,7 @@
 .end method
 
 .method public setPhysicalCameraId(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "physicalCameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

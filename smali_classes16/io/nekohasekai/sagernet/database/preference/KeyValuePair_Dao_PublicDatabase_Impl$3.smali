@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/database/preference/KeyValuePair_Dao_PublicDatabase_Impl;
     .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public createQuery()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 70
     const-string v0, "DELETE FROM `KeyValuePair` WHERE `key` = ?"

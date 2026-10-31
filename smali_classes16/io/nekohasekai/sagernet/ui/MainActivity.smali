@@ -7439,7 +7439,7 @@
 
     const/high16 v4, 0x40c00000    # 6.0f
 
-    if-eqz v0, :cond_1b8
+    if-eqz v0, :cond_1bb
 
     move-object/from16 v0, v21
 
@@ -7693,7 +7693,7 @@
     .end local v4    # "inputs":Ljava/util/HashMap;
     .local v5, "inputs":Ljava/util/HashMap;
     .restart local v19    # "column":Landroid/widget/LinearLayout;
-    :cond_1b8
+    :cond_1bb
     move-object v4, v5
 
     move-object/from16 v5, v19
@@ -8881,7 +8881,7 @@
     nop
 
     .line 1300
-    const-wide/16 v3, 0x21c
+    const-wide/16 v3, 0x12c
 
     invoke-virtual {v2, v3, v4}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
@@ -8902,7 +8902,7 @@
 
     check-cast v3, Landroid/animation/TimeInterpolator;
 
-    invoke-static {v2, v3}, Lio/nekohasekai/sagernet/ui/AppMotion;->interpolate(Landroid/view/ViewPropertyAnimator;Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+    invoke-static {v2, v3}, Lio/nekohasekai/sagernet/ui/ReferenceMotion;->apply(Landroid/view/ViewPropertyAnimator;Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v2
 

@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/viewpager2/widget/ViewPager2;
 
     .line 1328
@@ -54,7 +54,7 @@
 .end method
 
 .method private addCollectionInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 4
+    .registers 6
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 1537
@@ -72,7 +72,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_28
 
     .line 1540
     iget-object v2, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -83,7 +83,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1e
 
     .line 1541
     iget-object v2, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -96,10 +96,10 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1543
-    :cond_0
+    :cond_1e
     iget-object v2, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     invoke-virtual {v2}, Landroidx/viewpager2/widget/ViewPager2;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -111,8 +111,8 @@
     move-result v1
 
     .line 1546
-    :cond_1
-    :goto_0
+    :cond_28
+    :goto_28
     invoke-static {p1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->wrap(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
     move-result-object v2
@@ -137,7 +137,7 @@
 .end method
 
 .method private addScrollActions(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 4
+    .registers 6
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 1555
@@ -149,20 +149,20 @@
 
     .line 1556
     .local v0, "adapter":Landroidx/recyclerview/widget/RecyclerView$Adapter;, "Landroidx/recyclerview/widget/RecyclerView$Adapter<*>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 1557
     return-void
 
     .line 1559
-    :cond_0
+    :cond_9
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->getItemCount()I
 
     move-result v1
 
     .line 1560
     .local v1, "itemCount":I
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_35
 
     iget-object v2, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
@@ -170,17 +170,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_18
 
-    goto :goto_0
+    goto :goto_35
 
     .line 1563
-    :cond_1
+    :cond_18
     iget-object v2, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     iget v2, v2, Landroidx/viewpager2/widget/ViewPager2;->mCurrentItem:I
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_23
 
     .line 1564
     const/16 v2, 0x2000
@@ -188,14 +188,14 @@
     invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(I)V
 
     .line 1566
-    :cond_2
+    :cond_23
     iget-object v2, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     iget v2, v2, Landroidx/viewpager2/widget/ViewPager2;->mCurrentItem:I
 
     add-int/lit8 v3, v1, -0x1
 
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_30
 
     .line 1567
     const/16 v2, 0x1000
@@ -203,7 +203,7 @@
     invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(I)V
 
     .line 1569
-    :cond_3
+    :cond_30
     const/4 v2, 0x1
 
     invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setScrollable(Z)V
@@ -212,15 +212,15 @@
     return-void
 
     .line 1561
-    :cond_4
-    :goto_0
+    :cond_35
+    :goto_35
     return-void
 .end method
 
 
 # virtual methods
 .method public handlesGetAccessibilityClassName()Z
-    .locals 1
+    .registers 2
 
     .line 1375
     const/4 v0, 0x1
@@ -229,36 +229,36 @@
 .end method
 
 .method public handlesPerformAccessibilityAction(ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 4
     .param p1, "action"    # I
     .param p2, "arguments"    # Landroid/os/Bundle;
 
     .line 1439
     const/16 v0, 0x2000
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_b
 
     const/16 v0, 0x1000
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_c
     return v0
 .end method
 
 .method public onAttachAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -272,7 +272,7 @@
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->updatePageAccessibilityActions()V
 
     .line 1394
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 1395
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->mAdapterDataObserver:Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;
@@ -280,12 +280,12 @@
     invoke-virtual {p1, v0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->registerAdapterDataObserver(Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;)V
 
     .line 1397
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public onDetachAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -296,7 +296,7 @@
 
     .line 1401
     .local p1, "oldAdapter":Landroidx/recyclerview/widget/RecyclerView$Adapter;, "Landroidx/recyclerview/widget/RecyclerView$Adapter<*>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 1402
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->mAdapterDataObserver:Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;
@@ -304,19 +304,19 @@
     invoke-virtual {p1, v0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->unregisterAdapterDataObserver(Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;)V
 
     .line 1404
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public onGetAccessibilityClassName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1380
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->handlesGetAccessibilityClassName()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1383
     const-string v0, "androidx.viewpager.widget.ViewPager"
@@ -324,7 +324,7 @@
     return-object v0
 
     .line 1381
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -333,7 +333,7 @@
 .end method
 
 .method public onInitialize(Landroidx/viewpager2/widget/CompositeOnPageChangeCallback;Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 2
+    .registers 5
     .param p1, "pageChangeEventDispatcher"    # Landroidx/viewpager2/widget/CompositeOnPageChangeCallback;
     .param p2, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
 
@@ -356,7 +356,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 1368
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -366,12 +366,12 @@
     invoke-static {v0, v1}, Landroidx/core/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
 
     .line 1371
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 0
+    .registers 2
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 1431
@@ -388,7 +388,7 @@
 .end method
 
 .method public onPerformAccessibilityAction(ILandroid/os/Bundle;)Z
-    .locals 2
+    .registers 5
     .param p1, "action"    # I
     .param p2, "arguments"    # Landroid/os/Bundle;
 
@@ -397,14 +397,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 1449
     const/16 v0, 0x2000
 
     const/4 v1, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_13
 
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
@@ -415,9 +415,9 @@
 
     sub-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_13
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     .line 1451
@@ -427,7 +427,7 @@
 
     add-int/2addr v0, v1
 
-    :goto_0
+    :goto_1a
     nop
 
     .line 1452
@@ -439,7 +439,7 @@
 
     .line 1446
     .end local v0    # "nextItem":I
-    :cond_1
+    :cond_1f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -448,7 +448,7 @@
 .end method
 
 .method public onRestorePendingState()V
-    .locals 0
+    .registers 1
 
     .line 1388
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->updatePageAccessibilityActions()V
@@ -458,7 +458,7 @@
 .end method
 
 .method public onRvInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .line 1458
@@ -478,7 +478,7 @@
 .end method
 
 .method public onSetLayoutDirection()V
-    .locals 0
+    .registers 1
 
     .line 1426
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->updatePageAccessibilityActions()V
@@ -488,7 +488,7 @@
 .end method
 
 .method public onSetNewCurrentItem()V
-    .locals 0
+    .registers 1
 
     .line 1413
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->updatePageAccessibilityActions()V
@@ -498,7 +498,7 @@
 .end method
 
 .method public onSetOrientation()V
-    .locals 0
+    .registers 1
 
     .line 1408
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->updatePageAccessibilityActions()V
@@ -508,7 +508,7 @@
 .end method
 
 .method public onSetUserInputEnabled()V
-    .locals 0
+    .registers 1
 
     .line 1418
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->updatePageAccessibilityActions()V
@@ -521,7 +521,7 @@
 .end method
 
 .method setCurrentItemFromAccessibilityCommand(I)V
-    .locals 2
+    .registers 4
     .param p1, "item"    # I
 
     .line 1468
@@ -531,7 +531,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 1469
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -541,12 +541,12 @@
     invoke-virtual {v0, p1, v1}, Landroidx/viewpager2/widget/ViewPager2;->setCurrentItemInternal(IZ)V
 
     .line 1471
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method updatePageAccessibilityActions()V
-    .locals 12
+    .registers 13
 
     .line 1478
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -595,13 +595,13 @@
 
     move-result-object v9
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_2f
 
     .line 1495
     return-void
 
     .line 1498
-    :cond_0
+    :cond_2f
     iget-object v9, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     invoke-virtual {v9}, Landroidx/viewpager2/widget/ViewPager2;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -614,26 +614,26 @@
 
     .line 1499
     .local v9, "itemCount":I
-    if-nez v9, :cond_1
+    if-nez v9, :cond_3c
 
     .line 1500
     return-void
 
     .line 1503
-    :cond_1
+    :cond_3c
     iget-object v10, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     invoke-virtual {v10}, Landroidx/viewpager2/widget/ViewPager2;->isUserInputEnabled()Z
 
     move-result v10
 
-    if-nez v10, :cond_2
+    if-nez v10, :cond_45
 
     .line 1504
     return-void
 
     .line 1507
-    :cond_2
+    :cond_45
     iget-object v10, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     invoke-virtual {v10}, Landroidx/viewpager2/widget/ViewPager2;->getOrientation()I
@@ -642,7 +642,7 @@
 
     const/4 v11, 0x0
 
-    if-nez v10, :cond_7
+    if-nez v10, :cond_85
 
     .line 1508
     iget-object v7, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -653,32 +653,32 @@
 
     .line 1509
     .local v7, "isLayoutRtl":Z
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_5a
 
     const v8, 0x1020048
 
-    goto :goto_0
+    goto :goto_5d
 
-    :cond_3
+    :cond_5a
     const v8, 0x1020049
 
     .line 1510
     .local v8, "actionIdPageForward":I
-    :goto_0
-    if-eqz v7, :cond_4
+    :goto_5d
+    if-eqz v7, :cond_62
 
     const v5, 0x1020049
 
     .line 1512
     .local v5, "actionIdPageBackward":I
-    :cond_4
+    :cond_62
     iget-object v6, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     iget v6, v6, Landroidx/viewpager2/widget/ViewPager2;->mCurrentItem:I
 
     add-int/lit8 v10, v9, -0x1
 
-    if-ge v6, v10, :cond_5
+    if-ge v6, v10, :cond_74
 
     .line 1513
     new-instance v6, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
@@ -690,12 +690,12 @@
     invoke-static {v0, v6, v11, v10}, Landroidx/core/view/ViewCompat;->replaceAccessibilityAction(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;Ljava/lang/CharSequence;Landroidx/core/view/accessibility/AccessibilityViewCommand;)V
 
     .line 1517
-    :cond_5
+    :cond_74
     iget-object v6, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     iget v6, v6, Landroidx/viewpager2/widget/ViewPager2;->mCurrentItem:I
 
-    if-lez v6, :cond_6
+    if-lez v6, :cond_84
 
     .line 1518
     new-instance v6, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
@@ -710,18 +710,18 @@
     .end local v5    # "actionIdPageBackward":I
     .end local v7    # "isLayoutRtl":Z
     .end local v8    # "actionIdPageForward":I
-    :cond_6
-    goto :goto_1
+    :cond_84
+    goto :goto_a7
 
     .line 1523
-    :cond_7
+    :cond_85
     iget-object v5, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     iget v5, v5, Landroidx/viewpager2/widget/ViewPager2;->mCurrentItem:I
 
     add-int/lit8 v6, v9, -0x1
 
-    if-ge v5, v6, :cond_8
+    if-ge v5, v6, :cond_97
 
     .line 1524
     new-instance v5, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
@@ -733,12 +733,12 @@
     invoke-static {v0, v5, v11, v6}, Landroidx/core/view/ViewCompat;->replaceAccessibilityAction(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;Ljava/lang/CharSequence;Landroidx/core/view/accessibility/AccessibilityViewCommand;)V
 
     .line 1528
-    :cond_8
+    :cond_97
     iget-object v5, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     iget v5, v5, Landroidx/viewpager2/widget/ViewPager2;->mCurrentItem:I
 
-    if-lez v5, :cond_9
+    if-lez v5, :cond_a7
 
     .line 1529
     new-instance v5, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
@@ -750,7 +750,7 @@
     invoke-static {v0, v5, v11, v6}, Landroidx/core/view/ViewCompat;->replaceAccessibilityAction(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;Ljava/lang/CharSequence;Landroidx/core/view/accessibility/AccessibilityViewCommand;)V
 
     .line 1534
-    :cond_9
-    :goto_1
+    :cond_a7
+    :goto_a7
     return-void
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public getCornerPath(FFLcom/google/android/material/shape/ShapePath;)V
-    .locals 0
+    .registers 4
     .param p1, "angle"    # F
     .param p2, "interpolation"    # F
     .param p3, "shapePath"    # Lcom/google/android/material/shape/ShapePath;
@@ -28,7 +28,7 @@
 .end method
 
 .method public getCornerPath(Lcom/google/android/material/shape/ShapePath;FFF)V
-    .locals 0
+    .registers 5
     .param p1, "shapePath"    # Lcom/google/android/material/shape/ShapePath;
     .param p2, "angle"    # F
     .param p3, "interpolation"    # F
@@ -42,7 +42,7 @@
 .end method
 
 .method public getCornerPath(Lcom/google/android/material/shape/ShapePath;FFLandroid/graphics/RectF;Lcom/google/android/material/shape/CornerSize;)V
-    .locals 1
+    .registers 7
     .param p1, "shapePath"    # Lcom/google/android/material/shape/ShapePath;
     .param p2, "angle"    # F
     .param p3, "interpolation"    # F

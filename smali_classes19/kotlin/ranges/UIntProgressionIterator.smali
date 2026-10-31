@@ -62,7 +62,7 @@
 
 # direct methods
 .method private constructor <init>(III)V
-    .locals 3
+    .registers 7
     .param p1, "first"    # I
     .param p2, "last"    # I
     .param p3, "step"    # I
@@ -78,30 +78,30 @@
 
     const/4 v1, 0x0
 
-    if-lez p3, :cond_0
+    if-lez p3, :cond_10
 
     invoke-static {p1, p2}, Lkotlin/UByte$$ExternalSyntheticBackport5;->m(II)I
 
     move-result v2
 
-    if-gtz v2, :cond_1
+    if-gtz v2, :cond_17
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_10
     invoke-static {p1, p2}, Lkotlin/UByte$$ExternalSyntheticBackport5;->m(II)I
 
     move-result v2
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_17
 
-    :goto_0
-    goto :goto_1
+    :goto_16
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_18
     iput-boolean v0, p0, Lkotlin/ranges/UIntProgressionIterator;->hasNext:Z
 
     .line 128
@@ -114,16 +114,16 @@
     .line 129
     iget-boolean v0, p0, Lkotlin/ranges/UIntProgressionIterator;->hasNext:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     move v0, p1
 
-    goto :goto_2
+    goto :goto_28
 
-    :cond_2
+    :cond_26
     iget v0, p0, Lkotlin/ranges/UIntProgressionIterator;->finalElement:I
 
-    :goto_2
+    :goto_28
     iput v0, p0, Lkotlin/ranges/UIntProgressionIterator;->next:I
 
     .line 125
@@ -131,7 +131,7 @@
 .end method
 
 .method public synthetic constructor <init>(IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     invoke-direct {p0, p1, p2, p3}, Lkotlin/ranges/UIntProgressionIterator;-><init>(III)V
 
@@ -141,7 +141,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 131
     iget-boolean v0, p0, Lkotlin/ranges/UIntProgressionIterator;->hasNext:Z
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 124
     invoke-virtual {p0}, Lkotlin/ranges/UIntProgressionIterator;->next-pVg5ArA()I
@@ -165,7 +165,7 @@
 .end method
 
 .method public next-pVg5ArA()I
-    .locals 3
+    .registers 4
 
     .line 134
     iget v0, p0, Lkotlin/ranges/UIntProgressionIterator;->next:I
@@ -174,22 +174,22 @@
     .local v0, "value":I
     iget v1, p0, Lkotlin/ranges/UIntProgressionIterator;->finalElement:I
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_14
 
     .line 136
     iget-boolean v1, p0, Lkotlin/ranges/UIntProgressionIterator;->hasNext:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 137
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lkotlin/ranges/UIntProgressionIterator;->hasNext:Z
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 136
-    :cond_0
+    :cond_e
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -197,7 +197,7 @@
     throw v1
 
     .line 139
-    :cond_1
+    :cond_14
     iget v1, p0, Lkotlin/ranges/UIntProgressionIterator;->next:I
 
     iget v2, p0, Lkotlin/ranges/UIntProgressionIterator;->step:I
@@ -211,12 +211,12 @@
     iput v1, p0, Lkotlin/ranges/UIntProgressionIterator;->next:I
 
     .line 141
-    :goto_0
+    :goto_1f
     return v0
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/locks/Condition;Lcom/google/common/util/concurrent/Striped$WeakSafeReadWriteLock;)V
-    .locals 0
+    .registers 3
     .param p1, "delegate"    # Ljava/util/concurrent/locks/Condition;
     .param p2, "strongReference"    # Lcom/google/common/util/concurrent/Striped$WeakSafeReadWriteLock;
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method delegate()Ljava/util/concurrent/locks/Condition;
-    .locals 1
+    .registers 2
 
     .line 379
     iget-object v0, p0, Lcom/google/common/util/concurrent/Striped$WeakSafeCondition;->delegate:Ljava/util/concurrent/locks/Condition;

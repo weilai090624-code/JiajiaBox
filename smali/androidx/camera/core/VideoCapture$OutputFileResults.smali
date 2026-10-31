@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/Uri;)V
-    .locals 0
+    .registers 2
     .param p1, "savedUri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getSavedUri()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 1651
     iget-object v0, p0, Landroidx/camera/core/VideoCapture$OutputFileResults;->mSavedUri:Landroid/net/Uri;

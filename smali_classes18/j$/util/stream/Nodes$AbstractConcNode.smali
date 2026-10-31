@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Node;Lj$/util/stream/Node;)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_NODE;TT_NODE;)V"
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public count()J
-    .locals 2
+    .registers 3
 
     .line 782
     .local p0, "this":Lj$/util/stream/Nodes$AbstractConcNode;, "Ljava/util/stream/Nodes$AbstractConcNode<TT;TT_NODE;>;"
@@ -101,7 +101,7 @@
 .end method
 
 .method public getChild(I)Lj$/util/stream/Node;
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -111,24 +111,24 @@
 
     .line 775
     .local p0, "this":Lj$/util/stream/Nodes$AbstractConcNode;, "Ljava/util/stream/Nodes$AbstractConcNode<TT;TT_NODE;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     iget-object v0, p0, Lj$/util/stream/Nodes$AbstractConcNode;->left:Lj$/util/stream/Node;
 
     return-object v0
 
     .line 776
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_b
 
     iget-object v0, p0, Lj$/util/stream/Nodes$AbstractConcNode;->right:Lj$/util/stream/Node;
 
     return-object v0
 
     .line 777
-    :cond_1
+    :cond_b
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -137,7 +137,7 @@
 .end method
 
 .method public getChildCount()I
-    .locals 1
+    .registers 2
 
     .line 770
     .local p0, "this":Lj$/util/stream/Nodes$AbstractConcNode;, "Ljava/util/stream/Nodes$AbstractConcNode<TT;TT_NODE;>;"
@@ -147,7 +147,7 @@
 .end method
 
 .method public synthetic getShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$-CC;->$default$getShape(Lj$/util/stream/Node;)Lj$/util/stream/StreamShape;
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public synthetic truncate(JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/Node$-CC;->$default$truncate(Lj$/util/stream/Node;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
 

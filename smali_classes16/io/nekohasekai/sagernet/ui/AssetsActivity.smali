@@ -143,7 +143,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$KjCW49QLY6ENVMhYnFN757R4b9Q(Lio/nekohasekai/sagernet/ui/AssetsActivity;Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AssetsActivity;->onCreate$lambda$1(Lio/nekohasekai/sagernet/ui/AssetsActivity;Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;)V
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$dTbw7KVpsDApip6867vuai1yGXs(Lio/nekohasekai/sagernet/ui/AssetsActivity;Landroid/net/Uri;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/AssetsActivity;->importFile$lambda$4(Lio/nekohasekai/sagernet/ui/AssetsActivity;Landroid/net/Uri;)V
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 5
+    .registers 6
 
     .line 28
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;-><init>()V
@@ -299,12 +299,12 @@
 .end method
 
 .method private static final importFile$lambda$4(Lio/nekohasekai/sagernet/ui/AssetsActivity;Landroid/net/Uri;)V
-    .locals 9
+    .registers 11
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/AssetsActivity;
     .param p1, "file"    # Landroid/net/Uri;
 
     .line 99
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_aa
 
     .line 100
     nop
@@ -335,13 +335,13 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4a
 
     move-object v3, v0
 
     check-cast v3, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_18
     move-object v0, v3
 
     check-cast v0, Landroid/database/Cursor;
@@ -372,8 +372,8 @@
     invoke-interface {v0, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v8
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_18 .. :try_end_2b} :catchall_41
 
     .line 100
     .end local v0    # "cursor":Landroid/database/Cursor;
@@ -384,7 +384,7 @@
     invoke-static {v3, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .line 103
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_4a
 
     .line 100
     nop
@@ -408,34 +408,34 @@
 
     .end local v0    # "it":Ljava/lang/String;
     .end local v3    # "$i$a$-takeIf-AssetsActivity$importFile$1$fileName$2":I
-    if-nez v4, :cond_0
+    if-nez v4, :cond_3d
 
-    goto :goto_0
+    goto :goto_3e
 
-    :cond_0
+    :cond_3d
     move-object v8, v2
 
     .line 100
-    :goto_0
-    if-eqz v8, :cond_1
+    :goto_3e
+    if-eqz v8, :cond_4a
 
-    goto :goto_1
+    goto :goto_6a
 
-    :catchall_0
+    :catchall_41
     move-exception v0
 
     move-object v1, v0
 
     .end local p0    # "this$0":Lio/nekohasekai/sagernet/ui/AssetsActivity;
     .end local p1    # "file":Landroid/net/Uri;
-    :try_start_1
+    :try_start_43
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_44
+    .catchall {:try_start_43 .. :try_end_44} :catchall_44
 
     .restart local p0    # "this$0":Lio/nekohasekai/sagernet/ui/AssetsActivity;
     .restart local p1    # "file":Landroid/net/Uri;
-    :catchall_1
+    :catchall_44
     move-exception v0
 
     move-object v2, v0
@@ -445,7 +445,7 @@
     throw v2
 
     .line 103
-    :cond_1
+    :cond_4a
     invoke-virtual {p1}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
 
     move-result-object v0
@@ -479,7 +479,7 @@
     move-result-object v8
 
     .line 100
-    :goto_1
+    :goto_6a
     move-object v0, v8
 
     .line 107
@@ -492,7 +492,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_90
 
     .line 108
     move-object v1, p0
@@ -525,18 +525,18 @@
     return-void
 
     .line 111
-    :cond_2
+    :cond_90
     invoke-virtual {p0, v2}, Lio/nekohasekai/sagernet/ui/AssetsActivity;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_9a
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AssetsActivity;->getFilesDir()Ljava/io/File;
 
     move-result-object v1
 
-    :cond_3
+    :cond_9a
     move-object v2, v1
 
     .line 113
@@ -562,12 +562,12 @@
     .line 132
     .end local v0    # "fileName":Ljava/lang/String;
     .end local v2    # "filesDir":Ljava/io/File;
-    :cond_4
+    :cond_aa
     return-void
 .end method
 
 .method private static final onCreate$lambda$1(Lio/nekohasekai/sagernet/ui/AssetsActivity;Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/AssetsActivity;
     .param p1, "$binding"    # Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;
 
@@ -592,16 +592,16 @@
 
 # virtual methods
 .method public final getAdapter()Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;
-    .locals 1
+    .registers 2
 
     .line 30
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity;->adapter:Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "adapter"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -612,7 +612,7 @@
 .end method
 
 .method public final getAssetNames()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 91
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity;->assetNames:[Ljava/lang/String;
@@ -621,7 +621,7 @@
 .end method
 
 .method public final getImportFile()Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -638,16 +638,16 @@
 .end method
 
 .method public final getLayout()Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity;->layout:Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "layout"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -658,7 +658,7 @@
 .end method
 
 .method public final getUndoManager()Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -671,11 +671,11 @@
     .line 32
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity;->undoManager:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "undoManager"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -686,7 +686,7 @@
 .end method
 
 .method public final getUpdating()Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 1
+    .registers 2
 
     .line 200
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity;->updating:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -695,7 +695,7 @@
 .end method
 
 .method public onBackPressed()V
-    .locals 0
+    .registers 1
 
     .line 341
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AssetsActivity;->finish()V
@@ -705,7 +705,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 5
+    .registers 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 35
@@ -753,7 +753,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_41
 
     .local v1, "$this$onCreate_u24lambda_u240":Landroidx/appcompat/app/ActionBar;
     const/4 v2, 0x0
@@ -783,7 +783,7 @@
     nop
 
     .line 48
-    :cond_0
+    :cond_41
     iget-object v1, v0, Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
     new-instance v2, Lio/nekohasekai/sagernet/ktx/FixedLinearLayoutManager;
@@ -884,7 +884,7 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 2
+    .registers 4
     .param p1, "menu"    # Landroid/view/Menu;
 
     const-string v0, "menu"
@@ -907,7 +907,7 @@
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 3
+    .registers 5
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -922,7 +922,7 @@
     .line 136
     const v1, 0x7f0a0058
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1a
 
     .line 137
     move-object v0, p0
@@ -941,14 +941,14 @@
     return v0
 
     .line 141
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method protected onResume()V
-    .locals 1
+    .registers 2
 
     .line 345
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;->onResume()V
@@ -956,7 +956,7 @@
     .line 347
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity;->adapter:Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 348
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AssetsActivity;->getAdapter()Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;
@@ -966,12 +966,12 @@
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;->reloadAssets()V
 
     .line 350
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public onSupportNavigateUp()Z
-    .locals 1
+    .registers 2
 
     .line 336
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AssetsActivity;->finish()V
@@ -983,7 +983,7 @@
 .end method
 
 .method public final setAdapter(Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetAdapter;
 
     const-string v0, "<set-?>"
@@ -997,7 +997,7 @@
 .end method
 
 .method public final setLayout(Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;
 
     const-string v0, "<set-?>"
@@ -1011,7 +1011,7 @@
 .end method
 
 .method public final setUndoManager(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1034,7 +1034,7 @@
 .end method
 
 .method public snackbarInternal$app_ossDebug(Ljava/lang/CharSequence;)Lcom/google/android/material/snackbar/Snackbar;
-    .locals 2
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     const-string v0, "text"
@@ -1064,7 +1064,7 @@
 .end method
 
 .method public final updateAsset(Ljava/io/File;Ljava/io/File;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 16
+    .registers 21
     .param p4, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1084,7 +1084,7 @@
 
     instance-of v0, v1, Lio/nekohasekai/sagernet/ui/AssetsActivity$updateAsset$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     move-object v0, v1
 
@@ -1096,7 +1096,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v0, Lio/nekohasekai/sagernet/ui/AssetsActivity$updateAsset$1;->label:I
 
@@ -1106,16 +1106,16 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v0, Lio/nekohasekai/sagernet/ui/AssetsActivity$updateAsset$1;
 
     move-object/from16 v2, p0
 
     invoke-direct {v0, v2, v1}, Lio/nekohasekai/sagernet/ui/AssetsActivity$updateAsset$1;-><init>(Lio/nekohasekai/sagernet/ui/AssetsActivity;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_1f
     move-object v3, v0
 
     .local v3, "$continuation":Lkotlin/coroutines/Continuation;
@@ -1129,7 +1129,7 @@
     .line 275
     iget v5, v3, Lio/nekohasekai/sagernet/ui/AssetsActivity$updateAsset$1;->label:I
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_22c
 
     .end local v3    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v4    # "$result":Ljava/lang/Object;
@@ -1143,7 +1143,7 @@
 
     .restart local v3    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v4    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_33
     iget-object v0, v3, Lio/nekohasekai/sagernet/ui/AssetsActivity$updateAsset$1;->L$0:Ljava/lang/Object;
 
     move-object v5, v0
@@ -1151,15 +1151,15 @@
     check-cast v5, Llibcore/HTTPClient;
 
     .local v5, "client":Llibcore/HTTPClient;
-    :try_start_0
+    :try_start_38
     invoke-static {v4}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3b
+    .catchall {:try_start_38 .. :try_end_3b} :catchall_47
 
-    goto/16 :goto_6
+    goto/16 :goto_1ee
 
     .end local v5    # "client":Llibcore/HTTPClient;
-    :pswitch_1
+    :pswitch_3d
     iget-object v0, v3, Lio/nekohasekai/sagernet/ui/AssetsActivity$updateAsset$1;->L$0:Ljava/lang/Object;
 
     move-object v5, v0
@@ -1167,22 +1167,22 @@
     check-cast v5, Llibcore/HTTPClient;
 
     .restart local v5    # "client":Llibcore/HTTPClient;
-    :try_start_1
+    :try_start_42
     invoke-static {v4}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_45
+    .catchall {:try_start_42 .. :try_end_45} :catchall_47
 
-    goto/16 :goto_1
+    goto/16 :goto_ed
 
     .line 331
-    :catchall_0
+    :catchall_47
     move-exception v0
 
-    goto/16 :goto_7
+    goto/16 :goto_228
 
     .line 275
     .end local v5    # "client":Llibcore/HTTPClient;
-    :pswitch_2
+    :pswitch_4a
     invoke-static {v4}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v5, p0
@@ -1280,7 +1280,7 @@
     nop
 
     .line 288
-    :try_start_2
+    :try_start_93
     invoke-interface {v11}, Llibcore/HTTPClient;->newRequest()Llibcore/HTTPRequest;
 
     move-result-object v12
@@ -1369,7 +1369,7 @@
 
     const/4 v13, 0x0
 
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_f3
 
     .line 296
     .end local v1    # "release":Lorg/json/JSONObject;
@@ -1393,27 +1393,27 @@
     invoke-static {v1, v3}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->onMainDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_e9
+    .catchall {:try_start_93 .. :try_end_e9} :catchall_226
 
     .end local v5    # "this":Lio/nekohasekai/sagernet/ui/AssetsActivity;
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_ec
 
     .line 275
     return-object v0
 
     .line 296
-    :cond_1
+    :cond_ec
     move-object v5, v11
 
     .line 299
     .end local v11    # "client":Llibcore/HTTPClient;
     .local v5, "client":Llibcore/HTTPClient;
-    :goto_1
-    :try_start_3
+    :goto_ed
+    :try_start_ed
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_ef
+    .catchall {:try_start_ed .. :try_end_ef} :catchall_47
 
     .line 331
     invoke-interface {v5}, Llibcore/HTTPClient;->close()V
@@ -1430,8 +1430,8 @@
     .restart local v9    # "fileName":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v10    # "tagName":Ljava/lang/String;
     .restart local v11    # "client":Llibcore/HTTPClient;
-    :cond_2
-    :try_start_4
+    :cond_f3
+    :try_start_f3
     const-string v8, "assets"
 
     invoke-virtual {v1, v8}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -1462,8 +1462,8 @@
 
     move-result v13
 
-    :goto_2
-    if-ge v15, v13, :cond_5
+    :goto_10b
+    if-ge v15, v13, :cond_12e
 
     .line 368
     invoke-virtual {v8, v15}, Lorg/json/JSONArray;->get(I)Ljava/lang/Object;
@@ -1472,21 +1472,21 @@
 
     instance-of v2, v2, Lorg/json/JSONObject;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_129
 
     invoke-virtual {v8, v15}, Lorg/json/JSONArray;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_121
 
     check-cast v2, Lorg/json/JSONObject;
 
     invoke-interface {v14, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_129
 
-    :cond_3
+    :cond_121
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type org.json.JSONObject"
@@ -1504,17 +1504,17 @@
     .restart local v4    # "$result":Ljava/lang/Object;
     .restart local v11    # "client":Llibcore/HTTPClient;
     .restart local p4    # "$completion":Lkotlin/coroutines/Continuation;
-    :cond_4
-    :goto_3
+    :cond_129
+    :goto_129
     add-int/lit8 v15, v15, 0x1
 
     move-object/from16 v2, p0
 
-    goto :goto_2
+    goto :goto_10b
 
     .line 370
     .end local v15    # "i$iv":I
-    :cond_5
+    :cond_12e
     nop
 
     .line 302
@@ -1534,12 +1534,12 @@
 
     move-result-object v2
 
-    :cond_6
+    :cond_137
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_154
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1569,17 +1569,17 @@
 
     .end local v12    # "it":Lorg/json/JSONObject;
     .end local v13    # "$i$a$-find-AssetsActivity$updateAsset$assetToDownload$1":I
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_137
 
-    goto :goto_4
+    goto :goto_155
 
-    :cond_7
+    :cond_154
     const/4 v8, 0x0
 
-    :goto_4
+    :goto_155
     check-cast v8, Lorg/json/JSONObject;
 
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_1f5
 
     .end local v1    # "release":Lorg/json/JSONObject;
     move-object v1, v8
@@ -1667,7 +1667,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_19f
 
     invoke-virtual {v8}, Ljava/io/File;->mkdirs()Z
 
@@ -1676,7 +1676,7 @@
     invoke-static {v8}, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
 
     .line 314
-    :cond_8
+    :cond_19f
     invoke-virtual {v2}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
 
     move-result-object v8
@@ -1706,7 +1706,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_1c9
 
     .line 317
     invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -1723,17 +1723,17 @@
     .end local v7    # "file":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
-    goto :goto_5
+    goto :goto_1cc
 
     .line 320
     .restart local v7    # "file":Ljava/io/File;
-    :cond_9
+    :cond_1c9
     invoke-virtual {v2, v7}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
     .line 323
     .end local v2    # "cacheFile":Ljava/io/File;
     .end local v7    # "file":Ljava/io/File;
-    :goto_5
+    :goto_1cc
     invoke-static {v10}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     const/4 v1, 0x0
@@ -1765,23 +1765,23 @@
     invoke-static {v1, v3}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->onMainDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_1ea
+    .catchall {:try_start_f3 .. :try_end_1ea} :catchall_226
 
     .end local v5    # "this":Lio/nekohasekai/sagernet/ui/AssetsActivity;
-    if-ne v1, v0, :cond_a
+    if-ne v1, v0, :cond_1ed
 
     .line 275
     return-object v0
 
     .line 327
-    :cond_a
+    :cond_1ed
     move-object v5, v11
 
     .line 331
     .end local v11    # "client":Llibcore/HTTPClient;
     .local v5, "client":Llibcore/HTTPClient;
-    :goto_6
+    :goto_1ee
     invoke-interface {v5}, Llibcore/HTTPClient;->close()V
 
     .line 332
@@ -1799,8 +1799,8 @@
     .local v1, "release":Lorg/json/JSONObject;
     .restart local v9    # "fileName":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v11    # "client":Llibcore/HTTPClient;
-    :cond_b
-    :try_start_5
+    :cond_1f5
+    :try_start_1f5
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 304
@@ -1853,8 +1853,8 @@
     .end local v11    # "client":Llibcore/HTTPClient;
     .end local p4    # "$completion":Lkotlin/coroutines/Continuation;
     throw v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_226
+    .catchall {:try_start_1f5 .. :try_end_226} :catchall_226
 
     .line 331
     .end local v1    # "release":Lorg/json/JSONObject;
@@ -1863,22 +1863,22 @@
     .restart local v4    # "$result":Ljava/lang/Object;
     .restart local v11    # "client":Llibcore/HTTPClient;
     .restart local p4    # "$completion":Lkotlin/coroutines/Continuation;
-    :catchall_1
+    :catchall_226
     move-exception v0
 
     move-object v5, v11
 
     .end local v11    # "client":Llibcore/HTTPClient;
     .restart local v5    # "client":Llibcore/HTTPClient;
-    :goto_7
+    :goto_228
     invoke-interface {v5}, Llibcore/HTTPClient;->close()V
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_22c
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4a
+        :pswitch_3d
+        :pswitch_33
     .end packed-switch
 .end method

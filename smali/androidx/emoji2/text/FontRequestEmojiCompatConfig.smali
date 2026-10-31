@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 442
     new-instance v0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontProviderHelper;
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/core/provider/FontRequest;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "request"    # Landroidx/core/provider/FontRequest;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/core/provider/FontRequest;Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontProviderHelper;)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "request"    # Landroidx/core/provider/FontRequest;
     .param p3, "fontProviderHelper"    # Landroidx/emoji2/text/FontRequestEmojiCompatConfig$FontProviderHelper;
@@ -70,19 +70,19 @@
 
 # virtual methods
 .method public setHandler(Landroid/os/Handler;)Landroidx/emoji2/text/FontRequestEmojiCompatConfig;
-    .locals 1
+    .registers 3
     .param p1, "handler"    # Landroid/os/Handler;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 172
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 175
     return-object p0
 
     .line 177
-    :cond_0
+    :cond_3
     invoke-static {p1}, Landroidx/emoji2/text/ConcurrencyHelpers;->convertHandlerToExecutor(Landroid/os/Handler;)Ljava/util/concurrent/Executor;
 
     move-result-object v0
@@ -94,7 +94,7 @@
 .end method
 
 .method public setLoadingExecutor(Ljava/util/concurrent/Executor;)Landroidx/emoji2/text/FontRequestEmojiCompatConfig;
-    .locals 1
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 148
@@ -111,7 +111,7 @@
 .end method
 
 .method public setRetryPolicy(Landroidx/emoji2/text/FontRequestEmojiCompatConfig$RetryPolicy;)Landroidx/emoji2/text/FontRequestEmojiCompatConfig;
-    .locals 1
+    .registers 3
     .param p1, "policy"    # Landroidx/emoji2/text/FontRequestEmojiCompatConfig$RetryPolicy;
 
     .line 191

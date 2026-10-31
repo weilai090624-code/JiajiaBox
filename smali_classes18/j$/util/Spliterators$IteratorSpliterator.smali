@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Collection;I)V
-    .locals 1
+    .registers 4
     .param p2, "characteristics"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,20 +88,20 @@
     .line 1713
     and-int/lit16 v0, p2, 0x1000
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 1714
     or-int/lit8 v0, p2, 0x40
 
     or-int/lit16 v0, v0, 0x4000
 
-    goto :goto_0
+    goto :goto_12
 
     .line 1715
-    :cond_0
+    :cond_11
     move v0, p2
 
-    :goto_0
+    :goto_12
     iput v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->characteristics:I
 
     .line 1716
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Iterator;I)V
-    .locals 2
+    .registers 5
     .param p2, "characteristics"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -147,7 +147,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Iterator;JI)V
-    .locals 1
+    .registers 6
     .param p2, "size"    # J
     .param p4, "characteristics"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -177,20 +177,20 @@
     .line 1732
     and-int/lit16 v0, p4, 0x1000
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 1733
     or-int/lit8 v0, p4, 0x40
 
     or-int/lit16 v0, v0, 0x4000
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1734
-    :cond_0
+    :cond_13
     move v0, p4
 
-    :goto_0
+    :goto_14
     iput v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->characteristics:I
 
     .line 1735
@@ -200,7 +200,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 1828
     .local p0, "this":Lj$/util/Spliterators$IteratorSpliterator;, "Ljava/util/Spliterators$IteratorSpliterator<TT;>;"
@@ -210,13 +210,13 @@
 .end method
 
 .method public estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 1820
     .local p0, "this":Lj$/util/Spliterators$IteratorSpliterator;, "Ljava/util/Spliterators$IteratorSpliterator<TT;>;"
     iget-object v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->it:Ljava/util/Iterator;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 1821
     iget-object v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->collection:Ljava/util/Collection;
@@ -241,14 +241,14 @@
     return-wide v0
 
     .line 1824
-    :cond_0
+    :cond_16
     iget-wide v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->est:J
 
     return-wide v0
 .end method
 
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -260,7 +260,7 @@
     .line 1795
     .local p0, "this":Lj$/util/Spliterators$IteratorSpliterator;, "Ljava/util/Spliterators$IteratorSpliterator<TT;>;"
     .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1d
 
     .line 1797
     iget-object v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->it:Ljava/util/Iterator;
@@ -268,7 +268,7 @@
     move-object v1, v0
 
     .local v1, "i":Ljava/util/Iterator;, "Ljava/util/Iterator<+TT;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 1798
     iget-object v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->collection:Ljava/util/Collection;
@@ -293,7 +293,7 @@
     iput-wide v2, p0, Lj$/util/Spliterators$IteratorSpliterator;->est:J
 
     .line 1801
-    :cond_0
+    :cond_19
     invoke-static {v1, p1}, Lj$/util/Iterator$-EL;->forEachRemaining(Ljava/util/Iterator;Ljava/util/function/Consumer;)V
 
     .line 1802
@@ -301,7 +301,7 @@
 
     .line 1795
     .end local v1    # "i":Ljava/util/Iterator;, "Ljava/util/Iterator<+TT;>;"
-    :cond_1
+    :cond_1d
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -310,7 +310,7 @@
 .end method
 
 .method public getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -327,7 +327,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1833
     const/4 v0, 0x0
@@ -335,7 +335,7 @@
     return-object v0
 
     .line 1834
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -344,7 +344,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -354,7 +354,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -364,7 +364,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -376,12 +376,12 @@
     .line 1806
     .local p0, "this":Lj$/util/Spliterators$IteratorSpliterator;, "Ljava/util/Spliterators$IteratorSpliterator<TT;>;"
     .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2c
 
     .line 1807
     iget-object v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->it:Ljava/util/Iterator;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 1808
     iget-object v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->collection:Ljava/util/Collection;
@@ -404,14 +404,14 @@
     iput-wide v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->est:J
 
     .line 1811
-    :cond_0
+    :cond_17
     iget-object v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->it:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 1812
     iget-object v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->it:Ljava/util/Iterator;
@@ -428,13 +428,13 @@
     return v0
 
     .line 1815
-    :cond_1
+    :cond_2a
     const/4 v0, 0x0
 
     return v0
 
     .line 1806
-    :cond_2
+    :cond_2c
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -443,7 +443,7 @@
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -459,7 +459,7 @@
     move-object v1, v0
 
     .local v1, "i":Ljava/util/Iterator;, "Ljava/util/Iterator<+TT;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 1771
     iget-object v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->collection:Ljava/util/Collection;
@@ -484,27 +484,27 @@
     iput-wide v2, p0, Lj$/util/Spliterators$IteratorSpliterator;->est:J
 
     .local v2, "s":J
-    goto :goto_0
+    goto :goto_1a
 
     .line 1775
     .end local v2    # "s":J
-    :cond_0
+    :cond_18
     iget-wide v2, p0, Lj$/util/Spliterators$IteratorSpliterator;->est:J
 
     .line 1776
     .restart local v2    # "s":J
-    :goto_0
+    :goto_1a
     const-wide/16 v4, 0x1
 
     cmp-long v0, v2, v4
 
-    if-lez v0, :cond_6
+    if-lez v0, :cond_65
 
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_65
 
     .line 1777
     iget v0, p0, Lj$/util/Spliterators$IteratorSpliterator;->batch:I
@@ -517,22 +517,22 @@
 
     cmp-long v6, v4, v2
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_30
 
     .line 1779
     long-to-int v0, v2
 
     .line 1780
-    :cond_1
+    :cond_30
     const/high16 v4, 0x2000000
 
-    if-le v0, v4, :cond_2
+    if-le v0, v4, :cond_36
 
     .line 1781
     const/high16 v0, 0x2000000
 
     .line 1782
-    :cond_2
+    :cond_36
     new-array v4, v0, [Ljava/lang/Object;
 
     .line 1783
@@ -541,7 +541,7 @@
 
     .line 1784
     .local v5, "j":I
-    :cond_3
+    :cond_39
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
@@ -550,16 +550,16 @@
 
     add-int/lit8 v5, v5, 0x1
 
-    if-ge v5, v0, :cond_4
+    if-ge v5, v0, :cond_49
 
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_39
 
     .line 1785
-    :cond_4
+    :cond_49
     iput v5, p0, Lj$/util/Spliterators$IteratorSpliterator;->batch:I
 
     .line 1786
@@ -569,7 +569,7 @@
 
     cmp-long v10, v6, v8
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_5c
 
     .line 1787
     iget-wide v6, p0, Lj$/util/Spliterators$IteratorSpliterator;->est:J
@@ -581,7 +581,7 @@
     iput-wide v6, p0, Lj$/util/Spliterators$IteratorSpliterator;->est:J
 
     .line 1788
-    :cond_5
+    :cond_5c
     new-instance v6, Lj$/util/Spliterators$ArraySpliterator;
 
     const/4 v7, 0x0
@@ -596,7 +596,7 @@
     .end local v0    # "n":I
     .end local v4    # "a":[Ljava/lang/Object;
     .end local v5    # "j":I
-    :cond_6
+    :cond_65
     const/4 v0, 0x0
 
     return-object v0

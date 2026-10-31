@@ -237,7 +237,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 2
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "klass"    # Ljava/lang/Class;
     .param p3, "name"    # Ljava/lang/String;
@@ -337,7 +337,7 @@
 
 # virtual methods
 .method public addAutoMigrationSpec(Landroidx/room/migration/AutoMigrationSpec;)Landroidx/room/RoomDatabase$Builder;
-    .locals 3
+    .registers 5
     .param p1, "autoMigrationSpec"    # Landroidx/room/migration/AutoMigrationSpec;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -382,7 +382,7 @@
 .end method
 
 .method public addCallback(Landroidx/room/RoomDatabase$Callback;)Landroidx/room/RoomDatabase$Builder;
-    .locals 3
+    .registers 5
     .param p1, "callback"    # Landroidx/room/RoomDatabase$Callback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -427,7 +427,7 @@
 .end method
 
 .method public varargs addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
-    .locals 7
+    .registers 9
     .param p1, "migrations"    # [Landroidx/room/migration/Migration;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -455,7 +455,7 @@
     .local v1, "$i$a$-apply-RoomDatabase$Builder$addMigrations$1":I
     iget-object v2, v0, Landroidx/room/RoomDatabase$Builder;->migrationStartAndEndVersions:Ljava/util/Set;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_16
 
     .line 940
     new-instance v2, Ljava/util/HashSet;
@@ -467,13 +467,13 @@
     iput-object v2, v0, Landroidx/room/RoomDatabase$Builder;->migrationStartAndEndVersions:Ljava/util/Set;
 
     .line 942
-    :cond_0
+    :cond_16
     array-length v2, p1
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_18
+    if-ge v3, v2, :cond_3b
 
     aget-object v4, p1, v3
 
@@ -508,10 +508,10 @@
     .end local v4    # "migration":Landroidx/room/migration/Migration;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 946
-    :cond_1
+    :cond_3b
     iget-object v2, v0, Landroidx/room/RoomDatabase$Builder;->migrationContainer:Landroidx/room/RoomDatabase$MigrationContainer;
 
     array-length v3, p1
@@ -539,7 +539,7 @@
 .end method
 
 .method public addTypeConverter(Ljava/lang/Object;)Landroidx/room/RoomDatabase$Builder;
-    .locals 3
+    .registers 5
     .param p1, "typeConverter"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -584,7 +584,7 @@
 .end method
 
 .method public allowMainThreadQueries()Landroidx/room/RoomDatabase$Builder;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -622,7 +622,7 @@
 .end method
 
 .method public build()Landroidx/room/RoomDatabase;
-    .locals 25
+    .registers 26
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -634,11 +634,11 @@
 
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->queryExecutor:Ljava/util/concurrent/Executor;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->transactionExecutor:Ljava/util/concurrent/Executor;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     .line 1250
     invoke-static {}, Landroidx/arch/core/executor/ArchTaskExecutor;->getIOThreadExecutor()Ljava/util/concurrent/Executor;
@@ -652,30 +652,30 @@
 
     iput-object v1, v0, Landroidx/room/RoomDatabase$Builder;->queryExecutor:Ljava/util/concurrent/Executor;
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 1252
-    :cond_0
+    :cond_15
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->queryExecutor:Ljava/util/concurrent/Executor;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_22
 
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->transactionExecutor:Ljava/util/concurrent/Executor;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_22
 
     .line 1253
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->queryExecutor:Ljava/util/concurrent/Executor;
 
     iput-object v1, v0, Landroidx/room/RoomDatabase$Builder;->transactionExecutor:Ljava/util/concurrent/Executor;
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 1254
-    :cond_1
+    :cond_22
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->queryExecutor:Ljava/util/concurrent/Executor;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_2a
 
     .line 1255
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->transactionExecutor:Ljava/util/concurrent/Executor;
@@ -683,11 +683,11 @@
     iput-object v1, v0, Landroidx/room/RoomDatabase$Builder;->queryExecutor:Ljava/util/concurrent/Executor;
 
     .line 1257
-    :cond_2
-    :goto_0
+    :cond_2a
+    :goto_2a
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->migrationStartAndEndVersions:Ljava/util/Set;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_73
 
     .line 1258
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->migrationStartAndEndVersions:Ljava/util/Set;
@@ -698,12 +698,12 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_37
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_73
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -727,11 +727,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_54
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_3
+    :cond_54
     const/4 v1, 0x0
 
     .line 1260
@@ -772,13 +772,13 @@
 
     .line 1273
     .end local v2    # "version":I
-    :cond_4
+    :cond_73
     nop
 
     .line 1269
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->factory:Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_80
 
     .line 1270
     new-instance v1, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelperFactory;
@@ -787,20 +787,20 @@
 
     check-cast v1, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
 
-    goto :goto_2
+    goto :goto_82
 
     .line 1272
-    :cond_5
+    :cond_80
     iget-object v1, v0, Landroidx/room/RoomDatabase$Builder;->factory:Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
 
     .line 1269
-    :goto_2
+    :goto_82
     nop
 
     .line 1273
     const-string v2, "Required value was null."
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_136
 
     .line 1269
     nop
@@ -819,12 +819,12 @@
 
     cmp-long v8, v4, v6
 
-    if-lez v8, :cond_9
+    if-lez v8, :cond_cf
 
     .line 1275
     iget-object v4, v0, Landroidx/room/RoomDatabase$Builder;->name:Ljava/lang/String;
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_c1
 
     .line 1278
     new-instance v4, Landroidx/room/AutoCloser;
@@ -835,12 +835,12 @@
     .line 1280
     iget-object v7, v0, Landroidx/room/RoomDatabase$Builder;->autoCloseTimeUnit:Ljava/util/concurrent/TimeUnit;
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_b7
 
     .line 1281
     iget-object v8, v0, Landroidx/room/RoomDatabase$Builder;->queryExecutor:Ljava/util/concurrent/Executor;
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_ad
 
     .line 1278
     invoke-direct {v4, v5, v6, v7, v8}, Landroidx/room/AutoCloser;-><init>(JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/Executor;)V
@@ -854,10 +854,10 @@
     .end local v4    # "autoCloser":Landroidx/room/AutoCloser;
     check-cast v5, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
 
-    goto :goto_3
+    goto :goto_d0
 
     .line 1281
-    :cond_6
+    :cond_ad
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -869,7 +869,7 @@
     throw v4
 
     .line 1280
-    :cond_7
+    :cond_b7
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -881,7 +881,7 @@
     throw v4
 
     .line 1275
-    :cond_8
+    :cond_c1
     const/4 v2, 0x0
 
     .line 1276
@@ -903,11 +903,11 @@
     throw v2
 
     .line 1285
-    :cond_9
+    :cond_cf
     move-object v5, v1
 
     .line 1274
-    :goto_3
+    :goto_d0
     nop
 
     .line 1273
@@ -934,32 +934,32 @@
     .line 1289
     iget-object v4, v0, Landroidx/room/RoomDatabase$Builder;->copyFromAssetPath:Ljava/lang/String;
 
-    if-nez v4, :cond_b
+    if-nez v4, :cond_e6
 
     .line 1290
     iget-object v4, v0, Landroidx/room/RoomDatabase$Builder;->copyFromFile:Ljava/io/File;
 
-    if-nez v4, :cond_b
+    if-nez v4, :cond_e6
 
     .line 1291
     iget-object v4, v0, Landroidx/room/RoomDatabase$Builder;->copyFromInputStream:Ljava/util/concurrent/Callable;
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_e4
 
-    goto :goto_4
+    goto :goto_e6
 
     .line 1316
-    :cond_a
+    :cond_e4
     move-object v5, v1
 
-    goto :goto_8
+    goto :goto_118
 
     .line 1293
-    :cond_b
-    :goto_4
+    :cond_e6
+    :goto_e6
     iget-object v4, v0, Landroidx/room/RoomDatabase$Builder;->name:Ljava/lang/String;
 
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_128
 
     .line 1297
     iget-object v4, v0, Landroidx/room/RoomDatabase$Builder;->copyFromAssetPath:Ljava/lang/String;
@@ -968,46 +968,46 @@
 
     const/4 v6, 0x1
 
-    if-nez v4, :cond_c
+    if-nez v4, :cond_f2
 
     const/4 v4, 0x0
 
-    goto :goto_5
+    goto :goto_f3
 
-    :cond_c
+    :cond_f2
     const/4 v4, 0x1
 
     .line 1298
     .local v4, "copyFromAssetPathConfig":I
-    :goto_5
+    :goto_f3
     iget-object v7, v0, Landroidx/room/RoomDatabase$Builder;->copyFromFile:Ljava/io/File;
 
-    if-nez v7, :cond_d
+    if-nez v7, :cond_f9
 
     const/4 v7, 0x0
 
-    goto :goto_6
+    goto :goto_fa
 
-    :cond_d
+    :cond_f9
     const/4 v7, 0x1
 
     .line 1299
     .local v7, "copyFromFileConfig":I
-    :goto_6
+    :goto_fa
     iget-object v8, v0, Landroidx/room/RoomDatabase$Builder;->copyFromInputStream:Ljava/util/concurrent/Callable;
 
-    if-nez v8, :cond_e
+    if-nez v8, :cond_100
 
     const/4 v8, 0x0
 
-    goto :goto_7
+    goto :goto_101
 
-    :cond_e
+    :cond_100
     const/4 v8, 0x1
 
     .line 1300
     .local v8, "copyFromInputStreamConfig":I
-    :goto_7
+    :goto_101
     add-int v9, v4, v7
 
     .line 1301
@@ -1018,12 +1018,12 @@
 
     .line 1303
     .local v9, "copyConfigurations":I
-    if-ne v9, v6, :cond_f
+    if-ne v9, v6, :cond_108
 
     const/4 v5, 0x1
 
-    :cond_f
-    if-eqz v5, :cond_10
+    :cond_108
+    if-eqz v5, :cond_11a
 
     .line 1309
     new-instance v5, Landroidx/room/SQLiteCopyOpenHelperFactory;
@@ -1050,13 +1050,13 @@
     check-cast v5, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
 
     .line 1288
-    :goto_8
+    :goto_118
     nop
 
     .line 1287
     .end local v1    # "it":Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
     .end local v3    # "$i$a$-let-RoomDatabase$Builder$build$factory$2":I
-    goto :goto_9
+    goto :goto_137
 
     .line 1303
     .restart local v1    # "it":Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
@@ -1065,7 +1065,7 @@
     .restart local v7    # "copyFromFileConfig":I
     .restart local v8    # "copyFromInputStreamConfig":I
     .restart local v9    # "copyConfigurations":I
-    :cond_10
+    :cond_11a
     const/4 v2, 0x0
 
     .line 1304
@@ -1091,7 +1091,7 @@
     .end local v7    # "copyFromFileConfig":I
     .end local v8    # "copyFromInputStreamConfig":I
     .end local v9    # "copyConfigurations":I
-    :cond_11
+    :cond_128
     const/4 v2, 0x0
 
     .line 1294
@@ -1115,11 +1115,11 @@
     .line 1273
     .end local v1    # "it":Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
     .end local v3    # "$i$a$-let-RoomDatabase$Builder$build$factory$2":I
-    :cond_12
+    :cond_136
     const/4 v5, 0x0
 
     .line 1318
-    :goto_9
+    :goto_137
     move-object v1, v5
 
     .restart local v1    # "it":Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
@@ -1127,12 +1127,12 @@
 
     .line 1319
     .local v3, "$i$a$-let-RoomDatabase$Builder$build$factory$3":I
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_1d2
 
     .line 1320
     iget-object v4, v0, Landroidx/room/RoomDatabase$Builder;->queryCallback:Landroidx/room/RoomDatabase$QueryCallback;
 
-    if-eqz v4, :cond_15
+    if-eqz v4, :cond_165
 
     .line 1321
     new-instance v4, Landroidx/room/QueryInterceptorOpenHelperFactory;
@@ -1143,12 +1143,12 @@
     .line 1323
     iget-object v5, v0, Landroidx/room/RoomDatabase$Builder;->queryCallbackExecutor:Ljava/util/concurrent/Executor;
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_15b
 
     .line 1324
     iget-object v6, v0, Landroidx/room/RoomDatabase$Builder;->queryCallback:Landroidx/room/RoomDatabase$QueryCallback;
 
-    if-eqz v6, :cond_13
+    if-eqz v6, :cond_151
 
     .line 1321
     invoke-direct {v4, v1, v5, v6}, Landroidx/room/QueryInterceptorOpenHelperFactory;-><init>(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Ljava/util/concurrent/Executor;Landroidx/room/RoomDatabase$QueryCallback;)V
@@ -1157,10 +1157,10 @@
 
     move-object v8, v4
 
-    goto :goto_a
+    goto :goto_166
 
     .line 1324
-    :cond_13
+    :cond_151
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1172,7 +1172,7 @@
     throw v4
 
     .line 1323
-    :cond_14
+    :cond_15b
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1184,11 +1184,11 @@
     throw v4
 
     .line 1327
-    :cond_15
+    :cond_165
     move-object v8, v1
 
     .line 1320
-    :goto_a
+    :goto_166
     nop
 
     .line 1318
@@ -1233,12 +1233,12 @@
     .line 1338
     iget-object v13, v0, Landroidx/room/RoomDatabase$Builder;->queryExecutor:Ljava/util/concurrent/Executor;
 
-    if-eqz v13, :cond_17
+    if-eqz v13, :cond_1c8
 
     .line 1339
     iget-object v14, v0, Landroidx/room/RoomDatabase$Builder;->transactionExecutor:Ljava/util/concurrent/Executor;
 
-    if-eqz v14, :cond_16
+    if-eqz v14, :cond_1be
 
     .line 1340
     iget-object v15, v0, Landroidx/room/RoomDatabase$Builder;->multiInstanceInvalidationIntent:Landroid/content/Intent;
@@ -1315,7 +1315,7 @@
     .line 1339
     .end local v1    # "configuration":Landroidx/room/DatabaseConfiguration;
     .end local v2    # "db":Landroidx/room/RoomDatabase;
-    :cond_16
+    :cond_1be
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1327,7 +1327,7 @@
     throw v1
 
     .line 1338
-    :cond_17
+    :cond_1c8
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1342,7 +1342,7 @@
     .end local v8    # "factory":Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
     .local v1, "it":Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
     .restart local v3    # "$i$a$-let-RoomDatabase$Builder$build$factory$3":I
-    :cond_18
+    :cond_1d2
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1355,7 +1355,7 @@
 .end method
 
 .method public createFromAsset(Ljava/lang/String;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 4
     .param p1, "databaseFilePath"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1398,7 +1398,7 @@
 .end method
 
 .method public createFromAsset(Ljava/lang/String;Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 5
     .param p1, "databaseFilePath"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;
     .annotation system Ldalvik/annotation/Signature;
@@ -1450,7 +1450,7 @@
 .end method
 
 .method public createFromFile(Ljava/io/File;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 4
     .param p1, "databaseFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1493,7 +1493,7 @@
 .end method
 
 .method public createFromFile(Ljava/io/File;Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 5
     .param p1, "databaseFile"    # Ljava/io/File;
     .param p2, "callback"    # Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;
     .annotation system Ldalvik/annotation/Signature;
@@ -1545,7 +1545,7 @@
 .end method
 
 .method public createFromInputStream(Ljava/util/concurrent/Callable;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 4
     .param p1, "inputStreamCallable"    # Ljava/util/concurrent/Callable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1589,7 +1589,7 @@
 .end method
 
 .method public createFromInputStream(Ljava/util/concurrent/Callable;Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 5
     .param p1, "inputStreamCallable"    # Ljava/util/concurrent/Callable;
     .param p2, "callback"    # Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;
     .annotation system Ldalvik/annotation/Signature;
@@ -1643,7 +1643,7 @@
 .end method
 
 .method public enableMultiInstanceInvalidation()Landroidx/room/RoomDatabase$Builder;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1664,7 +1664,7 @@
     .local v1, "$i$a$-apply-RoomDatabase$Builder$enableMultiInstanceInvalidation$1":I
     iget-object v2, v0, Landroidx/room/RoomDatabase$Builder;->name:Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_12
 
     .line 1057
     new-instance v2, Landroid/content/Intent;
@@ -1675,14 +1675,14 @@
 
     invoke-direct {v2, v3, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 1059
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
     .line 1056
-    :goto_0
+    :goto_13
     iput-object v2, v0, Landroidx/room/RoomDatabase$Builder;->multiInstanceInvalidationIntent:Landroid/content/Intent;
 
     .line 1061
@@ -1700,7 +1700,7 @@
 .end method
 
 .method public fallbackToDestructiveMigration()Landroidx/room/RoomDatabase$Builder;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1743,7 +1743,7 @@
 .end method
 
 .method public varargs fallbackToDestructiveMigrationFrom([I)Landroidx/room/RoomDatabase$Builder;
-    .locals 7
+    .registers 9
     .param p1, "startVersions"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1771,8 +1771,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_c
+    if-ge v3, v2, :cond_1c
 
     aget v4, p1, v3
 
@@ -1790,10 +1790,10 @@
     .end local v4    # "startVersion":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 1153
-    :cond_0
+    :cond_1c
     nop
 
     .line 1149
@@ -1808,7 +1808,7 @@
 .end method
 
 .method public fallbackToDestructiveMigrationOnDowngrade()Landroidx/room/RoomDatabase$Builder;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1849,7 +1849,7 @@
 .end method
 
 .method public openHelperFactory(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 4
     .param p1, "factory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1888,7 +1888,7 @@
 .end method
 
 .method public setAutoCloseTimeout(JLjava/util/concurrent/TimeUnit;)Landroidx/room/RoomDatabase$Builder;
-    .locals 5
+    .registers 9
     .param p1, "autoCloseTimeout"    # J
     .param p3, "autoCloseTimeUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -1919,17 +1919,17 @@
 
     cmp-long v4, p1, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_11
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_12
+    if-eqz v2, :cond_1d
 
     .line 1236
     iput-wide p1, v0, Landroidx/room/RoomDatabase$Builder;->autoCloseTimeout:J
@@ -1953,7 +1953,7 @@
     .line 1549
     .restart local v0    # "$this$setAutoCloseTimeout_u24lambda_u2422":Landroidx/room/RoomDatabase$Builder;
     .restart local v1    # "$i$a$-apply-RoomDatabase$Builder$setAutoCloseTimeout$1":I
-    :cond_1
+    :cond_1d
     const/4 v2, 0x0
 
     .line 1235
@@ -1975,7 +1975,7 @@
 .end method
 
 .method public setJournalMode(Landroidx/room/RoomDatabase$JournalMode;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 4
     .param p1, "journalMode"    # Landroidx/room/RoomDatabase$JournalMode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2018,7 +2018,7 @@
 .end method
 
 .method public setMultiInstanceInvalidationServiceIntent(Landroid/content/Intent;)Landroidx/room/RoomDatabase$Builder;
-    .locals 3
+    .registers 5
     .param p1, "invalidationServiceIntent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2049,17 +2049,17 @@
     .line 1085
     iget-object v2, v0, Landroidx/room/RoomDatabase$Builder;->name:Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
     move-object v2, p1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v2, 0x0
 
     .line 1084
-    :goto_0
+    :goto_11
     iput-object v2, v0, Landroidx/room/RoomDatabase$Builder;->multiInstanceInvalidationIntent:Landroid/content/Intent;
 
     .line 1086
@@ -2077,7 +2077,7 @@
 .end method
 
 .method public setQueryCallback(Landroidx/room/RoomDatabase$QueryCallback;Ljava/util/concurrent/Executor;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 5
     .param p1, "queryCallback"    # Landroidx/room/RoomDatabase$QueryCallback;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
@@ -2129,7 +2129,7 @@
 .end method
 
 .method public setQueryExecutor(Ljava/util/concurrent/Executor;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2172,7 +2172,7 @@
 .end method
 
 .method public setTransactionExecutor(Ljava/util/concurrent/Executor;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {

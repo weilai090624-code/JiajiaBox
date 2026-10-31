@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 41
     .local p0, "this":Landroidx/work/impl/utils/StatusRunnable;, "Landroidx/work/impl/utils/StatusRunnable<TT;>;"
@@ -48,7 +48,7 @@
 .end method
 
 .method public static forStringIds(Landroidx/work/impl/WorkManagerImpl;Ljava/util/List;)Landroidx/work/impl/utils/StatusRunnable;
-    .locals 1
+    .registers 3
     .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -85,7 +85,7 @@
 .end method
 
 .method public static forTag(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)Landroidx/work/impl/utils/StatusRunnable;
-    .locals 1
+    .registers 3
     .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
     .param p1, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -121,7 +121,7 @@
 .end method
 
 .method public static forUUID(Landroidx/work/impl/WorkManagerImpl;Ljava/util/UUID;)Landroidx/work/impl/utils/StatusRunnable;
-    .locals 1
+    .registers 3
     .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
     .param p1, "id"    # Ljava/util/UUID;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -156,7 +156,7 @@
 .end method
 
 .method public static forUniqueWork(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)Landroidx/work/impl/utils/StatusRunnable;
-    .locals 1
+    .registers 3
     .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -192,7 +192,7 @@
 .end method
 
 .method public static forWorkQuerySpec(Landroidx/work/impl/WorkManagerImpl;Landroidx/work/WorkQuery;)Landroidx/work/impl/utils/StatusRunnable;
-    .locals 1
+    .registers 3
     .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
     .param p1, "querySpec"    # Landroidx/work/WorkQuery;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -230,7 +230,7 @@
 
 # virtual methods
 .method public getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -247,7 +247,7 @@
 .end method
 
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 47
     .local p0, "this":Landroidx/work/impl/utils/StatusRunnable;, "Landroidx/work/impl/utils/StatusRunnable<TT;>;"
@@ -261,17 +261,17 @@
     iget-object v1, p0, Landroidx/work/impl/utils/StatusRunnable;->mFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-virtual {v1, v0}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_0 .. :try_end_9} :catchall_b
 
     .line 51
     nop
 
     .end local v0    # "value":Ljava/lang/Object;, "TT;"
-    goto :goto_0
+    goto :goto_11
 
     .line 49
-    :catchall_0
+    :catchall_b
     move-exception v0
 
     .line 50
@@ -282,7 +282,7 @@
 
     .line 52
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_0
+    :goto_11
     return-void
 .end method
 

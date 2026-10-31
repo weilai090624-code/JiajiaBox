@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/gson/JsonSerializer;Lcom/google/gson/JsonDeserializer;Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;Lcom/google/gson/TypeAdapterFactory;)V
-    .locals 2
+    .registers 8
     .param p3, "gson"    # Lcom/google/gson/Gson;
     .param p5, "skipPast"    # Lcom/google/gson/TypeAdapterFactory;
     .annotation system Ldalvik/annotation/Signature;
@@ -129,7 +129,7 @@
 .end method
 
 .method private delegate()Lcom/google/gson/TypeAdapter;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -144,15 +144,15 @@
 
     .line 88
     .local v0, "d":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<TT;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 89
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_12
 
     .line 90
-    :cond_0
+    :cond_6
     iget-object v1, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->gson:Lcom/google/gson/Gson;
 
     iget-object v2, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->skipPast:Lcom/google/gson/TypeAdapterFactory;
@@ -166,12 +166,12 @@
     iput-object v1, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->delegate:Lcom/google/gson/TypeAdapter;
 
     .line 88
-    :goto_0
+    :goto_12
     return-object v1
 .end method
 
 .method public static newFactory(Lcom/google/gson/reflect/TypeToken;Ljava/lang/Object;)Lcom/google/gson/TypeAdapterFactory;
-    .locals 3
+    .registers 5
     .param p1, "typeAdapter"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -198,7 +198,7 @@
 .end method
 
 .method public static newFactoryWithMatchRawType(Lcom/google/gson/reflect/TypeToken;Ljava/lang/Object;)Lcom/google/gson/TypeAdapterFactory;
-    .locals 3
+    .registers 5
     .param p1, "typeAdapter"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -221,18 +221,18 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     .line 108
     .local v0, "matchRawType":Z
-    :goto_0
+    :goto_d
     new-instance v1, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;
 
     const/4 v2, 0x0
@@ -243,7 +243,7 @@
 .end method
 
 .method public static newTypeHierarchyFactory(Ljava/lang/Class;Ljava/lang/Object;)Lcom/google/gson/TypeAdapterFactory;
-    .locals 3
+    .registers 5
     .param p1, "typeAdapter"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -272,7 +272,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -292,7 +292,7 @@
     .local p0, "this":Lcom/google/gson/internal/bind/TreeTypeAdapter;, "Lcom/google/gson/internal/bind/TreeTypeAdapter<TT;>;"
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->deserializer:Lcom/google/gson/JsonDeserializer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 63
     invoke-direct {p0}, Lcom/google/gson/internal/bind/TreeTypeAdapter;->delegate()Lcom/google/gson/TypeAdapter;
@@ -306,7 +306,7 @@
     return-object v0
 
     .line 65
-    :cond_0
+    :cond_d
     invoke-static {p1}, Lcom/google/gson/internal/Streams;->parse(Lcom/google/gson/stream/JsonReader;)Lcom/google/gson/JsonElement;
 
     move-result-object v0
@@ -317,7 +317,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     .line 67
     const/4 v1, 0x0
@@ -325,7 +325,7 @@
     return-object v1
 
     .line 69
-    :cond_1
+    :cond_19
     iget-object v1, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->deserializer:Lcom/google/gson/JsonDeserializer;
 
     iget-object v2, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->typeToken:Lcom/google/gson/reflect/TypeToken;
@@ -344,7 +344,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -365,7 +365,7 @@
     .local p2, "value":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->serializer:Lcom/google/gson/JsonSerializer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 74
     invoke-direct {p0}, Lcom/google/gson/internal/bind/TreeTypeAdapter;->delegate()Lcom/google/gson/TypeAdapter;
@@ -378,8 +378,8 @@
     return-void
 
     .line 77
-    :cond_0
-    if-nez p2, :cond_1
+    :cond_c
+    if-nez p2, :cond_12
 
     .line 78
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonWriter;->nullValue()Lcom/google/gson/stream/JsonWriter;
@@ -388,7 +388,7 @@
     return-void
 
     .line 81
-    :cond_1
+    :cond_12
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->serializer:Lcom/google/gson/JsonSerializer;
 
     iget-object v1, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->typeToken:Lcom/google/gson/reflect/TypeToken;

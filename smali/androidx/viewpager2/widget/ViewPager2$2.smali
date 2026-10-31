@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/viewpager2/widget/ViewPager2;
 
     .line 212
@@ -34,11 +34,11 @@
 
 # virtual methods
 .method public onPageScrollStateChanged(I)V
-    .locals 1
+    .registers 3
     .param p1, "newState"    # I
 
     .line 223
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 224
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$2;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -46,12 +46,12 @@
     invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2;->updateCurrentItem()V
 
     .line 226
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public onPageSelected(I)V
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 215
@@ -59,7 +59,7 @@
 
     iget v0, v0, Landroidx/viewpager2/widget/ViewPager2;->mCurrentItem:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_11
 
     .line 216
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$2;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -74,6 +74,6 @@
     invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;->onSetNewCurrentItem()V
 
     .line 219
-    :cond_0
+    :cond_11
     return-void
 .end method

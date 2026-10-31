@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -96,7 +96,7 @@
 .end method
 
 .method public isInitialized()Z
-    .locals 1
+    .registers 2
 
     .line 97
     const/4 v0, 0x1
@@ -105,7 +105,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 99
     invoke-virtual {p0}, Lkotlin/InitializedLazyImpl;->getValue()Ljava/lang/Object;

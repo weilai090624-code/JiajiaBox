@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static comparingByKey()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K::",
@@ -32,7 +32,7 @@
 .end method
 
 .method public static comparingByKey(Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -65,7 +65,7 @@
 .end method
 
 .method public static comparingByValue()Ljava/util/Comparator;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -92,7 +92,7 @@
 .end method
 
 .method public static comparingByValue(Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -125,7 +125,7 @@
 .end method
 
 .method public static synthetic lambda$comparingByKey$6d558cbf$1(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
-    .locals 2
+    .registers 5
     .param p0, "cmp"    # Ljava/util/Comparator;
     .param p1, "c1"    # Ljava/util/Map$Entry;
     .param p2, "c2"    # Ljava/util/Map$Entry;
@@ -147,7 +147,7 @@
 .end method
 
 .method public static synthetic lambda$comparingByKey$bbdbfea9$1(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
-    .locals 2
+    .registers 4
     .param p0, "c1"    # Ljava/util/Map$Entry;
     .param p1, "c2"    # Ljava/util/Map$Entry;
 
@@ -170,7 +170,7 @@
 .end method
 
 .method public static synthetic lambda$comparingByValue$1065357e$1(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
-    .locals 2
+    .registers 4
     .param p0, "c1"    # Ljava/util/Map$Entry;
     .param p1, "c2"    # Ljava/util/Map$Entry;
 
@@ -193,7 +193,7 @@
 .end method
 
 .method public static synthetic lambda$comparingByValue$827a17d5$1(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
-    .locals 2
+    .registers 5
     .param p0, "cmp"    # Ljava/util/Comparator;
     .param p1, "c1"    # Ljava/util/Map$Entry;
     .param p2, "c2"    # Ljava/util/Map$Entry;

@@ -54,7 +54,7 @@
 
 # direct methods
 .method public static final cleanWebview(Lio/nekohasekai/sagernet/SagerNet;)V
-    .locals 5
+    .registers 6
     .param p0, "$this$cleanWebview"    # Lio/nekohasekai/sagernet/SagerNet;
 
     const-string v0, "<this>"
@@ -70,7 +70,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -99,11 +99,11 @@
     move-result-object v0
 
     .line 20
-    :cond_0
+    :cond_28
     nop
 
     .line 21
-    :try_start_0
+    :try_start_29
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/SagerNet;->getFilesDir()Ljava/io/File;
 
     move-result-object v1
@@ -168,14 +168,14 @@
     const/4 v3, 0x0
 
     invoke-static {v2, v3}, Lmoe/matsuri/nb4a/utils/KotlinUtilKt;->recreate(Ljava/io/File;Z)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6c
+    .catch Ljava/lang/Exception; {:try_start_29 .. :try_end_6c} :catch_6d
 
     .end local v1    # "dataDir":Ljava/io/File;
-    goto :goto_0
+    goto :goto_76
 
     .line 24
-    :catch_0
+    :catch_6d
     move-exception v1
 
     .line 25
@@ -190,12 +190,12 @@
 
     .line 27
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_76
     return-void
 .end method
 
 .method public static final getDrawableByName(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .locals 3
+    .registers 5
     .param p0, "$this$getDrawableByName"    # Landroid/content/Context;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -228,7 +228,7 @@
 .end method
 
 .method public static final listByLineOrComma(Ljava/lang/String;)Ljava/util/List;
-    .locals 10
+    .registers 11
     .param p0, "$this$listByLineOrComma"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -301,12 +301,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_2e
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_4b
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -340,11 +340,11 @@
     .end local v8    # "$i$a$-map-KotlinUtilKt$listByLineOrComma$1":I
     invoke-interface {v2, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 69
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_4b
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -385,13 +385,13 @@
 
     move-result-object v5
 
-    :cond_1
-    :goto_1
+    :cond_60
+    :goto_60
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_80
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -415,28 +415,28 @@
 
     move-result v9
 
-    if-lez v9, :cond_2
+    if-lez v9, :cond_79
 
     const/4 v9, 0x1
 
-    goto :goto_2
+    goto :goto_7a
 
-    :cond_2
+    :cond_79
     const/4 v9, 0x0
 
     .line 71
     .end local v7    # "it":Ljava/lang/String;
     .end local v8    # "$i$a$-filter-KotlinUtilKt$listByLineOrComma$2":I
-    :goto_2
-    if-eqz v9, :cond_1
+    :goto_7a
+    if-eqz v9, :cond_60
 
     invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_60
 
     .line 72
     .end local v6    # "element$iv$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_80
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -454,7 +454,7 @@
 .end method
 
 .method public static final recreate(Ljava/io/File;Z)V
-    .locals 3
+    .registers 5
     .param p0, "$this$recreate"    # Ljava/io/File;
     .param p1, "dir"    # Z
 
@@ -469,7 +469,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
 
@@ -477,71 +477,71 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_14
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-nez v1, :cond_1
+    :cond_14
+    if-nez v1, :cond_17
 
     return-void
 
     .line 31
-    :cond_1
-    if-eqz p1, :cond_3
+    :cond_17
+    if-eqz p1, :cond_2c
 
     invoke-virtual {p0}, Ljava/io/File;->isFile()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2c
 
     .line 32
     invoke-virtual {p0}, Ljava/io/File;->exists()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     invoke-static {p0}, Lkotlin/io/FilesKt;->deleteRecursively(Ljava/io/File;)Z
 
     .line 33
-    :cond_2
+    :cond_28
     invoke-virtual {p0}, Ljava/io/File;->createNewFile()Z
 
-    goto :goto_0
+    goto :goto_40
 
     .line 34
-    :cond_3
-    if-nez p1, :cond_5
+    :cond_2c
+    if-nez p1, :cond_40
 
     invoke-virtual {p0}, Ljava/io/File;->isDirectory()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_40
 
     .line 35
     invoke-virtual {p0}, Ljava/io/File;->exists()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3d
 
     invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
     .line 36
-    :cond_4
+    :cond_3d
     invoke-virtual {p0}, Ljava/io/File;->mkdir()Z
 
     .line 38
-    :cond_5
-    :goto_0
+    :cond_40
+    :goto_40
     return-void
 .end method
 
 .method public static final toBytesString(J)Ljava/lang/String;
-    .locals 8
+    .registers 10
     .param p0, "$this$toBytesString"    # J
 
     .line 51
@@ -562,7 +562,7 @@
 
     cmp-long v7, p0, v5
 
-    if-ltz v7, :cond_0
+    if-ltz v7, :cond_28
 
     sget-object v7, Lkotlin/jvm/internal/StringCompanionObject;->INSTANCE:Lkotlin/jvm/internal/StringCompanionObject;
 
@@ -590,15 +590,15 @@
 
     invoke-static {v3, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_7e
 
     .line 54
-    :cond_0
+    :cond_28
     const-wide/32 v5, 0x100000
 
     cmp-long v7, p0, v5
 
-    if-ltz v7, :cond_1
+    if-ltz v7, :cond_4a
 
     sget-object v7, Lkotlin/jvm/internal/StringCompanionObject;->INSTANCE:Lkotlin/jvm/internal/StringCompanionObject;
 
@@ -626,15 +626,15 @@
 
     invoke-static {v3, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_7e
 
     .line 55
-    :cond_1
+    :cond_4a
     const-wide/16 v5, 0x400
 
     cmp-long v7, p0, v5
 
-    if-ltz v7, :cond_2
+    if-ltz v7, :cond_6b
 
     sget-object v7, Lkotlin/jvm/internal/StringCompanionObject;->INSTANCE:Lkotlin/jvm/internal/StringCompanionObject;
 
@@ -662,10 +662,10 @@
 
     invoke-static {v3, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_7e
 
     .line 56
-    :cond_2
+    :cond_6b
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -685,6 +685,6 @@
     move-result-object v3
 
     .line 52
-    :goto_0
+    :goto_7e
     return-object v3
 .end method

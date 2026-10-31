@@ -59,7 +59,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,7 +86,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;ZLjava/util/function/Predicate;)V
-    .locals 0
+    .registers 4
     .param p2, "noSplitting"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -140,7 +140,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 

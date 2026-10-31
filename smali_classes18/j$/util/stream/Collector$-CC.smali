@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static varargs of(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Lj$/util/stream/Collector$Characteristics;)Lj$/util/stream/Collector;
-    .locals 8
+    .registers 13
     .param p4, "characteristics"    # [Lj$/util/stream/Collector$Characteristics;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +57,7 @@
     .local v0, "cs":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;"
     array-length v1, p4
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_21
 
     .line 303
     const-class v1, Lj$/util/stream/Collector$Characteristics;
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .line 307
-    :cond_0
+    :cond_21
     new-instance v7, Lj$/util/stream/Collectors$CollectorImpl;
 
     move-object v1, v7
@@ -96,7 +96,7 @@
 .end method
 
 .method public static varargs of(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;[Lj$/util/stream/Collector$Characteristics;)Lj$/util/stream/Collector;
-    .locals 2
+    .registers 6
     .param p3, "characteristics"    # [Lj$/util/stream/Collector$Characteristics;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -136,15 +136,15 @@
     .line 268
     array-length v0, p3
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 269
     sget-object v0, Lj$/util/stream/Collectors;->CH_ID:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 270
-    :cond_0
+    :cond_12
     sget-object v0, Lj$/util/stream/Collector$Characteristics;->IDENTITY_FINISH:Lj$/util/stream/Collector$Characteristics;
 
     invoke-static {v0, p3}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;[Ljava/lang/Enum;)Ljava/util/EnumSet;
@@ -155,7 +155,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1c
     nop
 
     .line 272

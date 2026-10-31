@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 49
     const v0, 0x1010214
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "orientation"    # I
 
@@ -72,7 +72,7 @@
     .line 71
     iget-object v1, p0, Landroidx/recyclerview/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_22
 
     .line 72
     const-string v1, "DividerItem"
@@ -82,7 +82,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 75
-    :cond_0
+    :cond_22
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 76
@@ -93,7 +93,7 @@
 .end method
 
 .method private drawHorizontal(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 8
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "parent"    # Landroidx/recyclerview/widget/RecyclerView;
 
@@ -105,7 +105,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 159
     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView;->getPaddingTop()I
@@ -144,12 +144,12 @@
     .line 161
     invoke-virtual {p1, v2, v0, v3, v1}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 164
     .end local v0    # "top":I
     .end local v1    # "bottom":I
-    :cond_0
+    :cond_27
     const/4 v0, 0x0
 
     .line 165
@@ -160,7 +160,7 @@
 
     .line 168
     .restart local v1    # "bottom":I
-    :goto_0
+    :goto_2c
     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView;->getChildCount()I
 
     move-result v2
@@ -170,8 +170,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v2, :cond_1
+    :goto_31
+    if-ge v3, v2, :cond_62
 
     .line 170
     invoke-virtual {p2, v3}, Landroidx/recyclerview/widget/RecyclerView;->getChildAt(I)Landroid/view/View;
@@ -230,11 +230,11 @@
     .end local v6    # "left":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
     .line 177
     .end local v3    # "i":I
-    :cond_1
+    :cond_62
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 178
@@ -242,7 +242,7 @@
 .end method
 
 .method private drawVertical(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 8
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "parent"    # Landroidx/recyclerview/widget/RecyclerView;
 
@@ -254,7 +254,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 132
     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView;->getPaddingLeft()I
@@ -293,12 +293,12 @@
     .line 134
     invoke-virtual {p1, v0, v2, v1, v3}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 137
     .end local v0    # "left":I
     .end local v1    # "right":I
-    :cond_0
+    :cond_27
     const/4 v0, 0x0
 
     .line 138
@@ -309,7 +309,7 @@
 
     .line 141
     .restart local v1    # "right":I
-    :goto_0
+    :goto_2c
     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView;->getChildCount()I
 
     move-result v2
@@ -319,8 +319,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v2, :cond_1
+    :goto_31
+    if-ge v3, v2, :cond_5e
 
     .line 143
     invoke-virtual {p2, v3}, Landroidx/recyclerview/widget/RecyclerView;->getChildAt(I)Landroid/view/View;
@@ -375,11 +375,11 @@
     .end local v6    # "top":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
     .line 150
     .end local v3    # "i":I
-    :cond_1
+    :cond_5e
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 151
@@ -389,7 +389,7 @@
 
 # virtual methods
 .method public getDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 110
     iget-object v0, p0, Landroidx/recyclerview/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
@@ -398,7 +398,7 @@
 .end method
 
 .method public getItemOffsets(Landroid/graphics/Rect;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
-    .locals 3
+    .registers 8
     .param p1, "outRect"    # Landroid/graphics/Rect;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "parent"    # Landroidx/recyclerview/widget/RecyclerView;
@@ -409,7 +409,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 185
     invoke-virtual {p1, v1, v1, v1, v1}, Landroid/graphics/Rect;->set(IIII)V
@@ -418,12 +418,12 @@
     return-void
 
     .line 188
-    :cond_0
+    :cond_9
     iget v0, p0, Landroidx/recyclerview/widget/DividerItemDecoration;->mOrientation:I
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_18
 
     .line 189
     iget-object v0, p0, Landroidx/recyclerview/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
@@ -434,10 +434,10 @@
 
     invoke-virtual {p1, v1, v1, v1, v0}, Landroid/graphics/Rect;->set(IIII)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 191
-    :cond_1
+    :cond_18
     iget-object v0, p0, Landroidx/recyclerview/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -447,12 +447,12 @@
     invoke-virtual {p1, v1, v1, v0, v1}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 193
-    :goto_0
+    :goto_21
     return-void
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
-    .locals 2
+    .registers 6
     .param p1, "c"    # Landroid/graphics/Canvas;
     .param p2, "parent"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p3, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
@@ -462,47 +462,47 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Landroidx/recyclerview/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
-    goto :goto_1
+    goto :goto_18
 
     .line 119
-    :cond_0
+    :cond_b
     iget v0, p0, Landroidx/recyclerview/widget/DividerItemDecoration;->mOrientation:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_14
 
     .line 120
     invoke-direct {p0, p1, p2}, Landroidx/recyclerview/widget/DividerItemDecoration;->drawVertical(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 122
-    :cond_1
+    :cond_14
     invoke-direct {p0, p1, p2}, Landroidx/recyclerview/widget/DividerItemDecoration;->drawHorizontal(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;)V
 
     .line 124
-    :goto_0
+    :goto_17
     return-void
 
     .line 117
-    :cond_2
-    :goto_1
+    :cond_18
+    :goto_18
     return-void
 .end method
 
 .method public setDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .registers 4
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 99
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 102
     iput-object p1, p0, Landroidx/recyclerview/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
@@ -511,7 +511,7 @@
     return-void
 
     .line 100
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Drawable cannot be null."
@@ -522,20 +522,20 @@
 .end method
 
 .method public setOrientation(I)V
-    .locals 2
+    .registers 4
     .param p1, "orientation"    # I
 
     .line 86
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_e
 
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_6
 
-    goto :goto_0
+    goto :goto_e
 
     .line 87
-    :cond_0
+    :cond_6
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid orientation. It should be either HORIZONTAL or VERTICAL"
@@ -545,8 +545,8 @@
     throw v0
 
     .line 90
-    :cond_1
-    :goto_0
+    :cond_e
+    :goto_e
     iput p1, p0, Landroidx/recyclerview/widget/DividerItemDecoration;->mOrientation:I
 
     .line 91

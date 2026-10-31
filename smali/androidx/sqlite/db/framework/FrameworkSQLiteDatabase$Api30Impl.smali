@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase$Api30Impl;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 311
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public final execPerConnectionSQL(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "sQLiteDatabase"    # Landroid/database/sqlite/SQLiteDatabase;
     .param p2, "sql"    # Ljava/lang/String;
     .param p3, "bindArgs"    # [Ljava/lang/Object;

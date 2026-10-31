@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroid/content/Context;Landroidx/core/provider/FontRequest;I)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public call()Landroidx/core/provider/FontRequestWorker$TypefaceResult;
-    .locals 4
+    .registers 5
 
     .line 120
     iget-object v0, p0, Landroidx/core/provider/FontRequestWorker$1;->val$id:Ljava/lang/String;
@@ -81,7 +81,7 @@
 .end method
 
 .method public bridge synthetic call()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

@@ -92,7 +92,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/navigation/ActivityNavigator$Companion;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 6
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -142,12 +142,12 @@
 
     move-result-object v2
 
-    :cond_0
+    :cond_1a
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -167,18 +167,18 @@
 
     .end local v4    # "it":Landroid/content/Context;
     .end local v5    # "$i$a$-firstOrNull-ActivityNavigator$hostActivity$2":I
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1a
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 513
     .end local v3    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_2d
     const/4 v3, 0x0
 
     .end local v0    # "$this$firstOrNull$iv":Lkotlin/sequences/Sequence;
     .end local v1    # "$i$f$firstOrNull":I
-    :goto_0
+    :goto_2e
     check-cast v3, Landroid/app/Activity;
 
     .line 43
@@ -189,7 +189,7 @@
 .end method
 
 .method public static final applyPopAnimationsToPendingTransition(Landroid/app/Activity;)V
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -203,7 +203,7 @@
 
 # virtual methods
 .method public createDestination()Landroidx/navigation/ActivityNavigator$Destination;
-    .locals 2
+    .registers 3
 
     .line 53
     new-instance v0, Landroidx/navigation/ActivityNavigator$Destination;
@@ -218,7 +218,7 @@
 .end method
 
 .method public bridge synthetic createDestination()Landroidx/navigation/NavDestination;
-    .locals 1
+    .registers 2
 
     .line 37
     invoke-virtual {p0}, Landroidx/navigation/ActivityNavigator;->createDestination()Landroidx/navigation/ActivityNavigator$Destination;
@@ -231,7 +231,7 @@
 .end method
 
 .method public final getContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Landroidx/navigation/ActivityNavigator;->context:Landroid/content/Context;
@@ -240,7 +240,7 @@
 .end method
 
 .method public navigate(Landroidx/navigation/ActivityNavigator$Destination;Landroid/os/Bundle;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)Landroidx/navigation/NavDestination;
-    .locals 10
+    .registers 15
     .param p1, "destination"    # Landroidx/navigation/ActivityNavigator$Destination;
     .param p2, "args"    # Landroid/os/Bundle;
     .param p3, "navOptions"    # Landroidx/navigation/NavOptions;
@@ -255,7 +255,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_1e8
 
     .line 91
     new-instance v0, Landroid/content/Intent;
@@ -270,7 +270,7 @@
     .local v0, "intent":Landroid/content/Intent;
     const/4 v1, 0x0
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_a2
 
     .line 93
     invoke-virtual {v0, p2}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
@@ -288,27 +288,27 @@
 
     const/4 v4, 0x1
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
     invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2b
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_2b
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_1
-    :goto_0
+    :cond_2d
+    :goto_2d
     const/4 v3, 0x1
 
-    :goto_1
-    if-nez v3, :cond_4
+    :goto_2e
+    if-nez v3, :cond_a2
 
     .line 97
     new-instance v3, Ljava/lang/StringBuffer;
@@ -335,12 +335,12 @@
 
     .line 100
     .local v6, "matcher":Ljava/util/regex/Matcher;
-    :goto_2
+    :goto_42
     invoke-virtual {v6}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_94
 
     .line 101
     invoke-virtual {v6, v4}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -353,7 +353,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_67
 
     .line 103
     const-string v8, ""
@@ -375,10 +375,10 @@
 
     invoke-virtual {v3, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_2
+    goto :goto_42
 
     .line 106
-    :cond_2
+    :cond_67
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     .line 107
@@ -427,7 +427,7 @@
 
     .line 111
     .end local v7    # "argName":Ljava/lang/String;
-    :cond_3
+    :cond_94
     invoke-virtual {v6, v3}, Ljava/util/regex/Matcher;->appendTail(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     .line 112
@@ -446,10 +446,10 @@
     .end local v3    # "data":Ljava/lang/StringBuffer;
     .end local v5    # "fillInPattern":Ljava/util/regex/Pattern;
     .end local v6    # "matcher":Ljava/util/regex/Matcher;
-    :cond_4
+    :cond_a2
     instance-of v2, p4, Landroidx/navigation/ActivityNavigator$Extras;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_b0
 
     .line 116
     move-object v2, p4
@@ -463,10 +463,10 @@
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 118
-    :cond_5
+    :cond_b0
     iget-object v2, p0, Landroidx/navigation/ActivityNavigator;->hostActivity:Landroid/app/Activity;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_b9
 
     .line 120
     const/high16 v2, 0x10000000
@@ -474,14 +474,14 @@
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 122
-    :cond_6
-    if-eqz p3, :cond_7
+    :cond_b9
+    if-eqz p3, :cond_c6
 
     invoke-virtual {p3}, Landroidx/navigation/NavOptions;->shouldLaunchSingleTop()Z
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_c6
 
     .line 123
     const/high16 v2, 0x20000000
@@ -489,12 +489,12 @@
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 125
-    :cond_7
+    :cond_c6
     iget-object v2, p0, Landroidx/navigation/ActivityNavigator;->hostActivity:Landroid/app/Activity;
 
     const-string v3, "android-support-navigation:ActivityNavigator:current"
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_df
 
     .line 126
     iget-object v2, p0, Landroidx/navigation/ActivityNavigator;->hostActivity:Landroid/app/Activity;
@@ -505,7 +505,7 @@
 
     .line 127
     .local v2, "hostIntent":Landroid/content/Intent;
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_df
 
     .line 128
     invoke-virtual {v2, v3, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -514,7 +514,7 @@
 
     .line 129
     .local v4, "hostCurrentId":I
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_df
 
     .line 130
     const-string v5, "android-support-navigation:ActivityNavigator:source"
@@ -524,7 +524,7 @@
     .line 134
     .end local v2    # "hostIntent":Landroid/content/Intent;
     .end local v4    # "hostCurrentId":I
-    :cond_8
+    :cond_df
     invoke-virtual {p1}, Landroidx/navigation/ActivityNavigator$Destination;->getId()I
 
     move-result v2
@@ -546,7 +546,7 @@
 
     const-string v5, "animator"
 
-    if-eqz p3, :cond_c
+    if-eqz p3, :cond_154
 
     .line 138
     invoke-virtual {p3}, Landroidx/navigation/NavOptions;->getPopEnterAnim()I
@@ -564,7 +564,7 @@
     nop
 
     .line 141
-    if-lez v6, :cond_9
+    if-lez v6, :cond_107
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getResourceTypeName(I)Ljava/lang/String;
 
@@ -574,11 +574,11 @@
 
     move-result v8
 
-    if-nez v8, :cond_a
+    if-nez v8, :cond_113
 
     .line 142
-    :cond_9
-    if-lez v7, :cond_b
+    :cond_107
+    if-lez v7, :cond_14a
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getResourceTypeName(I)Ljava/lang/String;
 
@@ -588,10 +588,10 @@
 
     move-result v8
 
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_14a
 
     .line 145
-    :cond_a
+    :cond_113
     nop
 
     .line 146
@@ -660,10 +660,10 @@
     .line 144
     invoke-static {v4, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3
+    goto :goto_154
 
     .line 153
-    :cond_b
+    :cond_14a
     const-string v8, "android-support-navigation:ActivityNavigator:popEnterAnim"
 
     invoke-virtual {v0, v8, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
@@ -676,11 +676,11 @@
     .line 157
     .end local v6    # "popEnterAnim":I
     .end local v7    # "popExitAnim":I
-    :cond_c
-    :goto_3
+    :cond_154
+    :goto_154
     instance-of v6, p4, Landroidx/navigation/ActivityNavigator$Extras;
 
-    if-eqz v6, :cond_e
+    if-eqz v6, :cond_171
 
     .line 158
     move-object v6, p4
@@ -693,7 +693,7 @@
 
     .line 159
     .local v6, "activityOptions":Landroidx/core/app/ActivityOptionsCompat;
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_16b
 
     .line 160
     iget-object v7, p0, Landroidx/navigation/ActivityNavigator;->context:Landroid/content/Context;
@@ -704,30 +704,30 @@
 
     invoke-static {v7, v0, v8}, Landroidx/core/app/ActivityCompat;->startActivity(Landroid/content/Context;Landroid/content/Intent;Landroid/os/Bundle;)V
 
-    goto :goto_4
+    goto :goto_176
 
     .line 162
-    :cond_d
+    :cond_16b
     iget-object v7, p0, Landroidx/navigation/ActivityNavigator;->context:Landroid/content/Context;
 
     invoke-virtual {v7, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     .end local v6    # "activityOptions":Landroidx/core/app/ActivityOptionsCompat;
-    goto :goto_4
+    goto :goto_176
 
     .line 165
-    :cond_e
+    :cond_171
     iget-object v6, p0, Landroidx/navigation/ActivityNavigator;->context:Landroid/content/Context;
 
     invoke-virtual {v6, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     .line 167
-    :goto_4
-    if-eqz p3, :cond_13
+    :goto_176
+    if-eqz p3, :cond_1e6
 
     iget-object v6, p0, Landroidx/navigation/ActivityNavigator;->hostActivity:Landroid/app/Activity;
 
-    if-eqz v6, :cond_13
+    if-eqz v6, :cond_1e6
 
     .line 168
     invoke-virtual {p3}, Landroidx/navigation/NavOptions;->getEnterAnim()I
@@ -745,7 +745,7 @@
     nop
 
     .line 171
-    if-lez v6, :cond_f
+    if-lez v6, :cond_191
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getResourceTypeName(I)Ljava/lang/String;
 
@@ -755,11 +755,11 @@
 
     move-result v8
 
-    if-nez v8, :cond_10
+    if-nez v8, :cond_19d
 
     .line 172
-    :cond_f
-    if-lez v7, :cond_11
+    :cond_191
+    if-lez v7, :cond_1d5
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getResourceTypeName(I)Ljava/lang/String;
 
@@ -769,10 +769,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_1d5
 
     .line 175
-    :cond_10
+    :cond_19d
     nop
 
     .line 176
@@ -841,16 +841,16 @@
     .line 174
     invoke-static {v4, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_1e6
 
     .line 181
-    :cond_11
-    if-gez v6, :cond_12
+    :cond_1d5
+    if-gez v6, :cond_1d9
 
-    if-ltz v7, :cond_13
+    if-ltz v7, :cond_1e6
 
     .line 182
-    :cond_12
+    :cond_1d9
     invoke-static {v6, v1}, Lkotlin/ranges/RangesKt;->coerceAtLeast(II)I
 
     move-result v4
@@ -872,8 +872,8 @@
     .line 190
     .end local v1    # "exitAnim":I
     .end local v4    # "enterAnim":I
-    :cond_13
-    :goto_5
+    :cond_1e6
+    :goto_1e6
     const/4 v1, 0x0
 
     return-object v1
@@ -882,7 +882,7 @@
     .end local v0    # "intent":Landroid/content/Intent;
     .end local v2    # "destId":I
     .end local v3    # "resources":Landroid/content/res/Resources;
-    :cond_14
+    :cond_1e8
     const/4 v0, 0x0
 
     .line 89
@@ -929,7 +929,7 @@
 .end method
 
 .method public bridge synthetic navigate(Landroidx/navigation/NavDestination;Landroid/os/Bundle;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)Landroidx/navigation/NavDestination;
-    .locals 1
+    .registers 6
     .param p1, "destination"    # Landroidx/navigation/NavDestination;
     .param p2, "args"    # Landroid/os/Bundle;
     .param p3, "navOptions"    # Landroidx/navigation/NavOptions;
@@ -948,12 +948,12 @@
 .end method
 
 .method public popBackStack()Z
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/navigation/ActivityNavigator;->hostActivity:Landroid/app/Activity;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 58
     iget-object v0, p0, Landroidx/navigation/ActivityNavigator;->hostActivity:Landroid/app/Activity;
@@ -966,7 +966,7 @@
     return v0
 
     .line 61
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return v0

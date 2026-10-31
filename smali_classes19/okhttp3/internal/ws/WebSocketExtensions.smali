@@ -78,7 +78,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/ws/WebSocketExtensions$Companion;
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 9
+    .registers 10
 
     const/16 v7, 0x3f
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public constructor <init>(ZLjava/lang/Integer;ZLjava/lang/Integer;ZZ)V
-    .locals 0
+    .registers 7
     .param p1, "perMessageDeflate"    # Z
     .param p2, "clientMaxWindowBits"    # Ljava/lang/Integer;
     .param p3, "clientNoContextTakeover"    # Z
@@ -152,95 +152,95 @@
 .end method
 
 .method public synthetic constructor <init>(ZLjava/lang/Integer;ZLjava/lang/Integer;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 5
+    .registers 14
 
     .line 59
     and-int/lit8 p8, p7, 0x1
 
     const/4 v0, 0x0
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_7
 
     .line 61
     const/4 p8, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 59
-    :cond_0
+    :cond_7
     move p8, p1
 
-    :goto_0
+    :goto_8
     and-int/lit8 p1, p7, 0x2
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_f
 
     .line 64
     move-object v2, v1
 
-    goto :goto_1
+    goto :goto_10
 
     .line 59
-    :cond_1
+    :cond_f
     move-object v2, p2
 
-    :goto_1
+    :goto_10
     and-int/lit8 p1, p7, 0x4
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_16
 
     .line 67
     const/4 v3, 0x0
 
-    goto :goto_2
+    goto :goto_17
 
     .line 59
-    :cond_2
+    :cond_16
     move v3, p3
 
-    :goto_2
+    :goto_17
     and-int/lit8 p1, p7, 0x8
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_1c
 
     .line 70
-    goto :goto_3
+    goto :goto_1d
 
     .line 59
-    :cond_3
+    :cond_1c
     move-object v1, p4
 
-    :goto_3
+    :goto_1d
     and-int/lit8 p1, p7, 0x10
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_23
 
     .line 73
     const/4 v4, 0x0
 
-    goto :goto_4
+    goto :goto_24
 
     .line 59
-    :cond_4
+    :cond_23
     move v4, p5
 
-    :goto_4
+    :goto_24
     and-int/lit8 p1, p7, 0x20
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_2a
 
     .line 79
     const/4 p7, 0x0
 
-    goto :goto_5
+    goto :goto_2b
 
     .line 59
-    :cond_5
+    :cond_2a
     move p7, p6
 
-    :goto_5
+    :goto_2b
     move-object p1, p0
 
     move p2, p8
@@ -260,58 +260,58 @@
 .end method
 
 .method public static synthetic copy$default(Lokhttp3/internal/ws/WebSocketExtensions;ZLjava/lang/Integer;ZLjava/lang/Integer;ZZILjava/lang/Object;)Lokhttp3/internal/ws/WebSocketExtensions;
-    .locals 4
+    .registers 13
 
     and-int/lit8 p8, p7, 0x1
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_6
 
     iget-boolean p1, p0, Lokhttp3/internal/ws/WebSocketExtensions;->perMessageDeflate:Z
 
-    :cond_0
+    :cond_6
     and-int/lit8 p8, p7, 0x2
 
-    if-eqz p8, :cond_1
+    if-eqz p8, :cond_c
 
     iget-object p2, p0, Lokhttp3/internal/ws/WebSocketExtensions;->clientMaxWindowBits:Ljava/lang/Integer;
 
-    :cond_1
+    :cond_c
     move-object p8, p2
 
     and-int/lit8 p2, p7, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_13
 
     iget-boolean p3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->clientNoContextTakeover:Z
 
-    :cond_2
+    :cond_13
     move v0, p3
 
     and-int/lit8 p2, p7, 0x8
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_1a
 
     iget-object p4, p0, Lokhttp3/internal/ws/WebSocketExtensions;->serverMaxWindowBits:Ljava/lang/Integer;
 
-    :cond_3
+    :cond_1a
     move-object v1, p4
 
     and-int/lit8 p2, p7, 0x10
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_21
 
     iget-boolean p5, p0, Lokhttp3/internal/ws/WebSocketExtensions;->serverNoContextTakeover:Z
 
-    :cond_4
+    :cond_21
     move v2, p5
 
     and-int/lit8 p2, p7, 0x20
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_28
 
     iget-boolean p6, p0, Lokhttp3/internal/ws/WebSocketExtensions;->unknownValues:Z
 
-    :cond_5
+    :cond_28
     move v3, p6
 
     move-object p2, p0
@@ -338,7 +338,7 @@
 
 # virtual methods
 .method public final component1()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketExtensions;->perMessageDeflate:Z
 
@@ -346,7 +346,7 @@
 .end method
 
 .method public final component2()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketExtensions;->clientMaxWindowBits:Ljava/lang/Integer;
 
@@ -354,7 +354,7 @@
 .end method
 
 .method public final component3()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketExtensions;->clientNoContextTakeover:Z
 
@@ -362,7 +362,7 @@
 .end method
 
 .method public final component4()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lokhttp3/internal/ws/WebSocketExtensions;->serverMaxWindowBits:Ljava/lang/Integer;
 
@@ -370,7 +370,7 @@
 .end method
 
 .method public final component5()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketExtensions;->serverNoContextTakeover:Z
 
@@ -378,7 +378,7 @@
 .end method
 
 .method public final component6()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketExtensions;->unknownValues:Z
 
@@ -386,7 +386,7 @@
 .end method
 
 .method public final copy(ZLjava/lang/Integer;ZLjava/lang/Integer;ZZ)Lokhttp3/internal/ws/WebSocketExtensions;
-    .locals 8
+    .registers 15
 
     new-instance v7, Lokhttp3/internal/ws/WebSocketExtensions;
 
@@ -410,24 +410,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lokhttp3/internal/ws/WebSocketExtensions;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lokhttp3/internal/ws/WebSocketExtensions;
@@ -436,11 +436,11 @@
 
     iget-boolean v4, v1, Lokhttp3/internal/ws/WebSocketExtensions;->perMessageDeflate:Z
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_14
 
     return v2
 
-    :cond_2
+    :cond_14
     iget-object v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->clientMaxWindowBits:Ljava/lang/Integer;
 
     iget-object v4, v1, Lokhttp3/internal/ws/WebSocketExtensions;->clientMaxWindowBits:Ljava/lang/Integer;
@@ -449,20 +449,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     iget-boolean v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->clientNoContextTakeover:Z
 
     iget-boolean v4, v1, Lokhttp3/internal/ws/WebSocketExtensions;->clientNoContextTakeover:Z
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_26
 
     return v2
 
-    :cond_4
+    :cond_26
     iget-object v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->serverMaxWindowBits:Ljava/lang/Integer;
 
     iget-object v4, v1, Lokhttp3/internal/ws/WebSocketExtensions;->serverMaxWindowBits:Ljava/lang/Integer;
@@ -471,146 +471,146 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_31
 
     return v2
 
-    :cond_5
+    :cond_31
     iget-boolean v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->serverNoContextTakeover:Z
 
     iget-boolean v4, v1, Lokhttp3/internal/ws/WebSocketExtensions;->serverNoContextTakeover:Z
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_38
 
     return v2
 
-    :cond_6
+    :cond_38
     iget-boolean v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->unknownValues:Z
 
     iget-boolean v1, v1, Lokhttp3/internal/ws/WebSocketExtensions;->unknownValues:Z
 
-    if-eq v3, v1, :cond_7
+    if-eq v3, v1, :cond_3f
 
     return v2
 
-    :cond_7
+    :cond_3f
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .registers 6
 
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketExtensions;->perMessageDeflate:Z
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_6
     mul-int/lit8 v2, v0, 0x1f
 
     iget-object v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->clientMaxWindowBits:Ljava/lang/Integer;
 
     const/4 v4, 0x0
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_f
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_f
     iget-object v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->clientMaxWindowBits:Ljava/lang/Integer;
 
     invoke-virtual {v3}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
 
-    :goto_0
+    :goto_15
     add-int/2addr v2, v3
 
     mul-int/lit8 v0, v2, 0x1f
 
     iget-boolean v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->clientNoContextTakeover:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1d
 
     const/4 v3, 0x1
 
-    :cond_2
+    :cond_1d
     add-int/2addr v0, v3
 
     mul-int/lit8 v2, v0, 0x1f
 
     iget-object v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->serverMaxWindowBits:Ljava/lang/Integer;
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_25
 
-    goto :goto_1
+    goto :goto_2b
 
-    :cond_3
+    :cond_25
     iget-object v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->serverMaxWindowBits:Ljava/lang/Integer;
 
     invoke-virtual {v3}, Ljava/lang/Object;->hashCode()I
 
     move-result v4
 
-    :goto_1
+    :goto_2b
     add-int/2addr v2, v4
 
     mul-int/lit8 v0, v2, 0x1f
 
     iget-boolean v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->serverNoContextTakeover:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_33
 
     const/4 v3, 0x1
 
-    :cond_4
+    :cond_33
     add-int/2addr v0, v3
 
     mul-int/lit8 v2, v0, 0x1f
 
     iget-boolean v3, p0, Lokhttp3/internal/ws/WebSocketExtensions;->unknownValues:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_3b
 
-    goto :goto_2
+    goto :goto_3c
 
-    :cond_5
+    :cond_3b
     move v1, v3
 
-    :goto_2
+    :goto_3c
     add-int/2addr v2, v1
 
     return v2
 .end method
 
 .method public final noContextTakeover(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "clientOriginated"    # Z
 
     .line 83
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 84
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketExtensions;->clientNoContextTakeover:Z
 
-    goto :goto_0
+    goto :goto_7
 
     .line 86
-    :cond_0
+    :cond_5
     iget-boolean v0, p0, Lokhttp3/internal/ws/WebSocketExtensions;->serverNoContextTakeover:Z
 
     .line 83
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

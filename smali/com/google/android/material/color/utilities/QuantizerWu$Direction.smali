@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 377
     new-instance v0, Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
@@ -92,7 +92,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -106,7 +106,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 376
@@ -122,7 +122,7 @@
 .end method
 
 .method public static values()[Lcom/google/android/material/color/utilities/QuantizerWu$Direction;
-    .locals 1
+    .registers 1
 
     .line 376
     sget-object v0, Lcom/google/android/material/color/utilities/QuantizerWu$Direction;->$VALUES:[Lcom/google/android/material/color/utilities/QuantizerWu$Direction;

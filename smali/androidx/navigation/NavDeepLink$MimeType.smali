@@ -69,7 +69,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 8
+    .registers 10
     .param p1, "mimeType"    # Ljava/lang/String;
 
     const-string v0, "mimeType"
@@ -110,7 +110,7 @@
 
     const/4 v4, 0x1
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_50
 
     .line 511
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -123,12 +123,12 @@
 
     .line 512
     .local v3, "iterator$iv":Ljava/util/ListIterator;
-    :cond_0
+    :cond_28
     invoke-interface {v3}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_50
 
     .line 513
     invoke-interface {v3}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -150,19 +150,19 @@
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_40
 
     const/4 v7, 0x1
 
-    goto :goto_0
+    goto :goto_41
 
-    :cond_1
+    :cond_40
     const/4 v7, 0x0
 
     .end local v5    # "it":Ljava/lang/String;
     .end local v6    # "$i$a$-dropLastWhile-NavDeepLink$MimeType$typeAndSubType$1":I
-    :goto_0
-    if-nez v7, :cond_0
+    :goto_41
+    if-nez v7, :cond_28
 
     .line 514
     move-object v5, v0
@@ -179,11 +179,11 @@
 
     move-result-object v5
 
-    goto :goto_1
+    goto :goto_54
 
     .line 518
     .end local v3    # "iterator$iv":Ljava/util/ListIterator;
-    :cond_2
+    :cond_50
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v5
@@ -191,7 +191,7 @@
     .line 300
     .end local v0    # "$this$dropLastWhile$iv":Ljava/util/List;
     .end local v1    # "$i$f$dropLastWhile":I
-    :goto_1
+    :goto_54
     nop
 
     .line 299
@@ -227,7 +227,7 @@
 
 # virtual methods
 .method public compareTo(Landroidx/navigation/NavDeepLink$MimeType;)I
-    .locals 3
+    .registers 5
     .param p1, "other"    # Landroidx/navigation/NavDeepLink$MimeType;
 
     const-string v0, "other"
@@ -247,13 +247,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 290
     add-int/lit8 v0, v0, 0x2
 
     .line 292
-    :cond_0
+    :cond_12
     iget-object v1, p0, Landroidx/navigation/NavDeepLink$MimeType;->subType:Ljava/lang/String;
 
     iget-object v2, p1, Landroidx/navigation/NavDeepLink$MimeType;->subType:Ljava/lang/String;
@@ -262,18 +262,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     .line 293
     add-int/lit8 v0, v0, 0x1
 
     .line 295
-    :cond_1
+    :cond_1e
     return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 281
@@ -289,7 +289,7 @@
 .end method
 
 .method public final getSubType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 283
     iget-object v0, p0, Landroidx/navigation/NavDeepLink$MimeType;->subType:Ljava/lang/String;
@@ -298,7 +298,7 @@
 .end method
 
 .method public final getType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 282
     iget-object v0, p0, Landroidx/navigation/NavDeepLink$MimeType;->type:Ljava/lang/String;
@@ -307,7 +307,7 @@
 .end method
 
 .method public final setSubType(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -321,7 +321,7 @@
 .end method
 
 .method public final setType(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"

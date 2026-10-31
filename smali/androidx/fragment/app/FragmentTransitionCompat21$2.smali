@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentTransitionCompat21;Landroid/view/View;Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentTransitionCompat21;
 
     .line 146
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onTransitionCancel(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 171
@@ -53,7 +53,7 @@
 .end method
 
 .method public onTransitionEnd(Landroid/transition/Transition;)V
-    .locals 4
+    .registers 6
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 161
@@ -78,8 +78,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_11
+    if-ge v1, v0, :cond_22
 
     .line 165
     iget-object v2, p0, Landroidx/fragment/app/FragmentTransitionCompat21$2;->val$exitingViews:Ljava/util/ArrayList;
@@ -97,16 +97,16 @@
     .line 164
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 167
     .end local v1    # "i":I
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method public onTransitionPause(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 175
@@ -114,7 +114,7 @@
 .end method
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 179
@@ -122,7 +122,7 @@
 .end method
 
 .method public onTransitionStart(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 155

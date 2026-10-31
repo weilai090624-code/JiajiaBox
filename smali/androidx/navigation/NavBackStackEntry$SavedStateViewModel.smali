@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/SavedStateHandle;)V
-    .locals 1
+    .registers 3
     .param p1, "handle"    # Landroidx/lifecycle/SavedStateHandle;
 
     const-string v0, "handle"
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public final getHandle()Landroidx/lifecycle/SavedStateHandle;
-    .locals 1
+    .registers 2
 
     .line 279
     iget-object v0, p0, Landroidx/navigation/NavBackStackEntry$SavedStateViewModel;->handle:Landroidx/lifecycle/SavedStateHandle;

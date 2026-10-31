@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 255
     const/4 v0, 0x0
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 2
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -87,7 +87,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     check-cast v0, Ljava/lang/Integer;
 
@@ -101,7 +101,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_1b
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type kotlin.Int"
@@ -112,7 +112,7 @@
 .end method
 
 .method public bridge synthetic get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 257
     const-string v0, "integer"
@@ -134,7 +134,7 @@
 .end method
 
 .method public parseValue(Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 4
+    .registers 6
     .param p1, "value"    # Ljava/lang/String;
 
     const-string/jumbo v0, "value"
@@ -154,7 +154,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 270
     invoke-virtual {p1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -175,15 +175,15 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 272
-    :cond_0
+    :cond_26
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
 
-    :goto_0
+    :goto_2a
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -193,7 +193,7 @@
 .end method
 
 .method public bridge synthetic parseValue(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 255
@@ -205,7 +205,7 @@
 .end method
 
 .method public put(Landroid/os/Bundle;Ljava/lang/String;I)V
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # I
@@ -226,7 +226,7 @@
 .end method
 
 .method public bridge synthetic put(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;

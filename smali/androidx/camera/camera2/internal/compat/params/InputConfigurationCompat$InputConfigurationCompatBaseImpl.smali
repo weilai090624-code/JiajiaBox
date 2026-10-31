@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(III)V
-    .locals 0
+    .registers 4
     .param p1, "width"    # I
     .param p2, "height"    # I
     .param p3, "format"    # I
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -79,13 +79,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 215
     return v1
 
     .line 218
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;
@@ -98,7 +98,7 @@
 
     iget v3, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;->mWidth:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 222
     invoke-virtual {v0}, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;->getHeight()I
@@ -107,7 +107,7 @@
 
     iget v3, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;->mHeight:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 223
     invoke-virtual {v0}, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;->getFormat()I
@@ -116,22 +116,22 @@
 
     iget v3, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;->mFormat:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_23
     nop
 
     .line 221
-    :goto_0
+    :goto_24
     return v1
 .end method
 
 .method public getFormat()I
-    .locals 1
+    .registers 2
 
     .line 204
     iget v0, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;->mFormat:I
@@ -140,7 +140,7 @@
 .end method
 
 .method public getHeight()I
-    .locals 1
+    .registers 2
 
     .line 199
     iget v0, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;->mHeight:I
@@ -149,7 +149,7 @@
 .end method
 
 .method public getInputConfiguration()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 209
     const/4 v0, 0x0
@@ -158,7 +158,7 @@
 .end method
 
 .method public getWidth()I
-    .locals 1
+    .registers 2
 
     .line 194
     iget v0, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;->mWidth:I
@@ -167,7 +167,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 228
     const/4 v0, 0x1
@@ -205,7 +205,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 240
     iget v0, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;->mWidth:I

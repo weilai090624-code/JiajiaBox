@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeMultiset;Lcom/google/common/collect/TreeMultiset$AvlNode;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/TreeMultiset;
 
     .line 373
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getCount()I
-    .locals 3
+    .registers 4
 
     .line 382
     .local p0, "this":Lcom/google/common/collect/TreeMultiset$1;, "Lcom/google/common/collect/TreeMultiset$1;"
@@ -58,7 +58,7 @@
 
     .line 383
     .local v0, "result":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 384
     iget-object v1, p0, Lcom/google/common/collect/TreeMultiset$1;->this$0:Lcom/google/common/collect/TreeMultiset;
@@ -74,12 +74,12 @@
     return v1
 
     .line 386
-    :cond_0
+    :cond_13
     return v0
 .end method
 
 .method public getElement()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 

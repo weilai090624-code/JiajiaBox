@@ -96,7 +96,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/JobSupport;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -147,7 +147,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlin/sequences/SequenceScope;
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public final invoke(Lkotlin/sequences/SequenceScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -193,7 +193,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 12
+    .registers 14
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -202,7 +202,7 @@
     .line 954
     iget v1, p0, Lkotlinx/coroutines/JobSupport$children$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_a2
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -212,7 +212,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_11
     move-object v1, p0
 
     .local v1, "this":Lkotlinx/coroutines/JobSupport$children$1;
@@ -243,7 +243,7 @@
     .local v7, "$this$sequence":Lkotlin/sequences/SequenceScope;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_95
 
     .end local v1    # "this":Lkotlinx/coroutines/JobSupport$children$1;
     .end local v2    # "$i$a$-let-JobSupport$children$1$1":I
@@ -253,18 +253,18 @@
     .end local v6    # "this_$iv":Lkotlinx/coroutines/internal/LockFreeLinkedListHead;
     .end local v7    # "$this$sequence":Lkotlin/sequences/SequenceScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_26
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/JobSupport$children$1;
     .restart local p1    # "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_50
 
     .end local v0    # "this":Lkotlinx/coroutines/JobSupport$children$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_2b
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -287,7 +287,7 @@
     .local v3, "state":Ljava/lang/Object;
     instance-of v4, v3, Lkotlinx/coroutines/ChildHandleNode;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_52
 
     move-object v4, v3
 
@@ -309,31 +309,31 @@
 
     .end local v2    # "$this$sequence":Lkotlin/sequences/SequenceScope;
     .end local v3    # "state":Ljava/lang/Object;
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_4f
 
     .line 954
     return-object v0
 
     .line 956
-    :cond_0
+    :cond_4f
     move-object v0, v1
 
     .end local v1    # "this":Lkotlinx/coroutines/JobSupport$children$1;
     .restart local v0    # "this":Lkotlinx/coroutines/JobSupport$children$1;
-    :goto_0
+    :goto_50
     move-object v1, v0
 
-    goto :goto_3
+    goto :goto_9f
 
     .line 957
     .end local v0    # "this":Lkotlinx/coroutines/JobSupport$children$1;
     .restart local v1    # "this":Lkotlinx/coroutines/JobSupport$children$1;
     .restart local v2    # "$this$sequence":Lkotlin/sequences/SequenceScope;
     .restart local v3    # "state":Ljava/lang/Object;
-    :cond_1
+    :cond_52
     instance-of v4, v3, Lkotlinx/coroutines/Incomplete;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_9f
 
     move-object v4, v3
 
@@ -344,7 +344,7 @@
     move-result-object v3
 
     .end local v3    # "state":Ljava/lang/Object;
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_9f
 
     .local v3, "list":Lkotlinx/coroutines/NodeList;
     const/4 v4, 0x0
@@ -387,17 +387,17 @@
     .local v5, "cur$iv":Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
     .restart local v6    # "this_$iv":Lkotlinx/coroutines/internal/LockFreeLinkedListHead;
     .restart local v7    # "$this$sequence":Lkotlin/sequences/SequenceScope;
-    :goto_1
+    :goto_74
     invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_9c
 
     .line 1457
     instance-of v4, v5, Lkotlinx/coroutines/ChildHandleNode;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_96
 
     move-object v4, v5
 
@@ -425,23 +425,23 @@
     move-result-object v4
 
     .end local v4    # "it":Lkotlinx/coroutines/ChildHandleNode;
-    if-ne v4, v0, :cond_2
+    if-ne v4, v0, :cond_94
 
     .line 954
     return-object v0
 
     .line 958
-    :cond_2
+    :cond_94
     move v4, v8
 
     .end local v8    # "$i$a$-forEach-JobSupport$children$1$1$1":I
     .local v4, "$i$a$-forEach-JobSupport$children$1$1$1":I
-    :goto_2
+    :goto_95
     nop
 
     .line 1457
     .end local v4    # "$i$a$-forEach-JobSupport$children$1$1$1":I
-    :cond_3
+    :cond_96
     nop
 
     .line 1458
@@ -449,11 +449,11 @@
 
     move-result-object v5
 
-    goto :goto_1
+    goto :goto_74
 
     .line 1460
     .end local v7    # "$this$sequence":Lkotlin/sequences/SequenceScope;
-    :cond_4
+    :cond_9c
     nop
 
     .line 959
@@ -467,16 +467,16 @@
     nop
 
     .line 961
-    :cond_5
-    :goto_3
+    :cond_9f
+    :goto_9f
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_a2
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2b
+        :pswitch_26
+        :pswitch_11
     .end packed-switch
 .end method

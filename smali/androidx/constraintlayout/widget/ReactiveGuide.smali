@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -164,7 +164,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -218,7 +218,7 @@
 .end method
 
 .method private changeValue(IILandroidx/constraintlayout/motion/widget/MotionLayout;I)V
-    .locals 1
+    .registers 6
     .param p1, "newValue"    # I
     .param p2, "id"    # I
     .param p3, "motionLayout"    # Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -255,7 +255,7 @@
 .end method
 
 .method private init(Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 7
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -267,7 +267,7 @@
     .end annotation
 
     .line 62
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_50
 
     .line 63
     invoke-virtual {p0}, Landroidx/constraintlayout/widget/ReactiveGuide;->getContext()Landroid/content/Context;
@@ -291,8 +291,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_4
+    :goto_11
+    if-ge v2, v1, :cond_4d
 
     .line 66
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -303,7 +303,7 @@
     .local v3, "attr":I
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_ReactiveGuide_reactiveGuide_valueId:I
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_24
 
     .line 68
     iget v4, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAttributeId:I
@@ -314,13 +314,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAttributeId:I
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 69
-    :cond_0
+    :cond_24
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_ReactiveGuide_reactiveGuide_animateChange:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_31
 
     .line 70
     iget-boolean v4, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAnimateChange:Z
@@ -331,13 +331,13 @@
 
     iput-boolean v4, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAnimateChange:Z
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 71
-    :cond_1
+    :cond_31
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_ReactiveGuide_reactiveGuide_applyToConstraintSet:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_3e
 
     .line 72
     iget v4, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mApplyToConstraintSetId:I
@@ -348,13 +348,13 @@
 
     iput v4, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mApplyToConstraintSetId:I
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 73
-    :cond_2
+    :cond_3e
     sget v4, Landroidx/constraintlayout/widget/R$styleable;->ConstraintLayout_ReactiveGuide_reactiveGuide_applyToAllConstraintSets:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_4a
 
     .line 74
     iget-boolean v4, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mApplyToAllConstraintSets:Z
@@ -367,26 +367,26 @@
 
     .line 65
     .end local v3    # "attr":I
-    :cond_3
-    :goto_1
+    :cond_4a
+    :goto_4a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 77
     .end local v2    # "i":I
-    :cond_4
+    :cond_4d
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 79
     .end local v0    # "a":Landroid/content/res/TypedArray;
     .end local v1    # "N":I
-    :cond_5
+    :cond_50
     iget v0, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAttributeId:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_6
+    if-eq v0, v1, :cond_5e
 
     .line 80
     invoke-static {}, Landroidx/constraintlayout/widget/ConstraintLayout;->getSharedValues()Landroidx/constraintlayout/widget/SharedValues;
@@ -401,14 +401,14 @@
 
     .line 83
     .end local v0    # "sharedValues":Landroidx/constraintlayout/widget/SharedValues;
-    :cond_6
+    :cond_5e
     return-void
 .end method
 
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -424,7 +424,7 @@
 .end method
 
 .method public getApplyToConstraintSetId()I
-    .locals 1
+    .registers 2
 
     .line 99
     iget v0, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mApplyToConstraintSetId:I
@@ -433,7 +433,7 @@
 .end method
 
 .method public getAttributeId()I
-    .locals 1
+    .registers 2
 
     .line 85
     iget v0, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAttributeId:I
@@ -442,7 +442,7 @@
 .end method
 
 .method public isAnimatingChange()Z
-    .locals 1
+    .registers 2
 
     .line 106
     iget-boolean v0, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAnimateChange:Z
@@ -451,7 +451,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 1
+    .registers 4
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -475,7 +475,7 @@
 .end method
 
 .method public onNewValue(III)V
-    .locals 6
+    .registers 10
     .param p1, "key"    # I
     .param p2, "newValue"    # I
     .param p3, "oldValue"    # I
@@ -502,20 +502,20 @@
 
     .line 171
     .local v0, "id":I
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_a
 
     .line 172
     return-void
 
     .line 174
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Landroidx/constraintlayout/widget/ReactiveGuide;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
 
     instance-of v1, v1, Landroidx/constraintlayout/motion/widget/MotionLayout;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_61
 
     .line 175
     invoke-virtual {p0}, Landroidx/constraintlayout/widget/ReactiveGuide;->getParent()Landroid/view/ViewParent;
@@ -534,21 +534,21 @@
     .local v2, "currentState":I
     iget v3, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mApplyToConstraintSetId:I
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_22
 
     .line 178
     iget v2, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mApplyToConstraintSetId:I
 
     .line 180
-    :cond_1
+    :cond_22
     iget-boolean v3, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAnimateChange:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_49
 
     .line 181
     iget-boolean v3, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mApplyToAllConstraintSets:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_3c
 
     .line 182
     invoke-virtual {v1}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getConstraintSetIds()[I
@@ -560,32 +560,32 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_2f
     array-length v5, v3
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_3c
 
     .line 184
     aget v5, v3, v4
 
     .line 185
     .local v5, "cs":I
-    if-eq v5, v2, :cond_2
+    if-eq v5, v2, :cond_39
 
     .line 186
     invoke-direct {p0, p2, v0, v1, v5}, Landroidx/constraintlayout/widget/ReactiveGuide;->changeValue(IILandroidx/constraintlayout/motion/widget/MotionLayout;I)V
 
     .line 183
     .end local v5    # "cs":I
-    :cond_2
+    :cond_39
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 190
     .end local v3    # "ids":[I
     .end local v4    # "i":I
-    :cond_3
+    :cond_3c
     invoke-virtual {v1, v2}, Landroidx/constraintlayout/motion/widget/MotionLayout;->cloneConstraintSet(I)Landroidx/constraintlayout/widget/ConstraintSet;
 
     move-result-object v3
@@ -601,13 +601,13 @@
 
     .line 193
     .end local v3    # "constraintSet":Landroidx/constraintlayout/widget/ConstraintSet;
-    goto :goto_2
+    goto :goto_61
 
     .line 194
-    :cond_4
+    :cond_49
     iget-boolean v3, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mApplyToAllConstraintSets:Z
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5e
 
     .line 195
     invoke-virtual {v1}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getConstraintSetIds()[I
@@ -619,10 +619,10 @@
     const/4 v4, 0x0
 
     .restart local v4    # "i":I
-    :goto_1
+    :goto_52
     array-length v5, v3
 
-    if-ge v4, v5, :cond_5
+    if-ge v4, v5, :cond_5d
 
     .line 197
     aget v5, v3, v4
@@ -635,28 +635,28 @@
     .end local v5    # "cs":I
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_52
 
     .line 200
     .end local v3    # "ids":[I
     .end local v4    # "i":I
-    :cond_5
-    goto :goto_2
+    :cond_5d
+    goto :goto_61
 
     .line 201
-    :cond_6
+    :cond_5e
     invoke-direct {p0, p2, v0, v1, v2}, Landroidx/constraintlayout/widget/ReactiveGuide;->changeValue(IILandroidx/constraintlayout/motion/widget/MotionLayout;I)V
 
     .line 205
     .end local v1    # "motionLayout":Landroidx/constraintlayout/motion/widget/MotionLayout;
     .end local v2    # "currentState":I
-    :cond_7
-    :goto_2
+    :cond_61
+    :goto_61
     return-void
 .end method
 
 .method public setAnimateChange(Z)V
-    .locals 0
+    .registers 2
     .param p1, "animate"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -675,7 +675,7 @@
 .end method
 
 .method public setApplyToConstraintSetId(I)V
-    .locals 0
+    .registers 2
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -694,7 +694,7 @@
 .end method
 
 .method public setAttributeId(I)V
-    .locals 3
+    .registers 5
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -716,7 +716,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_e
 
     .line 90
     iget v1, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAttributeId:I
@@ -724,13 +724,13 @@
     invoke-virtual {v0, v1, p0}, Landroidx/constraintlayout/widget/SharedValues;->removeListener(ILandroidx/constraintlayout/widget/SharedValues$SharedValuesListener;)V
 
     .line 92
-    :cond_0
+    :cond_e
     iput p1, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAttributeId:I
 
     .line 93
     iget v1, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAttributeId:I
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_19
 
     .line 94
     iget v1, p0, Landroidx/constraintlayout/widget/ReactiveGuide;->mAttributeId:I
@@ -738,12 +738,12 @@
     invoke-virtual {v0, v1, p0}, Landroidx/constraintlayout/widget/SharedValues;->addListener(ILandroidx/constraintlayout/widget/SharedValues$SharedValuesListener;)V
 
     .line 96
-    :cond_1
+    :cond_19
     return-void
 .end method
 
 .method public setGuidelineBegin(I)V
-    .locals 1
+    .registers 3
     .param p1, "margin"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -773,7 +773,7 @@
 .end method
 
 .method public setGuidelineEnd(I)V
-    .locals 1
+    .registers 3
     .param p1, "margin"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -803,7 +803,7 @@
 .end method
 
 .method public setGuidelinePercent(F)V
-    .locals 1
+    .registers 3
     .param p1, "ratio"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -833,7 +833,7 @@
 .end method
 
 .method public setVisibility(I)V
-    .locals 0
+    .registers 2
     .param p1, "visibility"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

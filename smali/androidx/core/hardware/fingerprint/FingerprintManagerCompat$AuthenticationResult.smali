@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;)V
-    .locals 0
+    .registers 2
     .param p1, "crypto"    # Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
 
     .line 250
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getCryptoObject()Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
-    .locals 1
+    .registers 2
 
     .line 260
     iget-object v0, p0, Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$AuthenticationResult;->mCryptoObject:Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;

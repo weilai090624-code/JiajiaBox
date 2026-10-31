@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/SurfaceRequest;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/core/SurfaceRequest;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method protected provideSurface()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/ViewTypeStorage$IsolatedViewTypeStorage;Landroidx/recyclerview/widget/NestedAdapterWrapper;)V
-    .locals 2
+    .registers 5
     .param p1, "this$0"    # Landroidx/recyclerview/widget/ViewTypeStorage$IsolatedViewTypeStorage;
     .param p2, "wrapper"    # Landroidx/recyclerview/widget/NestedAdapterWrapper;
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public dispose()V
-    .locals 2
+    .registers 3
 
     .line 193
     iget-object v0, p0, Landroidx/recyclerview/widget/ViewTypeStorage$IsolatedViewTypeStorage$WrapperViewTypeLookup;->this$0:Landroidx/recyclerview/widget/ViewTypeStorage$IsolatedViewTypeStorage;
@@ -78,7 +78,7 @@
 .end method
 
 .method public globalToLocal(I)I
-    .locals 4
+    .registers 6
     .param p1, "globalType"    # I
 
     .line 183
@@ -90,7 +90,7 @@
 
     .line 184
     .local v0, "index":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_f
 
     .line 188
     iget-object v1, p0, Landroidx/recyclerview/widget/ViewTypeStorage$IsolatedViewTypeStorage$WrapperViewTypeLookup;->mGlobalToLocalMapping:Landroid/util/SparseIntArray;
@@ -102,7 +102,7 @@
     return v1
 
     .line 185
-    :cond_0
+    :cond_f
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -143,7 +143,7 @@
 .end method
 
 .method public localToGlobal(I)I
-    .locals 3
+    .registers 5
     .param p1, "localType"    # I
 
     .line 170
@@ -157,7 +157,7 @@
     .local v0, "index":I
     const/4 v1, -0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_10
 
     .line 172
     iget-object v1, p0, Landroidx/recyclerview/widget/ViewTypeStorage$IsolatedViewTypeStorage$WrapperViewTypeLookup;->mLocalToGlobalMapping:Landroid/util/SparseIntArray;
@@ -169,7 +169,7 @@
     return v1
 
     .line 175
-    :cond_0
+    :cond_10
     iget-object v1, p0, Landroidx/recyclerview/widget/ViewTypeStorage$IsolatedViewTypeStorage$WrapperViewTypeLookup;->this$0:Landroidx/recyclerview/widget/ViewTypeStorage$IsolatedViewTypeStorage;
 
     iget-object v2, p0, Landroidx/recyclerview/widget/ViewTypeStorage$IsolatedViewTypeStorage$WrapperViewTypeLookup;->mWrapper:Landroidx/recyclerview/widget/NestedAdapterWrapper;

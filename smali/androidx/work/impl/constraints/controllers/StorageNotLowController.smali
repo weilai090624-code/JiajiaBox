@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
-    .locals 1
+    .registers 3
     .param p1, "tracker"    # Landroidx/work/impl/constraints/trackers/ConstraintTracker;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public hasConstraint(Landroidx/work/impl/model/WorkSpec;)Z
-    .locals 1
+    .registers 3
     .param p1, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
 
     const-string/jumbo v0, "workSpec"
@@ -85,7 +85,7 @@
 .end method
 
 .method public bridge synthetic isConstrained(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 66
@@ -105,7 +105,7 @@
 .end method
 
 .method public isConstrained(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Z
 
     .line 71

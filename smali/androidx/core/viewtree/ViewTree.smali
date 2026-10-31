@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final getParentOrViewTreeDisjointParent(Landroid/view/View;)Landroid/view/ViewParent;
-    .locals 3
+    .registers 4
     .param p0, "$this$getParentOrViewTreeDisjointParent"    # Landroid/view/View;
 
     const-string v0, "<this>"
@@ -43,12 +43,12 @@
 
     .line 69
     .local v0, "parent":Landroid/view/ViewParent;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     return-object v0
 
     .line 71
-    :cond_0
+    :cond_c
     sget v1, Landroidx/core/viewtree/R$id;->view_tree_disjoint_parent:I
 
     invoke-virtual {p0, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
@@ -59,23 +59,23 @@
     .local v1, "djParent":Ljava/lang/Object;
     instance-of v2, v1, Landroid/view/ViewParent;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1a
 
     move-object v2, v1
 
     check-cast v2, Landroid/view/ViewParent;
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1b
     return-object v2
 .end method
 
 .method public static final setViewTreeDisjointParent(Landroid/view/View;Landroid/view/ViewParent;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$setViewTreeDisjointParent"    # Landroid/view/View;
     .param p1, "parent"    # Landroid/view/ViewParent;
 

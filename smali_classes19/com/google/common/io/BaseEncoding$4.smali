@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/Appendable;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
 
     .line 1025
     iput p1, p0, Lcom/google/common/io/BaseEncoding$4;->val$afterEveryChars:I
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public append(C)Ljava/lang/Appendable;
-    .locals 2
+    .registers 4
     .param p1, "c"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -62,7 +62,7 @@
     .line 1030
     iget v0, p0, Lcom/google/common/io/BaseEncoding$4;->charsUntilSeparator:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 1031
     iget-object v0, p0, Lcom/google/common/io/BaseEncoding$4;->val$delegate:Ljava/lang/Appendable;
@@ -77,7 +77,7 @@
     iput v0, p0, Lcom/google/common/io/BaseEncoding$4;->charsUntilSeparator:I
 
     .line 1034
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/google/common/io/BaseEncoding$4;->val$delegate:Ljava/lang/Appendable;
 
     invoke-interface {v0, p1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
@@ -94,7 +94,7 @@
 .end method
 
 .method public append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
-    .locals 1
+    .registers 3
     .param p1, "chars"    # Ljava/lang/CharSequence;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -109,7 +109,7 @@
 .end method
 
 .method public append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
-    .locals 1
+    .registers 5
     .param p1, "chars"    # Ljava/lang/CharSequence;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation

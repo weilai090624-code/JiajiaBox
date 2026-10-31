@@ -96,7 +96,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;Ljava/util/concurrent/Callable;ILandroidx/sqlite/db/SupportSQLiteOpenHelper;)V
-    .locals 1
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "copyFromAssetPath"    # Ljava/lang/String;
     .param p3, "copyFromFile"    # Ljava/io/File;
@@ -151,7 +151,7 @@
 .end method
 
 .method private final copyDatabaseFile(Ljava/io/File;Z)V
-    .locals 7
+    .registers 10
     .param p1, "destinationFile"    # Ljava/io/File;
     .param p2, "writable"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -166,7 +166,7 @@
     .local v0, "input":Ljava/nio/channels/ReadableByteChannel;
     iget-object v1, p0, Landroidx/room/SQLiteCopyOpenHelper;->copyFromAssetPath:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 156
     iget-object v1, p0, Landroidx/room/SQLiteCopyOpenHelper;->context:Landroid/content/Context;
@@ -191,13 +191,13 @@
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 157
-    :cond_0
+    :cond_1c
     iget-object v1, p0, Landroidx/room/SQLiteCopyOpenHelper;->copyFromFile:Ljava/io/File;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_34
 
     .line 158
     new-instance v1, Ljava/io/FileInputStream;
@@ -218,19 +218,19 @@
 
     check-cast v0, Ljava/nio/channels/ReadableByteChannel;
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 159
-    :cond_1
+    :cond_34
     iget-object v1, p0, Landroidx/room/SQLiteCopyOpenHelper;->copyFromInputStream:Ljava/util/concurrent/Callable;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_eb
 
     .line 160
     nop
 
     .line 161
-    :try_start_0
+    :try_start_39
     iget-object v1, p0, Landroidx/room/SQLiteCopyOpenHelper;->copyFromInputStream:Ljava/util/concurrent/Callable;
 
     invoke-interface {v1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
@@ -238,8 +238,8 @@
     move-result-object v1
 
     check-cast v1, Ljava/io/InputStream;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_41
+    .catch Ljava/lang/Exception; {:try_start_39 .. :try_end_41} :catch_df
 
     .line 160
     nop
@@ -258,7 +258,7 @@
 
     .line 175
     .end local v1    # "inputStream":Ljava/io/InputStream;
-    :goto_0
+    :goto_4c
     iget-object v1, p0, Landroidx/room/SQLiteCopyOpenHelper;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
@@ -302,24 +302,24 @@
 
     .line 181
     .local v3, "parent":Ljava/io/File;
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_9e
 
     invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_9e
 
     invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_81
 
-    goto :goto_1
+    goto :goto_9e
 
     .line 182
-    :cond_2
+    :cond_81
     new-instance v4, Ljava/io/IOException;
 
     .line 183
@@ -351,8 +351,8 @@
     throw v4
 
     .line 190
-    :cond_3
-    :goto_1
+    :cond_9e
+    :goto_9e
     const-string v4, "intermediateFile"
 
     invoke-static {v1, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -364,13 +364,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_ad
 
     .line 197
     return-void
 
     .line 192
-    :cond_4
+    :cond_ad
     new-instance v4, Ljava/io/IOException;
 
     .line 193
@@ -431,7 +431,7 @@
     .end local v1    # "intermediateFile":Ljava/io/File;
     .end local v2    # "output":Ljava/nio/channels/FileChannel;
     .end local v3    # "parent":Ljava/io/File;
-    :catch_0
+    :catch_df
     move-exception v1
 
     .line 163
@@ -450,7 +450,7 @@
 
     .line 167
     .end local v1    # "e":Ljava/lang/Exception;
-    :cond_5
+    :cond_eb
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 168
@@ -465,19 +465,19 @@
 .end method
 
 .method private final createFrameworkOpenHelper(Ljava/io/File;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 5
+    .registers 7
     .param p1, "databaseFile"    # Ljava/io/File;
 
     .line 211
     nop
 
     .line 212
-    :try_start_0
+    :try_start_1
     invoke-static {p1}, Landroidx/room/util/DBUtil;->readVersion(Ljava/io/File;)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_5} :catch_35
 
     .line 211
     nop
@@ -544,7 +544,7 @@
     .end local v0    # "version":I
     .end local v1    # "factory":Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelperFactory;
     .end local v2    # "configuration":Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;
-    :catch_0
+    :catch_35
     move-exception v0
 
     .line 214
@@ -563,7 +563,7 @@
 .end method
 
 .method private final dispatchOnOpenPrepackagedDatabase(Ljava/io/File;Z)V
-    .locals 7
+    .registers 10
     .param p1, "databaseFile"    # Ljava/io/File;
     .param p2, "writable"    # Z
 
@@ -574,29 +574,29 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v2
 
-    :cond_0
+    :cond_b
     iget-object v0, v0, Landroidx/room/DatabaseConfiguration;->prepackagedDatabaseCallback:Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     .line 202
     return-void
 
     .line 204
-    :cond_1
+    :cond_10
     invoke-direct {p0, p1}, Landroidx/room/SQLiteCopyOpenHelper;->createFrameworkOpenHelper(Ljava/io/File;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     move-result-object v0
 
     check-cast v0, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_16
     move-object v3, v0
 
     check-cast v3, Landroidx/sqlite/db/SupportSQLiteOpenHelper;
@@ -606,31 +606,31 @@
 
     .line 205
     .local v4, "$i$a$-use-SQLiteCopyOpenHelper$dispatchOnOpenPrepackagedDatabase$1":I
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_21
 
     invoke-interface {v3}, Landroidx/sqlite/db/SupportSQLiteOpenHelper;->getWritableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_2
+    :cond_21
     invoke-interface {v3}, Landroidx/sqlite/db/SupportSQLiteOpenHelper;->getReadableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     move-result-object v5
 
     .line 206
     .local v5, "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :goto_0
+    :goto_25
     iget-object v6, p0, Landroidx/room/SQLiteCopyOpenHelper;->databaseConfiguration:Landroidx/room/DatabaseConfiguration;
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_2d
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v6, v2
 
-    :cond_3
+    :cond_2d
     iget-object v1, v6, Landroidx/room/DatabaseConfiguration;->prepackagedDatabaseCallback:Landroidx/room/RoomDatabase$PrepackagedDatabaseCallback;
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -644,8 +644,8 @@
     .end local v4    # "$i$a$-use-SQLiteCopyOpenHelper$dispatchOnOpenPrepackagedDatabase$1":I
     .end local v5    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_38
+    .catchall {:try_start_16 .. :try_end_38} :catchall_3c
 
     .line 204
     invoke-static {v0, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -654,19 +654,19 @@
     return-void
 
     .line 204
-    :catchall_0
+    :catchall_3c
     move-exception v1
 
     .end local p1    # "databaseFile":Ljava/io/File;
     .end local p2    # "writable":Z
-    :try_start_1
+    :try_start_3d
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_3e
+    .catchall {:try_start_3d .. :try_end_3e} :catchall_3e
 
     .restart local p1    # "databaseFile":Ljava/io/File;
     .restart local p2    # "writable":Z
-    :catchall_1
+    :catchall_3e
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -675,7 +675,7 @@
 .end method
 
 .method private final verifyDatabaseFile(Z)V
-    .locals 10
+    .registers 12
     .param p1, "writable"    # Z
 
     .line 96
@@ -685,7 +685,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_c2
 
     .line 97
     .local v1, "name":Ljava/lang/String;
@@ -703,13 +703,13 @@
 
     const/4 v5, 0x0
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_19
 
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v3, v5
 
-    :cond_0
+    :cond_19
     iget-boolean v3, v3, Landroidx/room/DatabaseConfiguration;->multiInstanceInvalidation:Z
 
     .line 99
@@ -741,33 +741,33 @@
 
     const/4 v8, 0x1
 
-    :try_start_0
+    :try_start_2b
     invoke-static {v6, v7, v8, v5}, Landroidx/sqlite/util/ProcessLock;->lock$default(Landroidx/sqlite/util/ProcessLock;ZILjava/lang/Object;)V
 
     .line 108
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
     move-result v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_2b .. :try_end_32} :catchall_bd
 
     const-string v8, "Unable to copy database file."
 
     const-string v9, "databaseFile"
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_4e
 
     .line 109
     nop
 
     .line 111
-    :try_start_1
+    :try_start_39
     invoke-static {v2, v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0, v2, p1}, Landroidx/room/SQLiteCopyOpenHelper;->copyDatabaseFile(Ljava/io/File;Z)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3f
+    .catch Ljava/io/IOException; {:try_start_39 .. :try_end_3f} :catch_44
+    .catchall {:try_start_39 .. :try_end_3f} :catchall_bd
 
     .line 112
     nop
@@ -779,12 +779,12 @@
     return-void
 
     .line 113
-    :catch_0
+    :catch_44
     move-exception v0
 
     .line 114
     .local v0, "e":Ljava/io/IOException;
-    :try_start_2
+    :try_start_45
     new-instance v4, Ljava/lang/RuntimeException;
 
     move-object v5, v0
@@ -799,8 +799,8 @@
     .end local v6    # "copyLock":Landroidx/sqlite/util/ProcessLock;
     .end local p1    # "writable":Z
     throw v4
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4e
+    .catchall {:try_start_45 .. :try_end_4e} :catchall_bd
 
     .line 119
     .end local v0    # "e":Ljava/io/IOException;
@@ -809,31 +809,31 @@
     .restart local v3    # "processLevelLock":Z
     .restart local v6    # "copyLock":Landroidx/sqlite/util/ProcessLock;
     .restart local p1    # "writable":Z
-    :cond_1
+    :cond_4e
     nop
 
     .line 120
-    :try_start_3
+    :try_start_4f
     invoke-static {v2, v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-static {v2}, Landroidx/room/util/DBUtil;->readVersion(Ljava/io/File;)I
 
     move-result v7
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_56
+    .catch Ljava/io/IOException; {:try_start_4f .. :try_end_56} :catch_ae
+    .catchall {:try_start_4f .. :try_end_56} :catchall_bd
 
     .line 119
     nop
 
     .line 125
     .local v7, "currentVersion":I
-    :try_start_4
+    :try_start_57
     iget v9, p0, Landroidx/room/SQLiteCopyOpenHelper;->databaseVersion:I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_59
+    .catchall {:try_start_57 .. :try_end_59} :catchall_bd
 
-    if-ne v7, v9, :cond_2
+    if-ne v7, v9, :cond_61
 
     .line 126
     nop
@@ -851,29 +851,29 @@
     .line 128
     .end local v0    # "currentVersion":I
     .restart local v7    # "currentVersion":I
-    :cond_2
-    :try_start_5
+    :cond_61
+    :try_start_61
     iget-object v9, p0, Landroidx/room/SQLiteCopyOpenHelper;->databaseConfiguration:Landroidx/room/DatabaseConfiguration;
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_69
 
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_6a
 
-    :cond_3
+    :cond_69
     move-object v5, v9
 
-    :goto_0
+    :goto_6a
     iget v4, p0, Landroidx/room/SQLiteCopyOpenHelper;->databaseVersion:I
 
     invoke-virtual {v5, v7, v4}, Landroidx/room/DatabaseConfiguration;->isMigrationRequired(II)Z
 
     move-result v4
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_70
+    .catchall {:try_start_61 .. :try_end_70} :catchall_bd
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_78
 
     .line 131
     nop
@@ -891,48 +891,48 @@
     .line 133
     .end local v0    # "currentVersion":I
     .restart local v7    # "currentVersion":I
-    :cond_4
-    :try_start_6
+    :cond_78
+    :try_start_78
     iget-object v4, p0, Landroidx/room/SQLiteCopyOpenHelper;->context:Landroid/content/Context;
 
     invoke-virtual {v4, v1}, Landroid/content/Context;->deleteDatabase(Ljava/lang/String;)Z
 
     move-result v4
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    :try_end_7e
+    .catchall {:try_start_78 .. :try_end_7e} :catchall_bd
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_8d
 
     .line 134
     nop
 
     .line 135
-    :try_start_7
+    :try_start_81
     invoke-direct {p0, v2, p1}, Landroidx/room/SQLiteCopyOpenHelper;->copyDatabaseFile(Ljava/io/File;Z)V
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_1
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+    :try_end_84
+    .catch Ljava/io/IOException; {:try_start_81 .. :try_end_84} :catch_85
+    .catchall {:try_start_81 .. :try_end_84} :catchall_bd
 
-    goto :goto_1
+    goto :goto_a9
 
     .line 136
-    :catch_1
+    :catch_85
     move-exception v4
 
     .line 139
     .local v4, "e":Ljava/io/IOException;
-    :try_start_8
+    :try_start_86
     move-object v5, v4
 
     check-cast v5, Ljava/lang/Throwable;
 
     invoke-static {v0, v8, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
+    goto :goto_a9
 
     .line 143
     .end local v4    # "e":Ljava/io/IOException;
-    :cond_5
+    :cond_8d
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -959,12 +959,12 @@
 
     .line 142
     invoke-static {v0, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+    :try_end_a9
+    .catchall {:try_start_86 .. :try_end_a9} :catchall_bd
 
     .line 148
     .end local v7    # "currentVersion":I
-    :goto_1
+    :goto_a9
     invoke-virtual {v6}, Landroidx/sqlite/util/ProcessLock;->unlock()V
 
     .line 149
@@ -974,12 +974,12 @@
     return-void
 
     .line 121
-    :catch_2
+    :catch_ae
     move-exception v4
 
     .line 122
     .restart local v4    # "e":Ljava/io/IOException;
-    :try_start_9
+    :try_start_af
     const-string v5, "Unable to read database version."
 
     move-object v7, v4
@@ -987,8 +987,8 @@
     check-cast v7, Ljava/lang/Throwable;
 
     invoke-static {v0, v5, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+    :try_end_b7
+    .catchall {:try_start_af .. :try_end_b7} :catchall_bd
 
     .line 123
     nop
@@ -1005,7 +1005,7 @@
 
     .line 148
     .end local v0    # "e":Ljava/io/IOException;
-    :catchall_0
+    :catchall_bd
     move-exception v0
 
     invoke-virtual {v6}, Landroidx/sqlite/util/ProcessLock;->unlock()V
@@ -1017,7 +1017,7 @@
     .end local v2    # "databaseFile":Ljava/io/File;
     .end local v3    # "processLevelLock":Z
     .end local v6    # "copyLock":Landroidx/sqlite/util/ProcessLock;
-    :cond_6
+    :cond_c2
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Required value was null."
@@ -1034,12 +1034,12 @@
 
 # virtual methods
 .method public declared-synchronized close()V
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 85
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Landroidx/room/SQLiteCopyOpenHelper;->getDelegate()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     move-result-object v0
@@ -1050,8 +1050,8 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroidx/room/SQLiteCopyOpenHelper;->verified:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_1 .. :try_end_b} :catchall_d
 
     .line 87
     monitor-exit p0
@@ -1060,19 +1060,19 @@
 
     .line 84
     .end local p0    # "this":Landroidx/room/SQLiteCopyOpenHelper;
-    :catchall_0
+    :catchall_d
     move-exception v0
 
-    :try_start_1
+    :try_start_e
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_f
+    .catchall {:try_start_e .. :try_end_f} :catchall_d
 
     throw v0
 .end method
 
 .method public getDatabaseName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 58
     invoke-virtual {p0}, Landroidx/room/SQLiteCopyOpenHelper;->getDelegate()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
@@ -1087,7 +1087,7 @@
 .end method
 
 .method public getDelegate()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Landroidx/room/SQLiteCopyOpenHelper;->delegate:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
@@ -1096,12 +1096,12 @@
 .end method
 
 .method public getReadableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 1
+    .registers 2
 
     .line 76
     iget-boolean v0, p0, Landroidx/room/SQLiteCopyOpenHelper;->verified:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 77
     const/4 v0, 0x0
@@ -1114,7 +1114,7 @@
     iput-boolean v0, p0, Landroidx/room/SQLiteCopyOpenHelper;->verified:Z
 
     .line 80
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Landroidx/room/SQLiteCopyOpenHelper;->getDelegate()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     move-result-object v0
@@ -1127,12 +1127,12 @@
 .end method
 
 .method public getWritableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 1
+    .registers 2
 
     .line 67
     iget-boolean v0, p0, Landroidx/room/SQLiteCopyOpenHelper;->verified:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 68
     const/4 v0, 0x1
@@ -1143,7 +1143,7 @@
     iput-boolean v0, p0, Landroidx/room/SQLiteCopyOpenHelper;->verified:Z
 
     .line 71
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Landroidx/room/SQLiteCopyOpenHelper;->getDelegate()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     move-result-object v0
@@ -1156,7 +1156,7 @@
 .end method
 
 .method public final setDatabaseConfiguration(Landroidx/room/DatabaseConfiguration;)V
-    .locals 1
+    .registers 3
     .param p1, "databaseConfiguration"    # Landroidx/room/DatabaseConfiguration;
 
     const-string v0, "databaseConfiguration"
@@ -1171,7 +1171,7 @@
 .end method
 
 .method public setWriteAheadLoggingEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "enabled"    # Z
 
     .line 62

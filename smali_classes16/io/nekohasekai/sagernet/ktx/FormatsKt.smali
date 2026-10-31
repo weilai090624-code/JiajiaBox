@@ -57,7 +57,7 @@
 
 # direct methods
 .method public static final applyDefaultValues(Lio/nekohasekai/sagernet/fmt/Serializable;)Lio/nekohasekai/sagernet/fmt/Serializable;
-    .locals 1
+    .registers 2
     .param p0, "$this$applyDefaultValues"    # Lio/nekohasekai/sagernet/fmt/Serializable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -79,7 +79,7 @@
 .end method
 
 .method public static final decodeBase64UrlSafe(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "$this$decodeBase64UrlSafe"    # Ljava/lang/String;
 
     const-string v0, "<this>"
@@ -103,7 +103,7 @@
 .end method
 
 .method public static final synthetic filterIsInstance(Lorg/json/JSONArray;)Ljava/util/List;
-    .locals 7
+    .registers 8
     .param p0, "$this$filterIsInstance"    # Lorg/json/JSONArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -140,8 +140,8 @@
 
     move-result v3
 
-    :goto_0
-    if-ge v2, v3, :cond_1
+    :goto_12
+    if-ge v2, v3, :cond_33
 
     .line 34
     invoke-virtual {p0, v2}, Lorg/json/JSONArray;->get(I)Ljava/lang/Object;
@@ -156,7 +156,7 @@
 
     instance-of v4, v4, Ljava/lang/Object;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_30
 
     invoke-virtual {p0, v2}, Lorg/json/JSONArray;->get(I)Ljava/lang/Object;
 
@@ -173,19 +173,19 @@
     invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 33
-    :cond_0
+    :cond_30
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 36
     .end local v2    # "i":I
-    :cond_1
+    :cond_33
     return-object v1
 .end method
 
 .method public static final forEach(Lorg/json/JSONArray;Lkotlin/jvm/functions/Function2;)V
-    .locals 6
+    .registers 8
     .param p0, "$this$forEach"    # Lorg/json/JSONArray;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -220,8 +220,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_0
+    :goto_10
+    if-ge v1, v2, :cond_25
 
     .line 41
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -241,16 +241,16 @@
     .line 40
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 43
     .end local v1    # "i":I
-    :cond_0
+    :cond_25
     return-void
 .end method
 
 .method public static final forEach(Lorg/json/JSONObject;Lkotlin/jvm/functions/Function2;)V
-    .locals 5
+    .registers 7
     .param p0, "$this$forEach"    # Lorg/json/JSONObject;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -286,12 +286,12 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_30
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -313,16 +313,16 @@
 
     invoke-interface {p1, v2, v3}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 49
     .end local v2    # "k":Ljava/lang/String;
-    :cond_0
+    :cond_30
     return-void
 .end method
 
 .method public static final getBool(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .param p0, "$this$getBool"    # Lorg/json/JSONObject;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -338,7 +338,7 @@
     nop
 
     .line 81
-    :try_start_0
+    :try_start_b
     invoke-virtual {p0, p1}, Lorg/json/JSONObject;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
@@ -346,13 +346,13 @@
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_13} :catch_14
 
-    goto :goto_0
+    goto :goto_17
 
     .line 82
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 83
@@ -363,12 +363,12 @@
 
     .line 80
     .end local v0    # "ignored":Ljava/lang/Exception;
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static final getIntNya(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 2
+    .registers 4
     .param p0, "$this$getIntNya"    # Lorg/json/JSONObject;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -384,7 +384,7 @@
     nop
 
     .line 91
-    :try_start_0
+    :try_start_b
     invoke-virtual {p0, p1}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
 
     move-result v0
@@ -392,13 +392,13 @@
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_13} :catch_14
 
-    goto :goto_0
+    goto :goto_17
 
     .line 92
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 93
@@ -409,12 +409,12 @@
 
     .line 90
     .end local v0    # "ignored":Ljava/lang/Exception;
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static final getStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "$this$getStr"    # Lorg/json/JSONObject;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -433,16 +433,16 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     return-object v1
 
     .line 69
     .local v0, "obj":Ljava/lang/Object;
-    :cond_0
+    :cond_12
     instance-of v2, v0, Ljava/lang/String;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_24
 
     .line 70
     move-object v2, v0
@@ -453,13 +453,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     .line 71
     return-object v1
 
     .line 73
-    :cond_1
+    :cond_20
     move-object v1, v0
 
     check-cast v1, Ljava/lang/String;
@@ -467,12 +467,12 @@
     return-object v1
 
     .line 75
-    :cond_2
+    :cond_24
     return-object v1
 .end method
 
 .method public static final isJsonObjectValid(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 4
     .param p0, "j"    # Ljava/lang/Object;
 
     const-string v0, "j"
@@ -484,24 +484,24 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     return v1
 
     .line 53
-    :cond_0
+    :cond_b
     instance-of v0, p0, Lorg/json/JSONArray;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     return v1
 
     .line 54
-    :cond_1
+    :cond_10
     nop
 
     .line 55
-    :try_start_0
+    :try_start_11
     new-instance v0, Lorg/json/JSONObject;
 
     move-object v2, p0
@@ -509,13 +509,13 @@
     check-cast v2, Ljava/lang/String;
 
     invoke-direct {v0, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Lorg/json/JSONException; {:try_start_11 .. :try_end_19} :catch_1a
 
-    goto :goto_0
+    goto :goto_21
 
     .line 56
-    :catch_0
+    :catch_1a
     move-exception v0
 
     .line 57
@@ -523,21 +523,21 @@
     nop
 
     .line 58
-    :try_start_1
+    :try_start_1c
     new-instance v2, Lorg/json/JSONArray;
 
     invoke-direct {v2, p0}, Lorg/json/JSONArray;-><init>(Ljava/lang/Object;)V
-    :try_end_1
-    .catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_21
+    .catch Lorg/json/JSONException; {:try_start_1c .. :try_end_21} :catch_22
 
     .line 63
     .end local v0    # "ex":Lorg/json/JSONException;
-    :goto_0
+    :goto_21
     return v1
 
     .line 59
     .restart local v0    # "ex":Lorg/json/JSONException;
-    :catch_1
+    :catch_22
     move-exception v1
 
     .line 60
@@ -548,7 +548,7 @@
 .end method
 
 .method public static final parseProxies(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 19
+    .registers 21
     .param p0, "text"    # Ljava/lang/String;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -617,12 +617,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_24
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_58
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -684,12 +684,12 @@
     .local v10, "list$iv$iv":Ljava/lang/Iterable;
     invoke-static {v2, v10}, Lkotlin/collections/CollectionsKt;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
-    goto :goto_0
+    goto :goto_24
 
     .line 251
     .end local v9    # "element$iv$iv":Ljava/lang/Object;
     .end local v10    # "list$iv$iv":Ljava/lang/Iterable;
-    :cond_0
+    :cond_58
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -756,12 +756,12 @@
 
     move-result-object v6
 
-    :goto_1
+    :goto_81
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_9e
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -795,11 +795,11 @@
     .end local v9    # "$i$a$-map-FormatsKt$parseProxies$linksByLine$1":I
     invoke-interface {v3, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_81
 
     .line 255
     .end local v7    # "item$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_9e
     nop
 
     .end local v3    # "destination$iv$iv":Ljava/util/Collection;
@@ -833,12 +833,12 @@
 
     move-result-object v4
 
-    :goto_2
+    :goto_b1
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_c1
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -851,20 +851,20 @@
     invoke-static {v5, v2}, Lio/nekohasekai/sagernet/ktx/FormatsKt;->parseProxies$parseLink(Ljava/lang/String;Ljava/util/ArrayList;)V
 
     .end local v5    # "link":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_b1
 
     .line 226
-    :cond_2
+    :cond_c1
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :goto_3
+    :goto_c5
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_d5
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -877,10 +877,10 @@
     invoke-static {v5, v3}, Lio/nekohasekai/sagernet/ktx/FormatsKt;->parseProxies$parseLink(Ljava/lang/String;Ljava/util/ArrayList;)V
 
     .end local v5    # "link":Ljava/lang/String;
-    goto :goto_3
+    goto :goto_c5
 
     .line 230
-    :cond_3
+    :cond_d5
     move-object v4, v2
 
     check-cast v4, Ljava/lang/Iterable;
@@ -902,12 +902,12 @@
 
     move-result-object v8
 
-    :goto_4
+    :goto_df
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_f1
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -929,14 +929,14 @@
     .end local v9    # "element$iv":Ljava/lang/Object;
     .end local v10    # "it":Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .end local v11    # "$i$a$-onEach-FormatsKt$parseProxies$2":I
-    goto :goto_4
+    goto :goto_df
 
     .line 230
     .end local v4    # "$this$onEach$iv":Ljava/lang/Iterable;
     .end local v5    # "$i$f$onEach":I
     .end local v6    # "$this$onEach_u24lambda_u2419$iv":Ljava/lang/Iterable;
     .end local v7    # "$i$a$-apply-CollectionsKt___CollectionsKt$onEach$1$iv":I
-    :cond_4
+    :cond_f1
     check-cast v4, Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
@@ -964,12 +964,12 @@
 
     move-result-object v9
 
-    :goto_5
+    :goto_101
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_113
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -991,21 +991,21 @@
     .end local v10    # "element$iv":Ljava/lang/Object;
     .end local v11    # "it":Lio/nekohasekai/sagernet/fmt/AbstractBean;
     .end local v12    # "$i$a$-onEach-FormatsKt$parseProxies$3":I
-    goto :goto_5
+    goto :goto_101
 
     .line 230
     .end local v5    # "$this$onEach$iv":Ljava/lang/Iterable;
     .end local v6    # "$i$f$onEach":I
     .end local v7    # "$this$onEach_u24lambda_u2419$iv":Ljava/lang/Iterable;
     .end local v8    # "$i$a$-apply-CollectionsKt___CollectionsKt$onEach$1$iv":I
-    :cond_5
+    :cond_113
     check-cast v5, Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v5
 
-    if-ne v4, v5, :cond_9
+    if-ne v4, v5, :cond_15f
 
     const/4 v4, 0x0
 
@@ -1028,12 +1028,12 @@
 
     move-result-object v8
 
-    :goto_6
+    :goto_125
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_15d
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1044,11 +1044,11 @@
 
     .end local v7    # "index$iv":I
     .local v10, "index$iv":I
-    if-gez v7, :cond_6
+    if-gez v7, :cond_136
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    :cond_6
+    :cond_136
     move-object v11, v9
 
     check-cast v11, Lio/nekohasekai/sagernet/fmt/AbstractBean;
@@ -1075,7 +1075,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_7
+    if-eqz v14, :cond_15a
 
     invoke-virtual {v11}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->displayName()Ljava/lang/String;
 
@@ -1089,13 +1089,13 @@
 
     move-result v14
 
-    if-nez v14, :cond_7
+    if-nez v14, :cond_15a
 
     .line 235
-    goto :goto_7
+    goto :goto_15f
 
     .line 237
-    :cond_7
+    :cond_15a
     nop
 
     .line 259
@@ -1106,12 +1106,12 @@
     .end local v13    # "lineBean":Lio/nekohasekai/sagernet/fmt/AbstractBean;
     move v7, v10
 
-    goto :goto_6
+    goto :goto_125
 
     .line 260
     .end local v10    # "index$iv":I
     .local v7, "index$iv":I
-    :cond_8
+    :cond_15d
     nop
 
     .line 238
@@ -1122,8 +1122,8 @@
 
     .line 230
     .end local v4    # "$i$a$-run-FormatsKt$parseProxies$4":I
-    :cond_9
-    :goto_7
+    :cond_15f
+    :goto_15f
     nop
 
     .line 239
@@ -1135,25 +1135,25 @@
 
     move-result v5
 
-    if-le v4, v5, :cond_a
+    if-le v4, v5, :cond_16e
 
     move-object v4, v2
 
     check-cast v4, Ljava/util/List;
 
-    goto :goto_8
+    goto :goto_171
 
-    :cond_a
+    :cond_16e
     move-object v4, v3
 
     check-cast v4, Ljava/util/List;
 
-    :goto_8
+    :goto_171
     return-object v4
 .end method
 
 .method private static final parseProxies$parseLink(Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 9
+    .registers 11
     .param p0, "$this$parseProxies_u24parseLink"    # Ljava/lang/String;
     .param p1, "entities"    # Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -1166,7 +1166,16 @@
         }
     .end annotation
 
+    invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/NowhereImport;->add(Ljava/lang/String;Ljava/util/ArrayList;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    return-void
+
     .line 114
+    :cond_7
     const-string v0, "clash://install-config?"
 
     const/4 v1, 0x0
@@ -1179,7 +1188,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_479
 
     const-string v0, "sn://subscription?"
 
@@ -1187,7 +1196,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_479
 
     .line 118
     const-string v0, "sn://"
@@ -1196,7 +1205,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_69
 
     .line 119
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1222,7 +1231,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 120
-    :try_start_0
+    :try_start_3a
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -1250,12 +1259,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4e
+    .catchall {:try_start_3a .. :try_end_4e} :catchall_4f
 
-    goto :goto_0
+    goto :goto_5a
 
-    :catchall_0
+    :catchall_4f
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -1269,12 +1278,12 @@
     move-result-object v0
 
     .line 122
-    :goto_0
+    :goto_5a
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -1291,17 +1300,17 @@
     .line 122
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$2":I
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 125
-    :cond_0
+    :cond_69
     const-string v0, "socks://"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_432
 
     const-string v0, "socks4://"
 
@@ -1309,7 +1318,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_432
 
     const-string v0, "socks4a://"
 
@@ -1317,7 +1326,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_432
 
     .line 126
     nop
@@ -1329,12 +1338,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_8c
 
-    goto/16 :goto_d
+    goto/16 :goto_432
 
     .line 135
-    :cond_1
+    :cond_8c
     move-object v0, p0
 
     check-cast v0, Ljava/lang/CharSequence;
@@ -1349,7 +1358,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_113
 
     .line 136
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1375,7 +1384,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 137
-    :try_start_1
+    :try_start_b4
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -1403,12 +1412,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_c8
+    .catchall {:try_start_b4 .. :try_end_c8} :catchall_c9
 
-    goto :goto_1
+    goto :goto_d4
 
-    :catchall_1
+    :catchall_c9
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -1422,19 +1431,19 @@
     move-result-object v0
 
     .line 139
-    :goto_1
+    :goto_d4
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_dc
 
     .line 148
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 139
     .local v0, "it":Ljava/lang/Throwable;
-    :cond_2
+    :cond_dc
     const/4 v1, 0x0
 
     .line 140
@@ -1509,14 +1518,14 @@
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$6":I
     .end local v2    # "clashUrl":Ljava/lang/String;
-    :cond_3
+    :cond_113
     const-string v0, "vmess://"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_162
 
     .line 151
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1542,7 +1551,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 152
-    :try_start_2
+    :try_start_133
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -1570,12 +1579,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_147
+    .catchall {:try_start_133 .. :try_end_147} :catchall_148
 
-    goto :goto_2
+    goto :goto_153
 
-    :catchall_2
+    :catchall_148
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -1589,12 +1598,12 @@
     move-result-object v0
 
     .line 154
-    :goto_2
+    :goto_153
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -1611,17 +1620,17 @@
     .line 154
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$8":I
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 157
-    :cond_4
+    :cond_162
     const-string v0, "vless://"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_1b1
 
     .line 158
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1647,7 +1656,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 159
-    :try_start_3
+    :try_start_182
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -1675,12 +1684,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+    :try_end_196
+    .catchall {:try_start_182 .. :try_end_196} :catchall_197
 
-    goto :goto_3
+    goto :goto_1a2
 
-    :catchall_3
+    :catchall_197
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -1694,12 +1703,12 @@
     move-result-object v0
 
     .line 161
-    :goto_3
+    :goto_1a2
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -1716,17 +1725,17 @@
     .line 161
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$10":I
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 164
-    :cond_5
+    :cond_1b1
     const-string v0, "trojan://"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_200
 
     .line 165
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1752,7 +1761,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 166
-    :try_start_4
+    :try_start_1d1
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -1780,12 +1789,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_4
+    :try_end_1e5
+    .catchall {:try_start_1d1 .. :try_end_1e5} :catchall_1e6
 
-    goto :goto_4
+    goto :goto_1f1
 
-    :catchall_4
+    :catchall_1e6
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -1799,12 +1808,12 @@
     move-result-object v0
 
     .line 168
-    :goto_4
+    :goto_1f1
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -1821,17 +1830,17 @@
     .line 168
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$12":I
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 171
-    :cond_6
+    :cond_200
     const-string v0, "trojan-go://"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_24f
 
     .line 172
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1857,7 +1866,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 173
-    :try_start_5
+    :try_start_220
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -1885,12 +1894,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_5
+    :try_end_234
+    .catchall {:try_start_220 .. :try_end_234} :catchall_235
 
-    goto :goto_5
+    goto :goto_240
 
-    :catchall_5
+    :catchall_235
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -1904,12 +1913,12 @@
     move-result-object v0
 
     .line 175
-    :goto_5
+    :goto_240
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -1926,17 +1935,17 @@
     .line 175
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$14":I
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 178
-    :cond_7
+    :cond_24f
     const-string v0, "ss://"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_29e
 
     .line 179
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -1962,7 +1971,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 180
-    :try_start_6
+    :try_start_26f
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -1990,12 +1999,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_6
+    :try_end_283
+    .catchall {:try_start_26f .. :try_end_283} :catchall_284
 
-    goto :goto_6
+    goto :goto_28f
 
-    :catchall_6
+    :catchall_284
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -2009,12 +2018,12 @@
     move-result-object v0
 
     .line 182
-    :goto_6
+    :goto_28f
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -2031,17 +2040,17 @@
     .line 182
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$16":I
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 185
-    :cond_8
+    :cond_29e
     const-string v0, "naive+"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_2ed
 
     .line 186
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -2067,7 +2076,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 187
-    :try_start_7
+    :try_start_2be
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -2095,12 +2104,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_7
+    :try_end_2d2
+    .catchall {:try_start_2be .. :try_end_2d2} :catchall_2d3
 
-    goto :goto_7
+    goto :goto_2de
 
-    :catchall_7
+    :catchall_2d3
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -2114,12 +2123,12 @@
     move-result-object v0
 
     .line 189
-    :goto_7
+    :goto_2de
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -2136,17 +2145,17 @@
     .line 189
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$18":I
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 192
-    :cond_9
+    :cond_2ed
     const-string v0, "hysteria://"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_33c
 
     .line 193
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -2172,7 +2181,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 194
-    :try_start_8
+    :try_start_30d
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -2200,12 +2209,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_8
+    :try_end_321
+    .catchall {:try_start_30d .. :try_end_321} :catchall_322
 
-    goto :goto_8
+    goto :goto_32d
 
-    :catchall_8
+    :catchall_322
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -2219,12 +2228,12 @@
     move-result-object v0
 
     .line 196
-    :goto_8
+    :goto_32d
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -2241,17 +2250,17 @@
     .line 196
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$20":I
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 199
-    :cond_a
+    :cond_33c
     const-string v0, "hysteria2://"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_3ec
 
     const-string v0, "hy2://"
 
@@ -2259,19 +2268,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_34e
 
-    goto/16 :goto_b
+    goto/16 :goto_3ec
 
     .line 206
-    :cond_b
+    :cond_34e
     const-string v0, "tuic://"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_39d
 
     .line 207
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -2297,7 +2306,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 208
-    :try_start_9
+    :try_start_36e
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -2325,12 +2334,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_9
+    :try_end_382
+    .catchall {:try_start_36e .. :try_end_382} :catchall_383
 
-    goto :goto_9
+    goto :goto_38e
 
-    :catchall_9
+    :catchall_383
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -2344,12 +2353,12 @@
     move-result-object v0
 
     .line 210
-    :goto_9
+    :goto_38e
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -2366,17 +2375,17 @@
     .line 210
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$24":I
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 213
-    :cond_c
+    :cond_39d
     const-string v0, "anytls://"
 
     invoke-static {p0, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .line 214
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -2402,7 +2411,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 215
-    :try_start_a
+    :try_start_3bd
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -2430,12 +2439,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_a
+    :try_end_3d1
+    .catchall {:try_start_3bd .. :try_end_3d1} :catchall_3d2
 
-    goto :goto_a
+    goto :goto_3dd
 
-    :catchall_a
+    :catchall_3d2
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -2449,12 +2458,12 @@
     move-result-object v0
 
     .line 217
-    :goto_a
+    :goto_3dd
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -2471,11 +2480,11 @@
     .line 217
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$26":I
-    goto/16 :goto_f
+    goto/16 :goto_478
 
     .line 200
-    :cond_d
-    :goto_b
+    :cond_3ec
+    :goto_3ec
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2499,7 +2508,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 201
-    :try_start_b
+    :try_start_404
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -2527,12 +2536,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_b
+    :try_end_418
+    .catchall {:try_start_404 .. :try_end_418} :catchall_419
 
-    goto :goto_c
+    goto :goto_424
 
-    :catchall_b
+    :catchall_419
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -2546,12 +2555,12 @@
     move-result-object v0
 
     .line 203
-    :goto_c
+    :goto_424
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -2568,11 +2577,11 @@
     .line 203
     .end local v0    # "it":Ljava/lang/Throwable;
     .end local v1    # "$i$a$-onFailure-FormatsKt$parseProxies$parseLink$22":I
-    goto :goto_f
+    goto :goto_478
 
     .line 129
-    :cond_e
-    :goto_d
+    :cond_432
+    :goto_432
     sget-object v0, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2596,7 +2605,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->d(Ljava/lang/String;)V
 
     .line 130
-    :try_start_c
+    :try_start_44a
     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v0, p0
@@ -2624,12 +2633,12 @@
     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_c
+    :try_end_45e
+    .catchall {:try_start_44a .. :try_end_45e} :catchall_45f
 
-    goto :goto_e
+    goto :goto_46a
 
-    :catchall_c
+    :catchall_45f
     move-exception v0
 
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -2643,12 +2652,12 @@
     move-result-object v0
 
     .line 132
-    :goto_e
+    :goto_46a
     invoke-static {v0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_478
 
     .local v0, "it":Ljava/lang/Throwable;
     const/4 v1, 0x0
@@ -2668,12 +2677,12 @@
     nop
 
     .line 221
-    :cond_f
-    :goto_f
+    :cond_478
+    :goto_478
     return-void
 
     .line 115
-    :cond_10
+    :cond_479
     new-instance v0, Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException;
 
     invoke-direct {v0, p0}, Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException;-><init>(Ljava/lang/String;)V
@@ -2682,7 +2691,7 @@
 .end method
 
 .method public static final toStringPretty(Lorg/json/JSONObject;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "$this$toStringPretty"    # Lorg/json/JSONObject;
 
     const-string v0, "<this>"

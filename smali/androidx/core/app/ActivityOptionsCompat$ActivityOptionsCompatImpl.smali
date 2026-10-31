@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/ActivityOptions;)V
-    .locals 0
+    .registers 2
     .param p1, "activityOptions"    # Landroid/app/ActivityOptions;
 
     .line 249
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public getLaunchBounds()Landroid/graphics/Rect;
-    .locals 2
+    .registers 3
 
     .line 286
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_8
 
     .line 287
     const/4 v0, 0x0
@@ -51,7 +51,7 @@
     return-object v0
 
     .line 289
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/core/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;->mActivityOptions:Landroid/app/ActivityOptions;
 
     invoke-static {v0}, Landroidx/core/app/ActivityOptionsCompat$Api24Impl;->getLaunchBounds(Landroid/app/ActivityOptions;)Landroid/graphics/Rect;
@@ -62,7 +62,7 @@
 .end method
 
 .method public requestUsageTimeReport(Landroid/app/PendingIntent;)V
-    .locals 2
+    .registers 4
     .param p1, "receiver"    # Landroid/app/PendingIntent;
 
     .line 269
@@ -70,7 +70,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 270
     iget-object v0, p0, Landroidx/core/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;->mActivityOptions:Landroid/app/ActivityOptions;
@@ -78,12 +78,12 @@
     invoke-static {v0, p1}, Landroidx/core/app/ActivityOptionsCompat$Api23Impl;->requestUsageTimeReport(Landroid/app/ActivityOptions;Landroid/app/PendingIntent;)V
 
     .line 272
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setLaunchBounds(Landroid/graphics/Rect;)Landroidx/core/app/ActivityOptionsCompat;
-    .locals 2
+    .registers 4
     .param p1, "screenSpacePixelRect"    # Landroid/graphics/Rect;
 
     .line 277
@@ -91,13 +91,13 @@
 
     const/16 v1, 0x18
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_7
 
     .line 278
     return-object p0
 
     .line 280
-    :cond_0
+    :cond_7
     new-instance v0, Landroidx/core/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
 
     iget-object v1, p0, Landroidx/core/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;->mActivityOptions:Landroid/app/ActivityOptions;
@@ -114,7 +114,7 @@
 .end method
 
 .method public setShareIdentityEnabled(Z)Landroidx/core/app/ActivityOptionsCompat;
-    .locals 2
+    .registers 4
     .param p1, "shareIdentity"    # Z
 
     .line 294
@@ -122,13 +122,13 @@
 
     const/16 v1, 0x22
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_7
 
     .line 295
     return-object p0
 
     .line 297
-    :cond_0
+    :cond_7
     new-instance v0, Landroidx/core/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
 
     iget-object v1, p0, Landroidx/core/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;->mActivityOptions:Landroid/app/ActivityOptions;
@@ -145,7 +145,7 @@
 .end method
 
 .method public toBundle()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 255
     iget-object v0, p0, Landroidx/core/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;->mActivityOptions:Landroid/app/ActivityOptions;
@@ -158,13 +158,13 @@
 .end method
 
 .method public update(Landroidx/core/app/ActivityOptionsCompat;)V
-    .locals 3
+    .registers 5
     .param p1, "otherOptions"    # Landroidx/core/app/ActivityOptionsCompat;
 
     .line 260
     instance-of v0, p1, Landroidx/core/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 261
     move-object v0, p1
@@ -181,6 +181,6 @@
 
     .line 265
     .end local v0    # "otherImpl":Landroidx/core/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
-    :cond_0
+    :cond_e
     return-void
 .end method

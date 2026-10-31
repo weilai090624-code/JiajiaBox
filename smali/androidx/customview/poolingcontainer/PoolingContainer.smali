@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 121
     sget v0, Landroidx/customview/poolingcontainer/R$id;->pooling_container_listener_holder_tag:I
@@ -72,7 +72,7 @@
 .end method
 
 .method public static final addPoolingContainerListener(Landroid/view/View;Landroidx/customview/poolingcontainer/PoolingContainerListener;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$addPoolingContainerListener"    # Landroid/view/View;
     .param p1, "listener"    # Landroidx/customview/poolingcontainer/PoolingContainerListener;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public static final callPoolingContainerOnRelease(Landroid/view/View;)V
-    .locals 7
+    .registers 8
     .param p0, "$this$callPoolingContainerOnRelease"    # Landroid/view/View;
 
     const-string v0, "<this>"
@@ -117,12 +117,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_25
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -150,10 +150,10 @@
     .end local v3    # "element$iv":Ljava/lang/Object;
     .end local v4    # "child":Landroid/view/View;
     .end local v5    # "$i$a$-forEach-PoolingContainer$callPoolingContainerOnRelease$1":I
-    goto :goto_0
+    goto :goto_e
 
     .line 156
-    :cond_0
+    :cond_25
     nop
 
     .line 107
@@ -163,7 +163,7 @@
 .end method
 
 .method public static final callPoolingContainerOnReleaseForChildren(Landroid/view/ViewGroup;)V
-    .locals 7
+    .registers 8
     .param p0, "$this$callPoolingContainerOnReleaseForChildren"    # Landroid/view/ViewGroup;
 
     const-string v0, "<this>"
@@ -184,12 +184,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_25
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -217,10 +217,10 @@
     .end local v3    # "element$iv":Ljava/lang/Object;
     .end local v4    # "child":Landroid/view/View;
     .end local v5    # "$i$a$-forEach-PoolingContainer$callPoolingContainerOnReleaseForChildren$1":I
-    goto :goto_0
+    goto :goto_e
 
     .line 158
-    :cond_0
+    :cond_25
     nop
 
     .line 119
@@ -230,7 +230,7 @@
 .end method
 
 .method private static final getPoolingContainerListenerHolder(Landroid/view/View;)Landroidx/customview/poolingcontainer/PoolingContainerListenerHolder;
-    .locals 2
+    .registers 3
     .param p0, "$this$poolingContainerListenerHolder"    # Landroid/view/View;
 
     .line 145
@@ -247,7 +247,7 @@
 
     .line 146
     .local v0, "lifecycle":Landroidx/customview/poolingcontainer/PoolingContainerListenerHolder;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 147
     new-instance v1, Landroidx/customview/poolingcontainer/PoolingContainerListenerHolder;
@@ -262,12 +262,12 @@
     invoke-virtual {p0, v1, v0}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     .line 150
-    :cond_0
+    :cond_16
     return-object v0
 .end method
 
 .method public static final isPoolingContainer(Landroid/view/View;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isPoolingContainer"    # Landroid/view/View;
 
     const-string v0, "<this>"
@@ -283,33 +283,33 @@
 
     instance-of v1, v0, Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     check-cast v0, Ljava/lang/Boolean;
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_13
+    if-eqz v0, :cond_1a
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_1b
     return v0
 .end method
 
 .method public static final isWithinPoolingContainer(Landroid/view/View;)Z
-    .locals 7
+    .registers 8
     .param p0, "$this$isWithinPoolingContainer"    # Landroid/view/View;
 
     const-string v0, "<this>"
@@ -330,12 +330,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -353,7 +353,7 @@
     .local v5, "$i$a$-forEach-PoolingContainer$isWithinPoolingContainer$1":I
     instance-of v6, v4, Landroid/view/View;
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2b
 
     move-object v6, v4
 
@@ -363,7 +363,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2b
 
     .line 91
     const/4 v2, 0x1
@@ -371,16 +371,16 @@
     return v2
 
     .line 93
-    :cond_0
+    :cond_2b
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
     .end local v4    # "it":Landroid/view/ViewParent;
     .end local v5    # "$i$a$-forEach-PoolingContainer$isWithinPoolingContainer$1":I
-    goto :goto_0
+    goto :goto_e
 
     .line 154
-    :cond_1
+    :cond_2d
     nop
 
     .line 94
@@ -392,7 +392,7 @@
 .end method
 
 .method public static final removePoolingContainerListener(Landroid/view/View;Landroidx/customview/poolingcontainer/PoolingContainerListener;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$removePoolingContainerListener"    # Landroid/view/View;
     .param p1, "listener"    # Landroidx/customview/poolingcontainer/PoolingContainerListener;
 
@@ -416,7 +416,7 @@
 .end method
 
 .method public static final setPoolingContainer(Landroid/view/View;Z)V
-    .locals 2
+    .registers 4
     .param p0, "$this$isPoolingContainer"    # Landroid/view/View;
     .param p1, "value"    # Z
 

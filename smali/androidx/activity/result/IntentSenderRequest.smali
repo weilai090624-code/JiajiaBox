@@ -84,7 +84,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/activity/result/IntentSenderRequest$Companion;
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/IntentSender;Landroid/content/Intent;II)V
-    .locals 1
+    .registers 6
     .param p1, "intentSender"    # Landroid/content/IntentSender;
     .param p2, "fillInIntent"    # Landroid/content/Intent;
     .param p3, "flagsMask"    # I
@@ -137,38 +137,38 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/IntentSender;Landroid/content/Intent;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
+    .registers 8
 
     .line 33
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     .line 40
     const/4 p2, 0x0
 
     .line 33
-    :cond_0
+    :cond_5
     and-int/lit8 p6, p5, 0x4
 
     const/4 v0, 0x0
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_b
 
     .line 42
     const/4 p3, 0x0
 
     .line 33
-    :cond_1
+    :cond_b
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_10
 
     .line 44
     const/4 p4, 0x0
 
     .line 33
-    :cond_2
+    :cond_10
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/activity/result/IntentSenderRequest;-><init>(Landroid/content/IntentSender;Landroid/content/Intent;II)V
 
     .line 45
@@ -176,7 +176,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 4
+    .registers 6
     .param p1, "parcel"    # Landroid/os/Parcel;
 
     const-string v0, "parcel"
@@ -234,7 +234,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 58
     const/4 v0, 0x0
@@ -243,7 +243,7 @@
 .end method
 
 .method public final getFillInIntent()Landroid/content/Intent;
-    .locals 1
+    .registers 2
 
     .line 40
     iget-object v0, p0, Landroidx/activity/result/IntentSenderRequest;->fillInIntent:Landroid/content/Intent;
@@ -252,7 +252,7 @@
 .end method
 
 .method public final getFlagsMask()I
-    .locals 1
+    .registers 2
 
     .line 42
     iget v0, p0, Landroidx/activity/result/IntentSenderRequest;->flagsMask:I
@@ -261,7 +261,7 @@
 .end method
 
 .method public final getFlagsValues()I
-    .locals 1
+    .registers 2
 
     .line 44
     iget v0, p0, Landroidx/activity/result/IntentSenderRequest;->flagsValues:I
@@ -270,7 +270,7 @@
 .end method
 
 .method public final getIntentSender()Landroid/content/IntentSender;
-    .locals 1
+    .registers 2
 
     .line 35
     iget-object v0, p0, Landroidx/activity/result/IntentSenderRequest;->intentSender:Landroid/content/IntentSender;
@@ -279,7 +279,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

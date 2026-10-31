@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 120
     iput p1, p0, Lcom/google/common/collect/MultimapBuilder$2;->val$expectedKeys:I
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method createMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",

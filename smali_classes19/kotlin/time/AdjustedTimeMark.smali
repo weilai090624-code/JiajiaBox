@@ -49,7 +49,7 @@
 
 # direct methods
 .method private constructor <init>(Lkotlin/time/TimeMark;J)V
-    .locals 1
+    .registers 5
     .param p1, "mark"    # Lkotlin/time/TimeMark;
     .param p2, "adjustment"    # J
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/time/TimeMark;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     invoke-direct {p0, p1, p2, p3}, Lkotlin/time/AdjustedTimeMark;-><init>(Lkotlin/time/TimeMark;J)V
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public elapsedNow-UwyO8pc()J
-    .locals 4
+    .registers 5
 
     .line 225
     iget-object v0, p0, Lkotlin/time/AdjustedTimeMark;->mark:Lkotlin/time/TimeMark;
@@ -97,7 +97,7 @@
 .end method
 
 .method public final getAdjustment-UwyO8pc()J
-    .locals 2
+    .registers 3
 
     .line 224
     iget-wide v0, p0, Lkotlin/time/AdjustedTimeMark;->adjustment:J
@@ -106,7 +106,7 @@
 .end method
 
 .method public final getMark()Lkotlin/time/TimeMark;
-    .locals 1
+    .registers 2
 
     .line 224
     iget-object v0, p0, Lkotlin/time/AdjustedTimeMark;->mark:Lkotlin/time/TimeMark;
@@ -115,7 +115,7 @@
 .end method
 
 .method public hasNotPassedNow()Z
-    .locals 1
+    .registers 2
 
     .line 224
     invoke-static {p0}, Lkotlin/time/TimeMark$DefaultImpls;->hasNotPassedNow(Lkotlin/time/TimeMark;)Z
@@ -126,7 +126,7 @@
 .end method
 
 .method public hasPassedNow()Z
-    .locals 1
+    .registers 2
 
     .line 224
     invoke-static {p0}, Lkotlin/time/TimeMark$DefaultImpls;->hasPassedNow(Lkotlin/time/TimeMark;)Z
@@ -137,7 +137,7 @@
 .end method
 
 .method public minus-LRDsOJo(J)Lkotlin/time/TimeMark;
-    .locals 1
+    .registers 4
     .param p1, "duration"    # J
 
     .line 224
@@ -149,7 +149,7 @@
 .end method
 
 .method public plus-LRDsOJo(J)Lkotlin/time/TimeMark;
-    .locals 5
+    .registers 8
     .param p1, "duration"    # J
 
     .line 227

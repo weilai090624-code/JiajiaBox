@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1538
     const-class v0, Lj$/util/stream/Nodes;
@@ -32,7 +32,7 @@
 .end method
 
 .method constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "size"    # J
 
     .line 1543
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public synthetic accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;D)V
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public synthetic accept(I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;I)V
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public accept(J)V
-    .locals 4
+    .registers 7
     .param p1, "i"    # J
 
     .line 1569
@@ -74,7 +74,7 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_12
 
     .line 1570
     iget-object v0, p0, Lj$/util/stream/Nodes$LongFixedNodeBuilder;->array:[J
@@ -91,7 +91,7 @@
     return-void
 
     .line 1572
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/lang/IllegalStateException;
 
     iget-object v1, p0, Lj$/util/stream/Nodes$LongFixedNodeBuilder;->array:[J
@@ -124,7 +124,7 @@
 .end method
 
 .method public synthetic accept(Ljava/lang/Long;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfLong$-CC;->$default$accept(Lj$/util/stream/Sink$OfLong;Ljava/lang/Long;)V
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfLong$-CC;->$default$accept(Lj$/util/stream/Sink$OfLong;Ljava/lang/Object;)V
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -150,7 +150,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/LongConsumer$-CC;->$default$andThen(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
 
@@ -160,7 +160,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 5
+    .registers 8
     .param p1, "size"    # J
 
     .line 1559
@@ -174,7 +174,7 @@
 
     cmp-long v3, p1, v0
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_c
 
     .line 1564
     iput v2, p0, Lj$/util/stream/Nodes$LongFixedNodeBuilder;->curSize:I
@@ -183,7 +183,7 @@
     return-void
 
     .line 1560
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 1561
@@ -222,7 +222,7 @@
 .end method
 
 .method public build()Lj$/util/stream/Node$OfLong;
-    .locals 5
+    .registers 6
 
     .line 1549
     iget v0, p0, Lj$/util/stream/Nodes$LongFixedNodeBuilder;->curSize:I
@@ -231,13 +231,13 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     .line 1554
     return-object p0
 
     .line 1550
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/IllegalStateException;
 
     iget v1, p0, Lj$/util/stream/Nodes$LongFixedNodeBuilder;->curSize:I
@@ -280,7 +280,7 @@
 .end method
 
 .method public bridge synthetic build()Lj$/util/stream/Node;
-    .locals 1
+    .registers 2
 
     .line 1538
     invoke-virtual {p0}, Lj$/util/stream/Nodes$LongFixedNodeBuilder;->build()Lj$/util/stream/Node$OfLong;
@@ -291,7 +291,7 @@
 .end method
 
 .method public synthetic cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$cancellationRequested(Lj$/util/stream/Sink;)Z
 
@@ -301,7 +301,7 @@
 .end method
 
 .method public end()V
-    .locals 5
+    .registers 6
 
     .line 1579
     iget v0, p0, Lj$/util/stream/Nodes$LongFixedNodeBuilder;->curSize:I
@@ -310,13 +310,13 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     .line 1583
     return-void
 
     .line 1580
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/IllegalStateException;
 
     iget v1, p0, Lj$/util/stream/Nodes$LongFixedNodeBuilder;->curSize:I
@@ -359,7 +359,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 1587
     iget-object v0, p0, Lj$/util/stream/Nodes$LongFixedNodeBuilder;->array:[J

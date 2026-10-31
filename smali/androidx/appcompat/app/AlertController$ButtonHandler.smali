@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/DialogInterface;)V
-    .locals 1
+    .registers 3
     .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     .line 156
@@ -52,29 +52,29 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .registers 5
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 162
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_22
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_5
+    goto :goto_20
 
     .line 171
-    :pswitch_1
+    :pswitch_6
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/content/DialogInterface;
 
     invoke-interface {v0}, Landroid/content/DialogInterface;->dismiss()V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 167
-    :pswitch_2
+    :pswitch_e
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/content/DialogInterface$OnClickListener;
@@ -95,17 +95,17 @@
     nop
 
     .line 173
-    :goto_0
+    :goto_20
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_22
     .packed-switch -0x3
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_e
+        :pswitch_e
+        :pswitch_e
+        :pswitch_5
+        :pswitch_6
     .end packed-switch
 .end method

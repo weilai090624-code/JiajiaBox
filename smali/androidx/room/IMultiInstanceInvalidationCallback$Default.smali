@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 23
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method public onInvalidation([Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "tables"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {

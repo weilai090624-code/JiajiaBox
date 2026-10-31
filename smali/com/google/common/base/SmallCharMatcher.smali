@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>([CJZLjava/lang/String;)V
-    .locals 0
+    .registers 6
     .param p1, "table"    # [C
     .param p2, "filter"    # J
     .param p4, "containsZero"    # Z
@@ -51,7 +51,7 @@
 .end method
 
 .method private checkFilter(I)Z
-    .locals 5
+    .registers 7
     .param p1, "c"    # I
 
     .line 59
@@ -65,27 +65,27 @@
 
     cmp-long v4, v2, v0
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method static chooseTableSize(I)I
-    .locals 6
+    .registers 7
     .param p0, "setSize"    # I
 
     .line 75
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_5
 
     .line 76
     const/4 v0, 0x2
@@ -93,7 +93,7 @@
     return v0
 
     .line 80
-    :cond_0
+    :cond_5
     add-int/lit8 v1, p0, -0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->highestOneBit(I)I
@@ -104,7 +104,7 @@
 
     .line 81
     .local v0, "tableSize":I
-    :goto_0
+    :goto_d
     int-to-double v1, v0
 
     const-wide/high16 v3, 0x3fe0000000000000L    # 0.5
@@ -115,20 +115,20 @@
 
     cmpg-double v5, v1, v3
 
-    if-gez v5, :cond_1
+    if-gez v5, :cond_1a
 
     .line 82
     shl-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 84
-    :cond_1
+    :cond_1a
     return v0
 .end method
 
 .method static from(Ljava/util/BitSet;Ljava/lang/String;)Lcom/google/common/base/CharMatcher;
-    .locals 13
+    .registers 15
     .param p0, "chars"    # Ljava/util/BitSet;
     .param p1, "description"    # Ljava/lang/String;
 
@@ -170,10 +170,10 @@
     move-result v3
 
     .local v3, "c":I
-    :goto_0
+    :goto_18
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_39
 
     .line 97
     const-wide/16 v4, 0x1
@@ -193,10 +193,10 @@
 
     .line 101
     .local v0, "index":I
-    :goto_1
+    :goto_24
     aget-char v1, v11, v0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_34
 
     .line 102
     int-to-char v1, v3
@@ -216,22 +216,22 @@
 
     move-wide v0, v4
 
-    goto :goto_0
+    goto :goto_18
 
     .line 106
     .restart local v0    # "index":I
-    :cond_0
+    :cond_34
     add-int/lit8 v1, v0, 0x1
 
     and-int v0, v1, v12
 
-    goto :goto_1
+    goto :goto_24
 
     .line 109
     .end local v3    # "c":I
     .end local v4    # "filter":J
     .local v0, "filter":J
-    :cond_1
+    :cond_39
     new-instance v3, Lcom/google/common/base/SmallCharMatcher;
 
     move-object v4, v3
@@ -250,7 +250,7 @@
 .end method
 
 .method static smear(I)I
-    .locals 2
+    .registers 3
     .param p0, "hashCode"    # I
 
     .line 55
@@ -274,11 +274,11 @@
 
 # virtual methods
 .method public matches(C)Z
-    .locals 6
+    .registers 8
     .param p1, "c"    # C
 
     .line 114
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     .line 115
     iget-boolean v0, p0, Lcom/google/common/base/SmallCharMatcher;->containsZero:Z
@@ -286,20 +286,20 @@
     return v0
 
     .line 117
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1}, Lcom/google/common/base/SmallCharMatcher;->checkFilter(I)Z
 
     move-result v0
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_d
 
     .line 118
     return v1
 
     .line 120
-    :cond_1
+    :cond_d
     iget-object v0, p0, Lcom/google/common/base/SmallCharMatcher;->table:[C
 
     array-length v0, v0
@@ -322,42 +322,42 @@
 
     .line 124
     .local v4, "index":I
-    :cond_2
+    :cond_18
     iget-object v5, p0, Lcom/google/common/base/SmallCharMatcher;->table:[C
 
     aget-char v5, v5, v4
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_1f
 
     .line 125
     return v1
 
     .line 126
-    :cond_3
+    :cond_1f
     iget-object v5, p0, Lcom/google/common/base/SmallCharMatcher;->table:[C
 
     aget-char v5, v5, v4
 
-    if-ne v5, p1, :cond_4
+    if-ne v5, p1, :cond_26
 
     .line 127
     return v2
 
     .line 129
-    :cond_4
+    :cond_26
     add-int/lit8 v5, v4, 0x1
 
     and-int v4, v5, v0
 
     .line 132
-    if-ne v4, v3, :cond_2
+    if-ne v4, v3, :cond_18
 
     .line 133
     return v1
 .end method
 
 .method setBits(Ljava/util/BitSet;)V
-    .locals 4
+    .registers 6
     .param p1, "table"    # Ljava/util/BitSet;
 
     .line 138
@@ -365,37 +365,37 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 139
     invoke-virtual {p1, v1}, Ljava/util/BitSet;->set(I)V
 
     .line 141
-    :cond_0
+    :cond_8
     iget-object v0, p0, Lcom/google/common/base/SmallCharMatcher;->table:[C
 
     array-length v2, v0
 
-    :goto_0
-    if-ge v1, v2, :cond_2
+    :goto_b
+    if-ge v1, v2, :cond_17
 
     aget-char v3, v0, v1
 
     .line 142
     .local v3, "c":C
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_14
 
     .line 143
     invoke-virtual {p1, v3}, Ljava/util/BitSet;->set(I)V
 
     .line 141
     .end local v3    # "c":C
-    :cond_1
+    :cond_14
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 146
-    :cond_2
+    :cond_17
     return-void
 .end method

@@ -50,7 +50,7 @@
 
 # direct methods
 .method public static final addTextChangedListener(Landroid/widget/TextView;Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function1;)Landroid/text/TextWatcher;
-    .locals 3
+    .registers 7
     .param p0, "$this$addTextChangedListener"    # Landroid/widget/TextView;
     .param p1, "beforeTextChanged"    # Lkotlin/jvm/functions/Function4;
     .param p2, "onTextChanged"    # Lkotlin/jvm/functions/Function4;
@@ -115,7 +115,7 @@
 .end method
 
 .method public static synthetic addTextChangedListener$default(Landroid/widget/TextView;Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Landroid/text/TextWatcher;
-    .locals 1
+    .registers 7
     .param p0, "$this$addTextChangedListener_u24default"    # Landroid/widget/TextView;
     .param p1, "beforeTextChanged"    # Lkotlin/jvm/functions/Function4;
     .param p2, "onTextChanged"    # Lkotlin/jvm/functions/Function4;
@@ -124,7 +124,7 @@
     .line 65
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_9
 
     .line 71
     sget-object p5, Landroidx/core/widget/TextViewKt$addTextChangedListener$1;->INSTANCE:Landroidx/core/widget/TextViewKt$addTextChangedListener$1;
@@ -134,10 +134,10 @@
     check-cast p1, Lkotlin/jvm/functions/Function4;
 
     .line 65
-    :cond_0
+    :cond_9
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_12
 
     .line 77
     sget-object p5, Landroidx/core/widget/TextViewKt$addTextChangedListener$2;->INSTANCE:Landroidx/core/widget/TextViewKt$addTextChangedListener$2;
@@ -147,10 +147,10 @@
     check-cast p2, Lkotlin/jvm/functions/Function4;
 
     .line 65
-    :cond_1
+    :cond_12
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_1b
 
     .line 78
     sget-object p4, Landroidx/core/widget/TextViewKt$addTextChangedListener$3;->INSTANCE:Landroidx/core/widget/TextViewKt$addTextChangedListener$3;
@@ -160,7 +160,7 @@
     check-cast p3, Lkotlin/jvm/functions/Function1;
 
     .line 65
-    :cond_2
+    :cond_1b
     const/4 p4, 0x0
 
     .line 80
@@ -186,7 +186,7 @@
 .end method
 
 .method public static final doAfterTextChanged(Landroid/widget/TextView;Lkotlin/jvm/functions/Function1;)Landroid/text/TextWatcher;
-    .locals 5
+    .registers 7
     .param p0, "$this$doAfterTextChanged"    # Landroid/widget/TextView;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -251,7 +251,7 @@
 .end method
 
 .method public static final doBeforeTextChanged(Landroid/widget/TextView;Lkotlin/jvm/functions/Function4;)Landroid/text/TextWatcher;
-    .locals 5
+    .registers 7
     .param p0, "$this$doBeforeTextChanged"    # Landroid/widget/TextView;
     .param p1, "action"    # Lkotlin/jvm/functions/Function4;
     .annotation system Ldalvik/annotation/Signature;
@@ -322,7 +322,7 @@
 .end method
 
 .method public static final doOnTextChanged(Landroid/widget/TextView;Lkotlin/jvm/functions/Function4;)Landroid/text/TextWatcher;
-    .locals 5
+    .registers 7
     .param p0, "$this$doOnTextChanged"    # Landroid/widget/TextView;
     .param p1, "action"    # Lkotlin/jvm/functions/Function4;
     .annotation system Ldalvik/annotation/Signature;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1812
     invoke-direct {p0}, Landroidx/core/view/WindowInsetsCompat$BuilderImpl;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;)V
-    .locals 2
+    .registers 4
     .param p1, "insets"    # Landroidx/core/view/WindowInsetsCompat;
 
     .line 1817
@@ -50,22 +50,22 @@
 
     .line 1819
     .local v0, "platInsets":Landroid/view/WindowInsets;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 1820
     new-instance v1, Landroid/view/WindowInsets$Builder;
 
     invoke-direct {v1, v0}, Landroid/view/WindowInsets$Builder;-><init>(Landroid/view/WindowInsets;)V
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1821
-    :cond_0
+    :cond_f
     new-instance v1, Landroid/view/WindowInsets$Builder;
 
     invoke-direct {v1}, Landroid/view/WindowInsets$Builder;-><init>()V
 
-    :goto_0
+    :goto_14
     iput-object v1, p0, Landroidx/core/view/WindowInsetsCompat$BuilderImpl29;->mPlatBuilder:Landroid/view/WindowInsets$Builder;
 
     .line 1822
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method build()Landroidx/core/view/WindowInsetsCompat;
-    .locals 2
+    .registers 3
 
     .line 1857
     invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$BuilderImpl29;->applyInsetTypes()V
@@ -104,24 +104,24 @@
 .end method
 
 .method setDisplayCutout(Landroidx/core/view/DisplayCutoutCompat;)V
-    .locals 2
+    .registers 4
     .param p1, "displayCutout"    # Landroidx/core/view/DisplayCutoutCompat;
 
     .line 1851
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$BuilderImpl29;->mPlatBuilder:Landroid/view/WindowInsets$Builder;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     invoke-virtual {p1}, Landroidx/core/view/DisplayCutoutCompat;->unwrap()Landroid/view/DisplayCutout;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_a
     invoke-virtual {v0, v1}, Landroid/view/WindowInsets$Builder;->setDisplayCutout(Landroid/view/DisplayCutout;)Landroid/view/WindowInsets$Builder;
 
     .line 1852
@@ -129,7 +129,7 @@
 .end method
 
 .method setMandatorySystemGestureInsets(Landroidx/core/graphics/Insets;)V
-    .locals 2
+    .registers 4
     .param p1, "insets"    # Landroidx/core/graphics/Insets;
 
     .line 1836
@@ -146,7 +146,7 @@
 .end method
 
 .method setStableInsets(Landroidx/core/graphics/Insets;)V
-    .locals 2
+    .registers 4
     .param p1, "insets"    # Landroidx/core/graphics/Insets;
 
     .line 1846
@@ -163,7 +163,7 @@
 .end method
 
 .method setSystemGestureInsets(Landroidx/core/graphics/Insets;)V
-    .locals 2
+    .registers 4
     .param p1, "insets"    # Landroidx/core/graphics/Insets;
 
     .line 1831
@@ -180,7 +180,7 @@
 .end method
 
 .method setSystemWindowInsets(Landroidx/core/graphics/Insets;)V
-    .locals 2
+    .registers 4
     .param p1, "insets"    # Landroidx/core/graphics/Insets;
 
     .line 1826
@@ -197,7 +197,7 @@
 .end method
 
 .method setTappableElementInsets(Landroidx/core/graphics/Insets;)V
-    .locals 2
+    .registers 4
     .param p1, "insets"    # Landroidx/core/graphics/Insets;
 
     .line 1841

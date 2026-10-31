@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5421
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getAccessibilityDelegate(Landroid/view/View;)Landroid/view/View$AccessibilityDelegate;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5435
@@ -38,7 +38,7 @@
 .end method
 
 .method static getContentCaptureSession(Landroid/view/View;)Landroid/view/contentcapture/ContentCaptureSession;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 5450
@@ -50,7 +50,7 @@
 .end method
 
 .method static getSystemGestureExclusionRects(Landroid/view/View;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -72,7 +72,7 @@
 .end method
 
 .method static saveAttributeDataForStyleable(Landroid/view/View;Landroid/content/Context;[ILandroid/util/AttributeSet;Landroid/content/res/TypedArray;II)V
-    .locals 0
+    .registers 7
     .param p0, "view"    # Landroid/view/View;
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "styleable"    # [I
@@ -89,25 +89,25 @@
 .end method
 
 .method static setContentCaptureSession(Landroid/view/View;Landroidx/core/view/contentcapture/ContentCaptureSessionCompat;)V
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "contentCaptureSession"    # Landroidx/core/view/contentcapture/ContentCaptureSessionCompat;
 
     .line 5456
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 5457
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-virtual {p1}, Landroidx/core/view/contentcapture/ContentCaptureSessionCompat;->toContentCaptureSession()Landroid/view/contentcapture/ContentCaptureSession;
 
     move-result-object v0
 
     .line 5456
-    :goto_0
+    :goto_8
     invoke-virtual {p0, v0}, Landroid/view/View;->setContentCaptureSession(Landroid/view/contentcapture/ContentCaptureSession;)V
 
     .line 5458
@@ -115,7 +115,7 @@
 .end method
 
 .method static setSystemGestureExclusionRects(Landroid/view/View;Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {

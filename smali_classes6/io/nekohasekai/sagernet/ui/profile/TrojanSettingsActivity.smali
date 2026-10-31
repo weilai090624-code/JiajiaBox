@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/profile/StandardV2RaySettingsActivity;-><init>()V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 5
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/TrojanSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
@@ -53,7 +53,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;
-    .locals 1
+    .registers 2
 
     .line 7
     new-instance v0, Lio/nekohasekai/sagernet/fmt/trojan/TrojanBean;

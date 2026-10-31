@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)V
-    .locals 2
+    .registers 4
     .param p1, "cameraCharacteristicsCompat"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -56,7 +56,7 @@
 .end method
 
 .method private getCorrectedFpsRange(Landroid/util/Range;)Landroid/util/Range;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -116,7 +116,7 @@
 
     const/16 v3, 0x3e8
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_2e
 
     .line 106
     invoke-virtual {p1}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
@@ -132,7 +132,7 @@
     div-int/lit16 v0, v2, 0x3e8
 
     .line 109
-    :cond_0
+    :cond_2e
     invoke-virtual {p1}, Landroid/util/Range;->getLower()Ljava/lang/Comparable;
 
     move-result-object v2
@@ -143,7 +143,7 @@
 
     move-result v2
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_46
 
     .line 110
     invoke-virtual {p1}, Landroid/util/Range;->getLower()Ljava/lang/Comparable;
@@ -159,7 +159,7 @@
     div-int/lit16 v1, v2, 0x3e8
 
     .line 113
-    :cond_1
+    :cond_46
     new-instance v2, Landroid/util/Range;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -176,7 +176,7 @@
 .end method
 
 .method static load(Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)Z
-    .locals 3
+    .registers 4
     .param p0, "cameraCharacteristicsCompat"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -198,7 +198,7 @@
 
     .line 55
     .local v0, "level":Ljava/lang/Integer;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -206,21 +206,21 @@
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_13
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_14
     return v1
 .end method
 
 .method private pickSuitableFpsRange([Landroid/util/Range;)Landroid/util/Range;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -244,16 +244,16 @@
 
     .line 73
     .local p1, "availableFpsRanges":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_3f
 
     array-length v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
-    goto :goto_2
+    goto :goto_3f
 
     .line 77
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
     .line 78
@@ -262,8 +262,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_4
+    :goto_9
+    if-ge v2, v1, :cond_3e
 
     aget-object v3, p1, v2
 
@@ -286,22 +286,22 @@
 
     const/16 v5, 0x1e
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_20
 
     .line 81
-    goto :goto_1
+    goto :goto_3b
 
     .line 84
-    :cond_1
-    if-nez v0, :cond_2
+    :cond_20
+    if-nez v0, :cond_24
 
     .line 85
     move-object v0, v3
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 87
-    :cond_2
+    :cond_24
     invoke-virtual {v3}, Landroid/util/Range;->getLower()Ljava/lang/Comparable;
 
     move-result-object v4
@@ -322,27 +322,27 @@
 
     move-result v5
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_3b
 
     .line 88
     move-object v0, v3
 
     .line 78
     .end local v3    # "fpsRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
-    :cond_3
-    :goto_1
+    :cond_3b
+    :goto_3b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 93
-    :cond_4
+    :cond_3e
     return-object v0
 
     .line 74
     .end local v0    # "pickedRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
-    :cond_5
-    :goto_2
+    :cond_3f
+    :goto_3f
     const/4 v0, 0x0
 
     return-object v0
@@ -351,7 +351,7 @@
 
 # virtual methods
 .method public getRange()Landroid/util/Range;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 48
     const-class v0, Lcom/google/common/base/internal/Finalizer;
@@ -89,18 +89,18 @@
     .line 124
     sget-object v0, Lcom/google/common/base/internal/Finalizer;->bigThreadConstructor:Ljava/lang/reflect/Constructor;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     invoke-static {}, Lcom/google/common/base/internal/Finalizer;->getInheritableThreadLocalsField()Ljava/lang/reflect/Field;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1c
     sput-object v0, Lcom/google/common/base/internal/Finalizer;->inheritableThreadLocals:Ljava/lang/reflect/Field;
 
     .line 123
@@ -108,7 +108,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/Class;Ljava/lang/ref/ReferenceQueue;Ljava/lang/ref/PhantomReference;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -147,7 +147,7 @@
 .end method
 
 .method private cleanUp(Ljava/lang/ref/Reference;)Z
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -166,37 +166,37 @@
     .local v0, "finalizeReferentMethod":Ljava/lang/reflect/Method;
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 164
     return v1
 
     .line 171
-    :cond_0
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/ref/Reference;->clear()V
 
     .line 173
     iget-object v2, p0, Lcom/google/common/base/internal/Finalizer;->frqReference:Ljava/lang/ref/PhantomReference;
 
-    if-ne p1, v2, :cond_1
+    if-ne p1, v2, :cond_10
 
     .line 177
     return v1
 
     .line 181
-    :cond_1
-    :try_start_0
+    :cond_10
+    :try_start_10
     new-array v2, v1, [Ljava/lang/Object;
 
     invoke-virtual {v0, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_10 .. :try_end_15} :catchall_16
 
     .line 184
-    goto :goto_0
+    goto :goto_20
 
     .line 182
-    :catchall_0
+    :catchall_16
     move-exception v2
 
     .line 183
@@ -211,7 +211,7 @@
 
     .line 190
     .end local v2    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_20
     iget-object v2, p0, Lcom/google/common/base/internal/Finalizer;->queue:Ljava/lang/ref/ReferenceQueue;
 
     invoke-virtual {v2}, Ljava/lang/ref/ReferenceQueue;->poll()Ljava/lang/ref/Reference;
@@ -220,7 +220,7 @@
 
     move-object p1, v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_8
 
     .line 191
     const/4 v1, 0x1
@@ -229,7 +229,7 @@
 .end method
 
 .method private static getBigThreadConstructor()Ljava/lang/reflect/Constructor;
-    .locals 4
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -283,13 +283,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_0 .. :try_end_22} :catchall_23
 
     return-object v0
 
     .line 234
-    :catchall_0
+    :catchall_23
     move-exception v0
 
     .line 236
@@ -300,7 +300,7 @@
 .end method
 
 .method private getFinalizeReferentMethod()Ljava/lang/reflect/Method;
-    .locals 3
+    .registers 4
     .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
     .end annotation
 
@@ -315,7 +315,7 @@
 
     .line 198
     .local v0, "finalizableReferenceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 205
     const/4 v1, 0x0
@@ -323,8 +323,8 @@
     return-object v1
 
     .line 208
-    :cond_0
-    :try_start_0
+    :cond_c
+    :try_start_c
     const-string v1, "finalizeReferent"
 
     const/4 v2, 0x0
@@ -334,13 +334,13 @@
     invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_c .. :try_end_15} :catch_16
 
     return-object v1
 
     .line 209
-    :catch_0
+    :catch_16
     move-exception v1
 
     .line 210
@@ -353,7 +353,7 @@
 .end method
 
 .method private static getInheritableThreadLocalsField()Ljava/lang/reflect/Field;
-    .locals 4
+    .registers 4
     .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
     .end annotation
 
@@ -372,15 +372,15 @@
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_0 .. :try_end_c} :catchall_d
 
     .line 219
     return-object v0
 
     .line 220
     .end local v0    # "inheritableThreadLocals":Ljava/lang/reflect/Field;
-    :catchall_0
+    :catchall_d
     move-exception v0
 
     .line 221
@@ -400,7 +400,7 @@
 .end method
 
 .method public static startFinalizer(Ljava/lang/Class;Ljava/lang/ref/ReferenceQueue;Ljava/lang/ref/PhantomReference;)V
-    .locals 13
+    .registers 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -429,7 +429,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_77
 
     .line 78
     new-instance v0, Lcom/google/common/base/internal/Finalizer;
@@ -456,7 +456,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_51
 
     .line 83
     const/4 v3, 0x0
@@ -467,7 +467,7 @@
 
     .line 85
     .local v6, "defaultStackSize":J
-    :try_start_0
+    :try_start_21
     sget-object v8, Lcom/google/common/base/internal/Finalizer;->bigThreadConstructor:Ljava/lang/reflect/Constructor;
 
     move-object v9, v5
@@ -511,18 +511,18 @@
     move-result-object v8
 
     check-cast v8, Ljava/lang/Thread;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_45
+    .catchall {:try_start_21 .. :try_end_45} :catchall_47
 
     move-object v2, v8
 
     .line 91
     .end local v3    # "inheritThreadLocals":Z
     .end local v6    # "defaultStackSize":J
-    goto :goto_0
+    goto :goto_51
 
     .line 88
-    :catchall_0
+    :catchall_47
     move-exception v3
 
     .line 89
@@ -537,9 +537,9 @@
 
     .line 93
     .end local v3    # "t":Ljava/lang/Throwable;
-    :cond_0
-    :goto_0
-    if-nez v2, :cond_1
+    :cond_51
+    :goto_51
+    if-nez v2, :cond_5c
 
     .line 94
     new-instance v3, Ljava/lang/Thread;
@@ -553,28 +553,28 @@
     move-object v2, v3
 
     .line 96
-    :cond_1
+    :cond_5c
     invoke-virtual {v2, v4}, Ljava/lang/Thread;->setDaemon(Z)V
 
     .line 99
-    :try_start_1
+    :try_start_5f
     sget-object v3, Lcom/google/common/base/internal/Finalizer;->inheritableThreadLocals:Ljava/lang/reflect/Field;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_68
 
     .line 100
     sget-object v3, Lcom/google/common/base/internal/Finalizer;->inheritableThreadLocals:Ljava/lang/reflect/Field;
 
     invoke-virtual {v3, v2, v5}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_68
+    .catchall {:try_start_5f .. :try_end_68} :catchall_69
 
     .line 107
-    :cond_2
-    goto :goto_1
+    :cond_68
+    goto :goto_73
 
     .line 102
-    :catchall_1
+    :catchall_69
     move-exception v3
 
     .line 103
@@ -589,7 +589,7 @@
 
     .line 109
     .end local v3    # "t":Ljava/lang/Throwable;
-    :goto_1
+    :goto_73
     invoke-virtual {v2}, Ljava/lang/Thread;->start()V
 
     .line 110
@@ -599,7 +599,7 @@
     .end local v0    # "finalizer":Lcom/google/common/base/internal/Finalizer;
     .end local v1    # "threadName":Ljava/lang/String;
     .end local v2    # "thread":Ljava/lang/Thread;
-    :cond_3
+    :cond_77
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Expected com.google.common.base.FinalizableReference."
@@ -612,13 +612,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 146
     nop
 
-    :goto_0
-    :try_start_0
+    :goto_1
+    :try_start_1
     iget-object v0, p0, Lcom/google/common/base/internal/Finalizer;->queue:Ljava/lang/ref/ReferenceQueue;
 
     invoke-virtual {v0}, Ljava/lang/ref/ReferenceQueue;->remove()Ljava/lang/ref/Reference;
@@ -628,10 +628,10 @@
     invoke-direct {p0, v0}, Lcom/google/common/base/internal/Finalizer;->cleanUp(Ljava/lang/ref/Reference;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_b} :catch_f
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 147
     nop
@@ -640,10 +640,10 @@
     return-void
 
     .line 149
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 151
-    :cond_0
-    goto :goto_0
+    :cond_10
+    goto :goto_1
 .end method

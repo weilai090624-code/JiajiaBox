@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 103
     new-instance v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;
@@ -126,7 +126,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -151,7 +151,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -175,7 +175,7 @@
 .end method
 
 .method public static values()[Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;
-    .locals 1
+    .registers 1
 
     .line 100
     sget-object v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;->$VALUES:[Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;

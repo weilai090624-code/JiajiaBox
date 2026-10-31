@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/multiprocess/ListenableWorkerImpl;Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/work/multiprocess/IWorkManagerImplCallback;Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/work/multiprocess/ListenableWorkerImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 115
     :try_start_0
@@ -83,11 +83,11 @@
     iget-object v3, p0, Landroidx/work/multiprocess/ListenableWorkerImpl$1;->val$callback:Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
     invoke-static {v3, v2}, Landroidx/work/multiprocess/ListenableCallback$ListenableCallbackRunnable;->reportSuccess(Landroidx/work/multiprocess/IWorkManagerImplCallback;[B)V
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_16
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_16} :catch_66
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_16} :catch_64
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_16} :catch_29
+    .catchall {:try_start_0 .. :try_end_16} :catchall_27
 
     .line 125
     .end local v0    # "result":Landroidx/work/ListenableWorker$Result;
@@ -98,7 +98,7 @@
     monitor-enter v0
 
     .line 126
-    :try_start_1
+    :try_start_19
     iget-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImpl$1;->this$0:Landroidx/work/multiprocess/ListenableWorkerImpl;
 
     iget-object v1, v1, Landroidx/work/multiprocess/ListenableWorkerImpl;->mFutureMap:Ljava/util/Map;
@@ -110,30 +110,30 @@
     .line 127
     monitor-exit v0
 
-    goto :goto_1
+    goto :goto_79
 
-    :catchall_0
+    :catchall_24
     move-exception v1
 
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_26
+    .catchall {:try_start_19 .. :try_end_26} :catchall_24
 
     throw v1
 
     .line 125
-    :catchall_1
+    :catchall_27
     move-exception v0
 
-    goto :goto_2
+    goto :goto_7e
 
     .line 121
-    :catch_0
+    :catch_29
     move-exception v0
 
     .line 122
     .local v0, "cancellationException":Ljava/util/concurrent/CancellationException;
-    :try_start_2
+    :try_start_2a
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
@@ -172,8 +172,8 @@
     iget-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImpl$1;->val$callback:Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
     invoke-static {v1, v0}, Landroidx/work/multiprocess/ListenableCallback$ListenableCallbackRunnable;->reportFailure(Landroidx/work/multiprocess/IWorkManagerImplCallback;Ljava/lang/Throwable;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_53
+    .catchall {:try_start_2a .. :try_end_53} :catchall_27
 
     .line 125
     .end local v0    # "cancellationException":Ljava/util/concurrent/CancellationException;
@@ -182,7 +182,7 @@
     monitor-enter v0
 
     .line 126
-    :try_start_3
+    :try_start_56
     iget-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImpl$1;->this$0:Landroidx/work/multiprocess/ListenableWorkerImpl;
 
     iget-object v1, v1, Landroidx/work/multiprocess/ListenableWorkerImpl;->mFutureMap:Ljava/util/Map;
@@ -194,35 +194,35 @@
     .line 127
     monitor-exit v0
 
-    goto :goto_1
+    goto :goto_79
 
-    :catchall_2
+    :catchall_61
     move-exception v1
 
     monitor-exit v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_63
+    .catchall {:try_start_56 .. :try_end_63} :catchall_61
 
     throw v1
 
     .line 119
-    :catch_1
+    :catch_64
     move-exception v0
 
-    goto :goto_0
+    goto :goto_67
 
-    :catch_2
+    :catch_66
     move-exception v0
 
     .line 120
     .local v0, "exception":Ljava/lang/Exception;
-    :goto_0
-    :try_start_4
+    :goto_67
+    :try_start_67
     iget-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImpl$1;->val$callback:Landroidx/work/multiprocess/IWorkManagerImplCallback;
 
     invoke-static {v1, v0}, Landroidx/work/multiprocess/ListenableCallback$ListenableCallbackRunnable;->reportFailure(Landroidx/work/multiprocess/IWorkManagerImplCallback;Ljava/lang/Throwable;)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_6c
+    .catchall {:try_start_67 .. :try_end_6c} :catchall_27
 
     .line 125
     .end local v0    # "exception":Ljava/lang/Exception;
@@ -231,7 +231,7 @@
     monitor-enter v0
 
     .line 126
-    :try_start_5
+    :try_start_6f
     iget-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImpl$1;->this$0:Landroidx/work/multiprocess/ListenableWorkerImpl;
 
     iget-object v1, v1, Landroidx/work/multiprocess/ListenableWorkerImpl;->mFutureMap:Ljava/util/Map;
@@ -244,30 +244,30 @@
     monitor-exit v0
 
     .line 128
-    :goto_1
+    :goto_79
     nop
 
     .line 129
     return-void
 
     .line 127
-    :catchall_3
+    :catchall_7b
     move-exception v1
 
     monitor-exit v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_7d
+    .catchall {:try_start_6f .. :try_end_7d} :catchall_7b
 
     throw v1
 
     .line 125
-    :goto_2
+    :goto_7e
     sget-object v1, Landroidx/work/multiprocess/ListenableWorkerImpl;->sLock:Ljava/lang/Object;
 
     monitor-enter v1
 
     .line 126
-    :try_start_6
+    :try_start_81
     iget-object v2, p0, Landroidx/work/multiprocess/ListenableWorkerImpl$1;->this$0:Landroidx/work/multiprocess/ListenableWorkerImpl;
 
     iget-object v2, v2, Landroidx/work/multiprocess/ListenableWorkerImpl;->mFutureMap:Ljava/util/Map;
@@ -278,20 +278,20 @@
 
     .line 127
     monitor-exit v1
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_4
+    :try_end_8b
+    .catchall {:try_start_81 .. :try_end_8b} :catchall_8c
 
     .line 128
     throw v0
 
     .line 127
-    :catchall_4
+    :catchall_8c
     move-exception v0
 
-    :try_start_7
+    :try_start_8d
     monitor-exit v1
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_4
+    :try_end_8e
+    .catchall {:try_start_8d .. :try_end_8e} :catchall_8c
 
     throw v0
 .end method

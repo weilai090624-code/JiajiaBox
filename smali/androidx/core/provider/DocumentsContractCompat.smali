@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 304
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method public static buildChildDocumentsUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 3
     .param p0, "authority"    # Ljava/lang/String;
     .param p1, "parentDocumentId"    # Ljava/lang/String;
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public static buildChildDocumentsUriUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 3
     .param p0, "treeUri"    # Landroid/net/Uri;
     .param p1, "parentDocumentId"    # Ljava/lang/String;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public static buildDocumentUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 3
     .param p0, "authority"    # Ljava/lang/String;
     .param p1, "documentId"    # Ljava/lang/String;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public static buildDocumentUriUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 3
     .param p0, "treeUri"    # Landroid/net/Uri;
     .param p1, "documentId"    # Ljava/lang/String;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public static buildTreeDocumentUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 3
     .param p0, "authority"    # Ljava/lang/String;
     .param p1, "documentId"    # Ljava/lang/String;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public static createDocument(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 5
     .param p0, "content"    # Landroid/content/ContentResolver;
     .param p1, "parentDocumentUri"    # Landroid/net/Uri;
     .param p2, "mimeType"    # Ljava/lang/String;
@@ -129,7 +129,7 @@
 .end method
 
 .method public static getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "documentUri"    # Landroid/net/Uri;
 
     .line 96
@@ -141,7 +141,7 @@
 .end method
 
 .method public static getTreeDocumentId(Landroid/net/Uri;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "documentUri"    # Landroid/net/Uri;
 
     .line 106
@@ -156,7 +156,7 @@
 .end method
 
 .method public static isDocumentUri(Landroid/content/Context;Landroid/net/Uri;)Z
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "uri"    # Landroid/net/Uri;
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public static isTreeUri(Landroid/net/Uri;)Z
-    .locals 4
+    .registers 5
     .param p0, "uri"    # Landroid/net/Uri;
 
     .line 78
@@ -180,7 +180,7 @@
 
     const/16 v1, 0x18
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_22
 
     .line 82
     invoke-virtual {p0}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
@@ -197,7 +197,7 @@
 
     const/4 v3, 0x0
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_21
 
     const-string/jumbo v1, "tree"
 
@@ -209,16 +209,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     const/4 v3, 0x1
 
-    :cond_0
+    :cond_21
     return v3
 
     .line 85
     .end local v0    # "paths":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :cond_1
+    :cond_22
     invoke-static {p0}, Landroidx/core/provider/DocumentsContractCompat$DocumentsContractApi24Impl;->isTreeUri(Landroid/net/Uri;)Z
 
     move-result v0
@@ -227,7 +227,7 @@
 .end method
 
 .method public static removeDocument(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/net/Uri;)Z
-    .locals 2
+    .registers 5
     .param p0, "content"    # Landroid/content/ContentResolver;
     .param p1, "documentUri"    # Landroid/net/Uri;
     .param p2, "parentDocumentUri"    # Landroid/net/Uri;
@@ -242,7 +242,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 235
     invoke-static {p0, p1, p2}, Landroidx/core/provider/DocumentsContractCompat$DocumentsContractApi24Impl;->removeDocument(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/net/Uri;)Z
@@ -252,7 +252,7 @@
     return v0
 
     .line 238
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Landroid/provider/DocumentsContract;->deleteDocument(Landroid/content/ContentResolver;Landroid/net/Uri;)Z
 
     move-result v0
@@ -261,7 +261,7 @@
 .end method
 
 .method public static renameDocument(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 4
     .param p0, "content"    # Landroid/content/ContentResolver;
     .param p1, "documentUri"    # Landroid/net/Uri;
     .param p2, "displayName"    # Ljava/lang/String;

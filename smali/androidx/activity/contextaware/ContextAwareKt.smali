@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final withContextAvailable(Landroidx/activity/contextaware/ContextAware;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 13
     .param p0, "$this$withContextAvailable"    # Landroidx/activity/contextaware/ContextAware;
     .param p1, "onContextAvailable"    # Lkotlin/jvm/functions/Function1;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -64,7 +64,7 @@
 
     .line 73
     .local v1, "availableContext":Landroid/content/Context;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 74
     invoke-interface {p1, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -75,7 +75,7 @@
     return-object v2
 
     .line 76
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
     .line 89
@@ -157,12 +157,12 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_45
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 99
-    :cond_1
+    :cond_45
     nop
 
     .line 87
@@ -171,7 +171,7 @@
 .end method
 
 .method private static final withContextAvailable$$forInline(Landroidx/activity/contextaware/ContextAware;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 13
     .param p0, "$this$withContextAvailable"    # Landroidx/activity/contextaware/ContextAware;
     .param p1, "onContextAvailable"    # Lkotlin/jvm/functions/Function1;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -200,7 +200,7 @@
 
     .line 73
     .local v1, "availableContext":Landroid/content/Context;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 74
     invoke-interface {p1, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
@@ -211,7 +211,7 @@
     return-object v2
 
     .line 76
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
     .line 89
@@ -297,7 +297,7 @@
 
     move-result-object v3
 
-    if-ne v6, v3, :cond_1
+    if-ne v6, v3, :cond_4c
 
     move-object v3, p2
 
@@ -306,7 +306,7 @@
     invoke-static {v3}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 99
-    :cond_1
+    :cond_4c
     nop
 
     .line 87

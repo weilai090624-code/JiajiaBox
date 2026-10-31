@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/WindowInsetsAnimation$Bounds;)V
-    .locals 1
+    .registers 3
     .param p1, "bounds"    # Landroid/view/WindowInsetsAnimation$Bounds;
 
     .line 228
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/core/graphics/Insets;Landroidx/core/graphics/Insets;)V
-    .locals 0
+    .registers 3
     .param p1, "lowerBound"    # Landroidx/core/graphics/Insets;
     .param p2, "upperBound"    # Landroidx/core/graphics/Insets;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public static toBoundsCompat(Landroid/view/WindowInsetsAnimation$Bounds;)Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;
-    .locals 1
+    .registers 2
     .param p0, "bounds"    # Landroid/view/WindowInsetsAnimation$Bounds;
 
     .line 324
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public getLowerBound()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 254
     iget-object v0, p0, Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;->mLowerBound:Landroidx/core/graphics/Insets;
@@ -88,7 +88,7 @@
 .end method
 
 .method public getUpperBound()Landroidx/core/graphics/Insets;
-    .locals 1
+    .registers 2
 
     .line 278
     iget-object v0, p0, Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;->mUpperBound:Landroidx/core/graphics/Insets;
@@ -97,7 +97,7 @@
 .end method
 
 .method public inset(Landroidx/core/graphics/Insets;)Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;
-    .locals 7
+    .registers 9
     .param p1, "insets"    # Landroidx/core/graphics/Insets;
 
     .line 294
@@ -140,7 +140,7 @@
 .end method
 
 .method public toBounds()Landroid/view/WindowInsetsAnimation$Bounds;
-    .locals 1
+    .registers 2
 
     .line 314
     invoke-static {p0}, Landroidx/core/view/WindowInsetsAnimationCompat$Impl30;->createPlatformBounds(Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;)Landroid/view/WindowInsetsAnimation$Bounds;
@@ -151,7 +151,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 305
     new-instance v0, Ljava/lang/StringBuilder;

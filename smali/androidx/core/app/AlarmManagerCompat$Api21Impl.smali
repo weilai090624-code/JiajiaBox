@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 267
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static createAlarmClockInfo(JLandroid/app/PendingIntent;)Landroid/app/AlarmManager$AlarmClockInfo;
-    .locals 1
+    .registers 4
     .param p0, "triggerTime"    # J
     .param p2, "showIntent"    # Landroid/app/PendingIntent;
 
@@ -39,7 +39,7 @@
 .end method
 
 .method static setAlarmClock(Landroid/app/AlarmManager;Ljava/lang/Object;Landroid/app/PendingIntent;)V
-    .locals 1
+    .registers 4
     .param p0, "alarmManager"    # Landroid/app/AlarmManager;
     .param p1, "info"    # Ljava/lang/Object;
     .param p2, "operation"    # Landroid/app/PendingIntent;

@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     .line 12
     invoke-static {}, Lgo/Seq;->touch()V
@@ -26,7 +26,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method public static touch()V
-    .locals 0
+    .registers 0
 
     .line 19
     return-void

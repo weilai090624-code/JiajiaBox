@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 595
     new-instance v0, Landroid/view/animation/PathInterpolator;
@@ -63,7 +63,7 @@
 .end method
 
 .method constructor <init>(ILandroid/view/animation/Interpolator;J)V
-    .locals 0
+    .registers 5
     .param p1, "typeMask"    # I
     .param p2, "interpolator"    # Landroid/view/animation/Interpolator;
     .param p3, "durationMillis"    # J
@@ -76,7 +76,7 @@
 .end method
 
 .method static buildAnimationMask(Landroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat;)I
-    .locals 4
+    .registers 6
     .param p0, "targetInsets"    # Landroidx/core/view/WindowInsetsCompat;
     .param p1, "currentInsets"    # Landroidx/core/view/WindowInsetsCompat;
 
@@ -88,10 +88,10 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     const/16 v2, 0x100
 
-    if-gt v1, v2, :cond_1
+    if-gt v1, v2, :cond_18
 
     .line 674
     invoke-virtual {p0, v1}, Landroidx/core/view/WindowInsetsCompat;->getInsets(I)Landroidx/core/graphics/Insets;
@@ -106,25 +106,25 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     .line 675
     or-int/2addr v0, v1
 
     .line 673
-    :cond_0
+    :cond_15
     shl-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 678
     .end local v1    # "i":I
-    :cond_1
+    :cond_18
     return v0
 .end method
 
 .method static computeAnimationBounds(Landroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat;I)Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;
-    .locals 8
+    .registers 11
     .param p0, "targetInsets"    # Landroidx/core/view/WindowInsetsCompat;
     .param p1, "startingInsets"    # Landroidx/core/view/WindowInsetsCompat;
     .param p2, "mask"    # I
@@ -236,7 +236,7 @@
 .end method
 
 .method static createInsetInterpolator(ILandroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat;)Landroid/view/animation/Interpolator;
-    .locals 2
+    .registers 5
     .param p0, "animationMask"    # I
     .param p1, "targetInsets"    # Landroidx/core/view/WindowInsetsCompat;
     .param p2, "startingInsets"    # Landroidx/core/view/WindowInsetsCompat;
@@ -244,7 +244,7 @@
     .line 691
     and-int/lit8 v0, p0, 0x8
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 693
     invoke-static {}, Landroidx/core/view/WindowInsetsCompat$Type;->ime()I
@@ -268,7 +268,7 @@
 
     iget v1, v1, Landroidx/core/graphics/Insets;->bottom:I
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_1d
 
     .line 695
     sget-object v0, Landroidx/core/view/WindowInsetsAnimationCompat$Impl21;->SHOW_IME_INTERPOLATOR:Landroid/view/animation/Interpolator;
@@ -276,20 +276,20 @@
     return-object v0
 
     .line 697
-    :cond_0
+    :cond_1d
     sget-object v0, Landroidx/core/view/WindowInsetsAnimationCompat$Impl21;->HIDE_IME_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
     return-object v0
 
     .line 700
-    :cond_1
+    :cond_20
     sget-object v0, Landroidx/core/view/WindowInsetsAnimationCompat$Impl21;->DEFAULT_INSET_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
     return-object v0
 .end method
 
 .method private static createProxyListener(Landroid/view/View;Landroidx/core/view/WindowInsetsAnimationCompat$Callback;)Landroid/view/View$OnApplyWindowInsetsListener;
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "callback"    # Landroidx/core/view/WindowInsetsAnimationCompat$Callback;
 
@@ -302,7 +302,7 @@
 .end method
 
 .method static dispatchOnEnd(Landroid/view/View;Landroidx/core/view/WindowInsetsAnimationCompat;)V
-    .locals 4
+    .registers 6
     .param p0, "v"    # Landroid/view/View;
     .param p1, "anim"    # Landroidx/core/view/WindowInsetsAnimationCompat;
 
@@ -313,7 +313,7 @@
 
     .line 939
     .local v0, "callback":Landroidx/core/view/WindowInsetsAnimationCompat$Callback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 940
     invoke-virtual {v0, p1}, Landroidx/core/view/WindowInsetsAnimationCompat$Callback;->onEnd(Landroidx/core/view/WindowInsetsAnimationCompat;)V
@@ -323,16 +323,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 942
     return-void
 
     .line 945
-    :cond_0
+    :cond_10
     instance-of v1, p0, Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     .line 946
     move-object v1, p0
@@ -344,12 +344,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_18
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_28
 
     .line 948
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -364,17 +364,17 @@
     .end local v3    # "child":Landroid/view/View;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 952
     .end local v1    # "viewGroup":Landroid/view/ViewGroup;
     .end local v2    # "i":I
-    :cond_1
+    :cond_28
     return-void
 .end method
 
 .method static dispatchOnPrepare(Landroid/view/View;Landroidx/core/view/WindowInsetsAnimationCompat;Landroid/view/WindowInsets;Z)V
-    .locals 4
+    .registers 8
     .param p0, "v"    # Landroid/view/View;
     .param p1, "anim"    # Landroidx/core/view/WindowInsetsAnimationCompat;
     .param p2, "insets"    # Landroid/view/WindowInsets;
@@ -387,13 +387,13 @@
 
     .line 878
     .local v0, "callback":Landroidx/core/view/WindowInsetsAnimationCompat$Callback;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 879
     iput-object p2, v0, Landroidx/core/view/WindowInsetsAnimationCompat$Callback;->mDispachedInsets:Landroid/view/WindowInsets;
 
     .line 880
-    if-nez p3, :cond_1
+    if-nez p3, :cond_17
 
     .line 881
     invoke-virtual {v0, p1}, Landroidx/core/view/WindowInsetsAnimationCompat$Callback;->onPrepare(Landroidx/core/view/WindowInsetsAnimationCompat;)V
@@ -403,23 +403,23 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     move p3, v1
 
     .line 888
-    :cond_1
+    :cond_17
     instance-of v1, p0, Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     .line 889
     move-object v1, p0
@@ -431,12 +431,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_1
+    :goto_1f
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_2f
 
     .line 891
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -451,17 +451,17 @@
     .end local v3    # "child":Landroid/view/View;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 895
     .end local v1    # "viewGroup":Landroid/view/ViewGroup;
     .end local v2    # "i":I
-    :cond_2
+    :cond_2f
     return-void
 .end method
 
 .method static dispatchOnProgress(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;Ljava/util/List;)V
-    .locals 5
+    .registers 8
     .param p0, "v"    # Landroid/view/View;
     .param p1, "interpolateInsets"    # Landroidx/core/view/WindowInsetsCompat;
     .annotation system Ldalvik/annotation/Signature;
@@ -487,7 +487,7 @@
 
     .line 921
     .local v1, "insets":Landroidx/core/view/WindowInsetsCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 922
     invoke-virtual {v0, v1, p2}, Landroidx/core/view/WindowInsetsAnimationCompat$Callback;->onProgress(Landroidx/core/view/WindowInsetsCompat;Ljava/util/List;)Landroidx/core/view/WindowInsetsCompat;
@@ -499,16 +499,16 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
     .line 924
     return-void
 
     .line 927
-    :cond_0
+    :cond_12
     instance-of v2, p0, Landroid/view/ViewGroup;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2a
 
     .line 928
     move-object v2, p0
@@ -520,12 +520,12 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_1a
     invoke-virtual {v2}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_2a
 
     .line 930
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -540,17 +540,17 @@
     .end local v4    # "child":Landroid/view/View;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 934
     .end local v2    # "viewGroup":Landroid/view/ViewGroup;
     .end local v3    # "i":I
-    :cond_1
+    :cond_2a
     return-void
 .end method
 
 .method static dispatchOnStart(Landroid/view/View;Landroidx/core/view/WindowInsetsAnimationCompat;Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;)V
-    .locals 4
+    .registers 7
     .param p0, "v"    # Landroid/view/View;
     .param p1, "anim"    # Landroidx/core/view/WindowInsetsAnimationCompat;
     .param p2, "animationBounds"    # Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;
@@ -562,7 +562,7 @@
 
     .line 901
     .local v0, "callback":Landroidx/core/view/WindowInsetsAnimationCompat$Callback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 902
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/WindowInsetsAnimationCompat$Callback;->onStart(Landroidx/core/view/WindowInsetsAnimationCompat;Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;)Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;
@@ -572,16 +572,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 904
     return-void
 
     .line 907
-    :cond_0
+    :cond_10
     instance-of v1, p0, Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     .line 908
     move-object v1, p0
@@ -593,12 +593,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_18
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_28
 
     .line 910
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -613,17 +613,17 @@
     .end local v3    # "child":Landroid/view/View;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 914
     .end local v1    # "viewGroup":Landroid/view/ViewGroup;
     .end local v2    # "i":I
-    :cond_1
+    :cond_28
     return-void
 .end method
 
 .method static forwardToViewIfNeeded(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 1
+    .registers 3
     .param p0, "v"    # Landroid/view/View;
     .param p1, "insets"    # Landroid/view/WindowInsets;
 
@@ -634,13 +634,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 870
     return-object p1
 
     .line 872
-    :cond_0
+    :cond_9
     invoke-virtual {p0, p1}, Landroid/view/View;->onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
     move-result-object v0
@@ -649,7 +649,7 @@
 .end method
 
 .method static getCallback(Landroid/view/View;)Landroidx/core/view/WindowInsetsAnimationCompat$Callback;
-    .locals 3
+    .registers 4
     .param p0, "child"    # Landroid/view/View;
 
     .line 956
@@ -667,7 +667,7 @@
     .local v1, "callback":Landroidx/core/view/WindowInsetsAnimationCompat$Callback;
     instance-of v2, v0, Landroidx/core/view/WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
     .line 960
     move-object v2, v0
@@ -677,12 +677,12 @@
     iget-object v1, v2, Landroidx/core/view/WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener;->mCallback:Landroidx/core/view/WindowInsetsAnimationCompat$Callback;
 
     .line 962
-    :cond_0
+    :cond_10
     return-object v1
 .end method
 
 .method static interpolateInsets(Landroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat;FI)Landroidx/core/view/WindowInsetsCompat;
-    .locals 12
+    .registers 16
     .param p0, "target"    # Landroidx/core/view/WindowInsetsCompat;
     .param p1, "starting"    # Landroidx/core/view/WindowInsetsCompat;
     .param p2, "fraction"    # F
@@ -698,15 +698,15 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     const/16 v2, 0x100
 
-    if-gt v1, v2, :cond_1
+    if-gt v1, v2, :cond_5f
 
     .line 711
     and-int v2, p3, v1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_16
 
     .line 712
     invoke-virtual {p0, v1}, Landroidx/core/view/WindowInsetsCompat;->getInsets(I)Landroidx/core/graphics/Insets;
@@ -716,10 +716,10 @@
     invoke-virtual {v0, v1, v2}, Landroidx/core/view/WindowInsetsCompat$Builder;->setInsets(ILandroidx/core/graphics/Insets;)Landroidx/core/view/WindowInsetsCompat$Builder;
 
     .line 713
-    goto :goto_1
+    goto :goto_5c
 
     .line 715
-    :cond_0
+    :cond_16
     invoke-virtual {p0, v1}, Landroidx/core/view/WindowInsetsCompat;->getInsets(I)Landroidx/core/graphics/Insets;
 
     move-result-object v2
@@ -820,14 +820,14 @@
     .end local v2    # "targetInsets":Landroidx/core/graphics/Insets;
     .end local v3    # "startingInsets":Landroidx/core/graphics/Insets;
     .end local v4    # "interpolatedInsets":Landroidx/core/graphics/Insets;
-    :goto_1
+    :goto_5c
     shl-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 728
     .end local v1    # "i":I
-    :cond_1
+    :cond_5f
     invoke-virtual {v0}, Landroidx/core/view/WindowInsetsCompat$Builder;->build()Landroidx/core/view/WindowInsetsCompat;
 
     move-result-object v1
@@ -836,7 +836,7 @@
 .end method
 
 .method static setCallback(Landroid/view/View;Landroidx/core/view/WindowInsetsAnimationCompat$Callback;)V
-    .locals 3
+    .registers 5
     .param p0, "view"    # Landroid/view/View;
     .param p1, "callback"    # Landroidx/core/view/WindowInsetsAnimationCompat$Callback;
 
@@ -849,7 +849,7 @@
 
     .line 619
     .local v0, "userListener":Ljava/lang/Object;
-    if-nez p1, :cond_0
+    if-nez p1, :cond_14
 
     .line 620
     sget v1, Landroidx/core/R$id;->tag_window_insets_animation_callback:I
@@ -859,15 +859,15 @@
     invoke-virtual {p0, v1, v2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     .line 621
-    if-nez v0, :cond_1
+    if-nez v0, :cond_23
 
     .line 624
     invoke-virtual {p0, v2}, Landroid/view/View;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 627
-    :cond_0
+    :cond_14
     nop
 
     .line 628
@@ -882,14 +882,14 @@
     invoke-virtual {p0, v2, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     .line 635
-    if-nez v0, :cond_1
+    if-nez v0, :cond_23
 
     .line 636
     invoke-virtual {p0, v1}, Landroid/view/View;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
 
     .line 639
     .end local v1    # "proxyListener":Landroid/view/View$OnApplyWindowInsetsListener;
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     return-void
 .end method

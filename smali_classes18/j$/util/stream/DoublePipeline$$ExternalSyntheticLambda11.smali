@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public final applyAsDouble(DD)D
-    .locals 0
+    .registers 5
 
     invoke-static {p1, p2, p3, p4}, Ljava/lang/Math;->min(DD)D
 

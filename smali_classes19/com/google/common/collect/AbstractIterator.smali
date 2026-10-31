@@ -41,7 +41,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 71
     .local p0, "this":Lcom/google/common/collect/AbstractIterator;, "Lcom/google/common/collect/AbstractIterator<TT;>;"
@@ -57,7 +57,7 @@
 .end method
 
 .method private tryToComputeNext()Z
-    .locals 2
+    .registers 3
 
     .line 145
     .local p0, "this":Lcom/google/common/collect/AbstractIterator;, "Lcom/google/common/collect/AbstractIterator<TT;>;"
@@ -77,7 +77,7 @@
 
     sget-object v1, Lcom/google/common/collect/AbstractIterator$State;->DONE:Lcom/google/common/collect/AbstractIterator$State;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_16
 
     .line 148
     sget-object v0, Lcom/google/common/collect/AbstractIterator$State;->READY:Lcom/google/common/collect/AbstractIterator$State;
@@ -90,7 +90,7 @@
     return v0
 
     .line 151
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     return v0
@@ -110,7 +110,7 @@
 .end method
 
 .method protected final endOfData()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -133,7 +133,7 @@
 .end method
 
 .method public final hasNext()Z
-    .locals 4
+    .registers 5
 
     .line 133
     .local p0, "this":Lcom/google/common/collect/AbstractIterator;, "Lcom/google/common/collect/AbstractIterator<TT;>;"
@@ -145,16 +145,16 @@
 
     const/4 v3, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 134
@@ -168,7 +168,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_22
 
     .line 141
     invoke-direct {p0}, Lcom/google/common/collect/AbstractIterator;->tryToComputeNext()Z
@@ -178,22 +178,22 @@
     return v0
 
     .line 138
-    :pswitch_0
+    :pswitch_20
     return v2
 
     .line 136
-    :pswitch_1
+    :pswitch_21
     return v3
 
-    :pswitch_data_0
+    :pswitch_data_22
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_21
+        :pswitch_20
     .end packed-switch
 .end method
 
 .method public final next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -209,7 +209,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 161
     sget-object v0, Lcom/google/common/collect/AbstractIterator$State;->NOT_READY:Lcom/google/common/collect/AbstractIterator$State;
@@ -234,7 +234,7 @@
 
     .line 159
     .end local v0    # "result":Ljava/lang/Object;, "TT;"
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -243,7 +243,7 @@
 .end method
 
 .method public final peek()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -259,7 +259,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 181
     iget-object v0, p0, Lcom/google/common/collect/AbstractIterator;->next:Ljava/lang/Object;
@@ -271,7 +271,7 @@
     return-object v0
 
     .line 178
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public bridge synthetic initialValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-virtual {p0}, Lokhttp3/internal/http/DatesKt$STANDARD_DATE_FORMAT$1;->initialValue()Ljava/text/DateFormat;
@@ -66,7 +66,7 @@
 .end method
 
 .method protected initialValue()Ljava/text/DateFormat;
-    .locals 4
+    .registers 5
 
     .line 35
     new-instance v0, Ljava/text/SimpleDateFormat;

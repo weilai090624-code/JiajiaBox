@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 50
     sget v0, Lj$/util/stream/StreamOpFlag;->NOT_SIZED:I
@@ -43,7 +43,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method static makeDropWhileDouble(Lj$/util/stream/AbstractPipeline;Ljava/util/function/DoublePredicate;)Lj$/util/stream/DoubleStream;
-    .locals 3
+    .registers 5
     .param p1, "predicate"    # Ljava/util/function/DoublePredicate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,7 +84,7 @@
 .end method
 
 .method static makeDropWhileInt(Lj$/util/stream/AbstractPipeline;Ljava/util/function/IntPredicate;)Lj$/util/stream/IntStream;
-    .locals 3
+    .registers 5
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -116,7 +116,7 @@
 .end method
 
 .method static makeDropWhileLong(Lj$/util/stream/AbstractPipeline;Ljava/util/function/LongPredicate;)Lj$/util/stream/LongStream;
-    .locals 3
+    .registers 5
     .param p1, "predicate"    # Ljava/util/function/LongPredicate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -148,7 +148,7 @@
 .end method
 
 .method static makeDropWhileRef(Lj$/util/stream/AbstractPipeline;Ljava/util/function/Predicate;)Lj$/util/stream/Stream;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -181,7 +181,7 @@
 .end method
 
 .method static makeTakeWhileDouble(Lj$/util/stream/AbstractPipeline;Ljava/util/function/DoublePredicate;)Lj$/util/stream/DoubleStream;
-    .locals 3
+    .registers 5
     .param p1, "predicate"    # Ljava/util/function/DoublePredicate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -213,7 +213,7 @@
 .end method
 
 .method static makeTakeWhileInt(Lj$/util/stream/AbstractPipeline;Ljava/util/function/IntPredicate;)Lj$/util/stream/IntStream;
-    .locals 3
+    .registers 5
     .param p1, "predicate"    # Ljava/util/function/IntPredicate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -245,7 +245,7 @@
 .end method
 
 .method static makeTakeWhileLong(Lj$/util/stream/AbstractPipeline;Ljava/util/function/LongPredicate;)Lj$/util/stream/LongStream;
-    .locals 3
+    .registers 5
     .param p1, "predicate"    # Ljava/util/function/LongPredicate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -277,7 +277,7 @@
 .end method
 
 .method static makeTakeWhileRef(Lj$/util/stream/AbstractPipeline;Ljava/util/function/Predicate;)Lj$/util/stream/Stream;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

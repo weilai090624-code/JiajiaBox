@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/function/Function;)V
-    .locals 0
+    .registers 2
 
     .line 156
     iput-object p1, p0, Lj$/jdk/internal/util/Preconditions$1;->val$f:Ljava/util/function/Function;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public synthetic andThen(Ljava/util/function/Function;)Ljava/util/function/BiFunction;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/BiFunction$-CC;->$default$andThen(Ljava/util/function/BiFunction;Ljava/util/function/Function;)Ljava/util/function/BiFunction;
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 156
     check-cast p1, Ljava/lang/String;
@@ -72,7 +72,7 @@
 .end method
 
 .method public apply(Ljava/lang/String;Ljava/util/List;)Ljava/lang/RuntimeException;
-    .locals 2
+    .registers 5
     .param p1, "checkKind"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -76,7 +76,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/MediaType$Companion;
 
@@ -108,7 +108,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p1, "mediaType"    # Ljava/lang/String;
     .param p2, "type"    # Ljava/lang/String;
     .param p3, "subtype"    # Ljava/lang/String;
@@ -134,7 +134,7 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     invoke-direct {p0, p1, p2, p3, p4}, Lokhttp3/MediaType;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public static final synthetic access$getPARAMETER$cp()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 1
 
     .line 28
     sget-object v0, Lokhttp3/MediaType;->PARAMETER:Ljava/util/regex/Pattern;
@@ -151,7 +151,7 @@
 .end method
 
 .method public static final synthetic access$getTYPE_SUBTYPE$cp()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 1
 
     .line 28
     sget-object v0, Lokhttp3/MediaType;->TYPE_SUBTYPE:Ljava/util/regex/Pattern;
@@ -160,16 +160,16 @@
 .end method
 
 .method public static synthetic charset$default(Lokhttp3/MediaType;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/nio/charset/Charset;
-    .locals 0
+    .registers 4
 
     .line 50
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1}, Lokhttp3/MediaType;->charset(Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
 
     move-result-object p0
@@ -178,7 +178,7 @@
 .end method
 
 .method public static final get(Ljava/lang/String;)Lokhttp3/MediaType;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -192,7 +192,7 @@
 .end method
 
 .method public static final parse(Ljava/lang/String;)Lokhttp3/MediaType;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -208,7 +208,7 @@
 
 # virtual methods
 .method public final -deprecated_subtype()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -225,7 +225,7 @@
 .end method
 
 .method public final -deprecated_type()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -242,7 +242,7 @@
 .end method
 
 .method public final charset()Ljava/nio/charset/Charset;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -256,7 +256,7 @@
 .end method
 
 .method public final charset(Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
-    .locals 2
+    .registers 4
     .param p1, "defaultValue"    # Ljava/nio/charset/Charset;
 
     .line 51
@@ -266,27 +266,27 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     return-object p1
 
     .line 52
     .local v0, "charset":Ljava/lang/String;
-    :cond_0
+    :cond_9
     nop
 
     .line 53
-    :try_start_0
+    :try_start_a
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_a .. :try_end_e} :catch_f
 
-    goto :goto_0
+    goto :goto_11
 
     .line 54
-    :catch_0
+    :catch_f
     move-exception v1
 
     .line 55
@@ -295,18 +295,18 @@
 
     .line 52
     .end local v1    # "_":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 92
     instance-of v0, p1, Lokhttp3/MediaType;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p1
 
@@ -320,21 +320,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Lokhttp3/MediaType;->mediaType:Ljava/lang/String;
@@ -347,7 +347,7 @@
 .end method
 
 .method public final parameter(Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -369,9 +369,9 @@
 
     move-result v0
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_28
 
-    :cond_0
+    :cond_12
     move v3, v1
 
     .local v3, "i":I
@@ -388,7 +388,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_26
 
     .line 66
     iget-object v0, p0, Lokhttp3/MediaType;->parameterNamesAndValues:[Ljava/lang/String;
@@ -400,19 +400,19 @@
     return-object v0
 
     .line 64
-    :cond_1
-    if-ne v3, v0, :cond_0
+    :cond_26
+    if-ne v3, v0, :cond_12
 
     .line 69
     .end local v3    # "i":I
-    :cond_2
+    :cond_28
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public final subtype()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 39
     iget-object v0, p0, Lokhttp3/MediaType;->subtype:Ljava/lang/String;
@@ -421,7 +421,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 90
     iget-object v0, p0, Lokhttp3/MediaType;->mediaType:Ljava/lang/String;
@@ -430,7 +430,7 @@
 .end method
 
 .method public final type()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Lokhttp3/MediaType;->type:Ljava/lang/String;

@@ -102,7 +102,7 @@
 
 # direct methods
 .method constructor <init>(JLkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -145,7 +145,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -182,7 +182,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 17
+    .registers 19
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -195,7 +195,7 @@
 
     const/4 v3, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_b6
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -205,7 +205,7 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_14
     move-object/from16 v2, p0
 
     .local v2, "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$timeoutInternal$1;
@@ -237,7 +237,7 @@
 
     move-object v1, v4
 
-    goto/16 :goto_1
+    goto/16 :goto_9b
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$timeoutInternal$1;
     .end local v4    # "$result":Ljava/lang/Object;
@@ -246,7 +246,7 @@
     .end local v7    # "$i$a$-run-SelectKt$select$3$iv$iv":I
     .end local v10    # "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .end local v11    # "downStream":Lkotlinx/coroutines/flow/FlowCollector;
-    :pswitch_1
+    :pswitch_2b
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p0
@@ -278,7 +278,7 @@
 
     move-result v7
 
-    if-lez v7, :cond_2
+    if-lez v7, :cond_ad
 
     .line 400
     iget-object v7, v2, Lkotlinx/coroutines/flow/FlowKt__DelayKt$timeoutInternal$1;->$this_timeoutInternal:Lkotlinx/coroutines/flow/Flow;
@@ -314,7 +314,7 @@
     .local v5, "$i$f$whileSelect":I
     .restart local v10    # "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .restart local v11    # "downStream":Lkotlinx/coroutines/flow/FlowCollector;
-    :goto_0
+    :goto_5b
     const/4 v6, 0x0
 
     .line 417
@@ -389,13 +389,13 @@
     move-result-object v1
 
     .end local v7    # "$this$select_u24lambda_u241$iv$iv":Lkotlinx/coroutines/selects/SelectImplementation;
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_95
 
     .line 398
     return-object v0
 
     .line 424
-    :cond_0
+    :cond_95
     move v7, v12
 
     move-object/from16 v16, v4
@@ -408,7 +408,7 @@
     .end local v12    # "$i$a$-run-SelectKt$select$3$iv$iv":I
     .local v1, "$result":Ljava/lang/Object;
     .local v7, "$i$a$-run-SelectKt$select$3$iv$iv":I
-    :goto_1
+    :goto_9b
     nop
 
     .line 420
@@ -422,7 +422,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_a9
 
     .line 425
     nop
@@ -435,12 +435,12 @@
 
     .line 420
     .restart local v5    # "$i$f$whileSelect":I
-    :cond_1
+    :cond_a9
     move-object v4, v1
 
     move-object/from16 v1, p0
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 399
     .end local v1    # "$result":Ljava/lang/Object;
@@ -449,7 +449,7 @@
     .restart local v4    # "$result":Ljava/lang/Object;
     .local v5, "$this$scopedFlow":Lkotlinx/coroutines/CoroutineScope;
     .local v6, "downStream":Lkotlinx/coroutines/flow/FlowCollector;
-    :cond_2
+    :cond_ad
     new-instance v0, Lkotlinx/coroutines/TimeoutCancellationException;
 
     const-string v1, "Timed out immediately"
@@ -460,9 +460,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_b6
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2b
+        :pswitch_14
     .end packed-switch
 .end method

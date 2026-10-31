@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 107
     const/16 v0, 0x7b2
@@ -28,7 +28,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method public static datesUntil(Lj$/time/LocalDate;Lj$/time/LocalDate;)Lj$/util/stream/Stream;
-    .locals 7
+    .registers 9
     .param p0, "receiver"    # Lj$/time/LocalDate;
     .param p1, "endExclusive"    # Lj$/time/LocalDate;
     .annotation system Ldalvik/annotation/Signature;
@@ -67,7 +67,7 @@
     .local v2, "start":J
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_1a
 
     .line 130
     invoke-static {v2, v3, v0, v1}, Lj$/util/stream/LongStream$-CC;->range(JJ)Lj$/util/stream/LongStream;
@@ -85,7 +85,7 @@
     return-object v4
 
     .line 128
-    :cond_0
+    :cond_1a
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -116,7 +116,7 @@
 .end method
 
 .method public static datesUntil(Lj$/time/LocalDate;Lj$/time/LocalDate;Lj$/time/Period;)Lj$/util/stream/Stream;
-    .locals 29
+    .registers 32
     .param p0, "receiver"    # Lj$/time/LocalDate;
     .param p1, "endExclusive"    # Lj$/time/LocalDate;
     .param p2, "step"    # Lj$/time/Period;
@@ -140,7 +140,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_13c
 
     .line 155
     invoke-virtual/range {p1 .. p1}, Lj$/time/LocalDate;->toEpochDay()J
@@ -177,25 +177,25 @@
 
     cmp-long v2, v13, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_25
 
     cmp-long v2, v4, v0
 
-    if-gtz v2, :cond_1
+    if-gtz v2, :cond_2e
 
-    :cond_0
+    :cond_25
     cmp-long v2, v13, v0
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_36
 
     cmp-long v2, v4, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_2e
 
-    goto :goto_0
+    goto :goto_36
 
     .line 161
-    :cond_1
+    :cond_2e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "period months and days are of opposite sign"
@@ -205,11 +205,11 @@
     throw v0
 
     .line 163
-    :cond_2
-    :goto_0
+    :cond_36
+    :goto_36
     cmp-long v2, v11, v0
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_3f
 
     .line 164
     invoke-static {}, Lj$/util/stream/Stream$-CC;->empty()Lj$/util/stream/Stream;
@@ -219,72 +219,72 @@
     return-object v0
 
     .line 166
-    :cond_3
+    :cond_3f
     const/4 v2, 0x1
 
     cmp-long v3, v13, v0
 
-    if-gtz v3, :cond_5
+    if-gtz v3, :cond_4b
 
     cmp-long v3, v4, v0
 
-    if-lez v3, :cond_4
+    if-lez v3, :cond_49
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_4
+    :cond_49
     const/4 v3, -0x1
 
-    goto :goto_2
+    goto :goto_4c
 
-    :cond_5
-    :goto_1
+    :cond_4b
+    :goto_4b
     const/4 v3, 0x1
 
-    :goto_2
+    :goto_4c
     move v15, v3
 
     .line 167
     .local v15, "sign":I
     const/4 v3, 0x0
 
-    if-gez v15, :cond_6
+    if-gez v15, :cond_53
 
     const/16 v16, 0x1
 
-    goto :goto_3
+    goto :goto_55
 
-    :cond_6
+    :cond_53
     const/16 v16, 0x0
 
-    :goto_3
+    :goto_55
     cmp-long v17, v11, v0
 
-    if-gez v17, :cond_7
+    if-gez v17, :cond_5a
 
-    goto :goto_4
+    goto :goto_5b
 
-    :cond_7
+    :cond_5a
     const/4 v2, 0x0
 
-    :goto_4
+    :goto_5b
     xor-int v2, v16, v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_83
 
     .line 168
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    if-gez v15, :cond_8
+    if-gez v15, :cond_66
 
     const-string v1, " > "
 
-    goto :goto_5
+    goto :goto_68
 
-    :cond_8
+    :cond_66
     const-string v1, " < "
 
-    :goto_5
+    :goto_68
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -312,12 +312,12 @@
     throw v0
 
     .line 170
-    :cond_9
+    :cond_83
     move-object/from16 v3, p1
 
     cmp-long v2, v13, v0
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_9d
 
     .line 171
     int-to-long v0, v15
@@ -346,7 +346,7 @@
 
     .line 176
     .end local v0    # "steps":J
-    :cond_a
+    :cond_9d
     const-wide/16 v0, 0x640
 
     mul-long v2, v11, v0
@@ -379,7 +379,7 @@
 
     cmp-long v22, v13, v16
 
-    if-lez v22, :cond_b
+    if-lez v22, :cond_c6
 
     sget-object v22, Lj$/time/LocalDate;->MAX:Lj$/time/LocalDate;
 
@@ -393,10 +393,10 @@
 
     sub-long v22, v22, v24
 
-    goto :goto_6
+    goto :goto_d2
 
     .line 180
-    :cond_b
+    :cond_c6
     invoke-static/range {p0 .. p0}, Lj$/time/DesugarLocalDate;->getProlepticMonth(Lj$/time/LocalDate;)J
 
     move-result-wide v22
@@ -409,7 +409,7 @@
 
     sub-long v22, v22, v24
 
-    :goto_6
+    :goto_d2
     nop
 
     .line 182
@@ -424,7 +424,7 @@
 
     cmp-long v26, v9, v22
 
-    if-gtz v26, :cond_d
+    if-gtz v26, :cond_f6
 
     .line 183
     invoke-virtual {v6, v0, v1}, Lj$/time/LocalDate;->plusMonths(J)Lj$/time/LocalDate;
@@ -451,27 +451,27 @@
 
     cmp-long v28, v9, v11
 
-    if-ltz v28, :cond_c
+    if-ltz v28, :cond_f3
 
-    goto :goto_7
+    goto :goto_f8
 
-    :cond_c
+    :cond_f3
     move-wide v9, v0
 
     move-wide v11, v2
 
-    goto :goto_9
+    goto :goto_122
 
     .line 182
     .end local v26    # "until":J
     .restart local v11    # "until":J
-    :cond_d
+    :cond_f6
     move-wide/from16 v26, v11
 
     .line 184
     .end local v11    # "until":J
     .restart local v26    # "until":J
-    :goto_7
+    :goto_f8
     const-wide/16 v9, 0x1
 
     sub-long/2addr v2, v9
@@ -489,7 +489,7 @@
 
     cmp-long v11, v9, v22
 
-    if-gtz v11, :cond_f
+    if-gtz v11, :cond_11d
 
     .line 188
     invoke-virtual {v6, v0, v1}, Lj$/time/LocalDate;->plusMonths(J)Lj$/time/LocalDate;
@@ -512,20 +512,20 @@
 
     cmp-long v28, v9, v11
 
-    if-ltz v28, :cond_e
+    if-ltz v28, :cond_11a
 
-    goto :goto_8
+    goto :goto_11d
 
-    :cond_e
+    :cond_11a
     move-wide v9, v0
 
     move-wide v11, v2
 
-    goto :goto_9
+    goto :goto_122
 
     .line 189
-    :cond_f
-    :goto_8
+    :cond_11d
+    :goto_11d
     const-wide/16 v9, 0x1
 
     sub-long/2addr v2, v9
@@ -539,7 +539,7 @@
     .end local v2    # "steps":J
     .local v9, "addMonths":J
     .local v11, "steps":J
-    :goto_9
+    :goto_122
     const-wide/16 v0, 0x0
 
     invoke-static {v0, v1, v11, v12}, Lj$/util/stream/LongStream$-CC;->rangeClosed(JJ)Lj$/util/stream/LongStream;
@@ -585,7 +585,7 @@
     .end local v22    # "maxAddMonths":J
     .end local v24    # "start":J
     .end local v26    # "until":J
-    :cond_10
+    :cond_13c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "step is zero"
@@ -596,7 +596,7 @@
 .end method
 
 .method private static getProlepticMonth(Lj$/time/LocalDate;)J
-    .locals 6
+    .registers 7
     .param p0, "receiver"    # Lj$/time/LocalDate;
 
     .line 244
@@ -630,7 +630,7 @@
 .end method
 
 .method static synthetic lambda$datesUntil$0(JJJ)Lj$/time/LocalDate;
-    .locals 2
+    .registers 8
     .param p0, "start"    # J
     .param p2, "days"    # J
     .param p4, "n"    # J
@@ -648,7 +648,7 @@
 .end method
 
 .method static synthetic lambda$datesUntil$1(Lj$/time/LocalDate;JJJ)Lj$/time/LocalDate;
-    .locals 3
+    .registers 10
     .param p0, "receiver"    # Lj$/time/LocalDate;
     .param p1, "months"    # J
     .param p3, "days"    # J
@@ -671,7 +671,7 @@
 .end method
 
 .method public static ofInstant(Lj$/time/Instant;Lj$/time/ZoneId;)Lj$/time/LocalDate;
-    .locals 7
+    .registers 9
     .param p0, "instant"    # Lj$/time/Instant;
     .param p1, "zone"    # Lj$/time/ZoneId;
 
@@ -728,7 +728,7 @@
 .end method
 
 .method public static toEpochSecond(Lj$/time/LocalDate;Lj$/time/LocalTime;Lj$/time/ZoneOffset;)J
-    .locals 4
+    .registers 7
     .param p0, "receiver"    # Lj$/time/LocalDate;
     .param p1, "time"    # Lj$/time/LocalTime;
     .param p2, "offset"    # Lj$/time/ZoneOffset;

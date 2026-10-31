@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 60
     new-instance v0, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
@@ -47,7 +47,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 63
     const/4 v0, 0x1
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$000()Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
-    .locals 1
+    .registers 1
 
     .line 59
     sget-object v0, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
@@ -70,7 +70,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 102
     sget-object v0, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public bridge synthetic distance(Ljava/lang/Comparable;Ljava/lang/Comparable;)J
-    .locals 0
+    .registers 3
 
     .line 59
     check-cast p1, Ljava/lang/Integer;
@@ -96,7 +96,7 @@
 .end method
 
 .method public distance(Ljava/lang/Integer;Ljava/lang/Integer;)J
-    .locals 4
+    .registers 7
     .param p1, "start"    # Ljava/lang/Integer;
     .param p2, "end"    # Ljava/lang/Integer;
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public bridge synthetic maxValue()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 59
     invoke-virtual {p0}, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->maxValue()Ljava/lang/Integer;
@@ -130,7 +130,7 @@
 .end method
 
 .method public maxValue()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 98
     const v0, 0x7fffffff
@@ -143,7 +143,7 @@
 .end method
 
 .method public bridge synthetic minValue()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
 
     .line 59
     invoke-virtual {p0}, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->minValue()Ljava/lang/Integer;
@@ -154,7 +154,7 @@
 .end method
 
 .method public minValue()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 93
     const/high16 v0, -0x80000000
@@ -167,7 +167,7 @@
 .end method
 
 .method public bridge synthetic next(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -182,7 +182,7 @@
 .end method
 
 .method public next(Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Integer;
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -196,25 +196,25 @@
     .local v0, "i":I
     const v1, 0x7fffffff
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_b
     add-int/lit8 v1, v0, 0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method bridge synthetic offset(Ljava/lang/Comparable;J)Ljava/lang/Comparable;
-    .locals 0
+    .registers 4
 
     .line 59
     check-cast p1, Ljava/lang/Integer;
@@ -227,7 +227,7 @@
 .end method
 
 .method offset(Ljava/lang/Integer;J)Ljava/lang/Integer;
-    .locals 2
+    .registers 6
     .param p1, "origin"    # Ljava/lang/Integer;
     .param p2, "distance"    # J
 
@@ -255,7 +255,7 @@
 .end method
 
 .method public bridge synthetic previous(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 0
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -270,7 +270,7 @@
 .end method
 
 .method public previous(Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Integer;
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -284,25 +284,25 @@
     .local v0, "i":I
     const/high16 v1, -0x80000000
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_a
     add-int/lit8 v1, v0, -0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 107
     const-string v0, "DiscreteDomain.integers()"

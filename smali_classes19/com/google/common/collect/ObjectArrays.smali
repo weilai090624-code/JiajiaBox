@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method static checkElementNotNull(Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -27,13 +27,13 @@
     .param p1, "index"    # I
 
     .line 230
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 233
     return-object p0
 
     .line 231
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/NullPointerException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -62,7 +62,7 @@
 .end method
 
 .method static varargs checkElementsNotNull([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "array"    # [Ljava/lang/Object;
 
     .line 214
@@ -75,7 +75,7 @@
 .end method
 
 .method static checkElementsNotNull([Ljava/lang/Object;I)[Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "array"    # [Ljava/lang/Object;
     .param p1, "length"    # I
 
@@ -83,8 +83,8 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p1, :cond_0
+    :goto_1
+    if-ge v0, p1, :cond_b
 
     .line 221
     aget-object v1, p0, v0
@@ -94,16 +94,16 @@
     .line 220
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 223
     .end local v0    # "i":I
-    :cond_0
+    :cond_b
     return-object p0
 .end method
 
 .method public static concat(Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -145,7 +145,7 @@
 .end method
 
 .method public static concat([Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -180,7 +180,7 @@
 .end method
 
 .method public static concat([Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Class;)[Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -225,7 +225,7 @@
 .end method
 
 .method static copyAsObjectArray([Ljava/lang/Object;II)[Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "elements"    # [Ljava/lang/Object;
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -240,7 +240,7 @@
     .line 188
     const/4 v0, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_c
 
     .line 189
     new-array v0, v0, [Ljava/lang/Object;
@@ -248,7 +248,7 @@
     return-object v0
 
     .line 191
-    :cond_0
+    :cond_c
     new-array v1, p2, [Ljava/lang/Object;
 
     .line 192
@@ -260,7 +260,7 @@
 .end method
 
 .method private static fillArray(Ljava/lang/Iterable;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "array"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -283,12 +283,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_5
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -306,17 +306,17 @@
     .end local v2    # "element":Ljava/lang/Object;
     move v0, v3
 
-    goto :goto_0
+    goto :goto_5
 
     .line 202
     .end local v3    # "i":I
     .restart local v0    # "i":I
-    :cond_0
+    :cond_15
     return-object p1
 .end method
 
 .method public static newArray(Ljava/lang/Class;I)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -340,7 +340,7 @@
 .end method
 
 .method public static newArray([Ljava/lang/Object;I)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -360,7 +360,7 @@
 .end method
 
 .method static swap([Ljava/lang/Object;II)V
-    .locals 2
+    .registers 5
     .param p0, "array"    # [Ljava/lang/Object;
     .param p1, "i"    # I
     .param p2, "j"    # I
@@ -382,7 +382,7 @@
 .end method
 
 .method static toArrayImpl(Ljava/util/Collection;)[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -408,7 +408,7 @@
 .end method
 
 .method static toArrayImpl(Ljava/util/Collection;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -430,7 +430,7 @@
     .local v0, "size":I
     array-length v1, p1
 
-    if-ge v1, v0, :cond_0
+    if-ge v1, v0, :cond_b
 
     .line 132
     invoke-static {p1, v0}, Lcom/google/common/collect/ObjectArrays;->newArray([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -438,13 +438,13 @@
     move-result-object p1
 
     .line 134
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Lcom/google/common/collect/ObjectArrays;->fillArray(Ljava/lang/Iterable;[Ljava/lang/Object;)[Ljava/lang/Object;
 
     .line 135
     array-length v1, p1
 
-    if-le v1, v0, :cond_1
+    if-le v1, v0, :cond_15
 
     .line 136
     move-object v1, p1
@@ -457,12 +457,12 @@
 
     .line 139
     .end local v1    # "unsoundlyCovariantArray":[Ljava/lang/Object;
-    :cond_1
+    :cond_15
     return-object p1
 .end method
 
 .method static toArrayImpl([Ljava/lang/Object;II[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "src"    # [Ljava/lang/Object;
     .param p1, "offset"    # I
     .param p2, "len"    # I
@@ -487,20 +487,20 @@
     .line 156
     array-length v0, p3
 
-    if-ge v0, p2, :cond_0
+    if-ge v0, p2, :cond_e
 
     .line 157
     invoke-static {p3, p2}, Lcom/google/common/collect/ObjectArrays;->newArray([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object p3
 
-    goto :goto_0
+    goto :goto_15
 
     .line 158
-    :cond_0
+    :cond_e
     array-length v0, p3
 
-    if-le v0, p2, :cond_1
+    if-le v0, p2, :cond_15
 
     .line 159
     move-object v0, p3
@@ -513,8 +513,8 @@
 
     .line 162
     .end local v0    # "unsoundlyCovariantArray":[Ljava/lang/Object;
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p3, v0, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V

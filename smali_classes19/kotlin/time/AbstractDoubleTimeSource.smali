@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/time/DurationUnit;)V
-    .locals 1
+    .registers 3
     .param p1, "unit"    # Lkotlin/time/DurationUnit;
 
     const-string v0, "unit"
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method protected final getUnit()Lkotlin/time/DurationUnit;
-    .locals 1
+    .registers 2
 
     .line 98
     iget-object v0, p0, Lkotlin/time/AbstractDoubleTimeSource;->unit:Lkotlin/time/DurationUnit;
@@ -80,7 +80,7 @@
 .end method
 
 .method public markNow()Lkotlin/time/ComparableTimeMark;
-    .locals 8
+    .registers 9
 
     .line 131
     new-instance v7, Lkotlin/time/AbstractDoubleTimeSource$DoubleTimeMark;
@@ -109,7 +109,7 @@
 .end method
 
 .method public bridge synthetic markNow()Lkotlin/time/TimeMark;
-    .locals 1
+    .registers 2
 
     .line 95
     invoke-virtual {p0}, Lkotlin/time/AbstractDoubleTimeSource;->markNow()Lkotlin/time/ComparableTimeMark;

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;)V
-    .locals 2
+    .registers 4
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
 
     const-string v0, "fragment"

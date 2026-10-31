@@ -35,7 +35,7 @@
 
 # direct methods
 .method private constructor <init>([Ljava/lang/Object;[Ljava/lang/Object;[Ljava/lang/Object;[I[I)V
-    .locals 0
+    .registers 6
     .param p1, "rowKeys"    # [Ljava/lang/Object;
     .param p2, "columnKeys"    # [Ljava/lang/Object;
     .param p3, "cellValues"    # [Ljava/lang/Object;
@@ -65,7 +65,7 @@
 .end method
 
 .method static create(Lcom/google/common/collect/ImmutableTable;[I[I)Lcom/google/common/collect/ImmutableTable$SerializedForm;
-    .locals 7
+    .registers 10
     .param p1, "cellRowIndices"    # [I
     .param p2, "cellColumnIndices"    # [I
     .annotation system Ldalvik/annotation/Signature;
@@ -123,14 +123,14 @@
 
 # virtual methods
 .method readResolve()Ljava/lang/Object;
-    .locals 5
+    .registers 6
 
     .line 434
     iget-object v0, p0, Lcom/google/common/collect/ImmutableTable$SerializedForm;->cellValues:[Ljava/lang/Object;
 
     array-length v0, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 435
     invoke-static {}, Lcom/google/common/collect/ImmutableTable;->of()Lcom/google/common/collect/ImmutableTable;
@@ -140,14 +140,14 @@
     return-object v0
 
     .line 437
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/common/collect/ImmutableTable$SerializedForm;->cellValues:[Ljava/lang/Object;
 
     array-length v0, v0
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_22
 
     .line 438
     iget-object v0, p0, Lcom/google/common/collect/ImmutableTable$SerializedForm;->rowKeys:[Ljava/lang/Object;
@@ -171,7 +171,7 @@
     return-object v0
 
     .line 440
-    :cond_1
+    :cond_22
     new-instance v0, Lcom/google/common/collect/ImmutableList$Builder;
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableTable$SerializedForm;->cellValues:[Ljava/lang/Object;
@@ -185,12 +185,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2b
     iget-object v2, p0, Lcom/google/common/collect/ImmutableTable$SerializedForm;->cellValues:[Ljava/lang/Object;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_4e
 
     .line 443
     iget-object v2, p0, Lcom/google/common/collect/ImmutableTable$SerializedForm;->rowKeys:[Ljava/lang/Object;
@@ -224,11 +224,11 @@
     .line 442
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 446
     .end local v1    # "i":I
-    :cond_2
+    :cond_4e
     nop
 
     .line 447

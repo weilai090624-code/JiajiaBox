@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/internal/Ref$ObjectRef;Z)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -110,14 +110,14 @@
 .end method
 
 .method public final invoke(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext$Element;)Lkotlin/coroutines/CoroutineContext;
-    .locals 4
+    .registers 7
     .param p1, "result"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
 
     .line 64
     instance-of v0, p2, Lkotlinx/coroutines/CopyableThreadContextElement;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     move-object v0, p2
 
@@ -130,7 +130,7 @@
     return-object v0
 
     .line 66
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lkotlinx/coroutines/CoroutineContextKt$foldCopies$folded$1;->$leftoverContext:Lkotlin/jvm/internal/Ref$ObjectRef;
 
     iget-object v0, v0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -147,12 +147,12 @@
 
     .line 68
     .local v0, "newElement":Lkotlin/coroutines/CoroutineContext$Element;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_32
 
     .line 70
     iget-boolean v1, p0, Lkotlinx/coroutines/CoroutineContextKt$foldCopies$folded$1;->$isNewCoroutine:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     move-object v1, p2
 
@@ -162,14 +162,14 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_1
+    :cond_28
     move-object v1, p2
 
     check-cast v1, Lkotlinx/coroutines/CopyableThreadContextElement;
 
-    :goto_0
+    :goto_2b
     check-cast v1, Lkotlin/coroutines/CoroutineContext;
 
     invoke-interface {p1, v1}, Lkotlin/coroutines/CoroutineContext;->plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
@@ -179,7 +179,7 @@
     return-object v1
 
     .line 73
-    :cond_2
+    :cond_32
     iget-object v1, p0, Lkotlinx/coroutines/CoroutineContextKt$foldCopies$folded$1;->$leftoverContext:Lkotlin/jvm/internal/Ref$ObjectRef;
 
     iget-object v2, p0, Lkotlinx/coroutines/CoroutineContextKt$foldCopies$folded$1;->$leftoverContext:Lkotlin/jvm/internal/Ref$ObjectRef;

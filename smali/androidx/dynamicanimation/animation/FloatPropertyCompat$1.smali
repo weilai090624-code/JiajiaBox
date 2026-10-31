@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroid/util/FloatProperty;)V
-    .locals 0
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 58
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public getValue(Ljava/lang/Object;)F
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)F"
@@ -66,7 +66,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;F)V
-    .locals 1
+    .registers 4
     .param p2, "value"    # F
     .annotation system Ldalvik/annotation/Signature;
         value = {

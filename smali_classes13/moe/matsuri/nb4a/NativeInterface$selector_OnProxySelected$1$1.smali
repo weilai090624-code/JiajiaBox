@@ -86,7 +86,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$4I7QfAGpPDcJ80VXHDQwPToh23I(JLio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lmoe/matsuri/nb4a/NativeInterface$selector_OnProxySelected$1$1;->invokeSuspend$lambda$2(JLio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method constructor <init>(Lio/nekohasekai/sagernet/bg/BaseService$Interface;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,7 +121,7 @@
 .end method
 
 .method private static final invokeSuspend$lambda$2(JLio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)Lkotlin/Unit;
-    .locals 1
+    .registers 4
     .param p0, "$id"    # J
     .param p2, "b"    # Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
@@ -137,7 +137,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -164,7 +164,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -207,7 +207,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -216,7 +216,7 @@
     .line 91
     iget v1, p0, Lmoe/matsuri/nb4a/NativeInterface$selector_OnProxySelected$1$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_fc
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -227,12 +227,12 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_f9
 
-    :pswitch_1
+    :pswitch_16
     const/4 v1, 0x0
 
     .local v1, "$i$a$-apply-NativeInterface$selector_OnProxySelected$1$1$1":I
@@ -245,12 +245,12 @@
 
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_d6
 
     .end local v1    # "$i$a$-apply-NativeInterface$selector_OnProxySelected$1$1$1":I
     .end local v2    # "id":J
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_22
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 92
@@ -298,13 +298,13 @@
     move-result-object v1
 
     .end local v1    # "$this$filterValues$iv":Ljava/util/Map;
-    :cond_0
-    :goto_0
+    :cond_4a
+    :goto_4a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_6f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -332,7 +332,7 @@
     .line 113
     .end local v6    # "it":Ljava/lang/String;
     .end local v7    # "$i$a$-filterValues-NativeInterface$selector_OnProxySelected$1$1$id$1":I
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_4a
 
     .line 114
     invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -345,11 +345,11 @@
 
     invoke-virtual {v4, v6, v7}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 117
     .end local v5    # "entry$iv":Ljava/util/Map$Entry;
-    :cond_1
+    :cond_6f
     move-object v1, v4
 
     check-cast v1, Ljava/util/Map;
@@ -370,20 +370,20 @@
     check-cast v1, Ljava/lang/Long;
 
     .line 92
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_85
 
     invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v1
 
-    goto :goto_1
+    goto :goto_87
 
     .line 93
-    :cond_2
+    :cond_85
     const-wide/16 v1, -0x1
 
     .line 92
-    :goto_1
+    :goto_87
     move-wide v2, v1
 
     .line 94
@@ -398,7 +398,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_97
 
     .end local v2    # "id":J
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -408,7 +408,7 @@
     .line 96
     .local v1, "ent":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .restart local v2    # "id":J
-    :cond_3
+    :cond_97
     iget-object v4, p0, Lmoe/matsuri/nb4a/NativeInterface$selector_OnProxySelected$1$1;->$this_apply:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     invoke-interface {v4}, Lio/nekohasekai/sagernet/bg/BaseService$Interface;->getData()Lio/nekohasekai/sagernet/bg/BaseService$Data;
@@ -419,7 +419,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_da
 
     iget-object v5, p0, Lmoe/matsuri/nb4a/NativeInterface$selector_OnProxySelected$1$1;->$this_apply:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
@@ -434,12 +434,12 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_b0
 
     invoke-virtual {v8, v2, v3}, Lio/nekohasekai/sagernet/bg/proto/TrafficLooper;->selectMain(J)V
 
     .line 98
-    :cond_4
+    :cond_b0
     sget-object v8, Lio/nekohasekai/sagernet/bg/ServiceNotification;->Companion:Lio/nekohasekai/sagernet/bg/ServiceNotification$Companion;
 
     invoke-virtual {v8, v1}, Lio/nekohasekai/sagernet/bg/ServiceNotification$Companion;->genTitle(Lio/nekohasekai/sagernet/database/ProxyEntity;)Ljava/lang/String;
@@ -458,7 +458,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_d8
 
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->getDisplayProfileName()Ljava/lang/String;
 
@@ -477,18 +477,18 @@
     move-result-object v1
 
     .end local v6    # "$this$invokeSuspend_u24lambda_u241":Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
-    if-ne v1, v0, :cond_5
+    if-ne v1, v0, :cond_d5
 
     .line 91
     return-object v0
 
     .line 99
-    :cond_5
+    :cond_d5
     move v1, v7
 
     .end local v7    # "$i$a$-apply-NativeInterface$selector_OnProxySelected$1$1$1":I
     .local v1, "$i$a$-apply-NativeInterface$selector_OnProxySelected$1$1$1":I
-    :goto_2
+    :goto_d6
     move v7, v1
 
     nop
@@ -496,7 +496,7 @@
     .line 100
     .end local v1    # "$i$a$-apply-NativeInterface$selector_OnProxySelected$1$1$1":I
     .restart local v7    # "$i$a$-apply-NativeInterface$selector_OnProxySelected$1$1$1":I
-    :cond_6
+    :cond_d8
     nop
 
     .line 96
@@ -504,7 +504,7 @@
     nop
 
     .line 102
-    :cond_7
+    :cond_da
     iget-object v1, p0, Lmoe/matsuri/nb4a/NativeInterface$selector_OnProxySelected$1$1;->$this_apply:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     invoke-interface {v1}, Lio/nekohasekai/sagernet/bg/BaseService$Interface;->getData()Lio/nekohasekai/sagernet/bg/BaseService$Data;
@@ -536,22 +536,22 @@
     move-result-object v1
 
     .end local v2    # "id":J
-    if-ne v1, v0, :cond_8
+    if-ne v1, v0, :cond_f9
 
     .line 91
     return-object v0
 
     .line 105
-    :cond_8
-    :goto_3
+    :cond_f9
+    :goto_f9
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_fc
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_22
+        :pswitch_16
+        :pswitch_11
     .end packed-switch
 .end method

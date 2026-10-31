@@ -22,7 +22,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$WkRITrIg1eLk2gv__5iwocHDqeg(Landroid/animation/ValueAnimator;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/google/android/material/internal/MultiViewUpdateListener;->setScale(Landroid/animation/ValueAnimator;Landroid/view/View;)V
 
@@ -30,7 +30,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$kNR6Np3RAVUjjKtQJR0ljE_6vq8(Landroid/animation/ValueAnimator;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/google/android/material/internal/MultiViewUpdateListener;->setTranslationY(Landroid/animation/ValueAnimator;Landroid/view/View;)V
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$l3sYajCeVVvEXOGqzrBJyGlXVps(Landroid/animation/ValueAnimator;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/google/android/material/internal/MultiViewUpdateListener;->setAlpha(Landroid/animation/ValueAnimator;Landroid/view/View;)V
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$tf5oGWUNf6tQQxMTGg7FpP3COoI(Landroid/animation/ValueAnimator;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/google/android/material/internal/MultiViewUpdateListener;->setTranslationX(Landroid/animation/ValueAnimator;Landroid/view/View;)V
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/internal/MultiViewUpdateListener$Listener;Ljava/util/Collection;)V
-    .locals 1
+    .registers 4
     .param p1, "listener"    # Lcom/google/android/material/internal/MultiViewUpdateListener$Listener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -91,7 +91,7 @@
 .end method
 
 .method public varargs constructor <init>(Lcom/google/android/material/internal/MultiViewUpdateListener$Listener;[Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "listener"    # Lcom/google/android/material/internal/MultiViewUpdateListener$Listener;
     .param p2, "views"    # [Landroid/view/View;
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public static alphaListener(Ljava/util/Collection;)Lcom/google/android/material/internal/MultiViewUpdateListener;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -134,7 +134,7 @@
 .end method
 
 .method public static varargs alphaListener([Landroid/view/View;)Lcom/google/android/material/internal/MultiViewUpdateListener;
-    .locals 2
+    .registers 3
     .param p0, "views"    # [Landroid/view/View;
 
     .line 75
@@ -150,7 +150,7 @@
 .end method
 
 .method public static scaleListener(Ljava/util/Collection;)Lcom/google/android/material/internal/MultiViewUpdateListener;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -175,7 +175,7 @@
 .end method
 
 .method public static varargs scaleListener([Landroid/view/View;)Lcom/google/android/material/internal/MultiViewUpdateListener;
-    .locals 2
+    .registers 3
     .param p0, "views"    # [Landroid/view/View;
 
     .line 97
@@ -191,7 +191,7 @@
 .end method
 
 .method private static setAlpha(Landroid/animation/ValueAnimator;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "animator"    # Landroid/animation/ValueAnimator;
     .param p1, "view"    # Landroid/view/View;
 
@@ -213,7 +213,7 @@
 .end method
 
 .method private static setScale(Landroid/animation/ValueAnimator;Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p0, "animator"    # Landroid/animation/ValueAnimator;
     .param p1, "view"    # Landroid/view/View;
 
@@ -244,7 +244,7 @@
 .end method
 
 .method private static setTranslationX(Landroid/animation/ValueAnimator;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "animator"    # Landroid/animation/ValueAnimator;
     .param p1, "view"    # Landroid/view/View;
 
@@ -266,7 +266,7 @@
 .end method
 
 .method private static setTranslationY(Landroid/animation/ValueAnimator;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "animator"    # Landroid/animation/ValueAnimator;
     .param p1, "view"    # Landroid/view/View;
 
@@ -288,7 +288,7 @@
 .end method
 
 .method public static translationXListener(Ljava/util/Collection;)Lcom/google/android/material/internal/MultiViewUpdateListener;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -313,7 +313,7 @@
 .end method
 
 .method public static varargs translationXListener([Landroid/view/View;)Lcom/google/android/material/internal/MultiViewUpdateListener;
-    .locals 2
+    .registers 3
     .param p0, "views"    # [Landroid/view/View;
 
     .line 121
@@ -329,7 +329,7 @@
 .end method
 
 .method public static translationYListener(Ljava/util/Collection;)Lcom/google/android/material/internal/MultiViewUpdateListener;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -354,7 +354,7 @@
 .end method
 
 .method public static varargs translationYListener([Landroid/view/View;)Lcom/google/android/material/internal/MultiViewUpdateListener;
-    .locals 2
+    .registers 3
     .param p0, "views"    # [Landroid/view/View;
 
     .line 143
@@ -372,7 +372,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 5
+    .registers 7
     .param p1, "valueAnimator"    # Landroid/animation/ValueAnimator;
 
     .line 55
@@ -382,8 +382,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_4
+    if-ge v2, v1, :cond_10
 
     aget-object v3, v0, v2
 
@@ -397,9 +397,9 @@
     .end local v3    # "view":Landroid/view/View;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 58
-    :cond_0
+    :cond_10
     return-void
 .end method

@@ -29,7 +29,7 @@
 
 # direct methods
 .method public varargs constructor <init>(Ljava/util/Queue;[Lorg/yaml/snakeyaml/comments/CommentType;)V
-    .locals 1
+    .registers 4
     .param p2, "expectedCommentTypes"    # [Lorg/yaml/snakeyaml/comments/CommentType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -64,7 +64,7 @@
 .end method
 
 .method public varargs constructor <init>(Lorg/yaml/snakeyaml/parser/Parser;[Lorg/yaml/snakeyaml/comments/CommentType;)V
-    .locals 1
+    .registers 4
     .param p1, "parser"    # Lorg/yaml/snakeyaml/parser/Parser;
     .param p2, "expectedCommentTypes"    # [Lorg/yaml/snakeyaml/comments/CommentType;
 
@@ -93,13 +93,13 @@
 .end method
 
 .method private isEventExpected(Lorg/yaml/snakeyaml/events/Event;)Z
-    .locals 7
+    .registers 9
     .param p1, "event"    # Lorg/yaml/snakeyaml/events/Event;
 
     .line 100
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_23
 
     sget-object v1, Lorg/yaml/snakeyaml/events/Event$ID;->Comment:Lorg/yaml/snakeyaml/events/Event$ID;
 
@@ -107,12 +107,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
-    goto :goto_1
+    goto :goto_23
 
     .line 103
-    :cond_0
+    :cond_c
     move-object v1, p1
 
     check-cast v1, Lorg/yaml/snakeyaml/events/CommentEvent;
@@ -128,8 +128,8 @@
     const/4 v4, 0x0
 
     .local v4, "i$":I
-    :goto_0
-    if-ge v4, v3, :cond_2
+    :goto_13
+    if-ge v4, v3, :cond_22
 
     aget-object v5, v2, v4
 
@@ -139,7 +139,7 @@
 
     move-result-object v6
 
-    if-ne v6, v5, :cond_1
+    if-ne v6, v5, :cond_1f
 
     .line 106
     const/4 v0, 0x1
@@ -148,29 +148,29 @@
 
     .line 104
     .end local v5    # "type":Lorg/yaml/snakeyaml/comments/CommentType;
-    :cond_1
+    :cond_1f
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 109
     .end local v2    # "arr$":[Lorg/yaml/snakeyaml/comments/CommentType;
     .end local v3    # "len$":I
     .end local v4    # "i$":I
-    :cond_2
+    :cond_22
     return v0
 
     .line 101
     .end local v1    # "commentEvent":Lorg/yaml/snakeyaml/events/CommentEvent;
-    :cond_3
-    :goto_1
+    :cond_23
+    :goto_23
     return v0
 .end method
 
 
 # virtual methods
 .method public collectEvents()Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
-    .locals 1
+    .registers 2
 
     .line 119
     const/4 v0, 0x0
@@ -182,18 +182,18 @@
 .end method
 
 .method public collectEvents(Lorg/yaml/snakeyaml/events/Event;)Lorg/yaml/snakeyaml/events/Event;
-    .locals 3
+    .registers 5
     .param p1, "event"    # Lorg/yaml/snakeyaml/events/Event;
 
     .line 133
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_17
 
     .line 134
     invoke-direct {p0, p1}, Lorg/yaml/snakeyaml/comments/CommentEventsCollector;->isEventExpected(Lorg/yaml/snakeyaml/events/Event;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 135
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentEventsCollector;->commentLineList:Ljava/util/List;
@@ -208,15 +208,15 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_17
 
     .line 137
-    :cond_0
+    :cond_16
     return-object p1
 
     .line 140
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentEventsCollector;->eventSource:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->peek()Ljava/lang/Object;
@@ -229,7 +229,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_38
 
     .line 141
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentEventsCollector;->commentLineList:Ljava/util/List;
@@ -248,17 +248,17 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_17
 
     .line 143
-    :cond_2
+    :cond_38
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public collectEventsAndPoll(Lorg/yaml/snakeyaml/events/Event;)Lorg/yaml/snakeyaml/events/Event;
-    .locals 2
+    .registers 4
     .param p1, "event"    # Lorg/yaml/snakeyaml/events/Event;
 
     .line 156
@@ -268,13 +268,13 @@
 
     .line 157
     .local v0, "nextEvent":Lorg/yaml/snakeyaml/events/Event;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_8
     iget-object v1, p0, Lorg/yaml/snakeyaml/comments/CommentEventsCollector;->eventSource:Ljava/util/Queue;
 
     invoke-interface {v1}, Ljava/util/Queue;->poll()Ljava/lang/Object;
@@ -283,12 +283,12 @@
 
     check-cast v1, Lorg/yaml/snakeyaml/events/Event;
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public consume()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -301,8 +301,8 @@
     .line 167
     :try_start_0
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentEventsCollector;->commentLineList:Ljava/util/List;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2
+    .catchall {:try_start_0 .. :try_end_2} :catchall_a
 
     .line 169
     new-instance v1, Ljava/util/ArrayList;
@@ -313,7 +313,7 @@
 
     return-object v0
 
-    :catchall_0
+    :catchall_a
     move-exception v0
 
     new-instance v1, Ljava/util/ArrayList;
@@ -326,7 +326,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 178
     iget-object v0, p0, Lorg/yaml/snakeyaml/comments/CommentEventsCollector;->commentLineList:Ljava/util/List;

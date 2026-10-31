@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 117
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method constructor <init>(BLjava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "type"    # B
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static read(Ljava/io/ObjectInput;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "in"    # Ljava/io/ObjectInput;
 
     .line 228
@@ -82,12 +82,12 @@
 .end method
 
 .method private static readInternal(BLjava/io/ObjectInput;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "type"    # B
     .param p1, "in"    # Ljava/io/ObjectInput;
 
     .line 233
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_38
 
     .line 243
     new-instance v0, Ljava/io/StreamCorruptedException;
@@ -99,7 +99,7 @@
     throw v0
 
     .line 242
-    :pswitch_0
+    :pswitch_b
     invoke-static {p1}, Lj$/time/chrono/ChronoPeriodImpl;->readExternal(Ljava/io/DataInput;)Lj$/time/chrono/ChronoPeriodImpl;
 
     move-result-object v0
@@ -107,7 +107,7 @@
     return-object v0
 
     .line 241
-    :pswitch_1
+    :pswitch_10
     invoke-static {p1}, Lj$/time/chrono/ThaiBuddhistDate;->readExternal(Ljava/io/DataInput;)Lj$/time/chrono/ThaiBuddhistDate;
 
     move-result-object v0
@@ -115,7 +115,7 @@
     return-object v0
 
     .line 240
-    :pswitch_2
+    :pswitch_15
     invoke-static {p1}, Lj$/time/chrono/MinguoDate;->readExternal(Ljava/io/DataInput;)Lj$/time/chrono/MinguoDate;
 
     move-result-object v0
@@ -123,7 +123,7 @@
     return-object v0
 
     .line 239
-    :pswitch_3
+    :pswitch_1a
     invoke-static {p1}, Lj$/time/chrono/HijrahDate;->readExternal(Ljava/io/ObjectInput;)Lj$/time/chrono/HijrahDate;
 
     move-result-object v0
@@ -131,7 +131,7 @@
     return-object v0
 
     .line 238
-    :pswitch_4
+    :pswitch_1f
     invoke-static {p1}, Lj$/time/chrono/JapaneseEra;->readExternal(Ljava/io/DataInput;)Lj$/time/chrono/JapaneseEra;
 
     move-result-object v0
@@ -139,7 +139,7 @@
     return-object v0
 
     .line 237
-    :pswitch_5
+    :pswitch_24
     invoke-static {p1}, Lj$/time/chrono/JapaneseDate;->readExternal(Ljava/io/DataInput;)Lj$/time/chrono/JapaneseDate;
 
     move-result-object v0
@@ -147,7 +147,7 @@
     return-object v0
 
     .line 236
-    :pswitch_6
+    :pswitch_29
     invoke-static {p1}, Lj$/time/chrono/ChronoZonedDateTimeImpl;->readExternal(Ljava/io/ObjectInput;)Lj$/time/chrono/ChronoZonedDateTime;
 
     move-result-object v0
@@ -155,7 +155,7 @@
     return-object v0
 
     .line 235
-    :pswitch_7
+    :pswitch_2e
     invoke-static {p1}, Lj$/time/chrono/ChronoLocalDateTimeImpl;->readExternal(Ljava/io/ObjectInput;)Lj$/time/chrono/ChronoLocalDateTime;
 
     move-result-object v0
@@ -163,29 +163,29 @@
     return-object v0
 
     .line 234
-    :pswitch_8
+    :pswitch_33
     invoke-static {p1}, Lj$/time/chrono/AbstractChronology;->readExternal(Ljava/io/DataInput;)Lj$/time/chrono/Chronology;
 
     move-result-object v0
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_38
     .packed-switch 0x1
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_33
+        :pswitch_2e
+        :pswitch_29
+        :pswitch_24
+        :pswitch_1f
+        :pswitch_1a
+        :pswitch_15
+        :pswitch_10
+        :pswitch_b
     .end packed-switch
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 253
     iget-object v0, p0, Lj$/time/chrono/Ser;->object:Ljava/lang/Object;
@@ -194,7 +194,7 @@
 .end method
 
 .method private static writeInternal(BLjava/lang/Object;Ljava/io/ObjectOutput;)V
-    .locals 2
+    .registers 5
     .param p0, "type"    # B
     .param p1, "object"    # Ljava/lang/Object;
     .param p2, "out"    # Ljava/io/ObjectOutput;
@@ -203,7 +203,7 @@
     invoke-interface {p2, p0}, Ljava/io/ObjectOutput;->writeByte(I)V
 
     .line 162
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_4e
 
     .line 191
     new-instance v0, Ljava/io/InvalidClassException;
@@ -215,7 +215,7 @@
     throw v0
 
     .line 188
-    :pswitch_0
+    :pswitch_e
     move-object v0, p1
 
     check-cast v0, Lj$/time/chrono/ChronoPeriodImpl;
@@ -223,10 +223,10 @@
     invoke-virtual {v0, p2}, Lj$/time/chrono/ChronoPeriodImpl;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 189
-    goto :goto_0
+    goto :goto_4d
 
     .line 185
-    :pswitch_1
+    :pswitch_15
     move-object v0, p1
 
     check-cast v0, Lj$/time/chrono/ThaiBuddhistDate;
@@ -234,10 +234,10 @@
     invoke-virtual {v0, p2}, Lj$/time/chrono/ThaiBuddhistDate;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 186
-    goto :goto_0
+    goto :goto_4d
 
     .line 182
-    :pswitch_2
+    :pswitch_1c
     move-object v0, p1
 
     check-cast v0, Lj$/time/chrono/MinguoDate;
@@ -245,10 +245,10 @@
     invoke-virtual {v0, p2}, Lj$/time/chrono/MinguoDate;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 183
-    goto :goto_0
+    goto :goto_4d
 
     .line 179
-    :pswitch_3
+    :pswitch_23
     move-object v0, p1
 
     check-cast v0, Lj$/time/chrono/HijrahDate;
@@ -256,10 +256,10 @@
     invoke-virtual {v0, p2}, Lj$/time/chrono/HijrahDate;->writeExternal(Ljava/io/ObjectOutput;)V
 
     .line 180
-    goto :goto_0
+    goto :goto_4d
 
     .line 176
-    :pswitch_4
+    :pswitch_2a
     move-object v0, p1
 
     check-cast v0, Lj$/time/chrono/JapaneseEra;
@@ -267,10 +267,10 @@
     invoke-virtual {v0, p2}, Lj$/time/chrono/JapaneseEra;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 177
-    goto :goto_0
+    goto :goto_4d
 
     .line 173
-    :pswitch_5
+    :pswitch_31
     move-object v0, p1
 
     check-cast v0, Lj$/time/chrono/JapaneseDate;
@@ -278,10 +278,10 @@
     invoke-virtual {v0, p2}, Lj$/time/chrono/JapaneseDate;->writeExternal(Ljava/io/DataOutput;)V
 
     .line 174
-    goto :goto_0
+    goto :goto_4d
 
     .line 170
-    :pswitch_6
+    :pswitch_38
     move-object v0, p1
 
     check-cast v0, Lj$/time/chrono/ChronoZonedDateTimeImpl;
@@ -289,10 +289,10 @@
     invoke-virtual {v0, p2}, Lj$/time/chrono/ChronoZonedDateTimeImpl;->writeExternal(Ljava/io/ObjectOutput;)V
 
     .line 171
-    goto :goto_0
+    goto :goto_4d
 
     .line 167
-    :pswitch_7
+    :pswitch_3f
     move-object v0, p1
 
     check-cast v0, Lj$/time/chrono/ChronoLocalDateTimeImpl;
@@ -300,10 +300,10 @@
     invoke-virtual {v0, p2}, Lj$/time/chrono/ChronoLocalDateTimeImpl;->writeExternal(Ljava/io/ObjectOutput;)V
 
     .line 168
-    goto :goto_0
+    goto :goto_4d
 
     .line 164
-    :pswitch_8
+    :pswitch_46
     move-object v0, p1
 
     check-cast v0, Lj$/time/chrono/AbstractChronology;
@@ -314,27 +314,27 @@
     nop
 
     .line 193
-    :goto_0
+    :goto_4d
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_4e
     .packed-switch 0x1
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_46
+        :pswitch_3f
+        :pswitch_38
+        :pswitch_31
+        :pswitch_2a
+        :pswitch_23
+        :pswitch_1c
+        :pswitch_15
+        :pswitch_e
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public readExternal(Ljava/io/ObjectInput;)V
-    .locals 1
+    .registers 3
     .param p1, "in"    # Ljava/io/ObjectInput;
 
     .line 223
@@ -358,7 +358,7 @@
 .end method
 
 .method public writeExternal(Ljava/io/ObjectOutput;)V
-    .locals 2
+    .registers 4
     .param p1, "out"    # Ljava/io/ObjectOutput;
 
     .line 157

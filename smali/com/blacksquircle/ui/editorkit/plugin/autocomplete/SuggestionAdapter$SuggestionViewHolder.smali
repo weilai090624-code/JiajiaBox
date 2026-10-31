@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "itemView"    # Landroid/view/View;
 
     const-string v0, "itemView"
@@ -70,7 +70,7 @@
 .end method
 
 .method public final getItemView()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 78
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SuggestionAdapter$SuggestionViewHolder;->itemView:Landroid/view/View;

@@ -43,7 +43,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/MapMaker;)V
-    .locals 1
+    .registers 3
     .param p1, "mapMaker"    # Lcom/google/common/collect/MapMaker;
 
     .line 118
@@ -73,7 +73,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/Interners$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/MapMaker;
     .param p2, "x1"    # Lcom/google/common/collect/Interners$1;
 
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public intern(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -99,7 +99,7 @@
     .local p1, "sample":Ljava/lang/Object;, "TE;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/Interners$InternerImpl;->map:Lcom/google/common/collect/MapMakerInternalMap;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/MapMakerInternalMap;->getEntry(Ljava/lang/Object;)Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
@@ -108,7 +108,7 @@
 
     .line 129
     .local v0, "entry":Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 130
     invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;->getKey()Ljava/lang/Object;
@@ -117,7 +117,7 @@
 
     .line 131
     .local v1, "canonical":Ljava/lang/Object;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 134
     move-object v2, v1
@@ -129,7 +129,7 @@
     .line 140
     .end local v1    # "canonical":Ljava/lang/Object;
     .end local v2    # "result":Ljava/lang/Object;, "TE;"
-    :cond_0
+    :cond_11
     iget-object v1, p0, Lcom/google/common/collect/Interners$InternerImpl;->map:Lcom/google/common/collect/MapMakerInternalMap;
 
     sget-object v2, Lcom/google/common/collect/MapMaker$Dummy;->VALUE:Lcom/google/common/collect/MapMaker$Dummy;
@@ -142,7 +142,7 @@
 
     .line 141
     .local v1, "sneaky":Lcom/google/common/collect/MapMaker$Dummy;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1e
 
     .line 142
     return-object p1
@@ -150,6 +150,6 @@
     .line 151
     .end local v0    # "entry":Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
     .end local v1    # "sneaky":Lcom/google/common/collect/MapMaker$Dummy;
-    :cond_1
-    goto :goto_0
+    :cond_1e
+    goto :goto_1
 .end method

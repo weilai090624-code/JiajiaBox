@@ -5,11 +5,11 @@
 
 # direct methods
 .method public static synthetic forEach(Ljava/util/Collection;Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
 
     instance-of v0, p0, Lj$/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     check-cast p0, Lj$/util/Collection;
 
@@ -17,18 +17,18 @@
 
     return-void
 
-    :cond_0
+    :cond_a
     invoke-static {p0, p1}, Lj$/util/Collection$-CC;->$default$forEach(Ljava/util/Collection;Ljava/util/function/Consumer;)V
 
     return-void
 .end method
 
 .method public static synthetic parallelStream(Ljava/util/Collection;)Lj$/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     instance-of v0, p0, Lj$/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/util/Collection;
 
@@ -38,7 +38,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     invoke-static {p0}, Lj$/util/Collection$-CC;->$default$parallelStream(Ljava/util/Collection;)Lj$/util/stream/Stream;
 
     move-result-object p0
@@ -47,11 +47,11 @@
 .end method
 
 .method public static synthetic removeIf(Ljava/util/Collection;Ljava/util/function/Predicate;)Z
-    .locals 1
+    .registers 3
 
     instance-of v0, p0, Lj$/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/util/Collection;
 
@@ -61,7 +61,7 @@
 
     return p0
 
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Lj$/util/Collection$-CC;->$default$removeIf(Ljava/util/Collection;Ljava/util/function/Predicate;)Z
 
     move-result p0
@@ -70,11 +70,11 @@
 .end method
 
 .method public static synthetic spliterator(Ljava/util/Collection;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     instance-of v0, p0, Lj$/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/util/Collection;
 
@@ -84,10 +84,10 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     instance-of v0, p0, Ljava/util/LinkedHashSet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     check-cast p0, Ljava/util/LinkedHashSet;
 
@@ -97,10 +97,10 @@
 
     return-object p0
 
-    :cond_1
+    :cond_16
     instance-of v0, p0, Ljava/util/SortedSet;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     check-cast p0, Ljava/util/SortedSet;
 
@@ -110,10 +110,10 @@
 
     return-object p0
 
-    :cond_2
+    :cond_21
     instance-of v0, p0, Ljava/util/Set;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2c
 
     check-cast p0, Ljava/util/Set;
 
@@ -123,10 +123,10 @@
 
     return-object p0
 
-    :cond_3
+    :cond_2c
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_37
 
     check-cast p0, Ljava/util/List;
 
@@ -136,7 +136,7 @@
 
     return-object p0
 
-    :cond_4
+    :cond_37
     invoke-static {p0}, Lj$/util/Collection$-CC;->$default$spliterator(Ljava/util/Collection;)Lj$/util/Spliterator;
 
     move-result-object p0
@@ -145,11 +145,11 @@
 .end method
 
 .method public static synthetic stream(Ljava/util/Collection;)Lj$/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     instance-of v0, p0, Lj$/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/util/Collection;
 
@@ -159,7 +159,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     invoke-static {p0}, Lj$/util/Collection$-CC;->$default$stream(Ljava/util/Collection;)Lj$/util/stream/Stream;
 
     move-result-object p0
@@ -168,11 +168,11 @@
 .end method
 
 .method public static synthetic toArray(Ljava/util/Collection;Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
 
     instance-of v0, p0, Lj$/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/util/Collection;
 
@@ -182,7 +182,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Lj$/util/Collection$-CC;->$default$toArray(Ljava/util/Collection;Ljava/util/function/IntFunction;)[Ljava/lang/Object;
 
     move-result-object p0

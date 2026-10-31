@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/hash/HashFunction;Ljava/io/InputStream;)V
-    .locals 1
+    .registers 4
     .param p1, "hashFunction"    # Lcom/google/common/hash/HashFunction;
     .param p2, "in"    # Ljava/io/InputStream;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public hash()Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Lcom/google/common/hash/HashingInputStream;->hasher:Lcom/google/common/hash/Hasher;
@@ -60,7 +60,7 @@
 .end method
 
 .method public mark(I)V
-    .locals 0
+    .registers 2
     .param p1, "readlimit"    # I
 
     .line 87
@@ -68,7 +68,7 @@
 .end method
 
 .method public markSupported()Z
-    .locals 1
+    .registers 2
 
     .line 82
     const/4 v0, 0x0
@@ -77,7 +77,7 @@
 .end method
 
 .method public read()I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -95,7 +95,7 @@
     .local v0, "b":I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_f
 
     .line 56
     iget-object v1, p0, Lcom/google/common/hash/HashingInputStream;->hasher:Lcom/google/common/hash/Hasher;
@@ -105,12 +105,12 @@
     invoke-interface {v1, v2}, Lcom/google/common/hash/Hasher;->putByte(B)Lcom/google/common/hash/Hasher;
 
     .line 58
-    :cond_0
+    :cond_f
     return v0
 .end method
 
 .method public read([BII)I
-    .locals 2
+    .registers 6
     .param p1, "bytes"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -131,7 +131,7 @@
     .local v0, "numOfBytesRead":I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
     .line 70
     iget-object v1, p0, Lcom/google/common/hash/HashingInputStream;->hasher:Lcom/google/common/hash/Hasher;
@@ -139,12 +139,12 @@
     invoke-interface {v1, p1, p2, v0}, Lcom/google/common/hash/Hasher;->putBytes([BII)Lcom/google/common/hash/Hasher;
 
     .line 72
-    :cond_0
+    :cond_e
     return v0
 .end method
 
 .method public reset()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

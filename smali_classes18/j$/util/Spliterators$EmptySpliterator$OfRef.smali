@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 864
     .local p0, "this":Lj$/util/Spliterators$EmptySpliterator$OfRef;, "Ljava/util/Spliterators$EmptySpliterator$OfRef<TT;>;"
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     .line 861
     .local p0, "this":Lj$/util/Spliterators$EmptySpliterator$OfRef;, "Ljava/util/Spliterators$EmptySpliterator$OfRef<TT;>;"
@@ -57,7 +57,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     .line 861
     .local p0, "this":Lj$/util/Spliterators$EmptySpliterator$OfRef;, "Ljava/util/Spliterators$EmptySpliterator$OfRef<TT;>;"

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public static getServiceInfo(Landroid/content/Context;)Landroid/content/pm/ServiceInfo;
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -39,7 +39,7 @@
 
     const/16 v2, 0x18
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_e
 
     .line 64
     invoke-static {}, Landroidx/appcompat/app/AppLocalesMetadataHolderService$Api24Impl;->getDisabledComponentFlag()I
@@ -48,14 +48,14 @@
 
     or-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 66
-    :cond_0
+    :cond_e
     or-int/lit16 v0, v0, 0x200
 
     .line 69
-    :goto_0
+    :goto_10
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
+    .registers 3
     .param p1, "intent"    # Landroid/content/Intent;
 
     .line 48

@@ -118,7 +118,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/jvm/functions/Function3;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -159,7 +159,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -194,7 +194,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlin/Unit;
 
@@ -208,7 +208,7 @@
 .end method
 
 .method public final invoke(Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -237,7 +237,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 10
+    .registers 12
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -248,7 +248,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_8e
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -258,18 +258,18 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_12
     move-object v0, p0
 
     .local v0, "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;
     .local p1, "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_8a
 
     .end local v0    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_18
     move-object v1, p0
 
     .local v1, "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;
@@ -286,11 +286,11 @@
 
     move-object v1, p1
 
-    goto :goto_1
+    goto :goto_79
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_24
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;
@@ -305,11 +305,11 @@
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_43
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_30
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -331,14 +331,14 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_43
 
     .line 128
     return-object v0
 
     .line 129
-    :cond_0
-    :goto_0
+    :cond_43
+    :goto_43
     iget-object v4, v1, Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;->$this_unsafeFlow:Lkotlinx/coroutines/flow/FlowCollector;
 
     .local v3, "$this$getOrElse_u2dWpGqRn0$iv":Ljava/lang/Object;
@@ -351,7 +351,7 @@
     .line 148
     instance-of v6, v3, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_5a
 
     invoke-static {v3}, Lkotlinx/coroutines/channels/ChannelResult;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
@@ -363,7 +363,7 @@
 
     .line 130
     .local v2, "$i$a$-getOrElse-WpGqRn0-CombineKt$zipImpl$1$1$2$1$1$otherValue$1":I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_59
 
     .end local v0    # "it":Ljava/lang/Throwable;
     new-instance v0, Lkotlinx/coroutines/flow/internal/AbortFlowException;
@@ -372,12 +372,12 @@
 
     check-cast v0, Ljava/lang/Throwable;
 
-    :cond_1
+    :cond_59
     throw v0
 
     .end local v2    # "$i$a$-getOrElse-WpGqRn0-CombineKt$zipImpl$1$1$2$1$1$otherValue$1":I
     .restart local v3    # "$this$getOrElse_u2dWpGqRn0$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_5a
     nop
 
     .line 129
@@ -400,7 +400,7 @@
 
     .line 149
     .local v8, "$i$f$unbox":I
-    if-ne v3, v7, :cond_3
+    if-ne v3, v7, :cond_69
 
     move-object v3, v2
 
@@ -410,7 +410,7 @@
     .end local v3    # "otherValue":Ljava/lang/Object;
     .end local v7    # "this_$iv":Lkotlinx/coroutines/internal/Symbol;
     .end local v8    # "$i$f$unbox":I
-    :cond_3
+    :cond_69
     iput-object v4, v1, Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;->L$0:Ljava/lang/Object;
 
     const/4 v7, 0x2
@@ -421,13 +421,13 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_4
+    if-ne v3, v0, :cond_75
 
     .line 128
     return-object v0
 
     .line 132
-    :cond_4
+    :cond_75
     move-object v9, v1
 
     move-object v1, p1
@@ -439,7 +439,7 @@
     .end local p1    # "$result":Ljava/lang/Object;
     .local v1, "$result":Ljava/lang/Object;
     .local v3, "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;
-    :goto_1
+    :goto_79
     move-object v5, v3
 
     check-cast v5, Lkotlin/coroutines/Continuation;
@@ -454,13 +454,13 @@
 
     move-result-object p1
 
-    if-ne p1, v0, :cond_5
+    if-ne p1, v0, :cond_88
 
     .line 128
     return-object v0
 
     .line 132
-    :cond_5
+    :cond_88
     move-object p1, v1
 
     move-object v0, v3
@@ -470,18 +470,18 @@
     .end local v3    # "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;
     .local v0, "this":Lkotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$2$1$1;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :goto_2
+    :goto_8a
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_8e
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_30
+        :pswitch_24
+        :pswitch_18
+        :pswitch_12
     .end packed-switch
 .end method

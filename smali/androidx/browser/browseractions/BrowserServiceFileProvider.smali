@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 75
     new-instance v0, Ljava/lang/Object;
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Landroidx/core/content/FileProvider;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method private static generateUri(Landroid/content/Context;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 4
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "filename"    # Ljava/lang/String;
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public static grantReadPermission(Landroid/content/Intent;Ljava/util/List;Landroid/content/Context;)V
-    .locals 5
+    .registers 8
     .param p0, "intent"    # Landroid/content/Intent;
     .param p2, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
@@ -160,18 +160,18 @@
 
     .line 255
     .local p1, "uris":Ljava/util/List;, "Ljava/util/List<Landroid/net/Uri;>;"
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3a
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 256
-    :cond_0
+    :cond_9
     invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -202,12 +202,12 @@
     const/4 v2, 0x1
 
     .local v2, "i":I
-    :goto_0
+    :goto_1f
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_36
 
     .line 260
     new-instance v3, Landroid/content/ClipData$Item;
@@ -225,11 +225,11 @@
     .line 259
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 262
     .end local v2    # "i":I
-    :cond_1
+    :cond_36
     invoke-virtual {p0, v1}, Landroid/content/Intent;->setClipData(Landroid/content/ClipData;)V
 
     .line 263
@@ -238,13 +238,13 @@
     .line 255
     .end local v0    # "resolver":Landroid/content/ContentResolver;
     .end local v1    # "clipData":Landroid/content/ClipData;
-    :cond_2
-    :goto_1
+    :cond_3a
+    :goto_3a
     return-void
 .end method
 
 .method public static loadBitmap(Landroid/content/ContentResolver;Landroid/net/Uri;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .param p0, "resolver"    # Landroid/content/ContentResolver;
     .param p1, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Signature;
@@ -279,7 +279,7 @@
 .end method
 
 .method public static saveBitmap(Landroid/content/Context;Landroid/graphics/Bitmap;Ljava/lang/String;I)Landroidx/concurrent/futures/ResolvableFuture;
-    .locals 10
+    .registers 14
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "bitmap"    # Landroid/graphics/Bitmap;
     .param p2, "name"    # Ljava/lang/String;

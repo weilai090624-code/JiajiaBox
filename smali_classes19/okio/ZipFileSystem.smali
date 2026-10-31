@@ -101,7 +101,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     new-instance v0, Lokio/ZipFileSystem$Companion;
 
@@ -130,7 +130,7 @@
 .end method
 
 .method public constructor <init>(Lokio/Path;Lokio/FileSystem;Ljava/util/Map;Ljava/lang/String;)V
-    .locals 1
+    .registers 6
     .param p1, "zipPath"    # Lokio/Path;
     .param p2, "fileSystem"    # Lokio/FileSystem;
     .param p3, "entries"    # Ljava/util/Map;
@@ -181,7 +181,7 @@
 .end method
 
 .method public static final synthetic access$getROOT$cp()Lokio/Path;
-    .locals 1
+    .registers 1
 
     .line 65
     sget-object v0, Lokio/ZipFileSystem;->ROOT:Lokio/Path;
@@ -190,7 +190,7 @@
 .end method
 
 .method private final canonicalizeInternal(Lokio/Path;)Lokio/Path;
-    .locals 2
+    .registers 4
     .param p1, "path"    # Lokio/Path;
 
     .line 78
@@ -206,7 +206,7 @@
 .end method
 
 .method private final list(Lokio/Path;Z)Ljava/util/List;
-    .locals 3
+    .registers 6
     .param p1, "dir"    # Lokio/Path;
     .param p2, "throwOnFailure"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -235,16 +235,16 @@
 
     check-cast v1, Lokio/internal/ZipEntry;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1e
 
     .line 120
-    if-nez p2, :cond_0
+    if-nez p2, :cond_12
 
     const/4 v1, 0x0
 
     return-object v1
 
-    :cond_0
+    :cond_12
     new-instance v1, Ljava/io/IOException;
 
     const-string v2, "not a directory: "
@@ -259,7 +259,7 @@
 
     .line 121
     .local v1, "entry":Lokio/internal/ZipEntry;
-    :cond_1
+    :cond_1e
     invoke-virtual {v1}, Lokio/internal/ZipEntry;->getChildren()Ljava/util/List;
 
     move-result-object v2
@@ -276,7 +276,7 @@
 
 # virtual methods
 .method public appendingSink(Lokio/Path;Z)Lokio/Sink;
-    .locals 2
+    .registers 5
     .param p1, "file"    # Lokio/Path;
     .param p2, "mustExist"    # Z
 
@@ -295,7 +295,7 @@
 .end method
 
 .method public atomicMove(Lokio/Path;Lokio/Path;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Lokio/Path;
     .param p2, "target"    # Lokio/Path;
 
@@ -318,7 +318,7 @@
 .end method
 
 .method public canonicalize(Lokio/Path;)Lokio/Path;
-    .locals 1
+    .registers 3
     .param p1, "path"    # Lokio/Path;
 
     const-string v0, "path"
@@ -334,7 +334,7 @@
 .end method
 
 .method public createDirectory(Lokio/Path;Z)V
-    .locals 2
+    .registers 5
     .param p1, "dir"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
 
@@ -353,7 +353,7 @@
 .end method
 
 .method public createSymlink(Lokio/Path;Lokio/Path;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Lokio/Path;
     .param p2, "target"    # Lokio/Path;
 
@@ -376,7 +376,7 @@
 .end method
 
 .method public delete(Lokio/Path;Z)V
-    .locals 2
+    .registers 5
     .param p1, "path"    # Lokio/Path;
     .param p2, "mustExist"    # Z
 
@@ -395,7 +395,7 @@
 .end method
 
 .method public list(Lokio/Path;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "dir"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -425,7 +425,7 @@
 .end method
 
 .method public listOrNull(Lokio/Path;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "dir"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -453,7 +453,7 @@
 .end method
 
 .method public metadataOrNull(Lokio/Path;)Lokio/FileMetadata;
-    .locals 17
+    .registers 19
     .param p1, "path"    # Lokio/Path;
 
     move-object/from16 v1, p0
@@ -481,11 +481,11 @@
 
     const/4 v4, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     return-object v4
 
-    :cond_0
+    :cond_19
     move-object v5, v0
 
     .line 85
@@ -512,11 +512,11 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2e
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_1
+    :cond_2e
     invoke-virtual {v5}, Lokio/internal/ZipEntry;->getSize()J
 
     move-result-wide v9
@@ -525,7 +525,7 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_36
     move-object v10, v4
 
     .line 90
@@ -568,13 +568,13 @@
 
     cmp-long v0, v6, v8
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_55
 
     .line 96
     return-object v4
 
     .line 99
-    :cond_2
+    :cond_55
     iget-object v0, v1, Lokio/ZipFileSystem;->fileSystem:Lokio/FileSystem;
 
     iget-object v6, v1, Lokio/ZipFileSystem;->zipPath:Lokio/Path;
@@ -603,7 +603,7 @@
     nop
 
     .line 176
-    :try_start_0
+    :try_start_64
     move-object v0, v6
 
     check-cast v0, Lokio/FileHandle;
@@ -624,17 +624,17 @@
     invoke-static {v11}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object v11
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_74
+    .catchall {:try_start_64 .. :try_end_74} :catchall_76
 
     .end local v0    # "fileHandle":Lokio/FileHandle;
     .end local v10    # "$i$a$-use-ZipFileSystem$metadataOrNull$source$1":I
     move-object v8, v11
 
-    goto :goto_1
+    goto :goto_78
 
     .line 177
-    :catchall_0
+    :catchall_76
     move-exception v0
 
     .line 178
@@ -643,25 +643,25 @@
 
     .line 181
     .end local v0    # "t$iv":Ljava/lang/Throwable;
-    :goto_1
+    :goto_78
     nop
 
     .line 182
-    if-nez v6, :cond_3
+    if-nez v6, :cond_7c
 
-    :goto_2
-    goto :goto_3
+    :goto_7b
+    goto :goto_8a
 
-    :cond_3
-    :try_start_1
+    :cond_7c
+    :try_start_7c
     invoke-interface {v6}, Ljava/io/Closeable;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_7f
+    .catchall {:try_start_7c .. :try_end_7f} :catchall_80
 
-    goto :goto_2
+    goto :goto_7b
 
     .line 183
-    :catchall_1
+    :catchall_80
     move-exception v0
 
     move-object v10, v0
@@ -670,20 +670,20 @@
 
     .line 184
     .restart local v0    # "t$iv":Ljava/lang/Throwable;
-    if-nez v9, :cond_4
+    if-nez v9, :cond_87
 
     move-object v9, v0
 
-    goto :goto_3
+    goto :goto_8a
 
     .line 185
-    :cond_4
+    :cond_87
     invoke-static {v9, v0}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .line 188
     .end local v0    # "t$iv":Ljava/lang/Throwable;
-    :goto_3
-    if-nez v9, :cond_5
+    :goto_8a
+    if-nez v9, :cond_95
 
     .line 189
     invoke-static {v8}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -709,12 +709,12 @@
     .restart local v7    # "$i$f$use":I
     .restart local v8    # "result$iv":Ljava/lang/Object;
     .restart local v9    # "thrown$iv":Ljava/lang/Throwable;
-    :cond_5
+    :cond_95
     throw v9
 .end method
 
 .method public openReadOnly(Lokio/Path;)Lokio/FileHandle;
-    .locals 2
+    .registers 4
     .param p1, "file"    # Lokio/Path;
 
     const-string v0, "file"
@@ -732,7 +732,7 @@
 .end method
 
 .method public openReadWrite(Lokio/Path;ZZ)Lokio/FileHandle;
-    .locals 2
+    .registers 6
     .param p1, "file"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
     .param p3, "mustExist"    # Z
@@ -752,7 +752,7 @@
 .end method
 
 .method public sink(Lokio/Path;Z)Lokio/Sink;
-    .locals 2
+    .registers 5
     .param p1, "file"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
 
@@ -771,7 +771,7 @@
 .end method
 
 .method public source(Lokio/Path;)Lokio/Source;
-    .locals 10
+    .registers 12
     .param p1, "path"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -798,7 +798,7 @@
 
     check-cast v1, Lokio/internal/ZipEntry;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_8e
 
     .line 128
     .local v1, "entry":Lokio/internal/ZipEntry;
@@ -828,7 +828,7 @@
     nop
 
     .line 194
-    :try_start_0
+    :try_start_21
     move-object v6, v2
 
     check-cast v6, Lokio/FileHandle;
@@ -849,17 +849,17 @@
     invoke-static {v8}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object v8
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_31
+    .catchall {:try_start_21 .. :try_end_31} :catchall_33
 
     .end local v6    # "fileHandle":Lokio/FileHandle;
     .end local v7    # "$i$a$-use-ZipFileSystem$source$source$1":I
     move-object v4, v8
 
-    goto :goto_0
+    goto :goto_35
 
     .line 195
-    :catchall_0
+    :catchall_33
     move-exception v6
 
     .line 196
@@ -868,43 +868,43 @@
 
     .line 199
     .end local v6    # "t$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_35
     nop
 
     .line 200
-    if-nez v2, :cond_0
+    if-nez v2, :cond_39
 
-    :goto_1
-    goto :goto_2
+    :goto_38
+    goto :goto_45
 
-    :cond_0
-    :try_start_1
+    :cond_39
+    :try_start_39
     invoke-interface {v2}, Ljava/io/Closeable;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_3c
+    .catchall {:try_start_39 .. :try_end_3c} :catchall_3d
 
-    goto :goto_1
+    goto :goto_38
 
     .line 201
-    :catchall_1
+    :catchall_3d
     move-exception v6
 
     .line 202
     .restart local v6    # "t$iv":Ljava/lang/Throwable;
-    if-nez v5, :cond_1
+    if-nez v5, :cond_42
 
     move-object v5, v6
 
-    goto :goto_2
+    goto :goto_45
 
     .line 203
-    :cond_1
+    :cond_42
     invoke-static {v5, v6}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .line 206
     .end local v6    # "t$iv":Ljava/lang/Throwable;
-    :goto_2
-    if-nez v5, :cond_3
+    :goto_45
+    if-nez v5, :cond_8d
 
     .line 207
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -928,7 +928,7 @@
     .line 134
     const/4 v4, 0x1
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_64
 
     .line 135
     new-instance v3, Lokio/internal/FixedLengthSource;
@@ -945,10 +945,10 @@
 
     check-cast v3, Lokio/Source;
 
-    goto :goto_3
+    goto :goto_8c
 
     .line 138
-    :cond_2
+    :cond_64
     new-instance v3, Lokio/InflaterSource;
 
     .line 139
@@ -996,7 +996,7 @@
     check-cast v3, Lokio/Source;
 
     .line 133
-    :goto_3
+    :goto_8c
     return-object v3
 
     .line 206
@@ -1004,7 +1004,7 @@
     .local v3, "$i$f$use":I
     .restart local v4    # "result$iv":Ljava/lang/Object;
     .restart local v5    # "thrown$iv":Ljava/lang/Throwable;
-    :cond_3
+    :cond_8d
     throw v5
 
     .line 127
@@ -1013,7 +1013,7 @@
     .end local v3    # "$i$f$use":I
     .end local v4    # "result$iv":Ljava/lang/Object;
     .end local v5    # "thrown$iv":Ljava/lang/Throwable;
-    :cond_4
+    :cond_8e
     new-instance v1, Ljava/io/FileNotFoundException;
 
     const-string v2, "no such file: "

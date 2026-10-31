@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static addDefaultSerializers(Lcom/esotericsoftware/kryo/Kryo;)V
-    .locals 2
+    .registers 3
     .param p0, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
 
     .line 38
@@ -35,7 +35,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const-class v0, Lj$/util/Optional;
 
@@ -44,14 +44,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 39
-    :cond_0
+    :cond_f
     const-string v0, "java.util.OptionalInt"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     const-class v0, Lj$/util/OptionalInt;
 
@@ -60,14 +60,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 40
-    :cond_1
+    :cond_1e
     const-string v0, "java.util.OptionalLong"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     const-class v0, Lj$/util/OptionalLong;
 
@@ -76,14 +76,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 41
-    :cond_2
+    :cond_2d
     const-string v0, "java.util.OptionalDouble"
 
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3c
 
     .line 42
     const-class v0, Lj$/util/OptionalDouble;
@@ -93,6 +93,6 @@
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
     .line 43
-    :cond_3
+    :cond_3c
     return-void
 .end method

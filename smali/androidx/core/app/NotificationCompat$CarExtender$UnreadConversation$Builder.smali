@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 7959
@@ -61,11 +61,11 @@
 
 # virtual methods
 .method public addMessage(Ljava/lang/String;)Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation$Builder;
-    .locals 1
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
 
     .line 7972
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 7973
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation$Builder;->mMessages:Ljava/util/List;
@@ -73,12 +73,12 @@
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 7975
-    :cond_0
+    :cond_7
     return-object p0
 .end method
 
 .method public build()Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
-    .locals 10
+    .registers 11
 
     .line 8032
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation$Builder;->mMessages:Ljava/util/List;
@@ -127,7 +127,7 @@
 .end method
 
 .method public setLatestTimestamp(J)Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation$Builder;
-    .locals 0
+    .registers 3
     .param p1, "timestamp"    # J
 
     .line 8022
@@ -138,7 +138,7 @@
 .end method
 
 .method public setReadPendingIntent(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation$Builder;
-    .locals 0
+    .registers 2
     .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
 
     .line 8006
@@ -149,7 +149,7 @@
 .end method
 
 .method public setReplyAction(Landroid/app/PendingIntent;Landroidx/core/app/RemoteInput;)Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation$Builder;
-    .locals 0
+    .registers 3
     .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
     .param p2, "remoteInput"    # Landroidx/core/app/RemoteInput;
 

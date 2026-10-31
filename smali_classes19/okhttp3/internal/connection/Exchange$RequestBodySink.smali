@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/connection/Exchange;Lokio/Sink;J)V
-    .locals 1
+    .registers 6
     .param p1, "this$0"    # Lokhttp3/internal/connection/Exchange;
     .param p2, "delegate"    # Lokio/Sink;
     .param p3, "contentLength"    # J
@@ -105,7 +105,7 @@
 .end method
 
 .method private final complete(Ljava/io/IOException;)Ljava/io/IOException;
-    .locals 7
+    .registers 9
     .param p1, "e"    # Ljava/io/IOException;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -118,12 +118,12 @@
     .line 255
     iget-boolean v0, p0, Lokhttp3/internal/connection/Exchange$RequestBodySink;->completed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object p1
 
     .line 256
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lokhttp3/internal/connection/Exchange$RequestBodySink;->completed:Z
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -159,12 +159,12 @@
     .line 241
     iget-boolean v0, p0, Lokhttp3/internal/connection/Exchange$RequestBodySink;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 242
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lokhttp3/internal/connection/Exchange$RequestBodySink;->closed:Z
@@ -176,7 +176,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_21
 
     iget-wide v0, p0, Lokhttp3/internal/connection/Exchange$RequestBodySink;->bytesReceived:J
 
@@ -184,12 +184,12 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_19
 
-    goto :goto_0
+    goto :goto_21
 
     .line 244
-    :cond_1
+    :cond_19
     new-instance v0, Ljava/net/ProtocolException;
 
     const-string v1, "unexpected end of stream"
@@ -199,26 +199,26 @@
     throw v0
 
     .line 246
-    :cond_2
-    :goto_0
+    :cond_21
+    :goto_21
     nop
 
     .line 247
-    :try_start_0
+    :try_start_22
     invoke-super {p0}, Lokio/ForwardingSink;->close()V
 
     .line 248
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lokhttp3/internal/connection/Exchange$RequestBodySink;->complete(Ljava/io/IOException;)Ljava/io/IOException;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/io/IOException; {:try_start_22 .. :try_end_29} :catch_2a
 
     .line 252
     return-void
 
     .line 249
-    :catch_0
+    :catch_2a
     move-exception v0
 
     .line 250
@@ -231,7 +231,7 @@
 .end method
 
 .method public flush()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -242,16 +242,16 @@
     nop
 
     .line 233
-    :try_start_0
+    :try_start_1
     invoke-super {p0}, Lokio/ForwardingSink;->flush()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_4} :catch_5
 
     .line 237
     return-void
 
     .line 234
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 235
@@ -264,7 +264,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 5
+    .registers 9
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -280,7 +280,7 @@
     .line 217
     iget-boolean v0, p0, Lokhttp3/internal/connection/Exchange$RequestBodySink;->closed:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_53
 
     .line 218
     iget-wide v0, p0, Lokhttp3/internal/connection/Exchange$RequestBodySink;->contentLength:J
@@ -289,7 +289,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_43
 
     iget-wide v0, p0, Lokhttp3/internal/connection/Exchange$RequestBodySink;->bytesReceived:J
 
@@ -299,12 +299,12 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_1b
 
-    goto :goto_0
+    goto :goto_43
 
     .line 219
-    :cond_0
+    :cond_1b
     new-instance v0, Ljava/net/ProtocolException;
 
     .line 220
@@ -348,12 +348,12 @@
     throw v0
 
     .line 222
-    :cond_1
-    :goto_0
+    :cond_43
+    :goto_43
     nop
 
     .line 223
-    :try_start_0
+    :try_start_44
     invoke-super {p0, p1, p2, p3}, Lokio/ForwardingSink;->write(Lokio/Buffer;J)V
 
     .line 224
@@ -362,14 +362,14 @@
     add-long/2addr v0, p2
 
     iput-wide v0, p0, Lokhttp3/internal/connection/Exchange$RequestBodySink;->bytesReceived:J
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4c
+    .catch Ljava/io/IOException; {:try_start_44 .. :try_end_4c} :catch_4d
 
     .line 228
     return-void
 
     .line 225
-    :catch_0
+    :catch_4d
     move-exception v0
 
     .line 226
@@ -382,7 +382,7 @@
 
     .line 334
     .end local v0    # "e":Ljava/io/IOException;
-    :cond_2
+    :cond_53
     const/4 v0, 0x0
 
     .line 217

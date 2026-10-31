@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>([Ljava/lang/Object;Ljava/util/function/IntFunction;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final accept(I)V
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lj$/util/DesugarArrays$$ExternalSyntheticLambda0;->f$0:[Ljava/lang/Object;
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 

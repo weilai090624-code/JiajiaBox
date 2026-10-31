@@ -33,7 +33,7 @@
 
 # direct methods
 .method public static final record(Landroid/graphics/Picture;IILkotlin/jvm/functions/Function1;)Landroid/graphics/Picture;
-    .locals 3
+    .registers 7
     .param p0, "$this$record"    # Landroid/graphics/Picture;
     .param p1, "width"    # I
     .param p2, "height"    # I
@@ -65,10 +65,10 @@
     nop
 
     .line 38
-    :try_start_0
+    :try_start_6
     invoke-interface {p3, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_6 .. :try_end_9} :catchall_e
 
     .line 40
     invoke-virtual {p0}, Landroid/graphics/Picture;->endRecording()V
@@ -80,7 +80,7 @@
     return-object p0
 
     .line 40
-    :catchall_0
+    :catchall_e
     move-exception v2
 
     invoke-virtual {p0}, Landroid/graphics/Picture;->endRecording()V

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager$FragmentLifecycleCallbacks;Z)V
-    .locals 0
+    .registers 3
     .param p1, "callback"    # Landroidx/fragment/app/FragmentManager$FragmentLifecycleCallbacks;
     .param p2, "recursive"    # Z
 

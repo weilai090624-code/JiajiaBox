@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 641
     new-instance v0, Lcom/google/common/collect/Tables$1;
@@ -49,7 +49,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method static synthetic access$000()Lcom/google/common/base/Function;
-    .locals 1
+    .registers 1
 
     .line 52
     invoke-static {}, Lcom/google/common/collect/Tables;->unmodifiableWrapper()Lcom/google/common/base/Function;
@@ -69,7 +69,7 @@
 .end method
 
 .method static equalsImpl(Lcom/google/common/collect/Table;Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -86,7 +86,7 @@
 
     .line 684
     .local p0, "table":Lcom/google/common/collect/Table;, "Lcom/google/common/collect/Table<***>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 685
     const/4 v0, 0x1
@@ -94,10 +94,10 @@
     return v0
 
     .line 686
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/collect/Table;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 687
     move-object v0, p1
@@ -122,14 +122,14 @@
 
     .line 690
     .end local v0    # "that":Lcom/google/common/collect/Table;, "Lcom/google/common/collect/Table<***>;"
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static immutableCell(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/Table$Cell;
-    .locals 1
+    .registers 4
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -168,7 +168,7 @@
 .end method
 
 .method public static newCustomTable(Ljava/util/Map;Lcom/google/common/base/Supplier;)Lcom/google/common/collect/Table;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -212,7 +212,7 @@
 .end method
 
 .method public static synchronizedTable(Lcom/google/common/collect/Table;)Lcom/google/common/collect/Table;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -241,7 +241,7 @@
 .end method
 
 .method public static transformValues(Lcom/google/common/collect/Table;Lcom/google/common/base/Function;)Lcom/google/common/collect/Table;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -273,7 +273,7 @@
 .end method
 
 .method public static transpose(Lcom/google/common/collect/Table;)Lcom/google/common/collect/Table;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -294,7 +294,7 @@
     .local p0, "table":Lcom/google/common/collect/Table;, "Lcom/google/common/collect/Table<TR;TC;TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/Tables$TransposeTable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 155
     move-object v0, p0
@@ -303,21 +303,21 @@
 
     iget-object v0, v0, Lcom/google/common/collect/Tables$TransposeTable;->original:Lcom/google/common/collect/Table;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 156
-    :cond_0
+    :cond_a
     new-instance v0, Lcom/google/common/collect/Tables$TransposeTable;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Tables$TransposeTable;-><init>(Lcom/google/common/collect/Table;)V
 
     .line 154
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method public static unmodifiableRowSortedTable(Lcom/google/common/collect/RowSortedTable;)Lcom/google/common/collect/RowSortedTable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -344,7 +344,7 @@
 .end method
 
 .method public static unmodifiableTable(Lcom/google/common/collect/Table;)Lcom/google/common/collect/Table;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -371,7 +371,7 @@
 .end method
 
 .method private static unmodifiableWrapper()Lcom/google/common/base/Function;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",

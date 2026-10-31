@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 365
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -136,11 +136,11 @@
 
 # virtual methods
 .method public getFrame(I)Landroidx/constraintlayout/core/state/WidgetFrame;
-    .locals 1
+    .registers 3
     .param p1, "type"    # I
 
     .line 407
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     .line 408
     iget-object v0, p0, Landroidx/constraintlayout/core/state/Transition$WidgetState;->start:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -148,10 +148,10 @@
     return-object v0
 
     .line 409
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_b
 
     .line 410
     iget-object v0, p0, Landroidx/constraintlayout/core/state/Transition$WidgetState;->end:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -159,14 +159,14 @@
     return-object v0
 
     .line 412
-    :cond_1
+    :cond_b
     iget-object v0, p0, Landroidx/constraintlayout/core/state/Transition$WidgetState;->interpolated:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     return-object v0
 .end method
 
 .method public interpolate(IIFLandroidx/constraintlayout/core/state/Transition;)V
-    .locals 7
+    .registers 12
     .param p1, "parentWidth"    # I
     .param p2, "parentHeight"    # I
     .param p3, "progress"    # F
@@ -235,7 +235,7 @@
 .end method
 
 .method public setKeyAttribute(Landroidx/constraintlayout/core/motion/utils/TypedBundle;)V
-    .locals 2
+    .registers 4
     .param p1, "prop"    # Landroidx/constraintlayout/core/motion/utils/TypedBundle;
 
     .line 384
@@ -257,7 +257,7 @@
 .end method
 
 .method public setKeyCycle(Landroidx/constraintlayout/core/motion/utils/TypedBundle;)V
-    .locals 2
+    .registers 4
     .param p1, "prop"    # Landroidx/constraintlayout/core/motion/utils/TypedBundle;
 
     .line 390
@@ -279,7 +279,7 @@
 .end method
 
 .method public setKeyPosition(Landroidx/constraintlayout/core/motion/utils/TypedBundle;)V
-    .locals 2
+    .registers 4
     .param p1, "prop"    # Landroidx/constraintlayout/core/motion/utils/TypedBundle;
 
     .line 378
@@ -301,12 +301,12 @@
 .end method
 
 .method public update(Landroidx/constraintlayout/core/widgets/ConstraintWidget;I)V
-    .locals 2
+    .registers 5
     .param p1, "child"    # Landroidx/constraintlayout/core/widgets/ConstraintWidget;
     .param p2, "state"    # I
 
     .line 396
-    if-nez p2, :cond_0
+    if-nez p2, :cond_f
 
     .line 397
     iget-object v0, p0, Landroidx/constraintlayout/core/state/Transition$WidgetState;->start:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -320,13 +320,13 @@
 
     invoke-virtual {v0, v1}, Landroidx/constraintlayout/core/motion/Motion;->setStart(Landroidx/constraintlayout/core/motion/MotionWidget;)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 399
-    :cond_0
+    :cond_f
     const/4 v0, 0x1
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_1e
 
     .line 400
     iget-object v0, p0, Landroidx/constraintlayout/core/state/Transition$WidgetState;->end:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -341,8 +341,8 @@
     invoke-virtual {v0, v1}, Landroidx/constraintlayout/core/motion/Motion;->setEnd(Landroidx/constraintlayout/core/motion/MotionWidget;)V
 
     .line 403
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     const/4 v0, -0x1
 
     iput v0, p0, Landroidx/constraintlayout/core/state/Transition$WidgetState;->myParentWidth:I

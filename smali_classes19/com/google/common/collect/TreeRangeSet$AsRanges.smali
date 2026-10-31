@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/TreeRangeSet;Ljava/util/Collection;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/TreeRangeSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/TreeRangeSet$AsRanges;, "Lcom/google/common/collect/TreeRangeSet<TC;>.AsRanges;"
@@ -80,7 +80,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -98,7 +98,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -114,7 +114,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 112
     .local p0, "this":Lcom/google/common/collect/TreeRangeSet$AsRanges;, "Lcom/google/common/collect/TreeRangeSet<TC;>.AsRanges;"

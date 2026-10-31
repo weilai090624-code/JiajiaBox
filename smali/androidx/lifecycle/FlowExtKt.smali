@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final flowWithLifecycle(Lkotlinx/coroutines/flow/Flow;Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "$this$flowWithLifecycle"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "lifecycle"    # Landroidx/lifecycle/Lifecycle;
     .param p2, "minActiveState"    # Landroidx/lifecycle/Lifecycle$State;
@@ -79,18 +79,18 @@
 .end method
 
 .method public static synthetic flowWithLifecycle$default(Lkotlinx/coroutines/flow/Flow;Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 0
+    .registers 5
 
     .line 87
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     .line 89
     sget-object p2, Landroidx/lifecycle/Lifecycle$State;->STARTED:Landroidx/lifecycle/Lifecycle$State;
 
     .line 87
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2}, Landroidx/lifecycle/FlowExtKt;->flowWithLifecycle(Lkotlinx/coroutines/flow/Flow;Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;)Lkotlinx/coroutines/flow/Flow;
 
     move-result-object p0

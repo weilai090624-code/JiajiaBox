@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/LiveDataObservable$1;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Landroidx/camera/core/impl/LiveDataObservable$1;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 91
     .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$1$1;, "Landroidx/camera/core/impl/LiveDataObservable$1$1;"
@@ -70,7 +70,7 @@
 
     .line 92
     .local v0, "result":Landroidx/camera/core/impl/LiveDataObservable$Result;, "Landroidx/camera/core/impl/LiveDataObservable$Result<TT;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 93
     iget-object v1, p0, Landroidx/camera/core/impl/LiveDataObservable$1$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -83,15 +83,15 @@
 
     invoke-virtual {v1, v2}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 95
-    :cond_0
+    :cond_1b
     invoke-virtual {v0}, Landroidx/camera/core/impl/LiveDataObservable$Result;->completedSuccessfully()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2b
 
     .line 96
     iget-object v1, p0, Landroidx/camera/core/impl/LiveDataObservable$1$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -102,10 +102,10 @@
 
     invoke-virtual {v1, v2}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 98
-    :cond_1
+    :cond_2b
     invoke-virtual {v0}, Landroidx/camera/core/impl/LiveDataObservable$Result;->getError()Ljava/lang/Throwable;
 
     move-result-object v1
@@ -122,6 +122,6 @@
     invoke-virtual {v1, v2}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
     .line 101
-    :goto_0
+    :goto_3b
     return-void
 .end method

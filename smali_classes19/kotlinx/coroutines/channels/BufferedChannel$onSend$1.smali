@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/channels/BufferedChannel$onSend$1;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 6
+    .registers 7
 
     const-class v2, Lkotlinx/coroutines/channels/BufferedChannel;
 
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
     .param p3, "p3"    # Ljava/lang/Object;
@@ -103,7 +103,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/channels/BufferedChannel;Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "p0"    # Lkotlinx/coroutines/channels/BufferedChannel;
     .param p2, "p1"    # Lkotlinx/coroutines/selects/SelectInstance;
     .param p3, "p2"    # Ljava/lang/Object;

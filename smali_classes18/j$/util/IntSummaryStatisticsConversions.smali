@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static convert(Ljava/util/IntSummaryStatistics;)Lj$/util/IntSummaryStatistics;
-    .locals 2
+    .registers 3
     .param p0, "stats"    # Ljava/util/IntSummaryStatistics;
 
     .line 18
@@ -28,7 +28,7 @@
 .end method
 
 .method public static convert(Lj$/util/IntSummaryStatistics;)Ljava/util/IntSummaryStatistics;
-    .locals 2
+    .registers 3
     .param p0, "stats"    # Lj$/util/IntSummaryStatistics;
 
     .line 12

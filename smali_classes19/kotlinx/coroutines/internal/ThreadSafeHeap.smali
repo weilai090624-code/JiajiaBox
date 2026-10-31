@@ -111,7 +111,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-class v0, Lkotlinx/coroutines/internal/ThreadSafeHeap;
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -136,7 +136,7 @@
 .end method
 
 .method private final realloc()[Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()[TT;"
@@ -151,7 +151,7 @@
     nop
 
     .line 152
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v1, 0x4
 
@@ -169,17 +169,17 @@
 
     .end local v2    # "it":[Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
     .end local v3    # "$i$a$-also-ThreadSafeHeap$realloc$1":I
-    goto :goto_0
+    goto :goto_2d
 
     .line 153
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->getSize()I
 
     move-result v1
 
     array-length v2, v0
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_2c
 
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->getSize()I
 
@@ -211,19 +211,19 @@
     .end local v3    # "$i$a$-also-ThreadSafeHeap$realloc$2":I
     check-cast v1, [Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 154
-    :cond_1
+    :cond_2c
     move-object v1, v0
 
     .line 151
-    :goto_0
+    :goto_2d
     return-object v1
 .end method
 
 .method private final setSize(I)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
 
     sget-object v0, Lkotlinx/coroutines/internal/ThreadSafeHeap;->_size$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
@@ -235,13 +235,13 @@
 .end method
 
 .method private final siftDownFrom(I)V
-    .locals 4
+    .registers 6
     .param p1, "i"    # I
 
     .line 139
     nop
 
-    :goto_0
+    :goto_1
     mul-int/lit8 v0, p1, 0x2
 
     add-int/lit8 v0, v0, 0x1
@@ -252,12 +252,12 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_c
 
     return-void
 
     .line 141
-    :cond_0
+    :cond_c
     iget-object v1, p0, Lkotlinx/coroutines/internal/ThreadSafeHeap;->a:[Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -270,7 +270,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_2f
 
     add-int/lit8 v2, v0, 0x1
 
@@ -288,12 +288,12 @@
 
     move-result v2
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_2f
 
     add-int/lit8 v0, v0, 0x1
 
     .line 143
-    :cond_1
+    :cond_2f
     aget-object v2, v1, p1
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -308,12 +308,12 @@
 
     move-result v2
 
-    if-gtz v2, :cond_2
+    if-gtz v2, :cond_42
 
     return-void
 
     .line 144
-    :cond_2
+    :cond_42
     invoke-direct {p0, p1, v0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->swap(II)V
 
     .line 145
@@ -321,23 +321,23 @@
 
     .end local v0    # "j":I
     .end local v1    # "a":[Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private final siftUpFrom(I)V
-    .locals 4
+    .registers 6
     .param p1, "i"    # I
 
     .line 130
     nop
 
-    :goto_0
-    if-gtz p1, :cond_0
+    :goto_1
+    if-gtz p1, :cond_4
 
     return-void
 
     .line 131
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lkotlinx/coroutines/internal/ThreadSafeHeap;->a:[Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -364,12 +364,12 @@
 
     move-result v2
 
-    if-gtz v2, :cond_1
+    if-gtz v2, :cond_20
 
     return-void
 
     .line 134
-    :cond_1
+    :cond_20
     invoke-direct {p0, p1, v1}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->swap(II)V
 
     .line 135
@@ -377,11 +377,11 @@
 
     .end local v0    # "a":[Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
     .end local v1    # "j":I
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private final swap(II)V
-    .locals 3
+    .registers 6
     .param p1, "i"    # I
     .param p2, "j"    # I
 
@@ -422,7 +422,7 @@
 
 # virtual methods
 .method public final addImpl(Lkotlinx/coroutines/internal/ThreadSafeHeapNode;)V
-    .locals 3
+    .registers 5
     .param p1, "node"    # Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -435,7 +435,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_19
 
     .line 209
     const/4 v0, 0x0
@@ -446,22 +446,22 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     .end local v0    # "$i$a$-assert-ThreadSafeHeap$addImpl$1":I
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_10
+    if-eqz v1, :cond_13
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_13
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -469,8 +469,8 @@
     throw v0
 
     .line 121
-    :cond_2
-    :goto_1
+    :cond_19
+    :goto_19
     invoke-interface {p1, p0}, Lkotlinx/coroutines/internal/ThreadSafeHeapNode;->setHeap(Lkotlinx/coroutines/internal/ThreadSafeHeap;)V
 
     .line 122
@@ -503,7 +503,7 @@
 .end method
 
 .method public final addLast(Lkotlinx/coroutines/internal/ThreadSafeHeapNode;)V
-    .locals 3
+    .registers 5
     .param p1, "node"    # Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -529,13 +529,13 @@
 
     .line 69
     .local v2, "$i$a$-synchronized-ThreadSafeHeap$addLast$1":I
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0, p1}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->addImpl(Lkotlinx/coroutines/internal/ThreadSafeHeapNode;)V
 
     .end local v2    # "$i$a$-synchronized-ThreadSafeHeap$addLast$1":I
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_5 .. :try_end_a} :catchall_d
 
     .line 198
     monitor-exit p0
@@ -551,7 +551,7 @@
     .line 198
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_d
     move-exception v2
 
     monitor-exit p0
@@ -560,7 +560,7 @@
 .end method
 
 .method public final addLastIf(Lkotlinx/coroutines/internal/ThreadSafeHeapNode;Lkotlin/jvm/functions/Function1;)Z
-    .locals 5
+    .registers 8
     .param p1, "node"    # Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
     .param p2, "cond"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -594,7 +594,7 @@
 
     .line 73
     .local v3, "$i$a$-synchronized-ThreadSafeHeap$addLastIf$1":I
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->firstImpl()Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
     move-result-object v4
@@ -609,24 +609,24 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1b
 
     .line 74
     invoke-virtual {p0, p1}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->addImpl(Lkotlinx/coroutines/internal/ThreadSafeHeapNode;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_6 .. :try_end_19} :catchall_20
 
     .line 75
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 77
-    :cond_0
+    :cond_1b
     const/4 v4, 0x0
 
     .line 73
-    :goto_0
+    :goto_1c
     nop
 
     .line 203
@@ -644,7 +644,7 @@
     .line 203
     .restart local v1    # "$i$f$synchronized":I
     .restart local v2    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_20
     move-exception v3
 
     monitor-exit p0
@@ -653,7 +653,7 @@
 .end method
 
 .method public final clear()V
-    .locals 9
+    .registers 10
 
     .line 35
     const/4 v0, 0x0
@@ -673,10 +673,10 @@
 
     .line 36
     .local v2, "$i$a$-synchronized-ThreadSafeHeap$clear$1":I
-    :try_start_0
+    :try_start_5
     iget-object v3, p0, Lkotlinx/coroutines/internal/ThreadSafeHeap;->a:[Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_11
 
     const/4 v7, 0x6
 
@@ -690,7 +690,7 @@
 
     invoke-static/range {v3 .. v8}, Lkotlin/collections/ArraysKt;->fill$default([Ljava/lang/Object;Ljava/lang/Object;IIILjava/lang/Object;)V
 
-    :cond_0
+    :cond_11
     sget-object v3, Lkotlinx/coroutines/internal/ThreadSafeHeap;->_size$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
     .line 37
@@ -703,8 +703,8 @@
 
     .end local v2    # "$i$a$-synchronized-ThreadSafeHeap$clear$1":I
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_5 .. :try_end_1a} :catchall_1d
 
     .line 173
     monitor-exit p0
@@ -720,7 +720,7 @@
     .line 173
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_1d
     move-exception v2
 
     monitor-exit p0
@@ -729,7 +729,7 @@
 .end method
 
 .method public final find(Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    .locals 7
+    .registers 9
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -762,24 +762,24 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->getSize()I
 
     move-result v4
 
-    :goto_0
+    :goto_a
     const/4 v5, 0x0
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_26
 
     .line 44
     iget-object v6, p0, Lkotlinx/coroutines/internal/ThreadSafeHeap;->a:[Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_13
 
     aget-object v5, v6, v3
 
-    :cond_0
+    :cond_13
     invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     .line 45
@@ -793,28 +793,28 @@
     invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_6 .. :try_end_20} :catchall_2a
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_23
 
-    goto :goto_1
+    goto :goto_27
 
     .line 43
     .end local v5    # "value":Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    :cond_1
+    :cond_23
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 47
     .end local v3    # "i":I
-    :cond_2
+    :cond_26
     nop
 
     .line 178
     .end local v2    # "$i$a$-synchronized-ThreadSafeHeap$find$1":I
-    :goto_1
+    :goto_27
     monitor-exit p0
 
     .line 177
@@ -828,7 +828,7 @@
     .line 178
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_2a
     move-exception v2
 
     monitor-exit p0
@@ -837,7 +837,7 @@
 .end method
 
 .method public final firstImpl()Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -847,23 +847,23 @@
     .line 93
     iget-object v0, p0, Lkotlinx/coroutines/internal/ThreadSafeHeap;->a:[Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v1, 0x0
 
     aget-object v0, v0, v1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method
 
 .method public final getSize()I
-    .locals 1
+    .registers 2
 
     sget-object v0, Lkotlinx/coroutines/internal/ThreadSafeHeap;->_size$FU:Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;
 
@@ -876,28 +876,28 @@
 .end method
 
 .method public final isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->getSize()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public final peek()Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -922,12 +922,12 @@
 
     .line 50
     .local v2, "$i$a$-synchronized-ThreadSafeHeap$peek$1":I
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->firstImpl()Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_5 .. :try_end_9} :catchall_c
 
     .line 183
     .end local v2    # "$i$a$-synchronized-ThreadSafeHeap$peek$1":I
@@ -944,7 +944,7 @@
     .line 183
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_c
     move-exception v2
 
     monitor-exit p0
@@ -953,7 +953,7 @@
 .end method
 
 .method public final remove(Lkotlinx/coroutines/internal/ThreadSafeHeapNode;)Z
-    .locals 7
+    .registers 9
     .param p1, "node"    # Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -979,20 +979,20 @@
 
     .line 82
     .local v2, "$i$a$-synchronized-ThreadSafeHeap$remove$1":I
-    :try_start_0
+    :try_start_5
     invoke-interface {p1}, Lkotlinx/coroutines/internal/ThreadSafeHeapNode;->getHeap()Lkotlinx/coroutines/internal/ThreadSafeHeap;
 
     move-result-object v3
 
     const/4 v4, 0x0
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_d
 
     .line 83
-    goto :goto_1
+    goto :goto_29
 
     .line 85
-    :cond_0
+    :cond_d
     invoke-interface {p1}, Lkotlinx/coroutines/internal/ThreadSafeHeapNode;->getIndex()I
 
     move-result v3
@@ -1005,24 +1005,24 @@
 
     const/4 v6, 0x1
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_25
 
     .line 209
     const/4 v5, 0x0
 
     .line 86
     .local v5, "$i$a$-assert-ThreadSafeHeap$remove$1$1":I
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_1c
 
     const/4 v4, 0x1
 
     .end local v5    # "$i$a$-assert-ThreadSafeHeap$remove$1$1":I
-    :cond_1
-    if-eqz v4, :cond_2
+    :cond_1c
+    if-eqz v4, :cond_1f
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_2
+    :cond_1f
     new-instance v4, Ljava/lang/AssertionError;
 
     invoke-direct {v4}, Ljava/lang/AssertionError;-><init>()V
@@ -1036,11 +1036,11 @@
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$f$synchronizedImpl":I
     .restart local p1    # "node":Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    :cond_3
-    :goto_0
+    :cond_25
+    :goto_25
     invoke-virtual {p0, v3}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->removeAtImpl(I)Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_5 .. :try_end_28} :catchall_2b
 
     .line 88
     const/4 v4, 0x1
@@ -1050,14 +1050,14 @@
     .end local v1    # "$i$f$synchronizedImpl":I
     .end local v2    # "$i$a$-synchronized-ThreadSafeHeap$remove$1":I
     .end local v3    # "index":I
-    :goto_1
+    :goto_29
     monitor-exit p0
 
     return v4
 
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     monitor-exit p0
@@ -1066,7 +1066,7 @@
 .end method
 
 .method public final removeAtImpl(I)Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    .locals 7
+    .registers 9
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1083,7 +1083,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1b
 
     .line 209
     const/4 v0, 0x0
@@ -1094,22 +1094,22 @@
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .end local v0    # "$i$a$-assert-ThreadSafeHeap$removeAtImpl$1":I
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_12
+    if-eqz v0, :cond_15
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_15
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -1117,8 +1117,8 @@
     throw v0
 
     .line 98
-    :cond_2
-    :goto_1
+    :cond_1b
+    :goto_1b
     iget-object v0, p0, Lkotlinx/coroutines/internal/ThreadSafeHeap;->a:[Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -1140,7 +1140,7 @@
 
     move-result v3
 
-    if-ge p1, v3, :cond_4
+    if-ge p1, v3, :cond_58
 
     .line 101
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->getSize()I
@@ -1156,7 +1156,7 @@
 
     .line 103
     .local v3, "j":I
-    if-lez p1, :cond_3
+    if-lez p1, :cond_55
 
     aget-object v5, v0, p1
 
@@ -1172,7 +1172,7 @@
 
     move-result v5
 
-    if-gez v5, :cond_3
+    if-gez v5, :cond_55
 
     .line 104
     invoke-direct {p0, p1, v3}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->swap(II)V
@@ -1180,16 +1180,16 @@
     .line 105
     invoke-direct {p0, v3}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->siftUpFrom(I)V
 
-    goto :goto_2
+    goto :goto_58
 
     .line 107
-    :cond_3
+    :cond_55
     invoke-direct {p0, p1}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->siftDownFrom(I)V
 
     .line 110
     .end local v3    # "j":I
-    :cond_4
-    :goto_2
+    :cond_58
+    :goto_58
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->getSize()I
 
     move-result v3
@@ -1204,7 +1204,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_78
 
     .line 209
     const/4 v5, 0x0
@@ -1215,17 +1215,17 @@
 
     move-result-object v6
 
-    if-ne v6, p0, :cond_5
+    if-ne v6, p0, :cond_6f
 
     const/4 v1, 0x1
 
     .end local v5    # "$i$a$-assert-ThreadSafeHeap$removeAtImpl$2":I
-    :cond_5
-    if-eqz v1, :cond_6
+    :cond_6f
+    if-eqz v1, :cond_72
 
-    goto :goto_3
+    goto :goto_78
 
-    :cond_6
+    :cond_72
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
@@ -1233,8 +1233,8 @@
     throw v1
 
     .line 112
-    :cond_7
-    :goto_3
+    :cond_78
+    :goto_78
     const/4 v1, 0x0
 
     invoke-interface {v3, v1}, Lkotlinx/coroutines/internal/ThreadSafeHeapNode;->setHeap(Lkotlinx/coroutines/internal/ThreadSafeHeap;)V
@@ -1254,7 +1254,7 @@
 .end method
 
 .method public final removeFirstIf(Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    .locals 7
+    .registers 9
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1287,16 +1287,16 @@
 
     .line 61
     .local v3, "$i$a$-synchronized-ThreadSafeHeap$removeFirstIf$1":I
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->firstImpl()Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
     move-result-object v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_6 .. :try_end_a} :catchall_26
 
     const/4 v5, 0x0
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_f
 
     .end local v1    # "$i$f$synchronized":I
     .end local v2    # "$i$f$synchronizedImpl":I
@@ -1310,8 +1310,8 @@
     .restart local v2    # "$i$f$synchronizedImpl":I
     .restart local v3    # "$i$a$-synchronized-ThreadSafeHeap$removeFirstIf$1":I
     .local v4, "first":Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    :cond_0
-    :try_start_1
+    :cond_f
+    :try_start_f
     invoke-interface {p1, v4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
@@ -1322,7 +1322,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_21
 
     .line 63
     const/4 v5, 0x0
@@ -1330,17 +1330,17 @@
     invoke-virtual {p0, v5}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->removeAtImpl(I)Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
     move-result-object v5
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_20
+    .catchall {:try_start_f .. :try_end_20} :catchall_26
 
-    goto :goto_0
+    goto :goto_22
 
     .line 65
-    :cond_1
+    :cond_21
     nop
 
     .line 62
-    :goto_0
+    :goto_22
     nop
 
     .line 193
@@ -1359,7 +1359,7 @@
     .line 193
     .restart local v1    # "$i$f$synchronized":I
     .restart local v2    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_26
     move-exception v3
 
     monitor-exit p0
@@ -1368,7 +1368,7 @@
 .end method
 
 .method public final removeFirstOrNull()Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -1393,12 +1393,12 @@
 
     .line 53
     .local v2, "$i$a$-synchronized-ThreadSafeHeap$removeFirstOrNull$1":I
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->getSize()I
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_11
 
     .line 54
     const/4 v3, 0x0
@@ -1406,17 +1406,17 @@
     invoke-virtual {p0, v3}, Lkotlinx/coroutines/internal/ThreadSafeHeap;->removeAtImpl(I)Lkotlinx/coroutines/internal/ThreadSafeHeapNode;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_5 .. :try_end_10} :catchall_16
 
-    goto :goto_0
+    goto :goto_12
 
     .line 56
-    :cond_0
+    :cond_11
     const/4 v3, 0x0
 
     .line 53
-    :goto_0
+    :goto_12
     nop
 
     .line 188
@@ -1434,7 +1434,7 @@
     .line 188
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_16
     move-exception v2
 
     monitor-exit p0

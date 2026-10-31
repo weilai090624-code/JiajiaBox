@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public compareTo(Lcom/google/android/material/color/utilities/QuantizerWsmeans$Distance;)I
-    .locals 3
+    .registers 5
     .param p1, "other"    # Lcom/google/android/material/color/utilities/QuantizerWsmeans$Distance;
 
     .line 55
@@ -80,7 +80,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 44
     check-cast p1, Lcom/google/android/material/color/utilities/QuantizerWsmeans$Distance;

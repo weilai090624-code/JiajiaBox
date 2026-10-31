@@ -61,7 +61,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$-QIZxMKEpTExKx7Gy-tkwkvFXwg(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityPairPredicates$lambda-1(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$BsxG3N2i5a4O41R3N4HmGj3svxU(Ljava/util/Set;Landroid/app/Activity;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityPredicates$lambda-6(Ljava/util/Set;Landroid/app/Activity;)Z
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$cS0oi1t0ZamdVaatgGdu58WtzyQ(Ljava/util/Set;Landroid/content/Intent;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter;->translateIntentPredicates$lambda-8(Ljava/util/Set;Landroid/content/Intent;)Z
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$cuYtR81jQjtuFyZjsF3nZQqYIos(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityIntentPredicates$lambda-3(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$g0h9C17qZk8AsU2UaDHhRyR3IKQ(Landroidx/window/embedding/SplitRule;Landroid/view/WindowMetrics;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter;->translateParentMetricsPredicate$lambda-4(Landroidx/window/embedding/SplitRule;Landroid/view/WindowMetrics;)Z
 
@@ -111,7 +111,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -121,7 +121,7 @@
 .end method
 
 .method private final component1(Landroid/util/Pair;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "$this$component1"    # Landroid/util/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -146,7 +146,7 @@
 .end method
 
 .method private final component2(Landroid/util/Pair;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "$this$component2"    # Landroid/util/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -171,7 +171,7 @@
 .end method
 
 .method private final translate(Landroidx/window/extensions/embedding/SplitInfo;)Landroidx/window/embedding/SplitInfo;
-    .locals 8
+    .registers 10
     .param p1, "splitInfo"    # Landroidx/window/extensions/embedding/SplitInfo;
 
     .line 43
@@ -190,17 +190,17 @@
     .line 45
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_c
     invoke-virtual {v0}, Landroidx/window/extensions/embedding/ActivityStack;->isEmpty()Z
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_c .. :try_end_10} :catch_11
 
-    goto :goto_0
+    goto :goto_13
 
     .line 46
-    :catch_0
+    :catch_11
     move-exception v2
 
     .line 49
@@ -209,7 +209,7 @@
 
     .line 44
     .end local v2    # "e":Ljava/lang/NoSuchMethodError;
-    :goto_0
+    :goto_13
     nop
 
     .line 51
@@ -241,17 +241,17 @@
     nop
 
     .line 55
-    :try_start_1
+    :try_start_2d
     invoke-virtual {v4}, Landroidx/window/extensions/embedding/ActivityStack;->isEmpty()Z
 
     move-result v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_31
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_2d .. :try_end_31} :catch_32
 
-    goto :goto_1
+    goto :goto_34
 
     .line 56
-    :catch_1
+    :catch_32
     move-exception v5
 
     .line 59
@@ -260,7 +260,7 @@
 
     .line 54
     .end local v5    # "e":Ljava/lang/NoSuchMethodError;
-    :goto_1
+    :goto_34
     nop
 
     .line 61
@@ -296,7 +296,7 @@
 .end method
 
 .method private static final translateActivityIntentPredicates$lambda-3(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
-    .locals 9
+    .registers 12
     .param p0, "this$0"    # Landroidx/window/embedding/EmbeddingAdapter;
     .param p1, "$splitPairFilters"    # Ljava/util/Set;
     .param p2, "$dstr$first$second"    # Landroid/util/Pair;
@@ -342,7 +342,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
     move-object v4, v2
 
@@ -352,22 +352,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 177
-    :cond_0
+    :cond_2f
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :cond_1
+    :cond_33
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_49
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -389,26 +389,26 @@
 
     .end local v7    # "filter":Landroidx/window/embedding/SplitPairFilter;
     .end local v8    # "$i$a$-any-EmbeddingAdapter$translateActivityIntentPredicates$1$1":I
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_33
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 178
     .end local v6    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_49
     nop
 
     .line 83
     .end local v2    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v3    # "$i$f$any":I
-    :goto_0
+    :goto_4a
     return v5
 .end method
 
 .method private static final translateActivityPairPredicates$lambda-1(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
-    .locals 9
+    .registers 12
     .param p0, "this$0"    # Landroidx/window/embedding/EmbeddingAdapter;
     .param p1, "$splitPairFilters"    # Ljava/util/Set;
     .param p2, "$dstr$first$second"    # Landroid/util/Pair;
@@ -454,7 +454,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
     move-object v4, v2
 
@@ -464,22 +464,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 174
-    :cond_0
+    :cond_2f
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :cond_1
+    :cond_33
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_49
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -501,26 +501,26 @@
 
     .end local v7    # "filter":Landroidx/window/embedding/SplitPairFilter;
     .end local v8    # "$i$a$-any-EmbeddingAdapter$translateActivityPairPredicates$1$1":I
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_33
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 175
     .end local v6    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_49
     nop
 
     .line 73
     .end local v2    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v3    # "$i$f$any":I
-    :goto_0
+    :goto_4a
     return v5
 .end method
 
 .method private static final translateActivityPredicates$lambda-6(Ljava/util/Set;Landroid/app/Activity;)Z
-    .locals 8
+    .registers 10
     .param p0, "$activityFilters"    # Ljava/util/Set;
     .param p1, "activity"    # Landroid/app/Activity;
 
@@ -542,7 +542,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     move-object v2, v0
 
@@ -552,22 +552,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
-    goto :goto_0
+    goto :goto_38
 
     .line 180
-    :cond_0
+    :cond_18
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_1c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_37
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -593,26 +593,26 @@
 
     .end local v5    # "filter":Landroidx/window/embedding/ActivityFilter;
     .end local v6    # "$i$a$-any-EmbeddingAdapter$translateActivityPredicates$1$1":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_1c
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_38
 
     .line 181
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_37
     nop
 
     .line 103
     .end local v0    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$any":I
-    :goto_0
+    :goto_38
     return v3
 .end method
 
 .method private static final translateIntentPredicates$lambda-8(Ljava/util/Set;Landroid/content/Intent;)Z
-    .locals 8
+    .registers 10
     .param p0, "$activityFilters"    # Ljava/util/Set;
     .param p1, "intent"    # Landroid/content/Intent;
 
@@ -634,7 +634,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     move-object v2, v0
 
@@ -644,22 +644,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
-    goto :goto_0
+    goto :goto_38
 
     .line 183
-    :cond_0
+    :cond_18
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_1c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_37
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -685,26 +685,26 @@
 
     .end local v5    # "filter":Landroidx/window/embedding/ActivityFilter;
     .end local v6    # "$i$a$-any-EmbeddingAdapter$translateIntentPredicates$1$1":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_1c
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_38
 
     .line 184
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_37
     nop
 
     .line 113
     .end local v0    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$any":I
-    :goto_0
+    :goto_38
     return v3
 .end method
 
 .method private static final translateParentMetricsPredicate$lambda-4(Landroidx/window/embedding/SplitRule;Landroid/view/WindowMetrics;)Z
-    .locals 1
+    .registers 3
     .param p0, "$splitRule"    # Landroidx/window/embedding/SplitRule;
     .param p1, "windowMetrics"    # Landroid/view/WindowMetrics;
 
@@ -727,7 +727,7 @@
 
 # virtual methods
 .method public final translate(Ljava/util/List;)Ljava/util/List;
-    .locals 9
+    .registers 11
     .param p1, "splitInfoList"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -780,12 +780,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_1d
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_33
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -810,11 +810,11 @@
     .end local v8    # "$i$a$-map-EmbeddingAdapter$translate$1":I
     invoke-interface {v2, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 168
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_33
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -832,7 +832,7 @@
 .end method
 
 .method public final translate(Ljava/util/Set;)Ljava/util/Set;
-    .locals 14
+    .registers 16
     .param p1, "rules"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -885,12 +885,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_1c
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_127
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -912,7 +912,7 @@
     .line 123
     instance-of v9, v7, Landroidx/window/embedding/SplitPairRule;
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_95
 
     .line 124
     new-instance v9, Landroidx/window/extensions/embedding/SplitPairRule$Builder;
@@ -1032,13 +1032,13 @@
 
     check-cast v9, Landroidx/window/extensions/embedding/EmbeddingRule;
 
-    goto/16 :goto_1
+    goto/16 :goto_119
 
     .line 135
-    :cond_0
+    :cond_95
     instance-of v9, v7, Landroidx/window/embedding/SplitPlaceholderRule;
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_e4
 
     .line 136
     new-instance v9, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
@@ -1128,13 +1128,13 @@
 
     check-cast v9, Landroidx/window/extensions/embedding/EmbeddingRule;
 
-    goto :goto_1
+    goto :goto_119
 
     .line 145
-    :cond_1
+    :cond_e4
     instance-of v9, v7, Landroidx/window/embedding/ActivityRule;
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_11f
 
     .line 146
     new-instance v9, Landroidx/window/extensions/embedding/ActivityRule$Builder;
@@ -1194,19 +1194,19 @@
     check-cast v9, Landroidx/window/extensions/embedding/EmbeddingRule;
 
     .line 122
-    :goto_1
+    :goto_119
     nop
 
     .end local v7    # "rule":Landroidx/window/embedding/EmbeddingRule;
     .end local v8    # "$i$a$-map-EmbeddingAdapter$translate$2":I
     invoke-interface {v2, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_0
+    goto/16 :goto_1c
 
     .line 152
     .restart local v7    # "rule":Landroidx/window/embedding/EmbeddingRule;
     .restart local v8    # "$i$a$-map-EmbeddingAdapter$translate$2":I
-    :cond_2
+    :cond_11f
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     const-string v9, "Unsupported rule type"
@@ -1219,7 +1219,7 @@
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
     .end local v7    # "rule":Landroidx/window/embedding/EmbeddingRule;
     .end local v8    # "$i$a$-map-EmbeddingAdapter$translate$2":I
-    :cond_3
+    :cond_127
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -1244,7 +1244,7 @@
 .end method
 
 .method public final translateActivityIntentPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
-    .locals 1
+    .registers 3
     .param p1, "splitPairFilters"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1273,7 +1273,7 @@
 .end method
 
 .method public final translateActivityPairPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
-    .locals 1
+    .registers 3
     .param p1, "splitPairFilters"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1302,7 +1302,7 @@
 .end method
 
 .method public final translateActivityPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
-    .locals 1
+    .registers 3
     .param p1, "activityFilters"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1329,7 +1329,7 @@
 .end method
 
 .method public final translateIntentPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
-    .locals 1
+    .registers 3
     .param p1, "activityFilters"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1356,7 +1356,7 @@
 .end method
 
 .method public final translateParentMetricsPredicate(Landroidx/window/embedding/SplitRule;)Ljava/util/function/Predicate;
-    .locals 1
+    .registers 3
     .param p1, "splitRule"    # Landroidx/window/embedding/SplitRule;
     .annotation system Ldalvik/annotation/Signature;
         value = {

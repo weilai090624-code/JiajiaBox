@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 325
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static createScaledBitmap(Landroid/graphics/Bitmap;IILandroid/graphics/Rect;Z)Landroid/graphics/Bitmap;
-    .locals 30
+    .registers 35
     .param p0, "srcBm"    # Landroid/graphics/Bitmap;
     .param p1, "dstW"    # I
     .param p2, "dstH"    # I
@@ -41,23 +41,23 @@
 
     move-object/from16 v3, p3
 
-    if-lez v1, :cond_24
+    if-lez v1, :cond_250
 
-    if-lez v2, :cond_24
+    if-lez v2, :cond_250
 
     .line 130
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_36
 
     .line 131
     invoke-virtual/range {p3 .. p3}, Landroid/graphics/Rect;->isEmpty()Z
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2d
 
     iget v4, v3, Landroid/graphics/Rect;->left:I
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_2d
 
     iget v4, v3, Landroid/graphics/Rect;->right:I
 
@@ -65,11 +65,11 @@
 
     move-result v5
 
-    if-gt v4, v5, :cond_0
+    if-gt v4, v5, :cond_2d
 
     iget v4, v3, Landroid/graphics/Rect;->top:I
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_2d
 
     iget v4, v3, Landroid/graphics/Rect;->bottom:I
 
@@ -78,12 +78,12 @@
 
     move-result v5
 
-    if-gt v4, v5, :cond_0
+    if-gt v4, v5, :cond_2d
 
-    goto :goto_0
+    goto :goto_36
 
     .line 133
-    :cond_0
+    :cond_2d
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v5, "srcRect must be contained by srcBm!"
@@ -93,8 +93,8 @@
     throw v4
 
     .line 137
-    :cond_1
-    :goto_0
+    :cond_36
+    :goto_36
     move-object/from16 v4, p0
 
     .line 138
@@ -103,7 +103,7 @@
 
     const/16 v6, 0x1b
 
-    if-lt v5, v6, :cond_2
+    if-lt v5, v6, :cond_42
 
     .line 141
     invoke-static/range {p0 .. p0}, Landroidx/core/graphics/BitmapCompat$Api27Impl;->copyBitmapIfHardware(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
@@ -111,39 +111,39 @@
     move-result-object v4
 
     .line 144
-    :cond_2
-    if-eqz v3, :cond_3
+    :cond_42
+    if-eqz v3, :cond_49
 
     invoke-virtual/range {p3 .. p3}, Landroid/graphics/Rect;->width()I
 
     move-result v5
 
-    goto :goto_1
+    goto :goto_4d
 
-    :cond_3
+    :cond_49
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v5
 
     .line 145
     .local v5, "srcW":I
-    :goto_1
-    if-eqz v3, :cond_4
+    :goto_4d
+    if-eqz v3, :cond_54
 
     invoke-virtual/range {p3 .. p3}, Landroid/graphics/Rect;->height()I
 
     move-result v7
 
-    goto :goto_2
+    goto :goto_58
 
-    :cond_4
+    :cond_54
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v7
 
     .line 147
     .local v7, "srcH":I
-    :goto_2
+    :goto_58
     int-to-float v8, v1
 
     int-to-float v9, v5
@@ -160,56 +160,56 @@
 
     .line 150
     .local v9, "sy":F
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_63
 
     iget v11, v3, Landroid/graphics/Rect;->left:I
 
-    goto :goto_3
+    goto :goto_64
 
-    :cond_5
+    :cond_63
     const/4 v11, 0x0
 
     .line 151
     .local v11, "srcX":I
-    :goto_3
-    if-eqz v3, :cond_6
+    :goto_64
+    if-eqz v3, :cond_69
 
     iget v12, v3, Landroid/graphics/Rect;->top:I
 
-    goto :goto_4
+    goto :goto_6a
 
-    :cond_6
+    :cond_69
     const/4 v12, 0x0
 
     .line 154
     .local v12, "srcY":I
-    :goto_4
+    :goto_6a
     const/4 v13, 0x1
 
-    if-nez v11, :cond_8
+    if-nez v11, :cond_8d
 
-    if-nez v12, :cond_8
+    if-nez v12, :cond_8d
 
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v14
 
-    if-ne v1, v14, :cond_8
+    if-ne v1, v14, :cond_8d
 
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v14
 
-    if-ne v2, v14, :cond_8
+    if-ne v2, v14, :cond_8d
 
     .line 156
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->isMutable()Z
 
     move-result v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_8c
 
-    if-ne v0, v4, :cond_7
+    if-ne v0, v4, :cond_8c
 
     .line 157
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
@@ -223,11 +223,11 @@
     return-object v6
 
     .line 160
-    :cond_7
+    :cond_8c
     return-object v4
 
     .line 164
-    :cond_8
+    :cond_8d
     new-instance v14, Landroid/graphics/Paint;
 
     invoke-direct {v14, v13}, Landroid/graphics/Paint;-><init>(I)V
@@ -241,15 +241,15 @@
 
     const/16 v10, 0x1d
 
-    if-lt v15, v10, :cond_9
+    if-lt v15, v10, :cond_9f
 
     .line 167
     invoke-static {v14}, Landroidx/core/graphics/BitmapCompat$Api29Impl;->setPaintBlendMode(Landroid/graphics/Paint;)V
 
-    goto :goto_5
+    goto :goto_a9
 
     .line 169
-    :cond_9
+    :cond_9f
     new-instance v10, Landroid/graphics/PorterDuffXfermode;
 
     sget-object v15, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
@@ -259,10 +259,10 @@
     invoke-virtual {v14, v10}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 173
-    :goto_5
-    if-ne v5, v1, :cond_a
+    :goto_a9
+    if-ne v5, v1, :cond_c2
 
-    if-ne v7, v2, :cond_a
+    if-ne v7, v2, :cond_c2
 
     .line 174
     invoke-virtual {v4}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
@@ -297,7 +297,7 @@
     .line 181
     .end local v6    # "out":Landroid/graphics/Bitmap;
     .end local v10    # "canvasForCopy":Landroid/graphics/Canvas;
-    :cond_a
+    :cond_c2
     const-wide/high16 v17, 0x4000000000000000L    # 2.0
 
     invoke-static/range {v17 .. v18}, Ljava/lang/Math;->log(D)D
@@ -310,7 +310,7 @@
 
     cmpl-float v15, v8, v10
 
-    if-lez v15, :cond_b
+    if-lez v15, :cond_dc
 
     move-object v15, v14
 
@@ -330,12 +330,12 @@
 
     double-to-int v13, v13
 
-    goto :goto_6
+    goto :goto_e9
 
     .line 183
     .end local v15    # "paint":Landroid/graphics/Paint;
     .restart local v14    # "paint":Landroid/graphics/Paint;
-    :cond_b
+    :cond_dc
     move-object v15, v14
 
     .end local v14    # "paint":Landroid/graphics/Paint;
@@ -354,14 +354,14 @@
 
     double-to-int v13, v13
 
-    :goto_6
+    :goto_e9
     nop
 
     .line 184
     .local v13, "stepsX":I
     cmpl-float v10, v9, v10
 
-    if-lez v10, :cond_c
+    if-lez v10, :cond_fc
 
     move v10, v7
 
@@ -381,12 +381,12 @@
 
     double-to-int v6, v6
 
-    goto :goto_7
+    goto :goto_109
 
     .line 185
     .end local v10    # "srcH":I
     .restart local v7    # "srcH":I
-    :cond_c
+    :cond_fc
     move v10, v7
 
     .end local v7    # "srcH":I
@@ -405,7 +405,7 @@
 
     double-to-int v6, v6
 
-    :goto_7
+    :goto_109
     nop
 
     .line 186
@@ -426,23 +426,23 @@
 
     .line 197
     .local v22, "needFinalConversion":Z
-    if-eqz p4, :cond_10
+    if-eqz p4, :cond_16b
 
     .line 198
     sget v14, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x1b
 
-    if-lt v14, v3, :cond_f
+    if-lt v14, v3, :cond_162
 
     invoke-static/range {p0 .. p0}, Landroidx/core/graphics/BitmapCompat$Api27Impl;->isAlreadyF16AndLinear(Landroid/graphics/Bitmap;)Z
 
     move-result v3
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_162
 
     .line 199
-    if-lez v13, :cond_d
+    if-lez v13, :cond_127
 
     const/4 v3, 0x1
 
@@ -450,19 +450,19 @@
 
     move-result v19
 
-    goto :goto_8
+    goto :goto_12a
 
-    :cond_d
+    :cond_127
     const/4 v3, 0x1
 
     move/from16 v19, v5
 
-    :goto_8
+    :goto_12a
     move/from16 v23, v19
 
     .line 200
     .local v23, "allocW":I
-    if-lez v6, :cond_e
+    if-lez v6, :cond_135
 
     move/from16 v14, v20
 
@@ -472,18 +472,18 @@
 
     move-result v20
 
-    goto :goto_9
+    goto :goto_139
 
     .end local v14    # "totalStepsY":I
     .restart local v20    # "totalStepsY":I
-    :cond_e
+    :cond_135
     move/from16 v14, v20
 
     .end local v20    # "totalStepsY":I
     .restart local v14    # "totalStepsY":I
     move/from16 v20, v10
 
-    :goto_9
+    :goto_139
     move/from16 v24, v20
 
     .line 201
@@ -556,7 +556,7 @@
     .line 210
     const/16 v22, 0x1
 
-    goto :goto_a
+    goto :goto_173
 
     .line 198
     .end local v3    # "canvasForCopy":Landroid/graphics/Canvas;
@@ -569,7 +569,7 @@
     .local v8, "sx":F
     .local v9, "sy":F
     .local v20, "totalStepsY":I
-    :cond_f
+    :cond_162
     move/from16 v23, v8
 
     move/from16 v24, v9
@@ -585,7 +585,7 @@
     .local v20, "stepsY":I
     .restart local v23    # "sx":F
     .restart local v24    # "sy":F
-    goto :goto_a
+    goto :goto_173
 
     .line 197
     .end local v14    # "totalStepsY":I
@@ -595,7 +595,7 @@
     .restart local v8    # "sx":F
     .restart local v9    # "sy":F
     .local v20, "totalStepsY":I
-    :cond_10
+    :cond_16b
     move/from16 v23, v8
 
     move/from16 v24, v9
@@ -612,7 +612,7 @@
     .local v20, "stepsY":I
     .restart local v23    # "sx":F
     .restart local v24    # "sy":F
-    :goto_a
+    :goto_173
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3, v11, v12, v5, v10}, Landroid/graphics/Rect;-><init>(IIII)V
@@ -629,74 +629,74 @@
     .end local v21    # "dst":Landroid/graphics/Bitmap;
     .local v6, "nextRect":Landroid/graphics/Rect;
     .local v8, "dst":Landroid/graphics/Bitmap;
-    :goto_b
-    if-nez v13, :cond_13
+    :goto_17f
+    if-nez v13, :cond_18c
 
-    if-eqz v20, :cond_11
+    if-eqz v20, :cond_184
 
-    goto :goto_c
+    goto :goto_18c
 
     .line 303
-    :cond_11
-    if-eq v8, v0, :cond_12
+    :cond_184
+    if-eq v8, v0, :cond_18b
 
-    if-eqz v8, :cond_12
+    if-eqz v8, :cond_18b
 
     .line 304
     invoke-virtual {v8}, Landroid/graphics/Bitmap;->recycle()V
 
     .line 306
-    :cond_12
+    :cond_18b
     return-object v4
 
     .line 218
-    :cond_13
-    :goto_c
-    if-gez v13, :cond_14
+    :cond_18c
+    :goto_18c
+    if-gez v13, :cond_191
 
     .line 219
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_d
+    goto :goto_195
 
     .line 220
-    :cond_14
-    if-lez v13, :cond_15
+    :cond_191
+    if-lez v13, :cond_195
 
     .line 221
     add-int/lit8 v13, v13, -0x1
 
     .line 223
-    :cond_15
-    :goto_d
-    if-gez v20, :cond_16
+    :cond_195
+    :goto_195
+    if-gez v20, :cond_19c
 
     .line 224
     add-int/lit8 v20, v20, 0x1
 
     move/from16 v9, v20
 
-    goto :goto_e
+    goto :goto_1a5
 
     .line 225
-    :cond_16
-    if-lez v20, :cond_17
+    :cond_19c
+    if-lez v20, :cond_1a3
 
     .line 226
     add-int/lit8 v20, v20, -0x1
 
     move/from16 v9, v20
 
-    goto :goto_e
+    goto :goto_1a5
 
     .line 225
-    :cond_17
+    :cond_1a3
     move/from16 v9, v20
 
     .line 228
     .end local v20    # "stepsY":I
     .local v9, "stepsY":I
-    :goto_e
+    :goto_1a5
     move/from16 v20, v11
 
     .end local v11    # "srcX":I
@@ -726,50 +726,50 @@
     invoke-virtual {v6, v3, v3, v11, v12}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 248
-    if-nez v13, :cond_18
+    if-nez v13, :cond_1be
 
-    if-nez v9, :cond_18
+    if-nez v9, :cond_1be
 
     const/16 v16, 0x1
 
-    goto :goto_f
+    goto :goto_1c0
 
-    :cond_18
+    :cond_1be
     const/16 v16, 0x0
 
     .line 249
     .local v16, "lastStep":Z
-    :goto_f
-    if-eqz v8, :cond_19
+    :goto_1c0
+    if-eqz v8, :cond_1d0
 
     .line 250
     invoke-virtual {v8}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v3
 
-    if-ne v3, v1, :cond_19
+    if-ne v3, v1, :cond_1d0
 
     invoke-virtual {v8}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v3
 
-    if-ne v3, v2, :cond_19
+    if-ne v3, v2, :cond_1d0
 
     const/4 v3, 0x1
 
-    goto :goto_10
+    goto :goto_1d1
 
-    :cond_19
+    :cond_1d0
     const/4 v3, 0x0
 
     .line 251
     .local v3, "dstSizeIsFinal":Z
-    :goto_10
-    if-eqz v8, :cond_1e
+    :goto_1d1
+    if-eqz v8, :cond_1f8
 
-    if-eq v8, v0, :cond_1e
+    if-eq v8, v0, :cond_1f8
 
-    if-eqz p4, :cond_1a
+    if-eqz p4, :cond_1e8
 
     move/from16 v27, v11
 
@@ -783,23 +783,23 @@
 
     .end local v12    # "nextH":I
     .local v28, "nextH":I
-    if-lt v11, v12, :cond_1b
+    if-lt v11, v12, :cond_1ec
 
     .line 260
     invoke-static {v8}, Landroidx/core/graphics/BitmapCompat$Api27Impl;->isAlreadyF16AndLinear(Landroid/graphics/Bitmap;)Z
 
     move-result v12
 
-    if-eqz v12, :cond_1c
+    if-eqz v12, :cond_1f2
 
-    goto :goto_11
+    goto :goto_1ec
 
     .line 251
     .end local v27    # "nextW":I
     .end local v28    # "nextH":I
     .restart local v11    # "nextW":I
     .restart local v12    # "nextH":I
-    :cond_1a
+    :cond_1e8
     move/from16 v27, v11
 
     move/from16 v28, v12
@@ -809,31 +809,31 @@
     .end local v12    # "nextH":I
     .restart local v27    # "nextW":I
     .restart local v28    # "nextH":I
-    :cond_1b
-    :goto_11
-    if-eqz v16, :cond_1d
+    :cond_1ec
+    :goto_1ec
+    if-eqz v16, :cond_1f3
 
-    if-eqz v3, :cond_1c
+    if-eqz v3, :cond_1f2
 
-    if-eqz v22, :cond_1d
+    if-eqz v22, :cond_1f3
 
-    :cond_1c
-    goto :goto_12
+    :cond_1f2
+    goto :goto_1fc
 
     .line 294
-    :cond_1d
+    :cond_1f3
     move/from16 v29, v3
 
     const/16 v3, 0x1b
 
-    goto :goto_16
+    goto :goto_233
 
     .line 251
     .end local v27    # "nextW":I
     .end local v28    # "nextH":I
     .restart local v11    # "nextW":I
     .restart local v12    # "nextH":I
-    :cond_1e
+    :cond_1f8
     move/from16 v27, v11
 
     move/from16 v28, v12
@@ -843,46 +843,46 @@
     .end local v12    # "nextH":I
     .restart local v27    # "nextW":I
     .restart local v28    # "nextH":I
-    :goto_12
-    if-eq v8, v0, :cond_1f
+    :goto_1fc
+    if-eq v8, v0, :cond_203
 
-    if-eqz v8, :cond_1f
+    if-eqz v8, :cond_203
 
     .line 268
     invoke-virtual {v8}, Landroid/graphics/Bitmap;->recycle()V
 
     .line 276
-    :cond_1f
+    :cond_203
     move/from16 v12, v22
 
     .line 277
     .local v12, "lastScratchStep":I
-    if-lez v13, :cond_20
+    if-lez v13, :cond_209
 
     move v11, v12
 
-    goto :goto_13
+    goto :goto_20a
 
-    :cond_20
+    :cond_209
     move v11, v13
 
-    :goto_13
+    :goto_20a
     invoke-static {v5, v1, v11, v7}, Landroidx/core/graphics/BitmapCompat;->sizeAtStep(IIII)I
 
     move-result v11
 
     .line 279
     .local v11, "allocW":I
-    if-lez v9, :cond_21
+    if-lez v9, :cond_212
 
     move v1, v12
 
-    goto :goto_14
+    goto :goto_213
 
-    :cond_21
+    :cond_212
     move v1, v9
 
-    :goto_14
+    :goto_213
     invoke-static {v10, v2, v1, v14}, Landroidx/core/graphics/BitmapCompat;->sizeAtStep(IIII)I
 
     move-result v1
@@ -897,33 +897,33 @@
 
     .end local v3    # "dstSizeIsFinal":Z
     .local v29, "dstSizeIsFinal":Z
-    if-lt v2, v3, :cond_23
+    if-lt v2, v3, :cond_22b
 
     .line 284
-    if-eqz p4, :cond_22
+    if-eqz p4, :cond_225
 
-    if-nez v16, :cond_22
+    if-nez v16, :cond_225
 
     const/4 v2, 0x1
 
-    goto :goto_15
+    goto :goto_226
 
-    :cond_22
+    :cond_225
     const/4 v2, 0x0
 
     .line 285
     .local v2, "linear":Z
-    :goto_15
+    :goto_226
     invoke-static {v11, v1, v0, v2}, Landroidx/core/graphics/BitmapCompat$Api27Impl;->createBitmapWithSourceColorspace(IILandroid/graphics/Bitmap;Z)Landroid/graphics/Bitmap;
 
     move-result-object v8
 
     .line 287
     .end local v2    # "linear":Z
-    goto :goto_16
+    goto :goto_233
 
     .line 288
-    :cond_23
+    :cond_22b
     invoke-virtual {v4}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
     move-result-object v2
@@ -936,7 +936,7 @@
     .end local v1    # "allocH":I
     .end local v11    # "allocW":I
     .end local v12    # "lastScratchStep":I
-    :goto_16
+    :goto_233
     new-instance v1, Landroid/graphics/Canvas;
 
     invoke-direct {v1, v8}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
@@ -981,7 +981,7 @@
 
     move/from16 v20, v9
 
-    goto/16 :goto_b
+    goto/16 :goto_17f
 
     .line 127
     .end local v2    # "currRect":Landroid/graphics/Rect;
@@ -1001,7 +1001,7 @@
     .end local v22    # "needFinalConversion":Z
     .end local v23    # "sx":F
     .end local v24    # "sy":F
-    :cond_24
+    :cond_250
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "dstW and dstH must be > 0!"
@@ -1012,7 +1012,7 @@
 .end method
 
 .method public static getAllocationByteCount(Landroid/graphics/Bitmap;)I
-    .locals 1
+    .registers 2
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 92
@@ -1024,7 +1024,7 @@
 .end method
 
 .method public static hasMipMap(Landroid/graphics/Bitmap;)Z
-    .locals 1
+    .registers 2
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 57
@@ -1036,7 +1036,7 @@
 .end method
 
 .method public static setHasMipMap(Landroid/graphics/Bitmap;Z)V
-    .locals 0
+    .registers 2
     .param p0, "bitmap"    # Landroid/graphics/Bitmap;
     .param p1, "hasMipMap"    # Z
 
@@ -1048,23 +1048,23 @@
 .end method
 
 .method static sizeAtStep(IIII)I
-    .locals 2
+    .registers 6
     .param p0, "srcSize"    # I
     .param p1, "dstSize"    # I
     .param p2, "step"    # I
     .param p3, "totalSteps"    # I
 
     .line 316
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3
 
     .line 317
     return p1
 
     .line 318
-    :cond_0
+    :cond_3
     const/4 v0, 0x1
 
-    if-lez p2, :cond_1
+    if-lez p2, :cond_c
 
     .line 319
     sub-int v1, p3, p2
@@ -1076,7 +1076,7 @@
     return v0
 
     .line 321
-    :cond_1
+    :cond_c
     neg-int v1, p2
 
     sub-int/2addr v1, v0

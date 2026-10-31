@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "wrapped"    # Ljava/lang/Object;
 
     .line 33
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 

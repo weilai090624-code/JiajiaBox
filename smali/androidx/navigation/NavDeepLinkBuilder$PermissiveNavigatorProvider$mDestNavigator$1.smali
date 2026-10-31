@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 373
     invoke-direct {p0}, Landroidx/navigation/Navigator;-><init>()V
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public createDestination()Landroidx/navigation/NavDestination;
-    .locals 2
+    .registers 3
 
     .line 375
     new-instance v0, Landroidx/navigation/NavDestination;
@@ -78,7 +78,7 @@
 .end method
 
 .method public navigate(Landroidx/navigation/NavDestination;Landroid/os/Bundle;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)Landroidx/navigation/NavDestination;
-    .locals 2
+    .registers 7
     .param p1, "destination"    # Landroidx/navigation/NavDestination;
     .param p2, "args"    # Landroid/os/Bundle;
     .param p3, "navOptions"    # Landroidx/navigation/NavOptions;
@@ -99,7 +99,7 @@
 .end method
 
 .method public popBackStack()Z
-    .locals 2
+    .registers 3
 
     .line 388
     new-instance v0, Ljava/lang/IllegalStateException;

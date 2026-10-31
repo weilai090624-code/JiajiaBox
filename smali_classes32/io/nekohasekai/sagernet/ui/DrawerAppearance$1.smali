@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lio/nekohasekai/sagernet/ui/DrawerAppearance;->styleControls(Landroid/view/View;)V
+    value = Lio/nekohasekai/sagernet/ui/DrawerAppearance;->registerControls(Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,7 +21,7 @@
 .method constructor <init>()V
     .registers 1
 
-    .line 209
+    .line 215
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +30,7 @@
 .method static synthetic lambda$onChildViewAdded$0(Landroid/view/View;Landroid/view/View;)V
     .registers 3
 
-    .line 211
+    .line 217
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
@@ -49,7 +49,7 @@
 .method public onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
     .registers 4
 
-    .line 211
+    .line 217
     new-instance v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance$1$0;
 
     invoke-direct {v0, p2, p1}, Lio/nekohasekai/sagernet/ui/DrawerAppearance$1$0;-><init>(Landroid/view/View;Landroid/view/View;)V

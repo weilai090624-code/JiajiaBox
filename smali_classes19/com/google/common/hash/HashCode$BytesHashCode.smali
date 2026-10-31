@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>([B)V
-    .locals 1
+    .registers 3
     .param p1, "bytes"    # [B
 
     .line 254
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public asBytes()[B
-    .locals 1
+    .registers 2
 
     .line 265
     iget-object v0, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
@@ -64,7 +64,7 @@
 .end method
 
 .method public asInt()I
-    .locals 5
+    .registers 6
 
     .line 270
     iget-object v0, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
@@ -77,16 +77,16 @@
 
     const/4 v3, 0x0
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     iget-object v1, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
 
     array-length v1, v1
@@ -140,7 +140,7 @@
 .end method
 
 .method public asLong()J
-    .locals 3
+    .registers 4
 
     .line 282
     iget-object v0, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
@@ -149,16 +149,16 @@
 
     const/16 v1, 0x8
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     iget-object v1, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
 
     array-length v1, v1
@@ -176,7 +176,7 @@
 .end method
 
 .method public bits()I
-    .locals 1
+    .registers 2
 
     .line 260
     iget-object v0, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
@@ -189,7 +189,7 @@
 .end method
 
 .method equalsSameBits(Lcom/google/common/hash/HashCode;)Z
-    .locals 5
+    .registers 7
     .param p1, "that"    # Lcom/google/common/hash/HashCode;
 
     .line 312
@@ -205,13 +205,13 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_c
 
     .line 313
     return v2
 
     .line 316
-    :cond_0
+    :cond_c
     const/4 v0, 0x1
 
     .line 317
@@ -219,12 +219,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_e
     iget-object v3, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
 
     array-length v3, v3
 
-    if-ge v1, v3, :cond_2
+    if-ge v1, v3, :cond_26
 
     .line 318
     iget-object v3, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
@@ -237,31 +237,31 @@
 
     aget-byte v4, v4, v1
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_21
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_22
     and-int/2addr v0, v3
 
     .line 317
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 320
     .end local v1    # "i":I
-    :cond_2
+    :cond_26
     return v0
 .end method
 
 .method getBytesInternal()[B
-    .locals 1
+    .registers 2
 
     .line 305
     iget-object v0, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
@@ -270,7 +270,7 @@
 .end method
 
 .method public padToLong()J
-    .locals 7
+    .registers 8
 
     .line 291
     iget-object v0, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
@@ -288,7 +288,7 @@
     const/4 v2, 0x1
 
     .local v2, "i":I
-    :goto_0
+    :goto_9
     iget-object v3, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
 
     array-length v3, v3
@@ -299,7 +299,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_23
 
     .line 293
     iget-object v3, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
@@ -321,16 +321,16 @@
     .line 292
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 295
     .end local v2    # "i":I
-    :cond_0
+    :cond_23
     return-wide v0
 .end method
 
 .method writeBytesToImpl([BII)V
-    .locals 2
+    .registers 6
     .param p1, "dest"    # [B
     .param p2, "offset"    # I
     .param p3, "maxLength"    # I

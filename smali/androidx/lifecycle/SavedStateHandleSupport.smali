@@ -92,7 +92,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 212
     new-instance v0, Landroidx/lifecycle/SavedStateHandleSupport$SAVED_STATE_REGISTRY_OWNER_KEY$1;
@@ -125,7 +125,7 @@
 .end method
 
 .method public static final createSavedStateHandle(Landroidx/lifecycle/viewmodel/CreationExtras;)Landroidx/lifecycle/SavedStateHandle;
-    .locals 5
+    .registers 6
     .param p0, "$this$createSavedStateHandle"    # Landroidx/lifecycle/viewmodel/CreationExtras;
 
     const-string v0, "<this>"
@@ -141,7 +141,7 @@
 
     check-cast v0, Landroidx/savedstate/SavedStateRegistryOwner;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_43
 
     .line 94
     .local v0, "savedStateRegistryOwner":Landroidx/savedstate/SavedStateRegistryOwner;
@@ -153,7 +153,7 @@
 
     check-cast v1, Landroidx/lifecycle/ViewModelStoreOwner;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3a
 
     .line 99
     .local v1, "viewModelStateRegistryOwner":Landroidx/lifecycle/ViewModelStoreOwner;
@@ -175,7 +175,7 @@
 
     check-cast v3, Ljava/lang/String;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_31
 
     .line 104
     .local v3, "key":Ljava/lang/String;
@@ -190,7 +190,7 @@
 
     .line 100
     .end local v3    # "key":Ljava/lang/String;
-    :cond_0
+    :cond_31
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     .line 101
@@ -206,7 +206,7 @@
     .line 95
     .end local v1    # "viewModelStateRegistryOwner":Landroidx/lifecycle/ViewModelStoreOwner;
     .end local v2    # "defaultArgs":Landroid/os/Bundle;
-    :cond_1
+    :cond_3a
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     .line 96
@@ -221,7 +221,7 @@
 
     .line 91
     .end local v0    # "savedStateRegistryOwner":Landroidx/savedstate/SavedStateRegistryOwner;
-    :cond_2
+    :cond_43
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     .line 92
@@ -236,7 +236,7 @@
 .end method
 
 .method private static final createSavedStateHandle(Landroidx/savedstate/SavedStateRegistryOwner;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/String;Landroid/os/Bundle;)Landroidx/lifecycle/SavedStateHandle;
-    .locals 6
+    .registers 10
     .param p0, "savedStateRegistryOwner"    # Landroidx/savedstate/SavedStateRegistryOwner;
     .param p1, "viewModelStoreOwner"    # Landroidx/lifecycle/ViewModelStoreOwner;
     .param p2, "key"    # Ljava/lang/String;
@@ -265,7 +265,7 @@
 
     check-cast v2, Landroidx/lifecycle/SavedStateHandle;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_27
 
     sget-object v2, Landroidx/lifecycle/SavedStateHandle;->Companion:Landroidx/lifecycle/SavedStateHandle$Companion;
 
@@ -297,12 +297,12 @@
     .line 70
     .end local v3    # "it":Landroidx/lifecycle/SavedStateHandle;
     .end local v4    # "$i$a$-also-SavedStateHandleSupport$createSavedStateHandle$1":I
-    :cond_0
+    :cond_27
     return-object v2
 .end method
 
 .method public static final enableSavedStateHandles(Landroidx/savedstate/SavedStateRegistryOwner;)V
-    .locals 5
+    .registers 6
     .param p0, "$this$enableSavedStateHandles"    # Landroidx/savedstate/SavedStateRegistryOwner;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -334,25 +334,25 @@
     .line 47
     sget-object v1, Landroidx/lifecycle/Lifecycle$State;->INITIALIZED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_19
 
     sget-object v1, Landroidx/lifecycle/Lifecycle$State;->CREATED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_17
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     const/4 v1, 0x1
 
-    :goto_1
-    if-eqz v1, :cond_3
+    :goto_1a
+    if-eqz v1, :cond_4d
 
     .line 52
     invoke-interface {p0}, Landroidx/savedstate/SavedStateRegistryOwner;->getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
@@ -365,7 +365,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4c
 
     .line 53
     new-instance v1, Landroidx/lifecycle/SavedStateHandlesProvider;
@@ -407,11 +407,11 @@
 
     .line 57
     .end local v1    # "provider":Landroidx/lifecycle/SavedStateHandlesProvider;
-    :cond_2
+    :cond_4c
     return-void
 
     .line 47
-    :cond_3
+    :cond_4d
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Failed requirement."
@@ -426,7 +426,7 @@
 .end method
 
 .method public static final getSavedStateHandlesProvider(Landroidx/savedstate/SavedStateRegistryOwner;)Landroidx/lifecycle/SavedStateHandlesProvider;
-    .locals 2
+    .registers 3
     .param p0, "$this$savedStateHandlesProvider"    # Landroidx/savedstate/SavedStateRegistryOwner;
 
     const-string v0, "<this>"
@@ -446,23 +446,23 @@
 
     instance-of v1, v0, Landroidx/lifecycle/SavedStateHandlesProvider;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     check-cast v0, Landroidx/lifecycle/SavedStateHandlesProvider;
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_17
+    if-eqz v0, :cond_1a
 
     .line 116
     return-object v0
 
     .line 115
-    :cond_1
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "enableSavedStateHandles() wasn\'t called prior to createSavedStateHandle() call"
@@ -473,7 +473,7 @@
 .end method
 
 .method public static final getSavedStateHandlesVM(Landroidx/lifecycle/ViewModelStoreOwner;)Landroidx/lifecycle/SavedStateHandlesVM;
-    .locals 8
+    .registers 9
     .param p0, "$this$savedStateHandlesVM"    # Landroidx/lifecycle/ViewModelStoreOwner;
 
     const-string v0, "<this>"

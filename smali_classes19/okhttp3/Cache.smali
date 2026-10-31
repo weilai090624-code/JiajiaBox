@@ -135,7 +135,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/Cache$Companion;
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;J)V
-    .locals 4
+    .registers 8
     .param p1, "directory"    # Ljava/io/File;
     .param p2, "maxSize"    # J
 
@@ -183,7 +183,7 @@
 .end method
 
 .method public constructor <init>(Lokio/Path;JLokio/FileSystem;)V
-    .locals 9
+    .registers 14
     .param p1, "directory"    # Lokio/Path;
     .param p2, "maxSize"    # J
     .param p4, "fileSystem"    # Lokio/FileSystem;
@@ -242,37 +242,37 @@
 .end method
 
 .method private final abortQuietly(Lokhttp3/internal/cache/DiskLruCache$Editor;)V
-    .locals 1
+    .registers 3
     .param p1, "editor"    # Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     .line 252
     nop
 
     .line 253
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
-    :goto_0
-    goto :goto_1
+    :goto_3
+    goto :goto_9
 
-    :cond_0
-    :try_start_0
+    :cond_4
+    :try_start_4
     invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$Editor;->abort()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_7} :catch_8
 
-    goto :goto_0
+    goto :goto_3
 
     .line 254
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 256
-    :goto_1
+    :goto_9
     return-void
 .end method
 
 .method public static final key(Lokhttp3/HttpUrl;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -288,7 +288,7 @@
 
 # virtual methods
 .method public final -deprecated_directory()Ljava/io/File;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -313,7 +313,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -330,7 +330,7 @@
 .end method
 
 .method public final delete()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -347,7 +347,7 @@
 .end method
 
 .method public final directory()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 364
     iget-object v0, p0, Lokhttp3/Cache;->cache:Lokhttp3/internal/cache/DiskLruCache;
@@ -364,7 +364,7 @@
 .end method
 
 .method public final directoryPath()Lokio/Path;
-    .locals 1
+    .registers 2
 
     .line 367
     iget-object v0, p0, Lokhttp3/Cache;->cache:Lokhttp3/internal/cache/DiskLruCache;
@@ -377,7 +377,7 @@
 .end method
 
 .method public final evictAll()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -394,7 +394,7 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -411,7 +411,7 @@
 .end method
 
 .method public final get$okhttp(Lokhttp3/Request;)Lokhttp3/Response;
-    .locals 6
+    .registers 8
     .param p1, "request"    # Lokhttp3/Request;
 
     const-string v0, "request"
@@ -436,21 +436,21 @@
     .line 177
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_11
     iget-object v2, p0, Lokhttp3/Cache;->cache:Lokhttp3/internal/cache/DiskLruCache;
 
     invoke-virtual {v2, v0}, Lokhttp3/internal/cache/DiskLruCache;->get(Ljava/lang/String;)Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_17
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_17} :catch_47
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     return-object v1
 
     .line 176
-    :cond_0
+    :cond_1a
     nop
 
     .line 182
@@ -458,7 +458,7 @@
     nop
 
     .line 183
-    :try_start_1
+    :try_start_1c
     new-instance v3, Lokhttp3/Cache$Entry;
 
     const/4 v4, 0x0
@@ -468,8 +468,8 @@
     move-result-object v4
 
     invoke-direct {v3, v4}, Lokhttp3/Cache$Entry;-><init>(Lokio/Source;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_26
+    .catch Ljava/io/IOException; {:try_start_1c .. :try_end_26} :catch_3f
 
     .line 182
     nop
@@ -486,34 +486,34 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3e
 
     .line 191
     invoke-virtual {v4}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
     move-result-object v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_38
 
-    goto :goto_0
+    goto :goto_3d
 
-    :cond_1
+    :cond_38
     check-cast v5, Ljava/io/Closeable;
 
     invoke-static {v5}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 192
-    :goto_0
+    :goto_3d
     return-object v1
 
     .line 195
-    :cond_2
+    :cond_3e
     return-object v4
 
     .line 184
     .end local v3    # "entry":Lokhttp3/Cache$Entry;
     .end local v4    # "response":Lokhttp3/Response;
-    :catch_0
+    :catch_3f
     move-exception v3
 
     .line 185
@@ -530,7 +530,7 @@
     .line 178
     .end local v2    # "snapshot":Lokhttp3/internal/cache/DiskLruCache$Snapshot;
     .end local v3    # "_":Ljava/io/IOException;
-    :catch_1
+    :catch_47
     move-exception v2
 
     .line 179
@@ -539,7 +539,7 @@
 .end method
 
 .method public final getCache$okhttp()Lokhttp3/internal/cache/DiskLruCache;
-    .locals 1
+    .registers 2
 
     .line 150
     iget-object v0, p0, Lokhttp3/Cache;->cache:Lokhttp3/internal/cache/DiskLruCache;
@@ -548,7 +548,7 @@
 .end method
 
 .method public final getWriteAbortCount$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 161
     iget v0, p0, Lokhttp3/Cache;->writeAbortCount:I
@@ -557,7 +557,7 @@
 .end method
 
 .method public final getWriteSuccessCount$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 160
     iget v0, p0, Lokhttp3/Cache;->writeSuccessCount:I
@@ -566,15 +566,15 @@
 .end method
 
 .method public final declared-synchronized hitCount()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 395
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lokhttp3/Cache;->hitCount:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
@@ -582,19 +582,19 @@
 
     .line 395
     .end local p0    # "this":Lokhttp3/Cache;
-    :catchall_0
+    :catchall_5
     move-exception v0
 
-    :try_start_1
+    :try_start_6
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_6 .. :try_end_7} :catchall_5
 
     throw v0
 .end method
 
 .method public final initialize()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -611,7 +611,7 @@
 .end method
 
 .method public final isClosed()Z
-    .locals 1
+    .registers 2
 
     .line 167
     iget-object v0, p0, Lokhttp3/Cache;->cache:Lokhttp3/internal/cache/DiskLruCache;
@@ -624,7 +624,7 @@
 .end method
 
 .method public final maxSize()J
-    .locals 2
+    .registers 3
 
     .line 351
     iget-object v0, p0, Lokhttp3/Cache;->cache:Lokhttp3/internal/cache/DiskLruCache;
@@ -637,15 +637,15 @@
 .end method
 
 .method public final declared-synchronized networkCount()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 393
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lokhttp3/Cache;->networkCount:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
@@ -653,19 +653,19 @@
 
     .line 393
     .end local p0    # "this":Lokhttp3/Cache;
-    :catchall_0
+    :catchall_5
     move-exception v0
 
-    :try_start_1
+    :try_start_6
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_6 .. :try_end_7} :catchall_5
 
     throw v0
 .end method
 
 .method public final put$okhttp(Lokhttp3/Response;)Lokhttp3/internal/cache/CacheRequest;
-    .locals 10
+    .registers 12
     .param p1, "response"    # Lokhttp3/Response;
 
     const-string v0, "response"
@@ -699,59 +699,59 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     .line 202
     nop
 
     .line 203
-    :try_start_0
+    :try_start_1f
     invoke-virtual {p1}, Lokhttp3/Response;->request()Lokhttp3/Request;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Lokhttp3/Cache;->remove$okhttp(Lokhttp3/Request;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/io/IOException; {:try_start_1f .. :try_end_26} :catch_27
 
-    goto :goto_0
+    goto :goto_28
 
     .line 204
-    :catch_0
+    :catch_27
     move-exception v1
 
     .line 207
-    :goto_0
+    :goto_28
     return-object v2
 
     .line 210
-    :cond_0
+    :cond_29
     const-string v1, "GET"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_32
 
     .line 213
     return-object v2
 
     .line 216
-    :cond_1
+    :cond_32
     sget-object v1, Lokhttp3/Cache;->Companion:Lokhttp3/Cache$Companion;
 
     invoke-virtual {v1, p1}, Lokhttp3/Cache$Companion;->hasVaryAll(Lokhttp3/Response;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3b
 
     .line 217
     return-object v2
 
     .line 220
-    :cond_2
+    :cond_3b
     new-instance v1, Lokhttp3/Cache$Entry;
 
     invoke-direct {v1, p1}, Lokhttp3/Cache$Entry;-><init>(Lokhttp3/Response;)V
@@ -765,7 +765,7 @@
     nop
 
     .line 223
-    :try_start_1
+    :try_start_42
     iget-object v4, p0, Lokhttp3/Cache;->cache:Lokhttp3/internal/cache/DiskLruCache;
 
     sget-object v5, Lokhttp3/Cache;->Companion:Lokhttp3/Cache$Companion;
@@ -792,11 +792,11 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_5d
 
     return-object v2
 
-    :cond_3
+    :cond_5d
     move-object v3, v4
 
     .line 224
@@ -808,13 +808,13 @@
     invoke-direct {v4, p0, v3}, Lokhttp3/Cache$RealCacheRequest;-><init>(Lokhttp3/Cache;Lokhttp3/internal/cache/DiskLruCache$Editor;)V
 
     check-cast v4, Lokhttp3/internal/cache/CacheRequest;
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_68
+    .catch Ljava/io/IOException; {:try_start_42 .. :try_end_68} :catch_69
 
     return-object v4
 
     .line 226
-    :catch_1
+    :catch_69
     move-exception v4
 
     .line 227
@@ -826,7 +826,7 @@
 .end method
 
 .method public final remove$okhttp(Lokhttp3/Request;)V
-    .locals 3
+    .registers 5
     .param p1, "request"    # Lokhttp3/Request;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -858,15 +858,15 @@
 .end method
 
 .method public final declared-synchronized requestCount()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 397
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lokhttp3/Cache;->requestCount:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
@@ -874,19 +874,19 @@
 
     .line 397
     .end local p0    # "this":Lokhttp3/Cache;
-    :catchall_0
+    :catchall_5
     move-exception v0
 
-    :try_start_1
+    :try_start_6
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_6 .. :try_end_7} :catchall_5
 
     throw v0
 .end method
 
 .method public final setWriteAbortCount$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 161
@@ -896,7 +896,7 @@
 .end method
 
 .method public final setWriteSuccessCount$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 160
@@ -906,7 +906,7 @@
 .end method
 
 .method public final size()J
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -924,19 +924,19 @@
 .end method
 
 .method public final declared-synchronized trackConditionalCacheHit$okhttp()V
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 390
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lokhttp3/Cache;->hitCount:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lokhttp3/Cache;->hitCount:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     .line 391
     monitor-exit p0
@@ -945,24 +945,24 @@
 
     .line 389
     .end local p0    # "this":Lokhttp3/Cache;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method
 
 .method public final declared-synchronized trackResponse$okhttp(Lokhttp3/internal/cache/CacheStrategy;)V
-    .locals 1
+    .registers 3
     .param p1, "cacheStrategy"    # Lokhttp3/internal/cache/CacheStrategy;
 
     monitor-enter p0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "cacheStrategy"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -979,7 +979,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 382
     iget v0, p0, Lokhttp3/Cache;->networkCount:I
@@ -988,16 +988,16 @@
 
     iput v0, p0, Lokhttp3/Cache;->networkCount:I
 
-    goto :goto_0
+    goto :goto_25
 
     .line 383
     .end local p0    # "this":Lokhttp3/Cache;
-    :cond_0
+    :cond_19
     invoke-virtual {p1}, Lokhttp3/internal/cache/CacheStrategy;->getCacheResponse()Lokhttp3/Response;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     .line 385
     iget v0, p0, Lokhttp3/Cache;->hitCount:I
@@ -1005,31 +1005,31 @@
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lokhttp3/Cache;->hitCount:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_1 .. :try_end_25} :catchall_27
 
     .line 387
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     monitor-exit p0
 
     return-void
 
     .line 377
     .end local p1    # "cacheStrategy":Lokhttp3/internal/cache/CacheStrategy;
-    :catchall_0
+    :catchall_27
     move-exception p1
 
-    :try_start_1
+    :try_start_28
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_29
+    .catchall {:try_start_28 .. :try_end_29} :catchall_27
 
     throw p1
 .end method
 
 .method public final update$okhttp(Lokhttp3/Response;Lokhttp3/Response;)V
-    .locals 4
+    .registers 7
     .param p1, "cached"    # Lokhttp3/Response;
     .param p2, "network"    # Lokhttp3/Response;
 
@@ -1052,7 +1052,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_31
 
     check-cast v1, Lokhttp3/Cache$CacheResponseBody;
 
@@ -1069,16 +1069,16 @@
     nop
 
     .line 242
-    :try_start_0
+    :try_start_1d
     invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->edit()Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_24
 
     return-void
 
-    :cond_0
+    :cond_24
     move-object v2, v3
 
     .line 243
@@ -1086,13 +1086,13 @@
 
     .line 244
     invoke-virtual {v2}, Lokhttp3/internal/cache/DiskLruCache$Editor;->commit()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/io/IOException; {:try_start_1d .. :try_end_2b} :catch_2c
 
-    goto :goto_0
+    goto :goto_30
 
     .line 245
-    :catch_0
+    :catch_2c
     move-exception v3
 
     .line 246
@@ -1101,13 +1101,13 @@
 
     .line 248
     .end local v3    # "_":Ljava/io/IOException;
-    :goto_0
+    :goto_30
     return-void
 
     .line 239
     .end local v1    # "snapshot":Lokhttp3/internal/cache/DiskLruCache$Snapshot;
     .end local v2    # "editor":Lokhttp3/internal/cache/DiskLruCache$Editor;
-    :cond_1
+    :cond_31
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type okhttp3.Cache.CacheResponseBody"
@@ -1118,7 +1118,7 @@
 .end method
 
 .method public final urls()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1145,15 +1145,15 @@
 .end method
 
 .method public final declared-synchronized writeAbortCount()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 343
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lokhttp3/Cache;->writeAbortCount:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
@@ -1161,27 +1161,27 @@
 
     .line 343
     .end local p0    # "this":Lokhttp3/Cache;
-    :catchall_0
+    :catchall_5
     move-exception v0
 
-    :try_start_1
+    :try_start_6
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_6 .. :try_end_7} :catchall_5
 
     throw v0
 .end method
 
 .method public final declared-synchronized writeSuccessCount()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 345
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lokhttp3/Cache;->writeSuccessCount:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
@@ -1189,13 +1189,13 @@
 
     .line 345
     .end local p0    # "this":Lokhttp3/Cache;
-    :catchall_0
+    :catchall_5
     move-exception v0
 
-    :try_start_1
+    :try_start_6
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_6 .. :try_end_7} :catchall_5
 
     throw v0
 .end method

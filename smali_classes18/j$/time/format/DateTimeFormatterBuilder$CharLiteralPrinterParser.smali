@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(C)V
-    .locals 0
+    .registers 2
     .param p1, "literal"    # C
 
     .line 2557
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 4
+    .registers 8
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -67,7 +67,7 @@
 
     .line 2570
     .local v0, "length":I
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_8
 
     .line 2571
     not-int v1, p3
@@ -75,7 +75,7 @@
     return v1
 
     .line 2573
-    :cond_0
+    :cond_8
     invoke-interface {p2, p3}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v1
@@ -84,14 +84,14 @@
     .local v1, "ch":C
     iget-char v2, p0, Lj$/time/format/DateTimeFormatterBuilder$CharLiteralPrinterParser;->literal:C
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_30
 
     .line 2575
     invoke-virtual {p1}, Lj$/time/format/DateTimeParseContext;->isCaseSensitive()Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2e
 
     .line 2576
     invoke-static {v1}, Ljava/lang/Character;->toUpperCase(C)C
@@ -104,7 +104,7 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_30
 
     .line 2577
     invoke-static {v1}, Ljava/lang/Character;->toLowerCase(C)C
@@ -117,30 +117,30 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_30
 
     .line 2578
-    :cond_1
+    :cond_2e
     not-int v2, p3
 
     return v2
 
     .line 2581
-    :cond_2
+    :cond_30
     add-int/lit8 v2, p3, 0x1
 
     return v2
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 2586
     iget-char v0, p0, Lj$/time/format/DateTimeFormatterBuilder$CharLiteralPrinterParser;->literal:C
 
     const/16 v1, 0x27
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     .line 2587
     const-string v0, "\'\'"
@@ -148,7 +148,7 @@
     return-object v0
 
     .line 2589
-    :cond_0
+    :cond_9
     iget-char v0, p0, Lj$/time/format/DateTimeFormatterBuilder$CharLiteralPrinterParser;->literal:C
 
     new-instance v1, Ljava/lang/StringBuilder;

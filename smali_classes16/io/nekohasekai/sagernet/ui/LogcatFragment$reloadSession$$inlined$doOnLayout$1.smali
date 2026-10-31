@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/nekohasekai/sagernet/ui/LogcatFragment;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/LogcatFragment$reloadSession$$inlined$doOnLayout$1;->this$0:Lio/nekohasekai/sagernet/ui/LogcatFragment;
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 9
+    .registers 19
     .param p1, "view"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I

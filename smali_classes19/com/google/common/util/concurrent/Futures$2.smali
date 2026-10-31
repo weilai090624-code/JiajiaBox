@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Future;Lcom/google/common/base/Function;)V
-    .locals 0
+    .registers 3
 
     .line 487
     iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$2;->val$input:Ljava/util/concurrent/Future;
@@ -46,7 +46,7 @@
 .end method
 
 .method private applyTransformation(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TI;)TO;"
@@ -67,13 +67,13 @@
     invoke-interface {v0, p1}, Lcom/google/common/base/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_0 .. :try_end_6} :catchall_7
 
     return-object v0
 
     .line 518
-    :catchall_0
+    :catchall_7
     move-exception v0
 
     .line 519
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public cancel(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "mayInterruptIfRunning"    # Z
 
     .line 491
@@ -102,7 +102,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TO;"
@@ -131,7 +131,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -165,7 +165,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 496
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$2;->val$input:Ljava/util/concurrent/Future;
@@ -178,7 +178,7 @@
 .end method
 
 .method public isDone()Z
-    .locals 1
+    .registers 2
 
     .line 501
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$2;->val$input:Ljava/util/concurrent/Future;

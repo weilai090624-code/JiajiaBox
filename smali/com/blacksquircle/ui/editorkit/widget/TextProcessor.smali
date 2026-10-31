@@ -147,7 +147,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$E3BGyrbCaCBFdF4bKiwrBWfg2fk(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;II)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->onSelectionChanged$lambda$0(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;II)V
 
@@ -155,7 +155,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$OHN6i8oTKjz9Vx4u0hGjQyEjyqg(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;F)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->setTextSize$lambda$1(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;F)V
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$V9x4QJ61TZM2Ht7iLRcw6glrOTg(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;Landroid/graphics/Typeface;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->setTypeface$lambda$2(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;Landroid/graphics/Typeface;)V
 
@@ -171,7 +171,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor$Companion;
 
@@ -185,7 +185,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
 
     const-string v0, "context"
 
@@ -209,7 +209,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
 
     const-string v0, "context"
 
@@ -233,7 +233,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -262,27 +262,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 33
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 35
     const/4 p2, 0x0
 
     .line 33
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 36
     const p3, 0x101006b
 
     .line 33
-    :cond_1
+    :cond_c
     invoke-direct {p0, p1, p2, p3}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 258
@@ -290,7 +290,7 @@
 .end method
 
 .method private static final onSelectionChanged$lambda$0(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;II)V
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
     .param p1, "$selStart"    # I
     .param p2, "$selEnd"    # I
@@ -306,12 +306,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -324,15 +324,15 @@
     invoke-virtual {v1, p1, p2}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onSelectionChanged(II)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_c
 
     .line 113
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method private static final setTextSize$lambda$1(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;F)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
     .param p1, "$size"    # F
 
@@ -347,12 +347,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -365,15 +365,15 @@
     invoke-virtual {v1, p1}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->setTextSize(F)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_c
 
     .line 199
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method private static final setTypeface$lambda$2(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;Landroid/graphics/Typeface;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
     .param p1, "$tf"    # Landroid/graphics/Typeface;
 
@@ -388,12 +388,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -406,17 +406,17 @@
     invoke-virtual {v1, p1}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->setTypeface(Landroid/graphics/Typeface;)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_c
 
     .line 208
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 
 # virtual methods
 .method protected addLine(II)V
-    .locals 2
+    .registers 5
     .param p1, "lineNumber"    # I
     .param p2, "lineStart"    # I
 
@@ -430,12 +430,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -448,15 +448,15 @@
     invoke-virtual {v1, p1, p2}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->addLine(II)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 177
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method protected doAfterTextChanged(Landroid/text/Editable;)V
-    .locals 2
+    .registers 4
     .param p1, "text"    # Landroid/text/Editable;
 
     .line 159
@@ -469,12 +469,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -487,15 +487,15 @@
     invoke-virtual {v1, p1}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->afterTextChanged(Landroid/text/Editable;)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 163
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method protected doBeforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 2
+    .registers 7
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -511,12 +511,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -529,15 +529,15 @@
     invoke-virtual {v1, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->beforeTextChanged(Ljava/lang/CharSequence;III)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 149
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method protected doOnTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 2
+    .registers 7
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
@@ -553,12 +553,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -571,15 +571,15 @@
     invoke-virtual {v1, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onTextChanged(Ljava/lang/CharSequence;III)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 156
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public findPlugin(Ljava/lang/String;)Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    .locals 6
+    .registers 8
     .param p1, "pluginId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -604,14 +604,14 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -637,28 +637,28 @@
 
     .end local v3    # "it":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
     .end local v4    # "$i$a$-find-TextProcessor$findPlugin$1":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_d
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     move-object v1, v2
 
-    :goto_0
+    :goto_28
     instance-of v0, v1, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     move-object v2, v1
 
     check-cast v2, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
 
-    :cond_2
+    :cond_2f
     return-object v2
 .end method
 
 .method public getFreezesText()Z
-    .locals 1
+    .registers 2
 
     .line 71
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->_freezesText:Z
@@ -667,7 +667,7 @@
 .end method
 
 .method public hasPlugin(Ljava/lang/String;)Z
-    .locals 8
+    .registers 10
     .param p1, "pluginId"    # Ljava/lang/String;
 
     const-string v0, "pluginId"
@@ -688,7 +688,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     move-object v2, v0
 
@@ -698,22 +698,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
-    goto :goto_0
+    goto :goto_38
 
     .line 261
-    :cond_0
+    :cond_19
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_1d
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_37
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -740,26 +740,26 @@
     .line 261
     .end local v5    # "it":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
     .end local v6    # "$i$a$-any-TextProcessor$hasPlugin$1":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_1d
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_38
 
     .line 262
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_37
     nop
 
     .line 256
     .end local v0    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$any":I
-    :goto_0
+    :goto_38
     return v3
 .end method
 
 .method public installPlugin(Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;)V
-    .locals 2
+    .registers 4
     .param p1, "plugin"    # Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -782,7 +782,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 232
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->plugins:Ljava/util/HashSet;
@@ -792,10 +792,10 @@
     .line 233
     invoke-virtual {p1, p0}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onAttached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 235
-    :cond_0
+    :cond_18
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -825,12 +825,12 @@
     invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 237
-    :goto_0
+    :goto_36
     return-void
 .end method
 
 .method protected onColorSchemeChanged()V
-    .locals 3
+    .registers 4
 
     .line 80
     invoke-super {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->onColorSchemeChanged()V
@@ -842,12 +842,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -864,15 +864,15 @@
     invoke-virtual {v1, v2}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onColorSchemeChanged(Lcom/blacksquircle/ui/editorkit/model/ColorScheme;)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 84
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 2
+    .registers 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 61
@@ -882,12 +882,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -900,10 +900,10 @@
     invoke-virtual {v1, p1}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->drawBehind(Landroid/graphics/Canvas;)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_6
 
     .line 64
-    :cond_0
+    :cond_16
     invoke-super {p0, p1}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->onDraw(Landroid/graphics/Canvas;)V
 
     .line 65
@@ -913,12 +913,12 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_1f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -931,15 +931,15 @@
     invoke-virtual {v1, p1}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onDraw(Landroid/graphics/Canvas;)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_1
+    goto :goto_1f
 
     .line 68
-    :cond_1
+    :cond_2f
     return-void
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 3
+    .registers 6
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
 
@@ -950,12 +950,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -969,7 +969,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_6
 
     .line 138
     const/4 v0, 0x1
@@ -978,7 +978,7 @@
 
     .line 141
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    :cond_1
+    :cond_1a
     invoke-super {p0, p1, p2}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v0
@@ -987,7 +987,7 @@
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .locals 3
+    .registers 6
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
 
@@ -998,12 +998,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1017,7 +1017,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_6
 
     .line 129
     const/4 v0, 0x1
@@ -1026,7 +1026,7 @@
 
     .line 132
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    :cond_1
+    :cond_1a
     invoke-super {p0, p1, p2}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
     move-result v0
@@ -1035,7 +1035,7 @@
 .end method
 
 .method protected onLanguageChanged()V
-    .locals 3
+    .registers 4
 
     .line 87
     invoke-super {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->onLanguageChanged()V
@@ -1047,12 +1047,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1069,15 +1069,15 @@
     invoke-virtual {v1, v2}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onLanguageChanged(Lcom/blacksquircle/ui/language/base/Language;)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 91
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 8
+    .registers 14
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -1094,12 +1094,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1124,15 +1124,15 @@
     invoke-virtual/range {v2 .. v7}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onLayout(ZIIII)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 58
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 2
+    .registers 5
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -1146,12 +1146,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1164,15 +1164,15 @@
     invoke-virtual {v1, p1, p2}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onMeasure(II)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 51
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method protected onScrollChanged(IIII)V
-    .locals 2
+    .registers 7
     .param p1, "horiz"    # I
     .param p2, "vert"    # I
     .param p3, "oldHoriz"    # I
@@ -1188,12 +1188,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1206,15 +1206,15 @@
     invoke-virtual {v1, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onScrollChanged(IIII)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 98
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method protected onSelectionChanged(II)V
-    .locals 1
+    .registers 4
     .param p1, "selStart"    # I
     .param p2, "selEnd"    # I
 
@@ -1233,7 +1233,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 2
+    .registers 7
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -1249,12 +1249,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1267,15 +1267,15 @@
     invoke-virtual {v1, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onSizeChanged(IIII)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 105
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 3
+    .registers 5
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     const-string v0, "event"
@@ -1289,12 +1289,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1308,7 +1308,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_b
 
     .line 120
     const/4 v0, 0x1
@@ -1317,7 +1317,7 @@
 
     .line 123
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    :cond_1
+    :cond_1f
     invoke-super {p0, p1}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -1326,7 +1326,7 @@
 .end method
 
 .method public plugins(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;)V
-    .locals 6
+    .registers 8
     .param p1, "supplier"    # Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;
 
     const-string/jumbo v0, "supplier"
@@ -1384,12 +1384,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_2f
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_43
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1406,10 +1406,10 @@
     invoke-virtual {p0, v5}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->uninstallPlugin(Ljava/lang/String;)V
 
     .end local v4    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_2f
 
     .line 225
-    :cond_0
+    :cond_43
     invoke-virtual {p1}, Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;->supply()Ljava/util/Set;
 
     move-result-object v3
@@ -1418,12 +1418,12 @@
 
     move-result-object v3
 
-    :goto_1
+    :goto_4b
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_5b
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1436,15 +1436,15 @@
     invoke-virtual {p0, v4}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->installPlugin(Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;)V
 
     .end local v4    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_1
+    goto :goto_4b
 
     .line 228
-    :cond_1
+    :cond_5b
     return-void
 .end method
 
 .method protected processLine(III)V
-    .locals 2
+    .registers 6
     .param p1, "lineNumber"    # I
     .param p2, "lineStart"    # I
     .param p3, "lineEnd"    # I
@@ -1459,12 +1459,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1477,15 +1477,15 @@
     invoke-virtual {v1, p1, p2, p3}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->processLine(III)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 170
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method protected removeLine(I)V
-    .locals 2
+    .registers 4
     .param p1, "lineNumber"    # I
 
     .line 180
@@ -1498,12 +1498,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1516,15 +1516,15 @@
     invoke-virtual {v1, p1}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->removeLine(I)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 184
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public setFreezesText(Z)V
-    .locals 0
+    .registers 2
     .param p1, "freezesText"    # Z
 
     .line 75
@@ -1538,7 +1538,7 @@
 .end method
 
 .method public setTextContent(Ljava/lang/CharSequence;)V
-    .locals 2
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     const-string/jumbo v0, "text"
@@ -1555,12 +1555,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1573,15 +1573,15 @@
     invoke-virtual {v1, p1}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->setTextContent(Ljava/lang/CharSequence;)V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_f
 
     .line 191
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method public setTextSize(F)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # F
 
     .line 194
@@ -1599,7 +1599,7 @@
 .end method
 
 .method public setTypeface(Landroid/graphics/Typeface;)V
-    .locals 1
+    .registers 3
     .param p1, "tf"    # Landroid/graphics/Typeface;
 
     .line 203
@@ -1617,7 +1617,7 @@
 .end method
 
 .method public showDropDown()V
-    .locals 2
+    .registers 3
 
     .line 212
     invoke-super {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/SyntaxHighlightEditText;->showDropDown()V
@@ -1629,12 +1629,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1647,15 +1647,15 @@
     invoke-virtual {v1}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->showDropDown()V
 
     .end local v1    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
-    goto :goto_0
+    goto :goto_9
 
     .line 216
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public uninstallPlugin(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "pluginId"    # Ljava/lang/String;
 
     const-string v0, "pluginId"
@@ -1667,14 +1667,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 241
     invoke-virtual {p0, p1}, Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;->findPlugin(Ljava/lang/String;)Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     .local v0, "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
     const/4 v1, 0x0
@@ -1694,10 +1694,10 @@
     .line 241
     .end local v0    # "plugin":Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;
     .end local v1    # "$i$a$-let-TextProcessor$uninstallPlugin$1":I
-    goto :goto_0
+    goto :goto_3a
 
     .line 246
-    :cond_0
+    :cond_1c
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1727,7 +1727,7 @@
     invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 248
-    :cond_1
-    :goto_0
+    :cond_3a
+    :goto_3a
     return-void
 .end method

@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "jClass"    # Ljava/lang/Class;
     .param p2, "moduleName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -97,13 +97,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 19
     instance-of v0, p1, Lkotlin/jvm/internal/PackageReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-virtual {p0}, Lkotlin/jvm/internal/PackageReference;->getJClass()Ljava/lang/Class;
 
@@ -121,21 +121,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_18
     return v0
 .end method
 
 .method public getJClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -151,7 +151,7 @@
 .end method
 
 .method public getMembers()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -170,7 +170,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-virtual {p0}, Lkotlin/jvm/internal/PackageReference;->getJClass()Ljava/lang/Class;
@@ -185,7 +185,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 25
     new-instance v0, Ljava/lang/StringBuilder;

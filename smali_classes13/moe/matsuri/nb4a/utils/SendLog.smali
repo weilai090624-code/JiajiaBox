@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lmoe/matsuri/nb4a/utils/SendLog;
 
@@ -57,7 +57,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,14 +68,14 @@
 
 # virtual methods
 .method public final getNekoLog(J)[B
-    .locals 8
+    .registers 11
     .param p1, "max"    # J
 
     .line 62
     nop
 
     .line 63
-    :try_start_0
+    :try_start_1
     new-instance v0, Ljava/io/File;
 
     .line 64
@@ -115,16 +115,16 @@
 
     cmp-long v7, v4, p1
 
-    if-gtz v7, :cond_0
+    if-gtz v7, :cond_27
 
     cmp-long v4, p1, v1
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_27
 
     const/4 v6, 0x1
 
-    :cond_0
-    if-eqz v6, :cond_1
+    :cond_27
+    if-eqz v6, :cond_2e
 
     .line 70
     sub-long v4, v1, p1
@@ -132,14 +132,14 @@
     invoke-virtual {v3, v4, v5}, Ljava/io/FileInputStream;->skip(J)J
 
     .line 72
-    :cond_1
+    :cond_2e
     move-object v4, v3
 
     check-cast v4, Ljava/io/Closeable;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_31
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_31} :catch_48
 
-    :try_start_1
+    :try_start_31
     move-object v5, v4
 
     check-cast v5, Ljava/io/FileInputStream;
@@ -157,53 +157,53 @@
     invoke-static {v7}, Lkotlin/io/ByteStreamsKt;->readBytes(Ljava/io/InputStream;)[B
 
     move-result-object v7
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3c
+    .catchall {:try_start_31 .. :try_end_3c} :catchall_41
 
     .end local v5    # "it":Ljava/io/FileInputStream;
     .end local v6    # "$i$a$-use-SendLog$getNekoLog$1":I
     const/4 v5, 0x0
 
-    :try_start_2
+    :try_start_3d
     invoke-static {v4, v5}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_40
+    .catch Ljava/lang/Exception; {:try_start_3d .. :try_end_40} :catch_48
 
-    goto :goto_0
+    goto :goto_5b
 
-    :catchall_0
+    :catchall_41
     move-exception v5
 
     .end local v0    # "file":Ljava/io/File;
     .end local v1    # "len":J
     .end local v3    # "stream":Ljava/io/FileInputStream;
     .end local p1    # "max":J
-    :try_start_3
+    :try_start_42
     throw v5
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_43
+    .catchall {:try_start_42 .. :try_end_43} :catchall_43
 
     .restart local v0    # "file":Ljava/io/File;
     .restart local v1    # "len":J
     .restart local v3    # "stream":Ljava/io/FileInputStream;
     .restart local p1    # "max":J
-    :catchall_1
+    :catchall_43
     move-exception v6
 
-    :try_start_4
+    :try_start_44
     invoke-static {v4, v5}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local p1    # "max":J
     throw v6
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_48
+    .catch Ljava/lang/Exception; {:try_start_44 .. :try_end_48} :catch_48
 
     .line 73
     .end local v0    # "file":Ljava/io/File;
     .end local v1    # "len":J
     .end local v3    # "stream":Ljava/io/FileInputStream;
     .restart local p1    # "max":J
-    :catch_0
+    :catch_48
     move-exception v0
 
     .line 74
@@ -228,12 +228,12 @@
 
     .line 62
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_5b
     return-object v7
 .end method
 
 .method public final sendLog(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 10
+    .registers 13
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "title"    # Ljava/lang/String;
 
@@ -348,7 +348,7 @@
     .line 33
     const/4 v5, 0x1
 
-    :try_start_0
+    :try_start_5f
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v6
@@ -389,13 +389,13 @@
 
     .line 38
     invoke-static {v1, v0, v3, v4, v3}, Lkotlin/io/FilesKt;->appendText$default(Ljava/io/File;Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_86
+    .catch Ljava/io/IOException; {:try_start_5f .. :try_end_86} :catch_87
 
-    goto :goto_0
+    goto :goto_af
 
     .line 39
-    :catch_0
+    :catch_87
     move-exception v6
 
     .line 40
@@ -441,7 +441,7 @@
 
     .line 44
     .end local v6    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_af
     invoke-static {v1, v0, v3, v4, v3}, Lkotlin/io/FilesKt;->appendText$default(Ljava/io/File;Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)V
 
     .line 45

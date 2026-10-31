@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static synthetic bv$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->WARNING:Lkotlin/DeprecationLevel;
         message = "Bytecode version had no significant use in Kotlin metadata and it will be removed in a future version."
@@ -36,13 +36,13 @@
 .end method
 
 .method public static synthetic pn$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic xi$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

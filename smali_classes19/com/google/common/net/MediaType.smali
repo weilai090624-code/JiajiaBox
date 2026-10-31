@@ -341,7 +341,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
+    .registers 11
 
     .line 81
     sget-object v0, Lcom/google/common/base/Charsets;->UTF_8:Ljava/nio/charset/Charset;
@@ -1526,7 +1526,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/google/common/collect/ImmutableListMultimap;)V
-    .locals 0
+    .registers 4
     .param p1, "type"    # Ljava/lang/String;
     .param p2, "subtype"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -1559,7 +1559,7 @@
 .end method
 
 .method static synthetic access$000()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 1
 
     .line 79
     sget-object v0, Lcom/google/common/net/MediaType;->TOKEN_MATCHER:Lcom/google/common/base/CharMatcher;
@@ -1568,7 +1568,7 @@
 .end method
 
 .method static synthetic access$100(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/lang/String;
 
     .line 79
@@ -1580,7 +1580,7 @@
 .end method
 
 .method private static addKnownType(Lcom/google/common/net/MediaType;)Lcom/google/common/net/MediaType;
-    .locals 1
+    .registers 2
     .param p0, "mediaType"    # Lcom/google/common/net/MediaType;
 
     .line 125
@@ -1593,7 +1593,7 @@
 .end method
 
 .method private computeToString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 1182
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1626,7 +1626,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_38
 
     .line 1184
     const-string v1, "; "
@@ -1657,7 +1657,7 @@
 
     .line 1198
     .end local v1    # "quotedParameters":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<Ljava/lang/String;Ljava/lang/String;>;"
-    :cond_0
+    :cond_38
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1666,7 +1666,7 @@
 .end method
 
 .method public static create(Ljava/lang/String;Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 2
+    .registers 4
     .param p0, "type"    # Ljava/lang/String;
     .param p1, "subtype"    # Ljava/lang/String;
 
@@ -1692,7 +1692,7 @@
 .end method
 
 .method private static create(Ljava/lang/String;Ljava/lang/String;Lcom/google/common/collect/Multimap;)Lcom/google/common/net/MediaType;
-    .locals 7
+    .registers 10
     .param p0, "type"    # Ljava/lang/String;
     .param p1, "subtype"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -1740,27 +1740,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_23
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_21
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     const/4 v2, 0x1
 
     .line 968
-    :goto_1
+    :goto_24
     const-string v3, "A wildcard type cannot be used with a non-wildcard subtype"
 
     invoke-static {v2, v3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -1780,12 +1780,12 @@
 
     move-result-object v3
 
-    :goto_2
+    :goto_35
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_59
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1822,10 +1822,10 @@
     .line 975
     .end local v4    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v5    # "attribute":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_35
 
     .line 976
-    :cond_2
+    :cond_59
     new-instance v3, Lcom/google/common/net/MediaType;
 
     invoke-virtual {v2}, Lcom/google/common/collect/ImmutableListMultimap$Builder;->build()Lcom/google/common/collect/ImmutableListMultimap;
@@ -1854,7 +1854,7 @@
 .end method
 
 .method static createApplicationType(Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 1
+    .registers 2
     .param p0, "subtype"    # Ljava/lang/String;
 
     .line 987
@@ -1868,7 +1868,7 @@
 .end method
 
 .method static createAudioType(Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 1
+    .registers 2
     .param p0, "subtype"    # Ljava/lang/String;
 
     .line 996
@@ -1882,7 +1882,7 @@
 .end method
 
 .method private static createConstant(Ljava/lang/String;Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 2
+    .registers 4
     .param p0, "type"    # Ljava/lang/String;
     .param p1, "subtype"    # Ljava/lang/String;
 
@@ -1913,7 +1913,7 @@
 .end method
 
 .method private static createConstantUtf8(Ljava/lang/String;Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 2
+    .registers 4
     .param p0, "type"    # Ljava/lang/String;
     .param p1, "subtype"    # Ljava/lang/String;
 
@@ -1943,7 +1943,7 @@
 .end method
 
 .method static createFontType(Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 1
+    .registers 2
     .param p0, "subtype"    # Ljava/lang/String;
 
     .line 1005
@@ -1957,7 +1957,7 @@
 .end method
 
 .method static createImageType(Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 1
+    .registers 2
     .param p0, "subtype"    # Ljava/lang/String;
 
     .line 1014
@@ -1971,7 +1971,7 @@
 .end method
 
 .method static createTextType(Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 1
+    .registers 2
     .param p0, "subtype"    # Ljava/lang/String;
 
     .line 1023
@@ -1985,7 +1985,7 @@
 .end method
 
 .method static createVideoType(Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 1
+    .registers 2
     .param p0, "subtype"    # Ljava/lang/String;
 
     .line 1032
@@ -1999,7 +1999,7 @@
 .end method
 
 .method private static escapeAndQuote(Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 7
     .param p0, "value"    # Ljava/lang/String;
 
     .line 1202
@@ -2024,12 +2024,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_12
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_2f
 
     .line 1204
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
@@ -2042,29 +2042,29 @@
 
     const/16 v5, 0x5c
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_26
 
-    if-eq v3, v5, :cond_0
+    if-eq v3, v5, :cond_26
 
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_29
 
     .line 1206
-    :cond_0
+    :cond_26
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1208
-    :cond_1
+    :cond_29
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1203
     .end local v3    # "ch":C
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 1210
     .end local v2    # "i":I
-    :cond_2
+    :cond_2f
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -2077,7 +2077,7 @@
 .end method
 
 .method private static normalizeParameterValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "attribute"    # Ljava/lang/String;
     .param p1, "value"    # Ljava/lang/String;
 
@@ -2104,23 +2104,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     invoke-static {p1}, Lcom/google/common/base/Ascii;->toLowerCase(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move-object v0, p1
 
-    :goto_0
+    :goto_1e
     return-object v0
 .end method
 
 .method private static normalizeToken(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "token"    # Ljava/lang/String;
 
     .line 1036
@@ -2150,7 +2150,7 @@
 .end method
 
 .method private parametersAsMap()Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2183,7 +2183,7 @@
 .end method
 
 .method public static parse(Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 9
+    .registers 10
     .param p0, "input"    # Ljava/lang/String;
 
     .line 1053
@@ -2196,7 +2196,7 @@
 
     .line 1056
     .local v0, "tokenizer":Lcom/google/common/net/MediaType$Tokenizer;
-    :try_start_0
+    :try_start_8
     sget-object v1, Lcom/google/common/net/MediaType;->TOKEN_MATCHER:Lcom/google/common/base/CharMatcher;
 
     invoke-virtual {v0, v1}, Lcom/google/common/net/MediaType$Tokenizer;->consumeToken(Lcom/google/common/base/CharMatcher;)Ljava/lang/String;
@@ -2224,12 +2224,12 @@
 
     .line 1060
     .local v3, "parameters":Lcom/google/common/collect/ImmutableListMultimap$Builder;, "Lcom/google/common/collect/ImmutableListMultimap$Builder<Ljava/lang/String;Ljava/lang/String;>;"
-    :goto_0
+    :goto_1d
     invoke-virtual {v0}, Lcom/google/common/net/MediaType$Tokenizer;->hasMore()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_89
 
     .line 1061
     sget-object v4, Lcom/google/common/net/MediaType;->LINEAR_WHITE_SPACE:Lcom/google/common/base/CharMatcher;
@@ -2266,7 +2266,7 @@
 
     const/16 v6, 0x22
 
-    if-ne v6, v5, :cond_2
+    if-ne v6, v5, :cond_7d
 
     .line 1068
     invoke-virtual {v0, v6}, Lcom/google/common/net/MediaType$Tokenizer;->consumeCharacter(C)C
@@ -2278,12 +2278,12 @@
 
     .line 1070
     .local v5, "valueBuilder":Ljava/lang/StringBuilder;
-    :goto_1
+    :goto_4d
     invoke-virtual {v0}, Lcom/google/common/net/MediaType$Tokenizer;->previewChar()C
 
     move-result v7
 
-    if-eq v6, v7, :cond_1
+    if-eq v6, v7, :cond_74
 
     .line 1071
     invoke-virtual {v0}, Lcom/google/common/net/MediaType$Tokenizer;->previewChar()C
@@ -2292,7 +2292,7 @@
 
     const/16 v8, 0x5c
 
-    if-ne v8, v7, :cond_0
+    if-ne v8, v7, :cond_6a
 
     .line 1072
     invoke-virtual {v0, v8}, Lcom/google/common/net/MediaType$Tokenizer;->consumeCharacter(C)C
@@ -2308,10 +2308,10 @@
 
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 1075
-    :cond_0
+    :cond_6a
     sget-object v7, Lcom/google/common/net/MediaType;->QUOTED_TEXT_MATCHER:Lcom/google/common/base/CharMatcher;
 
     invoke-virtual {v0, v7}, Lcom/google/common/net/MediaType$Tokenizer;->consumeToken(Lcom/google/common/base/CharMatcher;)Ljava/lang/String;
@@ -2320,10 +2320,10 @@
 
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 1078
-    :cond_1
+    :cond_74
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
@@ -2336,11 +2336,11 @@
     nop
 
     .end local v5    # "valueBuilder":Ljava/lang/StringBuilder;
-    goto :goto_2
+    goto :goto_84
 
     .line 1081
     .end local v7    # "value":Ljava/lang/String;
-    :cond_2
+    :cond_7d
     sget-object v5, Lcom/google/common/net/MediaType;->TOKEN_MATCHER:Lcom/google/common/base/CharMatcher;
 
     invoke-virtual {v0, v5}, Lcom/google/common/net/MediaType$Tokenizer;->consumeToken(Lcom/google/common/base/CharMatcher;)Ljava/lang/String;
@@ -2351,7 +2351,7 @@
 
     .line 1083
     .restart local v7    # "value":Ljava/lang/String;
-    :goto_2
+    :goto_84
     invoke-virtual {v3, v4, v7}, Lcom/google/common/collect/ImmutableListMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableListMultimap$Builder;
 
     .line 1084
@@ -2359,10 +2359,10 @@
 
     .end local v4    # "attribute":Ljava/lang/String;
     .end local v7    # "value":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1d
 
     .line 1085
-    :cond_3
+    :cond_89
     invoke-virtual {v3}, Lcom/google/common/collect/ImmutableListMultimap$Builder;->build()Lcom/google/common/collect/ImmutableListMultimap;
 
     move-result-object v4
@@ -2370,8 +2370,8 @@
     invoke-static {v1, v2, v4}, Lcom/google/common/net/MediaType;->create(Ljava/lang/String;Ljava/lang/String;Lcom/google/common/collect/Multimap;)Lcom/google/common/net/MediaType;
 
     move-result-object v4
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_91
+    .catch Ljava/lang/IllegalStateException; {:try_start_8 .. :try_end_91} :catch_92
 
     return-object v4
 
@@ -2379,7 +2379,7 @@
     .end local v1    # "type":Ljava/lang/String;
     .end local v2    # "subtype":Ljava/lang/String;
     .end local v3    # "parameters":Lcom/google/common/collect/ImmutableListMultimap$Builder;, "Lcom/google/common/collect/ImmutableListMultimap$Builder<Ljava/lang/String;Ljava/lang/String;>;"
-    :catch_0
+    :catch_92
     move-exception v1
 
     .line 1087
@@ -2428,7 +2428,7 @@
 
 # virtual methods
 .method public charset()Lcom/google/common/base/Optional;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2443,7 +2443,7 @@
 
     .line 816
     .local v0, "local":Lcom/google/common/base/Optional;, "Lcom/google/common/base/Optional<Ljava/nio/charset/Charset;>;"
-    if-nez v0, :cond_3
+    if-nez v0, :cond_6c
 
     .line 817
     const/4 v1, 0x0
@@ -2467,12 +2467,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_15
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_6a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2482,7 +2482,7 @@
 
     .line 820
     .local v3, "currentValue":Ljava/lang/String;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2d
 
     .line 821
     move-object v1, v3
@@ -2496,24 +2496,24 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_33
 
     .line 823
-    :cond_0
+    :cond_2d
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_34
 
     .line 827
     .end local v3    # "currentValue":Ljava/lang/String;
-    :goto_1
-    goto :goto_0
+    :goto_33
+    goto :goto_15
 
     .line 824
     .restart local v3    # "currentValue":Ljava/lang/String;
-    :cond_1
+    :cond_34
     new-instance v2, Ljava/lang/IllegalStateException;
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -2570,17 +2570,17 @@
 
     .line 828
     .end local v3    # "currentValue":Ljava/lang/String;
-    :cond_2
+    :cond_6a
     iput-object v0, p0, Lcom/google/common/net/MediaType;->parsedCharset:Lcom/google/common/base/Optional;
 
     .line 830
     .end local v1    # "value":Ljava/lang/String;
-    :cond_3
+    :cond_6c
     return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -2589,18 +2589,18 @@
     .line 1140
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 1141
     return v0
 
     .line 1142
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/net/MediaType;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_31
 
     .line 1143
     move-object v1, p1
@@ -2617,7 +2617,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2f
 
     iget-object v3, p0, Lcom/google/common/net/MediaType;->subtype:Ljava/lang/String;
 
@@ -2628,7 +2628,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2f
 
     .line 1147
     invoke-direct {p0}, Lcom/google/common/net/MediaType;->parametersAsMap()Ljava/util/Map;
@@ -2643,25 +2643,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2f
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_1
+    :cond_2f
     const/4 v0, 0x0
 
     .line 1144
-    :goto_0
+    :goto_30
     return v0
 
     .line 1149
     .end local v1    # "that":Lcom/google/common/net/MediaType;
-    :cond_2
+    :cond_31
     return v2
 .end method
 
 .method public hasWildcard()Z
-    .locals 2
+    .registers 3
 
     .line 911
     iget-object v0, p0, Lcom/google/common/net/MediaType;->type:Ljava/lang/String;
@@ -2672,7 +2672,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     iget-object v0, p0, Lcom/google/common/net/MediaType;->subtype:Ljava/lang/String;
 
@@ -2680,32 +2680,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_16
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .registers 7
 
     .line 1156
     iget v0, p0, Lcom/google/common/net/MediaType;->hashCode:I
 
     .line 1157
     .local v0, "h":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 1158
     iget-object v1, p0, Lcom/google/common/net/MediaType;->type:Ljava/lang/String;
@@ -2740,12 +2740,12 @@
     iput v0, p0, Lcom/google/common/net/MediaType;->hashCode:I
 
     .line 1161
-    :cond_0
+    :cond_1e
     return v0
 .end method
 
 .method public is(Lcom/google/common/net/MediaType;)Z
-    .locals 3
+    .registers 5
     .param p1, "mediaTypeRange"    # Lcom/google/common/net/MediaType;
 
     .line 944
@@ -2757,7 +2757,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     iget-object v0, p1, Lcom/google/common/net/MediaType;->type:Ljava/lang/String;
 
@@ -2767,9 +2767,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3a
 
-    :cond_0
+    :cond_14
     iget-object v0, p1, Lcom/google/common/net/MediaType;->subtype:Ljava/lang/String;
 
     .line 945
@@ -2777,7 +2777,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_26
 
     iget-object v0, p1, Lcom/google/common/net/MediaType;->subtype:Ljava/lang/String;
 
@@ -2787,9 +2787,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3a
 
-    :cond_1
+    :cond_26
     iget-object v0, p0, Lcom/google/common/net/MediaType;->parameters:Lcom/google/common/collect/ImmutableListMultimap;
 
     .line 946
@@ -2807,22 +2807,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_3b
 
-    :cond_2
+    :cond_3a
     const/4 v0, 0x0
 
     .line 944
-    :goto_0
+    :goto_3b
     return v0
 .end method
 
 .method public parameters()Lcom/google/common/collect/ImmutableListMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2840,7 +2840,7 @@
 .end method
 
 .method public subtype()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 786
     iget-object v0, p0, Lcom/google/common/net/MediaType;->subtype:Ljava/lang/String;
@@ -2849,14 +2849,14 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1173
     iget-object v0, p0, Lcom/google/common/net/MediaType;->toString:Ljava/lang/String;
 
     .line 1174
     .local v0, "result":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 1175
     invoke-direct {p0}, Lcom/google/common/net/MediaType;->computeToString()Ljava/lang/String;
@@ -2867,12 +2867,12 @@
     iput-object v0, p0, Lcom/google/common/net/MediaType;->toString:Ljava/lang/String;
 
     .line 1178
-    :cond_0
+    :cond_a
     return-object v0
 .end method
 
 .method public type()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 781
     iget-object v0, p0, Lcom/google/common/net/MediaType;->type:Ljava/lang/String;
@@ -2881,7 +2881,7 @@
 .end method
 
 .method public withCharset(Ljava/nio/charset/Charset;)Lcom/google/common/net/MediaType;
-    .locals 2
+    .registers 4
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 902
@@ -2911,7 +2911,7 @@
 .end method
 
 .method public withParameter(Ljava/lang/String;Ljava/lang/String;)Lcom/google/common/net/MediaType;
-    .locals 1
+    .registers 4
     .param p1, "attribute"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -2928,7 +2928,7 @@
 .end method
 
 .method public withParameters(Lcom/google/common/collect/Multimap;)Lcom/google/common/net/MediaType;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2954,7 +2954,7 @@
 .end method
 
 .method public withParameters(Ljava/lang/String;Ljava/lang/Iterable;)Lcom/google/common/net/MediaType;
-    .locals 6
+    .registers 9
     .param p1, "attribute"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2997,12 +2997,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3024,7 +3024,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_39
 
     .line 865
     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -3038,21 +3038,21 @@
     .line 867
     .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v4    # "key":Ljava/lang/String;
-    :cond_0
-    goto :goto_0
+    :cond_39
+    goto :goto_18
 
     .line 868
-    :cond_1
+    :cond_3a
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_1
+    :goto_3e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_52
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3070,10 +3070,10 @@
 
     .line 870
     .end local v3    # "value":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_3e
 
     .line 871
-    :cond_2
+    :cond_52
     new-instance v2, Lcom/google/common/net/MediaType;
 
     iget-object v3, p0, Lcom/google/common/net/MediaType;->type:Ljava/lang/String;
@@ -3094,7 +3094,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_6b
 
     .line 874
     iget-object v3, p0, Lcom/google/common/net/MediaType;->parsedCharset:Lcom/google/common/base/Optional;
@@ -3102,7 +3102,7 @@
     iput-object v3, v2, Lcom/google/common/net/MediaType;->parsedCharset:Lcom/google/common/base/Optional;
 
     .line 877
-    :cond_3
+    :cond_6b
     sget-object v3, Lcom/google/common/net/MediaType;->KNOWN_TYPES:Ljava/util/Map;
 
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -3121,7 +3121,7 @@
 .end method
 
 .method public withoutParameters()Lcom/google/common/net/MediaType;
-    .locals 2
+    .registers 3
 
     .line 838
     iget-object v0, p0, Lcom/google/common/net/MediaType;->parameters:Lcom/google/common/collect/ImmutableListMultimap;
@@ -3130,13 +3130,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/common/net/MediaType;->type:Ljava/lang/String;
 
     iget-object v1, p0, Lcom/google/common/net/MediaType;->subtype:Ljava/lang/String;
@@ -3145,6 +3145,6 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method

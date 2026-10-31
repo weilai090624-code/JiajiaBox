@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 169
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$1;
 
     .line 117
@@ -35,7 +35,7 @@
 .end method
 
 .method public static newFixedDelaySchedule(JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler;
-    .locals 8
+    .registers 13
     .param p0, "initialDelay"    # J
     .param p2, "delay"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -48,16 +48,16 @@
 
     cmp-long v2, p2, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     const-string v1, "delay must be > 0, found %s"
 
     invoke-static {v0, v1, p2, p3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
@@ -79,7 +79,7 @@
 .end method
 
 .method public static newFixedRateSchedule(JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler;
-    .locals 8
+    .registers 13
     .param p0, "initialDelay"    # J
     .param p2, "period"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -92,16 +92,16 @@
 
     cmp-long v2, p2, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     const-string v1, "period must be > 0, found %s"
 
     invoke-static {v0, v1, p2, p3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V

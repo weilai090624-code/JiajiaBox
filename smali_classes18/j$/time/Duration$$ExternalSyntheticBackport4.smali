@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(Ljava/lang/CharSequence;III)I
-    .locals 0
+    .registers 4
 
     invoke-interface {p0, p1, p2}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 

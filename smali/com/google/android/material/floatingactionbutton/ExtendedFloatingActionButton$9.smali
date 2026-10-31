@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p2, "arg1"    # Ljava/lang/String;
 
     .line 987
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public get(Landroid/view/View;)Ljava/lang/Float;
-    .locals 1
+    .registers 3
     .param p1, "object"    # Landroid/view/View;
 
     .line 1001
@@ -56,7 +56,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 987
     check-cast p1, Landroid/view/View;
@@ -69,7 +69,7 @@
 .end method
 
 .method public set(Landroid/view/View;Ljava/lang/Float;)V
-    .locals 4
+    .registers 7
     .param p1, "object"    # Landroid/view/View;
     .param p2, "value"    # Ljava/lang/Float;
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 987
     check-cast p1, Landroid/view/View;

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/params/OutputConfiguration;)V
-    .locals 0
+    .registers 2
     .param p1, "configuration"    # Landroid/hardware/camera2/params/OutputConfiguration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -62,13 +62,13 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 176
     return v1
 
     .line 179
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;
@@ -83,7 +83,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mPhysicalCameraId:Ljava/lang/String;
 
@@ -94,22 +94,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     nop
 
     .line 181
-    :goto_0
+    :goto_20
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 188
     const/4 v0, 0x1
@@ -136,20 +136,20 @@
     .line 194
     iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mPhysicalCameraId:Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_15
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_15
     iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mPhysicalCameraId:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v2
 
-    :goto_0
+    :goto_1b
     xor-int v0, v1, v2
 
     .line 196

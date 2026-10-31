@@ -30,32 +30,32 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 1324
     const/4 v0, 0x0
 
     .line 1326
     .local v0, "unsafe":Lsun/misc/Unsafe;
-    :try_start_0
+    :try_start_1
     invoke-static {}, Lsun/misc/Unsafe;->getUnsafe()Lsun/misc/Unsafe;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_5} :catch_7
 
     move-object v0, v1
 
     .line 1348
-    goto :goto_0
+    goto :goto_15
 
     .line 1327
-    :catch_0
+    :catch_7
     move-exception v1
 
     .line 1329
     .local v1, "tryReflectionInstead":Ljava/lang/SecurityException;
-    :try_start_1
+    :try_start_8
     new-instance v2, Lcom/google/common/util/concurrent/AbstractFuture$UnsafeAtomicHelper$1;
 
     invoke-direct {v2}, Lcom/google/common/util/concurrent/AbstractFuture$UnsafeAtomicHelper$1;-><init>()V
@@ -66,8 +66,8 @@
     move-result-object v2
 
     check-cast v2, Lsun/misc/Unsafe;
-    :try_end_1
-    .catch Ljava/security/PrivilegedActionException; {:try_start_1 .. :try_end_1} :catch_2
+    :try_end_13
+    .catch Ljava/security/PrivilegedActionException; {:try_start_8 .. :try_end_13} :catch_65
 
     move-object v0, v2
 
@@ -76,8 +76,8 @@
 
     .line 1350
     .end local v1    # "tryReflectionInstead":Ljava/lang/SecurityException;
-    :goto_0
-    :try_start_2
+    :goto_15
+    :try_start_15
     const-class v1, Lcom/google/common/util/concurrent/AbstractFuture;
 
     .line 1351
@@ -152,8 +152,8 @@
 
     .line 1356
     sput-object v0, Lcom/google/common/util/concurrent/AbstractFuture$UnsafeAtomicHelper;->UNSAFE:Lsun/misc/Unsafe;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_59
+    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_59} :catch_5b
 
     .line 1360
     .end local v1    # "abstractFuture":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
@@ -165,7 +165,7 @@
 
     .line 1357
     .restart local v0    # "unsafe":Lsun/misc/Unsafe;
-    :catch_1
+    :catch_5b
     move-exception v1
 
     .line 1358
@@ -181,7 +181,7 @@
 
     .line 1345
     .local v1, "tryReflectionInstead":Ljava/lang/SecurityException;
-    :catch_2
+    :catch_65
     move-exception v2
 
     .line 1346
@@ -200,7 +200,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1315
     const/4 v0, 0x0
@@ -211,7 +211,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractFuture$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/util/concurrent/AbstractFuture$1;
 
     .line 1315
@@ -223,7 +223,7 @@
 
 # virtual methods
 .method casListeners(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Listener;Lcom/google/common/util/concurrent/AbstractFuture$Listener;)Z
-    .locals 6
+    .registers 10
     .param p2, "expect"    # Lcom/google/common/util/concurrent/AbstractFuture$Listener;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -260,7 +260,7 @@
 .end method
 
 .method casValue(Lcom/google/common/util/concurrent/AbstractFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 6
+    .registers 10
     .param p2, "expect"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -297,7 +297,7 @@
 .end method
 
 .method casWaiters(Lcom/google/common/util/concurrent/AbstractFuture;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)Z
-    .locals 6
+    .registers 10
     .param p2, "expect"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -337,7 +337,7 @@
 .end method
 
 .method putNext(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;Lcom/google/common/util/concurrent/AbstractFuture$Waiter;)V
-    .locals 3
+    .registers 6
     .param p1, "waiter"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     .param p2, "newValue"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -356,7 +356,7 @@
 .end method
 
 .method putThread(Lcom/google/common/util/concurrent/AbstractFuture$Waiter;Ljava/lang/Thread;)V
-    .locals 3
+    .registers 6
     .param p1, "waiter"    # Lcom/google/common/util/concurrent/AbstractFuture$Waiter;
     .param p2, "newValue"    # Ljava/lang/Thread;
 

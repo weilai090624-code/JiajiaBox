@@ -235,6 +235,8 @@
     .param p2, "it"    # Landroid/view/View;
 
     .line 985
+    invoke-static {p2}, Lio/nekohasekai/sagernet/ui/MorphDialog;->anchor(Landroid/view/View;)V
+
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/NodeActions;->show(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 986

@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/CoroutineDispatcher;)V
-    .locals 0
+    .registers 2
     .param p1, "dispatcher"    # Lkotlinx/coroutines/CoroutineDispatcher;
 
     .line 110
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 4
     .param p1, "block"    # Ljava/lang/Runnable;
 
     .line 112
@@ -70,7 +70,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 113
     iget-object v0, p0, Lkotlinx/coroutines/DispatcherExecutor;->dispatcher:Lkotlinx/coroutines/CoroutineDispatcher;
@@ -81,19 +81,19 @@
 
     invoke-virtual {v0, v1, p1}, Lkotlinx/coroutines/CoroutineDispatcher;->dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 115
-    :cond_0
+    :cond_16
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
     .line 117
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 119
     iget-object v0, p0, Lkotlinx/coroutines/DispatcherExecutor;->dispatcher:Lkotlinx/coroutines/CoroutineDispatcher;

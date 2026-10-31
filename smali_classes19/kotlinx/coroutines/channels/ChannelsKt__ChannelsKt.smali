@@ -37,7 +37,7 @@
 
 # direct methods
 .method public static final synthetic sendBlocking(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$sendBlocking"    # Lkotlinx/coroutines/channels/SendChannel;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation runtime Lkotlin/Deprecated;
@@ -58,13 +58,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 55
     return-void
 
     .line 57
-    :cond_0
+    :cond_b
     new-instance v0, Lkotlinx/coroutines/channels/ChannelsKt__ChannelsKt$sendBlocking$1;
 
     const/4 v1, 0x0
@@ -82,7 +82,7 @@
 .end method
 
 .method public static final trySendBlocking(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p0, "$this$trySendBlocking"    # Lkotlinx/coroutines/channels/SendChannel;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -111,7 +111,7 @@
     .line 66
     instance-of v2, v0, Lkotlinx/coroutines/channels/ChannelResult$Failed;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     move-object v2, v0
 
@@ -135,7 +135,7 @@
     .line 67
     .end local v2    # "it":Lkotlin/Unit;
     .end local v3    # "$i$a$-onSuccess-WpGqRn0-ChannelsKt__ChannelsKt$trySendBlocking$1":I
-    :cond_0
+    :cond_17
     nop
 
     .line 38

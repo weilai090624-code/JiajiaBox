@@ -102,7 +102,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 80
     const-class v0, Landroidx/camera/core/impl/CameraFactory$Provider;
@@ -193,7 +193,7 @@
 .end method
 
 .method constructor <init>(Landroidx/camera/core/impl/OptionsBundle;)V
-    .locals 0
+    .registers 2
     .param p1, "options"    # Landroidx/camera/core/impl/OptionsBundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -217,7 +217,7 @@
 
 # virtual methods
 .method public synthetic containsOption(Landroidx/camera/core/impl/Config$Option;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$containsOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Z
 
@@ -227,7 +227,7 @@
 .end method
 
 .method public synthetic findOptions(Ljava/lang/String;Landroidx/camera/core/impl/Config$OptionMatcher;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$findOptions(Landroidx/camera/core/impl/ReadableConfig;Ljava/lang/String;Landroidx/camera/core/impl/Config$OptionMatcher;)V
 
@@ -235,7 +235,7 @@
 .end method
 
 .method public getAvailableCamerasLimiter(Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/CameraSelector;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Landroidx/camera/core/CameraSelector;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -261,7 +261,7 @@
 .end method
 
 .method public getCameraExecutor(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -287,7 +287,7 @@
 .end method
 
 .method public getCameraFactoryProvider(Landroidx/camera/core/impl/CameraFactory$Provider;)Landroidx/camera/core/impl/CameraFactory$Provider;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Landroidx/camera/core/impl/CameraFactory$Provider;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -313,7 +313,7 @@
 .end method
 
 .method public getConfig()Landroidx/camera/core/impl/Config;
-    .locals 1
+    .registers 2
 
     .line 200
     iget-object v0, p0, Landroidx/camera/core/CameraXConfig;->mConfig:Landroidx/camera/core/impl/OptionsBundle;
@@ -322,7 +322,7 @@
 .end method
 
 .method public getDeviceSurfaceManagerProvider(Landroidx/camera/core/impl/CameraDeviceSurfaceManager$Provider;)Landroidx/camera/core/impl/CameraDeviceSurfaceManager$Provider;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Landroidx/camera/core/impl/CameraDeviceSurfaceManager$Provider;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -348,7 +348,7 @@
 .end method
 
 .method public getMinimumLoggingLevel()I
-    .locals 3
+    .registers 4
 
     .line 182
     iget-object v0, p0, Landroidx/camera/core/CameraXConfig;->mConfig:Landroidx/camera/core/impl/OptionsBundle;
@@ -375,7 +375,7 @@
 .end method
 
 .method public synthetic getOptionPriority(Landroidx/camera/core/impl/Config$Option;)Landroidx/camera/core/impl/Config$OptionPriority;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$getOptionPriority(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Landroidx/camera/core/impl/Config$OptionPriority;
 
@@ -385,7 +385,7 @@
 .end method
 
 .method public synthetic getPriorities(Landroidx/camera/core/impl/Config$Option;)Ljava/util/Set;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$getPriorities(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Ljava/util/Set;
 
@@ -395,7 +395,7 @@
 .end method
 
 .method public getSchedulerHandler(Landroid/os/Handler;)Landroid/os/Handler;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -421,7 +421,7 @@
 .end method
 
 .method public synthetic getTargetClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/internal/TargetConfig$-CC;->$default$getTargetClass(Landroidx/camera/core/internal/TargetConfig;)Ljava/lang/Class;
 
@@ -431,7 +431,7 @@
 .end method
 
 .method public synthetic getTargetClass(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/internal/TargetConfig$-CC;->$default$getTargetClass(Landroidx/camera/core/internal/TargetConfig;Ljava/lang/Class;)Ljava/lang/Class;
 
@@ -441,7 +441,7 @@
 .end method
 
 .method public synthetic getTargetName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/internal/TargetConfig$-CC;->$default$getTargetName(Landroidx/camera/core/internal/TargetConfig;)Ljava/lang/String;
 
@@ -451,7 +451,7 @@
 .end method
 
 .method public synthetic getTargetName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/internal/TargetConfig$-CC;->$default$getTargetName(Landroidx/camera/core/internal/TargetConfig;Ljava/lang/String;)Ljava/lang/String;
 
@@ -461,7 +461,7 @@
 .end method
 
 .method public getUseCaseConfigFactoryProvider(Landroidx/camera/core/impl/UseCaseConfigFactory$Provider;)Landroidx/camera/core/impl/UseCaseConfigFactory$Provider;
-    .locals 2
+    .registers 4
     .param p1, "valueIfMissing"    # Landroidx/camera/core/impl/UseCaseConfigFactory$Provider;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -487,7 +487,7 @@
 .end method
 
 .method public synthetic listOptions()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$listOptions(Landroidx/camera/core/impl/ReadableConfig;)Ljava/util/Set;
 
@@ -497,7 +497,7 @@
 .end method
 
 .method public synthetic retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$retrieveOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
 
@@ -507,7 +507,7 @@
 .end method
 
 .method public synthetic retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$retrieveOption(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -517,7 +517,7 @@
 .end method
 
 .method public synthetic retrieveOptionWithPriority(Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/camera/core/impl/ReadableConfig$-CC;->$default$retrieveOptionWithPriority(Landroidx/camera/core/impl/ReadableConfig;Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;)Ljava/lang/Object;
 

@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/channels/BufferedChannel;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
 
     iput-object p1, p0, Lkotlinx/coroutines/channels/BufferedChannel$receiveCatching$1;->result:Ljava/lang/Object;
 
@@ -111,11 +111,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     return-object v0
 
-    :cond_0
+    :cond_19
     invoke-static {v0}, Lkotlinx/coroutines/channels/ChannelResult;->box-impl(Ljava/lang/Object;)Lkotlinx/coroutines/channels/ChannelResult;
 
     move-result-object v0

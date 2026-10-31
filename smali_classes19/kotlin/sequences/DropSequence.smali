@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/sequences/Sequence;I)V
-    .locals 3
+    .registers 6
     .param p1, "sequence"    # Lkotlin/sequences/Sequence;
     .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -100,17 +100,17 @@
     .line 501
     iget v0, p0, Lkotlin/sequences/DropSequence;->count:I
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_14
+    if-eqz v0, :cond_18
 
     .line 502
     nop
@@ -119,7 +119,7 @@
     return-void
 
     .line 699
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     .line 501
@@ -163,7 +163,7 @@
 .end method
 
 .method public static final synthetic access$getCount$p(Lkotlin/sequences/DropSequence;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/DropSequence;
 
     .line 496
@@ -173,7 +173,7 @@
 .end method
 
 .method public static final synthetic access$getSequence$p(Lkotlin/sequences/DropSequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/DropSequence;
 
     .line 496
@@ -185,7 +185,7 @@
 
 # virtual methods
 .method public drop(I)Lkotlin/sequences/Sequence;
-    .locals 4
+    .registers 6
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -208,7 +208,7 @@
     .local v1, "$i$a$-let-DropSequence$drop$1":I
     new-instance v2, Lkotlin/sequences/DropSequence;
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_f
 
     move-object v3, p0
 
@@ -216,23 +216,23 @@
 
     invoke-direct {v2, v3, p1}, Lkotlin/sequences/DropSequence;-><init>(Lkotlin/sequences/Sequence;I)V
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_f
     iget-object v3, p0, Lkotlin/sequences/DropSequence;->sequence:Lkotlin/sequences/Sequence;
 
     invoke-direct {v2, v3, v0}, Lkotlin/sequences/DropSequence;-><init>(Lkotlin/sequences/Sequence;I)V
 
     .end local v0    # "n1":I
     .end local v1    # "$i$a$-let-DropSequence$drop$1":I
-    :goto_0
+    :goto_14
     check-cast v2, Lkotlin/sequences/Sequence;
 
     return-object v2
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -253,7 +253,7 @@
 .end method
 
 .method public take(I)Lkotlin/sequences/Sequence;
-    .locals 5
+    .registers 7
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -274,7 +274,7 @@
 
     .line 505
     .local v1, "$i$a$-let-DropSequence$take$1":I
-    if-gez v0, :cond_0
+    if-gez v0, :cond_f
 
     new-instance v2, Lkotlin/sequences/TakeSequence;
 
@@ -284,9 +284,9 @@
 
     invoke-direct {v2, v3, p1}, Lkotlin/sequences/TakeSequence;-><init>(Lkotlin/sequences/Sequence;I)V
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_f
     new-instance v2, Lkotlin/sequences/SubSequence;
 
     iget-object v3, p0, Lkotlin/sequences/DropSequence;->sequence:Lkotlin/sequences/Sequence;
@@ -295,7 +295,7 @@
 
     invoke-direct {v2, v3, v4, v0}, Lkotlin/sequences/SubSequence;-><init>(Lkotlin/sequences/Sequence;II)V
 
-    :goto_0
+    :goto_18
     check-cast v2, Lkotlin/sequences/DropTakeSequence;
 
     .end local v0    # "n1":I

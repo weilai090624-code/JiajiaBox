@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/AccessibleObject;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<M:",
@@ -74,7 +74,7 @@
 .end method
 
 .method public static from(Ljava/lang/reflect/Constructor;)Lcom/google/common/reflect/Invokable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -97,7 +97,7 @@
 .end method
 
 .method public static from(Ljava/lang/reflect/Method;)Lcom/google/common/reflect/Invokable;
-    .locals 1
+    .registers 2
     .param p0, "method"    # Ljava/lang/reflect/Method;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -134,7 +134,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 216
     move-object v0, p1
@@ -155,7 +155,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     iget-object v2, p0, Lcom/google/common/reflect/Invokable;->member:Ljava/lang/reflect/Member;
 
@@ -165,21 +165,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_21
     return v1
 
     .line 219
     .end local v0    # "that":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<**>;"
-    :cond_1
+    :cond_22
     return v1
 .end method
 
 .method public final getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
@@ -206,7 +206,7 @@
 .end method
 
 .method public final getAnnotations()[Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 2
 
     .line 100
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -220,7 +220,7 @@
 .end method
 
 .method public final getDeclaredAnnotations()[Ljava/lang/annotation/Annotation;
-    .locals 1
+    .registers 2
 
     .line 105
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -234,7 +234,7 @@
 .end method
 
 .method public final getDeclaringClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -255,7 +255,7 @@
 .end method
 
 .method public final getExceptionTypes()Lcom/google/common/collect/ImmutableList;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -283,8 +283,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_a
+    if-ge v3, v2, :cond_19
 
     aget-object v4, v1, v3
 
@@ -306,10 +306,10 @@
     .end local v5    # "exceptionType":Lcom/google/common/reflect/TypeToken;, "Lcom/google/common/reflect/TypeToken<+Ljava/lang/Throwable;>;"
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 295
-    :cond_0
+    :cond_19
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v1
@@ -327,7 +327,7 @@
 .end method
 
 .method public final getModifiers()I
-    .locals 1
+    .registers 2
 
     .line 144
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -341,7 +341,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 139
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -355,7 +355,7 @@
 .end method
 
 .method public getOwnerType()Lcom/google/common/reflect/TypeToken;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -381,7 +381,7 @@
 .end method
 
 .method public final getParameters()Lcom/google/common/collect/ImmutableList;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -414,10 +414,10 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_d
     array-length v4, v0
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_23
 
     .line 280
     new-instance v4, Lcom/google/common/reflect/Parameter;
@@ -437,11 +437,11 @@
     .line 279
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 282
     .end local v3    # "i":I
-    :cond_0
+    :cond_23
     invoke-virtual {v2}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v3
@@ -450,7 +450,7 @@
 .end method
 
 .method public final getReturnType()Lcom/google/common/reflect/TypeToken;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -483,7 +483,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 224
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -497,7 +497,7 @@
 .end method
 
 .method public final varargs invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -554,7 +554,7 @@
 .end method
 
 .method public final isAbstract()Z
-    .locals 1
+    .registers 2
 
     .line 190
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -570,7 +570,7 @@
 .end method
 
 .method public final isAccessible()Z
-    .locals 1
+    .registers 2
 
     .line 134
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -584,7 +584,7 @@
 .end method
 
 .method public final isAnnotationPresent(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -608,7 +608,7 @@
 .end method
 
 .method public final isFinal()Z
-    .locals 1
+    .registers 2
 
     .line 185
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -624,7 +624,7 @@
 .end method
 
 .method public final isNative()Z
-    .locals 1
+    .registers 2
 
     .line 195
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -643,7 +643,7 @@
 .end method
 
 .method public final isPackagePrivate()Z
-    .locals 1
+    .registers 2
 
     .line 164
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -651,33 +651,33 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->isPublic()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->isProtected()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return v0
 .end method
 
 .method public final isPrivate()Z
-    .locals 1
+    .registers 2
 
     .line 169
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -693,7 +693,7 @@
 .end method
 
 .method public final isProtected()Z
-    .locals 1
+    .registers 2
 
     .line 159
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -709,7 +709,7 @@
 .end method
 
 .method public final isPublic()Z
-    .locals 1
+    .registers 2
 
     .line 154
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -725,7 +725,7 @@
 .end method
 
 .method public final isStatic()Z
-    .locals 1
+    .registers 2
 
     .line 174
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -741,7 +741,7 @@
 .end method
 
 .method public final isSynchronized()Z
-    .locals 1
+    .registers 2
 
     .line 200
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -757,7 +757,7 @@
 .end method
 
 .method public final isSynthetic()Z
-    .locals 1
+    .registers 2
 
     .line 149
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -771,7 +771,7 @@
 .end method
 
 .method final isTransient()Z
-    .locals 1
+    .registers 2
 
     .line 210
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -790,7 +790,7 @@
 .end method
 
 .method final isVolatile()Z
-    .locals 1
+    .registers 2
 
     .line 205
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -806,7 +806,7 @@
 .end method
 
 .method public final returning(Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/Invokable;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R1:TR;>(",
@@ -828,7 +828,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 317
     move-object v0, p0
@@ -839,7 +839,7 @@
 
     .line 313
     .end local v0    # "specialized":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR1;>;"
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     .line 314
@@ -909,7 +909,7 @@
 .end method
 
 .method public final returning(Ljava/lang/Class;)Lcom/google/common/reflect/Invokable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R1:TR;>(",
@@ -935,7 +935,7 @@
 .end method
 
 .method public final setAccessible(Z)V
-    .locals 1
+    .registers 3
     .param p1, "flag"    # Z
 
     .line 117
@@ -949,7 +949,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 229
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -963,7 +963,7 @@
 .end method
 
 .method public final trySetAccessible()Z
-    .locals 2
+    .registers 3
 
     .line 125
     .local p0, "this":Lcom/google/common/reflect/Invokable;, "Lcom/google/common/reflect/Invokable<TT;TR;>;"
@@ -973,14 +973,14 @@
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_6} :catch_7
 
     .line 126
     return v1
 
     .line 127
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 128

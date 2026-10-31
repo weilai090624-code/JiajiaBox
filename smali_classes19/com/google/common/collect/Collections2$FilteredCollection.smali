@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Collection;Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -109,7 +109,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,12 +125,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -148,10 +148,10 @@
 
     .line 148
     .end local v1    # "element":Ljava/lang/Object;, "TE;"
-    goto :goto_0
+    goto :goto_4
 
     .line 149
-    :cond_0
+    :cond_18
     iget-object v0, p0, Lcom/google/common/collect/Collections2$FilteredCollection;->unfiltered:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->addAll(Ljava/util/Collection;)Z
@@ -162,7 +162,7 @@
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 154
     .local p0, "this":Lcom/google/common/collect/Collections2$FilteredCollection;, "Lcom/google/common/collect/Collections2$FilteredCollection<TE;>;"
@@ -177,7 +177,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -191,7 +191,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 161
     move-object v0, p1
@@ -208,14 +208,14 @@
 
     .line 164
     .end local v0    # "e":Ljava/lang/Object;, "TE;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -235,7 +235,7 @@
 .end method
 
 .method createCombined(Lcom/google/common/base/Predicate;)Lcom/google/common/collect/Collections2$FilteredCollection;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -265,7 +265,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 2
+    .registers 3
 
     .line 174
     .local p0, "this":Lcom/google/common/collect/Collections2$FilteredCollection;, "Lcom/google/common/collect/Collections2$FilteredCollection<TE;>;"
@@ -283,7 +283,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -310,7 +310,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -322,7 +322,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/google/common/collect/Collections2$FilteredCollection;->unfiltered:Ljava/util/Collection;
 
@@ -330,21 +330,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -368,12 +368,12 @@
 
     .line 191
     .local v1, "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
-    :goto_0
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_24
 
     .line 192
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -388,13 +388,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
     invoke-interface {p1, v2}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
     .line 194
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
@@ -404,16 +404,16 @@
 
     .line 197
     .end local v2    # "e":Ljava/lang/Object;, "TE;"
-    :cond_0
-    goto :goto_0
+    :cond_23
+    goto :goto_7
 
     .line 198
-    :cond_1
+    :cond_24
     return v0
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -437,12 +437,12 @@
 
     .line 205
     .local v1, "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
-    :goto_0
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_24
 
     .line 206
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -457,13 +457,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_23
 
     invoke-interface {p1, v2}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_23
 
     .line 208
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
@@ -473,16 +473,16 @@
 
     .line 211
     .end local v2    # "e":Ljava/lang/Object;, "TE;"
-    :cond_0
-    goto :goto_0
+    :cond_23
+    goto :goto_7
 
     .line 212
-    :cond_1
+    :cond_24
     return v0
 .end method
 
 .method public size()I
-    .locals 4
+    .registers 5
 
     .line 217
     .local p0, "this":Lcom/google/common/collect/Collections2$FilteredCollection;, "Lcom/google/common/collect/Collections2$FilteredCollection<TE;>;"
@@ -496,12 +496,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -515,23 +515,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     .line 220
     add-int/lit8 v0, v0, 0x1
 
     .line 222
     .end local v2    # "e":Ljava/lang/Object;, "TE;"
-    :cond_0
-    goto :goto_0
+    :cond_1b
+    goto :goto_7
 
     .line 223
-    :cond_1
+    :cond_1c
     return v0
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 229
     .local p0, "this":Lcom/google/common/collect/Collections2$FilteredCollection;, "Lcom/google/common/collect/Collections2$FilteredCollection<TE;>;"
@@ -551,7 +551,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

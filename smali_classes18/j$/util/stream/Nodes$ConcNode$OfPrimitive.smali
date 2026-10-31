@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/Node$OfPrimitive;Lj$/util/stream/Node$OfPrimitive;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_NODE;TT_NODE;)V"
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public synthetic asArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Node$OfPrimitive$-CC;->$default$asArray(Lj$/util/stream/Node$OfPrimitive;Ljava/util/function/IntFunction;)[Ljava/lang/Object;
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public asPrimitiveArray()Ljava/lang/Object;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT_ARR;"
@@ -94,7 +94,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_15
 
     .line 877
     long-to-int v2, v0
@@ -114,7 +114,7 @@
 
     .line 876
     .end local v2    # "array":Ljava/lang/Object;, "TT_ARR;"
-    :cond_0
+    :cond_15
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -125,7 +125,7 @@
 .end method
 
 .method public copyInto(Ljava/lang/Object;I)V
-    .locals 3
+    .registers 6
     .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -166,7 +166,7 @@
 .end method
 
 .method public forEach(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_CONS;)V"
@@ -194,7 +194,7 @@
 .end method
 
 .method public bridge synthetic getChild(I)Lj$/util/stream/Node$OfPrimitive;
-    .locals 0
+    .registers 2
 
     .line 848
     .local p0, "this":Lj$/util/stream/Nodes$ConcNode$OfPrimitive;, "Ljava/util/stream/Nodes$ConcNode$OfPrimitive<TE;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;"
@@ -208,7 +208,7 @@
 .end method
 
 .method public bridge synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$OfPrimitive$-CC;->$default$spliterator(Lj$/util/stream/Node$OfPrimitive;)Lj$/util/Spliterator;
 
@@ -218,7 +218,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     .line 884
     .local p0, "this":Lj$/util/stream/Nodes$ConcNode$OfPrimitive;, "Ljava/util/stream/Nodes$ConcNode$OfPrimitive<TE;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;"
@@ -236,7 +236,7 @@
 
     cmp-long v7, v0, v2
 
-    if-gez v7, :cond_0
+    if-gez v7, :cond_29
 
     .line 885
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -270,7 +270,7 @@
     return-object v0
 
     .line 887
-    :cond_0
+    :cond_29
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -303,7 +303,7 @@
 .end method
 
 .method public bridge synthetic truncate(JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/Node$OfPrimitive$-CC;->$default$truncate(Lj$/util/stream/Node$OfPrimitive;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
 

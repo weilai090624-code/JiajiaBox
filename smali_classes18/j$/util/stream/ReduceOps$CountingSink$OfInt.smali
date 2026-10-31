@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 827
     invoke-direct {p0}, Lj$/util/stream/ReduceOps$CountingSink;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 4
+    .registers 6
     .param p1, "t"    # I
 
     .line 830
@@ -56,7 +56,7 @@
 .end method
 
 .method public synthetic accept(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfInt$-CC;->$default$accept(Lj$/util/stream/Sink$OfInt;Ljava/lang/Integer;)V
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfInt$-CC;->$default$accept(Lj$/util/stream/Sink$OfInt;Ljava/lang/Object;)V
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public bridge synthetic combine(Lj$/util/stream/ReduceOps$AccumulatingSink;)V
-    .locals 0
+    .registers 2
 
     .line 827
     check-cast p1, Lj$/util/stream/ReduceOps$CountingSink;
@@ -93,7 +93,7 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 827
     invoke-super {p0}, Lj$/util/stream/ReduceOps$CountingSink;->get()Ljava/lang/Long;

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3230
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static getReceiveContentMimeTypes(Landroid/view/View;)[Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 3246
@@ -37,7 +37,7 @@
 .end method
 
 .method public static performReceiveContent(Landroid/view/View;Landroidx/core/view/ContentInfoCompat;)Landroidx/core/view/ContentInfoCompat;
-    .locals 3
+    .registers 5
     .param p0, "view"    # Landroid/view/View;
     .param p1, "payload"    # Landroidx/core/view/ContentInfoCompat;
 
@@ -54,7 +54,7 @@
 
     .line 3255
     .local v1, "platResult":Landroid/view/ContentInfo;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     .line 3256
     const/4 v2, 0x0
@@ -62,14 +62,14 @@
     return-object v2
 
     .line 3258
-    :cond_0
-    if-ne v1, v0, :cond_1
+    :cond_c
+    if-ne v1, v0, :cond_f
 
     .line 3260
     return-object p1
 
     .line 3262
-    :cond_1
+    :cond_f
     invoke-static {v1}, Landroidx/core/view/ContentInfoCompat;->toContentInfoCompat(Landroid/view/ContentInfo;)Landroidx/core/view/ContentInfoCompat;
 
     move-result-object v2
@@ -78,23 +78,23 @@
 .end method
 
 .method public static setOnReceiveContentListener(Landroid/view/View;[Ljava/lang/String;Landroidx/core/view/OnReceiveContentListener;)V
-    .locals 1
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .param p1, "mimeTypes"    # [Ljava/lang/String;
     .param p2, "listener"    # Landroidx/core/view/OnReceiveContentListener;
 
     .line 3235
-    if-nez p2, :cond_0
+    if-nez p2, :cond_7
 
     .line 3236
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Landroid/view/View;->setOnReceiveContentListener([Ljava/lang/String;Landroid/view/OnReceiveContentListener;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 3238
-    :cond_0
+    :cond_7
     new-instance v0, Landroidx/core/view/ViewCompat$OnReceiveContentListenerAdapter;
 
     invoke-direct {v0, p2}, Landroidx/core/view/ViewCompat$OnReceiveContentListenerAdapter;-><init>(Landroidx/core/view/OnReceiveContentListener;)V
@@ -102,6 +102,6 @@
     invoke-virtual {p0, p1, v0}, Landroid/view/View;->setOnReceiveContentListener([Ljava/lang/String;Landroid/view/OnReceiveContentListener;)V
 
     .line 3241
-    :goto_0
+    :goto_f
     return-void
 .end method

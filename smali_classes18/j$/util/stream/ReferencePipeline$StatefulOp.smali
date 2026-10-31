@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 713
     const-class v0, Lj$/util/stream/ReferencePipeline;
@@ -41,7 +41,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;Lj$/util/stream/StreamShape;I)V
-    .locals 0
+    .registers 4
     .param p2, "inputShape"    # Lj$/util/stream/StreamShape;
     .param p3, "opFlags"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -87,7 +87,7 @@
 .end method
 
 .method final opIsStateful()Z
-    .locals 1
+    .registers 2
 
     .line 731
     .local p0, "this":Lj$/util/stream/ReferencePipeline$StatefulOp;, "Ljava/util/stream/ReferencePipeline$StatefulOp<TE_IN;TE_OUT;>;"
@@ -97,7 +97,7 @@
 .end method
 
 .method public bridge synthetic unordered()Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
     .line 713
     .local p0, "this":Lj$/util/stream/ReferencePipeline$StatefulOp;, "Ljava/util/stream/ReferencePipeline$StatefulOp<TE_IN;TE_OUT;>;"

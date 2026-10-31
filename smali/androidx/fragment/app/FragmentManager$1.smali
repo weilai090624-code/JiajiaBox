@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager;Z)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentManager;
     .param p2, "arg0"    # Z
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleOnBackPressed()V
-    .locals 1
+    .registers 2
 
     .line 429
     iget-object v0, p0, Landroidx/fragment/app/FragmentManager$1;->this$0:Landroidx/fragment/app/FragmentManager;

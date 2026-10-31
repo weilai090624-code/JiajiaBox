@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public get(Landroidx/camera/core/impl/ImageOutputConfig;Ljava/lang/String;Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)I
-    .locals 4
+    .registers 8
     .param p1, "imageOutputConfig"    # Landroidx/camera/core/impl/ImageOutputConfig;
     .param p2, "cameraId"    # Ljava/lang/String;
     .param p3, "cameraCharacteristicsCompat"    # Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;
@@ -63,13 +63,13 @@
 
     .line 58
     .local v0, "samsungQuirk":Landroidx/camera/camera2/internal/compat/quirk/SamsungPreviewTargetAspectRatioQuirk;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0, p1}, Landroidx/camera/camera2/internal/compat/quirk/SamsungPreviewTargetAspectRatioQuirk;->require16_9(Landroidx/camera/core/impl/Config;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 59
     const/4 v1, 0x1
@@ -77,7 +77,7 @@
     return v1
 
     .line 61
-    :cond_0
+    :cond_12
     const-class v1, Landroidx/camera/camera2/internal/compat/quirk/Nexus4AndroidLTargetAspectRatioQuirk;
 
     .line 62
@@ -89,7 +89,7 @@
 
     .line 63
     .local v1, "nexus4AndroidLQuirk":Landroidx/camera/camera2/internal/compat/quirk/Nexus4AndroidLTargetAspectRatioQuirk;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     .line 64
     invoke-virtual {v1}, Landroidx/camera/camera2/internal/compat/quirk/Nexus4AndroidLTargetAspectRatioQuirk;->getCorrectedAspectRatio()I
@@ -99,7 +99,7 @@
     return v2
 
     .line 67
-    :cond_1
+    :cond_21
     invoke-static {p2, p3}, Landroidx/camera/camera2/internal/compat/quirk/CameraQuirks;->get(Ljava/lang/String;Landroidx/camera/camera2/internal/compat/CameraCharacteristicsCompat;)Landroidx/camera/core/impl/Quirks;
 
     move-result-object v2
@@ -115,7 +115,7 @@
 
     .line 69
     .local v2, "quirk":Landroidx/camera/camera2/internal/compat/quirk/AspectRatioLegacyApi21Quirk;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_34
 
     .line 70
     invoke-virtual {v2}, Landroidx/camera/camera2/internal/compat/quirk/AspectRatioLegacyApi21Quirk;->getCorrectedAspectRatio()I
@@ -125,7 +125,7 @@
     return v3
 
     .line 73
-    :cond_2
+    :cond_34
     const/4 v3, 0x3
 
     return v3

@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/util/List;Ljava/lang/Boolean;)V
-    .locals 1
+    .registers 5
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p3, "flowStyle"    # Ljava/lang/Boolean;
     .annotation system Ldalvik/annotation/Signature;
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;Ljava/util/List;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
-    .locals 7
+    .registers 11
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p3, "flowStyle"    # Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
     .annotation system Ldalvik/annotation/Signature;
@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;ZLjava/util/List;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Boolean;)V
-    .locals 7
+    .registers 14
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "resolved"    # Z
     .param p4, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -147,7 +147,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;ZLjava/util/List;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
-    .locals 2
+    .registers 9
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "resolved"    # Z
     .param p4, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -178,7 +178,7 @@
     iput-boolean v0, p0, Lorg/yaml/snakeyaml/nodes/MappingNode;->merged:Z
 
     .line 36
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_d
 
     .line 39
     iput-object p3, p0, Lorg/yaml/snakeyaml/nodes/MappingNode;->value:Ljava/util/List;
@@ -190,7 +190,7 @@
     return-void
 
     .line 37
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "value in a Node is required."
@@ -203,7 +203,7 @@
 
 # virtual methods
 .method public getNodeId()Lorg/yaml/snakeyaml/nodes/NodeId;
-    .locals 1
+    .registers 2
 
     .line 71
     sget-object v0, Lorg/yaml/snakeyaml/nodes/NodeId;->mapping:Lorg/yaml/snakeyaml/nodes/NodeId;
@@ -212,7 +212,7 @@
 .end method
 
 .method public getValue()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -229,7 +229,7 @@
 .end method
 
 .method public isMerged()Z
-    .locals 1
+    .registers 2
 
     .line 132
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/nodes/MappingNode;->merged:Z
@@ -238,7 +238,7 @@
 .end method
 
 .method public setMerged(Z)V
-    .locals 0
+    .registers 2
     .param p1, "merged"    # Z
 
     .line 125
@@ -249,7 +249,7 @@
 .end method
 
 .method public setOnlyKeyType(Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -269,12 +269,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -292,16 +292,16 @@
 
     .line 90
     .end local v1    # "nodes":Lorg/yaml/snakeyaml/nodes/NodeTuple;
-    goto :goto_0
+    goto :goto_6
 
     .line 91
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public setTypes(Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -326,12 +326,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -356,16 +356,16 @@
 
     .line 97
     .end local v1    # "nodes":Lorg/yaml/snakeyaml/nodes/NodeTuple;
-    goto :goto_0
+    goto :goto_6
 
     .line 98
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 .method public setValue(Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -384,7 +384,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 103
     new-instance v0, Ljava/lang/StringBuilder;
@@ -402,12 +402,12 @@
     move-result-object v1
 
     .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -440,7 +440,7 @@
 
     instance-of v3, v3, Lorg/yaml/snakeyaml/nodes/CollectionNode;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3e
 
     .line 110
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/nodes/NodeTuple;->getValueNode()Lorg/yaml/snakeyaml/nodes/Node;
@@ -453,10 +453,10 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_45
 
     .line 112
-    :cond_0
+    :cond_3e
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/nodes/NodeTuple;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -464,18 +464,18 @@
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 114
-    :goto_1
+    :goto_45
     const-string v3, " }"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 115
     .end local v2    # "node":Lorg/yaml/snakeyaml/nodes/NodeTuple;
-    goto :goto_0
+    goto :goto_d
 
     .line 116
     .end local v1    # "i$":Ljava/util/Iterator;
-    :cond_1
+    :cond_4b
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

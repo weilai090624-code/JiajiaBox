@@ -114,7 +114,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/embedding/ExtensionEmbeddingBackend$Companion;
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/window/embedding/EmbeddingInterfaceCompat;)V
-    .locals 2
+    .registers 4
     .param p1, "embeddingExtension"    # Landroidx/window/embedding/EmbeddingInterfaceCompat;
 
     .line 32
@@ -164,11 +164,11 @@
     .line 45
     iget-object v0, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->embeddingExtension:Landroidx/window/embedding/EmbeddingInterfaceCompat;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_19
     iget-object v1, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->splitInfoEmbeddingCallback:Landroidx/window/embedding/ExtensionEmbeddingBackend$EmbeddingCallbackImpl;
 
     check-cast v1, Landroidx/window/embedding/EmbeddingInterfaceCompat$EmbeddingCallbackInterface;
@@ -176,7 +176,7 @@
     invoke-interface {v0, v1}, Landroidx/window/embedding/EmbeddingInterfaceCompat;->setEmbeddingCallback(Landroidx/window/embedding/EmbeddingInterfaceCompat$EmbeddingCallbackInterface;)V
 
     .line 46
-    :goto_0
+    :goto_20
     nop
 
     .line 109
@@ -191,7 +191,7 @@
 .end method
 
 .method public static final synthetic access$getGlobalInstance$cp()Landroidx/window/embedding/ExtensionEmbeddingBackend;
-    .locals 1
+    .registers 1
 
     .line 32
     sget-object v0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->globalInstance:Landroidx/window/embedding/ExtensionEmbeddingBackend;
@@ -200,7 +200,7 @@
 .end method
 
 .method public static final synthetic access$getGlobalLock$cp()Ljava/util/concurrent/locks/ReentrantLock;
-    .locals 1
+    .registers 1
 
     .line 32
     sget-object v0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->globalLock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -209,7 +209,7 @@
 .end method
 
 .method public static final synthetic access$setGlobalInstance$cp(Landroidx/window/embedding/ExtensionEmbeddingBackend;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Landroidx/window/embedding/ExtensionEmbeddingBackend;
 
     .line 32
@@ -219,7 +219,7 @@
 .end method
 
 .method public static synthetic getSplitChangeCallbacks$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -227,7 +227,7 @@
 
 # virtual methods
 .method public final getEmbeddingExtension()Landroidx/window/embedding/EmbeddingInterfaceCompat;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->embeddingExtension:Landroidx/window/embedding/EmbeddingInterfaceCompat;
@@ -236,7 +236,7 @@
 .end method
 
 .method public final getSplitChangeCallbacks()Ljava/util/concurrent/CopyOnWriteArrayList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -253,7 +253,7 @@
 .end method
 
 .method public getSplitRules()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -272,26 +272,26 @@
 .end method
 
 .method public isSplitSupported()Z
-    .locals 1
+    .registers 2
 
     .line 209
     iget-object v0, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->embeddingExtension:Landroidx/window/embedding/EmbeddingInterfaceCompat;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public registerRule(Landroidx/window/embedding/EmbeddingRule;)V
-    .locals 2
+    .registers 4
     .param p1, "rule"    # Landroidx/window/embedding/EmbeddingRule;
 
     const-string v0, "rule"
@@ -305,7 +305,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     .line 123
     iget-object v0, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->splitRules:Ljava/util/concurrent/CopyOnWriteArraySet;
@@ -315,11 +315,11 @@
     .line 124
     iget-object v0, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->embeddingExtension:Landroidx/window/embedding/EmbeddingInterfaceCompat;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_17
     iget-object v1, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->splitRules:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     check-cast v1, Ljava/util/Set;
@@ -327,13 +327,13 @@
     invoke-interface {v0, v1}, Landroidx/window/embedding/EmbeddingInterfaceCompat;->setSplitRules(Ljava/util/Set;)V
 
     .line 126
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     return-void
 .end method
 
 .method public registerSplitListenerForActivity(Landroid/app/Activity;Ljava/util/concurrent/Executor;Landroidx/core/util/Consumer;)V
-    .locals 4
+    .registers 8
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroidx/core/util/Consumer;
@@ -372,12 +372,12 @@
 
     .line 163
     .local v1, "$i$a$-withLock-ExtensionEmbeddingBackend$registerSplitListenerForActivity$1":I
-    :try_start_0
+    :try_start_17
     invoke-virtual {p0}, Landroidx/window/embedding/ExtensionEmbeddingBackend;->getEmbeddingExtension()Landroidx/window/embedding/EmbeddingInterfaceCompat;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_31
 
     .line 164
     nop
@@ -395,8 +395,8 @@
     move-result-object v2
 
     invoke-interface {p3, v2}, Landroidx/core/util/Consumer;->accept(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_17 .. :try_end_2c} :catchall_60
 
     .line 168
     nop
@@ -408,8 +408,8 @@
 
     .line 171
     .restart local v1    # "$i$a$-withLock-ExtensionEmbeddingBackend$registerSplitListenerForActivity$1":I
-    :cond_0
-    :try_start_1
+    :cond_31
+    :try_start_31
     new-instance v2, Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;
 
     invoke-direct {v2, p1, p2, p3}, Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;-><init>(Landroid/app/Activity;Ljava/util/concurrent/Executor;Landroidx/core/util/Consumer;)V
@@ -429,7 +429,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_52
 
     .line 174
     iget-object v3, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->splitInfoEmbeddingCallback:Landroidx/window/embedding/ExtensionEmbeddingBackend$EmbeddingCallbackImpl;
@@ -442,10 +442,10 @@
 
     invoke-virtual {v2, v3}, Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;->accept(Ljava/util/List;)V
 
-    goto :goto_0
+    goto :goto_59
 
     .line 176
-    :cond_1
+    :cond_52
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v3
@@ -453,14 +453,14 @@
     invoke-virtual {v2, v3}, Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;->accept(Ljava/util/List;)V
 
     .line 178
-    :goto_0
+    :goto_59
     nop
 
     .end local v1    # "$i$a$-withLock-ExtensionEmbeddingBackend$registerSplitListenerForActivity$1":I
     .end local v2    # "callbackWrapper":Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5c
+    .catchall {:try_start_31 .. :try_end_5c} :catchall_60
 
     .line 162
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -469,7 +469,7 @@
     return-void
 
     .line 162
-    :catchall_0
+    :catchall_60
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -478,7 +478,7 @@
 .end method
 
 .method public final setEmbeddingExtension(Landroidx/window/embedding/EmbeddingInterfaceCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroidx/window/embedding/EmbeddingInterfaceCompat;
 
     .line 36
@@ -488,7 +488,7 @@
 .end method
 
 .method public setSplitRules(Ljava/util/Set;)V
-    .locals 2
+    .registers 4
     .param p1, "rules"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -521,11 +521,11 @@
     .line 118
     iget-object v0, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->embeddingExtension:Landroidx/window/embedding/EmbeddingInterfaceCompat;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_17
     iget-object v1, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->splitRules:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     check-cast v1, Ljava/util/Set;
@@ -533,12 +533,12 @@
     invoke-interface {v0, v1}, Landroidx/window/embedding/EmbeddingInterfaceCompat;->setSplitRules(Ljava/util/Set;)V
 
     .line 119
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method public unregisterRule(Landroidx/window/embedding/EmbeddingRule;)V
-    .locals 2
+    .registers 4
     .param p1, "rule"    # Landroidx/window/embedding/EmbeddingRule;
 
     const-string v0, "rule"
@@ -552,7 +552,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 130
     iget-object v0, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->splitRules:Ljava/util/concurrent/CopyOnWriteArraySet;
@@ -562,11 +562,11 @@
     .line 131
     iget-object v0, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->embeddingExtension:Landroidx/window/embedding/EmbeddingInterfaceCompat;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_17
     iget-object v1, p0, Landroidx/window/embedding/ExtensionEmbeddingBackend;->splitRules:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     check-cast v1, Ljava/util/Set;
@@ -574,13 +574,13 @@
     invoke-interface {v0, v1}, Landroidx/window/embedding/EmbeddingInterfaceCompat;->setSplitRules(Ljava/util/Set;)V
 
     .line 133
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     return-void
 .end method
 
 .method public unregisterSplitListenerForActivity(Landroidx/core/util/Consumer;)V
-    .locals 5
+    .registers 7
     .param p1, "consumer"    # Landroidx/core/util/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -607,7 +607,7 @@
 
     .line 185
     .local v1, "$i$a$-withLock-ExtensionEmbeddingBackend$unregisterSplitListenerForActivity$1":I
-    :try_start_0
+    :try_start_d
     invoke-virtual {p0}, Landroidx/window/embedding/ExtensionEmbeddingBackend;->getSplitChangeCallbacks()Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v2
@@ -616,12 +616,12 @@
 
     move-result-object v2
 
-    :cond_0
+    :cond_15
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_33
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -639,7 +639,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_15
 
     .line 187
     invoke-virtual {p0}, Landroidx/window/embedding/ExtensionEmbeddingBackend;->getSplitChangeCallbacks()Ljava/util/concurrent/CopyOnWriteArrayList;
@@ -653,13 +653,13 @@
 
     .line 191
     .end local v3    # "callbackWrapper":Landroidx/window/embedding/ExtensionEmbeddingBackend$SplitListenerWrapper;
-    :cond_1
+    :cond_33
     nop
 
     .end local v1    # "$i$a$-withLock-ExtensionEmbeddingBackend$unregisterSplitListenerForActivity$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_36
+    .catchall {:try_start_d .. :try_end_36} :catchall_3a
 
     .line 184
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -668,7 +668,7 @@
     return-void
 
     .line 184
-    :catchall_0
+    :catchall_3a
     move-exception v1
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V

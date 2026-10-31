@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Boolean;)V
-    .locals 1
+    .registers 6
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Tag;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
-    .locals 0
+    .registers 5
     .param p1, "tag"    # Lorg/yaml/snakeyaml/nodes/Tag;
     .param p2, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public getFlowStyle()Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
-    .locals 1
+    .registers 2
 
     .line 59
     .local p0, "this":Lorg/yaml/snakeyaml/nodes/CollectionNode;, "Lorg/yaml/snakeyaml/nodes/CollectionNode<TT;>;"
@@ -81,7 +81,7 @@
 .end method
 
 .method public setEndMark(Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 0
+    .registers 2
     .param p1, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
 
     .line 78
@@ -93,7 +93,7 @@
 .end method
 
 .method public setFlowStyle(Ljava/lang/Boolean;)V
-    .locals 1
+    .registers 3
     .param p1, "flowStyle"    # Ljava/lang/Boolean;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -111,12 +111,12 @@
 .end method
 
 .method public setFlowStyle(Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
-    .locals 2
+    .registers 4
     .param p1, "flowStyle"    # Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     .line 63
     .local p0, "this":Lorg/yaml/snakeyaml/nodes/CollectionNode;, "Lorg/yaml/snakeyaml/nodes/CollectionNode<TT;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 64
     iput-object p1, p0, Lorg/yaml/snakeyaml/nodes/CollectionNode;->flowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
@@ -125,7 +125,7 @@
     return-void
 
     .line 63
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Flow style must be provided."

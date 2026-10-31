@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 111
@@ -47,37 +47,37 @@
 
 # virtual methods
 .method public getDropDownViewInflater()Landroid/view/LayoutInflater;
-    .locals 1
+    .registers 2
 
     .line 152
     iget-object v0, p0, Landroidx/appcompat/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Landroidx/appcompat/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/appcompat/widget/ThemedSpinnerAdapter$Helper;->mInflater:Landroid/view/LayoutInflater;
 
-    :goto_0
+    :goto_9
     return-object v0
 .end method
 
 .method public getDropDownViewTheme()Landroid/content/res/Resources$Theme;
-    .locals 1
+    .registers 2
 
     .line 140
     iget-object v0, p0, Landroidx/appcompat/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/appcompat/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
 
     invoke-virtual {v0}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
@@ -88,26 +88,26 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 .method public setDropDownViewTheme(Landroid/content/res/Resources$Theme;)V
-    .locals 2
+    .registers 4
     .param p1, "theme"    # Landroid/content/res/Resources$Theme;
 
     .line 124
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
     .line 125
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroidx/appcompat/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
 
-    goto :goto_0
+    goto :goto_24
 
     .line 126
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/appcompat/widget/ThemedSpinnerAdapter$Helper;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -118,17 +118,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 127
     iget-object v0, p0, Landroidx/appcompat/widget/ThemedSpinnerAdapter$Helper;->mInflater:Landroid/view/LayoutInflater;
 
     iput-object v0, p0, Landroidx/appcompat/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
 
-    goto :goto_0
+    goto :goto_24
 
     .line 129
-    :cond_1
+    :cond_17
     new-instance v0, Landroidx/appcompat/view/ContextThemeWrapper;
 
     iget-object v1, p0, Landroidx/appcompat/widget/ThemedSpinnerAdapter$Helper;->mContext:Landroid/content/Context;
@@ -145,6 +145,6 @@
 
     .line 132
     .end local v0    # "context":Landroid/content/Context;
-    :goto_0
+    :goto_24
     return-void
 .end method

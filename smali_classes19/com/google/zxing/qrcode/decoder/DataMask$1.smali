@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 39
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method isMasked(II)Z
-    .locals 2
+    .registers 5
     .param p1, "i"    # I
     .param p2, "j"    # I
 
@@ -40,11 +40,11 @@
 
     and-int/2addr v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return v1
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     return v0

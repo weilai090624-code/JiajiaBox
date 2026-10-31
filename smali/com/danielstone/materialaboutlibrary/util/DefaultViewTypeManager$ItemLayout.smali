@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 24
     sget v0, Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager$ItemLayout;->ACTION_LAYOUT:I
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

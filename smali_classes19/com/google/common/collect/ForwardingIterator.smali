@@ -24,7 +24,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     .local p0, "this":Lcom/google/common/collect/ForwardingIterator;, "Lcom/google/common/collect/ForwardingIterator<TT;>;"
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/collect/ForwardingIterator;, "Lcom/google/common/collect/ForwardingIterator<TT;>;"
@@ -58,7 +58,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 52
     .local p0, "this":Lcom/google/common/collect/ForwardingIterator;, "Lcom/google/common/collect/ForwardingIterator<TT;>;"
@@ -74,7 +74,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 64
     .local p0, "this":Lcom/google/common/collect/ForwardingIterator;, "Lcom/google/common/collect/ForwardingIterator<TT;>;"

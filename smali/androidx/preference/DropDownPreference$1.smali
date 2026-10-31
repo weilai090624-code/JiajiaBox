@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/DropDownPreference;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/DropDownPreference;
 
     .line 41
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 2
+    .registers 8
     .param p2, "v"    # Landroid/view/View;
     .param p3, "position"    # I
     .param p4, "id"    # J
@@ -53,7 +53,7 @@
 
     .line 44
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
-    if-ltz p3, :cond_0
+    if-ltz p3, :cond_27
 
     .line 45
     iget-object v0, p0, Landroidx/preference/DropDownPreference$1;->this$0:Landroidx/preference/DropDownPreference;
@@ -80,7 +80,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_27
 
     iget-object v1, p0, Landroidx/preference/DropDownPreference$1;->this$0:Landroidx/preference/DropDownPreference;
 
@@ -88,7 +88,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     .line 47
     iget-object v1, p0, Landroidx/preference/DropDownPreference$1;->this$0:Landroidx/preference/DropDownPreference;
@@ -97,12 +97,12 @@
 
     .line 50
     .end local v0    # "value":Ljava/lang/String;
-    :cond_0
+    :cond_27
     return-void
 .end method
 
 .method public onNothingSelected(Landroid/widget/AdapterView;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

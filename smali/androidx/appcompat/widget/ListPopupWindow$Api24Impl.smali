@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1484
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getMaxAvailableHeight(Landroid/widget/PopupWindow;Landroid/view/View;IZ)I
-    .locals 1
+    .registers 5
     .param p0, "popupWindow"    # Landroid/widget/PopupWindow;
     .param p1, "anchor"    # Landroid/view/View;
     .param p2, "yOffset"    # I

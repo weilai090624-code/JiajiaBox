@@ -70,7 +70,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     new-instance v0, Lokhttp3/internal/platform/ConscryptPlatform$Companion;
 
@@ -86,7 +86,7 @@
     .line 111
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_a
     const-string v1, "org.conscrypt.Conscrypt$Version"
 
     sget-object v2, Lokhttp3/internal/platform/ConscryptPlatform;->Companion:Lokhttp3/internal/platform/ConscryptPlatform$Companion;
@@ -109,7 +109,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
     sget-object v1, Lokhttp3/internal/platform/ConscryptPlatform;->Companion:Lokhttp3/internal/platform/ConscryptPlatform$Companion;
 
@@ -120,34 +120,34 @@
     invoke-virtual {v1, v2, v3, v0}, Lokhttp3/internal/platform/ConscryptPlatform$Companion;->atLeastVersion(III)Z
 
     move-result v1
-    :try_end_0
-    .catch Ljava/lang/NoClassDefFoundError; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_28
+    .catch Ljava/lang/NoClassDefFoundError; {:try_start_a .. :try_end_28} :catch_30
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_a .. :try_end_28} :catch_2e
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 116
-    :cond_0
+    :cond_2c
     nop
 
-    :goto_0
-    goto :goto_1
+    :goto_2d
+    goto :goto_32
 
     .line 120
-    :catch_0
+    :catch_2e
     move-exception v1
 
     .line 121
     .local v1, "e":Ljava/lang/ClassNotFoundException;
-    goto :goto_1
+    goto :goto_32
 
     .line 118
     .end local v1    # "e":Ljava/lang/ClassNotFoundException;
-    :catch_1
+    :catch_30
     move-exception v1
 
     .line 119
@@ -156,14 +156,14 @@
 
     .line 109
     .end local v1    # "e":Ljava/lang/NoClassDefFoundError;
-    :goto_1
+    :goto_32
     sput-boolean v0, Lokhttp3/internal/platform/ConscryptPlatform;->isSupported:Z
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 37
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform;-><init>()V
@@ -184,7 +184,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/platform/ConscryptPlatform;-><init>()V
 
@@ -192,7 +192,7 @@
 .end method
 
 .method public static final synthetic access$isSupported$cp()Z
-    .locals 1
+    .registers 1
 
     .line 37
     sget-boolean v0, Lokhttp3/internal/platform/ConscryptPlatform;->isSupported:Z
@@ -203,7 +203,7 @@
 
 # virtual methods
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 6
+    .registers 10
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -231,7 +231,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     .line 85
     const/4 v0, 0x1
@@ -268,7 +268,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2e
 
     .end local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v2    # "$i$f$toTypedArray":I
@@ -279,14 +279,14 @@
     invoke-static {p1, v4}, Lorg/conscrypt/Conscrypt;->setApplicationProtocols(Ljavax/net/ssl/SSLSocket;[Ljava/lang/String;)V
 
     .end local v0    # "names":Ljava/util/List;
-    goto :goto_0
+    goto :goto_39
 
     .line 143
     .restart local v0    # "names":Ljava/util/List;
     .restart local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v2    # "$i$f$toTypedArray":I
     .restart local v3    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_0
+    :cond_2e
     new-instance v4, Ljava/lang/NullPointerException;
 
     const-string v5, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -300,16 +300,16 @@
     .end local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v2    # "$i$f$toTypedArray":I
     .end local v3    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_1
+    :cond_36
     invoke-super {p0, p1, p2, p3}, Lokhttp3/internal/platform/Platform;->configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
 
     .line 93
-    :goto_0
+    :goto_39
     return-void
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -321,28 +321,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 97
     invoke-static {p1}, Lorg/conscrypt/Conscrypt;->getApplicationProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 99
-    :cond_0
+    :cond_10
     invoke-super {p0, p1}, Lokhttp3/internal/platform/Platform;->getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 100
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public newSSLContext()Ljavax/net/ssl/SSLContext;
-    .locals 2
+    .registers 3
 
     .line 44
     const-string v0, "TLS"
@@ -361,7 +361,7 @@
 .end method
 
 .method public newSslSocketFactory(Ljavax/net/ssl/X509TrustManager;)Ljavax/net/ssl/SSLSocketFactory;
-    .locals 6
+    .registers 8
     .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     const-string v0, "trustManager"
@@ -418,7 +418,7 @@
 .end method
 
 .method public platformTrustManager()Ljavax/net/ssl/X509TrustManager;
-    .locals 5
+    .registers 6
 
     .line 47
     invoke-static {}, Ljavax/net/ssl/TrustManagerFactory;->getDefaultAlgorithm()Ljava/lang/String;
@@ -470,26 +470,26 @@
 
     const/4 v3, 0x1
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_27
 
     aget-object v1, v0, v2
 
     instance-of v1, v1, Ljavax/net/ssl/X509TrustManager;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_2
+    :goto_28
+    if-eqz v3, :cond_43
 
     .line 53
     aget-object v1, v0, v2
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3b
 
     check-cast v1, Ljavax/net/ssl/X509TrustManager;
 
@@ -510,7 +510,7 @@
 
     .line 53
     .end local v1    # "x509TrustManager":Ljavax/net/ssl/X509TrustManager;
-    :cond_1
+    :cond_3b
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type javax.net.ssl.X509TrustManager"
@@ -520,7 +520,7 @@
     throw v1
 
     .line 50
-    :cond_2
+    :cond_43
     const/4 v1, 0x0
 
     .line 51
@@ -555,7 +555,7 @@
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     const-string v0, "sslSocketFactory"

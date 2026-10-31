@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokhttp3/internal/http/RequestLine;
 
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method private final includeAuthorityInRequestLine(Lokhttp3/Request;Ljava/net/Proxy$Type;)Z
-    .locals 1
+    .registers 4
     .param p1, "request"    # Lokhttp3/Request;
     .param p2, "proxyType"    # Ljava/net/Proxy$Type;
 
@@ -71,27 +71,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     sget-object v0, Ljava/net/Proxy$Type;->HTTP:Ljava/net/Proxy$Type;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 
 # virtual methods
 .method public final get(Lokhttp3/Request;Ljava/net/Proxy$Type;)Ljava/lang/String;
-    .locals 5
+    .registers 8
     .param p1, "request"    # Lokhttp3/Request;
     .param p2, "proxyType"    # Ljava/net/Proxy$Type;
 
@@ -133,7 +133,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2d
 
     .line 34
     invoke-virtual {p1}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
@@ -142,10 +142,10 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 36
-    :cond_0
+    :cond_2d
     sget-object v3, Lokhttp3/internal/http/RequestLine;->INSTANCE:Lokhttp3/internal/http/RequestLine;
 
     invoke-virtual {p1}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
@@ -159,7 +159,7 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 38
-    :goto_0
+    :goto_3a
     const-string v3, " HTTP/1.1"
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -183,7 +183,7 @@
 .end method
 
 .method public final requestPath(Lokhttp3/HttpUrl;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "url"    # Lokhttp3/HttpUrl;
 
     const-string v0, "url"
@@ -203,7 +203,7 @@
 
     .line 56
     .local v1, "query":Ljava/lang/String;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -227,11 +227,11 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_0
+    :cond_27
     move-object v2, v0
 
-    :goto_0
+    :goto_28
     return-object v2
 .end method

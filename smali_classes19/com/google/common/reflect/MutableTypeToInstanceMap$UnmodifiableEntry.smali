@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Map$Entry;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/Map$Entry;Lcom/google/common/reflect/MutableTypeToInstanceMap$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/util/Map$Entry;
     .param p2, "x1"    # Lcom/google/common/reflect/MutableTypeToInstanceMap$1;
 
@@ -79,7 +79,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/util/Iterator;
 
     .line 120
@@ -91,7 +91,7 @@
 .end method
 
 .method private static transformEntries(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -122,7 +122,7 @@
 .end method
 
 .method static transformEntries(Ljava/util/Set;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -151,7 +151,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 120
     .local p0, "this":Lcom/google/common/reflect/MutableTypeToInstanceMap$UnmodifiableEntry;, "Lcom/google/common/reflect/MutableTypeToInstanceMap$UnmodifiableEntry<TK;TV;>;"
@@ -163,7 +163,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -180,7 +180,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"

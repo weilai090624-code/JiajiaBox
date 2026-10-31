@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 939
     invoke-direct {p0}, Lcom/google/common/base/CharMatcher;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public negate()Lcom/google/common/base/CharMatcher;
-    .locals 1
+    .registers 2
 
     .line 948
     new-instance v0, Lcom/google/common/base/CharMatcher$NegatedFastMatcher;
@@ -53,7 +53,7 @@
 .end method
 
 .method public final precomputed()Lcom/google/common/base/CharMatcher;
-    .locals 0
+    .registers 1
 
     .line 943
     return-object p0

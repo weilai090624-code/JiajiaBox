@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/LiveDataUtils$1;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/utils/LiveDataUtils$1;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 72
     iget-object v0, p0, Landroidx/work/impl/utils/LiveDataUtils$1$1;->this$0:Landroidx/work/impl/utils/LiveDataUtils$1;
@@ -67,7 +67,7 @@
     monitor-enter v0
 
     .line 73
-    :try_start_0
+    :try_start_5
     iget-object v1, p0, Landroidx/work/impl/utils/LiveDataUtils$1$1;->this$0:Landroidx/work/impl/utils/LiveDataUtils$1;
 
     iget-object v1, v1, Landroidx/work/impl/utils/LiveDataUtils$1;->val$mappingMethod:Landroidx/arch/core/util/Function;
@@ -84,9 +84,9 @@
 
     iget-object v2, v2, Landroidx/work/impl/utils/LiveDataUtils$1;->mCurrentOutput:Ljava/lang/Object;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_23
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     .line 75
     iget-object v2, p0, Landroidx/work/impl/utils/LiveDataUtils$1$1;->this$0:Landroidx/work/impl/utils/LiveDataUtils$1;
@@ -100,15 +100,15 @@
 
     invoke-virtual {v2, v1}, Landroidx/lifecycle/MediatorLiveData;->postValue(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 77
-    :cond_0
+    :cond_23
     iget-object v2, p0, Landroidx/work/impl/utils/LiveDataUtils$1$1;->this$0:Landroidx/work/impl/utils/LiveDataUtils$1;
 
     iget-object v2, v2, Landroidx/work/impl/utils/LiveDataUtils$1;->mCurrentOutput:Ljava/lang/Object;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3e
 
     iget-object v2, p0, Landroidx/work/impl/utils/LiveDataUtils$1$1;->this$0:Landroidx/work/impl/utils/LiveDataUtils$1;
 
@@ -119,7 +119,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_3e
 
     .line 79
     iget-object v2, p0, Landroidx/work/impl/utils/LiveDataUtils$1$1;->this$0:Landroidx/work/impl/utils/LiveDataUtils$1;
@@ -135,20 +135,20 @@
 
     .line 82
     .end local v1    # "newOutput":Ljava/lang/Object;, "TOut;"
-    :cond_1
-    :goto_0
+    :cond_3e
+    :goto_3e
     monitor-exit v0
 
     .line 83
     return-void
 
     .line 82
-    :catchall_0
+    :catchall_40
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_42
+    .catchall {:try_start_5 .. :try_end_42} :catchall_40
 
     throw v1
 .end method

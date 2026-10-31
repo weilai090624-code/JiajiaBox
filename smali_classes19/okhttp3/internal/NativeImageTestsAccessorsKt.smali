@@ -52,7 +52,7 @@
 
 # direct methods
 .method public static final buildCache(Lokio/Path;JLokio/FileSystem;)Lokhttp3/Cache;
-    .locals 1
+    .registers 5
     .param p0, "file"    # Lokio/Path;
     .param p1, "maxSize"    # J
     .param p3, "fileSystem"    # Lokio/FileSystem;
@@ -74,7 +74,7 @@
 .end method
 
 .method public static final finishedAccessor(Lokhttp3/Dispatcher;Lokhttp3/internal/connection/RealCall$AsyncCall;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$finishedAccessor"    # Lokhttp3/Dispatcher;
     .param p1, "call"    # Lokhttp3/internal/connection/RealCall$AsyncCall;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public static final getConnectionAccessor(Lokhttp3/internal/connection/Exchange;)Lokhttp3/internal/connection/RealConnection;
-    .locals 1
+    .registers 2
     .param p0, "$this$connectionAccessor"    # Lokhttp3/internal/connection/Exchange;
 
     const-string v0, "<this>"
@@ -109,7 +109,7 @@
 .end method
 
 .method public static final getExchangeAccessor(Lokhttp3/Response;)Lokhttp3/internal/connection/Exchange;
-    .locals 1
+    .registers 2
     .param p0, "$this$exchangeAccessor"    # Lokhttp3/Response;
 
     const-string v0, "<this>"
@@ -125,7 +125,7 @@
 .end method
 
 .method public static final getIdleAtNsAccessor(Lokhttp3/internal/connection/RealConnection;)J
-    .locals 2
+    .registers 3
     .param p0, "$this$idleAtNsAccessor"    # Lokhttp3/internal/connection/RealConnection;
 
     const-string v0, "<this>"
@@ -141,7 +141,7 @@
 .end method
 
 .method public static final setIdleAtNsAccessor(Lokhttp3/internal/connection/RealConnection;J)V
-    .locals 1
+    .registers 4
     .param p0, "$this$idleAtNsAccessor"    # Lokhttp3/internal/connection/RealConnection;
     .param p1, "value"    # J
 

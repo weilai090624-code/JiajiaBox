@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Lj$/util/stream/Stream;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lkotlin/streams/jdk8/StreamsKt$asSequence$$inlined$Sequence$1;->$this_asSequence$inlined:Lj$/util/stream/Stream;
 
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

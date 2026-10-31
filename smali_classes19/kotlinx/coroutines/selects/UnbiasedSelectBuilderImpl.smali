@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 3
+    .registers 5
     .param p1, "uCont"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -93,7 +93,7 @@
 .end method
 
 .method public static final synthetic access$getCont$p(Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;)Lkotlinx/coroutines/CancellableContinuationImpl;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;
 
     .line 59
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public final handleBuilderException(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 83
@@ -130,7 +130,7 @@
 .end method
 
 .method public final initSelectResult()Ljava/lang/Object;
-    .locals 7
+    .registers 8
 
     .line 68
     iget-object v0, p0, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;->cont:Lkotlinx/coroutines/CancellableContinuationImpl;
@@ -139,7 +139,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;->cont:Lkotlinx/coroutines/CancellableContinuationImpl;
 
@@ -150,7 +150,7 @@
     return-object v0
 
     .line 69
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Lkotlinx/coroutines/selects/UnbiasedSelectBuilderImpl;->getContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object v0

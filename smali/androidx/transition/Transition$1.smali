@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 171
     invoke-direct {p0}, Landroidx/transition/PathMotion;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getPath(FFFF)Landroid/graphics/Path;
-    .locals 1
+    .registers 6
     .param p1, "startX"    # F
     .param p2, "startY"    # F
     .param p3, "endX"    # F

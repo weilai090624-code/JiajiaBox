@@ -37,7 +37,7 @@
 
 # direct methods
 .method public static final AppBarConfiguration(Landroid/view/Menu;Landroidx/customview/widget/Openable;Lkotlin/jvm/functions/Function0;)Landroidx/navigation/ui/AppBarConfiguration;
-    .locals 3
+    .registers 6
     .param p0, "topLevelMenu"    # Landroid/view/Menu;
     .param p1, "drawerLayout"    # Landroidx/customview/widget/Openable;
     .param p2, "fallbackOnNavigateUpListener"    # Lkotlin/jvm/functions/Function0;
@@ -94,7 +94,7 @@
 .end method
 
 .method public static final AppBarConfiguration(Landroidx/navigation/NavGraph;Landroidx/customview/widget/Openable;Lkotlin/jvm/functions/Function0;)Landroidx/navigation/ui/AppBarConfiguration;
-    .locals 3
+    .registers 6
     .param p0, "navGraph"    # Landroidx/navigation/NavGraph;
     .param p1, "drawerLayout"    # Landroidx/customview/widget/Openable;
     .param p2, "fallbackOnNavigateUpListener"    # Lkotlin/jvm/functions/Function0;
@@ -151,7 +151,7 @@
 .end method
 
 .method public static final AppBarConfiguration(Ljava/util/Set;Landroidx/customview/widget/Openable;Lkotlin/jvm/functions/Function0;)Landroidx/navigation/ui/AppBarConfiguration;
-    .locals 3
+    .registers 6
     .param p0, "topLevelDestinationIds"    # Ljava/util/Set;
     .param p1, "drawerLayout"    # Landroidx/customview/widget/Openable;
     .param p2, "fallbackOnNavigateUpListener"    # Lkotlin/jvm/functions/Function0;
@@ -210,7 +210,7 @@
 .end method
 
 .method public static synthetic AppBarConfiguration$default(Landroid/view/Menu;Landroidx/customview/widget/Openable;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/navigation/ui/AppBarConfiguration;
-    .locals 1
+    .registers 6
     .param p0, "topLevelMenu"    # Landroid/view/Menu;
     .param p1, "drawerLayout"    # Landroidx/customview/widget/Openable;
     .param p2, "fallbackOnNavigateUpListener"    # Lkotlin/jvm/functions/Function0;
@@ -218,16 +218,16 @@
     .line 246
     and-int/lit8 p4, p3, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 248
     const/4 p1, 0x0
 
     .line 246
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_e
 
     .line 249
     sget-object p3, Landroidx/navigation/ui/AppBarConfigurationKt$AppBarConfiguration$2;->INSTANCE:Landroidx/navigation/ui/AppBarConfigurationKt$AppBarConfiguration$2;
@@ -237,7 +237,7 @@
     check-cast p2, Lkotlin/jvm/functions/Function0;
 
     .line 246
-    :cond_1
+    :cond_e
     const-string/jumbo p3, "topLevelMenu"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -279,7 +279,7 @@
 .end method
 
 .method public static synthetic AppBarConfiguration$default(Landroidx/navigation/NavGraph;Landroidx/customview/widget/Openable;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/navigation/ui/AppBarConfiguration;
-    .locals 1
+    .registers 6
     .param p0, "navGraph"    # Landroidx/navigation/NavGraph;
     .param p1, "drawerLayout"    # Landroidx/customview/widget/Openable;
     .param p2, "fallbackOnNavigateUpListener"    # Lkotlin/jvm/functions/Function0;
@@ -287,16 +287,16 @@
     .line 221
     and-int/lit8 p4, p3, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 223
     const/4 p1, 0x0
 
     .line 221
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_e
 
     .line 224
     sget-object p3, Landroidx/navigation/ui/AppBarConfigurationKt$AppBarConfiguration$1;->INSTANCE:Landroidx/navigation/ui/AppBarConfigurationKt$AppBarConfiguration$1;
@@ -306,7 +306,7 @@
     check-cast p2, Lkotlin/jvm/functions/Function0;
 
     .line 221
-    :cond_1
+    :cond_e
     const-string p3, "navGraph"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -348,7 +348,7 @@
 .end method
 
 .method public static synthetic AppBarConfiguration$default(Ljava/util/Set;Landroidx/customview/widget/Openable;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/navigation/ui/AppBarConfiguration;
-    .locals 1
+    .registers 6
     .param p0, "topLevelDestinationIds"    # Ljava/util/Set;
     .param p1, "drawerLayout"    # Landroidx/customview/widget/Openable;
     .param p2, "fallbackOnNavigateUpListener"    # Lkotlin/jvm/functions/Function0;
@@ -356,16 +356,16 @@
     .line 271
     and-int/lit8 p4, p3, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 273
     const/4 p1, 0x0
 
     .line 271
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x4
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_e
 
     .line 274
     sget-object p3, Landroidx/navigation/ui/AppBarConfigurationKt$AppBarConfiguration$3;->INSTANCE:Landroidx/navigation/ui/AppBarConfigurationKt$AppBarConfiguration$3;
@@ -375,7 +375,7 @@
     check-cast p2, Lkotlin/jvm/functions/Function0;
 
     .line 271
-    :cond_1
+    :cond_e
     const-string/jumbo p3, "topLevelDestinationIds"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

@@ -33,7 +33,7 @@
 
 # direct methods
 .method public static final arraySetOf()Landroidx/collection/ArraySet;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -56,7 +56,7 @@
 .end method
 
 .method public static final varargs arraySetOf([Ljava/lang/Object;)Landroidx/collection/ArraySet;
-    .locals 4
+    .registers 5
     .param p0, "values"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,8 +88,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_f
+    if-ge v2, v1, :cond_1a
 
     aget-object v3, p0, v2
 
@@ -103,9 +103,9 @@
     .end local v3    # "value":Ljava/lang/Object;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 31
-    :cond_0
+    :cond_1a
     return-object v0
 .end method

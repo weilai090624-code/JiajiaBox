@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "contentView"    # Landroid/view/View;
 
@@ -35,7 +35,7 @@
 .end method
 
 .method static synthetic access$001(Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog;
 
     .line 38
@@ -45,7 +45,7 @@
 .end method
 
 .method private startAnimation(Z)V
-    .locals 6
+    .registers 8
     .param p1, "isEnterAnimation"    # Z
 
     .line 72
@@ -53,37 +53,37 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     const/high16 v2, 0x3f800000    # 1.0f
 
     .line 73
     .local v2, "from":F
-    :goto_0
-    if-eqz p1, :cond_1
+    :goto_9
+    if-eqz p1, :cond_d
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     .line 74
     .local v0, "to":F
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_d
+    if-eqz p1, :cond_12
 
     const-wide/16 v3, 0xfa
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_2
+    :cond_12
     const-wide/16 v3, 0x96
 
     .line 75
     .local v3, "duration":J
-    :goto_1
+    :goto_14
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog;->mContentView:Landroid/view/View;
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setScaleX(F)V
@@ -143,7 +143,7 @@
 
 # virtual methods
 .method public dismiss()V
-    .locals 1
+    .registers 2
 
     .line 68
     const/4 v0, 0x0
@@ -155,7 +155,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 59
@@ -163,7 +163,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 60
     invoke-virtual {p0}, Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog;->dismiss()V
@@ -174,14 +174,14 @@
     return v0
 
     .line 63
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public show()V
-    .locals 3
+    .registers 4
 
     .line 51
     invoke-virtual {p0}, Landroidx/browser/browseractions/BrowserActionsFallbackMenuDialog;->getWindow()Landroid/view/Window;

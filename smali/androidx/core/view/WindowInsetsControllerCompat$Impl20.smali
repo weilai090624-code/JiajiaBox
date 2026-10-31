@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/Window;Landroidx/core/view/SoftwareKeyboardControllerCompat;)V
-    .locals 0
+    .registers 3
     .param p1, "window"    # Landroid/view/Window;
     .param p2, "softwareKeyboardControllerCompat"    # Landroidx/core/view/SoftwareKeyboardControllerCompat;
 
@@ -40,24 +40,24 @@
 .end method
 
 .method private hideForType(I)V
-    .locals 1
+    .registers 3
     .param p1, "type"    # I
 
     .line 486
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_16
 
-    goto :goto_0
+    goto :goto_14
 
     .line 494
-    :sswitch_0
+    :sswitch_4
     iget-object v0, p0, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->mSoftwareKeyboardControllerCompat:Landroidx/core/view/SoftwareKeyboardControllerCompat;
 
     invoke-virtual {v0}, Landroidx/core/view/SoftwareKeyboardControllerCompat;->hide()V
 
-    goto :goto_0
+    goto :goto_14
 
     .line 491
-    :sswitch_1
+    :sswitch_a
     const/4 v0, 0x2
 
     invoke-virtual {p0, v0}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->setSystemUiFlag(I)V
@@ -66,7 +66,7 @@
     return-void
 
     .line 488
-    :sswitch_2
+    :sswitch_f
     const/4 v0, 0x4
 
     invoke-virtual {p0, v0}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->setSystemUiFlag(I)V
@@ -75,38 +75,38 @@
     return-void
 
     .line 496
-    :goto_0
+    :goto_14
     return-void
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_16
     .sparse-switch
-        0x1 -> :sswitch_2
-        0x2 -> :sswitch_1
-        0x8 -> :sswitch_0
+        0x1 -> :sswitch_f
+        0x2 -> :sswitch_a
+        0x8 -> :sswitch_4
     .end sparse-switch
 .end method
 
 .method private showForType(I)V
-    .locals 1
+    .registers 3
     .param p1, "type"    # I
 
     .line 461
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_1a
 
-    goto :goto_0
+    goto :goto_19
 
     .line 470
-    :sswitch_0
+    :sswitch_4
     iget-object v0, p0, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->mSoftwareKeyboardControllerCompat:Landroidx/core/view/SoftwareKeyboardControllerCompat;
 
     invoke-virtual {v0}, Landroidx/core/view/SoftwareKeyboardControllerCompat;->show()V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 467
-    :sswitch_1
+    :sswitch_a
     const/4 v0, 0x2
 
     invoke-virtual {p0, v0}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->unsetSystemUiFlag(I)V
@@ -115,7 +115,7 @@
     return-void
 
     .line 463
-    :sswitch_2
+    :sswitch_f
     const/4 v0, 0x4
 
     invoke-virtual {p0, v0}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->unsetSystemUiFlag(I)V
@@ -129,21 +129,21 @@
     return-void
 
     .line 472
-    :goto_0
+    :goto_19
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_1a
     .sparse-switch
-        0x1 -> :sswitch_2
-        0x2 -> :sswitch_1
-        0x8 -> :sswitch_0
+        0x1 -> :sswitch_f
+        0x2 -> :sswitch_a
+        0x8 -> :sswitch_4
     .end sparse-switch
 .end method
 
 
 # virtual methods
 .method addOnControllableInsetsChangedListener(Landroidx/core/view/WindowInsetsControllerCompat$OnControllableInsetsChangedListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Landroidx/core/view/WindowInsetsControllerCompat$OnControllableInsetsChangedListener;
 
     .line 552
@@ -151,7 +151,7 @@
 .end method
 
 .method controlWindowInsetsAnimation(IJLandroid/view/animation/Interpolator;Landroid/os/CancellationSignal;Landroidx/core/view/WindowInsetsAnimationControlListenerCompat;)V
-    .locals 0
+    .registers 7
     .param p1, "types"    # I
     .param p2, "durationMillis"    # J
     .param p4, "interpolator"    # Landroid/view/animation/Interpolator;
@@ -163,7 +163,7 @@
 .end method
 
 .method getSystemBarsBehavior()I
-    .locals 1
+    .registers 2
 
     .line 546
     const/4 v0, 0x0
@@ -172,44 +172,44 @@
 .end method
 
 .method hide(I)V
-    .locals 2
+    .registers 4
     .param p1, "typeMask"    # I
 
     .line 476
     const/4 v0, 0x1
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     const/16 v1, 0x100
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_10
 
     .line 478
     and-int v1, p1, v0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     .line 479
-    goto :goto_1
+    goto :goto_d
 
     .line 481
-    :cond_0
+    :cond_a
     invoke-direct {p0, v0}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->hideForType(I)V
 
     .line 477
-    :goto_1
+    :goto_d
     shl-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 483
     .end local v0    # "i":I
-    :cond_1
+    :cond_10
     return-void
 .end method
 
 .method removeOnControllableInsetsChangedListener(Landroidx/core/view/WindowInsetsControllerCompat$OnControllableInsetsChangedListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Landroidx/core/view/WindowInsetsControllerCompat$OnControllableInsetsChangedListener;
 
     .line 558
@@ -217,7 +217,7 @@
 .end method
 
 .method setSystemBarsBehavior(I)V
-    .locals 2
+    .registers 4
     .param p1, "behavior"    # I
 
     .line 528
@@ -225,50 +225,50 @@
 
     const/16 v1, 0x1000
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_1c
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 534
-    :pswitch_0
+    :pswitch_8
     invoke-virtual {p0, v0}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->unsetSystemUiFlag(I)V
 
     .line 535
     invoke-virtual {p0, v1}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->setSystemUiFlag(I)V
 
     .line 536
-    goto :goto_0
+    goto :goto_1b
 
     .line 530
-    :pswitch_1
+    :pswitch_f
     invoke-virtual {p0, v1}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->unsetSystemUiFlag(I)V
 
     .line 531
     invoke-virtual {p0, v0}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->setSystemUiFlag(I)V
 
     .line 532
-    goto :goto_0
+    goto :goto_1b
 
     .line 538
-    :pswitch_2
+    :pswitch_16
     const/16 v0, 0x1800
 
     invoke-virtual {p0, v0}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->unsetSystemUiFlag(I)V
 
     .line 542
-    :goto_0
+    :goto_1b
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_f
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method protected setSystemUiFlag(I)V
-    .locals 2
+    .registers 4
     .param p1, "systemUiFlag"    # I
 
     .line 499
@@ -297,7 +297,7 @@
 .end method
 
 .method protected setWindowFlag(I)V
-    .locals 1
+    .registers 3
     .param p1, "windowFlag"    # I
 
     .line 513
@@ -310,44 +310,44 @@
 .end method
 
 .method show(I)V
-    .locals 2
+    .registers 4
     .param p1, "typeMask"    # I
 
     .line 451
     const/4 v0, 0x1
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     const/16 v1, 0x100
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_10
 
     .line 453
     and-int v1, p1, v0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     .line 454
-    goto :goto_1
+    goto :goto_d
 
     .line 456
-    :cond_0
+    :cond_a
     invoke-direct {p0, v0}, Landroidx/core/view/WindowInsetsControllerCompat$Impl20;->showForType(I)V
 
     .line 452
-    :goto_1
+    :goto_d
     shl-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 458
     .end local v0    # "i":I
-    :cond_1
+    :cond_10
     return-void
 .end method
 
 .method protected unsetSystemUiFlag(I)V
-    .locals 3
+    .registers 5
     .param p1, "systemUiFlag"    # I
 
     .line 506
@@ -378,7 +378,7 @@
 .end method
 
 .method protected unsetWindowFlag(I)V
-    .locals 1
+    .registers 3
     .param p1, "windowFlag"    # I
 
     .line 517

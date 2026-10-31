@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/collections/AbstractMap;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lkotlin/collections/AbstractMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 86
@@ -97,7 +97,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object v0, p0, Lkotlin/collections/AbstractMap$keys$1;->this$0:Lkotlin/collections/AbstractMap;
@@ -110,7 +110,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

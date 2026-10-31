@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lcom/google/android/material/sidesheet/SideSheetBehavior;I)V
-    .locals 0
+    .registers 3
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public final perform(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
-    .locals 2
+    .registers 5
 
     .line 0
     iget-object v0, p0, Lcom/google/android/material/sidesheet/SideSheetBehavior$$ExternalSyntheticLambda1;->f$0:Lcom/google/android/material/sidesheet/SideSheetBehavior;

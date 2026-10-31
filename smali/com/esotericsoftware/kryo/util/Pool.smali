@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(ZZ)V
-    .locals 1
+    .registers 4
     .param p1, "threadSafe"    # Z
     .param p2, "softReferences"    # Z
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(ZZI)V
-    .locals 2
+    .registers 6
     .param p1, "threadSafe"    # Z
     .param p2, "softReferences"    # Z
     .param p3, "maximumCapacity"    # I
@@ -61,7 +61,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 47
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 48
     new-instance v0, Lcom/esotericsoftware/kryo/util/Pool$1;
@@ -69,12 +69,12 @@
     invoke-direct {v0, p0, p3}, Lcom/esotericsoftware/kryo/util/Pool$1;-><init>(Lcom/esotericsoftware/kryo/util/Pool;I)V
 
     .local v0, "queue":Ljava/util/Queue;, "Ljava/util/Queue<TT;>;"
-    goto :goto_0
+    goto :goto_18
 
     .line 54
     .end local v0    # "queue":Ljava/util/Queue;, "Ljava/util/Queue<TT;>;"
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_b
+    if-eqz p2, :cond_13
 
     .line 55
     new-instance v0, Lcom/esotericsoftware/kryo/util/Pool$2;
@@ -82,30 +82,30 @@
     invoke-direct {v0, p0, p3}, Lcom/esotericsoftware/kryo/util/Pool$2;-><init>(Lcom/esotericsoftware/kryo/util/Pool;I)V
 
     .restart local v0    # "queue":Ljava/util/Queue;, "Ljava/util/Queue<TT;>;"
-    goto :goto_0
+    goto :goto_18
 
     .line 63
     .end local v0    # "queue":Ljava/util/Queue;, "Ljava/util/Queue<TT;>;"
-    :cond_1
+    :cond_13
     new-instance v0, Lcom/esotericsoftware/kryo/util/Pool$3;
 
     invoke-direct {v0, p0, p3}, Lcom/esotericsoftware/kryo/util/Pool$3;-><init>(Lcom/esotericsoftware/kryo/util/Pool;I)V
 
     .line 71
     .restart local v0    # "queue":Ljava/util/Queue;, "Ljava/util/Queue<TT;>;"
-    :goto_0
-    if-eqz p2, :cond_2
+    :goto_18
+    if-eqz p2, :cond_20
 
     new-instance v1, Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;
 
     invoke-direct {v1, v0}, Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;-><init>(Ljava/util/Queue;)V
 
-    goto :goto_1
+    goto :goto_21
 
-    :cond_2
+    :cond_20
     move-object v1, v0
 
-    :goto_1
+    :goto_21
     iput-object v1, p0, Lcom/esotericsoftware/kryo/util/Pool;->freeObjects:Ljava/util/Queue;
 
     .line 72
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public clean()V
-    .locals 1
+    .registers 2
 
     .line 114
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool;, "Lcom/esotericsoftware/kryo/util/Pool<TT;>;"
@@ -123,7 +123,7 @@
 
     instance-of v0, v0, Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/Pool;->freeObjects:Ljava/util/Queue;
 
@@ -132,12 +132,12 @@
     invoke-virtual {v0}, Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;->clean()V
 
     .line 115
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 106
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool;, "Lcom/esotericsoftware/kryo/util/Pool<TT;>;"
@@ -158,7 +158,7 @@
 .end method
 
 .method public free(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -168,7 +168,7 @@
     .line 89
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool;, "Lcom/esotericsoftware/kryo/util/Pool<TT;>;"
     .local p1, "object":Ljava/lang/Object;, "TT;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2e
 
     .line 90
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/util/Pool;->reset(Ljava/lang/Object;)V
@@ -180,13 +180,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/Pool;->freeObjects:Ljava/util/Queue;
 
     instance-of v0, v0, Lcom/esotericsoftware/kryo/util/Pool$SoftReferenceQueue;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 92
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/Pool;->freeObjects:Ljava/util/Queue;
@@ -201,7 +201,7 @@
     invoke-interface {v0, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
     .line 95
-    :cond_0
+    :cond_1f
     iget v0, p0, Lcom/esotericsoftware/kryo/util/Pool;->peak:I
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/Pool;->freeObjects:Ljava/util/Queue;
@@ -220,7 +220,7 @@
     return-void
 
     .line 89
-    :cond_1
+    :cond_2e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "object cannot be null."
@@ -231,7 +231,7 @@
 .end method
 
 .method public getFree()I
-    .locals 1
+    .registers 2
 
     .line 122
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool;, "Lcom/esotericsoftware/kryo/util/Pool<TT;>;"
@@ -245,7 +245,7 @@
 .end method
 
 .method public getPeak()I
-    .locals 1
+    .registers 2
 
     .line 130
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool;, "Lcom/esotericsoftware/kryo/util/Pool<TT;>;"
@@ -255,7 +255,7 @@
 .end method
 
 .method public obtain()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -272,23 +272,23 @@
 
     .line 80
     .local v0, "object":Ljava/lang/Object;, "TT;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/Pool;->create()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method
 
 .method protected reset(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -300,7 +300,7 @@
     .local p1, "object":Ljava/lang/Object;, "TT;"
     instance-of v0, p1, Lcom/esotericsoftware/kryo/util/Pool$Poolable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     move-object v0, p1
 
@@ -309,12 +309,12 @@
     invoke-interface {v0}, Lcom/esotericsoftware/kryo/util/Pool$Poolable;->reset()V
 
     .line 102
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public resetPeak()V
-    .locals 1
+    .registers 2
 
     .line 134
     .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool;, "Lcom/esotericsoftware/kryo/util/Pool<TT;>;"

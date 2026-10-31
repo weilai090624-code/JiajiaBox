@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/lifecycle/ViewModelProvider$Factory$Companion;
 
@@ -57,7 +57,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public final varargs from([Landroidx/lifecycle/viewmodel/ViewModelInitializer;)Landroidx/lifecycle/ViewModelProvider$Factory;
-    .locals 2
+    .registers 4
     .param p1, "initializers"    # [Landroidx/lifecycle/viewmodel/ViewModelInitializer;
     .annotation system Ldalvik/annotation/Signature;
         value = {

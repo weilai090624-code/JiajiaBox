@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -104,7 +104,7 @@
 
     .line 154
     .local v0, "result":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v1, p0, Lcom/google/common/base/Functions$FunctionForMapNoDefault;->map:Ljava/util/Map;
 
@@ -112,20 +112,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_14
     const-string v2, "Key \'%s\' not present in map"
 
     invoke-static {v1, v2, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -139,7 +139,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -149,7 +149,7 @@
     .local p0, "this":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<TK;TV;>;"
     instance-of v0, p1, Lcom/google/common/base/Functions$FunctionForMapNoDefault;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 162
     move-object v0, p1
@@ -170,14 +170,14 @@
 
     .line 165
     .end local v0    # "that":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<**>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 170
     .local p0, "this":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<TK;TV;>;"
@@ -191,7 +191,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 175
     .local p0, "this":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<TK;TV;>;"

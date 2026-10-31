@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator$OfLong;Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong;)V
-    .locals 0
+    .registers 3
     .param p1, "s"    # Lj$/util/Spliterator$OfLong;
     .param p2, "parent"    # Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong;
 
@@ -28,7 +28,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator$OfLong;ZLjava/util/function/LongPredicate;)V
-    .locals 0
+    .registers 4
     .param p1, "s"    # Lj$/util/Spliterator$OfLong;
     .param p2, "noSplitting"    # Z
     .param p3, "p"    # Ljava/util/function/LongPredicate;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method makeSpliterator(Lj$/util/Spliterator$OfLong;)Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 3
     .param p1, "s"    # Lj$/util/Spliterator$OfLong;
 
     .line 1028
@@ -55,7 +55,7 @@
 .end method
 
 .method bridge synthetic makeSpliterator(Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 0
+    .registers 2
 
     .line 990
     check-cast p1, Lj$/util/Spliterator$OfLong;
@@ -68,7 +68,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 990
     check-cast p1, Ljava/util/function/LongConsumer;
@@ -81,13 +81,13 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/LongConsumer;)Z
-    .locals 5
+    .registers 7
     .param p1, "action"    # Ljava/util/function/LongConsumer;
 
     .line 1001
     iget-boolean v0, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong$Dropping;->takeOrDrop:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_35
 
     .line 1002
     const/4 v0, 0x0
@@ -99,7 +99,7 @@
 
     .line 1005
     .local v0, "dropped":Z
-    :goto_0
+    :goto_8
     iget-object v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong$Dropping;->s:Lj$/util/Spliterator;
 
     check-cast v1, Lj$/util/Spliterator$OfLong;
@@ -111,14 +111,14 @@
     move v2, v1
 
     .local v2, "adv":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 1006
     invoke-virtual {p0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong$Dropping;->checkCancelOnCount()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     iget-object v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong$Dropping;->p:Ljava/util/function/LongPredicate;
 
@@ -129,19 +129,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 1008
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 1012
-    :cond_0
-    if-eqz v2, :cond_2
+    :cond_25
+    if-eqz v2, :cond_34
 
     .line 1015
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     .line 1016
     iget-object v1, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong$Dropping;->cancel:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -151,19 +151,19 @@
     invoke-virtual {v1, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 1017
-    :cond_1
+    :cond_2f
     iget-wide v3, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong$Dropping;->t:J
 
     invoke-interface {p1, v3, v4}, Ljava/util/function/LongConsumer;->accept(J)V
 
     .line 1019
-    :cond_2
+    :cond_34
     return v2
 
     .line 1022
     .end local v0    # "dropped":Z
     .end local v2    # "adv":Z
-    :cond_3
+    :cond_35
     iget-object v0, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong$Dropping;->s:Lj$/util/Spliterator;
 
     check-cast v0, Lj$/util/Spliterator$OfLong;
@@ -176,7 +176,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 2
 
     .line 990
     invoke-super {p0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong;->trySplit()Lj$/util/Spliterator;
@@ -189,7 +189,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 990
     invoke-super {p0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong;->trySplit()Lj$/util/Spliterator;

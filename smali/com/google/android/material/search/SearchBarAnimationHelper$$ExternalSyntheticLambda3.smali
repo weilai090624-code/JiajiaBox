@@ -20,7 +20,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lcom/google/android/material/search/SearchBarAnimationHelper;Lcom/google/android/material/search/SearchBar;Landroid/view/View;Lcom/google/android/material/appbar/AppBarLayout;Z)V
-    .locals 0
+    .registers 6
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .registers 6
 
     .line 0
     iget-object v0, p0, Lcom/google/android/material/search/SearchBarAnimationHelper$$ExternalSyntheticLambda3;->f$0:Lcom/google/android/material/search/SearchBarAnimationHelper;

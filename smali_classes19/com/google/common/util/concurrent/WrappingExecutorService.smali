@@ -17,7 +17,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/concurrent/ExecutorService;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Ljava/util/concurrent/ExecutorService;
 
     .line 50
@@ -37,7 +37,7 @@
 .end method
 
 .method private wrapTasks(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableList;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -65,12 +65,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -88,10 +88,10 @@
 
     .line 89
     .end local v2    # "task":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TT;>;"
-    goto :goto_0
+    goto :goto_8
 
     .line 90
-    :cond_0
+    :cond_1c
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v1
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public final awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Throws;
@@ -122,7 +122,7 @@
 .end method
 
 .method public final execute(Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 4
     .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 96
@@ -139,7 +139,7 @@
 .end method
 
 .method public final invokeAll(Ljava/util/Collection;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -177,7 +177,7 @@
 .end method
 
 .method public final invokeAll(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;
-    .locals 2
+    .registers 7
     .param p2, "timeout"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -219,7 +219,7 @@
 .end method
 
 .method public final invokeAny(Ljava/util/Collection;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -255,7 +255,7 @@
 .end method
 
 .method public final invokeAny(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 2
+    .registers 7
     .param p2, "timeout"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -296,7 +296,7 @@
 .end method
 
 .method public final isShutdown()Z
-    .locals 1
+    .registers 2
 
     .line 155
     iget-object v0, p0, Lcom/google/common/util/concurrent/WrappingExecutorService;->delegate:Ljava/util/concurrent/ExecutorService;
@@ -309,7 +309,7 @@
 .end method
 
 .method public final isTerminated()Z
-    .locals 1
+    .registers 2
 
     .line 160
     iget-object v0, p0, Lcom/google/common/util/concurrent/WrappingExecutorService;->delegate:Ljava/util/concurrent/ExecutorService;
@@ -322,7 +322,7 @@
 .end method
 
 .method public final shutdown()V
-    .locals 1
+    .registers 2
 
     .line 145
     iget-object v0, p0, Lcom/google/common/util/concurrent/WrappingExecutorService;->delegate:Ljava/util/concurrent/ExecutorService;
@@ -334,7 +334,7 @@
 .end method
 
 .method public final shutdownNow()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -355,7 +355,7 @@
 .end method
 
 .method public final submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-    .locals 2
+    .registers 4
     .param p1, "task"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -382,7 +382,7 @@
 .end method
 
 .method public final submit(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;
-    .locals 2
+    .registers 5
     .param p1, "task"    # Ljava/lang/Runnable;
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -416,7 +416,7 @@
 .end method
 
 .method public final submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -451,7 +451,7 @@
 .end method
 
 .method protected wrapTask(Ljava/lang/Runnable;)Ljava/lang/Runnable;
-    .locals 2
+    .registers 4
     .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 65

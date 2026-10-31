@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final get(Lkotlin/text/MatchGroupCollection;Ljava/lang/String;)Lkotlin/text/MatchGroup;
-    .locals 2
+    .registers 4
     .param p0, "$this$get"    # Lkotlin/text/MatchGroupCollection;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -44,19 +44,19 @@
     .line 20
     instance-of v0, p0, Lkotlin/text/MatchNamedGroupCollection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     move-object v0, p0
 
     check-cast v0, Lkotlin/text/MatchNamedGroupCollection;
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_13
+    if-eqz v0, :cond_1a
 
     .line 23
     .local v0, "namedGroups":Lkotlin/text/MatchNamedGroupCollection;
@@ -68,7 +68,7 @@
 
     .line 21
     .end local v0    # "namedGroups":Lkotlin/text/MatchNamedGroupCollection;
-    :cond_1
+    :cond_1a
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Retrieving groups by name is not supported on this platform."

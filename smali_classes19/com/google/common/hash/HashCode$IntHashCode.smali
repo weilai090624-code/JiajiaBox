@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "hash"    # I
 
     .line 122
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public asBytes()[B
-    .locals 6
+    .registers 7
 
     .line 133
     iget v0, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
@@ -92,7 +92,7 @@
 .end method
 
 .method public asInt()I
-    .locals 1
+    .registers 2
 
     .line 138
     iget v0, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
@@ -101,7 +101,7 @@
 .end method
 
 .method public asLong()J
-    .locals 2
+    .registers 3
 
     .line 143
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -114,7 +114,7 @@
 .end method
 
 .method public bits()I
-    .locals 1
+    .registers 2
 
     .line 128
     const/16 v0, 0x20
@@ -123,7 +123,7 @@
 .end method
 
 .method equalsSameBits(Lcom/google/common/hash/HashCode;)Z
-    .locals 2
+    .registers 4
     .param p1, "that"    # Lcom/google/common/hash/HashCode;
 
     .line 160
@@ -133,21 +133,21 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public padToLong()J
-    .locals 2
+    .registers 3
 
     .line 148
     iget v0, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
@@ -160,7 +160,7 @@
 .end method
 
 .method writeBytesToImpl([BII)V
-    .locals 4
+    .registers 8
     .param p1, "dest"    # [B
     .param p2, "offset"    # I
     .param p3, "maxLength"    # I
@@ -169,8 +169,8 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p3, :cond_0
+    :goto_1
+    if-ge v0, p3, :cond_10
 
     .line 154
     add-int v1, p2, v0
@@ -188,10 +188,10 @@
     .line 153
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 156
     .end local v0    # "i":I
-    :cond_0
+    :cond_10
     return-void
 .end method

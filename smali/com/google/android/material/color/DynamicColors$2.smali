@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public isSupported()Z
-    .locals 7
+    .registers 8
 
     .line 63
     iget-object v0, p0, Lcom/google/android/material/color/DynamicColors$2;->version:Ljava/lang/Long;
@@ -43,10 +43,10 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_38
 
     .line 65
-    :try_start_0
+    :try_start_6
     const-class v0, Landroid/os/Build;
 
     const-string v3, "getLong"
@@ -89,15 +89,15 @@
     move-result-object v3
 
     iput-object v3, p0, Lcom/google/android/material/color/DynamicColors$2;->version:Ljava/lang/Long;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_2e} :catch_2f
 
     .line 70
     .end local v0    # "method":Ljava/lang/reflect/Method;
-    goto :goto_0
+    goto :goto_38
 
     .line 68
-    :catch_0
+    :catch_2f
     move-exception v0
 
     .line 69
@@ -112,8 +112,8 @@
 
     .line 72
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_38
+    :goto_38
     iget-object v0, p0, Lcom/google/android/material/color/DynamicColors$2;->version:Ljava/lang/Long;
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
@@ -124,10 +124,10 @@
 
     cmp-long v0, v3, v5
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_46
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_46
     return v1
 .end method

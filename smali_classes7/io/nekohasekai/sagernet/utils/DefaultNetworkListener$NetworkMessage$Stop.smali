@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
 
     const-string v0, "key"
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 27
     iget-object v0, p0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Stop;->key:Ljava/lang/Object;

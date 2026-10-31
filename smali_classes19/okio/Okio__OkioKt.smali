@@ -39,7 +39,7 @@
 
 # direct methods
 .method public static final blackhole()Lokio/Sink;
-    .locals 1
+    .registers 1
 
     .line 41
     new-instance v0, Lokio/BlackholeSink;
@@ -52,7 +52,7 @@
 .end method
 
 .method public static final buffer(Lokio/Sink;)Lokio/BufferedSink;
-    .locals 1
+    .registers 2
     .param p0, "$this$buffer"    # Lokio/Sink;
 
     const-string v0, "<this>"
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final buffer(Lokio/Source;)Lokio/BufferedSource;
-    .locals 1
+    .registers 2
     .param p0, "$this$buffer"    # Lokio/Source;
 
     const-string v0, "<this>"
@@ -88,7 +88,7 @@
 .end method
 
 .method public static final use(Ljava/io/Closeable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$use"    # Ljava/io/Closeable;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -122,19 +122,19 @@
     nop
 
     .line 56
-    :try_start_0
+    :try_start_9
     invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_9 .. :try_end_d} :catchall_f
 
     move-object v1, v3
 
-    goto :goto_0
+    goto :goto_11
 
     .line 57
-    :catchall_0
+    :catchall_f
     move-exception v3
 
     .line 58
@@ -143,43 +143,43 @@
 
     .line 61
     .end local v3    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_11
     nop
 
     .line 62
-    if-nez p0, :cond_0
+    if-nez p0, :cond_15
 
-    :goto_1
-    goto :goto_2
+    :goto_14
+    goto :goto_21
 
-    :cond_0
-    :try_start_1
+    :cond_15
+    :try_start_15
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_18
+    .catchall {:try_start_15 .. :try_end_18} :catchall_19
 
-    goto :goto_1
+    goto :goto_14
 
     .line 63
-    :catchall_1
+    :catchall_19
     move-exception v3
 
     .line 64
     .restart local v3    # "t":Ljava/lang/Throwable;
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1e
 
     move-object v2, v3
 
-    goto :goto_2
+    goto :goto_21
 
     .line 65
-    :cond_1
+    :cond_1e
     invoke-static {v2, v3}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .line 68
     .end local v3    # "t":Ljava/lang/Throwable;
-    :goto_2
-    if-nez v2, :cond_2
+    :goto_21
+    if-nez v2, :cond_27
 
     .line 69
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -187,6 +187,6 @@
     return-object v1
 
     .line 68
-    :cond_2
+    :cond_27
     throw v2
 .end method

@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 145
     new-instance v0, Ljava/lang/Object;
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/recyclerview/widget/DiffUtil$ItemCallback;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public build()Landroidx/recyclerview/widget/AsyncDifferConfig;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -101,7 +101,7 @@
     .local p0, "this":Landroidx/recyclerview/widget/AsyncDifferConfig$Builder;, "Landroidx/recyclerview/widget/AsyncDifferConfig$Builder<TT;>;"
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncDifferConfig$Builder;->mBackgroundThreadExecutor:Ljava/util/concurrent/Executor;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     .line 131
     sget-object v0, Landroidx/recyclerview/widget/AsyncDifferConfig$Builder;->sExecutorLock:Ljava/lang/Object;
@@ -109,10 +109,10 @@
     monitor-enter v0
 
     .line 132
-    :try_start_0
+    :try_start_7
     sget-object v1, Landroidx/recyclerview/widget/AsyncDifferConfig$Builder;->sDiffExecutor:Ljava/util/concurrent/Executor;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 133
     const/4 v1, 0x2
@@ -124,32 +124,32 @@
     sput-object v1, Landroidx/recyclerview/widget/AsyncDifferConfig$Builder;->sDiffExecutor:Ljava/util/concurrent/Executor;
 
     .line 135
-    :cond_0
+    :cond_12
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_7 .. :try_end_13} :catchall_18
 
     .line 136
     sget-object v0, Landroidx/recyclerview/widget/AsyncDifferConfig$Builder;->sDiffExecutor:Ljava/util/concurrent/Executor;
 
     iput-object v0, p0, Landroidx/recyclerview/widget/AsyncDifferConfig$Builder;->mBackgroundThreadExecutor:Ljava/util/concurrent/Executor;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 135
-    :catchall_0
+    :catchall_18
     move-exception v1
 
-    :try_start_1
+    :try_start_19
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_19 .. :try_end_1a} :catchall_18
 
     throw v1
 
     .line 138
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     new-instance v0, Landroidx/recyclerview/widget/AsyncDifferConfig;
 
     iget-object v1, p0, Landroidx/recyclerview/widget/AsyncDifferConfig$Builder;->mMainThreadExecutor:Ljava/util/concurrent/Executor;
@@ -164,7 +164,7 @@
 .end method
 
 .method public setBackgroundThreadExecutor(Ljava/util/concurrent/Executor;)Landroidx/recyclerview/widget/AsyncDifferConfig$Builder;
-    .locals 0
+    .registers 2
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -185,7 +185,7 @@
 .end method
 
 .method public setMainThreadExecutor(Ljava/util/concurrent/Executor;)Landroidx/recyclerview/widget/AsyncDifferConfig$Builder;
-    .locals 0
+    .registers 2
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {

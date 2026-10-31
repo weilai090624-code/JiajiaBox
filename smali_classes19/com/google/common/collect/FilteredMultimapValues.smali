@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FilteredMultimap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 96
     .local p0, "this":Lcom/google/common/collect/FilteredMultimapValues;, "Lcom/google/common/collect/FilteredMultimapValues<TK;TV;>;"
@@ -76,7 +76,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -94,7 +94,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,7 +123,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -155,12 +155,12 @@
 
     .line 65
     .local v1, "unfilteredItr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_36
 
     .line 66
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -175,7 +175,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_35
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -185,7 +185,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_35
 
     .line 68
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
@@ -197,19 +197,19 @@
 
     .line 71
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_35
+    goto :goto_14
 
     .line 72
     .end local v1    # "unfilteredItr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
-    :cond_1
+    :cond_36
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -261,7 +261,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -318,7 +318,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 58
     .local p0, "this":Lcom/google/common/collect/FilteredMultimapValues;, "Lcom/google/common/collect/FilteredMultimapValues<TK;TV;>;"

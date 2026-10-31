@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 18
+    .registers 20
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 87
@@ -55,7 +55,7 @@
 
     .line 94
     .local v4, "current":Ljava/lang/Class;
-    :cond_0
+    :cond_12
     invoke-virtual {v4}, Ljava/lang/Class;->getTypeParameters()[Ljava/lang/reflect/TypeVariable;
 
     move-result-object v5
@@ -68,8 +68,8 @@
     array-length v7, v5
 
     .local v7, "n":I
-    :goto_0
-    if-ge v6, v7, :cond_4
+    :goto_18
+    if-ge v6, v7, :cond_72
 
     .line 96
     aget-object v8, v5, v6
@@ -88,7 +88,7 @@
 
     .line 103
     .local v10, "currentSuper":Ljava/lang/Class;
-    :goto_1
+    :goto_24
     invoke-virtual {v10}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;
 
     move-result-object v11
@@ -102,7 +102,7 @@
     .line 105
     instance-of v12, v11, Ljava/lang/reflect/ParameterizedType;
 
-    if-nez v12, :cond_1
+    if-nez v12, :cond_38
 
     .line 119
     .end local v11    # "genericSuper":Ljava/lang/reflect/Type;
@@ -117,13 +117,13 @@
     .end local v10    # "currentSuper":Ljava/lang/Class;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 106
     .restart local v8    # "param":Ljava/lang/reflect/TypeVariable;
     .restart local v10    # "currentSuper":Ljava/lang/Class;
     .restart local v11    # "genericSuper":Ljava/lang/reflect/Type;
-    :cond_1
+    :cond_38
     invoke-virtual {v10}, Ljava/lang/Class;->getTypeParameters()[Ljava/lang/reflect/TypeVariable;
 
     move-result-object v12
@@ -146,15 +146,15 @@
     array-length v15, v13
 
     .local v15, "nn":I
-    :goto_2
-    if-ge v14, v15, :cond_3
+    :goto_45
+    if-ge v14, v15, :cond_69
 
     .line 109
     aget-object v9, v13, v14
 
     .line 110
     .local v9, "superArg":Ljava/lang/reflect/Type;
-    if-ne v9, v8, :cond_2
+    if-ne v9, v8, :cond_5c
 
     .line 112
     aget-object v8, v12, v14
@@ -179,14 +179,14 @@
 
     invoke-virtual {v1, v5, v6}, Lcom/esotericsoftware/kryo/util/IntArray;->incr(II)V
 
-    goto :goto_3
+    goto :goto_61
 
     .line 110
     .end local v16    # "params":[Ljava/lang/reflect/TypeVariable;
     .end local v17    # "i":I
     .restart local v5    # "params":[Ljava/lang/reflect/TypeVariable;
     .restart local v6    # "i":I
-    :cond_2
+    :cond_5c
     move-object/from16 v16, v5
 
     move/from16 v17, v6
@@ -199,7 +199,7 @@
     .end local v9    # "superArg":Ljava/lang/reflect/Type;
     .restart local v16    # "params":[Ljava/lang/reflect/TypeVariable;
     .restart local v17    # "i":I
-    :goto_3
+    :goto_61
     add-int/lit8 v14, v14, 0x1
 
     move-object/from16 v5, v16
@@ -208,13 +208,13 @@
 
     const/4 v9, 0x1
 
-    goto :goto_2
+    goto :goto_45
 
     .end local v16    # "params":[Ljava/lang/reflect/TypeVariable;
     .end local v17    # "i":I
     .restart local v5    # "params":[Ljava/lang/reflect/TypeVariable;
     .restart local v6    # "i":I
-    :cond_3
+    :cond_69
     move-object/from16 v16, v5
 
     move/from16 v17, v6
@@ -235,7 +235,7 @@
 
     const/4 v9, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
     .line 95
     .end local v8    # "param":Ljava/lang/reflect/TypeVariable;
@@ -244,7 +244,7 @@
     .end local v17    # "i":I
     .restart local v5    # "params":[Ljava/lang/reflect/TypeVariable;
     .restart local v6    # "i":I
-    :cond_4
+    :cond_72
     move-object/from16 v16, v5
 
     move/from16 v17, v6
@@ -260,7 +260,7 @@
 
     .line 122
     .end local v16    # "params":[Ljava/lang/reflect/TypeVariable;
-    if-nez v4, :cond_0
+    if-nez v4, :cond_12
 
     .line 124
     iput v3, v0, Lcom/esotericsoftware/kryo/util/Generics$GenericsHierarchy;->total:I
@@ -303,7 +303,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 10
+    .registers 11
 
     .line 131
     new-instance v0, Ljava/lang/StringBuilder;
@@ -334,8 +334,8 @@
     array-length v5, v1
 
     .local v5, "n":I
-    :goto_0
-    if-ge v3, v5, :cond_3
+    :goto_11
+    if-ge v3, v5, :cond_56
 
     .line 136
     aget v6, v1, v3
@@ -345,8 +345,8 @@
     add-int v7, v4, v6
 
     .local v7, "nn":I
-    :goto_1
-    if-ge v4, v7, :cond_2
+    :goto_17
+    if-ge v4, v7, :cond_53
 
     .line 138
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
@@ -355,14 +355,14 @@
 
     const/4 v9, 0x1
 
-    if-le v8, v9, :cond_0
+    if-le v8, v9, :cond_25
 
     const-string v8, ", "
 
     invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 139
-    :cond_0
+    :cond_25
     aget-object v8, v2, v4
 
     invoke-interface {v8}, Ljava/lang/reflect/TypeVariable;->getGenericDeclaration()Ljava/lang/reflect/GenericDeclaration;
@@ -373,7 +373,7 @@
     .local v8, "declaration":Ljava/lang/reflect/GenericDeclaration;
     instance-of v9, v8, Ljava/lang/Class;
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_3a
 
     .line 141
     move-object v9, v8
@@ -386,14 +386,14 @@
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_3d
 
     .line 143
-    :cond_1
+    :cond_3a
     invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 144
-    :goto_2
+    :goto_3d
     const/16 v9, 0x3c
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -416,21 +416,21 @@
     .end local v8    # "declaration":Ljava/lang/reflect/GenericDeclaration;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_17
 
     .line 135
     .end local v6    # "count":I
     .end local v7    # "nn":I
-    :cond_2
+    :cond_53
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 149
     .end local v3    # "i":I
     .end local v4    # "p":I
     .end local v5    # "n":I
-    :cond_3
+    :cond_56
     const-string v3, "]"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

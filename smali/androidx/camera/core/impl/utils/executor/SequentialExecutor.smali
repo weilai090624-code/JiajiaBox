@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 4
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 9
+    .registers 11
     .param p1, "task"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -115,23 +115,23 @@
     monitor-enter v0
 
     .line 93
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mWorkerRunningState:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
     sget-object v2, Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;->RUNNING:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
-    if-eq v1, v2, :cond_7
+    if-eq v1, v2, :cond_7b
 
     iget-object v1, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mWorkerRunningState:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
     sget-object v2, Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;->QUEUED:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_13
 
-    goto :goto_3
+    goto :goto_7b
 
     .line 98
-    :cond_0
+    :cond_13
     iget-wide v1, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mWorkerRunCount:J
 
     .line 105
@@ -153,23 +153,23 @@
 
     .line 114
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_24
+    .catchall {:try_start_6 .. :try_end_24} :catchall_82
 
     .line 117
     const/4 v0, 0x1
 
     const/4 v4, 0x0
 
-    :try_start_1
+    :try_start_26
     iget-object v5, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mExecutor:Ljava/util/concurrent/Executor;
 
     iget-object v6, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mWorker:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$QueueWorker;
 
     invoke-interface {v5, v6}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/Error; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_2d
+    .catch Ljava/lang/RuntimeException; {:try_start_26 .. :try_end_2d} :catch_54
+    .catch Ljava/lang/Error; {:try_start_26 .. :try_end_2d} :catch_52
 
     .line 131
     nop
@@ -179,42 +179,42 @@
 
     sget-object v6, Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;->QUEUING:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
-    if-eq v5, v6, :cond_1
+    if-eq v5, v6, :cond_35
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_1
+    :cond_35
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_36
     move v5, v0
 
     .line 145
     .local v5, "alreadyMarkedQueued":Z
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3a
 
     .line 146
     return-void
 
     .line 148
-    :cond_2
+    :cond_3a
     iget-object v6, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mQueue:Ljava/util/Deque;
 
     monitor-enter v6
 
     .line 149
-    :try_start_2
+    :try_start_3d
     iget-wide v7, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mWorkerRunCount:J
 
     cmp-long v0, v7, v1
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4d
 
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mWorkerRunningState:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
     sget-object v4, Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;->QUEUING:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
-    if-ne v0, v4, :cond_3
+    if-ne v0, v4, :cond_4d
 
     .line 150
     sget-object v0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;->QUEUED:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
@@ -222,54 +222,54 @@
     iput-object v0, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mWorkerRunningState:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
     .line 152
-    :cond_3
+    :cond_4d
     monitor-exit v6
 
     .line 153
     return-void
 
     .line 152
-    :catchall_0
+    :catchall_4f
     move-exception v0
 
     monitor-exit v6
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_51
+    .catchall {:try_start_3d .. :try_end_51} :catchall_4f
 
     throw v0
 
     .line 118
     .end local v5    # "alreadyMarkedQueued":Z
-    :catch_0
+    :catch_52
     move-exception v5
 
-    goto :goto_1
+    goto :goto_55
 
-    :catch_1
+    :catch_54
     move-exception v5
 
     .line 119
     .local v5, "t":Ljava/lang/Throwable;
-    :goto_1
+    :goto_55
     iget-object v6, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mQueue:Ljava/util/Deque;
 
     monitor-enter v6
 
     .line 120
-    :try_start_3
+    :try_start_58
     iget-object v7, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mWorkerRunningState:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
     sget-object v8, Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;->IDLE:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
-    if-eq v7, v8, :cond_4
+    if-eq v7, v8, :cond_64
 
     iget-object v7, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mWorkerRunningState:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
     sget-object v8, Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;->QUEUING:Landroidx/camera/core/impl/utils/executor/SequentialExecutor$WorkerRunningState;
 
-    if-ne v7, v8, :cond_5
+    if-ne v7, v8, :cond_6d
 
-    :cond_4
+    :cond_64
     iget-object v7, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mQueue:Ljava/util/Deque;
 
     .line 122
@@ -277,21 +277,21 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6d
 
-    goto :goto_2
+    goto :goto_6e
 
-    :cond_5
+    :cond_6d
     const/4 v0, 0x0
 
     .line 126
     .local v0, "removed":Z
-    :goto_2
+    :goto_6e
     instance-of v4, v5, Ljava/util/concurrent/RejectedExecutionException;
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_76
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_76
 
     .line 129
     .end local v0    # "removed":Z
@@ -302,7 +302,7 @@
 
     .line 127
     .restart local v0    # "removed":Z
-    :cond_6
+    :cond_76
     nop
 
     .end local v1    # "oldRunCount":J
@@ -315,12 +315,12 @@
     .restart local v1    # "oldRunCount":J
     .restart local v3    # "submittedTask":Ljava/lang/Runnable;
     .restart local p1    # "task":Ljava/lang/Runnable;
-    :catchall_1
+    :catchall_78
     move-exception v0
 
     monitor-exit v6
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_7a
+    .catchall {:try_start_58 .. :try_end_7a} :catchall_78
 
     throw v0
 
@@ -328,9 +328,9 @@
     .end local v1    # "oldRunCount":J
     .end local v3    # "submittedTask":Ljava/lang/Runnable;
     .end local v5    # "t":Ljava/lang/Throwable;
-    :cond_7
-    :goto_3
-    :try_start_4
+    :cond_7b
+    :goto_7b
+    :try_start_7b
     iget-object v1, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;->mQueue:Ljava/util/Deque;
 
     invoke-interface {v1, p1}, Ljava/util/Deque;->add(Ljava/lang/Object;)Z
@@ -341,12 +341,12 @@
     return-void
 
     .line 114
-    :catchall_2
+    :catchall_82
     move-exception v1
 
     monitor-exit v0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_84
+    .catchall {:try_start_7b .. :try_end_84} :catchall_82
 
     throw v1
 .end method

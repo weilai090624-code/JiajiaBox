@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/WorkContinuationImpl;)V
-    .locals 5
+    .registers 7
     .param p1, "continuation"    # Landroidx/work/impl/WorkContinuationImpl;
 
     .line 178
@@ -82,7 +82,7 @@
     iput-object v1, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;->mParents:Ljava/util/List;
 
     .line 184
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_44
 
     .line 185
     new-instance v1, Ljava/util/ArrayList;
@@ -100,12 +100,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_2d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_44
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -125,15 +125,15 @@
 
     .line 188
     .end local v2    # "workContinuation":Landroidx/work/impl/WorkContinuationImpl;
-    goto :goto_0
+    goto :goto_2d
 
     .line 190
-    :cond_0
+    :cond_44
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;Ljava/util/List;)V
-    .locals 0
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "workPolicy"    # Landroidx/work/ExistingWorkPolicy;
     .annotation system Ldalvik/annotation/Signature;
@@ -173,7 +173,7 @@
 .end method
 
 .method private static parents(Landroidx/work/impl/WorkManagerImpl;Ljava/util/List;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,7 +190,7 @@
 
     .line 246
     .local p1, "parentInfos":Ljava/util/List;, "Ljava/util/List<Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;>;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 247
     const/4 v0, 0x0
@@ -198,7 +198,7 @@
     return-object v0
 
     .line 250
-    :cond_0
+    :cond_4
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -213,12 +213,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_11
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -265,17 +265,17 @@
 
     .line 260
     .end local v2    # "info":Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;
-    goto :goto_0
+    goto :goto_11
 
     .line 261
-    :cond_1
+    :cond_3c
     return-object v0
 .end method
 
 
 # virtual methods
 .method public getExistingWorkPolicy()Landroidx/work/ExistingWorkPolicy;
-    .locals 1
+    .registers 2
 
     .line 210
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;->mWorkPolicy:Landroidx/work/ExistingWorkPolicy;
@@ -284,7 +284,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 205
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;->mName:Ljava/lang/String;
@@ -293,7 +293,7 @@
 .end method
 
 .method public getParentInfos()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -310,7 +310,7 @@
 .end method
 
 .method public getWork()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -328,7 +328,7 @@
 .end method
 
 .method public toWorkContinuationImpl(Landroidx/work/impl/WorkManagerImpl;)Landroidx/work/impl/WorkContinuationImpl;
-    .locals 7
+    .registers 9
     .param p1, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
 
     .line 232

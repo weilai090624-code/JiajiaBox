@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 137
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static tickMillis(Lj$/time/ZoneId;)Lj$/time/Clock;
-    .locals 4
+    .registers 5
     .param p0, "zone"    # Lj$/time/ZoneId;
 
     .line 160

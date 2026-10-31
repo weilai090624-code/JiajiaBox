@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkManagerImpl;Ljava/util/UUID;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method runInternal()V
-    .locals 3
+    .registers 4
 
     .line 122
     iget-object v0, p0, Landroidx/work/impl/utils/CancelWorkRunnable$1;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -61,7 +61,7 @@
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 125
-    :try_start_0
+    :try_start_9
     iget-object v1, p0, Landroidx/work/impl/utils/CancelWorkRunnable$1;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
     iget-object v2, p0, Landroidx/work/impl/utils/CancelWorkRunnable$1;->val$id:Ljava/util/UUID;
@@ -74,8 +74,8 @@
 
     .line 126
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_9 .. :try_end_17} :catchall_21
 
     .line 128
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
@@ -92,7 +92,7 @@
     return-void
 
     .line 128
-    :catchall_0
+    :catchall_21
     move-exception v1
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
     .line 2020
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .locals 2
+    .registers 3
 
     .line 2023
     iget-object v0, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$OnPreDrawListener;->this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;

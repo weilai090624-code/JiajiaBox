@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "timeMillis"    # J
 
     .line 38
@@ -61,7 +61,7 @@
 .end method
 
 .method public static final synthetic access$register(Lkotlinx/coroutines/selects/OnTimeout;Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/selects/OnTimeout;
     .param p1, "select"    # Lkotlinx/coroutines/selects/SelectInstance;
     .param p2, "ignoredParam"    # Ljava/lang/Object;
@@ -73,13 +73,13 @@
 .end method
 
 .method public static synthetic getSelectClause$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private final register(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;)V
-    .locals 5
+    .registers 8
     .param p1, "select"    # Lkotlinx/coroutines/selects/SelectInstance;
     .param p2, "ignoredParam"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -99,7 +99,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_e
 
     .line 52
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -110,7 +110,7 @@
     return-void
 
     .line 56
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     .line 67
@@ -163,7 +163,7 @@
 
 # virtual methods
 .method public final getSelectClause()Lkotlinx/coroutines/selects/SelectClause0;
-    .locals 7
+    .registers 8
 
     .line 43
     new-instance v6, Lkotlinx/coroutines/selects/SelectClause0Impl;

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(IFFFF)V
-    .locals 0
+    .registers 6
     .param p1, "position"    # I
     .param p2, "period"    # F
     .param p3, "offset"    # F

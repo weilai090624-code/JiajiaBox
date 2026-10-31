@@ -51,7 +51,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 448
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/window/layout/SidecarCompat$Companion;-><init>()V
 
@@ -70,44 +70,44 @@
 
 # virtual methods
 .method public final getActivityWindowToken$window_release(Landroid/app/Activity;)Landroid/os/IBinder;
-    .locals 2
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 475
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
-    :goto_0
-    goto :goto_1
+    :goto_3
+    goto :goto_14
 
-    :cond_0
+    :cond_4
     invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_b
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_1
+    :cond_b
     invoke-virtual {v1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_12
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_2
+    :cond_12
     iget-object v0, v1, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    :goto_1
+    :goto_14
     return-object v0
 .end method
 
 .method public final getSidecarCompat$window_release(Landroid/content/Context;)Landroidx/window/sidecar/SidecarInterface;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -127,7 +127,7 @@
 .end method
 
 .method public final getSidecarVersion()Landroidx/window/core/Version;
-    .locals 3
+    .registers 4
 
     .line 451
     nop
@@ -135,7 +135,7 @@
     .line 452
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_2
     invoke-static {}, Landroidx/window/sidecar/SidecarProvider;->getApiVersion()Ljava/lang/String;
 
     move-result-object v1
@@ -150,22 +150,22 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_21
 
     sget-object v2, Landroidx/window/core/Version;->Companion:Landroidx/window/core/Version$Companion;
 
     invoke-virtual {v2, v1}, Landroidx/window/core/Version$Companion;->parse(Ljava/lang/String;)Landroidx/window/core/Version;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoClassDefFoundError; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/NoClassDefFoundError; {:try_start_2 .. :try_end_15} :catch_1c
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_2 .. :try_end_15} :catch_16
 
-    goto :goto_0
+    goto :goto_21
 
     .line 459
     .end local v1    # "vendorVersion":Ljava/lang/String;
-    :catch_0
+    :catch_16
     move-exception v1
 
     .line 460
@@ -177,11 +177,11 @@
 
     check-cast v2, Landroidx/window/core/Version;
 
-    goto :goto_0
+    goto :goto_21
 
     .line 454
     .end local v1    # "e":Ljava/lang/UnsupportedOperationException;
-    :catch_1
+    :catch_1c
     move-exception v1
 
     .line 455
@@ -195,7 +195,7 @@
 
     .line 464
     .end local v1    # "e":Ljava/lang/NoClassDefFoundError;
-    :cond_0
-    :goto_0
+    :cond_21
+    :goto_21
     return-object v0
 .end method

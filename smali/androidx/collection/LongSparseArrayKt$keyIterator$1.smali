@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/collection/LongSparseArray;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/collection/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public final getIndex()I
-    .locals 1
+    .registers 2
 
     .line 63
     iget v0, p0, Landroidx/collection/LongSparseArrayKt$keyIterator$1;->index:I
@@ -84,7 +84,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 64
     iget v0, p0, Landroidx/collection/LongSparseArrayKt$keyIterator$1;->index:I
@@ -95,21 +95,21 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public nextLong()J
-    .locals 3
+    .registers 4
 
     .line 65
     iget-object v0, p0, Landroidx/collection/LongSparseArrayKt$keyIterator$1;->$this_keyIterator:Landroidx/collection/LongSparseArray;
@@ -128,7 +128,7 @@
 .end method
 
 .method public final setIndex(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 63

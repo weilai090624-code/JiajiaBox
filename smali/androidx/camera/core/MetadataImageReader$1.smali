@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/MetadataImageReader;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/core/MetadataImageReader;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 1
+    .registers 3
     .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

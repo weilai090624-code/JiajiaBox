@@ -16,7 +16,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 112
     new-instance v0, Lj$/time/chrono/MinguoChronology;
@@ -29,7 +29,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 126
     invoke-direct {p0}, Lj$/time/chrono/AbstractChronology;-><init>()V
@@ -39,7 +39,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 361
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public bridge synthetic date(III)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 4
 
     .line 107
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/chrono/MinguoChronology;->date(III)Lj$/time/chrono/MinguoDate;
@@ -66,7 +66,7 @@
 .end method
 
 .method public bridge synthetic date(Lj$/time/chrono/Era;III)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 5
 
     .line 107
     invoke-virtual {p0, p1, p2, p3, p4}, Lj$/time/chrono/MinguoChronology;->date(Lj$/time/chrono/Era;III)Lj$/time/chrono/MinguoDate;
@@ -77,7 +77,7 @@
 .end method
 
 .method public bridge synthetic date(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 2
 
     .line 107
     invoke-virtual {p0, p1}, Lj$/time/chrono/MinguoChronology;->date(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/MinguoDate;
@@ -88,7 +88,7 @@
 .end method
 
 .method public date(III)Lj$/time/chrono/MinguoDate;
-    .locals 2
+    .registers 6
     .param p1, "prolepticYear"    # I
     .param p2, "month"    # I
     .param p3, "dayOfMonth"    # I
@@ -108,7 +108,7 @@
 .end method
 
 .method public date(Lj$/time/chrono/Era;III)Lj$/time/chrono/MinguoDate;
-    .locals 1
+    .registers 6
     .param p1, "era"    # Lj$/time/chrono/Era;
     .param p2, "yearOfEra"    # I
     .param p3, "month"    # I
@@ -127,13 +127,13 @@
 .end method
 
 .method public date(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/MinguoDate;
-    .locals 2
+    .registers 4
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 253
     instance-of v0, p1, Lj$/time/chrono/MinguoDate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 254
     move-object v0, p1
@@ -143,7 +143,7 @@
     return-object v0
 
     .line 256
-    :cond_0
+    :cond_8
     new-instance v0, Lj$/time/chrono/MinguoDate;
 
     invoke-static {p1}, Lj$/time/LocalDate;->from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/LocalDate;
@@ -156,7 +156,7 @@
 .end method
 
 .method public bridge synthetic dateEpochDay(J)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 107
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/MinguoChronology;->dateEpochDay(J)Lj$/time/chrono/MinguoDate;
@@ -167,7 +167,7 @@
 .end method
 
 .method public dateEpochDay(J)Lj$/time/chrono/MinguoDate;
-    .locals 2
+    .registers 5
     .param p1, "epochDay"    # J
 
     .line 233
@@ -183,7 +183,7 @@
 .end method
 
 .method public bridge synthetic dateNow()Lj$/time/chrono/ChronoLocalDate;
-    .locals 1
+    .registers 2
 
     .line 107
     invoke-virtual {p0}, Lj$/time/chrono/MinguoChronology;->dateNow()Lj$/time/chrono/MinguoDate;
@@ -194,7 +194,7 @@
 .end method
 
 .method public bridge synthetic dateNow(Lj$/time/Clock;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 2
 
     .line 107
     invoke-virtual {p0, p1}, Lj$/time/chrono/MinguoChronology;->dateNow(Lj$/time/Clock;)Lj$/time/chrono/MinguoDate;
@@ -205,7 +205,7 @@
 .end method
 
 .method public bridge synthetic dateNow(Lj$/time/ZoneId;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 2
 
     .line 107
     invoke-virtual {p0, p1}, Lj$/time/chrono/MinguoChronology;->dateNow(Lj$/time/ZoneId;)Lj$/time/chrono/MinguoDate;
@@ -216,7 +216,7 @@
 .end method
 
 .method public dateNow()Lj$/time/chrono/MinguoDate;
-    .locals 1
+    .registers 2
 
     .line 238
     invoke-static {}, Lj$/time/Clock;->systemDefaultZone()Lj$/time/Clock;
@@ -231,7 +231,7 @@
 .end method
 
 .method public dateNow(Lj$/time/Clock;)Lj$/time/chrono/MinguoDate;
-    .locals 1
+    .registers 3
     .param p1, "clock"    # Lj$/time/Clock;
 
     .line 248
@@ -247,7 +247,7 @@
 .end method
 
 .method public dateNow(Lj$/time/ZoneId;)Lj$/time/chrono/MinguoDate;
-    .locals 1
+    .registers 3
     .param p1, "zone"    # Lj$/time/ZoneId;
 
     .line 243
@@ -263,7 +263,7 @@
 .end method
 
 .method public bridge synthetic dateYearDay(II)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 107
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/MinguoChronology;->dateYearDay(II)Lj$/time/chrono/MinguoDate;
@@ -274,7 +274,7 @@
 .end method
 
 .method public bridge synthetic dateYearDay(Lj$/time/chrono/Era;II)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 4
 
     .line 107
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/chrono/MinguoChronology;->dateYearDay(Lj$/time/chrono/Era;II)Lj$/time/chrono/MinguoDate;
@@ -285,7 +285,7 @@
 .end method
 
 .method public dateYearDay(II)Lj$/time/chrono/MinguoDate;
-    .locals 2
+    .registers 5
     .param p1, "prolepticYear"    # I
     .param p2, "dayOfYear"    # I
 
@@ -304,7 +304,7 @@
 .end method
 
 .method public dateYearDay(Lj$/time/chrono/Era;II)Lj$/time/chrono/MinguoDate;
-    .locals 1
+    .registers 5
     .param p1, "era"    # Lj$/time/chrono/Era;
     .param p2, "yearOfEra"    # I
     .param p3, "dayOfYear"    # I
@@ -322,7 +322,7 @@
 .end method
 
 .method public bridge synthetic eraOf(I)Lj$/time/chrono/Era;
-    .locals 0
+    .registers 2
 
     .line 107
     invoke-virtual {p0, p1}, Lj$/time/chrono/MinguoChronology;->eraOf(I)Lj$/time/chrono/MinguoEra;
@@ -333,7 +333,7 @@
 .end method
 
 .method public eraOf(I)Lj$/time/chrono/MinguoEra;
-    .locals 1
+    .registers 3
     .param p1, "eraValue"    # I
 
     .line 303
@@ -345,7 +345,7 @@
 .end method
 
 .method public eras()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -368,7 +368,7 @@
 .end method
 
 .method public getCalendarType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 158
     const-string v0, "roc"
@@ -377,7 +377,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 141
     const-string v0, "Minguo"
@@ -386,7 +386,7 @@
 .end method
 
 .method public isLeapYear(J)Z
-    .locals 3
+    .registers 6
     .param p1, "prolepticYear"    # J
 
     .line 290
@@ -404,7 +404,7 @@
 .end method
 
 .method public localDateTime(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ChronoLocalDateTime;
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -426,32 +426,32 @@
 .end method
 
 .method public prolepticYear(Lj$/time/chrono/Era;I)I
-    .locals 2
+    .registers 5
     .param p1, "era"    # Lj$/time/chrono/Era;
     .param p2, "yearOfEra"    # I
 
     .line 295
     instance-of v0, p1, Lj$/time/chrono/MinguoEra;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 298
     sget-object v0, Lj$/time/chrono/MinguoEra;->ROC:Lj$/time/chrono/MinguoEra;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     move v0, p2
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     rsub-int/lit8 v0, p2, 0x1
 
-    :goto_0
+    :goto_c
     return v0
 
     .line 296
-    :cond_1
+    :cond_d
     new-instance v0, Ljava/lang/ClassCastException;
 
     const-string v1, "Era must be MinguoEra"
@@ -462,7 +462,7 @@
 .end method
 
 .method public range(Lj$/time/temporal/ChronoField;)Lj$/time/temporal/ValueRange;
-    .locals 11
+    .registers 13
     .param p1, "field"    # Lj$/time/temporal/ChronoField;
 
     .line 314
@@ -476,7 +476,7 @@
 
     const-wide/16 v1, 0x777
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_5a
 
     .line 328
     invoke-virtual {p1}, Lj$/time/temporal/ChronoField;->range()Lj$/time/temporal/ValueRange;
@@ -486,7 +486,7 @@
     return-object v0
 
     .line 324
-    :pswitch_0
+    :pswitch_12
     sget-object v0, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v0}, Lj$/time/temporal/ChronoField;->range()Lj$/time/temporal/ValueRange;
@@ -515,7 +515,7 @@
 
     .line 320
     .end local v0    # "range":Lj$/time/temporal/ValueRange;
-    :pswitch_1
+    :pswitch_27
     sget-object v0, Lj$/time/temporal/ChronoField;->YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v0}, Lj$/time/temporal/ChronoField;->range()Lj$/time/temporal/ValueRange;
@@ -550,7 +550,7 @@
 
     .line 316
     .end local v0    # "range":Lj$/time/temporal/ValueRange;
-    :pswitch_2
+    :pswitch_42
     sget-object v0, Lj$/time/temporal/ChronoField;->PROLEPTIC_MONTH:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v0}, Lj$/time/temporal/ChronoField;->range()Lj$/time/temporal/ValueRange;
@@ -581,16 +581,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5a
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_42
+        :pswitch_27
+        :pswitch_12
     .end packed-switch
 .end method
 
 .method public bridge synthetic resolveDate(Ljava/util/Map;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/ChronoLocalDate;
-    .locals 0
+    .registers 3
 
     .line 107
     invoke-virtual {p0, p1, p2}, Lj$/time/chrono/MinguoChronology;->resolveDate(Ljava/util/Map;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/MinguoDate;
@@ -601,7 +601,7 @@
 .end method
 
 .method public resolveDate(Ljava/util/Map;Lj$/time/format/ResolverStyle;)Lj$/time/chrono/MinguoDate;
-    .locals 1
+    .registers 4
     .param p2, "resolverStyle"    # Lj$/time/format/ResolverStyle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -628,7 +628,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 351
     invoke-super {p0}, Lj$/time/chrono/AbstractChronology;->writeReplace()Ljava/lang/Object;
@@ -639,7 +639,7 @@
 .end method
 
 .method public zonedDateTime(Lj$/time/Instant;Lj$/time/ZoneId;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 1
+    .registers 4
     .param p1, "instant"    # Lj$/time/Instant;
     .param p2, "zone"    # Lj$/time/ZoneId;
     .annotation system Ldalvik/annotation/Signature;
@@ -663,7 +663,7 @@
 .end method
 
 .method public zonedDateTime(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/ChronoZonedDateTime;
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
     .annotation system Ldalvik/annotation/Signature;
         value = {

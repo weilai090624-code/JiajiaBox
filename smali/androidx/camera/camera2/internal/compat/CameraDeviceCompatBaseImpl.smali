@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/CameraDevice;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .param p2, "implParams"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -56,7 +56,7 @@
 .end method
 
 .method private static checkPhysicalCameraIdValid(Landroid/hardware/camera2/CameraDevice;Ljava/util/List;)V
-    .locals 6
+    .registers 8
     .param p0, "device"    # Landroid/hardware/camera2/CameraDevice;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -91,12 +91,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_8
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_49
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -112,13 +112,13 @@
 
     .line 95
     .local v3, "outputConfigPhysicalId":Ljava/lang/String;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_48
 
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_48
 
     .line 96
     new-instance v4, Ljava/lang/StringBuilder;
@@ -162,16 +162,16 @@
     .line 100
     .end local v2    # "outputConfigurationCompat":Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;
     .end local v3    # "outputConfigPhysicalId":Ljava/lang/String;
-    :cond_0
-    goto :goto_0
+    :cond_48
+    goto :goto_8
 
     .line 101
-    :cond_1
+    :cond_49
     return-void
 .end method
 
 .method static checkPreconditions(Landroid/hardware/camera2/CameraDevice;Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;)V
-    .locals 3
+    .registers 5
     .param p0, "device"    # Landroid/hardware/camera2/CameraDevice;
     .param p1, "config"    # Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -205,14 +205,14 @@
 
     .line 69
     .local v0, "outputConfigs":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     .line 72
     invoke-virtual {p1}, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->getExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 76
     invoke-static {p0, v0}, Landroidx/camera/camera2/internal/compat/CameraDeviceCompatBaseImpl;->checkPhysicalCameraIdValid(Landroid/hardware/camera2/CameraDevice;Ljava/util/List;)V
@@ -221,7 +221,7 @@
     return-void
 
     .line 73
-    :cond_0
+    :cond_1d
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Invalid executor"
@@ -231,7 +231,7 @@
     throw v1
 
     .line 70
-    :cond_1
+    :cond_25
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Invalid output configurations"
@@ -242,7 +242,7 @@
 .end method
 
 .method static create(Landroid/hardware/camera2/CameraDevice;Landroid/os/Handler;)Landroidx/camera/camera2/internal/compat/CameraDeviceCompatBaseImpl;
-    .locals 2
+    .registers 4
     .param p0, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
     .param p1, "compatHandler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -269,7 +269,7 @@
 .end method
 
 .method static unpackSurfaces(Ljava/util/List;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -307,12 +307,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -330,17 +330,17 @@
 
     .line 58
     .end local v2    # "outputConfig":Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompat;
-    goto :goto_0
+    goto :goto_d
 
     .line 60
-    :cond_0
+    :cond_21
     return-object v0
 .end method
 
 
 # virtual methods
 .method createBaseCaptureSession(Landroid/hardware/camera2/CameraDevice;Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V
-    .locals 0
+    .registers 5
     .param p1, "device"    # Landroid/hardware/camera2/CameraDevice;
     .param p3, "cb"    # Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
     .param p4, "handler"    # Landroid/os/Handler;
@@ -387,7 +387,7 @@
 .end method
 
 .method public createCaptureSession(Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;)V
-    .locals 5
+    .registers 7
     .param p1, "config"    # Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -414,7 +414,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3b
 
     .line 119
     invoke-virtual {p1}, Landroidx/camera/camera2/internal/compat/params/SessionConfigurationCompat;->getSessionType()I
@@ -423,7 +423,7 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_33
 
     .line 125
     new-instance v0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$StateCallbackExecutorWrapper;
@@ -470,7 +470,7 @@
     .end local v0    # "cb":Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
     .end local v1    # "surfaces":Ljava/util/List;, "Ljava/util/List<Landroid/view/Surface;>;"
     .end local v2    # "params":Landroidx/camera/camera2/internal/compat/CameraDeviceCompatBaseImpl$CameraDeviceCompatParamsApi21;
-    :cond_0
+    :cond_33
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "High speed capture sessions not supported until API 23"
@@ -480,7 +480,7 @@
     throw v0
 
     .line 116
-    :cond_1
+    :cond_3b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Reprocessing sessions not supported until API 23"
@@ -491,7 +491,7 @@
 .end method
 
 .method public unwrap()Landroid/hardware/camera2/CameraDevice;
-    .locals 1
+    .registers 2
 
     .line 139
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraDeviceCompatBaseImpl;->mCameraDevice:Landroid/hardware/camera2/CameraDevice;

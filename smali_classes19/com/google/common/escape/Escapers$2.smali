@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/escape/CharEscaper;)V
-    .locals 0
+    .registers 2
 
     .line 232
     iput-object p1, p0, Lcom/google/common/escape/Escapers$2;->val$escaper:Lcom/google/common/escape/CharEscaper;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method protected escape(I)[C
-    .locals 9
+    .registers 11
     .param p1, "cp"    # I
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -41,7 +41,7 @@
     .line 237
     const/high16 v0, 0x10000
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_c
 
     .line 238
     iget-object v0, p0, Lcom/google/common/escape/Escapers$2;->val$escaper:Lcom/google/common/escape/CharEscaper;
@@ -55,7 +55,7 @@
     return-object v0
 
     .line 244
-    :cond_0
+    :cond_c
     const/4 v0, 0x2
 
     new-array v0, v0, [C
@@ -89,9 +89,9 @@
 
     .line 253
     .local v3, "loChars":[C
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2a
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2a
 
     .line 255
     const/4 v1, 0x0
@@ -99,47 +99,47 @@
     return-object v1
 
     .line 258
-    :cond_1
-    if-eqz v2, :cond_2
+    :cond_2a
+    if-eqz v2, :cond_2e
 
     array-length v5, v2
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_2
+    :cond_2e
     const/4 v5, 0x1
 
     .line 259
     .local v5, "hiCount":I
-    :goto_0
-    if-eqz v3, :cond_3
+    :goto_2f
+    if-eqz v3, :cond_33
 
     array-length v6, v3
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_3
+    :cond_33
     const/4 v6, 0x1
 
     .line 260
     .local v6, "loCount":I
-    :goto_1
+    :goto_34
     add-int v7, v5, v6
 
     new-array v7, v7, [C
 
     .line 261
     .local v7, "output":[C
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_46
 
     .line 263
     const/4 v1, 0x0
 
     .local v1, "n":I
-    :goto_2
+    :goto_3b
     array-length v8, v2
 
-    if-ge v1, v8, :cond_4
+    if-ge v1, v8, :cond_45
 
     .line 264
     aget-char v8, v2, v1
@@ -149,30 +149,30 @@
     .line 263
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_3b
 
     .end local v1    # "n":I
-    :cond_4
-    goto :goto_3
+    :cond_45
+    goto :goto_4a
 
     .line 267
-    :cond_5
+    :cond_46
     aget-char v8, v0, v1
 
     aput-char v8, v7, v1
 
     .line 269
-    :goto_3
-    if-eqz v3, :cond_7
+    :goto_4a
+    if-eqz v3, :cond_5a
 
     .line 270
     const/4 v1, 0x0
 
     .restart local v1    # "n":I
-    :goto_4
+    :goto_4d
     array-length v4, v3
 
-    if-ge v1, v4, :cond_6
+    if-ge v1, v4, :cond_59
 
     .line 271
     add-int v4, v5, v1
@@ -184,19 +184,19 @@
     .line 270
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_4d
 
     .end local v1    # "n":I
-    :cond_6
-    goto :goto_5
+    :cond_59
+    goto :goto_5e
 
     .line 274
-    :cond_7
+    :cond_5a
     aget-char v1, v0, v4
 
     aput-char v1, v7, v5
 
     .line 276
-    :goto_5
+    :goto_5e
     return-object v7
 .end method

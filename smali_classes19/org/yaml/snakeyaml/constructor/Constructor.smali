@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 48
     const-class v0, Ljava/lang/Object;
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Lorg/yaml/snakeyaml/LoaderOptions;)V
-    .locals 2
+    .registers 5
     .param p2, "loadingConfig"    # Lorg/yaml/snakeyaml/LoaderOptions;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "theRoot"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -111,7 +111,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/LoaderOptions;)V
-    .locals 1
+    .registers 4
     .param p1, "theRoot"    # Ljava/lang/String;
     .param p2, "loadingConfig"    # Lorg/yaml/snakeyaml/LoaderOptions;
     .annotation system Ldalvik/annotation/Throws;
@@ -136,7 +136,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/LoaderOptions;)V
-    .locals 1
+    .registers 3
     .param p1, "loadingConfig"    # Lorg/yaml/snakeyaml/LoaderOptions;
 
     .line 52
@@ -149,7 +149,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/TypeDescription;)V
-    .locals 2
+    .registers 4
     .param p1, "theRoot"    # Lorg/yaml/snakeyaml/TypeDescription;
 
     .line 80
@@ -166,7 +166,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/TypeDescription;Ljava/util/Collection;)V
-    .locals 1
+    .registers 4
     .param p1, "theRoot"    # Lorg/yaml/snakeyaml/TypeDescription;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -191,7 +191,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/TypeDescription;Ljava/util/Collection;Lorg/yaml/snakeyaml/LoaderOptions;)V
-    .locals 3
+    .registers 7
     .param p1, "theRoot"    # Lorg/yaml/snakeyaml/TypeDescription;
     .param p3, "loadingConfig"    # Lorg/yaml/snakeyaml/LoaderOptions;
     .annotation system Ldalvik/annotation/Signature;
@@ -211,7 +211,7 @@
     invoke-direct {p0, p3}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;-><init>(Lorg/yaml/snakeyaml/LoaderOptions;)V
 
     .line 93
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_65
 
     .line 96
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/Constructor;->yamlConstructors:Ljava/util/Map;
@@ -235,7 +235,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_27
 
     .line 98
     new-instance v0, Lorg/yaml/snakeyaml/nodes/Tag;
@@ -249,7 +249,7 @@
     iput-object v0, p0, Lorg/yaml/snakeyaml/constructor/Constructor;->rootTag:Lorg/yaml/snakeyaml/nodes/Tag;
 
     .line 100
-    :cond_0
+    :cond_27
     iget-object v0, p0, Lorg/yaml/snakeyaml/constructor/Constructor;->yamlClassConstructors:Ljava/util/Map;
 
     sget-object v1, Lorg/yaml/snakeyaml/nodes/NodeId;->scalar:Lorg/yaml/snakeyaml/nodes/NodeId;
@@ -286,7 +286,7 @@
     invoke-virtual {p0, p1}, Lorg/yaml/snakeyaml/constructor/Constructor;->addTypeDescription(Lorg/yaml/snakeyaml/TypeDescription;)Lorg/yaml/snakeyaml/TypeDescription;
 
     .line 104
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_64
 
     .line 105
     invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
@@ -294,12 +294,12 @@
     move-result-object v0
 
     .local v0, "i$":Ljava/util/Iterator;
-    :goto_0
+    :goto_54
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_64
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -313,15 +313,15 @@
 
     .line 107
     .end local v1    # "td":Lorg/yaml/snakeyaml/TypeDescription;
-    goto :goto_0
+    goto :goto_54
 
     .line 109
     .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_1
+    :cond_64
     return-void
 
     .line 94
-    :cond_2
+    :cond_65
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Root type must be provided."
@@ -332,7 +332,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/TypeDescription;Lorg/yaml/snakeyaml/LoaderOptions;)V
-    .locals 1
+    .registers 4
     .param p1, "theRoot"    # Lorg/yaml/snakeyaml/TypeDescription;
     .param p2, "loadingConfig"    # Lorg/yaml/snakeyaml/LoaderOptions;
 
@@ -346,13 +346,13 @@
 .end method
 
 .method private static final check(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "s"    # Ljava/lang/String;
 
     .line 129
     const-string v0, "Root type must be provided."
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_15
 
     .line 132
     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -363,13 +363,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 135
     return-object p0
 
     .line 133
-    :cond_0
+    :cond_f
     new-instance v1, Lorg/yaml/snakeyaml/error/YAMLException;
 
     invoke-direct {v1, v0}, Lorg/yaml/snakeyaml/error/YAMLException;-><init>(Ljava/lang/String;)V
@@ -377,7 +377,7 @@
     throw v1
 
     .line 130
-    :cond_1
+    :cond_15
     new-instance v1, Ljava/lang/NullPointerException;
 
     invoke-direct {v1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
@@ -386,7 +386,7 @@
 .end method
 
 .method private static checkRoot(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -403,13 +403,13 @@
 
     .line 73
     .local p0, "theRoot":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/Object;>;"
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     .line 76
     return-object p0
 
     .line 74
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Root class must be provided."
@@ -422,7 +422,7 @@
 
 # virtual methods
 .method protected getClassForName(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -455,13 +455,13 @@
     invoke-static {p1, v1, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_d} :catch_e
 
     return-object v0
 
     .line 681
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 682
@@ -474,7 +474,7 @@
 .end method
 
 .method protected getClassForNode(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Class;
-    .locals 7
+    .registers 9
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -501,7 +501,7 @@
 
     .line 663
     .local v0, "classForTag":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/Object;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_40
 
     .line 664
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/nodes/Node;->getTag()Lorg/yaml/snakeyaml/nodes/Tag;
@@ -514,12 +514,12 @@
 
     .line 667
     .local v1, "name":Ljava/lang/String;
-    :try_start_0
+    :try_start_16
     invoke-virtual {p0, v1}, Lorg/yaml/snakeyaml/constructor/Constructor;->getClassForName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_16 .. :try_end_1a} :catch_25
 
     .line 670
     .local v2, "cl":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
@@ -539,7 +539,7 @@
 
     .line 668
     .end local v2    # "cl":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :catch_0
+    :catch_25
     move-exception v2
 
     const/4 v3, 0x0
@@ -575,6 +575,6 @@
     .end local v1    # "name":Ljava/lang/String;
     .end local v2    # "e":Ljava/lang/ClassNotFoundException;
     .end local v3    # "cl":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_0
+    :cond_40
     return-object v0
 .end method

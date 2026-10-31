@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/Handler;)V
-    .locals 0
+    .registers 2
     .param p1, "compatHandler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

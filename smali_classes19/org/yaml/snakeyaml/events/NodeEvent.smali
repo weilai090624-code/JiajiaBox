@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 0
+    .registers 4
     .param p1, "anchor"    # Ljava/lang/String;
     .param p2, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getAnchor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/NodeEvent;->anchor:Ljava/lang/String;
@@ -36,7 +36,7 @@
 .end method
 
 .method protected getArguments()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 47
     new-instance v0, Ljava/lang/StringBuilder;

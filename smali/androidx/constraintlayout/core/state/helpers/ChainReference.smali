@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/core/state/State;Landroidx/constraintlayout/core/state/State$Helper;)V
-    .locals 1
+    .registers 4
     .param p1, "state"    # Landroidx/constraintlayout/core/state/State;
     .param p2, "type"    # Landroidx/constraintlayout/core/state/State$Helper;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public bridge synthetic bias(F)Landroidx/constraintlayout/core/state/ConstraintReference;
-    .locals 0
+    .registers 2
 
     .line 23
     invoke-virtual {p0, p1}, Landroidx/constraintlayout/core/state/helpers/ChainReference;->bias(F)Landroidx/constraintlayout/core/state/helpers/ChainReference;
@@ -46,7 +46,7 @@
 .end method
 
 .method public bias(F)Landroidx/constraintlayout/core/state/helpers/ChainReference;
-    .locals 0
+    .registers 2
     .param p1, "bias"    # F
 
     .line 38
@@ -57,7 +57,7 @@
 .end method
 
 .method public getBias()F
-    .locals 1
+    .registers 2
 
     .line 37
     iget v0, p0, Landroidx/constraintlayout/core/state/helpers/ChainReference;->mBias:F
@@ -66,7 +66,7 @@
 .end method
 
 .method public getStyle()Landroidx/constraintlayout/core/state/State$Chain;
-    .locals 1
+    .registers 2
 
     .line 32
     sget-object v0, Landroidx/constraintlayout/core/state/State$Chain;->SPREAD:Landroidx/constraintlayout/core/state/State$Chain;
@@ -75,7 +75,7 @@
 .end method
 
 .method public style(Landroidx/constraintlayout/core/state/State$Chain;)Landroidx/constraintlayout/core/state/helpers/ChainReference;
-    .locals 0
+    .registers 2
     .param p1, "style"    # Landroidx/constraintlayout/core/state/State$Chain;
 
     .line 34

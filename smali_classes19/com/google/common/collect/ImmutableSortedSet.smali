@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Comparator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,7 +83,7 @@
 .end method
 
 .method static varargs construct(Ljava/util/Comparator;I[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 5
+    .registers 8
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -100,7 +100,7 @@
     .line 348
     .local p0, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     .local p2, "contents":[Ljava/lang/Object;, "[TE;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 349
     invoke-static {p0}, Lcom/google/common/collect/ImmutableSortedSet;->emptySet(Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableSortedSet;
@@ -110,7 +110,7 @@
     return-object v0
 
     .line 351
-    :cond_0
+    :cond_7
     invoke-static {p2, p1}, Lcom/google/common/collect/ObjectArrays;->checkElementsNotNull([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     .line 352
@@ -126,8 +126,8 @@
     const/4 v1, 0x1
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p1, :cond_2
+    :goto_10
+    if-ge v1, p1, :cond_26
 
     .line 355
     aget-object v2, p2, v1
@@ -144,7 +144,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_23
 
     .line 358
     add-int/lit8 v4, v0, 0x1
@@ -160,14 +160,14 @@
     .end local v3    # "prev":Ljava/lang/Object;, "TE;"
     .end local v4    # "uniques":I
     .restart local v0    # "uniques":I
-    :cond_1
+    :cond_23
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 361
     .end local v1    # "i":I
-    :cond_2
+    :cond_26
     const/4 v1, 0x0
 
     invoke-static {p2, v0, p1, v1}, Ljava/util/Arrays;->fill([Ljava/lang/Object;IILjava/lang/Object;)V
@@ -177,7 +177,7 @@
 
     div-int/lit8 v1, v1, 0x2
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_33
 
     .line 365
     invoke-static {p2, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -185,7 +185,7 @@
     move-result-object p2
 
     .line 367
-    :cond_3
+    :cond_33
     new-instance v1, Lcom/google/common/collect/RegularImmutableSortedSet;
 
     .line 368
@@ -200,7 +200,7 @@
 .end method
 
 .method public static copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -229,7 +229,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -258,7 +258,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Comparator;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -285,11 +285,11 @@
 
     .line 279
     .local v0, "hasSameComparator":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     instance-of v1, p1, Lcom/google/common/collect/ImmutableSortedSet;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 281
     move-object v1, p1
@@ -302,14 +302,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     .line 283
     return-object v1
 
     .line 287
     .end local v1    # "original":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
-    :cond_0
+    :cond_17
     invoke-static {p1}, Lcom/google/common/collect/Iterables;->toArray(Ljava/lang/Iterable;)[Ljava/lang/Object;
 
     move-result-object v1
@@ -326,7 +326,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Comparator;Ljava/util/Collection;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -352,7 +352,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Comparator;Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -386,7 +386,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -415,7 +415,7 @@
 .end method
 
 .method public static copyOf([Ljava/lang/Comparable;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -448,7 +448,7 @@
 .end method
 
 .method public static copyOfSorted(Ljava/util/SortedSet;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -479,7 +479,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     .line 329
     invoke-static {v0}, Lcom/google/common/collect/ImmutableSortedSet;->emptySet(Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableSortedSet;
@@ -489,7 +489,7 @@
     return-object v2
 
     .line 331
-    :cond_0
+    :cond_13
     new-instance v2, Lcom/google/common/collect/RegularImmutableSortedSet;
 
     invoke-direct {v2, v1, v0}, Lcom/google/common/collect/RegularImmutableSortedSet;-><init>(Lcom/google/common/collect/ImmutableList;Ljava/util/Comparator;)V
@@ -498,7 +498,7 @@
 .end method
 
 .method static emptySet(Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableSortedSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -521,7 +521,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 66
     sget-object v0, Lcom/google/common/collect/RegularImmutableSortedSet;->NATURAL_EMPTY_SET:Lcom/google/common/collect/RegularImmutableSortedSet;
@@ -529,7 +529,7 @@
     return-object v0
 
     .line 68
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/collect/RegularImmutableSortedSet;
 
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
@@ -542,7 +542,7 @@
 .end method
 
 .method public static naturalOrder()Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -566,7 +566,7 @@
 .end method
 
 .method public static of()Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -584,7 +584,7 @@
 .end method
 
 .method public static of(Ljava/lang/Comparable;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -613,7 +613,7 @@
 .end method
 
 .method public static of(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -651,7 +651,7 @@
 .end method
 
 .method public static of(Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -694,7 +694,7 @@
 .end method
 
 .method public static of(Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -742,7 +742,7 @@
 .end method
 
 .method public static of(Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 4
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -795,7 +795,7 @@
 .end method
 
 .method public static varargs of(Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;[Ljava/lang/Comparable;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 4
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -873,7 +873,7 @@
 .end method
 
 .method public static orderedBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -896,7 +896,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "unused"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -916,7 +916,7 @@
 .end method
 
 .method public static reverseOrder()Lcom/google/common/collect/ImmutableSortedSet$Builder;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -940,7 +940,7 @@
 .end method
 
 .method static unsafeCompare(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 5
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -973,7 +973,7 @@
 
 # virtual methods
 .method public ceiling(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -1002,7 +1002,7 @@
 .end method
 
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1039,7 +1039,7 @@
 .end method
 
 .method public bridge synthetic descendingIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 59
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
@@ -1051,7 +1051,7 @@
 .end method
 
 .method public descendingSet()Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1066,7 +1066,7 @@
 
     .line 710
     .local v0, "result":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 711
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedSet;->createDescendingSet()Lcom/google/common/collect/ImmutableSortedSet;
@@ -1081,12 +1081,12 @@
     iput-object p0, v0, Lcom/google/common/collect/ImmutableSortedSet;->descendingSet:Lcom/google/common/collect/ImmutableSortedSet;
 
     .line 714
-    :cond_0
+    :cond_d
     return-object v0
 .end method
 
 .method public bridge synthetic descendingSet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
 
     .line 59
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
@@ -1098,7 +1098,7 @@
 .end method
 
 .method public first()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -1119,7 +1119,7 @@
 .end method
 
 .method public floor(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -1152,7 +1152,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",
@@ -1174,7 +1174,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 4
     .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1199,7 +1199,7 @@
 .end method
 
 .method public bridge synthetic headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 0
+    .registers 3
 
     .line 59
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
@@ -1211,7 +1211,7 @@
 .end method
 
 .method public bridge synthetic headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 2
 
     .line 59
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
@@ -1233,7 +1233,7 @@
 .end method
 
 .method public higher(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -1279,7 +1279,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 59
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
@@ -1291,7 +1291,7 @@
 .end method
 
 .method public last()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -1312,7 +1312,7 @@
 .end method
 
 .method public lower(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -1345,7 +1345,7 @@
 .end method
 
 .method public final pollFirst()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -1368,7 +1368,7 @@
 .end method
 
 .method public final pollLast()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -1391,7 +1391,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TE;)",
@@ -1416,7 +1416,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 6
     .param p2, "fromInclusive"    # Z
     .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -1443,16 +1443,16 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 590
@@ -1464,7 +1464,7 @@
 .end method
 
 .method public bridge synthetic subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 0
+    .registers 5
 
     .line 59
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
@@ -1476,7 +1476,7 @@
 .end method
 
 .method public bridge synthetic subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 3
 
     .line 59
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
@@ -1498,7 +1498,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",
@@ -1520,7 +1520,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
-    .locals 1
+    .registers 4
     .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1545,7 +1545,7 @@
 .end method
 
 .method public bridge synthetic tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 0
+    .registers 3
 
     .line 59
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
@@ -1557,7 +1557,7 @@
 .end method
 
 .method public bridge synthetic tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 2
 
     .line 59
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
@@ -1579,7 +1579,7 @@
 .end method
 
 .method unsafeCompare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
@@ -1598,7 +1598,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 3
+    .registers 4
 
     .line 760
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"

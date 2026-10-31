@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 2647
     new-instance v0, Lcom/google/android/material/slider/BaseSlider$SliderState$1;
@@ -61,7 +61,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 2
+    .registers 4
     .param p1, "source"    # Landroid/os/Parcel;
 
     .line 2668
@@ -122,7 +122,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/google/android/material/slider/BaseSlider$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Landroid/os/Parcel;
     .param p2, "x1"    # Lcom/google/android/material/slider/BaseSlider$1;
 
@@ -133,7 +133,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 2664
@@ -146,7 +146,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 3
+    .registers 6
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

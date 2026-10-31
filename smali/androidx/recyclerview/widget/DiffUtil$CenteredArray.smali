@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 1037
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method backingData()[I
-    .locals 1
+    .registers 2
 
     .line 1047
     iget-object v0, p0, Landroidx/recyclerview/widget/DiffUtil$CenteredArray;->mData:[I
@@ -58,7 +58,7 @@
 .end method
 
 .method public fill(I)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
 
     .line 1055
@@ -71,7 +71,7 @@
 .end method
 
 .method get(I)I
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 1043
@@ -87,7 +87,7 @@
 .end method
 
 .method set(II)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "value"    # I
 

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Readable;)V
-    .locals 1
+    .registers 3
     .param p1, "readable"    # Ljava/lang/Readable;
 
     .line 57
@@ -83,18 +83,18 @@
     .line 59
     instance-of v0, p1, Ljava/io/Reader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2f
 
     move-object v0, p1
 
     check-cast v0, Ljava/io/Reader;
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_2f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_30
     iput-object v0, p0, Lcom/google/common/io/LineReader;->reader:Ljava/io/Reader;
 
     .line 60
@@ -102,7 +102,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/io/LineReader;)Ljava/util/Queue;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/io/LineReader;
 
     .line 41
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public readLine()Ljava/lang/String;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -127,14 +127,14 @@
     .line 74
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/io/LineReader;->lines:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->peek()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_38
 
     .line 75
     iget-object v0, p0, Lcom/google/common/io/LineReader;->cbuf:Ljava/nio/CharBuffer;
@@ -146,7 +146,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     iget-object v0, p0, Lcom/google/common/io/LineReader;->reader:Ljava/io/Reader;
 
@@ -160,9 +160,9 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_27
 
-    :cond_0
+    :cond_1f
     iget-object v0, p0, Lcom/google/common/io/LineReader;->readable:Ljava/lang/Readable;
 
     iget-object v2, p0, Lcom/google/common/io/LineReader;->cbuf:Ljava/nio/CharBuffer;
@@ -173,10 +173,10 @@
 
     .line 79
     .local v0, "read":I
-    :goto_1
+    :goto_27
     const/4 v2, -0x1
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_30
 
     .line 80
     iget-object v1, p0, Lcom/google/common/io/LineReader;->lineBuf:Lcom/google/common/io/LineBuffer;
@@ -184,10 +184,10 @@
     invoke-virtual {v1}, Lcom/google/common/io/LineBuffer;->finish()V
 
     .line 81
-    goto :goto_2
+    goto :goto_38
 
     .line 83
-    :cond_1
+    :cond_30
     iget-object v2, p0, Lcom/google/common/io/LineReader;->lineBuf:Lcom/google/common/io/LineBuffer;
 
     iget-object v3, p0, Lcom/google/common/io/LineReader;->buf:[C
@@ -196,11 +196,11 @@
 
     .line 84
     .end local v0    # "read":I
-    goto :goto_0
+    goto :goto_1
 
     .line 85
-    :cond_2
-    :goto_2
+    :cond_38
+    :goto_38
     iget-object v0, p0, Lcom/google/common/io/LineReader;->lines:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;

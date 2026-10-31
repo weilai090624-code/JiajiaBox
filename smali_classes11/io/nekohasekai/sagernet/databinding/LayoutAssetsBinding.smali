@@ -18,7 +18,7 @@
 
 # direct methods
 .method private constructor <init>(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroidx/recyclerview/widget/RecyclerView;Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;)V
-    .locals 0
+    .registers 5
     .param p1, "rootView"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "coordinator"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p3, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
@@ -58,7 +58,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;
-    .locals 6
+    .registers 7
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -88,7 +88,7 @@
 
     .line 72
     .local v2, "recyclerView":Landroidx/recyclerview/widget/RecyclerView;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_23
 
     .line 76
     const v1, 0x7f0a0228
@@ -102,7 +102,7 @@
 
     .line 78
     .local v3, "refreshLayout":Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     .line 82
     new-instance v4, Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;
@@ -116,18 +116,18 @@
     return-object v4
 
     .line 79
-    :cond_0
-    goto :goto_0
+    :cond_22
+    goto :goto_24
 
     .line 73
     .end local v3    # "refreshLayout":Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
-    :cond_1
+    :cond_23
     nop
 
     .line 85
     .end local v0    # "coordinator":Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .end local v2    # "recyclerView":Landroidx/recyclerview/widget/RecyclerView;
-    :goto_0
+    :goto_24
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -152,7 +152,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -176,7 +176,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -204,13 +204,13 @@
 
     .line 56
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 57
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 59
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;
 
     move-result-object v1
@@ -221,7 +221,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;->getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
@@ -232,7 +232,7 @@
 .end method
 
 .method public getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
-    .locals 1
+    .registers 2
 
     .line 44
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutAssetsBinding;->rootView:Landroidx/coordinatorlayout/widget/CoordinatorLayout;

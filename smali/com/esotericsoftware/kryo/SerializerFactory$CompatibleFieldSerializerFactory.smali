@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 177
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/SerializerFactory$BaseSerializerFactory;-><init>()V
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer$CompatibleFieldSerializerConfig;)V
-    .locals 0
+    .registers 2
     .param p1, "config"    # Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer$CompatibleFieldSerializerConfig;
 
     .line 181
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public getConfig()Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer$CompatibleFieldSerializerConfig;
-    .locals 1
+    .registers 2
 
     .line 186
     iget-object v0, p0, Lcom/esotericsoftware/kryo/SerializerFactory$CompatibleFieldSerializerFactory;->config:Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer$CompatibleFieldSerializerConfig;
@@ -70,7 +70,7 @@
 .end method
 
 .method public bridge synthetic newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
-    .locals 0
+    .registers 3
 
     .line 174
     invoke-virtual {p0, p1, p2}, Lcom/esotericsoftware/kryo/SerializerFactory$CompatibleFieldSerializerFactory;->newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer;
@@ -81,7 +81,7 @@
 .end method
 
 .method public newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/serializers/CompatibleFieldSerializer;
-    .locals 2
+    .registers 5
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "type"    # Ljava/lang/Class;
 

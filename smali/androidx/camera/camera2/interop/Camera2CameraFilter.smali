@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public static createCameraFilter(Landroidx/camera/camera2/interop/Camera2CameraFilter$Camera2Filter;)Landroidx/camera/core/CameraFilter;
-    .locals 1
+    .registers 2
     .param p0, "filter"    # Landroidx/camera/camera2/interop/Camera2CameraFilter$Camera2Filter;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -42,7 +42,7 @@
 .end method
 
 .method static synthetic lambda$createCameraFilter$0(Landroidx/camera/camera2/interop/Camera2CameraFilter$Camera2Filter;Ljava/util/List;)Ljava/util/List;
-    .locals 6
+    .registers 8
     .param p0, "filter"    # Landroidx/camera/camera2/interop/Camera2CameraFilter$Camera2Filter;
     .param p1, "cameraInfos"    # Ljava/util/List;
 
@@ -57,12 +57,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -80,10 +80,10 @@
 
     .line 45
     .end local v2    # "cameraInfo":Landroidx/camera/core/CameraInfo;
-    goto :goto_0
+    goto :goto_9
 
     .line 47
-    :cond_0
+    :cond_1d
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v1
@@ -104,12 +104,12 @@
 
     move-result-object v3
 
-    :goto_1
+    :goto_2e
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_48
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -127,17 +127,17 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_47
 
     .line 52
     invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 54
     .end local v4    # "cameraInfo":Landroidx/camera/core/CameraInfo;
-    :cond_1
-    goto :goto_1
+    :cond_47
+    goto :goto_2e
 
     .line 56
-    :cond_2
+    :cond_48
     return-object v2
 .end method

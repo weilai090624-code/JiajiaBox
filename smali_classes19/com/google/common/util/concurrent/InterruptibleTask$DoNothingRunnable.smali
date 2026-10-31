@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/InterruptibleTask$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/util/concurrent/InterruptibleTask$1;
 
     .line 44
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 0
+    .registers 1
 
     .line 46
     return-void

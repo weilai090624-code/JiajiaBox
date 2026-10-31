@@ -52,7 +52,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$9f2VpcJxuEqttqOCJHlnpaSLmos(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/bg/Executable;->killAll$lambda$0(Ljava/io/File;Ljava/lang/String;)Z
 
@@ -62,7 +62,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     new-instance v0, Lio/nekohasekai/sagernet/bg/Executable;
 
@@ -99,7 +99,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,23 +108,23 @@
 .end method
 
 .method public static synthetic killAll$default(Lio/nekohasekai/sagernet/bg/Executable;ZILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 16
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/bg/Executable;->killAll(Z)V
 
     return-void
 .end method
 
 .method private static final killAll$lambda$0(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 18
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public final killAll(Z)V
-    .locals 17
+    .registers 19
     .param p1, "alsoKillBg"    # Z
 
     .line 18
@@ -174,19 +174,19 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_17
 
     return-void
 
-    :cond_0
+    :cond_17
     array-length v4, v3
 
     const/4 v5, 0x0
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v6, v4, :cond_4
+    :goto_1a
+    if-ge v6, v4, :cond_11b
 
     aget-object v7, v3, v6
 
@@ -195,7 +195,7 @@
     nop
 
     .line 20
-    :try_start_0
+    :try_start_1f
     new-instance v0, Ljava/io/FileInputStream;
 
     .line 21
@@ -219,13 +219,13 @@
 
     instance-of v0, v9, Ljava/io/BufferedReader;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3d
 
     check-cast v9, Ljava/io/BufferedReader;
 
-    goto :goto_1
+    goto :goto_45
 
-    :cond_1
+    :cond_3d
     new-instance v0, Ljava/io/BufferedReader;
 
     const/16 v8, 0x2000
@@ -234,12 +234,12 @@
 
     move-object v9, v0
 
-    :goto_1
+    :goto_45
     check-cast v9, Ljava/io/Closeable;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_47
+    .catch Ljava/io/IOException; {:try_start_1f .. :try_end_47} :catch_115
 
-    :try_start_1
+    :try_start_47
     move-object v0, v9
 
     check-cast v0, Ljava/io/BufferedReader;
@@ -256,18 +256,18 @@
     invoke-static {v10}, Lkotlin/io/TextStreamsKt;->readText(Ljava/io/Reader;)Ljava/lang/String;
 
     move-result-object v10
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_52
+    .catchall {:try_start_47 .. :try_end_52} :catchall_10c
 
     .line 21
     .end local v0    # "it":Ljava/io/BufferedReader;
     .end local v8    # "$i$a$-use-Executable$killAll$exe$1":I
     const/4 v0, 0x0
 
-    :try_start_2
+    :try_start_53
     invoke-static {v9, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_56
+    .catch Ljava/io/IOException; {:try_start_53 .. :try_end_56} :catch_115
 
     .line 25
     move-object v11, v10
@@ -320,9 +320,9 @@
 
     const-string v10, "getName(...)"
 
-    if-nez v9, :cond_2
+    if-nez v9, :cond_93
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_117
 
     invoke-virtual {v8}, Ljava/io/File;->getName()Ljava/lang/String;
 
@@ -338,11 +338,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_117
 
     .line 28
-    :cond_2
-    :try_start_3
+    :cond_93
+    :try_start_93
     invoke-virtual {v7}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v0
@@ -399,13 +399,13 @@
     move-result-object v9
 
     invoke-virtual {v0, v9}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/String;)V
-    :try_end_3
-    .catch Landroid/system/ErrnoException; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_cf
+    .catch Landroid/system/ErrnoException; {:try_start_93 .. :try_end_cf} :catch_d0
 
-    goto :goto_2
+    goto :goto_117
 
     .line 30
-    :catch_0
+    :catch_d0
     move-exception v0
 
     .line 31
@@ -414,7 +414,7 @@
 
     sget v10, Landroid/system/OsConstants;->ESRCH:I
 
-    if-eq v9, v10, :cond_3
+    if-eq v9, v10, :cond_117
 
     .line 32
     sget-object v9, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -468,43 +468,43 @@
 
     invoke-virtual {v9, v10}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/Throwable;)V
 
-    goto :goto_2
+    goto :goto_117
 
     .line 21
     .end local v0    # "e":Landroid/system/ErrnoException;
     .end local v8    # "exe":Ljava/io/File;
-    :catchall_0
+    :catchall_10c
     move-exception v0
 
     move-object v8, v0
 
     .end local v7    # "process":Ljava/io/File;
     .end local p1    # "alsoKillBg":Z
-    :try_start_4
+    :try_start_10e
     throw v8
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_10f
+    .catchall {:try_start_10e .. :try_end_10f} :catchall_10f
 
     .restart local v7    # "process":Ljava/io/File;
     .restart local p1    # "alsoKillBg":Z
-    :catchall_1
+    :catchall_10f
     move-exception v0
 
     move-object v10, v0
 
-    :try_start_5
+    :try_start_111
     invoke-static {v9, v8}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .end local v7    # "process":Ljava/io/File;
     .end local p1    # "alsoKillBg":Z
     throw v10
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
+    :try_end_115
+    .catch Ljava/io/IOException; {:try_start_111 .. :try_end_115} :catch_115
 
     .line 24
     .restart local v7    # "process":Ljava/io/File;
     .restart local p1    # "alsoKillBg":Z
-    :catch_1
+    :catch_115
     move-exception v0
 
     .line 25
@@ -514,13 +514,13 @@
     .line 18
     .end local v0    # "<unused var>":Ljava/io/IOException;
     .end local v7    # "process":Ljava/io/File;
-    :cond_3
-    :goto_2
+    :cond_117
+    :goto_117
     add-int/lit8 v6, v6, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_1a
 
     .line 37
-    :cond_4
+    :cond_11b
     return-void
 .end method

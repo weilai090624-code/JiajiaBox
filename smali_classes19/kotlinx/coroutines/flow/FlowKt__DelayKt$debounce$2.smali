@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(J)V
-    .locals 1
+    .registers 4
 
     iput-wide p1, p0, Lkotlinx/coroutines/flow/FlowKt__DelayKt$debounce$2;->$timeoutMillis:J
 
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public final invoke(Ljava/lang/Object;)Ljava/lang/Long;
-    .locals 2
+    .registers 4
     .param p1, "it"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,7 +88,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 68

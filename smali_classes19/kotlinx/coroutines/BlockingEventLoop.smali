@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Thread;)V
-    .locals 0
+    .registers 2
     .param p1, "thread"    # Ljava/lang/Thread;
 
     .line 27
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method protected getThread()Ljava/lang/Thread;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lkotlinx/coroutines/BlockingEventLoop;->thread:Ljava/lang/Thread;

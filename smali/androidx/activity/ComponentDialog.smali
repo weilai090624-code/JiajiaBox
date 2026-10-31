@@ -87,7 +87,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$qrzmfDOyDuplJFtpJLozn3P9EZI(Landroidx/activity/ComponentDialog;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Landroidx/activity/ComponentDialog;->onBackPressedDispatcher$lambda$1(Landroidx/activity/ComponentDialog;)V
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "themeResId"    # I
 
@@ -155,28 +155,28 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 39
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Landroidx/activity/ComponentDialog;-><init>(Landroid/content/Context;I)V
 
     return-void
 .end method
 
 .method private final getLifecycleRegistry()Landroidx/lifecycle/LifecycleRegistry;
-    .locals 3
+    .registers 4
 
     .line 47
     iget-object v0, p0, Landroidx/activity/ComponentDialog;->_lifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     new-instance v0, Landroidx/lifecycle/LifecycleRegistry;
 
@@ -198,18 +198,18 @@
 
     .end local v1    # "it":Landroidx/lifecycle/LifecycleRegistry;
     .end local v2    # "$i$a$-also-ComponentDialog$lifecycleRegistry$1":I
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method public static synthetic getOnBackPressedDispatcher$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private static final onBackPressedDispatcher$lambda$1(Landroidx/activity/ComponentDialog;)V
-    .locals 0
+    .registers 1
     .param p0, "this$0"    # Landroidx/activity/ComponentDialog;
 
     .line 89
@@ -221,7 +221,7 @@
 
 # virtual methods
 .method public addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
@@ -240,7 +240,7 @@
 .end method
 
 .method public getLifecycle()Landroidx/lifecycle/Lifecycle;
-    .locals 1
+    .registers 2
 
     .line 55
     invoke-direct {p0}, Landroidx/activity/ComponentDialog;->getLifecycleRegistry()Landroidx/lifecycle/LifecycleRegistry;
@@ -253,7 +253,7 @@
 .end method
 
 .method public final getOnBackPressedDispatcher()Landroidx/activity/OnBackPressedDispatcher;
-    .locals 1
+    .registers 2
 
     .line 89
     iget-object v0, p0, Landroidx/activity/ComponentDialog;->onBackPressedDispatcher:Landroidx/activity/OnBackPressedDispatcher;
@@ -262,7 +262,7 @@
 .end method
 
 .method public getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Landroidx/activity/ComponentDialog;->savedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
@@ -275,7 +275,7 @@
 .end method
 
 .method public initializeViewTreeOwners()V
-    .locals 3
+    .registers 4
 
     .line 122
     invoke-virtual {p0}, Landroidx/activity/ComponentDialog;->getWindow()Landroid/view/Window;
@@ -341,7 +341,7 @@
 .end method
 
 .method public onBackPressed()V
-    .locals 1
+    .registers 2
 
     .line 93
     iget-object v0, p0, Landroidx/activity/ComponentDialog;->onBackPressedDispatcher:Landroidx/activity/OnBackPressedDispatcher;
@@ -353,7 +353,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 66
@@ -364,7 +364,7 @@
 
     const/16 v1, 0x21
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_17
 
     .line 68
     iget-object v0, p0, Landroidx/activity/ComponentDialog;->onBackPressedDispatcher:Landroidx/activity/OnBackPressedDispatcher;
@@ -380,7 +380,7 @@
     invoke-virtual {v0, v1}, Landroidx/activity/OnBackPressedDispatcher;->setOnBackInvokedDispatcher(Landroid/window/OnBackInvokedDispatcher;)V
 
     .line 70
-    :cond_0
+    :cond_17
     iget-object v0, p0, Landroidx/activity/ComponentDialog;->savedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
 
     invoke-virtual {v0, p1}, Landroidx/savedstate/SavedStateRegistryController;->performRestore(Landroid/os/Bundle;)V
@@ -399,7 +399,7 @@
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Bundle;
-    .locals 2
+    .registers 3
 
     .line 58
     invoke-super {p0}, Landroid/app/Dialog;->onSaveInstanceState()Landroid/os/Bundle;
@@ -421,7 +421,7 @@
 .end method
 
 .method protected onStart()V
-    .locals 2
+    .registers 3
 
     .line 76
     invoke-super {p0}, Landroid/app/Dialog;->onStart()V
@@ -440,7 +440,7 @@
 .end method
 
 .method protected onStop()V
-    .locals 2
+    .registers 3
 
     .line 83
     invoke-direct {p0}, Landroidx/activity/ComponentDialog;->getLifecycleRegistry()Landroidx/lifecycle/LifecycleRegistry;
@@ -464,7 +464,7 @@
 .end method
 
 .method public setContentView(I)V
-    .locals 0
+    .registers 2
     .param p1, "layoutResID"    # I
 
     .line 97
@@ -478,7 +478,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     const-string/jumbo v0, "view"
@@ -496,7 +496,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 

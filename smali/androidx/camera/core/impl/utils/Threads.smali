@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static checkBackgroundThread()V
-    .locals 2
+    .registers 2
 
     .line 57
     invoke-static {}, Landroidx/camera/core/impl/utils/Threads;->isBackgroundThread()Z
@@ -31,7 +31,7 @@
 .end method
 
 .method public static checkMainThread()V
-    .locals 2
+    .registers 2
 
     .line 48
     invoke-static {}, Landroidx/camera/core/impl/utils/Threads;->isMainThread()Z
@@ -47,7 +47,7 @@
 .end method
 
 .method public static isBackgroundThread()Z
-    .locals 1
+    .registers 1
 
     .line 39
     invoke-static {}, Landroidx/camera/core/impl/utils/Threads;->isMainThread()Z
@@ -60,7 +60,7 @@
 .end method
 
 .method public static isMainThread()Z
-    .locals 2
+    .registers 2
 
     .line 34
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -75,15 +75,15 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method

@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .registers 13
 
     .line 242
     new-instance v6, Lj$/util/stream/FindOps$FindOp;
@@ -112,7 +112,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 229
     invoke-direct {p0}, Lj$/util/stream/FindOps$FindSink;-><init>()V
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public accept(J)V
-    .locals 1
+    .registers 4
     .param p1, "value"    # J
 
     .line 234
@@ -138,7 +138,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Long;)V
-    .locals 0
+    .registers 2
 
     .line 229
     invoke-super {p0, p1}, Lj$/util/stream/FindOps$FindSink;->accept(Ljava/lang/Object;)V
@@ -147,7 +147,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/LongConsumer$-CC;->$default$andThen(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;
 
@@ -157,12 +157,12 @@
 .end method
 
 .method public get()Lj$/util/OptionalLong;
-    .locals 2
+    .registers 3
 
     .line 239
     iget-boolean v0, p0, Lj$/util/stream/FindOps$FindSink$OfLong;->hasValue:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lj$/util/stream/FindOps$FindSink$OfLong;->value:Ljava/lang/Object;
 
@@ -176,17 +176,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 229
     invoke-virtual {p0}, Lj$/util/stream/FindOps$FindSink$OfLong;->get()Lj$/util/OptionalLong;

@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "marginPx"    # I
 
     .line 47
@@ -31,7 +31,7 @@
 .end method
 
 .method private requireViewPager(Landroid/view/View;)Landroidx/viewpager2/widget/ViewPager2;
-    .locals 4
+    .registers 6
     .param p1, "page"    # Landroid/view/View;
 
     .line 66
@@ -49,11 +49,11 @@
     .local v1, "parentParent":Landroid/view/ViewParent;
     instance-of v2, v0, Landroidx/recyclerview/widget/RecyclerView;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     instance-of v2, v1, Landroidx/viewpager2/widget/ViewPager2;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     .line 70
     move-object v2, v1
@@ -63,7 +63,7 @@
     return-object v2
 
     .line 73
-    :cond_0
+    :cond_14
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Expected the page view to be managed by a ViewPager2 instance."
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public transformPage(Landroid/view/View;F)V
-    .locals 3
+    .registers 6
     .param p1, "page"    # Landroid/view/View;
     .param p2, "position"    # F
 
@@ -99,32 +99,32 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1c
 
     .line 59
     invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2;->isRtl()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     neg-float v2, v1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     move v2, v1
 
-    :goto_0
+    :goto_18
     invoke-virtual {p1, v2}, Landroid/view/View;->setTranslationX(F)V
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 61
-    :cond_1
+    :cond_1c
     invoke-virtual {p1, v1}, Landroid/view/View;->setTranslationY(F)V
 
     .line 63
-    :goto_1
+    :goto_1f
     return-void
 .end method

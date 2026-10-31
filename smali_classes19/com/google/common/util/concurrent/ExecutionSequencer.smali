@@ -33,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/common/util/concurrent/ExecutionSequencer;)Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ExecutionSequencer;
 
     .line 85
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/google/common/util/concurrent/ExecutionSequencer;Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;)Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ExecutionSequencer;
     .param p1, "x1"    # Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public static create()Lcom/google/common/util/concurrent/ExecutionSequencer;
-    .locals 1
+    .registers 1
 
     .line 91
     new-instance v0, Lcom/google/common/util/concurrent/ExecutionSequencer;
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public submit(Ljava/util/concurrent/Callable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -134,7 +134,7 @@
 .end method
 
 .method public submitAsync(Lcom/google/common/util/concurrent/AsyncCallable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 17
+    .registers 20
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {

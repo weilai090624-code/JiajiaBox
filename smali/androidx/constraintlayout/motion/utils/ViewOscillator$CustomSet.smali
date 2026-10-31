@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 163
     invoke-direct {p0}, Landroidx/constraintlayout/motion/utils/ViewOscillator;-><init>()V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method protected setCustom(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "custom"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -63,7 +63,7 @@
 .end method
 
 .method public setProperty(Landroid/view/View;F)V
-    .locals 3
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "t"    # F
     .annotation system Ldalvik/annotation/MethodParameters;

@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/window/embedding/ActivityStack;Landroidx/window/embedding/ActivityStack;F)V
-    .locals 1
+    .registers 5
     .param p1, "primaryActivityStack"    # Landroidx/window/embedding/ActivityStack;
     .param p2, "secondaryActivityStack"    # Landroidx/window/embedding/ActivityStack;
     .param p3, "splitRatio"    # F
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public final contains(Landroid/app/Activity;)Z
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -100,7 +100,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 31
     iget-object v0, p0, Landroidx/window/embedding/SplitInfo;->secondaryActivityStack:Landroidx/window/embedding/ActivityStack;
@@ -109,47 +109,47 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v0, 0x1
 
     .line 30
-    :goto_1
+    :goto_19
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 35
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 36
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/window/embedding/SplitInfo;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 38
-    :cond_1
+    :cond_a
     iget-object v1, p0, Landroidx/window/embedding/SplitInfo;->primaryActivityStack:Landroidx/window/embedding/ActivityStack;
 
     move-object v3, p1
@@ -162,12 +162,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
     .line 39
-    :cond_2
+    :cond_18
     iget-object v1, p0, Landroidx/window/embedding/SplitInfo;->secondaryActivityStack:Landroidx/window/embedding/ActivityStack;
 
     move-object v3, p1
@@ -180,12 +180,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_26
 
     return v2
 
     .line 40
-    :cond_3
+    :cond_26
     iget v1, p0, Landroidx/window/embedding/SplitInfo;->splitRatio:F
 
     move-object v3, p1
@@ -196,27 +196,27 @@
 
     cmpg-float v1, v1, v3
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_33
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_4
+    :cond_33
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_5
+    :goto_34
+    if-nez v1, :cond_37
 
     return v2
 
     .line 42
-    :cond_5
+    :cond_37
     return v0
 .end method
 
 .method public final getPrimaryActivityStack()Landroidx/window/embedding/ActivityStack;
-    .locals 1
+    .registers 2
 
     .line 25
     iget-object v0, p0, Landroidx/window/embedding/SplitInfo;->primaryActivityStack:Landroidx/window/embedding/ActivityStack;
@@ -225,7 +225,7 @@
 .end method
 
 .method public final getSecondaryActivityStack()Landroidx/window/embedding/ActivityStack;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Landroidx/window/embedding/SplitInfo;->secondaryActivityStack:Landroidx/window/embedding/ActivityStack;
@@ -234,7 +234,7 @@
 .end method
 
 .method public final getSplitRatio()F
-    .locals 1
+    .registers 2
 
     .line 27
     iget v0, p0, Landroidx/window/embedding/SplitInfo;->splitRatio:F
@@ -243,7 +243,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 46
     iget-object v0, p0, Landroidx/window/embedding/SplitInfo;->primaryActivityStack:Landroidx/window/embedding/ActivityStack;
@@ -284,7 +284,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 53
     new-instance v0, Ljava/lang/StringBuilder;

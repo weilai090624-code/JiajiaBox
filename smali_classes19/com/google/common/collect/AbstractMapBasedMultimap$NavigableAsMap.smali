@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/NavigableMap;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractMapBasedMultimap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public ceilingEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -92,23 +92,23 @@
 
     .line 1550
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     invoke-virtual {p0, v0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->wrapEntry(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public ceilingKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -137,7 +137,7 @@
 .end method
 
 .method createKeySet()Ljava/util/NavigableSet;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -162,7 +162,7 @@
 .end method
 
 .method bridge synthetic createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 1509
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
@@ -174,7 +174,7 @@
 .end method
 
 .method bridge synthetic createKeySet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
 
     .line 1509
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
@@ -186,7 +186,7 @@
 .end method
 
 .method public descendingKeySet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -209,7 +209,7 @@
 .end method
 
 .method public descendingMap()Ljava/util/NavigableMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -240,7 +240,7 @@
 .end method
 
 .method public firstEntry()Ljava/util/Map$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -266,23 +266,23 @@
 
     .line 1576
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     invoke-virtual {p0, v0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->wrapEntry(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public floorEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -313,23 +313,23 @@
 
     .line 1537
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     invoke-virtual {p0, v0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->wrapEntry(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public floorKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -358,7 +358,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/NavigableMap;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -386,7 +386,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -423,7 +423,7 @@
 .end method
 
 .method public bridge synthetic headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -439,7 +439,7 @@
 .end method
 
 .method public higherEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -470,23 +470,23 @@
 
     .line 1563
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     invoke-virtual {p0, v0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->wrapEntry(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public higherKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -515,7 +515,7 @@
 .end method
 
 .method public keySet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -536,7 +536,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 1509
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
@@ -548,7 +548,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
 
     .line 1509
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
@@ -560,7 +560,7 @@
 .end method
 
 .method public lastEntry()Ljava/util/Map$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -586,23 +586,23 @@
 
     .line 1583
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     invoke-virtual {p0, v0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->wrapEntry(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public lowerEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -633,23 +633,23 @@
 
     .line 1524
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     invoke-virtual {p0, v0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->wrapEntry(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     return-object v1
 .end method
 
 .method public lowerKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -678,7 +678,7 @@
 .end method
 
 .method public navigableKeySet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -697,7 +697,7 @@
 .end method
 
 .method pollAsMapEntry(Ljava/util/Iterator;)Ljava/util/Map$Entry;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -723,7 +723,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 1601
     const/4 v0, 0x0
@@ -731,7 +731,7 @@
     return-object v0
 
     .line 1603
-    :cond_0
+    :cond_8
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -778,7 +778,7 @@
 .end method
 
 .method public pollFirstEntry()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -810,7 +810,7 @@
 .end method
 
 .method public pollLastEntry()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -846,7 +846,7 @@
 .end method
 
 .method sortedMap()Ljava/util/NavigableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -869,7 +869,7 @@
 .end method
 
 .method bridge synthetic sortedMap()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
 
     .line 1509
     .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
@@ -881,7 +881,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/NavigableMap;
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -916,7 +916,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 3
+    .registers 8
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -959,7 +959,7 @@
 .end method
 
 .method public bridge synthetic subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -979,7 +979,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/NavigableMap;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1007,7 +1007,7 @@
 .end method
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -1044,7 +1044,7 @@
 .end method
 
 .method public bridge synthetic tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

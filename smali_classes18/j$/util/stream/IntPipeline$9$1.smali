@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/IntPipeline$9;Lj$/util/stream/Sink;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lj$/util/stream/IntPipeline$9;
 
     .line 360
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # I
 
     .line 368
@@ -57,7 +57,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 369
     iget-object v0, p0, Lj$/util/stream/IntPipeline$9$1;->downstream:Lj$/util/stream/Sink;
@@ -65,12 +65,12 @@
     invoke-interface {v0, p1}, Lj$/util/stream/Sink;->accept(I)V
 
     .line 370
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public begin(J)V
-    .locals 3
+    .registers 6
     .param p1, "size"    # J
 
     .line 363

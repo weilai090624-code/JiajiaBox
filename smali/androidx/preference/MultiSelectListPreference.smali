@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 81
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 3
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -133,15 +133,15 @@
 
 # virtual methods
 .method public findIndexOfValue(Ljava/lang/String;)I
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
 
     .line 171
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1f
 
     iget-object v0, p0, Landroidx/preference/MultiSelectListPreference;->mEntryValues:[Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 172
     iget-object v0, p0, Landroidx/preference/MultiSelectListPreference;->mEntryValues:[Ljava/lang/CharSequence;
@@ -151,8 +151,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_b
+    if-ltz v0, :cond_1f
 
     .line 173
     iget-object v1, p0, Landroidx/preference/MultiSelectListPreference;->mEntryValues:[Ljava/lang/CharSequence;
@@ -167,27 +167,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 174
     return v0
 
     .line 172
-    :cond_0
+    :cond_1c
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 178
     .end local v0    # "i":I
-    :cond_1
+    :cond_1f
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public getEntries()[Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 111
     iget-object v0, p0, Landroidx/preference/MultiSelectListPreference;->mEntries:[Ljava/lang/CharSequence;
@@ -196,7 +196,7 @@
 .end method
 
 .method public getEntryValues()[Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 139
     iget-object v0, p0, Landroidx/preference/MultiSelectListPreference;->mEntryValues:[Ljava/lang/CharSequence;
@@ -205,7 +205,7 @@
 .end method
 
 .method protected getSelectedItems()[Z
-    .locals 6
+    .registers 7
 
     .line 182
     iget-object v0, p0, Landroidx/preference/MultiSelectListPreference;->mEntryValues:[Ljava/lang/CharSequence;
@@ -227,8 +227,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v1, :cond_0
+    :goto_8
+    if-ge v4, v1, :cond_19
 
     .line 188
     aget-object v5, v0, v4
@@ -246,16 +246,16 @@
     .line 187
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 191
     .end local v4    # "i":I
-    :cond_0
+    :cond_19
     return-object v3
 .end method
 
 .method public getValues()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -272,7 +272,7 @@
 .end method
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p1, "a"    # Landroid/content/res/TypedArray;
     .param p2, "index"    # I
 
@@ -293,8 +293,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_b
+    if-ge v3, v2, :cond_19
 
     aget-object v4, v0, v3
 
@@ -310,19 +310,19 @@
     .end local v4    # "defaultValue":Ljava/lang/CharSequence;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 203
-    :cond_0
+    :cond_19
     return-object v1
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .line 228
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1f
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -334,12 +334,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 234
-    :cond_0
+    :cond_f
     move-object v0, p1
 
     check-cast v0, Landroidx/preference/MultiSelectListPreference$SavedState;
@@ -362,8 +362,8 @@
 
     .line 230
     .end local v0    # "myState":Landroidx/preference/MultiSelectListPreference$SavedState;
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     invoke-super {p0, p1}, Landroidx/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     .line 231
@@ -371,7 +371,7 @@
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 3
+    .registers 4
 
     .line 215
     invoke-super {p0}, Landroidx/preference/DialogPreference;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -384,13 +384,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     .line 218
     return-object v0
 
     .line 221
-    :cond_0
+    :cond_b
     new-instance v1, Landroidx/preference/MultiSelectListPreference$SavedState;
 
     invoke-direct {v1, v0}, Landroidx/preference/MultiSelectListPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
@@ -408,7 +408,7 @@
 .end method
 
 .method protected onSetInitialValue(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "defaultValue"    # Ljava/lang/Object;
 
     .line 209
@@ -427,7 +427,7 @@
 .end method
 
 .method public setEntries(I)V
-    .locals 1
+    .registers 3
     .param p1, "entriesResId"    # I
 
     .line 102
@@ -450,7 +450,7 @@
 .end method
 
 .method public setEntries([Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "entries"    # [Ljava/lang/CharSequence;
 
     .line 94
@@ -461,7 +461,7 @@
 .end method
 
 .method public setEntryValues(I)V
-    .locals 1
+    .registers 3
     .param p1, "entryValuesResId"    # I
 
     .line 130
@@ -484,7 +484,7 @@
 .end method
 
 .method public setEntryValues([Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "entryValues"    # [Ljava/lang/CharSequence;
 
     .line 122
@@ -495,7 +495,7 @@
 .end method
 
 .method public setValues(Ljava/util/Set;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

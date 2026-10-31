@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/ForEachOps$ForEachTask;Lj$/util/Spliterator;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,7 +100,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Lj$/util/stream/Sink;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,7 +143,7 @@
 
 # virtual methods
 .method public compute()V
-    .locals 12
+    .registers 13
 
     .line 279
     .local p0, "this":Lj$/util/stream/ForEachOps$ForEachTask;, "Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;"
@@ -166,7 +166,7 @@
 
     cmp-long v9, v3, v7
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_16
 
     .line 282
     invoke-static {v1, v2}, Lj$/util/stream/AbstractTask;->suggestTargetSize(J)J
@@ -178,7 +178,7 @@
     iput-wide v3, p0, Lj$/util/stream/ForEachOps$ForEachTask;->targetSize:J
 
     .line 283
-    :cond_0
+    :cond_16
     sget-object v3, Lj$/util/stream/StreamOpFlag;->SHORT_CIRCUIT:Lj$/util/stream/StreamOpFlag;
 
     iget-object v4, p0, Lj$/util/stream/ForEachOps$ForEachTask;->helper:Lj$/util/stream/PipelineHelper;
@@ -205,20 +205,20 @@
 
     .line 287
     .local v8, "task":Lj$/util/stream/ForEachOps$ForEachTask;, "Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;"
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_26
+    if-eqz v3, :cond_2e
 
     invoke-interface {v7}, Lj$/util/stream/Sink;->cancellationRequested()Z
 
     move-result v9
 
-    if-nez v9, :cond_5
+    if-nez v9, :cond_5a
 
     .line 288
-    :cond_1
+    :cond_2e
     cmp-long v9, v1, v5
 
-    if-lez v9, :cond_4
+    if-lez v9, :cond_54
 
     .line 289
     invoke-interface {v0}, Lj$/util/Spliterator;->trySplit()Lj$/util/Spliterator;
@@ -228,12 +228,12 @@
     move-object v10, v9
 
     .local v10, "leftSplit":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TS;>;"
-    if-nez v9, :cond_2
+    if-nez v9, :cond_3a
 
-    goto :goto_2
+    goto :goto_54
 
     .line 293
-    :cond_2
+    :cond_3a
     new-instance v9, Lj$/util/stream/ForEachOps$ForEachTask;
 
     invoke-direct {v9, v8, v10}, Lj$/util/stream/ForEachOps$ForEachTask;-><init>(Lj$/util/stream/ForEachOps$ForEachTask;Lj$/util/Spliterator;)V
@@ -245,7 +245,7 @@
     invoke-virtual {v8, v11}, Lj$/util/stream/ForEachOps$ForEachTask;->addToPendingCount(I)V
 
     .line 296
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4a
 
     .line 297
     const/4 v4, 0x0
@@ -260,11 +260,11 @@
     .local v11, "taskToFork":Lj$/util/stream/ForEachOps$ForEachTask;, "Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;"
     move-object v8, v9
 
-    goto :goto_1
+    goto :goto_4c
 
     .line 303
     .end local v11    # "taskToFork":Lj$/util/stream/ForEachOps$ForEachTask;, "Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;"
-    :cond_3
+    :cond_4a
     const/4 v4, 0x1
 
     .line 304
@@ -272,7 +272,7 @@
 
     .line 306
     .restart local v11    # "taskToFork":Lj$/util/stream/ForEachOps$ForEachTask;, "Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;"
-    :goto_1
+    :goto_4c
     invoke-virtual {v11}, Lj$/util/stream/ForEachOps$ForEachTask;->fork()Ljava/util/concurrent/ForkJoinTask;
 
     .line 307
@@ -283,12 +283,12 @@
     .line 308
     .end local v9    # "leftTask":Lj$/util/stream/ForEachOps$ForEachTask;, "Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;"
     .end local v11    # "taskToFork":Lj$/util/stream/ForEachOps$ForEachTask;, "Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;"
-    goto :goto_0
+    goto :goto_26
 
     .line 290
     .end local v10    # "leftSplit":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TS;>;"
-    :cond_4
-    :goto_2
+    :cond_54
+    :goto_54
     iget-object v9, v8, Lj$/util/stream/ForEachOps$ForEachTask;->helper:Lj$/util/stream/PipelineHelper;
 
     invoke-virtual {v9, v7, v0}, Lj$/util/stream/PipelineHelper;->copyInto(Lj$/util/stream/Sink;Lj$/util/Spliterator;)V
@@ -297,7 +297,7 @@
     nop
 
     .line 309
-    :cond_5
+    :cond_5a
     const/4 v9, 0x0
 
     iput-object v9, v8, Lj$/util/stream/ForEachOps$ForEachTask;->spliterator:Lj$/util/Spliterator;

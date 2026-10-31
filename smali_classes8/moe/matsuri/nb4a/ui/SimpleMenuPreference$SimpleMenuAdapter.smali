@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "resource"    # I
 
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public final getCurrentPosition()I
-    .locals 1
+    .registers 2
 
     .line 69
     iget v0, p0, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference$SimpleMenuAdapter;->currentPosition:I
@@ -96,7 +96,7 @@
 .end method
 
 .method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 3
+    .registers 7
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
@@ -118,7 +118,7 @@
     .local v0, "view":Landroid/view/View;
     iget v1, p0, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference$SimpleMenuAdapter;->currentPosition:I
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_26
 
     .line 74
     invoke-virtual {p0}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference$SimpleMenuAdapter;->getContext()Landroid/content/Context;
@@ -137,10 +137,10 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundColor(I)V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 76
-    :cond_0
+    :cond_26
     nop
 
     .line 78
@@ -162,12 +162,12 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundColor(I)V
 
     .line 83
-    :goto_0
+    :goto_36
     return-object v0
 .end method
 
 .method public final setCurrentPosition(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 69

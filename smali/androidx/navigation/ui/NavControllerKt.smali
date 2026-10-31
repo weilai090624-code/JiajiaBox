@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final navigateUp(Landroidx/navigation/NavController;Landroidx/customview/widget/Openable;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$navigateUp"    # Landroidx/navigation/NavController;
     .param p1, "drawerLayout"    # Landroidx/customview/widget/Openable;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public static final navigateUp(Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$navigateUp"    # Landroidx/navigation/NavController;
     .param p1, "appBarConfiguration"    # Landroidx/navigation/ui/AppBarConfiguration;
 

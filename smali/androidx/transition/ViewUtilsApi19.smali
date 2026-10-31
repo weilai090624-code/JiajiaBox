@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 31
     const/4 v0, 0x1
@@ -20,7 +20,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Landroidx/transition/ViewUtilsBase;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public clearNonTransitionAlpha(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 72
@@ -39,26 +39,26 @@
 .end method
 
 .method public getTransitionAlpha(Landroid/view/View;)F
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 52
     sget-boolean v0, Landroidx/transition/ViewUtilsApi19;->sTryHiddenTransitionAlpha:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 56
-    :try_start_0
+    :try_start_4
     invoke-virtual {p1}, Landroid/view/View;->getTransitionAlpha()F
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_4 .. :try_end_8} :catch_9
 
     return v0
 
     .line 57
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 58
@@ -69,7 +69,7 @@
 
     .line 61
     .end local v0    # "e":Ljava/lang/NoSuchMethodError;
-    :cond_0
+    :cond_d
     invoke-virtual {p1}, Landroid/view/View;->getAlpha()F
 
     move-result v0
@@ -78,7 +78,7 @@
 .end method
 
 .method public saveNonTransitionAlpha(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 67
@@ -86,26 +86,26 @@
 .end method
 
 .method public setTransitionAlpha(Landroid/view/View;F)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "alpha"    # F
 
     .line 36
     sget-boolean v0, Landroidx/transition/ViewUtilsApi19;->sTryHiddenTransitionAlpha:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 40
-    :try_start_0
+    :try_start_4
     invoke-virtual {p1, p2}, Landroid/view/View;->setTransitionAlpha(F)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_4 .. :try_end_7} :catch_8
 
     .line 41
     return-void
 
     .line 42
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 43
@@ -116,7 +116,7 @@
 
     .line 46
     .end local v0    # "e":Ljava/lang/NoSuchMethodError;
-    :cond_0
+    :cond_c
     invoke-virtual {p1, p2}, Landroid/view/View;->setAlpha(F)V
 
     .line 47

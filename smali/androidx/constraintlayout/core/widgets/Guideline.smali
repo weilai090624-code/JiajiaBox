@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 4
+    .registers 5
 
     .line 47
     invoke-direct {p0}, Landroidx/constraintlayout/core/widgets/ConstraintWidget;-><init>()V
@@ -95,8 +95,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_28
+    if-ge v1, v0, :cond_33
 
     .line 52
     iget-object v2, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mListAnchors:[Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -108,18 +108,18 @@
     .line 51
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 54
     .end local v1    # "i":I
-    :cond_0
+    :cond_33
     return-void
 .end method
 
 
 # virtual methods
 .method public addToSolver(Landroidx/constraintlayout/core/LinearSystem;Z)V
-    .locals 10
+    .registers 13
     .param p1, "system"    # Landroidx/constraintlayout/core/LinearSystem;
     .param p2, "optimize"    # Z
 
@@ -132,13 +132,13 @@
 
     .line 218
     .local v0, "parent":Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 219
     return-void
 
     .line 221
-    :cond_0
+    :cond_9
     sget-object v1, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->LEFT:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
 
     invoke-virtual {v0, v1}, Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;->getAnchor(Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;)Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -161,7 +161,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
     iget-object v3, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mParent:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
@@ -171,21 +171,21 @@
 
     sget-object v6, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v3, v6, :cond_1
+    if-ne v3, v6, :cond_27
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v3, 0x0
 
     .line 224
     .local v3, "parentWrapContent":Z
-    :goto_0
+    :goto_28
     iget v6, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mOrientation:I
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_49
 
     .line 225
     sget-object v6, Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;->TOP:Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
@@ -204,7 +204,7 @@
     .line 227
     iget-object v6, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mParent:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_47
 
     iget-object v6, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mParent:Landroidx/constraintlayout/core/widgets/ConstraintWidget;
 
@@ -214,25 +214,25 @@
 
     sget-object v7, Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroidx/constraintlayout/core/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v6, v7, :cond_2
+    if-ne v6, v7, :cond_47
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_2
+    :cond_47
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_48
     move v3, v4
 
     .line 229
-    :cond_3
+    :cond_49
     iget-boolean v4, p0, Landroidx/constraintlayout/core/widgets/Guideline;->resolved:Z
 
     const/4 v6, -0x1
 
     const/4 v7, 0x5
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_8b
 
     iget-object v4, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
 
@@ -240,7 +240,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_8b
 
     .line 230
     iget-object v4, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -262,10 +262,10 @@
     .line 235
     iget v8, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeBegin:I
 
-    if-eq v8, v6, :cond_4
+    if-eq v8, v6, :cond_74
 
     .line 236
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_88
 
     .line 237
     invoke-virtual {p1, v2}, Landroidx/constraintlayout/core/LinearSystem;->createObjectVariable(Ljava/lang/Object;)Landroidx/constraintlayout/core/SolverVariable;
@@ -274,16 +274,16 @@
 
     invoke-virtual {p1, v6, v4, v5, v7}, Landroidx/constraintlayout/core/LinearSystem;->addGreaterThan(Landroidx/constraintlayout/core/SolverVariable;Landroidx/constraintlayout/core/SolverVariable;II)V
 
-    goto :goto_2
+    goto :goto_88
 
     .line 239
-    :cond_4
+    :cond_74
     iget v8, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeEnd:I
 
-    if-eq v8, v6, :cond_5
+    if-eq v8, v6, :cond_88
 
     .line 240
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_88
 
     .line 241
     invoke-virtual {p1, v2}, Landroidx/constraintlayout/core/LinearSystem;->createObjectVariable(Ljava/lang/Object;)Landroidx/constraintlayout/core/SolverVariable;
@@ -303,8 +303,8 @@
 
     .line 246
     .end local v6    # "parentRight":Landroidx/constraintlayout/core/SolverVariable;
-    :cond_5
-    :goto_2
+    :cond_88
+    :goto_88
     iput-boolean v5, p0, Landroidx/constraintlayout/core/widgets/Guideline;->resolved:Z
 
     .line 247
@@ -312,12 +312,12 @@
 
     .line 249
     .end local v4    # "guide":Landroidx/constraintlayout/core/SolverVariable;
-    :cond_6
+    :cond_8b
     iget v4, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeBegin:I
 
     const/16 v8, 0x8
 
-    if-eq v4, v6, :cond_8
+    if-eq v4, v6, :cond_aa
 
     .line 250
     iget-object v4, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -339,7 +339,7 @@
     invoke-virtual {p1, v4, v6, v9, v8}, Landroidx/constraintlayout/core/LinearSystem;->addEquality(Landroidx/constraintlayout/core/SolverVariable;Landroidx/constraintlayout/core/SolverVariable;II)Landroidx/constraintlayout/core/ArrayRow;
 
     .line 253
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_a9
 
     .line 254
     invoke-virtual {p1, v2}, Landroidx/constraintlayout/core/LinearSystem;->createObjectVariable(Ljava/lang/Object;)Landroidx/constraintlayout/core/SolverVariable;
@@ -351,13 +351,13 @@
     .line 256
     .end local v4    # "guide":Landroidx/constraintlayout/core/SolverVariable;
     .end local v6    # "parentLeft":Landroidx/constraintlayout/core/SolverVariable;
-    :cond_7
-    goto :goto_4
+    :cond_a9
+    goto :goto_e8
 
-    :cond_8
+    :cond_aa
     iget v4, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeEnd:I
 
-    if-eq v4, v6, :cond_9
+    if-eq v4, v6, :cond_cb
 
     .line 257
     iget-object v4, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -381,7 +381,7 @@
     invoke-virtual {p1, v4, v6, v9, v8}, Landroidx/constraintlayout/core/LinearSystem;->addEquality(Landroidx/constraintlayout/core/SolverVariable;Landroidx/constraintlayout/core/SolverVariable;II)Landroidx/constraintlayout/core/ArrayRow;
 
     .line 260
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_e7
 
     .line 261
     invoke-virtual {p1, v1}, Landroidx/constraintlayout/core/LinearSystem;->createObjectVariable(Ljava/lang/Object;)Landroidx/constraintlayout/core/SolverVariable;
@@ -393,19 +393,19 @@
     .line 262
     invoke-virtual {p1, v6, v4, v5, v7}, Landroidx/constraintlayout/core/LinearSystem;->addGreaterThan(Landroidx/constraintlayout/core/SolverVariable;Landroidx/constraintlayout/core/SolverVariable;II)V
 
-    goto :goto_3
+    goto :goto_e7
 
     .line 264
     .end local v4    # "guide":Landroidx/constraintlayout/core/SolverVariable;
     .end local v6    # "parentRight":Landroidx/constraintlayout/core/SolverVariable;
-    :cond_9
+    :cond_cb
     iget v4, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativePercent:F
 
     const/high16 v5, -0x40800000    # -1.0f
 
     cmpl-float v4, v4, v5
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_e7
 
     .line 265
     iget-object v4, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -432,22 +432,22 @@
     .line 267
     invoke-virtual {p1, v6}, Landroidx/constraintlayout/core/LinearSystem;->addConstraint(Landroidx/constraintlayout/core/ArrayRow;)V
 
-    goto :goto_4
+    goto :goto_e8
 
     .line 264
     .end local v4    # "guide":Landroidx/constraintlayout/core/SolverVariable;
     .end local v5    # "parentRight":Landroidx/constraintlayout/core/SolverVariable;
-    :cond_a
-    :goto_3
+    :cond_e7
+    :goto_e7
     nop
 
     .line 271
-    :goto_4
+    :goto_e8
     return-void
 .end method
 
 .method public allowedInBarrier()Z
-    .locals 1
+    .registers 2
 
     .line 69
     const/4 v0, 0x1
@@ -456,7 +456,7 @@
 .end method
 
 .method public copy(Landroidx/constraintlayout/core/widgets/ConstraintWidget;Ljava/util/HashMap;)V
-    .locals 2
+    .registers 5
     .param p1, "src"    # Landroidx/constraintlayout/core/widgets/ConstraintWidget;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -509,52 +509,52 @@
 .end method
 
 .method public cyclePosition()V
-    .locals 3
+    .registers 4
 
     .line 317
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeBegin:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
     .line 319
     invoke-virtual {p0}, Landroidx/constraintlayout/core/widgets/Guideline;->inferRelativePercentPosition()V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 320
-    :cond_0
+    :cond_9
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativePercent:F
 
     const/high16 v2, -0x40800000    # -1.0f
 
     cmpl-float v0, v0, v2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 322
     invoke-virtual {p0}, Landroidx/constraintlayout/core/widgets/Guideline;->inferRelativeEndPosition()V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 323
-    :cond_1
+    :cond_15
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeEnd:I
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_1c
 
     .line 325
     invoke-virtual {p0}, Landroidx/constraintlayout/core/widgets/Guideline;->inferRelativeBeginPosition()V
 
     .line 327
-    :cond_2
-    :goto_0
+    :cond_1c
+    :goto_1c
     return-void
 .end method
 
 .method public getAnchor()Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -563,7 +563,7 @@
 .end method
 
 .method public getAnchor(Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;)Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
-    .locals 3
+    .registers 5
     .param p1, "anchorType"    # Landroidx/constraintlayout/core/widgets/ConstraintAnchor$Type;
 
     .line 127
@@ -577,19 +577,19 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1e
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 147
-    :pswitch_0
+    :pswitch_d
     return-object v1
 
     .line 137
-    :pswitch_1
+    :pswitch_e
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mOrientation:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     .line 138
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -597,12 +597,12 @@
     return-object v0
 
     .line 130
-    :pswitch_2
+    :pswitch_15
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mOrientation:I
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_1d
 
     .line 131
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -610,26 +610,26 @@
     return-object v0
 
     .line 149
-    :cond_0
-    :goto_0
+    :cond_1d
+    :goto_1d
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_15
+        :pswitch_15
+        :pswitch_e
+        :pswitch_e
+        :pswitch_d
+        :pswitch_d
+        :pswitch_d
+        :pswitch_d
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method public getOrientation()I
-    .locals 1
+    .registers 2
 
     .line 118
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mOrientation:I
@@ -638,7 +638,7 @@
 .end method
 
 .method public getRelativeBegin()I
-    .locals 1
+    .registers 2
 
     .line 185
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeBegin:I
@@ -647,7 +647,7 @@
 .end method
 
 .method public getRelativeBehaviour()I
-    .locals 2
+    .registers 3
 
     .line 73
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativePercent:F
@@ -656,7 +656,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 74
     const/4 v0, 0x0
@@ -664,12 +664,12 @@
     return v0
 
     .line 76
-    :cond_0
+    :cond_a
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeBegin:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_11
 
     .line 77
     const/4 v0, 0x1
@@ -677,10 +677,10 @@
     return v0
 
     .line 79
-    :cond_1
+    :cond_11
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeEnd:I
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_17
 
     .line 80
     const/4 v0, 0x2
@@ -688,12 +688,12 @@
     return v0
 
     .line 82
-    :cond_2
+    :cond_17
     return v1
 .end method
 
 .method public getRelativeEnd()I
-    .locals 1
+    .registers 2
 
     .line 189
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeEnd:I
@@ -702,7 +702,7 @@
 .end method
 
 .method public getRelativePercent()F
-    .locals 1
+    .registers 2
 
     .line 181
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativePercent:F
@@ -711,7 +711,7 @@
 .end method
 
 .method public getType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 114
     const-string v0, "Guideline"
@@ -720,7 +720,7 @@
 .end method
 
 .method inferRelativeBeginPosition()V
-    .locals 2
+    .registers 3
 
     .line 301
     invoke-virtual {p0}, Landroidx/constraintlayout/core/widgets/Guideline;->getX()I
@@ -731,7 +731,7 @@
     .local v0, "position":I
     iget v1, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mOrientation:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     .line 303
     invoke-virtual {p0}, Landroidx/constraintlayout/core/widgets/Guideline;->getY()I
@@ -739,7 +739,7 @@
     move-result v0
 
     .line 305
-    :cond_0
+    :cond_c
     invoke-virtual {p0, v0}, Landroidx/constraintlayout/core/widgets/Guideline;->setGuideBegin(I)V
 
     .line 306
@@ -747,7 +747,7 @@
 .end method
 
 .method inferRelativeEndPosition()V
-    .locals 3
+    .registers 4
 
     .line 309
     invoke-virtual {p0}, Landroidx/constraintlayout/core/widgets/Guideline;->getParent()Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -768,7 +768,7 @@
     .local v0, "position":I
     iget v1, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mOrientation:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1f
 
     .line 311
     invoke-virtual {p0}, Landroidx/constraintlayout/core/widgets/Guideline;->getParent()Landroidx/constraintlayout/core/widgets/ConstraintWidget;
@@ -786,7 +786,7 @@
     sub-int v0, v1, v2
 
     .line 313
-    :cond_0
+    :cond_1f
     invoke-virtual {p0, v0}, Landroidx/constraintlayout/core/widgets/Guideline;->setGuideEnd(I)V
 
     .line 314
@@ -794,7 +794,7 @@
 .end method
 
 .method inferRelativePercentPosition()V
-    .locals 3
+    .registers 4
 
     .line 293
     invoke-virtual {p0}, Landroidx/constraintlayout/core/widgets/Guideline;->getX()I
@@ -819,7 +819,7 @@
     .local v0, "percent":F
     iget v1, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mOrientation:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_23
 
     .line 295
     invoke-virtual {p0}, Landroidx/constraintlayout/core/widgets/Guideline;->getY()I
@@ -841,7 +841,7 @@
     div-float v0, v1, v2
 
     .line 297
-    :cond_0
+    :cond_23
     invoke-virtual {p0, v0}, Landroidx/constraintlayout/core/widgets/Guideline;->setGuidePercent(F)V
 
     .line 298
@@ -849,7 +849,7 @@
 .end method
 
 .method public isPercent()Z
-    .locals 2
+    .registers 3
 
     .line 330
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativePercent:F
@@ -858,31 +858,31 @@
 
     cmpl-float v0, v0, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeBegin:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeEnd:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public isResolvedHorizontally()Z
-    .locals 1
+    .registers 2
 
     .line 201
     iget-boolean v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->resolved:Z
@@ -891,7 +891,7 @@
 .end method
 
 .method public isResolvedVertically()Z
-    .locals 1
+    .registers 2
 
     .line 205
     iget-boolean v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->resolved:Z
@@ -900,7 +900,7 @@
 .end method
 
 .method public setFinalValue(I)V
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 196
@@ -918,13 +918,13 @@
 .end method
 
 .method public setGuideBegin(I)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
 
     .line 165
     const/4 v0, -0x1
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_b
 
     .line 166
     const/high16 v1, -0x40800000    # -1.0f
@@ -938,18 +938,18 @@
     iput v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeEnd:I
 
     .line 170
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setGuideEnd(I)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
 
     .line 173
     const/4 v0, -0x1
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_b
 
     .line 174
     const/high16 v1, -0x40800000    # -1.0f
@@ -963,12 +963,12 @@
     iput p1, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeEnd:I
 
     .line 178
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setGuidePercent(F)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # F
 
     .line 157
@@ -976,7 +976,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_d
 
     .line 158
     iput p1, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativePercent:F
@@ -990,12 +990,12 @@
     iput v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mRelativeEnd:I
 
     .line 162
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public setGuidePercent(I)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
 
     .line 153
@@ -1012,7 +1012,7 @@
 .end method
 
 .method public setMinimumPosition(I)V
-    .locals 0
+    .registers 2
     .param p1, "minimum"    # I
 
     .line 122
@@ -1023,19 +1023,19 @@
 .end method
 
 .method public setOrientation(I)V
-    .locals 4
+    .registers 6
     .param p1, "orientation"    # I
 
     .line 86
     iget v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mOrientation:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 87
     return-void
 
     .line 89
-    :cond_0
+    :cond_5
     iput p1, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mOrientation:I
 
     .line 90
@@ -1048,23 +1048,23 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_16
 
     .line 92
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mLeft:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
 
     iput-object v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 94
-    :cond_1
+    :cond_16
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mTop:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
 
     iput-object v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
 
     .line 96
-    :goto_0
+    :goto_1a
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchors:Ljava/util/ArrayList;
 
     iget-object v1, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -1081,8 +1081,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
-    if-ge v1, v0, :cond_2
+    :goto_25
+    if-ge v1, v0, :cond_30
 
     .line 99
     iget-object v2, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mListAnchors:[Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
@@ -1094,16 +1094,16 @@
     .line 98
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_25
 
     .line 101
     .end local v1    # "i":I
-    :cond_2
+    :cond_30
     return-void
 .end method
 
 .method public updateFromSolver(Landroidx/constraintlayout/core/LinearSystem;Z)V
-    .locals 4
+    .registers 7
     .param p1, "system"    # Landroidx/constraintlayout/core/LinearSystem;
     .param p2, "optimize"    # Z
 
@@ -1112,13 +1112,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 276
     return-void
 
     .line 278
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/constraintlayout/core/widgets/Guideline;->mAnchor:Landroidx/constraintlayout/core/widgets/ConstraintAnchor;
 
     invoke-virtual {p1, v0}, Landroidx/constraintlayout/core/LinearSystem;->getObjectVariableValue(Ljava/lang/Object;)I
@@ -1133,7 +1133,7 @@
 
     const/4 v3, 0x0
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_28
 
     .line 280
     invoke-virtual {p0, v0}, Landroidx/constraintlayout/core/widgets/Guideline;->setX(I)V
@@ -1155,10 +1155,10 @@
     .line 283
     invoke-virtual {p0, v3}, Landroidx/constraintlayout/core/widgets/Guideline;->setWidth(I)V
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 285
-    :cond_1
+    :cond_28
     invoke-virtual {p0, v3}, Landroidx/constraintlayout/core/widgets/Guideline;->setX(I)V
 
     .line 286
@@ -1179,6 +1179,6 @@
     invoke-virtual {p0, v3}, Landroidx/constraintlayout/core/widgets/Guideline;->setHeight(I)V
 
     .line 290
-    :goto_0
+    :goto_3c
     return-void
 .end method

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>([F)V
-    .locals 0
+    .registers 2
     .param p1, "reuseArray"    # [F
 
     .line 39
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 27
     check-cast p2, [F
@@ -53,7 +53,7 @@
 .end method
 
 .method public evaluate(F[F[F)[F
-    .locals 5
+    .registers 9
     .param p1, "fraction"    # F
     .param p2, "startValue"    # [F
     .param p3, "endValue"    # [F
@@ -63,7 +63,7 @@
 
     .line 58
     .local v0, "array":[F
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 59
     array-length v1, p2
@@ -71,14 +71,14 @@
     new-array v0, v1, [F
 
     .line 62
-    :cond_0
+    :cond_7
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_8
     array-length v2, v0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_19
 
     .line 63
     aget v2, p2, v1
@@ -102,10 +102,10 @@
     .end local v3    # "end":F
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 67
     .end local v1    # "i":I
-    :cond_1
+    :cond_19
     return-object v0
 .end method

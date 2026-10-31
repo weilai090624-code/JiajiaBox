@@ -182,7 +182,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .registers 13
 
     .line 2871
     new-instance v6, Lkotlinx/coroutines/channels/ChannelSegment;
@@ -387,7 +387,7 @@
 .end method
 
 .method public static final synthetic access$constructEBCompletedAndPauseFlag(JZ)J
-    .locals 2
+    .registers 5
     .param p0, "counter"    # J
     .param p2, "pauseEB"    # Z
 
@@ -400,7 +400,7 @@
 .end method
 
 .method public static final synthetic access$constructSendersAndCloseStatus(JI)J
-    .locals 2
+    .registers 5
     .param p0, "counter"    # J
     .param p2, "closeStatus"    # I
 
@@ -413,7 +413,7 @@
 .end method
 
 .method public static final synthetic access$createSegment(JLkotlinx/coroutines/channels/ChannelSegment;)Lkotlinx/coroutines/channels/ChannelSegment;
-    .locals 1
+    .registers 4
     .param p0, "id"    # J
     .param p2, "prev"    # Lkotlinx/coroutines/channels/ChannelSegment;
 
@@ -426,7 +426,7 @@
 .end method
 
 .method public static final synthetic access$getCLOSE_HANDLER_CLOSED$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->CLOSE_HANDLER_CLOSED:Lkotlinx/coroutines/internal/Symbol;
@@ -435,7 +435,7 @@
 .end method
 
 .method public static final synthetic access$getCLOSE_HANDLER_INVOKED$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->CLOSE_HANDLER_INVOKED:Lkotlinx/coroutines/internal/Symbol;
@@ -444,7 +444,7 @@
 .end method
 
 .method public static final synthetic access$getDONE_RCV$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->DONE_RCV:Lkotlinx/coroutines/internal/Symbol;
@@ -453,7 +453,7 @@
 .end method
 
 .method public static final synthetic access$getEXPAND_BUFFER_COMPLETION_WAIT_ITERATIONS$p()I
-    .locals 1
+    .registers 1
 
     .line 1
     sget v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->EXPAND_BUFFER_COMPLETION_WAIT_ITERATIONS:I
@@ -462,7 +462,7 @@
 .end method
 
 .method public static final synthetic access$getFAILED$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->FAILED:Lkotlinx/coroutines/internal/Symbol;
@@ -471,7 +471,7 @@
 .end method
 
 .method public static final synthetic access$getINTERRUPTED_RCV$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->INTERRUPTED_RCV:Lkotlinx/coroutines/internal/Symbol;
@@ -480,7 +480,7 @@
 .end method
 
 .method public static final synthetic access$getINTERRUPTED_SEND$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->INTERRUPTED_SEND:Lkotlinx/coroutines/internal/Symbol;
@@ -489,7 +489,7 @@
 .end method
 
 .method public static final synthetic access$getIN_BUFFER$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->IN_BUFFER:Lkotlinx/coroutines/internal/Symbol;
@@ -498,7 +498,7 @@
 .end method
 
 .method public static final synthetic access$getNO_CLOSE_CAUSE$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->NO_CLOSE_CAUSE:Lkotlinx/coroutines/internal/Symbol;
@@ -507,7 +507,7 @@
 .end method
 
 .method public static final synthetic access$getNO_RECEIVE_RESULT$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->NO_RECEIVE_RESULT:Lkotlinx/coroutines/internal/Symbol;
@@ -516,7 +516,7 @@
 .end method
 
 .method public static final synthetic access$getNULL_SEGMENT$p()Lkotlinx/coroutines/channels/ChannelSegment;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->NULL_SEGMENT:Lkotlinx/coroutines/channels/ChannelSegment;
@@ -525,7 +525,7 @@
 .end method
 
 .method public static final synthetic access$getPOISONED$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->POISONED:Lkotlinx/coroutines/internal/Symbol;
@@ -534,7 +534,7 @@
 .end method
 
 .method public static final synthetic access$getRESUMING_BY_EB$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->RESUMING_BY_EB:Lkotlinx/coroutines/internal/Symbol;
@@ -543,7 +543,7 @@
 .end method
 
 .method public static final synthetic access$getRESUMING_BY_RCV$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->RESUMING_BY_RCV:Lkotlinx/coroutines/internal/Symbol;
@@ -552,7 +552,7 @@
 .end method
 
 .method public static final synthetic access$getSUSPEND$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->SUSPEND:Lkotlinx/coroutines/internal/Symbol;
@@ -561,7 +561,7 @@
 .end method
 
 .method public static final synthetic access$getSUSPEND_NO_WAITER$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->SUSPEND_NO_WAITER:Lkotlinx/coroutines/internal/Symbol;
@@ -570,7 +570,7 @@
 .end method
 
 .method public static final synthetic access$initialBufferEnd(I)J
-    .locals 2
+    .registers 3
     .param p0, "capacity"    # I
 
     .line 1
@@ -582,7 +582,7 @@
 .end method
 
 .method public static final synthetic access$tryResume0(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Z
-    .locals 1
+    .registers 4
     .param p0, "$receiver"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "onCancellation"    # Lkotlin/jvm/functions/Function1;
@@ -596,28 +596,28 @@
 .end method
 
 .method private static final constructEBCompletedAndPauseFlag(JZ)J
-    .locals 2
+    .registers 5
     .param p0, "counter"    # J
     .param p2, "pauseEB"    # Z
 
     .line 3054
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const-wide/high16 v0, 0x4000000000000000L    # 2.0
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     const-wide/16 v0, 0x0
 
-    :goto_0
+    :goto_7
     add-long/2addr v0, p0
 
     return-wide v0
 .end method
 
 .method private static final constructSendersAndCloseStatus(JI)J
-    .locals 3
+    .registers 6
     .param p0, "counter"    # J
     .param p2, "closeStatus"    # I
 
@@ -634,7 +634,7 @@
 .end method
 
 .method private static final createSegment(JLkotlinx/coroutines/channels/ChannelSegment;)Lkotlinx/coroutines/channels/ChannelSegment;
-    .locals 7
+    .registers 10
     .param p0, "id"    # J
     .param p2, "prev"    # Lkotlinx/coroutines/channels/ChannelSegment;
     .annotation system Ldalvik/annotation/Signature;
@@ -682,7 +682,7 @@
 .end method
 
 .method public static final createSegmentFunction()Lkotlin/reflect/KFunction;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -703,7 +703,7 @@
 .end method
 
 .method public static final getCHANNEL_CLOSED()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 2948
     sget-object v0, Lkotlinx/coroutines/channels/BufferedChannelKt;->CHANNEL_CLOSED:Lkotlinx/coroutines/internal/Symbol;
@@ -712,7 +712,7 @@
 .end method
 
 .method private static final getEbCompletedCounter(J)J
-    .locals 3
+    .registers 5
     .param p0, "$this$ebCompletedCounter"    # J
 
     const/4 v0, 0x0
@@ -727,7 +727,7 @@
 .end method
 
 .method private static final getEbPauseExpandBuffers(J)Z
-    .locals 6
+    .registers 8
     .param p0, "$this$ebPauseExpandBuffers"    # J
 
     const/4 v0, 0x0
@@ -742,21 +742,21 @@
 
     cmp-long v5, v1, v3
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_d
     return v1
 .end method
 
 .method private static final getSendersCloseStatus(J)I
-    .locals 3
+    .registers 5
     .param p0, "$this$sendersCloseStatus"    # J
 
     const/4 v0, 0x0
@@ -773,7 +773,7 @@
 .end method
 
 .method private static final getSendersCounter(J)J
-    .locals 3
+    .registers 5
     .param p0, "$this$sendersCounter"    # J
 
     const/4 v0, 0x0
@@ -788,40 +788,40 @@
 .end method
 
 .method private static final initialBufferEnd(I)J
-    .locals 2
+    .registers 3
     .param p0, "capacity"    # I
 
     .line 2908
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_e
 
     .line 2911
     int-to-long v0, p0
 
-    goto :goto_0
+    goto :goto_d
 
     .line 2910
-    :sswitch_0
+    :sswitch_5
     const-wide v0, 0x7fffffffffffffffL
 
-    goto :goto_0
+    goto :goto_d
 
     .line 2909
-    :sswitch_1
+    :sswitch_b
     const-wide/16 v0, 0x0
 
     .line 2912
-    :goto_0
+    :goto_d
     return-wide v0
 
-    :sswitch_data_0
+    :sswitch_data_e
     .sparse-switch
-        0x0 -> :sswitch_1
-        0x7fffffff -> :sswitch_0
+        0x0 -> :sswitch_b
+        0x7fffffff -> :sswitch_5
     .end sparse-switch
 .end method
 
 .method private static final tryResume0(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Z
-    .locals 3
+    .registers 6
     .param p0, "$this$tryResume0"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "onCancellation"    # Lkotlin/jvm/functions/Function1;
@@ -852,7 +852,7 @@
 
     .line 2895
     .local v1, "$i$a$-let-BufferedChannelKt$tryResume0$1":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 2896
     invoke-interface {p0, v0}, Lkotlinx/coroutines/CancellableContinuation;->completeResume(Ljava/lang/Object;)V
@@ -860,14 +860,14 @@
     .line 2897
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 2898
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
     .line 2895
-    :goto_0
+    :goto_e
     nop
 
     .line 2894
@@ -880,18 +880,18 @@
 .end method
 
 .method static synthetic tryResume0$default(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Z
-    .locals 0
+    .registers 5
 
     .line 2890
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 2892
     const/4 p2, 0x0
 
     .line 2890
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/channels/BufferedChannelKt;->tryResume0(Lkotlinx/coroutines/CancellableContinuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Z
 
     move-result p0

@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Lkotlin/io/path/LinkFollowing;
 
@@ -114,7 +114,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 144
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -125,25 +125,25 @@
 
 # virtual methods
 .method public final toLinkOptions(Z)[Ljava/nio/file/LinkOption;
-    .locals 1
+    .registers 3
     .param p1, "followLinks"    # Z
 
     .line 152
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     sget-object v0, Lkotlin/io/path/LinkFollowing;->followLinkOption:[Ljava/nio/file/LinkOption;
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     sget-object v0, Lkotlin/io/path/LinkFollowing;->nofollowLinkOption:[Ljava/nio/file/LinkOption;
 
-    :goto_0
+    :goto_7
     return-object v0
 .end method
 
 .method public final toVisitOptions(Z)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p1, "followLinks"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -155,15 +155,15 @@
     .end annotation
 
     .line 155
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     sget-object v0, Lkotlin/io/path/LinkFollowing;->followVisitOption:Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     sget-object v0, Lkotlin/io/path/LinkFollowing;->nofollowVisitOption:Ljava/util/Set;
 
-    :goto_0
+    :goto_7
     return-object v0
 .end method

@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public static final sumOfUByte(Ljava/lang/Iterable;)I
-    .locals 4
+    .registers 5
     .param p0, "$this$sum"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -81,12 +81,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -113,15 +113,15 @@
     move-result v0
 
     .end local v2    # "element":B
-    goto :goto_0
+    goto :goto_a
 
     .line 112
-    :cond_0
+    :cond_26
     return v0
 .end method
 
 .method public static final sumOfUInt(Ljava/lang/Iterable;)I
-    .locals 4
+    .registers 5
     .param p0, "$this$sum"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -145,12 +145,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -171,15 +171,15 @@
     move-result v0
 
     .end local v2    # "element":I
-    goto :goto_0
+    goto :goto_a
 
     .line 84
-    :cond_0
+    :cond_21
     return v0
 .end method
 
 .method public static final sumOfULong(Ljava/lang/Iterable;)J
-    .locals 7
+    .registers 8
     .param p0, "$this$sum"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -203,12 +203,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -229,15 +229,15 @@
     move-result-wide v0
 
     .end local v3    # "element":J
-    goto :goto_0
+    goto :goto_b
 
     .line 98
-    :cond_0
+    :cond_22
     return-wide v0
 .end method
 
 .method public static final sumOfUShort(Ljava/lang/Iterable;)I
-    .locals 4
+    .registers 5
     .param p0, "$this$sum"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -261,12 +261,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -295,15 +295,15 @@
     move-result v0
 
     .end local v2    # "element":S
-    goto :goto_0
+    goto :goto_a
 
     .line 126
-    :cond_0
+    :cond_28
     return v0
 .end method
 
 .method public static final toUByteArray(Ljava/util/Collection;)[B
-    .locals 5
+    .registers 6
     .param p0, "$this$toUByteArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -337,12 +337,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_12
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -365,17 +365,17 @@
     move v1, v4
 
     .end local v3    # "element":B
-    goto :goto_0
+    goto :goto_12
 
     .line 31
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_29
     return-object v0
 .end method
 
 .method public static final toUIntArray(Ljava/util/Collection;)[I
-    .locals 5
+    .registers 6
     .param p0, "$this$toUIntArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -409,12 +409,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_12
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -437,17 +437,17 @@
     move v1, v4
 
     .end local v3    # "element":I
-    goto :goto_0
+    goto :goto_12
 
     .line 44
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_29
     return-object v0
 .end method
 
 .method public static final toULongArray(Ljava/util/Collection;)[J
-    .locals 6
+    .registers 7
     .param p0, "$this$toULongArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -481,12 +481,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_12
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -509,17 +509,17 @@
     move v1, v5
 
     .end local v3    # "element":J
-    goto :goto_0
+    goto :goto_12
 
     .line 57
     .end local v5    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_29
     return-object v0
 .end method
 
 .method public static final toUShortArray(Ljava/util/Collection;)[S
-    .locals 5
+    .registers 6
     .param p0, "$this$toUShortArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -553,12 +553,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_12
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -581,11 +581,11 @@
     move v1, v4
 
     .end local v3    # "element":S
-    goto :goto_0
+    goto :goto_12
 
     .line 70
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_29
     return-object v0
 .end method

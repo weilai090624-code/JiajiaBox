@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 306
     new-instance v0, Landroidx/constraintlayout/core/widgets/analyzer/WidgetRun$RunType;
@@ -105,7 +105,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -119,7 +119,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/constraintlayout/core/widgets/analyzer/WidgetRun$RunType;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 306
@@ -135,7 +135,7 @@
 .end method
 
 .method public static values()[Landroidx/constraintlayout/core/widgets/analyzer/WidgetRun$RunType;
-    .locals 1
+    .registers 1
 
     .line 306
     sget-object v0, Landroidx/constraintlayout/core/widgets/analyzer/WidgetRun$RunType;->$VALUES:[Landroidx/constraintlayout/core/widgets/analyzer/WidgetRun$RunType;

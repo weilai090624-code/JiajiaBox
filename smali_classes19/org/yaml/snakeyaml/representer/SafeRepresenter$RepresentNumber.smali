@@ -23,7 +23,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/yaml/snakeyaml/representer/SafeRepresenter;)V
-    .locals 0
+    .registers 2
 
     .line 162
     iput-object p1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentNumber;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -36,34 +36,34 @@
 
 # virtual methods
 .method public representData(Ljava/lang/Object;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 5
+    .registers 7
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 166
     instance-of v0, p1, Ljava/lang/Byte;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_4c
 
     instance-of v0, p1, Ljava/lang/Short;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_4c
 
     instance-of v0, p1, Ljava/lang/Integer;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_4c
 
     instance-of v0, p1, Ljava/lang/Long;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_4c
 
     instance-of v0, p1, Ljava/math/BigInteger;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 171
-    :cond_0
+    :cond_15
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Number;
@@ -84,17 +84,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 174
     const-string v2, ".NaN"
 
     .local v2, "value":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_52
 
     .line 175
     .end local v2    # "value":Ljava/lang/String;
-    :cond_1
+    :cond_29
     const-wide/high16 v2, 0x7ff0000000000000L    # Double.POSITIVE_INFINITY
 
     invoke-static {v2, v3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
@@ -105,17 +105,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_38
 
     .line 176
     const-string v2, ".inf"
 
     .restart local v2    # "value":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_52
 
     .line 177
     .end local v2    # "value":Ljava/lang/String;
-    :cond_2
+    :cond_38
     const-wide/high16 v2, -0x10000000000000L    # Double.NEGATIVE_INFINITY
 
     invoke-static {v2, v3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
@@ -126,30 +126,30 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_47
 
     .line 178
     const-string v2, "-.inf"
 
     .restart local v2    # "value":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_52
 
     .line 180
     .end local v2    # "value":Ljava/lang/String;
-    :cond_3
+    :cond_47
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     .restart local v2    # "value":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_52
 
     .line 168
     .end local v0    # "number":Ljava/lang/Number;
     .end local v1    # "tag":Lorg/yaml/snakeyaml/nodes/Tag;
     .end local v2    # "value":Ljava/lang/String;
-    :cond_4
-    :goto_0
+    :cond_4c
+    :goto_4c
     sget-object v1, Lorg/yaml/snakeyaml/nodes/Tag;->INT:Lorg/yaml/snakeyaml/nodes/Tag;
 
     .line 169
@@ -160,7 +160,7 @@
 
     .line 183
     .restart local v2    # "value":Ljava/lang/String;
-    :goto_1
+    :goto_52
     iget-object v0, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentNumber;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
 
     iget-object v3, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentNumber;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;

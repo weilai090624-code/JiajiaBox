@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method public static configureMenuItem(Landroid/view/Menu;ILandroidx/core/app/ShareCompat$IntentBuilder;)V
-    .locals 4
+    .registers 7
     .param p0, "menu"    # Landroid/view/Menu;
     .param p1, "menuItemId"    # I
     .param p2, "shareIntent"    # Landroidx/core/app/ShareCompat$IntentBuilder;
@@ -49,7 +49,7 @@
 
     .line 264
     .local v0, "item":Landroid/view/MenuItem;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 268
     invoke-static {v0, p2}, Landroidx/core/app/ShareCompat;->configureMenuItem(Landroid/view/MenuItem;Landroidx/core/app/ShareCompat$IntentBuilder;)V
@@ -58,7 +58,7 @@
     return-void
 
     .line 265
-    :cond_0
+    :cond_a
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -91,7 +91,7 @@
 .end method
 
 .method public static configureMenuItem(Landroid/view/MenuItem;Landroidx/core/app/ShareCompat$IntentBuilder;)V
-    .locals 4
+    .registers 6
     .param p0, "item"    # Landroid/view/MenuItem;
     .param p1, "shareIntent"    # Landroidx/core/app/ShareCompat$IntentBuilder;
     .annotation runtime Ljava/lang/Deprecated;
@@ -106,7 +106,7 @@
     .local v0, "itemProvider":Landroid/view/ActionProvider;
     instance-of v1, v0, Landroid/widget/ShareActionProvider;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 239
     new-instance v1, Landroid/widget/ShareActionProvider;
@@ -118,18 +118,18 @@
     invoke-direct {v1, v2}, Landroid/widget/ShareActionProvider;-><init>(Landroid/content/Context;)V
 
     .local v1, "provider":Landroid/widget/ShareActionProvider;
-    goto :goto_0
+    goto :goto_15
 
     .line 241
     .end local v1    # "provider":Landroid/widget/ShareActionProvider;
-    :cond_0
+    :cond_12
     move-object v1, v0
 
     check-cast v1, Landroid/widget/ShareActionProvider;
 
     .line 243
     .restart local v1    # "provider":Landroid/widget/ShareActionProvider;
-    :goto_0
+    :goto_15
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -179,7 +179,7 @@
 .end method
 
 .method public static getCallingActivity(Landroid/app/Activity;)Landroid/content/ComponentName;
-    .locals 2
+    .registers 3
     .param p0, "calledActivity"    # Landroid/app/Activity;
 
     .line 175
@@ -195,7 +195,7 @@
 
     .line 177
     .local v1, "result":Landroid/content/ComponentName;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 178
     invoke-static {v0}, Landroidx/core/app/ShareCompat;->getCallingActivity(Landroid/content/Intent;)Landroid/content/ComponentName;
@@ -203,12 +203,12 @@
     move-result-object v1
 
     .line 180
-    :cond_0
+    :cond_e
     return-object v1
 .end method
 
 .method static getCallingActivity(Landroid/content/Intent;)Landroid/content/ComponentName;
-    .locals 2
+    .registers 3
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 198
@@ -222,7 +222,7 @@
 
     .line 199
     .local v0, "result":Landroid/content/ComponentName;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 200
     const-string v1, "android.support.v4.app.EXTRA_CALLING_ACTIVITY"
@@ -236,12 +236,12 @@
     check-cast v0, Landroid/content/ComponentName;
 
     .line 202
-    :cond_0
+    :cond_13
     return-object v0
 .end method
 
 .method public static getCallingPackage(Landroid/app/Activity;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "calledActivity"    # Landroid/app/Activity;
 
     .line 131
@@ -257,9 +257,9 @@
 
     .line 133
     .local v1, "result":Ljava/lang/String;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 134
     invoke-static {v0}, Landroidx/core/app/ShareCompat;->getCallingPackage(Landroid/content/Intent;)Ljava/lang/String;
@@ -267,12 +267,12 @@
     move-result-object v1
 
     .line 136
-    :cond_0
+    :cond_10
     return-object v1
 .end method
 
 .method static getCallingPackage(Landroid/content/Intent;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 154
@@ -284,7 +284,7 @@
 
     .line 155
     .local v0, "result":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 156
     const-string v1, "android.support.v4.app.EXTRA_CALLING_PACKAGE"
@@ -294,12 +294,12 @@
     move-result-object v0
 
     .line 158
-    :cond_0
+    :cond_e
     return-object v0
 .end method
 
 .method static migrateExtraStreamToClipData(Landroid/content/Intent;Ljava/util/ArrayList;)V
-    .locals 7
+    .registers 9
     .param p0, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -367,8 +367,8 @@
     move-result v4
 
     .local v4, "end":I
-    :goto_0
-    if-ge v3, v4, :cond_0
+    :goto_2b
+    if-ge v3, v4, :cond_3e
 
     .line 1050
     invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -389,12 +389,12 @@
     .end local v5    # "uri":Landroid/net/Uri;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 1054
     .end local v3    # "i":I
     .end local v4    # "end":I
-    :cond_0
+    :cond_3e
     invoke-virtual {p0, v2}, Landroid/content/Intent;->setClipData(Landroid/content/ClipData;)V
 
     .line 1055

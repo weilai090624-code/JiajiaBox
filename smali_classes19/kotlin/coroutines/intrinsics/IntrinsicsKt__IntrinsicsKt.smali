@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/coroutines/intrinsics/IntrinsicsKt__IntrinsicsJvmKt;-><init>()V
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public static final getCOROUTINE_SUSPENDED()Ljava/lang/Object;
-    .locals 1
+    .registers 1
 
     .line 57
     sget-object v0, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->COROUTINE_SUSPENDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
@@ -53,13 +53,13 @@
 .end method
 
 .method public static synthetic getCOROUTINE_SUSPENDED$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private static final suspendCoroutineUninterceptedOrReturn(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "block"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;

@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method acquireImage(Landroidx/camera/core/impl/ImageReaderProxy;)Landroidx/camera/core/ImageProxy;
-    .locals 1
+    .registers 3
     .param p1, "imageReaderProxy"    # Landroidx/camera/core/impl/ImageReaderProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -36,14 +36,14 @@
 .end method
 
 .method clearCache()V
-    .locals 0
+    .registers 1
 
     .line 63
     return-void
 .end method
 
 .method onValidImageAvailable(Landroidx/camera/core/ImageProxy;)V
-    .locals 3
+    .registers 5
     .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

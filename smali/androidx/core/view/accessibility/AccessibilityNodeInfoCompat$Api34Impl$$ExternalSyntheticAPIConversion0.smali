@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(Landroid/view/accessibility/AccessibilityNodeInfo;Lj$/time/Duration;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-static {p1}, Lj$/time/TimeConversions;->convert(Lj$/time/Duration;)Ljava/time/Duration;

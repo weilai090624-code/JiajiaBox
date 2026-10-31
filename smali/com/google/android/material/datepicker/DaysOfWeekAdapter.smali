@@ -19,23 +19,23 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 47
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     const/4 v0, 0x4
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_9
     sput v0, Lcom/google/android/material/datepicker/DaysOfWeekAdapter;->CALENDAR_DAY_STYLE:I
 
     .line 46
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 53
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "firstDayOfWeek"    # I
 
     .line 57
@@ -112,7 +112,7 @@
 .end method
 
 .method private positionToDayOfWeek(I)I
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 104
@@ -124,7 +124,7 @@
     .local v0, "dayConstant":I
     iget v1, p0, Lcom/google/android/material/datepicker/DaysOfWeekAdapter;->daysInWeek:I
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_a
 
     .line 106
     iget v1, p0, Lcom/google/android/material/datepicker/DaysOfWeekAdapter;->daysInWeek:I
@@ -132,14 +132,14 @@
     sub-int/2addr v0, v1
 
     .line 108
-    :cond_0
+    :cond_a
     return v0
 .end method
 
 
 # virtual methods
 .method public getCount()I
-    .locals 1
+    .registers 2
 
     .line 78
     iget v0, p0, Lcom/google/android/material/datepicker/DaysOfWeekAdapter;->daysInWeek:I
@@ -148,13 +148,13 @@
 .end method
 
 .method public getItem(I)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 64
     iget v0, p0, Lcom/google/android/material/datepicker/DaysOfWeekAdapter;->daysInWeek:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_6
 
     .line 65
     const/4 v0, 0x0
@@ -162,7 +162,7 @@
     return-object v0
 
     .line 67
-    :cond_0
+    :cond_6
     invoke-direct {p0, p1}, Lcom/google/android/material/datepicker/DaysOfWeekAdapter;->positionToDayOfWeek(I)I
 
     move-result v0
@@ -175,7 +175,7 @@
 .end method
 
 .method public bridge synthetic getItem(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 38
     invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/DaysOfWeekAdapter;->getItem(I)Ljava/lang/Integer;
@@ -186,7 +186,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 2
+    .registers 4
     .param p1, "position"    # I
 
     .line 73
@@ -196,7 +196,7 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 8
+    .registers 12
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
@@ -210,7 +210,7 @@
     .local v0, "dayOfWeek":Landroid/widget/TextView;
     const/4 v1, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_17
 
     .line 87
     invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -236,7 +236,7 @@
 
     .line 91
     .end local v2    # "layoutInflater":Landroid/view/LayoutInflater;
-    :cond_0
+    :cond_17
     iget-object v2, p0, Lcom/google/android/material/datepicker/DaysOfWeekAdapter;->calendar:Ljava/util/Calendar;
 
     invoke-direct {p0, p1}, Lcom/google/android/material/datepicker/DaysOfWeekAdapter;->positionToDayOfWeek(I)I

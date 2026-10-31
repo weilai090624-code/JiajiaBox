@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/Lifecycle;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 3
+    .registers 6
     .param p1, "lifecycle"    # Landroidx/lifecycle/Lifecycle;
     .param p2, "coroutineContext"    # Lkotlin/coroutines/CoroutineContext;
 
@@ -86,7 +86,7 @@
 
     sget-object v1, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_27
 
     .line 388
     invoke-virtual {p0}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
@@ -100,7 +100,7 @@
     invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/JobKt;->cancel$default(Lkotlin/coroutines/CoroutineContext;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 390
-    :cond_0
+    :cond_27
     nop
 
     .line 379
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 381
     iget-object v0, p0, Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->coroutineContext:Lkotlin/coroutines/CoroutineContext;
@@ -119,7 +119,7 @@
 .end method
 
 .method public getLifecycle$lifecycle_common()Landroidx/lifecycle/Lifecycle;
-    .locals 1
+    .registers 2
 
     .line 380
     iget-object v0, p0, Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->lifecycle:Landroidx/lifecycle/Lifecycle;
@@ -128,7 +128,7 @@
 .end method
 
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -157,7 +157,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_30
 
     .line 404
     invoke-virtual {p0}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->getLifecycle$lifecycle_common()Landroidx/lifecycle/Lifecycle;
@@ -182,12 +182,12 @@
     invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/JobKt;->cancel$default(Lkotlin/coroutines/CoroutineContext;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 407
-    :cond_0
+    :cond_30
     return-void
 .end method
 
 .method public final register()V
-    .locals 6
+    .registers 7
 
     .line 393
     move-object v0, p0

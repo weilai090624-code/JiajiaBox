@@ -41,7 +41,7 @@
 
 # direct methods
 .method public static final awaitAll(Ljava/util/Collection;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "$this$awaitAll"    # Ljava/util/Collection;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -66,7 +66,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -74,7 +74,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_b
     new-instance v0, Lkotlinx/coroutines/AwaitAll;
 
     move-object v1, p0
@@ -112,7 +112,7 @@
 .end method
 
 .method public static final awaitAll([Lkotlinx/coroutines/Deferred;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "deferreds"    # [Lkotlinx/coroutines/Deferred;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -133,17 +133,17 @@
     .line 25
     array-length v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_6
+    if-eqz v0, :cond_d
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -151,7 +151,7 @@
 
     return-object v0
 
-    :cond_1
+    :cond_d
     new-instance v0, Lkotlinx/coroutines/AwaitAll;
 
     invoke-direct {v0, p0}, Lkotlinx/coroutines/AwaitAll;-><init>([Lkotlinx/coroutines/Deferred;)V
@@ -164,7 +164,7 @@
 .end method
 
 .method public static final joinAll(Ljava/util/Collection;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -182,7 +182,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/AwaitKt$joinAll$3;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -194,7 +194,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/AwaitKt$joinAll$3;->label:I
 
@@ -202,14 +202,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/AwaitKt$joinAll$3;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/AwaitKt$joinAll$3;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/AwaitKt$joinAll$3;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -223,7 +223,7 @@
     .line 66
     iget v2, p1, Lkotlinx/coroutines/AwaitKt$joinAll$3;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_62
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -237,7 +237,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$forEach":I
@@ -250,11 +250,11 @@
 
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_5c
 
     .end local v2    # "$i$a$-forEach-AwaitKt$joinAll$4":I
     .end local p0    # "$i$f$forEach":I
-    :pswitch_1
+    :pswitch_37
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p0, "$this$joinAll":Ljava/util/Collection;
@@ -273,12 +273,12 @@
 
     .end local v2    # "$i$f$forEach":I
     .local p0, "$i$f$forEach":I
-    :goto_1
+    :goto_42
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_5d
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -303,20 +303,20 @@
     move-result-object v2
 
     .end local v2    # "it":Lkotlinx/coroutines/Job;
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_5b
 
     return-object v1
 
-    :cond_1
+    :cond_5b
     move v2, v4
 
     .line 132
     .end local v4    # "$i$a$-forEach-AwaitKt$joinAll$4":I
-    :goto_2
-    goto :goto_1
+    :goto_5c
+    goto :goto_42
 
     .line 133
-    :cond_2
+    :cond_5d
     nop
 
     .end local p0    # "$i$f$forEach":I
@@ -327,15 +327,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_62
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_37
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final joinAll([Lkotlinx/coroutines/Job;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -350,7 +350,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/AwaitKt$joinAll$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -362,7 +362,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/AwaitKt$joinAll$1;->label:I
 
@@ -370,14 +370,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/AwaitKt$joinAll$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/AwaitKt$joinAll$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/AwaitKt$joinAll$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -393,7 +393,7 @@
 
     const/4 v3, 0x1
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_60
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -407,7 +407,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2e
     const/4 p0, 0x0
 
     .local p0, "$i$f$forEach":I
@@ -425,12 +425,12 @@
     .local v6, "$this$forEach$iv":[Ljava/lang/Object;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_59
 
     .end local v2    # "$i$a$-forEach-AwaitKt$joinAll$2":I
     .end local v6    # "$this$forEach$iv":[Ljava/lang/Object;
     .end local p0    # "$i$f$forEach":I
-    :pswitch_1
+    :pswitch_3c
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p0, "$this$forEach$iv":[Ljava/lang/Object;
@@ -449,8 +449,8 @@
     .end local v2    # "$i$f$forEach":I
     .restart local v6    # "$this$forEach$iv":[Ljava/lang/Object;
     .local p0, "$i$f$forEach":I
-    :goto_1
-    if-ge v5, v4, :cond_2
+    :goto_44
+    if-ge v5, v4, :cond_5b
 
     aget-object v2, v6, v5
 
@@ -472,22 +472,22 @@
     move-result-object v2
 
     .end local v2    # "it":Lkotlinx/coroutines/Job;
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_58
 
     return-object v1
 
-    :cond_1
+    :cond_58
     move v2, v7
 
     .line 130
     .end local v7    # "$i$a$-forEach-AwaitKt$joinAll$2":I
-    :goto_2
+    :goto_59
     add-int/2addr v5, v3
 
-    goto :goto_1
+    goto :goto_44
 
     .line 131
-    :cond_2
+    :cond_5b
     nop
 
     .end local v6    # "$this$forEach$iv":[Ljava/lang/Object;
@@ -499,9 +499,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_60
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3c
+        :pswitch_2e
     .end packed-switch
 .end method

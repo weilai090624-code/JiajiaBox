@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static getDestructured(Lkotlin/text/MatchResult;)Lkotlin/text/MatchResult$Destructured;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/text/MatchResult;
 
     .line 80

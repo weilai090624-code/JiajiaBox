@@ -94,7 +94,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
 
     const-string v0, "context"
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
 
     const-string v0, "context"
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -192,27 +192,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 28
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 30
     const/4 p2, 0x0
 
     .line 28
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 31
     const p3, 0x101006b
 
     .line 28
-    :cond_1
+    :cond_c
     invoke-direct {p0, p1, p2, p3}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 144
@@ -220,12 +220,12 @@
 .end method
 
 .method private final initVelocityTrackerIfNotExists()V
-    .locals 1
+    .registers 2
 
     .line 131
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 132
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -235,22 +235,22 @@
     iput-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->velocityTracker:Landroid/view/VelocityTracker;
 
     .line 134
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method private final recycleVelocityTracker()V
-    .locals 1
+    .registers 2
 
     .line 137
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     invoke-virtual {v0}, Landroid/view/VelocityTracker;->recycle()V
 
     .line 138
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->velocityTracker:Landroid/view/VelocityTracker;
@@ -262,7 +262,7 @@
 
 # virtual methods
 .method public final abortFling()V
-    .locals 1
+    .registers 2
 
     .line 124
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->textScroller:Landroid/widget/OverScroller;
@@ -271,7 +271,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 125
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->textScroller:Landroid/widget/OverScroller;
@@ -279,20 +279,20 @@
     invoke-virtual {v0}, Landroid/widget/OverScroller;->abortAnimation()V
 
     .line 127
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     invoke-virtual {v0}, Landroid/view/VelocityTracker;->clear()V
 
     .line 128
-    :cond_1
+    :cond_14
     return-void
 .end method
 
 .method public final addOnScrollChangedListener(Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText$OnScrollChangedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText$OnScrollChangedListener;
 
     const-string v0, "listener"
@@ -309,7 +309,7 @@
 .end method
 
 .method public computeScroll()V
-    .locals 4
+    .registers 5
 
     .line 91
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->textScroller:Landroid/widget/OverScroller;
@@ -318,7 +318,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_30
 
     .line 92
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->textScroller:Landroid/widget/OverScroller;
@@ -337,7 +337,7 @@
 
     .line 94
     .local v1, "currY":I
-    if-gez v1, :cond_1
+    if-gez v1, :cond_2a
 
     .line 95
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->getScrollY()I
@@ -350,44 +350,44 @@
 
     sub-int/2addr v2, v3
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_23
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     const/4 v2, 0x0
 
     .line 96
     .local v2, "isValidPosition":Z
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_24
+    if-eqz v2, :cond_2d
 
     .line 97
     invoke-virtual {p0, v0, v1}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->scrollTo(II)V
 
     .end local v2    # "isValidPosition":Z
-    goto :goto_1
+    goto :goto_2d
 
     .line 100
-    :cond_1
+    :cond_2a
     invoke-virtual {p0, v0, v1}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->scrollTo(II)V
 
     .line 102
-    :cond_2
-    :goto_1
+    :cond_2d
+    :goto_2d
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->postInvalidate()V
 
     .line 104
     .end local v0    # "currX":I
     .end local v1    # "currY":I
-    :cond_3
+    :cond_30
     return-void
 .end method
 
 .method public final isHorizontallyScrollableCompat()Z
-    .locals 1
+    .registers 2
 
     .line 112
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->horizontallyScrollable:Z
@@ -396,7 +396,7 @@
 .end method
 
 .method protected onScrollChanged(IIII)V
-    .locals 2
+    .registers 7
     .param p1, "horiz"    # I
     .param p2, "vert"    # I
     .param p3, "oldHoriz"    # I
@@ -412,12 +412,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -430,15 +430,15 @@
     invoke-interface {v1, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText$OnScrollChangedListener;->onScrollChanged(IIII)V
 
     .end local v1    # "listener":Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText$OnScrollChangedListener;
-    goto :goto_0
+    goto :goto_9
 
     .line 54
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 6
+    .registers 11
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -454,12 +454,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -488,15 +488,15 @@
     invoke-interface {v1, v2, v3, v4, v5}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText$OnScrollChangedListener;->onScrollChanged(IIII)V
 
     .end local v1    # "listener":Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText$OnScrollChangedListener;
-    goto :goto_0
+    goto :goto_9
 
     .line 47
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 12
+    .registers 14
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     const-string v0, "event"
@@ -511,25 +511,25 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_b2
 
-    goto/16 :goto_4
+    goto/16 :goto_ad
 
     .line 84
-    :pswitch_0
+    :pswitch_11
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_ad
 
     invoke-virtual {v0, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_ad
 
     .line 61
-    :pswitch_1
+    :pswitch_1a
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     const/16 v1, 0x3e8
 
@@ -538,19 +538,19 @@
     invoke-virtual {v0, v1, v2}, Landroid/view/VelocityTracker;->computeCurrentVelocity(IF)V
 
     .line 62
-    :cond_0
+    :cond_25
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->isHorizontallyScrollableCompat()Z
 
     move-result v0
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_38
 
     .line 63
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     invoke-virtual {v0}, Landroid/view/VelocityTracker;->getXVelocity()F
 
@@ -558,26 +558,26 @@
 
     float-to-int v0, v0
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_1
+    :cond_36
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_39
 
     .line 65
-    :cond_2
+    :cond_38
     const/4 v0, 0x0
 
     .line 62
-    :goto_0
+    :goto_39
     nop
 
     .line 67
     .local v0, "velocityX":I
     iget-object v2, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->velocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_43
 
     invoke-virtual {v2}, Landroid/view/VelocityTracker;->getYVelocity()F
 
@@ -587,29 +587,29 @@
 
     .line 68
     .local v1, "velocityY":I
-    :cond_3
+    :cond_43
     invoke-static {v1}, Ljava/lang/Math;->abs(I)I
 
     move-result v2
 
-    if-ltz v2, :cond_8
+    if-ltz v2, :cond_a6
 
     invoke-static {v0}, Ljava/lang/Math;->abs(I)I
 
     move-result v2
 
-    if-gez v2, :cond_4
+    if-gez v2, :cond_50
 
-    goto :goto_3
+    goto :goto_a6
 
     .line 70
-    :cond_4
-    if-nez v0, :cond_5
+    :cond_50
+    if-nez v0, :cond_54
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_ad
 
     .line 71
-    :cond_5
+    :cond_54
     iget-object v3, p0, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->textScroller:Landroid/widget/OverScroller;
 
     .line 72
@@ -636,20 +636,20 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_6c
 
     invoke-virtual {v2}, Landroid/text/Layout;->getWidth()I
 
     move-result v2
 
-    goto :goto_1
+    goto :goto_70
 
-    :cond_6
+    :cond_6c
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->getWidth()I
 
     move-result v2
 
-    :goto_1
+    :goto_70
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->getWidth()I
 
     move-result v8
@@ -676,20 +676,20 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8c
 
     invoke-virtual {v2}, Landroid/text/Layout;->getHeight()I
 
     move-result v2
 
-    goto :goto_2
+    goto :goto_90
 
-    :cond_7
+    :cond_8c
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->getWidth()I
 
     move-result v2
 
-    :goto_2
+    :goto_90
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->getHeight()I
 
     move-result v8
@@ -717,42 +717,42 @@
 
     .end local v0    # "velocityX":I
     .end local v1    # "velocityY":I
-    goto :goto_4
+    goto :goto_ad
 
     .line 69
     .restart local v0    # "velocityX":I
     .restart local v1    # "velocityY":I
-    :cond_8
-    :goto_3
+    :cond_a6
+    :goto_a6
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->recycleVelocityTracker()V
 
-    goto :goto_4
+    goto :goto_ad
 
     .line 59
     .end local v0    # "velocityX":I
     .end local v1    # "velocityY":I
-    :pswitch_2
+    :pswitch_aa
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->abortFling()V
 
     .line 87
-    :cond_9
-    :goto_4
+    :cond_ad
+    :goto_ad
     invoke-super {p0, p1}, Landroid/widget/MultiAutoCompleteTextView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_b2
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_aa
+        :pswitch_1a
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public final removeOnScrollChangedListener(Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText$OnScrollChangedListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText$OnScrollChangedListener;
 
     const-string v0, "listener"
@@ -769,7 +769,7 @@
 .end method
 
 .method public setHorizontallyScrolling(Z)V
-    .locals 0
+    .registers 2
     .param p1, "whether"    # Z
 
     .line 107

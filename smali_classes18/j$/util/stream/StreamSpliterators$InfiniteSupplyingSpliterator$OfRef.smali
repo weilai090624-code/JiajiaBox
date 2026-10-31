@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(JLjava/util/function/Supplier;)V
-    .locals 0
+    .registers 4
     .param p1, "size"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,7 +92,7 @@
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -109,7 +109,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_a
 
     .line 1369
     const/4 v0, 0x0
@@ -117,7 +117,7 @@
     return-object v0
 
     .line 1370
-    :cond_0
+    :cond_a
     new-instance v0, Lj$/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfRef;
 
     iget-wide v1, p0, Lj$/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfRef;->estimate:J

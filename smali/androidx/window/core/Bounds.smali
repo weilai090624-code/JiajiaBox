@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Rect;)V
-    .locals 4
+    .registers 6
     .param p1, "rect"    # Landroid/graphics/Rect;
 
     const-string v0, "rect"
@@ -113,47 +113,47 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 72
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 73
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_c
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
+    :cond_c
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     return v2
 
     .line 75
-    :cond_2
-    if-eqz p1, :cond_7
+    :cond_18
+    if-eqz p1, :cond_46
 
     move-object v1, p1
 
@@ -168,12 +168,12 @@
 
     iget v3, v3, Landroidx/window/core/Bounds;->left:I
 
-    if-eq v1, v3, :cond_3
+    if-eq v1, v3, :cond_27
 
     return v2
 
     .line 78
-    :cond_3
+    :cond_27
     iget v1, p0, Landroidx/window/core/Bounds;->top:I
 
     move-object v3, p1
@@ -182,12 +182,12 @@
 
     iget v3, v3, Landroidx/window/core/Bounds;->top:I
 
-    if-eq v1, v3, :cond_4
+    if-eq v1, v3, :cond_31
 
     return v2
 
     .line 79
-    :cond_4
+    :cond_31
     iget v1, p0, Landroidx/window/core/Bounds;->right:I
 
     move-object v3, p1
@@ -196,12 +196,12 @@
 
     iget v3, v3, Landroidx/window/core/Bounds;->right:I
 
-    if-eq v1, v3, :cond_5
+    if-eq v1, v3, :cond_3b
 
     return v2
 
     .line 80
-    :cond_5
+    :cond_3b
     iget v1, p0, Landroidx/window/core/Bounds;->bottom:I
 
     move-object v3, p1
@@ -210,16 +210,16 @@
 
     iget v3, v3, Landroidx/window/core/Bounds;->bottom:I
 
-    if-eq v1, v3, :cond_6
+    if-eq v1, v3, :cond_45
 
     return v2
 
     .line 82
-    :cond_6
+    :cond_45
     return v0
 
     .line 75
-    :cond_7
+    :cond_46
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type androidx.window.core.Bounds"
@@ -230,7 +230,7 @@
 .end method
 
 .method public final getBottom()I
-    .locals 1
+    .registers 2
 
     .line 34
     iget v0, p0, Landroidx/window/core/Bounds;->bottom:I
@@ -239,7 +239,7 @@
 .end method
 
 .method public final getHeight()I
-    .locals 2
+    .registers 3
 
     .line 53
     iget v0, p0, Landroidx/window/core/Bounds;->bottom:I
@@ -252,7 +252,7 @@
 .end method
 
 .method public final getLeft()I
-    .locals 1
+    .registers 2
 
     .line 31
     iget v0, p0, Landroidx/window/core/Bounds;->left:I
@@ -261,7 +261,7 @@
 .end method
 
 .method public final getRight()I
-    .locals 1
+    .registers 2
 
     .line 33
     iget v0, p0, Landroidx/window/core/Bounds;->right:I
@@ -270,7 +270,7 @@
 .end method
 
 .method public final getTop()I
-    .locals 1
+    .registers 2
 
     .line 32
     iget v0, p0, Landroidx/window/core/Bounds;->top:I
@@ -279,7 +279,7 @@
 .end method
 
 .method public final getWidth()I
-    .locals 2
+    .registers 3
 
     .line 47
     iget v0, p0, Landroidx/window/core/Bounds;->right:I
@@ -292,7 +292,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 86
     iget v0, p0, Landroidx/window/core/Bounds;->left:I
@@ -330,65 +330,65 @@
 .end method
 
 .method public final isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 59
     invoke-virtual {p0}, Landroidx/window/core/Bounds;->getHeight()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     invoke-virtual {p0}, Landroidx/window/core/Bounds;->getWidth()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public final isZero()Z
-    .locals 1
+    .registers 2
 
     .line 65
     invoke-virtual {p0}, Landroidx/window/core/Bounds;->getHeight()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     invoke-virtual {p0}, Landroidx/window/core/Bounds;->getWidth()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public final toRect()Landroid/graphics/Rect;
-    .locals 5
+    .registers 6
 
     .line 41
     new-instance v0, Landroid/graphics/Rect;
@@ -407,7 +407,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 68
     new-instance v0, Ljava/lang/StringBuilder;

@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 60
     const/4 v0, 0x3
@@ -51,7 +51,7 @@
     .line 62
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_1a
 
     sput-object v0, Lcom/google/android/material/shadow/ShadowRenderer;->edgePositions:[F
 
@@ -65,7 +65,7 @@
     .line 66
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_24
 
     sput-object v0, Lcom/google/android/material/shadow/ShadowRenderer;->cornerPositions:[F
 
@@ -73,14 +73,14 @@
 
     nop
 
-    :array_0
+    :array_1a
     .array-data 4
         0x0
         0x3f000000    # 0.5f
         0x3f800000    # 1.0f
     .end array-data
 
-    :array_1
+    :array_24
     .array-data 4
         0x0
         0x0
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 72
     const/high16 v0, -0x1000000
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "color"    # I
 
     .line 75
@@ -171,7 +171,7 @@
 
 # virtual methods
 .method public drawCornerShadow(Landroid/graphics/Canvas;Landroid/graphics/Matrix;Landroid/graphics/RectF;IFF)V
-    .locals 24
+    .registers 31
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "matrix"    # Landroid/graphics/Matrix;
     .param p3, "bounds"    # Landroid/graphics/RectF;
@@ -198,16 +198,16 @@
 
     cmpg-float v4, v10, v3
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_13
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_14
     move v11, v4
 
     .line 132
@@ -220,7 +220,7 @@
 
     const/4 v5, 0x2
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_34
 
     .line 135
     sget-object v6, Lcom/google/android/material/shadow/ShadowRenderer;->cornerColors:[I
@@ -250,10 +250,10 @@
 
     move/from16 v13, p5
 
-    goto :goto_1
+    goto :goto_67
 
     .line 141
-    :cond_1
+    :cond_34
     invoke-virtual {v12}, Landroid/graphics/Path;->rewind()V
 
     .line 142
@@ -313,7 +313,7 @@
     aput v6, v2, v4
 
     .line 153
-    :goto_1
+    :goto_67
     invoke-virtual/range {p3 .. p3}, Landroid/graphics/RectF;->width()F
 
     move-result v2
@@ -326,13 +326,13 @@
     .local v21, "radius":F
     cmpg-float v2, v21, v3
 
-    if-gtz v2, :cond_2
+    if-gtz v2, :cond_74
 
     .line 156
     return-void
 
     .line 159
-    :cond_2
+    :cond_74
     int-to-float v2, v9
 
     div-float v2, v2, v21
@@ -411,7 +411,7 @@
     invoke-virtual {v7, v3, v1}, Landroid/graphics/Canvas;->scale(FF)V
 
     .line 176
-    if-nez v11, :cond_3
+    if-nez v11, :cond_c1
 
     .line 177
     sget-object v1, Landroid/graphics/Region$Op;->DIFFERENCE:Landroid/graphics/Region$Op;
@@ -424,7 +424,7 @@
     invoke-virtual {v7, v12, v1}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     .line 182
-    :cond_3
+    :cond_c1
     const/4 v5, 0x1
 
     iget-object v6, v0, Lcom/google/android/material/shadow/ShadowRenderer;->cornerShadowPaint:Landroid/graphics/Paint;
@@ -447,7 +447,7 @@
 .end method
 
 .method public drawEdgeShadow(Landroid/graphics/Canvas;Landroid/graphics/Matrix;Landroid/graphics/RectF;I)V
-    .locals 10
+    .registers 15
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "transform"    # Landroid/graphics/Matrix;
     .param p3, "bounds"    # Landroid/graphics/RectF;
@@ -542,7 +542,7 @@
 .end method
 
 .method public drawInnerCornerShadow(Landroid/graphics/Canvas;Landroid/graphics/Matrix;Landroid/graphics/RectF;IFF[F)V
-    .locals 7
+    .registers 15
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "matrix"    # Landroid/graphics/Matrix;
     .param p3, "bounds"    # Landroid/graphics/RectF;
@@ -556,7 +556,7 @@
 
     cmpl-float v0, p6, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_7
 
     .line 196
     add-float/2addr p5, p6
@@ -565,7 +565,7 @@
     neg-float p6, p6
 
     .line 199
-    :cond_0
+    :cond_7
     move-object v0, p0
 
     move-object v1, p1
@@ -645,7 +645,7 @@
 .end method
 
 .method public getShadowPaint()Landroid/graphics/Paint;
-    .locals 1
+    .registers 2
 
     .line 218
     iget-object v0, p0, Lcom/google/android/material/shadow/ShadowRenderer;->shadowPaint:Landroid/graphics/Paint;
@@ -654,7 +654,7 @@
 .end method
 
 .method public setShadowColor(I)V
-    .locals 2
+    .registers 4
     .param p1, "color"    # I
 
     .line 87

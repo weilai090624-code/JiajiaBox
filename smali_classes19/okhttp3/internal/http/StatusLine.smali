@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/http/StatusLine$Companion;
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/Protocol;ILjava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "protocol"    # Lokhttp3/Protocol;
     .param p2, "code"    # I
     .param p3, "message"    # Ljava/lang/String;
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 31
     new-instance v0, Ljava/lang/StringBuilder;
@@ -124,23 +124,23 @@
 
     sget-object v4, Lokhttp3/Protocol;->HTTP_1_0:Lokhttp3/Protocol;
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_13
 
     .line 33
     const-string v3, "HTTP/1.0"
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 35
-    :cond_0
+    :cond_13
     const-string v3, "HTTP/1.1"
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 37
-    :goto_0
+    :goto_18
     const/16 v3, 0x20
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;

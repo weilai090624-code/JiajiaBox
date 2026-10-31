@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 408
     new-instance v0, Landroidx/collection/SimpleArrayMap;
@@ -60,7 +60,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 406
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final await(Landroidx/work/Operation;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 13
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,7 +46,7 @@
 
     instance-of v0, p1, Landroidx/work/OperationKt$await$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -58,7 +58,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Landroidx/work/OperationKt$await$1;->label:I
 
@@ -66,14 +66,14 @@
 
     iput p1, v0, Landroidx/work/OperationKt$await$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Landroidx/work/OperationKt$await$1;
 
     invoke-direct {v0, p1}, Landroidx/work/OperationKt$await$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -87,7 +87,7 @@
     .line 29
     iget v2, p1, Landroidx/work/OperationKt$await$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_b2
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -101,7 +101,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     const/4 p0, 0x0
 
     .local p0, "$i$f$await":I
@@ -121,12 +121,12 @@
 
     move-object v2, v0
 
-    goto/16 :goto_1
+    goto/16 :goto_a8
 
     .end local v1    # "$i$f$await":I
     .end local v2    # "$i$f$suspendCancellableCoroutine":I
     .end local p0    # "$i$f$await":I
-    :pswitch_1
+    :pswitch_3b
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p0, "$this$await":Landroidx/work/Operation;
@@ -153,24 +153,24 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_61
 
     .line 32
     nop
 
     .line 33
-    :try_start_0
+    :try_start_51
     invoke-interface {p0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_55
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_51 .. :try_end_55} :catch_56
 
-    goto :goto_2
+    goto :goto_ab
 
     .line 34
     .end local p0    # "$this$await$iv":Lcom/google/common/util/concurrent/ListenableFuture;
-    :catch_0
+    :catch_56
     move-exception p0
 
     .line 35
@@ -179,19 +179,19 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_60
 
     move-object v1, p0
 
     check-cast v1, Ljava/lang/Throwable;
 
     .end local p0    # "e$iv":Ljava/util/concurrent/ExecutionException;
-    :cond_1
+    :cond_60
     throw v1
 
     .line 38
     .local p0, "$this$await$iv":Lcom/google/common/util/concurrent/ListenableFuture;
-    :cond_2
+    :cond_61
     const/4 v4, 0x0
 
     .line 39
@@ -278,18 +278,18 @@
 
     move-result-object v5
 
-    if-ne p0, v5, :cond_3
+    if-ne p0, v5, :cond_a1
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_3
-    if-ne p0, v1, :cond_4
+    :cond_a1
+    if-ne p0, v1, :cond_a4
 
     .line 29
     return-object v1
 
     .line 39
-    :cond_4
+    :cond_a4
     move v1, v3
 
     move v12, v2
@@ -303,7 +303,7 @@
     .end local v3    # "$i$f$await":I
     .restart local v1    # "$i$f$await":I
     .local p0, "$i$f$await":I
-    :goto_1
+    :goto_a8
     nop
 
     .line 38
@@ -316,7 +316,7 @@
     .end local v1    # "$i$f$await":I
     .end local p0    # "$i$f$await":I
     .restart local v2    # "$i$f$await":I
-    :goto_2
+    :goto_ab
     const-string p0, "result.await()"
 
     invoke-static {v1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -325,15 +325,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_b2
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3b
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method private static final await$$forInline(Landroidx/work/Operation;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 11
+    .registers 13
     .param p0, "$this$await"    # Landroidx/work/Operation;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -371,23 +371,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_25
 
     .line 32
     nop
 
     .line 33
-    :try_start_0
+    :try_start_14
     invoke-interface {v1}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_14 .. :try_end_18} :catch_19
 
-    goto :goto_1
+    goto :goto_64
 
     .line 34
-    :catch_0
+    :catch_19
     move-exception v3
 
     .line 35
@@ -396,21 +396,21 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_21
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_21
     move-object v4, v3
 
     check-cast v4, Ljava/lang/Throwable;
 
-    :goto_0
+    :goto_24
     throw v4
 
     .line 38
     .end local v3    # "e$iv":Ljava/util/concurrent/ExecutionException;
-    :cond_1
+    :cond_25
     const/4 v3, 0x0
 
     .line 39
@@ -492,12 +492,12 @@
 
     move-result-object v5
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_62
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 57
-    :cond_2
+    :cond_62
     nop
 
     .line 38
@@ -507,7 +507,7 @@
     .line 29
     .end local v1    # "$this$await$iv":Lcom/google/common/util/concurrent/ListenableFuture;
     .end local v2    # "$i$f$await":I
-    :goto_1
+    :goto_64
     const-string v1, "result.await()"
 
     invoke-static {v3, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V

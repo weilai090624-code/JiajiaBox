@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/DirectedGraphConnections;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/graph/DirectedGraphConnections;
 
     .line 401
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/graph/DirectedGraphConnections$NodeConnection;)Lcom/google/common/graph/EndpointPair;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
     .local p1, "connection":Lcom/google/common/graph/DirectedGraphConnections$NodeConnection;, "Lcom/google/common/graph/DirectedGraphConnections$NodeConnection<TN;>;"
     instance-of v0, p1, Lcom/google/common/graph/DirectedGraphConnections$NodeConnection$Succ;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 405
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$6;->val$thisNode:Ljava/lang/Object;
@@ -79,7 +79,7 @@
     return-object v0
 
     .line 407
-    :cond_0
+    :cond_d
     iget-object v0, p1, Lcom/google/common/graph/DirectedGraphConnections$NodeConnection;->node:Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/google/common/graph/DirectedGraphConnections$6;->val$thisNode:Ljava/lang/Object;
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 401
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections$6;, "Lcom/google/common/graph/DirectedGraphConnections$6;"

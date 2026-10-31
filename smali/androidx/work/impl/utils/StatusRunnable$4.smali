@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method bridge synthetic runInternal()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 150
     invoke-virtual {p0}, Landroidx/work/impl/utils/StatusRunnable$4;->runInternal()Ljava/util/List;
@@ -67,7 +67,7 @@
 .end method
 
 .method runInternal()Ljava/util/List;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

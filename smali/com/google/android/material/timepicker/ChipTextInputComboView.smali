@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 62
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 4
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -191,7 +191,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/timepicker/ChipTextInputComboView;Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/google/android/material/timepicker/ChipTextInputComboView;
     .param p1, "x1"    # Ljava/lang/CharSequence;
 
@@ -204,7 +204,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/timepicker/ChipTextInputComboView;)Lcom/google/android/material/chip/Chip;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/timepicker/ChipTextInputComboView;
 
     .line 53
@@ -214,7 +214,7 @@
 .end method
 
 .method private formatText(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .line 134
@@ -230,14 +230,14 @@
 .end method
 
 .method private updateHintLocales()V
-    .locals 3
+    .registers 4
 
     .line 91
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1b
 
     .line 92
     invoke-virtual {p0}, Lcom/google/android/material/timepicker/ChipTextInputComboView;->getContext()Landroid/content/Context;
@@ -267,14 +267,14 @@
     .line 96
     .end local v0    # "configuration":Landroid/content/res/Configuration;
     .end local v1    # "locales":Landroid/os/LocaleList;
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 
 # virtual methods
 .method public addInputFilter(Landroid/text/InputFilter;)V
-    .locals 3
+    .registers 5
     .param p1, "filter"    # Landroid/text/InputFilter;
 
     .line 156
@@ -312,7 +312,7 @@
 .end method
 
 .method getChipText()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 130
     iget-object v0, p0, Lcom/google/android/material/timepicker/ChipTextInputComboView;->chip:Lcom/google/android/material/chip/Chip;
@@ -325,7 +325,7 @@
 .end method
 
 .method public getTextInput()Lcom/google/android/material/textfield/TextInputLayout;
-    .locals 1
+    .registers 2
 
     .line 163
     iget-object v0, p0, Lcom/google/android/material/timepicker/ChipTextInputComboView;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
@@ -334,7 +334,7 @@
 .end method
 
 .method public isChecked()Z
-    .locals 1
+    .registers 2
 
     .line 100
     iget-object v0, p0, Lcom/google/android/material/timepicker/ChipTextInputComboView;->chip:Lcom/google/android/material/chip/Chip;
@@ -347,7 +347,7 @@
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+    .registers 2
     .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .line 187
@@ -361,7 +361,7 @@
 .end method
 
 .method public setChecked(Z)V
-    .locals 3
+    .registers 5
     .param p1, "checked"    # Z
 
     .line 105
@@ -374,26 +374,26 @@
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x4
 
-    :goto_0
+    :goto_d
     invoke-virtual {v0, v2}, Landroid/widget/EditText;->setVisibility(I)V
 
     .line 107
     iget-object v0, p0, Lcom/google/android/material/timepicker/ChipTextInputComboView;->chip:Lcom/google/android/material/chip/Chip;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_16
 
     const/16 v1, 0x8
 
-    :cond_1
+    :cond_16
     invoke-virtual {v0, v1}, Lcom/google/android/material/chip/Chip;->setVisibility(I)V
 
     .line 108
@@ -401,7 +401,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_24
 
     .line 109
     iget-object v0, p0, Lcom/google/android/material/timepicker/ChipTextInputComboView;->editText:Landroid/widget/EditText;
@@ -409,12 +409,12 @@
     invoke-static {v0}, Lcom/google/android/material/internal/ViewUtils;->requestFocusAndShowKeyboard(Landroid/view/View;)V
 
     .line 111
-    :cond_2
+    :cond_24
     return-void
 .end method
 
 .method public setChipDelegate(Landroidx/core/view/AccessibilityDelegateCompat;)V
-    .locals 1
+    .registers 3
     .param p1, "clickActionDelegate"    # Landroidx/core/view/AccessibilityDelegateCompat;
 
     .line 167
@@ -427,7 +427,7 @@
 .end method
 
 .method public setCursorVisible(Z)V
-    .locals 1
+    .registers 3
     .param p1, "visible"    # Z
 
     .line 152
@@ -440,7 +440,7 @@
 .end method
 
 .method public setHelperText(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "helperText"    # Ljava/lang/CharSequence;
 
     .line 148
@@ -453,7 +453,7 @@
 .end method
 
 .method public setOnClickListener(Landroid/view/View$OnClickListener;)V
-    .locals 1
+    .registers 3
     .param p1, "l"    # Landroid/view/View$OnClickListener;
 
     .line 139
@@ -466,7 +466,7 @@
 .end method
 
 .method public setTag(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # I
     .param p2, "tag"    # Ljava/lang/Object;
 
@@ -480,7 +480,7 @@
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)V
-    .locals 3
+    .registers 5
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .line 119
@@ -499,7 +499,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_22
 
     .line 122
     iget-object v1, p0, Lcom/google/android/material/timepicker/ChipTextInputComboView;->editText:Landroid/widget/EditText;
@@ -521,12 +521,12 @@
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
     .line 126
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method public toggle()V
-    .locals 1
+    .registers 2
 
     .line 115
     iget-object v0, p0, Lcom/google/android/material/timepicker/ChipTextInputComboView;->chip:Lcom/google/android/material/chip/Chip;

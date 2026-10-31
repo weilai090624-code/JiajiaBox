@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "version"    # I
 
     .line 178
@@ -80,7 +80,7 @@
 .end method
 
 .method public onPostMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -92,7 +92,7 @@
 .end method
 
 .method public onPreMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 1
+    .registers 3
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -104,7 +104,7 @@
 .end method
 
 .method public onValidateSchema(Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/room/RoomOpenHelper$ValidationResult;
-    .locals 3
+    .registers 5
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     const-string v0, "db"
@@ -127,7 +127,7 @@
 .end method
 
 .method protected validateMigration(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 2
+    .registers 4
     .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation runtime Lkotlin/Deprecated;
         message = "Use [onValidateSchema(SupportSQLiteDatabase)]"

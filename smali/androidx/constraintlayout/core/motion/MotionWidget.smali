@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/constraintlayout/core/state/WidgetFrame;)V
-    .locals 1
+    .registers 3
     .param p1, "f"    # Landroidx/constraintlayout/core/state/WidgetFrame;
 
     .line 123
@@ -141,7 +141,7 @@
 
 # virtual methods
 .method public findViewById(I)Landroidx/constraintlayout/core/motion/MotionWidget;
-    .locals 1
+    .registers 3
     .param p1, "mTransformPivotTarget"    # I
 
     .line 94
@@ -151,7 +151,7 @@
 .end method
 
 .method public getAlpha()F
-    .locals 1
+    .registers 2
 
     .line 415
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->propertySet:Landroidx/constraintlayout/core/motion/MotionWidget$PropertySet;
@@ -162,7 +162,7 @@
 .end method
 
 .method public getBottom()I
-    .locals 1
+    .registers 2
 
     .line 323
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -173,7 +173,7 @@
 .end method
 
 .method public getCustomAttribute(Ljava/lang/String;)Landroidx/constraintlayout/core/motion/CustomVariable;
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 459
@@ -187,7 +187,7 @@
 .end method
 
 .method public getCustomAttributeNames()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -208,7 +208,7 @@
 .end method
 
 .method public getHeight()I
-    .locals 2
+    .registers 3
 
     .line 431
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -225,7 +225,7 @@
 .end method
 
 .method public getId(Ljava/lang/String;)I
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
 
     .line 307
@@ -237,13 +237,13 @@
     .local v0, "ret":I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     .line 309
     return v0
 
     .line 311
-    :cond_0
+    :cond_8
     invoke-static {p1}, Landroidx/constraintlayout/core/motion/utils/TypedValues$MotionType$-CC;->getId(Ljava/lang/String;)I
 
     move-result v1
@@ -252,7 +252,7 @@
 .end method
 
 .method public getLeft()I
-    .locals 1
+    .registers 2
 
     .line 319
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -263,7 +263,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 102
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -276,7 +276,7 @@
 .end method
 
 .method public getParent()Landroidx/constraintlayout/core/motion/MotionWidget;
-    .locals 1
+    .registers 2
 
     .line 90
     const/4 v0, 0x0
@@ -285,7 +285,7 @@
 .end method
 
 .method public getPivotX()F
-    .locals 1
+    .registers 2
 
     .line 407
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -296,7 +296,7 @@
 .end method
 
 .method public getPivotY()F
-    .locals 1
+    .registers 2
 
     .line 411
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -307,7 +307,7 @@
 .end method
 
 .method public getRight()I
-    .locals 1
+    .registers 2
 
     .line 327
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -318,7 +318,7 @@
 .end method
 
 .method public getRotationX()F
-    .locals 1
+    .registers 2
 
     .line 339
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -329,7 +329,7 @@
 .end method
 
 .method public getRotationY()F
-    .locals 1
+    .registers 2
 
     .line 347
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -340,7 +340,7 @@
 .end method
 
 .method public getRotationZ()F
-    .locals 1
+    .registers 2
 
     .line 355
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -351,7 +351,7 @@
 .end method
 
 .method public getScaleX()F
-    .locals 1
+    .registers 2
 
     .line 387
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -362,7 +362,7 @@
 .end method
 
 .method public getScaleY()F
-    .locals 1
+    .registers 2
 
     .line 395
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -373,7 +373,7 @@
 .end method
 
 .method public getTop()I
-    .locals 1
+    .registers 2
 
     .line 315
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -384,7 +384,7 @@
 .end method
 
 .method public getTranslationX()F
-    .locals 1
+    .registers 2
 
     .line 363
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -395,7 +395,7 @@
 .end method
 
 .method public getTranslationY()F
-    .locals 1
+    .registers 2
 
     .line 371
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -406,7 +406,7 @@
 .end method
 
 .method public getTranslationZ()F
-    .locals 1
+    .registers 2
 
     .line 383
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -417,32 +417,32 @@
 .end method
 
 .method public getValueAttributes(I)F
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 273
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_44
 
     .line 301
-    :pswitch_0
+    :pswitch_3
     const/high16 v0, 0x7fc00000    # Float.NaN
 
     return v0
 
     .line 299
-    :pswitch_1
+    :pswitch_6
     iget v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->mTransitionPathRotate:F
 
     return v0
 
     .line 297
-    :pswitch_2
+    :pswitch_9
     iget v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->mProgress:F
 
     return v0
 
     .line 295
-    :pswitch_3
+    :pswitch_c
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->pivotY:F
@@ -450,7 +450,7 @@
     return v0
 
     .line 293
-    :pswitch_4
+    :pswitch_11
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->pivotX:F
@@ -458,7 +458,7 @@
     return v0
 
     .line 291
-    :pswitch_5
+    :pswitch_16
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->scaleY:F
@@ -466,7 +466,7 @@
     return v0
 
     .line 289
-    :pswitch_6
+    :pswitch_1b
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->scaleX:F
@@ -474,7 +474,7 @@
     return v0
 
     .line 287
-    :pswitch_7
+    :pswitch_20
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->rotationZ:F
@@ -482,7 +482,7 @@
     return v0
 
     .line 285
-    :pswitch_8
+    :pswitch_25
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->rotationY:F
@@ -490,7 +490,7 @@
     return v0
 
     .line 283
-    :pswitch_9
+    :pswitch_2a
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->rotationX:F
@@ -498,7 +498,7 @@
     return v0
 
     .line 281
-    :pswitch_a
+    :pswitch_2f
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->translationZ:F
@@ -506,7 +506,7 @@
     return v0
 
     .line 279
-    :pswitch_b
+    :pswitch_34
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->translationY:F
@@ -514,7 +514,7 @@
     return v0
 
     .line 277
-    :pswitch_c
+    :pswitch_39
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->translationX:F
@@ -522,7 +522,7 @@
     return v0
 
     .line 275
-    :pswitch_d
+    :pswitch_3e
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iget v0, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->alpha:F
@@ -531,27 +531,27 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_44
     .packed-switch 0x12f
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_0
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
+        :pswitch_3e
+        :pswitch_39
+        :pswitch_34
+        :pswitch_2f
         :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_2a
+        :pswitch_25
+        :pswitch_20
+        :pswitch_1b
+        :pswitch_16
+        :pswitch_11
+        :pswitch_c
+        :pswitch_9
+        :pswitch_6
     .end packed-switch
 .end method
 
 .method public getVisibility()I
-    .locals 1
+    .registers 2
 
     .line 403
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->propertySet:Landroidx/constraintlayout/core/motion/MotionWidget$PropertySet;
@@ -562,7 +562,7 @@
 .end method
 
 .method public getWidgetFrame()Landroidx/constraintlayout/core/state/WidgetFrame;
-    .locals 1
+    .registers 2
 
     .line 435
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -571,7 +571,7 @@
 .end method
 
 .method public getWidth()I
-    .locals 2
+    .registers 3
 
     .line 427
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -588,7 +588,7 @@
 .end method
 
 .method public getX()I
-    .locals 1
+    .registers 2
 
     .line 419
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -599,7 +599,7 @@
 .end method
 
 .method public getY()I
-    .locals 1
+    .registers 2
 
     .line 423
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -610,7 +610,7 @@
 .end method
 
 .method public layout(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "l"    # I
     .param p2, "t"    # I
     .param p3, "r"    # I
@@ -624,7 +624,7 @@
 .end method
 
 .method public setBounds(IIII)V
-    .locals 3
+    .registers 8
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -633,7 +633,7 @@
     .line 114
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 115
     new-instance v0, Landroidx/constraintlayout/core/state/WidgetFrame;
@@ -649,7 +649,7 @@
     iput-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     .line 117
-    :cond_0
+    :cond_f
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->top:I
@@ -674,7 +674,7 @@
 .end method
 
 .method public setCustomAttribute(Ljava/lang/String;IF)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # F
@@ -689,7 +689,7 @@
 .end method
 
 .method public setCustomAttribute(Ljava/lang/String;II)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # I
@@ -704,7 +704,7 @@
 .end method
 
 .method public setCustomAttribute(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # Ljava/lang/String;
@@ -719,7 +719,7 @@
 .end method
 
 .method public setCustomAttribute(Ljava/lang/String;IZ)V
-    .locals 1
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "type"    # I
     .param p3, "value"    # Z
@@ -734,7 +734,7 @@
 .end method
 
 .method public setInterpolatedValue(Landroidx/constraintlayout/core/motion/CustomAttribute;[F)V
-    .locals 4
+    .registers 7
     .param p1, "attribute"    # Landroidx/constraintlayout/core/motion/CustomAttribute;
     .param p2, "mCache"    # [F
 
@@ -756,7 +756,7 @@
 .end method
 
 .method public setPivotX(F)V
-    .locals 1
+    .registers 3
     .param p1, "px"    # F
 
     .line 331
@@ -769,7 +769,7 @@
 .end method
 
 .method public setPivotY(F)V
-    .locals 1
+    .registers 3
     .param p1, "py"    # F
 
     .line 335
@@ -782,7 +782,7 @@
 .end method
 
 .method public setRotationX(F)V
-    .locals 1
+    .registers 3
     .param p1, "rotationX"    # F
 
     .line 343
@@ -795,7 +795,7 @@
 .end method
 
 .method public setRotationY(F)V
-    .locals 1
+    .registers 3
     .param p1, "rotationY"    # F
 
     .line 351
@@ -808,7 +808,7 @@
 .end method
 
 .method public setRotationZ(F)V
-    .locals 1
+    .registers 3
     .param p1, "rotationZ"    # F
 
     .line 359
@@ -821,7 +821,7 @@
 .end method
 
 .method public setScaleX(F)V
-    .locals 1
+    .registers 3
     .param p1, "scaleX"    # F
 
     .line 391
@@ -834,7 +834,7 @@
 .end method
 
 .method public setScaleY(F)V
-    .locals 1
+    .registers 3
     .param p1, "scaleY"    # F
 
     .line 399
@@ -847,7 +847,7 @@
 .end method
 
 .method public setTranslationX(F)V
-    .locals 1
+    .registers 3
     .param p1, "translationX"    # F
 
     .line 367
@@ -860,7 +860,7 @@
 .end method
 
 .method public setTranslationY(F)V
-    .locals 1
+    .registers 3
     .param p1, "translationY"    # F
 
     .line 375
@@ -873,7 +873,7 @@
 .end method
 
 .method public setTranslationZ(F)V
-    .locals 1
+    .registers 3
     .param p1, "tz"    # F
 
     .line 379
@@ -886,7 +886,7 @@
 .end method
 
 .method public setValue(IF)Z
-    .locals 2
+    .registers 5
     .param p1, "id"    # I
     .param p2, "value"    # F
 
@@ -897,7 +897,7 @@
 
     .line 135
     .local v0, "set":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 136
     const/4 v1, 0x1
@@ -905,7 +905,7 @@
     return v1
 
     .line 138
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1, p2}, Landroidx/constraintlayout/core/motion/MotionWidget;->setValueMotion(IF)Z
 
     move-result v1
@@ -914,7 +914,7 @@
 .end method
 
 .method public setValue(II)Z
-    .locals 1
+    .registers 4
     .param p1, "id"    # I
     .param p2, "value"    # I
 
@@ -929,7 +929,7 @@
 .end method
 
 .method public setValue(ILjava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p1, "id"    # I
     .param p2, "value"    # Ljava/lang/String;
 
@@ -942,7 +942,7 @@
 .end method
 
 .method public setValue(IZ)Z
-    .locals 1
+    .registers 4
     .param p1, "id"    # I
     .param p2, "value"    # Z
 
@@ -953,125 +953,125 @@
 .end method
 
 .method public setValueAttributes(IF)Z
-    .locals 1
+    .registers 4
     .param p1, "id"    # I
     .param p2, "value"    # F
 
     .line 222
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_44
 
     .line 263
-    :pswitch_0
+    :pswitch_3
     const/4 v0, 0x0
 
     return v0
 
     .line 260
-    :pswitch_1
+    :pswitch_5
     iput p2, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->mTransitionPathRotate:F
 
     .line 261
-    goto :goto_0
+    goto :goto_42
 
     .line 257
-    :pswitch_2
+    :pswitch_8
     iput p2, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->mProgress:F
 
     .line 258
-    goto :goto_0
+    goto :goto_42
 
     .line 254
-    :pswitch_3
+    :pswitch_b
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->pivotY:F
 
     .line 255
-    goto :goto_0
+    goto :goto_42
 
     .line 251
-    :pswitch_4
+    :pswitch_10
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->pivotX:F
 
     .line 252
-    goto :goto_0
+    goto :goto_42
 
     .line 248
-    :pswitch_5
+    :pswitch_15
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->scaleY:F
 
     .line 249
-    goto :goto_0
+    goto :goto_42
 
     .line 245
-    :pswitch_6
+    :pswitch_1a
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->scaleX:F
 
     .line 246
-    goto :goto_0
+    goto :goto_42
 
     .line 242
-    :pswitch_7
+    :pswitch_1f
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->rotationZ:F
 
     .line 243
-    goto :goto_0
+    goto :goto_42
 
     .line 239
-    :pswitch_8
+    :pswitch_24
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->rotationY:F
 
     .line 240
-    goto :goto_0
+    goto :goto_42
 
     .line 236
-    :pswitch_9
+    :pswitch_29
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->rotationX:F
 
     .line 237
-    goto :goto_0
+    goto :goto_42
 
     .line 233
-    :pswitch_a
+    :pswitch_2e
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->translationZ:F
 
     .line 234
-    goto :goto_0
+    goto :goto_42
 
     .line 230
-    :pswitch_b
+    :pswitch_33
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->translationY:F
 
     .line 231
-    goto :goto_0
+    goto :goto_42
 
     .line 227
-    :pswitch_c
+    :pswitch_38
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->translationX:F
 
     .line 228
-    goto :goto_0
+    goto :goto_42
 
     .line 224
-    :pswitch_d
+    :pswitch_3d
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->widgetFrame:Landroidx/constraintlayout/core/state/WidgetFrame;
 
     iput p2, v0, Landroidx/constraintlayout/core/state/WidgetFrame;->alpha:F
@@ -1080,37 +1080,37 @@
     nop
 
     .line 265
-    :goto_0
+    :goto_42
     const/4 v0, 0x1
 
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_44
     .packed-switch 0x12f
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_0
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
+        :pswitch_3d
+        :pswitch_38
+        :pswitch_33
+        :pswitch_2e
         :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_29
+        :pswitch_24
+        :pswitch_1f
+        :pswitch_1a
+        :pswitch_15
+        :pswitch_10
+        :pswitch_b
+        :pswitch_8
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public setValueMotion(IF)Z
-    .locals 1
+    .registers 4
     .param p1, "id"    # I
     .param p2, "value"    # F
 
     .line 199
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_16
 
     .line 210
     const/4 v0, 0x0
@@ -1118,25 +1118,25 @@
     return v0
 
     .line 207
-    :pswitch_0
+    :pswitch_5
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mQuantizeMotionPhase:F
 
     .line 208
-    goto :goto_0
+    goto :goto_14
 
     .line 204
-    :pswitch_1
+    :pswitch_a
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mPathRotate:F
 
     .line 205
-    goto :goto_0
+    goto :goto_14
 
     .line 201
-    :pswitch_2
+    :pswitch_f
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mMotionStagger:F
@@ -1145,26 +1145,26 @@
     nop
 
     .line 212
-    :goto_0
+    :goto_14
     const/4 v0, 0x1
 
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_16
     .packed-switch 0x258
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_f
+        :pswitch_a
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public setValueMotion(II)Z
-    .locals 1
+    .registers 4
     .param p1, "id"    # I
     .param p2, "value"    # I
 
     .line 152
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_30
 
     .line 178
     const/4 v0, 0x0
@@ -1172,70 +1172,70 @@
     return v0
 
     .line 175
-    :pswitch_0
+    :pswitch_5
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mQuantizeInterpolatorID:I
 
     .line 176
-    goto :goto_0
+    goto :goto_2d
 
     .line 172
-    :pswitch_1
+    :pswitch_a
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mQuantizeInterpolatorType:I
 
     .line 173
-    goto :goto_0
+    goto :goto_2d
 
     .line 169
-    :pswitch_2
+    :pswitch_f
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mQuantizeMotionSteps:I
 
     .line 170
-    goto :goto_0
+    goto :goto_2d
 
     .line 166
-    :pswitch_3
+    :pswitch_14
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mPolarRelativeTo:I
 
     .line 167
-    goto :goto_0
+    goto :goto_2d
 
     .line 163
-    :pswitch_4
+    :pswitch_19
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mDrawPath:I
 
     .line 164
-    goto :goto_0
+    goto :goto_2d
 
     .line 160
-    :pswitch_5
+    :pswitch_1e
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mPathMotionArc:I
 
     .line 161
-    goto :goto_0
+    goto :goto_2d
 
     .line 157
-    :pswitch_6
+    :pswitch_23
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mAnimateCircleAngleTo:I
 
     .line 158
-    goto :goto_0
+    goto :goto_2d
 
     .line 154
-    :pswitch_7
+    :pswitch_28
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mAnimateRelativeTo:I
@@ -1244,33 +1244,33 @@
     nop
 
     .line 180
-    :goto_0
+    :goto_2d
     const/4 v0, 0x1
 
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_30
     .packed-switch 0x25d
-        :pswitch_7
-        :pswitch_6
+        :pswitch_28
+        :pswitch_23
+        :pswitch_1e
+        :pswitch_19
+        :pswitch_14
+        :pswitch_f
+        :pswitch_a
         :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
     .end packed-switch
 .end method
 
 .method public setValueMotion(ILjava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p1, "id"    # I
     .param p2, "value"    # Ljava/lang/String;
 
     .line 184
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_12
 
     .line 193
     const/4 v0, 0x0
@@ -1278,16 +1278,16 @@
     return v0
 
     .line 190
-    :pswitch_0
+    :pswitch_5
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput-object p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mQuantizeInterpolatorString:Ljava/lang/String;
 
     .line 191
-    goto :goto_0
+    goto :goto_f
 
     .line 187
-    :pswitch_1
+    :pswitch_a
     iget-object v0, p0, Landroidx/constraintlayout/core/motion/MotionWidget;->motion:Landroidx/constraintlayout/core/motion/MotionWidget$Motion;
 
     iput-object p2, v0, Landroidx/constraintlayout/core/motion/MotionWidget$Motion;->mTransitionEasing:Ljava/lang/String;
@@ -1296,22 +1296,22 @@
     nop
 
     .line 195
-    :goto_0
+    :goto_f
     const/4 v0, 0x1
 
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_12
     .packed-switch 0x25b
-        :pswitch_1
-        :pswitch_0
+        :pswitch_a
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public setVisibility(I)V
-    .locals 1
+    .registers 3
     .param p1, "visibility"    # I
 
     .line 98
@@ -1324,7 +1324,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 110
     new-instance v0, Ljava/lang/StringBuilder;

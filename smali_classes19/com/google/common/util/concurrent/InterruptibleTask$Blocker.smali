@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/InterruptibleTask;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,7 +51,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/InterruptibleTask;Lcom/google/common/util/concurrent/InterruptibleTask$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/util/concurrent/InterruptibleTask;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/InterruptibleTask$1;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/util/concurrent/InterruptibleTask$Blocker;Ljava/lang/Thread;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/InterruptibleTask$Blocker;
     .param p1, "x1"    # Ljava/lang/Thread;
 
@@ -73,7 +73,7 @@
 .end method
 
 .method private setOwner(Ljava/lang/Thread;)V
-    .locals 0
+    .registers 2
     .param p1, "thread"    # Ljava/lang/Thread;
 
     .line 231
@@ -86,14 +86,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 0
+    .registers 1
 
     .line 228
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 236
     iget-object v0, p0, Lcom/google/common/util/concurrent/InterruptibleTask$Blocker;->task:Lcom/google/common/util/concurrent/InterruptibleTask;

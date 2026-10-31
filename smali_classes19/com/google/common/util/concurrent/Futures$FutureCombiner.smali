@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>(ZLcom/google/common/collect/ImmutableList;)V
-    .locals 0
+    .registers 3
     .param p1, "allMustSucceed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,7 +66,7 @@
 .end method
 
 .method synthetic constructor <init>(ZLcom/google/common/collect/ImmutableList;Lcom/google/common/util/concurrent/Futures$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Z
     .param p2, "x1"    # Lcom/google/common/collect/ImmutableList;
     .param p3, "x2"    # Lcom/google/common/util/concurrent/Futures$1;
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public call(Ljava/util/concurrent/Callable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 6
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -112,7 +112,7 @@
 .end method
 
 .method public callAsync(Lcom/google/common/util/concurrent/AsyncCallable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 6
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -143,7 +143,7 @@
 .end method
 
 .method public run(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 4
     .param p1, "combiner"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
     .param p1, "remote"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 139
     iget-object v0, p0, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -60,7 +60,7 @@
 .end method
 
 .method public cbSelectorUpdate(J)V
-    .locals 5
+    .registers 8
     .param p1, "id"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -84,7 +84,7 @@
 
     .line 228
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "io.nekohasekai.sagernet.aidl.ISagerNetServiceCallback"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -107,13 +107,13 @@
 
     .line 231
     .local v1, "_status":Z
-    if-nez v1, :cond_0
+    if-nez v1, :cond_28
 
     invoke-static {}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     .line 232
     invoke-static {}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
@@ -121,8 +121,8 @@
     move-result-object v2
 
     invoke-interface {v2, p1, p2}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;->cbSelectorUpdate(J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_4 .. :try_end_24} :catchall_2d
 
     .line 237
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -132,7 +132,7 @@
 
     .line 237
     .end local v1    # "_status":Z
-    :cond_0
+    :cond_28
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 238
@@ -142,7 +142,7 @@
     return-void
 
     .line 237
-    :catchall_0
+    :catchall_2d
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -152,7 +152,7 @@
 .end method
 
 .method public cbSpeedUpdate(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
-    .locals 5
+    .registers 7
     .param p1, "stats"    # Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -176,7 +176,7 @@
 
     .line 184
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "io.nekohasekai.sagernet.aidl.ISagerNetServiceCallback"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -186,7 +186,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     .line 186
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -194,14 +194,14 @@
     .line 187
     invoke-virtual {p1, v0, v2}, Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 190
-    :cond_0
+    :cond_14
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 192
-    :goto_0
+    :goto_17
     iget-object v2, p0, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x3
@@ -214,13 +214,13 @@
 
     .line 193
     .local v1, "_status":Z
-    if-nez v1, :cond_1
+    if-nez v1, :cond_32
 
     invoke-static {}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_32
 
     .line 194
     invoke-static {}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
@@ -228,8 +228,8 @@
     move-result-object v2
 
     invoke-interface {v2, p1}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;->cbSpeedUpdate(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_4 .. :try_end_2e} :catchall_37
 
     .line 199
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -239,7 +239,7 @@
 
     .line 199
     .end local v1    # "_status":Z
-    :cond_1
+    :cond_32
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 200
@@ -249,7 +249,7 @@
     return-void
 
     .line 199
-    :catchall_0
+    :catchall_37
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -259,7 +259,7 @@
 .end method
 
 .method public cbTrafficUpdate(Lio/nekohasekai/sagernet/aidl/TrafficData;)V
-    .locals 5
+    .registers 7
     .param p1, "stats"    # Lio/nekohasekai/sagernet/aidl/TrafficData;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -283,7 +283,7 @@
 
     .line 206
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "io.nekohasekai.sagernet.aidl.ISagerNetServiceCallback"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -293,7 +293,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     .line 208
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -301,14 +301,14 @@
     .line 209
     invoke-virtual {p1, v0, v2}, Lio/nekohasekai/sagernet/aidl/TrafficData;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 212
-    :cond_0
+    :cond_14
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 214
-    :goto_0
+    :goto_17
     iget-object v2, p0, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x4
@@ -321,13 +321,13 @@
 
     .line 215
     .local v1, "_status":Z
-    if-nez v1, :cond_1
+    if-nez v1, :cond_32
 
     invoke-static {}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_32
 
     .line 216
     invoke-static {}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
@@ -335,8 +335,8 @@
     move-result-object v2
 
     invoke-interface {v2, p1}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;->cbTrafficUpdate(Lio/nekohasekai/sagernet/aidl/TrafficData;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_4 .. :try_end_2e} :catchall_37
 
     .line 221
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -346,7 +346,7 @@
 
     .line 221
     .end local v1    # "_status":Z
-    :cond_1
+    :cond_32
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 222
@@ -356,7 +356,7 @@
     return-void
 
     .line 221
-    :catchall_0
+    :catchall_37
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -366,7 +366,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 143
     const-string v0, "io.nekohasekai.sagernet.aidl.ISagerNetServiceCallback"
@@ -375,7 +375,7 @@
 .end method
 
 .method public missingPlugin(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 8
     .param p1, "profileName"    # Ljava/lang/String;
     .param p2, "pluginName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -402,7 +402,7 @@
 
     .line 167
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "io.nekohasekai.sagernet.aidl.ISagerNetServiceCallback"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -428,13 +428,13 @@
 
     .line 171
     .local v1, "_status":Z
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2b
 
     invoke-static {}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2b
 
     .line 172
     invoke-static {}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
@@ -442,8 +442,8 @@
     move-result-object v2
 
     invoke-interface {v2, p1, p2}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;->missingPlugin(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_4 .. :try_end_27} :catchall_30
 
     .line 177
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -453,7 +453,7 @@
 
     .line 177
     .end local v1    # "_status":Z
-    :cond_0
+    :cond_2b
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 178
@@ -463,7 +463,7 @@
     return-void
 
     .line 177
-    :catchall_0
+    :catchall_30
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -473,7 +473,7 @@
 .end method
 
 .method public stateChanged(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .registers 8
     .param p1, "state"    # I
     .param p2, "profileName"    # Ljava/lang/String;
     .param p3, "msg"    # Ljava/lang/String;
@@ -503,7 +503,7 @@
 
     .line 149
     .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     const-string v1, "io.nekohasekai.sagernet.aidl.ISagerNetServiceCallback"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -530,13 +530,13 @@
 
     .line 154
     .local v1, "_status":Z
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2d
 
     invoke-static {}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2d
 
     .line 155
     invoke-static {}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback$Stub;->getDefaultImpl()Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
@@ -544,8 +544,8 @@
     move-result-object v2
 
     invoke-interface {v2, p1, p2, p3}, Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;->stateChanged(ILjava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_4 .. :try_end_29} :catchall_32
 
     .line 160
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -555,7 +555,7 @@
 
     .line 160
     .end local v1    # "_status":Z
-    :cond_0
+    :cond_2d
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 161
@@ -565,7 +565,7 @@
     return-void
 
     .line 160
-    :catchall_0
+    :catchall_32
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

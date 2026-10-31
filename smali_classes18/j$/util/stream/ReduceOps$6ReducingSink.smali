@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/function/IntBinaryOperator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public synthetic accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;D)V
 
@@ -66,13 +66,13 @@
 .end method
 
 .method public accept(I)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # I
 
     .line 340
     iget-boolean v0, p0, Lj$/util/stream/ReduceOps$6ReducingSink;->empty:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 341
     const/4 v0, 0x0
@@ -82,10 +82,10 @@
     .line 342
     iput p1, p0, Lj$/util/stream/ReduceOps$6ReducingSink;->state:I
 
-    goto :goto_0
+    goto :goto_14
 
     .line 345
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lj$/util/stream/ReduceOps$6ReducingSink;->val$operator:Ljava/util/function/IntBinaryOperator;
 
     iget v1, p0, Lj$/util/stream/ReduceOps$6ReducingSink;->state:I
@@ -97,12 +97,12 @@
     iput v0, p0, Lj$/util/stream/ReduceOps$6ReducingSink;->state:I
 
     .line 347
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method public synthetic accept(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;J)V
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public synthetic accept(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfInt$-CC;->$default$accept(Lj$/util/stream/Sink$OfInt;Ljava/lang/Integer;)V
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfInt$-CC;->$default$accept(Lj$/util/stream/Sink$OfInt;Ljava/lang/Object;)V
 
@@ -126,7 +126,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -136,7 +136,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 
@@ -146,7 +146,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 1
+    .registers 4
     .param p1, "size"    # J
 
     .line 334
@@ -164,7 +164,7 @@
 .end method
 
 .method public synthetic cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$cancellationRequested(Lj$/util/stream/Sink;)Z
 
@@ -174,13 +174,13 @@
 .end method
 
 .method public combine(Lj$/util/stream/ReduceOps$6ReducingSink;)V
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lj$/util/stream/ReduceOps$6ReducingSink;
 
     .line 356
     iget-boolean v0, p1, Lj$/util/stream/ReduceOps$6ReducingSink;->empty:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 357
     iget v0, p1, Lj$/util/stream/ReduceOps$6ReducingSink;->state:I
@@ -188,12 +188,12 @@
     invoke-virtual {p0, v0}, Lj$/util/stream/ReduceOps$6ReducingSink;->accept(I)V
 
     .line 358
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public bridge synthetic combine(Lj$/util/stream/ReduceOps$AccumulatingSink;)V
-    .locals 0
+    .registers 2
 
     .line 328
     check-cast p1, Lj$/util/stream/ReduceOps$6ReducingSink;
@@ -204,7 +204,7 @@
 .end method
 
 .method public synthetic end()V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$end(Lj$/util/stream/Sink;)V
 
@@ -212,32 +212,32 @@
 .end method
 
 .method public get()Lj$/util/OptionalInt;
-    .locals 1
+    .registers 2
 
     .line 351
     iget-boolean v0, p0, Lj$/util/stream/ReduceOps$6ReducingSink;->empty:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-static {}, Lj$/util/OptionalInt;->empty()Lj$/util/OptionalInt;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_9
     iget v0, p0, Lj$/util/stream/ReduceOps$6ReducingSink;->state:I
 
     invoke-static {v0}, Lj$/util/OptionalInt;->of(I)Lj$/util/OptionalInt;
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     return-object v0
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 328
     invoke-virtual {p0}, Lj$/util/stream/ReduceOps$6ReducingSink;->get()Lj$/util/OptionalInt;

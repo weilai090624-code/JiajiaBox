@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 189
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/connection/RouteSelector$Companion;-><init>()V
 
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public final getSocketHost(Ljava/net/InetSocketAddress;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "$this$socketHost"    # Ljava/net/InetSocketAddress;
 
     const-string v0, "<this>"
@@ -71,7 +71,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     invoke-virtual {p1}, Ljava/net/InetSocketAddress;->getHostName()Ljava/lang/String;
 
@@ -85,7 +85,7 @@
 
     .line 199
     .local v0, "address":Ljava/net/InetAddress;
-    :cond_0
+    :cond_15
     invoke-virtual {v0}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
 
     move-result-object v1

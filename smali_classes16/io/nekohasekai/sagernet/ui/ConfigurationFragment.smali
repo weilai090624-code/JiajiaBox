@@ -167,7 +167,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$-rpXmlZ8-Tp4Ceew_LFUtgHVixQ(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lkotlinx/coroutines/Job;Ljava/util/List;)Lkotlin/Unit;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->pingTest$lambda$10(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lkotlinx/coroutines/Job;Ljava/util/List;)Lkotlin/Unit;
 
@@ -177,7 +177,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$0Fvts30jlrC3ORMuRA-HpHMhW3I(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)Lkotlin/Unit;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->urlTest$lambda$13(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)Lkotlin/Unit;
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$2VwKzQFelfArsuhstuJobQpgQpE(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/net/Uri;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->importFile$lambda$8(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/net/Uri;)V
 
@@ -195,7 +195,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$4GHauY-7jKE9m-1GlJ4c2xE54wc(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)Lkotlin/Unit;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->pingTest$lambda$11(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)Lkotlin/Unit;
 
@@ -205,7 +205,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$71tMwzuvwgZoE8mS4M24RDV7C_Y(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->onViewCreated$lambda$6(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/view/View;)V
 
@@ -213,7 +213,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$9DPXwRydYJmbiJGnJjUNSsPoTOY(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroidx/appcompat/widget/SearchView;Landroid/view/View;Z)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->onViewCreated$lambda$3(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroidx/appcompat/widget/SearchView;Landroid/view/View;Z)V
 
@@ -221,7 +221,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Epj8FdJh9rdOkq78AFMjQAzprTA(Landroid/view/View;)Z
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->onViewCreated$lambda$5$lambda$4(Landroid/view/View;)Z
 
@@ -231,7 +231,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$GeFhXXxwc8pE6E54k06NlJTx4d8(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lkotlinx/coroutines/Job;Ljava/util/List;)Lkotlin/Unit;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->urlTest$lambda$12(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lkotlinx/coroutines/Job;Ljava/util/List;)Lkotlin/Unit;
 
@@ -241,7 +241,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$IiPMWy-CBtDaaY64q9KSlLHvX7Y()Z
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->alwaysShowAddress_delegate$lambda$0()Z
 
@@ -251,7 +251,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$Il4w_GOOu-Qe45kHQOiMIRpE-FI(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/net/Uri;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->exportConfig$lambda$14(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/net/Uri;)V
 
@@ -259,7 +259,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$TOPzBY7LwEQWDfHaKu2nlpMYyoE(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Lcom/google/android/material/tabs/TabLayout$Tab;I)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->onViewCreated$lambda$5(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Lcom/google/android/material/tabs/TabLayout$Tab;I)V
 
@@ -267,7 +267,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$ZUONEOMxsxyIgHKdjHNCaZ0Uw4w(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->onViewCreated$lambda$2(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/view/View;)V
 
@@ -275,7 +275,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$qfn0kg3UzzDlNrtZOPvxoJHPXiI(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->syncGlassInset$lambda$1(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
 
@@ -283,7 +283,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 6
+    .registers 7
 
     const/4 v4, 0x7
 
@@ -304,7 +304,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .locals 6
+    .registers 8
     .param p1, "select"    # Z
 
     const/4 v4, 0x6
@@ -326,7 +326,7 @@
 .end method
 
 .method public constructor <init>(ZLio/nekohasekai/sagernet/database/ProxyEntity;)V
-    .locals 6
+    .registers 9
     .param p1, "select"    # Z
     .param p2, "selectedItem"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
 
@@ -349,7 +349,7 @@
 .end method
 
 .method public constructor <init>(ZLio/nekohasekai/sagernet/database/ProxyEntity;I)V
-    .locals 3
+    .registers 7
     .param p1, "select"    # Z
     .param p2, "selectedItem"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p3, "titleRes"    # I
@@ -431,38 +431,38 @@
 .end method
 
 .method public synthetic constructor <init>(ZLio/nekohasekai/sagernet/database/ProxyEntity;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
+    .registers 7
 
     .line 118
     and-int/lit8 p5, p4, 0x1
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     .line 119
     const/4 p1, 0x0
 
     .line 118
-    :cond_0
+    :cond_6
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_b
 
     .line 119
     const/4 p2, 0x0
 
     .line 118
-    :cond_1
+    :cond_b
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_10
 
     .line 119
     const/4 p3, 0x0
 
     .line 118
-    :cond_2
+    :cond_10
     invoke-direct {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;-><init>(ZLio/nekohasekai/sagernet/database/ProxyEntity;I)V
 
     .line 120
@@ -470,7 +470,7 @@
 .end method
 
 .method public static final synthetic access$getExportConfig$p(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)Landroidx/activity/result/ActivityResultLauncher;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     .line 118
@@ -480,7 +480,7 @@
 .end method
 
 .method public static final synthetic access$syncGlassInset(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
-    .locals 0
+    .registers 1
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     .line 118
@@ -490,7 +490,7 @@
 .end method
 
 .method private static final alwaysShowAddress_delegate$lambda$0()Z
-    .locals 1
+    .registers 1
 
     .line 134
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -503,7 +503,7 @@
 .end method
 
 .method private final cancelSearch(Landroidx/appcompat/widget/SearchView;)V
-    .locals 0
+    .registers 2
     .param p1, "searchView"    # Landroidx/appcompat/widget/SearchView;
 
     .line 1759
@@ -517,12 +517,12 @@
 .end method
 
 .method private static final exportConfig$lambda$14(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/net/Uri;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
     .param p1, "data"    # Landroid/net/Uri;
 
     .line 1736
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     .line 1737
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$exportConfig$1$1;
@@ -536,17 +536,17 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 1756
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method private static final importFile$lambda$8(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/net/Uri;)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
     .param p1, "file"    # Landroid/net/Uri;
 
     .line 305
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$importFile$1$1;
 
@@ -559,12 +559,12 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 348
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method private static final onViewCreated$lambda$2(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
     .param p1, "it"    # Landroid/view/View;
 
@@ -580,24 +580,24 @@
 .end method
 
 .method private static final onViewCreated$lambda$3(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroidx/appcompat/widget/SearchView;Landroid/view/View;Z)V
-    .locals 0
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
     .param p1, "$searchView"    # Landroidx/appcompat/widget/SearchView;
     .param p3, "hasFocus"    # Z
 
     .line 213
-    if-nez p3, :cond_0
+    if-nez p3, :cond_5
 
     .line 214
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->cancelSearch(Landroidx/appcompat/widget/SearchView;)V
 
     .line 216
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method private static final onViewCreated$lambda$5(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Lcom/google/android/material/tabs/TabLayout$Tab;I)V
-    .locals 2
+    .registers 5
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
     .param p1, "tab"    # Lcom/google/android/material/tabs/TabLayout$Tab;
     .param p2, "position"    # I
@@ -619,7 +619,7 @@
 
     move-result v0
 
-    if-le v0, p2, :cond_0
+    if-le v0, p2, :cond_2a
 
     .line 230
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getAdapter()Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;
@@ -645,7 +645,7 @@
     invoke-virtual {p1, v0}, Lcom/google/android/material/tabs/TabLayout$Tab;->setText(Ljava/lang/CharSequence;)Lcom/google/android/material/tabs/TabLayout$Tab;
 
     .line 232
-    :cond_0
+    :cond_2a
     iget-object v0, p1, Lcom/google/android/material/tabs/TabLayout$Tab;->view:Lcom/google/android/material/tabs/TabLayout$TabView;
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$$ExternalSyntheticLambda2;
@@ -659,7 +659,7 @@
 .end method
 
 .method private static final onViewCreated$lambda$5$lambda$4(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0, "it"    # Landroid/view/View;
 
     .line 233
@@ -669,7 +669,7 @@
 .end method
 
 .method private static final onViewCreated$lambda$6(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Landroid/view/View;)V
-    .locals 10
+    .registers 12
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
     .param p1, "it"    # Landroid/view/View;
 
@@ -680,20 +680,20 @@
 
     .line 242
     .local v0, "fragment":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_54
 
     .line 243
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->selectedItem:Lio/nekohasekai/sagernet/database/ProxyEntity;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getId()J
 
     move-result-wide v1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_f
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/DataStore;->getSelectedProxy()J
@@ -702,7 +702,7 @@
 
     .line 245
     .local v1, "selectedProxy":J
-    :goto_0
+    :goto_15
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getAdapter()Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
 
     move-result-object v3
@@ -730,7 +730,7 @@
 
     const/4 v5, 0x0
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_4b
 
     .line 247
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getLayoutManager()Landroidx/recyclerview/widget/LinearLayoutManager;
@@ -753,19 +753,19 @@
     .local v7, "last":I
     const/4 v8, 0x1
 
-    if-gt v6, v3, :cond_1
+    if-gt v6, v3, :cond_40
 
-    if-gt v3, v7, :cond_1
+    if-gt v3, v7, :cond_40
 
     const/4 v9, 0x1
 
-    goto :goto_1
+    goto :goto_41
 
-    :cond_1
+    :cond_40
     const/4 v9, 0x0
 
-    :goto_1
-    if-nez v9, :cond_2
+    :goto_41
+    if-nez v9, :cond_4b
 
     .line 252
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -781,7 +781,7 @@
     .end local v4    # "layoutManager":Landroidx/recyclerview/widget/LinearLayoutManager;
     .end local v6    # "first":I
     .end local v7    # "last":I
-    :cond_2
+    :cond_4b
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
 
     move-result-object v4
@@ -795,12 +795,12 @@
     .line 261
     .end local v1    # "selectedProxy":J
     .end local v3    # "selectedProfileIndex":I
-    :cond_3
+    :cond_54
     return-void
 .end method
 
 .method private static final pingTest$lambda$10(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lkotlinx/coroutines/Job;Ljava/util/List;)Lkotlin/Unit;
-    .locals 2
+    .registers 6
     .param p0, "$test"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
     .param p1, "$dialog"    # Landroidx/appcompat/app/AlertDialog;
     .param p2, "$mainJob"    # Lkotlinx/coroutines/Job;
@@ -836,7 +836,7 @@
 .end method
 
 .method private static final pingTest$lambda$11(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)Lkotlin/Unit;
-    .locals 4
+    .registers 8
     .param p0, "$test"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
     .param p1, "$dialog"    # Landroidx/appcompat/app/AlertDialog;
     .param p2, "$group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -917,19 +917,19 @@
 .end method
 
 .method private final syncGlassInset()V
-    .locals 2
+    .registers 3
 
     .line 160
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->isAdded()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-void
 
     .line 161
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getGroupPager()Landroidx/viewpager2/widget/ViewPager2;
 
     move-result-object v0
@@ -945,7 +945,7 @@
 .end method
 
 .method private static final syncGlassInset$lambda$1(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)V
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
 
     .line 162
@@ -953,12 +953,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-void
 
     .line 163
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getToolbar()Landroidx/appcompat/widget/Toolbar;
 
     move-result-object v0
@@ -978,7 +978,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_23
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getTabLayout()Lcom/google/android/material/tabs/TabLayout;
 
@@ -988,13 +988,13 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_23
     const/4 v1, 0x0
 
     .line 163
-    :goto_0
+    :goto_24
     add-int/2addr v0, v1
 
     .line 165
@@ -1007,7 +1007,7 @@
 
     move-result v1
 
-    if-eq v1, v0, :cond_2
+    if-eq v1, v0, :cond_44
 
     .line 166
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getGroupPager()Landroidx/viewpager2/widget/ViewPager2;
@@ -1031,12 +1031,12 @@
     invoke-virtual {v1, v2}, Landroidx/viewpager2/widget/ViewPager2;->setClipChildren(Z)V
 
     .line 170
-    :cond_2
+    :cond_44
     return-void
 .end method
 
 .method private static final urlTest$lambda$12(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lkotlinx/coroutines/Job;Ljava/util/List;)Lkotlin/Unit;
-    .locals 2
+    .registers 6
     .param p0, "$test"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
     .param p1, "$dialog"    # Landroidx/appcompat/app/AlertDialog;
     .param p2, "$mainJob"    # Lkotlinx/coroutines/Job;
@@ -1072,7 +1072,7 @@
 .end method
 
 .method private static final urlTest$lambda$13(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Landroidx/appcompat/app/AlertDialog;Lio/nekohasekai/sagernet/database/ProxyGroup;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;)Lkotlin/Unit;
-    .locals 4
+    .registers 8
     .param p0, "$test"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
     .param p1, "$dialog"    # Landroidx/appcompat/app/AlertDialog;
     .param p2, "$group"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -1155,16 +1155,16 @@
 
 # virtual methods
 .method public final getAdapter()Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;
-    .locals 1
+    .registers 2
 
     .line 130
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->adapter:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "adapter"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -1175,7 +1175,7 @@
 .end method
 
 .method public final getAlwaysShowAddress()Z
-    .locals 1
+    .registers 2
 
     .line 134
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->alwaysShowAddress$delegate:Lkotlin/Lazy;
@@ -1194,13 +1194,13 @@
 .end method
 
 .method public final getCurrentGroupFragment()Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
-    .locals 4
+    .registers 5
 
     .line 137
     nop
 
     .line 138
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getChildFragmentManager()Landroidx/fragment/app/FragmentManager;
 
     move-result-object v0
@@ -1234,13 +1234,13 @@
     move-result-object v0
 
     check-cast v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_24
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_24} :catch_25
 
-    goto :goto_0
+    goto :goto_30
 
     .line 139
-    :catch_0
+    :catch_25
     move-exception v0
 
     .line 140
@@ -1260,21 +1260,21 @@
 
     .line 137
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_30
     return-object v0
 .end method
 
 .method public final getGroupPager()Landroidx/viewpager2/widget/ViewPager2;
-    .locals 1
+    .registers 2
 
     .line 132
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->groupPager:Landroidx/viewpager2/widget/ViewPager2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "groupPager"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -1285,7 +1285,7 @@
 .end method
 
 .method public final getSelect()Z
-    .locals 1
+    .registers 2
 
     .line 119
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->select:Z
@@ -1294,7 +1294,7 @@
 .end method
 
 .method public final getSelectedItem()Lio/nekohasekai/sagernet/database/ProxyEntity;
-    .locals 1
+    .registers 2
 
     .line 119
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->selectedItem:Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -1303,16 +1303,16 @@
 .end method
 
 .method public final getTabLayout()Lcom/google/android/material/tabs/TabLayout;
-    .locals 1
+    .registers 2
 
     .line 131
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->tabLayout:Lcom/google/android/material/tabs/TabLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "tabLayout"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -1323,7 +1323,7 @@
 .end method
 
 .method public final getTitleRes()I
-    .locals 1
+    .registers 2
 
     .line 119
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->titleRes:I
@@ -1332,7 +1332,7 @@
 .end method
 
 .method public final getUpdateSelectedCallback()Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
-    .locals 1
+    .registers 2
 
     .line 145
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->updateSelectedCallback:Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
@@ -1341,7 +1341,7 @@
 .end method
 
 .method public final import(Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 13
+    .registers 16
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1360,7 +1360,7 @@
 
     instance-of v0, p2, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$import$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -1372,7 +1372,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$import$1;->label:I
 
@@ -1380,15 +1380,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$import$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$import$1;
 
     invoke-direct {v0, p0, p2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$import$1;-><init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$import$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -1399,7 +1399,7 @@
     .line 350
     iget v3, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$import$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_9a
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -1413,12 +1413,12 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_96
 
-    :pswitch_1
+    :pswitch_31
     iget-wide v3, v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$import$1;->J$0:J
 
     .local v3, "targetId":J
@@ -1444,12 +1444,12 @@
 
     move-object v12, v6
 
-    goto :goto_2
+    goto :goto_78
 
     .end local v3    # "targetId":J
     .end local v5    # "proxies":Ljava/util/List;
     .end local v6    # "this":Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
-    :pswitch_2
+    :pswitch_46
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v3, p0
@@ -1483,12 +1483,12 @@
     .local v9, "targetId":J
     .local v11, "proxies":Ljava/util/List;
     .local v12, "this":Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
-    :goto_1
+    :goto_58
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_79
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1517,18 +1517,18 @@
     move-result-object v3
 
     .end local v3    # "proxy":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    if-ne v3, v2, :cond_1
+    if-ne v3, v2, :cond_78
 
     .line 350
     return-object v2
 
     .line 353
-    :cond_1
-    :goto_2
-    goto :goto_1
+    :cond_78
+    :goto_78
+    goto :goto_58
 
     .line 355
-    :cond_2
+    :cond_79
     new-instance p1, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$import$2;
 
     const/4 v8, 0x0
@@ -1564,37 +1564,37 @@
     .end local v9    # "targetId":J
     .end local v11    # "proxies":Ljava/util/List;
     .end local v12    # "this":Lio/nekohasekai/sagernet/ui/ConfigurationFragment;
-    if-ne p1, v2, :cond_3
+    if-ne p1, v2, :cond_96
 
     .line 350
     return-object v2
 
     .line 364
-    :cond_3
-    :goto_3
+    :cond_96
+    :goto_96
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_9a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_46
+        :pswitch_31
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 182
     invoke-super {p0, p1}, Lio/nekohasekai/sagernet/ui/ToolbarFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 184
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_23
 
     .line 185
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getParentFragmentManager()Landroidx/fragment/app/FragmentManager;
@@ -1634,12 +1634,12 @@
     invoke-virtual {v0}, Landroidx/fragment/app/FragmentTransaction;->commit()I
 
     .line 191
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method public onDestroy()V
-    .locals 2
+    .registers 3
 
     .line 285
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -1657,7 +1657,7 @@
     .line 287
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->adapter:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 288
     sget-object v0, Lio/nekohasekai/sagernet/database/GroupManager;->INSTANCE:Lio/nekohasekai/sagernet/database/GroupManager;
@@ -1682,7 +1682,7 @@
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/database/ProfileManager;->removeListener(Lio/nekohasekai/sagernet/database/ProfileManager$Listener;)V
 
     .line 292
-    :cond_0
+    :cond_26
     invoke-super {p0}, Lio/nekohasekai/sagernet/ui/ToolbarFragment;->onDestroy()V
 
     .line 293
@@ -1690,7 +1690,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 4
+    .registers 7
     .param p1, "ketCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
 
@@ -1705,13 +1705,13 @@
 
     .line 297
     .local v0, "fragment":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     .local v1, "$this$onKeyDown_u24lambda_u247":Landroidx/recyclerview/widget/RecyclerView;
     const/4 v2, 0x0
@@ -1722,18 +1722,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1b
 
     invoke-virtual {v1}, Landroidx/recyclerview/widget/RecyclerView;->requestFocus()Z
 
     .line 299
-    :cond_0
+    :cond_1b
     nop
 
     .line 297
     .end local v1    # "$this$onKeyDown_u24lambda_u247":Landroidx/recyclerview/widget/RecyclerView;
     .end local v2    # "$i$a$-apply-ConfigurationFragment$onKeyDown$1":I
-    :cond_1
+    :cond_1c
     nop
 
     .line 300
@@ -1745,7 +1745,7 @@
 .end method
 
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .locals 5
+    .registers 7
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -1761,12 +1761,12 @@
 
     const/4 v2, 0x0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_21a
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 469
-    :sswitch_0
+    :sswitch_10
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/DataStore;->currentGroup()Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -1779,7 +1779,7 @@
 
     move-result v3
 
-    if-eq v3, v1, :cond_0
+    if-eq v3, v1, :cond_4d
 
     .line 471
     move-object v2, p0
@@ -1827,10 +1827,10 @@
 
     invoke-virtual {v2, v3}, Lio/nekohasekai/sagernet/ktx/Logs;->e(Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 474
-    :cond_0
+    :cond_4d
     move-object v3, p0
 
     check-cast v3, Landroidx/fragment/app/Fragment;
@@ -1843,11 +1843,11 @@
 
     invoke-static {v3, v4}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnLifecycleDispatcher(Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 369
     .end local v0    # "group":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :sswitch_1
+    :sswitch_5c
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getContext()Landroid/content/Context;
@@ -1860,10 +1860,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 555
-    :sswitch_2
+    :sswitch_6c
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$7;
 
     invoke-direct {v0, p0, v2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$7;-><init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Lkotlin/coroutines/Continuation;)V
@@ -1872,10 +1872,10 @@
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 449
-    :sswitch_3
+    :sswitch_78
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -1890,10 +1890,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 411
-    :sswitch_4
+    :sswitch_8a
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -1908,10 +1908,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 415
-    :sswitch_5
+    :sswitch_9c
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -1943,10 +1943,10 @@
     .end local v3    # "$i$a$-apply-ConfigurationFragment$onMenuItemClick$2":I
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 441
-    :sswitch_6
+    :sswitch_b6
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -1961,10 +1961,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 425
-    :sswitch_7
+    :sswitch_c8
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -1979,10 +1979,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 421
-    :sswitch_8
+    :sswitch_da
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -1997,10 +1997,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 445
-    :sswitch_9
+    :sswitch_ec
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2015,10 +2015,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 407
-    :sswitch_a
+    :sswitch_fe
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2033,10 +2033,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 399
-    :sswitch_b
+    :sswitch_110
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2051,10 +2051,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 453
-    :sswitch_c
+    :sswitch_122
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2069,10 +2069,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 433
-    :sswitch_d
+    :sswitch_134
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2087,10 +2087,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 429
-    :sswitch_e
+    :sswitch_146
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2105,10 +2105,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 437
-    :sswitch_f
+    :sswitch_158
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2123,10 +2123,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 403
-    :sswitch_10
+    :sswitch_16a
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2141,10 +2141,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 461
-    :sswitch_11
+    :sswitch_17c
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2159,10 +2159,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 465
-    :sswitch_12
+    :sswitch_18e
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2177,10 +2177,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_218
 
     .line 457
-    :sswitch_13
+    :sswitch_1a0
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
@@ -2195,10 +2195,10 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->startActivity(Landroid/content/Intent;)V
 
-    goto :goto_0
+    goto :goto_218
 
     .line 395
-    :sswitch_14
+    :sswitch_1b1
     move-object v0, p0
 
     check-cast v0, Landroidx/fragment/app/Fragment;
@@ -2209,10 +2209,10 @@
 
     invoke-static {v0, v2, v3}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->startFilesForResult(Landroidx/fragment/app/Fragment;Landroidx/activity/result/ActivityResultLauncher;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_218
 
     .line 373
-    :sswitch_15
+    :sswitch_1bc
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getClipboardText()Ljava/lang/String;
@@ -2229,7 +2229,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1e4
 
     .line 375
     move-object v2, p0
@@ -2254,10 +2254,10 @@
 
     invoke-virtual {v2}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
-    goto :goto_0
+    goto :goto_218
 
     .line 376
-    :cond_1
+    :cond_1e4
     new-instance v3, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$1;
 
     invoke-direct {v3, v0, p0, v2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$1;-><init>(Ljava/lang/String;Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Lkotlin/coroutines/Continuation;)V
@@ -2266,17 +2266,17 @@
 
     invoke-static {v3}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
-    goto :goto_0
+    goto :goto_218
 
     .line 611
     .end local v0    # "text":Ljava/lang/String;
-    :sswitch_16
+    :sswitch_1ef
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->urlTest()V
 
-    goto :goto_0
+    goto :goto_218
 
     .line 516
-    :sswitch_17
+    :sswitch_1f3
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$6;
 
     invoke-direct {v0, p0, v2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$6;-><init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment;Lkotlin/coroutines/Continuation;)V
@@ -2285,10 +2285,10 @@
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
-    goto :goto_0
+    goto :goto_218
 
     .line 498
-    :sswitch_18
+    :sswitch_1fe
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$5;
 
     invoke-direct {v0, v2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$5;-><init>(Lkotlin/coroutines/Continuation;)V
@@ -2297,18 +2297,18 @@
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
-    goto :goto_0
+    goto :goto_218
 
     .line 607
-    :sswitch_19
+    :sswitch_209
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->pingTest(Z)V
 
-    goto :goto_0
+    goto :goto_218
 
     .line 481
-    :sswitch_1a
+    :sswitch_20e
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$4;
 
     invoke-direct {v0, v2}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$onMenuItemClick$4;-><init>(Lkotlin/coroutines/Continuation;)V
@@ -2318,45 +2318,45 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 614
-    :goto_0
+    :goto_218
     return v1
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_21a
     .sparse-switch
-        0x7f0a0041 -> :sswitch_1a
-        0x7f0a0044 -> :sswitch_19
-        0x7f0a0045 -> :sswitch_18
-        0x7f0a0046 -> :sswitch_17
-        0x7f0a0047 -> :sswitch_16
-        0x7f0a0057 -> :sswitch_15
-        0x7f0a0058 -> :sswitch_14
-        0x7f0a0062 -> :sswitch_13
-        0x7f0a0063 -> :sswitch_12
-        0x7f0a0064 -> :sswitch_11
-        0x7f0a0066 -> :sswitch_10
-        0x7f0a0067 -> :sswitch_f
-        0x7f0a0068 -> :sswitch_e
-        0x7f0a0069 -> :sswitch_d
-        0x7f0a006b -> :sswitch_c
-        0x7f0a006c -> :sswitch_b
-        0x7f0a006d -> :sswitch_a
-        0x7f0a006e -> :sswitch_9
-        0x7f0a006f -> :sswitch_8
-        0x7f0a0070 -> :sswitch_7
-        0x7f0a0071 -> :sswitch_6
-        0x7f0a0072 -> :sswitch_5
-        0x7f0a0073 -> :sswitch_4
-        0x7f0a0074 -> :sswitch_3
-        0x7f0a007b -> :sswitch_2
-        0x7f0a007d -> :sswitch_1
-        0x7f0a008b -> :sswitch_0
+        0x7f0a0041 -> :sswitch_20e
+        0x7f0a0044 -> :sswitch_209
+        0x7f0a0045 -> :sswitch_1fe
+        0x7f0a0046 -> :sswitch_1f3
+        0x7f0a0047 -> :sswitch_1ef
+        0x7f0a0057 -> :sswitch_1bc
+        0x7f0a0058 -> :sswitch_1b1
+        0x7f0a0062 -> :sswitch_1a0
+        0x7f0a0063 -> :sswitch_18e
+        0x7f0a0064 -> :sswitch_17c
+        0x7f0a0066 -> :sswitch_16a
+        0x7f0a0067 -> :sswitch_158
+        0x7f0a0068 -> :sswitch_146
+        0x7f0a0069 -> :sswitch_134
+        0x7f0a006b -> :sswitch_122
+        0x7f0a006c -> :sswitch_110
+        0x7f0a006d -> :sswitch_fe
+        0x7f0a006e -> :sswitch_ec
+        0x7f0a006f -> :sswitch_da
+        0x7f0a0070 -> :sswitch_c8
+        0x7f0a0071 -> :sswitch_b6
+        0x7f0a0072 -> :sswitch_9c
+        0x7f0a0073 -> :sswitch_8a
+        0x7f0a0074 -> :sswitch_78
+        0x7f0a007b -> :sswitch_6c
+        0x7f0a007d -> :sswitch_5c
+        0x7f0a008b -> :sswitch_10
     .end sparse-switch
 .end method
 
 .method public onPreferenceDataStoreChanged(Landroidx/preference/PreferenceDataStore;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "store"    # Landroidx/preference/PreferenceDataStore;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -2384,7 +2384,7 @@
 .end method
 
 .method public onQueryTextChange(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "query"    # Ljava/lang/String;
 
     const-string v0, "query"
@@ -2396,25 +2396,25 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getAdapter()Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;->filter(Ljava/lang/String;)V
 
     .line 175
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onQueryTextSubmit(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "query"    # Ljava/lang/String;
 
     const-string v0, "query"
@@ -2428,7 +2428,7 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 5
+    .registers 8
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -2442,7 +2442,7 @@
     .line 196
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->select:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 197
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getToolbar()Landroidx/appcompat/widget/Toolbar;
@@ -2464,10 +2464,10 @@
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/Toolbar;->setOnMenuItemClickListener(Landroidx/appcompat/widget/Toolbar$OnMenuItemClickListener;)V
 
-    goto :goto_0
+    goto :goto_40
 
     .line 200
-    :cond_0
+    :cond_21
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getToolbar()Landroidx/appcompat/widget/Toolbar;
 
     move-result-object v0
@@ -2497,7 +2497,7 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/Toolbar;->setNavigationOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 207
-    :goto_0
+    :goto_40
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getToolbar()Landroidx/appcompat/widget/Toolbar;
 
     move-result-object v0
@@ -2512,7 +2512,7 @@
 
     .line 208
     .local v0, "searchView":Landroidx/appcompat/widget/SearchView;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_63
 
     .line 209
     move-object v1, p0
@@ -2534,7 +2534,7 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/SearchView;->setOnQueryTextFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     .line 219
-    :cond_1
+    :cond_63
     const v1, 0x7f0a0144
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -2661,7 +2661,7 @@
 .end method
 
 .method public final pingTest(Z)V
-    .locals 12
+    .registers 14
     .param p1, "icmpPing"    # Z
 
     .line 715
@@ -2671,11 +2671,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     return-void
 
-    :cond_0
+    :cond_9
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     const/4 v1, 0x1
@@ -2761,7 +2761,7 @@
 .end method
 
 .method public final setAdapter(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupPagerAdapter;
 
     const-string v0, "<set-?>"
@@ -2775,7 +2775,7 @@
 .end method
 
 .method public final setGroupPager(Landroidx/viewpager2/widget/ViewPager2;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/viewpager2/widget/ViewPager2;
 
     const-string v0, "<set-?>"
@@ -2789,7 +2789,7 @@
 .end method
 
 .method public final setTabLayout(Lcom/google/android/material/tabs/TabLayout;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lcom/google/android/material/tabs/TabLayout;
 
     const-string v0, "<set-?>"
@@ -2803,7 +2803,7 @@
 .end method
 
 .method public final urlTest()V
-    .locals 6
+    .registers 7
 
     .line 856
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -2812,11 +2812,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     return-void
 
-    :cond_0
+    :cond_9
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     const/4 v1, 0x1

@@ -20,6 +20,8 @@
 
 .field private data:Lio/nekohasekai/sagernet/ui/ConnectionRows;
 
+.field private dataSignature:J
+
 .field private final empty:Landroid/widget/TextView;
 
 .field private epoch:I
@@ -49,6 +51,12 @@
 
 .field private publication:Ljava/lang/Runnable;
 
+.field private renderedError:Ljava/lang/String;
+
+.field private renderedFilter:I
+
+.field private renderedSignature:J
+
 .field private final tick:Ljava/lang/Runnable;
 
 .field private final title:Landroid/widget/TextView;
@@ -66,9 +74,9 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 11
+    .registers 12
 
-    .line 42
+    .line 43
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     .line 28
@@ -110,199 +118,206 @@
 
     iput-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->labels:Ljava/util/Map;
 
-    .line 37
-    const-string v2, "\u8fde\u63a5\u540e\u663e\u793a\u5b9e\u65f6\u8fde\u63a5"
+    const-wide/high16 v2, -0x8000000000000000L
 
-    iput-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->error:Ljava/lang/String;
+    .line 36
+    iput-wide v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->renderedSignature:J
 
-    .line 39
-    const-string v2, "\u4ee3\u7406"
+    const/4 v2, -0x1
 
-    const-string v3, "\u76f4\u8fde"
+    iput v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->renderedFilter:I
 
-    const-string v4, "\u5168\u90e8"
+    .line 38
+    const-string v3, "\u8fde\u63a5\u540e\u663e\u793a\u5b9e\u65f6\u8fde\u63a5"
 
-    const-string v5, "\u9ed8\u8ba4\u4ee3\u7406"
-
-    filled-new-array {v4, v5, v2, v3}, [Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filters:[Ljava/lang/String;
+    iput-object v3, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->error:Ljava/lang/String;
 
     .line 40
-    new-instance v2, Lio/nekohasekai/sagernet/ui/ConnectionCard$2;
+    const-string v3, "\u4ee3\u7406"
 
-    invoke-direct {v2, p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard$2;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
+    const-string v4, "\u76f4\u8fde"
 
-    iput-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->tick:Ljava/lang/Runnable;
+    const-string v5, "\u5168\u90e8"
 
-    const/4 v2, 0x1
+    const-string v6, "\u9ed8\u8ba4\u4ee3\u7406"
 
-    .line 42
-    invoke-virtual {p0, v2}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->setOrientation(I)V
+    filled-new-array {v5, v6, v3, v4}, [Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filters:[Ljava/lang/String;
+
+    .line 41
+    new-instance v3, Lio/nekohasekai/sagernet/ui/ConnectionCard$2;
+
+    invoke-direct {v3, p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard$2;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
+
+    iput-object v3, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->tick:Ljava/lang/Runnable;
+
+    const/4 v3, 0x1
+
+    .line 43
+    invoke-virtual {p0, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->setOrientation(I)V
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->routingCard(Landroid/view/View;)V
 
-    const/high16 v3, 0x41800000    # 16.0f
+    const/high16 v4, 0x41800000    # 16.0f
 
-    invoke-direct {p0, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
-
-    move-result v4
-
-    const/high16 v5, 0x41600000    # 14.0f
-
-    invoke-direct {p0, v5}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
-
-    move-result v6
-
-    invoke-direct {p0, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
-
-    move-result v3
-
-    invoke-direct {p0, v5}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
+    invoke-direct {p0, v4}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
 
     move-result v5
 
-    invoke-virtual {p0, v4, v6, v3, v5}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->setPadding(IIII)V
+    const/high16 v6, 0x41600000    # 14.0f
 
-    .line 43
-    new-instance v3, Landroid/widget/LinearLayout;
-
-    invoke-direct {v3, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
-
-    const/16 v4, 0x10
-
-    invoke-virtual {v3, v4}, Landroid/widget/LinearLayout;->setGravity(I)V
-
-    .line 44
-    const-string v4, "\u8fde\u63a5\u8be6\u60c5"
-
-    const/16 v5, 0xe
-
-    invoke-direct {p0, v4, v5, v2}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->title:Landroid/widget/TextView;
-
-    const-string v4, "\u5168\u90e8 \u00b7 0 \u25be"
-
-    const/16 v5, 0xa
-
-    const/4 v6, 0x0
-
-    invoke-direct {p0, v4, v5, v6}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->caption:Landroid/widget/TextView;
-
-    const/16 v5, 0x15
-
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setGravity(I)V
-
-    invoke-static {v4}, Lio/nekohasekai/sagernet/ui/UiComponents;->secondary(Landroid/widget/TextView;)V
-
-    const-string v5, "\u5207\u6362\u8fde\u63a5\u7b5b\u9009"
-
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    new-instance v5, Lio/nekohasekai/sagernet/ui/ConnectionCard$3;
-
-    invoke-direct {v5, p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard$3;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
-
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 45
-    new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->headerHeight()I
+    invoke-direct {p0, v6}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
 
     move-result v7
-
-    const/high16 v8, 0x3f800000    # 1.0f
-
-    invoke-direct {v5, v6, v7, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
-
-    invoke-virtual {v3, v2, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/4 v5, -0x2
-
-    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->headerHeight()I
-
-    move-result v7
-
-    invoke-direct {v2, v5, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v3, v4, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->headerHeight()I
-
-    move-result v4
-
-    const/4 v5, -0x1
-
-    invoke-direct {v2, v5, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {p0, v3, v2}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 46
-    new-instance v2, Landroid/widget/FrameLayout;
-
-    invoke-direct {v2, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
-
-    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {v3, v5, v6, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
-
-    const/high16 v4, 0x40c00000    # 6.0f
 
     invoke-direct {p0, v4}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
 
     move-result v4
 
-    iput v4, v3, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
+    invoke-direct {p0, v6}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
 
-    invoke-virtual {p0, v2, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    move-result v6
+
+    invoke-virtual {p0, v5, v7, v4, v6}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->setPadding(IIII)V
+
+    .line 44
+    new-instance v4, Landroid/widget/LinearLayout;
+
+    invoke-direct {v4, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    const/16 v5, 0x10
+
+    invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->setGravity(I)V
+
+    .line 45
+    const-string v5, "\u8fde\u63a5\u8be6\u60c5"
+
+    const/16 v6, 0xf
+
+    invoke-direct {p0, v5, v6, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->title:Landroid/widget/TextView;
+
+    const-string v5, "\u5168\u90e8 \u00b7 0 \u25be"
+
+    const/16 v6, 0xb
+
+    const/4 v7, 0x0
+
+    invoke-direct {p0, v5, v6, v7}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->caption:Landroid/widget/TextView;
+
+    const/16 v6, 0x15
+
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setGravity(I)V
+
+    invoke-static {v5}, Lio/nekohasekai/sagernet/ui/UiComponents;->secondary(Landroid/widget/TextView;)V
+
+    const-string v6, "\u5207\u6362\u8fde\u63a5\u7b5b\u9009"
+
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    new-instance v6, Lio/nekohasekai/sagernet/ui/ConnectionCard$3;
+
+    invoke-direct {v6, p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard$3;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
+
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 46
+    new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->headerHeight()I
+
+    move-result v8
+
+    const/high16 v9, 0x3f800000    # 1.0f
+
+    invoke-direct {v6, v7, v8, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+
+    invoke-virtual {v4, v3, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v6, -0x2
+
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->headerHeight()I
+
+    move-result v8
+
+    invoke-direct {v3, v6, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v4, v5, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->headerHeight()I
+
+    move-result v5
+
+    invoke-direct {v3, v2, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {p0, v4, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 47
-    new-instance v3, Lio/nekohasekai/sagernet/ui/ConnectionCard$LocalList;
+    new-instance v3, Landroid/widget/FrameLayout;
 
-    invoke-direct {v3, p1}, Lio/nekohasekai/sagernet/ui/ConnectionCard$LocalList;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    iput-object v3, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->list:Landroid/widget/ListView;
+    new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-virtual {v3, v1}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {v4, v2, v7, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    invoke-virtual {v3, v6}, Landroid/widget/ListView;->setDividerHeight(I)V
+    const/high16 v5, 0x40c00000    # 6.0f
 
-    invoke-virtual {v3, v6}, Landroid/widget/ListView;->setCacheColorHint(I)V
+    invoke-direct {p0, v5}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
 
-    invoke-virtual {v3, v0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    move-result v5
+
+    iput v5, v4, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
+
+    invoke-virtual {p0, v3, v4}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 48
+    new-instance v4, Lio/nekohasekai/sagernet/ui/ConnectionCard$LocalList;
+
+    invoke-direct {v4, p1}, Lio/nekohasekai/sagernet/ui/ConnectionCard$LocalList;-><init>(Landroid/content/Context;)V
+
+    iput-object v4, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->list:Landroid/widget/ListView;
+
+    invoke-virtual {v4, v1}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {v4, v7}, Landroid/widget/ListView;->setDividerHeight(I)V
+
+    invoke-virtual {v4, v7}, Landroid/widget/ListView;->setCacheColorHint(I)V
+
+    invoke-virtual {v4, v0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     new-instance p1, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-direct {p1, v5, v5}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+    invoke-direct {p1, v2, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v2, v3, p1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v3, v4, p1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 48
+    .line 49
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->error:Ljava/lang/String;
 
     const/16 v0, 0xc
 
-    invoke-direct {p0, p1, v0, v6}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
+    invoke-direct {p0, p1, v0, v7}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
 
     move-result-object p1
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->empty:Landroid/widget/TextView;
 
-    invoke-virtual {p1, v6}, Landroid/widget/TextView;->setSingleLine(Z)V
+    invoke-virtual {p1, v7}, Landroid/widget/TextView;->setSingleLine(Z)V
 
     const/16 v0, 0x11
 
@@ -312,11 +327,11 @@
 
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-direct {v0, v5, v5}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v0, v2, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v2, p1, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v3, p1, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    invoke-virtual {v3, p1}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
+    invoke-virtual {v4, p1}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
 
     return-void
 .end method
@@ -366,7 +381,16 @@
     return-object p1
 .end method
 
-.method static synthetic access$1300(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
+.method static synthetic access$1302(Lio/nekohasekai/sagernet/ui/ConnectionCard;J)J
+    .registers 3
+
+    .line 27
+    iput-wide p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dataSignature:J
+
+    return-wide p1
+.end method
+
+.method static synthetic access$1400(Lio/nekohasekai/sagernet/ui/ConnectionCard;)V
     .registers 1
 
     .line 27
@@ -474,7 +498,7 @@
 .method private active()Z
     .registers 2
 
-    .line 54
+    .line 55
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->isAttachedToWindow()Z
 
     move-result v0
@@ -506,7 +530,7 @@
 .method private cancelPublication()V
     .registers 3
 
-    .line 60
+    .line 61
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->cancel(Landroid/view/View;)V
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->publication:Ljava/lang/Runnable;
@@ -534,7 +558,7 @@
 .method private dp(F)I
     .registers 3
 
-    .line 51
+    .line 52
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -546,10 +570,218 @@
     return p1
 .end method
 
+.method private static fingerprint(Lio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;)J
+    .registers 12
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lio/nekohasekai/sagernet/ui/ConnectionRows;",
+            "Lorg/json/JSONObject;",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;",
+            "Ljava/lang/String;",
+            ")J"
+        }
+    .end annotation
+
+    const-wide v0, -0x61c8864680b583ebL
+
+    if-eqz p3, :cond_b
+
+    .line 98
+    invoke-static {v0, v1, p3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->mix(JLjava/lang/String;)J
+
+    move-result-wide v0
+
+    :cond_b
+    if-nez p0, :cond_e
+
+    return-wide v0
+
+    :cond_e
+    if-nez p1, :cond_15
+
+    new-instance p1, Lorg/json/JSONObject;
+
+    invoke-direct {p1}, Lorg/json/JSONObject;-><init>()V
+
+    :cond_15
+    const/4 p3, 0x0
+
+    .line 99
+    :goto_16
+    iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionRows;->pages:[Ljava/util/List;
+
+    array-length v2, v2
+
+    if-ge p3, v2, :cond_ab
+
+    .line 100
+    invoke-static {p3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->mix(JLjava/lang/String;)J
+
+    move-result-wide v0
+
+    iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionRows;->pages:[Ljava/util/List;
+
+    aget-object v2, v2, p3
+
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_2b
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a7
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lorg/json/JSONObject;
+
+    .line 101
+    const-string v4, "metadata"
+
+    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v4
+
+    if-nez v4, :cond_44
+
+    new-instance v4, Lorg/json/JSONObject;
+
+    invoke-direct {v4}, Lorg/json/JSONObject;-><init>()V
+
+    :cond_44
+    const-string v5, "processPath"
+
+    const-string v6, "\u672a\u8bc6\u522b\u5e94\u7528"
+
+    invoke-virtual {v4, v5, v6}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {p2, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/String;
+
+    if-eqz v6, :cond_5c
+
+    invoke-virtual {v6}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5b
+
+    goto :goto_5c
+
+    :cond_5b
+    move-object v5, v6
+
+    :cond_5c
+    :goto_5c
+    const-string v6, "host"
+
+    invoke-virtual {v4, v6}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_6e
+
+    const-string v6, "destinationIP"
+
+    invoke-virtual {v4, v6}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    .line 102
+    :cond_6e
+    const-string v7, "id"
+
+    invoke-virtual {v3, v7}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v0, v1, v7}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->mix(JLjava/lang/String;)J
+
+    move-result-wide v0
+
+    invoke-static {v0, v1, v5}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->mix(JLjava/lang/String;)J
+
+    move-result-wide v0
+
+    invoke-static {v0, v1, v6}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->mix(JLjava/lang/String;)J
+
+    move-result-wide v0
+
+    const-string v5, "destinationPort"
+
+    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v0, v1, v4}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->mix(JLjava/lang/String;)J
+
+    move-result-wide v0
+
+    const-string v4, "rule"
+
+    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v0, v1, v4}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->mix(JLjava/lang/String;)J
+
+    move-result-wide v0
+
+    invoke-static {v3, p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->kind(Lorg/json/JSONObject;Lorg/json/JSONObject;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v0, v1, v4}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->mix(JLjava/lang/String;)J
+
+    move-result-wide v0
+
+    const-string v4, "chains"
+
+    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v1, v3}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->mix(JLjava/lang/String;)J
+
+    move-result-wide v0
+
+    goto :goto_2b
+
+    :cond_a7
+    add-int/lit8 p3, p3, 0x1
+
+    goto/16 :goto_16
+
+    :cond_ab
+    return-wide v0
+.end method
+
 .method private headerHeight()I
     .registers 3
 
-    .line 52
+    .line 53
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -566,7 +798,7 @@
 
     move-result v0
 
-    const/high16 v1, 0x41b00000    # 22.0f
+    const/high16 v1, 0x41c00000    # 24.0f
 
     mul-float v0, v0, v1
 
@@ -577,10 +809,50 @@
     return v0
 .end method
 
+.method private static mix(JLjava/lang/String;)J
+    .registers 8
+
+    const-wide v0, 0x100000001b3L
+
+    if-nez p2, :cond_a
+
+    mul-long p0, p0, v0
+
+    return-wide p0
+
+    :cond_a
+    const/4 v2, 0x0
+
+    .line 107
+    :goto_b
+    invoke-virtual {p2}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    if-ge v2, v3, :cond_1c
+
+    invoke-virtual {p2, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v3
+
+    int-to-long v3, v3
+
+    xor-long/2addr p0, v3
+
+    mul-long p0, p0, v0
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_b
+
+    :cond_1c
+    return-wide p0
+.end method
+
 .method private reconcile()V
     .registers 5
 
-    .line 56
+    .line 57
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->main:Landroid/os/Handler;
 
     if-eqz v0, :cond_2b
@@ -594,7 +866,7 @@
     :cond_9
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 57
+    .line 58
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->active()Z
 
     move-result v0
@@ -611,7 +883,7 @@
 
     return-void
 
-    .line 58
+    .line 59
     :cond_1c
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->refresh(Landroid/view/View;)V
 
@@ -631,83 +903,143 @@
 .end method
 
 .method private render()V
-    .registers 6
+    .registers 7
 
-    .line 91
+    .line 92
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->data:Lio/nekohasekai/sagernet/ui/ConnectionRows;
 
-    if-nez v0, :cond_6
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_7
 
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_d
 
-    :cond_6
+    :cond_7
     iget-object v0, v0, Lio/nekohasekai/sagernet/ui/ConnectionRows;->counts:[I
 
-    iget v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filter:I
+    iget v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filter:I
 
-    aget v0, v0, v1
+    aget v0, v0, v2
 
-    :goto_c
-    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->caption:Landroid/widget/TextView;
+    :goto_d
+    iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->caption:Landroid/widget/TextView;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v3, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filters:[Ljava/lang/String;
+    iget-object v4, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filters:[Ljava/lang/String;
 
-    iget v4, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filter:I
+    iget v5, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filter:I
 
-    aget-object v3, v3, v4
+    aget-object v4, v4, v5
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " \u00b7 "
+    const-string v4, " \u00b7 "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const/16 v3, 0x96
+    const/16 v4, 0x96
 
-    if-le v0, v3, :cond_2b
+    if-le v0, v4, :cond_2c
 
     const-string v0, "\uff08\u524d150\uff09"
 
-    goto :goto_2d
+    goto :goto_2e
 
-    :cond_2b
+    :cond_2c
     const-string v0, ""
 
-    :goto_2d
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_2e
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v0, " \u25be"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v1, v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->set(Landroid/widget/TextView;Ljava/lang/String;)V
+    invoke-static {v2, v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->set(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    .line 92
+    .line 93
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->empty:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->error:Ljava/lang/String;
+    iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->error:Ljava/lang/String;
 
-    if-eqz v1, :cond_43
+    if-eqz v2, :cond_44
 
-    goto :goto_45
+    goto :goto_46
 
-    :cond_43
-    const-string v1, "\u6682\u65e0\u5339\u914d\u7684\u5f53\u524d\u8fde\u63a5"
+    :cond_44
+    const-string v2, "\u6682\u65e0\u5339\u914d\u7684\u5f53\u524d\u8fde\u63a5"
 
-    :goto_45
-    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->set(Landroid/widget/TextView;Ljava/lang/String;)V
+    :goto_46
+    invoke-static {v0, v2}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->set(Landroid/widget/TextView;Ljava/lang/String;)V
+
+    .line 94
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->error:Ljava/lang/String;
+
+    iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->renderedError:Ljava/lang/String;
+
+    const/4 v3, 0x1
+
+    if-nez v0, :cond_53
+
+    if-eqz v2, :cond_5a
+
+    goto :goto_59
+
+    :cond_53
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_5a
+
+    :goto_59
+    const/4 v1, 0x1
+
+    .line 95
+    :cond_5a
+    iget-wide v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dataSignature:J
+
+    iget-wide v4, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->renderedSignature:J
+
+    cmp-long v0, v2, v4
+
+    if-nez v0, :cond_6c
+
+    iget v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filter:I
+
+    iget v4, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->renderedFilter:I
+
+    if-ne v0, v4, :cond_6c
+
+    if-eqz v1, :cond_6b
+
+    goto :goto_6c
+
+    :cond_6b
+    return-void
+
+    :cond_6c
+    :goto_6c
+    iput-wide v2, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->renderedSignature:J
+
+    iget v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filter:I
+
+    iput v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->renderedFilter:I
+
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->error:Ljava/lang/String;
+
+    iput-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->renderedError:Ljava/lang/String;
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->adapter:Lio/nekohasekai/sagernet/ui/ConnectionCard$Rows;
 
@@ -719,7 +1051,7 @@
 .method private request()V
     .registers 6
 
-    .line 66
+    .line 67
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->active()Z
 
     move-result v0
@@ -736,7 +1068,7 @@
 
     goto :goto_40
 
-    .line 67
+    .line 68
     :cond_f
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConnectionCard$4;
 
@@ -762,7 +1094,7 @@
 
     goto :goto_40
 
-    .line 68
+    .line 69
     :cond_25
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->epoch:I
 
@@ -780,7 +1112,7 @@
 
     invoke-direct {v2, v3}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
 
-    .line 69
+    .line 70
     sget-object v3, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->WORKER:Ljava/util/concurrent/ExecutorService;
 
     new-instance v4, Lio/nekohasekai/sagernet/ui/ConnectionCard$5;
@@ -797,7 +1129,7 @@
 .method private static set(Landroid/widget/TextView;Ljava/lang/String;)V
     .registers 3
 
-    .line 105
+    .line 119
     invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -817,7 +1149,7 @@
 .method private text(Ljava/lang/String;IZ)Landroid/widget/TextView;
     .registers 6
 
-    .line 50
+    .line 51
     new-instance v0, Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->getContext()Landroid/content/Context;
@@ -865,7 +1197,7 @@
 .method synthetic lambda$new$0$io-nekohasekai-sagernet-ui-ConnectionCard()V
     .registers 5
 
-    .line 40
+    .line 41
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->active()Z
 
     move-result v0
@@ -891,7 +1223,7 @@
 .method synthetic lambda$new$1$io-nekohasekai-sagernet-ui-ConnectionCard(Landroid/view/View;)V
     .registers 3
 
-    .line 44
+    .line 45
     iget p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->filter:I
 
     add-int/lit8 p1, p1, 0x1
@@ -909,13 +1241,13 @@
     return-void
 .end method
 
-.method synthetic lambda$request$2$io-nekohasekai-sagernet-ui-ConnectionCard(ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;)V
-    .registers 14
+.method synthetic lambda$request$2$io-nekohasekai-sagernet-ui-ConnectionCard(ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;J)V
+    .registers 17
 
-    .line 82
+    .line 83
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->epoch:I
 
-    if-ne p1, v0, :cond_1c
+    if-ne p1, v0, :cond_1d
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->active()Z
 
@@ -923,52 +1255,54 @@
 
     if-nez v0, :cond_b
 
-    goto :goto_1c
+    goto :goto_1d
 
-    .line 83
+    .line 84
     :cond_b
-    new-instance v1, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;
+    new-instance v0, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;
 
-    move-object v2, p0
+    move-object v1, p0
 
-    move v3, p1
+    move v2, p1
 
-    move-object v4, p2
+    move-object v3, p2
 
-    move-object v5, p3
+    move-object v4, p3
 
-    move-object v6, p4
+    move-object v5, p4
 
-    move-object v7, p5
+    move-object v6, p5
 
-    invoke-direct/range {v1 .. v7}, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;)V
+    move-wide v7, p6
 
-    iput-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->publication:Ljava/lang/Runnable;
+    invoke-direct/range {v0 .. v8}, Lio/nekohasekai/sagernet/ui/ConnectionCard$1;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;J)V
 
-    .line 86
-    invoke-static {p0, v1}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->publish(Landroid/view/View;Ljava/lang/Runnable;)V
+    iput-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->publication:Ljava/lang/Runnable;
+
+    .line 87
+    invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerWorkGate;->publish(Landroid/view/View;Ljava/lang/Runnable;)V
 
     return-void
 
-    .line 82
-    :cond_1c
-    :goto_1c
-    iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->loading:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .line 83
+    :cond_1d
+    :goto_1d
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->loading:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    const/4 p2, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, p2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     return-void
 .end method
 
 .method synthetic lambda$request$3$io-nekohasekai-sagernet-ui-ConnectionCard(Landroid/content/Context;Ljava/util/Map;I)V
-    .registers 15
+    .registers 16
 
     .line 0
     const/4 v1, 0x0
 
-    .line 72
+    .line 73
     :try_start_1
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/ConnectionInspector;->snapshot(Landroid/content/Context;)Lorg/json/JSONObject;
 
@@ -993,7 +1327,7 @@
     :try_end_14
     .catch Ljava/lang/Exception; {:try_start_f .. :try_end_14} :catch_8e
 
-    .line 74
+    .line 75
     :try_start_14
     new-instance v0, Ljava/util/HashSet;
 
@@ -1053,7 +1387,7 @@
 
     goto :goto_1e
 
-    .line 75
+    .line 76
     :cond_47
     invoke-interface {p2}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
@@ -1061,7 +1395,7 @@
 
     invoke-interface {v4, v0}, Ljava/util/Set;->retainAll(Ljava/util/Collection;)Z
 
-    .line 76
+    .line 77
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -1088,7 +1422,7 @@
 
     if-nez v5, :cond_52
 
-    .line 77
+    .line 78
     :try_start_64
     const-string v5, " "
 
@@ -1165,7 +1499,7 @@
 
     move-object v2, v1
 
-    .line 79
+    .line 80
     :goto_94
     instance-of v0, p1, Ljava/net/ConnectException;
 
@@ -1198,6 +1532,11 @@
     move-object v7, v2
 
     .line 81
+    invoke-static {v6, v7, p2, v9}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->fingerprint(Lio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;)J
+
+    move-result-wide v10
+
+    .line 82
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->main:Landroid/os/Handler;
 
     new-instance v3, Lio/nekohasekai/sagernet/ui/ConnectionCard$0;
@@ -1208,7 +1547,7 @@
 
     move v5, p3
 
-    invoke-direct/range {v3 .. v9}, Lio/nekohasekai/sagernet/ui/ConnectionCard$0;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;)V
+    invoke-direct/range {v3 .. v11}, Lio/nekohasekai/sagernet/ui/ConnectionCard$0;-><init>(Lio/nekohasekai/sagernet/ui/ConnectionCard;ILio/nekohasekai/sagernet/ui/ConnectionRows;Lorg/json/JSONObject;Ljava/util/Map;Ljava/lang/String;J)V
 
     invoke-virtual {p1, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -1218,7 +1557,7 @@
 .method protected onAttachedToWindow()V
     .registers 1
 
-    .line 61
+    .line 62
     invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->reconcile()V
@@ -1229,7 +1568,7 @@
 .method protected onDetachedFromWindow()V
     .registers 3
 
-    .line 62
+    .line 63
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->main:Landroid/os/Handler;
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConnectionCard;->tick:Ljava/lang/Runnable;
@@ -1252,7 +1591,7 @@
 .method protected onVisibilityChanged(Landroid/view/View;I)V
     .registers 3
 
-    .line 63
+    .line 64
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onVisibilityChanged(Landroid/view/View;I)V
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->reconcile()V
@@ -1263,7 +1602,7 @@
 .method protected onWindowVisibilityChanged(I)V
     .registers 2
 
-    .line 64
+    .line 65
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onWindowVisibilityChanged(I)V
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->reconcile()V
@@ -1274,9 +1613,9 @@
 .method public preferredHeight()I
     .registers 4
 
-    const/high16 v0, 0x41d00000    # 26.0f
+    const/high16 v0, 0x41e00000    # 28.0f
 
-    .line 53
+    .line 54
     invoke-direct {p0, v0}, Lio/nekohasekai/sagernet/ui/ConnectionCard;->dp(F)I
 
     move-result v0
@@ -1303,7 +1642,7 @@
 
     move-result v1
 
-    const/high16 v2, 0x41e00000    # 28.0f
+    const/high16 v2, 0x42000000    # 32.0f
 
     mul-float v1, v1, v2
 

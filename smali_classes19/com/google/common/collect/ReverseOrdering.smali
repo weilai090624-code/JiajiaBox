@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Ordering;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -98,7 +98,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -106,7 +106,7 @@
 
     .line 100
     .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 101
     const/4 v0, 0x1
@@ -114,10 +114,10 @@
     return v0
 
     .line 103
-    :cond_0
+    :cond_4
     instance-of v0, p1, Lcom/google/common/collect/ReverseOrdering;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 104
     move-object v0, p1
@@ -138,14 +138,14 @@
 
     .line 107
     .end local v0    # "that":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<*>;"
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 95
     .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
@@ -161,7 +161,7 @@
 .end method
 
 .method public max(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:TT;>(",
@@ -183,7 +183,7 @@
 .end method
 
 .method public max(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -212,7 +212,7 @@
 .end method
 
 .method public varargs max(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -247,7 +247,7 @@
 .end method
 
 .method public max(Ljava/util/Iterator;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:TT;>(",
@@ -269,7 +269,7 @@
 .end method
 
 .method public min(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:TT;>(",
@@ -291,7 +291,7 @@
 .end method
 
 .method public min(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -320,7 +320,7 @@
 .end method
 
 .method public varargs min(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -355,7 +355,7 @@
 .end method
 
 .method public min(Ljava/util/Iterator;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:TT;>(",
@@ -377,7 +377,7 @@
 .end method
 
 .method public reverse()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:TT;>()",
@@ -394,7 +394,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 112
     .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"

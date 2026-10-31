@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multimap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/collect/Multimaps$AsMap;)Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/Multimaps$AsMap;
 
     .line 1751
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 1834
     .local p0, "this":Lcom/google/common/collect/Multimaps$AsMap;, "Lcom/google/common/collect/Multimaps$AsMap<TK;TV;>;"
@@ -100,7 +100,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -118,7 +118,7 @@
 .end method
 
 .method protected createEntrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -158,7 +158,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -182,7 +182,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$AsMap;->multimap:Lcom/google/common/collect/Multimap;
 
@@ -190,17 +190,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 1824
     .local p0, "this":Lcom/google/common/collect/Multimaps$AsMap;, "Lcom/google/common/collect/Multimaps$AsMap<TK;TV;>;"
@@ -214,7 +214,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -235,7 +235,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -253,7 +253,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -277,7 +277,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$AsMap;->multimap:Lcom/google/common/collect/Multimap;
 
@@ -285,17 +285,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method removeValuesForKey(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -316,7 +316,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1761
     .local p0, "this":Lcom/google/common/collect/Multimaps$AsMap;, "Lcom/google/common/collect/Multimaps$AsMap<TK;TV;>;"

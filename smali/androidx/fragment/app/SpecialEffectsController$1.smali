@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/SpecialEffectsController;Landroidx/fragment/app/SpecialEffectsController$FragmentStateManagerOperation;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/fragment/app/SpecialEffectsController;
 
     .line 207
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 210
     iget-object v0, p0, Landroidx/fragment/app/SpecialEffectsController$1;->this$0:Landroidx/fragment/app/SpecialEffectsController;
@@ -54,7 +54,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 211
     iget-object v0, p0, Landroidx/fragment/app/SpecialEffectsController$1;->val$operation:Landroidx/fragment/app/SpecialEffectsController$FragmentStateManagerOperation;
@@ -74,6 +74,6 @@
     invoke-virtual {v0, v1}, Landroidx/fragment/app/SpecialEffectsController$Operation$State;->applyState(Landroid/view/View;)V
 
     .line 213
-    :cond_0
+    :cond_1d
     return-void
 .end method

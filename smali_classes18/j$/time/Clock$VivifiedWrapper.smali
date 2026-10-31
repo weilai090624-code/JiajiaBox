@@ -9,7 +9,7 @@
 
 # direct methods
 .method private synthetic constructor <init>(Ljava/time/Clock;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lj$/time/Clock;-><init>()V
 
@@ -19,18 +19,18 @@
 .end method
 
 .method public static synthetic convert(Ljava/time/Clock;)Lj$/time/Clock;
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :cond_4
     instance-of v0, p0, Lj$/time/Clock$Wrapper;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     check-cast p0, Lj$/time/Clock$Wrapper;
 
@@ -38,7 +38,7 @@
 
     return-object p0
 
-    :cond_1
+    :cond_d
     new-instance v0, Lj$/time/Clock$VivifiedWrapper;
 
     invoke-direct {v0, p0}, Lj$/time/Clock$VivifiedWrapper;-><init>(Ljava/time/Clock;)V
@@ -49,19 +49,19 @@
 
 # virtual methods
 .method public synthetic equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lj$/time/Clock$VivifiedWrapper;->wrappedValue:Ljava/time/Clock;
 
     instance-of v1, p1, Lj$/time/Clock$VivifiedWrapper;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     check-cast p1, Lj$/time/Clock$VivifiedWrapper;
 
     iget-object p1, p1, Lj$/time/Clock$VivifiedWrapper;->wrappedValue:Ljava/time/Clock;
 
-    :cond_0
+    :cond_a
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p1
@@ -70,7 +70,7 @@
 .end method
 
 .method public synthetic getZone()Lj$/time/ZoneId;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/time/Clock$VivifiedWrapper;->wrappedValue:Ljava/time/Clock;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/time/Clock$VivifiedWrapper;->wrappedValue:Ljava/time/Clock;
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public synthetic instant()Lj$/time/Instant;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lj$/time/Clock$VivifiedWrapper;->wrappedValue:Ljava/time/Clock;
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public synthetic millis()J
-    .locals 2
+    .registers 3
 
     iget-object v0, p0, Lj$/time/Clock$VivifiedWrapper;->wrappedValue:Ljava/time/Clock;
 
@@ -126,7 +126,7 @@
 .end method
 
 .method public synthetic withZone(Lj$/time/ZoneId;)Lj$/time/Clock;
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lj$/time/Clock$VivifiedWrapper;->wrappedValue:Ljava/time/Clock;
 

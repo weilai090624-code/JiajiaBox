@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 4923
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method private checkPaneVisibility(Ljava/util/Map$Entry;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,39 +86,39 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1e
 
     invoke-virtual {v0}, Landroid/view/View;->getWindowVisibility()I
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1e
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v2, 0x0
 
     .line 4965
     .local v2, "newVisibility":Z
-    :goto_0
-    if-eq v1, v2, :cond_2
+    :goto_1f
+    if-eq v1, v2, :cond_33
 
     .line 4966
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     .line 4967
     const/16 v3, 0x10
 
-    goto :goto_1
+    goto :goto_28
 
     .line 4968
-    :cond_1
+    :cond_26
     const/16 v3, 0x20
 
-    :goto_1
+    :goto_28
     nop
 
     .line 4969
@@ -134,12 +134,12 @@
 
     .line 4972
     .end local v3    # "contentChangeType":I
-    :cond_2
+    :cond_33
     return-void
 .end method
 
 .method private registerForLayoutCallback(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 4975
@@ -154,7 +154,7 @@
 .end method
 
 .method private unregisterForLayoutCallback(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 4979
@@ -173,7 +173,7 @@
 
 # virtual methods
 .method addAccessibilityPane(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "pane"    # Landroid/view/View;
 
     .line 4948
@@ -183,22 +183,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     invoke-virtual {p1}, Landroid/view/View;->getWindowVisibility()I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -213,25 +213,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 4951
     invoke-direct {p0, p1}, Landroidx/core/view/ViewCompat$AccessibilityPaneVisibilityManager;->registerForLayoutCallback(Landroid/view/View;)V
 
     .line 4953
-    :cond_1
+    :cond_24
     return-void
 .end method
 
 .method public onGlobalLayout()V
-    .locals 2
+    .registers 3
 
     .line 4929
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1c
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_20
 
     .line 4930
     iget-object v0, p0, Landroidx/core/view/ViewCompat$AccessibilityPaneVisibilityManager;->mPanesToVisible:Ljava/util/WeakHashMap;
@@ -244,12 +244,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -263,15 +263,15 @@
 
     .line 4932
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/view/View;Ljava/lang/Boolean;>;"
-    goto :goto_0
+    goto :goto_10
 
     .line 4934
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 4939
@@ -282,7 +282,7 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 4945
@@ -290,7 +290,7 @@
 .end method
 
 .method removeAccessibilityPane(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "pane"    # Landroid/view/View;
 
     .line 4956

@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 193
     invoke-virtual {p0}, Lokhttp3/Handshake$Companion$get$1;->invoke()Ljava/util/List;
@@ -94,7 +94,7 @@
 .end method
 
 .method public final invoke()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

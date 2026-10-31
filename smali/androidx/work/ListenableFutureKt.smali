@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final await(Lcom/google/common/util/concurrent/ListenableFuture;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
     .param p0, "$this$await"    # Lcom/google/common/util/concurrent/ListenableFuture;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -55,23 +55,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
     .line 42
     nop
 
     .line 43
-    :try_start_0
+    :try_start_8
     invoke-interface {p0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_8 .. :try_end_c} :catch_d
 
     return-object v1
 
     .line 44
-    :catch_0
+    :catch_d
     move-exception v1
 
     .line 45
@@ -80,18 +80,18 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     move-object v2, v1
 
     check-cast v2, Ljava/lang/Throwable;
 
-    :cond_0
+    :cond_17
     throw v2
 
     .line 48
     .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
-    :cond_1
+    :cond_18
     const/4 v1, 0x0
 
     .line 93
@@ -171,12 +171,12 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_53
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 103
-    :cond_2
+    :cond_53
     nop
 
     .line 48
@@ -185,7 +185,7 @@
 .end method
 
 .method private static final await$$forInline(Lcom/google/common/util/concurrent/ListenableFuture;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
     .param p0, "$this$await"    # Lcom/google/common/util/concurrent/ListenableFuture;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -209,23 +209,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     .line 42
     nop
 
     .line 43
-    :try_start_0
+    :try_start_8
     invoke-interface {p0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_8 .. :try_end_c} :catch_d
 
     return-object v1
 
     .line 44
-    :catch_0
+    :catch_d
     move-exception v1
 
     .line 45
@@ -234,21 +234,21 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_15
     move-object v2, v1
 
     check-cast v2, Ljava/lang/Throwable;
 
-    :goto_0
+    :goto_18
     throw v2
 
     .line 48
     .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
-    :cond_1
+    :cond_19
     const/4 v1, 0x0
 
     .line 93
@@ -330,12 +330,12 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_56
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 103
-    :cond_2
+    :cond_56
     nop
 
     .line 48

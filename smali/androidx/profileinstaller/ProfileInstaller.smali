@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 109
     new-instance v0, Landroidx/profileinstaller/ProfileInstaller$1;
@@ -95,7 +95,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -104,7 +104,7 @@
 .end method
 
 .method static deleteProfileWrittenFor(Ljava/io/File;)Z
-    .locals 2
+    .registers 3
     .param p0, "appFilesDir"    # Ljava/io/File;
 
     .line 402
@@ -124,7 +124,7 @@
 .end method
 
 .method static deleteSkipFile(Landroid/content/Context;Ljava/util/concurrent/Executor;Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;)V
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "diagnostics"    # Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
@@ -150,7 +150,7 @@
 .end method
 
 .method static diagnostic(Ljava/util/concurrent/Executor;Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;ILjava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "executor"    # Ljava/util/concurrent/Executor;
     .param p1, "diagnostics"    # Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
     .param p2, "code"    # I
@@ -168,7 +168,7 @@
 .end method
 
 .method static hasAlreadyWrittenProfileForThisInstall(Landroid/content/pm/PackageInfo;Ljava/io/File;Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;)Z
-    .locals 7
+    .registers 10
     .param p0, "packageInfo"    # Landroid/content/pm/PackageInfo;
     .param p1, "appFilesDir"    # Ljava/io/File;
     .param p2, "diagnostics"    # Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
@@ -188,14 +188,14 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 367
     return v2
 
     .line 371
-    :cond_0
-    :try_start_0
+    :cond_f
+    :try_start_f
     new-instance v1, Ljava/io/DataInputStream;
 
     new-instance v3, Ljava/io/FileInputStream;
@@ -203,24 +203,24 @@
     invoke-direct {v3, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     invoke-direct {v1, v3}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/io/IOException; {:try_start_f .. :try_end_19} :catch_3b
 
     .line 372
     .local v1, "dataInputStream":Ljava/io/DataInputStream;
-    :try_start_1
+    :try_start_19
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readLong()J
 
     move-result-wide v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_19 .. :try_end_1d} :catchall_31
 
     .line 373
     .local v3, "lastProfileWritePackageUpdateTime":J
-    :try_start_2
+    :try_start_1d
     invoke-virtual {v1}, Ljava/io/DataInputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_20
+    .catch Ljava/io/IOException; {:try_start_1d .. :try_end_20} :catch_3b
 
     .line 376
     .end local v1    # "dataInputStream":Ljava/io/DataInputStream;
@@ -231,16 +231,16 @@
 
     cmp-long v1, v3, v5
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_28
 
     const/4 v2, 0x1
 
-    :cond_1
+    :cond_28
     move v1, v2
 
     .line 380
     .local v1, "result":Z
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_30
 
     .line 381
     const/4 v2, 0x2
@@ -250,36 +250,36 @@
     invoke-interface {p2, v2, v5}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->onResultReceived(ILjava/lang/Object;)V
 
     .line 383
-    :cond_2
+    :cond_30
     return v1
 
     .line 371
     .end local v3    # "lastProfileWritePackageUpdateTime":J
     .local v1, "dataInputStream":Ljava/io/DataInputStream;
-    :catchall_0
+    :catchall_31
     move-exception v3
 
-    :try_start_3
+    :try_start_32
     invoke-virtual {v1}, Ljava/io/DataInputStream;->close()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_35
+    .catchall {:try_start_32 .. :try_end_35} :catchall_36
 
-    goto :goto_0
+    goto :goto_3a
 
-    :catchall_1
+    :catchall_36
     move-exception v4
 
-    :try_start_4
+    :try_start_37
     invoke-virtual {v3, v4}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     .end local v0    # "skipFile":Ljava/io/File;
     .end local p0    # "packageInfo":Landroid/content/pm/PackageInfo;
     .end local p1    # "appFilesDir":Ljava/io/File;
     .end local p2    # "diagnostics":Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
-    :goto_0
+    :goto_3a
     throw v3
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_3b
+    .catch Ljava/io/IOException; {:try_start_37 .. :try_end_3b} :catch_3b
 
     .line 373
     .end local v1    # "dataInputStream":Ljava/io/DataInputStream;
@@ -287,7 +287,7 @@
     .restart local p0    # "packageInfo":Landroid/content/pm/PackageInfo;
     .restart local p1    # "appFilesDir":Ljava/io/File;
     .restart local p2    # "diagnostics":Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
-    :catch_0
+    :catch_3b
     move-exception v1
 
     .line 375
@@ -296,7 +296,7 @@
 .end method
 
 .method static synthetic lambda$diagnostic$1(Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;ILjava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p0, "diagnostics"    # Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
     .param p1, "code"    # I
     .param p2, "data"    # Ljava/lang/Object;
@@ -308,7 +308,7 @@
 .end method
 
 .method static synthetic lambda$result$0(Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;ILjava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p0, "diagnostics"    # Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
     .param p1, "code"    # I
     .param p2, "data"    # Ljava/lang/Object;
@@ -320,7 +320,7 @@
 .end method
 
 .method static noteProfileWrittenFor(Landroid/content/pm/PackageInfo;Ljava/io/File;)V
-    .locals 4
+    .registers 6
     .param p0, "packageInfo"    # Landroid/content/pm/PackageInfo;
     .param p1, "appFilesDir"    # Ljava/io/File;
 
@@ -333,7 +333,7 @@
 
     .line 391
     .local v0, "skipFile":Ljava/io/File;
-    :try_start_0
+    :try_start_7
     new-instance v1, Ljava/io/DataOutputStream;
 
     new-instance v2, Ljava/io/FileOutputStream;
@@ -341,69 +341,69 @@
     invoke-direct {v2, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     invoke-direct {v1, v2}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_11} :catch_24
 
     .line 392
     .local v1, "os":Ljava/io/DataOutputStream;
-    :try_start_1
+    :try_start_11
     iget-wide v2, p0, Landroid/content/pm/PackageInfo;->lastUpdateTime:J
 
     invoke-virtual {v1, v2, v3}, Ljava/io/DataOutputStream;->writeLong(J)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_16
+    .catchall {:try_start_11 .. :try_end_16} :catchall_1a
 
     .line 393
-    :try_start_2
+    :try_start_16
     invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_19
+    .catch Ljava/io/IOException; {:try_start_16 .. :try_end_19} :catch_24
 
     .line 395
     .end local v1    # "os":Ljava/io/DataOutputStream;
-    goto :goto_1
+    goto :goto_25
 
     .line 391
     .restart local v1    # "os":Ljava/io/DataOutputStream;
-    :catchall_0
+    :catchall_1a
     move-exception v2
 
-    :try_start_3
+    :try_start_1b
     invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_1e
+    .catchall {:try_start_1b .. :try_end_1e} :catchall_1f
 
-    goto :goto_0
+    goto :goto_23
 
-    :catchall_1
+    :catchall_1f
     move-exception v3
 
-    :try_start_4
+    :try_start_20
     invoke-virtual {v2, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     .end local v0    # "skipFile":Ljava/io/File;
     .end local p0    # "packageInfo":Landroid/content/pm/PackageInfo;
     .end local p1    # "appFilesDir":Ljava/io/File;
-    :goto_0
+    :goto_23
     throw v2
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_24
+    .catch Ljava/io/IOException; {:try_start_20 .. :try_end_24} :catch_24
 
     .line 393
     .end local v1    # "os":Ljava/io/DataOutputStream;
     .restart local v0    # "skipFile":Ljava/io/File;
     .restart local p0    # "packageInfo":Landroid/content/pm/PackageInfo;
     .restart local p1    # "appFilesDir":Ljava/io/File;
-    :catch_0
+    :catch_24
     move-exception v1
 
     .line 396
-    :goto_1
+    :goto_25
     return-void
 .end method
 
 .method static result(Ljava/util/concurrent/Executor;Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;ILjava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p0, "executor"    # Ljava/util/concurrent/Executor;
     .param p1, "diagnostics"    # Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
     .param p2, "code"    # I
@@ -421,7 +421,7 @@
 .end method
 
 .method private static transcodeAndWrite(Landroid/content/res/AssetManager;Ljava/lang/String;Landroid/content/pm/PackageInfo;Ljava/io/File;Ljava/lang/String;Ljava/util/concurrent/Executor;Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;)Z
-    .locals 9
+    .registers 16
     .param p0, "assets"    # Landroid/content/res/AssetManager;
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "packageInfo"    # Landroid/content/pm/PackageInfo;
@@ -469,7 +469,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_24
 
     .line 432
     const/4 v1, 0x0
@@ -477,7 +477,7 @@
     return v1
 
     .line 435
-    :cond_0
+    :cond_24
     invoke-virtual {v0}, Landroidx/profileinstaller/DeviceProfileWriter;->read()Landroidx/profileinstaller/DeviceProfileWriter;
 
     move-result-object v1
@@ -494,18 +494,18 @@
 
     .line 439
     .local v1, "success":Z
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_35
 
     .line 440
     invoke-static {p2, p3}, Landroidx/profileinstaller/ProfileInstaller;->noteProfileWrittenFor(Landroid/content/pm/PackageInfo;Ljava/io/File;)V
 
     .line 442
-    :cond_1
+    :cond_35
     return v1
 .end method
 
 .method public static writeProfile(Landroid/content/Context;)V
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 470
@@ -522,7 +522,7 @@
 .end method
 
 .method public static writeProfile(Landroid/content/Context;Ljava/util/concurrent/Executor;Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;)V
-    .locals 1
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "diagnostics"    # Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
@@ -537,7 +537,7 @@
 .end method
 
 .method static writeProfile(Landroid/content/Context;Ljava/util/concurrent/Executor;Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;Z)V
-    .locals 18
+    .registers 22
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "diagnostics"    # Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
@@ -592,12 +592,12 @@
     .local v15, "packageManager":Landroid/content/pm/PackageManager;
     const/4 v8, 0x0
 
-    :try_start_0
+    :try_start_24
     invoke-virtual {v15, v11, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
     move-result-object v0
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_28
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_24 .. :try_end_28} :catch_92
 
     .line 561
     .local v0, "packageInfo":Landroid/content/pm/PackageInfo;
@@ -612,19 +612,19 @@
     .local v7, "filesDir":Ljava/io/File;
     const-string v2, "ProfileInstaller"
 
-    if-nez p3, :cond_1
+    if-nez p3, :cond_5a
 
     .line 564
     invoke-static {v0, v7, v9}, Landroidx/profileinstaller/ProfileInstaller;->hasAlreadyWrittenProfileForThisInstall(Landroid/content/pm/PackageInfo;Ljava/io/File;Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;)Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_38
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 571
-    :cond_0
+    :cond_38
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -656,11 +656,11 @@
 
     move-object/from16 v17, v10
 
-    goto :goto_2
+    goto :goto_91
 
     .line 565
-    :cond_1
-    :goto_0
+    :cond_5a
+    :goto_5a
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -716,18 +716,18 @@
 
     .line 568
     .local v2, "profileWritten":Z
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_8c
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_8c
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_8d
 
-    :cond_2
+    :cond_8c
     const/4 v8, 0x0
 
-    :goto_1
+    :goto_8d
     invoke-static {v1, v8}, Landroidx/profileinstaller/ProfileVerifier;->writeProfileVerification(Landroid/content/Context;Z)Landroidx/profileinstaller/ProfileVerifier$CompilationStatus;
 
     .line 570
@@ -735,7 +735,7 @@
     nop
 
     .line 574
-    :goto_2
+    :goto_91
     return-void
 
     .line 554
@@ -743,7 +743,7 @@
     .end local v16    # "filesDir":Ljava/io/File;
     .end local v17    # "appContext":Landroid/content/Context;
     .restart local v10    # "appContext":Landroid/content/Context;
-    :catch_0
+    :catch_92
     move-exception v0
 
     move-object/from16 v17, v10
@@ -770,7 +770,7 @@
 .end method
 
 .method static writeSkipFile(Landroid/content/Context;Ljava/util/concurrent/Executor;Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;)V
-    .locals 7
+    .registers 10
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "diagnostics"    # Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
@@ -796,12 +796,12 @@
     .local v2, "packageManager":Landroid/content/pm/PackageManager;
     const/4 v3, 0x0
 
-    :try_start_0
+    :try_start_d
     invoke-virtual {v2, v1, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
     move-result-object v3
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_d .. :try_end_11} :catch_20
 
     .line 601
     .local v3, "packageInfo":Landroid/content/pm/PackageInfo;
@@ -829,7 +829,7 @@
     .line 598
     .end local v3    # "packageInfo":Landroid/content/pm/PackageInfo;
     .end local v4    # "filesDir":Ljava/io/File;
-    :catch_0
+    :catch_20
     move-exception v3
 
     .line 599

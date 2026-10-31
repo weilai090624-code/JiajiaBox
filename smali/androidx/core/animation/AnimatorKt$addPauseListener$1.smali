@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/core/animation/AnimatorKt$addPauseListener$1;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 113
@@ -93,7 +93,7 @@
 .end method
 
 .method public final invoke(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "it"    # Landroid/animation/Animator;
 
     .line 113

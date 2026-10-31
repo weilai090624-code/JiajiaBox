@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;)V
-    .locals 0
+    .registers 5
     .param p1, "fade"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;
     .param p2, "scale"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;
     .param p3, "scaleMask"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;
@@ -52,7 +52,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;Lcom/google/android/material/transition/platform/MaterialContainerTransform$1;)V
-    .locals 0
+    .registers 6
     .param p1, "x0"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;
     .param p2, "x1"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;
     .param p3, "x2"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;
@@ -66,7 +66,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholdsGroup;)Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholdsGroup;
 
     .line 1564
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholdsGroup;)Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholdsGroup;
 
     .line 1564
@@ -86,7 +86,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholdsGroup;)Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholdsGroup;
 
     .line 1564
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholdsGroup;)Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholds;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/transition/platform/MaterialContainerTransform$ProgressThresholdsGroup;
 
     .line 1564

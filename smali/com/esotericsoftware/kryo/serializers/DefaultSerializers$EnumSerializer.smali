@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,7 +58,7 @@
     .line 363
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$EnumSerializer;->enumConstants:[Ljava/lang/Object;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_33
 
     const-class v0, Ljava/lang/Enum;
 
@@ -66,12 +66,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
-    goto :goto_0
+    goto :goto_33
 
     .line 364
-    :cond_0
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -97,15 +97,15 @@
     throw v0
 
     .line 365
-    :cond_1
-    :goto_0
+    :cond_33
+    :goto_33
     return-void
 .end method
 
 
 # virtual methods
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Enum;
-    .locals 4
+    .registers 8
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -131,18 +131,18 @@
 
     .line 377
     .local v1, "ordinal":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 378
-    :cond_0
+    :cond_9
     add-int/lit8 v1, v1, -0x1
 
     .line 379
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_1b
 
     iget-object v2, p0, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$EnumSerializer;->enumConstants:[Ljava/lang/Object;
 
@@ -150,7 +150,7 @@
 
     sub-int/2addr v2, v0
 
-    if-gt v1, v2, :cond_1
+    if-gt v1, v2, :cond_1b
 
     .line 381
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$EnumSerializer;->enumConstants:[Ljava/lang/Object;
@@ -167,7 +167,7 @@
 
     .line 380
     .end local v0    # "constant":Ljava/lang/Object;
-    :cond_1
+    :cond_1b
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -208,7 +208,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 349
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$EnumSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Enum;
@@ -219,7 +219,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Enum;)V
-    .locals 2
+    .registers 6
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Ljava/lang/Enum;
@@ -227,7 +227,7 @@
     .line 368
     const/4 v0, 0x1
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_8
 
     .line 369
     const/4 v1, 0x0
@@ -238,7 +238,7 @@
     return-void
 
     .line 372
-    :cond_0
+    :cond_8
     invoke-virtual {p3}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
@@ -252,7 +252,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 349
     check-cast p3, Ljava/lang/Enum;

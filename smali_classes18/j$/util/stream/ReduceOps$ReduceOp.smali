@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/StreamShape;)V
-    .locals 0
+    .registers 2
     .param p1, "shape"    # Lj$/util/stream/StreamShape;
 
     .line 899
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -90,7 +90,7 @@
 .end method
 
 .method public evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -125,7 +125,7 @@
 .end method
 
 .method public synthetic getOpFlags()I
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/TerminalOp$-CC;->$default$getOpFlags(Lj$/util/stream/TerminalOp;)I
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public inputShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     .line 907
     .local p0, "this":Lj$/util/stream/ReduceOps$ReduceOp;, "Ljava/util/stream/ReduceOps$ReduceOp<TT;TR;TS;>;"

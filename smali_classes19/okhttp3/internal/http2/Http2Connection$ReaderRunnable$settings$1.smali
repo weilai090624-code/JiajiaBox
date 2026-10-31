@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;ZLokhttp3/internal/http2/Settings;)V
-    .locals 1
+    .registers 5
 
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable$settings$1;->this$0:Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 715
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable$settings$1;->invoke()V
@@ -82,7 +82,7 @@
 .end method
 
 .method public final invoke()V
-    .locals 3
+    .registers 4
 
     .line 716
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable$settings$1;->this$0:Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;

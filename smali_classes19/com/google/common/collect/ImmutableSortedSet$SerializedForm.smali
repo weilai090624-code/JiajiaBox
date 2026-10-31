@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Comparator;[Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .param p2, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method readResolve()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 748
     .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$SerializedForm;, "Lcom/google/common/collect/ImmutableSortedSet$SerializedForm<TE;>;"

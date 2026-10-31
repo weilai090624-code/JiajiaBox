@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/Headers;Lokio/BufferedSource;)V
-    .locals 1
+    .registers 4
     .param p1, "headers"    # Lokhttp3/Headers;
     .param p2, "body"    # Lokio/BufferedSource;
 
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final body()Lokio/BufferedSource;
-    .locals 1
+    .registers 2
 
     .line 197
     iget-object v0, p0, Lokhttp3/MultipartReader$Part;->body:Lokio/BufferedSource;
@@ -89,7 +89,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lokhttp3/MultipartReader$Part;->body:Lokio/BufferedSource;
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public final headers()Lokhttp3/Headers;
-    .locals 1
+    .registers 2
 
     .line 196
     iget-object v0, p0, Lokhttp3/MultipartReader$Part;->headers:Lokhttp3/Headers;

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 257
     invoke-direct {p0}, Lcom/google/common/base/Ticker;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public read()J
-    .locals 2
+    .registers 3
 
     .line 260
     const-wide/16 v0, 0x0

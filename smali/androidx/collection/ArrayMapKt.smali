@@ -39,7 +39,7 @@
 
 # direct methods
 .method public static final arrayMapOf()Landroidx/collection/ArrayMap;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -64,7 +64,7 @@
 .end method
 
 .method public static final varargs arrayMapOf([Lkotlin/Pair;)Landroidx/collection/ArrayMap;
-    .locals 7
+    .registers 8
     .param p0, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -97,8 +97,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_d
+    if-ge v2, v1, :cond_23
 
     aget-object v3, p0, v2
 
@@ -124,9 +124,9 @@
     .end local v3    # "pair":Lkotlin/Pair;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 36
-    :cond_0
+    :cond_23
     return-object v0
 .end method

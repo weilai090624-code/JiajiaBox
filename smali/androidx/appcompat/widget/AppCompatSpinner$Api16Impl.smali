@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1168
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-    .locals 0
+    .registers 2
     .param p0, "viewTreeObserver"    # Landroid/view/ViewTreeObserver;
     .param p1, "victim"    # Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 

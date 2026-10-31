@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(FF)V
-    .locals 0
+    .registers 3
     .param p1, "width"    # F
     .param p2, "height"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(FFLandroidx/camera/core/UseCase;)V
-    .locals 1
+    .registers 5
     .param p1, "width"    # F
     .param p2, "height"    # F
     .param p3, "useCaseForAspectRatio"    # Landroidx/camera/core/UseCase;
@@ -74,7 +74,7 @@
 .end method
 
 .method private static getUseCaseAspectRatio(Landroidx/camera/core/UseCase;)Landroid/util/Rational;
-    .locals 4
+    .registers 5
     .param p0, "useCase"    # Landroidx/camera/core/UseCase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -86,7 +86,7 @@
     .end annotation
 
     .line 98
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 99
     const/4 v0, 0x0
@@ -94,14 +94,14 @@
     return-object v0
 
     .line 102
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Landroidx/camera/core/UseCase;->getAttachedSurfaceResolution()Landroid/util/Size;
 
     move-result-object v0
 
     .line 103
     .local v0, "resolution":Landroid/util/Size;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 108
     new-instance v1, Landroid/util/Rational;
@@ -119,7 +119,7 @@
     return-object v1
 
     .line 104
-    :cond_1
+    :cond_18
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -154,7 +154,7 @@
 
 # virtual methods
 .method protected convertPoint(FF)Landroid/graphics/PointF;
-    .locals 3
+    .registers 6
     .param p1, "x"    # F
     .param p2, "y"    # F
     .annotation system Ldalvik/annotation/MethodParameters;

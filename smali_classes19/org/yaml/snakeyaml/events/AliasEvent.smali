@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 2
+    .registers 6
     .param p1, "anchor"    # Ljava/lang/String;
     .param p2, "startMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "endMark"    # Lorg/yaml/snakeyaml/error/Mark;
@@ -14,13 +14,13 @@
     invoke-direct {p0, p1, p2, p3}, Lorg/yaml/snakeyaml/events/NodeEvent;-><init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;)V
 
     .line 26
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     .line 27
     return-void
 
     .line 26
-    :cond_0
+    :cond_6
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "anchor is not specified for alias"
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getEventId()Lorg/yaml/snakeyaml/events/Event$ID;
-    .locals 1
+    .registers 2
 
     .line 31
     sget-object v0, Lorg/yaml/snakeyaml/events/Event$ID;->Alias:Lorg/yaml/snakeyaml/events/Event$ID;

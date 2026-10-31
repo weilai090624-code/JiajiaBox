@@ -15,22 +15,22 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 32
     const/4 v0, 0x3
 
     new-array v1, v0, [D
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_48
 
     new-array v2, v0, [D
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_58
 
     new-array v3, v0, [D
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_68
 
     new-array v4, v0, [[D
 
@@ -51,15 +51,15 @@
     .line 45
     new-array v3, v0, [D
 
-    fill-array-data v3, :array_3
+    fill-array-data v3, :array_78
 
     new-array v4, v0, [D
 
-    fill-array-data v4, :array_4
+    fill-array-data v4, :array_88
 
     new-array v6, v0, [D
 
-    fill-array-data v6, :array_5
+    fill-array-data v6, :array_98
 
     new-array v7, v0, [[D
 
@@ -74,7 +74,7 @@
     .line 58
     new-array v0, v0, [D
 
-    fill-array-data v0, :array_6
+    fill-array-data v0, :array_a8
 
     sput-object v0, Lcom/google/android/material/color/utilities/HctSolver;->Y_FROM_LINRGB:[D
 
@@ -83,7 +83,7 @@
 
     new-array v0, v0, [D
 
-    fill-array-data v0, :array_7
+    fill-array-data v0, :array_b8
 
     sput-object v0, Lcom/google/android/material/color/utilities/HctSolver;->CRITICAL_PLANES:[D
 
@@ -91,56 +91,56 @@
 
     nop
 
-    :array_0
+    :array_48
     .array-data 8
         0x3f53aca939f9bf80L    # 0.001200833568784504
         0x3f63938d761f2c49L    # 0.002389694492170889
         0x3f32527a6d20ac99L    # 2.795742885861124E-4
     .end array-data
 
-    :array_1
+    :array_58
     .array-data 8
         0x3f434dcd39abd367L    # 5.891086651375999E-4
         0x3f686678fe3bac59L    # 0.0029785502573438758
         0x3f356f44653168daL    # 3.270666104008398E-4
     .end array-data
 
-    :array_2
+    :array_68
     .array-data 8
         0x3f1a99547f1efd1dL    # 1.0146692491640572E-4
         0x3f4193d4431726edL    # 5.364214359186694E-4
         0x3f6b0448268cc828L    # 0.0032979401770712076
     .end array-data
 
-    :array_3
+    :array_78
     .array-data 8
         0x409574e125da5040L    # 1373.2198709594231
         -0x3f6ece4cad95c798L    # -1100.4251190754821
         -0x3fe2e2a16cb12fbfL    # -7.278681089101213
     .end array-data
 
-    :array_4
+    :array_88
     .array-data 8
         -0x3f8f02f1ca687dc0L    # -271.815969077903
         0x40817d43adeec650L    # 559.6580465940733
         -0x3fbfc50f292cbe56L    # -32.46047482791194
     .end array-data
 
-    :array_5
+    :array_98
     .array-data 8
         0x3fff658a28353577L    # 1.9622899599665666
         -0x3fb369c071f80c3fL    # -57.173814538844006
         0x40734b92b7c34f82L    # 308.7233197812385
     .end array-data
 
-    :array_6
+    :array_a8
     .array-data 8
         0x3fcb367a0f9096bcL    # 0.2126
         0x3fe6e2eb1c432ca5L    # 0.7152
         0x3fb27bb2fec56d5dL    # 0.0722
     .end array-data
 
-    :array_7
+    :array_b8
     .array-data 8
         0x3f8f14c71b1e49e2L    # 0.015176349177441876
         0x3fa74f955456b769L    # 0.045529047532325624
@@ -401,7 +401,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -410,7 +410,7 @@
 .end method
 
 .method static areInCyclicOrder(DDD)Z
-    .locals 5
+    .registers 11
     .param p0, "a"    # D
     .param p2, "b"    # D
     .param p4, "c"    # D
@@ -434,21 +434,21 @@
     .local v2, "deltaAC":D
     cmpg-double v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_12
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_13
     return v4
 .end method
 
 .method static bisectToLimit(DD)[D
-    .locals 22
+    .registers 26
     .param p0, "y"    # D
     .param p2, "targetHue"    # D
 
@@ -480,10 +480,10 @@
     const/4 v6, 0x0
 
     .local v6, "axis":I
-    :goto_0
+    :goto_f
     const/4 v7, 0x3
 
-    if-ge v6, v7, :cond_4
+    if-ge v6, v7, :cond_99
 
     .line 529
     aget-wide v7, v1, v6
@@ -492,7 +492,7 @@
 
     cmpl-double v11, v7, v9
 
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_95
 
     .line 530
     const/4 v7, -0x1
@@ -509,7 +509,7 @@
 
     cmpg-double v13, v9, v11
 
-    if-gez v13, :cond_0
+    if-gez v13, :cond_3a
 
     .line 533
     aget-wide v9, v1, v6
@@ -533,10 +533,10 @@
 
     move-result v8
 
-    goto :goto_1
+    goto :goto_4e
 
     .line 536
-    :cond_0
+    :cond_3a
     aget-wide v9, v1, v6
 
     invoke-static {v9, v10}, Lcom/google/android/material/color/utilities/HctSolver;->trueDelinearized(D)D
@@ -559,7 +559,7 @@
     move-result v8
 
     .line 539
-    :goto_1
+    :goto_4e
     const/4 v9, 0x0
 
     move v13, v7
@@ -573,10 +573,10 @@
     .local v13, "lPlane":I
     .local v14, "rPlane":I
     .local v15, "i":I
-    :goto_2
+    :goto_52
     const/16 v7, 0x8
 
-    if-ge v15, v7, :cond_3
+    if-ge v15, v7, :cond_95
 
     .line 540
     sub-int v7, v14, v13
@@ -585,13 +585,13 @@
 
     move-result v7
 
-    if-gt v7, v4, :cond_1
+    if-gt v7, v4, :cond_5f
 
     .line 541
-    goto :goto_4
+    goto :goto_95
 
     .line 543
-    :cond_1
+    :cond_5f
     add-int v7, v13, v14
 
     int-to-double v7, v7
@@ -644,7 +644,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_8b
 
     .line 548
     move-object/from16 v5, v16
@@ -656,12 +656,12 @@
 
     .end local v14    # "rPlane":I
     .local v7, "rPlane":I
-    goto :goto_3
+    goto :goto_92
 
     .line 551
     .end local v7    # "rPlane":I
     .restart local v14    # "rPlane":I
-    :cond_2
+    :cond_8b
     move-object/from16 v1, v16
 
     .line 552
@@ -677,24 +677,24 @@
     .end local v17    # "midHue":D
     .end local v19    # "midPlaneCoordinate":D
     .end local v21    # "mPlane":I
-    :goto_3
+    :goto_92
     add-int/lit8 v15, v15, 0x1
 
-    goto :goto_2
+    goto :goto_52
 
     .line 528
     .end local v13    # "lPlane":I
     .end local v14    # "rPlane":I
     .end local v15    # "i":I
-    :cond_3
-    :goto_4
+    :cond_95
+    :goto_95
     add-int/lit8 v6, v6, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_f
 
     .line 559
     .end local v6    # "axis":I
-    :cond_4
+    :cond_99
     invoke-static {v1, v5}, Lcom/google/android/material/color/utilities/HctSolver;->midpoint([D[D)[D
 
     move-result-object v4
@@ -703,7 +703,7 @@
 .end method
 
 .method static bisectToSegment(DD)[[D
-    .locals 18
+    .registers 22
     .param p0, "y"    # D
     .param p2, "targetHue"    # D
 
@@ -712,7 +712,7 @@
 
     new-array v0, v0, [D
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_66
 
     .line 469
     .local v0, "left":[D
@@ -757,12 +757,12 @@
     .local v12, "initialized":Z
     .local v13, "uncut":Z
     .local v14, "n":I
-    :goto_0
+    :goto_13
     const/16 v2, 0xc
 
     const/4 v3, 0x0
 
-    if-ge v14, v2, :cond_5
+    if-ge v14, v2, :cond_5c
 
     .line 475
     move-wide/from16 v6, p0
@@ -779,20 +779,20 @@
 
     cmpg-double v16, v2, v4
 
-    if-gez v16, :cond_0
+    if-gez v16, :cond_27
 
     .line 477
-    goto :goto_1
+    goto :goto_59
 
     .line 479
-    :cond_0
+    :cond_27
     invoke-static {v15}, Lcom/google/android/material/color/utilities/HctSolver;->hueOf([D)D
 
     move-result-wide v16
 
     .line 480
     .local v16, "midHue":D
-    if-nez v12, :cond_1
+    if-nez v12, :cond_38
 
     .line 481
     move-object v0, v15
@@ -822,7 +822,7 @@
 
     move-wide v8, v2
 
-    goto :goto_1
+    goto :goto_59
 
     .line 488
     .end local v2    # "leftHue":D
@@ -830,8 +830,8 @@
     .local v8, "leftHue":D
     .restart local v10    # "rightHue":D
     .restart local v12    # "initialized":Z
-    :cond_1
-    if-nez v13, :cond_2
+    :cond_38
+    if-nez v13, :cond_44
 
     move-wide v2, v8
 
@@ -843,10 +843,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_59
 
     .line 489
-    :cond_2
+    :cond_44
     const/4 v13, 0x0
 
     .line 490
@@ -860,7 +860,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_55
 
     .line 491
     move-object v1, v15
@@ -872,12 +872,12 @@
 
     .end local v10    # "rightHue":D
     .local v2, "rightHue":D
-    goto :goto_1
+    goto :goto_59
 
     .line 494
     .end local v2    # "rightHue":D
     .restart local v10    # "rightHue":D
-    :cond_3
+    :cond_55
     move-object v0, v15
 
     .line 495
@@ -888,15 +888,15 @@
     .line 474
     .end local v15    # "mid":[D
     .end local v16    # "midHue":D
-    :cond_4
-    :goto_1
+    :cond_59
+    :goto_59
     add-int/lit8 v14, v14, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 499
     .end local v14    # "n":I
-    :cond_5
+    :cond_5c
     const/4 v2, 0x2
 
     new-array v2, v2, [[D
@@ -911,7 +911,7 @@
 
     nop
 
-    :array_0
+    :array_66
     .array-data 8
         -0x4010000000000000L    # -1.0
         -0x4010000000000000L    # -1.0
@@ -920,7 +920,7 @@
 .end method
 
 .method static chromaticAdaptation(D)D
-    .locals 6
+    .registers 8
     .param p0, "component"    # D
 
     .line 347
@@ -958,7 +958,7 @@
 .end method
 
 .method static criticalPlaneAbove(D)I
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 513
@@ -976,7 +976,7 @@
 .end method
 
 .method static criticalPlaneBelow(D)I
-    .locals 2
+    .registers 4
     .param p0, "x"    # D
 
     .line 509
@@ -994,7 +994,7 @@
 .end method
 
 .method static findResultByJ(DDD)I
-    .locals 66
+    .registers 72
     .param p0, "hueRadians"    # D
     .param p2, "chroma"    # D
     .param p4, "y"    # D
@@ -1093,12 +1093,12 @@
     move/from16 v9, v19
 
     .local v9, "iterationRound":I
-    :goto_0
+    :goto_5b
     const/4 v10, 0x5
 
     const/16 v21, 0x0
 
-    if-ge v9, v10, :cond_9
+    if-ge v9, v10, :cond_1b3
 
     .line 592
     const-wide/high16 v22, 0x4059000000000000L    # 100.0
@@ -1111,30 +1111,30 @@
 
     cmpl-double v10, p2, v22
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_76
 
     cmpl-double v10, v0, v22
 
-    if-nez v10, :cond_0
+    if-nez v10, :cond_6f
 
-    goto :goto_1
+    goto :goto_76
 
-    :cond_0
+    :cond_6f
     invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
 
     move-result-wide v26
 
     div-double v26, p2, v26
 
-    goto :goto_2
+    goto :goto_78
 
-    :cond_1
-    :goto_1
+    :cond_76
+    :goto_76
     move-wide/from16 v26, v22
 
     .line 594
     .local v26, "alpha":D
-    :goto_2
+    :goto_78
     mul-double v7, v26, v5
 
     move-wide/from16 v30, v5
@@ -1338,24 +1338,24 @@
 
     cmpg-double v3, v56, v22
 
-    if-ltz v3, :cond_8
+    if-ltz v3, :cond_1b2
 
     aget-wide v56, v2, v52
 
     cmpg-double v3, v56, v22
 
-    if-ltz v3, :cond_8
+    if-ltz v3, :cond_1b2
 
     aget-wide v56, v2, v53
 
     cmpg-double v3, v56, v22
 
-    if-gez v3, :cond_2
+    if-gez v3, :cond_148
 
-    goto :goto_5
+    goto :goto_1b2
 
     .line 617
-    :cond_2
+    :cond_148
     sget-object v3, Lcom/google/android/material/color/utilities/HctSolver;->Y_FROM_LINRGB:[D
 
     aget-wide v56, v3, v21
@@ -1394,16 +1394,16 @@
     .local v62, "fnj":D
     cmpg-double v3, v62, v22
 
-    if-gtz v3, :cond_3
+    if-gtz v3, :cond_169
 
     .line 622
     return v21
 
     .line 624
-    :cond_3
+    :cond_169
     const/4 v3, 0x4
 
-    if-eq v9, v3, :cond_5
+    if-eq v9, v3, :cond_194
 
     sub-double v22, v62, p4
 
@@ -1415,12 +1415,12 @@
 
     cmpg-double v3, v22, v64
 
-    if-gez v3, :cond_4
+    if-gez v3, :cond_17c
 
-    goto :goto_3
+    goto :goto_194
 
     .line 632
-    :cond_4
+    :cond_17c
     sub-double v21, v62, p4
 
     mul-double v21, v21, v0
@@ -1463,7 +1463,7 @@
 
     move-wide/from16 v11, v36
 
-    goto/16 :goto_0
+    goto/16 :goto_5b
 
     .line 625
     .restart local v2    # "linrgb":[D
@@ -1485,32 +1485,32 @@
     .restart local v58    # "kG":D
     .restart local v60    # "kB":D
     .restart local v62    # "fnj":D
-    :cond_5
-    :goto_3
+    :cond_194
+    :goto_194
     aget-wide v19, v2, v21
 
     const-wide v22, 0x405900a3d70a3d71L    # 100.01
 
     cmpl-double v3, v19, v22
 
-    if-gtz v3, :cond_7
+    if-gtz v3, :cond_1b1
 
     aget-wide v19, v2, v52
 
     cmpl-double v3, v19, v22
 
-    if-gtz v3, :cond_7
+    if-gtz v3, :cond_1b1
 
     aget-wide v19, v2, v53
 
     cmpl-double v3, v19, v22
 
-    if-lez v3, :cond_6
+    if-lez v3, :cond_1ac
 
-    goto :goto_4
+    goto :goto_1b1
 
     .line 628
-    :cond_6
+    :cond_1ac
     invoke-static {v2}, Lcom/google/android/material/color/utilities/ColorUtils;->argbFromLinrgb([D)I
 
     move-result v3
@@ -1518,8 +1518,8 @@
     return v3
 
     .line 626
-    :cond_7
-    :goto_4
+    :cond_1b1
+    :goto_1b1
     return v21
 
     .line 615
@@ -1527,8 +1527,8 @@
     .end local v58    # "kG":D
     .end local v60    # "kB":D
     .end local v62    # "fnj":D
-    :cond_8
-    :goto_5
+    :cond_1b2
+    :goto_1b2
     return v21
 
     .line 634
@@ -1551,12 +1551,12 @@
     .end local v54    # "jNormalized":D
     .local v5, "tInnerCoeff":D
     .restart local v11    # "eHue":D
-    :cond_9
+    :cond_1b3
     return v21
 .end method
 
 .method static hueOf([D)D
-    .locals 13
+    .registers 14
     .param p0, "linrgb"    # [D
 
     .line 358
@@ -1636,7 +1636,7 @@
 .end method
 
 .method static intercept(DDD)D
-    .locals 4
+    .registers 10
     .param p0, "source"    # D
     .param p2, "mid"    # D
     .param p4, "target"    # D
@@ -1652,7 +1652,7 @@
 .end method
 
 .method static inverseChromaticAdaptation(D)D
-    .locals 8
+    .registers 10
     .param p0, "adapted"    # D
 
     .line 563
@@ -1698,7 +1698,7 @@
 .end method
 
 .method static isBounded(D)Z
-    .locals 3
+    .registers 5
     .param p0, "x"    # D
 
     .line 411
@@ -1706,27 +1706,27 @@
 
     cmpg-double v2, v0, p0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_e
 
     const-wide/high16 v0, 0x4059000000000000L    # 100.0
 
     cmpg-double v2, p0, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method static lerpPoint([DD[D)[D
-    .locals 13
+    .registers 17
     .param p0, "source"    # [D
     .param p1, "t"    # D
     .param p3, "target"    # [D
@@ -1788,7 +1788,7 @@
 .end method
 
 .method static midpoint([D[D)[D
-    .locals 13
+    .registers 15
     .param p0, "a"    # [D
     .param p1, "b"    # [D
 
@@ -1839,7 +1839,7 @@
 .end method
 
 .method static nthVertex(DI)[D
-    .locals 23
+    .registers 26
     .param p0, "y"    # D
     .param p2, "n"    # I
 
@@ -1876,35 +1876,35 @@
 
     const-wide/high16 v13, 0x4059000000000000L    # 100.0
 
-    if-gt v1, v5, :cond_0
+    if-gt v1, v5, :cond_1b
 
     move-wide v15, v11
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     move-wide v15, v13
 
     .line 428
     .local v15, "coordA":D
-    :goto_0
+    :goto_1c
     rem-int/lit8 v1, v0, 0x2
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_21
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     move-wide v11, v13
 
     .line 429
     .local v11, "coordB":D
-    :goto_1
+    :goto_22
     const/4 v1, 0x3
 
     const/4 v13, 0x4
 
-    if-ge v0, v13, :cond_3
+    if-ge v0, v13, :cond_48
 
     .line 430
     move-wide v13, v15
@@ -1931,7 +1931,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_2
+    if-eqz v21, :cond_42
 
     .line 434
     new-array v1, v1, [D
@@ -1945,10 +1945,10 @@
     return-object v1
 
     .line 436
-    :cond_2
+    :cond_42
     new-array v1, v1, [D
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_90
 
     return-object v1
 
@@ -1956,10 +1956,10 @@
     .end local v13    # "g":D
     .end local v17    # "b":D
     .end local v19    # "r":D
-    :cond_3
+    :cond_48
     const/16 v13, 0x8
 
-    if-ge v0, v13, :cond_5
+    if-ge v0, v13, :cond_6e
 
     .line 439
     move-wide v13, v15
@@ -1986,7 +1986,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_4
+    if-eqz v21, :cond_68
 
     .line 443
     new-array v1, v1, [D
@@ -2000,10 +2000,10 @@
     return-object v1
 
     .line 445
-    :cond_4
+    :cond_68
     new-array v1, v1, [D
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_a0
 
     return-object v1
 
@@ -2011,7 +2011,7 @@
     .end local v13    # "b":D
     .end local v17    # "r":D
     .end local v19    # "g":D
-    :cond_5
+    :cond_6e
     move-wide v13, v15
 
     .line 449
@@ -2036,7 +2036,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_6
+    if-eqz v21, :cond_8a
 
     .line 452
     new-array v1, v1, [D
@@ -2050,28 +2050,28 @@
     return-object v1
 
     .line 454
-    :cond_6
+    :cond_8a
     new-array v1, v1, [D
 
-    fill-array-data v1, :array_2
+    fill-array-data v1, :array_b0
 
     return-object v1
 
-    :array_0
+    :array_90
     .array-data 8
         -0x4010000000000000L    # -1.0
         -0x4010000000000000L    # -1.0
         -0x4010000000000000L    # -1.0
     .end array-data
 
-    :array_1
+    :array_a0
     .array-data 8
         -0x4010000000000000L    # -1.0
         -0x4010000000000000L    # -1.0
         -0x4010000000000000L    # -1.0
     .end array-data
 
-    :array_2
+    :array_b0
     .array-data 8
         -0x4010000000000000L    # -1.0
         -0x4010000000000000L    # -1.0
@@ -2080,7 +2080,7 @@
 .end method
 
 .method static sanitizeRadians(D)D
-    .locals 4
+    .registers 6
     .param p0, "angle"    # D
 
     .line 326
@@ -2096,7 +2096,7 @@
 .end method
 
 .method static setCoordinate([DD[DI)[D
-    .locals 6
+    .registers 11
     .param p0, "source"    # [D
     .param p1, "coordinate"    # D
     .param p3, "target"    # [D
@@ -2123,7 +2123,7 @@
 .end method
 
 .method public static solveToCam(DDD)Lcom/google/android/material/color/utilities/Cam16;
-    .locals 1
+    .registers 7
     .param p0, "hueDegrees"    # D
     .param p2, "chroma"    # D
     .param p4, "lstar"    # D
@@ -2141,7 +2141,7 @@
 .end method
 
 .method public static solveToInt(DDD)I
-    .locals 10
+    .registers 16
     .param p0, "hueDegrees"    # D
     .param p2, "chroma"    # D
     .param p4, "lstar"    # D
@@ -2151,22 +2151,22 @@
 
     cmpg-double v2, p2, v0
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_40
 
     cmpg-double v2, p4, v0
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_40
 
     const-wide v0, 0x4058fffe5c91d14eL    # 99.9999
 
     cmpl-double v2, p4, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_17
 
-    goto :goto_0
+    goto :goto_40
 
     .line 651
-    :cond_0
+    :cond_17
     invoke-static {p0, p1}, Lcom/google/android/material/color/utilities/MathUtils;->sanitizeDegreesDouble(D)D
 
     move-result-wide p0
@@ -2200,13 +2200,13 @@
 
     .line 655
     .local v4, "exactAnswer":I
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_37
 
     .line 656
     return v4
 
     .line 658
-    :cond_1
+    :cond_37
     invoke-static {v2, v3, v0, v1}, Lcom/google/android/material/color/utilities/HctSolver;->bisectToLimit(DD)[D
 
     move-result-object v5
@@ -2224,8 +2224,8 @@
     .end local v2    # "y":D
     .end local v4    # "exactAnswer":I
     .end local v5    # "linrgb":[D
-    :cond_2
-    :goto_0
+    :cond_40
+    :goto_40
     invoke-static {p4, p5}, Lcom/google/android/material/color/utilities/ColorUtils;->argbFromLstar(D)I
 
     move-result v0
@@ -2234,7 +2234,7 @@
 .end method
 
 .method static trueDelinearized(D)D
-    .locals 8
+    .registers 10
     .param p0, "rgbComponent"    # D
 
     .line 336
@@ -2252,7 +2252,7 @@
 
     cmpg-double v6, v0, v4
 
-    if-gtz v6, :cond_0
+    if-gtz v6, :cond_17
 
     .line 339
     const-wide v4, 0x4029d70a3d70a3d7L    # 12.92
@@ -2261,12 +2261,12 @@
 
     .end local v2    # "delinearized":D
     .local v4, "delinearized":D
-    goto :goto_0
+    goto :goto_2d
 
     .line 341
     .end local v4    # "delinearized":D
     .restart local v2    # "delinearized":D
-    :cond_0
+    :cond_17
     const-wide v4, 0x3fdaaaaaaaaaaaabL    # 0.4166666666666667
 
     invoke-static {v0, v1, v4, v5}, Ljava/lang/Math;->pow(DD)D
@@ -2284,7 +2284,7 @@
     .line 343
     .end local v2    # "delinearized":D
     .restart local v4    # "delinearized":D
-    :goto_0
+    :goto_2d
     const-wide v2, 0x406fe00000000000L    # 255.0
 
     mul-double v2, v2, v4

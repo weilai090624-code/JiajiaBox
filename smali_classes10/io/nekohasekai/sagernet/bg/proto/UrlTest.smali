@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public final doTest(Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "profile"    # Lio/nekohasekai/sagernet/database/ProxyEntity;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -101,7 +101,7 @@
 .end method
 
 .method public final getLink()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 8
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/proto/UrlTest;->link:Ljava/lang/String;

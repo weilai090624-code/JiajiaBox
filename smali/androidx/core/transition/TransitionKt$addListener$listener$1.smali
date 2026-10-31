@@ -106,7 +106,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 6
     .param p1, "$onEnd"    # Lkotlin/jvm/functions/Function1;
     .param p2, "$onResume"    # Lkotlin/jvm/functions/Function1;
     .param p3, "$onPause"    # Lkotlin/jvm/functions/Function1;
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public onTransitionCancel(Landroid/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 70
@@ -174,7 +174,7 @@
 .end method
 
 .method public onTransitionEnd(Landroid/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 67
@@ -186,7 +186,7 @@
 .end method
 
 .method public onTransitionPause(Landroid/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 69
@@ -198,7 +198,7 @@
 .end method
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 68
@@ -210,7 +210,7 @@
 .end method
 
 .method public onTransitionStart(Landroid/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .line 71

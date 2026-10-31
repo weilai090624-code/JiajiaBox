@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lorg/yaml/snakeyaml/events/ImplicitTuple;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/Character;)V
-    .locals 8
+    .registers 16
     .param p1, "anchor"    # Ljava/lang/String;
     .param p2, "tag"    # Ljava/lang/String;
     .param p3, "implicit"    # Lorg/yaml/snakeyaml/events/ImplicitTuple;
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lorg/yaml/snakeyaml/events/ImplicitTuple;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/error/Mark;Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;)V
-    .locals 2
+    .registers 10
     .param p1, "anchor"    # Ljava/lang/String;
     .param p2, "tag"    # Ljava/lang/String;
     .param p3, "implicit"    # Lorg/yaml/snakeyaml/events/ImplicitTuple;
@@ -71,13 +71,13 @@
     iput-object p3, p0, Lorg/yaml/snakeyaml/events/ScalarEvent;->implicit:Lorg/yaml/snakeyaml/events/ImplicitTuple;
 
     .line 40
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_18
 
     .line 41
     iput-object p4, p0, Lorg/yaml/snakeyaml/events/ScalarEvent;->value:Ljava/lang/String;
 
     .line 42
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_10
 
     .line 43
     iput-object p7, p0, Lorg/yaml/snakeyaml/events/ScalarEvent;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -86,7 +86,7 @@
     return-void
 
     .line 42
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Style must be provided."
@@ -96,7 +96,7 @@
     throw v0
 
     .line 40
-    :cond_1
+    :cond_18
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Value must be provided."
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method protected getArguments()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 117
     new-instance v0, Ljava/lang/StringBuilder;
@@ -168,7 +168,7 @@
 .end method
 
 .method public getEventId()Lorg/yaml/snakeyaml/events/Event$ID;
-    .locals 1
+    .registers 2
 
     .line 122
     sget-object v0, Lorg/yaml/snakeyaml/events/Event$ID;->Scalar:Lorg/yaml/snakeyaml/events/Event$ID;
@@ -177,7 +177,7 @@
 .end method
 
 .method public getImplicit()Lorg/yaml/snakeyaml/events/ImplicitTuple;
-    .locals 1
+    .registers 2
 
     .line 112
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/ScalarEvent;->implicit:Lorg/yaml/snakeyaml/events/ImplicitTuple;
@@ -186,7 +186,7 @@
 .end method
 
 .method public getScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
-    .locals 1
+    .registers 2
 
     .line 87
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/ScalarEvent;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -195,7 +195,7 @@
 .end method
 
 .method public getStyle()Ljava/lang/Character;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -210,7 +210,7 @@
 .end method
 
 .method public getTag()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/ScalarEvent;->tag:Ljava/lang/String;
@@ -219,7 +219,7 @@
 .end method
 
 .method public getValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/ScalarEvent;->value:Ljava/lang/String;
@@ -228,22 +228,22 @@
 .end method
 
 .method public isPlain()Z
-    .locals 2
+    .registers 3
 
     .line 126
     iget-object v0, p0, Lorg/yaml/snakeyaml/events/ScalarEvent;->style:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     sget-object v1, Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;->PLAIN:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method

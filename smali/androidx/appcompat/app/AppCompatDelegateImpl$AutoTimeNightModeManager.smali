@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;Landroidx/appcompat/app/TwilightManager;)V
-    .locals 0
+    .registers 3
     .param p2, "twilightManager"    # Landroidx/appcompat/app/TwilightManager;
 
     .line 3680
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method createIntentFilterForBroadcastReceiver()Landroid/content/IntentFilter;
-    .locals 2
+    .registers 3
 
     .line 3697
     new-instance v0, Landroid/content/IntentFilter;
@@ -68,7 +68,7 @@
 .end method
 
 .method public getApplyableNightMode()I
-    .locals 1
+    .registers 2
 
     .line 3687
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoTimeNightModeManager;->mTwilightManager:Landroidx/appcompat/app/TwilightManager;
@@ -77,21 +77,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x2
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public onChange()V
-    .locals 1
+    .registers 2
 
     .line 3692
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoTimeNightModeManager;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;

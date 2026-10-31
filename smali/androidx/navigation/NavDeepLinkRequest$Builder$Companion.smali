@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 144
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/navigation/NavDeepLinkRequest$Builder$Companion;-><init>()V
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public final fromAction(Ljava/lang/String;)Landroidx/navigation/NavDeepLinkRequest$Builder;
-    .locals 2
+    .registers 4
     .param p1, "action"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -81,17 +81,17 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_11
+    if-eqz v0, :cond_1d
 
     .line 171
     new-instance v0, Landroidx/navigation/NavDeepLinkRequest$Builder;
@@ -109,7 +109,7 @@
 
     .line 168
     .end local v0    # "builder":Landroidx/navigation/NavDeepLinkRequest$Builder;
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
     .line 169
@@ -132,7 +132,7 @@
 .end method
 
 .method public final fromMimeType(Ljava/lang/String;)Landroidx/navigation/NavDeepLinkRequest$Builder;
-    .locals 2
+    .registers 4
     .param p1, "mimeType"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -157,7 +157,7 @@
 .end method
 
 .method public final fromUri(Landroid/net/Uri;)Landroidx/navigation/NavDeepLinkRequest$Builder;
-    .locals 2
+    .registers 4
     .param p1, "uri"    # Landroid/net/Uri;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Runnable;JLkotlinx/coroutines/scheduling/TaskContext;)V
-    .locals 0
+    .registers 5
     .param p1, "block"    # Ljava/lang/Runnable;
     .param p2, "submissionTime"    # J
     .param p4, "taskContext"    # Lkotlinx/coroutines/scheduling/TaskContext;
@@ -59,18 +59,18 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 102
     nop
 
     .line 103
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/TaskImpl;->block:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_1 .. :try_end_6} :catchall_d
 
     .line 105
     iget-object v0, p0, Lkotlinx/coroutines/scheduling/TaskImpl;->taskContext:Lkotlinx/coroutines/scheduling/TaskContext;
@@ -84,7 +84,7 @@
     return-void
 
     .line 105
-    :catchall_0
+    :catchall_d
     move-exception v0
 
     iget-object v1, p0, Lkotlinx/coroutines/scheduling/TaskImpl;->taskContext:Lkotlinx/coroutines/scheduling/TaskContext;
@@ -95,7 +95,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 110
     new-instance v0, Ljava/lang/StringBuilder;

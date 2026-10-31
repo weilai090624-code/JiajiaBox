@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>([C)V
-    .locals 1
+    .registers 3
     .param p1, "content"    # [C
 
     .line 46
@@ -73,7 +73,7 @@
 .end method
 
 .method public static allocate([C)Landroidx/constraintlayout/core/parser/CLElement;
-    .locals 1
+    .registers 2
     .param p0, "content"    # [C
 
     .line 50
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public getBoolean()Z
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroidx/constraintlayout/core/parser/CLParsingException;
@@ -99,7 +99,7 @@
 
     sget-object v1, Landroidx/constraintlayout/core/parser/CLToken$Type;->TRUE:Landroidx/constraintlayout/core/parser/CLToken$Type;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 24
     const/4 v0, 0x1
@@ -107,12 +107,12 @@
     return v0
 
     .line 26
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/constraintlayout/core/parser/CLToken;->type:Landroidx/constraintlayout/core/parser/CLToken$Type;
 
     sget-object v1, Landroidx/constraintlayout/core/parser/CLToken$Type;->FALSE:Landroidx/constraintlayout/core/parser/CLToken$Type;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_10
 
     .line 27
     const/4 v0, 0x0
@@ -120,7 +120,7 @@
     return v0
 
     .line 29
-    :cond_1
+    :cond_10
     new-instance v0, Landroidx/constraintlayout/core/parser/CLParsingException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -157,7 +157,7 @@
 .end method
 
 .method public getType()Landroidx/constraintlayout/core/parser/CLToken$Type;
-    .locals 1
+    .registers 2
 
     .line 69
     iget-object v0, p0, Landroidx/constraintlayout/core/parser/CLToken;->type:Landroidx/constraintlayout/core/parser/CLToken$Type;
@@ -166,7 +166,7 @@
 .end method
 
 .method public isNull()Z
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroidx/constraintlayout/core/parser/CLParsingException;
@@ -178,7 +178,7 @@
 
     sget-object v1, Landroidx/constraintlayout/core/parser/CLToken$Type;->NULL:Landroidx/constraintlayout/core/parser/CLToken$Type;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 34
     const/4 v0, 0x1
@@ -186,7 +186,7 @@
     return v0
 
     .line 36
-    :cond_0
+    :cond_8
     new-instance v0, Landroidx/constraintlayout/core/parser/CLParsingException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -223,7 +223,7 @@
 .end method
 
 .method protected toFormattedJSON(II)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "indent"    # I
     .param p2, "forceIndent"    # I
 
@@ -252,12 +252,12 @@
 .end method
 
 .method protected toJSON()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 54
     sget-boolean v0, Landroidx/constraintlayout/core/parser/CLParser;->DEBUG:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 55
     new-instance v0, Ljava/lang/StringBuilder;
@@ -291,7 +291,7 @@
     return-object v0
 
     .line 57
-    :cond_0
+    :cond_22
     invoke-virtual {p0}, Landroidx/constraintlayout/core/parser/CLToken;->content()Ljava/lang/String;
 
     move-result-object v0
@@ -300,7 +300,7 @@
 .end method
 
 .method public validate(CJ)Z
-    .locals 5
+    .registers 9
     .param p1, "c"    # C
     .param p2, "position"    # J
 
@@ -323,19 +323,19 @@
 
     const/4 v3, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_8a
 
-    goto/16 :goto_0
+    goto/16 :goto_83
 
     .line 94
-    :pswitch_0
+    :pswitch_12
     iget-object v1, p0, Landroidx/constraintlayout/core/parser/CLToken;->tokenTrue:[C
 
     iget v2, p0, Landroidx/constraintlayout/core/parser/CLToken;->index:I
 
     aget-char v1, v1, v2
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_20
 
     .line 95
     sget-object v1, Landroidx/constraintlayout/core/parser/CLToken$Type;->TRUE:Landroidx/constraintlayout/core/parser/CLToken$Type;
@@ -345,17 +345,17 @@
     .line 96
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_83
 
     .line 97
-    :cond_0
+    :cond_20
     iget-object v1, p0, Landroidx/constraintlayout/core/parser/CLToken;->tokenFalse:[C
 
     iget v2, p0, Landroidx/constraintlayout/core/parser/CLToken;->index:I
 
     aget-char v1, v1, v2
 
-    if-ne v1, p1, :cond_1
+    if-ne v1, p1, :cond_2e
 
     .line 98
     sget-object v1, Landroidx/constraintlayout/core/parser/CLToken$Type;->FALSE:Landroidx/constraintlayout/core/parser/CLToken$Type;
@@ -365,17 +365,17 @@
     .line 99
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_83
 
     .line 100
-    :cond_1
+    :cond_2e
     iget-object v1, p0, Landroidx/constraintlayout/core/parser/CLToken;->tokenNull:[C
 
     iget v2, p0, Landroidx/constraintlayout/core/parser/CLToken;->index:I
 
     aget-char v1, v1, v2
 
-    if-ne v1, p1, :cond_5
+    if-ne v1, p1, :cond_83
 
     .line 101
     sget-object v1, Landroidx/constraintlayout/core/parser/CLToken$Type;->NULL:Landroidx/constraintlayout/core/parser/CLToken$Type;
@@ -385,25 +385,25 @@
     .line 102
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_83
 
     .line 88
-    :pswitch_1
+    :pswitch_3c
     iget-object v1, p0, Landroidx/constraintlayout/core/parser/CLToken;->tokenNull:[C
 
     iget v4, p0, Landroidx/constraintlayout/core/parser/CLToken;->index:I
 
     aget-char v1, v1, v4
 
-    if-ne v1, p1, :cond_2
+    if-ne v1, p1, :cond_45
 
     const/4 v2, 0x1
 
-    :cond_2
+    :cond_45
     move v0, v2
 
     .line 89
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_83
 
     iget v1, p0, Landroidx/constraintlayout/core/parser/CLToken;->index:I
 
@@ -413,30 +413,30 @@
 
     array-length v2, v2
 
-    if-ne v1, v2, :cond_5
+    if-ne v1, v2, :cond_83
 
     .line 90
     invoke-virtual {p0, p2, p3}, Landroidx/constraintlayout/core/parser/CLToken;->setEnd(J)V
 
-    goto :goto_0
+    goto :goto_83
 
     .line 82
-    :pswitch_2
+    :pswitch_54
     iget-object v1, p0, Landroidx/constraintlayout/core/parser/CLToken;->tokenFalse:[C
 
     iget v4, p0, Landroidx/constraintlayout/core/parser/CLToken;->index:I
 
     aget-char v1, v1, v4
 
-    if-ne v1, p1, :cond_3
+    if-ne v1, p1, :cond_5d
 
     const/4 v2, 0x1
 
-    :cond_3
+    :cond_5d
     move v0, v2
 
     .line 83
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_83
 
     iget v1, p0, Landroidx/constraintlayout/core/parser/CLToken;->index:I
 
@@ -446,30 +446,30 @@
 
     array-length v2, v2
 
-    if-ne v1, v2, :cond_5
+    if-ne v1, v2, :cond_83
 
     .line 84
     invoke-virtual {p0, p2, p3}, Landroidx/constraintlayout/core/parser/CLToken;->setEnd(J)V
 
-    goto :goto_0
+    goto :goto_83
 
     .line 76
-    :pswitch_3
+    :pswitch_6c
     iget-object v1, p0, Landroidx/constraintlayout/core/parser/CLToken;->tokenTrue:[C
 
     iget v4, p0, Landroidx/constraintlayout/core/parser/CLToken;->index:I
 
     aget-char v1, v1, v4
 
-    if-ne v1, p1, :cond_4
+    if-ne v1, p1, :cond_75
 
     const/4 v2, 0x1
 
-    :cond_4
+    :cond_75
     move v0, v2
 
     .line 77
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_83
 
     iget v1, p0, Landroidx/constraintlayout/core/parser/CLToken;->index:I
 
@@ -479,14 +479,14 @@
 
     array-length v2, v2
 
-    if-ne v1, v2, :cond_5
+    if-ne v1, v2, :cond_83
 
     .line 78
     invoke-virtual {p0, p2, p3}, Landroidx/constraintlayout/core/parser/CLToken;->setEnd(J)V
 
     .line 107
-    :cond_5
-    :goto_0
+    :cond_83
+    :goto_83
     iget v1, p0, Landroidx/constraintlayout/core/parser/CLToken;->index:I
 
     add-int/2addr v1, v3
@@ -498,11 +498,11 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_8a
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6c
+        :pswitch_54
+        :pswitch_3c
+        :pswitch_12
     .end packed-switch
 .end method

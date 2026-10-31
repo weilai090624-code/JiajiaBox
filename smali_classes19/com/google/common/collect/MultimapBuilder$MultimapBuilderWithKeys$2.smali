@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     .line 313
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public build()Lcom/google/common/collect/ListMultimap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:TK0;V:",
@@ -77,7 +77,7 @@
 .end method
 
 .method public bridge synthetic build()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
 
     .line 313
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$2;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$2;"

@@ -149,7 +149,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$6Eo6PFVGHh52NaAzy9_9LH_CGy4(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->checkOrderMenu$lambda$5(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Landroid/view/MenuItem;)Z
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$GrJO4reeavrYDZ-LPR3tyNQuZcU(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->checkOrderMenu$lambda$4(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Landroid/view/MenuItem;)Z
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$nwUJHhftuTQw5Dm22F_FGHFAJdE(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;)Z
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->select_delegate$lambda$2(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;)Z
 
@@ -179,7 +179,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$rEbQOU2bvcHh2uTMqM16VUAA410(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->checkOrderMenu$lambda$6(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Landroid/view/MenuItem;)Z
 
@@ -189,7 +189,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$tiP3xTam-91ZBXlzGC1ONy5Gspc(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;)Lio/nekohasekai/sagernet/database/ProxyEntity;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->selectedItem_delegate$lambda$3(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;)Lio/nekohasekai/sagernet/database/ProxyEntity;
 
@@ -199,7 +199,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 4
+    .registers 5
 
     .line 1058
     invoke-direct {p0}, Landroidx/fragment/app/Fragment;-><init>()V
@@ -251,7 +251,7 @@
 .end method
 
 .method public static final synthetic access$isEnabled(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     .line 1058
@@ -263,7 +263,7 @@
 .end method
 
 .method private static final checkOrderMenu$lambda$4(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Landroid/view/MenuItem;)Z
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
     .param p1, "it"    # Landroid/view/MenuItem;
 
@@ -286,7 +286,7 @@
 .end method
 
 .method private static final checkOrderMenu$lambda$5(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
     .param p1, "it"    # Landroid/view/MenuItem;
 
@@ -307,7 +307,7 @@
 .end method
 
 .method private static final checkOrderMenu$lambda$6(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;Landroid/view/MenuItem;)Z
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
     .param p1, "it"    # Landroid/view/MenuItem;
 
@@ -330,7 +330,7 @@
 .end method
 
 .method private static final checkOrderMenu$updateTo(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;I)V
-    .locals 2
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
     .param p1, "order"    # I
 
@@ -343,12 +343,12 @@
 
     move-result v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_b
 
     return-void
 
     .line 1155
-    :cond_0
+    :cond_b
     new-instance v0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$checkOrderMenu$updateTo$1;
 
     const/4 v1, 0x0
@@ -364,7 +364,7 @@
 .end method
 
 .method private final isEnabled()Z
-    .locals 3
+    .registers 4
 
     .line 1093
     sget-object v0, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -383,38 +383,38 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_14
 
     sget-object v2, Lio/nekohasekai/sagernet/bg/BaseService$State;->Stopped:Lio/nekohasekai/sagernet/bg/BaseService$State;
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_12
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 v2, 0x1
 
     .end local v0    # "it":Lio/nekohasekai/sagernet/bg/BaseService$State;
     .end local v1    # "$i$a$-let-ConfigurationFragment$GroupFragment$isEnabled$1":I
-    :goto_1
+    :goto_15
     return v2
 .end method
 
 .method private static final select_delegate$lambda$2(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;)Z
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     .line 1100
     nop
 
     .line 1101
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
@@ -428,13 +428,13 @@
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getSelect()Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_10} :catch_11
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 1102
-    :catch_0
+    :catch_11
     move-exception v0
 
     .line 1103
@@ -454,19 +454,19 @@
 
     .line 1105
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_1c
     return v0
 .end method
 
 .method private static final selectedItem_delegate$lambda$3(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;)Lio/nekohasekai/sagernet/database/ProxyEntity;
-    .locals 3
+    .registers 4
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;
 
     .line 1108
     nop
 
     .line 1109
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
@@ -480,13 +480,13 @@
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment;->getSelectedItem()Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_10} :catch_11
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 1110
-    :catch_0
+    :catch_11
     move-exception v0
 
     .line 1111
@@ -506,49 +506,49 @@
 
     .line 1113
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_1c
     return-object v0
 .end method
 
 
 # virtual methods
 .method public final checkOrderMenu()V
-    .locals 7
+    .registers 8
 
     .line 1132
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getSelect()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 1134
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->requireParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/ui/ToolbarFragment;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_12
 
     check-cast v0, Lio/nekohasekai/sagernet/ui/ToolbarFragment;
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_13
+    if-nez v0, :cond_16
 
     return-void
 
     .line 1135
     .local v0, "pf":Lio/nekohasekai/sagernet/ui/ToolbarFragment;
-    :cond_2
+    :cond_16
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/ToolbarFragment;->getToolbar()Landroidx/appcompat/widget/Toolbar;
 
     move-result-object v1
@@ -593,28 +593,28 @@
 
     const/4 v6, 0x1
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_64
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 1149
-    :pswitch_0
+    :pswitch_40
     invoke-interface {v4, v6}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 1145
-    :pswitch_1
+    :pswitch_44
     invoke-interface {v3, v6}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 1141
-    :pswitch_2
+    :pswitch_48
     invoke-interface {v2, v6}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
     .line 1161
-    :goto_1
+    :goto_4b
     new-instance v5, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$$ExternalSyntheticLambda0;
 
     invoke-direct {v5, p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$$ExternalSyntheticLambda0;-><init>(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;)V
@@ -638,16 +638,16 @@
     .line 1176
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_64
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_48
+        :pswitch_44
+        :pswitch_40
     .end packed-switch
 .end method
 
 .method public final getAdapter()Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
-    .locals 1
+    .registers 2
 
     .line 1072
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->adapter:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
@@ -656,16 +656,16 @@
 .end method
 
 .method public final getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
-    .locals 1
+    .registers 2
 
     .line 1097
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->configurationListView:Landroidx/recyclerview/widget/RecyclerView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "configurationListView"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -676,16 +676,16 @@
 .end method
 
 .method public final getLayoutManager()Landroidx/recyclerview/widget/LinearLayoutManager;
-    .locals 1
+    .registers 2
 
     .line 1096
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->layoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "layoutManager"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -696,7 +696,7 @@
 .end method
 
 .method public final getProfileAccess()Lkotlinx/coroutines/sync/Mutex;
-    .locals 1
+    .registers 2
 
     .line 1489
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->profileAccess:Lkotlinx/coroutines/sync/Mutex;
@@ -705,16 +705,16 @@
 .end method
 
 .method public final getProxyGroup()Lio/nekohasekai/sagernet/database/ProxyGroup;
-    .locals 1
+    .registers 2
 
     .line 1060
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "proxyGroup"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -725,7 +725,7 @@
 .end method
 
 .method public final getReloadAccess()Lkotlinx/coroutines/sync/Mutex;
-    .locals 1
+    .registers 2
 
     .line 1490
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->reloadAccess:Lkotlinx/coroutines/sync/Mutex;
@@ -734,7 +734,7 @@
 .end method
 
 .method public final getSelect()Z
-    .locals 1
+    .registers 2
 
     .line 1099
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->select$delegate:Lkotlin/Lazy;
@@ -753,7 +753,7 @@
 .end method
 
 .method public final getSelected()Z
-    .locals 1
+    .registers 2
 
     .line 1061
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->selected:Z
@@ -762,7 +762,7 @@
 .end method
 
 .method public final getSelectedItem()Lio/nekohasekai/sagernet/database/ProxyEntity;
-    .locals 1
+    .registers 2
 
     .line 1107
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->selectedItem$delegate:Lkotlin/Lazy;
@@ -777,7 +777,7 @@
 .end method
 
 .method public final getUndoManager()Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -790,11 +790,11 @@
     .line 1071
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->undoManager:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "undoManager"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -805,7 +805,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 2
+    .registers 6
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -833,12 +833,12 @@
 .end method
 
 .method public onDestroy()V
-    .locals 4
+    .registers 5
 
     .line 1236
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->adapter:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .local v0, "it":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
     const/4 v1, 0x0
@@ -871,18 +871,18 @@
     nop
 
     .line 1241
-    :cond_0
+    :cond_17
     invoke-super {p0}, Landroidx/fragment/app/Fragment;->onDestroy()V
 
     .line 1243
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->undoManager:Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     return-void
 
     .line 1244
-    :cond_1
+    :cond_1f
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getUndoManager()Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
 
     move-result-object v0
@@ -894,7 +894,7 @@
 .end method
 
 .method public onResume()V
-    .locals 3
+    .registers 4
 
     .line 1117
     invoke-super {p0}, Landroidx/fragment/app/Fragment;->onResume()V
@@ -904,7 +904,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
 
@@ -924,7 +924,7 @@
     .line 1119
     .end local v0    # "$this$size$iv":Landroid/view/ViewGroup;
     .end local v2    # "$i$f$getSize":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2b
 
     .line 1120
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getConfigurationListView()Landroidx/recyclerview/widget/RecyclerView;
@@ -946,13 +946,13 @@
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnDefaultDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 1124
-    :cond_0
+    :cond_2b
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->configurationListView:Landroidx/recyclerview/widget/RecyclerView;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3b
 
     .line 1125
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->requireView()Landroid/view/View;
@@ -966,8 +966,8 @@
     invoke-virtual {p0, v0, v1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
     .line 1127
-    :cond_1
-    :goto_0
+    :cond_3b
+    :goto_3b
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->checkOrderMenu()V
 
     .line 1128
@@ -982,7 +982,7 @@
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "outState"    # Landroid/os/Bundle;
 
     const-string v0, "outState"
@@ -995,7 +995,7 @@
     .line 1077
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 1078
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->getProxyGroup()Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -1009,12 +1009,12 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 1080
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 3
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -1025,12 +1025,12 @@
     .line 1179
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment;->proxyGroup:Lio/nekohasekai/sagernet/database/ProxyGroup;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     return-void
 
     .line 1181
-    :cond_0
+    :cond_a
     const v0, 0x7f0a00d8
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1121,7 +1121,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_99
 
     .line 1192
     new-instance v0, Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
@@ -1167,19 +1167,19 @@
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/ItemTouchHelper;->attachToRecyclerView(Landroidx/recyclerview/widget/RecyclerView;)V
 
     .line 1233
-    :cond_1
+    :cond_99
     return-void
 .end method
 
 .method public onViewStateRestored(Landroid/os/Bundle;)V
-    .locals 4
+    .registers 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 1083
     invoke-super {p0, p1}, Landroidx/fragment/app/Fragment;->onViewStateRestored(Landroid/os/Bundle;)V
 
     .line 1085
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_21
 
     const-string v0, "proxyGroup"
 
@@ -1189,7 +1189,7 @@
 
     check-cast v0, Lio/nekohasekai/sagernet/database/ProxyGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .local v0, "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     const/4 v1, 0x0
@@ -1217,7 +1217,7 @@
     .line 1085
     .end local v0    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v1    # "$i$a$-also-ConfigurationFragment$GroupFragment$onViewStateRestored$1":I
-    :cond_0
+    :cond_21
     nop
 
     .line 1089
@@ -1225,7 +1225,7 @@
 .end method
 
 .method public final setAdapter(Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/ui/ConfigurationFragment$GroupFragment$ConfigurationAdapter;
 
     .line 1072
@@ -1235,7 +1235,7 @@
 .end method
 
 .method public final setConfigurationListView(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/recyclerview/widget/RecyclerView;
 
     const-string v0, "<set-?>"
@@ -1249,7 +1249,7 @@
 .end method
 
 .method public final setLayoutManager(Landroidx/recyclerview/widget/LinearLayoutManager;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/recyclerview/widget/LinearLayoutManager;
 
     const-string v0, "<set-?>"
@@ -1263,7 +1263,7 @@
 .end method
 
 .method public final setProxyGroup(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     const-string v0, "<set-?>"
@@ -1277,7 +1277,7 @@
 .end method
 
 .method public final setSelected(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 1061
@@ -1287,7 +1287,7 @@
 .end method
 
 .method public final setUndoManager(Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/widget/UndoSnackbarManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 577
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "oldListStart"    # I
     .param p2, "oldListEnd"    # I
     .param p3, "newListStart"    # I
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method newSize()I
-    .locals 2
+    .registers 3
 
     .line 592
     iget v0, p0, Landroidx/recyclerview/widget/DiffUtil$Range;->newListEnd:I
@@ -77,7 +77,7 @@
 .end method
 
 .method oldSize()I
-    .locals 2
+    .registers 3
 
     .line 588
     iget v0, p0, Landroidx/recyclerview/widget/DiffUtil$Range;->oldListEnd:I

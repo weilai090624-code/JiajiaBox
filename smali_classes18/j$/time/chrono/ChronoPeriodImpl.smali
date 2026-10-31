@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 106
     sget-object v0, Lj$/time/temporal/ChronoUnit;->YEARS:Lj$/time/temporal/ChronoUnit;
@@ -52,7 +52,7 @@
 .end method
 
 .method constructor <init>(Lj$/time/chrono/Chronology;III)V
-    .locals 1
+    .registers 6
     .param p1, "chrono"    # Lj$/time/chrono/Chronology;
     .param p2, "years"    # I
     .param p3, "months"    # I
@@ -83,7 +83,7 @@
 .end method
 
 .method private monthRange()J
-    .locals 5
+    .registers 6
 
     .line 246
     iget-object v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->chrono:Lj$/time/chrono/Chronology;
@@ -100,13 +100,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     invoke-virtual {v0}, Lj$/time/temporal/ValueRange;->isIntValue()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 248
     invoke-virtual {v0}, Lj$/time/temporal/ValueRange;->getMaximum()J
@@ -126,14 +126,14 @@
     return-wide v1
 
     .line 250
-    :cond_0
+    :cond_21
     const-wide/16 v1, -0x1
 
     return-wide v1
 .end method
 
 .method static readExternal(Ljava/io/DataInput;)Lj$/time/chrono/ChronoPeriodImpl;
-    .locals 5
+    .registers 6
     .param p0, "in"    # Ljava/io/DataInput;
 
     .line 391
@@ -173,7 +173,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 380
@@ -187,7 +187,7 @@
 .end method
 
 .method private validateAmount(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoPeriodImpl;
-    .locals 6
+    .registers 8
     .param p1, "amount"    # Lj$/time/temporal/TemporalAmount;
 
     .line 199
@@ -198,7 +198,7 @@
     .line 200
     instance-of v0, p1, Lj$/time/chrono/ChronoPeriodImpl;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4a
 
     .line 203
     move-object v0, p1
@@ -217,13 +217,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 207
     return-object v0
 
     .line 205
-    :cond_0
+    :cond_19
     new-instance v1, Ljava/lang/ClassCastException;
 
     iget-object v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->chrono:Lj$/time/chrono/Chronology;
@@ -274,7 +274,7 @@
 
     .line 201
     .end local v0    # "period":Lj$/time/chrono/ChronoPeriodImpl;
-    :cond_1
+    :cond_4a
     new-instance v0, Lj$/time/DateTimeException;
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -305,7 +305,7 @@
 .end method
 
 .method private validateChrono(Lj$/time/temporal/TemporalAccessor;)V
-    .locals 6
+    .registers 8
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 308
@@ -326,7 +326,7 @@
 
     .line 310
     .local v0, "temporalChrono":Lj$/time/chrono/Chronology;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     iget-object v1, p0, Lj$/time/chrono/ChronoPeriodImpl;->chrono:Lj$/time/chrono/Chronology;
 
@@ -334,12 +334,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
-    goto :goto_0
+    goto :goto_47
 
     .line 311
-    :cond_0
+    :cond_1a
     new-instance v1, Lj$/time/DateTimeException;
 
     iget-object v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->chrono:Lj$/time/chrono/Chronology;
@@ -385,15 +385,15 @@
     throw v1
 
     .line 313
-    :cond_1
-    :goto_0
+    :cond_47
+    :goto_47
     return-void
 .end method
 
 
 # virtual methods
 .method public addTo(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 6
+    .registers 8
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 256
@@ -402,12 +402,12 @@
     .line 257
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 258
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_45
 
     .line 259
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
@@ -420,10 +420,10 @@
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_45
 
     .line 262
-    :cond_0
+    :cond_15
     invoke-direct {p0}, Lj$/time/chrono/ChronoPeriodImpl;->monthRange()J
 
     move-result-wide v0
@@ -434,7 +434,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_2f
 
     .line 264
     iget v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
@@ -455,13 +455,13 @@
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_45
 
     .line 266
-    :cond_1
+    :cond_2f
     iget v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3c
 
     .line 267
     iget v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
@@ -475,7 +475,7 @@
     move-result-object p1
 
     .line 269
-    :cond_2
+    :cond_3c
     iget v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
 
     int-to-long v2, v2
@@ -488,11 +488,11 @@
 
     .line 272
     .end local v0    # "monthRange":J
-    :cond_3
-    :goto_0
+    :cond_45
+    :goto_45
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->days:I
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_52
 
     .line 273
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->days:I
@@ -506,29 +506,29 @@
     move-result-object p1
 
     .line 275
-    :cond_4
+    :cond_52
     return-object p1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 318
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 319
     return v0
 
     .line 321
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/time/chrono/ChronoPeriodImpl;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2b
 
     .line 322
     move-object v1, p1
@@ -541,19 +541,19 @@
 
     iget v4, v1, Lj$/time/chrono/ChronoPeriodImpl;->years:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_29
 
     iget v3, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
 
     iget v4, v1, Lj$/time/chrono/ChronoPeriodImpl;->months:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_29
 
     iget v3, p0, Lj$/time/chrono/ChronoPeriodImpl;->days:I
 
     iget v4, v1, Lj$/time/chrono/ChronoPeriodImpl;->days:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_29
 
     iget-object v3, p0, Lj$/time/chrono/ChronoPeriodImpl;->chrono:Lj$/time/chrono/Chronology;
 
@@ -564,31 +564,31 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_29
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_29
     const/4 v0, 0x0
 
     .line 323
-    :goto_0
+    :goto_2a
     return v0
 
     .line 326
     .end local v1    # "other":Lj$/time/chrono/ChronoPeriodImpl;
-    :cond_2
+    :cond_2b
     return v2
 .end method
 
 .method public get(Lj$/time/temporal/TemporalUnit;)J
-    .locals 3
+    .registers 5
     .param p1, "unit"    # Lj$/time/temporal/TemporalUnit;
 
     .line 139
     sget-object v0, Lj$/time/temporal/ChronoUnit;->YEARS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_8
 
     .line 140
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
@@ -598,10 +598,10 @@
     return-wide v0
 
     .line 141
-    :cond_0
+    :cond_8
     sget-object v0, Lj$/time/temporal/ChronoUnit;->MONTHS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_10
 
     .line 142
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
@@ -611,10 +611,10 @@
     return-wide v0
 
     .line 143
-    :cond_1
+    :cond_10
     sget-object v0, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_18
 
     .line 144
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->days:I
@@ -624,7 +624,7 @@
     return-wide v0
 
     .line 146
-    :cond_2
+    :cond_18
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -651,7 +651,7 @@
 .end method
 
 .method public getChronology()Lj$/time/chrono/Chronology;
-    .locals 1
+    .registers 2
 
     .line 157
     iget-object v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->chrono:Lj$/time/chrono/Chronology;
@@ -660,7 +660,7 @@
 .end method
 
 .method public getUnits()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -677,7 +677,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 331
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
@@ -714,65 +714,65 @@
 .end method
 
 .method public isNegative()Z
-    .locals 1
+    .registers 2
 
     .line 168
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_f
 
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_f
 
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->days:I
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public isZero()Z
-    .locals 1
+    .registers 2
 
     .line 163
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->days:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public minus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoPeriod;
-    .locals 7
+    .registers 9
     .param p1, "amountToSubtract"    # Lj$/time/temporal/TemporalAmount;
 
     .line 184
@@ -820,7 +820,7 @@
 .end method
 
 .method public multipliedBy(I)Lj$/time/chrono/ChronoPeriod;
-    .locals 5
+    .registers 7
     .param p1, "scalar"    # I
 
     .line 213
@@ -828,16 +828,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
-    goto :goto_0
+    goto :goto_24
 
     .line 216
-    :cond_0
+    :cond_a
     new-instance v0, Lj$/time/chrono/ChronoPeriodImpl;
 
     iget-object v1, p0, Lj$/time/chrono/ChronoPeriodImpl;->chrono:Lj$/time/chrono/Chronology;
@@ -869,13 +869,13 @@
     return-object v0
 
     .line 214
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     return-object p0
 .end method
 
 .method public synthetic negated()Lj$/time/chrono/ChronoPeriod;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/time/chrono/ChronoPeriod$-CC;->$default$negated(Lj$/time/chrono/ChronoPeriod;)Lj$/time/chrono/ChronoPeriod;
 
@@ -885,7 +885,7 @@
 .end method
 
 .method public normalized()Lj$/time/chrono/ChronoPeriod;
-    .locals 11
+    .registers 12
 
     .line 226
     invoke-direct {p0}, Lj$/time/chrono/ChronoPeriodImpl;->monthRange()J
@@ -898,7 +898,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_32
 
     .line 228
     iget v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
@@ -931,17 +931,17 @@
 
     cmp-long v6, v4, v8
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_24
 
     iget v6, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
 
-    if-ne v7, v6, :cond_0
+    if-ne v7, v6, :cond_24
 
     .line 232
     return-object p0
 
     .line 234
-    :cond_0
+    :cond_24
     new-instance v6, Lj$/time/chrono/ChronoPeriodImpl;
 
     iget-object v8, p0, Lj$/time/chrono/ChronoPeriodImpl;->chrono:Lj$/time/chrono/Chronology;
@@ -960,12 +960,12 @@
     .end local v2    # "totalMonths":J
     .end local v4    # "splitYears":J
     .end local v7    # "splitMonths":I
-    :cond_1
+    :cond_32
     return-object p0
 .end method
 
 .method public plus(Lj$/time/temporal/TemporalAmount;)Lj$/time/chrono/ChronoPeriod;
-    .locals 7
+    .registers 9
     .param p1, "amountToAdd"    # Lj$/time/temporal/TemporalAmount;
 
     .line 174
@@ -1013,7 +1013,7 @@
 .end method
 
 .method public subtractFrom(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 6
+    .registers 8
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 282
@@ -1022,12 +1022,12 @@
     .line 283
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 284
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_45
 
     .line 285
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
@@ -1040,10 +1040,10 @@
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_45
 
     .line 288
-    :cond_0
+    :cond_15
     invoke-direct {p0}, Lj$/time/chrono/ChronoPeriodImpl;->monthRange()J
 
     move-result-wide v0
@@ -1054,7 +1054,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_2f
 
     .line 290
     iget v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
@@ -1075,13 +1075,13 @@
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_45
 
     .line 292
-    :cond_1
+    :cond_2f
     iget v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3c
 
     .line 293
     iget v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
@@ -1095,7 +1095,7 @@
     move-result-object p1
 
     .line 295
-    :cond_2
+    :cond_3c
     iget v2, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
 
     int-to-long v2, v2
@@ -1108,11 +1108,11 @@
 
     .line 298
     .end local v0    # "monthRange":J
-    :cond_3
-    :goto_0
+    :cond_45
+    :goto_45
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->days:I
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_52
 
     .line 299
     iget v0, p0, Lj$/time/chrono/ChronoPeriodImpl;->days:I
@@ -1126,19 +1126,19 @@
     move-result-object p1
 
     .line 301
-    :cond_4
+    :cond_52
     return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 337
     invoke-virtual {p0}, Lj$/time/chrono/ChronoPeriodImpl;->isZero()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 338
     invoke-virtual {p0}, Lj$/time/chrono/ChronoPeriodImpl;->getChronology()Lj$/time/chrono/Chronology;
@@ -1170,7 +1170,7 @@
     return-object v0
 
     .line 340
-    :cond_0
+    :cond_22
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1202,7 +1202,7 @@
     .line 342
     iget v1, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4d
 
     .line 343
     iget v1, p0, Lj$/time/chrono/ChronoPeriodImpl;->years:I
@@ -1216,10 +1216,10 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 345
-    :cond_1
+    :cond_4d
     iget v1, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5c
 
     .line 346
     iget v1, p0, Lj$/time/chrono/ChronoPeriodImpl;->months:I
@@ -1233,10 +1233,10 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 348
-    :cond_2
+    :cond_5c
     iget v1, p0, Lj$/time/chrono/ChronoPeriodImpl;->days:I
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6b
 
     .line 349
     iget v1, p0, Lj$/time/chrono/ChronoPeriodImpl;->days:I
@@ -1250,7 +1250,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 351
-    :cond_3
+    :cond_6b
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1259,7 +1259,7 @@
 .end method
 
 .method writeExternal(Ljava/io/DataOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "out"    # Ljava/io/DataOutput;
 
     .line 384
@@ -1291,7 +1291,7 @@
 .end method
 
 .method protected writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 370
     new-instance v0, Lj$/time/chrono/Ser;

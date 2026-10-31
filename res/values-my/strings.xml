@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">အဝင်ခေါ်ဆိုမှု</string>
     <string name="call_notification_ongoing_text">လက်ရှိခေါ်ဆိုမှု</string>
     <string name="call_notification_screening_text">အဝင်ခေါ်ဆိုမှုကို စစ်ဆေးနေသည်</string>
-    <string name="character_counter_content_description" formatted="false">စာလုံးရေ %2$d တွင် %1$d ထည့်သွင်းထားသည်</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">စာလုံးရေအကန့်အသတ် %2$d လုံးတွင် %1$d လုံးကျော်နေသည်</string>
+    <string name="character_counter_content_description">စာလုံးရေ %2$d တွင် %1$d ထည့်သွင်းထားသည်</string>
+    <string name="character_counter_overflowed_content_description">စာလုံးရေအကန့်အသတ် %2$d လုံးတွင် %1$d လုံးကျော်နေသည်</string>
     <string name="clear_text_end_icon_content_description">စာသား ဖယ်ရှားရန်</string>
     <string name="copy">မိတ္တူကူးရန်</string>
     <string name="copy_toast_msg">လင့်ခ်ကို ကလစ်ဘုတ်သို့ ကူးပြီးပါပြီ</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">ရက်အပိုင်းအခြား ပြင်ပ− %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">စတင်ရက် – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – ပြီးဆုံးရက်</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">အပိုင်းအခြား ရွေးပါ</string>
     <string name="mtrl_picker_range_header_unselected">စတင်ရက် – ပြီးဆုံးရက်</string>
     <string name="mtrl_picker_save">သိမ်းရန်</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" ကို ကလစ်ဘုတ်သို့ မိတ္တူကူးယူပြီးပါပြီ။</string>
     <string name="search_menu_title">ရှာဖွေမှု</string>
     <string name="status_bar_notification_info_overflow">၉၉၉+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s၊ %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s၊ %2$s</string>
     <string name="v7_preference_off">ပိတ်</string>
     <string name="v7_preference_on">ဖွင့်</string>
 </resources>

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/CustomTabsCallback;Landroid/app/PendingIntent;)V
-    .locals 0
+    .registers 3
     .param p1, "callback"    # Landroidx/browser/customtabs/CustomTabsCallback;
     .param p2, "sessionId"    # Landroid/app/PendingIntent;
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method getCallback()Landroidx/browser/customtabs/CustomTabsCallback;
-    .locals 1
+    .registers 2
 
     .line 349
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSession$PendingSession;->mCallback:Landroidx/browser/customtabs/CustomTabsCallback;
@@ -51,7 +51,7 @@
 .end method
 
 .method getId()Landroid/app/PendingIntent;
-    .locals 1
+    .registers 2
 
     .line 344
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSession$PendingSession;->mId:Landroid/app/PendingIntent;

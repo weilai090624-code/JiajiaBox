@@ -55,7 +55,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/WorkQuery$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "builder"    # Landroidx/work/WorkQuery$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -94,7 +94,7 @@
 .end method
 
 .method public static fromIds(Ljava/util/List;)Landroidx/work/WorkQuery;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -128,7 +128,7 @@
 .end method
 
 .method public static varargs fromIds([Ljava/util/UUID;)Landroidx/work/WorkQuery;
-    .locals 1
+    .registers 2
     .param p0, "ids"    # [Ljava/util/UUID;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -152,7 +152,7 @@
 .end method
 
 .method public static fromStates(Ljava/util/List;)Landroidx/work/WorkQuery;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -186,7 +186,7 @@
 .end method
 
 .method public static varargs fromStates([Landroidx/work/WorkInfo$State;)Landroidx/work/WorkQuery;
-    .locals 1
+    .registers 2
     .param p0, "states"    # [Landroidx/work/WorkInfo$State;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -214,7 +214,7 @@
 .end method
 
 .method public static fromTags(Ljava/util/List;)Landroidx/work/WorkQuery;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -248,7 +248,7 @@
 .end method
 
 .method public static varargs fromTags([Ljava/lang/String;)Landroidx/work/WorkQuery;
-    .locals 1
+    .registers 2
     .param p0, "tags"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -272,7 +272,7 @@
 .end method
 
 .method public static fromUniqueWorkNames(Ljava/util/List;)Landroidx/work/WorkQuery;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -306,7 +306,7 @@
 .end method
 
 .method public static varargs fromUniqueWorkNames([Ljava/lang/String;)Landroidx/work/WorkQuery;
-    .locals 1
+    .registers 2
     .param p0, "uniqueWorkNames"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -336,7 +336,7 @@
 
 # virtual methods
 .method public getIds()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -353,7 +353,7 @@
 .end method
 
 .method public getStates()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -370,7 +370,7 @@
 .end method
 
 .method public getTags()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -387,7 +387,7 @@
 .end method
 
 .method public getUniqueWorkNames()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

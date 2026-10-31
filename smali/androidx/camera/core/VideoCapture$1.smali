@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/VideoCapture;Ljava/lang/String;Landroid/util/Size;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/camera/core/VideoCapture;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public onError(Landroidx/camera/core/impl/SessionConfig;Landroidx/camera/core/impl/SessionConfig$SessionError;)V
-    .locals 3
+    .registers 6
     .param p1, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
     .param p2, "error"    # Landroidx/camera/core/impl/SessionConfig$SessionError;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -80,7 +80,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 624
     iget-object v0, p0, Landroidx/camera/core/VideoCapture$1;->this$0:Landroidx/camera/core/VideoCapture;
@@ -97,6 +97,6 @@
     invoke-virtual {v0}, Landroidx/camera/core/VideoCapture;->notifyReset()V
 
     .line 627
-    :cond_0
+    :cond_18
     return-void
 .end method

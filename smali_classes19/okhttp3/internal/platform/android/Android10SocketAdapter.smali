@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/platform/android/Android10SocketAdapter$Companion;
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 6
+    .registers 10
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -113,7 +113,7 @@
     .line 55
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_c
     invoke-static {p1, v0}, Landroid/net/ssl/SSLSockets;->setUseSessionTickets(Ljavax/net/ssl/SSLSocket;Z)V
 
     .line 57
@@ -148,7 +148,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
     .end local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v2    # "$i$f$toTypedArray":I
@@ -170,7 +170,7 @@
     .restart local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v2    # "$i$f$toTypedArray":I
     .restart local v3    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_0
+    :cond_2f
     new-instance v4, Ljava/lang/NullPointerException;
 
     const-string v5, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -181,8 +181,8 @@
     .end local p2    # "hostname":Ljava/lang/String;
     .end local p3    # "protocols":Ljava/util/List;
     throw v4
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_37
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_c .. :try_end_37} :catch_37
 
     .line 63
     .end local v0    # "sslParameters":Ljavax/net/ssl/SSLParameters;
@@ -192,7 +192,7 @@
     .restart local p1    # "sslSocket":Ljavax/net/ssl/SSLSocket;
     .restart local p2    # "hostname":Ljava/lang/String;
     .restart local p3    # "protocols":Ljava/util/List;
-    :catch_0
+    :catch_37
     move-exception v0
 
     .line 65
@@ -211,7 +211,7 @@
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -225,40 +225,40 @@
 
     .line 44
     .local v0, "protocol":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_d
     const-string v1, ""
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_13
+    if-eqz v1, :cond_18
 
     const/4 v1, 0x0
 
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_19
 
     .line 45
-    :cond_1
+    :cond_18
     nop
 
     .line 46
     .end local v0    # "protocol":Ljava/lang/String;
-    :goto_1
+    :goto_19
     return-object v0
 .end method
 
 .method public isSupported()Z
-    .locals 1
+    .registers 2
 
     .line 39
     sget-object v0, Lokhttp3/internal/platform/android/Android10SocketAdapter;->Companion:Lokhttp3/internal/platform/android/Android10SocketAdapter$Companion;
@@ -271,7 +271,7 @@
 .end method
 
 .method public matchesSocket(Ljavax/net/ssl/SSLSocket;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -287,7 +287,7 @@
 .end method
 
 .method public matchesSocketFactory(Ljavax/net/ssl/SSLSocketFactory;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 34
@@ -299,7 +299,7 @@
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 34

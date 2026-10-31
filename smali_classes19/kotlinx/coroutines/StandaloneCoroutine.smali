@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;Z)V
-    .locals 1
+    .registers 4
     .param p1, "parentContext"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "active"    # Z
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method protected handleJobException(Ljava/lang/Throwable;)Z
-    .locals 1
+    .registers 3
     .param p1, "exception"    # Ljava/lang/Throwable;
 
     .line 194

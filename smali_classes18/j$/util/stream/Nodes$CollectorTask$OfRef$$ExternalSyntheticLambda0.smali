@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/function/IntFunction;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final apply(J)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Lj$/util/stream/Nodes$CollectorTask$OfRef$$ExternalSyntheticLambda0;->f$0:Ljava/util/function/IntFunction;
 

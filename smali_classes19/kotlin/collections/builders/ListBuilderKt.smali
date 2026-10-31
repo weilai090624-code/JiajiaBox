@@ -59,7 +59,7 @@
 
 # direct methods
 .method public static final synthetic access$subarrayContentEquals([Ljava/lang/Object;IILjava/util/List;)Z
-    .locals 1
+    .registers 5
     .param p0, "$receiver"    # [Ljava/lang/Object;
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -74,7 +74,7 @@
 .end method
 
 .method public static final synthetic access$subarrayContentHashCode([Ljava/lang/Object;II)I
-    .locals 1
+    .registers 4
     .param p0, "$receiver"    # [Ljava/lang/Object;
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -88,7 +88,7 @@
 .end method
 
 .method public static final synthetic access$subarrayContentToString([Ljava/lang/Object;IILjava/util/Collection;)Ljava/lang/String;
-    .locals 1
+    .registers 5
     .param p0, "$receiver"    # [Ljava/lang/Object;
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -103,7 +103,7 @@
 .end method
 
 .method public static final arrayOfUninitializedElements(I)[Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -114,17 +114,17 @@
     .end annotation
 
     .line 616
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_5
+    if-eqz v0, :cond_a
 
     .line 618
     new-array v0, p0, [Ljava/lang/Object;
@@ -132,7 +132,7 @@
     return-object v0
 
     .line 719
-    :cond_1
+    :cond_a
     const/4 v0, 0x0
 
     .line 616
@@ -154,7 +154,7 @@
 .end method
 
 .method public static final copyOfUninitializedElements([Ljava/lang/Object;I)[Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$copyOfUninitializedElements"    # [Ljava/lang/Object;
     .param p1, "newSize"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -182,7 +182,7 @@
 .end method
 
 .method public static final resetAt([Ljava/lang/Object;I)V
-    .locals 1
+    .registers 3
     .param p0, "$this$resetAt"    # [Ljava/lang/Object;
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -207,7 +207,7 @@
 .end method
 
 .method public static final resetRange([Ljava/lang/Object;II)V
-    .locals 1
+    .registers 4
     .param p0, "$this$resetRange"    # [Ljava/lang/Object;
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
@@ -227,23 +227,23 @@
     move v0, p1
 
     .local v0, "index":I
-    :goto_0
-    if-ge v0, p2, :cond_0
+    :goto_6
+    if-ge v0, p2, :cond_e
 
     invoke-static {p0, v0}, Lkotlin/collections/builders/ListBuilderKt;->resetAt([Ljava/lang/Object;I)V
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 672
     .end local v0    # "index":I
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method private static final subarrayContentEquals([Ljava/lang/Object;IILjava/util/List;)Z
-    .locals 4
+    .registers 8
     .param p0, "$this$subarrayContentEquals"    # [Ljava/lang/Object;
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -265,18 +265,18 @@
 
     const/4 v1, 0x0
 
-    if-eq p2, v0, :cond_0
+    if-eq p2, v0, :cond_8
 
     return v1
 
     .line 652
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     .line 653
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p2, :cond_2
+    :goto_9
+    if-ge v0, p2, :cond_1d
 
     .line 654
     add-int v2, p1, v0
@@ -291,25 +291,25 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1a
 
     return v1
 
     .line 655
-    :cond_1
+    :cond_1a
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 657
-    :cond_2
+    :cond_1d
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method private static final subarrayContentHashCode([Ljava/lang/Object;II)I
-    .locals 5
+    .registers 8
     .param p0, "$this$subarrayContentHashCode"    # [Ljava/lang/Object;
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -330,8 +330,8 @@
 
     .line 642
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p2, :cond_1
+    :goto_2
+    if-ge v1, p2, :cond_18
 
     .line 643
     add-int v2, p1, v1
@@ -342,18 +342,18 @@
     .local v2, "nextElement":Ljava/lang/Object;
     mul-int/lit8 v3, v0, 0x1f
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v4
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_12
     add-int v0, v3, v4
 
     .line 645
@@ -362,15 +362,15 @@
     .end local v2    # "nextElement":Ljava/lang/Object;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 647
-    :cond_1
+    :cond_18
     return v0
 .end method
 
 .method private static final subarrayContentToString([Ljava/lang/Object;IILjava/util/Collection;)Ljava/lang/String;
-    .locals 4
+    .registers 8
     .param p0, "$this$subarrayContentToString"    # [Ljava/lang/Object;
     .param p1, "offset"    # I
     .param p2, "length"    # I
@@ -406,48 +406,48 @@
 
     .line 625
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p2, :cond_2
+    :goto_f
+    if-ge v1, p2, :cond_2b
 
     .line 626
-    if-lez v1, :cond_0
+    if-lez v1, :cond_18
 
     const-string v2, ", "
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 627
-    :cond_0
+    :cond_18
     add-int v2, p1, v1
 
     aget-object v2, p0, v2
 
     .line 628
     .local v2, "nextElement":Ljava/lang/Object;
-    if-ne v2, p3, :cond_1
+    if-ne v2, p3, :cond_24
 
     .line 629
     const-string v3, "(this Collection)"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_27
 
     .line 631
-    :cond_1
+    :cond_24
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 633
-    :goto_1
+    :goto_27
     nop
 
     .end local v2    # "nextElement":Ljava/lang/Object;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 635
-    :cond_2
+    :cond_2b
     const-string v2, "]"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

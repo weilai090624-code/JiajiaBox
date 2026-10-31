@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/work/WorkRequest$Companion;
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/UUID;Landroidx/work/impl/model/WorkSpec;Ljava/util/Set;)V
-    .locals 1
+    .registers 5
     .param p1, "id"    # Ljava/util/UUID;
     .param p2, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
     .param p3, "tags"    # Ljava/util/Set;
@@ -137,7 +137,7 @@
 
 # virtual methods
 .method public getId()Ljava/util/UUID;
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Landroidx/work/WorkRequest;->id:Ljava/util/UUID;
@@ -146,7 +146,7 @@
 .end method
 
 .method public final getStringId()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 62
     invoke-virtual {p0}, Landroidx/work/WorkRequest;->getId()Ljava/util/UUID;
@@ -165,7 +165,7 @@
 .end method
 
 .method public final getTags()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -182,7 +182,7 @@
 .end method
 
 .method public final getWorkSpec()Landroidx/work/impl/model/WorkSpec;
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Landroidx/work/WorkRequest;->workSpec:Landroidx/work/impl/model/WorkSpec;

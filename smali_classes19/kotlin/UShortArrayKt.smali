@@ -35,7 +35,7 @@
 
 # direct methods
 .method private static final UShortArray(ILkotlin/jvm/functions/Function1;)[S
-    .locals 3
+    .registers 5
     .param p0, "size"    # I
     .param p1, "init"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -58,8 +58,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, p0, :cond_0
+    :goto_8
+    if-ge v1, p0, :cond_1d
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -79,9 +79,9 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_1d
     invoke-static {v0}, Lkotlin/UShortArray;->constructor-impl([S)[S
 
     move-result-object v0
@@ -90,7 +90,7 @@
 .end method
 
 .method private static final varargs ushortArrayOf-rL5Bavg([S)[S
-    .locals 1
+    .registers 2
     .param p0, "elements"    # [S
 
     const-string v0, "elements"

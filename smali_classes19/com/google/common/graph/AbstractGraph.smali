@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public bridge synthetic degree(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
@@ -49,7 +49,7 @@
 .end method
 
 .method public bridge synthetic edges()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
@@ -61,7 +61,7 @@
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -71,24 +71,24 @@
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 37
     return v0
 
     .line 39
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/common/graph/Graph;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     .line 40
     return v2
 
     .line 42
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/google/common/graph/Graph;
@@ -103,7 +103,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_34
 
     .line 45
     invoke-virtual {p0}, Lcom/google/common/graph/AbstractGraph;->nodes()Ljava/util/Set;
@@ -118,7 +118,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_34
 
     .line 46
     invoke-virtual {p0}, Lcom/google/common/graph/AbstractGraph;->edges()Ljava/util/Set;
@@ -133,20 +133,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_34
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_2
+    :cond_34
     const/4 v0, 0x0
 
     .line 44
-    :goto_0
+    :goto_35
     return v0
 .end method
 
 .method public bridge synthetic hasEdgeConnecting(Lcom/google/common/graph/EndpointPair;)Z
-    .locals 0
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
@@ -158,7 +158,7 @@
 .end method
 
 .method public bridge synthetic hasEdgeConnecting(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 30
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
@@ -170,7 +170,7 @@
 .end method
 
 .method public final hashCode()I
-    .locals 1
+    .registers 2
 
     .line 51
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
@@ -186,7 +186,7 @@
 .end method
 
 .method public bridge synthetic inDegree(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
@@ -198,7 +198,7 @@
 .end method
 
 .method public bridge synthetic incidentEdgeOrder()Lcom/google/common/graph/ElementOrder;
-    .locals 1
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
@@ -210,7 +210,7 @@
 .end method
 
 .method public bridge synthetic incidentEdges(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
@@ -222,7 +222,7 @@
 .end method
 
 .method public bridge synthetic outDegree(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 30
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"
@@ -234,7 +234,7 @@
 .end method
 
 .method public bridge synthetic predecessors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/google/common/graph/Graph$-CC;->$default$predecessors(Lcom/google/common/graph/Graph;Ljava/lang/Object;)Ljava/lang/Iterable;
 
@@ -244,7 +244,7 @@
 .end method
 
 .method public bridge synthetic successors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lcom/google/common/graph/Graph$-CC;->$default$successors(Lcom/google/common/graph/Graph;Ljava/lang/Object;)Ljava/lang/Iterable;
 
@@ -254,7 +254,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 57
     .local p0, "this":Lcom/google/common/graph/AbstractGraph;, "Lcom/google/common/graph/AbstractGraph<TN;>;"

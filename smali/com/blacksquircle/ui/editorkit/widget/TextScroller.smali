@@ -141,7 +141,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$c0ZPPW456pCCDPSYSmWtTA2InHE(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->hideCallback$lambda$0(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)V
 
@@ -149,7 +149,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$Companion;
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
 
     const-string v0, "context"
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
 
     const-string v0, "context"
 
@@ -211,7 +211,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 7
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -325,7 +325,7 @@
 
     .line 103
     .local v4, "hasThumbTint":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_6b
 
     .line 104
     sget v5, Lcom/blacksquircle/ui/editorkit/R$styleable;->TextScroller_thumbNormal:I
@@ -334,10 +334,10 @@
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_7a
 
     .line 106
-    :cond_0
+    :cond_6b
     sget v5, Lcom/blacksquircle/ui/editorkit/R$drawable;->fastscroll_default:I
 
     invoke-static {p1, v5}, Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
@@ -352,11 +352,11 @@
     invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 103
-    :goto_0
+    :goto_7a
     iput-object v5, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbNormal:Landroid/graphics/drawable/Drawable;
 
     .line 109
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_85
 
     .line 110
     sget v5, Lcom/blacksquircle/ui/editorkit/R$styleable;->TextScroller_thumbDragging:I
@@ -365,10 +365,10 @@
 
     move-result-object v5
 
-    goto :goto_1
+    goto :goto_94
 
     .line 112
-    :cond_1
+    :cond_85
     sget v5, Lcom/blacksquircle/ui/editorkit/R$drawable;->fastscroll_pressed:I
 
     invoke-static {p1, v5}, Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
@@ -383,11 +383,11 @@
     invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 109
-    :goto_1
+    :goto_94
     iput-object v5, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbDragging:Landroid/graphics/drawable/Drawable;
 
     .line 115
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_a8
 
     .line 116
     sget v5, Lcom/blacksquircle/ui/editorkit/R$styleable;->TextScroller_thumbTint:I
@@ -409,7 +409,7 @@
 
     .line 121
     .end local v5    # "thumbTint":I
-    :cond_2
+    :cond_a8
     iget-object v5, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbNormal:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
@@ -452,27 +452,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 34
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 36
     const/4 p2, 0x0
 
     .line 34
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     .line 37
     const/4 p3, 0x0
 
     .line 34
-    :cond_1
+    :cond_a
     invoke-direct {p0, p1, p2, p3}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 277
@@ -480,7 +480,7 @@
 .end method
 
 .method public static final synthetic access$getThumbDragging$p(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
     .line 34
@@ -490,7 +490,7 @@
 .end method
 
 .method public static final synthetic access$getThumbHeight$p(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)I
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
     .line 34
@@ -500,7 +500,7 @@
 .end method
 
 .method public static final synthetic access$getThumbNormal$p(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
     .line 34
@@ -510,7 +510,7 @@
 .end method
 
 .method private final getDraggingBitmap()Landroid/graphics/Bitmap;
-    .locals 1
+    .registers 2
 
     .line 76
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->draggingBitmap$delegate:Lkotlin/Lazy;
@@ -525,28 +525,28 @@
 .end method
 
 .method private final getMeasurements()V
-    .locals 2
+    .registers 3
 
     .line 225
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 227
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->getLayout()Landroid/text/Layout;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     invoke-virtual {v0}, Landroid/text/Layout;->getHeight()I
 
@@ -554,18 +554,18 @@
 
     int-to-float v0, v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     iput v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->textScrollMax:F
 
     .line 228
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->getScrollY()I
 
@@ -573,7 +573,7 @@
 
     int-to-float v1, v0
 
-    :cond_2
+    :cond_22
     iput v1, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->textScrollY:F
 
     .line 229
@@ -588,7 +588,7 @@
 .end method
 
 .method private final getNormalBitmap()Landroid/graphics/Bitmap;
-    .locals 1
+    .registers 2
 
     .line 70
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->normalBitmap$delegate:Lkotlin/Lazy;
@@ -603,19 +603,19 @@
 .end method
 
 .method private final getThumbTop()F
-    .locals 7
+    .registers 8
 
     .line 233
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 235
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -686,19 +686,19 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_42
 
     .line 241
     move v1, v3
 
-    goto :goto_0
+    goto :goto_43
 
     .line 243
-    :cond_1
+    :cond_42
     nop
 
     .line 240
-    :goto_0
+    :goto_43
     nop
 
     .line 246
@@ -721,7 +721,7 @@
 
     cmpl-float v4, v1, v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_63
 
     .line 247
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->getHeight()I
@@ -740,19 +740,19 @@
 
     int-to-float v4, v4
 
-    goto :goto_1
+    goto :goto_64
 
     .line 249
-    :cond_2
+    :cond_63
     move v4, v1
 
     .line 246
-    :goto_1
+    :goto_64
     return v4
 .end method
 
 .method private static final hideCallback$lambda$0(Lcom/blacksquircle/ui/editorkit/widget/TextScroller;)V
-    .locals 1
+    .registers 2
     .param p0, "this$0"    # Lcom/blacksquircle/ui/editorkit/widget/TextScroller;
 
     const-string/jumbo v0, "this$0"
@@ -768,7 +768,7 @@
 .end method
 
 .method private final isPointInThumb(FF)Z
-    .locals 2
+    .registers 5
     .param p1, "x"    # F
     .param p2, "y"    # F
 
@@ -777,7 +777,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_20
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->getWidth()I
 
@@ -787,13 +787,13 @@
 
     cmpg-float v0, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_20
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbTop:F
 
     cmpl-float v0, p2, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_20
 
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbTop:F
 
@@ -805,21 +805,21 @@
 
     cmpg-float v0, p2, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_20
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_21
     return v0
 .end method
 
 .method private final isShowScrollerJustified()Z
-    .locals 5
+    .registers 6
 
     .line 258
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->textScrollMax:F
@@ -852,31 +852,31 @@
 
     cmpl-double v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_20
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_21
     return v0
 .end method
 
 .method private final scrollView()V
-    .locals 7
+    .registers 8
 
     .line 213
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 215
-    :cond_0
+    :cond_5
     iget v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbTop:F
 
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->getHeight()I
@@ -931,7 +931,7 @@
     .local v2, "textAreaHeight":I
     iget-object v3, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_4c
 
     .line 219
     iget-object v4, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
@@ -961,14 +961,14 @@
     invoke-virtual {v3, v4, v5}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->scrollTo(II)V
 
     .line 222
-    :cond_1
+    :cond_4c
     return-void
 .end method
 
 
 # virtual methods
 .method public final attachTo(Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;)V
-    .locals 2
+    .registers 4
     .param p1, "scrollableEditText"    # Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
     const-string v0, "scrollableEditText"
@@ -981,7 +981,7 @@
     .line 204
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     move-object v1, p0
 
@@ -990,17 +990,17 @@
     invoke-virtual {v0, v1}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->addOnScrollChangedListener(Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText$OnScrollChangedListener;)V
 
     .line 205
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public final detach()V
-    .locals 2
+    .registers 3
 
     .line 208
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     move-object v1, p0
 
@@ -1009,7 +1009,7 @@
     invoke-virtual {v0, v1}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->removeOnScrollChangedListener(Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText$OnScrollChangedListener;)V
 
     .line 209
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
@@ -1019,7 +1019,7 @@
 .end method
 
 .method public final getState()Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;
-    .locals 1
+    .registers 2
 
     .line 40
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->state:Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;
@@ -1028,7 +1028,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 4
+    .registers 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     const-string v0, "canvas"
@@ -1053,12 +1053,12 @@
 
     const/4 v2, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_76
 
-    goto :goto_0
+    goto :goto_75
 
     .line 142
-    :pswitch_0
+    :pswitch_19
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0}, Landroid/graphics/Paint;->getAlpha()I
@@ -1067,7 +1067,7 @@
 
     const/16 v1, 0x19
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_46
 
     .line 143
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbPaint:Landroid/graphics/Paint;
@@ -1104,10 +1104,10 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_0
+    goto :goto_75
 
     .line 147
-    :cond_0
+    :cond_46
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbPaint:Landroid/graphics/Paint;
 
     const/4 v1, 0x0
@@ -1119,10 +1119,10 @@
 
     invoke-virtual {p0, v0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->setState(Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;)V
 
-    goto :goto_0
+    goto :goto_75
 
     .line 138
-    :pswitch_1
+    :pswitch_52
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
@@ -1138,10 +1138,10 @@
 
     invoke-virtual {p1, v0, v2, v1, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    goto :goto_0
+    goto :goto_75
 
     .line 134
-    :pswitch_2
+    :pswitch_63
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
@@ -1157,27 +1157,27 @@
 
     invoke-virtual {p1, v0, v2, v1, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    goto :goto_0
+    goto :goto_75
 
     .line 132
-    :pswitch_3
+    :pswitch_74
     return-void
 
     .line 152
-    :goto_0
+    :goto_75
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_76
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_74
+        :pswitch_63
+        :pswitch_52
+        :pswitch_19
     .end packed-switch
 .end method
 
 .method public onScrollChanged(IIII)V
-    .locals 4
+    .registers 9
     .param p1, "x"    # I
     .param p2, "y"    # I
     .param p3, "oldX"    # I
@@ -1188,7 +1188,7 @@
 
     sget-object v1, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;->DRAGGING:Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_17
 
     .line 196
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->getMeasurements()V
@@ -1208,12 +1208,12 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 200
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 5
+    .registers 7
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     const-string v0, "event"
@@ -1225,18 +1225,18 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_93
 
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->state:Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;
 
     sget-object v2, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;->HIDDEN:Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_12
 
-    goto/16 :goto_2
+    goto/16 :goto_93
 
     .line 159
-    :cond_0
+    :cond_12
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->getMeasurements()V
 
     .line 160
@@ -1246,17 +1246,17 @@
 
     const/4 v2, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_94
 
-    goto/16 :goto_1
+    goto/16 :goto_92
 
     .line 175
-    :pswitch_0
+    :pswitch_1f
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->state:Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;
 
     sget-object v3, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;->DRAGGING:Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;
 
-    if-ne v0, v3, :cond_5
+    if-ne v0, v3, :cond_92
 
     .line 176
     invoke-virtual {p0, v2}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->setPressed(Z)V
@@ -1264,12 +1264,12 @@
     .line 177
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->abortFling()V
 
     .line 178
-    :cond_1
+    :cond_2f
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v0
@@ -1284,15 +1284,15 @@
 
     .line 179
     .local v0, "newThumbTop":I
-    if-gez v0, :cond_2
+    if-gez v0, :cond_3d
 
     .line 180
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_58
 
     .line 181
-    :cond_2
+    :cond_3d
     iget v1, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbHeight:I
 
     add-int/2addr v1, v0
@@ -1307,7 +1307,7 @@
 
     sub-int/2addr v3, v4
 
-    if-le v1, v3, :cond_3
+    if-le v1, v3, :cond_58
 
     .line 182
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->getHeight()I
@@ -1325,8 +1325,8 @@
     sub-int v0, v1, v3
 
     .line 184
-    :cond_3
-    :goto_0
+    :cond_58
+    :goto_58
     int-to-float v1, v0
 
     iput v1, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->thumbTop:F
@@ -1342,7 +1342,7 @@
 
     .line 170
     .end local v0    # "newThumbTop":I
-    :pswitch_1
+    :pswitch_62
     sget-object v0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;->VISIBLE:Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;
 
     invoke-virtual {p0, v0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->setState(Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;)V
@@ -1359,10 +1359,10 @@
 
     invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_1
+    goto :goto_92
 
     .line 162
-    :pswitch_2
+    :pswitch_74
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -1375,17 +1375,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_92
 
     .line 163
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->scrollableEditText:Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_89
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/widget/internal/ScrollableEditText;->abortFling()V
 
     .line 164
-    :cond_4
+    :cond_89
     sget-object v0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;->DRAGGING:Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;
 
     invoke-virtual {p0, v0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->setState(Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;)V
@@ -1397,25 +1397,25 @@
     return v2
 
     .line 191
-    :cond_5
-    :goto_1
+    :cond_92
+    :goto_92
     return v1
 
     .line 157
-    :cond_6
-    :goto_2
+    :cond_93
+    :goto_93
     return v1
 
-    :pswitch_data_0
+    :pswitch_data_94
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_74
+        :pswitch_62
+        :pswitch_1f
     .end packed-switch
 .end method
 
 .method public final setState(Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # Lcom/blacksquircle/ui/editorkit/widget/TextScroller$State;
 
     const-string/jumbo v0, "value"
@@ -1431,12 +1431,12 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_4c
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 61
-    :pswitch_0
+    :pswitch_12
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->hideHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->hideCallback:Ljava/lang/Runnable;
@@ -1449,10 +1449,10 @@
     .line 63
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->invalidate()V
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 56
-    :pswitch_1
+    :pswitch_1f
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->hideHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->hideCallback:Ljava/lang/Runnable;
@@ -1465,15 +1465,15 @@
     .line 58
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->invalidate()V
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 49
-    :pswitch_2
+    :pswitch_2c
     invoke-direct {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->isShowScrollerJustified()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4b
 
     .line 50
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->hideHandler:Landroid/os/Handler;
@@ -1488,10 +1488,10 @@
     .line 52
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->invalidate()V
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 44
-    :pswitch_3
+    :pswitch_3f
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->hideHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->hideCallback:Ljava/lang/Runnable;
@@ -1505,15 +1505,15 @@
     invoke-virtual {p0}, Lcom/blacksquircle/ui/editorkit/widget/TextScroller;->invalidate()V
 
     .line 66
-    :cond_0
-    :goto_0
+    :cond_4b
+    :goto_4b
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_4c
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3f
+        :pswitch_2c
+        :pswitch_1f
+        :pswitch_12
     .end packed-switch
 .end method

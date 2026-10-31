@@ -49,14 +49,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     .line 34
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 100
     const/16 v0, 0x400
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 3
+    .registers 5
     .param p1, "initial_size"    # I
 
     .line 93
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(ILandroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;)V
-    .locals 2
+    .registers 5
     .param p1, "initial_size"    # I
     .param p2, "bb_factory"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public constructor <init>(ILandroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;Ljava/nio/ByteBuffer;Landroidx/emoji2/text/flatbuffer/Utf8;)V
-    .locals 2
+    .registers 7
     .param p1, "initial_size"    # I
     .param p2, "bb_factory"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;
     .param p3, "existing_bb"    # Ljava/nio/ByteBuffer;
@@ -152,17 +152,17 @@
     iput-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->force_defaults:Z
 
     .line 72
-    if-gtz p1, :cond_0
+    if-gtz p1, :cond_1f
 
     .line 73
     const/4 p1, 0x1
 
     .line 75
-    :cond_0
+    :cond_1f
     iput-object p2, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb_factory:Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;
 
     .line 76
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_32
 
     .line 77
     iput-object p3, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
@@ -179,10 +179,10 @@
 
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    goto :goto_0
+    goto :goto_38
 
     .line 81
-    :cond_1
+    :cond_32
     invoke-virtual {p2, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;->newByteBuffer(I)Ljava/nio/ByteBuffer;
 
     move-result-object v0
@@ -190,7 +190,7 @@
     iput-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
 
     .line 83
-    :goto_0
+    :goto_38
     iput-object p4, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->utf8:Landroidx/emoji2/text/flatbuffer/Utf8;
 
     .line 84
@@ -207,7 +207,7 @@
 .end method
 
 .method public constructor <init>(Ljava/nio/ByteBuffer;)V
-    .locals 1
+    .registers 3
     .param p1, "existing_bb"    # Ljava/nio/ByteBuffer;
 
     .line 124
@@ -222,7 +222,7 @@
 .end method
 
 .method public constructor <init>(Ljava/nio/ByteBuffer;Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;)V
-    .locals 2
+    .registers 5
     .param p1, "existing_bb"    # Ljava/nio/ByteBuffer;
     .param p2, "bb_factory"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;
 
@@ -242,7 +242,7 @@
 .end method
 
 .method private dataStart()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -256,7 +256,7 @@
 .end method
 
 .method static growByteBuffer(Ljava/nio/ByteBuffer;Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;)Ljava/nio/ByteBuffer;
-    .locals 4
+    .registers 6
     .param p0, "bb"    # Ljava/nio/ByteBuffer;
     .param p1, "bb_factory"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;
 
@@ -271,21 +271,21 @@
 
     and-int/2addr v1, v0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_28
 
     .line 242
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     shl-int/lit8 v1, v0, 0x1
 
     .line 243
     .local v1, "new_buf_size":I
-    :goto_0
+    :goto_f
     const/4 v2, 0x0
 
     invoke-virtual {p0, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
@@ -319,7 +319,7 @@
     .line 241
     .end local v1    # "new_buf_size":I
     .end local v2    # "nbb":Ljava/nio/ByteBuffer;
-    :cond_1
+    :cond_28
     new-instance v1, Ljava/lang/AssertionError;
 
     const-string v2, "FlatBuffers: cannot grow buffer beyond 2 gigabytes."
@@ -330,7 +330,7 @@
 .end method
 
 .method public static isFieldPresent(Landroidx/emoji2/text/flatbuffer/Table;I)Z
-    .locals 1
+    .registers 3
     .param p0, "table"    # Landroidx/emoji2/text/flatbuffer/Table;
     .param p1, "offset"    # I
 
@@ -339,23 +339,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 
 # virtual methods
 .method public Nested(I)V
-    .locals 2
+    .registers 4
     .param p1, "obj"    # I
 
     .line 635
@@ -363,13 +363,13 @@
 
     move-result v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_7
 
     .line 637
     return-void
 
     .line 636
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "FlatBuffers: struct must be serialized inline."
@@ -380,7 +380,7 @@
 .end method
 
 .method public addBoolean(IZZ)V
-    .locals 1
+    .registers 5
     .param p1, "o"    # I
     .param p2, "x"    # Z
     .param p3, "d"    # Z
@@ -388,21 +388,21 @@
     .line 697
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->force_defaults:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
-    if-eq p2, p3, :cond_1
+    if-eq p2, p3, :cond_c
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p2}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->addBoolean(Z)V
 
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->slot(I)V
 
-    :cond_1
+    :cond_c
     return-void
 .end method
 
 .method public addBoolean(Z)V
-    .locals 2
+    .registers 4
     .param p1, "x"    # Z
 
     .line 360
@@ -418,7 +418,7 @@
 .end method
 
 .method public addByte(B)V
-    .locals 2
+    .registers 4
     .param p1, "x"    # B
 
     .line 367
@@ -434,7 +434,7 @@
 .end method
 
 .method public addByte(IBI)V
-    .locals 1
+    .registers 5
     .param p1, "o"    # I
     .param p2, "x"    # B
     .param p3, "d"    # I
@@ -442,21 +442,21 @@
     .line 708
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->force_defaults:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
-    if-eq p2, p3, :cond_1
+    if-eq p2, p3, :cond_c
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p2}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->addByte(B)V
 
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->slot(I)V
 
-    :cond_1
+    :cond_c
     return-void
 .end method
 
 .method public addDouble(D)V
-    .locals 2
+    .registers 5
     .param p1, "x"    # D
 
     .line 402
@@ -472,7 +472,7 @@
 .end method
 
 .method public addDouble(IDD)V
-    .locals 1
+    .registers 7
     .param p1, "o"    # I
     .param p2, "x"    # D
     .param p4, "d"    # D
@@ -480,23 +480,23 @@
     .line 763
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->force_defaults:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     cmpl-double v0, p2, p4
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p2, p3}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->addDouble(D)V
 
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->slot(I)V
 
-    :cond_1
+    :cond_e
     return-void
 .end method
 
 .method public addFloat(F)V
-    .locals 2
+    .registers 4
     .param p1, "x"    # F
 
     .line 395
@@ -512,7 +512,7 @@
 .end method
 
 .method public addFloat(IFD)V
-    .locals 3
+    .registers 8
     .param p1, "o"    # I
     .param p2, "x"    # F
     .param p3, "d"    # D
@@ -520,25 +520,25 @@
     .line 752
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->force_defaults:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     float-to-double v0, p2
 
     cmpl-double v2, v0, p3
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_f
 
-    :cond_0
+    :cond_9
     invoke-virtual {p0, p2}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->addFloat(F)V
 
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->slot(I)V
 
-    :cond_1
+    :cond_f
     return-void
 .end method
 
 .method public addInt(I)V
-    .locals 2
+    .registers 4
     .param p1, "x"    # I
 
     .line 381
@@ -554,7 +554,7 @@
 .end method
 
 .method public addInt(III)V
-    .locals 1
+    .registers 5
     .param p1, "o"    # I
     .param p2, "x"    # I
     .param p3, "d"    # I
@@ -562,21 +562,21 @@
     .line 730
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->force_defaults:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
-    if-eq p2, p3, :cond_1
+    if-eq p2, p3, :cond_c
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p2}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->addInt(I)V
 
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->slot(I)V
 
-    :cond_1
+    :cond_c
     return-void
 .end method
 
 .method public addLong(IJJ)V
-    .locals 1
+    .registers 7
     .param p1, "o"    # I
     .param p2, "x"    # J
     .param p4, "d"    # J
@@ -584,23 +584,23 @@
     .line 741
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->force_defaults:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     cmp-long v0, p2, p4
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p2, p3}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->addLong(J)V
 
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->slot(I)V
 
-    :cond_1
+    :cond_e
     return-void
 .end method
 
 .method public addLong(J)V
-    .locals 2
+    .registers 5
     .param p1, "x"    # J
 
     .line 388
@@ -616,7 +616,7 @@
 .end method
 
 .method public addOffset(I)V
-    .locals 2
+    .registers 4
     .param p1, "off"    # I
 
     .line 410
@@ -631,7 +631,7 @@
 
     move-result v0
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_15
 
     .line 412
     invoke-virtual {p0}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->offset()I
@@ -653,7 +653,7 @@
     .line 411
     .end local v0    # "off":I
     .restart local p1    # "off":I
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -662,7 +662,7 @@
 .end method
 
 .method public addOffset(III)V
-    .locals 1
+    .registers 5
     .param p1, "o"    # I
     .param p2, "x"    # I
     .param p3, "d"    # I
@@ -670,21 +670,21 @@
     .line 774
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->force_defaults:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
-    if-eq p2, p3, :cond_1
+    if-eq p2, p3, :cond_c
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p2}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->addOffset(I)V
 
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->slot(I)V
 
-    :cond_1
+    :cond_c
     return-void
 .end method
 
 .method public addShort(ISI)V
-    .locals 1
+    .registers 5
     .param p1, "o"    # I
     .param p2, "x"    # S
     .param p3, "d"    # I
@@ -692,21 +692,21 @@
     .line 719
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->force_defaults:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
-    if-eq p2, p3, :cond_1
+    if-eq p2, p3, :cond_c
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p2}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->addShort(S)V
 
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->slot(I)V
 
-    :cond_1
+    :cond_c
     return-void
 .end method
 
 .method public addShort(S)V
-    .locals 2
+    .registers 4
     .param p1, "x"    # S
 
     .line 374
@@ -722,13 +722,13 @@
 .end method
 
 .method public addStruct(III)V
-    .locals 0
+    .registers 4
     .param p1, "voffset"    # I
     .param p2, "x"    # I
     .param p3, "d"    # I
 
     .line 784
-    if-eq p2, p3, :cond_0
+    if-eq p2, p3, :cond_8
 
     .line 785
     invoke-virtual {p0, p2}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->Nested(I)V
@@ -737,12 +737,12 @@
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->slot(I)V
 
     .line 788
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method public clear()V
-    .locals 4
+    .registers 5
 
     .line 217
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
@@ -764,12 +764,12 @@
     iput v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->minalign:I
 
     .line 220
-    :goto_0
+    :goto_10
     iget v1, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable_in_use:I
 
     const/4 v2, 0x0
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1f
 
     iget-object v1, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable:[I
 
@@ -781,10 +781,10 @@
 
     aput v2, v1, v3
 
-    goto :goto_0
+    goto :goto_10
 
     .line 221
-    :cond_0
+    :cond_1f
     iput v2, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable_in_use:I
 
     .line 222
@@ -807,7 +807,7 @@
 .end method
 
 .method public createByteVector(Ljava/nio/ByteBuffer;)I
-    .locals 3
+    .registers 5
     .param p1, "byteBuffer"    # Ljava/nio/ByteBuffer;
 
     .line 600
@@ -846,7 +846,7 @@
 .end method
 
 .method public createByteVector([B)I
-    .locals 3
+    .registers 5
     .param p1, "arr"    # [B
 
     .line 568
@@ -883,7 +883,7 @@
 .end method
 
 .method public createByteVector([BII)I
-    .locals 2
+    .registers 6
     .param p1, "arr"    # [B
     .param p2, "offset"    # I
     .param p3, "length"    # I
@@ -918,7 +918,7 @@
 .end method
 
 .method public createSortedVectorOfTables(Landroidx/emoji2/text/flatbuffer/Table;[I)I
-    .locals 1
+    .registers 4
     .param p2, "offsets"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -943,7 +943,7 @@
 .end method
 
 .method public createString(Ljava/lang/CharSequence;)I
-    .locals 3
+    .registers 5
     .param p1, "s"    # Ljava/lang/CharSequence;
 
     .line 538
@@ -991,7 +991,7 @@
 .end method
 
 .method public createString(Ljava/nio/ByteBuffer;)I
-    .locals 3
+    .registers 5
     .param p1, "s"    # Ljava/nio/ByteBuffer;
 
     .line 553
@@ -1035,7 +1035,7 @@
 .end method
 
 .method public createUnintializedVector(III)Ljava/nio/ByteBuffer;
-    .locals 3
+    .registers 7
     .param p1, "elem_size"    # I
     .param p2, "num_elems"    # I
     .param p3, "alignment"    # I
@@ -1080,7 +1080,7 @@
 .end method
 
 .method public createVectorOfTables([I)I
-    .locals 2
+    .registers 4
     .param p1, "offsets"    # [I
 
     .line 512
@@ -1099,8 +1099,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_b
+    if-ltz v0, :cond_15
 
     aget v1, p1, v0
 
@@ -1108,11 +1108,11 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 515
     .end local v0    # "i":I
-    :cond_0
+    :cond_15
     invoke-virtual {p0}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->endVector()I
 
     move-result v0
@@ -1121,7 +1121,7 @@
 .end method
 
 .method public dataBuffer()Ljava/nio/ByteBuffer;
-    .locals 1
+    .registers 2
 
     .line 976
     invoke-virtual {p0}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->finished()V
@@ -1133,16 +1133,16 @@
 .end method
 
 .method public endTable()I
-    .locals 13
+    .registers 14
 
     .line 807
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable:[I
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_d5
 
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->nested:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_d5
 
     .line 809
     const/4 v0, 0x0
@@ -1162,34 +1162,34 @@
 
     .line 814
     .local v2, "i":I
-    :goto_0
-    if-ltz v2, :cond_0
+    :goto_14
+    if-ltz v2, :cond_1f
 
     iget-object v3, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable:[I
 
     aget v3, v3, v2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1f
 
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 815
-    :cond_0
+    :cond_1f
     add-int/lit8 v3, v2, 0x1
 
     .line 816
     .local v3, "trimmed_size":I
-    :goto_1
-    if-ltz v2, :cond_2
+    :goto_21
+    if-ltz v2, :cond_38
 
     .line 818
     iget-object v4, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable:[I
 
     aget v4, v4, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_30
 
     iget-object v4, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable:[I
 
@@ -1197,12 +1197,12 @@
 
     sub-int v4, v1, v4
 
-    goto :goto_2
+    goto :goto_31
 
-    :cond_1
+    :cond_30
     const/4 v4, 0x0
 
-    :goto_2
+    :goto_31
     int-to-short v4, v4
 
     .line 819
@@ -1213,10 +1213,10 @@
     .end local v4    # "off":S
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_1
+    goto :goto_21
 
     .line 822
-    :cond_2
+    :cond_38
     const/4 v4, 0x2
 
     .line 823
@@ -1245,10 +1245,10 @@
     .local v5, "existing_vtable":I
     const/4 v2, 0x0
 
-    :goto_3
+    :goto_4b
     iget v6, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->num_vtables:I
 
-    if-ge v2, v6, :cond_6
+    if-ge v2, v6, :cond_8b
 
     .line 830
     iget-object v6, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
@@ -1283,14 +1283,14 @@
 
     move-result v9
 
-    if-ne v8, v9, :cond_5
+    if-ne v8, v9, :cond_88
 
     .line 834
     const/4 v9, 0x2
 
     .local v9, "j":I
-    :goto_4
-    if-ge v9, v8, :cond_4
+    :goto_6b
+    if-ge v9, v8, :cond_83
 
     .line 835
     iget-object v10, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
@@ -1309,41 +1309,41 @@
 
     move-result v11
 
-    if-eq v10, v11, :cond_3
+    if-eq v10, v11, :cond_80
 
     .line 836
-    goto :goto_5
+    goto :goto_88
 
     .line 834
-    :cond_3
+    :cond_80
     add-int/lit8 v9, v9, 0x2
 
-    goto :goto_4
+    goto :goto_6b
 
     .line 839
     .end local v9    # "j":I
-    :cond_4
+    :cond_83
     iget-object v9, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtables:[I
 
     aget v5, v9, v2
 
     .line 840
-    goto :goto_6
+    goto :goto_8b
 
     .line 829
     .end local v6    # "vt1":I
     .end local v7    # "vt2":I
     .end local v8    # "len":S
-    :cond_5
-    :goto_5
+    :cond_88
+    :goto_88
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_4b
 
     .line 844
-    :cond_6
-    :goto_6
-    if-eqz v5, :cond_7
+    :cond_8b
+    :goto_8b
+    if-eqz v5, :cond_a0
 
     .line 847
     iget-object v6, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
@@ -1365,17 +1365,17 @@
 
     invoke-virtual {v6, v7, v8}, Ljava/nio/ByteBuffer;->putInt(II)Ljava/nio/ByteBuffer;
 
-    goto :goto_7
+    goto :goto_d2
 
     .line 853
-    :cond_7
+    :cond_a0
     iget v6, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->num_vtables:I
 
     iget-object v7, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtables:[I
 
     array-length v7, v7
 
-    if-ne v6, v7, :cond_8
+    if-ne v6, v7, :cond_b3
 
     iget-object v6, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtables:[I
 
@@ -1390,7 +1390,7 @@
     iput-object v6, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtables:[I
 
     .line 854
-    :cond_8
+    :cond_b3
     iget-object v6, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtables:[I
 
     iget v7, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->num_vtables:I
@@ -1425,7 +1425,7 @@
     invoke-virtual {v6, v7, v8}, Ljava/nio/ByteBuffer;->putInt(II)Ljava/nio/ByteBuffer;
 
     .line 859
-    :goto_7
+    :goto_d2
     iput-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->nested:Z
 
     .line 860
@@ -1437,7 +1437,7 @@
     .end local v3    # "trimmed_size":I
     .end local v4    # "standard_fields":I
     .end local v5    # "existing_vtable":I
-    :cond_9
+    :cond_d5
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "FlatBuffers: endTable called without startTable"
@@ -1448,12 +1448,12 @@
 .end method
 
 .method public endVector()I
-    .locals 2
+    .registers 3
 
     .line 475
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->nested:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 477
     const/4 v0, 0x0
@@ -1473,7 +1473,7 @@
     return v0
 
     .line 476
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "FlatBuffers: endVector called without startVector"
@@ -1484,7 +1484,7 @@
 .end method
 
 .method public finish(I)V
-    .locals 1
+    .registers 3
     .param p1, "root_table"    # I
 
     .line 902
@@ -1497,7 +1497,7 @@
 .end method
 
 .method public finish(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "root_table"    # I
     .param p2, "file_identifier"    # Ljava/lang/String;
 
@@ -1511,7 +1511,7 @@
 .end method
 
 .method protected finish(ILjava/lang/String;Z)V
-    .locals 3
+    .registers 7
     .param p1, "root_table"    # I
     .param p2, "file_identifier"    # Ljava/lang/String;
     .param p3, "size_prefix"    # Z
@@ -1521,16 +1521,16 @@
 
     const/4 v1, 0x4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_7
 
     const/4 v2, 0x4
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_8
     add-int/lit8 v2, v2, 0x8
 
     invoke-virtual {p0, v0, v2}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->prep(II)V
@@ -1540,14 +1540,14 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_25
 
     .line 927
     const/4 v0, 0x3
 
     .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_1
+    :goto_14
+    if-ltz v0, :cond_21
 
     .line 928
     invoke-virtual {p2, v0}, Ljava/lang/String;->charAt(I)C
@@ -1561,18 +1561,18 @@
     .line 927
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_1
+    goto :goto_14
 
     .line 930
     .end local v0    # "i":I
-    :cond_1
+    :cond_21
     invoke-virtual {p0, p1, p3}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->finish(IZ)V
 
     .line 931
     return-void
 
     .line 925
-    :cond_2
+    :cond_25
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "FlatBuffers: file identifier must be length 4"
@@ -1583,7 +1583,7 @@
 .end method
 
 .method protected finish(IZ)V
-    .locals 3
+    .registers 6
     .param p1, "root_table"    # I
     .param p2, "size_prefix"    # Z
 
@@ -1592,16 +1592,16 @@
 
     const/4 v1, 0x4
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     const/4 v2, 0x4
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_8
     add-int/2addr v2, v1
 
     invoke-virtual {p0, v0, v2}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->prep(II)V
@@ -1610,7 +1610,7 @@
     invoke-virtual {p0, p1}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->addOffset(I)V
 
     .line 889
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_1d
 
     .line 890
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
@@ -1626,7 +1626,7 @@
     invoke-virtual {p0, v0}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->addInt(I)V
 
     .line 892
-    :cond_1
+    :cond_1d
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
 
     iget v1, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->space:I
@@ -1643,7 +1643,7 @@
 .end method
 
 .method public finishSizePrefixed(I)V
-    .locals 1
+    .registers 3
     .param p1, "root_table"    # I
 
     .line 911
@@ -1656,7 +1656,7 @@
 .end method
 
 .method public finishSizePrefixed(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "root_table"    # I
     .param p2, "file_identifier"    # Ljava/lang/String;
 
@@ -1670,18 +1670,18 @@
 .end method
 
 .method public finished()V
-    .locals 2
+    .registers 3
 
     .line 612
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->finished:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 616
     return-void
 
     .line 613
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "FlatBuffers: you can only access the serialized buffer after it has been finished by FlatBufferBuilder.finish()."
@@ -1692,7 +1692,7 @@
 .end method
 
 .method public forceDefaults(Z)Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
-    .locals 0
+    .registers 2
     .param p1, "forceDefaults"    # Z
 
     .line 964
@@ -1703,7 +1703,7 @@
 .end method
 
 .method public init(Ljava/nio/ByteBuffer;Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;)Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
-    .locals 2
+    .registers 5
     .param p1, "existing_bb"    # Ljava/nio/ByteBuffer;
     .param p2, "bb_factory"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;
 
@@ -1764,18 +1764,18 @@
 .end method
 
 .method public notNested()V
-    .locals 2
+    .registers 3
 
     .line 623
     iget-boolean v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->nested:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 625
     return-void
 
     .line 624
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "FlatBuffers: object serialization must not be nested."
@@ -1786,7 +1786,7 @@
 .end method
 
 .method public offset()I
-    .locals 2
+    .registers 3
 
     .line 257
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
@@ -1803,15 +1803,15 @@
 .end method
 
 .method public pad(I)V
-    .locals 4
+    .registers 6
     .param p1, "byte_size"    # I
 
     .line 266
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
-    if-ge v0, p1, :cond_0
+    :goto_1
+    if-ge v0, p1, :cond_12
 
     iget-object v1, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
 
@@ -1827,28 +1827,28 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 267
     .end local v0    # "i":I
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public prep(II)V
-    .locals 5
+    .registers 8
     .param p1, "size"    # I
     .param p2, "additional_bytes"    # I
 
     .line 281
     iget v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->minalign:I
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_6
 
     iput p1, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->minalign:I
 
     .line 284
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->capacity()I
@@ -1871,14 +1871,14 @@
 
     .line 286
     .local v0, "align_size":I
-    :goto_0
+    :goto_16
     iget v1, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->space:I
 
     add-int v2, v0, p1
 
     add-int/2addr v2, p2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_43
 
     .line 287
     iget-object v1, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
@@ -1904,7 +1904,7 @@
     .line 290
     iget-object v3, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_36
 
     .line 291
     iget-object v3, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb_factory:Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;
@@ -1912,7 +1912,7 @@
     invoke-virtual {v3, v2}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;->releaseByteBuffer(Ljava/nio/ByteBuffer;)V
 
     .line 293
-    :cond_1
+    :cond_36
     iget v3, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->space:I
 
     iget-object v4, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->bb:Ljava/nio/ByteBuffer;
@@ -1930,10 +1930,10 @@
     .line 294
     .end local v1    # "old_buf_size":I
     .end local v2    # "old":Ljava/nio/ByteBuffer;
-    goto :goto_0
+    goto :goto_16
 
     .line 295
-    :cond_2
+    :cond_43
     invoke-virtual {p0, v0}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->pad(I)V
 
     .line 296
@@ -1941,7 +1941,7 @@
 .end method
 
 .method public putBoolean(Z)V
-    .locals 3
+    .registers 5
     .param p1, "x"    # Z
 
     .line 304
@@ -1961,7 +1961,7 @@
 .end method
 
 .method public putByte(B)V
-    .locals 2
+    .registers 4
     .param p1, "x"    # B
 
     .line 312
@@ -1979,7 +1979,7 @@
 .end method
 
 .method public putDouble(D)V
-    .locals 2
+    .registers 5
     .param p1, "x"    # D
 
     .line 352
@@ -1997,7 +1997,7 @@
 .end method
 
 .method public putFloat(F)V
-    .locals 2
+    .registers 4
     .param p1, "x"    # F
 
     .line 344
@@ -2015,7 +2015,7 @@
 .end method
 
 .method public putInt(I)V
-    .locals 2
+    .registers 4
     .param p1, "x"    # I
 
     .line 328
@@ -2033,7 +2033,7 @@
 .end method
 
 .method public putLong(J)V
-    .locals 2
+    .registers 5
     .param p1, "x"    # J
 
     .line 336
@@ -2051,7 +2051,7 @@
 .end method
 
 .method public putShort(S)V
-    .locals 2
+    .registers 4
     .param p1, "x"    # S
 
     .line 320
@@ -2069,7 +2069,7 @@
 .end method
 
 .method public required(II)V
-    .locals 6
+    .registers 9
     .param p1, "table"    # I
     .param p2, "field"    # I
 
@@ -2102,25 +2102,25 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v2, 0x0
 
     .line 875
     .local v2, "ok":Z
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_1c
+    if-eqz v2, :cond_1f
 
     .line 877
     return-void
 
     .line 876
-    :cond_1
+    :cond_1f
     new-instance v3, Ljava/lang/AssertionError;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2153,7 +2153,7 @@
 .end method
 
 .method public sizedByteArray()[B
-    .locals 3
+    .registers 4
 
     .line 1017
     iget v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->space:I
@@ -2176,7 +2176,7 @@
 .end method
 
 .method public sizedByteArray(II)[B
-    .locals 2
+    .registers 5
     .param p1, "start"    # I
     .param p2, "length"    # I
 
@@ -2202,7 +2202,7 @@
 .end method
 
 .method public sizedInputStream()Ljava/io/InputStream;
-    .locals 2
+    .registers 3
 
     .line 1027
     invoke-virtual {p0}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->finished()V
@@ -2238,7 +2238,7 @@
 .end method
 
 .method public slot(I)V
-    .locals 2
+    .registers 4
     .param p1, "voffset"    # I
 
     .line 797
@@ -2255,7 +2255,7 @@
 .end method
 
 .method public startTable(I)V
-    .locals 3
+    .registers 5
     .param p1, "numfields"    # I
 
     .line 680
@@ -2264,21 +2264,21 @@
     .line 681
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable:[I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable:[I
 
     array-length v0, v0
 
-    if-ge v0, p1, :cond_1
+    if-ge v0, p1, :cond_10
 
-    :cond_0
+    :cond_c
     new-array v0, p1, [I
 
     iput-object v0, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable:[I
 
     .line 682
-    :cond_1
+    :cond_10
     iput p1, p0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->vtable_in_use:I
 
     .line 683
@@ -2307,7 +2307,7 @@
 .end method
 
 .method public startVector(III)V
-    .locals 2
+    .registers 6
     .param p1, "elem_size"    # I
     .param p2, "num_elems"    # I
     .param p3, "alignment"    # I

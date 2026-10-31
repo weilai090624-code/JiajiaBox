@@ -27,7 +27,7 @@
 
 # direct methods
 .method public static final asAndroidXConsumer(Lkotlin/coroutines/Continuation;)Landroidx/core/util/Consumer;
-    .locals 1
+    .registers 2
     .param p0, "$this$asAndroidXConsumer"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {

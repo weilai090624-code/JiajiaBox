@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/CuckooObjectMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 750
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values<TV;>;"
@@ -66,7 +66,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -81,7 +81,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -92,7 +92,7 @@
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values<TV;>;"
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;->hasNext:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 755
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;->map:Lcom/esotericsoftware/kryo/util/CuckooObjectMap;
@@ -117,7 +117,7 @@
 
     .line 754
     .end local v0    # "value":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -126,7 +126,7 @@
 .end method
 
 .method public bridge synthetic remove()V
-    .locals 0
+    .registers 1
 
     .line 744
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values<TV;>;"
@@ -136,7 +136,7 @@
 .end method
 
 .method public bridge synthetic reset()V
-    .locals 0
+    .registers 1
 
     .line 744
     .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values<TV;>;"
@@ -146,7 +146,7 @@
 .end method
 
 .method public toArray()Ljava/util/ArrayList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -167,10 +167,10 @@
 
     .line 768
     .local v0, "array":Ljava/util/ArrayList;
-    :goto_0
+    :goto_9
     iget-boolean v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;->hasNext:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 769
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;->next()Ljava/lang/Object;
@@ -179,15 +179,15 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_9
 
     .line 770
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method public toArray(Ljava/util/ArrayList;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -201,10 +201,10 @@
     .local p1, "array":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TV;>;"
     nop
 
-    :goto_0
+    :goto_1
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;->hasNext:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 776
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$Values;->next()Ljava/lang/Object;
@@ -213,9 +213,9 @@
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1
 
     .line 777
-    :cond_0
+    :cond_d
     return-void
 .end method

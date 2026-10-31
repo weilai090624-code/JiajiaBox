@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 26
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public getLifecycle()Landroidx/lifecycle/Lifecycle;
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Landroidx/lifecycle/LifecycleService;->dispatcher:Landroidx/lifecycle/ServiceLifecycleDispatcher;
@@ -88,7 +88,7 @@
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
+    .registers 3
     .param p1, "intent"    # Landroid/content/Intent;
 
     const-string v0, "intent"
@@ -107,7 +107,7 @@
 .end method
 
 .method public onCreate()V
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Landroidx/lifecycle/LifecycleService;->dispatcher:Landroidx/lifecycle/ServiceLifecycleDispatcher;
@@ -122,7 +122,7 @@
 .end method
 
 .method public onDestroy()V
-    .locals 1
+    .registers 2
 
     .line 61
     iget-object v0, p0, Landroidx/lifecycle/LifecycleService;->dispatcher:Landroidx/lifecycle/ServiceLifecycleDispatcher;
@@ -137,7 +137,7 @@
 .end method
 
 .method public onStart(Landroid/content/Intent;I)V
-    .locals 1
+    .registers 4
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "startId"    # I
     .annotation runtime Lkotlin/Deprecated;
@@ -157,7 +157,7 @@
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .locals 1
+    .registers 5
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "flags"    # I
     .param p3, "startId"    # I

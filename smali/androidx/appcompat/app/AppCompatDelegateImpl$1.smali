@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Thread$UncaughtExceptionHandler;)V
-    .locals 0
+    .registers 2
 
     .line 170
     iput-object p1, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$1;->val$defHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
@@ -34,7 +34,7 @@
 .end method
 
 .method private shouldWrapException(Ljava/lang/Throwable;)Z
-    .locals 3
+    .registers 5
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 187
@@ -42,7 +42,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1f
 
     .line 188
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
@@ -51,7 +51,7 @@
 
     .line 189
     .local v0, "message":Ljava/lang/String;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     const-string v2, "drawable"
 
@@ -59,7 +59,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     .line 190
     const-string v2, "Drawable"
@@ -68,30 +68,30 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1d
 
-    :cond_0
+    :cond_1b
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     nop
 
     .line 189
-    :goto_0
+    :goto_1e
     return v1
 
     .line 192
     .end local v0    # "message":Ljava/lang/String;
-    :cond_2
+    :cond_1f
     return v1
 .end method
 
 
 # virtual methods
 .method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 6
     .param p1, "thread"    # Ljava/lang/Thread;
     .param p2, "throwable"    # Ljava/lang/Throwable;
 
@@ -100,7 +100,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_36
 
     .line 176
     new-instance v0, Landroid/content/res/Resources$NotFoundException;
@@ -152,15 +152,15 @@
 
     .line 181
     .end local v0    # "wrapped":Ljava/lang/Throwable;
-    goto :goto_0
+    goto :goto_3b
 
     .line 182
-    :cond_0
+    :cond_36
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$1;->val$defHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
 
     invoke-interface {v0, p1, p2}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
 
     .line 184
-    :goto_0
+    :goto_3b
     return-void
 .end method

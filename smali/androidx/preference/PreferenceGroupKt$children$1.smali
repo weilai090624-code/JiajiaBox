@@ -53,7 +53,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/PreferenceGroup;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroidx/preference/PreferenceGroup;
 
     iput-object p1, p0, Landroidx/preference/PreferenceGroupKt$children$1;->$this_children:Landroidx/preference/PreferenceGroup;
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

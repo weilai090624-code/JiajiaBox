@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;Lcom/google/common/base/Predicate;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,7 +84,7 @@
 .end method
 
 .method static removeAllKeys(Ljava/util/Map;Lcom/google/common/base/Predicate;Ljava/util/Collection;)Z
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -121,12 +121,12 @@
 
     .line 2967
     .local v1, "result":Z
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2a
 
     .line 2968
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -141,7 +141,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -151,7 +151,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     .line 2970
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -161,16 +161,16 @@
 
     .line 2973
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_29
+    goto :goto_9
 
     .line 2974
-    :cond_1
+    :cond_2a
     return v1
 .end method
 
 .method static retainAllKeys(Ljava/util/Map;Lcom/google/common/base/Predicate;Ljava/util/Collection;)Z
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -207,12 +207,12 @@
 
     .line 2981
     .local v1, "result":Z
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2a
 
     .line 2982
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -227,7 +227,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -237,7 +237,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_29
 
     .line 2984
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -247,18 +247,18 @@
 
     .line 2987
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_29
+    goto :goto_9
 
     .line 2988
-    :cond_1
+    :cond_2a
     return v1
 .end method
 
 
 # virtual methods
 .method protected createEntrySet()Ljava/util/Set;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -280,7 +280,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

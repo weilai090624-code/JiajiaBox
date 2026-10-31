@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multimap;Lcom/google/common/base/Predicate;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,7 +99,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/FilteredEntryMultimap;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Lcom/google/common/collect/FilteredEntryMultimap;
     .param p1, "x1"    # Ljava/lang/Object;
     .param p2, "x2"    # Ljava/lang/Object;
@@ -113,7 +113,7 @@
 .end method
 
 .method static filterCollection(Ljava/util/Collection;Lcom/google/common/base/Predicate;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -133,7 +133,7 @@
     .local p1, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TE;>;"
     instance-of v0, p0, Ljava/util/Set;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 92
     move-object v0, p0
@@ -147,7 +147,7 @@
     return-object v0
 
     .line 94
-    :cond_0
+    :cond_c
     invoke-static {p0, p1}, Lcom/google/common/collect/Collections2;->filter(Ljava/util/Collection;Lcom/google/common/base/Predicate;)Ljava/util/Collection;
 
     move-result-object v0
@@ -156,7 +156,7 @@
 .end method
 
 .method private satisfies(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -191,7 +191,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 117
     .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap;, "Lcom/google/common/collect/FilteredEntryMultimap<TK;TV;>;"
@@ -206,7 +206,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -222,21 +222,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method createAsMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -257,7 +257,7 @@
 .end method
 
 .method createEntries()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -285,7 +285,7 @@
 .end method
 
 .method createKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -308,7 +308,7 @@
 .end method
 
 .method createKeys()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -327,7 +327,7 @@
 .end method
 
 .method createValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -346,7 +346,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -368,7 +368,7 @@
 .end method
 
 .method public entryPredicate()Lcom/google/common/base/Predicate;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -387,7 +387,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -421,7 +421,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -462,7 +462,7 @@
 .end method
 
 .method removeEntriesIf(Lcom/google/common/base/Predicate;)Z
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -498,12 +498,12 @@
 
     .line 153
     .local v1, "changed":Z
-    :goto_0
+    :goto_f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_57
 
     .line 154
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -540,7 +540,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_56
 
     invoke-static {v3, v4}, Lcom/google/common/collect/Maps;->immutableEntry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
@@ -550,7 +550,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_56
 
     .line 158
     invoke-interface {v4}, Ljava/util/Collection;->size()I
@@ -567,35 +567,35 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v6, :cond_52
 
     .line 159
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_1
+    goto :goto_55
 
     .line 161
-    :cond_0
+    :cond_52
     invoke-interface {v4}, Ljava/util/Collection;->clear()V
 
     .line 163
-    :goto_1
+    :goto_55
     const/4 v1, 0x1
 
     .line 165
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     .end local v3    # "key":Ljava/lang/Object;, "TK;"
     .end local v4    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    :cond_1
-    goto :goto_0
+    :cond_56
+    goto :goto_f
 
     .line 166
-    :cond_2
+    :cond_57
     return v1
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 69
     .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap;, "Lcom/google/common/collect/FilteredEntryMultimap<TK;TV;>;"
@@ -611,7 +611,7 @@
 .end method
 
 .method public unfiltered()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -628,7 +628,7 @@
 .end method
 
 .method unmodifiableEmptyCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -643,22 +643,22 @@
 
     instance-of v0, v0, Lcom/google/common/collect/SetMultimap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 111
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 112
-    :cond_0
+    :cond_b
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     .line 110
-    :goto_0
+    :goto_f
     return-object v0
 .end method

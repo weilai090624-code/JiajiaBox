@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "ref"    # Ljava/lang/Object;
 
     .line 273

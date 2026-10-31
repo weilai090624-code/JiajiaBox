@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Lorg/ini4j/spi/AbstractFormatter;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method private static newInstance()Lorg/ini4j/spi/OptionsFormatter;
-    .locals 1
+    .registers 1
 
     .line 47
     const-class v0, Lorg/ini4j/spi/OptionsFormatter;
@@ -32,7 +32,7 @@
 .end method
 
 .method public static newInstance(Ljava/io/Writer;Lorg/ini4j/Config;)Lorg/ini4j/spi/OptionsFormatter;
-    .locals 2
+    .registers 4
     .param p0, "out"    # Ljava/io/Writer;
     .param p1, "config"    # Lorg/ini4j/Config;
 
@@ -45,20 +45,20 @@
     .local v0, "instance":Lorg/ini4j/spi/OptionsFormatter;
     instance-of v1, p0, Ljava/io/PrintWriter;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     move-object v1, p0
 
     check-cast v1, Ljava/io/PrintWriter;
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_c
     new-instance v1, Ljava/io/PrintWriter;
 
     invoke-direct {v1, p0}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
 
-    :goto_0
+    :goto_11
     invoke-virtual {v0, v1}, Lorg/ini4j/spi/OptionsFormatter;->setOutput(Ljava/io/PrintWriter;)V
 
     .line 30
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public endOptions()V
-    .locals 1
+    .registers 2
 
     .line 37
     invoke-virtual {p0}, Lorg/ini4j/spi/OptionsFormatter;->getOutput()Ljava/io/PrintWriter;
@@ -85,7 +85,7 @@
 .end method
 
 .method public bridge synthetic handleComment(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 23
@@ -95,7 +95,7 @@
 .end method
 
 .method public bridge synthetic handleOption(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # Ljava/lang/String;
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public startOptions()V
-    .locals 0
+    .registers 1
 
     .line 43
     return-void

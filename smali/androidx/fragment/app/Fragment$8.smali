@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/Fragment;Landroidx/activity/result/ActivityResultRegistry;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/fragment/app/Fragment;
 
     .line 3569
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Void;)Landroidx/activity/result/ActivityResultRegistry;
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/lang/Void;
 
     .line 3572
@@ -61,7 +61,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 3569
     check-cast p1, Ljava/lang/Void;

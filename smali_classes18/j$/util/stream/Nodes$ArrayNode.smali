@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(JLjava/util/function/IntFunction;)V
-    .locals 3
+    .registers 7
     .param p1, "size"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,7 +62,7 @@
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_17
 
     .line 654
     long-to-int v0, p1
@@ -84,7 +84,7 @@
     return-void
 
     .line 653
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Stream size exceeds max array size"
@@ -95,7 +95,7 @@
 .end method
 
 .method constructor <init>([Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;)V"
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public asArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -140,7 +140,7 @@
 
     iget v1, p0, Lj$/util/stream/Nodes$ArrayNode;->curSize:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     .line 678
     iget-object v0, p0, Lj$/util/stream/Nodes$ArrayNode;->array:[Ljava/lang/Object;
@@ -148,7 +148,7 @@
     return-object v0
 
     .line 680
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -157,7 +157,7 @@
 .end method
 
 .method public copyInto([Ljava/lang/Object;I)V
-    .locals 3
+    .registers 6
     .param p2, "destOffset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -181,7 +181,7 @@
 .end method
 
 .method public count()J
-    .locals 2
+    .registers 3
 
     .line 686
     .local p0, "this":Lj$/util/stream/Nodes$ArrayNode;, "Ljava/util/stream/Nodes$ArrayNode<TT;>;"
@@ -193,7 +193,7 @@
 .end method
 
 .method public forEach(Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -208,10 +208,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget v1, p0, Lj$/util/stream/Nodes$ArrayNode;->curSize:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_f
 
     .line 692
     iget-object v1, p0, Lj$/util/stream/Nodes$ArrayNode;->array:[Ljava/lang/Object;
@@ -223,16 +223,16 @@
     .line 691
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 694
     .end local v0    # "i":I
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public synthetic getChild(I)Lj$/util/stream/Node;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Node$-CC;->$default$getChild(Lj$/util/stream/Node;I)Lj$/util/stream/Node;
 
@@ -242,7 +242,7 @@
 .end method
 
 .method public synthetic getChildCount()I
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$-CC;->$default$getChildCount(Lj$/util/stream/Node;)I
 
@@ -252,7 +252,7 @@
 .end method
 
 .method public synthetic getShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$-CC;->$default$getShape(Lj$/util/stream/Node;)Lj$/util/stream/StreamShape;
 
@@ -262,7 +262,7 @@
 .end method
 
 .method public spliterator()Lj$/util/Spliterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -287,7 +287,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 700
     .local p0, "this":Lj$/util/stream/Nodes$ArrayNode;, "Ljava/util/stream/Nodes$ArrayNode<TT;>;"
@@ -333,7 +333,7 @@
 .end method
 
 .method public synthetic truncate(JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/Node$-CC;->$default$truncate(Lj$/util/stream/Node;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
 

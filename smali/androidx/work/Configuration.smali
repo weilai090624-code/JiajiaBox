@@ -62,7 +62,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/Configuration$Builder;)V
-    .locals 2
+    .registers 4
     .param p1, "builder"    # Landroidx/work/Configuration$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -81,7 +81,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 87
     invoke-direct {p0, v1}, Landroidx/work/Configuration;->createDefaultExecutor(Z)Ljava/util/concurrent/Executor;
@@ -90,19 +90,19 @@
 
     iput-object v0, p0, Landroidx/work/Configuration;->mExecutor:Ljava/util/concurrent/Executor;
 
-    goto :goto_0
+    goto :goto_13
 
     .line 89
-    :cond_0
+    :cond_f
     iget-object v0, p1, Landroidx/work/Configuration$Builder;->mExecutor:Ljava/util/concurrent/Executor;
 
     iput-object v0, p0, Landroidx/work/Configuration;->mExecutor:Ljava/util/concurrent/Executor;
 
     .line 92
-    :goto_0
+    :goto_13
     iget-object v0, p1, Landroidx/work/Configuration$Builder;->mTaskExecutor:Ljava/util/concurrent/Executor;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 93
     const/4 v0, 0x1
@@ -116,10 +116,10 @@
 
     iput-object v0, p0, Landroidx/work/Configuration;->mTaskExecutor:Ljava/util/concurrent/Executor;
 
-    goto :goto_1
+    goto :goto_27
 
     .line 99
-    :cond_1
+    :cond_21
     iput-boolean v1, p0, Landroidx/work/Configuration;->mIsUsingDefaultTaskExecutor:Z
 
     .line 100
@@ -128,10 +128,10 @@
     iput-object v0, p0, Landroidx/work/Configuration;->mTaskExecutor:Ljava/util/concurrent/Executor;
 
     .line 103
-    :goto_1
+    :goto_27
     iget-object v0, p1, Landroidx/work/Configuration$Builder;->mWorkerFactory:Landroidx/work/WorkerFactory;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_32
 
     .line 104
     invoke-static {}, Landroidx/work/WorkerFactory;->getDefaultWorkerFactory()Landroidx/work/WorkerFactory;
@@ -140,19 +140,19 @@
 
     iput-object v0, p0, Landroidx/work/Configuration;->mWorkerFactory:Landroidx/work/WorkerFactory;
 
-    goto :goto_2
+    goto :goto_36
 
     .line 106
-    :cond_2
+    :cond_32
     iget-object v0, p1, Landroidx/work/Configuration$Builder;->mWorkerFactory:Landroidx/work/WorkerFactory;
 
     iput-object v0, p0, Landroidx/work/Configuration;->mWorkerFactory:Landroidx/work/WorkerFactory;
 
     .line 109
-    :goto_2
+    :goto_36
     iget-object v0, p1, Landroidx/work/Configuration$Builder;->mInputMergerFactory:Landroidx/work/InputMergerFactory;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_41
 
     .line 110
     invoke-static {}, Landroidx/work/InputMergerFactory;->getDefaultInputMergerFactory()Landroidx/work/InputMergerFactory;
@@ -161,19 +161,19 @@
 
     iput-object v0, p0, Landroidx/work/Configuration;->mInputMergerFactory:Landroidx/work/InputMergerFactory;
 
-    goto :goto_3
+    goto :goto_45
 
     .line 112
-    :cond_3
+    :cond_41
     iget-object v0, p1, Landroidx/work/Configuration$Builder;->mInputMergerFactory:Landroidx/work/InputMergerFactory;
 
     iput-object v0, p0, Landroidx/work/Configuration;->mInputMergerFactory:Landroidx/work/InputMergerFactory;
 
     .line 115
-    :goto_3
+    :goto_45
     iget-object v0, p1, Landroidx/work/Configuration$Builder;->mRunnableScheduler:Landroidx/work/RunnableScheduler;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_51
 
     .line 116
     new-instance v0, Landroidx/work/impl/DefaultRunnableScheduler;
@@ -182,16 +182,16 @@
 
     iput-object v0, p0, Landroidx/work/Configuration;->mRunnableScheduler:Landroidx/work/RunnableScheduler;
 
-    goto :goto_4
+    goto :goto_55
 
     .line 118
-    :cond_4
+    :cond_51
     iget-object v0, p1, Landroidx/work/Configuration$Builder;->mRunnableScheduler:Landroidx/work/RunnableScheduler;
 
     iput-object v0, p0, Landroidx/work/Configuration;->mRunnableScheduler:Landroidx/work/RunnableScheduler;
 
     .line 121
-    :goto_4
+    :goto_55
     iget v0, p1, Landroidx/work/Configuration$Builder;->mLoggingLevel:I
 
     iput v0, p0, Landroidx/work/Configuration;->mLoggingLevel:I
@@ -231,7 +231,7 @@
 .end method
 
 .method private createDefaultExecutor(Z)Ljava/util/concurrent/Executor;
-    .locals 2
+    .registers 4
     .param p1, "isTaskExecutor"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -282,7 +282,7 @@
 .end method
 
 .method private createDefaultThreadFactory(Z)Ljava/util/concurrent/ThreadFactory;
-    .locals 1
+    .registers 3
     .param p1, "isTaskExecutor"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -304,7 +304,7 @@
 
 # virtual methods
 .method public getDefaultProcessName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 222
     iget-object v0, p0, Landroidx/work/Configuration;->mDefaultProcessName:Ljava/lang/String;
@@ -313,7 +313,7 @@
 .end method
 
 .method public getExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 136
     iget-object v0, p0, Landroidx/work/Configuration;->mExecutor:Ljava/util/concurrent/Executor;
@@ -322,7 +322,7 @@
 .end method
 
 .method public getInitializationExceptionHandler()Landroidx/core/util/Consumer;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -339,7 +339,7 @@
 .end method
 
 .method public getInputMergerFactory()Landroidx/work/InputMergerFactory;
-    .locals 1
+    .registers 2
 
     .line 165
     iget-object v0, p0, Landroidx/work/Configuration;->mInputMergerFactory:Landroidx/work/InputMergerFactory;
@@ -348,7 +348,7 @@
 .end method
 
 .method public getMaxJobSchedulerId()I
-    .locals 1
+    .registers 2
 
     .line 214
     iget v0, p0, Landroidx/work/Configuration;->mMaxJobSchedulerId:I
@@ -357,14 +357,14 @@
 .end method
 
 .method public getMaxSchedulerLimit()I
-    .locals 2
+    .registers 3
 
     .line 237
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 238
     iget v0, p0, Landroidx/work/Configuration;->mMaxSchedulerLimit:I
@@ -374,14 +374,14 @@
     return v0
 
     .line 240
-    :cond_0
+    :cond_b
     iget v0, p0, Landroidx/work/Configuration;->mMaxSchedulerLimit:I
 
     return v0
 .end method
 
 .method public getMinJobSchedulerId()I
-    .locals 1
+    .registers 2
 
     .line 200
     iget v0, p0, Landroidx/work/Configuration;->mMinJobSchedulerId:I
@@ -390,7 +390,7 @@
 .end method
 
 .method public getMinimumLoggingLevel()I
-    .locals 1
+    .registers 2
 
     .line 186
     iget v0, p0, Landroidx/work/Configuration;->mLoggingLevel:I
@@ -399,7 +399,7 @@
 .end method
 
 .method public getRunnableScheduler()Landroidx/work/RunnableScheduler;
-    .locals 1
+    .registers 2
 
     .line 174
     iget-object v0, p0, Landroidx/work/Configuration;->mRunnableScheduler:Landroidx/work/RunnableScheduler;
@@ -408,7 +408,7 @@
 .end method
 
 .method public getSchedulingExceptionHandler()Landroidx/core/util/Consumer;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -425,7 +425,7 @@
 .end method
 
 .method public getTaskExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 146
     iget-object v0, p0, Landroidx/work/Configuration;->mTaskExecutor:Ljava/util/concurrent/Executor;
@@ -434,7 +434,7 @@
 .end method
 
 .method public getWorkerFactory()Landroidx/work/WorkerFactory;
-    .locals 1
+    .registers 2
 
     .line 157
     iget-object v0, p0, Landroidx/work/Configuration;->mWorkerFactory:Landroidx/work/WorkerFactory;
@@ -443,7 +443,7 @@
 .end method
 
 .method public isUsingDefaultTaskExecutor()Z
-    .locals 1
+    .registers 2
 
     .line 250
     iget-boolean v0, p0, Landroidx/work/Configuration;->mIsUsingDefaultTaskExecutor:Z

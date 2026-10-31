@@ -55,7 +55,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection;Lokhttp3/internal/http2/Http2Stream;)V
-    .locals 1
+    .registers 4
 
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable$headers$1$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 687
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable$headers$1$1;->invoke()V
@@ -82,13 +82,13 @@
 .end method
 
 .method public final invoke()V
-    .locals 5
+    .registers 6
 
     .line 688
     nop
 
     .line 689
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable$headers$1$1;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
     invoke-virtual {v0}, Lokhttp3/internal/http2/Http2Connection;->getListener$okhttp()Lokhttp3/internal/http2/Http2Connection$Listener;
@@ -98,13 +98,13 @@
     iget-object v1, p0, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable$headers$1$1;->$newStream:Lokhttp3/internal/http2/Http2Stream;
 
     invoke-virtual {v0, v1}, Lokhttp3/internal/http2/Http2Connection$Listener;->onStream(Lokhttp3/internal/http2/Http2Stream;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_c} :catch_d
 
-    goto :goto_1
+    goto :goto_35
 
     .line 690
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 691
@@ -149,30 +149,30 @@
 
     .line 693
     .local v3, "$i$a$-ignoreIoExceptions-Http2Connection$ReaderRunnable$headers$1$1$1":I
-    :try_start_1
+    :try_start_2c
     sget-object v4, Lokhttp3/internal/http2/ErrorCode;->PROTOCOL_ERROR:Lokhttp3/internal/http2/ErrorCode;
 
     invoke-virtual {v1, v4, v0}, Lokhttp3/internal/http2/Http2Stream;->close(Lokhttp3/internal/http2/ErrorCode;Ljava/io/IOException;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_31
+    .catch Ljava/io/IOException; {:try_start_2c .. :try_end_31} :catch_33
 
     .line 694
     nop
 
     .end local v3    # "$i$a$-ignoreIoExceptions-Http2Connection$ReaderRunnable$headers$1$1$1":I
-    goto :goto_0
+    goto :goto_34
 
     .line 1009
-    :catch_1
+    :catch_33
     move-exception v1
 
     .line 1011
-    :goto_0
+    :goto_34
     nop
 
     .line 696
     .end local v0    # "e":Ljava/io/IOException;
     .end local v2    # "$i$f$ignoreIoExceptions":I
-    :goto_1
+    :goto_35
     return-void
 .end method

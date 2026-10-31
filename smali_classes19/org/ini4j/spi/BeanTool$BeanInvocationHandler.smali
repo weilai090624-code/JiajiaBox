@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/ini4j/spi/BeanAccess;)V
-    .locals 0
+    .registers 2
     .param p1, "backend"    # Lorg/ini4j/spi/BeanAccess;
 
     .line 318
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method protected getPropertySpi(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .param p1, "property"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -58,7 +58,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_22
 
     .line 328
     iget-object v1, p0, Lorg/ini4j/spi/BeanTool$BeanInvocationHandler;->_backend:Lorg/ini4j/spi/BeanAccess;
@@ -69,7 +69,7 @@
 
     .line 330
     .local v1, "length":I
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     .line 332
     new-array v2, v1, [Ljava/lang/String;
@@ -79,10 +79,10 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_12
     array-length v4, v2
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_20
 
     .line 336
     iget-object v4, p0, Lorg/ini4j/spi/BeanTool$BeanInvocationHandler;->_backend:Lorg/ini4j/spi/BeanAccess;
@@ -96,21 +96,21 @@
     .line 334
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 339
     .end local v3    # "i":I
-    :cond_0
+    :cond_20
     move-object v0, v2
 
     .line 341
     .end local v1    # "length":I
     .end local v2    # "all":[Ljava/lang/String;
-    :cond_1
-    goto :goto_1
+    :cond_21
+    goto :goto_28
 
     .line 344
-    :cond_2
+    :cond_22
     iget-object v1, p0, Lorg/ini4j/spi/BeanTool$BeanInvocationHandler;->_backend:Lorg/ini4j/spi/BeanAccess;
 
     invoke-interface {v1, p1}, Lorg/ini4j/spi/BeanAccess;->propGet(Ljava/lang/String;)Ljava/lang/String;
@@ -118,12 +118,12 @@
     move-result-object v0
 
     .line 347
-    :goto_1
+    :goto_28
     return-object v0
 .end method
 
 .method protected hasPropertySpi(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "property"    # Ljava/lang/String;
 
     .line 368
@@ -133,21 +133,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method protected setPropertySpi(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)V
-    .locals 3
+    .registers 7
     .param p1, "property"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -166,7 +166,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 354
     iget-object v0, p0, Lorg/ini4j/spi/BeanTool$BeanInvocationHandler;->_backend:Lorg/ini4j/spi/BeanAccess;
@@ -177,12 +177,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_c
     invoke-static {p2}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_22
 
     .line 357
     iget-object v1, p0, Lorg/ini4j/spi/BeanTool$BeanInvocationHandler;->_backend:Lorg/ini4j/spi/BeanAccess;
@@ -200,14 +200,14 @@
     .line 355
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .end local v0    # "i":I
-    :cond_0
-    goto :goto_1
+    :cond_22
+    goto :goto_2c
 
     .line 362
-    :cond_1
+    :cond_23
     iget-object v0, p0, Lorg/ini4j/spi/BeanTool$BeanInvocationHandler;->_backend:Lorg/ini4j/spi/BeanAccess;
 
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -217,6 +217,6 @@
     invoke-interface {v0, p1, v1}, Lorg/ini4j/spi/BeanAccess;->propSet(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     .line 364
-    :goto_1
+    :goto_2c
     return-void
 .end method

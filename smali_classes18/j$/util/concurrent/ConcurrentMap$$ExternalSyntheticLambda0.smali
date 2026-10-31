@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/concurrent/ConcurrentMap;Ljava/util/function/BiFunction;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
 
     iget-object v0, p0, Lj$/util/concurrent/ConcurrentMap$$ExternalSyntheticLambda0;->f$0:Ljava/util/concurrent/ConcurrentMap;
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/BiConsumer;)Ljava/util/function/BiConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/BiConsumer$-CC;->$default$andThen(Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)Ljava/util/function/BiConsumer;
 

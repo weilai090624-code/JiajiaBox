@@ -68,7 +68,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 4
     .param p1, "getInitialValue"    # Lkotlin/jvm/functions/Function0;
     .param p2, "getNextValue"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -100,7 +100,7 @@
 .end method
 
 .method public static final synthetic access$getGetInitialValue$p(Lkotlin/sequences/GeneratorSequence;)Lkotlin/jvm/functions/Function0;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/GeneratorSequence;
 
     .line 603
@@ -110,7 +110,7 @@
 .end method
 
 .method public static final synthetic access$getGetNextValue$p(Lkotlin/sequences/GeneratorSequence;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/GeneratorSequence;
 
     .line 603
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

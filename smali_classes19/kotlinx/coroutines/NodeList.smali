@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1355
     invoke-direct {p0}, Lkotlinx/coroutines/internal/LockFreeLinkedListHead;-><init>()V
@@ -55,14 +55,14 @@
 
 # virtual methods
 .method public getList()Lkotlinx/coroutines/NodeList;
-    .locals 0
+    .registers 1
 
     .line 1357
     return-object p0
 .end method
 
 .method public final getString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 10
+    .registers 12
     .param p1, "state"    # Ljava/lang/String;
 
     .line 1359
@@ -117,17 +117,17 @@
 
     .line 1456
     .local v6, "cur$iv":Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
-    :goto_0
+    :goto_25
     invoke-static {v6, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_46
 
     .line 1457
     instance-of v7, v6, Lkotlinx/coroutines/JobNode;
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_41
 
     move-object v7, v6
 
@@ -138,19 +138,19 @@
 
     .line 1365
     .local v8, "$i$a$-forEach-NodeList$getString$1$1":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_37
 
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_3c
 
-    :cond_0
+    :cond_37
     const-string v9, ", "
 
     invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1366
-    :goto_1
+    :goto_3c
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 1367
@@ -162,15 +162,15 @@
     nop
 
     .line 1458
-    :cond_1
+    :cond_41
     invoke-virtual {v6}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->getNextNode()Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
 
     move-result-object v6
 
-    goto :goto_0
+    goto :goto_25
 
     .line 1460
-    :cond_2
+    :cond_46
     nop
 
     .line 1368
@@ -201,7 +201,7 @@
 .end method
 
 .method public isActive()Z
-    .locals 1
+    .registers 2
 
     .line 1356
     const/4 v0, 0x1
@@ -210,14 +210,14 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1372
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getDEBUG()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const-string v0, "Active"
 
@@ -225,13 +225,13 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-super {p0}, Lkotlinx/coroutines/internal/LockFreeLinkedListHead;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method

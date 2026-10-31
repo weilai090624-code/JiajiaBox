@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -67,7 +67,7 @@
 .end method
 
 .method private requestInputMethod(Landroid/app/Dialog;)V
-    .locals 3
+    .registers 5
     .param p1, "dialog"    # Landroid/app/Dialog;
 
     .line 238
@@ -81,35 +81,35 @@
 
     const/16 v2, 0x1e
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_e
 
     .line 240
     invoke-static {v0}, Landroidx/preference/PreferenceDialogFragment$Api30Impl;->showIme(Landroid/view/Window;)V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 242
-    :cond_0
+    :cond_e
     const/4 v1, 0x5
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setSoftInputMode(I)V
 
     .line 244
-    :goto_0
+    :goto_12
     return-void
 .end method
 
 
 # virtual methods
 .method public getPreference()Landroidx/preference/DialogPreference;
-    .locals 3
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 193
     iget-object v0, p0, Landroidx/preference/PreferenceDialogFragment;->mPreference:Landroidx/preference/DialogPreference;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     .line 194
     invoke-virtual {p0}, Landroidx/preference/PreferenceDialogFragment;->getArguments()Landroid/os/Bundle;
@@ -146,14 +146,14 @@
     .line 199
     .end local v0    # "key":Ljava/lang/String;
     .end local v1    # "fragment":Landroidx/preference/DialogPreference$TargetFragment;
-    :cond_0
+    :cond_1d
     iget-object v0, p0, Landroidx/preference/PreferenceDialogFragment;->mPreference:Landroidx/preference/DialogPreference;
 
     return-object v0
 .end method
 
 .method protected needInputMethod()Z
-    .locals 1
+    .registers 2
 
     .line 226
     const/4 v0, 0x0
@@ -162,7 +162,7 @@
 .end method
 
 .method protected onBindDialogView(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -176,7 +176,7 @@
 
     .line 280
     .local v0, "dialogMessageView":Landroid/view/View;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_27
 
     .line 281
     iget-object v1, p0, Landroidx/preference/PreferenceDialogFragment;->mDialogMessage:Ljava/lang/CharSequence;
@@ -191,12 +191,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_1e
 
     .line 285
     instance-of v3, v0, Landroid/widget/TextView;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1d
 
     .line 286
     move-object v3, v0
@@ -206,16 +206,16 @@
     invoke-virtual {v3, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 289
-    :cond_0
+    :cond_1d
     const/4 v2, 0x0
 
     .line 292
-    :cond_1
+    :cond_1e
     invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
 
     move-result v3
 
-    if-eq v3, v2, :cond_2
+    if-eq v3, v2, :cond_27
 
     .line 293
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
@@ -223,12 +223,12 @@
     .line 296
     .end local v1    # "message":Ljava/lang/CharSequence;
     .end local v2    # "newVisibility":I
-    :cond_2
+    :cond_27
     return-void
 .end method
 
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "which"    # I
     .annotation runtime Ljava/lang/Deprecated;
@@ -242,7 +242,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 9
+    .registers 11
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 94
@@ -257,7 +257,7 @@
     .local v0, "rawFragment":Landroid/app/Fragment;
     instance-of v1, v0, Landroidx/preference/DialogPreference$TargetFragment;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_c9
 
     .line 102
     move-object v1, v0
@@ -280,7 +280,7 @@
     .local v2, "key":Ljava/lang/String;
     const/4 v3, 0x0
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_8b
 
     .line 107
     invoke-interface {v1, v2}, Landroidx/preference/DialogPreference$TargetFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
@@ -345,16 +345,16 @@
 
     .line 115
     .local v4, "icon":Landroid/graphics/drawable/Drawable;
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_85
 
     instance-of v5, v4, Landroid/graphics/drawable/BitmapDrawable;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_58
 
-    goto :goto_0
+    goto :goto_85
 
     .line 118
-    :cond_0
+    :cond_58
     invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v5
@@ -403,13 +403,13 @@
 
     iput-object v3, p0, Landroidx/preference/PreferenceDialogFragment;->mDialogIcon:Landroid/graphics/drawable/BitmapDrawable;
 
-    goto :goto_1
+    goto :goto_8a
 
     .line 116
     .end local v5    # "bitmap":Landroid/graphics/Bitmap;
     .end local v6    # "canvas":Landroid/graphics/Canvas;
-    :cond_1
-    :goto_0
+    :cond_85
+    :goto_85
     move-object v3, v4
 
     check-cast v3, Landroid/graphics/drawable/BitmapDrawable;
@@ -418,11 +418,11 @@
 
     .line 125
     .end local v4    # "icon":Landroid/graphics/drawable/Drawable;
-    :goto_1
-    goto :goto_2
+    :goto_8a
+    goto :goto_c8
 
     .line 126
-    :cond_2
+    :cond_8b
     const-string v4, "PreferenceDialogFragment.title"
 
     invoke-virtual {p1, v4}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
@@ -478,7 +478,7 @@
 
     .line 132
     .local v3, "bitmap":Landroid/graphics/Bitmap;
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_c8
 
     .line 133
     new-instance v4, Landroid/graphics/drawable/BitmapDrawable;
@@ -493,14 +493,14 @@
 
     .line 136
     .end local v3    # "bitmap":Landroid/graphics/Bitmap;
-    :cond_3
-    :goto_2
+    :cond_c8
+    :goto_c8
     return-void
 
     .line 98
     .end local v1    # "fragment":Landroidx/preference/DialogPreference$TargetFragment;
     .end local v2    # "key":Ljava/lang/String;
-    :cond_4
+    :cond_c9
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Target fragment must implement TargetFragment interface"
@@ -511,7 +511,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 5
+    .registers 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 155
@@ -566,7 +566,7 @@
 
     .line 165
     .local v2, "contentView":Landroid/view/View;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_31
 
     .line 166
     invoke-virtual {p0, v2}, Landroidx/preference/PreferenceDialogFragment;->onBindDialogView(Landroid/view/View;)V
@@ -574,16 +574,16 @@
     .line 167
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    goto :goto_0
+    goto :goto_36
 
     .line 169
-    :cond_0
+    :cond_31
     iget-object v3, p0, Landroidx/preference/PreferenceDialogFragment;->mDialogMessage:Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 172
-    :goto_0
+    :goto_36
     invoke-virtual {p0, v1}, Landroidx/preference/PreferenceDialogFragment;->onPrepareDialogBuilder(Landroid/app/AlertDialog$Builder;)V
 
     .line 175
@@ -597,18 +597,18 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_46
 
     .line 177
     invoke-direct {p0, v3}, Landroidx/preference/PreferenceDialogFragment;->requestInputMethod(Landroid/app/Dialog;)V
 
     .line 180
-    :cond_1
+    :cond_46
     return-object v3
 .end method
 
 .method protected onCreateDialogView(Landroid/content/Context;)Landroid/view/View;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -620,13 +620,13 @@
     .local v0, "resId":I
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 260
     return-object v1
 
     .line 263
-    :cond_0
+    :cond_6
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v2
@@ -646,7 +646,7 @@
 .end method
 
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+    .registers 4
     .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     .line 309
@@ -657,16 +657,16 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-virtual {p0, v0}, Landroidx/preference/PreferenceDialogFragment;->onDialogClosed(Z)V
 
     .line 311
@@ -674,7 +674,7 @@
 .end method
 
 .method protected onPrepareDialogBuilder(Landroid/app/AlertDialog$Builder;)V
-    .locals 0
+    .registers 2
     .param p1, "builder"    # Landroid/app/AlertDialog$Builder;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -684,7 +684,7 @@
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "outState"    # Landroid/os/Bundle;
 
     .line 140
@@ -728,7 +728,7 @@
     .line 147
     iget-object v0, p0, Landroidx/preference/PreferenceDialogFragment;->mDialogIcon:Landroid/graphics/drawable/BitmapDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_35
 
     .line 148
     iget-object v0, p0, Landroidx/preference/PreferenceDialogFragment;->mDialogIcon:Landroid/graphics/drawable/BitmapDrawable;
@@ -742,6 +742,6 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 150
-    :cond_0
+    :cond_35
     return-void
 .end method

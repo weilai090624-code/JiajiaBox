@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 68
@@ -62,7 +62,7 @@
 .end method
 
 .method static addGhost(Landroid/view/View;Landroid/view/ViewGroup;Landroid/graphics/Matrix;)Landroidx/transition/GhostViewPort;
-    .locals 4
+    .registers 7
     .param p0, "view"    # Landroid/view/View;
     .param p1, "viewGroup"    # Landroid/view/ViewGroup;
     .param p2, "matrix"    # Landroid/graphics/Matrix;
@@ -74,7 +74,7 @@
 
     instance-of v0, v0, Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_5b
 
     .line 167
     invoke-static {p1}, Landroidx/transition/GhostViewHolder;->getHolder(Landroid/view/ViewGroup;)Landroidx/transition/GhostViewHolder;
@@ -93,7 +93,7 @@
 
     .line 170
     .local v2, "previousRefCount":I
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 171
     invoke-virtual {v1}, Landroidx/transition/GhostViewPort;->getParent()Landroid/view/ViewParent;
@@ -104,7 +104,7 @@
 
     .line 172
     .local v3, "oldHolder":Landroidx/transition/GhostViewHolder;
-    if-eq v3, v0, :cond_0
+    if-eq v3, v0, :cond_21
 
     .line 173
     iget v2, v1, Landroidx/transition/GhostViewPort;->mReferences:I
@@ -117,11 +117,11 @@
 
     .line 178
     .end local v3    # "oldHolder":Landroidx/transition/GhostViewHolder;
-    :cond_0
-    if-nez v1, :cond_3
+    :cond_21
+    if-nez v1, :cond_4f
 
     .line 179
-    if-nez p2, :cond_1
+    if-nez p2, :cond_2e
 
     .line 180
     new-instance v3, Landroid/graphics/Matrix;
@@ -134,7 +134,7 @@
     invoke-static {p0, p1, p2}, Landroidx/transition/GhostViewPort;->calculateMatrix(Landroid/view/View;Landroid/view/ViewGroup;Landroid/graphics/Matrix;)V
 
     .line 183
-    :cond_1
+    :cond_2e
     new-instance v3, Landroidx/transition/GhostViewPort;
 
     invoke-direct {v3, p0}, Landroidx/transition/GhostViewPort;-><init>(Landroid/view/View;)V
@@ -145,7 +145,7 @@
     invoke-virtual {v1, p2}, Landroidx/transition/GhostViewPort;->setMatrix(Landroid/graphics/Matrix;)V
 
     .line 185
-    if-nez v0, :cond_2
+    if-nez v0, :cond_40
 
     .line 186
     new-instance v3, Landroidx/transition/GhostViewHolder;
@@ -154,14 +154,14 @@
 
     move-object v0, v3
 
-    goto :goto_0
+    goto :goto_43
 
     .line 188
-    :cond_2
+    :cond_40
     invoke-virtual {v0}, Landroidx/transition/GhostViewHolder;->popToOverlayTop()V
 
     .line 190
-    :goto_0
+    :goto_43
     invoke-static {p1, v0}, Landroidx/transition/GhostViewPort;->copySize(Landroid/view/View;Landroid/view/View;)V
 
     .line 191
@@ -173,18 +173,18 @@
     .line 193
     iput v2, v1, Landroidx/transition/GhostViewPort;->mReferences:I
 
-    goto :goto_1
+    goto :goto_54
 
     .line 194
-    :cond_3
-    if-eqz p2, :cond_4
+    :cond_4f
+    if-eqz p2, :cond_54
 
     .line 195
     invoke-virtual {v1, p2}, Landroidx/transition/GhostViewPort;->setMatrix(Landroid/graphics/Matrix;)V
 
     .line 197
-    :cond_4
-    :goto_1
+    :cond_54
+    :goto_54
     iget v3, v1, Landroidx/transition/GhostViewPort;->mReferences:I
 
     add-int/lit8 v3, v3, 0x1
@@ -198,7 +198,7 @@
     .end local v0    # "holder":Landroidx/transition/GhostViewHolder;
     .end local v1    # "ghostView":Landroidx/transition/GhostViewPort;
     .end local v2    # "previousRefCount":I
-    :cond_5
+    :cond_5b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Ghosted views must be parented by a ViewGroup"
@@ -209,7 +209,7 @@
 .end method
 
 .method static calculateMatrix(Landroid/view/View;Landroid/view/ViewGroup;Landroid/graphics/Matrix;)V
-    .locals 3
+    .registers 6
     .param p0, "view"    # Landroid/view/View;
     .param p1, "host"    # Landroid/view/ViewGroup;
     .param p2, "matrix"    # Landroid/graphics/Matrix;
@@ -255,7 +255,7 @@
 .end method
 
 .method static copySize(Landroid/view/View;Landroid/view/View;)V
-    .locals 5
+    .registers 7
     .param p0, "from"    # Landroid/view/View;
     .param p1, "to"    # Landroid/view/View;
 
@@ -302,7 +302,7 @@
 .end method
 
 .method static getGhostView(Landroid/view/View;)Landroidx/transition/GhostViewPort;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 148
@@ -318,7 +318,7 @@
 .end method
 
 .method static removeGhost(Landroid/view/View;)V
-    .locals 2
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
 
     .line 202
@@ -328,7 +328,7 @@
 
     .line 203
     .local v0, "ghostView":Landroidx/transition/GhostViewPort;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 204
     iget v1, v0, Landroidx/transition/GhostViewPort;->mReferences:I
@@ -340,7 +340,7 @@
     .line 205
     iget v1, v0, Landroidx/transition/GhostViewPort;->mReferences:I
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_19
 
     .line 206
     invoke-virtual {v0}, Landroidx/transition/GhostViewPort;->getParent()Landroid/view/ViewParent;
@@ -355,12 +355,12 @@
 
     .line 210
     .end local v1    # "holder":Landroidx/transition/GhostViewHolder;
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method static setGhostView(Landroid/view/View;Landroidx/transition/GhostViewPort;)V
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "ghostView"    # Landroidx/transition/GhostViewPort;
 
@@ -376,7 +376,7 @@
 
 # virtual methods
 .method protected onAttachedToWindow()V
-    .locals 2
+    .registers 3
 
     .line 101
     invoke-super {p0}, Landroid/view/ViewGroup;->onAttachedToWindow()V
@@ -411,7 +411,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 108
     iget-object v0, p0, Landroidx/transition/GhostViewPort;->mView:Landroid/view/View;
@@ -425,12 +425,12 @@
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
     .line 110
-    :cond_0
+    :cond_2c
     return-void
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 2
+    .registers 3
 
     .line 114
     iget-object v0, p0, Landroidx/transition/GhostViewPort;->mView:Landroid/view/View;
@@ -464,7 +464,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     .line 118
     iget-object v0, p0, Landroidx/transition/GhostViewPort;->mView:Landroid/view/View;
@@ -478,7 +478,7 @@
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
     .line 120
-    :cond_0
+    :cond_2a
     invoke-super {p0}, Landroid/view/ViewGroup;->onDetachedFromWindow()V
 
     .line 121
@@ -486,7 +486,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 4
+    .registers 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 125
@@ -535,7 +535,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 0
+    .registers 6
     .param p1, "changed"    # Z
     .param p2, "l"    # I
     .param p3, "t"    # I
@@ -547,7 +547,7 @@
 .end method
 
 .method public reserveEndViewTransition(Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "viewGroup"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
 
@@ -562,7 +562,7 @@
 .end method
 
 .method setMatrix(Landroid/graphics/Matrix;)V
-    .locals 0
+    .registers 2
     .param p1, "matrix"    # Landroid/graphics/Matrix;
 
     .line 90
@@ -573,7 +573,7 @@
 .end method
 
 .method public setVisibility(I)V
-    .locals 2
+    .registers 4
     .param p1, "visibility"    # I
 
     .line 77
@@ -586,27 +586,27 @@
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_1
+    if-ne v0, p0, :cond_15
 
     .line 79
-    if-nez p1, :cond_0
+    if-nez p1, :cond_f
 
     const/4 v0, 0x4
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     .line 80
     .local v0, "inverseVisibility":I
-    :goto_0
+    :goto_10
     iget-object v1, p0, Landroidx/transition/GhostViewPort;->mView:Landroid/view/View;
 
     invoke-static {v1, v0}, Landroidx/transition/ViewUtils;->setTransitionVisibility(Landroid/view/View;I)V
 
     .line 82
     .end local v0    # "inverseVisibility":I
-    :cond_1
+    :cond_15
     return-void
 .end method

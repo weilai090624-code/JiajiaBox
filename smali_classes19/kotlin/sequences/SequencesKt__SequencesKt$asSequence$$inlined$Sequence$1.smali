@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Iterator;)V
-    .locals 0
+    .registers 2
 
     iput-object p1, p0, Lkotlin/sequences/SequencesKt__SequencesKt$asSequence$$inlined$Sequence$1;->$this_asSequence$inlined:Ljava/util/Iterator;
 
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

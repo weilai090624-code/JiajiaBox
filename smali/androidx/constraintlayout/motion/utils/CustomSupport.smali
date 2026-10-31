@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method private static clamp(I)I
-    .locals 2
+    .registers 3
     .param p0, "c"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -56,7 +56,7 @@
 .end method
 
 .method public static setInterpolatedValue(Landroidx/constraintlayout/widget/ConstraintAttribute;Landroid/view/View;[F)V
-    .locals 16
+    .registers 19
     .param p0, "att"    # Landroidx/constraintlayout/widget/ConstraintAttribute;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "value"    # [F
@@ -112,7 +112,7 @@
 
     .line 23
     .local v6, "methodName":Ljava/lang/String;
-    :try_start_0
+    :try_start_23
     sget-object v0, Landroidx/constraintlayout/motion/utils/CustomSupport$1;->$SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType:[I
 
     invoke-virtual/range {p0 .. p0}, Landroidx/constraintlayout/widget/ConstraintAttribute;->getType()Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
@@ -135,12 +135,12 @@
 
     const/4 v13, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1e4
 
-    goto/16 :goto_1
+    goto/16 :goto_1e2
 
     .line 61
-    :pswitch_0
+    :pswitch_3e
     new-array v0, v12, [Ljava/lang/Class;
 
     sget-object v7, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
@@ -165,11 +165,11 @@
 
     invoke-virtual {v0, v1, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_1e2
 
     .line 57
     .end local v0    # "method":Ljava/lang/reflect/Method;
-    :pswitch_1
+    :pswitch_57
     new-array v0, v12, [Ljava/lang/Class;
 
     sget-object v7, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
@@ -188,16 +188,16 @@
 
     cmpl-float v7, v7, v8
 
-    if-lez v7, :cond_0
+    if-lez v7, :cond_6b
 
     const/4 v7, 0x1
 
-    goto :goto_0
+    goto :goto_6c
 
-    :cond_0
+    :cond_6b
     const/4 v7, 0x0
 
-    :goto_0
+    :goto_6c
     invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v7
@@ -209,11 +209,11 @@
     invoke-virtual {v0, v1, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 59
-    goto/16 :goto_1
+    goto/16 :goto_1e2
 
     .line 54
     .end local v0    # "method":Ljava/lang/reflect/Method;
-    :pswitch_2
+    :pswitch_79
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -253,7 +253,7 @@
     .restart local p0    # "att":Landroidx/constraintlayout/widget/ConstraintAttribute;
     .restart local p1    # "view":Landroid/view/View;
     .restart local p2    # "value":[F
-    :pswitch_3
+    :pswitch_97
     new-array v0, v12, [Ljava/lang/Class;
 
     sget-object v14, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
@@ -369,7 +369,7 @@
     invoke-virtual {v0, v1, v11}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 52
-    goto/16 :goto_1
+    goto/16 :goto_1e2
 
     .line 33
     .end local v0    # "method":Ljava/lang/reflect/Method;
@@ -378,7 +378,7 @@
     .end local v9    # "color":I
     .end local v12    # "g":I
     .end local v14    # "r":I
-    :pswitch_4
+    :pswitch_f0
     const/4 v0, 0x1
 
     new-array v7, v0, [Ljava/lang/Class;
@@ -513,11 +513,11 @@
     .end local v10    # "color":I
     .end local v11    # "drawable":Landroid/graphics/drawable/ColorDrawable;
     .end local v12    # "g":I
-    goto/16 :goto_1
+    goto/16 :goto_1e2
 
     .line 29
     .end local v0    # "method":Ljava/lang/reflect/Method;
-    :pswitch_5
+    :pswitch_151
     const/4 v0, 0x1
 
     new-array v7, v0, [Ljava/lang/Class;
@@ -549,11 +549,11 @@
     invoke-virtual {v0, v1, v9}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 31
-    goto :goto_1
+    goto :goto_1e2
 
     .line 25
     .end local v0    # "method":Ljava/lang/reflect/Method;
-    :pswitch_6
+    :pswitch_16c
     const/4 v0, 0x1
 
     new-array v7, v0, [Ljava/lang/Class;
@@ -585,28 +585,28 @@
     aput-object v7, v9, v8
 
     invoke-virtual {v0, v1, v9}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_187
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_23 .. :try_end_187} :catch_1b8
+    .catch Ljava/lang/IllegalAccessException; {:try_start_23 .. :try_end_187} :catch_18d
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_23 .. :try_end_187} :catch_188
 
     .line 27
-    goto :goto_1
+    goto :goto_1e2
 
     .line 71
     .end local v0    # "method":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_188
     move-exception v0
 
     .line 72
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
-    goto :goto_2
+    goto :goto_1e3
 
     .line 68
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_18d
     move-exception v0
 
     .line 69
@@ -651,10 +651,10 @@
     invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    goto :goto_1
+    goto :goto_1e2
 
     .line 65
-    :catch_2
+    :catch_1b8
     move-exception v0
 
     .line 66
@@ -700,21 +700,21 @@
 
     .line 73
     .end local v0    # "e":Ljava/lang/NoSuchMethodException;
-    :goto_1
+    :goto_1e2
     nop
 
     .line 74
-    :goto_2
+    :goto_1e3
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_1e4
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16c
+        :pswitch_151
+        :pswitch_f0
+        :pswitch_97
+        :pswitch_79
+        :pswitch_57
+        :pswitch_3e
     .end packed-switch
 .end method

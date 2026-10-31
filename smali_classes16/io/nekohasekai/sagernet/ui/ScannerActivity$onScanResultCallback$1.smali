@@ -88,7 +88,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/zxing/Result;Lio/nekohasekai/sagernet/ui/ScannerActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -142,7 +142,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -156,7 +156,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,7 +185,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 12
+    .registers 14
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -198,7 +198,7 @@
 
     const/4 v3, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_134
 
     .end local p0    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -211,23 +211,23 @@
 
     .restart local p0    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_13
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v6, p0
 
-    goto/16 :goto_7
+    goto/16 :goto_109
 
-    :pswitch_1
-    :try_start_0
+    :pswitch_19
+    :try_start_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_19 .. :try_end_1c} :catch_33
+    .catchall {:try_start_19 .. :try_end_1c} :catchall_2f
 
-    goto/16 :goto_5
+    goto/16 :goto_d6
 
-    :pswitch_2
+    :pswitch_1e
     iget-wide v4, p0, Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;->J$0:J
 
     .local v4, "currentGroupId":J
@@ -235,43 +235,43 @@
 
     check-cast v1, Ljava/util/Iterator;
 
-    :try_start_1
+    :try_start_24
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v6, p0
 
-    goto/16 :goto_4
+    goto/16 :goto_b3
 
     .end local v4    # "currentGroupId":J
-    :pswitch_3
+    :pswitch_2a
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_1
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2d
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_24 .. :try_end_2d} :catch_33
+    .catchall {:try_start_24 .. :try_end_2d} :catchall_2f
 
     move-object v1, p1
 
-    goto :goto_0
+    goto :goto_59
 
     .line 143
-    :catchall_0
+    :catchall_2f
     move-exception v1
 
     move-object v6, p0
 
-    goto/16 :goto_6
+    goto/16 :goto_ec
 
     .line 138
-    :catch_0
+    :catch_33
     move-exception v0
 
     move-object v6, p0
 
-    goto/16 :goto_8
+    goto/16 :goto_10c
 
     .line 119
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_4
+    :pswitch_37
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 120
@@ -279,16 +279,16 @@
     nop
 
     .line 121
-    :try_start_2
+    :try_start_3b
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;->$result:Lcom/google/zxing/Result;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_e2
 
     invoke-virtual {v1}, Lcom/google/zxing/Result;->getText()Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_e2
 
     .line 122
     .local v5, "text":Ljava/lang/String;
@@ -309,18 +309,18 @@
     invoke-static/range {v4 .. v9}, Lio/nekohasekai/sagernet/group/RawUpdater;->parseRaw$default(Lio/nekohasekai/sagernet/group/RawUpdater;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_2
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_2 .. :try_end_2} :catch_4
-    .catchall {:try_start_2 .. :try_end_2} :catchall_4
+    :try_end_53
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_3b .. :try_end_53} :catch_10a
+    .catchall {:try_start_3b .. :try_end_53} :catchall_ea
 
     .end local v5    # "text":Ljava/lang/String;
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_56
 
     .line 119
     return-object v0
 
     .line 122
-    :cond_0
+    :cond_56
     move-object v11, v1
 
     move-object v1, p1
@@ -330,8 +330,8 @@
     .line 119
     .end local p1    # "$result":Ljava/lang/Object;
     .local v1, "$result":Ljava/lang/Object;
-    :goto_0
-    :try_start_3
+    :goto_59
+    :try_start_59
     check-cast p1, Ljava/util/List;
 
     .line 123
@@ -339,32 +339,32 @@
     move-object v4, p1
 
     check-cast v4, Ljava/util/Collection;
-    :try_end_3
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_3 .. :try_end_3} :catch_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+    :try_end_5e
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_59 .. :try_end_5e} :catch_de
+    .catchall {:try_start_59 .. :try_end_5e} :catchall_d8
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_75
 
-    :try_start_4
+    :try_start_60
     invoke-interface {v4}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v4
-    :try_end_4
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_64
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_60 .. :try_end_64} :catch_70
+    .catchall {:try_start_60 .. :try_end_64} :catchall_69
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_67
 
-    goto :goto_1
+    goto :goto_75
 
-    :cond_1
+    :cond_67
     const/4 v4, 0x0
 
-    goto :goto_2
+    goto :goto_76
 
     .line 143
     .end local p1    # "results":Ljava/util/List;
-    :catchall_1
+    :catchall_69
     move-exception p1
 
     move-object v6, p0
@@ -375,29 +375,29 @@
 
     move-object p1, v11
 
-    goto/16 :goto_6
+    goto/16 :goto_ec
 
     .line 138
-    :catch_1
+    :catch_70
     move-exception v0
 
     move-object v6, p0
 
     move-object p1, v1
 
-    goto/16 :goto_8
+    goto/16 :goto_10c
 
     .line 123
     .restart local p1    # "results":Ljava/util/List;
-    :cond_2
-    :goto_1
+    :cond_75
+    :goto_75
     const/4 v4, 0x1
 
-    :goto_2
-    if-nez v4, :cond_5
+    :goto_76
+    if-nez v4, :cond_c1
 
     .line 124
-    :try_start_5
+    :try_start_78
     sget-object v4, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v4}, Lio/nekohasekai/sagernet/database/DataStore;->selectedGroupForImport()J
@@ -411,32 +411,32 @@
     invoke-virtual {v6}, Lio/nekohasekai/sagernet/database/DataStore;->getSelectedGroup()J
 
     move-result-wide v6
-    :try_end_5
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_5 .. :try_end_5} :catch_3
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_84
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_78 .. :try_end_84} :catch_de
+    .catchall {:try_start_78 .. :try_end_84} :catchall_d8
 
     cmp-long v8, v6, v4
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_8d
 
     .line 126
-    :try_start_6
+    :try_start_88
     sget-object v6, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     invoke-virtual {v6, v4, v5}, Lio/nekohasekai/sagernet/database/DataStore;->setSelectedGroup(J)V
-    :try_end_6
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_6 .. :try_end_6} :catch_1
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_8d
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_88 .. :try_end_8d} :catch_70
+    .catchall {:try_start_88 .. :try_end_8d} :catchall_69
 
     .line 129
-    :cond_3
-    :try_start_7
+    :cond_8d
+    :try_start_8d
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
-    :try_end_7
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_7 .. :try_end_7} :catch_3
-    .catchall {:try_start_7 .. :try_end_7} :catchall_3
+    :try_end_91
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_8d .. :try_end_91} :catch_de
+    .catchall {:try_start_8d .. :try_end_91} :catchall_d8
 
     move-object p1, v1
 
@@ -448,13 +448,13 @@
     .end local p0    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;
     .local v6, "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;
     .local p1, "$result":Ljava/lang/Object;
-    :goto_3
-    :try_start_8
+    :goto_94
+    :try_start_94
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_130
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -483,14 +483,14 @@
     move-result-object v8
 
     .end local v7    # "profile":Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    if-ne v8, v0, :cond_4
+    if-ne v8, v0, :cond_b3
 
     .line 119
     return-object v0
 
     .line 131
-    :cond_4
-    :goto_4
+    :cond_b3
+    :goto_b3
     iget-object v7, v6, Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;->this$0:Lio/nekohasekai/sagernet/ui/ScannerActivity;
 
     invoke-virtual {v7}, Lio/nekohasekai/sagernet/ui/ScannerActivity;->getImportedN()Ljava/util/concurrent/atomic/AtomicInteger;
@@ -498,31 +498,31 @@
     move-result-object v7
 
     invoke-virtual {v7, v2}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I
-    :try_end_8
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_8 .. :try_end_8} :catch_2
-    .catchall {:try_start_8 .. :try_end_8} :catchall_2
+    :try_end_bc
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_94 .. :try_end_bc} :catch_bf
+    .catchall {:try_start_94 .. :try_end_bc} :catchall_bd
 
-    goto :goto_3
+    goto :goto_94
 
     .line 143
     .end local v4    # "currentGroupId":J
-    :catchall_2
+    :catchall_bd
     move-exception v1
 
-    goto :goto_6
+    goto :goto_ec
 
     .line 138
-    :catch_2
+    :catch_bf
     move-exception v0
 
-    goto :goto_8
+    goto :goto_10c
 
     .line 134
     .end local v6    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;
     .end local p1    # "$result":Ljava/lang/Object;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :cond_5
-    :try_start_9
+    :cond_c1
+    :try_start_c1
     new-instance p1, Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1$1;
 
     invoke-direct {p1, v3}, Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1$1;-><init>(Lkotlin/coroutines/Continuation;)V
@@ -540,30 +540,30 @@
     invoke-static {p1, v2}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->onMainDispatcher(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p1
-    :try_end_9
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_9 .. :try_end_9} :catch_3
-    .catchall {:try_start_9 .. :try_end_9} :catchall_3
+    :try_end_d2
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_c1 .. :try_end_d2} :catch_de
+    .catchall {:try_start_c1 .. :try_end_d2} :catchall_d8
 
-    if-ne p1, v0, :cond_6
+    if-ne p1, v0, :cond_d5
 
     .line 119
     return-object v0
 
     .line 134
-    :cond_6
+    :cond_d5
     move-object p1, v1
 
     .end local v1    # "$result":Ljava/lang/Object;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :goto_5
+    :goto_d6
     move-object v6, p0
 
-    goto :goto_9
+    goto :goto_130
 
     .line 143
     .end local p1    # "$result":Ljava/lang/Object;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :catchall_3
+    :catchall_d8
     move-exception p1
 
     move-object v6, p0
@@ -574,23 +574,23 @@
 
     move-object p1, v11
 
-    goto :goto_6
+    goto :goto_ec
 
     .line 138
-    :catch_3
+    :catch_de
     move-exception v0
 
     move-object v6, p0
 
     move-object p1, v1
 
-    goto :goto_8
+    goto :goto_10c
 
     .line 121
     .end local v1    # "$result":Ljava/lang/Object;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :cond_7
-    :try_start_a
+    :cond_e2
+    :try_start_e2
     new-instance v1, Ljava/lang/Exception;
 
     const-string v2, "QR code not found"
@@ -599,13 +599,13 @@
 
     .end local p1    # "$result":Ljava/lang/Object;
     throw v1
-    :try_end_a
-    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_a .. :try_end_a} :catch_4
-    .catchall {:try_start_a .. :try_end_a} :catchall_4
+    :try_end_ea
+    .catch Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException; {:try_start_e2 .. :try_end_ea} :catch_10a
+    .catchall {:try_start_e2 .. :try_end_ea} :catchall_ea
 
     .line 143
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catchall_4
+    :catchall_ea
     move-exception v1
 
     move-object v6, p0
@@ -613,7 +613,7 @@
     .line 144
     .local v1, "e":Ljava/lang/Throwable;
     .restart local v6    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;
-    :goto_6
+    :goto_ec
     sget-object v2, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     invoke-virtual {v2, v1}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/Throwable;)V
@@ -642,19 +642,19 @@
     move-result-object v1
 
     .end local v1    # "e":Ljava/lang/Throwable;
-    if-ne v1, v0, :cond_8
+    if-ne v1, v0, :cond_109
 
     .line 119
     return-object v0
 
     .line 151
-    :cond_8
-    :goto_7
-    goto :goto_9
+    :cond_109
+    :goto_109
+    goto :goto_130
 
     .line 138
     .end local v6    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;
-    :catch_4
+    :catch_10a
     move-exception v0
 
     move-object v6, p0
@@ -662,7 +662,7 @@
     .line 139
     .local v0, "e":Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException;
     .restart local v6    # "this":Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;
-    :goto_8
+    :goto_10c
     iget-object v1, v6, Lio/nekohasekai/sagernet/ui/ScannerActivity$onScanResultCallback$1;->this$0:Lio/nekohasekai/sagernet/ui/ScannerActivity;
 
     new-instance v2, Landroid/content/Intent;
@@ -715,20 +715,20 @@
 
     .line 151
     .end local v0    # "e":Lio/nekohasekai/sagernet/ktx/SubscriptionFoundException;
-    :cond_9
-    :goto_9
+    :cond_130
+    :goto_130
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_134
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_37
+        :pswitch_2a
+        :pswitch_1e
+        :pswitch_19
+        :pswitch_13
     .end packed-switch
 .end method

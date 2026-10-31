@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 194
     new-instance v0, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$HeapByteBufferFactory;
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 192
     invoke-direct {p0}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder$ByteBufferFactory;-><init>()V
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public newByteBuffer(I)Ljava/nio/ByteBuffer;
-    .locals 2
+    .registers 4
     .param p1, "capacity"    # I
 
     .line 198

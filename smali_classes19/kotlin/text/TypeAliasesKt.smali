@@ -33,19 +33,19 @@
 
 # direct methods
 .method public static synthetic Appendable$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic CharacterCodingException$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic StringBuilder$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/LinkedHashSet;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -63,12 +63,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -92,17 +92,17 @@
 
     .line 427
     .end local v1    # "cameraInternal":Landroidx/camera/core/impl/CameraInternal;
-    goto :goto_0
+    goto :goto_e
 
     .line 428
-    :cond_0
+    :cond_28
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "cameraId"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -116,7 +116,7 @@
     .line 432
     instance-of v0, p1, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 433
     iget-object v0, p0, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;->mIds:Ljava/util/List;
@@ -134,14 +134,14 @@
     return v0
 
     .line 435
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 440
     iget-object v0, p0, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;->mIds:Ljava/util/List;

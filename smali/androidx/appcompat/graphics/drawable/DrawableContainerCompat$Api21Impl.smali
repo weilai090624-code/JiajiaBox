@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1212
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static canApplyTheme(Landroid/graphics/drawable/Drawable$ConstantState;)Z
-    .locals 1
+    .registers 2
     .param p0, "constantState"    # Landroid/graphics/drawable/Drawable$ConstantState;
 
     .line 1217
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getOutline(Landroid/graphics/drawable/Drawable;Landroid/graphics/Outline;)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "outline"    # Landroid/graphics/Outline;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public static getResources(Landroid/content/res/Resources$Theme;)Landroid/content/res/Resources;
-    .locals 1
+    .registers 2
     .param p0, "theme"    # Landroid/content/res/Resources$Theme;
 
     .line 1221

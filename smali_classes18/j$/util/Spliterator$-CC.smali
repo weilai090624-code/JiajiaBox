@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$forEachRemaining(Lj$/util/Spliterator;Ljava/util/function/Consumer;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/util/Spliterator;
 
     .line 326
@@ -22,7 +22,7 @@
 .end method
 
 .method public static $default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/Spliterator;
 
     .line 465
@@ -34,7 +34,7 @@
 .end method
 
 .method public static $default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
-    .locals 2
+    .registers 3
     .param p0, "_this"    # Lj$/util/Spliterator;
 
     .line 408
@@ -44,23 +44,23 @@
 
     and-int/lit8 v0, v0, 0x40
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const-wide/16 v0, -0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-interface {p0}, Lj$/util/Spliterator;->estimateSize()J
 
     move-result-wide v0
 
-    :goto_0
+    :goto_f
     return-wide v0
 .end method
 
 .method public static $default$hasCharacteristics(Lj$/util/Spliterator;I)Z
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/util/Spliterator;
     .param p1, "characteristics"    # I
 
@@ -71,15 +71,15 @@
 
     and-int/2addr v0, p1
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method

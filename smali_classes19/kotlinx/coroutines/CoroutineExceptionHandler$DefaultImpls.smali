@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static fold(Lkotlinx/coroutines/CoroutineExceptionHandler;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Lkotlinx/coroutines/CoroutineExceptionHandler;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -58,7 +58,7 @@
 .end method
 
 .method public static get(Lkotlinx/coroutines/CoroutineExceptionHandler;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/CoroutineExceptionHandler;
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
@@ -86,7 +86,7 @@
 .end method
 
 .method public static minusKey(Lkotlinx/coroutines/CoroutineExceptionHandler;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/CoroutineExceptionHandler;
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
@@ -113,7 +113,7 @@
 .end method
 
 .method public static plus(Lkotlinx/coroutines/CoroutineExceptionHandler;Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/CoroutineExceptionHandler;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 

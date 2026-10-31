@@ -72,7 +72,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 4
     .param p1, "sequence"    # Lkotlin/sequences/Sequence;
     .param p2, "transformer"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -105,7 +105,7 @@
 .end method
 
 .method public static final synthetic access$getSequence$p(Lkotlin/sequences/TransformingSequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/TransformingSequence;
 
     .line 205
@@ -115,7 +115,7 @@
 .end method
 
 .method public static final synthetic access$getTransformer$p(Lkotlin/sequences/TransformingSequence;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/TransformingSequence;
 
     .line 205
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public final flatten$kotlin_stdlib(Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
-    .locals 3
+    .registers 5
     .param p1, "iterator"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -162,7 +162,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

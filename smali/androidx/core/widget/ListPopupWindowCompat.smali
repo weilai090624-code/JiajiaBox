@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static createDragToOpenListener(Landroid/widget/ListPopupWindow;Landroid/view/View;)Landroid/view/View$OnTouchListener;
-    .locals 1
+    .registers 3
     .param p0, "listPopupWindow"    # Landroid/widget/ListPopupWindow;
     .param p1, "src"    # Landroid/view/View;
 
@@ -28,7 +28,7 @@
 .end method
 
 .method public static createDragToOpenListener(Ljava/lang/Object;Landroid/view/View;)Landroid/view/View$OnTouchListener;
-    .locals 1
+    .registers 3
     .param p0, "listPopupWindow"    # Ljava/lang/Object;
     .param p1, "src"    # Landroid/view/View;
     .annotation runtime Ljava/lang/Deprecated;

@@ -150,7 +150,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/database/ProxyGroup$Companion;
 
@@ -173,7 +173,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 17
+    .registers 18
 
     move-object/from16 v0, p0
 
@@ -207,7 +207,7 @@
 .end method
 
 .method public constructor <init>(JJZLjava/lang/String;ILio/nekohasekai/sagernet/database/SubscriptionBean;IZJJ)V
-    .locals 0
+    .registers 15
     .param p1, "id"    # J
     .param p3, "userOrder"    # J
     .param p5, "ungrouped"    # Z
@@ -257,7 +257,7 @@
 .end method
 
 .method public synthetic constructor <init>(JJZLjava/lang/String;ILio/nekohasekai/sagernet/database/SubscriptionBean;IZJJILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 16
+    .registers 33
 
     .line 14
     move/from16 v0, p15
@@ -266,142 +266,142 @@
 
     const-wide/16 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     .line 15
     move-wide v4, v2
 
-    goto :goto_0
+    goto :goto_c
 
     .line 14
-    :cond_0
+    :cond_a
     move-wide/from16 v4, p1
 
-    :goto_0
+    :goto_c
     and-int/lit8 v1, v0, 0x2
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_11
 
     .line 16
-    goto :goto_1
+    goto :goto_13
 
     .line 14
-    :cond_1
+    :cond_11
     move-wide/from16 v2, p3
 
-    :goto_1
+    :goto_13
     and-int/lit8 v1, v0, 0x4
 
     const/4 v6, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1a
 
     .line 17
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_1c
 
     .line 14
-    :cond_2
+    :cond_1a
     move/from16 v1, p5
 
-    :goto_2
+    :goto_1c
     and-int/lit8 v7, v0, 0x8
 
     const/4 v8, 0x0
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_23
 
     .line 18
     move-object v7, v8
 
-    goto :goto_3
+    goto :goto_25
 
     .line 14
-    :cond_3
+    :cond_23
     move-object/from16 v7, p6
 
-    :goto_3
+    :goto_25
     and-int/lit8 v9, v0, 0x10
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_2b
 
     .line 19
     const/4 v9, 0x0
 
-    goto :goto_4
+    goto :goto_2d
 
     .line 14
-    :cond_4
+    :cond_2b
     move/from16 v9, p7
 
-    :goto_4
+    :goto_2d
     and-int/lit8 v10, v0, 0x20
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_32
 
     .line 20
-    goto :goto_5
+    goto :goto_34
 
     .line 14
-    :cond_5
+    :cond_32
     move-object/from16 v8, p8
 
-    :goto_5
+    :goto_34
     and-int/lit8 v10, v0, 0x40
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_3a
 
     .line 21
     const/4 v10, 0x0
 
-    goto :goto_6
+    goto :goto_3c
 
     .line 14
-    :cond_6
+    :cond_3a
     move/from16 v10, p9
 
-    :goto_6
+    :goto_3c
     and-int/lit16 v11, v0, 0x80
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_41
 
     .line 22
-    goto :goto_7
+    goto :goto_43
 
     .line 14
-    :cond_7
+    :cond_41
     move/from16 v6, p10
 
-    :goto_7
+    :goto_43
     and-int/lit16 v11, v0, 0x100
 
     const-wide/16 v12, -0x1
 
-    if-eqz v11, :cond_8
+    if-eqz v11, :cond_4b
 
     .line 23
     move-wide v14, v12
 
-    goto :goto_8
+    goto :goto_4d
 
     .line 14
-    :cond_8
+    :cond_4b
     move-wide/from16 v14, p11
 
-    :goto_8
+    :goto_4d
     and-int/lit16 v0, v0, 0x200
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_52
 
     .line 24
-    goto :goto_9
+    goto :goto_54
 
     .line 14
-    :cond_9
+    :cond_52
     move-wide/from16 v12, p13
 
-    :goto_9
+    :goto_54
     move-object/from16 p1, p0
 
     move-wide/from16 p2, v4
@@ -431,7 +431,7 @@
 .end method
 
 .method public static synthetic copy$default(Lio/nekohasekai/sagernet/database/ProxyGroup;JJZLjava/lang/String;ILio/nekohasekai/sagernet/database/SubscriptionBean;IZJJILjava/lang/Object;)Lio/nekohasekai/sagernet/database/ProxyGroup;
-    .locals 16
+    .registers 33
 
     move-object/from16 v0, p0
 
@@ -439,124 +439,124 @@
 
     and-int/lit8 v2, v1, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_b
 
     iget-wide v2, v0, Lio/nekohasekai/sagernet/database/ProxyGroup;->id:J
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     move-wide/from16 v2, p1
 
-    :goto_0
+    :goto_d
     and-int/lit8 v4, v1, 0x2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_14
 
     iget-wide v4, v0, Lio/nekohasekai/sagernet/database/ProxyGroup;->userOrder:J
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_14
     move-wide/from16 v4, p3
 
-    :goto_1
+    :goto_16
     and-int/lit8 v6, v1, 0x4
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_1d
 
     iget-boolean v6, v0, Lio/nekohasekai/sagernet/database/ProxyGroup;->ungrouped:Z
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_2
+    :cond_1d
     move/from16 v6, p5
 
-    :goto_2
+    :goto_1f
     and-int/lit8 v7, v1, 0x8
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_26
 
     iget-object v7, v0, Lio/nekohasekai/sagernet/database/ProxyGroup;->name:Ljava/lang/String;
 
-    goto :goto_3
+    goto :goto_28
 
-    :cond_3
+    :cond_26
     move-object/from16 v7, p6
 
-    :goto_3
+    :goto_28
     and-int/lit8 v8, v1, 0x10
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_2f
 
     iget v8, v0, Lio/nekohasekai/sagernet/database/ProxyGroup;->type:I
 
-    goto :goto_4
+    goto :goto_31
 
-    :cond_4
+    :cond_2f
     move/from16 v8, p7
 
-    :goto_4
+    :goto_31
     and-int/lit8 v9, v1, 0x20
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_38
 
     iget-object v9, v0, Lio/nekohasekai/sagernet/database/ProxyGroup;->subscription:Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
-    goto :goto_5
+    goto :goto_3a
 
-    :cond_5
+    :cond_38
     move-object/from16 v9, p8
 
-    :goto_5
+    :goto_3a
     and-int/lit8 v10, v1, 0x40
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_41
 
     iget v10, v0, Lio/nekohasekai/sagernet/database/ProxyGroup;->order:I
 
-    goto :goto_6
+    goto :goto_43
 
-    :cond_6
+    :cond_41
     move/from16 v10, p9
 
-    :goto_6
+    :goto_43
     and-int/lit16 v11, v1, 0x80
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_4a
 
     iget-boolean v11, v0, Lio/nekohasekai/sagernet/database/ProxyGroup;->isSelector:Z
 
-    goto :goto_7
+    goto :goto_4c
 
-    :cond_7
+    :cond_4a
     move/from16 v11, p10
 
-    :goto_7
+    :goto_4c
     and-int/lit16 v12, v1, 0x100
 
-    if-eqz v12, :cond_8
+    if-eqz v12, :cond_53
 
     iget-wide v12, v0, Lio/nekohasekai/sagernet/database/ProxyGroup;->frontProxy:J
 
-    goto :goto_8
+    goto :goto_55
 
-    :cond_8
+    :cond_53
     move-wide/from16 v12, p11
 
-    :goto_8
+    :goto_55
     and-int/lit16 v1, v1, 0x200
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_5c
 
     iget-wide v14, v0, Lio/nekohasekai/sagernet/database/ProxyGroup;->landingProxy:J
 
-    goto :goto_9
+    goto :goto_5e
 
-    :cond_9
+    :cond_5c
     move-wide/from16 v14, p13
 
-    :goto_9
+    :goto_5e
     move-wide/from16 p1, v2
 
     move-wide/from16 p3, v4
@@ -587,7 +587,7 @@
 
 # virtual methods
 .method public final component1()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->id:J
 
@@ -595,7 +595,7 @@
 .end method
 
 .method public final component10()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->landingProxy:J
 
@@ -603,7 +603,7 @@
 .end method
 
 .method public final component2()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->userOrder:J
 
@@ -611,7 +611,7 @@
 .end method
 
 .method public final component3()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->ungrouped:Z
 
@@ -619,7 +619,7 @@
 .end method
 
 .method public final component4()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->name:Ljava/lang/String;
 
@@ -627,7 +627,7 @@
 .end method
 
 .method public final component5()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->type:I
 
@@ -635,7 +635,7 @@
 .end method
 
 .method public final component6()Lio/nekohasekai/sagernet/database/SubscriptionBean;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->subscription:Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
@@ -643,7 +643,7 @@
 .end method
 
 .method public final component7()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->order:I
 
@@ -651,7 +651,7 @@
 .end method
 
 .method public final component8()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->isSelector:Z
 
@@ -659,7 +659,7 @@
 .end method
 
 .method public final component9()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->frontProxy:J
 
@@ -667,7 +667,7 @@
 .end method
 
 .method public final copy(JJZLjava/lang/String;ILio/nekohasekai/sagernet/database/SubscriptionBean;IZJJ)Lio/nekohasekai/sagernet/database/ProxyGroup;
-    .locals 16
+    .registers 31
 
     new-instance v15, Lio/nekohasekai/sagernet/database/ProxyGroup;
 
@@ -699,7 +699,7 @@
 .end method
 
 .method public deserializeFromBuffer(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 3
+    .registers 5
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
 
     const-string v0, "input"
@@ -709,7 +709,7 @@
     .line 59
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->export:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 60
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
@@ -745,10 +745,10 @@
 
     .end local v0    # "version":I
     .end local v1    # "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
-    goto :goto_0
+    goto :goto_5b
 
     .line 69
-    :cond_0
+    :cond_24
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
 
     move-result v0
@@ -794,7 +794,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_55
 
     .line 78
     new-instance v1, Lio/nekohasekai/sagernet/database/SubscriptionBean;
@@ -810,7 +810,7 @@
 
     .line 83
     .end local v1    # "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
-    :cond_1
+    :cond_55
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
 
     move-result v1
@@ -819,12 +819,12 @@
 
     .line 85
     .end local v0    # "version":I
-    :goto_0
+    :goto_5b
     return-void
 .end method
 
 .method public final displayName()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 88
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->name:Ljava/lang/String;
@@ -841,37 +841,37 @@
 
     check-cast v3, Ljava/lang/CharSequence;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_12
 
     invoke-static {v3}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v3, 0x1
 
     .end local v1    # "it":Ljava/lang/String;
     .end local v2    # "$i$a$-takeIf-ProxyGroup$displayName$1":I
-    :goto_1
-    if-nez v3, :cond_2
+    :goto_13
+    if-nez v3, :cond_16
 
-    goto :goto_2
+    goto :goto_17
 
-    :cond_2
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_2
-    if-nez v0, :cond_3
+    :goto_17
+    if-nez v0, :cond_29
 
     invoke-static {}, Lio/nekohasekai/sagernet/ktx/UtilsKt;->getApp()Lio/nekohasekai/sagernet/SagerNet;
 
@@ -887,29 +887,29 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_3
+    :cond_29
     return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lio/nekohasekai/sagernet/database/ProxyGroup;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -920,31 +920,31 @@
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_16
 
     return v2
 
-    :cond_2
+    :cond_16
     iget-wide v3, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->userOrder:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/database/ProxyGroup;->userOrder:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     iget-boolean v3, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->ungrouped:Z
 
     iget-boolean v4, v1, Lio/nekohasekai/sagernet/database/ProxyGroup;->ungrouped:Z
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_26
 
     return v2
 
-    :cond_4
+    :cond_26
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->name:Ljava/lang/String;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/ProxyGroup;->name:Ljava/lang/String;
@@ -953,20 +953,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_31
 
     return v2
 
-    :cond_5
+    :cond_31
     iget v3, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->type:I
 
     iget v4, v1, Lio/nekohasekai/sagernet/database/ProxyGroup;->type:I
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_38
 
     return v2
 
-    :cond_6
+    :cond_38
     iget-object v3, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->subscription:Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
     iget-object v4, v1, Lio/nekohasekai/sagernet/database/ProxyGroup;->subscription:Lio/nekohasekai/sagernet/database/SubscriptionBean;
@@ -975,56 +975,56 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_43
 
     return v2
 
-    :cond_7
+    :cond_43
     iget v3, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->order:I
 
     iget v4, v1, Lio/nekohasekai/sagernet/database/ProxyGroup;->order:I
 
-    if-eq v3, v4, :cond_8
+    if-eq v3, v4, :cond_4a
 
     return v2
 
-    :cond_8
+    :cond_4a
     iget-boolean v3, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->isSelector:Z
 
     iget-boolean v4, v1, Lio/nekohasekai/sagernet/database/ProxyGroup;->isSelector:Z
 
-    if-eq v3, v4, :cond_9
+    if-eq v3, v4, :cond_51
 
     return v2
 
-    :cond_9
+    :cond_51
     iget-wide v3, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->frontProxy:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/database/ProxyGroup;->frontProxy:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_5a
 
     return v2
 
-    :cond_a
+    :cond_5a
     iget-wide v3, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->landingProxy:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/database/ProxyGroup;->landingProxy:J
 
     cmp-long v1, v3, v5
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_63
 
     return v2
 
-    :cond_b
+    :cond_63
     return v0
 .end method
 
 .method public final getExport()Z
-    .locals 1
+    .registers 2
 
     .line 27
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->export:Z
@@ -1033,7 +1033,7 @@
 .end method
 
 .method public final getFrontProxy()J
-    .locals 2
+    .registers 3
 
     .line 23
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->frontProxy:J
@@ -1042,7 +1042,7 @@
 .end method
 
 .method public final getId()J
-    .locals 2
+    .registers 3
 
     .line 15
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->id:J
@@ -1051,7 +1051,7 @@
 .end method
 
 .method public final getLandingProxy()J
-    .locals 2
+    .registers 3
 
     .line 24
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->landingProxy:J
@@ -1060,7 +1060,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 18
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->name:Ljava/lang/String;
@@ -1069,7 +1069,7 @@
 .end method
 
 .method public final getOrder()I
-    .locals 1
+    .registers 2
 
     .line 21
     iget v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->order:I
@@ -1078,7 +1078,7 @@
 .end method
 
 .method public final getSubscription()Lio/nekohasekai/sagernet/database/SubscriptionBean;
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->subscription:Lio/nekohasekai/sagernet/database/SubscriptionBean;
@@ -1087,7 +1087,7 @@
 .end method
 
 .method public final getType()I
-    .locals 1
+    .registers 2
 
     .line 19
     iget v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->type:I
@@ -1096,7 +1096,7 @@
 .end method
 
 .method public final getUngrouped()Z
-    .locals 1
+    .registers 2
 
     .line 17
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->ungrouped:Z
@@ -1105,7 +1105,7 @@
 .end method
 
 .method public final getUserOrder()J
-    .locals 2
+    .registers 3
 
     .line 16
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->userOrder:J
@@ -1114,7 +1114,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->id:J
 
@@ -1148,20 +1148,20 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_21
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_21
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->name:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v2
 
-    :goto_0
+    :goto_27
     add-int/2addr v1, v2
 
     mul-int/lit8 v0, v1, 0x1f
@@ -1174,18 +1174,18 @@
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->subscription:Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_34
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_1
+    :cond_34
     iget-object v2, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->subscription:Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/database/SubscriptionBean;->hashCode()I
 
     move-result v3
 
-    :goto_1
+    :goto_3a
     add-int/2addr v1, v3
 
     mul-int/lit8 v0, v1, 0x1f
@@ -1228,12 +1228,12 @@
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->subscription:Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     check-cast v0, Lio/nekohasekai/sagernet/fmt/Serializable;
 
@@ -1244,12 +1244,12 @@
     check-cast v0, Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
     .line 32
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public final isSelector()Z
-    .locals 1
+    .registers 2
 
     .line 22
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->isSelector:Z
@@ -1258,7 +1258,7 @@
 .end method
 
 .method public serializeToBuffer(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 2
+    .registers 4
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
 
     const-string v0, "output"
@@ -1270,7 +1270,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 37
     invoke-virtual {p1, v1}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeInt(I)V
@@ -1295,10 +1295,10 @@
     invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/database/SubscriptionBean;->serializeForShare(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
 
     .end local v0    # "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
-    goto :goto_0
+    goto :goto_4d
 
     .line 44
-    :cond_0
+    :cond_20
     invoke-virtual {p1, v1}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeInt(I)V
 
     .line 45
@@ -1331,28 +1331,28 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_48
 
     .line 52
     iget-object v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->subscription:Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_48
 
     invoke-virtual {v0, p1}, Lio/nekohasekai/sagernet/database/SubscriptionBean;->serializeToBuffer(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
 
     .line 54
-    :cond_1
+    :cond_48
     iget v0, p0, Lio/nekohasekai/sagernet/database/ProxyGroup;->order:I
 
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/ByteBufferOutput;->writeInt(I)V
 
     .line 56
-    :goto_0
+    :goto_4d
     return-void
 .end method
 
 .method public final setExport(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 27
@@ -1363,7 +1363,7 @@
 .end method
 
 .method public final setFrontProxy(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 23
@@ -1373,7 +1373,7 @@
 .end method
 
 .method public final setId(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 15
@@ -1383,7 +1383,7 @@
 .end method
 
 .method public final setLandingProxy(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 24
@@ -1393,7 +1393,7 @@
 .end method
 
 .method public final setName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 18
@@ -1403,7 +1403,7 @@
 .end method
 
 .method public final setOrder(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 21
@@ -1413,7 +1413,7 @@
 .end method
 
 .method public final setSelector(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 22
@@ -1423,7 +1423,7 @@
 .end method
 
 .method public final setSubscription(Lio/nekohasekai/sagernet/database/SubscriptionBean;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lio/nekohasekai/sagernet/database/SubscriptionBean;
 
     .line 20
@@ -1433,7 +1433,7 @@
 .end method
 
 .method public final setType(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 19
@@ -1443,7 +1443,7 @@
 .end method
 
 .method public final setUngrouped(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 17
@@ -1453,7 +1453,7 @@
 .end method
 
 .method public final setUserOrder(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 16
@@ -1463,7 +1463,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     new-instance v0, Ljava/lang/StringBuilder;
 

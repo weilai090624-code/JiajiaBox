@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     .local p0, "this":Lcom/esotericsoftware/kryo/SerializerFactory$BaseSerializerFactory;, "Lcom/esotericsoftware/kryo/SerializerFactory$BaseSerializerFactory<TT;>;"
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public isSupported(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 47

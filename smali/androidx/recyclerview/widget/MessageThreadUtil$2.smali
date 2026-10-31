@@ -51,7 +51,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/MessageThreadUtil;Landroidx/recyclerview/widget/ThreadUtil$BackgroundCallback;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Landroidx/recyclerview/widget/MessageThreadUtil;
 
     .line 88
@@ -94,7 +94,7 @@
 .end method
 
 .method private maybeExecuteBackgroundRunnable()V
-    .locals 3
+    .registers 4
 
     .line 131
     .local p0, "this":Landroidx/recyclerview/widget/MessageThreadUtil$2;, "Landroidx/recyclerview/widget/MessageThreadUtil$2;"
@@ -108,7 +108,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 132
     iget-object v0, p0, Landroidx/recyclerview/widget/MessageThreadUtil$2;->mExecutor:Ljava/util/concurrent/Executor;
@@ -118,12 +118,12 @@
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     .line 134
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method private sendMessage(Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;)V
-    .locals 1
+    .registers 3
     .param p1, "msg"    # Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
     .line 121
@@ -140,7 +140,7 @@
 .end method
 
 .method private sendMessageAtFrontOfQueue(Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;)V
-    .locals 1
+    .registers 3
     .param p1, "msg"    # Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
     .line 126
@@ -159,7 +159,7 @@
 
 # virtual methods
 .method public loadTile(II)V
-    .locals 1
+    .registers 4
     .param p1, "position"    # I
     .param p2, "scrollHint"    # I
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public recycleTile(Landroidx/recyclerview/widget/TileList$Tile;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -205,7 +205,7 @@
 .end method
 
 .method public refresh(I)V
-    .locals 2
+    .registers 4
     .param p1, "generation"    # I
 
     .line 100
@@ -225,7 +225,7 @@
 .end method
 
 .method public updateRange(IIIII)V
-    .locals 7
+    .registers 13
     .param p1, "rangeStart"    # I
     .param p2, "rangeEnd"    # I
     .param p3, "extRangeStart"    # I

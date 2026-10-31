@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 98
     .local p0, "this":Lcom/google/common/collect/CompactLinkedHashMap;, "Lcom/google/common/collect/CompactLinkedHashMap<TK;TV;>;"
@@ -52,7 +52,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "expectedSize"    # I
 
     .line 102
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>(IZ)V
-    .locals 0
+    .registers 3
     .param p1, "expectedSize"    # I
     .param p2, "accessOrder"    # Z
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public static create()Lcom/google/common/collect/CompactLinkedHashMap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -104,7 +104,7 @@
 .end method
 
 .method public static createWithExpectedSize(I)Lcom/google/common/collect/CompactLinkedHashMap;
-    .locals 1
+    .registers 2
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -127,7 +127,7 @@
 .end method
 
 .method private getPredecessor(I)I
-    .locals 3
+    .registers 5
     .param p1, "entry"    # I
 
     .line 144
@@ -148,7 +148,7 @@
 .end method
 
 .method private link(I)J
-    .locals 3
+    .registers 5
     .param p1, "i"    # I
 
     .line 248
@@ -163,7 +163,7 @@
 .end method
 
 .method private requireLinks()[J
-    .locals 1
+    .registers 2
 
     .line 244
     .local p0, "this":Lcom/google/common/collect/CompactLinkedHashMap;, "Lcom/google/common/collect/CompactLinkedHashMap<TK;TV;>;"
@@ -179,7 +179,7 @@
 .end method
 
 .method private setLink(IJ)V
-    .locals 1
+    .registers 5
     .param p1, "i"    # I
     .param p2, "value"    # J
 
@@ -196,7 +196,7 @@
 .end method
 
 .method private setPredecessor(II)V
-    .locals 7
+    .registers 10
     .param p1, "entry"    # I
     .param p2, "pred"    # I
 
@@ -231,7 +231,7 @@
 .end method
 
 .method private setSucceeds(II)V
-    .locals 1
+    .registers 4
     .param p1, "pred"    # I
     .param p2, "succ"    # I
 
@@ -239,37 +239,37 @@
     .local p0, "this":Lcom/google/common/collect/CompactLinkedHashMap;, "Lcom/google/common/collect/CompactLinkedHashMap<TK;TV;>;"
     const/4 v0, -0x2
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_6
 
     .line 164
     iput p2, p0, Lcom/google/common/collect/CompactLinkedHashMap;->firstEntry:I
 
-    goto :goto_0
+    goto :goto_9
 
     .line 166
-    :cond_0
+    :cond_6
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/CompactLinkedHashMap;->setSuccessor(II)V
 
     .line 169
-    :goto_0
-    if-ne p2, v0, :cond_1
+    :goto_9
+    if-ne p2, v0, :cond_e
 
     .line 170
     iput p1, p0, Lcom/google/common/collect/CompactLinkedHashMap;->lastEntry:I
 
-    goto :goto_1
+    goto :goto_11
 
     .line 172
-    :cond_1
+    :cond_e
     invoke-direct {p0, p2, p1}, Lcom/google/common/collect/CompactLinkedHashMap;->setPredecessor(II)V
 
     .line 174
-    :goto_1
+    :goto_11
     return-void
 .end method
 
 .method private setSuccessor(II)V
-    .locals 6
+    .registers 9
     .param p1, "entry"    # I
     .param p2, "succ"    # I
 
@@ -304,14 +304,14 @@
 
 # virtual methods
 .method accessEntry(I)V
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 186
     .local p0, "this":Lcom/google/common/collect/CompactLinkedHashMap;, "Lcom/google/common/collect/CompactLinkedHashMap<TK;TV;>;"
     iget-boolean v0, p0, Lcom/google/common/collect/CompactLinkedHashMap;->accessOrder:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 188
     invoke-direct {p0, p1}, Lcom/google/common/collect/CompactLinkedHashMap;->getPredecessor(I)I
@@ -338,12 +338,12 @@
     invoke-virtual {p0}, Lcom/google/common/collect/CompactLinkedHashMap;->incrementModCount()V
 
     .line 194
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method adjustAfterRemove(II)I
-    .locals 1
+    .registers 4
     .param p1, "indexBeforeRemove"    # I
     .param p2, "indexRemoved"    # I
 
@@ -353,21 +353,21 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_8
 
     move v0, p2
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move v0, p1
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method allocArrays()I
-    .locals 2
+    .registers 3
 
     .line 119
     .local p0, "this":Lcom/google/common/collect/CompactLinkedHashMap;, "Lcom/google/common/collect/CompactLinkedHashMap<TK;TV;>;"
@@ -386,7 +386,7 @@
 .end method
 
 .method public clear()V
-    .locals 5
+    .registers 6
 
     .line 227
     .local p0, "this":Lcom/google/common/collect/CompactLinkedHashMap;, "Lcom/google/common/collect/CompactLinkedHashMap<TK;TV;>;"
@@ -394,13 +394,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 228
     return-void
 
     .line 230
-    :cond_0
+    :cond_7
     const/4 v0, -0x2
 
     iput v0, p0, Lcom/google/common/collect/CompactLinkedHashMap;->firstEntry:I
@@ -411,7 +411,7 @@
     .line 232
     iget-object v0, p0, Lcom/google/common/collect/CompactLinkedHashMap;->links:[J
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 233
     iget-object v0, p0, Lcom/google/common/collect/CompactLinkedHashMap;->links:[J
@@ -427,7 +427,7 @@
     invoke-static {v0, v4, v1, v2, v3}, Ljava/util/Arrays;->fill([JIIJ)V
 
     .line 235
-    :cond_1
+    :cond_1c
     invoke-super {p0}, Lcom/google/common/collect/CompactHashMap;->clear()V
 
     .line 236
@@ -435,7 +435,7 @@
 .end method
 
 .method convertToHashFloodingResistantImplementation()Ljava/util/Map;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -461,7 +461,7 @@
 .end method
 
 .method createHashFloodingResistantDelegate(I)Ljava/util/Map;
-    .locals 3
+    .registers 5
     .param p1, "tableSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -485,7 +485,7 @@
 .end method
 
 .method firstEntryIndex()I
-    .locals 1
+    .registers 2
 
     .line 217
     .local p0, "this":Lcom/google/common/collect/CompactLinkedHashMap;, "Lcom/google/common/collect/CompactLinkedHashMap<TK;TV;>;"
@@ -495,7 +495,7 @@
 .end method
 
 .method getSuccessor(I)I
-    .locals 2
+    .registers 4
     .param p1, "entry"    # I
 
     .line 149
@@ -512,7 +512,7 @@
 .end method
 
 .method init(I)V
-    .locals 1
+    .registers 3
     .param p1, "expectedSize"    # I
 
     .line 112
@@ -532,7 +532,7 @@
 .end method
 
 .method insertEntry(ILjava/lang/Object;Ljava/lang/Object;II)V
-    .locals 1
+    .registers 7
     .param p1, "entryIndex"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -571,7 +571,7 @@
 .end method
 
 .method moveLastEntry(II)V
-    .locals 3
+    .registers 6
     .param p1, "dstIndex"    # I
     .param p2, "mask"    # I
 
@@ -599,7 +599,7 @@
     invoke-direct {p0, v1, v2}, Lcom/google/common/collect/CompactLinkedHashMap;->setSucceeds(II)V
 
     .line 202
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_24
 
     .line 203
     invoke-direct {p0, v0}, Lcom/google/common/collect/CompactLinkedHashMap;->getPredecessor(I)I
@@ -616,7 +616,7 @@
     invoke-direct {p0, p1, v1}, Lcom/google/common/collect/CompactLinkedHashMap;->setSucceeds(II)V
 
     .line 206
-    :cond_0
+    :cond_24
     const-wide/16 v1, 0x0
 
     invoke-direct {p0, v0, v1, v2}, Lcom/google/common/collect/CompactLinkedHashMap;->setLink(IJ)V
@@ -626,7 +626,7 @@
 .end method
 
 .method resizeEntries(I)V
-    .locals 1
+    .registers 3
     .param p1, "newCapacity"    # I
 
     .line 211

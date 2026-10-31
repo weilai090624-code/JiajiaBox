@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/http2/ErrorCode;)V
-    .locals 1
+    .registers 3
     .param p1, "errorCode"    # Lokhttp3/internal/http2/ErrorCode;
 
     const-string v0, "errorCode"

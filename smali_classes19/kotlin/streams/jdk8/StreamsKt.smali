@@ -45,7 +45,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$jBRaOqrA5A8aZRswyILQO-7uCm8(Lkotlin/sequences/Sequence;)Lj$/util/Spliterator;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lkotlin/streams/jdk8/StreamsKt;->asStream$lambda$4(Lkotlin/sequences/Sequence;)Lj$/util/Spliterator;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public static final asSequence(Lj$/util/stream/DoubleStream;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$asSequence"    # Lj$/util/stream/DoubleStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,7 +83,7 @@
 .end method
 
 .method public static final asSequence(Lj$/util/stream/IntStream;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$asSequence"    # Lj$/util/stream/IntStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -111,7 +111,7 @@
 .end method
 
 .method public static final asSequence(Lj$/util/stream/LongStream;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$asSequence"    # Lj$/util/stream/LongStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -139,7 +139,7 @@
 .end method
 
 .method public static final asSequence(Lj$/util/stream/Stream;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$asSequence"    # Lj$/util/stream/Stream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -168,7 +168,7 @@
 .end method
 
 .method public static final asStream(Lkotlin/sequences/Sequence;)Lj$/util/stream/Stream;
-    .locals 3
+    .registers 4
     .param p0, "$this$asStream"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -207,7 +207,7 @@
 .end method
 
 .method private static final asStream$lambda$4(Lkotlin/sequences/Sequence;)Lj$/util/Spliterator;
-    .locals 2
+    .registers 3
     .param p0, "$this_asStream"    # Lkotlin/sequences/Sequence;
 
     .line 64
@@ -225,7 +225,7 @@
 .end method
 
 .method public static final toList(Lj$/util/stream/DoubleStream;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "$this$toList"    # Lj$/util/stream/DoubleStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -259,7 +259,7 @@
 .end method
 
 .method public static final toList(Lj$/util/stream/IntStream;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "$this$toList"    # Lj$/util/stream/IntStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -293,7 +293,7 @@
 .end method
 
 .method public static final toList(Lj$/util/stream/LongStream;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "$this$toList"    # Lj$/util/stream/LongStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -327,7 +327,7 @@
 .end method
 
 .method public static final toList(Lj$/util/stream/Stream;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "$this$toList"    # Lj$/util/stream/Stream;
     .annotation system Ldalvik/annotation/Signature;
         value = {

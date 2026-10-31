@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method public static compose(Lcom/google/common/base/Function;Lcom/google/common/base/Supplier;)Lcom/google/common/base/Supplier;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<F:",
@@ -60,7 +60,7 @@
 .end method
 
 .method public static memoize(Lcom/google/common/base/Supplier;)Lcom/google/common/base/Supplier;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -77,45 +77,45 @@
     .local p0, "delegate":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TT;>;"
     instance-of v0, p0, Lcom/google/common/base/Suppliers$NonSerializableMemoizingSupplier;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_19
 
     instance-of v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_1
+    goto :goto_19
 
     .line 113
-    :cond_0
+    :cond_9
     instance-of v0, p0, Ljava/io/Serializable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 114
     new-instance v0, Lcom/google/common/base/Suppliers$MemoizingSupplier;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Suppliers$MemoizingSupplier;-><init>(Lcom/google/common/base/Supplier;)V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 115
-    :cond_1
+    :cond_13
     new-instance v0, Lcom/google/common/base/Suppliers$NonSerializableMemoizingSupplier;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Suppliers$NonSerializableMemoizingSupplier;-><init>(Lcom/google/common/base/Supplier;)V
 
     .line 113
-    :goto_0
+    :goto_18
     return-object v0
 
     .line 111
-    :cond_2
-    :goto_1
+    :cond_19
+    :goto_19
     return-object p0
 .end method
 
 .method public static memoizeWithExpiration(Lcom/google/common/base/Supplier;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/base/Supplier;
-    .locals 1
+    .registers 5
     .param p1, "duration"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -142,7 +142,7 @@
 .end method
 
 .method public static ofInstance(Ljava/lang/Object;)Lcom/google/common/base/Supplier;
-    .locals 1
+    .registers 2
     .param p0    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -167,7 +167,7 @@
 .end method
 
 .method public static supplierFunction()Lcom/google/common/base/Function;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -188,7 +188,7 @@
 .end method
 
 .method public static synchronizedSupplier(Lcom/google/common/base/Supplier;)Lcom/google/common/base/Supplier;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

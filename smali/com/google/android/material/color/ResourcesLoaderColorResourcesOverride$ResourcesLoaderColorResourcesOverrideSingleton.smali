@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 58
     new-instance v0, Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride;
@@ -35,7 +35,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method static synthetic access$000()Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride;
-    .locals 1
+    .registers 1
 
     .line 57
     sget-object v0, Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride$ResourcesLoaderColorResourcesOverrideSingleton;->INSTANCE:Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride;

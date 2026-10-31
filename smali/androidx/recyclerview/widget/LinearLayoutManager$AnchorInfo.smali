@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 2515
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,12 +43,12 @@
 
 # virtual methods
 .method assignCoordinateFromPadding()V
-    .locals 1
+    .registers 2
 
     .line 2531
     iget-boolean v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mLayoutFromEnd:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 2532
     iget-object v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mOrientationHelper:Landroidx/recyclerview/widget/OrientationHelper;
@@ -57,17 +57,17 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_11
 
     .line 2533
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mOrientationHelper:Landroidx/recyclerview/widget/OrientationHelper;
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/OrientationHelper;->getStartAfterPadding()I
 
     move-result v0
 
-    :goto_0
+    :goto_11
     iput v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
     .line 2534
@@ -75,14 +75,14 @@
 .end method
 
 .method public assignFromView(Landroid/view/View;I)V
-    .locals 2
+    .registers 5
     .param p1, "child"    # Landroid/view/View;
     .param p2, "position"    # I
 
     .line 2600
     iget-boolean v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mLayoutFromEnd:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 2601
     iget-object v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mOrientationHelper:Landroidx/recyclerview/widget/OrientationHelper;
@@ -102,10 +102,10 @@
 
     iput v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 2604
-    :cond_0
+    :cond_14
     iget-object v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mOrientationHelper:Landroidx/recyclerview/widget/OrientationHelper;
 
     invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/OrientationHelper;->getDecoratedStart(Landroid/view/View;)I
@@ -115,7 +115,7 @@
     iput v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
     .line 2607
-    :goto_0
+    :goto_1c
     iput p2, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mPosition:I
 
     .line 2608
@@ -123,7 +123,7 @@
 .end method
 
 .method public assignFromViewAndKeepVisibleRect(Landroid/view/View;I)V
-    .locals 12
+    .registers 15
     .param p1, "child"    # Landroid/view/View;
     .param p2, "position"    # I
 
@@ -136,7 +136,7 @@
 
     .line 2554
     .local v0, "spaceChange":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_c
 
     .line 2555
     invoke-virtual {p0, p1, p2}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->assignFromView(Landroid/view/View;I)V
@@ -145,7 +145,7 @@
     return-void
 
     .line 2558
-    :cond_0
+    :cond_c
     iput p2, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mPosition:I
 
     .line 2559
@@ -153,7 +153,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_57
 
     .line 2560
     iget-object v1, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mOrientationHelper:Landroidx/recyclerview/widget/OrientationHelper;
@@ -189,7 +189,7 @@
     iput v5, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
     .line 2565
-    if-lez v4, :cond_1
+    if-lez v4, :cond_56
 
     .line 2566
     iget-object v5, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mOrientationHelper:Landroidx/recyclerview/widget/OrientationHelper;
@@ -236,7 +236,7 @@
 
     .line 2573
     .local v9, "startMargin":I
-    if-gez v9, :cond_1
+    if-gez v9, :cond_56
 
     .line 2575
     iget v10, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
@@ -261,11 +261,11 @@
     .end local v7    # "layoutStart":I
     .end local v8    # "previousStartMargin":I
     .end local v9    # "startMargin":I
-    :cond_1
-    goto :goto_0
+    :cond_56
+    goto :goto_98
 
     .line 2579
-    :cond_2
+    :cond_57
     iget-object v1, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mOrientationHelper:Landroidx/recyclerview/widget/OrientationHelper;
 
     invoke-virtual {v1, p1}, Landroidx/recyclerview/widget/OrientationHelper;->getDecoratedStart(Landroid/view/View;)I
@@ -287,7 +287,7 @@
     iput v1, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
     .line 2582
-    if-lez v3, :cond_3
+    if-lez v3, :cond_98
 
     .line 2583
     iget-object v4, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mOrientationHelper:Landroidx/recyclerview/widget/OrientationHelper;
@@ -341,7 +341,7 @@
 
     .line 2592
     .local v2, "endMargin":I
-    if-gez v2, :cond_3
+    if-gez v2, :cond_98
 
     .line 2593
     iget v8, p0, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
@@ -364,13 +364,13 @@
     .end local v5    # "previousLayoutEnd":I
     .end local v6    # "previousEndMargin":I
     .end local v7    # "endReference":I
-    :cond_3
-    :goto_0
+    :cond_98
+    :goto_98
     return-void
 .end method
 
 .method isViewValidAsAnchor(Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$State;)Z
-    .locals 3
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
     .param p2, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
 
@@ -387,13 +387,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1e
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
 
     move-result v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_1e
 
     .line 2549
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
@@ -404,22 +404,22 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 v1, 0x0
 
     .line 2548
-    :goto_0
+    :goto_1f
     return v1
 .end method
 
 .method reset()V
-    .locals 1
+    .registers 2
 
     .line 2520
     const/4 v0, -0x1
@@ -444,7 +444,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 2538
     new-instance v0, Ljava/lang/StringBuilder;

@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;I)V
-    .locals 1
+    .registers 4
     .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -81,7 +81,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/List;II)V
-    .locals 1
+    .registers 5
     .param p2, "size"    # I
     .param p3, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -136,7 +136,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 235
     .local p0, "this":Lj$/util/ImmutableCollections$ListItr;, "Ljava/util/ImmutableCollections$ListItr<TE;>;"
@@ -144,45 +144,45 @@
 
     iget v1, p0, Lj$/util/ImmutableCollections$ListItr;->size:I
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 254
     .local p0, "this":Lj$/util/ImmutableCollections$ListItr;, "Ljava/util/ImmutableCollections$ListItr<TE;>;"
     iget-boolean v0, p0, Lj$/util/ImmutableCollections$ListItr;->isListIterator:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_c
 
     .line 257
     iget v0, p0, Lj$/util/ImmutableCollections$ListItr;->cursor:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 
     .line 255
-    :cond_1
+    :cond_c
     invoke-static {}, Lj$/util/ImmutableCollections;->uoe()Ljava/lang/UnsupportedOperationException;
 
     move-result-object v0
@@ -191,7 +191,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -216,8 +216,8 @@
     add-int/lit8 v2, v0, 0x1
 
     iput v2, p0, Lj$/util/ImmutableCollections$ListItr;->cursor:I
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_c} :catch_d
 
     .line 243
     return-object v1
@@ -225,7 +225,7 @@
     .line 244
     .end local v0    # "i":I
     .end local v1    # "next":Ljava/lang/Object;, "TE;"
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 245
@@ -238,13 +238,13 @@
 .end method
 
 .method public nextIndex()I
-    .locals 1
+    .registers 2
 
     .line 275
     .local p0, "this":Lj$/util/ImmutableCollections$ListItr;, "Ljava/util/ImmutableCollections$ListItr<TE;>;"
     iget-boolean v0, p0, Lj$/util/ImmutableCollections$ListItr;->isListIterator:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 278
     iget v0, p0, Lj$/util/ImmutableCollections$ListItr;->cursor:I
@@ -252,7 +252,7 @@
     return v0
 
     .line 276
-    :cond_0
+    :cond_7
     invoke-static {}, Lj$/util/ImmutableCollections;->uoe()Ljava/lang/UnsupportedOperationException;
 
     move-result-object v0
@@ -261,7 +261,7 @@
 .end method
 
 .method public previous()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -272,10 +272,10 @@
     .local p0, "this":Lj$/util/ImmutableCollections$ListItr;, "Ljava/util/ImmutableCollections$ListItr<TE;>;"
     iget-boolean v0, p0, Lj$/util/ImmutableCollections$ListItr;->isListIterator:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 265
-    :try_start_0
+    :try_start_4
     iget v0, p0, Lj$/util/ImmutableCollections$ListItr;->cursor:I
 
     add-int/lit8 v0, v0, -0x1
@@ -291,8 +291,8 @@
     .line 267
     .local v1, "previous":Ljava/lang/Object;, "TE;"
     iput v0, p0, Lj$/util/ImmutableCollections$ListItr;->cursor:I
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_4 .. :try_end_10} :catch_11
 
     .line 268
     return-object v1
@@ -300,7 +300,7 @@
     .line 269
     .end local v0    # "i":I
     .end local v1    # "previous":Ljava/lang/Object;, "TE;"
-    :catch_0
+    :catch_11
     move-exception v0
 
     .line 270
@@ -313,7 +313,7 @@
 
     .line 262
     .end local v0    # "e":Ljava/lang/IndexOutOfBoundsException;
-    :cond_0
+    :cond_18
     invoke-static {}, Lj$/util/ImmutableCollections;->uoe()Ljava/lang/UnsupportedOperationException;
 
     move-result-object v0
@@ -322,13 +322,13 @@
 .end method
 
 .method public previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 282
     .local p0, "this":Lj$/util/ImmutableCollections$ListItr;, "Ljava/util/ImmutableCollections$ListItr<TE;>;"
     iget-boolean v0, p0, Lj$/util/ImmutableCollections$ListItr;->isListIterator:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 285
     iget v0, p0, Lj$/util/ImmutableCollections$ListItr;->cursor:I
@@ -338,7 +338,7 @@
     return v0
 
     .line 283
-    :cond_0
+    :cond_9
     invoke-static {}, Lj$/util/ImmutableCollections;->uoe()Ljava/lang/UnsupportedOperationException;
 
     move-result-object v0
@@ -347,7 +347,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 250
     .local p0, "this":Lj$/util/ImmutableCollections$ListItr;, "Ljava/util/ImmutableCollections$ListItr<TE;>;"
@@ -359,7 +359,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"

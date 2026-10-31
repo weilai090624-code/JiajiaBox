@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method shouldBeActive()Z
-    .locals 1
+    .registers 2
 
     .line 496
     .local p0, "this":Landroidx/lifecycle/LiveData$AlwaysActiveObserver;, "Landroidx/lifecycle/LiveData<TT;>.AlwaysActiveObserver;"

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method static assertInstantiable(Ljava/lang/Class;)V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -35,20 +35,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2e
 
     .line 120
     invoke-static {v0}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     .line 123
     return-void
 
     .line 121
-    :cond_0
+    :cond_11
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -78,7 +78,7 @@
     throw v1
 
     .line 118
-    :cond_1
+    :cond_2e
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -109,7 +109,7 @@
 .end method
 
 .method public static create()Lcom/google/gson/internal/UnsafeAllocator;
-    .locals 10
+    .registers 10
 
     .line 40
     const-string v0, "newInstance"
@@ -120,7 +120,7 @@
 
     const/4 v3, 0x1
 
-    :try_start_0
+    :try_start_5
     const-string v4, "sun.misc.Unsafe"
 
     invoke-static {v4}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -163,8 +163,8 @@
     new-instance v8, Lcom/google/gson/internal/UnsafeAllocator$1;
 
     invoke-direct {v8, v7, v6}, Lcom/google/gson/internal/UnsafeAllocator$1;-><init>(Ljava/lang/reflect/Method;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_29} :catch_2a
 
     return-object v8
 
@@ -173,13 +173,13 @@
     .end local v5    # "f":Ljava/lang/reflect/Field;
     .end local v6    # "unsafe":Ljava/lang/Object;
     .end local v7    # "allocateInstance":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_2a
     move-exception v4
 
     .line 62
     const/4 v4, 0x2
 
-    :try_start_1
+    :try_start_2c
     const-class v5, Ljava/io/ObjectStreamClass;
 
     const-string v6, "getConstructorId"
@@ -243,8 +243,8 @@
     new-instance v7, Lcom/google/gson/internal/UnsafeAllocator$2;
 
     invoke-direct {v7, v6, v1}, Lcom/google/gson/internal/UnsafeAllocator$2;-><init>(Ljava/lang/reflect/Method;I)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_65
+    .catch Ljava/lang/Exception; {:try_start_2c .. :try_end_65} :catch_66
 
     return-object v7
 
@@ -252,11 +252,11 @@
     .end local v1    # "constructorId":I
     .end local v5    # "getConstructorId":Ljava/lang/reflect/Method;
     .end local v6    # "newInstance":Ljava/lang/reflect/Method;
-    :catch_1
+    :catch_66
     move-exception v1
 
     .line 86
-    :try_start_2
+    :try_start_67
     const-class v1, Ljava/io/ObjectInputStream;
 
     new-array v4, v4, [Ljava/lang/Class;
@@ -280,14 +280,14 @@
     new-instance v1, Lcom/google/gson/internal/UnsafeAllocator$3;
 
     invoke-direct {v1, v0}, Lcom/google/gson/internal/UnsafeAllocator$3;-><init>(Ljava/lang/reflect/Method;)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_7d
+    .catch Ljava/lang/Exception; {:try_start_67 .. :try_end_7d} :catch_7e
 
     return-object v1
 
     .line 97
     .end local v0    # "newInstance":Ljava/lang/reflect/Method;
-    :catch_2
+    :catch_7e
     move-exception v0
 
     .line 101

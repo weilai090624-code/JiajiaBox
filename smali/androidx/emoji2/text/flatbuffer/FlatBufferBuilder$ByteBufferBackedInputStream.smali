@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/ByteBuffer;)V
-    .locals 0
+    .registers 2
     .param p1, "buf"    # Ljava/nio/ByteBuffer;
 
     .line 1041
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public read()I
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -50,15 +50,15 @@
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v0
-    :try_end_0
-    .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_6} :catch_9
 
     and-int/lit16 v0, v0, 0xff
 
     return v0
 
     .line 1048
-    :catch_0
+    :catch_9
     move-exception v0
 
     .line 1049

@@ -43,7 +43,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/internal/http2/ErrorCode$Companion;-><init>()V
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final fromHttp2(I)Lokhttp3/internal/http2/ErrorCode;
-    .locals 8
+    .registers 10
     .param p1, "code"    # I
 
     .line 50
@@ -76,8 +76,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_2
+    :goto_7
+    if-ge v3, v1, :cond_1c
 
     aget-object v4, v0, v3
 
@@ -93,30 +93,30 @@
 
     move-result v7
 
-    if-ne v7, p1, :cond_0
+    if-ne v7, p1, :cond_15
 
     const/4 v7, 0x1
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v7, 0x0
 
     .end local v5    # "it":Lokhttp3/internal/http2/ErrorCode;
     .end local v6    # "$i$a$-find-ErrorCode$Companion$fromHttp2$1":I
-    :goto_1
-    if-eqz v7, :cond_1
+    :goto_16
+    if-eqz v7, :cond_19
 
-    goto :goto_2
+    goto :goto_1d
 
-    :cond_1
+    :cond_19
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_2
+    :cond_1c
     const/4 v4, 0x0
 
-    :goto_2
+    :goto_1d
     return-object v4
 .end method

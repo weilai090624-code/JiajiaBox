@@ -52,7 +52,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 326
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/navigation/NavInflater$Companion;-><init>()V
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public final checkNavType$navigation_runtime_release(Landroid/util/TypedValue;Landroidx/navigation/NavType;Landroidx/navigation/NavType;Ljava/lang/String;Ljava/lang/String;)Landroidx/navigation/NavType;
-    .locals 3
+    .registers 9
     .param p1, "value"    # Landroid/util/TypedValue;
     .param p2, "navType"    # Landroidx/navigation/NavType;
     .param p3, "expectedNavType"    # Landroidx/navigation/NavType;
@@ -112,14 +112,14 @@
     invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 346
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_44
 
-    if-ne p2, p3, :cond_0
+    if-ne p2, p3, :cond_15
 
-    goto :goto_0
+    goto :goto_44
 
     .line 347
-    :cond_0
+    :cond_15
     new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -167,17 +167,17 @@
     throw v0
 
     .line 349
-    :cond_1
-    :goto_0
-    if-nez p2, :cond_2
+    :cond_44
+    :goto_44
+    if-nez p2, :cond_48
 
     move-object v0, p3
 
-    goto :goto_1
+    goto :goto_49
 
-    :cond_2
+    :cond_48
     move-object v0, p2
 
-    :goto_1
+    :goto_49
     return-object v0
 .end method

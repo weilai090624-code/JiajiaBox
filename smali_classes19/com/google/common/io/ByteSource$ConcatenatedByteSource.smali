@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public isEmpty()Z
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -74,12 +74,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -93,7 +93,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     .line 701
     const/4 v0, 0x0
@@ -102,18 +102,18 @@
 
     .line 703
     .end local v1    # "source":Lcom/google/common/io/ByteSource;
-    :cond_0
-    goto :goto_0
+    :cond_1a
+    goto :goto_6
 
     .line 704
-    :cond_1
+    :cond_1b
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public openStream()Ljava/io/InputStream;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -135,7 +135,7 @@
 .end method
 
 .method public size()J
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -153,12 +153,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_8
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -179,7 +179,7 @@
 
     cmp-long v6, v0, v4
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_25
 
     .line 747
     const-wide v4, 0x7fffffffffffffffL
@@ -188,16 +188,16 @@
 
     .line 749
     .end local v3    # "source":Lcom/google/common/io/ByteSource;
-    :cond_0
-    goto :goto_0
+    :cond_25
+    goto :goto_8
 
     .line 750
-    :cond_1
+    :cond_26
     return-wide v0
 .end method
 
 .method public sizeIfKnown()Lcom/google/common/base/Optional;
-    .locals 8
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -212,7 +212,7 @@
 
     instance-of v0, v0, Ljava/util/Collection;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 715
     invoke-static {}, Lcom/google/common/base/Optional;->absent()Lcom/google/common/base/Optional;
@@ -222,7 +222,7 @@
     return-object v0
 
     .line 717
-    :cond_0
+    :cond_b
     const-wide/16 v0, 0x0
 
     .line 718
@@ -233,12 +233,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_13
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4e
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -258,7 +258,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_2e
 
     .line 721
     invoke-static {}, Lcom/google/common/base/Optional;->absent()Lcom/google/common/base/Optional;
@@ -268,7 +268,7 @@
     return-object v2
 
     .line 723
-    :cond_1
+    :cond_2e
     invoke-virtual {v4}, Lcom/google/common/base/Optional;->get()Ljava/lang/Object;
 
     move-result-object v5
@@ -286,7 +286,7 @@
 
     cmp-long v7, v0, v5
 
-    if-gez v7, :cond_2
+    if-gez v7, :cond_4d
 
     .line 730
     const-wide v5, 0x7fffffffffffffffL
@@ -304,11 +304,11 @@
     .line 732
     .end local v3    # "source":Lcom/google/common/io/ByteSource;
     .end local v4    # "sizeIfKnown":Lcom/google/common/base/Optional;, "Lcom/google/common/base/Optional<Ljava/lang/Long;>;"
-    :cond_2
-    goto :goto_0
+    :cond_4d
+    goto :goto_13
 
     .line 733
-    :cond_3
+    :cond_4e
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v2
@@ -321,7 +321,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 755
     iget-object v0, p0, Lcom/google/common/io/ByteSource$ConcatenatedByteSource;->sources:Ljava/lang/Iterable;

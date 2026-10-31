@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 75
     new-instance v0, Ljava/util/WeakHashMap;
@@ -49,7 +49,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method static getEnumConstants(Ljava/lang/Class;)Ljava/util/Map;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -82,7 +82,7 @@
     monitor-enter v0
 
     .line 92
-    :try_start_0
+    :try_start_3
     sget-object v1, Lcom/google/common/base/Enums;->enumConstantCache:Ljava/util/Map;
 
     invoke-interface {v1, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -93,7 +93,7 @@
 
     .line 93
     .local v1, "constants":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/WeakReference<+Ljava/lang/Enum<*>;>;>;"
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 94
     invoke-static {p0}, Lcom/google/common/base/Enums;->populateCache(Ljava/lang/Class;)Ljava/util/Map;
@@ -103,25 +103,25 @@
     move-object v1, v2
 
     .line 96
-    :cond_0
+    :cond_12
     monitor-exit v0
 
     return-object v1
 
     .line 97
     .end local v1    # "constants":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/WeakReference<+Ljava/lang/Enum<*>;>;>;"
-    :catchall_0
+    :catchall_14
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_3 .. :try_end_16} :catchall_14
 
     throw v1
 .end method
 
 .method public static getField(Ljava/lang/Enum;)Ljava/lang/reflect/Field;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -139,7 +139,7 @@
 
     .line 53
     .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :try_start_0
+    :try_start_4
     invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
@@ -147,13 +147,13 @@
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_4 .. :try_end_c} :catch_d
 
     return-object v1
 
     .line 54
-    :catch_0
+    :catch_d
     move-exception v1
 
     .line 55
@@ -166,7 +166,7 @@
 .end method
 
 .method public static getIfPresent(Ljava/lang/Class;Ljava/lang/String;)Lcom/google/common/base/Optional;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -198,7 +198,7 @@
 .end method
 
 .method private static populateCache(Ljava/lang/Class;)Ljava/util/Map;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -231,12 +231,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -258,10 +258,10 @@
 
     .line 83
     .end local v2    # "enumInstance":Ljava/lang/Enum;, "TT;"
-    goto :goto_0
+    goto :goto_d
 
     .line 84
-    :cond_0
+    :cond_26
     sget-object v1, Lcom/google/common/base/Enums;->enumConstantCache:Ljava/util/Map;
 
     invoke-interface {v1, p0, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -271,7 +271,7 @@
 .end method
 
 .method public static stringConverter(Ljava/lang/Class;)Lcom/google/common/base/Converter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

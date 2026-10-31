@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Lkotlin/text/StringsKt__IndentKt$prependIndent$1;->$indent:Ljava/lang/String;
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 94
@@ -82,7 +82,7 @@
 .end method
 
 .method public final invoke(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "it"    # Ljava/lang/String;
 
     const-string v0, "it"
@@ -101,7 +101,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 97
     nop
@@ -117,20 +117,20 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1f
 
     iget-object v0, p0, Lkotlin/text/StringsKt__IndentKt$prependIndent$1;->$indent:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_34
 
     .line 99
-    :cond_0
+    :cond_1f
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_34
 
     .line 102
-    :cond_1
+    :cond_21
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -150,6 +150,6 @@
     move-result-object v0
 
     .line 103
-    :goto_0
+    :goto_34
     return-object v0
 .end method

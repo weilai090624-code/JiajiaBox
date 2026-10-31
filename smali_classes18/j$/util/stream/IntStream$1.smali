@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(JILjava/util/function/IntUnaryOperator;I)V
-    .locals 0
+    .registers 6
     .param p1, "est"    # J
     .param p3, "additionalCharacteristics"    # I
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 908
     check-cast p1, Ljava/util/function/IntConsumer;
@@ -56,7 +56,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/IntConsumer;)Z
-    .locals 3
+    .registers 5
     .param p1, "action"    # Ljava/util/function/IntConsumer;
 
     .line 914
@@ -67,7 +67,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 917
     iget-object v0, p0, Lj$/util/stream/IntStream$1;->val$f:Ljava/util/function/IntUnaryOperator;
@@ -79,11 +79,11 @@
     move-result v0
 
     .local v0, "t":I
-    goto :goto_0
+    goto :goto_15
 
     .line 919
     .end local v0    # "t":I
-    :cond_0
+    :cond_11
     iget v0, p0, Lj$/util/stream/IntStream$1;->val$seed:I
 
     .line 920
@@ -91,7 +91,7 @@
     iput-boolean v1, p0, Lj$/util/stream/IntStream$1;->started:Z
 
     .line 922
-    :goto_0
+    :goto_15
     iput v0, p0, Lj$/util/stream/IntStream$1;->prev:I
 
     invoke-interface {p1, v0}, Ljava/util/function/IntConsumer;->accept(I)V

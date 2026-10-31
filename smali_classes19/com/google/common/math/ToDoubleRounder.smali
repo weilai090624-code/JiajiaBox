@@ -21,7 +21,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     .local p0, "this":Lcom/google/common/math/ToDoubleRounder;, "Lcom/google/common/math/ToDoubleRounder<TX;>;"
@@ -41,7 +41,7 @@
 .end method
 
 .method final roundToDouble(Ljava/lang/Number;Ljava/math/RoundingMode;)D
-    .locals 20
+    .registers 23
     .param p2, "mode"    # Ljava/math/RoundingMode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,7 +84,7 @@
 
     const-wide/high16 v8, 0x7ff0000000000000L    # Double.POSITIVE_INFINITY
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_72
 
     .line 51
     sget-object v2, Lcom/google/common/math/ToDoubleRounder$1;->$SwitchMap$java$math$RoundingMode:[I
@@ -97,12 +97,12 @@
 
     const-wide v10, 0x7fefffffffffffffL    # Double.MAX_VALUE
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_158
 
-    goto :goto_2
+    goto :goto_72
 
     .line 68
-    :pswitch_0
+    :pswitch_2f
     new-instance v2, Ljava/lang/ArithmeticException;
 
     invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -142,47 +142,47 @@
     throw v2
 
     .line 66
-    :pswitch_1
+    :pswitch_56
     return-wide v4
 
     .line 62
-    :pswitch_2
+    :pswitch_57
     cmpl-double v2, v4, v8
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_5c
 
     .line 63
-    goto :goto_0
+    goto :goto_61
 
     .line 64
-    :cond_0
+    :cond_5c
     const-wide v8, -0x10000000000001L
 
     .line 62
-    :goto_0
+    :goto_61
     return-wide v8
 
     .line 58
-    :pswitch_3
+    :pswitch_62
     cmpl-double v2, v4, v8
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_68
 
     .line 59
     move-wide v6, v10
 
-    goto :goto_1
+    goto :goto_69
 
     .line 60
-    :cond_1
+    :cond_68
     nop
 
     .line 58
-    :goto_1
+    :goto_69
     return-wide v6
 
     .line 56
-    :pswitch_4
+    :pswitch_6a
     invoke-virtual/range {p0 .. p1}, Lcom/google/common/math/ToDoubleRounder;->sign(Ljava/lang/Number;)I
 
     move-result v2
@@ -194,8 +194,8 @@
     return-wide v6
 
     .line 71
-    :cond_2
-    :goto_2
+    :cond_72
+    :goto_72
     sget-object v2, Ljava/math/RoundingMode;->UNNECESSARY:Ljava/math/RoundingMode;
 
     invoke-virtual {v0, v4, v5, v2}, Lcom/google/common/math/ToDoubleRounder;->toX(DLjava/math/RoundingMode;)Ljava/lang/Number;
@@ -224,7 +224,7 @@
 
     const-string v12, "impossible"
 
-    packed-switch v11, :pswitch_data_1
+    packed-switch v11, :pswitch_data_16c
 
     .line 151
     new-instance v0, Ljava/lang/AssertionError;
@@ -234,102 +234,102 @@
     throw v0
 
     .line 75
-    :pswitch_5
-    if-nez v10, :cond_3
+    :pswitch_92
+    if-nez v10, :cond_96
 
     const/4 v6, 0x1
 
-    goto :goto_3
+    goto :goto_97
 
-    :cond_3
+    :cond_96
     const/4 v6, 0x0
 
-    :goto_3
+    :goto_97
     invoke-static {v6}, Lcom/google/common/math/MathPreconditions;->checkRoundingUnnecessary(Z)V
 
     .line 76
     return-wide v4
 
     .line 92
-    :pswitch_6
+    :pswitch_9b
     invoke-virtual/range {p0 .. p1}, Lcom/google/common/math/ToDoubleRounder;->sign(Ljava/lang/Number;)I
 
     move-result v6
 
-    if-ltz v6, :cond_5
+    if-ltz v6, :cond_aa
 
     .line 93
-    if-gtz v10, :cond_4
+    if-gtz v10, :cond_a5
 
     move-wide v6, v4
 
-    goto :goto_4
+    goto :goto_a9
 
-    :cond_4
+    :cond_a5
     invoke-static {v4, v5}, Ljava/lang/Math;->nextUp(D)D
 
     move-result-wide v6
 
-    :goto_4
+    :goto_a9
     return-wide v6
 
     .line 95
-    :cond_5
-    if-ltz v10, :cond_6
+    :cond_aa
+    if-ltz v10, :cond_ae
 
     .line 96
     move-wide v6, v4
 
-    goto :goto_5
+    goto :goto_b2
 
     .line 97
-    :cond_6
+    :cond_ae
     invoke-static {v4, v5}, Lcom/google/common/math/DoubleUtils;->nextDown(D)D
 
     move-result-wide v6
 
     .line 95
-    :goto_5
+    :goto_b2
     return-wide v6
 
     .line 82
-    :pswitch_7
-    if-gtz v10, :cond_7
+    :pswitch_b3
+    if-gtz v10, :cond_b7
 
     move-wide v6, v4
 
-    goto :goto_6
+    goto :goto_bb
 
-    :cond_7
+    :cond_b7
     invoke-static {v4, v5}, Ljava/lang/Math;->nextUp(D)D
 
     move-result-wide v6
 
-    :goto_6
+    :goto_bb
     return-wide v6
 
     .line 78
-    :pswitch_8
-    if-ltz v10, :cond_8
+    :pswitch_bc
+    if-ltz v10, :cond_c0
 
     .line 79
     move-wide v6, v4
 
-    goto :goto_7
+    goto :goto_c4
 
     .line 80
-    :cond_8
+    :cond_c0
     invoke-static {v4, v5}, Lcom/google/common/math/DoubleUtils;->nextDown(D)D
 
     move-result-wide v6
 
     .line 78
-    :goto_7
+    :goto_c4
     return-wide v6
 
     .line 108
-    :pswitch_9
-    if-ltz v10, :cond_a
+    :pswitch_c5
+    if-ltz v10, :cond_da
 
     .line 109
     move-wide v6, v4
@@ -348,13 +348,13 @@
     .local v13, "roundCeilingAsDouble":D
     cmpl-double v15, v13, v8
 
-    if-nez v15, :cond_9
+    if-nez v15, :cond_d2
 
     .line 113
     return-wide v6
 
     .line 115
-    :cond_9
+    :cond_d2
     sget-object v8, Ljava/math/RoundingMode;->CEILING:Ljava/math/RoundingMode;
 
     invoke-virtual {v0, v13, v14, v8}, Lcom/google/common/math/ToDoubleRounder;->toX(DLjava/math/RoundingMode;)Ljava/lang/Number;
@@ -364,14 +364,14 @@
     move-object v9, v2
 
     .local v8, "roundCeiling":Ljava/lang/Number;, "TX;"
-    goto :goto_8
+    goto :goto_ed
 
     .line 117
     .end local v6    # "roundFloorAsDouble":D
     .end local v8    # "roundCeiling":Ljava/lang/Number;, "TX;"
     .end local v11    # "roundFloor":Ljava/lang/Number;, "TX;"
     .end local v13    # "roundCeilingAsDouble":D
-    :cond_a
+    :cond_da
     move-wide v13, v4
 
     .line 118
@@ -392,13 +392,13 @@
     .local v2, "roundFloorAsDouble":D
     cmpl-double v11, v2, v6
 
-    if-nez v11, :cond_b
+    if-nez v11, :cond_e6
 
     .line 121
     return-wide v13
 
     .line 123
-    :cond_b
+    :cond_e6
     sget-object v6, Ljava/math/RoundingMode;->FLOOR:Ljava/math/RoundingMode;
 
     invoke-virtual {v0, v2, v3, v6}, Lcom/google/common/math/ToDoubleRounder;->toX(DLjava/math/RoundingMode;)Ljava/lang/Number;
@@ -411,7 +411,7 @@
     .end local v2    # "roundFloorAsDouble":D
     .restart local v6    # "roundFloorAsDouble":D
     .restart local v11    # "roundFloor":Ljava/lang/Number;, "TX;"
-    :goto_8
+    :goto_ed
     invoke-virtual {v0, v1, v11}, Lcom/google/common/math/ToDoubleRounder;->minus(Ljava/lang/Number;Ljava/lang/Number;)Ljava/lang/Number;
 
     move-result-object v2
@@ -434,20 +434,20 @@
 
     .line 129
     .local v15, "diff":I
-    if-gez v15, :cond_c
+    if-gez v15, :cond_ff
 
     .line 130
     return-wide v6
 
     .line 131
-    :cond_c
-    if-lez v15, :cond_d
+    :cond_ff
+    if-lez v15, :cond_102
 
     .line 132
     return-wide v13
 
     .line 135
-    :cond_d
+    :cond_102
     sget-object v16, Lcom/google/common/math/ToDoubleRounder$1;->$SwitchMap$java$math$RoundingMode:[I
 
     invoke-virtual/range {p2 .. p2}, Ljava/math/RoundingMode;->ordinal()I
@@ -456,7 +456,7 @@
 
     aget v16, v16, v17
 
-    packed-switch v16, :pswitch_data_2
+    packed-switch v16, :pswitch_data_180
 
     .line 147
     new-instance v0, Ljava/lang/AssertionError;
@@ -466,43 +466,43 @@
     throw v0
 
     .line 145
-    :pswitch_a
+    :pswitch_113
     invoke-virtual/range {p0 .. p1}, Lcom/google/common/math/ToDoubleRounder;->sign(Ljava/lang/Number;)I
 
     move-result v12
 
-    if-ltz v12, :cond_e
+    if-ltz v12, :cond_11c
 
     move-wide/from16 v16, v13
 
-    goto :goto_9
+    goto :goto_11e
 
-    :cond_e
+    :cond_11c
     move-wide/from16 v16, v6
 
-    :goto_9
+    :goto_11e
     return-wide v16
 
     .line 143
-    :pswitch_b
+    :pswitch_11f
     invoke-virtual/range {p0 .. p1}, Lcom/google/common/math/ToDoubleRounder;->sign(Ljava/lang/Number;)I
 
     move-result v12
 
-    if-ltz v12, :cond_f
+    if-ltz v12, :cond_128
 
     move-wide/from16 v16, v6
 
-    goto :goto_a
+    goto :goto_12a
 
-    :cond_f
+    :cond_128
     move-wide/from16 v16, v13
 
-    :goto_a
+    :goto_12a
     return-wide v16
 
     .line 139
-    :pswitch_c
+    :pswitch_12b
     invoke-static {v6, v7}, Ljava/lang/Double;->doubleToRawLongBits(D)J
 
     move-result-wide v16
@@ -515,19 +515,19 @@
 
     cmp-long v12, v16, v18
 
-    if-nez v12, :cond_10
+    if-nez v12, :cond_13c
 
     .line 140
     move-wide/from16 v16, v6
 
-    goto :goto_b
+    goto :goto_13e
 
     .line 141
-    :cond_10
+    :cond_13c
     move-wide/from16 v16, v13
 
     .line 139
-    :goto_b
+    :goto_13e
     return-wide v16
 
     .line 84
@@ -539,7 +539,7 @@
     .end local v13    # "roundCeilingAsDouble":D
     .end local v15    # "diff":I
     .local v2, "roundArbitrarilyAsX":Ljava/lang/Number;, "TX;"
-    :pswitch_d
+    :pswitch_13f
     move-object v9, v2
 
     .end local v2    # "roundArbitrarilyAsX":Ljava/lang/Number;, "TX;"
@@ -548,71 +548,71 @@
 
     move-result v0
 
-    if-ltz v0, :cond_12
+    if-ltz v0, :cond_14f
 
     .line 85
-    if-ltz v10, :cond_11
+    if-ltz v10, :cond_14a
 
     .line 86
     move-wide v2, v4
 
-    goto :goto_c
+    goto :goto_14e
 
     .line 87
-    :cond_11
+    :cond_14a
     invoke-static {v4, v5}, Lcom/google/common/math/DoubleUtils;->nextDown(D)D
 
     move-result-wide v2
 
     .line 85
-    :goto_c
+    :goto_14e
     return-wide v2
 
     .line 89
-    :cond_12
-    if-gtz v10, :cond_13
+    :cond_14f
+    if-gtz v10, :cond_153
 
     move-wide v2, v4
 
-    goto :goto_d
+    goto :goto_157
 
-    :cond_13
+    :cond_153
     invoke-static {v4, v5}, Ljava/lang/Math;->nextUp(D)D
 
     move-result-wide v2
 
-    :goto_d
+    :goto_157
     return-wide v2
 
-    :pswitch_data_0
+    :pswitch_data_158
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_4
-        :pswitch_4
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6a
+        :pswitch_6a
+        :pswitch_6a
+        :pswitch_6a
+        :pswitch_62
+        :pswitch_57
+        :pswitch_56
+        :pswitch_2f
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_16c
     .packed-switch 0x1
-        :pswitch_d
-        :pswitch_9
-        :pswitch_9
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
+        :pswitch_13f
+        :pswitch_c5
+        :pswitch_c5
+        :pswitch_c5
+        :pswitch_bc
+        :pswitch_b3
+        :pswitch_9b
+        :pswitch_92
     .end packed-switch
 
-    :pswitch_data_2
+    :pswitch_data_180
     .packed-switch 0x2
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
+        :pswitch_12b
+        :pswitch_11f
+        :pswitch_113
     .end packed-switch
 .end method
 

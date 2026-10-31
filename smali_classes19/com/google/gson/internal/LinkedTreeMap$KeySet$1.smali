@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/LinkedTreeMap$KeySet;)V
-    .locals 1
+    .registers 3
     .param p1, "this$1"    # Lcom/google/gson/internal/LinkedTreeMap$KeySet;
 
     .line 604
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"

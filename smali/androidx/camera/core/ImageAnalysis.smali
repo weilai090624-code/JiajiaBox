@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 142
     new-instance v0, Landroidx/camera/core/ImageAnalysis$Defaults;
@@ -55,7 +55,7 @@
 .end method
 
 .method constructor <init>(Landroidx/camera/core/impl/ImageAnalysisConfig;)V
-    .locals 3
+    .registers 5
     .param p1, "config"    # Landroidx/camera/core/impl/ImageAnalysisConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -93,7 +93,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_20
 
     .line 183
     new-instance v1, Landroidx/camera/core/ImageAnalysisBlockingAnalyzer;
@@ -102,10 +102,10 @@
 
     iput-object v1, p0, Landroidx/camera/core/ImageAnalysis;->mImageAnalysisAbstractAnalyzer:Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 185
-    :cond_0
+    :cond_20
     new-instance v1, Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer;
 
     .line 186
@@ -122,12 +122,12 @@
     iput-object v1, p0, Landroidx/camera/core/ImageAnalysis;->mImageAnalysisAbstractAnalyzer:Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;
 
     .line 188
-    :goto_0
+    :goto_2f
     return-void
 .end method
 
 .method private tryUpdateRelativeRotation()V
-    .locals 3
+    .registers 4
 
     .line 497
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis;->getCamera()Landroidx/camera/core/impl/CameraInternal;
@@ -136,7 +136,7 @@
 
     .line 498
     .local v0, "cameraInternal":Landroidx/camera/core/impl/CameraInternal;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 499
     iget-object v1, p0, Landroidx/camera/core/ImageAnalysis;->mImageAnalysisAbstractAnalyzer:Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;
@@ -148,14 +148,14 @@
     invoke-virtual {v1, v2}, Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;->setRelativeRotation(I)V
 
     .line 501
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 
 # virtual methods
 .method public clearAnalyzer()V
-    .locals 3
+    .registers 4
 
     .line 271
     iget-object v0, p0, Landroidx/camera/core/ImageAnalysis;->mAnalysisLock:Ljava/lang/Object;
@@ -163,7 +163,7 @@
     monitor-enter v0
 
     .line 272
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/ImageAnalysis;->mImageAnalysisAbstractAnalyzer:Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;
 
     const/4 v2, 0x0
@@ -173,13 +173,13 @@
     .line 273
     iget-object v1, p0, Landroidx/camera/core/ImageAnalysis;->mSubscribedAnalyzer:Landroidx/camera/core/ImageAnalysis$Analyzer;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 274
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis;->notifyInactive()V
 
     .line 276
-    :cond_0
+    :cond_10
     iput-object v2, p0, Landroidx/camera/core/ImageAnalysis;->mSubscribedAnalyzer:Landroidx/camera/core/ImageAnalysis$Analyzer;
 
     .line 277
@@ -189,18 +189,18 @@
     return-void
 
     .line 277
-    :catchall_0
+    :catchall_14
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_3 .. :try_end_16} :catchall_14
 
     throw v1
 .end method
 
 .method clearPipeline()V
-    .locals 1
+    .registers 2
 
     .line 258
     invoke-static {}, Landroidx/camera/core/impl/utils/Threads;->checkMainThread()V
@@ -208,7 +208,7 @@
     .line 259
     iget-object v0, p0, Landroidx/camera/core/ImageAnalysis;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 260
     iget-object v0, p0, Landroidx/camera/core/ImageAnalysis;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
@@ -221,12 +221,12 @@
     iput-object v0, p0, Landroidx/camera/core/ImageAnalysis;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
 
     .line 263
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method createPipeline(Ljava/lang/String;Landroidx/camera/core/impl/ImageAnalysisConfig;Landroid/util/Size;)Landroidx/camera/core/impl/SessionConfig$Builder;
-    .locals 10
+    .registers 14
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "config"    # Landroidx/camera/core/impl/ImageAnalysisConfig;
     .param p3, "resolution"    # Landroid/util/Size;
@@ -273,19 +273,19 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1e
 
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis;->getImageQueueDepth()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 200
-    :cond_0
+    :cond_1e
     const/4 v1, 0x4
 
-    :goto_0
+    :goto_1f
     nop
 
     .line 202
@@ -294,7 +294,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_44
 
     .line 203
     new-instance v9, Landroidx/camera/core/SafeCloseImageReaderProxy;
@@ -331,11 +331,11 @@
     move-object v2, v9
 
     .local v2, "imageReaderProxy":Landroidx/camera/core/SafeCloseImageReaderProxy;
-    goto :goto_1
+    goto :goto_59
 
     .line 208
     .end local v2    # "imageReaderProxy":Landroidx/camera/core/SafeCloseImageReaderProxy;
-    :cond_1
+    :cond_44
     new-instance v2, Landroidx/camera/core/SafeCloseImageReaderProxy;
 
     .line 210
@@ -362,7 +362,7 @@
 
     .line 216
     .restart local v2    # "imageReaderProxy":Landroidx/camera/core/SafeCloseImageReaderProxy;
-    :goto_1
+    :goto_59
     invoke-direct {p0}, Landroidx/camera/core/ImageAnalysis;->tryUpdateRelativeRotation()V
 
     .line 218
@@ -379,7 +379,7 @@
     .local v3, "sessionConfigBuilder":Landroidx/camera/core/impl/SessionConfig$Builder;
     iget-object v4, p0, Landroidx/camera/core/ImageAnalysis;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_6e
 
     .line 224
     iget-object v4, p0, Landroidx/camera/core/ImageAnalysis;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
@@ -387,7 +387,7 @@
     invoke-virtual {v4}, Landroidx/camera/core/impl/DeferrableSurface;->close()V
 
     .line 226
-    :cond_2
+    :cond_6e
     new-instance v4, Landroidx/camera/core/impl/ImmediateSurface;
 
     invoke-virtual {v2}, Landroidx/camera/core/SafeCloseImageReaderProxy;->getSurface()Landroid/view/Surface;
@@ -436,7 +436,7 @@
 .end method
 
 .method public getBackpressureStrategy()I
-    .locals 2
+    .registers 3
 
     .line 391
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis;->getCurrentConfig()Landroidx/camera/core/impl/UseCaseConfig;
@@ -455,7 +455,7 @@
 .end method
 
 .method public getDefaultConfig(ZLandroidx/camera/core/impl/UseCaseConfigFactory;)Landroidx/camera/core/impl/UseCaseConfig;
-    .locals 2
+    .registers 5
     .param p1, "applyDefaultConfig"    # Z
     .param p2, "factory"    # Landroidx/camera/core/impl/UseCaseConfigFactory;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -488,7 +488,7 @@
 
     .line 444
     .local v0, "captureConfig":Landroidx/camera/core/impl/Config;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 445
     sget-object v1, Landroidx/camera/core/ImageAnalysis;->DEFAULT_CONFIG:Landroidx/camera/core/ImageAnalysis$Defaults;
@@ -502,15 +502,15 @@
     move-result-object v0
 
     .line 448
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_12
+    if-nez v0, :cond_16
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 449
-    :cond_1
+    :cond_16
     invoke-virtual {p0, v0}, Landroidx/camera/core/ImageAnalysis;->getUseCaseConfigBuilder(Landroidx/camera/core/impl/Config;)Landroidx/camera/core/impl/UseCaseConfig$Builder;
 
     move-result-object v1
@@ -520,12 +520,12 @@
     move-result-object v1
 
     .line 448
-    :goto_0
+    :goto_1e
     return-object v1
 .end method
 
 .method public getImageQueueDepth()I
-    .locals 2
+    .registers 3
 
     .line 410
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis;->getCurrentConfig()Landroidx/camera/core/impl/UseCaseConfig;
@@ -544,7 +544,7 @@
 .end method
 
 .method public getTargetRotation()I
-    .locals 1
+    .registers 2
 
     .line 296
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis;->getTargetRotationInternal()I
@@ -555,7 +555,7 @@
 .end method
 
 .method public getUseCaseConfigBuilder(Landroidx/camera/core/impl/Config;)Landroidx/camera/core/impl/UseCaseConfig$Builder;
-    .locals 1
+    .registers 3
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -585,7 +585,7 @@
 .end method
 
 .method synthetic lambda$createPipeline$0$androidx-camera-core-ImageAnalysis(Ljava/lang/String;Landroidx/camera/core/impl/ImageAnalysisConfig;Landroid/util/Size;Landroidx/camera/core/impl/SessionConfig;Landroidx/camera/core/impl/SessionConfig$SessionError;)V
-    .locals 2
+    .registers 8
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "config"    # Landroidx/camera/core/impl/ImageAnalysisConfig;
     .param p3, "resolution"    # Landroid/util/Size;
@@ -605,7 +605,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 242
     invoke-virtual {p0, p1, p2, p3}, Landroidx/camera/core/ImageAnalysis;->createPipeline(Ljava/lang/String;Landroidx/camera/core/impl/ImageAnalysisConfig;Landroid/util/Size;)Landroidx/camera/core/impl/SessionConfig$Builder;
@@ -625,12 +625,12 @@
 
     .line 248
     .end local v0    # "errorSessionConfigBuilder":Landroidx/camera/core/impl/SessionConfig$Builder;
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method synthetic lambda$setAnalyzer$1$androidx-camera-core-ImageAnalysis(Landroidx/camera/core/ImageAnalysis$Analyzer;Landroidx/camera/core/ImageProxy;)V
-    .locals 1
+    .registers 4
     .param p1, "analyzer"    # Landroidx/camera/core/ImageAnalysis$Analyzer;
     .param p2, "image"    # Landroidx/camera/core/ImageProxy;
 
@@ -639,7 +639,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 365
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis;->getViewPortCropRect()Landroid/graphics/Rect;
@@ -649,7 +649,7 @@
     invoke-interface {p2, v0}, Landroidx/camera/core/ImageProxy;->setCropRect(Landroid/graphics/Rect;)V
 
     .line 367
-    :cond_0
+    :cond_d
     invoke-interface {p1, p2}, Landroidx/camera/core/ImageAnalysis$Analyzer;->analyze(Landroidx/camera/core/ImageProxy;)V
 
     .line 368
@@ -657,7 +657,7 @@
 .end method
 
 .method public onAttached()V
-    .locals 1
+    .registers 2
 
     .line 460
     iget-object v0, p0, Landroidx/camera/core/ImageAnalysis;->mImageAnalysisAbstractAnalyzer:Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;
@@ -669,7 +669,7 @@
 .end method
 
 .method public onDetached()V
-    .locals 1
+    .registers 2
 
     .line 428
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis;->clearPipeline()V
@@ -684,7 +684,7 @@
 .end method
 
 .method protected onSuggestedResolutionUpdated(Landroid/util/Size;)Landroid/util/Size;
-    .locals 3
+    .registers 5
     .param p1, "suggestedResolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -725,7 +725,7 @@
 .end method
 
 .method public setAnalyzer(Ljava/util/concurrent/Executor;Landroidx/camera/core/ImageAnalysis$Analyzer;)V
-    .locals 3
+    .registers 6
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "analyzer"    # Landroidx/camera/core/ImageAnalysis$Analyzer;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -745,7 +745,7 @@
     monitor-enter v0
 
     .line 363
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/ImageAnalysis;->mImageAnalysisAbstractAnalyzer:Landroidx/camera/core/ImageAnalysisAbstractAnalyzer;
 
     new-instance v2, Landroidx/camera/core/ImageAnalysis$$ExternalSyntheticLambda0;
@@ -757,13 +757,13 @@
     .line 369
     iget-object v1, p0, Landroidx/camera/core/ImageAnalysis;->mSubscribedAnalyzer:Landroidx/camera/core/ImageAnalysis$Analyzer;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     .line 370
     invoke-virtual {p0}, Landroidx/camera/core/ImageAnalysis;->notifyActive()V
 
     .line 372
-    :cond_0
+    :cond_14
     iput-object p2, p0, Landroidx/camera/core/ImageAnalysis;->mSubscribedAnalyzer:Landroidx/camera/core/ImageAnalysis$Analyzer;
 
     .line 373
@@ -773,18 +773,18 @@
     return-void
 
     .line 373
-    :catchall_0
+    :catchall_18
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_3 .. :try_end_1a} :catchall_18
 
     throw v1
 .end method
 
 .method public setTargetRotation(I)V
-    .locals 1
+    .registers 3
     .param p1, "rotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -800,18 +800,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 340
     invoke-direct {p0}, Landroidx/camera/core/ImageAnalysis;->tryUpdateRelativeRotation()V
 
     .line 342
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 417
     new-instance v0, Ljava/lang/StringBuilder;

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map$Entry;)V
-    .locals 0
+    .registers 2
 
     .line 1405
     iput-object p1, p0, Lcom/google/common/collect/Maps$7;->val$entry:Ljava/util/Map$Entry;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getKey()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 

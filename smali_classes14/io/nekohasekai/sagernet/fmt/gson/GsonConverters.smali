@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static toJson(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -28,7 +28,7 @@
     .line 17
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 18
     move-object v0, p0
@@ -39,14 +39,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const-string v0, ""
 
     return-object v0
 
     .line 20
-    :cond_0
+    :cond_10
     sget-object v0, Lmoe/matsuri/nb4a/utils/JavaUtil;->gson:Lcom/google/gson/Gson;
 
     invoke-virtual {v0, p0}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
@@ -57,7 +57,7 @@
 .end method
 
 .method public static toList(Ljava/lang/String;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -73,7 +73,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x0
 
@@ -86,7 +86,7 @@
     return-object v0
 
     .line 26
-    :cond_0
+    :cond_e
     sget-object v0, Lmoe/matsuri/nb4a/utils/JavaUtil;->gson:Lcom/google/gson/Gson;
 
     const-class v1, Ljava/util/List;
@@ -101,7 +101,7 @@
 .end method
 
 .method public static toSet(Ljava/lang/String;)Ljava/util/Set;
-    .locals 2
+    .registers 3
     .param p0, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -117,7 +117,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x0
 
@@ -130,7 +130,7 @@
     return-object v0
 
     .line 32
-    :cond_0
+    :cond_e
     sget-object v0, Lmoe/matsuri/nb4a/utils/JavaUtil;->gson:Lcom/google/gson/Gson;
 
     const-class v1, Ljava/util/Set;

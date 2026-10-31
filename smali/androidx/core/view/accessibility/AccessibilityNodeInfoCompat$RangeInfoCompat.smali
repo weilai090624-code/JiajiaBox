@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(IFFF)V
-    .locals 2
+    .registers 7
     .param p1, "type"    # I
     .param p2, "min"    # F
     .param p3, "max"    # F
@@ -42,7 +42,7 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     .line 1397
     invoke-static {p1, p2, p3, p4}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$Api30Impl;->createRangeInfo(IFFF)Ljava/lang/Object;
@@ -51,10 +51,10 @@
 
     iput-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;->mInfo:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_16
 
     .line 1399
-    :cond_0
+    :cond_10
     invoke-static {p1, p2, p3, p4}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->obtain(IFFF)Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
     move-result-object v0
@@ -62,12 +62,12 @@
     iput-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;->mInfo:Ljava/lang/Object;
 
     .line 1401
-    :goto_0
+    :goto_16
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "info"    # Ljava/lang/Object;
 
     .line 1381
@@ -81,7 +81,7 @@
 .end method
 
 .method public static obtain(IFFF)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;
-    .locals 2
+    .registers 6
     .param p0, "type"    # I
     .param p1, "min"    # F
     .param p2, "max"    # F
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public getCurrent()F
-    .locals 1
+    .registers 2
 
     .line 1409
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;->mInfo:Ljava/lang/Object;
@@ -119,7 +119,7 @@
 .end method
 
 .method public getMax()F
-    .locals 1
+    .registers 2
 
     .line 1418
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;->mInfo:Ljava/lang/Object;
@@ -134,7 +134,7 @@
 .end method
 
 .method public getMin()F
-    .locals 1
+    .registers 2
 
     .line 1427
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;->mInfo:Ljava/lang/Object;
@@ -149,7 +149,7 @@
 .end method
 
 .method public getType()I
-    .locals 1
+    .registers 2
 
     .line 1440
     iget-object v0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;->mInfo:Ljava/lang/Object;

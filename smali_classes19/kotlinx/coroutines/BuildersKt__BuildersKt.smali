@@ -39,7 +39,7 @@
 
 # direct methods
 .method public static final runBlocking(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
     .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -93,7 +93,7 @@
 
     .line 46
     .local v3, "newContext":Lkotlin/coroutines/CoroutineContext;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_29
 
     .line 48
     sget-object v4, Lkotlinx/coroutines/ThreadLocalEventLoop;->INSTANCE:Lkotlinx/coroutines/ThreadLocalEventLoop;
@@ -119,27 +119,27 @@
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 53
-    :cond_0
+    :cond_29
     instance-of v4, v1, Lkotlinx/coroutines/EventLoop;
 
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_32
 
     move-object v4, v1
 
     check-cast v4, Lkotlinx/coroutines/EventLoop;
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_1
+    :cond_32
     move-object v4, v5
 
-    :goto_0
-    if-eqz v4, :cond_3
+    :goto_33
+    if-eqz v4, :cond_40
 
     move-object v6, v4
 
@@ -155,15 +155,15 @@
 
     .end local v6    # "it":Lkotlinx/coroutines/EventLoop;
     .end local v7    # "$i$a$-takeIf-BuildersKt__BuildersKt$runBlocking$2":I
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3e
 
     move-object v5, v4
 
-    :cond_2
-    if-nez v5, :cond_4
+    :cond_3e
+    if-nez v5, :cond_46
 
     .line 54
-    :cond_3
+    :cond_40
     sget-object v4, Lkotlinx/coroutines/ThreadLocalEventLoop;->INSTANCE:Lkotlinx/coroutines/ThreadLocalEventLoop;
 
     invoke-virtual {v4}, Lkotlinx/coroutines/ThreadLocalEventLoop;->currentOrNull$kotlinx_coroutines_core()Lkotlinx/coroutines/EventLoop;
@@ -171,7 +171,7 @@
     move-result-object v5
 
     .line 53
-    :cond_4
+    :cond_46
     move-object v2, v5
 
     .line 55
@@ -184,7 +184,7 @@
     move-result-object v3
 
     .line 57
-    :goto_1
+    :goto_4f
     new-instance v4, Lkotlinx/coroutines/BlockingCoroutine;
 
     invoke-direct {v4, v3, v0, v2}, Lkotlinx/coroutines/BlockingCoroutine;-><init>(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Thread;Lkotlinx/coroutines/EventLoop;)V
@@ -204,7 +204,7 @@
 .end method
 
 .method public static synthetic runBlocking$default(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -214,7 +214,7 @@
     .line 38
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     .line 17
     sget-object p0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -222,7 +222,7 @@
     check-cast p0, Lkotlin/coroutines/CoroutineContext;
 
     .line 38
-    :cond_0
+    :cond_8
     invoke-static {p0, p1}, Lkotlinx/coroutines/BuildersKt;->runBlocking(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 
     move-result-object p0

@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 118
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static dayOfWeekInMonth(ILj$/time/DayOfWeek;)Lj$/time/temporal/TemporalAdjuster;
-    .locals 2
+    .registers 4
     .param p0, "ordinal"    # I
     .param p1, "dayOfWeek"    # Lj$/time/DayOfWeek;
 
@@ -31,7 +31,7 @@
 
     .line 349
     .local v0, "dowValue":I
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_11
 
     .line 350
     new-instance v1, Lj$/time/temporal/TemporalAdjusters$$ExternalSyntheticLambda0;
@@ -41,7 +41,7 @@
     return-object v1
 
     .line 358
-    :cond_0
+    :cond_11
     new-instance v1, Lj$/time/temporal/TemporalAdjusters$$ExternalSyntheticLambda1;
 
     invoke-direct {v1, v0, p0}, Lj$/time/temporal/TemporalAdjusters$$ExternalSyntheticLambda1;-><init>(II)V
@@ -50,7 +50,7 @@
 .end method
 
 .method public static firstDayOfMonth()Lj$/time/temporal/TemporalAdjuster;
-    .locals 1
+    .registers 1
 
     .line 166
     new-instance v0, Lj$/time/temporal/TemporalAdjusters$$ExternalSyntheticLambda3;
@@ -61,7 +61,7 @@
 .end method
 
 .method public static firstDayOfNextMonth()Lj$/time/temporal/TemporalAdjuster;
-    .locals 1
+    .registers 1
 
     .line 209
     new-instance v0, Lj$/time/temporal/TemporalAdjusters$$ExternalSyntheticLambda12;
@@ -72,7 +72,7 @@
 .end method
 
 .method public static firstDayOfNextYear()Lj$/time/temporal/TemporalAdjuster;
-    .locals 1
+    .registers 1
 
     .line 270
     new-instance v0, Lj$/time/temporal/TemporalAdjusters$$ExternalSyntheticLambda4;
@@ -83,7 +83,7 @@
 .end method
 
 .method public static firstDayOfYear()Lj$/time/temporal/TemporalAdjuster;
-    .locals 1
+    .registers 1
 
     .line 230
     new-instance v0, Lj$/time/temporal/TemporalAdjusters$$ExternalSyntheticLambda7;
@@ -94,7 +94,7 @@
 .end method
 
 .method public static firstInMonth(Lj$/time/DayOfWeek;)Lj$/time/temporal/TemporalAdjuster;
-    .locals 1
+    .registers 2
     .param p0, "dayOfWeek"    # Lj$/time/DayOfWeek;
 
     .line 291
@@ -108,7 +108,7 @@
 .end method
 
 .method static synthetic lambda$dayOfWeekInMonth$7(IILj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 9
+    .registers 12
     .param p0, "dowValue"    # I
     .param p1, "ordinal"    # I
     .param p2, "temporal"    # Lj$/time/temporal/Temporal;
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic lambda$dayOfWeekInMonth$8(IILj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 9
+    .registers 12
     .param p0, "dowValue"    # I
     .param p1, "ordinal"    # I
     .param p2, "temporal"    # Lj$/time/temporal/Temporal;
@@ -205,23 +205,23 @@
 
     .line 362
     .local v2, "daysDiff":I
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1c
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
-    if-lez v2, :cond_1
+    :cond_1c
+    if-lez v2, :cond_21
 
     add-int/lit8 v3, v2, -0x7
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     move v3, v2
 
-    :goto_0
+    :goto_22
     move v2, v3
 
     .line 363
@@ -256,7 +256,7 @@
 .end method
 
 .method static synthetic lambda$firstDayOfMonth$1(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 3
+    .registers 4
     .param p0, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 166
@@ -272,7 +272,7 @@
 .end method
 
 .method static synthetic lambda$firstDayOfNextMonth$3(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 4
+    .registers 5
     .param p0, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 209
@@ -294,7 +294,7 @@
 .end method
 
 .method static synthetic lambda$firstDayOfNextYear$6(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 4
+    .registers 5
     .param p0, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 270
@@ -316,7 +316,7 @@
 .end method
 
 .method static synthetic lambda$firstDayOfYear$4(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 3
+    .registers 4
     .param p0, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 230
@@ -332,7 +332,7 @@
 .end method
 
 .method static synthetic lambda$lastDayOfMonth$2(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 3
+    .registers 4
     .param p0, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 189
@@ -356,7 +356,7 @@
 .end method
 
 .method static synthetic lambda$lastDayOfYear$5(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 3
+    .registers 4
     .param p0, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 251
@@ -380,7 +380,7 @@
 .end method
 
 .method static synthetic lambda$next$9(ILj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 5
+    .registers 7
     .param p0, "dowValue"    # I
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
@@ -397,16 +397,16 @@
 
     .line 391
     .local v1, "daysDiff":I
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_d
 
     rsub-int/lit8 v2, v1, 0x7
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     neg-int v2, v1
 
-    :goto_0
+    :goto_e
     int-to-long v2, v2
 
     sget-object v4, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
@@ -419,7 +419,7 @@
 .end method
 
 .method static synthetic lambda$nextOrSame$10(ILj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 5
+    .registers 7
     .param p0, "dowValue"    # I
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
@@ -432,27 +432,27 @@
 
     .line 416
     .local v0, "calDow":I
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_9
 
     .line 417
     return-object p1
 
     .line 419
-    :cond_0
+    :cond_9
     sub-int v1, v0, p0
 
     .line 420
     .local v1, "daysDiff":I
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_10
 
     rsub-int/lit8 v2, v1, 0x7
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_10
     neg-int v2, v1
 
-    :goto_0
+    :goto_11
     int-to-long v2, v2
 
     sget-object v4, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
@@ -465,7 +465,7 @@
 .end method
 
 .method static synthetic lambda$ofDateAdjuster$0(Ljava/util/function/UnaryOperator;Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 3
+    .registers 5
     .param p0, "dateBasedAdjuster"    # Ljava/util/function/UnaryOperator;
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
@@ -492,7 +492,7 @@
 .end method
 
 .method static synthetic lambda$previous$11(ILj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 5
+    .registers 7
     .param p0, "dowValue"    # I
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
@@ -509,16 +509,16 @@
 
     .line 445
     .local v1, "daysDiff":I
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_d
 
     rsub-int/lit8 v2, v1, 0x7
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     neg-int v2, v1
 
-    :goto_0
+    :goto_e
     int-to-long v2, v2
 
     sget-object v4, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
@@ -531,7 +531,7 @@
 .end method
 
 .method static synthetic lambda$previousOrSame$12(ILj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 5
+    .registers 7
     .param p0, "dowValue"    # I
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
@@ -544,27 +544,27 @@
 
     .line 470
     .local v0, "calDow":I
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_9
 
     .line 471
     return-object p1
 
     .line 473
-    :cond_0
+    :cond_9
     sub-int v1, p0, v0
 
     .line 474
     .local v1, "daysDiff":I
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_10
 
     rsub-int/lit8 v2, v1, 0x7
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_10
     neg-int v2, v1
 
-    :goto_0
+    :goto_11
     int-to-long v2, v2
 
     sget-object v4, Lj$/time/temporal/ChronoUnit;->DAYS:Lj$/time/temporal/ChronoUnit;
@@ -577,7 +577,7 @@
 .end method
 
 .method public static lastDayOfMonth()Lj$/time/temporal/TemporalAdjuster;
-    .locals 1
+    .registers 1
 
     .line 189
     new-instance v0, Lj$/time/temporal/TemporalAdjusters$$ExternalSyntheticLambda9;
@@ -588,7 +588,7 @@
 .end method
 
 .method public static lastDayOfYear()Lj$/time/temporal/TemporalAdjuster;
-    .locals 1
+    .registers 1
 
     .line 251
     new-instance v0, Lj$/time/temporal/TemporalAdjusters$$ExternalSyntheticLambda10;
@@ -599,7 +599,7 @@
 .end method
 
 .method public static lastInMonth(Lj$/time/DayOfWeek;)Lj$/time/temporal/TemporalAdjuster;
-    .locals 1
+    .registers 2
     .param p0, "dayOfWeek"    # Lj$/time/DayOfWeek;
 
     .line 311
@@ -613,7 +613,7 @@
 .end method
 
 .method public static next(Lj$/time/DayOfWeek;)Lj$/time/temporal/TemporalAdjuster;
-    .locals 2
+    .registers 3
     .param p0, "dayOfWeek"    # Lj$/time/DayOfWeek;
 
     .line 387
@@ -631,7 +631,7 @@
 .end method
 
 .method public static nextOrSame(Lj$/time/DayOfWeek;)Lj$/time/temporal/TemporalAdjuster;
-    .locals 2
+    .registers 3
     .param p0, "dayOfWeek"    # Lj$/time/DayOfWeek;
 
     .line 413
@@ -649,7 +649,7 @@
 .end method
 
 .method public static ofDateAdjuster(Ljava/util/function/UnaryOperator;)Lj$/time/temporal/TemporalAdjuster;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -675,7 +675,7 @@
 .end method
 
 .method public static previous(Lj$/time/DayOfWeek;)Lj$/time/temporal/TemporalAdjuster;
-    .locals 2
+    .registers 3
     .param p0, "dayOfWeek"    # Lj$/time/DayOfWeek;
 
     .line 441
@@ -693,7 +693,7 @@
 .end method
 
 .method public static previousOrSame(Lj$/time/DayOfWeek;)Lj$/time/temporal/TemporalAdjuster;
-    .locals 2
+    .registers 3
     .param p0, "dayOfWeek"    # Lj$/time/DayOfWeek;
 
     .line 467

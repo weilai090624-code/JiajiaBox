@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(II[I)V
-    .locals 8
+    .registers 12
     .param p1, "width"    # I
     .param p2, "height"    # I
     .param p3, "pixels"    # [I
@@ -54,8 +54,8 @@
     .local v1, "offset":I
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_14
+    if-ge v1, v0, :cond_30
 
     .line 49
     aget v3, p3, v1
@@ -99,16 +99,16 @@
     .end local v5    # "b":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 56
     .end local v1    # "offset":I
-    :cond_0
+    :cond_30
     return-void
 .end method
 
 .method private constructor <init>([BIIIIII)V
-    .locals 2
+    .registers 10
     .param p1, "pixels"    # [B
     .param p2, "dataWidth"    # I
     .param p3, "dataHeight"    # I
@@ -123,11 +123,11 @@
     .line 66
     add-int v0, p4, p6
 
-    if-gt v0, p2, :cond_0
+    if-gt v0, p2, :cond_16
 
     add-int v0, p5, p7
 
-    if-gt v0, p3, :cond_0
+    if-gt v0, p3, :cond_16
 
     .line 69
     iput-object p1, p0, Lcom/google/zxing/RGBLuminanceSource;->luminances:[B
@@ -148,7 +148,7 @@
     return-void
 
     .line 67
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Crop rectangle does not fit within image data."
@@ -161,7 +161,7 @@
 
 # virtual methods
 .method public crop(IIII)Lcom/google/zxing/LuminanceSource;
-    .locals 9
+    .registers 14
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "width"    # I
@@ -196,7 +196,7 @@
 .end method
 
 .method public getMatrix()[B
-    .locals 8
+    .registers 9
 
     .line 92
     invoke-virtual {p0}, Lcom/google/zxing/RGBLuminanceSource;->getWidth()I
@@ -213,11 +213,11 @@
     .local v1, "height":I
     iget v2, p0, Lcom/google/zxing/RGBLuminanceSource;->dataWidth:I
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_13
 
     iget v2, p0, Lcom/google/zxing/RGBLuminanceSource;->dataHeight:I
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_13
 
     .line 98
     iget-object v2, p0, Lcom/google/zxing/RGBLuminanceSource;->luminances:[B
@@ -225,7 +225,7 @@
     return-object v2
 
     .line 101
-    :cond_0
+    :cond_13
     mul-int v2, v0, v1
 
     const/4 v3, 0x0
@@ -252,7 +252,7 @@
     .local v4, "inputOffset":I
     iget v5, p0, Lcom/google/zxing/RGBLuminanceSource;->dataWidth:I
 
-    if-ne v0, v5, :cond_1
+    if-ne v0, v5, :cond_2d
 
     .line 107
     iget-object v5, p0, Lcom/google/zxing/RGBLuminanceSource;->luminances:[B
@@ -265,12 +265,12 @@
     return-object v2
 
     .line 112
-    :cond_1
+    :cond_2d
     const/4 v5, 0x0
 
     .local v5, "y":I
-    :goto_0
-    if-ge v5, v1, :cond_2
+    :goto_2e
+    if-ge v5, v1, :cond_3d
 
     .line 113
     mul-int v6, v5, v0
@@ -290,27 +290,27 @@
     .end local v6    # "outputOffset":I
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 117
     .end local v5    # "y":I
-    :cond_2
+    :cond_3d
     return-object v2
 .end method
 
 .method public getRow(I[B)[B
-    .locals 4
+    .registers 7
     .param p1, "y"    # I
     .param p2, "row"    # [B
 
     .line 78
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_24
 
     invoke-virtual {p0}, Lcom/google/zxing/RGBLuminanceSource;->getHeight()I
 
     move-result v0
 
-    if-ge p1, v0, :cond_2
+    if-ge p1, v0, :cond_24
 
     .line 81
     invoke-virtual {p0}, Lcom/google/zxing/RGBLuminanceSource;->getWidth()I
@@ -319,18 +319,18 @@
 
     .line 82
     .local v0, "width":I
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_11
 
     array-length v1, p2
 
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_13
 
     .line 83
-    :cond_0
+    :cond_11
     new-array p2, v0, [B
 
     .line 85
-    :cond_1
+    :cond_13
     iget v1, p0, Lcom/google/zxing/RGBLuminanceSource;->top:I
 
     add-int/2addr v1, p1
@@ -357,7 +357,7 @@
     .line 79
     .end local v0    # "width":I
     .end local v1    # "offset":I
-    :cond_2
+    :cond_24
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Requested row is outside the image: "
@@ -376,7 +376,7 @@
 .end method
 
 .method public isCropSupported()Z
-    .locals 1
+    .registers 2
 
     .line 122
     const/4 v0, 0x1

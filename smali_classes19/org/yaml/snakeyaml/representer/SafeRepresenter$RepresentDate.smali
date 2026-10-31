@@ -23,7 +23,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/yaml/snakeyaml/representer/SafeRepresenter;)V
-    .locals 0
+    .registers 2
 
     .line 338
     iput-object p1, p0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentDate;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public representData(Ljava/lang/Object;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 16
+    .registers 18
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 342
@@ -46,7 +46,7 @@
 
     instance-of v2, v1, Ljava/util/Calendar;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     .line 343
     move-object v2, v1
@@ -54,18 +54,18 @@
     check-cast v2, Ljava/util/Calendar;
 
     .local v2, "calendar":Ljava/util/Calendar;
-    goto :goto_1
+    goto :goto_29
 
     .line 345
     .end local v2    # "calendar":Ljava/util/Calendar;
-    :cond_0
+    :cond_c
     iget-object v2, v0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentDate;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
 
     invoke-virtual {v2}, Lorg/yaml/snakeyaml/representer/SafeRepresenter;->getTimeZone()Ljava/util/TimeZone;
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1b
 
     const-string v2, "UTC"
 
@@ -73,14 +73,14 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_1
+    :cond_1b
     iget-object v2, v0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentDate;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
 
     iget-object v2, v2, Lorg/yaml/snakeyaml/representer/SafeRepresenter;->timeZone:Ljava/util/TimeZone;
 
-    :goto_0
+    :goto_1f
     invoke-static {v2}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
 
     move-result-object v2
@@ -94,7 +94,7 @@
     invoke-virtual {v2, v3}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
 
     .line 349
-    :goto_1
+    :goto_29
     const/4 v3, 0x1
 
     invoke-virtual {v2, v3}, Ljava/util/Calendar;->get(I)I
@@ -163,7 +163,7 @@
 
     .line 357
     .local v10, "buffer":Ljava/lang/StringBuilder;
-    :goto_2
+    :goto_5a
     invoke-virtual {v10}, Ljava/lang/StringBuilder;->length()I
 
     move-result v11
@@ -172,17 +172,17 @@
 
     const-string v13, "0"
 
-    if-ge v11, v12, :cond_2
+    if-ge v11, v12, :cond_68
 
     .line 359
     const/4 v11, 0x0
 
     invoke-virtual {v10, v11, v13}, Ljava/lang/StringBuilder;->insert(ILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_5a
 
     .line 361
-    :cond_2
+    :cond_68
     const-string v11, "-"
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -190,13 +190,13 @@
     .line 362
     const/16 v12, 0xa
 
-    if-ge v5, v12, :cond_3
+    if-ge v5, v12, :cond_74
 
     .line 363
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 365
-    :cond_3
+    :cond_74
     invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v14
@@ -207,13 +207,13 @@
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 367
-    if-ge v3, v12, :cond_4
+    if-ge v3, v12, :cond_83
 
     .line 368
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 370
-    :cond_4
+    :cond_83
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v11
@@ -226,13 +226,13 @@
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 372
-    if-ge v6, v12, :cond_5
+    if-ge v6, v12, :cond_94
 
     .line 373
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 375
-    :cond_5
+    :cond_94
     invoke-static {v6}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v11
@@ -245,13 +245,13 @@
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 377
-    if-ge v7, v12, :cond_6
+    if-ge v7, v12, :cond_a5
 
     .line 378
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 380
-    :cond_6
+    :cond_a5
     invoke-static {v7}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v14
@@ -262,13 +262,13 @@
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 382
-    if-ge v8, v12, :cond_7
+    if-ge v8, v12, :cond_b4
 
     .line 383
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 385
-    :cond_7
+    :cond_b4
     invoke-static {v8}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v11
@@ -276,39 +276,39 @@
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 386
-    if-lez v9, :cond_a
+    if-lez v9, :cond_db
 
     .line 387
-    if-ge v9, v12, :cond_8
+    if-ge v9, v12, :cond_c5
 
     .line 388
     const-string v11, ".00"
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_3
+    goto :goto_d4
 
     .line 389
-    :cond_8
+    :cond_c5
     const/16 v11, 0x64
 
-    if-ge v9, v11, :cond_9
+    if-ge v9, v11, :cond_cf
 
     .line 390
     const-string v11, ".0"
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_3
+    goto :goto_d4
 
     .line 392
-    :cond_9
+    :cond_cf
     const-string v11, "."
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 394
-    :goto_3
+    :goto_d4
     invoke-static {v9}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v11
@@ -316,7 +316,7 @@
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 398
-    :cond_a
+    :cond_db
     invoke-virtual {v2}, Ljava/util/Calendar;->getTimeZone()Ljava/util/TimeZone;
 
     move-result-object v11
@@ -335,18 +335,18 @@
 
     .line 399
     .local v11, "gmtOffset":I
-    if-nez v11, :cond_b
+    if-nez v11, :cond_f3
 
     .line 400
     const/16 v12, 0x5a
 
     invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_5
+    goto :goto_124
 
     .line 402
-    :cond_b
-    if-gez v11, :cond_c
+    :cond_f3
+    if-gez v11, :cond_fd
 
     .line 403
     const/16 v13, 0x2d
@@ -356,16 +356,16 @@
     .line 404
     mul-int/lit8 v11, v11, -0x1
 
-    goto :goto_4
+    goto :goto_102
 
     .line 406
-    :cond_c
+    :cond_fd
     const/16 v13, 0x2b
 
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 408
-    :goto_4
+    :goto_102
     const v13, 0xea60
 
     div-int v13, v11, v13
@@ -382,13 +382,13 @@
     .local v15, "partOfHour":I
     const/16 v1, 0x30
 
-    if-ge v14, v12, :cond_d
+    if-ge v14, v12, :cond_112
 
     .line 413
     invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 415
-    :cond_d
+    :cond_112
     invoke-virtual {v10, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 416
@@ -397,7 +397,7 @@
     invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 417
-    if-ge v15, v12, :cond_e
+    if-ge v15, v12, :cond_121
 
     .line 418
     const/16 v1, 0x30
@@ -405,14 +405,14 @@
     invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 420
-    :cond_e
+    :cond_121
     invoke-virtual {v10, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 423
     .end local v13    # "minutesOffset":I
     .end local v14    # "hoursOffset":I
     .end local v15    # "partOfHour":I
-    :goto_5
+    :goto_124
     iget-object v1, v0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentDate;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;
 
     iget-object v12, v0, Lorg/yaml/snakeyaml/representer/SafeRepresenter$RepresentDate;->this$0:Lorg/yaml/snakeyaml/representer/SafeRepresenter;

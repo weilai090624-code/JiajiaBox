@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "tileSize"    # I
 
     .line 37
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public addOrReplace(Landroidx/recyclerview/widget/TileList$Tile;)Landroidx/recyclerview/widget/TileList$Tile;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,7 +95,7 @@
 
     .line 74
     .local v0, "index":I
-    if-gez v0, :cond_0
+    if-gez v0, :cond_13
 
     .line 75
     iget-object v1, p0, Landroidx/recyclerview/widget/TileList;->mTiles:Landroid/util/SparseArray;
@@ -110,7 +110,7 @@
     return-object v1
 
     .line 78
-    :cond_0
+    :cond_13
     iget-object v1, p0, Landroidx/recyclerview/widget/TileList;->mTiles:Landroid/util/SparseArray;
 
     invoke-virtual {v1, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -128,18 +128,18 @@
     .line 80
     iget-object v2, p0, Landroidx/recyclerview/widget/TileList;->mLastAccessedTile:Landroidx/recyclerview/widget/TileList$Tile;
 
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_26
 
     .line 81
     iput-object p1, p0, Landroidx/recyclerview/widget/TileList;->mLastAccessedTile:Landroidx/recyclerview/widget/TileList$Tile;
 
     .line 83
-    :cond_1
+    :cond_26
     return-object v1
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 58
     .local p0, "this":Landroidx/recyclerview/widget/TileList;, "Landroidx/recyclerview/widget/TileList<TT;>;"
@@ -152,7 +152,7 @@
 .end method
 
 .method public getAtIndex(I)Landroidx/recyclerview/widget/TileList$Tile;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,7 +164,7 @@
 
     .line 66
     .local p0, "this":Landroidx/recyclerview/widget/TileList;, "Landroidx/recyclerview/widget/TileList<TT;>;"
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_14
 
     iget-object v0, p0, Landroidx/recyclerview/widget/TileList;->mTiles:Landroid/util/SparseArray;
 
@@ -172,12 +172,12 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_b
 
-    goto :goto_0
+    goto :goto_14
 
     .line 69
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/recyclerview/widget/TileList;->mTiles:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -189,15 +189,15 @@
     return-object v0
 
     .line 67
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public getItemAt(I)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "pos"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -209,7 +209,7 @@
     .local p0, "this":Landroidx/recyclerview/widget/TileList;, "Landroidx/recyclerview/widget/TileList<TT;>;"
     iget-object v0, p0, Landroidx/recyclerview/widget/TileList;->mLastAccessedTile:Landroidx/recyclerview/widget/TileList$Tile;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Landroidx/recyclerview/widget/TileList;->mLastAccessedTile:Landroidx/recyclerview/widget/TileList$Tile;
 
@@ -217,10 +217,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_26
 
     .line 43
-    :cond_0
+    :cond_c
     iget v0, p0, Landroidx/recyclerview/widget/TileList;->mTileSize:I
 
     rem-int v0, p1, v0
@@ -237,7 +237,7 @@
 
     .line 45
     .local v1, "index":I
-    if-gez v1, :cond_1
+    if-gez v1, :cond_1c
 
     .line 46
     const/4 v2, 0x0
@@ -245,7 +245,7 @@
     return-object v2
 
     .line 48
-    :cond_1
+    :cond_1c
     iget-object v2, p0, Landroidx/recyclerview/widget/TileList;->mTiles:Landroid/util/SparseArray;
 
     invoke-virtual {v2, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -259,7 +259,7 @@
     .line 50
     .end local v0    # "startPosition":I
     .end local v1    # "index":I
-    :cond_2
+    :cond_26
     iget-object v0, p0, Landroidx/recyclerview/widget/TileList;->mLastAccessedTile:Landroidx/recyclerview/widget/TileList$Tile;
 
     invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/TileList$Tile;->getByPosition(I)Ljava/lang/Object;
@@ -270,7 +270,7 @@
 .end method
 
 .method public removeAtPos(I)Landroidx/recyclerview/widget/TileList$Tile;
-    .locals 2
+    .registers 4
     .param p1, "startPosition"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -294,7 +294,7 @@
     .local v0, "tile":Landroidx/recyclerview/widget/TileList$Tile;, "Landroidx/recyclerview/widget/TileList$Tile<TT;>;"
     iget-object v1, p0, Landroidx/recyclerview/widget/TileList;->mLastAccessedTile:Landroidx/recyclerview/widget/TileList$Tile;
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_f
 
     .line 89
     const/4 v1, 0x0
@@ -302,7 +302,7 @@
     iput-object v1, p0, Landroidx/recyclerview/widget/TileList;->mLastAccessedTile:Landroidx/recyclerview/widget/TileList$Tile;
 
     .line 91
-    :cond_0
+    :cond_f
     iget-object v1, p0, Landroidx/recyclerview/widget/TileList;->mTiles:Landroid/util/SparseArray;
 
     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->delete(I)V
@@ -312,7 +312,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 54
     .local p0, "this":Landroidx/recyclerview/widget/TileList;, "Landroidx/recyclerview/widget/TileList<TT;>;"

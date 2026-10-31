@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 144
     invoke-direct {p0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public setProperty(Landroid/view/View;FJLandroidx/constraintlayout/core/motion/utils/KeyCache;)Z
-    .locals 6
+    .registers 12
     .param p1, "view"    # Landroid/view/View;
     .param p2, "t"    # F
     .param p3, "time"    # J

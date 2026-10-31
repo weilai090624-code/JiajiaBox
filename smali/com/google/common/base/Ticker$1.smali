@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 49
     invoke-direct {p0}, Lcom/google/common/base/Ticker;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public read()J
-    .locals 2
+    .registers 3
 
     .line 52
     invoke-static {}, Lcom/google/common/base/Platform;->systemNanoTime()J

@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/RouteFragment;)V
-    .locals 2
+    .registers 4
     .param p1, "$receiver"    # Lio/nekohasekai/sagernet/ui/RouteFragment;
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$onViewCreated$1;->this$0:Lio/nekohasekai/sagernet/ui/RouteFragment;
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public clearView(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 1
+    .registers 4
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public getDragDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
-    .locals 1
+    .registers 4
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -114,26 +114,26 @@
     .line 62
     instance-of v0, p2, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$DocumentHolder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 63
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 65
-    :cond_0
+    :cond_10
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;->getDragDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
 
     move-result v0
 
     .line 66
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public getSwipeDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
-    .locals 1
+    .registers 4
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -148,26 +148,26 @@
     .line 53
     instance-of v0, p2, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$DocumentHolder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 54
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 56
-    :cond_0
+    :cond_10
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;->getSwipeDirs(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
 
     move-result v0
 
     .line 57
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public onMove(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
-    .locals 3
+    .registers 7
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p3, "target"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
@@ -187,15 +187,15 @@
     .line 78
     instance-of v0, p3, Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter$DocumentHolder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 79
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_27
 
     .line 81
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/RouteFragment$onViewCreated$1;->this$0:Lio/nekohasekai/sagernet/ui/RouteFragment;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/RouteFragment;->getRuleAdapter()Lio/nekohasekai/sagernet/ui/RouteFragment$RuleAdapter;
@@ -216,12 +216,12 @@
     const/4 v0, 0x1
 
     .line 78
-    :goto_0
+    :goto_27
     return v0
 .end method
 
 .method public onSwiped(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 5
+    .registers 8
     .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "direction"    # I
 

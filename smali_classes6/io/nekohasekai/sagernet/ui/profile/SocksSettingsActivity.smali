@@ -46,7 +46,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$vd9nAMm1NUuZV43xy7uBCR9ZpGk(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/profile/SocksSettingsActivity;->createPreferences$lambda$2(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 13
     const/4 v0, 0x1
@@ -71,7 +71,7 @@
 .end method
 
 .method private static final createPreferences$lambda$2(Landroidx/preference/EditTextPreference;Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p0, "$password"    # Landroidx/preference/EditTextPreference;
     .param p2, "newValue"    # Ljava/lang/Object;
 
@@ -101,23 +101,23 @@
 .end method
 
 .method private static final createPreferences$updateProtocol(Landroidx/preference/EditTextPreference;I)V
-    .locals 1
+    .registers 3
     .param p0, "password"    # Landroidx/preference/EditTextPreference;
     .param p1, "version"    # I
 
     .line 54
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_6
     invoke-virtual {p0, v0}, Landroidx/preference/EditTextPreference;->setVisible(Z)V
 
     .line 55
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public bridge synthetic createEntity()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/profile/SocksSettingsActivity;->createEntity()Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
@@ -140,7 +140,7 @@
 .end method
 
 .method public createEntity()Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
-    .locals 1
+    .registers 2
 
     .line 14
     new-instance v0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
@@ -151,7 +151,7 @@
 .end method
 
 .method public createPreferences(Landroidx/preference/PreferenceFragmentCompat;Landroid/os/Bundle;Ljava/lang/String;)V
-    .locals 4
+    .registers 8
     .param p1, "$this$createPreferences"    # Landroidx/preference/PreferenceFragmentCompat;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
     .param p3, "rootKey"    # Ljava/lang/String;
@@ -267,7 +267,7 @@
 .end method
 
 .method public bridge synthetic init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 13
@@ -281,7 +281,7 @@
 .end method
 
 .method public init(Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;)V
-    .locals 3
+    .registers 5
     .param p1, "$this$init"    # Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
 
     const-string v0, "<this>"
@@ -362,7 +362,7 @@
 .end method
 
 .method public bridge synthetic serialize(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/AbstractBean;
 
     .line 13
@@ -376,7 +376,7 @@
 .end method
 
 .method public serialize(Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;)V
-    .locals 2
+    .registers 4
     .param p1, "$this$serialize"    # Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
 
     const-string v0, "<this>"

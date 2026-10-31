@@ -77,7 +77,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 40
@@ -97,7 +97,7 @@
 .end method
 
 .method static synthetic doSelect$suspendImpl(Lkotlinx/coroutines/selects/UnbiasedSelectImplementation;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlinx/coroutines/selects/UnbiasedSelectImplementation;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -125,13 +125,13 @@
 .end method
 
 .method private final shuffleAndRegisterClauses()V
-    .locals 10
+    .registers 11
 
     .line 61
     nop
 
     .line 62
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lkotlinx/coroutines/selects/UnbiasedSelectImplementation;->clausesToRegister:Ljava/util/List;
 
     invoke-static {v0}, Ljava/util/Collections;->shuffle(Ljava/util/List;)V
@@ -150,12 +150,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_f
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_28
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -182,8 +182,8 @@
     const/4 v9, 0x0
 
     invoke-static {v6, v4, v9, v7, v8}, Lkotlinx/coroutines/selects/SelectImplementation;->register$default(Lkotlinx/coroutines/selects/SelectImplementation;Lkotlinx/coroutines/selects/SelectImplementation$ClauseData;ZILjava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_1 .. :try_end_26} :catchall_2f
 
     .line 69
     .end local v4    # "it":Lkotlinx/coroutines/selects/SelectImplementation$ClauseData;
@@ -191,10 +191,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_f
 
     .line 70
-    :cond_0
+    :cond_28
     nop
 
     .line 65
@@ -208,7 +208,7 @@
     return-void
 
     .line 65
-    :catchall_0
+    :catchall_2f
     move-exception v0
 
     iget-object v1, p0, Lkotlinx/coroutines/selects/UnbiasedSelectImplementation;->clausesToRegister:Ljava/util/List;
@@ -221,7 +221,7 @@
 
 # virtual methods
 .method public doSelect(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -239,7 +239,7 @@
 .end method
 
 .method public invoke(Lkotlinx/coroutines/selects/SelectClause0;Lkotlin/jvm/functions/Function1;)V
-    .locals 10
+    .registers 13
     .param p1, "$this$invoke"    # Lkotlinx/coroutines/selects/SelectClause0;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -299,7 +299,7 @@
 .end method
 
 .method public invoke(Lkotlinx/coroutines/selects/SelectClause1;Lkotlin/jvm/functions/Function2;)V
-    .locals 10
+    .registers 13
     .param p1, "$this$invoke"    # Lkotlinx/coroutines/selects/SelectClause1;
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -360,7 +360,7 @@
 .end method
 
 .method public invoke(Lkotlinx/coroutines/selects/SelectClause2;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V
-    .locals 10
+    .registers 14
     .param p1, "$this$invoke"    # Lkotlinx/coroutines/selects/SelectClause2;
     .param p2, "param"    # Ljava/lang/Object;
     .param p3, "block"    # Lkotlin/jvm/functions/Function2;

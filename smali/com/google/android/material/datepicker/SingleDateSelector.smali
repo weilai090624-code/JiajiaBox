@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 200
     new-instance v0, Lcom/google/android/material/datepicker/SingleDateSelector$2;
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/datepicker/SingleDateSelector;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/android/material/datepicker/SingleDateSelector;
 
     .line 50
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/google/android/material/datepicker/SingleDateSelector;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/datepicker/SingleDateSelector;
     .param p1, "x1"    # Ljava/lang/CharSequence;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/google/android/material/datepicker/SingleDateSelector;Ljava/lang/Long;)Ljava/lang/Long;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/datepicker/SingleDateSelector;
     .param p1, "x1"    # Ljava/lang/Long;
 
@@ -93,7 +93,7 @@
 .end method
 
 .method private clearSelection()V
-    .locals 1
+    .registers 2
 
     .line 62
     const/4 v0, 0x0
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 219
     const/4 v0, 0x0
@@ -116,7 +116,7 @@
 .end method
 
 .method public getDefaultThemeResId(Landroid/content/Context;)I
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 160
@@ -138,7 +138,7 @@
 .end method
 
 .method public getDefaultTitleResId()I
-    .locals 1
+    .registers 2
 
     .line 194
     sget v0, Lcom/google/android/material/R$string;->mtrl_picker_date_header_title:I
@@ -147,7 +147,7 @@
 .end method
 
 .method public getError()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 189
     iget-object v0, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->error:Ljava/lang/CharSequence;
@@ -156,25 +156,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->error:Ljava/lang/CharSequence;
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 .method public getSelectedDays()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -193,7 +193,7 @@
     .local v0, "selections":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Long;>;"
     iget-object v1, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 86
     iget-object v1, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
@@ -201,12 +201,12 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 88
-    :cond_0
+    :cond_e
     return-object v0
 .end method
 
 .method public getSelectedRanges()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -227,7 +227,7 @@
 .end method
 
 .method public getSelection()Ljava/lang/Long;
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
@@ -236,7 +236,7 @@
 .end method
 
 .method public bridge synthetic getSelection()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 49
     invoke-virtual {p0}, Lcom/google/android/material/datepicker/SingleDateSelector;->getSelection()Ljava/lang/Long;
@@ -247,7 +247,7 @@
 .end method
 
 .method public getSelectionContentDescription(Landroid/content/Context;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
 
     .line 178
@@ -259,7 +259,7 @@
     .local v0, "res":Landroid/content/res/Resources;
     iget-object v1, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 181
     sget v1, Lcom/google/android/material/R$string;->mtrl_picker_announce_current_selection_none:I
@@ -268,10 +268,10 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 182
-    :cond_0
+    :cond_f
     iget-object v1, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
 
     invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
@@ -282,7 +282,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_19
     nop
 
     .line 183
@@ -305,7 +305,7 @@
 .end method
 
 .method public getSelectionDisplayString(Landroid/content/Context;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
 
     .line 167
@@ -317,7 +317,7 @@
     .local v0, "res":Landroid/content/res/Resources;
     iget-object v1, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 169
     sget v1, Lcom/google/android/material/R$string;->mtrl_picker_date_header_unselected:I
@@ -329,7 +329,7 @@
     return-object v1
 
     .line 171
-    :cond_0
+    :cond_f
     iget-object v1, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
 
     invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
@@ -360,26 +360,26 @@
 .end method
 
 .method public isSelectionComplete()Z
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public onCreateTextInputView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)Landroid/view/View;
-    .locals 19
+    .registers 25
     .param p1, "layoutInflater"    # Landroid/view/LayoutInflater;
     .param p2, "viewGroup"    # Landroid/view/ViewGroup;
     .param p3, "bundle"    # Landroid/os/Bundle;
@@ -441,7 +441,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 116
     const/16 v0, 0x11
@@ -449,52 +449,52 @@
     invoke-virtual {v14, v0}, Landroid/widget/EditText;->setInputType(I)V
 
     .line 119
-    :cond_0
+    :cond_28
     iget-object v0, v8, Lcom/google/android/material/datepicker/SingleDateSelector;->textInputFormat:Ljava/text/SimpleDateFormat;
 
     const/4 v15, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_1
+    :cond_2f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_30
     move/from16 v16, v0
 
     .line 121
     .local v16, "hasCustomFormat":Z
-    if-eqz v16, :cond_2
+    if-eqz v16, :cond_37
 
     iget-object v0, v8, Lcom/google/android/material/datepicker/SingleDateSelector;->textInputFormat:Ljava/text/SimpleDateFormat;
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_2
+    :cond_37
     invoke-static {}, Lcom/google/android/material/datepicker/UtcDates;->getDefaultTextInputFormat()Ljava/text/SimpleDateFormat;
 
     move-result-object v0
 
-    :goto_1
+    :goto_3b
     move-object v7, v0
 
     .line 123
     .local v7, "format":Ljava/text/SimpleDateFormat;
-    if-eqz v16, :cond_3
+    if-eqz v16, :cond_43
 
     .line 124
     invoke-virtual {v7}, Ljava/text/SimpleDateFormat;->toPattern()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_4b
 
     .line 125
-    :cond_3
+    :cond_43
     invoke-virtual {v12}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -503,7 +503,7 @@
 
     move-result-object v0
 
-    :goto_2
+    :goto_4b
     move-object v6, v0
 
     .line 127
@@ -513,7 +513,7 @@
     .line 128
     iget-object v0, v8, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5c
 
     .line 129
     iget-object v0, v8, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
@@ -525,7 +525,7 @@
     invoke-virtual {v14, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 132
-    :cond_4
+    :cond_5c
     new-instance v5, Lcom/google/android/material/datepicker/SingleDateSelector$1;
 
     move-object v0, v5
@@ -572,7 +572,7 @@
 .end method
 
 .method public select(J)V
-    .locals 1
+    .registers 4
     .param p1, "selection"    # J
 
     .line 58
@@ -587,17 +587,17 @@
 .end method
 
 .method public setSelection(Ljava/lang/Long;)V
-    .locals 2
+    .registers 4
     .param p1, "selection"    # Ljava/lang/Long;
 
     .line 67
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_4
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
@@ -610,7 +610,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     iput-object v0, p0, Lcom/google/android/material/datepicker/SingleDateSelector;->selectedItem:Ljava/lang/Long;
 
     .line 68
@@ -618,7 +618,7 @@
 .end method
 
 .method public bridge synthetic setSelection(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 49
     check-cast p1, Ljava/lang/Long;
@@ -629,7 +629,7 @@
 .end method
 
 .method public setTextInputFormat(Ljava/text/SimpleDateFormat;)V
-    .locals 0
+    .registers 2
     .param p1, "format"    # Ljava/text/SimpleDateFormat;
 
     .line 99
@@ -640,7 +640,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

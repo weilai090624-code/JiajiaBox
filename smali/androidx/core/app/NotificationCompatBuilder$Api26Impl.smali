@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 712
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static createBuilder(Landroid/content/Context;Ljava/lang/String;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "channelId"    # Ljava/lang/String;
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static setBadgeIconType(Landroid/app/Notification$Builder;I)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "icon"    # I
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static setColorized(Landroid/app/Notification$Builder;Z)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "colorize"    # Z
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static setGroupAlertBehavior(Landroid/app/Notification$Builder;I)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "groupAlertBehavior"    # I
 
@@ -77,7 +77,7 @@
 .end method
 
 .method static setSettingsText(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "text"    # Ljava/lang/CharSequence;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method static setShortcutId(Landroid/app/Notification$Builder;Ljava/lang/String;)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "shortcutId"    # Ljava/lang/String;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method static setTimeoutAfter(Landroid/app/Notification$Builder;J)Landroid/app/Notification$Builder;
-    .locals 1
+    .registers 4
     .param p0, "builder"    # Landroid/app/Notification$Builder;
     .param p1, "durationMs"    # J
 

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/io/Input;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
 
     .line 34
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -46,7 +46,7 @@
 .end method
 
 .method public readBoolean()Z
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -64,7 +64,7 @@
 .end method
 
 .method public readByte()B
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -82,7 +82,7 @@
 .end method
 
 .method public readChar()C
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -100,7 +100,7 @@
 .end method
 
 .method public readDouble()D
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -118,7 +118,7 @@
 .end method
 
 .method public readFloat()F
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -136,7 +136,7 @@
 .end method
 
 .method public readFully([B)V
-    .locals 2
+    .registers 4
     .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -156,7 +156,7 @@
 .end method
 
 .method public readFully([BII)V
-    .locals 3
+    .registers 7
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -171,8 +171,8 @@
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/KryoDataInput;->input:Lcom/esotericsoftware/kryo/io/Input;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/esotericsoftware/kryo/io/Input;->readBytes([BII)V
-    :try_end_0
-    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 51
     nop
@@ -181,7 +181,7 @@
     return-void
 
     .line 49
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 50
@@ -198,7 +198,7 @@
 .end method
 
 .method public readInt()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -216,7 +216,7 @@
 .end method
 
 .method public readLine()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/UnsupportedOperationException;
@@ -232,7 +232,7 @@
 .end method
 
 .method public readLong()J
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -250,7 +250,7 @@
 .end method
 
 .method public readShort()S
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -268,7 +268,7 @@
 .end method
 
 .method public readUTF()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -286,7 +286,7 @@
 .end method
 
 .method public readUnsignedByte()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -304,7 +304,7 @@
 .end method
 
 .method public readUnsignedShort()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -322,7 +322,7 @@
 .end method
 
 .method public setInput(Lcom/esotericsoftware/kryo/io/Input;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
 
     .line 39
@@ -333,7 +333,7 @@
 .end method
 
 .method public skipBytes(I)I
-    .locals 3
+    .registers 5
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {

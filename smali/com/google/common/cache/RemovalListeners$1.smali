@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/cache/RemovalListener;)V
-    .locals 0
+    .registers 3
 
     .line 45
     iput-object p1, p0, Lcom/google/common/cache/RemovalListeners$1;->val$executor:Ljava/util/concurrent/Executor;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public onRemoval(Lcom/google/common/cache/RemovalNotification;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

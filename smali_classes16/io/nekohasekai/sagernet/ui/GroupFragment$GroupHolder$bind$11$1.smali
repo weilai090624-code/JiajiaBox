@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/database/ProxyGroup;JLio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;Lio/nekohasekai/sagernet/ui/GroupFragment;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,7 +141,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -155,7 +155,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -184,14 +184,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 530
     iget v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder$bind$11$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_c6
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -201,7 +201,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 531
@@ -218,12 +218,12 @@
 
     const/4 v4, 0x1
 
-    packed-switch v0, :pswitch_data_1
+    packed-switch v0, :pswitch_data_cc
 
-    goto/16 :goto_1
+    goto/16 :goto_c2
 
     .line 541
-    :pswitch_1
+    :pswitch_22
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder$bind$11$1;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->getGroupStatus()Landroid/widget/TextView;
@@ -234,7 +234,7 @@
 
     cmp-long v7, v5, v2
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_3a
 
     .line 542
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder$bind$11$1;->this$1:Lio/nekohasekai/sagernet/ui/GroupFragment;
@@ -247,10 +247,10 @@
 
     check-cast v1, Ljava/lang/CharSequence;
 
-    goto :goto_0
+    goto :goto_8d
 
     .line 544
-    :cond_0
+    :cond_3a
     new-instance v2, Ljava/util/Date;
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder$bind$11$1;->$group:Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -344,18 +344,18 @@
     check-cast v1, Ljava/lang/CharSequence;
 
     .line 541
-    :goto_0
+    :goto_8d
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_1
+    goto :goto_c2
 
     .line 533
-    :pswitch_2
+    :pswitch_91
     iget-wide v5, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder$bind$11$1;->$size:J
 
     cmp-long v0, v5, v2
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a4
 
     .line 534
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder$bind$11$1;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;
@@ -368,10 +368,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    goto :goto_1
+    goto :goto_c2
 
     .line 536
-    :cond_1
+    :cond_a4
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder$bind$11$1;->this$0:Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/GroupFragment$GroupHolder;->getGroupStatus()Landroid/widget/TextView;
@@ -401,21 +401,21 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 554
-    :goto_1
+    :goto_c2
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c6
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_cc
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
+        :pswitch_91
+        :pswitch_22
     .end packed-switch
 .end method

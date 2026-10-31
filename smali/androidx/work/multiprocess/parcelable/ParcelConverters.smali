@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static marshall(Landroid/os/Parcelable;)[B
-    .locals 2
+    .registers 3
     .param p0, "parcelable"    # Landroid/os/Parcelable;
 
     .line 39
@@ -27,15 +27,15 @@
     .local v0, "parcel":Landroid/os/Parcel;
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_5
     invoke-interface {p0, v0, v1}, Landroid/os/Parcelable;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 42
     invoke-virtual {v0}, Landroid/os/Parcel;->marshall()[B
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_5 .. :try_end_c} :catchall_10
 
     .line 44
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -44,7 +44,7 @@
     return-object v1
 
     .line 44
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public static unmarshall([BLandroid/os/Parcelable$Creator;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "array"    # [B
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,7 +74,7 @@
 
     .line 58
     .local v0, "parcel":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_4
     array-length v1, p0
 
     const/4 v2, 0x0
@@ -88,8 +88,8 @@
     invoke-interface {p1, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_4 .. :try_end_10} :catchall_14
 
     .line 62
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -98,7 +98,7 @@
     return-object v1
 
     .line 62
-    :catchall_0
+    :catchall_14
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

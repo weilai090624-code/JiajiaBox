@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 514
     const/4 v0, 0x1
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public bridge synthetic get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 516
     const-string/jumbo v0, "string"
@@ -112,7 +112,7 @@
 .end method
 
 .method public bridge synthetic parseValue(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 514
@@ -124,7 +124,7 @@
 .end method
 
 .method public parseValue(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     const-string/jumbo v0, "value"
@@ -136,7 +136,7 @@
 .end method
 
 .method public bridge synthetic put(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
@@ -152,7 +152,7 @@
 .end method
 
 .method public put(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/String;

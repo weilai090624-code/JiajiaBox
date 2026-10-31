@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/room/util/ViewInfo$Companion;-><init>()V
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final read(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Landroidx/room/util/ViewInfo;
-    .locals 9
+    .registers 12
     .param p1, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p2, "viewName"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -130,7 +130,7 @@
 
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_30
     move-object v3, v2
 
     check-cast v3, Landroid/database/Cursor;
@@ -146,7 +146,7 @@
 
     const/4 v6, 0x0
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_50
 
     .line 75
     new-instance v5, Landroidx/room/util/ViewInfo;
@@ -169,18 +169,18 @@
 
     invoke-direct {v5, v7, v8}, Landroidx/room/util/ViewInfo;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_55
 
     .line 77
-    :cond_0
+    :cond_50
     new-instance v5, Landroidx/room/util/ViewInfo;
 
     invoke-direct {v5, p2, v6}, Landroidx/room/util/ViewInfo;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_55
+    .catchall {:try_start_30 .. :try_end_55} :catchall_5a
 
     .line 74
-    :goto_0
+    :goto_55
     nop
 
     .line 85
@@ -196,23 +196,23 @@
     .line 85
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
-    :catchall_0
+    :catchall_5a
     move-exception v3
 
     .end local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v1    # "$i$f$useCursor":I
     .end local p1    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local p2    # "viewName":Ljava/lang/String;
-    :try_start_1
+    :try_start_5b
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_5c
+    .catchall {:try_start_5b .. :try_end_5c} :catchall_5c
 
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
     .restart local p1    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local p2    # "viewName":Ljava/lang/String;
-    :catchall_1
+    :catchall_5c
     move-exception v4
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V

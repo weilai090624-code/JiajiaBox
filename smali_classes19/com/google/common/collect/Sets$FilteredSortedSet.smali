@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/SortedSet;Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public comparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -81,7 +81,7 @@
 .end method
 
 .method public first()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -143,7 +143,7 @@
 .end method
 
 .method public last()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -161,7 +161,7 @@
 
     .line 1126
     .local v0, "sortedUnfiltered":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/SortedSet;->last()Ljava/lang/Object;
 
     move-result-object v1
@@ -174,24 +174,24 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     .line 1128
     return-object v1
 
     .line 1130
-    :cond_0
+    :cond_11
     invoke-interface {v0, v1}, Ljava/util/SortedSet;->headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
     move-result-object v0
 
     .line 1131
     .end local v1    # "element":Ljava/lang/Object;, "TE;"
-    goto :goto_0
+    goto :goto_4
 .end method
 
 .method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 3
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -232,7 +232,7 @@
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

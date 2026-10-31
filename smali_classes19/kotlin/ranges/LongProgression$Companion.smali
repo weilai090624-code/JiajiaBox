@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 186
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lkotlin/ranges/LongProgression$Companion;-><init>()V
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public final fromClosedRange(JJJ)Lkotlin/ranges/LongProgression;
-    .locals 8
+    .registers 15
     .param p1, "rangeStart"    # J
     .param p3, "rangeEnd"    # J
     .param p5, "step"    # J

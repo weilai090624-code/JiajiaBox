@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Lcom/google/zxing/client/result/ResultParser;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public bridge synthetic parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/ParsedResult;
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-virtual {p0, p1}, Lcom/google/zxing/client/result/TelResultParser;->parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/TelParsedResult;
@@ -27,7 +27,7 @@
 .end method
 
 .method public parse(Lcom/google/zxing/Result;)Lcom/google/zxing/client/result/TelParsedResult;
-    .locals 6
+    .registers 8
     .param p1, "result"    # Lcom/google/zxing/Result;
 
     .line 30
@@ -51,26 +51,26 @@
 
     const-string v4, "TEL:"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 32
     return-object v3
 
     .line 35
-    :cond_0
+    :cond_18
     invoke-virtual {v1, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
     const/4 v4, 0x4
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -88,14 +88,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_1
+    :cond_31
     move-object v0, v1
 
     .line 37
     .local v0, "telURI":Ljava/lang/String;
-    :goto_0
+    :goto_32
     const/16 v2, 0x3f
 
     invoke-virtual {v1, v2, v4}, Ljava/lang/String;->indexOf(II)I
@@ -108,22 +108,22 @@
     .local v5, "queryStart":I
     move v5, v2
 
-    if-gez v2, :cond_2
+    if-gez v2, :cond_41
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_45
 
-    :cond_2
+    :cond_41
     invoke-virtual {v1, v4, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
 
     .line 39
     .local v2, "number":Ljava/lang/String;
-    :goto_1
+    :goto_45
     new-instance v4, Lcom/google/zxing/client/result/TelParsedResult;
 
     invoke-direct {v4, v2, v0, v3}, Lcom/google/zxing/client/result/TelParsedResult;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V

@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/navigation/NavigatorProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "navigatorProvider"    # Landroidx/navigation/NavigatorProvider;
 
     const-string v0, "navigatorProvider"
@@ -74,7 +74,7 @@
 .end method
 
 .method private final navigate(Landroidx/navigation/NavBackStackEntry;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)V
-    .locals 10
+    .registers 14
     .param p1, "entry"    # Landroidx/navigation/NavBackStackEntry;
     .param p2, "navOptions"    # Landroidx/navigation/NavOptions;
     .param p3, "navigatorExtras"    # Landroidx/navigation/Navigator$Extras;
@@ -108,47 +108,47 @@
     .local v3, "startRoute":Ljava/lang/String;
     const/4 v4, 0x0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1a
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_18
     const/4 v5, 0x0
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     const/4 v5, 0x1
 
-    :goto_1
-    if-eqz v5, :cond_4
+    :goto_1b
+    if-eqz v5, :cond_6e
 
     .line 65
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_24
 
     .line 66
     invoke-virtual {v0, v3, v4}, Landroidx/navigation/NavGraph;->findNode(Ljava/lang/String;Z)Landroidx/navigation/NavDestination;
 
     move-result-object v4
 
-    goto :goto_2
+    goto :goto_28
 
     .line 68
-    :cond_2
+    :cond_24
     invoke-virtual {v0, v2, v4}, Landroidx/navigation/NavGraph;->findNode(IZ)Landroidx/navigation/NavDestination;
 
     move-result-object v4
 
     .line 65
-    :goto_2
+    :goto_28
     nop
 
     .line 70
     .local v4, "startDestination":Landroidx/navigation/NavDestination;
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4a
 
     .line 76
     iget-object v5, p0, Landroidx/navigation/NavGraphNavigator;->navigatorProvider:Landroidx/navigation/NavigatorProvider;
@@ -196,7 +196,7 @@
     .line 70
     .end local v5    # "navigator":Landroidx/navigation/Navigator;
     .end local v6    # "startDestinationEntry":Landroidx/navigation/NavBackStackEntry;
-    :cond_3
+    :cond_4a
     const/4 v5, 0x0
 
     .line 71
@@ -243,7 +243,7 @@
     .end local v4    # "startDestination":Landroidx/navigation/NavDestination;
     .end local v5    # "$i$a$-requireNotNull-NavGraphNavigator$navigate$2":I
     .end local v6    # "dest":Ljava/lang/String;
-    :cond_4
+    :cond_6e
     const/4 v4, 0x0
 
     .line 63
@@ -286,7 +286,7 @@
 
 # virtual methods
 .method public bridge synthetic createDestination()Landroidx/navigation/NavDestination;
-    .locals 1
+    .registers 2
 
     .line 28
     invoke-virtual {p0}, Landroidx/navigation/NavGraphNavigator;->createDestination()Landroidx/navigation/NavGraph;
@@ -299,7 +299,7 @@
 .end method
 
 .method public createDestination()Landroidx/navigation/NavGraph;
-    .locals 2
+    .registers 3
 
     .line 37
     new-instance v0, Landroidx/navigation/NavGraph;
@@ -314,7 +314,7 @@
 .end method
 
 .method public navigate(Ljava/util/List;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)V
-    .locals 2
+    .registers 6
     .param p1, "entries"    # Ljava/util/List;
     .param p2, "navOptions"    # Landroidx/navigation/NavOptions;
     .param p3, "navigatorExtras"    # Landroidx/navigation/Navigator$Extras;
@@ -339,12 +339,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -357,9 +357,9 @@
     invoke-direct {p0, v1, p2, p3}, Landroidx/navigation/NavGraphNavigator;->navigate(Landroidx/navigation/NavBackStackEntry;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)V
 
     .end local v1    # "entry":Landroidx/navigation/NavBackStackEntry;
-    goto :goto_0
+    goto :goto_9
 
     .line 51
-    :cond_0
+    :cond_19
     return-void
 .end method

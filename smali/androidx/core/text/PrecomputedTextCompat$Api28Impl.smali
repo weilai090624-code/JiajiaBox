@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 743
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static castToSpannable(Landroid/text/PrecomputedText;)Landroid/text/Spannable;
-    .locals 0
+    .registers 1
     .param p0, "precomputedText"    # Landroid/text/PrecomputedText;
 
     .line 749

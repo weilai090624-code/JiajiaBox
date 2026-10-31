@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,26 +66,26 @@
 
 # virtual methods
 .method public getEnd()I
-    .locals 1
+    .registers 2
 
     .line 51
     iget-boolean v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mIsRtl:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mLeft:I
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mRight:I
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public getLeft()I
-    .locals 1
+    .registers 2
 
     .line 39
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mLeft:I
@@ -94,7 +94,7 @@
 .end method
 
 .method public getRight()I
-    .locals 1
+    .registers 2
 
     .line 43
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mRight:I
@@ -103,26 +103,26 @@
 .end method
 
 .method public getStart()I
-    .locals 1
+    .registers 2
 
     .line 47
     iget-boolean v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mIsRtl:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mRight:I
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mLeft:I
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public setAbsolute(II)V
-    .locals 1
+    .registers 4
     .param p1, "left"    # I
     .param p2, "right"    # I
 
@@ -134,118 +134,118 @@
     .line 69
     const/high16 v0, -0x80000000
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_b
 
     iput p1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mExplicitLeft:I
 
     iput p1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mLeft:I
 
     .line 70
-    :cond_0
-    if-eq p2, v0, :cond_1
+    :cond_b
+    if-eq p2, v0, :cond_11
 
     iput p2, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mExplicitRight:I
 
     iput p2, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mRight:I
 
     .line 71
-    :cond_1
+    :cond_11
     return-void
 .end method
 
 .method public setDirection(Z)V
-    .locals 2
+    .registers 4
     .param p1, "isRtl"    # Z
 
     .line 74
     iget-boolean v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mIsRtl:Z
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 75
     return-void
 
     .line 77
-    :cond_0
+    :cond_5
     iput-boolean p1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mIsRtl:Z
 
     .line 78
     iget-boolean v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mIsRelative:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_3d
 
     .line 79
     const/high16 v0, -0x80000000
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_26
 
     .line 80
     iget v1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mEnd:I
 
-    if-eq v1, v0, :cond_1
+    if-eq v1, v0, :cond_16
 
     iget v1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mEnd:I
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_16
     iget v1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mExplicitLeft:I
 
-    :goto_0
+    :goto_18
     iput v1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mLeft:I
 
     .line 81
     iget v1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mStart:I
 
-    if-eq v1, v0, :cond_2
+    if-eq v1, v0, :cond_21
 
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mStart:I
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_2
+    :cond_21
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mExplicitRight:I
 
-    :goto_1
+    :goto_23
     iput v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mRight:I
 
-    goto :goto_4
+    goto :goto_45
 
     .line 83
-    :cond_3
+    :cond_26
     iget v1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mStart:I
 
-    if-eq v1, v0, :cond_4
+    if-eq v1, v0, :cond_2d
 
     iget v1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mStart:I
 
-    goto :goto_2
+    goto :goto_2f
 
-    :cond_4
+    :cond_2d
     iget v1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mExplicitLeft:I
 
-    :goto_2
+    :goto_2f
     iput v1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mLeft:I
 
     .line 84
     iget v1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mEnd:I
 
-    if-eq v1, v0, :cond_5
+    if-eq v1, v0, :cond_38
 
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mEnd:I
 
-    goto :goto_3
+    goto :goto_3a
 
-    :cond_5
+    :cond_38
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mExplicitRight:I
 
-    :goto_3
+    :goto_3a
     iput v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mRight:I
 
-    goto :goto_4
+    goto :goto_45
 
     .line 87
-    :cond_6
+    :cond_3d
     iget v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mExplicitLeft:I
 
     iput v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mLeft:I
@@ -256,12 +256,12 @@
     iput v0, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mRight:I
 
     .line 90
-    :goto_4
+    :goto_45
     return-void
 .end method
 
 .method public setRelative(II)V
-    .locals 2
+    .registers 5
     .param p1, "start"    # I
     .param p2, "end"    # I
 
@@ -281,35 +281,35 @@
 
     const/high16 v1, -0x80000000
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 59
-    if-eq p2, v1, :cond_0
+    if-eq p2, v1, :cond_11
 
     iput p2, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mLeft:I
 
     .line 60
-    :cond_0
-    if-eq p1, v1, :cond_3
+    :cond_11
+    if-eq p1, v1, :cond_1e
 
     iput p1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mRight:I
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 62
-    :cond_1
-    if-eq p1, v1, :cond_2
+    :cond_16
+    if-eq p1, v1, :cond_1a
 
     iput p1, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mLeft:I
 
     .line 63
-    :cond_2
-    if-eq p2, v1, :cond_3
+    :cond_1a
+    if-eq p2, v1, :cond_1e
 
     iput p2, p0, Landroidx/appcompat/widget/RtlSpacingHelper;->mRight:I
 
     .line 65
-    :cond_3
-    :goto_0
+    :cond_1e
+    :goto_1e
     return-void
 .end method

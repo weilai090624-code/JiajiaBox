@@ -27,7 +27,7 @@
 
 # direct methods
 .method public static final asRunnable(Lkotlin/coroutines/Continuation;)Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
     .param p0, "$this$asRunnable"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {

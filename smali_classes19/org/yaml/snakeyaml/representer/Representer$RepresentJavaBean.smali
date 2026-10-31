@@ -23,7 +23,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/yaml/snakeyaml/representer/Representer;)V
-    .locals 0
+    .registers 2
 
     .line 78
     iput-object p1, p0, Lorg/yaml/snakeyaml/representer/Representer$RepresentJavaBean;->this$0:Lorg/yaml/snakeyaml/representer/Representer;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public representData(Ljava/lang/Object;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 3
+    .registers 5
     .param p1, "data"    # Ljava/lang/Object;
 
     .line 80

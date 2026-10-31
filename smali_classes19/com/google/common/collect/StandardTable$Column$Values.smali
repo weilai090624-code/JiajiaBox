@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/StandardTable$Column;)V
-    .locals 0
+    .registers 2
 
     .line 626
     .local p0, "this":Lcom/google/common/collect/StandardTable$Column$Values;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.Values;"
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public remove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -51,7 +51,7 @@
 
     .line 632
     .local p0, "this":Lcom/google/common/collect/StandardTable$Column$Values;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.Values;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$Column$Values;->this$1:Lcom/google/common/collect/StandardTable$Column;
 
@@ -67,21 +67,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return v0
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,7 +111,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

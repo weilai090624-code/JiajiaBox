@@ -47,7 +47,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator;
-    .locals 3
+    .registers 3
 
     .line 113
     const/4 v0, 0x1
@@ -64,7 +64,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 114
     new-instance v0, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator;
@@ -95,7 +95,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -109,7 +109,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 113
@@ -125,7 +125,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator;
-    .locals 1
+    .registers 1
 
     .line 113
     sget-object v0, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator;->$VALUES:[Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator;
@@ -142,7 +142,7 @@
 
 # virtual methods
 .method public validateClass(Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,12 +161,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -184,18 +184,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     .line 131
     return-void
 
     .line 134
     .end local v1    # "knownGood":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Ljava/lang/Class<+Ljava/lang/Exception;>;>;"
-    :cond_0
-    goto :goto_0
+    :cond_1d
+    goto :goto_6
 
     .line 135
-    :cond_1
+    :cond_1e
     invoke-static {p1}, Lcom/google/common/util/concurrent/FuturesGetChecked;->checkExceptionClassValidity(Ljava/lang/Class;)V
 
     .line 146
@@ -207,7 +207,7 @@
 
     const/16 v1, 0x3e8
 
-    if-le v0, v1, :cond_2
+    if-le v0, v1, :cond_30
 
     .line 147
     sget-object v0, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator;->validClasses:Ljava/util/Set;
@@ -215,7 +215,7 @@
     invoke-interface {v0}, Ljava/util/Set;->clear()V
 
     .line 150
-    :cond_2
+    :cond_30
     sget-object v0, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$WeakSetValidator;->validClasses:Ljava/util/Set;
 
     new-instance v1, Ljava/lang/ref/WeakReference;

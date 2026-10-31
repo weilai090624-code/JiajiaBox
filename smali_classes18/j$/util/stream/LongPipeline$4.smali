@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/LongPipeline;Lj$/util/stream/AbstractPipeline;Lj$/util/stream/StreamShape;ILjava/util/function/LongToIntFunction;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Lj$/util/stream/LongPipeline;
     .param p3, "inputShape"    # Lj$/util/stream/StreamShape;
     .param p4, "opFlags"    # I
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method opWrapSink(ILj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 1
+    .registers 4
     .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

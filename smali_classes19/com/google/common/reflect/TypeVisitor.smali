@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public final varargs visit([Ljava/lang/reflect/Type;)V
-    .locals 6
+    .registers 8
     .param p1, "types"    # [Ljava/lang/reflect/Type;
 
     .line 67
@@ -48,14 +48,14 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_8
+    :goto_2
+    if-ge v1, v0, :cond_86
 
     aget-object v2, p1, v1
 
     .line 68
     .local v2, "type":Ljava/lang/reflect/Type;
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_82
 
     iget-object v3, p0, Lcom/google/common/reflect/TypeVisitor;->visited:Ljava/util/Set;
 
@@ -63,21 +63,21 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_12
 
     .line 70
-    goto/16 :goto_2
+    goto/16 :goto_82
 
     .line 72
-    :cond_0
+    :cond_12
     const/4 v3, 0x0
 
     .line 74
     .local v3, "succeeded":Z
-    :try_start_0
+    :try_start_13
     instance-of v4, v2, Ljava/lang/reflect/TypeVariable;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1e
 
     .line 75
     move-object v4, v2
@@ -86,13 +86,13 @@
 
     invoke-virtual {p0, v4}, Lcom/google/common/reflect/TypeVisitor;->visitTypeVariable(Ljava/lang/reflect/TypeVariable;)V
 
-    goto :goto_1
+    goto :goto_49
 
     .line 76
-    :cond_1
+    :cond_1e
     instance-of v4, v2, Ljava/lang/reflect/WildcardType;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_29
 
     .line 77
     move-object v4, v2
@@ -101,13 +101,13 @@
 
     invoke-virtual {p0, v4}, Lcom/google/common/reflect/TypeVisitor;->visitWildcardType(Ljava/lang/reflect/WildcardType;)V
 
-    goto :goto_1
+    goto :goto_49
 
     .line 78
-    :cond_2
+    :cond_29
     instance-of v4, v2, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_34
 
     .line 79
     move-object v4, v2
@@ -116,13 +116,13 @@
 
     invoke-virtual {p0, v4}, Lcom/google/common/reflect/TypeVisitor;->visitParameterizedType(Ljava/lang/reflect/ParameterizedType;)V
 
-    goto :goto_1
+    goto :goto_49
 
     .line 80
-    :cond_3
+    :cond_34
     instance-of v4, v2, Ljava/lang/Class;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3f
 
     .line 81
     move-object v4, v2
@@ -131,13 +131,13 @@
 
     invoke-virtual {p0, v4}, Lcom/google/common/reflect/TypeVisitor;->visitClass(Ljava/lang/Class;)V
 
-    goto :goto_1
+    goto :goto_49
 
     .line 82
-    :cond_4
+    :cond_3f
     instance-of v4, v2, Ljava/lang/reflect/GenericArrayType;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_52
 
     .line 83
     move-object v4, v2
@@ -145,26 +145,26 @@
     check-cast v4, Ljava/lang/reflect/GenericArrayType;
 
     invoke-virtual {p0, v4}, Lcom/google/common/reflect/TypeVisitor;->visitGenericArrayType(Ljava/lang/reflect/GenericArrayType;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_49
+    .catchall {:try_start_13 .. :try_end_49} :catchall_79
 
     .line 87
-    :goto_1
+    :goto_49
     const/4 v3, 0x1
 
     .line 89
-    if-nez v3, :cond_7
+    if-nez v3, :cond_82
 
     .line 90
     iget-object v4, p0, Lcom/google/common/reflect/TypeVisitor;->visited:Ljava/util/Set;
 
     invoke-interface {v4, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_82
 
     .line 85
-    :cond_5
-    :try_start_1
+    :cond_52
+    :try_start_52
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -205,17 +205,17 @@
     .end local v3    # "succeeded":Z
     .end local p1    # "types":[Ljava/lang/reflect/Type;
     throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_79
+    .catchall {:try_start_52 .. :try_end_79} :catchall_79
 
     .line 89
     .restart local v2    # "type":Ljava/lang/reflect/Type;
     .restart local v3    # "succeeded":Z
     .restart local p1    # "types":[Ljava/lang/reflect/Type;
-    :catchall_0
+    :catchall_79
     move-exception v0
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_81
 
     .line 90
     iget-object v1, p0, Lcom/google/common/reflect/TypeVisitor;->visited:Ljava/util/Set;
@@ -223,25 +223,25 @@
     invoke-interface {v1, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     .line 92
-    :cond_6
+    :cond_81
     throw v0
 
     .line 67
     .end local v2    # "type":Ljava/lang/reflect/Type;
     .end local v3    # "succeeded":Z
-    :cond_7
-    :goto_2
+    :cond_82
+    :goto_82
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_2
 
     .line 94
-    :cond_8
+    :cond_86
     return-void
 .end method
 
 .method visitClass(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -256,7 +256,7 @@
 .end method
 
 .method visitGenericArrayType(Ljava/lang/reflect/GenericArrayType;)V
-    .locals 0
+    .registers 2
     .param p1, "t"    # Ljava/lang/reflect/GenericArrayType;
 
     .line 98
@@ -264,7 +264,7 @@
 .end method
 
 .method visitParameterizedType(Ljava/lang/reflect/ParameterizedType;)V
-    .locals 0
+    .registers 2
     .param p1, "t"    # Ljava/lang/reflect/ParameterizedType;
 
     .line 100
@@ -272,7 +272,7 @@
 .end method
 
 .method visitTypeVariable(Ljava/lang/reflect/TypeVariable;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -287,7 +287,7 @@
 .end method
 
 .method visitWildcardType(Ljava/lang/reflect/WildcardType;)V
-    .locals 0
+    .registers 2
     .param p1, "t"    # Ljava/lang/reflect/WildcardType;
 
     .line 104

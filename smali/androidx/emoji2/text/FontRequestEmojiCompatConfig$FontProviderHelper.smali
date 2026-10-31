@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 412
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public buildTypeface(Landroid/content/Context;Landroidx/core/provider/FontsContractCompat$FontInfo;)Landroid/graphics/Typeface;
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "font"    # Landroidx/core/provider/FontsContractCompat$FontInfo;
     .annotation system Ldalvik/annotation/Throws;
@@ -55,7 +55,7 @@
 .end method
 
 .method public fetchFonts(Landroid/content/Context;Landroidx/core/provider/FontRequest;)Landroidx/core/provider/FontsContractCompat$FontFamilyResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "request"    # Landroidx/core/provider/FontRequest;
     .annotation system Ldalvik/annotation/Throws;
@@ -75,7 +75,7 @@
 .end method
 
 .method public registerObserver(Landroid/content/Context;Landroid/net/Uri;Landroid/database/ContentObserver;)V
-    .locals 2
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "uri"    # Landroid/net/Uri;
     .param p3, "observer"    # Landroid/database/ContentObserver;
@@ -94,7 +94,7 @@
 .end method
 
 .method public unregisterObserver(Landroid/content/Context;Landroid/database/ContentObserver;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "observer"    # Landroid/database/ContentObserver;
 

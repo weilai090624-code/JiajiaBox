@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/zxing/pdf417/decoder/BoundingBox;Z)V
-    .locals 0
+    .registers 3
     .param p1, "boundingBox"    # Lcom/google/zxing/pdf417/decoder/BoundingBox;
     .param p2, "isLeft"    # Z
 
@@ -24,7 +24,7 @@
 .end method
 
 .method private adjustIncompleteIndicatorColumnRowNumbers(Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;)V
-    .locals 14
+    .registers 16
     .param p1, "barcodeMetadata"    # Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;
 
     .line 137
@@ -36,40 +36,40 @@
     .local v0, "boundingBox":Lcom/google/zxing/pdf417/decoder/BoundingBox;
     iget-boolean v1, p0, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->isLeft:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     invoke-virtual {v0}, Lcom/google/zxing/pdf417/decoder/BoundingBox;->getTopLeft()Lcom/google/zxing/ResultPoint;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-virtual {v0}, Lcom/google/zxing/pdf417/decoder/BoundingBox;->getTopRight()Lcom/google/zxing/ResultPoint;
 
     move-result-object v1
 
     .line 139
     .local v1, "top":Lcom/google/zxing/ResultPoint;
-    :goto_0
+    :goto_11
     iget-boolean v2, p0, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->isLeft:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1a
 
     invoke-virtual {v0}, Lcom/google/zxing/pdf417/decoder/BoundingBox;->getBottomLeft()Lcom/google/zxing/ResultPoint;
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
+    :cond_1a
     invoke-virtual {v0}, Lcom/google/zxing/pdf417/decoder/BoundingBox;->getBottomRight()Lcom/google/zxing/ResultPoint;
 
     move-result-object v2
 
     .line 140
     .local v2, "bottom":Lcom/google/zxing/ResultPoint;
-    :goto_1
+    :goto_1e
     invoke-virtual {v1}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v3
@@ -119,13 +119,13 @@
 
     const/4 v11, 0x0
 
-    :goto_2
-    if-ge v9, v4, :cond_6
+    :goto_3a
+    if-ge v9, v4, :cond_74
 
     .line 148
     aget-object v12, v5, v9
 
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_71
 
     .line 151
     aget-object v12, v5, v9
@@ -147,18 +147,18 @@
     .local v11, "rowDifference":I
     move v11, v12
 
-    if-nez v12, :cond_2
+    if-nez v12, :cond_51
 
     .line 160
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_3
+    goto :goto_71
 
     .line 161
-    :cond_2
+    :cond_51
     const/4 v12, 0x1
 
-    if-ne v11, v12, :cond_3
+    if-ne v11, v12, :cond_5e
 
     .line 162
     invoke-static {v7, v8}, Ljava/lang/Math;->max(II)I
@@ -173,10 +173,10 @@
 
     move-result v6
 
-    goto :goto_3
+    goto :goto_71
 
     .line 165
-    :cond_3
+    :cond_5e
     invoke-virtual {v10}, Lcom/google/zxing/pdf417/decoder/Codeword;->getRowNumber()I
 
     move-result v12
@@ -185,17 +185,17 @@
 
     move-result v13
 
-    if-lt v12, v13, :cond_4
+    if-lt v12, v13, :cond_6c
 
     .line 166
     const/4 v12, 0x0
 
     aput-object v12, v5, v9
 
-    goto :goto_3
+    goto :goto_71
 
     .line 168
-    :cond_4
+    :cond_6c
     invoke-virtual {v10}, Lcom/google/zxing/pdf417/decoder/Codeword;->getRowNumber()I
 
     move-result v6
@@ -206,20 +206,20 @@
     .line 147
     .end local v10    # "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     .end local v11    # "rowDifference":I
-    :cond_5
-    :goto_3
+    :cond_71
+    :goto_71
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_2
+    goto :goto_3a
 
     .line 173
     .end local v9    # "codewordsRow":I
-    :cond_6
+    :cond_74
     return-void
 .end method
 
 .method private removeIncorrectCodewords([Lcom/google/zxing/pdf417/decoder/Codeword;Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;)V
-    .locals 7
+    .registers 10
     .param p1, "codewords"    # [Lcom/google/zxing/pdf417/decoder/Codeword;
     .param p2, "barcodeMetadata"    # Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;
 
@@ -229,10 +229,10 @@
     .local v0, "codewordRow":I
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_2
     array-length v2, p1
 
-    if-ge v0, v2, :cond_4
+    if-ge v0, v2, :cond_59
 
     .line 224
     aget-object v2, p1, v0
@@ -241,7 +241,7 @@
     .local v2, "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     aget-object v3, p1, v0
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_56
 
     .line 228
     invoke-virtual {v2}, Lcom/google/zxing/pdf417/decoder/Codeword;->getValue()I
@@ -266,55 +266,55 @@
 
     const/4 v6, 0x0
 
-    if-le v4, v5, :cond_0
+    if-le v4, v5, :cond_20
 
     .line 231
     aput-object v6, p1, v0
 
     .line 232
-    goto :goto_1
+    goto :goto_56
 
     .line 234
-    :cond_0
+    :cond_20
     iget-boolean v4, p0, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->isLeft:Z
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_26
 
     .line 235
     add-int/lit8 v1, v1, 0x2
 
     .line 237
-    :cond_1
+    :cond_26
     rem-int/lit8 v4, v1, 0x3
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_5a
 
-    goto :goto_1
+    goto :goto_56
 
     .line 250
-    :pswitch_0
+    :pswitch_2c
     add-int/lit8 v4, v3, 0x1
 
     invoke-virtual {p2}, Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;->getColumnCount()I
 
     move-result v5
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_56
 
     .line 251
     aput-object v6, p1, v0
 
-    goto :goto_1
+    goto :goto_56
 
     .line 244
-    :pswitch_1
+    :pswitch_37
     div-int/lit8 v4, v3, 0x3
 
     invoke-virtual {p2}, Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;->getErrorCorrectionLevel()I
 
     move-result v5
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_47
 
     rem-int/lit8 v4, v3, 0x3
 
@@ -323,16 +323,16 @@
 
     move-result v5
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_56
 
     .line 246
-    :cond_2
+    :cond_47
     aput-object v6, p1, v0
 
-    goto :goto_1
+    goto :goto_56
 
     .line 239
-    :pswitch_2
+    :pswitch_4a
     mul-int/lit8 v4, v3, 0x3
 
     add-int/lit8 v4, v4, 0x1
@@ -341,7 +341,7 @@
 
     move-result v5
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_56
 
     .line 240
     aput-object v6, p1, v0
@@ -350,27 +350,27 @@
     .end local v1    # "codewordRowNumber":I
     .end local v2    # "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     .end local v3    # "rowIndicatorValue":I
-    :cond_3
-    :goto_1
+    :cond_56
+    :goto_56
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 256
     .end local v0    # "codewordRow":I
-    :cond_4
+    :cond_59
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_5a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4a
+        :pswitch_37
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method private setRowNumbers()V
-    .locals 5
+    .registers 6
 
     .line 35
     invoke-virtual {p0}, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->getCodewords()[Lcom/google/zxing/pdf417/decoder/Codeword;
@@ -383,8 +383,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_7
+    if-ge v3, v1, :cond_14
 
     aget-object v4, v0, v3
 
@@ -392,27 +392,27 @@
     .local v2, "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     move-object v2, v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_11
 
     .line 37
     invoke-virtual {v2}, Lcom/google/zxing/pdf417/decoder/Codeword;->setRowNumberAsRowIndicatorColumn()V
 
     .line 35
     .end local v2    # "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
-    :cond_0
+    :cond_11
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 40
-    :cond_1
+    :cond_14
     return-void
 .end method
 
 
 # virtual methods
 .method adjustCompleteIndicatorColumnRowNumbers(Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;)V
-    .locals 19
+    .registers 21
     .param p1, "barcodeMetadata"    # Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;
 
     .line 47
@@ -440,40 +440,40 @@
     .local v3, "boundingBox":Lcom/google/zxing/pdf417/decoder/BoundingBox;
     iget-boolean v4, v0, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->isLeft:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1b
 
     invoke-virtual {v3}, Lcom/google/zxing/pdf417/decoder/BoundingBox;->getTopLeft()Lcom/google/zxing/ResultPoint;
 
     move-result-object v4
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1b
     invoke-virtual {v3}, Lcom/google/zxing/pdf417/decoder/BoundingBox;->getTopRight()Lcom/google/zxing/ResultPoint;
 
     move-result-object v4
 
     .line 52
     .local v4, "top":Lcom/google/zxing/ResultPoint;
-    :goto_0
+    :goto_1f
     iget-boolean v5, v0, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->isLeft:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_28
 
     invoke-virtual {v3}, Lcom/google/zxing/pdf417/decoder/BoundingBox;->getBottomLeft()Lcom/google/zxing/ResultPoint;
 
     move-result-object v5
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_1
+    :cond_28
     invoke-virtual {v3}, Lcom/google/zxing/pdf417/decoder/BoundingBox;->getBottomRight()Lcom/google/zxing/ResultPoint;
 
     move-result-object v5
 
     .line 53
     .local v5, "bottom":Lcom/google/zxing/ResultPoint;
-    :goto_1
+    :goto_2c
     invoke-virtual {v4}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v6
@@ -517,13 +517,13 @@
 
     const/4 v13, 0x0
 
-    :goto_2
-    if-ge v11, v7, :cond_c
+    :goto_44
+    if-ge v11, v7, :cond_ae
 
     .line 62
     aget-object v14, v1, v11
 
-    if-eqz v14, :cond_b
+    if-eqz v14, :cond_ab
 
     .line 65
     aget-object v14, v1, v11
@@ -542,18 +542,18 @@
     .local v13, "rowDifference":I
     move v13, v14
 
-    if-nez v14, :cond_2
+    if-nez v14, :cond_58
 
     .line 80
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_8
+    goto :goto_ab
 
     .line 81
-    :cond_2
+    :cond_58
     const/4 v14, 0x1
 
-    if-ne v13, v14, :cond_3
+    if-ne v13, v14, :cond_65
 
     .line 82
     invoke-static {v9, v10}, Ljava/lang/Math;->max(II)I
@@ -568,11 +568,11 @@
 
     move-result v8
 
-    goto :goto_8
+    goto :goto_ab
 
     .line 85
-    :cond_3
-    if-ltz v13, :cond_a
+    :cond_65
+    if-ltz v13, :cond_a8
 
     .line 86
     invoke-virtual {v12}, Lcom/google/zxing/pdf417/decoder/Codeword;->getRowNumber()I
@@ -583,17 +583,17 @@
 
     move-result v15
 
-    if-ge v14, v15, :cond_a
+    if-ge v14, v15, :cond_a8
 
-    if-le v13, v11, :cond_4
+    if-le v13, v11, :cond_74
 
-    goto :goto_7
+    goto :goto_a8
 
     .line 91
-    :cond_4
+    :cond_74
     const/4 v14, 0x2
 
-    if-le v9, v14, :cond_5
+    if-le v9, v14, :cond_7c
 
     .line 92
     add-int/lit8 v14, v9, -0x2
@@ -601,74 +601,74 @@
     mul-int v14, v14, v13
 
     .local v14, "checkedRows":I
-    goto :goto_3
+    goto :goto_7d
 
     .line 94
     .end local v14    # "checkedRows":I
-    :cond_5
+    :cond_7c
     move v14, v13
 
     .line 96
     .restart local v14    # "checkedRows":I
-    :goto_3
-    if-lt v14, v11, :cond_6
+    :goto_7d
+    if-lt v14, v11, :cond_82
 
     const/16 v16, 0x1
 
-    goto :goto_4
+    goto :goto_84
 
-    :cond_6
+    :cond_82
     const/16 v16, 0x0
 
     .line 97
     .local v16, "closePreviousCodewordFound":Z
-    :goto_4
+    :goto_84
     const/16 v17, 0x1
 
     move/from16 v15, v17
 
     .local v15, "i":I
-    :goto_5
-    if-gt v15, v14, :cond_8
+    :goto_88
+    if-gt v15, v14, :cond_9c
 
-    if-nez v16, :cond_8
+    if-nez v16, :cond_9c
 
     .line 100
     sub-int v18, v11, v15
 
     aget-object v18, v1, v18
 
-    if-eqz v18, :cond_7
+    if-eqz v18, :cond_95
 
     const/16 v18, 0x1
 
-    goto :goto_6
+    goto :goto_97
 
-    :cond_7
+    :cond_95
     const/16 v18, 0x0
 
-    :goto_6
+    :goto_97
     move/from16 v16, v18
 
     .line 97
     add-int/lit8 v15, v15, 0x1
 
-    goto :goto_5
+    goto :goto_88
 
     .line 102
     .end local v15    # "i":I
-    :cond_8
-    if-eqz v16, :cond_9
+    :cond_9c
+    if-eqz v16, :cond_a2
 
     .line 103
     const/4 v15, 0x0
 
     aput-object v15, v1, v11
 
-    goto :goto_8
+    goto :goto_ab
 
     .line 105
-    :cond_9
+    :cond_a2
     invoke-virtual {v12}, Lcom/google/zxing/pdf417/decoder/Codeword;->getRowNumber()I
 
     move-result v8
@@ -676,13 +676,13 @@
     .line 106
     const/4 v10, 0x1
 
-    goto :goto_8
+    goto :goto_ab
 
     .line 88
     .end local v14    # "checkedRows":I
     .end local v16    # "closePreviousCodewordFound":Z
-    :cond_a
-    :goto_7
+    :cond_a8
+    :goto_a8
     const/4 v14, 0x0
 
     aput-object v14, v1, v11
@@ -690,20 +690,20 @@
     .line 61
     .end local v12    # "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     .end local v13    # "rowDifference":I
-    :cond_b
-    :goto_8
+    :cond_ab
+    :goto_ab
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_2
+    goto :goto_44
 
     .line 111
     .end local v11    # "codewordsRow":I
-    :cond_c
+    :cond_ae
     return-void
 .end method
 
 .method getBarcodeMetadata()Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;
-    .locals 12
+    .registers 13
 
     .line 176
     invoke-virtual {p0}, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->getCodewords()[Lcom/google/zxing/pdf417/decoder/Codeword;
@@ -744,8 +744,8 @@
 
     const/4 v8, 0x0
 
-    :goto_0
-    if-ge v8, v5, :cond_2
+    :goto_1c
+    if-ge v8, v5, :cond_58
 
     aget-object v9, v0, v8
 
@@ -753,7 +753,7 @@
     .local v6, "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     move-object v6, v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_55
 
     .line 185
     invoke-virtual {v6}, Lcom/google/zxing/pdf417/decoder/Codeword;->setRowNumberAsRowIndicatorColumn()V
@@ -775,29 +775,29 @@
     .local v10, "codewordRowNumber":I
     iget-boolean v11, p0, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->isLeft:Z
 
-    if-nez v11, :cond_0
+    if-nez v11, :cond_36
 
     .line 189
     add-int/lit8 v10, v10, 0x2
 
     .line 191
-    :cond_0
+    :cond_36
     rem-int/lit8 v11, v10, 0x3
 
-    packed-switch v11, :pswitch_data_0
+    packed-switch v11, :pswitch_data_c2
 
-    goto :goto_1
+    goto :goto_55
 
     .line 200
-    :pswitch_0
+    :pswitch_3c
     add-int/lit8 v11, v9, 0x1
 
     invoke-virtual {v1, v11}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->setValue(I)V
 
-    goto :goto_1
+    goto :goto_55
 
     .line 196
-    :pswitch_1
+    :pswitch_42
     div-int/lit8 v11, v9, 0x3
 
     invoke-virtual {v4, v11}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->setValue(I)V
@@ -808,10 +808,10 @@
     invoke-virtual {v3, v11}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->setValue(I)V
 
     .line 198
-    goto :goto_1
+    goto :goto_55
 
     .line 193
-    :pswitch_2
+    :pswitch_4d
     mul-int/lit8 v11, v9, 0x3
 
     add-int/lit8 v11, v11, 0x1
@@ -825,21 +825,21 @@
     .end local v6    # "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     .end local v9    # "rowIndicatorValue":I
     .end local v10    # "codewordRowNumber":I
-    :cond_1
-    :goto_1
+    :cond_55
+    :goto_55
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 205
-    :cond_2
+    :cond_58
     invoke-virtual {v1}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->getValue()[I
 
     move-result-object v5
 
     array-length v5, v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_bf
 
     .line 206
     invoke-virtual {v2}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->getValue()[I
@@ -848,7 +848,7 @@
 
     array-length v5, v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_bf
 
     .line 207
     invoke-virtual {v3}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->getValue()[I
@@ -857,7 +857,7 @@
 
     array-length v5, v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_bf
 
     .line 208
     invoke-virtual {v4}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->getValue()[I
@@ -866,7 +866,7 @@
 
     array-length v5, v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_bf
 
     .line 209
     invoke-virtual {v1}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->getValue()[I
@@ -875,7 +875,7 @@
 
     aget v5, v5, v7
 
-    if-lez v5, :cond_4
+    if-lez v5, :cond_bf
 
     .line 210
     invoke-virtual {v2}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->getValue()[I
@@ -894,7 +894,7 @@
 
     const/4 v6, 0x3
 
-    if-lt v5, v6, :cond_4
+    if-lt v5, v6, :cond_bf
 
     .line 211
     invoke-virtual {v2}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->getValue()[I
@@ -913,12 +913,12 @@
 
     const/16 v6, 0x5a
 
-    if-le v5, v6, :cond_3
+    if-le v5, v6, :cond_9e
 
-    goto :goto_2
+    goto :goto_bf
 
     .line 214
-    :cond_3
+    :cond_9e
     new-instance v5, Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;
 
     invoke-virtual {v1}, Lcom/google/zxing/pdf417/decoder/BarcodeValue;->getValue()[I
@@ -957,24 +957,24 @@
 
     .line 212
     .end local v5    # "barcodeMetadata":Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;
-    :cond_4
-    :goto_2
+    :cond_bf
+    :goto_bf
     const/4 v5, 0x0
 
     return-object v5
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c2
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4d
+        :pswitch_42
+        :pswitch_3c
     .end packed-switch
 .end method
 
 .method getRowHeights()[I
-    .locals 9
+    .registers 10
 
     .line 114
     invoke-virtual {p0}, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->getBarcodeMetadata()Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;
@@ -989,7 +989,7 @@
     .local v2, "barcodeMetadata":Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;
     move-object v2, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 116
     const/4 v0, 0x0
@@ -997,7 +997,7 @@
     return-object v0
 
     .line 118
-    :cond_0
+    :cond_b
     invoke-direct {p0, v2}, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->adjustIncompleteIndicatorColumnRowNumbers(Lcom/google/zxing/pdf417/decoder/BarcodeMetadata;)V
 
     .line 119
@@ -1019,8 +1019,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v6, v4, :cond_2
+    :goto_1b
+    if-ge v6, v4, :cond_33
 
     aget-object v7, v3, v6
 
@@ -1028,7 +1028,7 @@
     .local v1, "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     move-object v1, v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_30
 
     .line 122
     invoke-virtual {v1}, Lcom/google/zxing/pdf417/decoder/Codeword;->getRowNumber()I
@@ -1041,7 +1041,7 @@
 
     array-length v8, v0
 
-    if-ge v7, v8, :cond_1
+    if-ge v7, v8, :cond_30
 
     .line 127
     aget v7, v0, v5
@@ -1053,18 +1053,18 @@
     .line 120
     .end local v1    # "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     .end local v5    # "rowNumber":I
-    :cond_1
+    :cond_30
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 130
-    :cond_2
+    :cond_33
     return-object v0
 .end method
 
 .method isLeft()Z
-    .locals 1
+    .registers 2
 
     .line 259
     iget-boolean v0, p0, Lcom/google/zxing/pdf417/decoder/DetectionResultRowIndicatorColumn;->isLeft:Z
@@ -1073,7 +1073,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 264
     new-instance v0, Ljava/lang/StringBuilder;

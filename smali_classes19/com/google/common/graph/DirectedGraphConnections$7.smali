@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/DirectedGraphConnections;Ljava/util/Iterator;Ljava/util/concurrent/atomic/AtomicBoolean;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/graph/DirectedGraphConnections;
 
     .line 414
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method protected computeNext()Lcom/google/common/graph/EndpointPair;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -63,14 +63,14 @@
     .local p0, "this":Lcom/google/common/graph/DirectedGraphConnections$7;, "Lcom/google/common/graph/DirectedGraphConnections$7;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$7;->val$resultWithDoubleSelfLoop:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     .line 419
     iget-object v0, p0, Lcom/google/common/graph/DirectedGraphConnections$7;->val$resultWithDoubleSelfLoop:Ljava/util/Iterator;
@@ -95,7 +95,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2a
 
     .line 421
     iget-object v1, p0, Lcom/google/common/graph/DirectedGraphConnections$7;->val$alreadySeenSelfLoop:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -106,24 +106,24 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_29
 
     .line 422
     return-object v0
 
     .line 427
     .end local v0    # "edge":Lcom/google/common/graph/EndpointPair;, "Lcom/google/common/graph/EndpointPair<TN;>;"
-    :cond_0
-    goto :goto_0
+    :cond_29
+    goto :goto_1
 
     .line 425
     .restart local v0    # "edge":Lcom/google/common/graph/EndpointPair;, "Lcom/google/common/graph/EndpointPair<TN;>;"
-    :cond_1
+    :cond_2a
     return-object v0
 
     .line 428
     .end local v0    # "edge":Lcom/google/common/graph/EndpointPair;, "Lcom/google/common/graph/EndpointPair<TN;>;"
-    :cond_2
+    :cond_2b
     invoke-virtual {p0}, Lcom/google/common/graph/DirectedGraphConnections$7;->endOfData()Ljava/lang/Object;
 
     move-result-object v0
@@ -134,7 +134,7 @@
 .end method
 
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 

@@ -151,7 +151,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 25
     new-instance v0, Lcom/google/gson/GsonBuilder;
@@ -210,7 +210,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -219,7 +219,7 @@
 .end method
 
 .method static synthetic access$000()Lcom/google/gson/Gson;
-    .locals 1
+    .registers 1
 
     .line 21
     sget-object v0, Lmoe/matsuri/nb4a/SingBoxOptions;->gsonSingbox:Lcom/google/gson/Gson;

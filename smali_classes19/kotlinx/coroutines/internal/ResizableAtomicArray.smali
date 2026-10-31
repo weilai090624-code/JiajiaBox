@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initialLength"    # I
 
     .line 13
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public final currentLength()I
-    .locals 1
+    .registers 2
 
     .line 18
     iget-object v0, p0, Lkotlinx/coroutines/internal/ResizableAtomicArray;->array:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -92,7 +92,7 @@
 .end method
 
 .method public final get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -109,23 +109,23 @@
 
     move-result v1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_d
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_e
     return-object v1
 .end method
 
 .method public final setSynchronized(ILjava/lang/Object;)V
-    .locals 5
+    .registers 8
     .param p1, "index"    # I
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -145,7 +145,7 @@
 
     .line 29
     .local v1, "curLen":I
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_c
 
     .line 30
     invoke-virtual {v0, p1, p2}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->set(ILjava/lang/Object;)V
@@ -154,7 +154,7 @@
     return-void
 
     .line 34
-    :cond_0
+    :cond_c
     new-instance v2, Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     add-int/lit8 v3, p1, 0x1
@@ -172,8 +172,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_1a
+    if-ge v3, v1, :cond_26
 
     invoke-virtual {v0, v3}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->get(I)Ljava/lang/Object;
 
@@ -183,11 +183,11 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 36
     .end local v3    # "i":I
-    :cond_1
+    :cond_26
     invoke-virtual {v2, p1, p2}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->set(ILjava/lang/Object;)V
 
     .line 37

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/AbstractNetwork;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/graph/AbstractNetwork;
 
     .line 57
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public adjacentNodes(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -64,7 +64,7 @@
 .end method
 
 .method public allowsSelfLoops()Z
-    .locals 1
+    .registers 2
 
     .line 124
     .local p0, "this":Lcom/google/common/graph/AbstractNetwork$1;, "Lcom/google/common/graph/AbstractNetwork$1;"
@@ -78,7 +78,7 @@
 .end method
 
 .method public edges()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -96,7 +96,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 66
     invoke-super {p0}, Lcom/google/common/graph/AbstractGraph;->edges()Ljava/util/Set;
@@ -106,7 +106,7 @@
     return-object v0
 
     .line 70
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/graph/AbstractNetwork$1$1;
 
     invoke-direct {v0, p0}, Lcom/google/common/graph/AbstractNetwork$1$1;-><init>(Lcom/google/common/graph/AbstractNetwork$1;)V
@@ -115,7 +115,7 @@
 .end method
 
 .method public incidentEdgeOrder()Lcom/google/common/graph/ElementOrder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -134,7 +134,7 @@
 .end method
 
 .method public isDirected()Z
-    .locals 1
+    .registers 2
 
     .line 119
     .local p0, "this":Lcom/google/common/graph/AbstractNetwork$1;, "Lcom/google/common/graph/AbstractNetwork$1;"
@@ -148,7 +148,7 @@
 .end method
 
 .method public nodeOrder()Lcom/google/common/graph/ElementOrder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -169,7 +169,7 @@
 .end method
 
 .method public nodes()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -190,7 +190,7 @@
 .end method
 
 .method public bridge synthetic predecessors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/graph/AbstractNetwork$1;, "Lcom/google/common/graph/AbstractNetwork$1;"
@@ -202,7 +202,7 @@
 .end method
 
 .method public predecessors(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",
@@ -224,7 +224,7 @@
 .end method
 
 .method public bridge synthetic successors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 0
+    .registers 2
 
     .line 57
     .local p0, "this":Lcom/google/common/graph/AbstractNetwork$1;, "Lcom/google/common/graph/AbstractNetwork$1;"
@@ -236,7 +236,7 @@
 .end method
 
 .method public successors(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TN;)",

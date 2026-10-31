@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 50
     :try_start_0
@@ -43,15 +43,15 @@
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_c} :catch_d
 
     .line 55
-    goto :goto_0
+    goto :goto_1d
 
     .line 52
     .end local v0    # "nativeInstance":Ljava/lang/reflect/Field;
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 53
@@ -75,7 +75,7 @@
 
     .line 56
     .local v0, "nativeInstance":Ljava/lang/reflect/Field;
-    :goto_0
+    :goto_1d
     sput-object v0, Landroidx/core/graphics/WeightTypefaceApi14;->sNativeInstance:Ljava/lang/reflect/Field;
 
     .line 70
@@ -99,7 +99,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 153
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -109,7 +109,7 @@
 .end method
 
 .method static createWeightStyle(Landroidx/core/graphics/TypefaceCompatBaseImpl;Landroid/content/Context;Landroid/graphics/Typeface;IZ)Landroid/graphics/Typeface;
-    .locals 7
+    .registers 12
     .param p0, "compat"    # Landroidx/core/graphics/TypefaceCompatBaseImpl;
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "base"    # Landroid/graphics/Typeface;
@@ -121,7 +121,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 81
     const/4 v0, 0x0
@@ -129,7 +129,7 @@
     return-object v0
 
     .line 84
-    :cond_0
+    :cond_8
     shl-int/lit8 v0, p3, 0x1
 
     or-int/2addr v0, p4
@@ -141,7 +141,7 @@
     monitor-enter v1
 
     .line 88
-    :try_start_0
+    :try_start_e
     invoke-static {p2}, Landroidx/core/graphics/WeightTypefaceApi14;->getNativeInstance(Landroid/graphics/Typeface;)J
 
     move-result-wide v2
@@ -158,7 +158,7 @@
 
     .line 90
     .local v4, "innerCache":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/graphics/Typeface;>;"
-    if-nez v4, :cond_1
+    if-nez v4, :cond_29
 
     .line 91
     new-instance v5, Landroid/util/SparseArray;
@@ -174,10 +174,10 @@
 
     invoke-virtual {v5, v2, v3, v4}, Landroidx/collection/LongSparseArray;->put(JLjava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_33
 
     .line 94
-    :cond_1
+    :cond_29
     invoke-virtual {v4, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -186,7 +186,7 @@
 
     .line 95
     .local v5, "typeface":Landroid/graphics/Typeface;
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_33
 
     .line 96
     monitor-exit v1
@@ -195,15 +195,15 @@
 
     .line 100
     .end local v5    # "typeface":Landroid/graphics/Typeface;
-    :cond_2
-    :goto_0
+    :cond_33
+    :goto_33
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/graphics/WeightTypefaceApi14;->getBestFontFromFamily(Landroidx/core/graphics/TypefaceCompatBaseImpl;Landroid/content/Context;Landroid/graphics/Typeface;IZ)Landroid/graphics/Typeface;
 
     move-result-object v5
 
     .line 101
     .restart local v5    # "typeface":Landroid/graphics/Typeface;
-    if-nez v5, :cond_3
+    if-nez v5, :cond_3e
 
     .line 102
     invoke-static {p2, p3, p4}, Landroidx/core/graphics/WeightTypefaceApi14;->platformTypefaceCreate(Landroid/graphics/Typeface;IZ)Landroid/graphics/Typeface;
@@ -213,7 +213,7 @@
     move-object v5, v6
 
     .line 104
-    :cond_3
+    :cond_3e
     invoke-virtual {v4, v0, v5}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 105
@@ -226,18 +226,18 @@
 
     .line 105
     .end local v5    # "typeface":Landroid/graphics/Typeface;
-    :catchall_0
+    :catchall_43
     move-exception v2
 
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_45
+    .catchall {:try_start_e .. :try_end_45} :catchall_43
 
     throw v2
 .end method
 
 .method private static getBestFontFromFamily(Landroidx/core/graphics/TypefaceCompatBaseImpl;Landroid/content/Context;Landroid/graphics/Typeface;IZ)Landroid/graphics/Typeface;
-    .locals 7
+    .registers 12
     .param p0, "compat"    # Landroidx/core/graphics/TypefaceCompatBaseImpl;
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "base"    # Landroid/graphics/Typeface;
@@ -254,7 +254,7 @@
 
     .line 136
     .local v6, "family":Landroidx/core/content/res/FontResourcesParserCompat$FontFamilyFilesResourceEntry;
-    if-nez v6, :cond_0
+    if-nez v6, :cond_9
 
     .line 137
     const/4 v0, 0x0
@@ -262,7 +262,7 @@
     return-object v0
 
     .line 140
-    :cond_0
+    :cond_9
     nop
 
     .line 141
@@ -289,7 +289,7 @@
 .end method
 
 .method private static getNativeInstance(Landroid/graphics/Typeface;)J
-    .locals 3
+    .registers 4
     .param p0, "typeface"    # Landroid/graphics/Typeface;
 
     .line 146
@@ -307,14 +307,14 @@
     invoke-virtual {v0}, Ljava/lang/Number;->longValue()J
 
     move-result-wide v1
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_c} :catch_d
 
     return-wide v1
 
     .line 148
     .end local v0    # "num":Ljava/lang/Number;
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 149
@@ -327,26 +327,26 @@
 .end method
 
 .method private static isPrivateApiAvailable()Z
-    .locals 1
+    .registers 1
 
     .line 63
     sget-object v0, Landroidx/core/graphics/WeightTypefaceApi14;->sNativeInstance:Ljava/lang/reflect/Field;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method private static platformTypefaceCreate(Landroid/graphics/Typeface;IZ)Landroid/graphics/Typeface;
-    .locals 3
+    .registers 6
     .param p0, "base"    # Landroid/graphics/Typeface;
     .param p1, "weight"    # I
     .param p2, "italic"    # Z
@@ -354,55 +354,55 @@
     .line 110
     const/16 v0, 0x258
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
     .line 111
     .local v0, "isBold":Z
-    :goto_0
+    :goto_7
     const/4 v1, 0x0
 
     .line 112
     .local v1, "style":I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_e
 
     .line 114
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_17
 
     .line 115
-    :cond_1
-    if-nez v0, :cond_2
+    :cond_e
+    if-nez v0, :cond_12
 
     .line 117
     const/4 v1, 0x2
 
-    goto :goto_1
+    goto :goto_17
 
     .line 118
-    :cond_2
-    if-nez p2, :cond_3
+    :cond_12
+    if-nez p2, :cond_16
 
     .line 120
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_17
 
     .line 123
-    :cond_3
+    :cond_16
     const/4 v1, 0x3
 
     .line 125
-    :goto_1
+    :goto_17
     invoke-static {p0, v1}, Landroid/graphics/Typeface;->create(Landroid/graphics/Typeface;I)Landroid/graphics/Typeface;
 
     move-result-object v2

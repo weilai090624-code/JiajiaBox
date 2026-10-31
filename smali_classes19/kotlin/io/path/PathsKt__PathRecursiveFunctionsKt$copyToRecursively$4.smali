@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>(Z)V
-    .locals 1
+    .registers 3
 
     iput-boolean p1, p0, Lkotlin/io/path/PathsKt__PathRecursiveFunctionsKt$copyToRecursively$4;->$followLinks:Z
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
     .param p3, "p3"    # Ljava/lang/Object;
@@ -97,7 +97,7 @@
 .end method
 
 .method public final invoke(Lkotlin/io/path/CopyActionContext;Ljava/nio/file/Path;Ljava/nio/file/Path;)Lkotlin/io/path/CopyActionResult;
-    .locals 1
+    .registers 5
     .param p1, "$this$null"    # Lkotlin/io/path/CopyActionContext;
     .param p2, "src"    # Ljava/nio/file/Path;
     .param p3, "dst"    # Ljava/nio/file/Path;

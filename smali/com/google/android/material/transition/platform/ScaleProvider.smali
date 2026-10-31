@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 52
     const/4 v0, 0x1
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .locals 2
+    .registers 4
     .param p1, "growing"    # Z
 
     .line 55
@@ -71,7 +71,7 @@
 .end method
 
 .method private static createScaleAnimator(Landroid/view/View;FF)Landroid/animation/Animator;
-    .locals 10
+    .registers 13
     .param p0, "view"    # Landroid/view/View;
     .param p1, "startScale"    # F
     .param p2, "endScale"    # F
@@ -155,14 +155,14 @@
 
 # virtual methods
 .method public createAppear(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/animation/Animator;
-    .locals 2
+    .registers 5
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
 
     .line 155
     iget-boolean v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->growing:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 156
     iget v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->incomingStartScale:F
@@ -176,7 +176,7 @@
     return-object v0
 
     .line 158
-    :cond_0
+    :cond_d
     iget v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->outgoingEndScale:F
 
     iget v1, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->outgoingStartScale:F
@@ -189,14 +189,14 @@
 .end method
 
 .method public createDisappear(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/animation/Animator;
-    .locals 2
+    .registers 5
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
 
     .line 165
     iget-boolean v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->scaleOnDisappear:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 166
     const/4 v0, 0x0
@@ -204,10 +204,10 @@
     return-object v0
 
     .line 169
-    :cond_0
+    :cond_6
     iget-boolean v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->growing:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 170
     iget v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->outgoingStartScale:F
@@ -221,7 +221,7 @@
     return-object v0
 
     .line 172
-    :cond_1
+    :cond_13
     iget v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->incomingEndScale:F
 
     iget v1, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->incomingStartScale:F
@@ -234,7 +234,7 @@
 .end method
 
 .method public getIncomingEndScale()F
-    .locals 1
+    .registers 2
 
     .line 141
     iget v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->incomingEndScale:F
@@ -243,7 +243,7 @@
 .end method
 
 .method public getIncomingStartScale()F
-    .locals 1
+    .registers 2
 
     .line 125
     iget v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->incomingStartScale:F
@@ -252,7 +252,7 @@
 .end method
 
 .method public getOutgoingEndScale()F
-    .locals 1
+    .registers 2
 
     .line 109
     iget v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->outgoingEndScale:F
@@ -261,7 +261,7 @@
 .end method
 
 .method public getOutgoingStartScale()F
-    .locals 1
+    .registers 2
 
     .line 93
     iget v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->outgoingStartScale:F
@@ -270,7 +270,7 @@
 .end method
 
 .method public isGrowing()Z
-    .locals 1
+    .registers 2
 
     .line 61
     iget-boolean v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->growing:Z
@@ -279,7 +279,7 @@
 .end method
 
 .method public isScaleOnDisappear()Z
-    .locals 1
+    .registers 2
 
     .line 75
     iget-boolean v0, p0, Lcom/google/android/material/transition/platform/ScaleProvider;->scaleOnDisappear:Z
@@ -288,7 +288,7 @@
 .end method
 
 .method public setGrowing(Z)V
-    .locals 0
+    .registers 2
     .param p1, "growing"    # Z
 
     .line 66
@@ -299,7 +299,7 @@
 .end method
 
 .method public setIncomingEndScale(F)V
-    .locals 0
+    .registers 2
     .param p1, "incomingEndScale"    # F
 
     .line 149
@@ -310,7 +310,7 @@
 .end method
 
 .method public setIncomingStartScale(F)V
-    .locals 0
+    .registers 2
     .param p1, "incomingStartScale"    # F
 
     .line 133
@@ -321,7 +321,7 @@
 .end method
 
 .method public setOutgoingEndScale(F)V
-    .locals 0
+    .registers 2
     .param p1, "outgoingEndScale"    # F
 
     .line 117
@@ -332,7 +332,7 @@
 .end method
 
 .method public setOutgoingStartScale(F)V
-    .locals 0
+    .registers 2
     .param p1, "outgoingStartScale"    # F
 
     .line 101
@@ -343,7 +343,7 @@
 .end method
 
 .method public setScaleOnDisappear(Z)V
-    .locals 0
+    .registers 2
     .param p1, "scaleOnDisappear"    # Z
 
     .line 85

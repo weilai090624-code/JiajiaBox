@@ -70,7 +70,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;J)V
-    .locals 0
+    .registers 4
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "duration"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -91,7 +91,7 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/Object;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     invoke-direct {p0, p1, p2, p3}, Lkotlin/time/TimedValue;-><init>(Ljava/lang/Object;J)V
 
@@ -99,22 +99,22 @@
 .end method
 
 .method public static synthetic copy-RFiDyg4$default(Lkotlin/time/TimedValue;Ljava/lang/Object;JILjava/lang/Object;)Lkotlin/time/TimedValue;
-    .locals 0
+    .registers 6
 
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     iget-object p1, p0, Lkotlin/time/TimedValue;->value:Ljava/lang/Object;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     iget-wide p2, p0, Lkotlin/time/TimedValue;->duration:J
 
-    :cond_1
+    :cond_c
     invoke-virtual {p0, p1, p2, p3}, Lkotlin/time/TimedValue;->copy-RFiDyg4(Ljava/lang/Object;J)Lkotlin/time/TimedValue;
 
     move-result-object p0
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -138,7 +138,7 @@
 .end method
 
 .method public final component2-UwyO8pc()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lkotlin/time/TimedValue;->duration:J
 
@@ -146,7 +146,7 @@
 .end method
 
 .method public final copy-RFiDyg4(Ljava/lang/Object;J)Lkotlin/time/TimedValue;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;J)",
@@ -165,24 +165,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lkotlin/time/TimedValue;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lkotlin/time/TimedValue;
@@ -195,11 +195,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-wide v3, p0, Lkotlin/time/TimedValue;->duration:J
 
     iget-wide v5, v1, Lkotlin/time/TimedValue;->duration:J
@@ -208,16 +208,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_23
 
     return v2
 
-    :cond_3
+    :cond_23
     return v0
 .end method
 
 .method public final getDuration-UwyO8pc()J
-    .locals 2
+    .registers 3
 
     .line 68
     iget-wide v0, p0, Lkotlin/time/TimedValue;->duration:J
@@ -226,7 +226,7 @@
 .end method
 
 .method public final getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -240,24 +240,24 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-object v0, p0, Lkotlin/time/TimedValue;->value:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lkotlin/time/TimedValue;->value:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_c
     mul-int/lit8 v1, v0, 0x1f
 
     iget-wide v2, p0, Lkotlin/time/TimedValue;->duration:J
@@ -272,7 +272,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     new-instance v0, Ljava/lang/StringBuilder;
 

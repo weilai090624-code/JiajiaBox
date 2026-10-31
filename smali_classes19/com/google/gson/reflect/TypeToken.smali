@@ -31,7 +31,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 61
     .local p0, "this":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
@@ -71,7 +71,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/reflect/Type;)V
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/reflect/Type;
 
     .line 71
@@ -114,7 +114,7 @@
 .end method
 
 .method private static varargs buildUnexpectedTypeError(Ljava/lang/reflect/Type;[Ljava/lang/Class;)Ljava/lang/AssertionError;
-    .locals 6
+    .registers 8
     .param p0, "token"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -141,8 +141,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_9
+    if-ge v2, v1, :cond_1d
 
     aget-object v3, p1, v2
 
@@ -164,10 +164,10 @@
     .end local v3    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 262
-    :cond_0
+    :cond_1d
     const-string v1, "but got: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -218,7 +218,7 @@
 .end method
 
 .method public static get(Ljava/lang/Class;)Lcom/google/gson/reflect/TypeToken;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -241,7 +241,7 @@
 .end method
 
 .method public static get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
-    .locals 1
+    .registers 2
     .param p0, "type"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -262,7 +262,7 @@
 .end method
 
 .method public static getArray(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
-    .locals 2
+    .registers 3
     .param p0, "componentType"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -287,7 +287,7 @@
 .end method
 
 .method public static varargs getParameterized(Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
-    .locals 2
+    .registers 4
     .param p0, "rawType"    # Ljava/lang/reflect/Type;
     .param p1, "typeArguments"    # [Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
@@ -317,7 +317,7 @@
 .end method
 
 .method static getSuperclassTypeParameter(Ljava/lang/Class;)Ljava/lang/reflect/Type;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -337,7 +337,7 @@
     .local v0, "superclass":Ljava/lang/reflect/Type;
     instance-of v1, v0, Ljava/lang/Class;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 86
     move-object v1, v0
@@ -362,7 +362,7 @@
 
     .line 84
     .end local v1    # "parameterized":Ljava/lang/reflect/ParameterizedType;
-    :cond_0
+    :cond_17
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Missing type parameter."
@@ -373,7 +373,7 @@
 .end method
 
 .method private static isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/GenericArrayType;)Z
-    .locals 4
+    .registers 6
     .param p0, "from"    # Ljava/lang/reflect/Type;
     .param p1, "to"    # Ljava/lang/reflect/GenericArrayType;
 
@@ -386,7 +386,7 @@
     .local v0, "toGenericComponentType":Ljava/lang/reflect/Type;
     instance-of v1, v0, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_35
 
     .line 163
     move-object v1, p0
@@ -395,7 +395,7 @@
     .local v1, "t":Ljava/lang/reflect/Type;
     instance-of v2, p0, Ljava/lang/reflect/GenericArrayType;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     .line 165
     move-object v2, p0
@@ -406,13 +406,13 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_28
 
     .line 166
-    :cond_0
+    :cond_15
     instance-of v2, p0, Ljava/lang/Class;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_28
 
     .line 167
     move-object v2, p0
@@ -421,28 +421,28 @@
 
     .line 168
     .local v2, "classType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :goto_0
+    :goto_1c
     invoke-virtual {v2}, Ljava/lang/Class;->isArray()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
     .line 169
     invoke-virtual {v2}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 171
-    :cond_1
+    :cond_27
     move-object v1, v2
 
     .line 173
     .end local v2    # "classType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_2
-    :goto_1
+    :cond_28
+    :goto_28
     move-object v2, v0
 
     check-cast v2, Ljava/lang/reflect/ParameterizedType;
@@ -459,14 +459,14 @@
 
     .line 178
     .end local v1    # "t":Ljava/lang/reflect/Type;
-    :cond_3
+    :cond_35
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method private static isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z
-    .locals 11
+    .registers 14
     .param p0, "from"    # Ljava/lang/reflect/Type;
     .param p1, "to"    # Ljava/lang/reflect/ParameterizedType;
     .annotation system Ldalvik/annotation/Signature;
@@ -485,26 +485,26 @@
     .local p2, "typeVarMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/reflect/Type;>;"
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 189
     return v0
 
     .line 192
-    :cond_0
+    :cond_4
     invoke-virtual {p1, p0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_c
 
     .line 193
     return v2
 
     .line 197
-    :cond_1
+    :cond_c
     invoke-static {p0}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
     move-result-object v1
@@ -517,7 +517,7 @@
     .local v3, "ptype":Ljava/lang/reflect/ParameterizedType;
     instance-of v4, p0, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_18
 
     .line 200
     move-object v3, p0
@@ -525,8 +525,8 @@
     check-cast v3, Ljava/lang/reflect/ParameterizedType;
 
     .line 204
-    :cond_2
-    if-eqz v3, :cond_5
+    :cond_18
+    if-eqz v3, :cond_4e
 
     .line 205
     invoke-interface {v3}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
@@ -544,10 +544,10 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_0
+    :goto_23
     array-length v7, v4
 
-    if-ge v6, v7, :cond_4
+    if-ge v6, v7, :cond_47
 
     .line 208
     aget-object v7, v4, v6
@@ -558,10 +558,10 @@
 
     .line 210
     .local v8, "var":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
-    :goto_1
+    :goto_2a
     instance-of v9, v7, Ljava/lang/reflect/TypeVariable;
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_3d
 
     .line 211
     move-object v9, v7
@@ -584,10 +584,10 @@
 
     .line 213
     .end local v9    # "v":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
-    goto :goto_1
+    goto :goto_2a
 
     .line 214
-    :cond_3
+    :cond_3d
     invoke-interface {v8}, Ljava/lang/reflect/TypeVariable;->getName()Ljava/lang/String;
 
     move-result-object v9
@@ -599,16 +599,16 @@
     .end local v8    # "var":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 218
     .end local v6    # "i":I
-    :cond_4
+    :cond_47
     invoke-static {v3, p1, p2}, Lcom/google/gson/reflect/TypeToken;->typeEquals(Ljava/lang/reflect/ParameterizedType;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_4e
 
     .line 219
     return v2
@@ -616,15 +616,15 @@
     .line 223
     .end local v4    # "tArgs":[Ljava/lang/reflect/Type;
     .end local v5    # "tParams":[Ljava/lang/reflect/TypeVariable;, "[Ljava/lang/reflect/TypeVariable<*>;"
-    :cond_5
+    :cond_4e
     invoke-virtual {v1}, Ljava/lang/Class;->getGenericInterfaces()[Ljava/lang/reflect/Type;
 
     move-result-object v4
 
     array-length v5, v4
 
-    :goto_2
-    if-ge v0, v5, :cond_7
+    :goto_53
+    if-ge v0, v5, :cond_66
 
     aget-object v6, v4, v0
 
@@ -638,20 +638,20 @@
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_63
 
     .line 225
     return v2
 
     .line 223
     .end local v6    # "itype":Ljava/lang/reflect/Type;
-    :cond_6
+    :cond_63
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_53
 
     .line 230
-    :cond_7
+    :cond_66
     invoke-virtual {v1}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;
 
     move-result-object v0
@@ -670,7 +670,7 @@
 .end method
 
 .method private static matches(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;Ljava/util/Map;)Z
-    .locals 1
+    .registers 4
     .param p0, "from"    # Ljava/lang/reflect/Type;
     .param p1, "to"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
@@ -691,11 +691,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     instance-of v0, p0, Ljava/lang/reflect/TypeVariable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     move-object v0, p0
 
@@ -714,26 +714,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     const/4 v0, 0x1
 
     .line 273
-    :goto_1
+    :goto_1f
     return v0
 .end method
 
 .method private static typeEquals(Ljava/lang/reflect/ParameterizedType;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z
-    .locals 6
+    .registers 9
     .param p0, "from"    # Ljava/lang/reflect/ParameterizedType;
     .param p1, "to"    # Ljava/lang/reflect/ParameterizedType;
     .annotation system Ldalvik/annotation/Signature;
@@ -764,7 +764,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     .line 241
     invoke-interface {p0}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
@@ -782,10 +782,10 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_18
     array-length v4, v0
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_29
 
     .line 244
     aget-object v4, v0, v3
@@ -796,20 +796,20 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_26
 
     .line 245
     return v1
 
     .line 243
-    :cond_0
+    :cond_26
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 248
     .end local v3    # "i":I
-    :cond_1
+    :cond_29
     const/4 v1, 0x1
 
     return v1
@@ -817,21 +817,21 @@
     .line 250
     .end local v0    # "fromArgs":[Ljava/lang/reflect/Type;
     .end local v2    # "toArgs":[Ljava/lang/reflect/Type;
-    :cond_2
+    :cond_2b
     return v1
 .end method
 
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 284
     .local p0, "this":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
     instance-of v0, p1, Lcom/google/gson/reflect/TypeToken;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
@@ -846,22 +846,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     .line 284
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public final getRawType()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -878,7 +878,7 @@
 .end method
 
 .method public final getType()Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 101
     .local p0, "this":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
@@ -888,7 +888,7 @@
 .end method
 
 .method public final hashCode()I
-    .locals 1
+    .registers 2
 
     .line 280
     .local p0, "this":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
@@ -898,7 +898,7 @@
 .end method
 
 .method public isAssignableFrom(Lcom/google/gson/reflect/TypeToken;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -925,7 +925,7 @@
 .end method
 
 .method public isAssignableFrom(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -948,7 +948,7 @@
 .end method
 
 .method public isAssignableFrom(Ljava/lang/reflect/Type;)Z
-    .locals 5
+    .registers 7
     .param p1, "from"    # Ljava/lang/reflect/Type;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -957,13 +957,13 @@
     .local p0, "this":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 124
     return v0
 
     .line 127
-    :cond_0
+    :cond_4
     iget-object v1, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
     invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -972,18 +972,18 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_e
 
     .line 128
     return v2
 
     .line 131
-    :cond_1
+    :cond_e
     iget-object v1, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
     instance-of v1, v1, Ljava/lang/Class;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1f
 
     .line 132
     iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;
@@ -999,12 +999,12 @@
     return v0
 
     .line 133
-    :cond_2
+    :cond_1f
     iget-object v1, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
     instance-of v1, v1, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_33
 
     .line 134
     iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
@@ -1022,12 +1022,12 @@
     return v0
 
     .line 136
-    :cond_3
+    :cond_33
     iget-object v1, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
     instance-of v1, v1, Ljava/lang/reflect/GenericArrayType;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_53
 
     .line 137
     iget-object v1, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;
@@ -1040,7 +1040,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_51
 
     iget-object v1, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
@@ -1051,21 +1051,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_51
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_52
 
-    :cond_4
+    :cond_51
     nop
 
     .line 137
-    :goto_0
+    :goto_52
     return v0
 
     .line 140
-    :cond_5
+    :cond_53
     iget-object v1, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
     const/4 v3, 0x3
@@ -1094,7 +1094,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 289
     .local p0, "this":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"

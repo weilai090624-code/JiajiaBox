@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 41
     const-string v0, "InputMerger"
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public static fromClassName(Ljava/lang/String;)Landroidx/work/InputMerger;
-    .locals 5
+    .registers 6
     .param p0, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -67,14 +67,14 @@
     move-result-object v1
 
     check-cast v1, Landroidx/work/InputMerger;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_13} :catch_14
 
     return-object v1
 
     .line 66
     .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 67

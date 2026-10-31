@@ -23,7 +23,7 @@
 .method static constructor <clinit>()V
     .registers 1
 
-    .line 32
+    .line 46
     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
@@ -38,7 +38,7 @@
 
     const/4 v0, 0x0
 
-    .line 38
+    .line 52
     invoke-direct {p0, p1, v0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;-><init>(Landroid/content/Context;Z)V
 
     return-void
@@ -47,10 +47,10 @@
 .method public constructor <init>(Landroid/content/Context;Z)V
     .registers 10
 
-    .line 42
+    .line 56
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 35
+    .line 49
     new-instance v0, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -61,12 +61,12 @@
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->main:Landroid/os/Handler;
 
-    .line 43
+    .line 57
     iput-boolean p2, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->telegram:Z
 
     if-eqz p2, :cond_15
 
-    .line 44
+    .line 58
     const-string v0, "\u4f73\u5609 \u00b7 Telegram \u7edf\u4e00\u5206\u6d41"
 
     goto :goto_17
@@ -79,7 +79,7 @@
 
     if-eqz p2, :cond_1e
 
-    .line 45
+    .line 59
     const-string v0, "Telegram\u5206\u6d41"
 
     goto :goto_20
@@ -92,7 +92,7 @@
 
     if-eqz p2, :cond_29
 
-    .line 46
+    .line 60
     invoke-static {}, Lio/nekohasekai/sagernet/ui/TelegramRouting;->domains()Ljava/lang/String;
 
     move-result-object v0
@@ -109,25 +109,25 @@
 
     const v0, 0x7f0a0169
 
-    .line 47
+    .line 61
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setId(I)V
 
     const/4 v0, 0x1
 
-    .line 48
+    .line 62
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setOrientation(I)V
 
     const/16 v1, 0x11
 
-    .line 49
+    .line 63
     invoke-virtual {p0, v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setGravity(I)V
 
     const v1, 0x7f08008d
 
-    .line 50
+    .line 64
     invoke-virtual {p0, v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setBackgroundResource(I)V
 
-    .line 51
+    .line 65
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -146,118 +146,120 @@
 
     move-result v1
 
-    .line 52
+    .line 66
     invoke-virtual {p0, v1, v1, v1, v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setPadding(IIII)V
 
     const/16 v1, 0x10
 
-    .line 53
+    .line 67
     invoke-virtual {p0, v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setGravity(I)V
 
-    .line 54
-    new-instance v3, Landroid/widget/LinearLayout;
+    .line 68
+    new-instance v2, Landroid/widget/LinearLayout;
 
-    invoke-direct {v3, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v3, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {v2, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 55
+    .line 69
     new-instance v1, Landroid/widget/TextView;
 
     invoke-direct {v1, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     if-eqz p2, :cond_70
 
-    const-string v4, "Telegram"
+    const-string v3, "Telegram"
 
     goto :goto_72
 
     :cond_70
-    const-string v4, "AI \u5206\u6d41"
+    const-string v3, "AI \u5206\u6d41"
 
     :goto_72
-    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextSize(F)V
+    const/high16 v3, 0x41700000    # 15.0f
 
-    const-string v2, "sans-serif-medium"
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setTextSize(F)V
+
+    const-string v3, "sans-serif-medium"
 
     const/4 v4, 0x0
 
-    invoke-static {v2, v4}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+    invoke-static {v3, v4}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setSingleLine(Z)V
 
-    sget-object v2, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
+    sget-object v3, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V
 
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->text(Landroid/widget/TextView;)V
 
-    .line 56
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
+    .line 70
+    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
     const/high16 v5, 0x3f800000    # 1.0f
 
     const/4 v6, -0x2
 
-    invoke-direct {v2, v4, v6, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+    invoke-direct {v3, v4, v6, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    invoke-virtual {v3, v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v2, v1, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 57
+    .line 71
     new-instance v1, Landroid/widget/TextView;
 
     invoke-direct {v1, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    const-string v2, "\u2197"
+    const-string v3, "\u2197"
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const/high16 v2, 0x41880000    # 17.0f
+    const/high16 v3, 0x41880000    # 17.0f
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setTextSize(F)V
 
     invoke-static {v1}, Lio/nekohasekai/sagernet/ui/UiComponents;->secondary(Landroid/widget/TextView;)V
 
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
+    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {v2, v6, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v3, v6, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v3, v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v2, v1, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/4 v2, -0x1
+    const/4 v3, -0x1
 
-    invoke-direct {v1, v2, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v1, v3, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {p0, v3, v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {p0, v2, v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 58
+    .line 72
     new-instance v1, Landroid/widget/TextView;
 
     invoke-direct {v1, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    if-eqz p2, :cond_c8
+    if-eqz p2, :cond_ca
 
     const-string p2, "\u6d88\u606f\u4e0e\u901a\u8bdd\u5206\u6d41"
 
-    goto :goto_ca
+    goto :goto_cc
 
-    :cond_c8
+    :cond_ca
     const-string p2, "\u4e3a AI \u72ec\u7acb\u9009\u62e9\u8282\u70b9"
 
-    :goto_ca
+    :goto_cc
     invoke-virtual {v1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const/high16 p2, 0x41200000    # 10.0f
+    const/high16 p2, 0x41300000    # 11.0f
 
     invoke-virtual {v1, p2}, Landroid/widget/TextView;->setTextSize(F)V
 
@@ -273,9 +275,9 @@
 
     new-instance p2, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {p2, v2, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {p2, v3, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    const/high16 v2, 0x41100000    # 9.0f
+    const/high16 v2, 0x41000000    # 8.0f
 
     invoke-static {p1, v2}, Lio/nekohasekai/sagernet/ui/UiComponents;->dp(Landroid/content/Context;F)I
 
@@ -285,20 +287,20 @@
 
     invoke-virtual {p0, v1, p2}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 59
+    .line 73
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setClickable(Z)V
 
-    .line 60
+    .line 74
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setFocusable(Z)V
 
-    .line 61
+    .line 75
     new-instance p1, Lio/nekohasekai/sagernet/ui/AiRoutingCard$9;
 
     invoke-direct {p1, p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard$9;-><init>(Lio/nekohasekai/sagernet/ui/AiRoutingCard;)V
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 62
+    .line 76
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->refresh()V
 
     return-void
@@ -307,7 +309,7 @@
 .method private addText(Ljava/lang/String;IZ)Landroid/widget/TextView;
     .registers 6
 
-    .line 66
+    .line 80
     new-instance v0, Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->getContext()Landroid/content/Context;
@@ -325,16 +327,16 @@
     :cond_f
     const v1, 0x7f0a016a
 
-    .line 67
+    .line 81
     :goto_12
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setId(I)V
 
-    .line 68
+    .line 82
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     int-to-float p1, p2
 
-    .line 69
+    .line 83
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTextSize(F)V
 
     if-eqz p3, :cond_22
@@ -346,23 +348,23 @@
     :cond_22
     const p1, -0x75756e
 
-    .line 70
+    .line 84
     :goto_25
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTextColor(I)V
 
     const/16 p1, 0x11
 
-    .line 71
+    .line 85
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setGravity(I)V
 
     const/4 p1, 0x0
 
     const/4 p2, 0x5
 
-    .line 72
+    .line 86
     invoke-virtual {v0, p1, p2, p1, p2}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 73
+    .line 87
     new-instance p1, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 p2, -0x1
@@ -398,7 +400,7 @@
         }
     .end annotation
 
-    .line 83
+    .line 97
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -407,7 +409,7 @@
 
     move-result-object p1
 
-    .line 84
+    .line 98
     invoke-virtual {p1, p0, p3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
@@ -418,7 +420,7 @@
 .method private choose()V
     .registers 3
 
-    .line 130
+    .line 144
     sget-object v0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->WORKER:Ljava/util/concurrent/ExecutorService;
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/AiRoutingCard$10;
@@ -438,7 +440,7 @@
         }
     .end annotation
 
-    .line 78
+    .line 92
     const-string v0, "io.nekohasekai.sagernet.database.SagerDatabase"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -457,7 +459,7 @@
 
     move-result-object v0
 
-    .line 79
+    .line 93
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -480,7 +482,7 @@
 .method static synthetic lambda$showNodeDialog$9(Landroid/app/Dialog;Landroid/view/View;)V
     .registers 2
 
-    .line 272
+    .line 286
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
     return-void
@@ -489,7 +491,7 @@
 .method private refresh()V
     .registers 3
 
-    .line 109
+    .line 123
     sget-object v0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->WORKER:Ljava/util/concurrent/ExecutorService;
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/AiRoutingCard$8;
@@ -511,7 +513,7 @@
 
     const/4 v0, 0x0
 
-    .line 88
+    .line 102
     new-array v1, v0, [Ljava/lang/Class;
 
     new-array v2, v0, [Ljava/lang/Object;
@@ -539,7 +541,7 @@
 
     move-result-object v1
 
-    .line 89
+    .line 103
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->RULE_NAME:Ljava/lang/String;
 
     new-array v3, v0, [Ljava/lang/Class;
@@ -569,7 +571,7 @@
 .method private save(J)V
     .registers 5
 
-    .line 156
+    .line 170
     sget-object v0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->WORKER:Ljava/util/concurrent/ExecutorService;
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/AiRoutingCard$5;
@@ -603,13 +605,13 @@
 
     const/4 v3, 0x1
 
-    .line 195
+    .line 209
     :try_start_7
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->getContext()Landroid/content/Context;
 
     move-result-object v4
 
-    .line 196
+    .line 210
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
@@ -620,12 +622,12 @@
 
     iget v5, v5, Landroid/util/DisplayMetrics;->density:F
 
-    .line 197
-    new-instance v6, Landroid/app/Dialog;
+    .line 211
+    new-instance v6, Lio/nekohasekai/sagernet/ui/MorphDialog;
 
-    invoke-direct {v6, v4}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
+    invoke-direct {v6, v4, v1}, Lio/nekohasekai/sagernet/ui/MorphDialog;-><init>(Landroid/content/Context;Landroid/view/View;)V
 
-    .line 198
+    .line 212
     const-string v7, "io.nekohasekai.sagernet.ui.JJGlassCapsule"
 
     invoke-static {v7}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -640,7 +642,7 @@
 
     aput-object v9, v8, v10
 
-    .line 199
+    .line 213
     invoke-virtual {v7, v8}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v7
@@ -655,7 +657,7 @@
 
     check-cast v7, Landroid/view/ViewGroup;
 
-    .line 200
+    .line 214
     const-string v8, "setCornerRadiusDp"
 
     new-array v9, v3, [Ljava/lang/Class;
@@ -676,7 +678,7 @@
 
     invoke-static {v7, v8, v9, v13}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 201
+    .line 215
     const-string v8, "setFrostVeil"
 
     new-array v9, v3, [Ljava/lang/Class;
@@ -697,7 +699,7 @@
 
     invoke-static {v7, v8, v9, v13}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 202
+    .line 216
     const-string v8, "setFrostVeilColor"
 
     new-array v9, v3, [Ljava/lang/Class;
@@ -716,85 +718,85 @@
 
     invoke-static {v7, v8, v9, v13}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 203
+    .line 217
     new-instance v8, Landroid/widget/LinearLayout;
 
     invoke-direct {v8, v4}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 204
+    .line 218
     invoke-virtual {v8, v3}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     mul-float v11, v11, v5
 
-    .line 205
+    .line 219
     invoke-static {v11}, Ljava/lang/Math;->round(F)I
 
     move-result v9
 
-    .line 206
+    .line 220
     invoke-virtual {v8, v9, v9, v9, v9}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 207
+    .line 221
     new-instance v9, Landroid/widget/TextView;
 
     invoke-direct {v9, v4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 208
+    .line 222
     iget-object v11, v1, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->title:Ljava/lang/String;
 
     invoke-virtual {v9, v11}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/4 v11, -0x1
 
-    .line 209
+    .line 223
     invoke-virtual {v9, v11}, Landroid/widget/TextView;->setTextColor(I)V
 
     const/high16 v12, 0x41900000    # 18.0f
 
-    .line 210
+    .line 224
     invoke-virtual {v9, v12}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 211
+    .line 225
     sget-object v12, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v9, v12}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 212
+    .line 226
     invoke-virtual {v8, v9}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 213
+    .line 227
     new-instance v9, Landroid/widget/EditText;
 
     invoke-direct {v9, v4}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
 
-    .line 214
+    .line 228
     invoke-virtual {v9, v3}, Landroid/widget/EditText;->setSingleLine(Z)V
 
-    .line 215
+    .line 229
     invoke-virtual {v9, v11}, Landroid/widget/EditText;->setTextColor(I)V
 
     const v12, -0x474740
 
-    .line 216
+    .line 230
     invoke-virtual {v9, v12}, Landroid/widget/EditText;->setHintTextColor(I)V
 
-    .line 217
+    .line 231
     const-string v13, "\u641c\u7d22\u8282\u70b9\u540d\u79f0"
 
     invoke-virtual {v9, v13}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
-    .line 218
+    .line 232
     invoke-virtual {v8, v9}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 219
+    .line 233
     new-instance v13, Landroid/widget/TextView;
 
     invoke-direct {v13, v4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 220
+    .line 234
     invoke-virtual {v13, v12}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 221
+    .line 235
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
@@ -817,25 +819,25 @@
 
     invoke-virtual {v13, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 222
+    .line 236
     invoke-virtual {v8, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 223
+    .line 237
     new-instance v2, Landroid/widget/LinearLayout;
 
     invoke-direct {v2, v4}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 224
+    .line 238
     invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 225
+    .line 239
     new-instance v12, Ljava/util/ArrayList;
 
     invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
 
     const/4 v14, 0x0
 
-    .line 226
+    .line 240
     :goto_ea
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -851,7 +853,7 @@
 
     move-object/from16 v15, p1
 
-    .line 227
+    .line 241
     :try_start_f6
     invoke-interface {v15, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -863,12 +865,12 @@
 
     move-result-wide v10
 
-    .line 228
+    .line 242
     new-instance v3, Landroid/widget/TextView;
 
     invoke-direct {v3, v4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 229
+    .line 243
     invoke-interface {v0, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v20
@@ -881,7 +883,7 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 230
+    .line 244
     invoke-interface {v0, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -900,22 +902,22 @@
 
     const v5, -0xf0f0d
 
-    .line 231
+    .line 245
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setTextColor(I)V
 
     const/high16 v5, 0x41700000    # 15.0f
 
-    .line 232
+    .line 246
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setTextSize(F)V
 
     const/16 v5, 0x10
 
-    .line 233
+    .line 247
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setGravity(I)V
 
     mul-float v5, v21, v16
 
-    .line 234
+    .line 248
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
 
     move-result v14
@@ -942,30 +944,30 @@
 
     mul-float v7, v7, v21
 
-    .line 235
+    .line 249
     invoke-static {v7}, Ljava/lang/Math;->round(F)I
 
     move-result v7
 
     invoke-virtual {v3, v7}, Landroid/widget/TextView;->setMinHeight(I)V
 
-    .line 236
+    .line 250
     new-instance v7, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v7}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
     const/high16 v9, 0x20000000
 
-    .line 237
+    .line 251
     invoke-virtual {v7, v9}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 238
+    .line 252
     invoke-virtual {v7, v5}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 239
+    .line 253
     invoke-virtual {v3, v7}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 240
+    .line 254
     new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v7, -0x2
@@ -978,20 +980,20 @@
 
     mul-float v7, v7, v21
 
-    .line 241
+    .line 255
     invoke-static {v7}, Ljava/lang/Math;->round(F)I
 
     move-result v7
 
     iput v7, v5, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
-    .line 242
+    .line 256
     invoke-virtual {v2, v3, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 243
+    .line 257
     invoke-interface {v12, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 244
+    .line 258
     new-instance v5, Lio/nekohasekai/sagernet/ui/AiRoutingCard$3;
 
     invoke-direct {v5, v1, v10, v11, v6}, Lio/nekohasekai/sagernet/ui/AiRoutingCard$3;-><init>(Lio/nekohasekai/sagernet/ui/AiRoutingCard;JLandroid/app/Dialog;)V
@@ -1021,15 +1023,15 @@
 
     move-object/from16 v23, v9
 
-    .line 246
+    .line 260
     new-instance v3, Landroid/widget/ScrollView;
 
     invoke-direct {v3, v4}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
-    .line 247
+    .line 261
     invoke-virtual {v3, v2}, Landroid/widget/ScrollView;->addView(Landroid/view/View;)V
 
-    .line 248
+    .line 262
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v2
@@ -1066,7 +1068,7 @@
 
     move-result v2
 
-    .line 249
+    .line 263
     new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v9, -0x1
@@ -1075,7 +1077,7 @@
 
     invoke-virtual {v8, v3, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 250
+    .line 264
     new-instance v2, Lio/nekohasekai/sagernet/ui/AiRoutingCard$1;
 
     invoke-direct {v2, v1, v12, v0, v13}, Lio/nekohasekai/sagernet/ui/AiRoutingCard$1;-><init>(Lio/nekohasekai/sagernet/ui/AiRoutingCard;Ljava/util/List;Ljava/util/List;Landroid/widget/TextView;)V
@@ -1084,41 +1086,41 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 264
+    .line 278
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, v4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 265
+    .line 279
     const-string v2, "\u53d6\u6d88"
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/high16 v5, 0x41700000    # 15.0f
 
-    .line 266
+    .line 280
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextSize(F)V
 
     const v2, -0x3d3d35
 
-    .line 267
+    .line 281
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
     const/16 v2, 0x11
 
-    .line 268
+    .line 282
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setGravity(I)V
 
     const/4 v2, 0x0
 
-    .line 269
+    .line 283
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V
 
     const/high16 v3, 0x41800000    # 16.0f
 
     mul-float v5, v21, v3
 
-    .line 270
+    .line 284
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
 
     move-result v3
@@ -1133,21 +1135,21 @@
 
     mul-float v5, v21, v2
 
-    .line 271
+    .line 285
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
 
     move-result v2
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setMinWidth(I)V
 
-    .line 272
+    .line 286
     new-instance v2, Lio/nekohasekai/sagernet/ui/AiRoutingCard$4;
 
     invoke-direct {v2, v6}, Lio/nekohasekai/sagernet/ui/AiRoutingCard$4;-><init>(Landroid/app/Dialog;)V
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 273
+    .line 287
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
     const/high16 v3, 0x42300000    # 44.0f
@@ -1164,22 +1166,22 @@
 
     const v3, 0x800005
 
-    .line 274
+    .line 288
     iput v3, v2, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
     mul-float v5, v21, v16
 
-    .line 275
+    .line 289
     invoke-static {v5}, Ljava/lang/Math;->round(F)I
 
     move-result v3
 
     iput v3, v2, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
-    .line 276
+    .line 290
     invoke-virtual {v8, v0, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 277
+    .line 291
     new-instance v0, Landroid/view/ViewGroup$LayoutParams;
 
     const/4 v7, -0x2
@@ -1192,10 +1194,10 @@
 
     invoke-virtual {v7, v8, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 278
+    .line 292
     invoke-virtual {v6, v7}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
-    .line 279
+    .line 293
     invoke-virtual {v6}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -1208,7 +1210,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 280
+    .line 294
     const-string v0, "moe.matsuri.nb4a.ui.DrawerDialogLayout"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -1231,7 +1233,7 @@
 
     aput-object v7, v5, v17
 
-    .line 281
+    .line 295
     invoke-virtual {v0, v2, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -1252,7 +1254,7 @@
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 282
+    .line 296
     invoke-static {v6}, Lio/nekohasekai/sagernet/ui/AppMotion;->show(Landroid/app/Dialog;)V
     :try_end_27c
     .catch Ljava/lang/Exception; {:try_start_f6 .. :try_end_27c} :catch_27d
@@ -1269,7 +1271,7 @@
 
     const/16 v17, 0x1
 
-    .line 284
+    .line 298
     :goto_282
     const-string v2, "AiRoutingCard"
 
@@ -1277,7 +1279,7 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 285
+    .line 299
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1307,12 +1309,12 @@
         }
     .end annotation
 
-    .line 95
+    .line 109
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 96
+    .line 110
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
@@ -1329,7 +1331,7 @@
 
     move-result-object v1
 
-    .line 98
+    .line 112
     :try_start_13
     const-string v2, "getName"
 
@@ -1345,7 +1347,7 @@
 
     check-cast v2, Ljava/lang/String;
 
-    .line 99
+    .line 113
     const-string v3, "\u4f73\u5609 \u00b7 \u4e3b\u6d41 AI \u805a\u5408\u5206\u6d41"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1366,7 +1368,7 @@
 
     goto :goto_9
 
-    .line 103
+    .line 117
     :cond_31
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -1375,7 +1377,7 @@
     :catch_35
     move-exception p0
 
-    .line 101
+    .line 115
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot filter internal AI rule"
@@ -1393,7 +1395,7 @@
 .method synthetic lambda$choose$2$io-nekohasekai-sagernet-ui-AiRoutingCard(Ljava/util/List;Ljava/util/List;)V
     .registers 4
 
-    .line 146
+    .line 160
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->isAttachedToWindow()Z
 
     move-result v0
@@ -1402,7 +1404,7 @@
 
     return-void
 
-    .line 147
+    .line 161
     :cond_7
     invoke-direct {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->showNodeDialog(Ljava/util/List;Ljava/util/List;)V
 
@@ -1412,7 +1414,7 @@
 .method synthetic lambda$choose$3$io-nekohasekai-sagernet-ui-AiRoutingCard()V
     .registers 4
 
-    .line 150
+    .line 164
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1433,7 +1435,7 @@
 .method synthetic lambda$choose$4$io-nekohasekai-sagernet-ui-AiRoutingCard()V
     .registers 14
 
-    .line 132
+    .line 146
     :try_start_0
     const-string v0, "getProxyDao"
 
@@ -1455,17 +1457,17 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 133
+    .line 147
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 134
+    .line 148
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 135
+    .line 149
     const-string v4, "getRulesDao"
 
     invoke-static {v4}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->dao(Ljava/lang/String;)Ljava/lang/Object;
@@ -1480,7 +1482,7 @@
 
     if-eqz v4, :cond_4e
 
-    .line 136
+    .line 150
     const-string v7, "getEnabled"
 
     new-array v8, v2, [Ljava/lang/Class;
@@ -1499,7 +1501,7 @@
 
     if-eqz v7, :cond_4e
 
-    .line 137
+    .line 151
     const-string v7, "getOutbound"
 
     new-array v8, v2, [Ljava/lang/Class;
@@ -1521,7 +1523,7 @@
     :cond_4e
     move-wide v7, v5
 
-    .line 138
+    .line 152
     :goto_4f
     invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -1529,7 +1531,7 @@
 
     invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 139
+    .line 153
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1569,7 +1571,7 @@
 
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 140
+    .line 154
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -1585,7 +1587,7 @@
 
     move-result-object v4
 
-    .line 141
+    .line 155
     const-string v5, "getId"
 
     new-array v6, v2, [Ljava/lang/Class;
@@ -1600,7 +1602,7 @@
 
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 142
+    .line 156
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v5
@@ -1617,7 +1619,7 @@
 
     move-result-wide v5
 
-    .line 143
+    .line 157
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
@@ -1656,7 +1658,7 @@
 
     goto :goto_7e
 
-    .line 145
+    .line 159
     :cond_cb
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->main:Landroid/os/Handler;
 
@@ -1670,7 +1672,7 @@
 
     return-void
 
-    .line 150
+    .line 164
     :catch_d6
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->main:Landroid/os/Handler;
 
@@ -1686,8 +1688,8 @@
 .method synthetic lambda$new$0$io-nekohasekai-sagernet-ui-AiRoutingCard(Landroid/view/View;)V
     .registers 2
 
-    .line 61
-    invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->choose()V
+    .line 75
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/AiChooser;->show(Landroid/view/View;)V
 
     return-void
 .end method
@@ -1695,7 +1697,7 @@
 .method synthetic lambda$refresh$1$io-nekohasekai-sagernet-ui-AiRoutingCard()V
     .registers 9
 
-    .line 111
+    .line 125
     const-string v0, "getRulesDao"
 
     :try_start_2
@@ -1709,7 +1711,7 @@
 
     if-eqz v1, :cond_58
 
-    .line 112
+    .line 126
     const-string v2, "getEnabled"
 
     const/4 v3, 0x0
@@ -1730,7 +1732,7 @@
 
     if-eqz v2, :cond_58
 
-    .line 113
+    .line 127
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->ALL_DOMAINS:Ljava/lang/String;
 
     const-string v4, "getDomains"
@@ -1749,7 +1751,7 @@
 
     if-nez v2, :cond_58
 
-    .line 114
+    .line 128
     const-string v2, "setDomains"
 
     const/4 v4, 0x1
@@ -1768,7 +1770,7 @@
 
     invoke-static {v1, v2, v5, v7}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 115
+    .line 129
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->dao(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
@@ -1797,7 +1799,7 @@
     :catch_59
     move-exception v0
 
-    .line 119
+    .line 133
     const-string v1, "AiRoutingCard"
 
     const-string v2, "Cannot refresh AI routing rule"
@@ -1810,10 +1812,10 @@
 .method synthetic lambda$save$5$io-nekohasekai-sagernet-ui-AiRoutingCard()V
     .registers 4
 
-    .line 183
+    .line 197
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->refresh()V
 
-    .line 184
+    .line 198
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1834,7 +1836,7 @@
 .method synthetic lambda$save$6$io-nekohasekai-sagernet-ui-AiRoutingCard()V
     .registers 4
 
-    .line 188
+    .line 202
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1855,7 +1857,7 @@
 .method synthetic lambda$save$7$io-nekohasekai-sagernet-ui-AiRoutingCard(J)V
     .registers 16
 
-    .line 158
+    .line 172
     :try_start_0
     const-string v0, "getRulesDao"
 
@@ -1873,7 +1875,7 @@
 
     if-lez v5, :cond_33
 
-    .line 159
+    .line 173
     const-string v6, "getProxyDao"
 
     invoke-static {v6}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->dao(Ljava/lang/String;)Ljava/lang/Object;
@@ -1904,7 +1906,7 @@
 
     goto :goto_33
 
-    .line 160
+    .line 174
     :cond_2b
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -1914,7 +1916,7 @@
 
     throw p1
 
-    .line 162
+    .line 176
     :cond_33
     :goto_33
     invoke-direct {p0, v0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->rule(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1935,14 +1937,14 @@
 
     if-nez v5, :cond_44
 
-    .line 165
+    .line 179
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->refresh()V
     :try_end_43
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_43} :catch_123
 
     return-void
 
-    .line 168
+    .line 182
     :cond_44
     const-string v8, "io.nekohasekai.sagernet.database.RuleEntity"
 
@@ -1965,7 +1967,7 @@
 
     move-result-object v6
 
-    .line 169
+    .line 183
     :cond_57
     const-string v9, "setName"
 
@@ -1983,7 +1985,7 @@
 
     invoke-static {v6, v9, v10, v12}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 170
+    .line 184
     const-string v9, "setDomains"
 
     new-array v10, v3, [Ljava/lang/Class;
@@ -2000,7 +2002,7 @@
 
     invoke-static {v6, v9, v10, v12}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 171
+    .line 185
     const-string v9, "setOutbound"
 
     new-array v10, v3, [Ljava/lang/Class;
@@ -2019,7 +2021,7 @@
 
     invoke-static {v6, v9, v10, p2}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 172
+    .line 186
     const-string p1, "setEnabled"
 
     new-array p2, v3, [Ljava/lang/Class;
@@ -2048,7 +2050,7 @@
 
     invoke-static {v6, p1, p2, v9}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 174
+    .line 188
     const-string p1, "allRules"
 
     new-array p2, v4, [Ljava/lang/Class;
@@ -2077,7 +2079,7 @@
 
     move-result-object p2
 
-    .line 175
+    .line 189
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->RULE_NAME:Ljava/lang/String;
 
     const-string v9, "getName"
@@ -2096,7 +2098,7 @@
 
     if-nez v5, :cond_b4
 
-    .line 176
+    .line 190
     const-string v5, "getUserOrder"
 
     new-array v9, v4, [Ljava/lang/Class;
@@ -2119,7 +2121,7 @@
 
     goto :goto_b4
 
-    .line 179
+    .line 193
     :cond_e5
     const-string p1, "setUserOrder"
 
@@ -2153,14 +2155,14 @@
 
     invoke-static {v6, p1, p2, v2}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 180
+    .line 194
     invoke-static {v8}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object p1
 
     if-eqz v7, :cond_10b
 
-    .line 181
+    .line 195
     const-string p2, "createRule"
 
     goto :goto_10d
@@ -2179,7 +2181,7 @@
 
     invoke-static {v0, p2, v1, p1}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->call(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 182
+    .line 196
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->main:Landroid/os/Handler;
 
     new-instance p2, Lio/nekohasekai/sagernet/ui/AiRoutingCard$0;
@@ -2195,14 +2197,14 @@
     :catch_123
     move-exception p1
 
-    .line 187
+    .line 201
     const-string p2, "AiRoutingCard"
 
     const-string v0, "Cannot save AI routing rule"
 
     invoke-static {p2, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 188
+    .line 202
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->main:Landroid/os/Handler;
 
     new-instance p2, Lio/nekohasekai/sagernet/ui/AiRoutingCard$2;
@@ -2217,7 +2219,7 @@
 .method synthetic lambda$showNodeDialog$8$io-nekohasekai-sagernet-ui-AiRoutingCard(JLandroid/app/Dialog;Landroid/view/View;)V
     .registers 5
 
-    .line 244
+    .line 258
     invoke-direct {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->save(J)V
 
     invoke-virtual {p3}, Landroid/app/Dialog;->dismiss()V
@@ -2228,10 +2230,10 @@
 .method protected onAttachedToWindow()V
     .registers 1
 
-    .line 125
+    .line 139
     invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
 
-    .line 126
+    .line 140
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/AiRoutingCard;->refresh()V
 
     return-void

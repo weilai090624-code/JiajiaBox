@@ -92,7 +92,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/ThreadLocal;)V
-    .locals 2
+    .registers 5
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "threadLocal"    # Ljava/lang/ThreadLocal;
     .annotation system Ldalvik/annotation/Signature;
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public fold(Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -154,7 +154,7 @@
 .end method
 
 .method public get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -175,7 +175,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const-string v0, "null cannot be cast to non-null type E of kotlinx.coroutines.internal.ThreadLocalElement.get"
 
@@ -185,17 +185,17 @@
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext$Element;
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return-object v0
 .end method
 
 .method public getKey()Lkotlin/coroutines/CoroutineContext$Key;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -211,7 +211,7 @@
 .end method
 
 .method public minusKey(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -231,25 +231,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_f
     move-object v0, p0
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 103
@@ -261,7 +261,7 @@
 .end method
 
 .method public restoreThreadContext(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "oldState"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -282,7 +282,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 129
     new-instance v0, Ljava/lang/StringBuilder;
@@ -327,7 +327,7 @@
 .end method
 
 .method public updateThreadContext(Lkotlin/coroutines/CoroutineContext;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
         value = {

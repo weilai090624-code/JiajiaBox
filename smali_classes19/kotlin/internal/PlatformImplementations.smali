@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 6
     .param p1, "cause"    # Ljava/lang/Throwable;
     .param p2, "exception"    # Ljava/lang/Throwable;
 
@@ -78,7 +78,7 @@
     .line 32
     sget-object v0, Lkotlin/internal/PlatformImplementations$ReflectThrowable;->addSuppressed:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     const/4 v1, 0x1
 
@@ -91,12 +91,12 @@
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 33
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public defaultPlatformRandom()Lkotlin/random/Random;
-    .locals 1
+    .registers 2
 
     .line 45
     new-instance v0, Lkotlin/random/FallbackThreadLocalRandom;
@@ -109,7 +109,7 @@
 .end method
 
 .method public getMatchResultNamedGroup(Ljava/util/regex/MatchResult;Ljava/lang/String;)Lkotlin/text/MatchGroup;
-    .locals 2
+    .registers 5
     .param p1, "matchResult"    # Ljava/util/regex/MatchResult;
     .param p2, "name"    # Ljava/lang/String;
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public getSuppressed(Ljava/lang/Throwable;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p1, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -152,7 +152,7 @@
     .line 37
     sget-object v0, Lkotlin/internal/PlatformImplementations$ReflectThrowable;->getSuppressed:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     const/4 v1, 0x0
 
@@ -162,7 +162,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 80
     .local v0, "it":Ljava/lang/Object;
@@ -180,15 +180,15 @@
 
     .end local v0    # "it":Ljava/lang/Object;
     .end local v1    # "$i$a$-let-PlatformImplementations$getSuppressed$1":I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_20
 
     .line 38
-    :cond_0
+    :cond_1c
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     .line 37
-    :cond_1
+    :cond_20
     return-object v0
 .end method

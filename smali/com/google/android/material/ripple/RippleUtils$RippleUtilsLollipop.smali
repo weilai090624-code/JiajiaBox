@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 290
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Landroid/content/Context;
     .param p1, "x1"    # I
 
@@ -38,7 +38,7 @@
 .end method
 
 .method private static createOvalRipple(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-    .locals 8
+    .registers 10
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "padding"    # I
 

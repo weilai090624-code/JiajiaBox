@@ -40,7 +40,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;
-    .locals 3
+    .registers 3
 
     .line 127
     const/4 v0, 0x2
@@ -63,7 +63,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 129
     new-instance v0, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray$1;
@@ -119,13 +119,13 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_33
 
     .line 203
     return-void
 
     .line 201
-    :cond_0
+    :cond_33
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -134,7 +134,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -148,7 +148,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/hash/LittleEndianByteArray$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # I
     .param p3, "x2"    # Lcom/google/common/hash/LittleEndianByteArray$1;
@@ -160,7 +160,7 @@
 .end method
 
 .method static synthetic access$100()I
-    .locals 1
+    .registers 1
 
     .line 127
     sget v0, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->BYTE_ARRAY_BASE_OFFSET:I
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic access$200()Lsun/misc/Unsafe;
-    .locals 1
+    .registers 1
 
     .line 127
     sget-object v0, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->theUnsafe:Lsun/misc/Unsafe;
@@ -178,24 +178,24 @@
 .end method
 
 .method private static getUnsafe()Lsun/misc/Unsafe;
-    .locals 4
+    .registers 4
 
     .line 170
     :try_start_0
     invoke-static {}, Lsun/misc/Unsafe;->getUnsafe()Lsun/misc/Unsafe;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 171
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 175
-    :try_start_1
+    :try_start_6
     new-instance v0, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray$3;
 
     invoke-direct {v0}, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray$3;-><init>()V
@@ -205,13 +205,13 @@
     move-result-object v0
 
     check-cast v0, Lsun/misc/Unsafe;
-    :try_end_1
-    .catch Ljava/security/PrivilegedActionException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_11
+    .catch Ljava/security/PrivilegedActionException; {:try_start_6 .. :try_end_11} :catch_12
 
     return-object v0
 
     .line 190
-    :catch_1
+    :catch_12
     move-exception v0
 
     .line 191
@@ -230,7 +230,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 127
@@ -246,7 +246,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;
-    .locals 1
+    .registers 1
 
     .line 127
     sget-object v0, Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;->$VALUES:[Lcom/google/common/hash/LittleEndianByteArray$UnsafeByteArray;

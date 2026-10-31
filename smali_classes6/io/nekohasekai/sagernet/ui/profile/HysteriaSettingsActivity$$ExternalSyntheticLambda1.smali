@@ -20,7 +20,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroidx/preference/EditTextPreference;Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;Landroidx/preference/EditTextPreference;Landroidx/preference/PreferenceFragmentCompat;)V
-    .locals 0
+    .registers 6
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public final onPreferenceChange(Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 7
+    .registers 10
 
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/profile/HysteriaSettingsActivity$$ExternalSyntheticLambda1;->f$0:Landroidx/preference/EditTextPreference;

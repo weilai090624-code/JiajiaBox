@@ -52,7 +52,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Landroidx/work/DirectExecutor;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -68,7 +68,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 29
     new-instance v0, Landroidx/work/DirectExecutor;
@@ -91,7 +91,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -108,7 +108,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/work/DirectExecutor;
-    .locals 1
+    .registers 2
 
     const-class v0, Landroidx/work/DirectExecutor;
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public static values()[Landroidx/work/DirectExecutor;
-    .locals 1
+    .registers 1
 
     sget-object v0, Landroidx/work/DirectExecutor;->$VALUES:[Landroidx/work/DirectExecutor;
 
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "command"    # Ljava/lang/Runnable;
 
     const-string v0, "command"
@@ -153,7 +153,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 36
     const-string v0, "DirectExecutor"

@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/work/PeriodicWorkRequest$Companion;
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/PeriodicWorkRequest$Builder;)V
-    .locals 3
+    .registers 5
     .param p1, "builder"    # Landroidx/work/PeriodicWorkRequest$Builder;
 
     const-string v0, "builder"

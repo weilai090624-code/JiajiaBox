@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public final centerX()F
-    .locals 2
+    .registers 3
 
     .line 24
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/FloatRect;->left:F
@@ -43,7 +43,7 @@
 .end method
 
 .method public final centerY()F
-    .locals 2
+    .registers 3
 
     .line 27
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/FloatRect;->top:F

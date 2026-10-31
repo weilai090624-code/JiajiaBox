@@ -70,7 +70,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 200
     const-class v0, Lcom/google/common/util/concurrent/ClosingFuture;
@@ -89,7 +89,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingCallable;Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 5
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -149,7 +149,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture$ClosingCallable;Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 5
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -209,7 +209,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -253,7 +253,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/util/concurrent/ClosingFuture$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/util/concurrent/ListenableFuture;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/ClosingFuture$1;
 
@@ -265,7 +265,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/FluentFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture;
 
     .line 198
@@ -275,7 +275,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/common/util/concurrent/ClosingFuture;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture;
 
     .line 198
@@ -285,7 +285,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture;
     .param p1, "x1"    # Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
 
@@ -296,7 +296,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture$State;Lcom/google/common/util/concurrent/ClosingFuture$State;)V
-    .locals 0
+    .registers 3
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture;
     .param p1, "x1"    # Lcom/google/common/util/concurrent/ClosingFuture$State;
     .param p2, "x2"    # Lcom/google/common/util/concurrent/ClosingFuture$State;
@@ -308,7 +308,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/google/common/util/concurrent/ClosingFuture$ValueAndCloserConsumer;Lcom/google/common/util/concurrent/ClosingFuture;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$ValueAndCloserConsumer;
     .param p1, "x1"    # Lcom/google/common/util/concurrent/ClosingFuture;
 
@@ -319,7 +319,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture;
 
     .line 198
@@ -329,7 +329,7 @@
 .end method
 
 .method static synthetic access$3200()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 1
 
     .line 198
     sget-object v0, Lcom/google/common/util/concurrent/ClosingFuture;->logger:Ljava/util/logging/Logger;
@@ -338,7 +338,7 @@
 .end method
 
 .method static synthetic access$3300(Ljava/io/Closeable;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Ljava/io/Closeable;
     .param p1, "x1"    # Ljava/util/concurrent/Executor;
 
@@ -349,7 +349,7 @@
 .end method
 
 .method private becomeSubsumedInto(Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)V
-    .locals 2
+    .registers 4
     .param p1, "otherCloseables"    # Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;
 
     .line 1142
@@ -374,7 +374,7 @@
 .end method
 
 .method private catchingAsyncMoreGeneric(Ljava/lang/Class;Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 2
+    .registers 6
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -419,7 +419,7 @@
 .end method
 
 .method private catchingMoreGeneric(Ljava/lang/Class;Lcom/google/common/util/concurrent/ClosingFuture$ClosingFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 2
+    .registers 6
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -464,7 +464,7 @@
 .end method
 
 .method private checkAndUpdateState(Lcom/google/common/util/concurrent/ClosingFuture$State;Lcom/google/common/util/concurrent/ClosingFuture$State;)V
-    .locals 2
+    .registers 5
     .param p1, "oldState"    # Lcom/google/common/util/concurrent/ClosingFuture$State;
     .param p2, "newState"    # Lcom/google/common/util/concurrent/ClosingFuture$State;
 
@@ -487,7 +487,7 @@
 .end method
 
 .method private close()V
-    .locals 3
+    .registers 4
 
     .line 1131
     .local p0, "this":Lcom/google/common/util/concurrent/ClosingFuture;, "Lcom/google/common/util/concurrent/ClosingFuture<TV;>;"
@@ -509,7 +509,7 @@
 .end method
 
 .method private static closeQuietly(Ljava/io/Closeable;Ljava/util/concurrent/Executor;)V
-    .locals 5
+    .registers 7
     .param p0, "closeable"    # Ljava/io/Closeable;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -517,27 +517,27 @@
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 2151
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 2152
     return-void
 
     .line 2155
-    :cond_0
-    :try_start_0
+    :cond_3
+    :try_start_3
     new-instance v0, Lcom/google/common/util/concurrent/ClosingFuture$11;
 
     invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/ClosingFuture$11;-><init>(Ljava/io/Closeable;)V
 
     invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_3 .. :try_end_b} :catch_c
 
     .line 2172
-    goto :goto_0
+    goto :goto_31
 
     .line 2166
-    :catch_0
+    :catch_c
     move-exception v0
 
     .line 2167
@@ -550,7 +550,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2a
 
     .line 2168
     sget-object v1, Lcom/google/common/util/concurrent/ClosingFuture;->logger:Ljava/util/logging/Logger;
@@ -576,7 +576,7 @@
     invoke-virtual {v1, v2, v3, v0}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 2171
-    :cond_1
+    :cond_2a
     invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->directExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v1
@@ -585,12 +585,12 @@
 
     .line 2173
     .end local v0    # "e":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_31
     return-void
 .end method
 
 .method private compareAndUpdateState(Lcom/google/common/util/concurrent/ClosingFuture$State;Lcom/google/common/util/concurrent/ClosingFuture$State;)Z
-    .locals 1
+    .registers 4
     .param p1, "oldState"    # Lcom/google/common/util/concurrent/ClosingFuture$State;
     .param p2, "newState"    # Lcom/google/common/util/concurrent/ClosingFuture$State;
 
@@ -606,7 +606,7 @@
 .end method
 
 .method private derive(Lcom/google/common/util/concurrent/FluentFuture;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -637,7 +637,7 @@
 .end method
 
 .method public static eventuallyClosing(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 3
+    .registers 5
     .param p1, "closingExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -690,7 +690,7 @@
 .end method
 
 .method public static from(Lcom/google/common/util/concurrent/ListenableFuture;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -713,7 +713,7 @@
 .end method
 
 .method private static provideValueAndCloser(Lcom/google/common/util/concurrent/ClosingFuture$ValueAndCloserConsumer;Lcom/google/common/util/concurrent/ClosingFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C:",
@@ -740,7 +740,7 @@
 .end method
 
 .method public static submit(Lcom/google/common/util/concurrent/ClosingFuture$ClosingCallable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -766,7 +766,7 @@
 .end method
 
 .method public static submitAsync(Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingCallable;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 3
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -792,7 +792,7 @@
 .end method
 
 .method public static varargs whenAllComplete(Lcom/google/common/util/concurrent/ClosingFuture;[Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$Combiner;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -819,7 +819,7 @@
 .end method
 
 .method public static whenAllComplete(Ljava/lang/Iterable;)Lcom/google/common/util/concurrent/ClosingFuture$Combiner;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -845,7 +845,7 @@
 .end method
 
 .method public static whenAllSucceed(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V1:",
@@ -875,7 +875,7 @@
 .end method
 
 .method public static whenAllSucceed(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V1:",
@@ -910,7 +910,7 @@
 .end method
 
 .method public static whenAllSucceed(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$Combiner4;
-    .locals 7
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V1:",
@@ -960,7 +960,7 @@
 .end method
 
 .method public static whenAllSucceed(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$Combiner5;
-    .locals 8
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V1:",
@@ -1017,7 +1017,7 @@
 .end method
 
 .method public static varargs whenAllSucceed(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;[Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/ClosingFuture$Combiner;
-    .locals 2
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1090,7 +1090,7 @@
 .end method
 
 .method public static whenAllSucceed(Ljava/lang/Iterable;)Lcom/google/common/util/concurrent/ClosingFuture$Combiner;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1116,7 +1116,7 @@
 .end method
 
 .method public static withoutCloser(Lcom/google/common/util/concurrent/AsyncFunction;)Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingFunction;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -1146,7 +1146,7 @@
 
 # virtual methods
 .method public cancel(Z)Z
-    .locals 3
+    .registers 5
     .param p1, "mayInterruptIfRunning"    # Z
 
     .line 1122
@@ -1168,18 +1168,18 @@
 
     .line 1124
     .local v0, "cancelled":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 1125
     invoke-direct {p0}, Lcom/google/common/util/concurrent/ClosingFuture;->close()V
 
     .line 1127
-    :cond_0
+    :cond_14
     return v0
 .end method
 
 .method public catching(Ljava/lang/Class;Lcom/google/common/util/concurrent/ClosingFuture$ClosingFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 5
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1209,7 +1209,7 @@
 .end method
 
 .method public catchingAsync(Ljava/lang/Class;Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 5
     .param p3, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1239,7 +1239,7 @@
 .end method
 
 .method protected finalize()V
-    .locals 3
+    .registers 4
 
     .line 2144
     .local p0, "this":Lcom/google/common/util/concurrent/ClosingFuture;, "Lcom/google/common/util/concurrent/ClosingFuture<TV;>;"
@@ -1257,7 +1257,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 2145
     sget-object v0, Lcom/google/common/util/concurrent/ClosingFuture;->logger:Ljava/util/logging/Logger;
@@ -1272,12 +1272,12 @@
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ClosingFuture;->finishToFuture()Lcom/google/common/util/concurrent/FluentFuture;
 
     .line 2148
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method public finishToFuture()Lcom/google/common/util/concurrent/FluentFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1296,7 +1296,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 1022
     sget-object v0, Lcom/google/common/util/concurrent/ClosingFuture;->logger:Ljava/util/logging/Logger;
@@ -1322,10 +1322,10 @@
     .line 1023
     invoke-virtual {v0, v1, v2}, Lcom/google/common/util/concurrent/FluentFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
-    goto :goto_0
+    goto :goto_54
 
     .line 1034
-    :cond_0
+    :cond_22
     sget-object v0, Lcom/google/common/util/concurrent/ClosingFuture$12;->$SwitchMap$com$google$common$util$concurrent$ClosingFuture$State:[I
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/ClosingFuture;->state:Ljava/util/concurrent/atomic/AtomicReference;
@@ -1342,12 +1342,12 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_58
 
-    goto :goto_0
+    goto :goto_54
 
     .line 1049
-    :pswitch_0
+    :pswitch_36
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -1355,7 +1355,7 @@
     throw v0
 
     .line 1046
-    :pswitch_1
+    :pswitch_3c
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot call finishToFuture() twice"
@@ -1365,7 +1365,7 @@
     throw v0
 
     .line 1040
-    :pswitch_2
+    :pswitch_44
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot call finishToFuture() after calling finishToValueAndCloser()"
@@ -1375,7 +1375,7 @@
     throw v0
 
     .line 1036
-    :pswitch_3
+    :pswitch_4c
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot call finishToFuture() after deriving another step"
@@ -1385,26 +1385,26 @@
     throw v0
 
     .line 1052
-    :goto_0
+    :goto_54
     iget-object v0, p0, Lcom/google/common/util/concurrent/ClosingFuture;->future:Lcom/google/common/util/concurrent/FluentFuture;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_58
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4c
+        :pswitch_44
+        :pswitch_3c
+        :pswitch_3c
+        :pswitch_3c
+        :pswitch_36
     .end packed-switch
 .end method
 
 .method public finishToValueAndCloser(Lcom/google/common/util/concurrent/ClosingFuture$ValueAndCloserConsumer;Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 5
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1430,7 +1430,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_40
 
     .line 1070
     sget-object v0, Lcom/google/common/util/concurrent/ClosingFuture$12;->$SwitchMap$com$google$common$util$concurrent$ClosingFuture$State:[I
@@ -1449,7 +1449,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_4c
 
     .line 1087
     new-instance v0, Ljava/lang/AssertionError;
@@ -1461,7 +1461,7 @@
     throw v0
 
     .line 1078
-    :pswitch_0
+    :pswitch_28
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot call finishToValueAndCloser() after calling finishToFuture()"
@@ -1471,7 +1471,7 @@
     throw v0
 
     .line 1082
-    :pswitch_1
+    :pswitch_30
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot call finishToValueAndCloser() twice"
@@ -1481,7 +1481,7 @@
     throw v0
 
     .line 1072
-    :pswitch_2
+    :pswitch_38
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot call finishToValueAndCloser() after deriving another step"
@@ -1491,7 +1491,7 @@
     throw v0
 
     .line 1089
-    :cond_0
+    :cond_40
     iget-object v0, p0, Lcom/google/common/util/concurrent/ClosingFuture;->future:Lcom/google/common/util/concurrent/FluentFuture;
 
     new-instance v1, Lcom/google/common/util/concurrent/ClosingFuture$10;
@@ -1505,18 +1505,18 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4c
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_38
+        :pswitch_30
+        :pswitch_28
+        :pswitch_28
+        :pswitch_28
     .end packed-switch
 .end method
 
 .method public statusFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1551,7 +1551,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 2139
     .local p0, "this":Lcom/google/common/util/concurrent/ClosingFuture;, "Lcom/google/common/util/concurrent/ClosingFuture<TV;>;"
@@ -1585,7 +1585,7 @@
 .end method
 
 .method public transform(Lcom/google/common/util/concurrent/ClosingFuture$ClosingFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 2
+    .registers 5
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1627,7 +1627,7 @@
 .end method
 
 .method public transformAsync(Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 2
+    .registers 5
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1669,7 +1669,7 @@
 .end method
 
 .method whenClosedCountDown()Ljava/util/concurrent/CountDownLatch;
-    .locals 1
+    .registers 2
 
     .line 2279
     .local p0, "this":Lcom/google/common/util/concurrent/ClosingFuture;, "Lcom/google/common/util/concurrent/ClosingFuture<TV;>;"

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/FilteredKeyMultimap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/FilteredKeyMultimap;
 
     .line 192
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 191
     .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$Entries;, "Lcom/google/common/collect/FilteredKeyMultimap<TK;TV;>.Entries;"
@@ -55,7 +55,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,7 +89,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -99,7 +99,7 @@
     .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$Entries;, "Lcom/google/common/collect/FilteredKeyMultimap<TK;TV;>.Entries;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     .line 202
     move-object v0, p1
@@ -120,7 +120,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_34
 
     iget-object v1, p0, Lcom/google/common/collect/FilteredKeyMultimap$Entries;->this$0:Lcom/google/common/collect/FilteredKeyMultimap;
 
@@ -135,7 +135,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_34
 
     .line 206
     iget-object v1, p0, Lcom/google/common/collect/FilteredKeyMultimap$Entries;->this$0:Lcom/google/common/collect/FilteredKeyMultimap;
@@ -158,7 +158,7 @@
 
     .line 209
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    :cond_0
+    :cond_34
     const/4 v0, 0x0
 
     return v0

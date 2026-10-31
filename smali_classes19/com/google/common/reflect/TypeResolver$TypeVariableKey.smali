@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/TypeVariable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,7 +54,7 @@
 .end method
 
 .method private equalsTypeVariable(Ljava/lang/reflect/TypeVariable;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,7 +79,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     iget-object v0, p0, Lcom/google/common/reflect/TypeResolver$TypeVariableKey;->var:Ljava/lang/reflect/TypeVariable;
 
@@ -96,22 +96,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v0, 0x0
 
     .line 603
-    :goto_0
+    :goto_23
     return v0
 .end method
 
 .method static forLookup(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeResolver$TypeVariableKey;
-    .locals 2
+    .registers 3
     .param p0, "t"    # Ljava/lang/reflect/Type;
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
@@ -119,7 +119,7 @@
     .line 583
     instance-of v0, p0, Ljava/lang/reflect/TypeVariable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 584
     new-instance v0, Lcom/google/common/reflect/TypeResolver$TypeVariableKey;
@@ -133,7 +133,7 @@
     return-object v0
 
     .line 586
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     return-object v0
@@ -142,7 +142,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -151,7 +151,7 @@
     .line 567
     instance-of v0, p1, Lcom/google/common/reflect/TypeResolver$TypeVariableKey;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 568
     move-object v0, p1
@@ -170,20 +170,20 @@
 
     .line 571
     .end local v0    # "that":Lcom/google/common/reflect/TypeResolver$TypeVariableKey;
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method equalsType(Ljava/lang/reflect/Type;)Z
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/reflect/Type;
 
     .line 595
     instance-of v0, p1, Ljava/lang/reflect/TypeVariable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 596
     move-object v0, p1
@@ -197,14 +197,14 @@
     return v0
 
     .line 598
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 562
     iget-object v0, p0, Lcom/google/common/reflect/TypeResolver$TypeVariableKey;->var:Ljava/lang/reflect/TypeVariable;
@@ -239,7 +239,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 577
     iget-object v0, p0, Lcom/google/common/reflect/TypeResolver$TypeVariableKey;->var:Ljava/lang/reflect/TypeVariable;

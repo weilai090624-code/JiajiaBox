@@ -296,7 +296,7 @@
 
     const-string v4, "getString(...)"
 
-    if-eqz v1, :cond_7f
+    goto :goto_7e
 
     .line 569
     .end local p1    # "groupCount":I
@@ -314,14 +314,14 @@
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v1, :cond_60
+    if-eqz v1, :cond_5f
 
     move-object v3, p1
 
     check-cast v3, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_60
-    if-eqz v3, :cond_7b
+    :cond_5f
+    if-eqz v3, :cond_7a
 
     .line 570
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -342,7 +342,7 @@
     move-result-object p1
 
     .line 571
-    if-eqz p1, :cond_7b
+    if-eqz p1, :cond_7a
 
     .line 569
     nop
@@ -350,25 +350,25 @@
     .line 571
     invoke-virtual {p1}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
-    goto :goto_7c
+    goto :goto_7b
 
     .line 569
-    :cond_7b
+    :cond_7a
     nop
 
     .line 572
-    :goto_7c
+    :goto_7b
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     .line 574
     .restart local p1    # "groupCount":I
-    :cond_7f
+    :goto_7e
     nop
 
     .end local p1    # "groupCount":I
-    if-gt p1, v2, :cond_b0
+    if-gt p1, v2, :cond_af
 
     .line 575
     nop
@@ -385,14 +385,14 @@
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v1, :cond_91
+    if-eqz v1, :cond_90
 
     move-object v3, p1
 
     check-cast v3, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_91
-    if-eqz v3, :cond_ac
+    :cond_90
+    if-eqz v3, :cond_ab
 
     .line 576
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -413,7 +413,7 @@
     move-result-object p1
 
     .line 577
-    if-eqz p1, :cond_ac
+    if-eqz p1, :cond_ab
 
     .line 575
     nop
@@ -421,20 +421,20 @@
     .line 577
     invoke-virtual {p1}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
-    goto :goto_ad
+    goto :goto_ac
 
     .line 575
-    :cond_ac
+    :cond_ab
     nop
 
     .line 578
-    :goto_ad
+    :goto_ac
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     .line 580
-    :cond_b0
+    :cond_af
     sget-object p1, Lio/nekohasekai/sagernet/group/GroupUpdater;->Companion:Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;
 
     invoke-virtual {p1}, Lio/nekohasekai/sagernet/group/GroupUpdater$Companion;->getUpdating()Ljava/util/Set;
@@ -455,7 +455,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_f4
+    if-eqz p1, :cond_f3
 
     .line 581
     nop
@@ -472,14 +472,14 @@
 
     instance-of v1, p1, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    if-eqz v1, :cond_d5
+    if-eqz v1, :cond_d4
 
     move-object v3, p1
 
     check-cast v3, Lio/nekohasekai/sagernet/ui/MainActivity;
 
-    :cond_d5
-    if-eqz v3, :cond_f0
+    :cond_d4
+    if-eqz v3, :cond_ef
 
     .line 582
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
@@ -500,7 +500,7 @@
     move-result-object p1
 
     .line 583
-    if-eqz p1, :cond_f0
+    if-eqz p1, :cond_ef
 
     .line 581
     nop
@@ -508,20 +508,20 @@
     .line 583
     invoke-virtual {p1}, Lcom/google/android/material/snackbar/Snackbar;->show()V
 
-    goto :goto_f1
+    goto :goto_f0
 
     .line 581
-    :cond_f0
+    :cond_ef
     nop
 
     .line 584
-    :goto_f1
+    :goto_f0
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     .line 586
-    :cond_f4
+    :cond_f3
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/JJHomeFragment$confirmDeleteGroup$1;->this$0:Lio/nekohasekai/sagernet/ui/JJHomeFragment;
 
     .line 587
@@ -585,6 +585,8 @@
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
+
+    nop
 
     :pswitch_data_134
     .packed-switch 0x0

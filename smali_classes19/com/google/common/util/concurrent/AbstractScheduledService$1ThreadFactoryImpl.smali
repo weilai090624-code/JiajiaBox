@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/util/concurrent/AbstractScheduledService;
 
     .line 342
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 1
+    .registers 3
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 345

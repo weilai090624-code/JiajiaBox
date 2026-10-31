@@ -30,17 +30,17 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 53
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_7b
 
     .line 55
-    :try_start_0
+    :try_start_6
     const-class v0, Landroid/os/Trace;
 
     const-string v1, "TRACE_TAG_APP"
@@ -158,15 +158,15 @@
     move-result-object v1
 
     sput-object v1, Landroidx/core/os/TraceCompat;->sTraceCounterMethod:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_72
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_72} :catch_73
 
     .line 67
     .end local v0    # "traceTagAppField":Ljava/lang/reflect/Field;
-    goto :goto_0
+    goto :goto_7b
 
     .line 65
-    :catch_0
+    :catch_73
     move-exception v0
 
     .line 66
@@ -179,13 +179,13 @@
 
     .line 69
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_7b
+    :goto_7b
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 183
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -195,7 +195,7 @@
 .end method
 
 .method public static beginAsyncSection(Ljava/lang/String;I)V
-    .locals 5
+    .registers 7
     .param p0, "methodName"    # Ljava/lang/String;
     .param p1, "cookie"    # I
 
@@ -204,16 +204,16 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 134
     invoke-static {p0, p1}, Landroidx/core/os/TraceCompat$Api29Impl;->beginAsyncSection(Ljava/lang/String;I)V
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 137
-    :cond_0
-    :try_start_0
+    :cond_a
+    :try_start_a
     sget-object v0, Landroidx/core/os/TraceCompat;->sAsyncTraceBeginMethod:Ljava/lang/reflect/Method;
 
     sget-wide v1, Landroidx/core/os/TraceCompat;->sTraceTagApp:J
@@ -245,14 +245,14 @@
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_26} :catch_27
 
     .line 140
-    goto :goto_0
+    goto :goto_2f
 
     .line 138
-    :catch_0
+    :catch_27
     move-exception v0
 
     .line 139
@@ -265,12 +265,12 @@
 
     .line 142
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_2f
     return-void
 .end method
 
 .method public static beginSection(Ljava/lang/String;)V
-    .locals 0
+    .registers 1
     .param p0, "sectionName"    # Ljava/lang/String;
 
     .line 108
@@ -281,7 +281,7 @@
 .end method
 
 .method public static endAsyncSection(Ljava/lang/String;I)V
-    .locals 5
+    .registers 7
     .param p0, "methodName"    # Ljava/lang/String;
     .param p1, "cookie"    # I
 
@@ -290,16 +290,16 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 154
     invoke-static {p0, p1}, Landroidx/core/os/TraceCompat$Api29Impl;->endAsyncSection(Ljava/lang/String;I)V
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 157
-    :cond_0
-    :try_start_0
+    :cond_a
+    :try_start_a
     sget-object v0, Landroidx/core/os/TraceCompat;->sAsyncTraceEndMethod:Ljava/lang/reflect/Method;
 
     sget-wide v1, Landroidx/core/os/TraceCompat;->sTraceTagApp:J
@@ -331,14 +331,14 @@
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_26} :catch_27
 
     .line 160
-    goto :goto_0
+    goto :goto_2f
 
     .line 158
-    :catch_0
+    :catch_27
     move-exception v0
 
     .line 159
@@ -351,12 +351,12 @@
 
     .line 162
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_2f
     return-void
 .end method
 
 .method public static endSection()V
-    .locals 0
+    .registers 0
 
     .line 119
     invoke-static {}, Landroid/os/Trace;->endSection()V
@@ -366,14 +366,14 @@
 .end method
 
 .method public static isEnabled()Z
-    .locals 4
+    .registers 4
 
     .line 82
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 83
     invoke-static {}, Landroidx/core/os/TraceCompat$Api29Impl;->isEnabled()Z
@@ -383,10 +383,10 @@
     return v0
 
     .line 86
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_c
     sget-object v1, Landroidx/core/os/TraceCompat;->sIsTagEnabledMethod:Ljava/lang/reflect/Method;
 
     sget-wide v2, Landroidx/core/os/TraceCompat;->sTraceTagApp:J
@@ -412,13 +412,13 @@
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_24
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_24} :catch_25
 
     return v0
 
     .line 87
-    :catch_0
+    :catch_25
     move-exception v1
 
     .line 88
@@ -435,7 +435,7 @@
 .end method
 
 .method public static setCounter(Ljava/lang/String;I)V
-    .locals 5
+    .registers 7
     .param p0, "counterName"    # Ljava/lang/String;
     .param p1, "counterValue"    # I
 
@@ -444,18 +444,18 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 173
     int-to-long v0, p1
 
     invoke-static {p0, v0, v1}, Landroidx/core/os/TraceCompat$Api29Impl;->setCounter(Ljava/lang/String;J)V
 
-    goto :goto_0
+    goto :goto_30
 
     .line 176
-    :cond_0
-    :try_start_0
+    :cond_b
+    :try_start_b
     sget-object v0, Landroidx/core/os/TraceCompat;->sTraceCounterMethod:Ljava/lang/reflect/Method;
 
     sget-wide v1, Landroidx/core/os/TraceCompat;->sTraceTagApp:J
@@ -487,14 +487,14 @@
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_27} :catch_28
 
     .line 179
-    goto :goto_0
+    goto :goto_30
 
     .line 177
-    :catch_0
+    :catch_28
     move-exception v0
 
     .line 178
@@ -507,6 +507,6 @@
 
     .line 181
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_30
     return-void
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/nodes/Node;)V
-    .locals 3
+    .registers 5
     .param p1, "realNode"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 26
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public getNodeId()Lorg/yaml/snakeyaml/nodes/NodeId;
-    .locals 1
+    .registers 2
 
     .line 32
     sget-object v0, Lorg/yaml/snakeyaml/nodes/NodeId;->anchor:Lorg/yaml/snakeyaml/nodes/NodeId;
@@ -46,7 +46,7 @@
 .end method
 
 .method public getRealNode()Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Lorg/yaml/snakeyaml/nodes/AnchorNode;->realNode:Lorg/yaml/snakeyaml/nodes/Node;

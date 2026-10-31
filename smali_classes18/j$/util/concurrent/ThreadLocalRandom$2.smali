@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1146
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
 
     .line 1149
     const-string v0, "java.util.secureRandomSeed"
@@ -56,7 +56,7 @@
 .end method
 
 .method public bridge synthetic run()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1146
     invoke-virtual {p0}, Lj$/util/concurrent/ThreadLocalRandom$2;->run()Ljava/lang/Boolean;

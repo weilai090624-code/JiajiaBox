@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 136
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method addFlags(I)V
-    .locals 1
+    .registers 3
     .param p1, "flags"    # I
 
     .line 148
@@ -59,7 +59,7 @@
 .end method
 
 .method boundsMatch()Z
-    .locals 4
+    .registers 5
 
     .line 166
     iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -68,7 +68,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 167
     iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -85,18 +85,18 @@
 
     and-int/2addr v0, v2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 168
     return v1
 
     .line 172
-    :cond_0
+    :cond_16
     iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
     and-int/lit8 v0, v0, 0x70
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 173
     iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -113,18 +113,18 @@
 
     and-int/2addr v0, v2
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2c
 
     .line 174
     return v1
 
     .line 178
-    :cond_1
+    :cond_2c
     iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
     and-int/lit16 v0, v0, 0x700
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     .line 179
     iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -141,18 +141,18 @@
 
     and-int/2addr v0, v2
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_42
 
     .line 180
     return v1
 
     .line 184
-    :cond_2
+    :cond_42
     iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
     and-int/lit16 v0, v0, 0x7000
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_58
 
     .line 185
     iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -169,25 +169,25 @@
 
     and-int/2addr v0, v2
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_58
 
     .line 186
     return v1
 
     .line 189
-    :cond_3
+    :cond_58
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method compare(II)I
-    .locals 1
+    .registers 4
     .param p1, "x"    # I
     .param p2, "y"    # I
 
     .line 156
-    if-le p1, p2, :cond_0
+    if-le p1, p2, :cond_4
 
     .line 157
     const/4 v0, 0x1
@@ -195,8 +195,8 @@
     return v0
 
     .line 159
-    :cond_0
-    if-ne p1, p2, :cond_1
+    :cond_4
+    if-ne p1, p2, :cond_8
 
     .line 160
     const/4 v0, 0x2
@@ -204,14 +204,14 @@
     return v0
 
     .line 162
-    :cond_1
+    :cond_8
     const/4 v0, 0x4
 
     return v0
 .end method
 
 .method resetFlags()V
-    .locals 1
+    .registers 2
 
     .line 152
     const/4 v0, 0x0
@@ -223,7 +223,7 @@
 .end method
 
 .method setBounds(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "rvStart"    # I
     .param p2, "rvEnd"    # I
     .param p3, "childStart"    # I

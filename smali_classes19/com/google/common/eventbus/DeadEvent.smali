@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Ljava/lang/Object;
     .param p2, "event"    # Ljava/lang/Object;
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getEvent()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 64
     iget-object v0, p0, Lcom/google/common/eventbus/DeadEvent;->event:Ljava/lang/Object;
@@ -53,7 +53,7 @@
 .end method
 
 .method public getSource()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lcom/google/common/eventbus/DeadEvent;->source:Ljava/lang/Object;
@@ -62,7 +62,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 69
     invoke-static {p0}, Lcom/google/common/base/MoreObjects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;

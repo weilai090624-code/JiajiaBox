@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/Traverser$Traversal;Ljava/util/Deque;Ljava/util/Deque;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/graph/Traverser$Traversal;
 
     .line 469
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method protected computeNext()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TN;"
@@ -71,8 +71,8 @@
     move-result-object v0
 
     .local v0, "next":Ljava/lang/Object;, "TN;"
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_8
+    if-eqz v0, :cond_30
 
     .line 474
     iget-object v1, p0, Lcom/google/common/graph/Traverser$Traversal$4;->this$0:Lcom/google/common/graph/Traverser$Traversal;
@@ -93,13 +93,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1d
 
     .line 476
     return-object v0
 
     .line 478
-    :cond_0
+    :cond_1d
     iget-object v2, p0, Lcom/google/common/graph/Traverser$Traversal$4;->val$horizon:Ljava/util/Deque;
 
     invoke-interface {v2, v1}, Ljava/util/Deque;->addFirst(Ljava/lang/Object;)V
@@ -119,18 +119,18 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 482
     .end local v0    # "next":Ljava/lang/Object;, "TN;"
-    :cond_1
+    :cond_30
     iget-object v0, p0, Lcom/google/common/graph/Traverser$Traversal$4;->val$ancestorStack:Ljava/util/Deque;
 
     invoke-interface {v0}, Ljava/util/Deque;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3f
 
     .line 483
     iget-object v0, p0, Lcom/google/common/graph/Traverser$Traversal$4;->val$ancestorStack:Ljava/util/Deque;
@@ -142,7 +142,7 @@
     return-object v0
 
     .line 485
-    :cond_2
+    :cond_3f
     invoke-virtual {p0}, Lcom/google/common/graph/Traverser$Traversal$4;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

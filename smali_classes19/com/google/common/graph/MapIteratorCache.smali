@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,7 +72,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/graph/MapIteratorCache;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/MapIteratorCache;
 
     .line 45
@@ -82,7 +82,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/google/common/graph/MapIteratorCache;Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/graph/MapIteratorCache;
     .param p1, "x1"    # Ljava/util/Map$Entry;
 
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method final clear()V
-    .locals 1
+    .registers 2
 
     .line 81
     .local p0, "this":Lcom/google/common/graph/MapIteratorCache;, "Lcom/google/common/graph/MapIteratorCache<TK;TV;>;"
@@ -111,7 +111,7 @@
 .end method
 
 .method clearCache()V
-    .locals 1
+    .registers 2
 
     .line 154
     .local p0, "this":Lcom/google/common/graph/MapIteratorCache;, "Lcom/google/common/graph/MapIteratorCache<TK;TV;>;"
@@ -124,7 +124,7 @@
 .end method
 
 .method final containsKey(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -136,7 +136,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     iget-object v0, p0, Lcom/google/common/graph/MapIteratorCache;->backingMap:Ljava/util/Map;
 
@@ -144,25 +144,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_12
     return v0
 .end method
 
 .method get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -186,7 +186,7 @@
 
     .line 90
     .local v0, "value":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 91
     invoke-virtual {p0, p1}, Lcom/google/common/graph/MapIteratorCache;->getWithoutCaching(Ljava/lang/Object;)Ljava/lang/Object;
@@ -196,12 +196,12 @@
     return-object v1
 
     .line 93
-    :cond_0
+    :cond_e
     return-object v0
 .end method
 
 .method getIfCached(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -223,13 +223,13 @@
 
     .line 147
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_f
 
     .line 148
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -239,14 +239,14 @@
     return-object v1
 
     .line 150
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method final getWithoutCaching(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -274,7 +274,7 @@
 .end method
 
 .method final put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -307,7 +307,7 @@
 .end method
 
 .method final remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -338,7 +338,7 @@
 .end method
 
 .method final unmodifiableKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

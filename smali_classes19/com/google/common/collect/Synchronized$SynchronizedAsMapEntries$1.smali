@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Synchronized$SynchronizedAsMapEntries;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/Synchronized$SynchronizedAsMapEntries;
 
     .line 904
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method bridge synthetic transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 904
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedAsMapEntries$1;, "Lcom/google/common/collect/Synchronized$SynchronizedAsMapEntries$1;"
@@ -64,7 +64,7 @@
 .end method
 
 .method transform(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

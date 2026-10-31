@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 385

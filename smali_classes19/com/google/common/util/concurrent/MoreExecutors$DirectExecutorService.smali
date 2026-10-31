@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 241
     invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractListeningExecutorService;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/MoreExecutors$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/util/concurrent/MoreExecutors$1;
 
     .line 241
@@ -58,7 +58,7 @@
 .end method
 
 .method private endTask()V
-    .locals 3
+    .registers 4
 
     .line 333
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->lock:Ljava/lang/Object;
@@ -66,7 +66,7 @@
     monitor-enter v0
 
     .line 334
-    :try_start_0
+    :try_start_3
     iget v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->runningTasks:I
 
     add-int/lit8 v1, v1, -0x1
@@ -75,7 +75,7 @@
 
     .line 335
     .local v1, "numRunning":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     .line 336
     iget-object v2, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->lock:Ljava/lang/Object;
@@ -84,25 +84,25 @@
 
     .line 338
     .end local v1    # "numRunning":I
-    :cond_0
+    :cond_10
     monitor-exit v0
 
     .line 339
     return-void
 
     .line 338
-    :catchall_0
+    :catchall_12
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_3 .. :try_end_14} :catchall_12
 
     throw v1
 .end method
 
 .method private startTask()V
-    .locals 3
+    .registers 4
 
     .line 323
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->lock:Ljava/lang/Object;
@@ -110,10 +110,10 @@
     monitor-enter v0
 
     .line 324
-    :try_start_0
+    :try_start_3
     iget-boolean v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->shutdown:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 327
     iget v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->runningTasks:I
@@ -129,7 +129,7 @@
     return-void
 
     .line 325
-    :cond_0
+    :cond_f
     new-instance v1, Ljava/util/concurrent/RejectedExecutionException;
 
     const-string v2, "Executor already shutdown"
@@ -139,12 +139,12 @@
     throw v1
 
     .line 328
-    :catchall_0
+    :catchall_17
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_3 .. :try_end_19} :catchall_17
 
     throw v1
 .end method
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
-    .locals 7
+    .registers 11
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Throws;
@@ -173,15 +173,15 @@
     monitor-enter v2
 
     .line 304
-    :goto_0
-    :try_start_0
+    :goto_7
+    :try_start_7
     iget-boolean v3, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->shutdown:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_12
 
     iget v3, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->runningTasks:I
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_12
 
     .line 305
     monitor-exit v2
@@ -191,12 +191,12 @@
     return v2
 
     .line 306
-    :cond_0
+    :cond_12
     const-wide/16 v3, 0x0
 
     cmp-long v5, v0, v3
 
-    if-gtz v5, :cond_1
+    if-gtz v5, :cond_1b
 
     .line 307
     monitor-exit v2
@@ -206,7 +206,7 @@
     return v2
 
     .line 309
-    :cond_1
+    :cond_1b
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v3
@@ -230,31 +230,31 @@
 
     .line 312
     .end local v3    # "now":J
-    goto :goto_0
+    goto :goto_7
 
     .line 314
-    :catchall_0
+    :catchall_2d
     move-exception v3
 
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_7 .. :try_end_2f} :catchall_2d
 
     throw v3
 .end method
 
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 260
     invoke-direct {p0}, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->startTask()V
 
     .line 262
-    :try_start_0
+    :try_start_3
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_3 .. :try_end_6} :catchall_b
 
     .line 264
     invoke-direct {p0}, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->endTask()V
@@ -266,7 +266,7 @@
     return-void
 
     .line 264
-    :catchall_0
+    :catchall_b
     move-exception v0
 
     invoke-direct {p0}, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->endTask()V
@@ -276,7 +276,7 @@
 .end method
 
 .method public isShutdown()Z
-    .locals 2
+    .registers 3
 
     .line 270
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->lock:Ljava/lang/Object;
@@ -284,7 +284,7 @@
     monitor-enter v0
 
     .line 271
-    :try_start_0
+    :try_start_3
     iget-boolean v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->shutdown:Z
 
     monitor-exit v0
@@ -292,18 +292,18 @@
     return v1
 
     .line 272
-    :catchall_0
+    :catchall_7
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_3 .. :try_end_9} :catchall_7
 
     throw v1
 .end method
 
 .method public isTerminated()Z
-    .locals 2
+    .registers 3
 
     .line 294
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->lock:Ljava/lang/Object;
@@ -311,40 +311,40 @@
     monitor-enter v0
 
     .line 295
-    :try_start_0
+    :try_start_3
     iget-boolean v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->shutdown:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     iget v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->runningTasks:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_e
     monitor-exit v0
 
     return v1
 
     .line 296
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_3 .. :try_end_12} :catchall_10
 
     throw v1
 .end method
 
 .method public shutdown()V
-    .locals 2
+    .registers 3
 
     .line 277
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->lock:Ljava/lang/Object;
@@ -354,13 +354,13 @@
     .line 278
     const/4 v1, 0x1
 
-    :try_start_0
+    :try_start_4
     iput-boolean v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->shutdown:Z
 
     .line 279
     iget v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->runningTasks:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 280
     iget-object v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$DirectExecutorService;->lock:Ljava/lang/Object;
@@ -368,25 +368,25 @@
     invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
 
     .line 282
-    :cond_0
+    :cond_f
     monitor-exit v0
 
     .line 283
     return-void
 
     .line 282
-    :catchall_0
+    :catchall_11
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_4 .. :try_end_13} :catchall_11
 
     throw v1
 .end method
 
 .method public shutdownNow()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 421
     const-string v0, "0123456789abcdef"
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,17 +46,17 @@
 .end method
 
 .method private static decode(C)I
-    .locals 3
+    .registers 4
     .param p0, "ch"    # C
 
     .line 354
     const/16 v0, 0x30
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_b
 
     const/16 v0, 0x39
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_b
 
     .line 355
     add-int/lit8 v0, p0, -0x30
@@ -64,14 +64,14 @@
     return v0
 
     .line 357
-    :cond_0
+    :cond_b
     const/16 v0, 0x61
 
-    if-lt p0, v0, :cond_1
+    if-lt p0, v0, :cond_18
 
     const/16 v0, 0x66
 
-    if-gt p0, v0, :cond_1
+    if-gt p0, v0, :cond_18
 
     .line 358
     add-int/lit8 v0, p0, -0x61
@@ -81,7 +81,7 @@
     return v0
 
     .line 360
-    :cond_1
+    :cond_18
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -110,7 +110,7 @@
 .end method
 
 .method public static fromBytes([B)Lcom/google/common/hash/HashCode;
-    .locals 2
+    .registers 3
     .param p0, "bytes"    # [B
 
     .line 239
@@ -118,14 +118,14 @@
 
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_5
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_6
     const-string v0, "A HashCode must contain at least 1 byte."
 
     invoke-static {v1, v0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -145,7 +145,7 @@
 .end method
 
 .method static fromBytesNoCopy([B)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 2
     .param p0, "bytes"    # [B
 
     .line 248
@@ -157,7 +157,7 @@
 .end method
 
 .method public static fromInt(I)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 2
     .param p0, "hash"    # I
 
     .line 116
@@ -169,7 +169,7 @@
 .end method
 
 .method public static fromLong(J)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 3
     .param p0, "hash"    # J
 
     .line 173
@@ -181,7 +181,7 @@
 .end method
 
 .method public static fromString(Ljava/lang/String;)Lcom/google/common/hash/HashCode;
-    .locals 6
+    .registers 7
     .param p0, "string"    # Ljava/lang/String;
 
     .line 337
@@ -198,17 +198,17 @@
 
     const/4 v3, 0x2
 
-    if-lt v0, v3, :cond_0
+    if-lt v0, v3, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     .line 337
-    :goto_0
+    :goto_d
     const-string v4, "input string (%s) must have at least 2 characters"
 
     invoke-static {v0, v4, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -223,12 +223,12 @@
 
     rem-int/2addr v0, v3
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     const/4 v1, 0x1
 
     .line 339
-    :cond_1
+    :cond_1b
     const-string v0, "input string (%s) must have an even number of characters"
 
     invoke-static {v1, v0, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -247,12 +247,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
+    :goto_28
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_4c
 
     .line 346
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -292,11 +292,11 @@
     .end local v3    # "ch2":I
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_1
+    goto :goto_28
 
     .line 350
     .end local v1    # "i":I
-    :cond_2
+    :cond_4c
     invoke-static {v0}, Lcom/google/common/hash/HashCode;->fromBytesNoCopy([B)Lcom/google/common/hash/HashCode;
 
     move-result-object v1
@@ -319,7 +319,7 @@
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -330,7 +330,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 373
     move-object v0, p1
@@ -347,22 +347,22 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_19
 
     invoke-virtual {p0, v0}, Lcom/google/common/hash/HashCode;->equalsSameBits(Lcom/google/common/hash/HashCode;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_19
     return v1
 
     .line 376
     .end local v0    # "that":Lcom/google/common/hash/HashCode;
-    :cond_1
+    :cond_1a
     return v1
 .end method
 
@@ -370,7 +370,7 @@
 .end method
 
 .method getBytesInternal()[B
-    .locals 1
+    .registers 2
 
     .line 100
     invoke-virtual {p0}, Lcom/google/common/hash/HashCode;->asBytes()[B
@@ -381,7 +381,7 @@
 .end method
 
 .method public final hashCode()I
-    .locals 5
+    .registers 6
 
     .line 388
     invoke-virtual {p0}, Lcom/google/common/hash/HashCode;->bits()I
@@ -390,7 +390,7 @@
 
     const/16 v1, 0x20
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 389
     invoke-virtual {p0}, Lcom/google/common/hash/HashCode;->asInt()I
@@ -400,7 +400,7 @@
     return v0
 
     .line 392
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lcom/google/common/hash/HashCode;->getBytesInternal()[B
 
     move-result-object v0
@@ -418,10 +418,10 @@
     const/4 v2, 0x1
 
     .local v2, "i":I
-    :goto_0
+    :goto_17
     array-length v3, v0
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_25
 
     .line 395
     aget-byte v3, v0, v2
@@ -437,11 +437,11 @@
     .line 394
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 397
     .end local v2    # "i":I
-    :cond_1
+    :cond_25
     return v1
 .end method
 
@@ -449,7 +449,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     .line 413
     invoke-virtual {p0}, Lcom/google/common/hash/HashCode;->getBytesInternal()[B
@@ -472,8 +472,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_e
+    if-ge v3, v2, :cond_2a
 
     aget-byte v4, v0, v3
 
@@ -503,10 +503,10 @@
     .end local v4    # "b":B
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 418
-    :cond_0
+    :cond_2a
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -515,7 +515,7 @@
 .end method
 
 .method public writeBytesTo([BII)I
-    .locals 2
+    .registers 6
     .param p1, "dest"    # [B
     .param p2, "offset"    # I
     .param p3, "maxLength"    # I

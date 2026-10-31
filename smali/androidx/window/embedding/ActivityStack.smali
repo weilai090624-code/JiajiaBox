@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;Z)V
-    .locals 1
+    .registers 4
     .param p1, "activities"    # Ljava/util/List;
     .param p2, "isEmpty"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -86,18 +86,18 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/util/List;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 26
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 35
     const/4 p2, 0x0
 
     .line 26
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Landroidx/window/embedding/ActivityStack;-><init>(Ljava/util/List;Z)V
 
     .line 78
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public final contains(Landroid/app/Activity;)Z
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     const-string v0, "activity"
@@ -125,28 +125,28 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 54
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 55
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/window/embedding/ActivityStack;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 57
-    :cond_1
+    :cond_a
     iget-object v1, p0, Landroidx/window/embedding/ActivityStack;->activities:Ljava/util/List;
 
     move-object v3, p1
@@ -159,7 +159,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_21
 
     iget-boolean v1, p0, Landroidx/window/embedding/ActivityStack;->isEmpty:Z
 
@@ -169,19 +169,19 @@
 
     iget-boolean v3, v3, Landroidx/window/embedding/ActivityStack;->isEmpty:Z
 
-    if-eq v1, v3, :cond_2
+    if-eq v1, v3, :cond_21
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_22
     return v0
 .end method
 
 .method public final getActivities$window_release()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -198,24 +198,24 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 62
     iget-boolean v0, p0, Landroidx/window/embedding/ActivityStack;->isEmpty:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 63
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 65
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
     .line 62
-    :goto_0
+    :goto_7
     nop
 
     .line 61
@@ -240,7 +240,7 @@
 .end method
 
 .method public final isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 50
     iget-boolean v0, p0, Landroidx/window/embedding/ActivityStack;->isEmpty:Z
@@ -249,7 +249,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 72
     new-instance v0, Ljava/lang/StringBuilder;

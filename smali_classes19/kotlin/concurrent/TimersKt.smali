@@ -45,7 +45,7 @@
 
 # direct methods
 .method private static final fixedRateTimer(Ljava/lang/String;ZJJLkotlin/jvm/functions/Function1;)Ljava/util/Timer;
-    .locals 7
+    .registers 14
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "daemon"    # Z
     .param p2, "initialDelay"    # J
@@ -97,7 +97,7 @@
 .end method
 
 .method private static final fixedRateTimer(Ljava/lang/String;ZLjava/util/Date;JLkotlin/jvm/functions/Function1;)Ljava/util/Timer;
-    .locals 2
+    .registers 8
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "daemon"    # Z
     .param p2, "startAt"    # Ljava/util/Date;
@@ -147,7 +147,7 @@
 .end method
 
 .method static synthetic fixedRateTimer$default(Ljava/lang/String;ZJJLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/util/Timer;
-    .locals 6
+    .registers 15
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "daemon"    # Z
     .param p2, "initialDelay"    # J
@@ -157,25 +157,25 @@
     .line 122
     and-int/lit8 p8, p7, 0x1
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p8, p7, 0x2
 
-    if-eqz p8, :cond_1
+    if-eqz p8, :cond_a
 
     const/4 p1, 0x0
 
-    :cond_1
+    :cond_a
     and-int/lit8 p7, p7, 0x4
 
-    if-eqz p7, :cond_2
+    if-eqz p7, :cond_10
 
     const-wide/16 p2, 0x0
 
-    :cond_2
+    :cond_10
     const-string p7, "action"
 
     invoke-static {p6, p7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -208,7 +208,7 @@
 .end method
 
 .method static synthetic fixedRateTimer$default(Ljava/lang/String;ZLjava/util/Date;JLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/util/Timer;
-    .locals 0
+    .registers 8
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "daemon"    # Z
     .param p2, "startAt"    # Ljava/util/Date;
@@ -218,18 +218,18 @@
     .line 136
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p6, p6, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_a
 
     const/4 p1, 0x0
 
-    :cond_1
+    :cond_a
     const-string p6, "startAt"
 
     invoke-static {p2, p6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -258,7 +258,7 @@
 .end method
 
 .method private static final schedule(Ljava/util/Timer;JJLkotlin/jvm/functions/Function1;)Ljava/util/TimerTask;
-    .locals 7
+    .registers 13
     .param p0, "$this$schedule"    # Ljava/util/Timer;
     .param p1, "delay"    # J
     .param p3, "period"    # J
@@ -309,7 +309,7 @@
 .end method
 
 .method private static final schedule(Ljava/util/Timer;JLkotlin/jvm/functions/Function1;)Ljava/util/TimerTask;
-    .locals 1
+    .registers 5
     .param p0, "$this$schedule"    # Ljava/util/Timer;
     .param p1, "delay"    # J
     .param p3, "action"    # Lkotlin/jvm/functions/Function1;
@@ -351,7 +351,7 @@
 .end method
 
 .method private static final schedule(Ljava/util/Timer;Ljava/util/Date;JLkotlin/jvm/functions/Function1;)Ljava/util/TimerTask;
-    .locals 1
+    .registers 6
     .param p0, "$this$schedule"    # Ljava/util/Timer;
     .param p1, "time"    # Ljava/util/Date;
     .param p2, "period"    # J
@@ -399,7 +399,7 @@
 .end method
 
 .method private static final schedule(Ljava/util/Timer;Ljava/util/Date;Lkotlin/jvm/functions/Function1;)Ljava/util/TimerTask;
-    .locals 1
+    .registers 4
     .param p0, "$this$schedule"    # Ljava/util/Timer;
     .param p1, "time"    # Ljava/util/Date;
     .param p2, "action"    # Lkotlin/jvm/functions/Function1;
@@ -445,7 +445,7 @@
 .end method
 
 .method private static final scheduleAtFixedRate(Ljava/util/Timer;JJLkotlin/jvm/functions/Function1;)Ljava/util/TimerTask;
-    .locals 7
+    .registers 13
     .param p0, "$this$scheduleAtFixedRate"    # Ljava/util/Timer;
     .param p1, "delay"    # J
     .param p3, "period"    # J
@@ -496,7 +496,7 @@
 .end method
 
 .method private static final scheduleAtFixedRate(Ljava/util/Timer;Ljava/util/Date;JLkotlin/jvm/functions/Function1;)Ljava/util/TimerTask;
-    .locals 1
+    .registers 6
     .param p0, "$this$scheduleAtFixedRate"    # Ljava/util/Timer;
     .param p1, "time"    # Ljava/util/Date;
     .param p2, "period"    # J
@@ -544,28 +544,28 @@
 .end method
 
 .method public static final timer(Ljava/lang/String;Z)Ljava/util/Timer;
-    .locals 1
+    .registers 3
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "daemon"    # Z
 
     .line 82
     new-instance v0, Ljava/util/Timer;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
     invoke-direct {v0, p1}, Ljava/util/Timer;-><init>(Z)V
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_8
     invoke-direct {v0, p0, p1}, Ljava/util/Timer;-><init>(Ljava/lang/String;Z)V
 
-    :goto_0
+    :goto_b
     return-object v0
 .end method
 
 .method private static final timer(Ljava/lang/String;ZJJLkotlin/jvm/functions/Function1;)Ljava/util/Timer;
-    .locals 7
+    .registers 14
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "daemon"    # Z
     .param p2, "initialDelay"    # J
@@ -617,7 +617,7 @@
 .end method
 
 .method private static final timer(Ljava/lang/String;ZLjava/util/Date;JLkotlin/jvm/functions/Function1;)Ljava/util/Timer;
-    .locals 2
+    .registers 8
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "daemon"    # Z
     .param p2, "startAt"    # Ljava/util/Date;
@@ -667,7 +667,7 @@
 .end method
 
 .method static synthetic timer$default(Ljava/lang/String;ZJJLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/util/Timer;
-    .locals 6
+    .registers 15
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "daemon"    # Z
     .param p2, "initialDelay"    # J
@@ -677,25 +677,25 @@
     .line 93
     and-int/lit8 p8, p7, 0x1
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p8, p7, 0x2
 
-    if-eqz p8, :cond_1
+    if-eqz p8, :cond_a
 
     const/4 p1, 0x0
 
-    :cond_1
+    :cond_a
     and-int/lit8 p7, p7, 0x4
 
-    if-eqz p7, :cond_2
+    if-eqz p7, :cond_10
 
     const-wide/16 p2, 0x0
 
-    :cond_2
+    :cond_10
     const-string p7, "action"
 
     invoke-static {p6, p7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -728,7 +728,7 @@
 .end method
 
 .method static synthetic timer$default(Ljava/lang/String;ZLjava/util/Date;JLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/util/Timer;
-    .locals 0
+    .registers 8
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "daemon"    # Z
     .param p2, "startAt"    # Ljava/util/Date;
@@ -738,18 +738,18 @@
     .line 107
     and-int/lit8 p7, p6, 0x1
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_5
 
     const/4 p0, 0x0
 
-    :cond_0
+    :cond_5
     and-int/lit8 p6, p6, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_a
 
     const/4 p1, 0x0
 
-    :cond_1
+    :cond_a
     const-string p6, "startAt"
 
     invoke-static {p2, p6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -778,7 +778,7 @@
 .end method
 
 .method private static final timerTask(Lkotlin/jvm/functions/Function1;)Ljava/util/TimerTask;
-    .locals 1
+    .registers 2
     .param p0, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

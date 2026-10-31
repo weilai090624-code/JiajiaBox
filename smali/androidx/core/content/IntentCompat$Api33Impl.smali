@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 330
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getParcelableArrayExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)[Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/content/Intent;
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -51,7 +51,7 @@
 .end method
 
 .method static getParcelableArrayListExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/content/Intent;
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -78,7 +78,7 @@
 .end method
 
 .method static getParcelableExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/content/Intent;
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -103,7 +103,7 @@
 .end method
 
 .method static getSerializableExtra(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Ljava/io/Serializable;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/content/Intent;
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;

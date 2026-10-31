@@ -10,7 +10,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 3
     .param p1, "message"    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation

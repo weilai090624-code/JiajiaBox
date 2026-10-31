@@ -70,7 +70,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lokhttp3/TlsVersion;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x5
 
@@ -110,7 +110,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 25
     new-instance v0, Lokhttp3/TlsVersion;
@@ -195,7 +195,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .param p3, "javaName"    # Ljava/lang/String;
@@ -218,7 +218,7 @@
 .end method
 
 .method public static final forJavaName(Ljava/lang/String;)Lokhttp3/TlsVersion;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -232,7 +232,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lokhttp3/TlsVersion;
-    .locals 1
+    .registers 2
 
     const-class v0, Lokhttp3/TlsVersion;
 
@@ -246,7 +246,7 @@
 .end method
 
 .method public static values()[Lokhttp3/TlsVersion;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lokhttp3/TlsVersion;->$VALUES:[Lokhttp3/TlsVersion;
 
@@ -262,7 +262,7 @@
 
 # virtual methods
 .method public final -deprecated_javaName()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -279,7 +279,7 @@
 .end method
 
 .method public final javaName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lokhttp3/TlsVersion;->javaName:Ljava/lang/String;

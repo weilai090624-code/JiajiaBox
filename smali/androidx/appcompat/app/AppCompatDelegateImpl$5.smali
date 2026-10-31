@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     .line 1086
@@ -37,14 +37,14 @@
 
 # virtual methods
 .method public onAttachedFromWindow()V
-    .locals 0
+    .registers 1
 
     .line 1088
     return-void
 .end method
 
 .method public onDetachedFromWindow()V
-    .locals 1
+    .registers 2
 
     .line 1092
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$5;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;

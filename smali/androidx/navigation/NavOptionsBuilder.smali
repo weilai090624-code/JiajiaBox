@@ -93,7 +93,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -115,7 +115,7 @@
 .end method
 
 .method public static synthetic getPopUpTo$annotations()V
-    .locals 0
+    .registers 0
     .annotation runtime Lkotlin/Deprecated;
         message = "Use the popUpToId property."
     .end annotation
@@ -124,47 +124,47 @@
 .end method
 
 .method public static synthetic popUpTo$default(Landroidx/navigation/NavOptionsBuilder;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 98
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_8
 
     sget-object p2, Landroidx/navigation/NavOptionsBuilder$popUpTo$1;->INSTANCE:Landroidx/navigation/NavOptionsBuilder$popUpTo$1;
 
     check-cast p2, Lkotlin/jvm/functions/Function1;
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1, p2}, Landroidx/navigation/NavOptionsBuilder;->popUpTo(ILkotlin/jvm/functions/Function1;)V
 
     return-void
 .end method
 
 .method public static synthetic popUpTo$default(Landroidx/navigation/NavOptionsBuilder;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
 
     .line 113
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_8
 
     sget-object p2, Landroidx/navigation/NavOptionsBuilder$popUpTo$2;->INSTANCE:Landroidx/navigation/NavOptionsBuilder$popUpTo$2;
 
     check-cast p2, Lkotlin/jvm/functions/Function1;
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1, p2}, Landroidx/navigation/NavOptionsBuilder;->popUpTo(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 
     return-void
 .end method
 
 .method private final setPopUpToRoute(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
 
     .line 85
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1f
 
     .line 86
     move-object v0, p1
@@ -175,7 +175,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 87
     iput-object p1, p0, Landroidx/navigation/NavOptionsBuilder;->popUpToRoute:Ljava/lang/String;
@@ -185,10 +185,10 @@
 
     iput-boolean v0, p0, Landroidx/navigation/NavOptionsBuilder;->inclusive:Z
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 212
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 86
@@ -209,15 +209,15 @@
     throw v0
 
     .line 90
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     return-void
 .end method
 
 
 # virtual methods
 .method public final anim(Lkotlin/jvm/functions/Function1;)V
-    .locals 4
+    .registers 6
     .param p1, "animBuilder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -291,7 +291,7 @@
 .end method
 
 .method public final build$navigation_common_release()Landroidx/navigation/NavOptions;
-    .locals 6
+    .registers 7
 
     .line 135
     iget-object v0, p0, Landroidx/navigation/NavOptionsBuilder;->builder:Landroidx/navigation/NavOptions$Builder;
@@ -315,7 +315,7 @@
     .line 138
     iget-object v3, p0, Landroidx/navigation/NavOptionsBuilder;->popUpToRoute:Ljava/lang/String;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     .line 139
     iget-object v3, p0, Landroidx/navigation/NavOptionsBuilder;->popUpToRoute:Ljava/lang/String;
@@ -326,10 +326,10 @@
 
     invoke-virtual {v1, v3, v4, v5}, Landroidx/navigation/NavOptions$Builder;->setPopUpTo(Ljava/lang/String;ZZ)Landroidx/navigation/NavOptions$Builder;
 
-    goto :goto_0
+    goto :goto_25
 
     .line 141
-    :cond_0
+    :cond_1c
     iget v3, p0, Landroidx/navigation/NavOptionsBuilder;->popUpToId:I
 
     iget-boolean v4, p0, Landroidx/navigation/NavOptionsBuilder;->inclusive:Z
@@ -339,7 +339,7 @@
     invoke-virtual {v1, v3, v4, v5}, Landroidx/navigation/NavOptions$Builder;->setPopUpTo(IZZ)Landroidx/navigation/NavOptions$Builder;
 
     .line 143
-    :goto_0
+    :goto_25
     nop
 
     .line 135
@@ -356,7 +356,7 @@
 .end method
 
 .method public final getLaunchSingleTop()Z
-    .locals 1
+    .registers 2
 
     .line 46
     iget-boolean v0, p0, Landroidx/navigation/NavOptionsBuilder;->launchSingleTop:Z
@@ -365,7 +365,7 @@
 .end method
 
 .method public final getPopUpTo()I
-    .locals 1
+    .registers 2
 
     .line 73
     iget v0, p0, Landroidx/navigation/NavOptionsBuilder;->popUpToId:I
@@ -374,7 +374,7 @@
 .end method
 
 .method public final getPopUpToId()I
-    .locals 1
+    .registers 2
 
     .line 61
     iget v0, p0, Landroidx/navigation/NavOptionsBuilder;->popUpToId:I
@@ -383,7 +383,7 @@
 .end method
 
 .method public final getPopUpToRoute()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 83
     iget-object v0, p0, Landroidx/navigation/NavOptionsBuilder;->popUpToRoute:Ljava/lang/String;
@@ -392,7 +392,7 @@
 .end method
 
 .method public final getRestoreState()Z
-    .locals 1
+    .registers 2
 
     .line 55
     iget-boolean v0, p0, Landroidx/navigation/NavOptionsBuilder;->restoreState:Z
@@ -401,7 +401,7 @@
 .end method
 
 .method public final popUpTo(ILkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 5
     .param p1, "id"    # I
     .param p2, "popUpToBuilder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -454,7 +454,7 @@
 .end method
 
 .method public final popUpTo(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
-    .locals 2
+    .registers 5
     .param p1, "route"    # Ljava/lang/String;
     .param p2, "popUpToBuilder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -512,7 +512,7 @@
 .end method
 
 .method public final setLaunchSingleTop(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 46
@@ -522,7 +522,7 @@
 .end method
 
 .method public final setPopUpTo(I)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # I
     .annotation runtime Lkotlin/Deprecated;
         message = "Use the popUpTo function and passing in the id."
@@ -540,7 +540,7 @@
 .end method
 
 .method public final setPopUpToId$navigation_common_release(I)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
 
     .line 63
@@ -556,7 +556,7 @@
 .end method
 
 .method public final setRestoreState(Z)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Z
 
     .line 55

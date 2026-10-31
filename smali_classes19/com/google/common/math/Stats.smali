@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(JDDDD)V
-    .locals 0
+    .registers 11
     .param p1, "count"    # J
     .param p3, "mean"    # D
     .param p5, "sumOfSquaresOfDeltas"    # D
@@ -61,7 +61,7 @@
 .end method
 
 .method public static fromByteArray([B)Lcom/google/common/math/Stats;
-    .locals 4
+    .registers 5
     .param p0, "byteArray"    # [B
 
     .line 553
@@ -72,16 +72,16 @@
 
     const/16 v1, 0x28
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     const-string v2, "Expected Stats.BYTES = %s remaining , got %s"
 
     array-length v3, p0
@@ -107,7 +107,7 @@
 .end method
 
 .method public static meanOf(Ljava/lang/Iterable;)D
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -132,7 +132,7 @@
 .end method
 
 .method public static meanOf(Ljava/util/Iterator;)D
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,12 +168,12 @@
 
     .line 417
     .local v2, "mean":D
-    :goto_0
+    :goto_13
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3d
 
     .line 418
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -197,13 +197,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_38
 
     invoke-static {v2, v3}, Lcom/google/common/primitives/Doubles;->isFinite(D)Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_38
 
     .line 422
     sub-double v6, v4, v2
@@ -214,26 +214,26 @@
 
     add-double/2addr v2, v6
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 424
-    :cond_0
+    :cond_38
     invoke-static {v2, v3, v4, v5}, Lcom/google/common/math/StatsAccumulator;->calculateNewMeanNonFinite(DD)D
 
     move-result-wide v2
 
     .line 426
     .end local v4    # "value":D
-    :goto_1
-    goto :goto_0
+    :goto_3c
+    goto :goto_13
 
     .line 427
-    :cond_1
+    :cond_3d
     return-wide v2
 .end method
 
 .method public static varargs meanOf([D)D
-    .locals 9
+    .registers 10
     .param p0, "values"    # [D
 
     .line 440
@@ -241,16 +241,16 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 441
@@ -261,10 +261,10 @@
     const/4 v2, 0x1
 
     .local v2, "index":I
-    :goto_1
+    :goto_d
     array-length v3, p0
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_2d
 
     .line 443
     aget-wide v3, p0, v2
@@ -275,13 +275,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_26
 
     invoke-static {v0, v1}, Lcom/google/common/primitives/Doubles;->isFinite(D)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_26
 
     .line 446
     sub-double v5, v3, v0
@@ -294,29 +294,29 @@
 
     add-double/2addr v0, v5
 
-    goto :goto_2
+    goto :goto_2a
 
     .line 448
-    :cond_1
+    :cond_26
     invoke-static {v0, v1, v3, v4}, Lcom/google/common/math/StatsAccumulator;->calculateNewMeanNonFinite(DD)D
 
     move-result-wide v0
 
     .line 442
     .end local v3    # "value":D
-    :goto_2
+    :goto_2a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_d
 
     .line 451
     .end local v2    # "index":I
-    :cond_2
+    :cond_2d
     return-wide v0
 .end method
 
 .method public static varargs meanOf([I)D
-    .locals 9
+    .registers 10
     .param p0, "values"    # [I
 
     .line 464
@@ -324,16 +324,16 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 465
@@ -346,10 +346,10 @@
     const/4 v2, 0x1
 
     .local v2, "index":I
-    :goto_1
+    :goto_e
     array-length v3, p0
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_2f
 
     .line 467
     aget v3, p0, v2
@@ -362,13 +362,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_28
 
     invoke-static {v0, v1}, Lcom/google/common/primitives/Doubles;->isFinite(D)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_28
 
     .line 470
     sub-double v5, v3, v0
@@ -381,29 +381,29 @@
 
     add-double/2addr v0, v5
 
-    goto :goto_2
+    goto :goto_2c
 
     .line 472
-    :cond_1
+    :cond_28
     invoke-static {v0, v1, v3, v4}, Lcom/google/common/math/StatsAccumulator;->calculateNewMeanNonFinite(DD)D
 
     move-result-wide v0
 
     .line 466
     .end local v3    # "value":D
-    :goto_2
+    :goto_2c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_e
 
     .line 475
     .end local v2    # "index":I
-    :cond_2
+    :cond_2f
     return-wide v0
 .end method
 
 .method public static varargs meanOf([J)D
-    .locals 9
+    .registers 10
     .param p0, "values"    # [J
 
     .line 489
@@ -411,16 +411,16 @@
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 490
@@ -433,10 +433,10 @@
     const/4 v2, 0x1
 
     .local v2, "index":I
-    :goto_1
+    :goto_e
     array-length v3, p0
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_2f
 
     .line 492
     aget-wide v3, p0, v2
@@ -449,13 +449,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_28
 
     invoke-static {v0, v1}, Lcom/google/common/primitives/Doubles;->isFinite(D)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_28
 
     .line 495
     sub-double v5, v3, v0
@@ -468,29 +468,29 @@
 
     add-double/2addr v0, v5
 
-    goto :goto_2
+    goto :goto_2c
 
     .line 497
-    :cond_1
+    :cond_28
     invoke-static {v0, v1, v3, v4}, Lcom/google/common/math/StatsAccumulator;->calculateNewMeanNonFinite(DD)D
 
     move-result-wide v0
 
     .line 491
     .end local v3    # "value":D
-    :goto_2
+    :goto_2c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_e
 
     .line 500
     .end local v2    # "index":I
-    :cond_2
+    :cond_2f
     return-wide v0
 .end method
 
 .method public static of(Ljava/lang/Iterable;)Lcom/google/common/math/Stats;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -521,7 +521,7 @@
 .end method
 
 .method public static of(Ljava/util/Iterator;)Lcom/google/common/math/Stats;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -552,7 +552,7 @@
 .end method
 
 .method public static varargs of([D)Lcom/google/common/math/Stats;
-    .locals 2
+    .registers 3
     .param p0, "values"    # [D
 
     .line 125
@@ -573,7 +573,7 @@
 .end method
 
 .method public static varargs of([I)Lcom/google/common/math/Stats;
-    .locals 2
+    .registers 3
     .param p0, "values"    # [I
 
     .line 136
@@ -594,7 +594,7 @@
 .end method
 
 .method public static varargs of([J)Lcom/google/common/math/Stats;
-    .locals 2
+    .registers 3
     .param p0, "values"    # [J
 
     .line 148
@@ -615,7 +615,7 @@
 .end method
 
 .method static readFrom(Ljava/nio/ByteBuffer;)Lcom/google/common/math/Stats;
-    .locals 15
+    .registers 16
     .param p0, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 573
@@ -631,17 +631,17 @@
 
     const/16 v1, 0x28
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     .line 578
-    :goto_0
+    :goto_f
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v2
@@ -690,7 +690,7 @@
 
 # virtual methods
 .method public count()J
-    .locals 2
+    .registers 3
 
     .line 155
     iget-wide v0, p0, Lcom/google/common/math/Stats;->count:J
@@ -699,7 +699,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -708,13 +708,13 @@
     .line 345
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 346
     return v0
 
     .line 348
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -723,13 +723,13 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_f
 
     .line 349
     return v0
 
     .line 351
-    :cond_1
+    :cond_f
     move-object v1, p1
 
     check-cast v1, Lcom/google/common/math/Stats;
@@ -742,7 +742,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_5c
 
     iget-wide v2, p0, Lcom/google/common/math/Stats;->mean:D
 
@@ -759,7 +759,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_5c
 
     iget-wide v2, p0, Lcom/google/common/math/Stats;->sumOfSquaresOfDeltas:D
 
@@ -776,7 +776,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_5c
 
     iget-wide v2, p0, Lcom/google/common/math/Stats;->min:D
 
@@ -793,7 +793,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_5c
 
     iget-wide v2, p0, Lcom/google/common/math/Stats;->max:D
 
@@ -810,22 +810,22 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_5c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5d
 
-    :cond_2
+    :cond_5c
     nop
 
     .line 352
-    :goto_0
+    :goto_5d
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 7
+    .registers 8
 
     .line 367
     iget-wide v0, p0, Lcom/google/common/math/Stats;->count:J
@@ -890,7 +890,7 @@
 .end method
 
 .method public max()D
-    .locals 5
+    .registers 6
 
     .line 324
     iget-wide v0, p0, Lcom/google/common/math/Stats;->count:J
@@ -899,16 +899,16 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 325
@@ -918,7 +918,7 @@
 .end method
 
 .method public mean()D
-    .locals 5
+    .registers 6
 
     .line 180
     iget-wide v0, p0, Lcom/google/common/math/Stats;->count:J
@@ -927,16 +927,16 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 181
@@ -946,7 +946,7 @@
 .end method
 
 .method public min()D
-    .locals 5
+    .registers 6
 
     .line 306
     iget-wide v0, p0, Lcom/google/common/math/Stats;->count:J
@@ -955,16 +955,16 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 307
@@ -974,7 +974,7 @@
 .end method
 
 .method public populationStandardDeviation()D
-    .locals 2
+    .registers 3
 
     .line 243
     invoke-virtual {p0}, Lcom/google/common/math/Stats;->populationVariance()D
@@ -989,7 +989,7 @@
 .end method
 
 .method public populationVariance()D
-    .locals 5
+    .registers 6
 
     .line 216
     iget-wide v0, p0, Lcom/google/common/math/Stats;->count:J
@@ -998,16 +998,16 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 217
@@ -1017,7 +1017,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 218
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
@@ -1025,14 +1025,14 @@
     return-wide v0
 
     .line 220
-    :cond_1
+    :cond_19
     iget-wide v0, p0, Lcom/google/common/math/Stats;->count:J
 
     const-wide/16 v2, 0x1
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_24
 
     .line 221
     const-wide/16 v0, 0x0
@@ -1040,7 +1040,7 @@
     return-wide v0
 
     .line 223
-    :cond_2
+    :cond_24
     iget-wide v0, p0, Lcom/google/common/math/Stats;->sumOfSquaresOfDeltas:D
 
     invoke-static {v0, v1}, Lcom/google/common/math/DoubleUtils;->ensureNonNegative(D)D
@@ -1059,7 +1059,7 @@
 .end method
 
 .method public sampleStandardDeviation()D
-    .locals 2
+    .registers 3
 
     .line 289
     invoke-virtual {p0}, Lcom/google/common/math/Stats;->sampleVariance()D
@@ -1074,7 +1074,7 @@
 .end method
 
 .method public sampleVariance()D
-    .locals 6
+    .registers 7
 
     .line 263
     iget-wide v0, p0, Lcom/google/common/math/Stats;->count:J
@@ -1083,16 +1083,16 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 264
@@ -1102,7 +1102,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 265
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
@@ -1110,7 +1110,7 @@
     return-wide v0
 
     .line 267
-    :cond_1
+    :cond_19
     iget-wide v0, p0, Lcom/google/common/math/Stats;->sumOfSquaresOfDeltas:D
 
     invoke-static {v0, v1}, Lcom/google/common/math/DoubleUtils;->ensureNonNegative(D)D
@@ -1129,7 +1129,7 @@
 .end method
 
 .method public sum()D
-    .locals 4
+    .registers 5
 
     .line 197
     iget-wide v0, p0, Lcom/google/common/math/Stats;->mean:D
@@ -1144,7 +1144,7 @@
 .end method
 
 .method sumOfSquaresOfDeltas()D
-    .locals 2
+    .registers 3
 
     .line 386
     iget-wide v0, p0, Lcom/google/common/math/Stats;->sumOfSquaresOfDeltas:D
@@ -1153,7 +1153,7 @@
 .end method
 
 .method public toByteArray()[B
-    .locals 2
+    .registers 3
 
     .line 515
     const/16 v0, 0x28
@@ -1181,7 +1181,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 372
     invoke-virtual {p0}, Lcom/google/common/math/Stats;->count()J
@@ -1194,7 +1194,7 @@
 
     cmp-long v5, v0, v2
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_3d
 
     .line 373
     invoke-static {p0}, Lcom/google/common/base/MoreObjects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
@@ -1255,7 +1255,7 @@
     return-object v0
 
     .line 381
-    :cond_0
+    :cond_3d
     invoke-static {p0}, Lcom/google/common/base/MoreObjects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     move-result-object v0
@@ -1274,7 +1274,7 @@
 .end method
 
 .method writeTo(Ljava/nio/ByteBuffer;)V
-    .locals 4
+    .registers 6
     .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 531
@@ -1290,17 +1290,17 @@
 
     const/16 v1, 0x28
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     .line 536
-    :goto_0
+    :goto_f
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v2

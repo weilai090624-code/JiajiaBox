@@ -150,7 +150,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 323
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -172,7 +172,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/Response;)V
-    .locals 2
+    .registers 4
     .param p1, "response"    # Lokhttp3/Response;
 
     const-string v0, "response"
@@ -287,15 +287,15 @@
 .end method
 
 .method private final checkPriorResponse(Lokhttp3/Response;)V
-    .locals 4
+    .registers 6
     .param p1, "response"    # Lokhttp3/Response;
 
     .line 418
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_0
+    :cond_3
     move-object v0, p1
 
     .local v0, "$this$checkPriorResponse_u24lambda_u2d19":Lokhttp3/Response;
@@ -307,17 +307,17 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_1
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_e
+    if-eqz v2, :cond_13
 
     .line 420
     nop
@@ -328,13 +328,13 @@
     nop
 
     .line 421
-    :goto_1
+    :goto_12
     return-void
 
     .line 456
     .restart local v0    # "$this$checkPriorResponse_u24lambda_u2d19":Lokhttp3/Response;
     .restart local v1    # "$i$a$-apply-Response$Builder$checkPriorResponse$1":I
-    :cond_2
+    :cond_13
     const/4 v2, 0x0
 
     .line 419
@@ -358,16 +358,16 @@
 .end method
 
 .method private final checkSupportResponse(Ljava/lang/String;Lokhttp3/Response;)V
-    .locals 5
+    .registers 8
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "response"    # Lokhttp3/Response;
 
     .line 404
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3
 
-    goto :goto_4
+    goto :goto_34
 
-    :cond_0
+    :cond_3
     move-object v0, p2
 
     .local v0, "$this$checkSupportResponse_u24lambda_u2d16":Lokhttp3/Response;
@@ -383,66 +383,66 @@
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_f
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_8
+    :goto_10
+    if-eqz v2, :cond_6e
 
     .line 406
     invoke-virtual {v0}, Lokhttp3/Response;->networkResponse()Lokhttp3/Response;
 
     move-result-object v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1a
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_2
+    :cond_1a
     const/4 v2, 0x0
 
-    :goto_1
-    if-eqz v2, :cond_7
+    :goto_1b
+    if-eqz v2, :cond_5b
 
     .line 407
     invoke-virtual {v0}, Lokhttp3/Response;->cacheResponse()Lokhttp3/Response;
 
     move-result-object v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_25
 
     const/4 v2, 0x1
 
-    goto :goto_2
+    goto :goto_26
 
-    :cond_3
+    :cond_25
     const/4 v2, 0x0
 
-    :goto_2
-    if-eqz v2, :cond_6
+    :goto_26
+    if-eqz v2, :cond_48
 
     .line 408
     invoke-virtual {v0}, Lokhttp3/Response;->priorResponse()Lokhttp3/Response;
 
     move-result-object v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_2f
 
-    goto :goto_3
+    goto :goto_30
 
-    :cond_4
+    :cond_2f
     const/4 v3, 0x0
 
-    :goto_3
-    if-eqz v3, :cond_5
+    :goto_30
+    if-eqz v3, :cond_35
 
     .line 409
     nop
@@ -453,13 +453,13 @@
     nop
 
     .line 410
-    :goto_4
+    :goto_34
     return-void
 
     .line 456
     .restart local v0    # "$this$checkSupportResponse_u24lambda_u2d16":Lokhttp3/Response;
     .restart local v1    # "$i$a$-apply-Response$Builder$checkSupportResponse$1":I
-    :cond_5
+    :cond_35
     const/4 v2, 0x0
 
     .line 408
@@ -484,7 +484,7 @@
     throw v3
 
     .line 456
-    :cond_6
+    :cond_48
     const/4 v2, 0x0
 
     .line 407
@@ -509,7 +509,7 @@
     throw v3
 
     .line 456
-    :cond_7
+    :cond_5b
     const/4 v2, 0x0
 
     .line 406
@@ -534,7 +534,7 @@
     throw v3
 
     .line 456
-    :cond_8
+    :cond_6e
     const/4 v2, 0x0
 
     .line 405
@@ -562,7 +562,7 @@
 
 # virtual methods
 .method public addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Response$Builder;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -605,7 +605,7 @@
 .end method
 
 .method public body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
-    .locals 2
+    .registers 4
     .param p1, "body"    # Lokhttp3/ResponseBody;
 
     .line 389
@@ -635,24 +635,24 @@
 .end method
 
 .method public build()Lokhttp3/Response;
-    .locals 19
+    .registers 20
 
     .line 436
     move-object/from16 v0, p0
 
     iget v1, v0, Lokhttp3/Response$Builder;->code:I
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_8
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_4
+    :goto_9
+    if-eqz v1, :cond_6f
 
     .line 437
     nop
@@ -660,17 +660,17 @@
     .line 438
     iget-object v3, v0, Lokhttp3/Response$Builder;->request:Lokhttp3/Request;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_5f
 
     .line 439
     iget-object v4, v0, Lokhttp3/Response$Builder;->protocol:Lokhttp3/Protocol;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4f
 
     .line 440
     iget-object v5, v0, Lokhttp3/Response$Builder;->message:Ljava/lang/String;
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3f
 
     .line 441
     iget v6, v0, Lokhttp3/Response$Builder;->code:I
@@ -724,7 +724,7 @@
     return-object v18
 
     .line 456
-    :cond_1
+    :cond_3f
     const/4 v1, 0x0
 
     .line 440
@@ -747,7 +747,7 @@
     throw v1
 
     .line 456
-    :cond_2
+    :cond_4f
     const/4 v1, 0x0
 
     .line 439
@@ -770,7 +770,7 @@
     throw v1
 
     .line 456
-    :cond_3
+    :cond_5f
     const/4 v1, 0x0
 
     .line 438
@@ -793,7 +793,7 @@
     throw v1
 
     .line 456
-    :cond_4
+    :cond_6f
     const/4 v1, 0x0
 
     .line 436
@@ -827,7 +827,7 @@
 .end method
 
 .method public cacheResponse(Lokhttp3/Response;)Lokhttp3/Response$Builder;
-    .locals 3
+    .registers 5
     .param p1, "cacheResponse"    # Lokhttp3/Response;
 
     .line 398
@@ -862,7 +862,7 @@
 .end method
 
 .method public code(I)Lokhttp3/Response$Builder;
-    .locals 2
+    .registers 4
     .param p1, "code"    # I
 
     .line 351
@@ -892,7 +892,7 @@
 .end method
 
 .method public final getBody$okhttp()Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 2
 
     .line 315
     iget-object v0, p0, Lokhttp3/Response$Builder;->body:Lokhttp3/ResponseBody;
@@ -901,7 +901,7 @@
 .end method
 
 .method public final getCacheResponse$okhttp()Lokhttp3/Response;
-    .locals 1
+    .registers 2
 
     .line 317
     iget-object v0, p0, Lokhttp3/Response$Builder;->cacheResponse:Lokhttp3/Response;
@@ -910,7 +910,7 @@
 .end method
 
 .method public final getCode$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 311
     iget v0, p0, Lokhttp3/Response$Builder;->code:I
@@ -919,7 +919,7 @@
 .end method
 
 .method public final getExchange$okhttp()Lokhttp3/internal/connection/Exchange;
-    .locals 1
+    .registers 2
 
     .line 321
     iget-object v0, p0, Lokhttp3/Response$Builder;->exchange:Lokhttp3/internal/connection/Exchange;
@@ -928,7 +928,7 @@
 .end method
 
 .method public final getHandshake$okhttp()Lokhttp3/Handshake;
-    .locals 1
+    .registers 2
 
     .line 313
     iget-object v0, p0, Lokhttp3/Response$Builder;->handshake:Lokhttp3/Handshake;
@@ -937,7 +937,7 @@
 .end method
 
 .method public final getHeaders$okhttp()Lokhttp3/Headers$Builder;
-    .locals 1
+    .registers 2
 
     .line 314
     iget-object v0, p0, Lokhttp3/Response$Builder;->headers:Lokhttp3/Headers$Builder;
@@ -946,7 +946,7 @@
 .end method
 
 .method public final getMessage$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 312
     iget-object v0, p0, Lokhttp3/Response$Builder;->message:Ljava/lang/String;
@@ -955,7 +955,7 @@
 .end method
 
 .method public final getNetworkResponse$okhttp()Lokhttp3/Response;
-    .locals 1
+    .registers 2
 
     .line 316
     iget-object v0, p0, Lokhttp3/Response$Builder;->networkResponse:Lokhttp3/Response;
@@ -964,7 +964,7 @@
 .end method
 
 .method public final getPriorResponse$okhttp()Lokhttp3/Response;
-    .locals 1
+    .registers 2
 
     .line 318
     iget-object v0, p0, Lokhttp3/Response$Builder;->priorResponse:Lokhttp3/Response;
@@ -973,7 +973,7 @@
 .end method
 
 .method public final getProtocol$okhttp()Lokhttp3/Protocol;
-    .locals 1
+    .registers 2
 
     .line 310
     iget-object v0, p0, Lokhttp3/Response$Builder;->protocol:Lokhttp3/Protocol;
@@ -982,7 +982,7 @@
 .end method
 
 .method public final getReceivedResponseAtMillis$okhttp()J
-    .locals 2
+    .registers 3
 
     .line 320
     iget-wide v0, p0, Lokhttp3/Response$Builder;->receivedResponseAtMillis:J
@@ -991,7 +991,7 @@
 .end method
 
 .method public final getRequest$okhttp()Lokhttp3/Request;
-    .locals 1
+    .registers 2
 
     .line 309
     iget-object v0, p0, Lokhttp3/Response$Builder;->request:Lokhttp3/Request;
@@ -1000,7 +1000,7 @@
 .end method
 
 .method public final getSentRequestAtMillis$okhttp()J
-    .locals 2
+    .registers 3
 
     .line 319
     iget-wide v0, p0, Lokhttp3/Response$Builder;->sentRequestAtMillis:J
@@ -1009,7 +1009,7 @@
 .end method
 
 .method public handshake(Lokhttp3/Handshake;)Lokhttp3/Response$Builder;
-    .locals 2
+    .registers 4
     .param p1, "handshake"    # Lokhttp3/Handshake;
 
     .line 359
@@ -1039,7 +1039,7 @@
 .end method
 
 .method public header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Response$Builder;
-    .locals 3
+    .registers 6
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public headers(Lokhttp3/Headers;)Lokhttp3/Response$Builder;
-    .locals 3
+    .registers 5
     .param p1, "headers"    # Lokhttp3/Headers;
 
     const-string v0, "headers"
@@ -1120,7 +1120,7 @@
 .end method
 
 .method public final initExchange$okhttp(Lokhttp3/internal/connection/Exchange;)V
-    .locals 1
+    .registers 3
     .param p1, "deferredTrailers"    # Lokhttp3/internal/connection/Exchange;
 
     const-string v0, "deferredTrailers"
@@ -1135,7 +1135,7 @@
 .end method
 
 .method public message(Ljava/lang/String;)Lokhttp3/Response$Builder;
-    .locals 2
+    .registers 4
     .param p1, "message"    # Ljava/lang/String;
 
     const-string v0, "message"
@@ -1169,7 +1169,7 @@
 .end method
 
 .method public networkResponse(Lokhttp3/Response;)Lokhttp3/Response$Builder;
-    .locals 3
+    .registers 5
     .param p1, "networkResponse"    # Lokhttp3/Response;
 
     .line 393
@@ -1204,7 +1204,7 @@
 .end method
 
 .method public priorResponse(Lokhttp3/Response;)Lokhttp3/Response$Builder;
-    .locals 2
+    .registers 4
     .param p1, "priorResponse"    # Lokhttp3/Response;
 
     .line 412
@@ -1237,7 +1237,7 @@
 .end method
 
 .method public protocol(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
-    .locals 2
+    .registers 4
     .param p1, "protocol"    # Lokhttp3/Protocol;
 
     const-string v0, "protocol"
@@ -1271,7 +1271,7 @@
 .end method
 
 .method public receivedResponseAtMillis(J)Lokhttp3/Response$Builder;
-    .locals 2
+    .registers 5
     .param p1, "receivedResponseAtMillis"    # J
 
     .line 427
@@ -1301,7 +1301,7 @@
 .end method
 
 .method public removeHeader(Ljava/lang/String;)Lokhttp3/Response$Builder;
-    .locals 3
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
@@ -1339,7 +1339,7 @@
 .end method
 
 .method public request(Lokhttp3/Request;)Lokhttp3/Response$Builder;
-    .locals 2
+    .registers 4
     .param p1, "request"    # Lokhttp3/Request;
 
     const-string v0, "request"
@@ -1373,7 +1373,7 @@
 .end method
 
 .method public sentRequestAtMillis(J)Lokhttp3/Response$Builder;
-    .locals 2
+    .registers 5
     .param p1, "sentRequestAtMillis"    # J
 
     .line 423
@@ -1403,7 +1403,7 @@
 .end method
 
 .method public final setBody$okhttp(Lokhttp3/ResponseBody;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/ResponseBody;
 
     .line 315
@@ -1413,7 +1413,7 @@
 .end method
 
 .method public final setCacheResponse$okhttp(Lokhttp3/Response;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/Response;
 
     .line 317
@@ -1423,7 +1423,7 @@
 .end method
 
 .method public final setCode$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 311
@@ -1433,7 +1433,7 @@
 .end method
 
 .method public final setExchange$okhttp(Lokhttp3/internal/connection/Exchange;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/internal/connection/Exchange;
 
     .line 321
@@ -1443,7 +1443,7 @@
 .end method
 
 .method public final setHandshake$okhttp(Lokhttp3/Handshake;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/Handshake;
 
     .line 313
@@ -1453,7 +1453,7 @@
 .end method
 
 .method public final setHeaders$okhttp(Lokhttp3/Headers$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/Headers$Builder;
 
     const-string v0, "<set-?>"
@@ -1467,7 +1467,7 @@
 .end method
 
 .method public final setMessage$okhttp(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 312
@@ -1477,7 +1477,7 @@
 .end method
 
 .method public final setNetworkResponse$okhttp(Lokhttp3/Response;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/Response;
 
     .line 316
@@ -1487,7 +1487,7 @@
 .end method
 
 .method public final setPriorResponse$okhttp(Lokhttp3/Response;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/Response;
 
     .line 318
@@ -1497,7 +1497,7 @@
 .end method
 
 .method public final setProtocol$okhttp(Lokhttp3/Protocol;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/Protocol;
 
     .line 310
@@ -1507,7 +1507,7 @@
 .end method
 
 .method public final setReceivedResponseAtMillis$okhttp(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 320
@@ -1517,7 +1517,7 @@
 .end method
 
 .method public final setRequest$okhttp(Lokhttp3/Request;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lokhttp3/Request;
 
     .line 309
@@ -1527,7 +1527,7 @@
 .end method
 
 .method public final setSentRequestAtMillis$okhttp(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 319

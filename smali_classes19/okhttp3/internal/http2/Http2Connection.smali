@@ -288,7 +288,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     new-instance v0, Lokhttp3/internal/http2/Http2Connection$Companion;
 
@@ -335,7 +335,7 @@
 .end method
 
 .method public constructor <init>(Lokhttp3/internal/http2/Http2Connection$Builder;)V
-    .locals 5
+    .registers 7
     .param p1, "builder"    # Lokhttp3/internal/http2/Http2Connection$Builder;
 
     const-string v0, "builder"
@@ -380,16 +380,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     const/4 v0, 0x3
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_0
+    :cond_2b
     const/4 v0, 0x2
 
-    :goto_0
+    :goto_2c
     iput v0, p0, Lokhttp3/internal/http2/Http2Connection;->nextStreamId:I
 
     .line 83
@@ -449,7 +449,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_65
 
     .line 114
     const/4 v3, 0x7
@@ -459,7 +459,7 @@
     invoke-virtual {v1, v3, v4}, Lokhttp3/internal/http2/Settings;->set(II)Lokhttp3/internal/http2/Settings;
 
     .line 116
-    :cond_1
+    :cond_65
     nop
 
     .end local v1    # "$this$okHttpSettings_u24lambda_u2d0":Lokhttp3/internal/http2/Settings;
@@ -539,7 +539,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_cb
 
     .line 151
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
@@ -576,7 +576,7 @@
 
     .line 170
     .end local v0    # "pingIntervalNanos":J
-    :cond_2
+    :cond_cb
     nop
 
     .line 55
@@ -584,7 +584,7 @@
 .end method
 
 .method public static final synthetic access$failConnection(Lokhttp3/internal/http2/Http2Connection;Ljava/io/IOException;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
     .param p1, "e"    # Ljava/io/IOException;
 
@@ -595,7 +595,7 @@
 .end method
 
 .method public static final synthetic access$getAwaitPongsReceived$p(Lokhttp3/internal/http2/Http2Connection;)J
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
 
     .line 54
@@ -605,7 +605,7 @@
 .end method
 
 .method public static final synthetic access$getCurrentPushRequests$p(Lokhttp3/internal/http2/Http2Connection;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
 
     .line 54
@@ -615,7 +615,7 @@
 .end method
 
 .method public static final synthetic access$getDEFAULT_SETTINGS$cp()Lokhttp3/internal/http2/Settings;
-    .locals 1
+    .registers 1
 
     .line 54
     sget-object v0, Lokhttp3/internal/http2/Http2Connection;->DEFAULT_SETTINGS:Lokhttp3/internal/http2/Settings;
@@ -624,7 +624,7 @@
 .end method
 
 .method public static final synthetic access$getDegradedPongsReceived$p(Lokhttp3/internal/http2/Http2Connection;)J
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
 
     .line 54
@@ -634,7 +634,7 @@
 .end method
 
 .method public static final synthetic access$getIntervalPingsSent$p(Lokhttp3/internal/http2/Http2Connection;)J
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
 
     .line 54
@@ -644,7 +644,7 @@
 .end method
 
 .method public static final synthetic access$getIntervalPongsReceived$p(Lokhttp3/internal/http2/Http2Connection;)J
-    .locals 2
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
 
     .line 54
@@ -654,7 +654,7 @@
 .end method
 
 .method public static final synthetic access$getPushObserver$p(Lokhttp3/internal/http2/Http2Connection;)Lokhttp3/internal/http2/PushObserver;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
 
     .line 54
@@ -664,7 +664,7 @@
 .end method
 
 .method public static final synthetic access$getSettingsListenerQueue$p(Lokhttp3/internal/http2/Http2Connection;)Lokhttp3/internal/concurrent/TaskQueue;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
 
     .line 54
@@ -674,7 +674,7 @@
 .end method
 
 .method public static final synthetic access$getTaskRunner$p(Lokhttp3/internal/http2/Http2Connection;)Lokhttp3/internal/concurrent/TaskRunner;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
 
     .line 54
@@ -684,7 +684,7 @@
 .end method
 
 .method public static final synthetic access$getWriterQueue$p(Lokhttp3/internal/http2/Http2Connection;)Lokhttp3/internal/concurrent/TaskQueue;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
 
     .line 54
@@ -694,7 +694,7 @@
 .end method
 
 .method public static final synthetic access$isShutdown$p(Lokhttp3/internal/http2/Http2Connection;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
 
     .line 54
@@ -704,7 +704,7 @@
 .end method
 
 .method public static final synthetic access$setAwaitPongsReceived$p(Lokhttp3/internal/http2/Http2Connection;J)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
     .param p1, "<set-?>"    # J
 
@@ -715,7 +715,7 @@
 .end method
 
 .method public static final synthetic access$setDegradedPongsReceived$p(Lokhttp3/internal/http2/Http2Connection;J)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
     .param p1, "<set-?>"    # J
 
@@ -726,7 +726,7 @@
 .end method
 
 .method public static final synthetic access$setIntervalPingsSent$p(Lokhttp3/internal/http2/Http2Connection;J)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
     .param p1, "<set-?>"    # J
 
@@ -737,7 +737,7 @@
 .end method
 
 .method public static final synthetic access$setIntervalPongsReceived$p(Lokhttp3/internal/http2/Http2Connection;J)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
     .param p1, "<set-?>"    # J
 
@@ -748,7 +748,7 @@
 .end method
 
 .method public static final synthetic access$setShutdown$p(Lokhttp3/internal/http2/Http2Connection;Z)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
     .param p1, "<set-?>"    # Z
 
@@ -759,7 +759,7 @@
 .end method
 
 .method public static final synthetic access$setWriteBytesMaximum$p(Lokhttp3/internal/http2/Http2Connection;J)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lokhttp3/internal/http2/Http2Connection;
     .param p1, "<set-?>"    # J
 
@@ -770,7 +770,7 @@
 .end method
 
 .method private final failConnection(Ljava/io/IOException;)V
-    .locals 2
+    .registers 4
     .param p1, "e"    # Ljava/io/IOException;
 
     .line 483
@@ -785,7 +785,7 @@
 .end method
 
 .method private final newStream(ILjava/util/List;Z)Lokhttp3/internal/http2/Http2Stream;
-    .locals 19
+    .registers 23
     .param p1, "associatedStreamId"    # I
     .param p2, "requestHeaders"    # Ljava/util/List;
     .param p3, "out"    # Z
@@ -842,23 +842,23 @@
 
     .line 241
     .local v15, "$i$a$-synchronized-Http2Connection$newStream$1":I
-    :try_start_0
+    :try_start_11
     monitor-enter p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_5
+    :try_end_12
+    .catchall {:try_start_11 .. :try_end_12} :catchall_c9
 
     const/4 v0, 0x0
 
     .line 242
     .local v0, "$i$a$-synchronized-Http2Connection$newStream$1$1":I
-    :try_start_1
+    :try_start_13
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/http2/Http2Connection;->getNextStreamId$okhttp()I
 
     move-result v2
 
     const v3, 0x3fffffff    # 1.9999999f
 
-    if-le v2, v3, :cond_0
+    if-le v2, v3, :cond_21
 
     .line 243
     sget-object v2, Lokhttp3/internal/http2/ErrorCode;->REFUSED_STREAM:Lokhttp3/internal/http2/ErrorCode;
@@ -866,24 +866,24 @@
     invoke-virtual {v7, v2}, Lokhttp3/internal/http2/Http2Connection;->shutdown(Lokhttp3/internal/http2/ErrorCode;)V
 
     .line 245
-    :cond_0
+    :cond_21
     iget-boolean v2, v7, Lokhttp3/internal/http2/Http2Connection;->isShutdown:Z
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_c0
 
     .line 248
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/http2/Http2Connection;->getNextStreamId$okhttp()I
 
     move-result v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_4
+    :try_end_29
+    .catchall {:try_start_13 .. :try_end_29} :catchall_c6
 
     move v6, v2
 
     .line 249
     .end local v1    # "streamId":I
     .local v6, "streamId":I
-    :try_start_2
+    :try_start_2a
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/http2/Http2Connection;->getNextStreamId$okhttp()I
 
     move-result v1
@@ -894,8 +894,8 @@
 
     .line 250
     new-instance v16, Lokhttp3/internal/http2/Http2Stream;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_3
+    :try_end_35
+    .catchall {:try_start_2a .. :try_end_35} :catchall_bd
 
     const/16 v17, 0x0
 
@@ -915,18 +915,18 @@
     .local v18, "streamId":I
     move-object/from16 v6, v17
 
-    :try_start_3
+    :try_start_42
     invoke-direct/range {v1 .. v6}, Lokhttp3/internal/http2/Http2Stream;-><init>(ILokhttp3/internal/http2/Http2Connection;ZZLokhttp3/Headers;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_45
+    .catchall {:try_start_42 .. :try_end_45} :catchall_b9
 
     move-object/from16 v13, v16
 
     .line 251
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_68
 
     .line 252
-    :try_start_4
+    :try_start_49
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/http2/Http2Connection;->getWriteBytesTotal()J
 
     move-result-wide v1
@@ -937,7 +937,7 @@
 
     cmp-long v5, v1, v3
 
-    if-gez v5, :cond_2
+    if-gez v5, :cond_68
 
     .line 253
     invoke-virtual {v13}, Lokhttp3/internal/http2/Http2Stream;->getWriteBytesTotal()J
@@ -947,51 +947,51 @@
     invoke-virtual {v13}, Lokhttp3/internal/http2/Http2Stream;->getWriteBytesMaximum()J
 
     move-result-wide v3
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_5d
+    .catchall {:try_start_49 .. :try_end_5d} :catchall_64
 
     cmp-long v5, v1, v3
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_62
 
-    goto :goto_0
+    goto :goto_68
 
-    :cond_1
+    :cond_62
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_69
 
     .line 241
     .end local v0    # "$i$a$-synchronized-Http2Connection$newStream$1$1":I
-    :catchall_0
+    :catchall_64
     move-exception v0
 
     move/from16 v1, v18
 
-    goto :goto_3
+    goto :goto_c7
 
     .line 253
     .restart local v0    # "$i$a$-synchronized-Http2Connection$newStream$1$1":I
-    :cond_2
-    :goto_0
+    :cond_68
+    :goto_68
     const/4 v1, 0x1
 
     .line 251
-    :goto_1
+    :goto_69
     move v12, v1
 
     .line 254
-    :try_start_5
+    :try_start_6a
     invoke-virtual {v13}, Lokhttp3/internal/http2/Http2Stream;->isOpen()Z
 
     move-result v1
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :try_end_6e
+    .catchall {:try_start_6a .. :try_end_6e} :catchall_b9
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_7b
 
     .line 255
-    :try_start_6
+    :try_start_70
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/http2/Http2Connection;->getStreams$okhttp()Ljava/util/Map;
 
     move-result-object v1
@@ -1001,46 +1001,46 @@
     move-result-object v2
 
     invoke-interface {v1, v2, v13}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    :try_end_7b
+    .catchall {:try_start_70 .. :try_end_7b} :catchall_64
 
     .line 257
-    :cond_3
+    :cond_7b
     nop
 
     .end local v0    # "$i$a$-synchronized-Http2Connection$newStream$1$1":I
-    :try_start_7
+    :try_start_7c
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
+    :try_end_7e
+    .catchall {:try_start_7c .. :try_end_7e} :catchall_b9
 
     .line 241
-    :try_start_8
+    :try_start_7e
     monitor-exit p0
 
     .line 258
-    if-nez v8, :cond_4
+    if-nez v8, :cond_8b
 
     .line 259
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/http2/Http2Connection;->getWriter()Lokhttp3/internal/http2/Http2Writer;
 
     move-result-object v0
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    :try_end_85
+    .catchall {:try_start_7e .. :try_end_85} :catchall_b5
 
     move/from16 v1, v18
 
     .end local v18    # "streamId":I
     .restart local v1    # "streamId":I
-    :try_start_9
+    :try_start_87
     invoke-virtual {v0, v10, v1, v9}, Lokhttp3/internal/http2/Http2Writer;->headers(ZILjava/util/List;)V
 
-    goto :goto_2
+    goto :goto_9a
 
     .line 261
     .end local v1    # "streamId":I
     .restart local v18    # "streamId":I
-    :cond_4
+    :cond_8b
     move/from16 v1, v18
 
     .end local v18    # "streamId":I
@@ -1049,7 +1049,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_a6
 
     .line 263
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/http2/Http2Connection;->getWriter()Lokhttp3/internal/http2/Http2Writer;
@@ -1059,19 +1059,19 @@
     invoke-virtual {v0, v8, v1, v9}, Lokhttp3/internal/http2/Http2Writer;->pushPromise(IILjava/util/List;)V
 
     .line 265
-    :goto_2
+    :goto_9a
     nop
 
     .end local v15    # "$i$a$-synchronized-Http2Connection$newStream$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_5
+    :try_end_9d
+    .catchall {:try_start_87 .. :try_end_9d} :catchall_c9
 
     .line 240
     monitor-exit v14
 
     .line 267
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_a5
 
     .line 268
     iget-object v0, v7, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
@@ -1079,17 +1079,17 @@
     invoke-virtual {v0}, Lokhttp3/internal/http2/Http2Writer;->flush()V
 
     .line 271
-    :cond_5
+    :cond_a5
     return-object v13
 
     .line 1008
     .restart local v15    # "$i$a$-synchronized-Http2Connection$newStream$1":I
-    :cond_6
+    :cond_a6
     const/4 v0, 0x0
 
     .line 261
     .local v0, "$i$a$-require-Http2Connection$newStream$1$2":I
-    :try_start_a
+    :try_start_a7
     const-string v2, "client streams shouldn\'t have associated stream IDs"
 
     .end local v0    # "$i$a$-require-Http2Connection$newStream$1$2":I
@@ -1112,8 +1112,8 @@
     .end local p2    # "requestHeaders":Ljava/util/List;
     .end local p3    # "out":Z
     throw v0
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_5
+    :try_end_b5
+    .catchall {:try_start_a7 .. :try_end_b5} :catchall_c9
 
     .line 240
     .end local v15    # "$i$a$-synchronized-Http2Connection$newStream$1":I
@@ -1125,43 +1125,43 @@
     .restart local p1    # "associatedStreamId":I
     .restart local p2    # "requestHeaders":Ljava/util/List;
     .restart local p3    # "out":Z
-    :catchall_1
+    :catchall_b5
     move-exception v0
 
     move/from16 v1, v18
 
     .end local v18    # "streamId":I
     .restart local v1    # "streamId":I
-    goto :goto_4
+    goto :goto_ca
 
     .line 241
     .end local v1    # "streamId":I
     .restart local v15    # "$i$a$-synchronized-Http2Connection$newStream$1":I
     .restart local v18    # "streamId":I
-    :catchall_2
+    :catchall_b9
     move-exception v0
 
     move/from16 v1, v18
 
     .end local v18    # "streamId":I
     .restart local v1    # "streamId":I
-    goto :goto_3
+    goto :goto_c7
 
     .end local v1    # "streamId":I
     .restart local v6    # "streamId":I
-    :catchall_3
+    :catchall_bd
     move-exception v0
 
     move v1, v6
 
     .end local v6    # "streamId":I
     .restart local v1    # "streamId":I
-    goto :goto_3
+    goto :goto_c7
 
     .line 246
     .local v0, "$i$a$-synchronized-Http2Connection$newStream$1$1":I
-    :cond_7
-    :try_start_b
+    :cond_c0
+    :try_start_c0
     new-instance v2, Lokhttp3/internal/http2/ConnectionShutdownException;
 
     invoke-direct {v2}, Lokhttp3/internal/http2/ConnectionShutdownException;-><init>()V
@@ -1176,8 +1176,8 @@
     .end local p2    # "requestHeaders":Ljava/util/List;
     .end local p3    # "out":Z
     throw v2
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_4
+    :try_end_c6
+    .catchall {:try_start_c0 .. :try_end_c6} :catchall_c6
 
     .line 241
     .end local v0    # "$i$a$-synchronized-Http2Connection$newStream$1$1":I
@@ -1190,11 +1190,11 @@
     .restart local p1    # "associatedStreamId":I
     .restart local p2    # "requestHeaders":Ljava/util/List;
     .restart local p3    # "out":Z
-    :catchall_4
+    :catchall_c6
     move-exception v0
 
-    :goto_3
-    :try_start_c
+    :goto_c7
+    :try_start_c7
     monitor-exit p0
 
     .end local v1    # "streamId":I
@@ -1206,8 +1206,8 @@
     .end local p2    # "requestHeaders":Ljava/util/List;
     .end local p3    # "out":Z
     throw v0
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_5
+    :try_end_c9
+    .catchall {:try_start_c7 .. :try_end_c9} :catchall_c9
 
     .line 240
     .end local v15    # "$i$a$-synchronized-Http2Connection$newStream$1":I
@@ -1219,17 +1219,17 @@
     .restart local p1    # "associatedStreamId":I
     .restart local p2    # "requestHeaders":Ljava/util/List;
     .restart local p3    # "out":Z
-    :catchall_5
+    :catchall_c9
     move-exception v0
 
-    :goto_4
+    :goto_ca
     monitor-exit v14
 
     throw v0
 .end method
 
 .method public static synthetic start$default(Lokhttp3/internal/http2/Http2Connection;ZLokhttp3/internal/concurrent/TaskRunner;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1239,18 +1239,18 @@
     .line 495
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p1, 0x1
 
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_b
 
     sget-object p2, Lokhttp3/internal/concurrent/TaskRunner;->INSTANCE:Lokhttp3/internal/concurrent/TaskRunner;
 
-    :cond_1
+    :cond_b
     invoke-virtual {p0, p1, p2}, Lokhttp3/internal/http2/Http2Connection;->start(ZLokhttp3/internal/concurrent/TaskRunner;)V
 
     return-void
@@ -1259,7 +1259,7 @@
 
 # virtual methods
 .method public final declared-synchronized awaitPong()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -1271,15 +1271,15 @@
     .line 401
     nop
 
-    :goto_0
-    :try_start_0
+    :goto_2
+    :try_start_2
     iget-wide v0, p0, Lokhttp3/internal/http2/Http2Connection;->awaitPongsReceived:J
 
     iget-wide v2, p0, Lokhttp3/internal/http2/Http2Connection;->awaitPingsSent:J
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_13
 
     .line 402
     move-object v0, p0
@@ -1294,34 +1294,34 @@
     check-cast v2, Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->wait()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_2 .. :try_end_12} :catchall_15
 
     .end local v0    # "$this$wait$iv":Ljava/lang/Object;
     .end local v1    # "$i$f$wait":I
-    goto :goto_0
+    goto :goto_2
 
     .line 404
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Connection;
-    :cond_0
+    :cond_13
     monitor-exit p0
 
     return-void
 
     .line 400
-    :catchall_0
+    :catchall_15
     move-exception v0
 
-    :try_start_1
+    :try_start_16
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_17
+    .catchall {:try_start_16 .. :try_end_17} :catchall_15
 
     throw v0
 .end method
 
 .method public close()V
-    .locals 3
+    .registers 4
 
     .line 438
     sget-object v0, Lokhttp3/internal/http2/ErrorCode;->NO_ERROR:Lokhttp3/internal/http2/ErrorCode;
@@ -1337,7 +1337,7 @@
 .end method
 
 .method public final close$okhttp(Lokhttp3/internal/http2/ErrorCode;Lokhttp3/internal/http2/ErrorCode;Ljava/io/IOException;)V
-    .locals 10
+    .registers 14
     .param p1, "connectionCode"    # Lokhttp3/internal/http2/ErrorCode;
     .param p2, "streamCode"    # Lokhttp3/internal/http2/ErrorCode;
     .param p3, "cause"    # Ljava/io/IOException;
@@ -1360,18 +1360,18 @@
     .local v1, "$i$f$assertThreadDoesntHoldLock":I
     sget-boolean v2, Lokhttp3/internal/Util;->assertionsEnabled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_42
 
     invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
-    goto :goto_0
+    goto :goto_42
 
     .line 1012
-    :cond_0
+    :cond_17
     new-instance v2, Ljava/lang/AssertionError;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1415,8 +1415,8 @@
     throw v2
 
     .line 1014
-    :cond_1
-    :goto_0
+    :cond_42
+    :goto_42
     nop
 
     .line 448
@@ -1433,23 +1433,23 @@
 
     .line 449
     .local v1, "$i$a$-ignoreIoExceptions-Http2Connection$close$1":I
-    :try_start_0
+    :try_start_46
     invoke-virtual {p0, p1}, Lokhttp3/internal/http2/Http2Connection;->shutdown(Lokhttp3/internal/http2/ErrorCode;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_49
+    .catch Ljava/io/IOException; {:try_start_46 .. :try_end_49} :catch_4b
 
     .line 450
     nop
 
     .end local v1    # "$i$a$-ignoreIoExceptions-Http2Connection$close$1":I
-    goto :goto_1
+    goto :goto_4c
 
     .line 1017
-    :catch_0
+    :catch_4b
     move-exception v1
 
     .line 1019
-    :goto_1
+    :goto_4c
     nop
 
     .line 452
@@ -1464,7 +1464,7 @@
 
     .line 454
     .local v1, "$i$a$-synchronized-Http2Connection$close$2":I
-    :try_start_1
+    :try_start_50
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection;->getStreams$okhttp()Ljava/util/Map;
 
     move-result-object v2
@@ -1475,7 +1475,7 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_7e
 
     .line 455
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection;->getStreams$okhttp()Ljava/util/Map;
@@ -1501,7 +1501,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_76
 
     .line 455
     .end local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
@@ -1516,13 +1516,13 @@
 
     invoke-interface {v2}, Ljava/util/Map;->clear()V
 
-    goto :goto_2
+    goto :goto_7e
 
     .line 1021
     .restart local v2    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v4    # "$i$f$toTypedArray":I
     .restart local v5    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_2
+    :cond_76
     new-instance v3, Ljava/lang/NullPointerException;
 
     const-string v6, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -1543,14 +1543,14 @@
     .restart local p1    # "connectionCode":Lokhttp3/internal/http2/ErrorCode;
     .restart local p2    # "streamCode":Lokhttp3/internal/http2/ErrorCode;
     .restart local p3    # "cause":Ljava/io/IOException;
-    :cond_3
-    :goto_2
+    :cond_7e
+    :goto_7e
     nop
 
     .end local v1    # "$i$a$-synchronized-Http2Connection$close$2":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_81
+    .catchall {:try_start_50 .. :try_end_81} :catchall_cb
 
     .line 453
     monitor-exit p0
@@ -1560,20 +1560,20 @@
 
     check-cast v1, [Lokhttp3/internal/http2/Http2Stream;
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_88
 
-    goto :goto_5
+    goto :goto_9f
 
     .local v1, "$this$forEach$iv":[Ljava/lang/Object;
-    :cond_4
+    :cond_88
     const/4 v2, 0x0
 
     .line 1022
     .local v2, "$i$f$forEach":I
     array-length v4, v1
 
-    :goto_3
-    if-ge v3, v4, :cond_5
+    :goto_8a
+    if-ge v3, v4, :cond_9e
 
     aget-object v5, v1, v3
 
@@ -1596,23 +1596,23 @@
 
     .line 462
     .local v9, "$i$a$-ignoreIoExceptions-Http2Connection$close$3$1":I
-    :try_start_2
+    :try_start_93
     invoke-virtual {v6, p2, p3}, Lokhttp3/internal/http2/Http2Stream;->close(Lokhttp3/internal/http2/ErrorCode;Ljava/io/IOException;)V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_96
+    .catch Ljava/io/IOException; {:try_start_93 .. :try_end_96} :catch_98
 
     .line 463
     nop
 
     .end local v9    # "$i$a$-ignoreIoExceptions-Http2Connection$close$3$1":I
-    goto :goto_4
+    goto :goto_99
 
     .line 1025
-    :catch_1
+    :catch_98
     move-exception v9
 
     .line 1027
-    :goto_4
+    :goto_99
     nop
 
     .line 464
@@ -1624,16 +1624,16 @@
     .end local v7    # "$i$a$-forEach-Http2Connection$close$3":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_8a
 
     .line 1028
-    :cond_5
+    :cond_9e
     nop
 
     .line 467
     .end local v1    # "$this$forEach$iv":[Ljava/lang/Object;
     .end local v2    # "$i$f$forEach":I
-    :goto_5
+    :goto_9f
     const/4 v1, 0x0
 
     .line 1029
@@ -1645,27 +1645,27 @@
 
     .line 468
     .local v2, "$i$a$-ignoreIoExceptions-Http2Connection$close$4":I
-    :try_start_3
+    :try_start_a2
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection;->getWriter()Lokhttp3/internal/http2/Http2Writer;
 
     move-result-object v3
 
     invoke-virtual {v3}, Lokhttp3/internal/http2/Http2Writer;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
+    :try_end_a9
+    .catch Ljava/io/IOException; {:try_start_a2 .. :try_end_a9} :catch_ab
 
     .line 469
     nop
 
     .end local v2    # "$i$a$-ignoreIoExceptions-Http2Connection$close$4":I
-    goto :goto_6
+    goto :goto_ac
 
     .line 1031
-    :catch_2
+    :catch_ab
     move-exception v2
 
     .line 1033
-    :goto_6
+    :goto_ac
     nop
 
     .line 472
@@ -1681,27 +1681,27 @@
 
     .line 473
     .local v2, "$i$a$-ignoreIoExceptions-Http2Connection$close$5":I
-    :try_start_4
+    :try_start_b0
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection;->getSocket$okhttp()Ljava/net/Socket;
 
     move-result-object v3
 
     invoke-virtual {v3}, Ljava/net/Socket;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    :try_end_b7
+    .catch Ljava/io/IOException; {:try_start_b0 .. :try_end_b7} :catch_b9
 
     .line 474
     nop
 
     .end local v2    # "$i$a$-ignoreIoExceptions-Http2Connection$close$5":I
-    goto :goto_7
+    goto :goto_ba
 
     .line 1036
-    :catch_3
+    :catch_b9
     move-exception v2
 
     .line 1038
-    :goto_7
+    :goto_ba
     nop
 
     .line 477
@@ -1724,7 +1724,7 @@
     return-void
 
     .line 453
-    :catchall_0
+    :catchall_cb
     move-exception v1
 
     monitor-exit p0
@@ -1733,7 +1733,7 @@
 .end method
 
 .method public final flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1750,7 +1750,7 @@
 .end method
 
 .method public final getClient$okhttp()Z
-    .locals 1
+    .registers 2
 
     .line 69
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Connection;->client:Z
@@ -1759,7 +1759,7 @@
 .end method
 
 .method public final getConnectionName$okhttp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 74
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->connectionName:Ljava/lang/String;
@@ -1768,7 +1768,7 @@
 .end method
 
 .method public final getLastGoodStreamId$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 75
     iget v0, p0, Lokhttp3/internal/http2/Http2Connection;->lastGoodStreamId:I
@@ -1777,7 +1777,7 @@
 .end method
 
 .method public final getListener$okhttp()Lokhttp3/internal/http2/Http2Connection$Listener;
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->listener:Lokhttp3/internal/http2/Http2Connection$Listener;
@@ -1786,7 +1786,7 @@
 .end method
 
 .method public final getNextStreamId$okhttp()I
-    .locals 1
+    .registers 2
 
     .line 78
     iget v0, p0, Lokhttp3/internal/http2/Http2Connection;->nextStreamId:I
@@ -1795,7 +1795,7 @@
 .end method
 
 .method public final getOkHttpSettings()Lokhttp3/internal/http2/Settings;
-    .locals 1
+    .registers 2
 
     .line 109
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->okHttpSettings:Lokhttp3/internal/http2/Settings;
@@ -1804,7 +1804,7 @@
 .end method
 
 .method public final getPeerSettings()Lokhttp3/internal/http2/Settings;
-    .locals 1
+    .registers 2
 
     .line 122
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->peerSettings:Lokhttp3/internal/http2/Settings;
@@ -1813,7 +1813,7 @@
 .end method
 
 .method public final getReadBytesAcknowledged()J
-    .locals 2
+    .registers 3
 
     .line 129
     iget-wide v0, p0, Lokhttp3/internal/http2/Http2Connection;->readBytesAcknowledged:J
@@ -1822,7 +1822,7 @@
 .end method
 
 .method public final getReadBytesTotal()J
-    .locals 2
+    .registers 3
 
     .line 125
     iget-wide v0, p0, Lokhttp3/internal/http2/Http2Connection;->readBytesTotal:J
@@ -1831,7 +1831,7 @@
 .end method
 
 .method public final getReaderRunnable()Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;
-    .locals 1
+    .registers 2
 
     .line 144
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->readerRunnable:Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;
@@ -1840,7 +1840,7 @@
 .end method
 
 .method public final getSocket$okhttp()Ljava/net/Socket;
-    .locals 1
+    .registers 2
 
     .line 140
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->socket:Ljava/net/Socket;
@@ -1849,13 +1849,13 @@
 .end method
 
 .method public final declared-synchronized getStream(I)Lokhttp3/internal/http2/Http2Stream;
-    .locals 2
+    .registers 4
     .param p1, "id"    # I
 
     monitor-enter p0
 
     .line 177
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->streams:Ljava/util/Map;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1867,8 +1867,8 @@
     move-result-object v0
 
     check-cast v0, Lokhttp3/internal/http2/Http2Stream;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_1 .. :try_end_d} :catchall_f
 
     monitor-exit p0
 
@@ -1877,19 +1877,19 @@
     .line 177
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Connection;
     .end local p1    # "id":I
-    :catchall_0
+    :catchall_f
     move-exception p1
 
-    :try_start_1
+    :try_start_10
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_11
+    .catchall {:try_start_10 .. :try_end_11} :catchall_f
 
     throw p1
 .end method
 
 .method public final getStreams$okhttp()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1907,7 +1907,7 @@
 .end method
 
 .method public final getWriteBytesMaximum()J
-    .locals 2
+    .registers 3
 
     .line 137
     iget-wide v0, p0, Lokhttp3/internal/http2/Http2Connection;->writeBytesMaximum:J
@@ -1916,7 +1916,7 @@
 .end method
 
 .method public final getWriteBytesTotal()J
-    .locals 2
+    .registers 3
 
     .line 133
     iget-wide v0, p0, Lokhttp3/internal/http2/Http2Connection;->writeBytesTotal:J
@@ -1925,7 +1925,7 @@
 .end method
 
 .method public final getWriter()Lokhttp3/internal/http2/Http2Writer;
-    .locals 1
+    .registers 2
 
     .line 141
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
@@ -1934,43 +1934,43 @@
 .end method
 
 .method public final declared-synchronized isHealthy(J)Z
-    .locals 6
+    .registers 9
     .param p1, "nowNs"    # J
 
     monitor-enter p0
 
     .line 525
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Connection;->isShutdown:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_1b
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     monitor-exit p0
 
     return v1
 
     .line 528
-    :cond_0
-    :try_start_1
+    :cond_8
+    :try_start_8
     iget-wide v2, p0, Lokhttp3/internal/http2/Http2Connection;->degradedPongsReceived:J
 
     iget-wide v4, p0, Lokhttp3/internal/http2/Http2Connection;->degradedPingsSent:J
 
     cmp-long v0, v2, v4
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_18
 
     iget-wide v2, p0, Lokhttp3/internal/http2/Http2Connection;->degradedPongDeadlineNs:J
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_12
+    .catchall {:try_start_8 .. :try_end_12} :catchall_1b
 
     cmp-long v0, p1, v2
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_18
 
     monitor-exit p0
 
@@ -1978,7 +1978,7 @@
 
     .line 530
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Connection;
-    :cond_1
+    :cond_18
     monitor-exit p0
 
     const/4 v0, 0x1
@@ -1987,19 +1987,19 @@
 
     .line 524
     .end local p1    # "nowNs":J
-    :catchall_0
+    :catchall_1b
     move-exception p1
 
-    :try_start_2
+    :try_start_1c
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_1c .. :try_end_1d} :catchall_1b
 
     throw p1
 .end method
 
 .method public final newStream(Ljava/util/List;Z)Lokhttp3/internal/http2/Http2Stream;
-    .locals 1
+    .registers 4
     .param p1, "requestHeaders"    # Ljava/util/List;
     .param p2, "out"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -2033,19 +2033,19 @@
 .end method
 
 .method public final declared-synchronized openStreamCount()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 175
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->streams:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     monitor-exit p0
 
@@ -2053,19 +2053,19 @@
 
     .line 175
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Connection;
-    :catchall_0
+    :catchall_9
     move-exception v0
 
-    :try_start_1
+    :try_start_a
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
     throw v0
 .end method
 
 .method public final pushDataLater$okhttp(ILokio/BufferedSource;IZ)V
-    .locals 11
+    .registers 16
     .param p1, "streamId"    # I
     .param p2, "source"    # Lokio/BufferedSource;
     .param p3, "byteCount"    # I
@@ -2172,7 +2172,7 @@
 .end method
 
 .method public final pushHeadersLater$okhttp(ILjava/util/List;Z)V
-    .locals 9
+    .registers 13
     .param p1, "streamId"    # I
     .param p2, "requestHeaders"    # Ljava/util/List;
     .param p3, "inFinished"    # Z
@@ -2245,7 +2245,7 @@
 .end method
 
 .method public final pushRequestLater$okhttp(ILjava/util/List;)V
-    .locals 11
+    .registers 14
     .param p1, "streamId"    # I
     .param p2, "requestHeaders"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -2268,7 +2268,7 @@
 
     .line 887
     .local v0, "$i$a$-synchronized-Http2Connection$pushRequestLater$1":I
-    :try_start_0
+    :try_start_7
     iget-object v1, p0, Lokhttp3/internal/http2/Http2Connection;->currentPushRequests:Ljava/util/Set;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2279,14 +2279,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 888
     sget-object v1, Lokhttp3/internal/http2/ErrorCode;->PROTOCOL_ERROR:Lokhttp3/internal/http2/ErrorCode;
 
     invoke-virtual {p0, p1, v1}, Lokhttp3/internal/http2/Http2Connection;->writeSynResetLater$okhttp(ILokhttp3/internal/http2/ErrorCode;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_7 .. :try_end_18} :catchall_57
 
     .line 889
     nop
@@ -2298,8 +2298,8 @@
 
     .line 891
     .restart local v0    # "$i$a$-synchronized-Http2Connection$pushRequestLater$1":I
-    :cond_0
-    :try_start_1
+    :cond_1b
+    :try_start_1b
     iget-object v1, p0, Lokhttp3/internal/http2/Http2Connection;->currentPushRequests:Ljava/util/Set;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2307,8 +2307,8 @@
     move-result-object v2
 
     invoke-interface {v1, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_24
+    .catchall {:try_start_1b .. :try_end_24} :catchall_57
 
     .line 886
     .end local v0    # "$i$a$-synchronized-Http2Connection$pushRequestLater$1":I
@@ -2369,7 +2369,7 @@
     return-void
 
     .line 886
-    :catchall_0
+    :catchall_57
     move-exception v0
 
     monitor-exit p0
@@ -2378,7 +2378,7 @@
 .end method
 
 .method public final pushResetLater$okhttp(ILokhttp3/internal/http2/ErrorCode;)V
-    .locals 9
+    .registers 12
     .param p1, "streamId"    # I
     .param p2, "errorCode"    # Lokhttp3/internal/http2/ErrorCode;
 
@@ -2442,7 +2442,7 @@
 .end method
 
 .method public final pushStream(ILjava/util/List;Z)Lokhttp3/internal/http2/Http2Stream;
-    .locals 2
+    .registers 6
     .param p1, "associatedStreamId"    # I
     .param p2, "requestHeaders"    # Ljava/util/List;
     .param p3, "out"    # Z
@@ -2469,7 +2469,7 @@
     .line 210
     iget-boolean v0, p0, Lokhttp3/internal/http2/Http2Connection;->client:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 211
     invoke-direct {p0, p1, p2, p3}, Lokhttp3/internal/http2/Http2Connection;->newStream(ILjava/util/List;Z)Lokhttp3/internal/http2/Http2Stream;
@@ -2479,7 +2479,7 @@
     return-object v0
 
     .line 1008
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     .line 210
@@ -2503,35 +2503,35 @@
 .end method
 
 .method public final pushedStream$okhttp(I)Z
-    .locals 1
+    .registers 3
     .param p1, "streamId"    # I
 
     .line 883
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     and-int/lit8 v0, p1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public final declared-synchronized removeStream$okhttp(I)Lokhttp3/internal/http2/Http2Stream;
-    .locals 4
+    .registers 6
     .param p1, "streamId"    # I
 
     monitor-enter p0
 
     .line 180
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->streams:Ljava/util/Map;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2558,8 +2558,8 @@
     check-cast v3, Ljava/lang/Object;
 
     invoke-virtual {v3}, Ljava/lang/Object;->notifyAll()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_1 .. :try_end_15} :catchall_17
 
     .line 185
     .end local v1    # "$this$notifyAll$iv":Ljava/lang/Object;
@@ -2572,19 +2572,19 @@
     .end local v0    # "stream":Lokhttp3/internal/http2/Http2Stream;
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Connection;
     .end local p1    # "streamId":I
-    :catchall_0
+    :catchall_17
     move-exception p1
 
-    :try_start_1
+    :try_start_18
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_19
+    .catchall {:try_start_18 .. :try_end_19} :catchall_17
 
     throw p1
 .end method
 
 .method public final sendDegradedPingLater$okhttp()V
-    .locals 9
+    .registers 10
 
     .line 549
     monitor-enter p0
@@ -2593,16 +2593,16 @@
 
     .line 550
     .local v0, "$i$a$-synchronized-Http2Connection$sendDegradedPingLater$1":I
-    :try_start_0
+    :try_start_2
     iget-wide v1, p0, Lokhttp3/internal/http2/Http2Connection;->degradedPongsReceived:J
 
     iget-wide v3, p0, Lokhttp3/internal/http2/Http2Connection;->degradedPingsSent:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_2 .. :try_end_6} :catchall_3d
 
     cmp-long v5, v1, v3
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_c
 
     .end local v0    # "$i$a$-synchronized-Http2Connection$sendDegradedPingLater$1":I
     monitor-exit p0
@@ -2611,8 +2611,8 @@
 
     .line 551
     .restart local v0    # "$i$a$-synchronized-Http2Connection$sendDegradedPingLater$1":I
-    :cond_0
-    :try_start_1
+    :cond_c
+    :try_start_c
     iget-wide v1, p0, Lokhttp3/internal/http2/Http2Connection;->degradedPingsSent:J
 
     const-wide/16 v3, 0x1
@@ -2639,8 +2639,8 @@
 
     .end local v0    # "$i$a$-synchronized-Http2Connection$sendDegradedPingLater$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_21
+    .catchall {:try_start_c .. :try_end_21} :catchall_3d
 
     .line 549
     monitor-exit p0
@@ -2678,7 +2678,7 @@
     return-void
 
     .line 549
-    :catchall_0
+    :catchall_3d
     move-exception v0
 
     monitor-exit p0
@@ -2687,7 +2687,7 @@
 .end method
 
 .method public final setLastGoodStreamId$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 75
@@ -2697,7 +2697,7 @@
 .end method
 
 .method public final setNextStreamId$okhttp(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 78
@@ -2707,7 +2707,7 @@
 .end method
 
 .method public final setPeerSettings(Lokhttp3/internal/http2/Settings;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokhttp3/internal/http2/Settings;
 
     const-string v0, "<set-?>"
@@ -2721,7 +2721,7 @@
 .end method
 
 .method public final setSettings(Lokhttp3/internal/http2/Settings;)V
-    .locals 4
+    .registers 6
     .param p1, "settings"    # Lokhttp3/internal/http2/Settings;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2742,19 +2742,19 @@
 
     .line 513
     .local v1, "$i$a$-synchronized-Http2Connection$setSettings$1":I
-    :try_start_0
+    :try_start_9
     monitor-enter p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_a
+    .catchall {:try_start_9 .. :try_end_a} :catchall_2f
 
     const/4 v2, 0x0
 
     .line 514
     .local v2, "$i$a$-synchronized-Http2Connection$setSettings$1$1":I
-    :try_start_1
+    :try_start_b
     iget-boolean v3, p0, Lokhttp3/internal/http2/Http2Connection;->isShutdown:Z
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_26
 
     .line 517
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection;->getOkHttpSettings()Lokhttp3/internal/http2/Settings;
@@ -2768,11 +2768,11 @@
 
     .end local v2    # "$i$a$-synchronized-Http2Connection$setSettings$1$1":I
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_19
+    .catchall {:try_start_b .. :try_end_19} :catchall_2c
 
     .line 513
-    :try_start_2
+    :try_start_19
     monitor-exit p0
 
     .line 519
@@ -2787,8 +2787,8 @@
 
     .end local v1    # "$i$a$-synchronized-Http2Connection$setSettings$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_24
+    .catchall {:try_start_19 .. :try_end_24} :catchall_2f
 
     .line 512
     monitor-exit v0
@@ -2799,8 +2799,8 @@
     .line 515
     .restart local v1    # "$i$a$-synchronized-Http2Connection$setSettings$1":I
     .restart local v2    # "$i$a$-synchronized-Http2Connection$setSettings$1$1":I
-    :cond_0
-    :try_start_3
+    :cond_26
+    :try_start_26
     new-instance v3, Lokhttp3/internal/http2/ConnectionShutdownException;
 
     invoke-direct {v3}, Lokhttp3/internal/http2/ConnectionShutdownException;-><init>()V
@@ -2808,28 +2808,28 @@
     .end local v1    # "$i$a$-synchronized-Http2Connection$setSettings$1":I
     .end local p1    # "settings":Lokhttp3/internal/http2/Settings;
     throw v3
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_26 .. :try_end_2c} :catchall_2c
 
     .line 513
     .end local v2    # "$i$a$-synchronized-Http2Connection$setSettings$1$1":I
     .restart local v1    # "$i$a$-synchronized-Http2Connection$setSettings$1":I
     .restart local p1    # "settings":Lokhttp3/internal/http2/Settings;
-    :catchall_0
+    :catchall_2c
     move-exception v2
 
-    :try_start_4
+    :try_start_2d
     monitor-exit p0
 
     .end local p1    # "settings":Lokhttp3/internal/http2/Settings;
     throw v2
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_2f
+    .catchall {:try_start_2d .. :try_end_2f} :catchall_2f
 
     .line 512
     .end local v1    # "$i$a$-synchronized-Http2Connection$setSettings$1":I
     .restart local p1    # "settings":Lokhttp3/internal/http2/Settings;
-    :catchall_1
+    :catchall_2f
     move-exception v1
 
     monitor-exit v0
@@ -2838,7 +2838,7 @@
 .end method
 
 .method public final shutdown(Lokhttp3/internal/http2/ErrorCode;)V
-    .locals 6
+    .registers 8
     .param p1, "statusCode"    # Lokhttp3/internal/http2/ErrorCode;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2859,7 +2859,7 @@
 
     .line 419
     .local v1, "$i$a$-synchronized-Http2Connection$shutdown$1":I
-    :try_start_0
+    :try_start_9
     new-instance v2, Lkotlin/jvm/internal/Ref$IntRef;
 
     invoke-direct {v2}, Lkotlin/jvm/internal/Ref$IntRef;-><init>()V
@@ -2867,28 +2867,28 @@
     .line 420
     .local v2, "lastGoodStreamId":Lkotlin/jvm/internal/Ref$IntRef;
     monitor-enter p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_f
+    .catchall {:try_start_9 .. :try_end_f} :catchall_38
 
     const/4 v3, 0x0
 
     .line 421
     .local v3, "$i$a$-synchronized-Http2Connection$shutdown$1$1":I
-    :try_start_1
+    :try_start_10
     iget-boolean v4, p0, Lokhttp3/internal/http2/Http2Connection;->isShutdown:Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_12
+    .catchall {:try_start_10 .. :try_end_12} :catchall_35
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_18
 
     .line 422
     nop
 
     .end local v3    # "$i$a$-synchronized-Http2Connection$shutdown$1$1":I
-    :try_start_2
+    :try_start_15
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_16
+    .catchall {:try_start_15 .. :try_end_16} :catchall_38
 
     .end local v1    # "$i$a$-synchronized-Http2Connection$shutdown$1":I
     .end local v2    # "lastGoodStreamId":Lkotlin/jvm/internal/Ref$IntRef;
@@ -2900,10 +2900,10 @@
     .restart local v1    # "$i$a$-synchronized-Http2Connection$shutdown$1":I
     .restart local v2    # "lastGoodStreamId":Lkotlin/jvm/internal/Ref$IntRef;
     .restart local v3    # "$i$a$-synchronized-Http2Connection$shutdown$1$1":I
-    :cond_0
+    :cond_18
     const/4 v4, 0x1
 
-    :try_start_3
+    :try_start_19
     iput-boolean v4, p0, Lokhttp3/internal/http2/Http2Connection;->isShutdown:Z
 
     .line 425
@@ -2918,11 +2918,11 @@
 
     .end local v3    # "$i$a$-synchronized-Http2Connection$shutdown$1$1":I
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_24
+    .catchall {:try_start_19 .. :try_end_24} :catchall_35
 
     .line 420
-    :try_start_4
+    :try_start_24
     monitor-exit p0
 
     .line 429
@@ -2942,8 +2942,8 @@
     .end local v1    # "$i$a$-synchronized-Http2Connection$shutdown$1":I
     .end local v2    # "lastGoodStreamId":Lkotlin/jvm/internal/Ref$IntRef;
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_33
+    .catchall {:try_start_24 .. :try_end_33} :catchall_38
 
     .line 418
     monitor-exit v0
@@ -2954,22 +2954,22 @@
     .line 420
     .restart local v1    # "$i$a$-synchronized-Http2Connection$shutdown$1":I
     .restart local v2    # "lastGoodStreamId":Lkotlin/jvm/internal/Ref$IntRef;
-    :catchall_0
+    :catchall_35
     move-exception v3
 
-    :try_start_5
+    :try_start_36
     monitor-exit p0
 
     .end local p1    # "statusCode":Lokhttp3/internal/http2/ErrorCode;
     throw v3
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_38
+    .catchall {:try_start_36 .. :try_end_38} :catchall_38
 
     .line 418
     .end local v1    # "$i$a$-synchronized-Http2Connection$shutdown$1":I
     .end local v2    # "lastGoodStreamId":Lkotlin/jvm/internal/Ref$IntRef;
     .restart local p1    # "statusCode":Lokhttp3/internal/http2/ErrorCode;
-    :catchall_1
+    :catchall_38
     move-exception v1
 
     monitor-exit v0
@@ -2978,7 +2978,7 @@
 .end method
 
 .method public final start()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2997,7 +2997,7 @@
 .end method
 
 .method public final start(Z)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3014,7 +3014,7 @@
 .end method
 
 .method public final start(ZLokhttp3/internal/concurrent/TaskRunner;)V
-    .locals 13
+    .registers 16
     .param p1, "sendConnectionPreface"    # Z
     .param p2, "taskRunner"    # Lokhttp3/internal/concurrent/TaskRunner;
     .annotation system Ldalvik/annotation/Throws;
@@ -3028,7 +3028,7 @@
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 496
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_27
 
     .line 497
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
@@ -3053,7 +3053,7 @@
     .local v0, "windowSize":I
     const v1, 0xffff
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_27
 
     .line 501
     iget-object v2, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
@@ -3068,7 +3068,7 @@
 
     .line 506
     .end local v0    # "windowSize":I
-    :cond_0
+    :cond_27
     invoke-virtual {p2}, Lokhttp3/internal/concurrent/TaskRunner;->newQueue()Lokhttp3/internal/concurrent/TaskQueue;
 
     move-result-object v5
@@ -3096,13 +3096,13 @@
 .end method
 
 .method public final declared-synchronized updateConnectionFlowControl$okhttp(J)V
-    .locals 5
+    .registers 8
     .param p1, "read"    # J
 
     monitor-enter p0
 
     .line 189
-    :try_start_0
+    :try_start_1
     iget-wide v0, p0, Lokhttp3/internal/http2/Http2Connection;->readBytesTotal:J
 
     add-long/2addr v0, p1
@@ -3130,7 +3130,7 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_21
 
     .line 192
     const/4 v2, 0x0
@@ -3143,12 +3143,12 @@
     add-long/2addr v2, v0
 
     iput-wide v2, p0, Lokhttp3/internal/http2/Http2Connection;->readBytesAcknowledged:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_1 .. :try_end_21} :catchall_23
 
     .line 195
     .end local p0    # "this":Lokhttp3/internal/http2/Http2Connection;
-    :cond_0
+    :cond_21
     monitor-exit p0
 
     return-void
@@ -3156,19 +3156,19 @@
     .line 188
     .end local v0    # "readBytesToAcknowledge":J
     .end local p1    # "read":J
-    :catchall_0
+    :catchall_23
     move-exception p1
 
-    :try_start_1
+    :try_start_24
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_25
+    .catchall {:try_start_24 .. :try_end_25} :catchall_23
 
     throw p1
 .end method
 
 .method public final writeData(IZLokio/Buffer;J)V
-    .locals 16
+    .registers 22
     .param p1, "streamId"    # I
     .param p2, "outFinished"    # Z
     .param p3, "buffer"    # Lokio/Buffer;
@@ -3194,7 +3194,7 @@
 
     cmp-long v7, p4, v5
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_15
 
     .line 304
     iget-object v5, v1, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
@@ -3205,15 +3205,15 @@
     return-void
 
     .line 308
-    :cond_0
+    :cond_15
     move-wide/from16 v7, p4
 
     .line 309
     .local v7, "byteCount":J
-    :goto_0
+    :goto_17
     cmp-long v9, v7, v5
 
-    if-lez v9, :cond_4
+    if-lez v9, :cond_95
 
     .line 310
     const/4 v9, 0x0
@@ -3229,8 +3229,8 @@
     nop
 
     .line 313
-    :goto_1
-    :try_start_0
+    :goto_1f
+    :try_start_1f
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/http2/Http2Connection;->getWriteBytesTotal()J
 
     move-result-wide v11
@@ -3241,7 +3241,7 @@
 
     cmp-long v15, v11, v13
 
-    if-ltz v15, :cond_2
+    if-ltz v15, :cond_4b
 
     .line 316
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/http2/Http2Connection;->getStreams$okhttp()Ljava/util/Map;
@@ -3256,7 +3256,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_43
 
     .line 319
     move-object/from16 v11, p0
@@ -3274,10 +3274,10 @@
 
     .end local v11    # "$this$wait$iv":Ljava/lang/Object;
     .end local v12    # "$i$f$wait":I
-    goto :goto_1
+    goto :goto_1f
 
     .line 317
-    :cond_1
+    :cond_43
     new-instance v0, Ljava/io/IOException;
 
     const-string v5, "stream closed"
@@ -3292,9 +3292,9 @@
     .end local p3    # "buffer":Lokio/Buffer;
     .end local p4    # "byteCount":J
     throw v0
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4b
+    .catch Ljava/lang/InterruptedException; {:try_start_1f .. :try_end_4b} :catch_85
+    .catchall {:try_start_1f .. :try_end_4b} :catchall_83
 
     .line 326
     .restart local v7    # "byteCount":J
@@ -3304,8 +3304,8 @@
     .restart local p2    # "outFinished":Z
     .restart local p3    # "buffer":Lokio/Buffer;
     .restart local p4    # "byteCount":J
-    :cond_2
-    :try_start_1
+    :cond_4b
+    :try_start_4b
     invoke-virtual/range {p0 .. p0}, Lokhttp3/internal/http2/Http2Connection;->getWriteBytesMaximum()J
 
     move-result-wide v11
@@ -3353,8 +3353,8 @@
 
     .end local v10    # "$i$a$-synchronized-Http2Connection$writeData$1":I
     sget-object v10, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_71
+    .catchall {:try_start_4b .. :try_end_71} :catchall_83
 
     .line 311
     monitor-exit p0
@@ -3367,40 +3367,40 @@
     .line 332
     iget-object v10, v1, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_7e
 
     cmp-long v11, v7, v5
 
-    if-nez v11, :cond_3
+    if-nez v11, :cond_7e
 
     const/4 v11, 0x1
 
-    goto :goto_2
+    goto :goto_7f
 
-    :cond_3
+    :cond_7e
     const/4 v11, 0x0
 
-    :goto_2
+    :goto_7f
     invoke-virtual {v10, v11, v2, v4, v9}, Lokhttp3/internal/http2/Http2Writer;->data(ZILokio/Buffer;I)V
 
     .end local v9    # "toWrite":I
-    goto :goto_0
+    goto :goto_17
 
     .line 311
     .restart local v9    # "toWrite":I
-    :catchall_0
+    :catchall_83
     move-exception v0
 
-    goto :goto_3
+    goto :goto_93
 
     .line 321
     .restart local v10    # "$i$a$-synchronized-Http2Connection$writeData$1":I
-    :catch_0
+    :catch_85
     move-exception v0
 
     .line 322
     .local v0, "e":Ljava/lang/InterruptedException;
-    :try_start_2
+    :try_start_86
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v5
@@ -3419,8 +3419,8 @@
     .end local p3    # "buffer":Lokio/Buffer;
     .end local p4    # "byteCount":J
     throw v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_93
+    .catchall {:try_start_86 .. :try_end_93} :catchall_83
 
     .line 311
     .end local v0    # "e":Ljava/lang/InterruptedException;
@@ -3431,19 +3431,19 @@
     .restart local p2    # "outFinished":Z
     .restart local p3    # "buffer":Lokio/Buffer;
     .restart local p4    # "byteCount":J
-    :goto_3
+    :goto_93
     monitor-exit p0
 
     throw v0
 
     .line 334
     .end local v9    # "toWrite":I
-    :cond_4
+    :cond_95
     return-void
 .end method
 
 .method public final writeHeaders$okhttp(IZLjava/util/List;)V
-    .locals 1
+    .registers 5
     .param p1, "streamId"    # I
     .param p2, "outFinished"    # Z
     .param p3, "alternating"    # Ljava/util/List;
@@ -3476,7 +3476,7 @@
 .end method
 
 .method public final writePing()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -3490,7 +3490,7 @@
 
     .line 393
     .local v0, "$i$a$-synchronized-Http2Connection$writePing$1":I
-    :try_start_0
+    :try_start_2
     iget-wide v1, p0, Lokhttp3/internal/http2/Http2Connection;->awaitPingsSent:J
 
     const-wide/16 v3, 0x1
@@ -3498,8 +3498,8 @@
     add-long/2addr v1, v3
 
     iput-wide v1, p0, Lokhttp3/internal/http2/Http2Connection;->awaitPingsSent:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_2 .. :try_end_9} :catchall_13
 
     .line 392
     .end local v0    # "$i$a$-synchronized-Http2Connection$writePing$1":I
@@ -3518,7 +3518,7 @@
     return-void
 
     .line 392
-    :catchall_0
+    :catchall_13
     move-exception v0
 
     monitor-exit p0
@@ -3527,7 +3527,7 @@
 .end method
 
 .method public final writePing(ZII)V
-    .locals 1
+    .registers 5
     .param p1, "reply"    # Z
     .param p2, "payload1"    # I
     .param p3, "payload2"    # I
@@ -3536,17 +3536,17 @@
     nop
 
     .line 376
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
 
     invoke-virtual {v0, p1, p2, p3}, Lokhttp3/internal/http2/Http2Writer;->ping(ZII)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_6} :catch_7
 
-    goto :goto_0
+    goto :goto_b
 
     .line 377
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 378
@@ -3555,12 +3555,12 @@
 
     .line 380
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_b
     return-void
 .end method
 
 .method public final writePingAndAwaitPong()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -3578,7 +3578,7 @@
 .end method
 
 .method public final writeSynReset$okhttp(ILokhttp3/internal/http2/ErrorCode;)V
-    .locals 1
+    .registers 4
     .param p1, "streamId"    # I
     .param p2, "statusCode"    # Lokhttp3/internal/http2/ErrorCode;
     .annotation system Ldalvik/annotation/Throws;
@@ -3601,7 +3601,7 @@
 .end method
 
 .method public final writeSynResetLater$okhttp(ILokhttp3/internal/http2/ErrorCode;)V
-    .locals 9
+    .registers 12
     .param p1, "streamId"    # I
     .param p2, "errorCode"    # Lokhttp3/internal/http2/ErrorCode;
 
@@ -3665,7 +3665,7 @@
 .end method
 
 .method public final writeWindowUpdateLater$okhttp(IJ)V
-    .locals 8
+    .registers 12
     .param p1, "streamId"    # I
     .param p2, "unacknowledgedBytesRead"    # J
 

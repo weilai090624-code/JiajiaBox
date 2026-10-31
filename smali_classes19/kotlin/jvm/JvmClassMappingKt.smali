@@ -58,7 +58,7 @@
 
 # direct methods
 .method public static final getAnnotationClass(Ljava/lang/annotation/Annotation;)Lkotlin/reflect/KClass;
-    .locals 2
+    .registers 3
     .param p0, "$this$annotationClass"    # Ljava/lang/annotation/Annotation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -95,7 +95,7 @@
 .end method
 
 .method private static final getDeclaringJavaClass(Ljava/lang/Enum;)Ljava/lang/Class;
-    .locals 2
+    .registers 3
     .param p0, "$this$declaringJavaClass"    # Ljava/lang/Enum;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -126,13 +126,13 @@
 .end method
 
 .method public static synthetic getDeclaringJavaClass$annotations(Ljava/lang/Enum;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static final getJavaClass(Ljava/lang/Object;)Ljava/lang/Class;
-    .locals 3
+    .registers 4
     .param p0, "$this$javaClass"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,7 +164,7 @@
 .end method
 
 .method public static final getJavaClass(Lkotlin/reflect/KClass;)Ljava/lang/Class;
-    .locals 2
+    .registers 3
     .param p0, "$this$java"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -199,13 +199,13 @@
 .end method
 
 .method public static synthetic getJavaClass$annotations(Lkotlin/reflect/KClass;)V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public static final getJavaObjectType(Lkotlin/reflect/KClass;)Ljava/lang/Class;
-    .locals 4
+    .registers 5
     .param p0, "$this$javaObjectType"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -240,216 +240,216 @@
 
     const-string v2, "null cannot be cast to non-null type java.lang.Class<T of kotlin.jvm.JvmClassMappingKt.<get-javaObjectType>>"
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-object v0
 
     .line 62
-    :cond_0
+    :cond_18
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_95
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v3
 
-    sparse-switch v3, :sswitch_data_0
+    sparse-switch v3, :sswitch_data_9a
 
-    goto/16 :goto_0
+    goto/16 :goto_95
 
-    :sswitch_0
+    :sswitch_27
     const-string v3, "short"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_31
 
-    goto/16 :goto_0
+    goto/16 :goto_95
 
     .line 66
-    :cond_1
+    :cond_31
     const-class v1, Ljava/lang/Short;
 
-    goto/16 :goto_1
+    goto/16 :goto_96
 
     .line 62
-    :sswitch_1
+    :sswitch_35
     const-string v3, "float"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3e
 
-    goto :goto_0
+    goto :goto_95
 
     .line 68
-    :cond_2
+    :cond_3e
     const-class v1, Ljava/lang/Float;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 62
-    :sswitch_2
+    :sswitch_41
     const-string v3, "boolean"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4a
 
-    goto :goto_0
+    goto :goto_95
 
     .line 63
-    :cond_3
+    :cond_4a
     const-class v1, Ljava/lang/Boolean;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 62
-    :sswitch_3
+    :sswitch_4d
     const-string v3, "void"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_56
 
-    goto :goto_0
+    goto :goto_95
 
     .line 71
-    :cond_4
+    :cond_56
     const-class v1, Ljava/lang/Void;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 62
-    :sswitch_4
+    :sswitch_59
     const-string v3, "long"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_62
 
-    goto :goto_0
+    goto :goto_95
 
     .line 69
-    :cond_5
+    :cond_62
     const-class v1, Ljava/lang/Long;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 62
-    :sswitch_5
+    :sswitch_65
     const-string v3, "char"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_6e
 
-    goto :goto_0
+    goto :goto_95
 
     .line 64
-    :cond_6
+    :cond_6e
     const-class v1, Ljava/lang/Character;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 62
-    :sswitch_6
+    :sswitch_71
     const-string v3, "byte"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_7a
 
-    goto :goto_0
+    goto :goto_95
 
     .line 65
-    :cond_7
+    :cond_7a
     const-class v1, Ljava/lang/Byte;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 62
-    :sswitch_7
+    :sswitch_7d
     const-string v3, "int"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_86
 
-    goto :goto_0
+    goto :goto_95
 
     .line 67
-    :cond_8
+    :cond_86
     const-class v1, Ljava/lang/Integer;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 62
-    :sswitch_8
+    :sswitch_89
     const-string v3, "double"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_92
 
-    goto :goto_0
+    goto :goto_95
 
     .line 70
-    :cond_9
+    :cond_92
     const-class v1, Ljava/lang/Double;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 72
-    :cond_a
-    :goto_0
+    :cond_95
+    :goto_95
     move-object v1, v0
 
     .line 62
-    :goto_1
+    :goto_96
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-object v1
 
-    :sswitch_data_0
+    :sswitch_data_9a
     .sparse-switch
-        -0x4f08842f -> :sswitch_8
-        0x197ef -> :sswitch_7
-        0x2e6108 -> :sswitch_6
-        0x2e9356 -> :sswitch_5
-        0x32c67c -> :sswitch_4
-        0x375194 -> :sswitch_3
-        0x3db6c28 -> :sswitch_2
-        0x5d0225c -> :sswitch_1
-        0x685847c -> :sswitch_0
+        -0x4f08842f -> :sswitch_89
+        0x197ef -> :sswitch_7d
+        0x2e6108 -> :sswitch_71
+        0x2e9356 -> :sswitch_65
+        0x32c67c -> :sswitch_59
+        0x375194 -> :sswitch_4d
+        0x3db6c28 -> :sswitch_41
+        0x5d0225c -> :sswitch_35
+        0x685847c -> :sswitch_27
     .end sparse-switch
 .end method
 
 .method public static final getJavaPrimitiveType(Lkotlin/reflect/KClass;)Ljava/lang/Class;
-    .locals 3
+    .registers 4
     .param p0, "$this$javaPrimitiveType"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -482,7 +482,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     const-string v1, "null cannot be cast to non-null type java.lang.Class<T of kotlin.jvm.JvmClassMappingKt.<get-javaPrimitiveType>>"
 
@@ -491,209 +491,209 @@
     return-object v0
 
     .line 39
-    :cond_0
+    :cond_18
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_95
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v2
 
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_98
 
-    goto/16 :goto_0
+    goto/16 :goto_95
 
-    :sswitch_0
+    :sswitch_27
     const-string v2, "java.lang.Double"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_31
 
-    goto/16 :goto_0
+    goto/16 :goto_95
 
     .line 47
-    :cond_1
+    :cond_31
     sget-object v1, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    goto/16 :goto_1
+    goto/16 :goto_96
 
     .line 39
-    :sswitch_1
+    :sswitch_35
     const-string v2, "java.lang.Void"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3e
 
-    goto :goto_0
+    goto :goto_95
 
     .line 48
-    :cond_2
+    :cond_3e
     sget-object v1, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 39
-    :sswitch_2
+    :sswitch_41
     const-string v2, "java.lang.Long"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4a
 
-    goto :goto_0
+    goto :goto_95
 
     .line 46
-    :cond_3
+    :cond_4a
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 39
-    :sswitch_3
+    :sswitch_4d
     const-string v2, "java.lang.Byte"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_56
 
-    goto :goto_0
+    goto :goto_95
 
     .line 42
-    :cond_4
+    :cond_56
     sget-object v1, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 39
-    :sswitch_4
+    :sswitch_59
     const-string v2, "java.lang.Boolean"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_62
 
-    goto :goto_0
+    goto :goto_95
 
     .line 40
-    :cond_5
+    :cond_62
     sget-object v1, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 39
-    :sswitch_5
+    :sswitch_65
     const-string v2, "java.lang.Character"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_6e
 
-    goto :goto_0
+    goto :goto_95
 
     .line 41
-    :cond_6
+    :cond_6e
     sget-object v1, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 39
-    :sswitch_6
+    :sswitch_71
     const-string v2, "java.lang.Short"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_7a
 
-    goto :goto_0
+    goto :goto_95
 
     .line 43
-    :cond_7
+    :cond_7a
     sget-object v1, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 39
-    :sswitch_7
+    :sswitch_7d
     const-string v2, "java.lang.Float"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_86
 
-    goto :goto_0
+    goto :goto_95
 
     .line 45
-    :cond_8
+    :cond_86
     sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 39
-    :sswitch_8
+    :sswitch_89
     const-string v2, "java.lang.Integer"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_92
 
-    goto :goto_0
+    goto :goto_95
 
     .line 44
-    :cond_9
+    :cond_92
     sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    goto :goto_1
+    goto :goto_96
 
     .line 49
-    :cond_a
-    :goto_0
+    :cond_95
+    :goto_95
     const/4 v1, 0x0
 
     .line 39
-    :goto_1
+    :goto_96
     return-object v1
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_98
     .sparse-switch
-        -0x7a988a96 -> :sswitch_8
-        -0x1f76ce78 -> :sswitch_7
-        -0x1ec16c58 -> :sswitch_6
-        0x9415455 -> :sswitch_5
-        0x148d6054 -> :sswitch_4
-        0x17c0bc5c -> :sswitch_3
-        0x17c521d0 -> :sswitch_2
-        0x17c9ace8 -> :sswitch_1
-        0x2d605225 -> :sswitch_0
+        -0x7a988a96 -> :sswitch_89
+        -0x1f76ce78 -> :sswitch_7d
+        -0x1ec16c58 -> :sswitch_71
+        0x9415455 -> :sswitch_65
+        0x148d6054 -> :sswitch_59
+        0x17c0bc5c -> :sswitch_4d
+        0x17c521d0 -> :sswitch_41
+        0x17c9ace8 -> :sswitch_35
+        0x2d605225 -> :sswitch_27
     .end sparse-switch
 .end method
 
 .method public static final getKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-    .locals 1
+    .registers 2
     .param p0, "$this$kotlin"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -720,7 +720,7 @@
 .end method
 
 .method public static final getRuntimeClassOfKClassInstance(Lkotlin/reflect/KClass;)Ljava/lang/Class;
-    .locals 3
+    .registers 4
     .param p0, "$this$javaClass"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -759,7 +759,7 @@
 .end method
 
 .method public static synthetic getRuntimeClassOfKClassInstance$annotations(Lkotlin/reflect/KClass;)V
-    .locals 0
+    .registers 1
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "Use \'java\' property to get Java class corresponding to this Kotlin class or cast this instance to Any if you really want to get the runtime Java class of this implementation of KClass."
@@ -773,7 +773,7 @@
 .end method
 
 .method public static final synthetic isArrayOf([Ljava/lang/Object;)Z
-    .locals 3
+    .registers 4
     .param p0, "$this$isArrayOf"    # [Ljava/lang/Object;
 
     const-string v0, "<this>"

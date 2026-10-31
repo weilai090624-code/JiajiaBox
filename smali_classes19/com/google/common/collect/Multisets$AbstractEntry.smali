@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 807
     .local p0, "this":Lcom/google/common/collect/Multisets$AbstractEntry;, "Lcom/google/common/collect/Multisets$AbstractEntry<TE;>;"
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -54,7 +54,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 815
     move-object v0, p1
@@ -71,7 +71,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_22
 
     .line 817
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$AbstractEntry;->getElement()Ljava/lang/Object;
@@ -86,27 +86,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     nop
 
     .line 816
-    :goto_0
+    :goto_23
     return v1
 
     .line 819
     .end local v0    # "that":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
-    :cond_1
+    :cond_24
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 828
     .local p0, "this":Lcom/google/common/collect/Multisets$AbstractEntry;, "Lcom/google/common/collect/Multisets$AbstractEntry<TE;>;"
@@ -116,18 +116,18 @@
 
     .line 829
     .local v0, "e":Ljava/lang/Object;, "TE;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_8
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    :goto_0
+    :goto_c
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$AbstractEntry;->getCount()I
 
     move-result v2
@@ -138,7 +138,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 840
     .local p0, "this":Lcom/google/common/collect/Multisets$AbstractEntry;, "Lcom/google/common/collect/Multisets$AbstractEntry<TE;>;"
@@ -160,13 +160,13 @@
     .local v1, "n":I
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_11
 
     move-object v2, v0
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_11
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
@@ -199,6 +199,6 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_32
     return-object v2
 .end method

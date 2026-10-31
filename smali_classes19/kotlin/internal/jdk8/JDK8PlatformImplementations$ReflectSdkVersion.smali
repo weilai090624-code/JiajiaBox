@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     new-instance v0, Lkotlin/internal/jdk8/JDK8PlatformImplementations$ReflectSdkVersion;
 
@@ -65,7 +65,7 @@
     .line 34
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_a
     const-string v1, "android.os.Build$VERSION"
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -84,21 +84,21 @@
 
     instance-of v2, v1, Ljava/lang/Integer;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     check-cast v1, Ljava/lang/Integer;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_a .. :try_end_20} :catchall_23
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_21
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_25
 
     .line 35
-    :catchall_0
+    :catchall_23
     move-exception v1
 
     .line 36
@@ -107,11 +107,11 @@
 
     .line 33
     .end local v1    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_25
     nop
 
     .line 37
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_39
 
     .line 33
     nop
@@ -131,30 +131,30 @@
 
     .line 37
     .local v3, "$i$a$-takeIf-JDK8PlatformImplementations$ReflectSdkVersion$sdkVersion$1":I
-    if-lez v2, :cond_1
+    if-lez v2, :cond_35
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_36
 
-    :cond_1
+    :cond_35
     const/4 v4, 0x0
 
     .end local v2    # "it":I
     .end local v3    # "$i$a$-takeIf-JDK8PlatformImplementations$ReflectSdkVersion$sdkVersion$1":I
-    :goto_1
-    if-eqz v4, :cond_2
+    :goto_36
+    if-eqz v4, :cond_39
 
     move-object v0, v1
 
-    :cond_2
+    :cond_39
     sput-object v0, Lkotlin/internal/jdk8/JDK8PlatformImplementations$ReflectSdkVersion;->sdkVersion:Ljava/lang/Integer;
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

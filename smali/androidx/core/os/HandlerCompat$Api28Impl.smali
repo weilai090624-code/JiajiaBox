@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 261
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static createAsync(Landroid/os/Looper;)Landroid/os/Handler;
-    .locals 1
+    .registers 2
     .param p0, "looper"    # Landroid/os/Looper;
 
     .line 266
@@ -38,7 +38,7 @@
 .end method
 
 .method public static createAsync(Landroid/os/Looper;Landroid/os/Handler$Callback;)Landroid/os/Handler;
-    .locals 1
+    .registers 3
     .param p0, "looper"    # Landroid/os/Looper;
     .param p1, "callback"    # Landroid/os/Handler$Callback;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public static postDelayed(Landroid/os/Handler;Ljava/lang/Runnable;Ljava/lang/Object;J)Z
-    .locals 1
+    .registers 6
     .param p0, "handler"    # Landroid/os/Handler;
     .param p1, "r"    # Ljava/lang/Runnable;
     .param p2, "token"    # Ljava/lang/Object;

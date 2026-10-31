@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1254
     const-class v0, Lj$/util/stream/Nodes;
@@ -51,7 +51,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1259
     .local p0, "this":Lj$/util/stream/Nodes$SpinedNodeBuilder;, "Ljava/util/stream/Nodes$SpinedNodeBuilder<TT;>;"
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public synthetic accept(D)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;D)V
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public synthetic accept(I)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;I)V
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public synthetic accept(J)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/stream/Sink$-CC;->$default$accept(Lj$/util/stream/Sink;J)V
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -113,7 +113,7 @@
 .end method
 
 .method public asArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,7 +136,7 @@
 .end method
 
 .method public begin(J)V
-    .locals 1
+    .registers 4
     .param p1, "size"    # J
 
     .line 1276
@@ -159,7 +159,7 @@
 .end method
 
 .method public build()Lj$/util/stream/Node;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -177,7 +177,7 @@
 .end method
 
 .method public synthetic cancellationRequested()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Sink$-CC;->$default$cancellationRequested(Lj$/util/stream/Sink;)Z
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public copyInto([Ljava/lang/Object;I)V
-    .locals 0
+    .registers 3
     .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -208,7 +208,7 @@
 .end method
 
 .method public end()V
-    .locals 1
+    .registers 2
 
     .line 1290
     .local p0, "this":Lj$/util/stream/Nodes$SpinedNodeBuilder;, "Ljava/util/stream/Nodes$SpinedNodeBuilder<TT;>;"
@@ -224,7 +224,7 @@
 .end method
 
 .method public forEach(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -246,7 +246,7 @@
 .end method
 
 .method public synthetic getChild(I)Lj$/util/stream/Node;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Node$-CC;->$default$getChild(Lj$/util/stream/Node;I)Lj$/util/stream/Node;
 
@@ -256,7 +256,7 @@
 .end method
 
 .method public synthetic getChildCount()I
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$-CC;->$default$getChildCount(Lj$/util/stream/Node;)I
 
@@ -266,7 +266,7 @@
 .end method
 
 .method public synthetic getShape()Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/stream/Node$-CC;->$default$getShape(Lj$/util/stream/Node;)Lj$/util/stream/StreamShape;
 
@@ -276,7 +276,7 @@
 .end method
 
 .method public spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -298,7 +298,7 @@
 .end method
 
 .method public synthetic truncate(JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 0
+    .registers 6
 
     invoke-static/range {p0 .. p5}, Lj$/util/stream/Node$-CC;->$default$truncate(Lj$/util/stream/Node;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
 

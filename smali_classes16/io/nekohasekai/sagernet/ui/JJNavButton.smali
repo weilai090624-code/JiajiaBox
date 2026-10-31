@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -69,18 +69,18 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 25
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 27
     const/4 p2, 0x0
 
     .line 25
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Lio/nekohasekai/sagernet/ui/JJNavButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 28
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 1
+    .registers 3
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     const-string v0, "canvas"
@@ -104,12 +104,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     return-void
 
     .line 32
-    :cond_0
+    :cond_e
     invoke-super {p0, p1}, Landroid/widget/ImageButton;->draw(Landroid/graphics/Canvas;)V
 
     .line 33

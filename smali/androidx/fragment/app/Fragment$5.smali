@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/Fragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/fragment/app/Fragment;
 
     .line 3037
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onFindViewById(I)Landroid/view/View;
-    .locals 3
+    .registers 5
     .param p1, "id"    # I
 
     .line 3041
@@ -42,7 +42,7 @@
 
     iget-object v0, v0, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 3045
     iget-object v0, p0, Landroidx/fragment/app/Fragment$5;->this$0:Landroidx/fragment/app/Fragment;
@@ -56,7 +56,7 @@
     return-object v0
 
     .line 3042
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -91,22 +91,22 @@
 .end method
 
 .method public onHasView()Z
-    .locals 1
+    .registers 2
 
     .line 3050
     iget-object v0, p0, Landroidx/fragment/app/Fragment$5;->this$0:Landroidx/fragment/app/Fragment;
 
     iget-object v0, v0, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method

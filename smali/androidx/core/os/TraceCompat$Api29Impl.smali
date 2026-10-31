@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 188
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static beginAsyncSection(Ljava/lang/String;I)V
-    .locals 0
+    .registers 2
     .param p0, "methodName"    # Ljava/lang/String;
     .param p1, "cookie"    # I
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static endAsyncSection(Ljava/lang/String;I)V
-    .locals 0
+    .registers 2
     .param p0, "methodName"    # Ljava/lang/String;
     .param p1, "cookie"    # I
 
@@ -50,7 +50,7 @@
 .end method
 
 .method static isEnabled()Z
-    .locals 1
+    .registers 1
 
     .line 194
     invoke-static {}, Landroid/os/Trace;->isEnabled()Z
@@ -61,7 +61,7 @@
 .end method
 
 .method static setCounter(Ljava/lang/String;J)V
-    .locals 0
+    .registers 3
     .param p0, "counterName"    # Ljava/lang/String;
     .param p1, "counterValue"    # J
 

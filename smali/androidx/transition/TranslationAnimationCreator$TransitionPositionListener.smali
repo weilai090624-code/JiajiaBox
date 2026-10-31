@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroid/view/View;IIFF)V
-    .locals 3
+    .registers 10
     .param p1, "movingView"    # Landroid/view/View;
     .param p2, "viewInHierarchy"    # Landroid/view/View;
     .param p3, "startX"    # I
@@ -108,7 +108,7 @@
     .line 107
     iget-object v0, p0, Landroidx/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3f
 
     .line 108
     iget-object v0, p0, Landroidx/transition/TranslationAnimationCreator$TransitionPositionListener;->mViewInHierarchy:Landroid/view/View;
@@ -120,20 +120,20 @@
     invoke-virtual {v0, v1, v2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     .line 110
-    :cond_0
+    :cond_3f
     return-void
 .end method
 
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 114
     iget-object v0, p0, Landroidx/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 115
     const/4 v0, 0x2
@@ -143,7 +143,7 @@
     iput-object v0, p0, Landroidx/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
     .line 117
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
     iget v1, p0, Landroidx/transition/TranslationAnimationCreator$TransitionPositionListener;->mStartX:I
@@ -203,7 +203,7 @@
 .end method
 
 .method public onAnimationPause(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 124
@@ -243,7 +243,7 @@
 .end method
 
 .method public onAnimationResume(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 132
@@ -265,7 +265,7 @@
 .end method
 
 .method public onTransitionCancel(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 149
@@ -273,7 +273,7 @@
 .end method
 
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 142
@@ -298,7 +298,7 @@
 .end method
 
 .method public onTransitionPause(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 153
@@ -306,7 +306,7 @@
 .end method
 
 .method public onTransitionResume(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 157
@@ -314,7 +314,7 @@
 .end method
 
 .method public onTransitionStart(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 138

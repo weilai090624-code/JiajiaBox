@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 32
     invoke-direct {p0}, Landroidx/preference/PreferenceDialogFragmentCompat;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method private getEditTextPreference()Landroidx/preference/EditTextPreference;
-    .locals 1
+    .registers 2
 
     .line 96
     invoke-virtual {p0}, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->getPreference()Landroidx/preference/DialogPreference;
@@ -55,7 +55,7 @@
 .end method
 
 .method private hasPendingShowSoftInputRequest()Z
-    .locals 5
+    .registers 6
 
     .line 108
     iget-wide v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mShowRequestTime:J
@@ -64,7 +64,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_17
 
     iget-wide v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mShowRequestTime:J
 
@@ -79,22 +79,22 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_17
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     .line 108
-    :goto_0
+    :goto_18
     return v0
 .end method
 
 .method public static newInstance(Ljava/lang/String;)Landroidx/preference/EditTextPreferenceDialogFragmentCompat;
-    .locals 3
+    .registers 4
     .param p0, "key"    # Ljava/lang/String;
 
     .line 52
@@ -124,22 +124,22 @@
 .end method
 
 .method private setPendingShowSoftInputRequest(Z)V
-    .locals 2
+    .registers 4
     .param p1, "pendingShowSoftInputRequest"    # Z
 
     .line 113
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     invoke-static {}, Landroid/os/SystemClock;->currentThreadTimeMillis()J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     const-wide/16 v0, -0x1
 
-    :goto_0
+    :goto_9
     iput-wide v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mShowRequestTime:J
 
     .line 114
@@ -149,7 +149,7 @@
 
 # virtual methods
 .method protected needInputMethod()Z
-    .locals 1
+    .registers 2
 
     .line 104
     const/4 v0, 0x1
@@ -158,7 +158,7 @@
 .end method
 
 .method protected onBindDialogView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 77
@@ -178,7 +178,7 @@
     .line 81
     iget-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mEditText:Landroid/widget/EditText;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_45
 
     .line 86
     iget-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mEditText:Landroid/widget/EditText;
@@ -216,7 +216,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_44
 
     .line 91
     invoke-direct {p0}, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->getEditTextPreference()Landroidx/preference/EditTextPreference;
@@ -232,11 +232,11 @@
     invoke-interface {v0, v1}, Landroidx/preference/EditTextPreference$OnBindEditTextListener;->onBindEditText(Landroid/widget/EditText;)V
 
     .line 93
-    :cond_0
+    :cond_44
     return-void
 
     .line 82
-    :cond_1
+    :cond_45
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Dialog view must contain an EditText with id @android:id/edit"
@@ -247,14 +247,14 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 61
     invoke-super {p0, p1}, Landroidx/preference/PreferenceDialogFragmentCompat;->onCreate(Landroid/os/Bundle;)V
 
     .line 62
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 63
     invoke-direct {p0}, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->getEditTextPreference()Landroidx/preference/EditTextPreference;
@@ -267,10 +267,10 @@
 
     iput-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mText:Ljava/lang/CharSequence;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 65
-    :cond_0
+    :cond_10
     const-string v0, "EditTextPreferenceDialogFragment.text"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
@@ -280,16 +280,16 @@
     iput-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mText:Ljava/lang/CharSequence;
 
     .line 67
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method public onDialogClosed(Z)V
-    .locals 3
+    .registers 5
     .param p1, "positiveResult"    # Z
 
     .line 146
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_19
 
     .line 147
     iget-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mEditText:Landroid/widget/EditText;
@@ -314,7 +314,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 150
     invoke-virtual {v1, v0}, Landroidx/preference/EditTextPreference;->setText(Ljava/lang/String;)V
@@ -322,12 +322,12 @@
     .line 153
     .end local v0    # "value":Ljava/lang/String;
     .end local v1    # "preference":Landroidx/preference/EditTextPreference;
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "outState"    # Landroid/os/Bundle;
 
     .line 71
@@ -345,7 +345,7 @@
 .end method
 
 .method protected scheduleShowSoftInput()V
-    .locals 1
+    .registers 2
 
     .line 120
     const/4 v0, 0x1
@@ -360,21 +360,21 @@
 .end method
 
 .method scheduleShowSoftInputInner()V
-    .locals 5
+    .registers 6
 
     .line 127
     invoke-direct {p0}, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->hasPendingShowSoftInputRequest()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_43
 
     .line 128
     iget-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mEditText:Landroid/widget/EditText;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3f
 
     iget-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mEditText:Landroid/widget/EditText;
 
@@ -382,12 +382,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 132
-    :cond_0
+    :cond_14
     iget-object v0, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mEditText:Landroid/widget/EditText;
 
     .line 133
@@ -411,15 +411,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2e
 
     .line 136
     invoke-direct {p0, v1}, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->setPendingShowSoftInputRequest(Z)V
 
-    goto :goto_1
+    goto :goto_43
 
     .line 138
-    :cond_1
+    :cond_2e
     iget-object v1, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mEditText:Landroid/widget/EditText;
 
     iget-object v2, p0, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->mShowSoftInputRunnable:Ljava/lang/Runnable;
@@ -435,19 +435,19 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/widget/EditText;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_1
+    goto :goto_43
 
     .line 129
     .end local v0    # "imm":Landroid/view/inputmethod/InputMethodManager;
-    :cond_2
-    :goto_0
+    :cond_3f
+    :goto_3f
     invoke-direct {p0, v1}, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->setPendingShowSoftInputRequest(Z)V
 
     .line 130
     return-void
 
     .line 142
-    :cond_3
-    :goto_1
+    :cond_43
+    :goto_43
     return-void
 .end method

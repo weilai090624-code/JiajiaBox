@@ -297,7 +297,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     const v0, 0x101030e
 
@@ -313,7 +313,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_a2
 
     sput-object v0, Landroidx/preference/R$styleable;->CheckBoxPreference:[I
 
@@ -321,7 +321,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_b2
 
     sput-object v0, Landroidx/preference/R$styleable;->DialogPreference:[I
 
@@ -357,7 +357,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_2
+    fill-array-data v0, :array_ce
 
     sput-object v0, Landroidx/preference/R$styleable;->Preference:[I
 
@@ -411,7 +411,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_3
+    fill-array-data v0, :array_11a
 
     sput-object v0, Landroidx/preference/R$styleable;->PreferenceTheme:[I
 
@@ -419,7 +419,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_4
+    fill-array-data v0, :array_140
 
     sput-object v0, Landroidx/preference/R$styleable;->SeekBarPreference:[I
 
@@ -427,19 +427,19 @@
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_5
+    fill-array-data v1, :array_152
 
     sput-object v1, Landroidx/preference/R$styleable;->SwitchPreference:[I
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_6
+    fill-array-data v0, :array_16a
 
     sput-object v0, Landroidx/preference/R$styleable;->SwitchPreferenceCompat:[I
 
     return-void
 
-    :array_0
+    :array_a2
     .array-data 4
         0x10101ef
         0x10101f0
@@ -449,7 +449,7 @@
         0x7f040463
     .end array-data
 
-    :array_1
+    :array_b2
     .array-data 4
         0x10101f2
         0x10101f3
@@ -465,7 +465,7 @@
         0x7f0403ba
     .end array-data
 
-    :array_2
+    :array_ce
     .array-data 4
         0x1010002
         0x101000d
@@ -505,7 +505,7 @@
         0x7f040534
     .end array-data
 
-    :array_3
+    :array_11a
     .array-data 4
         0x7f0400ab
         0x7f040170
@@ -526,7 +526,7 @@
         0x7f040468
     .end array-data
 
-    :array_4
+    :array_140
     .array-data 4
         0x10100f2
         0x1010136
@@ -537,7 +537,7 @@
         0x7f04051c
     .end array-data
 
-    :array_5
+    :array_152
     .array-data 4
         0x10101ef
         0x10101f0
@@ -551,7 +551,7 @@
         0x7f04046c
     .end array-data
 
-    :array_6
+    :array_16a
     .array-data 4
         0x10101ef
         0x10101f0
@@ -567,7 +567,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

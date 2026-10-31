@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static final synthetic findViewTreeLifecycleOwner(Landroid/view/View;)Landroidx/lifecycle/LifecycleOwner;
-    .locals 1
+    .registers 2
     .param p0, "$this$findViewTreeLifecycleOwner"    # Landroid/view/View;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;

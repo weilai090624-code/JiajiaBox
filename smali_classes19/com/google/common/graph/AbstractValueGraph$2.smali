@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/ValueGraph;)V
-    .locals 0
+    .registers 2
 
     .line 145
     iput-object p1, p0, Lcom/google/common/graph/AbstractValueGraph$2;->val$graph:Lcom/google/common/graph/ValueGraph;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/graph/EndpointPair;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,7 +80,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 145
     check-cast p1, Lcom/google/common/graph/EndpointPair;

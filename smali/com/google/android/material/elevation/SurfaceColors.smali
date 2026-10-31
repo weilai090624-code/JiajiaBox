@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 33
     new-instance v0, Lcom/google/android/material/elevation/SurfaceColors;
@@ -150,7 +150,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .param p3, "elevationResId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -169,7 +169,7 @@
 .end method
 
 .method public static getColorForElevation(Landroid/content/Context;F)I
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "elevation"    # F
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/android/material/elevation/SurfaceColors;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 32
@@ -212,7 +212,7 @@
 .end method
 
 .method public static values()[Lcom/google/android/material/elevation/SurfaceColors;
-    .locals 1
+    .registers 1
 
     .line 32
     sget-object v0, Lcom/google/android/material/elevation/SurfaceColors;->$VALUES:[Lcom/google/android/material/elevation/SurfaceColors;
@@ -229,7 +229,7 @@
 
 # virtual methods
 .method public getColor(Landroid/content/Context;)I
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 51

@@ -67,15 +67,15 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    if-eqz v0, :cond_c7
+    if-eqz v0, :cond_c5
 
-    if-eqz v1, :cond_c7
+    if-eqz v1, :cond_c5
 
-    if-eqz v2, :cond_c7
+    if-eqz v2, :cond_c5
 
     if-nez v3, :cond_2e
 
-    goto/16 :goto_c7
+    goto/16 :goto_c5
 
     :cond_2e
     const/high16 v4, 0x41800000    # 16.0f
@@ -179,10 +179,8 @@
 
     invoke-virtual {v0, v7}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    const/high16 v0, 0x41300000    # 11.0f
-
     .line 47
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setTextSize(F)V
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V
 
@@ -238,7 +236,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextSize(F)V
 
-    :cond_c7
-    :goto_c7
+    :cond_c5
+    :goto_c5
     return-void
 .end method

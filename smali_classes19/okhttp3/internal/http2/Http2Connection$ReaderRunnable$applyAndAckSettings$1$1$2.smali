@@ -59,7 +59,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection;Lkotlin/jvm/internal/Ref$ObjectRef;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 758
     invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable$applyAndAckSettings$1$1$2;->invoke()V
@@ -95,7 +95,7 @@
 .end method
 
 .method public final invoke()V
-    .locals 3
+    .registers 4
 
     .line 759
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable$applyAndAckSettings$1$1$2;->this$0:Lokhttp3/internal/http2/Http2Connection;

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)V
-    .locals 0
+    .registers 4
 
     .line 870
     iput-object p1, p0, Lcom/google/gson/internal/bind/TypeAdapters$32;->val$unboxed:Ljava/lang/Class;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 2
+    .registers 5
     .param p1, "gson"    # Lcom/google/gson/Gson;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -69,29 +69,29 @@
     .local v0, "rawType":Ljava/lang/Class;, "Ljava/lang/Class<-TT;>;"
     iget-object v1, p0, Lcom/google/gson/internal/bind/TypeAdapters$32;->val$unboxed:Ljava/lang/Class;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_f
 
     iget-object v1, p0, Lcom/google/gson/internal/bind/TypeAdapters$32;->val$boxed:Ljava/lang/Class;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_11
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     iget-object v1, p0, Lcom/google/gson/internal/bind/TypeAdapters$32;->val$typeAdapter:Lcom/google/gson/TypeAdapter;
 
-    :goto_1
+    :goto_11
     return-object v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 877
     new-instance v0, Ljava/lang/StringBuilder;

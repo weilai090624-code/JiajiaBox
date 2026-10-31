@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/timepicker/ChipTextInputComboView;Lcom/google/android/material/timepicker/ChipTextInputComboView;Lcom/google/android/material/timepicker/TimeModel;)V
-    .locals 1
+    .registers 5
     .param p1, "hourLayoutComboView"    # Lcom/google/android/material/timepicker/ChipTextInputComboView;
     .param p2, "minuteLayoutComboView"    # Lcom/google/android/material/timepicker/ChipTextInputComboView;
     .param p3, "time"    # Lcom/google/android/material/timepicker/TimeModel;
@@ -46,7 +46,7 @@
 .end method
 
 .method private clearPrefilledText(Landroid/widget/EditText;)V
-    .locals 2
+    .registers 4
     .param p1, "editText"    # Landroid/widget/EditText;
 
     .line 145
@@ -54,7 +54,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     invoke-virtual {p1}, Landroid/widget/EditText;->length()I
 
@@ -62,7 +62,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     .line 146
     invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -72,12 +72,12 @@
     invoke-interface {v0}, Landroid/text/Editable;->clear()V
 
     .line 148
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method private moveSelection(I)V
-    .locals 4
+    .registers 6
     .param p1, "selection"    # I
 
     .line 74
@@ -89,16 +89,16 @@
 
     const/4 v3, 0x0
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_b
     invoke-virtual {v0, v1}, Lcom/google/android/material/timepicker/ChipTextInputComboView;->setChecked(Z)V
 
     .line 75
@@ -106,14 +106,14 @@
 
     const/16 v1, 0xa
 
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_15
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_16
     invoke-virtual {v0, v2}, Lcom/google/android/material/timepicker/ChipTextInputComboView;->setChecked(Z)V
 
     .line 76
@@ -126,7 +126,7 @@
 .end method
 
 .method private onHourKeyPress(ILandroid/view/KeyEvent;Landroid/widget/EditText;)Z
-    .locals 5
+    .registers 9
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
     .param p3, "editText"    # Landroid/widget/EditText;
@@ -140,29 +140,29 @@
     .local v0, "text":Landroid/text/Editable;
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 123
     return v1
 
     .line 127
-    :cond_0
+    :cond_8
     const/4 v2, 0x7
 
     const/4 v3, 0x1
 
-    if-lt p1, v2, :cond_1
+    if-lt p1, v2, :cond_25
 
     const/16 v2, 0x10
 
-    if-gt p1, v2, :cond_1
+    if-gt p1, v2, :cond_25
 
     .line 130
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_25
 
     .line 131
     invoke-virtual {p3}, Landroid/widget/EditText;->getSelectionStart()I
@@ -171,26 +171,26 @@
 
     const/4 v4, 0x2
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_25
 
     .line 132
     invoke-interface {v0}, Landroid/text/Editable;->length()I
 
     move-result v2
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_25
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     const/4 v2, 0x0
 
     .line 133
     .local v2, "switchFocus":Z
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_26
+    if-eqz v2, :cond_2e
 
     .line 134
     const/16 v1, 0xc
@@ -201,7 +201,7 @@
     return v3
 
     .line 138
-    :cond_2
+    :cond_2e
     invoke-direct {p0, p3}, Lcom/google/android/material/timepicker/TimePickerTextInputKeyController;->clearPrefilledText(Landroid/widget/EditText;)V
 
     .line 140
@@ -209,7 +209,7 @@
 .end method
 
 .method private onMinuteKeyPress(ILandroid/view/KeyEvent;Landroid/widget/EditText;)Z
-    .locals 3
+    .registers 7
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
     .param p3, "editText"    # Landroid/widget/EditText;
@@ -221,14 +221,14 @@
 
     const/4 v2, 0x0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_18
 
     .line 108
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 109
     invoke-virtual {p3}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -239,19 +239,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
     .line 110
     .local v0, "switchFocus":Z
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_19
+    if-eqz v0, :cond_21
 
     .line 111
     const/16 v2, 0xa
@@ -262,7 +262,7 @@
     return v1
 
     .line 115
-    :cond_1
+    :cond_21
     invoke-direct {p0, p3}, Lcom/google/android/material/timepicker/TimePickerTextInputKeyController;->clearPrefilledText(Landroid/widget/EditText;)V
 
     .line 117
@@ -272,7 +272,7 @@
 
 # virtual methods
 .method public bind()V
-    .locals 5
+    .registers 6
 
     .line 60
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputKeyController;->hourLayoutComboView:Lcom/google/android/material/timepicker/ChipTextInputComboView;
@@ -326,7 +326,7 @@
 .end method
 
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .locals 2
+    .registers 6
     .param p1, "v"    # Landroid/widget/TextView;
     .param p2, "actionId"    # I
     .param p3, "event"    # Landroid/view/KeyEvent;
@@ -334,19 +334,19 @@
     .line 81
     const/4 v0, 0x5
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_5
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     .line 82
     .local v0, "actionNext":Z
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_6
+    if-eqz v0, :cond_d
 
     .line 83
     const/16 v1, 0xc
@@ -354,12 +354,12 @@
     invoke-direct {p0, v1}, Lcom/google/android/material/timepicker/TimePickerTextInputKeyController;->moveSelection(I)V
 
     .line 86
-    :cond_1
+    :cond_d
     return v0
 .end method
 
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 4
+    .registers 8
     .param p1, "view"    # Landroid/view/View;
     .param p2, "keyCode"    # I
     .param p3, "event"    # Landroid/view/KeyEvent;
@@ -369,13 +369,13 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 92
     return v1
 
     .line 95
-    :cond_0
+    :cond_6
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/android/material/timepicker/TimePickerTextInputKeyController;->keyListenerRunning:Z
@@ -393,22 +393,22 @@
 
     const/16 v3, 0xc
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_19
 
     .line 99
     invoke-direct {p0, p2, p3, v0}, Lcom/google/android/material/timepicker/TimePickerTextInputKeyController;->onMinuteKeyPress(ILandroid/view/KeyEvent;Landroid/widget/EditText;)Z
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 100
-    :cond_1
+    :cond_19
     invoke-direct {p0, p2, p3, v0}, Lcom/google/android/material/timepicker/TimePickerTextInputKeyController;->onHourKeyPress(ILandroid/view/KeyEvent;Landroid/widget/EditText;)Z
 
     move-result v2
 
-    :goto_0
+    :goto_1d
     nop
 
     .line 101

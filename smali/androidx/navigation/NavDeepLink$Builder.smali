@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/navigation/NavDeepLink$Builder$Companion;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 328
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -90,7 +90,7 @@
 .end method
 
 .method public static final fromAction(Ljava/lang/String;)Landroidx/navigation/NavDeepLink$Builder;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public static final fromMimeType(Ljava/lang/String;)Landroidx/navigation/NavDeepLink$Builder;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public static final fromUriPattern(Ljava/lang/String;)Landroidx/navigation/NavDeepLink$Builder;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -134,7 +134,7 @@
 
 # virtual methods
 .method public final build()Landroidx/navigation/NavDeepLink;
-    .locals 4
+    .registers 5
 
     .line 380
     new-instance v0, Landroidx/navigation/NavDeepLink;
@@ -151,7 +151,7 @@
 .end method
 
 .method public final setAction(Ljava/lang/String;)Landroidx/navigation/NavDeepLink$Builder;
-    .locals 2
+    .registers 4
     .param p1, "action"    # Ljava/lang/String;
 
     const-string v0, "action"
@@ -167,17 +167,17 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_11
+    if-eqz v0, :cond_16
 
     .line 358
     iput-object p1, p0, Landroidx/navigation/NavDeepLink$Builder;->action:Ljava/lang/String;
@@ -186,7 +186,7 @@
     return-object p0
 
     .line 510
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
     .line 357
@@ -208,7 +208,7 @@
 .end method
 
 .method public final setMimeType(Ljava/lang/String;)Landroidx/navigation/NavDeepLink$Builder;
-    .locals 1
+    .registers 3
     .param p1, "mimeType"    # Ljava/lang/String;
 
     const-string v0, "mimeType"
@@ -223,7 +223,7 @@
 .end method
 
 .method public final setUriPattern(Ljava/lang/String;)Landroidx/navigation/NavDeepLink$Builder;
-    .locals 1
+    .registers 3
     .param p1, "uriPattern"    # Ljava/lang/String;
 
     const-string/jumbo v0, "uriPattern"

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 74
     invoke-direct {p0}, Landroidx/work/InputMergerFactory;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public createInputMerger(Ljava/lang/String;)Landroidx/work/InputMerger;
-    .locals 1
+    .registers 3
     .param p1, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

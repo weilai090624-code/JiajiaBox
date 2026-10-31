@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 840
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -77,57 +77,57 @@
 
 # virtual methods
 .method public setHasDecor(ZZ)V
-    .locals 4
+    .registers 7
     .param p1, "hasTitle"    # Z
     .param p2, "hasButtons"    # Z
 
     .line 855
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_4
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_21
 
     .line 856
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Landroidx/appcompat/app/AlertController$RecycleListView;->getPaddingLeft()I
 
     move-result v0
 
     .line 857
     .local v0, "paddingLeft":I
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_f
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AlertController$RecycleListView;->getPaddingTop()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_f
     iget v1, p0, Landroidx/appcompat/app/AlertController$RecycleListView;->mPaddingTopNoTitle:I
 
     .line 858
     .local v1, "paddingTop":I
-    :goto_0
+    :goto_11
     invoke-virtual {p0}, Landroidx/appcompat/app/AlertController$RecycleListView;->getPaddingRight()I
 
     move-result v2
 
     .line 859
     .local v2, "paddingRight":I
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1c
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AlertController$RecycleListView;->getPaddingBottom()I
 
     move-result v3
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_2
+    :cond_1c
     iget v3, p0, Landroidx/appcompat/app/AlertController$RecycleListView;->mPaddingBottomNoButtons:I
 
     .line 860
     .local v3, "paddingBottom":I
-    :goto_1
+    :goto_1e
     invoke-virtual {p0, v0, v1, v2, v3}, Landroidx/appcompat/app/AlertController$RecycleListView;->setPadding(IIII)V
 
     .line 862
@@ -135,6 +135,6 @@
     .end local v1    # "paddingTop":I
     .end local v2    # "paddingRight":I
     .end local v3    # "paddingBottom":I
-    :cond_3
+    :cond_21
     return-void
 .end method

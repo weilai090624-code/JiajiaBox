@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m([Ljava/lang/Object;)Ljava/util/Set;
-    .locals 5
+    .registers 6
 
     new-instance v0, Ljava/util/HashSet;
 
@@ -17,8 +17,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_8
+    if-ge v2, v1, :cond_32
 
     aget-object v3, p0, v2
 
@@ -30,13 +30,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_19
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_19
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -61,7 +61,7 @@
 
     throw p0
 
-    :cond_1
+    :cond_32
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
     move-result-object p0

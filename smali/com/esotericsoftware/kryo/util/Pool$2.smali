@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/util/Pool;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/esotericsoftware/kryo/util/Pool;
 
     .line 55
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -62,14 +62,14 @@
 
     iget v1, p0, Lcom/esotericsoftware/kryo/util/Pool$2;->val$maximumCapacity:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     const/4 v0, 0x0
 
     return v0
 
     .line 58
-    :cond_0
+    :cond_a
     invoke-super {p0, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
     .line 59

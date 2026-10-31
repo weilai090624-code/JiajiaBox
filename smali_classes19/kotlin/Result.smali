@@ -90,7 +90,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/Result$Companion;
 
@@ -104,7 +104,7 @@
 .end method
 
 .method private synthetic constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 22
@@ -116,7 +116,7 @@
 .end method
 
 .method public static final synthetic box-impl(Ljava/lang/Object;)Lkotlin/Result;
-    .locals 1
+    .registers 2
 
     new-instance v0, Lkotlin/Result;
 
@@ -126,7 +126,7 @@
 .end method
 
 .method public static constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -142,17 +142,17 @@
 .end method
 
 .method public static equals-impl(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     instance-of v0, p1, Lkotlin/Result;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lkotlin/Result;
@@ -165,18 +165,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     return v1
 
-    :cond_1
+    :cond_14
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static final equals-impl0(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -186,7 +186,7 @@
 .end method
 
 .method public static final exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # Ljava/lang/Object;
 
     .line 63
@@ -195,7 +195,7 @@
     .line 64
     instance-of v0, p0, Lkotlin/Result$Failure;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     move-object v0, p0
 
@@ -203,19 +203,19 @@
 
     iget-object v0, v0, Lkotlin/Result$Failure;->exception:Ljava/lang/Throwable;
 
-    goto :goto_0
+    goto :goto_c
 
     .line 65
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     .line 66
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method private static final getOrNull-impl(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -233,47 +233,47 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
     .line 53
-    :cond_0
+    :cond_9
     move-object v0, p0
 
     .line 54
-    :goto_0
+    :goto_a
     return-object v0
 .end method
 
 .method public static synthetic getValue$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static hashCode-impl(Ljava/lang/Object;)I
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    :goto_0
+    :goto_8
     return v0
 .end method
 
 .method public static final isFailure-impl(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # Ljava/lang/Object;
 
     .line 38
@@ -283,7 +283,7 @@
 .end method
 
 .method public static final isSuccess-impl(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "arg0"    # Ljava/lang/Object;
 
     .line 32
@@ -295,7 +295,7 @@
 .end method
 
 .method public static toString-impl(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "arg0"    # Ljava/lang/Object;
 
     .line 74
@@ -304,16 +304,16 @@
     .line 75
     instance-of v0, p0, Lkotlin/Result$Failure;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_23
 
     .line 76
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -339,14 +339,14 @@
     move-result-object v0
 
     .line 77
-    :goto_0
+    :goto_23
     return-object v0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lkotlin/Result;->value:Ljava/lang/Object;
 
@@ -358,7 +358,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlin/Result;->value:Ljava/lang/Object;
 
@@ -370,7 +370,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 73
     iget-object v0, p0, Lkotlin/Result;->value:Ljava/lang/Object;
@@ -384,7 +384,7 @@
 .end method
 
 .method public final synthetic unbox-impl()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lkotlin/Result;->value:Ljava/lang/Object;
 

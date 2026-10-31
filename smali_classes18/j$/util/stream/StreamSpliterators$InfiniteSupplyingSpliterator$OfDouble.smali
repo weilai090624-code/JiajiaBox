@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(JLjava/util/function/DoubleSupplier;)V
-    .locals 0
+    .registers 4
     .param p1, "size"    # J
     .param p3, "s"    # Ljava/util/function/DoubleSupplier;
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfDouble$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfDouble;Ljava/lang/Object;)V
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfDouble$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfDouble;Ljava/util/function/Consumer;)V
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/DoubleConsumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfDouble$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfDouble;Ljava/util/function/DoubleConsumer;)V
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 1424
     check-cast p1, Ljava/util/function/DoubleConsumer;
@@ -86,7 +86,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfDouble$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfDouble;Ljava/util/function/Consumer;)Z
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/DoubleConsumer;)Z
-    .locals 2
+    .registers 4
     .param p1, "action"    # Ljava/util/function/DoubleConsumer;
 
     .line 1435
@@ -118,7 +118,7 @@
 .end method
 
 .method public trySplit()Lj$/util/Spliterator$OfDouble;
-    .locals 5
+    .registers 6
 
     .line 1443
     iget-wide v0, p0, Lj$/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;->estimate:J
@@ -127,7 +127,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_a
 
     .line 1444
     const/4 v0, 0x0
@@ -135,7 +135,7 @@
     return-object v0
 
     .line 1445
-    :cond_0
+    :cond_a
     new-instance v0, Lj$/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;
 
     iget-wide v1, p0, Lj$/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;->estimate:J
@@ -154,7 +154,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 1424
     invoke-virtual {p0}, Lj$/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;->trySplit()Lj$/util/Spliterator$OfDouble;
@@ -165,7 +165,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 1424
     invoke-virtual {p0}, Lj$/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;->trySplit()Lj$/util/Spliterator$OfDouble;

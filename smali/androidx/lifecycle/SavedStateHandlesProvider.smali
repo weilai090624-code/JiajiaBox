@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/ViewModelStoreOwner;)V
-    .locals 1
+    .registers 4
     .param p1, "savedStateRegistry"    # Landroidx/savedstate/SavedStateRegistry;
     .param p2, "viewModelStoreOwner"    # Landroidx/lifecycle/ViewModelStoreOwner;
 
@@ -99,7 +99,7 @@
 .end method
 
 .method private final getViewModel()Landroidx/lifecycle/SavedStateHandlesVM;
-    .locals 1
+    .registers 2
 
     .line 133
     iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->viewModel$delegate:Lkotlin/Lazy;
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public final consumeRestoredStateForKey(Ljava/lang/String;)Landroid/os/Bundle;
-    .locals 7
+    .registers 9
     .param p1, "key"    # Ljava/lang/String;
 
     const-string v0, "key"
@@ -131,18 +131,18 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     move-object v0, v1
 
-    :goto_0
+    :goto_13
     move-object v2, v0
 
     .local v2, "it":Landroid/os/Bundle;
@@ -152,17 +152,17 @@
     .local v3, "$i$a$-also-SavedStateHandlesProvider$consumeRestoredStateForKey$1":I
     iget-object v4, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1c
 
     invoke-virtual {v4, p1}, Landroid/os/Bundle;->remove(Ljava/lang/String;)V
 
     .line 183
-    :cond_1
+    :cond_1c
     iget-object v4, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
 
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_29
 
     invoke-virtual {v4}, Landroid/os/Bundle;->isEmpty()Z
 
@@ -170,18 +170,18 @@
 
     const/4 v6, 0x1
 
-    if-ne v4, v6, :cond_2
+    if-ne v4, v6, :cond_29
 
     const/4 v5, 0x1
 
-    :cond_2
-    if-eqz v5, :cond_3
+    :cond_29
+    if-eqz v5, :cond_2d
 
     .line 184
     iput-object v1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
 
     .line 186
-    :cond_3
+    :cond_2d
     nop
 
     .line 181
@@ -191,12 +191,12 @@
 .end method
 
 .method public final performRestore()V
-    .locals 6
+    .registers 7
 
     .line 162
     iget-boolean v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restored:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2b
 
     .line 163
     iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->savedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
@@ -222,7 +222,7 @@
     .local v3, "$i$a$-apply-SavedStateHandlesProvider$performRestore$1":I
     iget-object v4, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1b
 
     .line 228
     .local v4, "it":Landroid/os/Bundle;
@@ -235,8 +235,8 @@
     .line 166
     .end local v4    # "it":Landroid/os/Bundle;
     .end local v5    # "$i$a$-let-SavedStateHandlesProvider$performRestore$1$1":I
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_1b
+    if-eqz v0, :cond_22
 
     move-object v4, v0
 
@@ -251,7 +251,7 @@
     .line 167
     .end local v4    # "it":Landroid/os/Bundle;
     .end local v5    # "$i$a$-let-SavedStateHandlesProvider$performRestore$1$2":I
-    :cond_1
+    :cond_22
     nop
 
     .line 164
@@ -269,12 +269,12 @@
 
     .line 174
     .end local v0    # "newState":Landroid/os/Bundle;
-    :cond_2
+    :cond_2b
     return-void
 .end method
 
 .method public saveState()Landroid/os/Bundle;
-    .locals 12
+    .registers 13
 
     .line 138
     new-instance v0, Landroid/os/Bundle;
@@ -290,7 +290,7 @@
     .local v2, "$i$a$-apply-SavedStateHandlesProvider$saveState$1":I
     iget-object v3, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_10
 
     .line 142
     iget-object v3, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
@@ -298,7 +298,7 @@
     invoke-virtual {v1, v3}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     .line 146
-    :cond_0
+    :cond_10
     invoke-direct {p0}, Landroidx/lifecycle/SavedStateHandlesProvider;->getViewModel()Landroidx/lifecycle/SavedStateHandlesVM;
 
     move-result-object v3
@@ -320,12 +320,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_21
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_50
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -369,13 +369,13 @@
 
     move-result v11
 
-    if-nez v11, :cond_1
+    if-nez v11, :cond_4d
 
     .line 149
     invoke-virtual {v1, v8, v10}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 151
-    :cond_1
+    :cond_4d
     nop
 
     .line 226
@@ -386,10 +386,10 @@
     nop
 
     .end local v6    # "element$iv":Ljava/util/Map$Entry;
-    goto :goto_0
+    goto :goto_21
 
     .line 227
-    :cond_2
+    :cond_50
     nop
 
     .line 152

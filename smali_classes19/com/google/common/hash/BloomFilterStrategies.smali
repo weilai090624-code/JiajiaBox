@@ -36,7 +36,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/hash/BloomFilterStrategies;
-    .locals 3
+    .registers 3
 
     .line 40
     const/4 v0, 0x2
@@ -59,7 +59,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 47
     new-instance v0, Lcom/google/common/hash/BloomFilterStrategies$1;
@@ -94,7 +94,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -108,7 +108,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/hash/BloomFilterStrategies$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # I
     .param p3, "x2"    # Lcom/google/common/hash/BloomFilterStrategies$1;
@@ -120,7 +120,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/hash/BloomFilterStrategies;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 40
@@ -136,7 +136,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/hash/BloomFilterStrategies;
-    .locals 1
+    .registers 1
 
     .line 40
     sget-object v0, Lcom/google/common/hash/BloomFilterStrategies;->$VALUES:[Lcom/google/common/hash/BloomFilterStrategies;

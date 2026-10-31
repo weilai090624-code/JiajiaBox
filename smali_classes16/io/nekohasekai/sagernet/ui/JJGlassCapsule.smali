@@ -649,9 +649,9 @@
 
     iget-object v9, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->morphClip:Landroid/graphics/Rect;
 
-    if-eqz v9, :cond_28
+    if-eqz v9, :cond_2e
 
-    if-nez v10, :cond_28
+    if-nez v10, :cond_2e
 
     invoke-virtual {v0, v9}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
 
@@ -663,7 +663,7 @@
 
     invoke-virtual {v4, v0, v1, v1, v9}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
 
-    :cond_28
+    :cond_2e
     invoke-virtual {p1, v0, v1, v1, v2}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
     invoke-static {p0, p1, v0, v1}, Lio/nekohasekai/sagernet/ui/CardLight;->drawNative(Landroid/view/View;Landroid/graphics/Canvas;Landroid/graphics/RectF;F)V
@@ -672,14 +672,13 @@
 
     move-result v5
 
-    if-nez v10, :native_clip_ready
+    if-nez v10, :cond_3f
 
     iget-object v4, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->bodyPath:Landroid/graphics/Path;
 
     invoke-virtual {p1, v4}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
 
-    :native_clip_ready
-
+    :cond_3f
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->syncMatteText()V
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchDraw(Landroid/graphics/Canvas;)V
@@ -2833,7 +2832,7 @@
 
     if-nez p1, :cond_f
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_28
 
     const/4 v0, 0x0
 
@@ -2845,36 +2844,35 @@
 
     iput v1, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->materialH:I
 
-    goto :goto_1b
+    goto :goto_22
 
     :cond_f
-    if-eqz v0, :clip_allocate
+    if-eqz v0, :cond_18
 
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1e
+    if-nez v1, :cond_28
 
-    goto :cond_18
+    goto :goto_1f
 
-    :clip_allocate
-
+    :cond_18
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->morphClip:Landroid/graphics/Rect;
 
-    :cond_18
+    :goto_1f
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    :goto_1b
+    :goto_22
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerOutline;->changed(Landroid/view/View;)V
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
-    :cond_1e
+    :cond_28
     return-void
 .end method
 

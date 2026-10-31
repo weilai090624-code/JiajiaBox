@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     new-instance v0, Lkotlin/math/Constants;
 
@@ -115,7 +115,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

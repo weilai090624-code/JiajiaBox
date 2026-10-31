@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Lorg/objenesis/strategy/BaseInstantiatorStrategy;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public newInstantiatorOf(Ljava/lang/Class;)Lorg/objenesis/instantiator/ObjectInstantiator;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -37,7 +37,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_79
 
     .line 60
     sget-object v0, Lorg/objenesis/strategy/PlatformDescription;->JVM_NAME:Ljava/lang/String;
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_5d
 
     const-string v0, "OpenJDK"
 
@@ -56,12 +56,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
-    goto :goto_0
+    goto :goto_5d
 
     .line 67
-    :cond_0
+    :cond_1b
     sget-object v0, Lorg/objenesis/strategy/PlatformDescription;->JVM_NAME:Ljava/lang/String;
 
     const-string v1, "Dalvik"
@@ -70,14 +70,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_37
 
     .line 68
     invoke-static {}, Lorg/objenesis/strategy/PlatformDescription;->isAndroidOpenJDK()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 69
     new-instance v0, Lorg/objenesis/instantiator/basic/ObjectStreamClassInstantiator;
@@ -87,7 +87,7 @@
     return-object v0
 
     .line 71
-    :cond_1
+    :cond_31
     new-instance v0, Lorg/objenesis/instantiator/android/AndroidSerializationInstantiator;
 
     invoke-direct {v0, p1}, Lorg/objenesis/instantiator/android/AndroidSerializationInstantiator;-><init>(Ljava/lang/Class;)V
@@ -95,7 +95,7 @@
     return-object v0
 
     .line 73
-    :cond_2
+    :cond_37
     sget-object v0, Lorg/objenesis/strategy/PlatformDescription;->JVM_NAME:Ljava/lang/String;
 
     const-string v1, "GNU libgcj"
@@ -104,7 +104,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_47
 
     .line 74
     new-instance v0, Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator;
@@ -114,7 +114,7 @@
     return-object v0
 
     .line 76
-    :cond_3
+    :cond_47
     sget-object v0, Lorg/objenesis/strategy/PlatformDescription;->JVM_NAME:Ljava/lang/String;
 
     const-string v1, "PERC"
@@ -123,7 +123,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_57
 
     .line 77
     new-instance v0, Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;
@@ -133,7 +133,7 @@
     return-object v0
 
     .line 80
-    :cond_4
+    :cond_57
     new-instance v0, Lorg/objenesis/instantiator/sun/SunReflectionFactorySerializationInstantiator;
 
     invoke-direct {v0, p1}, Lorg/objenesis/instantiator/sun/SunReflectionFactorySerializationInstantiator;-><init>(Ljava/lang/Class;)V
@@ -141,13 +141,13 @@
     return-object v0
 
     .line 62
-    :cond_5
-    :goto_0
+    :cond_5d
+    :goto_5d
     invoke-static {}, Lorg/objenesis/strategy/PlatformDescription;->isGoogleAppEngine()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_73
 
     sget-object v0, Lorg/objenesis/strategy/PlatformDescription;->SPECIFICATION_VERSION:Ljava/lang/String;
 
@@ -157,7 +157,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_73
 
     .line 63
     new-instance v0, Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator;
@@ -167,7 +167,7 @@
     return-object v0
 
     .line 65
-    :cond_6
+    :cond_73
     new-instance v0, Lorg/objenesis/instantiator/sun/SunReflectionFactorySerializationInstantiator;
 
     invoke-direct {v0, p1}, Lorg/objenesis/instantiator/sun/SunReflectionFactorySerializationInstantiator;-><init>(Ljava/lang/Class;)V
@@ -175,7 +175,7 @@
     return-object v0
 
     .line 58
-    :cond_7
+    :cond_79
     new-instance v0, Lorg/objenesis/ObjenesisException;
 
     new-instance v1, Ljava/io/NotSerializableException;

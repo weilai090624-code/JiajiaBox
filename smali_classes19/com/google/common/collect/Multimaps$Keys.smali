@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multimap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 1702
     .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
@@ -76,7 +76,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -94,7 +94,7 @@
 .end method
 
 .method public count(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -116,23 +116,23 @@
 
     .line 1671
     .local v0, "values":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_10
     invoke-interface {v0}, Ljava/util/Collection;->size()I
 
     move-result v1
 
-    :goto_0
+    :goto_14
     return v1
 .end method
 
 .method distinctElements()I
-    .locals 1
+    .registers 2
 
     .line 1650
     .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
@@ -150,7 +150,7 @@
 .end method
 
 .method elementIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -171,7 +171,7 @@
 .end method
 
 .method public elementSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -192,7 +192,7 @@
 .end method
 
 .method entryIterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -228,7 +228,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -257,7 +257,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;I)I
-    .locals 4
+    .registers 7
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -271,7 +271,7 @@
     invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
     .line 1677
-    if-nez p2, :cond_0
+    if-nez p2, :cond_c
 
     .line 1678
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multimaps$Keys;->count(Ljava/lang/Object;)I
@@ -281,7 +281,7 @@
     return v0
 
     .line 1681
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$Keys;->multimap:Lcom/google/common/collect/Multimap;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multimap;->asMap()Ljava/util/Map;
@@ -296,7 +296,7 @@
 
     .line 1683
     .local v0, "values":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     .line 1684
     const/4 v1, 0x0
@@ -304,22 +304,22 @@
     return v1
 
     .line 1687
-    :cond_1
+    :cond_1c
     invoke-interface {v0}, Ljava/util/Collection;->size()I
 
     move-result v1
 
     .line 1688
     .local v1, "oldCount":I
-    if-lt p2, v1, :cond_2
+    if-lt p2, v1, :cond_26
 
     .line 1689
     invoke-interface {v0}, Ljava/util/Collection;->clear()V
 
-    goto :goto_1
+    goto :goto_36
 
     .line 1691
-    :cond_2
+    :cond_26
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -329,8 +329,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, p2, :cond_3
+    :goto_2b
+    if-ge v3, p2, :cond_36
 
     .line 1693
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -341,18 +341,18 @@
     .line 1692
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 1697
     .end local v2    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TV;>;"
     .end local v3    # "i":I
-    :cond_3
-    :goto_1
+    :cond_36
+    :goto_36
     return v1
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1655
     .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"

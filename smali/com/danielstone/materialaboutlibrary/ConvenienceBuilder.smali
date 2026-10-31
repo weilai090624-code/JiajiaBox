@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static createAppTitleItem(Landroid/content/Context;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 6
+    .registers 7
     .param p0, "c"    # Landroid/content/Context;
 
     .line 32
@@ -48,18 +48,18 @@
 
     .line 37
     .local v4, "applicationIcon":Landroid/graphics/drawable/Drawable;
-    if-nez v3, :cond_0
+    if-nez v3, :cond_19
 
     const-string v5, ""
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_19
     invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    :goto_0
+    :goto_1d
     invoke-static {v5, v4}, Lcom/danielstone/materialaboutlibrary/ConvenienceBuilder;->createAppTitleItem(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
 
     move-result-object v5
@@ -68,7 +68,7 @@
 .end method
 
 .method public static createAppTitleItem(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutTitleItem;
-    .locals 2
+    .registers 4
     .param p0, "appName"    # Ljava/lang/String;
     .param p1, "applicationIcon"    # Landroid/graphics/drawable/Drawable;
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static createEmailItem(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;ZLjava/lang/String;Ljava/lang/String;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
-    .locals 8
+    .registers 14
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "text"    # Ljava/lang/CharSequence;
@@ -118,7 +118,7 @@
 .end method
 
 .method public static createEmailItem(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
-    .locals 2
+    .registers 9
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "text"    # Ljava/lang/CharSequence;
@@ -137,17 +137,17 @@
 
     move-result-object v0
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_d
 
     move-object v1, p4
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
     .line 247
-    :goto_0
+    :goto_e
     invoke-virtual {v0, v1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->subText(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
 
     move-result-object v0
@@ -176,7 +176,7 @@
 .end method
 
 .method public static createEmailOnClickAction(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
-    .locals 1
+    .registers 4
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "email"    # Ljava/lang/String;
     .param p2, "emailSubject"    # Ljava/lang/String;
@@ -196,7 +196,7 @@
 .end method
 
 .method public static createEmailOnClickAction(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
-    .locals 3
+    .registers 7
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "email"    # Ljava/lang/String;
     .param p2, "emailSubject"    # Ljava/lang/String;
@@ -246,7 +246,7 @@
 .end method
 
 .method public static createLicenseCard(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Lcom/danielstone/materialaboutlibrary/util/OpenSourceLicense;)Lcom/danielstone/materialaboutlibrary/model/MaterialAboutCard;
-    .locals 4
+    .registers 10
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "libraryTitle"    # Ljava/lang/CharSequence;
@@ -326,7 +326,7 @@
 .end method
 
 .method public static createMapItem(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/String;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
-    .locals 2
+    .registers 7
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "text"    # Ljava/lang/CharSequence;
@@ -372,7 +372,7 @@
 .end method
 
 .method public static createMapOnClickAction(Landroid/content/Context;Ljava/lang/String;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
-    .locals 3
+    .registers 5
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "addressQuery"    # Ljava/lang/String;
 
@@ -416,7 +416,7 @@
 .end method
 
 .method public static createPhoneItem(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;ZLjava/lang/String;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
-    .locals 2
+    .registers 7
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "text"    # Ljava/lang/CharSequence;
@@ -433,17 +433,17 @@
 
     move-result-object v0
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_d
 
     move-object v1, p4
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
     .line 294
-    :goto_0
+    :goto_e
     invoke-virtual {v0, v1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->subText(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
 
     move-result-object v0
@@ -472,7 +472,7 @@
 .end method
 
 .method public static createPhoneOnClickAction(Landroid/content/Context;Ljava/lang/String;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
-    .locals 3
+    .registers 5
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "number"    # Ljava/lang/String;
 
@@ -518,7 +518,7 @@
 .end method
 
 .method public static createRateActionItem(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
-    .locals 2
+    .registers 6
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "text"    # Ljava/lang/CharSequence;
@@ -563,7 +563,7 @@
 .end method
 
 .method public static createRateOnClickAction(Landroid/content/Context;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
-    .locals 3
+    .registers 4
     .param p0, "c"    # Landroid/content/Context;
 
     .line 162
@@ -619,7 +619,7 @@
 .end method
 
 .method public static createVersionActionItem(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Z)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
-    .locals 6
+    .registers 10
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "text"    # Ljava/lang/CharSequence;
@@ -634,7 +634,7 @@
 
     .line 53
     .local v1, "versionCode":I
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
@@ -657,21 +657,21 @@
 
     .line 55
     iget v3, v2, Landroid/content/pm/PackageInfo;->versionCode:I
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_15} :catch_17
 
     move v1, v3
 
     .line 58
     .end local v2    # "pInfo":Landroid/content/pm/PackageInfo;
-    goto :goto_0
+    goto :goto_18
 
     .line 56
-    :catch_0
+    :catch_17
     move-exception v2
 
     .line 59
-    :goto_0
+    :goto_18
     new-instance v2, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
 
     invoke-direct {v2}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;-><init>()V
@@ -689,7 +689,7 @@
 
     move-result-object v3
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_46
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -715,12 +715,12 @@
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_0
+    :cond_46
     const-string v4, ""
 
-    :goto_1
+    :goto_48
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -749,7 +749,7 @@
 .end method
 
 .method public static createWebViewDialogItem(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/String;ZZ)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
-    .locals 7
+    .registers 16
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "text"    # Ljava/lang/CharSequence;
@@ -811,7 +811,7 @@
 .end method
 
 .method public static createWebViewDialogItem(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/String;ZZ)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
-    .locals 11
+    .registers 19
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "text"    # Ljava/lang/CharSequence;
@@ -854,7 +854,7 @@
 .end method
 
 .method public static createWebViewDialogOnClickAction(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/String;ZZ)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
-    .locals 8
+    .registers 14
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "dialogTitle"    # Ljava/lang/CharSequence;
     .param p2, "dialogNegativeButton"    # Ljava/lang/CharSequence;
@@ -885,7 +885,7 @@
 .end method
 
 .method public static createWebViewDialogOnClickAction(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/String;ZZ)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
-    .locals 7
+    .registers 12
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "dialogTitle"    # Ljava/lang/CharSequence;
     .param p2, "htmlString"    # Ljava/lang/String;
@@ -917,7 +917,7 @@
 .end method
 
 .method public static createWebsiteActionItem(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;ZLandroid/net/Uri;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem;
-    .locals 2
+    .registers 7
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
     .param p2, "text"    # Ljava/lang/CharSequence;
@@ -934,19 +934,19 @@
 
     move-result-object v0
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_10
 
     .line 148
     invoke-virtual {p4}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-virtual {v0, v1}, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;->subText(Ljava/lang/CharSequence;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutActionItem$Builder;
 
     move-result-object v0
@@ -975,7 +975,7 @@
 .end method
 
 .method public static createWebsiteOnClickAction(Landroid/content/Context;Landroid/net/Uri;)Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItemOnClickAction;
-    .locals 1
+    .registers 3
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "websiteUrl"    # Landroid/net/Uri;
 

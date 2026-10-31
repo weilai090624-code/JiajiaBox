@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 8
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -97,8 +97,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_6
+    :goto_22
+    if-ge v3, v2, :cond_92
 
     .line 307
     invoke-virtual {v1, v3}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -109,7 +109,7 @@
     .local v4, "attr":I
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->Variant_constraints:I
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_54
 
     .line 309
     iget v5, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mConstraintID:I
@@ -151,7 +151,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_53
 
     .line 314
     const/4 v7, 0x1
@@ -161,13 +161,13 @@
     .line 316
     .end local v5    # "type":Ljava/lang/String;
     .end local v6    # "name":Ljava/lang/String;
-    :cond_0
-    goto :goto_1
+    :cond_53
+    goto :goto_8f
 
-    :cond_1
+    :cond_54
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->Variant_region_heightLessThan:I
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_61
 
     .line 317
     iget v5, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMaxHeight:F
@@ -178,13 +178,13 @@
 
     iput v5, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMaxHeight:F
 
-    goto :goto_1
+    goto :goto_8f
 
     .line 318
-    :cond_2
+    :cond_61
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->Variant_region_heightMoreThan:I
 
-    if-ne v4, v5, :cond_3
+    if-ne v4, v5, :cond_6e
 
     .line 319
     iget v5, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMinHeight:F
@@ -195,13 +195,13 @@
 
     iput v5, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMinHeight:F
 
-    goto :goto_1
+    goto :goto_8f
 
     .line 320
-    :cond_3
+    :cond_6e
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->Variant_region_widthLessThan:I
 
-    if-ne v4, v5, :cond_4
+    if-ne v4, v5, :cond_7b
 
     .line 321
     iget v5, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMaxWidth:F
@@ -212,13 +212,13 @@
 
     iput v5, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMaxWidth:F
 
-    goto :goto_1
+    goto :goto_8f
 
     .line 322
-    :cond_4
+    :cond_7b
     sget v5, Landroidx/constraintlayout/widget/R$styleable;->Variant_region_widthMoreThan:I
 
-    if-ne v4, v5, :cond_5
+    if-ne v4, v5, :cond_88
 
     .line 323
     iget v5, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMinWidth:F
@@ -229,10 +229,10 @@
 
     iput v5, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMinWidth:F
 
-    goto :goto_1
+    goto :goto_8f
 
     .line 325
-    :cond_5
+    :cond_88
     const-string v5, "ConstraintLayoutStates"
 
     const-string v6, "Unknown tag"
@@ -241,14 +241,14 @@
 
     .line 306
     .end local v4    # "attr":I
-    :goto_1
+    :goto_8f
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 328
     .end local v3    # "i":I
-    :cond_6
+    :cond_92
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 344
@@ -258,7 +258,7 @@
 
 # virtual methods
 .method match(FF)Z
-    .locals 2
+    .registers 5
     .param p1, "widthDp"    # F
     .param p2, "heightDp"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -281,76 +281,76 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 352
     iget v0, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMinWidth:F
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_10
 
     return v1
 
     .line 354
-    :cond_0
+    :cond_10
     iget v0, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMinHeight:F
 
     invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     .line 355
     iget v0, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMinHeight:F
 
     cmpg-float v0, p2, v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_1f
 
     return v1
 
     .line 357
-    :cond_1
+    :cond_1f
     iget v0, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMaxWidth:F
 
     invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2e
 
     .line 358
     iget v0, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMaxWidth:F
 
     cmpl-float v0, p1, v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_2e
 
     return v1
 
     .line 360
-    :cond_2
+    :cond_2e
     iget v0, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMaxHeight:F
 
     invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_3d
 
     .line 361
     iget v0, p0, Landroidx/constraintlayout/widget/StateSet$Variant;->mMaxHeight:F
 
     cmpl-float v0, p2, v0
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_3d
 
     return v1
 
     .line 363
-    :cond_3
+    :cond_3d
     const/4 v0, 0x1
 
     return v0

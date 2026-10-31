@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lmoe/matsuri/nb4a/net/LocalResolverImpl;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public exchange(Llibcore/ExchangeContext;[B)V
-    .locals 9
+    .registers 12
     .param p1, "ctx"    # Llibcore/ExchangeContext;
     .param p2, "message"    # [B
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public lookup(Llibcore/ExchangeContext;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 11
+    .registers 15
     .param p1, "ctx"    # Llibcore/ExchangeContext;
     .param p2, "network"    # Ljava/lang/String;
     .param p3, "domain"    # Ljava/lang/String;
@@ -181,7 +181,7 @@
 
     const/4 v2, 0x0
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_8e
 
     .line 68
     new-instance v0, Landroid/os/CancellationSignal;
@@ -216,7 +216,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_39
 
     const/4 v2, 0x1
 
@@ -224,17 +224,17 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_49
 
     .line 103
-    :cond_0
+    :cond_39
     const-string v3, "6"
 
     invoke-static {p2, v3, v4, v5, v2}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_48
 
     const/16 v2, 0x1c
 
@@ -242,19 +242,19 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_49
 
     .line 104
-    :cond_1
+    :cond_48
     nop
 
     .line 101
-    :goto_0
+    :goto_49
     nop
 
     .line 106
     .local v2, "type":Ljava/lang/Integer;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_6f
 
     .line 107
     invoke-static {}, Landroid/net/DnsResolver;->getInstance()Landroid/net/DnsResolver;
@@ -305,10 +305,10 @@
 
     invoke-virtual/range {v3 .. v10}, Landroid/net/DnsResolver;->query(Landroid/net/Network;Ljava/lang/String;IILjava/util/concurrent/Executor;Landroid/os/CancellationSignal;Landroid/net/DnsResolver$Callback;)V
 
-    goto :goto_1
+    goto :goto_98
 
     .line 117
-    :cond_2
+    :cond_6f
     invoke-static {}, Landroid/net/DnsResolver;->getInstance()Landroid/net/DnsResolver;
 
     move-result-object v3
@@ -355,10 +355,10 @@
     .end local v0    # "signal":Landroid/os/CancellationSignal;
     .end local v1    # "callback":Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$callback$1;
     .end local v2    # "type":Ljava/lang/Integer;
-    goto :goto_1
+    goto :goto_98
 
     .line 127
-    :cond_3
+    :cond_8e
     new-instance v0, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$2;
 
     invoke-direct {v0, p3, p1, v2}, Lmoe/matsuri/nb4a/net/LocalResolverImpl$lookup$2;-><init>(Ljava/lang/String;Llibcore/ExchangeContext;Lkotlin/coroutines/Continuation;)V
@@ -368,12 +368,12 @@
     invoke-static {v0}, Lio/nekohasekai/sagernet/ktx/AsyncsKt;->runOnIoDispatcher(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/Job;
 
     .line 149
-    :goto_1
+    :goto_98
     return-void
 .end method
 
 .method public networkHandle()J
-    .locals 4
+    .registers 5
 
     .line 29
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -382,7 +382,7 @@
 
     const-wide/16 v2, 0x0
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_15
 
     .line 30
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -391,37 +391,37 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {v0}, Landroid/net/Network;->getNetworkHandle()J
 
     move-result-wide v2
 
-    :cond_0
+    :cond_14
     return-wide v2
 
     .line 32
-    :cond_1
+    :cond_15
     return-wide v2
 .end method
 
 .method public raw()Z
-    .locals 2
+    .registers 3
 
     .line 25
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method

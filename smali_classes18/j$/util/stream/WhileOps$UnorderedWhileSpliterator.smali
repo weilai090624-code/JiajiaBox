@@ -64,7 +64,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_SP",
@@ -105,7 +105,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;Z)V
-    .locals 1
+    .registers 4
     .param p2, "noSplitting"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 692
     .local p0, "this":Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;, "Ljava/util/stream/WhileOps$UnorderedWhileSpliterator<TT;TT_SPLITR;>;"
@@ -161,13 +161,13 @@
 .end method
 
 .method checkCancelOnCount()Z
-    .locals 1
+    .registers 2
 
     .line 713
     .local p0, "this":Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;, "Ljava/util/stream/WhileOps$UnorderedWhileSpliterator<TT;TT_SPLITR;>;"
     iget v0, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;->count:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     iget-object v0, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;->cancel:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -175,25 +175,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 686
     .local p0, "this":Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;, "Ljava/util/stream/WhileOps$UnorderedWhileSpliterator<TT;TT_SPLITR;>;"
@@ -207,7 +207,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$forEachRemaining(Lj$/util/Spliterator;Ljava/util/function/Consumer;)V
 
@@ -215,7 +215,7 @@
 .end method
 
 .method public getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -236,7 +236,7 @@
 .end method
 
 .method public getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     .line 697
     .local p0, "this":Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;, "Ljava/util/stream/WhileOps$UnorderedWhileSpliterator<TT;TT_SPLITR;>;"
@@ -246,7 +246,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -267,7 +267,7 @@
 .end method
 
 .method public trySplit()Lj$/util/Spliterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT_SP",
@@ -281,13 +281,13 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;->s:Lj$/util/Spliterator;
 
     invoke-interface {v0}, Lj$/util/Spliterator;->trySplit()Lj$/util/Spliterator;
@@ -296,13 +296,13 @@
 
     .line 709
     .local v0, "ls":Lj$/util/Spliterator;, "TT_SPLITR;"
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_d
+    if-eqz v0, :cond_13
 
     invoke-virtual {p0, v0}, Lj$/util/stream/WhileOps$UnorderedWhileSpliterator;->makeSpliterator(Lj$/util/Spliterator;)Lj$/util/Spliterator;
 
     move-result-object v1
 
-    :cond_1
+    :cond_13
     return-object v1
 .end method

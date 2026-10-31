@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/adapter/FragmentStateAdapter;)V
-    .locals 2
+    .registers 4
     .param p1, "this$0"    # Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
     .line 617
@@ -47,7 +47,7 @@
 .end method
 
 .method private inferViewPager(Landroidx/recyclerview/widget/RecyclerView;)Landroidx/viewpager2/widget/ViewPager2;
-    .locals 4
+    .registers 6
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 732
@@ -59,7 +59,7 @@
     .local v0, "parent":Landroid/view/ViewParent;
     instance-of v1, v0, Landroidx/viewpager2/widget/ViewPager2;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 734
     move-object v1, v0
@@ -69,7 +69,7 @@
     return-object v1
 
     .line 736
-    :cond_0
+    :cond_c
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method register(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 2
+    .registers 4
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 626
@@ -157,7 +157,7 @@
 .end method
 
 .method unregister(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 3
+    .registers 5
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 664
@@ -197,7 +197,7 @@
 .end method
 
 .method updateFragmentMaxLifecycle(Z)V
-    .locals 13
+    .registers 15
     .param p1, "dataSetChanged"    # Z
 
     .line 672
@@ -207,26 +207,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 673
     return-void
 
     .line 676
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
 
     invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2;->getScrollState()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 677
     return-void
 
     .line 680
-    :cond_1
+    :cond_12
     iget-object v0, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->this$0:Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
     iget-object v0, v0, Landroidx/viewpager2/adapter/FragmentStateAdapter;->mFragments:Landroidx/collection/LongSparseArray;
@@ -235,7 +235,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_b4
 
     iget-object v0, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->this$0:Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
@@ -243,12 +243,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_26
 
-    goto/16 :goto_5
+    goto/16 :goto_b4
 
     .line 684
-    :cond_2
+    :cond_26
     iget-object v0, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
 
     invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2;->getCurrentItem()I
@@ -263,13 +263,13 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_35
 
     .line 688
     return-void
 
     .line 691
-    :cond_3
+    :cond_35
     iget-object v1, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->this$0:Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
     invoke-virtual {v1, v0}, Landroidx/viewpager2/adapter/FragmentStateAdapter;->getItemId(I)J
@@ -282,15 +282,15 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_44
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_44
 
     .line 693
     return-void
 
     .line 696
-    :cond_4
+    :cond_44
     iget-object v3, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->this$0:Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
     iget-object v3, v3, Landroidx/viewpager2/adapter/FragmentStateAdapter;->mFragments:Landroidx/collection/LongSparseArray;
@@ -303,18 +303,18 @@
 
     .line 697
     .local v3, "currentItemFragment":Landroidx/fragment/app/Fragment;
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_b3
 
     invoke-virtual {v3}, Landroidx/fragment/app/Fragment;->isAdded()Z
 
     move-result v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_57
 
-    goto :goto_4
+    goto :goto_b3
 
     .line 701
-    :cond_5
+    :cond_57
     iput-wide v1, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->mPrimaryItemId:J
 
     .line 702
@@ -335,7 +335,7 @@
     const/4 v6, 0x0
 
     .local v6, "ix":I
-    :goto_0
+    :goto_63
     iget-object v7, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->this$0:Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
     iget-object v7, v7, Landroidx/viewpager2/adapter/FragmentStateAdapter;->mFragments:Landroidx/collection/LongSparseArray;
@@ -344,7 +344,7 @@
 
     move-result v7
 
-    if-ge v6, v7, :cond_9
+    if-ge v6, v7, :cond_a2
 
     .line 706
     iget-object v7, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->this$0:Landroidx/viewpager2/adapter/FragmentStateAdapter;
@@ -373,60 +373,60 @@
 
     move-result v10
 
-    if-nez v10, :cond_6
+    if-nez v10, :cond_86
 
     .line 710
-    goto :goto_3
+    goto :goto_9f
 
     .line 713
-    :cond_6
+    :cond_86
     iget-wide v10, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->mPrimaryItemId:J
 
     cmp-long v12, v7, v10
 
-    if-eqz v12, :cond_7
+    if-eqz v12, :cond_92
 
     .line 714
     sget-object v10, Landroidx/lifecycle/Lifecycle$State;->STARTED:Landroidx/lifecycle/Lifecycle$State;
 
     invoke-virtual {v4, v9, v10}, Landroidx/fragment/app/FragmentTransaction;->setMaxLifecycle(Landroidx/fragment/app/Fragment;Landroidx/lifecycle/Lifecycle$State;)Landroidx/fragment/app/FragmentTransaction;
 
-    goto :goto_1
+    goto :goto_93
 
     .line 716
-    :cond_7
+    :cond_92
     move-object v5, v9
 
     .line 719
-    :goto_1
+    :goto_93
     iget-wide v10, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentMaxLifecycleEnforcer;->mPrimaryItemId:J
 
     cmp-long v12, v7, v10
 
-    if-nez v12, :cond_8
+    if-nez v12, :cond_9b
 
     const/4 v10, 0x1
 
-    goto :goto_2
+    goto :goto_9c
 
-    :cond_8
+    :cond_9b
     const/4 v10, 0x0
 
-    :goto_2
+    :goto_9c
     invoke-virtual {v9, v10}, Landroidx/fragment/app/Fragment;->setMenuVisibility(Z)V
 
     .line 705
     .end local v7    # "itemId":J
     .end local v9    # "fragment":Landroidx/fragment/app/Fragment;
-    :goto_3
+    :goto_9f
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_63
 
     .line 721
     .end local v6    # "ix":I
-    :cond_9
-    if-eqz v5, :cond_a
+    :cond_a2
+    if-eqz v5, :cond_a9
 
     .line 722
     sget-object v6, Landroidx/lifecycle/Lifecycle$State;->RESUMED:Landroidx/lifecycle/Lifecycle$State;
@@ -434,32 +434,32 @@
     invoke-virtual {v4, v5, v6}, Landroidx/fragment/app/FragmentTransaction;->setMaxLifecycle(Landroidx/fragment/app/Fragment;Landroidx/lifecycle/Lifecycle$State;)Landroidx/fragment/app/FragmentTransaction;
 
     .line 725
-    :cond_a
+    :cond_a9
     invoke-virtual {v4}, Landroidx/fragment/app/FragmentTransaction;->isEmpty()Z
 
     move-result v6
 
-    if-nez v6, :cond_b
+    if-nez v6, :cond_b2
 
     .line 726
     invoke-virtual {v4}, Landroidx/fragment/app/FragmentTransaction;->commitNow()V
 
     .line 728
-    :cond_b
+    :cond_b2
     return-void
 
     .line 698
     .end local v4    # "transaction":Landroidx/fragment/app/FragmentTransaction;
     .end local v5    # "toResume":Landroidx/fragment/app/Fragment;
-    :cond_c
-    :goto_4
+    :cond_b3
+    :goto_b3
     return-void
 
     .line 681
     .end local v0    # "currentItem":I
     .end local v1    # "currentItemId":J
     .end local v3    # "currentItemFragment":Landroidx/fragment/app/Fragment;
-    :cond_d
-    :goto_5
+    :cond_b4
+    :goto_b4
     return-void
 .end method

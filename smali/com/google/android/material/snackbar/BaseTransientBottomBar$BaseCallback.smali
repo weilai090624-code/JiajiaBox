@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 126
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback<TB;>;"
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public onDismissed(Ljava/lang/Object;I)V
-    .locals 0
+    .registers 3
     .param p2, "event"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -70,7 +70,7 @@
 .end method
 
 .method public onShown(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TB;)V"

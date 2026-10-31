@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function2;Lkotlin/jvm/internal/Ref$ObjectRef;)V
-    .locals 0
+    .registers 3
 
     iput-object p1, p0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2;->$predicate$inlined:Lkotlin/jvm/functions/Function2;
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -88,7 +88,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -100,7 +100,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2$1;->label:I
 
@@ -108,14 +108,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2$1;-><init>(Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -131,7 +131,7 @@
 
     const/4 v3, 0x1
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_72
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -145,7 +145,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2e
     const/4 p1, 0x0
 
     .local p1, "$i$a$-collectWhile-FlowKt__ReduceKt$firstOrNull$4":I
@@ -161,12 +161,12 @@
 
     move-object v5, v0
 
-    goto :goto_1
+    goto :goto_53
 
     .end local v1    # "it":Ljava/lang/Object;
     .end local v2    # "this":Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2;
     .end local p1    # "$i$a$-collectWhile-FlowKt__ReduceKt$firstOrNull$4":I
-    :pswitch_1
+    :pswitch_3a
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v2, p0
@@ -195,13 +195,13 @@
 
     move-result-object v5
 
-    if-ne v5, v1, :cond_1
+    if-ne v5, v1, :cond_51
 
     .line 0
     return-object v1
 
     .line 142
-    :cond_1
+    :cond_51
     move-object v1, p1
 
     move p1, v4
@@ -209,14 +209,14 @@
     .end local v4    # "$i$a$-collectWhile-FlowKt__ReduceKt$firstOrNull$4":I
     .restart local v1    # "it":Ljava/lang/Object;
     .local p1, "$i$a$-collectWhile-FlowKt__ReduceKt$firstOrNull$4":I
-    :goto_1
+    :goto_53
     check-cast v5, Ljava/lang/Boolean;
 
     invoke-virtual {v5}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_61
 
     .line 143
     iget-object v3, v2, Lkotlinx/coroutines/flow/FlowKt__ReduceKt$firstOrNull$$inlined$collectWhile$2;->$result$inlined:Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -227,19 +227,19 @@
     .end local v1    # "it":Ljava/lang/Object;
     const/4 v3, 0x0
 
-    goto :goto_2
+    goto :goto_62
 
     .line 146
-    :cond_2
+    :cond_61
     nop
 
     .line 142
-    :goto_2
+    :goto_62
     nop
 
     .line 130
     .end local p1    # "$i$a$-collectWhile-FlowKt__ReduceKt$firstOrNull$4":I
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_68
 
     .line 133
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -247,7 +247,7 @@
     return-object p1
 
     .line 131
-    :cond_3
+    :cond_68
     new-instance p1, Lkotlinx/coroutines/flow/internal/AbortFlowException;
 
     move-object v1, v2
@@ -260,9 +260,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_72
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3a
+        :pswitch_2e
     .end packed-switch
 .end method

@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/window/core/SpecificationComputer$Companion;-><init>()V
 
@@ -62,12 +62,12 @@
 .end method
 
 .method public static synthetic startSpecification$default(Landroidx/window/core/SpecificationComputer$Companion;Ljava/lang/Object;Ljava/lang/String;Landroidx/window/core/SpecificationComputer$VerificationMode;Landroidx/window/core/Logger;ILjava/lang/Object;)Landroidx/window/core/SpecificationComputer;
-    .locals 0
+    .registers 7
 
     .line 102
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_a
 
     .line 104
     sget-object p3, Landroidx/window/core/BuildConfig;->INSTANCE:Landroidx/window/core/BuildConfig;
@@ -77,10 +77,10 @@
     move-result-object p3
 
     .line 102
-    :cond_0
+    :cond_a
     and-int/lit8 p5, p5, 0x4
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_12
 
     .line 105
     sget-object p4, Landroidx/window/core/AndroidLogger;->INSTANCE:Landroidx/window/core/AndroidLogger;
@@ -88,7 +88,7 @@
     check-cast p4, Landroidx/window/core/Logger;
 
     .line 102
-    :cond_1
+    :cond_12
     invoke-virtual {p0, p1, p2, p3, p4}, Landroidx/window/core/SpecificationComputer$Companion;->startSpecification(Ljava/lang/Object;Ljava/lang/String;Landroidx/window/core/SpecificationComputer$VerificationMode;Landroidx/window/core/Logger;)Landroidx/window/core/SpecificationComputer;
 
     move-result-object p0
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public final startSpecification(Ljava/lang/Object;Ljava/lang/String;Landroidx/window/core/SpecificationComputer$VerificationMode;Landroidx/window/core/Logger;)Landroidx/window/core/SpecificationComputer;
-    .locals 1
+    .registers 6
     .param p1, "$this$startSpecification"    # Ljava/lang/Object;
     .param p2, "tag"    # Ljava/lang/String;
     .param p3, "verificationMode"    # Landroidx/window/core/SpecificationComputer$VerificationMode;

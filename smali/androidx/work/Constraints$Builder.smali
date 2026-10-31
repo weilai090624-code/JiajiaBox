@@ -105,7 +105,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 166
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -137,7 +137,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/Constraints;)V
-    .locals 2
+    .registers 4
     .param p1, "constraints"    # Landroidx/work/Constraints;
 
     const-string v0, "constraints"
@@ -181,22 +181,22 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_2f
 
     invoke-virtual {p1}, Landroidx/work/Constraints;->requiresDeviceIdle()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_2f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_30
     iput-boolean v0, p0, Landroidx/work/Constraints$Builder;->requiresDeviceIdle:Z
 
     .line 177
@@ -225,7 +225,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_62
 
     .line 181
     invoke-virtual {p1}, Landroidx/work/Constraints;->getContentTriggerUpdateDelayMillis()J
@@ -255,14 +255,14 @@
     iput-object v0, p0, Landroidx/work/Constraints$Builder;->contentUriTriggers:Ljava/util/Set;
 
     .line 185
-    :cond_1
+    :cond_62
     return-void
 .end method
 
 
 # virtual methods
 .method public final addContentUriTrigger(Landroid/net/Uri;Z)Landroidx/work/Constraints$Builder;
-    .locals 2
+    .registers 5
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "triggerForDescendants"    # Z
 
@@ -284,7 +284,7 @@
 .end method
 
 .method public final build()Landroidx/work/Constraints;
-    .locals 18
+    .registers 19
 
     move-object/from16 v0, p0
 
@@ -302,7 +302,7 @@
 
     const/16 v7, 0x18
 
-    if-lt v6, v7, :cond_0
+    if-lt v6, v7, :cond_1a
 
     .line 341
     iget-object v6, v0, Landroidx/work/Constraints$Builder;->contentUriTriggers:Ljava/util/Set;
@@ -319,10 +319,10 @@
     .line 343
     iget-wide v4, v0, Landroidx/work/Constraints$Builder;->triggerContentMaxDelay:J
 
-    goto :goto_0
+    goto :goto_22
 
     .line 345
-    :cond_0
+    :cond_1a
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v1
@@ -334,7 +334,7 @@
     const-wide/16 v4, -0x1
 
     .line 351
-    :goto_0
+    :goto_22
     iget-boolean v8, v0, Landroidx/work/Constraints$Builder;->requiresCharging:Z
 
     .line 352
@@ -342,25 +342,25 @@
 
     const/16 v7, 0x17
 
-    if-lt v6, v7, :cond_1
+    if-lt v6, v7, :cond_31
 
     iget-boolean v6, v0, Landroidx/work/Constraints$Builder;->requiresDeviceIdle:Z
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_31
 
     const/4 v6, 0x1
 
     const/4 v9, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_1
+    :cond_31
     const/4 v6, 0x0
 
     const/4 v9, 0x0
 
     .line 353
-    :goto_1
+    :goto_33
     iget-object v7, v0, Landroidx/work/Constraints$Builder;->requiredNetworkType:Landroidx/work/NetworkType;
 
     .line 354
@@ -411,7 +411,7 @@
 .end method
 
 .method public final setRequiredNetworkType(Landroidx/work/NetworkType;)Landroidx/work/Constraints$Builder;
-    .locals 1
+    .registers 3
     .param p1, "networkType"    # Landroidx/work/NetworkType;
 
     const-string v0, "networkType"
@@ -426,7 +426,7 @@
 .end method
 
 .method public final setRequiresBatteryNotLow(Z)Landroidx/work/Constraints$Builder;
-    .locals 0
+    .registers 2
     .param p1, "requiresBatteryNotLow"    # Z
 
     .line 233
@@ -437,7 +437,7 @@
 .end method
 
 .method public final setRequiresCharging(Z)Landroidx/work/Constraints$Builder;
-    .locals 0
+    .registers 2
     .param p1, "requiresCharging"    # Z
 
     .line 195
@@ -448,7 +448,7 @@
 .end method
 
 .method public final setRequiresDeviceIdle(Z)Landroidx/work/Constraints$Builder;
-    .locals 0
+    .registers 2
     .param p1, "requiresDeviceIdle"    # Z
 
     .line 208
@@ -459,7 +459,7 @@
 .end method
 
 .method public final setRequiresStorageNotLow(Z)Landroidx/work/Constraints$Builder;
-    .locals 0
+    .registers 2
     .param p1, "requiresStorageNotLow"    # Z
 
     .line 246
@@ -470,7 +470,7 @@
 .end method
 
 .method public final setTriggerContentMaxDelay(JLjava/util/concurrent/TimeUnit;)Landroidx/work/Constraints$Builder;
-    .locals 2
+    .registers 6
     .param p1, "duration"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -490,7 +490,7 @@
 .end method
 
 .method public final setTriggerContentMaxDelay(Lj$/time/Duration;)Landroidx/work/Constraints$Builder;
-    .locals 2
+    .registers 4
     .param p1, "duration"    # Lj$/time/Duration;
 
     const-string v0, "duration"
@@ -509,7 +509,7 @@
 .end method
 
 .method public final setTriggerContentUpdateDelay(JLjava/util/concurrent/TimeUnit;)Landroidx/work/Constraints$Builder;
-    .locals 2
+    .registers 6
     .param p1, "duration"    # J
     .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -529,7 +529,7 @@
 .end method
 
 .method public final setTriggerContentUpdateDelay(Lj$/time/Duration;)Landroidx/work/Constraints$Builder;
-    .locals 2
+    .registers 4
     .param p1, "duration"    # Lj$/time/Duration;
 
     const-string v0, "duration"

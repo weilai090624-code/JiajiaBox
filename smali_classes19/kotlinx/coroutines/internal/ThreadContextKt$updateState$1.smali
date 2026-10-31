@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlinx/coroutines/internal/ThreadContextKt$updateState$1;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 
@@ -100,14 +100,14 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/internal/ThreadState;Lkotlin/coroutines/CoroutineContext$Element;)Lkotlinx/coroutines/internal/ThreadState;
-    .locals 3
+    .registers 6
     .param p1, "state"    # Lkotlinx/coroutines/internal/ThreadState;
     .param p2, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
 
     .line 53
     instance-of v0, p2, Lkotlinx/coroutines/ThreadContextElement;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 54
     move-object v0, p2
@@ -127,6 +127,6 @@
     invoke-virtual {p1, v0, v1}, Lkotlinx/coroutines/internal/ThreadState;->append(Lkotlinx/coroutines/ThreadContextElement;Ljava/lang/Object;)V
 
     .line 56
-    :cond_0
+    :cond_13
     return-object p1
 .end method

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Function;)V
-    .locals 0
+    .registers 2
 
     .line 1972
     iput-object p1, p0, Lcom/google/common/collect/Maps$9;->val$function:Lcom/google/common/base/Function;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public transformEntry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

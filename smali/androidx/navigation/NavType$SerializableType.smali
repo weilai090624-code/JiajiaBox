@@ -87,7 +87,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
     .param p1, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -114,14 +114,14 @@
     move-result v0
 
     .line 699
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_39
 
     .line 702
     invoke-virtual {p1}, Ljava/lang/Class;->isEnum()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 703
     iput-object p1, p0, Landroidx/navigation/NavType$SerializableType;->type:Ljava/lang/Class;
@@ -130,7 +130,7 @@
     return-void
 
     .line 845
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
     .line 702
@@ -165,7 +165,7 @@
     throw v1
 
     .line 699
-    :cond_1
+    :cond_39
     const/4 v0, 0x0
 
     .line 701
@@ -202,7 +202,7 @@
 .end method
 
 .method public constructor <init>(ZLjava/lang/Class;)V
-    .locals 3
+    .registers 6
     .param p1, "nullableAllowed"    # Z
     .param p2, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -228,7 +228,7 @@
     move-result v0
 
     .line 707
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 710
     iput-object p2, p0, Landroidx/navigation/NavType$SerializableType;->type:Ljava/lang/Class;
@@ -237,7 +237,7 @@
     return-void
 
     .line 707
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     .line 709
@@ -276,28 +276,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 731
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 732
-    :cond_0
+    :cond_4
     instance-of v0, p1, Landroidx/navigation/NavType$SerializableType;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a
 
     const/4 v0, 0x0
 
     return v0
 
     .line 733
-    :cond_1
+    :cond_a
     iget-object v0, p0, Landroidx/navigation/NavType$SerializableType;->type:Ljava/lang/Class;
 
     move-object v1, p1
@@ -314,7 +314,7 @@
 .end method
 
 .method public get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/io/Serializable;
-    .locals 1
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -345,7 +345,7 @@
 .end method
 
 .method public bridge synthetic get(Landroid/os/Bundle;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -358,7 +358,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 692
     iget-object v0, p0, Landroidx/navigation/NavType$SerializableType;->type:Ljava/lang/Class;
@@ -375,7 +375,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 737
     iget-object v0, p0, Landroidx/navigation/NavType$SerializableType;->type:Ljava/lang/Class;
@@ -388,7 +388,7 @@
 .end method
 
 .method public parseValue(Ljava/lang/String;)Ljava/io/Serializable;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -413,7 +413,7 @@
 .end method
 
 .method public bridge synthetic parseValue(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 688
@@ -425,7 +425,7 @@
 .end method
 
 .method public put(Landroid/os/Bundle;Ljava/lang/String;Ljava/io/Serializable;)V
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/io/Serializable;
@@ -463,7 +463,7 @@
 .end method
 
 .method public bridge synthetic put(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
     .param p2, "key"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;

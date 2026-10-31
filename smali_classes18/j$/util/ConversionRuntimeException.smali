@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
 
     .line 10
@@ -16,7 +16,7 @@
 .end method
 
 .method public static exception(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/RuntimeException;
-    .locals 3
+    .registers 5
     .param p0, "type"    # Ljava/lang/String;
     .param p1, "suffix"    # Ljava/lang/Object;
 

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static requireViewById(Landroid/app/Dialog;I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "dialog"    # Landroid/app/Dialog;
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Signature;

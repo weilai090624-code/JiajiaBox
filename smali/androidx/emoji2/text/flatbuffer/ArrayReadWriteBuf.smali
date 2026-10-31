@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 20
     const/16 v0, 0xa
@@ -26,7 +26,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "initialCapacity"    # I
 
     .line 24
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .locals 1
+    .registers 3
     .param p1, "buffer"    # [B
 
     .line 27
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>([BI)V
-    .locals 0
+    .registers 3
     .param p1, "buffer"    # [B
     .param p2, "startPos"    # I
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public data()[B
-    .locals 1
+    .registers 2
 
     .line 89
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/ArrayReadWriteBuf;->buffer:[B
@@ -87,7 +87,7 @@
 .end method
 
 .method public get(I)B
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 44
@@ -99,7 +99,7 @@
 .end method
 
 .method public getBoolean(I)Z
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 39
@@ -107,21 +107,21 @@
 
     aget-byte v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public getDouble(I)D
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 79
@@ -137,7 +137,7 @@
 .end method
 
 .method public getFloat(I)F
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 74
@@ -153,7 +153,7 @@
 .end method
 
 .method public getInt(I)I
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 54
@@ -201,7 +201,7 @@
 .end method
 
 .method public getLong(I)J
-    .locals 8
+    .registers 10
     .param p1, "index"    # I
 
     .line 62
@@ -343,7 +343,7 @@
 .end method
 
 .method public getShort(I)S
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 49
@@ -369,7 +369,7 @@
 .end method
 
 .method public getString(II)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "start"    # I
     .param p2, "size"    # I
 
@@ -384,7 +384,7 @@
 .end method
 
 .method public limit()I
-    .locals 1
+    .registers 2
 
     .line 222
     iget v0, p0, Landroidx/emoji2/text/flatbuffer/ArrayReadWriteBuf;->writePos:I
@@ -393,7 +393,7 @@
 .end method
 
 .method public put(B)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # B
 
     .line 107
@@ -413,7 +413,7 @@
 .end method
 
 .method public put([BII)V
-    .locals 1
+    .registers 5
     .param p1, "value"    # [B
     .param p2, "start"    # I
     .param p3, "length"    # I
@@ -435,7 +435,7 @@
 .end method
 
 .method public putBoolean(Z)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # Z
 
     .line 95
@@ -455,7 +455,7 @@
 .end method
 
 .method public putDouble(D)V
-    .locals 1
+    .registers 4
     .param p1, "value"    # D
 
     .line 137
@@ -475,7 +475,7 @@
 .end method
 
 .method public putFloat(F)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # F
 
     .line 131
@@ -495,7 +495,7 @@
 .end method
 
 .method public putInt(I)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # I
 
     .line 119
@@ -515,7 +515,7 @@
 .end method
 
 .method public putLong(J)V
-    .locals 1
+    .registers 4
     .param p1, "value"    # J
 
     .line 125
@@ -535,7 +535,7 @@
 .end method
 
 .method public putShort(S)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # S
 
     .line 113
@@ -555,7 +555,7 @@
 .end method
 
 .method public requestCapacity(I)Z
-    .locals 4
+    .registers 6
     .param p1, "capacity"    # I
 
     .line 232
@@ -565,13 +565,13 @@
 
     const/4 v1, 0x1
 
-    if-le v0, p1, :cond_0
+    if-le v0, p1, :cond_7
 
     .line 233
     return v1
 
     .line 236
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/emoji2/text/flatbuffer/ArrayReadWriteBuf;->buffer:[B
 
     array-length v0, v0
@@ -597,7 +597,7 @@
 .end method
 
 .method public set(IB)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2, "value"    # B
 
@@ -616,7 +616,7 @@
 .end method
 
 .method public set(I[BII)V
-    .locals 1
+    .registers 6
     .param p1, "index"    # I
     .param p2, "toCopy"    # [B
     .param p3, "start"    # I
@@ -639,7 +639,7 @@
 .end method
 
 .method public setBoolean(IZ)V
-    .locals 0
+    .registers 3
     .param p1, "index"    # I
     .param p2, "value"    # Z
 
@@ -651,7 +651,7 @@
 .end method
 
 .method public setDouble(ID)V
-    .locals 6
+    .registers 10
     .param p1, "index"    # I
     .param p2, "value"    # D
 
@@ -796,7 +796,7 @@
 .end method
 
 .method public setFloat(IF)V
-    .locals 4
+    .registers 7
     .param p1, "index"    # I
     .param p2, "value"    # F
 
@@ -870,7 +870,7 @@
 .end method
 
 .method public setInt(II)V
-    .locals 3
+    .registers 6
     .param p1, "index"    # I
     .param p2, "value"    # I
 
@@ -938,7 +938,7 @@
 .end method
 
 .method public setLong(IJ)V
-    .locals 4
+    .registers 8
     .param p1, "index"    # I
     .param p2, "value"    # J
 
@@ -1077,7 +1077,7 @@
 .end method
 
 .method public setShort(IS)V
-    .locals 3
+    .registers 6
     .param p1, "index"    # I
     .param p2, "value"    # S
 
@@ -1115,7 +1115,7 @@
 .end method
 
 .method public writePosition()I
-    .locals 1
+    .registers 2
 
     .line 227
     iget v0, p0, Landroidx/emoji2/text/flatbuffer/ArrayReadWriteBuf;->writePos:I

@@ -89,7 +89,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     new-instance v0, Landroidx/room/AmbiguousColumnResolver$Solution$Companion;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/List;II)V
-    .locals 1
+    .registers 5
     .param p1, "matches"    # Ljava/util/List;
     .param p2, "coverageOffset"    # I
     .param p3, "overlaps"    # I
@@ -150,7 +150,7 @@
 .end method
 
 .method public static final synthetic access$getNO_SOLUTION$cp()Landroidx/room/AmbiguousColumnResolver$Solution;
-    .locals 1
+    .registers 1
 
     .line 207
     sget-object v0, Landroidx/room/AmbiguousColumnResolver$Solution;->NO_SOLUTION:Landroidx/room/AmbiguousColumnResolver$Solution;
@@ -161,7 +161,7 @@
 
 # virtual methods
 .method public compareTo(Landroidx/room/AmbiguousColumnResolver$Solution;)I
-    .locals 3
+    .registers 5
     .param p1, "other"    # Landroidx/room/AmbiguousColumnResolver$Solution;
 
     const-string v0, "other"
@@ -179,13 +179,13 @@
 
     .line 215
     .local v0, "overlapCmp":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 216
     return v0
 
     .line 218
-    :cond_0
+    :cond_10
     iget v1, p0, Landroidx/room/AmbiguousColumnResolver$Solution;->coverageOffset:I
 
     iget v2, p1, Landroidx/room/AmbiguousColumnResolver$Solution;->coverageOffset:I
@@ -198,7 +198,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 207
@@ -214,7 +214,7 @@
 .end method
 
 .method public final getCoverageOffset()I
-    .locals 1
+    .registers 2
 
     .line 209
     iget v0, p0, Landroidx/room/AmbiguousColumnResolver$Solution;->coverageOffset:I
@@ -223,7 +223,7 @@
 .end method
 
 .method public final getMatches()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -240,7 +240,7 @@
 .end method
 
 .method public final getOverlaps()I
-    .locals 1
+    .registers 2
 
     .line 210
     iget v0, p0, Landroidx/room/AmbiguousColumnResolver$Solution;->overlaps:I

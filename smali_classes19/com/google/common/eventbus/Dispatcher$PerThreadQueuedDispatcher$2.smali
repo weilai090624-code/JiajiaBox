@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;
 
     .line 89
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method protected initialValue()Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
 
     .line 92
     const/4 v0, 0x0
@@ -49,7 +49,7 @@
 .end method
 
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 89
     invoke-virtual {p0}, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$2;->initialValue()Ljava/lang/Boolean;

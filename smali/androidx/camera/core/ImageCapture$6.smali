@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/core/ImageCapture;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public check(Landroidx/camera/core/impl/CameraCaptureResult;)Landroidx/camera/core/impl/CameraCaptureResult;
-    .locals 3
+    .registers 5
     .param p1, "captureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -72,7 +72,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3e
 
     .line 1394
     new-instance v1, Ljava/lang/StringBuilder;
@@ -131,12 +131,12 @@
     invoke-static {v0, v1}, Landroidx/camera/core/Logger;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1398
-    :cond_0
+    :cond_3e
     return-object p1
 .end method
 
 .method public bridge synthetic check(Landroidx/camera/core/impl/CameraCaptureResult;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000

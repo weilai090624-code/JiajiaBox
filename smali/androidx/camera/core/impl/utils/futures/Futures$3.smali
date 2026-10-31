@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Landroidx/arch/core/util/Function;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -79,7 +79,7 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -107,14 +107,14 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_0 .. :try_end_b} :catchall_c
 
     .line 218
-    goto :goto_0
+    goto :goto_12
 
     .line 216
-    :catchall_0
+    :catchall_c
     move-exception v0
 
     .line 217
@@ -125,6 +125,6 @@
 
     .line 219
     .end local v0    # "t":Ljava/lang/Throwable;
-    :goto_0
+    :goto_12
     return-void
 .end method

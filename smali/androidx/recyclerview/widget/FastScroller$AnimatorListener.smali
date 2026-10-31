@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/FastScroller;)V
-    .locals 0
+    .registers 2
 
     .line 551
     iput-object p1, p0, Landroidx/recyclerview/widget/FastScroller$AnimatorListener;->this$0:Landroidx/recyclerview/widget/FastScroller;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 572
@@ -54,7 +54,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 557
@@ -62,7 +62,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 558
     iput-boolean v1, p0, Landroidx/recyclerview/widget/FastScroller$AnimatorListener;->mCanceled:Z
@@ -71,7 +71,7 @@
     return-void
 
     .line 561
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroidx/recyclerview/widget/FastScroller$AnimatorListener;->this$0:Landroidx/recyclerview/widget/FastScroller;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/FastScroller;->mShowHideAnimator:Landroid/animation/ValueAnimator;
@@ -90,7 +90,7 @@
 
     cmpl-float v0, v0, v2
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_25
 
     .line 562
     iget-object v0, p0, Landroidx/recyclerview/widget/FastScroller$AnimatorListener;->this$0:Landroidx/recyclerview/widget/FastScroller;
@@ -102,10 +102,10 @@
 
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/FastScroller;->setState(I)V
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 565
-    :cond_1
+    :cond_25
     iget-object v0, p0, Landroidx/recyclerview/widget/FastScroller$AnimatorListener;->this$0:Landroidx/recyclerview/widget/FastScroller;
 
     const/4 v1, 0x2
@@ -118,6 +118,6 @@
     invoke-virtual {v0}, Landroidx/recyclerview/widget/FastScroller;->requestRedraw()V
 
     .line 568
-    :goto_0
+    :goto_2f
     return-void
 .end method

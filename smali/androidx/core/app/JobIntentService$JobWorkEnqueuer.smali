@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;I)V
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cn"    # Landroid/content/ComponentName;
     .param p3, "jobId"    # I
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method enqueueWork(Landroid/content/Intent;)V
-    .locals 3
+    .registers 5
     .param p1, "work"    # Landroid/content/Intent;
 
     .line 347

@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$5;->$this_viewModels:Landroidx/fragment/app/Fragment;
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public final invoke()Landroidx/fragment/app/Fragment;
-    .locals 1
+    .registers 2
 
     .line 107
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$5;->$this_viewModels:Landroidx/fragment/app/Fragment;
@@ -79,7 +79,7 @@
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 107
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewModelLazyKt$viewModels$5;->invoke()Landroidx/fragment/app/Fragment;

@@ -747,7 +747,7 @@
 
     move-result v1
 
-    const/high16 v2, 0x44070000    # 540.0f
+    const/high16 v2, 0x43960000    # 300.0f
 
     mul-float v1, v1, v2
 
@@ -759,7 +759,7 @@
 
     move-result v1
 
-    const/16 v2, 0xa5
+    const/16 v2, 0x78
 
     invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
@@ -797,7 +797,8 @@
     .line 240
     iget-object p1, p0, Lio/nekohasekai/sagernet/ui/HomeSwipeController;->animator:Landroid/animation/ValueAnimator;
 
-    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+    invoke-static {p1}, Lio/nekohasekai/sagernet/ui/ReferenceMotion;->apply(Landroid/animation/Animator;)V
+
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->start()V
 
     return-void

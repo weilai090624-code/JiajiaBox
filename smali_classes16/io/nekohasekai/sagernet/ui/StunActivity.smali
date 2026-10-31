@@ -42,7 +42,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$mzY4bHZ7SenhdHHXLxZc4oY35S0(Lio/nekohasekai/sagernet/ui/StunActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lio/nekohasekai/sagernet/ui/StunActivity;->onCreate$lambda$1(Lio/nekohasekai/sagernet/ui/StunActivity;Landroid/view/View;)V
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/ThemedActivity;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method public static final synthetic access$getBinding$p(Lio/nekohasekai/sagernet/ui/StunActivity;)Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/ui/StunActivity;
 
     .line 13
@@ -69,7 +69,7 @@
 .end method
 
 .method private static final onCreate$lambda$1(Lio/nekohasekai/sagernet/ui/StunActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/StunActivity;
     .param p1, "it"    # Landroid/view/View;
 
@@ -83,14 +83,14 @@
 
 # virtual methods
 .method public final doTest()V
-    .locals 5
+    .registers 6
 
     .line 34
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/StunActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const-string v0, "binding"
 
@@ -98,7 +98,7 @@
 
     move-object v0, v1
 
-    :cond_0
+    :cond_b
     iget-object v0, v0, Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;->waitLayout:Landroid/widget/LinearLayout;
 
     const-string v2, "waitLayout"
@@ -139,7 +139,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 5
+    .registers 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 18
@@ -163,13 +163,13 @@
 
     const-string v2, "binding"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     move-object v0, v1
 
-    :cond_0
+    :cond_18
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;->getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
     move-result-object v0
@@ -194,7 +194,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_46
 
     .local v0, "$this$onCreate_u24lambda_u240":Landroidx/appcompat/app/ActionBar;
     const/4 v3, 0x0
@@ -224,19 +224,19 @@
     nop
 
     .line 28
-    :cond_1
+    :cond_46
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/StunActivity;->binding:Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4e
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_4f
 
-    :cond_2
+    :cond_4e
     move-object v1, v0
 
-    :goto_0
+    :goto_4f
     iget-object v0, v1, Lio/nekohasekai/sagernet/databinding/LayoutStunBinding;->stunTest:Landroid/widget/Button;
 
     new-instance v1, Lio/nekohasekai/sagernet/ui/StunActivity$$ExternalSyntheticLambda0;

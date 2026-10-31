@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;Landroidx/core/view/DragStartHelper$OnDragStartListener;)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "listener"    # Landroidx/core/view/DragStartHelper$OnDragStartListener;
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public attach()V
-    .locals 2
+    .registers 3
 
     .line 110
     iget-object v0, p0, Landroidx/core/view/DragStartHelper;->mView:Landroid/view/View;
@@ -84,7 +84,7 @@
 .end method
 
 .method public detach()V
-    .locals 2
+    .registers 3
 
     .line 120
     iget-object v0, p0, Landroidx/core/view/DragStartHelper;->mView:Landroid/view/View;
@@ -103,7 +103,7 @@
 .end method
 
 .method public getTouchPosition(Landroid/graphics/Point;)V
-    .locals 2
+    .registers 4
     .param p1, "point"    # Landroid/graphics/Point;
 
     .line 186
@@ -118,13 +118,13 @@
 .end method
 
 .method public onLongClick(Landroid/view/View;)Z
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 173
     iget-boolean v0, p0, Landroidx/core/view/DragStartHelper;->mDragging:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     .line 175
     const/4 v0, 0x1
@@ -132,7 +132,7 @@
     return v0
 
     .line 177
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/core/view/DragStartHelper;->mListener:Landroidx/core/view/DragStartHelper$OnDragStartListener;
 
     invoke-interface {v0, p1, p0}, Landroidx/core/view/DragStartHelper$OnDragStartListener;->onDragStart(Landroid/view/View;Landroidx/core/view/DragStartHelper;)Z
@@ -148,7 +148,7 @@
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 4
+    .registers 7
     .param p1, "v"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 
@@ -175,19 +175,19 @@
 
     const/4 v3, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_4a
 
-    goto :goto_0
+    goto :goto_49
 
     .line 141
-    :pswitch_0
+    :pswitch_13
     const/16 v2, 0x2002
 
     invoke-static {p2, v2}, Landroidx/core/view/MotionEventCompat;->isFromSource(Landroid/view/MotionEvent;I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_49
 
     .line 142
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getButtonState()I
@@ -196,35 +196,35 @@
 
     and-int/lit8 v2, v2, 0x1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_24
 
     .line 144
-    goto :goto_0
+    goto :goto_49
 
     .line 146
-    :cond_0
+    :cond_24
     iget-boolean v2, p0, Landroidx/core/view/DragStartHelper;->mDragging:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 148
-    goto :goto_0
+    goto :goto_49
 
     .line 150
-    :cond_1
+    :cond_29
     iget v2, p0, Landroidx/core/view/DragStartHelper;->mLastTouchX:I
 
-    if-ne v2, v0, :cond_2
+    if-ne v2, v0, :cond_32
 
     iget v2, p0, Landroidx/core/view/DragStartHelper;->mLastTouchY:I
 
-    if-ne v2, v1, :cond_2
+    if-ne v2, v1, :cond_32
 
     .line 152
-    goto :goto_0
+    goto :goto_49
 
     .line 154
-    :cond_2
+    :cond_32
     iput v0, p0, Landroidx/core/view/DragStartHelper;->mLastTouchX:I
 
     .line 155
@@ -245,13 +245,13 @@
     return v2
 
     .line 161
-    :pswitch_1
+    :pswitch_41
     iput-boolean v3, p0, Landroidx/core/view/DragStartHelper;->mDragging:Z
 
-    goto :goto_0
+    goto :goto_49
 
     .line 136
-    :pswitch_2
+    :pswitch_44
     iput v0, p0, Landroidx/core/view/DragStartHelper;->mLastTouchX:I
 
     .line 137
@@ -261,15 +261,15 @@
     nop
 
     .line 164
-    :cond_3
-    :goto_0
+    :cond_49
+    :goto_49
     return v3
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_44
+        :pswitch_41
+        :pswitch_13
+        :pswitch_41
     .end packed-switch
 .end method

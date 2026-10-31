@@ -78,7 +78,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/BackupFragment;Lorg/json/JSONObject;Lio/nekohasekai/sagernet/databinding/LayoutImportBinding;Landroidx/appcompat/app/AlertDialog;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -191,7 +191,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -202,7 +202,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_a2
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -213,22 +213,22 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_9e
 
-    :pswitch_1
+    :pswitch_17
     const/4 v1, 0x0
 
     .local v1, "$i$a$-onFailure-BackupFragment$startImport$3$1$1$2":I
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_84
 
     .end local v1    # "$i$a$-onFailure-BackupFragment$startImport$3$1$1$2":I
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_1c
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -245,7 +245,7 @@
     iget-object v5, p0, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3$1$1;->$import:Lio/nekohasekai/sagernet/databinding/LayoutImportBinding;
 
     .end local v1    # "$this$runOnDefaultDispatcher":Lkotlinx/coroutines/CoroutineScope;
-    :try_start_0
+    :try_start_29
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     const/4 v1, 0x0
@@ -302,12 +302,12 @@
     invoke-static {v1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_56
+    .catchall {:try_start_29 .. :try_end_56} :catchall_57
 
-    goto :goto_0
+    goto :goto_62
 
-    :catchall_0
+    :catchall_57
     move-exception v1
 
     sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -321,14 +321,14 @@
     move-result-object v1
 
     .line 248
-    :goto_0
+    :goto_62
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3$1$1;->this$0:Lio/nekohasekai/sagernet/ui/BackupFragment;
 
     invoke-static {v1}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_86
 
     .local v4, "it":Ljava/lang/Throwable;
     const/4 v5, 0x0
@@ -357,19 +357,19 @@
     move-result-object v1
 
     .end local v4    # "it":Ljava/lang/Throwable;
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_83
 
     .line 239
     return-object v0
 
     .line 250
-    :cond_0
+    :cond_83
     move v1, v5
 
     .line 253
     .end local v5    # "$i$a$-onFailure-BackupFragment$startImport$3$1$1$2":I
     .local v1, "$i$a$-onFailure-BackupFragment$startImport$3$1$1$2":I
-    :goto_1
+    :goto_84
     nop
 
     .line 248
@@ -377,7 +377,7 @@
     nop
 
     .line 255
-    :cond_1
+    :cond_86
     new-instance v1, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3$1$1$3;
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/BackupFragment$startImport$3$1$1;->$dialog:Landroidx/appcompat/app/AlertDialog;
@@ -400,24 +400,24 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_9e
 
     .line 239
     return-object v0
 
     .line 258
-    :cond_2
-    :goto_2
+    :cond_9e
+    :goto_9e
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a2
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1c
+        :pswitch_17
+        :pswitch_12
     .end packed-switch
 .end method

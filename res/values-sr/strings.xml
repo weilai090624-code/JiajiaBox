@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">Долазни позив</string>
     <string name="call_notification_ongoing_text">Позив је у току</string>
     <string name="call_notification_screening_text">Проверава се долазни позив</string>
-    <string name="character_counter_content_description" formatted="false">Унети знакови: %1$d од %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Прекорачено је ограничење броја знакова: %1$d од %2$d</string>
+    <string name="character_counter_content_description">Унети знакови: %1$d од %2$d</string>
+    <string name="character_counter_overflowed_content_description">Прекорачено је ограничење броја знакова: %1$d од %2$d</string>
     <string name="clear_text_end_icon_content_description">Обриши текст</string>
     <string name="copy">Копирај</string>
     <string name="copy_toast_msg">Линк је копиран у привремену меморију</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Изван периода: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Датум почетка – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Датум завршетка</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
     <string name="mtrl_picker_range_header_title">Изаберите период</string>
     <string name="mtrl_picker_range_header_unselected">Датум почетка – Датум завршетка</string>
     <string name="mtrl_picker_save">Сачувај</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">Резиме „%1$s“ је копиран у привремену меморију.</string>
     <string name="search_menu_title">Претражите</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ИСКЉУЧЕНО</string>
     <string name="v7_preference_on">УКЉУЧЕНО</string>
 </resources>

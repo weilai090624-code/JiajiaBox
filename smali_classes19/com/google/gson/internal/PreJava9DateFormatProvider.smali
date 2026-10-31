@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,11 +14,11 @@
 .end method
 
 .method private static getDateFormatPattern(I)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "style"    # I
 
     .line 44
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_28
 
     .line 54
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -46,44 +46,44 @@
     throw v0
 
     .line 46
-    :pswitch_0
+    :pswitch_1c
     const-string v0, "M/d/yy"
 
     return-object v0
 
     .line 48
-    :pswitch_1
+    :pswitch_1f
     const-string v0, "MMM d, y"
 
     return-object v0
 
     .line 50
-    :pswitch_2
+    :pswitch_22
     const-string v0, "MMMM d, y"
 
     return-object v0
 
     .line 52
-    :pswitch_3
+    :pswitch_25
     const-string v0, "EEEE, MMMM d, y"
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_25
+        :pswitch_22
+        :pswitch_1f
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method private static getDatePartOfDateTimePattern(I)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "dateStyle"    # I
 
     .line 59
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_28
 
     .line 69
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -111,44 +111,44 @@
     throw v0
 
     .line 61
-    :pswitch_0
+    :pswitch_1c
     const-string v0, "M/d/yy"
 
     return-object v0
 
     .line 63
-    :pswitch_1
+    :pswitch_1f
     const-string v0, "MMM d, yyyy"
 
     return-object v0
 
     .line 65
-    :pswitch_2
+    :pswitch_22
     const-string v0, "MMMM d, yyyy"
 
     return-object v0
 
     .line 67
-    :pswitch_3
+    :pswitch_25
     const-string v0, "EEEE, MMMM d, yyyy"
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_25
+        :pswitch_22
+        :pswitch_1f
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method private static getTimePartOfDateTimePattern(I)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "timeStyle"    # I
 
     .line 74
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_26
 
     .line 83
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -176,36 +176,36 @@
     throw v0
 
     .line 76
-    :pswitch_0
+    :pswitch_1c
     const-string v0, "h:mm a"
 
     return-object v0
 
     .line 78
-    :pswitch_1
+    :pswitch_1f
     const-string v0, "h:mm:ss a"
 
     return-object v0
 
     .line 81
-    :pswitch_2
+    :pswitch_22
     const-string v0, "h:mm:ss a z"
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_22
+        :pswitch_22
+        :pswitch_1f
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method public static getUSDateFormat(I)Ljava/text/DateFormat;
-    .locals 3
+    .registers 4
     .param p0, "style"    # I
 
     .line 31
@@ -223,7 +223,7 @@
 .end method
 
 .method public static getUSDateTimeFormat(II)Ljava/text/DateFormat;
-    .locals 3
+    .registers 5
     .param p0, "dateStyle"    # I
     .param p1, "timeStyle"    # I
 

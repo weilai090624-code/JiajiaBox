@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public isRotationOptionSupported()Z
-    .locals 2
+    .registers 3
 
     .line 39
     const-class v0, Landroidx/camera/core/internal/compat/quirk/ImageCaptureRotationOptionQuirk;
@@ -30,7 +30,7 @@
 
     .line 42
     .local v0, "quirk":Landroidx/camera/core/internal/compat/quirk/ImageCaptureRotationOptionQuirk;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     sget-object v1, Landroidx/camera/core/impl/CaptureConfig;->OPTION_ROTATION:Landroidx/camera/core/impl/Config$Option;
 
@@ -38,17 +38,17 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x1
 
-    :goto_0
+    :goto_12
     return v1
 .end method
 
 .method public shouldUseExifOrientation(Landroidx/camera/core/ImageProxy;)Z
-    .locals 3
+    .registers 5
     .param p1, "image"    # Landroidx/camera/core/ImageProxy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -71,7 +71,7 @@
 
     .line 58
     .local v0, "quirk":Landroidx/camera/core/internal/compat/quirk/ImageCaptureRotationOptionQuirk;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     sget-object v1, Landroidx/camera/core/impl/CaptureConfig;->OPTION_ROTATION:Landroidx/camera/core/impl/Config$Option;
 
@@ -79,26 +79,26 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     .line 59
-    :cond_0
+    :cond_12
     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getFormat()I
 
     move-result v1
 
     const/16 v2, 0x100
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v1, 0x0
 
     .line 58
-    :goto_0
+    :goto_1d
     return v1
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;
 
     .line 122
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onIsPermissionRevocationEnabledForAppResult(ZZ)V
-    .locals 2
+    .registers 5
     .param p1, "success"    # Z
     .param p2, "isEnabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -44,10 +44,10 @@
     .end annotation
 
     .line 126
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1e
 
     .line 127
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_11
 
     .line 128
     iget-object v0, p0, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection$1;->this$0:Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;
@@ -62,10 +62,10 @@
 
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_31
 
     .line 130
-    :cond_0
+    :cond_11
     iget-object v0, p0, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection$1;->this$0:Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;
 
     iget-object v0, v0, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;->mResultFuture:Landroidx/concurrent/futures/ResolvableFuture;
@@ -78,10 +78,10 @@
 
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_31
 
     .line 134
-    :cond_1
+    :cond_1e
     iget-object v0, p0, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection$1;->this$0:Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;
 
     iget-object v0, v0, Landroidx/core/content/UnusedAppRestrictionsBackportServiceConnection;->mResultFuture:Landroidx/concurrent/futures/ResolvableFuture;
@@ -102,6 +102,6 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 138
-    :goto_0
+    :goto_31
     return-void
 .end method

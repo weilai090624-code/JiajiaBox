@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public getResult()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -78,7 +78,7 @@
 .end method
 
 .method public getState()Landroidx/lifecycle/LiveData;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -95,7 +95,7 @@
 .end method
 
 .method public markState(Landroidx/work/Operation$State;)V
-    .locals 3
+    .registers 5
     .param p1, "state"    # Landroidx/work/Operation$State;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -114,7 +114,7 @@
     .line 65
     instance-of v0, p1, Landroidx/work/Operation$State$SUCCESS;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 66
     iget-object v0, p0, Landroidx/work/impl/OperationImpl;->mOperationFuture:Landroidx/work/impl/utils/futures/SettableFuture;
@@ -125,13 +125,13 @@
 
     invoke-virtual {v0, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_22
 
     .line 67
-    :cond_0
+    :cond_12
     instance-of v0, p1, Landroidx/work/Operation$State$FAILURE;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 68
     move-object v0, p1
@@ -150,7 +150,7 @@
 
     .line 71
     .end local v0    # "failed":Landroidx/work/Operation$State$FAILURE;
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     return-void
 .end method

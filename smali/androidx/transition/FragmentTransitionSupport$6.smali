@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/FragmentTransitionSupport;Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/transition/FragmentTransitionSupport;
 
     .line 352
@@ -38,13 +38,13 @@
 
 # virtual methods
 .method public onGetEpicenter(Landroidx/transition/Transition;)Landroid/graphics/Rect;
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 355
     iget-object v0, p0, Landroidx/transition/FragmentTransitionSupport$6;->val$epicenter:Landroid/graphics/Rect;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Landroidx/transition/FragmentTransitionSupport$6;->val$epicenter:Landroid/graphics/Rect;
 
@@ -52,19 +52,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_10
 
     .line 358
-    :cond_0
+    :cond_d
     iget-object v0, p0, Landroidx/transition/FragmentTransitionSupport$6;->val$epicenter:Landroid/graphics/Rect;
 
     return-object v0
 
     .line 356
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     const/4 v0, 0x0
 
     return-object v0

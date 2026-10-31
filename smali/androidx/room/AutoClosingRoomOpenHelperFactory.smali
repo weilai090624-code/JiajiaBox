@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Landroidx/room/AutoCloser;)V
-    .locals 1
+    .registers 4
     .param p1, "delegate"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
     .param p2, "autoCloser"    # Landroidx/room/AutoCloser;
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public create(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;)Landroidx/room/AutoClosingRoomOpenHelper;
-    .locals 3
+    .registers 5
     .param p1, "configuration"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;
 
     const-string v0, "configuration"
@@ -94,7 +94,7 @@
 .end method
 
 .method public bridge synthetic create(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 1
+    .registers 3
     .param p1, "configuration"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;
 
     .line 23

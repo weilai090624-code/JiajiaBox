@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/temporal/TemporalField;Lj$/time/format/TextStyle;Lj$/time/format/DateTimeTextProvider;)V
-    .locals 0
+    .registers 4
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "textStyle"    # Lj$/time/format/TextStyle;
     .param p3, "provider"    # Lj$/time/format/DateTimeTextProvider;
@@ -51,12 +51,12 @@
 .end method
 
 .method private numberPrinterParser()Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
-    .locals 5
+    .registers 6
 
     .line 3380
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->numberPrinterParser:Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 3381
     new-instance v0, Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
@@ -74,7 +74,7 @@
     iput-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->numberPrinterParser:Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
 
     .line 3383
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->numberPrinterParser:Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
 
     return-object v0
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 9
+    .registers 12
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -96,7 +96,7 @@
 
     .line 3319
     .local v0, "value":Ljava/lang/Long;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 3320
     const/4 v1, 0x0
@@ -104,7 +104,7 @@
     return v1
 
     .line 3323
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Lj$/time/format/DateTimePrintContext;->getTemporal()Lj$/time/temporal/TemporalAccessor;
 
     move-result-object v1
@@ -121,16 +121,16 @@
 
     .line 3324
     .local v1, "chrono":Lj$/time/chrono/Chronology;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_33
 
     sget-object v2, Lj$/time/chrono/IsoChronology;->INSTANCE:Lj$/time/chrono/IsoChronology;
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_1f
 
-    goto :goto_0
+    goto :goto_33
 
     .line 3327
-    :cond_1
+    :cond_1f
     iget-object v2, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->provider:Lj$/time/format/DateTimeTextProvider;
 
     iget-object v4, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -152,12 +152,12 @@
     move-result-object v2
 
     .local v2, "text":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_45
 
     .line 3325
     .end local v2    # "text":Ljava/lang/String;
-    :cond_2
-    :goto_0
+    :cond_33
+    :goto_33
     iget-object v3, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->provider:Lj$/time/format/DateTimeTextProvider;
 
     iget-object v4, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -178,8 +178,8 @@
 
     .line 3329
     .restart local v2    # "text":Ljava/lang/String;
-    :goto_1
-    if-nez v2, :cond_3
+    :goto_45
+    if-nez v2, :cond_50
 
     .line 3330
     invoke-direct {p0}, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->numberPrinterParser()Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
@@ -193,7 +193,7 @@
     return v3
 
     .line 3332
-    :cond_3
+    :cond_50
     invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 3333
@@ -203,7 +203,7 @@
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 16
+    .registers 20
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "parseText"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -219,25 +219,25 @@
 
     .line 3339
     .local v8, "length":I
-    if-ltz v7, :cond_8
+    if-ltz v7, :cond_e4
 
-    if-gt v7, v8, :cond_8
+    if-gt v7, v8, :cond_e4
 
     .line 3342
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->isStrict()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     iget-object v1, v0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->textStyle:Lj$/time/format/TextStyle;
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     move-object v9, v1
 
     .line 3343
@@ -248,16 +248,16 @@
 
     .line 3345
     .local v10, "chrono":Lj$/time/chrono/Chronology;
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_30
 
     sget-object v1, Lj$/time/chrono/IsoChronology;->INSTANCE:Lj$/time/chrono/IsoChronology;
 
-    if-ne v10, v1, :cond_1
+    if-ne v10, v1, :cond_22
 
-    goto :goto_1
+    goto :goto_30
 
     .line 3348
-    :cond_1
+    :cond_22
     iget-object v1, v0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->provider:Lj$/time/format/DateTimeTextProvider;
 
     iget-object v2, v0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -273,12 +273,12 @@
     move-object v11, v1
 
     .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    goto :goto_2
+    goto :goto_3d
 
     .line 3346
     .end local v1    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    :cond_2
-    :goto_1
+    :cond_30
+    :goto_30
     iget-object v1, v0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->provider:Lj$/time/format/DateTimeTextProvider;
 
     iget-object v2, v0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -295,16 +295,16 @@
 
     .line 3350
     .local v11, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    :goto_2
-    if-eqz v11, :cond_7
+    :goto_3d
+    if-eqz v11, :cond_d7
 
     .line 3351
-    :goto_3
+    :goto_3f
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_81
 
     .line 3352
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -345,7 +345,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_80
 
     .line 3355
     iget-object v2, v0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -379,22 +379,22 @@
     .line 3357
     .end local v12    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
     .end local v13    # "itText":Ljava/lang/String;
-    :cond_3
-    goto :goto_3
+    :cond_80
+    goto :goto_3f
 
     .line 3358
-    :cond_4
+    :cond_81
     iget-object v1, v0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->field:Lj$/time/temporal/TemporalField;
 
     sget-object v2, Lj$/time/temporal/ChronoField;->ERA:Lj$/time/temporal/ChronoField;
 
-    if-ne v1, v2, :cond_6
+    if-ne v1, v2, :cond_cf
 
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->isStrict()Z
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_cf
 
     .line 3360
     invoke-interface {v10}, Lj$/time/chrono/Chronology;->eras()Ljava/util/List;
@@ -407,12 +407,12 @@
 
     move-result-object v13
 
-    :goto_4
+    :goto_95
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_cf
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -448,7 +448,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_ce
 
     .line 3364
     iget-object v2, v0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -478,17 +478,17 @@
     .line 3366
     .end local v14    # "era":Lj$/time/chrono/Era;
     .end local v15    # "name":Ljava/lang/String;
-    :cond_5
-    goto :goto_4
+    :cond_ce
+    goto :goto_95
 
     .line 3368
     .end local v12    # "eras":Ljava/util/List;, "Ljava/util/List<Ljava/time/chrono/Era;>;"
-    :cond_6
+    :cond_cf
     invoke-virtual/range {p1 .. p1}, Lj$/time/format/DateTimeParseContext;->isStrict()Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_d7
 
     .line 3369
     not-int v1, v7
@@ -496,7 +496,7 @@
     return v1
 
     .line 3372
-    :cond_7
+    :cond_d7
     invoke-direct/range {p0 .. p0}, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->numberPrinterParser()Lj$/time/format/DateTimeFormatterBuilder$NumberPrinterParser;
 
     move-result-object v1
@@ -515,7 +515,7 @@
     .end local v9    # "style":Lj$/time/format/TextStyle;
     .end local v10    # "chrono":Lj$/time/chrono/Chronology;
     .end local v11    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    :cond_8
+    :cond_e4
     move-object/from16 v2, p1
 
     move-object/from16 v3, p2
@@ -529,7 +529,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 3388
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->textStyle:Lj$/time/format/TextStyle;
@@ -540,7 +540,7 @@
 
     const-string v3, "Text("
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_22
 
     .line 3389
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->field:Lj$/time/temporal/TemporalField;
@@ -568,7 +568,7 @@
     return-object v0
 
     .line 3391
-    :cond_0
+    :cond_22
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->field:Lj$/time/temporal/TemporalField;
 
     iget-object v1, p0, Lj$/time/format/DateTimeFormatterBuilder$TextPrinterParser;->textStyle:Lj$/time/format/TextStyle;

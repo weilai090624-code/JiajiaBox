@@ -36,7 +36,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/collect/MultimapBuilder$LinkedListSupplier;
-    .locals 3
+    .registers 3
 
     .line 200
     const/4 v0, 0x1
@@ -53,7 +53,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 201
     new-instance v0, Lcom/google/common/collect/MultimapBuilder$LinkedListSupplier;
@@ -77,7 +77,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -91,7 +91,7 @@
 .end method
 
 .method public static instance()Lcom/google/common/base/Supplier;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -112,7 +112,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/collect/MultimapBuilder$LinkedListSupplier;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 200
@@ -128,7 +128,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/collect/MultimapBuilder$LinkedListSupplier;
-    .locals 1
+    .registers 1
 
     .line 200
     sget-object v0, Lcom/google/common/collect/MultimapBuilder$LinkedListSupplier;->$VALUES:[Lcom/google/common/collect/MultimapBuilder$LinkedListSupplier;
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 200
     invoke-virtual {p0}, Lcom/google/common/collect/MultimapBuilder$LinkedListSupplier;->get()Ljava/util/List;
@@ -156,7 +156,7 @@
 .end method
 
 .method public get()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

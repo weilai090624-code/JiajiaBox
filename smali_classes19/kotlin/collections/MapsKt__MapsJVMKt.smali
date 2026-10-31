@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/MapsKt__MapWithDefaultKt;-><init>()V
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public static final build(Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "builder"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -114,7 +114,7 @@
 .end method
 
 .method private static final buildMapInternal(ILkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p0, "capacity"    # I
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -154,7 +154,7 @@
 .end method
 
 .method private static final buildMapInternal(Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -193,7 +193,7 @@
 .end method
 
 .method public static final createMapBuilder()Ljava/util/Map;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -217,7 +217,7 @@
 .end method
 
 .method public static final createMapBuilder(I)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "capacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -242,7 +242,7 @@
 .end method
 
 .method public static final getOrPut(Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$getOrPut"    # Ljava/util/concurrent/ConcurrentMap;
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "defaultValue"    # Lkotlin/jvm/functions/Function0;
@@ -276,7 +276,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1e
 
     .line 73
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
@@ -293,50 +293,50 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move-object v1, v3
 
     .line 72
     .end local v1    # "default":Ljava/lang/Object;
     .end local v2    # "$i$a$-let-MapsKt__MapsJVMKt$getOrPut$1":I
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     return-object v1
 .end method
 
 .method public static final mapCapacity(I)I
-    .locals 2
+    .registers 3
     .param p0, "expectedSize"    # I
 
     .line 147
     nop
 
     .line 150
-    if-gez p0, :cond_0
+    if-gez p0, :cond_5
 
     move v0, p0
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 151
-    :cond_0
+    :cond_5
     const/4 v0, 0x3
 
-    if-ge p0, v0, :cond_1
+    if-ge p0, v0, :cond_b
 
     add-int/lit8 v0, p0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 152
-    :cond_1
+    :cond_b
     const/high16 v0, 0x40000000    # 2.0f
 
-    if-ge p0, v0, :cond_2
+    if-ge p0, v0, :cond_18
 
     int-to-float v0, p0
 
@@ -350,19 +350,19 @@
 
     float-to-int v0, v0
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 154
-    :cond_2
+    :cond_18
     const v0, 0x7fffffff
 
     .line 155
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method public static final mapOf(Lkotlin/Pair;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "pair"    # Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -403,7 +403,7 @@
 .end method
 
 .method public static final varargs sortedMapOf(Ljava/util/Comparator;[Lkotlin/Pair;)Ljava/util/SortedMap;
-    .locals 4
+    .registers 6
     .param p0, "comparator"    # Ljava/util/Comparator;
     .param p1, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
@@ -457,7 +457,7 @@
 .end method
 
 .method public static final varargs sortedMapOf([Lkotlin/Pair;)Ljava/util/SortedMap;
-    .locals 4
+    .registers 5
     .param p0, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -504,7 +504,7 @@
 .end method
 
 .method private static final toProperties(Ljava/util/Map;)Ljava/util/Properties;
-    .locals 3
+    .registers 4
     .param p0, "$this$toProperties"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -542,7 +542,7 @@
 .end method
 
 .method public static final toSingletonMap(Ljava/util/Map;)Ljava/util/Map;
-    .locals 4
+    .registers 5
     .param p0, "$this$toSingletonMap"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -605,7 +605,7 @@
 .end method
 
 .method private static final toSingletonMapOrSelf(Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "$this$toSingletonMapOrSelf"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -634,7 +634,7 @@
 .end method
 
 .method public static final toSortedMap(Ljava/util/Map;)Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
     .param p0, "$this$toSortedMap"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -665,7 +665,7 @@
 .end method
 
 .method public static final toSortedMap(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/SortedMap;
-    .locals 3
+    .registers 5
     .param p0, "$this$toSortedMap"    # Ljava/util/Map;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;

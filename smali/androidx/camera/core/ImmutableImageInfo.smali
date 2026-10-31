@@ -8,7 +8,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method public static create(Landroidx/camera/core/impl/TagBundle;JI)Landroidx/camera/core/ImageInfo;
-    .locals 1
+    .registers 5
     .param p0, "tag"    # Landroidx/camera/core/impl/TagBundle;
     .param p1, "timestamp"    # J
     .param p3, "rotationDegrees"    # I
@@ -54,7 +54,7 @@
 .end method
 
 .method public populateExifData(Landroidx/camera/core/impl/utils/ExifData$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "exifBuilder"    # Landroidx/camera/core/impl/utils/ExifData$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 161
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getDeviceId(Landroid/telephony/TelephonyManager;I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "telephonyManager"    # Landroid/telephony/TelephonyManager;
     .param p1, "slotIndex"    # I
 

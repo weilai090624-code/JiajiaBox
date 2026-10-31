@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method private static newInstance()Lorg/ini4j/spi/RegBuilder;
-    .locals 1
+    .registers 1
 
     .line 71
     const-class v0, Lorg/ini4j/spi/RegBuilder;
@@ -33,7 +33,7 @@
 .end method
 
 .method public static newInstance(Lorg/ini4j/Reg;)Lorg/ini4j/spi/RegBuilder;
-    .locals 1
+    .registers 2
     .param p0, "reg"    # Lorg/ini4j/Reg;
 
     .line 31
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public bridge synthetic endIni()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-super {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->endIni()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public bridge synthetic endSection()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-super {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->endSection()V
@@ -70,7 +70,7 @@
 .end method
 
 .method getConfig()Lorg/ini4j/Config;
-    .locals 1
+    .registers 2
 
     .line 61
     iget-object v0, p0, Lorg/ini4j/spi/RegBuilder;->_reg:Lorg/ini4j/Reg;
@@ -83,7 +83,7 @@
 .end method
 
 .method getProfile()Lorg/ini4j/Profile;
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Lorg/ini4j/spi/RegBuilder;->_reg:Lorg/ini4j/Reg;
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic handleComment(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 25
@@ -102,7 +102,7 @@
 .end method
 
 .method public handleOption(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 6
+    .registers 9
     .param p1, "rawName"    # Ljava/lang/String;
     .param p2, "rawValue"    # Ljava/lang/String;
 
@@ -115,7 +115,7 @@
 
     const/16 v1, 0x22
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     invoke-static {}, Lorg/ini4j/spi/RegEscapeTool;->getInstance()Lorg/ini4j/spi/RegEscapeTool;
 
@@ -125,14 +125,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     move-object v0, p1
 
     .line 46
     .local v0, "name":Ljava/lang/String;
-    :goto_0
+    :goto_13
     invoke-static {}, Lorg/ini4j/spi/RegEscapeTool;->getInstance()Lorg/ini4j/spi/RegEscapeTool;
 
     move-result-object v1
@@ -149,7 +149,7 @@
 
     sget-object v3, Lorg/ini4j/Registry$Type;->REG_SZ:Lorg/ini4j/Registry$Type;
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_30
 
     .line 50
     invoke-virtual {p0}, Lorg/ini4j/spi/RegBuilder;->getCurrentSection()Lorg/ini4j/Profile$Section;
@@ -165,7 +165,7 @@
     invoke-interface {v2, v0, v3}, Lorg/ini4j/Registry$Key;->putType(Ljava/lang/String;Lorg/ini4j/Registry$Type;)Lorg/ini4j/Registry$Type;
 
     .line 53
-    :cond_1
+    :cond_30
     invoke-virtual {v1}, Lorg/ini4j/spi/TypeValuesPair;->getValues()[Ljava/lang/String;
 
     move-result-object v2
@@ -177,8 +177,8 @@
     const/4 v4, 0x0
 
     .local v4, "i$":I
-    :goto_1
-    if-ge v4, v3, :cond_2
+    :goto_36
+    if-ge v4, v3, :cond_40
 
     aget-object v5, v2, v4
 
@@ -190,18 +190,18 @@
     .end local v5    # "value":Ljava/lang/String;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_36
 
     .line 57
     .end local v2    # "arr$":[Ljava/lang/String;
     .end local v3    # "len$":I
     .end local v4    # "i$":I
-    :cond_2
+    :cond_40
     return-void
 .end method
 
 .method public setReg(Lorg/ini4j/Reg;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Lorg/ini4j/Reg;
 
     .line 40
@@ -212,7 +212,7 @@
 .end method
 
 .method public bridge synthetic startIni()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-super {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->startIni()V
@@ -221,7 +221,7 @@
 .end method
 
 .method public bridge synthetic startSection(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 25

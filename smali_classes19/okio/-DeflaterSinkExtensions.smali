@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final deflate(Lokio/Sink;Ljava/util/zip/Deflater;)Lokio/DeflaterSink;
-    .locals 2
+    .registers 4
     .param p0, "$this$deflate"    # Lokio/Sink;
     .param p1, "deflater"    # Ljava/util/zip/Deflater;
 
@@ -52,14 +52,14 @@
 .end method
 
 .method public static synthetic deflate$default(Lokio/Sink;Ljava/util/zip/Deflater;ILjava/lang/Object;)Lokio/DeflaterSink;
-    .locals 0
+    .registers 4
     .param p0, "$this$deflate_u24default"    # Lokio/Sink;
     .param p1, "deflater"    # Ljava/util/zip/Deflater;
 
     .line 160
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     new-instance p2, Ljava/util/zip/Deflater;
 
@@ -67,7 +67,7 @@
 
     move-object p1, p2
 
-    :cond_0
+    :cond_a
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

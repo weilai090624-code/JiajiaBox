@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 36
     const/4 v0, 0x0
@@ -29,11 +29,11 @@
 
 # virtual methods
 .method public serialize(Ljava/lang/Long;)Lcom/google/gson/JsonElement;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Long;
 
     .line 38
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     .line 39
     sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
@@ -41,7 +41,7 @@
     return-object v0
 
     .line 41
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/gson/JsonPrimitive;
 
     invoke-direct {v0, p1}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/Number;)V

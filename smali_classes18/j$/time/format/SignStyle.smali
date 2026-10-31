@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 84
     new-instance v0, Lj$/time/format/SignStyle;
@@ -117,7 +117,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -131,7 +131,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/format/SignStyle;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 76
@@ -147,7 +147,7 @@
 .end method
 
 .method public static values()[Lj$/time/format/SignStyle;
-    .locals 1
+    .registers 1
 
     .line 76
     sget-object v0, Lj$/time/format/SignStyle;->$VALUES:[Lj$/time/format/SignStyle;
@@ -164,7 +164,7 @@
 
 # virtual methods
 .method parse(ZZZ)Z
-    .locals 3
+    .registers 7
     .param p1, "positive"    # Z
     .param p2, "strict"    # Z
     .param p3, "fixedWidth"    # Z
@@ -178,47 +178,47 @@
 
     const/4 v2, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_18
 
     .line 135
-    :pswitch_0
-    if-nez p2, :cond_2
+    :pswitch_9
+    if-nez p2, :cond_16
 
-    if-nez p3, :cond_2
+    if-nez p3, :cond_16
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 132
-    :pswitch_1
+    :pswitch_f
     return v2
 
     .line 129
-    :pswitch_2
-    if-eqz p1, :cond_0
+    :pswitch_10
+    if-eqz p1, :cond_14
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_15
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_15
     return v1
 
     .line 135
-    :cond_2
-    :goto_0
+    :cond_16
+    :goto_16
     return v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
+        :pswitch_10
+        :pswitch_f
+        :pswitch_9
+        :pswitch_9
+        :pswitch_f
     .end packed-switch
 .end method

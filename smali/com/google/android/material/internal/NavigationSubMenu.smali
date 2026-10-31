@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/material/internal/NavigationMenu;Landroidx/appcompat/view/menu/MenuItemImpl;)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "menu"    # Lcom/google/android/material/internal/NavigationMenu;
     .param p3, "item"    # Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public onItemsChanged(Z)V
-    .locals 1
+    .registers 3
     .param p1, "structureChanged"    # Z
 
     .line 42

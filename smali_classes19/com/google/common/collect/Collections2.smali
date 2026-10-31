@@ -21,7 +21,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/util/List;Ljava/util/List;)Z
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Ljava/util/List;
     .param p1, "x1"    # Ljava/util/List;
 
@@ -43,7 +43,7 @@
 .end method
 
 .method static containsAllImpl(Ljava/util/Collection;Ljava/util/Collection;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,12 +61,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -78,7 +78,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_16
 
     .line 308
     const/4 v0, 0x0
@@ -87,18 +87,18 @@
 
     .line 310
     .end local v1    # "o":Ljava/lang/Object;
-    :cond_0
-    goto :goto_0
+    :cond_16
+    goto :goto_4
 
     .line 311
-    :cond_1
+    :cond_17
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method private static counts(Ljava/util/Collection;)Lcom/google/common/collect/ObjectCountHashMap;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -123,12 +123,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -146,15 +146,15 @@
 
     .line 702
     .end local v2    # "e":Ljava/lang/Object;, "TE;"
-    goto :goto_0
+    goto :goto_9
 
     .line 703
-    :cond_0
+    :cond_1d
     return-object v0
 .end method
 
 .method public static filter(Ljava/util/Collection;Lcom/google/common/base/Predicate;)Ljava/util/Collection;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -174,7 +174,7 @@
     .local p1, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/Collections2$FilteredCollection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 92
     move-object v0, p0
@@ -188,7 +188,7 @@
     return-object v0
 
     .line 95
-    :cond_0
+    :cond_c
     new-instance v0, Lcom/google/common/collect/Collections2$FilteredCollection;
 
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -209,7 +209,7 @@
 .end method
 
 .method private static isPermutation(Ljava/util/List;Ljava/util/List;)Z
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -233,13 +233,13 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_c
 
     .line 683
     return v2
 
     .line 685
-    :cond_0
+    :cond_c
     invoke-static {p0}, Lcom/google/common/collect/Collections2;->counts(Ljava/util/Collection;)Lcom/google/common/collect/ObjectCountHashMap;
 
     move-result-object v0
@@ -260,22 +260,22 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_1f
 
     .line 688
     return v2
 
     .line 690
-    :cond_1
+    :cond_1f
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_20
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_3
+    if-ge v3, v4, :cond_38
 
     .line 691
     invoke-virtual {v0, v3}, Lcom/google/common/collect/ObjectCountHashMap;->getValue(I)I
@@ -290,27 +290,27 @@
 
     move-result v5
 
-    if-eq v4, v5, :cond_2
+    if-eq v4, v5, :cond_35
 
     .line 692
     return v2
 
     .line 690
-    :cond_2
+    :cond_35
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
     .line 695
     .end local v3    # "i":I
-    :cond_3
+    :cond_38
     const/4 v2, 0x1
 
     return v2
 .end method
 
 .method static newStringBuilderForCollection(I)Ljava/lang/StringBuilder;
-    .locals 5
+    .registers 6
     .param p0, "size"    # I
 
     .line 334
@@ -341,7 +341,7 @@
 .end method
 
 .method public static orderedPermutations(Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -369,7 +369,7 @@
 .end method
 
 .method public static orderedPermutations(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -396,7 +396,7 @@
 .end method
 
 .method public static permutations(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -424,7 +424,7 @@
 .end method
 
 .method static safeContains(Ljava/util/Collection;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -444,35 +444,35 @@
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 105
-    :try_start_0
+    :try_start_3
     invoke-interface {p0, p1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/ClassCastException; {:try_start_3 .. :try_end_7} :catch_a
+    .catch Ljava/lang/NullPointerException; {:try_start_3 .. :try_end_7} :catch_8
 
     return v0
 
     .line 106
-    :catch_0
+    :catch_8
     move-exception v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :catch_1
+    :catch_a
     move-exception v0
 
     .line 107
     .local v0, "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_b
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method static safeRemove(Ljava/util/Collection;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -492,35 +492,35 @@
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 118
-    :try_start_0
+    :try_start_3
     invoke-interface {p0, p1}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/ClassCastException; {:try_start_3 .. :try_end_7} :catch_a
+    .catch Ljava/lang/NullPointerException; {:try_start_3 .. :try_end_7} :catch_8
 
     return v0
 
     .line 119
-    :catch_0
+    :catch_8
     move-exception v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :catch_1
+    :catch_a
     move-exception v0
 
     .line 120
     .local v0, "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_b
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method static toStringImpl(Ljava/util/Collection;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -556,12 +556,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_13
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_31
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -569,7 +569,7 @@
 
     .line 319
     .local v3, "o":Ljava/lang/Object;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_24
 
     .line 320
     const-string v4, ", "
@@ -577,30 +577,30 @@
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 322
-    :cond_0
+    :cond_24
     const/4 v1, 0x0
 
     .line 323
-    if-ne v3, p0, :cond_1
+    if-ne v3, p0, :cond_2d
 
     .line 324
     const-string v4, "(this Collection)"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_30
 
     .line 326
-    :cond_1
+    :cond_2d
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 328
     .end local v3    # "o":Ljava/lang/Object;
-    :goto_1
-    goto :goto_0
+    :goto_30
+    goto :goto_13
 
     .line 329
-    :cond_2
+    :cond_31
     const/16 v2, 0x5d
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -615,7 +615,7 @@
 .end method
 
 .method public static transform(Ljava/util/Collection;Lcom/google/common/base/Function;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<F:",

@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(ILokio/ByteString;)V
-    .locals 1
+    .registers 4
     .param p1, "formatOpcode"    # I
     .param p2, "data"    # Lokio/ByteString;
 
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public final getData()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     .line 602
     iget-object v0, p0, Lokhttp3/internal/ws/RealWebSocket$Message;->data:Lokio/ByteString;
@@ -82,7 +82,7 @@
 .end method
 
 .method public final getFormatOpcode()I
-    .locals 1
+    .registers 2
 
     .line 601
     iget v0, p0, Lokhttp3/internal/ws/RealWebSocket$Message;->formatOpcode:I

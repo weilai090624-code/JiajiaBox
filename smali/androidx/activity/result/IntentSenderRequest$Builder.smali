@@ -68,7 +68,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/PendingIntent;)V
-    .locals 2
+    .registers 4
     .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
 
     const-string v0, "pendingIntent"
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/IntentSender;)V
-    .locals 1
+    .registers 3
     .param p1, "intentSender"    # Landroid/content/IntentSender;
 
     const-string v0, "intentSender"
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method public final build()Landroidx/activity/result/IntentSenderRequest;
-    .locals 5
+    .registers 6
 
     .line 152
     new-instance v0, Landroidx/activity/result/IntentSenderRequest;
@@ -127,7 +127,7 @@
 .end method
 
 .method public final setFillInIntent(Landroid/content/Intent;)Landroidx/activity/result/IntentSenderRequest$Builder;
-    .locals 0
+    .registers 2
     .param p1, "fillInIntent"    # Landroid/content/Intent;
 
     .line 127
@@ -138,7 +138,7 @@
 .end method
 
 .method public final setFlags(II)Landroidx/activity/result/IntentSenderRequest$Builder;
-    .locals 0
+    .registers 3
     .param p1, "values"    # I
     .param p2, "mask"    # I
 

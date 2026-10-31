@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/Uri;Lio/nekohasekai/sagernet/ui/MainActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -126,7 +126,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -169,7 +169,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -178,7 +178,7 @@
     .line 1087
     iget v1, p0, Lio/nekohasekai/sagernet/ui/MainActivity$onNewIntent$1;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_6e
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -189,18 +189,18 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_69
 
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_57
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 1088
@@ -217,7 +217,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_38
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/MainActivity$onNewIntent$1;->$uri:Landroid/net/Uri;
 
@@ -231,9 +231,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_46
 
-    :cond_0
+    :cond_38
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/MainActivity$onNewIntent$1;->$uri:Landroid/net/Uri;
 
     invoke-virtual {v1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
@@ -246,10 +246,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_58
 
     .line 1089
-    :cond_1
+    :cond_46
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/MainActivity$onNewIntent$1;->this$0:Lio/nekohasekai/sagernet/ui/MainActivity;
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/MainActivity$onNewIntent$1;->$uri:Landroid/net/Uri;
@@ -266,18 +266,18 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_57
 
     .line 1087
     return-object v0
 
     .line 1089
-    :cond_2
-    :goto_0
-    goto :goto_2
+    :cond_57
+    :goto_57
+    goto :goto_6a
 
     .line 1091
-    :cond_3
+    :cond_58
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/MainActivity$onNewIntent$1;->this$0:Lio/nekohasekai/sagernet/ui/MainActivity;
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/MainActivity$onNewIntent$1;->$uri:Landroid/net/Uri;
@@ -294,27 +294,27 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_4
+    if-ne v1, v0, :cond_69
 
     .line 1087
     return-object v0
 
     .line 1093
-    :cond_4
-    :goto_1
+    :cond_69
+    :goto_69
     nop
 
-    :goto_2
+    :goto_6a
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

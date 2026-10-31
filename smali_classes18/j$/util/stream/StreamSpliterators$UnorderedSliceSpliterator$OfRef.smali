@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;JJ)V
-    .locals 0
+    .registers 6
     .param p2, "skip"    # J
     .param p4, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -108,7 +108,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/Consumer$-CC;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -137,7 +137,7 @@
 
     .line 1036
     .local v0, "sb":Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfRef;, "Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef<TT;>;"
-    :goto_0
+    :goto_4
     invoke-virtual {p0}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->permitStatus()Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
     move-result-object v1
@@ -147,15 +147,15 @@
     .local v2, "permitStatus":Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
     sget-object v3, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;->NO_MORE:Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
-    if-eq v1, v3, :cond_5
+    if-eq v1, v3, :cond_49
 
     .line 1037
     sget-object v1, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;->MAYBE_MORE:Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
-    if-ne v2, v1, :cond_4
+    if-ne v2, v1, :cond_43
 
     .line 1039
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 1040
     new-instance v1, Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfRef;
@@ -166,26 +166,26 @@
 
     move-object v0, v1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 1042
-    :cond_0
+    :cond_1c
     invoke-virtual {v0}, Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfRef;->reset()V
 
     .line 1043
-    :goto_1
+    :goto_1f
     const-wide/16 v3, 0x0
 
     .line 1044
     .local v3, "permitsRequested":J
-    :cond_1
+    :cond_21
     iget-object v1, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->s:Lj$/util/Spliterator;
 
     invoke-interface {v1, v0}, Lj$/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_34
 
     const-wide/16 v5, 0x1
 
@@ -199,21 +199,21 @@
 
     cmp-long v1, v5, v7
 
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_21
 
     .line 1045
-    :cond_2
+    :cond_34
     const-wide/16 v5, 0x0
 
     cmp-long v1, v3, v5
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_3b
 
     .line 1046
     return-void
 
     .line 1047
-    :cond_3
+    :cond_3b
     invoke-virtual {p0, v3, v4}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->acquirePermits(J)J
 
     move-result-wide v5
@@ -222,10 +222,10 @@
 
     .line 1048
     .end local v3    # "permitsRequested":J
-    goto :goto_0
+    goto :goto_4
 
     .line 1051
-    :cond_4
+    :cond_43
     iget-object v1, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->s:Lj$/util/Spliterator;
 
     invoke-interface {v1, p1}, Lj$/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
@@ -234,12 +234,12 @@
     return-void
 
     .line 1055
-    :cond_5
+    :cond_49
     return-void
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -249,7 +249,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -259,7 +259,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -269,7 +269,7 @@
 .end method
 
 .method protected makeSpliterator(Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -291,7 +291,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -306,7 +306,7 @@
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1018
-    :cond_0
+    :cond_3
     invoke-virtual {p0}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->permitStatus()Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
     move-result-object v0
@@ -315,7 +315,7 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_29
 
     .line 1019
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->s:Lj$/util/Spliterator;
@@ -324,13 +324,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     .line 1020
     return v2
 
     .line 1021
-    :cond_1
+    :cond_15
     const-wide/16 v0, 0x1
 
     invoke-virtual {p0, v0, v1}, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->acquirePermits(J)J
@@ -339,7 +339,7 @@
 
     cmp-long v4, v2, v0
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_3
 
     .line 1022
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->tmpSlot:Ljava/lang/Object;
@@ -357,6 +357,6 @@
     return v0
 
     .line 1027
-    :cond_2
+    :cond_29
     return v2
 .end method

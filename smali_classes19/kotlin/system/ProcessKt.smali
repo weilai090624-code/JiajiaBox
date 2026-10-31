@@ -27,7 +27,7 @@
 
 # direct methods
 .method private static final exitProcess(I)Ljava/lang/Void;
-    .locals 2
+    .registers 3
     .param p0, "status"    # I
 
     .line 19

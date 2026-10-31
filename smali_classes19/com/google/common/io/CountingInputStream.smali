@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/InputStream;
 
     .line 45
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getCount()J
-    .locals 2
+    .registers 3
 
     .line 50
     iget-wide v0, p0, Lcom/google/common/io/CountingInputStream;->count:J
@@ -49,13 +49,13 @@
 .end method
 
 .method public declared-synchronized mark(I)V
-    .locals 2
+    .registers 4
     .param p1, "readlimit"    # I
 
     monitor-enter p0
 
     .line 80
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/google/common/io/CountingInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0, p1}, Ljava/io/InputStream;->mark(I)V
@@ -64,8 +64,8 @@
     iget-wide v0, p0, Lcom/google/common/io/CountingInputStream;->count:J
 
     iput-wide v0, p0, Lcom/google/common/io/CountingInputStream;->mark:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_1 .. :try_end_a} :catchall_c
 
     .line 83
     monitor-exit p0
@@ -75,19 +75,19 @@
     .line 79
     .end local p0    # "this":Lcom/google/common/io/CountingInputStream;
     .end local p1    # "readlimit":I
-    :catchall_0
+    :catchall_c
     move-exception p1
 
-    :try_start_1
+    :try_start_d
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_e
+    .catchall {:try_start_d .. :try_end_e} :catchall_c
 
     throw p1
 .end method
 
 .method public read()I
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -105,7 +105,7 @@
     .local v0, "result":I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_10
 
     .line 57
     iget-wide v1, p0, Lcom/google/common/io/CountingInputStream;->count:J
@@ -117,12 +117,12 @@
     iput-wide v1, p0, Lcom/google/common/io/CountingInputStream;->count:J
 
     .line 59
-    :cond_0
+    :cond_10
     return v0
 .end method
 
 .method public read([BII)I
-    .locals 5
+    .registers 9
     .param p1, "b"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -143,7 +143,7 @@
     .local v0, "result":I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_f
 
     .line 66
     iget-wide v1, p0, Lcom/google/common/io/CountingInputStream;->count:J
@@ -155,12 +155,12 @@
     iput-wide v1, p0, Lcom/google/common/io/CountingInputStream;->count:J
 
     .line 68
-    :cond_0
+    :cond_f
     return v0
 .end method
 
 .method public declared-synchronized reset()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -170,14 +170,14 @@
     monitor-enter p0
 
     .line 87
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/google/common/io/CountingInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->markSupported()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 90
     iget-wide v0, p0, Lcom/google/common/io/CountingInputStream;->mark:J
@@ -186,7 +186,7 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1c
 
     .line 94
     iget-object v0, p0, Lcom/google/common/io/CountingInputStream;->in:Ljava/io/InputStream;
@@ -197,8 +197,8 @@
     iget-wide v0, p0, Lcom/google/common/io/CountingInputStream;->mark:J
 
     iput-wide v0, p0, Lcom/google/common/io/CountingInputStream;->count:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_1 .. :try_end_1a} :catchall_2c
 
     .line 96
     monitor-exit p0
@@ -207,8 +207,8 @@
 
     .line 91
     .end local p0    # "this":Lcom/google/common/io/CountingInputStream;
-    :cond_0
-    :try_start_1
+    :cond_1c
+    :try_start_1c
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "Mark not set"
@@ -218,7 +218,7 @@
     throw v0
 
     .line 88
-    :cond_1
+    :cond_24
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "Mark not supported"
@@ -228,18 +228,18 @@
     throw v0
 
     .line 86
-    :catchall_0
+    :catchall_2c
     move-exception v0
 
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_1c .. :try_end_2e} :catchall_2c
 
     throw v0
 .end method
 
 .method public skip(J)J
-    .locals 4
+    .registers 7
     .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {

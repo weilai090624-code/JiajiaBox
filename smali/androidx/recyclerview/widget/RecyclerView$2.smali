@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 620
@@ -37,14 +37,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 623
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$2;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mItemAnimator:Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 624
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$2;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -54,7 +54,7 @@
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->runPendingAnimations()V
 
     .line 626
-    :cond_0
+    :cond_d
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$2;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     const/4 v1, 0x0

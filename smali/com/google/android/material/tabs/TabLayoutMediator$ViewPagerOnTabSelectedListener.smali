@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;Z)V
-    .locals 0
+    .registers 3
     .param p1, "viewPager"    # Landroidx/viewpager2/widget/ViewPager2;
     .param p2, "smoothScroll"    # Z
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onTabReselected(Lcom/google/android/material/tabs/TabLayout$Tab;)V
-    .locals 0
+    .registers 2
     .param p1, "tab"    # Lcom/google/android/material/tabs/TabLayout$Tab;
 
     .line 283
@@ -53,7 +53,7 @@
 .end method
 
 .method public onTabSelected(Lcom/google/android/material/tabs/TabLayout$Tab;)V
-    .locals 3
+    .registers 5
     .param p1, "tab"    # Lcom/google/android/material/tabs/TabLayout$Tab;
 
     .line 272
@@ -72,7 +72,7 @@
 .end method
 
 .method public onTabUnselected(Lcom/google/android/material/tabs/TabLayout$Tab;)V
-    .locals 0
+    .registers 2
     .param p1, "tab"    # Lcom/google/android/material/tabs/TabLayout$Tab;
 
     .line 278

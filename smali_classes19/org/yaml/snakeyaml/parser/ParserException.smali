@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;Ljava/lang/String;Lorg/yaml/snakeyaml/error/Mark;)V
-    .locals 7
+    .registers 12
     .param p1, "context"    # Ljava/lang/String;
     .param p2, "contextMark"    # Lorg/yaml/snakeyaml/error/Mark;
     .param p3, "problem"    # Ljava/lang/String;

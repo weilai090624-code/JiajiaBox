@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Landroidx/work/InputMerger;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method private final concatenateArrayAndNonArray(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p1, "array"    # Ljava/lang/Object;
     .param p2, "obj"    # Ljava/lang/Object;
     .param p3, "valueClass"    # Ljava/lang/Class;
@@ -95,7 +95,7 @@
 .end method
 
 .method private final concatenateArrays(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p1, "array1"    # Ljava/lang/Object;
     .param p2, "array2"    # Ljava/lang/Object;
 
@@ -148,7 +148,7 @@
 .end method
 
 .method private final createArrayFor(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
     .param p2, "valueClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -185,7 +185,7 @@
 
 # virtual methods
 .method public merge(Ljava/util/List;)Landroidx/work/Data;
-    .locals 11
+    .registers 13
     .param p1, "inputs"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -220,12 +220,12 @@
 
     move-result-object v2
 
-    :cond_0
+    :cond_15
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_a0
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -251,12 +251,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_32
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_15
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -277,20 +277,20 @@
 
     .line 48
     .local v5, "value":Ljava/lang/Object;
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_50
 
     invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_52
 
-    :cond_1
+    :cond_50
     const-class v7, Ljava/lang/String;
 
     .line 49
     .local v7, "valueClass":Ljava/lang/Class;
-    :cond_2
+    :cond_52
     invoke-interface {v1, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v8
@@ -301,30 +301,30 @@
 
     invoke-static {v6, v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-nez v8, :cond_4
+    if-nez v8, :cond_6a
 
     .line 52
     invoke-virtual {v7}, Ljava/lang/Class;->isArray()Z
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_65
 
     .line 54
     move-object v9, v5
 
-    goto :goto_1
+    goto :goto_90
 
     .line 57
-    :cond_3
+    :cond_65
     invoke-direct {p0, v5, v7}, Landroidx/work/ArrayCreatingInputMerger;->createArrayFor(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v9
 
-    goto :goto_1
+    goto :goto_90
 
     .line 61
-    :cond_4
+    :cond_6a
     invoke-virtual {v8}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v9
@@ -338,7 +338,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_81
 
     .line 65
     const-string/jumbo v10, "value"
@@ -351,10 +351,10 @@
 
     move-object v9, v10
 
-    goto :goto_1
+    goto :goto_90
 
     .line 67
-    :cond_5
+    :cond_81
     invoke-virtual {v9}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
     move-result-object v10
@@ -363,7 +363,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_9a
 
     .line 69
     invoke-direct {p0, v8, v5, v7}, Landroidx/work/ArrayCreatingInputMerger;->concatenateArrayAndNonArray(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
@@ -374,7 +374,7 @@
 
     .line 50
     .end local v9    # "existingValueClass":Ljava/lang/Class;
-    :goto_1
+    :goto_90
     nop
 
     .line 65
@@ -385,11 +385,11 @@
     .line 50
     invoke-interface {v1, v6, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_32
 
     .line 71
     .restart local v9    # "existingValueClass":Ljava/lang/Class;
-    :cond_6
+    :cond_9a
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v2}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -403,7 +403,7 @@
     .end local v7    # "valueClass":Ljava/lang/Class;
     .end local v8    # "existingValue":Ljava/lang/Object;
     .end local v9    # "existingValueClass":Ljava/lang/Class;
-    :cond_7
+    :cond_a0
     invoke-virtual {v0, v1}, Landroidx/work/Data$Builder;->putAll(Ljava/util/Map;)Landroidx/work/Data$Builder;
 
     .line 77

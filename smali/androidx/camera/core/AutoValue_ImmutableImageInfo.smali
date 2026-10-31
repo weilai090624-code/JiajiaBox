@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/TagBundle;JI)V
-    .locals 2
+    .registers 7
     .param p1, "tagBundle"    # Landroidx/camera/core/impl/TagBundle;
     .param p2, "timestamp"    # J
     .param p4, "rotationDegrees"    # I
@@ -34,7 +34,7 @@
     invoke-direct {p0}, Landroidx/camera/core/ImmutableImageInfo;-><init>()V
 
     .line 21
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 24
     iput-object p1, p0, Landroidx/camera/core/AutoValue_ImmutableImageInfo;->tagBundle:Landroidx/camera/core/impl/TagBundle;
@@ -49,7 +49,7 @@
     return-void
 
     .line 22
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Null tagBundle"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -76,18 +76,18 @@
     .line 56
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 57
     return v0
 
     .line 59
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/camera/core/ImmutableImageInfo;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2d
 
     .line 60
     move-object v1, p1
@@ -106,7 +106,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2b
 
     iget-wide v3, p0, Landroidx/camera/core/AutoValue_ImmutableImageInfo;->timestamp:J
 
@@ -117,7 +117,7 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_2b
 
     iget v3, p0, Landroidx/camera/core/AutoValue_ImmutableImageInfo;->rotationDegrees:I
 
@@ -126,25 +126,25 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_2b
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_1
+    :cond_2b
     const/4 v0, 0x0
 
     .line 61
-    :goto_0
+    :goto_2c
     return v0
 
     .line 65
     .end local v1    # "that":Landroidx/camera/core/ImmutableImageInfo;
-    :cond_2
+    :cond_2d
     return v2
 .end method
 
 .method public getRotationDegrees()I
-    .locals 1
+    .registers 2
 
     .line 42
     iget v0, p0, Landroidx/camera/core/AutoValue_ImmutableImageInfo;->rotationDegrees:I
@@ -153,7 +153,7 @@
 .end method
 
 .method public getTagBundle()Landroidx/camera/core/impl/TagBundle;
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Landroidx/camera/core/AutoValue_ImmutableImageInfo;->tagBundle:Landroidx/camera/core/impl/TagBundle;
@@ -162,7 +162,7 @@
 .end method
 
 .method public getTimestamp()J
-    .locals 2
+    .registers 3
 
     .line 37
     iget-wide v0, p0, Landroidx/camera/core/AutoValue_ImmutableImageInfo;->timestamp:J
@@ -171,7 +171,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .registers 7
 
     .line 70
     const/4 v0, 0x1
@@ -222,7 +222,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 47
     new-instance v0, Ljava/lang/StringBuilder;

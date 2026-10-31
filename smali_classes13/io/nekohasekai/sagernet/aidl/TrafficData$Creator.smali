@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public final createFromParcel(Landroid/os/Parcel;)Lio/nekohasekai/sagernet/aidl/TrafficData;
-    .locals 8
+    .registers 10
 
     const-string v0, "parcel"
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/aidl/TrafficData$Creator;->createFromParcel(Landroid/os/Parcel;)Lio/nekohasekai/sagernet/aidl/TrafficData;
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public final newArray(I)[Lio/nekohasekai/sagernet/aidl/TrafficData;
-    .locals 1
+    .registers 3
 
     new-array v0, p1, [Lio/nekohasekai/sagernet/aidl/TrafficData;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
 
     invoke-virtual {p0, p1}, Lio/nekohasekai/sagernet/aidl/TrafficData$Creator;->newArray(I)[Lio/nekohasekai/sagernet/aidl/TrafficData;
 

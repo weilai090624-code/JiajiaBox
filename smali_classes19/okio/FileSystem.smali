@@ -96,7 +96,7 @@
 
 # direct methods
 .method public static synthetic -write$default(Lokio/FileSystem;Lokio/Path;ZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+    .registers 12
     .param p0, "this"    # Lokio/FileSystem;
     .param p1, "file"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
@@ -108,17 +108,17 @@
     .end annotation
 
     .line 79
-    if-nez p5, :cond_4
+    if-nez p5, :cond_43
 
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_7
 
     .line 160
     const/4 p2, 0x0
 
     .line 79
-    :cond_0
+    :cond_7
     const-string p4, "file"
 
     invoke-static {p1, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -157,7 +157,7 @@
     nop
 
     .line 183
-    :try_start_0
+    :try_start_20
     move-object v3, p5
 
     check-cast v3, Lokio/BufferedSink;
@@ -170,17 +170,17 @@
     invoke-interface {p3, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_20 .. :try_end_28} :catchall_2a
 
     .end local v3    # "it":Lokio/BufferedSink;
     .end local v4    # "$i$a$-use-FileSystem$write$1":I
     move-object v1, v5
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 184
-    :catchall_0
+    :catchall_2a
     move-exception v3
 
     .line 185
@@ -189,43 +189,43 @@
 
     .line 188
     .end local v3    # "t$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_2c
     nop
 
     .line 189
-    if-nez p5, :cond_1
+    if-nez p5, :cond_30
 
-    :goto_1
-    goto :goto_2
+    :goto_2f
+    goto :goto_3c
 
-    :cond_1
-    :try_start_1
+    :cond_30
+    :try_start_30
     invoke-interface {p5}, Ljava/io/Closeable;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_33
+    .catchall {:try_start_30 .. :try_end_33} :catchall_34
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 190
-    :catchall_1
+    :catchall_34
     move-exception v3
 
     .line 191
     .restart local v3    # "t$iv":Ljava/lang/Throwable;
-    if-nez v2, :cond_2
+    if-nez v2, :cond_39
 
     move-object v2, v3
 
-    goto :goto_2
+    goto :goto_3c
 
     .line 192
-    :cond_2
+    :cond_39
     invoke-static {v2, v3}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .line 195
     .end local v3    # "t$iv":Ljava/lang/Throwable;
-    :goto_2
-    if-nez v2, :cond_3
+    :goto_3c
+    if-nez v2, :cond_42
 
     .line 196
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -242,7 +242,7 @@
     .restart local v1    # "result$iv":Ljava/lang/Object;
     .restart local v2    # "thrown$iv":Ljava/lang/Throwable;
     .restart local p5    # "$this$use$iv":Ljava/io/Closeable;
-    :cond_3
+    :cond_42
     throw v2
 
     .line 79
@@ -251,7 +251,7 @@
     .end local v2    # "thrown$iv":Ljava/lang/Throwable;
     .end local p4    # "$i$f$-write":I
     .end local p5    # "$this$use$iv":Ljava/io/Closeable;
-    :cond_4
+    :cond_43
     new-instance p4, Ljava/lang/UnsupportedOperationException;
 
     const-string p5, "Super calls with default arguments not supported in this target, function: write"
@@ -262,7 +262,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     new-instance v0, Lokio/FileSystem$Companion;
 
@@ -283,7 +283,7 @@
     nop
 
     .line 135
-    :try_start_0
+    :try_start_c
     const-string v3, "java.nio.file.Files"
 
     invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -294,13 +294,13 @@
     invoke-direct {v3}, Lokio/NioSystemFileSystem;-><init>()V
 
     check-cast v3, Lokio/JvmSystemFileSystem;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_c .. :try_end_18} :catch_19
 
-    goto :goto_0
+    goto :goto_20
 
     .line 137
-    :catch_0
+    :catch_19
     move-exception v3
 
     .line 138
@@ -315,7 +315,7 @@
     .end local v0    # "$this$SYSTEM_u24lambda_u2d2":Lokio/FileSystem$Companion;
     .end local v2    # "$i$a$-run-FileSystem$Companion$SYSTEM$1":I
     .end local v3    # "e":Ljava/lang/ClassNotFoundException;
-    :goto_0
+    :goto_20
     check-cast v3, Lokio/FileSystem;
 
     sput-object v3, Lokio/FileSystem;->SYSTEM:Lokio/FileSystem;
@@ -371,7 +371,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -380,7 +380,7 @@
 .end method
 
 .method public static synthetic appendingSink$default(Lokio/FileSystem;Lokio/Path;ZILjava/lang/Object;)Lokio/Sink;
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -388,24 +388,24 @@
     .end annotation
 
     .line 86
-    if-nez p4, :cond_1
+    if-nez p4, :cond_c
 
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_7
 
     .line 160
     const/4 p2, 0x0
 
     .line 86
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1, p2}, Lokio/FileSystem;->appendingSink(Lokio/Path;Z)Lokio/Sink;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
+    :cond_c
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: appendingSink"
@@ -416,7 +416,7 @@
 .end method
 
 .method public static synthetic createDirectories$default(Lokio/FileSystem;Lokio/Path;ZILjava/lang/Object;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -424,22 +424,22 @@
     .end annotation
 
     .line 98
-    if-nez p4, :cond_1
+    if-nez p4, :cond_b
 
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_7
 
     .line 160
     const/4 p2, 0x0
 
     .line 98
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1, p2}, Lokio/FileSystem;->createDirectories(Lokio/Path;Z)V
 
     return-void
 
-    :cond_1
+    :cond_b
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: createDirectories"
@@ -450,7 +450,7 @@
 .end method
 
 .method public static synthetic createDirectory$default(Lokio/FileSystem;Lokio/Path;ZILjava/lang/Object;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -458,22 +458,22 @@
     .end annotation
 
     .line 92
-    if-nez p4, :cond_1
+    if-nez p4, :cond_b
 
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_7
 
     .line 160
     const/4 p2, 0x0
 
     .line 92
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1, p2}, Lokio/FileSystem;->createDirectory(Lokio/Path;Z)V
 
     return-void
 
-    :cond_1
+    :cond_b
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: createDirectory"
@@ -484,7 +484,7 @@
 .end method
 
 .method public static synthetic delete$default(Lokio/FileSystem;Lokio/Path;ZILjava/lang/Object;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -492,22 +492,22 @@
     .end annotation
 
     .line 111
-    if-nez p4, :cond_1
+    if-nez p4, :cond_b
 
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_7
 
     .line 160
     const/4 p2, 0x0
 
     .line 111
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1, p2}, Lokio/FileSystem;->delete(Lokio/Path;Z)V
 
     return-void
 
-    :cond_1
+    :cond_b
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: delete"
@@ -518,7 +518,7 @@
 .end method
 
 .method public static synthetic deleteRecursively$default(Lokio/FileSystem;Lokio/Path;ZILjava/lang/Object;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -526,22 +526,22 @@
     .end annotation
 
     .line 117
-    if-nez p4, :cond_1
+    if-nez p4, :cond_b
 
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_7
 
     .line 160
     const/4 p2, 0x0
 
     .line 117
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1, p2}, Lokio/FileSystem;->deleteRecursively(Lokio/Path;Z)V
 
     return-void
 
-    :cond_1
+    :cond_b
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: deleteRecursively"
@@ -552,27 +552,27 @@
 .end method
 
 .method public static synthetic listRecursively$default(Lokio/FileSystem;Lokio/Path;ZILjava/lang/Object;)Lkotlin/sequences/Sequence;
-    .locals 0
+    .registers 5
 
     .line 45
-    if-nez p4, :cond_1
+    if-nez p4, :cond_c
 
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_7
 
     .line 160
     const/4 p2, 0x0
 
     .line 45
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1, p2}, Lokio/FileSystem;->listRecursively(Lokio/Path;Z)Lkotlin/sequences/Sequence;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
+    :cond_c
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: listRecursively"
@@ -583,7 +583,7 @@
 .end method
 
 .method public static synthetic openReadWrite$default(Lokio/FileSystem;Lokio/Path;ZZILjava/lang/Object;)Lokio/FileHandle;
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -591,35 +591,35 @@
     .end annotation
 
     .line 54
-    if-nez p5, :cond_2
+    if-nez p5, :cond_12
 
     and-int/lit8 p5, p4, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_8
 
     .line 160
     const/4 p2, 0x0
 
     .line 54
-    :cond_0
+    :cond_8
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_d
 
     .line 160
     const/4 p3, 0x0
 
     .line 54
-    :cond_1
+    :cond_d
     invoke-virtual {p0, p1, p2, p3}, Lokio/FileSystem;->openReadWrite(Lokio/Path;ZZ)Lokio/FileHandle;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_2
+    :cond_12
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: openReadWrite"
@@ -630,7 +630,7 @@
 .end method
 
 .method public static synthetic sink$default(Lokio/FileSystem;Lokio/Path;ZILjava/lang/Object;)Lokio/Sink;
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -638,24 +638,24 @@
     .end annotation
 
     .line 72
-    if-nez p4, :cond_1
+    if-nez p4, :cond_c
 
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_7
 
     .line 160
     const/4 p2, 0x0
 
     .line 72
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1, p2}, Lokio/FileSystem;->sink(Lokio/Path;Z)Lokio/Sink;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
+    :cond_c
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: sink"
@@ -668,7 +668,7 @@
 
 # virtual methods
 .method public final -read(Lokio/Path;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 8
+    .registers 11
     .param p1, "file"    # Lokio/Path;
     .param p2, "readerAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -728,7 +728,7 @@
     nop
 
     .line 165
-    :try_start_0
+    :try_start_19
     move-object v5, v1
 
     check-cast v5, Lokio/BufferedSource;
@@ -741,17 +741,17 @@
     invoke-interface {p2, v5}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_19 .. :try_end_21} :catchall_23
 
     .end local v5    # "it":Lokio/BufferedSource;
     .end local v6    # "$i$a$-use-FileSystem$read$1":I
     move-object v3, v7
 
-    goto :goto_0
+    goto :goto_25
 
     .line 166
-    :catchall_0
+    :catchall_23
     move-exception v5
 
     .line 167
@@ -760,43 +760,43 @@
 
     .line 170
     .end local v5    # "t$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_25
     nop
 
     .line 171
-    if-nez v1, :cond_0
+    if-nez v1, :cond_29
 
-    :goto_1
-    goto :goto_2
+    :goto_28
+    goto :goto_35
 
-    :cond_0
-    :try_start_1
+    :cond_29
+    :try_start_29
     invoke-interface {v1}, Ljava/io/Closeable;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2c
+    .catchall {:try_start_29 .. :try_end_2c} :catchall_2d
 
-    goto :goto_1
+    goto :goto_28
 
     .line 172
-    :catchall_1
+    :catchall_2d
     move-exception v5
 
     .line 173
     .restart local v5    # "t$iv":Ljava/lang/Throwable;
-    if-nez v4, :cond_1
+    if-nez v4, :cond_32
 
     move-object v4, v5
 
-    goto :goto_2
+    goto :goto_35
 
     .line 174
-    :cond_1
+    :cond_32
     invoke-static {v4, v5}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .line 177
     .end local v5    # "t$iv":Ljava/lang/Throwable;
-    :goto_2
-    if-nez v4, :cond_2
+    :goto_35
+    if-nez v4, :cond_3b
 
     .line 178
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -813,12 +813,12 @@
     .restart local v2    # "$i$f$use":I
     .restart local v3    # "result$iv":Ljava/lang/Object;
     .restart local v4    # "thrown$iv":Ljava/lang/Throwable;
-    :cond_2
+    :cond_3b
     throw v4
 .end method
 
 .method public final -write(Lokio/Path;ZLkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 8
+    .registers 12
     .param p1, "file"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
     .param p3, "writerAction"    # Lkotlin/jvm/functions/Function1;
@@ -880,7 +880,7 @@
     nop
 
     .line 183
-    :try_start_0
+    :try_start_19
     move-object v5, v1
 
     check-cast v5, Lokio/BufferedSink;
@@ -893,17 +893,17 @@
     invoke-interface {p3, v5}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_19 .. :try_end_21} :catchall_23
 
     .end local v5    # "it":Lokio/BufferedSink;
     .end local v6    # "$i$a$-use-FileSystem$write$1":I
     move-object v3, v7
 
-    goto :goto_0
+    goto :goto_25
 
     .line 184
-    :catchall_0
+    :catchall_23
     move-exception v5
 
     .line 185
@@ -912,43 +912,43 @@
 
     .line 188
     .end local v5    # "t$iv":Ljava/lang/Throwable;
-    :goto_0
+    :goto_25
     nop
 
     .line 189
-    if-nez v1, :cond_0
+    if-nez v1, :cond_29
 
-    :goto_1
-    goto :goto_2
+    :goto_28
+    goto :goto_35
 
-    :cond_0
-    :try_start_1
+    :cond_29
+    :try_start_29
     invoke-interface {v1}, Ljava/io/Closeable;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2c
+    .catchall {:try_start_29 .. :try_end_2c} :catchall_2d
 
-    goto :goto_1
+    goto :goto_28
 
     .line 190
-    :catchall_1
+    :catchall_2d
     move-exception v5
 
     .line 191
     .restart local v5    # "t$iv":Ljava/lang/Throwable;
-    if-nez v4, :cond_1
+    if-nez v4, :cond_32
 
     move-object v4, v5
 
-    goto :goto_2
+    goto :goto_35
 
     .line 192
-    :cond_1
+    :cond_32
     invoke-static {v4, v5}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .line 195
     .end local v5    # "t$iv":Ljava/lang/Throwable;
-    :goto_2
-    if-nez v4, :cond_2
+    :goto_35
+    if-nez v4, :cond_3b
 
     .line 196
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -965,12 +965,12 @@
     .restart local v2    # "$i$f$use":I
     .restart local v3    # "result$iv":Ljava/lang/Object;
     .restart local v4    # "thrown$iv":Ljava/lang/Throwable;
-    :cond_2
+    :cond_3b
     throw v4
 .end method
 
 .method public final appendingSink(Lokio/Path;)Lokio/Sink;
-    .locals 1
+    .registers 3
     .param p1, "file"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1017,7 +1017,7 @@
 .end method
 
 .method public copy(Lokio/Path;Lokio/Path;)V
-    .locals 1
+    .registers 4
     .param p1, "source"    # Lokio/Path;
     .param p2, "target"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
@@ -1041,7 +1041,7 @@
 .end method
 
 .method public final createDirectories(Lokio/Path;)V
-    .locals 1
+    .registers 3
     .param p1, "dir"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1062,7 +1062,7 @@
 .end method
 
 .method public final createDirectories(Lokio/Path;Z)V
-    .locals 1
+    .registers 4
     .param p1, "dir"    # Lokio/Path;
     .param p2, "mustCreate"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public final createDirectory(Lokio/Path;)V
-    .locals 1
+    .registers 3
     .param p1, "dir"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1119,7 +1119,7 @@
 .end method
 
 .method public final delete(Lokio/Path;)V
-    .locals 1
+    .registers 3
     .param p1, "path"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1148,7 +1148,7 @@
 .end method
 
 .method public final deleteRecursively(Lokio/Path;)V
-    .locals 1
+    .registers 3
     .param p1, "fileOrDirectory"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1169,7 +1169,7 @@
 .end method
 
 .method public deleteRecursively(Lokio/Path;Z)V
-    .locals 1
+    .registers 4
     .param p1, "fileOrDirectory"    # Lokio/Path;
     .param p2, "mustExist"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -1189,7 +1189,7 @@
 .end method
 
 .method public final exists(Lokio/Path;)Z
-    .locals 1
+    .registers 3
     .param p1, "path"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1242,7 +1242,7 @@
 .end method
 
 .method public final listRecursively(Lokio/Path;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 3
     .param p1, "dir"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1270,7 +1270,7 @@
 .end method
 
 .method public listRecursively(Lokio/Path;Z)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 4
     .param p1, "dir"    # Lokio/Path;
     .param p2, "followSymlinks"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -1297,7 +1297,7 @@
 .end method
 
 .method public final metadata(Lokio/Path;)Lokio/FileMetadata;
-    .locals 1
+    .registers 3
     .param p1, "path"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1334,7 +1334,7 @@
 .end method
 
 .method public final openReadWrite(Lokio/Path;)Lokio/FileHandle;
-    .locals 1
+    .registers 3
     .param p1, "file"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1365,7 +1365,7 @@
 .end method
 
 .method public final sink(Lokio/Path;)Lokio/Sink;
-    .locals 1
+    .registers 3
     .param p1, "file"    # Lokio/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {

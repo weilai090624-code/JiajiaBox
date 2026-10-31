@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 11
     const-string v0, "kotlinx.coroutines.main.delay"
@@ -62,7 +62,7 @@
 .end method
 
 .method public static final getDefaultDelay()Lkotlinx/coroutines/Delay;
-    .locals 1
+    .registers 1
 
     .line 14
     sget-object v0, Lkotlinx/coroutines/DefaultExecutorKt;->DefaultDelay:Lkotlinx/coroutines/Delay;
@@ -71,18 +71,18 @@
 .end method
 
 .method public static synthetic getDefaultDelay$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private static final initializeDefaultDelay()Lkotlinx/coroutines/Delay;
-    .locals 2
+    .registers 2
 
     .line 18
     sget-boolean v0, Lkotlinx/coroutines/DefaultExecutorKt;->defaultMainDelayOptIn:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     sget-object v0, Lkotlinx/coroutines/DefaultExecutor;->INSTANCE:Lkotlinx/coroutines/DefaultExecutor;
 
@@ -91,7 +91,7 @@
     return-object v0
 
     .line 19
-    :cond_0
+    :cond_9
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getMain()Lkotlinx/coroutines/MainCoroutineDispatcher;
 
     move-result-object v0
@@ -102,27 +102,27 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1c
 
     instance-of v1, v0, Lkotlinx/coroutines/Delay;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_18
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_18
     move-object v1, v0
 
     check-cast v1, Lkotlinx/coroutines/Delay;
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_2
-    :goto_0
+    :cond_1c
+    :goto_1c
     sget-object v1, Lkotlinx/coroutines/DefaultExecutor;->INSTANCE:Lkotlinx/coroutines/DefaultExecutor;
 
     check-cast v1, Lkotlinx/coroutines/Delay;
 
-    :goto_1
+    :goto_20
     return-object v1
 .end method

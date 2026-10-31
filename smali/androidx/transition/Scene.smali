@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/ViewGroup;)V
-    .locals 1
+    .registers 3
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
 
     .line 89
@@ -38,7 +38,7 @@
 .end method
 
 .method private constructor <init>(Landroid/view/ViewGroup;ILandroid/content/Context;)V
-    .locals 1
+    .registers 5
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "layoutId"    # I
     .param p3, "context"    # Landroid/content/Context;
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "layout"    # Landroid/view/View;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public static getCurrentScene(Landroid/view/ViewGroup;)Landroidx/transition/Scene;
-    .locals 1
+    .registers 2
     .param p0, "sceneRoot"    # Landroid/view/ViewGroup;
 
     .line 209
@@ -104,7 +104,7 @@
 .end method
 
 .method public static getSceneForLayout(Landroid/view/ViewGroup;ILandroid/content/Context;)Landroidx/transition/Scene;
-    .locals 3
+    .registers 6
     .param p0, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p1, "layoutId"    # I
     .param p2, "context"    # Landroid/content/Context;
@@ -121,7 +121,7 @@
 
     .line 65
     .local v0, "scenes":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroidx/transition/Scene;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 66
     new-instance v1, Landroid/util/SparseArray;
@@ -136,7 +136,7 @@
     invoke-virtual {p0, v1, v0}, Landroid/view/ViewGroup;->setTag(ILjava/lang/Object;)V
 
     .line 69
-    :cond_0
+    :cond_15
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -145,13 +145,13 @@
 
     .line 70
     .local v1, "scene":Landroidx/transition/Scene;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     .line 71
     return-object v1
 
     .line 73
-    :cond_1
+    :cond_1e
     new-instance v2, Landroidx/transition/Scene;
 
     invoke-direct {v2, p0, p1, p2}, Landroidx/transition/Scene;-><init>(Landroid/view/ViewGroup;ILandroid/content/Context;)V
@@ -166,7 +166,7 @@
 .end method
 
 .method static setCurrentScene(Landroid/view/ViewGroup;Landroidx/transition/Scene;)V
-    .locals 1
+    .registers 3
     .param p0, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p1, "scene"    # Landroidx/transition/Scene;
 
@@ -182,19 +182,19 @@
 
 # virtual methods
 .method public enter()V
-    .locals 3
+    .registers 4
 
     .line 168
     iget v0, p0, Landroidx/transition/Scene;->mLayoutId:I
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_8
 
     iget-object v0, p0, Landroidx/transition/Scene;->mLayout:Landroid/view/View;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     .line 170
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Landroidx/transition/Scene;->getSceneRoot()Landroid/view/ViewGroup;
 
     move-result-object v0
@@ -204,7 +204,7 @@
     .line 172
     iget v0, p0, Landroidx/transition/Scene;->mLayoutId:I
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_21
 
     .line 173
     iget-object v0, p0, Landroidx/transition/Scene;->mContext:Landroid/content/Context;
@@ -219,10 +219,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    goto :goto_0
+    goto :goto_28
 
     .line 175
-    :cond_1
+    :cond_21
     iget-object v0, p0, Landroidx/transition/Scene;->mSceneRoot:Landroid/view/ViewGroup;
 
     iget-object v1, p0, Landroidx/transition/Scene;->mLayout:Landroid/view/View;
@@ -230,11 +230,11 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 180
-    :cond_2
-    :goto_0
+    :cond_28
+    :goto_28
     iget-object v0, p0, Landroidx/transition/Scene;->mEnterAction:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_31
 
     .line 181
     iget-object v0, p0, Landroidx/transition/Scene;->mEnterAction:Ljava/lang/Runnable;
@@ -242,7 +242,7 @@
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     .line 184
-    :cond_3
+    :cond_31
     iget-object v0, p0, Landroidx/transition/Scene;->mSceneRoot:Landroid/view/ViewGroup;
 
     invoke-static {v0, p0}, Landroidx/transition/Scene;->setCurrentScene(Landroid/view/ViewGroup;Landroidx/transition/Scene;)V
@@ -252,7 +252,7 @@
 .end method
 
 .method public exit()V
-    .locals 1
+    .registers 2
 
     .line 149
     iget-object v0, p0, Landroidx/transition/Scene;->mSceneRoot:Landroid/view/ViewGroup;
@@ -261,12 +261,12 @@
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_11
 
     .line 150
     iget-object v0, p0, Landroidx/transition/Scene;->mExitAction:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 151
     iget-object v0, p0, Landroidx/transition/Scene;->mExitAction:Ljava/lang/Runnable;
@@ -274,12 +274,12 @@
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     .line 154
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public getSceneRoot()Landroid/view/ViewGroup;
-    .locals 1
+    .registers 2
 
     .line 138
     iget-object v0, p0, Landroidx/transition/Scene;->mSceneRoot:Landroid/view/ViewGroup;
@@ -288,26 +288,26 @@
 .end method
 
 .method isCreatedFromLayoutResource()Z
-    .locals 1
+    .registers 2
 
     .line 259
     iget v0, p0, Landroidx/transition/Scene;->mLayoutId:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public setEnterAction(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
     .param p1, "action"    # Ljava/lang/Runnable;
 
     .line 230
@@ -318,7 +318,7 @@
 .end method
 
 .method public setExitAction(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
     .param p1, "action"    # Ljava/lang/Runnable;
 
     .line 250

@@ -72,7 +72,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 48
     new-instance v0, Lcom/google/common/collect/ImmutableRangeMap;
@@ -95,7 +95,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableList;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -124,7 +124,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/common/collect/ImmutableRangeMap;)Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/collect/ImmutableRangeMap;
 
     .line 46
@@ -134,7 +134,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/collect/ImmutableRangeMap$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K::",
@@ -156,7 +156,7 @@
 .end method
 
 .method public static copyOf(Lcom/google/common/collect/RangeMap;)Lcom/google/common/collect/ImmutableRangeMap;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K::",
@@ -175,7 +175,7 @@
     .local p0, "rangeMap":Lcom/google/common/collect/RangeMap;, "Lcom/google/common/collect/RangeMap<TK;+TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/ImmutableRangeMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 70
     move-object v0, p0
@@ -185,7 +185,7 @@
     return-object v0
 
     .line 72
-    :cond_0
+    :cond_8
     invoke-interface {p0}, Lcom/google/common/collect/RangeMap;->asMapOfRanges()Ljava/util/Map;
 
     move-result-object v0
@@ -220,12 +220,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_26
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_43
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -252,10 +252,10 @@
 
     .line 78
     .end local v4    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lcom/google/common/collect/Range<TK;>;+TV;>;"
-    goto :goto_0
+    goto :goto_26
 
     .line 79
-    :cond_1
+    :cond_43
     new-instance v3, Lcom/google/common/collect/ImmutableRangeMap;
 
     invoke-virtual {v1}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
@@ -272,7 +272,7 @@
 .end method
 
 .method public static of()Lcom/google/common/collect/ImmutableRangeMap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K::",
@@ -292,7 +292,7 @@
 .end method
 
 .method public static of(Lcom/google/common/collect/Range;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableRangeMap;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K::",
@@ -328,7 +328,7 @@
 
 # virtual methods
 .method public asDescendingMapOfRanges()Lcom/google/common/collect/ImmutableMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -346,7 +346,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 287
     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->of()Lcom/google/common/collect/ImmutableMap;
@@ -356,7 +356,7 @@
     return-object v0
 
     .line 289
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/collect/RegularImmutableSortedSet;
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeMap;->ranges:Lcom/google/common/collect/ImmutableList;
@@ -392,7 +392,7 @@
 .end method
 
 .method public bridge synthetic asDescendingMapOfRanges()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap;, "Lcom/google/common/collect/ImmutableRangeMap<TK;TV;>;"
@@ -404,7 +404,7 @@
 .end method
 
 .method public asMapOfRanges()Lcom/google/common/collect/ImmutableMap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -422,7 +422,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 277
     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->of()Lcom/google/common/collect/ImmutableMap;
@@ -432,7 +432,7 @@
     return-object v0
 
     .line 279
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/google/common/collect/RegularImmutableSortedSet;
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeMap;->ranges:Lcom/google/common/collect/ImmutableList;
@@ -456,7 +456,7 @@
 .end method
 
 .method public bridge synthetic asMapOfRanges()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap;, "Lcom/google/common/collect/ImmutableRangeMap<TK;TV;>;"
@@ -468,7 +468,7 @@
 .end method
 
 .method public final clear()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -482,7 +482,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -492,7 +492,7 @@
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap;, "Lcom/google/common/collect/ImmutableRangeMap<TK;TV;>;"
     instance-of v0, p1, Lcom/google/common/collect/RangeMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 363
     move-object v0, p1
@@ -517,14 +517,14 @@
 
     .line 366
     .end local v0    # "rangeMap":Lcom/google/common/collect/RangeMap;, "Lcom/google/common/collect/RangeMap<**>;"
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public get(Ljava/lang/Comparable;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -564,13 +564,13 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     .line 174
     return-object v2
 
     .line 176
-    :cond_0
+    :cond_17
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeMap;->ranges:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v1, v0}, Lcom/google/common/collect/ImmutableList;->get(I)Ljava/lang/Object;
@@ -585,7 +585,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2b
 
     iget-object v2, p0, Lcom/google/common/collect/ImmutableRangeMap;->values:Lcom/google/common/collect/ImmutableList;
 
@@ -593,12 +593,12 @@
 
     move-result-object v2
 
-    :cond_1
+    :cond_2b
     return-object v2
 .end method
 
 .method public getEntry(Ljava/lang/Comparable;)Ljava/util/Map$Entry;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -641,13 +641,13 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     .line 192
     return-object v2
 
     .line 194
-    :cond_0
+    :cond_17
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeMap;->ranges:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v1, v0}, Lcom/google/common/collect/ImmutableList;->get(I)Ljava/lang/Object;
@@ -662,7 +662,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2f
 
     iget-object v2, p0, Lcom/google/common/collect/ImmutableRangeMap;->values:Lcom/google/common/collect/ImmutableList;
 
@@ -674,12 +674,12 @@
 
     move-result-object v2
 
-    :cond_1
+    :cond_2f
     return-object v2
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 357
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap;, "Lcom/google/common/collect/ImmutableRangeMap<TK;TV;>;"
@@ -695,7 +695,7 @@
 .end method
 
 .method public final put(Lcom/google/common/collect/Range;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -719,7 +719,7 @@
 .end method
 
 .method public final putAll(Lcom/google/common/collect/RangeMap;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -742,7 +742,7 @@
 .end method
 
 .method public final putCoalescing(Lcom/google/common/collect/Range;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -766,7 +766,7 @@
 .end method
 
 .method public final remove(Lcom/google/common/collect/Range;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -789,7 +789,7 @@
 .end method
 
 .method public span()Lcom/google/common/collect/Range;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -806,7 +806,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     .line 204
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeMap;->ranges:Lcom/google/common/collect/ImmutableList;
@@ -852,7 +852,7 @@
     .line 202
     .end local v0    # "firstRange":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TK;>;"
     .end local v1    # "lastRange":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TK;>;"
-    :cond_0
+    :cond_2a
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -861,7 +861,7 @@
 .end method
 
 .method public subRangeMap(Lcom/google/common/collect/Range;)Lcom/google/common/collect/ImmutableRangeMap;
-    .locals 11
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -885,7 +885,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 297
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeMap;->of()Lcom/google/common/collect/ImmutableRangeMap;
@@ -895,14 +895,14 @@
     return-object v0
 
     .line 298
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeMap;->ranges:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_63
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeMap;->span()Lcom/google/common/collect/Range;
 
@@ -912,12 +912,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
-    goto :goto_0
+    goto :goto_63
 
     .line 301
-    :cond_1
+    :cond_24
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeMap;->ranges:Lcom/google/common/collect/ImmutableList;
 
     .line 304
@@ -958,7 +958,7 @@
 
     .line 315
     .local v1, "upperIndex":I
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_4b
 
     .line 316
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeMap;->of()Lcom/google/common/collect/ImmutableRangeMap;
@@ -968,7 +968,7 @@
     return-object v2
 
     .line 318
-    :cond_2
+    :cond_4b
     move v2, v0
 
     .line 319
@@ -1012,13 +1012,13 @@
     .end local v3    # "len":I
     .end local v6    # "subRanges":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<Lcom/google/common/collect/Range<TK;>;>;"
     .end local v9    # "outer":Lcom/google/common/collect/ImmutableRangeMap;, "Lcom/google/common/collect/ImmutableRangeMap<TK;TV;>;"
-    :cond_3
-    :goto_0
+    :cond_63
+    :goto_63
     return-object p0
 .end method
 
 .method public bridge synthetic subRangeMap(Lcom/google/common/collect/Range;)Lcom/google/common/collect/RangeMap;
-    .locals 0
+    .registers 2
 
     .line 43
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap;, "Lcom/google/common/collect/ImmutableRangeMap<TK;TV;>;"
@@ -1030,7 +1030,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 371
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap;, "Lcom/google/common/collect/ImmutableRangeMap<TK;TV;>;"
@@ -1046,7 +1046,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 406
     .local p0, "this":Lcom/google/common/collect/ImmutableRangeMap;, "Lcom/google/common/collect/ImmutableRangeMap<TK;TV;>;"

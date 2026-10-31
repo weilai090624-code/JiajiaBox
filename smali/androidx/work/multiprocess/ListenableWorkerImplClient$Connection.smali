@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 178
     const-string v0, "ListenableWorkerImplSession"
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 182
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public onBindingDied(Landroid/content/ComponentName;)V
-    .locals 3
+    .registers 5
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .line 204
@@ -97,7 +97,7 @@
 .end method
 
 .method public onNullBinding(Landroid/content/ComponentName;)V
-    .locals 4
+    .registers 6
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .line 210
@@ -143,7 +143,7 @@
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 3
+    .registers 6
     .param p1, "componentName"    # Landroid/content/ComponentName;
     .param p2, "iBinder"    # Landroid/os/IBinder;
 
@@ -177,7 +177,7 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 3
+    .registers 5
     .param p1, "componentName"    # Landroid/content/ComponentName;
 
     .line 198

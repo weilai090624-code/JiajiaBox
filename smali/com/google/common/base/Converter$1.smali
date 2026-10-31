@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Converter;Ljava/lang/Iterable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/base/Converter;
 
     .line 275
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

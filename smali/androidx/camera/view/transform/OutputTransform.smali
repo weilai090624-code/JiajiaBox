@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Matrix;Landroid/util/Size;)V
-    .locals 0
+    .registers 3
     .param p1, "matrix"    # Landroid/graphics/Matrix;
     .param p2, "viewPortSize"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method getMatrix()Landroid/graphics/Matrix;
-    .locals 1
+    .registers 2
 
     .line 63
     iget-object v0, p0, Landroidx/camera/view/transform/OutputTransform;->mMatrix:Landroid/graphics/Matrix;
@@ -50,7 +50,7 @@
 .end method
 
 .method getViewPortSize()Landroid/util/Size;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Landroidx/camera/view/transform/OutputTransform;->mViewPortSize:Landroid/util/Size;

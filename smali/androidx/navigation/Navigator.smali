@@ -88,7 +88,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -107,18 +107,18 @@
 .end method
 
 .method protected final getState()Landroidx/navigation/NavigatorState;
-    .locals 2
+    .registers 3
 
     .line 68
     iget-object v0, p0, Landroidx/navigation/Navigator;->_state:Landroidx/navigation/NavigatorState;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 70
     return-object v0
 
     .line 68
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     .line 69
@@ -141,7 +141,7 @@
 .end method
 
 .method public final isAttached()Z
-    .locals 1
+    .registers 2
 
     .line 77
     iget-boolean v0, p0, Landroidx/navigation/Navigator;->isAttached:Z
@@ -150,7 +150,7 @@
 .end method
 
 .method public navigate(Landroidx/navigation/NavDestination;Landroid/os/Bundle;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)Landroidx/navigation/NavDestination;
-    .locals 1
+    .registers 6
     .param p1, "destination"    # Landroidx/navigation/NavDestination;
     .param p2, "args"    # Landroid/os/Bundle;
     .param p3, "navOptions"    # Landroidx/navigation/NavOptions;
@@ -175,7 +175,7 @@
 .end method
 
 .method public navigate(Ljava/util/List;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)V
-    .locals 7
+    .registers 11
     .param p1, "entries"    # Ljava/util/List;
     .param p2, "navOptions"    # Landroidx/navigation/NavOptions;
     .param p3, "navigatorExtras"    # Landroidx/navigation/Navigator$Extras;
@@ -228,12 +228,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_20
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_37
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -261,10 +261,10 @@
     .end local v3    # "element$iv":Ljava/lang/Object;
     .end local v4    # "backStackEntry":Landroidx/navigation/NavBackStackEntry;
     .end local v5    # "$i$a$-forEach-Navigator$navigate$2":I
-    goto :goto_0
+    goto :goto_20
 
     .line 243
-    :cond_0
+    :cond_37
     nop
 
     .line 134
@@ -274,7 +274,7 @@
 .end method
 
 .method public onAttach(Landroidx/navigation/NavigatorState;)V
-    .locals 1
+    .registers 3
     .param p1, "state"    # Landroidx/navigation/NavigatorState;
 
     const-string/jumbo v0, "state"
@@ -294,7 +294,7 @@
 .end method
 
 .method public onLaunchSingleTop(Landroidx/navigation/NavBackStackEntry;)V
-    .locals 3
+    .registers 5
     .param p1, "backStackEntry"    # Landroidx/navigation/NavBackStackEntry;
 
     const-string v0, "backStackEntry"
@@ -310,21 +310,21 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move-object v0, v2
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_10
+    if-nez v0, :cond_13
 
     return-void
 
     .line 145
     .local v0, "destination":Landroidx/navigation/NavDestination;
-    :cond_1
+    :cond_13
     sget-object v1, Landroidx/navigation/Navigator$onLaunchSingleTop$1;->INSTANCE:Landroidx/navigation/Navigator$onLaunchSingleTop$1;
 
     check-cast v1, Lkotlin/jvm/functions/Function1;
@@ -347,7 +347,7 @@
 .end method
 
 .method public onRestoreState(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
     .param p1, "savedState"    # Landroid/os/Bundle;
 
     const-string v0, "savedState"
@@ -359,7 +359,7 @@
 .end method
 
 .method public onSaveState()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 220
     const/4 v0, 0x0
@@ -368,7 +368,7 @@
 .end method
 
 .method public popBackStack(Landroidx/navigation/NavBackStackEntry;Z)V
-    .locals 4
+    .registers 7
     .param p1, "popUpTo"    # Landroidx/navigation/NavBackStackEntry;
     .param p2, "savedState"    # Z
 
@@ -397,7 +397,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_40
 
     .line 189
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -414,18 +414,18 @@
 
     .line 192
     .local v2, "lastPoppedEntry":Landroidx/navigation/NavBackStackEntry;
-    :cond_0
+    :cond_22
     invoke-virtual {p0}, Landroidx/navigation/Navigator;->popBackStack()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_29
 
     .line 194
-    goto :goto_0
+    goto :goto_36
 
     .line 196
-    :cond_1
+    :cond_29
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
 
     move-result-object v3
@@ -439,11 +439,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     .line 198
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_36
+    if-eqz v2, :cond_3f
 
     .line 199
     invoke-virtual {p0}, Landroidx/navigation/Navigator;->getState()Landroidx/navigation/NavigatorState;
@@ -453,13 +453,13 @@
     invoke-virtual {v3, v2, p2}, Landroidx/navigation/NavigatorState;->pop(Landroidx/navigation/NavBackStackEntry;Z)V
 
     .line 201
-    :cond_2
+    :cond_3f
     return-void
 
     .line 186
     .end local v1    # "iterator":Ljava/util/ListIterator;
     .end local v2    # "lastPoppedEntry":Landroidx/navigation/NavBackStackEntry;
-    :cond_3
+    :cond_40
     const/4 v1, 0x0
 
     .line 187
@@ -506,7 +506,7 @@
 .end method
 
 .method public popBackStack()Z
-    .locals 1
+    .registers 2
 
     .line 213
     const/4 v0, 0x1

@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "startVersion"    # I
     .param p2, "endVersion"    # I
 

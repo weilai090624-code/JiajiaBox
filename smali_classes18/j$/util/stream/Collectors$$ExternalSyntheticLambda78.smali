@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public final get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     invoke-static {}, Lj$/util/stream/Collectors;->lambda$summingLong$22()[J
 

@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/zxing/pdf417/decoder/BoundingBox;)V
-    .locals 2
+    .registers 4
     .param p1, "boundingBox"    # Lcom/google/zxing/pdf417/decoder/BoundingBox;
 
     .line 31
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method final getBoundingBox()Lcom/google/zxing/pdf417/decoder/BoundingBox;
-    .locals 1
+    .registers 2
 
     .line 73
     iget-object v0, p0, Lcom/google/zxing/pdf417/decoder/DetectionResultColumn;->boundingBox:Lcom/google/zxing/pdf417/decoder/BoundingBox;
@@ -61,7 +61,7 @@
 .end method
 
 .method final getCodeword(I)Lcom/google/zxing/pdf417/decoder/Codeword;
-    .locals 2
+    .registers 4
     .param p1, "imageRow"    # I
 
     .line 69
@@ -77,7 +77,7 @@
 .end method
 
 .method final getCodewordNearby(I)Lcom/google/zxing/pdf417/decoder/Codeword;
-    .locals 5
+    .registers 7
     .param p1, "imageRow"    # I
 
     .line 37
@@ -91,22 +91,22 @@
     .local v1, "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     move-object v1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 39
     return-object v1
 
     .line 41
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
     .local v0, "i":I
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_b
     const/4 v3, 0x5
 
-    if-ge v0, v3, :cond_3
+    if-ge v0, v3, :cond_34
 
     .line 42
     invoke-virtual {p0, p1}, Lcom/google/zxing/pdf417/decoder/DetectionResultColumn;->imageRowToCodewordIndex(I)I
@@ -119,7 +119,7 @@
     .local v2, "nearImageRow":I
     move v2, v3
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_1e
 
     .line 44
     iget-object v3, p0, Lcom/google/zxing/pdf417/decoder/DetectionResultColumn;->codewords:[Lcom/google/zxing/pdf417/decoder/Codeword;
@@ -129,13 +129,13 @@
     .line 45
     move-object v1, v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1e
 
     .line 46
     return-object v1
 
     .line 49
-    :cond_1
+    :cond_1e
     invoke-virtual {p0, p1}, Lcom/google/zxing/pdf417/decoder/DetectionResultColumn;->imageRowToCodewordIndex(I)I
 
     move-result v3
@@ -149,7 +149,7 @@
 
     array-length v4, v4
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_31
 
     .line 51
     iget-object v3, p0, Lcom/google/zxing/pdf417/decoder/DetectionResultColumn;->codewords:[Lcom/google/zxing/pdf417/decoder/Codeword;
@@ -159,28 +159,28 @@
     .line 52
     move-object v1, v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_31
 
     .line 53
     return-object v1
 
     .line 41
     .end local v2    # "nearImageRow":I
-    :cond_2
+    :cond_31
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 57
     .end local v0    # "i":I
-    :cond_3
+    :cond_34
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method final getCodewords()[Lcom/google/zxing/pdf417/decoder/Codeword;
-    .locals 1
+    .registers 2
 
     .line 77
     iget-object v0, p0, Lcom/google/zxing/pdf417/decoder/DetectionResultColumn;->codewords:[Lcom/google/zxing/pdf417/decoder/Codeword;
@@ -189,7 +189,7 @@
 .end method
 
 .method final imageRowToCodewordIndex(I)I
-    .locals 1
+    .registers 3
     .param p1, "imageRow"    # I
 
     .line 61
@@ -205,7 +205,7 @@
 .end method
 
 .method final setCodeword(ILcom/google/zxing/pdf417/decoder/Codeword;)V
-    .locals 2
+    .registers 5
     .param p1, "imageRow"    # I
     .param p2, "codeword"    # Lcom/google/zxing/pdf417/decoder/Codeword;
 
@@ -223,7 +223,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 13
+    .registers 14
 
     .line 82
     new-instance v0, Ljava/util/Formatter;
@@ -236,7 +236,7 @@
 
     .line 84
     .local v1, "row":I
-    :try_start_0
+    :try_start_6
     iget-object v2, p0, Lcom/google/zxing/pdf417/decoder/DetectionResultColumn;->codewords:[Lcom/google/zxing/pdf417/decoder/Codeword;
 
     array-length v3, v2
@@ -247,8 +247,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-ge v6, v3, :cond_1
+    :goto_c
+    if-ge v6, v3, :cond_4e
 
     aget-object v7, v2, v6
 
@@ -258,7 +258,7 @@
 
     const/4 v8, 0x1
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_25
 
     .line 86
     const-string v7, "%3d:    |   %n"
@@ -280,12 +280,12 @@
     .line 87
     move v1, v9
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 89
     .end local v9    # "row":I
     .restart local v1    # "row":I
-    :cond_0
+    :cond_25
     const-string v7, "%3d: %3d|%3d%n"
 
     add-int/lit8 v9, v1, 0x1
@@ -332,18 +332,18 @@
     .end local v5    # "codeword":Lcom/google/zxing/pdf417/decoder/Codeword;
     .end local v9    # "row":I
     .restart local v1    # "row":I
-    :goto_1
+    :goto_4b
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 91
-    :cond_1
+    :cond_4e
     invoke-virtual {v0}, Ljava/util/Formatter;->toString()Ljava/lang/String;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_52
+    .catchall {:try_start_6 .. :try_end_52} :catchall_56
 
     .line 92
     invoke-virtual {v0}, Ljava/util/Formatter;->close()V
@@ -353,32 +353,32 @@
 
     .line 82
     .end local v1    # "row":I
-    :catchall_0
+    :catchall_56
     move-exception v1
 
     .end local v0    # "formatter":Ljava/util/Formatter;
-    :try_start_1
+    :try_start_57
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_58
+    .catchall {:try_start_57 .. :try_end_58} :catchall_58
 
     .line 92
     .restart local v0    # "formatter":Ljava/util/Formatter;
-    :catchall_1
+    :catchall_58
     move-exception v2
 
-    :try_start_2
+    :try_start_59
     invoke-virtual {v0}, Ljava/util/Formatter;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_5c
+    .catchall {:try_start_59 .. :try_end_5c} :catchall_5d
 
-    goto :goto_2
+    goto :goto_61
 
-    :catchall_2
+    :catchall_5d
     move-exception v3
 
     invoke-virtual {v1, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_2
+    :goto_61
     throw v2
 .end method

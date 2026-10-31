@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 89
     new-instance v0, Landroidx/work/multiprocess/parcelable/ParcelableRuntimeExtras$1;
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 10
+    .registers 12
     .param p1, "in"    # Landroid/os/Parcel;
 
     .line 51
@@ -64,7 +64,7 @@
 
     .line 56
     .local v2, "hasNetwork":Z
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 57
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -76,7 +76,7 @@
     check-cast v1, Landroid/net/Network;
 
     .line 60
-    :cond_0
+    :cond_19
     const/4 v3, 0x0
 
     .line 61
@@ -87,7 +87,7 @@
 
     .line 62
     .local v4, "hasContentUris":Z
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3a
 
     .line 63
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
@@ -109,8 +109,8 @@
 
     const/4 v7, 0x0
 
-    :goto_0
-    if-ge v7, v6, :cond_1
+    :goto_2d
+    if-ge v7, v6, :cond_3a
 
     aget-object v8, v5, v7
 
@@ -126,11 +126,11 @@
     .end local v8    # "parcelable":Landroid/os/Parcelable;
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 70
     .end local v5    # "parceledUris":[Landroid/os/Parcelable;
-    :cond_1
+    :cond_3a
     const/4 v5, 0x0
 
     .line 71
@@ -141,7 +141,7 @@
 
     .line 72
     .local v6, "hasContentAuthorities":Z
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_45
 
     .line 73
     invoke-virtual {p1}, Landroid/os/Parcel;->createStringArrayList()Ljava/util/ArrayList;
@@ -149,7 +149,7 @@
     move-result-object v5
 
     .line 75
-    :cond_2
+    :cond_45
     new-instance v7, Landroidx/work/WorkerParameters$RuntimeExtras;
 
     invoke-direct {v7}, Landroidx/work/WorkerParameters$RuntimeExtras;-><init>()V
@@ -161,7 +161,7 @@
 
     const/16 v8, 0x1c
 
-    if-lt v7, v8, :cond_3
+    if-lt v7, v8, :cond_56
 
     .line 77
     iget-object v7, p0, Landroidx/work/multiprocess/parcelable/ParcelableRuntimeExtras;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
@@ -169,15 +169,15 @@
     iput-object v1, v7, Landroidx/work/WorkerParameters$RuntimeExtras;->network:Landroid/net/Network;
 
     .line 79
-    :cond_3
+    :cond_56
     sget v7, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v8, 0x18
 
-    if-lt v7, v8, :cond_5
+    if-lt v7, v8, :cond_68
 
     .line 80
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_62
 
     .line 81
     iget-object v7, p0, Landroidx/work/multiprocess/parcelable/ParcelableRuntimeExtras;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
@@ -185,8 +185,8 @@
     iput-object v3, v7, Landroidx/work/WorkerParameters$RuntimeExtras;->triggeredContentUris:Ljava/util/List;
 
     .line 83
-    :cond_4
-    if-eqz v5, :cond_5
+    :cond_62
+    if-eqz v5, :cond_68
 
     .line 84
     iget-object v7, p0, Landroidx/work/multiprocess/parcelable/ParcelableRuntimeExtras;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
@@ -194,12 +194,12 @@
     iput-object v5, v7, Landroidx/work/WorkerParameters$RuntimeExtras;->triggeredContentAuthorities:Ljava/util/List;
 
     .line 87
-    :cond_5
+    :cond_68
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/work/WorkerParameters$RuntimeExtras;)V
-    .locals 0
+    .registers 2
     .param p1, "runtimeExtras"    # Landroidx/work/WorkerParameters$RuntimeExtras;
 
     .line 46
@@ -215,7 +215,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 105
     const/4 v0, 0x0
@@ -224,7 +224,7 @@
 .end method
 
 .method public getRuntimeExtras()Landroidx/work/WorkerParameters$RuntimeExtras;
-    .locals 1
+    .registers 2
 
     .line 149
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableRuntimeExtras;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
@@ -233,7 +233,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 10
+    .registers 13
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
@@ -246,7 +246,7 @@
 
     const/16 v2, 0x1c
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_b
 
     .line 113
     iget-object v1, p0, Landroidx/work/multiprocess/parcelable/ParcelableRuntimeExtras;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
@@ -254,33 +254,33 @@
     iget-object v0, v1, Landroidx/work/WorkerParameters$RuntimeExtras;->network:Landroid/net/Network;
 
     .line 116
-    :cond_0
+    :cond_b
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_1
+    :cond_11
     const/4 v3, 0x0
 
     .line 117
     .local v3, "hasNetwork":Z
-    :goto_0
+    :goto_12
     invoke-static {p1, v3}, Landroidx/work/multiprocess/parcelable/ParcelUtils;->writeBooleanValue(Landroid/os/Parcel;Z)V
 
     .line 118
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1a
 
     .line 119
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
     .line 122
-    :cond_2
+    :cond_1a
     const/4 v4, 0x0
 
     .line 123
@@ -293,7 +293,7 @@
 
     const/16 v7, 0x18
 
-    if-lt v6, v7, :cond_3
+    if-lt v6, v7, :cond_2a
 
     .line 125
     iget-object v6, p0, Landroidx/work/multiprocess/parcelable/ParcelableRuntimeExtras;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
@@ -306,29 +306,29 @@
     iget-object v5, v6, Landroidx/work/WorkerParameters$RuntimeExtras;->triggeredContentAuthorities:Ljava/util/List;
 
     .line 129
-    :cond_3
-    if-eqz v4, :cond_4
+    :cond_2a
+    if-eqz v4, :cond_34
 
     invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_34
 
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_35
 
-    :cond_4
+    :cond_34
     const/4 v6, 0x0
 
     .line 130
     .local v6, "hasContentUris":Z
-    :goto_1
+    :goto_35
     invoke-static {p1, v6}, Landroidx/work/multiprocess/parcelable/ParcelUtils;->writeBooleanValue(Landroid/os/Parcel;Z)V
 
     .line 131
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_52
 
     .line 132
     invoke-interface {v4}, Ljava/util/List;->size()I
@@ -342,10 +342,10 @@
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_2
+    :goto_41
     array-length v9, v7
 
-    if-ge v8, v9, :cond_5
+    if-ge v8, v9, :cond_4f
 
     .line 134
     invoke-interface {v4, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -359,44 +359,44 @@
     .line 133
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2
+    goto :goto_41
 
     .line 136
     .end local v8    # "i":I
-    :cond_5
+    :cond_4f
     invoke-virtual {p1, v7, p2}, Landroid/os/Parcel;->writeParcelableArray([Landroid/os/Parcelable;I)V
 
     .line 139
     .end local v7    # "contentUriArray":[Landroid/net/Uri;
-    :cond_6
-    if-eqz v5, :cond_7
+    :cond_52
+    if-eqz v5, :cond_5c
 
     .line 140
     invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
 
     move-result v7
 
-    if-nez v7, :cond_7
+    if-nez v7, :cond_5c
 
     const/4 v1, 0x1
 
-    goto :goto_3
+    goto :goto_5d
 
-    :cond_7
+    :cond_5c
     nop
 
     .line 141
     .local v1, "hasContentAuthorities":Z
-    :goto_3
+    :goto_5d
     invoke-static {p1, v1}, Landroidx/work/multiprocess/parcelable/ParcelUtils;->writeBooleanValue(Landroid/os/Parcel;Z)V
 
     .line 142
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_65
 
     .line 143
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
     .line 145
-    :cond_8
+    :cond_65
     return-void
 .end method

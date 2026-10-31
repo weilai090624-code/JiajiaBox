@@ -126,7 +126,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/room/AutoCloser;)V
-    .locals 1
+    .registers 3
     .param p1, "autoCloser"    # Landroidx/room/AutoCloser;
 
     const-string v0, "autoCloser"
@@ -146,7 +146,7 @@
 
 # virtual methods
 .method public beginTransaction()V
-    .locals 3
+    .registers 4
 
     .line 91
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -160,16 +160,16 @@
     nop
 
     .line 93
-    :try_start_0
+    :try_start_7
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransaction()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_7 .. :try_end_a} :catchall_b
 
     .line 100
     return-void
 
     .line 94
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     .line 97
@@ -183,7 +183,7 @@
 .end method
 
 .method public beginTransactionNonExclusive()V
-    .locals 3
+    .registers 4
 
     .line 105
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -197,16 +197,16 @@
     nop
 
     .line 107
-    :try_start_0
+    :try_start_7
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransactionNonExclusive()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_7 .. :try_end_a} :catchall_b
 
     .line 114
     return-void
 
     .line 108
-    :catchall_0
+    :catchall_b
     move-exception v1
 
     .line 111
@@ -220,7 +220,7 @@
 .end method
 
 .method public beginTransactionWithListener(Landroid/database/sqlite/SQLiteTransactionListener;)V
-    .locals 3
+    .registers 5
     .param p1, "transactionListener"    # Landroid/database/sqlite/SQLiteTransactionListener;
 
     const-string/jumbo v0, "transactionListener"
@@ -239,16 +239,16 @@
     nop
 
     .line 121
-    :try_start_0
+    :try_start_d
     invoke-interface {v0, p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransactionWithListener(Landroid/database/sqlite/SQLiteTransactionListener;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_d .. :try_end_10} :catchall_11
 
     .line 128
     return-void
 
     .line 122
-    :catchall_0
+    :catchall_11
     move-exception v1
 
     .line 125
@@ -262,7 +262,7 @@
 .end method
 
 .method public beginTransactionWithListenerNonExclusive(Landroid/database/sqlite/SQLiteTransactionListener;)V
-    .locals 3
+    .registers 5
     .param p1, "transactionListener"    # Landroid/database/sqlite/SQLiteTransactionListener;
 
     const-string/jumbo v0, "transactionListener"
@@ -281,16 +281,16 @@
     nop
 
     .line 138
-    :try_start_0
+    :try_start_d
     invoke-interface {v0, p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransactionWithListenerNonExclusive(Landroid/database/sqlite/SQLiteTransactionListener;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_d .. :try_end_10} :catchall_11
 
     .line 145
     return-void
 
     .line 139
-    :catchall_0
+    :catchall_11
     move-exception v1
 
     .line 142
@@ -304,7 +304,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -321,7 +321,7 @@
 .end method
 
 .method public compileStatement(Ljava/lang/String;)Landroidx/sqlite/db/SupportSQLiteStatement;
-    .locals 2
+    .registers 4
     .param p1, "sql"    # Ljava/lang/String;
 
     const-string/jumbo v0, "sql"
@@ -341,7 +341,7 @@
 .end method
 
 .method public delete(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)I
-    .locals 2
+    .registers 6
     .param p1, "table"    # Ljava/lang/String;
     .param p2, "whereClause"    # Ljava/lang/String;
     .param p3, "whereArgs"    # [Ljava/lang/Object;
@@ -373,7 +373,7 @@
 .end method
 
 .method public disableWriteAheadLogging()V
-    .locals 2
+    .registers 3
 
     .line 377
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -390,7 +390,7 @@
 .end method
 
 .method public enableWriteAheadLogging()Z
-    .locals 2
+    .registers 3
 
     .line 370
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -407,7 +407,7 @@
 .end method
 
 .method public endTransaction()V
-    .locals 2
+    .registers 3
 
     .line 148
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -416,13 +416,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 151
     nop
 
     .line 152
-    :try_start_0
+    :try_start_9
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
 
     invoke-virtual {v0}, Landroidx/room/AutoCloser;->getDelegateDatabase$room_runtime_release()Landroidx/sqlite/db/SupportSQLiteDatabase;
@@ -432,8 +432,8 @@
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->endTransaction()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_9 .. :try_end_15} :catchall_1c
 
     .line 154
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -447,7 +447,7 @@
     return-void
 
     .line 154
-    :catchall_0
+    :catchall_1c
     move-exception v0
 
     iget-object v1, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -457,7 +457,7 @@
     throw v0
 
     .line 148
-    :cond_0
+    :cond_23
     const/4 v0, 0x0
 
     .line 149
@@ -480,7 +480,7 @@
 .end method
 
 .method public synthetic execPerConnectionSQL(Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/sqlite/db/SupportSQLiteDatabase$-CC;->$default$execPerConnectionSQL(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -488,7 +488,7 @@
 .end method
 
 .method public execSQL(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "sql"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -516,7 +516,7 @@
 .end method
 
 .method public execSQL(Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "sql"    # Ljava/lang/String;
     .param p2, "bindArgs"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
@@ -549,7 +549,7 @@
 .end method
 
 .method public getAttachedDbs()Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -579,7 +579,7 @@
 .end method
 
 .method public getMaximumSize()J
-    .locals 2
+    .registers 3
 
     .line 205
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -605,7 +605,7 @@
 .end method
 
 .method public getPageSize()J
-    .locals 2
+    .registers 3
 
     .line 216
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -628,7 +628,7 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 341
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -648,7 +648,7 @@
 .end method
 
 .method public getVersion()I
-    .locals 2
+    .registers 3
 
     .line 194
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -674,7 +674,7 @@
 .end method
 
 .method public inTransaction()Z
-    .locals 2
+    .registers 3
 
     .line 165
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -683,15 +683,15 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 166
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 168
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
 
     sget-object v1, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase$inTransaction$1;->INSTANCE:Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase$inTransaction$1;
@@ -709,12 +709,12 @@
     move-result v0
 
     .line 165
-    :goto_0
+    :goto_1a
     return v0
 .end method
 
 .method public insert(Ljava/lang/String;ILandroid/content/ContentValues;)J
-    .locals 2
+    .registers 6
     .param p1, "table"    # Ljava/lang/String;
     .param p2, "conflictAlgorithm"    # I
     .param p3, "values"    # Landroid/content/ContentValues;
@@ -755,7 +755,7 @@
 .end method
 
 .method public isDatabaseIntegrityOk()Z
-    .locals 2
+    .registers 3
 
     .line 398
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -779,7 +779,7 @@
 .end method
 
 .method public isDbLockedByCurrentThread()Z
-    .locals 2
+    .registers 3
 
     .line 173
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -788,15 +788,15 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 174
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 176
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
 
     .line 177
@@ -816,12 +816,12 @@
     move-result v0
 
     .line 179
-    :goto_0
+    :goto_1a
     return v0
 .end method
 
 .method public synthetic isExecPerConnectionSQLSupported()Z
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Landroidx/sqlite/db/SupportSQLiteDatabase$-CC;->$default$isExecPerConnectionSQLSupported(Landroidx/sqlite/db/SupportSQLiteDatabase;)Z
 
@@ -831,7 +831,7 @@
 .end method
 
 .method public isOpen()Z
-    .locals 2
+    .registers 3
 
     .line 328
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -840,7 +840,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x0
 
@@ -848,7 +848,7 @@
 
     .line 329
     .local v0, "localDelegate":Landroidx/sqlite/db/SupportSQLiteDatabase;
-    :cond_0
+    :cond_a
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->isOpen()Z
 
     move-result v1
@@ -857,7 +857,7 @@
 .end method
 
 .method public isReadOnly()Z
-    .locals 2
+    .registers 3
 
     .line 320
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -881,7 +881,7 @@
 .end method
 
 .method public isWriteAheadLoggingEnabled()Z
-    .locals 2
+    .registers 3
 
     .line 385
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -905,7 +905,7 @@
 .end method
 
 .method public needUpgrade(I)Z
-    .locals 2
+    .registers 4
     .param p1, "newVersion"    # I
 
     .line 333
@@ -931,7 +931,7 @@
 .end method
 
 .method public final pokeOpen()V
-    .locals 2
+    .registers 3
 
     .line 81
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -947,7 +947,7 @@
 .end method
 
 .method public query(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroid/database/Cursor;
-    .locals 3
+    .registers 5
     .param p1, "query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
 
     const-string v0, "query"
@@ -958,7 +958,7 @@
     nop
 
     .line 246
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
 
     invoke-virtual {v0}, Landroidx/room/AutoCloser;->incrementCountAndEnsureDbIsOpen()Landroidx/sqlite/db/SupportSQLiteDatabase;
@@ -968,8 +968,8 @@
     invoke-interface {v0, p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroid/database/Cursor;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_6 .. :try_end_10} :catchall_1b
 
     .line 245
     nop
@@ -988,7 +988,7 @@
 
     .line 247
     .end local v0    # "result":Landroid/database/Cursor;
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     .line 248
@@ -1002,7 +1002,7 @@
 .end method
 
 .method public query(Landroidx/sqlite/db/SupportSQLiteQuery;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 3
+    .registers 6
     .param p1, "query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .param p2, "cancellationSignal"    # Landroid/os/CancellationSignal;
 
@@ -1014,7 +1014,7 @@
     nop
 
     .line 260
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
 
     invoke-virtual {v0}, Landroidx/room/AutoCloser;->incrementCountAndEnsureDbIsOpen()Landroidx/sqlite/db/SupportSQLiteDatabase;
@@ -1024,8 +1024,8 @@
     invoke-interface {v0, p1, p2}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_6 .. :try_end_10} :catchall_1b
 
     .line 259
     nop
@@ -1044,7 +1044,7 @@
 
     .line 261
     .end local v0    # "result":Landroid/database/Cursor;
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     .line 262
@@ -1058,7 +1058,7 @@
 .end method
 
 .method public query(Ljava/lang/String;)Landroid/database/Cursor;
-    .locals 3
+    .registers 5
     .param p1, "query"    # Ljava/lang/String;
 
     const-string v0, "query"
@@ -1069,7 +1069,7 @@
     nop
 
     .line 226
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
 
     invoke-virtual {v0}, Landroidx/room/AutoCloser;->incrementCountAndEnsureDbIsOpen()Landroidx/sqlite/db/SupportSQLiteDatabase;
@@ -1079,8 +1079,8 @@
     invoke-interface {v0, p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_6 .. :try_end_10} :catchall_1b
 
     .line 225
     nop
@@ -1099,7 +1099,7 @@
 
     .line 227
     .end local v0    # "result":Landroid/database/Cursor;
-    :catchall_0
+    :catchall_1b
     move-exception v0
 
     .line 228
@@ -1113,7 +1113,7 @@
 .end method
 
 .method public query(Ljava/lang/String;[Ljava/lang/Object;)Landroid/database/Cursor;
-    .locals 3
+    .registers 6
     .param p1, "query"    # Ljava/lang/String;
     .param p2, "bindArgs"    # [Ljava/lang/Object;
 
@@ -1129,7 +1129,7 @@
     nop
 
     .line 236
-    :try_start_0
+    :try_start_b
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
 
     invoke-virtual {v0}, Landroidx/room/AutoCloser;->incrementCountAndEnsureDbIsOpen()Landroidx/sqlite/db/SupportSQLiteDatabase;
@@ -1139,8 +1139,8 @@
     invoke-interface {v0, p1, p2}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/Object;)Landroid/database/Cursor;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_b .. :try_end_15} :catchall_20
 
     .line 235
     nop
@@ -1159,7 +1159,7 @@
 
     .line 237
     .end local v0    # "result":Landroid/database/Cursor;
-    :catchall_0
+    :catchall_20
     move-exception v0
 
     .line 238
@@ -1173,7 +1173,7 @@
 .end method
 
 .method public setForeignKeyConstraintsEnabled(Z)V
-    .locals 2
+    .registers 4
     .param p1, "enabled"    # Z
 
     .line 361
@@ -1192,7 +1192,7 @@
 .end method
 
 .method public setLocale(Ljava/util/Locale;)V
-    .locals 2
+    .registers 4
     .param p1, "locale"    # Ljava/util/Locale;
 
     const-string v0, "locale"
@@ -1215,7 +1215,7 @@
 .end method
 
 .method public setMaxSqlCacheSize(I)V
-    .locals 2
+    .registers 4
     .param p1, "cacheSize"    # I
 
     .line 353
@@ -1234,7 +1234,7 @@
 .end method
 
 .method public setMaximumSize(J)J
-    .locals 2
+    .registers 5
     .param p1, "numBytes"    # J
 
     .line 210
@@ -1260,7 +1260,7 @@
 .end method
 
 .method public setPageSize(J)V
-    .locals 2
+    .registers 5
     .param p1, "numBytes"    # J
 
     .line 218
@@ -1279,7 +1279,7 @@
 .end method
 
 .method public setTransactionSuccessful()V
-    .locals 2
+    .registers 3
 
     .line 159
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -1288,25 +1288,25 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->setTransactionSuccessful()V
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_12
 
     .line 162
     return-void
 
     .line 159
-    :cond_1
+    :cond_12
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 160
@@ -1322,7 +1322,7 @@
 .end method
 
 .method public setVersion(I)V
-    .locals 2
+    .registers 4
     .param p1, "version"    # I
 
     .line 198
@@ -1341,7 +1341,7 @@
 .end method
 
 .method public update(Ljava/lang/String;ILandroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/Object;)I
-    .locals 8
+    .registers 14
     .param p1, "table"    # Ljava/lang/String;
     .param p2, "conflictAlgorithm"    # I
     .param p3, "values"    # Landroid/content/ContentValues;
@@ -1391,7 +1391,7 @@
 .end method
 
 .method public yieldIfContendedSafely()Z
-    .locals 2
+    .registers 3
 
     .line 182
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;->autoCloser:Landroidx/room/AutoCloser;
@@ -1416,7 +1416,7 @@
 .end method
 
 .method public yieldIfContendedSafely(J)Z
-    .locals 2
+    .registers 5
     .param p1, "sleepAfterYieldDelayMillis"    # J
 
     .line 188

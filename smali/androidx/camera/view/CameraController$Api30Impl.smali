@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1707
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static createAttributionContext(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Context;
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attributeTag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -49,7 +49,7 @@
 .end method
 
 .method static getAttributionTag(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

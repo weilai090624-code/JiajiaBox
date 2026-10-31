@@ -3,19 +3,19 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#e02f3540" />
+            <solid android:color="#b3262a30" />
             <corners android:radius="16.0dip" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <gradient android:startColor="#3cffffff" android:endColor="#00ffffff" android:angle="270.0" android:type="linear" />
+            <gradient android:startColor="#2effffff" android:endColor="#00ffffff" android:angle="270.0" android:type="linear" />
             <corners android:radius="16.0dip" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <gradient android:startColor="#278a94a0" android:endColor="#008a94a0" android:angle="90.0" android:type="linear" />
+            <gradient android:startColor="#1f8a94a0" android:endColor="#008a94a0" android:angle="90.0" android:type="linear" />
             <corners android:radius="16.0dip" />
         </shape>
     </item>
@@ -23,7 +23,7 @@
         <shape android:shape="rectangle">
             <solid android:color="#00000000" />
             <corners android:radius="16.0dip" />
-            <stroke android:width="1.0dip" android:color="#837a8494" />
+            <stroke android:width="1.0dip" android:color="#667a8494" />
         </shape>
     </item>
 </layer-list>

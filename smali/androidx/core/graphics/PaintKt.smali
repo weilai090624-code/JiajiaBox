@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final setBlendMode(Landroid/graphics/Paint;Landroidx/core/graphics/BlendModeCompat;)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$setBlendMode"    # Landroid/graphics/Paint;
     .param p1, "blendModeCompat"    # Landroidx/core/graphics/BlendModeCompat;
 

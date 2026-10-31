@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method public static areSplashScreensSupported(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "version"    # Ljava/lang/String;
@@ -57,16 +57,16 @@
 
     .line 130
     .local v1, "resolveInfo":Landroid/content/pm/ResolveInfo;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_27
 
     iget-object v2, v1, Landroid/content/pm/ResolveInfo;->filter:Landroid/content/IntentFilter;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_20
 
-    goto :goto_0
+    goto :goto_27
 
     .line 131
-    :cond_0
+    :cond_20
     iget-object v2, v1, Landroid/content/pm/ResolveInfo;->filter:Landroid/content/IntentFilter;
 
     invoke-virtual {v2, p2}, Landroid/content/IntentFilter;->hasCategory(Ljava/lang/String;)Z
@@ -76,15 +76,15 @@
     return v2
 
     .line 130
-    :cond_1
-    :goto_0
+    :cond_27
+    :goto_27
     const/4 v2, 0x0
 
     return v2
 .end method
 
 .method public static launchAsTrustedWebActivity(Landroid/content/Context;Landroidx/browser/customtabs/CustomTabsIntent;Landroid/net/Uri;)V
-    .locals 3
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "customTabsIntent"    # Landroidx/browser/customtabs/CustomTabsIntent;
     .param p2, "uri"    # Landroid/net/Uri;
@@ -106,7 +106,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 183
     iget-object v0, p1, Landroidx/browser/customtabs/CustomTabsIntent;->intent:Landroid/content/Intent;
@@ -124,7 +124,7 @@
     return-void
 
     .line 180
-    :cond_0
+    :cond_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Given CustomTabsIntent should be associated with a valid CustomTabsSession"
@@ -135,7 +135,7 @@
 .end method
 
 .method public static launchBrowserSiteSettings(Landroid/content/Context;Landroidx/browser/customtabs/CustomTabsSession;Landroid/net/Uri;)V
-    .locals 4
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "session"    # Landroidx/browser/customtabs/CustomTabsSession;
     .param p2, "uri"    # Landroid/net/Uri;
@@ -187,7 +187,7 @@
 
     .line 104
     .local v2, "id":Landroid/app/PendingIntent;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_31
 
     .line 105
     const-string v3, "android.support.customtabs.extra.SESSION_ID"
@@ -195,7 +195,7 @@
     invoke-virtual {v0, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     .line 107
-    :cond_0
+    :cond_31
     invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     .line 108
@@ -203,7 +203,7 @@
 .end method
 
 .method public static transferSplashImage(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Landroidx/browser/customtabs/CustomTabsSession;)Z
-    .locals 3
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "file"    # Ljava/io/File;
     .param p2, "fileProviderAuthority"    # Ljava/lang/String;

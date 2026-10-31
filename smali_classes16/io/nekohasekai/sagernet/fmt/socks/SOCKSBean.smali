@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 104
     new-instance v0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean$1;
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;-><init>()V
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Lio/nekohasekai/sagernet/fmt/AbstractBean;
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->clone()Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
@@ -68,7 +68,7 @@
 .end method
 
 .method public clone()Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
-    .locals 2
+    .registers 3
 
     .line 101
     new-instance v0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
@@ -89,7 +89,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -105,7 +105,7 @@
 .end method
 
 .method public deserialize(Lcom/esotericsoftware/kryo/io/ByteBufferInput;)V
-    .locals 2
+    .registers 4
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/ByteBufferInput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -128,7 +128,7 @@
     .line 88
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_14
 
     .line 89
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readInt()I
@@ -142,7 +142,7 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->protocol:Ljava/lang/Integer;
 
     .line 91
-    :cond_0
+    :cond_14
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -159,7 +159,7 @@
     .line 93
     const/4 v1, 0x2
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_2d
 
     .line 94
     invoke-virtual {p1}, Lcom/esotericsoftware/kryo/io/ByteBufferInput;->readBoolean()Z
@@ -173,12 +173,12 @@
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->sUoT:Ljava/lang/Boolean;
 
     .line 96
-    :cond_1
+    :cond_2d
     return-void
 .end method
 
 .method public initializeDefaultValues()V
-    .locals 2
+    .registers 3
 
     .line 66
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->initializeDefaultValues()V
@@ -186,7 +186,7 @@
     .line 68
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->protocol:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x2
 
@@ -197,28 +197,28 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->protocol:Ljava/lang/Integer;
 
     .line 69
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->username:Ljava/lang/String;
 
     const-string v1, ""
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->username:Ljava/lang/String;
 
     .line 70
-    :cond_1
+    :cond_16
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->password:Ljava/lang/String;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1c
 
     iput-object v1, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->password:Ljava/lang/String;
 
     .line 71
-    :cond_2
+    :cond_1c
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->sUoT:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_27
 
     const/4 v0, 0x0
 
@@ -229,12 +229,12 @@
     iput-object v0, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->sUoT:Ljava/lang/Boolean;
 
     .line 72
-    :cond_3
+    :cond_27
     return-void
 .end method
 
 .method public network()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 60
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->protocol:Ljava/lang/Integer;
@@ -245,14 +245,14 @@
 
     const/4 v1, 0x2
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const-string v0, "tcp"
 
     return-object v0
 
     .line 61
-    :cond_0
+    :cond_c
     invoke-super {p0}, Lio/nekohasekai/sagernet/fmt/AbstractBean;->network()Ljava/lang/String;
 
     move-result-object v0
@@ -261,7 +261,7 @@
 .end method
 
 .method public protocolName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 30
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->protocol:Ljava/lang/Integer;
@@ -270,7 +270,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_12
 
     .line 36
     const-string v0, "SOCKS5"
@@ -278,26 +278,26 @@
     return-object v0
 
     .line 34
-    :pswitch_0
+    :pswitch_c
     const-string v0, "SOCKS4A"
 
     return-object v0
 
     .line 32
-    :pswitch_1
+    :pswitch_f
     const-string v0, "SOCKS4"
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_12
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_f
+        :pswitch_c
     .end packed-switch
 .end method
 
 .method public protocolVersion()I
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->protocol:Ljava/lang/Integer;
@@ -306,7 +306,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_e
 
     .line 25
     const/4 v0, 0x5
@@ -314,22 +314,22 @@
     return v0
 
     .line 23
-    :pswitch_0
+    :pswitch_b
     const/4 v0, 0x4
 
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_e
     .packed-switch 0x0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_b
+        :pswitch_b
     .end packed-switch
 .end method
 
 .method public protocolVersionName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->protocol:Ljava/lang/Integer;
@@ -338,7 +338,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_12
 
     .line 47
     const-string v0, "5"
@@ -346,26 +346,26 @@
     return-object v0
 
     .line 45
-    :pswitch_0
+    :pswitch_c
     const-string v0, "4a"
 
     return-object v0
 
     .line 43
-    :pswitch_1
+    :pswitch_f
     const-string v0, "4"
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_12
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_f
+        :pswitch_c
     .end packed-switch
 .end method
 
 .method public serialize(Lcom/esotericsoftware/kryo/io/ByteBufferOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/ByteBufferOutput;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

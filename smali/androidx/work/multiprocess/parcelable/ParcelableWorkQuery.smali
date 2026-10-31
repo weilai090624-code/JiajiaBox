@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 87
     new-instance v0, Landroidx/work/multiprocess/parcelable/ParcelableWorkQuery$1;
@@ -37,7 +37,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 7
+    .registers 9
     .param p1, "parcel"    # Landroid/os/Parcel;
 
     .line 51
@@ -56,7 +56,7 @@
 
     .line 55
     .local v1, "length":I
-    if-lez v1, :cond_0
+    if-lez v1, :cond_24
 
     .line 56
     new-instance v2, Ljava/util/ArrayList;
@@ -69,8 +69,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_14
+    if-ge v2, v1, :cond_24
 
     .line 58
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -86,11 +86,11 @@
     .line 57
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
     .line 62
     .end local v2    # "i":I
-    :cond_0
+    :cond_24
     invoke-virtual {p1}, Landroid/os/Parcel;->createStringArrayList()Ljava/util/ArrayList;
 
     move-result-object v2
@@ -114,7 +114,7 @@
     move-result v1
 
     .line 68
-    if-lez v1, :cond_1
+    if-lez v1, :cond_4d
 
     .line 69
     new-instance v5, Ljava/util/ArrayList;
@@ -127,8 +127,8 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_1
-    if-ge v5, v1, :cond_1
+    :goto_3d
+    if-ge v5, v1, :cond_4d
 
     .line 71
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -144,11 +144,11 @@
     .line 70
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 75
     .end local v5    # "i":I
-    :cond_1
+    :cond_4d
     invoke-static {v0}, Landroidx/work/WorkQuery$Builder;->fromIds(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
 
     move-result-object v5
@@ -180,7 +180,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/WorkQuery;)V
-    .locals 0
+    .registers 2
     .param p1, "workQuery"    # Landroidx/work/WorkQuery;
 
     .line 47
@@ -196,7 +196,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 102
     const/4 v0, 0x0
@@ -205,7 +205,7 @@
 .end method
 
 .method public getWorkQuery()Landroidx/work/WorkQuery;
-    .locals 1
+    .registers 2
 
     .line 84
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkQuery;->mWorkQuery:Landroidx/work/WorkQuery;
@@ -214,7 +214,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 7
+    .registers 10
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
@@ -238,19 +238,19 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2b
 
     .line 111
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_17
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -268,10 +268,10 @@
 
     .line 113
     .end local v2    # "id":Ljava/util/UUID;
-    goto :goto_0
+    goto :goto_17
 
     .line 116
-    :cond_0
+    :cond_2b
     iget-object v1, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkQuery;->mWorkQuery:Landroidx/work/WorkQuery;
 
     invoke-virtual {v1}, Landroidx/work/WorkQuery;->getUniqueWorkNames()Ljava/util/List;
@@ -313,19 +313,19 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_68
 
     .line 125
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :goto_1
+    :goto_54
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_68
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -343,9 +343,9 @@
 
     .line 127
     .end local v5    # "state":Landroidx/work/WorkInfo$State;
-    goto :goto_1
+    goto :goto_54
 
     .line 129
-    :cond_1
+    :cond_68
     return-void
 .end method

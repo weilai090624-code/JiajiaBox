@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 72
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_Toolbar:I
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 93
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 7
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -165,7 +165,7 @@
 
     const/4 v3, -0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2d
 
     .line 110
     sget v2, Lcom/google/android/material/R$styleable;->MaterialToolbar_navigationIconTint:I
@@ -177,7 +177,7 @@
     invoke-virtual {p0, v2}, Lcom/google/android/material/appbar/MaterialToolbar;->setNavigationIconTint(I)V
 
     .line 113
-    :cond_0
+    :cond_2d
     sget v2, Lcom/google/android/material/R$styleable;->MaterialToolbar_titleCentered:I
 
     invoke-virtual {v1, v2, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -204,13 +204,13 @@
 
     .line 117
     .local v2, "index":I
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_50
 
     sget-object v3, Lcom/google/android/material/appbar/MaterialToolbar;->LOGO_SCALE_TYPE_ARRAY:[Landroid/widget/ImageView$ScaleType;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_50
 
     .line 118
     sget-object v3, Lcom/google/android/material/appbar/MaterialToolbar;->LOGO_SCALE_TYPE_ARRAY:[Landroid/widget/ImageView$ScaleType;
@@ -220,14 +220,14 @@
     iput-object v3, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoScaleType:Landroid/widget/ImageView$ScaleType;
 
     .line 121
-    :cond_1
+    :cond_50
     sget v3, Lcom/google/android/material/R$styleable;->MaterialToolbar_logoAdjustViewBounds:I
 
     invoke-virtual {v1, v3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_64
 
     .line 122
     sget v3, Lcom/google/android/material/R$styleable;->MaterialToolbar_logoAdjustViewBounds:I
@@ -243,7 +243,7 @@
     iput-object v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoAdjustViewBounds:Ljava/lang/Boolean;
 
     .line 125
-    :cond_2
+    :cond_64
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 127
@@ -254,7 +254,7 @@
 .end method
 
 .method private calculateTitleBoundLimits(Landroid/widget/TextView;Landroid/widget/TextView;)Landroid/util/Pair;
-    .locals 8
+    .registers 11
     .param p1, "titleTextView"    # Landroid/widget/TextView;
     .param p2, "subtitleTextView"    # Landroid/widget/TextView;
     .annotation system Ldalvik/annotation/Signature;
@@ -298,12 +298,12 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
+    :goto_11
     invoke-virtual {p0}, Lcom/google/android/material/appbar/MaterialToolbar;->getChildCount()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_2
+    if-ge v4, v5, :cond_4a
 
     .line 169
     invoke-virtual {p0, v4}, Lcom/google/android/material/appbar/MaterialToolbar;->getChildAt(I)Landroid/view/View;
@@ -318,24 +318,24 @@
 
     const/16 v7, 0x8
 
-    if-eq v6, v7, :cond_1
+    if-eq v6, v7, :cond_47
 
-    if-eq v5, p1, :cond_1
+    if-eq v5, p1, :cond_47
 
-    if-eq v5, p2, :cond_1
+    if-eq v5, p2, :cond_47
 
     .line 171
     invoke-virtual {v5}, Landroid/view/View;->getRight()I
 
     move-result v6
 
-    if-ge v6, v1, :cond_0
+    if-ge v6, v1, :cond_37
 
     invoke-virtual {v5}, Landroid/view/View;->getRight()I
 
     move-result v6
 
-    if-le v6, v2, :cond_0
+    if-le v6, v2, :cond_37
 
     .line 172
     invoke-virtual {v5}, Landroid/view/View;->getRight()I
@@ -343,18 +343,18 @@
     move-result v2
 
     .line 174
-    :cond_0
+    :cond_37
     invoke-virtual {v5}, Landroid/view/View;->getLeft()I
 
     move-result v6
 
-    if-le v6, v1, :cond_1
+    if-le v6, v1, :cond_47
 
     invoke-virtual {v5}, Landroid/view/View;->getLeft()I
 
     move-result v6
 
-    if-ge v6, v3, :cond_1
+    if-ge v6, v3, :cond_47
 
     .line 175
     invoke-virtual {v5}, Landroid/view/View;->getLeft()I
@@ -363,14 +363,14 @@
 
     .line 168
     .end local v5    # "child":Landroid/view/View;
-    :cond_1
+    :cond_47
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 180
     .end local v4    # "i":I
-    :cond_2
+    :cond_4a
     new-instance v4, Landroid/util/Pair;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -387,7 +387,7 @@
 .end method
 
 .method private initBackground(Landroid/content/Context;)V
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
 
     .line 365
@@ -397,24 +397,24 @@
 
     .line 366
     .local v0, "background":Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     instance-of v1, v0, Landroid/graphics/drawable/ColorDrawable;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
     .line 367
     return-void
 
     .line 369
-    :cond_0
+    :cond_b
     new-instance v1, Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     invoke-direct {v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;-><init>()V
 
     .line 371
     .local v1, "materialShapeDrawable":Lcom/google/android/material/shape/MaterialShapeDrawable;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     move-object v2, v0
 
@@ -424,14 +424,14 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v2, 0x0
 
     .line 372
     .local v2, "backgroundColor":I
-    :goto_0
+    :goto_1b
     invoke-static {v2}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v3
@@ -456,7 +456,7 @@
 .end method
 
 .method private layoutTitleCenteredHorizontally(Landroid/view/View;Landroid/util/Pair;)V
-    .locals 9
+    .registers 12
     .param p1, "titleView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -535,7 +535,7 @@
 
     .line 195
     .local v6, "overlap":I
-    if-lez v6, :cond_0
+    if-lez v6, :cond_43
 
     .line 196
     add-int/2addr v2, v6
@@ -565,7 +565,7 @@
     invoke-virtual {p1, v7, v8}, Landroid/view/View;->measure(II)V
 
     .line 204
-    :cond_0
+    :cond_43
     invoke-virtual {p1}, Landroid/view/View;->getTop()I
 
     move-result v7
@@ -581,22 +581,22 @@
 .end method
 
 .method private maybeCenterTitleViews()V
-    .locals 4
+    .registers 5
 
     .line 139
     iget-boolean v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->titleCentered:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     iget-boolean v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->subtitleCentered:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 140
     return-void
 
     .line 143
-    :cond_0
+    :cond_9
     invoke-static {p0}, Lcom/google/android/material/internal/ToolbarUtils;->getTitleTextView(Landroidx/appcompat/widget/Toolbar;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -609,15 +609,15 @@
 
     .line 145
     .local v1, "subtitleTextView":Landroid/widget/TextView;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_16
 
     .line 146
     return-void
 
     .line 149
-    :cond_1
+    :cond_16
     nop
 
     .line 150
@@ -629,39 +629,39 @@
     .local v2, "titleBoundLimits":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     iget-boolean v3, p0, Lcom/google/android/material/appbar/MaterialToolbar;->titleCentered:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_24
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_24
 
     .line 153
     invoke-direct {p0, v0, v2}, Lcom/google/android/material/appbar/MaterialToolbar;->layoutTitleCenteredHorizontally(Landroid/view/View;Landroid/util/Pair;)V
 
     .line 156
-    :cond_2
+    :cond_24
     iget-boolean v3, p0, Lcom/google/android/material/appbar/MaterialToolbar;->subtitleCentered:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2d
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2d
 
     .line 157
     invoke-direct {p0, v1, v2}, Lcom/google/android/material/appbar/MaterialToolbar;->layoutTitleCenteredHorizontally(Landroid/view/View;Landroid/util/Pair;)V
 
     .line 159
-    :cond_3
+    :cond_2d
     return-void
 .end method
 
 .method private maybeTintNavigationIcon(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 4
     .param p1, "navigationIcon"    # Landroid/graphics/drawable/Drawable;
 
     .line 380
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     iget-object v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->navigationIconTint:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 381
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
@@ -687,12 +687,12 @@
 
     .line 385
     .end local v0    # "wrappedNavigationIcon":Landroid/graphics/drawable/Drawable;
-    :cond_0
+    :cond_18
     return-object p1
 .end method
 
 .method private updateLogoImageView()V
-    .locals 2
+    .registers 3
 
     .line 208
     invoke-static {p0}, Lcom/google/android/material/internal/ToolbarUtils;->getLogoImageView(Landroidx/appcompat/widget/Toolbar;)Landroid/widget/ImageView;
@@ -701,12 +701,12 @@
 
     .line 210
     .local v0, "logoImageView":Landroid/widget/ImageView;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 211
     iget-object v1, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoAdjustViewBounds:Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 212
     iget-object v1, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoAdjustViewBounds:Ljava/lang/Boolean;
@@ -718,10 +718,10 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAdjustViewBounds(Z)V
 
     .line 214
-    :cond_0
+    :cond_13
     iget-object v1, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoScaleType:Landroid/widget/ImageView$ScaleType;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     .line 215
     iget-object v1, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoScaleType:Landroid/widget/ImageView$ScaleType;
@@ -729,14 +729,14 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     .line 218
-    :cond_1
+    :cond_1c
     return-void
 .end method
 
 
 # virtual methods
 .method public clearNavigationIconTint()V
-    .locals 3
+    .registers 4
 
     .line 296
     const/4 v0, 0x0
@@ -750,7 +750,7 @@
 
     .line 298
     .local v1, "navigationIcon":Landroid/graphics/drawable/Drawable;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 299
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
@@ -770,12 +770,12 @@
 
     .line 303
     .end local v2    # "wrappedNavigationIcon":Landroid/graphics/drawable/Drawable;
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public getLogoScaleType()Landroid/widget/ImageView$ScaleType;
-    .locals 1
+    .registers 2
 
     .line 227
     iget-object v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoScaleType:Landroid/widget/ImageView$ScaleType;
@@ -784,7 +784,7 @@
 .end method
 
 .method public getNavigationIconTint()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 313
     iget-object v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->navigationIconTint:Ljava/lang/Integer;
@@ -793,12 +793,12 @@
 .end method
 
 .method public isLogoAdjustViewBounds()Z
-    .locals 1
+    .registers 2
 
     .line 244
     iget-object v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoAdjustViewBounds:Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoAdjustViewBounds:Ljava/lang/Boolean;
 
@@ -806,21 +806,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public isSubtitleCentered()Z
-    .locals 1
+    .registers 2
 
     .line 361
     iget-boolean v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->subtitleCentered:Z
@@ -829,7 +829,7 @@
 .end method
 
 .method public isTitleCentered()Z
-    .locals 1
+    .registers 2
 
     .line 337
     iget-boolean v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->titleCentered:Z
@@ -838,7 +838,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 0
+    .registers 1
 
     .line 257
     invoke-super {p0}, Landroidx/appcompat/widget/Toolbar;->onAttachedToWindow()V
@@ -851,7 +851,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 0
+    .registers 6
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -872,7 +872,7 @@
 .end method
 
 .method public setElevation(F)V
-    .locals 0
+    .registers 2
     .param p1, "elevation"    # F
 
     .line 265
@@ -886,13 +886,13 @@
 .end method
 
 .method public setLogoAdjustViewBounds(Z)V
-    .locals 1
+    .registers 3
     .param p1, "logoAdjustViewBounds"    # Z
 
     .line 249
     iget-object v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoAdjustViewBounds:Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoAdjustViewBounds:Ljava/lang/Boolean;
 
@@ -900,10 +900,10 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_15
 
     .line 250
-    :cond_0
+    :cond_c
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -914,18 +914,18 @@
     invoke-virtual {p0}, Lcom/google/android/material/appbar/MaterialToolbar;->requestLayout()V
 
     .line 253
-    :cond_1
+    :cond_15
     return-void
 .end method
 
 .method public setLogoScaleType(Landroid/widget/ImageView$ScaleType;)V
-    .locals 1
+    .registers 3
     .param p1, "logoScaleType"    # Landroid/widget/ImageView$ScaleType;
 
     .line 232
     iget-object v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoScaleType:Landroid/widget/ImageView$ScaleType;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 233
     iput-object p1, p0, Lcom/google/android/material/appbar/MaterialToolbar;->logoScaleType:Landroid/widget/ImageView$ScaleType;
@@ -934,12 +934,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/appbar/MaterialToolbar;->requestLayout()V
 
     .line 236
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setNavigationIcon(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 272
@@ -954,7 +954,7 @@
 .end method
 
 .method public setNavigationIconTint(I)V
-    .locals 1
+    .registers 3
     .param p1, "navigationIconTint"    # I
 
     .line 281
@@ -971,24 +971,24 @@
 
     .line 283
     .local v0, "navigationIcon":Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 285
     invoke-virtual {p0, v0}, Lcom/google/android/material/appbar/MaterialToolbar;->setNavigationIcon(Landroid/graphics/drawable/Drawable;)V
 
     .line 287
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public setSubtitleCentered(Z)V
-    .locals 1
+    .registers 3
     .param p1, "subtitleCentered"    # Z
 
     .line 348
     iget-boolean v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->subtitleCentered:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 349
     iput-boolean p1, p0, Lcom/google/android/material/appbar/MaterialToolbar;->subtitleCentered:Z
@@ -997,18 +997,18 @@
     invoke-virtual {p0}, Lcom/google/android/material/appbar/MaterialToolbar;->requestLayout()V
 
     .line 352
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setTitleCentered(Z)V
-    .locals 1
+    .registers 3
     .param p1, "titleCentered"    # Z
 
     .line 324
     iget-boolean v0, p0, Lcom/google/android/material/appbar/MaterialToolbar;->titleCentered:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 325
     iput-boolean p1, p0, Lcom/google/android/material/appbar/MaterialToolbar;->titleCentered:Z
@@ -1017,6 +1017,6 @@
     invoke-virtual {p0}, Lcom/google/android/material/appbar/MaterialToolbar;->requestLayout()V
 
     .line 328
-    :cond_0
+    :cond_9
     return-void
 .end method

@@ -22,9 +22,10 @@
 .method constructor <init>(Landroid/content/Context;)V
     .registers 2
 
-    .line 84
+    .line 426
     invoke-direct {p0, p1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
+    .line 427
     new-instance p1, Landroid/graphics/Rect;
 
     invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
@@ -39,49 +40,50 @@
 .method protected onMeasure(II)V
     .registers 8
 
-    .line 85
+    .line 432
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->visible:Landroid/graphics/Rect;
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->getWindowVisibleDisplayFrame(Landroid/graphics/Rect;)V
 
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->visible:Landroid/graphics/Rect;
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
-
-    move-result v0
-
-    if-lez v0, :cond_14
-
-    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->visible:Landroid/graphics/Rect;
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
-
-    move-result v0
-
-    goto :goto_1e
-
-    :cond_14
-    invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/util/DisplayMetrics;->heightPixels:I
-
-    :goto_1e
+    .line 433
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/high16 v2, 0x42c80000    # 100.0f
+    const/high16 v1, 0x42c80000    # 100.0f
 
-    invoke-static {v1, v2}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->dp(Landroid/content/Context;F)I
+    invoke-static {v0, v1}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->dp(Landroid/content/Context;F)I
+
+    move-result v0
+
+    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->visible:Landroid/graphics/Rect;
+
+    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
 
     move-result v1
 
+    if-lez v1, :cond_1e
+
+    iget-object v1, p0, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->visible:Landroid/graphics/Rect;
+
+    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
+
+    move-result v1
+
+    goto :goto_28
+
+    :cond_1e
+    invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/util/DisplayMetrics;->heightPixels:I
+
+    :goto_28
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/DrawerDesign$MenuScroll;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -114,12 +116,13 @@
 
     move-result v2
 
-    sub-int/2addr v0, v2
+    sub-int/2addr v1, v2
 
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
+    .line 434
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v1

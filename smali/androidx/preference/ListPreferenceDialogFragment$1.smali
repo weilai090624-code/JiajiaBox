@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/ListPreferenceDialogFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/ListPreferenceDialogFragment;
 
     .line 98
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .registers 5
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "which"    # I
 

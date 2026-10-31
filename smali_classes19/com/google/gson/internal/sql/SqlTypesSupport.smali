@@ -37,26 +37,26 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 37
     :try_start_0
     const-string v0, "java.sql.Date"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_5} :catch_7
 
     .line 38
     const/4 v0, 0x1
 
     .line 41
     .local v0, "sqlTypesSupport":Z
-    goto :goto_0
+    goto :goto_a
 
     .line 39
     .end local v0    # "sqlTypesSupport":Z
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 40
@@ -67,13 +67,13 @@
 
     .line 42
     .local v0, "sqlTypesSupport":Z
-    :goto_0
+    :goto_a
     sput-boolean v0, Lcom/google/gson/internal/sql/SqlTypesSupport;->SUPPORTS_SQL_TYPES:Z
 
     .line 44
     sget-boolean v1, Lcom/google/gson/internal/sql/SqlTypesSupport;->SUPPORTS_SQL_TYPES:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2f
 
     .line 45
     new-instance v1, Lcom/google/gson/internal/sql/SqlTypesSupport$1;
@@ -108,10 +108,10 @@
 
     sput-object v1, Lcom/google/gson/internal/sql/SqlTypesSupport;->TIMESTAMP_FACTORY:Lcom/google/gson/TypeAdapterFactory;
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 60
-    :cond_0
+    :cond_2f
     const/4 v1, 0x0
 
     sput-object v1, Lcom/google/gson/internal/sql/SqlTypesSupport;->DATE_DATE_TYPE:Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;
@@ -130,12 +130,12 @@
 
     .line 67
     .end local v0    # "sqlTypesSupport":Z
-    :goto_1
+    :goto_3a
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

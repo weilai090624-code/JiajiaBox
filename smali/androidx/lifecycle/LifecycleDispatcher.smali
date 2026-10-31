@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/lifecycle/LifecycleDispatcher;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 .end method
 
 .method public static final init(Landroid/content/Context;)V
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -93,13 +93,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 38
     return-void
 
     .line 40
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0

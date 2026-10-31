@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 2
     .param p1, "cont"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public synthetic andThen(Ljava/util/function/Function;)Ljava/util/function/BiFunction;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/BiFunction$-CC;->$default$andThen(Ljava/util/function/BiFunction;Ljava/util/function/Function;)Ljava/util/function/BiFunction;
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Ljava/lang/Object;
     .param p2, "p1"    # Ljava/lang/Object;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public apply(Ljava/lang/Object;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 6
     .param p1, "result"    # Ljava/lang/Object;
     .param p2, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
@@ -127,14 +127,14 @@
     .line 187
     iget-object v0, p0, Lkotlinx/coroutines/future/ContinuationHandler;->cont:Lkotlin/coroutines/Continuation;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 188
     .local v0, "cont":Lkotlin/coroutines/Continuation;
-    :cond_0
-    if-nez p2, :cond_1
+    :cond_5
+    if-nez p2, :cond_11
 
     .line 190
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -145,36 +145,36 @@
 
     invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_30
 
     .line 193
-    :cond_1
+    :cond_11
     instance-of v1, p2, Ljava/util/concurrent/CompletionException;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_19
 
     move-object v1, p2
 
     check-cast v1, Ljava/util/concurrent/CompletionException;
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_2
+    :cond_19
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_3
+    :goto_1a
+    if-eqz v1, :cond_22
 
     invoke-virtual {v1}, Ljava/util/concurrent/CompletionException;->getCause()Ljava/lang/Throwable;
 
     move-result-object v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_23
 
-    :cond_3
+    :cond_22
     move-object v1, p2
 
-    :cond_4
+    :cond_23
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {v1}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
@@ -188,6 +188,6 @@
     invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 195
-    :goto_1
+    :goto_30
     return-void
 .end method

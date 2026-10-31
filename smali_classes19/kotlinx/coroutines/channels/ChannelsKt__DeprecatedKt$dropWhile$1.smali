@@ -124,7 +124,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -159,7 +159,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -188,7 +188,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/channels/ProducerScope;
 
@@ -202,7 +202,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -232,7 +232,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -243,7 +243,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_118
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -253,7 +253,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_12
     move-object v1, p0
 
     .local v1, "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
@@ -279,12 +279,12 @@
 
     move-object p1, v2
 
-    goto/16 :goto_7
+    goto/16 :goto_113
 
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
     .end local v3    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_25
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
@@ -308,12 +308,12 @@
 
     move-object v0, p1
 
-    goto/16 :goto_6
+    goto/16 :goto_f5
 
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
     .end local v3    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_37
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
@@ -325,12 +325,12 @@
     .local v2, "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_d0
 
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
     .end local v2    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_41
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
@@ -359,13 +359,13 @@
 
     move-object v0, p1
 
-    goto/16 :goto_2
+    goto/16 :goto_b1
 
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
     .end local v3    # "e":Ljava/lang/Object;
     .end local v5    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_4
+    :pswitch_56
     move-object v1, p0
 
     .restart local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
@@ -391,12 +391,12 @@
 
     move-object v0, p1
 
-    goto :goto_1
+    goto :goto_8f
 
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
     .end local v4    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_5
+    :pswitch_68
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -415,7 +415,7 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_76
     move-object v5, v1
 
     check-cast v5, Lkotlin/coroutines/Continuation;
@@ -434,13 +434,13 @@
 
     move-result-object v5
 
-    if-ne v5, v0, :cond_0
+    if-ne v5, v0, :cond_89
 
     .line 180
     return-object v0
 
     .line 181
-    :cond_0
+    :cond_89
     move-object v8, v0
 
     move-object v0, p1
@@ -458,14 +458,14 @@
     .local v0, "$result":Ljava/lang/Object;
     .local v3, "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
     .restart local v5    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :goto_1
+    :goto_8f
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_db
 
     invoke-interface {v4}, Lkotlinx/coroutines/channels/ChannelIterator;->next()Ljava/lang/Object;
 
@@ -489,13 +489,13 @@
 
     move-result-object v6
 
-    if-ne v6, v1, :cond_1
+    if-ne v6, v1, :cond_ad
 
     .line 180
     return-object v1
 
     .line 182
-    :cond_1
+    :cond_ad
     move-object v8, v4
 
     move-object v4, p1
@@ -506,14 +506,14 @@
 
     .end local p1    # "e":Ljava/lang/Object;
     .local v4, "e":Ljava/lang/Object;
-    :goto_2
+    :goto_b1
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_d5
 
     .line 183
     move-object p1, v3
@@ -535,13 +535,13 @@
     move-result-object p1
 
     .end local v4    # "e":Ljava/lang/Object;
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_cc
 
     .line 180
     return-object v1
 
     .line 183
-    :cond_2
+    :cond_cc
     move-object p1, v0
 
     move-object v0, v1
@@ -557,7 +557,7 @@
     .restart local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
     .restart local v2    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
     .local p1, "$result":Ljava/lang/Object;
-    :goto_3
+    :goto_d0
     move-object v3, v1
 
     move-object v5, v2
@@ -566,7 +566,7 @@
 
     move-object v0, p1
 
-    goto :goto_4
+    goto :goto_db
 
     .line 182
     .end local v1    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
@@ -576,7 +576,7 @@
     .restart local v3    # "this":Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;
     .restart local v4    # "e":Ljava/lang/Object;
     .restart local v5    # "$this$produce":Lkotlinx/coroutines/channels/ProducerScope;
-    :cond_3
+    :cond_d5
     move-object p1, v0
 
     move-object v0, v1
@@ -587,19 +587,19 @@
 
     move-object v4, v6
 
-    goto :goto_0
+    goto :goto_76
 
     .line 187
     .end local v4    # "e":Ljava/lang/Object;
-    :cond_4
-    :goto_4
+    :cond_db
+    :goto_db
     iget-object p1, v3, Lkotlinx/coroutines/channels/ChannelsKt__DeprecatedKt$dropWhile$1;->$this_dropWhile:Lkotlinx/coroutines/channels/ReceiveChannel;
 
     invoke-interface {p1}, Lkotlinx/coroutines/channels/ReceiveChannel;->iterator()Lkotlinx/coroutines/channels/ChannelIterator;
 
     move-result-object p1
 
-    :goto_5
+    :goto_e1
     move-object v2, v3
 
     check-cast v2, Lkotlin/coroutines/Continuation;
@@ -616,27 +616,27 @@
 
     move-result-object v2
 
-    if-ne v2, v1, :cond_5
+    if-ne v2, v1, :cond_f2
 
     .line 180
     return-object v1
 
     .line 187
-    :cond_5
+    :cond_f2
     move-object v8, v2
 
     move-object v2, p1
 
     move-object p1, v8
 
-    :goto_6
+    :goto_f5
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_114
 
     invoke-interface {v2}, Lkotlinx/coroutines/channels/ChannelIterator;->next()Ljava/lang/Object;
 
@@ -661,33 +661,33 @@
     move-result-object p1
 
     .end local p1    # "e":Ljava/lang/Object;
-    if-ne p1, v1, :cond_6
+    if-ne p1, v1, :cond_112
 
     .line 180
     return-object v1
 
     .line 188
-    :cond_6
+    :cond_112
     move-object p1, v2
 
-    :goto_7
-    goto :goto_5
+    :goto_113
+    goto :goto_e1
 
     .line 190
-    :cond_7
+    :cond_114
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_118
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_68
+        :pswitch_56
+        :pswitch_41
+        :pswitch_37
+        :pswitch_25
+        :pswitch_12
     .end packed-switch
 .end method

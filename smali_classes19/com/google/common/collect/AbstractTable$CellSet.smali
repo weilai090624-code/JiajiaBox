@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractTable;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractTable;
 
     .line 132
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 159
     .local p0, "this":Lcom/google/common/collect/AbstractTable$CellSet;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>.CellSet;"
@@ -56,7 +56,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -68,7 +68,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_34
 
     .line 136
     move-object v0, p1
@@ -95,7 +95,7 @@
 
     .line 138
     .local v2, "row":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_32
 
     .line 140
     invoke-interface {v2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -119,28 +119,28 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_32
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_0
+    :cond_32
     nop
 
     .line 138
-    :goto_0
+    :goto_33
     return v1
 
     .line 142
     .end local v0    # "cell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<***>;"
     .end local v2    # "row":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    :cond_1
+    :cond_34
     return v1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -162,7 +162,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 6
+    .registers 8
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -174,7 +174,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_34
 
     .line 148
     move-object v0, p1
@@ -201,7 +201,7 @@
 
     .line 150
     .local v2, "row":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_32
 
     .line 152
     invoke-interface {v2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -225,28 +225,28 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_32
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_0
+    :cond_32
     nop
 
     .line 150
-    :goto_0
+    :goto_33
     return v1
 
     .line 154
     .end local v0    # "cell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<***>;"
     .end local v2    # "row":Ljava/util/Map;, "Ljava/util/Map<TC;TV;>;"
-    :cond_1
+    :cond_34
     return v1
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 169
     .local p0, "this":Lcom/google/common/collect/AbstractTable$CellSet;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>.CellSet;"

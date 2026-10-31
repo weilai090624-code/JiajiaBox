@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/FrameLayout;)V
-    .locals 0
+    .registers 2
     .param p1, "container"    # Landroid/widget/FrameLayout;
 
     .line 33
@@ -16,7 +16,7 @@
 .end method
 
 .method static create(Landroid/view/ViewGroup;)Landroidx/viewpager2/adapter/FragmentViewHolder;
-    .locals 3
+    .registers 4
     .param p0, "parent"    # Landroid/view/ViewGroup;
 
     .line 37
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method getContainer()Landroid/widget/FrameLayout;
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Landroidx/viewpager2/adapter/FragmentViewHolder;->itemView:Landroid/view/View;

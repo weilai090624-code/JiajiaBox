@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 171
     new-instance v0, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate$2;
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;)V
-    .locals 1
+    .registers 3
     .param p1, "spec"    # Lcom/google/android/material/progressindicator/LinearProgressIndicatorSpec;
 
     .line 55
@@ -91,7 +91,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;
 
     .line 36
@@ -101,7 +101,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;
     .param p1, "x1"    # I
 
@@ -112,7 +112,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;)Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;
 
     .line 36
@@ -122,7 +122,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;
     .param p1, "x1"    # Z
 
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;
 
     .line 36
@@ -145,7 +145,7 @@
 .end method
 
 .method private getAnimationFraction()F
-    .locals 1
+    .registers 2
 
     .line 156
     iget v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->animationFraction:F
@@ -154,12 +154,12 @@
 .end method
 
 .method private maybeInitializeAnimators()V
-    .locals 3
+    .registers 4
 
     .line 73
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->animator:Landroid/animation/ObjectAnimator;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2f
 
     .line 75
     sget-object v0, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->ANIMATION_FRACTION:Landroid/util/Property;
@@ -168,7 +168,7 @@
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_30
 
     invoke-static {p0, v0, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
@@ -207,10 +207,10 @@
     invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     .line 90
-    :cond_0
+    :cond_2f
     return-void
 
-    :array_0
+    :array_30
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -218,12 +218,12 @@
 .end method
 
 .method private maybeUpdateSegmentColors()V
-    .locals 4
+    .registers 5
 
     .line 134
     iget-boolean v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->dirtyColors:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3a
 
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->segmentPositions:[F
 
@@ -235,7 +235,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_3a
 
     .line 135
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->segmentColors:[I
@@ -290,12 +290,12 @@
     iput-boolean v3, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->dirtyColors:Z
 
     .line 142
-    :cond_0
+    :cond_3a
     return-void
 .end method
 
 .method private updateSegmentPositions(I)V
-    .locals 5
+    .registers 7
     .param p1, "playtime"    # I
 
     .line 124
@@ -374,12 +374,12 @@
 
 # virtual methods
 .method public cancelAnimatorImmediately()V
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->animator:Landroid/animation/ObjectAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 95
     iget-object v0, p0, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->animator:Landroid/animation/ObjectAnimator;
@@ -387,12 +387,12 @@
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
 
     .line 97
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public invalidateSpecValues()V
-    .locals 0
+    .registers 1
 
     .line 107
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->resetPropertiesForNewStart()V
@@ -402,7 +402,7 @@
 .end method
 
 .method public registerAnimatorsCompleteCallback(Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "callback"    # Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;
 
     .line 113
@@ -410,14 +410,14 @@
 .end method
 
 .method public requestCancelAnimatorAfterCurrentCycle()V
-    .locals 0
+    .registers 1
 
     .line 103
     return-void
 .end method
 
 .method resetPropertiesForNewStart()V
-    .locals 3
+    .registers 4
 
     .line 146
     const/4 v0, 0x1
@@ -457,7 +457,7 @@
 .end method
 
 .method setAnimationFraction(F)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # F
 
     .line 161
@@ -489,7 +489,7 @@
 .end method
 
 .method public startAnimator()V
-    .locals 1
+    .registers 2
 
     .line 66
     invoke-direct {p0}, Lcom/google/android/material/progressindicator/LinearIndeterminateContiguousAnimatorDelegate;->maybeInitializeAnimators()V
@@ -507,7 +507,7 @@
 .end method
 
 .method public unregisterAnimatorsCompleteCallback()V
-    .locals 0
+    .registers 1
 
     .line 118
     return-void

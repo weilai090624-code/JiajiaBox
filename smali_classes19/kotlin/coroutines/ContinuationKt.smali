@@ -58,7 +58,7 @@
 
 # direct methods
 .method private static final Continuation(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;)Lkotlin/coroutines/Continuation;
-    .locals 1
+    .registers 3
     .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p1, "resumeWith"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -98,7 +98,7 @@
 .end method
 
 .method public static final createCoroutine(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 5
     .param p0, "$this$createCoroutine"    # Lkotlin/jvm/functions/Function1;
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -151,7 +151,7 @@
 .end method
 
 .method public static final createCoroutine(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .param p0, "$this$createCoroutine"    # Lkotlin/jvm/functions/Function2;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "completion"    # Lkotlin/coroutines/Continuation;
@@ -207,7 +207,7 @@
 .end method
 
 .method private static final getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 2
+    .registers 2
 
     .line 159
     new-instance v0, Lkotlin/NotImplementedError;
@@ -220,13 +220,13 @@
 .end method
 
 .method public static synthetic getCoroutineContext$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private static final resume(Lkotlin/coroutines/Continuation;Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$resume"    # Lkotlin/coroutines/Continuation;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -256,7 +256,7 @@
 .end method
 
 .method private static final resumeWithException(Lkotlin/coroutines/Continuation;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$resumeWithException"    # Lkotlin/coroutines/Continuation;
     .param p1, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
@@ -296,7 +296,7 @@
 .end method
 
 .method public static final startCoroutine(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$startCoroutine"    # Lkotlin/jvm/functions/Function1;
     .param p1, "completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -347,7 +347,7 @@
 .end method
 
 .method public static final startCoroutine(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
-    .locals 2
+    .registers 5
     .param p0, "$this$startCoroutine"    # Lkotlin/jvm/functions/Function2;
     .param p1, "receiver"    # Ljava/lang/Object;
     .param p2, "completion"    # Lkotlin/coroutines/Continuation;
@@ -401,7 +401,7 @@
 .end method
 
 .method private static final suspendCoroutine(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "block"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -459,7 +459,7 @@
 
     move-result-object v0
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_21
 
     move-object v0, p1
 
@@ -467,6 +467,6 @@
 
     invoke-static {v0}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_0
+    :cond_21
     return-object v3
 .end method

@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Collection;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/Collection;Lcom/google/common/base/Predicates$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/util/Collection;
     .param p2, "x1"    # Lcom/google/common/base/Predicates$1;
 
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/base/ParametricNullness;
         .end annotation
@@ -109,31 +109,31 @@
     invoke-interface {v0, p1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_6} :catch_9
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 575
-    :catch_0
+    :catch_7
     move-exception v0
 
-    goto :goto_0
+    goto :goto_a
 
-    :catch_1
+    :catch_9
     move-exception v0
 
     .line 576
     .local v0, "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_a
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -143,7 +143,7 @@
     .local p0, "this":Lcom/google/common/base/Predicates$InPredicate;, "Lcom/google/common/base/Predicates$InPredicate<TT;>;"
     instance-of v0, p1, Lcom/google/common/base/Predicates$InPredicate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 583
     move-object v0, p1
@@ -164,14 +164,14 @@
 
     .line 586
     .end local v0    # "that":Lcom/google/common/base/Predicates$InPredicate;, "Lcom/google/common/base/Predicates$InPredicate<*>;"
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 591
     .local p0, "this":Lcom/google/common/base/Predicates$InPredicate;, "Lcom/google/common/base/Predicates$InPredicate<TT;>;"
@@ -185,7 +185,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 596
     .local p0, "this":Lcom/google/common/base/Predicates$InPredicate;, "Lcom/google/common/base/Predicates$InPredicate<TT;>;"

@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 42
     const-string v0, "WorkForegroundRunnable"
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/model/WorkSpec;Landroidx/work/ListenableWorker;Landroidx/work/ForegroundUpdater;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 1
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
     .param p3, "worker"    # Landroidx/work/ListenableWorker;
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -121,7 +121,7 @@
 .end method
 
 .method synthetic lambda$run$0$androidx-work-impl-utils-WorkForegroundRunnable(Landroidx/work/impl/utils/futures/SettableFuture;)V
-    .locals 1
+    .registers 3
     .param p1, "foregroundFuture"    # Landroidx/work/impl/utils/futures/SettableFuture;
 
     .line 85
@@ -131,7 +131,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 86
     iget-object v0, p0, Landroidx/work/impl/utils/WorkForegroundRunnable;->mWorker:Landroidx/work/ListenableWorker;
@@ -142,39 +142,39 @@
 
     invoke-virtual {p1, v0}, Landroidx/work/impl/utils/futures/SettableFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
 
-    goto :goto_0
+    goto :goto_16
 
     .line 88
-    :cond_0
+    :cond_12
     const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Landroidx/work/impl/utils/futures/SettableFuture;->cancel(Z)Z
 
     .line 90
-    :goto_0
+    :goto_16
     return-void
 .end method
 
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 76
     iget-object v0, p0, Landroidx/work/impl/utils/WorkForegroundRunnable;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     iget-boolean v0, v0, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1f
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 81
-    :cond_0
+    :cond_d
     invoke-static {}, Landroidx/work/impl/utils/futures/SettableFuture;->create()Landroidx/work/impl/utils/futures/SettableFuture;
 
     move-result-object v0
@@ -213,8 +213,8 @@
 
     .line 77
     .end local v0    # "foregroundFuture":Landroidx/work/impl/utils/futures/SettableFuture;, "Landroidx/work/impl/utils/futures/SettableFuture<Landroidx/work/ForegroundInfo;>;"
-    :cond_1
-    :goto_0
+    :cond_2e
+    :goto_2e
     iget-object v0, p0, Landroidx/work/impl/utils/WorkForegroundRunnable;->mFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
     const/4 v1, 0x0

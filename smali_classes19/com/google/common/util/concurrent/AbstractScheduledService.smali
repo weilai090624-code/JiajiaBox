@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 103
     const-class v0, Lcom/google/common/util/concurrent/AbstractScheduledService;
@@ -50,7 +50,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 296
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic access$400()Ljava/util/logging/Logger;
-    .locals 1
+    .registers 1
 
     .line 102
     sget-object v0, Lcom/google/common/util/concurrent/AbstractScheduledService;->logger:Ljava/util/logging/Logger;
@@ -78,7 +78,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/google/common/util/concurrent/AbstractScheduledService;)Lcom/google/common/util/concurrent/AbstractService;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService;
 
     .line 102
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public final addListener(Lcom/google/common/util/concurrent/Service$Listener;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p1, "listener"    # Lcom/google/common/util/concurrent/Service$Listener;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public final awaitRunning()V
-    .locals 1
+    .registers 2
 
     .line 427
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService;->delegate:Lcom/google/common/util/concurrent/AbstractService;
@@ -116,7 +116,7 @@
 .end method
 
 .method public final awaitRunning(JLjava/util/concurrent/TimeUnit;)V
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Throws;
@@ -135,7 +135,7 @@
 .end method
 
 .method public final awaitTerminated()V
-    .locals 1
+    .registers 2
 
     .line 439
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService;->delegate:Lcom/google/common/util/concurrent/AbstractService;
@@ -147,7 +147,7 @@
 .end method
 
 .method public final awaitTerminated(JLjava/util/concurrent/TimeUnit;)V
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Throws;
@@ -166,7 +166,7 @@
 .end method
 
 .method protected executor()Ljava/util/concurrent/ScheduledExecutorService;
-    .locals 3
+    .registers 4
 
     .line 348
     new-instance v0, Lcom/google/common/util/concurrent/AbstractScheduledService$1ThreadFactoryImpl;
@@ -197,7 +197,7 @@
 .end method
 
 .method public final failureCause()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     .line 405
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService;->delegate:Lcom/google/common/util/concurrent/AbstractService;
@@ -210,7 +210,7 @@
 .end method
 
 .method public final isRunning()Z
-    .locals 1
+    .registers 2
 
     .line 388
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService;->delegate:Lcom/google/common/util/concurrent/AbstractService;
@@ -234,7 +234,7 @@
 .end method
 
 .method protected serviceName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 378
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -249,7 +249,7 @@
 .end method
 
 .method protected shutDown()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -261,7 +261,7 @@
 .end method
 
 .method public final startAsync()Lcom/google/common/util/concurrent/Service;
-    .locals 1
+    .registers 2
 
     .line 412
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService;->delegate:Lcom/google/common/util/concurrent/AbstractService;
@@ -273,7 +273,7 @@
 .end method
 
 .method protected startUp()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -285,7 +285,7 @@
 .end method
 
 .method public final state()Lcom/google/common/util/concurrent/Service$State;
-    .locals 1
+    .registers 2
 
     .line 393
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService;->delegate:Lcom/google/common/util/concurrent/AbstractService;
@@ -298,7 +298,7 @@
 .end method
 
 .method public final stopAsync()Lcom/google/common/util/concurrent/Service;
-    .locals 1
+    .registers 2
 
     .line 420
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService;->delegate:Lcom/google/common/util/concurrent/AbstractService;
@@ -310,7 +310,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 383
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractScheduledService;->serviceName()Ljava/lang/String;

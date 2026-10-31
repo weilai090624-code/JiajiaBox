@@ -264,7 +264,7 @@
     .line 78
     const-string v3, "\u5168\u7403\u8fde\u63a5"
 
-    const/16 v4, 0xe
+    const/16 v4, 0xf
 
     invoke-direct {p0, v3, v4, v0}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
 
@@ -272,7 +272,7 @@
 
     const-string v4, "\u6682\u505c\u81ea\u8f6c \u00b7 \u53cc\u6307\u7f29\u653e"
 
-    const/16 v5, 0xa
+    const/16 v5, 0xb
 
     const/4 v6, 0x0
 
@@ -878,7 +878,7 @@
     :cond_9a
     const-string v2, "\u5f53\u524d\u7cfb\u7edf\u65e0\u6cd5\u52a0\u8f7d 3D \u5730\u7403"
 
-    const/16 v4, 0xb
+    const/16 v4, 0xc
 
     invoke-direct {p0, v2, v4, v3}, Lio/nekohasekai/sagernet/ui/GlobalGlobeCard;->text(Ljava/lang/String;IZ)Landroid/widget/TextView;
 

@@ -200,7 +200,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .registers 15
 
     new-instance v0, Lkotlin/jvm/internal/ClassReference$Companion;
 
@@ -507,12 +507,12 @@
 
     move-result-object v8
 
-    :goto_0
+    :goto_ce
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_f0
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -524,11 +524,11 @@
 
     .end local v7    # "index$iv$iv":I
     .local v10, "index$iv$iv":I
-    if-gez v7, :cond_0
+    if-gez v7, :cond_df
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    :cond_0
+    :cond_df
     move-object v11, v9
 
     check-cast v11, Ljava/lang/Class;
@@ -555,13 +555,13 @@
 
     move v7, v10
 
-    goto :goto_0
+    goto :goto_ce
 
     .line 210
     .end local v9    # "item$iv$iv":Ljava/lang/Object;
     .end local v10    # "index$iv$iv":I
     .local v7, "index$iv$iv":I
-    :cond_1
+    :cond_f0
     nop
 
     .end local v4    # "destination$iv$iv":Ljava/util/Collection;
@@ -898,14 +898,14 @@
 
     move-result-object v7
 
-    :goto_1
+    :goto_21c
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
     const/16 v9, 0x2e
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_272
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -991,11 +991,11 @@
 
     invoke-interface {v10, v11, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_21c
 
     .line 214
     .end local v8    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_272
     move-object v5, v2
 
     check-cast v5, Ljava/util/Map;
@@ -1013,12 +1013,12 @@
 
     move-result-object v5
 
-    :goto_2
+    :goto_27f
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_2b6
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1069,12 +1069,12 @@
 
     invoke-virtual {v2, v8, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_27f
 
     .line 161
     .end local v6    # "arity":I
     .end local v7    # "klass":Ljava/lang/Class;
-    :cond_3
+    :cond_2b6
     nop
 
     .line 132
@@ -1129,12 +1129,12 @@
 
     move-result-object v10
 
-    :goto_3
+    :goto_2da
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_2fe
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1182,11 +1182,11 @@
     .end local v14    # "$i$a$-mapValues-ClassReference$Companion$simpleNames$1":I
     invoke-interface {v4, v12, v13}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_2da
 
     .line 220
     .end local v11    # "element$iv$iv$iv":Ljava/lang/Object;
-    :cond_4
+    :cond_2fe
     nop
 
     .line 216
@@ -1209,7 +1209,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .param p1, "jClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1232,7 +1232,7 @@
 .end method
 
 .method public static final synthetic access$getClassFqNames$cp()Ljava/util/HashMap;
-    .locals 1
+    .registers 1
 
     .line 10
     sget-object v0, Lkotlin/jvm/internal/ClassReference;->classFqNames:Ljava/util/HashMap;
@@ -1241,7 +1241,7 @@
 .end method
 
 .method public static final synthetic access$getFUNCTION_CLASSES$cp()Ljava/util/Map;
-    .locals 1
+    .registers 1
 
     .line 10
     sget-object v0, Lkotlin/jvm/internal/ClassReference;->FUNCTION_CLASSES:Ljava/util/Map;
@@ -1250,7 +1250,7 @@
 .end method
 
 .method public static final synthetic access$getSimpleNames$cp()Ljava/util/Map;
-    .locals 1
+    .registers 1
 
     .line 10
     sget-object v0, Lkotlin/jvm/internal/ClassReference;->simpleNames:Ljava/util/Map;
@@ -1259,7 +1259,7 @@
 .end method
 
 .method private final error()Ljava/lang/Void;
-    .locals 1
+    .registers 2
 
     .line 88
     new-instance v0, Lkotlin/jvm/KotlinReflectionNotSupportedError;
@@ -1270,79 +1270,79 @@
 .end method
 
 .method public static synthetic getSealedSubclasses$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getSupertypes$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getTypeParameters$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getVisibility$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isAbstract$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isCompanion$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isData$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isFinal$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isFun$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isInner$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isOpen$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isSealed$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic isValue$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -1350,13 +1350,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 91
     instance-of v0, p1, Lkotlin/jvm/internal/ClassReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     move-object v0, p0
 
@@ -1378,21 +1378,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method public getAnnotations()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1413,7 +1413,7 @@
 .end method
 
 .method public getConstructors()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1435,7 +1435,7 @@
 .end method
 
 .method public getJClass()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1451,7 +1451,7 @@
 .end method
 
 .method public getMembers()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1472,7 +1472,7 @@
 .end method
 
 .method public getNestedClasses()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1493,7 +1493,7 @@
 .end method
 
 .method public getObjectInstance()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 30
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1506,7 +1506,7 @@
 .end method
 
 .method public getQualifiedName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 15
     sget-object v0, Lkotlin/jvm/internal/ClassReference;->Companion:Lkotlin/jvm/internal/ClassReference$Companion;
@@ -1523,7 +1523,7 @@
 .end method
 
 .method public getSealedSubclasses()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1546,7 +1546,7 @@
 .end method
 
 .method public getSimpleName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 12
     sget-object v0, Lkotlin/jvm/internal/ClassReference;->Companion:Lkotlin/jvm/internal/ClassReference$Companion;
@@ -1563,7 +1563,7 @@
 .end method
 
 .method public getSupertypes()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1584,7 +1584,7 @@
 .end method
 
 .method public getTypeParameters()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1605,7 +1605,7 @@
 .end method
 
 .method public getVisibility()Lkotlin/reflect/KVisibility;
-    .locals 1
+    .registers 2
 
     .line 50
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1618,7 +1618,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 94
     move-object v0, p0
@@ -1637,7 +1637,7 @@
 .end method
 
 .method public isAbstract()Z
-    .locals 1
+    .registers 2
 
     .line 62
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1650,7 +1650,7 @@
 .end method
 
 .method public isCompanion()Z
-    .locals 1
+    .registers 2
 
     .line 78
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1663,7 +1663,7 @@
 .end method
 
 .method public isData()Z
-    .locals 1
+    .registers 2
 
     .line 70
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1676,7 +1676,7 @@
 .end method
 
 .method public isFinal()Z
-    .locals 1
+    .registers 2
 
     .line 54
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1689,7 +1689,7 @@
 .end method
 
 .method public isFun()Z
-    .locals 1
+    .registers 2
 
     .line 82
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1702,7 +1702,7 @@
 .end method
 
 .method public isInner()Z
-    .locals 1
+    .registers 2
 
     .line 74
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1715,7 +1715,7 @@
 .end method
 
 .method public isInstance(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Object;
 
     .line 34
@@ -1733,7 +1733,7 @@
 .end method
 
 .method public isOpen()Z
-    .locals 1
+    .registers 2
 
     .line 58
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1746,7 +1746,7 @@
 .end method
 
 .method public isSealed()Z
-    .locals 1
+    .registers 2
 
     .line 66
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1759,7 +1759,7 @@
 .end method
 
 .method public isValue()Z
-    .locals 1
+    .registers 2
 
     .line 86
     invoke-direct {p0}, Lkotlin/jvm/internal/ClassReference;->error()Ljava/lang/Void;
@@ -1772,7 +1772,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 97
     new-instance v0, Ljava/lang/StringBuilder;

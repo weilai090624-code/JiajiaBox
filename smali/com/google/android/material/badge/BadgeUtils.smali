@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 50
     const/4 v0, 0x0
@@ -22,7 +22,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/badge/BadgeDrawable;
     .param p1, "x1"    # Landroid/view/View;
 
@@ -43,7 +43,7 @@
 .end method
 
 .method private static attachBadgeContentDescription(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p0, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
     .param p1, "view"    # Landroid/view/View;
 
@@ -52,13 +52,13 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_19
 
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->hasAccessibilityDelegate(Landroid/view/View;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 145
     new-instance v0, Lcom/google/android/material/badge/BadgeUtils$2;
@@ -73,10 +73,10 @@
     .line 145
     invoke-static {p1, v0}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 156
-    :cond_0
+    :cond_19
     new-instance v0, Lcom/google/android/material/badge/BadgeUtils$3;
 
     invoke-direct {v0, p0}, Lcom/google/android/material/badge/BadgeUtils$3;-><init>(Lcom/google/android/material/badge/BadgeDrawable;)V
@@ -84,12 +84,12 @@
     invoke-static {p1, v0}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
 
     .line 167
-    :goto_0
+    :goto_21
     return-void
 .end method
 
 .method public static attachBadgeDrawable(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
     .param p1, "anchor"    # Landroid/view/View;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public static attachBadgeDrawable(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;Landroid/widget/FrameLayout;)V
-    .locals 2
+    .registers 5
     .param p0, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
     .param p1, "anchor"    # Landroid/view/View;
     .param p2, "customBadgeParent"    # Landroid/widget/FrameLayout;
@@ -116,7 +116,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 94
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->getCustomBadgeParent()Landroid/widget/FrameLayout;
@@ -125,13 +125,13 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/FrameLayout;->setForeground(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 96
-    :cond_0
+    :cond_11
     sget-boolean v0, Lcom/google/android/material/badge/BadgeUtils;->USE_COMPAT_PARENT:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1d
 
     .line 99
     invoke-virtual {p1}, Landroid/view/View;->getOverlay()Landroid/view/ViewOverlay;
@@ -141,11 +141,11 @@
     invoke-virtual {v0, p0}, Landroid/view/ViewOverlay;->add(Landroid/graphics/drawable/Drawable;)V
 
     .line 102
-    :goto_0
+    :goto_1c
     return-void
 
     .line 97
-    :cond_1
+    :cond_1d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Trying to reference null customBadgeParent"
@@ -156,7 +156,7 @@
 .end method
 
 .method public static attachBadgeDrawable(Lcom/google/android/material/badge/BadgeDrawable;Landroidx/appcompat/widget/Toolbar;I)V
-    .locals 1
+    .registers 4
     .param p0, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
     .param p1, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p2, "menuItemId"    # I
@@ -171,7 +171,7 @@
 .end method
 
 .method public static attachBadgeDrawable(Lcom/google/android/material/badge/BadgeDrawable;Landroidx/appcompat/widget/Toolbar;ILandroid/widget/FrameLayout;)V
-    .locals 1
+    .registers 5
     .param p0, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
     .param p1, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p2, "menuItemId"    # I
@@ -189,7 +189,7 @@
 .end method
 
 .method public static createBadgeDrawablesFromSavedStates(Landroid/content/Context;Lcom/google/android/material/internal/ParcelableSparseArray;)Landroid/util/SparseArray;
-    .locals 6
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "badgeStates"    # Lcom/google/android/material/internal/ParcelableSparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -218,12 +218,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_a
     invoke-virtual {p1}, Lcom/google/android/material/internal/ParcelableSparseArray;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2e
 
     .line 292
     invoke-virtual {p1, v1}, Lcom/google/android/material/internal/ParcelableSparseArray;->keyAt(I)I
@@ -240,7 +240,7 @@
 
     .line 294
     .local v3, "savedState":Lcom/google/android/material/badge/BadgeState$State;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     .line 297
     invoke-static {p0, v3}, Lcom/google/android/material/badge/BadgeDrawable;->createFromSavedState(Landroid/content/Context;Lcom/google/android/material/badge/BadgeState$State;)Lcom/google/android/material/badge/BadgeDrawable;
@@ -257,12 +257,12 @@
     .end local v4    # "badgeDrawable":Lcom/google/android/material/badge/BadgeDrawable;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 295
     .restart local v2    # "key":I
     .restart local v3    # "savedState":Lcom/google/android/material/badge/BadgeState$State;
-    :cond_0
+    :cond_26
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string v5, "BadgeDrawable\'s savedState cannot be null"
@@ -275,12 +275,12 @@
     .end local v1    # "i":I
     .end local v2    # "key":I
     .end local v3    # "savedState":Lcom/google/android/material/badge/BadgeState$State;
-    :cond_1
+    :cond_2e
     return-object v0
 .end method
 
 .method public static createParcelableBadgeStates(Landroid/util/SparseArray;)Lcom/google/android/material/internal/ParcelableSparseArray;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -302,12 +302,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2a
 
     .line 267
     invoke-virtual {p0, v1}, Landroid/util/SparseArray;->keyAt(I)I
@@ -324,7 +324,7 @@
 
     .line 269
     .local v3, "badgeDrawable":Lcom/google/android/material/badge/BadgeDrawable;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     .line 272
     invoke-virtual {v3}, Lcom/google/android/material/badge/BadgeDrawable;->getSavedState()Lcom/google/android/material/badge/BadgeState$State;
@@ -338,12 +338,12 @@
     .end local v3    # "badgeDrawable":Lcom/google/android/material/badge/BadgeDrawable;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 270
     .restart local v2    # "key":I
     .restart local v3    # "badgeDrawable":Lcom/google/android/material/badge/BadgeDrawable;
-    :cond_0
+    :cond_22
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string v5, "badgeDrawable cannot be null"
@@ -356,12 +356,12 @@
     .end local v1    # "i":I
     .end local v2    # "key":I
     .end local v3    # "badgeDrawable":Lcom/google/android/material/badge/BadgeDrawable;
-    :cond_1
+    :cond_2a
     return-object v0
 .end method
 
 .method private static detachBadgeContentDescription(Landroid/view/View;)V
-    .locals 2
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
 
     .line 207
@@ -369,13 +369,13 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_19
 
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->hasAccessibilityDelegate(Landroid/view/View;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 208
     new-instance v0, Lcom/google/android/material/badge/BadgeUtils$4;
@@ -390,57 +390,57 @@
     .line 208
     invoke-static {p0, v0}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 219
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
 
     .line 221
-    :goto_0
+    :goto_1d
     return-void
 .end method
 
 .method public static detachBadgeDrawable(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p0, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
     .param p1, "anchor"    # Landroid/view/View;
 
     .line 176
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 177
     return-void
 
     .line 179
-    :cond_0
+    :cond_3
     sget-boolean v0, Lcom/google/android/material/badge/BadgeUtils;->USE_COMPAT_PARENT:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_16
 
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->getCustomBadgeParent()Landroid/widget/FrameLayout;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
-    goto :goto_0
+    goto :goto_16
 
     .line 182
-    :cond_1
+    :cond_e
     invoke-virtual {p1}, Landroid/view/View;->getOverlay()Landroid/view/ViewOverlay;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Landroid/view/ViewOverlay;->remove(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 180
-    :cond_2
-    :goto_0
+    :cond_16
+    :goto_16
     invoke-virtual {p0}, Lcom/google/android/material/badge/BadgeDrawable;->getCustomBadgeParent()Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -450,31 +450,31 @@
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setForeground(Landroid/graphics/drawable/Drawable;)V
 
     .line 184
-    :goto_1
+    :goto_1e
     return-void
 .end method
 
 .method public static detachBadgeDrawable(Lcom/google/android/material/badge/BadgeDrawable;Landroidx/appcompat/widget/Toolbar;I)V
-    .locals 3
+    .registers 6
     .param p0, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
     .param p1, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
     .param p2, "menuItemId"    # I
 
     .line 193
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 194
     return-void
 
     .line 196
-    :cond_0
+    :cond_3
     invoke-static {p1, p2}, Lcom/google/android/material/internal/ToolbarUtils;->getActionMenuItemView(Landroidx/appcompat/widget/Toolbar;I)Landroidx/appcompat/view/menu/ActionMenuItemView;
 
     move-result-object v0
 
     .line 197
     .local v0, "menuItemView":Landroidx/appcompat/view/menu/ActionMenuItemView;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 198
     invoke-static {p0}, Lcom/google/android/material/badge/BadgeUtils;->removeToolbarOffset(Lcom/google/android/material/badge/BadgeDrawable;)V
@@ -485,10 +485,10 @@
     .line 200
     invoke-static {v0}, Lcom/google/android/material/badge/BadgeUtils;->detachBadgeContentDescription(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 202
-    :cond_1
+    :cond_13
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -512,12 +512,12 @@
     invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 204
-    :goto_0
+    :goto_2b
     return-void
 .end method
 
 .method static removeToolbarOffset(Lcom/google/android/material/badge/BadgeDrawable;)V
-    .locals 1
+    .registers 2
     .param p0, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
 
     .line 235
@@ -533,7 +533,7 @@
 .end method
 
 .method public static setBadgeDrawableBounds(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;Landroid/widget/FrameLayout;)V
-    .locals 1
+    .registers 4
     .param p0, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
     .param p1, "anchor"    # Landroid/view/View;
     .param p2, "compatBadgeParent"    # Landroid/widget/FrameLayout;
@@ -558,7 +558,7 @@
 .end method
 
 .method static setToolbarOffset(Lcom/google/android/material/badge/BadgeDrawable;Landroid/content/res/Resources;)V
-    .locals 1
+    .registers 3
     .param p0, "badgeDrawable"    # Lcom/google/android/material/badge/BadgeDrawable;
     .param p1, "resources"    # Landroid/content/res/Resources;
 
@@ -589,7 +589,7 @@
 .end method
 
 .method public static updateBadgeBounds(Landroid/graphics/Rect;FFFF)V
-    .locals 4
+    .registers 9
     .param p0, "rect"    # Landroid/graphics/Rect;
     .param p1, "centerX"    # F
     .param p2, "centerY"    # F

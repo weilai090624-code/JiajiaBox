@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 37
     const/16 v0, 0xe6
@@ -81,7 +81,7 @@
 .end method
 
 .method public static final enable(Landroidx/activity/ComponentActivity;)V
-    .locals 2
+    .registers 3
     .param p0, "$this$enableEdgeToEdge"    # Landroidx/activity/ComponentActivity;
 
     const-string v0, "<this>"
@@ -99,7 +99,7 @@
 .end method
 
 .method public static final enable(Landroidx/activity/ComponentActivity;Landroidx/activity/SystemBarStyle;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$enableEdgeToEdge"    # Landroidx/activity/ComponentActivity;
     .param p1, "statusBarStyle"    # Landroidx/activity/SystemBarStyle;
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public static final enable(Landroidx/activity/ComponentActivity;Landroidx/activity/SystemBarStyle;Landroidx/activity/SystemBarStyle;)V
-    .locals 11
+    .registers 14
     .param p0, "$this$enableEdgeToEdge"    # Landroidx/activity/ComponentActivity;
     .param p1, "statusBarStyle"    # Landroidx/activity/SystemBarStyle;
     .param p2, "navigationBarStyle"    # Landroidx/activity/SystemBarStyle;
@@ -202,14 +202,14 @@
     .local v8, "navigationBarIsDark":Z
     sget-object v1, Landroidx/activity/EdgeToEdge;->Impl:Landroidx/activity/EdgeToEdgeImpl;
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_a6
 
     .line 78
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1e
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_5d
 
     .line 79
     new-instance v1, Landroidx/activity/EdgeToEdgeApi30;
@@ -218,15 +218,15 @@
 
     check-cast v1, Landroidx/activity/EdgeToEdgeBase;
 
-    goto :goto_0
+    goto :goto_a4
 
     .line 80
-    :cond_0
+    :cond_5d
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1d
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_6b
 
     .line 81
     new-instance v1, Landroidx/activity/EdgeToEdgeApi29;
@@ -235,15 +235,15 @@
 
     check-cast v1, Landroidx/activity/EdgeToEdgeBase;
 
-    goto :goto_0
+    goto :goto_a4
 
     .line 82
-    :cond_1
+    :cond_6b
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1c
 
-    if-lt v1, v2, :cond_2
+    if-lt v1, v2, :cond_79
 
     .line 83
     new-instance v1, Landroidx/activity/EdgeToEdgeApi28;
@@ -252,15 +252,15 @@
 
     check-cast v1, Landroidx/activity/EdgeToEdgeBase;
 
-    goto :goto_0
+    goto :goto_a4
 
     .line 84
-    :cond_2
+    :cond_79
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1a
 
-    if-lt v1, v2, :cond_3
+    if-lt v1, v2, :cond_87
 
     .line 85
     new-instance v1, Landroidx/activity/EdgeToEdgeApi26;
@@ -269,15 +269,15 @@
 
     check-cast v1, Landroidx/activity/EdgeToEdgeBase;
 
-    goto :goto_0
+    goto :goto_a4
 
     .line 86
-    :cond_3
+    :cond_87
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x17
 
-    if-lt v1, v2, :cond_4
+    if-lt v1, v2, :cond_95
 
     .line 87
     new-instance v1, Landroidx/activity/EdgeToEdgeApi23;
@@ -286,10 +286,10 @@
 
     check-cast v1, Landroidx/activity/EdgeToEdgeBase;
 
-    goto :goto_0
+    goto :goto_a4
 
     .line 89
-    :cond_4
+    :cond_95
     nop
 
     .line 90
@@ -316,11 +316,11 @@
 
     .end local v2    # "it":Landroidx/activity/EdgeToEdgeBase;
     .end local v3    # "$i$a$-also-EdgeToEdge$enableEdgeToEdge$impl$1":I
-    :goto_0
+    :goto_a4
     check-cast v1, Landroidx/activity/EdgeToEdgeImpl;
 
     .line 77
-    :cond_5
+    :cond_a6
     nop
 
     .line 76
@@ -379,12 +379,12 @@
 .end method
 
 .method public static synthetic enable$default(Landroidx/activity/ComponentActivity;Landroidx/activity/SystemBarStyle;Landroidx/activity/SystemBarStyle;ILjava/lang/Object;)V
-    .locals 6
+    .registers 11
 
     .line 69
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_f
 
     .line 70
     sget-object v0, Landroidx/activity/SystemBarStyle;->Companion:Landroidx/activity/SystemBarStyle$Companion;
@@ -404,10 +404,10 @@
     move-result-object p1
 
     .line 69
-    :cond_0
+    :cond_f
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_20
 
     .line 71
     sget-object v0, Landroidx/activity/SystemBarStyle;->Companion:Landroidx/activity/SystemBarStyle$Companion;
@@ -427,14 +427,14 @@
     move-result-object p2
 
     .line 69
-    :cond_1
+    :cond_20
     invoke-static {p0, p1, p2}, Landroidx/activity/EdgeToEdge;->enable(Landroidx/activity/ComponentActivity;Landroidx/activity/SystemBarStyle;Landroidx/activity/SystemBarStyle;)V
 
     return-void
 .end method
 
 .method public static final getDefaultDarkScrim()I
-    .locals 1
+    .registers 1
 
     .line 42
     sget v0, Landroidx/activity/EdgeToEdge;->DefaultDarkScrim:I
@@ -443,13 +443,13 @@
 .end method
 
 .method public static synthetic getDefaultDarkScrim$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final getDefaultLightScrim()I
-    .locals 1
+    .registers 1
 
     .line 37
     sget v0, Landroidx/activity/EdgeToEdge;->DefaultLightScrim:I
@@ -458,7 +458,7 @@
 .end method
 
 .method public static synthetic getDefaultLightScrim$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

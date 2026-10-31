@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 659
     new-instance v0, Lj$/time/temporal/IsoFields$Unit;
@@ -101,7 +101,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;Lj$/time/Duration;)V
-    .locals 0
+    .registers 5
     .param p3, "name"    # Ljava/lang/String;
     .param p4, "estimatedDuration"    # Lj$/time/Duration;
     .annotation system Ldalvik/annotation/Signature;
@@ -127,7 +127,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/temporal/IsoFields$Unit;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 654
@@ -143,7 +143,7 @@
 .end method
 
 .method public static values()[Lj$/time/temporal/IsoFields$Unit;
-    .locals 1
+    .registers 1
 
     .line 654
     sget-object v0, Lj$/time/temporal/IsoFields$Unit;->$VALUES:[Lj$/time/temporal/IsoFields$Unit;
@@ -160,7 +160,7 @@
 
 # virtual methods
 .method public addTo(Lj$/time/temporal/Temporal;J)Lj$/time/temporal/Temporal;
-    .locals 5
+    .registers 9
     .param p2, "amount"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -180,7 +180,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3c
 
     .line 709
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -192,7 +192,7 @@
     throw v0
 
     .line 706
-    :pswitch_0
+    :pswitch_13
     const-wide/16 v0, 0x4
 
     div-long v2, p2, v0
@@ -220,7 +220,7 @@
     return-object v0
 
     .line 703
-    :pswitch_1
+    :pswitch_2a
     sget-object v0, Lj$/time/temporal/IsoFields;->WEEK_BASED_YEAR:Lj$/time/temporal/TemporalField;
 
     sget-object v1, Lj$/time/temporal/IsoFields;->WEEK_BASED_YEAR:Lj$/time/temporal/TemporalField;
@@ -243,15 +243,15 @@
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_3c
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2a
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method public between(Lj$/time/temporal/Temporal;Lj$/time/temporal/Temporal;)J
-    .locals 4
+    .registers 7
     .param p1, "temporal1Inclusive"    # Lj$/time/temporal/Temporal;
     .param p2, "temporal2Exclusive"    # Lj$/time/temporal/Temporal;
 
@@ -264,7 +264,7 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_f
 
     .line 716
     invoke-interface {p1, p2, p0}, Lj$/time/temporal/Temporal;->until(Lj$/time/temporal/Temporal;Lj$/time/temporal/TemporalUnit;)J
@@ -274,7 +274,7 @@
     return-wide v0
 
     .line 718
-    :cond_0
+    :cond_f
     sget-object v0, Lj$/time/temporal/IsoFields$1;->$SwitchMap$java$time$temporal$IsoFields$Unit:[I
 
     invoke-virtual {p0}, Lj$/time/temporal/IsoFields$Unit;->ordinal()I
@@ -283,7 +283,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3e
 
     .line 725
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -295,7 +295,7 @@
     throw v0
 
     .line 723
-    :pswitch_0
+    :pswitch_22
     sget-object v0, Lj$/time/temporal/ChronoUnit;->MONTHS:Lj$/time/temporal/ChronoUnit;
 
     invoke-interface {p1, p2, v0}, Lj$/time/temporal/Temporal;->until(Lj$/time/temporal/Temporal;Lj$/time/temporal/TemporalUnit;)J
@@ -309,7 +309,7 @@
     return-wide v0
 
     .line 720
-    :pswitch_1
+    :pswitch_2c
     sget-object v0, Lj$/time/temporal/IsoFields;->WEEK_BASED_YEAR:Lj$/time/temporal/TemporalField;
 
     invoke-interface {p2, v0}, Lj$/time/temporal/Temporal;->getLong(Lj$/time/temporal/TemporalField;)J
@@ -332,15 +332,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3e
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2c
+        :pswitch_22
     .end packed-switch
 .end method
 
 .method public getDuration()Lj$/time/Duration;
-    .locals 1
+    .registers 2
 
     .line 675
     iget-object v0, p0, Lj$/time/temporal/IsoFields$Unit;->duration:Lj$/time/Duration;
@@ -349,7 +349,7 @@
 .end method
 
 .method public isDateBased()Z
-    .locals 1
+    .registers 2
 
     .line 685
     const/4 v0, 0x1
@@ -358,7 +358,7 @@
 .end method
 
 .method public isDurationEstimated()Z
-    .locals 1
+    .registers 2
 
     .line 680
     const/4 v0, 0x1
@@ -367,7 +367,7 @@
 .end method
 
 .method public isSupportedBy(Lj$/time/temporal/Temporal;)Z
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 695
@@ -377,27 +377,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-static {p1}, Lj$/time/temporal/IsoFields;->isIso(Lj$/time/temporal/TemporalAccessor;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public isTimeBased()Z
-    .locals 1
+    .registers 2
 
     .line 690
     const/4 v0, 0x0
@@ -406,7 +406,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 731
     iget-object v0, p0, Lj$/time/temporal/IsoFields$Unit;->name:Ljava/lang/String;

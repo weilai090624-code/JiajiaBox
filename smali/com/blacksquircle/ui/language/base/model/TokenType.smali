@@ -83,7 +83,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lcom/blacksquircle/ui/language/base/model/TokenType;
-    .locals 3
+    .registers 3
 
     const/16 v0, 0xf
 
@@ -183,7 +183,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 20
     new-instance v0, Lcom/blacksquircle/ui/language/base/model/TokenType;
@@ -360,7 +360,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -376,7 +376,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/blacksquircle/ui/language/base/model/TokenType;
-    .locals 1
+    .registers 2
 
     const-class v0, Lcom/blacksquircle/ui/language/base/model/TokenType;
 
@@ -390,7 +390,7 @@
 .end method
 
 .method public static values()[Lcom/blacksquircle/ui/language/base/model/TokenType;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lcom/blacksquircle/ui/language/base/model/TokenType;->$VALUES:[Lcom/blacksquircle/ui/language/base/model/TokenType;
 

@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 277
     new-instance v0, Lcom/google/common/util/concurrent/AbstractFuture$Listener;
@@ -50,7 +50,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 291
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 3
     .param p1, "task"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 

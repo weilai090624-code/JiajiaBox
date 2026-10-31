@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/collection/LruCacheKt$lruCache$1;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x2
 
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p1, "$noName_0"    # Ljava/lang/Object;
     .param p2, "$noName_1"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -113,7 +113,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     invoke-virtual {p0, p1, p2}, Landroidx/collection/LruCacheKt$lruCache$1;->invoke(Ljava/lang/Object;Ljava/lang/Object;)I
 

@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Lokio/JvmSystemFileSystem;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method private final zeroToNull(Ljava/nio/file/attribute/FileTime;)Ljava/lang/Long;
-    .locals 7
+    .registers 9
     .param p1, "$this$zeroToNull"    # Ljava/nio/file/attribute/FileTime;
 
     .line 73
@@ -84,33 +84,33 @@
 
     cmp-long v6, v1, v4
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_18
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v4, 0x0
 
     .end local v1    # "it":J
     .end local v3    # "$i$a$-takeIf-NioSystemFileSystem$zeroToNull$1":I
-    :goto_0
-    if-eqz v4, :cond_1
+    :goto_19
+    if-eqz v4, :cond_1c
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_1d
     return-object v0
 .end method
 
 
 # virtual methods
 .method public atomicMove(Lokio/Path;Lokio/Path;)V
-    .locals 5
+    .registers 8
     .param p1, "source"    # Lokio/Path;
     .param p2, "target"    # Lokio/Path;
 
@@ -126,7 +126,7 @@
     nop
 
     .line 78
-    :try_start_0
+    :try_start_b
     invoke-virtual {p1}, Lokio/Path;->toNioPath()Ljava/nio/file/Path;
 
     move-result-object v0
@@ -156,15 +156,15 @@
     aput-object v3, v2, v4
 
     invoke-static {v0, v1, v2}, Ljava/nio/file/Files;->move(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
-    :try_end_0
-    .catch Ljava/nio/file/NoSuchFileException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/nio/file/NoSuchFileException; {:try_start_b .. :try_end_27} :catch_31
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_b .. :try_end_27} :catch_28
 
     .line 84
     return-void
 
     .line 81
-    :catch_0
+    :catch_28
     move-exception v0
 
     .line 82
@@ -179,7 +179,7 @@
 
     .line 79
     .end local v0    # "e":Ljava/lang/UnsupportedOperationException;
-    :catch_1
+    :catch_31
     move-exception v0
 
     .line 80
@@ -196,7 +196,7 @@
 .end method
 
 .method public createSymlink(Lokio/Path;Lokio/Path;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Lokio/Path;
     .param p2, "target"    # Lokio/Path;
 
@@ -228,7 +228,7 @@
 .end method
 
 .method public metadataOrNull(Lokio/Path;)Lokio/FileMetadata;
-    .locals 20
+    .registers 22
     .param p1, "path"    # Lokio/Path;
 
     move-object/from16 v1, p0
@@ -251,7 +251,7 @@
     .line 41
     const/4 v4, 0x0
 
-    :try_start_0
+    :try_start_f
     const-class v0, Ljava/nio/file/attribute/BasicFileAttributes;
 
     .line 43
@@ -269,9 +269,9 @@
     invoke-static {v3, v0, v6}, Ljava/nio/file/Files;->readAttributes(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/nio/file/NoSuchFileException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/nio/file/FileSystemException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/nio/file/NoSuchFileException; {:try_start_f .. :try_end_1d} :catch_7f
+    .catch Ljava/nio/file/FileSystemException; {:try_start_f .. :try_end_1d} :catch_7d
 
     .line 39
     nop
@@ -282,17 +282,17 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_29
 
     .line 52
     invoke-static {v3}, Ljava/nio/file/Files;->readSymbolicLink(Ljava/nio/file/Path;)Ljava/nio/file/Path;
 
     move-result-object v6
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 54
-    :cond_0
+    :cond_29
     move-object v6, v4
 
     check-cast v6, Ljava/nio/file/Path;
@@ -300,7 +300,7 @@
     move-object v6, v4
 
     .line 51
-    :goto_0
+    :goto_2d
     nop
 
     .line 57
@@ -318,13 +318,13 @@
     move-result v11
 
     .line 60
-    if-nez v6, :cond_1
+    if-nez v6, :cond_3c
 
     move-object v12, v4
 
-    goto :goto_1
+    goto :goto_43
 
-    :cond_1
+    :cond_3c
     sget-object v9, Lokio/Path;->Companion:Lokio/Path$Companion;
 
     invoke-static {v9, v6, v8, v5, v4}, Lokio/Path$Companion;->get$default(Lokio/Path$Companion;Ljava/nio/file/Path;ZILjava/lang/Object;)Lokio/Path;
@@ -334,7 +334,7 @@
     move-object v12, v5
 
     .line 61
-    :goto_1
+    :goto_43
     invoke-interface {v0}, Ljava/nio/file/attribute/BasicFileAttributes;->size()J
 
     move-result-wide v8
@@ -348,13 +348,13 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_53
 
     move-object v14, v4
 
-    goto :goto_2
+    goto :goto_58
 
-    :cond_2
+    :cond_53
     invoke-direct {v1, v5}, Lokio/NioSystemFileSystem;->zeroToNull(Ljava/nio/file/attribute/FileTime;)Ljava/lang/Long;
 
     move-result-object v5
@@ -362,18 +362,18 @@
     move-object v14, v5
 
     .line 63
-    :goto_2
+    :goto_58
     invoke-interface {v0}, Ljava/nio/file/attribute/BasicFileAttributes;->lastModifiedTime()Ljava/nio/file/attribute/FileTime;
 
     move-result-object v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_60
 
     move-object v15, v4
 
-    goto :goto_3
+    goto :goto_65
 
-    :cond_3
+    :cond_60
     invoke-direct {v1, v5}, Lokio/NioSystemFileSystem;->zeroToNull(Ljava/nio/file/attribute/FileTime;)Ljava/lang/Long;
 
     move-result-object v5
@@ -381,21 +381,21 @@
     move-object v15, v5
 
     .line 64
-    :goto_3
+    :goto_65
     invoke-interface {v0}, Ljava/nio/file/attribute/BasicFileAttributes;->lastAccessTime()Ljava/nio/file/attribute/FileTime;
 
     move-result-object v5
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_6c
 
-    goto :goto_4
+    goto :goto_70
 
-    :cond_4
+    :cond_6c
     invoke-direct {v1, v5}, Lokio/NioSystemFileSystem;->zeroToNull(Ljava/nio/file/attribute/FileTime;)Ljava/lang/Long;
 
     move-result-object v4
 
-    :goto_4
+    :goto_70
     move-object/from16 v16, v4
 
     .line 57
@@ -414,7 +414,7 @@
     .line 47
     .end local v0    # "attributes":Ljava/nio/file/attribute/BasicFileAttributes;
     .end local v6    # "symlinkTarget":Ljava/nio/file/Path;
-    :catch_0
+    :catch_7d
     move-exception v0
 
     .line 48
@@ -423,7 +423,7 @@
 
     .line 45
     .end local v0    # "_":Ljava/nio/file/FileSystemException;
-    :catch_1
+    :catch_7f
     move-exception v0
 
     .line 46
@@ -432,7 +432,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 90
     const-string v0, "NioSystemFileSystem"

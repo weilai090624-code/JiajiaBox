@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 232
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/Futures$4;->val$input:Lcom/google/common/util/concurrent/ListenableFuture;

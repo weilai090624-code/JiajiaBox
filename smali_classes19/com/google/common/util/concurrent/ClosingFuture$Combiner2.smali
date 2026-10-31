@@ -54,7 +54,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/ClosingFuture;
     .param p3, "x2"    # Lcom/google/common/util/concurrent/ClosingFuture$1;
@@ -103,7 +103,7 @@
 .end method
 
 .method static synthetic access$1800(Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;
 
     .line 1405
@@ -113,7 +113,7 @@
 .end method
 
 .method static synthetic access$1900(Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner2;
 
     .line 1405
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public call(Lcom/google/common/util/concurrent/ClosingFuture$Combiner2$ClosingFunction2;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -156,7 +156,7 @@
 .end method
 
 .method public callAsync(Lcom/google/common/util/concurrent/ClosingFuture$Combiner2$AsyncClosingFunction2;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {

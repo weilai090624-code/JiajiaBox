@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final synthetic getSpans(Landroid/text/Spanned;II)[Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "$this$getSpans"    # Landroid/text/Spanned;
     .param p1, "start"    # I
     .param p2, "end"    # I
@@ -72,7 +72,7 @@
 .end method
 
 .method public static synthetic getSpans$default(Landroid/text/Spanned;IIILjava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 6
     .param p0, "$this$getSpans_u24default"    # Landroid/text/Spanned;
     .param p1, "start"    # I
     .param p2, "end"    # I
@@ -80,16 +80,16 @@
     .line 31
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     .line 32
     const/4 p1, 0x0
 
     .line 31
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_d
 
     .line 33
     invoke-interface {p0}, Landroid/text/Spanned;->length()I
@@ -97,7 +97,7 @@
     move-result p2
 
     .line 31
-    :cond_1
+    :cond_d
     const/4 p3, 0x0
 
     .line 34
@@ -122,7 +122,7 @@
 .end method
 
 .method public static final toSpanned(Ljava/lang/CharSequence;)Landroid/text/Spanned;
-    .locals 2
+    .registers 3
     .param p0, "$this$toSpanned"    # Ljava/lang/CharSequence;
 
     const/4 v0, 0x0

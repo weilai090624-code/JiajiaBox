@@ -42,7 +42,7 @@
 
 # direct methods
 .method public static final disposeOnCancellation(Lkotlinx/coroutines/CancellableContinuation;Lkotlinx/coroutines/DisposableHandle;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$disposeOnCancellation"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "handle"    # Lkotlinx/coroutines/DisposableHandle;
     .annotation system Ldalvik/annotation/Signature;
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final getOrCreateCancellableContinuation(Lkotlin/coroutines/Continuation;)Lkotlinx/coroutines/CancellableContinuationImpl;
-    .locals 3
+    .registers 4
     .param p0, "delegate"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -95,7 +95,7 @@
     .line 347
     instance-of v0, p0, Lkotlinx/coroutines/internal/DispatchedContinuation;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 348
     new-instance v0, Lkotlinx/coroutines/CancellableContinuationImpl;
@@ -107,7 +107,7 @@
     return-object v0
 
     .line 364
-    :cond_0
+    :cond_b
     move-object v0, p0
 
     check-cast v0, Lkotlinx/coroutines/internal/DispatchedContinuation;
@@ -116,7 +116,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_22
 
     move-object v1, v0
 
@@ -132,24 +132,24 @@
 
     .end local v1    # "it":Lkotlinx/coroutines/CancellableContinuationImpl;
     .end local v2    # "$i$a$-takeIf-CancellableContinuationKt$getOrCreateCancellableContinuation$1":I
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_1e
+    if-nez v0, :cond_21
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     return-object v0
 
     .line 365
-    :cond_3
-    :goto_1
+    :cond_22
+    :goto_22
     new-instance v0, Lkotlinx/coroutines/CancellableContinuationImpl;
 
     const/4 v1, 0x2
@@ -160,7 +160,7 @@
 .end method
 
 .method public static final suspendCancellableCoroutine(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p0, "block"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -221,17 +221,17 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_20
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 324
-    :cond_0
+    :cond_20
     return-object v1
 .end method
 
 .method private static final suspendCancellableCoroutine$$forInline(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p0, "block"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -294,7 +294,7 @@
 
     move-result-object v1
 
-    if-ne v4, v1, :cond_0
+    if-ne v4, v1, :cond_25
 
     move-object v1, p1
 
@@ -303,12 +303,12 @@
     invoke-static {v1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 324
-    :cond_0
+    :cond_25
     return-object v4
 .end method
 
 .method public static final suspendCancellableCoroutineReusable(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "block"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -352,10 +352,10 @@
     nop
 
     .line 335
-    :try_start_0
+    :try_start_c
     invoke-interface {p0, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_c .. :try_end_f} :catchall_1d
 
     .line 342
     invoke-virtual {v3}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
@@ -370,19 +370,19 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1c
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 343
-    :cond_0
+    :cond_1c
     return-object v1
 
     .line 336
     .restart local v1    # "uCont":Lkotlin/coroutines/Continuation;
     .restart local v2    # "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutineReusable$2":I
     .restart local v3    # "cancellable":Lkotlinx/coroutines/CancellableContinuationImpl;
-    :catchall_0
+    :catchall_1d
     move-exception v4
 
     .line 339
@@ -394,7 +394,7 @@
 .end method
 
 .method private static final suspendCancellableCoroutineReusable$$forInline(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "block"    # Lkotlin/jvm/functions/Function1;
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -440,10 +440,10 @@
     nop
 
     .line 335
-    :try_start_0
+    :try_start_e
     invoke-interface {p0, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_e .. :try_end_11} :catchall_22
 
     .line 342
     invoke-virtual {v3}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
@@ -458,7 +458,7 @@
 
     move-result-object v1
 
-    if-ne v4, v1, :cond_0
+    if-ne v4, v1, :cond_21
 
     move-object v1, p1
 
@@ -467,14 +467,14 @@
     invoke-static {v1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 343
-    :cond_0
+    :cond_21
     return-object v4
 
     .line 336
     .restart local v1    # "uCont":Lkotlin/coroutines/Continuation;
     .restart local v2    # "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutineReusable$2":I
     .restart local v3    # "cancellable":Lkotlinx/coroutines/CancellableContinuationImpl;
-    :catchall_0
+    :catchall_22
     move-exception v4
 
     .line 339

@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/Continuation;Lkotlinx/coroutines/JobSupport;)V
-    .locals 1
+    .registers 4
     .param p1, "delegate"    # Lkotlin/coroutines/Continuation;
     .param p2, "job"    # Lkotlinx/coroutines/JobSupport;
     .annotation system Ldalvik/annotation/Signature;
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public getContinuationCancellationCause(Lkotlinx/coroutines/Job;)Ljava/lang/Throwable;
-    .locals 3
+    .registers 5
     .param p1, "parent"    # Lkotlinx/coroutines/Job;
 
     .line 1168
@@ -106,7 +106,7 @@
     .local v0, "state":Ljava/lang/Object;
     instance-of v1, v0, Lkotlinx/coroutines/JobSupport$Finishing;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     move-object v1, v0
 
@@ -116,7 +116,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 1455
     .local v1, "it":Ljava/lang/Throwable;
@@ -129,10 +129,10 @@
     .line 1174
     .end local v1    # "it":Ljava/lang/Throwable;
     .end local v2    # "$i$a$-let-JobSupport$AwaitContinuation$getContinuationCancellationCause$1":I
-    :cond_0
+    :cond_15
     instance-of v1, v0, Lkotlinx/coroutines/CompletedExceptionally;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     move-object v1, v0
 
@@ -143,7 +143,7 @@
     return-object v1
 
     .line 1175
-    :cond_1
+    :cond_1f
     invoke-interface {p1}, Lkotlinx/coroutines/Job;->getCancellationException()Ljava/util/concurrent/CancellationException;
 
     move-result-object v1
@@ -154,7 +154,7 @@
 .end method
 
 .method protected nameString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1179
     const-string v0, "AwaitContinuation"

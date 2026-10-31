@@ -33,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>(III)V
-    .locals 0
+    .registers 4
     .param p1, "from"    # I
     .param p2, "upTo"    # I
     .param p3, "last"    # I
@@ -55,7 +55,7 @@
 .end method
 
 .method constructor <init>(IIZ)V
-    .locals 0
+    .registers 4
     .param p1, "from"    # I
     .param p2, "upTo"    # I
     .param p3, "closed"    # Z
@@ -68,7 +68,7 @@
 .end method
 
 .method private splitPoint(J)I
-    .locals 3
+    .registers 6
     .param p1, "size"    # J
 
     .line 162
@@ -76,18 +76,18 @@
 
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_9
 
     const/4 v0, 0x2
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     const/16 v0, 0x8
 
     .line 166
     .local v0, "d":I
-    :goto_0
+    :goto_b
     int-to-long v1, v0
 
     div-long v1, p1, v1
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 118
     const/16 v0, 0x4555
@@ -109,7 +109,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 4
+    .registers 5
 
     .line 113
     iget v0, p0, Lj$/util/stream/Streams$RangeIntSpliterator;->upTo:I
@@ -132,7 +132,7 @@
 .end method
 
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 53
     check-cast p1, Ljava/util/function/IntConsumer;
@@ -143,7 +143,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)V
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/IntConsumer;)V
-    .locals 4
+    .registers 6
     .param p1, "consumer"    # Ljava/util/function/IntConsumer;
 
     .line 94
@@ -180,8 +180,8 @@
     iput v3, p0, Lj$/util/stream/Streams$RangeIntSpliterator;->last:I
 
     .line 101
-    :goto_0
-    if-ge v0, v1, :cond_0
+    :goto_10
+    if-ge v0, v1, :cond_19
 
     .line 102
     add-int/lit8 v3, v0, 0x1
@@ -192,24 +192,24 @@
 
     move v0, v3
 
-    goto :goto_0
+    goto :goto_10
 
     .line 104
     .end local v3    # "i":I
     .restart local v0    # "i":I
-    :cond_0
-    if-lez v2, :cond_1
+    :cond_19
+    if-lez v2, :cond_1e
 
     .line 106
     invoke-interface {p1, v0}, Ljava/util/function/IntConsumer;->accept(I)V
 
     .line 108
-    :cond_1
+    :cond_1e
     return-void
 .end method
 
 .method public getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -227,7 +227,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -237,7 +237,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -247,7 +247,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 53
     check-cast p1, Ljava/util/function/IntConsumer;
@@ -260,7 +260,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfInt$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfInt;Ljava/util/function/Consumer;)Z
 
@@ -270,7 +270,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/IntConsumer;)Z
-    .locals 4
+    .registers 6
     .param p1, "consumer"    # Ljava/util/function/IntConsumer;
 
     .line 76
@@ -285,7 +285,7 @@
 
     const/4 v2, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_13
 
     .line 80
     iget v1, p0, Lj$/util/stream/Streams$RangeIntSpliterator;->from:I
@@ -301,12 +301,12 @@
     return v2
 
     .line 84
-    :cond_0
+    :cond_13
     iget v1, p0, Lj$/util/stream/Streams$RangeIntSpliterator;->last:I
 
     const/4 v3, 0x0
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_1e
 
     .line 85
     iput v3, p0, Lj$/util/stream/Streams$RangeIntSpliterator;->last:I
@@ -318,12 +318,12 @@
     return v2
 
     .line 89
-    :cond_1
+    :cond_1e
     return v3
 .end method
 
 .method public trySplit()Lj$/util/Spliterator$OfInt;
-    .locals 6
+    .registers 7
 
     .line 130
     invoke-virtual {p0}, Lj$/util/stream/Streams$RangeIntSpliterator;->estimateSize()J
@@ -336,15 +336,15 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_c
 
     .line 132
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 134
-    :cond_0
+    :cond_c
     new-instance v2, Lj$/util/stream/Streams$RangeIntSpliterator;
 
     iget v3, p0, Lj$/util/stream/Streams$RangeIntSpliterator;->from:I
@@ -364,12 +364,12 @@
     invoke-direct {v2, v3, v4, v5}, Lj$/util/stream/Streams$RangeIntSpliterator;-><init>(III)V
 
     .line 131
-    :goto_0
+    :goto_1d
     return-object v2
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-virtual {p0}, Lj$/util/stream/Streams$RangeIntSpliterator;->trySplit()Lj$/util/Spliterator$OfInt;
@@ -380,7 +380,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 53
     invoke-virtual {p0}, Lj$/util/stream/Streams$RangeIntSpliterator;->trySplit()Lj$/util/Spliterator$OfInt;

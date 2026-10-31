@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/NumbersKt__FloorDivModKt;-><init>()V
 
@@ -54,7 +54,7 @@
 .end method
 
 .method private static final countLeadingZeroBits(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countLeadingZeroBits"    # I
 
     .line 109
@@ -66,7 +66,7 @@
 .end method
 
 .method private static final countLeadingZeroBits(J)I
-    .locals 1
+    .registers 3
     .param p0, "$this$countLeadingZeroBits"    # J
 
     .line 178
@@ -78,7 +78,7 @@
 .end method
 
 .method private static final countOneBits(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countOneBits"    # I
 
     .line 102
@@ -90,7 +90,7 @@
 .end method
 
 .method private static final countOneBits(J)I
-    .locals 1
+    .registers 3
     .param p0, "$this$countOneBits"    # J
 
     .line 171
@@ -102,7 +102,7 @@
 .end method
 
 .method private static final countTrailingZeroBits(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$countTrailingZeroBits"    # I
 
     .line 116
@@ -114,7 +114,7 @@
 .end method
 
 .method private static final countTrailingZeroBits(J)I
-    .locals 1
+    .registers 3
     .param p0, "$this$countTrailingZeroBits"    # J
 
     .line 185
@@ -126,7 +126,7 @@
 .end method
 
 .method private static final fromBits(Lkotlin/jvm/internal/DoubleCompanionObject;J)D
-    .locals 2
+    .registers 5
     .param p0, "$this$fromBits"    # Lkotlin/jvm/internal/DoubleCompanionObject;
     .param p1, "bits"    # J
 
@@ -143,7 +143,7 @@
 .end method
 
 .method private static final fromBits(Lkotlin/jvm/internal/FloatCompanionObject;I)F
-    .locals 1
+    .registers 3
     .param p0, "$this$fromBits"    # Lkotlin/jvm/internal/FloatCompanionObject;
     .param p1, "bits"    # I
 
@@ -160,7 +160,7 @@
 .end method
 
 .method private static final isFinite(D)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$isFinite"    # D
 
     .line 40
@@ -168,27 +168,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     invoke-static {p0, p1}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method private static final isFinite(F)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isFinite"    # F
 
     .line 46
@@ -196,27 +196,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     invoke-static {p0}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method private static final isInfinite(D)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$isInfinite"    # D
 
     .line 28
@@ -228,7 +228,7 @@
 .end method
 
 .method private static final isInfinite(F)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isInfinite"    # F
 
     .line 34
@@ -240,7 +240,7 @@
 .end method
 
 .method private static final isNaN(D)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$isNaN"    # D
 
     .line 15
@@ -252,7 +252,7 @@
 .end method
 
 .method private static final isNaN(F)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isNaN"    # F
 
     .line 22
@@ -264,7 +264,7 @@
 .end method
 
 .method private static final rotateLeft(II)I
-    .locals 1
+    .registers 3
     .param p0, "$this$rotateLeft"    # I
     .param p1, "bitCount"    # I
 
@@ -277,7 +277,7 @@
 .end method
 
 .method private static final rotateLeft(JI)J
-    .locals 2
+    .registers 5
     .param p0, "$this$rotateLeft"    # J
     .param p2, "bitCount"    # I
 
@@ -290,7 +290,7 @@
 .end method
 
 .method private static final rotateRight(II)I
-    .locals 1
+    .registers 3
     .param p0, "$this$rotateRight"    # I
     .param p1, "bitCount"    # I
 
@@ -303,7 +303,7 @@
 .end method
 
 .method private static final rotateRight(JI)J
-    .locals 2
+    .registers 5
     .param p0, "$this$rotateRight"    # J
     .param p2, "bitCount"    # I
 
@@ -316,7 +316,7 @@
 .end method
 
 .method private static final takeHighestOneBit(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$takeHighestOneBit"    # I
 
     .line 124
@@ -328,7 +328,7 @@
 .end method
 
 .method private static final takeHighestOneBit(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$takeHighestOneBit"    # J
 
     .line 193
@@ -340,7 +340,7 @@
 .end method
 
 .method private static final takeLowestOneBit(I)I
-    .locals 1
+    .registers 2
     .param p0, "$this$takeLowestOneBit"    # I
 
     .line 132
@@ -352,7 +352,7 @@
 .end method
 
 .method private static final takeLowestOneBit(J)J
-    .locals 2
+    .registers 4
     .param p0, "$this$takeLowestOneBit"    # J
 
     .line 201
@@ -364,7 +364,7 @@
 .end method
 
 .method private static final toBits(F)I
-    .locals 1
+    .registers 2
     .param p0, "$this$toBits"    # F
 
     .line 78
@@ -376,7 +376,7 @@
 .end method
 
 .method private static final toBits(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$toBits"    # D
 
     .line 54
@@ -388,7 +388,7 @@
 .end method
 
 .method private static final toRawBits(F)I
-    .locals 1
+    .registers 2
     .param p0, "$this$toRawBits"    # F
 
     .line 87
@@ -400,7 +400,7 @@
 .end method
 
 .method private static final toRawBits(D)J
-    .locals 2
+    .registers 4
     .param p0, "$this$toRawBits"    # D
 
     .line 63

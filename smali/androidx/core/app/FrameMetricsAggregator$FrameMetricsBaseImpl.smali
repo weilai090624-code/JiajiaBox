@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 308
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public add(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 312
@@ -36,7 +36,7 @@
 .end method
 
 .method public getMetrics()[Landroid/util/SparseIntArray;
-    .locals 1
+    .registers 2
 
     .line 323
     const/4 v0, 0x0
@@ -45,7 +45,7 @@
 .end method
 
 .method public remove(Landroid/app/Activity;)[Landroid/util/SparseIntArray;
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 315
@@ -55,7 +55,7 @@
 .end method
 
 .method public reset()[Landroid/util/SparseIntArray;
-    .locals 1
+    .registers 2
 
     .line 327
     const/4 v0, 0x0
@@ -64,7 +64,7 @@
 .end method
 
 .method public stop()[Landroid/util/SparseIntArray;
-    .locals 1
+    .registers 2
 
     .line 319
     const/4 v0, 0x0

@@ -14,7 +14,7 @@
 
 # direct methods
 .method protected constructor <init>([F)V
-    .locals 2
+    .registers 4
     .param p1, "values"    # [F
 
     .line 30
@@ -48,6 +48,8 @@
     .registers 2
 
     invoke-static {p1}, Lio/nekohasekai/sagernet/ui/AppMotion;->ease(F)F
+
     move-result p1
+
     return p1
 .end method

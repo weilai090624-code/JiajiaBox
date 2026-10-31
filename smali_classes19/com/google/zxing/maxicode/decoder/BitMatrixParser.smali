@@ -13,178 +13,178 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 35
+    .registers 35
 
     .line 27
     const/16 v0, 0x1e
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_150
 
     new-array v2, v0, [I
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_190
 
     new-array v3, v0, [I
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_1d0
 
     new-array v4, v0, [I
 
-    fill-array-data v4, :array_3
+    fill-array-data v4, :array_210
 
     new-array v5, v0, [I
 
-    fill-array-data v5, :array_4
+    fill-array-data v5, :array_250
 
     new-array v6, v0, [I
 
-    fill-array-data v6, :array_5
+    fill-array-data v6, :array_290
 
     new-array v7, v0, [I
 
-    fill-array-data v7, :array_6
+    fill-array-data v7, :array_2d0
 
     new-array v8, v0, [I
 
-    fill-array-data v8, :array_7
+    fill-array-data v8, :array_310
 
     new-array v9, v0, [I
 
-    fill-array-data v9, :array_8
+    fill-array-data v9, :array_350
 
     new-array v10, v0, [I
 
-    fill-array-data v10, :array_9
+    fill-array-data v10, :array_390
 
     new-array v11, v0, [I
 
-    fill-array-data v11, :array_a
+    fill-array-data v11, :array_3d0
 
     new-array v12, v0, [I
 
-    fill-array-data v12, :array_b
+    fill-array-data v12, :array_410
 
     new-array v13, v0, [I
 
-    fill-array-data v13, :array_c
+    fill-array-data v13, :array_450
 
     new-array v14, v0, [I
 
-    fill-array-data v14, :array_d
+    fill-array-data v14, :array_490
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_e
+    fill-array-data v15, :array_4d0
 
     move-object/from16 v16, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_f
+    fill-array-data v15, :array_510
 
     move-object/from16 v17, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_10
+    fill-array-data v15, :array_550
 
     move-object/from16 v18, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_11
+    fill-array-data v15, :array_590
 
     move-object/from16 v19, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_12
+    fill-array-data v15, :array_5d0
 
     move-object/from16 v20, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_13
+    fill-array-data v15, :array_610
 
     move-object/from16 v21, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_14
+    fill-array-data v15, :array_650
 
     move-object/from16 v22, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_15
+    fill-array-data v15, :array_690
 
     move-object/from16 v23, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_16
+    fill-array-data v15, :array_6d0
 
     move-object/from16 v24, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_17
+    fill-array-data v15, :array_710
 
     move-object/from16 v25, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_18
+    fill-array-data v15, :array_750
 
     move-object/from16 v26, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_19
+    fill-array-data v15, :array_790
 
     move-object/from16 v27, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1a
+    fill-array-data v15, :array_7d0
 
     move-object/from16 v28, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1b
+    fill-array-data v15, :array_810
 
     move-object/from16 v29, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1c
+    fill-array-data v15, :array_850
 
     move-object/from16 v30, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1d
+    fill-array-data v15, :array_890
 
     move-object/from16 v31, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1e
+    fill-array-data v15, :array_8d0
 
     move-object/from16 v32, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_1f
+    fill-array-data v15, :array_910
 
     move-object/from16 v33, v15
 
     new-array v15, v0, [I
 
-    fill-array-data v15, :array_20
+    fill-array-data v15, :array_950
 
     const/16 v0, 0x21
 
@@ -328,7 +328,7 @@
 
     nop
 
-    :array_0
+    :array_150
     .array-data 4
         0x79
         0x78
@@ -362,7 +362,7 @@
         -0x2
     .end array-data
 
-    :array_1
+    :array_190
     .array-data 4
         0x7b
         0x7a
@@ -396,7 +396,7 @@
         -0x3
     .end array-data
 
-    :array_2
+    :array_1d0
     .array-data 4
         0x7d
         0x7c
@@ -430,7 +430,7 @@
         0x331
     .end array-data
 
-    :array_3
+    :array_210
     .array-data 4
         0x11b
         0x11a
@@ -464,7 +464,7 @@
         -0x3
     .end array-data
 
-    :array_4
+    :array_250
     .array-data 4
         0x11d
         0x11c
@@ -498,7 +498,7 @@
         0x334
     .end array-data
 
-    :array_5
+    :array_290
     .array-data 4
         0x11f
         0x11e
@@ -532,7 +532,7 @@
         -0x3
     .end array-data
 
-    :array_6
+    :array_2d0
     .array-data 4
         0x121
         0x120
@@ -566,7 +566,7 @@
         0x337
     .end array-data
 
-    :array_7
+    :array_310
     .array-data 4
         0x123
         0x122
@@ -600,7 +600,7 @@
         -0x3
     .end array-data
 
-    :array_8
+    :array_350
     .array-data 4
         0x125
         0x124
@@ -634,7 +634,7 @@
         0x33a
     .end array-data
 
-    :array_9
+    :array_390
     .array-data 4
         0x199
         0x198
@@ -668,7 +668,7 @@
         -0x3
     .end array-data
 
-    :array_a
+    :array_3d0
     .array-data 4
         0x19b
         0x19a
@@ -702,7 +702,7 @@
         0x33d
     .end array-data
 
-    :array_b
+    :array_410
     .array-data 4
         0x19d
         0x19c
@@ -736,7 +736,7 @@
         -0x3
     .end array-data
 
-    :array_c
+    :array_450
     .array-data 4
         0x19f
         0x19e
@@ -770,7 +770,7 @@
         0x340
     .end array-data
 
-    :array_d
+    :array_490
     .array-data 4
         0x1a1
         0x1a0
@@ -804,7 +804,7 @@
         -0x3
     .end array-data
 
-    :array_e
+    :array_4d0
     .array-data 4
         0x1a3
         0x1a2
@@ -838,7 +838,7 @@
         0x343
     .end array-data
 
-    :array_f
+    :array_510
     .array-data 4
         0x1e1
         0x1e0
@@ -872,7 +872,7 @@
         -0x3
     .end array-data
 
-    :array_10
+    :array_550
     .array-data 4
         0x1e3
         0x1e2
@@ -906,7 +906,7 @@
         0x346
     .end array-data
 
-    :array_11
+    :array_590
     .array-data 4
         0x1e5
         0x1e4
@@ -940,7 +940,7 @@
         -0x3
     .end array-data
 
-    :array_12
+    :array_5d0
     .array-data 4
         0x1e7
         0x1e6
@@ -974,7 +974,7 @@
         0x349
     .end array-data
 
-    :array_13
+    :array_610
     .array-data 4
         0x1e9
         0x1e8
@@ -1008,7 +1008,7 @@
         -0x3
     .end array-data
 
-    :array_14
+    :array_650
     .array-data 4
         0x1eb
         0x1ea
@@ -1042,7 +1042,7 @@
         0x34c
     .end array-data
 
-    :array_15
+    :array_690
     .array-data 4
         0x22f
         0x22e
@@ -1076,7 +1076,7 @@
         -0x3
     .end array-data
 
-    :array_16
+    :array_6d0
     .array-data 4
         0x231
         0x230
@@ -1110,7 +1110,7 @@
         0x34f
     .end array-data
 
-    :array_17
+    :array_710
     .array-data 4
         0x233
         0x232
@@ -1144,7 +1144,7 @@
         -0x3
     .end array-data
 
-    :array_18
+    :array_750
     .array-data 4
         0x235
         0x234
@@ -1178,7 +1178,7 @@
         0x352
     .end array-data
 
-    :array_19
+    :array_790
     .array-data 4
         0x237
         0x236
@@ -1212,7 +1212,7 @@
         -0x3
     .end array-data
 
-    :array_1a
+    :array_7d0
     .array-data 4
         0x239
         0x238
@@ -1246,7 +1246,7 @@
         0x355
     .end array-data
 
-    :array_1b
+    :array_810
     .array-data 4
         0x2d7
         0x2d6
@@ -1280,7 +1280,7 @@
         -0x3
     .end array-data
 
-    :array_1c
+    :array_850
     .array-data 4
         0x2d9
         0x2d8
@@ -1314,7 +1314,7 @@
         0x358
     .end array-data
 
-    :array_1d
+    :array_890
     .array-data 4
         0x2db
         0x2da
@@ -1348,7 +1348,7 @@
         -0x3
     .end array-data
 
-    :array_1e
+    :array_8d0
     .array-data 4
         0x2dd
         0x2dc
@@ -1382,7 +1382,7 @@
         0x35b
     .end array-data
 
-    :array_1f
+    :array_910
     .array-data 4
         0x2df
         0x2de
@@ -1416,7 +1416,7 @@
         -0x3
     .end array-data
 
-    :array_20
+    :array_950
     .array-data 4
         0x2e1
         0x2e0
@@ -1452,7 +1452,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/zxing/common/BitMatrix;)V
-    .locals 0
+    .registers 2
     .param p1, "bitMatrix"    # Lcom/google/zxing/common/BitMatrix;
 
     .line 68
@@ -1468,7 +1468,7 @@
 
 # virtual methods
 .method readCodewords()[B
-    .locals 11
+    .registers 12
 
     .line 73
     const/16 v0, 0x90
@@ -1498,8 +1498,8 @@
     .local v3, "y":I
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_2
+    :goto_12
+    if-ge v3, v1, :cond_3e
 
     .line 77
     sget-object v5, Lcom/google/zxing/maxicode/decoder/BitMatrixParser;->BITNR:[[I
@@ -1511,8 +1511,8 @@
     const/4 v6, 0x0
 
     .local v6, "x":I
-    :goto_1
-    if-ge v6, v2, :cond_1
+    :goto_19
+    if-ge v6, v2, :cond_3b
 
     .line 79
     aget v7, v5, v6
@@ -1521,7 +1521,7 @@
     .local v4, "bit":I
     move v4, v7
 
-    if-ltz v7, :cond_0
+    if-ltz v7, :cond_38
 
     iget-object v7, p0, Lcom/google/zxing/maxicode/decoder/BitMatrixParser;->bitMatrix:Lcom/google/zxing/common/BitMatrix;
 
@@ -1529,7 +1529,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_38
 
     .line 81
     div-int/lit8 v7, v4, 0x6
@@ -1554,21 +1554,21 @@
 
     .line 78
     .end local v4    # "bit":I
-    :cond_0
+    :cond_38
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
     .line 76
     .end local v5    # "bitnrRow":[I
     .end local v6    # "x":I
-    :cond_1
+    :cond_3b
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 85
     .end local v3    # "y":I
-    :cond_2
+    :cond_3e
     return-object v0
 .end method

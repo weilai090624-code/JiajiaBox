@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;Ljava/lang/Object;Lcom/google/common/cache/RemovalCause;)V
-    .locals 1
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -68,7 +68,7 @@
 .end method
 
 .method public static create(Ljava/lang/Object;Ljava/lang/Object;Lcom/google/common/cache/RemovalCause;)Lcom/google/common/cache/RemovalNotification;
-    .locals 1
+    .registers 4
     .param p0    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public getCause()Lcom/google/common/cache/RemovalCause;
-    .locals 1
+    .registers 2
 
     .line 60
     .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
@@ -115,7 +115,7 @@
 .end method
 
 .method public wasEvicted()Z
-    .locals 1
+    .registers 2
 
     .line 68
     .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"

@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Comparator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 244
     .local p0, "this":Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier;, "Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier<TV;>;"
@@ -86,7 +86,7 @@
 .end method
 
 .method public get()Ljava/util/SortedSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

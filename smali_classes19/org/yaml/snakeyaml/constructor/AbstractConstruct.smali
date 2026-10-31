@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public construct2ndStep(Lorg/yaml/snakeyaml/nodes/Node;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .param p2, "data"    # Ljava/lang/Object;
 
@@ -28,7 +28,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 36
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -64,7 +64,7 @@
     throw v0
 
     .line 38
-    :cond_0
+    :cond_27
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v1, Ljava/lang/StringBuilder;

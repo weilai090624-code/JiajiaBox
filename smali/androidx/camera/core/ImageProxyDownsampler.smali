@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method private static createPlaneProxy(II[B)Landroidx/camera/core/ImageProxy$PlaneProxy;
-    .locals 1
+    .registers 4
     .param p0, "rowStride"    # I
     .param p1, "pixelStride"    # I
     .param p2, "data"    # [B
@@ -50,7 +50,7 @@
 .end method
 
 .method static downsample(Landroidx/camera/core/ImageProxy;IILandroidx/camera/core/ImageProxyDownsampler$DownsamplingMethod;)Landroidx/camera/core/ForwardingImageProxy;
-    .locals 21
+    .registers 25
     .param p0, "image"    # Landroidx/camera/core/ImageProxy;
     .param p1, "downsampledWidth"    # I
     .param p2, "downsampledHeight"    # I
@@ -83,33 +83,33 @@
 
     const/16 v4, 0x23
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_113
 
     .line 50
     invoke-interface/range {p0 .. p0}, Landroidx/camera/core/ImageProxy;->getWidth()I
 
     move-result v3
 
-    if-lt v3, v1, :cond_2
+    if-lt v3, v1, :cond_d8
 
     invoke-interface/range {p0 .. p0}, Landroidx/camera/core/ImageProxy;->getHeight()I
 
     move-result v3
 
-    if-lt v3, v2, :cond_2
+    if-lt v3, v2, :cond_d8
 
     .line 59
     invoke-interface/range {p0 .. p0}, Landroidx/camera/core/ImageProxy;->getWidth()I
 
     move-result v3
 
-    if-ne v3, v1, :cond_0
+    if-ne v3, v1, :cond_30
 
     invoke-interface/range {p0 .. p0}, Landroidx/camera/core/ImageProxy;->getHeight()I
 
     move-result v3
 
-    if-ne v3, v2, :cond_0
+    if-ne v3, v2, :cond_30
 
     .line 60
     new-instance v3, Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;
@@ -125,7 +125,7 @@
     return-object v3
 
     .line 64
-    :cond_0
+    :cond_30
     invoke-interface/range {p0 .. p0}, Landroidx/camera/core/ImageProxy;->getWidth()I
 
     move-result v3
@@ -199,8 +199,8 @@
     const/4 v9, 0x0
 
     .local v9, "i":I
-    :goto_0
-    if-ge v9, v7, :cond_1
+    :goto_6c
+    if-ge v9, v7, :cond_d2
 
     .line 71
     invoke-interface/range {p0 .. p0}, Landroidx/camera/core/ImageProxy;->getPlanes()[Landroidx/camera/core/ImageProxy$PlaneProxy;
@@ -235,18 +235,18 @@
 
     aget v11, v11, v12
 
-    packed-switch v11, :pswitch_data_0
+    packed-switch v11, :pswitch_data_11c
 
     move-object/from16 v20, v15
 
     .end local v15    # "output":[B
     .local v20, "output":[B
-    goto :goto_1
+    goto :goto_c4
 
     .line 87
     .end local v20    # "output":[B
     .restart local v15    # "output":[B
-    :pswitch_0
+    :pswitch_8e
     aget v12, v3, v9
 
     .line 90
@@ -278,12 +278,12 @@
 
     invoke-static/range {v11 .. v18}, Landroidx/camera/core/ImageProxyDownsampler;->resizeAveraging(Ljava/nio/ByteBuffer;IIII[BII)V
 
-    goto :goto_1
+    goto :goto_c4
 
     .line 76
     .end local v20    # "output":[B
     .restart local v15    # "output":[B
-    :pswitch_1
+    :pswitch_aa
     move-object/from16 v20, v15
 
     .end local v15    # "output":[B
@@ -317,7 +317,7 @@
     nop
 
     .line 98
-    :goto_1
+    :goto_c4
     aget v11, v5, v9
 
     const/4 v12, 0x1
@@ -338,11 +338,11 @@
     .end local v19    # "inputBuffer":Ljava/nio/ByteBuffer;
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_0
+    goto :goto_6c
 
     .line 100
     .end local v9    # "i":I
-    :cond_1
+    :cond_d2
     new-instance v7, Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;
 
     invoke-direct {v7, v0, v8, v1, v2}, Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;-><init>(Landroidx/camera/core/ImageProxy;[Landroidx/camera/core/ImageProxy$PlaneProxy;II)V
@@ -355,7 +355,7 @@
     .end local v5    # "outputWidths":[I
     .end local v6    # "outputHeights":[I
     .end local v8    # "outputPlanes":[Landroidx/camera/core/ImageProxy$PlaneProxy;
-    :cond_2
+    :cond_d8
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -414,7 +414,7 @@
     throw v3
 
     .line 47
-    :cond_3
+    :cond_113
     new-instance v3, Ljava/lang/UnsupportedOperationException;
 
     const-string v4, "Only YUV_420_888 format is currently supported."
@@ -425,15 +425,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_11c
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_aa
+        :pswitch_8e
     .end packed-switch
 .end method
 
 .method private static resizeAveraging(Ljava/nio/ByteBuffer;IIII[BII)V
-    .locals 21
+    .registers 29
     .param p0, "input"    # Ljava/nio/ByteBuffer;
     .param p1, "inputWidth"    # I
     .param p2, "inputPixelStride"    # I
@@ -513,8 +513,8 @@
     const/4 v0, 0x0
 
     .local v0, "ix":I
-    :goto_0
-    if-ge v0, v4, :cond_0
+    :goto_1d
+    if-ge v0, v4, :cond_2a
 
     .line 160
     int-to-float v13, v0
@@ -536,23 +536,23 @@
     .end local v14    # "floorSourceX":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 165
     .end local v0    # "ix":I
-    :cond_0
+    :cond_2a
     monitor-enter p0
 
     .line 166
-    :try_start_0
+    :try_start_2b
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->rewind()Ljava/nio/Buffer;
 
     .line 167
     const/4 v0, 0x0
 
     .local v0, "iy":I
-    :goto_1
-    if-ge v0, v5, :cond_2
+    :goto_2f
+    if-ge v0, v5, :cond_bb
 
     .line 168
     int-to-float v13, v0
@@ -601,8 +601,8 @@
     invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_54
+    .catchall {:try_start_2b .. :try_end_54} :catchall_bf
 
     move/from16 v16, v7
 
@@ -610,7 +610,7 @@
     .local v16, "scaleX":F
     const/4 v7, 0x0
 
-    :try_start_1
+    :try_start_57
     invoke-virtual {v1, v10, v7, v3}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
     .line 176
@@ -631,8 +631,8 @@
     const/4 v3, 0x0
 
     .local v3, "ix":I
-    :goto_2
-    if-ge v3, v4, :cond_1
+    :goto_69
+    if-ge v3, v4, :cond_a9
 
     .line 180
     aget v7, v12, v3
@@ -719,11 +719,11 @@
 
     move/from16 v5, v18
 
-    goto :goto_2
+    goto :goto_69
 
     .end local v18    # "rowOffsetSource1":I
     .local v5, "rowOffsetSource1":I
-    :cond_1
+    :cond_a9
     move/from16 v18, v5
 
     .line 167
@@ -747,11 +747,11 @@
 
     move/from16 v7, v16
 
-    goto/16 :goto_1
+    goto/16 :goto_2f
 
     .end local v16    # "scaleX":F
     .local v7, "scaleX":F
-    :cond_2
+    :cond_bb
     move/from16 v16, v7
 
     .line 188
@@ -766,28 +766,28 @@
     .line 188
     .end local v16    # "scaleX":F
     .restart local v7    # "scaleX":F
-    :catchall_0
+    :catchall_bf
     move-exception v0
 
     move/from16 v16, v7
 
     .end local v7    # "scaleX":F
     .restart local v16    # "scaleX":F
-    :goto_3
+    :goto_c2
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_c3
+    .catchall {:try_start_57 .. :try_end_c3} :catchall_c4
 
     throw v0
 
-    :catchall_1
+    :catchall_c4
     move-exception v0
 
-    goto :goto_3
+    goto :goto_c2
 .end method
 
 .method private static resizeNearestNeighbor(Ljava/nio/ByteBuffer;IIII[BII)V
-    .locals 17
+    .registers 25
     .param p0, "input"    # Ljava/nio/ByteBuffer;
     .param p1, "inputWidth"    # I
     .param p2, "inputPixelStride"    # I
@@ -863,8 +863,8 @@
     const/4 v0, 0x0
 
     .local v0, "ix":I
-    :goto_0
-    if-ge v0, v4, :cond_0
+    :goto_1b
+    if-ge v0, v4, :cond_28
 
     .line 120
     int-to-float v12, v0
@@ -886,23 +886,23 @@
     .end local v13    # "floorSourceX":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 125
     .end local v0    # "ix":I
-    :cond_0
+    :cond_28
     monitor-enter p0
 
     .line 126
-    :try_start_0
+    :try_start_29
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->rewind()Ljava/nio/Buffer;
 
     .line 127
     const/4 v0, 0x0
 
     .local v0, "iy":I
-    :goto_1
-    if-ge v0, v5, :cond_2
+    :goto_2d
+    if-ge v0, v5, :cond_61
 
     .line 128
     int-to-float v12, v0
@@ -948,8 +948,8 @@
     const/4 v2, 0x0
 
     .local v2, "ix":I
-    :goto_2
-    if-ge v2, v4, :cond_1
+    :goto_4d
+    if-ge v2, v4, :cond_5a
 
     .line 137
     add-int v3, v15, v2
@@ -963,7 +963,7 @@
     .line 136
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_4d
 
     .line 127
     .end local v2    # "ix":I
@@ -971,30 +971,30 @@
     .end local v13    # "floorSourceY":I
     .end local v14    # "rowOffsetSource":I
     .end local v15    # "rowOffsetTarget":I
-    :cond_1
+    :cond_5a
     add-int/lit8 v0, v0, 0x1
 
     move/from16 v2, p3
 
     move/from16 v3, p4
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 140
     .end local v0    # "iy":I
-    :cond_2
+    :cond_61
     monitor-exit p0
 
     .line 141
     return-void
 
     .line 140
-    :catchall_0
+    :catchall_63
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_65
+    .catchall {:try_start_29 .. :try_end_65} :catchall_63
 
     throw v0
 .end method

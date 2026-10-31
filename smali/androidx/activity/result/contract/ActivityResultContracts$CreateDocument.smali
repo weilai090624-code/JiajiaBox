@@ -67,7 +67,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         message = "Using a wildcard mime type with CreateDocument is not recommended as it breaks the automatic handling of file extensions. Instead, specify the mime type by using the constructor that takes an concrete mime type (e.g.., CreateDocument(\"image/png\"))."
         replaceWith = .subannotation Lkotlin/ReplaceWith;
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "mimeType"    # Ljava/lang/String;
 
     const-string v0, "mimeType"
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public bridge synthetic createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -121,7 +121,7 @@
 .end method
 
 .method public createIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/String;
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public bridge synthetic getSynchronousResult(Landroid/content/Context;Ljava/lang/Object;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/Object;
 
@@ -180,7 +180,7 @@
 .end method
 
 .method public final getSynchronousResult(Landroid/content/Context;Ljava/lang/String;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "input"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -210,7 +210,7 @@
 .end method
 
 .method public final parseResult(ILandroid/content/Intent;)Landroid/net/Uri;
-    .locals 3
+    .registers 6
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -225,42 +225,42 @@
     .local v1, "$i$a$-takeIf-ActivityResultContracts$CreateDocument$parseResult$1":I
     const/4 v2, -0x1
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_7
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v2, 0x0
 
     .end local v0    # "it":Landroid/content/Intent;
     .end local v1    # "$i$a$-takeIf-ActivityResultContracts$CreateDocument$parseResult$1":I
-    :goto_0
+    :goto_8
     const/4 v0, 0x0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_d
 
     move-object v1, p2
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
+    :cond_d
     move-object v1, v0
 
-    :goto_1
-    if-eqz v1, :cond_2
+    :goto_e
+    if-eqz v1, :cond_14
 
     invoke-virtual {v1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v0
 
-    :cond_2
+    :cond_14
     return-object v0
 .end method
 
 .method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "resultCode"    # I
     .param p2, "intent"    # Landroid/content/Intent;
 

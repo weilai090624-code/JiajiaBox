@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/DefaultItemAnimator;Landroidx/recyclerview/widget/DefaultItemAnimator$ChangeInfo;Landroid/view/ViewPropertyAnimator;Landroid/view/View;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/recyclerview/widget/DefaultItemAnimator;
 
     .line 364
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 372
@@ -107,7 +107,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
     .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 367

@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 545
     .local p0, "this":Lcom/google/common/collect/Sets$SetView;, "Lcom/google/common/collect/Sets$SetView<TE;>;"
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/Sets$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/collect/Sets$1;
 
     .line 544
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public final add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -74,7 +74,7 @@
 .end method
 
 .method public final addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -97,7 +97,7 @@
 .end method
 
 .method public final clear()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -111,7 +111,7 @@
 .end method
 
 .method public copyInto(Ljava/util/Set;)Ljava/util/Set;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S::",
@@ -130,7 +130,7 @@
 .end method
 
 .method public immutableCopy()Lcom/google/common/collect/ImmutableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -159,7 +159,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 544
     .local p0, "this":Lcom/google/common/collect/Sets$SetView;, "Lcom/google/common/collect/Sets$SetView<TE;>;"
@@ -171,7 +171,7 @@
 .end method
 
 .method public final remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -189,7 +189,7 @@
 .end method
 
 .method public final removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -212,7 +212,7 @@
 .end method
 
 .method public final retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

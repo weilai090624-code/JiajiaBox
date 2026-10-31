@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 101
     .local p0, "this":Lcom/google/common/util/concurrent/ImmediateFuture$ImmediateCancelledFuture;, "Lcom/google/common/util/concurrent/ImmediateFuture$ImmediateCancelledFuture<TV;>;"

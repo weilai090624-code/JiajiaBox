@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 0
+    .registers 5
     .param p1, "owner"    # Ljava/lang/Class;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "signature"    # Ljava/lang/String;
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/reflect/KDeclarationContainer;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 6
     .param p1, "owner"    # Lkotlin/reflect/KDeclarationContainer;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "signature"    # Ljava/lang/String;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "receiver1"    # Ljava/lang/Object;
     .param p2, "receiver2"    # Ljava/lang/Object;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .param p1, "receiver1"    # Ljava/lang/Object;
     .param p2, "receiver2"    # Ljava/lang/Object;
     .param p3, "value"    # Ljava/lang/Object;

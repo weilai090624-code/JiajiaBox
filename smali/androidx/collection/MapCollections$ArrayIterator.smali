@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/collection/MapCollections;I)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Landroidx/collection/MapCollections;
     .param p2, "offset"    # I
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 50
     .local p0, "this":Landroidx/collection/MapCollections$ArrayIterator;, "Landroidx/collection/MapCollections<TK;TV;>.ArrayIterator<TT;>;"
@@ -82,21 +82,21 @@
 
     iget v1, p0, Landroidx/collection/MapCollections$ArrayIterator;->mSize:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -109,7 +109,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 56
     iget-object v0, p0, Landroidx/collection/MapCollections$ArrayIterator;->this$0:Landroidx/collection/MapCollections;
@@ -140,7 +140,7 @@
 
     .line 55
     .end local v0    # "res":Ljava/lang/Object;
-    :cond_0
+    :cond_19
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -149,13 +149,13 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     .line 64
     .local p0, "this":Landroidx/collection/MapCollections$ArrayIterator;, "Landroidx/collection/MapCollections<TK;TV;>.ArrayIterator<TT;>;"
     iget-boolean v0, p0, Landroidx/collection/MapCollections$ArrayIterator;->mCanRemove:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 67
     iget v0, p0, Landroidx/collection/MapCollections$ArrayIterator;->mIndex:I
@@ -187,7 +187,7 @@
     return-void
 
     .line 65
-    :cond_0
+    :cond_1b
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V

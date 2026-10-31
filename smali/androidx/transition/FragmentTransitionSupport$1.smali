@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/FragmentTransitionSupport;Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/transition/FragmentTransitionSupport;
 
     .line 93
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onGetEpicenter(Landroidx/transition/Transition;)Landroid/graphics/Rect;
-    .locals 1
+    .registers 3
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 96

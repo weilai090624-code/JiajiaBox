@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/Menu;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Landroid/view/Menu;
 
     iput-object p1, p0, Landroidx/core/view/MenuKt$iterator$1;->$this_iterator:Landroid/view/Menu;
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 72
     iget v0, p0, Landroidx/core/view/MenuKt$iterator$1;->index:I
@@ -91,21 +91,21 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public next()Landroid/view/MenuItem;
-    .locals 3
+    .registers 4
 
     .line 73
     iget-object v0, p0, Landroidx/core/view/MenuKt$iterator$1;->$this_iterator:Landroid/view/Menu;
@@ -120,11 +120,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     return-object v0
 
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 70
     invoke-virtual {p0}, Landroidx/core/view/MenuKt$iterator$1;->next()Landroid/view/MenuItem;
@@ -144,7 +144,7 @@
 .end method
 
 .method public remove()V
-    .locals 6
+    .registers 7
 
     .line 74
     iget-object v0, p0, Landroidx/core/view/MenuKt$iterator$1;->$this_iterator:Landroid/view/Menu;
@@ -167,7 +167,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     .line 92
     .local v3, "it$iv":Landroid/view/MenuItem;
@@ -185,13 +185,13 @@
     .end local v4    # "$i$a$-let-MenuKt$removeItemAt$1$iv":I
     sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_1
+    :goto_1d
+    if-eqz v3, :cond_20
 
     .line 74
     .end local v0    # "$this$removeItemAt$iv":Landroid/view/Menu;
@@ -203,7 +203,7 @@
     .restart local v0    # "$this$removeItemAt$iv":Landroid/view/Menu;
     .restart local v1    # "index$iv":I
     .restart local v2    # "$i$f$removeItemAt":I
-    :cond_1
+    :cond_20
     new-instance v3, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v3}, Ljava/lang/IndexOutOfBoundsException;-><init>()V

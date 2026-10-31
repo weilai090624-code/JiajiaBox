@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/ExtendableBuilder;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public setCameraEventCallback(Landroidx/camera/camera2/impl/CameraEventCallbacks;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Extender;
-    .locals 2
+    .registers 4
     .param p1, "cameraEventCallbacks"    # Landroidx/camera/camera2/impl/CameraEventCallbacks;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

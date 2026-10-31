@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 398
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public clone()Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;
-    .locals 2
+    .registers 3
 
     .line 410
     :try_start_0
@@ -74,13 +74,13 @@
     move-result-object v0
 
     check-cast v0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;
-    :try_end_0
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
     .line 411
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 412
@@ -93,7 +93,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -109,7 +109,7 @@
 .end method
 
 .method public getCopyTransient()Z
-    .locals 1
+    .registers 2
 
     .line 472
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->copyTransient:Z
@@ -118,7 +118,7 @@
 .end method
 
 .method public getExtendedFieldNames()Z
-    .locals 1
+    .registers 2
 
     .line 506
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->extendedFieldNames:Z
@@ -127,7 +127,7 @@
 .end method
 
 .method public getFieldsCanBeNull()Z
-    .locals 1
+    .registers 2
 
     .line 425
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->fieldsCanBeNull:Z
@@ -136,7 +136,7 @@
 .end method
 
 .method public getFixedFieldTypes()Z
-    .locals 1
+    .registers 2
 
     .line 461
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->fixedFieldTypes:Z
@@ -145,7 +145,7 @@
 .end method
 
 .method public getIgnoreSyntheticFields()Z
-    .locals 1
+    .registers 2
 
     .line 449
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->ignoreSyntheticFields:Z
@@ -154,7 +154,7 @@
 .end method
 
 .method public getSerializeTransient()Z
-    .locals 1
+    .registers 2
 
     .line 482
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->serializeTransient:Z
@@ -163,7 +163,7 @@
 .end method
 
 .method public getSetFieldsAsAccessible()Z
-    .locals 1
+    .registers 2
 
     .line 438
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->setFieldsAsAccessible:Z
@@ -172,7 +172,7 @@
 .end method
 
 .method public getVariableLengthEncoding()Z
-    .locals 1
+    .registers 2
 
     .line 495
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$FieldSerializerConfig;->varEncoding:Z
@@ -181,7 +181,7 @@
 .end method
 
 .method public setCopyTransient(Z)V
-    .locals 2
+    .registers 4
     .param p1, "copyTransient"    # Z
 
     .line 467
@@ -190,7 +190,7 @@
     .line 468
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -215,12 +215,12 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 469
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setExtendedFieldNames(Z)V
-    .locals 2
+    .registers 4
     .param p1, "extendedFieldNames"    # Z
 
     .line 501
@@ -229,7 +229,7 @@
     .line 502
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -254,12 +254,12 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 503
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setFieldsAsAccessible(Z)V
-    .locals 2
+    .registers 4
     .param p1, "setFieldsAsAccessible"    # Z
 
     .line 433
@@ -268,7 +268,7 @@
     .line 434
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -293,12 +293,12 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 435
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setFieldsCanBeNull(Z)V
-    .locals 2
+    .registers 4
     .param p1, "fieldsCanBeNull"    # Z
 
     .line 420
@@ -307,7 +307,7 @@
     .line 421
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -332,12 +332,12 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 422
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setFixedFieldTypes(Z)V
-    .locals 2
+    .registers 4
     .param p1, "fixedFieldTypes"    # Z
 
     .line 456
@@ -346,7 +346,7 @@
     .line 457
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -371,12 +371,12 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 458
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setIgnoreSyntheticFields(Z)V
-    .locals 2
+    .registers 4
     .param p1, "ignoreSyntheticFields"    # Z
 
     .line 444
@@ -385,7 +385,7 @@
     .line 445
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -410,12 +410,12 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 446
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setSerializeTransient(Z)V
-    .locals 2
+    .registers 4
     .param p1, "serializeTransient"    # Z
 
     .line 477
@@ -424,7 +424,7 @@
     .line 478
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -449,12 +449,12 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 479
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setVariableLengthEncoding(Z)V
-    .locals 2
+    .registers 4
     .param p1, "varEncoding"    # Z
 
     .line 490
@@ -463,7 +463,7 @@
     .line 491
     sget-boolean v0, Lcom/esotericsoftware/minlog/Log;->TRACE:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -488,6 +488,6 @@
     invoke-static {v1, v0}, Lcom/esotericsoftware/minlog/Log;->trace(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 492
-    :cond_0
+    :cond_1e
     return-void
 .end method

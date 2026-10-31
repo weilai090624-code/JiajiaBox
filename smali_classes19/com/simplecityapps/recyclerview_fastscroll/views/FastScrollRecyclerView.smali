@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 75
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 4
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -105,7 +105,7 @@
 
     .line 88
     .local v1, "typedArray":Landroid/content/res/TypedArray;
-    :try_start_0
+    :try_start_18
     sget v2, Lcom/simplecityapps/recyclerview_fastscroll/R$styleable;->FastScrollRecyclerView_fastScrollThumbEnabled:I
 
     invoke-virtual {v1, v2, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -113,8 +113,8 @@
     move-result v0
 
     iput-boolean v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mFastScrollEnabled:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_18 .. :try_end_20} :catchall_3b
 
     .line 90
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
@@ -149,7 +149,7 @@
     return-void
 
     .line 90
-    :catchall_0
+    :catchall_3b
     move-exception v0
 
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
@@ -159,7 +159,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;)Landroid/util/SparseIntArray;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
     .line 40
@@ -169,7 +169,7 @@
 .end method
 
 .method private calculateAdapterHeight()I
-    .locals 2
+    .registers 3
 
     .line 480
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -178,7 +178,7 @@
 
     instance-of v0, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$MeasurableAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 483
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -196,7 +196,7 @@
     return v0
 
     .line 481
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "calculateAdapterHeight() should only be called where the RecyclerView.Adapter is an instance of MeasurableAdapter"
@@ -207,7 +207,7 @@
 .end method
 
 .method private calculateScrollDistanceToPosition(I)I
-    .locals 5
+    .registers 7
     .param p1, "adapterIndex"    # I
 
     .line 450
@@ -217,7 +217,7 @@
 
     instance-of v0, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$MeasurableAdapter;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_40
 
     .line 454
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollOffsets:Landroid/util/SparseIntArray;
@@ -226,7 +226,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_17
 
     .line 455
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollOffsets:Landroid/util/SparseIntArray;
@@ -238,7 +238,7 @@
     return v0
 
     .line 458
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     .line 459
@@ -254,8 +254,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, p1, :cond_1
+    :goto_1f
+    if-ge v2, p1, :cond_3a
 
     .line 464
     iget-object v3, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollOffsets:Landroid/util/SparseIntArray;
@@ -287,11 +287,11 @@
     .end local v3    # "viewType":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 469
     .end local v2    # "i":I
-    :cond_1
+    :cond_3a
     iget-object v2, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollOffsets:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, p1, v0}, Landroid/util/SparseIntArray;->put(II)V
@@ -302,7 +302,7 @@
     .line 451
     .end local v0    # "totalHeight":I
     .end local v1    # "measurer":Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$MeasurableAdapter;
-    :cond_2
+    :cond_40
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "calculateScrollDistanceToPosition() should only be called where the RecyclerView.Adapter is an instance of MeasurableAdapter"
@@ -313,7 +313,7 @@
 .end method
 
 .method private findItemPosition(F)F
-    .locals 6
+    .registers 8
     .param p1, "touchFraction"    # F
 
     .line 345
@@ -323,7 +323,7 @@
 
     instance-of v0, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$MeasurableAdapter;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_7b
 
     .line 346
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -349,7 +349,7 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_17
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     move-result-object v3
@@ -358,7 +358,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_51
 
     .line 350
     invoke-direct {p0, v2}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->calculateScrollDistanceToPosition(I)I
@@ -397,12 +397,12 @@
 
     add-int/lit8 v5, v5, -0x1
 
-    if-ne v2, v5, :cond_0
+    if-ne v2, v5, :cond_48
 
     .line 353
-    if-lt v1, v3, :cond_1
+    if-lt v1, v3, :cond_4e
 
-    if-gt v1, v4, :cond_1
+    if-gt v1, v4, :cond_4e
 
     .line 354
     int-to-float v5, v2
@@ -410,10 +410,10 @@
     return v5
 
     .line 357
-    :cond_0
-    if-lt v1, v3, :cond_1
+    :cond_48
+    if-lt v1, v3, :cond_4e
 
-    if-ge v1, v4, :cond_1
+    if-ge v1, v4, :cond_4e
 
     .line 358
     int-to-float v5, v2
@@ -423,14 +423,14 @@
     .line 349
     .end local v3    # "top":I
     .end local v4    # "bottom":I
-    :cond_1
+    :cond_4e
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 364
     .end local v2    # "i":I
-    :cond_2
+    :cond_51
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -477,7 +477,7 @@
     .line 367
     .end local v0    # "measurer":Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$MeasurableAdapter;
     .end local v1    # "viewTop":I
-    :cond_3
+    :cond_7b
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     move-result-object v0
@@ -494,7 +494,7 @@
 .end method
 
 .method private findMeasureAdapterFirstVisiblePosition(I)I
-    .locals 10
+    .registers 12
     .param p1, "passedHeight"    # I
 
     .line 317
@@ -504,7 +504,7 @@
 
     instance-of v0, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$MeasurableAdapter;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_9e
 
     .line 318
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -518,7 +518,7 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_f
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     move-result-object v2
@@ -529,7 +529,7 @@
 
     const/4 v3, 0x1
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_47
 
     .line 320
     invoke-direct {p0, v1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->calculateScrollDistanceToPosition(I)I
@@ -568,21 +568,21 @@
 
     sub-int/2addr v5, v3
 
-    if-ne v1, v5, :cond_0
+    if-ne v1, v5, :cond_3f
 
     .line 323
-    if-lt p1, v2, :cond_1
+    if-lt p1, v2, :cond_44
 
-    if-gt p1, v4, :cond_1
+    if-gt p1, v4, :cond_44
 
     .line 324
     return v1
 
     .line 327
-    :cond_0
-    if-lt p1, v2, :cond_1
+    :cond_3f
+    if-lt p1, v2, :cond_44
 
-    if-ge p1, v4, :cond_1
+    if-ge p1, v4, :cond_44
 
     .line 328
     return v1
@@ -590,14 +590,14 @@
     .line 319
     .end local v2    # "top":I
     .end local v4    # "bottom":I
-    :cond_1
+    :cond_44
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 332
     .end local v1    # "i":I
-    :cond_2
+    :cond_47
     const/4 v1, 0x0
 
     invoke-direct {p0, v1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->calculateScrollDistanceToPosition(I)I
@@ -701,7 +701,7 @@
     .end local v0    # "measurableAdapter":Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$MeasurableAdapter;
     .end local v2    # "low":I
     .end local v4    # "height":I
-    :cond_3
+    :cond_9e
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "findMeasureAdapterFirstVisiblePosition() should only be called where the RecyclerView.Adapter is an instance of MeasurableAdapter"
@@ -712,7 +712,7 @@
 .end method
 
 .method private getCurScrollState(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;)V
-    .locals 6
+    .registers 8
     .param p1, "stateOut"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;
 
     .line 413
@@ -737,18 +737,18 @@
 
     .line 420
     .local v0, "itemCount":I
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_8c
 
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getChildCount()I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
-    goto :goto_1
+    goto :goto_8c
 
     .line 424
-    :cond_0
+    :cond_18
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getChildAt(I)Landroid/view/View;
@@ -770,7 +770,7 @@
 
     instance-of v2, v2, Landroidx/recyclerview/widget/GridLayoutManager;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3a
 
     .line 428
     iget v2, p1, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;->rowIndex:I
@@ -790,14 +790,14 @@
     iput v2, p1, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;->rowIndex:I
 
     .line 430
-    :cond_1
+    :cond_3a
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     move-result-object v2
 
     instance-of v2, v2, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$MeasurableAdapter;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_69
 
     .line 431
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -839,10 +839,10 @@
 
     iput v2, p1, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;->rowHeight:I
 
-    goto :goto_0
+    goto :goto_8b
 
     .line 434
-    :cond_2
+    :cond_69
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     move-result-object v2
@@ -882,18 +882,18 @@
     iput v2, p1, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;->rowHeight:I
 
     .line 438
-    :goto_0
+    :goto_8b
     return-void
 
     .line 421
     .end local v1    # "child":Landroid/view/View;
-    :cond_3
-    :goto_1
+    :cond_8c
+    :goto_8c
     return-void
 .end method
 
 .method private handleTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 16
+    .registers 18
     .param p1, "ev"    # Landroid/view/MotionEvent;
 
     .line 144
@@ -921,12 +921,12 @@
 
     .line 147
     .local v3, "y":I
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_54
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 155
-    :pswitch_0
+    :pswitch_14
     iput v3, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mLastY:I
 
     .line 156
@@ -945,10 +945,10 @@
     invoke-virtual/range {v4 .. v9}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->handleTouchEvent(Landroid/view/MotionEvent;IIILcom/simplecityapps/recyclerview_fastscroll/interfaces/OnFastScrollStateChangeListener;)V
 
     .line 157
-    goto :goto_0
+    goto :goto_4c
 
     .line 160
-    :pswitch_1
+    :pswitch_26
     iget-object v10, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollbar:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     iget v12, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mDownX:I
@@ -963,10 +963,10 @@
 
     invoke-virtual/range {v10 .. v15}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->handleTouchEvent(Landroid/view/MotionEvent;IIILcom/simplecityapps/recyclerview_fastscroll/interfaces/OnFastScrollStateChangeListener;)V
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 150
-    :pswitch_2
+    :pswitch_36
     iput v2, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mDownX:I
 
     .line 151
@@ -993,7 +993,7 @@
     nop
 
     .line 163
-    :goto_0
+    :goto_4c
     iget-object v4, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollbar:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     invoke-virtual {v4}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->isDragging()Z
@@ -1004,19 +1004,19 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_54
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_36
+        :pswitch_26
+        :pswitch_14
+        :pswitch_26
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public allowThumbInactiveColor(Z)V
-    .locals 1
+    .registers 3
     .param p1, "allowInactiveColor"    # Z
 
     .line 536
@@ -1029,7 +1029,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 1
+    .registers 3
     .param p1, "c"    # Landroid/graphics/Canvas;
 
     .line 194
@@ -1038,7 +1038,7 @@
     .line 195
     iget-boolean v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mFastScrollEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 196
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->onUpdateScrollbar()V
@@ -1049,12 +1049,12 @@
     invoke-virtual {v0, p1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->draw(Landroid/graphics/Canvas;)V
 
     .line 199
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method protected getAvailableScrollBarHeight()I
-    .locals 2
+    .registers 3
 
     .line 188
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getHeight()I
@@ -1087,7 +1087,7 @@
 .end method
 
 .method protected getAvailableScrollHeight(II)I
-    .locals 3
+    .registers 6
     .param p1, "adapterHeight"    # I
     .param p2, "yOffset"    # I
 
@@ -1120,7 +1120,7 @@
 .end method
 
 .method public getScrollBarThumbHeight()I
-    .locals 1
+    .registers 2
 
     .line 103
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollbar:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
@@ -1133,7 +1133,7 @@
 .end method
 
 .method public getScrollBarWidth()I
-    .locals 1
+    .registers 2
 
     .line 99
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollbar:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
@@ -1146,7 +1146,7 @@
 .end method
 
 .method protected isLayoutManagerReversed()Z
-    .locals 1
+    .registers 2
 
     .line 402
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -1155,7 +1155,7 @@
 
     instance-of v0, v0, Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 403
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -1171,14 +1171,14 @@
     return v0
 
     .line 405
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method protected onFinishInflate()V
-    .locals 0
+    .registers 1
 
     .line 108
     invoke-super {p0}, Landroidx/recyclerview/widget/RecyclerView;->onFinishInflate()V
@@ -1191,7 +1191,7 @@
 .end method
 
 .method public onInterceptTouchEvent(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 4
     .param p1, "rv"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "ev"    # Landroid/view/MotionEvent;
 
@@ -1204,7 +1204,7 @@
 .end method
 
 .method public onRequestDisallowInterceptTouchEvent(Z)V
-    .locals 0
+    .registers 2
     .param p1, "disallowIntercept"    # Z
 
     .line 169
@@ -1212,7 +1212,7 @@
 .end method
 
 .method public onTouchEvent(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/MotionEvent;)V
-    .locals 0
+    .registers 3
     .param p1, "rv"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "ev"    # Landroid/view/MotionEvent;
 
@@ -1224,20 +1224,20 @@
 .end method
 
 .method public onUpdateScrollbar()V
-    .locals 6
+    .registers 7
 
     .line 376
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 377
     return-void
 
     .line 380
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     move-result-object v0
@@ -1254,7 +1254,7 @@
 
     instance-of v1, v1, Landroidx/recyclerview/widget/GridLayoutManager;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_29
 
     .line 382
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -1283,10 +1283,10 @@
 
     .line 386
     .end local v1    # "spanCount":I
-    :cond_1
+    :cond_29
     const/4 v1, -0x1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_32
 
     .line 387
     iget-object v2, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollbar:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
@@ -1297,7 +1297,7 @@
     return-void
 
     .line 392
-    :cond_2
+    :cond_32
     iget-object v2, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollPosState:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;
 
     invoke-direct {p0, v2}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getCurScrollState(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;)V
@@ -1307,7 +1307,7 @@
 
     iget v2, v2, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;->rowIndex:I
 
-    if-gez v2, :cond_3
+    if-gez v2, :cond_43
 
     .line 394
     iget-object v2, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollbar:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
@@ -1318,7 +1318,7 @@
     return-void
 
     .line 398
-    :cond_3
+    :cond_43
     iget-object v1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollPosState:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;
 
     invoke-virtual {p0, v1, v0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->updateThumbPosition(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;I)V
@@ -1328,7 +1328,7 @@
 .end method
 
 .method public scrollToPositionAtProgress(F)Ljava/lang/String;
-    .locals 11
+    .registers 13
     .param p1, "touchFraction"    # F
 
     .line 260
@@ -1344,13 +1344,13 @@
     .local v0, "itemCount":I
     const-string v1, ""
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 262
     return-object v1
 
     .line 264
-    :cond_0
+    :cond_d
     const/4 v2, 0x1
 
     .line 265
@@ -1365,7 +1365,7 @@
 
     instance-of v4, v4, Landroidx/recyclerview/widget/GridLayoutManager;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_29
 
     .line 267
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -1392,7 +1392,7 @@
     double-to-int v3, v4
 
     .line 272
-    :cond_1
+    :cond_29
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->stopScroll()V
 
     .line 274
@@ -1409,7 +1409,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_54
 
     .line 283
     invoke-direct {p0, p1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->findItemPosition(F)F
@@ -1451,14 +1451,14 @@
     .line 288
     .end local v6    # "passedHeight":I
     .local v8, "scrollOffset":I
-    goto :goto_0
+    goto :goto_74
 
     .line 289
     .end local v4    # "itemPos":F
     .end local v5    # "availableScrollHeight":I
     .end local v7    # "scrollPosition":I
     .end local v8    # "scrollOffset":I
-    :cond_2
+    :cond_54
     invoke-direct {p0, p1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->findItemPosition(F)F
 
     move-result v4
@@ -1506,7 +1506,7 @@
     .line 302
     .end local v6    # "exactItemPos":I
     .restart local v8    # "scrollOffset":I
-    :goto_0
+    :goto_74
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     move-result-object v6
@@ -1524,18 +1524,18 @@
 
     instance-of v9, v9, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$SectionedAdapter;
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_86
 
     .line 306
     return-object v1
 
     .line 309
-    :cond_3
+    :cond_86
     const/high16 v1, 0x3f800000    # 1.0f
 
     cmpl-float v1, p1, v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_98
 
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
@@ -1549,12 +1549,12 @@
 
     int-to-float v1, v1
 
-    goto :goto_1
+    goto :goto_99
 
-    :cond_4
+    :cond_98
     move v1, v4
 
-    :goto_1
+    :goto_99
     float-to-int v1, v1
 
     .line 311
@@ -1575,7 +1575,7 @@
 .end method
 
 .method public setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 2
+    .registers 4
     .param p1, "adapter"    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
     .line 114
@@ -1583,7 +1583,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 115
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -1595,8 +1595,8 @@
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->unregisterAdapterDataObserver(Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;)V
 
     .line 118
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_f
+    if-eqz p1, :cond_16
 
     .line 119
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollOffsetInvalidator:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollOffsetInvalidator;
@@ -1604,7 +1604,7 @@
     invoke-virtual {p1, v0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->registerAdapterDataObserver(Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;)V
 
     .line 122
-    :cond_1
+    :cond_16
     invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
 
     .line 123
@@ -1612,7 +1612,7 @@
 .end method
 
 .method public setAutoHideDelay(I)V
-    .locals 1
+    .registers 3
     .param p1, "hideDelay"    # I
 
     .line 515
@@ -1625,7 +1625,7 @@
 .end method
 
 .method public setAutoHideEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "autoHideEnabled"    # Z
 
     .line 519
@@ -1638,7 +1638,7 @@
 .end method
 
 .method public setFastScrollEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "fastScrollEnabled"    # Z
 
     .line 545
@@ -1649,7 +1649,7 @@
 .end method
 
 .method public setOnFastScrollStateChangeListener(Lcom/simplecityapps/recyclerview_fastscroll/interfaces/OnFastScrollStateChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "stateChangeListener"    # Lcom/simplecityapps/recyclerview_fastscroll/interfaces/OnFastScrollStateChangeListener;
 
     .line 523
@@ -1660,7 +1660,7 @@
 .end method
 
 .method public setPopUpTypeface(Landroid/graphics/Typeface;)V
-    .locals 1
+    .registers 3
     .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .line 511
@@ -1673,7 +1673,7 @@
 .end method
 
 .method public setPopupBgColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 499
@@ -1686,7 +1686,7 @@
 .end method
 
 .method public setPopupPosition(I)V
-    .locals 1
+    .registers 3
     .param p1, "popupPosition"    # I
 
     .line 559
@@ -1699,7 +1699,7 @@
 .end method
 
 .method public setPopupTextColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 503
@@ -1712,7 +1712,7 @@
 .end method
 
 .method public setPopupTextSize(I)V
-    .locals 1
+    .registers 3
     .param p1, "textSize"    # I
 
     .line 507
@@ -1725,7 +1725,7 @@
 .end method
 
 .method public setStateChangeListener(Lcom/simplecityapps/recyclerview_fastscroll/interfaces/OnFastScrollStateChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "stateChangeListener"    # Lcom/simplecityapps/recyclerview_fastscroll/interfaces/OnFastScrollStateChangeListener;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1738,7 +1738,7 @@
 .end method
 
 .method public setThumbColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 491
@@ -1751,7 +1751,7 @@
 .end method
 
 .method public setThumbEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "thumbEnabled"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1764,7 +1764,7 @@
 .end method
 
 .method public setThumbInactiveColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 532
@@ -1777,7 +1777,7 @@
 .end method
 
 .method public setThumbInactiveColor(Z)V
-    .locals 0
+    .registers 2
     .param p1, "allowInactiveColor"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1790,7 +1790,7 @@
 .end method
 
 .method public setTrackColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 495
@@ -1803,7 +1803,7 @@
 .end method
 
 .method public showScrollbar()V
-    .locals 1
+    .registers 2
 
     .line 487
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollbar:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
@@ -1815,7 +1815,7 @@
 .end method
 
 .method protected updateThumbPosition(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;I)V
-    .locals 7
+    .registers 10
     .param p1, "scrollPosState"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;
     .param p2, "rowCount"    # I
 
@@ -1828,7 +1828,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 215
     invoke-direct {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->calculateAdapterHeight()I
@@ -1848,12 +1848,12 @@
     move-result v1
 
     .local v1, "scrolledPastHeight":I
-    goto :goto_0
+    goto :goto_26
 
     .line 218
     .end local v0    # "availableScrollHeight":I
     .end local v1    # "scrolledPastHeight":I
-    :cond_0
+    :cond_18
     iget v0, p1, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;->rowHeight:I
 
     mul-int v0, v0, p2
@@ -1872,14 +1872,14 @@
 
     .line 222
     .restart local v1    # "scrolledPastHeight":I
-    :goto_0
+    :goto_26
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getAvailableScrollBarHeight()I
 
     move-result v2
 
     .line 225
     .local v2, "availableScrollBarHeight":I
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_33
 
     .line 226
     iget-object v3, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollbar:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
@@ -1892,7 +1892,7 @@
     return-void
 
     .line 233
-    :cond_1
+    :cond_33
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getPaddingTop()I
 
     move-result v3
@@ -1909,7 +1909,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_47
 
     .line 235
     iget v4, p1, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;->rowTopOffset:I
@@ -1920,12 +1920,12 @@
 
     .end local v3    # "scrollY":I
     .local v4, "scrollY":I
-    goto :goto_1
+    goto :goto_4b
 
     .line 237
     .end local v4    # "scrollY":I
     .restart local v3    # "scrollY":I
-    :cond_2
+    :cond_47
     iget v4, p1, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView$ScrollPositionState;->rowTopOffset:I
 
     sub-int v4, v3, v4
@@ -1933,7 +1933,7 @@
     .line 239
     .end local v3    # "scrollY":I
     .restart local v4    # "scrollY":I
-    :goto_1
+    :goto_4b
     int-to-float v3, v4
 
     int-to-float v5, v0
@@ -1952,7 +1952,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_60
 
     .line 241
     sub-int v5, v2, v3
@@ -1965,12 +1965,12 @@
 
     .end local v3    # "scrollBarY":I
     .local v5, "scrollBarY":I
-    goto :goto_2
+    goto :goto_65
 
     .line 243
     .end local v5    # "scrollBarY":I
     .restart local v3    # "scrollBarY":I
-    :cond_3
+    :cond_60
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getPaddingTop()I
 
     move-result v5
@@ -1980,7 +1980,7 @@
     .line 248
     .end local v3    # "scrollBarY":I
     .restart local v5    # "scrollBarY":I
-    :goto_2
+    :goto_65
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -1989,17 +1989,17 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_71
 
     .line 249
     const/4 v3, 0x0
 
     .local v3, "scrollBarX":I
-    goto :goto_3
+    goto :goto_7c
 
     .line 251
     .end local v3    # "scrollBarX":I
-    :cond_4
+    :cond_71
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->getWidth()I
 
     move-result v3
@@ -2014,7 +2014,7 @@
 
     .line 253
     .restart local v3    # "scrollBarX":I
-    :goto_3
+    :goto_7c
     iget-object v6, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->mScrollbar:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     invoke-virtual {v6, v3, v5}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->setThumbPosition(II)V

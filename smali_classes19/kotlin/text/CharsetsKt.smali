@@ -27,7 +27,7 @@
 
 # direct methods
 .method private static final charset(Ljava/lang/String;)Ljava/nio/charset/Charset;
-    .locals 2
+    .registers 3
     .param p0, "charsetName"    # Ljava/lang/String;
 
     const-string v0, "charsetName"

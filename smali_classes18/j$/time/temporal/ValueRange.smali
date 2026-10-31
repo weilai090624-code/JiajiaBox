@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(JJJJ)V
-    .locals 0
+    .registers 9
     .param p1, "minSmallest"    # J
     .param p3, "minLargest"    # J
     .param p5, "maxSmallest"    # J
@@ -48,14 +48,14 @@
 .end method
 
 .method private genInvalidFieldMessage(Lj$/time/temporal/TemporalField;J)Ljava/lang/String;
-    .locals 3
+    .registers 7
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "value"    # J
 
     .line 336
     const-string v0, "): "
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2a
 
     .line 337
     new-instance v1, Ljava/lang/StringBuilder;
@@ -97,7 +97,7 @@
     return-object v0
 
     .line 339
-    :cond_0
+    :cond_2a
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -128,14 +128,14 @@
 .end method
 
 .method public static of(JJ)Lj$/time/temporal/ValueRange;
-    .locals 10
+    .registers 14
     .param p0, "min"    # J
     .param p2, "max"    # J
 
     .line 126
     cmp-long v0, p0, p2
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_f
 
     .line 129
     new-instance v0, Lj$/time/temporal/ValueRange;
@@ -155,7 +155,7 @@
     return-object v0
 
     .line 127
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Minimum value must be less than maximum value"
@@ -166,7 +166,7 @@
 .end method
 
 .method public static of(JJJ)Lj$/time/temporal/ValueRange;
-    .locals 8
+    .registers 14
     .param p0, "min"    # J
     .param p2, "maxSmallest"    # J
     .param p4, "maxLargest"    # J
@@ -188,7 +188,7 @@
 .end method
 
 .method public static of(JJJJ)Lj$/time/temporal/ValueRange;
-    .locals 10
+    .registers 18
     .param p0, "minSmallest"    # J
     .param p2, "minLargest"    # J
     .param p4, "maxSmallest"    # J
@@ -197,17 +197,17 @@
     .line 166
     cmp-long v0, p0, p2
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_28
 
     .line 169
     cmp-long v0, p4, p6
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_20
 
     .line 172
     cmp-long v0, p2, p6
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_18
 
     .line 175
     new-instance v0, Lj$/time/temporal/ValueRange;
@@ -227,7 +227,7 @@
     return-object v0
 
     .line 173
-    :cond_0
+    :cond_18
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Minimum value must be less than maximum value"
@@ -237,7 +237,7 @@
     throw v0
 
     .line 170
-    :cond_1
+    :cond_20
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Smallest maximum value must be less than largest maximum value"
@@ -247,7 +247,7 @@
     throw v0
 
     .line 167
-    :cond_2
+    :cond_28
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Smallest minimum value must be less than largest minimum value"
@@ -258,7 +258,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 5
+    .registers 7
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 358
@@ -271,7 +271,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_2
+    if-gtz v4, :cond_2c
 
     .line 362
     iget-wide v0, p0, Lj$/time/temporal/ValueRange;->maxSmallest:J
@@ -280,7 +280,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_1
+    if-gtz v4, :cond_24
 
     .line 365
     iget-wide v0, p0, Lj$/time/temporal/ValueRange;->minLargest:J
@@ -289,13 +289,13 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_1c
 
     .line 368
     return-void
 
     .line 366
-    :cond_0
+    :cond_1c
     new-instance v0, Ljava/io/InvalidObjectException;
 
     const-string v1, "Minimum value must be less than maximum value"
@@ -305,7 +305,7 @@
     throw v0
 
     .line 363
-    :cond_1
+    :cond_24
     new-instance v0, Ljava/io/InvalidObjectException;
 
     const-string v1, "Smallest maximum value must be less than largest maximum value"
@@ -315,7 +315,7 @@
     throw v0
 
     .line 360
-    :cond_2
+    :cond_2c
     new-instance v0, Ljava/io/InvalidObjectException;
 
     const-string v1, "Smallest minimum value must be less than largest minimum value"
@@ -328,7 +328,7 @@
 
 # virtual methods
 .method public checkValidIntValue(JLj$/time/temporal/TemporalField;)I
-    .locals 2
+    .registers 6
     .param p1, "value"    # J
     .param p3, "field"    # Lj$/time/temporal/TemporalField;
 
@@ -337,7 +337,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 332
     long-to-int v0, p1
@@ -345,7 +345,7 @@
     return v0
 
     .line 330
-    :cond_0
+    :cond_8
     new-instance v0, Lj$/time/DateTimeException;
 
     invoke-direct {p0, p3, p1, p2}, Lj$/time/temporal/ValueRange;->genInvalidFieldMessage(Lj$/time/temporal/TemporalField;J)Ljava/lang/String;
@@ -358,7 +358,7 @@
 .end method
 
 .method public checkValidValue(JLj$/time/temporal/TemporalField;)J
-    .locals 2
+    .registers 6
     .param p1, "value"    # J
     .param p3, "field"    # Lj$/time/temporal/TemporalField;
 
@@ -367,13 +367,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 313
     return-wide p1
 
     .line 311
-    :cond_0
+    :cond_7
     new-instance v0, Lj$/time/DateTimeException;
 
     invoke-direct {p0, p3, p1, p2}, Lj$/time/temporal/ValueRange;->genInvalidFieldMessage(Lj$/time/temporal/TemporalField;J)Ljava/lang/String;
@@ -386,24 +386,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 383
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 384
     return v0
 
     .line 386
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/time/temporal/ValueRange;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     .line 387
     move-object v1, p1
@@ -418,7 +418,7 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_2d
 
     iget-wide v3, p0, Lj$/time/temporal/ValueRange;->minLargest:J
 
@@ -426,7 +426,7 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_2d
 
     iget-wide v3, p0, Lj$/time/temporal/ValueRange;->maxSmallest:J
 
@@ -434,7 +434,7 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_2d
 
     iget-wide v3, p0, Lj$/time/temporal/ValueRange;->maxLargest:J
 
@@ -442,24 +442,24 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_2d
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_2e
     return v0
 
     .line 391
     .end local v1    # "other":Lj$/time/temporal/ValueRange;
-    :cond_2
+    :cond_2f
     return v2
 .end method
 
 .method public getLargestMinimum()J
-    .locals 2
+    .registers 3
 
     .line 229
     iget-wide v0, p0, Lj$/time/temporal/ValueRange;->minLargest:J
@@ -468,7 +468,7 @@
 .end method
 
 .method public getMaximum()J
-    .locals 2
+    .registers 3
 
     .line 253
     iget-wide v0, p0, Lj$/time/temporal/ValueRange;->maxLargest:J
@@ -477,7 +477,7 @@
 .end method
 
 .method public getMinimum()J
-    .locals 2
+    .registers 3
 
     .line 217
     iget-wide v0, p0, Lj$/time/temporal/ValueRange;->minSmallest:J
@@ -486,7 +486,7 @@
 .end method
 
 .method public getSmallestMaximum()J
-    .locals 2
+    .registers 3
 
     .line 241
     iget-wide v0, p0, Lj$/time/temporal/ValueRange;->maxSmallest:J
@@ -495,7 +495,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 7
+    .registers 8
 
     .line 401
     iget-wide v0, p0, Lj$/time/temporal/ValueRange;->minSmallest:J
@@ -554,7 +554,7 @@
 .end method
 
 .method public isFixed()Z
-    .locals 5
+    .registers 6
 
     .line 204
     iget-wide v0, p0, Lj$/time/temporal/ValueRange;->minSmallest:J
@@ -563,7 +563,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_12
 
     iget-wide v0, p0, Lj$/time/temporal/ValueRange;->maxSmallest:J
 
@@ -571,21 +571,21 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public isIntValue()Z
-    .locals 5
+    .registers 6
 
     .line 270
     invoke-virtual {p0}, Lj$/time/temporal/ValueRange;->getMinimum()J
@@ -596,7 +596,7 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_18
 
     invoke-virtual {p0}, Lj$/time/temporal/ValueRange;->getMaximum()J
 
@@ -606,21 +606,21 @@
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_18
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_19
     return v0
 .end method
 
 .method public isValidIntValue(J)Z
-    .locals 1
+    .registers 4
     .param p1, "value"    # J
 
     .line 295
@@ -628,27 +628,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-virtual {p0, p1, p2}, Lj$/time/temporal/ValueRange;->isValidValue(J)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public isValidValue(J)Z
-    .locals 3
+    .registers 6
     .param p1, "value"    # J
 
     .line 282
@@ -658,7 +658,7 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_12
 
     invoke-virtual {p0}, Lj$/time/temporal/ValueRange;->getMaximum()J
 
@@ -666,21 +666,21 @@
 
     cmp-long v2, p1, v0
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 419
     new-instance v0, Ljava/lang/StringBuilder;
@@ -702,7 +702,7 @@
 
     cmp-long v6, v1, v3
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1d
 
     .line 422
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -714,7 +714,7 @@
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     .line 424
-    :cond_0
+    :cond_1d
     const-string v1, " - "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -732,7 +732,7 @@
 
     cmp-long v6, v1, v3
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_39
 
     .line 426
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -744,7 +744,7 @@
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     .line 428
-    :cond_1
+    :cond_39
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

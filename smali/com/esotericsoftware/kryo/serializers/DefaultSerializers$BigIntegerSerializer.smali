@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 172
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/ImmutableSerializer;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 172
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$BigIntegerSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/math/BigInteger;
@@ -52,7 +52,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/math/BigInteger;
-    .locals 6
+    .registers 10
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -78,14 +78,14 @@
 
     .line 196
     .local v1, "length":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 197
-    :cond_0
+    :cond_9
     add-int/lit8 v2, v1, -0x1
 
     invoke-virtual {p2, v2}, Lcom/esotericsoftware/kryo/io/Input;->readBytes(I)[B
@@ -98,12 +98,12 @@
 
     const/4 v4, 0x0
 
-    if-eq p3, v3, :cond_2
+    if-eq p3, v3, :cond_3d
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_3d
 
     .line 201
-    :try_start_0
+    :try_start_16
     new-array v3, v0, [Ljava/lang/Class;
 
     const-class v5, [B
@@ -119,29 +119,29 @@
     invoke-virtual {v3}, Ljava/lang/reflect/Constructor;->isAccessible()Z
 
     move-result v5
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_24
+    .catch Ljava/lang/Exception; {:try_start_16 .. :try_end_24} :catch_36
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_2b
 
     .line 204
-    :try_start_1
+    :try_start_26
     invoke-virtual {v3, v0}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
-    :try_end_1
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_29
+    .catch Ljava/lang/SecurityException; {:try_start_26 .. :try_end_29} :catch_2a
+    .catch Ljava/lang/Exception; {:try_start_26 .. :try_end_29} :catch_36
 
     .line 206
-    goto :goto_0
+    goto :goto_2b
 
     .line 205
-    :catch_0
+    :catch_2a
     move-exception v5
 
     .line 208
-    :cond_1
-    :goto_0
-    :try_start_2
+    :cond_2b
+    :goto_2b
+    :try_start_2b
     new-array v0, v0, [Ljava/lang/Object;
 
     aput-object v2, v0, v4
@@ -151,14 +151,14 @@
     move-result-object v0
 
     check-cast v0, Ljava/math/BigInteger;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_35
+    .catch Ljava/lang/Exception; {:try_start_2b .. :try_end_35} :catch_36
 
     return-object v0
 
     .line 209
     .end local v3    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<+Ljava/math/BigInteger;>;"
-    :catch_1
+    :catch_36
     move-exception v0
 
     .line 210
@@ -171,39 +171,39 @@
 
     .line 213
     .end local v0    # "ex":Ljava/lang/Exception;
-    :cond_2
+    :cond_3d
     const/4 v0, 0x2
 
-    if-ne v1, v0, :cond_3
+    if-ne v1, v0, :cond_4f
 
     .line 215
     aget-byte v0, v2, v4
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_56
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 221
-    :sswitch_0
+    :sswitch_46
     sget-object v0, Ljava/math/BigInteger;->TEN:Ljava/math/BigInteger;
 
     return-object v0
 
     .line 219
-    :sswitch_1
+    :sswitch_49
     sget-object v0, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
 
     return-object v0
 
     .line 217
-    :sswitch_2
+    :sswitch_4c
     sget-object v0, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
 
     return-object v0
 
     .line 224
-    :cond_3
-    :goto_1
+    :cond_4f
+    :goto_4f
     new-instance v0, Ljava/math/BigInteger;
 
     invoke-direct {v0, v2}, Ljava/math/BigInteger;-><init>([B)V
@@ -212,16 +212,16 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_56
     .sparse-switch
-        0x0 -> :sswitch_2
-        0x1 -> :sswitch_1
-        0xa -> :sswitch_0
+        0x0 -> :sswitch_4c
+        0x1 -> :sswitch_49
+        0xa -> :sswitch_46
     .end sparse-switch
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 172
     check-cast p3, Ljava/math/BigInteger;
@@ -232,7 +232,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/math/BigInteger;)V
-    .locals 3
+    .registers 7
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Ljava/math/BigInteger;
@@ -240,7 +240,7 @@
     .line 178
     const/4 v0, 0x0
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7
 
     .line 179
     invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(B)V
@@ -249,10 +249,10 @@
     return-void
 
     .line 183
-    :cond_0
+    :cond_7
     sget-object v1, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
 
-    if-ne p3, v1, :cond_1
+    if-ne p3, v1, :cond_13
 
     .line 184
     const/4 v1, 0x2
@@ -266,7 +266,7 @@
     return-void
 
     .line 189
-    :cond_1
+    :cond_13
     invoke-virtual {p3}, Ljava/math/BigInteger;->toByteArray()[B
 
     move-result-object v0

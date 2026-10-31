@@ -55,7 +55,7 @@
 
 # direct methods
 .method public static final debounce(Lkotlinx/coroutines/flow/Flow;J)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 6
     .param p0, "$this$debounce"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "timeoutMillis"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -75,27 +75,27 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_8
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_9
+    if-eqz v2, :cond_1c
 
     .line 67
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_10
 
     return-object p0
 
     .line 68
-    :cond_1
+    :cond_10
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__DelayKt$debounce$2;
 
     invoke-direct {v0, p1, p2}, Lkotlinx/coroutines/flow/FlowKt__DelayKt$debounce$2;-><init>(J)V
@@ -109,7 +109,7 @@
     return-object v0
 
     .line 416
-    :cond_2
+    :cond_1c
     const/4 v0, 0x0
 
     .line 66
@@ -131,7 +131,7 @@
 .end method
 
 .method public static final debounce(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$debounce"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "timeoutMillis"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -159,7 +159,7 @@
 .end method
 
 .method public static final debounce-HG0u8IE(Lkotlinx/coroutines/flow/Flow;J)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "$this$debounce_u2dHG0u8IE"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "timeout"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -187,7 +187,7 @@
 .end method
 
 .method public static final debounceDuration(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 3
     .param p0, "$this$debounce"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "timeout"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -222,7 +222,7 @@
 .end method
 
 .method private static final debounceInternal$FlowKt__DelayKt(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$debounceInternal"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "timeoutMillisSelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -259,7 +259,7 @@
 .end method
 
 .method public static final fixedPeriodTicker(Lkotlinx/coroutines/CoroutineScope;JJ)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 17
+    .registers 22
     .param p0, "$this$fixedPeriodTicker"    # Lkotlinx/coroutines/CoroutineScope;
     .param p1, "delayMillis"    # J
     .param p3, "initialDelayMillis"    # J
@@ -287,32 +287,32 @@
 
     cmp-long v4, v6, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_e
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v4, 0x0
 
-    :goto_0
+    :goto_f
     const-string v5, " ms"
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_57
 
     .line 314
     cmp-long v4, v8, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_18
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_19
+    if-eqz v0, :cond_35
 
     .line 315
     new-instance v10, Lkotlinx/coroutines/flow/FlowKt__DelayKt$fixedPeriodTicker$3;
@@ -348,7 +348,7 @@
     return-object v0
 
     .line 416
-    :cond_2
+    :cond_35
     const/4 v0, 0x0
 
     .line 314
@@ -387,7 +387,7 @@
     throw v1
 
     .line 416
-    :cond_3
+    :cond_57
     const/4 v0, 0x0
 
     .line 313
@@ -427,18 +427,18 @@
 .end method
 
 .method public static synthetic fixedPeriodTicker$default(Lkotlinx/coroutines/CoroutineScope;JJILjava/lang/Object;)Lkotlinx/coroutines/channels/ReceiveChannel;
-    .locals 0
+    .registers 7
 
     .line 309
     and-int/lit8 p5, p5, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 311
     move-wide p3, p1
 
     .line 309
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/flow/FlowKt;->fixedPeriodTicker(Lkotlinx/coroutines/CoroutineScope;JJ)Lkotlinx/coroutines/channels/ReceiveChannel;
 
     move-result-object p0
@@ -447,7 +447,7 @@
 .end method
 
 .method public static final sample(Lkotlinx/coroutines/flow/Flow;J)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 6
     .param p0, "$this$sample"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "periodMillis"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -467,17 +467,17 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_9
+    if-eqz v0, :cond_18
 
     .line 277
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__DelayKt$sample$2;
@@ -495,7 +495,7 @@
     return-object v0
 
     .line 416
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     .line 276
@@ -517,7 +517,7 @@
 .end method
 
 .method public static final sample-HG0u8IE(Lkotlinx/coroutines/flow/Flow;J)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "$this$sample_u2dHG0u8IE"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "period"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -545,7 +545,7 @@
 .end method
 
 .method public static final timeout-HG0u8IE(Lkotlinx/coroutines/flow/Flow;J)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 4
     .param p0, "$this$timeout_u2dHG0u8IE"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "timeout"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -569,7 +569,7 @@
 .end method
 
 .method private static final timeoutInternal-HG0u8IE$FlowKt__DelayKt(Lkotlinx/coroutines/flow/Flow;J)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "$this$timeoutInternal_u2dHG0u8IE"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "timeout"    # J
     .annotation system Ldalvik/annotation/Signature;

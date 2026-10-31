@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 35
     const/4 v0, 0x1
@@ -38,21 +38,21 @@
 
     const/16 v2, 0x1c
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_c
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     sput-boolean v0, Landroidx/transition/TransitionUtils;->HAS_PICTURE_BITMAP:Z
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 177
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method static copyViewImage(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;)Landroid/view/View;
-    .locals 11
+    .registers 14
     .param p0, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "parent"    # Landroid/view/View;
@@ -175,13 +175,13 @@
 
     .line 65
     .local v7, "bitmap":Landroid/graphics/Bitmap;
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_5c
 
     .line 66
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
     .line 68
-    :cond_0
+    :cond_5c
     sub-int v8, v4, v2
 
     const/high16 v9, 0x40000000    # 2.0f
@@ -210,7 +210,7 @@
 .end method
 
 .method private static createViewBitmap(Landroid/view/View;Landroid/graphics/Matrix;Landroid/graphics/RectF;Landroid/view/ViewGroup;)Landroid/graphics/Bitmap;
-    .locals 10
+    .registers 14
     .param p0, "view"    # Landroid/view/View;
     .param p1, "matrix"    # Landroid/graphics/Matrix;
     .param p2, "bounds"    # Landroid/graphics/RectF;
@@ -219,7 +219,7 @@
     .line 93
     sget-boolean v0, Landroidx/transition/TransitionUtils;->HAS_IS_ATTACHED_TO_WINDOW:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 94
     invoke-virtual {p0}, Landroid/view/View;->isAttachedToWindow()Z
@@ -230,25 +230,25 @@
 
     .line 95
     .local v0, "addToOverlay":Z
-    if-nez p3, :cond_0
+    if-nez p3, :cond_e
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_e
     invoke-virtual {p3}, Landroid/view/ViewGroup;->isAttachedToWindow()Z
 
     move-result v1
 
     .local v1, "sceneRootIsAttached":Z
-    :goto_0
-    goto :goto_1
+    :goto_12
+    goto :goto_15
 
     .line 97
     .end local v0    # "addToOverlay":Z
     .end local v1    # "sceneRootIsAttached":Z
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
     .line 98
@@ -257,7 +257,7 @@
 
     .line 100
     .restart local v1    # "sceneRootIsAttached":Z
-    :goto_1
+    :goto_15
     const/4 v2, 0x0
 
     .line 101
@@ -268,12 +268,12 @@
     .local v3, "indexInParent":I
     sget-boolean v4, Landroidx/transition/TransitionUtils;->HAS_OVERLAY:Z
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_33
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_33
 
     .line 103
-    if-nez v1, :cond_2
+    if-nez v1, :cond_21
 
     .line 104
     const/4 v4, 0x0
@@ -281,7 +281,7 @@
     return-object v4
 
     .line 106
-    :cond_2
+    :cond_21
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v4
@@ -303,7 +303,7 @@
     invoke-virtual {v4, p0}, Landroid/view/ViewGroupOverlay;->add(Landroid/view/View;)V
 
     .line 110
-    :cond_3
+    :cond_33
     const/4 v4, 0x0
 
     .line 111
@@ -328,9 +328,9 @@
 
     .line 113
     .local v6, "bitmapHeight":I
-    if-lez v5, :cond_5
+    if-lez v5, :cond_9a
 
-    if-lez v6, :cond_5
+    if-lez v6, :cond_9a
 
     .line 114
     mul-int v7, v5, v6
@@ -383,7 +383,7 @@
     .line 120
     sget-boolean v8, Landroidx/transition/TransitionUtils;->HAS_PICTURE_BITMAP:Z
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_89
 
     .line 122
     new-instance v8, Landroid/graphics/Picture;
@@ -414,10 +414,10 @@
     .line 128
     .end local v8    # "picture":Landroid/graphics/Picture;
     .end local v9    # "canvas":Landroid/graphics/Canvas;
-    goto :goto_2
+    goto :goto_9a
 
     .line 130
-    :cond_4
+    :cond_89
     sget-object v8, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {v5, v6, v8}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -439,13 +439,13 @@
     .line 136
     .end local v7    # "scale":F
     .end local v8    # "canvas":Landroid/graphics/Canvas;
-    :cond_5
-    :goto_2
+    :cond_9a
+    :goto_9a
     sget-boolean v7, Landroidx/transition/TransitionUtils;->HAS_OVERLAY:Z
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_aa
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_aa
 
     .line 137
     invoke-virtual {p3}, Landroid/view/ViewGroup;->getOverlay()Landroid/view/ViewGroupOverlay;
@@ -458,30 +458,30 @@
     invoke-virtual {v2, p0, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
     .line 140
-    :cond_6
+    :cond_aa
     return-object v4
 .end method
 
 .method static mergeAnimators(Landroid/animation/Animator;Landroid/animation/Animator;)Landroid/animation/Animator;
-    .locals 3
+    .registers 5
     .param p0, "animator1"    # Landroid/animation/Animator;
     .param p1, "animator2"    # Landroid/animation/Animator;
 
     .line 144
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 145
     return-object p1
 
     .line 146
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_3
+    if-nez p1, :cond_6
 
     .line 147
     return-object p0
 
     .line 149
-    :cond_1
+    :cond_6
     new-instance v0, Landroid/animation/AnimatorSet;
 
     invoke-direct {v0}, Landroid/animation/AnimatorSet;-><init>()V

@@ -31,7 +31,7 @@
 
 # direct methods
 .method public static final getValue(Ljava/util/concurrent/atomic/AtomicInteger;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$value"    # Ljava/util/concurrent/atomic/AtomicInteger;
 
     const/4 v0, 0x0
@@ -46,7 +46,7 @@
 .end method
 
 .method public static final setValue(Ljava/util/concurrent/atomic/AtomicInteger;I)V
-    .locals 1
+    .registers 3
     .param p0, "$this$value"    # Ljava/util/concurrent/atomic/AtomicInteger;
     .param p1, "value"    # I
 

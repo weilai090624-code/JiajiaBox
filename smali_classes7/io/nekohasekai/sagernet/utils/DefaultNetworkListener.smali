@@ -80,7 +80,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     new-instance v0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;
 
@@ -158,7 +158,7 @@
 
     const/16 v4, 0x17
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_4a
 
     .line 108
     const/16 v3, 0x10
@@ -171,7 +171,7 @@
     invoke-virtual {v1, v3}, Landroid/net/NetworkRequest$Builder;->removeCapability(I)Landroid/net/NetworkRequest$Builder;
 
     .line 111
-    :cond_0
+    :cond_4a
     nop
 
     .line 104
@@ -201,7 +201,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -210,7 +210,7 @@
 .end method
 
 .method public static final synthetic access$getNetworkActor$p()Lkotlinx/coroutines/channels/SendChannel;
-    .locals 1
+    .registers 1
 
     .line 20
     sget-object v0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;->networkActor:Lkotlinx/coroutines/channels/SendChannel;
@@ -219,7 +219,7 @@
 .end method
 
 .method public static final synthetic access$register(Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;)V
-    .locals 0
+    .registers 1
     .param p0, "$this"    # Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;
 
     .line 20
@@ -229,7 +229,7 @@
 .end method
 
 .method public static final synthetic access$unregister(Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;)V
-    .locals 0
+    .registers 1
     .param p0, "$this"    # Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;
 
     .line 20
@@ -239,7 +239,7 @@
 .end method
 
 .method private final register()V
-    .locals 5
+    .registers 6
 
     .line 125
     nop
@@ -249,7 +249,7 @@
 
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_3
     sput-boolean v1, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;->fallback:Z
 
     .line 127
@@ -258,17 +258,17 @@
     .line 128
     const/16 v3, 0x1f
 
-    if-gt v3, v2, :cond_0
+    if-gt v3, v2, :cond_d
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v4, 0x0
 
-    :goto_0
-    if-eqz v4, :cond_1
+    :goto_e
+    if-eqz v4, :cond_23
 
     .line 129
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -289,25 +289,25 @@
     .line 129
     invoke-virtual {v1, v2, v3, v4}, Landroid/net/ConnectivityManager;->registerBestMatchingNetworkCallback(Landroid/net/NetworkRequest;Landroid/net/ConnectivityManager$NetworkCallback;Landroid/os/Handler;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_8d
 
     .line 133
-    :cond_1
+    :cond_23
     const/16 v4, 0x1c
 
-    if-gt v4, v2, :cond_2
+    if-gt v4, v2, :cond_2b
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_2b
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_2
+    :cond_2b
     const/4 v3, 0x0
 
-    :goto_1
-    if-eqz v3, :cond_3
+    :goto_2c
+    if-eqz v3, :cond_40
 
     .line 134
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -326,25 +326,25 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/net/ConnectivityManager;->requestNetwork(Landroid/net/NetworkRequest;Landroid/net/ConnectivityManager$NetworkCallback;Landroid/os/Handler;)V
 
-    goto :goto_3
+    goto :goto_8d
 
     .line 136
-    :cond_3
+    :cond_40
     const/16 v3, 0x1a
 
-    if-gt v3, v2, :cond_4
+    if-gt v3, v2, :cond_48
 
-    if-ge v2, v4, :cond_4
+    if-ge v2, v4, :cond_48
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_49
 
-    :cond_4
+    :cond_48
     const/4 v4, 0x0
 
-    :goto_2
-    if-eqz v4, :cond_5
+    :goto_49
+    if-eqz v4, :cond_5b
 
     .line 137
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -361,20 +361,20 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/net/ConnectivityManager;->registerDefaultNetworkCallback(Landroid/net/ConnectivityManager$NetworkCallback;Landroid/os/Handler;)V
 
-    goto :goto_3
+    goto :goto_8d
 
     .line 139
-    :cond_5
+    :cond_5b
     const/16 v4, 0x18
 
-    if-gt v4, v2, :cond_6
+    if-gt v4, v2, :cond_62
 
-    if-ge v2, v3, :cond_6
+    if-ge v2, v3, :cond_62
 
     const/4 v1, 0x1
 
-    :cond_6
-    if-eqz v1, :cond_7
+    :cond_62
+    if-eqz v1, :cond_72
 
     .line 140
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -389,10 +389,10 @@
 
     invoke-virtual {v1, v2}, Landroid/net/ConnectivityManager;->registerDefaultNetworkCallback(Landroid/net/ConnectivityManager$NetworkCallback;)V
 
-    goto :goto_3
+    goto :goto_8d
 
     .line 143
-    :cond_7
+    :cond_72
     sget-object v1, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getConnectivity()Landroid/net/ConnectivityManager;
@@ -406,13 +406,13 @@
     check-cast v3, Landroid/net/ConnectivityManager$NetworkCallback;
 
     invoke-virtual {v1, v2, v3}, Landroid/net/ConnectivityManager;->requestNetwork(Landroid/net/NetworkRequest;Landroid/net/ConnectivityManager$NetworkCallback;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_81
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_81} :catch_82
 
-    goto :goto_3
+    goto :goto_8d
 
     .line 147
-    :catch_0
+    :catch_82
     move-exception v1
 
     .line 148
@@ -430,12 +430,12 @@
 
     .line 151
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_3
+    :goto_8d
     return-void
 .end method
 
 .method private final unregister()V
-    .locals 2
+    .registers 3
 
     .line 153
     sget-object v0, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -456,7 +456,7 @@
 
 # virtual methods
 .method public final get(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -471,7 +471,7 @@
 
     instance-of v0, p1, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$get$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -483,7 +483,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$get$1;->label:I
 
@@ -491,15 +491,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$get$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$get$1;
 
     invoke-direct {v0, p0, p1}, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$get$1;-><init>(Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$get$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -510,7 +510,7 @@
     .line 78
     iget v3, v0, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$get$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_82
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -524,7 +524,7 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     const/4 v2, 0x0
 
     .local v2, "$i$a$-run-DefaultNetworkListener$get$2":I
@@ -532,10 +532,10 @@
 
     move-object v4, v1
 
-    goto :goto_2
+    goto :goto_7c
 
     .end local v2    # "$i$a$-run-DefaultNetworkListener$get$2":I
-    :pswitch_1
+    :pswitch_32
     const/4 v3, 0x0
 
     .local v3, "$i$a$-run-DefaultNetworkListener$get$2":I
@@ -546,16 +546,16 @@
     .local v4, "$this$get_u24lambda_u240":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Get;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_6a
 
     .end local v3    # "$i$a$-run-DefaultNetworkListener$get$2":I
     .end local v4    # "$this$get_u24lambda_u240":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Get;
-    :pswitch_2
+    :pswitch_3b
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     sget-boolean v3, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener;->fallback:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_55
 
     .line 79
     sget-object v2, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -568,12 +568,12 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4f
 
-    goto :goto_3
+    goto :goto_80
 
     .line 80
-    :cond_1
+    :cond_4f
     new-instance v2, Ljava/net/UnknownHostException;
 
     invoke-direct {v2}, Ljava/net/UnknownHostException;-><init>()V
@@ -581,7 +581,7 @@
     throw v2
 
     .line 81
-    :cond_2
+    :cond_55
     new-instance v3, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Get;
 
     invoke-direct {v3}, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Get;-><init>()V
@@ -605,14 +605,14 @@
 
     move-result-object v5
 
-    if-ne v5, v2, :cond_3
+    if-ne v5, v2, :cond_6a
 
     .line 78
     return-object v2
 
     .line 83
-    :cond_3
-    :goto_1
+    :cond_6a
+    :goto_6a
     invoke-virtual {v4}, Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Get;->getResponse()Lkotlinx/coroutines/CompletableDeferred;
 
     move-result-object v5
@@ -630,18 +630,18 @@
     move-result-object v4
 
     .end local v4    # "$this$get_u24lambda_u240":Lio/nekohasekai/sagernet/utils/DefaultNetworkListener$NetworkMessage$Get;
-    if-ne v4, v2, :cond_4
+    if-ne v4, v2, :cond_7b
 
     .line 78
     return-object v2
 
     .line 83
-    :cond_4
+    :cond_7b
     move v2, v3
 
     .end local v3    # "$i$a$-run-DefaultNetworkListener$get$2":I
     .restart local v2    # "$i$a$-run-DefaultNetworkListener$get$2":I
-    :goto_2
+    :goto_7c
     move-object v2, v4
 
     check-cast v2, Landroid/net/Network;
@@ -651,21 +651,21 @@
     nop
 
     .line 84
-    :goto_3
+    :goto_80
     return-object v2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_82
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3b
+        :pswitch_32
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public final start(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "listener"    # Lkotlin/jvm/functions/Function1;
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -701,18 +701,18 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     return-object v0
 
-    :cond_0
+    :cond_12
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 .end method
 
 .method public final stop(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
@@ -742,11 +742,11 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     return-object v0
 
-    :cond_0
+    :cond_12
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0

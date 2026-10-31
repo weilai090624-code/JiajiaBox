@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/futures/AbstractFuture;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 276
     .local p0, "this":Landroidx/work/impl/utils/futures/AbstractFuture$SetFuture;, "Landroidx/work/impl/utils/futures/AbstractFuture$SetFuture<TV;>;"
@@ -98,13 +98,13 @@
 
     iget-object v0, v0, Landroidx/work/impl/utils/futures/AbstractFuture;->value:Ljava/lang/Object;
 
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_7
 
     .line 278
     return-void
 
     .line 280
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroidx/work/impl/utils/futures/AbstractFuture$SetFuture;->future:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-static {v0}, Landroidx/work/impl/utils/futures/AbstractFuture;->getFutureValue(Lcom/google/common/util/concurrent/ListenableFuture;)Ljava/lang/Object;
@@ -121,7 +121,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     .line 282
     iget-object v1, p0, Landroidx/work/impl/utils/futures/AbstractFuture$SetFuture;->owner:Landroidx/work/impl/utils/futures/AbstractFuture;
@@ -129,6 +129,6 @@
     invoke-static {v1}, Landroidx/work/impl/utils/futures/AbstractFuture;->complete(Landroidx/work/impl/utils/futures/AbstractFuture;)V
 
     .line 284
-    :cond_1
+    :cond_1c
     return-void
 .end method

@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/AbstractList$SubList;I)V
-    .locals 2
+    .registers 5
     .param p1, "this$0"    # Lj$/util/AbstractList$SubList;
 
     .line 838
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -110,7 +110,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .registers 3
 
     .line 843
     .local p0, "this":Lj$/util/AbstractList$SubList$1;, "Ljava/util/AbstractList$SubList$1;"
@@ -122,21 +122,21 @@
 
     iget v1, v1, Lj$/util/AbstractList$SubList;->size:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 854
     .local p0, "this":Lj$/util/AbstractList$SubList$1;, "Ljava/util/AbstractList$SubList$1;"
@@ -144,21 +144,21 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -171,7 +171,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 848
     iget-object v0, p0, Lj$/util/AbstractList$SubList$1;->i:Ljava/util/ListIterator;
@@ -183,7 +183,7 @@
     return-object v0
 
     .line 850
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -192,7 +192,7 @@
 .end method
 
 .method public nextIndex()I
-    .locals 2
+    .registers 3
 
     .line 865
     .local p0, "this":Lj$/util/AbstractList$SubList$1;, "Ljava/util/AbstractList$SubList$1;"
@@ -214,7 +214,7 @@
 .end method
 
 .method public previous()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -227,7 +227,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 859
     iget-object v0, p0, Lj$/util/AbstractList$SubList$1;->i:Ljava/util/ListIterator;
@@ -239,7 +239,7 @@
     return-object v0
 
     .line 861
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -248,7 +248,7 @@
 .end method
 
 .method public previousIndex()I
-    .locals 2
+    .registers 3
 
     .line 869
     .local p0, "this":Lj$/util/AbstractList$SubList$1;, "Ljava/util/AbstractList$SubList$1;"
@@ -270,7 +270,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     .line 873
     .local p0, "this":Lj$/util/AbstractList$SubList$1;, "Ljava/util/AbstractList$SubList$1;"
@@ -290,7 +290,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"

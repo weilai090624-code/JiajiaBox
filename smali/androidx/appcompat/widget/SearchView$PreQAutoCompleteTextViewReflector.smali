@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 6
+    .registers 7
 
     .line 2061
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 
     const/4 v1, 0x1
 
-    :try_start_0
+    :try_start_f
     const-class v2, Landroid/widget/AutoCompleteTextView;
 
     const-string v3, "doBeforeTextChanged"
@@ -66,19 +66,19 @@
     iget-object v2, p0, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->mDoBeforeTextChanged:Ljava/lang/reflect/Method;
 
     invoke-virtual {v2, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_20
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_f .. :try_end_20} :catch_21
 
     .line 2069
-    goto :goto_0
+    goto :goto_22
 
     .line 2067
-    :catch_0
+    :catch_21
     move-exception v2
 
     .line 2071
-    :goto_0
-    :try_start_1
+    :goto_22
+    :try_start_22
     const-class v2, Landroid/widget/AutoCompleteTextView;
 
     const-string v3, "doAfterTextChanged"
@@ -96,19 +96,19 @@
     iget-object v2, p0, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->mDoAfterTextChanged:Ljava/lang/reflect/Method;
 
     invoke-virtual {v2, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_33
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_22 .. :try_end_33} :catch_34
 
     .line 2076
-    goto :goto_1
+    goto :goto_35
 
     .line 2074
-    :catch_1
+    :catch_34
     move-exception v2
 
     .line 2078
-    :goto_1
-    :try_start_2
+    :goto_35
+    :try_start_35
     const-class v2, Landroid/widget/AutoCompleteTextView;
 
     const-string v3, "ensureImeVisible"
@@ -130,36 +130,36 @@
     iget-object v0, p0, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->mEnsureImeVisible:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_4a
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_35 .. :try_end_4a} :catch_4b
 
     .line 2083
-    goto :goto_2
+    goto :goto_4c
 
     .line 2081
-    :catch_2
+    :catch_4b
     move-exception v0
 
     .line 2084
-    :goto_2
+    :goto_4c
     return-void
 .end method
 
 .method private static preApi29Check()V
-    .locals 2
+    .registers 2
 
     .line 2117
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_7
 
     .line 2121
     return-void
 
     .line 2118
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/UnsupportedClassVersionError;
 
     const-string v1, "This function can only be used for API Level < 29."
@@ -172,7 +172,7 @@
 
 # virtual methods
 .method doAfterTextChanged(Landroid/widget/AutoCompleteTextView;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/widget/AutoCompleteTextView;
 
     .line 2097
@@ -181,10 +181,10 @@
     .line 2098
     iget-object v0, p0, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->mDoAfterTextChanged:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 2100
-    :try_start_0
+    :try_start_7
     iget-object v0, p0, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->mDoAfterTextChanged:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x0
@@ -192,24 +192,24 @@
     new-array v1, v1, [Ljava/lang/Object;
 
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_f} :catch_10
 
     .line 2102
-    goto :goto_0
+    goto :goto_11
 
     .line 2101
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 2104
-    :cond_0
-    :goto_0
+    :cond_11
+    :goto_11
     return-void
 .end method
 
 .method doBeforeTextChanged(Landroid/widget/AutoCompleteTextView;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/widget/AutoCompleteTextView;
 
     .line 2087
@@ -218,10 +218,10 @@
     .line 2088
     iget-object v0, p0, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->mDoBeforeTextChanged:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 2090
-    :try_start_0
+    :try_start_7
     iget-object v0, p0, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->mDoBeforeTextChanged:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x0
@@ -229,24 +229,24 @@
     new-array v1, v1, [Ljava/lang/Object;
 
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_f} :catch_10
 
     .line 2092
-    goto :goto_0
+    goto :goto_11
 
     .line 2091
-    :catch_0
+    :catch_10
     move-exception v0
 
     .line 2094
-    :cond_0
-    :goto_0
+    :cond_11
+    :goto_11
     return-void
 .end method
 
 .method ensureImeVisible(Landroid/widget/AutoCompleteTextView;)V
-    .locals 4
+    .registers 6
     .param p1, "view"    # Landroid/widget/AutoCompleteTextView;
 
     .line 2107
@@ -255,10 +255,10 @@
     .line 2108
     iget-object v0, p0, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->mEnsureImeVisible:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 2110
-    :try_start_0
+    :try_start_7
     iget-object v0, p0, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->mEnsureImeVisible:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x1
@@ -274,18 +274,18 @@
     aput-object v2, v1, v3
 
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_16} :catch_17
 
     .line 2112
-    goto :goto_0
+    goto :goto_18
 
     .line 2111
-    :catch_0
+    :catch_17
     move-exception v0
 
     .line 2114
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     return-void
 .end method

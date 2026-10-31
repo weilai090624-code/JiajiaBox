@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/cache/CacheBuilder;Lcom/google/common/cache/CacheLoader;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -91,7 +91,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -117,7 +117,7 @@
 .end method
 
 .method public getAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -147,7 +147,7 @@
 .end method
 
 .method public getUnchecked(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"
@@ -161,13 +161,13 @@
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache$LocalLoadingCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 4785
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 4786
@@ -184,7 +184,7 @@
 .end method
 
 .method public refresh(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)V"
@@ -203,7 +203,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 4811
     .local p0, "this":Lcom/google/common/cache/LocalCache$LocalLoadingCache;, "Lcom/google/common/cache/LocalCache$LocalLoadingCache<TK;TV;>;"

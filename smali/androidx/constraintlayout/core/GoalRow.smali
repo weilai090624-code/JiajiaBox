@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/core/Cache;)V
-    .locals 0
+    .registers 2
     .param p1, "cache"    # Landroidx/constraintlayout/core/Cache;
 
     .line 22
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public addError(Landroidx/constraintlayout/core/SolverVariable;)V
-    .locals 1
+    .registers 3
     .param p1, "error"    # Landroidx/constraintlayout/core/SolverVariable;
 
     .line 27

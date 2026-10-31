@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -77,7 +77,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TE;)V"
@@ -99,7 +99,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 512
     iput-object p1, p0, Lj$/util/ImmutableCollections$Set12;->e0:Ljava/lang/Object;
@@ -111,7 +111,7 @@
     return-void
 
     .line 509
-    :cond_0
+    :cond_12
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -138,7 +138,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "in"    # Ljava/io/ObjectInputStream;
 
     .line 557
@@ -153,7 +153,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 7
+    .registers 8
 
     .line 561
     .local p0, "this":Lj$/util/ImmutableCollections$Set12;, "Ljava/util/ImmutableCollections$Set12<TE;>;"
@@ -165,7 +165,7 @@
 
     const/4 v3, 0x2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 562
     new-instance v0, Lj$/util/CollSer;
@@ -181,7 +181,7 @@
     return-object v0
 
     .line 564
-    :cond_0
+    :cond_13
     new-instance v0, Lj$/util/CollSer;
 
     iget-object v4, p0, Lj$/util/ImmutableCollections$Set12;->e0:Ljava/lang/Object;
@@ -202,7 +202,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 523
@@ -213,7 +213,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object v0, p0, Lj$/util/ImmutableCollections$Set12;->e1:Ljava/lang/Object;
 
@@ -221,25 +221,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_14
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 528
     .local p0, "this":Lj$/util/ImmutableCollections$Set12;, "Ljava/util/ImmutableCollections$Set12<TE;>;"
@@ -251,27 +251,27 @@
 
     iget-object v1, p0, Lj$/util/ImmutableCollections$Set12;->e1:Ljava/lang/Object;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_c
     iget-object v1, p0, Lj$/util/ImmutableCollections$Set12;->e1:Ljava/lang/Object;
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    :goto_0
+    :goto_12
     add-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -290,21 +290,21 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 518
     .local p0, "this":Lj$/util/ImmutableCollections$Set12;, "Ljava/util/ImmutableCollections$Set12<TE;>;"
     iget-object v0, p0, Lj$/util/ImmutableCollections$Set12;->e1:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x2
 
-    :goto_0
+    :goto_7
     return v0
 .end method

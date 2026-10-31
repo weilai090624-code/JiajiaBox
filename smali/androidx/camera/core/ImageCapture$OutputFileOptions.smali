@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/File;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/io/OutputStream;Landroidx/camera/core/ImageCapture$Metadata;)V
-    .locals 1
+    .registers 8
     .param p1, "file"    # Ljava/io/File;
     .param p2, "contentResolver"    # Landroid/content/ContentResolver;
     .param p3, "saveCollection"    # Landroid/net/Uri;
@@ -81,18 +81,18 @@
     iput-object p5, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions;->mOutputStream:Ljava/io/OutputStream;
 
     .line 1831
-    if-nez p6, :cond_0
+    if-nez p6, :cond_15
 
     new-instance v0, Landroidx/camera/core/ImageCapture$Metadata;
 
     invoke-direct {v0}, Landroidx/camera/core/ImageCapture$Metadata;-><init>()V
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     move-object v0, p6
 
-    :goto_0
+    :goto_16
     iput-object v0, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions;->mMetadata:Landroidx/camera/core/ImageCapture$Metadata;
 
     .line 1832
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method getContentResolver()Landroid/content/ContentResolver;
-    .locals 1
+    .registers 2
 
     .line 1841
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions;->mContentResolver:Landroid/content/ContentResolver;
@@ -111,7 +111,7 @@
 .end method
 
 .method getContentValues()Landroid/content/ContentValues;
-    .locals 1
+    .registers 2
 
     .line 1851
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions;->mContentValues:Landroid/content/ContentValues;
@@ -120,7 +120,7 @@
 .end method
 
 .method getFile()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 1836
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions;->mFile:Ljava/io/File;
@@ -129,7 +129,7 @@
 .end method
 
 .method public getMetadata()Landroidx/camera/core/ImageCapture$Metadata;
-    .locals 1
+    .registers 2
 
     .line 1869
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions;->mMetadata:Landroidx/camera/core/ImageCapture$Metadata;
@@ -138,7 +138,7 @@
 .end method
 
 .method getOutputStream()Ljava/io/OutputStream;
-    .locals 1
+    .registers 2
 
     .line 1856
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions;->mOutputStream:Ljava/io/OutputStream;
@@ -147,7 +147,7 @@
 .end method
 
 .method getSaveCollection()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 1846
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions;->mSaveCollection:Landroid/net/Uri;

@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper$CallbackName;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 4
     .param p1, "callbackName"    # Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper$CallbackName;
     .param p2, "cause"    # Ljava/lang/Throwable;
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public final getCallbackName()Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper$CallbackName;
-    .locals 1
+    .registers 2
 
     .line 308
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper$CallbackException;->callbackName:Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper$CallbackName;
@@ -87,7 +87,7 @@
 .end method
 
 .method public getCause()Ljava/lang/Throwable;
-    .locals 1
+    .registers 2
 
     .line 309
     iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteOpenHelper$OpenHelper$CallbackException;->cause:Ljava/lang/Throwable;

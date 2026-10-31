@@ -69,7 +69,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -98,7 +98,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -117,7 +117,7 @@
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -129,7 +129,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -151,7 +151,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     move-object v2, v0
 
@@ -161,22 +161,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 52
-    :cond_0
+    :cond_13
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_17
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -197,26 +197,26 @@
     .line 52
     .end local v5    # "it":Ljava/lang/Object;
     .end local v6    # "$i$a$-any-AbstractCollection$contains$1":I
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_17
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 53
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_2b
     nop
 
     .line 19
     .end local v0    # "$this$any$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$any":I
-    :goto_0
+    :goto_2c
     return v3
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 7
+    .registers 9
     .param p1, "elements"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -252,22 +252,22 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 55
-    :cond_0
+    :cond_14
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_1
+    :cond_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2c
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -288,21 +288,21 @@
     .line 55
     .end local v5    # "it":Ljava/lang/Object;
     .end local v6    # "$i$a$-all-AbstractCollection$containsAll$1":I
-    if-nez v5, :cond_1
+    if-nez v5, :cond_18
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 56
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_2c
     nop
 
     .line 22
     .end local v0    # "$this$all$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$all":I
-    :goto_0
+    :goto_2d
     return v3
 .end method
 
@@ -310,23 +310,23 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 24
     invoke-virtual {p0}, Lkotlin/collections/AbstractCollection;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
@@ -341,7 +341,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -353,7 +353,7 @@
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -374,7 +374,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -395,7 +395,7 @@
 .end method
 
 .method public final bridge size()I
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-virtual {p0}, Lkotlin/collections/AbstractCollection;->getSize()I
@@ -406,7 +406,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 34
     move-object v0, p0
@@ -421,7 +421,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "array"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -448,7 +448,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 9
+    .registers 10
 
     .line 26
     move-object v0, p0

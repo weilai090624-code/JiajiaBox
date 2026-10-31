@@ -166,7 +166,7 @@
     </attr>
     <attr name="behavior_saveFlags">
         <flag name="all" value="0xffffffff" />
-        <flag name="fitToContents" value="0x00000002" />
+        <flag name="help" value="0x00000002" />
         <flag name="hideable" value="0x00000004" />
         <flag name="none" value="0x00000000" />
         <flag name="peekHeight" value="0x00000001" />

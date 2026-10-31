@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/embedding/EmbeddingCompat$Companion;
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 37
     nop
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/window/extensions/embedding/ActivityEmbeddingComponent;Landroidx/window/embedding/EmbeddingAdapter;)V
-    .locals 1
+    .registers 4
     .param p1, "embeddingExtension"    # Landroidx/window/extensions/embedding/ActivityEmbeddingComponent;
     .param p2, "adapter"    # Landroidx/window/embedding/EmbeddingAdapter;
 
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public setEmbeddingCallback(Landroidx/window/embedding/EmbeddingInterfaceCompat$EmbeddingCallbackInterface;)V
-    .locals 3
+    .registers 5
     .param p1, "embeddingCallback"    # Landroidx/window/embedding/EmbeddingInterfaceCompat$EmbeddingCallbackInterface;
 
     const-string v0, "embeddingCallback"
@@ -159,7 +159,7 @@
 .end method
 
 .method public setSplitRules(Ljava/util/Set;)V
-    .locals 2
+    .registers 4
     .param p1, "rules"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -56,7 +56,7 @@
 
 # direct methods
 .method public static final and(Landroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
-    .locals 4
+    .registers 6
     .param p0, "$this$and"    # Landroid/graphics/Rect;
     .param p1, "r"    # Landroid/graphics/Rect;
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public static final and(Landroid/graphics/RectF;Landroid/graphics/RectF;)Landroid/graphics/RectF;
-    .locals 4
+    .registers 6
     .param p0, "$this$and"    # Landroid/graphics/RectF;
     .param p1, "r"    # Landroid/graphics/RectF;
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public static final component1(Landroid/graphics/RectF;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component1"    # Landroid/graphics/RectF;
 
     const/4 v0, 0x0
@@ -131,7 +131,7 @@
 .end method
 
 .method public static final component1(Landroid/graphics/Rect;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$component1"    # Landroid/graphics/Rect;
 
     const/4 v0, 0x0
@@ -144,7 +144,7 @@
 .end method
 
 .method public static final component2(Landroid/graphics/RectF;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component2"    # Landroid/graphics/RectF;
 
     const/4 v0, 0x0
@@ -157,7 +157,7 @@
 .end method
 
 .method public static final component2(Landroid/graphics/Rect;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$component2"    # Landroid/graphics/Rect;
 
     const/4 v0, 0x0
@@ -170,7 +170,7 @@
 .end method
 
 .method public static final component3(Landroid/graphics/RectF;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component3"    # Landroid/graphics/RectF;
 
     const/4 v0, 0x0
@@ -183,7 +183,7 @@
 .end method
 
 .method public static final component3(Landroid/graphics/Rect;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$component3"    # Landroid/graphics/Rect;
 
     const/4 v0, 0x0
@@ -196,7 +196,7 @@
 .end method
 
 .method public static final component4(Landroid/graphics/RectF;)F
-    .locals 2
+    .registers 3
     .param p0, "$this$component4"    # Landroid/graphics/RectF;
 
     const/4 v0, 0x0
@@ -209,7 +209,7 @@
 .end method
 
 .method public static final component4(Landroid/graphics/Rect;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$component4"    # Landroid/graphics/Rect;
 
     const/4 v0, 0x0
@@ -222,7 +222,7 @@
 .end method
 
 .method public static final contains(Landroid/graphics/Rect;Landroid/graphics/Point;)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Landroid/graphics/Rect;
     .param p1, "p"    # Landroid/graphics/Point;
 
@@ -242,7 +242,7 @@
 .end method
 
 .method public static final contains(Landroid/graphics/RectF;Landroid/graphics/PointF;)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$contains"    # Landroid/graphics/RectF;
     .param p1, "p"    # Landroid/graphics/PointF;
 
@@ -262,7 +262,7 @@
 .end method
 
 .method public static final minus(Landroid/graphics/Rect;I)Landroid/graphics/Rect;
-    .locals 6
+    .registers 8
     .param p0, "$this$minus"    # Landroid/graphics/Rect;
     .param p1, "xy"    # I
 
@@ -297,7 +297,7 @@
 .end method
 
 .method public static final minus(Landroid/graphics/Rect;Landroid/graphics/Point;)Landroid/graphics/Rect;
-    .locals 6
+    .registers 8
     .param p0, "$this$minus"    # Landroid/graphics/Rect;
     .param p1, "xy"    # Landroid/graphics/Point;
 
@@ -336,7 +336,7 @@
 .end method
 
 .method public static final minus(Landroid/graphics/RectF;F)Landroid/graphics/RectF;
-    .locals 6
+    .registers 8
     .param p0, "$this$minus"    # Landroid/graphics/RectF;
     .param p1, "xy"    # F
 
@@ -371,7 +371,7 @@
 .end method
 
 .method public static final minus(Landroid/graphics/RectF;Landroid/graphics/PointF;)Landroid/graphics/RectF;
-    .locals 6
+    .registers 8
     .param p0, "$this$minus"    # Landroid/graphics/RectF;
     .param p1, "xy"    # Landroid/graphics/PointF;
 
@@ -410,7 +410,7 @@
 .end method
 
 .method public static final minus(Landroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Region;
-    .locals 5
+    .registers 7
     .param p0, "$this$minus"    # Landroid/graphics/Rect;
     .param p1, "r"    # Landroid/graphics/Rect;
 
@@ -443,7 +443,7 @@
 .end method
 
 .method public static final minus(Landroid/graphics/RectF;Landroid/graphics/RectF;)Landroid/graphics/Region;
-    .locals 7
+    .registers 9
     .param p0, "$this$minus"    # Landroid/graphics/RectF;
     .param p1, "r"    # Landroid/graphics/RectF;
 
@@ -520,7 +520,7 @@
 .end method
 
 .method public static final or(Landroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
-    .locals 6
+    .registers 8
     .param p0, "$this$or"    # Landroid/graphics/Rect;
     .param p1, "r"    # Landroid/graphics/Rect;
 
@@ -563,7 +563,7 @@
 .end method
 
 .method public static final or(Landroid/graphics/RectF;Landroid/graphics/RectF;)Landroid/graphics/RectF;
-    .locals 6
+    .registers 8
     .param p0, "$this$or"    # Landroid/graphics/RectF;
     .param p1, "r"    # Landroid/graphics/RectF;
 
@@ -606,7 +606,7 @@
 .end method
 
 .method public static final plus(Landroid/graphics/Rect;I)Landroid/graphics/Rect;
-    .locals 4
+    .registers 6
     .param p0, "$this$plus"    # Landroid/graphics/Rect;
     .param p1, "xy"    # I
 
@@ -637,7 +637,7 @@
 .end method
 
 .method public static final plus(Landroid/graphics/Rect;Landroid/graphics/Point;)Landroid/graphics/Rect;
-    .locals 6
+    .registers 8
     .param p0, "$this$plus"    # Landroid/graphics/Rect;
     .param p1, "xy"    # Landroid/graphics/Point;
 
@@ -672,7 +672,7 @@
 .end method
 
 .method public static final plus(Landroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
-    .locals 4
+    .registers 6
     .param p0, "$this$plus"    # Landroid/graphics/Rect;
     .param p1, "r"    # Landroid/graphics/Rect;
 
@@ -703,7 +703,7 @@
 .end method
 
 .method public static final plus(Landroid/graphics/RectF;F)Landroid/graphics/RectF;
-    .locals 4
+    .registers 6
     .param p0, "$this$plus"    # Landroid/graphics/RectF;
     .param p1, "xy"    # F
 
@@ -734,7 +734,7 @@
 .end method
 
 .method public static final plus(Landroid/graphics/RectF;Landroid/graphics/PointF;)Landroid/graphics/RectF;
-    .locals 6
+    .registers 8
     .param p0, "$this$plus"    # Landroid/graphics/RectF;
     .param p1, "xy"    # Landroid/graphics/PointF;
 
@@ -769,7 +769,7 @@
 .end method
 
 .method public static final plus(Landroid/graphics/RectF;Landroid/graphics/RectF;)Landroid/graphics/RectF;
-    .locals 4
+    .registers 6
     .param p0, "$this$plus"    # Landroid/graphics/RectF;
     .param p1, "r"    # Landroid/graphics/RectF;
 
@@ -800,7 +800,7 @@
 .end method
 
 .method public static final times(Landroid/graphics/Rect;I)Landroid/graphics/Rect;
-    .locals 5
+    .registers 7
     .param p0, "$this$times"    # Landroid/graphics/Rect;
     .param p1, "factor"    # I
 
@@ -856,7 +856,7 @@
 .end method
 
 .method public static final times(Landroid/graphics/RectF;F)Landroid/graphics/RectF;
-    .locals 5
+    .registers 7
     .param p0, "$this$times"    # Landroid/graphics/RectF;
     .param p1, "factor"    # F
 
@@ -912,7 +912,7 @@
 .end method
 
 .method public static final times(Landroid/graphics/RectF;I)Landroid/graphics/RectF;
-    .locals 8
+    .registers 10
     .param p0, "$this$times"    # Landroid/graphics/RectF;
     .param p1, "factor"    # I
 
@@ -984,7 +984,7 @@
 .end method
 
 .method public static final toRect(Landroid/graphics/RectF;)Landroid/graphics/Rect;
-    .locals 2
+    .registers 3
     .param p0, "$this$toRect"    # Landroid/graphics/RectF;
 
     const/4 v0, 0x0
@@ -1004,7 +1004,7 @@
 .end method
 
 .method public static final toRectF(Landroid/graphics/Rect;)Landroid/graphics/RectF;
-    .locals 2
+    .registers 3
     .param p0, "$this$toRectF"    # Landroid/graphics/Rect;
 
     const/4 v0, 0x0
@@ -1019,7 +1019,7 @@
 .end method
 
 .method public static final toRegion(Landroid/graphics/Rect;)Landroid/graphics/Region;
-    .locals 2
+    .registers 3
     .param p0, "$this$toRegion"    # Landroid/graphics/Rect;
 
     const/4 v0, 0x0
@@ -1034,7 +1034,7 @@
 .end method
 
 .method public static final toRegion(Landroid/graphics/RectF;)Landroid/graphics/Region;
-    .locals 5
+    .registers 6
     .param p0, "$this$toRegion"    # Landroid/graphics/RectF;
 
     const/4 v0, 0x0
@@ -1071,7 +1071,7 @@
 .end method
 
 .method public static final transform(Landroid/graphics/RectF;Landroid/graphics/Matrix;)Landroid/graphics/RectF;
-    .locals 3
+    .registers 5
     .param p0, "$this$transform"    # Landroid/graphics/RectF;
     .param p1, "m"    # Landroid/graphics/Matrix;
 
@@ -1095,7 +1095,7 @@
 .end method
 
 .method public static final xor(Landroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Region;
-    .locals 5
+    .registers 7
     .param p0, "$this$xor"    # Landroid/graphics/Rect;
     .param p1, "r"    # Landroid/graphics/Rect;
 
@@ -1128,7 +1128,7 @@
 .end method
 
 .method public static final xor(Landroid/graphics/RectF;Landroid/graphics/RectF;)Landroid/graphics/Region;
-    .locals 7
+    .registers 9
     .param p0, "$this$xor"    # Landroid/graphics/RectF;
     .param p1, "r"    # Landroid/graphics/RectF;
 

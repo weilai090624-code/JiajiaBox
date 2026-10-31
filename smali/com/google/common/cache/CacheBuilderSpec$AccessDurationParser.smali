@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 456
     invoke-direct {p0}, Lcom/google/common/cache/CacheBuilderSpec$DurationParser;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method protected parseDuration(Lcom/google/common/cache/CacheBuilderSpec;JLjava/util/concurrent/TimeUnit;)V
-    .locals 2
+    .registers 7
     .param p1, "spec"    # Lcom/google/common/cache/CacheBuilderSpec;
     .param p2, "duration"    # J
     .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
@@ -35,16 +35,16 @@
     .line 459
     iget-object v0, p1, Lcom/google/common/cache/CacheBuilderSpec;->accessExpirationTimeUnit:Ljava/util/concurrent/TimeUnit;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     const-string v1, "expireAfterAccess already set"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V

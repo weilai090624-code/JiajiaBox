@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(ZLjava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "isValid"    # Z
     .param p2, "expectedFoundMsg"    # Ljava/lang/String;
 

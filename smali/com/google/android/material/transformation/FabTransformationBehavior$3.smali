@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/transformation/FabTransformationBehavior;Lcom/google/android/material/circularreveal/CircularRevealWidget;Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/android/material/transformation/FabTransformationBehavior;
 
     .line 353
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 362
@@ -57,7 +57,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 357

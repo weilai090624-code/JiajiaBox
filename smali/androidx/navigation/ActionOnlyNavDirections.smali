@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "actionId"    # I
 
     .line 26
@@ -72,17 +72,17 @@
 .end method
 
 .method public static synthetic copy$default(Landroidx/navigation/ActionOnlyNavDirections;IILjava/lang/Object;)Landroidx/navigation/ActionOnlyNavDirections;
-    .locals 0
+    .registers 4
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     invoke-virtual {p0}, Landroidx/navigation/ActionOnlyNavDirections;->getActionId()I
 
     move-result p1
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1}, Landroidx/navigation/ActionOnlyNavDirections;->copy(I)Landroidx/navigation/ActionOnlyNavDirections;
 
     move-result-object p0
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public final component1()I
-    .locals 1
+    .registers 2
 
     invoke-virtual {p0}, Landroidx/navigation/ActionOnlyNavDirections;->getActionId()I
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public final copy(I)Landroidx/navigation/ActionOnlyNavDirections;
-    .locals 1
+    .registers 3
 
     new-instance v0, Landroidx/navigation/ActionOnlyNavDirections;
 
@@ -113,22 +113,22 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 30
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 31
     return v0
 
     .line 33
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_26
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -142,12 +142,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_16
 
-    goto :goto_1
+    goto :goto_26
 
     .line 36
-    :cond_1
+    :cond_16
     move-object v2, p1
 
     check-cast v2, Landroidx/navigation/ActionOnlyNavDirections;
@@ -162,25 +162,25 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_24
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_2
+    :cond_24
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_25
     return v0
 
     .line 34
     .end local v2    # "that":Landroidx/navigation/ActionOnlyNavDirections;
-    :cond_3
-    :goto_1
+    :cond_26
+    :goto_26
     return v1
 .end method
 
 .method public getActionId()I
-    .locals 1
+    .registers 2
 
     .line 26
     iget v0, p0, Landroidx/navigation/ActionOnlyNavDirections;->actionId:I
@@ -189,7 +189,7 @@
 .end method
 
 .method public getArguments()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 27
     iget-object v0, p0, Landroidx/navigation/ActionOnlyNavDirections;->arguments:Landroid/os/Bundle;
@@ -198,7 +198,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 41
     const/4 v0, 0x1
@@ -220,7 +220,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 47
     new-instance v0, Ljava/lang/StringBuilder;

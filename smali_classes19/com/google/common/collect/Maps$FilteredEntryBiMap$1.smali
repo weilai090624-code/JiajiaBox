@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Predicate;)V
-    .locals 0
+    .registers 2
 
     .line 3284
     iput-object p1, p0, Lcom/google/common/collect/Maps$FilteredEntryBiMap$1;->val$forwardPredicate:Lcom/google/common/base/Predicate;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 3284
     check-cast p1, Ljava/util/Map$Entry;
@@ -58,7 +58,7 @@
 .end method
 
 .method public apply(Ljava/util/Map$Entry;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

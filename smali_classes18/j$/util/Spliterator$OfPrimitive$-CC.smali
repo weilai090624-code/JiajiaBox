@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$forEachRemaining(Lj$/util/Spliterator$OfPrimitive;Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/util/Spliterator$OfPrimitive;
 
     .line 642
@@ -22,7 +22,7 @@
 .end method
 
 .method public static bridge synthetic $default$trySplit(Lj$/util/Spliterator$OfPrimitive;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/Spliterator$OfPrimitive;
 
     .line 605

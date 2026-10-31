@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/format/DateTimeFormatterBuilder;Lj$/time/format/DateTimeTextProvider$LocaleStore;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lj$/time/format/DateTimeFormatterBuilder;
 
     .line 804
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getText(Lj$/time/chrono/Chronology;Lj$/time/temporal/TemporalField;JLj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 8
     .param p1, "chrono"    # Lj$/time/chrono/Chronology;
     .param p2, "field"    # Lj$/time/temporal/TemporalField;
     .param p3, "value"    # J
@@ -56,7 +56,7 @@
 .end method
 
 .method public getText(Lj$/time/temporal/TemporalField;JLj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 1
+    .registers 7
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "value"    # J
     .param p4, "style"    # Lj$/time/format/TextStyle;
@@ -73,7 +73,7 @@
 .end method
 
 .method public getTextIterator(Lj$/time/chrono/Chronology;Lj$/time/temporal/TemporalField;Lj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;
-    .locals 1
+    .registers 6
     .param p1, "chrono"    # Lj$/time/chrono/Chronology;
     .param p2, "field"    # Lj$/time/temporal/TemporalField;
     .param p3, "style"    # Lj$/time/format/TextStyle;
@@ -105,7 +105,7 @@
 .end method
 
 .method public getTextIterator(Lj$/time/temporal/TemporalField;Lj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;
-    .locals 1
+    .registers 5
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
     .param p2, "style"    # Lj$/time/format/TextStyle;
     .param p3, "locale"    # Ljava/util/Locale;

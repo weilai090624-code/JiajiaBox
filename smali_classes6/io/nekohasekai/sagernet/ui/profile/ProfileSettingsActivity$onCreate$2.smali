@@ -79,7 +79,7 @@
 
 # direct methods
 .method constructor <init>(JLio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,7 +176,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -185,7 +185,7 @@
     .line 106
     iget v1, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$onCreate$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_a8
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -196,18 +196,18 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_a5
 
-    :pswitch_1
+    :pswitch_16
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_63
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_1a
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 107
@@ -220,7 +220,7 @@
 
     cmp-long v6, v1, v3
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_45
 
     .line 108
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
@@ -252,17 +252,17 @@
 
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;->init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
 
-    goto :goto_1
+    goto :goto_8f
 
     .line 111
-    :cond_0
+    :cond_45
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$onCreate$2;->this$0:Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;->getProxyEntity()Lio/nekohasekai/sagernet/database/ProxyEntity;
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_66
 
     .line 112
     new-instance v1, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$onCreate$2$1;
@@ -285,20 +285,20 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_63
 
     .line 106
     return-object v0
 
     .line 115
-    :cond_1
-    :goto_0
+    :cond_63
+    :goto_63
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 117
-    :cond_2
+    :cond_66
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$onCreate$2;->this$0:Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
@@ -337,7 +337,7 @@
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;->init(Lio/nekohasekai/sagernet/fmt/AbstractBean;)V
 
     .line 121
-    :goto_1
+    :goto_8f
     new-instance v1, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$onCreate$2$2;
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$onCreate$2;->this$0:Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity;
@@ -358,22 +358,22 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_3
+    if-ne v1, v0, :cond_a5
 
     .line 106
     return-object v0
 
     .line 126
-    :cond_3
-    :goto_2
+    :cond_a5
+    :goto_a5
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_a8
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_16
+        :pswitch_11
     .end packed-switch
 .end method

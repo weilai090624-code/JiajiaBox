@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMultimap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 676
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$KeysSerializedForm;->multimap:Lcom/google/common/collect/ImmutableMultimap;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/snackbar/BaseTransientBottomBar;
 
     .line 791
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 794
     .local p0, "this":Lcom/google/android/material/snackbar/BaseTransientBottomBar$6;, "Lcom/google/android/material/snackbar/BaseTransientBottomBar$6;"

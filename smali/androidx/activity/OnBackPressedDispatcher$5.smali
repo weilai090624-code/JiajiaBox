@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/activity/OnBackPressedDispatcher;)V
-    .locals 1
+    .registers 3
 
     iput-object p1, p0, Landroidx/activity/OnBackPressedDispatcher$5;->this$0:Landroidx/activity/OnBackPressedDispatcher;
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 130
     invoke-virtual {p0}, Landroidx/activity/OnBackPressedDispatcher$5;->invoke()V
@@ -75,7 +75,7 @@
 .end method
 
 .method public final invoke()V
-    .locals 1
+    .registers 2
 
     .line 130
     iget-object v0, p0, Landroidx/activity/OnBackPressedDispatcher$5;->this$0:Landroidx/activity/OnBackPressedDispatcher;

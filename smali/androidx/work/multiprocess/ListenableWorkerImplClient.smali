@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 50
     const-string v0, "ListenableWorkerImplClient"
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
@@ -67,7 +67,7 @@
 .end method
 
 .method private static unableToBind(Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;Ljava/lang/Throwable;)V
-    .locals 3
+    .registers 5
     .param p0, "session"    # Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public execute(Landroid/content/ComponentName;Landroidx/work/multiprocess/RemoteDispatcher;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 5
     .param p1, "componentName"    # Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -128,7 +128,7 @@
 .end method
 
 .method public execute(Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/work/multiprocess/RemoteDispatcher;Landroidx/work/multiprocess/RemoteCallback;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 6
     .param p3, "callback"    # Landroidx/work/multiprocess/RemoteCallback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -166,7 +166,7 @@
 .end method
 
 .method public getConnection()Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;
-    .locals 1
+    .registers 2
 
     .line 168
     iget-object v0, p0, Landroidx/work/multiprocess/ListenableWorkerImplClient;->mConnection:Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;
@@ -175,7 +175,7 @@
 .end method
 
 .method public getListenableWorkerImpl(Landroid/content/ComponentName;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 6
+    .registers 8
     .param p1, "component"    # Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -194,10 +194,10 @@
     monitor-enter v0
 
     .line 78
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImplClient;->mConnection:Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_62
 
     .line 79
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -252,11 +252,11 @@
     invoke-direct {v1}, Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;-><init>()V
 
     iput-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImplClient;->mConnection:Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_3c
+    .catchall {:try_start_3 .. :try_end_3c} :catchall_68
 
     .line 84
-    :try_start_1
+    :try_start_3c
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
@@ -278,7 +278,7 @@
 
     .line 87
     .local v2, "bound":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_5b
 
     .line 88
     iget-object v3, p0, Landroidx/work/multiprocess/ListenableWorkerImplClient;->mConnection:Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;
@@ -290,30 +290,30 @@
     invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     invoke-static {v3, v4}, Landroidx/work/multiprocess/ListenableWorkerImplClient;->unableToBind(Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5b
+    .catchall {:try_start_3c .. :try_end_5b} :catchall_5c
 
     .line 93
     .end local v1    # "intent":Landroid/content/Intent;
     .end local v2    # "bound":Z
-    :cond_0
-    goto :goto_0
+    :cond_5b
+    goto :goto_62
 
     .line 91
-    :catchall_0
+    :catchall_5c
     move-exception v1
 
     .line 92
     .local v1, "throwable":Ljava/lang/Throwable;
-    :try_start_2
+    :try_start_5d
     iget-object v2, p0, Landroidx/work/multiprocess/ListenableWorkerImplClient;->mConnection:Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;
 
     invoke-static {v2, v1}, Landroidx/work/multiprocess/ListenableWorkerImplClient;->unableToBind(Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;Ljava/lang/Throwable;)V
 
     .line 95
     .end local v1    # "throwable":Ljava/lang/Throwable;
-    :cond_1
-    :goto_0
+    :cond_62
+    :goto_62
     iget-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImplClient;->mConnection:Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;
 
     iget-object v1, v1, Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;->mFuture:Landroidx/work/impl/utils/futures/SettableFuture;
@@ -323,18 +323,18 @@
     return-object v1
 
     .line 96
-    :catchall_1
+    :catchall_68
     move-exception v1
 
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_6a
+    .catchall {:try_start_5d .. :try_end_6a} :catchall_68
 
     throw v1
 .end method
 
 .method public unbindService()V
-    .locals 3
+    .registers 4
 
     .line 154
     iget-object v0, p0, Landroidx/work/multiprocess/ListenableWorkerImplClient;->mLock:Ljava/lang/Object;
@@ -342,10 +342,10 @@
     monitor-enter v0
 
     .line 155
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImplClient;->mConnection:Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 156
     iget-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImplClient;->mContext:Landroid/content/Context;
@@ -360,19 +360,19 @@
     iput-object v1, p0, Landroidx/work/multiprocess/ListenableWorkerImplClient;->mConnection:Landroidx/work/multiprocess/ListenableWorkerImplClient$Connection;
 
     .line 159
-    :cond_0
+    :cond_11
     monitor-exit v0
 
     .line 160
     return-void
 
     .line 159
-    :catchall_0
+    :catchall_13
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_15
+    .catchall {:try_start_3 .. :try_end_15} :catchall_13
 
     throw v1
 .end method

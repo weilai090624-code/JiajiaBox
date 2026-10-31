@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 53
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method public cancelAllWork(Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -61,7 +61,7 @@
 .end method
 
 .method public cancelAllWorkByTag(Ljava/lang/String;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "tag"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -86,7 +86,7 @@
 .end method
 
 .method public cancelUniqueWork(Ljava/lang/String;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -111,7 +111,7 @@
 .end method
 
 .method public cancelWorkById(Ljava/lang/String;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -136,7 +136,7 @@
 .end method
 
 .method public enqueueContinuation([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -161,7 +161,7 @@
 .end method
 
 .method public enqueueWorkRequests([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -186,7 +186,7 @@
 .end method
 
 .method public queryWorkInfo([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -211,7 +211,7 @@
 .end method
 
 .method public setForegroundAsync([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -236,7 +236,7 @@
 .end method
 
 .method public setProgress([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "request"    # [B
     .param p2, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -261,7 +261,7 @@
 .end method
 
 .method public updateUniquePeriodicWorkRequest(Ljava/lang/String;[BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "request"    # [B
     .param p3, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;

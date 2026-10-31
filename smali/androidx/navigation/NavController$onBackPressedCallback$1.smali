@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/navigation/NavController;)V
-    .locals 1
+    .registers 3
     .param p1, "$receiver"    # Landroidx/navigation/NavController;
 
     iput-object p1, p0, Landroidx/navigation/NavController$onBackPressedCallback$1;->this$0:Landroidx/navigation/NavController;
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public handleOnBackPressed()V
-    .locals 1
+    .registers 2
 
     .line 191
     iget-object v0, p0, Landroidx/navigation/NavController$onBackPressedCallback$1;->this$0:Landroidx/navigation/NavController;

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public static final persistableBundleOf()Landroid/os/PersistableBundle;
-    .locals 1
+    .registers 1
 
     .line 46
     const/4 v0, 0x0
@@ -50,7 +50,7 @@
 .end method
 
 .method public static final varargs persistableBundleOf([Lkotlin/Pair;)Landroid/os/PersistableBundle;
-    .locals 9
+    .registers 10
     .param p0, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,8 +84,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_9
+    if-ge v4, v3, :cond_20
 
     aget-object v5, v1, v4
 
@@ -121,10 +121,10 @@
     .end local v5    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 157
-    :cond_0
+    :cond_20
     nop
 
     .line 38
@@ -134,7 +134,7 @@
 .end method
 
 .method public static final toPersistableBundle(Ljava/util/Map;)Landroid/os/PersistableBundle;
-    .locals 4
+    .registers 5
     .param p0, "$this$toPersistableBundle"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -167,12 +167,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_10
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2a
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -197,9 +197,9 @@
 
     .end local v2    # "value":Ljava/lang/Object;
     .end local v3    # "key":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_10
 
     .line 65
-    :cond_0
+    :cond_2a
     return-object v0
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 93
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 5
     .param p1, "source"    # Ljava/lang/CharSequence;
     .param p2, "view"    # Landroid/view/View;
 
@@ -56,7 +56,7 @@
     move-result-object p1
 
     .line 100
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
@@ -68,11 +68,11 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method

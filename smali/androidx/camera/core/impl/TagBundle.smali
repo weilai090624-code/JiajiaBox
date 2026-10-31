@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 39
     new-instance v0, Landroidx/camera/core/impl/TagBundle;
@@ -39,7 +39,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -71,7 +71,7 @@
 .end method
 
 .method public static create(Landroid/util/Pair;)Landroidx/camera/core/impl/TagBundle;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -119,7 +119,7 @@
 .end method
 
 .method public static emptyBundle()Landroidx/camera/core/impl/TagBundle;
-    .locals 1
+    .registers 1
 
     .line 48
     sget-object v0, Landroidx/camera/core/impl/TagBundle;->EMPTY_TAGBUNDLE:Landroidx/camera/core/impl/TagBundle;
@@ -128,7 +128,7 @@
 .end method
 
 .method public static from(Landroidx/camera/core/impl/TagBundle;)Landroidx/camera/core/impl/TagBundle;
-    .locals 4
+    .registers 5
     .param p0, "otherTagBundle"    # Landroidx/camera/core/impl/TagBundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -154,12 +154,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -177,10 +177,10 @@
 
     .line 76
     .end local v2    # "key":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_d
 
     .line 78
-    :cond_0
+    :cond_21
     new-instance v1, Landroidx/camera/core/impl/TagBundle;
 
     invoke-direct {v1, v0}, Landroidx/camera/core/impl/TagBundle;-><init>(Ljava/util/Map;)V
@@ -191,7 +191,7 @@
 
 # virtual methods
 .method public getTag(Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -215,7 +215,7 @@
 .end method
 
 .method public listKeys()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static registerReceiver(Landroid/content/Context;Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
-    .locals 8
+    .registers 14
     .param p0, "obj"    # Landroid/content/Context;
     .param p1, "receiver"    # Landroid/content/BroadcastReceiver;
     .param p2, "filter"    # Landroid/content/IntentFilter;
@@ -37,9 +37,9 @@
     .line 1116
     and-int/lit8 v0, p5, 0x4
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_f
 
     .line 1117
     invoke-static {p0}, Landroidx/core/content/ContextCompat;->obtainAndCheckReceiverPermission(Landroid/content/Context;)Ljava/lang/String;
@@ -56,7 +56,7 @@
 
     .line 1121
     .end local v0    # "permission":Ljava/lang/String;
-    :cond_0
+    :cond_f
     and-int/lit8 p5, p5, 0x1
 
     .line 1122
@@ -80,7 +80,7 @@
 .end method
 
 .method static startForegroundService(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/ComponentName;
-    .locals 1
+    .registers 3
     .param p0, "obj"    # Landroid/content/Context;
     .param p1, "service"    # Landroid/content/Intent;
 

@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lkotlin/collections/EmptyIterator;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public bridge synthetic add(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public add(Ljava/lang/Void;)V
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 17
     const/4 v0, 0x0
@@ -99,7 +99,7 @@
 .end method
 
 .method public hasPrevious()Z
-    .locals 1
+    .registers 2
 
     .line 18
     const/4 v0, 0x0
@@ -108,7 +108,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 16
     invoke-virtual {p0}, Lkotlin/collections/EmptyIterator;->next()Ljava/lang/Void;
@@ -119,7 +119,7 @@
 .end method
 
 .method public next()Ljava/lang/Void;
-    .locals 1
+    .registers 2
 
     .line 21
     new-instance v0, Ljava/util/NoSuchElementException;
@@ -130,7 +130,7 @@
 .end method
 
 .method public nextIndex()I
-    .locals 1
+    .registers 2
 
     .line 19
     const/4 v0, 0x0
@@ -139,7 +139,7 @@
 .end method
 
 .method public bridge synthetic previous()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 16
     invoke-virtual {p0}, Lkotlin/collections/EmptyIterator;->previous()Ljava/lang/Void;
@@ -150,7 +150,7 @@
 .end method
 
 .method public previous()Ljava/lang/Void;
-    .locals 1
+    .registers 2
 
     .line 22
     new-instance v0, Ljava/util/NoSuchElementException;
@@ -161,7 +161,7 @@
 .end method
 
 .method public previousIndex()I
-    .locals 1
+    .registers 2
 
     .line 20
     const/4 v0, -0x1
@@ -170,7 +170,7 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -182,7 +182,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -194,7 +194,7 @@
 .end method
 
 .method public set(Ljava/lang/Void;)V
-    .locals 2
+    .registers 4
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

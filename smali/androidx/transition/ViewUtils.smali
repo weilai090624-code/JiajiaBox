@@ -33,14 +33,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 38
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 39
     new-instance v0, Landroidx/transition/ViewUtilsApi29;
@@ -49,15 +49,15 @@
 
     sput-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsBase;
 
-    goto :goto_0
+    goto :goto_32
 
     .line 40
-    :cond_0
+    :cond_e
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1c
 
     .line 41
     new-instance v0, Landroidx/transition/ViewUtilsApi23;
@@ -66,15 +66,15 @@
 
     sput-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsBase;
 
-    goto :goto_0
+    goto :goto_32
 
     .line 42
-    :cond_1
+    :cond_1c
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x16
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_2a
 
     .line 43
     new-instance v0, Landroidx/transition/ViewUtilsApi22;
@@ -83,10 +83,10 @@
 
     sput-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsBase;
 
-    goto :goto_0
+    goto :goto_32
 
     .line 44
-    :cond_2
+    :cond_2a
     nop
 
     .line 45
@@ -97,7 +97,7 @@
     sput-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsBase;
 
     .line 56
-    :goto_0
+    :goto_32
     new-instance v0, Landroidx/transition/ViewUtils$1;
 
     const-class v1, Ljava/lang/Float;
@@ -123,7 +123,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 202
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -133,7 +133,7 @@
 .end method
 
 .method static clearNonTransitionAlpha(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 128
@@ -146,7 +146,7 @@
 .end method
 
 .method static getOverlay(Landroid/view/View;)Landroidx/transition/ViewOverlayImpl;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 90
@@ -161,7 +161,7 @@
 .end method
 
 .method static getTransitionAlpha(Landroid/view/View;)F
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 111
@@ -175,7 +175,7 @@
 .end method
 
 .method static getWindowId(Landroid/view/View;)Landroidx/transition/WindowIdImpl;
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 100
@@ -190,7 +190,7 @@
 .end method
 
 .method static saveNonTransitionAlpha(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0, "view"    # Landroid/view/View;
 
     .line 119
@@ -203,7 +203,7 @@
 .end method
 
 .method static setAnimationMatrix(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 1
+    .registers 3
     .param p0, "v"    # Landroid/view/View;
     .param p1, "m"    # Landroid/graphics/Matrix;
 
@@ -217,7 +217,7 @@
 .end method
 
 .method static setLeftTopRightBottom(Landroid/view/View;IIII)V
-    .locals 6
+    .registers 11
     .param p0, "v"    # Landroid/view/View;
     .param p1, "left"    # I
     .param p2, "top"    # I
@@ -244,7 +244,7 @@
 .end method
 
 .method static setTransitionAlpha(Landroid/view/View;F)V
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "alpha"    # F
 
@@ -258,7 +258,7 @@
 .end method
 
 .method static setTransitionVisibility(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "visibility"    # I
 
@@ -272,7 +272,7 @@
 .end method
 
 .method static transformMatrixToGlobal(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "matrix"    # Landroid/graphics/Matrix;
 
@@ -286,7 +286,7 @@
 .end method
 
 .method static transformMatrixToLocal(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "matrix"    # Landroid/graphics/Matrix;
 

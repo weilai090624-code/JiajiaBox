@@ -28,7 +28,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public cellSet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -64,7 +64,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 53
     .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
@@ -79,7 +79,7 @@
 .end method
 
 .method public column(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -107,7 +107,7 @@
 .end method
 
 .method public columnKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -130,7 +130,7 @@
 .end method
 
 .method public columnMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -155,7 +155,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -179,7 +179,7 @@
 .end method
 
 .method public containsColumn(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "columnKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -199,7 +199,7 @@
 .end method
 
 .method public containsRow(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -219,7 +219,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -249,7 +249,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 35
     .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
@@ -261,7 +261,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -269,7 +269,7 @@
 
     .line 149
     .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
@@ -279,25 +279,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -332,7 +332,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 154
     .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
@@ -348,7 +348,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 99
     .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
@@ -364,7 +364,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -403,7 +403,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/Table;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -426,7 +426,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -461,7 +461,7 @@
 .end method
 
 .method public row(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -489,7 +489,7 @@
 .end method
 
 .method public rowKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -512,7 +512,7 @@
 .end method
 
 .method public rowMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -537,7 +537,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 139
     .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
@@ -553,7 +553,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -38,7 +38,7 @@
 
 # direct methods
 .method public static final changeDetector(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$changeDetector"    # Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -77,25 +77,25 @@
 .end method
 
 .method public static synthetic changeDetector$default(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 28
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     sget-object p1, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/ActionsKt$changeDetector$1;->INSTANCE:Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/ActionsKt$changeDetector$1;
 
     check-cast p1, Lkotlin/jvm/functions/Function1;
 
-    :cond_0
+    :cond_8
     invoke-static {p0, p1}, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/ActionsKt;->changeDetector(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginSupplier;Lkotlin/jvm/functions/Function1;)V
 
     return-void
 .end method
 
 .method public static final getOnChangeListener(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginContainer;)Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;
-    .locals 1
+    .registers 2
     .param p0, "$this$onChangeListener"    # Lcom/blacksquircle/ui/editorkit/plugin/base/PluginContainer;
 
     const-string v0, "<this>"
@@ -111,23 +111,23 @@
 
     check-cast v0, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/DirtyTextPlugin;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {v0}, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/DirtyTextPlugin;->getOnChangeListener()Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_15
     return-object v0
 .end method
 
 .method public static final setOnChangeListener(Lcom/blacksquircle/ui/editorkit/plugin/base/PluginContainer;Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$onChangeListener"    # Lcom/blacksquircle/ui/editorkit/plugin/base/PluginContainer;
     .param p1, "value"    # Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;
 
@@ -144,14 +144,14 @@
 
     check-cast v0, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/DirtyTextPlugin;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_10
     invoke-virtual {v0, p1}, Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/DirtyTextPlugin;->setOnChangeListener(Lcom/blacksquircle/ui/editorkit/plugin/dirtytext/OnChangeListener;)V
 
     .line 26
-    :goto_0
+    :goto_13
     return-void
 .end method

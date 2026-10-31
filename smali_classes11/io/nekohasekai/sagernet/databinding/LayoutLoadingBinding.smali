@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/TextView;)V
-    .locals 0
+    .registers 3
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "loadingText"    # Landroid/widget/TextView;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -42,7 +42,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutLoadingBinding;
-    .locals 4
+    .registers 5
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -66,7 +66,7 @@
 
     .line 59
     .local v1, "loadingText":Landroid/widget/TextView;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 63
     new-instance v2, Lio/nekohasekai/sagernet/databinding/LayoutLoadingBinding;
@@ -80,7 +80,7 @@
     return-object v2
 
     .line 60
-    :cond_0
+    :cond_14
     nop
 
     .line 65
@@ -109,7 +109,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutLoadingBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -133,7 +133,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutLoadingBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -161,13 +161,13 @@
 
     .line 45
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 46
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 48
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutLoadingBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutLoadingBinding;
 
     move-result-object v1
@@ -178,7 +178,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 18
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutLoadingBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -189,7 +189,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutLoadingBinding;->rootView:Landroid/widget/LinearLayout;

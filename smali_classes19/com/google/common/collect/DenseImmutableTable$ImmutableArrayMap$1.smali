@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;
 
     .line 130
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -79,7 +79,7 @@
 .end method
 
 .method protected computeNext()Ljava/util/Map$Entry;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -95,7 +95,7 @@
     .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;, "Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;"
     iget v0, p0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;->index:I
 
-    :goto_0
+    :goto_2
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;->index:I
@@ -104,7 +104,7 @@
 
     iget v1, p0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;->maxIndex:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_26
 
     .line 138
     iget-object v0, p0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;->this$0:Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;
@@ -117,7 +117,7 @@
 
     .line 139
     .local v0, "value":Ljava/lang/Object;, "TV;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 140
     iget-object v1, p0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;->this$0:Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;
@@ -136,13 +136,13 @@
 
     .line 137
     .end local v0    # "value":Ljava/lang/Object;, "TV;"
-    :cond_0
+    :cond_23
     iget v0, p0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;->index:I
 
-    goto :goto_0
+    goto :goto_2
 
     .line 143
-    :cond_1
+    :cond_26
     invoke-virtual {p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

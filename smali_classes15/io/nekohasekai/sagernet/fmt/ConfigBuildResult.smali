@@ -107,7 +107,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/util/List;JLjava/util/Map;Ljava/util/Map;J)V
-    .locals 1
+    .registers 10
     .param p1, "config"    # Ljava/lang/String;
     .param p2, "externalIndex"    # Ljava/util/List;
     .param p3, "mainEntId"    # J
@@ -178,7 +178,7 @@
 
 # virtual methods
 .method public final getConfig()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/ConfigBuildResult;->config:Ljava/lang/String;
@@ -187,7 +187,7 @@
 .end method
 
 .method public final getExternalIndex()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -204,7 +204,7 @@
 .end method
 
 .method public final getMainEntId()J
-    .locals 2
+    .registers 3
 
     .line 54
     iget-wide v0, p0, Lio/nekohasekai/sagernet/fmt/ConfigBuildResult;->mainEntId:J
@@ -213,7 +213,7 @@
 .end method
 
 .method public final getProfileTagMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -231,7 +231,7 @@
 .end method
 
 .method public final getSelectorGroupId()J
-    .locals 2
+    .registers 3
 
     .line 57
     iget-wide v0, p0, Lio/nekohasekai/sagernet/fmt/ConfigBuildResult;->selectorGroupId:J
@@ -240,7 +240,7 @@
 .end method
 
 .method public final getTrafficMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -259,7 +259,7 @@
 .end method
 
 .method public final setConfig(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -273,7 +273,7 @@
 .end method
 
 .method public final setExternalIndex(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -295,7 +295,7 @@
 .end method
 
 .method public final setMainEntId(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 54
@@ -305,7 +305,7 @@
 .end method
 
 .method public final setProfileTagMap(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -328,7 +328,7 @@
 .end method
 
 .method public final setTrafficMap(Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/SearchView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/widget/SearchView;
 
     .line 1424
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 3
+    .registers 9
     .param p2, "view"    # Landroid/view/View;
     .param p3, "position"    # I
     .param p4, "id"    # J

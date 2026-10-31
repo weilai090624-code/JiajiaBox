@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/blacksquircle/ui/language/base/model/TokenType;II)V
-    .locals 1
+    .registers 5
     .param p1, "tokenType"    # Lcom/blacksquircle/ui/language/base/model/TokenType;
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -83,29 +83,29 @@
 .end method
 
 .method public static synthetic copy$default(Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;Lcom/blacksquircle/ui/language/base/model/TokenType;IIILjava/lang/Object;)Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
-    .locals 0
+    .registers 6
 
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     iget-object p1, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->tokenType:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_c
 
     iget p2, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->start:I
 
-    :cond_1
+    :cond_c
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_12
 
     iget p3, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->end:I
 
-    :cond_2
+    :cond_12
     invoke-virtual {p0, p1, p2, p3}, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->copy(Lcom/blacksquircle/ui/language/base/model/TokenType;II)Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
 
     move-result-object p0
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public final component1()Lcom/blacksquircle/ui/language/base/model/TokenType;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->tokenType:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public final component2()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->start:I
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public final component3()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->end:I
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public final copy(Lcom/blacksquircle/ui/language/base/model/TokenType;II)Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
-    .locals 1
+    .registers 5
 
     const-string/jumbo v0, "tokenType"
 
@@ -154,24 +154,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;
@@ -180,34 +180,34 @@
 
     iget-object v4, v1, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->tokenType:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_14
 
     return v2
 
-    :cond_2
+    :cond_14
     iget v3, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->start:I
 
     iget v4, v1, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->start:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     return v2
 
-    :cond_3
+    :cond_1b
     iget v3, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->end:I
 
     iget v1, v1, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->end:I
 
-    if-eq v3, v1, :cond_4
+    if-eq v3, v1, :cond_22
 
     return v2
 
-    :cond_4
+    :cond_22
     return v0
 .end method
 
 .method public final getEnd()I
-    .locals 1
+    .registers 2
 
     .line 22
     iget v0, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->end:I
@@ -216,7 +216,7 @@
 .end method
 
 .method public final getStart()I
-    .locals 1
+    .registers 2
 
     .line 21
     iget v0, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->start:I
@@ -225,7 +225,7 @@
 .end method
 
 .method public final getTokenType()Lcom/blacksquircle/ui/language/base/model/TokenType;
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->tokenType:Lcom/blacksquircle/ui/language/base/model/TokenType;
@@ -234,7 +234,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/SyntaxHighlightResult;->tokenType:Lcom/blacksquircle/ui/language/base/model/TokenType;
 
@@ -258,7 +258,7 @@
 .end method
 
 .method public final setEnd(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 22
@@ -268,7 +268,7 @@
 .end method
 
 .method public final setStart(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 21
@@ -278,7 +278,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

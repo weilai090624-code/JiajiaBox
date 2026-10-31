@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/BufferedSource;)V
-    .locals 1
+    .registers 3
     .param p1, "upstream"    # Lokio/BufferedSource;
 
     const-string v0, "upstream"
@@ -100,16 +100,16 @@
 
     iget-object v0, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_20
     iget v0, v0, Lokio/Segment;->pos:I
 
-    :goto_0
+    :goto_22
     iput v0, p0, Lokio/PeekSource;->expectedPos:I
 
     .line 28
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 71
     const/4 v0, 0x1
@@ -131,7 +131,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 8
+    .registers 12
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -148,27 +148,27 @@
 
     cmp-long v4, p2, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_f
 
     const/4 v4, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v4, 0x0
 
-    :goto_0
-    if-eqz v4, :cond_8
+    :goto_10
+    if-eqz v4, :cond_a1
 
     .line 40
     iget-boolean v4, p0, Lokio/PeekSource;->closed:Z
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_91
 
     .line 44
     iget-object v4, p0, Lokio/PeekSource;->expectedSegment:Lokio/Segment;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_32
 
     .line 45
     iget-object v4, p0, Lokio/PeekSource;->expectedSegment:Lokio/Segment;
@@ -177,7 +177,7 @@
 
     iget-object v5, v5, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_30
 
     iget v4, p0, Lokio/PeekSource;->expectedPos:I
 
@@ -189,32 +189,32 @@
 
     iget v5, v5, Lokio/Segment;->pos:I
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_30
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_1
+    :cond_30
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto :goto_33
 
-    :cond_2
-    :goto_1
+    :cond_32
+    :goto_32
     nop
 
     .line 43
-    :goto_2
-    if-eqz v0, :cond_6
+    :goto_33
+    if-eqz v0, :cond_81
 
     .line 49
     cmp-long v0, p2, v2
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_3a
 
     return-wide v2
 
     .line 50
-    :cond_3
+    :cond_3a
     iget-object v0, p0, Lokio/PeekSource;->upstream:Lokio/BufferedSource;
 
     iget-wide v1, p0, Lokio/PeekSource;->pos:J
@@ -227,23 +227,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_4a
 
     const-wide/16 v0, -0x1
 
     return-wide v0
 
     .line 52
-    :cond_4
+    :cond_4a
     iget-object v0, p0, Lokio/PeekSource;->expectedSegment:Lokio/Segment;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_65
 
     iget-object v0, p0, Lokio/PeekSource;->buffer:Lokio/Buffer;
 
     iget-object v0, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_65
 
     .line 56
     iget-object v0, p0, Lokio/PeekSource;->buffer:Lokio/Buffer;
@@ -264,7 +264,7 @@
     iput v0, p0, Lokio/PeekSource;->expectedPos:I
 
     .line 60
-    :cond_5
+    :cond_65
     iget-object v0, p0, Lokio/PeekSource;->buffer:Lokio/Buffer;
 
     invoke-virtual {v0}, Lokio/Buffer;->size()J
@@ -303,7 +303,7 @@
 
     .line 43
     .end local v0    # "toCopy":J
-    :cond_6
+    :cond_81
     const/4 v0, 0x0
 
     .line 47
@@ -327,7 +327,7 @@
     throw v0
 
     .line 75
-    :cond_7
+    :cond_91
     const/4 v0, 0x0
 
     .line 40
@@ -350,7 +350,7 @@
     throw v0
 
     .line 75
-    :cond_8
+    :cond_a1
     const/4 v0, 0x0
 
     .line 39
@@ -380,7 +380,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Lokio/PeekSource;->upstream:Lokio/BufferedSource;

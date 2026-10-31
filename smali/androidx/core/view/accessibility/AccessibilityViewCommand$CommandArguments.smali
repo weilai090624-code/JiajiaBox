@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public setBundle(Landroid/os/Bundle;)V
-    .locals 0
+    .registers 2
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 53

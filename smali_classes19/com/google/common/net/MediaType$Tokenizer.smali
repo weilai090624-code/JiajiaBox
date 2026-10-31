@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/lang/String;
 
     .line 1095
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method consumeCharacter(C)C
-    .locals 2
+    .registers 4
     .param p1, "c"    # C
 
     .line 1122
@@ -60,16 +60,16 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 1124
@@ -84,7 +84,7 @@
 .end method
 
 .method consumeCharacter(Lcom/google/common/base/CharMatcher;)C
-    .locals 2
+    .registers 4
     .param p1, "matcher"    # Lcom/google/common/base/CharMatcher;
 
     .line 1114
@@ -119,7 +119,7 @@
 .end method
 
 .method consumeToken(Lcom/google/common/base/CharMatcher;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "matcher"    # Lcom/google/common/base/CharMatcher;
 
     .line 1107
@@ -135,16 +135,16 @@
     .local v1, "token":Ljava/lang/String;
     iget v2, p0, Lcom/google/common/net/MediaType$Tokenizer;->position:I
 
-    if-eq v2, v0, :cond_0
+    if-eq v2, v0, :cond_c
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     invoke-static {v2}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 1110
@@ -152,7 +152,7 @@
 .end method
 
 .method consumeTokenIfPresent(Lcom/google/common/base/CharMatcher;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "matcher"    # Lcom/google/common/base/CharMatcher;
 
     .line 1100
@@ -184,7 +184,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     iget-object v1, p0, Lcom/google/common/net/MediaType$Tokenizer;->input:Ljava/lang/String;
 
@@ -194,26 +194,26 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_24
     iget-object v1, p0, Lcom/google/common/net/MediaType$Tokenizer;->input:Ljava/lang/String;
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_2a
     return-object v1
 .end method
 
 .method hasMore()Z
-    .locals 2
+    .registers 3
 
     .line 1134
     iget v0, p0, Lcom/google/common/net/MediaType$Tokenizer;->position:I
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_10
 
     iget v0, p0, Lcom/google/common/net/MediaType$Tokenizer;->position:I
 
@@ -223,21 +223,21 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method previewChar()C
-    .locals 2
+    .registers 3
 
     .line 1129
     invoke-virtual {p0}, Lcom/google/common/net/MediaType$Tokenizer;->hasMore()Z

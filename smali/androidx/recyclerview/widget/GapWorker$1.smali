@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 190
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public compare(Landroidx/recyclerview/widget/GapWorker$Task;Landroidx/recyclerview/widget/GapWorker$Task;)I
-    .locals 5
+    .registers 8
     .param p1, "lhs"    # Landroidx/recyclerview/widget/GapWorker$Task;
     .param p2, "rhs"    # Landroidx/recyclerview/widget/GapWorker$Task;
 
@@ -50,65 +50,65 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     iget-object v3, p2, Landroidx/recyclerview/widget/GapWorker$Task;->view:Landroidx/recyclerview/widget/RecyclerView;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_f
 
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_10
     const/4 v4, -0x1
 
-    if-eq v0, v3, :cond_3
+    if-eq v0, v3, :cond_1a
 
     .line 195
     iget-object v0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->view:Landroidx/recyclerview/widget/RecyclerView;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_18
 
-    goto :goto_2
+    goto :goto_19
 
-    :cond_2
+    :cond_18
     const/4 v2, -0x1
 
-    :goto_2
+    :goto_19
     return v2
 
     .line 199
-    :cond_3
+    :cond_1a
     iget-boolean v0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->immediate:Z
 
     iget-boolean v3, p2, Landroidx/recyclerview/widget/GapWorker$Task;->immediate:Z
 
-    if-eq v0, v3, :cond_5
+    if-eq v0, v3, :cond_26
 
     .line 200
     iget-boolean v0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->immediate:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_25
 
     const/4 v2, -0x1
 
-    :cond_4
+    :cond_25
     return v2
 
     .line 204
-    :cond_5
+    :cond_26
     iget v0, p2, Landroidx/recyclerview/widget/GapWorker$Task;->viewVelocity:I
 
     iget v2, p1, Landroidx/recyclerview/widget/GapWorker$Task;->viewVelocity:I
@@ -117,12 +117,12 @@
 
     .line 205
     .local v0, "deltaViewVelocity":I
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_2e
 
     return v0
 
     .line 208
-    :cond_6
+    :cond_2e
     iget v2, p1, Landroidx/recyclerview/widget/GapWorker$Task;->distanceToItem:I
 
     iget v3, p2, Landroidx/recyclerview/widget/GapWorker$Task;->distanceToItem:I
@@ -131,17 +131,17 @@
 
     .line 209
     .local v2, "deltaDistanceToItem":I
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_36
 
     return v2
 
     .line 211
-    :cond_7
+    :cond_36
     return v1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 190
     check-cast p1, Landroidx/recyclerview/widget/GapWorker$Task;

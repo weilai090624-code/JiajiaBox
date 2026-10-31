@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/window/layout/DisplayCompatHelperApi28;
 
@@ -49,7 +49,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public final safeInsetBottom(Landroid/view/DisplayCutout;)I
-    .locals 1
+    .registers 3
     .param p1, "displayCutout"    # Landroid/view/DisplayCutout;
 
     const-string v0, "displayCutout"
@@ -76,7 +76,7 @@
 .end method
 
 .method public final safeInsetLeft(Landroid/view/DisplayCutout;)I
-    .locals 1
+    .registers 3
     .param p1, "displayCutout"    # Landroid/view/DisplayCutout;
 
     const-string v0, "displayCutout"
@@ -92,7 +92,7 @@
 .end method
 
 .method public final safeInsetRight(Landroid/view/DisplayCutout;)I
-    .locals 1
+    .registers 3
     .param p1, "displayCutout"    # Landroid/view/DisplayCutout;
 
     const-string v0, "displayCutout"
@@ -108,7 +108,7 @@
 .end method
 
 .method public final safeInsetTop(Landroid/view/DisplayCutout;)I
-    .locals 1
+    .registers 3
     .param p1, "displayCutout"    # Landroid/view/DisplayCutout;
 
     const-string v0, "displayCutout"

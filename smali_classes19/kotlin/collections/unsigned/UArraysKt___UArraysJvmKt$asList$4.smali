@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>([S)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # [S
 
     iput-object p1, p0, Lkotlin/collections/unsigned/UArraysKt___UArraysJvmKt$asList$4;->$this_asList:[S
@@ -86,19 +86,19 @@
 
 # virtual methods
 .method public final bridge contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 122
     instance-of v0, p1, Lkotlin/UShort;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lkotlin/UShort;
@@ -115,7 +115,7 @@
 .end method
 
 .method public contains-xj2QHRw(S)Z
-    .locals 1
+    .registers 3
     .param p1, "element"    # S
 
     .line 125
@@ -129,7 +129,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 122
@@ -145,7 +145,7 @@
 .end method
 
 .method public get-Mh2AYeg(I)S
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 126
@@ -159,7 +159,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 123
     iget-object v0, p0, Lkotlin/collections/unsigned/UArraysKt___UArraysJvmKt$asList$4;->$this_asList:[S
@@ -172,19 +172,19 @@
 .end method
 
 .method public final bridge indexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 122
     instance-of v0, p1, Lkotlin/UShort;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lkotlin/UShort;
@@ -201,7 +201,7 @@
 .end method
 
 .method public indexOf-xj2QHRw(S)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # S
 
     .line 127
@@ -215,7 +215,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 124
     iget-object v0, p0, Lkotlin/collections/unsigned/UArraysKt___UArraysJvmKt$asList$4;->$this_asList:[S
@@ -228,19 +228,19 @@
 .end method
 
 .method public final bridge lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
 
     .line 122
     instance-of v0, p1, Lkotlin/UShort;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Lkotlin/UShort;
@@ -257,7 +257,7 @@
 .end method
 
 .method public lastIndexOf-xj2QHRw(S)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # S
 
     .line 128

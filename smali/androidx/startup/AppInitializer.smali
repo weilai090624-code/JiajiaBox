@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 57
     new-instance v0, Ljava/lang/Object;
@@ -54,7 +54,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 73
@@ -86,7 +86,7 @@
 .end method
 
 .method private doInitialize(Ljava/lang/Class;Ljava/util/Set;)Ljava/lang/Object;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -111,10 +111,10 @@
 
     .line 151
     .local v0, "isTracingEnabled":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 153
-    :try_start_0
+    :try_start_6
     invoke-virtual {p1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
     move-result-object v1
@@ -122,14 +122,14 @@
     invoke-static {v1}, Landroidx/tracing/Trace;->beginSection(Ljava/lang/String;)V
 
     .line 155
-    :cond_0
+    :cond_d
     invoke-interface {p2, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_77
 
     .line 162
     iget-object v1, p0, Landroidx/startup/AppInitializer;->mInitialized:Ljava/util/Map;
@@ -138,15 +138,15 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_6b
 
     .line 163
     invoke-interface {p2, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_1f
+    .catchall {:try_start_6 .. :try_end_1f} :catchall_8c
 
     .line 165
-    :try_start_1
+    :try_start_1f
     new-array v1, v2, [Ljava/lang/Class;
 
     invoke-virtual {p1, v1}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
@@ -180,19 +180,19 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_55
 
     .line 171
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :goto_0
+    :goto_3d
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_55
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -208,18 +208,18 @@
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_54
 
     .line 173
     invoke-direct {p0, v5, p2}, Landroidx/startup/AppInitializer;->doInitialize(Ljava/lang/Class;Ljava/util/Set;)Ljava/lang/Object;
 
     .line 175
     .end local v5    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/startup/Initializer<*>;>;"
-    :cond_1
-    goto :goto_0
+    :cond_54
+    goto :goto_3d
 
     .line 180
-    :cond_2
+    :cond_55
     iget-object v4, p0, Landroidx/startup/AppInitializer;->mContext:Landroid/content/Context;
 
     invoke-interface {v2, v4}, Landroidx/startup/Initializer;->create(Landroid/content/Context;)Ljava/lang/Object;
@@ -234,23 +234,23 @@
     iget-object v5, p0, Landroidx/startup/AppInitializer;->mInitialized:Ljava/util/Map;
 
     invoke-interface {v5, p1, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_63
+    .catchall {:try_start_1f .. :try_end_63} :catchall_64
 
     .line 188
     .end local v1    # "instance":Ljava/lang/Object;
     .end local v2    # "initializer":Landroidx/startup/Initializer;, "Landroidx/startup/Initializer<*>;"
     .end local v3    # "dependencies":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Class<+Landroidx/startup/Initializer<*>;>;>;"
-    goto :goto_1
+    goto :goto_72
 
     .line 186
     .end local v4    # "result":Ljava/lang/Object;
-    :catchall_0
+    :catchall_64
     move-exception v1
 
     .line 187
     .local v1, "throwable":Ljava/lang/Throwable;
-    :try_start_2
+    :try_start_65
     new-instance v2, Landroidx/startup/StartupException;
 
     invoke-direct {v2, v1}, Landroidx/startup/StartupException;-><init>(Ljava/lang/Throwable;)V
@@ -265,20 +265,20 @@
     .restart local v0    # "isTracingEnabled":Z
     .restart local p1    # "component":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/startup/Initializer<*>;>;"
     .restart local p2    # "initializing":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
-    :cond_3
+    :cond_6b
     iget-object v1, p0, Landroidx/startup/AppInitializer;->mInitialized:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_71
+    .catchall {:try_start_65 .. :try_end_71} :catchall_8c
 
     move-object v4, v1
 
     .line 192
     .restart local v4    # "result":Ljava/lang/Object;
-    :goto_1
+    :goto_72
     nop
 
     .line 194
@@ -289,8 +289,8 @@
 
     .line 156
     .end local v4    # "result":Ljava/lang/Object;
-    :cond_4
-    :try_start_3
+    :cond_77
+    :try_start_77
     const-string v1, "Cannot initialize %s. Cycle detected."
 
     .line 157
@@ -319,15 +319,15 @@
     .end local p1    # "component":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/startup/Initializer<*>;>;"
     .end local p2    # "initializing":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
     throw v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_8c
+    .catchall {:try_start_77 .. :try_end_8c} :catchall_8c
 
     .line 194
     .end local v1    # "message":Ljava/lang/String;
     .restart local v0    # "isTracingEnabled":Z
     .restart local p1    # "component":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/startup/Initializer<*>;>;"
     .restart local p2    # "initializing":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
-    :catchall_1
+    :catchall_8c
     move-exception v1
 
     invoke-static {}, Landroidx/tracing/Trace;->endSection()V
@@ -337,13 +337,13 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Landroidx/startup/AppInitializer;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 86
     sget-object v0, Landroidx/startup/AppInitializer;->sInstance:Landroidx/startup/AppInitializer;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     .line 87
     sget-object v0, Landroidx/startup/AppInitializer;->sLock:Ljava/lang/Object;
@@ -351,10 +351,10 @@
     monitor-enter v0
 
     .line 88
-    :try_start_0
+    :try_start_7
     sget-object v1, Landroidx/startup/AppInitializer;->sInstance:Landroidx/startup/AppInitializer;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 89
     new-instance v1, Landroidx/startup/AppInitializer;
@@ -364,30 +364,30 @@
     sput-object v1, Landroidx/startup/AppInitializer;->sInstance:Landroidx/startup/AppInitializer;
 
     .line 91
-    :cond_0
+    :cond_12
     monitor-exit v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :catchall_0
+    :catchall_14
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_7 .. :try_end_16} :catchall_14
 
     throw v1
 
     .line 93
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     sget-object v0, Landroidx/startup/AppInitializer;->sInstance:Landroidx/startup/AppInitializer;
 
     return-object v0
 .end method
 
 .method static setDelegate(Landroidx/startup/AppInitializer;)V
-    .locals 2
+    .registers 3
     .param p0, "delegate"    # Landroidx/startup/AppInitializer;
 
     .line 102
@@ -396,7 +396,7 @@
     monitor-enter v0
 
     .line 103
-    :try_start_0
+    :try_start_3
     sput-object p0, Landroidx/startup/AppInitializer;->sInstance:Landroidx/startup/AppInitializer;
 
     .line 104
@@ -406,12 +406,12 @@
     return-void
 
     .line 104
-    :catchall_0
+    :catchall_7
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_3 .. :try_end_9} :catchall_7
 
     throw v1
 .end method
@@ -419,7 +419,7 @@
 
 # virtual methods
 .method discoverAndInitialize()V
-    .locals 3
+    .registers 4
 
     .line 200
     :try_start_0
@@ -467,9 +467,9 @@
     .line 206
     .local v2, "metadata":Landroid/os/Bundle;
     invoke-virtual {p0, v2}, Landroidx/startup/AppInitializer;->discoverAndInitialize(Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_27} :catch_2e
+    .catchall {:try_start_0 .. :try_end_27} :catchall_2c
 
     .line 210
     .end local v0    # "provider":Landroid/content/ComponentName;
@@ -484,29 +484,29 @@
     return-void
 
     .line 210
-    :catchall_0
+    :catchall_2c
     move-exception v0
 
-    goto :goto_0
+    goto :goto_35
 
     .line 207
-    :catch_0
+    :catch_2e
     move-exception v0
 
     .line 208
     .local v0, "exception":Landroid/content/pm/PackageManager$NameNotFoundException;
-    :try_start_1
+    :try_start_2f
     new-instance v1, Landroidx/startup/StartupException;
 
     invoke-direct {v1, v0}, Landroidx/startup/StartupException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_35
+    .catchall {:try_start_2f .. :try_end_35} :catchall_2c
 
     .line 210
     .end local v0    # "exception":Landroid/content/pm/PackageManager$NameNotFoundException;
-    :goto_0
+    :goto_35
     invoke-static {}, Landroidx/tracing/Trace;->endSection()V
 
     .line 211
@@ -514,7 +514,7 @@
 .end method
 
 .method discoverAndInitialize(Landroid/os/Bundle;)V
-    .locals 9
+    .registers 11
     .param p1, "metadata"    # Landroid/os/Bundle;
 
     .line 216
@@ -528,10 +528,10 @@
 
     .line 218
     .local v0, "startup":Ljava/lang/String;
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_5f
 
     .line 219
-    :try_start_0
+    :try_start_a
     new-instance v1, Ljava/util/HashSet;
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
@@ -548,12 +548,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_17
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_41
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -575,7 +575,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_40
 
     .line 224
     invoke-static {v4}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -590,7 +590,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_40
 
     .line 226
     move-object v7, v6
@@ -606,23 +606,23 @@
     .end local v5    # "value":Ljava/lang/String;
     .end local v6    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v7    # "component":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/startup/Initializer<*>;>;"
-    :cond_0
-    goto :goto_0
+    :cond_40
+    goto :goto_17
 
     .line 237
-    :cond_1
+    :cond_41
     iget-object v3, p0, Landroidx/startup/AppInitializer;->mDiscovered:Ljava/util/Set;
 
     invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_1
+    :goto_47
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_5f
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -633,19 +633,19 @@
     .line 238
     .local v4, "component":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/startup/Initializer<*>;>;"
     invoke-direct {p0, v4, v1}, Landroidx/startup/AppInitializer;->doInitialize(Ljava/lang/Class;Ljava/util/Set;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_56
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_a .. :try_end_56} :catch_58
 
     .line 239
     nop
 
     .end local v4    # "component":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/startup/Initializer<*>;>;"
-    goto :goto_1
+    goto :goto_47
 
     .line 241
     .end local v1    # "initializing":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
     .end local v2    # "keys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    :catch_0
+    :catch_58
     move-exception v1
 
     .line 242
@@ -658,7 +658,7 @@
 
     .line 243
     .end local v1    # "exception":Ljava/lang/ClassNotFoundException;
-    :cond_2
+    :cond_5f
     nop
 
     .line 244
@@ -666,7 +666,7 @@
 .end method
 
 .method doInitialize(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -686,7 +686,7 @@
     monitor-enter v0
 
     .line 136
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/startup/AppInitializer;->mInitialized:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -695,7 +695,7 @@
 
     .line 137
     .local v1, "result":Ljava/lang/Object;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     .line 138
     new-instance v2, Ljava/util/HashSet;
@@ -709,7 +709,7 @@
     move-object v1, v2
 
     .line 140
-    :cond_0
+    :cond_15
     monitor-exit v0
 
     .line 141
@@ -717,18 +717,18 @@
 
     .line 140
     .end local v1    # "result":Ljava/lang/Object;
-    :catchall_0
+    :catchall_17
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_3 .. :try_end_19} :catchall_17
 
     throw v1
 .end method
 
 .method public initializeComponent(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -751,7 +751,7 @@
 .end method
 
 .method public isEagerlyInitialized(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

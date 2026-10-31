@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 110
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method getOwnerType(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

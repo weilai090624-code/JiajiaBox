@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 321
     new-instance v0, Lcom/google/common/io/BaseEncoding$Base64Encoding;
@@ -104,7 +104,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 129
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -113,7 +113,7 @@
 .end method
 
 .method public static base16()Lcom/google/common/io/BaseEncoding;
-    .locals 1
+    .registers 1
 
     .line 418
     sget-object v0, Lcom/google/common/io/BaseEncoding;->BASE16:Lcom/google/common/io/BaseEncoding;
@@ -122,7 +122,7 @@
 .end method
 
 .method public static base32()Lcom/google/common/io/BaseEncoding;
-    .locals 1
+    .registers 1
 
     .line 380
     sget-object v0, Lcom/google/common/io/BaseEncoding;->BASE32:Lcom/google/common/io/BaseEncoding;
@@ -131,7 +131,7 @@
 .end method
 
 .method public static base32Hex()Lcom/google/common/io/BaseEncoding;
-    .locals 1
+    .registers 1
 
     .line 399
     sget-object v0, Lcom/google/common/io/BaseEncoding;->BASE32_HEX:Lcom/google/common/io/BaseEncoding;
@@ -140,7 +140,7 @@
 .end method
 
 .method public static base64()Lcom/google/common/io/BaseEncoding;
-    .locals 1
+    .registers 1
 
     .line 339
     sget-object v0, Lcom/google/common/io/BaseEncoding;->BASE64:Lcom/google/common/io/BaseEncoding;
@@ -149,7 +149,7 @@
 .end method
 
 .method public static base64Url()Lcom/google/common/io/BaseEncoding;
-    .locals 1
+    .registers 1
 
     .line 361
     sget-object v0, Lcom/google/common/io/BaseEncoding;->BASE64_URL:Lcom/google/common/io/BaseEncoding;
@@ -158,20 +158,20 @@
 .end method
 
 .method private static extract([BI)[B
-    .locals 2
+    .registers 4
     .param p0, "result"    # [B
     .param p1, "length"    # I
 
     .line 192
     array-length v0, p0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_4
 
     .line 193
     return-object p0
 
     .line 195
-    :cond_0
+    :cond_4
     new-array v0, p1, [B
 
     .line 196
@@ -185,7 +185,7 @@
 .end method
 
 .method static ignoringReader(Ljava/io/Reader;Ljava/lang/String;)Ljava/io/Reader;
-    .locals 1
+    .registers 3
     .param p0, "delegate"    # Ljava/io/Reader;
     .param p1, "toIgnore"    # Ljava/lang/String;
 
@@ -204,7 +204,7 @@
 .end method
 
 .method static separatingAppendable(Ljava/lang/Appendable;Ljava/lang/String;I)Ljava/lang/Appendable;
-    .locals 1
+    .registers 4
     .param p0, "delegate"    # Ljava/lang/Appendable;
     .param p1, "separator"    # Ljava/lang/String;
     .param p2, "afterEveryChars"    # I
@@ -216,16 +216,16 @@
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1024
-    if-lez p2, :cond_0
+    if-lez p2, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 1025
@@ -237,7 +237,7 @@
 .end method
 
 .method static separatingWriter(Ljava/io/Writer;Ljava/lang/String;I)Ljava/io/Writer;
-    .locals 2
+    .registers 5
     .param p0, "delegate"    # Ljava/io/Writer;
     .param p1, "separator"    # Ljava/lang/String;
     .param p2, "afterEveryChars"    # I
@@ -265,7 +265,7 @@
 .end method
 
 .method public final decode(Ljava/lang/CharSequence;)[B
-    .locals 2
+    .registers 4
     .param p1, "chars"    # Ljava/lang/CharSequence;
 
     .line 217
@@ -273,13 +273,13 @@
     invoke-virtual {p0, p1}, Lcom/google/common/io/BaseEncoding;->decodeChecked(Ljava/lang/CharSequence;)[B
 
     move-result-object v0
-    :try_end_0
-    .catch Lcom/google/common/io/BaseEncoding$DecodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Lcom/google/common/io/BaseEncoding$DecodingException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 218
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 219
@@ -292,7 +292,7 @@
 .end method
 
 .method final decodeChecked(Ljava/lang/CharSequence;)[B
-    .locals 3
+    .registers 5
     .param p1, "chars"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -340,7 +340,7 @@
 .end method
 
 .method public final decodingSource(Lcom/google/common/io/CharSource;)Lcom/google/common/io/ByteSource;
-    .locals 1
+    .registers 3
     .param p1, "encodedSource"    # Lcom/google/common/io/CharSource;
 
     .line 251
@@ -358,7 +358,7 @@
 .end method
 
 .method public encode([B)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "bytes"    # [B
 
     .line 149
@@ -374,7 +374,7 @@
 .end method
 
 .method public final encode([BII)Ljava/lang/String;
-    .locals 3
+    .registers 7
     .param p1, "bytes"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I
@@ -397,10 +397,10 @@
 
     .line 160
     .local v0, "result":Ljava/lang/StringBuilder;
-    :try_start_0
+    :try_start_f
     invoke-virtual {p0, v0, p1, p2, p3}, Lcom/google/common/io/BaseEncoding;->encodeTo(Ljava/lang/Appendable;[BII)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/io/IOException; {:try_start_f .. :try_end_12} :catch_18
 
     .line 163
     nop
@@ -413,7 +413,7 @@
     return-object v1
 
     .line 161
-    :catch_0
+    :catch_18
     move-exception v1
 
     .line 162
@@ -434,7 +434,7 @@
 .end method
 
 .method public final encodingSink(Lcom/google/common/io/CharSink;)Lcom/google/common/io/ByteSink;
-    .locals 1
+    .registers 3
     .param p1, "encodedSink"    # Lcom/google/common/io/CharSink;
 
     .line 180
@@ -464,7 +464,7 @@
 .end method
 
 .method trimTrailingPadding(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "chars"    # Ljava/lang/CharSequence;
 
     .line 271

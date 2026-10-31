@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 827
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public apply(Lcom/google/common/reflect/TypeToken;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,7 +52,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 827
     check-cast p1, Lcom/google/common/reflect/TypeToken;

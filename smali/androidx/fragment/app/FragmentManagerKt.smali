@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final commit(Landroidx/fragment/app/FragmentManager;ZLkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 6
     .param p0, "$this$commit"    # Landroidx/fragment/app/FragmentManager;
     .param p1, "allowStateLoss"    # Z
     .param p2, "body"    # Lkotlin/jvm/functions/Function1;
@@ -77,24 +77,24 @@
     invoke-interface {p2, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 32
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1d
 
     .line 33
     invoke-virtual {v1}, Landroidx/fragment/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    goto :goto_0
+    goto :goto_20
 
     .line 35
-    :cond_0
+    :cond_1d
     invoke-virtual {v1}, Landroidx/fragment/app/FragmentTransaction;->commit()I
 
     .line 37
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 .method public static synthetic commit$default(Landroidx/fragment/app/FragmentManager;ZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 1
+    .registers 6
     .param p0, "$this$commit_u24default"    # Landroidx/fragment/app/FragmentManager;
     .param p1, "allowStateLoss"    # Z
     .param p2, "body"    # Lkotlin/jvm/functions/Function1;
@@ -102,13 +102,13 @@
     .line 26
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 27
     const/4 p1, 0x0
 
     .line 26
-    :cond_0
+    :cond_5
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -134,24 +134,24 @@
     invoke-interface {p2, p4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 32
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_22
 
     .line 33
     invoke-virtual {p4}, Landroidx/fragment/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    goto :goto_0
+    goto :goto_25
 
     .line 35
-    :cond_1
+    :cond_22
     invoke-virtual {p4}, Landroidx/fragment/app/FragmentTransaction;->commit()I
 
     .line 37
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method public static final commitNow(Landroidx/fragment/app/FragmentManager;ZLkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 6
     .param p0, "$this$commitNow"    # Landroidx/fragment/app/FragmentManager;
     .param p1, "allowStateLoss"    # Z
     .param p2, "body"    # Lkotlin/jvm/functions/Function1;
@@ -193,24 +193,24 @@
     invoke-interface {p2, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 53
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1d
 
     .line 54
     invoke-virtual {v1}, Landroidx/fragment/app/FragmentTransaction;->commitNowAllowingStateLoss()V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 56
-    :cond_0
+    :cond_1d
     invoke-virtual {v1}, Landroidx/fragment/app/FragmentTransaction;->commitNow()V
 
     .line 58
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 .method public static synthetic commitNow$default(Landroidx/fragment/app/FragmentManager;ZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 1
+    .registers 6
     .param p0, "$this$commitNow_u24default"    # Landroidx/fragment/app/FragmentManager;
     .param p1, "allowStateLoss"    # Z
     .param p2, "body"    # Lkotlin/jvm/functions/Function1;
@@ -218,13 +218,13 @@
     .line 47
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 48
     const/4 p1, 0x0
 
     .line 47
-    :cond_0
+    :cond_5
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -250,24 +250,24 @@
     invoke-interface {p2, p4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 53
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_22
 
     .line 54
     invoke-virtual {p4}, Landroidx/fragment/app/FragmentTransaction;->commitNowAllowingStateLoss()V
 
-    goto :goto_0
+    goto :goto_25
 
     .line 56
-    :cond_1
+    :cond_22
     invoke-virtual {p4}, Landroidx/fragment/app/FragmentTransaction;->commitNow()V
 
     .line 58
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 .method public static final transaction(Landroidx/fragment/app/FragmentManager;ZZLkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 7
     .param p0, "$this$transaction"    # Landroidx/fragment/app/FragmentManager;
     .param p1, "now"    # Z
     .param p2, "allowStateLoss"    # Z
@@ -314,42 +314,42 @@
     invoke-interface {p3, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 81
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_23
 
     .line 82
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1f
 
     .line 83
     invoke-virtual {v1}, Landroidx/fragment/app/FragmentTransaction;->commitNowAllowingStateLoss()V
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 85
-    :cond_0
+    :cond_1f
     invoke-virtual {v1}, Landroidx/fragment/app/FragmentTransaction;->commitNow()V
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 88
-    :cond_1
-    if-eqz p2, :cond_2
+    :cond_23
+    if-eqz p2, :cond_29
 
     .line 89
     invoke-virtual {v1}, Landroidx/fragment/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 91
-    :cond_2
+    :cond_29
     invoke-virtual {v1}, Landroidx/fragment/app/FragmentTransaction;->commit()I
 
     .line 94
-    :goto_0
+    :goto_2c
     return-void
 .end method
 
 .method public static synthetic transaction$default(Landroidx/fragment/app/FragmentManager;ZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 1
+    .registers 7
     .param p0, "$this$transaction_u24default"    # Landroidx/fragment/app/FragmentManager;
     .param p1, "now"    # Z
     .param p2, "allowStateLoss"    # Z
@@ -358,22 +358,22 @@
     .line 74
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 75
     const/4 p1, 0x0
 
     .line 74
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     .line 76
     const/4 p2, 0x0
 
     .line 74
-    :cond_1
+    :cond_a
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -399,36 +399,36 @@
     invoke-interface {p3, p5}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 81
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2d
 
     .line 82
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_29
 
     .line 83
     invoke-virtual {p5}, Landroidx/fragment/app/FragmentTransaction;->commitNowAllowingStateLoss()V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 85
-    :cond_2
+    :cond_29
     invoke-virtual {p5}, Landroidx/fragment/app/FragmentTransaction;->commitNow()V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 88
-    :cond_3
-    if-eqz p2, :cond_4
+    :cond_2d
+    if-eqz p2, :cond_33
 
     .line 89
     invoke-virtual {p5}, Landroidx/fragment/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    goto :goto_0
+    goto :goto_36
 
     .line 91
-    :cond_4
+    :cond_33
     invoke-virtual {p5}, Landroidx/fragment/app/FragmentTransaction;->commit()I
 
     .line 94
-    :goto_0
+    :goto_36
     return-void
 .end method

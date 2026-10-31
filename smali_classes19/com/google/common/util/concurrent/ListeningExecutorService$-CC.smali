@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$submit(Lcom/google/common/util/concurrent/ListeningExecutorService;Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/util/concurrent/ListeningExecutorService;
 
     .line 36
@@ -17,7 +17,7 @@
 .end method
 
 .method public static bridge synthetic $default$submit(Lcom/google/common/util/concurrent/ListeningExecutorService;Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;
-    .locals 0
+    .registers 3
     .param p0, "_this"    # Lcom/google/common/util/concurrent/ListeningExecutorService;
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -33,7 +33,7 @@
 .end method
 
 .method public static bridge synthetic $default$submit(Lcom/google/common/util/concurrent/ListeningExecutorService;Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/google/common/util/concurrent/ListeningExecutorService;
 
     .line 36

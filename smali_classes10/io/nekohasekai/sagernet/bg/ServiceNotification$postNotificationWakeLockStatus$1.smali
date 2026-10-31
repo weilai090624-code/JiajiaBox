@@ -64,7 +64,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/bg/ServiceNotification;Lkotlin/coroutines/Continuation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
 
     iput-object p1, p0, Lio/nekohasekai/sagernet/bg/ServiceNotification$postNotificationWakeLockStatus$1;->result:Ljava/lang/Object;
 

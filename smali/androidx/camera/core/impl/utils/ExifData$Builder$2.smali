@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/ExifData$Builder;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/impl/utils/ExifData$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public hasMoreElements()Z
-    .locals 2
+    .registers 3
 
     .line 442
     iget v0, p0, Landroidx/camera/core/impl/utils/ExifData$Builder$2;->mIfdIndex:I
@@ -72,21 +72,21 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public bridge synthetic nextElement()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 437
     invoke-virtual {p0}, Landroidx/camera/core/impl/utils/ExifData$Builder$2;->nextElement()Ljava/util/Map;
@@ -97,7 +97,7 @@
 .end method
 
 .method public nextElement()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

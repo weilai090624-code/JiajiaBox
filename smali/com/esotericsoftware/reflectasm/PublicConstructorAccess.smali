@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 17
     invoke-direct {p0}, Lcom/esotericsoftware/reflectasm/ConstructorAccess;-><init>()V

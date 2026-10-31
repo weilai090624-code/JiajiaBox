@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/Lifecycle;Landroidx/savedstate/SavedStateRegistry;)V
-    .locals 0
+    .registers 3
     .param p1, "$lifecycle"    # Landroidx/lifecycle/Lifecycle;
     .param p2, "$registry"    # Landroidx/savedstate/SavedStateRegistry;
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -81,7 +81,7 @@
     .line 67
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_1e
 
     .line 68
     iget-object v0, p0, Landroidx/lifecycle/LegacySavedStateHandleController$tryToAddRecreator$1;->$lifecycle:Landroidx/lifecycle/Lifecycle;
@@ -100,6 +100,6 @@
     invoke-virtual {v0, v1}, Landroidx/savedstate/SavedStateRegistry;->runOnNextRecreation(Ljava/lang/Class;)V
 
     .line 71
-    :cond_0
+    :cond_1e
     return-void
 .end method

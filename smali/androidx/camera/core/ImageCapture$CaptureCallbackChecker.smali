@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 2107
     invoke-direct {p0}, Landroidx/camera/core/impl/CameraCaptureCallback;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method private deliverCaptureResultToListeners(Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 5
+    .registers 7
     .param p1, "captureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -76,7 +76,7 @@
 
     .line 2182
     .local v1, "removeSet":Ljava/util/Set;, "Ljava/util/Set<Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;>;"
-    :try_start_0
+    :try_start_4
     new-instance v2, Ljava/util/HashSet;
 
     iget-object v3, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->mCaptureResultListeners:Ljava/util/Set;
@@ -87,12 +87,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_f
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -106,10 +106,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2c
 
     .line 2185
-    if-nez v1, :cond_0
+    if-nez v1, :cond_29
 
     .line 2186
     new-instance v4, Ljava/util/HashSet;
@@ -119,17 +119,17 @@
     move-object v1, v4
 
     .line 2188
-    :cond_0
+    :cond_29
     invoke-interface {v1, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 2190
     .end local v3    # "listener":Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;
-    :cond_1
-    goto :goto_0
+    :cond_2c
+    goto :goto_f
 
     .line 2191
-    :cond_2
-    if-eqz v1, :cond_3
+    :cond_2d
+    if-eqz v1, :cond_34
 
     .line 2192
     iget-object v2, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->mCaptureResultListeners:Ljava/util/Set;
@@ -138,19 +138,19 @@
 
     .line 2194
     .end local v1    # "removeSet":Ljava/util/Set;, "Ljava/util/Set<Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;>;"
-    :cond_3
+    :cond_34
     monitor-exit v0
 
     .line 2195
     return-void
 
     .line 2194
-    :catchall_0
+    :catchall_36
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_38
+    .catchall {:try_start_4 .. :try_end_38} :catchall_36
 
     throw v1
 .end method
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method addListener(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;)V
-    .locals 2
+    .registers 4
     .param p1, "listener"    # Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -175,7 +175,7 @@
     monitor-enter v0
 
     .line 2200
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->mCaptureResultListeners:Ljava/util/Set;
 
     invoke-interface {v1, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -187,18 +187,18 @@
     return-void
 
     .line 2201
-    :catchall_0
+    :catchall_a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw v1
 .end method
 
 .method checkCaptureResult(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -234,7 +234,7 @@
 .end method
 
 .method checkCaptureResult(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;JLjava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 10
+    .registers 15
     .param p2, "timeoutInMs"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -268,18 +268,18 @@
 
     cmp-long v2, p2, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_1e
 
     .line 2149
     cmp-long v2, p2, v0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
-    :cond_0
+    :cond_e
     move-wide v5, v0
 
     .line 2151
@@ -306,7 +306,7 @@
 
     .line 2146
     .end local v5    # "startTimeInMs":J
-    :cond_1
+    :cond_1e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -333,7 +333,7 @@
 .end method
 
 .method synthetic lambda$checkCaptureResult$0$androidx-camera-core-ImageCapture$CaptureCallbackChecker(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;JJLjava/lang/Object;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 10
+    .registers 18
     .param p1, "checker"    # Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;
     .param p2, "startTimeInMs"    # J
     .param p4, "timeoutInMs"    # J
@@ -375,7 +375,7 @@
 .end method
 
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
-    .locals 0
+    .registers 2
     .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/Job;)V
-    .locals 1
+    .registers 3
     .param p1, "parent"    # Lkotlinx/coroutines/Job;
 
     .line 1309
@@ -69,7 +69,7 @@
 .end method
 
 .method private final handlesException()Z
-    .locals 5
+    .registers 6
 
     .line 1329
     invoke-virtual {p0}, Lkotlinx/coroutines/JobImpl;->getParentHandle$kotlinx_coroutines_core()Lkotlinx/coroutines/ChildHandle;
@@ -80,32 +80,32 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     check-cast v0, Lkotlinx/coroutines/ChildHandleNode;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move-object v0, v2
 
-    :goto_0
+    :goto_d
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_38
 
     invoke-virtual {v0}, Lkotlinx/coroutines/ChildHandleNode;->getJob()Lkotlinx/coroutines/JobSupport;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
-    goto :goto_4
+    goto :goto_38
 
     .line 1330
     .local v0, "parentJob":Lkotlinx/coroutines/JobSupport;
-    :cond_1
-    :goto_1
+    :cond_17
+    :goto_17
     nop
 
     .line 1331
@@ -113,60 +113,60 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_20
 
     const/4 v1, 0x1
 
     return v1
 
     .line 1332
-    :cond_2
+    :cond_20
     invoke-virtual {v0}, Lkotlinx/coroutines/JobSupport;->getParentHandle$kotlinx_coroutines_core()Lkotlinx/coroutines/ChildHandle;
 
     move-result-object v3
 
     instance-of v4, v3, Lkotlinx/coroutines/ChildHandleNode;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2b
 
     check-cast v3, Lkotlinx/coroutines/ChildHandleNode;
 
-    goto :goto_2
+    goto :goto_2c
 
-    :cond_3
+    :cond_2b
     move-object v3, v2
 
-    :goto_2
-    if-eqz v3, :cond_5
+    :goto_2c
+    if-eqz v3, :cond_37
 
     invoke-virtual {v3}, Lkotlinx/coroutines/ChildHandleNode;->getJob()Lkotlinx/coroutines/JobSupport;
 
     move-result-object v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_35
 
-    goto :goto_3
+    goto :goto_37
 
-    :cond_4
+    :cond_35
     move-object v0, v3
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_5
-    :goto_3
+    :cond_37
+    :goto_37
     return v1
 
     .line 1329
     .end local v0    # "parentJob":Lkotlinx/coroutines/JobSupport;
-    :cond_6
-    :goto_4
+    :cond_38
+    :goto_38
     return v1
 .end method
 
 
 # virtual methods
 .method public complete()Z
-    .locals 1
+    .registers 2
 
     .line 1323
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -179,7 +179,7 @@
 .end method
 
 .method public completeExceptionally(Ljava/lang/Throwable;)Z
-    .locals 4
+    .registers 6
     .param p1, "exception"    # Ljava/lang/Throwable;
 
     .line 1325
@@ -201,7 +201,7 @@
 .end method
 
 .method public getHandlesException$kotlinx_coroutines_core()Z
-    .locals 1
+    .registers 2
 
     .line 1322
     iget-boolean v0, p0, Lkotlinx/coroutines/JobImpl;->handlesException:Z
@@ -210,7 +210,7 @@
 .end method
 
 .method public getOnCancelComplete$kotlinx_coroutines_core()Z
-    .locals 1
+    .registers 2
 
     .line 1311
     const/4 v0, 0x1

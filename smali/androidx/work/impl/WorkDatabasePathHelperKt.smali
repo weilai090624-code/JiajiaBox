@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 26
     const-string v0, "WrkDbPathHelper"
@@ -69,7 +69,7 @@
 .end method
 
 .method public static final synthetic access$getDATABASE_EXTRA_FILES$p()[Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Landroidx/work/impl/WorkDatabasePathHelperKt;->DATABASE_EXTRA_FILES:[Ljava/lang/String;
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final synthetic access$getTAG$p()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Landroidx/work/impl/WorkDatabasePathHelperKt;->TAG:Ljava/lang/String;

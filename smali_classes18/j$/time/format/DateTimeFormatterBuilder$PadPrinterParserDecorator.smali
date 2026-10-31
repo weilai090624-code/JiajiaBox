@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;IC)V
-    .locals 0
+    .registers 4
     .param p1, "printerParser"    # Lj$/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;
     .param p2, "padWidth"    # I
     .param p3, "padChar"    # C
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 6
+    .registers 9
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -68,7 +68,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 2436
     const/4 v1, 0x0
@@ -76,7 +76,7 @@
     return v1
 
     .line 2438
-    :cond_0
+    :cond_e
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->length()I
 
     move-result v1
@@ -87,18 +87,18 @@
     .local v1, "len":I
     iget v2, p0, Lj$/time/format/DateTimeFormatterBuilder$PadPrinterParserDecorator;->padWidth:I
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_27
 
     .line 2443
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_18
     iget v3, p0, Lj$/time/format/DateTimeFormatterBuilder$PadPrinterParserDecorator;->padWidth:I
 
     sub-int/2addr v3, v1
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_25
 
     .line 2444
     iget-char v3, p0, Lj$/time/format/DateTimeFormatterBuilder$PadPrinterParserDecorator;->padChar:C
@@ -108,17 +108,17 @@
     .line 2443
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 2446
     .end local v2    # "i":I
-    :cond_1
+    :cond_25
     const/4 v2, 0x1
 
     return v2
 
     .line 2440
-    :cond_2
+    :cond_27
     new-instance v2, Lj$/time/DateTimeException;
 
     iget v3, p0, Lj$/time/format/DateTimeFormatterBuilder$PadPrinterParserDecorator;->padWidth:I
@@ -157,7 +157,7 @@
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 5
+    .registers 9
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -173,14 +173,14 @@
 
     move-result v1
 
-    if-gt p3, v1, :cond_5
+    if-gt p3, v1, :cond_49
 
     .line 2457
     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
-    if-ne p3, v1, :cond_0
+    if-ne p3, v1, :cond_12
 
     .line 2458
     not-int v1, p3
@@ -188,7 +188,7 @@
     return v1
 
     .line 2460
-    :cond_0
+    :cond_12
     iget v1, p0, Lj$/time/format/DateTimeFormatterBuilder$PadPrinterParserDecorator;->padWidth:I
 
     add-int/2addr v1, p3
@@ -199,10 +199,10 @@
 
     move-result v2
 
-    if-le v1, v2, :cond_2
+    if-le v1, v2, :cond_23
 
     .line 2462
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 2463
     not-int v2, p3
@@ -210,19 +210,19 @@
     return v2
 
     .line 2465
-    :cond_1
+    :cond_1f
     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
     .line 2467
-    :cond_2
+    :cond_23
     move v2, p3
 
     .line 2468
     .local v2, "pos":I
-    :goto_0
-    if-ge v2, v1, :cond_3
+    :goto_24
+    if-ge v2, v1, :cond_35
 
     invoke-interface {p2, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -234,15 +234,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_35
 
     .line 2469
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 2471
-    :cond_3
+    :cond_35
     const/4 v3, 0x0
 
     invoke-interface {p2, v3, v1}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -258,9 +258,9 @@
 
     .line 2473
     .local v3, "resultPos":I
-    if-eq v3, v1, :cond_4
+    if-eq v3, v1, :cond_48
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_48
 
     .line 2474
     add-int v4, p3, v2
@@ -270,14 +270,14 @@
     return v4
 
     .line 2476
-    :cond_4
+    :cond_48
     return v3
 
     .line 2455
     .end local v1    # "endPos":I
     .end local v2    # "pos":I
     .end local v3    # "resultPos":I
-    :cond_5
+    :cond_49
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -286,7 +286,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 2481
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$PadPrinterParserDecorator;->printerParser:Lj$/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;
@@ -297,13 +297,13 @@
 
     const/16 v3, 0x20
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_d
 
     const-string v2, ")"
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_0
+    :cond_d
     iget-char v2, p0, Lj$/time/format/DateTimeFormatterBuilder$PadPrinterParserDecorator;->padChar:C
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -330,7 +330,7 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_28
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V

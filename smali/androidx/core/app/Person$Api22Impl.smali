@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 374
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static fromPersistableBundle(Landroid/os/PersistableBundle;)Landroidx/core/app/Person;
-    .locals 2
+    .registers 3
     .param p0, "bundle"    # Landroid/os/PersistableBundle;
 
     .line 380
@@ -99,7 +99,7 @@
 .end method
 
 .method static toPersistableBundle(Landroidx/core/app/Person;)Landroid/os/PersistableBundle;
-    .locals 3
+    .registers 4
     .param p0, "person"    # Landroidx/core/app/Person;
 
     .line 391
@@ -111,7 +111,7 @@
     .local v0, "result":Landroid/os/PersistableBundle;
     iget-object v1, p0, Landroidx/core/app/Person;->mName:Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     iget-object v1, p0, Landroidx/core/app/Person;->mName:Ljava/lang/CharSequence;
 
@@ -119,12 +119,12 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     const-string v2, "name"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/PersistableBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V

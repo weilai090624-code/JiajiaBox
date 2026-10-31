@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method static applyThemeOverlay(Landroid/content/Context;I)V
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "theme"    # I
 
@@ -30,7 +30,7 @@
     .line 39
     instance-of v0, p0, Landroid/app/Activity;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 40
     move-object v0, p0
@@ -43,19 +43,19 @@
 
     .line 41
     .local v0, "windowDecorViewTheme":Landroid/content/res/Resources$Theme;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 42
     invoke-virtual {v0, p1, v1}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 
     .line 45
     .end local v0    # "windowDecorViewTheme":Landroid/content/res/Resources$Theme;
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method private static getWindowDecorViewTheme(Landroid/app/Activity;)Landroid/content/res/Resources$Theme;
-    .locals 4
+    .registers 5
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 49
@@ -65,7 +65,7 @@
 
     .line 50
     .local v0, "window":Landroid/view/Window;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 52
     invoke-virtual {v0}, Landroid/view/Window;->peekDecorView()Landroid/view/View;
@@ -74,7 +74,7 @@
 
     .line 53
     .local v1, "decorView":Landroid/view/View;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 54
     invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -83,7 +83,7 @@
 
     .line 55
     .local v2, "context":Landroid/content/Context;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     .line 56
     invoke-virtual {v2}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -95,7 +95,7 @@
     .line 60
     .end local v1    # "decorView":Landroid/view/View;
     .end local v2    # "context":Landroid/content/Context;
-    :cond_0
+    :cond_17
     const/4 v1, 0x0
 
     return-object v1

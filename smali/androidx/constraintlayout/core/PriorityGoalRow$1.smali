@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/constraintlayout/core/PriorityGoalRow;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/constraintlayout/core/PriorityGoalRow;
 
     .line 208
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public compare(Landroidx/constraintlayout/core/SolverVariable;Landroidx/constraintlayout/core/SolverVariable;)I
-    .locals 2
+    .registers 5
     .param p1, "variable1"    # Landroidx/constraintlayout/core/SolverVariable;
     .param p2, "variable2"    # Landroidx/constraintlayout/core/SolverVariable;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 208
     check-cast p1, Landroidx/constraintlayout/core/SolverVariable;

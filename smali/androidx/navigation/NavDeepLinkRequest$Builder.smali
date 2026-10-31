@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/navigation/NavDeepLinkRequest$Builder$Companion;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -91,7 +91,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/navigation/NavDeepLinkRequest$Builder;-><init>()V
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public static final fromAction(Ljava/lang/String;)Landroidx/navigation/NavDeepLinkRequest$Builder;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public static final fromMimeType(Ljava/lang/String;)Landroidx/navigation/NavDeepLinkRequest$Builder;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public static final fromUri(Landroid/net/Uri;)Landroidx/navigation/NavDeepLinkRequest$Builder;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -143,7 +143,7 @@
 
 # virtual methods
 .method public final build()Landroidx/navigation/NavDeepLinkRequest;
-    .locals 4
+    .registers 5
 
     .line 141
     new-instance v0, Landroidx/navigation/NavDeepLinkRequest;
@@ -160,7 +160,7 @@
 .end method
 
 .method public final setAction(Ljava/lang/String;)Landroidx/navigation/NavDeepLinkRequest$Builder;
-    .locals 2
+    .registers 4
     .param p1, "action"    # Ljava/lang/String;
 
     const-string v0, "action"
@@ -176,17 +176,17 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_11
+    if-eqz v0, :cond_16
 
     .line 112
     iput-object p1, p0, Landroidx/navigation/NavDeepLinkRequest$Builder;->action:Ljava/lang/String;
@@ -195,7 +195,7 @@
     return-object p0
 
     .line 192
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
     .line 111
@@ -217,7 +217,7 @@
 .end method
 
 .method public final setMimeType(Ljava/lang/String;)Landroidx/navigation/NavDeepLinkRequest$Builder;
-    .locals 4
+    .registers 6
     .param p1, "mimeType"    # Ljava/lang/String;
 
     const-string v0, "mimeType"
@@ -241,7 +241,7 @@
 
     .line 128
     .local v0, "mimeTypeMatcher":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 131
     iput-object p1, p0, Landroidx/navigation/NavDeepLinkRequest$Builder;->mimeType:Ljava/lang/String;
@@ -250,7 +250,7 @@
     return-object p0
 
     .line 128
-    :cond_0
+    :cond_18
     const/4 v1, 0x0
 
     .line 129
@@ -293,7 +293,7 @@
 .end method
 
 .method public final setUri(Landroid/net/Uri;)Landroidx/navigation/NavDeepLinkRequest$Builder;
-    .locals 1
+    .registers 3
     .param p1, "uri"    # Landroid/net/Uri;
 
     const-string/jumbo v0, "uri"

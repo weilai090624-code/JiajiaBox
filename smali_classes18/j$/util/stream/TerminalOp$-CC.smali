@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$evaluateParallel(Lj$/util/stream/TerminalOp;Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "_this"    # Lj$/util/stream/TerminalOp;
 
     .line 82
@@ -13,7 +13,7 @@
     .local p2, "spliterator":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     sget-boolean v0, Lj$/util/stream/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 83
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -25,7 +25,7 @@
     invoke-static {v0, v1}, Lj$/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 84
-    :cond_0
+    :cond_d
     invoke-interface {p0, p1, p2}, Lj$/util/stream/TerminalOp;->evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
 
     move-result-object v0
@@ -34,7 +34,7 @@
 .end method
 
 .method public static $default$getOpFlags(Lj$/util/stream/TerminalOp;)I
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/TerminalOp;
 
     .line 66
@@ -44,7 +44,7 @@
 .end method
 
 .method public static $default$inputShape(Lj$/util/stream/TerminalOp;)Lj$/util/stream/StreamShape;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/TerminalOp;
 
     .line 53

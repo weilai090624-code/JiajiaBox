@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/text/PrecomputedTextCompat$Params;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 3
     .param p1, "params"    # Landroidx/core/text/PrecomputedTextCompat$Params;
     .param p2, "cs"    # Ljava/lang/CharSequence;
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public call()Landroidx/core/text/PrecomputedTextCompat;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -74,7 +74,7 @@
 .end method
 
 .method public bridge synthetic call()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

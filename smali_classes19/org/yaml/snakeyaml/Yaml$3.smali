@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/yaml/snakeyaml/Yaml;Lorg/yaml/snakeyaml/parser/Parser;)V
-    .locals 0
+    .registers 3
 
     .line 674
     iput-object p1, p0, Lorg/yaml/snakeyaml/Yaml$3;->this$0:Lorg/yaml/snakeyaml/Yaml;
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 677
     iget-object v0, p0, Lorg/yaml/snakeyaml/Yaml$3;->val$parser:Lorg/yaml/snakeyaml/parser/Parser;
@@ -58,21 +58,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 674
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/Yaml$3;->next()Lorg/yaml/snakeyaml/events/Event;
@@ -83,7 +83,7 @@
 .end method
 
 .method public next()Lorg/yaml/snakeyaml/events/Event;
-    .locals 3
+    .registers 4
 
     .line 682
     iget-object v0, p0, Lorg/yaml/snakeyaml/Yaml$3;->val$parser:Lorg/yaml/snakeyaml/parser/Parser;
@@ -94,13 +94,13 @@
 
     .line 683
     .local v0, "event":Lorg/yaml/snakeyaml/events/Event;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 684
     return-object v0
 
     .line 686
-    :cond_0
+    :cond_9
     new-instance v1, Ljava/util/NoSuchElementException;
 
     const-string v2, "No Event is available."
@@ -111,7 +111,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 692
     new-instance v0, Ljava/lang/UnsupportedOperationException;

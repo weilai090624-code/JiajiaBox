@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 33
     new-instance v0, Lcom/google/common/util/concurrent/ImmediateFuture;
@@ -85,7 +85,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
         .end annotation
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-    .locals 7
+    .registers 10
     .param p1, "listener"    # Ljava/lang/Runnable;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
@@ -127,16 +127,16 @@
     invoke-static {p2, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 48
-    :try_start_0
+    :try_start_a
     invoke-interface {p2, p1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/RuntimeException; {:try_start_a .. :try_end_d} :catch_e
 
     .line 56
-    goto :goto_0
+    goto :goto_4e
 
     .line 49
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 52
@@ -205,12 +205,12 @@
 
     .line 57
     .end local v0    # "e":Ljava/lang/RuntimeException;
-    :goto_0
+    :goto_4e
     return-void
 .end method
 
 .method public cancel(Z)Z
-    .locals 1
+    .registers 3
     .param p1, "mayInterruptIfRunning"    # Z
 
     .line 61
@@ -221,7 +221,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -239,7 +239,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -272,7 +272,7 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 1
+    .registers 2
 
     .line 80
     .local p0, "this":Lcom/google/common/util/concurrent/ImmediateFuture;, "Lcom/google/common/util/concurrent/ImmediateFuture<TV;>;"
@@ -282,7 +282,7 @@
 .end method
 
 .method public isDone()Z
-    .locals 1
+    .registers 2
 
     .line 85
     .local p0, "this":Lcom/google/common/util/concurrent/ImmediateFuture;, "Lcom/google/common/util/concurrent/ImmediateFuture<TV;>;"
@@ -292,7 +292,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 91
     .local p0, "this":Lcom/google/common/util/concurrent/ImmediateFuture;, "Lcom/google/common/util/concurrent/ImmediateFuture<TV;>;"

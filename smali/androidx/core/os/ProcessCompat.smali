@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static isApplicationUid(I)Z
-    .locals 2
+    .registers 3
     .param p0, "uid"    # I
 
     .line 53
@@ -32,7 +32,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 54
     invoke-static {p0}, Landroidx/core/os/ProcessCompat$Api24Impl;->isApplicationUid(I)Z
@@ -42,7 +42,7 @@
     return v0
 
     .line 56
-    :cond_0
+    :cond_b
     invoke-static {p0}, Landroidx/core/os/ProcessCompat$Api19Impl;->isApplicationUid(I)Z
 
     move-result v0

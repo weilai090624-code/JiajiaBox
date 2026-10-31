@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 48
     new-instance v0, Lorg/yaml/snakeyaml/constructor/SafeConstructor$ConstructUndefined;
@@ -163,8 +163,8 @@
     const/4 v3, 0x0
 
     .local v3, "i$":I
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_66
+    if-ge v3, v2, :cond_85
 
     aget v4, v1, v3
 
@@ -194,14 +194,14 @@
     .end local v4    # "radix":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_66
 
     .line 356
     .end local v0    # "radixList":[I
     .end local v1    # "arr$":[I
     .end local v2    # "len$":I
     .end local v3    # "i$":I
-    :cond_0
+    :cond_85
     const-string v0, "^([0-9][0-9][0-9][0-9])-([0-9][0-9]?)-([0-9][0-9]?)(?:(?:[Tt]|[ \t]+)([0-9][0-9]?):([0-9][0-9]):([0-9][0-9])(?:\\.([0-9]*))?(?:[ \t]*(?:Z|([-+][0-9][0-9]?)(?::([0-9][0-9])?)?))?)?$"
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -223,7 +223,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 51
     new-instance v0, Lorg/yaml/snakeyaml/LoaderOptions;
@@ -237,7 +237,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/LoaderOptions;)V
-    .locals 3
+    .registers 5
     .param p1, "loadingConfig"    # Lorg/yaml/snakeyaml/LoaderOptions;
 
     .line 55
@@ -416,7 +416,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/util/Map;
-    .locals 1
+    .registers 1
 
     .line 46
     sget-object v0, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->BOOL_VALUES:Ljava/util/Map;
@@ -425,7 +425,7 @@
 .end method
 
 .method static synthetic access$100(Lorg/yaml/snakeyaml/constructor/SafeConstructor;ILjava/lang/String;I)Ljava/lang/Number;
-    .locals 1
+    .registers 5
     .param p0, "x0"    # Lorg/yaml/snakeyaml/constructor/SafeConstructor;
     .param p1, "x1"    # I
     .param p2, "x2"    # Ljava/lang/String;
@@ -440,7 +440,7 @@
 .end method
 
 .method static synthetic access$200()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 1
 
     .line 46
     sget-object v0, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->YMD_REGEXP:Ljava/util/regex/Pattern;
@@ -449,7 +449,7 @@
 .end method
 
 .method static synthetic access$300()Ljava/util/regex/Pattern;
-    .locals 1
+    .registers 1
 
     .line 46
     sget-object v0, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->TIMESTAMP_REGEXP:Ljava/util/regex/Pattern;
@@ -458,7 +458,7 @@
 .end method
 
 .method protected static createLongOrBigInteger(Ljava/lang/String;I)Ljava/lang/Number;
-    .locals 2
+    .registers 4
     .param p0, "number"    # Ljava/lang/String;
     .param p1, "radix"    # I
 
@@ -467,13 +467,13 @@
     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(Ljava/lang/String;I)Ljava/lang/Long;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 306
-    :catch_0
+    :catch_5
     move-exception v0
 
     .line 307
@@ -486,25 +486,25 @@
 .end method
 
 .method private createNumber(ILjava/lang/String;I)Ljava/lang/Number;
-    .locals 4
+    .registers 8
 
     .line 280
     const/4 v0, 0x0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
     .line 281
-    :goto_0
-    if-gez p1, :cond_1
+    :goto_9
+    if-gez p1, :cond_1e
 
     .line 282
     new-instance p1, Ljava/lang/StringBuilder;
@@ -526,43 +526,43 @@
     move-result-object p2
 
     .line 284
-    :cond_1
+    :cond_1e
     sget-object p1, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->RADIX_MAX:[[I
 
     array-length p1, p1
 
-    if-ge p3, p1, :cond_2
+    if-ge p3, p1, :cond_28
 
     sget-object p1, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->RADIX_MAX:[[I
 
     aget-object p1, p1, p3
 
-    goto :goto_1
+    goto :goto_29
 
-    :cond_2
+    :cond_28
     const/4 p1, 0x0
 
     .line 285
-    :goto_1
-    if-eqz p1, :cond_5
+    :goto_29
+    if-eqz p1, :cond_42
 
     .line 286
     aget v2, p1, v0
 
     const/4 v3, 0x1
 
-    if-le v1, v2, :cond_3
+    if-le v1, v2, :cond_31
 
     const/4 v0, 0x1
 
     .line 287
-    :cond_3
-    if-eqz v0, :cond_5
+    :cond_31
+    if-eqz v0, :cond_42
 
     .line 288
     aget p1, p1, v3
 
-    if-le v1, p1, :cond_4
+    if-le v1, p1, :cond_3d
 
     .line 289
     new-instance p1, Ljava/math/BigInteger;
@@ -572,7 +572,7 @@
     return-object p1
 
     .line 291
-    :cond_4
+    :cond_3d
     invoke-static {p2, p3}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->createLongOrBigInteger(Ljava/lang/String;I)Ljava/lang/Number;
 
     move-result-object p1
@@ -580,19 +580,19 @@
     return-object p1
 
     .line 296
-    :cond_5
-    :try_start_0
+    :cond_42
+    :try_start_42
     invoke-static {p2, p3}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;I)Ljava/lang/Integer;
 
     move-result-object p1
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_46
+    .catch Ljava/lang/NumberFormatException; {:try_start_42 .. :try_end_46} :catch_47
 
     .line 299
-    goto :goto_2
+    goto :goto_4c
 
     .line 297
-    :catch_0
+    :catch_47
     move-exception p1
 
     .line 298
@@ -601,12 +601,12 @@
     move-result-object p1
 
     .line 300
-    :goto_2
+    :goto_4c
     return-object p1
 .end method
 
 .method private static maxLen(II)I
-    .locals 1
+    .registers 3
     .param p0, "max"    # I
     .param p1, "radix"    # I
 
@@ -623,7 +623,7 @@
 .end method
 
 .method private static maxLen(JI)I
-    .locals 1
+    .registers 4
     .param p0, "max"    # J
     .param p2, "radix"    # I
 
@@ -640,7 +640,7 @@
 .end method
 
 .method private mergeNode(Lorg/yaml/snakeyaml/nodes/MappingNode;ZLjava/util/Map;Ljava/util/List;)Ljava/util/List;
-    .locals 6
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -669,12 +669,12 @@
     move-result-object v0
 
     .line 137
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_db
 
     .line 138
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -704,7 +704,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_af
 
     .line 142
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -726,7 +726,7 @@
 
     const/4 v4, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_dc
 
     .line 164
     new-instance p2, Lorg/yaml/snakeyaml/constructor/ConstructorException;
@@ -766,7 +766,7 @@
     throw p2
 
     .line 149
-    :pswitch_0
+    :pswitch_62
     check-cast v3, Lorg/yaml/snakeyaml/nodes/SequenceNode;
 
     .line 150
@@ -779,12 +779,12 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_6c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_a7
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -795,7 +795,7 @@
     .line 152
     instance-of v5, v3, Lorg/yaml/snakeyaml/nodes/MappingNode;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_82
 
     .line 159
     check-cast v3, Lorg/yaml/snakeyaml/nodes/MappingNode;
@@ -804,10 +804,10 @@
     invoke-direct {p0, v3, v4, p3, p4}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->mergeNode(Lorg/yaml/snakeyaml/nodes/MappingNode;ZLjava/util/Map;Ljava/util/List;)Ljava/util/List;
 
     .line 161
-    goto :goto_1
+    goto :goto_6c
 
     .line 153
-    :cond_0
+    :cond_82
     new-instance p2, Lorg/yaml/snakeyaml/constructor/ConstructorException;
 
     invoke-virtual {p1}, Lorg/yaml/snakeyaml/nodes/MappingNode;->getStartMark()Lorg/yaml/snakeyaml/error/Mark;
@@ -845,11 +845,11 @@
     throw p2
 
     .line 162
-    :cond_1
-    goto :goto_2
+    :cond_a7
+    goto :goto_ae
 
     .line 145
-    :pswitch_1
+    :pswitch_a8
     check-cast v3, Lorg/yaml/snakeyaml/nodes/MappingNode;
 
     .line 146
@@ -859,11 +859,11 @@
     nop
 
     .line 164
-    :goto_2
-    goto :goto_3
+    :goto_ae
+    goto :goto_d9
 
     .line 172
-    :cond_2
+    :cond_af
     invoke-virtual {p0, v2}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->constructObject(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
 
     move-result-object v2
@@ -873,7 +873,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_ca
 
     .line 174
     invoke-interface {p4, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -891,11 +891,11 @@
 
     invoke-interface {p3, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_d9
 
     .line 177
-    :cond_3
-    if-eqz p2, :cond_4
+    :cond_ca
+    if-eqz p2, :cond_d9
 
     .line 180
     invoke-interface {p3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -911,25 +911,25 @@
     invoke-interface {p4, v2, v1}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 183
-    :cond_4
-    :goto_3
-    goto/16 :goto_0
+    :cond_d9
+    :goto_d9
+    goto/16 :goto_8
 
     .line 184
-    :cond_5
+    :cond_db
     return-object p4
 
-    :pswitch_data_0
+    :pswitch_data_dc
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_a8
+        :pswitch_62
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method protected constructMapping2ndStep(Lorg/yaml/snakeyaml/nodes/MappingNode;Ljava/util/Map;)V
-    .locals 0
+    .registers 3
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -954,7 +954,7 @@
 .end method
 
 .method protected constructSet2ndStep(Lorg/yaml/snakeyaml/nodes/MappingNode;Ljava/util/Set;)V
-    .locals 0
+    .registers 3
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -978,7 +978,7 @@
 .end method
 
 .method protected flattenMapping(Lorg/yaml/snakeyaml/nodes/MappingNode;)V
-    .locals 3
+    .registers 5
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
 
     .line 76
@@ -989,7 +989,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 78
     new-instance v0, Ljava/util/HashMap;
@@ -1009,12 +1009,12 @@
     invoke-virtual {p1, v0}, Lorg/yaml/snakeyaml/nodes/MappingNode;->setValue(Ljava/util/List;)V
 
     .line 81
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method protected processDuplicateKeys(Lorg/yaml/snakeyaml/nodes/MappingNode;)V
-    .locals 16
+    .registers 18
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
 
     .line 84
@@ -1057,12 +1057,12 @@
     .end local v0    # "i":I
     .local v4, "i$":Ljava/util/Iterator;
     .local v5, "i":I
-    :goto_0
+    :goto_1a
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_9c
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1090,7 +1090,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_96
 
     .line 91
     move-object/from16 v8, p0
@@ -1101,19 +1101,19 @@
 
     .line 92
     .local v9, "key":Ljava/lang/Object;
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_6e
 
     .line 94
-    :try_start_0
+    :try_start_3f
     invoke-virtual {v9}, Ljava/lang/Object;->hashCode()I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_42
+    .catch Ljava/lang/Exception; {:try_start_3f .. :try_end_42} :catch_43
 
     .line 99
-    goto :goto_1
+    goto :goto_6e
 
     .line 95
-    :catch_0
+    :catch_43
     move-exception v0
 
     move-object v10, v0
@@ -1164,8 +1164,8 @@
 
     .line 102
     .end local v15    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_1
+    :cond_6e
+    :goto_6e
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -1178,22 +1178,22 @@
 
     .line 103
     .local v0, "prevIndex":Ljava/lang/Integer;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_98
 
     .line 104
     invoke-virtual/range {p0 .. p0}, Lorg/yaml/snakeyaml/constructor/SafeConstructor;->isAllowDuplicateKeys()Z
 
     move-result v10
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_84
 
     .line 108
     invoke-virtual {v3, v0}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_98
 
     .line 105
-    :cond_1
+    :cond_84
     new-instance v10, Lorg/yaml/snakeyaml/constructor/DuplicateKeyException;
 
     invoke-virtual/range {p1 .. p1}, Lorg/yaml/snakeyaml/nodes/MappingNode;->getStartMark()Lorg/yaml/snakeyaml/error/Mark;
@@ -1215,21 +1215,21 @@
     .line 90
     .end local v0    # "prevIndex":Ljava/lang/Integer;
     .end local v9    # "key":Ljava/lang/Object;
-    :cond_2
+    :cond_96
     move-object/from16 v8, p0
 
     .line 111
-    :cond_3
-    :goto_2
+    :cond_98
+    :goto_98
     add-int/lit8 v5, v5, 0x1
 
     .line 112
     .end local v6    # "tuple":Lorg/yaml/snakeyaml/nodes/NodeTuple;
     .end local v7    # "keyNode":Lorg/yaml/snakeyaml/nodes/Node;
-    goto/16 :goto_0
+    goto/16 :goto_1a
 
     .line 88
-    :cond_4
+    :cond_9c
     move-object/from16 v8, p0
 
     .line 114
@@ -1240,12 +1240,12 @@
 
     .line 115
     .local v0, "indices2remove":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Integer;>;"
-    :goto_3
+    :goto_a2
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_b6
 
     .line 116
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1260,9 +1260,9 @@
 
     invoke-interface {v1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_a2
 
     .line 118
-    :cond_5
+    :cond_b6
     return-void
 .end method

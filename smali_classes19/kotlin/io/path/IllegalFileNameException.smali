@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/file/Path;)V
-    .locals 1
+    .registers 3
     .param p1, "file"    # Ljava/nio/file/Path;
 
     const-string v0, "file"
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(Ljava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/String;)V
-    .locals 2
+    .registers 6
     .param p1, "file"    # Ljava/nio/file/Path;
     .param p2, "other"    # Ljava/nio/file/Path;
     .param p3, "message"    # Ljava/lang/String;
@@ -62,18 +62,18 @@
 
     move-result-object v0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_10
 
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     invoke-direct {p0, v0, v1, p3}, Ljava/nio/file/FileSystemException;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 523

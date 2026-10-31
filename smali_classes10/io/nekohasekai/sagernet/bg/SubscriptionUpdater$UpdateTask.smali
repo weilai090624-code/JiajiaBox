@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 3
+    .registers 6
     .param p1, "appContext"    # Landroid/content/Context;
     .param p2, "params"    # Landroidx/work/WorkerParameters;
 
@@ -173,7 +173,7 @@
 
 # virtual methods
 .method public doWork(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 16
+    .registers 18
     .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,7 +190,7 @@
 
     instance-of v1, v0, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask$doWork$1;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     move-object v1, v0
 
@@ -202,7 +202,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     iget v2, v1, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask$doWork$1;->label:I
 
@@ -212,9 +212,9 @@
 
     move-object/from16 v2, p0
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     new-instance v1, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask$doWork$1;
 
     move-object/from16 v2, p0
@@ -222,7 +222,7 @@
     invoke-direct {v1, v2, v0}, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask$doWork$1;-><init>(Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;Lkotlin/coroutines/Continuation;)V
 
     .local v1, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_1f
     iget-object v3, v1, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask$doWork$1;->result:Ljava/lang/Object;
 
     .local v3, "$result":Ljava/lang/Object;
@@ -235,7 +235,7 @@
 
     const/4 v8, 0x1
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_1b0
 
     .end local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v3    # "$result":Ljava/lang/Object;
@@ -249,7 +249,7 @@
 
     .restart local v1    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v3    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_33
     iget-object v5, v1, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask$doWork$1;->L$1:Ljava/lang/Object;
 
     check-cast v5, Ljava/util/Iterator;
@@ -263,10 +263,10 @@
 
     const/4 v10, 0x0
 
-    goto/16 :goto_6
+    goto/16 :goto_19d
 
     .end local v9    # "this":Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;
-    :pswitch_1
+    :pswitch_41
     iget-object v5, v1, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask$doWork$1;->L$0:Ljava/lang/Object;
 
     check-cast v5, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;
@@ -276,10 +276,10 @@
 
     move-object v9, v3
 
-    goto :goto_1
+    goto :goto_60
 
     .end local v5    # "this":Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;
-    :pswitch_2
+    :pswitch_4a
     invoke-static {v3}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v5, p0
@@ -300,13 +300,13 @@
 
     move-result-object v9
 
-    if-ne v9, v4, :cond_1
+    if-ne v9, v4, :cond_60
 
     .line 64
     return-object v4
 
-    :cond_1
-    :goto_1
+    :cond_60
+    :goto_60
     check-cast v9, Ljava/lang/Iterable;
 
     .local v9, "$this$filter$iv":Ljava/lang/Iterable;
@@ -331,13 +331,13 @@
     move-result-object v13
 
     .end local v9    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    :cond_2
-    :goto_2
+    :cond_6f
+    :goto_6f
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_95
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -372,15 +372,15 @@
     .line 99
     .end local v14    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v15    # "$i$a$-filter-SubscriptionUpdater$UpdateTask$doWork$subscriptions$1":I
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_6f
 
     invoke-interface {v11, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_6f
 
     .line 100
     .end local v9    # "element$iv$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_95
     nop
 
     .end local v11    # "destination$iv$iv":Ljava/util/Collection;
@@ -411,7 +411,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_7
+    if-nez v7, :cond_ea
 
     .line 68
     sget-object v7, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -445,13 +445,13 @@
     move-result-object v11
 
     .end local v6    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    :cond_4
-    :goto_3
+    :cond_be
+    :goto_be
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_e4
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -479,28 +479,28 @@
 
     move-result v14
 
-    if-nez v14, :cond_5
+    if-nez v14, :cond_dd
 
     const/4 v12, 0x1
 
-    goto :goto_4
+    goto :goto_de
 
-    :cond_5
+    :cond_dd
     const/4 v12, 0x0
 
     .line 102
     .end local v12    # "it":Lio/nekohasekai/sagernet/database/ProxyGroup;
     .end local v13    # "$i$a$-filter-SubscriptionUpdater$UpdateTask$doWork$2":I
-    :goto_4
-    if-eqz v12, :cond_4
+    :goto_de
+    if-eqz v12, :cond_be
 
     invoke-interface {v9, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_be
 
     .line 103
     .end local v6    # "element$iv$iv":Ljava/lang/Object;
-    :cond_6
+    :cond_e4
     nop
 
     .end local v9    # "destination$iv$iv":Ljava/util/Collection;
@@ -518,7 +518,7 @@
 
     .line 72
     .local v6, "subscriptions":Ljava/util/List;
-    :cond_7
+    :cond_ea
     move-object v7, v6
 
     check-cast v7, Ljava/util/Collection;
@@ -527,7 +527,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_b
+    if-nez v7, :cond_1a0
 
     invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -542,12 +542,12 @@
     .end local p1    # "$completion":Lkotlin/coroutines/Continuation;
     .local v0, "$completion":Lkotlin/coroutines/Continuation;
     .local v9, "this":Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;
-    :goto_5
+    :goto_f9
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_19f
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -600,7 +600,7 @@
     mul-int/lit8 v10, v10, 0x3c
 
     .end local v7    # "subscription":Lio/nekohasekai/sagernet/database/SubscriptionBean;
-    if-ge v11, v10, :cond_8
+    if-ge v11, v10, :cond_14a
 
     .line 76
     sget-object v7, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -631,11 +631,11 @@
 
     .line 77
     .end local v6    # "profile":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    goto :goto_5
+    goto :goto_f9
 
     .line 79
     .restart local v6    # "profile":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :cond_8
+    :cond_14a
     sget-object v7, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -722,24 +722,24 @@
     move-result-object v6
 
     .end local v6    # "profile":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    if-ne v6, v4, :cond_9
+    if-ne v6, v4, :cond_19d
 
     .line 64
     return-object v4
 
     .line 88
-    :cond_9
-    :goto_6
-    goto/16 :goto_5
+    :cond_19d
+    :goto_19d
+    goto/16 :goto_f9
 
     .line 72
-    :cond_a
+    :cond_19f
     move-object v5, v9
 
     .line 91
     .end local v9    # "this":Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;
     .restart local v5    # "this":Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;
-    :cond_b
+    :cond_1a0
     iget-object v4, v5, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;->nm:Landroidx/core/app/NotificationManagerCompat;
 
     const/4 v6, 0x2
@@ -757,16 +757,16 @@
 
     return-object v4
 
-    :pswitch_data_0
+    :pswitch_data_1b0
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4a
+        :pswitch_41
+        :pswitch_33
     .end packed-switch
 .end method
 
 .method public final getNm()Landroidx/core/app/NotificationManagerCompat;
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;->nm:Landroidx/core/app/NotificationManagerCompat;
@@ -775,7 +775,7 @@
 .end method
 
 .method public final getNotification()Landroidx/core/app/NotificationCompat$Builder;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/SubscriptionUpdater$UpdateTask;->notification:Landroidx/core/app/NotificationCompat$Builder;

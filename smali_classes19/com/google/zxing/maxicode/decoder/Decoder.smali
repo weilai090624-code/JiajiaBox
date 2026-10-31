@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 .end method
 
 .method private correctErrors([BIIII)V
-    .locals 7
+    .registers 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/ChecksumException;
@@ -47,17 +47,17 @@
     add-int v0, p3, p4
 
     .line 91
-    if-nez p5, :cond_0
+    if-nez p5, :cond_6
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x2
 
     .line 94
-    :goto_0
+    :goto_7
     div-int v2, v0, v1
 
     new-array v2, v2, [I
@@ -67,20 +67,20 @@
 
     const/4 v4, 0x0
 
-    :goto_1
-    if-ge v4, v0, :cond_3
+    :goto_d
+    if-ge v4, v0, :cond_24
 
     .line 96
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_17
 
     rem-int/lit8 v5, v4, 0x2
 
     add-int/lit8 v6, p5, -0x1
 
-    if-ne v5, v6, :cond_2
+    if-ne v5, v6, :cond_21
 
     .line 97
-    :cond_1
+    :cond_17
     div-int v5, v4, v1
 
     add-int v6, v4, p2
@@ -92,21 +92,21 @@
     aput v6, v2, v5
 
     .line 95
-    :cond_2
+    :cond_21
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_d
 
     .line 101
-    :cond_3
-    :try_start_0
+    :cond_24
+    :try_start_24
     iget-object v0, p0, Lcom/google/zxing/maxicode/decoder/Decoder;->rsDecoder:Lcom/google/zxing/common/reedsolomon/ReedSolomonDecoder;
 
     div-int/2addr p4, v1
 
     invoke-virtual {v0, v2, p4}, Lcom/google/zxing/common/reedsolomon/ReedSolomonDecoder;->decode([II)V
-    :try_end_0
-    .catch Lcom/google/zxing/common/reedsolomon/ReedSolomonException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Lcom/google/zxing/common/reedsolomon/ReedSolomonException; {:try_start_24 .. :try_end_2a} :catch_43
 
     .line 104
     nop
@@ -114,20 +114,20 @@
     .line 107
     nop
 
-    :goto_2
-    if-ge v3, p3, :cond_6
+    :goto_2c
+    if-ge v3, p3, :cond_42
 
     .line 108
-    if-eqz p5, :cond_4
+    if-eqz p5, :cond_36
 
     rem-int/lit8 p4, v3, 0x2
 
     add-int/lit8 v0, p5, -0x1
 
-    if-ne p4, v0, :cond_5
+    if-ne p4, v0, :cond_3f
 
     .line 109
-    :cond_4
+    :cond_36
     add-int p4, v3, p2
 
     div-int v0, v3, v1
@@ -139,17 +139,17 @@
     aput-byte v0, p1, p4
 
     .line 107
-    :cond_5
+    :cond_3f
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_2c
 
     .line 112
-    :cond_6
+    :cond_42
     return-void
 
     .line 102
-    :catch_0
+    :catch_43
     move-exception p1
 
     .line 103
@@ -163,7 +163,7 @@
 
 # virtual methods
 .method public decode(Lcom/google/zxing/common/BitMatrix;)Lcom/google/zxing/common/DecoderResult;
-    .locals 1
+    .registers 3
     .param p1, "bits"    # Lcom/google/zxing/common/BitMatrix;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -183,7 +183,7 @@
 .end method
 
 .method public decode(Lcom/google/zxing/common/BitMatrix;Ljava/util/Map;)Lcom/google/zxing/common/DecoderResult;
-    .locals 9
+    .registers 12
     .param p1, "bits"    # Lcom/google/zxing/common/BitMatrix;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -245,7 +245,7 @@
 
     .end local v2    # "mode":I
     .local v8, "mode":I
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_5e
 
     .line 74
     invoke-static {}, Lcom/google/zxing/FormatException;->getFormatInstance()Lcom/google/zxing/FormatException;
@@ -255,7 +255,7 @@
     throw v1
 
     .line 69
-    :pswitch_0
+    :pswitch_23
     const/16 v5, 0x38
 
     const/4 v6, 0x1
@@ -282,11 +282,11 @@
 
     .line 72
     .local v1, "datawords":[B
-    goto :goto_0
+    goto :goto_4d
 
     .line 64
     .end local v1    # "datawords":[B
-    :pswitch_1
+    :pswitch_38
     const/16 v5, 0x28
 
     const/4 v6, 0x1
@@ -316,7 +316,7 @@
     nop
 
     .line 77
-    :goto_0
+    :goto_4d
     const/16 v2, 0xa
 
     invoke-static {v0, v7, v1, v7, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -337,11 +337,11 @@
 
     return-object v2
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch 0x2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_38
+        :pswitch_38
+        :pswitch_38
+        :pswitch_23
     .end packed-switch
 .end method

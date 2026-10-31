@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final addListener(Landroidx/customview/poolingcontainer/PoolingContainerListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroidx/customview/poolingcontainer/PoolingContainerListener;
 
     const-string v0, "listener"
@@ -83,7 +83,7 @@
 .end method
 
 .method public final onRelease()V
-    .locals 2
+    .registers 3
 
     .line 136
     iget-object v0, p0, Landroidx/customview/poolingcontainer/PoolingContainerListenerHolder;->listeners:Ljava/util/ArrayList;
@@ -95,10 +95,10 @@
     move-result v0
 
     .local v0, "i":I
-    :goto_0
+    :goto_8
     const/4 v1, -0x1
 
-    if-ge v1, v0, :cond_0
+    if-ge v1, v0, :cond_19
 
     .line 137
     iget-object v1, p0, Landroidx/customview/poolingcontainer/PoolingContainerListenerHolder;->listeners:Ljava/util/ArrayList;
@@ -114,16 +114,16 @@
     .line 136
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 139
     .end local v0    # "i":I
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public final removeListener(Landroidx/customview/poolingcontainer/PoolingContainerListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Landroidx/customview/poolingcontainer/PoolingContainerListener;
 
     const-string v0, "listener"

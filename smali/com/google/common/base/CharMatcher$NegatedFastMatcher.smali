@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/CharMatcher;)V
-    .locals 0
+    .registers 2
     .param p1, "original"    # Lcom/google/common/base/CharMatcher;
 
     .line 971
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public final precomputed()Lcom/google/common/base/CharMatcher;
-    .locals 0
+    .registers 1
 
     .line 976
     return-object p0

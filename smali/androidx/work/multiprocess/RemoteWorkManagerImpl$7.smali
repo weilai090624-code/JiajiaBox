@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/multiprocess/RemoteWorkManagerImpl;Ljava/util/concurrent/Executor;Landroidx/work/multiprocess/IWorkManagerImplCallback;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/work/multiprocess/RemoteWorkManagerImpl;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroidx/work/multiprocess/IWorkManagerImplCallback;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public bridge synthetic toByteArray(Ljava/lang/Object;)[B
-    .locals 0
+    .registers 2
 
     .line 215
     check-cast p1, Ljava/util/List;
@@ -59,7 +59,7 @@
 .end method
 
 .method public toByteArray(Ljava/util/List;)[B
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

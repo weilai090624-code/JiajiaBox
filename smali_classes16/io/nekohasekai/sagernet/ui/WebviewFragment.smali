@@ -51,7 +51,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$XfgFuHPc31Rnn33kjRBfWmlpxyw(Landroid/widget/EditText;Lio/nekohasekai/sagernet/ui/WebviewFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/ui/WebviewFragment;->onMenuItemClick$lambda$1(Landroid/widget/EditText;Lio/nekohasekai/sagernet/ui/WebviewFragment;Landroid/content/DialogInterface;I)V
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 20
     const v0, 0x7f0d005f
@@ -70,7 +70,7 @@
 .end method
 
 .method private static final onMenuItemClick$lambda$1(Landroid/widget/EditText;Lio/nekohasekai/sagernet/ui/WebviewFragment;Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 4
     .param p0, "$view"    # Landroid/widget/EditText;
     .param p1, "this$0"    # Lio/nekohasekai/sagernet/ui/WebviewFragment;
 
@@ -107,16 +107,16 @@
 
 # virtual methods
 .method public final getMWebView()Landroid/webkit/WebView;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/WebviewFragment;->mWebView:Landroid/webkit/WebView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
-    :cond_0
+    :cond_5
     const-string v0, "mWebView"
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -127,7 +127,7 @@
 .end method
 
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .locals 4
+    .registers 6
     .param p1, "item"    # Landroid/view/MenuItem;
 
     const-string v0, "item"
@@ -139,12 +139,12 @@
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_70
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 72
-    :sswitch_0
+    :sswitch_d
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/WebviewFragment;->getMWebView()Landroid/webkit/WebView;
 
     move-result-object v0
@@ -165,10 +165,10 @@
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->destroy()V
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 58
-    :sswitch_1
+    :sswitch_23
     new-instance v0, Landroid/widget/EditText;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/WebviewFragment;->getContext()Landroid/content/Context;
@@ -257,22 +257,22 @@
 
     .line 77
     .end local v0    # "view":Landroid/widget/EditText;
-    :goto_0
+    :goto_6d
     const/4 v0, 0x1
 
     return v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_70
     .sparse-switch
-        0x7f0a0080 -> :sswitch_1
-        0x7f0a00d2 -> :sswitch_0
+        0x7f0a0080 -> :sswitch_23
+        0x7f0a00d2 -> :sswitch_d
     .end sparse-switch
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 3
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -387,7 +387,7 @@
 .end method
 
 .method public final setMWebView(Landroid/webkit/WebView;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroid/webkit/WebView;
 
     const-string v0, "<set-?>"

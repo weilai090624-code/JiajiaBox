@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "gravity"    # I
 
     .line 2595
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 1
+    .registers 4
     .param p1, "width"    # I
     .param p2, "height"    # I
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .locals 1
+    .registers 5
     .param p1, "width"    # I
     .param p2, "height"    # I
     .param p3, "gravity"    # I
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "c"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
 
     .line 2616
@@ -119,7 +119,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .line 2609
@@ -138,7 +138,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/appcompat/app/ActionBar$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroidx/appcompat/app/ActionBar$LayoutParams;
 
     .line 2605
@@ -154,7 +154,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/appcompat/widget/Toolbar$LayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroidx/appcompat/widget/Toolbar$LayoutParams;
 
     .line 2599
@@ -177,7 +177,7 @@
 
 # virtual methods
 .method copyMarginsFromCompat(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .locals 1
+    .registers 3
     .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .line 2620

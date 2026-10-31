@@ -72,7 +72,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;Landroid/util/AttributeSet;)V
-    .locals 11
+    .registers 15
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "recyclerView"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
     .param p3, "attrs"    # Landroid/util/AttributeSet;
@@ -231,7 +231,7 @@
 
     .line 128
     .local v6, "typedArray":Landroid/content/res/TypedArray;
-    :try_start_0
+    :try_start_89
     sget v7, Lcom/simplecityapps/recyclerview_fastscroll/R$styleable;->FastScrollRecyclerView_fastScrollAutoHide:I
 
     invoke-virtual {v6, v7, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -358,16 +358,16 @@
 
     iget-boolean v10, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbInactiveState:Z
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_f9
 
     iget v10, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbInactiveColor:I
 
-    goto :goto_0
+    goto :goto_fb
 
-    :cond_0
+    :cond_f9
     iget v10, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbActiveColor:I
 
-    :goto_0
+    :goto_fb
     invoke-virtual {v9, v10}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 144
@@ -399,8 +399,8 @@
     iget-object v9, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mPopup:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;
 
     invoke-virtual {v9, v2}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->setPopupPosition(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11c
+    .catchall {:try_start_89 .. :try_end_11c} :catchall_139
 
     .line 151
     .end local v0    # "trackColor":I
@@ -434,17 +434,17 @@
     .line 180
     iget-boolean v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideEnabled:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_138
 
     .line 181
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->postAutoHideDelayed()V
 
     .line 183
-    :cond_1
+    :cond_138
     return-void
 
     .line 151
-    :catchall_0
+    :catchall_139
     move-exception v0
 
     invoke-virtual {v6}, Landroid/content/res/TypedArray;->recycle()V
@@ -454,7 +454,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     .line 52
@@ -464,7 +464,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Landroid/animation/Animator;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     .line 52
@@ -474,7 +474,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;Landroid/animation/Animator;)Landroid/animation/Animator;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
     .param p1, "x1"    # Landroid/animation/Animator;
 
@@ -485,7 +485,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;)Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
 
     .line 52
@@ -495,7 +495,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;
     .param p1, "x1"    # Z
 
@@ -506,7 +506,7 @@
 .end method
 
 .method private isNearPoint(II)Z
-    .locals 6
+    .registers 9
     .param p1, "x"    # I
     .param p2, "y"    # I
 
@@ -561,12 +561,12 @@
 
 # virtual methods
 .method protected cancelAutoHide()V
-    .locals 2
+    .registers 3
 
     .line 383
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mRecyclerView:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 384
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mRecyclerView:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
@@ -576,12 +576,12 @@
     invoke-virtual {v0, v1}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     .line 386
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 6
+    .registers 8
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 269
@@ -589,18 +589,18 @@
 
     iget v0, v0, Landroid/graphics/Point;->x:I
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_b8
 
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbPosition:Landroid/graphics/Point;
 
     iget v0, v0, Landroid/graphics/Point;->y:I
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_e
 
-    goto/16 :goto_0
+    goto/16 :goto_b8
 
     .line 274
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->rect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbPosition:Landroid/graphics/Point;
@@ -808,13 +808,13 @@
     return-void
 
     .line 270
-    :cond_1
-    :goto_0
+    :cond_b8
+    :goto_b8
     return-void
 .end method
 
 .method public enableThumbInactiveColor(Z)V
-    .locals 2
+    .registers 4
     .param p1, "enableInactiveColor"    # Z
 
     .line 441
@@ -825,16 +825,16 @@
 
     iget-boolean v1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbInactiveState:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     iget v1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbInactiveColor:I
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     iget v1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbActiveColor:I
 
-    :goto_0
+    :goto_d
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 443
@@ -842,7 +842,7 @@
 .end method
 
 .method public getOffsetX()I
-    .locals 1
+    .registers 2
 
     .line 341
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mOffset:Landroid/graphics/Point;
@@ -853,7 +853,7 @@
 .end method
 
 .method public getThumbHeight()I
-    .locals 1
+    .registers 2
 
     .line 186
     iget v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbHeight:I
@@ -862,7 +862,7 @@
 .end method
 
 .method public getWidth()I
-    .locals 2
+    .registers 3
 
     .line 190
     iget v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mTrackWidth:I
@@ -877,7 +877,7 @@
 .end method
 
 .method public handleTouchEvent(Landroid/view/MotionEvent;IIILcom/simplecityapps/recyclerview_fastscroll/interfaces/OnFastScrollStateChangeListener;)V
-    .locals 14
+    .registers 20
     .param p1, "ev"    # Landroid/view/MotionEvent;
     .param p2, "downX"    # I
     .param p3, "downY"    # I
@@ -907,23 +907,23 @@
     .local v4, "y":I
     const/4 v5, 0x0
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_e0
 
-    goto/16 :goto_0
+    goto/16 :goto_df
 
     .line 213
-    :pswitch_0
+    :pswitch_14
     iget-boolean v6, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mIsDragging:Z
 
     const/4 v7, 0x1
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_50
 
     invoke-direct {p0, v1, v2}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->isNearPoint(II)Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_50
 
     sub-int v6, v4, v2
 
@@ -934,7 +934,7 @@
 
     iget v8, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mTouchSlop:I
 
-    if-le v6, v8, :cond_1
+    if-le v6, v8, :cond_50
 
     .line 215
     iget-object v6, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mRecyclerView:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
@@ -963,16 +963,16 @@
     invoke-virtual {v6, v7}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->animateVisibility(Z)V
 
     .line 219
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_45
 
     .line 220
     invoke-interface/range {p5 .. p5}, Lcom/simplecityapps/recyclerview_fastscroll/interfaces/OnFastScrollStateChangeListener;->onFastScrollStart()V
 
     .line 222
-    :cond_0
+    :cond_45
     iget-boolean v6, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbInactiveState:Z
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_50
 
     .line 223
     iget-object v6, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumb:Landroid/graphics/Paint;
@@ -982,15 +982,15 @@
     invoke-virtual {v6, v8}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 226
-    :cond_1
+    :cond_50
     iget-boolean v6, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mIsDragging:Z
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_df
 
     .line 227
     iget v6, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mLastY:I
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_63
 
     iget v6, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mLastY:I
 
@@ -1002,10 +1002,10 @@
 
     iget v8, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mTouchSlop:I
 
-    if-lt v6, v8, :cond_5
+    if-lt v6, v8, :cond_df
 
     .line 228
-    :cond_2
+    :cond_63
     iput v4, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mLastY:I
 
     .line 230
@@ -1051,7 +1051,7 @@
 
     .line 236
     .local v9, "touchFraction":F
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_8a
 
     .line 237
     const/high16 v10, 0x3f800000    # 1.0f
@@ -1059,7 +1059,7 @@
     sub-float v9, v10, v9
 
     .line 240
-    :cond_3
+    :cond_8a
     iget-object v10, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mRecyclerView:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
     invoke-virtual {v10, v9}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->scrollToPositionAtProgress(F)Ljava/lang/String;
@@ -1106,10 +1106,10 @@
     .end local v8    # "bottom":I
     .end local v9    # "touchFraction":F
     .end local v10    # "sectionName":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_df
 
     .line 249
-    :pswitch_1
+    :pswitch_b1
     iput v5, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mTouchOffset:I
 
     .line 250
@@ -1118,7 +1118,7 @@
     .line 251
     iget-boolean v6, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mIsDragging:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_c5
 
     .line 252
     iput-boolean v5, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mIsDragging:Z
@@ -1129,16 +1129,16 @@
     invoke-virtual {v6, v5}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollPopup;->animateVisibility(Z)V
 
     .line 254
-    if-eqz p5, :cond_4
+    if-eqz p5, :cond_c5
 
     .line 255
     invoke-interface/range {p5 .. p5}, Lcom/simplecityapps/recyclerview_fastscroll/interfaces/OnFastScrollStateChangeListener;->onFastScrollStop()V
 
     .line 258
-    :cond_4
+    :cond_c5
     iget-boolean v5, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbInactiveState:Z
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_df
 
     .line 259
     iget-object v5, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumb:Landroid/graphics/Paint;
@@ -1147,15 +1147,15 @@
 
     invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setColor(I)V
 
-    goto :goto_0
+    goto :goto_df
 
     .line 207
-    :pswitch_2
+    :pswitch_d1
     invoke-direct {p0, v1, v2}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->isNearPoint(II)Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_df
 
     .line 208
     iget-object v5, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbPosition:Landroid/graphics/Point;
@@ -1167,21 +1167,21 @@
     iput v5, v0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mTouchOffset:I
 
     .line 263
-    :cond_5
-    :goto_0
+    :cond_df
+    :goto_df
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_e0
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_d1
+        :pswitch_b1
+        :pswitch_14
+        :pswitch_b1
     .end packed-switch
 .end method
 
 .method public isDragging()Z
-    .locals 1
+    .registers 2
 
     .line 194
     iget-boolean v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mIsDragging:Z
@@ -1190,12 +1190,12 @@
 .end method
 
 .method protected postAutoHideDelayed()V
-    .locals 4
+    .registers 5
 
     .line 376
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mRecyclerView:Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 377
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->cancelAutoHide()V
@@ -1212,12 +1212,12 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 380
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public setAutoHideDelay(I)V
-    .locals 1
+    .registers 3
     .param p1, "hideDelay"    # I
 
     .line 416
@@ -1226,42 +1226,42 @@
     .line 417
     iget-boolean v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 418
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->postAutoHideDelayed()V
 
     .line 420
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setAutoHideEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "autoHideEnabled"    # Z
 
     .line 423
     iput-boolean p1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideEnabled:Z
 
     .line 424
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 425
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->postAutoHideDelayed()V
 
-    goto :goto_0
+    goto :goto_b
 
     .line 427
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->cancelAutoHide()V
 
     .line 429
-    :goto_0
+    :goto_b
     return-void
 .end method
 
 .method public setOffset(II)V
-    .locals 6
+    .registers 9
     .param p1, "x"    # I
     .param p2, "y"    # I
 
@@ -1270,19 +1270,19 @@
 
     iget v0, v0, Landroid/graphics/Point;->x:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_d
 
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mOffset:Landroid/graphics/Point;
 
     iget v0, v0, Landroid/graphics/Point;->y:I
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_d
 
     .line 323
     return-void
 
     .line 326
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mInvalidateRect:Landroid/graphics/Rect;
 
     iget-object v1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbPosition:Landroid/graphics/Point;
@@ -1396,7 +1396,7 @@
 .end method
 
 .method public setOffsetX(I)V
-    .locals 1
+    .registers 3
     .param p1, "x"    # I
 
     .line 336
@@ -1411,7 +1411,7 @@
 .end method
 
 .method public setPopupBgColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 400
@@ -1424,7 +1424,7 @@
 .end method
 
 .method public setPopupPosition(I)V
-    .locals 1
+    .registers 3
     .param p1, "popupPosition"    # I
 
     .line 432
@@ -1437,7 +1437,7 @@
 .end method
 
 .method public setPopupTextColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 404
@@ -1450,7 +1450,7 @@
 .end method
 
 .method public setPopupTextSize(I)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 412
@@ -1463,7 +1463,7 @@
 .end method
 
 .method public setPopupTypeface(Landroid/graphics/Typeface;)V
-    .locals 1
+    .registers 3
     .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .line 408
@@ -1476,7 +1476,7 @@
 .end method
 
 .method public setThumbColor(I)V
-    .locals 2
+    .registers 4
     .param p1, "color"    # I
 
     .line 389
@@ -1499,7 +1499,7 @@
 .end method
 
 .method public setThumbInactiveColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 436
@@ -1515,7 +1515,7 @@
 .end method
 
 .method public setThumbInactiveColor(Z)V
-    .locals 0
+    .registers 2
     .param p1, "thumbInactiveColor"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1528,7 +1528,7 @@
 .end method
 
 .method public setThumbPosition(II)V
-    .locals 6
+    .registers 9
     .param p1, "x"    # I
     .param p2, "y"    # I
 
@@ -1537,19 +1537,19 @@
 
     iget v0, v0, Landroid/graphics/Point;->x:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_d
 
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbPosition:Landroid/graphics/Point;
 
     iget v0, v0, Landroid/graphics/Point;->y:I
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_d
 
     .line 310
     return-void
 
     .line 313
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mInvalidateRect:Landroid/graphics/Rect;
 
     iget-object v1, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mThumbPosition:Landroid/graphics/Point;
@@ -1663,7 +1663,7 @@
 .end method
 
 .method public setTrackColor(I)V
-    .locals 2
+    .registers 4
     .param p1, "color"    # I
 
     .line 395
@@ -1683,17 +1683,17 @@
 .end method
 
 .method public show()V
-    .locals 3
+    .registers 4
 
     .line 345
     iget-boolean v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAnimatingShow:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_40
 
     .line 346
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 347
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
@@ -1701,7 +1701,7 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
     .line 349
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     filled-new-array {v0}, [I
@@ -1750,24 +1750,25 @@
     iget-object v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
 
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/AppMotion;->prepare(Landroid/animation/Animator;)V
+
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
     .line 368
-    :cond_1
+    :cond_40
     iget-boolean v0, p0, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->mAutoHideEnabled:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_48
 
     .line 369
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->postAutoHideDelayed()V
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 371
-    :cond_2
+    :cond_48
     invoke-virtual {p0}, Lcom/simplecityapps/recyclerview_fastscroll/views/FastScroller;->cancelAutoHide()V
 
     .line 373
-    :goto_0
+    :goto_4b
     return-void
 .end method

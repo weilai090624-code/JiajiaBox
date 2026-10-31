@@ -95,7 +95,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/navigation/ActivityNavigator;I)V
-    .locals 1
+    .registers 4
     .param p1, "navigator"    # Landroidx/navigation/ActivityNavigator;
     .param p2, "id"    # I
     .annotation runtime Lkotlin/Deprecated;
@@ -129,7 +129,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/navigation/ActivityNavigator;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "navigator"    # Landroidx/navigation/ActivityNavigator;
     .param p2, "route"    # Ljava/lang/String;
 
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public build()Landroidx/navigation/ActivityNavigator$Destination;
-    .locals 8
+    .registers 9
 
     .line 91
     invoke-super {p0}, Landroidx/navigation/NavDestinationBuilder;->build()Landroidx/navigation/NavDestination;
@@ -185,7 +185,7 @@
     .line 93
     iget-object v3, p0, Landroidx/navigation/ActivityNavigatorDestinationBuilder;->activityClass:Lkotlin/reflect/KClass;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_21
 
     .local v3, "clazz":Lkotlin/reflect/KClass;
     const/4 v4, 0x0
@@ -210,7 +210,7 @@
     nop
 
     .line 96
-    :cond_0
+    :cond_21
     iget-object v3, p0, Landroidx/navigation/ActivityNavigatorDestinationBuilder;->action:Ljava/lang/String;
 
     invoke-virtual {v1, v3}, Landroidx/navigation/ActivityNavigator$Destination;->setAction(Ljava/lang/String;)Landroidx/navigation/ActivityNavigator$Destination;
@@ -238,7 +238,7 @@
 .end method
 
 .method public bridge synthetic build()Landroidx/navigation/NavDestination;
-    .locals 1
+    .registers 2
 
     .line 62
     invoke-virtual {p0}, Landroidx/navigation/ActivityNavigatorDestinationBuilder;->build()Landroidx/navigation/ActivityNavigator$Destination;
@@ -251,7 +251,7 @@
 .end method
 
 .method public final getAction()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 84
     iget-object v0, p0, Landroidx/navigation/ActivityNavigatorDestinationBuilder;->action:Ljava/lang/String;
@@ -260,7 +260,7 @@
 .end method
 
 .method public final getActivityClass()Lkotlin/reflect/KClass;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -278,7 +278,7 @@
 .end method
 
 .method public final getData()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 86
     iget-object v0, p0, Landroidx/navigation/ActivityNavigatorDestinationBuilder;->data:Landroid/net/Uri;
@@ -287,7 +287,7 @@
 .end method
 
 .method public final getDataPattern()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 88
     iget-object v0, p0, Landroidx/navigation/ActivityNavigatorDestinationBuilder;->dataPattern:Ljava/lang/String;
@@ -296,7 +296,7 @@
 .end method
 
 .method public final getTargetPackage()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 80
     iget-object v0, p0, Landroidx/navigation/ActivityNavigatorDestinationBuilder;->targetPackage:Ljava/lang/String;
@@ -305,7 +305,7 @@
 .end method
 
 .method public final setAction(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 84
@@ -315,7 +315,7 @@
 .end method
 
 .method public final setActivityClass(Lkotlin/reflect/KClass;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -334,7 +334,7 @@
 .end method
 
 .method public final setData(Landroid/net/Uri;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Landroid/net/Uri;
 
     .line 86
@@ -344,7 +344,7 @@
 .end method
 
 .method public final setDataPattern(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 88
@@ -354,7 +354,7 @@
 .end method
 
 .method public final setTargetPackage(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     .line 80

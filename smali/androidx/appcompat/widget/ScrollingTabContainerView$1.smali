@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ScrollingTabContainerView;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/appcompat/widget/ScrollingTabContainerView;
 
     .line 265
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 268
     iget-object v0, p0, Landroidx/appcompat/widget/ScrollingTabContainerView$1;->val$tabView:Landroid/view/View;

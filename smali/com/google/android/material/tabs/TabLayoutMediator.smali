@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/material/tabs/TabLayout;Landroidx/viewpager2/widget/ViewPager2;Lcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;)V
-    .locals 1
+    .registers 5
     .param p1, "tabLayout"    # Lcom/google/android/material/tabs/TabLayout;
     .param p2, "viewPager"    # Landroidx/viewpager2/widget/ViewPager2;
     .param p3, "tabConfigurationStrategy"    # Lcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/tabs/TabLayout;Landroidx/viewpager2/widget/ViewPager2;ZLcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;)V
-    .locals 6
+    .registers 11
     .param p1, "tabLayout"    # Lcom/google/android/material/tabs/TabLayout;
     .param p2, "viewPager"    # Landroidx/viewpager2/widget/ViewPager2;
     .param p3, "autoRefresh"    # Z
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/tabs/TabLayout;Landroidx/viewpager2/widget/ViewPager2;ZZLcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;)V
-    .locals 0
+    .registers 6
     .param p1, "tabLayout"    # Lcom/google/android/material/tabs/TabLayout;
     .param p2, "viewPager"    # Landroidx/viewpager2/widget/ViewPager2;
     .param p3, "autoRefresh"    # Z
@@ -118,12 +118,12 @@
 
 # virtual methods
 .method public attach()V
-    .locals 4
+    .registers 5
 
     .line 112
     iget-boolean v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->attached:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_5f
 
     .line 115
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->viewPager:Landroidx/viewpager2/widget/ViewPager2;
@@ -137,7 +137,7 @@
     .line 116
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_57
 
     .line 120
     const/4 v0, 0x1
@@ -181,7 +181,7 @@
     .line 132
     iget-boolean v1, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->autoRefresh:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_47
 
     .line 134
     new-instance v1, Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;
@@ -198,7 +198,7 @@
     invoke-virtual {v1, v2}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->registerAdapterDataObserver(Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;)V
 
     .line 138
-    :cond_0
+    :cond_47
     invoke-virtual {p0}, Lcom/google/android/material/tabs/TabLayoutMediator;->populateTabsFromPagerAdapter()V
 
     .line 141
@@ -218,7 +218,7 @@
     return-void
 
     .line 117
-    :cond_1
+    :cond_57
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "TabLayoutMediator attached before ViewPager2 has an adapter"
@@ -228,7 +228,7 @@
     throw v0
 
     .line 113
-    :cond_2
+    :cond_5f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "TabLayoutMediator is already attached"
@@ -239,18 +239,18 @@
 .end method
 
 .method public detach()V
-    .locals 3
+    .registers 4
 
     .line 150
     iget-boolean v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->autoRefresh:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 151
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -263,7 +263,7 @@
     iput-object v1, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->pagerAdapterObserver:Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;
 
     .line 154
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->tabLayout:Lcom/google/android/material/tabs/TabLayout;
 
     iget-object v2, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->onTabSelectedListener:Lcom/google/android/material/tabs/TabLayout$OnTabSelectedListener;
@@ -296,7 +296,7 @@
 .end method
 
 .method public isAttached()Z
-    .locals 1
+    .registers 2
 
     .line 166
     iget-boolean v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->attached:Z
@@ -305,7 +305,7 @@
 .end method
 
 .method populateTabsFromPagerAdapter()V
-    .locals 5
+    .registers 6
 
     .line 171
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->tabLayout:Lcom/google/android/material/tabs/TabLayout;
@@ -315,7 +315,7 @@
     .line 173
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4d
 
     .line 174
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -329,8 +329,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_10
+    if-ge v1, v0, :cond_26
 
     .line 176
     iget-object v2, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->tabLayout:Lcom/google/android/material/tabs/TabLayout;
@@ -356,12 +356,12 @@
     .end local v2    # "tab":Lcom/google/android/material/tabs/TabLayout$Tab;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 181
     .end local v1    # "i":I
-    :cond_0
-    if-lez v0, :cond_1
+    :cond_26
+    if-lez v0, :cond_4d
 
     .line 182
     iget-object v1, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->tabLayout:Lcom/google/android/material/tabs/TabLayout;
@@ -392,7 +392,7 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_4d
 
     .line 185
     iget-object v3, p0, Lcom/google/android/material/tabs/TabLayoutMediator;->tabLayout:Lcom/google/android/material/tabs/TabLayout;
@@ -409,6 +409,6 @@
     .end local v0    # "adapterCount":I
     .end local v1    # "lastItem":I
     .end local v2    # "currItem":I
-    :cond_1
+    :cond_4d
     return-void
 .end method

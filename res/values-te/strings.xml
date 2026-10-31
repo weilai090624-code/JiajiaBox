@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">ఇన్‌కమింగ్ కాల్</string>
     <string name="call_notification_ongoing_text">కాల్ కొనసాగుతోంది</string>
     <string name="call_notification_screening_text">ఇన్‌కమింగ్ కాల్‌ను స్క్రీన్ చేయండి</string>
-    <string name="character_counter_content_description" formatted="false">%2$dలో %1$d అక్షరాలు నమోదు చేయబడ్డాయి</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">అక్షర పరిధి %2$dలో %1$dను అధిగమించింది</string>
+    <string name="character_counter_content_description">%2$dలో %1$d అక్షరాలు నమోదు చేయబడ్డాయి</string>
+    <string name="character_counter_overflowed_content_description">అక్షర పరిధి %2$dలో %1$dను అధిగమించింది</string>
     <string name="clear_text_end_icon_content_description">రాసినదాన్ని తీసివేయండి</string>
     <string name="copy">కాపీ చేయి</string>
     <string name="copy_toast_msg">క్లిప్‌బోర్డ్‌కు లింక్ కాపీ చేయబడింది</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">పరిధి వెలుపల ఉంది: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">ప్రారంభ తేదీ – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – ముగింపు తేది</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">పరిధిని ఎంచుకోండి</string>
     <string name="mtrl_picker_range_header_unselected">ప్రారంభ తేది - ముగింపు తేది</string>
     <string name="mtrl_picker_save">సేవ్ చేయి</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" క్లిప్‌బోర్డ్‌కి కాపీ చేయబడింది.</string>
     <string name="search_menu_title">సెర్చ్</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">ఆఫ్ చేయండి</string>
     <string name="v7_preference_on">ఆన్ చేయండి</string>
 </resources>

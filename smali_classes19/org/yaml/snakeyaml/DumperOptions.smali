@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -172,7 +172,7 @@
 
 # virtual methods
 .method public getAnchorGenerator()Lorg/yaml/snakeyaml/serializer/AnchorGenerator;
-    .locals 1
+    .registers 2
 
     .line 443
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->anchorGenerator:Lorg/yaml/snakeyaml/serializer/AnchorGenerator;
@@ -181,7 +181,7 @@
 .end method
 
 .method public getDefaultFlowStyle()Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
-    .locals 1
+    .registers 2
 
     .line 366
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->defaultFlowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
@@ -190,7 +190,7 @@
 .end method
 
 .method public getDefaultScalarStyle()Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
-    .locals 1
+    .registers 2
 
     .line 225
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->defaultStyle:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -199,7 +199,7 @@
 .end method
 
 .method public getIndent()I
-    .locals 1
+    .registers 2
 
     .line 253
     iget v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->indent:I
@@ -208,7 +208,7 @@
 .end method
 
 .method public getIndentWithIndicator()Z
-    .locals 1
+    .registers 2
 
     .line 275
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->indentWithIndicator:Z
@@ -217,7 +217,7 @@
 .end method
 
 .method public getIndicatorIndent()I
-    .locals 1
+    .registers 2
 
     .line 271
     iget v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->indicatorIndent:I
@@ -226,7 +226,7 @@
 .end method
 
 .method public getLineBreak()Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
-    .locals 1
+    .registers 2
 
     .line 355
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->lineBreak:Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
@@ -235,7 +235,7 @@
 .end method
 
 .method public getMaxSimpleKeyLength()I
-    .locals 1
+    .registers 2
 
     .line 451
     iget v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->maxSimpleKeyLength:I
@@ -244,7 +244,7 @@
 .end method
 
 .method public getNonPrintableStyle()Lorg/yaml/snakeyaml/DumperOptions$NonPrintableStyle;
-    .locals 1
+    .registers 2
 
     .line 481
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->nonPrintableStyle:Lorg/yaml/snakeyaml/DumperOptions$NonPrintableStyle;
@@ -253,7 +253,7 @@
 .end method
 
 .method public getSplitLines()Z
-    .locals 1
+    .registers 2
 
     .line 351
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->splitLines:Z
@@ -262,7 +262,7 @@
 .end method
 
 .method public getTags()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -280,7 +280,7 @@
 .end method
 
 .method public getTimeZone()Ljava/util/TimeZone;
-    .locals 1
+    .registers 2
 
     .line 429
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->timeZone:Ljava/util/TimeZone;
@@ -289,7 +289,7 @@
 .end method
 
 .method public getVersion()Lorg/yaml/snakeyaml/DumperOptions$Version;
-    .locals 1
+    .registers 2
 
     .line 291
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->version:Lorg/yaml/snakeyaml/DumperOptions$Version;
@@ -298,7 +298,7 @@
 .end method
 
 .method public getWidth()I
-    .locals 1
+    .registers 2
 
     .line 336
     iget v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->bestWidth:I
@@ -307,7 +307,7 @@
 .end method
 
 .method public isAllowReadOnlyProperties()Z
-    .locals 1
+    .registers 2
 
     .line 413
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->allowReadOnlyProperties:Z
@@ -316,7 +316,7 @@
 .end method
 
 .method public isAllowUnicode()Z
-    .locals 1
+    .registers 2
 
     .line 207
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->allowUnicode:Z
@@ -325,7 +325,7 @@
 .end method
 
 .method public isCanonical()Z
-    .locals 1
+    .registers 2
 
     .line 305
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->canonical:Z
@@ -334,7 +334,7 @@
 .end method
 
 .method public isExplicitEnd()Z
-    .locals 1
+    .registers 2
 
     .line 391
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->explicitEnd:Z
@@ -343,7 +343,7 @@
 .end method
 
 .method public isExplicitStart()Z
-    .locals 1
+    .registers 2
 
     .line 383
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->explicitStart:Z
@@ -352,7 +352,7 @@
 .end method
 
 .method public isPrettyFlow()Z
-    .locals 1
+    .registers 2
 
     .line 320
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->prettyFlow:Ljava/lang/Boolean;
@@ -365,7 +365,7 @@
 .end method
 
 .method public isProcessComments()Z
-    .locals 1
+    .registers 2
 
     .line 477
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/DumperOptions;->processComments:Z
@@ -374,7 +374,7 @@
 .end method
 
 .method public setAllowReadOnlyProperties(Z)V
-    .locals 0
+    .registers 2
     .param p1, "allowReadOnlyProperties"    # Z
 
     .line 425
@@ -385,7 +385,7 @@
 .end method
 
 .method public setAllowUnicode(Z)V
-    .locals 0
+    .registers 2
     .param p1, "allowUnicode"    # Z
 
     .line 221
@@ -396,7 +396,7 @@
 .end method
 
 .method public setAnchorGenerator(Lorg/yaml/snakeyaml/serializer/AnchorGenerator;)V
-    .locals 0
+    .registers 2
     .param p1, "anchorGenerator"    # Lorg/yaml/snakeyaml/serializer/AnchorGenerator;
 
     .line 447
@@ -407,7 +407,7 @@
 .end method
 
 .method public setCanonical(Z)V
-    .locals 0
+    .registers 2
     .param p1, "canonical"    # Z
 
     .line 301
@@ -418,11 +418,11 @@
 .end method
 
 .method public setDefaultFlowStyle(Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;)V
-    .locals 2
+    .registers 4
     .param p1, "defaultFlowStyle"    # Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
 
     .line 359
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 362
     iput-object p1, p0, Lorg/yaml/snakeyaml/DumperOptions;->defaultFlowStyle:Lorg/yaml/snakeyaml/DumperOptions$FlowStyle;
@@ -431,7 +431,7 @@
     return-void
 
     .line 360
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Use FlowStyle enum."
@@ -442,11 +442,11 @@
 .end method
 
 .method public setDefaultScalarStyle(Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;)V
-    .locals 2
+    .registers 4
     .param p1, "defaultStyle"    # Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
 
     .line 236
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 239
     iput-object p1, p0, Lorg/yaml/snakeyaml/DumperOptions;->defaultStyle:Lorg/yaml/snakeyaml/DumperOptions$ScalarStyle;
@@ -455,7 +455,7 @@
     return-void
 
     .line 237
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Use ScalarStyle enum."
@@ -466,7 +466,7 @@
 .end method
 
 .method public setExplicitEnd(Z)V
-    .locals 0
+    .registers 2
     .param p1, "explicitEnd"    # Z
 
     .line 395
@@ -477,7 +477,7 @@
 .end method
 
 .method public setExplicitStart(Z)V
-    .locals 0
+    .registers 2
     .param p1, "explicitStart"    # Z
 
     .line 387
@@ -488,18 +488,18 @@
 .end method
 
 .method public setIndent(I)V
-    .locals 2
+    .registers 4
     .param p1, "indent"    # I
 
     .line 243
     const/4 v0, 0x1
 
-    if-lt p1, v0, :cond_1
+    if-lt p1, v0, :cond_12
 
     .line 246
     const/16 v0, 0xa
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_a
 
     .line 249
     iput p1, p0, Lorg/yaml/snakeyaml/DumperOptions;->indent:I
@@ -508,7 +508,7 @@
     return-void
 
     .line 247
-    :cond_0
+    :cond_a
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v1, "Indent must be at most 10"
@@ -518,7 +518,7 @@
     throw v0
 
     .line 244
-    :cond_1
+    :cond_12
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v1, "Indent must be at least 1"
@@ -529,7 +529,7 @@
 .end method
 
 .method public setIndentWithIndicator(Z)V
-    .locals 0
+    .registers 2
     .param p1, "indentWithIndicator"    # Z
 
     .line 283
@@ -540,16 +540,16 @@
 .end method
 
 .method public setIndicatorIndent(I)V
-    .locals 2
+    .registers 4
     .param p1, "indicatorIndent"    # I
 
     .line 261
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_11
 
     .line 264
     const/16 v0, 0x9
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_9
 
     .line 267
     iput p1, p0, Lorg/yaml/snakeyaml/DumperOptions;->indicatorIndent:I
@@ -558,7 +558,7 @@
     return-void
 
     .line 265
-    :cond_0
+    :cond_9
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v1, "Indicator indent must be at most Emitter.MAX_INDENT-1: 9"
@@ -568,7 +568,7 @@
     throw v0
 
     .line 262
-    :cond_1
+    :cond_11
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v1, "Indicator indent must be non-negative."
@@ -579,11 +579,11 @@
 .end method
 
 .method public setLineBreak(Lorg/yaml/snakeyaml/DumperOptions$LineBreak;)V
-    .locals 2
+    .registers 4
     .param p1, "lineBreak"    # Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
 
     .line 376
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 379
     iput-object p1, p0, Lorg/yaml/snakeyaml/DumperOptions;->lineBreak:Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
@@ -592,7 +592,7 @@
     return-void
 
     .line 377
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Specify line break."
@@ -603,13 +603,13 @@
 .end method
 
 .method public setMaxSimpleKeyLength(I)V
-    .locals 2
+    .registers 4
     .param p1, "maxSimpleKeyLength"    # I
 
     .line 460
     const/16 v0, 0x400
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_7
 
     .line 463
     iput p1, p0, Lorg/yaml/snakeyaml/DumperOptions;->maxSimpleKeyLength:I
@@ -618,7 +618,7 @@
     return-void
 
     .line 461
-    :cond_0
+    :cond_7
     new-instance v0, Lorg/yaml/snakeyaml/error/YAMLException;
 
     const-string v1, "The simple key must not span more than 1024 stream characters. See https://yaml.org/spec/1.1/#id934537"
@@ -629,7 +629,7 @@
 .end method
 
 .method public setNonPrintableStyle(Lorg/yaml/snakeyaml/DumperOptions$NonPrintableStyle;)V
-    .locals 0
+    .registers 2
     .param p1, "style"    # Lorg/yaml/snakeyaml/DumperOptions$NonPrintableStyle;
 
     .line 490
@@ -640,7 +640,7 @@
 .end method
 
 .method public setPrettyFlow(Z)V
-    .locals 1
+    .registers 3
     .param p1, "prettyFlow"    # Z
 
     .line 316
@@ -655,7 +655,7 @@
 .end method
 
 .method public setProcessComments(Z)V
-    .locals 0
+    .registers 2
     .param p1, "processComments"    # Z
 
     .line 473
@@ -666,7 +666,7 @@
 .end method
 
 .method public setSplitLines(Z)V
-    .locals 0
+    .registers 2
     .param p1, "splitLines"    # Z
 
     .line 347
@@ -677,7 +677,7 @@
 .end method
 
 .method public setTags(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -697,7 +697,7 @@
 .end method
 
 .method public setTimeZone(Ljava/util/TimeZone;)V
-    .locals 0
+    .registers 2
     .param p1, "timeZone"    # Ljava/util/TimeZone;
 
     .line 438
@@ -708,7 +708,7 @@
 .end method
 
 .method public setVersion(Lorg/yaml/snakeyaml/DumperOptions$Version;)V
-    .locals 0
+    .registers 2
     .param p1, "version"    # Lorg/yaml/snakeyaml/DumperOptions$Version;
 
     .line 287
@@ -719,7 +719,7 @@
 .end method
 
 .method public setWidth(I)V
-    .locals 0
+    .registers 2
     .param p1, "bestWidth"    # I
 
     .line 332

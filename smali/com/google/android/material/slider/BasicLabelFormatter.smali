@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getFormattedValue(F)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "value"    # F
 
     .line 37
@@ -41,7 +41,7 @@
 
     cmpl-float v3, p1, v2
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_1c
 
     .line 38
     sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -65,12 +65,12 @@
     return-object v0
 
     .line 39
-    :cond_0
+    :cond_1c
     const v2, 0x4e6e6b28    # 1.0E9f
 
     cmpl-float v3, p1, v2
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_36
 
     .line 40
     sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -94,12 +94,12 @@
     return-object v0
 
     .line 41
-    :cond_1
+    :cond_36
     const v2, 0x49742400    # 1000000.0f
 
     cmpl-float v3, p1, v2
 
-    if-ltz v3, :cond_2
+    if-ltz v3, :cond_50
 
     .line 42
     sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -123,12 +123,12 @@
     return-object v0
 
     .line 43
-    :cond_2
+    :cond_50
     const/high16 v2, 0x447a0000    # 1000.0f
 
     cmpl-float v3, p1, v2
 
-    if-ltz v3, :cond_3
+    if-ltz v3, :cond_69
 
     .line 44
     sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -152,7 +152,7 @@
     return-object v0
 
     .line 47
-    :cond_3
+    :cond_69
     sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;

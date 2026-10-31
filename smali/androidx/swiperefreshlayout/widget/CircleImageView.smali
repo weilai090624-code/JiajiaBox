@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 10
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
 
     .line 58
@@ -115,7 +115,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_51
 
     .line 77
     new-instance v4, Landroid/graphics/drawable/ShapeDrawable;
@@ -134,11 +134,11 @@
 
     invoke-static {p0, v5}, Landroidx/core/view/ViewCompat;->setElevation(Landroid/view/View;F)V
 
-    goto :goto_0
+    goto :goto_78
 
     .line 80
     .end local v4    # "circle":Landroid/graphics/drawable/ShapeDrawable;
-    :cond_0
+    :cond_51
     new-instance v4, Landroid/graphics/drawable/ShapeDrawable;
 
     new-instance v5, Landroidx/swiperefreshlayout/widget/CircleImageView$OvalShadow;
@@ -185,7 +185,7 @@
 
     .line 88
     .end local v5    # "padding":I
-    :goto_0
+    :goto_78
     invoke-virtual {v4}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
 
     move-result-object v5
@@ -202,7 +202,7 @@
 .end method
 
 .method private elevationSupported()Z
-    .locals 1
+    .registers 2
 
     .line 93
     const/4 v0, 0x1
@@ -213,7 +213,7 @@
 
 # virtual methods
 .method public getBackgroundColor()I
-    .locals 1
+    .registers 2
 
     .line 134
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mBackgroundColor:I
@@ -222,7 +222,7 @@
 .end method
 
 .method public onAnimationEnd()V
-    .locals 2
+    .registers 3
 
     .line 119
     invoke-super {p0}, Landroid/widget/ImageView;->onAnimationEnd()V
@@ -230,7 +230,7 @@
     .line 120
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 121
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mListener:Landroid/view/animation/Animation$AnimationListener;
@@ -242,12 +242,12 @@
     invoke-interface {v0, v1}, Landroid/view/animation/Animation$AnimationListener;->onAnimationEnd(Landroid/view/animation/Animation;)V
 
     .line 123
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onAnimationStart()V
-    .locals 2
+    .registers 3
 
     .line 111
     invoke-super {p0}, Landroid/widget/ImageView;->onAnimationStart()V
@@ -255,7 +255,7 @@
     .line 112
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 113
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mListener:Landroid/view/animation/Animation$AnimationListener;
@@ -267,12 +267,12 @@
     invoke-interface {v0, v1}, Landroid/view/animation/Animation$AnimationListener;->onAnimationStart(Landroid/view/animation/Animation;)V
 
     .line 115
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 3
+    .registers 6
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -284,7 +284,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 100
     invoke-virtual {p0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->getMeasuredWidth()I
@@ -310,12 +310,12 @@
     invoke-virtual {p0, v0, v1}, Landroidx/swiperefreshlayout/widget/CircleImageView;->setMeasuredDimension(II)V
 
     .line 103
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Landroid/view/animation/Animation$AnimationListener;
 
     .line 106
@@ -326,7 +326,7 @@
 .end method
 
 .method public setBackgroundColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 127
@@ -336,7 +336,7 @@
 
     instance-of v0, v0, Landroid/graphics/drawable/ShapeDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 128
     invoke-virtual {p0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -355,6 +355,6 @@
     iput p1, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mBackgroundColor:I
 
     .line 131
-    :cond_0
+    :cond_17
     return-void
 .end method

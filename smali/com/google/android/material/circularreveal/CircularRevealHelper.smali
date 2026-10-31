@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 127
     nop
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/material/circularreveal/CircularRevealHelper$Delegate;)V
-    .locals 3
+    .registers 5
     .param p1, "delegate"    # Lcom/google/android/material/circularreveal/CircularRevealHelper$Delegate;
 
     .line 136
@@ -121,7 +121,7 @@
 .end method
 
 .method private drawDebugCircle(Landroid/graphics/Canvas;IF)V
-    .locals 4
+    .registers 8
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "color"    # I
     .param p3, "width"    # F
@@ -164,7 +164,7 @@
 .end method
 
 .method private drawDebugMode(Landroid/graphics/Canvas;)V
-    .locals 4
+    .registers 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 337
@@ -177,7 +177,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 339
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
@@ -197,12 +197,12 @@
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     .line 343
-    :cond_0
+    :cond_1c
     invoke-direct {p0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->shouldDrawCircularReveal()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     .line 344
     const/high16 v0, -0x1000000
@@ -219,7 +219,7 @@
     invoke-direct {p0, p1, v0, v1}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->drawDebugCircle(Landroid/graphics/Canvas;IF)V
 
     .line 348
-    :cond_1
+    :cond_30
     invoke-direct {p0, p1}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->drawOverlayDrawable(Landroid/graphics/Canvas;)V
 
     .line 349
@@ -227,7 +227,7 @@
 .end method
 
 .method private drawOverlayDrawable(Landroid/graphics/Canvas;)V
-    .locals 5
+    .registers 7
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 304
@@ -235,7 +235,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     .line 305
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->overlayDrawable:Landroid/graphics/drawable/Drawable;
@@ -298,12 +298,12 @@
     .end local v0    # "bounds":Landroid/graphics/Rect;
     .end local v1    # "translationX":F
     .end local v2    # "translationY":F
-    :cond_0
+    :cond_31
     return-void
 .end method
 
 .method private getDistanceToFurthestCorner(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)F
-    .locals 6
+    .registers 8
     .param p1, "revealInfo"    # Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
     .line 254
@@ -341,14 +341,14 @@
 .end method
 
 .method private invalidateRevealInfo()V
-    .locals 5
+    .registers 6
 
     .line 242
     sget v0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->STRATEGY:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_21
 
     .line 243
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealPath:Landroid/graphics/Path;
@@ -358,7 +358,7 @@
     .line 244
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 245
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealPath:Landroid/graphics/Path;
@@ -380,7 +380,7 @@
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Path;->addCircle(FFFLandroid/graphics/Path$Direction;)V
 
     .line 250
-    :cond_0
+    :cond_21
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->view:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
@@ -390,7 +390,7 @@
 .end method
 
 .method private shouldDrawCircularReveal()Z
-    .locals 4
+    .registers 5
 
     .line 320
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
@@ -399,7 +399,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
@@ -407,82 +407,82 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x1
 
     .line 321
     .local v0, "invalidRevealInfo":Z
-    :goto_1
+    :goto_12
     sget v3, Lcom/google/android/material/circularreveal/CircularRevealHelper;->STRATEGY:I
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_1e
 
     .line 322
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1d
 
     iget-boolean v3, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->hasCircularRevealCache:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1d
 
     const/4 v1, 0x1
 
-    :cond_2
+    :cond_1d
     return v1
 
     .line 324
-    :cond_3
-    if-nez v0, :cond_4
+    :cond_1e
+    if-nez v0, :cond_21
 
     const/4 v1, 0x1
 
-    :cond_4
+    :cond_21
     return v1
 .end method
 
 .method private shouldDrawOverlayDrawable()Z
-    .locals 1
+    .registers 2
 
     .line 333
     iget-boolean v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->buildingCircularRevealCache:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->overlayDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method private shouldDrawScrim()Z
-    .locals 1
+    .registers 2
 
     .line 329
     iget-boolean v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->buildingCircularRevealCache:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->scrimPaint:Landroid/graphics/Paint;
 
@@ -494,28 +494,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 
 # virtual methods
 .method public buildCircularRevealCache()V
-    .locals 7
+    .registers 8
 
     .line 153
     sget v0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->STRATEGY:I
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_57
 
     .line 154
     const/4 v0, 0x1
@@ -541,7 +541,7 @@
 
     .line 160
     .local v2, "bitmap":Landroid/graphics/Bitmap;
-    if-nez v2, :cond_0
+    if-nez v2, :cond_43
 
     iget-object v3, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->view:Landroid/view/View;
 
@@ -549,7 +549,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_43
 
     iget-object v3, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->view:Landroid/view/View;
 
@@ -557,7 +557,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_43
 
     .line 161
     iget-object v3, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->view:Landroid/view/View;
@@ -591,8 +591,8 @@
 
     .line 166
     .end local v3    # "canvas":Landroid/graphics/Canvas;
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_43
+    if-eqz v2, :cond_53
 
     .line 167
     iget-object v3, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealPaint:Landroid/graphics/Paint;
@@ -608,7 +608,7 @@
     invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 170
-    :cond_1
+    :cond_53
     iput-boolean v1, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->buildingCircularRevealCache:Z
 
     .line 171
@@ -616,17 +616,17 @@
 
     .line 173
     .end local v2    # "bitmap":Landroid/graphics/Bitmap;
-    :cond_2
+    :cond_57
     return-void
 .end method
 
 .method public destroyCircularRevealCache()V
-    .locals 2
+    .registers 3
 
     .line 176
     sget v0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->STRATEGY:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 177
     const/4 v0, 0x0
@@ -651,12 +651,12 @@
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
     .line 182
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 8
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 264
@@ -664,12 +664,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_a0
 
     .line 265
     sget v0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->STRATEGY:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_c6
 
     .line 291
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -699,7 +699,7 @@
     throw v0
 
     .line 267
-    :pswitch_0
+    :pswitch_26
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->delegate:Lcom/google/android/material/circularreveal/CircularRevealHelper$Delegate;
 
     invoke-interface {v0, p1}, Lcom/google/android/material/circularreveal/CircularRevealHelper$Delegate;->actualDraw(Landroid/graphics/Canvas;)V
@@ -709,7 +709,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_c1
 
     .line 269
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->view:Landroid/view/View;
@@ -738,10 +738,10 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_c1
 
     .line 273
-    :pswitch_1
+    :pswitch_49
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     move-result v0
@@ -762,7 +762,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_73
 
     .line 278
     iget-object v1, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->view:Landroid/view/View;
@@ -792,15 +792,15 @@
     invoke-virtual/range {v2 .. v7}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     .line 281
-    :cond_0
+    :cond_73
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     .line 282
-    goto :goto_0
+    goto :goto_c1
 
     .line 284
     .end local v0    # "count":I
-    :pswitch_2
+    :pswitch_77
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
     iget v0, v0, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;->centerX:F
@@ -822,7 +822,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_c1
 
     .line 286
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
@@ -841,10 +841,10 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    goto :goto_0
+    goto :goto_c1
 
     .line 294
-    :cond_1
+    :cond_a0
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->delegate:Lcom/google/android/material/circularreveal/CircularRevealHelper$Delegate;
 
     invoke-interface {v0, p1}, Lcom/google/android/material/circularreveal/CircularRevealHelper$Delegate;->actualDraw(Landroid/graphics/Canvas;)V
@@ -854,7 +854,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_c1
 
     .line 296
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->view:Landroid/view/View;
@@ -884,8 +884,8 @@
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     .line 300
-    :cond_2
-    :goto_0
+    :cond_c1
+    :goto_c1
     invoke-direct {p0, p1}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->drawOverlayDrawable(Landroid/graphics/Canvas;)V
 
     .line 301
@@ -893,16 +893,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c6
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_77
+        :pswitch_49
+        :pswitch_26
     .end packed-switch
 .end method
 
 .method public getCircularRevealOverlayDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 233
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->overlayDrawable:Landroid/graphics/drawable/Drawable;
@@ -911,7 +911,7 @@
 .end method
 
 .method public getCircularRevealScrimColor()I
-    .locals 1
+    .registers 2
 
     .line 228
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->scrimPaint:Landroid/graphics/Paint;
@@ -924,12 +924,12 @@
 .end method
 
 .method public getRevealInfo()Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
-    .locals 2
+    .registers 3
 
     .line 210
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 211
     const/4 v0, 0x0
@@ -937,7 +937,7 @@
     return-object v0
 
     .line 214
-    :cond_0
+    :cond_6
     new-instance v0, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
     iget-object v1, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
@@ -950,7 +950,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     .line 216
     invoke-direct {p0, v0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->getDistanceToFurthestCorner(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)F
@@ -960,12 +960,12 @@
     iput v1, v0, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;->radius:F
 
     .line 218
-    :cond_1
+    :cond_19
     return-object v0
 .end method
 
 .method public isOpaque()Z
-    .locals 1
+    .registers 2
 
     .line 316
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->delegate:Lcom/google/android/material/circularreveal/CircularRevealHelper$Delegate;
@@ -974,27 +974,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-direct {p0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->shouldDrawCircularReveal()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public setCircularRevealOverlayDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 237
@@ -1010,7 +1010,7 @@
 .end method
 
 .method public setCircularRevealScrimColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 222
@@ -1028,24 +1028,24 @@
 .end method
 
 .method public setRevealInfo(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V
-    .locals 3
+    .registers 5
     .param p1, "revealInfo"    # Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
     .line 189
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
     .line 190
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 192
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
     .line 193
     new-instance v0, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
@@ -1054,16 +1054,16 @@
 
     iput-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
-    goto :goto_0
+    goto :goto_17
 
     .line 195
-    :cond_1
+    :cond_12
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
 
     invoke-virtual {v0, p1}, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;->set(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V
 
     .line 199
-    :goto_0
+    :goto_17
     iget v0, p1, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;->radius:F
 
     .line 200
@@ -1078,7 +1078,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     .line 201
     iget-object v0, p0, Lcom/google/android/material/circularreveal/CircularRevealHelper;->revealInfo:Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
@@ -1088,8 +1088,8 @@
     iput v1, v0, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;->radius:F
 
     .line 205
-    :cond_2
-    :goto_1
+    :cond_2d
+    :goto_2d
     invoke-direct {p0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->invalidateRevealInfo()V
 
     .line 206

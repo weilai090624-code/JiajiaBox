@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/activity/SystemBarStyle$Companion$light$1;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public final invoke(Landroid/content/res/Resources;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 3
 
     const-string v0, "<anonymous parameter 0>"
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 187

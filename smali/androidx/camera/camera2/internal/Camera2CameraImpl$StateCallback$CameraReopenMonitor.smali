@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;)V
-    .locals 2
+    .registers 4
     .param p1, "this$1"    # Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method canScheduleCameraReopen()Z
-    .locals 9
+    .registers 10
 
     .line 1552
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -72,7 +72,7 @@
 
     cmp-long v7, v2, v4
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_10
 
     .line 1556
     iput-wide v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$CameraReopenMonitor;->mFirstReopenTime:J
@@ -81,7 +81,7 @@
     return v6
 
     .line 1560
-    :cond_0
+    :cond_10
     iget-wide v2, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$CameraReopenMonitor;->mFirstReopenTime:J
 
     sub-long v2, v0, v2
@@ -92,19 +92,19 @@
 
     cmp-long v8, v2, v4
 
-    if-ltz v8, :cond_1
+    if-ltz v8, :cond_1d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v2, 0x0
 
     .line 1564
     .local v2, "hasReachedLimit":Z
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_1e
+    if-eqz v2, :cond_24
 
     .line 1565
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$CameraReopenMonitor;->reset()V
@@ -113,12 +113,12 @@
     return v7
 
     .line 1569
-    :cond_2
+    :cond_24
     return v6
 .end method
 
 .method reset()V
-    .locals 2
+    .registers 3
 
     .line 1573
     const-wide/16 v0, -0x1

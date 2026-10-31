@@ -55,7 +55,7 @@
 
 # direct methods
 .method constructor <init>(ILcom/google/common/base/Supplier;)V
-    .locals 2
+    .registers 5
     .param p1, "stripes"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -77,18 +77,18 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     const v0, 0x7fffffff
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_c
     iget v0, p0, Lcom/google/common/util/concurrent/Striped$LargeLazyStriped;->mask:I
 
     add-int/lit8 v0, v0, 0x1
 
-    :goto_0
+    :goto_10
     iput v0, p0, Lcom/google/common/util/concurrent/Striped$LargeLazyStriped;->size:I
 
     .line 520
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public getAt(I)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -131,7 +131,7 @@
 
     const v1, 0x7fffffff
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
     .line 527
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/Striped$LargeLazyStriped;->size()I
@@ -141,7 +141,7 @@
     invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     .line 529
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/google/common/util/concurrent/Striped$LargeLazyStriped;->locks:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -154,13 +154,13 @@
 
     .line 530
     .local v0, "existing":Ljava/lang/Object;, "TL;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 531
     return-object v0
 
     .line 533
-    :cond_1
+    :cond_1b
     iget-object v1, p0, Lcom/google/common/util/concurrent/Striped$LargeLazyStriped;->supplier:Lcom/google/common/base/Supplier;
 
     invoke-interface {v1}, Lcom/google/common/base/Supplier;->get()Ljava/lang/Object;
@@ -188,7 +188,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 540
     .local p0, "this":Lcom/google/common/util/concurrent/Striped$LargeLazyStriped;, "Lcom/google/common/util/concurrent/Striped$LargeLazyStriped<TL;>;"

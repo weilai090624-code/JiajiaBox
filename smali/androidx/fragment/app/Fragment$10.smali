@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/Fragment;Ljava/util/concurrent/atomic/AtomicReference;Landroidx/activity/result/contract/ActivityResultContract;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/fragment/app/Fragment;
 
     .line 3604
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getContract()Landroidx/activity/result/contract/ActivityResultContract;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -65,7 +65,7 @@
 .end method
 
 .method public launch(Ljava/lang/Object;Landroidx/core/app/ActivityOptionsCompat;)V
-    .locals 3
+    .registers 6
     .param p2, "options"    # Landroidx/core/app/ActivityOptionsCompat;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -87,7 +87,7 @@
 
     .line 3608
     .local v0, "delegate":Landroidx/activity/result/ActivityResultLauncher;, "Landroidx/activity/result/ActivityResultLauncher<TI;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 3612
     invoke-virtual {v0, p1, p2}, Landroidx/activity/result/ActivityResultLauncher;->launch(Ljava/lang/Object;Landroidx/core/app/ActivityOptionsCompat;)V
@@ -96,7 +96,7 @@
     return-void
 
     .line 3609
-    :cond_0
+    :cond_e
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Operation cannot be started before fragment is in created state"
@@ -107,7 +107,7 @@
 .end method
 
 .method public unregister()V
-    .locals 2
+    .registers 3
 
     .line 3617
     iget-object v0, p0, Landroidx/fragment/app/Fragment$10;->val$ref:Ljava/util/concurrent/atomic/AtomicReference;
@@ -122,12 +122,12 @@
 
     .line 3618
     .local v0, "delegate":Landroidx/activity/result/ActivityResultLauncher;, "Landroidx/activity/result/ActivityResultLauncher<TI;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 3619
     invoke-virtual {v0}, Landroidx/activity/result/ActivityResultLauncher;->unregister()V
 
     .line 3621
-    :cond_0
+    :cond_e
     return-void
 .end method

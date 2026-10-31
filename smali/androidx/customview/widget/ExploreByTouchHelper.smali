@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 100
     new-instance v0, Landroid/graphics/Rect;
@@ -99,7 +99,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "host"    # Landroid/view/View;
 
     .line 135
@@ -145,7 +145,7 @@
     iput v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHoveredVirtualViewId:I
 
     .line 136
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_45
 
     .line 140
     iput-object p1, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
@@ -177,18 +177,18 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_44
 
     .line 150
     invoke-static {p1, v1}, Landroidx/core/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
 
     .line 153
-    :cond_0
+    :cond_44
     return-void
 
     .line 137
     .end local v0    # "context":Landroid/content/Context;
-    :cond_1
+    :cond_45
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "View may not be null"
@@ -199,13 +199,13 @@
 .end method
 
 .method private clearAccessibilityFocus(I)Z
-    .locals 1
+    .registers 3
     .param p1, "virtualViewId"    # I
 
     .line 1001
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_14
 
     .line 1002
     const/high16 v0, -0x80000000
@@ -228,21 +228,21 @@
     return v0
 
     .line 1008
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private clickKeyboardFocusedVirtualView()Z
-    .locals 3
+    .registers 4
 
     .line 483
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
     const/high16 v1, -0x80000000
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_13
 
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
@@ -254,26 +254,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method private createEvent(II)Landroid/view/accessibility/AccessibilityEvent;
-    .locals 1
+    .registers 4
     .param p1, "virtualViewId"    # I
     .param p2, "eventType"    # I
 
     .line 639
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_e
 
     .line 643
     invoke-direct {p0, p1, p2}, Landroidx/customview/widget/ExploreByTouchHelper;->createEventForChild(II)Landroid/view/accessibility/AccessibilityEvent;
@@ -283,7 +283,7 @@
     return-object v0
 
     .line 641
-    :pswitch_0
+    :pswitch_8
     invoke-direct {p0, p2}, Landroidx/customview/widget/ExploreByTouchHelper;->createEventForHost(I)Landroid/view/accessibility/AccessibilityEvent;
 
     move-result-object v0
@@ -292,14 +292,14 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_e
     .packed-switch -0x1
-        :pswitch_0
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method private createEventForChild(II)Landroid/view/accessibility/AccessibilityEvent;
-    .locals 4
+    .registers 7
     .param p1, "virtualViewId"    # I
     .param p2, "eventType"    # I
 
@@ -373,18 +373,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_52
 
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityEvent;->getContentDescription()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4a
 
-    goto :goto_0
+    goto :goto_52
 
     .line 695
-    :cond_0
+    :cond_4a
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "Callbacks must add text or a content description in populateEventForVirtualViewId()"
@@ -394,8 +394,8 @@
     throw v2
 
     .line 700
-    :cond_1
-    :goto_0
+    :cond_52
+    :goto_52
     invoke-virtual {v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->getClassName()Ljava/lang/CharSequence;
 
     move-result-object v2
@@ -425,7 +425,7 @@
 .end method
 
 .method private createEventForHost(I)Landroid/view/accessibility/AccessibilityEvent;
-    .locals 2
+    .registers 4
     .param p1, "eventType"    # I
 
     .line 655
@@ -444,7 +444,7 @@
 .end method
 
 .method private createNodeForChild(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 11
+    .registers 13
     .param p1, "virtualViewId"    # I
 
     .line 793
@@ -489,18 +489,18 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_37
 
     invoke-virtual {v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->getContentDescription()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2f
 
-    goto :goto_0
+    goto :goto_37
 
     .line 809
-    :cond_0
+    :cond_2f
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Callbacks must add text or a content description in populateNodeForVirtualViewId()"
@@ -510,8 +510,8 @@
     throw v1
 
     .line 813
-    :cond_1
-    :goto_0
+    :cond_37
+    :goto_37
     iget-object v2, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mTempParentRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0, v2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->getBoundsInParent(Landroid/graphics/Rect;)V
@@ -525,7 +525,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_14c
 
     .line 819
     invoke-virtual {v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->getActions()I
@@ -536,12 +536,12 @@
     .local v2, "actions":I
     and-int/lit8 v3, v2, 0x40
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_144
 
     .line 824
     and-int/lit16 v3, v2, 0x80
 
-    if-nez v3, :cond_a
+    if-nez v3, :cond_13c
 
     .line 830
     iget-object v3, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
@@ -566,7 +566,7 @@
 
     const/4 v4, 0x0
 
-    if-ne v3, p1, :cond_2
+    if-ne v3, p1, :cond_72
 
     .line 835
     invoke-virtual {v0, v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setAccessibilityFocused(Z)V
@@ -576,10 +576,10 @@
 
     invoke-virtual {v0, v3}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
-    goto :goto_1
+    goto :goto_7a
 
     .line 838
-    :cond_2
+    :cond_72
     invoke-virtual {v0, v4}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setAccessibilityFocused(Z)V
 
     .line 839
@@ -588,44 +588,44 @@
     invoke-virtual {v0, v3}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
     .line 843
-    :goto_1
+    :goto_7a
     iget v3, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
-    if-ne v3, p1, :cond_3
+    if-ne v3, p1, :cond_80
 
     const/4 v3, 0x1
 
-    goto :goto_2
+    goto :goto_81
 
-    :cond_3
+    :cond_80
     const/4 v3, 0x0
 
     .line 844
     .local v3, "isFocused":Z
-    :goto_2
-    if-eqz v3, :cond_4
+    :goto_81
+    if-eqz v3, :cond_88
 
     .line 845
     const/4 v5, 0x2
 
     invoke-virtual {v0, v5}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
-    goto :goto_3
+    goto :goto_91
 
     .line 846
-    :cond_4
+    :cond_88
     invoke-virtual {v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->isFocusable()Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_91
 
     .line 847
     invoke-virtual {v0, v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
     .line 849
-    :cond_5
-    :goto_3
+    :cond_91
+    :goto_91
     invoke-virtual {v0, v3}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setFocused(Z)V
 
     .line 851
@@ -649,7 +649,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_fc
 
     .line 857
     iget-object v5, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mTempScreenRect:Landroid/graphics/Rect;
@@ -661,7 +661,7 @@
 
     const/4 v6, -0x1
 
-    if-eq v5, v6, :cond_7
+    if-eq v5, v6, :cond_e1
 
     .line 861
     invoke-static {}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->obtain()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
@@ -674,8 +674,8 @@
 
     .line 864
     .local v7, "virtualDescendantId":I
-    :goto_4
-    if-eq v7, v6, :cond_6
+    :goto_ba
+    if-eq v7, v6, :cond_de
 
     .line 867
     iget-object v8, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
@@ -711,16 +711,16 @@
     .line 865
     iget v7, v5, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->mParentVirtualDescendantId:I
 
-    goto :goto_4
+    goto :goto_ba
 
     .line 874
     .end local v7    # "virtualDescendantId":I
-    :cond_6
+    :cond_de
     invoke-virtual {v5}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->recycle()V
 
     .line 877
     .end local v5    # "parentNode":Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    :cond_7
+    :cond_e1
     iget-object v5, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mTempScreenRect:Landroid/graphics/Rect;
 
     iget-object v6, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mTempGlobalRect:[I
@@ -752,7 +752,7 @@
     invoke-virtual {v5, v6, v7}, Landroid/graphics/Rect;->offset(II)V
 
     .line 881
-    :cond_8
+    :cond_fc
     iget-object v5, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
     iget-object v6, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mTempVisibleRect:Landroid/graphics/Rect;
@@ -761,7 +761,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_13b
 
     .line 882
     iget-object v5, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mTempVisibleRect:Landroid/graphics/Rect;
@@ -805,7 +805,7 @@
 
     .line 885
     .local v4, "intersects":Z
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_13b
 
     .line 886
     iget-object v5, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mTempScreenRect:Landroid/graphics/Rect;
@@ -819,19 +819,19 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_13b
 
     .line 889
     invoke-virtual {v0, v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setVisibleToUser(Z)V
 
     .line 894
     .end local v4    # "intersects":Z
-    :cond_9
+    :cond_13b
     return-object v0
 
     .line 825
     .end local v3    # "isFocused":Z
-    :cond_a
+    :cond_13c
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v3, "Callbacks must not add ACTION_CLEAR_ACCESSIBILITY_FOCUS in populateNodeForVirtualViewId()"
@@ -841,7 +841,7 @@
     throw v1
 
     .line 821
-    :cond_b
+    :cond_144
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v3, "Callbacks must not add ACTION_ACCESSIBILITY_FOCUS in populateNodeForVirtualViewId()"
@@ -852,7 +852,7 @@
 
     .line 815
     .end local v2    # "actions":I
-    :cond_c
+    :cond_14c
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Callbacks must set parent bounds in populateNodeForVirtualViewId()"
@@ -863,7 +863,7 @@
 .end method
 
 .method private createNodeForHost()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 7
+    .registers 8
 
     .line 736
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
@@ -894,18 +894,18 @@
 
     .line 744
     .local v2, "realNodeCount":I
-    if-lez v2, :cond_1
+    if-lez v2, :cond_28
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    if-gtz v3, :cond_0
+    if-gtz v3, :cond_20
 
-    goto :goto_0
+    goto :goto_28
 
     .line 745
-    :cond_0
+    :cond_20
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string v4, "Views cannot have both real and virtual children"
@@ -915,8 +915,8 @@
     throw v3
 
     .line 748
-    :cond_1
-    :goto_0
+    :cond_28
+    :goto_28
     const/4 v3, 0x0
 
     .local v3, "i":I
@@ -925,8 +925,8 @@
     move-result v4
 
     .local v4, "count":I
-    :goto_1
-    if-ge v3, v4, :cond_2
+    :goto_2d
+    if-ge v3, v4, :cond_41
 
     .line 749
     iget-object v5, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
@@ -946,17 +946,17 @@
     .line 748
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 752
     .end local v3    # "i":I
     .end local v4    # "count":I
-    :cond_2
+    :cond_41
     return-object v0
 .end method
 
 .method private getAllNodes()Landroidx/collection/SparseArrayCompat;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -985,12 +985,12 @@
     const/4 v2, 0x0
 
     .local v2, "virtualViewIdIndex":I
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_33
 
     .line 433
     nop
@@ -1028,16 +1028,16 @@
     .end local v3    # "virtualView":Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 438
     .end local v2    # "virtualViewIdIndex":I
-    :cond_0
+    :cond_33
     return-object v1
 .end method
 
 .method private getBoundsInParent(ILandroid/graphics/Rect;)V
-    .locals 1
+    .registers 4
     .param p1, "virtualViewId"    # I
     .param p2, "outBounds"    # Landroid/graphics/Rect;
 
@@ -1055,7 +1055,7 @@
 .end method
 
 .method private static guessPreviouslyFocusedRect(Landroid/view/View;ILandroid/graphics/Rect;)Landroid/graphics/Rect;
-    .locals 4
+    .registers 7
     .param p0, "host"    # Landroid/view/View;
     .param p1, "direction"    # I
     .param p2, "outBounds"    # Landroid/graphics/Rect;
@@ -1077,7 +1077,7 @@
 
     const/4 v3, 0x0
 
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_26
 
     .line 469
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -1089,78 +1089,78 @@
     throw v2
 
     .line 466
-    :sswitch_0
+    :sswitch_15
     invoke-virtual {p2, v3, v2, v0, v2}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 467
-    goto :goto_0
+    goto :goto_25
 
     .line 463
-    :sswitch_1
+    :sswitch_19
     invoke-virtual {p2, v2, v3, v2, v1}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 464
-    goto :goto_0
+    goto :goto_25
 
     .line 460
-    :sswitch_2
+    :sswitch_1d
     invoke-virtual {p2, v3, v1, v0, v1}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 461
-    goto :goto_0
+    goto :goto_25
 
     .line 457
-    :sswitch_3
+    :sswitch_21
     invoke-virtual {p2, v0, v3, v0, v1}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 458
     nop
 
     .line 473
-    :goto_0
+    :goto_25
     return-object p2
 
-    :sswitch_data_0
+    :sswitch_data_26
     .sparse-switch
-        0x11 -> :sswitch_3
-        0x21 -> :sswitch_2
-        0x42 -> :sswitch_1
-        0x82 -> :sswitch_0
+        0x11 -> :sswitch_21
+        0x21 -> :sswitch_1d
+        0x42 -> :sswitch_19
+        0x82 -> :sswitch_15
     .end sparse-switch
 .end method
 
 .method private isVisibleToUser(Landroid/graphics/Rect;)Z
-    .locals 5
+    .registers 7
     .param p1, "localRect"    # Landroid/graphics/Rect;
 
     .line 935
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_3a
 
     invoke-virtual {p1}, Landroid/graphics/Rect;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
-    goto :goto_2
+    goto :goto_3a
 
     .line 940
-    :cond_0
+    :cond_a
     iget-object v1, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getWindowVisibility()I
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_13
 
     .line 941
     return v0
 
     .line 945
-    :cond_1
+    :cond_13
     iget-object v1, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -1169,10 +1169,10 @@
 
     .line 946
     .local v1, "viewParent":Landroid/view/ViewParent;
-    :goto_0
+    :goto_19
     instance-of v2, v1, Landroid/view/View;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_36
 
     .line 947
     move-object v2, v1
@@ -1189,93 +1189,93 @@
 
     cmpg-float v3, v3, v4
 
-    if-lez v3, :cond_3
+    if-lez v3, :cond_35
 
     invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_30
 
-    goto :goto_1
+    goto :goto_35
 
     .line 951
-    :cond_2
+    :cond_30
     invoke-virtual {v2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
 
     .line 952
     .end local v2    # "view":Landroid/view/View;
-    goto :goto_0
+    goto :goto_19
 
     .line 949
     .restart local v2    # "view":Landroid/view/View;
-    :cond_3
-    :goto_1
+    :cond_35
+    :goto_35
     return v0
 
     .line 955
     .end local v2    # "view":Landroid/view/View;
-    :cond_4
-    if-eqz v1, :cond_5
+    :cond_36
+    if-eqz v1, :cond_39
 
     const/4 v0, 0x1
 
-    :cond_5
+    :cond_39
     return v0
 
     .line 936
     .end local v1    # "viewParent":Landroid/view/ViewParent;
-    :cond_6
-    :goto_2
+    :cond_3a
+    :goto_3a
     return v0
 .end method
 
 .method private static keyToDirection(I)I
-    .locals 1
+    .registers 2
     .param p0, "keyCode"    # I
 
     .line 309
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_10
 
     .line 317
-    :pswitch_0
+    :pswitch_3
     const/16 v0, 0x82
 
     return v0
 
     .line 315
-    :pswitch_1
+    :pswitch_6
     const/16 v0, 0x42
 
     return v0
 
     .line 311
-    :pswitch_2
+    :pswitch_9
     const/16 v0, 0x11
 
     return v0
 
     .line 313
-    :pswitch_3
+    :pswitch_c
     const/16 v0, 0x21
 
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_10
     .packed-switch 0x13
+        :pswitch_c
         :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
+        :pswitch_9
+        :pswitch_6
     .end packed-switch
 .end method
 
 .method private moveFocus(ILandroid/graphics/Rect;)Z
-    .locals 13
+    .registers 16
     .param p1, "direction"    # I
     .param p2, "previouslyFocusedRect"    # Landroid/graphics/Rect;
 
@@ -1292,25 +1292,25 @@
     .local v12, "focusedNodeId":I
     const/high16 v0, -0x80000000
 
-    if-ne v12, v0, :cond_0
+    if-ne v12, v0, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_c
     invoke-virtual {v11, v12}, Landroidx/collection/SparseArrayCompat;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
-    :goto_0
+    :goto_12
     move-object v3, v1
 
     .line 379
     .local v3, "focusedNode":Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_76
 
     .line 410
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1322,7 +1322,7 @@
     throw v0
 
     .line 392
-    :sswitch_0
+    :sswitch_1e
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
@@ -1333,32 +1333,32 @@
     .local v6, "selectedRect":Landroid/graphics/Rect;
     iget v1, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
-    if-eq v1, v0, :cond_1
+    if-eq v1, v0, :cond_2e
 
     .line 395
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
     invoke-direct {p0, v0, v6}, Landroidx/customview/widget/ExploreByTouchHelper;->getBoundsInParent(ILandroid/graphics/Rect;)V
 
-    goto :goto_1
+    goto :goto_39
 
     .line 396
-    :cond_1
-    if-eqz p2, :cond_2
+    :cond_2e
+    if-eqz p2, :cond_34
 
     .line 398
     invoke-virtual {v6, p2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    goto :goto_1
+    goto :goto_39
 
     .line 404
-    :cond_2
+    :cond_34
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
     invoke-static {v0, p1, v6}, Landroidx/customview/widget/ExploreByTouchHelper;->guessPreviouslyFocusedRect(Landroid/view/View;ILandroid/graphics/Rect;)Landroid/graphics/Rect;
 
     .line 406
-    :goto_1
+    :goto_39
     sget-object v1, Landroidx/customview/widget/ExploreByTouchHelper;->SPARSE_VALUES_ADAPTER:Landroidx/customview/widget/FocusStrategy$CollectionAdapter;
 
     sget-object v2, Landroidx/customview/widget/ExploreByTouchHelper;->NODE_ADAPTER:Landroidx/customview/widget/FocusStrategy$BoundsAdapter;
@@ -1377,12 +1377,12 @@
 
     .line 408
     .local v0, "nextFocusedNode":Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    goto :goto_3
+    goto :goto_63
 
     .line 382
     .end local v0    # "nextFocusedNode":Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
     .end local v6    # "selectedRect":Landroid/graphics/Rect;
-    :sswitch_1
+    :sswitch_47
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
     .line 383
@@ -1392,20 +1392,20 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_52
 
     const/4 v9, 0x1
 
-    goto :goto_2
+    goto :goto_54
 
-    :cond_3
+    :cond_52
     const/4 v0, 0x0
 
     const/4 v9, 0x0
 
     .line 384
     .local v9, "isLayoutRtl":Z
-    :goto_2
+    :goto_54
     sget-object v5, Landroidx/customview/widget/ExploreByTouchHelper;->SPARSE_VALUES_ADAPTER:Landroidx/customview/widget/FocusStrategy$CollectionAdapter;
 
     sget-object v6, Landroidx/customview/widget/ExploreByTouchHelper;->NODE_ADAPTER:Landroidx/customview/widget/FocusStrategy$BoundsAdapter;
@@ -1430,18 +1430,18 @@
 
     .line 416
     .end local v9    # "isLayoutRtl":Z
-    :goto_3
-    if-nez v0, :cond_4
+    :goto_63
+    if-nez v0, :cond_68
 
     .line 417
     const/high16 v1, -0x80000000
 
     .local v1, "nextFocusedNodeId":I
-    goto :goto_4
+    goto :goto_71
 
     .line 419
     .end local v1    # "nextFocusedNodeId":I
-    :cond_4
+    :cond_68
     invoke-virtual {v11, v0}, Landroidx/collection/SparseArrayCompat;->indexOfValue(Ljava/lang/Object;)I
 
     move-result v1
@@ -1456,32 +1456,32 @@
 
     .line 423
     .local v1, "nextFocusedNodeId":I
-    :goto_4
+    :goto_71
     invoke-virtual {p0, v1}, Landroidx/customview/widget/ExploreByTouchHelper;->requestKeyboardFocusForVirtualView(I)Z
 
     move-result v2
 
     return v2
 
-    :sswitch_data_0
+    :sswitch_data_76
     .sparse-switch
-        0x1 -> :sswitch_1
-        0x2 -> :sswitch_1
-        0x11 -> :sswitch_0
-        0x21 -> :sswitch_0
-        0x42 -> :sswitch_0
-        0x82 -> :sswitch_0
+        0x1 -> :sswitch_47
+        0x2 -> :sswitch_47
+        0x11 -> :sswitch_1e
+        0x21 -> :sswitch_1e
+        0x42 -> :sswitch_1e
+        0x82 -> :sswitch_1e
     .end sparse-switch
 .end method
 
 .method private performActionForChild(IILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
     .param p1, "virtualViewId"    # I
     .param p2, "action"    # I
     .param p3, "arguments"    # Landroid/os/Bundle;
 
     .line 911
-    sparse-switch p2, :sswitch_data_0
+    sparse-switch p2, :sswitch_data_1c
 
     .line 921
     invoke-virtual {p0, p1, p2, p3}, Landroidx/customview/widget/ExploreByTouchHelper;->onPerformActionForVirtualView(IILandroid/os/Bundle;)Z
@@ -1491,7 +1491,7 @@
     return v0
 
     .line 915
-    :sswitch_0
+    :sswitch_8
     invoke-direct {p0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;->clearAccessibilityFocus(I)Z
 
     move-result v0
@@ -1499,7 +1499,7 @@
     return v0
 
     .line 913
-    :sswitch_1
+    :sswitch_d
     invoke-direct {p0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;->requestAccessibilityFocus(I)Z
 
     move-result v0
@@ -1507,7 +1507,7 @@
     return v0
 
     .line 919
-    :sswitch_2
+    :sswitch_12
     invoke-virtual {p0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;->clearKeyboardFocusForVirtualView(I)Z
 
     move-result v0
@@ -1515,24 +1515,24 @@
     return v0
 
     .line 917
-    :sswitch_3
+    :sswitch_17
     invoke-virtual {p0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;->requestKeyboardFocusForVirtualView(I)Z
 
     move-result v0
 
     return v0
 
-    :sswitch_data_0
+    :sswitch_data_1c
     .sparse-switch
-        0x1 -> :sswitch_3
-        0x2 -> :sswitch_2
-        0x40 -> :sswitch_1
-        0x80 -> :sswitch_0
+        0x1 -> :sswitch_17
+        0x2 -> :sswitch_12
+        0x40 -> :sswitch_d
+        0x80 -> :sswitch_8
     .end sparse-switch
 .end method
 
 .method private performActionForHost(ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 4
     .param p1, "action"    # I
     .param p2, "arguments"    # Landroid/os/Bundle;
 
@@ -1547,7 +1547,7 @@
 .end method
 
 .method private requestAccessibilityFocus(I)Z
-    .locals 2
+    .registers 4
     .param p1, "virtualViewId"    # I
 
     .line 971
@@ -1559,7 +1559,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_31
 
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mManager:Landroid/view/accessibility/AccessibilityManager;
 
@@ -1567,22 +1567,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
-    goto :goto_0
+    goto :goto_31
 
     .line 975
-    :cond_0
+    :cond_12
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
 
-    if-eq v0, p1, :cond_2
+    if-eq v0, p1, :cond_30
 
     .line 977
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
 
     const/high16 v1, -0x80000000
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_21
 
     .line 978
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
@@ -1590,7 +1590,7 @@
     invoke-direct {p0, v0}, Landroidx/customview/widget/ExploreByTouchHelper;->clearAccessibilityFocus(I)Z
 
     .line 982
-    :cond_1
+    :cond_21
     iput p1, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
 
     .line 985
@@ -1609,29 +1609,29 @@
     return v0
 
     .line 990
-    :cond_2
+    :cond_30
     return v1
 
     .line 972
-    :cond_3
-    :goto_0
+    :cond_31
+    :goto_31
     return v1
 .end method
 
 .method private updateHoveredVirtualView(I)V
-    .locals 2
+    .registers 4
     .param p1, "virtualViewId"    # I
 
     .line 614
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHoveredVirtualViewId:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     .line 615
     return-void
 
     .line 618
-    :cond_0
+    :cond_5
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHoveredVirtualViewId:I
 
     .line 619
@@ -1655,7 +1655,7 @@
 
 # virtual methods
 .method public final clearKeyboardFocusForVirtualView(I)Z
-    .locals 2
+    .registers 4
     .param p1, "virtualViewId"    # I
 
     .line 1053
@@ -1663,13 +1663,13 @@
 
     const/4 v1, 0x0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_6
 
     .line 1055
     return v1
 
     .line 1058
-    :cond_0
+    :cond_6
     const/high16 v0, -0x80000000
 
     iput v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
@@ -1689,7 +1689,7 @@
 .end method
 
 .method public final dispatchHoverEvent(Landroid/view/MotionEvent;)Z
-    .locals 5
+    .registers 7
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 182
@@ -1701,7 +1701,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_39
 
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mManager:Landroid/view/accessibility/AccessibilityManager;
 
@@ -1709,12 +1709,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
-    goto :goto_0
+    goto :goto_39
 
     .line 186
-    :cond_0
+    :cond_12
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
@@ -1723,17 +1723,17 @@
 
     const/high16 v3, -0x80000000
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3a
 
     .line 199
-    :pswitch_0
+    :pswitch_1c
     return v1
 
     .line 193
-    :pswitch_1
+    :pswitch_1d
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHoveredVirtualViewId:I
 
-    if-eq v0, v3, :cond_1
+    if-eq v0, v3, :cond_25
 
     .line 194
     invoke-direct {p0, v3}, Landroidx/customview/widget/ExploreByTouchHelper;->updateHoveredVirtualView(I)V
@@ -1742,11 +1742,11 @@
     return v2
 
     .line 197
-    :cond_1
+    :cond_25
     return v1
 
     .line 189
-    :pswitch_2
+    :pswitch_26
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -1764,30 +1764,30 @@
     invoke-direct {p0, v0}, Landroidx/customview/widget/ExploreByTouchHelper;->updateHoveredVirtualView(I)V
 
     .line 191
-    if-eq v0, v3, :cond_2
+    if-eq v0, v3, :cond_38
 
     const/4 v1, 0x1
 
-    :cond_2
+    :cond_38
     return v1
 
     .line 183
     .end local v0    # "virtualViewId":I
-    :cond_3
-    :goto_0
+    :cond_39
+    :goto_39
     return v1
 
-    :pswitch_data_0
+    :pswitch_data_3a
     .packed-switch 0x7
-        :pswitch_2
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
+        :pswitch_26
+        :pswitch_1c
+        :pswitch_26
+        :pswitch_1d
     .end packed-switch
 .end method
 
 .method public final dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 8
+    .registers 10
     .param p1, "event"    # Landroid/view/KeyEvent;
 
     .line 216
@@ -1803,7 +1803,7 @@
     .local v1, "action":I
     const/4 v2, 0x1
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_56
 
     .line 220
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
@@ -1814,17 +1814,17 @@
     .local v3, "keyCode":I
     const/4 v4, 0x0
 
-    sparse-switch v3, :sswitch_data_0
+    sparse-switch v3, :sswitch_data_58
 
-    goto :goto_1
+    goto :goto_56
 
     .line 248
-    :sswitch_0
+    :sswitch_11
     invoke-virtual {p1}, Landroid/view/KeyEvent;->hasNoModifiers()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1d
 
     .line 249
     const/4 v2, 0x2
@@ -1833,37 +1833,37 @@
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_56
 
     .line 250
-    :cond_0
+    :cond_1d
     invoke-virtual {p1, v2}, Landroid/view/KeyEvent;->hasModifiers(I)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_56
 
     .line 251
     invoke-direct {p0, v2, v4}, Landroidx/customview/widget/ExploreByTouchHelper;->moveFocus(ILandroid/graphics/Rect;)Z
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_56
 
     .line 240
-    :sswitch_1
+    :sswitch_28
     invoke-virtual {p1}, Landroid/view/KeyEvent;->hasNoModifiers()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_56
 
     .line 241
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getRepeatCount()I
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_56
 
     .line 242
     invoke-direct {p0}, Landroidx/customview/widget/ExploreByTouchHelper;->clickKeyboardFocusedVirtualView()Z
@@ -1871,15 +1871,15 @@
     .line 243
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_56
 
     .line 226
-    :sswitch_2
+    :sswitch_39
     invoke-virtual {p1}, Landroid/view/KeyEvent;->hasNoModifiers()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_56
 
     .line 227
     invoke-static {v3}, Landroidx/customview/widget/ExploreByTouchHelper;->keyToDirection(I)I
@@ -1899,15 +1899,15 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v6, :cond_1
+    :goto_49
+    if-ge v2, v6, :cond_55
 
     .line 230
     invoke-direct {p0, v5, v4}, Landroidx/customview/widget/ExploreByTouchHelper;->moveFocus(ILandroid/graphics/Rect;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_55
 
     .line 231
     const/4 v0, 0x1
@@ -1915,37 +1915,37 @@
     .line 229
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_49
 
     .line 236
     .end local v2    # "i":I
     .end local v5    # "direction":I
     .end local v6    # "count":I
-    :cond_1
+    :cond_55
     nop
 
     .line 257
     .end local v3    # "keyCode":I
-    :cond_2
-    :goto_1
+    :cond_56
+    :goto_56
     return v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_58
     .sparse-switch
-        0x13 -> :sswitch_2
-        0x14 -> :sswitch_2
-        0x15 -> :sswitch_2
-        0x16 -> :sswitch_2
-        0x17 -> :sswitch_1
-        0x3d -> :sswitch_0
-        0x42 -> :sswitch_1
+        0x13 -> :sswitch_39
+        0x14 -> :sswitch_39
+        0x15 -> :sswitch_39
+        0x16 -> :sswitch_39
+        0x17 -> :sswitch_28
+        0x3d -> :sswitch_11
+        0x42 -> :sswitch_28
     .end sparse-switch
 .end method
 
 .method public final getAccessibilityFocusedVirtualViewId()I
-    .locals 1
+    .registers 2
 
     .line 290
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
@@ -1954,13 +1954,13 @@
 .end method
 
 .method public getAccessibilityNodeProvider(Landroid/view/View;)Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
-    .locals 1
+    .registers 3
     .param p1, "host"    # Landroid/view/View;
 
     .line 157
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mNodeProvider:Landroidx/customview/widget/ExploreByTouchHelper$MyNodeProvider;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 158
     new-instance v0, Landroidx/customview/widget/ExploreByTouchHelper$MyNodeProvider;
@@ -1970,14 +1970,14 @@
     iput-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mNodeProvider:Landroidx/customview/widget/ExploreByTouchHelper$MyNodeProvider;
 
     .line 160
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mNodeProvider:Landroidx/customview/widget/ExploreByTouchHelper$MyNodeProvider;
 
     return-object v0
 .end method
 
 .method public getFocusedVirtualView()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1990,7 +1990,7 @@
 .end method
 
 .method public final getKeyboardFocusedVirtualViewId()I
-    .locals 1
+    .registers 2
 
     .line 298
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
@@ -2013,7 +2013,7 @@
 .end method
 
 .method public final invalidateRoot()V
-    .locals 2
+    .registers 3
 
     .line 528
     const/4 v0, -0x1
@@ -2027,7 +2027,7 @@
 .end method
 
 .method public final invalidateVirtualView(I)V
-    .locals 1
+    .registers 3
     .param p1, "virtualViewId"    # I
 
     .line 544
@@ -2040,14 +2040,14 @@
 .end method
 
 .method public final invalidateVirtualView(II)V
-    .locals 3
+    .registers 6
     .param p1, "virtualViewId"    # I
     .param p2, "changeTypes"    # I
 
     .line 568
     const/high16 v0, -0x80000000
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_22
 
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mManager:Landroid/view/accessibility/AccessibilityManager;
 
@@ -2055,7 +2055,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 569
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
@@ -2066,7 +2066,7 @@
 
     .line 570
     .local v0, "parent":Landroid/view/ViewParent;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 572
     const/16 v1, 0x800
@@ -2087,18 +2087,18 @@
     .line 578
     .end local v0    # "parent":Landroid/view/ViewParent;
     .end local v1    # "event":Landroid/view/accessibility/AccessibilityEvent;
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method obtainAccessibilityNodeInfo(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 1
+    .registers 3
     .param p1, "virtualViewId"    # I
 
     .line 721
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_8
 
     .line 722
     invoke-direct {p0}, Landroidx/customview/widget/ExploreByTouchHelper;->createNodeForHost()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
@@ -2108,7 +2108,7 @@
     return-object v0
 
     .line 725
-    :cond_0
+    :cond_8
     invoke-direct {p0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;->createNodeForChild(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
     move-result-object v0
@@ -2117,7 +2117,7 @@
 .end method
 
 .method public final onFocusChanged(ZILandroid/graphics/Rect;)V
-    .locals 2
+    .registers 6
     .param p1, "gainFocus"    # Z
     .param p2, "direction"    # I
     .param p3, "previouslyFocusedRect"    # Landroid/graphics/Rect;
@@ -2127,7 +2127,7 @@
 
     const/high16 v1, -0x80000000
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_b
 
     .line 276
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
@@ -2135,19 +2135,19 @@
     invoke-virtual {p0, v0}, Landroidx/customview/widget/ExploreByTouchHelper;->clearKeyboardFocusForVirtualView(I)Z
 
     .line 279
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_b
+    if-eqz p1, :cond_10
 
     .line 280
     invoke-direct {p0, p2, p3}, Landroidx/customview/widget/ExploreByTouchHelper;->moveFocus(ILandroid/graphics/Rect;)Z
 
     .line 282
-    :cond_1
+    :cond_10
     return-void
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 3
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
@@ -2162,7 +2162,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 0
+    .registers 3
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -2180,7 +2180,7 @@
 .end method
 
 .method protected onPopulateEventForHost(Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 2
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .line 1135
@@ -2188,7 +2188,7 @@
 .end method
 
 .method protected onPopulateEventForVirtualView(ILandroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 3
     .param p1, "virtualViewId"    # I
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
@@ -2197,7 +2197,7 @@
 .end method
 
 .method protected onPopulateNodeForHost(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "node"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
     .line 1213
@@ -2208,7 +2208,7 @@
 .end method
 
 .method protected onVirtualViewKeyboardFocusChanged(IZ)V
-    .locals 0
+    .registers 3
     .param p1, "virtualViewId"    # I
     .param p2, "hasFocus"    # Z
 
@@ -2217,13 +2217,13 @@
 .end method
 
 .method performAction(IILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
     .param p1, "virtualViewId"    # I
     .param p2, "action"    # I
     .param p3, "arguments"    # Landroid/os/Bundle;
 
     .line 898
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_e
 
     .line 902
     invoke-direct {p0, p1, p2, p3}, Landroidx/customview/widget/ExploreByTouchHelper;->performActionForChild(IILandroid/os/Bundle;)Z
@@ -2233,7 +2233,7 @@
     return v0
 
     .line 900
-    :pswitch_0
+    :pswitch_8
     invoke-direct {p0, p2, p3}, Landroidx/customview/widget/ExploreByTouchHelper;->performActionForHost(ILandroid/os/Bundle;)Z
 
     move-result v0
@@ -2242,14 +2242,14 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_e
     .packed-switch -0x1
-        :pswitch_0
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method public final requestKeyboardFocusForVirtualView(I)Z
-    .locals 3
+    .registers 5
     .param p1, "virtualViewId"    # I
 
     .line 1019
@@ -2261,7 +2261,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
@@ -2269,27 +2269,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 1021
     return v1
 
     .line 1024
-    :cond_0
+    :cond_12
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
-    if-ne v0, p1, :cond_1
+    if-ne v0, p1, :cond_17
 
     .line 1026
     return v1
 
     .line 1029
-    :cond_1
+    :cond_17
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
     const/high16 v2, -0x80000000
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_22
 
     .line 1030
     iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
@@ -2297,14 +2297,14 @@
     invoke-virtual {p0, v0}, Landroidx/customview/widget/ExploreByTouchHelper;->clearKeyboardFocusForVirtualView(I)Z
 
     .line 1033
-    :cond_2
-    if-ne p1, v2, :cond_3
+    :cond_22
+    if-ne p1, v2, :cond_25
 
     .line 1034
     return v1
 
     .line 1037
-    :cond_3
+    :cond_25
     iput p1, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
     .line 1039
@@ -2322,7 +2322,7 @@
 .end method
 
 .method public final sendEventForVirtualView(II)Z
-    .locals 3
+    .registers 6
     .param p1, "virtualViewId"    # I
     .param p2, "eventType"    # I
 
@@ -2331,7 +2331,7 @@
 
     const/4 v1, 0x0
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_22
 
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mManager:Landroid/view/accessibility/AccessibilityManager;
 
@@ -2339,12 +2339,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
-    goto :goto_0
+    goto :goto_22
 
     .line 511
-    :cond_0
+    :cond_e
     iget-object v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -2353,13 +2353,13 @@
 
     .line 512
     .local v0, "parent":Landroid/view/ViewParent;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     .line 513
     return v1
 
     .line 516
-    :cond_1
+    :cond_17
     invoke-direct {p0, p1, p2}, Landroidx/customview/widget/ExploreByTouchHelper;->createEvent(II)Landroid/view/accessibility/AccessibilityEvent;
 
     move-result-object v1
@@ -2377,7 +2377,7 @@
     .line 508
     .end local v0    # "parent":Landroid/view/ViewParent;
     .end local v1    # "event":Landroid/view/accessibility/AccessibilityEvent;
-    :cond_2
-    :goto_0
+    :cond_22
+    :goto_22
     return v1
 .end method

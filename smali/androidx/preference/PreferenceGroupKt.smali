@@ -60,7 +60,7 @@
 
 # direct methods
 .method public static final contains(Landroidx/preference/PreferenceGroup;Landroidx/preference/Preference;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$contains"    # Landroidx/preference/PreferenceGroup;
     .param p1, "preference"    # Landroidx/preference/Preference;
 
@@ -81,8 +81,8 @@
 
     const/4 v2, 0x0
 
-    :cond_0
-    if-ge v2, v0, :cond_1
+    :cond_10
+    if-ge v2, v0, :cond_21
 
     move v3, v2
 
@@ -98,7 +98,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_10
 
     .line 38
     const/4 v0, 0x1
@@ -107,12 +107,12 @@
 
     .line 41
     .end local v3    # "index":I
-    :cond_1
+    :cond_21
     return v1
 .end method
 
 .method public static final forEach(Landroidx/preference/PreferenceGroup;Lkotlin/jvm/functions/Function1;)V
-    .locals 5
+    .registers 7
     .param p0, "$this$forEach"    # Landroidx/preference/PreferenceGroup;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -145,8 +145,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_10
+    if-ge v2, v1, :cond_1d
 
     move v3, v2
 
@@ -160,16 +160,16 @@
 
     invoke-interface {p1, v4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_10
 
     .line 68
     .end local v3    # "index":I
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public static final forEachIndexed(Landroidx/preference/PreferenceGroup;Lkotlin/jvm/functions/Function2;)V
-    .locals 6
+    .registers 8
     .param p0, "$this$forEachIndexed"    # Landroidx/preference/PreferenceGroup;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -204,8 +204,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_10
+    if-ge v2, v1, :cond_21
 
     move v3, v2
 
@@ -223,16 +223,16 @@
 
     invoke-interface {p1, v4, v5}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_10
 
     .line 80
     .end local v3    # "index":I
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 .method public static final get(Landroidx/preference/PreferenceGroup;I)Landroidx/preference/Preference;
-    .locals 2
+    .registers 4
     .param p0, "$this$get"    # Landroidx/preference/PreferenceGroup;
     .param p1, "index"    # I
 
@@ -253,7 +253,7 @@
 .end method
 
 .method public static final get(Landroidx/preference/PreferenceGroup;Ljava/lang/CharSequence;)Landroidx/preference/Preference;
-    .locals 2
+    .registers 4
     .param p0, "$this$get"    # Landroidx/preference/PreferenceGroup;
     .param p1, "key"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -287,7 +287,7 @@
 .end method
 
 .method public static final getChildren(Landroidx/preference/PreferenceGroup;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$children"    # Landroidx/preference/PreferenceGroup;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -316,7 +316,7 @@
 .end method
 
 .method public static final getSize(Landroidx/preference/PreferenceGroup;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$size"    # Landroidx/preference/PreferenceGroup;
 
     const-string v0, "<this>"
@@ -335,7 +335,7 @@
 .end method
 
 .method public static final isEmpty(Landroidx/preference/PreferenceGroup;)Z
-    .locals 3
+    .registers 4
     .param p0, "$this$isEmpty"    # Landroidx/preference/PreferenceGroup;
 
     const-string v0, "<this>"
@@ -359,22 +359,22 @@
 
     .end local v1    # "$this$size$iv":Landroidx/preference/PreferenceGroup;
     .end local v2    # "$i$f$getSize":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
     .line 58
-    :goto_0
+    :goto_11
     return v1
 .end method
 
 .method public static final isNotEmpty(Landroidx/preference/PreferenceGroup;)Z
-    .locals 3
+    .registers 4
     .param p0, "$this$isNotEmpty"    # Landroidx/preference/PreferenceGroup;
 
     const-string v0, "<this>"
@@ -398,22 +398,22 @@
 
     .end local v1    # "$this$size$iv":Landroidx/preference/PreferenceGroup;
     .end local v2    # "$i$f$getSize":I
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
     .line 61
-    :goto_0
+    :goto_11
     return v1
 .end method
 
 .method public static final iterator(Landroidx/preference/PreferenceGroup;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$iterator"    # Landroidx/preference/PreferenceGroup;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -442,7 +442,7 @@
 .end method
 
 .method public static final minusAssign(Landroidx/preference/PreferenceGroup;Landroidx/preference/Preference;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Landroidx/preference/PreferenceGroup;
     .param p1, "preference"    # Landroidx/preference/Preference;
 
@@ -465,7 +465,7 @@
 .end method
 
 .method public static final plusAssign(Landroidx/preference/PreferenceGroup;Landroidx/preference/Preference;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Landroidx/preference/PreferenceGroup;
     .param p1, "preference"    # Landroidx/preference/Preference;
 

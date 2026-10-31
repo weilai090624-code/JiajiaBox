@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(F)V
-    .locals 1
+    .registers 3
     .param p1, "radius"    # F
 
     .line 32
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method forceIntersection()Z
-    .locals 1
+    .registers 2
 
     .line 48
     const/4 v0, 0x1
@@ -38,7 +38,7 @@
 .end method
 
 .method public getEdgePath(FFFLcom/google/android/material/shape/ShapePath;)V
-    .locals 9
+    .registers 14
     .param p1, "length"    # F
     .param p2, "center"    # F
     .param p3, "interpolation"    # F

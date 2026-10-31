@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
 
     .line 52
     .local p1, "dateClass":Ljava/lang/Class;, "Ljava/lang/Class<Ljava/util/Date;>;"
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method protected deserialize(Ljava/util/Date;)Ljava/util/Date;
-    .locals 0
+    .registers 2
     .param p1, "date"    # Ljava/util/Date;
 
     .line 54

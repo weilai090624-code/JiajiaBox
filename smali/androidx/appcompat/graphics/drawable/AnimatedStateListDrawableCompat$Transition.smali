@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 352
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$1;
 
     .line 352
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public canReverse()Z
-    .locals 1
+    .registers 2
 
     .line 362
     const/4 v0, 0x0
@@ -46,7 +46,7 @@
 .end method
 
 .method public reverse()V
-    .locals 0
+    .registers 1
 
     .line 359
     return-void

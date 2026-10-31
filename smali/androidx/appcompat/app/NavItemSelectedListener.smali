@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/appcompat/app/ActionBar$OnNavigationListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Landroidx/appcompat/app/ActionBar$OnNavigationListener;
 
     .line 30
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 1
+    .registers 7
     .param p2, "view"    # Landroid/view/View;
     .param p3, "position"    # I
     .param p4, "id"    # J
@@ -46,7 +46,7 @@
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Landroidx/appcompat/app/NavItemSelectedListener;->mListener:Landroidx/appcompat/app/ActionBar$OnNavigationListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 37
     iget-object v0, p0, Landroidx/appcompat/app/NavItemSelectedListener;->mListener:Landroidx/appcompat/app/ActionBar$OnNavigationListener;
@@ -54,12 +54,12 @@
     invoke-interface {v0, p3, p4, p5}, Landroidx/appcompat/app/ActionBar$OnNavigationListener;->onNavigationItemSelected(IJ)Z
 
     .line 39
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public onNothingSelected(Landroid/widget/AdapterView;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

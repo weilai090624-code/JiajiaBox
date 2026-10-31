@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/http1/Http1ExchangeCodec;J)V
-    .locals 5
+    .registers 9
     .param p1, "this$0"    # Lokhttp3/internal/http1/Http1ExchangeCodec;
     .param p2, "bytesRemaining"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -86,13 +86,13 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_18
 
     .line 361
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->responseBodyComplete()V
 
     .line 363
-    :cond_0
+    :cond_18
     nop
 
     .line 356
@@ -102,26 +102,26 @@
 
 # virtual methods
 .method public close()V
-    .locals 5
+    .registers 6
 
     .line 386
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->getClosed()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 388
-    :cond_0
+    :cond_7
     iget-wide v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->bytesRemaining:J
 
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_28
 
     .line 389
     move-object v0, p0
@@ -136,7 +136,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_28
 
     .line 390
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
@@ -151,7 +151,7 @@
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->responseBodyComplete()V
 
     .line 394
-    :cond_1
+    :cond_28
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->setClosed(Z)V
@@ -161,7 +161,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 7
+    .registers 11
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -174,24 +174,24 @@
 
     cmp-long v2, p2, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_5
+    :goto_e
+    if-eqz v2, :cond_60
 
     .line 367
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->getClosed()Z
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_50
 
     .line 368
     iget-wide v2, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->bytesRemaining:J
@@ -200,12 +200,12 @@
 
     cmp-long v6, v2, v0
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_1f
 
     return-wide v4
 
     .line 370
-    :cond_1
+    :cond_1f
     iget-wide v2, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->bytesRemaining:J
 
     invoke-static {v2, v3, p2, p3}, Ljava/lang/Math;->min(JJ)J
@@ -220,7 +220,7 @@
     .local v2, "read":J
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_3c
 
     .line 378
     iget-wide v4, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->bytesRemaining:J
@@ -234,17 +234,17 @@
 
     cmp-long v6, v4, v0
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_3b
 
     .line 380
     invoke-virtual {p0}, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->responseBodyComplete()V
 
     .line 382
-    :cond_2
+    :cond_3b
     return-wide v2
 
     .line 372
-    :cond_3
+    :cond_3c
     iget-object v0, p0, Lokhttp3/internal/http1/Http1ExchangeCodec$FixedLengthSource;->this$0:Lokhttp3/internal/http1/Http1ExchangeCodec;
 
     invoke-virtual {v0}, Lokhttp3/internal/http1/Http1ExchangeCodec;->getConnection()Lokhttp3/internal/connection/RealConnection;
@@ -270,7 +270,7 @@
     .line 500
     .end local v0    # "e":Ljava/net/ProtocolException;
     .end local v2    # "read":J
-    :cond_4
+    :cond_50
     const/4 v0, 0x0
 
     .line 367
@@ -293,7 +293,7 @@
     throw v0
 
     .line 500
-    :cond_5
+    :cond_60
     const/4 v0, 0x0
 
     .line 366

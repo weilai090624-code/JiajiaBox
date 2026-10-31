@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/jvm/functions/Function0;Ljava/lang/String;Z)V
-    .locals 0
+    .registers 4
     .param p1, "$block"    # Lkotlin/jvm/functions/Function0;
     .param p2, "$name"    # Ljava/lang/String;
     .param p3, "$cancelable"    # Z
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public runOnce()J
-    .locals 2
+    .registers 3
 
     .line 102
     iget-object v0, p0, Lokhttp3/internal/concurrent/TaskQueue$execute$1;->$block:Lkotlin/jvm/functions/Function0;

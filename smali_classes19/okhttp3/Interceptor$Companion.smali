@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lokhttp3/Interceptor$Companion;
 
@@ -60,7 +60,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public final invoke(Lkotlin/jvm/functions/Function1;)Lokhttp3/Interceptor;
-    .locals 2
+    .registers 4
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

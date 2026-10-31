@@ -50,7 +50,7 @@
 
 # direct methods
 .method public static final TimeoutCancellationException(JLkotlinx/coroutines/Delay;Lkotlinx/coroutines/Job;)Lkotlinx/coroutines/TimeoutCancellationException;
-    .locals 3
+    .registers 7
     .param p0, "time"    # J
     .param p2, "delay"    # Lkotlinx/coroutines/Delay;
     .param p3, "coroutine"    # Lkotlinx/coroutines/Job;
@@ -58,19 +58,19 @@
     .line 189
     instance-of v0, p2, Lkotlinx/coroutines/DelayWithTimeoutDiagnostics;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     move-object v0, p2
 
     check-cast v0, Lkotlinx/coroutines/DelayWithTimeoutDiagnostics;
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_9
+    if-eqz v0, :cond_19
 
     sget-object v1, Lkotlin/time/Duration;->Companion:Lkotlin/time/Duration$Companion;
 
@@ -84,10 +84,10 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_32
 
     .line 190
-    :cond_1
+    :cond_19
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -113,7 +113,7 @@
     move-result-object v0
 
     .line 189
-    :cond_2
+    :cond_32
     nop
 
     .line 191
@@ -126,7 +126,7 @@
 .end method
 
 .method private static final setupTimeout(Lkotlinx/coroutines/TimeoutCoroutine;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
     .param p0, "coroutine"    # Lkotlinx/coroutines/TimeoutCoroutine;
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -196,7 +196,7 @@
 .end method
 
 .method public static final withTimeout(JLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p0, "timeMillis"    # J
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -227,7 +227,7 @@
 
     cmp-long v2, p0, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_1c
 
     .line 45
     move-object v0, p3
@@ -252,15 +252,15 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     invoke-static {p3}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    :cond_0
+    :cond_1b
     return-object v0
 
     .line 44
-    :cond_1
+    :cond_1c
     new-instance v0, Lkotlinx/coroutines/TimeoutCancellationException;
 
     const-string v1, "Timed out immediately"
@@ -271,7 +271,7 @@
 .end method
 
 .method public static final withTimeout-KLykuaI(JLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "timeout"    # J
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -310,7 +310,7 @@
 .end method
 
 .method public static final withTimeoutOrNull(JLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -332,7 +332,7 @@
 
     instance-of v0, p3, Lkotlinx/coroutines/TimeoutKt$withTimeoutOrNull$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p3
 
@@ -344,7 +344,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p3, v0, Lkotlinx/coroutines/TimeoutKt$withTimeoutOrNull$1;->label:I
 
@@ -352,14 +352,14 @@
 
     iput p3, v0, Lkotlinx/coroutines/TimeoutKt$withTimeoutOrNull$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/TimeoutKt$withTimeoutOrNull$1;
 
     invoke-direct {v0, p3}, Lkotlinx/coroutines/TimeoutKt$withTimeoutOrNull$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p3, v0
 
     .local p3, "$continuation":Lkotlin/coroutines/Continuation;
@@ -375,7 +375,7 @@
 
     const/4 v3, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_84
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p3    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -389,7 +389,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p3    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2e
     iget-wide p0, p3, Lkotlinx/coroutines/TimeoutKt$withTimeoutOrNull$1;->J$0:J
 
     iget-object p0, p3, Lkotlinx/coroutines/TimeoutKt$withTimeoutOrNull$1;->L$1:Ljava/lang/Object;
@@ -401,24 +401,24 @@
 
     check-cast p1, Lkotlin/jvm/functions/Function2;
 
-    :try_start_0
+    :try_start_38
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lkotlinx/coroutines/TimeoutCancellationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3b
+    .catch Lkotlinx/coroutines/TimeoutCancellationException; {:try_start_38 .. :try_end_3b} :catch_3d
 
     move-object p1, v0
 
-    goto :goto_1
+    goto :goto_78
 
     .line 109
-    :catch_0
+    :catch_3d
     move-exception p1
 
-    goto :goto_2
+    goto :goto_7b
 
     .line 99
     .end local p0    # "coroutine":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :pswitch_1
+    :pswitch_3f
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 100
@@ -428,12 +428,12 @@
 
     cmp-long v2, p0, v4
 
-    if-gtz v2, :cond_1
+    if-gtz v2, :cond_49
 
     return-object v3
 
     .line 102
-    :cond_1
+    :cond_49
     new-instance v2, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     invoke-direct {v2}, Lkotlin/jvm/internal/Ref$ObjectRef;-><init>()V
@@ -443,7 +443,7 @@
     nop
 
     .line 104
-    :try_start_1
+    :try_start_4f
     iput-object p2, p3, Lkotlinx/coroutines/TimeoutKt$withTimeoutOrNull$1;->L$0:Ljava/lang/Object;
 
     iput-object v2, p3, Lkotlinx/coroutines/TimeoutKt$withTimeoutOrNull$1;->L$1:Ljava/lang/Object;
@@ -487,35 +487,35 @@
 
     move-result-object p0
 
-    if-ne p1, p0, :cond_2
+    if-ne p1, p0, :cond_74
 
     move-object p0, p3
 
     check-cast p0, Lkotlin/coroutines/Continuation;
 
     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
-    :try_end_1
-    .catch Lkotlinx/coroutines/TimeoutCancellationException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_74
+    .catch Lkotlinx/coroutines/TimeoutCancellationException; {:try_start_4f .. :try_end_74} :catch_79
 
-    :cond_2
-    if-ne p1, v1, :cond_3
+    :cond_74
+    if-ne p1, v1, :cond_77
 
     .line 99
     return-object v1
 
     .line 104
-    :cond_3
+    :cond_77
     move-object p0, v2
 
     .end local v2    # "coroutine":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p0, "coroutine":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :goto_1
+    :goto_78
     return-object p1
 
     .line 109
     .end local p0    # "coroutine":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v2    # "coroutine":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :catch_1
+    :catch_79
     move-exception p1
 
     move-object p0, v2
@@ -524,31 +524,31 @@
     .end local v2    # "coroutine":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local p0    # "coroutine":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p1, "e":Lkotlinx/coroutines/TimeoutCancellationException;
-    :goto_2
+    :goto_7b
     iget-object p2, p1, Lkotlinx/coroutines/TimeoutCancellationException;->coroutine:Lkotlinx/coroutines/Job;
 
     iget-object v1, p0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    if-ne p2, v1, :cond_4
+    if-ne p2, v1, :cond_82
 
     .line 112
     return-object v3
 
     .line 114
-    :cond_4
+    :cond_82
     throw p1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_84
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3f
+        :pswitch_2e
     .end packed-switch
 .end method
 
 .method public static final withTimeoutOrNull-KLykuaI(JLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .param p0, "timeout"    # J
     .param p2, "block"    # Lkotlin/jvm/functions/Function2;
     .param p3, "$completion"    # Lkotlin/coroutines/Continuation;

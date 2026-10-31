@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static createBlendModeColorFilter(ILjava/lang/Object;)Landroid/graphics/ColorFilter;
-    .locals 2
+    .registers 4
     .param p0, "color"    # I
     .param p1, "mode"    # Ljava/lang/Object;
 

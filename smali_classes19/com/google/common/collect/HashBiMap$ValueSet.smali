@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/HashBiMap;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/common/collect/HashBiMap;
 
     .line 799
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -62,7 +62,7 @@
 .end method
 
 .method forEntry(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "entry"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -89,7 +89,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -113,7 +113,7 @@
     .local v1, "entry":I
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_14
 
     .line 820
     iget-object v2, p0, Lcom/google/common/collect/HashBiMap$ValueSet;->this$0:Lcom/google/common/collect/HashBiMap;
@@ -126,7 +126,7 @@
     return v2
 
     .line 823
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     return v2

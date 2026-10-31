@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/Multimaps$Keys$1;Ljava/util/Map$Entry;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/collect/Multimaps$Keys$1;
 
     .line 1632
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getCount()I
-    .locals 1
+    .registers 2
 
     .line 1641
     .local p0, "this":Lcom/google/common/collect/Multimaps$Keys$1$1;, "Lcom/google/common/collect/Multimaps$Keys$1$1;"
@@ -62,7 +62,7 @@
 .end method
 
 .method public getElement()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 

@@ -83,7 +83,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$Companion;
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 1
+    .registers 7
     .param p1, "putMethod"    # Ljava/lang/reflect/Method;
     .param p2, "getMethod"    # Ljava/lang/reflect/Method;
     .param p3, "removeMethod"    # Ljava/lang/reflect/Method;
@@ -161,7 +161,7 @@
 
 # virtual methods
 .method public afterHandshake(Ljavax/net/ssl/SSLSocket;)V
-    .locals 4
+    .registers 6
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "failed to remove ALPN"
@@ -174,7 +174,7 @@
     nop
 
     .line 53
-    :try_start_0
+    :try_start_8
     iget-object v1, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform;->removeMethod:Ljava/lang/reflect/Method;
 
     const/4 v2, 0x1
@@ -188,15 +188,15 @@
     const/4 v3, 0x0
 
     invoke-virtual {v1, v3, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/IllegalAccessException; {:try_start_8 .. :try_end_14} :catch_1f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_8 .. :try_end_14} :catch_15
 
     .line 59
     return-void
 
     .line 56
-    :catch_0
+    :catch_15
     move-exception v1
 
     .line 57
@@ -213,7 +213,7 @@
 
     .line 54
     .end local v1    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_1f
     move-exception v1
 
     .line 55
@@ -230,7 +230,7 @@
 .end method
 
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 8
+    .registers 12
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -265,7 +265,7 @@
 
     .line 40
     .local v1, "names":Ljava/util/List;
-    :try_start_0
+    :try_start_12
     const-class v2, Lokhttp3/internal/platform/Platform;
 
     .line 41
@@ -314,16 +314,16 @@
     const/4 v3, 0x0
 
     invoke-virtual {v4, v3, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3c
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_12 .. :try_end_3c} :catch_47
+    .catch Ljava/lang/IllegalAccessException; {:try_start_12 .. :try_end_3c} :catch_3d
 
     .line 49
     .end local v2    # "alpnProvider":Ljava/lang/Object;
     return-void
 
     .line 46
-    :catch_0
+    :catch_3d
     move-exception v2
 
     .line 47
@@ -340,7 +340,7 @@
 
     .line 44
     .end local v2    # "e":Ljava/lang/IllegalAccessException;
-    :catch_1
+    :catch_47
     move-exception v2
 
     .line 45
@@ -357,7 +357,7 @@
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 10
+    .registers 12
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "failed to get ALPN selected protocol"
@@ -370,7 +370,7 @@
     nop
 
     .line 63
-    :try_start_0
+    :try_start_8
     iget-object v1, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform;->getMethod:Ljava/lang/reflect/Method;
 
     const/4 v2, 0x1
@@ -391,7 +391,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_42
 
     check-cast v1, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;
 
@@ -401,13 +401,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_36
 
     invoke-virtual {v1}, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->getSelected()Ljava/lang/String;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_36
 
     .line 65
     move-object v4, p0
@@ -430,26 +430,26 @@
     return-object v3
 
     .line 68
-    :cond_0
+    :cond_36
     invoke-virtual {v1}, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->getUnsupported()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3d
 
-    goto :goto_0
+    goto :goto_41
 
-    :cond_1
+    :cond_3d
     invoke-virtual {v1}, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->getSelected()Ljava/lang/String;
 
     move-result-object v3
 
-    :goto_0
+    :goto_41
     return-object v3
 
     .line 63
     .end local v1    # "provider":Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;
-    :cond_2
+    :cond_42
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type okhttp3.internal.platform.Jdk8WithJettyBootPlatform.AlpnProvider"
@@ -458,13 +458,13 @@
 
     .end local p1    # "sslSocket":Ljavax/net/ssl/SSLSocket;
     throw v1
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_8 .. :try_end_4a} :catch_54
+    .catch Ljava/lang/IllegalAccessException; {:try_start_8 .. :try_end_4a} :catch_4a
 
     .line 71
     .restart local p1    # "sslSocket":Ljavax/net/ssl/SSLSocket;
-    :catch_0
+    :catch_4a
     move-exception v1
 
     .line 72
@@ -481,7 +481,7 @@
 
     .line 69
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    :catch_1
+    :catch_54
     move-exception v1
 
     .line 70

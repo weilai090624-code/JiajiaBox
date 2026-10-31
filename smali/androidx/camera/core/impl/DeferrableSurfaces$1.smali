@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(ZLandroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Ljava/util/concurrent/ScheduledFuture;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -104,7 +104,7 @@
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -123,7 +123,7 @@
 .end method
 
 .method public onSuccess(Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .param p1, "result"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -152,7 +152,7 @@
     .local v0, "surfaces":Ljava/util/List;
     iget-boolean v1, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$removeNullSurfaces:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 94
     const/4 v1, 0x0
@@ -164,7 +164,7 @@
     invoke-interface {v0, v1}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
 
     .line 96
-    :cond_0
+    :cond_11
     iget-object v1, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     invoke-virtual {v1, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z

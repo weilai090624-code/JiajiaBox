@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;Lj$/util/stream/PipelineHelper;[D)V
-    .locals 1
+    .registers 5
     .param p3, "array"    # [D
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/Nodes$SizedCollectorTask$OfDouble;Lj$/util/Spliterator;JJ)V
-    .locals 9
+    .registers 16
     .param p3, "offset"    # J
     .param p5, "length"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public accept(D)V
-    .locals 3
+    .registers 6
     .param p1, "value"    # D
 
     .line 2024
@@ -121,7 +121,7 @@
 
     iget v1, p0, Lj$/util/stream/Nodes$SizedCollectorTask$OfDouble;->fence:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_11
 
     .line 2027
     iget-object v0, p0, Lj$/util/stream/Nodes$SizedCollectorTask$OfDouble;->array:[D
@@ -138,7 +138,7 @@
     return-void
 
     .line 2025
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     iget v1, p0, Lj$/util/stream/Nodes$SizedCollectorTask$OfDouble;->index:I
@@ -153,7 +153,7 @@
 .end method
 
 .method public synthetic accept(Ljava/lang/Double;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfDouble$-CC;->$default$accept(Lj$/util/stream/Sink$OfDouble;Ljava/lang/Double;)V
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfDouble$-CC;->$default$accept(Lj$/util/stream/Sink$OfDouble;Ljava/lang/Object;)V
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/DoubleConsumer$-CC;->$default$andThen(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
 
@@ -179,7 +179,7 @@
 .end method
 
 .method makeChild(Lj$/util/Spliterator;JJ)Lj$/util/stream/Nodes$SizedCollectorTask$OfDouble;
-    .locals 8
+    .registers 14
     .param p2, "offset"    # J
     .param p4, "size"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -213,7 +213,7 @@
 .end method
 
 .method bridge synthetic makeChild(Lj$/util/Spliterator;JJ)Lj$/util/stream/Nodes$SizedCollectorTask;
-    .locals 0
+    .registers 6
 
     .line 1999
     .local p0, "this":Lj$/util/stream/Nodes$SizedCollectorTask$OfDouble;, "Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble<TP_IN;>;"

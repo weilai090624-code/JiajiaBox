@@ -29,7 +29,7 @@
 
 # direct methods
 .method public static final systemIdInfo(Landroidx/work/impl/model/WorkGenerationalId;I)Landroidx/work/impl/model/SystemIdInfo;
-    .locals 3
+    .registers 5
     .param p0, "generationalId"    # Landroidx/work/impl/model/WorkGenerationalId;
     .param p1, "systemId"    # I
 

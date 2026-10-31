@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Iterator;)V
-    .locals 0
+    .registers 2
 
     .line 1423
     iput-object p1, p0, Lcom/google/common/collect/Maps$8;->val$entryIterator:Ljava/util/Iterator;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 1426
     iget-object v0, p0, Lcom/google/common/collect/Maps$8;->val$entryIterator:Ljava/util/Iterator;
@@ -54,7 +54,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1423
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$8;->next()Ljava/util/Map$Entry;
@@ -65,7 +65,7 @@
 .end method
 
 .method public next()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

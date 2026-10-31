@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatActivity;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/app/AppCompatActivity;
 
     .line 119
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public saveState()Landroid/os/Bundle;
-    .locals 2
+    .registers 3
 
     .line 123
     new-instance v0, Landroid/os/Bundle;

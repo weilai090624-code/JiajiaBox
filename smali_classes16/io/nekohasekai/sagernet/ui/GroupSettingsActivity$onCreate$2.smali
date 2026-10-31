@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>(JLio/nekohasekai/sagernet/ui/GroupSettingsActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +125,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,7 +168,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 25
+    .registers 27
 
     move-object/from16 v0, p0
 
@@ -179,7 +179,7 @@
     .line 212
     iget v2, v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$onCreate$2;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_96
 
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -189,25 +189,25 @@
 
     throw v1
 
-    :pswitch_0
+    :pswitch_13
     move-object/from16 v1, p1
 
     .local v1, "$result":Ljava/lang/Object;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_93
 
     .end local v1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_1a
     move-object/from16 v1, p1
 
     .restart local v1    # "$result":Ljava/lang/Object;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_74
 
     .end local v1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_20
     invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object/from16 v2, p1
@@ -222,7 +222,7 @@
 
     cmp-long v8, v3, v5
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_4f
 
     .line 214
     iget-object v3, v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$onCreate$2;->this$0:Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
@@ -259,10 +259,10 @@
 
     invoke-virtual {v3, v4}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->init(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
 
-    goto :goto_1
+    goto :goto_7c
 
     .line 216
-    :cond_0
+    :cond_4f
     sget-object v3, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getGroupDao()Lio/nekohasekai/sagernet/database/ProxyGroup$Dao;
@@ -277,7 +277,7 @@
 
     .line 217
     .local v3, "entity":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    if-nez v3, :cond_2
+    if-nez v3, :cond_77
 
     .line 218
     .end local v3    # "entity":Lio/nekohasekai/sagernet/database/ProxyGroup;
@@ -301,19 +301,19 @@
 
     move-result-object v3
 
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_73
 
     .line 212
     return-object v1
 
     .line 218
-    :cond_1
+    :cond_73
     move-object v1, v2
 
     .line 221
     .end local v2    # "$result":Ljava/lang/Object;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :goto_0
+    :goto_74
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
@@ -322,14 +322,14 @@
     .end local v1    # "$result":Ljava/lang/Object;
     .restart local v2    # "$result":Ljava/lang/Object;
     .restart local v3    # "entity":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :cond_2
+    :cond_77
     iget-object v4, v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$onCreate$2;->this$0:Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
 
     invoke-virtual {v4, v3}, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;->init(Lio/nekohasekai/sagernet/database/ProxyGroup;)V
 
     .line 226
     .end local v3    # "entity":Lio/nekohasekai/sagernet/database/ProxyGroup;
-    :goto_1
+    :goto_7c
     new-instance v3, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$onCreate$2$2;
 
     iget-object v4, v0, Lio/nekohasekai/sagernet/ui/GroupSettingsActivity$onCreate$2;->this$0:Lio/nekohasekai/sagernet/ui/GroupSettingsActivity;
@@ -350,27 +350,27 @@
 
     move-result-object v3
 
-    if-ne v3, v1, :cond_3
+    if-ne v3, v1, :cond_92
 
     .line 212
     return-object v1
 
     .line 226
-    :cond_3
+    :cond_92
     move-object v1, v2
 
     .line 234
     .end local v2    # "$result":Ljava/lang/Object;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :goto_2
+    :goto_93
     sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v2
 
-    :pswitch_data_0
+    :pswitch_data_96
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_20
+        :pswitch_1a
+        :pswitch_13
     .end packed-switch
 .end method

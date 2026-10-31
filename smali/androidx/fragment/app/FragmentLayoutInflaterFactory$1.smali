@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentLayoutInflaterFactory;Landroidx/fragment/app/FragmentStateManager;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/fragment/app/FragmentLayoutInflaterFactory;
 
     .line 160
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "v"    # Landroid/view/View;
 
     .line 163
@@ -84,7 +84,7 @@
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "v"    # Landroid/view/View;
 
     .line 172

@@ -90,7 +90,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/ForEachOps$ForEachOrderedTask;Lj$/util/Spliterator;Lj$/util/stream/ForEachOps$ForEachOrderedTask;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,7 +141,7 @@
 .end method
 
 .method protected constructor <init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Lj$/util/stream/Sink;)V
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -210,7 +210,7 @@
 .end method
 
 .method private static doCompute(Lj$/util/stream/ForEachOps$ForEachOrderedTask;)V
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -237,14 +237,14 @@
 
     .line 406
     .local v3, "forkRight":Z
-    :goto_0
+    :goto_5
     invoke-interface {v0}, Lj$/util/Spliterator;->estimateSize()J
 
     move-result-wide v4
 
     cmp-long v6, v4, v1
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_53
 
     .line 407
     invoke-interface {v0}, Lj$/util/Spliterator;->trySplit()Lj$/util/Spliterator;
@@ -254,7 +254,7 @@
     move-object v5, v4
 
     .local v5, "leftSplit":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TS;>;"
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_53
 
     .line 408
     new-instance v4, Lj$/util/stream/ForEachOps$ForEachOrderedTask;
@@ -286,7 +286,7 @@
     .line 423
     iget-object v8, p0, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->leftPredecessor:Lj$/util/stream/ForEachOps$ForEachOrderedTask;
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_45
 
     .line 433
     invoke-virtual {v4, v7}, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->addToPendingCount(I)V
@@ -302,21 +302,21 @@
 
     const/4 v8, -0x1
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_42
 
     .line 439
     invoke-virtual {p0, v8}, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->addToPendingCount(I)V
 
-    goto :goto_1
+    goto :goto_45
 
     .line 444
-    :cond_0
+    :cond_42
     invoke-virtual {v4, v8}, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->addToPendingCount(I)V
 
     .line 449
-    :cond_1
-    :goto_1
-    if-eqz v3, :cond_2
+    :cond_45
+    :goto_45
+    if-eqz v3, :cond_4c
 
     .line 450
     const/4 v3, 0x0
@@ -331,11 +331,11 @@
     move-object v7, v6
 
     .local v7, "taskToFork":Lj$/util/stream/ForEachOps$ForEachOrderedTask;, "Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;"
-    goto :goto_2
+    goto :goto_4f
 
     .line 456
     .end local v7    # "taskToFork":Lj$/util/stream/ForEachOps$ForEachOrderedTask;, "Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;"
-    :cond_2
+    :cond_4c
     const/4 v3, 0x1
 
     .line 457
@@ -346,23 +346,23 @@
 
     .line 460
     .restart local v7    # "taskToFork":Lj$/util/stream/ForEachOps$ForEachOrderedTask;, "Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;"
-    :goto_2
+    :goto_4f
     invoke-virtual {v7}, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->fork()Ljava/util/concurrent/ForkJoinTask;
 
     .line 461
     .end local v4    # "leftChild":Lj$/util/stream/ForEachOps$ForEachOrderedTask;, "Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;"
     .end local v6    # "rightChild":Lj$/util/stream/ForEachOps$ForEachOrderedTask;, "Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;"
     .end local v7    # "taskToFork":Lj$/util/stream/ForEachOps$ForEachOrderedTask;, "Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;"
-    goto :goto_0
+    goto :goto_5
 
     .line 471
     .end local v5    # "leftSplit":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TS;>;"
-    :cond_3
+    :cond_53
     invoke-virtual {p0}, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->getPendingCount()I
 
     move-result v4
 
-    if-lez v4, :cond_4
+    if-lez v4, :cond_7b
 
     .line 475
     new-instance v4, Lj$/util/stream/ForEachOps$ForEachOrderedTask$$ExternalSyntheticLambda0;
@@ -409,7 +409,7 @@
     .line 482
     .end local v4    # "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TT;>;"
     .end local v5    # "nb":Lj$/util/stream/Node$Builder;, "Ljava/util/stream/Node$Builder<TT;>;"
-    :cond_4
+    :cond_7b
     invoke-virtual {p0}, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->tryComplete()V
 
     .line 483
@@ -417,7 +417,7 @@
 .end method
 
 .method static synthetic lambda$doCompute$0(I)[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "size"    # I
 
     .line 475
@@ -429,7 +429,7 @@
 
 # virtual methods
 .method public final compute()V
-    .locals 0
+    .registers 1
 
     .line 399
     .local p0, "this":Lj$/util/stream/ForEachOps$ForEachOrderedTask;, "Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;"
@@ -440,7 +440,7 @@
 .end method
 
 .method public onCompletion(Ljava/util/concurrent/CountedCompleter;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -456,7 +456,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 489
     iget-object v0, p0, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->node:Lj$/util/stream/Node;
@@ -468,13 +468,13 @@
     .line 490
     iput-object v1, p0, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->node:Lj$/util/stream/Node;
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 492
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->spliterator:Lj$/util/Spliterator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 494
     iget-object v0, p0, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->helper:Lj$/util/stream/PipelineHelper;
@@ -489,8 +489,8 @@
     iput-object v1, p0, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->spliterator:Lj$/util/Spliterator;
 
     .line 502
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     iget-object v0, p0, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->completionMap:Lj$/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0, p0}, Lj$/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -501,12 +501,12 @@
 
     .line 503
     .local v0, "leftDescendant":Lj$/util/stream/ForEachOps$ForEachOrderedTask;, "Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     .line 504
     invoke-virtual {v0}, Lj$/util/stream/ForEachOps$ForEachOrderedTask;->tryComplete()V
 
     .line 505
-    :cond_2
+    :cond_2b
     return-void
 .end method

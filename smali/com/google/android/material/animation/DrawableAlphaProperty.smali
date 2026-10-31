@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 36
     new-instance v0, Lcom/google/android/material/animation/DrawableAlphaProperty;
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 42
     const-class v0, Ljava/lang/Integer;
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public get(Landroid/graphics/drawable/Drawable;)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p1, "object"    # Landroid/graphics/drawable/Drawable;
 
     .line 48
@@ -97,7 +97,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 30
     check-cast p1, Landroid/graphics/drawable/Drawable;
@@ -110,7 +110,7 @@
 .end method
 
 .method public set(Landroid/graphics/drawable/Drawable;Ljava/lang/Integer;)V
-    .locals 1
+    .registers 4
     .param p1, "object"    # Landroid/graphics/drawable/Drawable;
     .param p2, "value"    # Ljava/lang/Integer;
 
@@ -129,7 +129,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 30
     check-cast p1, Landroid/graphics/drawable/Drawable;

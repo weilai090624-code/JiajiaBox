@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;II)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
     .line 563
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public applyTransformation(FLandroid/view/animation/Transformation;)V
-    .locals 4
+    .registers 7
     .param p1, "interpolatedTime"    # F
     .param p2, "t"    # Landroid/view/animation/Transformation;
 

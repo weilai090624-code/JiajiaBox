@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageAnalysisBlockingAnalyzer;Landroidx/camera/core/ImageProxy;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/camera/core/ImageAnalysisBlockingAnalyzer;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -81,7 +81,7 @@
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -100,7 +100,7 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Void;)V
-    .locals 0
+    .registers 2
     .param p1, "result"    # Ljava/lang/Void;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

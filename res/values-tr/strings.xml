@@ -90,8 +90,8 @@
     <string name="call_notification_screening_text">Gelen arama süzülüyor</string>
     <string name="certificates">Sertifikalar</string>
     <string name="chain_settings">Zincir Ayarları</string>
-    <string name="character_counter_content_description" formatted="false">Girilen karakter: %1$d / %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Karakter sınırı aşıldı %1$d / %2$d</string>
+    <string name="character_counter_content_description">Girilen karakter: %1$d / %2$d</string>
+    <string name="character_counter_overflowed_content_description">Karakter sınırı aşıldı %1$d / %2$d</string>
     <string name="circular_reference">Dairesel referans</string>
     <string name="circular_reference_sum">Rota kendisini içinde barındıramaz.</string>
     <string name="clear_logcat">Günlüğü Temizle</string>
@@ -287,7 +287,7 @@ tekrarlı"</string>
     <string name="mtrl_picker_out_of_range">İzin verilen aralığın dışında: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Başlangıç tarihi – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Bitiş tarihi</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s-%2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s-%2$s</string>
     <string name="mtrl_picker_range_header_title">Aralık Seçin</string>
     <string name="mtrl_picker_range_header_unselected">Başlangıç tarihi - Bitiş tarihi</string>
     <string name="mtrl_picker_save">Kaydet</string>
@@ -429,7 +429,7 @@ Bunu kullanmanız gerekiyorsa, sorunlarınızı çözüp çözmediğini görmek 
     <string name="show_system_apps">Sistem uygulamalarını göster</string>
     <string name="sni">Görünecek Sunucu Adı</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"Vekil Sunucu： %1$s↑ %2$s↓ 
+    <string name="speed_detail">"Vekil Sunucu： %1$s↑ %2$s↓ 
 Direkt： %3$s↑ %4$s↓"</string>
     <string name="speed_interval">Hız Bildirimi Güncelleme Aralığı</string>
     <string name="ss_cat">Shadowsocks Ayarları</string>
@@ -452,14 +452,14 @@ Direkt： %3$s↑ %4$s↓"</string>
     <string name="subscription_used">%s Kullanıldı</string>
     <string name="subscription_user_agent">Kullanıcı Kimliği</string>
     <string name="subscriptions">Abonelikler</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="tcp_connections">%d TCP bağlantı</string>
     <string name="tcp_keep_alive_interval">TCP aktif paket teslim koruma aralığı</string>
     <string name="telegram">Telegram güncelleme kanalı</string>
     <string name="theme">Tema</string>
     <string name="tile_title">Değiştirici</string>
     <string name="tls">TLS kullan</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="traffic_sniffing">Trafik İzlemeyi Etkinleştir</string>
     <string name="translate_platform">Çeviri Platformu</string>
     <string name="transproxy_mode">Transproxy Modu</string>

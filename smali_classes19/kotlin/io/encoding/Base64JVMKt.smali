@@ -37,7 +37,7 @@
 
 # direct methods
 .method private static final platformCharsToBytes(Lkotlin/io/encoding/Base64;Ljava/lang/CharSequence;II)[B
-    .locals 3
+    .registers 7
     .param p0, "$this$platformCharsToBytes"    # Lkotlin/io/encoding/Base64;
     .param p1, "source"    # Ljava/lang/CharSequence;
     .param p2, "startIndex"    # I
@@ -54,7 +54,7 @@
     .line 12
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
     .line 13
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -90,21 +90,21 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 17
-    :cond_0
+    :cond_32
     invoke-virtual {p0, p1, p2, p3}, Lkotlin/io/encoding/Base64;->charsToBytesImpl$kotlin_stdlib(Ljava/lang/CharSequence;II)[B
 
     move-result-object v0
 
     .line 12
-    :goto_0
+    :goto_36
     return-object v0
 .end method
 
 .method private static final platformEncodeIntoByteArray(Lkotlin/io/encoding/Base64;[B[BIII)I
-    .locals 1
+    .registers 7
     .param p0, "$this$platformEncodeIntoByteArray"    # Lkotlin/io/encoding/Base64;
     .param p1, "source"    # [B
     .param p2, "destination"    # [B
@@ -133,7 +133,7 @@
 .end method
 
 .method private static final platformEncodeToByteArray(Lkotlin/io/encoding/Base64;[BII)[B
-    .locals 1
+    .registers 5
     .param p0, "$this$platformEncodeToByteArray"    # Lkotlin/io/encoding/Base64;
     .param p1, "source"    # [B
     .param p2, "startIndex"    # I
@@ -156,7 +156,7 @@
 .end method
 
 .method private static final platformEncodeToString(Lkotlin/io/encoding/Base64;[BII)Ljava/lang/String;
-    .locals 3
+    .registers 7
     .param p0, "$this$platformEncodeToString"    # Lkotlin/io/encoding/Base64;
     .param p1, "source"    # [B
     .param p2, "startIndex"    # I

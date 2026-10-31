@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 504
@@ -27,7 +27,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method protected onMeasure(II)V
-    .locals 7
+    .registers 10
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -76,8 +76,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_16
+    if-ge v2, v0, :cond_3a
 
     .line 521
     invoke-virtual {p0, v2}, Lcom/google/android/material/snackbar/Snackbar$SnackbarLayout;->getChildAt(I)Landroid/view/View;
@@ -94,7 +94,7 @@
 
     const/4 v5, -0x1
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_37
 
     .line 523
     nop
@@ -120,19 +120,19 @@
 
     .line 520
     .end local v3    # "child":Landroid/view/View;
-    :cond_0
+    :cond_37
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 528
     .end local v2    # "i":I
-    :cond_1
+    :cond_3a
     return-void
 .end method
 
 .method public bridge synthetic setBackground(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 501
     invoke-super {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
@@ -141,7 +141,7 @@
 .end method
 
 .method public bridge synthetic setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 501
     invoke-super {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic setBackgroundTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
 
     .line 501
     invoke-super {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
@@ -159,7 +159,7 @@
 .end method
 
 .method public bridge synthetic setBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
 
     .line 501
     invoke-super {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->setBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
@@ -168,7 +168,7 @@
 .end method
 
 .method public bridge synthetic setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .registers 2
 
     .line 501
     invoke-super {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
@@ -177,7 +177,7 @@
 .end method
 
 .method public bridge synthetic setOnClickListener(Landroid/view/View$OnClickListener;)V
-    .locals 0
+    .registers 2
 
     .line 501
     invoke-super {p0, p1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V

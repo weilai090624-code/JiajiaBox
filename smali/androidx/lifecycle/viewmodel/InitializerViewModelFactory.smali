@@ -57,7 +57,7 @@
 
 # direct methods
 .method public varargs constructor <init>([Landroidx/lifecycle/viewmodel/ViewModelInitializer;)V
-    .locals 1
+    .registers 3
     .param p1, "initializers"    # [Landroidx/lifecycle/viewmodel/ViewModelInitializer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public synthetic create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/lifecycle/ViewModelProvider$Factory$-CC;->$default$create(Landroidx/lifecycle/ViewModelProvider$Factory;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public create(Ljava/lang/Class;Landroidx/lifecycle/viewmodel/CreationExtras;)Landroidx/lifecycle/ViewModel;
-    .locals 10
+    .registers 13
     .param p1, "modelClass"    # Ljava/lang/Class;
     .param p2, "extras"    # Landroidx/lifecycle/viewmodel/CreationExtras;
     .annotation system Ldalvik/annotation/Signature;
@@ -133,8 +133,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_2
+    :goto_10
+    if-ge v4, v3, :cond_36
 
     aget-object v5, v1, v4
 
@@ -154,7 +154,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_31
 
     .line 107
     invoke-virtual {v6}, Landroidx/lifecycle/viewmodel/ViewModelInitializer;->getInitializer$lifecycle_viewmodel_release()Lkotlin/jvm/functions/Function1;
@@ -167,20 +167,20 @@
 
     instance-of v9, v8, Landroidx/lifecycle/ViewModel;
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_2f
 
     check-cast v8, Landroidx/lifecycle/ViewModel;
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_0
+    :cond_2f
     const/4 v8, 0x0
 
-    :goto_1
+    :goto_30
     move-object v0, v8
 
     .line 109
-    :cond_1
+    :cond_31
     nop
 
     .line 116
@@ -191,20 +191,20 @@
     .end local v5    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 117
-    :cond_2
+    :cond_36
     nop
 
     .line 110
     .end local v1    # "$this$forEach$iv":[Ljava/lang/Object;
     .end local v2    # "$i$f$forEach":I
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3a
 
     return-object v0
 
-    :cond_3
+    :cond_3a
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     .line 111

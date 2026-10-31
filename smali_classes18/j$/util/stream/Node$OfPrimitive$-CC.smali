@@ -5,14 +5,14 @@
 
 # direct methods
 .method public static $default$asArray(Lj$/util/stream/Node$OfPrimitive;Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "_this"    # Lj$/util/stream/Node$OfPrimitive;
 
     .line 268
     .local p1, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TT;>;"
     sget-boolean v0, Lj$/util/stream/Tripwire;->ENABLED:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 269
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -24,7 +24,7 @@
     invoke-static {v0, v1}, Lj$/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 271
-    :cond_0
+    :cond_d
     invoke-interface {p0}, Lj$/util/stream/Node$OfPrimitive;->count()J
 
     move-result-wide v0
@@ -35,7 +35,7 @@
 
     cmp-long v4, v0, v2
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_28
 
     .line 274
     invoke-interface {p0}, Lj$/util/stream/Node$OfPrimitive;->count()J
@@ -61,7 +61,7 @@
 
     .line 273
     .end local v2    # "boxed":[Ljava/lang/Object;, "[TT;"
-    :cond_1
+    :cond_28
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Stream size exceeds max array size"
@@ -72,7 +72,7 @@
 .end method
 
 .method public static $default$getChild(Lj$/util/stream/Node$OfPrimitive;I)Lj$/util/stream/Node$OfPrimitive;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Lj$/util/stream/Node$OfPrimitive;
     .param p1, "i"    # I
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public static bridge synthetic $default$getChild(Lj$/util/stream/Node$OfPrimitive;I)Lj$/util/stream/Node;
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/Node$OfPrimitive;
 
     .line 227
@@ -97,7 +97,7 @@
 .end method
 
 .method public static bridge synthetic $default$spliterator(Lj$/util/stream/Node$OfPrimitive;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Lj$/util/stream/Node$OfPrimitive;
 
     .line 227
@@ -109,7 +109,7 @@
 .end method
 
 .method public static bridge synthetic $default$truncate(Lj$/util/stream/Node$OfPrimitive;JJLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 0
+    .registers 6
     .param p0, "_this"    # Lj$/util/stream/Node$OfPrimitive;
 
     .line 227

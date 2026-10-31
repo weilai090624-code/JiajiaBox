@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;Ljava/lang/CharSequence;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "type"    # Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "returnType"    # Ljava/lang/String;
@@ -97,29 +97,29 @@
 .end method
 
 .method public static synthetic copy$default(Lcom/blacksquircle/ui/language/base/model/Suggestion;Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;Ljava/lang/CharSequence;Ljava/lang/String;ILjava/lang/Object;)Lcom/blacksquircle/ui/language/base/model/Suggestion;
-    .locals 0
+    .registers 6
 
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     iget-object p1, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->type:Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_c
 
     iget-object p2, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->text:Ljava/lang/CharSequence;
 
-    :cond_1
+    :cond_c
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_12
 
     iget-object p3, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->returnType:Ljava/lang/String;
 
-    :cond_2
+    :cond_12
     invoke-virtual {p0, p1, p2, p3}, Lcom/blacksquircle/ui/language/base/model/Suggestion;->copy(Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;Ljava/lang/CharSequence;Ljava/lang/String;)Lcom/blacksquircle/ui/language/base/model/Suggestion;
 
     move-result-object p0
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public final component1()Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->type:Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public final component2()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->text:Ljava/lang/CharSequence;
 
@@ -146,7 +146,7 @@
 .end method
 
 .method public final component3()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->returnType:Ljava/lang/String;
 
@@ -154,7 +154,7 @@
 .end method
 
 .method public final copy(Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;Ljava/lang/CharSequence;Ljava/lang/String;)Lcom/blacksquircle/ui/language/base/model/Suggestion;
-    .locals 1
+    .registers 5
 
     const-string/jumbo v0, "type"
 
@@ -176,24 +176,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/blacksquircle/ui/language/base/model/Suggestion;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/blacksquircle/ui/language/base/model/Suggestion;
@@ -202,11 +202,11 @@
 
     iget-object v4, v1, Lcom/blacksquircle/ui/language/base/model/Suggestion;->type:Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_14
 
     return v2
 
-    :cond_2
+    :cond_14
     iget-object v3, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->text:Ljava/lang/CharSequence;
 
     iget-object v4, v1, Lcom/blacksquircle/ui/language/base/model/Suggestion;->text:Ljava/lang/CharSequence;
@@ -215,11 +215,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     iget-object v3, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->returnType:Ljava/lang/String;
 
     iget-object v1, v1, Lcom/blacksquircle/ui/language/base/model/Suggestion;->returnType:Ljava/lang/String;
@@ -228,16 +228,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_2a
 
     return v2
 
-    :cond_4
+    :cond_2a
     return v0
 .end method
 
 .method public final getReturnType()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->returnType:Ljava/lang/String;
@@ -246,7 +246,7 @@
 .end method
 
 .method public final getText()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 21
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->text:Ljava/lang/CharSequence;
@@ -255,7 +255,7 @@
 .end method
 
 .method public final getType()Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->type:Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
@@ -264,7 +264,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->type:Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
 
@@ -296,7 +296,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 25
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion;->text:Ljava/lang/CharSequence;

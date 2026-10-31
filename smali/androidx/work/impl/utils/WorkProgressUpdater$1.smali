@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/WorkProgressUpdater;Ljava/util/UUID;Landroidx/work/Data;Landroidx/work/impl/utils/futures/SettableFuture;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Landroidx/work/impl/utils/WorkProgressUpdater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .registers 9
 
     .line 75
     iget-object v0, p0, Landroidx/work/impl/utils/WorkProgressUpdater$1;->val$id:Ljava/util/UUID;
@@ -134,7 +134,7 @@
     invoke-virtual {v1}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 79
-    :try_start_0
+    :try_start_3d
     iget-object v1, p0, Landroidx/work/impl/utils/WorkProgressUpdater$1;->this$0:Landroidx/work/impl/utils/WorkProgressUpdater;
 
     iget-object v1, v1, Landroidx/work/impl/utils/WorkProgressUpdater;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -151,7 +151,7 @@
 
     .line 81
     .local v2, "workSpec":Landroidx/work/impl/model/WorkSpec;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_95
 
     .line 82
     iget-object v3, v2, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
@@ -160,7 +160,7 @@
     .local v3, "state":Landroidx/work/WorkInfo$State;
     sget-object v4, Landroidx/work/WorkInfo$State;->RUNNING:Landroidx/work/WorkInfo$State;
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_64
 
     .line 85
     new-instance v4, Landroidx/work/impl/model/WorkProgress;
@@ -183,10 +183,10 @@
 
     .line 87
     .end local v4    # "progress":Landroidx/work/impl/model/WorkProgress;
-    goto :goto_0
+    goto :goto_86
 
     .line 88
-    :cond_0
+    :cond_64
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v4
@@ -221,7 +221,7 @@
 
     .line 93
     .end local v3    # "state":Landroidx/work/WorkInfo$State;
-    :goto_0
+    :goto_86
     nop
 
     .line 100
@@ -241,12 +241,12 @@
     .line 106
     .end local v1    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
     .end local v2    # "workSpec":Landroidx/work/impl/model/WorkSpec;
-    goto :goto_1
+    goto :goto_af
 
     .line 94
     .restart local v1    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
     .restart local v2    # "workSpec":Landroidx/work/impl/model/WorkSpec;
-    :cond_1
+    :cond_95
     const-string v3, "Calls to setProgressAsync() must complete before a ListenableWorker signals completion of work by returning an instance of Result."
 
     .line 98
@@ -257,20 +257,20 @@
 
     .end local v0    # "workSpecId":Ljava/lang/String;
     throw v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9d
+    .catchall {:try_start_3d .. :try_end_9d} :catchall_9d
 
     .line 102
     .end local v1    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
     .end local v2    # "workSpec":Landroidx/work/impl/model/WorkSpec;
     .end local v3    # "message":Ljava/lang/String;
     .restart local v0    # "workSpecId":Ljava/lang/String;
-    :catchall_0
+    :catchall_9d
     move-exception v1
 
     .line 103
     .local v1, "throwable":Ljava/lang/Throwable;
-    :try_start_1
+    :try_start_9e
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v2
@@ -285,14 +285,14 @@
     iget-object v2, p0, Landroidx/work/impl/utils/WorkProgressUpdater$1;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-virtual {v2, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->setException(Ljava/lang/Throwable;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_ae
+    .catchall {:try_start_9e .. :try_end_ae} :catchall_b8
 
     .line 106
     nop
 
     .end local v1    # "throwable":Ljava/lang/Throwable;
-    :goto_1
+    :goto_af
     iget-object v1, p0, Landroidx/work/impl/utils/WorkProgressUpdater$1;->this$0:Landroidx/work/impl/utils/WorkProgressUpdater;
 
     iget-object v1, v1, Landroidx/work/impl/utils/WorkProgressUpdater;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
@@ -306,7 +306,7 @@
     return-void
 
     .line 106
-    :catchall_1
+    :catchall_b8
     move-exception v1
 
     iget-object v2, p0, Landroidx/work/impl/utils/WorkProgressUpdater$1;->this$0:Landroidx/work/impl/utils/WorkProgressUpdater;

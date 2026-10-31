@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static synthetic next(Lkotlinx/coroutines/channels/ChannelIterator;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->HIDDEN:Lkotlin/DeprecationLevel;
         message = "Since 1.3.0, binary compatibility with versions <= 1.2.x"
@@ -34,7 +34,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/channels/ChannelIterator$next0$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -46,7 +46,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/channels/ChannelIterator$next0$1;->label:I
 
@@ -54,14 +54,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/channels/ChannelIterator$next0$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/channels/ChannelIterator$next0$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/channels/ChannelIterator$next0$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -75,7 +75,7 @@
     .line 583
     iget v2, p1, Lkotlinx/coroutines/channels/ChannelIterator$next0$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_5a
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -89,7 +89,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p0, p1, Lkotlinx/coroutines/channels/ChannelIterator$next0$1;->L$0:Ljava/lang/Object;
 
     check-cast p0, Lkotlinx/coroutines/channels/ChannelIterator;
@@ -99,10 +99,10 @@
 
     move-object v2, v0
 
-    goto :goto_1
+    goto :goto_45
 
     .end local p0    # "$this":Lkotlinx/coroutines/channels/ChannelIterator;
-    :pswitch_1
+    :pswitch_36
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 589
@@ -117,21 +117,21 @@
 
     move-result-object v2
 
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_45
 
     .line 583
     return-object v1
 
     .line 589
-    :cond_1
-    :goto_1
+    :cond_45
+    :goto_45
     check-cast v2, Ljava/lang/Boolean;
 
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_52
 
     .line 590
     invoke-interface {p0}, Lkotlinx/coroutines/channels/ChannelIterator;->next()Ljava/lang/Object;
@@ -141,7 +141,7 @@
     return-object v1
 
     .line 589
-    :cond_2
+    :cond_52
     new-instance v1, Lkotlinx/coroutines/channels/ClosedReceiveChannelException;
 
     const-string v2, "Channel was closed"
@@ -150,9 +150,9 @@
 
     throw v1
 
-    :pswitch_data_0
+    :pswitch_data_5a
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_36
+        :pswitch_2d
     .end packed-switch
 .end method

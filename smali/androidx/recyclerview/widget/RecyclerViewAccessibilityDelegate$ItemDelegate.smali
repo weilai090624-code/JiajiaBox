@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;)V
-    .locals 1
+    .registers 3
     .param p1, "recyclerViewDelegate"    # Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;
 
     .line 129
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 2
+    .registers 5
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
@@ -69,7 +69,7 @@
 
     .line 220
     .local v0, "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 221
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
@@ -79,7 +79,7 @@
     return v1
 
     .line 223
-    :cond_0
+    :cond_f
     invoke-super {p0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
 
     move-result v1
@@ -88,7 +88,7 @@
 .end method
 
 .method public getAccessibilityNodeProvider(Landroid/view/View;)Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
-    .locals 2
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
 
     .line 263
@@ -102,7 +102,7 @@
 
     .line 264
     .local v0, "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 265
     invoke-virtual {v0, p1}, Landroidx/core/view/AccessibilityDelegateCompat;->getAccessibilityNodeProvider(Landroid/view/View;)Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
@@ -112,7 +112,7 @@
     return-object v1
 
     .line 267
-    :cond_0
+    :cond_f
     invoke-super {p0, p1}, Landroidx/core/view/AccessibilityDelegateCompat;->getAccessibilityNodeProvider(Landroid/view/View;)Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
 
     move-result-object v1
@@ -121,7 +121,7 @@
 .end method
 
 .method getAndRemoveOriginalDelegateForItem(Landroid/view/View;)Landroidx/core/view/AccessibilityDelegateCompat;
-    .locals 1
+    .registers 3
     .param p1, "itemView"    # Landroid/view/View;
 
     .line 148
@@ -137,7 +137,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
@@ -152,24 +152,24 @@
 
     .line 242
     .local v0, "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 243
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 245
-    :cond_0
+    :cond_e
     invoke-super {p0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
     .line 247
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
@@ -180,7 +180,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2f
 
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mRecyclerViewDelegate:Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;
 
@@ -191,7 +191,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     .line 159
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mRecyclerViewDelegate:Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;
@@ -216,33 +216,33 @@
 
     .line 162
     .local v0, "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 163
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 165
-    :cond_0
+    :cond_2b
     invoke-super {p0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
 
     .line 167
     .end local v0    # "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    :goto_0
-    goto :goto_1
+    :goto_2e
+    goto :goto_32
 
     .line 168
-    :cond_1
+    :cond_2f
     invoke-super {p0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
 
     .line 170
-    :goto_1
+    :goto_32
     return-void
 .end method
 
 .method public onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
@@ -257,24 +257,24 @@
 
     .line 231
     .local v0, "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 232
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 234
-    :cond_0
+    :cond_e
     invoke-super {p0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
     .line 236
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 2
+    .registers 6
     .param p1, "host"    # Landroid/view/ViewGroup;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "event"    # Landroid/view/accessibility/AccessibilityEvent;
@@ -290,7 +290,7 @@
 
     .line 253
     .local v0, "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 254
     invoke-virtual {v0, p1, p2, p3}, Landroidx/core/view/AccessibilityDelegateCompat;->onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
@@ -300,7 +300,7 @@
     return v1
 
     .line 256
-    :cond_0
+    :cond_f
     invoke-super {p0, p1, p2, p3}, Landroidx/core/view/AccessibilityDelegateCompat;->onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
 
     move-result v1
@@ -309,7 +309,7 @@
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 3
+    .registers 7
     .param p1, "host"    # Landroid/view/View;
     .param p2, "action"    # I
     .param p3, "args"    # Landroid/os/Bundle;
@@ -321,7 +321,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_38
 
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mRecyclerViewDelegate:Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;
 
@@ -332,7 +332,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_38
 
     .line 180
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mOriginalItemDelegates:Ljava/util/Map;
@@ -347,31 +347,31 @@
     .local v0, "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 182
     invoke-virtual {v0, p1, p2, p3}, Landroidx/core/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2b
 
     .line 183
     return v1
 
     .line 185
-    :cond_0
+    :cond_24
     invoke-super {p0, p1, p2, p3}, Landroidx/core/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2b
 
     .line 186
     return v1
 
     .line 188
-    :cond_1
+    :cond_2b
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mRecyclerViewDelegate:Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;
 
     iget-object v1, v1, Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
@@ -390,7 +390,7 @@
 
     .line 191
     .end local v0    # "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    :cond_2
+    :cond_38
     invoke-super {p0, p1, p2, p3}, Landroidx/core/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
     move-result v0
@@ -399,7 +399,7 @@
 .end method
 
 .method saveOriginalDelegate(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "itemView"    # Landroid/view/View;
 
     .line 138
@@ -409,9 +409,9 @@
 
     .line 139
     .local v0, "delegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_d
 
     .line 140
     iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mOriginalItemDelegates:Ljava/util/Map;
@@ -419,12 +419,12 @@
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 142
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public sendAccessibilityEvent(Landroid/view/View;I)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "eventType"    # I
 
@@ -439,24 +439,24 @@
 
     .line 198
     .local v0, "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 199
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->sendAccessibilityEvent(Landroid/view/View;I)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 201
-    :cond_0
+    :cond_e
     invoke-super {p0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->sendAccessibilityEvent(Landroid/view/View;I)V
 
     .line 203
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public sendAccessibilityEventUnchecked(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 1
+    .registers 4
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
@@ -471,18 +471,18 @@
 
     .line 209
     .local v0, "originalDelegate":Landroidx/core/view/AccessibilityDelegateCompat;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 210
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->sendAccessibilityEventUnchecked(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 212
-    :cond_0
+    :cond_e
     invoke-super {p0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->sendAccessibilityEventUnchecked(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
     .line 214
-    :goto_0
+    :goto_11
     return-void
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/CameraCaptureCallback;)V
-    .locals 2
+    .registers 4
     .param p1, "cameraCaptureCallback"    # Landroidx/camera/core/impl/CameraCaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -24,7 +24,7 @@
     invoke-direct {p0}, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;-><init>()V
 
     .line 39
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 42
     iput-object p1, p0, Landroidx/camera/camera2/internal/CaptureCallbackAdapter;->mCameraCaptureCallback:Landroidx/camera/core/impl/CameraCaptureCallback;
@@ -33,7 +33,7 @@
     return-void
 
     .line 40
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "cameraCaptureCallback is null"
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
-    .locals 4
+    .registers 8
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "result"    # Landroid/hardware/camera2/TotalCaptureResult;
@@ -73,7 +73,7 @@
 
     .line 57
     .local v0, "captureRequestTag":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 58
     instance-of v1, v0, Landroidx/camera/core/impl/TagBundle;
@@ -88,18 +88,18 @@
     check-cast v1, Landroidx/camera/core/impl/TagBundle;
 
     .local v1, "tagBundle":Landroidx/camera/core/impl/TagBundle;
-    goto :goto_0
+    goto :goto_18
 
     .line 63
     .end local v1    # "tagBundle":Landroidx/camera/core/impl/TagBundle;
-    :cond_0
+    :cond_14
     invoke-static {}, Landroidx/camera/core/impl/TagBundle;->emptyBundle()Landroidx/camera/core/impl/TagBundle;
 
     move-result-object v1
 
     .line 65
     .restart local v1    # "tagBundle":Landroidx/camera/core/impl/TagBundle;
-    :goto_0
+    :goto_18
     iget-object v2, p0, Landroidx/camera/camera2/internal/CaptureCallbackAdapter;->mCameraCaptureCallback:Landroidx/camera/core/impl/CameraCaptureCallback;
 
     new-instance v3, Landroidx/camera/camera2/internal/Camera2CameraCaptureResult;
@@ -113,7 +113,7 @@
 .end method
 
 .method public onCaptureFailed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureFailure;)V
-    .locals 2
+    .registers 6
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p3, "failure"    # Landroid/hardware/camera2/CaptureFailure;

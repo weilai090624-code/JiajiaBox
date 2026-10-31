@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 137
     new-instance v0, Lj$/time/format/DateTimeFormatterBuilder;
@@ -86,7 +86,7 @@
 .end method
 
 .method private constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "month"    # I
     .param p2, "dayOfMonth"    # I
 
@@ -104,13 +104,13 @@
 .end method
 
 .method public static from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/MonthDay;
-    .locals 5
+    .registers 6
     .param p0, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 268
     instance-of v0, p0, Lj$/time/MonthDay;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 269
     move-object v0, p0
@@ -120,8 +120,8 @@
     return-object v0
 
     .line 272
-    :cond_0
-    :try_start_0
+    :cond_8
+    :try_start_8
     sget-object v0, Lj$/time/chrono/IsoChronology;->INSTANCE:Lj$/time/chrono/IsoChronology;
 
     invoke-static {p0}, Lj$/time/chrono/Chronology$-CC;->from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/chrono/Chronology;
@@ -132,7 +132,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
     .line 273
     invoke-static {p0}, Lj$/time/LocalDate;->from(Lj$/time/temporal/TemporalAccessor;)Lj$/time/LocalDate;
@@ -142,7 +142,7 @@
     move-object p0, v0
 
     .line 275
-    :cond_1
+    :cond_19
     sget-object v0, Lj$/time/temporal/ChronoField;->MONTH_OF_YEAR:Lj$/time/temporal/ChronoField;
 
     invoke-interface {p0, v0}, Lj$/time/temporal/TemporalAccessor;->get(Lj$/time/temporal/TemporalField;)I
@@ -158,13 +158,13 @@
     invoke-static {v0, v1}, Lj$/time/MonthDay;->of(II)Lj$/time/MonthDay;
 
     move-result-object v0
-    :try_end_0
-    .catch Lj$/time/DateTimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Lj$/time/DateTimeException; {:try_start_8 .. :try_end_29} :catch_2a
 
     return-object v0
 
     .line 276
-    :catch_0
+    :catch_2a
     move-exception v0
 
     .line 277
@@ -214,7 +214,7 @@
 .end method
 
 .method public static now()Lj$/time/MonthDay;
-    .locals 1
+    .registers 1
 
     .line 166
     invoke-static {}, Lj$/time/Clock;->systemDefaultZone()Lj$/time/Clock;
@@ -229,7 +229,7 @@
 .end method
 
 .method public static now(Lj$/time/Clock;)Lj$/time/MonthDay;
-    .locals 3
+    .registers 4
     .param p0, "clock"    # Lj$/time/Clock;
 
     .line 196
@@ -255,7 +255,7 @@
 .end method
 
 .method public static now(Lj$/time/ZoneId;)Lj$/time/MonthDay;
-    .locals 1
+    .registers 2
     .param p0, "zone"    # Lj$/time/ZoneId;
 
     .line 182
@@ -271,7 +271,7 @@
 .end method
 
 .method public static of(II)Lj$/time/MonthDay;
-    .locals 1
+    .registers 3
     .param p0, "month"    # I
     .param p1, "dayOfMonth"    # I
 
@@ -288,7 +288,7 @@
 .end method
 
 .method public static of(Lj$/time/Month;I)Lj$/time/MonthDay;
-    .locals 4
+    .registers 6
     .param p0, "month"    # Lj$/time/Month;
     .param p1, "dayOfMonth"    # I
 
@@ -309,7 +309,7 @@
 
     move-result v0
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_1b
 
     .line 224
     new-instance v0, Lj$/time/MonthDay;
@@ -323,7 +323,7 @@
     return-object v0
 
     .line 221
-    :cond_0
+    :cond_1b
     new-instance v0, Lj$/time/DateTimeException;
 
     .line 222
@@ -365,7 +365,7 @@
 .end method
 
 .method public static parse(Ljava/lang/CharSequence;)Lj$/time/MonthDay;
-    .locals 1
+    .registers 2
     .param p0, "text"    # Ljava/lang/CharSequence;
 
     .line 294
@@ -379,7 +379,7 @@
 .end method
 
 .method public static parse(Ljava/lang/CharSequence;Lj$/time/format/DateTimeFormatter;)Lj$/time/MonthDay;
-    .locals 1
+    .registers 3
     .param p0, "text"    # Ljava/lang/CharSequence;
     .param p1, "formatter"    # Lj$/time/format/DateTimeFormatter;
 
@@ -403,7 +403,7 @@
 .end method
 
 .method static readExternal(Ljava/io/DataInput;)Lj$/time/MonthDay;
-    .locals 3
+    .registers 4
     .param p0, "in"    # Ljava/io/DataInput;
 
     .line 787
@@ -427,7 +427,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/io/ObjectInputStream;
 
     .line 778
@@ -441,7 +441,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 768
     new-instance v0, Lj$/time/Ser;
@@ -456,7 +456,7 @@
 
 # virtual methods
 .method public adjustInto(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 5
+    .registers 7
     .param p1, "temporal"    # Lj$/time/temporal/Temporal;
 
     .line 628
@@ -470,7 +470,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 631
     sget-object v0, Lj$/time/temporal/ChronoField;->MONTH_OF_YEAR:Lj$/time/temporal/ChronoField;
@@ -511,7 +511,7 @@
     return-object v0
 
     .line 629
-    :cond_0
+    :cond_2d
     new-instance v0, Lj$/time/DateTimeException;
 
     const-string v1, "Adjustment only supported on ISO date-time"
@@ -522,7 +522,7 @@
 .end method
 
 .method public atYear(I)Lj$/time/LocalDate;
-    .locals 2
+    .registers 4
     .param p1, "year"    # I
 
     .line 665
@@ -532,16 +532,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     iget v1, p0, Lj$/time/MonthDay;->day:I
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/16 v1, 0x1c
 
-    :goto_0
+    :goto_d
     invoke-static {p1, v0, v1}, Lj$/time/LocalDate;->of(III)Lj$/time/LocalDate;
 
     move-result-object v0
@@ -550,7 +550,7 @@
 .end method
 
 .method public compareTo(Lj$/time/MonthDay;)I
-    .locals 3
+    .registers 5
     .param p1, "other"    # Lj$/time/MonthDay;
 
     .line 680
@@ -562,7 +562,7 @@
 
     .line 681
     .local v0, "cmp":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 682
     iget v1, p0, Lj$/time/MonthDay;->day:I
@@ -572,12 +572,12 @@
     sub-int v0, v1, v2
 
     .line 684
-    :cond_0
+    :cond_d
     return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 127
     check-cast p1, Lj$/time/MonthDay;
@@ -590,24 +590,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 718
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 719
     return v0
 
     .line 721
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/time/MonthDay;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1b
 
     .line 722
     move-object v1, p1
@@ -620,30 +620,30 @@
 
     iget v4, v1, Lj$/time/MonthDay;->month:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_19
 
     iget v3, p0, Lj$/time/MonthDay;->day:I
 
     iget v4, v1, Lj$/time/MonthDay;->day:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_19
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1a
     return v0
 
     .line 725
     .end local v1    # "other":Lj$/time/MonthDay;
-    :cond_2
+    :cond_1b
     return v2
 .end method
 
 .method public format(Lj$/time/format/DateTimeFormatter;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "formatter"    # Lj$/time/format/DateTimeFormatter;
 
     .line 645
@@ -660,7 +660,7 @@
 .end method
 
 .method public get(Lj$/time/temporal/TemporalField;)I
-    .locals 3
+    .registers 5
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 417
@@ -680,7 +680,7 @@
 .end method
 
 .method public getDayOfMonth()I
-    .locals 1
+    .registers 2
 
     .line 494
     iget v0, p0, Lj$/time/MonthDay;->day:I
@@ -689,13 +689,13 @@
 .end method
 
 .method public getLong(Lj$/time/temporal/TemporalField;)J
-    .locals 3
+    .registers 5
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 445
     instance-of v0, p1, Lj$/time/temporal/ChronoField;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
     .line 446
     sget-object v0, Lj$/time/MonthDay$1;->$SwitchMap$java$time$temporal$ChronoField:[I
@@ -710,7 +710,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_38
 
     .line 451
     new-instance v0, Lj$/time/temporal/UnsupportedTemporalTypeException;
@@ -738,7 +738,7 @@
     throw v0
 
     .line 449
-    :pswitch_0
+    :pswitch_2b
     iget v0, p0, Lj$/time/MonthDay;->month:I
 
     int-to-long v0, v0
@@ -746,7 +746,7 @@
     return-wide v0
 
     .line 448
-    :pswitch_1
+    :pswitch_2f
     iget v0, p0, Lj$/time/MonthDay;->day:I
 
     int-to-long v0, v0
@@ -754,22 +754,22 @@
     return-wide v0
 
     .line 453
-    :cond_0
+    :cond_33
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->getFrom(Lj$/time/temporal/TemporalAccessor;)J
 
     move-result-wide v0
 
     return-wide v0
 
-    :pswitch_data_0
+    :pswitch_data_38
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2f
+        :pswitch_2b
     .end packed-switch
 .end method
 
 .method public getMonth()Lj$/time/Month;
-    .locals 1
+    .registers 2
 
     .line 483
     iget v0, p0, Lj$/time/MonthDay;->month:I
@@ -782,7 +782,7 @@
 .end method
 
 .method public getMonthValue()I
-    .locals 1
+    .registers 2
 
     .line 468
     iget v0, p0, Lj$/time/MonthDay;->month:I
@@ -791,7 +791,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 735
     iget v0, p0, Lj$/time/MonthDay;->month:I
@@ -806,7 +806,7 @@
 .end method
 
 .method public isAfter(Lj$/time/MonthDay;)Z
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lj$/time/MonthDay;
 
     .line 694
@@ -814,21 +814,21 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public isBefore(Lj$/time/MonthDay;)Z
-    .locals 1
+    .registers 3
     .param p1, "other"    # Lj$/time/MonthDay;
 
     .line 704
@@ -836,21 +836,21 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public isSupported(Lj$/time/temporal/TemporalField;)Z
-    .locals 3
+    .registers 5
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 350
@@ -860,47 +860,47 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_11
 
     .line 351
     sget-object v0, Lj$/time/temporal/ChronoField;->MONTH_OF_YEAR:Lj$/time/temporal/ChronoField;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_10
 
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_MONTH:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_f
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     return v1
 
     .line 353
-    :cond_2
-    if-eqz p1, :cond_3
+    :cond_11
+    if-eqz p1, :cond_1a
 
     invoke-interface {p1, p0}, Lj$/time/temporal/TemporalField;->isSupportedBy(Lj$/time/temporal/TemporalAccessor;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_1a
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_3
+    :cond_1a
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_1b
     return v1
 .end method
 
 .method public isValidYear(I)Z
-    .locals 3
+    .registers 5
     .param p1, "year"    # I
 
     .line 509
@@ -910,13 +910,13 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     iget v0, p0, Lj$/time/MonthDay;->month:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     int-to-long v0, p1
 
@@ -924,23 +924,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_16
     xor-int/2addr v0, v2
 
     return v0
 .end method
 
 .method public query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -957,7 +957,7 @@
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     .line 594
     sget-object v0, Lj$/time/chrono/IsoChronology;->INSTANCE:Lj$/time/chrono/IsoChronology;
@@ -965,7 +965,7 @@
     return-object v0
 
     .line 596
-    :cond_0
+    :cond_9
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$query(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
     move-result-object v0
@@ -974,13 +974,13 @@
 .end method
 
 .method public range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 7
+    .registers 9
     .param p1, "field"    # Lj$/time/temporal/TemporalField;
 
     .line 381
     sget-object v0, Lj$/time/temporal/ChronoField;->MONTH_OF_YEAR:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     .line 382
     invoke-interface {p1}, Lj$/time/temporal/TemporalField;->range()Lj$/time/temporal/ValueRange;
@@ -990,10 +990,10 @@
     return-object v0
 
     .line 383
-    :cond_0
+    :cond_9
     sget-object v0, Lj$/time/temporal/ChronoField;->DAY_OF_MONTH:Lj$/time/temporal/ChronoField;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_26
 
     .line 384
     invoke-virtual {p0}, Lj$/time/MonthDay;->getMonth()Lj$/time/Month;
@@ -1025,7 +1025,7 @@
     return-object v0
 
     .line 386
-    :cond_1
+    :cond_26
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalAccessor$-CC;->$default$range(Lj$/time/temporal/TemporalAccessor;Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
 
     move-result-object v0
@@ -1034,7 +1034,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 748
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1052,16 +1052,16 @@
     .line 749
     iget v2, p0, Lj$/time/MonthDay;->month:I
 
-    if-ge v2, v1, :cond_0
+    if-ge v2, v1, :cond_14
 
     const-string v2, "0"
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const-string v2, ""
 
-    :goto_0
+    :goto_16
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -1075,16 +1075,16 @@
     .line 750
     iget v2, p0, Lj$/time/MonthDay;->day:I
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_27
 
     const-string v1, "-0"
 
-    goto :goto_1
+    goto :goto_29
 
-    :cond_1
+    :cond_27
     const-string v1, "-"
 
-    :goto_1
+    :goto_29
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -1105,7 +1105,7 @@
 .end method
 
 .method public with(Lj$/time/Month;)Lj$/time/MonthDay;
-    .locals 3
+    .registers 5
     .param p1, "month"    # Lj$/time/Month;
 
     .line 543
@@ -1120,13 +1120,13 @@
 
     iget v1, p0, Lj$/time/MonthDay;->month:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 545
     return-object p0
 
     .line 547
-    :cond_0
+    :cond_e
     iget v0, p0, Lj$/time/MonthDay;->day:I
 
     invoke-virtual {p1}, Lj$/time/Month;->maxLength()I
@@ -1151,19 +1151,19 @@
 .end method
 
 .method public withDayOfMonth(I)Lj$/time/MonthDay;
-    .locals 1
+    .registers 3
     .param p1, "dayOfMonth"    # I
 
     .line 565
     iget v0, p0, Lj$/time/MonthDay;->day:I
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 566
     return-object p0
 
     .line 568
-    :cond_0
+    :cond_5
     iget v0, p0, Lj$/time/MonthDay;->month:I
 
     invoke-static {v0, p1}, Lj$/time/MonthDay;->of(II)Lj$/time/MonthDay;
@@ -1174,7 +1174,7 @@
 .end method
 
 .method public withMonth(I)Lj$/time/MonthDay;
-    .locals 1
+    .registers 3
     .param p1, "month"    # I
 
     .line 527
@@ -1190,7 +1190,7 @@
 .end method
 
 .method writeExternal(Ljava/io/DataOutput;)V
-    .locals 1
+    .registers 3
     .param p1, "out"    # Ljava/io/DataOutput;
 
     .line 782

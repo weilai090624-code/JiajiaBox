@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/transition/ChangeTransform;ZLandroid/graphics/Matrix;Landroid/view/View;Landroidx/transition/ChangeTransform$Transforms;Landroidx/transition/ChangeTransform$PathAnimatorMatrix;)V
-    .locals 0
+    .registers 7
     .param p1, "this$0"    # Landroidx/transition/ChangeTransform;
 
     .line 331
@@ -63,7 +63,7 @@
 .end method
 
 .method private setCurrentMatrix(Landroid/graphics/Matrix;)V
-    .locals 3
+    .registers 5
     .param p1, "currentMatrix"    # Landroid/graphics/Matrix;
 
     .line 366
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 337
@@ -107,7 +107,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 342
@@ -115,28 +115,28 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_23
 
     .line 343
     iget-boolean v0, p0, Landroidx/transition/ChangeTransform$3;->val$handleParentChange:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Landroidx/transition/ChangeTransform$3;->this$0:Landroidx/transition/ChangeTransform;
 
     iget-boolean v0, v0, Landroidx/transition/ChangeTransform;->mUseOverlay:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 344
     iget-object v0, p0, Landroidx/transition/ChangeTransform$3;->val$finalEndMatrix:Landroid/graphics/Matrix;
 
     invoke-direct {p0, v0}, Landroidx/transition/ChangeTransform$3;->setCurrentMatrix(Landroid/graphics/Matrix;)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 346
-    :cond_0
+    :cond_15
     iget-object v0, p0, Landroidx/transition/ChangeTransform$3;->val$view:Landroid/view/View;
 
     sget v2, Landroidx/transition/R$id;->transition_transform:I
@@ -151,8 +151,8 @@
     invoke-virtual {v0, v2, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     .line 350
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     iget-object v0, p0, Landroidx/transition/ChangeTransform$3;->val$view:Landroid/view/View;
 
     invoke-static {v0, v1}, Landroidx/transition/ViewUtils;->setAnimationMatrix(Landroid/view/View;Landroid/graphics/Matrix;)V
@@ -169,7 +169,7 @@
 .end method
 
 .method public onAnimationPause(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 356
@@ -188,7 +188,7 @@
 .end method
 
 .method public onAnimationResume(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 362

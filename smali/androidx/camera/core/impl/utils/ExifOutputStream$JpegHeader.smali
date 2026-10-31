@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 385
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method public static isSofMarker(S)Z
-    .locals 1
+    .registers 2
     .param p0, "marker"    # S
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -57,31 +57,31 @@
     .line 381
     const/16 v0, -0x40
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_16
 
     const/16 v0, -0x31
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_16
 
     const/16 v0, -0x3c
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_16
 
     const/16 v0, -0x38
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_16
 
     const/16 v0, -0x34
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return v0
 .end method

@@ -29,17 +29,17 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 56
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x19
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1c
 
     .line 58
-    :try_start_0
+    :try_start_6
     const-class v0, Landroid/view/ViewConfiguration;
 
     const-string v1, "getScaledScrollFactor"
@@ -54,14 +54,14 @@
     move-result-object v0
 
     sput-object v0, Landroidx/core/view/ViewConfigurationCompat;->sGetScaledScrollFactorMethod:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_13} :catch_14
 
     .line 62
-    goto :goto_0
+    goto :goto_1c
 
     .line 60
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 61
@@ -74,13 +74,13 @@
 
     .line 64
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_1c
+    :goto_1c
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 287
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -90,7 +90,7 @@
 .end method
 
 .method private static getCompatFlingVelocityThreshold(Landroid/content/res/Resources;ILandroidx/core/util/Supplier;I)I
-    .locals 2
+    .registers 6
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "platformResId"    # I
     .param p3, "noFlingThreshold"    # I
@@ -107,7 +107,7 @@
 
     .line 390
     .local p2, "defaultThresholdSupplier":Landroidx/core/util/Supplier;, "Landroidx/core/util/Supplier<Ljava/lang/Integer;>;"
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_1a
 
     .line 400
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -116,19 +116,19 @@
 
     .line 403
     .local v0, "threshold":I
-    if-gez v0, :cond_0
+    if-gez v0, :cond_17
 
     move v1, p3
 
-    goto :goto_0
+    goto :goto_18
 
     .line 398
     .end local v0    # "threshold":I
-    :pswitch_0
+    :pswitch_b
     return p3
 
     .line 394
-    :pswitch_1
+    :pswitch_c
     invoke-interface {p2}, Landroidx/core/util/Supplier;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -143,23 +143,23 @@
 
     .line 403
     .restart local v0    # "threshold":I
-    :cond_0
+    :cond_17
     move v1, v0
 
-    :goto_0
+    :goto_18
     return v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1a
     .packed-switch -0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_c
+        :pswitch_b
     .end packed-switch
 .end method
 
 .method private static getLegacyScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
-    .locals 4
+    .registers 6
     .param p0, "config"    # Landroid/view/ViewConfiguration;
     .param p1, "context"    # Landroid/content/Context;
 
@@ -168,14 +168,14 @@
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_23
 
     sget-object v0, Landroidx/core/view/ViewConfigurationCompat;->sGetScaledScrollFactorMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 126
-    :try_start_0
+    :try_start_a
     sget-object v0, Landroidx/core/view/ViewConfigurationCompat;->sGetScaledScrollFactorMethod:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x0
@@ -191,15 +191,15 @@
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_19} :catch_1b
 
     int-to-float v0, v0
 
     return v0
 
     .line 127
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 128
@@ -212,7 +212,7 @@
 
     .line 132
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
+    :cond_23
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
@@ -231,7 +231,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_43
 
     .line 135
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -249,14 +249,14 @@
     return v1
 
     .line 137
-    :cond_1
+    :cond_43
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method private static getPlatformResId(Landroid/content/res/Resources;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 1
+    .registers 4
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "defType"    # Ljava/lang/String;
@@ -272,7 +272,7 @@
 .end method
 
 .method private static getPreApi34MaximumFlingVelocityResId(Landroid/content/res/Resources;II)I
-    .locals 2
+    .registers 5
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "source"    # I
     .param p2, "axis"    # I
@@ -280,11 +280,11 @@
     .line 351
     const/high16 v0, 0x400000
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_11
 
     const/16 v0, 0x1a
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_11
 
     .line 352
     const-string v0, "config_viewMaxRotaryEncoderFlingVelocity"
@@ -298,14 +298,14 @@
     return v0
 
     .line 355
-    :cond_0
+    :cond_11
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method private static getPreApi34MinimumFlingVelocityResId(Landroid/content/res/Resources;II)I
-    .locals 2
+    .registers 5
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "source"    # I
     .param p2, "axis"    # I
@@ -313,11 +313,11 @@
     .line 359
     const/high16 v0, 0x400000
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_11
 
     const/16 v0, 0x1a
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_11
 
     .line 360
     const-string v0, "config_viewMinRotaryEncoderFlingVelocity"
@@ -331,14 +331,14 @@
     return v0
 
     .line 363
-    :cond_0
+    :cond_11
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public static getScaledHorizontalScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
-    .locals 2
+    .registers 4
     .param p0, "config"    # Landroid/view/ViewConfiguration;
     .param p1, "context"    # Landroid/content/Context;
 
@@ -347,7 +347,7 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 99
     invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$Api26Impl;->getScaledHorizontalScrollFactor(Landroid/view/ViewConfiguration;)F
@@ -357,7 +357,7 @@
     return v0
 
     .line 101
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Landroidx/core/view/ViewConfigurationCompat;->getLegacyScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
 
     move-result v0
@@ -366,7 +366,7 @@
 .end method
 
 .method public static getScaledHoverSlop(Landroid/view/ViewConfiguration;)I
-    .locals 2
+    .registers 3
     .param p0, "config"    # Landroid/view/ViewConfiguration;
 
     .line 146
@@ -374,7 +374,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 147
     invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$Api28Impl;->getScaledHoverSlop(Landroid/view/ViewConfiguration;)I
@@ -384,7 +384,7 @@
     return v0
 
     .line 149
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
 
     move-result v0
@@ -395,7 +395,7 @@
 .end method
 
 .method public static getScaledMaximumFlingVelocity(Landroid/content/Context;Landroid/view/ViewConfiguration;III)I
-    .locals 4
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "config"    # Landroid/view/ViewConfiguration;
     .param p2, "inputDeviceId"    # I
@@ -407,7 +407,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 272
     invoke-static {p1, p2, p3, p4}, Landroidx/core/view/ViewConfigurationCompat$Api34Impl;->getScaledMaximumFlingVelocity(Landroid/view/ViewConfiguration;III)I
@@ -417,20 +417,20 @@
     return v0
 
     .line 275
-    :cond_0
+    :cond_b
     invoke-static {p2, p3, p4}, Landroidx/core/view/ViewConfigurationCompat;->isInputDeviceInfoValid(III)Z
 
     move-result v0
 
     const/high16 v1, -0x80000000
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 276
     return v1
 
     .line 279
-    :cond_1
+    :cond_14
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -460,7 +460,7 @@
 .end method
 
 .method public static getScaledMinimumFlingVelocity(Landroid/content/Context;Landroid/view/ViewConfiguration;III)I
-    .locals 4
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "config"    # Landroid/view/ViewConfiguration;
     .param p2, "inputDeviceId"    # I
@@ -472,7 +472,7 @@
 
     const/16 v1, 0x22
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 239
     invoke-static {p1, p2, p3, p4}, Landroidx/core/view/ViewConfigurationCompat$Api34Impl;->getScaledMinimumFlingVelocity(Landroid/view/ViewConfiguration;III)I
@@ -482,20 +482,20 @@
     return v0
 
     .line 242
-    :cond_0
+    :cond_b
     invoke-static {p2, p3, p4}, Landroidx/core/view/ViewConfigurationCompat;->isInputDeviceInfoValid(III)Z
 
     move-result v0
 
     const v1, 0x7fffffff
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     .line 243
     return v1
 
     .line 246
-    :cond_1
+    :cond_15
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -525,7 +525,7 @@
 .end method
 
 .method public static getScaledPagingTouchSlop(Landroid/view/ViewConfiguration;)I
-    .locals 1
+    .registers 2
     .param p0, "config"    # Landroid/view/ViewConfiguration;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -539,7 +539,7 @@
 .end method
 
 .method public static getScaledVerticalScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
-    .locals 2
+    .registers 4
     .param p0, "config"    # Landroid/view/ViewConfiguration;
     .param p1, "context"    # Landroid/content/Context;
 
@@ -548,7 +548,7 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 116
     invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$Api26Impl;->getScaledVerticalScrollFactor(Landroid/view/ViewConfiguration;)F
@@ -558,7 +558,7 @@
     return v0
 
     .line 118
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Landroidx/core/view/ViewConfigurationCompat;->getLegacyScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
 
     move-result v0
@@ -567,7 +567,7 @@
 .end method
 
 .method public static hasPermanentMenuKey(Landroid/view/ViewConfiguration;)Z
-    .locals 1
+    .registers 2
     .param p0, "config"    # Landroid/view/ViewConfiguration;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -581,7 +581,7 @@
 .end method
 
 .method private static isInputDeviceInfoValid(III)Z
-    .locals 2
+    .registers 5
     .param p0, "id"    # I
     .param p1, "axis"    # I
     .param p2, "source"    # I
@@ -593,27 +593,27 @@
 
     .line 372
     .local v0, "device":Landroid/view/InputDevice;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-virtual {v0, p1, p2}, Landroid/view/InputDevice;->getMotionRange(II)Landroid/view/InputDevice$MotionRange;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     return v1
 .end method
 
 .method public static shouldShowMenuShortcutsWhenKeyboardPresent(Landroid/view/ViewConfiguration;Landroid/content/Context;)Z
-    .locals 3
+    .registers 5
     .param p0, "config"    # Landroid/view/ViewConfiguration;
     .param p1, "context"    # Landroid/content/Context;
 
@@ -622,7 +622,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 161
     invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$Api28Impl;->shouldShowMenuShortcutsWhenKeyboardPresent(Landroid/view/ViewConfiguration;)Z
@@ -632,7 +632,7 @@
     return v0
 
     .line 163
-    :cond_0
+    :cond_b
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -652,21 +652,21 @@
 
     .line 166
     .local v1, "platformResId":I
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_22
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_22
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
+    :cond_22
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_23
     return v2
 .end method

@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Queue;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 1720
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedQueue;, "Lcom/google/common/collect/Synchronized$SynchronizedQueue<TE;>;"
@@ -76,7 +76,7 @@
 .end method
 
 .method bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 1720
     .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedQueue;, "Lcom/google/common/collect/Synchronized$SynchronizedQueue<TE;>;"
@@ -88,7 +88,7 @@
 .end method
 
 .method delegate()Ljava/util/Queue;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -109,7 +109,7 @@
 .end method
 
 .method public element()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -123,7 +123,7 @@
     monitor-enter v0
 
     .line 1735
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v1
@@ -137,18 +137,18 @@
     return-object v1
 
     .line 1736
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -163,7 +163,7 @@
     monitor-enter v0
 
     .line 1742
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v1
@@ -177,18 +177,18 @@
     return v1
 
     .line 1743
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public peek()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -205,7 +205,7 @@
     monitor-enter v0
 
     .line 1750
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v1
@@ -219,18 +219,18 @@
     return-object v1
 
     .line 1751
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public poll()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -247,7 +247,7 @@
     monitor-enter v0
 
     .line 1758
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v1
@@ -261,18 +261,18 @@
     return-object v1
 
     .line 1759
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method
 
 .method public remove()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -286,7 +286,7 @@
     monitor-enter v0
 
     .line 1765
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v1
@@ -300,12 +300,12 @@
     return-object v1
 
     .line 1766
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_3 .. :try_end_f} :catchall_d
 
     throw v1
 .end method

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;)V
-    .locals 0
+    .registers 4
     .param p1, "contentResolver"    # Landroid/content/ContentResolver;
     .param p2, "saveCollection"    # Landroid/net/Uri;
     .param p3, "contentValues"    # Landroid/content/ContentValues;
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 0
+    .registers 2
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "outputStream"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public build()Landroidx/camera/core/ImageCapture$OutputFileOptions;
-    .locals 8
+    .registers 9
 
     .line 1956
     new-instance v7, Landroidx/camera/core/ImageCapture$OutputFileOptions;
@@ -135,7 +135,7 @@
 .end method
 
 .method public setMetadata(Landroidx/camera/core/ImageCapture$Metadata;)Landroidx/camera/core/ImageCapture$OutputFileOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "metadata"    # Landroidx/camera/core/ImageCapture$Metadata;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

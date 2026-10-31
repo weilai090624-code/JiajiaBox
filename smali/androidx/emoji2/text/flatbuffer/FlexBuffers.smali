@@ -85,7 +85,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 45
     nop
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -118,7 +118,7 @@
 .end method
 
 .method static synthetic access$000()Landroidx/emoji2/text/flatbuffer/ReadBuf;
-    .locals 1
+    .registers 1
 
     .line 45
     sget-object v0, Landroidx/emoji2/text/flatbuffer/FlexBuffers;->EMPTY_BB:Landroidx/emoji2/text/flatbuffer/ReadBuf;
@@ -127,7 +127,7 @@
 .end method
 
 .method static synthetic access$100(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)I
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p1, "x1"    # I
     .param p2, "x2"    # I
@@ -141,7 +141,7 @@
 .end method
 
 .method static synthetic access$200(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)I
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p1, "x1"    # I
     .param p2, "x2"    # I
@@ -155,7 +155,7 @@
 .end method
 
 .method static synthetic access$300(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)J
-    .locals 2
+    .registers 5
     .param p0, "x0"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p1, "x1"    # I
     .param p2, "x2"    # I
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic access$400(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)D
-    .locals 2
+    .registers 5
     .param p0, "x0"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p1, "x1"    # I
     .param p2, "x2"    # I
@@ -183,7 +183,7 @@
 .end method
 
 .method static synthetic access$500(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)J
-    .locals 2
+    .registers 5
     .param p0, "x0"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p1, "x1"    # I
     .param p2, "x2"    # I
@@ -197,7 +197,7 @@
 .end method
 
 .method public static getRoot(Landroidx/emoji2/text/flatbuffer/ReadBuf;)Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
-    .locals 4
+    .registers 5
     .param p0, "buffer"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
 
     .line 214
@@ -238,7 +238,7 @@
 .end method
 
 .method public static getRoot(Ljava/nio/ByteBuffer;)Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
-    .locals 3
+    .registers 4
     .param p0, "buffer"    # Ljava/nio/ByteBuffer;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -248,7 +248,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     new-instance v0, Landroidx/emoji2/text/flatbuffer/ArrayReadWriteBuf;
 
@@ -262,14 +262,14 @@
 
     invoke-direct {v0, v1, v2}, Landroidx/emoji2/text/flatbuffer/ArrayReadWriteBuf;-><init>([BI)V
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Landroidx/emoji2/text/flatbuffer/ByteBufferReadWriteBuf;
 
     invoke-direct {v0, p0}, Landroidx/emoji2/text/flatbuffer/ByteBufferReadWriteBuf;-><init>(Ljava/nio/ByteBuffer;)V
 
-    :goto_0
+    :goto_19
     invoke-static {v0}, Landroidx/emoji2/text/flatbuffer/FlexBuffers;->getRoot(Landroidx/emoji2/text/flatbuffer/ReadBuf;)Landroidx/emoji2/text/flatbuffer/FlexBuffers$Reference;
 
     move-result-object v0
@@ -278,7 +278,7 @@
 .end method
 
 .method private static indirect(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)I
-    .locals 4
+    .registers 7
     .param p0, "bb"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p1, "offset"    # I
     .param p2, "byteWidth"    # I
@@ -298,99 +298,99 @@
 .end method
 
 .method static isTypeInline(I)Z
-    .locals 1
+    .registers 2
     .param p0, "type"    # I
 
     .line 122
     const/4 v0, 0x3
 
-    if-le p0, v0, :cond_1
+    if-le p0, v0, :cond_a
 
     const/16 v0, 0x1a
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_b
 
-    :cond_1
-    :goto_0
+    :cond_a
+    :goto_a
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_b
     return v0
 .end method
 
 .method static isTypedVector(I)Z
-    .locals 1
+    .registers 2
     .param p0, "type"    # I
 
     .line 112
     const/16 v0, 0xb
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_8
 
     const/16 v0, 0xf
 
-    if-le p0, v0, :cond_1
+    if-le p0, v0, :cond_c
 
-    :cond_0
+    :cond_8
     const/16 v0, 0x24
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_e
 
-    :cond_1
+    :cond_c
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_2
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method static isTypedVectorElementType(I)Z
-    .locals 2
+    .registers 3
     .param p0, "type"    # I
 
     .line 150
     const/4 v0, 0x1
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_6
 
     const/4 v1, 0x4
 
-    if-le p0, v1, :cond_1
+    if-le p0, v1, :cond_a
 
-    :cond_0
+    :cond_6
     const/16 v1, 0x1a
 
-    if-ne p0, v1, :cond_2
+    if-ne p0, v1, :cond_b
 
-    :cond_1
-    goto :goto_0
+    :cond_a
+    goto :goto_c
 
-    :cond_2
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return v0
 .end method
 
 .method private static readDouble(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)D
-    .locals 2
+    .registers 5
     .param p0, "buff"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p1, "end"    # I
     .param p2, "byteWidth"    # I
 
     .line 187
-    sparse-switch p2, :sswitch_data_0
+    sparse-switch p2, :sswitch_data_12
 
     .line 190
     const-wide/high16 v0, -0x4010000000000000L    # -1.0
@@ -398,7 +398,7 @@
     return-wide v0
 
     .line 189
-    :sswitch_0
+    :sswitch_6
     invoke-interface {p0, p1}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->getDouble(I)D
 
     move-result-wide v0
@@ -406,7 +406,7 @@
     return-wide v0
 
     .line 188
-    :sswitch_1
+    :sswitch_b
     invoke-interface {p0, p1}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->getFloat(I)F
 
     move-result v0
@@ -417,15 +417,15 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_12
     .sparse-switch
-        0x4 -> :sswitch_1
-        0x8 -> :sswitch_0
+        0x4 -> :sswitch_b
+        0x8 -> :sswitch_6
     .end sparse-switch
 .end method
 
 .method private static readInt(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)I
-    .locals 2
+    .registers 5
     .param p0, "buff"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p1, "end"    # I
     .param p2, "byteWidth"    # I
@@ -441,13 +441,13 @@
 .end method
 
 .method private static readLong(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)J
-    .locals 2
+    .registers 5
     .param p0, "buff"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p1, "end"    # I
     .param p2, "byteWidth"    # I
 
     .line 177
-    sparse-switch p2, :sswitch_data_0
+    sparse-switch p2, :sswitch_data_1e
 
     .line 182
     const-wide/16 v0, -0x1
@@ -455,7 +455,7 @@
     return-wide v0
 
     .line 181
-    :sswitch_0
+    :sswitch_6
     invoke-interface {p0, p1}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->getLong(I)J
 
     move-result-wide v0
@@ -463,7 +463,7 @@
     return-wide v0
 
     .line 180
-    :sswitch_1
+    :sswitch_b
     invoke-interface {p0, p1}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->getInt(I)I
 
     move-result v0
@@ -473,7 +473,7 @@
     return-wide v0
 
     .line 179
-    :sswitch_2
+    :sswitch_11
     invoke-interface {p0, p1}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->getShort(I)S
 
     move-result v0
@@ -483,7 +483,7 @@
     return-wide v0
 
     .line 178
-    :sswitch_3
+    :sswitch_17
     invoke-interface {p0, p1}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->get(I)B
 
     move-result v0
@@ -494,23 +494,23 @@
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_1e
     .sparse-switch
-        0x1 -> :sswitch_3
-        0x2 -> :sswitch_2
-        0x4 -> :sswitch_1
-        0x8 -> :sswitch_0
+        0x1 -> :sswitch_17
+        0x2 -> :sswitch_11
+        0x4 -> :sswitch_b
+        0x8 -> :sswitch_6
     .end sparse-switch
 .end method
 
 .method private static readUInt(Landroidx/emoji2/text/flatbuffer/ReadBuf;II)J
-    .locals 2
+    .registers 5
     .param p0, "buff"    # Landroidx/emoji2/text/flatbuffer/ReadBuf;
     .param p1, "end"    # I
     .param p2, "byteWidth"    # I
 
     .line 161
-    sparse-switch p2, :sswitch_data_0
+    sparse-switch p2, :sswitch_data_28
 
     .line 166
     const-wide/16 v0, -0x1
@@ -518,7 +518,7 @@
     return-wide v0
 
     .line 165
-    :sswitch_0
+    :sswitch_6
     invoke-interface {p0, p1}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->getLong(I)J
 
     move-result-wide v0
@@ -526,7 +526,7 @@
     return-wide v0
 
     .line 164
-    :sswitch_1
+    :sswitch_b
     invoke-interface {p0, p1}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->getInt(I)I
 
     move-result v0
@@ -538,7 +538,7 @@
     return-wide v0
 
     .line 163
-    :sswitch_2
+    :sswitch_14
     invoke-interface {p0, p1}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->getShort(I)S
 
     move-result v0
@@ -552,7 +552,7 @@
     return-wide v0
 
     .line 162
-    :sswitch_3
+    :sswitch_1e
     invoke-interface {p0, p1}, Landroidx/emoji2/text/flatbuffer/ReadBuf;->get(I)B
 
     move-result v0
@@ -565,17 +565,17 @@
 
     return-wide v0
 
-    :sswitch_data_0
+    :sswitch_data_28
     .sparse-switch
-        0x1 -> :sswitch_3
-        0x2 -> :sswitch_2
-        0x4 -> :sswitch_1
-        0x8 -> :sswitch_0
+        0x1 -> :sswitch_1e
+        0x2 -> :sswitch_14
+        0x4 -> :sswitch_b
+        0x8 -> :sswitch_6
     .end sparse-switch
 .end method
 
 .method static toTypedVector(II)I
-    .locals 1
+    .registers 3
     .param p0, "type"    # I
     .param p1, "fixedLength"    # I
 
@@ -584,17 +584,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 138
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_2a
 
     .line 144
-    :pswitch_0
-    goto :goto_0
+    :pswitch_9
+    goto :goto_1e
 
     .line 142
-    :pswitch_1
+    :pswitch_a
     add-int/lit8 v0, p0, -0x1
 
     add-int/lit8 v0, v0, 0x16
@@ -602,7 +602,7 @@
     return v0
 
     .line 141
-    :pswitch_2
+    :pswitch_f
     add-int/lit8 v0, p0, -0x1
 
     add-int/lit8 v0, v0, 0x13
@@ -610,7 +610,7 @@
     return v0
 
     .line 140
-    :pswitch_3
+    :pswitch_14
     add-int/lit8 v0, p0, -0x1
 
     add-int/lit8 v0, v0, 0x10
@@ -618,7 +618,7 @@
     return v0
 
     .line 139
-    :pswitch_4
+    :pswitch_19
     add-int/lit8 v0, p0, -0x1
 
     add-int/lit8 v0, v0, 0xb
@@ -626,7 +626,7 @@
     return v0
 
     .line 144
-    :goto_0
+    :goto_1e
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -634,25 +634,25 @@
     throw v0
 
     .line 137
-    :cond_0
+    :cond_24
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_2a
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_19
+        :pswitch_9
+        :pswitch_14
+        :pswitch_f
+        :pswitch_a
     .end packed-switch
 .end method
 
 .method static toTypedVectorElementType(I)I
-    .locals 1
+    .registers 2
     .param p0, "original_type"    # I
 
     .line 126

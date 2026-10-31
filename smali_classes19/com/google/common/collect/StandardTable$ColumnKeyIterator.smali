@@ -56,7 +56,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/StandardTable;)V
-    .locals 0
+    .registers 2
 
     .line 746
     .local p0, "this":Lcom/google/common/collect/StandardTable$ColumnKeyIterator;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.ColumnKeyIterator;"
@@ -103,7 +103,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/StandardTable;
     .param p2, "x1"    # Lcom/google/common/collect/StandardTable$1;
 
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method protected computeNext()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -131,14 +131,14 @@
     .local p0, "this":Lcom/google/common/collect/StandardTable$ColumnKeyIterator;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.ColumnKeyIterator;"
     nop
 
-    :goto_0
+    :goto_1
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$ColumnKeyIterator;->entryIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     .line 758
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$ColumnKeyIterator;->entryIterator:Ljava/util/Iterator;
@@ -161,7 +161,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2f
 
     .line 760
     iget-object v1, p0, Lcom/google/common/collect/StandardTable$ColumnKeyIterator;->seen:Ljava/util/Map;
@@ -185,17 +185,17 @@
 
     .line 763
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TC;TV;>;"
-    :cond_0
-    goto :goto_0
+    :cond_2f
+    goto :goto_1
 
-    :cond_1
+    :cond_30
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$ColumnKeyIterator;->mapIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4b
 
     .line 764
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$ColumnKeyIterator;->mapIterator:Ljava/util/Iterator;
@@ -216,10 +216,10 @@
 
     iput-object v0, p0, Lcom/google/common/collect/StandardTable$ColumnKeyIterator;->entryIterator:Ljava/util/Iterator;
 
-    goto :goto_0
+    goto :goto_1
 
     .line 766
-    :cond_2
+    :cond_4b
     invoke-virtual {p0}, Lcom/google/common/collect/StandardTable$ColumnKeyIterator;->endOfData()Ljava/lang/Object;
 
     move-result-object v0

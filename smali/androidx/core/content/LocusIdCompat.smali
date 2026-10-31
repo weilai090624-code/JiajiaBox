@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "id"    # Ljava/lang/String;
 
     .line 80
@@ -41,7 +41,7 @@
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1a
 
     .line 83
     invoke-static {p1}, Landroidx/core/content/LocusIdCompat$Api29Impl;->create(Ljava/lang/String;)Landroid/content/LocusId;
@@ -50,21 +50,21 @@
 
     iput-object v0, p0, Landroidx/core/content/LocusIdCompat;->mWrapped:Landroid/content/LocusId;
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 85
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroidx/core/content/LocusIdCompat;->mWrapped:Landroid/content/LocusId;
 
     .line 87
-    :goto_0
+    :goto_1d
     return-void
 .end method
 
 .method private getSanitizedId()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 146
     iget-object v0, p0, Landroidx/core/content/LocusIdCompat;->mId:Ljava/lang/String;
@@ -97,7 +97,7 @@
 .end method
 
 .method public static toLocusIdCompat(Landroid/content/LocusId;)Landroidx/core/content/LocusIdCompat;
-    .locals 3
+    .registers 4
     .param p0, "locusId"    # Landroid/content/LocusId;
 
     .line 139
@@ -128,26 +128,26 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 107
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 108
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     return v1
 
     .line 109
-    :cond_1
+    :cond_8
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -156,12 +156,12 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_13
 
     return v1
 
     .line 110
-    :cond_2
+    :cond_13
     move-object v2, p1
 
     check-cast v2, Landroidx/core/content/LocusIdCompat;
@@ -170,23 +170,23 @@
     .local v2, "other":Landroidx/core/content/LocusIdCompat;
     iget-object v3, p0, Landroidx/core/content/LocusIdCompat;->mId:Ljava/lang/String;
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_21
 
     .line 112
     iget-object v3, v2, Landroidx/core/content/LocusIdCompat;->mId:Ljava/lang/String;
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_1f
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_3
+    :cond_1f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_20
     return v0
 
     .line 114
-    :cond_4
+    :cond_21
     iget-object v0, p0, Landroidx/core/content/LocusIdCompat;->mId:Ljava/lang/String;
 
     iget-object v1, v2, Landroidx/core/content/LocusIdCompat;->mId:Ljava/lang/String;
@@ -199,7 +199,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 94
     iget-object v0, p0, Landroidx/core/content/LocusIdCompat;->mId:Ljava/lang/String;
@@ -208,7 +208,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     .line 99
     const/16 v0, 0x1f
@@ -223,20 +223,20 @@
 
     iget-object v3, p0, Landroidx/core/content/LocusIdCompat;->mId:Ljava/lang/String;
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_b
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_b
     iget-object v3, p0, Landroidx/core/content/LocusIdCompat;->mId:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
 
     move-result v3
 
-    :goto_0
+    :goto_11
     add-int/2addr v2, v3
 
     .line 102
@@ -246,7 +246,7 @@
 .end method
 
 .method public toLocusId()Landroid/content/LocusId;
-    .locals 1
+    .registers 2
 
     .line 130
     iget-object v0, p0, Landroidx/core/content/LocusIdCompat;->mWrapped:Landroid/content/LocusId;
@@ -255,7 +255,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 121
     new-instance v0, Ljava/lang/StringBuilder;

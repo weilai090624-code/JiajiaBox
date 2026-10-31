@@ -59,7 +59,7 @@
 
 # direct methods
 .method protected varargs constructor <init>(Ljava/lang/String;[Ljava/lang/String;)V
-    .locals 4
+    .registers 7
     .param p1, "firstTable"    # Ljava/lang/String;
     .param p2, "rest"    # [Ljava/lang/String;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "tables"    # [Ljava/lang/String;
 
     const-string/jumbo v0, "tables"
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public final getTables$room_runtime_release()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 659
     iget-object v0, p0, Landroidx/room/InvalidationTracker$Observer;->tables:[Ljava/lang/String;
@@ -167,7 +167,7 @@
 .end method
 
 .method public isRemote$room_runtime_release()Z
-    .locals 1
+    .registers 2
 
     .line 683
     const/4 v0, 0x0

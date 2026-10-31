@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 177
     const/4 v0, 0x0
@@ -52,7 +52,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 171
     .local p0, "this":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<TE;>;"
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -85,7 +85,7 @@
 .end method
 
 .method public final addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -108,7 +108,7 @@
 .end method
 
 .method public asList()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,15 +123,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableCollection;->toArray()[Ljava/lang/Object;
 
     move-result-object v0
@@ -140,12 +140,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public final clear()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -166,7 +166,7 @@
 .end method
 
 .method copyIntoArray([Ljava/lang/Object;I)I
-    .locals 3
+    .registers 6
     .param p1, "dst"    # [Ljava/lang/Object;
     .param p2, "offset"    # I
 
@@ -176,12 +176,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -199,17 +199,17 @@
     .end local v1    # "e":Ljava/lang/Object;, "TE;"
     move p2, v2
 
-    goto :goto_0
+    goto :goto_4
 
     .line 356
     .end local v2    # "offset":I
     .restart local p2    # "offset":I
-    :cond_0
+    :cond_14
     return p2
 .end method
 
 .method internalArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -221,7 +221,7 @@
 .end method
 
 .method internalArrayEnd()I
-    .locals 1
+    .registers 2
 
     .line 236
     .local p0, "this":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<TE;>;"
@@ -233,7 +233,7 @@
 .end method
 
 .method internalArrayStart()I
-    .locals 1
+    .registers 2
 
     .line 228
     .local p0, "this":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<TE;>;"
@@ -258,7 +258,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 163
     .local p0, "this":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<TE;>;"
@@ -270,7 +270,7 @@
 .end method
 
 .method public final remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -288,7 +288,7 @@
 .end method
 
 .method public final removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -311,7 +311,7 @@
 .end method
 
 .method public final retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -334,7 +334,7 @@
 .end method
 
 .method public final toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 181
     .local p0, "this":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<TE;>;"
@@ -348,7 +348,7 @@
 .end method
 
 .method public final toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -371,7 +371,7 @@
     .local v0, "size":I
     array-length v1, p1
 
-    if-ge v1, v0, :cond_2
+    if-ge v1, v0, :cond_22
 
     .line 204
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableCollection;->internalArray()[Ljava/lang/Object;
@@ -380,7 +380,7 @@
 
     .line 205
     .local v1, "internal":[Ljava/lang/Object;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 206
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableCollection;->internalArrayStart()I
@@ -398,20 +398,20 @@
     return-object v2
 
     .line 208
-    :cond_0
+    :cond_1d
     invoke-static {p1, v0}, Lcom/google/common/collect/ObjectArrays;->newArray([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object p1
 
     .line 209
     .end local v1    # "internal":[Ljava/lang/Object;
-    :cond_1
-    goto :goto_0
+    :cond_21
+    goto :goto_28
 
-    :cond_2
+    :cond_22
     array-length v1, p1
 
-    if-le v1, v0, :cond_1
+    if-le v1, v0, :cond_21
 
     .line 210
     const/4 v1, 0x0
@@ -419,7 +419,7 @@
     aput-object v1, p1, v0
 
     .line 212
-    :goto_0
+    :goto_28
     const/4 v1, 0x0
 
     invoke-virtual {p0, p1, v1}, Lcom/google/common/collect/ImmutableCollection;->copyIntoArray([Ljava/lang/Object;I)I
@@ -429,7 +429,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 361
     .local p0, "this":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<TE;>;"

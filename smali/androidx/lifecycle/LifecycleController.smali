@@ -53,7 +53,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$oWRpCg8vH8nSBgktHTqCr-ANl8M(Landroidx/lifecycle/LifecycleController;Lkotlinx/coroutines/Job;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Landroidx/lifecycle/LifecycleController;->observer$lambda$0(Landroidx/lifecycle/LifecycleController;Lkotlinx/coroutines/Job;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/lifecycle/Lifecycle;Landroidx/lifecycle/Lifecycle$State;Landroidx/lifecycle/DispatchQueue;Lkotlinx/coroutines/Job;)V
-    .locals 4
+    .registers 9
     .param p1, "lifecycle"    # Landroidx/lifecycle/Lifecycle;
     .param p2, "minState"    # Landroidx/lifecycle/Lifecycle$State;
     .param p3, "dispatchQueue"    # Landroidx/lifecycle/DispatchQueue;
@@ -114,7 +114,7 @@
 
     sget-object v1, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_3b
 
     .line 49
     move-object v0, p0
@@ -138,10 +138,10 @@
 
     .end local v0    # "this_$iv":Landroidx/lifecycle/LifecycleController;
     .end local v1    # "$i$f$handleDestroy":I
-    goto :goto_0
+    goto :goto_44
 
     .line 51
-    :cond_0
+    :cond_3b
     iget-object v0, p0, Landroidx/lifecycle/LifecycleController;->lifecycle:Landroidx/lifecycle/Lifecycle;
 
     iget-object v1, p0, Landroidx/lifecycle/LifecycleController;->observer:Landroidx/lifecycle/LifecycleEventObserver;
@@ -151,7 +151,7 @@
     invoke-virtual {v0, v1}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     .line 53
-    :goto_0
+    :goto_44
     nop
 
     .line 26
@@ -159,7 +159,7 @@
 .end method
 
 .method private final handleDestroy(Lkotlinx/coroutines/Job;)V
-    .locals 3
+    .registers 5
     .param p1, "parentJob"    # Lkotlinx/coroutines/Job;
 
     const/4 v0, 0x0
@@ -180,7 +180,7 @@
 .end method
 
 .method private static final observer$lambda$0(Landroidx/lifecycle/LifecycleController;Lkotlinx/coroutines/Job;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 3
+    .registers 7
     .param p0, "this$0"    # Landroidx/lifecycle/LifecycleController;
     .param p1, "$parentJob"    # Lkotlinx/coroutines/Job;
     .param p2, "source"    # Landroidx/lifecycle/LifecycleOwner;
@@ -212,7 +212,7 @@
 
     sget-object v0, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_2e
 
     .line 36
     move-object p3, p0
@@ -236,10 +236,10 @@
 
     .end local v0    # "$i$f$handleDestroy":I
     .end local p3    # "this_$iv":Landroidx/lifecycle/LifecycleController;
-    goto :goto_0
+    goto :goto_4b
 
     .line 37
-    :cond_0
+    :cond_2e
     invoke-interface {p2}, Landroidx/lifecycle/LifecycleOwner;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
     move-result-object p3
@@ -256,30 +256,30 @@
 
     move-result p3
 
-    if-gez p3, :cond_1
+    if-gez p3, :cond_46
 
     .line 38
     iget-object p3, p0, Landroidx/lifecycle/LifecycleController;->dispatchQueue:Landroidx/lifecycle/DispatchQueue;
 
     invoke-virtual {p3}, Landroidx/lifecycle/DispatchQueue;->pause()V
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 40
-    :cond_1
+    :cond_46
     iget-object p3, p0, Landroidx/lifecycle/LifecycleController;->dispatchQueue:Landroidx/lifecycle/DispatchQueue;
 
     invoke-virtual {p3}, Landroidx/lifecycle/DispatchQueue;->resume()V
 
     .line 42
-    :goto_0
+    :goto_4b
     return-void
 .end method
 
 
 # virtual methods
 .method public final finish()V
-    .locals 2
+    .registers 3
 
     .line 67
     iget-object v0, p0, Landroidx/lifecycle/LifecycleController;->lifecycle:Landroidx/lifecycle/Lifecycle;

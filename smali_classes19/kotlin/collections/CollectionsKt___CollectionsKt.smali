@@ -352,7 +352,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/CollectionsKt___CollectionsJvmKt;-><init>()V
 
@@ -360,7 +360,7 @@
 .end method
 
 .method public static final all(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$all"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -393,7 +393,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     move-object v1, p0
 
@@ -403,22 +403,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     return v2
 
     .line 1735
-    :cond_0
+    :cond_1a
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_1
+    :cond_1e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_36
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -435,7 +435,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_1e
 
     const/4 v1, 0x0
 
@@ -443,12 +443,12 @@
 
     .line 1736
     .end local v3    # "element":Ljava/lang/Object;
-    :cond_2
+    :cond_36
     return v2
 .end method
 
 .method public static final any(Ljava/lang/Iterable;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$any"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -467,7 +467,7 @@
     .line 1745
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p0
 
@@ -482,7 +482,7 @@
     return v0
 
     .line 1746
-    :cond_0
+    :cond_13
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -495,7 +495,7 @@
 .end method
 
 .method public static final any(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$any"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -528,7 +528,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     move-object v1, p0
 
@@ -538,22 +538,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     return v2
 
     .line 1756
-    :cond_0
+    :cond_1a
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_1
+    :cond_1e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_36
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -570,7 +570,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1e
 
     const/4 v1, 0x1
 
@@ -578,12 +578,12 @@
 
     .line 1757
     .end local v3    # "element":Ljava/lang/Object;
-    :cond_2
+    :cond_36
     return v2
 .end method
 
 .method private static final asIterable(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 1
+    .registers 2
     .param p0, "$this$asIterable"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -606,7 +606,7 @@
 .end method
 
 .method public static final asSequence(Ljava/lang/Iterable;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$asSequence"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -635,7 +635,7 @@
 .end method
 
 .method public static final associate(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 9
+    .registers 11
     .param p0, "$this$associate"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -706,12 +706,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_28
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_44
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -735,11 +735,11 @@
 
     invoke-interface {v2, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_28
 
     .line 3726
     .end local v6    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_44
     nop
 
     .line 1188
@@ -750,7 +750,7 @@
 .end method
 
 .method public static final associateBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 8
+    .registers 10
     .param p0, "$this$associateBy"    # Ljava/lang/Iterable;
     .param p1, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -817,12 +817,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_28
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_3a
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -836,11 +836,11 @@
 
     invoke-interface {v2, v7, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_28
 
     .line 3730
     .end local v6    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_3a
     nop
 
     .line 1203
@@ -851,7 +851,7 @@
 .end method
 
 .method public static final associateBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 9
+    .registers 12
     .param p0, "$this$associateBy"    # Ljava/lang/Iterable;
     .param p1, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .param p2, "valueTransform"    # Lkotlin/jvm/functions/Function1;
@@ -927,12 +927,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_2d
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_43
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -950,11 +950,11 @@
 
     invoke-interface {v2, v7, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 3734
     .end local v6    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_43
     nop
 
     .line 1217
@@ -965,7 +965,7 @@
 .end method
 
 .method public static final associateByTo(Ljava/lang/Iterable;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 4
+    .registers 7
     .param p0, "$this$associateByTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
@@ -1005,12 +1005,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1024,16 +1024,16 @@
 
     invoke-interface {p1, v3, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1233
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_0
+    :cond_26
     return-object p1
 .end method
 
 .method public static final associateByTo(Ljava/lang/Iterable;Ljava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 5
+    .registers 9
     .param p0, "$this$associateByTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
@@ -1082,12 +1082,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_19
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1105,16 +1105,16 @@
 
     invoke-interface {p1, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 1249
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_0
+    :cond_2f
     return-object p1
 .end method
 
 .method public static final associateTo(Ljava/lang/Iterable;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 5
+    .registers 8
     .param p0, "$this$associateTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -1158,12 +1158,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_30
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1187,16 +1187,16 @@
 
     invoke-interface {p1, v4, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1264
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_0
+    :cond_30
     return-object p1
 .end method
 
 .method public static final associateWith(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 8
+    .registers 10
     .param p0, "$this$associateWith"    # Ljava/lang/Iterable;
     .param p1, "valueSelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1260,12 +1260,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_26
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_3b
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1283,11 +1283,11 @@
 
     invoke-interface {v6, v5, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_26
 
     .line 3738
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_3b
     move-object v2, v1
 
     check-cast v2, Ljava/util/Map;
@@ -1299,7 +1299,7 @@
 .end method
 
 .method public static final associateWithTo(Ljava/lang/Iterable;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 4
+    .registers 7
     .param p0, "$this$associateWithTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "valueSelector"    # Lkotlin/jvm/functions/Function1;
@@ -1339,12 +1339,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1358,16 +1358,16 @@
 
     invoke-interface {p1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1296
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_0
+    :cond_26
     return-object p1
 .end method
 
 .method public static final averageOfByte(Ljava/lang/Iterable;)D
-    .locals 7
+    .registers 8
     .param p0, "$this$average"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1395,13 +1395,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_26
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1422,32 +1422,32 @@
     .line 3539
     add-int/lit8 v2, v2, 0x1
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_c
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwCountOverflow()V
 
     .end local v4    # "element":B
-    goto :goto_0
+    goto :goto_c
 
     .line 3541
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_26
+    if-nez v2, :cond_2b
 
     const-wide/high16 v3, 0x7ff8000000000000L    # Double.NaN
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_2
+    :cond_2b
     int-to-double v3, v2
 
     div-double v3, v0, v3
 
-    :goto_1
+    :goto_2e
     return-wide v3
 .end method
 
 .method public static final averageOfDouble(Ljava/lang/Iterable;)D
-    .locals 6
+    .registers 7
     .param p0, "$this$average"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1475,13 +1475,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_25
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1500,32 +1500,32 @@
     .line 3609
     add-int/lit8 v2, v2, 0x1
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_c
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwCountOverflow()V
 
     .end local v4    # "element":D
-    goto :goto_0
+    goto :goto_c
 
     .line 3611
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_25
+    if-nez v2, :cond_2a
 
     const-wide/high16 v3, 0x7ff8000000000000L    # Double.NaN
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_2
+    :cond_2a
     int-to-double v3, v2
 
     div-double v3, v0, v3
 
-    :goto_1
+    :goto_2d
     return-wide v3
 .end method
 
 .method public static final averageOfFloat(Ljava/lang/Iterable;)D
-    .locals 7
+    .registers 8
     .param p0, "$this$average"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1553,13 +1553,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_26
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1580,32 +1580,32 @@
     .line 3595
     add-int/lit8 v2, v2, 0x1
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_c
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwCountOverflow()V
 
     .end local v4    # "element":F
-    goto :goto_0
+    goto :goto_c
 
     .line 3597
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_26
+    if-nez v2, :cond_2b
 
     const-wide/high16 v3, 0x7ff8000000000000L    # Double.NaN
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_2
+    :cond_2b
     int-to-double v3, v2
 
     div-double v3, v0, v3
 
-    :goto_1
+    :goto_2e
     return-wide v3
 .end method
 
 .method public static final averageOfInt(Ljava/lang/Iterable;)D
-    .locals 7
+    .registers 8
     .param p0, "$this$average"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1633,13 +1633,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_26
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1660,32 +1660,32 @@
     .line 3567
     add-int/lit8 v2, v2, 0x1
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_c
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwCountOverflow()V
 
     .end local v4    # "element":I
-    goto :goto_0
+    goto :goto_c
 
     .line 3569
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_26
+    if-nez v2, :cond_2b
 
     const-wide/high16 v3, 0x7ff8000000000000L    # Double.NaN
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_2
+    :cond_2b
     int-to-double v3, v2
 
     div-double v3, v0, v3
 
-    :goto_1
+    :goto_2e
     return-wide v3
 .end method
 
 .method public static final averageOfLong(Ljava/lang/Iterable;)D
-    .locals 8
+    .registers 9
     .param p0, "$this$average"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1713,13 +1713,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_26
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1740,32 +1740,32 @@
     .line 3581
     add-int/lit8 v2, v2, 0x1
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_c
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwCountOverflow()V
 
     .end local v4    # "element":J
-    goto :goto_0
+    goto :goto_c
 
     .line 3583
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_26
+    if-nez v2, :cond_2b
 
     const-wide/high16 v3, 0x7ff8000000000000L    # Double.NaN
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_2
+    :cond_2b
     int-to-double v3, v2
 
     div-double v3, v0, v3
 
-    :goto_1
+    :goto_2e
     return-wide v3
 .end method
 
 .method public static final averageOfShort(Ljava/lang/Iterable;)D
-    .locals 7
+    .registers 8
     .param p0, "$this$average"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1793,13 +1793,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_26
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1820,32 +1820,32 @@
     .line 3553
     add-int/lit8 v2, v2, 0x1
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_c
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwCountOverflow()V
 
     .end local v4    # "element":S
-    goto :goto_0
+    goto :goto_c
 
     .line 3555
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_26
+    if-nez v2, :cond_2b
 
     const-wide/high16 v3, 0x7ff8000000000000L    # Double.NaN
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_2
+    :cond_2b
     int-to-double v3, v2
 
     div-double v3, v0, v3
 
-    :goto_1
+    :goto_2e
     return-wide v3
 .end method
 
 .method public static final chunked(Ljava/lang/Iterable;I)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0, "$this$chunked"    # Ljava/lang/Iterable;
     .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -1876,7 +1876,7 @@
 .end method
 
 .method public static final chunked(Ljava/lang/Iterable;ILkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p0, "$this$chunked"    # Ljava/lang/Iterable;
     .param p1, "size"    # I
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -1917,7 +1917,7 @@
 .end method
 
 .method private static final component1(Ljava/util/List;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$component1"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1944,7 +1944,7 @@
 .end method
 
 .method private static final component2(Ljava/util/List;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$component2"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1971,7 +1971,7 @@
 .end method
 
 .method private static final component3(Ljava/util/List;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$component3"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1998,7 +1998,7 @@
 .end method
 
 .method private static final component4(Ljava/util/List;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$component4"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2025,7 +2025,7 @@
 .end method
 
 .method private static final component5(Ljava/util/List;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$component5"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2052,7 +2052,7 @@
 .end method
 
 .method public static final contains(Ljava/lang/Iterable;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Ljava/lang/Iterable;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -2072,7 +2072,7 @@
     .line 75
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 76
     move-object v0, p0
@@ -2086,26 +2086,26 @@
     return v0
 
     .line 77
-    :cond_0
+    :cond_11
     invoke-static {p0, p1}, Lkotlin/collections/CollectionsKt;->indexOf(Ljava/lang/Iterable;Ljava/lang/Object;)I
 
     move-result v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_19
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1a
     return v0
 .end method
 
 .method public static final count(Ljava/lang/Iterable;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$count"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2124,7 +2124,7 @@
     .line 1764
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     move-object v0, p0
 
@@ -2137,7 +2137,7 @@
     return v0
 
     .line 1765
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 1766
@@ -2146,13 +2146,13 @@
 
     move-result-object v1
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_28
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2161,20 +2161,20 @@
     .local v2, "element":Ljava/lang/Object;
     add-int/lit8 v0, v0, 0x1
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_16
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwCountOverflow()V
 
     .end local v2    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_16
 
     .line 1767
-    :cond_2
+    :cond_28
     return v0
 .end method
 
 .method public static final count(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)I
-    .locals 7
+    .registers 9
     .param p0, "$this$count"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2207,7 +2207,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     move-object v1, p0
 
@@ -2217,12 +2217,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     return v2
 
     .line 1783
-    :cond_0
+    :cond_1a
     const/4 v1, 0x0
 
     .line 1784
@@ -2231,13 +2231,13 @@
 
     move-result-object v3
 
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4d
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2254,11 +2254,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_1f
 
     add-int/lit8 v1, v1, 0x1
 
-    if-gez v1, :cond_1
+    if-gez v1, :cond_1f
 
     const/4 v5, 0x3
 
@@ -2268,13 +2268,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_45
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwCountOverflow()V
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_2
+    :cond_45
     new-instance v2, Ljava/lang/ArithmeticException;
 
     const-string v3, "Count overflow has happened."
@@ -2285,12 +2285,12 @@
 
     .line 1785
     .end local v4    # "element":Ljava/lang/Object;
-    :cond_3
+    :cond_4d
     return v1
 .end method
 
 .method private static final count(Ljava/util/Collection;)I
-    .locals 1
+    .registers 2
     .param p0, "$this$count"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2315,7 +2315,7 @@
 .end method
 
 .method public static final distinct(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$distinct"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2348,7 +2348,7 @@
 .end method
 
 .method public static final distinctBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$distinctBy"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2395,13 +2395,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_19
+    :goto_19
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_31
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2419,17 +2419,17 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_19
 
     .line 1668
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_19
 
     .line 1670
     .end local v4    # "e":Ljava/lang/Object;
     .end local v5    # "key":Ljava/lang/Object;
-    :cond_1
+    :cond_31
     move-object v3, v2
 
     check-cast v3, Ljava/util/List;
@@ -2438,7 +2438,7 @@
 .end method
 
 .method public static final drop(Ljava/lang/Iterable;I)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p0, "$this$drop"    # Ljava/lang/Iterable;
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -2460,20 +2460,20 @@
     .line 690
     const/4 v0, 0x1
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_a
+    :goto_b
+    if-eqz v1, :cond_97
 
     .line 691
-    if-nez p1, :cond_1
+    if-nez p1, :cond_14
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
@@ -2482,14 +2482,14 @@
     return-object v0
 
     .line 692
-    :cond_1
+    :cond_14
     const/4 v1, 0x0
 
     .line 693
     .local v1, "list":Ljava/util/ArrayList;
     instance-of v2, p0, Ljava/util/Collection;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_72
 
     .line 694
     move-object v2, p0
@@ -2504,7 +2504,7 @@
 
     .line 695
     .local v2, "resultSize":I
-    if-gtz v2, :cond_2
+    if-gtz v2, :cond_28
 
     .line 696
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
@@ -2514,8 +2514,8 @@
     return-object v0
 
     .line 697
-    :cond_2
-    if-ne v2, v0, :cond_3
+    :cond_28
+    if-ne v2, v0, :cond_33
 
     .line 698
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->last(Ljava/lang/Iterable;)Ljava/lang/Object;
@@ -2529,7 +2529,7 @@
     return-object v0
 
     .line 699
-    :cond_3
+    :cond_33
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, v2}, Ljava/util/ArrayList;-><init>(I)V
@@ -2539,12 +2539,12 @@
     .local v0, "list":Ljava/util/ArrayList;
     instance-of v1, p0, Ljava/util/List;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_77
 
     .line 701
     instance-of v1, p0, Ljava/util/RandomAccess;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_57
 
     .line 702
     move v1, p1
@@ -2558,8 +2558,8 @@
 
     move-result v3
 
-    :goto_1
-    if-ge v1, v3, :cond_5
+    :goto_48
+    if-ge v1, v3, :cond_6e
 
     .line 703
     move-object v4, p0
@@ -2575,11 +2575,11 @@
     .line 702
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_48
 
     .line 705
     .end local v1    # "index":I
-    :cond_4
+    :cond_57
     move-object v1, p0
 
     check-cast v1, Ljava/util/List;
@@ -2590,12 +2590,12 @@
 
     check-cast v1, Ljava/util/Iterator;
 
-    :goto_2
+    :goto_60
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6e
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2605,11 +2605,11 @@
     .local v3, "item":Ljava/lang/Object;
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_60
 
     .line 708
     .end local v3    # "item":Ljava/lang/Object;
-    :cond_5
+    :cond_6e
     move-object v1, v0
 
     check-cast v1, Ljava/util/List;
@@ -2620,7 +2620,7 @@
     .end local v0    # "list":Ljava/util/ArrayList;
     .end local v2    # "resultSize":I
     .local v1, "list":Ljava/util/ArrayList;
-    :cond_6
+    :cond_72
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -2628,7 +2628,7 @@
     .line 714
     .end local v1    # "list":Ljava/util/ArrayList;
     .restart local v0    # "list":Ljava/util/ArrayList;
-    :cond_7
+    :cond_77
     const/4 v1, 0x0
 
     .line 715
@@ -2637,12 +2637,12 @@
 
     move-result-object v2
 
-    :goto_3
+    :goto_7c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_8f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2650,20 +2650,20 @@
 
     .line 716
     .restart local v3    # "item":Ljava/lang/Object;
-    if-lt v1, p1, :cond_8
+    if-lt v1, p1, :cond_8c
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_7c
 
     .end local v3    # "item":Ljava/lang/Object;
-    :cond_8
+    :cond_8c
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
+    goto :goto_7c
 
     .line 718
-    :cond_9
+    :cond_8f
     move-object v2, v0
 
     check-cast v2, Ljava/util/List;
@@ -2677,7 +2677,7 @@
     .line 3702
     .end local v0    # "list":Ljava/util/ArrayList;
     .end local v1    # "count":I
-    :cond_a
+    :cond_97
     const/4 v0, 0x0
 
     .line 690
@@ -2719,7 +2719,7 @@
 .end method
 
 .method public static final dropLast(Ljava/util/List;I)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p0, "$this$dropLast"    # Ljava/util/List;
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -2741,17 +2741,17 @@
     .line 729
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_b
+    if-eqz v1, :cond_1e
 
     .line 730
     move-object v1, p0
@@ -2775,7 +2775,7 @@
     return-object v0
 
     .line 3702
-    :cond_1
+    :cond_1e
     const/4 v0, 0x0
 
     .line 729
@@ -2817,7 +2817,7 @@
 .end method
 
 .method public static final dropLastWhile(Ljava/util/List;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p0, "$this$dropLastWhile"    # Ljava/util/List;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2852,7 +2852,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3d
 
     .line 740
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -2865,12 +2865,12 @@
 
     .line 741
     .local v1, "iterator":Ljava/util/ListIterator;
-    :cond_0
+    :cond_19
     invoke-interface {v1}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3d
 
     .line 742
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -2887,7 +2887,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_19
 
     .line 743
     move-object v2, p0
@@ -2908,7 +2908,7 @@
 
     .line 747
     .end local v1    # "iterator":Ljava/util/ListIterator;
-    :cond_1
+    :cond_3d
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v1
@@ -2917,7 +2917,7 @@
 .end method
 
 .method public static final dropWhile(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 6
+    .registers 8
     .param p0, "$this$dropWhile"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -2962,13 +2962,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_15
+    :goto_15
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_36
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2976,15 +2976,15 @@
 
     .line 759
     .local v4, "item":Ljava/lang/Object;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     .line 760
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_15
 
     .line 761
-    :cond_1
+    :cond_25
     invoke-interface {p1, v4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
@@ -2995,7 +2995,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_15
 
     .line 762
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -3004,10 +3004,10 @@
     const/4 v1, 0x1
 
     .end local v4    # "item":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_15
 
     .line 765
-    :cond_2
+    :cond_36
     move-object v3, v2
 
     check-cast v3, Ljava/util/List;
@@ -3016,7 +3016,7 @@
 .end method
 
 .method public static final elementAt(Ljava/lang/Iterable;I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$elementAt"    # Ljava/lang/Iterable;
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -3036,7 +3036,7 @@
     .line 86
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 87
     move-object v0, p0
@@ -3050,7 +3050,7 @@
     return-object v0
 
     .line 88
-    :cond_0
+    :cond_11
     new-instance v0, Lkotlin/collections/CollectionsKt___CollectionsKt$elementAt$1;
 
     invoke-direct {v0, p1}, Lkotlin/collections/CollectionsKt___CollectionsKt$elementAt$1;-><init>(I)V
@@ -3065,7 +3065,7 @@
 .end method
 
 .method private static final elementAt(Ljava/util/List;I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$elementAt"    # Ljava/util/List;
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -3091,7 +3091,7 @@
 .end method
 
 .method public static final elementAtOrElse(Ljava/lang/Iterable;ILkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$elementAtOrElse"    # Ljava/lang/Iterable;
     .param p1, "index"    # I
     .param p2, "defaultValue"    # Lkotlin/jvm/functions/Function1;
@@ -3123,7 +3123,7 @@
     .line 110
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     .line 111
     move-object v0, p0
@@ -3132,26 +3132,26 @@
 
     const/4 v1, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_1c
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge p1, v2, :cond_0
+    if-ge p1, v2, :cond_1c
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_1c
+    if-eqz v1, :cond_23
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_1
+    :cond_23
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -3160,12 +3160,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_2b
     return-object v0
 
     .line 112
-    :cond_2
-    if-gez p1, :cond_3
+    :cond_2c
+    if-gez p1, :cond_37
 
     .line 113
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -3179,7 +3179,7 @@
     return-object v0
 
     .line 114
-    :cond_3
+    :cond_37
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -3190,12 +3190,12 @@
 
     .line 116
     .local v1, "count":I
-    :goto_1
+    :goto_3c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4d
 
     .line 117
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -3208,22 +3208,22 @@
 
     .end local v1    # "count":I
     .local v3, "count":I
-    if-ne p1, v1, :cond_4
+    if-ne p1, v1, :cond_4b
 
     .line 119
     return-object v2
 
     .line 118
-    :cond_4
+    :cond_4b
     move v1, v3
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 121
     .end local v2    # "element":Ljava/lang/Object;
     .end local v3    # "count":I
     .restart local v1    # "count":I
-    :cond_5
+    :cond_4d
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -3236,7 +3236,7 @@
 .end method
 
 .method private static final elementAtOrElse(Ljava/util/List;ILkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$elementAtOrElse"    # Ljava/util/List;
     .param p1, "index"    # I
     .param p2, "defaultValue"    # Lkotlin/jvm/functions/Function1;
@@ -3268,26 +3268,26 @@
     .line 134
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_15
 
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_15
 
     const/4 v0, 0x1
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_15
+    if-eqz v0, :cond_1c
 
     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_1c
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -3296,12 +3296,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_24
     return-object v0
 .end method
 
 .method public static final elementAtOrNull(Ljava/lang/Iterable;I)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "$this$elementAtOrNull"    # Ljava/lang/Iterable;
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -3321,7 +3321,7 @@
     .line 143
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 144
     move-object v0, p0
@@ -3335,16 +3335,16 @@
     return-object v0
 
     .line 145
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    if-gez p1, :cond_1
+    if-gez p1, :cond_15
 
     .line 146
     return-object v0
 
     .line 147
-    :cond_1
+    :cond_15
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -3355,12 +3355,12 @@
 
     .line 149
     .local v2, "count":I
-    :goto_0
+    :goto_1a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2b
 
     .line 150
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -3373,27 +3373,27 @@
 
     .end local v2    # "count":I
     .local v4, "count":I
-    if-ne p1, v2, :cond_2
+    if-ne p1, v2, :cond_29
 
     .line 152
     return-object v3
 
     .line 151
-    :cond_2
+    :cond_29
     move v2, v4
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 154
     .end local v3    # "element":Ljava/lang/Object;
     .end local v4    # "count":I
     .restart local v2    # "count":I
-    :cond_3
+    :cond_2b
     return-object v0
 .end method
 
 .method private static final elementAtOrNull(Ljava/util/List;I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$elementAtOrNull"    # Ljava/util/List;
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -3419,7 +3419,7 @@
 .end method
 
 .method public static final filter(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$filter"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -3468,13 +3468,13 @@
 
     move-result-object v4
 
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_32
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3491,15 +3491,15 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_18
 
     invoke-interface {v1, v5}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_18
 
     .line 3704
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_32
     nop
 
     .end local v1    # "destination$iv":Ljava/util/Collection;
@@ -3512,7 +3512,7 @@
 .end method
 
 .method public static final filterIndexed(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 13
+    .registers 15
     .param p0, "$this$filterIndexed"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -3574,12 +3574,12 @@
 
     move-result-object v7
 
-    :goto_0
+    :goto_1b
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_56
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3590,7 +3590,7 @@
 
     .end local v6    # "index$iv$iv":I
     .local v9, "index$iv$iv":I
-    if-gez v6, :cond_1
+    if-gez v6, :cond_3e
 
     const/4 v10, 0x3
 
@@ -3602,13 +3602,13 @@
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_36
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_0
+    :cond_36
     new-instance v6, Ljava/lang/ArithmeticException;
 
     const-string v7, "Index overflow has happened."
@@ -3618,8 +3618,8 @@
     throw v6
 
     .local v6, "index$iv":I
-    :cond_1
-    :goto_1
+    :cond_3e
+    :goto_3e
     move-object v10, v8
 
     .local v10, "element$iv":Ljava/lang/Object;
@@ -3641,12 +3641,12 @@
 
     move-result v12
 
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_53
 
     invoke-interface {v1, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 3709
-    :cond_2
+    :cond_53
     nop
 
     .line 3707
@@ -3656,12 +3656,12 @@
     move v6, v9
 
     .end local v8    # "item$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1b
 
     .line 3710
     .end local v9    # "index$iv$iv":I
     .local v6, "index$iv$iv":I
-    :cond_3
+    :cond_56
     nop
 
     .line 3711
@@ -3680,7 +3680,7 @@
 .end method
 
 .method public static final filterIndexedTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
-    .locals 10
+    .registers 13
     .param p0, "$this$filterIndexedTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function2;
@@ -3733,12 +3733,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_17
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_52
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3749,7 +3749,7 @@
 
     .end local v3    # "index$iv":I
     .local v6, "index$iv":I
-    if-gez v3, :cond_1
+    if-gez v3, :cond_3a
 
     const/4 v7, 0x3
 
@@ -3761,13 +3761,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_32
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_0
+    :cond_32
     new-instance v3, Ljava/lang/ArithmeticException;
 
     const-string v4, "Index overflow has happened."
@@ -3777,8 +3777,8 @@
     throw v3
 
     .local v3, "index":I
-    :cond_1
-    :goto_1
+    :cond_3a
+    :goto_3a
     move-object v7, v5
 
     .local v7, "element":Ljava/lang/Object;
@@ -3800,12 +3800,12 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_4f
 
     invoke-interface {p1, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 798
-    :cond_2
+    :cond_4f
     nop
 
     .line 3713
@@ -3815,12 +3815,12 @@
     move v3, v6
 
     .end local v5    # "item$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_17
 
     .line 3714
     .end local v6    # "index$iv":I
     .local v3, "index$iv":I
-    :cond_3
+    :cond_52
     nop
 
     .line 799
@@ -3831,7 +3831,7 @@
 .end method
 
 .method public static final synthetic filterIsInstance(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 8
+    .registers 9
     .param p0, "$this$filterIsInstance"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3871,13 +3871,13 @@
 
     move-result-object v4
 
-    :cond_0
-    :goto_0
+    :cond_13
+    :goto_13
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2b
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3892,15 +3892,15 @@
 
     instance-of v6, v5, Ljava/lang/Object;
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_13
 
     invoke-interface {v1, v5}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_13
 
     .line 3716
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_2b
     nop
 
     .end local v1    # "destination$iv":Ljava/util/Collection;
@@ -3913,7 +3913,7 @@
 .end method
 
 .method public static final synthetic filterIsInstanceTo(Ljava/lang/Iterable;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 5
+    .registers 7
     .param p0, "$this$filterIsInstanceTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -3944,13 +3944,13 @@
 
     move-result-object v1
 
-    :cond_0
-    :goto_0
+    :cond_f
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3965,20 +3965,20 @@
 
     instance-of v3, v2, Ljava/lang/Object;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_f
 
     invoke-interface {p1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_f
 
     .line 818
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_27
     return-object p1
 .end method
 
 .method public static final filterNot(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$filterNot"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -4027,13 +4027,13 @@
 
     move-result-object v4
 
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_32
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4050,15 +4050,15 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_18
 
     invoke-interface {v1, v5}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_18
 
     .line 3718
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_32
     nop
 
     .end local v1    # "destination$iv":Ljava/util/Collection;
@@ -4071,7 +4071,7 @@
 .end method
 
 .method public static final filterNotNull(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$filterNotNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -4106,7 +4106,7 @@
 .end method
 
 .method public static final filterNotNullTo(Ljava/lang/Iterable;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 2
+    .registers 4
     .param p0, "$this$filterNotNullTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -4134,33 +4134,33 @@
 
     move-result-object v0
 
-    :cond_0
-    :goto_0
+    :cond_e
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     .local v1, "element":Ljava/lang/Object;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     invoke-interface {p1, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_e
 
     .line 846
     .end local v1    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_1e
     return-object p1
 .end method
 
 .method public static final filterNotTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
-    .locals 4
+    .registers 7
     .param p0, "$this$filterNotTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -4200,13 +4200,13 @@
 
     move-result-object v1
 
-    :cond_0
-    :goto_0
+    :cond_14
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2e
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4223,20 +4223,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_14
 
     invoke-interface {p1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_14
 
     .line 856
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_2e
     return-object p1
 .end method
 
 .method public static final filterTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
-    .locals 4
+    .registers 7
     .param p0, "$this$filterTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -4276,13 +4276,13 @@
 
     move-result-object v1
 
-    :cond_0
-    :goto_0
+    :cond_14
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2e
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4299,20 +4299,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_14
 
     invoke-interface {p1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_14
 
     .line 866
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_2e
     return-object p1
 .end method
 
 .method private static final find(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "$this$find"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -4349,12 +4349,12 @@
 
     move-result-object v2
 
-    :cond_0
+    :cond_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4371,24 +4371,24 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_10
 
-    goto :goto_0
+    goto :goto_28
 
     .line 3688
     .end local v3    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_27
     const/4 v3, 0x0
 
     .line 174
     .end local v0    # "$this$firstOrNull$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$firstOrNull":I
-    :goto_0
+    :goto_28
     return-object v3
 .end method
 
 .method private static final findLast(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p0, "$this$findLast"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -4429,13 +4429,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_11
+    :goto_11
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_29
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4453,16 +4453,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_11
 
     .line 3692
     move-object v2, v4
 
     .end local v4    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_11
 
     .line 3695
-    :cond_1
+    :cond_29
     nop
 
     .line 184
@@ -4473,7 +4473,7 @@
 .end method
 
 .method private static final findLast(Ljava/util/List;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "$this$findLast"    # Ljava/util/List;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -4516,12 +4516,12 @@
 
     .line 3697
     .local v2, "iterator$iv":Ljava/util/ListIterator;
-    :cond_0
+    :cond_14
     invoke-interface {v2}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2b
 
     .line 3698
     invoke-interface {v2}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -4540,25 +4540,25 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_14
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 3701
     .end local v3    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_2b
     const/4 v3, 0x0
 
     .line 194
     .end local v0    # "$this$lastOrNull$iv":Ljava/util/List;
     .end local v1    # "$i$f$lastOrNull":I
     .end local v2    # "iterator$iv":Ljava/util/ListIterator;
-    :goto_0
+    :goto_2c
     return-object v3
 .end method
 
 .method public static final first(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .param p0, "$this$first"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -4580,7 +4580,7 @@
     .line 204
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     move-object v0, p0
 
@@ -4593,7 +4593,7 @@
     return-object v0
 
     .line 206
-    :cond_0
+    :cond_12
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -4604,7 +4604,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     .line 209
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -4614,7 +4614,7 @@
     return-object v1
 
     .line 208
-    :cond_1
+    :cond_21
     new-instance v1, Ljava/util/NoSuchElementException;
 
     const-string v2, "Collection is empty."
@@ -4625,7 +4625,7 @@
 .end method
 
 .method public static final first(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$first"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -4658,12 +4658,12 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4680,13 +4680,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_f
 
     return-object v2
 
     .line 231
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_26
     new-instance v1, Ljava/util/NoSuchElementException;
 
     const-string v2, "Collection contains no element matching the predicate."
@@ -4697,7 +4697,7 @@
 .end method
 
 .method public static final first(Ljava/util/List;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$first"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -4718,7 +4718,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 222
     const/4 v0, 0x0
@@ -4730,7 +4730,7 @@
     return-object v0
 
     .line 221
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "List is empty."
@@ -4741,7 +4741,7 @@
 .end method
 
 .method private static final firstNotNullOf(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$firstNotNullOf"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -4771,12 +4771,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4786,19 +4786,19 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_20
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_1f
     const/4 v1, 0x0
 
-    :cond_1
-    if-eqz v1, :cond_2
+    :cond_20
+    if-eqz v1, :cond_23
 
     return-object v1
 
-    :cond_2
+    :cond_23
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "No element of the collection was transformed to a non-null value."
@@ -4809,7 +4809,7 @@
 .end method
 
 .method private static final firstNotNullOfOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "$this$firstNotNullOfOrNull"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -4839,12 +4839,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4858,7 +4858,7 @@
 
     .line 257
     .local v2, "result":Ljava/lang/Object;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 258
     return-object v2
@@ -4866,14 +4866,14 @@
     .line 261
     .end local v1    # "element":Ljava/lang/Object;
     .end local v2    # "result":Ljava/lang/Object;
-    :cond_1
+    :cond_1f
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static final firstOrNull(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .param p0, "$this$firstOrNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -4897,7 +4897,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 270
     move-object v0, p0
@@ -4908,13 +4908,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 271
     return-object v1
 
     .line 273
-    :cond_0
+    :cond_15
     move-object v0, p0
 
     check-cast v0, Ljava/util/List;
@@ -4928,7 +4928,7 @@
     return-object v0
 
     .line 276
-    :cond_1
+    :cond_1e
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -4939,13 +4939,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_29
 
     .line 278
     return-object v1
 
     .line 279
-    :cond_2
+    :cond_29
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -4954,7 +4954,7 @@
 .end method
 
 .method public static final firstOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$firstOrNull"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -4987,12 +4987,12 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5009,20 +5009,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_f
 
     return-object v2
 
     .line 296
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_26
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static final firstOrNull(Ljava/util/List;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$firstOrNull"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -5043,25 +5043,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public static final flatMap(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$flatMap"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -5112,12 +5112,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_18
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2c
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5135,12 +5135,12 @@
     .local v6, "list$iv":Ljava/lang/Iterable;
     invoke-static {v1, v6}, Lkotlin/collections/CollectionsKt;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
-    goto :goto_0
+    goto :goto_18
 
     .line 3743
     .end local v5    # "element$iv":Ljava/lang/Object;
     .end local v6    # "list$iv":Ljava/lang/Iterable;
-    :cond_0
+    :cond_2c
     nop
 
     .end local v1    # "destination$iv":Ljava/util/Collection;
@@ -5153,7 +5153,7 @@
 .end method
 
 .method private static final flatMapIndexedIterable(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 8
+    .registers 10
     .param p0, "$this$flatMapIndexed"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -5199,12 +5199,12 @@
 
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_17
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_48
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5212,7 +5212,7 @@
 
     add-int/lit8 v5, v3, 0x1
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_39
 
     const/4 v6, 0x3
 
@@ -5222,13 +5222,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_31
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_39
 
-    :cond_0
+    :cond_31
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v1, "Index overflow has happened."
@@ -5237,8 +5237,8 @@
 
     throw v0
 
-    :cond_1
-    :goto_1
+    :cond_39
+    :goto_39
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
@@ -5253,16 +5253,16 @@
 
     move v3, v5
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_2
+    :cond_48
     check-cast v0, Ljava/util/List;
 
     return-object v0
 .end method
 
 .method private static final flatMapIndexedIterableTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
-    .locals 7
+    .registers 10
     .param p0, "$this$flatMapIndexedTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -5307,12 +5307,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_46
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5324,7 +5324,7 @@
 
     .end local v0    # "index":I
     .local v3, "index":I
-    if-gez v0, :cond_1
+    if-gez v0, :cond_37
 
     const/4 v4, 0x3
 
@@ -5336,13 +5336,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_0
+    :cond_2f
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v1, "Index overflow has happened."
@@ -5351,8 +5351,8 @@
 
     throw v0
 
-    :cond_1
-    :goto_1
+    :cond_37
+    :goto_37
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -5369,18 +5369,18 @@
 
     move v0, v3
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1429
     .end local v2    # "element":Ljava/lang/Object;
     .end local v3    # "index":I
     .local v0, "index":I
-    :cond_2
+    :cond_46
     return-object p1
 .end method
 
 .method private static final flatMapIndexedSequence(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 8
+    .registers 10
     .param p0, "$this$flatMapIndexed"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -5426,12 +5426,12 @@
 
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_17
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_48
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5439,7 +5439,7 @@
 
     add-int/lit8 v5, v3, 0x1
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_39
 
     const/4 v6, 0x3
 
@@ -5449,13 +5449,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_31
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_39
 
-    :cond_0
+    :cond_31
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v1, "Index overflow has happened."
@@ -5464,8 +5464,8 @@
 
     throw v0
 
-    :cond_1
-    :goto_1
+    :cond_39
+    :goto_39
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
@@ -5480,16 +5480,16 @@
 
     move v3, v5
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_2
+    :cond_48
     check-cast v0, Ljava/util/List;
 
     return-object v0
 .end method
 
 .method private static final flatMapIndexedSequenceTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
-    .locals 7
+    .registers 10
     .param p0, "$this$flatMapIndexedTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -5534,12 +5534,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_46
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5551,7 +5551,7 @@
 
     .end local v0    # "index":I
     .local v3, "index":I
-    if-gez v0, :cond_1
+    if-gez v0, :cond_37
 
     const/4 v4, 0x3
 
@@ -5563,13 +5563,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_0
+    :cond_2f
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v1, "Index overflow has happened."
@@ -5578,8 +5578,8 @@
 
     throw v0
 
-    :cond_1
-    :goto_1
+    :cond_37
+    :goto_37
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -5596,18 +5596,18 @@
 
     move v0, v3
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1447
     .end local v2    # "element":Ljava/lang/Object;
     .end local v3    # "index":I
     .local v0, "index":I
-    :cond_2
+    :cond_46
     return-object p1
 .end method
 
 .method public static final flatMapSequence(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$flatMap"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -5658,12 +5658,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_18
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2c
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5681,12 +5681,12 @@
     .local v6, "list$iv":Lkotlin/sequences/Sequence;
     invoke-static {v1, v6}, Lkotlin/collections/CollectionsKt;->addAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
 
-    goto :goto_0
+    goto :goto_18
 
     .line 3748
     .end local v5    # "element$iv":Ljava/lang/Object;
     .end local v6    # "list$iv":Lkotlin/sequences/Sequence;
-    :cond_0
+    :cond_2c
     nop
 
     .end local v1    # "destination$iv":Ljava/util/Collection;
@@ -5699,7 +5699,7 @@
 .end method
 
 .method public static final flatMapSequenceTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
-    .locals 4
+    .registers 7
     .param p0, "$this$flatMapTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -5741,12 +5741,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5764,17 +5764,17 @@
     .local v3, "list":Lkotlin/sequences/Sequence;
     invoke-static {p1, v3}, Lkotlin/collections/CollectionsKt;->addAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1473
     .end local v2    # "element":Ljava/lang/Object;
     .end local v3    # "list":Lkotlin/sequences/Sequence;
-    :cond_0
+    :cond_28
     return-object p1
 .end method
 
 .method public static final flatMapTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
-    .locals 4
+    .registers 7
     .param p0, "$this$flatMapTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -5816,12 +5816,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5839,17 +5839,17 @@
     .local v3, "list":Ljava/lang/Iterable;
     invoke-static {p1, v3}, Lkotlin/collections/CollectionsKt;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1458
     .end local v2    # "element":Ljava/lang/Object;
     .end local v3    # "list":Ljava/lang/Iterable;
-    :cond_0
+    :cond_28
     return-object p1
 .end method
 
 .method public static final fold(Ljava/lang/Iterable;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$fold"    # Ljava/lang/Iterable;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -5887,12 +5887,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5904,15 +5904,15 @@
     move-result-object v1
 
     .end local v3    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_10
 
     .line 1799
-    :cond_0
+    :cond_1f
     return-object v1
 .end method
 
 .method public static final foldIndexed(Ljava/lang/Iterable;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
-    .locals 9
+    .registers 12
     .param p0, "$this$foldIndexed"    # Ljava/lang/Iterable;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -5956,12 +5956,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_11
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3e
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5972,7 +5972,7 @@
 
     .end local v1    # "index":I
     .local v5, "index":I
-    if-gez v1, :cond_1
+    if-gez v1, :cond_34
 
     const/4 v6, 0x3
 
@@ -5984,13 +5984,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2c
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_0
+    :cond_2c
     new-instance v1, Ljava/lang/ArithmeticException;
 
     const-string v3, "Index overflow has happened."
@@ -5999,8 +5999,8 @@
 
     throw v1
 
-    :cond_1
-    :goto_1
+    :cond_34
+    :goto_34
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -6012,17 +6012,17 @@
     move v1, v5
 
     .end local v4    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_11
 
     .line 1815
     .end local v5    # "index":I
     .restart local v1    # "index":I
-    :cond_2
+    :cond_3e
     return-object v2
 .end method
 
 .method public static final foldRight(Ljava/util/List;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$foldRight"    # Ljava/util/List;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -6060,7 +6060,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_29
 
     .line 1829
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -6073,12 +6073,12 @@
 
     .line 1830
     .local v2, "iterator":Ljava/util/ListIterator;
-    :goto_0
+    :goto_1a
     invoke-interface {v2}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     .line 1831
     invoke-interface {v2}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -6089,16 +6089,16 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 1834
     .end local v2    # "iterator":Ljava/util/ListIterator;
-    :cond_0
+    :cond_29
     return-object v1
 .end method
 
 .method public static final foldRightIndexed(Ljava/util/List;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p0, "$this$foldRightIndexed"    # Ljava/util/List;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -6138,7 +6138,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_31
 
     .line 1849
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -6151,12 +6151,12 @@
 
     .line 1850
     .local v2, "iterator":Ljava/util/ListIterator;
-    :goto_0
+    :goto_1a
     invoke-interface {v2}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_31
 
     .line 1851
     invoke-interface {v2}, Ljava/util/ListIterator;->previousIndex()I
@@ -6178,16 +6178,16 @@
     move-result-object v1
 
     .end local v3    # "index":I
-    goto :goto_0
+    goto :goto_1a
 
     .line 1855
     .end local v2    # "iterator":Ljava/util/ListIterator;
-    :cond_0
+    :cond_31
     return-object v1
 .end method
 
 .method public static final forEach(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$forEach"    # Ljava/lang/Iterable;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -6220,12 +6220,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -6234,16 +6234,16 @@
     .local v2, "element":Ljava/lang/Object;
     invoke-interface {p1, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 1864
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public static final forEachIndexed(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)V
-    .locals 8
+    .registers 10
     .param p0, "$this$forEachIndexed"    # Ljava/lang/Iterable;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -6282,12 +6282,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3c
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -6298,7 +6298,7 @@
 
     .end local v1    # "index":I
     .local v4, "index":I
-    if-gez v1, :cond_1
+    if-gez v1, :cond_33
 
     const/4 v5, 0x3
 
@@ -6310,13 +6310,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2b
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_0
+    :cond_2b
     new-instance v1, Ljava/lang/ArithmeticException;
 
     const-string v2, "Index overflow has happened."
@@ -6325,8 +6325,8 @@
 
     throw v1
 
-    :cond_1
-    :goto_1
+    :cond_33
+    :goto_33
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -6335,18 +6335,18 @@
 
     move v1, v4
 
-    goto :goto_0
+    goto :goto_10
 
     .line 1874
     .end local v3    # "item":Ljava/lang/Object;
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_2
+    :cond_3c
     return-void
 .end method
 
 .method private static final getOrElse(Ljava/util/List;ILkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p0, "$this$getOrElse"    # Ljava/util/List;
     .param p1, "index"    # I
     .param p2, "defaultValue"    # Lkotlin/jvm/functions/Function1;
@@ -6378,26 +6378,26 @@
     .line 307
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_15
 
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_15
 
     const/4 v0, 0x1
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_15
+    if-eqz v0, :cond_1c
 
     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_1c
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -6406,12 +6406,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_24
     return-object v0
 .end method
 
 .method public static final getOrNull(Ljava/util/List;I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$getOrNull"    # Ljava/util/List;
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -6431,34 +6431,34 @@
     .line 316
     const/4 v0, 0x0
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_f
 
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge p1, v1, :cond_0
+    if-ge p1, v1, :cond_f
 
     const/4 v0, 0x1
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_f
+    if-eqz v0, :cond_16
 
     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static final groupBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 12
+    .registers 14
     .param p0, "$this$groupBy"    # Ljava/lang/Iterable;
     .param p1, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -6509,12 +6509,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_18
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_45
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -6541,7 +6541,7 @@
 
     .line 3753
     .local v9, "value$iv$iv":Ljava/lang/Object;
-    if-nez v9, :cond_0
+    if-nez v9, :cond_3c
 
     .line 3754
     const/4 v10, 0x0
@@ -6566,14 +6566,14 @@
     nop
 
     .end local v10    # "answer$iv$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_3d
 
     .line 3758
-    :cond_0
+    :cond_3c
     move-object v10, v9
 
     .line 3753
-    :goto_1
+    :goto_3d
     nop
 
     .line 3751
@@ -6588,13 +6588,13 @@
     .local v7, "list$iv":Ljava/util/List;
     invoke-interface {v7, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_18
 
     .line 3761
     .end local v5    # "element$iv":Ljava/lang/Object;
     .end local v6    # "key$iv":Ljava/lang/Object;
     .end local v7    # "list$iv":Ljava/util/List;
-    :cond_1
+    :cond_45
     nop
 
     .line 1485
@@ -6605,7 +6605,7 @@
 .end method
 
 .method public static final groupBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 12
+    .registers 15
     .param p0, "$this$groupBy"    # Ljava/lang/Iterable;
     .param p1, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .param p2, "valueTransform"    # Lkotlin/jvm/functions/Function1;
@@ -6665,12 +6665,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_1d
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4e
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -6697,7 +6697,7 @@
 
     .line 3766
     .local v9, "value$iv$iv":Ljava/lang/Object;
-    if-nez v9, :cond_0
+    if-nez v9, :cond_41
 
     .line 3767
     const/4 v10, 0x0
@@ -6722,14 +6722,14 @@
     nop
 
     .end local v10    # "answer$iv$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_42
 
     .line 3771
-    :cond_0
+    :cond_41
     move-object v10, v9
 
     .line 3766
-    :goto_1
+    :goto_42
     nop
 
     .line 3764
@@ -6748,13 +6748,13 @@
 
     invoke-interface {v7, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 3774
     .end local v5    # "element$iv":Ljava/lang/Object;
     .end local v6    # "key$iv":Ljava/lang/Object;
     .end local v7    # "list$iv":Ljava/util/List;
-    :cond_1
+    :cond_4e
     nop
 
     .line 1498
@@ -6765,7 +6765,7 @@
 .end method
 
 .method public static final groupByTo(Ljava/lang/Iterable;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 9
+    .registers 12
     .param p0, "$this$groupByTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
@@ -6807,12 +6807,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_41
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -6839,7 +6839,7 @@
 
     .line 3776
     .local v6, "value$iv":Ljava/lang/Object;
-    if-nez v6, :cond_0
+    if-nez v6, :cond_38
 
     .line 3777
     const/4 v7, 0x0
@@ -6864,14 +6864,14 @@
     nop
 
     .end local v7    # "answer$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_39
 
     .line 3781
-    :cond_0
+    :cond_38
     move-object v7, v6
 
     .line 3776
-    :goto_1
+    :goto_39
     nop
 
     .line 1512
@@ -6886,18 +6886,18 @@
     .local v4, "list":Ljava/util/List;
     invoke-interface {v4, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1515
     .end local v2    # "element":Ljava/lang/Object;
     .end local v3    # "key":Ljava/lang/Object;
     .end local v4    # "list":Ljava/util/List;
-    :cond_1
+    :cond_41
     return-object p1
 .end method
 
 .method public static final groupByTo(Ljava/lang/Iterable;Ljava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 9
+    .registers 13
     .param p0, "$this$groupByTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "keySelector"    # Lkotlin/jvm/functions/Function1;
@@ -6948,12 +6948,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_19
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4a
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -6980,7 +6980,7 @@
 
     .line 3783
     .local v6, "value$iv":Ljava/lang/Object;
-    if-nez v6, :cond_0
+    if-nez v6, :cond_3d
 
     .line 3784
     const/4 v7, 0x0
@@ -7005,14 +7005,14 @@
     nop
 
     .end local v7    # "answer$iv":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_3e
 
     .line 3788
-    :cond_0
+    :cond_3d
     move-object v7, v6
 
     .line 3783
-    :goto_1
+    :goto_3e
     nop
 
     .line 1530
@@ -7031,18 +7031,18 @@
 
     invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_19
 
     .line 1533
     .end local v2    # "element":Ljava/lang/Object;
     .end local v3    # "key":Ljava/lang/Object;
     .end local v4    # "list":Ljava/util/List;
-    :cond_1
+    :cond_4a
     return-object p1
 .end method
 
 .method public static final groupingBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Lkotlin/collections/Grouping;
-    .locals 2
+    .registers 4
     .param p0, "$this$groupingBy"    # Ljava/lang/Iterable;
     .param p1, "keySelector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7083,7 +7083,7 @@
 .end method
 
 .method public static final indexOf(Ljava/lang/Iterable;Ljava/lang/Object;)I
-    .locals 4
+    .registers 6
     .param p0, "$this$indexOf"    # Ljava/lang/Iterable;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -7103,7 +7103,7 @@
     .line 323
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     move-object v0, p0
 
@@ -7116,7 +7116,7 @@
     return v0
 
     .line 324
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 325
@@ -7125,12 +7125,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_16
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_30
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7138,39 +7138,39 @@
 
     .line 326
     .local v2, "item":Ljava/lang/Object;
-    if-gez v0, :cond_1
+    if-gez v0, :cond_25
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
     .line 327
-    :cond_1
+    :cond_25
     invoke-static {p1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2c
 
     .line 328
     return v0
 
     .line 329
-    :cond_2
+    :cond_2c
     nop
 
     .end local v2    # "item":Ljava/lang/Object;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 331
-    :cond_3
+    :cond_30
     const/4 v1, -0x1
 
     return v1
 .end method
 
 .method public static final indexOf(Ljava/util/List;Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p0, "$this$indexOf"    # Ljava/util/List;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -7196,7 +7196,7 @@
 .end method
 
 .method public static final indexOfFirst(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)I
-    .locals 7
+    .registers 9
     .param p0, "$this$indexOfFirst"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7233,12 +7233,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_42
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7246,7 +7246,7 @@
 
     .line 348
     .local v3, "item":Ljava/lang/Object;
-    if-gez v1, :cond_1
+    if-gez v1, :cond_31
 
     const/4 v4, 0x3
 
@@ -7258,13 +7258,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_29
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_31
 
-    :cond_0
+    :cond_29
     new-instance v2, Ljava/lang/ArithmeticException;
 
     const-string v4, "Index overflow has happened."
@@ -7274,8 +7274,8 @@
     throw v2
 
     .line 349
-    :cond_1
-    :goto_1
+    :cond_31
+    :goto_31
     invoke-interface {p1, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
@@ -7286,29 +7286,29 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3e
 
     .line 350
     return v1
 
     .line 351
-    :cond_2
+    :cond_3e
     nop
 
     .end local v3    # "item":Ljava/lang/Object;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 353
-    :cond_3
+    :cond_42
     const/4 v2, -0x1
 
     return v2
 .end method
 
 .method public static final indexOfFirst(Ljava/util/List;Lkotlin/jvm/functions/Function1;)I
-    .locals 5
+    .registers 7
     .param p0, "$this$indexOfFirst"    # Ljava/util/List;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7345,12 +7345,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7368,29 +7368,29 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_27
 
     .line 363
     return v1
 
     .line 364
-    :cond_0
+    :cond_27
     nop
 
     .end local v3    # "item":Ljava/lang/Object;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 366
-    :cond_1
+    :cond_2b
     const/4 v2, -0x1
 
     return v2
 .end method
 
 .method public static final indexOfLast(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)I
-    .locals 8
+    .registers 10
     .param p0, "$this$indexOfLast"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7431,12 +7431,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_11
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_43
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7444,7 +7444,7 @@
 
     .line 376
     .local v4, "item":Ljava/lang/Object;
-    if-gez v2, :cond_1
+    if-gez v2, :cond_32
 
     const/4 v5, 0x3
 
@@ -7456,13 +7456,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2a
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_0
+    :cond_2a
     new-instance v3, Ljava/lang/ArithmeticException;
 
     const-string v5, "Index overflow has happened."
@@ -7472,8 +7472,8 @@
     throw v3
 
     .line 377
-    :cond_1
-    :goto_1
+    :cond_32
+    :goto_32
     invoke-interface {p1, v4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
@@ -7484,27 +7484,27 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3f
 
     .line 378
     move v1, v2
 
     .line 379
-    :cond_2
+    :cond_3f
     nop
 
     .end local v4    # "item":Ljava/lang/Object;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 381
-    :cond_3
+    :cond_43
     return v1
 .end method
 
 .method public static final indexOfLast(Ljava/util/List;Lkotlin/jvm/functions/Function1;)I
-    .locals 3
+    .registers 5
     .param p0, "$this$indexOfLast"    # Ljava/util/List;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -7543,12 +7543,12 @@
 
     .line 389
     .local v1, "iterator":Ljava/util/ListIterator;
-    :cond_0
+    :cond_13
     invoke-interface {v1}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2e
 
     .line 390
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -7565,7 +7565,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     .line 391
     invoke-interface {v1}, Ljava/util/ListIterator;->nextIndex()I
@@ -7575,14 +7575,14 @@
     return v2
 
     .line 394
-    :cond_1
+    :cond_2e
     const/4 v2, -0x1
 
     return v2
 .end method
 
 .method public static final intersect(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "$this$intersect"    # Ljava/lang/Iterable;
     .param p1, "other"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -7625,7 +7625,7 @@
 .end method
 
 .method public static final joinTo(Ljava/lang/Iterable;Ljava/lang/Appendable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Appendable;
-    .locals 4
+    .registers 12
     .param p0, "$this$joinTo"    # Ljava/lang/Iterable;
     .param p1, "buffer"    # Ljava/lang/Appendable;
     .param p2, "separator"    # Ljava/lang/CharSequence;
@@ -7691,12 +7691,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_26
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_42
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7708,41 +7708,41 @@
 
     const/4 v3, 0x1
 
-    if-le v0, v3, :cond_0
+    if-le v0, v3, :cond_38
 
     invoke-interface {p1, p2}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
     .line 3492
-    :cond_0
-    if-ltz p5, :cond_2
+    :cond_38
+    if-ltz p5, :cond_3e
 
-    if-gt v0, p5, :cond_1
+    if-gt v0, p5, :cond_3d
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 3494
-    :cond_1
-    goto :goto_2
+    :cond_3d
+    goto :goto_42
 
     .line 3493
-    :cond_2
-    :goto_1
+    :cond_3e
+    :goto_3e
     invoke-static {p1, v2, p7}, Lkotlin/text/StringsKt;->appendElement(Ljava/lang/Appendable;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 3496
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_3
-    :goto_2
-    if-ltz p5, :cond_4
+    :cond_42
+    :goto_42
+    if-ltz p5, :cond_49
 
-    if-le v0, p5, :cond_4
+    if-le v0, p5, :cond_49
 
     invoke-interface {p1, p6}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
     .line 3497
-    :cond_4
+    :cond_49
     invoke-interface {p1, p4}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
     .line 3498
@@ -7750,89 +7750,89 @@
 .end method
 
 .method public static synthetic joinTo$default(Ljava/lang/Iterable;Ljava/lang/Appendable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/Appendable;
-    .locals 6
+    .registers 16
 
     .line 3487
     and-int/lit8 v0, p8, 0x2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const-string v0, ", "
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     move-object v0, p2
 
-    :goto_0
+    :goto_a
     and-int/lit8 v1, p8, 0x4
 
     const-string v2, ""
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     move-object v1, v2
 
     check-cast v1, Ljava/lang/CharSequence;
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     move-object v1, p3
 
-    :goto_1
+    :goto_15
     and-int/lit8 v3, p8, 0x8
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1c
 
     check-cast v2, Ljava/lang/CharSequence;
 
-    goto :goto_2
+    goto :goto_1d
 
-    :cond_2
+    :cond_1c
     move-object v2, p4
 
-    :goto_2
+    :goto_1d
     and-int/lit8 v3, p8, 0x10
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_23
 
     const/4 v3, -0x1
 
-    goto :goto_3
+    goto :goto_24
 
-    :cond_3
+    :cond_23
     move v3, p5
 
-    :goto_3
+    :goto_24
     and-int/lit8 v4, p8, 0x20
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_2d
 
     const-string v4, "..."
 
     check-cast v4, Ljava/lang/CharSequence;
 
-    goto :goto_4
+    goto :goto_2e
 
-    :cond_4
+    :cond_2d
     move-object v4, p6
 
-    :goto_4
+    :goto_2e
     and-int/lit8 v5, p8, 0x40
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_34
 
     const/4 v5, 0x0
 
-    goto :goto_5
+    goto :goto_35
 
-    :cond_5
+    :cond_34
     move-object v5, p7
 
-    :goto_5
+    :goto_35
     move-object p2, p0
 
     move-object p3, p1
@@ -7857,7 +7857,7 @@
 .end method
 
 .method public static final joinToString(Ljava/lang/Iterable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
-    .locals 9
+    .registers 16
     .param p0, "$this$joinToString"    # Ljava/lang/Iterable;
     .param p1, "separator"    # Ljava/lang/CharSequence;
     .param p2, "prefix"    # Ljava/lang/CharSequence;
@@ -7946,59 +7946,59 @@
 .end method
 
 .method public static synthetic joinToString$default(Ljava/lang/Iterable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 4
+    .registers 13
 
     .line 3509
     and-int/lit8 p8, p7, 0x1
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_8
 
     const-string p1, ", "
 
     check-cast p1, Ljava/lang/CharSequence;
 
-    :cond_0
+    :cond_8
     and-int/lit8 p8, p7, 0x2
 
     const-string v0, ""
 
-    if-eqz p8, :cond_1
+    if-eqz p8, :cond_11
 
     move-object p2, v0
 
     check-cast p2, Ljava/lang/CharSequence;
 
-    :cond_1
+    :cond_11
     move-object p8, p2
 
     and-int/lit8 p2, p7, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_19
 
     move-object p3, v0
 
     check-cast p3, Ljava/lang/CharSequence;
 
-    :cond_2
+    :cond_19
     move-object v0, p3
 
     and-int/lit8 p2, p7, 0x8
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_21
 
     const/4 p4, -0x1
 
     const/4 v1, -0x1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_3
+    :cond_21
     move v1, p4
 
-    :goto_0
+    :goto_22
     and-int/lit8 p2, p7, 0x10
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_2b
 
     const-string p2, "..."
 
@@ -8006,16 +8006,16 @@
 
     check-cast p5, Ljava/lang/CharSequence;
 
-    :cond_4
+    :cond_2b
     move-object v2, p5
 
     and-int/lit8 p2, p7, 0x20
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_31
 
     const/4 p6, 0x0
 
-    :cond_5
+    :cond_31
     move-object v3, p6
 
     move-object p2, p0
@@ -8040,7 +8040,7 @@
 .end method
 
 .method public static final last(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .param p0, "$this$last"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -8062,7 +8062,7 @@
     .line 406
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     move-object v0, p0
 
@@ -8075,7 +8075,7 @@
     return-object v0
 
     .line 408
-    :cond_0
+    :cond_12
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -8086,7 +8086,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2c
 
     .line 411
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -8095,27 +8095,27 @@
 
     .line 412
     .local v1, "last":Ljava/lang/Object;
-    :goto_0
+    :goto_20
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2b
 
     .line 413
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_20
 
     .line 414
-    :cond_1
+    :cond_2b
     return-object v1
 
     .line 410
     .end local v1    # "last":Ljava/lang/Object;
-    :cond_2
+    :cond_2c
     new-instance v1, Ljava/util/NoSuchElementException;
 
     const-string v2, "Collection is empty."
@@ -8126,7 +8126,7 @@
 .end method
 
 .method public static final last(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p0, "$this$last"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8167,13 +8167,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_11
+    :goto_11
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2a
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8191,7 +8191,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_11
 
     .line 444
     move-object v1, v4
@@ -8200,17 +8200,17 @@
     const/4 v2, 0x1
 
     .end local v4    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_11
 
     .line 448
-    :cond_1
-    if-eqz v2, :cond_2
+    :cond_2a
+    if-eqz v2, :cond_2d
 
     .line 450
     return-object v1
 
     .line 448
-    :cond_2
+    :cond_2d
     new-instance v3, Ljava/util/NoSuchElementException;
 
     const-string v4, "Collection contains no element matching the predicate."
@@ -8221,7 +8221,7 @@
 .end method
 
 .method public static final last(Ljava/util/List;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$last"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -8242,7 +8242,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 429
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->getLastIndex(Ljava/util/List;)I
@@ -8256,7 +8256,7 @@
     return-object v0
 
     .line 428
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "List is empty."
@@ -8267,7 +8267,7 @@
 .end method
 
 .method public static final last(Ljava/util/List;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$last"    # Ljava/util/List;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8306,12 +8306,12 @@
 
     .line 462
     .local v1, "iterator":Ljava/util/ListIterator;
-    :cond_0
+    :cond_13
     invoke-interface {v1}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2a
 
     .line 463
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -8330,13 +8330,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_13
 
     return-object v2
 
     .line 466
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_2a
     new-instance v2, Ljava/util/NoSuchElementException;
 
     const-string v3, "List contains no element matching the predicate."
@@ -8347,7 +8347,7 @@
 .end method
 
 .method public static final lastIndexOf(Ljava/lang/Iterable;Ljava/lang/Object;)I
-    .locals 5
+    .registers 7
     .param p0, "$this$lastIndexOf"    # Ljava/lang/Iterable;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -8367,7 +8367,7 @@
     .line 473
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     move-object v0, p0
 
@@ -8380,7 +8380,7 @@
     return v0
 
     .line 474
-    :cond_0
+    :cond_11
     const/4 v0, -0x1
 
     .line 475
@@ -8393,12 +8393,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_17
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_31
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8406,37 +8406,37 @@
 
     .line 477
     .local v3, "item":Ljava/lang/Object;
-    if-gez v1, :cond_1
+    if-gez v1, :cond_26
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
     .line 478
-    :cond_1
+    :cond_26
     invoke-static {p1, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2d
 
     .line 479
     move v0, v1
 
     .line 480
-    :cond_2
+    :cond_2d
     nop
 
     .end local v3    # "item":Ljava/lang/Object;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 482
-    :cond_3
+    :cond_31
     return v0
 .end method
 
 .method public static final lastIndexOf(Ljava/util/List;Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p0, "$this$lastIndexOf"    # Ljava/util/List;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -8462,7 +8462,7 @@
 .end method
 
 .method public static final lastOrNull(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .param p0, "$this$lastOrNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -8486,7 +8486,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     move-object v0, p0
 
@@ -8496,11 +8496,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_15
     move-object v0, p0
 
     check-cast v0, Ljava/util/List;
@@ -8519,11 +8519,11 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_25
     return-object v1
 
     .line 502
-    :cond_1
+    :cond_26
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -8534,40 +8534,40 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_31
 
     .line 504
     return-object v1
 
     .line 505
-    :cond_2
+    :cond_31
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     .line 506
     .local v1, "last":Ljava/lang/Object;
-    :goto_1
+    :goto_35
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_40
 
     .line 507
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 508
-    :cond_3
+    :cond_40
     return-object v1
 .end method
 
 .method public static final lastOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .param p0, "$this$lastOrNull"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8604,13 +8604,13 @@
 
     move-result-object v2
 
-    :cond_0
-    :goto_0
+    :cond_10
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_28
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8628,21 +8628,21 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_10
 
     .line 531
     move-object v1, v3
 
     .end local v3    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_10
 
     .line 534
-    :cond_1
+    :cond_28
     return-object v1
 .end method
 
 .method public static final lastOrNull(Ljava/util/List;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$lastOrNull"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -8663,13 +8663,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_d
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v0
@@ -8680,12 +8680,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method public static final lastOrNull(Ljava/util/List;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$lastOrNull"    # Ljava/util/List;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8724,12 +8724,12 @@
 
     .line 544
     .local v1, "iterator":Ljava/util/ListIterator;
-    :cond_0
+    :cond_13
     invoke-interface {v1}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2a
 
     .line 545
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -8748,20 +8748,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_13
 
     return-object v2
 
     .line 548
     .end local v2    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_2a
     const/4 v2, 0x0
 
     return-object v2
 .end method
 
 .method public static final map(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$map"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -8816,12 +8816,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_1e
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_30
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8835,11 +8835,11 @@
 
     invoke-interface {v1, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 3791
     .end local v5    # "item$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_30
     nop
 
     .end local v1    # "destination$iv":Ljava/util/Collection;
@@ -8852,7 +8852,7 @@
 .end method
 
 .method public static final mapIndexed(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 11
+    .registers 13
     .param p0, "$this$mapIndexed"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -8913,12 +8913,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_1f
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_4f
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8930,7 +8930,7 @@
 
     .end local v4    # "index$iv":I
     .local v7, "index$iv":I
-    if-gez v4, :cond_1
+    if-gez v4, :cond_42
 
     const/4 v8, 0x3
 
@@ -8942,13 +8942,13 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_3a
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_0
+    :cond_3a
     new-instance v4, Ljava/lang/ArithmeticException;
 
     const-string v5, "Index overflow has happened."
@@ -8957,8 +8957,8 @@
 
     throw v4
 
-    :cond_1
-    :goto_1
+    :cond_42
+    :goto_42
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
@@ -8971,13 +8971,13 @@
 
     move v4, v7
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 3795
     .end local v6    # "item$iv":Ljava/lang/Object;
     .end local v7    # "index$iv":I
     .restart local v4    # "index$iv":I
-    :cond_2
+    :cond_4f
     nop
 
     .end local v1    # "destination$iv":Ljava/util/Collection;
@@ -8991,7 +8991,7 @@
 .end method
 
 .method public static final mapIndexedNotNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 14
+    .registers 16
     .param p0, "$this$mapIndexedNotNull"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -9053,12 +9053,12 @@
 
     move-result-object v7
 
-    :goto_0
+    :goto_1b
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_50
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9069,7 +9069,7 @@
 
     .end local v6    # "index$iv$iv":I
     .local v9, "index$iv$iv":I
-    if-gez v6, :cond_1
+    if-gez v6, :cond_3e
 
     const/4 v10, 0x3
 
@@ -9081,13 +9081,13 @@
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_36
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_0
+    :cond_36
     new-instance v6, Ljava/lang/ArithmeticException;
 
     const-string v7, "Index overflow has happened."
@@ -9097,8 +9097,8 @@
     throw v6
 
     .local v6, "index$iv":I
-    :cond_1
-    :goto_1
+    :cond_3e
+    :goto_3e
     move-object v10, v8
 
     .local v10, "element$iv":Ljava/lang/Object;
@@ -9114,7 +9114,7 @@
 
     move-result-object v12
 
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_4e
 
     .line 3799
     .local v12, "it$iv":Ljava/lang/Object;
@@ -9130,16 +9130,16 @@
     .end local v11    # "$i$a$-forEachIndexed-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1$iv":I
     .end local v12    # "it$iv":Ljava/lang/Object;
     .end local v13    # "$i$a$-let-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1$1$iv":I
-    :cond_2
+    :cond_4e
     move v6, v9
 
     .end local v8    # "item$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1b
 
     .line 3800
     .end local v9    # "index$iv$iv":I
     .local v6, "index$iv$iv":I
-    :cond_3
+    :cond_50
     nop
 
     .line 3801
@@ -9158,7 +9158,7 @@
 .end method
 
 .method public static final mapIndexedNotNullTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
-    .locals 11
+    .registers 14
     .param p0, "$this$mapIndexedNotNullTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -9211,12 +9211,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_17
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4c
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9227,7 +9227,7 @@
 
     .end local v3    # "index$iv":I
     .local v6, "index$iv":I
-    if-gez v3, :cond_1
+    if-gez v3, :cond_3a
 
     const/4 v7, 0x3
 
@@ -9239,13 +9239,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_32
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_0
+    :cond_32
     new-instance v3, Ljava/lang/ArithmeticException;
 
     const-string v4, "Index overflow has happened."
@@ -9255,8 +9255,8 @@
     throw v3
 
     .local v3, "index":I
-    :cond_1
-    :goto_1
+    :cond_3a
+    :goto_3a
     move-object v7, v5
 
     .local v7, "element":Ljava/lang/Object;
@@ -9272,7 +9272,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_4a
 
     .line 3702
     .local v9, "it":Ljava/lang/Object;
@@ -9288,16 +9288,16 @@
     .end local v8    # "$i$a$-forEachIndexed-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1":I
     .end local v9    # "it":Ljava/lang/Object;
     .end local v10    # "$i$a$-let-CollectionsKt___CollectionsKt$mapIndexedNotNullTo$1$1":I
-    :cond_2
+    :cond_4a
     move v3, v6
 
     .end local v5    # "item$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_17
 
     .line 3804
     .end local v6    # "index$iv":I
     .local v3, "index$iv":I
-    :cond_3
+    :cond_4c
     nop
 
     .line 1588
@@ -9308,7 +9308,7 @@
 .end method
 
 .method public static final mapIndexedTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
-    .locals 8
+    .registers 11
     .param p0, "$this$mapIndexedTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -9354,12 +9354,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_15
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_45
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9371,7 +9371,7 @@
 
     .end local v1    # "index":I
     .local v4, "index":I
-    if-gez v1, :cond_1
+    if-gez v1, :cond_38
 
     const/4 v5, 0x3
 
@@ -9383,13 +9383,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_30
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_0
+    :cond_30
     new-instance v1, Ljava/lang/ArithmeticException;
 
     const-string v2, "Index overflow has happened."
@@ -9398,8 +9398,8 @@
 
     throw v1
 
-    :cond_1
-    :goto_1
+    :cond_38
+    :goto_38
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -9412,18 +9412,18 @@
 
     move v1, v4
 
-    goto :goto_0
+    goto :goto_15
 
     .line 1601
     .end local v3    # "item":Ljava/lang/Object;
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_2
+    :cond_45
     return-object p1
 .end method
 
 .method public static final mapNotNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 12
+    .registers 14
     .param p0, "$this$mapNotNull"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -9479,12 +9479,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_1a
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_32
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9502,7 +9502,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_30
 
     .line 3807
     .local v10, "it$iv":Ljava/lang/Object;
@@ -9517,14 +9517,14 @@
     .end local v9    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1$iv":I
     .end local v10    # "it$iv":Ljava/lang/Object;
     .end local v11    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1$iv":I
-    :cond_0
+    :cond_30
     nop
 
     .end local v7    # "element$iv$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1a
 
     .line 3808
-    :cond_1
+    :cond_32
     nop
 
     .line 3809
@@ -9542,7 +9542,7 @@
 .end method
 
 .method public static final mapNotNullTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
-    .locals 9
+    .registers 12
     .param p0, "$this$mapNotNullTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -9589,12 +9589,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_16
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2e
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9612,7 +9612,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_2c
 
     .line 3702
     .local v7, "it":Ljava/lang/Object;
@@ -9627,14 +9627,14 @@
     .end local v6    # "$i$a$-forEach-CollectionsKt___CollectionsKt$mapNotNullTo$1":I
     .end local v7    # "it":Ljava/lang/Object;
     .end local v8    # "$i$a$-let-CollectionsKt___CollectionsKt$mapNotNullTo$1$1":I
-    :cond_0
+    :cond_2c
     nop
 
     .end local v4    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_16
 
     .line 3811
-    :cond_1
+    :cond_2e
     nop
 
     .line 1620
@@ -9644,7 +9644,7 @@
 .end method
 
 .method public static final mapTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
-    .locals 4
+    .registers 7
     .param p0, "$this$mapTo"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -9684,12 +9684,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9703,16 +9703,16 @@
 
     invoke-interface {p1, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_14
 
     .line 1630
     .end local v2    # "item":Ljava/lang/Object;
-    :cond_0
+    :cond_26
     return-object p1
 .end method
 
 .method public static final maxByOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p0, "$this$maxByOrNull"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -9751,14 +9751,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     const/4 v2, 0x0
 
     return-object v2
 
     .line 1973
-    :cond_0
+    :cond_17
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -9769,12 +9769,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_22
 
     return-object v2
 
     .line 1975
-    :cond_1
+    :cond_22
     invoke-interface {p1, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -9783,7 +9783,7 @@
 
     .line 1977
     .local v3, "maxValue":Ljava/lang/Comparable;
-    :cond_2
+    :cond_28
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -9802,7 +9802,7 @@
 
     move-result v6
 
-    if-gez v6, :cond_3
+    if-gez v6, :cond_3a
 
     .line 1980
     move-object v2, v4
@@ -9813,19 +9813,19 @@
     .line 1983
     .end local v4    # "e":Ljava/lang/Object;
     .end local v5    # "v":Ljava/lang/Comparable;
-    :cond_3
+    :cond_3a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_28
 
     .line 1984
     return-object v2
 .end method
 
 .method public static final maxByOrThrow(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p0, "$this$maxBy"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -9864,7 +9864,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_3f
 
     .line 1950
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -9877,12 +9877,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_20
 
     return-object v2
 
     .line 1952
-    :cond_0
+    :cond_20
     invoke-interface {p1, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -9891,7 +9891,7 @@
 
     .line 1954
     .local v3, "maxValue":Ljava/lang/Comparable;
-    :cond_1
+    :cond_26
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -9910,7 +9910,7 @@
 
     move-result v6
 
-    if-gez v6, :cond_2
+    if-gez v6, :cond_38
 
     .line 1957
     move-object v2, v4
@@ -9921,12 +9921,12 @@
     .line 1960
     .end local v4    # "e":Ljava/lang/Object;
     .end local v5    # "v":Ljava/lang/Comparable;
-    :cond_2
+    :cond_38
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_26
 
     .line 1961
     return-object v2
@@ -9934,7 +9934,7 @@
     .line 1949
     .end local v2    # "maxElem":Ljava/lang/Object;
     .end local v3    # "maxValue":Ljava/lang/Comparable;
-    :cond_3
+    :cond_3f
     new-instance v2, Ljava/util/NoSuchElementException;
 
     invoke-direct {v2}, Ljava/util/NoSuchElementException;-><init>()V
@@ -9943,7 +9943,7 @@
 .end method
 
 .method private static final maxOf(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)D
-    .locals 5
+    .registers 7
     .param p0, "$this$maxOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -9979,7 +9979,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3c
 
     .line 2002
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -9998,12 +9998,12 @@
 
     .line 2003
     .local v1, "maxValue":D
-    :goto_0
+    :goto_22
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3b
 
     .line 2004
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10027,15 +10027,15 @@
     move-result-wide v1
 
     .end local v3    # "v":D
-    goto :goto_0
+    goto :goto_22
 
     .line 2007
-    :cond_0
+    :cond_3b
     return-wide v1
 
     .line 2001
     .end local v1    # "maxValue":D
-    :cond_1
+    :cond_3c
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -10044,7 +10044,7 @@
 .end method
 
 .method private static final maxOf(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)F
-    .locals 3
+    .registers 5
     .param p0, "$this$maxOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -10080,7 +10080,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3c
 
     .line 2025
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10099,12 +10099,12 @@
 
     .line 2026
     .local v1, "maxValue":F
-    :goto_0
+    :goto_22
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3b
 
     .line 2027
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10128,15 +10128,15 @@
     move-result v1
 
     .end local v2    # "v":F
-    goto :goto_0
+    goto :goto_22
 
     .line 2030
-    :cond_0
+    :cond_3b
     return v1
 
     .line 2024
     .end local v1    # "maxValue":F
-    :cond_1
+    :cond_3c
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -10145,7 +10145,7 @@
 .end method
 
 .method private static final maxOf(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
-    .locals 4
+    .registers 6
     .param p0, "$this$maxOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -10181,7 +10181,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_37
 
     .line 2046
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10196,13 +10196,13 @@
 
     .line 2047
     .local v1, "maxValue":Ljava/lang/Comparable;
-    :cond_0
-    :goto_0
+    :cond_1e
+    :goto_1e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_36
 
     .line 2048
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10221,21 +10221,21 @@
 
     move-result v3
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_1e
 
     .line 2050
     move-object v1, v2
 
     .end local v2    # "v":Ljava/lang/Comparable;
-    goto :goto_0
+    goto :goto_1e
 
     .line 2053
-    :cond_1
+    :cond_36
     return-object v1
 
     .line 2045
     .end local v1    # "maxValue":Ljava/lang/Comparable;
-    :cond_2
+    :cond_37
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -10244,7 +10244,7 @@
 .end method
 
 .method private static final maxOfOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
-    .locals 4
+    .registers 6
     .param p0, "$this$maxOfOrNull"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -10280,14 +10280,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2109
-    :cond_0
+    :cond_16
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -10300,13 +10300,13 @@
 
     .line 2110
     .local v1, "maxValue":Ljava/lang/Comparable;
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_38
 
     .line 2111
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10325,21 +10325,21 @@
 
     move-result v3
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_20
 
     .line 2113
     move-object v1, v2
 
     .end local v2    # "v":Ljava/lang/Comparable;
-    goto :goto_0
+    goto :goto_20
 
     .line 2116
-    :cond_2
+    :cond_38
     return-object v1
 .end method
 
 .method private static final maxOfOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Double;
-    .locals 5
+    .registers 7
     .param p0, "$this$maxOfOrNull"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -10376,14 +10376,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2069
-    :cond_0
+    :cond_16
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -10400,12 +10400,12 @@
 
     .line 2070
     .local v1, "maxValue":D
-    :goto_0
+    :goto_24
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3d
 
     .line 2071
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10429,10 +10429,10 @@
     move-result-wide v1
 
     .end local v3    # "v":D
-    goto :goto_0
+    goto :goto_24
 
     .line 2074
-    :cond_1
+    :cond_3d
     invoke-static {v1, v2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v3
@@ -10441,7 +10441,7 @@
 .end method
 
 .method private static final maxOfOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Float;
-    .locals 3
+    .registers 5
     .param p0, "$this$maxOfOrNull"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -10478,14 +10478,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2090
-    :cond_0
+    :cond_16
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -10502,12 +10502,12 @@
 
     .line 2091
     .local v1, "maxValue":F
-    :goto_0
+    :goto_24
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3d
 
     .line 2092
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10531,10 +10531,10 @@
     move-result v1
 
     .end local v2    # "v":F
-    goto :goto_0
+    goto :goto_24
 
     .line 2095
-    :cond_1
+    :cond_3d
     invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v2
@@ -10543,7 +10543,7 @@
 .end method
 
 .method private static final maxOfWith(Ljava/lang/Iterable;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$maxOfWith"    # Ljava/lang/Iterable;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -10586,7 +10586,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_38
 
     .line 2132
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10599,13 +10599,13 @@
 
     .line 2133
     .local v1, "maxValue":Ljava/lang/Object;
-    :cond_0
-    :goto_0
+    :cond_21
+    :goto_21
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_37
 
     .line 2134
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10622,21 +10622,21 @@
 
     move-result v3
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_21
 
     .line 2136
     move-object v1, v2
 
     .end local v2    # "v":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_21
 
     .line 2139
-    :cond_1
+    :cond_37
     return-object v1
 
     .line 2131
     .end local v1    # "maxValue":Ljava/lang/Object;
-    :cond_2
+    :cond_38
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -10645,7 +10645,7 @@
 .end method
 
 .method private static final maxOfWithOrNull(Ljava/lang/Iterable;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$maxOfWithOrNull"    # Ljava/lang/Iterable;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -10688,14 +10688,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2153
-    :cond_0
+    :cond_1b
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -10706,13 +10706,13 @@
 
     .line 2154
     .local v1, "maxValue":Ljava/lang/Object;
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_39
 
     .line 2155
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10729,21 +10729,21 @@
 
     move-result v3
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_23
 
     .line 2157
     move-object v1, v2
 
     .end local v2    # "v":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_23
 
     .line 2160
-    :cond_2
+    :cond_39
     return-object v1
 .end method
 
 .method public static final maxOrNull(Ljava/lang/Iterable;)Ljava/lang/Comparable;
-    .locals 4
+    .registers 5
     .param p0, "$this$maxOrNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -10770,14 +10770,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2204
-    :cond_0
+    :cond_11
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -10786,13 +10786,13 @@
 
     .line 2205
     .local v1, "max":Ljava/lang/Comparable;
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2b
 
     .line 2206
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10807,20 +10807,20 @@
 
     move-result v3
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_17
 
     move-object v1, v2
 
     .end local v2    # "e":Ljava/lang/Comparable;
-    goto :goto_0
+    goto :goto_17
 
     .line 2209
-    :cond_2
+    :cond_2b
     return-object v1
 .end method
 
 .method public static final maxOrNull(Ljava/lang/Iterable;)Ljava/lang/Double;
-    .locals 5
+    .registers 6
     .param p0, "$this$maxOrNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -10847,14 +10847,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2172
-    :cond_0
+    :cond_11
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -10867,12 +10867,12 @@
 
     .line 2173
     .local v1, "max":D
-    :goto_0
+    :goto_1b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_30
 
     .line 2174
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10892,10 +10892,10 @@
     move-result-wide v1
 
     .end local v3    # "e":D
-    goto :goto_0
+    goto :goto_1b
 
     .line 2177
-    :cond_1
+    :cond_30
     invoke-static {v1, v2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v3
@@ -10904,7 +10904,7 @@
 .end method
 
 .method public static final maxOrNull(Ljava/lang/Iterable;)Ljava/lang/Float;
-    .locals 3
+    .registers 4
     .param p0, "$this$maxOrNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -10931,14 +10931,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2189
-    :cond_0
+    :cond_11
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -10951,12 +10951,12 @@
 
     .line 2190
     .local v1, "max":F
-    :goto_0
+    :goto_1b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_30
 
     .line 2191
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -10976,10 +10976,10 @@
     move-result v1
 
     .end local v2    # "e":F
-    goto :goto_0
+    goto :goto_1b
 
     .line 2194
-    :cond_1
+    :cond_30
     invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v2
@@ -10988,7 +10988,7 @@
 .end method
 
 .method public static final maxOrThrow(Ljava/lang/Iterable;)D
-    .locals 5
+    .registers 6
     .param p0, "$this$max"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -11014,7 +11014,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2f
 
     .line 1889
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11029,12 +11029,12 @@
 
     .line 1890
     .local v1, "max":D
-    :goto_0
+    :goto_19
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2e
 
     .line 1891
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11054,15 +11054,15 @@
     move-result-wide v1
 
     .end local v3    # "e":D
-    goto :goto_0
+    goto :goto_19
 
     .line 1894
-    :cond_0
+    :cond_2e
     return-wide v1
 
     .line 1888
     .end local v1    # "max":D
-    :cond_1
+    :cond_2f
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -11071,7 +11071,7 @@
 .end method
 
 .method public static final maxOrThrow(Ljava/lang/Iterable;)F
-    .locals 3
+    .registers 4
     .param p0, "$this$max"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -11097,7 +11097,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2f
 
     .line 1910
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11112,12 +11112,12 @@
 
     .line 1911
     .local v1, "max":F
-    :goto_0
+    :goto_19
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2e
 
     .line 1912
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11137,15 +11137,15 @@
     move-result v1
 
     .end local v2    # "e":F
-    goto :goto_0
+    goto :goto_19
 
     .line 1915
-    :cond_0
+    :cond_2e
     return v1
 
     .line 1909
     .end local v1    # "max":F
-    :cond_1
+    :cond_2f
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -11154,7 +11154,7 @@
 .end method
 
 .method public static final maxOrThrow(Ljava/lang/Iterable;)Ljava/lang/Comparable;
-    .locals 4
+    .registers 5
     .param p0, "$this$max"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -11181,7 +11181,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2a
 
     .line 1929
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11192,13 +11192,13 @@
 
     .line 1930
     .local v1, "max":Ljava/lang/Comparable;
-    :cond_0
-    :goto_0
+    :cond_15
+    :goto_15
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 1931
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11213,20 +11213,20 @@
 
     move-result v3
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_15
 
     move-object v1, v2
 
     .end local v2    # "e":Ljava/lang/Comparable;
-    goto :goto_0
+    goto :goto_15
 
     .line 1934
-    :cond_1
+    :cond_29
     return-object v1
 
     .line 1928
     .end local v1    # "max":Ljava/lang/Comparable;
-    :cond_2
+    :cond_2a
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -11235,7 +11235,7 @@
 .end method
 
 .method public static final maxWithOrNull(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$maxWithOrNull"    # Ljava/lang/Iterable;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -11269,27 +11269,27 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2238
-    :cond_0
+    :cond_16
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     .line 2239
     .local v1, "max":Ljava/lang/Object;
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2c
 
     .line 2240
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11302,20 +11302,20 @@
 
     move-result v3
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_1a
 
     move-object v1, v2
 
     .end local v2    # "e":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1a
 
     .line 2243
-    :cond_2
+    :cond_2c
     return-object v1
 .end method
 
 .method public static final maxWithOrThrow(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$maxWith"    # Ljava/lang/Iterable;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -11349,7 +11349,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2b
 
     .line 2223
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11358,13 +11358,13 @@
 
     .line 2224
     .local v1, "max":Ljava/lang/Object;
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2a
 
     .line 2225
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11377,20 +11377,20 @@
 
     move-result v3
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_18
 
     move-object v1, v2
 
     .end local v2    # "e":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_18
 
     .line 2228
-    :cond_1
+    :cond_2a
     return-object v1
 
     .line 2222
     .end local v1    # "max":Ljava/lang/Object;
-    :cond_2
+    :cond_2b
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -11399,7 +11399,7 @@
 .end method
 
 .method public static final minByOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p0, "$this$minByOrNull"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -11438,14 +11438,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     const/4 v2, 0x0
 
     return-object v2
 
     .line 2343
-    :cond_0
+    :cond_17
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -11456,12 +11456,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_22
 
     return-object v2
 
     .line 2345
-    :cond_1
+    :cond_22
     invoke-interface {p1, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -11470,7 +11470,7 @@
 
     .line 2347
     .local v3, "minValue":Ljava/lang/Comparable;
-    :cond_2
+    :cond_28
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -11489,7 +11489,7 @@
 
     move-result v6
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_3a
 
     .line 2350
     move-object v2, v4
@@ -11500,19 +11500,19 @@
     .line 2353
     .end local v4    # "e":Ljava/lang/Object;
     .end local v5    # "v":Ljava/lang/Comparable;
-    :cond_3
+    :cond_3a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_28
 
     .line 2354
     return-object v2
 .end method
 
 .method public static final minByOrThrow(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p0, "$this$minBy"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -11551,7 +11551,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_3f
 
     .line 2320
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11564,12 +11564,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_20
 
     return-object v2
 
     .line 2322
-    :cond_0
+    :cond_20
     invoke-interface {p1, v2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -11578,7 +11578,7 @@
 
     .line 2324
     .local v3, "minValue":Ljava/lang/Comparable;
-    :cond_1
+    :cond_26
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -11597,7 +11597,7 @@
 
     move-result v6
 
-    if-lez v6, :cond_2
+    if-lez v6, :cond_38
 
     .line 2327
     move-object v2, v4
@@ -11608,12 +11608,12 @@
     .line 2330
     .end local v4    # "e":Ljava/lang/Object;
     .end local v5    # "v":Ljava/lang/Comparable;
-    :cond_2
+    :cond_38
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_26
 
     .line 2331
     return-object v2
@@ -11621,7 +11621,7 @@
     .line 2319
     .end local v2    # "minElem":Ljava/lang/Object;
     .end local v3    # "minValue":Ljava/lang/Comparable;
-    :cond_3
+    :cond_3f
     new-instance v2, Ljava/util/NoSuchElementException;
 
     invoke-direct {v2}, Ljava/util/NoSuchElementException;-><init>()V
@@ -11630,7 +11630,7 @@
 .end method
 
 .method private static final minOf(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)D
-    .locals 5
+    .registers 7
     .param p0, "$this$minOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -11666,7 +11666,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3c
 
     .line 2372
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11685,12 +11685,12 @@
 
     .line 2373
     .local v1, "minValue":D
-    :goto_0
+    :goto_22
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3b
 
     .line 2374
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11714,15 +11714,15 @@
     move-result-wide v1
 
     .end local v3    # "v":D
-    goto :goto_0
+    goto :goto_22
 
     .line 2377
-    :cond_0
+    :cond_3b
     return-wide v1
 
     .line 2371
     .end local v1    # "minValue":D
-    :cond_1
+    :cond_3c
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -11731,7 +11731,7 @@
 .end method
 
 .method private static final minOf(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)F
-    .locals 3
+    .registers 5
     .param p0, "$this$minOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -11767,7 +11767,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3c
 
     .line 2395
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11786,12 +11786,12 @@
 
     .line 2396
     .local v1, "minValue":F
-    :goto_0
+    :goto_22
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3b
 
     .line 2397
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11815,15 +11815,15 @@
     move-result v1
 
     .end local v2    # "v":F
-    goto :goto_0
+    goto :goto_22
 
     .line 2400
-    :cond_0
+    :cond_3b
     return v1
 
     .line 2394
     .end local v1    # "minValue":F
-    :cond_1
+    :cond_3c
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -11832,7 +11832,7 @@
 .end method
 
 .method private static final minOf(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
-    .locals 4
+    .registers 6
     .param p0, "$this$minOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -11868,7 +11868,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_37
 
     .line 2416
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11883,13 +11883,13 @@
 
     .line 2417
     .local v1, "minValue":Ljava/lang/Comparable;
-    :cond_0
-    :goto_0
+    :cond_1e
+    :goto_1e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_36
 
     .line 2418
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -11908,21 +11908,21 @@
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_1e
 
     .line 2420
     move-object v1, v2
 
     .end local v2    # "v":Ljava/lang/Comparable;
-    goto :goto_0
+    goto :goto_1e
 
     .line 2423
-    :cond_1
+    :cond_36
     return-object v1
 
     .line 2415
     .end local v1    # "minValue":Ljava/lang/Comparable;
-    :cond_2
+    :cond_37
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -11931,7 +11931,7 @@
 .end method
 
 .method private static final minOfOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
-    .locals 4
+    .registers 6
     .param p0, "$this$minOfOrNull"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -11967,14 +11967,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2479
-    :cond_0
+    :cond_16
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -11987,13 +11987,13 @@
 
     .line 2480
     .local v1, "minValue":Ljava/lang/Comparable;
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_38
 
     .line 2481
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12012,21 +12012,21 @@
 
     move-result v3
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_20
 
     .line 2483
     move-object v1, v2
 
     .end local v2    # "v":Ljava/lang/Comparable;
-    goto :goto_0
+    goto :goto_20
 
     .line 2486
-    :cond_2
+    :cond_38
     return-object v1
 .end method
 
 .method private static final minOfOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Double;
-    .locals 5
+    .registers 7
     .param p0, "$this$minOfOrNull"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -12063,14 +12063,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2439
-    :cond_0
+    :cond_16
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -12087,12 +12087,12 @@
 
     .line 2440
     .local v1, "minValue":D
-    :goto_0
+    :goto_24
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3d
 
     .line 2441
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12116,10 +12116,10 @@
     move-result-wide v1
 
     .end local v3    # "v":D
-    goto :goto_0
+    goto :goto_24
 
     .line 2444
-    :cond_1
+    :cond_3d
     invoke-static {v1, v2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v3
@@ -12128,7 +12128,7 @@
 .end method
 
 .method private static final minOfOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Float;
-    .locals 3
+    .registers 5
     .param p0, "$this$minOfOrNull"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -12165,14 +12165,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2460
-    :cond_0
+    :cond_16
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -12189,12 +12189,12 @@
 
     .line 2461
     .local v1, "minValue":F
-    :goto_0
+    :goto_24
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3d
 
     .line 2462
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12218,10 +12218,10 @@
     move-result v1
 
     .end local v2    # "v":F
-    goto :goto_0
+    goto :goto_24
 
     .line 2465
-    :cond_1
+    :cond_3d
     invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v2
@@ -12230,7 +12230,7 @@
 .end method
 
 .method private static final minOfWith(Ljava/lang/Iterable;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$minOfWith"    # Ljava/lang/Iterable;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -12273,7 +12273,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_38
 
     .line 2502
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12286,13 +12286,13 @@
 
     .line 2503
     .local v1, "minValue":Ljava/lang/Object;
-    :cond_0
-    :goto_0
+    :cond_21
+    :goto_21
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_37
 
     .line 2504
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12309,21 +12309,21 @@
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_21
 
     .line 2506
     move-object v1, v2
 
     .end local v2    # "v":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_21
 
     .line 2509
-    :cond_1
+    :cond_37
     return-object v1
 
     .line 2501
     .end local v1    # "minValue":Ljava/lang/Object;
-    :cond_2
+    :cond_38
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -12332,7 +12332,7 @@
 .end method
 
 .method private static final minOfWithOrNull(Ljava/lang/Iterable;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$minOfWithOrNull"    # Ljava/lang/Iterable;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .param p2, "selector"    # Lkotlin/jvm/functions/Function1;
@@ -12375,14 +12375,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2523
-    :cond_0
+    :cond_1b
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -12393,13 +12393,13 @@
 
     .line 2524
     .local v1, "minValue":Ljava/lang/Object;
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_39
 
     .line 2525
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12416,21 +12416,21 @@
 
     move-result v3
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_23
 
     .line 2527
     move-object v1, v2
 
     .end local v2    # "v":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_23
 
     .line 2530
-    :cond_2
+    :cond_39
     return-object v1
 .end method
 
 .method public static final minOrNull(Ljava/lang/Iterable;)Ljava/lang/Comparable;
-    .locals 4
+    .registers 5
     .param p0, "$this$minOrNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -12457,14 +12457,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2574
-    :cond_0
+    :cond_11
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -12473,13 +12473,13 @@
 
     .line 2575
     .local v1, "min":Ljava/lang/Comparable;
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2b
 
     .line 2576
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12494,20 +12494,20 @@
 
     move-result v3
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_17
 
     move-object v1, v2
 
     .end local v2    # "e":Ljava/lang/Comparable;
-    goto :goto_0
+    goto :goto_17
 
     .line 2579
-    :cond_2
+    :cond_2b
     return-object v1
 .end method
 
 .method public static final minOrNull(Ljava/lang/Iterable;)Ljava/lang/Double;
-    .locals 5
+    .registers 6
     .param p0, "$this$minOrNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -12534,14 +12534,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2542
-    :cond_0
+    :cond_11
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -12554,12 +12554,12 @@
 
     .line 2543
     .local v1, "min":D
-    :goto_0
+    :goto_1b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_30
 
     .line 2544
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12579,10 +12579,10 @@
     move-result-wide v1
 
     .end local v3    # "e":D
-    goto :goto_0
+    goto :goto_1b
 
     .line 2547
-    :cond_1
+    :cond_30
     invoke-static {v1, v2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v3
@@ -12591,7 +12591,7 @@
 .end method
 
 .method public static final minOrNull(Ljava/lang/Iterable;)Ljava/lang/Float;
-    .locals 3
+    .registers 4
     .param p0, "$this$minOrNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -12618,14 +12618,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2559
-    :cond_0
+    :cond_11
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -12638,12 +12638,12 @@
 
     .line 2560
     .local v1, "min":F
-    :goto_0
+    :goto_1b
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_30
 
     .line 2561
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12663,10 +12663,10 @@
     move-result v1
 
     .end local v2    # "e":F
-    goto :goto_0
+    goto :goto_1b
 
     .line 2564
-    :cond_1
+    :cond_30
     invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v2
@@ -12675,7 +12675,7 @@
 .end method
 
 .method public static final minOrThrow(Ljava/lang/Iterable;)D
-    .locals 5
+    .registers 6
     .param p0, "$this$min"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -12701,7 +12701,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2f
 
     .line 2259
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12716,12 +12716,12 @@
 
     .line 2260
     .local v1, "min":D
-    :goto_0
+    :goto_19
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2e
 
     .line 2261
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12741,15 +12741,15 @@
     move-result-wide v1
 
     .end local v3    # "e":D
-    goto :goto_0
+    goto :goto_19
 
     .line 2264
-    :cond_0
+    :cond_2e
     return-wide v1
 
     .line 2258
     .end local v1    # "min":D
-    :cond_1
+    :cond_2f
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -12758,7 +12758,7 @@
 .end method
 
 .method public static final minOrThrow(Ljava/lang/Iterable;)F
-    .locals 3
+    .registers 4
     .param p0, "$this$min"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -12784,7 +12784,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2f
 
     .line 2280
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12799,12 +12799,12 @@
 
     .line 2281
     .local v1, "min":F
-    :goto_0
+    :goto_19
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2e
 
     .line 2282
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12824,15 +12824,15 @@
     move-result v1
 
     .end local v2    # "e":F
-    goto :goto_0
+    goto :goto_19
 
     .line 2285
-    :cond_0
+    :cond_2e
     return v1
 
     .line 2279
     .end local v1    # "min":F
-    :cond_1
+    :cond_2f
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -12841,7 +12841,7 @@
 .end method
 
 .method public static final minOrThrow(Ljava/lang/Iterable;)Ljava/lang/Comparable;
-    .locals 4
+    .registers 5
     .param p0, "$this$min"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -12868,7 +12868,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2a
 
     .line 2299
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12879,13 +12879,13 @@
 
     .line 2300
     .local v1, "min":Ljava/lang/Comparable;
-    :cond_0
-    :goto_0
+    :cond_15
+    :goto_15
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 2301
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12900,20 +12900,20 @@
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_15
 
     move-object v1, v2
 
     .end local v2    # "e":Ljava/lang/Comparable;
-    goto :goto_0
+    goto :goto_15
 
     .line 2304
-    :cond_1
+    :cond_29
     return-object v1
 
     .line 2298
     .end local v1    # "min":Ljava/lang/Comparable;
-    :cond_2
+    :cond_2a
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -12922,7 +12922,7 @@
 .end method
 
 .method public static final minWithOrNull(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$minWithOrNull"    # Ljava/lang/Iterable;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -12956,27 +12956,27 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     const/4 v1, 0x0
 
     return-object v1
 
     .line 2608
-    :cond_0
+    :cond_16
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     .line 2609
     .local v1, "min":Ljava/lang/Object;
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_2c
 
     .line 2610
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -12989,20 +12989,20 @@
 
     move-result v3
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_1a
 
     move-object v1, v2
 
     .end local v2    # "e":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1a
 
     .line 2613
-    :cond_2
+    :cond_2c
     return-object v1
 .end method
 
 .method public static final minWithOrThrow(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$minWith"    # Ljava/lang/Iterable;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -13036,7 +13036,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2b
 
     .line 2593
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -13045,13 +13045,13 @@
 
     .line 2594
     .local v1, "min":Ljava/lang/Object;
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2a
 
     .line 2595
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -13064,20 +13064,20 @@
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_18
 
     move-object v1, v2
 
     .end local v2    # "e":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_18
 
     .line 2598
-    :cond_1
+    :cond_2a
     return-object v1
 
     .line 2592
     .end local v1    # "min":Ljava/lang/Object;
-    :cond_2
+    :cond_2b
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -13086,7 +13086,7 @@
 .end method
 
 .method public static final minus(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p0, "$this$minus"    # Ljava/lang/Iterable;
     .param p1, "elements"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -13122,7 +13122,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 3163
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
@@ -13132,7 +13132,7 @@
     return-object v1
 
     .line 3164
-    :cond_0
+    :cond_19
     move-object v1, p0
 
     .local v1, "$this$filterNot$iv":Ljava/lang/Iterable;
@@ -13158,13 +13158,13 @@
 
     move-result-object v6
 
-    :cond_1
-    :goto_0
+    :cond_28
+    :goto_28
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3e
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13185,15 +13185,15 @@
     .line 3842
     .end local v8    # "it":Ljava/lang/Object;
     .end local v9    # "$i$a$-filterNot-CollectionsKt___CollectionsKt$minus$3":I
-    if-nez v8, :cond_1
+    if-nez v8, :cond_28
 
     invoke-interface {v3, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_28
 
     .line 3843
     .end local v7    # "element$iv$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_3e
     nop
 
     .end local v3    # "destination$iv$iv":Ljava/util/Collection;
@@ -13211,7 +13211,7 @@
 .end method
 
 .method public static final minus(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/util/List;
-    .locals 9
+    .registers 11
     .param p0, "$this$minus"    # Ljava/lang/Iterable;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -13258,13 +13258,13 @@
 
     move-result-object v4
 
-    :cond_0
-    :goto_0
+    :cond_17
+    :goto_17
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_38
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13278,28 +13278,28 @@
 
     .line 3146
     .local v7, "$i$a$-filterTo-CollectionsKt___CollectionsKt$minus$1":I
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2e
 
     invoke-static {v6, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2e
 
     const/4 v1, 0x1
 
     const/4 v8, 0x0
 
-    goto :goto_1
+    goto :goto_2f
 
-    :cond_1
+    :cond_2e
     const/4 v8, 0x1
 
     .line 3836
     .end local v6    # "it":Ljava/lang/Object;
     .end local v7    # "$i$a$-filterTo-CollectionsKt___CollectionsKt$minus$1":I
-    :goto_1
-    if-eqz v8, :cond_0
+    :goto_2f
+    if-eqz v8, :cond_17
 
     move-object v6, v0
 
@@ -13307,11 +13307,11 @@
 
     invoke-interface {v6, v5}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_17
 
     .line 3837
     .end local v5    # "element$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_38
     move-object v2, v0
 
     check-cast v2, Ljava/util/Collection;
@@ -13325,7 +13325,7 @@
 .end method
 
 .method public static final minus(Ljava/lang/Iterable;Lkotlin/sequences/Sequence;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p0, "$this$minus"    # Ljava/lang/Iterable;
     .param p1, "elements"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -13361,7 +13361,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 3173
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
@@ -13371,7 +13371,7 @@
     return-object v1
 
     .line 3174
-    :cond_0
+    :cond_19
     move-object v1, p0
 
     .local v1, "$this$filterNot$iv":Ljava/lang/Iterable;
@@ -13397,13 +13397,13 @@
 
     move-result-object v6
 
-    :cond_1
-    :goto_0
+    :cond_28
+    :goto_28
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3e
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13424,15 +13424,15 @@
     .line 3845
     .end local v8    # "it":Ljava/lang/Object;
     .end local v9    # "$i$a$-filterNot-CollectionsKt___CollectionsKt$minus$4":I
-    if-nez v8, :cond_1
+    if-nez v8, :cond_28
 
     invoke-interface {v3, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_28
 
     .line 3846
     .end local v7    # "element$iv$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_3e
     nop
 
     .end local v3    # "destination$iv$iv":Ljava/util/Collection;
@@ -13450,7 +13450,7 @@
 .end method
 
 .method public static final minus(Ljava/lang/Iterable;[Ljava/lang/Object;)Ljava/util/List;
-    .locals 9
+    .registers 11
     .param p0, "$this$minus"    # Ljava/lang/Iterable;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -13476,17 +13476,17 @@
     .line 3153
     array-length v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_10
+    if-eqz v0, :cond_17
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
@@ -13495,7 +13495,7 @@
     return-object v0
 
     .line 3154
-    :cond_1
+    :cond_17
     move-object v0, p0
 
     .local v0, "$this$filterNot$iv":Ljava/lang/Iterable;
@@ -13521,13 +13521,13 @@
 
     move-result-object v5
 
-    :cond_2
-    :goto_1
+    :cond_26
+    :goto_26
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_3c
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13548,15 +13548,15 @@
     .line 3839
     .end local v7    # "it":Ljava/lang/Object;
     .end local v8    # "$i$a$-filterNot-CollectionsKt___CollectionsKt$minus$2":I
-    if-nez v7, :cond_2
+    if-nez v7, :cond_26
 
     invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_26
 
     .line 3840
     .end local v6    # "element$iv$iv":Ljava/lang/Object;
-    :cond_3
+    :cond_3c
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;
@@ -13574,7 +13574,7 @@
 .end method
 
 .method private static final minusElement(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0, "$this$minusElement"    # Ljava/lang/Iterable;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -13602,7 +13602,7 @@
 .end method
 
 .method public static final none(Ljava/lang/Iterable;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$none"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -13621,7 +13621,7 @@
     .line 2622
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     move-object v0, p0
 
@@ -13634,7 +13634,7 @@
     return v0
 
     .line 2623
-    :cond_0
+    :cond_11
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -13649,7 +13649,7 @@
 .end method
 
 .method public static final none(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Z
-    .locals 5
+    .registers 7
     .param p0, "$this$none"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13682,7 +13682,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     move-object v1, p0
 
@@ -13692,22 +13692,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     return v2
 
     .line 2633
-    :cond_0
+    :cond_1a
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_1
+    :cond_1e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_36
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13724,7 +13724,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1e
 
     const/4 v1, 0x0
 
@@ -13732,12 +13732,12 @@
 
     .line 2634
     .end local v3    # "element":Ljava/lang/Object;
-    :cond_2
+    :cond_36
     return v2
 .end method
 
 .method public static final onEach(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Iterable;
-    .locals 5
+    .registers 7
     .param p0, "$this$onEach"    # Ljava/lang/Iterable;
     .param p1, "action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13778,12 +13778,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_11
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1f
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13792,17 +13792,17 @@
     .local v4, "element":Ljava/lang/Object;
     invoke-interface {p1, v4}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_11
 
     .end local v1    # "$this$onEach_u24lambda_u2419":Ljava/lang/Iterable;
     .end local v2    # "$i$a$-apply-CollectionsKt___CollectionsKt$onEach$1":I
     .end local v4    # "element":Ljava/lang/Object;
-    :cond_0
+    :cond_1f
     return-object p0
 .end method
 
 .method public static final onEachIndexed(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/lang/Iterable;
-    .locals 9
+    .registers 11
     .param p0, "$this$onEachIndexed"    # Ljava/lang/Iterable;
     .param p1, "action"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -13856,12 +13856,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_14
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_2e
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13872,11 +13872,11 @@
 
     .end local v5    # "index$iv":I
     .local v8, "index$iv":I
-    if-gez v5, :cond_0
+    if-gez v5, :cond_25
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    :cond_0
+    :cond_25
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
@@ -13885,13 +13885,13 @@
 
     move v5, v8
 
-    goto :goto_0
+    goto :goto_14
 
     .line 3814
     .end local v7    # "item$iv":Ljava/lang/Object;
     .end local v8    # "index$iv":I
     .restart local v5    # "index$iv":I
-    :cond_1
+    :cond_2e
     nop
 
     .line 2653
@@ -13906,7 +13906,7 @@
 .end method
 
 .method public static final partition(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Lkotlin/Pair;
-    .locals 6
+    .registers 8
     .param p0, "$this$partition"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -13956,12 +13956,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_19
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_37
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13979,22 +13979,22 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_33
 
     .line 3197
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_19
 
     .line 3199
-    :cond_0
+    :cond_33
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_19
 
     .line 3202
     .end local v4    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_37
     new-instance v3, Lkotlin/Pair;
 
     invoke-direct {v3, v1, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -14003,7 +14003,7 @@
 .end method
 
 .method public static final plus(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Ljava/lang/Iterable;
     .param p1, "elements"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -14031,7 +14031,7 @@
     .line 3251
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     move-object v0, p0
 
@@ -14044,7 +14044,7 @@
     return-object v0
 
     .line 3252
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -14073,7 +14073,7 @@
 .end method
 
 .method public static final plus(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Ljava/lang/Iterable;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -14095,7 +14095,7 @@
     .line 3209
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     move-object v0, p0
 
@@ -14108,7 +14108,7 @@
     return-object v0
 
     .line 3210
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -14133,7 +14133,7 @@
 .end method
 
 .method public static final plus(Ljava/lang/Iterable;Lkotlin/sequences/Sequence;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Ljava/lang/Iterable;
     .param p1, "elements"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -14187,7 +14187,7 @@
 .end method
 
 .method public static final plus(Ljava/lang/Iterable;[Ljava/lang/Object;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Ljava/lang/Iterable;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -14213,7 +14213,7 @@
     .line 3230
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     move-object v0, p0
 
@@ -14226,7 +14226,7 @@
     return-object v0
 
     .line 3231
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -14255,7 +14255,7 @@
 .end method
 
 .method public static final plus(Ljava/util/Collection;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p0, "$this$plus"    # Ljava/util/Collection;
     .param p1, "elements"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -14283,7 +14283,7 @@
     .line 3262
     instance-of v0, p1, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 3263
     new-instance v0, Ljava/util/ArrayList;
@@ -14324,7 +14324,7 @@
 
     .line 3268
     .end local v0    # "result":Ljava/util/ArrayList;
-    :cond_0
+    :cond_2c
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
@@ -14346,7 +14346,7 @@
 .end method
 
 .method public static final plus(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Ljava/util/Collection;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -14392,7 +14392,7 @@
 .end method
 
 .method public static final plus(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "$this$plus"    # Ljava/util/Collection;
     .param p1, "elements"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -14448,7 +14448,7 @@
 .end method
 
 .method public static final plus(Ljava/util/Collection;[Ljava/lang/Object;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p0, "$this$plus"    # Ljava/util/Collection;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -14504,7 +14504,7 @@
 .end method
 
 .method private static final plusElement(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0, "$this$plusElement"    # Ljava/lang/Iterable;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -14532,7 +14532,7 @@
 .end method
 
 .method private static final plusElement(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0, "$this$plusElement"    # Ljava/util/Collection;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -14560,7 +14560,7 @@
 .end method
 
 .method private static final random(Ljava/util/Collection;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$random"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -14589,7 +14589,7 @@
 .end method
 
 .method public static final random(Ljava/util/Collection;Lkotlin/random/Random;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$random"    # Ljava/util/Collection;
     .param p1, "random"    # Lkotlin/random/Random;
     .annotation system Ldalvik/annotation/Signature;
@@ -14617,7 +14617,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 571
     move-object v0, p0
@@ -14639,7 +14639,7 @@
     return-object v0
 
     .line 570
-    :cond_0
+    :cond_20
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "Collection is empty."
@@ -14650,7 +14650,7 @@
 .end method
 
 .method private static final randomOrNull(Ljava/util/Collection;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$randomOrNull"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -14679,7 +14679,7 @@
 .end method
 
 .method public static final randomOrNull(Ljava/util/Collection;Lkotlin/random/Random;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$randomOrNull"    # Ljava/util/Collection;
     .param p1, "random"    # Lkotlin/random/Random;
     .annotation system Ldalvik/annotation/Signature;
@@ -14707,7 +14707,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 589
     const/4 v0, 0x0
@@ -14715,7 +14715,7 @@
     return-object v0
 
     .line 590
-    :cond_0
+    :cond_12
     move-object v0, p0
 
     check-cast v0, Ljava/lang/Iterable;
@@ -14736,7 +14736,7 @@
 .end method
 
 .method public static final reduce(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$reduce"    # Ljava/lang/Iterable;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -14773,7 +14773,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 2671
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -14782,12 +14782,12 @@
 
     .line 2672
     .local v2, "accumulator":Ljava/lang/Object;
-    :goto_0
+    :goto_19
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_28
 
     .line 2673
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -14798,15 +14798,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_19
 
     .line 2675
-    :cond_0
+    :cond_28
     return-object v2
 
     .line 2670
     .end local v2    # "accumulator":Ljava/lang/Object;
-    :cond_1
+    :cond_29
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     const-string v3, "Empty collection can\'t be reduced."
@@ -14817,7 +14817,7 @@
 .end method
 
 .method public static final reduceIndexed(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
     .param p0, "$this$reduceIndexed"    # Ljava/lang/Iterable;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -14856,7 +14856,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_48
 
     .line 2693
     const/4 v2, 0x1
@@ -14869,19 +14869,19 @@
 
     .line 2695
     .local v3, "accumulator":Ljava/lang/Object;
-    :goto_0
+    :goto_1a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_47
 
     .line 2696
     add-int/lit8 v4, v2, 0x1
 
     .end local v2    # "index":I
     .local v4, "index":I
-    if-gez v2, :cond_1
+    if-gez v2, :cond_39
 
     const/4 v5, 0x3
 
@@ -14893,13 +14893,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_31
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_39
 
-    :cond_0
+    :cond_31
     new-instance v2, Ljava/lang/ArithmeticException;
 
     const-string v5, "Index overflow has happened."
@@ -14908,8 +14908,8 @@
 
     throw v2
 
-    :cond_1
-    :goto_1
+    :cond_39
+    :goto_39
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -14924,18 +14924,18 @@
 
     move v2, v4
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 2698
     .end local v4    # "index":I
     .restart local v2    # "index":I
-    :cond_2
+    :cond_47
     return-object v3
 
     .line 2692
     .end local v2    # "index":I
     .end local v3    # "accumulator":Ljava/lang/Object;
-    :cond_3
+    :cond_48
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     const-string v3, "Empty collection can\'t be reduced."
@@ -14946,7 +14946,7 @@
 .end method
 
 .method public static final reduceIndexedOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
     .param p0, "$this$reduceIndexedOrNull"    # Ljava/lang/Iterable;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -14985,14 +14985,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     const/4 v2, 0x0
 
     return-object v2
 
     .line 2716
-    :cond_0
+    :cond_17
     const/4 v2, 0x1
 
     .line 2717
@@ -15003,19 +15003,19 @@
 
     .line 2718
     .local v3, "accumulator":Ljava/lang/Object;
-    :goto_0
+    :goto_1c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_49
 
     .line 2719
     add-int/lit8 v4, v2, 0x1
 
     .end local v2    # "index":I
     .local v4, "index":I
-    if-gez v2, :cond_2
+    if-gez v2, :cond_3b
 
     const/4 v5, 0x3
 
@@ -15027,13 +15027,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_33
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_1
+    :cond_33
     new-instance v2, Ljava/lang/ArithmeticException;
 
     const-string v5, "Index overflow has happened."
@@ -15042,8 +15042,8 @@
 
     throw v2
 
-    :cond_2
-    :goto_1
+    :cond_3b
+    :goto_3b
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -15058,17 +15058,17 @@
 
     move v2, v4
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 2721
     .end local v4    # "index":I
     .restart local v2    # "index":I
-    :cond_3
+    :cond_49
     return-object v3
 .end method
 
 .method public static final reduceOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$reduceOrNull"    # Ljava/lang/Iterable;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -15105,26 +15105,26 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_17
 
     const/4 v2, 0x0
 
     return-object v2
 
     .line 2739
-    :cond_0
+    :cond_17
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
     .line 2740
     .local v2, "accumulator":Ljava/lang/Object;
-    :goto_0
+    :goto_1b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
     .line 2741
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -15135,15 +15135,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 2743
-    :cond_1
+    :cond_2a
     return-object v2
 .end method
 
 .method public static final reduceRight(Ljava/util/List;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$reduceRight"    # Ljava/util/List;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -15184,7 +15184,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2d
 
     .line 2762
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -15193,12 +15193,12 @@
 
     .line 2763
     .local v2, "accumulator":Ljava/lang/Object;
-    :goto_0
+    :goto_1d
     invoke-interface {v1}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2c
 
     .line 2764
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -15209,15 +15209,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 2766
-    :cond_0
+    :cond_2c
     return-object v2
 
     .line 2761
     .end local v2    # "accumulator":Ljava/lang/Object;
-    :cond_1
+    :cond_2d
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     const-string v3, "Empty list can\'t be reduced."
@@ -15228,7 +15228,7 @@
 .end method
 
 .method public static final reduceRightIndexed(Ljava/util/List;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p0, "$this$reduceRightIndexed"    # Ljava/util/List;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -15271,7 +15271,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     .line 2785
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -15280,12 +15280,12 @@
 
     .line 2786
     .local v2, "accumulator":Ljava/lang/Object;
-    :goto_0
+    :goto_1d
     invoke-interface {v1}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_34
 
     .line 2787
     invoke-interface {v1}, Ljava/util/ListIterator;->previousIndex()I
@@ -15307,15 +15307,15 @@
     move-result-object v2
 
     .end local v3    # "index":I
-    goto :goto_0
+    goto :goto_1d
 
     .line 2790
-    :cond_0
+    :cond_34
     return-object v2
 
     .line 2784
     .end local v2    # "accumulator":Ljava/lang/Object;
-    :cond_1
+    :cond_35
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     const-string v3, "Empty list can\'t be reduced."
@@ -15326,7 +15326,7 @@
 .end method
 
 .method public static final reduceRightIndexedOrNull(Ljava/util/List;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p0, "$this$reduceRightIndexedOrNull"    # Ljava/util/List;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -15369,7 +15369,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     .line 2808
     const/4 v2, 0x0
@@ -15377,19 +15377,19 @@
     return-object v2
 
     .line 2809
-    :cond_0
+    :cond_1b
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
 
     move-result-object v2
 
     .line 2810
     .local v2, "accumulator":Ljava/lang/Object;
-    :goto_0
+    :goto_1f
     invoke-interface {v1}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_36
 
     .line 2811
     invoke-interface {v1}, Ljava/util/ListIterator;->previousIndex()I
@@ -15411,15 +15411,15 @@
     move-result-object v2
 
     .end local v3    # "index":I
-    goto :goto_0
+    goto :goto_1f
 
     .line 2814
-    :cond_1
+    :cond_36
     return-object v2
 .end method
 
 .method public static final reduceRightOrNull(Ljava/util/List;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$reduceRightOrNull"    # Ljava/util/List;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -15460,7 +15460,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1b
 
     .line 2832
     const/4 v2, 0x0
@@ -15468,19 +15468,19 @@
     return-object v2
 
     .line 2833
-    :cond_0
+    :cond_1b
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
 
     move-result-object v2
 
     .line 2834
     .local v2, "accumulator":Ljava/lang/Object;
-    :goto_0
+    :goto_1f
     invoke-interface {v1}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2e
 
     .line 2835
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -15491,15 +15491,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 2837
-    :cond_1
+    :cond_2e
     return-object v2
 .end method
 
 .method public static final requireNoNulls(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 4
+    .registers 5
     .param p0, "$this$requireNoNulls"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -15522,12 +15522,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_35
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -15535,12 +15535,12 @@
 
     .line 3086
     .local v1, "element":Ljava/lang/Object;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
-    goto :goto_0
+    goto :goto_9
 
     .line 3087
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -15573,12 +15573,12 @@
 
     .line 3091
     .end local v1    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_35
     return-object p0
 .end method
 
 .method public static final requireNoNulls(Ljava/util/List;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .param p0, "$this$requireNoNulls"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -15601,12 +15601,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_35
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -15614,12 +15614,12 @@
 
     .line 3099
     .local v1, "element":Ljava/lang/Object;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
-    goto :goto_0
+    goto :goto_9
 
     .line 3100
-    :cond_0
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -15652,12 +15652,12 @@
 
     .line 3104
     .end local v1    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_35
     return-object p0
 .end method
 
 .method public static final reversed(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "$this$reversed"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -15678,7 +15678,7 @@
     .line 985
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     move-object v0, p0
 
@@ -15690,7 +15690,7 @@
 
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_18
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
@@ -15699,7 +15699,7 @@
     return-object v0
 
     .line 986
-    :cond_0
+    :cond_18
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v0
@@ -15713,7 +15713,7 @@
 .end method
 
 .method public static final runningFold(Ljava/lang/Iterable;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 6
+    .registers 9
     .param p0, "$this$runningFold"    # Ljava/lang/Iterable;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -15753,7 +15753,7 @@
 
     .line 2854
     .local v1, "estimatedSize":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
@@ -15762,7 +15762,7 @@
     return-object v2
 
     .line 2855
-    :cond_0
+    :cond_18
     new-instance v2, Ljava/util/ArrayList;
 
     add-int/lit8 v3, v1, 0x1
@@ -15791,12 +15791,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_29
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3b
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -15811,11 +15811,11 @@
     .line 2859
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_29
 
     .line 2861
     .end local v5    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_3b
     move-object v4, v2
 
     check-cast v4, Ljava/util/List;
@@ -15824,7 +15824,7 @@
 .end method
 
 .method public static final runningFoldIndexed(Ljava/lang/Iterable;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
-    .locals 8
+    .registers 11
     .param p0, "$this$runningFoldIndexed"    # Ljava/lang/Iterable;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -15866,7 +15866,7 @@
 
     .line 2879
     .local v1, "estimatedSize":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
@@ -15875,7 +15875,7 @@
     return-object v2
 
     .line 2880
-    :cond_0
+    :cond_18
     new-instance v2, Ljava/util/ArrayList;
 
     add-int/lit8 v3, v1, 0x1
@@ -15908,12 +15908,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_2a
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_43
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -15938,13 +15938,13 @@
 
     move v3, v7
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 2887
     .end local v6    # "element":Ljava/lang/Object;
     .end local v7    # "index":I
     .restart local v3    # "index":I
-    :cond_1
+    :cond_43
     move-object v5, v2
 
     check-cast v5, Ljava/util/List;
@@ -15953,7 +15953,7 @@
 .end method
 
 .method public static final runningReduce(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 6
+    .registers 8
     .param p0, "$this$runningReduce"    # Ljava/lang/Iterable;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -15992,7 +15992,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -16001,7 +16001,7 @@
     return-object v2
 
     .line 2905
-    :cond_0
+    :cond_1a
     const/4 v2, 0x0
 
     .local v2, "accumulator":Ljava/lang/Object;
@@ -16034,12 +16034,12 @@
     .end local v4    # "$this$runningReduce_u24lambda_u2423":Ljava/util/ArrayList;
     .end local v5    # "$i$a$-apply-CollectionsKt___CollectionsKt$runningReduce$result$1":I
     .local v3, "result":Ljava/util/ArrayList;
-    :goto_0
+    :goto_2f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_41
 
     .line 2908
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -16053,10 +16053,10 @@
     .line 2909
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 2911
-    :cond_1
+    :cond_41
     move-object v4, v3
 
     check-cast v4, Ljava/util/List;
@@ -16065,7 +16065,7 @@
 .end method
 
 .method public static final runningReduceIndexed(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$runningReduceIndexed"    # Ljava/lang/Iterable;
     .param p1, "operation"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -16106,7 +16106,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -16115,7 +16115,7 @@
     return-object v2
 
     .line 2930
-    :cond_0
+    :cond_1a
     const/4 v2, 0x0
 
     .local v2, "accumulator":Ljava/lang/Object;
@@ -16152,12 +16152,12 @@
 
     .line 2933
     .local v4, "index":I
-    :goto_0
+    :goto_30
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_49
 
     .line 2934
     add-int/lit8 v5, v4, 0x1
@@ -16181,12 +16181,12 @@
 
     move v4, v5
 
-    goto :goto_0
+    goto :goto_30
 
     .line 2937
     .end local v5    # "index":I
     .restart local v4    # "index":I
-    :cond_1
+    :cond_49
     move-object v5, v3
 
     check-cast v5, Ljava/util/List;
@@ -16195,7 +16195,7 @@
 .end method
 
 .method public static final scan(Ljava/lang/Iterable;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 8
+    .registers 11
     .param p0, "$this$scan"    # Ljava/lang/Iterable;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
@@ -16242,16 +16242,16 @@
 
     .line 3816
     .local v3, "estimatedSize$iv":I
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1a
 
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_41
 
     .line 3817
-    :cond_0
+    :cond_1a
     new-instance v4, Ljava/util/ArrayList;
 
     add-int/lit8 v5, v3, 0x1
@@ -16280,12 +16280,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_2b
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_3d
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -16300,11 +16300,11 @@
     .line 3822
     invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 3824
     .end local v7    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_3d
     move-object v6, v4
 
     check-cast v6, Ljava/util/List;
@@ -16317,12 +16317,12 @@
     .end local v3    # "estimatedSize$iv":I
     .end local v4    # "result$iv":Ljava/util/ArrayList;
     .end local v5    # "accumulator$iv":Ljava/lang/Object;
-    :goto_1
+    :goto_41
     return-object v4
 .end method
 
 .method public static final scanIndexed(Ljava/lang/Iterable;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
-    .locals 10
+    .registers 13
     .param p0, "$this$scanIndexed"    # Ljava/lang/Iterable;
     .param p1, "initial"    # Ljava/lang/Object;
     .param p2, "operation"    # Lkotlin/jvm/functions/Function3;
@@ -16371,16 +16371,16 @@
 
     .line 3826
     .local v3, "estimatedSize$iv":I
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1a
 
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v4
 
-    goto :goto_1
+    goto :goto_49
 
     .line 3827
-    :cond_0
+    :cond_1a
     new-instance v4, Ljava/util/ArrayList;
 
     add-int/lit8 v5, v3, 0x1
@@ -16413,12 +16413,12 @@
 
     move-result-object v7
 
-    :goto_0
+    :goto_2c
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_45
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -16443,13 +16443,13 @@
 
     move v5, v9
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 3835
     .end local v8    # "element$iv":Ljava/lang/Object;
     .end local v9    # "index$iv":I
     .restart local v5    # "index$iv":I
-    :cond_1
+    :cond_45
     move-object v7, v4
 
     check-cast v7, Ljava/util/List;
@@ -16463,12 +16463,12 @@
     .end local v4    # "result$iv":Ljava/util/ArrayList;
     .end local v5    # "index$iv":I
     .end local v6    # "accumulator$iv":Ljava/lang/Object;
-    :goto_1
+    :goto_49
     return-object v4
 .end method
 
 .method public static final shuffle(Ljava/util/List;Lkotlin/random/Random;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$shuffle"    # Ljava/util/List;
     .param p1, "random"    # Lkotlin/random/Random;
     .annotation system Ldalvik/annotation/Signature;
@@ -16497,8 +16497,8 @@
     move-result v0
 
     .local v0, "i":I
-    :goto_0
-    if-lez v0, :cond_0
+    :goto_e
+    if-lez v0, :cond_24
 
     .line 999
     add-int/lit8 v1, v0, 0x1
@@ -16523,16 +16523,16 @@
     .end local v1    # "j":I
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 1002
     .end local v0    # "i":I
-    :cond_0
+    :cond_24
     return-void
 .end method
 
 .method public static final single(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .param p0, "$this$single"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -16554,7 +16554,7 @@
     .line 598
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     move-object v0, p0
 
@@ -16567,7 +16567,7 @@
     return-object v0
 
     .line 600
-    :cond_0
+    :cond_12
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -16578,7 +16578,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     .line 603
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -16591,13 +16591,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_27
 
     .line 606
     return-object v1
 
     .line 605
-    :cond_1
+    :cond_27
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Collection has more than one element."
@@ -16608,7 +16608,7 @@
 
     .line 602
     .end local v1    # "single":Ljava/lang/Object;
-    :cond_2
+    :cond_2f
     new-instance v1, Ljava/util/NoSuchElementException;
 
     const-string v2, "Collection is empty."
@@ -16619,7 +16619,7 @@
 .end method
 
 .method public static final single(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 6
+    .registers 8
     .param p0, "$this$single"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -16660,13 +16660,13 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_11
+    :goto_11
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_34
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -16684,10 +16684,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_11
 
     .line 630
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2c
 
     .line 631
     move-object v1, v4
@@ -16696,11 +16696,11 @@
     const/4 v2, 0x1
 
     .end local v4    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_11
 
     .line 630
     .restart local v4    # "element":Ljava/lang/Object;
-    :cond_1
+    :cond_2c
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string v5, "Collection contains more than one matching element."
@@ -16711,14 +16711,14 @@
 
     .line 635
     .end local v4    # "element":Ljava/lang/Object;
-    :cond_2
-    if-eqz v2, :cond_3
+    :cond_34
+    if-eqz v2, :cond_37
 
     .line 637
     return-object v1
 
     .line 635
-    :cond_3
+    :cond_37
     new-instance v3, Ljava/util/NoSuchElementException;
 
     const-string v4, "Collection contains no element matching the predicate."
@@ -16729,7 +16729,7 @@
 .end method
 
 .method public static final single(Ljava/util/List;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$single"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -16750,7 +16750,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_22
 
     .line 618
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -16762,7 +16762,7 @@
     throw v0
 
     .line 617
-    :pswitch_0
+    :pswitch_14
     const/4 v0, 0x0
 
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -16773,7 +16773,7 @@
     return-object v0
 
     .line 616
-    :pswitch_1
+    :pswitch_1a
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string v1, "List is empty."
@@ -16782,15 +16782,15 @@
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_22
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_14
     .end packed-switch
 .end method
 
 .method public static final singleOrNull(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .param p0, "$this$singleOrNull"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -16814,7 +16814,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     move-object v0, p0
 
@@ -16826,7 +16826,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_1d
 
     move-object v0, p0
 
@@ -16838,11 +16838,11 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_1d
     return-object v1
 
     .line 647
-    :cond_1
+    :cond_1e
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -16853,13 +16853,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_29
 
     .line 649
     return-object v1
 
     .line 650
-    :cond_2
+    :cond_29
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -16870,18 +16870,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_34
 
     .line 652
     return-object v1
 
     .line 653
-    :cond_3
+    :cond_34
     return-object v2
 .end method
 
 .method public static final singleOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p0, "$this$singleOrNull"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -16922,15 +16922,15 @@
 
     move-result-object v3
 
-    :cond_0
-    :goto_0
+    :cond_11
+    :goto_11
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2e
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -16948,36 +16948,36 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_11
 
     .line 673
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2b
 
     return-object v5
 
     .line 674
-    :cond_1
+    :cond_2b
     move-object v1, v4
 
     .line 675
     const/4 v2, 0x1
 
     .end local v4    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_11
 
     .line 678
-    :cond_2
-    if-nez v2, :cond_3
+    :cond_2e
+    if-nez v2, :cond_31
 
     return-object v5
 
     .line 679
-    :cond_3
+    :cond_31
     return-object v1
 .end method
 
 .method public static final singleOrNull(Ljava/util/List;)Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .param p0, "$this$singleOrNull"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -17000,7 +17000,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     const/4 v0, 0x0
 
@@ -17008,17 +17008,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return-object v0
 .end method
 
 .method public static final slice(Ljava/util/List;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p0, "$this$slice"    # Ljava/util/List;
     .param p1, "indices"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -17053,7 +17053,7 @@
 
     .line 882
     .local v0, "size":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -17062,7 +17062,7 @@
     return-object v1
 
     .line 883
-    :cond_0
+    :cond_17
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
@@ -17073,12 +17073,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_20
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_38
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -17098,11 +17098,11 @@
 
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_20
 
     .line 887
     .end local v3    # "index":I
-    :cond_1
+    :cond_38
     move-object v2, v1
 
     check-cast v2, Ljava/util/List;
@@ -17111,7 +17111,7 @@
 .end method
 
 .method public static final slice(Ljava/util/List;Lkotlin/ranges/IntRange;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "$this$slice"    # Ljava/util/List;
     .param p1, "indices"    # Lkotlin/ranges/IntRange;
     .annotation system Ldalvik/annotation/Signature;
@@ -17141,7 +17141,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -17150,7 +17150,7 @@
     return-object v0
 
     .line 874
-    :cond_0
+    :cond_15
     invoke-virtual {p1}, Lkotlin/ranges/IntRange;->getStart()Ljava/lang/Integer;
 
     move-result-object v0
@@ -17183,7 +17183,7 @@
 .end method
 
 .method public static final sortBy(Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$sortBy"    # Ljava/util/List;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -17218,7 +17218,7 @@
 
     const/4 v2, 0x1
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_1c
 
     new-instance v1, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareBy$2;
 
@@ -17229,12 +17229,12 @@
     invoke-static {p0, v1}, Lkotlin/collections/CollectionsKt;->sortWith(Ljava/util/List;Ljava/util/Comparator;)V
 
     .line 1011
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method public static final sortByDescending(Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$sortByDescending"    # Ljava/util/List;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -17269,7 +17269,7 @@
 
     const/4 v2, 0x1
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_1c
 
     new-instance v1, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareByDescending$1;
 
@@ -17280,12 +17280,12 @@
     invoke-static {p0, v1}, Lkotlin/collections/CollectionsKt;->sortWith(Ljava/util/List;Ljava/util/Comparator;)V
 
     .line 1020
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method public static final sortDescending(Ljava/util/List;)V
-    .locals 1
+    .registers 2
     .param p0, "$this$sortDescending"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -17313,7 +17313,7 @@
 .end method
 
 .method public static final sorted(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .param p0, "$this$sorted"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -17334,7 +17334,7 @@
     .line 1037
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     .line 1038
     move-object v0, p0
@@ -17347,7 +17347,7 @@
 
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_18
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
@@ -17356,7 +17356,7 @@
     return-object v0
 
     .line 1040
-    :cond_0
+    :cond_18
     move-object v0, p0
 
     check-cast v0, Ljava/util/Collection;
@@ -17403,7 +17403,7 @@
     return-object v0
 
     .line 1042
-    :cond_1
+    :cond_30
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v0
@@ -17424,7 +17424,7 @@
 .end method
 
 .method public static final sortedBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "$this$sortedBy"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -17469,7 +17469,7 @@
 .end method
 
 .method public static final sortedByDescending(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "$this$sortedByDescending"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -17514,7 +17514,7 @@
 .end method
 
 .method public static final sortedDescending(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$sortedDescending"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -17545,7 +17545,7 @@
 .end method
 
 .method public static final sortedWith(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p0, "$this$sortedWith"    # Ljava/lang/Iterable;
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
@@ -17573,7 +17573,7 @@
     .line 1080
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
     .line 1081
     move-object v0, p0
@@ -17586,7 +17586,7 @@
 
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_1d
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
@@ -17595,7 +17595,7 @@
     return-object v0
 
     .line 1083
-    :cond_0
+    :cond_1d
     move-object v0, p0
 
     check-cast v0, Ljava/util/Collection;
@@ -17640,7 +17640,7 @@
     return-object v0
 
     .line 1085
-    :cond_1
+    :cond_33
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v0
@@ -17661,7 +17661,7 @@
 .end method
 
 .method public static final subtract(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "$this$subtract"    # Ljava/lang/Iterable;
     .param p1, "other"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -17704,7 +17704,7 @@
 .end method
 
 .method public static final sumBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)I
-    .locals 5
+    .registers 7
     .param p0, "$this$sumBy"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -17753,12 +17753,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -17779,15 +17779,15 @@
     add-int/2addr v1, v4
 
     .end local v3    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_10
 
     .line 2983
-    :cond_0
+    :cond_26
     return v1
 .end method
 
 .method public static final sumByDouble(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)D
-    .locals 7
+    .registers 9
     .param p0, "$this$sumByDouble"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -17836,12 +17836,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_11
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_27
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -17862,15 +17862,15 @@
     add-double/2addr v1, v5
 
     .end local v4    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_11
 
     .line 2996
-    :cond_0
+    :cond_27
     return-wide v1
 .end method
 
 .method public static final sumOfByte(Ljava/lang/Iterable;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$sum"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -17894,12 +17894,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -17916,15 +17916,15 @@
     add-int/2addr v0, v2
 
     .end local v2    # "element":B
-    goto :goto_0
+    goto :goto_a
 
     .line 3623
-    :cond_0
+    :cond_1c
     return v0
 .end method
 
 .method public static final sumOfDouble(Ljava/lang/Iterable;)D
-    .locals 5
+    .registers 6
     .param p0, "$this$sum"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -17948,12 +17948,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -17970,15 +17970,15 @@
     add-double/2addr v0, v3
 
     .end local v3    # "element":D
-    goto :goto_0
+    goto :goto_b
 
     .line 3683
-    :cond_0
+    :cond_1d
     return-wide v0
 .end method
 
 .method private static final sumOfDouble(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)D
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -18012,12 +18012,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18038,15 +18038,15 @@
     add-double/2addr v0, v4
 
     .end local v3    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_10
 
     .line 3012
-    :cond_0
+    :cond_26
     return-wide v0
 .end method
 
 .method public static final sumOfFloat(Ljava/lang/Iterable;)F
-    .locals 3
+    .registers 4
     .param p0, "$this$sum"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -18070,12 +18070,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18092,15 +18092,15 @@
     add-float/2addr v0, v2
 
     .end local v2    # "element":F
-    goto :goto_0
+    goto :goto_a
 
     .line 3671
-    :cond_0
+    :cond_1c
     return v0
 .end method
 
 .method public static final sumOfInt(Ljava/lang/Iterable;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$sum"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -18124,12 +18124,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18146,15 +18146,15 @@
     add-int/2addr v0, v2
 
     .end local v2    # "element":I
-    goto :goto_0
+    goto :goto_a
 
     .line 3647
-    :cond_0
+    :cond_1c
     return v0
 .end method
 
 .method private static final sumOfInt(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)I
-    .locals 4
+    .registers 6
     .param p0, "$this$sumOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -18188,12 +18188,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_25
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18214,15 +18214,15 @@
     add-int/2addr v0, v3
 
     .end local v2    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_f
 
     .line 3028
-    :cond_0
+    :cond_25
     return v0
 .end method
 
 .method public static final sumOfLong(Ljava/lang/Iterable;)J
-    .locals 5
+    .registers 6
     .param p0, "$this$sum"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -18246,12 +18246,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18268,15 +18268,15 @@
     add-long/2addr v0, v3
 
     .end local v3    # "element":J
-    goto :goto_0
+    goto :goto_b
 
     .line 3659
-    :cond_0
+    :cond_1d
     return-wide v0
 .end method
 
 .method private static final sumOfLong(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)J
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -18310,12 +18310,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18336,15 +18336,15 @@
     add-long/2addr v0, v4
 
     .end local v3    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_10
 
     .line 3044
-    :cond_0
+    :cond_26
     return-wide v0
 .end method
 
 .method public static final sumOfShort(Ljava/lang/Iterable;)I
-    .locals 3
+    .registers 4
     .param p0, "$this$sum"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -18368,12 +18368,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18390,15 +18390,15 @@
     add-int/2addr v0, v2
 
     .end local v2    # "element":S
-    goto :goto_0
+    goto :goto_a
 
     .line 3635
-    :cond_0
+    :cond_1c
     return v0
 .end method
 
 .method private static final sumOfUInt(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)I
-    .locals 4
+    .registers 6
     .param p0, "$this$sumOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -18436,12 +18436,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_13
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18466,15 +18466,15 @@
     move-result v0
 
     .end local v2    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_13
 
     .line 3061
-    :cond_0
+    :cond_2d
     return v0
 .end method
 
 .method private static final sumOfULong(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)J
-    .locals 6
+    .registers 8
     .param p0, "$this$sumOf"    # Ljava/lang/Iterable;
     .param p1, "selector"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -18512,12 +18512,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_14
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2e
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18542,15 +18542,15 @@
     move-result-wide v0
 
     .end local v3    # "element":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_14
 
     .line 3078
-    :cond_0
+    :cond_2e
     return-wide v0
 .end method
 
 .method public static final take(Ljava/lang/Iterable;I)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p0, "$this$take"    # Ljava/lang/Iterable;
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -18572,20 +18572,20 @@
     .line 898
     const/4 v0, 0x1
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_6
+    :goto_b
+    if-eqz v1, :cond_55
 
     .line 899
-    if-nez p1, :cond_1
+    if-nez p1, :cond_14
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -18594,10 +18594,10 @@
     return-object v0
 
     .line 900
-    :cond_1
+    :cond_14
     instance-of v1, p0, Ljava/util/Collection;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_31
 
     .line 901
     move-object v1, p0
@@ -18608,7 +18608,7 @@
 
     move-result v1
 
-    if-lt p1, v1, :cond_2
+    if-lt p1, v1, :cond_26
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
@@ -18617,8 +18617,8 @@
     return-object v0
 
     .line 902
-    :cond_2
-    if-ne p1, v0, :cond_3
+    :cond_26
+    if-ne p1, v0, :cond_31
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->first(Ljava/lang/Iterable;)Ljava/lang/Object;
 
@@ -18631,7 +18631,7 @@
     return-object v0
 
     .line 904
-    :cond_3
+    :cond_31
     const/4 v0, 0x0
 
     .line 905
@@ -18646,12 +18646,12 @@
 
     move-result-object v2
 
-    :cond_4
+    :cond_3b
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18664,14 +18664,14 @@
     .line 908
     add-int/lit8 v0, v0, 0x1
 
-    if-ne v0, p1, :cond_4
+    if-ne v0, p1, :cond_3b
 
     .line 909
     nop
 
     .line 911
     .end local v3    # "item":Ljava/lang/Object;
-    :cond_5
+    :cond_4d
     move-object v2, v1
 
     check-cast v2, Ljava/util/List;
@@ -18685,7 +18685,7 @@
     .line 3702
     .end local v0    # "count":I
     .end local v1    # "list":Ljava/util/ArrayList;
-    :cond_6
+    :cond_55
     const/4 v0, 0x0
 
     .line 898
@@ -18727,7 +18727,7 @@
 .end method
 
 .method public static final takeLast(Ljava/util/List;I)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p0, "$this$takeLast"    # Ljava/util/List;
     .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -18749,20 +18749,20 @@
     .line 922
     const/4 v0, 0x1
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_a
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_6
+    :goto_b
+    if-eqz v1, :cond_5e
 
     .line 923
-    if-nez p1, :cond_1
+    if-nez p1, :cond_14
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -18771,14 +18771,14 @@
     return-object v0
 
     .line 924
-    :cond_1
+    :cond_14
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
 
     .line 925
     .local v1, "size":I
-    if-lt p1, v1, :cond_2
+    if-lt p1, v1, :cond_22
 
     move-object v0, p0
 
@@ -18791,8 +18791,8 @@
     return-object v0
 
     .line 926
-    :cond_2
-    if-ne p1, v0, :cond_3
+    :cond_22
+    if-ne p1, v0, :cond_2d
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->last(Ljava/util/List;)Ljava/lang/Object;
 
@@ -18805,7 +18805,7 @@
     return-object v0
 
     .line 927
-    :cond_3
+    :cond_2d
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(I)V
@@ -18814,14 +18814,14 @@
     .local v0, "list":Ljava/util/ArrayList;
     instance-of v2, p0, Ljava/util/RandomAccess;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_44
 
     .line 929
     sub-int v2, v1, p1
 
     .local v2, "index":I
-    :goto_1
-    if-ge v2, v1, :cond_5
+    :goto_38
+    if-ge v2, v1, :cond_5a
 
     .line 930
     invoke-interface {p0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -18833,11 +18833,11 @@
     .line 929
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_38
 
     .line 932
     .end local v2    # "index":I
-    :cond_4
+    :cond_44
     sub-int v2, v1, p1
 
     invoke-interface {p0, v2}, Ljava/util/List;->listIterator(I)Ljava/util/ListIterator;
@@ -18846,12 +18846,12 @@
 
     check-cast v2, Ljava/util/Iterator;
 
-    :goto_2
+    :goto_4c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_5a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -18861,11 +18861,11 @@
     .local v3, "item":Ljava/lang/Object;
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_4c
 
     .line 935
     .end local v3    # "item":Ljava/lang/Object;
-    :cond_5
+    :cond_5a
     move-object v2, v0
 
     check-cast v2, Ljava/util/List;
@@ -18875,7 +18875,7 @@
     .line 3702
     .end local v0    # "list":Ljava/util/ArrayList;
     .end local v1    # "size":I
-    :cond_6
+    :cond_5e
     const/4 v0, 0x0
 
     .line 922
@@ -18917,7 +18917,7 @@
 .end method
 
 .method public static final takeLastWhile(Ljava/util/List;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 7
+    .registers 9
     .param p0, "$this$takeLastWhile"    # Ljava/util/List;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -18952,7 +18952,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 945
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
@@ -18962,7 +18962,7 @@
     return-object v1
 
     .line 946
-    :cond_0
+    :cond_16
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -18973,12 +18973,12 @@
 
     .line 947
     .local v1, "iterator":Ljava/util/ListIterator;
-    :cond_1
+    :cond_1e
     invoke-interface {v1}, Ljava/util/ListIterator;->hasPrevious()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_60
 
     .line 948
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -18995,7 +18995,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1e
 
     .line 949
     invoke-interface {v1}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -19013,7 +19013,7 @@
 
     .line 951
     .local v2, "expectedSize":I
-    if-nez v2, :cond_2
+    if-nez v2, :cond_47
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -19022,7 +19022,7 @@
     return-object v3
 
     .line 952
-    :cond_2
+    :cond_47
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3, v2}, Ljava/util/ArrayList;-><init>(I)V
@@ -19034,12 +19034,12 @@
 
     .line 953
     .local v5, "$i$a$-apply-CollectionsKt___CollectionsKt$takeLastWhile$1":I
-    :goto_0
+    :goto_4e
     invoke-interface {v1}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_5c
 
     .line 954
     invoke-interface {v1}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -19048,10 +19048,10 @@
 
     invoke-virtual {v4, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 955
-    :cond_3
+    :cond_5c
     nop
 
     .line 952
@@ -19063,7 +19063,7 @@
 
     .line 958
     .end local v2    # "expectedSize":I
-    :cond_4
+    :cond_60
     move-object v2, p0
 
     check-cast v2, Ljava/lang/Iterable;
@@ -19076,7 +19076,7 @@
 .end method
 
 .method public static final takeWhile(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p0, "$this$takeWhile"    # Ljava/lang/Iterable;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -19117,12 +19117,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_14
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -19140,21 +19140,21 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2b
 
     .line 970
-    goto :goto_1
+    goto :goto_2f
 
     .line 971
-    :cond_0
+    :cond_2b
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_14
 
     .line 973
     .end local v3    # "item":Ljava/lang/Object;
-    :cond_1
-    :goto_1
+    :cond_2f
+    :goto_2f
     move-object v2, v1
 
     check-cast v2, Ljava/util/List;
@@ -19163,7 +19163,7 @@
 .end method
 
 .method public static final toBooleanArray(Ljava/util/Collection;)[Z
-    .locals 5
+    .registers 6
     .param p0, "$this$toBooleanArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19195,12 +19195,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -19223,17 +19223,17 @@
     move v1, v4
 
     .end local v3    # "element":Z
-    goto :goto_0
+    goto :goto_10
 
     .line 1096
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method public static final toByteArray(Ljava/util/Collection;)[B
-    .locals 5
+    .registers 6
     .param p0, "$this$toByteArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19265,12 +19265,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -19293,17 +19293,17 @@
     move v1, v4
 
     .end local v3    # "element":B
-    goto :goto_0
+    goto :goto_10
 
     .line 1107
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method public static final toCharArray(Ljava/util/Collection;)[C
-    .locals 5
+    .registers 6
     .param p0, "$this$toCharArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19335,12 +19335,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -19363,17 +19363,17 @@
     move v1, v4
 
     .end local v3    # "element":C
-    goto :goto_0
+    goto :goto_10
 
     .line 1118
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method public static final toCollection(Ljava/lang/Iterable;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 2
+    .registers 4
     .param p0, "$this$toCollection"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -19401,12 +19401,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -19416,16 +19416,16 @@
     .local v1, "item":Ljava/lang/Object;
     invoke-interface {p1, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_e
 
     .line 1306
     .end local v1    # "item":Ljava/lang/Object;
-    :cond_0
+    :cond_1c
     return-object p1
 .end method
 
 .method public static final toDoubleArray(Ljava/util/Collection;)[D
-    .locals 6
+    .registers 7
     .param p0, "$this$toDoubleArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19457,12 +19457,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -19485,17 +19485,17 @@
     move v1, v5
 
     .end local v3    # "element":D
-    goto :goto_0
+    goto :goto_10
 
     .line 1129
     .end local v5    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method public static final toFloatArray(Ljava/util/Collection;)[F
-    .locals 5
+    .registers 6
     .param p0, "$this$toFloatArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19527,12 +19527,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -19555,17 +19555,17 @@
     move v1, v4
 
     .end local v3    # "element":F
-    goto :goto_0
+    goto :goto_10
 
     .line 1140
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method public static final toHashSet(Ljava/lang/Iterable;)Ljava/util/HashSet;
-    .locals 2
+    .registers 3
     .param p0, "$this$toHashSet"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19610,7 +19610,7 @@
 .end method
 
 .method public static final toIntArray(Ljava/util/Collection;)[I
-    .locals 5
+    .registers 6
     .param p0, "$this$toIntArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19642,12 +19642,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -19670,17 +19670,17 @@
     move v1, v4
 
     .end local v3    # "element":I
-    goto :goto_0
+    goto :goto_10
 
     .line 1151
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method public static final toList(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "$this$toList"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19701,7 +19701,7 @@
     .line 1320
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     .line 1321
     move-object v0, p0
@@ -19712,7 +19712,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_44
 
     .line 1324
     move-object v0, p0
@@ -19723,13 +19723,13 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_39
 
     .line 1323
-    :pswitch_0
+    :pswitch_1b
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     move-object v0, p0
 
@@ -19741,9 +19741,9 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_28
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -19752,25 +19752,25 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_30
     invoke-static {v0}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_39
 
     .line 1322
-    :pswitch_1
+    :pswitch_35
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     .line 1321
-    :goto_1
+    :goto_39
     return-object v0
 
     .line 1327
-    :cond_1
+    :cond_3a
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v0
@@ -19783,15 +19783,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_44
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_1b
     .end packed-switch
 .end method
 
 .method public static final toLongArray(Ljava/util/Collection;)[J
-    .locals 6
+    .registers 7
     .param p0, "$this$toLongArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19823,12 +19823,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -19851,17 +19851,17 @@
     move v1, v5
 
     .end local v3    # "element":J
-    goto :goto_0
+    goto :goto_10
 
     .line 1162
     .end local v5    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method public static final toMutableList(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$toMutableList"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19882,7 +19882,7 @@
     .line 1334
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 1335
     move-object v0, p0
@@ -19896,7 +19896,7 @@
     return-object v0
 
     .line 1336
-    :cond_0
+    :cond_11
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -19913,7 +19913,7 @@
 .end method
 
 .method public static final toMutableList(Ljava/util/Collection;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "$this$toMutableList"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19942,7 +19942,7 @@
 .end method
 
 .method public static final toMutableSet(Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 2
+    .registers 3
     .param p0, "$this$toMutableSet"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -19966,7 +19966,7 @@
     .line 1704
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     new-instance v0, Ljava/util/LinkedHashSet;
 
@@ -19978,10 +19978,10 @@
 
     check-cast v0, Ljava/util/Set;
 
-    goto :goto_0
+    goto :goto_22
 
     .line 1705
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/util/LinkedHashSet;
 
     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
@@ -19995,12 +19995,12 @@
     check-cast v0, Ljava/util/Set;
 
     .line 1703
-    :goto_0
+    :goto_22
     return-object v0
 .end method
 
 .method public static final toSet(Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 2
+    .registers 3
     .param p0, "$this$toSet"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -20021,7 +20021,7 @@
     .line 1352
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4b
 
     .line 1353
     move-object v0, p0
@@ -20032,7 +20032,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_5e
 
     .line 1356
     new-instance v0, Ljava/util/LinkedHashSet;
@@ -20059,13 +20059,13 @@
 
     check-cast v0, Ljava/util/Set;
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 1355
-    :pswitch_0
+    :pswitch_2c
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_39
 
     move-object v0, p0
 
@@ -20077,9 +20077,9 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_41
 
-    :cond_0
+    :cond_39
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -20088,25 +20088,25 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_41
     invoke-static {v0}, Lkotlin/collections/SetsKt;->setOf(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 1354
-    :pswitch_1
+    :pswitch_46
     invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
     .line 1353
-    :goto_1
+    :goto_4a
     return-object v0
 
     .line 1359
-    :cond_1
+    :cond_4b
     new-instance v0, Ljava/util/LinkedHashSet;
 
     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
@@ -20127,15 +20127,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_46
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public static final toShortArray(Ljava/util/Collection;)[S
-    .locals 5
+    .registers 6
     .param p0, "$this$toShortArray"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -20167,12 +20167,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_10
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_26
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -20195,17 +20195,17 @@
     move v1, v4
 
     .end local v3    # "element":S
-    goto :goto_0
+    goto :goto_10
 
     .line 1173
     .end local v4    # "index":I
     .restart local v1    # "index":I
-    :cond_0
+    :cond_26
     return-object v0
 .end method
 
 .method public static final union(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 2
+    .registers 4
     .param p0, "$this$union"    # Ljava/lang/Iterable;
     .param p1, "other"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -20248,7 +20248,7 @@
 .end method
 
 .method public static final windowed(Ljava/lang/Iterable;IIZ)Ljava/util/List;
-    .locals 16
+    .registers 20
     .param p0, "$this$windowed"    # Ljava/lang/Iterable;
     .param p1, "size"    # I
     .param p2, "step"    # I
@@ -20286,11 +20286,11 @@
 
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_67
 
     instance-of v4, v0, Ljava/util/List;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_67
 
     .line 3329
     move-object v4, v0
@@ -20307,16 +20307,16 @@
 
     rem-int v7, v4, v2
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_28
 
     const/4 v7, 0x0
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     const/4 v7, 0x1
 
-    :goto_0
+    :goto_29
     add-int/2addr v6, v7
 
     .line 3331
@@ -20331,20 +20331,20 @@
 
     .line 3333
     .local v9, "index":I
-    :goto_1
-    if-ltz v9, :cond_1
+    :goto_30
+    if-ltz v9, :cond_36
 
-    if-ge v9, v4, :cond_1
+    if-ge v9, v4, :cond_36
 
     const/4 v10, 0x1
 
-    goto :goto_2
+    goto :goto_37
 
-    :cond_1
+    :cond_36
     const/4 v10, 0x0
 
-    :goto_2
-    if-eqz v10, :cond_4
+    :goto_37
+    if-eqz v10, :cond_63
 
     .line 3334
     sub-int v10, v4, v9
@@ -20355,20 +20355,20 @@
 
     .line 3335
     .local v10, "windowSize":I
-    if-ge v10, v1, :cond_2
+    if-ge v10, v1, :cond_43
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_63
 
     .line 3336
-    :cond_2
+    :cond_43
     new-instance v11, Ljava/util/ArrayList;
 
     invoke-direct {v11, v10}, Ljava/util/ArrayList;-><init>(I)V
 
     const/4 v12, 0x0
 
-    :goto_3
-    if-ge v12, v10, :cond_3
+    :goto_49
+    if-ge v12, v10, :cond_5c
 
     .line 3702
     move v13, v12
@@ -20394,9 +20394,9 @@
 
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_3
+    goto :goto_49
 
-    :cond_3
+    :cond_5c
     check-cast v11, Ljava/util/List;
 
     invoke-virtual {v7, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -20405,10 +20405,10 @@
     add-int/2addr v9, v2
 
     .end local v10    # "windowSize":I
-    goto :goto_1
+    goto :goto_30
 
     .line 3339
-    :cond_4
+    :cond_63
     move-object v5, v7
 
     check-cast v5, Ljava/util/List;
@@ -20420,7 +20420,7 @@
     .end local v6    # "resultCapacity":I
     .end local v7    # "result":Ljava/util/ArrayList;
     .end local v9    # "index":I
-    :cond_5
+    :cond_67
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -20442,12 +20442,12 @@
     .local v6, "$i$f$forEach":I
     nop
 
-    :goto_4
+    :goto_76
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_8a
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -20474,10 +20474,10 @@
     nop
 
     .end local v7    # "element$iv":Ljava/lang/Object;
-    goto :goto_4
+    goto :goto_76
 
     .line 3848
-    :cond_6
+    :cond_8a
     nop
 
     .line 3345
@@ -20491,7 +20491,7 @@
 .end method
 
 .method public static final windowed(Ljava/lang/Iterable;IIZLkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 9
+    .registers 14
     .param p0, "$this$windowed"    # Ljava/lang/Iterable;
     .param p1, "size"    # I
     .param p2, "step"    # I
@@ -20531,11 +20531,11 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5b
 
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5b
 
     .line 3369
     move-object v0, p0
@@ -20554,16 +20554,16 @@
 
     const/4 v4, 0x0
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_26
 
     const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_26
     const/4 v3, 0x1
 
-    :goto_0
+    :goto_27
     add-int/2addr v2, v3
 
     .line 3371
@@ -20588,20 +20588,20 @@
 
     .line 3374
     .local v6, "index":I
-    :goto_1
-    if-ltz v6, :cond_1
+    :goto_36
+    if-ltz v6, :cond_3c
 
-    if-ge v6, v0, :cond_1
+    if-ge v6, v0, :cond_3c
 
     const/4 v7, 0x1
 
-    goto :goto_2
+    goto :goto_3d
 
-    :cond_1
+    :cond_3c
     const/4 v7, 0x0
 
-    :goto_2
-    if-eqz v7, :cond_3
+    :goto_3d
+    if-eqz v7, :cond_57
 
     .line 3375
     sub-int v7, v0, v6
@@ -20612,12 +20612,12 @@
 
     .line 3376
     .local v7, "windowSize":I
-    if-nez p3, :cond_2
+    if-nez p3, :cond_49
 
-    if-lt v7, p1, :cond_3
+    if-lt v7, p1, :cond_57
 
     .line 3377
-    :cond_2
+    :cond_49
     add-int v8, v6, v7
 
     invoke-virtual {v5, v6, v8}, Lkotlin/collections/MovingSubList;->move(II)V
@@ -20633,10 +20633,10 @@
     add-int/2addr v6, p2
 
     .end local v7    # "windowSize":I
-    goto :goto_1
+    goto :goto_36
 
     .line 3381
-    :cond_3
+    :cond_57
     move-object v1, v3
 
     check-cast v1, Ljava/util/List;
@@ -20649,7 +20649,7 @@
     .end local v3    # "result":Ljava/util/ArrayList;
     .end local v5    # "window":Lkotlin/collections/MovingSubList;
     .end local v6    # "index":I
-    :cond_4
+    :cond_5b
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -20671,12 +20671,12 @@
     .local v2, "$i$f$forEach":I
     nop
 
-    :goto_3
+    :goto_6a
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_82
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -20707,10 +20707,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_3
+    goto :goto_6a
 
     .line 3850
-    :cond_5
+    :cond_82
     nop
 
     .line 3387
@@ -20724,23 +20724,23 @@
 .end method
 
 .method public static synthetic windowed$default(Ljava/lang/Iterable;IIZILjava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 6
 
     .line 3326
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     const/4 p2, 0x1
 
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_a
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_a
     invoke-static {p0, p1, p2, p3}, Lkotlin/collections/CollectionsKt;->windowed(Ljava/lang/Iterable;IIZ)Ljava/util/List;
 
     move-result-object p0
@@ -20749,23 +20749,23 @@
 .end method
 
 .method public static synthetic windowed$default(Ljava/lang/Iterable;IIZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 7
 
     .line 3366
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     const/4 p2, 0x1
 
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p5, 0x4
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_a
 
     const/4 p3, 0x0
 
-    :cond_1
+    :cond_a
     invoke-static {p0, p1, p2, p3, p4}, Lkotlin/collections/CollectionsKt;->windowed(Ljava/lang/Iterable;IIZLkotlin/jvm/functions/Function1;)Ljava/util/List;
 
     move-result-object p0
@@ -20774,7 +20774,7 @@
 .end method
 
 .method public static final withIndex(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 2
+    .registers 3
     .param p0, "$this$withIndex"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -20810,7 +20810,7 @@
 .end method
 
 .method public static final zip(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 8
+    .registers 10
     .param p0, "$this$zip"    # Ljava/lang/Iterable;
     .param p1, "other"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -20878,18 +20878,18 @@
 
     .line 3862
     .local v4, "list$iv":Ljava/util/ArrayList;
-    :goto_0
+    :goto_27
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_44
 
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_44
 
     .line 3863
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -20916,10 +20916,10 @@
     .end local v7    # "$i$a$-zip-CollectionsKt___CollectionsKt$zip$2":I
     invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_27
 
     .line 3865
-    :cond_0
+    :cond_44
     move-object v0, v4
 
     check-cast v0, Ljava/util/List;
@@ -20934,7 +20934,7 @@
 .end method
 
 .method public static final zip(Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 6
+    .registers 9
     .param p0, "$this$zip"    # Ljava/lang/Iterable;
     .param p1, "other"    # Ljava/lang/Iterable;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -21006,18 +21006,18 @@
 
     .line 3439
     .local v3, "list":Ljava/util/ArrayList;
-    :goto_0
+    :goto_2b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_47
 
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_47
 
     .line 3440
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -21034,10 +21034,10 @@
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 3442
-    :cond_0
+    :cond_47
     move-object v4, v3
 
     check-cast v4, Ljava/util/List;
@@ -21046,7 +21046,7 @@
 .end method
 
 .method public static final zip(Ljava/lang/Iterable;[Ljava/lang/Object;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p0, "$this$zip"    # Ljava/lang/Iterable;
     .param p1, "other"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -21108,12 +21108,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_21
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_3c
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -21121,7 +21121,7 @@
 
     .line 3855
     .local v6, "element$iv":Ljava/lang/Object;
-    if-ge v4, v2, :cond_0
+    if-ge v4, v2, :cond_3c
 
     .line 3856
     add-int/lit8 v7, v4, 0x1
@@ -21150,13 +21150,13 @@
 
     move v4, v7
 
-    goto :goto_0
+    goto :goto_21
 
     .line 3858
     .end local v6    # "element$iv":Ljava/lang/Object;
     .end local v7    # "i$iv":I
     .local v4, "i$iv":I
-    :cond_0
+    :cond_3c
     move-object v0, v3
 
     check-cast v0, Ljava/util/List;
@@ -21171,7 +21171,7 @@
 .end method
 
 .method public static final zip(Ljava/lang/Iterable;[Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 7
+    .registers 10
     .param p0, "$this$zip"    # Ljava/lang/Iterable;
     .param p1, "other"    # [Ljava/lang/Object;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function2;
@@ -21237,12 +21237,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_25
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_3e
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -21250,7 +21250,7 @@
 
     .line 3412
     .local v5, "element":Ljava/lang/Object;
-    if-ge v3, v1, :cond_0
+    if-ge v3, v1, :cond_3e
 
     .line 3413
     add-int/lit8 v6, v3, 0x1
@@ -21267,13 +21267,13 @@
 
     move v3, v6
 
-    goto :goto_0
+    goto :goto_25
 
     .line 3415
     .end local v5    # "element":Ljava/lang/Object;
     .end local v6    # "i":I
     .restart local v3    # "i":I
-    :cond_0
+    :cond_3e
     move-object v4, v2
 
     check-cast v4, Ljava/util/List;
@@ -21282,7 +21282,7 @@
 .end method
 
 .method public static final zipWithNext(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 9
+    .registers 10
     .param p0, "$this$zipWithNext"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -21319,16 +21319,16 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_16
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_38
 
     .line 3868
-    :cond_0
+    :cond_16
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
@@ -21343,12 +21343,12 @@
 
     .line 3870
     .local v4, "current$iv":Ljava/lang/Object;
-    :goto_0
+    :goto_21
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_37
 
     .line 3871
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -21381,10 +21381,10 @@
     move-object v4, v5
 
     .end local v5    # "next$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_21
 
     .line 3875
-    :cond_1
+    :cond_37
     nop
 
     .line 3454
@@ -21393,12 +21393,12 @@
     .end local v2    # "iterator$iv":Ljava/util/Iterator;
     .end local v3    # "result$iv":Ljava/util/List;
     .end local v4    # "current$iv":Ljava/lang/Object;
-    :goto_1
+    :goto_38
     return-object v3
 .end method
 
 .method public static final zipWithNext(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-    .locals 6
+    .registers 8
     .param p0, "$this$zipWithNext"    # Ljava/lang/Iterable;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
@@ -21439,7 +21439,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1a
 
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
@@ -21448,7 +21448,7 @@
     return-object v2
 
     .line 3469
-    :cond_0
+    :cond_1a
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
@@ -21463,12 +21463,12 @@
 
     .line 3471
     .local v3, "current":Ljava/lang/Object;
-    :goto_0
+    :goto_25
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_38
 
     .line 3472
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -21487,9 +21487,9 @@
     move-object v3, v4
 
     .end local v4    # "next":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_25
 
     .line 3476
-    :cond_1
+    :cond_38
     return-object v2
 .end method

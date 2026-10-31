@@ -80,7 +80,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/aidl/TrafficData$Creator;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 9
+    .registers 10
 
     const/4 v7, 0x7
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public constructor <init>(JJJ)V
-    .locals 0
+    .registers 7
     .param p1, "id"    # J
     .param p3, "tx"    # J
     .param p5, "rx"    # J
@@ -136,53 +136,53 @@
 .end method
 
 .method public synthetic constructor <init>(JJJILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 6
+    .registers 15
 
     .line 7
     and-int/lit8 p8, p7, 0x1
 
     const-wide/16 v0, 0x0
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_8
 
     .line 8
     move-wide v2, v0
 
-    goto :goto_0
+    goto :goto_9
 
     .line 7
-    :cond_0
+    :cond_8
     move-wide v2, p1
 
-    :goto_0
+    :goto_9
     and-int/lit8 p1, p7, 0x2
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_f
 
     .line 9
     move-wide v4, v0
 
-    goto :goto_1
+    goto :goto_10
 
     .line 7
-    :cond_1
+    :cond_f
     move-wide v4, p3
 
-    :goto_1
+    :goto_10
     and-int/lit8 p1, p7, 0x4
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_16
 
     .line 10
     move-wide p6, v0
 
-    goto :goto_2
+    goto :goto_17
 
     .line 7
-    :cond_2
+    :cond_16
     move-wide p6, p5
 
-    :goto_2
+    :goto_17
     move-object p1, p0
 
     move-wide p2, v2
@@ -196,33 +196,33 @@
 .end method
 
 .method public static synthetic copy$default(Lio/nekohasekai/sagernet/aidl/TrafficData;JJJILjava/lang/Object;)Lio/nekohasekai/sagernet/aidl/TrafficData;
-    .locals 7
+    .registers 16
 
     and-int/lit8 p8, p7, 0x1
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_6
 
     iget-wide p1, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->id:J
 
-    :cond_0
+    :cond_6
     move-wide v1, p1
 
     and-int/lit8 p1, p7, 0x2
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_d
 
     iget-wide p3, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->tx:J
 
-    :cond_1
+    :cond_d
     move-wide v3, p3
 
     and-int/lit8 p1, p7, 0x4
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_14
 
     iget-wide p5, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->rx:J
 
-    :cond_2
+    :cond_14
     move-wide v5, p5
 
     move-object v0, p0
@@ -237,7 +237,7 @@
 
 # virtual methods
 .method public final component1()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->id:J
 
@@ -245,7 +245,7 @@
 .end method
 
 .method public final component2()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->tx:J
 
@@ -253,7 +253,7 @@
 .end method
 
 .method public final component3()J
-    .locals 2
+    .registers 3
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->rx:J
 
@@ -261,7 +261,7 @@
 .end method
 
 .method public final copy(JJJ)Lio/nekohasekai/sagernet/aidl/TrafficData;
-    .locals 8
+    .registers 15
 
     new-instance v7, Lio/nekohasekai/sagernet/aidl/TrafficData;
 
@@ -279,7 +279,7 @@
 .end method
 
 .method public final describeContents()I
-    .locals 1
+    .registers 2
 
     .line 6
     nop
@@ -291,24 +291,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lio/nekohasekai/sagernet/aidl/TrafficData;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lio/nekohasekai/sagernet/aidl/TrafficData;
@@ -319,38 +319,38 @@
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_16
 
     return v2
 
-    :cond_2
+    :cond_16
     iget-wide v3, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->tx:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/aidl/TrafficData;->tx:J
 
     cmp-long v7, v3, v5
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     iget-wide v3, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->rx:J
 
     iget-wide v5, v1, Lio/nekohasekai/sagernet/aidl/TrafficData;->rx:J
 
     cmp-long v1, v3, v5
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_28
 
     return v2
 
-    :cond_4
+    :cond_28
     return v0
 .end method
 
 .method public final getId()J
-    .locals 2
+    .registers 3
 
     .line 8
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->id:J
@@ -359,7 +359,7 @@
 .end method
 
 .method public final getRx()J
-    .locals 2
+    .registers 3
 
     .line 10
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->rx:J
@@ -368,7 +368,7 @@
 .end method
 
 .method public final getTx()J
-    .locals 2
+    .registers 3
 
     .line 9
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->tx:J
@@ -377,7 +377,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-wide v0, p0, Lio/nekohasekai/sagernet/aidl/TrafficData;->id:J
 
@@ -409,7 +409,7 @@
 .end method
 
 .method public final setId(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 8
@@ -419,7 +419,7 @@
 .end method
 
 .method public final setRx(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 10
@@ -429,7 +429,7 @@
 .end method
 
 .method public final setTx(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 9
@@ -439,7 +439,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -495,7 +495,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+    .registers 5
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

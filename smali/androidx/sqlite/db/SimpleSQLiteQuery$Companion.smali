@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/sqlite/db/SimpleSQLiteQuery$Companion;-><init>()V
 
@@ -62,24 +62,24 @@
 .end method
 
 .method private final bind(Landroidx/sqlite/db/SupportSQLiteProgram;ILjava/lang/Object;)V
-    .locals 3
+    .registers 7
     .param p1, "statement"    # Landroidx/sqlite/db/SupportSQLiteProgram;
     .param p2, "index"    # I
     .param p3, "arg"    # Ljava/lang/Object;
 
     .line 81
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7
 
     .line 82
     invoke-interface {p1, p2}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindNull(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_92
 
     .line 83
-    :cond_0
+    :cond_7
     instance-of v0, p3, [B
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 84
     move-object v0, p3
@@ -88,13 +88,13 @@
 
     invoke-interface {p1, p2, v0}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindBlob(I[B)V
 
-    goto/16 :goto_1
+    goto/16 :goto_92
 
     .line 85
-    :cond_1
+    :cond_13
     instance-of v0, p3, Ljava/lang/Float;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_24
 
     .line 86
     move-object v0, p3
@@ -109,13 +109,13 @@
 
     invoke-interface {p1, p2, v0, v1}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindDouble(ID)V
 
-    goto/16 :goto_1
+    goto/16 :goto_92
 
     .line 87
-    :cond_2
+    :cond_24
     instance-of v0, p3, Ljava/lang/Double;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_33
 
     .line 88
     move-object v0, p3
@@ -128,13 +128,13 @@
 
     invoke-interface {p1, p2, v0, v1}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindDouble(ID)V
 
-    goto :goto_1
+    goto :goto_92
 
     .line 89
-    :cond_3
+    :cond_33
     instance-of v0, p3, Ljava/lang/Long;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_42
 
     .line 90
     move-object v0, p3
@@ -147,13 +147,13 @@
 
     invoke-interface {p1, p2, v0, v1}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindLong(IJ)V
 
-    goto :goto_1
+    goto :goto_92
 
     .line 91
-    :cond_4
+    :cond_42
     instance-of v0, p3, Ljava/lang/Integer;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_52
 
     .line 92
     move-object v0, p3
@@ -168,13 +168,13 @@
 
     invoke-interface {p1, p2, v0, v1}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindLong(IJ)V
 
-    goto :goto_1
+    goto :goto_92
 
     .line 93
-    :cond_5
+    :cond_52
     instance-of v0, p3, Ljava/lang/Short;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_62
 
     .line 94
     move-object v0, p3
@@ -189,13 +189,13 @@
 
     invoke-interface {p1, p2, v0, v1}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindLong(IJ)V
 
-    goto :goto_1
+    goto :goto_92
 
     .line 95
-    :cond_6
+    :cond_62
     instance-of v0, p3, Ljava/lang/Byte;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_72
 
     .line 96
     move-object v0, p3
@@ -210,13 +210,13 @@
 
     invoke-interface {p1, p2, v0, v1}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindLong(IJ)V
 
-    goto :goto_1
+    goto :goto_92
 
     .line 97
-    :cond_7
+    :cond_72
     instance-of v0, p3, Ljava/lang/String;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7d
 
     .line 98
     move-object v0, p3
@@ -225,13 +225,13 @@
 
     invoke-interface {p1, p2, v0}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindString(ILjava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_92
 
     .line 99
-    :cond_8
+    :cond_7d
     instance-of v0, p3, Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_93
 
     .line 100
     move-object v0, p3
@@ -242,24 +242,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8d
 
     const-wide/16 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8f
 
-    :cond_9
+    :cond_8d
     const-wide/16 v0, 0x0
 
-    :goto_0
+    :goto_8f
     invoke-interface {p1, p2, v0, v1}, Landroidx/sqlite/db/SupportSQLiteProgram;->bindLong(IJ)V
 
     .line 107
-    :goto_1
+    :goto_92
     return-void
 
     .line 102
-    :cond_a
+    :cond_93
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     .line 103
@@ -306,7 +306,7 @@
 
 # virtual methods
 .method public final bind(Landroidx/sqlite/db/SupportSQLiteProgram;[Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "statement"    # Landroidx/sqlite/db/SupportSQLiteProgram;
     .param p2, "bindArgs"    # [Ljava/lang/Object;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -317,13 +317,13 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 68
-    if-nez p2, :cond_0
+    if-nez p2, :cond_9
 
     .line 69
     return-void
 
     .line 72
-    :cond_0
+    :cond_9
     array-length v0, p2
 
     .line 73
@@ -331,8 +331,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_b
+    if-ge v1, v0, :cond_17
 
     .line 74
     aget-object v2, p2, v1
@@ -347,10 +347,10 @@
     .end local v2    # "arg":Ljava/lang/Object;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 77
     .end local v1    # "i":I
-    :cond_1
+    :cond_17
     return-void
 .end method

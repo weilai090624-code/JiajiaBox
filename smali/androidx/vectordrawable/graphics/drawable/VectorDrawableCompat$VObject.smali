@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1423
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$1;
 
     .line 1423
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public isStateful()Z
-    .locals 1
+    .registers 2
 
     .line 1430
     const/4 v0, 0x0
@@ -46,7 +46,7 @@
 .end method
 
 .method public onStateChanged([I)Z
-    .locals 1
+    .registers 3
     .param p1, "stateSet"    # [I
 
     .line 1438

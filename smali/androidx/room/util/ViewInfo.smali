@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/room/util/ViewInfo$Companion;
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "sql"    # Ljava/lang/String;
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public static final read(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Landroidx/room/util/ViewInfo;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -104,28 +104,28 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 45
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 46
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/room/util/ViewInfo;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 47
-    :cond_1
+    :cond_a
     iget-object v1, p0, Landroidx/room/util/ViewInfo;->name:Ljava/lang/String;
 
     move-object v3, p1
@@ -138,11 +138,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_34
 
     iget-object v1, p0, Landroidx/room/util/ViewInfo;->sql:Ljava/lang/String;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_27
 
     iget-object v1, p0, Landroidx/room/util/ViewInfo;->sql:Ljava/lang/String;
 
@@ -156,38 +156,38 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_2
+    :cond_27
     move-object v1, p1
 
     check-cast v1, Landroidx/room/util/ViewInfo;
 
     iget-object v1, v1, Landroidx/room/util/ViewInfo;->sql:Ljava/lang/String;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_30
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_3
+    :cond_30
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_4
+    :goto_31
+    if-eqz v1, :cond_34
 
-    goto :goto_1
+    goto :goto_35
 
-    :cond_4
+    :cond_34
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_35
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 51
     iget-object v0, p0, Landroidx/room/util/ViewInfo;->name:Ljava/lang/String;
@@ -202,18 +202,18 @@
 
     iget-object v2, p0, Landroidx/room/util/ViewInfo;->sql:Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_12
     add-int/2addr v1, v2
 
     .line 53
@@ -223,7 +223,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 57
     new-instance v0, Ljava/lang/StringBuilder;

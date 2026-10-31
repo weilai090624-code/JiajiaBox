@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/gson/internal/ConstructorConstructor;
 
     .line 254
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public construct()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"

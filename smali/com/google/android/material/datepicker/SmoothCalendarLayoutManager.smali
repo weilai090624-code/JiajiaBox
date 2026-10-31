@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;IZ)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "orientation"    # I
     .param p3, "reverseLayout"    # Z
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public smoothScrollToPosition(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;I)V
-    .locals 2
+    .registers 6
     .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
     .param p3, "position"    # I

@@ -72,7 +72,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const-class v0, Ljava/lang/Object;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .locals 2
+    .registers 4
     .param p1, "singleConsumer"    # Z
 
     .line 30
@@ -110,7 +110,7 @@
 .end method
 
 .method private final loop$atomicfu(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -126,20 +126,20 @@
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     invoke-virtual {p1, p3}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     invoke-interface {p2, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public final addLast(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -156,7 +156,7 @@
     const/4 v2, 0x0
 
     .local v2, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_4
     invoke-virtual {v0, p0}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -172,17 +172,17 @@
 
     move-result v5
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_24
 
-    goto :goto_1
+    goto :goto_21
 
     .line 50
-    :pswitch_0
+    :pswitch_13
     const/4 v5, 0x0
 
     return v5
 
-    :pswitch_1
+    :pswitch_15
     sget-object v5, Lkotlinx/coroutines/internal/LockFreeTaskQueue;->_cur$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 51
@@ -192,34 +192,34 @@
 
     invoke-static {v5, p0, v3, v6}, Landroidx/concurrent/futures/AbstractResolvableFuture$SafeAtomicHelper$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_21
 
     .line 49
-    :pswitch_2
+    :pswitch_1f
     const/4 v5, 0x1
 
     return v5
 
     .line 53
-    :goto_1
+    :goto_21
     nop
 
     .end local v3    # "cur":Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
     .end local v4    # "$i$a$-loop$atomicfu-LockFreeTaskQueue$addLast$1":I
-    goto :goto_0
+    goto :goto_4
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1f
+        :pswitch_15
+        :pswitch_13
     .end packed-switch
 .end method
 
 .method public final close()V
-    .locals 7
+    .registers 8
 
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeTaskQueue;->_cur$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -230,7 +230,7 @@
     const/4 v2, 0x0
 
     .local v2, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_4
     invoke-virtual {v0, p0}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -246,11 +246,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_12
 
     return-void
 
-    :cond_0
+    :cond_12
     sget-object v5, Lkotlinx/coroutines/internal/LockFreeTaskQueue;->_cur$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 42
@@ -265,11 +265,11 @@
 
     .end local v3    # "cur":Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
     .end local v4    # "$i$a$-loop$atomicfu-LockFreeTaskQueue$close$1":I
-    goto :goto_0
+    goto :goto_4
 .end method
 
 .method public final getSize()I
-    .locals 1
+    .registers 2
 
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeTaskQueue;->_cur$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -288,7 +288,7 @@
 .end method
 
 .method public final isClosed()Z
-    .locals 1
+    .registers 2
 
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeTaskQueue;->_cur$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -307,7 +307,7 @@
 .end method
 
 .method public final isEmpty()Z
-    .locals 1
+    .registers 2
 
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeTaskQueue;->_cur$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -326,7 +326,7 @@
 .end method
 
 .method public final map(Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -357,7 +357,7 @@
 .end method
 
 .method public final removeFirstOrNull()Ljava/lang/Object;
-    .locals 8
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -373,7 +373,7 @@
     const/4 v2, 0x0
 
     .local v2, "$i$f$loop$atomicfu":I
-    :goto_0
+    :goto_4
     invoke-virtual {v0, p0}, Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -393,11 +393,11 @@
     .local v5, "result":Ljava/lang/Object;
     sget-object v6, Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;->REMOVE_FROZEN:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq v5, v6, :cond_0
+    if-eq v5, v6, :cond_14
 
     return-object v5
 
-    :cond_0
+    :cond_14
     sget-object v6, Lkotlinx/coroutines/internal/LockFreeTaskQueue;->_cur$FU:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
     .line 61
@@ -413,5 +413,5 @@
     .end local v3    # "cur":Lkotlinx/coroutines/internal/LockFreeTaskQueueCore;
     .end local v4    # "$i$a$-loop$atomicfu-LockFreeTaskQueue$removeFirstOrNull$1":I
     .end local v5    # "result":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_4
 .end method

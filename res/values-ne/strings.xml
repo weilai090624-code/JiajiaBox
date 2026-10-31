@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">आगमन कल</string>
     <string name="call_notification_ongoing_text">भइरहेको कल</string>
     <string name="call_notification_screening_text">आगमन कल जाँचिँदै छ</string>
-    <string name="character_counter_content_description" formatted="false">%2$d मध्ये %1$d वर्ण प्रविष्ट गरियो</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">%2$d मध्ये %1$d वर्ण सीमा नाघ्यो</string>
+    <string name="character_counter_content_description">%2$d मध्ये %1$d वर्ण प्रविष्ट गरियो</string>
+    <string name="character_counter_overflowed_content_description">%2$d मध्ये %1$d वर्ण सीमा नाघ्यो</string>
     <string name="clear_text_end_icon_content_description">पाठ खाली गर्नुहोस्</string>
     <string name="copy">प्रतिलिपि गर्नुहोस्</string>
     <string name="copy_toast_msg">क्लिपबोर्डमा लिंक प्रतिलिपि गरियो</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">दायराभन्दा बाहिर छ: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">सुरु हुने मिति – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – अन्त्य हुने मिति</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">दायरा चयन गर्नुहोस्</string>
     <string name="mtrl_picker_range_header_unselected">सुरु हुने मिति – अन्त्य हुने मिति</string>
     <string name="mtrl_picker_save">सुरक्षित गर्नु</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" लाई क्लिपबोर्डमा प्रतिलिपि गरियो।</string>
     <string name="search_menu_title">खोज</string>
     <string name="status_bar_notification_info_overflow">९९९+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">निष्क्रिय पार्नुहोस्‌</string>
     <string name="v7_preference_on">सक्रिय</string>
 </resources>

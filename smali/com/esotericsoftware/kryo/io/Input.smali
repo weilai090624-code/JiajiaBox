@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 43
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "bufferSize"    # I
 
     .line 49
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "inputStream"    # Ljava/io/InputStream;
 
     .line 70
@@ -88,7 +88,7 @@
     invoke-direct {p0, v0}, Lcom/esotericsoftware/kryo/io/Input;-><init>(I)V
 
     .line 71
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 72
     iput-object p1, p0, Lcom/esotericsoftware/kryo/io/Input;->inputStream:Ljava/io/InputStream;
@@ -97,7 +97,7 @@
     return-void
 
     .line 71
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "inputStream cannot be null."
@@ -108,7 +108,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;I)V
-    .locals 2
+    .registers 5
     .param p1, "inputStream"    # Ljava/io/InputStream;
     .param p2, "bufferSize"    # I
 
@@ -116,7 +116,7 @@
     invoke-direct {p0, p2}, Lcom/esotericsoftware/kryo/io/Input;-><init>(I)V
 
     .line 78
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 79
     iput-object p1, p0, Lcom/esotericsoftware/kryo/io/Input;->inputStream:Ljava/io/InputStream;
@@ -125,7 +125,7 @@
     return-void
 
     .line 78
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "inputStream cannot be null."
@@ -136,7 +136,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .locals 2
+    .registers 4
     .param p1, "buffer"    # [B
 
     .line 57
@@ -166,7 +166,7 @@
 .end method
 
 .method public constructor <init>([BII)V
-    .locals 1
+    .registers 5
     .param p1, "buffer"    # [B
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -194,7 +194,7 @@
 .end method
 
 .method private readAsciiString()Ljava/lang/String;
-    .locals 9
+    .registers 10
 
     .line 865
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->chars:[C
@@ -226,8 +226,8 @@
     move-result v4
 
     .local v4, "n":I
-    :goto_0
-    if-ge v3, v4, :cond_1
+    :goto_11
+    if-ge v3, v4, :cond_35
 
     .line 870
     aget-byte v5, v1, v2
@@ -238,7 +238,7 @@
 
     const/16 v7, 0x80
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_2d
 
     .line 872
     add-int/lit8 v6, v2, 0x1
@@ -264,7 +264,7 @@
     return-object v6
 
     .line 876
-    :cond_0
+    :cond_2d
     int-to-char v6, v5
 
     aput-char v6, v0, v3
@@ -275,11 +275,11 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 878
     .end local v4    # "n":I
-    :cond_1
+    :cond_35
     iput v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 879
@@ -291,7 +291,7 @@
 .end method
 
 .method private readAscii_slow(I)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p1, "charCount"    # I
 
     .line 883
@@ -303,19 +303,19 @@
 
     .line 886
     .local v1, "buffer":[B
-    :goto_0
+    :goto_4
     iget v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_e
 
     const/4 v2, 0x1
 
     invoke-virtual {p0, v2}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 887
-    :cond_0
+    :cond_e
     iget v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v3, v2, 0x1
@@ -330,7 +330,7 @@
 
     const/4 v4, 0x0
 
-    if-ne p1, v3, :cond_1
+    if-ne p1, v3, :cond_24
 
     .line 889
     mul-int/lit8 v3, p1, 0x2
@@ -349,12 +349,12 @@
 
     .line 894
     .end local v3    # "newChars":[C
-    :cond_1
+    :cond_24
     and-int/lit16 v3, v2, 0x80
 
     const/16 v5, 0x80
 
-    if-ne v3, v5, :cond_2
+    if-ne v3, v5, :cond_37
 
     .line 895
     and-int/lit8 v3, v2, 0x7f
@@ -373,7 +373,7 @@
     return-object v3
 
     .line 898
-    :cond_2
+    :cond_37
     add-int/lit8 v3, p1, 0x1
 
     .end local p1    # "charCount":I
@@ -386,11 +386,11 @@
     .end local v2    # "b":I
     move p1, v3
 
-    goto :goto_0
+    goto :goto_4
 .end method
 
 .method private readUtf8Chars(I)V
-    .locals 8
+    .registers 10
     .param p1, "charCount"    # I
 
     .line 811
@@ -398,14 +398,14 @@
 
     array-length v0, v0
 
-    if-ge v0, p1, :cond_0
+    if-ge v0, p1, :cond_9
 
     new-array v0, p1, [C
 
     iput-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->chars:[C
 
     .line 812
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     .line 813
@@ -434,8 +434,8 @@
 
     .line 818
     .local v4, "p":I
-    :goto_0
-    if-ge v2, v3, :cond_2
+    :goto_19
+    if-ge v2, v3, :cond_2d
 
     .line 819
     add-int/lit8 v5, v4, 0x1
@@ -446,7 +446,7 @@
 
     .line 820
     .local v4, "b":I
-    if-gez v4, :cond_1
+    if-gez v4, :cond_25
 
     .line 821
     add-int/lit8 v5, v5, -0x1
@@ -454,10 +454,10 @@
     .line 822
     move v4, v5
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 824
-    :cond_1
+    :cond_25
     add-int/lit8 v6, v2, 0x1
 
     .end local v2    # "charIndex":I
@@ -470,29 +470,29 @@
 
     move v2, v6
 
-    goto :goto_0
+    goto :goto_19
 
     .line 826
     .end local v5    # "p":I
     .end local v6    # "charIndex":I
     .restart local v2    # "charIndex":I
     .local v4, "p":I
-    :cond_2
-    :goto_1
+    :cond_2d
+    :goto_2d
     iput v4, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 828
-    if-ge v2, p1, :cond_3
+    if-ge v2, p1, :cond_34
 
     invoke-direct {p0, p1, v2}, Lcom/esotericsoftware/kryo/io/Input;->readUtf8Chars_slow(II)V
 
     .line 829
-    :cond_3
+    :cond_34
     return-void
 .end method
 
 .method private readUtf8Chars_slow(II)V
-    .locals 6
+    .registers 9
     .param p1, "charCount"    # I
     .param p2, "charIndex"    # I
 
@@ -505,8 +505,8 @@
 
     .line 834
     .local v1, "buffer":[B
-    :goto_0
-    if-ge p2, p1, :cond_2
+    :goto_4
+    if-ge p2, p1, :cond_64
 
     .line 835
     iget v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -515,12 +515,12 @@
 
     const/4 v4, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_10
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 836
-    :cond_0
+    :cond_10
     iget v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v3, v2, 0x1
@@ -535,13 +535,13 @@
     .local v2, "b":I
     shr-int/lit8 v3, v2, 0x4
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_66
 
-    :pswitch_0
-    goto :goto_1
+    :pswitch_1f
+    goto :goto_60
 
     .line 854
-    :pswitch_1
+    :pswitch_20
     const/4 v3, 0x2
 
     invoke-virtual {p0, v3}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
@@ -580,21 +580,21 @@
 
     aput-char v4, v0, p2
 
-    goto :goto_1
+    goto :goto_60
 
     .line 850
     .end local v3    # "p":I
-    :pswitch_2
+    :pswitch_40
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v3, v5, :cond_1
+    if-ne v3, v5, :cond_49
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 851
-    :cond_1
+    :cond_49
     and-int/lit8 v3, v2, 0x1f
 
     shl-int/lit8 v3, v3, 0x6
@@ -616,10 +616,10 @@
     aput-char v3, v0, p2
 
     .line 852
-    goto :goto_1
+    goto :goto_60
 
     .line 846
-    :pswitch_3
+    :pswitch_5c
     int-to-char v3, v2
 
     aput-char v3, v0, p2
@@ -628,43 +628,43 @@
     nop
 
     .line 860
-    :goto_1
+    :goto_60
     nop
 
     .end local v2    # "b":I
     add-int/lit8 p2, p2, 0x1
 
     .line 861
-    goto :goto_0
+    goto :goto_4
 
     .line 862
-    :cond_2
+    :cond_64
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_66
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
+        :pswitch_5c
+        :pswitch_5c
+        :pswitch_5c
+        :pswitch_5c
+        :pswitch_5c
+        :pswitch_5c
+        :pswitch_5c
+        :pswitch_5c
+        :pswitch_1f
+        :pswitch_1f
+        :pswitch_1f
+        :pswitch_1f
+        :pswitch_40
+        :pswitch_40
+        :pswitch_20
     .end packed-switch
 .end method
 
 .method private readVarIntFlag_slow(Z)I
-    .locals 6
+    .registers 8
     .param p1, "optimizePositive"    # Z
 
     .line 514
@@ -686,7 +686,7 @@
     .local v1, "result":I
     and-int/lit8 v2, v0, 0x40
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_77
 
     .line 517
     iget v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -695,12 +695,12 @@
 
     const/4 v4, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1a
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 518
-    :cond_0
+    :cond_1a
     iget-object v2, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     .line 519
@@ -723,19 +723,19 @@
     .line 521
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_77
 
     .line 522
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v3, v5, :cond_1
+    if-ne v3, v5, :cond_36
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 523
-    :cond_1
+    :cond_36
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v5, v3, 0x1
@@ -754,19 +754,19 @@
     .line 525
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_77
 
     .line 526
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v3, v5, :cond_2
+    if-ne v3, v5, :cond_50
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 527
-    :cond_2
+    :cond_50
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v5, v3, 0x1
@@ -785,19 +785,19 @@
     .line 529
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_77
 
     .line 530
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v3, v5, :cond_3
+    if-ne v3, v5, :cond_6a
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 531
-    :cond_3
+    :cond_6a
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v4, v3, 0x1
@@ -815,14 +815,14 @@
 
     .line 537
     .end local v2    # "buffer":[B
-    :cond_4
-    if-eqz p1, :cond_5
+    :cond_77
+    if-eqz p1, :cond_7b
 
     move v2, v1
 
-    goto :goto_0
+    goto :goto_81
 
-    :cond_5
+    :cond_7b
     ushr-int/lit8 v2, v1, 0x1
 
     and-int/lit8 v3, v1, 0x1
@@ -831,12 +831,12 @@
 
     xor-int/2addr v2, v3
 
-    :goto_0
+    :goto_81
     return v2
 .end method
 
 .method private readVarInt_slow(Z)I
-    .locals 6
+    .registers 8
     .param p1, "optimizePositive"    # Z
 
     .line 434
@@ -858,7 +858,7 @@
     .local v1, "result":I
     and-int/lit16 v2, v0, 0x80
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_77
 
     .line 437
     iget v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -867,12 +867,12 @@
 
     const/4 v4, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1a
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 438
-    :cond_0
+    :cond_1a
     iget-object v2, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     .line 439
@@ -895,19 +895,19 @@
     .line 441
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_77
 
     .line 442
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v3, v5, :cond_1
+    if-ne v3, v5, :cond_36
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 443
-    :cond_1
+    :cond_36
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v5, v3, 0x1
@@ -926,19 +926,19 @@
     .line 445
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_77
 
     .line 446
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v3, v5, :cond_2
+    if-ne v3, v5, :cond_50
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 447
-    :cond_2
+    :cond_50
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v5, v3, 0x1
@@ -957,19 +957,19 @@
     .line 449
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_77
 
     .line 450
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v3, v5, :cond_3
+    if-ne v3, v5, :cond_6a
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 451
-    :cond_3
+    :cond_6a
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v4, v3, 0x1
@@ -987,14 +987,14 @@
 
     .line 457
     .end local v2    # "buffer":[B
-    :cond_4
-    if-eqz p1, :cond_5
+    :cond_77
+    if-eqz p1, :cond_7b
 
     move v2, v1
 
-    goto :goto_0
+    goto :goto_81
 
-    :cond_5
+    :cond_7b
     ushr-int/lit8 v2, v1, 0x1
 
     and-int/lit8 v3, v1, 0x1
@@ -1003,12 +1003,12 @@
 
     xor-int/2addr v2, v3
 
-    :goto_0
+    :goto_81
     return v2
 .end method
 
 .method private readVarLong_slow(Z)J
-    .locals 8
+    .registers 10
     .param p1, "optimizePositive"    # Z
 
     .line 613
@@ -1034,19 +1034,19 @@
 
     const/4 v4, 0x1
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_eb
 
     .line 616
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v3, v5, :cond_0
+    if-ne v3, v5, :cond_1b
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 617
-    :cond_0
+    :cond_1b
     iget-object v3, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     .line 618
@@ -1071,19 +1071,19 @@
     .line 620
     and-int/lit16 v5, v0, 0x80
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_eb
 
     .line 621
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v6, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v5, v6, :cond_1
+    if-ne v5, v6, :cond_38
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 622
-    :cond_1
+    :cond_38
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v6, v5, 0x1
@@ -1104,19 +1104,19 @@
     .line 624
     and-int/lit16 v5, v0, 0x80
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_eb
 
     .line 625
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v6, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v5, v6, :cond_2
+    if-ne v5, v6, :cond_53
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 626
-    :cond_2
+    :cond_53
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v6, v5, 0x1
@@ -1137,19 +1137,19 @@
     .line 628
     and-int/lit16 v5, v0, 0x80
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_eb
 
     .line 629
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v6, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v5, v6, :cond_3
+    if-ne v5, v6, :cond_6e
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 630
-    :cond_3
+    :cond_6e
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v6, v5, 0x1
@@ -1172,19 +1172,19 @@
     .line 632
     and-int/lit16 v5, v0, 0x80
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_eb
 
     .line 633
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v6, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v5, v6, :cond_4
+    if-ne v5, v6, :cond_8a
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 634
-    :cond_4
+    :cond_8a
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v6, v5, 0x1
@@ -1207,19 +1207,19 @@
     .line 636
     and-int/lit16 v5, v0, 0x80
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_eb
 
     .line 637
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v6, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v5, v6, :cond_5
+    if-ne v5, v6, :cond_a6
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 638
-    :cond_5
+    :cond_a6
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v6, v5, 0x1
@@ -1242,19 +1242,19 @@
     .line 640
     and-int/lit16 v5, v0, 0x80
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_eb
 
     .line 641
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v6, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v5, v6, :cond_6
+    if-ne v5, v6, :cond_c2
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 642
-    :cond_6
+    :cond_c2
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v6, v5, 0x1
@@ -1277,19 +1277,19 @@
     .line 644
     and-int/lit16 v5, v0, 0x80
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_eb
 
     .line 645
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v6, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v5, v6, :cond_7
+    if-ne v5, v6, :cond_de
 
     invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 646
-    :cond_7
+    :cond_de
     iget v5, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/lit8 v6, v5, 0x1
@@ -1309,14 +1309,14 @@
 
     .line 656
     .end local v3    # "buffer":[B
-    :cond_8
-    if-eqz p1, :cond_9
+    :cond_eb
+    if-eqz p1, :cond_ef
 
     move-wide v3, v1
 
-    goto :goto_0
+    goto :goto_f6
 
-    :cond_9
+    :cond_ef
     ushr-long v3, v1, v4
 
     const-wide/16 v5, 0x1
@@ -1327,14 +1327,14 @@
 
     xor-long/2addr v3, v5
 
-    :goto_0
+    :goto_f6
     return-wide v3
 .end method
 
 
 # virtual methods
 .method public available()I
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1350,7 +1350,7 @@
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/Input;->inputStream:Ljava/io/InputStream;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/Input;->inputStream:Ljava/io/InputStream;
 
@@ -1358,19 +1358,19 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     add-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public canReadInt()Z
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -1380,7 +1380,7 @@
     .line 399
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/io/Input;->varEncoding:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->canReadVarInt()Z
 
@@ -1389,7 +1389,7 @@
     return v0
 
     .line 400
-    :cond_0
+    :cond_9
     iget v0, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -1400,29 +1400,29 @@
 
     const/4 v2, 0x4
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_13
 
     return v1
 
     .line 401
-    :cond_1
+    :cond_13
     invoke-virtual {p0, v2}, Lcom/esotericsoftware/kryo/io/Input;->optional(I)I
 
     move-result v0
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_1a
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_2
+    :cond_1a
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1b
     return v1
 .end method
 
 .method public canReadLong()Z
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -1432,7 +1432,7 @@
     .line 661
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/io/Input;->varEncoding:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->canReadVarLong()Z
 
@@ -1441,7 +1441,7 @@
     return v0
 
     .line 662
-    :cond_0
+    :cond_9
     iget v0, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -1452,29 +1452,29 @@
 
     const/16 v2, 0x8
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_14
 
     return v1
 
     .line 663
-    :cond_1
+    :cond_14
     invoke-virtual {p0, v2}, Lcom/esotericsoftware/kryo/io/Input;->optional(I)I
 
     move-result v0
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_1b
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_2
+    :cond_1b
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1c
     return v1
 .end method
 
 .method public canReadVarInt()Z
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -1492,24 +1492,24 @@
 
     const/4 v2, 0x5
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_a
 
     return v1
 
     .line 463
-    :cond_0
+    :cond_a
     invoke-virtual {p0, v2}, Lcom/esotericsoftware/kryo/io/Input;->optional(I)I
 
     move-result v0
 
     const/4 v2, 0x0
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_12
 
     return v2
 
     .line 464
-    :cond_1
+    :cond_12
     iget v0, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .local v0, "p":I
@@ -1529,18 +1529,18 @@
 
     and-int/lit16 v0, v0, 0x80
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_21
 
     return v1
 
     .line 467
-    :cond_2
-    if-ne v5, v3, :cond_3
+    :cond_21
+    if-ne v5, v3, :cond_24
 
     return v2
 
     .line 468
-    :cond_3
+    :cond_24
     add-int/lit8 v0, v5, 0x1
 
     .end local v5    # "p":I
@@ -1549,18 +1549,18 @@
 
     and-int/lit16 v5, v5, 0x80
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_2d
 
     return v1
 
     .line 469
-    :cond_4
-    if-ne v0, v3, :cond_5
+    :cond_2d
+    if-ne v0, v3, :cond_30
 
     return v2
 
     .line 470
-    :cond_5
+    :cond_30
     add-int/lit8 v5, v0, 0x1
 
     .end local v0    # "p":I
@@ -1569,18 +1569,18 @@
 
     and-int/lit16 v0, v0, 0x80
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_39
 
     return v1
 
     .line 471
-    :cond_6
-    if-ne v5, v3, :cond_7
+    :cond_39
+    if-ne v5, v3, :cond_3c
 
     return v2
 
     .line 472
-    :cond_7
+    :cond_3c
     add-int/lit8 v0, v5, 0x1
 
     .end local v5    # "p":I
@@ -1589,23 +1589,23 @@
 
     and-int/lit16 v5, v5, 0x80
 
-    if-nez v5, :cond_8
+    if-nez v5, :cond_45
 
     return v1
 
     .line 473
-    :cond_8
-    if-ne v0, v3, :cond_9
+    :cond_45
+    if-ne v0, v3, :cond_48
 
     return v2
 
     .line 474
-    :cond_9
+    :cond_48
     return v1
 .end method
 
 .method public canReadVarLong()Z
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -1623,12 +1623,12 @@
 
     const/4 v2, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     return v2
 
     .line 669
-    :cond_0
+    :cond_b
     const/4 v0, 0x5
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Input;->optional(I)I
@@ -1637,12 +1637,12 @@
 
     const/4 v1, 0x0
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_14
 
     return v1
 
     .line 670
-    :cond_1
+    :cond_14
     iget v0, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .local v0, "p":I
@@ -1662,18 +1662,18 @@
 
     and-int/lit16 v0, v0, 0x80
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_23
 
     return v2
 
     .line 673
-    :cond_2
-    if-ne v5, v3, :cond_3
+    :cond_23
+    if-ne v5, v3, :cond_26
 
     return v1
 
     .line 674
-    :cond_3
+    :cond_26
     add-int/lit8 v0, v5, 0x1
 
     .end local v5    # "p":I
@@ -1682,18 +1682,18 @@
 
     and-int/lit16 v5, v5, 0x80
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_2f
 
     return v2
 
     .line 675
-    :cond_4
-    if-ne v0, v3, :cond_5
+    :cond_2f
+    if-ne v0, v3, :cond_32
 
     return v1
 
     .line 676
-    :cond_5
+    :cond_32
     add-int/lit8 v5, v0, 0x1
 
     .end local v0    # "p":I
@@ -1702,18 +1702,18 @@
 
     and-int/lit16 v0, v0, 0x80
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_3b
 
     return v2
 
     .line 677
-    :cond_6
-    if-ne v5, v3, :cond_7
+    :cond_3b
+    if-ne v5, v3, :cond_3e
 
     return v1
 
     .line 678
-    :cond_7
+    :cond_3e
     add-int/lit8 v0, v5, 0x1
 
     .end local v5    # "p":I
@@ -1722,18 +1722,18 @@
 
     and-int/lit16 v5, v5, 0x80
 
-    if-nez v5, :cond_8
+    if-nez v5, :cond_47
 
     return v2
 
     .line 679
-    :cond_8
-    if-ne v0, v3, :cond_9
+    :cond_47
+    if-ne v0, v3, :cond_4a
 
     return v1
 
     .line 680
-    :cond_9
+    :cond_4a
     add-int/lit8 v5, v0, 0x1
 
     .end local v0    # "p":I
@@ -1742,18 +1742,18 @@
 
     and-int/lit16 v0, v0, 0x80
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_53
 
     return v2
 
     .line 681
-    :cond_a
-    if-ne v5, v3, :cond_b
+    :cond_53
+    if-ne v5, v3, :cond_56
 
     return v1
 
     .line 682
-    :cond_b
+    :cond_56
     add-int/lit8 v0, v5, 0x1
 
     .end local v5    # "p":I
@@ -1762,18 +1762,18 @@
 
     and-int/lit16 v5, v5, 0x80
 
-    if-nez v5, :cond_c
+    if-nez v5, :cond_5f
 
     return v2
 
     .line 683
-    :cond_c
-    if-ne v0, v3, :cond_d
+    :cond_5f
+    if-ne v0, v3, :cond_62
 
     return v1
 
     .line 684
-    :cond_d
+    :cond_62
     add-int/lit8 v5, v0, 0x1
 
     .end local v0    # "p":I
@@ -1782,18 +1782,18 @@
 
     and-int/lit16 v0, v0, 0x80
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_6b
 
     return v2
 
     .line 685
-    :cond_e
-    if-ne v5, v3, :cond_f
+    :cond_6b
+    if-ne v5, v3, :cond_6e
 
     return v1
 
     .line 686
-    :cond_f
+    :cond_6e
     add-int/lit8 v0, v5, 0x1
 
     .end local v5    # "p":I
@@ -1802,23 +1802,23 @@
 
     and-int/lit16 v5, v5, 0x80
 
-    if-nez v5, :cond_10
+    if-nez v5, :cond_77
 
     return v2
 
     .line 687
-    :cond_10
-    if-ne v0, v3, :cond_11
+    :cond_77
+    if-ne v0, v3, :cond_7a
 
     return v1
 
     .line 688
-    :cond_11
+    :cond_7a
     return v2
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -1828,31 +1828,31 @@
     .line 325
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->inputStream:Ljava/io/InputStream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 327
-    :try_start_0
+    :try_start_4
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->inputStream:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_9} :catch_a
 
     .line 329
-    goto :goto_0
+    goto :goto_b
 
     .line 328
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 331
-    :cond_0
-    :goto_0
+    :cond_b
+    :goto_b
     return-void
 .end method
 
 .method public end()Z
-    .locals 2
+    .registers 3
 
     .line 268
     const/4 v0, 0x1
@@ -1861,19 +1861,19 @@
 
     move-result v1
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method protected fill([BII)I
-    .locals 2
+    .registers 6
     .param p1, "buffer"    # [B
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -1886,27 +1886,27 @@
     .line 181
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->inputStream:Ljava/io/InputStream;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, -0x1
 
     return v0
 
     .line 183
-    :cond_0
-    :try_start_0
+    :cond_6
+    :try_start_6
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->inputStream:Ljava/io/InputStream;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/InputStream;->read([BII)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_c} :catch_d
 
     return v0
 
     .line 184
-    :catch_0
+    :catch_d
     move-exception v0
 
     .line 185
@@ -1919,7 +1919,7 @@
 .end method
 
 .method public getBuffer()[B
-    .locals 1
+    .registers 2
 
     .line 102
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -1928,7 +1928,7 @@
 .end method
 
 .method public getInputStream()Ljava/io/InputStream;
-    .locals 1
+    .registers 2
 
     .line 106
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->inputStream:Ljava/io/InputStream;
@@ -1937,7 +1937,7 @@
 .end method
 
 .method public getVariableLengthEncoding()Z
-    .locals 1
+    .registers 2
 
     .line 119
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/io/Input;->varEncoding:Z
@@ -1946,7 +1946,7 @@
 .end method
 
 .method public limit()I
-    .locals 1
+    .registers 2
 
     .line 150
     iget v0, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
@@ -1955,7 +1955,7 @@
 .end method
 
 .method protected optional(I)I
-    .locals 9
+    .registers 11
     .param p1, "optional"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1972,12 +1972,12 @@
 
     .line 235
     .local v0, "remaining":I
-    if-lt v0, p1, :cond_0
+    if-lt v0, p1, :cond_8
 
     return p1
 
     .line 236
-    :cond_0
+    :cond_8
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->capacity:I
 
     invoke-static {p1, v1}, Ljava/lang/Math;->min(II)I
@@ -2003,26 +2003,26 @@
     .local v1, "count":I
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_26
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_21
     invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
 
     move-result v2
 
-    :goto_0
+    :goto_25
     return v2
 
     .line 243
-    :cond_2
+    :cond_26
     add-int/2addr v0, v1
 
     .line 244
-    if-lt v0, p1, :cond_3
+    if-lt v0, p1, :cond_2f
 
     .line 245
     iget v2, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
@@ -2035,7 +2035,7 @@
     return p1
 
     .line 250
-    :cond_3
+    :cond_2f
     iget-object v3, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v4, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -2061,7 +2061,7 @@
     iput v6, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 255
-    :cond_4
+    :cond_43
     iget-object v3, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v4, p0, Lcom/esotericsoftware/kryo/io/Input;->capacity:I
@@ -2073,37 +2073,37 @@
     move-result v1
 
     .line 256
-    if-ne v1, v2, :cond_5
+    if-ne v1, v2, :cond_4f
 
-    goto :goto_1
+    goto :goto_52
 
     .line 257
-    :cond_5
+    :cond_4f
     add-int/2addr v0, v1
 
     .line 258
-    if-lt v0, p1, :cond_4
+    if-lt v0, p1, :cond_43
 
     .line 261
-    :goto_1
+    :goto_52
     iput v0, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
     .line 262
-    if-nez v0, :cond_6
+    if-nez v0, :cond_57
 
-    goto :goto_2
+    goto :goto_5b
 
-    :cond_6
+    :cond_57
     invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
 
     move-result v2
 
-    :goto_2
+    :goto_5b
     return v2
 .end method
 
 .method public position()I
-    .locals 1
+    .registers 2
 
     .line 140
     iget v0, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -2112,7 +2112,7 @@
 .end method
 
 .method public read()I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -2126,14 +2126,14 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_9
 
     const/4 v0, -0x1
 
     return v0
 
     .line 280
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -2150,7 +2150,7 @@
 .end method
 
 .method public read([B)I
-    .locals 2
+    .registers 4
     .param p1, "bytes"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2171,7 +2171,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 4
+    .registers 8
     .param p1, "bytes"    # [B
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -2182,7 +2182,7 @@
     .end annotation
 
     .line 292
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_30
 
     .line 293
     move v0, p3
@@ -2201,7 +2201,7 @@
 
     .line 296
     .local v1, "copyCount":I
-    :cond_0
+    :cond_c
     iget-object v2, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -2219,12 +2219,12 @@
     sub-int/2addr p3, v1
 
     .line 299
-    if-nez p3, :cond_1
+    if-nez p3, :cond_1c
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 300
-    :cond_1
+    :cond_1c
     add-int/2addr p2, v1
 
     .line 301
@@ -2235,24 +2235,24 @@
     .line 302
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_27
 
     .line 304
-    if-ne v0, p3, :cond_3
+    if-ne v0, p3, :cond_2d
 
     return v2
 
     .line 307
-    :cond_2
+    :cond_27
     iget v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     iget v3, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_c
 
     .line 309
-    :cond_3
-    :goto_0
+    :cond_2d
+    :goto_2d
     sub-int v2, v0, p3
 
     return v2
@@ -2260,7 +2260,7 @@
     .line 292
     .end local v0    # "startingCount":I
     .end local v1    # "copyCount":I
-    :cond_4
+    :cond_30
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bytes cannot be null."
@@ -2271,7 +2271,7 @@
 .end method
 
 .method public readBoolean()Z
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -2285,12 +2285,12 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     invoke-virtual {p0, v2}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 766
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -2301,19 +2301,19 @@
 
     aget-byte v0, v0, v1
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_17
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_18
     return v2
 .end method
 
 .method public readBooleans(I)[Z
-    .locals 5
+    .registers 7
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2330,7 +2330,7 @@
 
     move-result v1
 
-    if-ne v1, p1, :cond_2
+    if-ne v1, p1, :cond_20
 
     .line 1052
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -2344,22 +2344,22 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, p1, :cond_1
+    :goto_d
+    if-ge v3, p1, :cond_1d
 
     .line 1055
     aget-byte v4, v1, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_15
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_16
     aput-boolean v4, v0, v3
 
     .line 1054
@@ -2367,25 +2367,25 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1056
     .end local v3    # "i":I
-    :cond_1
+    :cond_1d
     iput v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 1057
     .end local v1    # "buffer":[B
     .end local v2    # "p":I
-    goto :goto_3
+    goto :goto_2c
 
     .line 1058
-    :cond_2
+    :cond_20
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_2
-    if-ge v1, p1, :cond_3
+    :goto_21
+    if-ge v1, p1, :cond_2c
 
     .line 1059
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readBoolean()Z
@@ -2397,17 +2397,17 @@
     .line 1058
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_21
 
     .line 1061
     .end local v1    # "i":I
-    :cond_3
-    :goto_3
+    :cond_2c
+    :goto_2c
     return-object v0
 .end method
 
 .method public readByte()B
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -2419,14 +2419,14 @@
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 338
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -2441,7 +2441,7 @@
 .end method
 
 .method public readByteUnsigned()I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -2453,14 +2453,14 @@
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 344
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -2477,7 +2477,7 @@
 .end method
 
 .method public readBytes([B)V
-    .locals 2
+    .registers 4
     .param p1, "bytes"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2497,7 +2497,7 @@
 .end method
 
 .method public readBytes([BII)V
-    .locals 3
+    .registers 7
     .param p1, "bytes"    # [B
     .param p2, "offset"    # I
     .param p3, "count"    # I
@@ -2508,7 +2508,7 @@
     .end annotation
 
     .line 361
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_26
 
     .line 362
     iget v0, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
@@ -2523,7 +2523,7 @@
 
     .line 364
     .local v0, "copyCount":I
-    :goto_0
+    :goto_b
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -2541,13 +2541,13 @@
     sub-int/2addr p3, v0
 
     .line 367
-    if-nez p3, :cond_0
+    if-nez p3, :cond_1b
 
     .line 372
     return-void
 
     .line 368
-    :cond_0
+    :cond_1b
     add-int/2addr p2, v0
 
     .line 369
@@ -2560,11 +2560,11 @@
     .line 370
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
-    goto :goto_0
+    goto :goto_b
 
     .line 361
     .end local v0    # "copyCount":I
-    :cond_1
+    :cond_26
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bytes cannot be null."
@@ -2575,7 +2575,7 @@
 .end method
 
 .method public readBytes(I)[B
-    .locals 2
+    .registers 4
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2597,7 +2597,7 @@
 .end method
 
 .method public readChar()C
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -2643,7 +2643,7 @@
 .end method
 
 .method public readChars(I)[C
-    .locals 6
+    .registers 8
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2664,7 +2664,7 @@
 
     shl-int/lit8 v2, p1, 0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_2b
 
     .line 1036
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -2678,8 +2678,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, p1, :cond_0
+    :goto_11
+    if-ge v3, p1, :cond_28
 
     .line 1039
     aget-byte v4, v1, v2
@@ -2705,25 +2705,25 @@
 
     add-int/lit8 v2, v2, 0x2
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1040
     .end local v3    # "i":I
-    :cond_0
+    :cond_28
     iput v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 1041
     .end local v1    # "buffer":[B
     .end local v2    # "p":I
-    goto :goto_2
+    goto :goto_37
 
     .line 1042
-    :cond_1
+    :cond_2b
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
-    if-ge v1, p1, :cond_2
+    :goto_2c
+    if-ge v1, p1, :cond_37
 
     .line 1043
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readChar()C
@@ -2735,17 +2735,17 @@
     .line 1042
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 1045
     .end local v1    # "i":I
-    :cond_2
-    :goto_2
+    :cond_37
+    :goto_37
     return-object v0
 .end method
 
 .method public readDouble()D
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -2873,7 +2873,7 @@
 .end method
 
 .method public readDoubles(I)[D
-    .locals 9
+    .registers 11
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2894,7 +2894,7 @@
 
     shl-int/lit8 v2, p1, 0x3
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_6d
 
     .line 996
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -2908,8 +2908,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, p1, :cond_0
+    :goto_11
+    if-ge v3, p1, :cond_6a
 
     .line 999
     aget-byte v4, v1, v2
@@ -3017,25 +3017,25 @@
 
     add-int/lit8 v2, v2, 0x8
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1008
     .end local v3    # "i":I
-    :cond_0
+    :cond_6a
     iput v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 1009
     .end local v1    # "buffer":[B
     .end local v2    # "p":I
-    goto :goto_2
+    goto :goto_79
 
     .line 1010
-    :cond_1
+    :cond_6d
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
-    if-ge v1, p1, :cond_2
+    :goto_6e
+    if-ge v1, p1, :cond_79
 
     .line 1011
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readDouble()D
@@ -3047,17 +3047,17 @@
     .line 1010
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_6e
 
     .line 1013
     .end local v1    # "i":I
-    :cond_2
-    :goto_2
+    :cond_79
+    :goto_79
     return-object v0
 .end method
 
 .method public readFloat()F
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -3125,7 +3125,7 @@
 .end method
 
 .method public readFloats(I)[F
-    .locals 6
+    .registers 8
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3146,7 +3146,7 @@
 
     shl-int/lit8 v2, p1, 0x2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_40
 
     .line 976
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -3160,8 +3160,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, p1, :cond_0
+    :goto_11
+    if-ge v3, p1, :cond_3d
 
     .line 979
     aget-byte v4, v1, v2
@@ -3209,25 +3209,25 @@
 
     add-int/lit8 v2, v2, 0x4
 
-    goto :goto_0
+    goto :goto_11
 
     .line 984
     .end local v3    # "i":I
-    :cond_0
+    :cond_3d
     iput v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 985
     .end local v1    # "buffer":[B
     .end local v2    # "p":I
-    goto :goto_2
+    goto :goto_4c
 
     .line 986
-    :cond_1
+    :cond_40
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
-    if-ge v1, p1, :cond_2
+    :goto_41
+    if-ge v1, p1, :cond_4c
 
     .line 987
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readFloat()F
@@ -3239,17 +3239,17 @@
     .line 986
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_41
 
     .line 989
     .end local v1    # "i":I
-    :cond_2
-    :goto_2
+    :cond_4c
+    :goto_4c
     return-object v0
 .end method
 
 .method public readInt()I
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -3313,7 +3313,7 @@
 .end method
 
 .method public readInt(Z)I
-    .locals 1
+    .registers 3
     .param p1, "optimizePositive"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3324,7 +3324,7 @@
     .line 393
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/io/Input;->varEncoding:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
 
@@ -3333,7 +3333,7 @@
     return v0
 
     .line 394
-    :cond_0
+    :cond_9
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readInt()I
 
     move-result v0
@@ -3342,7 +3342,7 @@
 .end method
 
 .method public readInts(I)[I
-    .locals 6
+    .registers 8
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3363,7 +3363,7 @@
 
     shl-int/lit8 v2, p1, 0x2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_3c
 
     .line 908
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -3377,8 +3377,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, p1, :cond_0
+    :goto_11
+    if-ge v3, p1, :cond_39
 
     .line 911
     aget-byte v4, v1, v2
@@ -3422,25 +3422,25 @@
 
     add-int/lit8 v2, v2, 0x4
 
-    goto :goto_0
+    goto :goto_11
 
     .line 916
     .end local v3    # "i":I
-    :cond_0
+    :cond_39
     iput v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 917
     .end local v1    # "buffer":[B
     .end local v2    # "p":I
-    goto :goto_2
+    goto :goto_48
 
     .line 918
-    :cond_1
+    :cond_3c
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
-    if-ge v1, p1, :cond_2
+    :goto_3d
+    if-ge v1, p1, :cond_48
 
     .line 919
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readInt()I
@@ -3452,17 +3452,17 @@
     .line 918
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 921
     .end local v1    # "i":I
-    :cond_2
-    :goto_2
+    :cond_48
+    :goto_48
     return-object v0
 .end method
 
 .method public readInts(IZ)[I
-    .locals 3
+    .registers 6
     .param p1, "length"    # I
     .param p2, "optimizePositive"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -3474,7 +3474,7 @@
     .line 927
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/io/Input;->varEncoding:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 928
     new-array v0, p1, [I
@@ -3484,8 +3484,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p1, :cond_0
+    :goto_7
+    if-ge v1, p1, :cond_12
 
     .line 930
     invoke-virtual {p0, p2}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
@@ -3497,16 +3497,16 @@
     .line 929
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 931
     .end local v1    # "i":I
-    :cond_0
+    :cond_12
     return-object v0
 
     .line 933
     .end local v0    # "array":[I
-    :cond_1
+    :cond_13
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/io/Input;->readInts(I)[I
 
     move-result-object v0
@@ -3515,7 +3515,7 @@
 .end method
 
 .method public readLong()J
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -3639,7 +3639,7 @@
 .end method
 
 .method public readLong(Z)J
-    .locals 2
+    .registers 4
     .param p1, "optimizePositive"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3650,7 +3650,7 @@
     .line 563
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/io/Input;->varEncoding:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/io/Input;->readVarLong(Z)J
 
@@ -3659,7 +3659,7 @@
     return-wide v0
 
     .line 564
-    :cond_0
+    :cond_9
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readLong()J
 
     move-result-wide v0
@@ -3668,7 +3668,7 @@
 .end method
 
 .method public readLongs(I)[J
-    .locals 9
+    .registers 11
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3689,7 +3689,7 @@
 
     shl-int/lit8 v2, p1, 0x3
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_69
 
     .line 940
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -3703,8 +3703,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, p1, :cond_0
+    :goto_11
+    if-ge v3, p1, :cond_66
 
     .line 943
     aget-byte v4, v1, v2
@@ -3808,25 +3808,25 @@
 
     add-int/lit8 v2, v2, 0x8
 
-    goto :goto_0
+    goto :goto_11
 
     .line 952
     .end local v3    # "i":I
-    :cond_0
+    :cond_66
     iput v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 953
     .end local v1    # "buffer":[B
     .end local v2    # "p":I
-    goto :goto_2
+    goto :goto_75
 
     .line 954
-    :cond_1
+    :cond_69
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
-    if-ge v1, p1, :cond_2
+    :goto_6a
+    if-ge v1, p1, :cond_75
 
     .line 955
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readLong()J
@@ -3838,17 +3838,17 @@
     .line 954
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 957
     .end local v1    # "i":I
-    :cond_2
-    :goto_2
+    :cond_75
+    :goto_75
     return-object v0
 .end method
 
 .method public readLongs(IZ)[J
-    .locals 4
+    .registers 7
     .param p1, "length"    # I
     .param p2, "optimizePositive"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -3860,7 +3860,7 @@
     .line 963
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/io/Input;->varEncoding:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 964
     new-array v0, p1, [J
@@ -3870,8 +3870,8 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p1, :cond_0
+    :goto_7
+    if-ge v1, p1, :cond_12
 
     .line 966
     invoke-virtual {p0, p2}, Lcom/esotericsoftware/kryo/io/Input;->readVarLong(Z)J
@@ -3883,16 +3883,16 @@
     .line 965
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 967
     .end local v1    # "i":I
-    :cond_0
+    :cond_12
     return-object v0
 
     .line 969
     .end local v0    # "array":[J
-    :cond_1
+    :cond_13
     invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/io/Input;->readLongs(I)[J
 
     move-result-object v0
@@ -3901,7 +3901,7 @@
 .end method
 
 .method public readShort()S
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -3947,7 +3947,7 @@
 .end method
 
 .method public readShortUnsigned()I
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/esotericsoftware/kryo/KryoException;
@@ -3991,7 +3991,7 @@
 .end method
 
 .method public readShorts(I)[S
-    .locals 6
+    .registers 8
     .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4012,7 +4012,7 @@
 
     shl-int/lit8 v2, p1, 0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_2b
 
     .line 1020
     iget-object v1, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -4026,8 +4026,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, p1, :cond_0
+    :goto_11
+    if-ge v3, p1, :cond_28
 
     .line 1023
     aget-byte v4, v1, v2
@@ -4053,25 +4053,25 @@
 
     add-int/lit8 v2, v2, 0x2
 
-    goto :goto_0
+    goto :goto_11
 
     .line 1024
     .end local v3    # "i":I
-    :cond_0
+    :cond_28
     iput v2, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 1025
     .end local v1    # "buffer":[B
     .end local v2    # "p":I
-    goto :goto_2
+    goto :goto_37
 
     .line 1026
-    :cond_1
+    :cond_2b
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
-    if-ge v1, p1, :cond_2
+    :goto_2c
+    if-ge v1, p1, :cond_37
 
     .line 1027
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readShort()S
@@ -4083,24 +4083,24 @@
     .line 1026
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 1029
     .end local v1    # "i":I
-    :cond_2
-    :goto_2
+    :cond_37
+    :goto_37
     return-object v0
 .end method
 
 .method public readString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 775
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readVarIntFlag()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/io/Input;->readAsciiString()Ljava/lang/String;
 
@@ -4109,7 +4109,7 @@
     return-object v0
 
     .line 777
-    :cond_0
+    :cond_b
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Input;->readVarIntFlag(Z)I
@@ -4118,7 +4118,7 @@
 
     .line 778
     .local v0, "charCount":I
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_26
 
     .line 784
     add-int/lit8 v0, v0, -0x1
@@ -4138,33 +4138,33 @@
     return-object v1
 
     .line 782
-    :pswitch_0
+    :pswitch_21
     const-string v1, ""
 
     return-object v1
 
     .line 780
-    :pswitch_1
+    :pswitch_24
     const/4 v1, 0x0
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_24
+        :pswitch_21
     .end packed-switch
 .end method
 
 .method public readStringBuilder()Ljava/lang/StringBuilder;
-    .locals 4
+    .registers 5
 
     .line 794
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readVarIntFlag()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -4177,7 +4177,7 @@
     return-object v0
 
     .line 796
-    :cond_0
+    :cond_10
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Input;->readVarIntFlag(Z)I
@@ -4188,7 +4188,7 @@
     .local v0, "charCount":I
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_32
 
     .line 803
     add-int/lit8 v0, v0, -0x1
@@ -4212,7 +4212,7 @@
 
     .line 801
     .end local v2    # "builder":Ljava/lang/StringBuilder;
-    :pswitch_0
+    :pswitch_29
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(I)V
@@ -4220,22 +4220,22 @@
     return-object v2
 
     .line 799
-    :pswitch_1
+    :pswitch_2f
     const/4 v1, 0x0
 
     return-object v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_32
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2f
+        :pswitch_29
     .end packed-switch
 .end method
 
 .method public readVarDouble(DZ)D
-    .locals 2
+    .registers 6
     .param p1, "precision"    # D
     .param p3, "optimizePositive"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -4257,7 +4257,7 @@
 .end method
 
 .method public readVarFloat(FZ)F
-    .locals 1
+    .registers 4
     .param p1, "precision"    # F
     .param p2, "optimizePositive"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -4279,7 +4279,7 @@
 .end method
 
 .method public readVarInt(Z)I
-    .locals 5
+    .registers 7
     .param p1, "optimizePositive"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4296,7 +4296,7 @@
 
     const/4 v1, 0x5
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_d
 
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt_slow(Z)I
 
@@ -4305,7 +4305,7 @@
     return v0
 
     .line 408
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -4324,7 +4324,7 @@
     .local v1, "result":I
     and-int/lit16 v2, v0, 0x80
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_56
 
     .line 411
     iget-object v2, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -4351,7 +4351,7 @@
     .line 415
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_54
 
     .line 416
     add-int/lit8 v3, v4, 0x1
@@ -4370,7 +4370,7 @@
     .line 418
     and-int/lit16 v4, v0, 0x80
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_53
 
     .line 419
     add-int/lit8 v4, v3, 0x1
@@ -4389,7 +4389,7 @@
     .line 421
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_54
 
     .line 422
     add-int/lit8 v3, v4, 0x1
@@ -4407,30 +4407,30 @@
 
     move v4, v3
 
-    goto :goto_0
+    goto :goto_54
 
     .line 418
-    :cond_1
+    :cond_53
     move v4, v3
 
     .line 427
     .end local v3    # "p":I
     .restart local v4    # "p":I
-    :cond_2
-    :goto_0
+    :cond_54
+    :goto_54
     iput v4, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 429
     .end local v2    # "buffer":[B
     .end local v4    # "p":I
-    :cond_3
-    if-eqz p1, :cond_4
+    :cond_56
+    if-eqz p1, :cond_5a
 
     move v2, v1
 
-    goto :goto_1
+    goto :goto_60
 
-    :cond_4
+    :cond_5a
     ushr-int/lit8 v2, v1, 0x1
 
     and-int/lit8 v3, v1, 0x1
@@ -4439,12 +4439,12 @@
 
     xor-int/2addr v2, v3
 
-    :goto_1
+    :goto_60
     return v2
 .end method
 
 .method public readVarIntFlag(Z)I
-    .locals 5
+    .registers 7
     .param p1, "optimizePositive"    # Z
 
     .line 487
@@ -4456,7 +4456,7 @@
 
     const/4 v1, 0x5
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_d
 
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/io/Input;->readVarIntFlag_slow(Z)I
 
@@ -4465,7 +4465,7 @@
     return v0
 
     .line 488
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -4484,7 +4484,7 @@
     .local v1, "result":I
     and-int/lit8 v2, v0, 0x40
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_56
 
     .line 491
     iget-object v2, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -4511,7 +4511,7 @@
     .line 495
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_54
 
     .line 496
     add-int/lit8 v3, v4, 0x1
@@ -4530,7 +4530,7 @@
     .line 498
     and-int/lit16 v4, v0, 0x80
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_53
 
     .line 499
     add-int/lit8 v4, v3, 0x1
@@ -4549,7 +4549,7 @@
     .line 501
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_54
 
     .line 502
     add-int/lit8 v3, v4, 0x1
@@ -4567,30 +4567,30 @@
 
     move v4, v3
 
-    goto :goto_0
+    goto :goto_54
 
     .line 498
-    :cond_1
+    :cond_53
     move v4, v3
 
     .line 507
     .end local v3    # "p":I
     .restart local v4    # "p":I
-    :cond_2
-    :goto_0
+    :cond_54
+    :goto_54
     iput v4, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 509
     .end local v2    # "buffer":[B
     .end local v4    # "p":I
-    :cond_3
-    if-eqz p1, :cond_4
+    :cond_56
+    if-eqz p1, :cond_5a
 
     move v2, v1
 
-    goto :goto_1
+    goto :goto_60
 
-    :cond_4
+    :cond_5a
     ushr-int/lit8 v2, v1, 0x1
 
     and-int/lit8 v3, v1, 0x1
@@ -4599,12 +4599,12 @@
 
     xor-int/2addr v2, v3
 
-    :goto_1
+    :goto_60
     return v2
 .end method
 
 .method public readVarIntFlag()Z
-    .locals 3
+    .registers 4
 
     .line 480
     iget v0, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -4613,12 +4613,12 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     invoke-virtual {p0, v2}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
     .line 481
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -4627,19 +4627,19 @@
 
     and-int/lit16 v0, v0, 0x80
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_16
     return v2
 .end method
 
 .method public readVarLong(Z)J
-    .locals 10
+    .registers 12
     .param p1, "optimizePositive"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4656,7 +4656,7 @@
 
     const/16 v2, 0x9
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_e
 
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/io/Input;->readVarLong_slow(Z)J
 
@@ -4665,7 +4665,7 @@
     return-wide v0
 
     .line 571
-    :cond_0
+    :cond_e
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 572
@@ -4688,7 +4688,7 @@
     .local v4, "result":J
     and-int/lit16 v2, v1, 0x80
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_96
 
     .line 575
     iget-object v2, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -4713,7 +4713,7 @@
     .line 578
     and-int/lit16 v3, v1, 0x80
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_95
 
     .line 579
     add-int/lit8 v3, v6, 0x1
@@ -4734,7 +4734,7 @@
     .line 581
     and-int/lit16 v6, v1, 0x80
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_96
 
     .line 582
     add-int/lit8 v6, v3, 0x1
@@ -4755,7 +4755,7 @@
     .line 584
     and-int/lit16 v3, v1, 0x80
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_93
 
     .line 585
     add-int/lit8 v3, v6, 0x1
@@ -4778,7 +4778,7 @@
     .line 587
     and-int/lit16 v6, v1, 0x80
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_96
 
     .line 588
     add-int/lit8 v6, v3, 0x1
@@ -4801,7 +4801,7 @@
     .line 590
     and-int/lit16 v3, v1, 0x80
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_91
 
     .line 591
     add-int/lit8 v3, v6, 0x1
@@ -4824,7 +4824,7 @@
     .line 593
     and-int/lit16 v6, v1, 0x80
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_96
 
     .line 594
     add-int/lit8 v6, v3, 0x1
@@ -4847,7 +4847,7 @@
     .line 596
     and-int/lit16 v3, v1, 0x80
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_8f
 
     .line 597
     add-int/lit8 v3, v6, 0x1
@@ -4865,48 +4865,48 @@
 
     or-long/2addr v4, v6
 
-    goto :goto_0
+    goto :goto_96
 
     .line 596
     .end local v3    # "p":I
     .restart local v6    # "p":I
-    :cond_1
+    :cond_8f
     move v3, v6
 
-    goto :goto_0
+    goto :goto_96
 
     .line 590
-    :cond_2
+    :cond_91
     move v3, v6
 
-    goto :goto_0
+    goto :goto_96
 
     .line 584
-    :cond_3
+    :cond_93
     move v3, v6
 
-    goto :goto_0
+    goto :goto_96
 
     .line 578
-    :cond_4
+    :cond_95
     move v3, v6
 
     .line 607
     .end local v2    # "buffer":[B
     .end local v6    # "p":I
     .restart local v3    # "p":I
-    :cond_5
-    :goto_0
+    :cond_96
+    :goto_96
     iput v3, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 608
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_9c
 
     move-wide v6, v4
 
-    goto :goto_1
+    goto :goto_a3
 
-    :cond_6
+    :cond_9c
     ushr-long v6, v4, v0
 
     const-wide/16 v8, 0x1
@@ -4917,12 +4917,12 @@
 
     xor-long/2addr v6, v8
 
-    :goto_1
+    :goto_a3
     return-wide v6
 .end method
 
 .method protected require(I)I
-    .locals 9
+    .registers 11
     .param p1, "required"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4939,22 +4939,22 @@
 
     .line 195
     .local v0, "remaining":I
-    if-lt v0, p1, :cond_0
+    if-lt v0, p1, :cond_8
 
     return v0
 
     .line 196
-    :cond_0
+    :cond_8
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->capacity:I
 
-    if-gt p1, v1, :cond_6
+    if-gt p1, v1, :cond_5d
 
     .line 200
     const-string v1, "Buffer underflow."
 
     const/4 v2, -0x1
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_2f
 
     .line 201
     iget-object v3, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -4973,13 +4973,13 @@
 
     .line 202
     .local v3, "count":I
-    if-eq v3, v2, :cond_1
+    if-eq v3, v2, :cond_29
 
     .line 203
     add-int/2addr v0, v3
 
     .line 204
-    if-lt v0, p1, :cond_2
+    if-lt v0, p1, :cond_2f
 
     .line 205
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
@@ -4992,7 +4992,7 @@
     return v0
 
     .line 202
-    :cond_1
+    :cond_29
     new-instance v2, Lcom/esotericsoftware/kryo/KryoException;
 
     invoke-direct {v2, v1}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;)V
@@ -5001,7 +5001,7 @@
 
     .line 211
     .end local v3    # "count":I
-    :cond_2
+    :cond_2f
     iget-object v3, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v4, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
@@ -5027,7 +5027,7 @@
     iput v6, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     .line 216
-    :cond_3
+    :cond_43
     iget-object v3, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
 
     iget v4, p0, Lcom/esotericsoftware/kryo/io/Input;->capacity:I
@@ -5040,15 +5040,15 @@
 
     .line 217
     .restart local v3    # "count":I
-    if-ne v3, v2, :cond_5
+    if-ne v3, v2, :cond_57
 
     .line 218
-    if-lt v0, p1, :cond_4
+    if-lt v0, p1, :cond_51
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 219
-    :cond_4
+    :cond_51
     new-instance v2, Lcom/esotericsoftware/kryo/KryoException;
 
     invoke-direct {v2, v1}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;)V
@@ -5056,14 +5056,14 @@
     throw v2
 
     .line 221
-    :cond_5
+    :cond_57
     add-int/2addr v0, v3
 
     .line 222
-    if-lt v0, p1, :cond_3
+    if-lt v0, p1, :cond_43
 
     .line 225
-    :goto_0
+    :goto_5a
     iput v0, p0, Lcom/esotericsoftware/kryo/io/Input;->limit:I
 
     .line 226
@@ -5071,7 +5071,7 @@
 
     .line 196
     .end local v3    # "count":I
-    :cond_6
+    :cond_5d
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -5110,7 +5110,7 @@
 .end method
 
 .method public reset()V
-    .locals 2
+    .registers 3
 
     .line 161
     const/4 v0, 0x0
@@ -5127,7 +5127,7 @@
 .end method
 
 .method public setBuffer([B)V
-    .locals 2
+    .registers 4
     .param p1, "bytes"    # [B
 
     .line 85
@@ -5142,13 +5142,13 @@
 .end method
 
 .method public setBuffer([BII)V
-    .locals 2
+    .registers 6
     .param p1, "bytes"    # [B
     .param p2, "offset"    # I
     .param p3, "count"    # I
 
     .line 91
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     .line 92
     iput-object p1, p0, Lcom/esotericsoftware/kryo/io/Input;->buffer:[B
@@ -5180,7 +5180,7 @@
     return-void
 
     .line 91
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bytes cannot be null."
@@ -5191,7 +5191,7 @@
 .end method
 
 .method public setInputStream(Ljava/io/InputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "inputStream"    # Ljava/io/InputStream;
 
     .line 113
@@ -5210,7 +5210,7 @@
 .end method
 
 .method public setLimit(I)V
-    .locals 0
+    .registers 2
     .param p1, "limit"    # I
 
     .line 155
@@ -5221,7 +5221,7 @@
 .end method
 
 .method public setPosition(I)V
-    .locals 0
+    .registers 2
     .param p1, "position"    # I
 
     .line 145
@@ -5232,7 +5232,7 @@
 .end method
 
 .method public setTotal(J)V
-    .locals 0
+    .registers 3
     .param p1, "total"    # J
 
     .line 135
@@ -5243,7 +5243,7 @@
 .end method
 
 .method public setVariableLengthEncoding(Z)V
-    .locals 0
+    .registers 2
     .param p1, "varEncoding"    # Z
 
     .line 125
@@ -5254,7 +5254,7 @@
 .end method
 
 .method public skip(J)J
-    .locals 6
+    .registers 9
     .param p1, "count"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5267,12 +5267,12 @@
 
     .line 315
     .local v0, "remaining":J
-    :goto_0
+    :goto_1
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_15
 
     .line 316
     const-wide/32 v2, 0x7ffffff7
@@ -5294,15 +5294,15 @@
 
     .line 319
     .end local v3    # "skip":I
-    goto :goto_0
+    goto :goto_1
 
     .line 320
-    :cond_0
+    :cond_15
     return-wide p1
 .end method
 
 .method public skip(I)V
-    .locals 2
+    .registers 4
     .param p1, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5323,7 +5323,7 @@
 
     .line 169
     .local v0, "skipCount":I
-    :goto_0
+    :goto_9
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->position:I
 
     add-int/2addr v1, v0
@@ -5334,13 +5334,13 @@
     sub-int/2addr p1, v0
 
     .line 171
-    if-nez p1, :cond_0
+    if-nez p1, :cond_12
 
     .line 175
     return-void
 
     .line 172
-    :cond_0
+    :cond_12
     iget v1, p0, Lcom/esotericsoftware/kryo/io/Input;->capacity:I
 
     invoke-static {p1, v1}, Ljava/lang/Math;->min(II)I
@@ -5350,11 +5350,11 @@
     .line 173
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Input;->require(I)I
 
-    goto :goto_0
+    goto :goto_9
 .end method
 
 .method public total()J
-    .locals 4
+    .registers 5
 
     .line 130
     iget-wide v0, p0, Lcom/esotericsoftware/kryo/io/Input;->total:J

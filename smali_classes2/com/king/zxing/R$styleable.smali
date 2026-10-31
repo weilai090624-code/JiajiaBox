@@ -1045,13 +1045,13 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     const/16 v0, 0x1d
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_1ec
 
     sput-object v0, Lcom/king/zxing/R$styleable;->ActionBar:[I
 
@@ -1081,7 +1081,7 @@
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_22a
 
     sput-object v1, Lcom/king/zxing/R$styleable;->ActionMode:[I
 
@@ -1099,13 +1099,13 @@
 
     new-array v1, v1, [I
 
-    fill-array-data v1, :array_2
+    fill-array-data v1, :array_23a
 
     sput-object v1, Lcom/king/zxing/R$styleable;->AlertDialog:[I
 
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_3
+    fill-array-data v1, :array_24e
 
     sput-object v1, Lcom/king/zxing/R$styleable;->AnimatedStateListDrawableCompat:[I
 
@@ -1163,7 +1163,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_4
+    fill-array-data v3, :array_25e
 
     sput-object v3, Lcom/king/zxing/R$styleable;->AppCompatTextHelper:[I
 
@@ -1171,7 +1171,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_5
+    fill-array-data v3, :array_270
 
     sput-object v3, Lcom/king/zxing/R$styleable;->AppCompatTextView:[I
 
@@ -1179,7 +1179,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_6
+    fill-array-data v3, :array_2a0
 
     sput-object v3, Lcom/king/zxing/R$styleable;->AppCompatTheme:[I
 
@@ -1225,7 +1225,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_7
+    fill-array-data v3, :array_3a2
 
     sput-object v3, Lcom/king/zxing/R$styleable;->DrawerArrowToggle:[I
 
@@ -1233,7 +1233,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_8
+    fill-array-data v3, :array_3b6
 
     sput-object v3, Lcom/king/zxing/R$styleable;->FontFamily:[I
 
@@ -1241,7 +1241,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_9
+    fill-array-data v3, :array_3c8
 
     sput-object v3, Lcom/king/zxing/R$styleable;->FontFamilyFont:[I
 
@@ -1249,7 +1249,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_a
+    fill-array-data v3, :array_3e0
 
     sput-object v3, Lcom/king/zxing/R$styleable;->GradientColor:[I
 
@@ -1267,7 +1267,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_b
+    fill-array-data v3, :array_3fc
 
     sput-object v3, Lcom/king/zxing/R$styleable;->LinearLayoutCompat:[I
 
@@ -1297,7 +1297,7 @@
 
     new-array v3, v0, [I
 
-    fill-array-data v3, :array_c
+    fill-array-data v3, :array_412
 
     sput-object v3, Lcom/king/zxing/R$styleable;->MenuGroup:[I
 
@@ -1305,7 +1305,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_d
+    fill-array-data v3, :array_422
 
     sput-object v3, Lcom/king/zxing/R$styleable;->MenuItem:[I
 
@@ -1313,7 +1313,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_e
+    fill-array-data v3, :array_454
 
     sput-object v3, Lcom/king/zxing/R$styleable;->MenuView:[I
 
@@ -1361,7 +1361,7 @@
 
     new-array v3, v3, [I
 
-    fill-array-data v3, :array_f
+    fill-array-data v3, :array_46a
 
     sput-object v3, Lcom/king/zxing/R$styleable;->SearchView:[I
 
@@ -1383,7 +1383,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_10
+    fill-array-data v0, :array_4a4
 
     sput-object v0, Lcom/king/zxing/R$styleable;->StateListDrawable:[I
 
@@ -1397,7 +1397,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_11
+    fill-array-data v0, :array_4b4
 
     sput-object v0, Lcom/king/zxing/R$styleable;->SwitchCompat:[I
 
@@ -1405,7 +1405,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_12
+    fill-array-data v0, :array_4d4
 
     sput-object v0, Lcom/king/zxing/R$styleable;->TextAppearance:[I
 
@@ -1413,7 +1413,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_13
+    fill-array-data v0, :array_4f8
 
     sput-object v0, Lcom/king/zxing/R$styleable;->Toolbar:[I
 
@@ -1459,7 +1459,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_14
+    fill-array-data v0, :array_538
 
     sput-object v0, Lcom/king/zxing/R$styleable;->ViewfinderView:[I
 
@@ -1467,7 +1467,7 @@
 
     nop
 
-    :array_0
+    :array_1ec
     .array-data 4
         0x7f04004f
         0x7f040056
@@ -1500,7 +1500,7 @@
         0x7f0404f7
     .end array-data
 
-    :array_1
+    :array_22a
     .array-data 4
         0x7f04004f
         0x7f040056
@@ -1510,7 +1510,7 @@
         0x7f0404f7
     .end array-data
 
-    :array_2
+    :array_23a
     .array-data 4
         0x10100f2
         0x7f04008f
@@ -1522,7 +1522,7 @@
         0x7f040422
     .end array-data
 
-    :array_3
+    :array_24e
     .array-data 4
         0x101011c
         0x1010194
@@ -1532,7 +1532,7 @@
         0x101030d
     .end array-data
 
-    :array_4
+    :array_25e
     .array-data 4
         0x1010034
         0x101016d
@@ -1543,7 +1543,7 @@
         0x1010393
     .end array-data
 
-    :array_5
+    :array_270
     .array-data 4
         0x1010034
         0x7f040049
@@ -1569,7 +1569,7 @@
         0x7f0404c6
     .end array-data
 
-    :array_6
+    :array_2a0
     .array-data 4
         0x1010057
         0x10100ae
@@ -1700,7 +1700,7 @@
         0x7f04053e
     .end array-data
 
-    :array_7
+    :array_3a2
     .array-data 4
         0x7f040043
         0x7f040044
@@ -1712,7 +1712,7 @@
         0x7f0404d1
     .end array-data
 
-    :array_8
+    :array_3b6
     .array-data 4
         0x7f04020e
         0x7f04020f
@@ -1723,7 +1723,7 @@
         0x7f040214
     .end array-data
 
-    :array_9
+    :array_3c8
     .array-data 4
         0x1010532
         0x1010533
@@ -1737,7 +1737,7 @@
         0x7f04051a
     .end array-data
 
-    :array_a
+    :array_3e0
     .array-data 4
         0x101019d
         0x101019e
@@ -1753,7 +1753,7 @@
         0x1010513
     .end array-data
 
-    :array_b
+    :array_3fc
     .array-data 4
         0x10100af
         0x10100c4
@@ -1766,7 +1766,7 @@
         0x7f040415
     .end array-data
 
-    :array_c
+    :array_412
     .array-data 4
         0x101000e
         0x10100d0
@@ -1776,7 +1776,7 @@
         0x10101e0
     .end array-data
 
-    :array_d
+    :array_422
     .array-data 4
         0x1010002
         0x101000e
@@ -1803,7 +1803,7 @@
         0x7f040500
     .end array-data
 
-    :array_e
+    :array_454
     .array-data 4
         0x10100ae
         0x101012c
@@ -1816,7 +1816,7 @@
         0x7f040452
     .end array-data
 
-    :array_f
+    :array_46a
     .array-data 4
         0x1010034
         0x10100da
@@ -1847,7 +1847,7 @@
         0x7f04052b
     .end array-data
 
-    :array_10
+    :array_4a4
     .array-data 4
         0x101011c
         0x1010194
@@ -1857,7 +1857,7 @@
         0x101030d
     .end array-data
 
-    :array_11
+    :array_4b4
     .array-data 4
         0x1010124
         0x1010125
@@ -1875,7 +1875,7 @@
         0x7f040510
     .end array-data
 
-    :array_12
+    :array_4d4
     .array-data 4
         0x1010095
         0x1010096
@@ -1895,7 +1895,7 @@
         0x7f0404c6
     .end array-data
 
-    :array_13
+    :array_4f8
     .array-data 4
         0x10100af
         0x1010140
@@ -1929,7 +1929,7 @@
         0x7f0404f5
     .end array-data
 
-    :array_14
+    :array_538
     .array-data 4
         0x7f040139
         0x7f040140
@@ -1962,7 +1962,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/util/Pool;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/esotericsoftware/kryo/util/Pool;
     .param p2, "arg0"    # I
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"

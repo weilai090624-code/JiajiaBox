@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/MatchOps$MatchKind;Ljava/util/function/Predicate;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -62,7 +62,7 @@
     .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lj$/util/stream/MatchOps$1MatchSink;->stop:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     iget-object v0, p0, Lj$/util/stream/MatchOps$1MatchSink;->val$predicate:Ljava/util/function/Predicate;
 
@@ -76,7 +76,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1d
 
     .line 91
     const/4 v0, 0x1
@@ -93,6 +93,6 @@
     iput-boolean v0, p0, Lj$/util/stream/MatchOps$1MatchSink;->value:Z
 
     .line 94
-    :cond_0
+    :cond_1d
     return-void
 .end method

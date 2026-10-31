@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1004
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getAutoSizeMaxTextSize(Landroid/widget/TextView;)I
-    .locals 1
+    .registers 2
     .param p0, "textView"    # Landroid/widget/TextView;
 
     .line 1044
@@ -38,7 +38,7 @@
 .end method
 
 .method static getAutoSizeMinTextSize(Landroid/widget/TextView;)I
-    .locals 1
+    .registers 2
     .param p0, "textView"    # Landroid/widget/TextView;
 
     .line 1039
@@ -50,7 +50,7 @@
 .end method
 
 .method static getAutoSizeStepGranularity(Landroid/widget/TextView;)I
-    .locals 1
+    .registers 2
     .param p0, "textView"    # Landroid/widget/TextView;
 
     .line 1034
@@ -62,7 +62,7 @@
 .end method
 
 .method static getAutoSizeTextAvailableSizes(Landroid/widget/TextView;)[I
-    .locals 1
+    .registers 2
     .param p0, "textView"    # Landroid/widget/TextView;
 
     .line 1049
@@ -74,7 +74,7 @@
 .end method
 
 .method static getAutoSizeTextType(Landroid/widget/TextView;)I
-    .locals 1
+    .registers 2
     .param p0, "textView"    # Landroid/widget/TextView;
 
     .line 1029
@@ -86,7 +86,7 @@
 .end method
 
 .method static setAutoSizeTextTypeUniformWithConfiguration(Landroid/widget/TextView;IIII)V
-    .locals 0
+    .registers 5
     .param p0, "textView"    # Landroid/widget/TextView;
     .param p1, "autoSizeMinTextSize"    # I
     .param p2, "autoSizeMaxTextSize"    # I
@@ -101,7 +101,7 @@
 .end method
 
 .method static setAutoSizeTextTypeUniformWithPresetSizes(Landroid/widget/TextView;[II)V
-    .locals 0
+    .registers 3
     .param p0, "textView"    # Landroid/widget/TextView;
     .param p1, "presetSizes"    # [I
     .param p2, "unit"    # I
@@ -114,7 +114,7 @@
 .end method
 
 .method static setAutoSizeTextTypeWithDefaults(Landroid/widget/TextView;I)V
-    .locals 0
+    .registers 2
     .param p0, "textView"    # Landroid/widget/TextView;
     .param p1, "autoSizeTextType"    # I
 

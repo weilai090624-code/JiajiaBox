@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 21
     :try_start_0
@@ -68,13 +68,13 @@
     invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_0 .. :try_end_10} :catchall_11
 
-    goto :goto_0
+    goto :goto_14
 
     .line 23
-    :catchall_0
+    :catchall_11
     move-exception v0
 
     .line 24
@@ -85,20 +85,20 @@
 
     .line 21
     .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_0
+    :goto_14
     sput-object v0, Lkotlinx/coroutines/internal/ConcurrentKt;->REMOVE_FUTURE_ON_CANCEL:Ljava/lang/reflect/Method;
 
     return-void
 .end method
 
 .method public static synthetic ReentrantLock$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static final identitySet(I)Ljava/util/Set;
-    .locals 2
+    .registers 3
     .param p0, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -128,7 +128,7 @@
 .end method
 
 .method public static final removeFutureOnCancel(Ljava/util/concurrent/Executor;)Z
-    .locals 6
+    .registers 7
     .param p0, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 29
@@ -137,35 +137,35 @@
     .line 30
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_2
     instance-of v1, p0, Ljava/util/concurrent/ScheduledThreadPoolExecutor;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     move-object v1, p0
 
     check-cast v1, Ljava/util/concurrent/ScheduledThreadPoolExecutor;
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v1, :cond_1
+    :goto_b
+    if-nez v1, :cond_e
 
     return v0
 
     .line 31
     .local v1, "executor":Ljava/util/concurrent/ScheduledThreadPoolExecutor;
-    :cond_1
+    :cond_e
     sget-object v2, Lkotlinx/coroutines/internal/ConcurrentKt;->REMOVE_FUTURE_ON_CANCEL:Ljava/lang/reflect/Method;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_13
 
     return v0
 
-    :cond_2
+    :cond_13
     const/4 v3, 0x1
 
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -177,15 +177,15 @@
     aput-object v4, v5, v0
 
     invoke-virtual {v2, v1, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_2 .. :try_end_1f} :catchall_20
 
     .line 32
     return v3
 
     .line 33
     .end local v1    # "executor":Ljava/util/concurrent/ScheduledThreadPoolExecutor;
-    :catchall_0
+    :catchall_20
     move-exception v1
 
     .line 34
@@ -194,7 +194,7 @@
 .end method
 
 .method public static final withLock(Ljava/util/concurrent/locks/ReentrantLock;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "$this$withLock"    # Ljava/util/concurrent/locks/ReentrantLock;
     .param p1, "action"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -218,18 +218,18 @@
 
     invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->lock()V
 
-    :try_start_0
+    :try_start_7
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_7 .. :try_end_b} :catchall_f
 
     invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
     return-object v2
 
-    :catchall_0
+    :catchall_f
     move-exception v2
 
     invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V

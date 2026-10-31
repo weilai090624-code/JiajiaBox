@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;Lcom/google/android/material/shape/MaterialShapeDrawable;Landroid/widget/ScrollView;)V
-    .locals 2
+    .registers 6
     .param p1, "shapedView"    # Landroid/view/View;
     .param p2, "materialShapeDrawable"    # Lcom/google/android/material/shape/MaterialShapeDrawable;
     .param p3, "containingScrollView"    # Landroid/widget/ScrollView;
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public setContainingScrollView(Landroid/widget/ScrollView;)V
-    .locals 0
+    .registers 2
     .param p1, "containingScrollView"    # Landroid/widget/ScrollView;
 
     .line 73
@@ -73,7 +73,7 @@
 .end method
 
 .method public setMaterialShapeDrawable(Lcom/google/android/material/shape/MaterialShapeDrawable;)V
-    .locals 0
+    .registers 2
     .param p1, "materialShapeDrawable"    # Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     .line 64
@@ -84,7 +84,7 @@
 .end method
 
 .method public startListeningForScrollChanges(Landroid/view/ViewTreeObserver;)V
-    .locals 1
+    .registers 3
     .param p1, "viewTreeObserver"    # Landroid/view/ViewTreeObserver;
 
     .line 83
@@ -97,7 +97,7 @@
 .end method
 
 .method public stopListeningForScrollChanges(Landroid/view/ViewTreeObserver;)V
-    .locals 1
+    .registers 3
     .param p1, "viewTreeObserver"    # Landroid/view/ViewTreeObserver;
 
     .line 93
@@ -110,25 +110,25 @@
 .end method
 
 .method public updateInterpolationForScreenPosition()V
-    .locals 9
+    .registers 10
 
     .line 101
     iget-object v0, p0, Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;->containingScrollView:Landroid/widget/ScrollView;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 103
     return-void
 
     .line 105
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;->containingScrollView:Landroid/widget/ScrollView;
 
     invoke-virtual {v0}, Landroid/widget/ScrollView;->getChildCount()I
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_8f
 
     .line 111
     iget-object v0, p0, Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;->containingScrollView:Landroid/widget/ScrollView;
@@ -193,7 +193,7 @@
 
     const/high16 v4, 0x3f800000    # 1.0f
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_59
 
     .line 119
     iget-object v5, p0, Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;->materialShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -223,13 +223,13 @@
 
     invoke-virtual {v3}, Landroid/view/View;->invalidate()V
 
-    goto :goto_1
+    goto :goto_8e
 
     .line 122
-    :cond_1
+    :cond_59
     add-int v5, v0, v1
 
-    if-le v5, v2, :cond_2
+    if-le v5, v2, :cond_78
 
     .line 123
     add-int v5, v0, v1
@@ -266,10 +266,10 @@
     invoke-virtual {v3}, Landroid/view/View;->invalidate()V
 
     .end local v5    # "distanceOffScreen":I
-    goto :goto_0
+    goto :goto_8d
 
     .line 127
-    :cond_2
+    :cond_78
     iget-object v3, p0, Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;->materialShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
 
     invoke-virtual {v3}, Lcom/google/android/material/shape/MaterialShapeDrawable;->getInterpolation()F
@@ -278,7 +278,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_8d
 
     .line 128
     iget-object v3, p0, Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;->materialShapeDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
@@ -290,22 +290,22 @@
 
     invoke-virtual {v3}, Landroid/view/View;->invalidate()V
 
-    goto :goto_1
+    goto :goto_8e
 
     .line 127
-    :cond_3
-    :goto_0
+    :cond_8d
+    :goto_8d
     nop
 
     .line 131
-    :goto_1
+    :goto_8e
     return-void
 
     .line 107
     .end local v0    # "y":I
     .end local v1    # "viewHeight":I
     .end local v2    # "windowHeight":I
-    :cond_4
+    :cond_8f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Scroll bar must contain a child to calculate interpolation."

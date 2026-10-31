@@ -116,7 +116,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 162
     new-instance v0, Landroidx/camera/core/VideoCapture$Defaults;
@@ -145,7 +145,7 @@
 
     new-array v0, v0, [S
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_1c
 
     sput-object v0, Landroidx/camera/core/VideoCapture;->sAudioEncoding:[S
 
@@ -153,7 +153,7 @@
 
     nop
 
-    :array_0
+    :array_1c
     .array-data 2
         0x2s
         0x3s
@@ -162,7 +162,7 @@
 .end method
 
 .method constructor <init>(Landroidx/camera/core/impl/VideoCaptureConfig;)V
-    .locals 2
+    .registers 4
     .param p1, "config"    # Landroidx/camera/core/impl/VideoCaptureConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -252,7 +252,7 @@
 .end method
 
 .method private autoConfigAudioRecordSource(Landroidx/camera/core/impl/VideoCaptureConfig;)Landroid/media/AudioRecord;
-    .locals 17
+    .registers 19
     .param p1, "config"    # Landroidx/camera/core/impl/VideoCaptureConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -276,8 +276,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_3
+    :goto_9
+    if-ge v5, v4, :cond_8e
 
     aget-short v12, v3, v5
 
@@ -287,18 +287,18 @@
 
     const/4 v13, 0x1
 
-    if-ne v0, v13, :cond_0
+    if-ne v0, v13, :cond_15
 
     .line 918
     const/16 v0, 0x10
 
-    goto :goto_1
+    goto :goto_17
 
     .line 919
-    :cond_0
+    :cond_15
     const/16 v0, 0xc
 
-    :goto_1
+    :goto_17
     move v14, v0
 
     .line 920
@@ -309,7 +309,7 @@
 
     .line 923
     .local v15, "source":I
-    :try_start_0
+    :try_start_1c
     iget v0, v1, Landroidx/camera/core/VideoCapture;->mAudioSampleRate:I
 
     .line 924
@@ -319,7 +319,7 @@
 
     .line 926
     .local v0, "bufferSize":I
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_29
 
     .line 927
     invoke-virtual/range {p1 .. p1}, Landroidx/camera/core/impl/VideoCaptureConfig;->getAudioMinBufferSize()I
@@ -329,7 +329,7 @@
     move v0, v6
 
     .line 930
-    :cond_1
+    :cond_29
     new-instance v16, Landroid/media/AudioRecord;
 
     iget v8, v1, Landroidx/camera/core/VideoCapture;->mAudioSampleRate:I
@@ -354,7 +354,7 @@
 
     move-result v7
 
-    if-ne v7, v13, :cond_2
+    if-ne v7, v13, :cond_83
 
     .line 939
     iput v0, v1, Landroidx/camera/core/VideoCapture;->mAudioBufferSize:I
@@ -421,8 +421,8 @@
     move-result-object v7
 
     invoke-static {v2, v7}, Landroidx/camera/core/Logger;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_82
+    .catch Ljava/lang/Exception; {:try_start_1c .. :try_end_82} :catch_84
 
     .line 952
     return-object v6
@@ -430,11 +430,11 @@
     .line 956
     .end local v0    # "bufferSize":I
     .end local v6    # "recorder":Landroid/media/AudioRecord;
-    :cond_2
-    goto :goto_2
+    :cond_83
+    goto :goto_8a
 
     .line 954
-    :catch_0
+    :catch_84
     move-exception v0
 
     .line 955
@@ -448,20 +448,20 @@
     .end local v12    # "audioFormat":S
     .end local v14    # "channelConfig":I
     .end local v15    # "source":I
-    :goto_2
+    :goto_8a
     add-int/lit8 v5, v5, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 959
-    :cond_3
+    :cond_8e
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private createAudioMediaFormat()Landroid/media/MediaFormat;
-    .locals 3
+    .registers 4
 
     .line 901
     iget v0, p0, Landroidx/camera/core/VideoCapture;->mAudioSampleRate:I
@@ -495,7 +495,7 @@
 .end method
 
 .method private static createMediaFormat(Landroidx/camera/core/impl/VideoCaptureConfig;Landroid/util/Size;)Landroid/media/MediaFormat;
-    .locals 3
+    .registers 5
     .param p0, "config"    # Landroidx/camera/core/impl/VideoCaptureConfig;
     .param p1, "resolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -568,7 +568,7 @@
 .end method
 
 .method private getInputBuffer(Landroid/media/MediaCodec;I)Ljava/nio/ByteBuffer;
-    .locals 1
+    .registers 4
     .param p1, "codec"    # Landroid/media/MediaCodec;
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -591,7 +591,7 @@
 .end method
 
 .method private getOutputBuffer(Landroid/media/MediaCodec;I)Ljava/nio/ByteBuffer;
-    .locals 1
+    .registers 4
     .param p1, "codec"    # Landroid/media/MediaCodec;
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -614,7 +614,7 @@
 .end method
 
 .method private initMediaMuxer(Landroidx/camera/core/VideoCapture$OutputFileOptions;)Landroid/media/MediaMuxer;
-    .locals 6
+    .registers 8
     .param p1, "outputFileOptions"    # Landroidx/camera/core/VideoCapture$OutputFileOptions;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -638,7 +638,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 1003
     invoke-virtual {p1}, Landroidx/camera/core/VideoCapture$OutputFileOptions;->getFile()Ljava/io/File;
@@ -670,22 +670,22 @@
 
     .line 1008
     .local v0, "mediaMuxer":Landroid/media/MediaMuxer;
-    goto/16 :goto_2
+    goto/16 :goto_b9
 
     .end local v0    # "mediaMuxer":Landroid/media/MediaMuxer;
-    :cond_0
+    :cond_21
     invoke-virtual {p1}, Landroidx/camera/core/VideoCapture$OutputFileOptions;->isSavingToFileDescriptor()Z
 
     move-result v0
 
     const/16 v2, 0x1a
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_40
 
     .line 1009
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_38
 
     .line 1014
     new-instance v0, Landroid/media/MediaMuxer;
@@ -697,11 +697,11 @@
     invoke-direct {v0, v2, v1}, Landroid/media/MediaMuxer;-><init>(Ljava/io/FileDescriptor;I)V
 
     .restart local v0    # "mediaMuxer":Landroid/media/MediaMuxer;
-    goto/16 :goto_2
+    goto/16 :goto_b9
 
     .line 1010
     .end local v0    # "mediaMuxer":Landroid/media/MediaMuxer;
-    :cond_1
+    :cond_38
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Using a FileDescriptor to record a video is only supported for Android 8.0 or above."
@@ -711,19 +711,19 @@
     throw v0
 
     .line 1016
-    :cond_2
+    :cond_40
     invoke-virtual {p1}, Landroidx/camera/core/VideoCapture$OutputFileOptions;->isSavingToMediaStore()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_c7
 
     .line 1017
     invoke-virtual {p1}, Landroidx/camera/core/VideoCapture$OutputFileOptions;->getContentValues()Landroid/content/ContentValues;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_56
 
     .line 1018
     new-instance v0, Landroid/content/ContentValues;
@@ -734,15 +734,15 @@
 
     invoke-direct {v0, v3}, Landroid/content/ContentValues;-><init>(Landroid/content/ContentValues;)V
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 1019
-    :cond_3
+    :cond_56
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    :goto_0
+    :goto_5b
     nop
 
     .line 1021
@@ -766,13 +766,13 @@
     .line 1024
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mSavedVideoUri:Landroid/net/Uri;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_bf
 
     .line 1030
-    :try_start_0
+    :try_start_6e
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-ge v3, v2, :cond_4
+    if-ge v3, v2, :cond_9c
 
     .line 1031
     nop
@@ -823,11 +823,11 @@
     .line 1037
     .end local v2    # "savedLocationPath":Ljava/lang/String;
     .local v1, "mediaMuxer":Landroid/media/MediaMuxer;
-    goto :goto_1
+    goto :goto_b7
 
     .line 1038
     .end local v1    # "mediaMuxer":Landroid/media/MediaMuxer;
-    :cond_4
+    :cond_9c
     nop
 
     .line 1039
@@ -855,14 +855,14 @@
     move-result-object v3
 
     invoke-direct {v2, v3, v1}, Landroid/media/MediaMuxer;-><init>(Ljava/io/FileDescriptor;I)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b6
+    .catch Ljava/io/IOException; {:try_start_6e .. :try_end_b6} :catch_ba
 
     move-object v1, v2
 
     .line 1047
     .restart local v1    # "mediaMuxer":Landroid/media/MediaMuxer;
-    :goto_1
+    :goto_b7
     nop
 
     .line 1048
@@ -872,12 +872,12 @@
     .line 1053
     .end local v1    # "mediaMuxer":Landroid/media/MediaMuxer;
     .local v0, "mediaMuxer":Landroid/media/MediaMuxer;
-    :goto_2
+    :goto_b9
     return-object v0
 
     .line 1044
     .local v0, "values":Landroid/content/ContentValues;
-    :catch_0
+    :catch_ba
     move-exception v1
 
     .line 1045
@@ -891,7 +891,7 @@
 
     .line 1025
     .end local v1    # "e":Ljava/io/IOException;
-    :cond_5
+    :cond_bf
     new-instance v1, Ljava/io/IOException;
 
     const-string v2, "Invalid Uri!"
@@ -902,7 +902,7 @@
 
     .line 1049
     .end local v0    # "values":Landroid/content/ContentValues;
-    :cond_6
+    :cond_c7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The OutputFileOptions should assign before recording"
@@ -913,25 +913,25 @@
 .end method
 
 .method static synthetic lambda$releaseCameraSurface$7(ZLandroid/media/MediaCodec;)V
-    .locals 0
+    .registers 2
     .param p0, "releaseVideoEncoder"    # Z
     .param p1, "videoEncoder"    # Landroid/media/MediaCodec;
 
     .line 556
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_7
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 557
     invoke-virtual {p1}, Landroid/media/MediaCodec;->release()V
 
     .line 559
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method static synthetic lambda$startRecording$1(Ljava/util/concurrent/atomic/AtomicReference;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "recordingCompleterRef"    # Ljava/util/concurrent/atomic/AtomicReference;
     .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .annotation system Ldalvik/annotation/Throws;
@@ -950,7 +950,7 @@
 .end method
 
 .method private releaseCameraSurface(Z)V
-    .locals 4
+    .registers 6
     .param p1, "releaseVideoEncoder"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -964,13 +964,13 @@
     .line 545
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 546
     return-void
 
     .line 549
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mVideoEncoder:Landroid/media/MediaCodec;
 
     .line 553
@@ -1001,13 +1001,13 @@
     .line 561
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_23
 
     .line 562
     iput-object v1, p0, Landroidx/camera/core/VideoCapture;->mVideoEncoder:Landroid/media/MediaCodec;
 
     .line 564
-    :cond_1
+    :cond_23
     iput-object v1, p0, Landroidx/camera/core/VideoCapture;->mCameraSurface:Landroid/view/Surface;
 
     .line 565
@@ -1018,7 +1018,7 @@
 .end method
 
 .method private releaseResources()V
-    .locals 2
+    .registers 3
 
     .line 500
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mVideoHandlerThread:Landroid/os/HandlerThread;
@@ -1035,7 +1035,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 505
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
@@ -1046,10 +1046,10 @@
     iput-object v1, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
 
     .line 509
-    :cond_0
+    :cond_16
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mAudioRecorder:Landroid/media/AudioRecord;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 510
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mAudioRecorder:Landroid/media/AudioRecord;
@@ -1060,10 +1060,10 @@
     iput-object v1, p0, Landroidx/camera/core/VideoCapture;->mAudioRecorder:Landroid/media/AudioRecord;
 
     .line 514
-    :cond_1
+    :cond_21
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mCameraSurface:Landroid/view/Surface;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
     .line 515
     const/4 v0, 0x1
@@ -1071,12 +1071,12 @@
     invoke-direct {p0, v0}, Landroidx/camera/core/VideoCapture;->releaseCameraSurface(Z)V
 
     .line 517
-    :cond_2
+    :cond_29
     return-void
 .end method
 
 .method private setAudioParametersByCamcorderProfile(Landroid/util/Size;Ljava/lang/String;)V
-    .locals 8
+    .registers 11
     .param p1, "currentResolution"    # Landroid/util/Size;
     .param p2, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1095,15 +1095,15 @@
 
     .line 968
     .local v0, "isCamcorderProfileFound":Z
-    :try_start_0
+    :try_start_1
     sget-object v1, Landroidx/camera/core/VideoCapture;->CamcorderQuality:[I
 
     array-length v2, v1
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_5
+    if-ge v3, v2, :cond_3c
 
     aget v4, v1, v3
 
@@ -1117,7 +1117,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_39
 
     .line 970
     invoke-static {p2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -1136,7 +1136,7 @@
 
     iget v7, v5, Landroid/media/CamcorderProfile;->videoFrameWidth:I
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_39
 
     .line 972
     invoke-virtual {p1}, Landroid/util/Size;->getHeight()I
@@ -1145,7 +1145,7 @@
 
     iget v7, v5, Landroid/media/CamcorderProfile;->videoFrameHeight:I
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_39
 
     .line 973
     iget v1, v5, Landroid/media/CamcorderProfile;->audioChannels:I
@@ -1161,30 +1161,30 @@
     iget v1, v5, Landroid/media/CamcorderProfile;->audioBitRate:I
 
     iput v1, p0, Landroidx/camera/core/VideoCapture;->mAudioBitRate:I
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_37
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_37} :catch_3d
 
     .line 976
     const/4 v0, 0x1
 
     .line 977
-    goto :goto_1
+    goto :goto_3c
 
     .line 968
     .end local v4    # "quality":I
     .end local v5    # "profile":Landroid/media/CamcorderProfile;
-    :cond_0
+    :cond_39
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 984
-    :cond_1
-    :goto_1
-    goto :goto_2
+    :cond_3c
+    :goto_3c
+    goto :goto_45
 
     .line 981
-    :catch_0
+    :catch_3d
     move-exception v1
 
     .line 982
@@ -1197,8 +1197,8 @@
 
     .line 988
     .end local v1    # "e":Ljava/lang/NumberFormatException;
-    :goto_2
-    if-nez v0, :cond_2
+    :goto_45
+    if-nez v0, :cond_5f
 
     .line 989
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture;->getCurrentConfig()Landroidx/camera/core/impl/UseCaseConfig;
@@ -1231,12 +1231,12 @@
 
     .line 994
     .end local v1    # "config":Landroidx/camera/core/impl/VideoCaptureConfig;
-    :cond_2
+    :cond_5f
     return-void
 .end method
 
 .method private writeAudioEncodedBuffer(I)Z
-    .locals 7
+    .registers 9
     .param p1, "bufferIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1267,17 +1267,17 @@
 
     const/4 v2, 0x1
 
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_87
 
     iget v1, p0, Landroidx/camera/core/VideoCapture;->mVideoTrackIndex:I
 
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_87
 
     iget-object v1, p0, Landroidx/camera/core/VideoCapture;->mAudioBufferInfo:Landroid/media/MediaCodec$BufferInfo;
 
     iget v1, v1, Landroid/media/MediaCodec$BufferInfo;->size:I
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_87
 
     iget-object v1, p0, Landroidx/camera/core/VideoCapture;->mAudioBufferInfo:Landroid/media/MediaCodec$BufferInfo;
 
@@ -1287,25 +1287,25 @@
 
     cmp-long v1, v3, v5
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_87
 
     .line 702
-    :try_start_0
+    :try_start_26
     iget-object v1, p0, Landroidx/camera/core/VideoCapture;->mMuxerLock:Ljava/lang/Object;
 
     monitor-enter v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/Exception; {:try_start_26 .. :try_end_29} :catch_4b
 
     .line 703
-    :try_start_1
+    :try_start_29
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mIsFirstAudioSampleWrite:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_3d
 
     .line 704
     const-string v3, "VideoCapture"
@@ -1320,7 +1320,7 @@
     invoke-virtual {v3, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 707
-    :cond_0
+    :cond_3d
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mMuxer:Landroid/media/MediaMuxer;
 
     iget v4, p0, Landroidx/camera/core/VideoCapture;->mAudioTrackIndex:I
@@ -1333,27 +1333,27 @@
     monitor-exit v1
 
     .line 719
-    goto :goto_0
+    goto :goto_87
 
     .line 708
-    :catchall_0
+    :catchall_48
     move-exception v3
 
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_29 .. :try_end_4a} :catchall_48
 
     .end local v0    # "buffer":Ljava/nio/ByteBuffer;
     .end local p1    # "bufferIndex":I
-    :try_start_2
+    :try_start_4a
     throw v3
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_4b
+    .catch Ljava/lang/Exception; {:try_start_4a .. :try_end_4b} :catch_4b
 
     .line 709
     .restart local v0    # "buffer":Ljava/nio/ByteBuffer;
     .restart local p1    # "bufferIndex":I
-    :catch_0
+    :catch_4b
     move-exception v1
 
     .line 710
@@ -1417,8 +1417,8 @@
 
     .line 721
     .end local v1    # "e":Ljava/lang/Exception;
-    :cond_1
-    :goto_0
+    :cond_87
+    :goto_87
     iget-object v1, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
 
     const/4 v3, 0x0
@@ -1432,19 +1432,19 @@
 
     and-int/lit8 v1, v1, 0x4
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_96
 
-    goto :goto_1
+    goto :goto_97
 
-    :cond_2
+    :cond_96
     const/4 v2, 0x0
 
-    :goto_1
+    :goto_97
     return v2
 .end method
 
 .method private writeVideoEncodedBuffer(I)Z
-    .locals 8
+    .registers 10
     .param p1, "bufferIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1458,7 +1458,7 @@
     .line 659
     const/4 v0, 0x0
 
-    if-gez p1, :cond_0
+    if-gez p1, :cond_1c
 
     .line 660
     const-string v1, "VideoCapture"
@@ -1487,7 +1487,7 @@
     return v0
 
     .line 664
-    :cond_0
+    :cond_1c
     iget-object v1, p0, Landroidx/camera/core/VideoCapture;->mVideoEncoder:Landroid/media/MediaCodec;
 
     invoke-virtual {v1, p1}, Landroid/media/MediaCodec;->getOutputBuffer(I)Ljava/nio/ByteBuffer;
@@ -1496,7 +1496,7 @@
 
     .line 667
     .local v1, "outputBuffer":Ljava/nio/ByteBuffer;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2c
 
     .line 668
     const-string v2, "VideoCapture"
@@ -1509,22 +1509,22 @@
     return v0
 
     .line 673
-    :cond_1
+    :cond_2c
     iget v2, p0, Landroidx/camera/core/VideoCapture;->mAudioTrackIndex:I
 
     const/4 v3, 0x1
 
-    if-ltz v2, :cond_3
+    if-ltz v2, :cond_7e
 
     iget v2, p0, Landroidx/camera/core/VideoCapture;->mVideoTrackIndex:I
 
-    if-ltz v2, :cond_3
+    if-ltz v2, :cond_7e
 
     iget-object v2, p0, Landroidx/camera/core/VideoCapture;->mVideoBufferInfo:Landroid/media/MediaCodec$BufferInfo;
 
     iget v2, v2, Landroid/media/MediaCodec$BufferInfo;->size:I
 
-    if-lez v2, :cond_3
+    if-lez v2, :cond_7e
 
     .line 674
     iget-object v2, p0, Landroidx/camera/core/VideoCapture;->mVideoBufferInfo:Landroid/media/MediaCodec$BufferInfo;
@@ -1565,14 +1565,14 @@
     monitor-enter v2
 
     .line 679
-    :try_start_0
+    :try_start_5c
     iget-object v4, p0, Landroidx/camera/core/VideoCapture;->mIsFirstVideoSampleWrite:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v4}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_70
 
     .line 680
     const-string v4, "VideoCapture"
@@ -1587,7 +1587,7 @@
     invoke-virtual {v4, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 683
-    :cond_2
+    :cond_70
     iget-object v4, p0, Landroidx/camera/core/VideoCapture;->mMuxer:Landroid/media/MediaMuxer;
 
     iget v5, p0, Landroidx/camera/core/VideoCapture;->mVideoTrackIndex:I
@@ -1599,20 +1599,20 @@
     .line 684
     monitor-exit v2
 
-    goto :goto_0
+    goto :goto_7e
 
-    :catchall_0
+    :catchall_7b
     move-exception v0
 
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7d
+    .catchall {:try_start_5c .. :try_end_7d} :catchall_7b
 
     throw v0
 
     .line 688
-    :cond_3
-    :goto_0
+    :cond_7e
+    :goto_7e
     iget-object v2, p0, Landroidx/camera/core/VideoCapture;->mVideoEncoder:Landroid/media/MediaCodec;
 
     invoke-virtual {v2, p1, v0}, Landroid/media/MediaCodec;->releaseOutputBuffer(IZ)V
@@ -1624,18 +1624,18 @@
 
     and-int/lit8 v2, v2, 0x4
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_8c
 
     const/4 v0, 0x1
 
-    :cond_4
+    :cond_8c
     return v0
 .end method
 
 
 # virtual methods
 .method audioEncode(Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;)Z
-    .locals 13
+    .registers 15
     .param p1, "videoSavedCallback"    # Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1651,17 +1651,17 @@
 
     .line 821
     .local v0, "audioEos":Z
-    :cond_0
-    :goto_0
+    :cond_1
+    :goto_1
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_93
 
     iget-boolean v3, p0, Landroidx/camera/core/VideoCapture;->mIsRecording:Z
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_93
 
     .line 823
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mEndOfAudioStreamSignal:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -1670,7 +1670,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_18
 
     .line 824
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mEndOfAudioStreamSignal:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -1681,14 +1681,14 @@
     iput-boolean v1, p0, Landroidx/camera/core/VideoCapture;->mIsRecording:Z
 
     .line 829
-    :cond_1
+    :cond_18
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mAudioRecorder:Landroid/media/AudioRecord;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     .line 830
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
@@ -1701,7 +1701,7 @@
 
     .line 831
     .local v3, "index":I
-    if-ltz v3, :cond_3
+    if-ltz v3, :cond_55
 
     .line 832
     iget-object v4, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
@@ -1725,7 +1725,7 @@
 
     .line 835
     .local v5, "length":I
-    if-lez v5, :cond_3
+    if-lez v5, :cond_55
 
     .line 836
     iget-object v6, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
@@ -1742,19 +1742,19 @@
     .line 841
     iget-boolean v7, p0, Landroidx/camera/core/VideoCapture;->mIsRecording:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_4d
 
     const/4 v12, 0x0
 
-    goto :goto_1
+    goto :goto_4f
 
-    :cond_2
+    :cond_4d
     const/4 v1, 0x4
 
     const/4 v12, 0x4
 
     .line 836
-    :goto_1
+    :goto_4f
     const/4 v8, 0x0
 
     move v7, v3
@@ -1766,7 +1766,7 @@
     .line 847
     .end local v4    # "buffer":Ljava/nio/ByteBuffer;
     .end local v5    # "length":I
-    :cond_3
+    :cond_55
     iget-object v1, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
 
     iget-object v4, p0, Landroidx/camera/core/VideoCapture;->mAudioBufferInfo:Landroid/media/MediaCodec$BufferInfo;
@@ -1779,27 +1779,27 @@
 
     .line 848
     .local v1, "outIndex":I
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_c0
 
     .line 861
     invoke-direct {p0, v1}, Landroidx/camera/core/VideoCapture;->writeAudioEncodedBuffer(I)Z
 
     move-result v0
 
-    goto :goto_2
+    goto :goto_8d
 
     .line 859
-    :pswitch_0
-    goto :goto_2
+    :pswitch_67
+    goto :goto_8d
 
     .line 850
-    :pswitch_1
+    :pswitch_68
     iget-object v4, p0, Landroidx/camera/core/VideoCapture;->mMuxerLock:Ljava/lang/Object;
 
     monitor-enter v4
 
     .line 851
-    :try_start_0
+    :try_start_6b
     iget-object v5, p0, Landroidx/camera/core/VideoCapture;->mMuxer:Landroid/media/MediaMuxer;
 
     iget-object v6, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
@@ -1817,11 +1817,11 @@
     .line 852
     iget v5, p0, Landroidx/camera/core/VideoCapture;->mAudioTrackIndex:I
 
-    if-ltz v5, :cond_4
+    if-ltz v5, :cond_88
 
     iget v5, p0, Landroidx/camera/core/VideoCapture;->mVideoTrackIndex:I
 
-    if-ltz v5, :cond_4
+    if-ltz v5, :cond_88
 
     .line 853
     iput-boolean v2, p0, Landroidx/camera/core/VideoCapture;->mMuxerStarted:Z
@@ -1832,37 +1832,37 @@
     invoke-virtual {v5}, Landroid/media/MediaMuxer;->start()V
 
     .line 856
-    :cond_4
+    :cond_88
     monitor-exit v4
 
     .line 857
-    goto :goto_2
+    goto :goto_8d
 
     .line 856
-    :catchall_0
+    :catchall_8a
     move-exception v2
 
     monitor-exit v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8c
+    .catchall {:try_start_6b .. :try_end_8c} :catchall_8a
 
     throw v2
 
     .line 863
-    :goto_2
-    if-ltz v1, :cond_5
+    :goto_8d
+    if-ltz v1, :cond_91
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_55
 
     .line 864
     .end local v3    # "index":I
-    :cond_5
-    goto/16 :goto_0
+    :cond_91
+    goto/16 :goto_1
 
     .line 869
     .end local v1    # "outIndex":I
-    :cond_6
-    :try_start_1
+    :cond_93
+    :try_start_93
     const-string v3, "VideoCapture"
 
     const-string v4, "audioRecorder stop"
@@ -1873,14 +1873,14 @@
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mAudioRecorder:Landroid/media/AudioRecord;
 
     invoke-virtual {v3}, Landroid/media/AudioRecord;->stop()V
-    :try_end_1
-    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_9f
+    .catch Ljava/lang/IllegalStateException; {:try_start_93 .. :try_end_9f} :catch_a0
 
     .line 874
-    goto :goto_3
+    goto :goto_a6
 
     .line 871
-    :catch_0
+    :catch_a0
     move-exception v3
 
     .line 872
@@ -1891,19 +1891,19 @@
 
     .line 877
     .end local v3    # "e":Ljava/lang/IllegalStateException;
-    :goto_3
-    :try_start_2
+    :goto_a6
+    :try_start_a6
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
 
     invoke-virtual {v3}, Landroid/media/MediaCodec;->stop()V
-    :try_end_2
-    .catch Ljava/lang/IllegalStateException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_ab
+    .catch Ljava/lang/IllegalStateException; {:try_start_a6 .. :try_end_ab} :catch_ac
 
     .line 881
-    goto :goto_4
+    goto :goto_b2
 
     .line 878
-    :catch_1
+    :catch_ac
     move-exception v3
 
     .line 879
@@ -1914,7 +1914,7 @@
 
     .line 883
     .end local v3    # "e":Ljava/lang/IllegalStateException;
-    :goto_4
+    :goto_b2
     const-string v3, "VideoCapture"
 
     const-string v4, "Audio encode thread end"
@@ -1931,15 +1931,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c0
     .packed-switch -0x2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_68
+        :pswitch_67
     .end packed-switch
 .end method
 
 .method public getDefaultConfig(ZLandroidx/camera/core/impl/UseCaseConfigFactory;)Landroidx/camera/core/impl/UseCaseConfig;
-    .locals 2
+    .registers 5
     .param p1, "applyDefaultConfig"    # Z
     .param p2, "factory"    # Landroidx/camera/core/impl/UseCaseConfigFactory;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1972,7 +1972,7 @@
 
     .line 277
     .local v0, "captureConfig":Landroidx/camera/core/impl/Config;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 278
     sget-object v1, Landroidx/camera/core/VideoCapture;->DEFAULT_CONFIG:Landroidx/camera/core/VideoCapture$Defaults;
@@ -1986,15 +1986,15 @@
     move-result-object v0
 
     .line 281
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_12
+    if-nez v0, :cond_16
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 282
-    :cond_1
+    :cond_16
     invoke-virtual {p0, v0}, Landroidx/camera/core/VideoCapture;->getUseCaseConfigBuilder(Landroidx/camera/core/impl/Config;)Landroidx/camera/core/impl/UseCaseConfig$Builder;
 
     move-result-object v1
@@ -2004,12 +2004,12 @@
     move-result-object v1
 
     .line 281
-    :goto_0
+    :goto_1e
     return-object v1
 .end method
 
 .method public getUseCaseConfigBuilder(Landroidx/camera/core/impl/Config;)Landroidx/camera/core/impl/UseCaseConfig$Builder;
-    .locals 1
+    .registers 3
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2039,7 +2039,7 @@
 .end method
 
 .method synthetic lambda$onDetached$6$androidx-camera-core-VideoCapture()V
-    .locals 0
+    .registers 1
 
     .line 492
     invoke-direct {p0}, Landroidx/camera/core/VideoCapture;->releaseResources()V
@@ -2048,7 +2048,7 @@
 .end method
 
 .method synthetic lambda$startRecording$0$androidx-camera-core-VideoCapture(Landroidx/camera/core/VideoCapture$OutputFileOptions;Ljava/util/concurrent/Executor;Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;)V
-    .locals 0
+    .registers 4
     .param p1, "outputFileOptions"    # Landroidx/camera/core/VideoCapture$OutputFileOptions;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
@@ -2060,7 +2060,7 @@
 .end method
 
 .method synthetic lambda$startRecording$2$androidx-camera-core-VideoCapture()V
-    .locals 2
+    .registers 3
 
     .line 392
     const/4 v0, 0x0
@@ -2072,7 +2072,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 399
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture;->getCameraId()Ljava/lang/String;
@@ -2089,12 +2089,12 @@
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture;->notifyReset()V
 
     .line 402
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method synthetic lambda$startRecording$3$androidx-camera-core-VideoCapture(Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "postListener"    # Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
 
     .line 443
@@ -2104,7 +2104,7 @@
 .end method
 
 .method synthetic lambda$startRecording$4$androidx-camera-core-VideoCapture(Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;Ljava/lang/String;Landroid/util/Size;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
-    .locals 4
+    .registers 9
     .param p1, "postListener"    # Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
     .param p2, "cameraId"    # Ljava/lang/String;
     .param p3, "resolution"    # Landroid/util/Size;
@@ -2119,7 +2119,7 @@
     .local v0, "errorOccurred":Z
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 451
     new-instance v2, Landroidx/camera/core/VideoCapture$OutputFileResults;
@@ -2134,7 +2134,7 @@
     iput-object v1, p0, Landroidx/camera/core/VideoCapture;->mSavedVideoUri:Landroid/net/Uri;
 
     .line 454
-    :cond_0
+    :cond_13
     invoke-virtual {p4, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
     .line 455
@@ -2142,7 +2142,7 @@
 .end method
 
 .method synthetic lambda$stopRecording$5$androidx-camera-core-VideoCapture()V
-    .locals 0
+    .registers 1
 
     .line 470
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture;->stopRecording()V
@@ -2151,7 +2151,7 @@
 .end method
 
 .method public onAttached()V
-    .locals 2
+    .registers 3
 
     .line 294
     new-instance v0, Landroid/os/HandlerThread;
@@ -2212,7 +2212,7 @@
 .end method
 
 .method public onDetached()V
-    .locals 3
+    .registers 4
 
     .line 489
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture;->stopRecording()V
@@ -2220,7 +2220,7 @@
     .line 491
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mRecordingFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 492
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mRecordingFuture:Lcom/google/common/util/concurrent/ListenableFuture;
@@ -2237,19 +2237,19 @@
     .line 492
     invoke-interface {v0, v1, v2}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 495
-    :cond_0
+    :cond_16
     invoke-direct {p0}, Landroidx/camera/core/VideoCapture;->releaseResources()V
 
     .line 497
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method public onStateDetached()V
-    .locals 0
+    .registers 1
 
     .line 540
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture;->stopRecording()V
@@ -2259,7 +2259,7 @@
 .end method
 
 .method protected onSuggestedResolutionUpdated(Landroid/util/Size;)Landroid/util/Size;
-    .locals 4
+    .registers 6
     .param p1, "suggestedResolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2273,7 +2273,7 @@
     .line 315
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mCameraSurface:Landroid/view/Surface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 316
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mVideoEncoder:Landroid/media/MediaCodec;
@@ -2301,8 +2301,8 @@
     invoke-direct {p0, v0}, Landroidx/camera/core/VideoCapture;->releaseCameraSurface(Z)V
 
     .line 324
-    :cond_0
-    :try_start_0
+    :cond_1c
+    :try_start_1c
     const-string/jumbo v0, "video/avc"
 
     invoke-static {v0}, Landroid/media/MediaCodec;->createEncoderByType(Ljava/lang/String;)Landroid/media/MediaCodec;
@@ -2319,8 +2319,8 @@
     move-result-object v0
 
     iput-object v0, p0, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2d
+    .catch Ljava/io/IOException; {:try_start_1c .. :try_end_2d} :catch_36
 
     .line 328
     nop
@@ -2336,7 +2336,7 @@
     return-object p1
 
     .line 326
-    :catch_0
+    :catch_36
     move-exception v0
 
     .line 327
@@ -2371,7 +2371,7 @@
 .end method
 
 .method public setTargetRotation(I)V
-    .locals 0
+    .registers 2
     .param p1, "rotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2390,7 +2390,7 @@
 .end method
 
 .method setupEncoder(Ljava/lang/String;Landroid/util/Size;)V
-    .locals 9
+    .registers 12
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "resolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -2437,13 +2437,13 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     .line 598
     invoke-direct {p0, v2}, Landroidx/camera/core/VideoCapture;->releaseCameraSurface(Z)V
 
     .line 600
-    :cond_0
+    :cond_1e
     iget-object v1, p0, Landroidx/camera/core/VideoCapture;->mVideoEncoder:Landroid/media/MediaCodec;
 
     invoke-virtual {v1}, Landroid/media/MediaCodec;->createInputSurface()Landroid/view/Surface;
@@ -2463,7 +2463,7 @@
     .local v5, "sessionConfigBuilder":Landroidx/camera/core/impl/SessionConfig$Builder;
     iget-object v6, p0, Landroidx/camera/core/VideoCapture;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_33
 
     .line 606
     iget-object v6, p0, Landroidx/camera/core/VideoCapture;->mDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
@@ -2471,7 +2471,7 @@
     invoke-virtual {v6}, Landroidx/camera/core/impl/DeferrableSurface;->close()V
 
     .line 608
-    :cond_1
+    :cond_33
     new-instance v6, Landroidx/camera/core/impl/ImmediateSurface;
 
     iget-object v7, p0, Landroidx/camera/core/VideoCapture;->mCameraSurface:Landroid/view/Surface;
@@ -2542,7 +2542,7 @@
     .line 638
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mAudioRecorder:Landroid/media/AudioRecord;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_7f
 
     .line 639
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mAudioRecorder:Landroid/media/AudioRecord;
@@ -2550,7 +2550,7 @@
     invoke-virtual {v3}, Landroid/media/AudioRecord;->release()V
 
     .line 641
-    :cond_2
+    :cond_7f
     invoke-direct {p0, v0}, Landroidx/camera/core/VideoCapture;->autoConfigAudioRecordSource(Landroidx/camera/core/impl/VideoCaptureConfig;)Landroid/media/AudioRecord;
 
     move-result-object v3
@@ -2560,7 +2560,7 @@
     .line 643
     iget-object v3, p0, Landroidx/camera/core/VideoCapture;->mAudioRecorder:Landroid/media/AudioRecord;
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_90
 
     .line 644
     const-string v3, "VideoCapture"
@@ -2570,7 +2570,7 @@
     invoke-static {v3, v4}, Landroidx/camera/core/Logger;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 647
-    :cond_3
+    :cond_90
     const/4 v3, -0x1
 
     iput v3, p0, Landroidx/camera/core/VideoCapture;->mVideoTrackIndex:I
@@ -2586,7 +2586,7 @@
 .end method
 
 .method public startRecording(Landroidx/camera/core/VideoCapture$OutputFileOptions;Ljava/util/concurrent/Executor;Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;)V
-    .locals 18
+    .registers 22
     .param p1, "outputFileOptions"    # Landroidx/camera/core/VideoCapture$OutputFileOptions;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "callback"    # Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
@@ -2618,7 +2618,7 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1f
 
     .line 349
     invoke-static {}, Landroidx/camera/core/impl/utils/executor/CameraXExecutors;->mainThreadExecutor()Ljava/util/concurrent/ScheduledExecutorService;
@@ -2637,7 +2637,7 @@
     return-void
 
     .line 353
-    :cond_0
+    :cond_1f
     move-object/from16 v10, p1
 
     const-string v0, "VideoCapture"
@@ -2675,7 +2675,7 @@
     .local v12, "attachedCamera":Landroidx/camera/core/impl/CameraInternal;
     const/4 v2, 0x0
 
-    if-nez v12, :cond_1
+    if-nez v12, :cond_5f
 
     .line 362
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2710,14 +2710,14 @@
     return-void
 
     .line 367
-    :cond_1
+    :cond_5f
     iget-object v0, v7, Landroidx/camera/core/VideoCapture;->mEndOfAudioVideoSignal:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_6e
 
     .line 368
     const/4 v0, 0x3
@@ -2730,13 +2730,13 @@
     return-void
 
     .line 376
-    :cond_2
-    :try_start_0
+    :cond_6e
+    :try_start_6e
     iget-object v0, v7, Landroidx/camera/core/VideoCapture;->mAudioRecorder:Landroid/media/AudioRecord;
 
     invoke-virtual {v0}, Landroid/media/AudioRecord;->startRecording()V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_73
+    .catch Ljava/lang/IllegalStateException; {:try_start_6e .. :try_end_73} :catch_14e
 
     .line 380
     nop
@@ -2795,7 +2795,7 @@
     invoke-interface {v0, v4, v5}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     .line 406
-    :try_start_1
+    :try_start_a1
     const-string v0, "VideoCapture"
 
     const-string/jumbo v4, "videoEncoder start"
@@ -2818,22 +2818,22 @@
     iget-object v0, v7, Landroidx/camera/core/VideoCapture;->mAudioEncoder:Landroid/media/MediaCodec;
 
     invoke-virtual {v0}, Landroid/media/MediaCodec;->start()V
-    :try_end_1
-    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_ba
+    .catch Ljava/lang/IllegalStateException; {:try_start_a1 .. :try_end_ba} :catch_142
 
     .line 416
     nop
 
     .line 419
-    :try_start_2
+    :try_start_bb
     iget-object v4, v7, Landroidx/camera/core/VideoCapture;->mMuxerLock:Ljava/lang/Object;
 
     monitor-enter v4
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_be
+    .catch Ljava/io/IOException; {:try_start_bb .. :try_end_be} :catch_136
 
     .line 420
-    :try_start_3
+    :try_start_be
     invoke-direct/range {p0 .. p1}, Landroidx/camera/core/VideoCapture;->initMediaMuxer(Landroidx/camera/core/VideoCapture$OutputFileOptions;)Landroid/media/MediaMuxer;
 
     move-result-object v0
@@ -2861,11 +2861,11 @@
 
     .line 425
     .local v0, "metadata":Landroidx/camera/core/VideoCapture$Metadata;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_f3
 
     iget-object v5, v0, Landroidx/camera/core/VideoCapture$Metadata;->location:Landroid/location/Location;
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_f3
 
     .line 426
     iget-object v5, v7, Landroidx/camera/core/VideoCapture;->mMuxer:Landroid/media/MediaMuxer;
@@ -2897,10 +2897,10 @@
 
     .line 430
     .end local v0    # "metadata":Landroidx/camera/core/VideoCapture$Metadata;
-    :cond_3
+    :cond_f3
     monitor-exit v4
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_f4
+    .catchall {:try_start_be .. :try_end_f4} :catchall_133
 
     .line 435
     nop
@@ -2986,13 +2986,13 @@
     .line 430
     .end local v15    # "resolution":Landroid/util/Size;
     .end local v16    # "cameraId":Ljava/lang/String;
-    :catchall_0
+    :catchall_133
     move-exception v0
 
-    :try_start_4
+    :try_start_134
     monitor-exit v4
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_135
+    .catchall {:try_start_134 .. :try_end_135} :catchall_133
 
     .end local v11    # "postListener":Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
     .end local v12    # "attachedCamera":Landroidx/camera/core/impl/CameraInternal;
@@ -3001,10 +3001,10 @@
     .end local p1    # "outputFileOptions":Landroidx/camera/core/VideoCapture$OutputFileOptions;
     .end local p2    # "executor":Ljava/util/concurrent/Executor;
     .end local p3    # "callback":Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
-    :try_start_5
+    :try_start_135
     throw v0
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
+    :try_end_136
+    .catch Ljava/io/IOException; {:try_start_135 .. :try_end_136} :catch_136
 
     .line 431
     .restart local v11    # "postListener":Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
@@ -3014,7 +3014,7 @@
     .restart local p1    # "outputFileOptions":Landroidx/camera/core/VideoCapture$OutputFileOptions;
     .restart local p2    # "executor":Ljava/util/concurrent/Executor;
     .restart local p3    # "callback":Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
-    :catch_0
+    :catch_136
     move-exception v0
 
     .line 432
@@ -3035,7 +3035,7 @@
 
     .line 412
     .end local v0    # "e":Ljava/io/IOException;
-    :catch_1
+    :catch_142
     move-exception v0
 
     .line 413
@@ -3058,7 +3058,7 @@
     .end local v0    # "e":Ljava/lang/IllegalStateException;
     .end local v13    # "recordingCompleterRef":Ljava/util/concurrent/atomic/AtomicReference;, "Ljava/util/concurrent/atomic/AtomicReference<Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Ljava/lang/Void;>;>;"
     .end local v14    # "recordingCompleter":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Ljava/lang/Void;>;"
-    :catch_2
+    :catch_14e
     move-exception v0
 
     const/4 v2, 0x1
@@ -3074,7 +3074,7 @@
 .end method
 
 .method public stopRecording()V
-    .locals 2
+    .registers 3
 
     .line 469
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -3085,7 +3085,7 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_17
 
     .line 470
     invoke-static {}, Landroidx/camera/core/impl/utils/executor/CameraXExecutors;->mainThreadExecutor()Ljava/util/concurrent/ScheduledExecutorService;
@@ -3102,7 +3102,7 @@
     return-void
 
     .line 473
-    :cond_0
+    :cond_17
     const-string v0, "VideoCapture"
 
     const-string/jumbo v1, "stopRecording"
@@ -3119,11 +3119,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_34
 
     iget-boolean v0, p0, Landroidx/camera/core/VideoCapture;->mIsRecording:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_34
 
     .line 477
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mEndOfAudioStreamSignal:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -3133,12 +3133,12 @@
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 479
-    :cond_1
+    :cond_34
     return-void
 .end method
 
 .method videoEncode(Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;Ljava/lang/String;Landroid/util/Size;)Z
-    .locals 8
+    .registers 12
     .param p1, "videoSavedCallback"    # Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
     .param p2, "cameraId"    # Ljava/lang/String;
     .param p3, "resolution"    # Landroid/util/Size;
@@ -3164,16 +3164,16 @@
 
     .line 736
     .local v1, "videoEos":Z
-    :goto_0
+    :goto_2
     const/4 v2, 0x0
 
     const/4 v3, 0x0
 
     const/4 v4, 0x1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_69
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_69
 
     .line 738
     iget-object v5, p0, Landroidx/camera/core/VideoCapture;->mEndOfVideoStreamSignal:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -3182,7 +3182,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1b
 
     .line 739
     iget-object v5, p0, Landroidx/camera/core/VideoCapture;->mVideoEncoder:Landroid/media/MediaCodec;
@@ -3195,7 +3195,7 @@
     invoke-virtual {v5, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 744
-    :cond_0
+    :cond_1b
     iget-object v2, p0, Landroidx/camera/core/VideoCapture;->mVideoEncoder:Landroid/media/MediaCodec;
 
     iget-object v5, p0, Landroidx/camera/core/VideoCapture;->mVideoBufferInfo:Landroid/media/MediaCodec$BufferInfo;
@@ -3209,24 +3209,24 @@
 
     .line 746
     .local v2, "outputBufferId":I
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_c4
 
     .line 769
     invoke-direct {p0, v2}, Landroidx/camera/core/VideoCapture;->writeVideoEncodedBuffer(I)Z
 
     move-result v1
 
-    goto :goto_2
+    goto :goto_68
 
     .line 767
-    :pswitch_0
-    goto :goto_2
+    :pswitch_2d
+    goto :goto_68
 
     .line 748
-    :pswitch_1
+    :pswitch_2e
     iget-boolean v5, p0, Landroidx/camera/core/VideoCapture;->mMuxerStarted:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3a
 
     .line 749
     const-string v5, "Unexpected change in video encoding format."
@@ -3238,22 +3238,22 @@
 
     move v3, v0
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 748
-    :cond_1
+    :cond_3a
     move v3, v0
 
     .line 756
     .end local v0    # "errorOccurred":Z
     .local v3, "errorOccurred":Z
-    :goto_1
+    :goto_3b
     iget-object v5, p0, Landroidx/camera/core/VideoCapture;->mMuxerLock:Ljava/lang/Object;
 
     monitor-enter v5
 
     .line 757
-    :try_start_0
+    :try_start_3e
     iget-object v0, p0, Landroidx/camera/core/VideoCapture;->mMuxer:Landroid/media/MediaMuxer;
 
     iget-object v6, p0, Landroidx/camera/core/VideoCapture;->mVideoEncoder:Landroid/media/MediaCodec;
@@ -3271,11 +3271,11 @@
     .line 758
     iget v0, p0, Landroidx/camera/core/VideoCapture;->mAudioTrackIndex:I
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_62
 
     iget v0, p0, Landroidx/camera/core/VideoCapture;->mVideoTrackIndex:I
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_62
 
     .line 759
     iput-boolean v4, p0, Landroidx/camera/core/VideoCapture;->mMuxerStarted:Z
@@ -3293,21 +3293,21 @@
     invoke-virtual {v0}, Landroid/media/MediaMuxer;->start()V
 
     .line 763
-    :cond_2
+    :cond_62
     monitor-exit v5
 
     .line 764
     move v0, v3
 
-    goto :goto_2
+    goto :goto_68
 
     .line 763
-    :catchall_0
+    :catchall_65
     move-exception v0
 
     monitor-exit v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_67
+    .catchall {:try_start_3e .. :try_end_67} :catchall_65
 
     throw v0
 
@@ -3315,12 +3315,12 @@
     .end local v2    # "outputBufferId":I
     .end local v3    # "errorOccurred":Z
     .restart local v0    # "errorOccurred":Z
-    :goto_2
-    goto :goto_0
+    :goto_68
+    goto :goto_2
 
     .line 774
-    :cond_3
-    :try_start_1
+    :cond_69
+    :try_start_69
     const-string v5, "VideoCapture"
 
     const-string/jumbo v6, "videoEncoder stop"
@@ -3331,14 +3331,14 @@
     iget-object v5, p0, Landroidx/camera/core/VideoCapture;->mVideoEncoder:Landroid/media/MediaCodec;
 
     invoke-virtual {v5}, Landroid/media/MediaCodec;->stop()V
-    :try_end_1
-    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_76
+    .catch Ljava/lang/IllegalStateException; {:try_start_69 .. :try_end_76} :catch_77
 
     .line 780
-    goto :goto_3
+    goto :goto_7e
 
     .line 776
-    :catch_0
+    :catch_77
     move-exception v5
 
     .line 777
@@ -3352,26 +3352,26 @@
 
     .line 784
     .end local v5    # "e":Ljava/lang/IllegalStateException;
-    :goto_3
+    :goto_7e
     const/4 v5, 0x2
 
-    :try_start_2
+    :try_start_7f
     iget-object v6, p0, Landroidx/camera/core/VideoCapture;->mMuxerLock:Ljava/lang/Object;
 
     monitor-enter v6
-    :try_end_2
-    .catch Ljava/lang/IllegalStateException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_82
+    .catch Ljava/lang/IllegalStateException; {:try_start_7f .. :try_end_82} :catch_9b
 
     .line 785
-    :try_start_3
+    :try_start_82
     iget-object v7, p0, Landroidx/camera/core/VideoCapture;->mMuxer:Landroid/media/MediaMuxer;
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_96
 
     .line 786
     iget-boolean v7, p0, Landroidx/camera/core/VideoCapture;->mMuxerStarted:Z
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_8f
 
     .line 787
     iget-object v7, p0, Landroidx/camera/core/VideoCapture;->mMuxer:Landroid/media/MediaMuxer;
@@ -3379,7 +3379,7 @@
     invoke-virtual {v7}, Landroid/media/MediaMuxer;->stop()V
 
     .line 789
-    :cond_4
+    :cond_8f
     iget-object v7, p0, Landroidx/camera/core/VideoCapture;->mMuxer:Landroid/media/MediaMuxer;
 
     invoke-virtual {v7}, Landroid/media/MediaMuxer;->release()V
@@ -3388,29 +3388,29 @@
     iput-object v3, p0, Landroidx/camera/core/VideoCapture;->mMuxer:Landroid/media/MediaMuxer;
 
     .line 792
-    :cond_5
+    :cond_96
     monitor-exit v6
 
     .line 796
-    goto :goto_4
+    goto :goto_a2
 
     .line 792
-    :catchall_1
+    :catchall_98
     move-exception v7
 
     monitor-exit v6
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_9a
+    .catchall {:try_start_82 .. :try_end_9a} :catchall_98
 
     .end local v0    # "errorOccurred":Z
     .end local v1    # "videoEos":Z
     .end local p1    # "videoSavedCallback":Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
     .end local p2    # "cameraId":Ljava/lang/String;
     .end local p3    # "resolution":Landroid/util/Size;
-    :try_start_4
+    :try_start_9a
     throw v7
-    :try_end_4
-    .catch Ljava/lang/IllegalStateException; {:try_start_4 .. :try_end_4} :catch_1
+    :try_end_9b
+    .catch Ljava/lang/IllegalStateException; {:try_start_9a .. :try_end_9b} :catch_9b
 
     .line 793
     .restart local v0    # "errorOccurred":Z
@@ -3418,7 +3418,7 @@
     .restart local p1    # "videoSavedCallback":Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
     .restart local p2    # "cameraId":Ljava/lang/String;
     .restart local p3    # "resolution":Landroid/util/Size;
-    :catch_1
+    :catch_9b
     move-exception v6
 
     .line 794
@@ -3432,27 +3432,27 @@
 
     .line 798
     .end local v6    # "e":Ljava/lang/IllegalStateException;
-    :goto_4
+    :goto_a2
     iget-object v6, p0, Landroidx/camera/core/VideoCapture;->mParcelFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_b5
 
     .line 800
-    :try_start_5
+    :try_start_a6
     iget-object v6, p0, Landroidx/camera/core/VideoCapture;->mParcelFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v6}, Landroid/os/ParcelFileDescriptor;->close()V
 
     .line 801
     iput-object v3, p0, Landroidx/camera/core/VideoCapture;->mParcelFileDescriptor:Landroid/os/ParcelFileDescriptor;
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
+    :try_end_ad
+    .catch Ljava/io/IOException; {:try_start_a6 .. :try_end_ad} :catch_ae
 
     .line 805
-    goto :goto_5
+    goto :goto_b5
 
     .line 802
-    :catch_2
+    :catch_ae
     move-exception v3
 
     .line 803
@@ -3466,8 +3466,8 @@
 
     .line 808
     .end local v3    # "e":Ljava/io/IOException;
-    :cond_6
-    :goto_5
+    :cond_b5
+    :goto_b5
     iput-boolean v2, p0, Landroidx/camera/core/VideoCapture;->mMuxerStarted:Z
 
     .line 811
@@ -3485,9 +3485,9 @@
     .line 814
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_c4
     .packed-switch -0x2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2e
+        :pswitch_2d
     .end packed-switch
 .end method

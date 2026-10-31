@@ -60,7 +60,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokio/Options$Companion;-><init>()V
 
@@ -77,7 +77,7 @@
 .end method
 
 .method private final buildTrieRecursive(JLokio/Buffer;ILjava/util/List;IILjava/util/List;)V
-    .locals 26
+    .registers 35
     .param p1, "nodeOffset"    # J
     .param p3, "node"    # Lokio/Buffer;
     .param p4, "byteStringOffset"    # I
@@ -119,26 +119,26 @@
 
     const/16 v16, 0x1
 
-    if-ge v13, v14, :cond_0
+    if-ge v13, v14, :cond_15
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     const-string v2, "Failed requirement."
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_29e
 
     .line 117
-    if-ge v13, v14, :cond_4
+    if-ge v13, v14, :cond_40
 
     move v1, v13
 
-    :cond_1
+    :cond_1d
     move v3, v1
 
     .local v3, "i":I
@@ -155,25 +155,25 @@
 
     move-result v4
 
-    if-lt v4, v11, :cond_2
+    if-lt v4, v11, :cond_2e
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_2f
 
-    :cond_2
+    :cond_2e
     const/4 v4, 0x0
 
-    :goto_1
-    if-eqz v4, :cond_3
+    :goto_2f
+    if-eqz v4, :cond_34
 
     .line 117
-    if-lt v1, v14, :cond_1
+    if-lt v1, v14, :cond_1d
 
-    goto :goto_2
+    goto :goto_40
 
     .line 118
-    :cond_3
+    :cond_34
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -188,8 +188,8 @@
 
     .line 121
     .end local v3    # "i":I
-    :cond_4
-    :goto_2
+    :cond_40
+    :goto_40
     move/from16 v1, p6
 
     .line 122
@@ -222,7 +222,7 @@
 
     move-result v4
 
-    if-ne v11, v4, :cond_5
+    if-ne v11, v4, :cond_6f
 
     .line 128
     invoke-interface {v15, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -253,10 +253,10 @@
 
     move v5, v3
 
-    goto :goto_3
+    goto :goto_72
 
     .line 127
-    :cond_5
+    :cond_6f
     move v7, v1
 
     move-object v6, v2
@@ -270,7 +270,7 @@
     .local v5, "prefixIndex":I
     .local v6, "from":Lokio/ByteString;
     .local v7, "fromIndex":I
-    :goto_3
+    :goto_72
     invoke-virtual {v6, v11}, Lokio/ByteString;->getByte(I)B
 
     move-result v1
@@ -279,7 +279,7 @@
 
     move-result v2
 
-    if-eq v1, v2, :cond_12
+    if-eq v1, v2, :cond_1bd
 
     .line 135
     const/4 v0, 0x1
@@ -288,9 +288,9 @@
     .local v0, "selectChoiceCount":I
     add-int/lit8 v1, v7, 0x1
 
-    if-ge v1, v14, :cond_8
+    if-ge v1, v14, :cond_a4
 
-    :cond_6
+    :cond_81
     move v2, v1
 
     .local v2, "i":I
@@ -321,27 +321,27 @@
 
     move-result v3
 
-    if-eq v4, v3, :cond_7
+    if-eq v4, v3, :cond_a0
 
     .line 138
     add-int/lit8 v0, v0, 0x1
 
     .line 136
-    :cond_7
-    if-lt v1, v14, :cond_6
+    :cond_a0
+    if-lt v1, v14, :cond_81
 
     move v4, v0
 
-    goto :goto_4
+    goto :goto_a5
 
     .end local v2    # "i":I
-    :cond_8
+    :cond_a4
     move v4, v0
 
     .line 143
     .end local v0    # "selectChoiceCount":I
     .local v4, "selectChoiceCount":I
-    :goto_4
+    :goto_a5
     invoke-direct {v9, v10}, Lokio/Options$Companion;->getIntCount(Lokio/Buffer;)J
 
     move-result-wide v0
@@ -368,11 +368,11 @@
     invoke-virtual {v10, v5}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
     .line 148
-    if-ge v7, v14, :cond_c
+    if-ge v7, v14, :cond_e6
 
     move v0, v7
 
-    :cond_9
+    :cond_bc
     move v1, v0
 
     .local v1, "i":I
@@ -391,7 +391,7 @@
 
     .line 150
     .local v2, "rangeByte":B
-    if-eq v1, v7, :cond_a
+    if-eq v1, v7, :cond_d9
 
     add-int/lit8 v3, v1, -0x1
 
@@ -405,10 +405,10 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_b
+    if-eq v2, v3, :cond_e4
 
     .line 151
-    :cond_a
+    :cond_d9
     const/16 v3, 0xff
 
     .local v3, "other$iv":I
@@ -429,12 +429,12 @@
 
     .line 148
     .end local v2    # "rangeByte":B
-    :cond_b
-    if-lt v0, v14, :cond_9
+    :cond_e4
+    if-lt v0, v14, :cond_bc
 
     .line 155
     .end local v1    # "i":I
-    :cond_c
+    :cond_e6
     new-instance v0, Lokio/Buffer;
 
     invoke-direct {v0}, Lokio/Buffer;-><init>()V
@@ -449,8 +449,8 @@
 
     .line 157
     .local v1, "rangeStart":I
-    :goto_5
-    if-ge v1, v14, :cond_11
+    :goto_ee
+    if-ge v1, v14, :cond_1a2
 
     .line 158
     invoke-interface {v12, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -475,9 +475,9 @@
     .local v19, "rangeEnd":I
     add-int/lit8 v0, v1, 0x1
 
-    if-ge v0, v14, :cond_f
+    if-ge v0, v14, :cond_125
 
-    :goto_6
+    :goto_102
     move/from16 v20, v0
 
     .local v20, "i":I
@@ -507,7 +507,7 @@
 
     move-result v5
 
-    if-eq v2, v5, :cond_d
+    if-eq v2, v5, :cond_11d
 
     .line 162
     move v0, v4
@@ -517,28 +517,28 @@
     .restart local v0    # "rangeEnd":I
     move v5, v0
 
-    goto :goto_8
+    goto :goto_12b
 
     .line 160
     .end local v0    # "rangeEnd":I
     .restart local v19    # "rangeEnd":I
-    :cond_d
-    if-lt v0, v14, :cond_e
+    :cond_11d
+    if-lt v0, v14, :cond_120
 
-    goto :goto_7
+    goto :goto_129
 
-    :cond_e
+    :cond_120
     move/from16 v4, v21
 
     move/from16 v5, v22
 
-    goto :goto_6
+    goto :goto_102
 
     .end local v21    # "selectChoiceCount":I
     .end local v22    # "prefixIndex":I
     .local v4, "selectChoiceCount":I
     .restart local v5    # "prefixIndex":I
-    :cond_f
+    :cond_125
     move/from16 v21, v4
 
     move/from16 v22, v5
@@ -548,15 +548,15 @@
     .end local v5    # "prefixIndex":I
     .restart local v21    # "selectChoiceCount":I
     .restart local v22    # "prefixIndex":I
-    :goto_7
+    :goto_129
     move/from16 v5, v19
 
     .end local v19    # "rangeEnd":I
     .local v5, "rangeEnd":I
-    :goto_8
+    :goto_12b
     add-int/lit8 v0, v1, 0x1
 
-    if-ne v0, v5, :cond_10
+    if-ne v0, v5, :cond_15a
 
     .line 168
     add-int/lit8 v0, v11, 0x1
@@ -571,7 +571,7 @@
 
     move-result v4
 
-    if-ne v0, v4, :cond_10
+    if-ne v0, v4, :cond_15a
 
     .line 171
     invoke-interface {v15, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -602,10 +602,10 @@
 
     move-object/from16 v22, v6
 
-    goto :goto_9
+    goto :goto_190
 
     .line 174
-    :cond_10
+    :cond_15a
     invoke-direct {v9, v3}, Lokio/Options$Companion;->getIntCount(Lokio/Buffer;)J
 
     move-result-wide v19
@@ -696,7 +696,7 @@
     invoke-direct/range {v0 .. v8}, Lokio/Options$Companion;->buildTrieRecursive(JLokio/Buffer;ILjava/util/List;IILjava/util/List;)V
 
     .line 186
-    :goto_9
+    :goto_190
     move/from16 v1, v19
 
     move v5, v13
@@ -719,7 +719,7 @@
     .end local v20    # "rangeStart":I
     .end local v23    # "rangeByte":B
     .restart local v1    # "rangeStart":I
-    goto/16 :goto_5
+    goto/16 :goto_ee
 
     .line 189
     .end local v13    # "prefixIndex":I
@@ -734,7 +734,7 @@
     .restart local v6    # "from":Lokio/ByteString;
     .restart local v7    # "fromIndex":I
     .restart local v8    # "to":Lokio/ByteString;
-    :cond_11
+    :cond_1a2
     move/from16 v20, v1
 
     move-object/from16 v24, v3
@@ -775,7 +775,7 @@
 
     move-object/from16 v15, p8
 
-    goto/16 :goto_c
+    goto/16 :goto_29d
 
     .line 192
     .end local v13    # "prefixIndex":I
@@ -790,7 +790,7 @@
     .restart local v6    # "from":Lokio/ByteString;
     .restart local v7    # "fromIndex":I
     .restart local v8    # "to":Lokio/ByteString;
-    :cond_12
+    :cond_1bd
     move v13, v5
 
     move-object/from16 v22, v6
@@ -823,11 +823,11 @@
 
     move-result v2
 
-    if-ge v11, v2, :cond_15
+    if-ge v11, v2, :cond_1f1
 
     move v3, v11
 
-    :goto_a
+    :goto_1d3
     move v4, v3
 
     .local v4, "i":I
@@ -850,30 +850,30 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_14
+    if-ne v5, v6, :cond_1ef
 
     .line 195
     add-int/lit8 v1, v1, 0x1
 
     .line 193
-    if-lt v3, v2, :cond_13
+    if-lt v3, v2, :cond_1ea
 
     move v6, v1
 
-    goto :goto_b
+    goto :goto_1f6
 
-    :cond_13
+    :cond_1ea
     move-object/from16 v25, v7
 
     move-object/from16 v22, v8
 
-    goto :goto_a
+    goto :goto_1d3
 
     .line 197
-    :cond_14
+    :cond_1ef
     move v6, v1
 
-    goto :goto_b
+    goto :goto_1f6
 
     .line 193
     .end local v4    # "i":I
@@ -881,7 +881,7 @@
     .end local v8    # "from":Lokio/ByteString;
     .restart local v22    # "from":Lokio/ByteString;
     .restart local v25    # "to":Lokio/ByteString;
-    :cond_15
+    :cond_1f1
     move-object/from16 v8, v22
 
     move-object/from16 v7, v25
@@ -895,7 +895,7 @@
     .line 202
     .end local v1    # "scanByteCount":I
     .local v6, "scanByteCount":I
-    :goto_b
+    :goto_1f6
     invoke-direct {v9, v10}, Lokio/Options$Companion;->getIntCount(Lokio/Buffer;)J
 
     move-result-wide v1
@@ -928,11 +928,11 @@
     .line 207
     add-int v1, v11, v6
 
-    if-ge v11, v1, :cond_17
+    if-ge v11, v1, :cond_222
 
     move v2, v11
 
-    :cond_16
+    :cond_211
     move v3, v2
 
     .local v3, "i":I
@@ -960,14 +960,14 @@
     invoke-virtual {v10, v4}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
     .line 207
-    if-lt v2, v1, :cond_16
+    if-lt v2, v1, :cond_211
 
     .line 211
     .end local v3    # "i":I
-    :cond_17
+    :cond_222
     add-int/lit8 v1, v15, 0x1
 
-    if-ne v1, v14, :cond_1a
+    if-ne v1, v14, :cond_25c
 
     .line 213
     add-int v1, v11, v6
@@ -982,12 +982,12 @@
 
     move-result v2
 
-    if-ne v1, v2, :cond_18
+    if-ne v1, v2, :cond_235
 
     const/4 v0, 0x1
 
-    :cond_18
-    if-eqz v0, :cond_19
+    :cond_235
+    if-eqz v0, :cond_24e
 
     .line 214
     move v5, v15
@@ -1014,12 +1014,12 @@
 
     move-object/from16 v22, v8
 
-    goto :goto_c
+    goto :goto_29d
 
     .line 213
     .end local v5    # "fromIndex":I
     .restart local v15    # "fromIndex":I
-    :cond_19
+    :cond_24e
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Check failed."
@@ -1035,7 +1035,7 @@
     throw v0
 
     .line 217
-    :cond_1a
+    :cond_25c
     move v5, v15
 
     move-object/from16 v15, p8
@@ -1136,7 +1136,7 @@
     .end local v17    # "childNodesOffset":J
     .end local v19    # "childNodes":Lokio/Buffer;
     .end local v20    # "scanByteCount":I
-    :goto_c
+    :goto_29d
     return-void
 
     .line 116
@@ -1144,7 +1144,7 @@
     .end local v16    # "fromIndex":I
     .end local v21    # "to":Lokio/ByteString;
     .end local v22    # "from":Lokio/ByteString;
-    :cond_1b
+    :cond_29e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1159,58 +1159,58 @@
 .end method
 
 .method static synthetic buildTrieRecursive$default(Lokio/Options$Companion;JLokio/Buffer;ILjava/util/List;IILjava/util/List;ILjava/lang/Object;)V
-    .locals 11
+    .registers 22
 
     .line 107
     and-int/lit8 v0, p9, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 108
     const-wide/16 v0, 0x0
 
     move-wide v3, v0
 
-    goto :goto_0
+    goto :goto_9
 
     .line 107
-    :cond_0
+    :cond_8
     move-wide v3, p1
 
-    :goto_0
+    :goto_9
     and-int/lit8 v0, p9, 0x4
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 110
     const/4 v6, 0x0
 
-    goto :goto_1
+    goto :goto_11
 
     .line 107
-    :cond_1
+    :cond_10
     move v6, p4
 
-    :goto_1
+    :goto_11
     and-int/lit8 v0, p9, 0x10
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_17
 
     .line 112
     const/4 v8, 0x0
 
-    goto :goto_2
+    goto :goto_19
 
     .line 107
-    :cond_2
+    :cond_17
     move/from16 v8, p6
 
-    :goto_2
+    :goto_19
     and-int/lit8 v0, p9, 0x20
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_25
 
     .line 113
     nop
@@ -1225,13 +1225,13 @@
 
     move v9, v0
 
-    goto :goto_3
+    goto :goto_27
 
     .line 107
-    :cond_3
+    :cond_25
     move/from16 v9, p7
 
-    :goto_3
+    :goto_27
     move-object v2, p0
 
     move-object v5, p3
@@ -1246,7 +1246,7 @@
 .end method
 
 .method private final getIntCount(Lokio/Buffer;)J
-    .locals 4
+    .registers 6
     .param p1, "$this$intCount"    # Lokio/Buffer;
 
     .line 233
@@ -1266,7 +1266,7 @@
 
 # virtual methods
 .method public final varargs of([Lokio/ByteString;)Lokio/Options;
-    .locals 21
+    .registers 23
     .param p1, "byteStrings"    # [Lokio/ByteString;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -1284,21 +1284,21 @@
 
     const/4 v3, 0x1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_f
     const/4 v4, 0x0
 
     const/4 v5, -0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     .line 36
     new-instance v1, Lokio/Options;
@@ -1314,7 +1314,7 @@
     return-object v1
 
     .line 41
-    :cond_1
+    :cond_1f
     invoke-static/range {p1 .. p1}, Lkotlin/collections/ArraysKt;->toMutableList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v1
@@ -1351,8 +1351,8 @@
 
     const/4 v12, 0x0
 
-    :goto_1
-    if-ge v12, v11, :cond_2
+    :goto_35
+    if-ge v12, v11, :cond_47
 
     aget-object v13, v9, v12
 
@@ -1381,10 +1381,10 @@
     .end local v13    # "item$iv$iv":Ljava/lang/Object;
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_1
+    goto :goto_35
 
     .line 240
-    :cond_2
+    :cond_47
     nop
 
     .end local v8    # "destination$iv$iv":Ljava/util/Collection;
@@ -1419,7 +1419,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_162
 
     .line 43
     .end local v5    # "$this$toTypedArray$iv":Ljava/util/Collection;
@@ -1454,8 +1454,8 @@
 
     const/4 v14, 0x0
 
-    :goto_2
-    if-ge v14, v13, :cond_3
+    :goto_6a
+    if-ge v14, v13, :cond_90
 
     aget-object v16, v11, v14
 
@@ -1512,12 +1512,12 @@
 
     move/from16 v5, v17
 
-    goto :goto_2
+    goto :goto_6a
 
     .line 245
     .end local v17    # "index$iv":I
     .local v5, "index$iv":I
-    :cond_3
+    :cond_90
     nop
 
     .line 48
@@ -1534,17 +1534,17 @@
 
     move-result v5
 
-    if-lez v5, :cond_4
+    if-lez v5, :cond_9f
 
     const/4 v5, 0x1
 
-    goto :goto_3
+    goto :goto_a0
 
-    :cond_4
+    :cond_9f
     const/4 v5, 0x0
 
-    :goto_3
-    if-eqz v5, :cond_c
+    :goto_a0
+    if-eqz v5, :cond_152
 
     .line 53
     const/4 v5, 0x0
@@ -1553,12 +1553,12 @@
 
     .line 54
     .local v14, "a":I
-    :goto_4
+    :goto_a4
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-ge v14, v5, :cond_a
+    if-ge v14, v5, :cond_10a
 
     .line 55
     invoke-interface {v1, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1573,12 +1573,12 @@
 
     .line 57
     .local v6, "b":I
-    :goto_5
+    :goto_b2
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v7
 
-    if-ge v6, v7, :cond_9
+    if-ge v6, v7, :cond_107
 
     .line 58
     invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1593,12 +1593,12 @@
 
     move-result v8
 
-    if-nez v8, :cond_5
+    if-nez v8, :cond_c5
 
-    goto :goto_7
+    goto :goto_107
 
     .line 60
-    :cond_5
+    :cond_c5
     invoke-virtual {v7}, Lokio/ByteString;->size()I
 
     move-result v8
@@ -1607,17 +1607,17 @@
 
     move-result v9
 
-    if-eq v8, v9, :cond_6
+    if-eq v8, v9, :cond_d1
 
     const/4 v8, 0x1
 
-    goto :goto_6
+    goto :goto_d2
 
-    :cond_6
+    :cond_d1
     const/4 v8, 0x0
 
-    :goto_6
-    if-eqz v8, :cond_8
+    :goto_d2
+    if-eqz v8, :cond_f4
 
     .line 61
     invoke-interface {v15, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1640,7 +1640,7 @@
 
     move-result v9
 
-    if-le v8, v9, :cond_7
+    if-le v8, v9, :cond_f1
 
     .line 62
     invoke-interface {v1, v6}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -1648,18 +1648,18 @@
     .line 63
     invoke-interface {v15, v6}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto :goto_5
+    goto :goto_b2
 
     .line 65
-    :cond_7
+    :cond_f1
     add-int/lit8 v6, v6, 0x1
 
     .end local v7    # "byteString":Lokio/ByteString;
-    goto :goto_5
+    goto :goto_b2
 
     .line 246
     .restart local v7    # "byteString":Lokio/ByteString;
-    :cond_8
+    :cond_f4
     const/4 v2, 0x0
 
     .line 60
@@ -1685,16 +1685,16 @@
 
     .line 68
     .end local v7    # "byteString":Lokio/ByteString;
-    :cond_9
-    :goto_7
+    :cond_107
+    :goto_107
     add-int/lit8 v14, v14, 0x1
 
     .end local v5    # "prefix":Lokio/ByteString;
     .end local v6    # "b":I
-    goto :goto_4
+    goto :goto_a4
 
     .line 71
-    :cond_a
+    :cond_10a
     new-instance v2, Lokio/Buffer;
 
     invoke-direct {v2}, Lokio/Buffer;-><init>()V
@@ -1752,12 +1752,12 @@
 
     .line 76
     .local v6, "i":I
-    :goto_8
+    :goto_130
     invoke-virtual {v2}, Lokio/Buffer;->exhausted()Z
 
     move-result v7
 
-    if-nez v7, :cond_b
+    if-nez v7, :cond_140
 
     .line 77
     add-int/lit8 v7, v6, 0x1
@@ -1772,12 +1772,12 @@
 
     move v6, v7
 
-    goto :goto_8
+    goto :goto_130
 
     .line 80
     .end local v7    # "i":I
     .restart local v6    # "i":I
-    :cond_b
+    :cond_140
     new-instance v7, Lokio/Options;
 
     array-length v9, v0
@@ -1803,7 +1803,7 @@
     .end local v6    # "i":I
     .end local v17    # "a":I
     .restart local v15    # "indexes":Ljava/util/List;
-    :cond_c
+    :cond_152
     const/4 v2, 0x0
 
     .line 48
@@ -1830,7 +1830,7 @@
     .local v5, "$this$toTypedArray$iv":Ljava/util/Collection;
     .local v6, "$i$f$toTypedArray":I
     .local v7, "thisCollection$iv":Ljava/util/Collection;
-    :cond_d
+    :cond_162
     move-object/from16 v8, p0
 
     new-instance v2, Ljava/lang/NullPointerException;

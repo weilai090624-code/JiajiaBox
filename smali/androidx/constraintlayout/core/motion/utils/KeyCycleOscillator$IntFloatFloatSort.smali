@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 254
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method private static partition([I[F[FII)I
-    .locals 4
+    .registers 9
     .param p0, "array"    # [I
     .param p1, "value1"    # [F
     .param p2, "value2"    # [F
@@ -44,13 +44,13 @@
     move v2, p3
 
     .local v2, "j":I
-    :goto_0
-    if-ge v2, p4, :cond_1
+    :goto_4
+    if-ge v2, p4, :cond_12
 
     .line 277
     aget v3, p0, v2
 
-    if-gt v3, v0, :cond_0
+    if-gt v3, v0, :cond_f
 
     .line 278
     invoke-static {p0, p1, p2, v1, v2}, Landroidx/constraintlayout/core/motion/utils/KeyCycleOscillator$IntFloatFloatSort;->swap([I[F[FII)V
@@ -59,14 +59,14 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 276
-    :cond_0
+    :cond_f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 282
     .end local v2    # "j":I
-    :cond_1
+    :cond_12
     invoke-static {p0, p1, p2, v1, p4}, Landroidx/constraintlayout/core/motion/utils/KeyCycleOscillator$IntFloatFloatSort;->swap([I[F[FII)V
 
     .line 283
@@ -74,7 +74,7 @@
 .end method
 
 .method static sort([I[F[FII)V
-    .locals 5
+    .registers 10
     .param p0, "key"    # [I
     .param p1, "value1"    # [F
     .param p2, "value2"    # [F
@@ -108,9 +108,9 @@
     aput p3, v0, v2
 
     .line 260
-    :cond_0
-    :goto_0
-    if-lez v1, :cond_1
+    :cond_e
+    :goto_e
+    if-lez v1, :cond_33
 
     .line 261
     add-int/lit8 v1, v1, -0x1
@@ -123,7 +123,7 @@
     aget p4, v0, v1
 
     .line 263
-    if-ge p3, p4, :cond_0
+    if-ge p3, p4, :cond_e
 
     .line 264
     invoke-static {p0, p1, p2, p3, p4}, Landroidx/constraintlayout/core/motion/utils/KeyCycleOscillator$IntFloatFloatSort;->partition([I[F[FII)I
@@ -165,15 +165,15 @@
 
     .line 269
     .end local v2    # "p":I
-    goto :goto_0
+    goto :goto_e
 
     .line 271
-    :cond_1
+    :cond_33
     return-void
 .end method
 
 .method private static swap([I[F[FII)V
-    .locals 3
+    .registers 8
     .param p0, "array"    # [I
     .param p1, "value1"    # [F
     .param p2, "value2"    # [F

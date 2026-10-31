@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "view"    # Landroid/view/View;
 
     .line 162
@@ -36,7 +36,7 @@
 .end method
 
 .method constructor <init>(Landroid/view/WindowInsetsController;)V
-    .locals 1
+    .registers 3
     .param p1, "windowInsetsController"    # Landroid/view/WindowInsetsController;
 
     .line 167
@@ -52,7 +52,7 @@
 .end method
 
 .method static synthetic lambda$hide$0(Ljava/util/concurrent/atomic/AtomicBoolean;Landroid/view/WindowInsetsController;I)V
-    .locals 1
+    .registers 4
     .param p0, "isImeInsetsControllable"    # Ljava/util/concurrent/atomic/AtomicBoolean;
     .param p1, "windowInsetsController"    # Landroid/view/WindowInsetsController;
     .param p2, "typeMask"    # I
@@ -60,16 +60,16 @@
     .line 212
     and-int/lit8 v0, p2, 0x8
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     return-void
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method hide()V
-    .locals 6
+    .registers 7
 
     .line 203
     const/4 v0, 0x0
@@ -87,18 +87,18 @@
     .local v0, "insetsController":Landroid/view/WindowInsetsController;
     iget-object v1, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mWindowInsetsController:Landroid/view/WindowInsetsController;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8
 
     .line 205
     iget-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mWindowInsetsController:Landroid/view/WindowInsetsController;
 
-    goto :goto_0
+    goto :goto_12
 
     .line 206
-    :cond_0
+    :cond_8
     iget-object v1, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mView:Landroid/view/View;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_12
 
     .line 207
     iget-object v1, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mView:Landroid/view/View;
@@ -108,9 +108,9 @@
     move-result-object v0
 
     .line 209
-    :cond_1
-    :goto_0
-    if-eqz v0, :cond_3
+    :cond_12
+    :goto_12
+    if-eqz v0, :cond_4e
 
     .line 210
     new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -134,11 +134,11 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_43
 
     iget-object v4, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mView:Landroid/view/View;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_43
 
     .line 219
     iget-object v4, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mView:Landroid/view/View;
@@ -168,7 +168,7 @@
 
     .line 226
     .end local v4    # "imm":Landroid/view/inputmethod/InputMethodManager;
-    :cond_2
+    :cond_43
     invoke-interface {v0, v3}, Landroid/view/WindowInsetsController;->removeOnControllableInsetsChangedListener(Landroid/view/WindowInsetsController$OnControllableInsetsChangedListener;)V
 
     .line 227
@@ -181,30 +181,30 @@
     .line 228
     .end local v1    # "isImeInsetsControllable":Ljava/util/concurrent/atomic/AtomicBoolean;
     .end local v3    # "listener":Landroid/view/WindowInsetsController$OnControllableInsetsChangedListener;
-    goto :goto_1
+    goto :goto_51
 
     .line 230
-    :cond_3
+    :cond_4e
     invoke-super {p0}, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl20;->hide()V
 
     .line 232
-    :goto_1
+    :goto_51
     return-void
 .end method
 
 .method show()V
-    .locals 2
+    .registers 3
 
     .line 173
     iget-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x21
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1b
 
     .line 174
     iget-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mView:Landroid/view/View;
@@ -229,25 +229,25 @@
 
     .line 187
     .end local v0    # "imm":Landroid/view/inputmethod/InputMethodManager;
-    :cond_0
+    :cond_1b
     const/4 v0, 0x0
 
     .line 188
     .local v0, "insetsController":Landroid/view/WindowInsetsController;
     iget-object v1, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mWindowInsetsController:Landroid/view/WindowInsetsController;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     .line 189
     iget-object v0, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mWindowInsetsController:Landroid/view/WindowInsetsController;
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 190
-    :cond_1
+    :cond_23
     iget-object v1, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mView:Landroid/view/View;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2d
 
     .line 191
     iget-object v1, p0, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl30;->mView:Landroid/view/View;
@@ -257,9 +257,9 @@
     move-result-object v0
 
     .line 193
-    :cond_2
-    :goto_0
-    if-eqz v0, :cond_3
+    :cond_2d
+    :goto_2d
+    if-eqz v0, :cond_37
 
     .line 194
     invoke-static {}, Landroid/view/WindowInsets$Type;->ime()I
@@ -268,13 +268,13 @@
 
     invoke-interface {v0, v1}, Landroid/view/WindowInsetsController;->show(I)V
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 197
-    :cond_3
+    :cond_37
     invoke-super {p0}, Landroidx/core/view/SoftwareKeyboardControllerCompat$Impl20;->show()V
 
     .line 199
-    :goto_1
+    :goto_3a
     return-void
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 119
     new-instance v0, Lj$/time/chrono/ThaiBuddhistEra;
@@ -70,7 +70,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -84,11 +84,11 @@
 .end method
 
 .method public static of(I)Lj$/time/chrono/ThaiBuddhistEra;
-    .locals 3
+    .registers 4
     .param p0, "thaiBuddhistEra"    # I
 
     .line 138
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_22
 
     .line 144
     new-instance v0, Lj$/time/DateTimeException;
@@ -116,26 +116,26 @@
     throw v0
 
     .line 142
-    :pswitch_0
+    :pswitch_1c
     sget-object v0, Lj$/time/chrono/ThaiBuddhistEra;->BE:Lj$/time/chrono/ThaiBuddhistEra;
 
     return-object v0
 
     .line 140
-    :pswitch_1
+    :pswitch_1f
     sget-object v0, Lj$/time/chrono/ThaiBuddhistEra;->BEFORE_BE:Lj$/time/chrono/ThaiBuddhistEra;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_22
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1f
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/chrono/ThaiBuddhistEra;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 113
@@ -151,7 +151,7 @@
 .end method
 
 .method public static values()[Lj$/time/chrono/ThaiBuddhistEra;
-    .locals 1
+    .registers 1
 
     .line 113
     sget-object v0, Lj$/time/chrono/ThaiBuddhistEra;->$VALUES:[Lj$/time/chrono/ThaiBuddhistEra;
@@ -168,7 +168,7 @@
 
 # virtual methods
 .method public synthetic adjustInto(Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$adjustInto(Lj$/time/chrono/Era;Lj$/time/temporal/Temporal;)Lj$/time/temporal/Temporal;
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public synthetic get(Lj$/time/temporal/TemporalField;)I
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$get(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)I
 
@@ -188,7 +188,7 @@
 .end method
 
 .method public getDisplayName(Lj$/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 3
+    .registers 6
     .param p1, "style"    # Lj$/time/format/TextStyle;
     .param p2, "locale"    # Ljava/util/Locale;
 
@@ -221,22 +221,22 @@
 
     const/4 v2, 0x1
 
-    if-ne p0, v1, :cond_0
+    if-ne p0, v1, :cond_1f
 
     invoke-static {v2, v2, v2}, Lj$/time/chrono/ThaiBuddhistDate;->of(III)Lj$/time/chrono/ThaiBuddhistDate;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_1f
     const/4 v1, 0x0
 
     invoke-static {v1, v2, v2}, Lj$/time/chrono/ThaiBuddhistDate;->of(III)Lj$/time/chrono/ThaiBuddhistDate;
 
     move-result-object v1
 
-    :goto_0
+    :goto_24
     invoke-virtual {v0, v1}, Lj$/time/format/DateTimeFormatter;->format(Lj$/time/temporal/TemporalAccessor;)Ljava/lang/String;
 
     move-result-object v0
@@ -246,7 +246,7 @@
 .end method
 
 .method public synthetic getLong(Lj$/time/temporal/TemporalField;)J
-    .locals 2
+    .registers 4
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$getLong(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)J
 
@@ -256,7 +256,7 @@
 .end method
 
 .method public getValue()I
-    .locals 1
+    .registers 2
 
     .line 158
     invoke-virtual {p0}, Lj$/time/chrono/ThaiBuddhistEra;->ordinal()I
@@ -267,7 +267,7 @@
 .end method
 
 .method public synthetic isSupported(Lj$/time/temporal/TemporalField;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$isSupported(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)Z
 
@@ -277,7 +277,7 @@
 .end method
 
 .method public synthetic query(Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$query(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalQuery;)Ljava/lang/Object;
 
@@ -287,7 +287,7 @@
 .end method
 
 .method public synthetic range(Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/chrono/Era$-CC;->$default$range(Lj$/time/chrono/Era;Lj$/time/temporal/TemporalField;)Lj$/time/temporal/ValueRange;
 

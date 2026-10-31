@@ -99,7 +99,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 247
     new-instance v0, Lj$/util/stream/StreamOpFlag;
@@ -427,7 +427,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IILj$/util/stream/StreamOpFlag$MaskBuilder;)V
-    .locals 0
+    .registers 5
     .param p3, "position"    # I
     .param p4, "maskBuilder"    # Lj$/util/stream/StreamOpFlag$MaskBuilder;
     .annotation system Ldalvik/annotation/Signature;
@@ -480,7 +480,7 @@
 .end method
 
 .method static combineOpFlags(II)I
-    .locals 1
+    .registers 3
     .param p0, "newStreamOrOpFlags"    # I
     .param p1, "prevCombOpFlags"    # I
 
@@ -497,7 +497,7 @@
 .end method
 
 .method private static createFlagMask()I
-    .locals 6
+    .registers 6
 
     .line 564
     const/4 v0, 0x0
@@ -512,8 +512,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_7
+    if-ge v3, v2, :cond_11
 
     aget-object v4, v1, v3
 
@@ -527,15 +527,15 @@
     .end local v4    # "flag":Lj$/util/stream/StreamOpFlag;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 568
-    :cond_0
+    :cond_11
     return v0
 .end method
 
 .method private static createMask(Lj$/util/stream/StreamOpFlag$Type;)I
-    .locals 7
+    .registers 8
     .param p0, "t"    # Lj$/util/stream/StreamOpFlag$Type;
 
     .line 551
@@ -551,8 +551,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_7
+    if-ge v3, v2, :cond_1e
 
     aget-object v4, v1, v3
 
@@ -580,15 +580,15 @@
     .end local v4    # "flag":Lj$/util/stream/StreamOpFlag;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 555
-    :cond_0
+    :cond_1e
     return v0
 .end method
 
 .method static fromCharacteristics(I)I
-    .locals 1
+    .registers 2
     .param p0, "characteristics"    # I
 
     .line 751
@@ -600,7 +600,7 @@
 .end method
 
 .method static fromCharacteristics(Lj$/util/Spliterator;)I
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -619,13 +619,13 @@
     .local v0, "characteristics":I
     and-int/lit8 v1, v0, 0x4
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-interface {p0}, Lj$/util/Spliterator;->getComparator()Ljava/util/Comparator;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 737
     sget v1, Lj$/util/stream/StreamOpFlag;->SPLITERATOR_CHARACTERISTICS_MASK:I
@@ -637,7 +637,7 @@
     return v1
 
     .line 740
-    :cond_0
+    :cond_14
     sget v1, Lj$/util/stream/StreamOpFlag;->SPLITERATOR_CHARACTERISTICS_MASK:I
 
     and-int/2addr v1, v0
@@ -646,19 +646,19 @@
 .end method
 
 .method private static getMask(I)I
-    .locals 2
+    .registers 3
     .param p0, "flags"    # I
 
     .line 633
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 634
     sget v0, Lj$/util/stream/StreamOpFlag;->FLAG_MASK:I
 
-    goto :goto_0
+    goto :goto_12
 
     .line 635
-    :cond_0
+    :cond_5
     sget v0, Lj$/util/stream/StreamOpFlag;->FLAG_MASK_IS:I
 
     and-int/2addr v0, p0
@@ -678,12 +678,12 @@
     not-int v0, v0
 
     .line 633
-    :goto_0
+    :goto_12
     return v0
 .end method
 
 .method private static set(Lj$/util/stream/StreamOpFlag$Type;)Lj$/util/stream/StreamOpFlag$MaskBuilder;
-    .locals 3
+    .registers 4
     .param p0, "t"    # Lj$/util/stream/StreamOpFlag$Type;
 
     .line 384
@@ -705,7 +705,7 @@
 .end method
 
 .method static toCharacteristics(I)I
-    .locals 1
+    .registers 2
     .param p0, "streamFlags"    # I
 
     .line 716
@@ -717,7 +717,7 @@
 .end method
 
 .method static toStreamFlags(I)I
-    .locals 2
+    .registers 3
     .param p0, "combOpFlags"    # I
 
     .line 706
@@ -735,7 +735,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/util/stream/StreamOpFlag;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 204
@@ -751,7 +751,7 @@
 .end method
 
 .method public static values()[Lj$/util/stream/StreamOpFlag;
-    .locals 1
+    .registers 1
 
     .line 204
     sget-object v0, Lj$/util/stream/StreamOpFlag;->$VALUES:[Lj$/util/stream/StreamOpFlag;
@@ -768,7 +768,7 @@
 
 # virtual methods
 .method canSet(Lj$/util/stream/StreamOpFlag$Type;)Z
-    .locals 2
+    .registers 4
     .param p1, "t"    # Lj$/util/stream/StreamOpFlag$Type;
 
     .line 522
@@ -788,19 +788,19 @@
 
     and-int/2addr v0, v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_11
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     return v1
 .end method
 
 .method clear()I
-    .locals 1
+    .registers 2
 
     .line 470
     iget v0, p0, Lj$/util/stream/StreamOpFlag;->clear:I
@@ -809,7 +809,7 @@
 .end method
 
 .method isCleared(I)Z
-    .locals 2
+    .registers 4
     .param p1, "flags"    # I
 
     .line 502
@@ -819,21 +819,21 @@
 
     iget v1, p0, Lj$/util/stream/StreamOpFlag;->clear:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method isKnown(I)Z
-    .locals 2
+    .registers 4
     .param p1, "flags"    # I
 
     .line 491
@@ -843,21 +843,21 @@
 
     iget v1, p0, Lj$/util/stream/StreamOpFlag;->set:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method isPreserved(I)Z
-    .locals 2
+    .registers 4
     .param p1, "flags"    # I
 
     .line 512
@@ -867,21 +867,21 @@
 
     iget v1, p0, Lj$/util/stream/StreamOpFlag;->preserve:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method isStreamFlag()Z
-    .locals 2
+    .registers 3
 
     .line 479
     iget-object v0, p0, Lj$/util/stream/StreamOpFlag;->maskTable:Ljava/util/Map;
@@ -898,21 +898,21 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method set()I
-    .locals 1
+    .registers 2
 
     .line 461
     iget v0, p0, Lj$/util/stream/StreamOpFlag;->set:I

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static synthetic m(Ljava/lang/Object;)Ljava/util/List;
-    .locals 2
+    .registers 3
 
     .line 0
     const/4 v0, 0x1

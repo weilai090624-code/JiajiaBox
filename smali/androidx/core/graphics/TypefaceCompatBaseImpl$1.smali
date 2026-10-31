@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/graphics/TypefaceCompatBaseImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/core/graphics/TypefaceCompatBaseImpl;
 
     .line 103
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getWeight(Landroidx/core/provider/FontsContractCompat$FontInfo;)I
-    .locals 1
+    .registers 3
     .param p1, "info"    # Landroidx/core/provider/FontsContractCompat$FontInfo;
 
     .line 106
@@ -58,7 +58,7 @@
 .end method
 
 .method public bridge synthetic getWeight(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 103
     check-cast p1, Landroidx/core/provider/FontsContractCompat$FontInfo;
@@ -71,7 +71,7 @@
 .end method
 
 .method public isItalic(Landroidx/core/provider/FontsContractCompat$FontInfo;)Z
-    .locals 1
+    .registers 3
     .param p1, "info"    # Landroidx/core/provider/FontsContractCompat$FontInfo;
 
     .line 111
@@ -83,7 +83,7 @@
 .end method
 
 .method public bridge synthetic isItalic(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 103
     check-cast p1, Landroidx/core/provider/FontsContractCompat$FontInfo;

@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .end method
 
 .method public static create(FFFF)Landroidx/camera/core/ZoomState;
-    .locals 1
+    .registers 5
     .param p0, "zoomRatio"    # F
     .param p1, "maxZoomRatio"    # F
     .param p2, "minZoomRatio"    # F
@@ -46,7 +46,7 @@
 .end method
 
 .method public static create(Landroidx/camera/core/ZoomState;)Landroidx/camera/core/ZoomState;
-    .locals 5
+    .registers 6
     .param p0, "zoomState"    # Landroidx/camera/core/ZoomState;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

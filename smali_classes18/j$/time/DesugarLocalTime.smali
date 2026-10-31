@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 102
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method public static ofInstant(Lj$/time/Instant;Lj$/time/ZoneId;)Lj$/time/LocalTime;
-    .locals 8
+    .registers 10
     .param p0, "instant"    # Lj$/time/Instant;
     .param p1, "zone"    # Lj$/time/ZoneId;
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public static toEpochSecond(Lj$/time/LocalTime;Lj$/time/LocalDate;Lj$/time/ZoneOffset;)J
-    .locals 6
+    .registers 9
     .param p0, "receiver"    # Lj$/time/LocalTime;
     .param p1, "date"    # Lj$/time/LocalDate;
     .param p2, "offset"    # Lj$/time/ZoneOffset;

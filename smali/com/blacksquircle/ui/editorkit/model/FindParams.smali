@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 7
+    .registers 8
 
     const/16 v5, 0xf
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ZZZ)V
-    .locals 1
+    .registers 6
     .param p1, "query"    # Ljava/lang/String;
     .param p2, "regex"    # Z
     .param p3, "matchCase"    # Z
@@ -110,47 +110,47 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;ZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
+    .registers 8
 
     .line 19
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_6
 
     .line 20
     const-string p1, ""
 
     .line 19
-    :cond_0
+    :cond_6
     and-int/lit8 p6, p5, 0x2
 
     const/4 v0, 0x0
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_c
 
     .line 21
     const/4 p2, 0x0
 
     .line 19
-    :cond_1
+    :cond_c
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_11
 
     .line 22
     const/4 p3, 0x0
 
     .line 19
-    :cond_2
+    :cond_11
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_16
 
     .line 23
     const/4 p4, 0x0
 
     .line 19
-    :cond_3
+    :cond_16
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/model/FindParams;-><init>(Ljava/lang/String;ZZZ)V
 
     .line 24
@@ -158,36 +158,36 @@
 .end method
 
 .method public static synthetic copy$default(Lcom/blacksquircle/ui/editorkit/model/FindParams;Ljava/lang/String;ZZZILjava/lang/Object;)Lcom/blacksquircle/ui/editorkit/model/FindParams;
-    .locals 0
+    .registers 7
 
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_6
 
     iget-object p1, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->query:Ljava/lang/String;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_c
 
     iget-boolean p2, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->regex:Z
 
-    :cond_1
+    :cond_c
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_12
 
     iget-boolean p3, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->matchCase:Z
 
-    :cond_2
+    :cond_12
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_18
 
     iget-boolean p4, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->wordsOnly:Z
 
-    :cond_3
+    :cond_18
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/blacksquircle/ui/editorkit/model/FindParams;->copy(Ljava/lang/String;ZZZ)Lcom/blacksquircle/ui/editorkit/model/FindParams;
 
     move-result-object p0
@@ -198,7 +198,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->query:Ljava/lang/String;
 
@@ -206,7 +206,7 @@
 .end method
 
 .method public final component2()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->regex:Z
 
@@ -214,7 +214,7 @@
 .end method
 
 .method public final component3()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->matchCase:Z
 
@@ -222,7 +222,7 @@
 .end method
 
 .method public final component4()Z
-    .locals 1
+    .registers 2
 
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->wordsOnly:Z
 
@@ -230,7 +230,7 @@
 .end method
 
 .method public final copy(Ljava/lang/String;ZZZ)Lcom/blacksquircle/ui/editorkit/model/FindParams;
-    .locals 1
+    .registers 6
 
     const-string v0, "query"
 
@@ -244,24 +244,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/blacksquircle/ui/editorkit/model/FindParams;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Lcom/blacksquircle/ui/editorkit/model/FindParams;
@@ -274,43 +274,43 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-boolean v3, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->regex:Z
 
     iget-boolean v4, v1, Lcom/blacksquircle/ui/editorkit/model/FindParams;->regex:Z
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     iget-boolean v3, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->matchCase:Z
 
     iget-boolean v4, v1, Lcom/blacksquircle/ui/editorkit/model/FindParams;->matchCase:Z
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_26
 
     return v2
 
-    :cond_4
+    :cond_26
     iget-boolean v3, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->wordsOnly:Z
 
     iget-boolean v1, v1, Lcom/blacksquircle/ui/editorkit/model/FindParams;->wordsOnly:Z
 
-    if-eq v3, v1, :cond_5
+    if-eq v3, v1, :cond_2d
 
     return v2
 
-    :cond_5
+    :cond_2d
     return v0
 .end method
 
 .method public final getMatchCase()Z
-    .locals 1
+    .registers 2
 
     .line 22
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->matchCase:Z
@@ -319,7 +319,7 @@
 .end method
 
 .method public final getQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 20
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->query:Ljava/lang/String;
@@ -328,7 +328,7 @@
 .end method
 
 .method public final getRegex()Z
-    .locals 1
+    .registers 2
 
     .line 21
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->regex:Z
@@ -337,7 +337,7 @@
 .end method
 
 .method public final getWordsOnly()Z
-    .locals 1
+    .registers 2
 
     .line 23
     iget-boolean v0, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->wordsOnly:Z
@@ -346,7 +346,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .registers 5
 
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->query:Ljava/lang/String;
 
@@ -360,43 +360,43 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     const/4 v2, 0x1
 
-    :cond_0
+    :cond_e
     add-int/2addr v1, v2
 
     mul-int/lit8 v0, v1, 0x1f
 
     iget-boolean v2, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->matchCase:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_16
 
     const/4 v2, 0x1
 
-    :cond_1
+    :cond_16
     add-int/2addr v0, v2
 
     mul-int/lit8 v1, v0, 0x1f
 
     iget-boolean v2, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->wordsOnly:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1e
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_2
+    :cond_1e
     move v3, v2
 
-    :goto_0
+    :goto_1f
     add-int/2addr v1, v3
 
     return v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/model/FindParams;->query:Ljava/lang/String;
 

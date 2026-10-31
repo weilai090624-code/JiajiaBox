@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     .local p0, "this":Lcom/google/android/material/datepicker/MaterialTextInputPicker;, "Lcom/google/android/material/datepicker/MaterialTextInputPicker<TS;>;"
@@ -50,7 +50,7 @@
 .end method
 
 .method static newInstance(Lcom/google/android/material/datepicker/DateSelector;ILcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/MaterialTextInputPicker;
-    .locals 3
+    .registers 6
     .param p1, "themeResId"    # I
     .param p2, "calendarConstraints"    # Lcom/google/android/material/datepicker/CalendarConstraints;
     .annotation system Ldalvik/annotation/Signature;
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public getDateSelector()Lcom/google/android/material/datepicker/DateSelector;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -118,7 +118,7 @@
     .local p0, "this":Lcom/google/android/material/datepicker/MaterialTextInputPicker;, "Lcom/google/android/material/datepicker/MaterialTextInputPicker<TS;>;"
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialTextInputPicker;->dateSelector:Lcom/google/android/material/datepicker/DateSelector;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 115
     iget-object v0, p0, Lcom/google/android/material/datepicker/MaterialTextInputPicker;->dateSelector:Lcom/google/android/material/datepicker/DateSelector;
@@ -126,7 +126,7 @@
     return-object v0
 
     .line 110
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "dateSelector should not be null. Use MaterialTextInputPicker#newInstance() to create this fragment with a DateSelector, and call this method after the fragment has been created."
@@ -137,7 +137,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 69
@@ -145,20 +145,20 @@
     invoke-super {p0, p1}, Lcom/google/android/material/datepicker/PickerFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 70
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     invoke-virtual {p0}, Lcom/google/android/material/datepicker/MaterialTextInputPicker;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     move-object v0, p1
 
     .line 71
     .local v0, "activeBundle":Landroid/os/Bundle;
-    :goto_0
+    :goto_b
     const-string v1, "THEME_RES_ID_KEY"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -194,7 +194,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 8
+    .registers 12
     .param p1, "layoutInflater"    # Landroid/view/LayoutInflater;
     .param p2, "viewGroup"    # Landroid/view/ViewGroup;
     .param p3, "bundle"    # Landroid/os/Bundle;
@@ -241,7 +241,7 @@
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 61

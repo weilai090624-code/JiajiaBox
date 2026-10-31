@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap$Strength;Lcom/google/common/collect/MapMakerInternalMap$Strength;Lcom/google/common/base/Equivalence;Lcom/google/common/base/Equivalence;ILjava/util/concurrent/ConcurrentMap;)V
-    .locals 0
+    .registers 7
     .param p1, "keyStrength"    # Lcom/google/common/collect/MapMakerInternalMap$Strength;
     .param p2, "valueStrength"    # Lcom/google/common/collect/MapMakerInternalMap$Strength;
     .param p5, "concurrencyLevel"    # I
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 2852
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy;, "Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy<TK;TV;>;"
@@ -137,7 +137,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 2852
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy;, "Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy<TK;TV;>;"
@@ -149,7 +149,7 @@
 .end method
 
 .method protected delegate()Ljava/util/concurrent/ConcurrentMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -166,7 +166,7 @@
 .end method
 
 .method readEntries(Ljava/io/ObjectInputStream;)V
-    .locals 3
+    .registers 5
     .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -179,14 +179,14 @@
     .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy;, "Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy<TK;TV;>;"
     nop
 
-    :goto_0
+    :goto_1
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v0
 
     .line 2908
     .local v0, "key":Ljava/lang/Object;, "TK;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 2909
     nop
@@ -197,7 +197,7 @@
 
     .line 2911
     .restart local v0    # "key":Ljava/lang/Object;, "TK;"
-    :cond_0
+    :cond_9
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v1
@@ -211,11 +211,11 @@
     .line 2913
     .end local v0    # "key":Ljava/lang/Object;, "TK;"
     .end local v1    # "value":Ljava/lang/Object;, "TV;"
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method readMapMaker(Ljava/io/ObjectInputStream;)Lcom/google/common/collect/MapMaker;
-    .locals 3
+    .registers 5
     .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -273,7 +273,7 @@
 .end method
 
 .method writeMapTo(Ljava/io/ObjectOutputStream;)V
-    .locals 3
+    .registers 5
     .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -302,12 +302,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_13
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -332,10 +332,10 @@
 
     .line 2889
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    goto :goto_0
+    goto :goto_13
 
     .line 2890
-    :cond_0
+    :cond_2e
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V

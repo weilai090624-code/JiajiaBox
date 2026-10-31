@@ -84,7 +84,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$6LfGVfM7RPRhy_DZ9J8SakmZm0k(Lio/nekohasekai/sagernet/bg/TileService;)Landroid/graphics/drawable/Icon;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/TileService;->iconIdle_delegate$lambda$0(Lio/nekohasekai/sagernet/bg/TileService;)Landroid/graphics/drawable/Icon;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$KLnyoqwC7VxFhrJohPSMYU77kCo(Lio/nekohasekai/sagernet/bg/TileService;)V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lio/nekohasekai/sagernet/bg/TileService;->toggle()V
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$poIh4pm2so8-lJmIQU_SBHrB79k(Lio/nekohasekai/sagernet/bg/TileService;)Landroid/graphics/drawable/Icon;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/TileService;->iconConnected_delegate$lambda$2(Lio/nekohasekai/sagernet/bg/TileService;)Landroid/graphics/drawable/Icon;
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$uuMhVfk9F3tp32xZr0FImiMREtA(Lio/nekohasekai/sagernet/bg/TileService;)Landroid/graphics/drawable/Icon;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/TileService;->iconBusy_delegate$lambda$1(Lio/nekohasekai/sagernet/bg/TileService;)Landroid/graphics/drawable/Icon;
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 5
+    .registers 6
 
     .line 13
     invoke-direct {p0}, Landroid/service/quicksettings/TileService;-><init>()V
@@ -180,7 +180,7 @@
 .end method
 
 .method private final getIconBusy()Landroid/graphics/drawable/Icon;
-    .locals 1
+    .registers 2
 
     .line 15
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/TileService;->iconBusy$delegate:Lkotlin/Lazy;
@@ -195,7 +195,7 @@
 .end method
 
 .method private final getIconConnected()Landroid/graphics/drawable/Icon;
-    .locals 1
+    .registers 2
 
     .line 16
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/TileService;->iconConnected$delegate:Lkotlin/Lazy;
@@ -210,7 +210,7 @@
 .end method
 
 .method private final getIconIdle()Landroid/graphics/drawable/Icon;
-    .locals 1
+    .registers 2
 
     .line 14
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/TileService;->iconIdle$delegate:Lkotlin/Lazy;
@@ -225,7 +225,7 @@
 .end method
 
 .method private static final iconBusy_delegate$lambda$1(Lio/nekohasekai/sagernet/bg/TileService;)Landroid/graphics/drawable/Icon;
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/TileService;
 
     .line 15
@@ -243,7 +243,7 @@
 .end method
 
 .method private static final iconConnected_delegate$lambda$2(Lio/nekohasekai/sagernet/bg/TileService;)Landroid/graphics/drawable/Icon;
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/TileService;
 
     .line 17
@@ -261,7 +261,7 @@
 .end method
 
 .method private static final iconIdle_delegate$lambda$0(Lio/nekohasekai/sagernet/bg/TileService;)Landroid/graphics/drawable/Icon;
-    .locals 2
+    .registers 3
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/bg/TileService;
 
     .line 14
@@ -279,7 +279,7 @@
 .end method
 
 .method private final toggle()V
-    .locals 4
+    .registers 5
 
     .line 84
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/TileService;->connection:Lio/nekohasekai/sagernet/bg/SagerConnection;
@@ -290,7 +290,7 @@
 
     .line 85
     .local v0, "service":Lio/nekohasekai/sagernet/aidl/ISagerNetService;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 86
     nop
@@ -300,10 +300,10 @@
 
     iput-boolean v1, p0, Lio/nekohasekai/sagernet/bg/TileService;->tapPending:Z
 
-    goto :goto_1
+    goto :goto_30
 
     .line 86
-    :cond_0
+    :cond_d
     invoke-static {}, Lio/nekohasekai/sagernet/bg/BaseService$State;->values()[Lio/nekohasekai/sagernet/bg/BaseService$State;
 
     move-result-object v1
@@ -326,27 +326,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_25
 
     sget-object v3, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/SagerNet$Companion;->stopService()V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 89
-    :cond_1
+    :cond_25
     sget-object v3, Lio/nekohasekai/sagernet/bg/BaseService$State;->Stopped:Lio/nekohasekai/sagernet/bg/BaseService$State;
 
-    if-ne v1, v3, :cond_2
+    if-ne v1, v3, :cond_2e
 
     sget-object v3, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v3}, Lio/nekohasekai/sagernet/SagerNet$Companion;->startService()V
 
     .line 91
-    :cond_2
-    :goto_0
+    :cond_2e
+    :goto_2e
     nop
 
     .line 86
@@ -355,12 +355,12 @@
     nop
 
     .line 92
-    :goto_1
+    :goto_30
     return-void
 .end method
 
 .method private final updateTile(Lio/nekohasekai/sagernet/bg/BaseService$State;Ljava/lang/String;)V
-    .locals 4
+    .registers 7
     .param p1, "serviceState"    # Lio/nekohasekai/sagernet/bg/BaseService$State;
     .param p2, "profileName"    # Ljava/lang/String;
 
@@ -369,7 +369,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_78
 
     .local v0, "$this$updateTile_u24lambda_u243":Landroid/service/quicksettings/Tile;
     const/4 v1, 0x0
@@ -391,7 +391,7 @@
 
     const/4 v3, 0x2
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_7a
 
     new-instance v2, Lkotlin/NoWhenBranchMatchedException;
 
@@ -400,7 +400,7 @@
     throw v2
 
     .line 74
-    :pswitch_0
+    :pswitch_1d
     invoke-direct {p0}, Lio/nekohasekai/sagernet/bg/TileService;->getIconIdle()Landroid/graphics/drawable/Icon;
 
     move-result-object v2
@@ -412,10 +412,10 @@
 
     invoke-virtual {v0, v2}, Landroid/service/quicksettings/Tile;->setState(I)V
 
-    goto :goto_0
+    goto :goto_50
 
     .line 69
-    :pswitch_1
+    :pswitch_29
     invoke-direct {p0}, Lio/nekohasekai/sagernet/bg/TileService;->getIconBusy()Landroid/graphics/drawable/Icon;
 
     move-result-object v2
@@ -427,10 +427,10 @@
 
     invoke-virtual {v0, v2}, Landroid/service/quicksettings/Tile;->setState(I)V
 
-    goto :goto_0
+    goto :goto_50
 
     .line 63
-    :pswitch_2
+    :pswitch_35
     invoke-direct {p0}, Lio/nekohasekai/sagernet/bg/TileService;->getIconConnected()Landroid/graphics/drawable/Icon;
 
     move-result-object v2
@@ -447,10 +447,10 @@
     .line 65
     invoke-virtual {v0, v3}, Landroid/service/quicksettings/Tile;->setState(I)V
 
-    goto :goto_0
+    goto :goto_50
 
     .line 58
-    :pswitch_3
+    :pswitch_46
     invoke-direct {p0}, Lio/nekohasekai/sagernet/bg/TileService;->getIconBusy()Landroid/graphics/drawable/Icon;
 
     move-result-object v2
@@ -461,12 +461,12 @@
     invoke-virtual {v0, v3}, Landroid/service/quicksettings/Tile;->setState(I)V
 
     .line 78
-    :goto_0
+    :goto_50
     invoke-virtual {v0}, Landroid/service/quicksettings/Tile;->getLabel()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_64
 
     const v2, 0x7f130054
 
@@ -480,7 +480,7 @@
 
     check-cast v2, Ljava/lang/CharSequence;
 
-    :cond_0
+    :cond_64
     invoke-virtual {v0, v2}, Landroid/service/quicksettings/Tile;->setLabel(Ljava/lang/CharSequence;)V
 
     .line 79
@@ -492,12 +492,12 @@
     .line 53
     .end local v0    # "$this$updateTile_u24lambda_u243":Landroid/service/quicksettings/Tile;
     .end local v1    # "$i$a$-apply-TileService$updateTile$1":I
-    goto :goto_1
+    goto :goto_78
 
     .line 55
     .restart local v0    # "$this$updateTile_u24lambda_u243":Landroid/service/quicksettings/Tile;
     .restart local v1    # "$i$a$-apply-TileService$updateTile$1":I
-    :pswitch_4
+    :pswitch_6c
     new-instance v2, Ljava/lang/IllegalStateException;
 
     .line 56
@@ -514,26 +514,26 @@
     .line 81
     .end local v0    # "$this$updateTile_u24lambda_u243":Landroid/service/quicksettings/Tile;
     .end local v1    # "$i$a$-apply-TileService$updateTile$1":I
-    :cond_1
-    :goto_1
+    :cond_78
+    :goto_78
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_7a
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6c
+        :pswitch_46
+        :pswitch_35
+        :pswitch_29
+        :pswitch_1d
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public cbSelectorUpdate(J)V
-    .locals 3
+    .registers 6
     .param p1, "id"    # J
 
     .line 34
@@ -547,13 +547,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     return-void
 
     .line 35
     .local v0, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_0
+    :cond_d
     sget-object v1, Lio/nekohasekai/sagernet/bg/BaseService$State;->Connected:Lio/nekohasekai/sagernet/bg/BaseService$State;
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/ProxyEntity;->displayName()Ljava/lang/String;
@@ -567,7 +567,7 @@
 .end method
 
 .method public cbSpeedUpdate(Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;)V
-    .locals 0
+    .registers 2
     .param p1, "stats"    # Lio/nekohasekai/sagernet/aidl/SpeedDisplayData;
 
     .line 12
@@ -577,7 +577,7 @@
 .end method
 
 .method public cbTrafficUpdate(Lio/nekohasekai/sagernet/aidl/TrafficData;)V
-    .locals 0
+    .registers 2
     .param p1, "data"    # Lio/nekohasekai/sagernet/aidl/TrafficData;
 
     .line 12
@@ -587,7 +587,7 @@
 .end method
 
 .method public missingPlugin(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "profileName"    # Ljava/lang/String;
     .param p2, "pluginName"    # Ljava/lang/String;
 
@@ -598,7 +598,7 @@
 .end method
 
 .method public onBinderDied()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/SagerConnection$Callback$DefaultImpls;->onBinderDied(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;)V
@@ -607,14 +607,14 @@
 .end method
 
 .method public onClick()V
-    .locals 1
+    .registers 2
 
     .line 49
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/bg/TileService;->isLocked()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     new-instance v0, Lio/nekohasekai/sagernet/bg/TileService$$ExternalSyntheticLambda0;
 
@@ -622,18 +622,18 @@
 
     invoke-virtual {p0, v0}, Lio/nekohasekai/sagernet/bg/TileService;->unlockAndRun(Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_f
     invoke-direct {p0}, Lio/nekohasekai/sagernet/bg/TileService;->toggle()V
 
     .line 50
-    :goto_0
+    :goto_12
     return-void
 .end method
 
 .method public onServiceConnected(Lio/nekohasekai/sagernet/aidl/ISagerNetService;)V
-    .locals 2
+    .registers 4
     .param p1, "service"    # Lio/nekohasekai/sagernet/aidl/ISagerNetService;
 
     const-string v0, "service"
@@ -660,7 +660,7 @@
     .line 27
     iget-boolean v0, p0, Lio/nekohasekai/sagernet/bg/TileService;->tapPending:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 28
     const/4 v0, 0x0
@@ -671,12 +671,12 @@
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/bg/TileService;->onClick()V
 
     .line 31
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public onServiceDisconnected()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-static {p0}, Lio/nekohasekai/sagernet/bg/SagerConnection$Callback$DefaultImpls;->onServiceDisconnected(Lio/nekohasekai/sagernet/bg/SagerConnection$Callback;)V
@@ -685,7 +685,7 @@
 .end method
 
 .method public onStartListening()V
-    .locals 3
+    .registers 4
 
     .line 39
     invoke-super {p0}, Landroid/service/quicksettings/TileService;->onStartListening()V
@@ -708,7 +708,7 @@
 .end method
 
 .method public onStopListening()V
-    .locals 2
+    .registers 3
 
     .line 44
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/TileService;->connection:Lio/nekohasekai/sagernet/bg/SagerConnection;
@@ -727,7 +727,7 @@
 .end method
 
 .method public stateChanged(Lio/nekohasekai/sagernet/bg/BaseService$State;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .param p1, "state"    # Lio/nekohasekai/sagernet/bg/BaseService$State;
     .param p2, "profileName"    # Ljava/lang/String;
     .param p3, "msg"    # Ljava/lang/String;

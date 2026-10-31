@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
     .param p1, "rect"    # Landroid/graphics/Rect;
 
     .line 36
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public evaluate(FLandroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
-    .locals 6
+    .registers 10
     .param p1, "fraction"    # F
     .param p2, "startValue"    # Landroid/graphics/Rect;
     .param p3, "endValue"    # Landroid/graphics/Rect;
@@ -128,7 +128,7 @@
 .end method
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 31
     check-cast p2, Landroid/graphics/Rect;

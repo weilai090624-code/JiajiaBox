@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static bridge synthetic $default$onValueChange(Lcom/google/android/material/slider/Slider$OnChangeListener;Ljava/lang/Object;FZ)V
-    .locals 0
+    .registers 4
     .param p0, "_this"    # Lcom/google/android/material/slider/Slider$OnChangeListener;
 
     .line 45

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/room/paging/LimitOffsetDataSource;[Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/room/paging/LimitOffsetDataSource;
     .param p2, "arg0"    # [Ljava/lang/String;
 
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onInvalidated(Ljava/util/Set;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

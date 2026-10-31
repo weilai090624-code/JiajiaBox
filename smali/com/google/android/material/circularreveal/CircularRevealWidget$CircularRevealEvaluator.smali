@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 209
     new-instance v0, Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealEvaluator;
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 207
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public evaluate(FLcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
-    .locals 5
+    .registers 9
     .param p1, "fraction"    # F
     .param p2, "startValue"    # Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
     .param p3, "endValue"    # Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 207
     check-cast p2, Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;

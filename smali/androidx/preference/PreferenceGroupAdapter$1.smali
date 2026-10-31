@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/PreferenceGroupAdapter;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/preference/PreferenceGroupAdapter;
 
     .line 83
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 86
     iget-object v0, p0, Landroidx/preference/PreferenceGroupAdapter$1;->this$0:Landroidx/preference/PreferenceGroupAdapter;

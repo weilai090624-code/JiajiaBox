@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/String;Landroidx/core/app/RemoteInput;Landroid/app/PendingIntent;Landroid/app/PendingIntent;[Ljava/lang/String;J)V
-    .locals 0
+    .registers 8
     .param p1, "messages"    # [Ljava/lang/String;
     .param p2, "remoteInput"    # Landroidx/core/app/RemoteInput;
     .param p3, "replyPendingIntent"    # Landroid/app/PendingIntent;
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public getLatestTimestamp()J
-    .locals 2
+    .registers 3
 
     .line 7940
     iget-wide v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mLatestTimestamp:J
@@ -84,7 +84,7 @@
 .end method
 
 .method public getMessages()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 7895
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mMessages:[Ljava/lang/String;
@@ -93,14 +93,14 @@
 .end method
 
 .method public getParticipant()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 7933
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mParticipants:[Ljava/lang/String;
 
     array-length v0, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_b
 
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mParticipants:[Ljava/lang/String;
 
@@ -108,17 +108,17 @@
 
     aget-object v0, v0, v1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public getParticipants()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 7926
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mParticipants:[Ljava/lang/String;
@@ -127,7 +127,7 @@
 .end method
 
 .method public getReadPendingIntent()Landroid/app/PendingIntent;
-    .locals 1
+    .registers 2
 
     .line 7919
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mReadPendingIntent:Landroid/app/PendingIntent;
@@ -136,7 +136,7 @@
 .end method
 
 .method public getRemoteInput()Landroidx/core/app/RemoteInput;
-    .locals 1
+    .registers 2
 
     .line 7903
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mRemoteInput:Landroidx/core/app/RemoteInput;
@@ -145,7 +145,7 @@
 .end method
 
 .method public getReplyPendingIntent()Landroid/app/PendingIntent;
-    .locals 1
+    .registers 2
 
     .line 7911
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mReplyPendingIntent:Landroid/app/PendingIntent;

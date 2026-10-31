@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;
 
     .line 785
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public bridge synthetic run()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 785
     .local p0, "this":Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter$1;, "Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter$1;"
@@ -64,7 +64,7 @@
 .end method
 
 .method public run()[Ljava/lang/reflect/Field;
-    .locals 7
+    .registers 8
 
     .line 787
     .local p0, "this":Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter$1;, "Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter$1;"
@@ -90,8 +90,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v2, :cond_1
+    :goto_f
+    if-ge v4, v2, :cond_1f
 
     aget-object v5, v0, v4
 
@@ -101,20 +101,20 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1c
 
     .line 791
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 789
     .end local v5    # "f":Ljava/lang/reflect/Field;
-    :cond_0
+    :cond_1c
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 795
-    :cond_1
+    :cond_1f
     new-array v2, v3, [Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;

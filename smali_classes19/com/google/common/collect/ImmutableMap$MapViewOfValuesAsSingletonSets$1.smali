@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets;
 
     .line 873
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 876
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1;, "Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1;"
@@ -59,7 +59,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 873
     .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1;, "Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1;"
@@ -71,7 +71,7 @@
 .end method
 
 .method public next()Ljava/util/Map$Entry;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

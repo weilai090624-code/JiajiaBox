@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 218
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/room/util/TableInfo$Column$Companion;-><init>()V
 
@@ -62,7 +62,7 @@
 .end method
 
 .method private final containsSurroundingParenthesis(Ljava/lang/String;)Z
-    .locals 12
+    .registers 14
     .param p1, "current"    # Ljava/lang/String;
 
     .line 245
@@ -78,23 +78,23 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_11
 
     .line 246
     return v2
 
     .line 248
-    :cond_1
+    :cond_11
     const/4 v0, 0x0
 
     .line 249
@@ -114,12 +114,12 @@
     .local v5, "index$iv":I
     const/4 v6, 0x0
 
-    :goto_1
+    :goto_18
     invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
 
     move-result v7
 
-    if-ge v6, v7, :cond_5
+    if-ge v6, v7, :cond_48
 
     invoke-interface {v3, v6}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -139,33 +139,33 @@
     .local v10, "$i$a$-forEachIndexed-TableInfo$Column$Companion$containsSurroundingParenthesis$1":I
     const/16 v11, 0x28
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_2d
 
-    if-eq v9, v11, :cond_2
+    if-eq v9, v11, :cond_2d
 
     .line 251
     return v2
 
     .line 253
-    :cond_2
-    if-ne v9, v11, :cond_3
+    :cond_2d
+    if-ne v9, v11, :cond_32
 
     .line 254
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_42
 
     .line 255
-    :cond_3
+    :cond_32
     const/16 v11, 0x29
 
-    if-ne v9, v11, :cond_4
+    if-ne v9, v11, :cond_42
 
     .line 256
     add-int/lit8 v0, v0, -0x1
 
     .line 257
-    if-nez v0, :cond_4
+    if-nez v0, :cond_42
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -173,14 +173,14 @@
 
     sub-int/2addr v11, v1
 
-    if-eq v5, v11, :cond_4
+    if-eq v5, v11, :cond_42
 
     .line 258
     return v2
 
     .line 261
-    :cond_4
-    :goto_2
+    :cond_42
+    :goto_42
     nop
 
     .line 648
@@ -194,33 +194,33 @@
 
     move v5, v8
 
-    goto :goto_1
+    goto :goto_18
 
     .line 649
     .end local v8    # "index$iv":I
     .local v5, "index$iv":I
-    :cond_5
+    :cond_48
     nop
 
     .line 262
     .end local v3    # "$this$forEachIndexed$iv":Ljava/lang/CharSequence;
     .end local v4    # "$i$f$forEachIndexed":I
     .end local v5    # "index$iv":I
-    if-nez v0, :cond_6
+    if-nez v0, :cond_4c
 
-    goto :goto_3
+    goto :goto_4d
 
-    :cond_6
+    :cond_4c
     const/4 v1, 0x0
 
-    :goto_3
+    :goto_4d
     return v1
 .end method
 
 
 # virtual methods
 .method public final defaultValueEquals(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 2
+    .registers 5
     .param p1, "current"    # Ljava/lang/String;
     .param p2, "other"    # Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -237,18 +237,18 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 232
     return v1
 
     .line 233
-    :cond_0
+    :cond_d
     invoke-direct {p0, p1}, Landroidx/room/util/TableInfo$Column$Companion;->containsSurroundingParenthesis(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 234
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -282,7 +282,7 @@
     return v0
 
     .line 236
-    :cond_1
+    :cond_31
     const/4 v0, 0x0
 
     return v0

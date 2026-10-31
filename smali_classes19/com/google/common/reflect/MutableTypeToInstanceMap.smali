@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 40
     .local p0, "this":Lcom/google/common/reflect/MutableTypeToInstanceMap;, "Lcom/google/common/reflect/MutableTypeToInstanceMap<TB;>;"
@@ -58,7 +58,7 @@
 .end method
 
 .method private trustedGet(Lcom/google/common/reflect/TypeToken;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -83,7 +83,7 @@
 .end method
 
 .method private trustedPut(Lcom/google/common/reflect/TypeToken;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 39
     .local p0, "this":Lcom/google/common/reflect/MutableTypeToInstanceMap;, "Lcom/google/common/reflect/MutableTypeToInstanceMap<TB;>;"
@@ -127,7 +127,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -145,7 +145,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -170,7 +170,7 @@
 .end method
 
 .method public getInstance(Lcom/google/common/reflect/TypeToken;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -197,7 +197,7 @@
 .end method
 
 .method public getInstance(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -224,7 +224,7 @@
 .end method
 
 .method public put(Lcom/google/common/reflect/TypeToken;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -250,7 +250,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -266,7 +266,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -293,7 +293,7 @@
 .end method
 
 .method public putInstance(Lcom/google/common/reflect/TypeToken;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation
@@ -325,7 +325,7 @@
 .end method
 
 .method public putInstance(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lorg/checkerframework/checker/nullness/compatqual/NullableDecl;
         .end annotation

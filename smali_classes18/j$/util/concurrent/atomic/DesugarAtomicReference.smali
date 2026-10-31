@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static accumulateAndGet(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -33,7 +33,7 @@
     .local p2, "accumulatorFunction":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TV;>;"
     nop
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -50,14 +50,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     .line 139
     return-object v1
 .end method
 
 .method public static getAndAccumulate(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -76,7 +76,7 @@
     .local p2, "accumulatorFunction":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TV;>;"
     nop
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -93,14 +93,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     .line 114
     return-object v0
 .end method
 
 .method public static getAndUpdate(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/function/UnaryOperator;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -118,7 +118,7 @@
     .local p1, "updateFunction":Ljava/util/function/UnaryOperator;, "Ljava/util/function/UnaryOperator<TV;>;"
     nop
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -135,14 +135,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     .line 69
     return-object v0
 .end method
 
 .method public static updateAndGet(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/function/UnaryOperator;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -160,7 +160,7 @@
     .local p1, "updateFunction":Ljava/util/function/UnaryOperator;, "Ljava/util/function/UnaryOperator<TV;>;"
     nop
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -177,7 +177,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     .line 89
     return-object v1

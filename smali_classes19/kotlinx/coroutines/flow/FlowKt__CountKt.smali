@@ -35,7 +35,7 @@
 
 # direct methods
 .method public static final count(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -53,7 +53,7 @@
 
     instance-of v0, p1, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p1
 
@@ -65,7 +65,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p1, v0, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$1;->label:I
 
@@ -73,14 +73,14 @@
 
     iput p1, v0, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$1;
 
     invoke-direct {v0, p1}, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p1, v0
 
     .local p1, "$continuation":Lkotlin/coroutines/Continuation;
@@ -94,7 +94,7 @@
     .line 15
     iget v2, p1, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_58
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p1    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -108,7 +108,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p1    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p0, p1, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$1;->L$0:Ljava/lang/Object;
 
     check-cast p0, Lkotlin/jvm/internal/Ref$IntRef;
@@ -116,10 +116,10 @@
     .local p0, "i":Lkotlin/jvm/internal/Ref$IntRef;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_51
 
     .end local p0    # "i":Lkotlin/jvm/internal/Ref$IntRef;
-    :pswitch_1
+    :pswitch_35
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 16
@@ -147,19 +147,19 @@
     move-result-object p0
 
     .end local p0    # "$this$count":Lkotlinx/coroutines/flow/Flow;
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_50
 
     .line 15
     return-object v1
 
     .line 17
-    :cond_1
+    :cond_50
     move-object p0, v2
 
     .line 21
     .end local v2    # "i":Lkotlin/jvm/internal/Ref$IntRef;
     .local p0, "i":Lkotlin/jvm/internal/Ref$IntRef;
-    :goto_1
+    :goto_51
     iget v1, p0, Lkotlin/jvm/internal/Ref$IntRef;->element:I
 
     invoke-static {v1}, Lkotlin/coroutines/jvm/internal/Boxing;->boxInt(I)Ljava/lang/Integer;
@@ -168,15 +168,15 @@
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_58
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public static final count(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -202,7 +202,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$3;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -214,7 +214,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$3;->label:I
 
@@ -222,14 +222,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$3;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$3;
 
     invoke-direct {v0, p2}, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$3;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -243,7 +243,7 @@
     .line 27
     iget v2, p2, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$3;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_58
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -257,7 +257,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p0, p2, Lkotlinx/coroutines/flow/FlowKt__CountKt$count$3;->L$0:Ljava/lang/Object;
 
     check-cast p0, Lkotlin/jvm/internal/Ref$IntRef;
@@ -265,10 +265,10 @@
     .local p0, "i":Lkotlin/jvm/internal/Ref$IntRef;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_51
 
     .end local p0    # "i":Lkotlin/jvm/internal/Ref$IntRef;
-    :pswitch_1
+    :pswitch_35
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 28
@@ -298,19 +298,19 @@
 
     .end local p0    # "$this$count":Lkotlinx/coroutines/flow/Flow;
     .end local p1    # "predicate":Lkotlin/jvm/functions/Function2;
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_50
 
     .line 27
     return-object v1
 
     .line 29
-    :cond_1
+    :cond_50
     move-object p0, v2
 
     .line 35
     .end local v2    # "i":Lkotlin/jvm/internal/Ref$IntRef;
     .local p0, "i":Lkotlin/jvm/internal/Ref$IntRef;
-    :goto_1
+    :goto_51
     iget p1, p0, Lkotlin/jvm/internal/Ref$IntRef;->element:I
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/Boxing;->boxInt(I)Ljava/lang/Integer;
@@ -319,9 +319,9 @@
 
     return-object p1
 
-    :pswitch_data_0
+    :pswitch_data_58
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2d
     .end packed-switch
 .end method

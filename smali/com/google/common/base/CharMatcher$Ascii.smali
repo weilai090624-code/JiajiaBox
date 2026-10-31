@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1281
     new-instance v0, Lcom/google/common/base/CharMatcher$Ascii;
@@ -33,7 +33,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1284
     const-string v0, "CharMatcher.ascii()"
@@ -47,21 +47,21 @@
 
 # virtual methods
 .method public matches(C)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
 
     .line 1289
     const/16 v0, 0x7f
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method

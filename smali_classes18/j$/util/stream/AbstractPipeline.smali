@@ -76,14 +76,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     .line 72
     return-void
 .end method
 
 .method constructor <init>(Lj$/util/Spliterator;IZ)V
-    .locals 2
+    .registers 6
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -143,7 +143,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;I)V
-    .locals 2
+    .registers 5
     .param p2, "opFlags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -161,7 +161,7 @@
     .line 202
     iget-boolean v0, p1, Lj$/util/stream/AbstractPipeline;->linkedOrConsumed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2f
 
     .line 204
     const/4 v0, 0x1
@@ -200,7 +200,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     .line 212
     iget-object v1, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
@@ -208,7 +208,7 @@
     iput-boolean v0, v1, Lj$/util/stream/AbstractPipeline;->sourceAnyStateful:Z
 
     .line 213
-    :cond_0
+    :cond_29
     iget v1, p1, Lj$/util/stream/AbstractPipeline;->depth:I
 
     add-int/2addr v1, v0
@@ -219,7 +219,7 @@
     return-void
 
     .line 203
-    :cond_1
+    :cond_2f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "stream has already been operated upon or closed"
@@ -230,7 +230,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/function/Supplier;IZ)V
-    .locals 2
+    .registers 6
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic lambda$opEvaluateParallelLazy$2(I)[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "i"    # I
 
     .line 710
@@ -302,7 +302,7 @@
 .end method
 
 .method static synthetic lambda$wrapSpliterator$1(Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 0
+    .registers 1
     .param p0, "sourceSpliterator"    # Lj$/util/Spliterator;
 
     .line 534
@@ -310,7 +310,7 @@
 .end method
 
 .method private sourceSpliterator(I)Lj$/util/Spliterator;
-    .locals 8
+    .registers 10
     .param p1, "terminalFlags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -332,7 +332,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 401
     iget-object v1, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
@@ -344,15 +344,15 @@
 
     iput-object v2, v1, Lj$/util/stream/AbstractPipeline;->sourceSpliterator:Lj$/util/Spliterator;
 
-    goto :goto_0
+    goto :goto_26
 
     .line 404
-    :cond_0
+    :cond_11
     iget-object v1, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
 
     iget-object v1, v1, Lj$/util/stream/AbstractPipeline;->sourceSupplier:Ljava/util/function/Supplier;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_89
 
     .line 405
     iget-object v1, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
@@ -373,18 +373,18 @@
     iput-object v2, v1, Lj$/util/stream/AbstractPipeline;->sourceSupplier:Ljava/util/function/Supplier;
 
     .line 412
-    :goto_0
+    :goto_26
     invoke-virtual {p0}, Lj$/util/stream/AbstractPipeline;->isParallel()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_7e
 
     iget-object v1, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
 
     iget-boolean v1, v1, Lj$/util/stream/AbstractPipeline;->sourceAnyStateful:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_7e
 
     .line 416
     const/4 v1, 0x1
@@ -403,8 +403,8 @@
 
     .line 418
     .local v4, "e":Lj$/util/stream/AbstractPipeline;
-    :goto_1
-    if-eq v2, v4, :cond_4
+    :goto_3a
+    if-eq v2, v4, :cond_7e
 
     .line 421
     iget v5, v3, Lj$/util/stream/AbstractPipeline;->sourceOrOpFlags:I
@@ -415,7 +415,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_6d
 
     .line 423
     const/4 v1, 0x0
@@ -427,7 +427,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_51
 
     .line 431
     sget v6, Lj$/util/stream/StreamOpFlag;->IS_SHORT_CIRCUIT:I
@@ -437,7 +437,7 @@
     and-int/2addr v5, v6
 
     .line 434
-    :cond_1
+    :cond_51
     invoke-virtual {v3, v2, v0}, Lj$/util/stream/AbstractPipeline;->opEvaluateParallelLazy(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Lj$/util/Spliterator;
 
     move-result-object v0
@@ -449,7 +449,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_65
 
     .line 439
     sget v6, Lj$/util/stream/StreamOpFlag;->NOT_SIZED:I
@@ -462,10 +462,10 @@
 
     or-int/2addr v6, v7
 
-    goto :goto_2
+    goto :goto_6c
 
     .line 440
-    :cond_2
+    :cond_65
     sget v6, Lj$/util/stream/StreamOpFlag;->IS_SIZED:I
 
     not-int v6, v6
@@ -476,11 +476,11 @@
 
     or-int/2addr v6, v7
 
-    :goto_2
+    :goto_6c
     move v5, v6
 
     .line 442
-    :cond_3
+    :cond_6d
     add-int/lit8 v6, v1, 0x1
 
     .end local v1    # "depth":I
@@ -504,15 +504,15 @@
 
     move v1, v6
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 447
     .end local v2    # "u":Lj$/util/stream/AbstractPipeline;
     .end local v3    # "p":Lj$/util/stream/AbstractPipeline;
     .end local v4    # "e":Lj$/util/stream/AbstractPipeline;
     .end local v6    # "depth":I
-    :cond_4
-    if-eqz p1, :cond_5
+    :cond_7e
+    if-eqz p1, :cond_88
 
     .line 449
     iget v1, p0, Lj$/util/stream/AbstractPipeline;->combinedFlags:I
@@ -524,11 +524,11 @@
     iput v1, p0, Lj$/util/stream/AbstractPipeline;->combinedFlags:I
 
     .line 452
-    :cond_5
+    :cond_88
     return-object v0
 
     .line 409
-    :cond_6
+    :cond_89
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "source already consumed or closed"
@@ -541,7 +541,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .registers 4
 
     .line 317
     .local p0, "this":Lj$/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<TE_IN;TE_OUT;TS;>;"
@@ -562,7 +562,7 @@
 
     iget-object v1, v1, Lj$/util/stream/AbstractPipeline;->sourceCloseAction:Ljava/lang/Runnable;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 321
     iget-object v1, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
@@ -580,12 +580,12 @@
 
     .line 325
     .end local v1    # "closeAction":Ljava/lang/Runnable;
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method final copyInto(Lj$/util/stream/Sink;Lj$/util/Spliterator;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -615,7 +615,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     .line 483
     invoke-interface {p2}, Lj$/util/Spliterator;->getExactSizeIfKnown()J
@@ -630,19 +630,19 @@
     .line 485
     invoke-interface {p1}, Lj$/util/stream/Sink;->end()V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 488
-    :cond_0
+    :cond_1d
     invoke-virtual {p0, p1, p2}, Lj$/util/stream/AbstractPipeline;->copyIntoWithCancel(Lj$/util/stream/Sink;Lj$/util/Spliterator;)Z
 
     .line 490
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 .method final copyIntoWithCancel(Lj$/util/stream/Sink;Lj$/util/Spliterator;)Z
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -663,18 +663,18 @@
 
     .line 497
     .local v0, "p":Lj$/util/stream/AbstractPipeline;
-    :goto_0
+    :goto_1
     iget v1, v0, Lj$/util/stream/AbstractPipeline;->depth:I
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_8
 
     .line 498
     iget-object v0, v0, Lj$/util/stream/AbstractPipeline;->previousStage:Lj$/util/stream/AbstractPipeline;
 
-    goto :goto_0
+    goto :goto_1
 
     .line 501
-    :cond_0
+    :cond_8
     invoke-interface {p2}, Lj$/util/Spliterator;->getExactSizeIfKnown()J
 
     move-result-wide v1
@@ -695,7 +695,7 @@
 .end method
 
 .method final evaluate(Lj$/util/Spliterator;ZLjava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 2
+    .registers 6
     .param p2, "flatten"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -719,7 +719,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 545
     invoke-virtual {p0, p0, p1, p2, p3}, Lj$/util/stream/AbstractPipeline;->evaluateToNode(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;ZLjava/util/function/IntFunction;)Lj$/util/stream/Node;
@@ -729,7 +729,7 @@
     return-object v0
 
     .line 548
-    :cond_0
+    :cond_b
     nop
 
     .line 549
@@ -758,7 +758,7 @@
 .end method
 
 .method final evaluate(Lj$/util/stream/TerminalOp;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -777,7 +777,7 @@
     .line 228
     iget-boolean v0, p0, Lj$/util/stream/AbstractPipeline;->linkedOrConsumed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_28
 
     .line 230
     const/4 v0, 0x1
@@ -789,7 +789,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 233
     invoke-interface {p1}, Lj$/util/stream/TerminalOp;->getOpFlags()I
@@ -804,10 +804,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_27
 
     .line 234
-    :cond_0
+    :cond_1b
     invoke-interface {p1}, Lj$/util/stream/TerminalOp;->getOpFlags()I
 
     move-result v0
@@ -821,11 +821,11 @@
     move-result-object v0
 
     .line 232
-    :goto_0
+    :goto_27
     return-object v0
 
     .line 229
-    :cond_1
+    :cond_28
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "stream has already been operated upon or closed"
@@ -836,7 +836,7 @@
 .end method
 
 .method final evaluateToArrayNode(Ljava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -852,7 +852,7 @@
     .local p1, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TE_OUT;>;"
     iget-boolean v0, p0, Lj$/util/stream/AbstractPipeline;->linkedOrConsumed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_30
 
     .line 247
     const/4 v0, 0x1
@@ -866,17 +866,17 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     iget-object v1, p0, Lj$/util/stream/AbstractPipeline;->previousStage:Lj$/util/stream/AbstractPipeline;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     invoke-virtual {p0}, Lj$/util/stream/AbstractPipeline;->opIsStateful()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     .line 256
     iput v2, p0, Lj$/util/stream/AbstractPipeline;->depth:I
@@ -897,7 +897,7 @@
     return-object v0
 
     .line 260
-    :cond_0
+    :cond_27
     invoke-direct {p0, v2}, Lj$/util/stream/AbstractPipeline;->sourceSpliterator(I)Lj$/util/Spliterator;
 
     move-result-object v1
@@ -909,7 +909,7 @@
     return-object v0
 
     .line 246
-    :cond_1
+    :cond_30
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "stream has already been operated upon or closed"
@@ -938,7 +938,7 @@
 .end method
 
 .method final exactOutputSizeIfKnown(Lj$/util/Spliterator;)J
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -962,18 +962,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-interface {p1}, Lj$/util/Spliterator;->getExactSizeIfKnown()J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const-wide/16 v0, -0x1
 
-    :goto_0
+    :goto_13
     return-wide v0
 .end method
 
@@ -993,7 +993,7 @@
 .end method
 
 .method final getSourceShape()Lj$/util/stream/StreamShape;
-    .locals 2
+    .registers 3
 
     .line 460
     .local p0, "this":Lj$/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<TE_IN;TE_OUT;TS;>;"
@@ -1001,18 +1001,18 @@
 
     .line 461
     .local v0, "p":Lj$/util/stream/AbstractPipeline;
-    :goto_0
+    :goto_1
     iget v1, v0, Lj$/util/stream/AbstractPipeline;->depth:I
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_8
 
     .line 462
     iget-object v0, v0, Lj$/util/stream/AbstractPipeline;->previousStage:Lj$/util/stream/AbstractPipeline;
 
-    goto :goto_0
+    goto :goto_1
 
     .line 464
-    :cond_0
+    :cond_8
     invoke-virtual {v0}, Lj$/util/stream/AbstractPipeline;->getOutputShape()Lj$/util/stream/StreamShape;
 
     move-result-object v1
@@ -1021,7 +1021,7 @@
 .end method
 
 .method final getStreamAndOpFlags()I
-    .locals 1
+    .registers 2
 
     .line 509
     .local p0, "this":Lj$/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<TE_IN;TE_OUT;TS;>;"
@@ -1031,7 +1031,7 @@
 .end method
 
 .method final getStreamFlags()I
-    .locals 1
+    .registers 2
 
     .line 386
     .local p0, "this":Lj$/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<TE_IN;TE_OUT;TS;>;"
@@ -1045,7 +1045,7 @@
 .end method
 
 .method final isOrdered()Z
-    .locals 2
+    .registers 3
 
     .line 513
     .local p0, "this":Lj$/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<TE_IN;TE_OUT;TS;>;"
@@ -1061,7 +1061,7 @@
 .end method
 
 .method public final isParallel()Z
-    .locals 1
+    .registers 2
 
     .line 373
     .local p0, "this":Lj$/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<TE_IN;TE_OUT;TS;>;"
@@ -1073,7 +1073,7 @@
 .end method
 
 .method synthetic lambda$spliterator$0$java-util-stream-AbstractPipeline()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 367
     .local p0, "this":Lj$/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<TE_IN;TE_OUT;TS;>;"
@@ -1113,7 +1113,7 @@
 .end method
 
 .method public onClose(Ljava/lang/Runnable;)Lj$/util/stream/BaseStream;
-    .locals 3
+    .registers 5
     .param p1, "closeHandler"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1127,7 +1127,7 @@
     .local p0, "this":Lj$/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<TE_IN;TE_OUT;TS;>;"
     iget-boolean v0, p0, Lj$/util/stream/AbstractPipeline;->linkedOrConsumed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 332
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1142,20 +1142,20 @@
     iget-object v1, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
 
     .line 335
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 336
     move-object v2, p1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 337
-    :cond_0
+    :cond_11
     invoke-static {v0, p1}, Lj$/util/stream/Streams;->composeWithExceptions(Ljava/lang/Runnable;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
     move-result-object v2
 
-    :goto_0
+    :goto_15
     iput-object v2, v1, Lj$/util/stream/AbstractPipeline;->sourceCloseAction:Ljava/lang/Runnable;
 
     .line 338
@@ -1163,7 +1163,7 @@
 
     .line 331
     .end local v0    # "existingHandler":Ljava/lang/Runnable;
-    :cond_1
+    :cond_18
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "stream has already been operated upon or closed"
@@ -1174,7 +1174,7 @@
 .end method
 
 .method opEvaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Ljava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -1206,7 +1206,7 @@
 .end method
 
 .method opEvaluateParallelLazy(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -1256,7 +1256,7 @@
 .end method
 
 .method public final parallel()Lj$/util/stream/BaseStream;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TS;"
@@ -1276,7 +1276,7 @@
 .end method
 
 .method public final sequential()Lj$/util/stream/BaseStream;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TS;"
@@ -1296,7 +1296,7 @@
 .end method
 
 .method final sourceStageSpliterator()Lj$/util/Spliterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1309,12 +1309,12 @@
     .local p0, "this":Lj$/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<TE_IN;TE_OUT;TS;>;"
     iget-object v0, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_40
 
     .line 278
     iget-boolean v0, p0, Lj$/util/stream/AbstractPipeline;->linkedOrConsumed:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_38
 
     .line 280
     const/4 v0, 0x1
@@ -1328,7 +1328,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 284
     iget-object v0, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
@@ -1346,12 +1346,12 @@
 
     .line 288
     .end local v0    # "s":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TE_OUT;>;"
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
 
     iget-object v0, v0, Lj$/util/stream/AbstractPipeline;->sourceSupplier:Ljava/util/function/Supplier;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     .line 290
     iget-object v0, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
@@ -1375,7 +1375,7 @@
 
     .line 295
     .end local v0    # "s":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TE_OUT;>;"
-    :cond_1
+    :cond_30
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "source already consumed or closed"
@@ -1385,7 +1385,7 @@
     throw v0
 
     .line 279
-    :cond_2
+    :cond_38
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "stream has already been operated upon or closed"
@@ -1395,7 +1395,7 @@
     throw v0
 
     .line 276
-    :cond_3
+    :cond_40
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -1404,7 +1404,7 @@
 .end method
 
 .method public spliterator()Lj$/util/Spliterator;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1417,7 +1417,7 @@
     .local p0, "this":Lj$/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<TE_IN;TE_OUT;TS;>;"
     iget-boolean v0, p0, Lj$/util/stream/AbstractPipeline;->linkedOrConsumed:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_44
 
     .line 347
     const/4 v0, 0x1
@@ -1427,7 +1427,7 @@
     .line 349
     iget-object v0, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_36
 
     .line 350
     iget-object v0, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
@@ -1436,7 +1436,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 352
     iget-object v0, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
@@ -1454,12 +1454,12 @@
 
     .line 356
     .end local v0    # "s":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TE_OUT;>;"
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
 
     iget-object v0, v0, Lj$/util/stream/AbstractPipeline;->sourceSupplier:Ljava/util/function/Supplier;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     .line 358
     iget-object v0, p0, Lj$/util/stream/AbstractPipeline;->sourceStage:Lj$/util/stream/AbstractPipeline;
@@ -1481,7 +1481,7 @@
 
     .line 363
     .end local v0    # "s":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<Ljava/util/Spliterator<TE_OUT;>;>;"
-    :cond_1
+    :cond_2e
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "source already consumed or closed"
@@ -1491,7 +1491,7 @@
     throw v0
 
     .line 367
-    :cond_2
+    :cond_36
     new-instance v0, Lj$/util/stream/AbstractPipeline$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p0}, Lj$/util/stream/AbstractPipeline$$ExternalSyntheticLambda0;-><init>(Lj$/util/stream/AbstractPipeline;)V
@@ -1507,7 +1507,7 @@
     return-object v0
 
     .line 346
-    :cond_3
+    :cond_44
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "stream has already been operated upon or closed"
@@ -1535,7 +1535,7 @@
 .end method
 
 .method final wrapAndCopyInto(Lj$/util/stream/Sink;Lj$/util/Spliterator;)Lj$/util/stream/Sink;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -1569,7 +1569,7 @@
 .end method
 
 .method final wrapSink(Lj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -1591,10 +1591,10 @@
     move-object v0, p0
 
     .local v0, "p":Lj$/util/stream/AbstractPipeline;
-    :goto_0
+    :goto_4
     iget v1, v0, Lj$/util/stream/AbstractPipeline;->depth:I
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_13
 
     .line 522
     iget-object v1, v0, Lj$/util/stream/AbstractPipeline;->previousStage:Lj$/util/stream/AbstractPipeline;
@@ -1608,16 +1608,16 @@
     .line 521
     iget-object v0, v0, Lj$/util/stream/AbstractPipeline;->previousStage:Lj$/util/stream/AbstractPipeline;
 
-    goto :goto_0
+    goto :goto_4
 
     .line 524
     .end local v0    # "p":Lj$/util/stream/AbstractPipeline;
-    :cond_0
+    :cond_13
     return-object p1
 .end method
 
 .method final wrapSpliterator(Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -1635,13 +1635,13 @@
     .local p1, "sourceSpliterator":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     iget v0, p0, Lj$/util/stream/AbstractPipeline;->depth:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 531
     return-object p1
 
     .line 534
-    :cond_0
+    :cond_5
     new-instance v0, Lj$/util/stream/AbstractPipeline$$ExternalSyntheticLambda1;
 
     invoke-direct {v0, p1}, Lj$/util/stream/AbstractPipeline$$ExternalSyntheticLambda1;-><init>(Lj$/util/Spliterator;)V

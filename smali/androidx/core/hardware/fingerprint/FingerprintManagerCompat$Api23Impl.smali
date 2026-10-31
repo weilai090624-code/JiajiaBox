@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 302
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static authenticate(Ljava/lang/Object;Ljava/lang/Object;Landroid/os/CancellationSignal;ILjava/lang/Object;Landroid/os/Handler;)V
-    .locals 6
+    .registers 12
     .param p0, "fingerprintManager"    # Ljava/lang/Object;
     .param p1, "crypto"    # Ljava/lang/Object;
     .param p2, "cancel"    # Landroid/os/CancellationSignal;
@@ -60,7 +60,7 @@
 .end method
 
 .method static getCryptoObject(Ljava/lang/Object;)Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
-    .locals 1
+    .registers 2
     .param p0, "authenticationResult"    # Ljava/lang/Object;
 
     .line 329
@@ -78,7 +78,7 @@
 .end method
 
 .method public static getFingerprintManagerOrNull(Landroid/content/Context;)Landroid/hardware/fingerprint/FingerprintManager;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 335
@@ -86,7 +86,7 @@
 
     const/16 v1, 0x17
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     .line 336
     const-class v0, Landroid/hardware/fingerprint/FingerprintManager;
@@ -100,10 +100,10 @@
     return-object v0
 
     .line 337
-    :cond_0
+    :cond_f
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_28
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -116,7 +116,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     .line 339
     const-class v0, Landroid/hardware/fingerprint/FingerprintManager;
@@ -130,14 +130,14 @@
     return-object v0
 
     .line 341
-    :cond_1
+    :cond_28
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method static hasEnrolledFingerprints(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "fingerprintManager"    # Ljava/lang/Object;
 
     .line 309
@@ -153,7 +153,7 @@
 .end method
 
 .method static isHardwareDetected(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 2
     .param p0, "fingerprintManager"    # Ljava/lang/Object;
 
     .line 315
@@ -169,7 +169,7 @@
 .end method
 
 .method public static unwrapCryptoObject(Ljava/lang/Object;)Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
-    .locals 3
+    .registers 4
     .param p0, "cryptoObjectObj"    # Ljava/lang/Object;
 
     .line 362
@@ -181,18 +181,18 @@
     .local v0, "cryptoObject":Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 365
     return-object v1
 
     .line 366
-    :cond_0
+    :cond_7
     invoke-virtual {v0}, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;->getCipher()Ljavax/crypto/Cipher;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_17
 
     .line 367
     new-instance v1, Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
@@ -206,12 +206,12 @@
     return-object v1
 
     .line 368
-    :cond_1
+    :cond_17
     invoke-virtual {v0}, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;->getSignature()Ljava/security/Signature;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_27
 
     .line 369
     new-instance v1, Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
@@ -225,12 +225,12 @@
     return-object v1
 
     .line 370
-    :cond_2
+    :cond_27
     invoke-virtual {v0}, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;->getMac()Ljavax/crypto/Mac;
 
     move-result-object v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_37
 
     .line 371
     new-instance v1, Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
@@ -244,29 +244,29 @@
     return-object v1
 
     .line 373
-    :cond_3
+    :cond_37
     return-object v1
 .end method
 
 .method public static wrapCryptoObject(Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;)Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
-    .locals 2
+    .registers 3
     .param p0, "cryptoObject"    # Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
 
     .line 347
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 348
     return-object v0
 
     .line 349
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;->getCipher()Ljavax/crypto/Cipher;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     .line 350
     new-instance v0, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
@@ -280,12 +280,12 @@
     return-object v0
 
     .line 351
-    :cond_1
+    :cond_14
     invoke-virtual {p0}, Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;->getSignature()Ljava/security/Signature;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_24
 
     .line 352
     new-instance v0, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
@@ -299,12 +299,12 @@
     return-object v0
 
     .line 353
-    :cond_2
+    :cond_24
     invoke-virtual {p0}, Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;->getMac()Ljavax/crypto/Mac;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_34
 
     .line 354
     new-instance v0, Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
@@ -318,6 +318,6 @@
     return-object v0
 
     .line 356
-    :cond_3
+    :cond_34
     return-object v0
 .end method

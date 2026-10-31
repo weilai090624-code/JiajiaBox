@@ -97,7 +97,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ConcurrentLinkedQueue;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -155,7 +155,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -198,7 +198,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .registers 11
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -209,7 +209,7 @@
 
     const/4 v2, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_d0
 
     .end local p0    # "this":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$urlTest$mainJob$1$1$1;
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -222,7 +222,7 @@
 
     .restart local p0    # "this":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$urlTest$mainJob$1$1$1;
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$urlTest$mainJob$1$1$1;->L$2:Ljava/lang/Object;
 
     check-cast v1, Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -238,11 +238,11 @@
     check-cast v4, Lkotlinx/coroutines/CoroutineScope;
 
     .local v4, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :try_start_0
+    :try_start_1e
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException; {:try_start_1e .. :try_end_21} :catch_2e
+    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_21} :catch_28
 
     move-object v5, v1
 
@@ -256,10 +256,10 @@
 
     move-object v0, p1
 
-    goto :goto_1
+    goto :goto_72
 
     .line 880
-    :catch_0
+    :catch_28
     move-exception v5
 
     move-object v6, v4
@@ -268,10 +268,10 @@
 
     move-object v3, p0
 
-    goto/16 :goto_2
+    goto/16 :goto_9a
 
     .line 877
-    :catch_1
+    :catch_2e
     move-exception v5
 
     move-object v6, v4
@@ -280,14 +280,14 @@
 
     move-object v3, p0
 
-    goto/16 :goto_3
+    goto/16 :goto_b4
 
     .line 867
     .end local v1    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local v3    # "urlTest":Lio/nekohasekai/sagernet/bg/proto/UrlTest;
     .end local v4    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_34
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -310,12 +310,12 @@
     .local v1, "this":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$urlTest$mainJob$1$1$1;
     .restart local v3    # "urlTest":Lio/nekohasekai/sagernet/bg/proto/UrlTest;
     .restart local v4    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :goto_0
+    :goto_42
     invoke-static {v4}, Lkotlinx/coroutines/CoroutineScopeKt;->isActive(Lkotlinx/coroutines/CoroutineScope;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_cd
 
     .line 870
     iget-object v5, v1, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$urlTest$mainJob$1$1$1;->$profiles:Ljava/util/concurrent/ConcurrentLinkedQueue;
@@ -326,13 +326,13 @@
 
     check-cast v5, Lio/nekohasekai/sagernet/database/ProxyEntity;
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_54
 
-    goto/16 :goto_5
+    goto/16 :goto_cd
 
     .line 871
     .local v5, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_0
+    :cond_54
     const/4 v6, 0x0
 
     invoke-virtual {v5, v6}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setStatus(I)V
@@ -341,7 +341,7 @@
     nop
 
     .line 874
-    :try_start_1
+    :try_start_59
     move-object v6, v1
 
     check-cast v6, Lkotlin/coroutines/Continuation;
@@ -357,17 +357,17 @@
     invoke-virtual {v3, v5, v6}, Lio/nekohasekai/sagernet/bg/proto/UrlTest;->doTest(Lio/nekohasekai/sagernet/database/ProxyEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v6
-    :try_end_1
-    .catch Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException; {:try_start_1 .. :try_end_1} :catch_5
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
+    :try_end_68
+    .catch Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException; {:try_start_59 .. :try_end_68} :catch_ad
+    .catch Ljava/lang/Exception; {:try_start_59 .. :try_end_68} :catch_93
 
-    if-ne v6, v0, :cond_1
+    if-ne v6, v0, :cond_6b
 
     .line 867
     return-object v0
 
     .line 874
-    :cond_1
+    :cond_6b
     move-object v8, v0
 
     move-object v0, p1
@@ -388,8 +388,8 @@
     .local v3, "this":Lio/nekohasekai/sagernet/ui/ConfigurationFragment$urlTest$mainJob$1$1$1;
     .local v4, "urlTest":Lio/nekohasekai/sagernet/bg/proto/UrlTest;
     .local v6, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :goto_1
-    :try_start_2
+    :goto_72
+    :try_start_72
     check-cast p1, Ljava/lang/Number;
 
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
@@ -402,9 +402,9 @@
 
     .line 876
     invoke-virtual {v5, p1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setPing(I)V
-    :try_end_2
-    .catch Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException; {:try_start_2 .. :try_end_2} :catch_3
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_7e
+    .catch Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException; {:try_start_72 .. :try_end_7e} :catch_8c
+    .catch Ljava/lang/Exception; {:try_start_72 .. :try_end_7e} :catch_85
 
     move-object p1, v0
 
@@ -417,10 +417,10 @@
     move-object v4, v6
 
     .end local p1    # "result":I
-    goto/16 :goto_4
+    goto/16 :goto_c6
 
     .line 880
-    :catch_2
+    :catch_85
     move-exception p1
 
     move-object v8, v5
@@ -433,10 +433,10 @@
 
     move-object v1, v8
 
-    goto :goto_2
+    goto :goto_9a
 
     .line 877
-    :catch_3
+    :catch_8c
     move-exception p1
 
     move-object v8, v5
@@ -449,7 +449,7 @@
 
     move-object v1, v8
 
-    goto :goto_3
+    goto :goto_b4
 
     .line 880
     .end local v0    # "$result":Ljava/lang/Object;
@@ -458,7 +458,7 @@
     .local v3, "urlTest":Lio/nekohasekai/sagernet/bg/proto/UrlTest;
     .local v4, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .local p1, "$result":Ljava/lang/Object;
-    :catch_4
+    :catch_93
     move-exception v6
 
     move-object v8, v3
@@ -479,7 +479,7 @@
     .local v4, "urlTest":Lio/nekohasekai/sagernet/bg/proto/UrlTest;
     .local v5, "e":Ljava/lang/Exception;
     .restart local v6    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :goto_2
+    :goto_9a
     const/4 v7, 0x3
 
     invoke-virtual {v1, v7}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setStatus(I)V
@@ -503,7 +503,7 @@
 
     move-object v4, v6
 
-    goto :goto_4
+    goto :goto_c6
 
     .line 877
     .end local v6    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
@@ -511,7 +511,7 @@
     .local v3, "urlTest":Lio/nekohasekai/sagernet/bg/proto/UrlTest;
     .local v4, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .local v5, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :catch_5
+    :catch_ad
     move-exception v6
 
     move-object v8, v3
@@ -532,7 +532,7 @@
     .local v4, "urlTest":Lio/nekohasekai/sagernet/bg/proto/UrlTest;
     .local v5, "e":Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException;
     .restart local v6    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :goto_3
+    :goto_b4
     const/4 v7, 0x2
 
     invoke-virtual {v1, v7}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setStatus(I)V
@@ -562,26 +562,26 @@
     .local v3, "urlTest":Lio/nekohasekai/sagernet/bg/proto/UrlTest;
     .local v4, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .local v5, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :goto_4
+    :goto_c6
     iget-object v6, v1, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$urlTest$mainJob$1$1$1;->$test:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
 
     invoke-virtual {v6, v5}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->update(Lio/nekohasekai/sagernet/database/ProxyEntity;)V
 
     .end local v5    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    goto/16 :goto_0
+    goto/16 :goto_42
 
     .line 887
     .end local v3    # "urlTest":Lio/nekohasekai/sagernet/bg/proto/UrlTest;
     .end local v4    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :cond_2
-    :goto_5
+    :cond_cd
+    :goto_cd
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_d0
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_34
+        :pswitch_12
     .end packed-switch
 .end method

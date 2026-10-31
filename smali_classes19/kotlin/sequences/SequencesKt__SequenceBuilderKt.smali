@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public static final iterator(Lkotlin/jvm/functions/Function2;)Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -121,7 +121,7 @@
 .end method
 
 .method public static final sequence(Lkotlin/jvm/functions/Function2;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {

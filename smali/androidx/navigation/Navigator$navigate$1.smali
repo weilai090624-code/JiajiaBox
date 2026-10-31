@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/navigation/Navigator;Landroidx/navigation/NavOptions;Landroidx/navigation/Navigator$Extras;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public final invoke(Landroidx/navigation/NavBackStackEntry;)Landroidx/navigation/NavBackStackEntry;
-    .locals 6
+    .registers 8
     .param p1, "backStackEntry"    # Landroidx/navigation/NavBackStackEntry;
 
     const-string v0, "backStackEntry"
@@ -109,21 +109,21 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move-object v0, v2
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_10
+    if-nez v0, :cond_13
 
     return-object v2
 
     .line 118
     .local v0, "destination":Landroidx/navigation/NavDestination;
-    :cond_1
+    :cond_13
     iget-object v1, p0, Landroidx/navigation/Navigator$navigate$1;->this$0:Landroidx/navigation/Navigator;
 
     .line 119
@@ -145,24 +145,24 @@
     nop
 
     .line 122
-    if-nez v1, :cond_2
+    if-nez v1, :cond_25
 
-    goto :goto_1
+    goto :goto_40
 
     .line 123
-    :cond_2
+    :cond_25
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2d
 
     move-object v2, p1
 
-    goto :goto_1
+    goto :goto_40
 
     .line 125
-    :cond_3
+    :cond_2d
     iget-object v2, p0, Landroidx/navigation/Navigator$navigate$1;->this$0:Landroidx/navigation/Navigator;
 
     invoke-virtual {v2}, Landroidx/navigation/Navigator;->getState()Landroidx/navigation/NavigatorState;
@@ -187,12 +187,12 @@
     move-result-object v2
 
     .line 121
-    :goto_1
+    :goto_40
     return-object v2
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 116

@@ -55,7 +55,7 @@
 
 # direct methods
 .method public static final synthetic access$createTransactionContext(Landroidx/room/RoomDatabase;Lkotlin/coroutines/ContinuationInterceptor;)Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 3
     .param p0, "$receiver"    # Landroidx/room/RoomDatabase;
     .param p1, "dispatcher"    # Lkotlin/coroutines/ContinuationInterceptor;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public static final synthetic access$startTransactionCoroutine(Landroidx/room/RoomDatabase;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
     .param p0, "$receiver"    # Landroidx/room/RoomDatabase;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "transactionBlock"    # Lkotlin/jvm/functions/Function2;
@@ -83,7 +83,7 @@
 .end method
 
 .method private static final createTransactionContext(Landroidx/room/RoomDatabase;Lkotlin/coroutines/ContinuationInterceptor;)Lkotlin/coroutines/CoroutineContext;
-    .locals 4
+    .registers 6
     .param p0, "$this$createTransactionContext"    # Landroidx/room/RoomDatabase;
     .param p1, "dispatcher"    # Lkotlin/coroutines/ContinuationInterceptor;
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public static final invalidationTrackerFlow(Landroidx/room/RoomDatabase;[Ljava/lang/String;Z)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 5
     .param p0, "$this$invalidationTrackerFlow"    # Landroidx/room/RoomDatabase;
     .param p1, "tables"    # [Ljava/lang/String;
     .param p2, "emitInitialState"    # Z
@@ -171,18 +171,18 @@
 .end method
 
 .method public static synthetic invalidationTrackerFlow$default(Landroidx/room/RoomDatabase;[Ljava/lang/String;ZILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 0
+    .registers 5
 
     .line 206
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 208
     const/4 p2, 0x1
 
     .line 206
-    :cond_0
+    :cond_5
     invoke-static {p0, p1, p2}, Landroidx/room/RoomDatabaseKt;->invalidationTrackerFlow(Landroidx/room/RoomDatabase;[Ljava/lang/String;Z)Lkotlinx/coroutines/flow/Flow;
 
     move-result-object p0
@@ -191,7 +191,7 @@
 .end method
 
 .method private static final startTransactionCoroutine(Landroidx/room/RoomDatabase;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
+    .registers 14
     .param p0, "$this$startTransactionCoroutine"    # Landroidx/room/RoomDatabase;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "transactionBlock"    # Lkotlin/jvm/functions/Function2;
@@ -256,7 +256,7 @@
     nop
 
     .line 94
-    :try_start_0
+    :try_start_15
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getTransactionExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v6
@@ -268,13 +268,13 @@
     check-cast v7, Ljava/lang/Runnable;
 
     invoke-interface {v6, v7}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_23
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_15 .. :try_end_23} :catch_24
 
-    goto :goto_0
+    goto :goto_35
 
     .line 111
-    :catch_0
+    :catch_24
     move-exception v6
 
     .line 113
@@ -301,7 +301,7 @@
 
     .line 119
     .end local v6    # "ex":Ljava/util/concurrent/RejectedExecutionException;
-    :goto_0
+    :goto_35
     nop
 
     .line 248
@@ -322,12 +322,12 @@
 
     move-result-object v2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_44
 
     invoke-static {p3}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     .line 250
-    :cond_0
+    :cond_44
     nop
 
     .line 119
@@ -336,7 +336,7 @@
 .end method
 
 .method public static final withTransaction(Landroidx/room/RoomDatabase;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .param p0, "$this$withTransaction"    # Landroidx/room/RoomDatabase;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
@@ -383,7 +383,7 @@
 
     check-cast v2, Landroidx/room/TransactionElement;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     invoke-virtual {v2}, Landroidx/room/TransactionElement;->getTransactionDispatcher$room_ktx_release()Lkotlin/coroutines/ContinuationInterceptor;
 
@@ -391,8 +391,8 @@
 
     .line 76
     .local v1, "transactionDispatcher":Lkotlin/coroutines/ContinuationInterceptor;
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_1c
+    if-eqz v1, :cond_26
 
     .line 77
     move-object v2, v1
@@ -404,11 +404,11 @@
     move-result-object v2
 
     .line 81
-    :goto_0
+    :goto_25
     return-object v2
 
     .line 79
-    :cond_1
+    :cond_26
     invoke-interface {p2}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object v2
@@ -417,5 +417,5 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_25
 .end method

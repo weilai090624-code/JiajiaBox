@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 48
     invoke-static {}, Landroidx/work/ExistingWorkPolicy;->values()[Landroidx/work/ExistingWorkPolicy;
@@ -54,7 +54,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 13
+    .registers 15
     .param p1, "parcel"    # Landroid/os/Parcel;
 
     .line 66
@@ -71,7 +71,7 @@
 
     .line 70
     .local v1, "hasName":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 71
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -79,7 +79,7 @@
     move-result-object v0
 
     .line 74
-    :cond_0
+    :cond_e
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -117,8 +117,8 @@
     const/4 v7, 0x0
 
     .local v7, "i":I
-    :goto_0
-    if-ge v7, v4, :cond_1
+    :goto_28
+    if-ge v7, v4, :cond_3c
 
     .line 81
     invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -144,11 +144,11 @@
     .end local v9    # "requestHolder":Landroidx/work/impl/WorkRequestHolder;
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 87
     .end local v7    # "i":I
-    :cond_1
+    :cond_3c
     const/4 v7, 0x0
 
     .line 88
@@ -159,7 +159,7 @@
 
     .line 89
     .local v8, "hasParents":Z
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_61
 
     .line 90
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -178,8 +178,8 @@
     const/4 v10, 0x0
 
     .local v10, "i":I
-    :goto_1
-    if-ge v10, v9, :cond_2
+    :goto_4e
+    if-ge v10, v9, :cond_61
 
     .line 93
     nop
@@ -203,12 +203,12 @@
     .end local v11    # "parcelledContinuation":Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl;
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_1
+    goto :goto_4e
 
     .line 98
     .end local v9    # "parentsSize":I
     .end local v10    # "i":I
-    :cond_2
+    :cond_61
     new-instance v9, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;
 
     invoke-direct {v9, v0, v3, v5, v7}, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;-><init>(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;Ljava/util/List;)V
@@ -220,7 +220,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/WorkContinuationImpl;)V
-    .locals 1
+    .registers 3
     .param p1, "continuation"    # Landroidx/work/impl/WorkContinuationImpl;
 
     .line 52
@@ -238,7 +238,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;)V
-    .locals 0
+    .registers 2
     .param p1, "info"    # Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;
 
     .line 56
@@ -254,7 +254,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 117
     const/4 v0, 0x0
@@ -263,7 +263,7 @@
 .end method
 
 .method public getInfo()Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;
-    .locals 1
+    .registers 2
 
     .line 62
     iget-object v0, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl;->mInfo:Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;
@@ -272,7 +272,7 @@
 .end method
 
 .method public toWorkContinuationImpl(Landroidx/work/impl/WorkManagerImpl;)Landroidx/work/impl/WorkContinuationImpl;
-    .locals 1
+    .registers 3
     .param p1, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
 
     .line 165
@@ -286,7 +286,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 9
+    .registers 12
     .param p1, "parcel"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
@@ -312,13 +312,13 @@
     invoke-static {p1, v1}, Landroidx/work/multiprocess/parcelable/ParcelUtils;->writeBooleanValue(Landroid/os/Parcel;Z)V
 
     .line 126
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 127
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 130
-    :cond_0
+    :cond_14
     iget-object v3, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl;->mInfo:Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;
 
     invoke-virtual {v3}, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;->getExistingWorkPolicy()Landroidx/work/ExistingWorkPolicy;
@@ -353,18 +353,18 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_4c
 
     .line 136
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_0
+    :goto_35
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_4c
 
     .line 137
     invoke-interface {v4, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -388,11 +388,11 @@
     .end local v7    # "parcelledRequest":Landroidx/work/multiprocess/parcelable/ParcelableWorkRequest;
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_35
 
     .line 143
     .end local v5    # "i":I
-    :cond_1
+    :cond_4c
     iget-object v5, p0, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl;->mInfo:Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;
 
     invoke-virtual {v5}, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;->getParentInfos()Ljava/util/List;
@@ -401,26 +401,26 @@
 
     .line 144
     .local v5, "parents":Ljava/util/List;, "Ljava/util/List<Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl$WorkContinuationImplInfo;>;"
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_5b
 
     invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_5b
 
-    goto :goto_1
+    goto :goto_5c
 
-    :cond_2
+    :cond_5b
     const/4 v2, 0x0
 
     .line 145
     .local v2, "hasParents":Z
-    :goto_1
+    :goto_5c
     invoke-static {p1, v2}, Landroidx/work/multiprocess/parcelable/ParcelUtils;->writeBooleanValue(Landroid/os/Parcel;Z)V
 
     .line 146
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_80
 
     .line 147
     invoke-interface {v5}, Ljava/util/List;->size()I
@@ -433,12 +433,12 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_2
+    :goto_69
     invoke-interface {v5}, Ljava/util/List;->size()I
 
     move-result v7
 
-    if-ge v6, v7, :cond_3
+    if-ge v6, v7, :cond_80
 
     .line 149
     new-instance v7, Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl;
@@ -460,10 +460,10 @@
     .end local v7    # "parcelledContinuationImpl":Landroidx/work/multiprocess/parcelable/ParcelableWorkContinuationImpl;
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_69
 
     .line 154
     .end local v6    # "i":I
-    :cond_3
+    :cond_80
     return-void
 .end method

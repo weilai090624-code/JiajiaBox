@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/String;Ljava/util/concurrent/atomic/AtomicBoolean;Lkotlinx/coroutines/channels/ProducerScope;)V
-    .locals 0
+    .registers 4
     .param p1, "$tables"    # [Ljava/lang/String;
     .param p2, "$ignoreInvalidation"    # Ljava/util/concurrent/atomic/AtomicBoolean;
     .param p3, "$$this$callbackFlow"    # Lkotlinx/coroutines/channels/ProducerScope;
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public onInvalidated(Ljava/util/Set;)V
-    .locals 1
+    .registers 3
     .param p1, "tables"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -102,13 +102,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 215
     return-void
 
     .line 217
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroidx/room/RoomDatabaseKt$invalidationTrackerFlow$1$observer$1;->$$this$callbackFlow:Lkotlinx/coroutines/channels/ProducerScope;
 
     invoke-interface {v0, p1}, Lkotlinx/coroutines/channels/ProducerScope;->trySend-JP2dKIU(Ljava/lang/Object;)Ljava/lang/Object;

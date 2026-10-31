@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Collection;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

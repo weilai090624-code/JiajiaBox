@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/bottomsheet/BottomSheetDialog;
 
     .line 404
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onSlide(Landroid/view/View;F)V
-    .locals 0
+    .registers 3
     .param p1, "bottomSheet"    # Landroid/view/View;
     .param p2, "slideOffset"    # F
 
@@ -43,14 +43,14 @@
 .end method
 
 .method public onStateChanged(Landroid/view/View;I)V
-    .locals 1
+    .registers 4
     .param p1, "bottomSheet"    # Landroid/view/View;
     .param p2, "newState"    # I
 
     .line 408
     const/4 v0, 0x5
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_8
 
     .line 409
     iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialog$5;->this$0:Lcom/google/android/material/bottomsheet/BottomSheetDialog;
@@ -58,6 +58,6 @@
     invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->cancel()V
 
     .line 411
-    :cond_0
+    :cond_8
     return-void
 .end method

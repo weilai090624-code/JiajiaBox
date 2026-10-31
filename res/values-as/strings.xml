@@ -39,8 +39,8 @@
     <string name="call_notification_incoming_text">অন্তৰ্গামী কল</string>
     <string name="call_notification_ongoing_text">চলি থকা কল</string>
     <string name="call_notification_screening_text">এটা অন্তৰ্গামী কলৰ পৰীক্ষা কৰি থকা হৈছে</string>
-    <string name="character_counter_content_description" formatted="false">%2$dটাৰ ভিতৰত %1$dটা বৰ্ণ লিখা হৈছে</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">%2$dটাৰ ভিতৰত %1$dটা বৰ্ণৰ সীমা অতিক্ৰম কৰিছে</string>
+    <string name="character_counter_content_description">%2$dটাৰ ভিতৰত %1$dটা বৰ্ণ লিখা হৈছে</string>
+    <string name="character_counter_overflowed_content_description">%2$dটাৰ ভিতৰত %1$dটা বৰ্ণৰ সীমা অতিক্ৰম কৰিছে</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
     <string name="copy">প্ৰতিলিপি কৰক</string>
     <string name="copy_toast_msg">লিংক ক্লিপব’ৰ্ডত প্ৰতিলিপি কৰা হ’ল</string>
@@ -85,7 +85,7 @@
     <string name="mtrl_picker_out_of_range">Out of range: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Start date – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – End date</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Select Range</string>
     <string name="mtrl_picker_range_header_unselected">Start date – End date</string>
     <string name="mtrl_picker_save">Save</string>
@@ -108,7 +108,7 @@
     <string name="preference_copied">\"%1$s\" ক্লিপব’ৰ্ডত প্ৰতিলিপি কৰা হ’ল</string>
     <string name="search_menu_title">সন্ধান</string>
     <string name="status_bar_notification_info_overflow">৯৯৯+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">অফ অৱস্থাত আছে</string>
     <string name="v7_preference_on">অন কৰক</string>
 </resources>

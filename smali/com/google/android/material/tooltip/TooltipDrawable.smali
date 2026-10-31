@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 69
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_Tooltip:I
@@ -66,7 +66,7 @@
 .end method
 
 .method private constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 2
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -160,7 +160,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/tooltip/TooltipDrawable;Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/tooltip/TooltipDrawable;
     .param p1, "x1"    # Landroid/view/View;
 
@@ -171,7 +171,7 @@
 .end method
 
 .method private calculatePointerOffset()F
-    .locals 3
+    .registers 4
 
     .line 469
     const/4 v0, 0x0
@@ -198,7 +198,7 @@
 
     sub-int/2addr v1, v2
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_27
 
     .line 471
     iget-object v1, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->displayFrame:Landroid/graphics/Rect;
@@ -223,10 +223,10 @@
 
     int-to-float v0, v1
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 472
-    :cond_0
+    :cond_27
     iget-object v1, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->displayFrame:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
@@ -247,7 +247,7 @@
 
     add-int/2addr v1, v2
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_4c
 
     .line 473
     iget-object v1, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->displayFrame:Landroid/graphics/Rect;
@@ -273,13 +273,13 @@
     int-to-float v0, v1
 
     .line 475
-    :cond_1
-    :goto_0
+    :cond_4c
+    :goto_4c
     return v0
 .end method
 
 .method private calculateTextCenterFromBaseline()F
-    .locals 2
+    .registers 3
 
     .line 530
     iget-object v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->textDrawableHelper:Lcom/google/android/material/internal/TextDrawableHelper;
@@ -311,7 +311,7 @@
 .end method
 
 .method private calculateTextOriginAndAlignment(Landroid/graphics/Rect;)F
-    .locals 2
+    .registers 4
     .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 514
@@ -331,7 +331,7 @@
 .end method
 
 .method public static create(Landroid/content/Context;)Lcom/google/android/material/tooltip/TooltipDrawable;
-    .locals 3
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
     .line 135
@@ -349,7 +349,7 @@
 .end method
 
 .method public static createFromAttributes(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/material/tooltip/TooltipDrawable;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attrs"    # Landroid/util/AttributeSet;
 
@@ -366,7 +366,7 @@
 .end method
 
 .method public static createFromAttributes(Landroid/content/Context;Landroid/util/AttributeSet;II)Lcom/google/android/material/tooltip/TooltipDrawable;
-    .locals 1
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyleAttr"    # I
@@ -386,7 +386,7 @@
 .end method
 
 .method private createMarkerEdge()Lcom/google/android/material/shape/EdgeTreatment;
-    .locals 7
+    .registers 8
 
     .line 479
     invoke-direct {p0}, Lcom/google/android/material/tooltip/TooltipDrawable;->calculatePointerOffset()F
@@ -457,19 +457,19 @@
 .end method
 
 .method private drawText(Landroid/graphics/Canvas;)V
-    .locals 11
+    .registers 13
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 488
     iget-object v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->text:Ljava/lang/CharSequence;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 490
     return-void
 
     .line 493
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Lcom/google/android/material/tooltip/TooltipDrawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v0
@@ -490,7 +490,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_39
 
     .line 497
     iget-object v2, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->textDrawableHelper:Lcom/google/android/material/internal/TextDrawableHelper;
@@ -530,7 +530,7 @@
     invoke-virtual {v2, v3}, Landroid/text/TextPaint;->setAlpha(I)V
 
     .line 502
-    :cond_1
+    :cond_39
     iget-object v5, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->text:Ljava/lang/CharSequence;
 
     iget-object v2, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->text:Ljava/lang/CharSequence;
@@ -564,12 +564,12 @@
 .end method
 
 .method private getTextWidth()F
-    .locals 2
+    .registers 3
 
     .line 506
     iget-object v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->text:Ljava/lang/CharSequence;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 507
     const/4 v0, 0x0
@@ -577,7 +577,7 @@
     return v0
 
     .line 509
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->textDrawableHelper:Lcom/google/android/material/internal/TextDrawableHelper;
 
     iget-object v1, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->text:Ljava/lang/CharSequence;
@@ -594,7 +594,7 @@
 .end method
 
 .method private loadFromAttributes(Landroid/util/AttributeSet;II)V
-    .locals 9
+    .registers 13
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyleAttr"    # I
     .param p3, "defStyleRes"    # I
@@ -682,7 +682,7 @@
 
     .line 162
     .local v1, "textAppearance":Lcom/google/android/material/resources/TextAppearance;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5a
 
     sget v2, Lcom/google/android/material/R$styleable;->Tooltip_android_textColor:I
 
@@ -690,7 +690,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_5a
 
     .line 163
     iget-object v2, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->context:Landroid/content/Context;
@@ -706,7 +706,7 @@
     invoke-virtual {v1, v2}, Lcom/google/android/material/resources/TextAppearance;->setTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 166
-    :cond_0
+    :cond_5a
     invoke-virtual {p0, v1}, Lcom/google/android/material/tooltip/TooltipDrawable;->setTextAppearance(Lcom/google/android/material/resources/TextAppearance;)V
 
     .line 168
@@ -849,7 +849,7 @@
 .end method
 
 .method private updateLocationOnScreen(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     .line 462
@@ -880,17 +880,17 @@
 
 # virtual methods
 .method public detachView(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 393
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 394
     return-void
 
     .line 396
-    :cond_0
+    :cond_3
     iget-object v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->attachedViewLayoutChangeListener:Landroid/view/View$OnLayoutChangeListener;
 
     invoke-virtual {p1, v0}, Landroid/view/View;->removeOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
@@ -900,7 +900,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 8
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 411
@@ -1011,7 +1011,7 @@
 .end method
 
 .method public getIntrinsicHeight()I
-    .locals 2
+    .registers 3
 
     .line 406
     iget-object v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->textDrawableHelper:Lcom/google/android/material/internal/TextDrawableHelper;
@@ -1038,7 +1038,7 @@
 .end method
 
 .method public getIntrinsicWidth()I
-    .locals 2
+    .registers 3
 
     .line 401
     iget v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->padding:I
@@ -1067,7 +1067,7 @@
 .end method
 
 .method public getLayoutMargin()I
-    .locals 1
+    .registers 2
 
     .line 335
     iget v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->layoutMargin:I
@@ -1076,7 +1076,7 @@
 .end method
 
 .method public getMinHeight()I
-    .locals 1
+    .registers 2
 
     .line 291
     iget v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->minHeight:I
@@ -1085,7 +1085,7 @@
 .end method
 
 .method public getMinWidth()I
-    .locals 1
+    .registers 2
 
     .line 269
     iget v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->minWidth:I
@@ -1094,7 +1094,7 @@
 .end method
 
 .method public getText()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 203
     iget-object v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->text:Ljava/lang/CharSequence;
@@ -1103,7 +1103,7 @@
 .end method
 
 .method public getTextAppearance()Lcom/google/android/material/resources/TextAppearance;
-    .locals 1
+    .registers 2
 
     .line 239
     iget-object v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->textDrawableHelper:Lcom/google/android/material/internal/TextDrawableHelper;
@@ -1116,7 +1116,7 @@
 .end method
 
 .method public getTextPadding()I
-    .locals 1
+    .registers 2
 
     .line 313
     iget v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->padding:I
@@ -1125,7 +1125,7 @@
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
-    .locals 2
+    .registers 4
     .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 442
@@ -1163,7 +1163,7 @@
 .end method
 
 .method public onStateChange([I)Z
-    .locals 1
+    .registers 3
     .param p1, "state"    # [I
 
     .line 453
@@ -1175,7 +1175,7 @@
 .end method
 
 .method public onTextSizeChange()V
-    .locals 0
+    .registers 1
 
     .line 458
     invoke-virtual {p0}, Lcom/google/android/material/tooltip/TooltipDrawable;->invalidateSelf()V
@@ -1185,7 +1185,7 @@
 .end method
 
 .method public setLayoutMargin(I)V
-    .locals 0
+    .registers 2
     .param p1, "layoutMargin"    # I
 
     .line 346
@@ -1199,7 +1199,7 @@
 .end method
 
 .method public setMinHeight(I)V
-    .locals 0
+    .registers 2
     .param p1, "minHeight"    # I
 
     .line 302
@@ -1213,7 +1213,7 @@
 .end method
 
 .method public setMinWidth(I)V
-    .locals 0
+    .registers 2
     .param p1, "minWidth"    # I
 
     .line 280
@@ -1227,17 +1227,17 @@
 .end method
 
 .method public setRelativeToView(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 379
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 380
     return-void
 
     .line 382
-    :cond_0
+    :cond_3
     invoke-direct {p0, p1}, Lcom/google/android/material/tooltip/TooltipDrawable;->updateLocationOnScreen(Landroid/view/View;)V
 
     .line 384
@@ -1250,7 +1250,7 @@
 .end method
 
 .method public setRevealFraction(F)V
-    .locals 3
+    .registers 5
     .param p1, "fraction"    # F
 
     .line 365
@@ -1285,7 +1285,7 @@
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)V
-    .locals 2
+    .registers 4
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .line 225
@@ -1295,7 +1295,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 226
     iput-object p1, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->text:Ljava/lang/CharSequence;
@@ -1311,12 +1311,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/tooltip/TooltipDrawable;->invalidateSelf()V
 
     .line 230
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public setTextAppearance(Lcom/google/android/material/resources/TextAppearance;)V
-    .locals 2
+    .registers 4
     .param p1, "textAppearance"    # Lcom/google/android/material/resources/TextAppearance;
 
     .line 259
@@ -1331,7 +1331,7 @@
 .end method
 
 .method public setTextAppearanceResource(I)V
-    .locals 2
+    .registers 4
     .param p1, "id"    # I
 
     .line 249
@@ -1348,7 +1348,7 @@
 .end method
 
 .method public setTextPadding(I)V
-    .locals 0
+    .registers 2
     .param p1, "padding"    # I
 
     .line 324
@@ -1362,7 +1362,7 @@
 .end method
 
 .method public setTextResource(I)V
-    .locals 1
+    .registers 3
     .param p1, "id"    # I
 
     .line 214

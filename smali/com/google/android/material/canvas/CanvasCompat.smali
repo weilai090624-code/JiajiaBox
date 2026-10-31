@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static saveLayerAlpha(Landroid/graphics/Canvas;FFFFI)I
-    .locals 8
+    .registers 14
     .param p0, "canvas"    # Landroid/graphics/Canvas;
     .param p1, "left"    # F
     .param p2, "top"    # F
@@ -27,7 +27,7 @@
 
     const/16 v1, 0x15
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_b
 
     .line 59
     invoke-virtual/range {p0 .. p5}, Landroid/graphics/Canvas;->saveLayerAlpha(FFFFI)I
@@ -37,7 +37,7 @@
     return v0
 
     .line 61
-    :cond_0
+    :cond_b
     const/16 v7, 0x1f
 
     move-object v1, p0
@@ -60,7 +60,7 @@
 .end method
 
 .method public static saveLayerAlpha(Landroid/graphics/Canvas;Landroid/graphics/RectF;I)I
-    .locals 2
+    .registers 5
     .param p0, "canvas"    # Landroid/graphics/Canvas;
     .param p1, "bounds"    # Landroid/graphics/RectF;
     .param p2, "alpha"    # I
@@ -70,7 +70,7 @@
 
     const/16 v1, 0x15
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_b
 
     .line 46
     invoke-virtual {p0, p1, p2}, Landroid/graphics/Canvas;->saveLayerAlpha(Landroid/graphics/RectF;I)I
@@ -80,7 +80,7 @@
     return v0
 
     .line 48
-    :cond_0
+    :cond_b
     const/16 v0, 0x1f
 
     invoke-virtual {p0, p1, p2, v0}, Landroid/graphics/Canvas;->saveLayerAlpha(Landroid/graphics/RectF;II)I

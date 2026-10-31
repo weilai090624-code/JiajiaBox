@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Comparator;Ljava/util/Comparator;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +78,7 @@
 .end method
 
 .method private constructor <init>(Ljava/util/Comparator;Ljava/util/Comparator;Lcom/google/common/collect/Multimap;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 .end method
 
 .method public static create()Lcom/google/common/collect/TreeMultimap;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K::",
@@ -136,7 +136,7 @@
 .end method
 
 .method public static create(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/TreeMultimap;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K::",
@@ -169,7 +169,7 @@
 .end method
 
 .method public static create(Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/TreeMultimap;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -209,7 +209,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -269,7 +269,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 1
+    .registers 3
     .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -305,7 +305,7 @@
 
 # virtual methods
 .method public bridge synthetic asMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -317,7 +317,7 @@
 .end method
 
 .method public asMap()Ljava/util/NavigableMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -340,7 +340,7 @@
 .end method
 
 .method public bridge synthetic asMap()Ljava/util/SortedMap;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -352,7 +352,7 @@
 .end method
 
 .method public bridge synthetic clear()V
-    .locals 0
+    .registers 1
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -362,7 +362,7 @@
 .end method
 
 .method public bridge synthetic containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -382,7 +382,7 @@
 .end method
 
 .method public bridge synthetic containsKey(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -398,7 +398,7 @@
 .end method
 
 .method public bridge synthetic containsValue(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -414,7 +414,7 @@
 .end method
 
 .method createAsMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -435,7 +435,7 @@
 .end method
 
 .method bridge synthetic createCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -447,7 +447,7 @@
 .end method
 
 .method createCollection(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -463,7 +463,7 @@
     .line 144
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
     .local p1, "key":Ljava/lang/Object;, "TK;"
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     .line 145
     invoke-virtual {p0}, Lcom/google/common/collect/TreeMultimap;->keyComparator()Ljava/util/Comparator;
@@ -473,7 +473,7 @@
     invoke-interface {v0, p1, p1}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     .line 147
-    :cond_0
+    :cond_9
     invoke-super {p0, p1}, Lcom/google/common/collect/AbstractSortedKeySortedSetMultimap;->createCollection(Ljava/lang/Object;)Ljava/util/Collection;
 
     move-result-object v0
@@ -482,7 +482,7 @@
 .end method
 
 .method bridge synthetic createCollection()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -494,7 +494,7 @@
 .end method
 
 .method createCollection()Ljava/util/SortedSet;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -515,7 +515,7 @@
 .end method
 
 .method public bridge synthetic entries()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -527,7 +527,7 @@
 .end method
 
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -543,7 +543,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -559,7 +559,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/NavigableSet;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -585,7 +585,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -601,7 +601,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -617,7 +617,7 @@
 .end method
 
 .method public bridge synthetic hashCode()I
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -629,7 +629,7 @@
 .end method
 
 .method public bridge synthetic isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -641,7 +641,7 @@
 .end method
 
 .method public keyComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -661,7 +661,7 @@
 .end method
 
 .method public keySet()Ljava/util/NavigableSet;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -682,7 +682,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -694,7 +694,7 @@
 .end method
 
 .method public bridge synthetic keySet()Ljava/util/SortedSet;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -706,7 +706,7 @@
 .end method
 
 .method public bridge synthetic keys()Lcom/google/common/collect/Multiset;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -718,7 +718,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -738,7 +738,7 @@
 .end method
 
 .method public bridge synthetic putAll(Lcom/google/common/collect/Multimap;)Z
-    .locals 0
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -750,7 +750,7 @@
 .end method
 
 .method public bridge synthetic putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -766,7 +766,7 @@
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -786,7 +786,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -802,7 +802,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/SortedSet;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -818,7 +818,7 @@
 .end method
 
 .method public bridge synthetic size()I
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -830,7 +830,7 @@
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"
@@ -842,7 +842,7 @@
 .end method
 
 .method public valueComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -859,7 +859,7 @@
 .end method
 
 .method public bridge synthetic values()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 74
     .local p0, "this":Lcom/google/common/collect/TreeMultimap;, "Lcom/google/common/collect/TreeMultimap<TK;TV;>;"

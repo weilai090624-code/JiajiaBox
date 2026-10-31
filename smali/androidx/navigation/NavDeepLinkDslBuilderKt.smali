@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final navDeepLink(Lkotlin/jvm/functions/Function1;)Landroidx/navigation/NavDeepLink;
-    .locals 1
+    .registers 2
     .param p0, "deepLinkBuilder"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {

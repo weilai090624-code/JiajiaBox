@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>(ILcom/google/common/base/Supplier;)V
-    .locals 3
+    .registers 6
     .param p1, "stripes"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,16 +54,16 @@
 
     const/4 v1, 0x1
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     const-string v2, "Stripes must be <= 2^30)"
 
     invoke-static {v0, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -81,12 +81,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_1
+    :goto_18
     iget-object v1, p0, Lcom/google/common/util/concurrent/Striped$CompactStriped;->array:[Ljava/lang/Object;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_28
 
     .line 418
     iget-object v1, p0, Lcom/google/common/util/concurrent/Striped$CompactStriped;->array:[Ljava/lang/Object;
@@ -100,16 +100,16 @@
     .line 417
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
     .line 420
     .end local v0    # "i":I
-    :cond_1
+    :cond_28
     return-void
 .end method
 
 .method synthetic constructor <init>(ILcom/google/common/base/Supplier;Lcom/google/common/util/concurrent/Striped$1;)V
-    .locals 0
+    .registers 4
     .param p1, "x0"    # I
     .param p2, "x1"    # Lcom/google/common/base/Supplier;
     .param p3, "x2"    # Lcom/google/common/util/concurrent/Striped$1;
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public getAt(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -143,7 +143,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 430
     .local p0, "this":Lcom/google/common/util/concurrent/Striped$CompactStriped;, "Lcom/google/common/util/concurrent/Striped$CompactStriped<TL;>;"

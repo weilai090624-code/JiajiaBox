@@ -36,7 +36,7 @@
 
 # direct methods
 .method private constructor <init>(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;Lcom/google/android/material/chip/Chip;Lcom/google/android/material/chip/Chip;Lcom/google/android/material/chip/Chip;Lcom/google/android/material/appbar/AppBarLayout;Lcom/google/android/material/chip/Chip;Lcom/google/android/material/chip/ChipGroup;Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;Landroid/widget/LinearLayout;Lcom/google/android/material/textfield/TextInputEditText;Lcom/google/android/material/chip/Chip;Lcom/google/android/material/appbar/MaterialToolbar;)V
-    .locals 0
+    .registers 14
     .param p1, "rootView"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
     .param p2, "appPlaceholder"    # Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;
     .param p3, "appProxyModeBypass"    # Lcom/google/android/material/chip/Chip;
@@ -130,7 +130,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutAppsBinding;
-    .locals 30
+    .registers 31
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -154,7 +154,7 @@
 
     .line 115
     .local v2, "appPlaceholder":Landroid/view/View;
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_cc
 
     .line 118
     invoke-static {v2}, Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;
@@ -176,7 +176,7 @@
 
     .line 122
     .local v18, "appProxyModeBypass":Lcom/google/android/material/chip/Chip;
-    if-eqz v18, :cond_a
+    if-eqz v18, :cond_cb
 
     .line 126
     const v1, 0x7f0a009b
@@ -192,7 +192,7 @@
 
     .line 128
     .local v19, "appProxyModeDisable":Lcom/google/android/material/chip/Chip;
-    if-eqz v19, :cond_9
+    if-eqz v19, :cond_ca
 
     .line 132
     const v1, 0x7f0a009c
@@ -208,7 +208,7 @@
 
     .line 134
     .local v20, "appProxyModeOn":Lcom/google/android/material/chip/Chip;
-    if-eqz v20, :cond_8
+    if-eqz v20, :cond_c9
 
     .line 138
     const v1, 0x7f0a009e
@@ -224,7 +224,7 @@
 
     .line 140
     .local v21, "appbar":Lcom/google/android/material/appbar/AppBarLayout;
-    if-eqz v21, :cond_7
+    if-eqz v21, :cond_c8
 
     .line 144
     const v1, 0x7f0a00a8
@@ -240,7 +240,7 @@
 
     .line 146
     .local v22, "autoSelectProxyApps":Lcom/google/android/material/chip/Chip;
-    if-eqz v22, :cond_6
+    if-eqz v22, :cond_c7
 
     .line 150
     const v1, 0x7f0a00bd
@@ -256,7 +256,7 @@
 
     .line 152
     .local v23, "bypassGroup":Lcom/google/android/material/chip/ChipGroup;
-    if-eqz v23, :cond_5
+    if-eqz v23, :cond_c6
 
     .line 156
     const v1, 0x7f0a018e
@@ -272,7 +272,7 @@
 
     .line 158
     .local v24, "list":Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
-    if-eqz v24, :cond_4
+    if-eqz v24, :cond_c5
 
     .line 162
     const v1, 0x7f0a0192
@@ -288,7 +288,7 @@
 
     .line 164
     .local v25, "loading":Landroid/widget/LinearLayout;
-    if-eqz v25, :cond_3
+    if-eqz v25, :cond_c4
 
     .line 168
     const v1, 0x7f0a0243
@@ -304,7 +304,7 @@
 
     .line 170
     .local v26, "search":Lcom/google/android/material/textfield/TextInputEditText;
-    if-eqz v26, :cond_2
+    if-eqz v26, :cond_c3
 
     .line 174
     const v1, 0x7f0a026d
@@ -320,7 +320,7 @@
 
     .line 176
     .local v27, "showSystemApps":Lcom/google/android/material/chip/Chip;
-    if-eqz v27, :cond_1
+    if-eqz v27, :cond_c2
 
     .line 180
     const v1, 0x7f0a02ba
@@ -336,7 +336,7 @@
 
     .line 182
     .local v28, "toolbar":Lcom/google/android/material/appbar/MaterialToolbar;
-    if-eqz v28, :cond_0
+    if-eqz v28, :cond_c1
 
     .line 186
     new-instance v29, Lio/nekohasekai/sagernet/databinding/LayoutAppsBinding;
@@ -376,68 +376,68 @@
     return-object v29
 
     .line 183
-    :cond_0
-    goto :goto_0
+    :cond_c1
+    goto :goto_cd
 
     .line 177
     .end local v28    # "toolbar":Lcom/google/android/material/appbar/MaterialToolbar;
-    :cond_1
-    goto :goto_0
+    :cond_c2
+    goto :goto_cd
 
     .line 171
     .end local v27    # "showSystemApps":Lcom/google/android/material/chip/Chip;
-    :cond_2
-    goto :goto_0
+    :cond_c3
+    goto :goto_cd
 
     .line 165
     .end local v26    # "search":Lcom/google/android/material/textfield/TextInputEditText;
-    :cond_3
-    goto :goto_0
+    :cond_c4
+    goto :goto_cd
 
     .line 159
     .end local v25    # "loading":Landroid/widget/LinearLayout;
-    :cond_4
-    goto :goto_0
+    :cond_c5
+    goto :goto_cd
 
     .line 153
     .end local v24    # "list":Lcom/simplecityapps/recyclerview_fastscroll/views/FastScrollRecyclerView;
-    :cond_5
-    goto :goto_0
+    :cond_c6
+    goto :goto_cd
 
     .line 147
     .end local v23    # "bypassGroup":Lcom/google/android/material/chip/ChipGroup;
-    :cond_6
-    goto :goto_0
+    :cond_c7
+    goto :goto_cd
 
     .line 141
     .end local v22    # "autoSelectProxyApps":Lcom/google/android/material/chip/Chip;
-    :cond_7
-    goto :goto_0
+    :cond_c8
+    goto :goto_cd
 
     .line 135
     .end local v21    # "appbar":Lcom/google/android/material/appbar/AppBarLayout;
-    :cond_8
-    goto :goto_0
+    :cond_c9
+    goto :goto_cd
 
     .line 129
     .end local v20    # "appProxyModeOn":Lcom/google/android/material/chip/Chip;
-    :cond_9
-    goto :goto_0
+    :cond_ca
+    goto :goto_cd
 
     .line 123
     .end local v19    # "appProxyModeDisable":Lcom/google/android/material/chip/Chip;
-    :cond_a
-    goto :goto_0
+    :cond_cb
+    goto :goto_cd
 
     .line 116
     .end local v17    # "binding_appPlaceholder":Lio/nekohasekai/sagernet/databinding/LayoutAppPlaceholderBinding;
     .end local v18    # "appProxyModeBypass":Lcom/google/android/material/chip/Chip;
-    :cond_b
+    :cond_cc
     nop
 
     .line 190
     .end local v2    # "appPlaceholder":Landroid/view/View;
-    :goto_0
+    :goto_cd
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -462,7 +462,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutAppsBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -486,7 +486,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutAppsBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -514,13 +514,13 @@
 
     .line 101
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 102
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 104
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutAppsBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutAppsBinding;
 
     move-result-object v1
@@ -531,7 +531,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 24
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutAppsBinding;->getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
@@ -542,7 +542,7 @@
 .end method
 
 .method public getRoot()Landroidx/coordinatorlayout/widget/CoordinatorLayout;
-    .locals 1
+    .registers 2
 
     .line 89
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutAppsBinding;->rootView:Landroidx/coordinatorlayout/widget/CoordinatorLayout;

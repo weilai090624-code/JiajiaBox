@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 140
     invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper$Impl23;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method computeAndSetTextDirection(Landroid/text/StaticLayout$Builder;Landroid/widget/TextView;)V
-    .locals 1
+    .registers 4
     .param p1, "layoutBuilder"    # Landroid/text/StaticLayout$Builder;
     .param p2, "textView"    # Landroid/widget/TextView;
 
@@ -43,7 +43,7 @@
 .end method
 
 .method isHorizontallyScrollable(Landroid/widget/TextView;)Z
-    .locals 1
+    .registers 3
     .param p1, "textView"    # Landroid/widget/TextView;
 
     .line 144

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(J)V
-    .locals 0
+    .registers 3
     .param p1, "seed"    # J
 
     .line 704
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public nextDouble()D
-    .locals 4
+    .registers 5
 
     .line 709
     const-wide v0, 0x27bb2ee687b0b0fdL    # 2.694898184339827E-117

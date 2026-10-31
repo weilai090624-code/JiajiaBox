@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Ljava/lang/String;Landroidx/transition/Transition;Landroidx/transition/WindowIdImpl;Landroidx/transition/TransitionValues;)V
-    .locals 0
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "transition"    # Landroidx/transition/Transition;

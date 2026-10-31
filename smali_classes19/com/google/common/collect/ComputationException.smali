@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 2
     .param p1, "cause"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation

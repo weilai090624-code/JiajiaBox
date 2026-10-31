@@ -83,7 +83,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ConcurrentLinkedQueue;Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;ZLio/nekohasekai/sagernet/ui/ConfigurationFragment;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -155,7 +155,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -198,14 +198,14 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 13
+    .registers 15
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     .line 737
     iget v0, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$pingTest$mainJob$1$1$1;->label:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1a4
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -215,7 +215,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_10
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .local p1, "$result":Ljava/lang/Object;
@@ -225,13 +225,13 @@
 
     .line 738
     .local v0, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :cond_0
-    :goto_0
+    :cond_17
+    :goto_17
     invoke-static {v0}, Lkotlinx/coroutines/CoroutineScopeKt;->isActive(Lkotlinx/coroutines/CoroutineScope;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_1a0
 
     .line 739
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$pingTest$mainJob$1$1$1;->$profiles:Ljava/util/concurrent/ConcurrentLinkedQueue;
@@ -242,15 +242,15 @@
 
     check-cast v1, Lio/nekohasekai/sagernet/database/ProxyEntity;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_29
 
     .end local v0    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    goto/16 :goto_4
+    goto/16 :goto_1a0
 
     .line 741
     .restart local v0    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .local v1, "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    :cond_1
+    :cond_29
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setStatus(I)V
@@ -284,13 +284,13 @@
 
     const/4 v6, 0x1
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_73
 
     .line 744
     nop
 
     .line 745
-    :try_start_0
+    :try_start_4b
     sget-object v4, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
 
     invoke-virtual {v4}, Lio/nekohasekai/sagernet/SagerNet$Companion;->getUnderlyingNetwork()Landroid/net/Network;
@@ -316,17 +316,17 @@
 
     array-length v8, v4
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_65
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_66
 
-    :cond_2
+    :cond_65
     const/4 v8, 0x0
 
-    :goto_1
-    if-nez v8, :cond_3
+    :goto_66
+    if-nez v8, :cond_70
 
     .line 747
     aget-object v8, v4, v2
@@ -336,30 +336,30 @@
     move-result-object v8
 
     iput-object v8, v3, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_70
+    .catch Ljava/net/UnknownHostException; {:try_start_4b .. :try_end_70} :catch_72
 
     .line 749
     .end local v4    # "$this$invokeSuspend_u24lambda_u240":[Ljava/net/InetAddress;
-    :cond_3
+    :cond_70
     nop
 
     .line 745
     .end local v7    # "$i$a$-apply-ConfigurationFragment$pingTest$mainJob$1$1$1$1":I
-    goto :goto_2
+    goto :goto_73
 
     .line 750
-    :catch_0
+    :catch_72
     move-exception v4
 
     .line 753
-    :cond_4
-    :goto_2
+    :cond_73
+    :goto_73
     invoke-static {v0}, Lkotlinx/coroutines/CoroutineScopeKt;->isActive(Lkotlinx/coroutines/CoroutineScope;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_1a0
 
     .line 754
     iget-object v4, v3, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
@@ -374,7 +374,7 @@
 
     const/4 v5, 0x2
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_9f
 
     .line 755
     .end local v3    # "address":Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -400,19 +400,19 @@
 
     .line 758
     .end local v1    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    goto/16 :goto_0
+    goto/16 :goto_17
 
     .line 760
     .restart local v1    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .restart local v3    # "address":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :cond_5
+    :cond_9f
     nop
 
     .line 761
-    :try_start_1
+    :try_start_a0
     iget-boolean v4, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$pingTest$mainJob$1$1$1;->$icmpPing:Z
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_17
 
     .line 765
     sget-object v4, Lio/nekohasekai/sagernet/SagerNet;->Companion:Lio/nekohasekai/sagernet/SagerNet$Companion;
@@ -421,30 +421,30 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_b8
 
     invoke-virtual {v4}, Landroid/net/Network;->getSocketFactory()Ljavax/net/SocketFactory;
 
     move-result-object v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_b8
 
     invoke-virtual {v4}, Ljavax/net/SocketFactory;->createSocket()Ljava/net/Socket;
 
     move-result-object v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_bd
 
     .line 766
-    :cond_6
+    :cond_b8
     new-instance v4, Ljava/net/Socket;
 
     invoke-direct {v4}, Ljava/net/Socket;-><init>()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_bd
+    .catch Ljava/lang/Exception; {:try_start_a0 .. :try_end_bd} :catch_11a
 
     .line 765
-    :cond_7
+    :cond_bd
     nop
 
     .line 764
@@ -457,7 +457,7 @@
     .line 768
     const/16 v7, 0xbb8
 
-    :try_start_2
+    :try_start_c2
     invoke-virtual {v4, v7}, Ljava/net/Socket;->setSoTimeout(I)V
 
     .line 769
@@ -518,26 +518,26 @@
     invoke-static {v0}, Lkotlinx/coroutines/CoroutineScopeKt;->isActive(Lkotlinx/coroutines/CoroutineScope;)Z
 
     move-result v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_f8
+    .catchall {:try_start_c2 .. :try_end_f8} :catchall_115
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_ff
 
     .line 781
     .end local v8    # "start":J
-    :try_start_3
+    :try_start_fa
     invoke-static {v4}, Lokhttp3/internal/Util;->closeQuietly(Ljava/net/Socket;)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_fd
+    .catch Ljava/lang/Exception; {:try_start_fa .. :try_end_fd} :catch_11a
 
     .end local v4    # "socket":Ljava/net/Socket;
-    goto/16 :goto_4
+    goto/16 :goto_1a0
 
     .line 777
     .restart local v4    # "socket":Ljava/net/Socket;
     .restart local v8    # "start":J
-    :cond_8
-    :try_start_4
+    :cond_ff
+    :try_start_ff
     invoke-virtual {v1, v6}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setStatus(I)V
 
     .line 778
@@ -555,21 +555,21 @@
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$pingTest$mainJob$1$1$1;->$test:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
 
     invoke-virtual {v3, v1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->update(Lio/nekohasekai/sagernet/database/ProxyEntity;)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_110
+    .catchall {:try_start_ff .. :try_end_110} :catchall_115
 
     .line 781
     .end local v8    # "start":J
-    :try_start_5
+    :try_start_110
     invoke-static {v4}, Lokhttp3/internal/Util;->closeQuietly(Ljava/net/Socket;)V
 
     .line 782
     .end local v4    # "socket":Ljava/net/Socket;
-    goto/16 :goto_0
+    goto/16 :goto_17
 
     .line 781
     .restart local v4    # "socket":Ljava/net/Socket;
-    :catchall_0
+    :catchall_115
     move-exception v3
 
     invoke-static {v4}, Lokhttp3/internal/Util;->closeQuietly(Ljava/net/Socket;)V
@@ -578,15 +578,15 @@
     .end local v1    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .end local p1    # "$result":Ljava/lang/Object;
     throw v3
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
+    :try_end_11a
+    .catch Ljava/lang/Exception; {:try_start_110 .. :try_end_11a} :catch_11a
 
     .line 784
     .end local v4    # "socket":Ljava/net/Socket;
     .restart local v0    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     .restart local v1    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
     .restart local p1    # "$result":Ljava/lang/Object;
-    :catch_1
+    :catch_11a
     move-exception v3
 
     .line 785
@@ -595,7 +595,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_1a0
 
     .line 786
     move-object v4, v3
@@ -612,7 +612,7 @@
 
     const v6, 0x7f1300b1
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_13c
 
     .line 789
     .end local v3    # "message":Ljava/lang/String;
@@ -627,11 +627,11 @@
 
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setError(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_199
 
     .line 792
     .restart local v3    # "message":Ljava/lang/String;
-    :cond_9
+    :cond_13c
     invoke-virtual {v1, v5}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setStatus(I)V
 
     .line 793
@@ -654,7 +654,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_15e
 
     .line 795
     .end local v3    # "message":Ljava/lang/String;
@@ -669,11 +669,11 @@
     .line 794
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setError(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_199
 
     .line 797
     .restart local v3    # "message":Ljava/lang/String;
-    :cond_a
+    :cond_15e
     nop
 
     .line 798
@@ -689,7 +689,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_17a
 
     .line 799
     .end local v3    # "message":Ljava/lang/String;
@@ -707,11 +707,11 @@
     .line 799
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setError(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_199
 
     .line 803
     .restart local v3    # "message":Ljava/lang/String;
-    :cond_b
+    :cond_17a
     move-object v4, v3
 
     check-cast v4, Ljava/lang/CharSequence;
@@ -724,7 +724,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_192
 
     .line 804
     .end local v3    # "message":Ljava/lang/String;
@@ -740,11 +740,11 @@
     .line 804
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setError(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_199
 
     .line 809
     .restart local v3    # "message":Ljava/lang/String;
-    :cond_c
+    :cond_192
     const/4 v2, 0x3
 
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/database/ProxyEntity;->setStatus(I)V
@@ -754,26 +754,26 @@
 
     .line 815
     .end local v3    # "message":Ljava/lang/String;
-    :goto_3
+    :goto_199
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$pingTest$mainJob$1$1$1;->$test:Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;
 
     invoke-virtual {v2, v1}, Lio/nekohasekai/sagernet/ui/ConfigurationFragment$TestDialog;->update(Lio/nekohasekai/sagernet/database/ProxyEntity;)V
 
     .end local v1    # "profile":Lio/nekohasekai/sagernet/database/ProxyEntity;
-    goto/16 :goto_0
+    goto/16 :goto_17
 
     .line 818
     .end local v0    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    :cond_d
-    :goto_4
+    :cond_1a0
+    :goto_1a0
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1a4
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method

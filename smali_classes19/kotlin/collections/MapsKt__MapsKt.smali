@@ -128,7 +128,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/collections/MapsKt__MapsJVMKt;-><init>()V
 
@@ -136,7 +136,7 @@
 .end method
 
 .method private static final buildMap(ILkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .param p0, "capacity"    # I
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -179,7 +179,7 @@
 .end method
 
 .method private static final buildMap(Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -221,7 +221,7 @@
 .end method
 
 .method private static final component1(Ljava/util/Map$Entry;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$component1"    # Ljava/util/Map$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -248,7 +248,7 @@
 .end method
 
 .method private static final component2(Ljava/util/Map$Entry;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "$this$component2"    # Ljava/util/Map$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -275,7 +275,7 @@
 .end method
 
 .method private static final contains(Ljava/util/Map;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$contains"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -303,7 +303,7 @@
 .end method
 
 .method private static final containsKey(Ljava/util/Map;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$containsKey"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -329,7 +329,7 @@
 .end method
 
 .method private static final containsValue(Ljava/util/Map;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p0, "$this$containsValue"    # Ljava/util/Map;
     .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -357,7 +357,7 @@
 .end method
 
 .method public static final emptyMap()Ljava/util/Map;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -383,7 +383,7 @@
 .end method
 
 .method public static final filter(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 8
+    .registers 10
     .param p0, "$this$filter"    # Ljava/util/Map;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -440,13 +440,13 @@
 
     move-result-object v4
 
-    :cond_0
-    :goto_0
+    :cond_1c
+    :goto_1c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_40
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -466,7 +466,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1c
 
     .line 835
     invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -479,11 +479,11 @@
 
     invoke-interface {v1, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 838
     .end local v5    # "element$iv":Ljava/util/Map$Entry;
-    :cond_1
+    :cond_40
     nop
 
     .line 535
@@ -494,7 +494,7 @@
 .end method
 
 .method public static final filterKeys(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 6
+    .registers 8
     .param p0, "$this$filterKeys"    # Ljava/util/Map;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -541,13 +541,13 @@
 
     move-result-object v2
 
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_40
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -571,7 +571,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_18
 
     .line 490
     invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -584,11 +584,11 @@
 
     invoke-virtual {v1, v4, v5}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 493
     .end local v3    # "entry":Ljava/util/Map$Entry;
-    :cond_1
+    :cond_40
     move-object v2, v1
 
     check-cast v2, Ljava/util/Map;
@@ -597,7 +597,7 @@
 .end method
 
 .method public static final filterNot(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 8
+    .registers 10
     .param p0, "$this$filterNot"    # Ljava/util/Map;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -654,13 +654,13 @@
 
     move-result-object v4
 
-    :cond_0
-    :goto_0
+    :cond_1c
+    :goto_1c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_40
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -680,7 +680,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1c
 
     .line 841
     invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -693,11 +693,11 @@
 
     invoke-interface {v1, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 844
     .end local v5    # "element$iv":Ljava/util/Map$Entry;
-    :cond_1
+    :cond_40
     nop
 
     .line 560
@@ -708,7 +708,7 @@
 .end method
 
 .method public static final filterNotTo(Ljava/util/Map;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 5
+    .registers 8
     .param p0, "$this$filterNotTo"    # Ljava/util/Map;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -756,13 +756,13 @@
 
     move-result-object v1
 
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -782,7 +782,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_18
 
     .line 547
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -795,16 +795,16 @@
 
     invoke-interface {p1, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 550
     .end local v2    # "element":Ljava/util/Map$Entry;
-    :cond_1
+    :cond_3c
     return-object p1
 .end method
 
 .method public static final filterTo(Ljava/util/Map;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 5
+    .registers 8
     .param p0, "$this$filterTo"    # Ljava/util/Map;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
@@ -852,13 +852,13 @@
 
     move-result-object v1
 
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -878,7 +878,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
     .line 522
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -891,16 +891,16 @@
 
     invoke-interface {p1, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 525
     .end local v2    # "element":Ljava/util/Map$Entry;
-    :cond_1
+    :cond_3c
     return-object p1
 .end method
 
 .method public static final filterValues(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 6
+    .registers 8
     .param p0, "$this$filterValues"    # Ljava/util/Map;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -947,13 +947,13 @@
 
     move-result-object v2
 
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_40
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -977,7 +977,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_18
 
     .line 506
     invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -990,11 +990,11 @@
 
     invoke-virtual {v1, v4, v5}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 509
     .end local v3    # "entry":Ljava/util/Map$Entry;
-    :cond_1
+    :cond_40
     move-object v2, v1
 
     check-cast v2, Ljava/util/Map;
@@ -1003,7 +1003,7 @@
 .end method
 
 .method private static final get(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$get"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -1031,7 +1031,7 @@
 .end method
 
 .method private static final getOrElse(Ljava/util/Map;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "$this$getOrElse"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "defaultValue"    # Lkotlin/jvm/functions/Function0;
@@ -1065,18 +1065,18 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0
 
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method public static final getOrElseNullable(Ljava/util/Map;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "$this$getOrElseNullable"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "defaultValue"    # Lkotlin/jvm/functions/Function0;
@@ -1112,13 +1112,13 @@
 
     .line 351
     .local v1, "value":Ljava/lang/Object;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     invoke-interface {p0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1c
 
     .line 352
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
@@ -1128,12 +1128,12 @@
     return-object v2
 
     .line 355
-    :cond_0
+    :cond_1c
     return-object v1
 .end method
 
 .method public static final getOrPut(Ljava/util/Map;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p0, "$this$getOrPut"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "defaultValue"    # Lkotlin/jvm/functions/Function0;
@@ -1169,7 +1169,7 @@
 
     .line 382
     .local v1, "value":Ljava/lang/Object;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     .line 383
     invoke-interface {p2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
@@ -1184,19 +1184,19 @@
     nop
 
     .end local v2    # "answer":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1b
 
     .line 387
-    :cond_0
+    :cond_1a
     move-object v2, v1
 
     .line 382
-    :goto_0
+    :goto_1b
     return-object v2
 .end method
 
 .method public static final getValue(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$getValue"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -1224,7 +1224,7 @@
 .end method
 
 .method private static final hashMapOf()Ljava/util/HashMap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1246,7 +1246,7 @@
 .end method
 
 .method public static final varargs hashMapOf([Lkotlin/Pair;)Ljava/util/HashMap;
-    .locals 4
+    .registers 5
     .param p0, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1297,7 +1297,7 @@
 .end method
 
 .method private static final ifEmpty(Ljava/util/Map;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$ifEmpty"    # Ljava/util/Map;
     .param p1, "defaultValue"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -1324,23 +1324,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     move-object v0, p0
 
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method private static final isNotEmpty(Ljava/util/Map;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isNotEmpty"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1369,7 +1369,7 @@
 .end method
 
 .method private static final isNullOrEmpty(Ljava/util/Map;)Z
-    .locals 1
+    .registers 2
     .param p0, "$this$isNullOrEmpty"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1387,31 +1387,31 @@
     nop
 
     .line 219
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_c
 
     invoke-interface {p0}, Ljava/util/Map;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_d
 
-    :cond_1
-    :goto_0
+    :cond_c
+    :goto_c
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_d
     return v0
 .end method
 
 .method private static final iterator(Ljava/util/Map;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$iterator"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1445,7 +1445,7 @@
 .end method
 
 .method private static final linkedMapOf()Ljava/util/LinkedHashMap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1467,7 +1467,7 @@
 .end method
 
 .method public static final varargs linkedMapOf([Lkotlin/Pair;)Ljava/util/LinkedHashMap;
-    .locals 2
+    .registers 3
     .param p0, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1510,7 +1510,7 @@
 .end method
 
 .method public static final mapKeys(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 11
+    .registers 13
     .param p0, "$this$mapKeys"    # Ljava/util/Map;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1582,12 +1582,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_27
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_41
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1617,11 +1617,11 @@
     .end local v10    # "$i$a$-associateByTo-MapsKt__MapsKt$mapKeysTo$1$iv":I
     invoke-interface {v1, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 832
     .end local v7    # "element$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_41
     nop
 
     .line 828
@@ -1637,7 +1637,7 @@
 .end method
 
 .method public static final mapKeysTo(Ljava/util/Map;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 8
+    .registers 11
     .param p0, "$this$mapKeysTo"    # Ljava/util/Map;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -1692,12 +1692,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1b
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_35
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1727,11 +1727,11 @@
     .end local v7    # "$i$a$-associateByTo-MapsKt__MapsKt$mapKeysTo$1":I
     invoke-interface {p1, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 822
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_35
     nop
 
     .line 423
@@ -1741,7 +1741,7 @@
 .end method
 
 .method private static final mapOf()Ljava/util/Map;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -1763,7 +1763,7 @@
 .end method
 
 .method public static final varargs mapOf([Lkotlin/Pair;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1786,7 +1786,7 @@
     .line 55
     array-length v0, p0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_19
 
     new-instance v0, Ljava/util/LinkedHashMap;
 
@@ -1804,19 +1804,19 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_19
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
 
-    :goto_0
+    :goto_1d
     return-object v0
 .end method
 
 .method public static final mapValues(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 10
+    .registers 12
     .param p0, "$this$mapValues"    # Ljava/util/Map;
     .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -1888,12 +1888,12 @@
 
     move-result-object v6
 
-    :goto_0
+    :goto_27
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_41
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1923,11 +1923,11 @@
 
     invoke-interface {v1, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 827
     .end local v7    # "element$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_41
     nop
 
     .line 823
@@ -1943,7 +1943,7 @@
 .end method
 
 .method public static final mapValuesTo(Ljava/util/Map;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
-    .locals 7
+    .registers 10
     .param p0, "$this$mapValuesTo"    # Ljava/util/Map;
     .param p1, "destination"    # Ljava/util/Map;
     .param p2, "transform"    # Lkotlin/jvm/functions/Function1;
@@ -1998,12 +1998,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1b
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_35
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2033,11 +2033,11 @@
 
     invoke-interface {p1, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 818
     .end local v4    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_35
     nop
 
     .line 412
@@ -2047,7 +2047,7 @@
 .end method
 
 .method public static final minus(Ljava/util/Map;Ljava/lang/Iterable;)Ljava/util/Map;
-    .locals 4
+    .registers 6
     .param p0, "$this$minus"    # Ljava/util/Map;
     .param p1, "keys"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -2105,7 +2105,7 @@
 .end method
 
 .method public static final minus(Ljava/util/Map;Ljava/lang/Object;)Ljava/util/Map;
-    .locals 3
+    .registers 5
     .param p0, "$this$minus"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -2151,7 +2151,7 @@
 .end method
 
 .method public static final minus(Ljava/util/Map;Lkotlin/sequences/Sequence;)Ljava/util/Map;
-    .locals 4
+    .registers 6
     .param p0, "$this$minus"    # Ljava/util/Map;
     .param p1, "keys"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -2209,7 +2209,7 @@
 .end method
 
 .method public static final minus(Ljava/util/Map;[Ljava/lang/Object;)Ljava/util/Map;
-    .locals 4
+    .registers 6
     .param p0, "$this$minus"    # Ljava/util/Map;
     .param p1, "keys"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -2265,7 +2265,7 @@
 .end method
 
 .method private static final minusAssign(Ljava/util/Map;Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Ljava/util/Map;
     .param p1, "keys"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -2304,7 +2304,7 @@
 .end method
 
 .method private static final minusAssign(Ljava/util/Map;Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -2331,7 +2331,7 @@
 .end method
 
 .method private static final minusAssign(Ljava/util/Map;Lkotlin/sequences/Sequence;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Ljava/util/Map;
     .param p1, "keys"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -2370,7 +2370,7 @@
 .end method
 
 .method private static final minusAssign(Ljava/util/Map;[Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$minusAssign"    # Ljava/util/Map;
     .param p1, "keys"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -2407,7 +2407,7 @@
 .end method
 
 .method private static final mutableIterator(Ljava/util/Map;)Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .param p0, "$this$iterator"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2441,7 +2441,7 @@
 .end method
 
 .method private static final mutableMapOf()Ljava/util/Map;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -2465,7 +2465,7 @@
 .end method
 
 .method public static final varargs mutableMapOf([Lkotlin/Pair;)Ljava/util/Map;
-    .locals 4
+    .registers 5
     .param p0, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2518,7 +2518,7 @@
 .end method
 
 .method public static final optimizeReadOnlyMap(Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "$this$optimizeReadOnlyMap"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2543,40 +2543,40 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_18
 
     .line 811
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 810
-    :pswitch_0
+    :pswitch_e
     invoke-static {p0}, Lkotlin/collections/MapsKt;->toSingletonMap(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 809
-    :pswitch_1
+    :pswitch_13
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
 
     .line 812
-    :goto_0
+    :goto_17
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_13
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method private static final orEmpty(Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "$this$orEmpty"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2593,23 +2593,23 @@
     .end annotation
 
     .line 228
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     move-object v0, p0
 
-    :goto_0
+    :goto_8
     return-object v0
 .end method
 
 .method public static final plus(Ljava/util/Map;Ljava/lang/Iterable;)Ljava/util/Map;
-    .locals 4
+    .registers 6
     .param p0, "$this$plus"    # Ljava/util/Map;
     .param p1, "pairs"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -2643,15 +2643,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-static {p1}, Lkotlin/collections/MapsKt;->toMap(Ljava/lang/Iterable;)Ljava/util/Map;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0, p0}, Ljava/util/LinkedHashMap;-><init>(Ljava/util/Map;)V
@@ -2674,12 +2674,12 @@
     .end local v2    # "$i$a$-apply-MapsKt__MapsKt$plus$2":I
     check-cast v0, Ljava/util/Map;
 
-    :goto_0
+    :goto_24
     return-object v0
 .end method
 
 .method public static final plus(Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;
-    .locals 3
+    .registers 5
     .param p0, "$this$plus"    # Ljava/util/Map;
     .param p1, "map"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -2729,7 +2729,7 @@
 .end method
 
 .method public static final plus(Ljava/util/Map;Lkotlin/Pair;)Ljava/util/Map;
-    .locals 5
+    .registers 7
     .param p0, "$this$plus"    # Ljava/util/Map;
     .param p1, "pair"    # Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
@@ -2761,15 +2761,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-static {p1}, Lkotlin/collections/MapsKt;->mapOf(Lkotlin/Pair;)Ljava/util/Map;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0, p0}, Ljava/util/LinkedHashMap;-><init>(Ljava/util/Map;)V
@@ -2796,12 +2796,12 @@
     .end local v2    # "$i$a$-apply-MapsKt__MapsKt$plus$1":I
     check-cast v0, Ljava/util/Map;
 
-    :goto_0
+    :goto_29
     return-object v0
 .end method
 
 .method public static final plus(Ljava/util/Map;Lkotlin/sequences/Sequence;)Ljava/util/Map;
-    .locals 4
+    .registers 6
     .param p0, "$this$plus"    # Ljava/util/Map;
     .param p1, "pairs"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -2861,7 +2861,7 @@
 .end method
 
 .method public static final plus(Ljava/util/Map;[Lkotlin/Pair;)Ljava/util/Map;
-    .locals 4
+    .registers 6
     .param p0, "$this$plus"    # Ljava/util/Map;
     .param p1, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
@@ -2893,15 +2893,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-static {p1}, Lkotlin/collections/MapsKt;->toMap([Lkotlin/Pair;)Ljava/util/Map;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0, p0}, Ljava/util/LinkedHashMap;-><init>(Ljava/util/Map;)V
@@ -2924,12 +2924,12 @@
     .end local v2    # "$i$a$-apply-MapsKt__MapsKt$plus$3":I
     check-cast v0, Ljava/util/Map;
 
-    :goto_0
+    :goto_24
     return-object v0
 .end method
 
 .method private static final plusAssign(Ljava/util/Map;Ljava/lang/Iterable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Ljava/util/Map;
     .param p1, "pairs"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -2964,7 +2964,7 @@
 .end method
 
 .method private static final plusAssign(Ljava/util/Map;Ljava/util/Map;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Ljava/util/Map;
     .param p1, "map"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -2997,7 +2997,7 @@
 .end method
 
 .method private static final plusAssign(Ljava/util/Map;Lkotlin/Pair;)V
-    .locals 2
+    .registers 4
     .param p0, "$this$plusAssign"    # Ljava/util/Map;
     .param p1, "pair"    # Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
@@ -3038,7 +3038,7 @@
 .end method
 
 .method private static final plusAssign(Ljava/util/Map;Lkotlin/sequences/Sequence;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Ljava/util/Map;
     .param p1, "pairs"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -3073,7 +3073,7 @@
 .end method
 
 .method private static final plusAssign(Ljava/util/Map;[Lkotlin/Pair;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$plusAssign"    # Ljava/util/Map;
     .param p1, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
@@ -3106,7 +3106,7 @@
 .end method
 
 .method public static final putAll(Ljava/util/Map;Ljava/lang/Iterable;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$putAll"    # Ljava/util/Map;
     .param p1, "pairs"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
@@ -3138,12 +3138,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3164,17 +3164,17 @@
     .local v1, "value":Ljava/lang/Object;
     invoke-interface {p0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_e
 
     .line 442
     .end local v1    # "value":Ljava/lang/Object;
     .end local v2    # "key":Ljava/lang/Object;
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 .method public static final putAll(Ljava/util/Map;Lkotlin/sequences/Sequence;)V
-    .locals 3
+    .registers 5
     .param p0, "$this$putAll"    # Ljava/util/Map;
     .param p1, "pairs"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
@@ -3206,12 +3206,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3232,17 +3232,17 @@
     .local v1, "value":Ljava/lang/Object;
     invoke-interface {p0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_e
 
     .line 451
     .end local v1    # "value":Ljava/lang/Object;
     .end local v2    # "key":Ljava/lang/Object;
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 .method public static final putAll(Ljava/util/Map;[Lkotlin/Pair;)V
-    .locals 4
+    .registers 6
     .param p0, "$this$putAll"    # Ljava/util/Map;
     .param p1, "pairs"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
@@ -3272,8 +3272,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_c
+    if-ge v1, v0, :cond_1e
 
     aget-object v2, p1, v1
 
@@ -3295,15 +3295,15 @@
     .end local v3    # "key":Ljava/lang/Object;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 433
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method private static final remove(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$remove"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -3335,7 +3335,7 @@
 .end method
 
 .method private static final set(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p0, "$this$set"    # Ljava/util/Map;
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
@@ -3363,7 +3363,7 @@
 .end method
 
 .method public static final toMap(Ljava/lang/Iterable;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "$this$toMap"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3388,7 +3388,7 @@
     .line 570
     instance-of v0, p0, Ljava/util/Collection;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4b
 
     .line 571
     move-object v0, p0
@@ -3399,7 +3399,7 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_5c
 
     .line 574
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -3424,13 +3424,13 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 573
-    :pswitch_0
+    :pswitch_2a
     instance-of v0, p0, Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_37
 
     move-object v0, p0
 
@@ -3442,9 +3442,9 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3f
 
-    :cond_0
+    :cond_37
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -3453,27 +3453,27 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_3f
     check-cast v0, Lkotlin/Pair;
 
     invoke-static {v0}, Lkotlin/collections/MapsKt;->mapOf(Lkotlin/Pair;)Ljava/util/Map;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 572
-    :pswitch_1
+    :pswitch_46
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
 
     .line 571
-    :goto_1
+    :goto_4a
     return-object v0
 
     .line 577
-    :cond_1
+    :cond_4b
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
@@ -3492,15 +3492,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_46
+        :pswitch_2a
     .end packed-switch
 .end method
 
 .method public static final toMap(Ljava/lang/Iterable;Ljava/util/Map;)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .param p0, "$this$toMap"    # Ljava/lang/Iterable;
     .param p1, "destination"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -3544,7 +3544,7 @@
 .end method
 
 .method public static final toMap(Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "$this$toMap"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3569,44 +3569,44 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     .line 627
     invoke-static {p0}, Lkotlin/collections/MapsKt;->toMutableMap(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 626
-    :pswitch_0
+    :pswitch_11
     invoke-static {p0}, Lkotlin/collections/MapsKt;->toSingletonMap(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 625
-    :pswitch_1
+    :pswitch_16
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
 
     .line 628
-    :goto_0
+    :goto_1a
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public static final toMap(Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .param p0, "$this$toMap"    # Ljava/util/Map;
     .param p1, "destination"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -3648,7 +3648,7 @@
 .end method
 
 .method public static final toMap(Lkotlin/sequences/Sequence;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "$this$toMap"    # Lkotlin/sequences/Sequence;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3689,7 +3689,7 @@
 .end method
 
 .method public static final toMap(Lkotlin/sequences/Sequence;Ljava/util/Map;)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .param p0, "$this$toMap"    # Lkotlin/sequences/Sequence;
     .param p1, "destination"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -3733,7 +3733,7 @@
 .end method
 
 .method public static final toMap([Lkotlin/Pair;)Ljava/util/Map;
-    .locals 2
+    .registers 3
     .param p0, "$this$toMap"    # [Lkotlin/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3756,7 +3756,7 @@
     .line 592
     array-length v0, p0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_28
 
     .line 595
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -3775,10 +3775,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_26
 
     .line 594
-    :pswitch_0
+    :pswitch_1a
     const/4 v0, 0x0
 
     aget-object v0, p0, v0
@@ -3787,29 +3787,29 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_26
 
     .line 593
-    :pswitch_1
+    :pswitch_22
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
 
     .line 596
-    :goto_0
+    :goto_26
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_28
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_22
+        :pswitch_1a
     .end packed-switch
 .end method
 
 .method public static final toMap([Lkotlin/Pair;Ljava/util/Map;)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .param p0, "$this$toMap"    # [Lkotlin/Pair;
     .param p1, "destination"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -3851,7 +3851,7 @@
 .end method
 
 .method public static final toMutableMap(Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "$this$toMutableMap"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3882,7 +3882,7 @@
 .end method
 
 .method private static final toPair(Ljava/util/Map$Entry;)Lkotlin/Pair;
-    .locals 3
+    .registers 4
     .param p0, "$this$toPair"    # Ljava/util/Map$Entry;
     .annotation system Ldalvik/annotation/Signature;
         value = {

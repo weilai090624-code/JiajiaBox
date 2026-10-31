@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/ScrollView;Landroid/widget/LinearLayout;Lcom/google/android/material/textfield/TextInputEditText;Lcom/google/android/material/textfield/TextInputEditText;Lcom/google/android/material/textfield/TextInputLayout;)V
-    .locals 0
+    .registers 6
     .param p1, "rootView"    # Landroid/widget/ScrollView;
     .param p2, "concurrentLayout"    # Landroid/widget/LinearLayout;
     .param p3, "edit"    # Lcom/google/android/material/textfield/TextInputEditText;
@@ -66,7 +66,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutUrltestPreferenceDialogBinding;
-    .locals 12
+    .registers 13
     .param p0, "rootView"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -90,7 +90,7 @@
 
     .line 75
     .local v1, "concurrentLayout":Landroid/widget/LinearLayout;
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_40
 
     .line 79
     const v0, 0x1020003
@@ -106,7 +106,7 @@
 
     .line 81
     .local v8, "edit":Lcom/google/android/material/textfield/TextInputEditText;
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_3f
 
     .line 85
     const v0, 0x7f0a0113
@@ -122,7 +122,7 @@
 
     .line 87
     .local v9, "editConcurrent":Lcom/google/android/material/textfield/TextInputEditText;
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_3e
 
     .line 91
     const v0, 0x7f0a0160
@@ -138,7 +138,7 @@
 
     .line 93
     .local v10, "inputLayout":Lcom/google/android/material/textfield/TextInputLayout;
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_3d
 
     .line 97
     new-instance v11, Lio/nekohasekai/sagernet/databinding/LayoutUrltestPreferenceDialogBinding;
@@ -162,27 +162,27 @@
     return-object v11
 
     .line 94
-    :cond_0
-    goto :goto_0
+    :cond_3d
+    goto :goto_41
 
     .line 88
     .end local v10    # "inputLayout":Lcom/google/android/material/textfield/TextInputLayout;
-    :cond_1
-    goto :goto_0
+    :cond_3e
+    goto :goto_41
 
     .line 82
     .end local v9    # "editConcurrent":Lcom/google/android/material/textfield/TextInputEditText;
-    :cond_2
-    goto :goto_0
+    :cond_3f
+    goto :goto_41
 
     .line 76
     .end local v8    # "edit":Lcom/google/android/material/textfield/TextInputEditText;
-    :cond_3
+    :cond_40
     nop
 
     .line 100
     .end local v1    # "concurrentLayout":Landroid/widget/LinearLayout;
-    :goto_0
+    :goto_41
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -207,7 +207,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lio/nekohasekai/sagernet/databinding/LayoutUrltestPreferenceDialogBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -231,7 +231,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lio/nekohasekai/sagernet/databinding/LayoutUrltestPreferenceDialogBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -259,13 +259,13 @@
 
     .line 61
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 62
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 64
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lio/nekohasekai/sagernet/databinding/LayoutUrltestPreferenceDialogBinding;->bind(Landroid/view/View;)Lio/nekohasekai/sagernet/databinding/LayoutUrltestPreferenceDialogBinding;
 
     move-result-object v1
@@ -276,7 +276,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 20
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/databinding/LayoutUrltestPreferenceDialogBinding;->getRoot()Landroid/widget/ScrollView;
@@ -287,7 +287,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/ScrollView;
-    .locals 1
+    .registers 2
 
     .line 49
     iget-object v0, p0, Lio/nekohasekai/sagernet/databinding/LayoutUrltestPreferenceDialogBinding;->rootView:Landroid/widget/ScrollView;

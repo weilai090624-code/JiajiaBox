@@ -72,7 +72,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/sqlite/db/SupportSQLiteOpenHelper;Landroidx/room/AutoCloser;)V
-    .locals 2
+    .registers 5
     .param p1, "delegate"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper;
     .param p2, "autoCloser"    # Landroidx/room/AutoCloser;
 
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper;->autoClosingDb:Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;
@@ -138,7 +138,7 @@
 .end method
 
 .method public getDatabaseName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper;->delegate:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
@@ -150,7 +150,7 @@
 .end method
 
 .method public getDelegate()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper;->delegate:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
@@ -159,7 +159,7 @@
 .end method
 
 .method public getReadableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 1
+    .registers 2
 
     .line 66
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper;->autoClosingDb:Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;
@@ -175,7 +175,7 @@
 .end method
 
 .method public getWritableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper;->autoClosingDb:Landroidx/room/AutoClosingRoomOpenHelper$AutoClosingSupportSQLiteDatabase;
@@ -191,7 +191,7 @@
 .end method
 
 .method public setWriteAheadLoggingEnabled(Z)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper;->delegate:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 

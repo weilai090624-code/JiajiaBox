@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 48
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -55,7 +55,7 @@
 .end method
 
 .method private static updateTopBottomPadding(Landroid/view/View;II)V
-    .locals 2
+    .registers 5
     .param p0, "view"    # Landroid/view/View;
     .param p1, "topPadding"    # I
     .param p2, "bottomPadding"    # I
@@ -65,7 +65,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 140
     nop
@@ -83,10 +83,10 @@
     .line 140
     invoke-static {p0, v0, p1, v1, p2}, Landroidx/core/view/ViewCompat;->setPaddingRelative(Landroid/view/View;IIII)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 147
-    :cond_0
+    :cond_13
     invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
 
     move-result v0
@@ -98,12 +98,12 @@
     invoke-virtual {p0, v0, p1, v1, p2}, Landroid/view/View;->setPadding(IIII)V
 
     .line 149
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method private updateViewsWithinLayout(III)Z
-    .locals 2
+    .registers 6
     .param p1, "orientation"    # I
     .param p2, "messagePadTop"    # I
     .param p3, "messagePadBottom"    # I
@@ -117,7 +117,7 @@
 
     move-result v1
 
-    if-eq p1, v1, :cond_0
+    if-eq p1, v1, :cond_b
 
     .line 126
     invoke-virtual {p0, p1}, Lcom/google/android/material/snackbar/SnackbarContentLayout;->setOrientation(I)V
@@ -126,14 +126,14 @@
     const/4 v0, 0x1
 
     .line 129
-    :cond_0
+    :cond_b
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->messageView:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getPaddingTop()I
 
     move-result v1
 
-    if-ne v1, p2, :cond_1
+    if-ne v1, p2, :cond_1b
 
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->messageView:Landroid/widget/TextView;
 
@@ -142,10 +142,10 @@
 
     move-result v1
 
-    if-eq v1, p3, :cond_2
+    if-eq v1, p3, :cond_21
 
     .line 131
-    :cond_1
+    :cond_1b
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->messageView:Landroid/widget/TextView;
 
     invoke-static {v1, p2, p3}, Lcom/google/android/material/snackbar/SnackbarContentLayout;->updateTopBottomPadding(Landroid/view/View;II)V
@@ -154,14 +154,14 @@
     const/4 v0, 0x1
 
     .line 134
-    :cond_2
+    :cond_21
     return v0
 .end method
 
 
 # virtual methods
 .method public animateContentIn(II)V
-    .locals 5
+    .registers 8
     .param p1, "delay"    # I
     .param p2, "duration"    # I
 
@@ -213,7 +213,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4f
 
     .line 158
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->actionView:Landroid/widget/Button;
@@ -253,12 +253,12 @@
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
     .line 162
-    :cond_0
+    :cond_4f
     return-void
 .end method
 
 .method public animateContentOut(II)V
-    .locals 5
+    .registers 8
     .param p1, "delay"    # I
     .param p2, "duration"    # I
 
@@ -310,7 +310,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4f
 
     .line 171
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->actionView:Landroid/widget/Button;
@@ -350,12 +350,12 @@
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
     .line 175
-    :cond_0
+    :cond_4f
     return-void
 .end method
 
 .method public getActionView()Landroid/widget/Button;
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->actionView:Landroid/widget/Button;
@@ -364,7 +364,7 @@
 .end method
 
 .method public getMessageView()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->messageView:Landroid/widget/TextView;
@@ -373,7 +373,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 1
+    .registers 2
 
     .line 62
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
@@ -405,7 +405,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 9
+    .registers 12
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -419,13 +419,13 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     .line 92
     return-void
 
     .line 95
-    :cond_0
+    :cond_b
     nop
 
     .line 96
@@ -466,33 +466,33 @@
     .local v3, "messageLayout":Landroid/text/Layout;
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_32
 
     invoke-virtual {v3}, Landroid/text/Layout;->getLineCount()I
 
     move-result v5
 
-    if-le v5, v1, :cond_1
+    if-le v5, v1, :cond_32
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_1
+    :cond_32
     const/4 v5, 0x0
 
     .line 102
     .local v5, "isMultiLine":Z
-    :goto_0
+    :goto_33
     const/4 v6, 0x0
 
     .line 103
     .local v6, "remeasure":Z
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_4e
 
     iget v7, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->maxInlineActionWidth:I
 
-    if-lez v7, :cond_2
+    if-lez v7, :cond_4e
 
     iget-object v7, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->actionView:Landroid/widget/Button;
 
@@ -503,7 +503,7 @@
 
     iget v8, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->maxInlineActionWidth:I
 
-    if-le v7, v8, :cond_2
+    if-le v7, v8, :cond_4e
 
     .line 106
     sub-int v4, v0, v2
@@ -512,52 +512,52 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5a
 
     .line 108
     const/4 v6, 0x1
 
-    goto :goto_2
+    goto :goto_5a
 
     .line 111
-    :cond_2
-    if-eqz v5, :cond_3
+    :cond_4e
+    if-eqz v5, :cond_52
 
     move v1, v0
 
-    goto :goto_1
+    goto :goto_53
 
-    :cond_3
+    :cond_52
     move v1, v2
 
     .line 112
     .local v1, "messagePadding":I
-    :goto_1
+    :goto_53
     invoke-direct {p0, v4, v1, v1}, Lcom/google/android/material/snackbar/SnackbarContentLayout;->updateViewsWithinLayout(III)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5a
 
     .line 113
     const/4 v6, 0x1
 
     .line 117
     .end local v1    # "messagePadding":I
-    :cond_4
-    :goto_2
-    if-eqz v6, :cond_5
+    :cond_5a
+    :goto_5a
+    if-eqz v6, :cond_5f
 
     .line 118
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
     .line 120
-    :cond_5
+    :cond_5f
     return-void
 .end method
 
 .method public setMaxInlineActionWidth(I)V
-    .locals 0
+    .registers 2
     .param p1, "width"    # I
 
     .line 178
@@ -568,7 +568,7 @@
 .end method
 
 .method updateActionTextColorAlphaIfNeeded(F)V
-    .locals 4
+    .registers 6
     .param p1, "actionTextColorAlpha"    # F
 
     .line 76
@@ -576,7 +576,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 77
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarContentLayout;->actionView:Landroid/widget/Button;
@@ -612,6 +612,6 @@
     .end local v0    # "originalActionTextColor":I
     .end local v1    # "colorSurface":I
     .end local v2    # "actionTextColor":I
-    :cond_0
+    :cond_1c
     return-void
 .end method

@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 584
     .local p0, "this":Lj$/util/stream/Nodes$EmptyNode$OfRef;, "Ljava/util/stream/Nodes$EmptyNode$OfRef<TT;>;"
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Lj$/util/stream/Nodes-IA;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lj$/util/stream/Nodes$EmptyNode$OfRef;-><init>()V
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public bridge synthetic copyInto([Ljava/lang/Object;I)V
-    .locals 0
+    .registers 3
 
     .line 582
     .local p0, "this":Lj$/util/stream/Nodes$EmptyNode$OfRef;, "Ljava/util/stream/Nodes$EmptyNode$OfRef<TT;>;"
@@ -59,7 +59,7 @@
 .end method
 
 .method public bridge synthetic forEach(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     .line 582
     .local p0, "this":Lj$/util/stream/Nodes$EmptyNode$OfRef;, "Ljava/util/stream/Nodes$EmptyNode$OfRef<TT;>;"
@@ -69,7 +69,7 @@
 .end method
 
 .method public spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -1,0 +1,41 @@
+JiajiaBox Nowhere NW3 适配归档详细目录
+
+一、原始任务
+用户提供 Nowhere NW3 节点，要求将 nowhere:// 链接导入 JiajiaBox，并接入 sing-box 1.14.3-Jiajia-7 核心。
+
+二、节点测试范围
+1. TCP/TLS + Morph：端口 3005，作为主要真实连接测试节点。
+2. UDP/QUIC + Morph：端口 3002，以及后续将 3005 改为 net=udp 的链接，用于排查 UDP 行为。
+节点密钥只保存在配置和测试上下文中，没有写入源码常量或最终说明文件。
+
+三、实现内容
+1. 增加 Nowhere NW3 出站注册。
+2. 接入 TCP/TLS 与 UDP/QUIC 两种传输。
+3. 接入 Morph 密钥派生和连接生命周期管理。
+4. 增加 nowhere:// 链接解析，读取 server、port、32 位密钥、net、morph 和名称。
+5. 保留原有 APK 的 JNI 导出接口和基线功能。
+6. 修正域名目标转换，确保目标域名与端口不会重复拼接。
+
+四、验证结果
+1. Java 导入测试：TCP、UDP、Morph、名称和无效链接处理通过。
+2. NW3 wire、Morph、协议测试向量通过。
+3. 核心配置解码及实例创建测试通过。
+4. 本地回环测试：TCP/UDP NW3 + Morph 均可建立隧道并转发请求。
+5. 真实 TCP 节点：成功通过 HTTPS 访问。
+6. 真实 UDP 节点：远程测试超时；测试环境同时报告缺少默认网络接口，因此无法将问题单独归因于客户端或服务端。
+7. 未连接 Android 真机，最终 APK 尚未完成设备安装和 VPN 场景验证。
+
+五、归档文件
+- all-2026-10-30/：当天所有本地 Codex rollout JSONL 原始记录。
+- rollout-*.jsonl：重点会话的原始记录副本。
+- codex-history.jsonl：Codex 历史记录副本。
+- session_index.jsonl：会话索引。
+- thread_history_1.sqlite：线程历史数据库副本（如果存在）。
+- README.txt：简要说明。
+- SHA256SUMS：归档校验值。
+
+六、如何阅读
+JSONL 文件按行保存事件，每行是一个 JSON 对象；其中 payload.role=user 或 assistant 的内容是对话，tool 调用和输出是执行证据。建议先看本文件，再按时间阅读 all-2026-10-30 中的会话。
+
+七、签名文件
+signing/debug.keystore 是本次测试 APK 使用的 Android 签名库；credentials.txt 保存对应签名参数；signing-certificate.pem 是证书副本。它们属于敏感文件，请不要公开上传。

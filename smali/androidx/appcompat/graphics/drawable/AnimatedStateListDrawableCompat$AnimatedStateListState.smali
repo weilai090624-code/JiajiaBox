@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat;Landroid/content/res/Resources;)V
-    .locals 1
+    .registers 5
     .param p1, "orig"    # Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;
     .param p2, "owner"    # Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat;
     .param p3, "res"    # Landroid/content/res/Resources;
@@ -53,7 +53,7 @@
     invoke-direct {p0, p1, p2, p3}, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;-><init>(Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;Landroidx/appcompat/graphics/drawable/StateListDrawableCompat;Landroid/content/res/Resources;)V
 
     .line 637
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 639
     iget-object v0, p1, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mTransitions:Landroidx/collection/LongSparseArray;
@@ -65,10 +65,10 @@
 
     iput-object v0, p0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mStateIds:Landroidx/collection/SparseArrayCompat;
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 642
-    :cond_0
+    :cond_e
     new-instance v0, Landroidx/collection/LongSparseArray;
 
     invoke-direct {v0}, Landroidx/collection/LongSparseArray;-><init>()V
@@ -83,12 +83,12 @@
     iput-object v0, p0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mStateIds:Landroidx/collection/SparseArrayCompat;
 
     .line 645
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method private static generateTransitionKey(II)J
-    .locals 4
+    .registers 6
     .param p0, "fromId"    # I
     .param p1, "toId"    # I
 
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method addStateSet([ILandroid/graphics/drawable/Drawable;I)I
-    .locals 3
+    .registers 7
     .param p1, "stateSet"    # [I
     .param p2, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p3, "id"    # I
@@ -134,7 +134,7 @@
 .end method
 
 .method addTransition(IILandroid/graphics/drawable/Drawable;Z)I
-    .locals 16
+    .registers 21
     .param p1, "fromId"    # I
     .param p2, "toId"    # I
     .param p3, "anim"    # Landroid/graphics/drawable/Drawable;
@@ -161,13 +161,13 @@
 
     .line 657
     .local v5, "reversibleBit":J
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_15
 
     .line 658
     const-wide v5, 0x200000000L
 
     .line 660
-    :cond_0
+    :cond_15
     iget-object v7, v0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mTransitions:Landroidx/collection/LongSparseArray;
 
     int-to-long v8, v2
@@ -181,7 +181,7 @@
     invoke-virtual {v7, v3, v4, v8}, Landroidx/collection/LongSparseArray;->append(JLjava/lang/Object;)V
 
     .line 661
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_3c
 
     .line 662
     move/from16 v7, p1
@@ -210,32 +210,32 @@
 
     invoke-virtual {v11, v9, v10, v12}, Landroidx/collection/LongSparseArray;->append(JLjava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_40
 
     .line 661
     .end local v9    # "keyToFrom":J
-    :cond_1
+    :cond_3c
     move/from16 v7, p1
 
     move/from16 v8, p2
 
     .line 665
-    :goto_0
+    :goto_40
     return v2
 .end method
 
 .method getKeyframeIdAt(I)I
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
 
     .line 683
     const/4 v0, 0x0
 
-    if-gez p1, :cond_0
+    if-gez p1, :cond_4
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_4
     iget-object v1, p0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mStateIds:Landroidx/collection/SparseArrayCompat;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -252,12 +252,12 @@
 
     move-result v0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method indexOfKeyframe([I)I
-    .locals 2
+    .registers 4
     .param p1, "stateSet"    # [I
 
     .line 675
@@ -267,13 +267,13 @@
 
     .line 676
     .local v0, "index":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_7
 
     .line 677
     return v0
 
     .line 679
-    :cond_0
+    :cond_7
     sget-object v1, Landroid/util/StateSet;->WILD_CARD:[I
 
     invoke-super {p0, v1}, Landroidx/appcompat/graphics/drawable/StateListDrawableCompat$StateListState;->indexOfStateSet([I)I
@@ -284,7 +284,7 @@
 .end method
 
 .method indexOfTransition(II)I
-    .locals 5
+    .registers 8
     .param p1, "fromId"    # I
     .param p2, "toId"    # I
 
@@ -319,7 +319,7 @@
 .end method
 
 .method isTransitionReversed(II)Z
-    .locals 7
+    .registers 10
     .param p1, "fromId"    # I
     .param p2, "toId"    # I
 
@@ -356,21 +356,21 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_24
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_24
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_25
     return v2
 .end method
 
 .method mutate()V
-    .locals 1
+    .registers 2
 
     .line 649
     iget-object v0, p0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;->mTransitions:Landroidx/collection/LongSparseArray;
@@ -395,7 +395,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 3
 
     .line 704
     new-instance v0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat;
@@ -408,7 +408,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p1, "res"    # Landroid/content/res/Resources;
 
     .line 710
@@ -420,7 +420,7 @@
 .end method
 
 .method transitionHasReversibleFlag(II)Z
-    .locals 7
+    .registers 10
     .param p1, "fromId"    # I
     .param p2, "toId"    # I
 
@@ -457,15 +457,15 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_24
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_24
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_25
     return v2
 .end method

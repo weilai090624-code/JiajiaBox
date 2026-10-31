@@ -48,7 +48,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 221
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/ResponseBody$Companion;-><init>()V
 
@@ -65,16 +65,16 @@
 .end method
 
 .method public static synthetic create$default(Lokhttp3/ResponseBody$Companion;Ljava/lang/String;Lokhttp3/MediaType;ILjava/lang/Object;)Lokhttp3/ResponseBody;
-    .locals 0
+    .registers 5
 
     .line 228
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokhttp3/ResponseBody$Companion;->create(Ljava/lang/String;Lokhttp3/MediaType;)Lokhttp3/ResponseBody;
 
     move-result-object p0
@@ -83,27 +83,27 @@
 .end method
 
 .method public static synthetic create$default(Lokhttp3/ResponseBody$Companion;Lokio/BufferedSource;Lokhttp3/MediaType;JILjava/lang/Object;)Lokhttp3/ResponseBody;
-    .locals 0
+    .registers 7
 
     .line 265
     and-int/lit8 p6, p5, 0x1
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_5
 
     .line 266
     const/4 p2, 0x0
 
     .line 265
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p5, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_b
 
     .line 267
     const-wide/16 p3, -0x1
 
     .line 265
-    :cond_1
+    :cond_b
     invoke-virtual {p0, p1, p2, p3, p4}, Lokhttp3/ResponseBody$Companion;->create(Lokio/BufferedSource;Lokhttp3/MediaType;J)Lokhttp3/ResponseBody;
 
     move-result-object p0
@@ -112,16 +112,16 @@
 .end method
 
 .method public static synthetic create$default(Lokhttp3/ResponseBody$Companion;Lokio/ByteString;Lokhttp3/MediaType;ILjava/lang/Object;)Lokhttp3/ResponseBody;
-    .locals 0
+    .registers 5
 
     .line 256
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokhttp3/ResponseBody$Companion;->create(Lokio/ByteString;Lokhttp3/MediaType;)Lokhttp3/ResponseBody;
 
     move-result-object p0
@@ -130,16 +130,16 @@
 .end method
 
 .method public static synthetic create$default(Lokhttp3/ResponseBody$Companion;[BLokhttp3/MediaType;ILjava/lang/Object;)Lokhttp3/ResponseBody;
-    .locals 0
+    .registers 5
 
     .line 247
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const/4 p2, 0x0
 
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1, p2}, Lokhttp3/ResponseBody$Companion;->create([BLokhttp3/MediaType;)Lokhttp3/ResponseBody;
 
     move-result-object p0
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/String;Lokhttp3/MediaType;)Lokhttp3/ResponseBody;
-    .locals 6
+    .registers 9
     .param p1, "$this$toResponseBody"    # Ljava/lang/String;
     .param p2, "contentType"    # Lokhttp3/MediaType;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -169,7 +169,7 @@
 
     .line 231
     .local v1, "finalContentType":Lokhttp3/MediaType;
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2f
 
     .line 232
     const/4 v2, 0x1
@@ -182,7 +182,7 @@
 
     .line 233
     .local v2, "resolvedCharset":Ljava/nio/charset/Charset;
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2e
 
     .line 234
     sget-object v0, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
@@ -212,16 +212,16 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 237
-    :cond_0
+    :cond_2e
     move-object v0, v2
 
     .line 240
     .end local v2    # "resolvedCharset":Ljava/nio/charset/Charset;
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     new-instance v2, Lokio/Buffer;
 
     invoke-direct {v2}, Lokio/Buffer;-><init>()V
@@ -248,7 +248,7 @@
 .end method
 
 .method public final create(Lokhttp3/MediaType;JLokio/BufferedSource;)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 6
     .param p1, "contentType"    # Lokhttp3/MediaType;
     .param p2, "contentLength"    # J
     .param p4, "content"    # Lokio/BufferedSource;
@@ -279,7 +279,7 @@
 .end method
 
 .method public final create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 4
     .param p1, "contentType"    # Lokhttp3/MediaType;
     .param p2, "content"    # Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
@@ -309,7 +309,7 @@
 .end method
 
 .method public final create(Lokhttp3/MediaType;Lokio/ByteString;)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 4
     .param p1, "contentType"    # Lokhttp3/MediaType;
     .param p2, "content"    # Lokio/ByteString;
     .annotation runtime Lkotlin/Deprecated;
@@ -339,7 +339,7 @@
 .end method
 
 .method public final create(Lokhttp3/MediaType;[B)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 4
     .param p1, "contentType"    # Lokhttp3/MediaType;
     .param p2, "content"    # [B
     .annotation runtime Lkotlin/Deprecated;
@@ -369,7 +369,7 @@
 .end method
 
 .method public final create(Lokio/BufferedSource;Lokhttp3/MediaType;J)Lokhttp3/ResponseBody;
-    .locals 1
+    .registers 6
     .param p1, "$this$asResponseBody"    # Lokio/BufferedSource;
     .param p2, "contentType"    # Lokhttp3/MediaType;
     .param p3, "contentLength"    # J
@@ -392,7 +392,7 @@
 .end method
 
 .method public final create(Lokio/ByteString;Lokhttp3/MediaType;)Lokhttp3/ResponseBody;
-    .locals 3
+    .registers 6
     .param p1, "$this$toResponseBody"    # Lokio/ByteString;
     .param p2, "contentType"    # Lokhttp3/MediaType;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -433,7 +433,7 @@
 .end method
 
 .method public final create([BLokhttp3/MediaType;)Lokhttp3/ResponseBody;
-    .locals 3
+    .registers 6
     .param p1, "$this$toResponseBody"    # [B
     .param p2, "contentType"    # Lokhttp3/MediaType;
     .annotation runtime Lkotlin/jvm/JvmStatic;

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method private correctErrors([BI)V
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/ChecksumException;
@@ -46,8 +46,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v0, :cond_0
+    :goto_5
+    if-ge v3, v0, :cond_10
 
     .line 111
     aget-byte v4, p1, v3
@@ -59,11 +59,11 @@
     .line 110
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 114
-    :cond_0
-    :try_start_0
+    :cond_10
+    :try_start_10
     iget-object v0, p0, Lcom/google/zxing/datamatrix/decoder/Decoder;->rsDecoder:Lcom/google/zxing/common/reedsolomon/ReedSolomonDecoder;
 
     array-length v3, p1
@@ -71,8 +71,8 @@
     sub-int/2addr v3, p2
 
     invoke-virtual {v0, v1, v3}, Lcom/google/zxing/common/reedsolomon/ReedSolomonDecoder;->decode([II)V
-    :try_end_0
-    .catch Lcom/google/zxing/common/reedsolomon/ReedSolomonException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Lcom/google/zxing/common/reedsolomon/ReedSolomonException; {:try_start_10 .. :try_end_17} :catch_24
 
     .line 117
     nop
@@ -80,8 +80,8 @@
     .line 120
     nop
 
-    :goto_1
-    if-ge v2, p2, :cond_1
+    :goto_19
+    if-ge v2, p2, :cond_23
 
     .line 121
     aget v0, v1, v2
@@ -93,14 +93,14 @@
     .line 120
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
     .line 123
-    :cond_1
+    :cond_23
     return-void
 
     .line 115
-    :catch_0
+    :catch_24
     move-exception p1
 
     .line 116
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public decode(Lcom/google/zxing/common/BitMatrix;)Lcom/google/zxing/common/DecoderResult;
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/FormatException;,
@@ -154,8 +154,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_16
+    if-ge v2, v0, :cond_22
 
     aget-object v4, p1, v2
 
@@ -169,10 +169,10 @@
     .line 76
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 79
-    :cond_0
+    :cond_22
     new-array v0, v3, [B
 
     .line 81
@@ -181,8 +181,8 @@
     .line 83
     const/4 v3, 0x0
 
-    :goto_1
-    if-ge v3, v2, :cond_2
+    :goto_26
+    if-ge v3, v2, :cond_45
 
     .line 84
     aget-object v4, p1, v3
@@ -203,8 +203,8 @@
     .line 88
     const/4 v6, 0x0
 
-    :goto_2
-    if-ge v6, v4, :cond_1
+    :goto_36
+    if-ge v6, v4, :cond_42
 
     .line 90
     mul-int v7, v6, v2
@@ -218,16 +218,16 @@
     .line 88
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_36
 
     .line 83
-    :cond_1
+    :cond_42
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
     .line 95
-    :cond_2
+    :cond_45
     invoke-static {v0}, Lcom/google/zxing/datamatrix/decoder/DecodedBitStreamParser;->decode([B)Lcom/google/zxing/common/DecoderResult;
 
     move-result-object p1
@@ -236,7 +236,7 @@
 .end method
 
 .method public decode([[Z)Lcom/google/zxing/common/DecoderResult;
-    .locals 1
+    .registers 3
     .param p1, "image"    # [[Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

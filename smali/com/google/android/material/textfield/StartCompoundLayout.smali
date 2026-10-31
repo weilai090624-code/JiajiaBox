@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/textfield/TextInputLayout;Landroidx/appcompat/widget/TintTypedArray;)V
-    .locals 5
+    .registers 8
     .param p1, "textInputLayout"    # Lcom/google/android/material/textfield/TextInputLayout;
     .param p2, "a"    # Landroidx/appcompat/widget/TintTypedArray;
 
@@ -123,7 +123,7 @@
 .end method
 
 .method private initPrefixTextView(Landroidx/appcompat/widget/TintTypedArray;)V
-    .locals 3
+    .registers 5
     .param p1, "a"    # Landroidx/appcompat/widget/TintTypedArray;
 
     .line 148
@@ -176,7 +176,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3a
 
     .line 158
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_prefixTextColor:I
@@ -188,7 +188,7 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/StartCompoundLayout;->setPrefixTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 160
-    :cond_0
+    :cond_3a
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_prefixText:I
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->getText(I)Ljava/lang/CharSequence;
@@ -202,7 +202,7 @@
 .end method
 
 .method private initStartIconView(Landroidx/appcompat/widget/TintTypedArray;)V
-    .locals 4
+    .registers 6
     .param p1, "a"    # Landroidx/appcompat/widget/TintTypedArray;
 
     .line 109
@@ -214,7 +214,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 110
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -234,7 +234,7 @@
 
     .line 114
     .end local v0    # "lp":Landroid/view/ViewGroup$MarginLayoutParams;
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/StartCompoundLayout;->setStartIconOnClickListener(Landroid/view/View$OnClickListener;)V
@@ -249,7 +249,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_32
 
     .line 118
     nop
@@ -269,7 +269,7 @@
     iput-object v1, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconTintList:Landroid/content/res/ColorStateList;
 
     .line 123
-    :cond_1
+    :cond_32
     sget v1, Lcom/google/android/material/R$styleable;->TextInputLayout_startIconTintMode:I
 
     invoke-virtual {p1, v1}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
@@ -278,7 +278,7 @@
 
     const/4 v2, -0x1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_47
 
     .line 124
     sget v1, Lcom/google/android/material/R$styleable;->TextInputLayout_startIconTintMode:I
@@ -296,14 +296,14 @@
     iput-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
     .line 129
-    :cond_2
+    :cond_47
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_startIconDrawable:I
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_73
 
     .line 130
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_startIconDrawable:I
@@ -321,7 +321,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_69
 
     .line 132
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_startIconContentDescription:I
@@ -335,7 +335,7 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/StartCompoundLayout;->setStartIconContentDescription(Ljava/lang/CharSequence;)V
 
     .line 135
-    :cond_3
+    :cond_69
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_startIconCheckable:I
 
     const/4 v1, 0x1
@@ -347,7 +347,7 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/StartCompoundLayout;->setStartIconCheckable(Z)V
 
     .line 137
-    :cond_4
+    :cond_73
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_startIconMinSize:I
 
     .line 140
@@ -376,7 +376,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_9b
 
     .line 142
     sget v0, Lcom/google/android/material/R$styleable;->TextInputLayout_startIconScaleType:I
@@ -394,12 +394,12 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/StartCompoundLayout;->setStartIconScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     .line 145
-    :cond_5
+    :cond_9b
     return-void
 .end method
 
 .method private updateVisibility()V
-    .locals 4
+    .registers 5
 
     .line 338
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->prefixText:Ljava/lang/CharSequence;
@@ -408,22 +408,22 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-boolean v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->hintExpanded:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/16 v0, 0x8
 
     .line 339
     .local v0, "prefixTextVisibility":I
-    :goto_0
+    :goto_f
     iget-object v3, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconView:Lcom/google/android/material/internal/CheckableImageButton;
 
     .line 340
@@ -431,29 +431,29 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1c
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
+    :cond_1a
     const/4 v3, 0x0
 
-    goto :goto_2
+    goto :goto_1d
 
-    :cond_2
-    :goto_1
+    :cond_1c
+    :goto_1c
     const/4 v3, 0x1
 
     .line 341
     .local v3, "shouldBeVisible":Z
-    :goto_2
-    if-eqz v3, :cond_3
+    :goto_1d
+    if-eqz v3, :cond_20
 
     const/4 v1, 0x0
 
-    :cond_3
+    :cond_20
     invoke-virtual {p0, v1}, Lcom/google/android/material/textfield/StartCompoundLayout;->setVisibility(I)V
 
     .line 344
@@ -473,7 +473,7 @@
 
 # virtual methods
 .method getPrefixText()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 188
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->prefixText:Ljava/lang/CharSequence;
@@ -482,7 +482,7 @@
 .end method
 
 .method getPrefixTextColor()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 197
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->prefixTextView:Landroid/widget/TextView;
@@ -495,7 +495,7 @@
 .end method
 
 .method getPrefixTextView()Landroid/widget/TextView;
-    .locals 1
+    .registers 2
 
     .line 171
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->prefixTextView:Landroid/widget/TextView;
@@ -504,7 +504,7 @@
 .end method
 
 .method getStartIconContentDescription()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 265
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -517,7 +517,7 @@
 .end method
 
 .method getStartIconDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 220
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -530,7 +530,7 @@
 .end method
 
 .method getStartIconMinSize()I
-    .locals 1
+    .registers 2
 
     .line 293
     iget v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconMinSize:I
@@ -539,7 +539,7 @@
 .end method
 
 .method getStartIconScaleType()Landroid/widget/ImageView$ScaleType;
-    .locals 1
+    .registers 2
 
     .line 303
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconScaleType:Landroid/widget/ImageView$ScaleType;
@@ -548,7 +548,7 @@
 .end method
 
 .method isStartIconCheckable()Z
-    .locals 1
+    .registers 2
 
     .line 254
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -561,7 +561,7 @@
 .end method
 
 .method isStartIconVisible()Z
-    .locals 1
+    .registers 2
 
     .line 242
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -570,21 +570,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method onHintStateChanged(Z)V
-    .locals 0
+    .registers 2
     .param p1, "hintExpanded"    # Z
 
     .line 332
@@ -598,7 +598,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 0
+    .registers 3
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -613,7 +613,7 @@
 .end method
 
 .method refreshStartIconDrawableState()V
-    .locals 3
+    .registers 4
 
     .line 246
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
@@ -629,7 +629,7 @@
 .end method
 
 .method setPrefixText(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "prefixText"    # Ljava/lang/CharSequence;
 
     .line 175
@@ -637,16 +637,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v0, p1
 
-    :goto_0
+    :goto_9
     iput-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->prefixText:Ljava/lang/CharSequence;
 
     .line 176
@@ -662,7 +662,7 @@
 .end method
 
 .method setPrefixTextAppearance(I)V
-    .locals 1
+    .registers 3
     .param p1, "prefixTextAppearance"    # I
 
     .line 201
@@ -675,7 +675,7 @@
 .end method
 
 .method setPrefixTextColor(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p1, "prefixTextColor"    # Landroid/content/res/ColorStateList;
 
     .line 192
@@ -688,7 +688,7 @@
 .end method
 
 .method setStartIconCheckable(Z)V
-    .locals 1
+    .registers 3
     .param p1, "startIconCheckable"    # Z
 
     .line 250
@@ -701,7 +701,7 @@
 .end method
 
 .method setStartIconContentDescription(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "startIconContentDescription"    # Ljava/lang/CharSequence;
 
     .line 258
@@ -709,7 +709,7 @@
 
     move-result-object v0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_b
 
     .line 259
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconView:Lcom/google/android/material/internal/CheckableImageButton;
@@ -717,12 +717,12 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/internal/CheckableImageButton;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 261
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method setStartIconDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 4
+    .registers 6
     .param p1, "startIconDrawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 205
@@ -731,7 +731,7 @@
     invoke-virtual {v0, p1}, Lcom/google/android/material/internal/CheckableImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 206
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1a
 
     .line 207
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
@@ -752,10 +752,10 @@
     .line 209
     invoke-virtual {p0}, Lcom/google/android/material/textfield/StartCompoundLayout;->refreshStartIconDrawableState()V
 
-    goto :goto_0
+    goto :goto_28
 
     .line 211
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/StartCompoundLayout;->setStartIconVisible(Z)V
@@ -772,21 +772,21 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/textfield/StartCompoundLayout;->setStartIconContentDescription(Ljava/lang/CharSequence;)V
 
     .line 216
-    :goto_0
+    :goto_28
     return-void
 .end method
 
 .method setStartIconMinSize(I)V
-    .locals 2
+    .registers 4
     .param p1, "iconSize"    # I
 
     .line 283
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_e
 
     .line 286
     iget v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconMinSize:I
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_d
 
     .line 287
     iput p1, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconMinSize:I
@@ -797,11 +797,11 @@
     invoke-static {v0, p1}, Lcom/google/android/material/textfield/IconHelper;->setIconMinSize(Lcom/google/android/material/internal/CheckableImageButton;I)V
 
     .line 290
-    :cond_0
+    :cond_d
     return-void
 
     .line 284
-    :cond_1
+    :cond_e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "startIconSize cannot be less than 0"
@@ -812,7 +812,7 @@
 .end method
 
 .method setStartIconOnClickListener(Landroid/view/View$OnClickListener;)V
-    .locals 2
+    .registers 4
     .param p1, "startIconOnClickListener"    # Landroid/view/View$OnClickListener;
 
     .line 224
@@ -827,7 +827,7 @@
 .end method
 
 .method setStartIconOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
-    .locals 1
+    .registers 3
     .param p1, "startIconOnLongClickListener"    # Landroid/view/View$OnLongClickListener;
 
     .line 229
@@ -843,7 +843,7 @@
 .end method
 
 .method setStartIconScaleType(Landroid/widget/ImageView$ScaleType;)V
-    .locals 1
+    .registers 3
     .param p1, "startIconScaleType"    # Landroid/widget/ImageView$ScaleType;
 
     .line 297
@@ -859,13 +859,13 @@
 .end method
 
 .method setStartIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 3
+    .registers 5
     .param p1, "startIconTintList"    # Landroid/content/res/ColorStateList;
 
     .line 269
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconTintList:Landroid/content/res/ColorStateList;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_f
 
     .line 270
     iput-object p1, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconTintList:Landroid/content/res/ColorStateList;
@@ -880,18 +880,18 @@
     invoke-static {v0, v1, p1, v2}, Lcom/google/android/material/textfield/IconHelper;->applyIconTint(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/internal/CheckableImageButton;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 273
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method setStartIconTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 4
+    .registers 6
     .param p1, "startIconTintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 276
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_11
 
     .line 277
     iput-object p1, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -908,12 +908,12 @@
     invoke-static {v0, v1, v2, v3}, Lcom/google/android/material/textfield/IconHelper;->applyIconTint(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/internal/CheckableImageButton;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 280
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method setStartIconVisible(Z)V
-    .locals 2
+    .registers 4
     .param p1, "visible"    # Z
 
     .line 234
@@ -921,21 +921,21 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_17
 
     .line 235
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconView:Lcom/google/android/material/internal/CheckableImageButton;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_c
     const/16 v1, 0x8
 
-    :goto_0
+    :goto_e
     invoke-virtual {v0, v1}, Lcom/google/android/material/internal/CheckableImageButton;->setVisibility(I)V
 
     .line 236
@@ -945,12 +945,12 @@
     invoke-direct {p0}, Lcom/google/android/material/textfield/StartCompoundLayout;->updateVisibility()V
 
     .line 239
-    :cond_1
+    :cond_17
     return-void
 .end method
 
 .method setupAccessibilityNodeInfo(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 3
     .param p1, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
     .line 307
@@ -960,7 +960,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 308
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->prefixTextView:Landroid/widget/TextView;
@@ -972,21 +972,21 @@
 
     invoke-virtual {p1, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setTraversalAfter(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 311
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->startIconView:Lcom/google/android/material/internal/CheckableImageButton;
 
     invoke-virtual {p1, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setTraversalAfter(Landroid/view/View;)V
 
     .line 313
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method updatePrefixTextViewPadding()V
-    .locals 6
+    .registers 7
 
     .line 316
     iget-object v0, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
@@ -995,31 +995,31 @@
 
     .line 317
     .local v0, "editText":Landroid/widget/EditText;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 318
     return-void
 
     .line 320
-    :cond_0
+    :cond_7
     invoke-virtual {p0}, Lcom/google/android/material/textfield/StartCompoundLayout;->isStartIconVisible()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_f
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_f
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->getPaddingStart(Landroid/view/View;)I
 
     move-result v1
 
     .line 321
     .local v1, "startPadding":I
-    :goto_0
+    :goto_13
     iget-object v2, p0, Lcom/google/android/material/textfield/StartCompoundLayout;->prefixTextView:Landroid/widget/TextView;
 
     .line 324

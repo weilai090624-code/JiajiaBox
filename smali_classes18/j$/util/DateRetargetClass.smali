@@ -5,11 +5,11 @@
 
 # direct methods
 .method public static synthetic toInstant(Ljava/util/Date;)Lj$/time/Instant;
-    .locals 1
+    .registers 2
 
     instance-of v0, p0, Lj$/util/DateRetargetInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/util/DateRetargetInterface;
 
@@ -19,7 +19,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     invoke-static {p0}, Lj$/util/DesugarDate;->toInstant(Ljava/util/Date;)Lj$/time/Instant;
 
     move-result-object p0

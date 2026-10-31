@@ -86,7 +86,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lio/nekohasekai/sagernet/fmt/PluginEntry;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x4
 
@@ -120,7 +120,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 18
+    .registers 18
 
     .line 12
     new-instance v9, Lio/nekohasekai/sagernet/fmt/PluginEntry;
@@ -371,7 +371,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;)V
-    .locals 0
+    .registers 7
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .param p3, "pluginId"    # Ljava/lang/String;
@@ -409,12 +409,12 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 14
+    .registers 23
 
     .line 6
     and-int/lit8 v0, p7, 0x8
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 10
     new-instance v0, Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;
@@ -435,13 +435,13 @@
 
     move-object v13, v0
 
-    goto :goto_0
+    goto :goto_13
 
     .line 6
-    :cond_0
+    :cond_11
     move-object/from16 v13, p6
 
-    :goto_0
+    :goto_13
     move-object v7, p0
 
     move-object v8, p1
@@ -461,7 +461,7 @@
 .end method
 
 .method public static getEntries()Lkotlin/enums/EnumEntries;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -478,7 +478,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/PluginEntry;
-    .locals 1
+    .registers 2
     .param p0, "value"    # Ljava/lang/String;
 
     const-class v0, Lio/nekohasekai/sagernet/fmt/PluginEntry;
@@ -494,7 +494,7 @@
 .end method
 
 .method public static values()[Lio/nekohasekai/sagernet/fmt/PluginEntry;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lio/nekohasekai/sagernet/fmt/PluginEntry;->$VALUES:[Lio/nekohasekai/sagernet/fmt/PluginEntry;
 
@@ -511,7 +511,7 @@
 
 # virtual methods
 .method public final getDisplayName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 8
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry;->displayName:Ljava/lang/String;
@@ -520,7 +520,7 @@
 .end method
 
 .method public final getDownloadSource()Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;
-    .locals 1
+    .registers 2
 
     .line 10
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry;->downloadSource:Lio/nekohasekai/sagernet/fmt/PluginEntry$DownloadSource;
@@ -529,7 +529,7 @@
 .end method
 
 .method public final getPackageName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 9
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry;->packageName:Ljava/lang/String;
@@ -538,7 +538,7 @@
 .end method
 
 .method public final getPluginId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 7
     iget-object v0, p0, Lio/nekohasekai/sagernet/fmt/PluginEntry;->pluginId:Ljava/lang/String;

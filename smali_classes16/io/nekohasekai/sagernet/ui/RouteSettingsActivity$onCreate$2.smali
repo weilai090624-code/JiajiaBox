@@ -72,7 +72,7 @@
 
 # direct methods
 .method constructor <init>(JLio/nekohasekai/sagernet/ui/RouteSettingsActivity;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +125,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,7 +168,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -177,7 +177,7 @@
     .line 228
     iget v1, p0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$onCreate$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_7c
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -188,18 +188,18 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_79
 
-    :pswitch_1
+    :pswitch_15
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_5b
 
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_2
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 229
@@ -212,7 +212,7 @@
 
     cmp-long v6, v1, v3
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_37
 
     .line 230
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$onCreate$2;->this$0:Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
@@ -231,10 +231,10 @@
 
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->init(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_63
 
     .line 232
-    :cond_0
+    :cond_37
     sget-object v1, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;->getRulesDao()Lio/nekohasekai/sagernet/database/RuleEntity$Dao;
@@ -249,7 +249,7 @@
 
     .line 233
     .local v1, "ruleEntity":Lio/nekohasekai/sagernet/database/RuleEntity;
-    if-nez v1, :cond_2
+    if-nez v1, :cond_5e
 
     .line 234
     .end local v1    # "ruleEntity":Lio/nekohasekai/sagernet/database/RuleEntity;
@@ -273,28 +273,28 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_5b
 
     .line 228
     return-object v0
 
     .line 237
-    :cond_1
-    :goto_0
+    :cond_5b
+    :goto_5b
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 239
     .restart local v1    # "ruleEntity":Lio/nekohasekai/sagernet/database/RuleEntity;
-    :cond_2
+    :cond_5e
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$onCreate$2;->this$0:Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
 
     invoke-virtual {v2, v1}, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;->init(Lio/nekohasekai/sagernet/database/RuleEntity;)V
 
     .line 242
     .end local v1    # "ruleEntity":Lio/nekohasekai/sagernet/database/RuleEntity;
-    :goto_1
+    :goto_63
     new-instance v1, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$onCreate$2$2;
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/RouteSettingsActivity$onCreate$2;->this$0:Lio/nekohasekai/sagernet/ui/RouteSettingsActivity;
@@ -315,22 +315,22 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_3
+    if-ne v1, v0, :cond_79
 
     .line 228
     return-object v0
 
     .line 250
-    :cond_3
-    :goto_2
+    :cond_79
+    :goto_79
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_7c
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_15
+        :pswitch_11
     .end packed-switch
 .end method

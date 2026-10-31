@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 88
     invoke-direct {p0}, Landroidx/constraintlayout/motion/utils/ViewOscillator;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public setProperty(Landroid/view/View;F)V
-    .locals 1
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
     .param p2, "t"    # F
     .annotation system Ldalvik/annotation/MethodParameters;

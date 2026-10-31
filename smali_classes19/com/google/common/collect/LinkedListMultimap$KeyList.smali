@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/LinkedListMultimap$Node;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/navigation/Navigator;)V
-    .locals 1
+    .registers 3
     .param p1, "fragmentNavigator"    # Landroidx/navigation/Navigator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -94,7 +94,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/navigation/NavigatorProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "navigatorProvider"    # Landroidx/navigation/NavigatorProvider;
 
     const-string v0, "navigatorProvider"
@@ -121,27 +121,27 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 220
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1d
 
     instance-of v1, p1, Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_8
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 221
-    :cond_0
+    :cond_8
     invoke-super {p0, p1}, Landroidx/navigation/NavDestination;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     iget-object v1, p0, Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;->_className:Ljava/lang/String;
 
@@ -155,35 +155,35 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1c
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_1c
     return v0
 
     .line 220
-    :cond_2
-    :goto_0
+    :cond_1d
+    :goto_1d
     return v0
 .end method
 
 .method public final getClassName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 181
     iget-object v0, p0, Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;->_className:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 182
     iget-object v0, p0, Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;->_className:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     return-object v0
 
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type kotlin.String"
@@ -193,7 +193,7 @@
     throw v0
 
     .line 236
-    :cond_1
+    :cond_11
     const/4 v0, 0x0
 
     .line 181
@@ -215,7 +215,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 225
     invoke-super {p0}, Landroidx/navigation/NavDestination;->hashCode()I
@@ -228,18 +228,18 @@
 
     iget-object v2, p0, Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;->_className:Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_f
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_10
     add-int/2addr v1, v2
 
     .line 227
@@ -249,7 +249,7 @@
 .end method
 
 .method public onInflate(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -307,7 +307,7 @@
 
     .line 204
     .local v4, "className":Ljava/lang/String;
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_30
 
     move-object v5, v4
 
@@ -323,15 +323,15 @@
 
     .end local v5    # "it":Ljava/lang/String;
     .end local v6    # "$i$a$-let-DialogFragmentNavigator$Destination$onInflate$1$1":I
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_30
     const/4 v5, 0x0
 
     .end local v2    # "array":Landroid/content/res/TypedArray;
     .end local v3    # "$i$a$-use-DialogFragmentNavigator$Destination$onInflate$1":I
     .end local v4    # "className":Ljava/lang/String;
-    :goto_0
+    :goto_31
     move-object v2, v5
 
     .local v2, "it$iv":Ljava/lang/Object;
@@ -356,7 +356,7 @@
 .end method
 
 .method public final setClassName(Ljava/lang/String;)Landroidx/navigation/fragment/DialogFragmentNavigator$Destination;
-    .locals 1
+    .registers 3
     .param p1, "className"    # Ljava/lang/String;
 
     const-string v0, "className"

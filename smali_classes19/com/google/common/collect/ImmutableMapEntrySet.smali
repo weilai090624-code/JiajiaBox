@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 70
     .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -54,7 +54,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 82
     move-object v0, p1
@@ -77,7 +77,7 @@
 
     .line 84
     .local v2, "value":Ljava/lang/Object;, "TV;"
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -87,22 +87,22 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_21
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_21
     return v1
 
     .line 86
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     .end local v2    # "value":Ljava/lang/Object;, "TV;"
-    :cond_1
+    :cond_22
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 102
     .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
@@ -118,7 +118,7 @@
 .end method
 
 .method isHashCodeFast()Z
-    .locals 1
+    .registers 2
 
     .line 97
     .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
@@ -134,7 +134,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 91
     .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
@@ -160,7 +160,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 76
     .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
@@ -176,7 +176,7 @@
 .end method
 
 .method writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
 
     .line 108
     .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"

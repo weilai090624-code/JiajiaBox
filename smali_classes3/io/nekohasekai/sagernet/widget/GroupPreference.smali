@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 17
+    .registers 21
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -163,12 +163,12 @@
 
     move-result-object v12
 
-    :goto_0
+    :goto_33
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_0
+    if-eqz v13, :cond_49
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -194,11 +194,11 @@
     .end local v15    # "$i$a$-map-GroupPreference$1":I
     invoke-interface {v8, v14}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_33
 
     .line 33
     .end local v13    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_49
     nop
 
     .end local v8    # "destination$iv$iv":Ljava/util/Collection;
@@ -271,12 +271,12 @@
 
     move-result-object v11
 
-    :goto_1
+    :goto_72
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_8c
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -306,11 +306,11 @@
     .end local v14    # "$i$a$-map-GroupPreference$2":I
     invoke-interface {v8, v13}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_72
 
     .line 39
     .end local v12    # "item$iv$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_8c
     nop
 
     .end local v8    # "destination$iv$iv":Ljava/util/Collection;
@@ -360,27 +360,27 @@
 .end method
 
 .method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 6
 
     .line 10
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 11
     const/4 p2, 0x0
 
     .line 10
-    :cond_0
+    :cond_5
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 11
     const p3, 0x7f040190
 
     .line 10
-    :cond_1
+    :cond_c
     invoke-direct {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/widget/GroupPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 12
@@ -390,7 +390,7 @@
 
 # virtual methods
 .method public getSummary()Ljava/lang/CharSequence;
-    .locals 3
+    .registers 4
 
     .line 22
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/widget/GroupPreference;->getValue()Ljava/lang/String;
@@ -399,27 +399,27 @@
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     invoke-static {v0}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     const/4 v0, 0x1
 
-    :goto_1
-    if-nez v0, :cond_3
+    :goto_12
+    if-nez v0, :cond_47
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/widget/GroupPreference;->getValue()Ljava/lang/String;
 
@@ -431,7 +431,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_47
 
     .line 23
     sget-object v0, Lio/nekohasekai/sagernet/database/SagerDatabase;->Companion:Lio/nekohasekai/sagernet/database/SagerDatabase$Companion;
@@ -456,30 +456,30 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/ProxyGroup;->displayName()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    goto :goto_2
+    goto :goto_46
 
     .line 24
-    :cond_2
+    :cond_42
     invoke-super {p0}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->getSummary()Ljava/lang/CharSequence;
 
     move-result-object v0
 
     .line 23
-    :goto_2
+    :goto_46
     return-object v0
 
     .line 26
-    :cond_3
+    :cond_47
     invoke-super {p0}, Lmoe/matsuri/nb4a/ui/SimpleMenuPreference;->getSummary()Ljava/lang/CharSequence;
 
     move-result-object v0

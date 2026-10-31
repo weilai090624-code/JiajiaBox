@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/function/Consumer;Z)V
-    .locals 0
+    .registers 3
     .param p2, "ordered"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -81,7 +81,7 @@
 .end method
 
 .method public bridge synthetic evaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 173
     .local p0, "this":Lj$/util/stream/ForEachOps$ForEachOp$OfRef;, "Ljava/util/stream/ForEachOps$ForEachOp$OfRef<TT;>;"
@@ -93,7 +93,7 @@
 .end method
 
 .method public bridge synthetic evaluateSequential(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 173
     .local p0, "this":Lj$/util/stream/ForEachOps$ForEachOp$OfRef;, "Ljava/util/stream/ForEachOps$ForEachOp$OfRef<TT;>;"
@@ -105,7 +105,7 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 173
     .local p0, "this":Lj$/util/stream/ForEachOps$ForEachOp$OfRef;, "Ljava/util/stream/ForEachOps$ForEachOp$OfRef<TT;>;"

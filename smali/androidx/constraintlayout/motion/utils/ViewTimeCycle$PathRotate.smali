@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 160
     invoke-direct {p0}, Landroidx/constraintlayout/motion/utils/ViewTimeCycle;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public setPathRotate(Landroid/view/View;Landroidx/constraintlayout/core/motion/utils/KeyCache;FJDD)Z
-    .locals 6
+    .registers 16
     .param p1, "view"    # Landroid/view/View;
     .param p2, "cache"    # Landroidx/constraintlayout/core/motion/utils/KeyCache;
     .param p3, "t"    # F
@@ -89,7 +89,7 @@
 .end method
 
 .method public setProperty(Landroid/view/View;FJLandroidx/constraintlayout/core/motion/utils/KeyCache;)Z
-    .locals 1
+    .registers 7
     .param p1, "view"    # Landroid/view/View;
     .param p2, "t"    # F
     .param p3, "time"    # J

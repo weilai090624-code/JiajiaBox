@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 501
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method diagonalSize()I
-    .locals 3
+    .registers 4
 
     .line 536
     iget v0, p0, Landroidx/recyclerview/widget/DiffUtil$Snake;->endX:I
@@ -62,7 +62,7 @@
 .end method
 
 .method hasAdditionOrRemoval()Z
-    .locals 3
+    .registers 4
 
     .line 528
     iget v0, p0, Landroidx/recyclerview/widget/DiffUtil$Snake;->endY:I
@@ -77,21 +77,21 @@
 
     sub-int/2addr v1, v2
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method isAddition()Z
-    .locals 3
+    .registers 4
 
     .line 532
     iget v0, p0, Landroidx/recyclerview/widget/DiffUtil$Snake;->endY:I
@@ -106,33 +106,33 @@
 
     sub-int/2addr v1, v2
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method toDiagonal()Landroidx/recyclerview/widget/DiffUtil$Diagonal;
-    .locals 5
+    .registers 6
 
     .line 545
     invoke-virtual {p0}, Landroidx/recyclerview/widget/DiffUtil$Snake;->hasAdditionOrRemoval()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3e
 
     .line 546
     iget-boolean v0, p0, Landroidx/recyclerview/widget/DiffUtil$Snake;->reverse:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 548
     new-instance v0, Landroidx/recyclerview/widget/DiffUtil$Diagonal;
@@ -150,12 +150,12 @@
     return-object v0
 
     .line 551
-    :cond_0
+    :cond_18
     invoke-virtual {p0}, Landroidx/recyclerview/widget/DiffUtil$Snake;->isAddition()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     .line 552
     new-instance v0, Landroidx/recyclerview/widget/DiffUtil$Diagonal;
@@ -175,7 +175,7 @@
     return-object v0
 
     .line 554
-    :cond_1
+    :cond_2e
     new-instance v0, Landroidx/recyclerview/widget/DiffUtil$Diagonal;
 
     iget v1, p0, Landroidx/recyclerview/widget/DiffUtil$Snake;->startX:I
@@ -193,7 +193,7 @@
     return-object v0
 
     .line 559
-    :cond_2
+    :cond_3e
     new-instance v0, Landroidx/recyclerview/widget/DiffUtil$Diagonal;
 
     iget v1, p0, Landroidx/recyclerview/widget/DiffUtil$Snake;->startX:I

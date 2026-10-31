@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/Fragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/fragment/app/Fragment;
 
     .line 267
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 270
     iget-object v0, p0, Landroidx/fragment/app/Fragment$1;->this$0:Landroidx/fragment/app/Fragment;

@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 229
     new-instance v0, Lcom/google/common/collect/Cut$AboveAll;
@@ -43,7 +43,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 233
     const-string v0, ""
@@ -55,7 +55,7 @@
 .end method
 
 .method static synthetic access$100()Lcom/google/common/collect/Cut$AboveAll;
-    .locals 1
+    .registers 1
 
     .line 228
     sget-object v0, Lcom/google/common/collect/Cut$AboveAll;->INSTANCE:Lcom/google/common/collect/Cut$AboveAll;
@@ -64,7 +64,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 304
     sget-object v0, Lcom/google/common/collect/Cut$AboveAll;->INSTANCE:Lcom/google/common/collect/Cut$AboveAll;
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public compareTo(Lcom/google/common/collect/Cut;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,21 +87,21 @@
 
     .line 290
     .local p1, "o":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<Ljava/lang/Comparable<*>;>;"
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 228
     check-cast p1, Lcom/google/common/collect/Cut;
@@ -114,7 +114,7 @@
 .end method
 
 .method describeAsLowerBound(Ljava/lang/StringBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .line 270
@@ -126,7 +126,7 @@
 .end method
 
 .method describeAsUpperBound(Ljava/lang/StringBuilder;)V
-    .locals 1
+    .registers 3
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .line 275
@@ -139,7 +139,7 @@
 .end method
 
 .method endpoint()Ljava/lang/Comparable;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -159,7 +159,7 @@
 .end method
 
 .method greatestValueBelow(Lcom/google/common/collect/DiscreteDomain;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -181,7 +181,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 295
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
@@ -192,7 +192,7 @@
 .end method
 
 .method isLessThan(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -209,7 +209,7 @@
 .end method
 
 .method leastValueAbove(Lcom/google/common/collect/DiscreteDomain;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -231,7 +231,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 300
     const-string v0, "+\u221e"
@@ -240,7 +240,7 @@
 .end method
 
 .method typeAsLowerBound()Lcom/google/common/collect/BoundType;
-    .locals 2
+    .registers 3
 
     .line 248
     new-instance v0, Ljava/lang/AssertionError;
@@ -253,7 +253,7 @@
 .end method
 
 .method typeAsUpperBound()Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 2
 
     .line 253
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -264,7 +264,7 @@
 .end method
 
 .method withLowerBoundType(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 2
+    .registers 5
     .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -291,7 +291,7 @@
 .end method
 
 .method withUpperBoundType(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 1
+    .registers 4
     .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {

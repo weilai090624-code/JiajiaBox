@@ -37,7 +37,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/google/common/cache/CacheBuilder$OneWeigher;
-    .locals 3
+    .registers 3
 
     .line 247
     const/4 v0, 0x1
@@ -54,7 +54,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 248
     new-instance v0, Lcom/google/common/cache/CacheBuilder$OneWeigher;
@@ -78,7 +78,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -92,7 +92,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/cache/CacheBuilder$OneWeigher;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 247
@@ -108,7 +108,7 @@
 .end method
 
 .method public static values()[Lcom/google/common/cache/CacheBuilder$OneWeigher;
-    .locals 1
+    .registers 1
 
     .line 247
     sget-object v0, Lcom/google/common/cache/CacheBuilder$OneWeigher;->$VALUES:[Lcom/google/common/cache/CacheBuilder$OneWeigher;
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public weigh(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/Object;
     .param p2, "value"    # Ljava/lang/Object;
 

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Landroid/animation/LayoutTransition;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public isChangingLayout()Z
-    .locals 1
+    .registers 2
 
     .line 50
     const/4 v0, 0x1

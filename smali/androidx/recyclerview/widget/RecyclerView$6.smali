@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 1032
@@ -37,18 +37,18 @@
 
 # virtual methods
 .method dispatchUpdate(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V
-    .locals 5
+    .registers 7
     .param p1, "op"    # Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;
 
     .line 1077
     iget v0, p1, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->cmd:I
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_42
 
-    goto :goto_0
+    goto :goto_41
 
     .line 1089
-    :sswitch_0
+    :sswitch_6
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$6;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mLayout:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -63,10 +63,10 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->onItemsMoved(Landroidx/recyclerview/widget/RecyclerView;III)V
 
-    goto :goto_0
+    goto :goto_41
 
     .line 1085
-    :sswitch_1
+    :sswitch_15
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$6;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mLayout:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -82,10 +82,10 @@
     invoke-virtual {v0, v1, v2, v3, v4}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->onItemsUpdated(Landroidx/recyclerview/widget/RecyclerView;IILjava/lang/Object;)V
 
     .line 1087
-    goto :goto_0
+    goto :goto_41
 
     .line 1082
-    :sswitch_2
+    :sswitch_25
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$6;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mLayout:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -99,10 +99,10 @@
     invoke-virtual {v0, v1, v2, v3}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->onItemsRemoved(Landroidx/recyclerview/widget/RecyclerView;II)V
 
     .line 1083
-    goto :goto_0
+    goto :goto_41
 
     .line 1079
-    :sswitch_3
+    :sswitch_33
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$6;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mLayout:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
@@ -119,20 +119,20 @@
     nop
 
     .line 1092
-    :goto_0
+    :goto_41
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_42
     .sparse-switch
-        0x1 -> :sswitch_3
-        0x2 -> :sswitch_2
-        0x4 -> :sswitch_1
-        0x8 -> :sswitch_0
+        0x1 -> :sswitch_33
+        0x2 -> :sswitch_25
+        0x4 -> :sswitch_15
+        0x8 -> :sswitch_6
     .end sparse-switch
 .end method
 
 .method public findViewHolder(I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 4
+    .registers 6
     .param p1, "position"    # I
 
     .line 1035
@@ -148,13 +148,13 @@
     .local v0, "vh":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 1037
     return-object v1
 
     .line 1041
-    :cond_0
+    :cond_b
     iget-object v2, p0, Landroidx/recyclerview/widget/RecyclerView$6;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
     iget-object v2, v2, Landroidx/recyclerview/widget/RecyclerView;->mChildHelper:Landroidx/recyclerview/widget/ChildHelper;
@@ -165,18 +165,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_18
 
     .line 1045
     return-object v1
 
     .line 1047
-    :cond_1
+    :cond_18
     return-object v0
 .end method
 
 .method public markViewHoldersUpdated(IILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
     .param p3, "payload"    # Ljava/lang/Object;
@@ -198,7 +198,7 @@
 .end method
 
 .method public offsetPositionsForAdd(II)V
-    .locals 2
+    .registers 5
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -219,7 +219,7 @@
 .end method
 
 .method public offsetPositionsForMove(II)V
-    .locals 2
+    .registers 5
     .param p1, "from"    # I
     .param p2, "to"    # I
 
@@ -240,7 +240,7 @@
 .end method
 
 .method public offsetPositionsForRemovingInvisible(II)V
-    .locals 2
+    .registers 5
     .param p1, "start"    # I
     .param p2, "count"    # I
 
@@ -272,7 +272,7 @@
 .end method
 
 .method public offsetPositionsForRemovingLaidOutOrNewView(II)V
-    .locals 2
+    .registers 5
     .param p1, "positionStart"    # I
     .param p2, "itemCount"    # I
 
@@ -295,7 +295,7 @@
 .end method
 
 .method public onDispatchFirstPass(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V
-    .locals 0
+    .registers 2
     .param p1, "op"    # Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;
 
     .line 1073
@@ -306,7 +306,7 @@
 .end method
 
 .method public onDispatchSecondPass(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V
-    .locals 0
+    .registers 2
     .param p1, "op"    # Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;
 
     .line 1096

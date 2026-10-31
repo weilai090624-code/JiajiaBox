@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(ILandroid/app/Notification;)V
-    .locals 1
+    .registers 4
     .param p1, "notificationId"    # I
     .param p2, "notification"    # Landroid/app/Notification;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(ILandroid/app/Notification;I)V
-    .locals 0
+    .registers 4
     .param p1, "notificationId"    # I
     .param p2, "notification"    # Landroid/app/Notification;
     .param p3, "foregroundServiceType"    # I
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -85,17 +85,17 @@
     .end annotation
 
     .line 92
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 v0, 0x1
 
     return v0
 
     .line 93
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_2c
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -105,12 +105,12 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_12
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 95
-    :cond_1
+    :cond_12
     move-object v1, p1
 
     check-cast v1, Landroidx/work/ForegroundInfo;
@@ -121,22 +121,22 @@
 
     iget v3, v1, Landroidx/work/ForegroundInfo;->mNotificationId:I
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_1c
 
     return v0
 
     .line 98
-    :cond_2
+    :cond_1c
     iget v2, p0, Landroidx/work/ForegroundInfo;->mForegroundServiceType:I
 
     iget v3, v1, Landroidx/work/ForegroundInfo;->mForegroundServiceType:I
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_23
 
     return v0
 
     .line 99
-    :cond_3
+    :cond_23
     iget-object v0, p0, Landroidx/work/ForegroundInfo;->mNotification:Landroid/app/Notification;
 
     iget-object v2, v1, Landroidx/work/ForegroundInfo;->mNotification:Landroid/app/Notification;
@@ -149,13 +149,13 @@
 
     .line 93
     .end local v1    # "that":Landroidx/work/ForegroundInfo;
-    :cond_4
-    :goto_0
+    :cond_2c
+    :goto_2c
     return v0
 .end method
 
 .method public getForegroundServiceType()I
-    .locals 1
+    .registers 2
 
     .line 79
     iget v0, p0, Landroidx/work/ForegroundInfo;->mForegroundServiceType:I
@@ -164,7 +164,7 @@
 .end method
 
 .method public getNotification()Landroid/app/Notification;
-    .locals 1
+    .registers 2
 
     .line 87
     iget-object v0, p0, Landroidx/work/ForegroundInfo;->mNotification:Landroid/app/Notification;
@@ -173,7 +173,7 @@
 .end method
 
 .method public getNotificationId()I
-    .locals 1
+    .registers 2
 
     .line 72
     iget v0, p0, Landroidx/work/ForegroundInfo;->mNotificationId:I
@@ -182,7 +182,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 104
     iget v0, p0, Landroidx/work/ForegroundInfo;->mNotificationId:I
@@ -215,7 +215,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 112
     new-instance v0, Ljava/lang/StringBuilder;

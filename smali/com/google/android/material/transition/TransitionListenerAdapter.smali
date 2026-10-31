@@ -8,7 +8,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public onTransitionCancel(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 30
@@ -27,7 +27,7 @@
 .end method
 
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 27
@@ -35,7 +35,7 @@
 .end method
 
 .method public onTransitionPause(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 33
@@ -43,7 +43,7 @@
 .end method
 
 .method public onTransitionResume(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 36
@@ -51,7 +51,7 @@
 .end method
 
 .method public onTransitionStart(Landroidx/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 24

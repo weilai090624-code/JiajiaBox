@@ -81,7 +81,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/ui/AssetsActivity;Ljava/io/File;Ljava/io/File;Ljava/lang/String;Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -156,7 +156,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -170,7 +170,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -199,7 +199,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -210,7 +210,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_8c
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -221,34 +221,34 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_12
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_88
 
-    :pswitch_1
+    :pswitch_17
     const/4 v1, 0x0
 
     .local v1, "$i$a$-onFailure-AssetsActivity$AssetHolder$bind$1$1$2":I
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_6c
 
     .end local v1    # "$i$a$-onFailure-AssetsActivity$AssetHolder$bind$1$1$2":I
-    :pswitch_2
+    :pswitch_1c
     const/4 v1, 0x0
 
     .local v1, "$i$a$-runCatching-AssetsActivity$AssetHolder$bind$1$1$1":I
-    :try_start_0
+    :try_start_1d
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_1d .. :try_end_20} :catchall_44
 
-    goto :goto_0
+    goto :goto_3d
 
     .end local v1    # "$i$a$-runCatching-AssetsActivity$AssetHolder$bind$1$1$1":I
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_3
+    :pswitch_21
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -267,7 +267,7 @@
     iget-object v6, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder$bind$1$1;->$localVersion:Ljava/lang/String;
 
     .end local v1    # "$this$runOnDefaultDispatcher":Lkotlinx/coroutines/CoroutineScope;
-    :try_start_1
+    :try_start_30
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     const/4 v1, 0x0
@@ -282,14 +282,14 @@
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_0
+    if-ne v3, v0, :cond_3d
 
     .line 235
     return-object v0
 
     .line 238
-    :cond_0
-    :goto_0
+    :cond_3d
+    :goto_3d
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 236
@@ -297,12 +297,12 @@
     invoke-static {v1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_43
+    .catchall {:try_start_30 .. :try_end_43} :catchall_44
 
-    goto :goto_1
+    goto :goto_4f
 
-    :catchall_0
+    :catchall_44
     move-exception v1
 
     sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -316,14 +316,14 @@
     move-result-object v1
 
     .line 238
-    :goto_1
+    :goto_4f
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder$bind$1$1;->this$0:Lio/nekohasekai/sagernet/ui/AssetsActivity;
 
     invoke-static {v1}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_6e
 
     .local v4, "it":Ljava/lang/Throwable;
     const/4 v5, 0x0
@@ -347,19 +347,19 @@
     move-result-object v1
 
     .end local v4    # "it":Ljava/lang/Throwable;
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_6b
 
     .line 235
     return-object v0
 
     .line 239
-    :cond_1
+    :cond_6b
     move v1, v5
 
     .line 242
     .end local v5    # "$i$a$-onFailure-AssetsActivity$AssetHolder$bind$1$1$2":I
     .local v1, "$i$a$-onFailure-AssetsActivity$AssetHolder$bind$1$1$2":I
-    :goto_2
+    :goto_6c
     nop
 
     .line 238
@@ -367,7 +367,7 @@
     nop
 
     .line 244
-    :cond_2
+    :cond_6e
     new-instance v1, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder$bind$1$1$3;
 
     iget-object v3, p0, Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder$bind$1$1;->this$1:Lio/nekohasekai/sagernet/ui/AssetsActivity$AssetHolder;
@@ -392,25 +392,25 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_3
+    if-ne v1, v0, :cond_88
 
     .line 235
     return-object v0
 
     .line 251
-    :cond_3
-    :goto_3
+    :cond_88
+    :goto_88
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_8c
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_21
+        :pswitch_1c
+        :pswitch_17
+        :pswitch_12
     .end packed-switch
 .end method

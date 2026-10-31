@@ -106,7 +106,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$vhzj4IAi9qJpDJB8oQ4-1KJeTz8()Ljava/lang/reflect/Field;
-    .locals 1
+    .registers 1
 
     invoke-static {}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool;->pid_delegate$lambda$3()Ljava/lang/reflect/Field;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool$Companion;
 
@@ -141,7 +141,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/jvm/functions/Function2;)V
-    .locals 3
+    .registers 5
     .param p1, "onFatal"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -198,7 +198,7 @@
 .end method
 
 .method public static final synthetic access$getOnFatal$p(Lio/nekohasekai/sagernet/bg/GuardedProcessPool;)Lkotlin/jvm/functions/Function2;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lio/nekohasekai/sagernet/bg/GuardedProcessPool;
 
     .line 20
@@ -208,7 +208,7 @@
 .end method
 
 .method public static final synthetic access$getPid$delegate$cp()Lkotlin/Lazy;
-    .locals 1
+    .registers 1
 
     .line 20
     sget-object v0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool;->pid$delegate:Lkotlin/Lazy;
@@ -217,7 +217,7 @@
 .end method
 
 .method private static final pid_delegate$lambda$3()Ljava/lang/reflect/Field;
-    .locals 4
+    .registers 4
 
     .line 23
     const-string v0, "java.lang.ProcessManager$ProcessImpl"
@@ -251,12 +251,12 @@
 .end method
 
 .method public static synthetic start$default(Lio/nekohasekai/sagernet/bg/GuardedProcessPool;Ljava/util/List;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 6
 
     .line 105
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_b
 
     .line 108
     new-instance p2, Ljava/util/LinkedHashMap;
@@ -266,16 +266,16 @@
     check-cast p2, Ljava/util/Map;
 
     .line 105
-    :cond_0
+    :cond_b
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_10
 
     .line 109
     const/4 p3, 0x0
 
     .line 105
-    :cond_1
+    :cond_10
     invoke-virtual {p0, p1, p2, p3}, Lio/nekohasekai/sagernet/bg/GuardedProcessPool;->start(Ljava/util/List;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)V
 
     return-void
@@ -284,7 +284,7 @@
 
 # virtual methods
 .method public final close(Lkotlinx/coroutines/CoroutineScope;)V
-    .locals 10
+    .registers 12
     .param p1, "scope"    # Lkotlinx/coroutines/CoroutineScope;
 
     const-string v0, "scope"
@@ -352,7 +352,7 @@
 .end method
 
 .method public getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 102
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool;->coroutineContext:Lkotlin/coroutines/CoroutineContext;
@@ -361,7 +361,7 @@
 .end method
 
 .method public final getProcessCount()I
-    .locals 1
+    .registers 2
 
     .line 103
     iget v0, p0, Lio/nekohasekai/sagernet/bg/GuardedProcessPool;->processCount:I
@@ -370,7 +370,7 @@
 .end method
 
 .method public final setProcessCount(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 103
@@ -380,7 +380,7 @@
 .end method
 
 .method public final start(Ljava/util/List;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)V
-    .locals 8
+    .registers 12
     .param p1, "cmd"    # Ljava/util/List;
     .param p2, "env"    # Ljava/util/Map;
     .param p3, "onRestartCallback"    # Lkotlin/jvm/functions/Function1;

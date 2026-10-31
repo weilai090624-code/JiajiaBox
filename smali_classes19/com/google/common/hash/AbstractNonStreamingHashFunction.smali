@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Lcom/google/common/hash/AbstractHashFunction;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public hashBytes(Ljava/nio/ByteBuffer;)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 3
     .param p1, "input"    # Ljava/nio/ByteBuffer;
 
     .line 76
@@ -58,7 +58,7 @@
 .end method
 
 .method public hashInt(I)Lcom/google/common/hash/HashCode;
-    .locals 2
+    .registers 4
     .param p1, "input"    # I
 
     .line 48
@@ -90,7 +90,7 @@
 .end method
 
 .method public hashLong(J)Lcom/google/common/hash/HashCode;
-    .locals 2
+    .registers 5
     .param p1, "input"    # J
 
     .line 53
@@ -122,7 +122,7 @@
 .end method
 
 .method public hashString(Ljava/lang/CharSequence;Ljava/nio/charset/Charset;)Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 4
     .param p1, "input"    # Ljava/lang/CharSequence;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public hashUnencodedChars(Ljava/lang/CharSequence;)Lcom/google/common/hash/HashCode;
-    .locals 4
+    .registers 6
     .param p1, "input"    # Ljava/lang/CharSequence;
 
     .line 58
@@ -170,8 +170,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_11
+    if-ge v2, v0, :cond_1d
 
     .line 61
     invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -183,11 +183,11 @@
     .line 60
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 63
     .end local v2    # "i":I
-    :cond_0
+    :cond_1d
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->array()[B
 
     move-result-object v2
@@ -200,7 +200,7 @@
 .end method
 
 .method public newHasher()Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 2
 
     .line 37
     const/16 v0, 0x20
@@ -213,20 +213,20 @@
 .end method
 
 .method public newHasher(I)Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 3
     .param p1, "expectedInputSize"    # I
 
     .line 42
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 43

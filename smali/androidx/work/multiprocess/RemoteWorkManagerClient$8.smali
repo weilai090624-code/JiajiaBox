@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/multiprocess/RemoteWorkManagerClient;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/work/multiprocess/RemoteWorkManagerClient;
 
     .line 266
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 266
     check-cast p1, [B
@@ -61,7 +61,7 @@
 .end method
 
 .method public apply([B)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p1, "input"    # [B
     .annotation system Ldalvik/annotation/Signature;
         value = {

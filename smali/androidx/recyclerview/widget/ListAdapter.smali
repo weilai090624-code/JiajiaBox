@@ -39,7 +39,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroidx/recyclerview/widget/AsyncDifferConfig;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,7 +83,7 @@
 .end method
 
 .method protected constructor <init>(Landroidx/recyclerview/widget/DiffUtil$ItemCallback;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method public getCurrentList()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -159,7 +159,7 @@
 .end method
 
 .method protected getItem(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -183,7 +183,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 155
     .local p0, "this":Landroidx/recyclerview/widget/ListAdapter;, "Landroidx/recyclerview/widget/ListAdapter<TT;TVH;>;"
@@ -201,7 +201,7 @@
 .end method
 
 .method public onCurrentListChanged(Ljava/util/List;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -220,7 +220,7 @@
 .end method
 
 .method public submitList(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -241,7 +241,7 @@
 .end method
 
 .method public submitList(Ljava/util/List;Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 4
     .param p2, "commitCallback"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {

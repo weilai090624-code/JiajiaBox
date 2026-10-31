@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 8
@@ -91,7 +91,7 @@
 .end method
 
 .method private static synthetic getSpreads$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public final addSpread(Ljava/lang/Object;)V
-    .locals 3
+    .registers 5
     .param p1, "spreadArgument"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -127,7 +127,7 @@
 .end method
 
 .method protected final getPosition()I
-    .locals 1
+    .registers 2
 
     .line 11
     iget v0, p0, Lkotlin/jvm/internal/PrimitiveSpreadBuilder;->position:I
@@ -144,7 +144,7 @@
 .end method
 
 .method protected final setPosition(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 11
@@ -154,7 +154,7 @@
 .end method
 
 .method protected final size()I
-    .locals 5
+    .registers 6
 
     .line 21
     const/4 v0, 0x0
@@ -170,43 +170,43 @@
 
     sub-int/2addr v2, v3
 
-    if-gt v1, v2, :cond_1
+    if-gt v1, v2, :cond_1a
 
     .line 23
-    :goto_0
+    :goto_8
     iget-object v4, p0, Lkotlin/jvm/internal/PrimitiveSpreadBuilder;->spreads:[Ljava/lang/Object;
 
     aget-object v4, v4, v1
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_13
 
     invoke-virtual {p0, v4}, Lkotlin/jvm/internal/PrimitiveSpreadBuilder;->getSize(Ljava/lang/Object;)I
 
     move-result v4
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v4, 0x1
 
-    :goto_1
+    :goto_14
     add-int/2addr v0, v4
 
     .line 22
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_1a
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 25
     .end local v1    # "i":I
-    :cond_1
+    :cond_1a
     return v0
 .end method
 
 .method protected final toArray(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .registers 10
     .param p1, "values"    # Ljava/lang/Object;
     .param p2, "result"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -239,20 +239,20 @@
 
     add-int/lit8 v3, v3, -0x1
 
-    if-gt v2, v3, :cond_2
+    if-gt v2, v3, :cond_33
 
     .line 32
-    :goto_0
+    :goto_13
     iget-object v4, p0, Lkotlin/jvm/internal/PrimitiveSpreadBuilder;->spreads:[Ljava/lang/Object;
 
     aget-object v4, v4, v2
 
     .line 33
     .local v4, "spreadArgument":Ljava/lang/Object;
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2e
 
     .line 34
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_23
 
     .line 35
     sub-int v5, v2, v1
@@ -265,7 +265,7 @@
     add-int/2addr v0, v5
 
     .line 38
-    :cond_0
+    :cond_23
     invoke-virtual {p0, v4}, Lkotlin/jvm/internal/PrimitiveSpreadBuilder;->getSize(Ljava/lang/Object;)I
 
     move-result v5
@@ -285,19 +285,19 @@
     .line 31
     .end local v4    # "spreadArgument":Ljava/lang/Object;
     .end local v5    # "spreadSize":I
-    :cond_1
-    if-eq v2, v3, :cond_2
+    :cond_2e
+    if-eq v2, v3, :cond_33
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 44
     .end local v2    # "i":I
-    :cond_2
+    :cond_33
     iget v2, p0, Lkotlin/jvm/internal/PrimitiveSpreadBuilder;->size:I
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_3d
 
     .line 45
     iget v2, p0, Lkotlin/jvm/internal/PrimitiveSpreadBuilder;->size:I
@@ -307,6 +307,6 @@
     invoke-static {p1, v1, p2, v0, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 48
-    :cond_3
+    :cond_3d
     return-object p2
 .end method

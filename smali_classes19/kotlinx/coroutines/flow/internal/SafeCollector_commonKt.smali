@@ -41,7 +41,7 @@
 
 # direct methods
 .method public static final checkContext(Lkotlinx/coroutines/flow/internal/SafeCollector;Lkotlin/coroutines/CoroutineContext;)V
-    .locals 4
+    .registers 6
     .param p0, "$this$checkContext"    # Lkotlinx/coroutines/flow/internal/SafeCollector;
     .param p1, "currentContext"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
@@ -81,13 +81,13 @@
     .local v0, "result":I
     iget v1, p0, Lkotlinx/coroutines/flow/internal/SafeCollector;->collectContextSize:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1b
 
     .line 92
     return-void
 
     .line 85
-    :cond_0
+    :cond_1b
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 86
@@ -151,45 +151,45 @@
 .end method
 
 .method public static final transitiveCoroutineParent(Lkotlinx/coroutines/Job;Lkotlinx/coroutines/Job;)Lkotlinx/coroutines/Job;
-    .locals 1
+    .registers 3
     .param p0, "$this$transitiveCoroutineParent"    # Lkotlinx/coroutines/Job;
     .param p1, "collectJob"    # Lkotlinx/coroutines/Job;
 
     .line 95
     nop
 
-    :goto_0
-    if-nez p0, :cond_0
+    :goto_1
+    if-nez p0, :cond_5
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 96
-    :cond_0
-    if-ne p0, p1, :cond_1
+    :cond_5
+    if-ne p0, p1, :cond_8
 
     return-object p0
 
     .line 97
-    :cond_1
+    :cond_8
     instance-of v0, p0, Lkotlinx/coroutines/internal/ScopeCoroutine;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_d
 
     return-object p0
 
     .line 98
-    :cond_2
+    :cond_d
     invoke-interface {p0}, Lkotlinx/coroutines/Job;->getParent()Lkotlinx/coroutines/Job;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public static final unsafeFlow(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 3
     .param p0, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {

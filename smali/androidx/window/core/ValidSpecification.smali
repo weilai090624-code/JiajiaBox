@@ -77,7 +77,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/String;Landroidx/window/core/SpecificationComputer$VerificationMode;Landroidx/window/core/Logger;)V
-    .locals 1
+    .registers 6
     .param p1, "value"    # Ljava/lang/Object;
     .param p2, "tag"    # Ljava/lang/String;
     .param p3, "verificationMode"    # Landroidx/window/core/SpecificationComputer$VerificationMode;
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public compute()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -144,7 +144,7 @@
 .end method
 
 .method public final getLogger()Landroidx/window/core/Logger;
-    .locals 1
+    .registers 2
 
     .line 119
     iget-object v0, p0, Landroidx/window/core/ValidSpecification;->logger:Landroidx/window/core/Logger;
@@ -153,7 +153,7 @@
 .end method
 
 .method public final getTag()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 117
     iget-object v0, p0, Landroidx/window/core/ValidSpecification;->tag:Ljava/lang/String;
@@ -162,7 +162,7 @@
 .end method
 
 .method public final getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -176,7 +176,7 @@
 .end method
 
 .method public final getVerificationMode()Landroidx/window/core/SpecificationComputer$VerificationMode;
-    .locals 1
+    .registers 2
 
     .line 118
     iget-object v0, p0, Landroidx/window/core/ValidSpecification;->verificationMode:Landroidx/window/core/SpecificationComputer$VerificationMode;
@@ -185,7 +185,7 @@
 .end method
 
 .method public require(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Landroidx/window/core/SpecificationComputer;
-    .locals 7
+    .registers 10
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "condition"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -222,17 +222,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 124
     move-object v0, p0
 
     check-cast v0, Landroidx/window/core/SpecificationComputer;
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 126
-    :cond_0
+    :cond_1c
     new-instance v0, Landroidx/window/core/FailedSpecification;
 
     .line 127
@@ -260,6 +260,6 @@
     check-cast v0, Landroidx/window/core/SpecificationComputer;
 
     .line 123
-    :goto_0
+    :goto_2e
     return-object v0
 .end method

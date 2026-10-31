@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$getIoExecutor(Landroidx/camera/core/internal/IoConfig;)Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/internal/IoConfig;
 
     .line 62
@@ -21,7 +21,7 @@
 .end method
 
 .method public static $default$getIoExecutor(Landroidx/camera/core/internal/IoConfig;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/internal/IoConfig;
     .param p1, "valueIfMissing"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;

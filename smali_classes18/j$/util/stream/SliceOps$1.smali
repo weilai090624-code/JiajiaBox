@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/AbstractPipeline;Lj$/util/stream/StreamShape;IJJ)V
-    .locals 0
+    .registers 8
     .param p2, "inputShape"    # Lj$/util/stream/StreamShape;
     .param p3, "opFlags"    # I
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method opEvaluateParallel(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Ljava/util/function/IntFunction;)Lj$/util/stream/Node;
-    .locals 16
+    .registers 20
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -84,7 +84,7 @@
 
     cmp-long v2, v11, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_31
 
     const/16 v0, 0x4000
 
@@ -94,7 +94,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     .line 165
     invoke-virtual/range {p1 .. p1}, Lj$/util/stream/PipelineHelper;->getSourceShape()Lj$/util/stream/StreamShape;
@@ -123,18 +123,18 @@
 
     .line 159
     .end local v0    # "s":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
-    :cond_0
+    :cond_2e
     move-object/from16 v14, p1
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_1
+    :cond_31
     move-object/from16 v14, p1
 
     move-object/from16 v13, p2
 
     .line 167
-    :goto_0
+    :goto_35
     sget-object v0, Lj$/util/stream/StreamOpFlag;->ORDERED:Lj$/util/stream/StreamOpFlag;
 
     invoke-virtual/range {p1 .. p1}, Lj$/util/stream/PipelineHelper;->getStreamAndOpFlags()I
@@ -145,7 +145,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_56
 
     .line 168
     nop
@@ -178,7 +178,7 @@
 
     .line 178
     .end local v0    # "s":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
-    :cond_2
+    :cond_56
     new-instance v15, Lj$/util/stream/SliceOps$SliceTask;
 
     iget-wide v5, v9, Lj$/util/stream/SliceOps$1;->val$skip:J
@@ -209,7 +209,7 @@
 .end method
 
 .method opEvaluateParallelLazy(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)Lj$/util/Spliterator;
-    .locals 14
+    .registers 17
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -239,7 +239,7 @@
 
     cmp-long v2, v10, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_2a
 
     const/16 v0, 0x4000
 
@@ -249,7 +249,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 131
     new-instance v0, Lj$/util/stream/StreamSpliterators$SliceSpliterator$OfRef;
@@ -278,11 +278,11 @@
     return-object v0
 
     .line 130
-    :cond_0
+    :cond_2a
     move-object/from16 v12, p2
 
     .line 135
-    :cond_1
+    :cond_2c
     sget-object v0, Lj$/util/stream/StreamOpFlag;->ORDERED:Lj$/util/stream/StreamOpFlag;
 
     invoke-virtual {p1}, Lj$/util/stream/PipelineHelper;->getStreamAndOpFlags()I
@@ -293,7 +293,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_48
 
     .line 136
     nop
@@ -319,7 +319,7 @@
     return-object v0
 
     .line 149
-    :cond_2
+    :cond_48
     new-instance v13, Lj$/util/stream/SliceOps$SliceTask;
 
     invoke-static {}, Lj$/util/stream/Nodes;->castingArray()Ljava/util/function/IntFunction;
@@ -356,7 +356,7 @@
 .end method
 
 .method opWrapSink(ILj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 1
+    .registers 4
     .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -378,7 +378,7 @@
 .end method
 
 .method unorderedSkipLimitSpliterator(Lj$/util/Spliterator;JJJ)Lj$/util/Spliterator;
-    .locals 7
+    .registers 15
     .param p2, "skip"    # J
     .param p4, "limit"    # J
     .param p6, "sizeIfKnown"    # J
@@ -396,7 +396,7 @@
     .local p1, "s":Lj$/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     cmp-long v0, p2, p6
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_13
 
     .line 121
     const-wide/16 v0, 0x0
@@ -405,20 +405,20 @@
 
     sub-long v0, p6, p2
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_10
 
     invoke-static {p4, p5, v0, v1}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v0
 
-    :cond_0
+    :cond_10
     move-wide p4, v0
 
     .line 122
     const-wide/16 p2, 0x0
 
     .line 124
-    :cond_1
+    :cond_13
     new-instance v6, Lj$/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;
 
     move-object v0, v6

@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ListMultimap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public delegate()Lcom/google/common/collect/ListMultimap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -79,7 +79,7 @@
 .end method
 
 .method public bridge synthetic delegate()Lcom/google/common/collect/Multimap;
-    .locals 1
+    .registers 2
 
     .line 673
     .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 673
     .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
@@ -103,7 +103,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -119,7 +119,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -151,7 +151,7 @@
 .end method
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -167,7 +167,7 @@
 .end method
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -192,7 +192,7 @@
 .end method
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -208,7 +208,7 @@
 .end method
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
     .param p2, "context"    # Landroid/content/Context;
 
     .line 1001
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method protected calculateExtraLayoutSpace(Landroidx/recyclerview/widget/RecyclerView$State;[I)V
-    .locals 3
+    .registers 6
     .param p1, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
     .param p2, "extraLayoutSpace"    # [I
 
@@ -51,7 +51,7 @@
     .local v0, "pageLimit":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 1027
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/LinearLayoutManager;->calculateExtraLayoutSpace(Landroidx/recyclerview/widget/RecyclerView$State;[I)V
@@ -60,7 +60,7 @@
     return-void
 
     .line 1030
-    :cond_0
+    :cond_d
     iget-object v1, p0, Landroidx/viewpager2/widget/ViewPager2$LinearLayoutManagerImpl;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     invoke-virtual {v1}, Landroidx/viewpager2/widget/ViewPager2;->getPageSize()I
@@ -85,7 +85,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 5
     .param p1, "recycler"    # Landroidx/recyclerview/widget/RecyclerView$Recycler;
     .param p2, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
     .param p3, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
@@ -105,7 +105,7 @@
 .end method
 
 .method public performAccessibilityAction(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 6
     .param p1, "recycler"    # Landroidx/recyclerview/widget/RecyclerView$Recycler;
     .param p2, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
     .param p3, "action"    # I
@@ -120,7 +120,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 1009
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$LinearLayoutManagerImpl;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -134,7 +134,7 @@
     return v0
 
     .line 1011
-    :cond_0
+    :cond_13
     invoke-super {p0, p1, p2, p3, p4}, Landroidx/recyclerview/widget/LinearLayoutManager;->performAccessibilityAction(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;ILandroid/os/Bundle;)Z
 
     move-result v0
@@ -143,7 +143,7 @@
 .end method
 
 .method public requestChildRectangleOnScreen(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;Landroid/graphics/Rect;ZZ)Z
-    .locals 1
+    .registers 7
     .param p1, "parent"    # Landroidx/recyclerview/widget/RecyclerView;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "rect"    # Landroid/graphics/Rect;

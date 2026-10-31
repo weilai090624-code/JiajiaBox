@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # I
 
     .line 31
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public add(I)V
-    .locals 1
+    .registers 3
     .param p1, "delta"    # I
 
     .line 40
@@ -48,7 +48,7 @@
 .end method
 
 .method public addAndGet(I)I
-    .locals 1
+    .registers 3
     .param p1, "delta"    # I
 
     .line 44
@@ -62,7 +62,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -71,7 +71,7 @@
     .line 64
     instance-of v0, p1, Lcom/google/common/collect/Count;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     move-object v0, p1
 
@@ -81,21 +81,21 @@
 
     iget v1, p0, Lcom/google/common/collect/Count;->value:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_10
     return v0
 .end method
 
 .method public get()I
-    .locals 1
+    .registers 2
 
     .line 36
     iget v0, p0, Lcom/google/common/collect/Count;->value:I
@@ -104,7 +104,7 @@
 .end method
 
 .method public getAndSet(I)I
-    .locals 1
+    .registers 3
     .param p1, "newValue"    # I
 
     .line 52
@@ -119,7 +119,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 59
     iget v0, p0, Lcom/google/common/collect/Count;->value:I
@@ -128,7 +128,7 @@
 .end method
 
 .method public set(I)V
-    .locals 0
+    .registers 2
     .param p1, "newValue"    # I
 
     .line 48
@@ -139,7 +139,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 69
     iget v0, p0, Lcom/google/common/collect/Count;->value:I

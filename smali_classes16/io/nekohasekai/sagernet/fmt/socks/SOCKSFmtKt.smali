@@ -32,7 +32,7 @@
 
 # direct methods
 .method public static final buildSingBoxOutboundSocksBean(Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;)Lmoe/matsuri/nb4a/SingBoxOptions$Outbound_SocksOptions;
-    .locals 4
+    .registers 5
     .param p0, "bean"    # Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
 
     const-string v0, "bean"
@@ -92,7 +92,7 @@
 .end method
 
 .method public static final parseSOCKS(Ljava/lang/String;)Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
-    .locals 10
+    .registers 11
     .param p0, "link"    # Ljava/lang/String;
 
     const-string v0, ":"
@@ -136,7 +136,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_b3
 
     .line 17
     .local v1, "url":Lokhttp3/HttpUrl;
@@ -164,38 +164,38 @@
 
     const/4 v9, 0x1
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_41
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
 
-    goto :goto_0
+    goto :goto_52
 
     .line 20
-    :cond_0
+    :cond_41
     const-string v7, "socks4a://"
 
     invoke-static {p0, v7, v8, v5, v4}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_4e
 
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
 
-    goto :goto_0
+    goto :goto_52
 
     .line 21
-    :cond_1
+    :cond_4e
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
 
     .line 18
-    :goto_0
+    :goto_52
     iput-object v7, v3, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->protocol:Ljava/lang/Integer;
 
     .line 23
@@ -242,51 +242,51 @@
 
     check-cast v7, Ljava/lang/CharSequence;
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_85
 
     invoke-static {v7}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_83
 
-    goto :goto_1
+    goto :goto_85
 
-    :cond_2
+    :cond_83
     const/4 v7, 0x0
 
-    goto :goto_2
+    goto :goto_86
 
-    :cond_3
-    :goto_1
+    :cond_85
+    :goto_85
     const/4 v7, 0x1
 
-    :goto_2
-    if-eqz v7, :cond_6
+    :goto_86
+    if-eqz v7, :cond_b1
 
     iget-object v7, v3, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->username:Ljava/lang/String;
 
     check-cast v7, Ljava/lang/CharSequence;
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_94
 
     invoke-static {v7}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_95
 
-    :cond_4
+    :cond_94
     const/4 v8, 0x1
 
-    :cond_5
-    if-nez v8, :cond_6
+    :cond_95
+    if-nez v8, :cond_b1
 
     .line 30
     nop
 
     .line 31
-    :try_start_0
+    :try_start_98
     iget-object v7, v3, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->username:Ljava/lang/String;
 
     const-string v8, "username"
@@ -311,19 +311,19 @@
     move-result-object v0
 
     iput-object v0, v3, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->password:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_af
+    .catch Ljava/lang/Exception; {:try_start_98 .. :try_end_af} :catch_b0
 
     .end local v7    # "n":Ljava/lang/String;
-    goto :goto_3
+    goto :goto_b1
 
     .line 34
-    :catch_0
+    :catch_b0
     move-exception v0
 
     .line 37
-    :cond_6
-    :goto_3
+    :cond_b1
+    :goto_b1
     nop
 
     .line 17
@@ -333,7 +333,7 @@
 
     .line 14
     .end local v1    # "url":Lokhttp3/HttpUrl;
-    :cond_7
+    :cond_b3
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 15
@@ -365,7 +365,7 @@
 .end method
 
 .method public static final toUri(Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$toUri"    # Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
 
     const-string v0, "<this>"
@@ -419,27 +419,27 @@
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3d
 
     invoke-static {v1}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3b
 
-    goto :goto_0
+    goto :goto_3d
 
-    :cond_0
+    :cond_3b
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_1
-    :goto_0
+    :cond_3d
+    :goto_3d
     const/4 v1, 0x1
 
-    :goto_1
-    if-nez v1, :cond_2
+    :goto_3e
+    if-nez v1, :cond_4a
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->username:Ljava/lang/String;
 
@@ -450,32 +450,32 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->username(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 44
-    :cond_2
+    :cond_4a
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->password:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_59
 
     invoke-static {v1}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_57
 
-    goto :goto_2
+    goto :goto_59
 
-    :cond_3
+    :cond_57
     const/4 v1, 0x0
 
-    goto :goto_3
+    goto :goto_5a
 
-    :cond_4
-    :goto_2
+    :cond_59
+    :goto_59
     const/4 v1, 0x1
 
-    :goto_3
-    if-nez v1, :cond_5
+    :goto_5a
+    if-nez v1, :cond_66
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->password:Ljava/lang/String;
 
@@ -486,27 +486,27 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->password(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 45
-    :cond_5
+    :cond_66
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->name:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_74
 
     invoke-static {v1}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_73
 
-    goto :goto_4
+    goto :goto_74
 
-    :cond_6
+    :cond_73
     const/4 v2, 0x0
 
-    :cond_7
-    :goto_4
-    if-nez v2, :cond_8
+    :cond_74
+    :goto_74
+    if-nez v2, :cond_84
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;->name:Ljava/lang/String;
 
@@ -521,7 +521,7 @@
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Builder;->encodedFragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     .line 46
-    :cond_8
+    :cond_84
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -556,7 +556,7 @@
 .end method
 
 .method public static final toV2rayN(Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$toV2rayN"    # Lio/nekohasekai/sagernet/fmt/socks/SOCKSBean;
 
     const-string v0, "<this>"
@@ -582,7 +582,7 @@
 
     const/16 v3, 0x3a
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_4b
 
     .line 54
     new-instance v1, Ljava/lang/StringBuilder;
@@ -634,7 +634,7 @@
     move-result-object v0
 
     .line 56
-    :cond_0
+    :cond_4b
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -701,7 +701,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_b0
 
     .line 59
     new-instance v1, Ljava/lang/StringBuilder;
@@ -735,6 +735,6 @@
     move-result-object v0
 
     .line 62
-    :cond_1
+    :cond_b0
     return-object v0
 .end method

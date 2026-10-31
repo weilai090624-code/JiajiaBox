@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)V
-    .locals 0
+    .registers 5
     .param p1, "block"    # Lkotlin/jvm/functions/Function2;
     .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p3, "capacity"    # I
@@ -110,12 +110,12 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 7
 
     .line 326
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_8
 
     .line 328
     sget-object p2, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
@@ -123,25 +123,25 @@
     check-cast p2, Lkotlin/coroutines/CoroutineContext;
 
     .line 326
-    :cond_0
+    :cond_8
     and-int/lit8 p6, p5, 0x4
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_d
 
     .line 329
     const/4 p3, -0x2
 
     .line 326
-    :cond_1
+    :cond_d
     and-int/lit8 p5, p5, 0x8
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_13
 
     .line 330
     sget-object p4, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
     .line 326
-    :cond_2
+    :cond_13
     invoke-direct {p0, p1, p2, p3, p4}, Lkotlinx/coroutines/flow/CallbackFlowBuilder;-><init>(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)V
 
     .line 353
@@ -151,7 +151,7 @@
 
 # virtual methods
 .method protected collectTo(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -167,7 +167,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/CallbackFlowBuilder$collectTo$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -179,7 +179,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/CallbackFlowBuilder$collectTo$1;->label:I
 
@@ -187,14 +187,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/CallbackFlowBuilder$collectTo$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/CallbackFlowBuilder$collectTo$1;
 
     invoke-direct {v0, p0, p2}, Lkotlinx/coroutines/flow/CallbackFlowBuilder$collectTo$1;-><init>(Lkotlinx/coroutines/flow/CallbackFlowBuilder;Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -208,7 +208,7 @@
     .line 333
     iget v2, p2, Lkotlinx/coroutines/flow/CallbackFlowBuilder$collectTo$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_58
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -222,7 +222,7 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p1, p2, Lkotlinx/coroutines/flow/CallbackFlowBuilder$collectTo$1;->L$0:Ljava/lang/Object;
 
     check-cast p1, Lkotlinx/coroutines/channels/ProducerScope;
@@ -230,10 +230,10 @@
     .local p1, "scope":Lkotlinx/coroutines/channels/ProducerScope;
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_45
 
     .end local p1    # "scope":Lkotlinx/coroutines/channels/ProducerScope;
-    :pswitch_1
+    :pswitch_35
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v2, p0
@@ -252,19 +252,19 @@
     move-result-object v2
 
     .end local v2    # "this":Lkotlinx/coroutines/flow/CallbackFlowBuilder;
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_45
 
     .line 333
     return-object v1
 
     .line 340
-    :cond_1
-    :goto_1
+    :cond_45
+    :goto_45
     invoke-interface {p1}, Lkotlinx/coroutines/channels/ProducerScope;->isClosedForSend()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4e
 
     .line 349
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
@@ -272,7 +272,7 @@
     return-object v1
 
     .line 341
-    :cond_2
+    :cond_4e
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 346
@@ -287,15 +287,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_58
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method protected create(Lkotlin/coroutines/CoroutineContext;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/internal/ChannelFlow;
-    .locals 2
+    .registers 6
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .param p2, "capacity"    # I
     .param p3, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;

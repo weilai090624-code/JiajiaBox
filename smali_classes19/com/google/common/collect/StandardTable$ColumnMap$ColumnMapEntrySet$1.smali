@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/StandardTable$ColumnMap$ColumnMapEntrySet;)V
-    .locals 0
+    .registers 2
     .param p1, "this$2"    # Lcom/google/common/collect/StandardTable$ColumnMap$ColumnMapEntrySet;
 
     .line 917
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 917
     .local p0, "this":Lcom/google/common/collect/StandardTable$ColumnMap$ColumnMapEntrySet$1;, "Lcom/google/common/collect/StandardTable$ColumnMap$ColumnMapEntrySet$1;"
@@ -60,7 +60,7 @@
 .end method
 
 .method public apply(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)",

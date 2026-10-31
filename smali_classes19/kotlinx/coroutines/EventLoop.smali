@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Lkotlinx/coroutines/CoroutineDispatcher;-><init>()V
@@ -84,23 +84,23 @@
 .end method
 
 .method public static synthetic decrementUseCount$default(Lkotlinx/coroutines/EventLoop;ZILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 107
-    if-nez p3, :cond_1
+    if-nez p3, :cond_b
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1}, Lkotlinx/coroutines/EventLoop;->decrementUseCount(Z)V
 
     return-void
 
-    :cond_1
+    :cond_b
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: decrementUseCount"
@@ -111,41 +111,41 @@
 .end method
 
 .method private final delta(Z)J
-    .locals 2
+    .registers 4
     .param p1, "unconfined"    # Z
 
     .line 100
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     const-wide v0, 0x100000000L
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_8
     const-wide/16 v0, 0x1
 
-    :goto_0
+    :goto_a
     return-wide v0
 .end method
 
 .method public static synthetic incrementUseCount$default(Lkotlinx/coroutines/EventLoop;ZILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 102
-    if-nez p3, :cond_1
+    if-nez p3, :cond_b
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1}, Lkotlinx/coroutines/EventLoop;->incrementUseCount(Z)V
 
     return-void
 
-    :cond_1
+    :cond_b
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: incrementUseCount"
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public final decrementUseCount(Z)V
-    .locals 6
+    .registers 8
     .param p1, "unconfined"    # Z
 
     .line 108
@@ -179,17 +179,17 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_12
 
     return-void
 
     .line 110
-    :cond_0
+    :cond_12
     invoke-static {}, Lkotlinx/coroutines/DebugKt;->getASSERTIONS_ENABLED()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2b
 
     .line 544
     const/4 v0, 0x0
@@ -200,22 +200,22 @@
 
     cmp-long v1, v4, v2
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_21
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_21
     const/4 v1, 0x0
 
     .end local v0    # "$i$a$-assert-EventLoop$decrementUseCount$1":I
-    :goto_0
-    if-eqz v1, :cond_2
+    :goto_22
+    if-eqz v1, :cond_25
 
-    goto :goto_1
+    goto :goto_2b
 
-    :cond_2
+    :cond_25
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -223,22 +223,22 @@
     throw v0
 
     .line 111
-    :cond_3
-    :goto_1
+    :cond_2b
+    :goto_2b
     iget-boolean v0, p0, Lkotlinx/coroutines/EventLoop;->shared:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_32
 
     .line 113
     invoke-virtual {p0}, Lkotlinx/coroutines/EventLoop;->shutdown()V
 
     .line 115
-    :cond_4
+    :cond_32
     return-void
 .end method
 
 .method public final dispatchUnconfined(Lkotlinx/coroutines/DispatchedTask;)V
-    .locals 3
+    .registers 5
     .param p1, "task"    # Lkotlinx/coroutines/DispatchedTask;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -251,7 +251,7 @@
     .line 84
     iget-object v0, p0, Lkotlinx/coroutines/EventLoop;->unconfinedQueue:Lkotlin/collections/ArrayDeque;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 85
     new-instance v0, Lkotlin/collections/ArrayDeque;
@@ -271,7 +271,7 @@
     .line 84
     .end local v1    # "it":Lkotlin/collections/ArrayDeque;
     .end local v2    # "$i$a$-also-EventLoop$dispatchUnconfined$queue$1":I
-    :cond_0
+    :cond_d
     nop
 
     .line 86
@@ -283,37 +283,37 @@
 .end method
 
 .method protected getNextTime()J
-    .locals 4
+    .registers 5
 
     .line 61
     iget-object v0, p0, Lkotlinx/coroutines/EventLoop;->unconfinedQueue:Lkotlin/collections/ArrayDeque;
 
     const-wide v1, 0x7fffffffffffffffL
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     return-wide v1
 
     .line 62
     .local v0, "queue":Lkotlin/collections/ArrayDeque;
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Lkotlin/collections/ArrayDeque;->isEmpty()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_11
     const-wide/16 v1, 0x0
 
-    :goto_0
+    :goto_13
     return-wide v1
 .end method
 
 .method public final incrementUseCount(Z)V
-    .locals 4
+    .registers 6
     .param p1, "unconfined"    # Z
 
     .line 103
@@ -328,19 +328,19 @@
     iput-wide v0, p0, Lkotlinx/coroutines/EventLoop;->useCount:J
 
     .line 104
-    if-nez p1, :cond_0
+    if-nez p1, :cond_e
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lkotlinx/coroutines/EventLoop;->shared:Z
 
     .line 105
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public final isActive()Z
-    .locals 5
+    .registers 6
 
     .line 90
     iget-wide v0, p0, Lkotlinx/coroutines/EventLoop;->useCount:J
@@ -349,21 +349,21 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method protected isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 57
     invoke-virtual {p0}, Lkotlinx/coroutines/EventLoop;->isUnconfinedQueueEmpty()Z
@@ -374,7 +374,7 @@
 .end method
 
 .method public final isUnconfinedLoopActive()Z
-    .locals 6
+    .registers 7
 
     .line 93
     iget-wide v0, p0, Lkotlinx/coroutines/EventLoop;->useCount:J
@@ -387,40 +387,40 @@
 
     cmp-long v5, v0, v3
 
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_c
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_d
     return v2
 .end method
 
 .method public final isUnconfinedQueueEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 97
     iget-object v0, p0, Lkotlinx/coroutines/EventLoop;->unconfinedQueue:Lkotlin/collections/ArrayDeque;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lkotlin/collections/ArrayDeque;->isEmpty()Z
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_a
     return v0
 .end method
 
 .method public final limitedParallelism(I)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 1
+    .registers 3
     .param p1, "parallelism"    # I
 
     .line 118
@@ -435,52 +435,52 @@
 .end method
 
 .method public processNextEvent()J
-    .locals 2
+    .registers 3
 
     .line 53
     invoke-virtual {p0}, Lkotlinx/coroutines/EventLoop;->processUnconfinedEvent()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const-wide v0, 0x7fffffffffffffffL
 
     return-wide v0
 
     .line 54
-    :cond_0
+    :cond_c
     const-wide/16 v0, 0x0
 
     return-wide v0
 .end method
 
 .method public final processUnconfinedEvent()Z
-    .locals 3
+    .registers 4
 
     .line 66
     iget-object v0, p0, Lkotlinx/coroutines/EventLoop;->unconfinedQueue:Lkotlin/collections/ArrayDeque;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 67
     .local v0, "queue":Lkotlin/collections/ArrayDeque;
-    :cond_0
+    :cond_6
     invoke-virtual {v0}, Lkotlin/collections/ArrayDeque;->removeFirstOrNull()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lkotlinx/coroutines/DispatchedTask;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_f
 
     return v1
 
-    :cond_1
+    :cond_f
     move-object v1, v2
 
     .line 68
@@ -494,7 +494,7 @@
 .end method
 
 .method public shouldBeProcessedFromContext()Z
-    .locals 1
+    .registers 2
 
     .line 77
     const/4 v0, 0x0
@@ -503,7 +503,7 @@
 .end method
 
 .method public shutdown()V
-    .locals 0
+    .registers 1
 
     .line 122
     return-void

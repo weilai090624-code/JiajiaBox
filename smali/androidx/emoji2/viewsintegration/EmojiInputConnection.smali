@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;)V
-    .locals 1
+    .registers 5
     .param p1, "textView"    # Landroid/widget/TextView;
     .param p2, "inputConnection"    # Landroid/view/inputmethod/InputConnection;
     .param p3, "outAttrs"    # Landroid/view/inputmethod/EditorInfo;
@@ -36,7 +36,7 @@
 .end method
 
 .method constructor <init>(Landroid/widget/TextView;Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;Landroidx/emoji2/viewsintegration/EmojiInputConnection$EmojiCompatDeleteHelper;)V
-    .locals 1
+    .registers 6
     .param p1, "textView"    # Landroid/widget/TextView;
     .param p2, "inputConnection"    # Landroid/view/inputmethod/InputConnection;
     .param p3, "outAttrs"    # Landroid/view/inputmethod/EditorInfo;
@@ -63,7 +63,7 @@
 .end method
 
 .method private getEditable()Landroid/text/Editable;
-    .locals 1
+    .registers 2
 
     .line 80
     iget-object v0, p0, Landroidx/emoji2/viewsintegration/EmojiInputConnection;->mTextView:Landroid/widget/TextView;
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public deleteSurroundingText(II)Z
-    .locals 6
+    .registers 9
     .param p1, "beforeLength"    # I
     .param p2, "afterLength"    # I
 
@@ -105,31 +105,31 @@
 
     .line 68
     .local v0, "result":Z
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
     invoke-super {p0, p1, p2}, Landroid/view/inputmethod/InputConnectionWrapper;->deleteSurroundingText(II)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_17
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_1a
     return v1
 .end method
 
 .method public deleteSurroundingTextInCodePoints(II)Z
-    .locals 6
+    .registers 9
     .param p1, "beforeLength"    # I
     .param p2, "afterLength"    # I
 
@@ -156,25 +156,25 @@
 
     .line 76
     .local v0, "result":Z
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
     invoke-super {p0, p1, p2}, Landroid/view/inputmethod/InputConnectionWrapper;->deleteSurroundingTextInCodePoints(II)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_17
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_1a
     return v1
 .end method

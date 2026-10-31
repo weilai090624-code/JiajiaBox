@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 470
     const-string v0, "\r\n|\n|\r"
@@ -39,7 +39,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1, "seq"    # Ljava/lang/CharSequence;
 
     .line 474
@@ -59,7 +59,7 @@
 .end method
 
 .method static synthetic access$100()Lcom/google/common/base/Splitter;
-    .locals 1
+    .registers 1
 
     .line 468
     sget-object v0, Lcom/google/common/io/CharSource$CharSequenceCharSource;->LINE_SPLITTER:Lcom/google/common/base/Splitter;
@@ -68,7 +68,7 @@
 .end method
 
 .method private linesIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 490
     iget-object v0, p0, Lcom/google/common/io/CharSource$CharSequenceCharSource;->seq:Ljava/lang/CharSequence;
@@ -98,21 +98,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public length()J
-    .locals 2
+    .registers 3
 
     .line 495
     iget-object v0, p0, Lcom/google/common/io/CharSource$CharSequenceCharSource;->seq:Ljava/lang/CharSequence;
@@ -127,7 +127,7 @@
 .end method
 
 .method public lengthIfKnown()Lcom/google/common/base/Optional;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -158,7 +158,7 @@
 .end method
 
 .method public openStream()Ljava/io/Reader;
-    .locals 2
+    .registers 3
 
     .line 480
     new-instance v0, Lcom/google/common/io/CharSequenceReader;
@@ -171,7 +171,7 @@
 .end method
 
 .method public read()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 485
     iget-object v0, p0, Lcom/google/common/io/CharSource$CharSequenceCharSource;->seq:Ljava/lang/CharSequence;
@@ -184,7 +184,7 @@
 .end method
 
 .method public readFirstLine()Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -199,7 +199,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -207,17 +207,17 @@
 
     check-cast v1, Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     return-object v1
 .end method
 
 .method public readLines()Lcom/google/common/collect/ImmutableList;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -240,7 +240,7 @@
 .end method
 
 .method public readLines(Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation runtime Lcom/google/common/io/ParametricNullness;
     .end annotation
 
@@ -268,12 +268,12 @@
 
     .line 542
     .local v0, "lines":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
-    :cond_0
+    :cond_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     .line 543
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -286,13 +286,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_4
 
     .line 544
     nop
 
     .line 547
-    :cond_1
+    :cond_17
     invoke-interface {p1}, Lcom/google/common/io/LineProcessor;->getResult()Ljava/lang/Object;
 
     move-result-object v1
@@ -301,7 +301,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 552
     iget-object v0, p0, Lcom/google/common/io/CharSource$CharSequenceCharSource;->seq:Ljava/lang/CharSequence;

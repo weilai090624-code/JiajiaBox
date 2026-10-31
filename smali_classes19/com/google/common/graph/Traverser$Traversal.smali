@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/graph/SuccessorsFunction;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,7 +58,7 @@
 .end method
 
 .method static inGraph(Lcom/google/common/graph/SuccessorsFunction;)Lcom/google/common/graph/Traverser$Traversal;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -87,7 +87,7 @@
 .end method
 
 .method static inTree(Lcom/google/common/graph/SuccessorsFunction;)Lcom/google/common/graph/Traverser$Traversal;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -110,7 +110,7 @@
 .end method
 
 .method private topDown(Ljava/util/Iterator;Lcom/google/common/graph/Traverser$InsertionOrder;)Ljava/util/Iterator;
-    .locals 2
+    .registers 5
     .param p2, "order"    # Lcom/google/common/graph/Traverser$InsertionOrder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -146,7 +146,7 @@
 
 # virtual methods
 .method final breadthFirst(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,7 +170,7 @@
 .end method
 
 .method final postOrder(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -207,7 +207,7 @@
 .end method
 
 .method final preOrder(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

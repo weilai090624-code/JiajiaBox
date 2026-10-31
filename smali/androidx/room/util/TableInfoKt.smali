@@ -50,7 +50,7 @@
 
 # direct methods
 .method private static final readColumns(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Ljava/util/Map;
-    .locals 29
+    .registers 31
     .param p0, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p1, "tableName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -115,7 +115,7 @@
 
     check-cast v6, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_2b
     move-object v7, v6
 
     check-cast v7, Landroid/database/Cursor;
@@ -128,20 +128,20 @@
     invoke-interface {v7}, Landroid/database/Cursor;->getColumnCount()I
 
     move-result v9
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_33
+    .catchall {:try_start_2b .. :try_end_33} :catchall_d1
 
     const/4 v10, 0x0
 
-    if-gtz v9, :cond_0
+    if-gtz v9, :cond_44
 
     .line 544
-    :try_start_1
+    :try_start_36
     invoke-static {}, Lkotlin/collections/MapsKt;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_36 .. :try_end_3a} :catchall_3e
 
     .end local v2    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v5    # "$i$f$useCursor":I
@@ -154,20 +154,20 @@
     .line 553
     .restart local v2    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v5    # "$i$f$useCursor":I
-    :catchall_0
+    :catchall_3e
     move-exception v0
 
     move-object v1, v0
 
     move-object/from16 v28, v2
 
-    goto/16 :goto_2
+    goto/16 :goto_d5
 
     .line 547
     .restart local v7    # "cursor":Landroid/database/Cursor;
     .restart local v8    # "$i$a$-useCursor-TableInfoKt$readColumns$1":I
-    :cond_0
-    :try_start_2
+    :cond_44
+    :try_start_44
     invoke-interface {v7, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v9
@@ -215,12 +215,12 @@
 
     .line 554
     .local v17, "$i$a$-buildMap-TableInfoKt$readColumns$1$1":I
-    :goto_0
+    :goto_66
     invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v18
 
-    if-eqz v18, :cond_2
+    if-eqz v18, :cond_c1
 
     .line 555
     invoke-interface {v7, v9}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -243,22 +243,22 @@
 
     move-result v18
 
-    if-eqz v18, :cond_1
+    if-eqz v18, :cond_83
 
     const/16 v18, 0x1
 
     const/16 v22, 0x1
 
-    goto :goto_1
+    goto :goto_87
 
-    :cond_1
+    :cond_83
     const/16 v18, 0x0
 
     const/16 v22, 0x0
 
     .line 558
     .local v22, "notNull":Z
-    :goto_1
+    :goto_87
     invoke-interface {v7, v13}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v23
@@ -284,8 +284,8 @@
     move-object/from16 v26, v1
 
     new-instance v1, Landroidx/room/util/TableInfo$Column;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_99
+    .catchall {:try_start_44 .. :try_end_99} :catchall_d1
 
     .line 563
     nop
@@ -298,7 +298,7 @@
     .end local v27    # "type":Ljava/lang/String;
     .local v2, "type":Ljava/lang/String;
     .local v28, "$this$useCursor$iv":Landroid/database/Cursor;
-    :try_start_3
+    :try_start_9e
     invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 565
@@ -343,7 +343,7 @@
 
     const/4 v10, 0x0
 
-    goto :goto_0
+    goto :goto_66
 
     .line 572
     .end local v0    # "$this$readColumns_u24lambda_u246_u24lambda_u245":Ljava/util/Map;
@@ -354,7 +354,7 @@
     .end local v28    # "$this$useCursor$iv":Landroid/database/Cursor;
     .local v2, "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v16    # "$this$readColumns_u24lambda_u246_u24lambda_u245":Ljava/util/Map;
-    :cond_2
+    :cond_c1
     move-object/from16 v28, v2
 
     move-object/from16 v0, v16
@@ -367,8 +367,8 @@
     invoke-static {v15}, Lkotlin/collections/MapsKt;->build(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_c9
+    .catchall {:try_start_9e .. :try_end_c9} :catchall_ce
 
     const/4 v1, 0x0
 
@@ -387,16 +387,16 @@
 
     .restart local v5    # "$i$f$useCursor":I
     .restart local v28    # "$this$useCursor$iv":Landroid/database/Cursor;
-    :catchall_1
+    :catchall_ce
     move-exception v0
 
     move-object v1, v0
 
-    goto :goto_2
+    goto :goto_d5
 
     .end local v28    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v2    # "$this$useCursor$iv":Landroid/database/Cursor;
-    :catchall_2
+    :catchall_d1
     move-exception v0
 
     move-object/from16 v28, v2
@@ -407,17 +407,17 @@
     .end local v5    # "$i$f$useCursor":I
     .end local p0    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local p1    # "tableName":Ljava/lang/String;
-    :goto_2
-    :try_start_4
+    :goto_d5
+    :try_start_d5
     throw v1
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_3
+    :try_end_d6
+    .catchall {:try_start_d5 .. :try_end_d6} :catchall_d6
 
     .restart local v5    # "$i$f$useCursor":I
     .restart local v28    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local p0    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local p1    # "tableName":Ljava/lang/String;
-    :catchall_3
+    :catchall_d6
     move-exception v0
 
     move-object v2, v0
@@ -428,7 +428,7 @@
 .end method
 
 .method private static final readForeignKeyFieldMappings(Landroid/database/Cursor;)Ljava/util/List;
-    .locals 13
+    .registers 14
     .param p0, "cursor"    # Landroid/database/Cursor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -485,12 +485,12 @@
 
     .line 525
     .local v6, "$i$a$-buildList-TableInfoKt$readForeignKeyFieldMappings$1":I
-    :goto_0
+    :goto_1f
     invoke-interface {p0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_49
 
     .line 526
     nop
@@ -532,10 +532,10 @@
     .line 526
     invoke-interface {v5, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 535
-    :cond_0
+    :cond_49
     nop
 
     .line 524
@@ -557,7 +557,7 @@
 .end method
 
 .method private static final readForeignKeys(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Ljava/util/Set;
-    .locals 29
+    .registers 31
     .param p0, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p1, "tableName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -617,7 +617,7 @@
 
     check-cast v5, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_26
     move-object v0, v5
 
     check-cast v0, Landroid/database/Cursor;
@@ -689,12 +689,12 @@
 
     .line 488
     .local v15, "$i$a$-buildSet-TableInfoKt$readForeignKeys$1$1":I
-    :goto_0
+    :goto_57
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v16
 
-    if-eqz v16, :cond_5
+    if-eqz v16, :cond_17b
 
     .line 489
     invoke-interface {v0, v8}, Landroid/database/Cursor;->getInt(I)I
@@ -703,13 +703,13 @@
 
     .line 490
     .local v16, "seq":I
-    if-eqz v16, :cond_0
+    if-eqz v16, :cond_64
 
     .line 491
-    goto :goto_0
+    goto :goto_57
 
     .line 493
-    :cond_0
+    :cond_64
     invoke-interface {v0, v7}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v17
@@ -767,16 +767,16 @@
 
     move-result-object v23
 
-    :goto_1
+    :goto_93
     invoke-interface/range {v23 .. v23}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v24
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_5
+    :try_end_97
+    .catchall {:try_start_26 .. :try_end_97} :catchall_191
 
-    if-eqz v24, :cond_3
+    if-eqz v24, :cond_d3
 
-    :try_start_1
+    :try_start_99
     invoke-interface/range {v23 .. v23}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v24
@@ -801,20 +801,20 @@
 
     .end local v18    # "id":I
     .local v2, "id":I
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_af
 
     const/4 v1, 0x1
 
-    goto :goto_2
+    goto :goto_b0
 
-    :cond_1
+    :cond_af
     const/4 v1, 0x0
 
     .line 650
     .end local v24    # "it":Landroidx/room/util/TableInfo$ForeignKeyWithSequence;
     .end local v28    # "$i$a$-filter-TableInfoKt$readForeignKeys$1$1$1":I
-    :goto_2
-    if-eqz v1, :cond_2
+    :goto_b0
+    if-eqz v1, :cond_c0
 
     move/from16 v18, v2
 
@@ -828,21 +828,21 @@
     .local v2, "element$iv$iv":Ljava/lang/Object;
     .restart local v18    # "id":I
     invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_bb
+    .catchall {:try_start_99 .. :try_end_bb} :catchall_cb
 
     move-object/from16 v2, p0
 
     move-object/from16 v21, v1
 
-    goto :goto_3
+    goto :goto_c8
 
     .end local v1    # "destination$iv$iv":Ljava/util/Collection;
     .end local v18    # "id":I
     .local v2, "id":I
     .restart local v21    # "destination$iv$iv":Ljava/util/Collection;
     .restart local v27    # "element$iv$iv":Ljava/lang/Object;
-    :cond_2
+    :cond_c0
     move/from16 v18, v2
 
     move-object/from16 v1, v21
@@ -856,10 +856,10 @@
     .restart local v18    # "id":I
     move-object/from16 v2, p0
 
-    :goto_3
+    :goto_c8
     move-object/from16 v1, p1
 
-    goto :goto_1
+    goto :goto_93
 
     .line 487
     .end local v0    # "cursor":Landroid/database/Cursor;
@@ -882,7 +882,7 @@
     .end local v22    # "$i$f$filterTo":I
     .end local v25    # "myColumns":Ljava/util/List;
     .end local v26    # "refColumns":Ljava/util/List;
-    :catchall_0
+    :catchall_cb
     move-exception v0
 
     move-object v1, v0
@@ -891,7 +891,7 @@
 
     move/from16 v17, v4
 
-    goto/16 :goto_5
+    goto/16 :goto_197
 
     .line 651
     .restart local v0    # "cursor":Landroid/database/Cursor;
@@ -913,13 +913,13 @@
     .restart local v22    # "$i$f$filterTo":I
     .restart local v25    # "myColumns":Ljava/util/List;
     .restart local v26    # "refColumns":Ljava/util/List;
-    :cond_3
+    :cond_d3
     move-object/from16 v1, v21
 
     .end local v20    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
     .end local v21    # "destination$iv$iv":Ljava/util/Collection;
     .end local v22    # "$i$f$filterTo":I
-    :try_start_2
+    :try_start_d5
     check-cast v1, Ljava/util/List;
 
     .line 649
@@ -941,16 +941,16 @@
 
     move-result-object v17
 
-    :goto_4
+    :goto_e0
     invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v19
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_5
+    :try_end_e4
+    .catchall {:try_start_d5 .. :try_end_e4} :catchall_191
 
-    if-eqz v19, :cond_4
+    if-eqz v19, :cond_122
 
-    :try_start_3
+    :try_start_e6
     invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v19
@@ -986,8 +986,8 @@
     invoke-virtual/range {v20 .. v20}, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->getTo()Ljava/lang/String;
 
     move-result-object v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_101
+    .catchall {:try_start_e6 .. :try_end_101} :catchall_11a
 
     move-object/from16 v25, v3
 
@@ -996,10 +996,10 @@
     .end local v26    # "refColumns":Ljava/util/List;
     .local v3, "refColumns":Ljava/util/List;
     .local v25, "$this$useCursor$iv":Landroid/database/Cursor;
-    :try_start_4
+    :try_start_105
     invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_108
+    .catchall {:try_start_105 .. :try_end_108} :catchall_114
 
     .line 502
     nop
@@ -1018,7 +1018,7 @@
     move/from16 v2, v23
 
     .end local v19    # "element$iv":Ljava/lang/Object;
-    goto :goto_4
+    goto :goto_e0
 
     .line 487
     .end local v0    # "cursor":Landroid/database/Cursor;
@@ -1037,18 +1037,18 @@
     .end local v18    # "id":I
     .end local v22    # "$this$forEach$iv":Ljava/lang/Iterable;
     .end local v23    # "$i$f$forEach":I
-    :catchall_1
+    :catchall_114
     move-exception v0
 
     move-object v1, v0
 
     move/from16 v17, v4
 
-    goto/16 :goto_5
+    goto/16 :goto_197
 
     .end local v25    # "$this$useCursor$iv":Landroid/database/Cursor;
     .local v3, "$this$useCursor$iv":Landroid/database/Cursor;
-    :catchall_2
+    :catchall_11a
     move-exception v0
 
     move-object/from16 v25, v3
@@ -1059,7 +1059,7 @@
 
     .end local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v25    # "$this$useCursor$iv":Landroid/database/Cursor;
-    goto/16 :goto_5
+    goto/16 :goto_197
 
     .line 653
     .restart local v0    # "cursor":Landroid/database/Cursor;
@@ -1079,7 +1079,7 @@
     .restart local v18    # "id":I
     .local v25, "myColumns":Ljava/util/List;
     .restart local v26    # "refColumns":Ljava/util/List;
-    :cond_4
+    :cond_122
     move-object/from16 v22, v1
 
     move/from16 v23, v2
@@ -1099,17 +1099,17 @@
     nop
 
     .line 505
-    :try_start_5
+    :try_start_12d
     new-instance v1, Landroidx/room/util/TableInfo$ForeignKey;
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_12f
+    .catchall {:try_start_12d .. :try_end_12f} :catchall_176
 
     .line 506
     move/from16 v17, v4
 
     .end local v4    # "$i$f$useCursor":I
     .local v17, "$i$f$useCursor":I
-    :try_start_6
+    :try_start_131
     invoke-interface {v0, v9}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v4
@@ -1186,7 +1186,7 @@
 
     move-object/from16 v0, v28
 
-    goto/16 :goto_0
+    goto/16 :goto_57
 
     .line 487
     .end local v2    # "myColumns":Ljava/util/List;
@@ -1205,7 +1205,7 @@
     .end local v27    # "idColumnIndex":I
     .end local v28    # "cursor":Landroid/database/Cursor;
     .restart local v4    # "$i$f$useCursor":I
-    :catchall_3
+    :catchall_176
     move-exception v0
 
     move/from16 v17, v4
@@ -1214,7 +1214,7 @@
 
     .end local v4    # "$i$f$useCursor":I
     .restart local v17    # "$i$f$useCursor":I
-    goto :goto_5
+    goto :goto_197
 
     .line 514
     .end local v17    # "$i$f$useCursor":I
@@ -1231,7 +1231,7 @@
     .restart local v12    # "ordered":Ljava/util/List;
     .restart local v14    # "$this$readForeignKeys_u24lambda_u243_u24lambda_u242":Ljava/util/Set;
     .restart local v15    # "$i$a$-buildSet-TableInfoKt$readForeignKeys$1$1":I
-    :cond_5
+    :cond_17b
     move-object/from16 v28, v0
 
     move-object/from16 v25, v3
@@ -1258,8 +1258,8 @@
     invoke-static {v13}, Lkotlin/collections/SetsKt;->build(Ljava/util/Set;)Ljava/util/Set;
 
     move-result-object v0
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_4
+    :try_end_189
+    .catchall {:try_start_131 .. :try_end_189} :catchall_18e
 
     .end local v8    # "seqColumnIndex":I
     .end local v9    # "tableColumnIndex":I
@@ -1279,18 +1279,18 @@
 
     .restart local v17    # "$i$f$useCursor":I
     .restart local v25    # "$this$useCursor$iv":Landroid/database/Cursor;
-    :catchall_4
+    :catchall_18e
     move-exception v0
 
     move-object v1, v0
 
-    goto :goto_5
+    goto :goto_197
 
     .end local v17    # "$i$f$useCursor":I
     .end local v25    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v4    # "$i$f$useCursor":I
-    :catchall_5
+    :catchall_191
     move-exception v0
 
     move-object/from16 v25, v3
@@ -1303,17 +1303,17 @@
     .end local v4    # "$i$f$useCursor":I
     .end local p0    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local p1    # "tableName":Ljava/lang/String;
-    :goto_5
-    :try_start_7
+    :goto_197
+    :try_start_197
     throw v1
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_6
+    :try_end_198
+    .catchall {:try_start_197 .. :try_end_198} :catchall_198
 
     .restart local v17    # "$i$f$useCursor":I
     .restart local v25    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local p0    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local p1    # "tableName":Ljava/lang/String;
-    :catchall_6
+    :catchall_198
     move-exception v0
 
     move-object v2, v0
@@ -1324,7 +1324,7 @@
 .end method
 
 .method private static final readIndex(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;Z)Landroidx/room/util/TableInfo$Index;
-    .locals 21
+    .registers 24
     .param p0, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "unique"    # Z
@@ -1374,7 +1374,7 @@
 
     check-cast v5, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_26
     move-object v0, v5
 
     check-cast v0, Landroid/database/Cursor;
@@ -1421,16 +1421,16 @@
     .line 619
     const/4 v12, -0x1
 
-    if-eq v7, v12, :cond_6
+    if-eq v7, v12, :cond_fb
 
     .line 620
-    if-eq v8, v12, :cond_5
+    if-eq v8, v12, :cond_f4
 
     .line 621
-    if-eq v9, v12, :cond_4
+    if-eq v9, v12, :cond_ed
 
     .line 622
-    if-ne v10, v12, :cond_0
+    if-ne v10, v12, :cond_54
 
     move/from16 v11, p2
 
@@ -1438,10 +1438,10 @@
 
     move-object/from16 v20, v3
 
-    goto/16 :goto_3
+    goto/16 :goto_101
 
     .line 627
-    :cond_0
+    :cond_54
     new-instance v12, Ljava/util/TreeMap;
 
     invoke-direct {v12}, Ljava/util/TreeMap;-><init>()V
@@ -1454,30 +1454,30 @@
 
     .line 629
     .local v13, "ordersMap":Ljava/util/TreeMap;
-    :goto_0
+    :goto_5e
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v14
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_4
+    :try_end_62
+    .catchall {:try_start_26 .. :try_end_62} :catchall_106
 
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_b8
 
     .line 630
-    :try_start_1
+    :try_start_64
     invoke-interface {v0, v8}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v14
 
     .line 631
     .local v14, "cid":I
-    if-gez v14, :cond_1
+    if-gez v14, :cond_6b
 
     .line 633
-    goto :goto_0
+    goto :goto_5e
 
     .line 635
-    :cond_1
+    :cond_6b
     invoke-interface {v0, v7}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v15
@@ -1495,17 +1495,17 @@
     invoke-interface {v0, v10}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v16
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_79
+    .catchall {:try_start_64 .. :try_end_79} :catchall_b2
 
-    if-lez v16, :cond_2
+    if-lez v16, :cond_86
 
-    :try_start_2
+    :try_start_7b
     const-string v16, "DESC"
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_7d
+    .catchall {:try_start_7b .. :try_end_7d} :catchall_7e
 
-    goto :goto_1
+    goto :goto_88
 
     .line 676
     .end local v0    # "cursor":Landroid/database/Cursor;
@@ -1519,7 +1519,7 @@
     .end local v14    # "cid":I
     .end local v15    # "seq":I
     .end local v17    # "columnName":Ljava/lang/String;
-    :catchall_0
+    :catchall_7e
     move-exception v0
 
     move/from16 v11, p2
@@ -1528,7 +1528,7 @@
 
     move-object/from16 v20, v3
 
-    goto/16 :goto_5
+    goto/16 :goto_10c
 
     .line 637
     .restart local v0    # "cursor":Landroid/database/Cursor;
@@ -1542,11 +1542,11 @@
     .restart local v14    # "cid":I
     .restart local v15    # "seq":I
     .restart local v17    # "columnName":Ljava/lang/String;
-    :cond_2
-    :try_start_3
+    :cond_86
+    :try_start_86
     const-string v16, "ASC"
 
-    :goto_1
+    :goto_88
     move-object/from16 v18, v16
 
     .local v18, "order":Ljava/lang/String;
@@ -1564,8 +1564,8 @@
     check-cast v0, Ljava/util/Map;
 
     const-string v2, "columnName"
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_95
+    .catchall {:try_start_86 .. :try_end_95} :catchall_b2
 
     move-object/from16 v20, v3
 
@@ -1574,7 +1574,7 @@
     .end local v17    # "columnName":Ljava/lang/String;
     .local v3, "columnName":Ljava/lang/String;
     .local v20, "$this$useCursor$iv":Landroid/database/Cursor;
-    :try_start_4
+    :try_start_99
     invoke-static {v3, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-interface {v0, v11, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1600,7 +1600,7 @@
 
     move-object/from16 v3, v20
 
-    goto :goto_0
+    goto :goto_5e
 
     .line 676
     .end local v6    # "$i$a$-useCursor-TableInfoKt$readIndex$1":I
@@ -1616,14 +1616,14 @@
     .end local v19    # "cursor":Landroid/database/Cursor;
     .end local v20    # "$this$useCursor$iv":Landroid/database/Cursor;
     .local v3, "$this$useCursor$iv":Landroid/database/Cursor;
-    :catchall_1
+    :catchall_b2
     move-exception v0
 
     move-object/from16 v20, v3
 
     move/from16 v11, p2
 
-    goto :goto_4
+    goto :goto_10b
 
     .line 641
     .restart local v0    # "cursor":Landroid/database/Cursor;
@@ -1634,7 +1634,7 @@
     .restart local v10    # "descColumnIndex":I
     .restart local v12    # "columnsMap":Ljava/util/TreeMap;
     .restart local v13    # "ordersMap":Ljava/util/TreeMap;
-    :cond_3
+    :cond_b8
     move-object/from16 v19, v0
 
     move-object/from16 v20, v3
@@ -1676,15 +1676,15 @@
     .line 643
     .local v2, "orders":Ljava/util/List;
     new-instance v3, Landroidx/room/util/TableInfo$Index;
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_3
+    :try_end_dc
+    .catchall {:try_start_99 .. :try_end_dc} :catchall_e8
 
     move/from16 v11, p2
 
-    :try_start_5
+    :try_start_de
     invoke-direct {v3, v1, v11, v0, v2}, Landroidx/room/util/TableInfo$Index;-><init>(Ljava/lang/String;ZLjava/util/List;Ljava/util/List;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :try_end_e1
+    .catchall {:try_start_de .. :try_end_e1} :catchall_e6
 
     .line 676
     .end local v0    # "columns":Ljava/util/List;
@@ -1709,20 +1709,20 @@
     .line 676
     .restart local v4    # "$i$f$useCursor":I
     .restart local v20    # "$this$useCursor$iv":Landroid/database/Cursor;
-    :catchall_2
+    :catchall_e6
     move-exception v0
 
-    goto :goto_2
+    goto :goto_eb
 
-    :catchall_3
+    :catchall_e8
     move-exception v0
 
     move/from16 v11, p2
 
-    :goto_2
+    :goto_eb
     move-object v2, v0
 
-    goto :goto_5
+    goto :goto_10c
 
     .line 621
     .end local v20    # "$this$useCursor$iv":Landroid/database/Cursor;
@@ -1733,7 +1733,7 @@
     .restart local v8    # "cidColumnIndex":I
     .restart local v9    # "nameColumnIndex":I
     .restart local v10    # "descColumnIndex":I
-    :cond_4
+    :cond_ed
     move/from16 v11, p2
 
     move-object/from16 v19, v0
@@ -1744,14 +1744,14 @@
     .end local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v19    # "cursor":Landroid/database/Cursor;
     .restart local v20    # "$this$useCursor$iv":Landroid/database/Cursor;
-    goto :goto_3
+    goto :goto_101
 
     .line 620
     .end local v19    # "cursor":Landroid/database/Cursor;
     .end local v20    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v0    # "cursor":Landroid/database/Cursor;
     .restart local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
-    :cond_5
+    :cond_f4
     move/from16 v11, p2
 
     move-object/from16 v19, v0
@@ -1762,14 +1762,14 @@
     .end local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v19    # "cursor":Landroid/database/Cursor;
     .restart local v20    # "$this$useCursor$iv":Landroid/database/Cursor;
-    goto :goto_3
+    goto :goto_101
 
     .line 619
     .end local v19    # "cursor":Landroid/database/Cursor;
     .end local v20    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v0    # "cursor":Landroid/database/Cursor;
     .restart local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
-    :cond_6
+    :cond_fb
     move/from16 v11, p2
 
     move-object/from16 v19, v0
@@ -1781,7 +1781,7 @@
     .end local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v19    # "cursor":Landroid/database/Cursor;
     .restart local v20    # "$this$useCursor$iv":Landroid/database/Cursor;
-    :goto_3
+    :goto_101
     const/4 v0, 0x0
 
     .end local v4    # "$i$f$useCursor":I
@@ -1799,14 +1799,14 @@
     .line 676
     .restart local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v4    # "$i$f$useCursor":I
-    :catchall_4
+    :catchall_106
     move-exception v0
 
     move/from16 v11, p2
 
     move-object/from16 v20, v3
 
-    :goto_4
+    :goto_10b
     move-object v2, v0
 
     .end local v3    # "$this$useCursor$iv":Landroid/database/Cursor;
@@ -1814,18 +1814,18 @@
     .end local p0    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local p1    # "name":Ljava/lang/String;
     .end local p2    # "unique":Z
-    :goto_5
-    :try_start_6
+    :goto_10c
+    :try_start_10c
     throw v2
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_5
+    :try_end_10d
+    .catchall {:try_start_10c .. :try_end_10d} :catchall_10d
 
     .restart local v4    # "$i$f$useCursor":I
     .restart local v20    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local p0    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local p1    # "name":Ljava/lang/String;
     .restart local p2    # "unique":Z
-    :catchall_5
+    :catchall_10d
     move-exception v0
 
     move-object v3, v0
@@ -1836,7 +1836,7 @@
 .end method
 
 .method private static final readIndices(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Ljava/util/Set;
-    .locals 17
+    .registers 19
     .param p0, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p1, "tableName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -1898,7 +1898,7 @@
 
     check-cast v5, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_28
     move-object v6, v5
 
     check-cast v6, Landroid/database/Cursor;
@@ -1932,18 +1932,18 @@
     .local v10, "uniqueIndex":I
     const/4 v11, -0x1
 
-    if-eq v8, v11, :cond_5
+    if-eq v8, v11, :cond_94
 
-    if-eq v9, v11, :cond_5
+    if-eq v9, v11, :cond_94
 
-    if-ne v10, v11, :cond_0
+    if-ne v10, v11, :cond_47
 
     move-object/from16 v16, v2
 
-    goto :goto_2
+    goto :goto_96
 
     .line 588
-    :cond_0
+    :cond_47
     invoke-static {}, Lkotlin/collections/SetsKt;->createSetBuilder()Ljava/util/Set;
 
     move-result-object v11
@@ -1955,12 +1955,12 @@
 
     .line 589
     .local v14, "$i$a$-buildSet-TableInfoKt$readIndices$1$1":I
-    :goto_0
+    :goto_4d
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v15
 
-    if-eqz v15, :cond_4
+    if-eqz v15, :cond_86
 
     .line 590
     invoke-interface {v6, v9}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -1975,18 +1975,18 @@
 
     move-result v12
 
-    if-nez v12, :cond_1
+    if-nez v12, :cond_60
 
     .line 593
-    goto :goto_0
+    goto :goto_4d
 
     .line 595
-    :cond_1
+    :cond_60
     invoke-interface {v6, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v12
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_64
+    .catchall {:try_start_28 .. :try_end_64} :catchall_9b
 
     .line 596
     .local v12, "name":Ljava/lang/String;
@@ -1994,21 +1994,21 @@
 
     .end local v2    # "$this$useCursor$iv":Landroid/database/Cursor;
     .local v16, "$this$useCursor$iv":Landroid/database/Cursor;
-    :try_start_1
+    :try_start_66
     invoke-interface {v6, v10}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v2
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_6e
 
-    goto :goto_1
+    goto :goto_6f
 
-    :cond_2
+    :cond_6e
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_6f
     move v2, v3
 
     .line 598
@@ -2018,10 +2018,10 @@
     invoke-static {v1, v12, v2}, Landroidx/room/util/TableInfoKt;->readIndex(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;Z)Landroidx/room/util/TableInfo$Index;
 
     move-result-object v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_77
+    .catchall {:try_start_66 .. :try_end_77} :catchall_91
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_7e
 
     const/4 v0, 0x0
 
@@ -2055,15 +2055,15 @@
     .restart local v14    # "$i$a$-buildSet-TableInfoKt$readIndices$1$1":I
     .restart local v15    # "origin":Ljava/lang/String;
     .restart local v16    # "$this$useCursor$iv":Landroid/database/Cursor;
-    :cond_3
-    :try_start_2
+    :cond_7e
+    :try_start_7e
     invoke-interface {v13, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v3, p1
 
     move-object/from16 v2, v16
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 601
     .end local v3    # "index":Landroidx/room/util/TableInfo$Index;
@@ -2071,7 +2071,7 @@
     .end local v15    # "origin":Ljava/lang/String;
     .end local v16    # "$this$useCursor$iv":Landroid/database/Cursor;
     .local v2, "$this$useCursor$iv":Landroid/database/Cursor;
-    :cond_4
+    :cond_86
     move-object/from16 v16, v2
 
     .line 588
@@ -2082,8 +2082,8 @@
     invoke-static {v11}, Lkotlin/collections/SetsKt;->build(Ljava/util/Set;)Ljava/util/Set;
 
     move-result-object v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_8c
+    .catchall {:try_start_7e .. :try_end_8c} :catchall_91
 
     const/4 v2, 0x0
 
@@ -2100,12 +2100,12 @@
 
     .restart local v4    # "$i$f$useCursor":I
     .restart local v16    # "$this$useCursor$iv":Landroid/database/Cursor;
-    :catchall_0
+    :catchall_91
     move-exception v0
 
     move-object v2, v0
 
-    goto :goto_3
+    goto :goto_9f
 
     .line 584
     .end local v16    # "$this$useCursor$iv":Landroid/database/Cursor;
@@ -2115,13 +2115,13 @@
     .restart local v8    # "nameColumnIndex":I
     .restart local v9    # "originColumnIndex":I
     .restart local v10    # "uniqueIndex":I
-    :cond_5
+    :cond_94
     move-object/from16 v16, v2
 
     .line 586
     .end local v2    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v16    # "$this$useCursor$iv":Landroid/database/Cursor;
-    :goto_2
+    :goto_96
     const/4 v0, 0x0
 
     .end local v4    # "$i$f$useCursor":I
@@ -2138,7 +2138,7 @@
     .line 588
     .restart local v2    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v4    # "$i$f$useCursor":I
-    :catchall_1
+    :catchall_9b
     move-exception v0
 
     move-object/from16 v16, v2
@@ -2149,17 +2149,17 @@
     .end local v4    # "$i$f$useCursor":I
     .end local p0    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .end local p1    # "tableName":Ljava/lang/String;
-    :goto_3
-    :try_start_3
+    :goto_9f
+    :try_start_9f
     throw v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_a0
+    .catchall {:try_start_9f .. :try_end_a0} :catchall_a0
 
     .restart local v4    # "$i$f$useCursor":I
     .restart local v16    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local p0    # "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     .restart local p1    # "tableName":Ljava/lang/String;
-    :catchall_2
+    :catchall_a0
     move-exception v0
 
     move-object v3, v0
@@ -2170,7 +2170,7 @@
 .end method
 
 .method public static final readTableInfo(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Landroidx/room/util/TableInfo;
-    .locals 4
+    .registers 6
     .param p0, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .param p1, "tableName"    # Ljava/lang/String;
 

@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 43
     new-instance v0, Lcom/google/common/collect/ImmutableClassToInstanceMap;
@@ -83,7 +83,7 @@
 .end method
 
 .method private constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,7 +106,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ImmutableMap;Lcom/google/common/collect/ImmutableClassToInstanceMap$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/ImmutableMap;
     .param p2, "x1"    # Lcom/google/common/collect/ImmutableClassToInstanceMap$1;
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public static builder()Lcom/google/common/collect/ImmutableClassToInstanceMap$Builder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -138,7 +138,7 @@
 .end method
 
 .method public static copyOf(Ljava/util/Map;)Lcom/google/common/collect/ImmutableClassToInstanceMap;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -157,7 +157,7 @@
     .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<+Ljava/lang/Class<+TS;>;+TS;>;"
     instance-of v0, p0, Lcom/google/common/collect/ImmutableClassToInstanceMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 158
     move-object v0, p0
@@ -170,7 +170,7 @@
 
     .line 161
     .end local v0    # "cast":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
-    :cond_0
+    :cond_8
     new-instance v0, Lcom/google/common/collect/ImmutableClassToInstanceMap$Builder;
 
     invoke-direct {v0}, Lcom/google/common/collect/ImmutableClassToInstanceMap$Builder;-><init>()V
@@ -187,7 +187,7 @@
 .end method
 
 .method public static of()Lcom/google/common/collect/ImmutableClassToInstanceMap;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -205,7 +205,7 @@
 .end method
 
 .method public static of(Ljava/lang/Class;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableClassToInstanceMap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -237,7 +237,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 37
     .local p0, "this":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
@@ -249,7 +249,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -267,7 +267,7 @@
 .end method
 
 .method public getInstance(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -296,7 +296,7 @@
 .end method
 
 .method public putInstance(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",
@@ -323,7 +323,7 @@
 .end method
 
 .method readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 198
     .local p0, "this":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
@@ -331,17 +331,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-static {}, Lcom/google/common/collect/ImmutableClassToInstanceMap;->of()Lcom/google/common/collect/ImmutableClassToInstanceMap;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     move-object v0, p0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method

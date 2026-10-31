@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/MatchOps$MatchKind;Ljava/util/function/IntPredicate;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -56,13 +56,13 @@
 
 # virtual methods
 .method public accept(I)V
-    .locals 2
+    .registers 4
     .param p1, "t"    # I
 
     .line 119
     iget-boolean v0, p0, Lj$/util/stream/MatchOps$2MatchSink;->stop:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     iget-object v0, p0, Lj$/util/stream/MatchOps$2MatchSink;->val$predicate:Ljava/util/function/IntPredicate;
 
@@ -76,7 +76,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1d
 
     .line 120
     const/4 v0, 0x1
@@ -93,12 +93,12 @@
     iput-boolean v0, p0, Lj$/util/stream/MatchOps$2MatchSink;->value:Z
 
     .line 123
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public synthetic accept(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfInt$-CC;->$default$accept(Lj$/util/stream/Sink$OfInt;Ljava/lang/Integer;)V
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/stream/Sink$OfInt$-CC;->$default$accept(Lj$/util/stream/Sink$OfInt;Ljava/lang/Object;)V
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
 

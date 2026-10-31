@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/inputmethod/InputConnection;ZLandroidx/core/view/inputmethod/InputConnectionCompat$OnCommitContentListener;)V
-    .locals 0
+    .registers 4
     .param p1, "target"    # Landroid/view/inputmethod/InputConnection;
     .param p2, "mutable"    # Z
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
-    .locals 2
+    .registers 6
     .param p1, "inputContentInfo"    # Landroid/view/inputmethod/InputContentInfo;
     .param p2, "flags"    # I
     .param p3, "opts"    # Landroid/os/Bundle;
@@ -51,7 +51,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 287
     const/4 v0, 0x1
@@ -59,7 +59,7 @@
     return v0
 
     .line 289
-    :cond_0
+    :cond_e
     invoke-super {p0, p1, p2, p3}, Landroid/view/inputmethod/InputConnectionWrapper;->commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
 
     move-result v0

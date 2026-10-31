@@ -41,7 +41,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$Vghkqf2ue31UKaNmTQUvvhthxHw(Lio/nekohasekai/sagernet/ui/NamedFragment;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/NamedFragment;->name_delegate$lambda$0(Lio/nekohasekai/sagernet/ui/NamedFragment;)Ljava/lang/String;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 7
     invoke-direct {p0}, Landroidx/fragment/app/Fragment;-><init>()V
@@ -72,7 +72,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "contentLayoutId"    # I
 
     .line 8
@@ -94,7 +94,7 @@
 .end method
 
 .method private final getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 10
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/NamedFragment;->name$delegate:Lkotlin/Lazy;
@@ -109,7 +109,7 @@
 .end method
 
 .method private static final name_delegate$lambda$0(Lio/nekohasekai/sagernet/ui/NamedFragment;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "this$0"    # Lio/nekohasekai/sagernet/ui/NamedFragment;
 
     .line 10
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public final name()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 11
     invoke-direct {p0}, Lio/nekohasekai/sagernet/ui/NamedFragment;->getName()Ljava/lang/String;

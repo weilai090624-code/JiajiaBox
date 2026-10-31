@@ -52,38 +52,38 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private static final currentTimeMillis()J
-    .locals 2
+    .registers 2
 
     .line 31
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-virtual {v0}, Lkotlinx/coroutines/AbstractTimeSource;->currentTimeMillis()J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    :goto_0
+    :goto_f
     return-wide v0
 .end method
 
 .method public static final getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Lkotlinx/coroutines/AbstractTimeSourceKt;->timeSource:Lkotlinx/coroutines/AbstractTimeSource;
@@ -92,32 +92,32 @@
 .end method
 
 .method private static final nanoTime()J
-    .locals 2
+    .registers 2
 
     .line 35
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-virtual {v0}, Lkotlinx/coroutines/AbstractTimeSource;->nanoTime()J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v0
 
-    :goto_0
+    :goto_f
     return-wide v0
 .end method
 
 .method private static final parkNanos(Ljava/lang/Object;J)V
-    .locals 1
+    .registers 4
     .param p0, "blocker"    # Ljava/lang/Object;
     .param p1, "nanos"    # J
 
@@ -126,46 +126,46 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     invoke-virtual {v0, p0, p1, p2}, Lkotlinx/coroutines/AbstractTimeSource;->parkNanos(Ljava/lang/Object;J)V
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_d
+    if-nez v0, :cond_12
 
     invoke-static {p0, p1, p2}, Ljava/util/concurrent/locks/LockSupport;->parkNanos(Ljava/lang/Object;J)V
 
     .line 64
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method private static final registerTimeLoopThread()V
-    .locals 1
+    .registers 1
 
     .line 53
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lkotlinx/coroutines/AbstractTimeSource;->registerTimeLoopThread()V
 
     .line 54
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static final setTimeSource(Lkotlinx/coroutines/AbstractTimeSource;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Lkotlinx/coroutines/AbstractTimeSource;
 
     .line 27
@@ -175,41 +175,41 @@
 .end method
 
 .method private static final trackTask()V
-    .locals 1
+    .registers 1
 
     .line 43
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lkotlinx/coroutines/AbstractTimeSource;->trackTask()V
 
     .line 44
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private static final unTrackTask()V
-    .locals 1
+    .registers 1
 
     .line 48
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lkotlinx/coroutines/AbstractTimeSource;->unTrackTask()V
 
     .line 49
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private static final unpark(Ljava/lang/Thread;)V
-    .locals 1
+    .registers 2
     .param p0, "thread"    # Ljava/lang/Thread;
 
     .line 68
@@ -217,46 +217,46 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     invoke-virtual {v0, p0}, Lkotlinx/coroutines/AbstractTimeSource;->unpark(Ljava/lang/Thread;)V
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_d
+    if-nez v0, :cond_12
 
     invoke-static {p0}, Ljava/util/concurrent/locks/LockSupport;->unpark(Ljava/lang/Thread;)V
 
     .line 69
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method private static final unregisterTimeLoopThread()V
-    .locals 1
+    .registers 1
 
     .line 58
     invoke-static {}, Lkotlinx/coroutines/AbstractTimeSourceKt;->getTimeSource()Lkotlinx/coroutines/AbstractTimeSource;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lkotlinx/coroutines/AbstractTimeSource;->unregisterTimeLoopThread()V
 
     .line 59
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private static final wrapTask(Ljava/lang/Runnable;)Ljava/lang/Runnable;
-    .locals 1
+    .registers 2
     .param p0, "block"    # Ljava/lang/Runnable;
 
     .line 39
@@ -264,17 +264,17 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     invoke-virtual {v0, p0}, Lkotlinx/coroutines/AbstractTimeSource;->wrapTask(Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_d
 
-    :cond_0
+    :cond_c
     move-object v0, p0
 
-    :cond_1
+    :cond_d
     return-object v0
 .end method

@@ -106,7 +106,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -164,7 +164,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlin/sequences/SequenceScope;
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public final invoke(Lkotlin/sequences/SequenceScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -208,7 +208,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 10
+    .registers 12
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -217,7 +217,7 @@
     .line 2867
     iget v1, p0, Lkotlin/sequences/SequencesKt___SequencesKt$zipWithNext$2;->label:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_68
 
     .end local p0    # "this":Lkotlin/sequences/SequencesKt___SequencesKt$zipWithNext$2;
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -230,7 +230,7 @@
 
     .restart local p0    # "this":Lkotlin/sequences/SequencesKt___SequencesKt$zipWithNext$2;
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_11
     iget-object v1, p0, Lkotlin/sequences/SequencesKt___SequencesKt$zipWithNext$2;->L$2:Ljava/lang/Object;
 
     .local v1, "next":Ljava/lang/Object;
@@ -248,13 +248,13 @@
 
     move-object v4, p0
 
-    goto :goto_1
+    goto :goto_62
 
     .end local v1    # "next":Ljava/lang/Object;
     .end local v2    # "iterator":Ljava/util/Iterator;
     .end local v3    # "$this$result":Lkotlin/sequences/SequenceScope;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_20
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .restart local p1    # "$result":Ljava/lang/Object;
@@ -276,14 +276,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_36
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     .line 2870
-    :cond_0
+    :cond_36
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
@@ -301,12 +301,12 @@
     .local v1, "current":Ljava/lang/Object;
     .restart local v3    # "$this$result":Lkotlin/sequences/SequenceScope;
     .local v4, "this":Lkotlin/sequences/SequencesKt___SequencesKt$zipWithNext$2;
-    :goto_0
+    :goto_3e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_64
 
     .line 2872
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -340,35 +340,35 @@
     move-result-object v1
 
     .end local v1    # "current":Ljava/lang/Object;
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_61
 
     .line 2867
     return-object v0
 
     .line 2873
-    :cond_1
+    :cond_61
     move-object v1, v5
 
     .line 2874
     .end local v5    # "next":Ljava/lang/Object;
     .local v1, "next":Ljava/lang/Object;
-    :goto_1
+    :goto_62
     nop
 
     .local v1, "current":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_3e
 
     .line 2876
-    :cond_2
+    :cond_64
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_68
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_20
+        :pswitch_11
     .end packed-switch
 .end method

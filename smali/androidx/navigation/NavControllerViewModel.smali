@@ -66,7 +66,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/navigation/NavControllerViewModel$Companion;
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 27
     invoke-direct {p0}, Landroidx/lifecycle/ViewModel;-><init>()V
@@ -108,7 +108,7 @@
 .end method
 
 .method public static final synthetic access$getFACTORY$cp()Landroidx/lifecycle/ViewModelProvider$Factory;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Landroidx/navigation/NavControllerViewModel;->FACTORY:Landroidx/lifecycle/ViewModelProvider$Factory;
@@ -117,7 +117,7 @@
 .end method
 
 .method public static final getInstance(Landroidx/lifecycle/ViewModelStore;)Landroidx/navigation/NavControllerViewModel;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public final clear(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "backStackEntryId"    # Ljava/lang/String;
 
     const-string v0, "backStackEntryId"
@@ -151,17 +151,17 @@
 
     .line 33
     .local v0, "viewModelStore":Landroidx/lifecycle/ViewModelStore;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Landroidx/lifecycle/ViewModelStore;->clear()V
 
     .line 34
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public getViewModelStore(Ljava/lang/String;)Landroidx/lifecycle/ViewModelStore;
-    .locals 2
+    .registers 4
     .param p1, "backStackEntryId"    # Ljava/lang/String;
 
     const-string v0, "backStackEntryId"
@@ -179,7 +179,7 @@
 
     .line 45
     .local v0, "viewModelStore":Landroidx/lifecycle/ViewModelStore;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 46
     new-instance v1, Landroidx/lifecycle/ViewModelStore;
@@ -194,12 +194,12 @@
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 49
-    :cond_0
+    :cond_1a
     return-object v0
 .end method
 
 .method protected onCleared()V
-    .locals 2
+    .registers 3
 
     .line 37
     iget-object v0, p0, Landroidx/navigation/NavControllerViewModel;->viewModelStores:Ljava/util/Map;
@@ -212,12 +212,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -230,10 +230,10 @@
     invoke-virtual {v1}, Landroidx/lifecycle/ViewModelStore;->clear()V
 
     .end local v1    # "store":Landroidx/lifecycle/ViewModelStore;
-    goto :goto_0
+    goto :goto_a
 
     .line 40
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Landroidx/navigation/NavControllerViewModel;->viewModelStores:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
@@ -243,7 +243,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 53
     new-instance v0, Ljava/lang/StringBuilder;
@@ -282,13 +282,13 @@
 
     .line 57
     .local v1, "viewModelStoreIterator":Ljava/util/Iterator;
-    :cond_0
-    :goto_0
+    :cond_22
+    :goto_22
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3d
 
     .line 58
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -304,17 +304,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     .line 60
     const-string v2, ", "
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_22
 
     .line 63
-    :cond_1
+    :cond_3d
     const/16 v2, 0x29
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;

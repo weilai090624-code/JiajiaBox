@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;)V
-    .locals 0
+    .registers 2
     .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 60
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public copy(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1, "original"    # Ljava/lang/Object;
     .param p2, "copy"    # Ljava/lang/Object;
 
@@ -53,14 +53,14 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p2, "object"    # Ljava/lang/Object;
 
     .line 71
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$IntAsmField;->varEncoding:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 72
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$IntAsmField;->access:Lcom/esotericsoftware/reflectasm/FieldAccess;
@@ -75,10 +75,10 @@
 
     invoke-virtual {v0, p2, v1, v2}, Lcom/esotericsoftware/reflectasm/FieldAccess;->setInt(Ljava/lang/Object;II)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 74
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$IntAsmField;->access:Lcom/esotericsoftware/reflectasm/FieldAccess;
 
     iget v1, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$IntAsmField;->accessIndex:I
@@ -90,19 +90,19 @@
     invoke-virtual {v0, p2, v1, v2}, Lcom/esotericsoftware/reflectasm/FieldAccess;->setInt(Ljava/lang/Object;II)V
 
     .line 75
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p2, "object"    # Ljava/lang/Object;
 
     .line 64
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$IntAsmField;->varEncoding:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 65
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$IntAsmField;->access:Lcom/esotericsoftware/reflectasm/FieldAccess;
@@ -117,10 +117,10 @@
 
     invoke-virtual {p1, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 67
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$IntAsmField;->access:Lcom/esotericsoftware/reflectasm/FieldAccess;
 
     iget v1, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$IntAsmField;->accessIndex:I
@@ -132,6 +132,6 @@
     invoke-virtual {p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(I)V
 
     .line 68
-    :goto_0
+    :goto_1c
     return-void
 .end method

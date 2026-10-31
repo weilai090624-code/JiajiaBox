@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -15,7 +15,7 @@
 .end method
 
 .method public static create(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/camera/camera2/internal/CameraDeviceId;
-    .locals 5
+    .registers 9
     .param p0, "brand"    # Ljava/lang/String;
     .param p1, "device"    # Ljava/lang/String;
     .param p2, "model"    # Ljava/lang/String;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/ClipData;I)V
-    .locals 2
+    .registers 5
     .param p1, "clip"    # Landroid/content/ClipData;
     .param p2, "source"    # I
 
@@ -32,7 +32,7 @@
 
     const/16 v1, 0x1f
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 516
     new-instance v0, Landroidx/core/view/ContentInfoCompat$BuilderCompat31Impl;
@@ -41,10 +41,10 @@
 
     iput-object v0, p0, Landroidx/core/view/ContentInfoCompat$Builder;->mBuilderCompat:Landroidx/core/view/ContentInfoCompat$BuilderCompat;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 518
-    :cond_0
+    :cond_11
     new-instance v0, Landroidx/core/view/ContentInfoCompat$BuilderCompatImpl;
 
     invoke-direct {v0, p1, p2}, Landroidx/core/view/ContentInfoCompat$BuilderCompatImpl;-><init>(Landroid/content/ClipData;I)V
@@ -52,12 +52,12 @@
     iput-object v0, p0, Landroidx/core/view/ContentInfoCompat$Builder;->mBuilderCompat:Landroidx/core/view/ContentInfoCompat$BuilderCompat;
 
     .line 520
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/core/view/ContentInfoCompat;)V
-    .locals 2
+    .registers 4
     .param p1, "other"    # Landroidx/core/view/ContentInfoCompat;
 
     .line 500
@@ -68,7 +68,7 @@
 
     const/16 v1, 0x1f
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 502
     new-instance v0, Landroidx/core/view/ContentInfoCompat$BuilderCompat31Impl;
@@ -77,10 +77,10 @@
 
     iput-object v0, p0, Landroidx/core/view/ContentInfoCompat$Builder;->mBuilderCompat:Landroidx/core/view/ContentInfoCompat$BuilderCompat;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 504
-    :cond_0
+    :cond_11
     new-instance v0, Landroidx/core/view/ContentInfoCompat$BuilderCompatImpl;
 
     invoke-direct {v0, p1}, Landroidx/core/view/ContentInfoCompat$BuilderCompatImpl;-><init>(Landroidx/core/view/ContentInfoCompat;)V
@@ -88,14 +88,14 @@
     iput-object v0, p0, Landroidx/core/view/ContentInfoCompat$Builder;->mBuilderCompat:Landroidx/core/view/ContentInfoCompat$BuilderCompat;
 
     .line 506
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 
 # virtual methods
 .method public build()Landroidx/core/view/ContentInfoCompat;
-    .locals 1
+    .registers 2
 
     .line 589
     iget-object v0, p0, Landroidx/core/view/ContentInfoCompat$Builder;->mBuilderCompat:Landroidx/core/view/ContentInfoCompat$BuilderCompat;
@@ -108,7 +108,7 @@
 .end method
 
 .method public setClip(Landroid/content/ClipData;)Landroidx/core/view/ContentInfoCompat$Builder;
-    .locals 1
+    .registers 3
     .param p1, "clip"    # Landroid/content/ClipData;
 
     .line 530
@@ -121,7 +121,7 @@
 .end method
 
 .method public setExtras(Landroid/os/Bundle;)Landroidx/core/view/ContentInfoCompat$Builder;
-    .locals 1
+    .registers 3
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 580
@@ -134,7 +134,7 @@
 .end method
 
 .method public setFlags(I)Landroidx/core/view/ContentInfoCompat$Builder;
-    .locals 1
+    .registers 3
     .param p1, "flags"    # I
 
     .line 555
@@ -147,7 +147,7 @@
 .end method
 
 .method public setLinkUri(Landroid/net/Uri;)Landroidx/core/view/ContentInfoCompat$Builder;
-    .locals 1
+    .registers 3
     .param p1, "linkUri"    # Landroid/net/Uri;
 
     .line 568
@@ -160,7 +160,7 @@
 .end method
 
 .method public setSource(I)Landroidx/core/view/ContentInfoCompat$Builder;
-    .locals 1
+    .registers 3
     .param p1, "source"    # I
 
     .line 542

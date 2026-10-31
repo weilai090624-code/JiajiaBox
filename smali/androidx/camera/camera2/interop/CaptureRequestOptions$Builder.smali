@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 104
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public static from(Landroidx/camera/core/impl/Config;)Landroidx/camera/camera2/interop/CaptureRequestOptions$Builder;
-    .locals 3
+    .registers 4
     .param p0, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -79,7 +79,7 @@
 .end method
 
 .method static synthetic lambda$from$0(Landroidx/camera/camera2/interop/CaptureRequestOptions$Builder;Landroidx/camera/core/impl/Config;Landroidx/camera/core/impl/Config$Option;)Z
-    .locals 4
+    .registers 7
     .param p0, "bundleBuilder"    # Landroidx/camera/camera2/interop/CaptureRequestOptions$Builder;
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .param p2, "option"    # Landroidx/camera/core/impl/Config$Option;
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public build()Landroidx/camera/camera2/interop/CaptureRequestOptions;
-    .locals 2
+    .registers 3
 
     .line 178
     new-instance v0, Landroidx/camera/camera2/interop/CaptureRequestOptions;
@@ -132,7 +132,7 @@
 .end method
 
 .method public bridge synthetic build()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 104
     invoke-virtual {p0}, Landroidx/camera/camera2/interop/CaptureRequestOptions$Builder;->build()Landroidx/camera/camera2/interop/CaptureRequestOptions;
@@ -143,7 +143,7 @@
 .end method
 
 .method public clearCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;)Landroidx/camera/camera2/interop/CaptureRequestOptions$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -181,7 +181,7 @@
 .end method
 
 .method public getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
-    .locals 1
+    .registers 2
 
     .line 144
     iget-object v0, p0, Landroidx/camera/camera2/interop/CaptureRequestOptions$Builder;->mMutableOptionsBundle:Landroidx/camera/core/impl/MutableOptionsBundle;
@@ -190,7 +190,7 @@
 .end method
 
 .method public setCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Landroidx/camera/camera2/interop/CaptureRequestOptions$Builder;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,

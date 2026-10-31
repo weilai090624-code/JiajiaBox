@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public static final build(Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "builder"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -109,7 +109,7 @@
 .end method
 
 .method private static final buildListInternal(ILkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0, "capacity"    # I
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -147,7 +147,7 @@
 .end method
 
 .method private static final buildListInternal(Lkotlin/jvm/functions/Function1;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -184,11 +184,11 @@
 .end method
 
 .method private static final checkCountOverflow(I)I
-    .locals 3
+    .registers 4
     .param p0, "count"    # I
 
     .line 123
-    if-gez p0, :cond_1
+    if-gez p0, :cond_17
 
     .line 124
     const/4 v0, 0x3
@@ -201,15 +201,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 125
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwCountOverflow()V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 127
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v1, "Count overflow has happened."
@@ -219,17 +219,17 @@
     throw v0
 
     .line 129
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     return p0
 .end method
 
 .method private static final checkIndexOverflow(I)I
-    .locals 3
+    .registers 4
     .param p0, "index"    # I
 
     .line 110
-    if-gez p0, :cond_1
+    if-gez p0, :cond_17
 
     .line 111
     const/4 v0, 0x3
@@ -242,15 +242,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 112
     invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 114
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/ArithmeticException;
 
     const-string v1, "Index overflow has happened."
@@ -260,13 +260,13 @@
     throw v0
 
     .line 116
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     return p0
 .end method
 
 .method private static final collectionToArray(Ljava/util/Collection;)[Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "collection"    # Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -290,7 +290,7 @@
 .end method
 
 .method private static final collectionToArray(Ljava/util/Collection;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "collection"    # Ljava/util/Collection;
     .param p1, "array"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -320,7 +320,7 @@
 .end method
 
 .method public static final copyToArrayOfAny([Ljava/lang/Object;Z)[Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$copyToArrayOfAny"    # [Ljava/lang/Object;
     .param p1, "isVarargs"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -337,7 +337,7 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 99
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -349,15 +349,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 101
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_21
 
     .line 103
-    :cond_0
+    :cond_15
     array-length v0, p0
 
     const-class v1, [Ljava/lang/Object;
@@ -370,12 +370,12 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_21
     return-object v0
 .end method
 
 .method public static final createListBuilder()Ljava/util/List;
-    .locals 4
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -403,7 +403,7 @@
 .end method
 
 .method public static final createListBuilder(I)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "capacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -426,7 +426,7 @@
 .end method
 
 .method public static final listOf(Ljava/lang/Object;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -451,7 +451,7 @@
 .end method
 
 .method public static final shuffled(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 3
+    .registers 4
     .param p0, "$this$shuffled"    # Ljava/lang/Iterable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -490,7 +490,7 @@
 .end method
 
 .method public static final shuffled(Ljava/lang/Iterable;Ljava/util/Random;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .param p0, "$this$shuffled"    # Ljava/lang/Iterable;
     .param p1, "random"    # Ljava/util/Random;
     .annotation system Ldalvik/annotation/Signature;
@@ -536,7 +536,7 @@
 .end method
 
 .method public static final terminateCollectionToArray(I[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "collectionSize"    # I
     .param p1, "array"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -554,7 +554,7 @@
     .line 90
     array-length v0, p1
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_b
 
     .line 92
     const/4 v0, 0x0
@@ -562,12 +562,12 @@
     aput-object v0, p1, p0
 
     .line 94
-    :cond_0
+    :cond_b
     return-object p1
 .end method
 
 .method private static final toList(Ljava/util/Enumeration;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "$this$toList"    # Ljava/util/Enumeration;
     .annotation system Ldalvik/annotation/Signature;
         value = {

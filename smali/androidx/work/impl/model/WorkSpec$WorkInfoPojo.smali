@@ -117,7 +117,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroidx/work/WorkInfo$State;Landroidx/work/Data;IILjava/util/List;Ljava/util/List;)V
-    .locals 1
+    .registers 9
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "state"    # Landroidx/work/WorkInfo$State;
     .param p3, "output"    # Landroidx/work/Data;
@@ -190,67 +190,67 @@
 .end method
 
 .method public static synthetic copy$default(Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;Ljava/lang/String;Landroidx/work/WorkInfo$State;Landroidx/work/Data;IILjava/util/List;Ljava/util/List;ILjava/lang/Object;)Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
-    .locals 5
+    .registers 15
 
     and-int/lit8 p9, p8, 0x1
 
-    if-eqz p9, :cond_0
+    if-eqz p9, :cond_6
 
     iget-object p1, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p9, p8, 0x2
 
-    if-eqz p9, :cond_1
+    if-eqz p9, :cond_c
 
     iget-object p2, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
 
-    :cond_1
+    :cond_c
     move-object p9, p2
 
     and-int/lit8 p2, p8, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_13
 
     iget-object p3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
 
-    :cond_2
+    :cond_13
     move-object v0, p3
 
     and-int/lit8 p2, p8, 0x8
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_1a
 
     iget p4, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
 
-    :cond_3
+    :cond_1a
     move v1, p4
 
     and-int/lit8 p2, p8, 0x10
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_21
 
     iget p5, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->generation:I
 
-    :cond_4
+    :cond_21
     move v2, p5
 
     and-int/lit8 p2, p8, 0x20
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_28
 
     iget-object p6, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
 
-    :cond_5
+    :cond_28
     move-object v3, p6
 
     and-int/lit8 p2, p8, 0x40
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_2f
 
     iget-object p7, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
 
-    :cond_6
+    :cond_2f
     move-object v4, p7
 
     move-object p2, p0
@@ -279,7 +279,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
 
@@ -287,7 +287,7 @@
 .end method
 
 .method public final component2()Landroidx/work/WorkInfo$State;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
 
@@ -295,7 +295,7 @@
 .end method
 
 .method public final component3()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
 
@@ -303,7 +303,7 @@
 .end method
 
 .method public final component4()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
 
@@ -311,7 +311,7 @@
 .end method
 
 .method public final component5()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->generation:I
 
@@ -319,7 +319,7 @@
 .end method
 
 .method public final component6()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -335,7 +335,7 @@
 .end method
 
 .method public final component7()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -351,7 +351,7 @@
 .end method
 
 .method public final copy(Ljava/lang/String;Landroidx/work/WorkInfo$State;Landroidx/work/Data;IILjava/util/List;Ljava/util/List;)Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
-    .locals 14
+    .registers 22
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -423,24 +423,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
@@ -453,20 +453,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
@@ -475,29 +475,29 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_2a
 
     return v2
 
-    :cond_4
+    :cond_2a
     iget v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
 
     iget v4, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
 
-    if-eq v3, v4, :cond_5
+    if-eq v3, v4, :cond_31
 
     return v2
 
-    :cond_5
+    :cond_31
     iget v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->generation:I
 
     iget v4, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->generation:I
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_38
 
     return v2
 
-    :cond_6
+    :cond_38
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
 
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
@@ -506,11 +506,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_43
 
     return v2
 
-    :cond_7
+    :cond_43
     iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
 
     iget-object v1, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
@@ -519,16 +519,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_4e
 
     return v2
 
-    :cond_8
+    :cond_4e
     return v0
 .end method
 
 .method public final getGeneration()I
-    .locals 1
+    .registers 2
 
     .line 355
     iget v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->generation:I
@@ -537,7 +537,7 @@
 .end method
 
 .method public final getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 343
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
@@ -546,7 +546,7 @@
 .end method
 
 .method public final getOutput()Landroidx/work/Data;
-    .locals 1
+    .registers 2
 
     .line 349
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
@@ -555,7 +555,7 @@
 .end method
 
 .method public final getProgress()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -572,7 +572,7 @@
 .end method
 
 .method public final getRunAttemptCount()I
-    .locals 1
+    .registers 2
 
     .line 352
     iget v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
@@ -581,7 +581,7 @@
 .end method
 
 .method public final getState()Landroidx/work/WorkInfo$State;
-    .locals 1
+    .registers 2
 
     .line 346
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
@@ -590,7 +590,7 @@
 .end method
 
 .method public final getTags()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -607,7 +607,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
 
@@ -671,7 +671,7 @@
 .end method
 
 .method public final setId(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/lang/String;
 
     const-string v0, "<set-?>"
@@ -685,7 +685,7 @@
 .end method
 
 .method public final setOutput(Landroidx/work/Data;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/work/Data;
 
     const-string v0, "<set-?>"
@@ -699,7 +699,7 @@
 .end method
 
 .method public final setProgress(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -721,7 +721,7 @@
 .end method
 
 .method public final setRunAttemptCount(I)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # I
 
     .line 352
@@ -731,7 +731,7 @@
 .end method
 
 .method public final setState(Landroidx/work/WorkInfo$State;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Landroidx/work/WorkInfo$State;
 
     const-string v0, "<set-?>"
@@ -745,7 +745,7 @@
 .end method
 
 .method public final setTags(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -767,7 +767,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -871,7 +871,7 @@
 .end method
 
 .method public final toWorkInfo()Landroidx/work/WorkInfo;
-    .locals 9
+    .registers 10
 
     .line 381
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
@@ -882,7 +882,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
 
@@ -894,12 +894,12 @@
 
     check-cast v0, Landroidx/work/Data;
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     sget-object v0, Landroidx/work/Data;->EMPTY:Landroidx/work/Data;
 
-    :goto_0
+    :goto_16
     move-object v6, v0
 
     .line 382

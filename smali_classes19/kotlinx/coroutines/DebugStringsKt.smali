@@ -36,7 +36,7 @@
 
 # direct methods
 .method public static final getClassSimpleName(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$classSimpleName"    # Ljava/lang/Object;
 
     .line 21
@@ -52,7 +52,7 @@
 .end method
 
 .method public static final getHexAddress(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "$this$hexAddress"    # Ljava/lang/Object;
 
     .line 13
@@ -68,7 +68,7 @@
 .end method
 
 .method public static final toDebugString(Lkotlin/coroutines/Continuation;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "$this$toDebugString"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,19 +85,19 @@
     .line 16
     instance-of v0, p0, Lkotlinx/coroutines/internal/DispatchedContinuation;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_67
 
     .line 18
-    :cond_0
+    :cond_a
     const/16 v0, 0x40
 
-    :try_start_0
+    :try_start_c
     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     move-object v1, p0
@@ -137,12 +137,12 @@
     invoke-static {v3}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2d
+    .catchall {:try_start_c .. :try_end_2d} :catchall_2e
 
-    goto :goto_0
+    goto :goto_39
 
-    :catchall_0
+    :catchall_2e
     move-exception v1
 
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -155,16 +155,16 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_39
     invoke-static {v1}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_40
 
-    goto :goto_1
+    goto :goto_64
 
-    :cond_1
+    :cond_40
     move-object v1, v2
 
     .line 23
@@ -209,12 +209,12 @@
 
     .end local v1    # "it":Ljava/lang/Throwable;
     .end local v2    # "$i$a$-getOrElse-DebugStringsKt$toDebugString$2":I
-    :goto_1
+    :goto_64
     move-object v0, v1
 
     check-cast v0, Ljava/lang/String;
 
     .line 19
-    :goto_2
+    :goto_67
     return-object v0
 .end method

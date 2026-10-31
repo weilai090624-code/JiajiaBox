@@ -8,7 +8,7 @@
 
 # direct methods
 .method public synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public final execute(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
 
     .line 0
     invoke-static {p1}, Lmoe/matsuri/nb4a/TempDatabase;->$r8$lambda$jBS0XzeN0pTFn0UJEeWiShJ_kLU(Ljava/lang/Runnable;)V

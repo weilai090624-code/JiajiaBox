@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 6
+    .registers 9
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -94,18 +94,18 @@
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_0
+    if-ne v2, v4, :cond_13
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getPing()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_13
     const v2, 0x1bf52
 
-    :goto_0
+    :goto_16
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -128,13 +128,13 @@
 
     move-result v5
 
-    if-ne v5, v4, :cond_1
+    if-ne v5, v4, :cond_2a
 
     invoke-virtual {v1}, Lio/nekohasekai/sagernet/database/ProxyEntity;->getPing()I
 
     move-result v3
 
-    :cond_1
+    :cond_2a
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1

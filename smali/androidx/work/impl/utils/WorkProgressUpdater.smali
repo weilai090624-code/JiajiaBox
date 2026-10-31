@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 48
     const-string v0, "WorkProgressUpdater"
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 0
+    .registers 3
     .param p1, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
     .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public updateProgress(Landroid/content/Context;Ljava/util/UUID;Landroidx/work/Data;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "id"    # Ljava/util/UUID;
     .param p3, "data"    # Landroidx/work/Data;

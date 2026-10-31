@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1666
     new-instance v0, Landroidx/camera/core/VideoCapture$Metadata;
@@ -53,7 +53,7 @@
 .end method
 
 .method constructor <init>(Ljava/io/File;Ljava/io/FileDescriptor;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;Landroidx/camera/core/VideoCapture$Metadata;)V
-    .locals 1
+    .registers 8
     .param p1, "file"    # Ljava/io/File;
     .param p2, "fileDescriptor"    # Ljava/io/FileDescriptor;
     .param p3, "contentResolver"    # Landroid/content/ContentResolver;
@@ -98,16 +98,16 @@
     iput-object p5, p0, Landroidx/camera/core/VideoCapture$OutputFileOptions;->mContentValues:Landroid/content/ContentValues;
 
     .line 1692
-    if-nez p6, :cond_0
+    if-nez p6, :cond_12
 
     sget-object v0, Landroidx/camera/core/VideoCapture$OutputFileOptions;->EMPTY_METADATA:Landroidx/camera/core/VideoCapture$Metadata;
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     move-object v0, p6
 
-    :goto_0
+    :goto_13
     iput-object v0, p0, Landroidx/camera/core/VideoCapture$OutputFileOptions;->mMetadata:Landroidx/camera/core/VideoCapture$Metadata;
 
     .line 1693
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method getContentResolver()Landroid/content/ContentResolver;
-    .locals 1
+    .registers 2
 
     .line 1712
     iget-object v0, p0, Landroidx/camera/core/VideoCapture$OutputFileOptions;->mContentResolver:Landroid/content/ContentResolver;
@@ -126,7 +126,7 @@
 .end method
 
 .method getContentValues()Landroid/content/ContentValues;
-    .locals 1
+    .registers 2
 
     .line 1724
     iget-object v0, p0, Landroidx/camera/core/VideoCapture$OutputFileOptions;->mContentValues:Landroid/content/ContentValues;
@@ -135,7 +135,7 @@
 .end method
 
 .method getFile()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 1698
     iget-object v0, p0, Landroidx/camera/core/VideoCapture$OutputFileOptions;->mFile:Ljava/io/File;
@@ -144,7 +144,7 @@
 .end method
 
 .method getFileDescriptor()Ljava/io/FileDescriptor;
-    .locals 1
+    .registers 2
 
     .line 1706
     iget-object v0, p0, Landroidx/camera/core/VideoCapture$OutputFileOptions;->mFileDescriptor:Ljava/io/FileDescriptor;
@@ -153,7 +153,7 @@
 .end method
 
 .method getMetadata()Landroidx/camera/core/VideoCapture$Metadata;
-    .locals 1
+    .registers 2
 
     .line 1730
     iget-object v0, p0, Landroidx/camera/core/VideoCapture$OutputFileOptions;->mMetadata:Landroidx/camera/core/VideoCapture$Metadata;
@@ -162,7 +162,7 @@
 .end method
 
 .method getSaveCollection()Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 1718
     iget-object v0, p0, Landroidx/camera/core/VideoCapture$OutputFileOptions;->mSaveCollection:Landroid/net/Uri;
@@ -171,78 +171,78 @@
 .end method
 
 .method isSavingToFile()Z
-    .locals 1
+    .registers 2
 
     .line 1741
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture$OutputFileOptions;->getFile()Ljava/io/File;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method isSavingToFileDescriptor()Z
-    .locals 1
+    .registers 2
 
     .line 1746
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture$OutputFileOptions;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method isSavingToMediaStore()Z
-    .locals 1
+    .registers 2
 
     .line 1735
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture$OutputFileOptions;->getSaveCollection()Landroid/net/Uri;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture$OutputFileOptions;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 1736
     invoke-virtual {p0}, Landroidx/camera/core/VideoCapture$OutputFileOptions;->getContentValues()Landroid/content/ContentValues;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     .line 1735
-    :goto_0
+    :goto_15
     return v0
 .end method

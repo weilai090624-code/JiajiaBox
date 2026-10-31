@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/customtabs/ICustomTabsCallback;Landroid/app/PendingIntent;)V
-    .locals 2
+    .registers 5
     .param p1, "callbackBinder"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "sessionId"    # Landroid/app/PendingIntent;
 
@@ -33,14 +33,14 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 118
-    if-nez p1, :cond_1
+    if-nez p1, :cond_10
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
-    goto :goto_0
+    goto :goto_10
 
     .line 119
-    :cond_0
+    :cond_8
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "CustomTabsSessionToken must have either a session id or a callback (or both)."
@@ -50,8 +50,8 @@
     throw v0
 
     .line 123
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     iput-object p1, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mCallbackBinder:Landroid/support/customtabs/ICustomTabsCallback;
 
     .line 124
@@ -60,18 +60,18 @@
     .line 126
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mCallbackBinder:Landroid/support/customtabs/ICustomTabsCallback;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1a
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_2
+    :cond_1a
     new-instance v0, Landroidx/browser/customtabs/CustomTabsSessionToken$1;
 
     invoke-direct {v0, p0}, Landroidx/browser/customtabs/CustomTabsSessionToken$1;-><init>(Landroidx/browser/customtabs/CustomTabsSessionToken;)V
 
-    :goto_1
+    :goto_1f
     iput-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mCallback:Landroidx/browser/customtabs/CustomTabsCallback;
 
     .line 202
@@ -79,7 +79,7 @@
 .end method
 
 .method public static createMockSessionTokenForTesting()Landroidx/browser/customtabs/CustomTabsSessionToken;
-    .locals 3
+    .registers 3
 
     .line 113
     new-instance v0, Landroidx/browser/customtabs/CustomTabsSessionToken;
@@ -96,12 +96,12 @@
 .end method
 
 .method private getCallbackBinderAssertNotNull()Landroid/os/IBinder;
-    .locals 2
+    .registers 3
 
     .line 210
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mCallbackBinder:Landroid/support/customtabs/ICustomTabsCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 214
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mCallbackBinder:Landroid/support/customtabs/ICustomTabsCallback;
@@ -113,7 +113,7 @@
     return-object v0
 
     .line 211
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "CustomTabSessionToken must have valid binder or pending session"
@@ -124,7 +124,7 @@
 .end method
 
 .method public static getSessionTokenFromIntent(Landroid/content/Intent;)Landroidx/browser/customtabs/CustomTabsSessionToken;
-    .locals 5
+    .registers 6
     .param p0, "intent"    # Landroid/content/Intent;
 
     .line 95
@@ -136,12 +136,12 @@
     .local v0, "b":Landroid/os/Bundle;
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     return-object v1
 
     .line 97
-    :cond_0
+    :cond_8
     const-string v2, "android.support.customtabs.extra.SESSION"
 
     invoke-static {v0, v2}, Landroidx/core/app/BundleCompat;->getBinder(Landroid/os/Bundle;Ljava/lang/String;)Landroid/os/IBinder;
@@ -160,25 +160,25 @@
 
     .line 99
     .local v3, "sessionId":Landroid/app/PendingIntent;
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1b
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_1b
 
     return-object v1
 
     .line 100
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_1b
+    if-nez v2, :cond_1e
 
-    goto :goto_0
+    goto :goto_22
 
     .line 101
-    :cond_2
+    :cond_1e
     invoke-static {v2}, Landroid/support/customtabs/ICustomTabsCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/support/customtabs/ICustomTabsCallback;
 
     move-result-object v1
 
-    :goto_0
+    :goto_22
     nop
 
     .line 102
@@ -193,7 +193,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 246
@@ -201,12 +201,12 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 247
-    :cond_0
+    :cond_6
     move-object v0, p1
 
     check-cast v0, Landroidx/browser/customtabs/CustomTabsSessionToken;
@@ -223,33 +223,33 @@
 
     const/4 v4, 0x1
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_14
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v3, 0x0
 
-    :goto_0
-    if-nez v2, :cond_2
+    :goto_15
+    if-nez v2, :cond_18
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_2
+    :cond_18
     const/4 v4, 0x0
 
-    :goto_1
-    if-eq v3, v4, :cond_3
+    :goto_19
+    if-eq v3, v4, :cond_1c
 
     return v1
 
     .line 254
-    :cond_3
+    :cond_1c
     iget-object v1, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mSessionId:Landroid/app/PendingIntent;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_27
 
     iget-object v1, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mSessionId:Landroid/app/PendingIntent;
 
@@ -260,7 +260,7 @@
     return v1
 
     .line 257
-    :cond_4
+    :cond_27
     invoke-direct {p0}, Landroidx/browser/customtabs/CustomTabsSessionToken;->getCallbackBinderAssertNotNull()Landroid/os/IBinder;
 
     move-result-object v1
@@ -277,7 +277,7 @@
 .end method
 
 .method public getCallback()Landroidx/browser/customtabs/CustomTabsCallback;
-    .locals 1
+    .registers 2
 
     .line 265
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mCallback:Landroidx/browser/customtabs/CustomTabsCallback;
@@ -286,19 +286,19 @@
 .end method
 
 .method getCallbackBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 205
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mCallbackBinder:Landroid/support/customtabs/ICustomTabsCallback;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 206
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mCallbackBinder:Landroid/support/customtabs/ICustomTabsCallback;
 
     invoke-interface {v0}, Landroid/support/customtabs/ICustomTabsCallback;->asBinder()Landroid/os/IBinder;
@@ -309,7 +309,7 @@
 .end method
 
 .method getId()Landroid/app/PendingIntent;
-    .locals 1
+    .registers 2
 
     .line 218
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mSessionId:Landroid/app/PendingIntent;
@@ -318,50 +318,50 @@
 .end method
 
 .method public hasCallback()Z
-    .locals 1
+    .registers 2
 
     .line 226
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mCallbackBinder:Landroid/support/customtabs/ICustomTabsCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public hasId()Z
-    .locals 1
+    .registers 2
 
     .line 234
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mSessionId:Landroid/app/PendingIntent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 239
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mSessionId:Landroid/app/PendingIntent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsSessionToken;->mSessionId:Landroid/app/PendingIntent;
 
@@ -372,7 +372,7 @@
     return v0
 
     .line 241
-    :cond_0
+    :cond_b
     invoke-direct {p0}, Landroidx/browser/customtabs/CustomTabsSessionToken;->getCallbackBinderAssertNotNull()Landroid/os/IBinder;
 
     move-result-object v0
@@ -385,7 +385,7 @@
 .end method
 
 .method public isAssociatedWith(Landroidx/browser/customtabs/CustomTabsSession;)Z
-    .locals 2
+    .registers 4
     .param p1, "session"    # Landroidx/browser/customtabs/CustomTabsSession;
 
     .line 272

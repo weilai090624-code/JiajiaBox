@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public getAllowRecursiveKeys()Z
-    .locals 1
+    .registers 2
 
     .line 88
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/LoaderOptions;->allowRecursiveKeys:Z
@@ -63,7 +63,7 @@
 .end method
 
 .method public getMaxAliasesForCollections()I
-    .locals 1
+    .registers 2
 
     .line 66
     iget v0, p0, Lorg/yaml/snakeyaml/LoaderOptions;->maxAliasesForCollections:I
@@ -72,7 +72,7 @@
 .end method
 
 .method public isAllowDuplicateKeys()Z
-    .locals 1
+    .registers 2
 
     .line 28
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/LoaderOptions;->allowDuplicateKeys:Z
@@ -81,7 +81,7 @@
 .end method
 
 .method public isEnumCaseSensitive()Z
-    .locals 1
+    .registers 2
 
     .line 105
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/LoaderOptions;->enumCaseSensitive:Z
@@ -90,7 +90,7 @@
 .end method
 
 .method public isProcessComments()Z
-    .locals 1
+    .registers 2
 
     .line 101
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/LoaderOptions;->processComments:Z
@@ -99,7 +99,7 @@
 .end method
 
 .method public isWrappedToRootException()Z
-    .locals 1
+    .registers 2
 
     .line 51
     iget-boolean v0, p0, Lorg/yaml/snakeyaml/LoaderOptions;->wrappedToRootException:Z
@@ -108,7 +108,7 @@
 .end method
 
 .method public setAllowDuplicateKeys(Z)V
-    .locals 0
+    .registers 2
     .param p1, "allowDuplicateKeys"    # Z
 
     .line 47
@@ -119,7 +119,7 @@
 .end method
 
 .method public setAllowRecursiveKeys(Z)V
-    .locals 0
+    .registers 2
     .param p1, "allowRecursiveKeys"    # Z
 
     .line 84
@@ -130,7 +130,7 @@
 .end method
 
 .method public setEnumCaseSensitive(Z)V
-    .locals 0
+    .registers 2
     .param p1, "enumCaseSensitive"    # Z
 
     .line 115
@@ -141,7 +141,7 @@
 .end method
 
 .method public setMaxAliasesForCollections(I)V
-    .locals 0
+    .registers 2
     .param p1, "maxAliasesForCollections"    # I
 
     .line 74
@@ -152,7 +152,7 @@
 .end method
 
 .method public setProcessComments(Z)V
-    .locals 0
+    .registers 2
     .param p1, "processComments"    # Z
 
     .line 97
@@ -163,7 +163,7 @@
 .end method
 
 .method public setWrappedToRootException(Z)V
-    .locals 0
+    .registers 2
     .param p1, "wrappedToRootException"    # Z
 
     .line 62

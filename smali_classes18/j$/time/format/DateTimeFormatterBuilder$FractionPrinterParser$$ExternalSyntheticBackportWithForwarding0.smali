@@ -5,13 +5,13 @@
 
 # direct methods
 .method public static synthetic m(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-    .locals 2
+    .registers 3
 
     invoke-virtual {p0}, Ljava/math/BigDecimal;->signum()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     new-instance p0, Ljava/math/BigDecimal;
 
@@ -23,7 +23,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Ljava/math/BigDecimal;->stripTrailingZeros()Ljava/math/BigDecimal;
 
     move-result-object p0

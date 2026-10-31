@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 93
     invoke-direct {p0}, Landroidx/recyclerview/widget/DiffUtil$ItemCallback;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public areContentsTheSame(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;)Z
-    .locals 2
+    .registers 5
     .param p1, "oldItem"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
     .param p2, "newItem"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public bridge synthetic areContentsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 93
     check-cast p1, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
@@ -71,7 +71,7 @@
 .end method
 
 .method public areItemsTheSame(Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;)Z
-    .locals 2
+    .registers 5
     .param p1, "oldItem"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
     .param p2, "newItem"    # Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic areItemsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 93
     check-cast p1, Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;

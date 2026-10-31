@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/AbstractTable;Ljava/util/Iterator;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/common/collect/AbstractTable;
 
     .line 186
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method transform(Lcom/google/common/collect/Table$Cell;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 
@@ -61,7 +61,7 @@
 .end method
 
 .method bridge synthetic transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 

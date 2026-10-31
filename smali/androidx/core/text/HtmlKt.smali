@@ -34,7 +34,7 @@
 
 # direct methods
 .method public static final parseAsHtml(Ljava/lang/String;ILandroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
-    .locals 2
+    .registers 6
     .param p0, "$this$parseAsHtml"    # Ljava/lang/String;
     .param p1, "flags"    # I
     .param p2, "imageGetter"    # Landroid/text/Html$ImageGetter;
@@ -52,7 +52,7 @@
 .end method
 
 .method public static synthetic parseAsHtml$default(Ljava/lang/String;ILandroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;ILjava/lang/Object;)Landroid/text/Spanned;
-    .locals 0
+    .registers 6
     .param p0, "$this$parseAsHtml_u24default"    # Ljava/lang/String;
     .param p1, "flags"    # I
     .param p2, "imageGetter"    # Landroid/text/Html$ImageGetter;
@@ -61,31 +61,31 @@
     .line 39
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
     .line 40
     const/4 p1, 0x0
 
     .line 39
-    :cond_0
+    :cond_5
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_a
 
     .line 41
     const/4 p2, 0x0
 
     .line 39
-    :cond_1
+    :cond_a
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_f
 
     .line 42
     const/4 p3, 0x0
 
     .line 39
-    :cond_2
+    :cond_f
     const/4 p4, 0x0
 
     .line 43
@@ -98,7 +98,7 @@
 .end method
 
 .method public static final toHtml(Landroid/text/Spanned;I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "$this$toHtml"    # Landroid/text/Spanned;
     .param p1, "option"    # I
 
@@ -114,20 +114,20 @@
 .end method
 
 .method public static synthetic toHtml$default(Landroid/text/Spanned;IILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
     .param p0, "$this$toHtml_u24default"    # Landroid/text/Spanned;
     .param p1, "option"    # I
 
     .line 50
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     .line 51
     const/4 p1, 0x0
 
     .line 50
-    :cond_0
+    :cond_5
     const/4 p2, 0x0
 
     .line 52

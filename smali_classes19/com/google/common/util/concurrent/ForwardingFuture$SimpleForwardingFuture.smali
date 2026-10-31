@@ -37,7 +37,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/concurrent/Future;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 83
     .local p0, "this":Lcom/google/common/util/concurrent/ForwardingFuture$SimpleForwardingFuture;, "Lcom/google/common/util/concurrent/ForwardingFuture$SimpleForwardingFuture<TV;>;"
@@ -79,7 +79,7 @@
 .end method
 
 .method protected final delegate()Ljava/util/concurrent/Future;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

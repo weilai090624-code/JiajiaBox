@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$onSensorChanged(Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener;F)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener;
     .param p1, "lightLux"    # F
 

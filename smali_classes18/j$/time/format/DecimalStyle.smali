@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 91
     new-instance v0, Lj$/time/format/DecimalStyle;
@@ -64,7 +64,7 @@
 .end method
 
 .method private constructor <init>(CCCC)V
-    .locals 0
+    .registers 5
     .param p1, "zeroChar"    # C
     .param p2, "positiveSignChar"    # C
     .param p3, "negativeSignChar"    # C
@@ -90,7 +90,7 @@
 .end method
 
 .method private static create(Ljava/util/Locale;)Lj$/time/format/DecimalStyle;
-    .locals 6
+    .registers 7
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 174
@@ -124,15 +124,15 @@
     .local v4, "decimalSeparator":C
     const/16 v5, 0x30
 
-    if-ne v1, v5, :cond_0
+    if-ne v1, v5, :cond_21
 
     const/16 v5, 0x2d
 
-    if-ne v3, v5, :cond_0
+    if-ne v3, v5, :cond_21
 
     const/16 v5, 0x2e
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_21
 
     .line 180
     sget-object v5, Lj$/time/format/DecimalStyle;->STANDARD:Lj$/time/format/DecimalStyle;
@@ -140,7 +140,7 @@
     return-object v5
 
     .line 182
-    :cond_0
+    :cond_21
     new-instance v5, Lj$/time/format/DecimalStyle;
 
     invoke-direct {v5, v1, v2, v3, v4}, Lj$/time/format/DecimalStyle;-><init>(CCCC)V
@@ -149,7 +149,7 @@
 .end method
 
 .method public static getAvailableLocales()Ljava/util/Set;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -181,7 +181,7 @@
 .end method
 
 .method public static of(Ljava/util/Locale;)Lj$/time/format/DecimalStyle;
-    .locals 2
+    .registers 3
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 163
@@ -200,7 +200,7 @@
 
     .line 165
     .local v0, "info":Lj$/time/format/DecimalStyle;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 166
     invoke-static {p0}, Lj$/time/format/DecimalStyle;->create(Ljava/util/Locale;)Lj$/time/format/DecimalStyle;
@@ -224,12 +224,12 @@
     check-cast v0, Lj$/time/format/DecimalStyle;
 
     .line 170
-    :cond_0
+    :cond_21
     return-object v0
 .end method
 
 .method public static ofDefaultLocale()Lj$/time/format/DecimalStyle;
-    .locals 1
+    .registers 1
 
     .line 146
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -246,7 +246,7 @@
 
 # virtual methods
 .method convertNumberToI18N(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "numericText"    # Ljava/lang/String;
 
     .line 336
@@ -254,13 +254,13 @@
 
     const/16 v1, 0x30
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     .line 337
     return-object p1
 
     .line 339
-    :cond_0
+    :cond_7
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->zeroDigit:C
 
     sub-int/2addr v0, v1
@@ -276,10 +276,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_f
     array-length v3, v1
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_1b
 
     .line 342
     aget-char v3, v1, v2
@@ -293,11 +293,11 @@
     .line 341
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 344
     .end local v2    # "i":I
-    :cond_1
+    :cond_1b
     new-instance v2, Ljava/lang/String;
 
     invoke-direct {v2, v1}, Ljava/lang/String;-><init>([C)V
@@ -306,7 +306,7 @@
 .end method
 
 .method convertToDigit(C)I
-    .locals 2
+    .registers 4
     .param p1, "ch"    # C
 
     .line 325
@@ -316,42 +316,42 @@
 
     .line 326
     .local v0, "val":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_c
 
     const/16 v1, 0x9
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_c
 
     move v1, v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, -0x1
 
-    :goto_0
+    :goto_d
     return v1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 356
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 357
     return v0
 
     .line 359
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lj$/time/format/DecimalStyle;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_27
 
     .line 360
     move-object v1, p1
@@ -364,42 +364,42 @@
 
     iget-char v4, v1, Lj$/time/format/DecimalStyle;->zeroDigit:C
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_25
 
     iget-char v3, p0, Lj$/time/format/DecimalStyle;->positiveSign:C
 
     iget-char v4, v1, Lj$/time/format/DecimalStyle;->positiveSign:C
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_25
 
     iget-char v3, p0, Lj$/time/format/DecimalStyle;->negativeSign:C
 
     iget-char v4, v1, Lj$/time/format/DecimalStyle;->negativeSign:C
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_25
 
     iget-char v3, p0, Lj$/time/format/DecimalStyle;->decimalSeparator:C
 
     iget-char v4, v1, Lj$/time/format/DecimalStyle;->decimalSeparator:C
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_25
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_1
+    :cond_25
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_26
     return v0
 
     .line 364
     .end local v1    # "other":Lj$/time/format/DecimalStyle;
-    :cond_2
+    :cond_27
     return v2
 .end method
 
 .method public getDecimalSeparator()C
-    .locals 1
+    .registers 2
 
     .line 298
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->decimalSeparator:C
@@ -408,7 +408,7 @@
 .end method
 
 .method public getNegativeSign()C
-    .locals 1
+    .registers 2
 
     .line 269
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->negativeSign:C
@@ -417,7 +417,7 @@
 .end method
 
 .method public getPositiveSign()C
-    .locals 1
+    .registers 2
 
     .line 240
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->positiveSign:C
@@ -426,7 +426,7 @@
 .end method
 
 .method public getZeroDigit()C
-    .locals 1
+    .registers 2
 
     .line 211
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->zeroDigit:C
@@ -435,7 +435,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 374
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->zeroDigit:C
@@ -456,7 +456,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 385
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->zeroDigit:C
@@ -507,19 +507,19 @@
 .end method
 
 .method public withDecimalSeparator(C)Lj$/time/format/DecimalStyle;
-    .locals 4
+    .registers 6
     .param p1, "decimalSeparator"    # C
 
     .line 311
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->decimalSeparator:C
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 312
     return-object p0
 
     .line 314
-    :cond_0
+    :cond_5
     new-instance v0, Lj$/time/format/DecimalStyle;
 
     iget-char v1, p0, Lj$/time/format/DecimalStyle;->zeroDigit:C
@@ -534,19 +534,19 @@
 .end method
 
 .method public withNegativeSign(C)Lj$/time/format/DecimalStyle;
-    .locals 4
+    .registers 6
     .param p1, "negativeSign"    # C
 
     .line 282
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->negativeSign:C
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 283
     return-object p0
 
     .line 285
-    :cond_0
+    :cond_5
     new-instance v0, Lj$/time/format/DecimalStyle;
 
     iget-char v1, p0, Lj$/time/format/DecimalStyle;->zeroDigit:C
@@ -561,19 +561,19 @@
 .end method
 
 .method public withPositiveSign(C)Lj$/time/format/DecimalStyle;
-    .locals 4
+    .registers 6
     .param p1, "positiveSign"    # C
 
     .line 253
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->positiveSign:C
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 254
     return-object p0
 
     .line 256
-    :cond_0
+    :cond_5
     new-instance v0, Lj$/time/format/DecimalStyle;
 
     iget-char v1, p0, Lj$/time/format/DecimalStyle;->zeroDigit:C
@@ -588,19 +588,19 @@
 .end method
 
 .method public withZeroDigit(C)Lj$/time/format/DecimalStyle;
-    .locals 4
+    .registers 6
     .param p1, "zeroDigit"    # C
 
     .line 224
     iget-char v0, p0, Lj$/time/format/DecimalStyle;->zeroDigit:C
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     .line 225
     return-object p0
 
     .line 227
-    :cond_0
+    :cond_5
     new-instance v0, Lj$/time/format/DecimalStyle;
 
     iget-char v1, p0, Lj$/time/format/DecimalStyle;->positiveSign:C

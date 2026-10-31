@@ -67,7 +67,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 2
     .param p1, "$action"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 1
+    .registers 11
     .param p1, "view"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I

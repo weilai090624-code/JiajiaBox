@@ -87,7 +87,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -95,7 +95,7 @@
 .end method
 
 .method private static final appendBytes(Ljava/nio/file/Path;[B)V
-    .locals 3
+    .registers 5
     .param p0, "$this$appendBytes"    # Ljava/nio/file/Path;
     .param p1, "array"    # [B
     .annotation system Ldalvik/annotation/Throws;
@@ -130,7 +130,7 @@
 .end method
 
 .method private static final appendLines(Ljava/nio/file/Path;Ljava/lang/Iterable;Ljava/nio/charset/Charset;)Ljava/nio/file/Path;
-    .locals 3
+    .registers 6
     .param p0, "$this$appendLines"    # Ljava/nio/file/Path;
     .param p1, "lines"    # Ljava/lang/Iterable;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -189,7 +189,7 @@
 .end method
 
 .method private static final appendLines(Ljava/nio/file/Path;Lkotlin/sequences/Sequence;Ljava/nio/charset/Charset;)Ljava/nio/file/Path;
-    .locals 4
+    .registers 7
     .param p0, "$this$appendLines"    # Ljava/nio/file/Path;
     .param p1, "lines"    # Lkotlin/sequences/Sequence;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -252,7 +252,7 @@
 .end method
 
 .method static synthetic appendLines$default(Ljava/nio/file/Path;Ljava/lang/Iterable;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/nio/file/Path;
-    .locals 1
+    .registers 6
     .param p0, "$this$appendLines_u24default"    # Ljava/nio/file/Path;
     .param p1, "lines"    # Ljava/lang/Iterable;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -265,11 +265,11 @@
     .line 328
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     sget-object p2, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -305,7 +305,7 @@
 .end method
 
 .method static synthetic appendLines$default(Ljava/nio/file/Path;Lkotlin/sequences/Sequence;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 7
     .param p0, "$this$appendLines_u24default"    # Ljava/nio/file/Path;
     .param p1, "lines"    # Lkotlin/sequences/Sequence;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -318,11 +318,11 @@
     .line 341
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     sget-object p2, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -362,7 +362,7 @@
 .end method
 
 .method public static final appendText(Ljava/nio/file/Path;Ljava/lang/CharSequence;Ljava/nio/charset/Charset;)V
-    .locals 3
+    .registers 6
     .param p0, "$this$appendText"    # Ljava/nio/file/Path;
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -402,7 +402,7 @@
 .end method
 
 .method public static synthetic appendText$default(Ljava/nio/file/Path;Ljava/lang/CharSequence;Ljava/nio/charset/Charset;ILjava/lang/Object;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -412,18 +412,18 @@
     .line 200
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     sget-object p2, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2}, Lkotlin/io/path/PathsKt;->appendText(Ljava/nio/file/Path;Ljava/lang/CharSequence;Ljava/nio/charset/Charset;)V
 
     return-void
 .end method
 
 .method private static final varargs bufferedReader(Ljava/nio/file/Path;Ljava/nio/charset/Charset;I[Ljava/nio/file/OpenOption;)Ljava/io/BufferedReader;
-    .locals 3
+    .registers 7
     .param p0, "$this$bufferedReader"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "bufferSize"    # I
@@ -483,7 +483,7 @@
 .end method
 
 .method static synthetic bufferedReader$default(Ljava/nio/file/Path;Ljava/nio/charset/Charset;I[Ljava/nio/file/OpenOption;ILjava/lang/Object;)Ljava/io/BufferedReader;
-    .locals 1
+    .registers 7
     .param p0, "$this$bufferedReader_u24default"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "bufferSize"    # I
@@ -497,22 +497,22 @@
     .line 47
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     .line 48
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
     .line 47
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 49
     const/16 p2, 0x2000
 
     .line 47
-    :cond_1
+    :cond_c
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -562,7 +562,7 @@
 .end method
 
 .method private static final varargs bufferedWriter(Ljava/nio/file/Path;Ljava/nio/charset/Charset;I[Ljava/nio/file/OpenOption;)Ljava/io/BufferedWriter;
-    .locals 3
+    .registers 7
     .param p0, "$this$bufferedWriter"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "bufferSize"    # I
@@ -622,7 +622,7 @@
 .end method
 
 .method static synthetic bufferedWriter$default(Ljava/nio/file/Path;Ljava/nio/charset/Charset;I[Ljava/nio/file/OpenOption;ILjava/lang/Object;)Ljava/io/BufferedWriter;
-    .locals 1
+    .registers 7
     .param p0, "$this$bufferedWriter_u24default"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "bufferSize"    # I
@@ -636,22 +636,22 @@
     .line 85
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     .line 86
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
     .line 85
-    :cond_0
+    :cond_6
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_c
 
     .line 87
     const/16 p2, 0x2000
 
     .line 85
-    :cond_1
+    :cond_c
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -701,7 +701,7 @@
 .end method
 
 .method private static final forEachLine(Ljava/nio/file/Path;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;)V
-    .locals 13
+    .registers 16
     .param p0, "$this$forEachLine"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "action"    # Lkotlin/jvm/functions/Function1;
@@ -765,7 +765,7 @@
 
     const/4 v4, 0x1
 
-    :try_start_0
+    :try_start_23
     move-object v5, v2
 
     check-cast v5, Ljava/io/BufferedReader;
@@ -796,12 +796,12 @@
 
     move-result-object v11
 
-    :goto_0
+    :goto_32
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
 
-    if-eqz v12, :cond_0
+    if-eqz v12, :cond_40
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -810,11 +810,11 @@
     .local v12, "element$iv":Ljava/lang/Object;
     invoke-interface {p2, v12}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_32
 
     .line 354
     .end local v12    # "element$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_40
     nop
 
     .line 219
@@ -825,8 +825,8 @@
     .end local v7    # "it":Lkotlin/sequences/Sequence;
     .end local v8    # "$i$a$-useLines-PathsKt__PathReadWriteKt$forEachLine$1":I
     sget-object v7, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_44
+    .catchall {:try_start_23 .. :try_end_44} :catchall_53
 
     .line 351
     .end local v5    # "it$iv":Ljava/io/BufferedReader;
@@ -835,27 +835,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_4f
 
     const/4 v3, 0x0
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_52
 
-    :cond_1
+    :cond_4f
     invoke-interface {v2}, Ljava/io/Closeable;->close()V
 
     .line 220
     .end local v0    # "$this$useLines$iv":Ljava/io/Reader;
     .end local v1    # "$i$f$useLines":I
-    :goto_1
+    :goto_52
     return-void
 
     .line 351
     .restart local v0    # "$this$useLines$iv":Ljava/io/Reader;
     .restart local v1    # "$i$f$useLines":I
-    :catchall_0
+    :catchall_53
     move-exception v5
 
     .end local v0    # "$this$useLines$iv":Ljava/io/Reader;
@@ -863,46 +863,46 @@
     .end local p0    # "$this$forEachLine":Ljava/nio/file/Path;
     .end local p1    # "charset":Ljava/nio/charset/Charset;
     .end local p2    # "action":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_54
     throw v5
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_55
+    .catchall {:try_start_54 .. :try_end_55} :catchall_55
 
     .restart local v0    # "$this$useLines$iv":Ljava/io/Reader;
     .restart local v1    # "$i$f$useLines":I
     .restart local p0    # "$this$forEachLine":Ljava/nio/file/Path;
     .restart local p1    # "charset":Ljava/nio/charset/Charset;
     .restart local p2    # "action":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_55
     move-exception v6
 
     invoke-static {v4, v4, v3}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_62
 
-    :try_start_2
+    :try_start_5c
     invoke-interface {v2}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_5f
+    .catchall {:try_start_5c .. :try_end_5f} :catchall_60
 
-    goto :goto_2
+    goto :goto_65
 
-    :catchall_2
+    :catchall_60
     move-exception v2
 
-    goto :goto_2
+    goto :goto_65
 
-    :cond_2
+    :cond_62
     invoke-static {v2, v5}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    :goto_2
+    :goto_65
     throw v6
 .end method
 
 .method static synthetic forEachLine$default(Ljava/nio/file/Path;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 11
+    .registers 16
     .param p0, "$this$forEachLine_u24default"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "action"    # Lkotlin/jvm/functions/Function1;
@@ -917,11 +917,11 @@
 
     and-int/2addr p3, p4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -961,7 +961,7 @@
 
     const/4 v2, 0x0
 
-    :try_start_0
+    :try_start_28
     move-object v3, v1
 
     check-cast v3, Ljava/io/BufferedReader;
@@ -992,12 +992,12 @@
 
     move-result-object v9
 
-    :goto_0
+    :goto_37
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_45
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1006,11 +1006,11 @@
     .local v10, "element$iv":Ljava/lang/Object;
     invoke-interface {p2, v10}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_37
 
     .line 354
     .end local v10    # "element$iv":Ljava/lang/Object;
-    :cond_1
+    :cond_45
     nop
 
     .line 219
@@ -1021,8 +1021,8 @@
     .end local v5    # "it":Lkotlin/sequences/Sequence;
     .end local v6    # "$i$a$-useLines-PathsKt__PathReadWriteKt$forEachLine$1":I
     sget-object v5, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_49
+    .catchall {:try_start_28 .. :try_end_49} :catchall_58
 
     .line 351
     .end local v3    # "it$iv":Ljava/io/BufferedReader;
@@ -1031,27 +1031,27 @@
 
     move-result p4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_54
 
     const/4 p4, 0x0
 
     invoke-static {v1, p4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_57
 
-    :cond_2
+    :cond_54
     invoke-interface {v1}, Ljava/io/Closeable;->close()V
 
     .line 220
     .end local v0    # "$i$f$useLines":I
     .end local p3    # "$this$useLines$iv":Ljava/io/Reader;
-    :goto_1
+    :goto_57
     return-void
 
     .line 351
     .restart local v0    # "$i$f$useLines":I
     .restart local p3    # "$this$useLines$iv":Ljava/io/Reader;
-    :catchall_0
+    :catchall_58
     move-exception v3
 
     .end local v0    # "$i$f$useLines":I
@@ -1059,46 +1059,46 @@
     .end local p1    # "charset":Ljava/nio/charset/Charset;
     .end local p2    # "action":Lkotlin/jvm/functions/Function1;
     .end local p3    # "$this$useLines$iv":Ljava/io/Reader;
-    :try_start_1
+    :try_start_59
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_5a
+    .catchall {:try_start_59 .. :try_end_5a} :catchall_5a
 
     .restart local v0    # "$i$f$useLines":I
     .restart local p0    # "$this$forEachLine_u24default":Ljava/nio/file/Path;
     .restart local p1    # "charset":Ljava/nio/charset/Charset;
     .restart local p2    # "action":Lkotlin/jvm/functions/Function1;
     .restart local p3    # "$this$useLines$iv":Ljava/io/Reader;
-    :catchall_1
+    :catchall_5a
     move-exception v4
 
     invoke-static {p4, p4, v2}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result p4
 
-    if-nez p4, :cond_3
+    if-nez p4, :cond_67
 
-    :try_start_2
+    :try_start_61
     invoke-interface {v1}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_64
+    .catchall {:try_start_61 .. :try_end_64} :catchall_65
 
-    goto :goto_2
+    goto :goto_6a
 
-    :catchall_2
+    :catchall_65
     move-exception p4
 
-    goto :goto_2
+    goto :goto_6a
 
-    :cond_3
+    :cond_67
     invoke-static {v1, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    :goto_2
+    :goto_6a
     throw v4
 .end method
 
 .method private static final varargs inputStream(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;
-    .locals 2
+    .registers 4
     .param p0, "$this$inputStream"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/OpenOption;
     .annotation system Ldalvik/annotation/Throws;
@@ -1136,7 +1136,7 @@
 .end method
 
 .method private static final varargs outputStream(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;
-    .locals 2
+    .registers 4
     .param p0, "$this$outputStream"    # Ljava/nio/file/Path;
     .param p1, "options"    # [Ljava/nio/file/OpenOption;
     .annotation system Ldalvik/annotation/Throws;
@@ -1174,7 +1174,7 @@
 .end method
 
 .method private static final readBytes(Ljava/nio/file/Path;)[B
-    .locals 2
+    .registers 3
     .param p0, "$this$readBytes"    # Ljava/nio/file/Path;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1199,7 +1199,7 @@
 .end method
 
 .method private static final readLines(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/util/List;
-    .locals 2
+    .registers 4
     .param p0, "$this$readLines"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .annotation system Ldalvik/annotation/Signature;
@@ -1241,7 +1241,7 @@
 .end method
 
 .method static synthetic readLines$default(Ljava/nio/file/Path;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 4
     .param p0, "$this$readLines_u24default"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .annotation system Ldalvik/annotation/Throws;
@@ -1253,11 +1253,11 @@
     .line 265
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p2, "<this>"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1279,7 +1279,7 @@
 .end method
 
 .method public static final readText(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "$this$readText"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .annotation system Ldalvik/annotation/Throws;
@@ -1317,7 +1317,7 @@
 
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_1e
     move-object v0, v2
 
     check-cast v0, Ljava/io/InputStreamReader;
@@ -1335,8 +1335,8 @@
     invoke-static {v3}, Lkotlin/io/TextStreamsKt;->readText(Ljava/io/Reader;)Ljava/lang/String;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_1e .. :try_end_29} :catchall_2e
 
     .end local v0    # "it":Ljava/io/InputStreamReader;
     .end local v1    # "$i$a$-use-PathsKt__PathReadWriteKt$readText$1":I
@@ -1346,19 +1346,19 @@
 
     return-object v3
 
-    :catchall_0
+    :catchall_2e
     move-exception v0
 
     .end local p0    # "$this$readText":Ljava/nio/file/Path;
     .end local p1    # "charset":Ljava/nio/charset/Charset;
-    :try_start_1
+    :try_start_2f
     throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_30
+    .catchall {:try_start_2f .. :try_end_30} :catchall_30
 
     .restart local p0    # "$this$readText":Ljava/nio/file/Path;
     .restart local p1    # "charset":Ljava/nio/charset/Charset;
-    :catchall_1
+    :catchall_30
     move-exception v1
 
     invoke-static {v2, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -1367,7 +1367,7 @@
 .end method
 
 .method public static synthetic readText$default(Ljava/nio/file/Path;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1377,11 +1377,11 @@
     .line 156
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1}, Lkotlin/io/path/PathsKt;->readText(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/lang/String;
 
     move-result-object p0
@@ -1390,7 +1390,7 @@
 .end method
 
 .method private static final varargs reader(Ljava/nio/file/Path;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)Ljava/io/InputStreamReader;
-    .locals 2
+    .registers 5
     .param p0, "$this$reader"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "options"    # [Ljava/nio/file/OpenOption;
@@ -1433,7 +1433,7 @@
 .end method
 
 .method static synthetic reader$default(Ljava/nio/file/Path;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;ILjava/lang/Object;)Ljava/io/InputStreamReader;
-    .locals 0
+    .registers 5
     .param p0, "$this$reader_u24default"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "options"    # [Ljava/nio/file/OpenOption;
@@ -1446,11 +1446,11 @@
     .line 32
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1484,7 +1484,7 @@
 .end method
 
 .method private static final useLines(Ljava/nio/file/Path;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 6
+    .registers 9
     .param p0, "$this$useLines"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
@@ -1535,7 +1535,7 @@
 
     const/4 v2, 0x1
 
-    :try_start_0
+    :try_start_18
     move-object v3, v0
 
     check-cast v3, Ljava/io/BufferedReader;
@@ -1555,8 +1555,8 @@
     invoke-interface {p2, v5}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_18 .. :try_end_27} :catchall_38
 
     .end local v3    # "it":Ljava/io/BufferedReader;
     .end local v4    # "$i$a$-use-PathsKt__PathReadWriteKt$useLines$2":I
@@ -1564,70 +1564,70 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_32
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_37
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_32
+    if-eqz v0, :cond_37
 
     invoke-interface {v0}, Ljava/io/Closeable;->close()V
 
-    :cond_1
-    :goto_0
+    :cond_37
+    :goto_37
     return-object v5
 
-    :catchall_0
+    :catchall_38
     move-exception v3
 
     .end local p0    # "$this$useLines":Ljava/nio/file/Path;
     .end local p1    # "charset":Ljava/nio/charset/Charset;
     .end local p2    # "block":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_39
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_3a
+    .catchall {:try_start_39 .. :try_end_3a} :catchall_3a
 
     .restart local p0    # "$this$useLines":Ljava/nio/file/Path;
     .restart local p1    # "charset":Ljava/nio/charset/Charset;
     .restart local p2    # "block":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_3a
     move-exception v4
 
     invoke-static {v2, v2, v1}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_49
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4c
 
-    :try_start_2
+    :try_start_43
     invoke-interface {v0}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_46
+    .catchall {:try_start_43 .. :try_end_46} :catchall_47
 
-    goto :goto_1
+    goto :goto_4c
 
-    :catchall_2
+    :catchall_47
     move-exception v0
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_2
+    :cond_49
     invoke-static {v0, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    :cond_3
-    :goto_1
+    :cond_4c
+    :goto_4c
     throw v4
 .end method
 
 .method static synthetic useLines$default(Ljava/nio/file/Path;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .registers 9
     .param p0, "$this$useLines_u24default"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "block"    # Lkotlin/jvm/functions/Function1;
@@ -1642,11 +1642,11 @@
 
     and-int/2addr p3, p4
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1671,7 +1671,7 @@
 
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1d
     move-object v1, p3
 
     check-cast v1, Ljava/io/BufferedReader;
@@ -1691,8 +1691,8 @@
     invoke-interface {p2, v3}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_1d .. :try_end_2c} :catchall_3d
 
     .end local v1    # "it":Ljava/io/BufferedReader;
     .end local v2    # "$i$a$-use-PathsKt__PathReadWriteKt$useLines$2":I
@@ -1700,70 +1700,70 @@
 
     move-result p4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_37
 
     const/4 p4, 0x0
 
     invoke-static {p3, p4}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_1
-    if-eqz p3, :cond_2
+    :cond_37
+    if-eqz p3, :cond_3c
 
     invoke-interface {p3}, Ljava/io/Closeable;->close()V
 
-    :cond_2
-    :goto_0
+    :cond_3c
+    :goto_3c
     return-object v3
 
-    :catchall_0
+    :catchall_3d
     move-exception v1
 
     .end local p0    # "$this$useLines_u24default":Ljava/nio/file/Path;
     .end local p1    # "charset":Ljava/nio/charset/Charset;
     .end local p2    # "block":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_3e
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_3f
+    .catchall {:try_start_3e .. :try_end_3f} :catchall_3f
 
     .restart local p0    # "$this$useLines_u24default":Ljava/nio/file/Path;
     .restart local p1    # "charset":Ljava/nio/charset/Charset;
     .restart local p2    # "block":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_3f
     move-exception v2
 
     invoke-static {p4, p4, v0}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
 
     move-result p4
 
-    if-nez p4, :cond_3
+    if-nez p4, :cond_4e
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_51
 
-    :try_start_2
+    :try_start_48
     invoke-interface {p3}, Ljava/io/Closeable;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_4b
+    .catchall {:try_start_48 .. :try_end_4b} :catchall_4c
 
-    goto :goto_1
+    goto :goto_51
 
-    :catchall_2
+    :catchall_4c
     move-exception p3
 
-    goto :goto_1
+    goto :goto_51
 
-    :cond_3
+    :cond_4e
     invoke-static {p3, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    :cond_4
-    :goto_1
+    :cond_51
+    :goto_51
     throw v2
 .end method
 
 .method private static final varargs writeBytes(Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)V
-    .locals 1
+    .registers 4
     .param p0, "$this$writeBytes"    # Ljava/nio/file/Path;
     .param p1, "array"    # [B
     .param p2, "options"    # [Ljava/nio/file/OpenOption;
@@ -1801,7 +1801,7 @@
 .end method
 
 .method private static final varargs writeLines(Ljava/nio/file/Path;Ljava/lang/Iterable;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 6
     .param p0, "$this$writeLines"    # Ljava/nio/file/Path;
     .param p1, "lines"    # Ljava/lang/Iterable;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -1865,7 +1865,7 @@
 .end method
 
 .method private static final varargs writeLines(Ljava/nio/file/Path;Lkotlin/sequences/Sequence;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;
-    .locals 2
+    .registers 6
     .param p0, "$this$writeLines"    # Ljava/nio/file/Path;
     .param p1, "lines"    # Lkotlin/sequences/Sequence;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -1933,7 +1933,7 @@
 .end method
 
 .method static synthetic writeLines$default(Ljava/nio/file/Path;Ljava/lang/Iterable;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;ILjava/lang/Object;)Ljava/nio/file/Path;
-    .locals 0
+    .registers 6
     .param p0, "$this$writeLines_u24default"    # Ljava/nio/file/Path;
     .param p1, "lines"    # Ljava/lang/Iterable;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -1947,11 +1947,11 @@
     .line 299
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     sget-object p2, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1989,7 +1989,7 @@
 .end method
 
 .method static synthetic writeLines$default(Ljava/nio/file/Path;Lkotlin/sequences/Sequence;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;ILjava/lang/Object;)Ljava/nio/file/Path;
-    .locals 0
+    .registers 6
     .param p0, "$this$writeLines_u24default"    # Ljava/nio/file/Path;
     .param p1, "lines"    # Lkotlin/sequences/Sequence;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -2003,11 +2003,11 @@
     .line 315
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     sget-object p2, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p4, "<this>"
 
     invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -2049,7 +2049,7 @@
 .end method
 
 .method public static final varargs writeText(Ljava/nio/file/Path;Ljava/lang/CharSequence;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)V
-    .locals 10
+    .registers 14
     .param p0, "$this$writeText"    # Ljava/nio/file/Path;
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
@@ -2091,7 +2091,7 @@
 
     check-cast v0, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_21
     move-object v1, v0
 
     check-cast v1, Ljava/io/OutputStream;
@@ -2103,7 +2103,7 @@
     .local v2, "$i$a$-use-PathsKt__PathReadWriteKt$writeText$1":I
     instance-of v3, p1, Ljava/lang/String;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_33
 
     .line 175
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -2115,10 +2115,10 @@
     invoke-static {v1, v3, p2}, Lkotlin/io/FilesKt;->writeTextImpl(Ljava/io/OutputStream;Ljava/lang/String;Ljava/nio/charset/Charset;)V
 
     .line 176
-    goto :goto_2
+    goto :goto_87
 
     .line 179
-    :cond_0
+    :cond_33
     invoke-static {p2}, Lkotlin/io/FilesKt;->newReplaceEncoder(Ljava/nio/charset/Charset;)Ljava/nio/charset/CharsetEncoder;
 
     move-result-object v3
@@ -2127,7 +2127,7 @@
     .local v3, "encoder":Ljava/nio/charset/CharsetEncoder;
     instance-of v4, p1, Ljava/nio/CharBuffer;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_43
 
     move-object v4, p1
 
@@ -2137,16 +2137,16 @@
 
     move-result-object v4
 
-    goto :goto_0
+    goto :goto_47
 
-    :cond_1
+    :cond_43
     invoke-static {p1}, Ljava/nio/CharBuffer;->wrap(Ljava/lang/CharSequence;)Ljava/nio/CharBuffer;
 
     move-result-object v4
 
     .line 181
     .local v4, "charBuffer":Ljava/nio/CharBuffer;
-    :goto_0
+    :goto_47
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
@@ -2165,12 +2165,12 @@
 
     .line 183
     .local v5, "byteBuffer":Ljava/nio/ByteBuffer;
-    :goto_1
+    :goto_58
     invoke-virtual {v4}, Ljava/nio/CharBuffer;->hasRemaining()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_86
 
     .line 184
     const/4 v6, 0x1
@@ -2189,7 +2189,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_7a
 
     .line 185
     .end local v6    # "it":Ljava/nio/charset/CoderResult;
@@ -2209,12 +2209,12 @@
     .line 186
     invoke-virtual {v5}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
-    goto :goto_1
+    goto :goto_58
 
     .line 184
     .restart local v6    # "it":Ljava/nio/charset/CoderResult;
     .restart local v7    # "$i$a$-also-PathsKt__PathReadWriteKt$writeText$1$1":I
-    :cond_2
+    :cond_7a
     const-string v8, "Check failed."
 
     new-instance v9, Ljava/lang/IllegalStateException;
@@ -2238,7 +2238,7 @@
     .restart local p1    # "text":Ljava/lang/CharSequence;
     .restart local p2    # "charset":Ljava/nio/charset/Charset;
     .restart local p3    # "options":[Ljava/nio/file/OpenOption;
-    :cond_3
+    :cond_86
     nop
 
     .end local v1    # "out":Ljava/io/OutputStream;
@@ -2246,10 +2246,10 @@
     .end local v3    # "encoder":Ljava/nio/charset/CharsetEncoder;
     .end local v4    # "charBuffer":Ljava/nio/CharBuffer;
     .end local v5    # "byteBuffer":Ljava/nio/ByteBuffer;
-    :goto_2
+    :goto_87
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_89
+    .catchall {:try_start_21 .. :try_end_89} :catchall_8e
 
     .line 173
     const/4 v1, 0x0
@@ -2260,23 +2260,23 @@
     return-void
 
     .line 173
-    :catchall_0
+    :catchall_8e
     move-exception v1
 
     .end local p0    # "$this$writeText":Ljava/nio/file/Path;
     .end local p1    # "text":Ljava/lang/CharSequence;
     .end local p2    # "charset":Ljava/nio/charset/Charset;
     .end local p3    # "options":[Ljava/nio/file/OpenOption;
-    :try_start_1
+    :try_start_8f
     throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_90
+    .catchall {:try_start_8f .. :try_end_90} :catchall_90
 
     .restart local p0    # "$this$writeText":Ljava/nio/file/Path;
     .restart local p1    # "text":Ljava/lang/CharSequence;
     .restart local p2    # "charset":Ljava/nio/charset/Charset;
     .restart local p3    # "options":[Ljava/nio/file/OpenOption;
-    :catchall_1
+    :catchall_90
     move-exception v2
 
     invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -2285,7 +2285,7 @@
 .end method
 
 .method public static synthetic writeText$default(Ljava/nio/file/Path;Ljava/lang/CharSequence;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;ILjava/lang/Object;)V
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2295,18 +2295,18 @@
     .line 172
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     sget-object p2, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     invoke-static {p0, p1, p2, p3}, Lkotlin/io/path/PathsKt;->writeText(Ljava/nio/file/Path;Ljava/lang/CharSequence;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)V
 
     return-void
 .end method
 
 .method private static final varargs writer(Ljava/nio/file/Path;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStreamWriter;
-    .locals 2
+    .registers 5
     .param p0, "$this$writer"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "options"    # [Ljava/nio/file/OpenOption;
@@ -2349,7 +2349,7 @@
 .end method
 
 .method static synthetic writer$default(Ljava/nio/file/Path;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;ILjava/lang/Object;)Ljava/io/OutputStreamWriter;
-    .locals 0
+    .registers 5
     .param p0, "$this$writer_u24default"    # Ljava/nio/file/Path;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .param p2, "options"    # [Ljava/nio/file/OpenOption;
@@ -2362,11 +2362,11 @@
     .line 70
     and-int/lit8 p3, p3, 0x1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6
 
     sget-object p1, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    :cond_0
+    :cond_6
     const-string p3, "<this>"
 
     invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

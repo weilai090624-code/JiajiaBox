@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/text/TextPaint;)V
-    .locals 2
+    .registers 4
     .param p1, "paint"    # Landroid/text/TextPaint;
 
     .line 117
@@ -40,7 +40,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 120
     const/4 v0, 0x1
@@ -50,10 +50,10 @@
     .line 121
     iput v0, p0, Landroidx/core/text/PrecomputedTextCompat$Params$Builder;->mHyphenationFrequency:I
 
-    goto :goto_0
+    goto :goto_16
 
     .line 123
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     iput v0, p0, Landroidx/core/text/PrecomputedTextCompat$Params$Builder;->mHyphenationFrequency:I
@@ -61,7 +61,7 @@
     iput v0, p0, Landroidx/core/text/PrecomputedTextCompat$Params$Builder;->mBreakStrategy:I
 
     .line 125
-    :goto_0
+    :goto_16
     sget-object v0, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_LTR:Landroid/text/TextDirectionHeuristic;
 
     iput-object v0, p0, Landroidx/core/text/PrecomputedTextCompat$Params$Builder;->mTextDir:Landroid/text/TextDirectionHeuristic;
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public build()Landroidx/core/text/PrecomputedTextCompat$Params;
-    .locals 5
+    .registers 6
 
     .line 187
     new-instance v0, Landroidx/core/text/PrecomputedTextCompat$Params;
@@ -92,7 +92,7 @@
 .end method
 
 .method public setBreakStrategy(I)Landroidx/core/text/PrecomputedTextCompat$Params$Builder;
-    .locals 0
+    .registers 2
     .param p1, "strategy"    # I
 
     .line 142
@@ -103,7 +103,7 @@
 .end method
 
 .method public setHyphenationFrequency(I)Landroidx/core/text/PrecomputedTextCompat$Params$Builder;
-    .locals 0
+    .registers 2
     .param p1, "frequency"    # I
 
     .line 160
@@ -114,7 +114,7 @@
 .end method
 
 .method public setTextDirection(Landroid/text/TextDirectionHeuristic;)Landroidx/core/text/PrecomputedTextCompat$Params$Builder;
-    .locals 0
+    .registers 2
     .param p1, "textDir"    # Landroid/text/TextDirectionHeuristic;
 
     .line 177

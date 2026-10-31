@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 674
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public build()Landroidx/work/Data;
-    .locals 2
+    .registers 3
 
     .line 954
     new-instance v0, Landroidx/work/Data;
@@ -65,7 +65,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Object;)Landroidx/work/Data$Builder;
-    .locals 4
+    .registers 7
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -80,7 +80,7 @@
     .end annotation
 
     .line 907
-    if-nez p2, :cond_0
+    if-nez p2, :cond_a
 
     .line 908
     iget-object v0, p0, Landroidx/work/Data$Builder;->mValues:Ljava/util/Map;
@@ -89,10 +89,10 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_d7
 
     .line 910
-    :cond_0
+    :cond_a
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -101,67 +101,67 @@
     .local v0, "valueType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-class v1, Ljava/lang/Boolean;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, Ljava/lang/Byte;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, Ljava/lang/Integer;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, Ljava/lang/Long;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, Ljava/lang/Float;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, Ljava/lang/Double;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, Ljava/lang/String;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, [Ljava/lang/Boolean;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, [Ljava/lang/Byte;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, [Ljava/lang/Integer;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, [Ljava/lang/Long;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, [Ljava/lang/Float;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, [Ljava/lang/Double;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_d2
 
     const-class v1, [Ljava/lang/String;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_48
 
-    goto/16 :goto_0
+    goto/16 :goto_d2
 
     .line 926
-    :cond_1
+    :cond_48
     const-class v1, [Z
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_5a
 
     .line 927
     iget-object v1, p0, Landroidx/work/Data$Builder;->mValues:Ljava/util/Map;
@@ -176,13 +176,13 @@
 
     invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_d7
 
     .line 928
-    :cond_2
+    :cond_5a
     const-class v1, [B
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_6b
 
     .line 929
     iget-object v1, p0, Landroidx/work/Data$Builder;->mValues:Ljava/util/Map;
@@ -197,13 +197,13 @@
 
     invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_d7
 
     .line 930
-    :cond_3
+    :cond_6b
     const-class v1, [I
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_7c
 
     .line 931
     iget-object v1, p0, Landroidx/work/Data$Builder;->mValues:Ljava/util/Map;
@@ -218,13 +218,13 @@
 
     invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_d7
 
     .line 932
-    :cond_4
+    :cond_7c
     const-class v1, [J
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_8d
 
     .line 933
     iget-object v1, p0, Landroidx/work/Data$Builder;->mValues:Ljava/util/Map;
@@ -239,13 +239,13 @@
 
     invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_d7
 
     .line 934
-    :cond_5
+    :cond_8d
     const-class v1, [F
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_9e
 
     .line 935
     iget-object v1, p0, Landroidx/work/Data$Builder;->mValues:Ljava/util/Map;
@@ -260,13 +260,13 @@
 
     invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_d7
 
     .line 936
-    :cond_6
+    :cond_9e
     const-class v1, [D
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_af
 
     .line 937
     iget-object v1, p0, Landroidx/work/Data$Builder;->mValues:Ljava/util/Map;
@@ -281,10 +281,10 @@
 
     invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_d7
 
     .line 939
-    :cond_7
+    :cond_af
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -320,20 +320,20 @@
     throw v1
 
     .line 925
-    :cond_8
-    :goto_0
+    :cond_d2
+    :goto_d2
     iget-object v1, p0, Landroidx/work/Data$Builder;->mValues:Ljava/util/Map;
 
     invoke-interface {v1, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 943
     .end local v0    # "valueType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :goto_1
+    :goto_d7
     return-object p0
 .end method
 
 .method public putAll(Landroidx/work/Data;)Landroidx/work/Data$Builder;
-    .locals 1
+    .registers 3
     .param p1, "data"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -354,7 +354,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)Landroidx/work/Data$Builder;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -385,12 +385,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_8
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -420,15 +420,15 @@
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     .end local v2    # "key":Ljava/lang/String;
     .end local v3    # "value":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_8
 
     .line 891
-    :cond_0
+    :cond_22
     return-object p0
 .end method
 
 .method public putBoolean(Ljava/lang/String;Z)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -456,7 +456,7 @@
 .end method
 
 .method public putBooleanArray(Ljava/lang/String;[Z)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # [Z
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -484,7 +484,7 @@
 .end method
 
 .method public putByte(Ljava/lang/String;B)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # B
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -512,7 +512,7 @@
 .end method
 
 .method public putByteArray(Ljava/lang/String;[B)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -540,7 +540,7 @@
 .end method
 
 .method public putDouble(Ljava/lang/String;D)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # D
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -568,7 +568,7 @@
 .end method
 
 .method public putDoubleArray(Ljava/lang/String;[D)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # [D
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -596,7 +596,7 @@
 .end method
 
 .method public putFloat(Ljava/lang/String;F)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -624,7 +624,7 @@
 .end method
 
 .method public putFloatArray(Ljava/lang/String;[F)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # [F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -652,7 +652,7 @@
 .end method
 
 .method public putInt(Ljava/lang/String;I)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -680,7 +680,7 @@
 .end method
 
 .method public putIntArray(Ljava/lang/String;[I)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # [I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -708,7 +708,7 @@
 .end method
 
 .method public putLong(Ljava/lang/String;J)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -736,7 +736,7 @@
 .end method
 
 .method public putLongArray(Ljava/lang/String;[J)Landroidx/work/Data$Builder;
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -764,7 +764,7 @@
 .end method
 
 .method public putString(Ljava/lang/String;Ljava/lang/String;)Landroidx/work/Data$Builder;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -788,7 +788,7 @@
 .end method
 
 .method public putStringArray(Ljava/lang/String;[Ljava/lang/String;)Landroidx/work/Data$Builder;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static asByteSource(Ljava/net/URL;)Lcom/google/common/io/ByteSource;
-    .locals 2
+    .registers 3
     .param p0, "url"    # Ljava/net/URL;
 
     .line 58
@@ -39,7 +39,7 @@
 .end method
 
 .method public static asCharSource(Ljava/net/URL;Ljava/nio/charset/Charset;)Lcom/google/common/io/CharSource;
-    .locals 1
+    .registers 3
     .param p0, "url"    # Ljava/net/URL;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public static copy(Ljava/net/URL;Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .param p0, "from"    # Ljava/net/URL;
     .param p1, "to"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
@@ -77,7 +77,7 @@
 .end method
 
 .method public static getResource(Ljava/lang/Class;Ljava/lang/String;)Ljava/net/URL;
-    .locals 4
+    .registers 6
     .param p1, "resourceName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -98,17 +98,17 @@
 
     .line 211
     .local v0, "url":Ljava/net/URL;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
     .line 212
-    :goto_0
+    :goto_9
     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v2
@@ -123,7 +123,7 @@
 .end method
 
 .method public static getResource(Ljava/lang/String;)Ljava/net/URL;
-    .locals 4
+    .registers 5
     .param p0, "resourceName"    # Ljava/lang/String;
 
     .line 196
@@ -156,16 +156,16 @@
 
     .line 198
     .local v1, "url":Ljava/net/URL;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1d
     const-string v3, "resource %s not found."
 
     invoke-static {v2, v3, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
@@ -175,7 +175,7 @@
 .end method
 
 .method public static readLines(Ljava/net/URL;Ljava/nio/charset/Charset;Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "url"    # Ljava/net/URL;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .annotation runtime Lcom/google/common/io/ParametricNullness;
@@ -213,7 +213,7 @@
 .end method
 
 .method public static readLines(Ljava/net/URL;Ljava/nio/charset/Charset;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0, "url"    # Ljava/net/URL;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .annotation system Ldalvik/annotation/Signature;
@@ -249,7 +249,7 @@
 .end method
 
 .method public static toByteArray(Ljava/net/URL;)[B
-    .locals 1
+    .registers 2
     .param p0, "url"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -270,7 +270,7 @@
 .end method
 
 .method public static toString(Ljava/net/URL;Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "url"    # Ljava/net/URL;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .annotation system Ldalvik/annotation/Throws;

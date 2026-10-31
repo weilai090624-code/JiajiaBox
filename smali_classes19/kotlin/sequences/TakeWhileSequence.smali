@@ -69,7 +69,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 4
     .param p1, "sequence"    # Lkotlin/sequences/Sequence;
     .param p2, "predicate"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -106,7 +106,7 @@
 .end method
 
 .method public static final synthetic access$getPredicate$p(Lkotlin/sequences/TakeWhileSequence;)Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/TakeWhileSequence;
 
     .line 448
@@ -116,7 +116,7 @@
 .end method
 
 .method public static final synthetic access$getSequence$p(Lkotlin/sequences/TakeWhileSequence;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this"    # Lkotlin/sequences/TakeWhileSequence;
 
     .line 448
@@ -128,7 +128,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

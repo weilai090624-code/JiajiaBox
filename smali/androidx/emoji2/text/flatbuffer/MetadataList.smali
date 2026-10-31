@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Landroidx/emoji2/text/flatbuffer/Table;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public static ValidateVersion()V
-    .locals 0
+    .registers 0
 
     .line 29
     invoke-static {}, Landroidx/emoji2/text/flatbuffer/Constants;->FLATBUFFERS_1_12_0()V
@@ -31,7 +31,7 @@
 .end method
 
 .method static synthetic access$000(ILjava/nio/ByteBuffer;)I
-    .locals 1
+    .registers 3
     .param p0, "x0"    # I
     .param p1, "x1"    # Ljava/nio/ByteBuffer;
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public static addList(Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;I)V
-    .locals 2
+    .registers 4
     .param p0, "builder"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
     .param p1, "listOffset"    # I
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public static addSourceSha(Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;I)V
-    .locals 2
+    .registers 4
     .param p0, "builder"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
     .param p1, "sourceShaOffset"    # I
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public static addVersion(Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;I)V
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
     .param p1, "version"    # I
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public static createListVector(Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;[I)I
-    .locals 2
+    .registers 4
     .param p0, "builder"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
     .param p1, "data"    # [I
 
@@ -103,8 +103,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_8
+    if-ltz v0, :cond_12
 
     aget v1, p1, v0
 
@@ -112,10 +112,10 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .end local v0    # "i":I
-    :cond_0
+    :cond_12
     invoke-virtual {p0}, Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;->endVector()I
 
     move-result v0
@@ -124,7 +124,7 @@
 .end method
 
 .method public static createMetadataList(Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;III)I
-    .locals 1
+    .registers 5
     .param p0, "builder"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
     .param p1, "version"    # I
     .param p2, "listOffset"    # I
@@ -153,7 +153,7 @@
 .end method
 
 .method public static endMetadataList(Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;)I
-    .locals 1
+    .registers 2
     .param p0, "builder"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
 
     .line 63
@@ -167,7 +167,7 @@
 .end method
 
 .method public static finishMetadataListBuffer(Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;I)V
-    .locals 0
+    .registers 2
     .param p0, "builder"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
     .param p1, "offset"    # I
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public static finishSizePrefixedMetadataListBuffer(Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;I)V
-    .locals 0
+    .registers 2
     .param p0, "builder"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
     .param p1, "offset"    # I
 
@@ -189,7 +189,7 @@
 .end method
 
 .method public static getRootAsMetadataList(Ljava/nio/ByteBuffer;)Landroidx/emoji2/text/flatbuffer/MetadataList;
-    .locals 1
+    .registers 2
     .param p0, "_bb"    # Ljava/nio/ByteBuffer;
 
     .line 30
@@ -205,7 +205,7 @@
 .end method
 
 .method public static getRootAsMetadataList(Ljava/nio/ByteBuffer;Landroidx/emoji2/text/flatbuffer/MetadataList;)Landroidx/emoji2/text/flatbuffer/MetadataList;
-    .locals 2
+    .registers 4
     .param p0, "_bb"    # Ljava/nio/ByteBuffer;
     .param p1, "obj"    # Landroidx/emoji2/text/flatbuffer/MetadataList;
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public static startListVector(Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;I)V
-    .locals 1
+    .registers 3
     .param p0, "builder"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
     .param p1, "numElems"    # I
 
@@ -249,7 +249,7 @@
 .end method
 
 .method public static startMetadataList(Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;)V
-    .locals 1
+    .registers 2
     .param p0, "builder"    # Landroidx/emoji2/text/flatbuffer/FlatBufferBuilder;
 
     .line 56
@@ -263,7 +263,7 @@
 
 # virtual methods
 .method public __assign(ILjava/nio/ByteBuffer;)Landroidx/emoji2/text/flatbuffer/MetadataList;
-    .locals 0
+    .registers 3
     .param p1, "_i"    # I
     .param p2, "_bb"    # Ljava/nio/ByteBuffer;
 
@@ -274,7 +274,7 @@
 .end method
 
 .method public __init(ILjava/nio/ByteBuffer;)V
-    .locals 0
+    .registers 3
     .param p1, "_i"    # I
     .param p2, "_bb"    # Ljava/nio/ByteBuffer;
 
@@ -285,7 +285,7 @@
 .end method
 
 .method public list(I)Landroidx/emoji2/text/flatbuffer/MetadataItem;
-    .locals 1
+    .registers 3
     .param p1, "j"    # I
 
     .line 36
@@ -301,7 +301,7 @@
 .end method
 
 .method public list(Landroidx/emoji2/text/flatbuffer/MetadataItem;I)Landroidx/emoji2/text/flatbuffer/MetadataItem;
-    .locals 3
+    .registers 6
     .param p1, "obj"    # Landroidx/emoji2/text/flatbuffer/MetadataItem;
     .param p2, "j"    # I
 
@@ -313,7 +313,7 @@
     move-result v0
 
     .local v0, "o":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-virtual {p0, v0}, Landroidx/emoji2/text/flatbuffer/MetadataList;->__vector(I)I
 
@@ -333,17 +333,17 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1a
     return-object v1
 .end method
 
 .method public listLength()I
-    .locals 2
+    .registers 3
 
     .line 38
     const/4 v0, 0x6
@@ -353,23 +353,23 @@
     move-result v0
 
     .local v0, "o":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     invoke-virtual {p0, v0}, Landroidx/emoji2/text/flatbuffer/MetadataList;->__vector_len(I)I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_d
     return v1
 .end method
 
 .method public listVector()Landroidx/emoji2/text/flatbuffer/MetadataItem$Vector;
-    .locals 1
+    .registers 2
 
     .line 39
     new-instance v0, Landroidx/emoji2/text/flatbuffer/MetadataItem$Vector;
@@ -384,7 +384,7 @@
 .end method
 
 .method public listVector(Landroidx/emoji2/text/flatbuffer/MetadataItem$Vector;)Landroidx/emoji2/text/flatbuffer/MetadataItem$Vector;
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Landroidx/emoji2/text/flatbuffer/MetadataItem$Vector;
 
     .line 40
@@ -395,7 +395,7 @@
     move-result v0
 
     .local v0, "o":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     invoke-virtual {p0, v0}, Landroidx/emoji2/text/flatbuffer/MetadataList;->__vector(I)I
 
@@ -409,17 +409,17 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_14
     return-object v1
 .end method
 
 .method public sourceSha()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 41
     const/16 v0, 0x8
@@ -429,7 +429,7 @@
     move-result v0
 
     .local v0, "o":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget v1, p0, Landroidx/emoji2/text/flatbuffer/MetadataList;->bb_pos:I
 
@@ -439,17 +439,17 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_11
     return-object v1
 .end method
 
 .method public sourceShaAsByteBuffer()Ljava/nio/ByteBuffer;
-    .locals 2
+    .registers 3
 
     .line 42
     const/16 v0, 0x8
@@ -464,7 +464,7 @@
 .end method
 
 .method public sourceShaInByteBuffer(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
-    .locals 2
+    .registers 4
     .param p1, "_bb"    # Ljava/nio/ByteBuffer;
 
     .line 43
@@ -480,7 +480,7 @@
 .end method
 
 .method public version()I
-    .locals 3
+    .registers 4
 
     .line 35
     const/4 v0, 0x4
@@ -490,7 +490,7 @@
     move-result v0
 
     .local v0, "o":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v1, p0, Landroidx/emoji2/text/flatbuffer/MetadataList;->bb:Ljava/nio/ByteBuffer;
 
@@ -502,11 +502,11 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_12
     return v1
 .end method

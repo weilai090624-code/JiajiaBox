@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/SavedStateHandlesProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "provider"    # Landroidx/lifecycle/SavedStateHandlesProvider;
 
     const-string v0, "provider"
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -76,17 +76,17 @@
     .line 196
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_CREATE:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_11
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_12
+    if-eqz v0, :cond_24
 
     .line 199
     invoke-interface {p1}, Landroidx/lifecycle/LifecycleOwner;->getLifecycle()Landroidx/lifecycle/Lifecycle;
@@ -108,7 +108,7 @@
     return-void
 
     .line 196
-    :cond_1
+    :cond_24
     const/4 v0, 0x0
 
     .line 197

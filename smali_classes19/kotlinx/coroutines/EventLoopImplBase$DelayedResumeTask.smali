@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlinx/coroutines/EventLoopImplBase;JLkotlinx/coroutines/CancellableContinuation;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lkotlinx/coroutines/EventLoopImplBase;
     .param p2, "nanoTime"    # J
     .param p4, "cont"    # Lkotlinx/coroutines/CancellableContinuation;
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 493
     iget-object v0, p0, Lkotlinx/coroutines/EventLoopImplBase$DelayedResumeTask;->cont:Lkotlinx/coroutines/CancellableContinuation;
@@ -116,7 +116,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 494
     new-instance v0, Ljava/lang/StringBuilder;

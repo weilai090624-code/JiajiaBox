@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/yaml/snakeyaml/parser/Parser;Lorg/yaml/snakeyaml/resolver/Resolver;)V
-    .locals 1
+    .registers 4
     .param p1, "parser"    # Lorg/yaml/snakeyaml/parser/Parser;
     .param p2, "resolver"    # Lorg/yaml/snakeyaml/resolver/Resolver;
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Lorg/yaml/snakeyaml/parser/Parser;Lorg/yaml/snakeyaml/resolver/Resolver;Lorg/yaml/snakeyaml/LoaderOptions;)V
-    .locals 5
+    .registers 9
     .param p1, "parser"    # Lorg/yaml/snakeyaml/parser/Parser;
     .param p2, "resolver"    # Lorg/yaml/snakeyaml/resolver/Resolver;
     .param p3, "loadingConfig"    # Lorg/yaml/snakeyaml/LoaderOptions;
@@ -131,7 +131,7 @@
 .end method
 
 .method private composeNode(Lorg/yaml/snakeyaml/nodes/Node;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 6
+    .registers 8
     .param p1, "parent"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 157
@@ -140,7 +140,7 @@
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/comments/CommentEventsCollector;->collectEvents()Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
 
     .line 158
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 159
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->recursiveNodes:Ljava/util/Set;
@@ -148,7 +148,7 @@
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 161
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     sget-object v1, Lorg/yaml/snakeyaml/events/Event$ID;->Alias:Lorg/yaml/snakeyaml/events/Event$ID;
@@ -157,7 +157,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_99
 
     .line 162
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
@@ -182,7 +182,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_7b
 
     .line 168
     iget-object v2, p0, Lorg/yaml/snakeyaml/composer/Composer;->anchors:Ljava/util/Map;
@@ -199,7 +199,7 @@
 
     const/4 v4, 0x1
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_66
 
     .line 170
     iget v3, p0, Lorg/yaml/snakeyaml/composer/Composer;->nonScalarAliasesCount:I
@@ -217,12 +217,12 @@
 
     move-result v5
 
-    if-gt v3, v5, :cond_1
+    if-gt v3, v5, :cond_47
 
-    goto :goto_0
+    goto :goto_66
 
     .line 172
-    :cond_1
+    :cond_47
     new-instance v3, Lorg/yaml/snakeyaml/error/YAMLException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -254,21 +254,21 @@
     throw v3
 
     .line 175
-    :cond_2
-    :goto_0
+    :cond_66
+    :goto_66
     iget-object v3, p0, Lorg/yaml/snakeyaml/composer/Composer;->recursiveNodes:Ljava/util/Set;
 
     invoke-interface {v3, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_71
 
     .line 176
     invoke-virtual {v2, v4}, Lorg/yaml/snakeyaml/nodes/Node;->setTwoStepsConstruction(Z)V
 
     .line 178
-    :cond_3
+    :cond_71
     iget-object v3, p0, Lorg/yaml/snakeyaml/composer/Composer;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
 
     invoke-virtual {v3}, Lorg/yaml/snakeyaml/comments/CommentEventsCollector;->consume()Ljava/util/List;
@@ -280,13 +280,13 @@
     .line 179
     .end local v0    # "event":Lorg/yaml/snakeyaml/events/AliasEvent;
     .end local v1    # "anchor":Ljava/lang/String;
-    goto :goto_1
+    goto :goto_cd
 
     .line 165
     .end local v2    # "node":Lorg/yaml/snakeyaml/nodes/Node;
     .restart local v0    # "event":Lorg/yaml/snakeyaml/events/AliasEvent;
     .restart local v1    # "anchor":Ljava/lang/String;
-    :cond_4
+    :cond_7b
     new-instance v2, Lorg/yaml/snakeyaml/composer/ComposerException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -320,7 +320,7 @@
     .line 180
     .end local v0    # "event":Lorg/yaml/snakeyaml/events/AliasEvent;
     .end local v1    # "anchor":Ljava/lang/String;
-    :cond_5
+    :cond_99
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     invoke-interface {v0}, Lorg/yaml/snakeyaml/parser/Parser;->peekEvent()Lorg/yaml/snakeyaml/events/Event;
@@ -345,7 +345,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_ba
 
     .line 184
     iget-object v2, p0, Lorg/yaml/snakeyaml/composer/Composer;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -359,11 +359,11 @@
     move-result-object v2
 
     .restart local v2    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_1
+    goto :goto_cd
 
     .line 185
     .end local v2    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_6
+    :cond_ba
     iget-object v2, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     sget-object v3, Lorg/yaml/snakeyaml/events/Event$ID;->SequenceStart:Lorg/yaml/snakeyaml/events/Event$ID;
@@ -372,7 +372,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_c9
 
     .line 186
     invoke-virtual {p0, v1}, Lorg/yaml/snakeyaml/composer/Composer;->composeSequenceNode(Ljava/lang/String;)Lorg/yaml/snakeyaml/nodes/Node;
@@ -380,11 +380,11 @@
     move-result-object v2
 
     .restart local v2    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    goto :goto_1
+    goto :goto_cd
 
     .line 188
     .end local v2    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :cond_7
+    :cond_c9
     invoke-virtual {p0, v1}, Lorg/yaml/snakeyaml/composer/Composer;->composeMappingNode(Ljava/lang/String;)Lorg/yaml/snakeyaml/nodes/Node;
 
     move-result-object v2
@@ -393,7 +393,7 @@
     .end local v0    # "event":Lorg/yaml/snakeyaml/events/NodeEvent;
     .end local v1    # "anchor":Ljava/lang/String;
     .restart local v2    # "node":Lorg/yaml/snakeyaml/nodes/Node;
-    :goto_1
+    :goto_cd
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->recursiveNodes:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
@@ -405,7 +405,7 @@
 
 # virtual methods
 .method public checkNode()Z
-    .locals 2
+    .registers 3
 
     .line 89
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
@@ -416,7 +416,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 90
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
@@ -424,7 +424,7 @@
     invoke-interface {v0}, Lorg/yaml/snakeyaml/parser/Parser;->getEvent()Lorg/yaml/snakeyaml/events/Event;
 
     .line 93
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     sget-object v1, Lorg/yaml/snakeyaml/events/Event$ID;->StreamEnd:Lorg/yaml/snakeyaml/events/Event$ID;
@@ -439,7 +439,7 @@
 .end method
 
 .method protected composeKeyNode(Lorg/yaml/snakeyaml/nodes/MappingNode;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 1
+    .registers 3
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
 
     .line 310
@@ -451,7 +451,7 @@
 .end method
 
 .method protected composeMappingChildren(Ljava/util/List;Lorg/yaml/snakeyaml/nodes/MappingNode;)V
-    .locals 3
+    .registers 6
     .param p2, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -482,7 +482,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 303
     const/4 v1, 0x1
@@ -490,7 +490,7 @@
     invoke-virtual {p2, v1}, Lorg/yaml/snakeyaml/nodes/MappingNode;->setMerged(Z)V
 
     .line 305
-    :cond_0
+    :cond_14
     invoke-virtual {p0, p2}, Lorg/yaml/snakeyaml/composer/Composer;->composeValueNode(Lorg/yaml/snakeyaml/nodes/MappingNode;)Lorg/yaml/snakeyaml/nodes/Node;
 
     move-result-object v1
@@ -508,7 +508,7 @@
 .end method
 
 .method protected composeMappingNode(Ljava/lang/String;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 13
+    .registers 15
     .param p1, "anchor"    # Ljava/lang/String;
 
     .line 260
@@ -532,7 +532,7 @@
 
     .line 264
     .local v2, "resolved":Z
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     const-string v3, "!"
 
@@ -540,23 +540,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 268
-    :cond_0
+    :cond_18
     new-instance v3, Lorg/yaml/snakeyaml/nodes/Tag;
 
     invoke-direct {v3, v1}, Lorg/yaml/snakeyaml/nodes/Tag;-><init>(Ljava/lang/String;)V
 
     .local v3, "nodeTag":Lorg/yaml/snakeyaml/nodes/Tag;
-    goto :goto_1
+    goto :goto_2c
 
     .line 265
     .end local v3    # "nodeTag":Lorg/yaml/snakeyaml/nodes/Tag;
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     iget-object v3, p0, Lorg/yaml/snakeyaml/composer/Composer;->resolver:Lorg/yaml/snakeyaml/resolver/Resolver;
 
     sget-object v4, Lorg/yaml/snakeyaml/nodes/NodeId;->mapping:Lorg/yaml/snakeyaml/nodes/NodeId;
@@ -576,7 +576,7 @@
     const/4 v2, 0x1
 
     .line 271
-    :goto_1
+    :goto_2c
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -613,7 +613,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_53
 
     .line 275
     iget-object v5, p0, Lorg/yaml/snakeyaml/composer/Composer;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -625,8 +625,8 @@
     invoke-virtual {v4, v5}, Lorg/yaml/snakeyaml/nodes/MappingNode;->setBlockComments(Ljava/util/List;)V
 
     .line 277
-    :cond_2
-    if-eqz p1, :cond_3
+    :cond_53
+    if-eqz p1, :cond_5d
 
     .line 278
     invoke-virtual {v4, p1}, Lorg/yaml/snakeyaml/nodes/MappingNode;->setAnchor(Ljava/lang/String;)V
@@ -637,8 +637,8 @@
     invoke-interface {v5, p1, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 281
-    :cond_3
-    :goto_2
+    :cond_5d
+    :goto_5d
     iget-object v5, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     sget-object v6, Lorg/yaml/snakeyaml/events/Event$ID;->MappingEnd:Lorg/yaml/snakeyaml/events/Event$ID;
@@ -647,7 +647,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_7b
 
     .line 282
     iget-object v5, p0, Lorg/yaml/snakeyaml/composer/Composer;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -663,25 +663,25 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_77
 
     .line 284
-    goto :goto_3
+    goto :goto_7b
 
     .line 286
-    :cond_4
+    :cond_77
     invoke-virtual {p0, v11, v4}, Lorg/yaml/snakeyaml/composer/Composer;->composeMappingChildren(Ljava/util/List;Lorg/yaml/snakeyaml/nodes/MappingNode;)V
 
-    goto :goto_2
+    goto :goto_5d
 
     .line 288
-    :cond_5
-    :goto_3
+    :cond_7b
+    :goto_7b
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/MappingStartEvent;->isFlow()Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_8e
 
     .line 289
     iget-object v5, p0, Lorg/yaml/snakeyaml/composer/Composer;->inlineCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -697,7 +697,7 @@
     invoke-virtual {v4, v5}, Lorg/yaml/snakeyaml/nodes/MappingNode;->setInLineComments(Ljava/util/List;)V
 
     .line 291
-    :cond_6
+    :cond_8e
     iget-object v5, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     invoke-interface {v5}, Lorg/yaml/snakeyaml/parser/Parser;->getEvent()Lorg/yaml/snakeyaml/events/Event;
@@ -724,7 +724,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_b1
 
     .line 295
     iget-object v6, p0, Lorg/yaml/snakeyaml/composer/Composer;->inlineCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -736,12 +736,12 @@
     invoke-virtual {v4, v6}, Lorg/yaml/snakeyaml/nodes/MappingNode;->setInLineComments(Ljava/util/List;)V
 
     .line 297
-    :cond_7
+    :cond_b1
     return-object v4
 .end method
 
 .method protected composeScalarNode(Ljava/lang/String;Ljava/util/List;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 12
+    .registers 15
     .param p1, "anchor"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -776,7 +776,7 @@
 
     .line 200
     .local v2, "resolved":Z
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     const-string v3, "!"
 
@@ -784,23 +784,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 205
-    :cond_0
+    :cond_18
     new-instance v3, Lorg/yaml/snakeyaml/nodes/Tag;
 
     invoke-direct {v3, v1}, Lorg/yaml/snakeyaml/nodes/Tag;-><init>(Ljava/lang/String;)V
 
     .local v3, "nodeTag":Lorg/yaml/snakeyaml/nodes/Tag;
-    goto :goto_1
+    goto :goto_33
 
     .line 201
     .end local v3    # "nodeTag":Lorg/yaml/snakeyaml/nodes/Tag;
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     iget-object v3, p0, Lorg/yaml/snakeyaml/composer/Composer;->resolver:Lorg/yaml/snakeyaml/resolver/Resolver;
 
     sget-object v4, Lorg/yaml/snakeyaml/nodes/NodeId;->scalar:Lorg/yaml/snakeyaml/nodes/NodeId;
@@ -826,7 +826,7 @@
     const/4 v2, 0x1
 
     .line 207
-    :goto_1
+    :goto_33
     new-instance v11, Lorg/yaml/snakeyaml/nodes/ScalarNode;
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/ScalarEvent;->getValue()Ljava/lang/String;
@@ -855,7 +855,7 @@
 
     .line 209
     .local v4, "node":Lorg/yaml/snakeyaml/nodes/Node;
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_55
 
     .line 210
     invoke-virtual {v4, p1}, Lorg/yaml/snakeyaml/nodes/Node;->setAnchor(Ljava/lang/String;)V
@@ -866,7 +866,7 @@
     invoke-interface {v5, p1, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 213
-    :cond_2
+    :cond_55
     invoke-virtual {v4, p2}, Lorg/yaml/snakeyaml/nodes/Node;->setBlockComments(Ljava/util/List;)V
 
     .line 214
@@ -887,7 +887,7 @@
 .end method
 
 .method protected composeSequenceNode(Ljava/lang/String;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 13
+    .registers 15
     .param p1, "anchor"    # Ljava/lang/String;
 
     .line 219
@@ -911,7 +911,7 @@
 
     .line 224
     .local v2, "resolved":Z
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     const-string v3, "!"
 
@@ -919,23 +919,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 228
-    :cond_0
+    :cond_18
     new-instance v3, Lorg/yaml/snakeyaml/nodes/Tag;
 
     invoke-direct {v3, v1}, Lorg/yaml/snakeyaml/nodes/Tag;-><init>(Ljava/lang/String;)V
 
     .local v3, "nodeTag":Lorg/yaml/snakeyaml/nodes/Tag;
-    goto :goto_1
+    goto :goto_2c
 
     .line 225
     .end local v3    # "nodeTag":Lorg/yaml/snakeyaml/nodes/Tag;
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     iget-object v3, p0, Lorg/yaml/snakeyaml/composer/Composer;->resolver:Lorg/yaml/snakeyaml/resolver/Resolver;
 
     sget-object v4, Lorg/yaml/snakeyaml/nodes/NodeId;->sequence:Lorg/yaml/snakeyaml/nodes/NodeId;
@@ -955,7 +955,7 @@
     const/4 v2, 0x1
 
     .line 230
-    :goto_1
+    :goto_2c
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -992,7 +992,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_53
 
     .line 234
     iget-object v5, p0, Lorg/yaml/snakeyaml/composer/Composer;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -1004,8 +1004,8 @@
     invoke-virtual {v4, v5}, Lorg/yaml/snakeyaml/nodes/SequenceNode;->setBlockComments(Ljava/util/List;)V
 
     .line 236
-    :cond_2
-    if-eqz p1, :cond_3
+    :cond_53
+    if-eqz p1, :cond_5d
 
     .line 237
     invoke-virtual {v4, p1}, Lorg/yaml/snakeyaml/nodes/SequenceNode;->setAnchor(Ljava/lang/String;)V
@@ -1016,8 +1016,8 @@
     invoke-interface {v5, p1, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 240
-    :cond_3
-    :goto_2
+    :cond_5d
+    :goto_5d
     iget-object v5, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     sget-object v6, Lorg/yaml/snakeyaml/events/Event$ID;->SequenceEnd:Lorg/yaml/snakeyaml/events/Event$ID;
@@ -1026,7 +1026,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_7f
 
     .line 241
     iget-object v5, p0, Lorg/yaml/snakeyaml/composer/Composer;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -1042,29 +1042,29 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_77
 
     .line 243
-    goto :goto_3
+    goto :goto_7f
 
     .line 245
-    :cond_4
+    :cond_77
     invoke-direct {p0, v4}, Lorg/yaml/snakeyaml/composer/Composer;->composeNode(Lorg/yaml/snakeyaml/nodes/Node;)Lorg/yaml/snakeyaml/nodes/Node;
 
     move-result-object v5
 
     invoke-virtual {v11, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_5d
 
     .line 247
-    :cond_5
-    :goto_3
+    :cond_7f
+    :goto_7f
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/events/SequenceStartEvent;->isFlow()Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_92
 
     .line 248
     iget-object v5, p0, Lorg/yaml/snakeyaml/composer/Composer;->inlineCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -1080,7 +1080,7 @@
     invoke-virtual {v4, v5}, Lorg/yaml/snakeyaml/nodes/SequenceNode;->setInLineComments(Ljava/util/List;)V
 
     .line 250
-    :cond_6
+    :cond_92
     iget-object v5, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     invoke-interface {v5}, Lorg/yaml/snakeyaml/parser/Parser;->getEvent()Lorg/yaml/snakeyaml/events/Event;
@@ -1107,7 +1107,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_b5
 
     .line 254
     iget-object v6, p0, Lorg/yaml/snakeyaml/composer/Composer;->inlineCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -1119,12 +1119,12 @@
     invoke-virtual {v4, v6}, Lorg/yaml/snakeyaml/nodes/SequenceNode;->setInLineComments(Ljava/util/List;)V
 
     .line 256
-    :cond_7
+    :cond_b5
     return-object v4
 .end method
 
 .method protected composeValueNode(Lorg/yaml/snakeyaml/nodes/MappingNode;)Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 1
+    .registers 3
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/MappingNode;
 
     .line 314
@@ -1136,7 +1136,7 @@
 .end method
 
 .method public getNode()Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 11
+    .registers 12
 
     .line 103
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -1152,7 +1152,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_36
 
     .line 105
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -1213,7 +1213,7 @@
     .end local v1    # "startMark":Lorg/yaml/snakeyaml/error/Mark;
     .end local v2    # "node":Lorg/yaml/snakeyaml/nodes/Node;
     .end local v9    # "children":Ljava/util/List;, "Ljava/util/List<Lorg/yaml/snakeyaml/nodes/NodeTuple;>;"
-    :cond_0
+    :cond_36
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     invoke-interface {v0}, Lorg/yaml/snakeyaml/parser/Parser;->getEvent()Lorg/yaml/snakeyaml/events/Event;
@@ -1238,7 +1238,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_56
 
     .line 119
     iget-object v1, p0, Lorg/yaml/snakeyaml/composer/Composer;->blockCommentsCollector:Lorg/yaml/snakeyaml/comments/CommentEventsCollector;
@@ -1250,7 +1250,7 @@
     invoke-virtual {v0, v1}, Lorg/yaml/snakeyaml/nodes/Node;->setEndComments(Ljava/util/List;)V
 
     .line 121
-    :cond_1
+    :cond_56
     iget-object v1, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     invoke-interface {v1}, Lorg/yaml/snakeyaml/parser/Parser;->getEvent()Lorg/yaml/snakeyaml/events/Event;
@@ -1270,7 +1270,7 @@
 .end method
 
 .method public getSingleNode()Lorg/yaml/snakeyaml/nodes/Node;
-    .locals 7
+    .registers 8
 
     .line 138
     iget-object v0, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
@@ -1290,7 +1290,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
     .line 142
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/composer/Composer;->getNode()Lorg/yaml/snakeyaml/nodes/Node;
@@ -1298,7 +1298,7 @@
     move-result-object v0
 
     .line 145
-    :cond_0
+    :cond_14
     iget-object v1, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     sget-object v2, Lorg/yaml/snakeyaml/events/Event$ID;->StreamEnd:Lorg/yaml/snakeyaml/events/Event$ID;
@@ -1307,7 +1307,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3a
 
     .line 146
     iget-object v1, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
@@ -1318,20 +1318,20 @@
 
     .line 147
     .local v1, "event":Lorg/yaml/snakeyaml/events/Event;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     invoke-virtual {v0}, Lorg/yaml/snakeyaml/nodes/Node;->getStartMark()Lorg/yaml/snakeyaml/error/Mark;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_1
+    :cond_2b
     const/4 v2, 0x0
 
     .line 148
     .local v2, "contextMark":Lorg/yaml/snakeyaml/error/Mark;
-    :goto_0
+    :goto_2c
     new-instance v3, Lorg/yaml/snakeyaml/composer/ComposerException;
 
     const-string v4, "but found another document"
@@ -1349,7 +1349,7 @@
     .line 152
     .end local v1    # "event":Lorg/yaml/snakeyaml/events/Event;
     .end local v2    # "contextMark":Lorg/yaml/snakeyaml/error/Mark;
-    :cond_2
+    :cond_3a
     iget-object v1, p0, Lorg/yaml/snakeyaml/composer/Composer;->parser:Lorg/yaml/snakeyaml/parser/Parser;
 
     invoke-interface {v1}, Lorg/yaml/snakeyaml/parser/Parser;->getEvent()Lorg/yaml/snakeyaml/events/Event;

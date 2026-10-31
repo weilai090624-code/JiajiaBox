@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 198
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 .end method
 
 .method private constructor <init>(Ljava/util/LinkedHashSet;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -80,7 +80,7 @@
 .end method
 
 .method public static fromSelector(Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/CameraSelector$Builder;
-    .locals 2
+    .registers 3
     .param p0, "cameraSelector"    # Landroidx/camera/core/CameraSelector;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public addCameraFilter(Landroidx/camera/core/CameraFilter;)Landroidx/camera/core/CameraSelector$Builder;
-    .locals 1
+    .registers 3
     .param p1, "cameraFilter"    # Landroidx/camera/core/CameraFilter;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -130,7 +130,7 @@
 .end method
 
 .method public build()Landroidx/camera/core/CameraSelector;
-    .locals 2
+    .registers 3
 
     .line 255
     new-instance v0, Landroidx/camera/core/CameraSelector;
@@ -143,7 +143,7 @@
 .end method
 
 .method public requireLensFacing(I)Landroidx/camera/core/CameraSelector$Builder;
-    .locals 2
+    .registers 4
     .param p1, "lensFacing"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

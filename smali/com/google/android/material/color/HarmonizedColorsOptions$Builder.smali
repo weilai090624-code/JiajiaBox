@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/color/HarmonizedColorsOptions$Builder;)[I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/HarmonizedColorsOptions$Builder;
 
     .line 79
@@ -55,7 +55,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/color/HarmonizedColorsOptions$Builder;)Lcom/google/android/material/color/HarmonizedColorAttributes;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/HarmonizedColorsOptions$Builder;
 
     .line 79
@@ -65,7 +65,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/color/HarmonizedColorsOptions$Builder;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/color/HarmonizedColorsOptions$Builder;
 
     .line 79
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public build()Lcom/google/android/material/color/HarmonizedColorsOptions;
-    .locals 2
+    .registers 3
 
     .line 129
     new-instance v0, Lcom/google/android/material/color/HarmonizedColorsOptions;
@@ -90,7 +90,7 @@
 .end method
 
 .method public setColorAttributeToHarmonizeWith(I)Lcom/google/android/material/color/HarmonizedColorsOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "colorAttributeToHarmonizeWith"    # I
 
     .line 123
@@ -101,7 +101,7 @@
 .end method
 
 .method public setColorAttributes(Lcom/google/android/material/color/HarmonizedColorAttributes;)Lcom/google/android/material/color/HarmonizedColorsOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "colorAttributes"    # Lcom/google/android/material/color/HarmonizedColorAttributes;
 
     .line 110
@@ -112,7 +112,7 @@
 .end method
 
 .method public setColorResourceIds([I)Lcom/google/android/material/color/HarmonizedColorsOptions$Builder;
-    .locals 0
+    .registers 2
     .param p1, "colorResourceIds"    # [I
 
     .line 93

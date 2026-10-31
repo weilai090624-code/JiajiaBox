@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/StandardTable$Row;Ljava/util/Map$Entry;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/google/common/collect/StandardTable$Row;
 
     .line 407
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 407
     .local p0, "this":Lcom/google/common/collect/StandardTable$Row$2;, "Lcom/google/common/collect/StandardTable$Row$2;"
@@ -54,7 +54,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Map$Entry;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -71,7 +71,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -87,7 +87,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"

@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/TrustedListenableFutureTask;Ljava/util/concurrent/Callable;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method afterRanInterruptiblyFailure(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "error"    # Ljava/lang/Throwable;
 
     .line 141
@@ -82,7 +82,7 @@
 .end method
 
 .method afterRanInterruptiblySuccess(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
         .end annotation
@@ -105,7 +105,7 @@
 .end method
 
 .method final isDone()Z
-    .locals 1
+    .registers 2
 
     .line 125
     .local p0, "this":Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleTask;, "Lcom/google/common/util/concurrent/TrustedListenableFutureTask<TV;>.TrustedFutureInterruptibleTask;"
@@ -119,7 +119,7 @@
 .end method
 
 .method runInterruptibly()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
     .end annotation
 
@@ -147,7 +147,7 @@
 .end method
 
 .method toPendingString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 146
     .local p0, "this":Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleTask;, "Lcom/google/common/util/concurrent/TrustedListenableFutureTask<TV;>.TrustedFutureInterruptibleTask;"

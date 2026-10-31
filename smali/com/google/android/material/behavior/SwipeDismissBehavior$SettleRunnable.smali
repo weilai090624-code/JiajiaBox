@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/behavior/SwipeDismissBehavior;Landroid/view/View;Z)V
-    .locals 0
+    .registers 4
     .param p2, "view"    # Landroid/view/View;
     .param p3, "dismiss"    # Z
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 410
     .local p0, "this":Lcom/google/android/material/behavior/SwipeDismissBehavior$SettleRunnable;, "Lcom/google/android/material/behavior/SwipeDismissBehavior<TV;>.SettleRunnable;"
@@ -58,7 +58,7 @@
 
     iget-object v0, v0, Lcom/google/android/material/behavior/SwipeDismissBehavior;->viewDragHelper:Landroidx/customview/widget/ViewDragHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     iget-object v0, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$SettleRunnable;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
@@ -70,26 +70,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 411
     iget-object v0, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$SettleRunnable;->view:Landroid/view/View;
 
     invoke-static {v0, p0}, Landroidx/core/view/ViewCompat;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 413
-    :cond_0
+    :cond_17
     iget-boolean v0, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$SettleRunnable;->dismiss:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     iget-object v0, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$SettleRunnable;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
 
     iget-object v0, v0, Lcom/google/android/material/behavior/SwipeDismissBehavior;->listener:Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 414
     iget-object v0, p0, Lcom/google/android/material/behavior/SwipeDismissBehavior$SettleRunnable;->this$0:Lcom/google/android/material/behavior/SwipeDismissBehavior;
@@ -101,7 +101,7 @@
     invoke-interface {v0, v1}, Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;->onDismiss(Landroid/view/View;)V
 
     .line 417
-    :cond_1
-    :goto_0
+    :cond_2a
+    :goto_2a
     return-void
 .end method

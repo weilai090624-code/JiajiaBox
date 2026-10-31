@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$and(Ljava/util/function/IntPredicate;Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/IntPredicate;
     .param p1, "other"    # Ljava/util/function/IntPredicate;
 
@@ -21,7 +21,7 @@
 .end method
 
 .method public static $default$negate(Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Ljava/util/function/IntPredicate;
 
     .line 81
@@ -33,7 +33,7 @@
 .end method
 
 .method public static $default$or(Ljava/util/function/IntPredicate;Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/IntPredicate;
     .param p1, "other"    # Ljava/util/function/IntPredicate;
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public static synthetic $private$lambda$and$0(Ljava/util/function/IntPredicate;Ljava/util/function/IntPredicate;I)Z
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/IntPredicate;
     .param p1, "other"    # Ljava/util/function/IntPredicate;
     .param p2, "value"    # I
@@ -59,27 +59,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-interface {p1, p2}, Ljava/util/function/IntPredicate;->test(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public static synthetic $private$lambda$negate$1(Ljava/util/function/IntPredicate;I)Z
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Ljava/util/function/IntPredicate;
     .param p1, "value"    # I
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public static synthetic $private$lambda$or$2(Ljava/util/function/IntPredicate;Ljava/util/function/IntPredicate;I)Z
-    .locals 1
+    .registers 4
     .param p0, "_this"    # Ljava/util/function/IntPredicate;
     .param p1, "other"    # Ljava/util/function/IntPredicate;
     .param p2, "value"    # I
@@ -104,25 +104,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-interface {p1, p2}, Ljava/util/function/IntPredicate;->test(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method

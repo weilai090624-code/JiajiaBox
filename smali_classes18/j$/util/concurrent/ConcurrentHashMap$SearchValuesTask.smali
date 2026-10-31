@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/concurrent/ConcurrentHashMap$BulkTask;III[Lj$/util/concurrent/ConcurrentHashMap$Node;Ljava/util/function/Function;Ljava/util/concurrent/atomic/AtomicReference;)V
-    .locals 0
+    .registers 8
     .param p2, "b"    # I
     .param p3, "i"    # I
     .param p4, "f"    # I
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public final compute()V
-    .locals 13
+    .registers 14
 
     .line 5275
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$SearchValuesTask;, "Ljava/util/concurrent/ConcurrentHashMap$SearchValuesTask<TK;TV;TU;>;"
@@ -97,23 +97,23 @@
     move-object v9, v0
 
     .local v9, "searchFunction":Ljava/util/function/Function;, "Ljava/util/function/Function<-TV;+TU;>;"
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_61
 
     iget-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$SearchValuesTask;->result:Ljava/util/concurrent/atomic/AtomicReference;
 
     move-object v10, v0
 
     .local v10, "result":Ljava/util/concurrent/atomic/AtomicReference;, "Ljava/util/concurrent/atomic/AtomicReference<TU;>;"
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_61
 
     .line 5277
     iget v0, p0, Lj$/util/concurrent/ConcurrentHashMap$SearchValuesTask;->baseIndex:I
 
     .local v0, "i":I
-    :goto_0
+    :goto_c
     iget v1, p0, Lj$/util/concurrent/ConcurrentHashMap$SearchValuesTask;->batch:I
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_3b
 
     iget v1, p0, Lj$/util/concurrent/ConcurrentHashMap$SearchValuesTask;->baseLimit:I
 
@@ -129,20 +129,20 @@
     move v11, v1
 
     .local v11, "h":I
-    if-le v1, v0, :cond_1
+    if-le v1, v0, :cond_3b
 
     .line 5279
     invoke-virtual {v10}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     .line 5280
     return-void
 
     .line 5281
-    :cond_0
+    :cond_20
     invoke-virtual {p0, v2}, Lj$/util/concurrent/ConcurrentHashMap$SearchValuesTask;->addToPendingCount(I)V
 
     .line 5282
@@ -173,19 +173,19 @@
     .line 5284
     invoke-virtual {v12}, Lj$/util/concurrent/ConcurrentHashMap$SearchValuesTask;->fork()Ljava/util/concurrent/ForkJoinTask;
 
-    goto :goto_0
+    goto :goto_c
 
     .line 5286
     .end local v0    # "i":I
     .end local v5    # "f":I
     .end local v11    # "h":I
-    :cond_1
-    :goto_1
+    :cond_3b
+    :goto_3b
     invoke-virtual {v10}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_61
 
     .line 5289
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$SearchValuesTask;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
@@ -195,16 +195,16 @@
     move-object v1, v0
 
     .local v1, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4c
 
     .line 5290
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$SearchValuesTask;->propagateCompletion()V
 
     .line 5291
-    goto :goto_2
+    goto :goto_61
 
     .line 5293
-    :cond_2
+    :cond_4c
     iget-object v0, v1, Lj$/util/concurrent/ConcurrentHashMap$Node;->val:Ljava/lang/Object;
 
     invoke-interface {v9, v0}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
@@ -214,7 +214,7 @@
     move-object v2, v0
 
     .local v2, "u":Ljava/lang/Object;, "TU;"
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_60
 
     .line 5294
     const/4 v0, 0x0
@@ -223,28 +223,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_61
 
     .line 5295
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$SearchValuesTask;->quietlyCompleteRoot()V
 
-    goto :goto_2
+    goto :goto_61
 
     .line 5298
     .end local v1    # "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
     .end local v2    # "u":Ljava/lang/Object;, "TU;"
-    :cond_3
-    goto :goto_1
+    :cond_60
+    goto :goto_3b
 
     .line 5300
     .end local v10    # "result":Ljava/util/concurrent/atomic/AtomicReference;, "Ljava/util/concurrent/atomic/AtomicReference<TU;>;"
-    :cond_4
-    :goto_2
+    :cond_61
+    :goto_61
     return-void
 .end method
 
 .method public final getRawResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TU;"

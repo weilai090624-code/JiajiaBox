@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 230
     new-instance v0, Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
 
     .line 234
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public get(Lcom/google/android/material/circularreveal/CircularRevealWidget;)Ljava/lang/Integer;
-    .locals 1
+    .registers 3
     .param p1, "object"    # Lcom/google/android/material/circularreveal/CircularRevealWidget;
 
     .line 240
@@ -84,7 +84,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 228
     check-cast p1, Lcom/google/android/material/circularreveal/CircularRevealWidget;
@@ -97,7 +97,7 @@
 .end method
 
 .method public set(Lcom/google/android/material/circularreveal/CircularRevealWidget;Ljava/lang/Integer;)V
-    .locals 1
+    .registers 4
     .param p1, "object"    # Lcom/google/android/material/circularreveal/CircularRevealWidget;
     .param p2, "value"    # Ljava/lang/Integer;
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 228
     check-cast p1, Lcom/google/android/material/circularreveal/CircularRevealWidget;

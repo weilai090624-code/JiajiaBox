@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static makeDouble(DLjava/util/function/DoubleBinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 5
     .param p0, "identity"    # D
     .param p2, "operator"    # Ljava/util/function/DoubleBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
@@ -55,7 +55,7 @@
 .end method
 
 .method public static makeDouble(Ljava/util/function/DoubleBinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 3
     .param p0, "operator"    # Ljava/util/function/DoubleBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,7 +83,7 @@
 .end method
 
 .method public static makeDouble(Ljava/util/function/Supplier;Ljava/util/function/ObjDoubleConsumer;Ljava/util/function/BinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -124,7 +124,7 @@
 .end method
 
 .method public static makeDoubleCounting()Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -146,7 +146,7 @@
 .end method
 
 .method public static makeInt(ILjava/util/function/IntBinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 4
     .param p0, "identity"    # I
     .param p1, "operator"    # Ljava/util/function/IntBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
@@ -175,7 +175,7 @@
 .end method
 
 .method public static makeInt(Ljava/util/function/IntBinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 3
     .param p0, "operator"    # Ljava/util/function/IntBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -203,7 +203,7 @@
 .end method
 
 .method public static makeInt(Ljava/util/function/Supplier;Ljava/util/function/ObjIntConsumer;Ljava/util/function/BinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -244,7 +244,7 @@
 .end method
 
 .method public static makeIntCounting()Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -266,7 +266,7 @@
 .end method
 
 .method public static makeLong(JLjava/util/function/LongBinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 5
     .param p0, "identity"    # J
     .param p2, "operator"    # Ljava/util/function/LongBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
@@ -295,7 +295,7 @@
 .end method
 
 .method public static makeLong(Ljava/util/function/LongBinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 3
     .param p0, "operator"    # Ljava/util/function/LongBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -323,7 +323,7 @@
 .end method
 
 .method public static makeLong(Ljava/util/function/Supplier;Ljava/util/function/ObjLongConsumer;Ljava/util/function/BinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -364,7 +364,7 @@
 .end method
 
 .method public static makeLongCounting()Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -386,7 +386,7 @@
 .end method
 
 .method public static makeRef(Lj$/util/stream/Collector;)Lj$/util/stream/TerminalOp;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -447,7 +447,7 @@
 .end method
 
 .method public static makeRef(Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/function/BinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -484,7 +484,7 @@
 .end method
 
 .method public static makeRef(Ljava/util/function/BinaryOperator;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -514,7 +514,7 @@
 .end method
 
 .method public static makeRef(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -556,7 +556,7 @@
 .end method
 
 .method public static makeRefCounting()Lj$/util/stream/TerminalOp;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

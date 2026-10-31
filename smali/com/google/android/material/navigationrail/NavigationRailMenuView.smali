@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
 
     .line 46
@@ -53,7 +53,7 @@
 .end method
 
 .method private makeSharedHeightSpec(III)I
-    .locals 4
+    .registers 8
     .param p1, "parentWidthSpec"    # I
     .param p2, "maxHeight"    # I
     .param p3, "shareCount"    # I
@@ -73,20 +73,20 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_f
 
     .line 98
     iget v1, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->itemMinimumHeight:I
 
-    goto :goto_0
+    goto :goto_13
 
     .line 99
-    :cond_0
+    :cond_f
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v1
 
-    :goto_0
+    :goto_13
     nop
 
     .line 100
@@ -105,7 +105,7 @@
 .end method
 
 .method private measureChildHeight(Landroid/view/View;II)I
-    .locals 2
+    .registers 6
     .param p1, "child"    # Landroid/view/View;
     .param p2, "widthMeasureSpec"    # I
     .param p3, "heightMeasureSpec"    # I
@@ -117,7 +117,7 @@
 
     const/16 v1, 0x8
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_10
 
     .line 145
     invoke-virtual {p1, p2, p3}, Landroid/view/View;->measure(II)V
@@ -130,21 +130,21 @@
     return v0
 
     .line 149
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private measureSharedChildHeights(IIILandroid/view/View;)I
-    .locals 6
+    .registers 11
     .param p1, "widthMeasureSpec"    # I
     .param p2, "maxHeight"    # I
     .param p3, "shareCount"    # I
     .param p4, "selectedView"    # Landroid/view/View;
 
     .line 121
-    if-nez p4, :cond_0
+    if-nez p4, :cond_7
 
     .line 122
     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->makeSharedHeightSpec(III)I
@@ -152,11 +152,11 @@
     move-result v0
 
     .local v0, "childHeightSpec":I
-    goto :goto_0
+    goto :goto_11
 
     .line 127
     .end local v0    # "childHeightSpec":I
-    :cond_0
+    :cond_7
     nop
 
     .line 128
@@ -172,7 +172,7 @@
 
     .line 131
     .restart local v0    # "childHeightSpec":I
-    :goto_0
+    :goto_11
     invoke-virtual {p0}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->getChildCount()I
 
     move-result v1
@@ -186,8 +186,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v1, :cond_2
+    :goto_17
+    if-ge v3, v1, :cond_27
 
     .line 134
     invoke-virtual {p0, v3}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->getChildAt(I)Landroid/view/View;
@@ -196,7 +196,7 @@
 
     .line 135
     .local v4, "child":Landroid/view/View;
-    if-eq v4, p4, :cond_1
+    if-eq v4, p4, :cond_24
 
     .line 136
     invoke-direct {p0, v4, p1, v0}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->measureChildHeight(Landroid/view/View;II)I
@@ -207,19 +207,19 @@
 
     .line 133
     .end local v4    # "child":Landroid/view/View;
-    :cond_1
+    :cond_24
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_17
 
     .line 140
     .end local v3    # "i":I
-    :cond_2
+    :cond_27
     return v2
 .end method
 
 .method private measureShiftingChildHeights(III)I
-    .locals 3
+    .registers 7
     .param p1, "widthMeasureSpec"    # I
     .param p2, "maxHeight"    # I
     .param p3, "shareCount"    # I
@@ -239,7 +239,7 @@
 
     .line 107
     .local v1, "selectedView":Landroid/view/View;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 108
     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->makeSharedHeightSpec(III)I
@@ -260,7 +260,7 @@
 
     .line 114
     .end local v2    # "childHeightSpec":I
-    :cond_0
+    :cond_16
     nop
 
     .line 115
@@ -277,7 +277,7 @@
 
 # virtual methods
 .method protected createNavigationBarItemView(Landroid/content/Context;)Lcom/google/android/material/navigation/NavigationBarItemView;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 89
@@ -289,7 +289,7 @@
 .end method
 
 .method public getItemMinimumHeight()I
-    .locals 1
+    .registers 2
 
     .line 172
     iget v0, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->itemMinimumHeight:I
@@ -298,7 +298,7 @@
 .end method
 
 .method getMenuGravity()I
-    .locals 1
+    .registers 2
 
     .line 160
     iget-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->layoutParams:Landroid/widget/FrameLayout$LayoutParams;
@@ -309,7 +309,7 @@
 .end method
 
 .method isTopGravity()Z
-    .locals 2
+    .registers 3
 
     .line 176
     iget-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->layoutParams:Landroid/widget/FrameLayout$LayoutParams;
@@ -320,21 +320,21 @@
 
     const/16 v1, 0x30
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 8
+    .registers 14
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -359,8 +359,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v0, :cond_1
+    :goto_8
+    if-ge v3, v0, :cond_24
 
     .line 77
     invoke-virtual {p0, v3}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->getChildAt(I)Landroid/view/View;
@@ -375,7 +375,7 @@
 
     const/16 v6, 0x8
 
-    if-eq v5, v6, :cond_0
+    if-eq v5, v6, :cond_21
 
     .line 79
     invoke-virtual {v4}, Landroid/view/View;->getMeasuredHeight()I
@@ -396,19 +396,19 @@
     .line 76
     .end local v4    # "child":Landroid/view/View;
     .end local v5    # "childHeight":I
-    :cond_0
+    :cond_21
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 84
     .end local v3    # "i":I
-    :cond_1
+    :cond_24
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 5
+    .registers 8
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -435,7 +435,7 @@
     .local v1, "visibleCount":I
     const/4 v2, 0x1
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_22
 
     invoke-virtual {p0}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->getLabelVisibilityMode()I
 
@@ -445,7 +445,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     .line 60
     invoke-direct {p0, p1, v0, v1}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->measureShiftingChildHeights(III)I
@@ -453,11 +453,11 @@
     move-result v2
 
     .local v2, "measuredHeight":I
-    goto :goto_0
+    goto :goto_27
 
     .line 62
     .end local v2    # "measuredHeight":I
-    :cond_0
+    :cond_22
     const/4 v2, 0x0
 
     invoke-direct {p0, p1, v0, v1, v2}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->measureSharedChildHeights(IIILandroid/view/View;)I
@@ -466,7 +466,7 @@
 
     .line 66
     .restart local v2    # "measuredHeight":I
-    :goto_0
+    :goto_27
     nop
 
     .line 67
@@ -489,13 +489,13 @@
 .end method
 
 .method public setItemMinimumHeight(I)V
-    .locals 1
+    .registers 3
     .param p1, "minHeight"    # I
 
     .line 164
     iget v0, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->itemMinimumHeight:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_9
 
     .line 165
     iput p1, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->itemMinimumHeight:I
@@ -504,12 +504,12 @@
     invoke-virtual {p0}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->requestLayout()V
 
     .line 168
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method setMenuGravity(I)V
-    .locals 1
+    .registers 3
     .param p1, "gravity"    # I
 
     .line 153
@@ -517,7 +517,7 @@
 
     iget v0, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_f
 
     .line 154
     iget-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->layoutParams:Landroid/widget/FrameLayout$LayoutParams;
@@ -530,6 +530,6 @@
     invoke-virtual {p0, v0}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 157
-    :cond_0
+    :cond_f
     return-void
 .end method

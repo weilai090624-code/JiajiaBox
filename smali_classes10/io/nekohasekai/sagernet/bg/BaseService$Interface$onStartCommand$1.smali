@@ -78,7 +78,7 @@
 
 # direct methods
 .method constructor <init>(Lio/nekohasekai/sagernet/bg/BaseService$Data;Lio/nekohasekai/sagernet/bg/BaseService$Interface;Lio/nekohasekai/sagernet/database/ProxyEntity;Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -146,7 +146,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -160,7 +160,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -189,7 +189,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .registers 10
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -204,7 +204,7 @@
 
     const/4 v4, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_154
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -215,59 +215,59 @@
     throw p1
 
     .local p1, "$result":Ljava/lang/Object;
-    :pswitch_0
-    :try_start_0
+    :pswitch_14
+    :try_start_14
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_14a
 
-    :pswitch_1
+    :pswitch_19
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_98
 
-    :pswitch_2
+    :pswitch_1e
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_6b
 
-    :pswitch_3
+    :pswitch_22
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_14 .. :try_end_25} :catch_2f
+    .catch Ljava/net/UnknownHostException; {:try_start_14 .. :try_end_25} :catch_2c
+    .catch Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException; {:try_start_14 .. :try_end_25} :catch_29
+    .catchall {:try_start_14 .. :try_end_25} :catchall_26
 
-    goto :goto_0
+    goto :goto_5d
 
     .line 385
-    :catchall_0
+    :catchall_26
     move-exception v0
 
-    goto/16 :goto_3
+    goto/16 :goto_ae
 
     .line 380
-    :catch_0
+    :catch_29
     move-exception v0
 
-    goto/16 :goto_5
+    goto/16 :goto_103
 
     .line 378
-    :catch_1
+    :catch_2c
     move-exception v0
 
-    goto/16 :goto_6
+    goto/16 :goto_132
 
     .line 377
-    :catch_2
+    :catch_2f
     move-exception v0
 
-    goto/16 :goto_7
+    goto/16 :goto_14a
 
     .line 359
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_4
+    :pswitch_32
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 360
@@ -275,7 +275,7 @@
     nop
 
     .line 361
-    :try_start_1
+    :try_start_36
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/BaseService$Interface$onStartCommand$1;->$data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
 
     iget-object v5, p0, Lio/nekohasekai/sagernet/bg/BaseService$Interface$onStartCommand$1;->this$0:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
@@ -314,14 +314,14 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_5d
 
     .line 359
     return-object v0
 
     .line 365
-    :cond_0
-    :goto_0
+    :cond_5d
+    :goto_5d
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/BaseService$Interface$onStartCommand$1;->$proxy:Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
 
     move-object v5, p0
@@ -334,14 +334,14 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_6b
 
     .line 359
     return-object v0
 
     .line 366
-    :cond_1
-    :goto_1
+    :cond_6b
+    :goto_6b
     sget-object v1, Lio/nekohasekai/sagernet/database/DataStore;->INSTANCE:Lio/nekohasekai/sagernet/database/DataStore;
 
     iget-object v5, p0, Lio/nekohasekai/sagernet/bg/BaseService$Interface$onStartCommand$1;->$profile:Lio/nekohasekai/sagernet/database/ProxyEntity;
@@ -384,14 +384,14 @@
 
     move-result-object v1
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_98
 
     .line 359
     return-object v0
 
     .line 374
-    :cond_2
-    :goto_2
+    :cond_98
+    :goto_98
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/BaseService$Interface$onStartCommand$1;->$data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
 
     sget-object v5, Lio/nekohasekai/sagernet/bg/BaseService$State;->Connected:Lio/nekohasekai/sagernet/bg/BaseService$State;
@@ -412,21 +412,21 @@
     invoke-interface {v1, v5}, Lio/nekohasekai/sagernet/bg/BaseService$Interface;->lateInit(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/net/UnknownHostException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_ab
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_36 .. :try_end_ab} :catch_2f
+    .catch Ljava/net/UnknownHostException; {:try_start_36 .. :try_end_ab} :catch_2c
+    .catch Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException; {:try_start_36 .. :try_end_ab} :catch_29
+    .catchall {:try_start_36 .. :try_end_ab} :catchall_26
 
-    if-ne v1, v0, :cond_4
+    if-ne v1, v0, :cond_14a
 
     .line 359
     return-object v0
 
     .line 386
     .local v0, "exc":Ljava/lang/Throwable;
-    :goto_3
-    :try_start_2
+    :goto_ae
+    :try_start_ae
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -445,7 +445,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_d2
 
     .line 388
     sget-object v1, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
@@ -460,16 +460,16 @@
 
     invoke-virtual {v1, v2}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/String;)V
 
-    goto :goto_4
+    goto :goto_d7
 
     .line 390
-    :cond_3
+    :cond_d2
     sget-object v1, Lio/nekohasekai/sagernet/ktx/Logs;->INSTANCE:Lio/nekohasekai/sagernet/ktx/Logs;
 
     invoke-virtual {v1, v0}, Lio/nekohasekai/sagernet/ktx/Logs;->w(Ljava/lang/Throwable;)V
 
     .line 392
-    :goto_4
+    :goto_d7
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/BaseService$Interface$onStartCommand$1;->this$0:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     .line 393
@@ -513,11 +513,11 @@
     invoke-interface {v1, v3, v2}, Lio/nekohasekai/sagernet/bg/BaseService$Interface;->stopRunner(ZLjava/lang/String;)V
 
     .end local v0    # "exc":Ljava/lang/Throwable;
-    goto :goto_7
+    goto :goto_14a
 
     .line 381
     .local v0, "e":Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException;
-    :goto_5
+    :goto_103
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/BaseService$Interface$onStartCommand$1;->this$0:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     check-cast v1, Landroid/content/Context;
@@ -566,10 +566,10 @@
     invoke-interface {v1, v3, v4}, Lio/nekohasekai/sagernet/bg/BaseService$Interface;->stopRunner(ZLjava/lang/String;)V
 
     .end local v0    # "e":Lio/nekohasekai/sagernet/plugin/PluginManager$PluginNotFoundException;
-    goto :goto_7
+    goto :goto_14a
 
     .line 379
-    :goto_6
+    :goto_132
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Interface$onStartCommand$1;->this$0:Lio/nekohasekai/sagernet/bg/BaseService$Interface;
 
     .line 393
@@ -585,13 +585,13 @@
     move-result-object v1
 
     invoke-interface {v0, v3, v1}, Lio/nekohasekai/sagernet/bg/BaseService$Interface;->stopRunner(ZLjava/lang/String;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_142
+    .catchall {:try_start_ae .. :try_end_142} :catchall_143
 
-    goto :goto_7
+    goto :goto_14a
 
     .line 396
-    :catchall_1
+    :catchall_143
     move-exception v0
 
     iget-object v1, p0, Lio/nekohasekai/sagernet/bg/BaseService$Interface$onStartCommand$1;->$data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
@@ -600,8 +600,8 @@
 
     throw v0
 
-    :cond_4
-    :goto_7
+    :cond_14a
+    :goto_14a
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Interface$onStartCommand$1;->$data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
 
     invoke-virtual {v0, v4}, Lio/nekohasekai/sagernet/bg/BaseService$Data;->setConnectingJob(Lkotlinx/coroutines/Job;)V
@@ -616,12 +616,12 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_154
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_32
+        :pswitch_22
+        :pswitch_1e
+        :pswitch_19
+        :pswitch_14
     .end packed-switch
 .end method

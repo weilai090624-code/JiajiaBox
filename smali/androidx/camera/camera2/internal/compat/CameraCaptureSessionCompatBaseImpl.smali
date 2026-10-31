@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/CameraCaptureSession;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "captureSession"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p2, "implParams"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -56,7 +56,7 @@
 .end method
 
 .method static create(Landroid/hardware/camera2/CameraCaptureSession;Landroid/os/Handler;)Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$CameraCaptureSessionCompatImpl;
-    .locals 2
+    .registers 4
     .param p0, "captureSession"    # Landroid/hardware/camera2/CameraCaptureSession;
     .param p1, "compatHandler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public captureBurstRequests(Ljava/util/List;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)I
-    .locals 4
+    .registers 8
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "listener"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -145,7 +145,7 @@
 .end method
 
 .method public captureSingleRequest(Landroid/hardware/camera2/CaptureRequest;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)I
-    .locals 4
+    .registers 8
     .param p1, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "listener"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
@@ -193,7 +193,7 @@
 .end method
 
 .method public setRepeatingBurstRequests(Ljava/util/List;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)I
-    .locals 4
+    .registers 8
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "listener"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -253,7 +253,7 @@
 .end method
 
 .method public setSingleRepeatingRequest(Landroid/hardware/camera2/CaptureRequest;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;)I
-    .locals 4
+    .registers 8
     .param p1, "request"    # Landroid/hardware/camera2/CaptureRequest;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "listener"    # Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
@@ -301,7 +301,7 @@
 .end method
 
 .method public unwrap()Landroid/hardware/camera2/CameraCaptureSession;
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompatBaseImpl;->mCameraCaptureSession:Landroid/hardware/camera2/CameraCaptureSession;

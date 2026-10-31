@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/emoji2/text/EmojiCompat$CompatInternal19;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/emoji2/text/EmojiCompat$CompatInternal19;
 
     .line 1627
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onFailed(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 1635
@@ -49,7 +49,7 @@
 .end method
 
 .method public onLoaded(Landroidx/emoji2/text/MetadataRepo;)V
-    .locals 1
+    .registers 3
     .param p1, "metadataRepo"    # Landroidx/emoji2/text/MetadataRepo;
 
     .line 1630

@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Buffer;)V
-    .locals 0
+    .registers 2
     .param p1, "$receiver"    # Lokio/Buffer;
 
     iput-object p1, p0, Lokio/Buffer$outputStream$1;->this$0:Lokio/Buffer;
@@ -64,21 +64,21 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
 
     .line 99
     return-void
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
 
     .line 97
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 101
     new-instance v0, Ljava/lang/StringBuilder;
@@ -105,7 +105,7 @@
 .end method
 
 .method public write(I)V
-    .locals 1
+    .registers 3
     .param p1, "b"    # I
 
     .line 90
@@ -118,7 +118,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 1
+    .registers 5
     .param p1, "data"    # [B
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I

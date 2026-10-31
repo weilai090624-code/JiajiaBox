@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/function/BiPredicate;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public synthetic and(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/BiPredicate$-CC;->$default$and(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public synthetic negate()Ljava/util/function/BiPredicate;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/function/BiPredicate$-CC;->$default$negate(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public synthetic or(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/BiPredicate$-CC;->$default$or(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public final test(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Lj$/util/function/BiPredicate$$ExternalSyntheticLambda0;->f$0:Ljava/util/function/BiPredicate;
 

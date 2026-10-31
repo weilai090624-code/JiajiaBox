@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 7
+    .registers 9
     .param p1, "file"    # Ljava/io/File;
 
     const-string v0, "file"

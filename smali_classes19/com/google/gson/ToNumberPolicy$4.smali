@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 88
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public bridge synthetic readNumber(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Number;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -45,7 +45,7 @@
 .end method
 
 .method public readNumber(Lcom/google/gson/stream/JsonReader;)Ljava/math/BigDecimal;
-    .locals 5
+    .registers 7
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -60,17 +60,17 @@
 
     .line 92
     .local v0, "value":Ljava/lang/String;
-    :try_start_0
+    :try_start_4
     new-instance v1, Ljava/math/BigDecimal;
 
     invoke-direct {v1, v0}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_9} :catch_a
 
     return-object v1
 
     .line 93
-    :catch_0
+    :catch_a
     move-exception v1
 
     .line 94

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(JDDD)V
-    .locals 5
+    .registers 14
     .param p1, "count"    # J
     .param p3, "min"    # D
     .param p5, "max"    # D
@@ -66,17 +66,17 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_4
+    if-ltz v2, :cond_61
 
     .line 113
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_3
+    if-lez v2, :cond_60
 
     .line 114
     cmpl-double v2, p3, p5
 
-    if-gtz v2, :cond_2
+    if-gtz v2, :cond_58
 
     .line 118
     const/4 v2, 0x3
@@ -115,18 +115,18 @@
     .local v2, "ncount":J
     cmp-long v4, v2, v0
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_49
 
     const-wide/16 v0, 0x3
 
     cmp-long v4, v2, v0
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_41
 
-    goto :goto_0
+    goto :goto_49
 
     .line 120
-    :cond_0
+    :cond_41
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Some, not all, of the minimum, maximum, or sum is NaN"
@@ -136,8 +136,8 @@
     throw v0
 
     .line 122
-    :cond_1
-    :goto_0
+    :cond_49
+    :goto_49
     iput-wide p1, p0, Lj$/util/DoubleSummaryStatistics;->count:J
 
     .line 123
@@ -157,11 +157,11 @@
     .line 127
     iput-wide p5, p0, Lj$/util/DoubleSummaryStatistics;->max:D
 
-    goto :goto_1
+    goto :goto_60
 
     .line 115
     .end local v2    # "ncount":J
-    :cond_2
+    :cond_58
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Minimum greater than maximum"
@@ -171,12 +171,12 @@
     throw v0
 
     .line 130
-    :cond_3
-    :goto_1
+    :cond_60
+    :goto_60
     return-void
 
     .line 112
-    :cond_4
+    :cond_61
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Negative count value"
@@ -187,7 +187,7 @@
 .end method
 
 .method private sumWithCompensation(D)V
-    .locals 6
+    .registers 9
     .param p1, "value"    # D
 
     .line 167
@@ -221,7 +221,7 @@
 
 # virtual methods
 .method public accept(D)V
-    .locals 4
+    .registers 7
     .param p1, "value"    # D
 
     .line 139
@@ -266,7 +266,7 @@
 .end method
 
 .method public synthetic andThen(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/function/DoubleConsumer$-CC;->$default$andThen(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
 
@@ -276,7 +276,7 @@
 .end method
 
 .method public combine(Lj$/util/DoubleSummaryStatistics;)V
-    .locals 4
+    .registers 6
     .param p1, "other"    # Lj$/util/DoubleSummaryStatistics;
 
     .line 154
@@ -334,7 +334,7 @@
 .end method
 
 .method public final getAverage()D
-    .locals 5
+    .registers 6
 
     .line 295
     invoke-virtual {p0}, Lj$/util/DoubleSummaryStatistics;->getCount()J
@@ -345,7 +345,7 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_15
 
     invoke-virtual {p0}, Lj$/util/DoubleSummaryStatistics;->getSum()D
 
@@ -359,17 +359,17 @@
 
     div-double/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const-wide/16 v0, 0x0
 
-    :goto_0
+    :goto_17
     return-wide v0
 .end method
 
 .method public final getCount()J
-    .locals 2
+    .registers 3
 
     .line 179
     iget-wide v0, p0, Lj$/util/DoubleSummaryStatistics;->count:J
@@ -378,7 +378,7 @@
 .end method
 
 .method public final getMax()D
-    .locals 2
+    .registers 3
 
     .line 278
     iget-wide v0, p0, Lj$/util/DoubleSummaryStatistics;->max:D
@@ -387,7 +387,7 @@
 .end method
 
 .method public final getMin()D
-    .locals 2
+    .registers 3
 
     .line 264
     iget-wide v0, p0, Lj$/util/DoubleSummaryStatistics;->min:D
@@ -396,7 +396,7 @@
 .end method
 
 .method public final getSum()D
-    .locals 4
+    .registers 5
 
     .line 242
     iget-wide v0, p0, Lj$/util/DoubleSummaryStatistics;->sum:D
@@ -411,7 +411,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     iget-wide v2, p0, Lj$/util/DoubleSummaryStatistics;->simpleSum:D
 
@@ -419,7 +419,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     .line 248
     iget-wide v2, p0, Lj$/util/DoubleSummaryStatistics;->simpleSum:D
@@ -427,12 +427,12 @@
     return-wide v2
 
     .line 250
-    :cond_0
+    :cond_16
     return-wide v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     .line 305
     nop

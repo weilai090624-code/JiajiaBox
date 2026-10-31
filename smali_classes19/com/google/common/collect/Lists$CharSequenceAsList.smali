@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 770
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Character;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 776
@@ -69,7 +69,7 @@
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 767
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Lists$CharSequenceAsList;->get(I)Ljava/lang/Character;
@@ -80,7 +80,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 782
     iget-object v0, p0, Lcom/google/common/collect/Lists$CharSequenceAsList;->sequence:Ljava/lang/CharSequence;

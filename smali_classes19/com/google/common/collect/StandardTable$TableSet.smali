@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/collect/StandardTable;)V
-    .locals 0
+    .registers 2
 
     .line 210
     .local p0, "this":Lcom/google/common/collect/StandardTable$TableSet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.TableSet<TT;>;"
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/google/common/collect/StandardTable;
     .param p2, "x1"    # Lcom/google/common/collect/StandardTable$1;
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 218
     .local p0, "this":Lcom/google/common/collect/StandardTable$TableSet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.TableSet<TT;>;"
@@ -71,7 +71,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 213
     .local p0, "this":Lcom/google/common/collect/StandardTable$TableSet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.TableSet<TT;>;"

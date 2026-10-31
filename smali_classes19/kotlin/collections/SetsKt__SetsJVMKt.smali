@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public static final build(Ljava/util/Set;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "builder"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,7 +89,7 @@
 .end method
 
 .method private static final buildSetInternal(ILkotlin/jvm/functions/Function1;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .param p0, "capacity"    # I
     .param p1, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -127,7 +127,7 @@
 .end method
 
 .method private static final buildSetInternal(Lkotlin/jvm/functions/Function1;)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,7 +164,7 @@
 .end method
 
 .method public static final createSetBuilder()Ljava/util/Set;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -186,7 +186,7 @@
 .end method
 
 .method public static final createSetBuilder(I)Ljava/util/Set;
-    .locals 1
+    .registers 2
     .param p0, "capacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -209,7 +209,7 @@
 .end method
 
 .method public static final setOf(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 2
+    .registers 3
     .param p0, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -234,7 +234,7 @@
 .end method
 
 .method public static final varargs sortedSetOf(Ljava/util/Comparator;[Ljava/lang/Object;)Ljava/util/TreeSet;
-    .locals 1
+    .registers 3
     .param p0, "comparator"    # Ljava/util/Comparator;
     .param p1, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -274,7 +274,7 @@
 .end method
 
 .method public static final varargs sortedSetOf([Ljava/lang/Object;)Ljava/util/TreeSet;
-    .locals 1
+    .registers 2
     .param p0, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

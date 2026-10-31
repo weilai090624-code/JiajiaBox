@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/room/AmbiguousColumnResolver;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -90,7 +90,7 @@
 .end method
 
 .method private final dfs(Ljava/util/List;Ljava/util/List;ILkotlin/jvm/functions/Function1;)V
-    .locals 8
+    .registers 13
     .param p1, "content"    # Ljava/util/List;
     .param p2, "current"    # Ljava/util/List;
     .param p3, "depth"    # I
@@ -120,7 +120,7 @@
 
     move-result v0
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_11
 
     .line 185
     move-object v0, p2
@@ -137,7 +137,7 @@
     return-void
 
     .line 188
-    :cond_0
+    :cond_11
     invoke-interface {p1, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -153,12 +153,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_38
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -193,10 +193,10 @@
     nop
 
     .end local v3    # "element$iv":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1c
 
     .line 279
-    :cond_1
+    :cond_38
     nop
 
     .line 193
@@ -206,12 +206,12 @@
 .end method
 
 .method static synthetic dfs$default(Landroidx/room/AmbiguousColumnResolver;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-    .locals 0
+    .registers 7
 
     .line 178
     and-int/lit8 p6, p5, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_b
 
     .line 180
     new-instance p2, Ljava/util/ArrayList;
@@ -221,23 +221,23 @@
     check-cast p2, Ljava/util/List;
 
     .line 178
-    :cond_0
+    :cond_b
     and-int/lit8 p5, p5, 0x4
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_10
 
     .line 181
     const/4 p3, 0x0
 
     .line 178
-    :cond_1
+    :cond_10
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/room/AmbiguousColumnResolver;->dfs(Ljava/util/List;Ljava/util/List;ILkotlin/jvm/functions/Function1;)V
 
     return-void
 .end method
 
 .method private final rabinKarpSearch(Ljava/util/List;[Ljava/lang/String;Lkotlin/jvm/functions/Function3;)V
-    .locals 8
+    .registers 12
     .param p1, "content"    # Ljava/util/List;
     .param p2, "pattern"    # [Ljava/lang/String;
     .param p3, "onHashMatch"    # Lkotlin/jvm/functions/Function3;
@@ -271,8 +271,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_4
+    if-ge v2, v0, :cond_12
 
     aget-object v4, p2, v2
 
@@ -294,9 +294,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
-    :cond_0
+    :cond_12
     move v0, v3
 
     .line 160
@@ -319,12 +319,12 @@
 
     move-result-object v4
 
-    :goto_1
+    :goto_1f
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_37
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -352,16 +352,16 @@
     .end local v6    # "$i$a$-sumOfInt-AmbiguousColumnResolver$rabinKarpSearch$rollingHash$1":I
     add-int/2addr v1, v5
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 163
     .local v1, "rollingHash":I
-    :cond_1
-    :goto_2
+    :cond_37
+    :goto_37
     nop
 
     .line 164
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_49
 
     .line 165
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -379,7 +379,7 @@
     invoke-interface {p3, v4, v5, v6}, Lkotlin/jvm/functions/Function3;->invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 167
-    :cond_2
+    :cond_49
     add-int/lit8 v2, v2, 0x1
 
     .line 168
@@ -390,7 +390,7 @@
 
     move-result v4
 
-    if-le v3, v4, :cond_3
+    if-le v3, v4, :cond_55
 
     .line 170
     nop
@@ -399,7 +399,7 @@
     return-void
 
     .line 173
-    :cond_3
+    :cond_55
     add-int/lit8 v4, v2, -0x1
 
     invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -437,11 +437,11 @@
 
     add-int/2addr v1, v4
 
-    goto :goto_2
+    goto :goto_37
 .end method
 
 .method public static final resolve([Ljava/lang/String;[[Ljava/lang/String;)[[I
-    .locals 35
+    .registers 37
     .param p0, "resultColumns"    # [Ljava/lang/String;
     .param p1, "mappings"    # [[Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -465,7 +465,7 @@
     .local v2, "i":I
     array-length v3, v0
 
-    :goto_0
+    :goto_10
     const-string/jumbo v4, "this as java.lang.String).toLowerCase(locale)"
 
     const-string v5, "US"
@@ -474,7 +474,7 @@
 
     const/4 v7, 0x1
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_50
 
     .line 71
     aget-object v8, v0, v2
@@ -487,7 +487,7 @@
 
     const/16 v9, 0x60
 
-    if-ne v6, v9, :cond_0
+    if-ne v6, v9, :cond_3e
 
     invoke-virtual {v8}, Ljava/lang/String;->length()I
 
@@ -499,7 +499,7 @@
 
     move-result v6
 
-    if-ne v6, v9, :cond_0
+    if-ne v6, v9, :cond_3e
 
     .line 73
     invoke-virtual {v8}, Ljava/lang/String;->length()I
@@ -516,14 +516,14 @@
 
     invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 75
-    :cond_0
+    :cond_3e
     move-object v6, v8
 
     .line 76
-    :goto_1
+    :goto_3f
     sget-object v7, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     invoke-static {v7, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
@@ -540,11 +540,11 @@
     .end local v8    # "column":Ljava/lang/String;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 78
     .end local v2    # "i":I
-    :cond_1
+    :cond_50
     const/4 v2, 0x0
 
     .restart local v2    # "i":I
@@ -554,8 +554,8 @@
 
     array-length v3, v3
 
-    :goto_2
-    if-ge v2, v3, :cond_3
+    :goto_55
+    if-ge v2, v3, :cond_77
 
     .line 79
     const/4 v8, 0x0
@@ -565,8 +565,8 @@
 
     array-length v9, v9
 
-    :goto_3
-    if-ge v8, v9, :cond_2
+    :goto_5b
+    if-ge v8, v9, :cond_74
 
     .line 80
     aget-object v10, v1, v2
@@ -590,18 +590,18 @@
     .line 79
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_3
+    goto :goto_5b
 
     .line 78
     .end local v8    # "j":I
-    :cond_2
+    :cond_74
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_55
 
     .line 85
     .end local v2    # "i":I
-    :cond_3
+    :cond_77
     invoke-static {}, Lkotlin/collections/SetsKt;->createSetBuilder()Ljava/util/Set;
 
     move-result-object v2
@@ -627,8 +627,8 @@
 
     const/4 v10, 0x0
 
-    :goto_4
-    if-ge v10, v9, :cond_4
+    :goto_83
+    if-ge v10, v9, :cond_95
 
     aget-object v11, v5, v10
 
@@ -656,10 +656,10 @@
     .end local v11    # "element$iv":Ljava/lang/Object;
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_4
+    goto :goto_83
 
     .line 256
-    :cond_4
+    :cond_95
     nop
 
     .line 85
@@ -701,8 +701,8 @@
 
     const/4 v12, 0x0
 
-    :goto_5
-    if-ge v12, v11, :cond_6
+    :goto_a7
+    if-ge v12, v11, :cond_c5
 
     aget-object v13, v8, v12
 
@@ -722,7 +722,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_5
+    if-eqz v17, :cond_be
 
     .line 89
     new-instance v7, Landroidx/room/AmbiguousColumnResolver$ResultColumn;
@@ -732,7 +732,7 @@
     invoke-interface {v4, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 91
-    :cond_5
+    :cond_be
     nop
 
     .line 258
@@ -748,12 +748,12 @@
 
     const/4 v7, 0x1
 
-    goto :goto_5
+    goto :goto_a7
 
     .line 259
     .end local v14    # "index$iv":I
     .local v10, "index$iv":I
-    :cond_6
+    :cond_c5
     nop
 
     .line 92
@@ -783,8 +783,8 @@
 
     const/4 v7, 0x0
 
-    :goto_6
-    if-ge v7, v4, :cond_7
+    :goto_d5
+    if-ge v7, v4, :cond_e6
 
     .line 254
     move v8, v7
@@ -806,9 +806,9 @@
 
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_6
+    goto :goto_d5
 
-    :cond_7
+    :cond_e6
     move-object v4, v5
 
     check-cast v4, Ljava/util/List;
@@ -832,8 +832,8 @@
 
     const/4 v10, 0x0
 
-    :goto_7
-    if-ge v10, v9, :cond_d
+    :goto_f0
+    if-ge v10, v9, :cond_209
 
     aget-object v11, v5, v10
 
@@ -880,7 +880,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_1f1
 
     .line 118
     move-object v6, v13
@@ -918,8 +918,8 @@
 
     .end local v5    # "$this$forEachIndexed$iv":[Ljava/lang/Object;
     .local v20, "$this$forEachIndexed$iv":[Ljava/lang/Object;
-    :goto_8
-    if-ge v5, v2, :cond_b
+    :goto_127
+    if-ge v5, v2, :cond_1d0
 
     aget-object v21, v1, v5
 
@@ -956,12 +956,12 @@
 
     move-result-object v29
 
-    :goto_9
+    :goto_141
     invoke-interface/range {v29 .. v29}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v30
 
-    if-eqz v30, :cond_9
+    if-eqz v30, :cond_181
 
     invoke-interface/range {v29 .. v29}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -995,7 +995,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_171
 
     .line 122
     invoke-virtual/range {v31 .. v31}, Landroidx/room/AmbiguousColumnResolver$ResultColumn;->getIndex()I
@@ -1015,13 +1015,13 @@
     .local v22, "usefulResultColumns":Ljava/util/List;
     invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_a
+    goto :goto_175
 
     .line 121
     .end local v22    # "usefulResultColumns":Ljava/util/List;
     .local v3, "usefulResultColumns":Ljava/util/List;
     .restart local v25    # "$this$resolve_u24lambda_u2410_u24lambda_u249_u24lambda_u246":Ljava/util/List;
-    :cond_8
+    :cond_171
     move-object/from16 v22, v3
 
     move-object/from16 v3, v25
@@ -1030,7 +1030,7 @@
     .end local v25    # "$this$resolve_u24lambda_u2410_u24lambda_u249_u24lambda_u246":Ljava/util/List;
     .local v3, "$this$resolve_u24lambda_u2410_u24lambda_u249_u24lambda_u246":Ljava/util/List;
     .restart local v22    # "usefulResultColumns":Ljava/util/List;
-    :goto_a
+    :goto_175
     nop
 
     .line 265
@@ -1047,7 +1047,7 @@
     move/from16 v2, v34
 
     .end local v30    # "element$iv":Ljava/lang/Object;
-    goto :goto_9
+    goto :goto_141
 
     .line 266
     .end local v2    # "mappingColumnName":Ljava/lang/String;
@@ -1056,7 +1056,7 @@
     .local v3, "usefulResultColumns":Ljava/util/List;
     .local v22, "mappingColumnName":Ljava/lang/String;
     .restart local v25    # "$this$resolve_u24lambda_u2410_u24lambda_u249_u24lambda_u246":Ljava/util/List;
-    :cond_9
+    :cond_181
     move-object/from16 v33, v1
 
     move/from16 v34, v2
@@ -1101,7 +1101,7 @@
 
     move-result v25
 
-    if-nez v25, :cond_a
+    if-nez v25, :cond_1ac
 
     .line 127
     nop
@@ -1126,7 +1126,7 @@
 
     move/from16 v2, v34
 
-    goto/16 :goto_8
+    goto/16 :goto_127
 
     .line 254
     .restart local v2    # "mappingColumnName":Ljava/lang/String;
@@ -1134,7 +1134,7 @@
     .restart local v21    # "item$iv$iv":Ljava/lang/Object;
     .restart local v23    # "$i$a$-map-AmbiguousColumnResolver$resolve$1$foundIndices$1":I
     .restart local v24    # "$i$a$-also-AmbiguousColumnResolver$resolve$1$foundIndices$1$2":I
-    :cond_a
+    :cond_1ac
     const/4 v1, 0x0
 
     .line 126
@@ -1183,7 +1183,7 @@
     .end local v33    # "$this$mapTo$iv$iv":[Ljava/lang/Object;
     .local v1, "$this$mapTo$iv$iv":[Ljava/lang/Object;
     .local v3, "usefulResultColumns":Ljava/util/List;
-    :cond_b
+    :cond_1d0
     move-object/from16 v33, v1
 
     move-object/from16 v22, v3
@@ -1227,7 +1227,7 @@
 
     invoke-static/range {v25 .. v31}, Landroidx/room/AmbiguousColumnResolver;->dfs$default(Landroidx/room/AmbiguousColumnResolver;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 
-    goto :goto_b
+    goto :goto_1f7
 
     .line 117
     .end local v19    # "requestedColumns":Ljava/util/Set;
@@ -1237,7 +1237,7 @@
     .local v2, "requestedColumns":Ljava/util/Set;
     .restart local v3    # "usefulResultColumns":Ljava/util/List;
     .restart local v5    # "$this$forEachIndexed$iv":[Ljava/lang/Object;
-    :cond_c
+    :cond_1f1
     move-object/from16 v19, v2
 
     move-object/from16 v22, v3
@@ -1251,7 +1251,7 @@
     .restart local v19    # "requestedColumns":Ljava/util/Set;
     .restart local v20    # "$this$forEachIndexed$iv":[Ljava/lang/Object;
     .restart local v22    # "usefulResultColumns":Ljava/util/List;
-    :goto_b
+    :goto_1f7
     nop
 
     .line 261
@@ -1277,7 +1277,7 @@
 
     const/4 v6, 0x0
 
-    goto/16 :goto_7
+    goto/16 :goto_f0
 
     .line 268
     .end local v12    # "index$iv":I
@@ -1288,7 +1288,7 @@
     .restart local v3    # "usefulResultColumns":Ljava/util/List;
     .restart local v5    # "$this$forEachIndexed$iv":[Ljava/lang/Object;
     .local v8, "index$iv":I
-    :cond_d
+    :cond_209
     move-object/from16 v19, v2
 
     move-object/from16 v22, v3
@@ -1314,7 +1314,7 @@
     .local v1, "$i$f$all":I
     instance-of v2, v0, Ljava/util/Collection;
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_222
 
     move-object v2, v0
 
@@ -1324,24 +1324,24 @@
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_222
 
     const/4 v7, 0x1
 
-    goto :goto_c
+    goto :goto_240
 
     .line 270
-    :cond_e
+    :cond_222
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_f
+    :cond_226
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_23f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1368,22 +1368,22 @@
     .line 270
     .end local v5    # "it":Ljava/util/List;
     .end local v6    # "$i$a$-all-AmbiguousColumnResolver$resolve$2":I
-    if-eqz v7, :cond_f
+    if-eqz v7, :cond_226
 
     const/4 v7, 0x0
 
-    goto :goto_c
+    goto :goto_240
 
     .line 271
     .end local v3    # "element$iv":Ljava/lang/Object;
-    :cond_10
+    :cond_23f
     const/4 v7, 0x1
 
     .line 141
     .end local v0    # "$this$all$iv":Ljava/lang/Iterable;
     .end local v1    # "$i$f$all":I
-    :goto_c
-    if-eqz v7, :cond_12
+    :goto_240
+    if-eqz v7, :cond_2ae
 
     .line 144
     new-instance v0, Lkotlin/jvm/internal/Ref$ObjectRef;
@@ -1462,12 +1462,12 @@
 
     move-result-object v7
 
-    :goto_d
+    :goto_27f
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_11
+    if-eqz v8, :cond_29b
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1499,11 +1499,11 @@
     .end local v10    # "$i$a$-map-AmbiguousColumnResolver$resolve$5":I
     invoke-interface {v3, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_d
+    goto :goto_27f
 
     .line 275
     .end local v8    # "item$iv$iv":Ljava/lang/Object;
-    :cond_11
+    :cond_29b
     nop
 
     .end local v3    # "destination$iv$iv":Ljava/util/Collection;
@@ -1548,7 +1548,7 @@
 
     .line 254
     .end local v0    # "bestSolution":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :cond_12
+    :cond_2ae
     const/4 v0, 0x0
 
     .line 141

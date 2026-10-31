@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;)V
-    .locals 1
+    .registers 5
     .param p1, "k"    # Ljava/lang/String;
     .param p2, "v"    # Ljava/lang/String;
     .param p3, "child"    # Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
@@ -31,41 +31,41 @@
 .end method
 
 .method private isLenientChar(C)Z
-    .locals 1
+    .registers 3
     .param p1, "c"    # C
 
     .line 4619
     const/16 v0, 0x20
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_f
 
     const/16 v0, 0x5f
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_f
 
     const/16 v0, 0x2f
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 
 # virtual methods
 .method public match(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/lang/String;
-    .locals 8
+    .registers 11
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "pos"    # Ljava/text/ParsePosition;
 
@@ -94,12 +94,12 @@
 
     .line 4646
     .local v3, "koff":I
-    :goto_0
+    :goto_f
     const/4 v4, 0x0
 
-    if-ge v3, v2, :cond_2
+    if-ge v3, v2, :cond_39
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_39
 
     .line 4647
     invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
@@ -110,16 +110,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_21
 
     .line 4648
     add-int/lit8 v0, v0, 0x1
 
     .line 4649
-    goto :goto_0
+    goto :goto_f
 
     .line 4651
-    :cond_0
+    :cond_21
     iget-object v5, p0, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$LENIENT;->key:Ljava/lang/String;
 
     add-int/lit8 v6, v3, 0x1
@@ -142,45 +142,45 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_36
 
     .line 4652
     return-object v4
 
     .line 4651
-    :cond_1
+    :cond_36
     move v0, v5
 
     move v3, v6
 
-    goto :goto_0
+    goto :goto_f
 
     .line 4655
     .end local v5    # "off":I
     .end local v6    # "koff":I
     .restart local v0    # "off":I
     .restart local v3    # "koff":I
-    :cond_2
-    if-eq v3, v2, :cond_3
+    :cond_39
+    if-eq v3, v2, :cond_3c
 
     .line 4656
     return-object v4
 
     .line 4658
-    :cond_3
+    :cond_3c
     iget-object v4, p0, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$LENIENT;->child:Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_70
 
-    if-eq v0, v1, :cond_7
+    if-eq v0, v1, :cond_70
 
     .line 4659
     move v4, v0
 
     .line 4660
     .local v4, "off0":I
-    :goto_1
-    if-ge v4, v1, :cond_4
+    :goto_43
+    if-ge v4, v1, :cond_52
 
     invoke-interface {p1, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -190,23 +190,23 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_52
 
     .line 4661
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_43
 
     .line 4663
-    :cond_4
-    if-ge v4, v1, :cond_7
+    :cond_52
+    if-ge v4, v1, :cond_70
 
     .line 4664
     iget-object v5, p0, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$LENIENT;->child:Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
 
     .line 4666
     .local v5, "c":Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
-    :cond_5
+    :cond_56
     iget-char v6, v5, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;->c0:C
 
     invoke-interface {p1, v4}, Ljava/lang/CharSequence;->charAt(I)C
@@ -217,7 +217,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_6c
 
     .line 4667
     invoke-virtual {p2, v4}, Ljava/text/ParsePosition;->setIndex(I)V
@@ -229,23 +229,23 @@
 
     .line 4669
     .local v6, "found":Ljava/lang/String;
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_70
 
     .line 4670
     return-object v6
 
     .line 4674
     .end local v6    # "found":Ljava/lang/String;
-    :cond_6
+    :cond_6c
     iget-object v5, v5, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;->sibling:Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
 
     .line 4675
-    if-nez v5, :cond_5
+    if-nez v5, :cond_56
 
     .line 4678
     .end local v4    # "off0":I
     .end local v5    # "c":Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
-    :cond_7
+    :cond_70
     invoke-virtual {p2, v0}, Ljava/text/ParsePosition;->setIndex(I)V
 
     .line 4679
@@ -255,7 +255,7 @@
 .end method
 
 .method protected newNode(Ljava/lang/String;Ljava/lang/String;Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$CI;
-    .locals 1
+    .registers 5
     .param p1, "k"    # Ljava/lang/String;
     .param p2, "v"    # Ljava/lang/String;
     .param p3, "child"    # Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
@@ -269,7 +269,7 @@
 .end method
 
 .method protected bridge synthetic newNode(Ljava/lang/String;Ljava/lang/String;Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
-    .locals 0
+    .registers 4
 
     .line 4607
     invoke-virtual {p0, p1, p2, p3}, Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$LENIENT;->newNode(Ljava/lang/String;Ljava/lang/String;Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree$CI;
@@ -280,19 +280,19 @@
 .end method
 
 .method protected toKey(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "k"    # Ljava/lang/String;
 
     .line 4623
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_42
 
     .line 4624
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
@@ -303,7 +303,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3f
 
     .line 4625
     new-instance v1, Ljava/lang/StringBuilder;
@@ -324,12 +324,12 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 4628
-    :goto_1
+    :goto_20
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_3a
 
     .line 4629
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
@@ -340,7 +340,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_37
 
     .line 4630
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
@@ -350,13 +350,13 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 4632
-    :cond_0
+    :cond_37
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_20
 
     .line 4634
-    :cond_1
+    :cond_3a
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -365,13 +365,13 @@
 
     .line 4623
     .end local v1    # "sb":Ljava/lang/StringBuilder;
-    :cond_2
+    :cond_3f
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 4637
     .end local v0    # "i":I
-    :cond_3
+    :cond_42
     return-object p1
 .end method

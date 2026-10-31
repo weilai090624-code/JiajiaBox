@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>(Lorg/objenesis/strategy/InstantiatorStrategy;)V
-    .locals 0
+    .registers 2
     .param p1, "fallbackStrategy"    # Lorg/objenesis/strategy/InstantiatorStrategy;
 
     .line 39
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getFallbackInstantiatorStrategy()Lorg/objenesis/strategy/InstantiatorStrategy;
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy;->fallbackStrategy:Lorg/objenesis/strategy/InstantiatorStrategy;
@@ -47,7 +47,7 @@
 .end method
 
 .method public newInstantiatorOf(Ljava/lang/Class;)Lorg/objenesis/instantiator/ObjectInstantiator;
-    .locals 5
+    .registers 7
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 52
@@ -55,7 +55,7 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2b
 
     .line 54
     invoke-virtual {p1}, Ljava/lang/Class;->getEnclosingClass()Ljava/lang/Class;
@@ -64,13 +64,13 @@
 
     .line 55
     .local v0, "enclosingType":Ljava/lang/Class;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     invoke-virtual {p1}, Ljava/lang/Class;->isMemberClass()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     .line 56
     invoke-virtual {p1}, Ljava/lang/Class;->getModifiers()I
@@ -81,22 +81,22 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v2, 0x0
 
     .line 57
     .local v2, "isNonStaticMemberClass":Z
-    :goto_0
-    if-nez v2, :cond_1
+    :goto_1e
+    if-nez v2, :cond_2b
 
     .line 59
-    :try_start_0
+    :try_start_20
     invoke-static {p1}, Lcom/esotericsoftware/reflectasm/ConstructorAccess;->get(Ljava/lang/Class;)Lcom/esotericsoftware/reflectasm/ConstructorAccess;
 
     move-result-object v3
@@ -106,23 +106,23 @@
     new-instance v4, Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy$1;
 
     invoke-direct {v4, p0, v3, p1}, Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy$1;-><init>(Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy;Lcom/esotericsoftware/reflectasm/ConstructorAccess;Ljava/lang/Class;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/Exception; {:try_start_20 .. :try_end_29} :catch_2a
 
     return-object v4
 
     .line 69
     .end local v3    # "access":Lcom/esotericsoftware/reflectasm/ConstructorAccess;
-    :catch_0
+    :catch_2a
     move-exception v3
 
     .line 78
     .end local v0    # "enclosingType":Ljava/lang/Class;
     .end local v2    # "isNonStaticMemberClass":Z
-    :cond_1
+    :cond_2b
     const/4 v0, 0x0
 
-    :try_start_1
+    :try_start_2c
     move-object v2, v0
 
     check-cast v2, [Ljava/lang/Class;
@@ -130,21 +130,21 @@
     invoke-virtual {p1, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_33
+    .catch Ljava/lang/Exception; {:try_start_2c .. :try_end_33} :catch_34
 
     .line 82
     .local v0, "ctor":Ljava/lang/reflect/Constructor;
-    goto :goto_1
+    goto :goto_3f
 
     .line 79
     .end local v0    # "ctor":Ljava/lang/reflect/Constructor;
-    :catch_1
+    :catch_34
     move-exception v2
 
     .line 80
     .local v2, "ex":Ljava/lang/Exception;
-    :try_start_2
+    :try_start_35
     move-object v3, v0
 
     check-cast v3, [Ljava/lang/Class;
@@ -159,7 +159,7 @@
 
     .line 83
     .end local v2    # "ex":Ljava/lang/Exception;
-    :goto_1
+    :goto_3f
     move-object v1, v0
 
     .line 84
@@ -167,28 +167,28 @@
     new-instance v2, Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy$2;
 
     invoke-direct {v2, p0, v1, p1}, Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy$2;-><init>(Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy;Ljava/lang/reflect/Constructor;Ljava/lang/Class;)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_45
+    .catch Ljava/lang/Exception; {:try_start_35 .. :try_end_45} :catch_46
 
     return-object v2
 
     .line 93
     .end local v0    # "ctor":Ljava/lang/reflect/Constructor;
     .end local v1    # "constructor":Ljava/lang/reflect/Constructor;
-    :catch_2
+    :catch_46
     move-exception v0
 
     .line 96
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy;->fallbackStrategy:Lorg/objenesis/strategy/InstantiatorStrategy;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_ca
 
     .line 97
     invoke-virtual {p1}, Ljava/lang/Class;->isMemberClass()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_79
 
     invoke-virtual {p1}, Ljava/lang/Class;->getModifiers()I
 
@@ -198,12 +198,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5c
 
-    goto :goto_2
+    goto :goto_79
 
     .line 98
-    :cond_2
+    :cond_5c
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -233,8 +233,8 @@
     throw v0
 
     .line 100
-    :cond_3
-    :goto_2
+    :cond_79
+    :goto_79
     new-instance v0, Ljava/lang/StringBuilder;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -273,7 +273,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_c0
 
     .line 102
     nop
@@ -312,7 +312,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 111
-    :cond_4
+    :cond_c0
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -325,7 +325,7 @@
 
     .line 115
     .end local v0    # "message":Ljava/lang/StringBuilder;
-    :cond_5
+    :cond_ca
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy;->fallbackStrategy:Lorg/objenesis/strategy/InstantiatorStrategy;
 
     invoke-interface {v0, p1}, Lorg/objenesis/strategy/InstantiatorStrategy;->newInstantiatorOf(Ljava/lang/Class;)Lorg/objenesis/instantiator/ObjectInstantiator;
@@ -336,7 +336,7 @@
 .end method
 
 .method public setFallbackInstantiatorStrategy(Lorg/objenesis/strategy/InstantiatorStrategy;)V
-    .locals 0
+    .registers 2
     .param p1, "fallbackStrategy"    # Lorg/objenesis/strategy/InstantiatorStrategy;
 
     .line 44

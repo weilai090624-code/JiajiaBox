@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 423
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static readArray(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)[Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -51,7 +51,7 @@
 .end method
 
 .method static readArrayList(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -78,7 +78,7 @@
 .end method
 
 .method static readHashMap(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/HashMap;
-    .locals 1
+    .registers 5
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -110,7 +110,7 @@
 .end method
 
 .method static readList(Landroid/os/Parcel;Ljava/util/List;Ljava/lang/ClassLoader;Ljava/lang/Class;)V
-    .locals 0
+    .registers 4
     .param p0, "in"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -137,7 +137,7 @@
 .end method
 
 .method static readMap(Landroid/os/Parcel;Ljava/util/Map;Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 0
+    .registers 5
     .param p0, "in"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -169,7 +169,7 @@
 .end method
 
 .method static readParcelable(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Landroid/os/Parcelable;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -196,7 +196,7 @@
 .end method
 
 .method static readParcelableArray(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)[Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -221,7 +221,7 @@
 .end method
 
 .method static readParcelableCreator(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Landroid/os/Parcelable$Creator;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -248,7 +248,7 @@
 .end method
 
 .method static readParcelableList(Landroid/os/Parcel;Ljava/util/List;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/util/List;
-    .locals 1
+    .registers 5
     .param p0, "in"    # Landroid/os/Parcel;
     .param p2, "cl"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -278,7 +278,7 @@
 .end method
 
 .method static readSerializable(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/io/Serializable;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
@@ -305,7 +305,7 @@
 .end method
 
 .method static readSparseArray(Landroid/os/Parcel;Ljava/lang/ClassLoader;Ljava/lang/Class;)Landroid/util/SparseArray;
-    .locals 1
+    .registers 4
     .param p0, "in"    # Landroid/os/Parcel;
     .param p1, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;

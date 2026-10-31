@@ -64,7 +64,7 @@
 
 # direct methods
 .method public static final catch(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$catch"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "action"    # Lkotlin/jvm/functions/Function3;
     .annotation system Ldalvik/annotation/Signature;
@@ -108,7 +108,7 @@
 .end method
 
 .method public static final catchImpl(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -128,7 +128,7 @@
 
     instance-of v0, p2, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$catchImpl$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -140,7 +140,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget p2, v0, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$catchImpl$1;->label:I
 
@@ -148,14 +148,14 @@
 
     iput p2, v0, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$catchImpl$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$catchImpl$1;
 
     invoke-direct {v0, p2}, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$catchImpl$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    :goto_0
+    :goto_19
     move-object p2, v0
 
     .local p2, "$continuation":Lkotlin/coroutines/Continuation;
@@ -169,7 +169,7 @@
     .line 151
     iget v2, p2, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$catchImpl$1;->label:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_7e
 
     .end local v0    # "$result":Ljava/lang/Object;
     .end local p2    # "$continuation":Lkotlin/coroutines/Continuation;
@@ -183,28 +183,28 @@
 
     .restart local v0    # "$result":Ljava/lang/Object;
     .restart local p2    # "$continuation":Lkotlin/coroutines/Continuation;
-    :pswitch_0
+    :pswitch_2d
     iget-object p0, p2, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$catchImpl$1;->L$0:Ljava/lang/Object;
 
     check-cast p0, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     .local p0, "fromDownstream":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :try_start_0
+    :try_start_31
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_34
+    .catchall {:try_start_31 .. :try_end_34} :catchall_35
 
-    goto :goto_1
+    goto :goto_54
 
     .line 164
-    :catchall_0
+    :catchall_35
     move-exception p1
 
-    goto :goto_2
+    goto :goto_59
 
     .line 151
     .end local p0    # "fromDownstream":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :pswitch_1
+    :pswitch_37
     invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 154
@@ -219,7 +219,7 @@
     nop
 
     .line 156
-    :try_start_1
+    :try_start_40
     new-instance v3, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$catchImpl$2;
 
     invoke-direct {v3, p1, v2}, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$catchImpl$2;-><init>(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/jvm/internal/Ref$ObjectRef;)V
@@ -235,23 +235,23 @@
     invoke-interface {p0, v3, p2}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_50
+    .catchall {:try_start_40 .. :try_end_50} :catchall_57
 
     .end local p0    # "$this$catchImpl":Lkotlinx/coroutines/flow/Flow;
     .end local p1    # "collector":Lkotlinx/coroutines/flow/FlowCollector;
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_53
 
     .line 151
     return-object v1
 
     .line 156
-    :cond_1
+    :cond_53
     move-object p0, v2
 
     .end local v2    # "fromDownstream":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p0, "fromDownstream":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :goto_1
+    :goto_54
     nop
 
     .line 211
@@ -262,7 +262,7 @@
 
     .line 164
     .restart local v2    # "fromDownstream":Lkotlin/jvm/internal/Ref$ObjectRef;
-    :catchall_1
+    :catchall_57
     move-exception p1
 
     move-object p0, v2
@@ -271,7 +271,7 @@
     .end local v2    # "fromDownstream":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local p0    # "fromDownstream":Lkotlin/jvm/internal/Ref$ObjectRef;
     .local p1, "e":Ljava/lang/Throwable;
-    :goto_2
+    :goto_59
     iget-object v1, p0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     move-object p0, v1
@@ -284,7 +284,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_7d
 
     invoke-interface {p2}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
 
@@ -294,19 +294,19 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_7d
 
     .line 180
-    if-nez p0, :cond_2
+    if-nez p0, :cond_71
 
     .line 181
     return-object p1
 
     .line 202
-    :cond_2
+    :cond_71
     instance-of v1, p1, Ljava/util/concurrent/CancellationException;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_79
 
     .line 203
     invoke-static {p0, p1}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
@@ -315,7 +315,7 @@
     throw p0
 
     .line 206
-    :cond_3
+    :cond_79
     invoke-static {p1, p0}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
     .line 207
@@ -323,18 +323,18 @@
 
     .line 172
     .end local p0    # "fromDownstream":Ljava/lang/Throwable;
-    :cond_4
+    :cond_7d
     throw p1
 
-    :pswitch_data_0
+    :pswitch_data_7e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_37
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method private static final isCancellationCause$FlowKt__ErrorsKt(Ljava/lang/Throwable;Lkotlin/coroutines/CoroutineContext;)Z
-    .locals 2
+    .registers 4
     .param p0, "$this$isCancellationCause"    # Ljava/lang/Throwable;
     .param p1, "coroutineContext"    # Lkotlin/coroutines/CoroutineContext;
 
@@ -351,18 +351,18 @@
 
     .line 216
     .local v0, "job":Lkotlinx/coroutines/Job;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     invoke-interface {v0}, Lkotlinx/coroutines/Job;->isCancelled()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 217
-    :cond_0
+    :cond_13
     invoke-interface {v0}, Lkotlinx/coroutines/Job;->getCancellationException()Ljava/util/concurrent/CancellationException;
 
     move-result-object v1
@@ -376,20 +376,20 @@
     return v1
 
     .line 216
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method private static final isSameExceptionAs$FlowKt__ErrorsKt(Ljava/lang/Throwable;Ljava/lang/Throwable;)Z
-    .locals 3
+    .registers 5
     .param p0, "$this$isSameExceptionAs"    # Ljava/lang/Throwable;
     .param p1, "other"    # Ljava/lang/Throwable;
 
     .line 221
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_24
 
     const/4 v0, 0x0
 
@@ -399,20 +399,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
     move-object v1, p1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_b
     invoke-static {p1}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->unwrapImpl(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v1
 
     .line 221
     .end local v0    # "$i$f$unwrap":I
-    :goto_0
+    :goto_f
     const/4 v0, 0x0
 
     .line 228
@@ -421,39 +421,39 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_18
 
     move-object v2, p0
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
+    :cond_18
     invoke-static {p0}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->unwrapImpl(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v2
 
     .end local v0    # "$i$f$unwrap":I
-    :goto_1
+    :goto_1c
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_24
 
     const/4 v0, 0x1
 
-    goto :goto_2
+    goto :goto_25
 
-    :cond_2
+    :cond_24
     const/4 v0, 0x0
 
     .line 221
-    :goto_2
+    :goto_25
     return v0
 .end method
 
 .method public static final retry(Lkotlinx/coroutines/flow/Flow;JLkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 7
     .param p0, "$this$retry"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "retries"    # J
     .param p3, "predicate"    # Lkotlin/jvm/functions/Function2;
@@ -484,17 +484,17 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_9
+    if-eqz v0, :cond_18
 
     .line 95
     new-instance v0, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retry$3;
@@ -512,7 +512,7 @@
     return-object v0
 
     .line 226
-    :cond_1
+    :cond_18
     const/4 v0, 0x0
 
     .line 94
@@ -548,21 +548,21 @@
 .end method
 
 .method public static synthetic retry$default(Lkotlinx/coroutines/flow/Flow;JLkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 0
+    .registers 6
 
     .line 90
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_9
 
     .line 91
     const-wide p1, 0x7fffffffffffffffL
 
     .line 90
-    :cond_0
+    :cond_9
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_15
 
     .line 92
     new-instance p3, Lkotlinx/coroutines/flow/FlowKt__ErrorsKt$retry$1;
@@ -574,7 +574,7 @@
     check-cast p3, Lkotlin/jvm/functions/Function2;
 
     .line 90
-    :cond_1
+    :cond_15
     invoke-static {p0, p1, p2, p3}, Lkotlinx/coroutines/flow/FlowKt;->retry(Lkotlinx/coroutines/flow/Flow;JLkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
 
     move-result-object p0
@@ -583,7 +583,7 @@
 .end method
 
 .method public static final retryWhen(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function4;)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$retryWhen"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "predicate"    # Lkotlin/jvm/functions/Function4;
     .annotation system Ldalvik/annotation/Signature;

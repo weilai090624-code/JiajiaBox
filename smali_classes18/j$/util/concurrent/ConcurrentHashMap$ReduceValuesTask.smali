@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/concurrent/ConcurrentHashMap$BulkTask;III[Lj$/util/concurrent/ConcurrentHashMap$Node;Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;Ljava/util/function/BiFunction;)V
-    .locals 0
+    .registers 8
     .param p2, "b"    # I
     .param p3, "i"    # I
     .param p4, "f"    # I
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public final compute()V
-    .locals 12
+    .registers 13
 
     .line 5455
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;, "Ljava/util/concurrent/ConcurrentHashMap$ReduceValuesTask<TK;TV;>;"
@@ -112,16 +112,16 @@
     move-object v9, v0
 
     .local v9, "reducer":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<-TV;-TV;+TV;>;"
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_72
 
     .line 5456
     iget v0, p0, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->baseIndex:I
 
     .local v0, "i":I
-    :goto_0
+    :goto_7
     iget v1, p0, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->batch:I
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_32
 
     iget v1, p0, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->baseLimit:I
 
@@ -137,7 +137,7 @@
     move v10, v1
 
     .local v10, "h":I
-    if-le v1, v0, :cond_0
+    if-le v1, v0, :cond_32
 
     .line 5458
     invoke-virtual {p0, v2}, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->addToPendingCount(I)V
@@ -172,18 +172,18 @@
     .line 5461
     invoke-virtual {v11}, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->fork()Ljava/util/concurrent/ForkJoinTask;
 
-    goto :goto_0
+    goto :goto_7
 
     .line 5463
     .end local v0    # "i":I
     .end local v5    # "f":I
     .end local v10    # "h":I
-    :cond_0
+    :cond_32
     const/4 v0, 0x0
 
     .line 5464
     .local v0, "r":Ljava/lang/Object;, "TV;"
-    :goto_1
+    :goto_33
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
 
     move-result-object v1
@@ -191,34 +191,34 @@
     move-object v2, v1
 
     .local v2, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_46
 
     .line 5465
     iget-object v1, v2, Lj$/util/concurrent/ConcurrentHashMap$Node;->val:Ljava/lang/Object;
 
     .line 5466
     .local v1, "v":Ljava/lang/Object;, "TV;"
-    if-nez v0, :cond_1
+    if-nez v0, :cond_40
 
     move-object v3, v1
 
-    goto :goto_2
+    goto :goto_44
 
-    :cond_1
+    :cond_40
     invoke-interface {v9, v0, v1}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    :goto_2
+    :goto_44
     move-object v0, v3
 
     .line 5467
     .end local v1    # "v":Ljava/lang/Object;, "TV;"
-    goto :goto_1
+    goto :goto_33
 
     .line 5468
     .end local v2    # "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    :cond_2
+    :cond_46
     iput-object v0, p0, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->result:Ljava/lang/Object;
 
     .line 5470
@@ -227,8 +227,8 @@
     move-result-object v1
 
     .local v1, "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
-    :goto_3
-    if-eqz v1, :cond_6
+    :goto_4c
+    if-eqz v1, :cond_72
 
     .line 5473
     move-object v2, v1
@@ -241,8 +241,8 @@
 
     .line 5475
     .local v3, "s":Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;, "Ljava/util/concurrent/ConcurrentHashMap$ReduceValuesTask<TK;TV;>;"
-    :goto_4
-    if-eqz v3, :cond_5
+    :goto_53
+    if-eqz v3, :cond_6d
 
     .line 5477
     iget-object v4, v3, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->result:Ljava/lang/Object;
@@ -250,7 +250,7 @@
     move-object v5, v4
 
     .local v5, "sr":Ljava/lang/Object;, "TV;"
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_67
 
     .line 5478
     iget-object v4, v2, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->result:Ljava/lang/Object;
@@ -258,24 +258,24 @@
     move-object v6, v4
 
     .local v6, "tr":Ljava/lang/Object;, "TV;"
-    if-nez v4, :cond_3
+    if-nez v4, :cond_61
 
     move-object v4, v5
 
-    goto :goto_5
+    goto :goto_65
 
     .line 5479
-    :cond_3
+    :cond_61
     invoke-interface {v9, v6, v5}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
 
-    :goto_5
+    :goto_65
     iput-object v4, v2, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->result:Ljava/lang/Object;
 
     .line 5480
     .end local v6    # "tr":Ljava/lang/Object;, "TV;"
-    :cond_4
+    :cond_67
     iget-object v4, v3, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->nextRight:Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;
 
     iput-object v4, v2, Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;->rights:Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;
@@ -284,27 +284,27 @@
 
     .line 5481
     .end local v5    # "sr":Ljava/lang/Object;, "TV;"
-    goto :goto_4
+    goto :goto_53
 
     .line 5470
     .end local v2    # "t":Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;, "Ljava/util/concurrent/ConcurrentHashMap$ReduceValuesTask<TK;TV;>;"
     .end local v3    # "s":Lj$/util/concurrent/ConcurrentHashMap$ReduceValuesTask;, "Ljava/util/concurrent/ConcurrentHashMap$ReduceValuesTask<TK;TV;>;"
-    :cond_5
+    :cond_6d
     invoke-virtual {v1}, Ljava/util/concurrent/CountedCompleter;->nextComplete()Ljava/util/concurrent/CountedCompleter;
 
     move-result-object v1
 
-    goto :goto_3
+    goto :goto_4c
 
     .line 5484
     .end local v0    # "r":Ljava/lang/Object;, "TV;"
     .end local v1    # "c":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
-    :cond_6
+    :cond_72
     return-void
 .end method
 
 .method public final getRawResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

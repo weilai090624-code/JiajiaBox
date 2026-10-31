@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/CombinedFuture;Lcom/google/common/util/concurrent/AsyncCallable;Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 4
     .param p3, "listenerExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method runInterruptibly()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -113,7 +113,7 @@
 .end method
 
 .method bridge synthetic runInterruptibly()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -130,7 +130,7 @@
 .end method
 
 .method setValue(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -151,7 +151,7 @@
 .end method
 
 .method bridge synthetic setValue(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 153
     .local p0, "this":Lcom/google/common/util/concurrent/CombinedFuture$AsyncCallableInterruptibleTask;, "Lcom/google/common/util/concurrent/CombinedFuture<TV;>.AsyncCallableInterruptibleTask;"
@@ -163,7 +163,7 @@
 .end method
 
 .method toPendingString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 180
     .local p0, "this":Lcom/google/common/util/concurrent/CombinedFuture$AsyncCallableInterruptibleTask;, "Lcom/google/common/util/concurrent/CombinedFuture<TV;>.AsyncCallableInterruptibleTask;"

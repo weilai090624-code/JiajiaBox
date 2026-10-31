@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/fragment/app/Fragment;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
     .param p2, "message"    # Ljava/lang/String;
 
@@ -46,18 +46,18 @@
 .end method
 
 .method public synthetic constructor <init>(Landroidx/fragment/app/Fragment;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 5
 
     .line 23
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     .line 25
     const/4 p2, 0x0
 
     .line 23
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1, p2}, Landroidx/fragment/app/strictmode/TargetFragmentUsageViolation;-><init>(Landroidx/fragment/app/Fragment;Ljava/lang/String;)V
 
     .line 26

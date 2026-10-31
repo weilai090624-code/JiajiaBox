@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static getOutline(Landroid/graphics/drawable/Drawable;Landroid/graphics/Outline;)V
-    .locals 0
+    .registers 2
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "outline"    # Landroid/graphics/Outline;
 

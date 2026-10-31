@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/List;II)V
-    .locals 0
+    .registers 4
     .param p2, "offset"    # I
     .param p3, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -75,7 +75,7 @@
 .end method
 
 .method static fromList(Ljava/util/List;II)Lj$/util/ImmutableCollections$SubList;
-    .locals 2
+    .registers 5
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -102,7 +102,7 @@
 .end method
 
 .method static fromSubList(Lj$/util/ImmutableCollections$SubList;II)Lj$/util/ImmutableCollections$SubList;
-    .locals 4
+    .registers 7
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -135,22 +135,22 @@
 .end method
 
 .method private rangeCheck(I)V
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
 
     .line 354
     .local p0, "this":Lj$/util/ImmutableCollections$SubList;, "Ljava/util/ImmutableCollections$SubList<TE;>;"
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_7
 
     iget v0, p0, Lj$/util/ImmutableCollections$SubList;->size:I
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_7
 
     .line 357
     return-void
 
     .line 355
-    :cond_0
+    :cond_7
     invoke-virtual {p0, p1}, Lj$/util/ImmutableCollections$SubList;->outOfBounds(I)Ljava/lang/IndexOutOfBoundsException;
 
     move-result-object v0
@@ -161,7 +161,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,7 +190,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -213,7 +213,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 2
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -240,7 +240,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 336
     .local p0, "this":Lj$/util/ImmutableCollections$SubList;, "Ljava/util/ImmutableCollections$SubList<TE;>;"
@@ -250,7 +250,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;

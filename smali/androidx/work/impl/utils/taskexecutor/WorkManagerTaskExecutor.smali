@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/concurrent/Executor;)V
-    .locals 2
+    .registers 4
     .param p1, "backgroundExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public synthetic executeOnTaskThread(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor$-CC;->$default$executeOnTaskThread(Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Ljava/lang/Runnable;)V
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public getMainThreadExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Landroidx/work/impl/utils/taskexecutor/WorkManagerTaskExecutor;->mMainThreadExecutor:Ljava/util/concurrent/Executor;
@@ -79,7 +79,7 @@
 .end method
 
 .method public getSerialTaskExecutor()Landroidx/work/impl/utils/SerialExecutorImpl;
-    .locals 1
+    .registers 2
 
     .line 61
     iget-object v0, p0, Landroidx/work/impl/utils/taskexecutor/WorkManagerTaskExecutor;->mBackgroundExecutor:Landroidx/work/impl/utils/SerialExecutorImpl;
@@ -88,7 +88,7 @@
 .end method
 
 .method public bridge synthetic getSerialTaskExecutor()Landroidx/work/impl/utils/taskexecutor/SerialExecutor;
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-virtual {p0}, Landroidx/work/impl/utils/taskexecutor/WorkManagerTaskExecutor;->getSerialTaskExecutor()Landroidx/work/impl/utils/SerialExecutorImpl;

@@ -40,7 +40,7 @@
 
 # direct methods
 .method public static final measureTime(Lkotlin/jvm/functions/Function0;)J
-    .locals 5
+    .registers 6
     .param p0, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -93,7 +93,7 @@
 .end method
 
 .method public static final measureTime(Lkotlin/time/TimeSource$Monotonic;Lkotlin/jvm/functions/Function0;)J
-    .locals 5
+    .registers 7
     .param p0, "$this$measureTime"    # Lkotlin/time/TimeSource$Monotonic;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -138,7 +138,7 @@
 .end method
 
 .method public static final measureTime(Lkotlin/time/TimeSource;Lkotlin/jvm/functions/Function0;)J
-    .locals 4
+    .registers 6
     .param p0, "$this$measureTime"    # Lkotlin/time/TimeSource;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -183,7 +183,7 @@
 .end method
 
 .method public static final measureTimedValue(Lkotlin/jvm/functions/Function0;)Lkotlin/time/TimedValue;
-    .locals 10
+    .registers 11
     .param p0, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -249,7 +249,7 @@
 .end method
 
 .method public static final measureTimedValue(Lkotlin/time/TimeSource$Monotonic;Lkotlin/jvm/functions/Function0;)Lkotlin/time/TimedValue;
-    .locals 8
+    .registers 10
     .param p0, "$this$measureTimedValue"    # Lkotlin/time/TimeSource$Monotonic;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -306,7 +306,7 @@
 .end method
 
 .method public static final measureTimedValue(Lkotlin/time/TimeSource;Lkotlin/jvm/functions/Function0;)Lkotlin/time/TimedValue;
-    .locals 7
+    .registers 9
     .param p0, "$this$measureTimedValue"    # Lkotlin/time/TimeSource;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;

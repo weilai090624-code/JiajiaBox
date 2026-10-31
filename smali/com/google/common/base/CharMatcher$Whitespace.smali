@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 1222
     const-string/jumbo v0, "\u2002\u3000\r\u0085\u200a\u2005\u2000\u3000\u2029\u000b\u3000\u2008\u2003\u205f\u3000\u1680\t \u2006\u2001\u202f\u00a0\u000c\u2009\u3000\u2004\u3000\u3000\u2028\n\u2007\u3000"
@@ -54,7 +54,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1227
     const-string v0, "CharMatcher.whitespace()"
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public matches(C)Z
-    .locals 2
+    .registers 4
     .param p1, "c"    # C
 
     .line 1232
@@ -86,35 +86,35 @@
 
     move-result v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method setBits(Ljava/util/BitSet;)V
-    .locals 3
+    .registers 5
     .param p1, "table"    # Ljava/util/BitSet;
 
     .line 1238
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     const-string/jumbo v1, "\u2002\u3000\r\u0085\u200a\u2005\u2000\u3000\u2029\u000b\u3000\u2008\u2003\u205f\u3000\u1680\t \u2006\u2001\u202f\u00a0\u000c\u2009\u3000\u2004\u3000\u3000\u2028\n\u2007\u3000"
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_14
 
     .line 1239
     invoke-virtual {v1, v0}, Ljava/lang/String;->charAt(I)C
@@ -126,10 +126,10 @@
     .line 1238
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1241
     .end local v0    # "i":I
-    :cond_0
+    :cond_14
     return-void
 .end method

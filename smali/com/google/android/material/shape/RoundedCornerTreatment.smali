@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-direct {p0}, Lcom/google/android/material/shape/CornerTreatment;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(F)V
-    .locals 1
+    .registers 3
     .param p1, "radius"    # F
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public getCornerPath(Lcom/google/android/material/shape/ShapePath;FFF)V
-    .locals 9
+    .registers 14
     .param p1, "shapePath"    # Lcom/google/android/material/shape/ShapePath;
     .param p2, "angle"    # F
     .param p3, "interpolation"    # F

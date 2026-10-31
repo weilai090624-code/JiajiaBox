@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Lcom/google/zxing/datamatrix/encoder/C40Encoder;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public encode(Lcom/google/zxing/datamatrix/encoder/EncoderContext;)V
-    .locals 5
+    .registers 7
     .param p1, "context"    # Lcom/google/zxing/datamatrix/encoder/EncoderContext;
 
     .line 29
@@ -26,12 +26,12 @@
 
     .line 30
     .local v0, "buffer":Ljava/lang/StringBuilder;
-    :goto_0
+    :goto_5
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->hasMoreCharacters()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3d
 
     .line 31
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->getCurrentChar()C
@@ -57,7 +57,7 @@
     .line 37
     rem-int/lit8 v2, v2, 0x3
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_3c
 
     .line 38
     invoke-static {p1, v0}, Lcom/google/zxing/datamatrix/encoder/X12Encoder;->writeNextTriplet(Lcom/google/zxing/datamatrix/encoder/EncoderContext;Ljava/lang/StringBuilder;)V
@@ -82,7 +82,7 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_3c
 
     .line 43
     const/4 v2, 0x0
@@ -90,16 +90,16 @@
     invoke-virtual {p1, v2}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->signalEncoderChange(I)V
 
     .line 44
-    goto :goto_1
+    goto :goto_3d
 
     .line 47
     .end local v1    # "c":C
-    :cond_0
-    goto :goto_0
+    :cond_3c
+    goto :goto_5
 
     .line 48
-    :cond_1
-    :goto_1
+    :cond_3d
+    :goto_3d
     invoke-virtual {p0, p1, v0}, Lcom/google/zxing/datamatrix/encoder/X12Encoder;->handleEOD(Lcom/google/zxing/datamatrix/encoder/EncoderContext;Ljava/lang/StringBuilder;)V
 
     .line 49
@@ -107,23 +107,23 @@
 .end method
 
 .method encodeChar(CLjava/lang/StringBuilder;)I
-    .locals 2
+    .registers 5
     .param p1, "c"    # C
     .param p2, "sb"    # Ljava/lang/StringBuilder;
 
     .line 53
     const/4 v0, 0x1
 
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_3e
 
     .line 67
     const/16 v1, 0x30
 
-    if-lt p1, v1, :cond_0
+    if-lt p1, v1, :cond_28
 
     const/16 v1, 0x39
 
-    if-gt p1, v1, :cond_0
+    if-gt p1, v1, :cond_28
 
     .line 68
     add-int/lit8 v1, p1, -0x30
@@ -134,51 +134,51 @@
 
     invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 61
-    :sswitch_0
+    :sswitch_15
     const/4 v1, 0x2
 
     invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 62
-    goto :goto_0
+    goto :goto_3c
 
     .line 58
-    :sswitch_1
+    :sswitch_1a
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 59
-    goto :goto_0
+    goto :goto_3c
 
     .line 64
-    :sswitch_2
+    :sswitch_1e
     const/4 v1, 0x3
 
     invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 65
-    goto :goto_0
+    goto :goto_3c
 
     .line 55
-    :sswitch_3
+    :sswitch_23
     const/4 v1, 0x0
 
     invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 56
-    goto :goto_0
+    goto :goto_3c
 
     .line 69
-    :cond_0
+    :cond_28
     const/16 v1, 0x41
 
-    if-lt p1, v1, :cond_1
+    if-lt p1, v1, :cond_39
 
     const/16 v1, 0x5a
 
-    if-gt p1, v1, :cond_1
+    if-gt p1, v1, :cond_39
 
     .line 70
     add-int/lit8 v1, p1, -0x41
@@ -189,29 +189,29 @@
 
     invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 72
-    :cond_1
+    :cond_39
     invoke-static {p1}, Lcom/google/zxing/datamatrix/encoder/HighLevelEncoder;->illegalCharacter(C)V
 
     .line 76
-    :goto_0
+    :goto_3c
     return v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_3e
     .sparse-switch
-        0xd -> :sswitch_3
-        0x20 -> :sswitch_2
-        0x2a -> :sswitch_1
-        0x3e -> :sswitch_0
+        0xd -> :sswitch_23
+        0x20 -> :sswitch_1e
+        0x2a -> :sswitch_1a
+        0x3e -> :sswitch_15
     .end sparse-switch
 .end method
 
 .method public getEncodingMode()I
-    .locals 1
+    .registers 2
 
     .line 23
     const/4 v0, 0x3
@@ -220,7 +220,7 @@
 .end method
 
 .method handleEOD(Lcom/google/zxing/datamatrix/encoder/EncoderContext;Ljava/lang/StringBuilder;)V
-    .locals 4
+    .registers 7
     .param p1, "context"    # Lcom/google/zxing/datamatrix/encoder/EncoderContext;
     .param p2, "buffer"    # Ljava/lang/StringBuilder;
 
@@ -263,30 +263,30 @@
 
     const/4 v3, 0x1
 
-    if-gt v2, v3, :cond_0
+    if-gt v2, v3, :cond_28
 
-    if-gt v0, v3, :cond_0
+    if-gt v0, v3, :cond_28
 
     .line 86
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->getRemainingCharacters()I
 
     move-result v2
 
-    if-eq v2, v0, :cond_1
+    if-eq v2, v0, :cond_2d
 
     .line 87
-    :cond_0
+    :cond_28
     const/16 v2, 0xfe
 
     invoke-virtual {p1, v2}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->writeCodeword(C)V
 
     .line 89
-    :cond_1
+    :cond_2d
     invoke-virtual {p1}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->getNewEncoding()I
 
     move-result v2
 
-    if-gez v2, :cond_2
+    if-gez v2, :cond_37
 
     .line 90
     const/4 v2, 0x0
@@ -294,6 +294,6 @@
     invoke-virtual {p1, v2}, Lcom/google/zxing/datamatrix/encoder/EncoderContext;->signalEncoderChange(I)V
 
     .line 92
-    :cond_2
+    :cond_37
     return-void
 .end method

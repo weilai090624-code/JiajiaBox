@@ -50,7 +50,7 @@
 
 # direct methods
 .method public static synthetic $r8$lambda$QHW3Op-4_79m0OuXWhjG-mhx4_U(Landroidx/navigation/NavDirections;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Landroidx/navigation/Navigation;->createNavigateOnClickListener$lambda-1(Landroidx/navigation/NavDirections;Landroid/view/View;)V
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public static synthetic $r8$lambda$u0uvDDvjtlMWlynH5jH3PU7UqyU(ILandroid/os/Bundle;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Landroidx/navigation/Navigation;->createNavigateOnClickListener$lambda-0(ILandroid/os/Bundle;Landroid/view/View;)V
 
@@ -66,7 +66,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/navigation/Navigation;
 
@@ -78,7 +78,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,7 +87,7 @@
 .end method
 
 .method public static final synthetic access$getViewNavController(Landroidx/navigation/Navigation;Landroid/view/View;)Landroidx/navigation/NavController;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Landroidx/navigation/Navigation;
     .param p1, "view"    # Landroid/view/View;
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public static final createNavigateOnClickListener(I)Landroid/view/View$OnClickListener;
-    .locals 2
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public static final createNavigateOnClickListener(ILandroid/os/Bundle;)Landroid/view/View$OnClickListener;
-    .locals 1
+    .registers 3
     .param p0, "resId"    # I
     .param p1, "args"    # Landroid/os/Bundle;
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -131,7 +131,7 @@
 .end method
 
 .method public static final createNavigateOnClickListener(Landroidx/navigation/NavDirections;)Landroid/view/View$OnClickListener;
-    .locals 1
+    .registers 2
     .param p0, "directions"    # Landroidx/navigation/NavDirections;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -149,18 +149,18 @@
 .end method
 
 .method public static synthetic createNavigateOnClickListener$default(ILandroid/os/Bundle;ILjava/lang/Object;)Landroid/view/View$OnClickListener;
-    .locals 0
+    .registers 4
 
     .line 86
     and-int/lit8 p2, p2, 0x2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     .line 88
     const/4 p1, 0x0
 
     .line 86
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Landroidx/navigation/Navigation;->createNavigateOnClickListener(ILandroid/os/Bundle;)Landroid/view/View$OnClickListener;
 
     move-result-object p0
@@ -169,7 +169,7 @@
 .end method
 
 .method private static final createNavigateOnClickListener$lambda-0(ILandroid/os/Bundle;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p0, "$resId"    # I
     .param p1, "$args"    # Landroid/os/Bundle;
     .param p2, "view"    # Landroid/view/View;
@@ -189,7 +189,7 @@
 .end method
 
 .method private static final createNavigateOnClickListener$lambda-1(Landroidx/navigation/NavDirections;Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p0, "$directions"    # Landroidx/navigation/NavDirections;
     .param p1, "view"    # Landroid/view/View;
 
@@ -212,7 +212,7 @@
 .end method
 
 .method public static final findNavController(Landroid/app/Activity;I)Landroidx/navigation/NavController;
-    .locals 4
+    .registers 6
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "viewId"    # I
     .annotation runtime Lkotlin/jvm/JvmStatic;
@@ -239,12 +239,12 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     return-object v1
 
     .line 50
-    :cond_0
+    :cond_17
     new-instance v1, Ljava/lang/IllegalStateException;
 
     .line 51
@@ -283,7 +283,7 @@
 .end method
 
 .method public static final findNavController(Landroid/view/View;)Landroidx/navigation/NavController;
-    .locals 3
+    .registers 4
     .param p0, "view"    # Landroid/view/View;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -299,12 +299,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     return-object v0
 
     .line 71
-    :cond_0
+    :cond_f
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -337,7 +337,7 @@
 .end method
 
 .method private final findViewNavController(Landroid/view/View;)Landroidx/navigation/NavController;
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 126
@@ -369,7 +369,7 @@
 .end method
 
 .method private final getViewNavController(Landroid/view/View;)Landroidx/navigation/NavController;
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 134
@@ -387,7 +387,7 @@
     .local v1, "controller":Landroidx/navigation/NavController;
     instance-of v2, v0, Ljava/lang/ref/WeakReference;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     .line 137
     move-object v2, v0
@@ -402,13 +402,13 @@
 
     check-cast v1, Landroidx/navigation/NavController;
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 138
-    :cond_0
+    :cond_16
     instance-of v2, v0, Landroidx/navigation/NavController;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1d
 
     .line 139
     move-object v1, v0
@@ -416,13 +416,13 @@
     check-cast v1, Landroidx/navigation/NavController;
 
     .line 141
-    :cond_1
-    :goto_0
+    :cond_1d
+    :goto_1d
     return-object v1
 .end method
 
 .method public static final setViewNavController(Landroid/view/View;Landroidx/navigation/NavController;)V
-    .locals 1
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
     .param p1, "controller"    # Landroidx/navigation/NavController;
     .annotation runtime Lkotlin/jvm/JvmStatic;

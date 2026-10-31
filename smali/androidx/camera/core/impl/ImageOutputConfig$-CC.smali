@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$getDefaultResolution(Landroidx/camera/core/impl/ImageOutputConfig;)Landroid/util/Size;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
 
     .line 175
@@ -21,7 +21,7 @@
 .end method
 
 .method public static $default$getDefaultResolution(Landroidx/camera/core/impl/ImageOutputConfig;Landroid/util/Size;)Landroid/util/Size;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
     .param p1, "valueIfMissing"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -48,7 +48,7 @@
 .end method
 
 .method public static $default$getMaxResolution(Landroidx/camera/core/impl/ImageOutputConfig;)Landroid/util/Size;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
 
     .line 200
@@ -64,7 +64,7 @@
 .end method
 
 .method public static $default$getMaxResolution(Landroidx/camera/core/impl/ImageOutputConfig;Landroid/util/Size;)Landroid/util/Size;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
     .param p1, "valueIfMissing"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -91,7 +91,7 @@
 .end method
 
 .method public static $default$getSupportedResolutions(Landroidx/camera/core/impl/ImageOutputConfig;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
 
     .line 232
@@ -107,7 +107,7 @@
 .end method
 
 .method public static $default$getSupportedResolutions(Landroidx/camera/core/impl/ImageOutputConfig;Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -134,7 +134,7 @@
 .end method
 
 .method public static $default$getTargetAspectRatio(Landroidx/camera/core/impl/ImageOutputConfig;)I
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
 
     .line 98
@@ -154,7 +154,7 @@
 .end method
 
 .method public static $default$getTargetResolution(Landroidx/camera/core/impl/ImageOutputConfig;)Landroid/util/Size;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
 
     .line 152
@@ -170,7 +170,7 @@
 .end method
 
 .method public static $default$getTargetResolution(Landroidx/camera/core/impl/ImageOutputConfig;Landroid/util/Size;)Landroid/util/Size;
-    .locals 1
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
     .param p1, "valueIfMissing"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -197,7 +197,7 @@
 .end method
 
 .method public static $default$getTargetRotation(Landroidx/camera/core/impl/ImageOutputConfig;)I
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
 
     .line 129
@@ -217,7 +217,7 @@
 .end method
 
 .method public static $default$getTargetRotation(Landroidx/camera/core/impl/ImageOutputConfig;I)I
-    .locals 2
+    .registers 4
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
     .param p1, "valueIfMissing"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -252,7 +252,7 @@
 .end method
 
 .method public static $default$hasTargetAspectRatio(Landroidx/camera/core/impl/ImageOutputConfig;)Z
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/ImageOutputConfig;
 
     .line 87

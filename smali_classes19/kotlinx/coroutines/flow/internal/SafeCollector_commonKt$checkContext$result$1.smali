@@ -63,7 +63,7 @@
 
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/flow/internal/SafeCollector;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public final invoke(ILkotlin/coroutines/CoroutineContext$Element;)Ljava/lang/Integer;
-    .locals 7
+    .registers 10
     .param p1, "count"    # I
     .param p2, "element"    # Lkotlin/coroutines/CoroutineContext$Element;
 
@@ -107,20 +107,20 @@
     .local v1, "collectElement":Lkotlin/coroutines/CoroutineContext$Element;
     sget-object v2, Lkotlinx/coroutines/Job;->Key:Lkotlinx/coroutines/Job$Key;
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_1c
 
     .line 30
-    if-eq p2, v1, :cond_0
+    if-eq p2, v1, :cond_15
 
     const/high16 v2, -0x80000000
 
-    goto :goto_0
+    goto :goto_17
 
     .line 31
-    :cond_0
+    :cond_15
     add-int/lit8 v2, p1, 0x1
 
-    :goto_0
+    :goto_17
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -129,7 +129,7 @@
     return-object v2
 
     .line 34
-    :cond_1
+    :cond_1c
     move-object v2, v1
 
     check-cast v2, Lkotlinx/coroutines/Job;
@@ -150,19 +150,19 @@
 
     .line 67
     .local v3, "emissionParentJob":Lkotlinx/coroutines/Job;
-    if-ne v3, v2, :cond_3
+    if-ne v3, v2, :cond_38
 
     .line 82
-    if-nez v2, :cond_2
+    if-nez v2, :cond_31
 
     move v4, p1
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_2
+    :cond_31
     add-int/lit8 v4, p1, 0x1
 
-    :goto_1
+    :goto_33
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
@@ -170,7 +170,7 @@
     return-object v4
 
     .line 68
-    :cond_3
+    :cond_38
     new-instance v4, Ljava/lang/IllegalStateException;
 
     .line 69
@@ -234,7 +234,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .param p1, "p1"    # Ljava/lang/Object;
     .param p2, "p2"    # Ljava/lang/Object;
 

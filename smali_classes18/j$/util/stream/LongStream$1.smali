@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(JILjava/util/function/LongUnaryOperator;J)V
-    .locals 0
+    .registers 7
     .param p1, "est"    # J
     .param p3, "additionalCharacteristics"    # I
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 898
     check-cast p1, Ljava/util/function/LongConsumer;
@@ -56,7 +56,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/LongConsumer;)Z
-    .locals 4
+    .registers 6
     .param p1, "action"    # Ljava/util/function/LongConsumer;
 
     .line 904
@@ -67,7 +67,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 907
     iget-object v0, p0, Lj$/util/stream/LongStream$1;->val$f:Ljava/util/function/LongUnaryOperator;
@@ -79,11 +79,11 @@
     move-result-wide v2
 
     .local v2, "t":J
-    goto :goto_0
+    goto :goto_15
 
     .line 909
     .end local v2    # "t":J
-    :cond_0
+    :cond_11
     iget-wide v2, p0, Lj$/util/stream/LongStream$1;->val$seed:J
 
     .line 910
@@ -91,7 +91,7 @@
     iput-boolean v1, p0, Lj$/util/stream/LongStream$1;->started:Z
 
     .line 912
-    :goto_0
+    :goto_15
     iput-wide v2, p0, Lj$/util/stream/LongStream$1;->prev:J
 
     invoke-interface {p1, v2, v3}, Ljava/util/function/LongConsumer;->accept(J)V

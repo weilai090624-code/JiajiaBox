@@ -83,7 +83,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Landroidx/window/embedding/SplitController$Companion;
 
@@ -104,7 +104,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -132,7 +132,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/window/embedding/SplitController;-><init>()V
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public static final synthetic access$getGlobalInstance$cp()Landroidx/window/embedding/SplitController;
-    .locals 1
+    .registers 1
 
     .line 39
     sget-object v0, Landroidx/window/embedding/SplitController;->globalInstance:Landroidx/window/embedding/SplitController;
@@ -149,7 +149,7 @@
 .end method
 
 .method public static final synthetic access$getGlobalLock$cp()Ljava/util/concurrent/locks/ReentrantLock;
-    .locals 1
+    .registers 1
 
     .line 39
     sget-object v0, Landroidx/window/embedding/SplitController;->globalLock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -158,7 +158,7 @@
 .end method
 
 .method public static final synthetic access$setGlobalInstance$cp(Landroidx/window/embedding/SplitController;)V
-    .locals 0
+    .registers 1
     .param p0, "<set-?>"    # Landroidx/window/embedding/SplitController;
 
     .line 39
@@ -168,7 +168,7 @@
 .end method
 
 .method public static final synthetic access$setStaticSplitRules(Landroidx/window/embedding/SplitController;Ljava/util/Set;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Landroidx/window/embedding/SplitController;
     .param p1, "staticRules"    # Ljava/util/Set;
 
@@ -179,7 +179,7 @@
 .end method
 
 .method public static final getInstance()Landroidx/window/embedding/SplitController;
-    .locals 1
+    .registers 1
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -193,7 +193,7 @@
 .end method
 
 .method public static final initialize(Landroid/content/Context;I)V
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -205,7 +205,7 @@
 .end method
 
 .method private final setStaticSplitRules(Ljava/util/Set;)V
-    .locals 1
+    .registers 3
     .param p1, "staticRules"    # Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -232,7 +232,7 @@
 
 # virtual methods
 .method public final addSplitListener(Landroid/app/Activity;Ljava/util/concurrent/Executor;Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 5
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .param p3, "consumer"    # Landroidx/core/util/Consumer;
@@ -270,7 +270,7 @@
 .end method
 
 .method public final clearRegisteredRules()V
-    .locals 2
+    .registers 3
 
     .line 69
     iget-object v0, p0, Landroidx/window/embedding/SplitController;->embeddingBackend:Landroidx/window/embedding/EmbeddingBackend;
@@ -284,7 +284,7 @@
 .end method
 
 .method public final getSplitRules()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -311,7 +311,7 @@
 .end method
 
 .method public final isSplitSupported()Z
-    .locals 1
+    .registers 2
 
     .line 111
     iget-object v0, p0, Landroidx/window/embedding/SplitController;->embeddingBackend:Landroidx/window/embedding/EmbeddingBackend;
@@ -324,7 +324,7 @@
 .end method
 
 .method public final registerRule(Landroidx/window/embedding/EmbeddingRule;)V
-    .locals 1
+    .registers 3
     .param p1, "rule"    # Landroidx/window/embedding/EmbeddingRule;
 
     const-string v0, "rule"
@@ -341,7 +341,7 @@
 .end method
 
 .method public final removeSplitListener(Landroidx/core/util/Consumer;)V
-    .locals 1
+    .registers 3
     .param p1, "consumer"    # Landroidx/core/util/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -367,7 +367,7 @@
 .end method
 
 .method public final unregisterRule(Landroidx/window/embedding/EmbeddingRule;)V
-    .locals 1
+    .registers 3
     .param p1, "rule"    # Landroidx/window/embedding/EmbeddingRule;
 
     const-string v0, "rule"

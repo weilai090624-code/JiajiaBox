@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ImmutableCollection;Z)V
-    .locals 3
+    .registers 6
     .param p2, "allMustSucceed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,17 +68,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 48
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 49
-    :cond_0
+    :cond_f
     invoke-virtual {p1}, Lcom/google/common/collect/ImmutableCollection;->size()I
 
     move-result v0
@@ -87,7 +87,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_17
     nop
 
     .line 52
@@ -95,12 +95,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
+    :goto_19
     invoke-virtual {p1}, Lcom/google/common/collect/ImmutableCollection;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_26
 
     .line 53
     const/4 v2, 0x0
@@ -110,11 +110,11 @@
     .line 52
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
     .line 56
     .end local v1    # "i":I
-    :cond_1
+    :cond_26
     iput-object v0, p0, Lcom/google/common/util/concurrent/CollectionFuture;->values:Ljava/util/List;
 
     .line 57
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method final collectOneValue(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -143,7 +143,7 @@
 
     .line 62
     .local v0, "localValues":Ljava/util/List;, "Ljava/util/List<Lcom/google/common/util/concurrent/CollectionFuture$Present<TV;>;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 63
     new-instance v1, Lcom/google/common/util/concurrent/CollectionFuture$Present;
@@ -153,7 +153,7 @@
     invoke-interface {v0, p1, v1}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 65
-    :cond_0
+    :cond_c
     return-void
 .end method
 
@@ -169,7 +169,7 @@
 .end method
 
 .method final handleAllCompleted()V
-    .locals 2
+    .registers 3
 
     .line 69
     .local p0, "this":Lcom/google/common/util/concurrent/CollectionFuture;, "Lcom/google/common/util/concurrent/CollectionFuture<TV;TC;>;"
@@ -177,7 +177,7 @@
 
     .line 70
     .local v0, "localValues":Ljava/util/List;, "Ljava/util/List<Lcom/google/common/util/concurrent/CollectionFuture$Present<TV;>;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 71
     invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/CollectionFuture;->combine(Ljava/util/List;)Ljava/lang/Object;
@@ -187,12 +187,12 @@
     invoke-virtual {p0, v1}, Lcom/google/common/util/concurrent/CollectionFuture;->set(Ljava/lang/Object;)Z
 
     .line 73
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method releaseResources(Lcom/google/common/util/concurrent/AggregateFuture$ReleaseResourcesReason;)V
-    .locals 1
+    .registers 3
     .param p1, "reason"    # Lcom/google/common/util/concurrent/AggregateFuture$ReleaseResourcesReason;
 
     .line 77

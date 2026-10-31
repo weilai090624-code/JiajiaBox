@@ -27,7 +27,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 160
     invoke-direct {p0}, Landroidx/core/content/ContextCompat;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method public static finishAffinity(Landroid/app/Activity;)V
-    .locals 0
+    .registers 1
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 289
@@ -48,7 +48,7 @@
 .end method
 
 .method public static finishAfterTransition(Landroid/app/Activity;)V
-    .locals 0
+    .registers 1
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 302
@@ -62,7 +62,7 @@
 .end method
 
 .method public static getPermissionCompatDelegate()Landroidx/core/app/ActivityCompat$PermissionCompatDelegate;
-    .locals 1
+    .registers 1
 
     .line 180
     sget-object v0, Landroidx/core/app/ActivityCompat;->sDelegate:Landroidx/core/app/ActivityCompat$PermissionCompatDelegate;
@@ -71,7 +71,7 @@
 .end method
 
 .method public static getReferrer(Landroid/app/Activity;)Landroid/net/Uri;
-    .locals 4
+    .registers 5
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 328
@@ -79,7 +79,7 @@
 
     const/16 v1, 0x16
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 329
     invoke-static {p0}, Landroidx/core/app/ActivityCompat$Api22Impl;->getReferrer(Landroid/app/Activity;)Landroid/net/Uri;
@@ -89,7 +89,7 @@
     return-object v0
 
     .line 331
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -106,13 +106,13 @@
 
     .line 333
     .local v1, "referrer":Landroid/net/Uri;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     .line 334
     return-object v1
 
     .line 336
-    :cond_1
+    :cond_1a
     const-string v2, "android.intent.extra.REFERRER_NAME"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -121,7 +121,7 @@
 
     .line 337
     .local v2, "referrerName":Ljava/lang/String;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_27
 
     .line 338
     invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -131,14 +131,14 @@
     return-object v3
 
     .line 340
-    :cond_2
+    :cond_27
     const/4 v3, 0x0
 
     return-object v3
 .end method
 
 .method public static invalidateOptionsMenu(Landroid/app/Activity;)Z
-    .locals 1
+    .registers 2
     .param p0, "activity"    # Landroid/app/Activity;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -153,7 +153,7 @@
 .end method
 
 .method public static isLaunchedFromBubble(Landroid/app/Activity;)Z
-    .locals 4
+    .registers 5
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 619
@@ -161,7 +161,7 @@
 
     const/16 v1, 0x1f
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 620
     invoke-static {p0}, Landroidx/core/app/ActivityCompat$Api31Impl;->isLaunchedFromBubble(Landroid/app/Activity;)Z
@@ -171,7 +171,7 @@
     return v0
 
     .line 621
-    :cond_0
+    :cond_b
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
@@ -180,14 +180,14 @@
 
     const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_26
 
     .line 622
     invoke-static {p0}, Landroidx/core/app/ActivityCompat$Api30Impl;->getDisplay(Landroid/content/ContextWrapper;)Landroid/view/Display;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 623
     invoke-static {p0}, Landroidx/core/app/ActivityCompat$Api30Impl;->getDisplay(Landroid/content/ContextWrapper;)Landroid/view/Display;
@@ -198,24 +198,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_24
     const/4 v2, 0x0
 
     .line 622
-    :goto_0
+    :goto_25
     return v2
 
     .line 624
-    :cond_2
+    :cond_26
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_47
 
     .line 625
     invoke-virtual {p0}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
@@ -226,7 +226,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_45
 
     .line 626
     invoke-virtual {p0}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
@@ -241,24 +241,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_45
 
-    goto :goto_1
+    goto :goto_46
 
-    :cond_3
+    :cond_45
     const/4 v2, 0x0
 
     .line 625
-    :goto_1
+    :goto_46
     return v2
 
     .line 629
-    :cond_4
+    :cond_47
     return v3
 .end method
 
 .method static synthetic lambda$recreate$0(Landroid/app/Activity;)V
-    .locals 1
+    .registers 2
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 664
@@ -266,24 +266,24 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     invoke-static {p0}, Landroidx/core/app/ActivityRecreator;->recreate(Landroid/app/Activity;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 666
     invoke-virtual {p0}, Landroid/app/Activity;->recreate()V
 
     .line 668
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public static postponeEnterTransition(Landroid/app/Activity;)V
-    .locals 0
+    .registers 1
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 413
@@ -297,7 +297,7 @@
 .end method
 
 .method public static recreate(Landroid/app/Activity;)V
-    .locals 2
+    .registers 3
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 655
@@ -305,15 +305,15 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 657
     invoke-virtual {p0}, Landroid/app/Activity;->recreate()V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 662
-    :cond_0
+    :cond_a
     new-instance v0, Landroid/os/Handler;
 
     invoke-virtual {p0}, Landroid/app/Activity;->getMainLooper()Landroid/os/Looper;
@@ -332,12 +332,12 @@
 
     .line 670
     .end local v0    # "handler":Landroid/os/Handler;
-    :goto_0
+    :goto_1b
     return-void
 .end method
 
 .method public static requestDragAndDropPermissions(Landroid/app/Activity;Landroid/view/DragEvent;)Landroidx/core/view/DragAndDropPermissionsCompat;
-    .locals 1
+    .registers 3
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "dragEvent"    # Landroid/view/DragEvent;
 
@@ -350,7 +350,7 @@
 .end method
 
 .method public static requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
-    .locals 7
+    .registers 10
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "permissions"    # [Ljava/lang/String;
     .param p2, "requestCode"    # I
@@ -358,7 +358,7 @@
     .line 506
     sget-object v0, Landroidx/core/app/ActivityCompat;->sDelegate:Landroidx/core/app/ActivityCompat$PermissionCompatDelegate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     sget-object v0, Landroidx/core/app/ActivityCompat;->sDelegate:Landroidx/core/app/ActivityCompat$PermissionCompatDelegate;
 
@@ -367,13 +367,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 509
     return-void
 
     .line 512
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
@@ -383,10 +383,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_13
     array-length v2, p1
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_5b
 
     .line 514
     aget-object v2, p1, v1
@@ -395,14 +395,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_38
 
     .line 519
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x21
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_35
 
     .line 520
     aget-object v2, p1, v1
@@ -413,7 +413,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     .line 521
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -423,13 +423,13 @@
     invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 513
-    :cond_1
+    :cond_35
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 515
-    :cond_2
+    :cond_38
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -467,14 +467,14 @@
 
     .line 526
     .end local v1    # "i":I
-    :cond_3
+    :cond_5b
     invoke-interface {v0}, Ljava/util/Set;->size()I
 
     move-result v1
 
     .line 527
     .local v1, "numPermissionsToRemove":I
-    if-lez v1, :cond_4
+    if-lez v1, :cond_66
 
     .line 528
     array-length v2, p1
@@ -483,36 +483,36 @@
 
     new-array v2, v2, [Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_67
 
-    :cond_4
+    :cond_66
     move-object v2, p1
 
     .line 529
     .local v2, "permissionsArray":[Ljava/lang/String;
-    :goto_1
-    if-lez v1, :cond_7
+    :goto_67
+    if-lez v1, :cond_86
 
     .line 530
     array-length v3, p1
 
-    if-ne v1, v3, :cond_5
+    if-ne v1, v3, :cond_6d
 
     .line 531
     return-void
 
     .line 533
-    :cond_5
+    :cond_6d
     const/4 v3, 0x0
 
     .local v3, "i":I
     const/4 v4, 0x0
 
     .local v4, "modifiedIndex":I
-    :goto_2
+    :goto_6f
     array-length v5, p1
 
-    if-ge v3, v5, :cond_7
+    if-ge v3, v5, :cond_86
 
     .line 534
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -523,7 +523,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_83
 
     .line 535
     add-int/lit8 v5, v4, 0x1
@@ -539,25 +539,25 @@
     .line 533
     .end local v5    # "modifiedIndex":I
     .restart local v4    # "modifiedIndex":I
-    :cond_6
+    :cond_83
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_6f
 
     .line 540
     .end local v3    # "i":I
     .end local v4    # "modifiedIndex":I
-    :cond_7
+    :cond_86
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v4, 0x17
 
-    if-lt v3, v4, :cond_9
+    if-lt v3, v4, :cond_9a
 
     .line 541
     instance-of v3, p0, Landroidx/core/app/ActivityCompat$RequestPermissionsRequestCodeValidator;
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_96
 
     .line 542
     move-object v3, p0
@@ -568,16 +568,16 @@
     invoke-interface {v3, p2}, Landroidx/core/app/ActivityCompat$RequestPermissionsRequestCodeValidator;->validateRequestPermissionsRequestCode(I)V
 
     .line 545
-    :cond_8
+    :cond_96
     invoke-static {p0, p1, p2}, Landroidx/core/app/ActivityCompat$Api23Impl;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
 
-    goto :goto_3
+    goto :goto_af
 
     .line 546
-    :cond_9
+    :cond_9a
     instance-of v3, p0, Landroidx/core/app/ActivityCompat$OnRequestPermissionsResultCallback;
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_af
 
     .line 547
     new-instance v3, Landroid/os/Handler;
@@ -598,13 +598,13 @@
 
     .line 567
     .end local v3    # "handler":Landroid/os/Handler;
-    :cond_a
-    :goto_3
+    :cond_af
+    :goto_af
     return-void
 .end method
 
 .method public static requireViewById(Landroid/app/Activity;I)Landroid/view/View;
-    .locals 3
+    .registers 5
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -622,7 +622,7 @@
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 363
     invoke-static {p0, p1}, Landroidx/core/app/ActivityCompat$Api28Impl;->requireViewById(Landroid/app/Activity;I)Ljava/lang/Object;
@@ -634,20 +634,20 @@
     return-object v0
 
     .line 366
-    :cond_0
+    :cond_d
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     .line 367
     .local v0, "view":Landroid/view/View;, "TT;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 370
     return-object v0
 
     .line 368
-    :cond_1
+    :cond_14
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "ID does not reference a View inside this Activity"
@@ -658,7 +658,7 @@
 .end method
 
 .method public static setEnterSharedElementCallback(Landroid/app/Activity;Landroidx/core/app/SharedElementCallback;)V
-    .locals 1
+    .registers 3
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "callback"    # Landroidx/core/app/SharedElementCallback;
 
@@ -666,20 +666,20 @@
     nop
 
     .line 385
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     .line 386
     new-instance v0, Landroidx/core/app/ActivityCompat$SharedElementCallback21Impl;
 
     invoke-direct {v0, p1}, Landroidx/core/app/ActivityCompat$SharedElementCallback21Impl;-><init>(Landroidx/core/app/SharedElementCallback;)V
 
-    goto :goto_0
+    goto :goto_a
 
     .line 387
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     nop
 
     .line 388
@@ -692,7 +692,7 @@
 .end method
 
 .method public static setExitSharedElementCallback(Landroid/app/Activity;Landroidx/core/app/SharedElementCallback;)V
-    .locals 1
+    .registers 3
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "callback"    # Landroidx/core/app/SharedElementCallback;
 
@@ -700,20 +700,20 @@
     nop
 
     .line 405
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     .line 406
     new-instance v0, Landroidx/core/app/ActivityCompat$SharedElementCallback21Impl;
 
     invoke-direct {v0, p1}, Landroidx/core/app/ActivityCompat$SharedElementCallback21Impl;-><init>(Landroidx/core/app/SharedElementCallback;)V
 
-    goto :goto_0
+    goto :goto_a
 
     .line 407
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_a
     nop
 
     .line 408
@@ -726,7 +726,7 @@
 .end method
 
 .method public static setLocusContext(Landroid/app/Activity;Landroidx/core/content/LocusIdCompat;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "locusId"    # Landroidx/core/content/LocusIdCompat;
     .param p2, "bundle"    # Landroid/os/Bundle;
@@ -736,18 +736,18 @@
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_9
 
     .line 706
     invoke-static {p0, p1, p2}, Landroidx/core/app/ActivityCompat$Api30Impl;->setLocusContext(Landroid/app/Activity;Landroidx/core/content/LocusIdCompat;Landroid/os/Bundle;)V
 
     .line 708
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static setPermissionCompatDelegate(Landroidx/core/app/ActivityCompat$PermissionCompatDelegate;)V
-    .locals 0
+    .registers 1
     .param p0, "delegate"    # Landroidx/core/app/ActivityCompat$PermissionCompatDelegate;
 
     .line 172
@@ -758,7 +758,7 @@
 .end method
 
 .method public static shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/lang/String;)Z
-    .locals 3
+    .registers 5
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "permission"    # Ljava/lang/String;
 
@@ -769,7 +769,7 @@
 
     const/4 v2, 0x0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_10
 
     .line 582
     const-string v0, "android.permission.POST_NOTIFICATIONS"
@@ -778,18 +778,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 584
     return v2
 
     .line 586
-    :cond_0
+    :cond_10
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x20
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1b
 
     .line 587
     invoke-static {p0, p1}, Landroidx/core/app/ActivityCompat$Api32Impl;->shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/lang/String;)Z
@@ -799,12 +799,12 @@
     return v0
 
     .line 588
-    :cond_1
+    :cond_1b
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1f
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_26
 
     .line 589
     invoke-static {p0, p1}, Landroidx/core/app/ActivityCompat$Api31Impl;->shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/lang/String;)Z
@@ -814,12 +814,12 @@
     return v0
 
     .line 590
-    :cond_2
+    :cond_26
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_31
 
     .line 591
     invoke-static {p0, p1}, Landroidx/core/app/ActivityCompat$Api23Impl;->shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/lang/String;)Z
@@ -829,12 +829,12 @@
     return v0
 
     .line 593
-    :cond_3
+    :cond_31
     return v2
 .end method
 
 .method public static startActivityForResult(Landroid/app/Activity;Landroid/content/Intent;ILandroid/os/Bundle;)V
-    .locals 0
+    .registers 4
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "requestCode"    # I
@@ -848,7 +848,7 @@
 .end method
 
 .method public static startIntentSenderForResult(Landroid/app/Activity;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
-    .locals 0
+    .registers 8
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "intent"    # Landroid/content/IntentSender;
     .param p2, "requestCode"    # I
@@ -871,7 +871,7 @@
 .end method
 
 .method public static startPostponedEnterTransition(Landroid/app/Activity;)V
-    .locals 0
+    .registers 1
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 419

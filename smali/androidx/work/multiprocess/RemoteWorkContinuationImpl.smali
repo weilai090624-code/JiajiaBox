@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/multiprocess/RemoteWorkManagerClient;Landroidx/work/WorkContinuation;)V
-    .locals 0
+    .registers 3
     .param p1, "client"    # Landroidx/work/multiprocess/RemoteWorkManagerClient;
     .param p2, "continuation"    # Landroidx/work/WorkContinuation;
 
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method protected combineInternal(Ljava/util/List;)Landroidx/work/multiprocess/RemoteWorkContinuation;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,12 +60,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_d
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -85,10 +85,10 @@
 
     .line 71
     .end local v3    # "continuation":Landroidx/work/multiprocess/RemoteWorkContinuation;
-    goto :goto_0
+    goto :goto_d
 
     .line 72
-    :cond_0
+    :cond_22
     invoke-static {v1}, Landroidx/work/WorkContinuation;->combine(Ljava/util/List;)Landroidx/work/WorkContinuation;
 
     move-result-object v2
@@ -105,7 +105,7 @@
 .end method
 
 .method public enqueue()Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -128,7 +128,7 @@
 .end method
 
 .method public then(Ljava/util/List;)Landroidx/work/multiprocess/RemoteWorkContinuation;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

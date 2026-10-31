@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/base/Supplier;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public load(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;I)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;
 
     .line 1971
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public perform(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
-    .locals 8
+    .registers 11
     .param p1, "view"    # Landroid/view/View;
     .param p2, "arguments"    # Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;
 

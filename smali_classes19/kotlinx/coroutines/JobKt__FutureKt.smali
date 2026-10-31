@@ -32,7 +32,7 @@
 
 # direct methods
 .method public static final cancelFutureOnCancellation(Lkotlinx/coroutines/CancellableContinuation;Ljava/util/concurrent/Future;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$cancelFutureOnCancellation"    # Lkotlinx/coroutines/CancellableContinuation;
     .param p1, "future"    # Ljava/util/concurrent/Future;
     .annotation system Ldalvik/annotation/Signature;
@@ -58,7 +58,7 @@
 .end method
 
 .method public static final cancelFutureOnCompletion(Lkotlinx/coroutines/Job;Ljava/util/concurrent/Future;)Lkotlinx/coroutines/DisposableHandle;
-    .locals 1
+    .registers 3
     .param p0, "$this$cancelFutureOnCompletion"    # Lkotlinx/coroutines/Job;
     .param p1, "future"    # Ljava/util/concurrent/Future;
     .annotation system Ldalvik/annotation/Signature;

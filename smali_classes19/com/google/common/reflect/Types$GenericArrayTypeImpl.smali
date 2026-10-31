@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Type;)V
-    .locals 1
+    .registers 3
     .param p1, "componentType"    # Ljava/lang/reflect/Type;
 
     .line 235
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -59,7 +59,7 @@
     .line 256
     instance-of v0, p1, Ljava/lang/reflect/GenericArrayType;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 257
     move-object v0, p1
@@ -84,14 +84,14 @@
 
     .line 260
     .end local v0    # "that":Ljava/lang/reflect/GenericArrayType;
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public getGenericComponentType()Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 2
 
     .line 241
     iget-object v0, p0, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;->componentType:Ljava/lang/reflect/Type;
@@ -100,7 +100,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 251
     iget-object v0, p0, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;->componentType:Ljava/lang/reflect/Type;
@@ -113,7 +113,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 246
     iget-object v0, p0, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;->componentType:Ljava/lang/reflect/Type;

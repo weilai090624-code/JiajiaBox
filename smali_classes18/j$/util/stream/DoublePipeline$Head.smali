@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/Spliterator;IZ)V
-    .locals 0
+    .registers 4
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -48,7 +48,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/function/Supplier;IZ)V
-    .locals 0
+    .registers 4
     .param p2, "sourceFlags"    # I
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public forEach(Ljava/util/function/DoubleConsumer;)V
-    .locals 1
+    .registers 3
     .param p1, "consumer"    # Ljava/util/function/DoubleConsumer;
 
     .line 597
@@ -83,7 +83,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 598
     invoke-virtual {p0}, Lj$/util/stream/DoublePipeline$Head;->sourceStageSpliterator()Lj$/util/Spliterator;
@@ -96,19 +96,19 @@
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator$OfDouble;->forEachRemaining(Ljava/util/function/DoubleConsumer;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 601
-    :cond_0
+    :cond_12
     invoke-super {p0, p1}, Lj$/util/stream/DoublePipeline;->forEach(Ljava/util/function/DoubleConsumer;)V
 
     .line 603
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public forEachOrdered(Ljava/util/function/DoubleConsumer;)V
-    .locals 1
+    .registers 3
     .param p1, "consumer"    # Ljava/util/function/DoubleConsumer;
 
     .line 607
@@ -117,7 +117,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 608
     invoke-virtual {p0}, Lj$/util/stream/DoublePipeline$Head;->sourceStageSpliterator()Lj$/util/Spliterator;
@@ -130,19 +130,19 @@
 
     invoke-interface {v0, p1}, Lj$/util/Spliterator$OfDouble;->forEachRemaining(Ljava/util/function/DoubleConsumer;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 611
-    :cond_0
+    :cond_12
     invoke-super {p0, p1}, Lj$/util/stream/DoublePipeline;->forEachOrdered(Ljava/util/function/DoubleConsumer;)V
 
     .line 613
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 555
     .local p0, "this":Lj$/util/stream/DoublePipeline$Head;, "Ljava/util/stream/DoublePipeline$Head<TE_IN;>;"
@@ -154,7 +154,7 @@
 .end method
 
 .method bridge synthetic lazySpliterator(Ljava/util/function/Supplier;)Lj$/util/Spliterator;
-    .locals 0
+    .registers 2
 
     .line 555
     .local p0, "this":Lj$/util/stream/DoublePipeline$Head;, "Ljava/util/stream/DoublePipeline$Head<TE_IN;>;"
@@ -166,7 +166,7 @@
 .end method
 
 .method final opIsStateful()Z
-    .locals 1
+    .registers 2
 
     .line 585
     .local p0, "this":Lj$/util/stream/DoublePipeline$Head;, "Ljava/util/stream/DoublePipeline$Head<TE_IN;>;"
@@ -178,7 +178,7 @@
 .end method
 
 .method final opWrapSink(ILj$/util/stream/Sink;)Lj$/util/stream/Sink;
-    .locals 1
+    .registers 4
     .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -202,7 +202,7 @@
 .end method
 
 .method public bridge synthetic parallel()Lj$/util/stream/DoubleStream;
-    .locals 1
+    .registers 2
 
     .line 555
     .local p0, "this":Lj$/util/stream/DoublePipeline$Head;, "Ljava/util/stream/DoublePipeline$Head<TE_IN;>;"
@@ -216,7 +216,7 @@
 .end method
 
 .method public bridge synthetic sequential()Lj$/util/stream/DoubleStream;
-    .locals 1
+    .registers 2
 
     .line 555
     .local p0, "this":Lj$/util/stream/DoublePipeline$Head;, "Ljava/util/stream/DoublePipeline$Head<TE_IN;>;"
@@ -230,7 +230,7 @@
 .end method
 
 .method public bridge synthetic spliterator()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 555
     .local p0, "this":Lj$/util/stream/DoublePipeline$Head;, "Ljava/util/stream/DoublePipeline$Head<TE_IN;>;"
@@ -242,7 +242,7 @@
 .end method
 
 .method public bridge synthetic unordered()Lj$/util/stream/BaseStream;
-    .locals 1
+    .registers 2
 
     .line 555
     .local p0, "this":Lj$/util/stream/DoublePipeline$Head;, "Ljava/util/stream/DoublePipeline$Head<TE_IN;>;"

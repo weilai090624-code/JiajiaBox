@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
     .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "x0"    # Ljava/lang/Object;
 
     .line 34
@@ -76,7 +76,7 @@
 .end method
 
 .method public compareTo(Lorg/yaml/snakeyaml/introspector/Property;)I
-    .locals 2
+    .registers 4
     .param p1, "o"    # Lorg/yaml/snakeyaml/introspector/Property;
 
     .line 60
@@ -96,7 +96,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 99
@@ -104,7 +104,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 100
     move-object v0, p1
@@ -125,7 +125,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_25
 
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/introspector/Property;->getType()Ljava/lang/Class;
 
@@ -139,16 +139,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_25
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_25
     return v1
 
     .line 103
     .end local v0    # "p":Lorg/yaml/snakeyaml/introspector/Property;
-    :cond_1
+    :cond_26
     return v1
 .end method
 
@@ -189,7 +189,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 51
     iget-object v0, p0, Lorg/yaml/snakeyaml/introspector/Property;->name:Ljava/lang/String;
@@ -198,7 +198,7 @@
 .end method
 
 .method public getType()Ljava/lang/Class;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -214,7 +214,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 94
     invoke-virtual {p0}, Lorg/yaml/snakeyaml/introspector/Property;->getName()Ljava/lang/String;
@@ -239,7 +239,7 @@
 .end method
 
 .method public isReadable()Z
-    .locals 1
+    .registers 2
 
     .line 68
     const/4 v0, 0x1
@@ -248,7 +248,7 @@
 .end method
 
 .method public isWritable()Z
-    .locals 1
+    .registers 2
 
     .line 64
     const/4 v0, 0x1
@@ -265,7 +265,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 56
     new-instance v0, Ljava/lang/StringBuilder;

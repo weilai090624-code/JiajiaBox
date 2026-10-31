@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final setupWithNavController(Lcom/google/android/material/navigation/NavigationView;Landroidx/navigation/NavController;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$setupWithNavController"    # Lcom/google/android/material/navigation/NavigationView;
     .param p1, "navController"    # Landroidx/navigation/NavController;
 

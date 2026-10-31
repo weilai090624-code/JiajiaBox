@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Splitter$2;Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/base/Splitter$2;
     .param p2, "splitter"    # Lcom/google/common/base/Splitter;
     .param p3, "toSplit"    # Ljava/lang/CharSequence;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public separatorEnd(I)I
-    .locals 1
+    .registers 3
     .param p1, "separatorPosition"    # I
 
     .line 198
@@ -54,7 +54,7 @@
 .end method
 
 .method public separatorStart(I)I
-    .locals 6
+    .registers 8
     .param p1, "start"    # I
 
     .line 182
@@ -80,15 +80,15 @@
     sub-int/2addr v2, v0
 
     .local v2, "last":I
-    :goto_0
-    if-gt v1, v2, :cond_2
+    :goto_10
+    if-gt v1, v2, :cond_2f
 
     .line 186
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v0, :cond_1
+    :goto_13
+    if-ge v3, v0, :cond_2e
 
     .line 187
     iget-object v4, p0, Lcom/google/common/base/Splitter$2$1;->toSplit:Ljava/lang/CharSequence;
@@ -107,7 +107,7 @@
 
     move-result v5
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_2b
 
     .line 188
     nop
@@ -116,24 +116,24 @@
     .end local v3    # "i":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 186
     .restart local v3    # "i":I
-    :cond_0
+    :cond_2b
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_13
 
     .line 191
     .end local v3    # "i":I
-    :cond_1
+    :cond_2e
     return v1
 
     .line 193
     .end local v1    # "p":I
     .end local v2    # "last":I
-    :cond_2
+    :cond_2f
     const/4 v1, -0x1
 
     return v1

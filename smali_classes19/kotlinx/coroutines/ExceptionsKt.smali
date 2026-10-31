@@ -37,7 +37,7 @@
 
 # direct methods
 .method public static final CancellationException(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/util/concurrent/CancellationException;
-    .locals 3
+    .registers 5
     .param p0, "message"    # Ljava/lang/String;
     .param p1, "cause"    # Ljava/lang/Throwable;
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public static final addSuppressedThrowable(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
     .param p0, "$this$addSuppressedThrowable"    # Ljava/lang/Throwable;
     .param p1, "other"    # Ljava/lang/Throwable;
 

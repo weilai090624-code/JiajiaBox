@@ -46,7 +46,7 @@
     <string name="preference_copied">\"%1$s\" copiado para a área de transferência.</string>
     <string name="search_menu_title">Pesquisar</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="v7_preference_off">DESATIVADO</string>
     <string name="v7_preference_on">ATIVADO</string>
 </resources>

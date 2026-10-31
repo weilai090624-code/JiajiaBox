@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/ListFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/fragment/app/ListFragment;
 
     .line 61
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 6
+    .registers 12
     .param p2, "v"    # Landroid/view/View;
     .param p3, "position"    # I
     .param p4, "id"    # J

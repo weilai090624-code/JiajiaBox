@@ -67,7 +67,7 @@
 
 # direct methods
 .method private static final synthetic $values()[Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x4
 
@@ -101,7 +101,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 28
     new-instance v0, Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
@@ -165,7 +165,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "$enum$name"    # Ljava/lang/String;
     .param p2, "$enum$ordinal"    # I
     .param p3, "value"    # Ljava/lang/String;
@@ -186,7 +186,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
-    .locals 1
+    .registers 2
 
     const-class v0, Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
 
@@ -200,7 +200,7 @@
 .end method
 
 .method public static values()[Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
-    .locals 1
+    .registers 1
 
     sget-object v0, Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;->$VALUES:[Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;
 
@@ -216,7 +216,7 @@
 
 # virtual methods
 .method public final getValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 27
     iget-object v0, p0, Lcom/blacksquircle/ui/language/base/model/Suggestion$Type;->value:Ljava/lang/String;

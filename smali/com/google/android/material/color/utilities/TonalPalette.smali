@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(DD)V
-    .locals 1
+    .registers 6
     .param p1, "hue"    # D
     .param p3, "chroma"    # D
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public static final fromHueAndChroma(DD)Lcom/google/android/material/color/utilities/TonalPalette;
-    .locals 1
+    .registers 5
     .param p0, "hue"    # D
     .param p2, "chroma"    # D
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public static final fromInt(I)Lcom/google/android/material/color/utilities/TonalPalette;
-    .locals 5
+    .registers 6
     .param p0, "argb"    # I
 
     .line 44
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public tone(I)I
-    .locals 7
+    .registers 9
     .param p1, "tone"    # I
 
     .line 74
@@ -106,7 +106,7 @@
 
     .line 75
     .local v0, "color":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_28
 
     .line 76
     iget-wide v1, p0, Lcom/google/android/material/color/utilities/TonalPalette;->hue:D
@@ -137,7 +137,7 @@
     invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 79
-    :cond_0
+    :cond_28
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1

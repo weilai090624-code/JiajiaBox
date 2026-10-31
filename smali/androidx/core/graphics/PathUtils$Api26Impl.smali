@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static approximate(Landroid/graphics/Path;F)[F
-    .locals 1
+    .registers 3
     .param p0, "path"    # Landroid/graphics/Path;
     .param p1, "acceptableError"    # F
 

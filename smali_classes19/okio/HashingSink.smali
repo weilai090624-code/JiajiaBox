@@ -73,7 +73,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokio/HashingSink$Companion;
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(Lokio/Sink;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "sink"    # Lokio/Sink;
     .param p2, "algorithm"    # Ljava/lang/String;
 
@@ -114,7 +114,7 @@
 .end method
 
 .method public constructor <init>(Lokio/Sink;Ljava/security/MessageDigest;)V
-    .locals 1
+    .registers 4
     .param p1, "sink"    # Lokio/Sink;
     .param p2, "digest"    # Ljava/security/MessageDigest;
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Lokio/Sink;Ljavax/crypto/Mac;)V
-    .locals 1
+    .registers 4
     .param p1, "sink"    # Lokio/Sink;
     .param p2, "mac"    # Ljavax/crypto/Mac;
 
@@ -170,7 +170,7 @@
 .end method
 
 .method public constructor <init>(Lokio/Sink;Lokio/ByteString;Ljava/lang/String;)V
-    .locals 5
+    .registers 9
     .param p1, "sink"    # Lokio/Sink;
     .param p2, "key"    # Lokio/ByteString;
     .param p3, "algorithm"    # Ljava/lang/String;
@@ -197,7 +197,7 @@
     nop
 
     .line 59
-    :try_start_0
+    :try_start_12
     invoke-static {p3}, Ljavax/crypto/Mac;->getInstance(Ljava/lang/String;)Ljavax/crypto/Mac;
 
     move-result-object v0
@@ -227,8 +227,8 @@
     .end local v1    # "$this$_init__u24lambda_u2d0":Ljavax/crypto/Mac;
     .end local v2    # "$i$a$-apply-HashingSink$1":I
     sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/security/InvalidKeyException; {:try_start_12 .. :try_end_29} :catch_34
 
     .line 59
     nop
@@ -248,7 +248,7 @@
     return-void
 
     .line 62
-    :catch_0
+    :catch_34
     move-exception v0
 
     .line 63
@@ -265,7 +265,7 @@
 .end method
 
 .method public static final hmacSha1(Lokio/Sink;Lokio/ByteString;)Lokio/HashingSink;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -279,7 +279,7 @@
 .end method
 
 .method public static final hmacSha256(Lokio/Sink;Lokio/ByteString;)Lokio/HashingSink;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -293,7 +293,7 @@
 .end method
 
 .method public static final hmacSha512(Lokio/Sink;Lokio/ByteString;)Lokio/HashingSink;
-    .locals 1
+    .registers 3
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -307,7 +307,7 @@
 .end method
 
 .method public static final md5(Lokio/Sink;)Lokio/HashingSink;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -321,7 +321,7 @@
 .end method
 
 .method public static final sha1(Lokio/Sink;)Lokio/HashingSink;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -335,7 +335,7 @@
 .end method
 
 .method public static final sha256(Lokio/Sink;)Lokio/HashingSink;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -349,7 +349,7 @@
 .end method
 
 .method public static final sha512(Lokio/Sink;)Lokio/HashingSink;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -365,7 +365,7 @@
 
 # virtual methods
 .method public final -deprecated_hash()Lokio/ByteString;
-    .locals 1
+    .registers 2
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -384,12 +384,12 @@
 .end method
 
 .method public final hash()Lokio/ByteString;
-    .locals 3
+    .registers 4
 
     .line 98
     iget-object v0, p0, Lokio/HashingSink;->messageDigest:Ljava/security/MessageDigest;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-object v0, p0, Lokio/HashingSink;->messageDigest:Ljava/security/MessageDigest;
 
@@ -397,9 +397,9 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lokio/HashingSink;->mac:Ljavax/crypto/Mac;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -410,7 +410,7 @@
 
     .line 99
     .local v0, "result":[B
-    :goto_0
+    :goto_14
     new-instance v1, Lokio/ByteString;
 
     const-string v2, "result"
@@ -423,7 +423,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 9
+    .registers 13
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -458,10 +458,10 @@
 
     .line 74
     .local v2, "s":Lokio/Segment;
-    :goto_0
+    :goto_16
     cmp-long v3, v0, p2
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_4b
 
     .line 75
     sub-long v3, p2, v0
@@ -494,7 +494,7 @@
     .local v3, "toHash":I
     iget-object v4, p0, Lokio/HashingSink;->messageDigest:Ljava/security/MessageDigest;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_36
 
     .line 77
     iget-object v4, p0, Lokio/HashingSink;->messageDigest:Ljava/security/MessageDigest;
@@ -505,10 +505,10 @@
 
     invoke-virtual {v4, v5, v6, v3}, Ljava/security/MessageDigest;->update([BII)V
 
-    goto :goto_1
+    goto :goto_42
 
     .line 79
-    :cond_0
+    :cond_36
     iget-object v4, p0, Lokio/HashingSink;->mac:Ljavax/crypto/Mac;
 
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -520,7 +520,7 @@
     invoke-virtual {v4, v5, v6, v3}, Ljavax/crypto/Mac;->update([BII)V
 
     .line 81
-    :goto_1
+    :goto_42
     int-to-long v4, v3
 
     add-long/2addr v0, v4
@@ -533,10 +533,10 @@
     move-object v2, v4
 
     .end local v3    # "toHash":I
-    goto :goto_0
+    goto :goto_16
 
     .line 86
-    :cond_1
+    :cond_4b
     invoke-super {p0, p1, p2, p3}, Lokio/ForwardingSink;->write(Lokio/Buffer;J)V
 
     .line 87

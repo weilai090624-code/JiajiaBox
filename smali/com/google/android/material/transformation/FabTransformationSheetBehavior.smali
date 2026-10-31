@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Lcom/google/android/material/transformation/FabTransformationBehavior;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -44,7 +44,7 @@
 .end method
 
 .method private updateImportantForAccessibility(Landroid/view/View;Z)V
-    .locals 8
+    .registers 11
     .param p1, "sheet"    # Landroid/view/View;
     .param p2, "expanded"    # Z
 
@@ -57,13 +57,13 @@
     .local v0, "viewParent":Landroid/view/ViewParent;
     instance-of v1, v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
     .line 86
     return-void
 
     .line 89
-    :cond_0
+    :cond_9
     move-object v1, v0
 
     check-cast v1, Landroidx/coordinatorlayout/widget/CoordinatorLayout;
@@ -76,7 +76,7 @@
 
     .line 91
     .local v2, "childCount":I
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_19
 
     .line 92
     new-instance v3, Ljava/util/HashMap;
@@ -86,12 +86,12 @@
     iput-object v3, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
 
     .line 95
-    :cond_1
+    :cond_19
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v2, :cond_6
+    :goto_1a
+    if-ge v3, v2, :cond_72
 
     .line 96
     invoke-virtual {v1, v3}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->getChildAt(I)Landroid/view/View;
@@ -109,7 +109,7 @@
 
     instance-of v5, v5, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_39
 
     .line 101
     invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -124,33 +124,33 @@
 
     instance-of v5, v5, Lcom/google/android/material/transformation/FabTransformationScrimBehavior;
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_39
 
     const/4 v5, 0x1
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_2
+    :cond_39
     const/4 v5, 0x0
 
     .line 103
     .local v5, "hasScrimBehavior":Z
-    :goto_1
-    if-eq v4, p1, :cond_5
+    :goto_3a
+    if-eq v4, p1, :cond_6f
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_3f
 
     .line 104
-    goto :goto_2
+    goto :goto_6f
 
     .line 107
-    :cond_3
-    if-nez p2, :cond_4
+    :cond_3f
+    if-nez p2, :cond_5d
 
     .line 108
     iget-object v6, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6f
 
     iget-object v6, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
 
@@ -159,7 +159,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6f
 
     .line 111
     iget-object v6, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
@@ -176,10 +176,10 @@
 
     invoke-static {v4, v6}, Landroidx/core/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
 
-    goto :goto_2
+    goto :goto_6f
 
     .line 115
-    :cond_4
+    :cond_5d
     nop
 
     .line 116
@@ -203,16 +203,16 @@
     .line 95
     .end local v4    # "child":Landroid/view/View;
     .end local v5    # "hasScrimBehavior":Z
-    :cond_5
-    :goto_2
+    :cond_6f
+    :goto_6f
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 124
     .end local v3    # "i":I
-    :cond_6
-    if-nez p2, :cond_7
+    :cond_72
+    if-nez p2, :cond_77
 
     .line 125
     const/4 v3, 0x0
@@ -220,34 +220,34 @@
     iput-object v3, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
 
     .line 127
-    :cond_7
+    :cond_77
     return-void
 .end method
 
 
 # virtual methods
 .method protected onCreateMotionSpec(Landroid/content/Context;Z)Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "expanded"    # Z
 
     .line 63
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     .line 64
     sget v0, Lcom/google/android/material/R$animator;->mtrl_fab_transformation_sheet_expand_spec:I
 
     .local v0, "specRes":I
-    goto :goto_0
+    goto :goto_7
 
     .line 66
     .end local v0    # "specRes":I
-    :cond_0
+    :cond_5
     sget v0, Lcom/google/android/material/R$animator;->mtrl_fab_transformation_sheet_collapse_spec:I
 
     .line 69
     .restart local v0    # "specRes":I
-    :goto_0
+    :goto_7
     new-instance v1, Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;
 
     invoke-direct {v1}, Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;-><init>()V
@@ -276,7 +276,7 @@
 .end method
 
 .method protected onExpandedStateChange(Landroid/view/View;Landroid/view/View;ZZ)Z
-    .locals 1
+    .registers 6
     .param p1, "dependency"    # Landroid/view/View;
     .param p2, "child"    # Landroid/view/View;
     .param p3, "expanded"    # Z

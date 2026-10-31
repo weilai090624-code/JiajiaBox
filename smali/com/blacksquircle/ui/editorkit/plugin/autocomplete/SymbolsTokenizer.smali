@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/autocomplete/SymbolsTokenizer$Companion;
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public findTokenEnd(Ljava/lang/CharSequence;I)I
-    .locals 6
+    .registers 9
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "cursor"    # I
 
@@ -87,12 +87,12 @@
 
     .line 40
     .local v0, "i":I
-    :goto_0
+    :goto_7
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_24
 
     .line 41
     const-string v1, "!@#$%^&*()_+-={}|[]:;\'<>/<.? \r\n\t"
@@ -115,19 +115,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 42
     return v0
 
     .line 44
-    :cond_0
+    :cond_21
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 47
-    :cond_1
+    :cond_24
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
@@ -136,7 +136,7 @@
 .end method
 
 .method public findTokenStart(Ljava/lang/CharSequence;I)I
-    .locals 6
+    .registers 9
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "cursor"    # I
 
@@ -149,8 +149,8 @@
 
     .line 29
     .local v0, "i":I
-    :goto_0
-    if-lez v0, :cond_0
+    :goto_7
+    if-lez v0, :cond_1f
 
     const-string v1, "!@#$%^&*()_+-={}|[]:;\'<>/<.? \r\n\t"
 
@@ -172,17 +172,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1f
 
     .line 30
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 32
-    :cond_0
-    :goto_1
-    if-ge v0, p2, :cond_1
+    :cond_1f
+    :goto_1f
+    if-ge v0, p2, :cond_2c
 
     invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -190,20 +190,20 @@
 
     const/16 v2, 0x20
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_2c
 
     .line 33
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 35
-    :cond_1
+    :cond_2c
     return v0
 .end method
 
 .method public terminateToken(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     const-string/jumbo v0, "text"

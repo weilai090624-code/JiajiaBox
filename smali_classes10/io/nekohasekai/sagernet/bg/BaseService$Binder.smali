@@ -106,7 +106,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public constructor <init>(Lio/nekohasekai/sagernet/bg/BaseService$Data;)V
-    .locals 4
+    .registers 6
     .param p1, "data"    # Lio/nekohasekai/sagernet/bg/BaseService$Data;
 
     .line 92
@@ -181,16 +181,16 @@
 .end method
 
 .method public synthetic constructor <init>(Lio/nekohasekai/sagernet/bg/BaseService$Data;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 4
 
     .line 92
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_5
     invoke-direct {p0, p1}, Lio/nekohasekai/sagernet/bg/BaseService$Binder;-><init>(Lio/nekohasekai/sagernet/bg/BaseService$Data;)V
 
     return-void
@@ -199,7 +199,7 @@
 
 # virtual methods
 .method public final broadcast(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 13
+    .registers 16
     .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -219,7 +219,7 @@
 
     instance-of v0, p2, Lio/nekohasekai/sagernet/bg/BaseService$Binder$broadcast$1;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     move-object v0, p2
 
@@ -231,7 +231,7 @@
 
     and-int/2addr v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget v1, v0, Lio/nekohasekai/sagernet/bg/BaseService$Binder$broadcast$1;->label:I
 
@@ -239,15 +239,15 @@
 
     iput v1, v0, Lio/nekohasekai/sagernet/bg/BaseService$Binder$broadcast$1;->label:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_14
     new-instance v0, Lio/nekohasekai/sagernet/bg/BaseService$Binder$broadcast$1;
 
     invoke-direct {v0, p0, p2}, Lio/nekohasekai/sagernet/bg/BaseService$Binder$broadcast$1;-><init>(Lio/nekohasekai/sagernet/bg/BaseService$Binder;Lkotlin/coroutines/Continuation;)V
 
     .local v0, "$continuation":Lkotlin/coroutines/Continuation;
-    :goto_0
+    :goto_19
     iget-object v1, v0, Lio/nekohasekai/sagernet/bg/BaseService$Binder$broadcast$1;->result:Ljava/lang/Object;
 
     .local v1, "$result":Ljava/lang/Object;
@@ -258,7 +258,7 @@
     .line 120
     iget v3, v0, Lio/nekohasekai/sagernet/bg/BaseService$Binder$broadcast$1;->label:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_9c
 
     .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .end local v1    # "$result":Ljava/lang/Object;
@@ -272,7 +272,7 @@
 
     .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
     .restart local v1    # "$result":Ljava/lang/Object;
-    :pswitch_0
+    :pswitch_2c
     const/4 p1, 0x0
 
     .local p1, "$i$f$withLock":I
@@ -296,14 +296,14 @@
     .local v5, "this":Lio/nekohasekai/sagernet/bg/BaseService$Binder;
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_5a
 
     .end local v2    # "owner$iv":Ljava/lang/Object;
     .end local v3    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .end local v4    # "work":Lkotlin/jvm/functions/Function1;
     .end local v5    # "this":Lio/nekohasekai/sagernet/bg/BaseService$Binder;
     .end local p1    # "$i$f$withLock":I
-    :pswitch_1
+    :pswitch_3e
     invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v5, p0
@@ -341,13 +341,13 @@
 
     move-result-object v7
 
-    if-ne v7, v2, :cond_1
+    if-ne v7, v2, :cond_58
 
     .line 120
     return-object v2
 
     .line 409
-    :cond_1
+    :cond_58
     move-object v2, p1
 
     move p1, v6
@@ -356,7 +356,7 @@
     .end local v6    # "$i$f$withLock":I
     .restart local v2    # "owner$iv":Ljava/lang/Object;
     .local p1, "$i$f$withLock":I
-    :goto_1
+    :goto_5a
     nop
 
     .line 411
@@ -364,14 +364,14 @@
 
     .line 122
     .local v6, "$i$a$-withLock$default-BaseService$Binder$broadcast$2":I
-    :try_start_0
+    :try_start_5c
     iget-object v7, v5, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->callbacks:Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;
 
     invoke-virtual {v7}, Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;->beginBroadcast()I
 
     move-result v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_62
+    .catchall {:try_start_5c .. :try_end_62} :catchall_97
 
     .line 123
     .local v7, "count":I
@@ -380,8 +380,8 @@
     .line 124
     const/4 v8, 0x0
 
-    :goto_2
-    if-ge v8, v7, :cond_2
+    :goto_64
+    if-ge v8, v7, :cond_86
 
     move v9, v8
 
@@ -393,7 +393,7 @@
     nop
 
     .line 126
-    :try_start_1
+    :try_start_69
     iget-object v11, v5, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->callbacks:Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;
 
     invoke-virtual {v11, v9}, Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;->getBroadcastItem(I)Landroid/os/IInterface;
@@ -405,22 +405,22 @@
     invoke-static {v11, v12}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-interface {v4, v11}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_77
+    .catch Landroid/os/RemoteException; {:try_start_69 .. :try_end_77} :catch_81
+    .catch Ljava/lang/Exception; {:try_start_69 .. :try_end_77} :catch_7f
+    .catchall {:try_start_69 .. :try_end_77} :catchall_78
 
-    goto :goto_3
+    goto :goto_82
 
     .line 132
     .end local v4    # "work":Lkotlin/jvm/functions/Function1;
     .end local v7    # "count":I
     .end local v9    # "it":I
     .end local v10    # "$i$a$-repeat-BaseService$Binder$broadcast$2$1":I
-    :catchall_0
+    :catchall_78
     move-exception v4
 
-    :try_start_2
+    :try_start_79
     iget-object v7, v5, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->callbacks:Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;
 
     invoke-virtual {v7}, Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;->finishBroadcast()V
@@ -443,29 +443,29 @@
     .restart local v10    # "$i$a$-repeat-BaseService$Binder$broadcast$2$1":I
     .restart local p1    # "$i$f$withLock":I
     .restart local p2    # "$completion":Lkotlin/coroutines/Continuation;
-    :catch_0
+    :catch_7f
     move-exception v9
 
-    goto :goto_3
+    goto :goto_82
 
     .line 127
-    :catch_1
+    :catch_81
     move-exception v9
 
     .line 130
-    :goto_3
+    :goto_82
     nop
 
     .line 124
     .end local v10    # "$i$a$-repeat-BaseService$Binder$broadcast$2$1":I
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2
+    goto :goto_64
 
     .line 132
     .end local v4    # "work":Lkotlin/jvm/functions/Function1;
     .end local v7    # "count":I
-    :cond_2
+    :cond_86
     iget-object v4, v5, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->callbacks:Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;
 
     invoke-virtual {v4}, Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;->finishBroadcast()V
@@ -479,8 +479,8 @@
 
     .end local v6    # "$i$a$-withLock$default-BaseService$Binder$broadcast$2":I
     sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_8f
+    .catchall {:try_start_79 .. :try_end_8f} :catchall_97
 
     .line 411
     nop
@@ -503,22 +503,22 @@
     .restart local v2    # "owner$iv":Ljava/lang/Object;
     .restart local v3    # "$this$withLock_u24default$iv":Lkotlinx/coroutines/sync/Mutex;
     .restart local p1    # "$i$f$withLock":I
-    :catchall_1
+    :catchall_97
     move-exception v4
 
     invoke-interface {v3, v2}, Lkotlinx/coroutines/sync/Mutex;->unlock(Ljava/lang/Object;)V
 
     throw v4
 
-    :pswitch_data_0
+    :pswitch_data_9c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3e
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public close()V
-    .locals 3
+    .registers 4
 
     .line 166
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->callbacks:Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;
@@ -544,7 +544,7 @@
 .end method
 
 .method public final getCallbackIdMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -562,7 +562,7 @@
 .end method
 
 .method public getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 102
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->coroutineContext:Lkotlin/coroutines/CoroutineContext;
@@ -571,50 +571,50 @@
 .end method
 
 .method public getProfileName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 105
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/bg/BaseService$Data;->getProxy()Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->getDisplayProfileName()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
-    :cond_0
+    :cond_10
     const-string v0, "Idle"
 
-    :cond_1
+    :cond_12
     return-object v0
 .end method
 
 .method public getState()I
-    .locals 1
+    .registers 2
 
     .line 104
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/bg/BaseService$Data;->getState()Lio/nekohasekai/sagernet/bg/BaseService$State;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_c
 
-    :cond_0
+    :cond_a
     sget-object v0, Lio/nekohasekai/sagernet/bg/BaseService$State;->Idle:Lio/nekohasekai/sagernet/bg/BaseService$State;
 
-    :cond_1
+    :cond_c
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/bg/BaseService$State;->ordinal()I
 
     move-result v0
@@ -623,7 +623,7 @@
 .end method
 
 .method public final missingPlugin(Ljava/lang/String;)Lkotlinx/coroutines/Job;
-    .locals 7
+    .registers 9
     .param p1, "pluginName"    # Ljava/lang/String;
 
     const-string v0, "pluginName"
@@ -660,7 +660,7 @@
 .end method
 
 .method public registerCallback(Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;I)V
-    .locals 2
+    .registers 5
     .param p1, "cb"    # Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
     .param p2, "id"    # I
 
@@ -671,7 +671,7 @@
     .line 108
     const/4 v0, 0x4
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_11
 
     .line 109
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
@@ -686,14 +686,14 @@
     return-void
 
     .line 112
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->callbackIdMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 113
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->callbacks:Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;
@@ -704,7 +704,7 @@
 
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/bg/BaseService$Binder$callbacks$1;->register(Landroid/os/IInterface;)Z
 
-    :cond_1
+    :cond_21
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -719,7 +719,7 @@
 .end method
 
 .method public final stateChanged(Lio/nekohasekai/sagernet/bg/BaseService$State;Ljava/lang/String;)Lkotlinx/coroutines/Job;
-    .locals 7
+    .registers 10
     .param p1, "s"    # Lio/nekohasekai/sagernet/bg/BaseService$State;
     .param p2, "msg"    # Ljava/lang/String;
 
@@ -757,7 +757,7 @@
 .end method
 
 .method public unregisterCallback(Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;)V
-    .locals 2
+    .registers 4
     .param p1, "cb"    # Lio/nekohasekai/sagernet/aidl/ISagerNetServiceCallback;
 
     const-string v0, "cb"
@@ -783,36 +783,36 @@
 .end method
 
 .method public urlTest()I
-    .locals 4
+    .registers 5
 
     .line 143
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/bg/BaseService$Data;->getProxy()Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/bg/proto/ProxyInstance;->getBox()Llibcore/BoxInstance;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_10
+    if-eqz v0, :cond_4d
 
     .line 146
     nop
 
     .line 148
-    :try_start_0
+    :try_start_13
     iget-object v0, p0, Lio/nekohasekai/sagernet/bg/BaseService$Binder;->data:Lio/nekohasekai/sagernet/bg/BaseService$Data;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -839,13 +839,13 @@
     invoke-static {v0, v1, v2}, Llibcore/Libcore;->urlTest(Llibcore/BoxInstance;Ljava/lang/String;I)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2f
+    .catch Ljava/lang/Exception; {:try_start_13 .. :try_end_2f} :catch_30
 
     return v0
 
     .line 150
-    :catch_0
+    :catch_30
     move-exception v0
 
     .line 151
@@ -880,7 +880,7 @@
 
     .line 143
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_1
+    :cond_4d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     .line 144

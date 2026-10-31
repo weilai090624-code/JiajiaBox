@@ -132,14 +132,14 @@
 .method public static choiceRow(Landroid/view/View;)V
     .registers 3
 
-    .line 68
+    .line 67
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->pills:Ljava/util/WeakHashMap;
 
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 69
+    .line 68
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->tint(Landroid/view/View;)V
 
     return-void
@@ -150,7 +150,7 @@
 
     if-eq p0, p1, :cond_17
 
-    .line 191
+    .line 190
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_17
@@ -159,7 +159,7 @@
 
     if-nez v0, :cond_17
 
-    .line 192
+    .line 191
     invoke-virtual {p0}, Landroid/view/View;->getBackgroundTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v0
@@ -170,22 +170,22 @@
 
     invoke-virtual {p0, v1}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 193
+    .line 192
     :cond_14
     invoke-static {p0, v1}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->replaceBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
-    .line 195
+    .line 194
     :cond_17
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_2e
 
-    .line 196
+    .line 195
     check-cast p0, Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
 
-    .line 197
+    .line 196
     :goto_1e
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -212,7 +212,7 @@
 
     if-eq p0, p1, :cond_1c
 
-    .line 131
+    .line 130
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_1c
@@ -225,7 +225,7 @@
 
     if-eqz v0, :cond_1c
 
-    .line 132
+    .line 131
     invoke-virtual {p0}, Landroid/view/View;->getBackgroundTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v0
@@ -236,22 +236,22 @@
 
     invoke-virtual {p0, v1}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 133
+    .line 132
     :cond_19
     invoke-static {p0, v1}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->replaceBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
-    .line 135
+    .line 134
     :cond_1c
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_33
 
-    .line 136
+    .line 135
     check-cast p0, Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
 
-    .line 137
+    .line 136
     :goto_23
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -276,7 +276,7 @@
 .method private static hasCapsule(Landroid/view/View;)Z
     .registers 5
 
-    .line 182
+    .line 181
     instance-of v0, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
 
     const/4 v1, 0x1
@@ -285,7 +285,7 @@
 
     return v1
 
-    .line 183
+    .line 182
     :cond_6
     instance-of v0, p0, Landroid/view/ViewGroup;
 
@@ -293,12 +293,12 @@
 
     if-eqz v0, :cond_22
 
-    .line 184
+    .line 183
     check-cast p0, Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
 
-    .line 185
+    .line 184
     :goto_e
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -330,7 +330,7 @@
 .method public static homeDialog(Landroid/app/Dialog;)V
     .registers 2
 
-    .line 148
+    .line 147
     invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object p0
@@ -339,7 +339,7 @@
 
     goto :goto_d
 
-    .line 150
+    .line 149
     :cond_7
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DialogTemplates;->adoptWindow(Landroid/view/Window;)Z
 
@@ -353,17 +353,17 @@
     :cond_e
     const v0, 0x1020002
 
-    .line 151
+    .line 150
     invoke-virtual {p0, v0}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     if-eqz v0, :cond_1a
 
-    .line 152
+    .line 151
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->outlineCapsules(Landroid/view/View;)V
 
-    .line 153
+    .line 152
     :cond_1a
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->settingsWindow(Landroid/view/Window;)V
 
@@ -373,32 +373,32 @@
 .method public static install(Landroid/view/View;)V
     .registers 3
 
-    .line 48
+    .line 47
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->panels:Ljava/util/WeakHashMap;
 
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 49
+    .line 48
     instance-of v0, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
 
     if-eqz v0, :cond_15
 
-    .line 50
+    .line 49
     move-object v0, p0
 
     check-cast v0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
 
-    .line 51
+    .line 50
     invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->disableLiveBackdrop()V
 
     const/4 v1, 0x1
 
-    .line 52
+    .line 51
     invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setOpaqueVeil(Z)V
 
-    .line 54
+    .line 53
     :cond_15
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->tint(Landroid/view/View;)V
 
@@ -408,7 +408,7 @@
 .method public static isManagedList(Landroid/view/View;)Z
     .registers 2
 
-    .line 63
+    .line 62
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->managedLists:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->containsKey(Ljava/lang/Object;)Z
@@ -421,7 +421,7 @@
 .method public static label(Landroid/view/View;)V
     .registers 1
 
-    .line 72
+    .line 71
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->tint(Landroid/view/View;)V
 
     return-void
@@ -430,7 +430,7 @@
 .method static synthetic lambda$pill$0(Landroid/view/View;)V
     .registers 1
 
-    .line 60
+    .line 59
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->tint(Landroid/view/View;)V
 
     return-void
@@ -439,7 +439,7 @@
 .method static synthetic lambda$settingsWindow$1(Landroid/view/View;)V
     .registers 1
 
-    .line 178
+    .line 177
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->styleControls(Landroid/view/View;)V
 
     return-void
@@ -448,7 +448,7 @@
 .method public static managedList(Landroid/view/View;)V
     .registers 3
 
-    .line 65
+    .line 64
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->managedLists:Ljava/util/WeakHashMap;
 
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
@@ -461,7 +461,7 @@
 .method private static normalizePreferenceGeometry(Landroid/view/View;)V
     .registers 7
 
-    .line 83
+    .line 82
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -476,7 +476,7 @@
 
     mul-float v1, v1, v0
 
-    .line 84
+    .line 83
     invoke-static {v1}, Ljava/lang/Math;->round(F)I
 
     move-result v1
@@ -489,20 +489,20 @@
 
     move-result v2
 
-    .line 85
+    .line 84
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
-    .line 86
+    .line 85
     instance-of v4, v3, Landroid/view/ViewGroup$MarginLayoutParams;
 
     if-eqz v4, :cond_58
 
-    .line 87
+    .line 86
     check-cast v3, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 88
+    .line 87
     iget v4, v3, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
 
     const/4 v5, -0x1
@@ -517,7 +517,7 @@
 
     if-ne v4, v1, :cond_45
 
-    .line 89
+    .line 88
     invoke-virtual {v3}, Landroid/view/ViewGroup$MarginLayoutParams;->getMarginStart()I
 
     move-result v4
@@ -538,7 +538,7 @@
 
     if-eq v4, v2, :cond_58
 
-    .line 90
+    .line 89
     :cond_45
     iput v5, v3, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
 
@@ -546,7 +546,7 @@
 
     iput v1, v3, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    .line 91
+    .line 90
     invoke-virtual {v3, v1}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
     invoke-virtual {v3, v1}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
@@ -555,7 +555,7 @@
 
     iput v2, v3, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    .line 92
+    .line 91
     invoke-virtual {p0, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_58
@@ -563,7 +563,7 @@
 
     mul-float v2, v2, v0
 
-    .line 95
+    .line 94
     invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
     move-result v3
@@ -574,7 +574,7 @@
 
     invoke-static {p0, v3, v1, v2, v1}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->padding(Landroid/view/View;IIII)V
 
-    .line 96
+    .line 95
     invoke-virtual {p0}, Landroid/view/View;->getMinimumHeight()I
 
     move-result v1
@@ -595,20 +595,20 @@
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setMinimumHeight(I)V
 
-    .line 97
+    .line 96
     :cond_7c
     instance-of v0, p0, Landroid/widget/FrameLayout;
 
     if-eqz v0, :cond_e2
 
-    .line 98
+    .line 97
     check-cast p0, Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
-    .line 99
+    .line 98
     :goto_84
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -616,12 +616,12 @@
 
     if-ge v1, v2, :cond_e2
 
-    .line 100
+    .line 99
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
-    .line 101
+    .line 100
     instance-of v3, v2, Landroid/view/ViewGroup;
 
     if-eqz v3, :cond_df
@@ -636,21 +636,21 @@
 
     goto :goto_df
 
-    .line 102
+    .line 101
     :cond_9c
     invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
-    .line 103
+    .line 102
     instance-of v4, v3, Landroid/view/ViewGroup$MarginLayoutParams;
 
     if-eqz v4, :cond_d3
 
-    .line 104
+    .line 103
     check-cast v3, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 105
+    .line 104
     iget v4, v3, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     if-nez v4, :cond_c2
@@ -679,7 +679,7 @@
 
     if-eqz v4, :cond_d3
 
-    .line 106
+    .line 105
     :cond_c2
     iput v0, v3, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
@@ -689,18 +689,18 @@
 
     iput v0, v3, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    .line 107
+    .line 106
     invoke-virtual {v3, v0}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
     invoke-virtual {v3, v0}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 110
+    .line 109
     :cond_d3
     invoke-static {v2, v0, v0, v0, v0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->padding(Landroid/view/View;IIII)V
 
-    .line 111
+    .line 110
     invoke-virtual {v2}, Landroid/view/View;->getMinimumHeight()I
 
     move-result v3
@@ -722,25 +722,25 @@
 .method private static outlineCapsules(Landroid/view/View;)V
     .registers 3
 
-    .line 157
+    .line 156
     instance-of v0, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
 
     if-eqz v0, :cond_7
 
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->pill(Landroid/view/View;)V
 
-    .line 158
+    .line 157
     :cond_7
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_1e
 
-    .line 159
+    .line 158
     check-cast p0, Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
 
-    .line 160
+    .line 159
     :goto_e
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -765,7 +765,7 @@
 .method private static padding(Landroid/view/View;IIII)V
     .registers 6
 
-    .line 117
+    .line 116
     invoke-virtual {p0}, Landroid/view/View;->getPaddingStart()I
 
     move-result v0
@@ -805,17 +805,17 @@
 .method public static pill(Landroid/view/View;)V
     .registers 3
 
-    .line 58
+    .line 57
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->pills:Ljava/util/WeakHashMap;
 
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 59
+    .line 58
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->tint(Landroid/view/View;)V
 
-    .line 60
+    .line 59
     new-instance v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance$2;
 
     invoke-direct {v0, p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance$2;-><init>(Landroid/view/View;)V
@@ -830,23 +830,23 @@
 
     const/high16 v0, 0x41900000    # 18.0f
 
-    .line 75
+    .line 74
     invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/CardLight;->bind(Landroid/view/View;F)V
 
-    .line 76
+    .line 75
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->normalizePreferenceGeometry(Landroid/view/View;)V
 
-    .line 77
+    .line 76
     invoke-static {p0, p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->clearNestedPreferenceBackgrounds(Landroid/view/View;Landroid/view/View;)V
 
-    .line 78
+    .line 77
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->pills:Ljava/util/WeakHashMap;
 
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 79
+    .line 78
     new-instance v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance$Palette;
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -863,19 +863,19 @@
 .method public static refreshAll()V
     .registers 5
 
-    .line 224
+    .line 229
     invoke-static {}, Lio/nekohasekai/sagernet/ui/CardLight;->refreshAll()V
 
-    .line 225
+    .line 230
     invoke-static {}, Lio/nekohasekai/sagernet/ui/UiComponents;->refreshAll()V
 
-    .line 226
+    .line 231
     invoke-static {}, Lio/nekohasekai/sagernet/ui/SubscriptionCards;->refreshAll()V
 
-    .line 227
+    .line 232
     invoke-static {}, Lio/nekohasekai/sagernet/ui/ToolPageAppearance;->refreshAll()V
 
-    .line 228
+    .line 233
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->pages:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0}, Ljava/util/WeakHashMap;->keySet()Ljava/util/Set;
@@ -907,7 +907,7 @@
 
     goto :goto_1d
 
-    .line 229
+    .line 234
     :cond_27
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->pills:Ljava/util/WeakHashMap;
 
@@ -938,7 +938,7 @@
 
     goto :goto_37
 
-    .line 230
+    .line 235
     :cond_41
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->panels:Ljava/util/WeakHashMap;
 
@@ -971,10 +971,140 @@
     return-void
 .end method
 
+.method private static registerControls(Landroid/view/View;)V
+    .registers 3
+
+    .line 205
+    sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->managedLists:Ljava/util/WeakHashMap;
+
+    invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    goto :goto_66
+
+    .line 206
+    :cond_9
+    instance-of v0, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
+
+    if-eqz v0, :cond_1f
+
+    .line 207
+    sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->panels:Ljava/util/WeakHashMap;
+
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 208
+    move-object v0, p0
+
+    check-cast v0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
+
+    invoke-virtual {v0}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->disableLiveBackdrop()V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setOpaqueVeil(Z)V
+
+    goto :goto_40
+
+    .line 210
+    :cond_1f
+    instance-of v0, p0, Landroid/widget/EditText;
+
+    if-nez v0, :cond_35
+
+    instance-of v0, p0, Landroid/widget/CheckedTextView;
+
+    if-nez v0, :cond_35
+
+    instance-of v0, p0, Landroid/widget/TextView;
+
+    if-nez v0, :cond_2f
+
+    instance-of v0, p0, Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_40
+
+    .line 211
+    :cond_2f
+    invoke-virtual {p0}, Landroid/view/View;->isClickable()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_40
+
+    .line 212
+    :cond_35
+    instance-of v0, p0, Landroid/widget/CompoundButton;
+
+    if-nez v0, :cond_40
+
+    sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->pills:Ljava/util/WeakHashMap;
+
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 214
+    :cond_40
+    :goto_40
+    instance-of v0, p0, Landroid/widget/AbsListView;
+
+    if-eqz v0, :cond_4f
+
+    .line 215
+    move-object v0, p0
+
+    check-cast v0, Landroid/view/ViewGroup;
+
+    new-instance v1, Lio/nekohasekai/sagernet/ui/DrawerAppearance$1;
+
+    invoke-direct {v1}, Lio/nekohasekai/sagernet/ui/DrawerAppearance$1;-><init>()V
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setOnHierarchyChangeListener(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V
+
+    .line 222
+    :cond_4f
+    instance-of v0, p0, Landroid/view/ViewGroup;
+
+    if-eqz v0, :cond_66
+
+    .line 223
+    check-cast p0, Landroid/view/ViewGroup;
+
+    const/4 v0, 0x0
+
+    .line 224
+    :goto_56
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_66
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->registerControls(Landroid/view/View;)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_56
+
+    :cond_66
+    :goto_66
+    return-void
+.end method
+
 .method private static replaceBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
     .registers 8
 
-    .line 120
+    .line 119
     invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -983,7 +1113,7 @@
 
     goto :goto_37
 
-    .line 121
+    .line 120
     :cond_7
     invoke-virtual {p0}, Landroid/view/View;->getPaddingStart()I
 
@@ -993,7 +1123,7 @@
 
     move-result v1
 
-    .line 122
+    .line 121
     invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
 
     move-result v2
@@ -1002,7 +1132,7 @@
 
     move-result v3
 
-    .line 123
+    .line 122
     invoke-virtual {p0}, Landroid/view/View;->getMinimumWidth()I
 
     move-result v4
@@ -1011,13 +1141,13 @@
 
     move-result v5
 
-    .line 124
+    .line 123
     invoke-virtual {p0, p1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 125
+    .line 124
     invoke-static {p0, v0, v2, v1, v3}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->padding(Landroid/view/View;IIII)V
 
-    .line 126
+    .line 125
     invoke-virtual {p0}, Landroid/view/View;->getMinimumWidth()I
 
     move-result p1
@@ -1026,7 +1156,7 @@
 
     invoke-virtual {p0, v4}, Landroid/view/View;->setMinimumWidth(I)V
 
-    .line 127
+    .line 126
     :cond_2e
     invoke-virtual {p0}, Landroid/view/View;->getMinimumHeight()I
 
@@ -1044,14 +1174,14 @@
 .method public static settingsPage(Landroid/view/View;)V
     .registers 3
 
-    .line 142
+    .line 141
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->pages:Ljava/util/WeakHashMap;
 
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 143
+    .line 142
     new-instance v0, Landroid/graphics/drawable/ColorDrawable;
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -1066,7 +1196,7 @@
 
     invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->replaceBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
-    .line 144
+    .line 143
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->tint(Landroid/view/View;)V
 
     return-void
@@ -1079,7 +1209,7 @@
 
     goto :goto_13
 
-    .line 166
+    .line 165
     :cond_3
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DialogTemplates;->adoptWindow(Landroid/view/Window;)Z
 
@@ -1092,7 +1222,7 @@
     :cond_a
     const v0, 0x1020002
 
-    .line 167
+    .line 166
     invoke-virtual {p0, v0}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -1102,7 +1232,7 @@
     :goto_13
     return-void
 
-    .line 169
+    .line 168
     :cond_14
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->hasCapsule(Landroid/view/View;)Z
 
@@ -1110,7 +1240,7 @@
 
     if-nez v1, :cond_4a
 
-    .line 170
+    .line 169
     new-instance v1, Landroid/graphics/drawable/ColorDrawable;
 
     const/4 v2, 0x0
@@ -1119,12 +1249,12 @@
 
     invoke-virtual {p0, v1}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 171
+    .line 170
     new-instance p0, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {p0}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 172
+    .line 171
     invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -1135,7 +1265,7 @@
 
     invoke-virtual {p0, v1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 173
+    .line 172
     invoke-virtual {v0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -1152,17 +1282,17 @@
 
     invoke-virtual {p0, v1}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 174
+    .line 173
     invoke-static {v0, p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->replaceBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
-    .line 175
+    .line 174
     invoke-static {v0, v0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->clearDialogPanels(Landroid/view/View;Landroid/view/View;)V
 
-    .line 177
+    .line 176
     :cond_4a
     invoke-static {v0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->styleControls(Landroid/view/View;)V
 
-    .line 178
+    .line 177
     new-instance p0, Lio/nekohasekai/sagernet/ui/DrawerAppearance$0;
 
     invoke-direct {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance$0;-><init>(Landroid/view/View;)V
@@ -1173,129 +1303,29 @@
 .end method
 
 .method private static styleControls(Landroid/view/View;)V
-    .registers 4
+    .registers 1
+
+    .line 201
+    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->registerControls(Landroid/view/View;)V
 
     .line 202
-    sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->managedLists:Ljava/util/WeakHashMap;
-
-    invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    return-void
-
-    .line 203
-    :cond_9
-    instance-of v0, p0, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
-
-    if-eqz v0, :cond_11
-
-    invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->install(Landroid/view/View;)V
-
-    goto :goto_32
-
-    .line 204
-    :cond_11
-    instance-of v0, p0, Landroid/widget/EditText;
-
-    if-nez v0, :cond_27
-
-    instance-of v0, p0, Landroid/widget/CheckedTextView;
-
-    if-nez v0, :cond_27
-
-    instance-of v0, p0, Landroid/widget/TextView;
-
-    if-nez v0, :cond_21
-
-    instance-of v0, p0, Landroid/widget/ImageView;
-
-    if-eqz v0, :cond_32
-
-    .line 205
-    :cond_21
-    invoke-virtual {p0}, Landroid/view/View;->isClickable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_32
-
-    .line 206
-    :cond_27
-    instance-of v0, p0, Landroid/widget/CompoundButton;
-
-    if-nez v0, :cond_32
-
-    sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->pills:Ljava/util/WeakHashMap;
-
-    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
-
-    invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 208
-    :cond_32
-    :goto_32
-    instance-of v0, p0, Landroid/widget/AbsListView;
-
-    if-eqz v0, :cond_41
-
-    .line 209
-    move-object v0, p0
-
-    check-cast v0, Landroid/view/ViewGroup;
-
-    new-instance v1, Lio/nekohasekai/sagernet/ui/DrawerAppearance$1;
-
-    invoke-direct {v1}, Lio/nekohasekai/sagernet/ui/DrawerAppearance$1;-><init>()V
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setOnHierarchyChangeListener(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V
-
-    .line 216
-    :cond_41
-    instance-of v0, p0, Landroid/view/ViewGroup;
-
-    if-eqz v0, :cond_59
-
-    .line 217
-    move-object v0, p0
-
-    check-cast v0, Landroid/view/ViewGroup;
-
-    const/4 v1, 0x0
-
-    .line 218
-    :goto_49
-    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_59
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->styleControls(Landroid/view/View;)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_49
-
-    .line 220
-    :cond_59
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->tint(Landroid/view/View;)V
 
     return-void
 .end method
 
 .method private static tint(Landroid/view/View;)V
-    .registers 2
+    .registers 3
 
-    const/4 v0, 0x0
+    .line 238
+    new-instance v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance$Palette;
 
-    .line 233
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lio/nekohasekai/sagernet/ui/DrawerAppearance$Palette;-><init>(Landroid/content/Context;)V
+
     invoke-static {p0, v0}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->tint(Landroid/view/View;Lio/nekohasekai/sagernet/ui/DrawerAppearance$Palette;)V
 
     return-void
@@ -1304,19 +1334,19 @@
 .method private static tint(Landroid/view/View;Lio/nekohasekai/sagernet/ui/DrawerAppearance$Palette;)V
     .registers 8
 
-    .line 235
+    .line 240
     instance-of v0, p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;
 
     if-eqz v0, :cond_a
 
-    .line 236
+    .line 241
     check-cast p0, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;
 
     invoke-virtual {p0}, Lio/nekohasekai/sagernet/ui/TrafficDashboardView;->refreshAppearance()V
 
     return-void
 
-    .line 239
+    .line 244
     :cond_a
     sget-object v0, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->managedLists:Ljava/util/WeakHashMap;
 
@@ -1328,7 +1358,7 @@
 
     goto/16 :goto_104
 
-    .line 240
+    .line 245
     :cond_14
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/UiComponents;->owns(Landroid/view/View;)Z
 
@@ -1345,7 +1375,7 @@
     :cond_21
     if-nez p1, :cond_2c
 
-    .line 241
+    .line 246
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1362,7 +1392,7 @@
     :goto_2e
     if-nez p1, :cond_39
 
-    .line 243
+    .line 248
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -1376,7 +1406,7 @@
     :cond_39
     iget v1, p1, Lio/nekohasekai/sagernet/ui/DrawerAppearance$Palette;->border:I
 
-    .line 244
+    .line 249
     :goto_3b
     sget-object v2, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->pills:Ljava/util/WeakHashMap;
 
@@ -1390,30 +1420,30 @@
 
     if-eqz v3, :cond_5a
 
-    .line 245
+    .line 250
     move-object v2, p0
 
     check-cast v2, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;
 
-    .line 246
+    .line 251
     invoke-virtual {v2}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->disableLiveBackdrop()V
 
     const/4 v3, 0x1
 
-    .line 247
+    .line 252
     invoke-virtual {v2, v3}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setOpaqueVeil(Z)V
 
-    .line 248
+    .line 253
     invoke-virtual {v2, v1}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setBorderColor(I)V
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    .line 249
+    .line 254
     invoke-virtual {v2, v1}, Lio/nekohasekai/sagernet/ui/JJGlassCapsule;->setBorderWidthDp(F)V
 
     goto :goto_9a
 
-    .line 250
+    .line 255
     :cond_5a
     invoke-virtual {v2, p0}, Ljava/util/WeakHashMap;->containsKey(Ljava/lang/Object;)Z
 
@@ -1421,7 +1451,7 @@
 
     if-eqz v2, :cond_9a
 
-    .line 251
+    .line 256
     invoke-virtual {p0}, Landroid/view/View;->getBackgroundTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -1435,7 +1465,7 @@
     :cond_6a
     if-nez p1, :cond_75
 
-    .line 252
+    .line 257
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -1449,7 +1479,7 @@
     :cond_75
     iget v2, p1, Lio/nekohasekai/sagernet/ui/DrawerAppearance$Palette;->control:I
 
-    .line 253
+    .line 258
     :goto_77
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
@@ -1461,7 +1491,7 @@
 
     iget v3, v3, Landroid/util/DisplayMetrics;->density:F
 
-    .line 254
+    .line 259
     sget-object v4, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->surfaces:Ljava/util/WeakHashMap;
 
     invoke-virtual {v4, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1472,7 +1502,7 @@
 
     if-nez v5, :cond_94
 
-    .line 255
+    .line 260
     new-instance v5, Lio/nekohasekai/sagernet/ui/DrawerAppearance$Surface;
 
     invoke-direct {v5, v2, v1, v3}, Lio/nekohasekai/sagernet/ui/DrawerAppearance$Surface;-><init>(IIF)V
@@ -1481,27 +1511,27 @@
 
     goto :goto_97
 
-    .line 256
+    .line 261
     :cond_94
     invoke-virtual {v5, v2, v1, v3}, Lio/nekohasekai/sagernet/ui/DrawerAppearance$Surface;->update(IIF)V
 
-    .line 257
+    .line 262
     :goto_97
     invoke-static {p0, v5}, Lio/nekohasekai/sagernet/ui/DrawerAppearance;->replaceBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
-    .line 259
+    .line 264
     :cond_9a
     :goto_9a
     instance-of v1, p0, Landroid/widget/TextView;
 
     if-eqz v1, :cond_da
 
-    .line 260
+    .line 265
     move-object v1, p0
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 261
+    .line 266
     invoke-virtual {v1}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -1524,7 +1554,7 @@
     :cond_b4
     if-nez p1, :cond_bf
 
-    .line 262
+    .line 267
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -1538,7 +1568,7 @@
     :cond_bf
     iget v2, p1, Lio/nekohasekai/sagernet/ui/DrawerAppearance$Palette;->secondary:I
 
-    .line 263
+    .line 268
     :goto_c1
     invoke-virtual {v1}, Landroid/widget/TextView;->getHintTextColors()Landroid/content/res/ColorStateList;
 
@@ -1565,7 +1595,7 @@
     :cond_d7
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHintTextColor(I)V
 
-    .line 265
+    .line 270
     :cond_da
     instance-of v1, p0, Landroid/widget/ImageView;
 
@@ -1577,20 +1607,20 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setColorFilter(I)V
 
-    .line 266
+    .line 271
     :cond_e4
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_fc
 
-    .line 267
+    .line 272
     move-object v0, p0
 
     check-cast v0, Landroid/view/ViewGroup;
 
     const/4 v1, 0x0
 
-    .line 268
+    .line 273
     :goto_ec
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -1608,13 +1638,13 @@
 
     goto :goto_ec
 
-    .line 270
+    .line 275
     :cond_fc
     invoke-static {p0}, Lio/nekohasekai/sagernet/ui/DrawerDesign;->refresh(Landroid/view/View;)V
 
     if-nez p1, :cond_104
 
-    .line 271
+    .line 276
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     :cond_104

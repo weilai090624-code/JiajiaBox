@@ -103,7 +103,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/jvm/internal/TypeReference$Companion;
 
@@ -117,7 +117,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/reflect/KClassifier;Ljava/util/List;Lkotlin/reflect/KType;I)V
-    .locals 1
+    .registers 6
     .param p1, "classifier"    # Lkotlin/reflect/KClassifier;
     .param p2, "arguments"    # Ljava/util/List;
     .param p3, "platformTypeUpperBound"    # Lkotlin/reflect/KType;
@@ -162,7 +162,7 @@
 .end method
 
 .method public constructor <init>(Lkotlin/reflect/KClassifier;Ljava/util/List;Z)V
-    .locals 1
+    .registers 5
     .param p1, "classifier"    # Lkotlin/reflect/KClassifier;
     .param p2, "arguments"    # Ljava/util/List;
     .param p3, "isMarkedNullable"    # Z
@@ -193,7 +193,7 @@
 .end method
 
 .method public static final synthetic access$asString(Lkotlin/jvm/internal/TypeReference;Lkotlin/reflect/KTypeProjection;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "$this"    # Lkotlin/jvm/internal/TypeReference;
     .param p1, "$receiver"    # Lkotlin/reflect/KTypeProjection;
 
@@ -206,7 +206,7 @@
 .end method
 
 .method private final asString(Lkotlin/reflect/KTypeProjection;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "$this$asString"    # Lkotlin/reflect/KTypeProjection;
 
     .line 88
@@ -214,31 +214,31 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const-string v0, "*"
 
     return-object v0
 
     .line 90
-    :cond_0
+    :cond_9
     invoke-virtual {p1}, Lkotlin/reflect/KTypeProjection;->getType()Lkotlin/reflect/KType;
 
     move-result-object v0
 
     instance-of v1, v0, Lkotlin/jvm/internal/TypeReference;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     check-cast v0, Lkotlin/jvm/internal/TypeReference;
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_15
+    if-eqz v0, :cond_1e
 
     const/4 v1, 0x1
 
@@ -246,9 +246,9 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_26
 
-    :cond_2
+    :cond_1e
     invoke-virtual {p1}, Lkotlin/reflect/KTypeProjection;->getType()Lkotlin/reflect/KType;
 
     move-result-object v0
@@ -259,7 +259,7 @@
 
     .line 91
     .local v0, "typeString":Ljava/lang/String;
-    :cond_3
+    :cond_26
     invoke-virtual {p1}, Lkotlin/reflect/KTypeProjection;->getVariance()Lkotlin/reflect/KVariance;
 
     move-result-object v1
@@ -272,7 +272,7 @@
 
     aget v1, v2, v1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_66
 
     .line 94
     new-instance v1, Lkotlin/NoWhenBranchMatchedException;
@@ -281,7 +281,7 @@
 
     throw v1
 
-    :pswitch_0
+    :pswitch_3b
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -300,10 +300,10 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_64
 
     .line 93
-    :pswitch_1
+    :pswitch_4f
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -322,28 +322,28 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_64
 
     .line 92
-    :pswitch_2
+    :pswitch_63
     move-object v1, v0
 
     .line 91
-    :goto_1
+    :goto_64
     return-object v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_66
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_63
+        :pswitch_4f
+        :pswitch_3b
     .end packed-switch
 .end method
 
 .method private final asString(Z)Ljava/lang/String;
-    .locals 13
+    .registers 15
     .param p1, "convertPrimitiveToWrapper"    # Z
 
     .line 41
@@ -355,23 +355,23 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     check-cast v0, Lkotlin/reflect/KClass;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move-object v0, v2
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_d
+    if-eqz v0, :cond_13
 
     invoke-static {v0}, Lkotlin/jvm/JvmClassMappingKt;->getJavaClass(Lkotlin/reflect/KClass;)Ljava/lang/Class;
 
     move-result-object v2
 
-    :cond_1
+    :cond_13
     move-object v0, v2
 
     .line 42
@@ -379,7 +379,7 @@
     nop
 
     .line 43
-    if-nez v0, :cond_2
+    if-nez v0, :cond_20
 
     invoke-virtual {p0}, Lkotlin/jvm/internal/TypeReference;->getClassifier()Lkotlin/reflect/KClassifier;
 
@@ -389,43 +389,43 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_54
 
     .line 44
-    :cond_2
+    :cond_20
     iget v1, p0, Lkotlin/jvm/internal/TypeReference;->flags:I
 
     and-int/lit8 v1, v1, 0x4
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_29
 
     const-string v1, "kotlin.Nothing"
 
-    goto :goto_1
+    goto :goto_54
 
     .line 45
-    :cond_3
+    :cond_29
     invoke-virtual {v0}, Ljava/lang/Class;->isArray()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_34
 
     invoke-direct {p0, v0}, Lkotlin/jvm/internal/TypeReference;->getArrayClassName(Ljava/lang/Class;)Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_54
 
     .line 46
-    :cond_4
-    if-eqz p1, :cond_5
+    :cond_34
+    if-eqz p1, :cond_50
 
     invoke-virtual {v0}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_50
 
     invoke-virtual {p0}, Lkotlin/jvm/internal/TypeReference;->getClassifier()Lkotlin/reflect/KClassifier;
 
@@ -445,16 +445,16 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_54
 
     .line 47
-    :cond_5
+    :cond_50
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
     .line 42
-    :goto_1
+    :goto_54
     nop
 
     .line 50
@@ -469,14 +469,14 @@
 
     const-string v3, ""
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_63
 
     move-object v2, v3
 
-    goto :goto_2
+    goto :goto_8a
 
     .line 51
-    :cond_6
+    :cond_63
     invoke-virtual {p0}, Lkotlin/jvm/internal/TypeReference;->getArguments()Ljava/util/List;
 
     move-result-object v2
@@ -524,7 +524,7 @@
     move-result-object v2
 
     .line 50
-    :goto_2
+    :goto_8a
     nop
 
     .line 49
@@ -536,13 +536,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_94
 
     const-string v3, "?"
 
     .line 54
     .local v3, "nullable":Ljava/lang/String;
-    :cond_7
+    :cond_94
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -571,7 +571,7 @@
     .local v5, "upper":Lkotlin/reflect/KType;
     instance-of v6, v5, Lkotlin/jvm/internal/TypeReference;
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_10f
 
     .line 58
     move-object v6, v5
@@ -590,13 +590,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_be
 
     .line 62
-    goto :goto_3
+    goto :goto_110
 
     .line 64
-    :cond_8
+    :cond_be
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -619,7 +619,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_eb
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -639,10 +639,10 @@
 
     move-result-object v7
 
-    goto :goto_4
+    goto :goto_111
 
     .line 65
-    :cond_9
+    :cond_eb
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -678,23 +678,23 @@
     move-result-object v7
 
     .end local v6    # "renderedUpper":Ljava/lang/String;
-    goto :goto_4
+    goto :goto_111
 
     .line 68
-    :cond_a
+    :cond_10f
     nop
 
     .line 56
     .end local v5    # "upper":Lkotlin/reflect/KType;
-    :goto_3
+    :goto_110
     move-object v7, v4
 
-    :goto_4
+    :goto_111
     return-object v7
 .end method
 
 .method private final getArrayClassName(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "$this$arrayClassName"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -715,127 +715,127 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const-string v0, "kotlin.BooleanArray"
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 75
-    :cond_0
+    :cond_c
     const-class v0, [C
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     const-string v0, "kotlin.CharArray"
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 76
-    :cond_1
+    :cond_17
     const-class v0, [B
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     const-string v0, "kotlin.ByteArray"
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 77
-    :cond_2
+    :cond_22
     const-class v0, [S
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2d
 
     const-string v0, "kotlin.ShortArray"
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 78
-    :cond_3
+    :cond_2d
     const-class v0, [I
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_38
 
     const-string v0, "kotlin.IntArray"
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 79
-    :cond_4
+    :cond_38
     const-class v0, [F
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_43
 
     const-string v0, "kotlin.FloatArray"
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 80
-    :cond_5
+    :cond_43
     const-class v0, [J
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4e
 
     const-string v0, "kotlin.LongArray"
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 81
-    :cond_6
+    :cond_4e
     const-class v0, [D
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_59
 
     const-string v0, "kotlin.DoubleArray"
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 82
-    :cond_7
+    :cond_59
     const-string v0, "kotlin.Array"
 
     .line 83
-    :goto_0
+    :goto_5b
     return-object v0
 .end method
 
 .method public static synthetic getFlags$kotlin_stdlib$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static synthetic getPlatformTypeUpperBound$kotlin_stdlib$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -843,13 +843,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 30
     instance-of v0, p1, Lkotlin/jvm/internal/TypeReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3e
 
     .line 31
     invoke-virtual {p0}, Lkotlin/jvm/internal/TypeReference;->getClassifier()Lkotlin/reflect/KClassifier;
@@ -868,7 +868,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3e
 
     invoke-virtual {p0}, Lkotlin/jvm/internal/TypeReference;->getArguments()Ljava/util/List;
 
@@ -886,7 +886,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3e
 
     iget-object v0, p0, Lkotlin/jvm/internal/TypeReference;->platformTypeUpperBound:Lkotlin/reflect/KType;
 
@@ -900,7 +900,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3e
 
     .line 32
     iget v0, p0, Lkotlin/jvm/internal/TypeReference;->flags:I
@@ -911,21 +911,21 @@
 
     iget v1, v1, Lkotlin/jvm/internal/TypeReference;->flags:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_3e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_3f
 
-    :cond_0
+    :cond_3e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_3f
     return v0
 .end method
 
 .method public getAnnotations()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -944,7 +944,7 @@
 .end method
 
 .method public getArguments()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -961,7 +961,7 @@
 .end method
 
 .method public getClassifier()Lkotlin/reflect/KClassifier;
-    .locals 1
+    .registers 2
 
     .line 12
     iget-object v0, p0, Lkotlin/jvm/internal/TypeReference;->classifier:Lkotlin/reflect/KClassifier;
@@ -970,7 +970,7 @@
 .end method
 
 .method public final getFlags$kotlin_stdlib()I
-    .locals 1
+    .registers 2
 
     .line 15
     iget v0, p0, Lkotlin/jvm/internal/TypeReference;->flags:I
@@ -979,7 +979,7 @@
 .end method
 
 .method public final getPlatformTypeUpperBound$kotlin_stdlib()Lkotlin/reflect/KType;
-    .locals 1
+    .registers 2
 
     .line 14
     iget-object v0, p0, Lkotlin/jvm/internal/TypeReference;->platformTypeUpperBound:Lkotlin/reflect/KType;
@@ -988,7 +988,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 35
     invoke-virtual {p0}, Lkotlin/jvm/internal/TypeReference;->getClassifier()Lkotlin/reflect/KClassifier;
@@ -1021,7 +1021,7 @@
 .end method
 
 .method public isMarkedNullable()Z
-    .locals 2
+    .registers 3
 
     .line 27
     iget v0, p0, Lkotlin/jvm/internal/TypeReference;->flags:I
@@ -1030,19 +1030,19 @@
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_8
     return v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 38
     new-instance v0, Ljava/lang/StringBuilder;

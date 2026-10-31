@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/app/JobIntentService$JobServiceEngineImpl;Landroid/app/job/JobWorkItem;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/core/app/JobIntentService$JobServiceEngineImpl;
     .param p2, "jobWork"    # Landroid/app/job/JobWorkItem;
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public complete()V
-    .locals 3
+    .registers 4
 
     .line 270
     iget-object v0, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl$WrapperWorkItem;->this$0:Landroidx/core/app/JobIntentService$JobServiceEngineImpl;
@@ -54,12 +54,12 @@
     monitor-enter v0
 
     .line 271
-    :try_start_0
+    :try_start_5
     iget-object v1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl$WrapperWorkItem;->this$0:Landroidx/core/app/JobIntentService$JobServiceEngineImpl;
 
     iget-object v1, v1, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mParams:Landroid/app/job/JobParameters;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 272
     iget-object v1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl$WrapperWorkItem;->this$0:Landroidx/core/app/JobIntentService$JobServiceEngineImpl;
@@ -71,25 +71,25 @@
     invoke-virtual {v1, v2}, Landroid/app/job/JobParameters;->completeWork(Landroid/app/job/JobWorkItem;)V
 
     .line 274
-    :cond_0
+    :cond_14
     monitor-exit v0
 
     .line 275
     return-void
 
     .line 274
-    :catchall_0
+    :catchall_16
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_5 .. :try_end_18} :catchall_16
 
     throw v1
 .end method
 
 .method public getIntent()Landroid/content/Intent;
-    .locals 1
+    .registers 2
 
     .line 265
     iget-object v0, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl$WrapperWorkItem;->mJobWork:Landroid/app/job/JobWorkItem;

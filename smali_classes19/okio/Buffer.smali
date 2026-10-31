@@ -190,7 +190,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -199,7 +199,7 @@
 .end method
 
 .method public static synthetic copyTo$default(Lokio/Buffer;Ljava/io/OutputStream;JJILjava/lang/Object;)Lokio/Buffer;
-    .locals 6
+    .registers 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -209,23 +209,23 @@
     .line 147
     and-int/lit8 p7, p6, 0x2
 
-    if-eqz p7, :cond_0
+    if-eqz p7, :cond_8
 
     .line 149
     const-wide/16 p2, 0x0
 
     move-wide v2, p2
 
-    goto :goto_0
+    goto :goto_9
 
     .line 147
-    :cond_0
+    :cond_8
     move-wide v2, p2
 
-    :goto_0
+    :goto_9
     and-int/lit8 p2, p6, 0x4
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_14
 
     .line 150
     nop
@@ -238,13 +238,13 @@
 
     move-wide v4, p4
 
-    goto :goto_1
+    goto :goto_15
 
     .line 147
-    :cond_1
+    :cond_14
     move-wide v4, p4
 
-    :goto_1
+    :goto_15
     move-object v0, p0
 
     move-object v1, p1
@@ -257,18 +257,18 @@
 .end method
 
 .method public static synthetic copyTo$default(Lokio/Buffer;Lokio/Buffer;JILjava/lang/Object;)Lokio/Buffer;
-    .locals 0
+    .registers 6
 
     .line 183
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     .line 51
     const-wide/16 p2, 0x0
 
     .line 183
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1, p2, p3}, Lokio/Buffer;->copyTo(Lokio/Buffer;J)Lokio/Buffer;
 
     move-result-object p0
@@ -277,25 +277,25 @@
 .end method
 
 .method public static synthetic copyTo$default(Lokio/Buffer;Lokio/Buffer;JJILjava/lang/Object;)Lokio/Buffer;
-    .locals 6
+    .registers 14
 
     .line 177
     and-int/lit8 p6, p6, 0x2
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_8
 
     .line 45
     const-wide/16 p2, 0x0
 
     move-wide v2, p2
 
-    goto :goto_0
+    goto :goto_9
 
     .line 177
-    :cond_0
+    :cond_8
     move-wide v2, p2
 
-    :goto_0
+    :goto_9
     move-object v0, p0
 
     move-object v1, p1
@@ -310,7 +310,7 @@
 .end method
 
 .method private final digest(Ljava/lang/String;)Lokio/ByteString;
-    .locals 8
+    .registers 10
     .param p1, "algorithm"    # Ljava/lang/String;
 
     .line 527
@@ -322,12 +322,12 @@
     .local v0, "messageDigest":Ljava/security/MessageDigest;
     iget-object v1, p0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
-    goto :goto_1
+    goto :goto_32
 
     .local v1, "head":Lokio/Segment;
-    :cond_0
+    :cond_9
     const/4 v2, 0x0
 
     .line 529
@@ -351,8 +351,8 @@
 
     .line 531
     .local v3, "s":Lokio/Segment;
-    :goto_0
-    if-eq v3, v1, :cond_1
+    :goto_1b
+    if-eq v3, v1, :cond_30
 
     .line 532
     iget-object v4, v3, Lokio/Segment;->data:[B
@@ -374,10 +374,10 @@
 
     move-object v3, v4
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 535
-    :cond_1
+    :cond_30
     nop
 
     .line 528
@@ -387,7 +387,7 @@
     nop
 
     .line 536
-    :goto_1
+    :goto_32
     new-instance v1, Lokio/ByteString;
 
     invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
@@ -404,7 +404,7 @@
 .end method
 
 .method private final hmac(Ljava/lang/String;Lokio/ByteString;)Lokio/ByteString;
-    .locals 8
+    .registers 11
     .param p1, "algorithm"    # Ljava/lang/String;
     .param p2, "key"    # Lokio/ByteString;
 
@@ -412,7 +412,7 @@
     nop
 
     .line 550
-    :try_start_0
+    :try_start_1
     invoke-static {p1}, Ljavax/crypto/Mac;->getInstance(Ljava/lang/String;)Ljavax/crypto/Mac;
 
     move-result-object v0
@@ -434,13 +434,13 @@
     .line 552
     iget-object v1, p0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
-    :goto_0
-    goto :goto_2
+    :goto_17
+    goto :goto_41
 
     .local v1, "head":Lokio/Segment;
-    :cond_0
+    :cond_18
     const/4 v2, 0x0
 
     .line 553
@@ -464,8 +464,8 @@
 
     .line 555
     .local v3, "s":Lokio/Segment;
-    :goto_1
-    if-eq v3, v1, :cond_1
+    :goto_2a
+    if-eq v3, v1, :cond_3f
 
     .line 556
     iget-object v4, v3, Lokio/Segment;->data:[B
@@ -487,19 +487,19 @@
 
     move-object v3, v4
 
-    goto :goto_1
+    goto :goto_2a
 
     .line 559
-    :cond_1
+    :cond_3f
     nop
 
     .end local v1    # "head":Lokio/Segment;
     .end local v2    # "$i$a$-let-Buffer$hmac$1":I
     .end local v3    # "s":Lokio/Segment;
-    goto :goto_0
+    goto :goto_17
 
     .line 560
-    :goto_2
+    :goto_41
     new-instance v1, Lokio/ByteString;
 
     invoke-virtual {v0}, Ljavax/crypto/Mac;->doFinal()[B
@@ -511,14 +511,14 @@
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {v1, v2}, Lokio/ByteString;-><init>([B)V
-    :try_end_0
-    .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4f
+    .catch Ljava/security/InvalidKeyException; {:try_start_1 .. :try_end_4f} :catch_50
 
     return-object v1
 
     .line 561
     .end local v0    # "mac":Ljavax/crypto/Mac;
-    :catch_0
+    :catch_50
     move-exception v0
 
     .line 562
@@ -535,12 +535,12 @@
 .end method
 
 .method public static synthetic readAndWriteUnsafe$default(Lokio/Buffer;Lokio/Buffer$UnsafeCursor;ILjava/lang/Object;)Lokio/Buffer$UnsafeCursor;
-    .locals 0
+    .registers 4
 
     .line 589
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     .line 144
     invoke-static {}, Lokio/_UtilKt;->getDEFAULT__new_UnsafeCursor()Lokio/Buffer$UnsafeCursor;
@@ -548,7 +548,7 @@
     move-result-object p1
 
     .line 589
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1}, Lokio/Buffer;->readAndWriteUnsafe(Lokio/Buffer$UnsafeCursor;)Lokio/Buffer$UnsafeCursor;
 
     move-result-object p0
@@ -557,7 +557,7 @@
 .end method
 
 .method private final readFrom(Ljava/io/InputStream;JZ)V
-    .locals 9
+    .registers 14
     .param p1, "input"    # Ljava/io/InputStream;
     .param p2, "byteCount"    # J
     .param p4, "forever"    # Z
@@ -572,24 +572,24 @@
 
     .line 233
     .local v0, "byteCount":J
-    :goto_0
+    :goto_1
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-gtz v4, :cond_1
+    if-gtz v4, :cond_b
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_a
 
-    goto :goto_1
+    goto :goto_b
 
     .line 250
-    :cond_0
+    :cond_a
     return-void
 
     .line 234
-    :cond_1
-    :goto_1
+    :cond_b
+    :goto_b
     const/4 v2, 0x1
 
     invoke-virtual {p0, v2}, Lokio/Buffer;->writableSegment$okio(I)Lokio/Segment;
@@ -632,14 +632,14 @@
     .local v4, "bytesRead":I
     const/4 v5, -0x1
 
-    if-ne v4, v5, :cond_4
+    if-ne v4, v5, :cond_3e
 
     .line 238
     iget v5, v2, Lokio/Segment;->pos:I
 
     iget v6, v2, Lokio/Segment;->limit:I
 
-    if-ne v5, v6, :cond_2
+    if-ne v5, v6, :cond_35
 
     .line 240
     invoke-virtual {v2}, Lokio/Segment;->pop()Lokio/Segment;
@@ -652,13 +652,13 @@
     invoke-static {v2}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     .line 243
-    :cond_2
-    if-eqz p4, :cond_3
+    :cond_35
+    if-eqz p4, :cond_38
 
     return-void
 
     .line 244
-    :cond_3
+    :cond_38
     new-instance v5, Ljava/io/EOFException;
 
     invoke-direct {v5}, Ljava/io/EOFException;-><init>()V
@@ -666,7 +666,7 @@
     throw v5
 
     .line 246
-    :cond_4
+    :cond_3e
     iget v5, v2, Lokio/Segment;->limit:I
 
     add-int/2addr v5, v4
@@ -690,16 +690,16 @@
     .end local v2    # "tail":Lokio/Segment;
     .end local v3    # "maxToCopy":I
     .end local v4    # "bytesRead":I
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public static synthetic readUnsafe$default(Lokio/Buffer;Lokio/Buffer$UnsafeCursor;ILjava/lang/Object;)Lokio/Buffer$UnsafeCursor;
-    .locals 0
+    .registers 4
 
     .line 586
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     .line 140
     invoke-static {}, Lokio/_UtilKt;->getDEFAULT__new_UnsafeCursor()Lokio/Buffer$UnsafeCursor;
@@ -707,7 +707,7 @@
     move-result-object p1
 
     .line 586
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1}, Lokio/Buffer;->readUnsafe(Lokio/Buffer$UnsafeCursor;)Lokio/Buffer$UnsafeCursor;
 
     move-result-object p0
@@ -716,7 +716,7 @@
 .end method
 
 .method public static synthetic writeTo$default(Lokio/Buffer;Ljava/io/OutputStream;JILjava/lang/Object;)Lokio/Buffer;
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -726,11 +726,11 @@
     .line 191
     and-int/lit8 p4, p4, 0x2
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_6
 
     iget-wide p2, p0, Lokio/Buffer;->size:J
 
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1, p2, p3}, Lokio/Buffer;->writeTo(Ljava/io/OutputStream;J)Lokio/Buffer;
 
     move-result-object p0
@@ -741,7 +741,7 @@
 
 # virtual methods
 .method public final -deprecated_getByte(J)B
-    .locals 1
+    .registers 4
     .param p1, "index"    # J
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -761,7 +761,7 @@
 .end method
 
 .method public final -deprecated_size()J
-    .locals 2
+    .registers 3
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
         message = "moved to val"
@@ -778,14 +778,14 @@
 .end method
 
 .method public buffer()Lokio/Buffer;
-    .locals 0
+    .registers 1
 
     .line 83
     return-object p0
 .end method
 
 .method public final clear()V
-    .locals 4
+    .registers 5
 
     .line 371
     move-object v0, p0
@@ -808,7 +808,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 76
     invoke-virtual {p0}, Lokio/Buffer;->clone()Lokio/Buffer;
@@ -819,7 +819,7 @@
 .end method
 
 .method public clone()Lokio/Buffer;
-    .locals 1
+    .registers 2
 
     .line 579
     invoke-virtual {p0}, Lokio/Buffer;->copy()Lokio/Buffer;
@@ -830,14 +830,14 @@
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
 
     .line 502
     return-void
 .end method
 
 .method public final completeSegmentByteCount()J
-    .locals 7
+    .registers 8
 
     .line 252
     move-object v0, p0
@@ -857,12 +857,12 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_d
 
-    goto :goto_0
+    goto :goto_29
 
     .line 672
-    :cond_0
+    :cond_d
     iget-object v4, v0, Lokio/Buffer;->head:Lokio/Segment;
 
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -877,11 +877,11 @@
 
     const/16 v6, 0x2000
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_28
 
     iget-boolean v5, v4, Lokio/Segment;->owner:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_28
 
     .line 674
     iget v5, v4, Lokio/Segment;->limit:I
@@ -895,7 +895,7 @@
     sub-long/2addr v2, v5
 
     .line 677
-    :cond_1
+    :cond_28
     move-wide v4, v2
 
     .line 252
@@ -903,12 +903,12 @@
     .end local v1    # "$i$f$commonCompleteSegmentByteCount":I
     .end local v2    # "result$iv":J
     .end local v4    # "tail$iv":Lokio/Segment;
-    :goto_0
+    :goto_29
     return-wide v4
 .end method
 
 .method public final copy()Lokio/Buffer;
-    .locals 8
+    .registers 9
 
     .line 576
     move-object v0, p0
@@ -932,12 +932,12 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_12
 
-    goto :goto_1
+    goto :goto_43
 
     .line 1740
-    :cond_0
+    :cond_12
     iget-object v3, v0, Lokio/Buffer;->head:Lokio/Segment;
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -967,8 +967,8 @@
 
     .line 1748
     .local v5, "s$iv":Lokio/Segment;
-    :goto_0
-    if-eq v5, v3, :cond_1
+    :goto_27
+    if-eq v5, v3, :cond_3b
 
     .line 1749
     iget-object v6, v4, Lokio/Segment;->prev:Lokio/Segment;
@@ -986,10 +986,10 @@
     .line 1750
     iget-object v5, v5, Lokio/Segment;->next:Lokio/Segment;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 1753
-    :cond_1
+    :cond_3b
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v6
@@ -1006,12 +1006,12 @@
     .end local v3    # "head$iv":Lokio/Segment;
     .end local v4    # "headCopy$iv":Lokio/Segment;
     .end local v5    # "s$iv":Lokio/Segment;
-    :goto_1
+    :goto_43
     return-object v2
 .end method
 
 .method public final copyTo(Ljava/io/OutputStream;)Lokio/Buffer;
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1042,7 +1042,7 @@
 .end method
 
 .method public final copyTo(Ljava/io/OutputStream;J)Lokio/Buffer;
-    .locals 9
+    .registers 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1073,7 +1073,7 @@
 .end method
 
 .method public final copyTo(Ljava/io/OutputStream;JJ)Lokio/Buffer;
-    .locals 14
+    .registers 20
     .param p1, "out"    # Ljava/io/OutputStream;
     .param p2, "offset"    # J
     .param p4, "byteCount"    # J
@@ -1111,17 +1111,17 @@
 
     cmp-long v6, v8, v2
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_18
 
     return-object v0
 
     .line 158
-    :cond_0
+    :cond_18
     iget-object v6, v0, Lokio/Buffer;->head:Lokio/Segment;
 
     .line 159
     .local v6, "s":Lokio/Segment;
-    :goto_0
+    :goto_1a
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     iget v7, v6, Lokio/Segment;->limit:I
@@ -1134,7 +1134,7 @@
 
     cmp-long v7, v4, v10
 
-    if-ltz v7, :cond_1
+    if-ltz v7, :cond_31
 
     .line 160
     iget v7, v6, Lokio/Segment;->limit:I
@@ -1150,14 +1150,14 @@
     .line 161
     iget-object v6, v6, Lokio/Segment;->next:Lokio/Segment;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 165
-    :cond_1
-    :goto_1
+    :cond_31
+    :goto_31
     cmp-long v7, v8, v2
 
-    if-lez v7, :cond_2
+    if-lez v7, :cond_53
 
     .line 166
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -1211,15 +1211,15 @@
 
     .end local v7    # "pos":I
     .end local v10    # "toCopy":I
-    goto :goto_1
+    goto :goto_31
 
     .line 174
-    :cond_2
+    :cond_53
     return-object v0
 .end method
 
 .method public final copyTo(Lokio/Buffer;J)Lokio/Buffer;
-    .locals 8
+    .registers 12
     .param p1, "out"    # Lokio/Buffer;
     .param p2, "offset"    # J
 
@@ -1246,7 +1246,7 @@
 .end method
 
 .method public final copyTo(Lokio/Buffer;JJ)Lokio/Buffer;
-    .locals 13
+    .registers 19
     .param p1, "out"    # Lokio/Buffer;
     .param p2, "offset"    # J
     .param p4, "byteCount"    # J
@@ -1286,12 +1286,12 @@
 
     cmp-long v7, v9, v3
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_1a
 
-    goto :goto_3
+    goto :goto_81
 
     .line 638
-    :cond_0
+    :cond_1a
     invoke-virtual {p1}, Lokio/Buffer;->size()J
 
     move-result-wide v7
@@ -1305,7 +1305,7 @@
 
     .line 642
     .local v7, "s$iv":Lokio/Segment;
-    :goto_0
+    :goto_24
     invoke-static {v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     iget v8, v7, Lokio/Segment;->limit:I
@@ -1318,7 +1318,7 @@
 
     cmp-long v8, v5, v11
 
-    if-ltz v8, :cond_1
+    if-ltz v8, :cond_3b
 
     .line 643
     iget v8, v7, Lokio/Segment;->limit:I
@@ -1334,14 +1334,14 @@
     .line 644
     iget-object v7, v7, Lokio/Segment;->next:Lokio/Segment;
 
-    goto :goto_0
+    goto :goto_24
 
     .line 648
-    :cond_1
-    :goto_1
+    :cond_3b
+    :goto_3b
     cmp-long v8, v9, v3
 
-    if-lez v8, :cond_3
+    if-lez v8, :cond_80
 
     .line 649
     invoke-static {v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -1378,7 +1378,7 @@
     .line 652
     iget-object v11, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v11, :cond_2
+    if-nez v11, :cond_67
 
     .line 653
     iput-object v8, v8, Lokio/Segment;->prev:Lokio/Segment;
@@ -1393,10 +1393,10 @@
 
     iput-object v11, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    goto :goto_2
+    goto :goto_74
 
     .line 657
-    :cond_2
+    :cond_67
     iget-object v11, v0, Lokio/Buffer;->head:Lokio/Segment;
 
     invoke-static {v11}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -1408,7 +1408,7 @@
     invoke-virtual {v11, v8}, Lokio/Segment;->push(Lokio/Segment;)Lokio/Segment;
 
     .line 659
-    :goto_2
+    :goto_74
     iget v11, v8, Lokio/Segment;->limit:I
 
     iget v12, v8, Lokio/Segment;->pos:I
@@ -1426,10 +1426,10 @@
     iget-object v7, v7, Lokio/Segment;->next:Lokio/Segment;
 
     .end local v8    # "copy$iv":Lokio/Segment;
-    goto :goto_1
+    goto :goto_3b
 
     .line 664
-    :cond_3
+    :cond_80
     nop
 
     .line 181
@@ -1438,19 +1438,19 @@
     .end local v5    # "offset$iv":J
     .end local v7    # "s$iv":Lokio/Segment;
     .end local v9    # "byteCount$iv":J
-    :goto_3
+    :goto_81
     return-object v1
 .end method
 
 .method public emit()Lokio/Buffer;
-    .locals 0
+    .registers 1
 
     .line 107
     return-object p0
 .end method
 
 .method public bridge synthetic emit()Lokio/BufferedSink;
-    .locals 1
+    .registers 2
 
     .line 76
     invoke-virtual {p0}, Lokio/Buffer;->emit()Lokio/Buffer;
@@ -1463,14 +1463,14 @@
 .end method
 
 .method public emitCompleteSegments()Lokio/Buffer;
-    .locals 0
+    .registers 1
 
     .line 105
     return-object p0
 .end method
 
 .method public bridge synthetic emitCompleteSegments()Lokio/BufferedSink;
-    .locals 1
+    .registers 2
 
     .line 76
     invoke-virtual {p0}, Lokio/Buffer;->emitCompleteSegments()Lokio/Buffer;
@@ -1483,7 +1483,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 23
+    .registers 25
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 566
@@ -1496,26 +1496,26 @@
 
     .line 1693
     .local v2, "$i$f$commonEquals":I
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_a
 
     const/4 v3, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_99
 
     .line 1694
-    :cond_0
+    :cond_a
     instance-of v4, v0, Lokio/Buffer;
 
     const/4 v5, 0x0
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_12
 
     const/4 v3, 0x0
 
-    goto/16 :goto_1
+    goto/16 :goto_99
 
     .line 1695
-    :cond_1
+    :cond_12
     invoke-virtual {v1}, Lokio/Buffer;->size()J
 
     move-result-wide v6
@@ -1530,14 +1530,14 @@
 
     cmp-long v4, v6, v8
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_24
 
     const/4 v3, 0x0
 
-    goto/16 :goto_1
+    goto/16 :goto_99
 
     .line 1696
-    :cond_2
+    :cond_24
     invoke-virtual {v1}, Lokio/Buffer;->size()J
 
     move-result-wide v6
@@ -1546,14 +1546,14 @@
 
     cmp-long v4, v6, v8
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_31
 
     const/4 v3, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_99
 
     .line 1698
-    :cond_3
+    :cond_31
     iget-object v4, v1, Lokio/Buffer;->head:Lokio/Segment;
 
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -1585,14 +1585,14 @@
 
     .line 1705
     .local v13, "count$iv":J
-    :goto_0
+    :goto_46
     invoke-virtual {v1}, Lokio/Buffer;->size()J
 
     move-result-wide v15
 
     cmp-long v17, v11, v15
 
-    if-gez v17, :cond_9
+    if-gez v17, :cond_98
 
     .line 1706
     iget v15, v4, Lokio/Segment;->limit:I
@@ -1612,11 +1612,11 @@
     .line 1708
     cmp-long v3, v8, v13
 
-    if-gez v3, :cond_6
+    if-gez v3, :cond_7c
 
     move-wide/from16 v17, v8
 
-    :cond_4
+    :cond_5f
     move-wide/from16 v19, v17
 
     .local v19, "i$iv":J
@@ -1641,21 +1641,21 @@
     .local v21, "posB$iv":I
     aget-byte v7, v7, v10
 
-    if-eq v3, v7, :cond_5
+    if-eq v3, v7, :cond_75
 
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_99
 
     .line 1708
-    :cond_5
+    :cond_75
     cmp-long v3, v17, v13
 
     move v7, v15
 
     move/from16 v10, v21
 
-    if-ltz v3, :cond_4
+    if-ltz v3, :cond_5f
 
     .line 1712
     .end local v15    # "posA$iv":I
@@ -1663,10 +1663,10 @@
     .end local v21    # "posB$iv":I
     .restart local v7    # "posA$iv":I
     .restart local v10    # "posB$iv":I
-    :cond_6
+    :cond_7c
     iget v3, v4, Lokio/Segment;->limit:I
 
-    if-ne v7, v3, :cond_7
+    if-ne v7, v3, :cond_89
 
     .line 1713
     iget-object v3, v4, Lokio/Segment;->next:Lokio/Segment;
@@ -1685,10 +1685,10 @@
     .line 1717
     .end local v3    # "sa$iv":Lokio/Segment;
     .restart local v4    # "sa$iv":Lokio/Segment;
-    :cond_7
+    :cond_89
     iget v3, v6, Lokio/Segment;->limit:I
 
-    if-ne v10, v3, :cond_8
+    if-ne v10, v3, :cond_96
 
     .line 1718
     iget-object v3, v6, Lokio/Segment;->next:Lokio/Segment;
@@ -1707,13 +1707,13 @@
     .line 1721
     .end local v3    # "sb$iv":Lokio/Segment;
     .restart local v6    # "sb$iv":Lokio/Segment;
-    :cond_8
+    :cond_96
     add-long/2addr v11, v13
 
-    goto :goto_0
+    goto :goto_46
 
     .line 1724
-    :cond_9
+    :cond_98
     const/4 v3, 0x1
 
     .line 566
@@ -1725,12 +1725,12 @@
     .end local v10    # "posB$iv":I
     .end local v11    # "pos$iv":J
     .end local v13    # "count$iv":J
-    :goto_1
+    :goto_99
     return v3
 .end method
 
 .method public exhausted()Z
-    .locals 5
+    .registers 6
 
     .line 109
     iget-wide v0, p0, Lokio/Buffer;->size:J
@@ -1739,35 +1739,35 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
 
     .line 498
     return-void
 .end method
 
 .method public getBuffer()Lokio/Buffer;
-    .locals 0
+    .registers 1
 
     .line 85
     return-object p0
 .end method
 
 .method public final getByte(J)B
-    .locals 14
+    .registers 17
     .param p1, "pos"    # J
 
     .line 258
@@ -1798,7 +1798,7 @@
     .local v3, "$i$f$seek":I
     iget-object v4, v2, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_26
 
     const-wide/16 v4, -0x1
 
@@ -1828,12 +1828,12 @@
 
     aget-byte v8, v8, v10
 
-    goto :goto_3
+    goto :goto_77
 
     .end local v4    # "offset$iv":J
     .end local v6    # "s$iv":Lokio/Segment;
     .end local v7    # "$i$a$-seek-_BufferKt$commonGet$1$iv":I
-    :cond_0
+    :cond_26
     nop
 
     .line 700
@@ -1846,7 +1846,7 @@
 
     cmp-long v7, v5, p1
 
-    if-gez v7, :cond_2
+    if-gez v7, :cond_58
 
     .line 702
     invoke-virtual {v2}, Lokio/Buffer;->size()J
@@ -1855,10 +1855,10 @@
 
     .line 703
     .local v5, "offset$iv$iv":J
-    :goto_0
+    :goto_34
     cmp-long v7, v5, p1
 
-    if-lez v7, :cond_1
+    if-lez v7, :cond_46
 
     .line 704
     iget-object v7, v4, Lokio/Segment;->prev:Lokio/Segment;
@@ -1878,10 +1878,10 @@
 
     sub-long/2addr v5, v7
 
-    goto :goto_0
+    goto :goto_34
 
     .line 707
-    :cond_1
+    :cond_46
     move-object v7, v4
 
     .local v7, "s$iv":Lokio/Segment;
@@ -1908,22 +1908,22 @@
 
     aget-byte v11, v11, v13
 
-    :goto_1
+    :goto_56
     move v8, v11
 
-    goto :goto_3
+    goto :goto_77
 
     .line 710
     .end local v5    # "offset$iv$iv":J
     .end local v7    # "s$iv":Lokio/Segment;
     .end local v8    # "offset$iv":J
     .end local v10    # "$i$a$-seek-_BufferKt$commonGet$1$iv":I
-    :cond_2
+    :cond_58
     const-wide/16 v5, 0x0
 
     .line 711
     .restart local v5    # "offset$iv$iv":J
-    :goto_2
+    :goto_5a
     nop
 
     .line 712
@@ -1941,7 +1941,7 @@
     .local v7, "nextOffset$iv$iv":J
     cmp-long v9, v7, p1
 
-    if-lez v9, :cond_3
+    if-lez v9, :cond_78
 
     .line 717
     .end local v7    # "nextOffset$iv$iv":J
@@ -1971,7 +1971,7 @@
 
     aget-byte v11, v11, v13
 
-    goto :goto_1
+    goto :goto_56
 
     .line 258
     .end local v0    # "$this$commonGet$iv":Lokio/Buffer;
@@ -1983,7 +1983,7 @@
     .end local v7    # "s$iv":Lokio/Segment;
     .end local v8    # "offset$iv":J
     .end local v10    # "$i$a$-seek-_BufferKt$commonGet$1$iv":I
-    :goto_3
+    :goto_77
     return v8
 
     .line 714
@@ -1994,7 +1994,7 @@
     .restart local v4    # "s$iv$iv":Lokio/Segment;
     .restart local v5    # "offset$iv$iv":J
     .local v7, "nextOffset$iv$iv":J
-    :cond_3
+    :cond_78
     iget-object v9, v4, Lokio/Segment;->next:Lokio/Segment;
 
     invoke-static {v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -2005,11 +2005,11 @@
     move-wide v5, v7
 
     .end local v7    # "nextOffset$iv$iv":J
-    goto :goto_2
+    goto :goto_5a
 .end method
 
 .method public hashCode()I
-    .locals 8
+    .registers 9
 
     .line 568
     move-object v0, p0
@@ -2021,20 +2021,20 @@
     .local v1, "$i$f$commonHashCode":I
     iget-object v2, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_8
 
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_25
 
     .line 1726
     .local v2, "s$iv":Lokio/Segment;
-    :cond_0
+    :cond_8
     const/4 v3, 0x1
 
     .line 1728
     .local v3, "result$iv":I
-    :cond_1
+    :cond_9
     iget v4, v2, Lokio/Segment;->pos:I
 
     .line 1729
@@ -2043,8 +2043,8 @@
 
     .line 1730
     .local v5, "limit$iv":I
-    :goto_0
-    if-ge v4, v5, :cond_2
+    :goto_d
+    if-ge v4, v5, :cond_1a
 
     .line 1731
     mul-int/lit8 v6, v3, 0x1f
@@ -2058,10 +2058,10 @@
     .line 1732
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 1734
-    :cond_2
+    :cond_1a
     iget-object v6, v2, Lokio/Segment;->next:Lokio/Segment;
 
     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -2071,7 +2071,7 @@
     .line 1735
     iget-object v6, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-ne v2, v6, :cond_1
+    if-ne v2, v6, :cond_9
 
     .line 1736
     .end local v4    # "pos$iv":I
@@ -2083,12 +2083,12 @@
     .end local v1    # "$i$f$commonHashCode":I
     .end local v2    # "s$iv":Lokio/Segment;
     .end local v3    # "result$iv":I
-    :goto_1
+    :goto_25
     return v2
 .end method
 
 .method public final hmacSha1(Lokio/ByteString;)Lokio/ByteString;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Lokio/ByteString;
 
     const-string v0, "key"
@@ -2106,7 +2106,7 @@
 .end method
 
 .method public final hmacSha256(Lokio/ByteString;)Lokio/ByteString;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Lokio/ByteString;
 
     const-string v0, "key"
@@ -2124,7 +2124,7 @@
 .end method
 
 .method public final hmacSha512(Lokio/ByteString;)Lokio/ByteString;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Lokio/ByteString;
 
     const-string v0, "key"
@@ -2142,7 +2142,7 @@
 .end method
 
 .method public indexOf(B)J
-    .locals 6
+    .registers 8
     .param p1, "b"    # B
 
     .line 467
@@ -2162,7 +2162,7 @@
 .end method
 
 .method public indexOf(BJ)J
-    .locals 6
+    .registers 10
     .param p1, "b"    # B
     .param p2, "fromIndex"    # J
 
@@ -2183,7 +2183,7 @@
 .end method
 
 .method public indexOf(BJJ)J
-    .locals 28
+    .registers 34
     .param p1, "b"    # B
     .param p2, "fromIndex"    # J
     .param p4, "toIndex"    # J
@@ -2216,16 +2216,16 @@
 
     cmp-long v10, v7, v3
 
-    if-gtz v10, :cond_0
+    if-gtz v10, :cond_19
 
     cmp-long v7, v3, v5
 
-    if-gtz v7, :cond_0
+    if-gtz v7, :cond_19
 
     const/4 v9, 0x1
 
-    :cond_0
-    if-eqz v9, :cond_f
+    :cond_19
+    if-eqz v9, :cond_15b
 
     .line 1509
     invoke-virtual {v1}, Lokio/Buffer;->size()J
@@ -2234,13 +2234,13 @@
 
     cmp-long v9, v5, v7
 
-    if-lez v9, :cond_1
+    if-lez v9, :cond_27
 
     invoke-virtual {v1}, Lokio/Buffer;->size()J
 
     move-result-wide v5
 
-    :cond_1
+    :cond_27
     move-wide v7, v5
 
     .line 1510
@@ -2248,14 +2248,14 @@
     .local v7, "toIndex$iv":J
     cmp-long v5, v3, v7
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_30
 
     const-wide/16 v9, -0x1
 
-    goto/16 :goto_6
+    goto/16 :goto_14e
 
     .line 1512
-    :cond_2
+    :cond_30
     move-wide v11, v3
 
     .local v11, "fromIndex$iv$iv":J
@@ -2268,7 +2268,7 @@
     .local v14, "$i$f$seek":I
     iget-object v5, v13, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_42
 
     const-wide/16 v5, -0x1
 
@@ -2284,12 +2284,12 @@
     .local v16, "$i$a$-seek-_BufferKt$commonIndexOf$2$iv":I
     const-wide/16 v9, -0x1
 
-    goto/16 :goto_6
+    goto/16 :goto_14e
 
     .end local v5    # "offset$iv":J
     .end local v15    # "s$iv":Lokio/Segment;
     .end local v16    # "$i$a$-seek-_BufferKt$commonIndexOf$2$iv":I
-    :cond_3
+    :cond_42
     nop
 
     .line 1536
@@ -2302,7 +2302,7 @@
 
     cmp-long v6, v15, v11
 
-    if-gez v6, :cond_9
+    if-gez v6, :cond_d7
 
     .line 1538
     invoke-virtual {v13}, Lokio/Buffer;->size()J
@@ -2311,10 +2311,10 @@
 
     .line 1539
     .local v15, "offset$iv$iv":J
-    :goto_0
+    :goto_50
     cmp-long v6, v15, v11
 
-    if-lez v6, :cond_4
+    if-lez v6, :cond_62
 
     .line 1540
     iget-object v6, v5, Lokio/Segment;->prev:Lokio/Segment;
@@ -2334,10 +2334,10 @@
 
     sub-long/2addr v15, v9
 
-    goto :goto_0
+    goto :goto_50
 
     .line 1543
-    :cond_4
+    :cond_62
     move-object v6, v5
 
     .local v6, "s$iv":Lokio/Segment;
@@ -2348,13 +2348,13 @@
 
     .line 1514
     .local v17, "$i$a$-seek-_BufferKt$commonIndexOf$2$iv":I
-    if-nez v6, :cond_5
+    if-nez v6, :cond_6c
 
     const-wide/16 v9, -0x1
 
-    goto/16 :goto_6
+    goto/16 :goto_14e
 
-    :cond_5
+    :cond_6c
     move-object/from16 v18, v6
 
     .line 1515
@@ -2371,10 +2371,10 @@
     .local v2, "s$iv":Lokio/Segment;
     .local v18, "$i$f$commonIndexOf":I
     .local v19, "offset$iv":J
-    :goto_1
+    :goto_76
     cmp-long v21, v19, v7
 
-    if-gez v21, :cond_8
+    if-gez v21, :cond_c9
 
     .line 1519
     move-object/from16 v21, v5
@@ -2433,13 +2433,13 @@
 
     .line 1522
     .local v10, "pos$iv":I
-    :goto_2
-    if-ge v10, v6, :cond_7
+    :goto_9b
+    if-ge v10, v6, :cond_ae
 
     .line 1523
     aget-byte v9, v5, v10
 
-    if-ne v9, v0, :cond_6
+    if-ne v9, v0, :cond_ab
 
     .line 1524
     iget v9, v2, Lokio/Segment;->pos:I
@@ -2452,16 +2452,16 @@
 
     move-wide v9, v13
 
-    goto/16 :goto_6
+    goto/16 :goto_14e
 
     .line 1526
-    :cond_6
+    :cond_ab
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_2
+    goto :goto_9b
 
     .line 1530
-    :cond_7
+    :cond_ae
     iget v9, v2, Lokio/Segment;->limit:I
 
     iget v13, v2, Lokio/Segment;->pos:I
@@ -2495,7 +2495,7 @@
     .end local v5    # "data$iv":[B
     .end local v6    # "limit$iv":I
     .end local v10    # "pos$iv":I
-    goto :goto_1
+    goto :goto_76
 
     .line 1535
     .end local v21    # "s$iv$iv":Lokio/Segment;
@@ -2508,7 +2508,7 @@
     .restart local v9    # "offset$iv":J
     .restart local v13    # "$this$seek$iv$iv":Lokio/Buffer;
     .restart local v14    # "$i$f$seek":I
-    :cond_8
+    :cond_c9
     move-object/from16 v21, v5
 
     move-object/from16 v22, v6
@@ -2531,7 +2531,7 @@
     .restart local v26    # "$i$f$seek":I
     const-wide/16 v9, -0x1
 
-    goto/16 :goto_6
+    goto/16 :goto_14e
 
     .line 1546
     .end local v15    # "offset$iv$iv":J
@@ -2547,7 +2547,7 @@
     .restart local v5    # "s$iv$iv":Lokio/Segment;
     .restart local v13    # "$this$seek$iv$iv":Lokio/Buffer;
     .restart local v14    # "$i$f$seek":I
-    :cond_9
+    :cond_d7
     move/from16 v18, v2
 
     move-object/from16 v25, v13
@@ -2564,7 +2564,7 @@
 
     .line 1547
     .local v9, "offset$iv$iv":J
-    :goto_3
+    :goto_df
     nop
 
     .line 1548
@@ -2582,7 +2582,7 @@
     .local v13, "nextOffset$iv$iv":J
     cmp-long v2, v13, v11
 
-    if-lez v2, :cond_e
+    if-lez v2, :cond_14f
 
     .line 1553
     .end local v13    # "nextOffset$iv$iv":J
@@ -2596,13 +2596,13 @@
 
     .line 1514
     .local v6, "$i$a$-seek-_BufferKt$commonIndexOf$2$iv":I
-    if-nez v2, :cond_a
+    if-nez v2, :cond_f3
 
     const-wide/16 v9, -0x1
 
-    goto :goto_6
+    goto :goto_14e
 
-    :cond_a
+    :cond_f3
     move-object v15, v2
 
     .line 1515
@@ -2611,10 +2611,10 @@
 
     .line 1518
     .restart local v19    # "offset$iv":J
-    :goto_4
+    :goto_f6
     cmp-long v16, v19, v7
 
-    if-gez v16, :cond_d
+    if-gez v16, :cond_144
 
     .line 1519
     move-object/from16 v16, v2
@@ -2669,13 +2669,13 @@
 
     .line 1522
     .restart local v10    # "pos$iv":I
-    :goto_5
-    if-ge v10, v6, :cond_c
+    :goto_119
+    if-ge v10, v6, :cond_12b
 
     .line 1523
     aget-byte v9, v2, v10
 
-    if-ne v9, v0, :cond_b
+    if-ne v9, v0, :cond_128
 
     .line 1524
     iget v9, v15, Lokio/Segment;->pos:I
@@ -2688,16 +2688,16 @@
 
     move-wide v9, v11
 
-    goto :goto_6
+    goto :goto_14e
 
     .line 1526
-    :cond_b
+    :cond_128
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_5
+    goto :goto_119
 
     .line 1530
-    :cond_c
+    :cond_12b
     iget v9, v15, Lokio/Segment;->limit:I
 
     iget v11, v15, Lokio/Segment;->pos:I
@@ -2729,7 +2729,7 @@
     .end local v2    # "data$iv":[B
     .end local v6    # "limit$iv":I
     .end local v10    # "pos$iv":I
-    goto :goto_4
+    goto :goto_f6
 
     .line 1535
     .end local v16    # "s$iv":Lokio/Segment;
@@ -2740,7 +2740,7 @@
     .local v6, "$i$a$-seek-_BufferKt$commonIndexOf$2$iv":I
     .restart local v9    # "offset$iv$iv":J
     .restart local v11    # "fromIndex$iv$iv":J
-    :cond_d
+    :cond_144
     move-object/from16 v16, v2
 
     move/from16 v17, v6
@@ -2774,7 +2774,7 @@
     .end local v23    # "fromIndex$iv$iv":J
     .end local v25    # "$this$seek$iv$iv":Lokio/Buffer;
     .end local v26    # "$i$f$seek":I
-    :goto_6
+    :goto_14e
     return-wide v9
 
     .line 1550
@@ -2788,7 +2788,7 @@
     .restart local v18    # "$i$f$commonIndexOf":I
     .restart local v25    # "$this$seek$iv$iv":Lokio/Buffer;
     .restart local v26    # "$i$f$seek":I
-    :cond_e
+    :cond_14f
     move-wide/from16 v21, v9
 
     move-wide/from16 v23, v11
@@ -2809,7 +2809,7 @@
     .end local v13    # "nextOffset$iv$iv":J
     .end local v21    # "offset$iv$iv":J
     .restart local v9    # "offset$iv$iv":J
-    goto :goto_3
+    goto :goto_df
 
     .line 1508
     .end local v7    # "toIndex$iv":J
@@ -2820,7 +2820,7 @@
     .end local v26    # "$i$f$seek":I
     .local v2, "$i$f$commonIndexOf":I
     .local v5, "toIndex$iv":J
-    :cond_f
+    :cond_15b
     move/from16 v18, v2
 
     .end local v2    # "$i$f$commonIndexOf":I
@@ -2886,7 +2886,7 @@
 .end method
 
 .method public indexOf(Lokio/ByteString;)J
-    .locals 2
+    .registers 4
     .param p1, "bytes"    # Lokio/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2909,7 +2909,7 @@
 .end method
 
 .method public indexOf(Lokio/ByteString;J)J
-    .locals 34
+    .registers 38
     .param p1, "bytes"    # Lokio/ByteString;
     .param p2, "fromIndex"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -2944,34 +2944,34 @@
 
     const/4 v6, 0x0
 
-    if-lez v5, :cond_0
+    if-lez v5, :cond_17
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v5, 0x0
 
-    :goto_0
-    if-eqz v5, :cond_12
+    :goto_18
+    if-eqz v5, :cond_1c0
 
     .line 1557
     const-wide/16 v8, 0x0
 
     cmp-long v5, v3, v8
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_22
 
     const/4 v5, 0x1
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_1
+    :cond_22
     const/4 v5, 0x0
 
-    :goto_1
-    if-eqz v5, :cond_11
+    :goto_23
+    if-eqz v5, :cond_1a5
 
     .line 1559
     move-wide v8, v3
@@ -2986,7 +2986,7 @@
     .local v10, "$i$f$seek":I
     iget-object v11, v5, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v11, :cond_2
+    if-nez v11, :cond_36
 
     const-wide/16 v6, -0x1
 
@@ -3002,12 +3002,12 @@
     .local v14, "$i$a$-seek-_BufferKt$commonIndexOf$5$iv":I
     const-wide/16 v12, -0x1
 
-    goto/16 :goto_8
+    goto/16 :goto_192
 
     .end local v6    # "offset$iv":J
     .end local v11    # "s$iv":Lokio/Segment;
     .end local v14    # "$i$a$-seek-_BufferKt$commonIndexOf$5$iv":I
-    :cond_2
+    :cond_36
     nop
 
     .line 1588
@@ -3022,7 +3022,7 @@
 
     cmp-long v18, v14, v8
 
-    if-gez v18, :cond_9
+    if-gez v18, :cond_ec
 
     .line 1590
     invoke-virtual {v5}, Lokio/Buffer;->size()J
@@ -3031,10 +3031,10 @@
 
     .line 1591
     .local v14, "offset$iv$iv":J
-    :goto_2
+    :goto_46
     cmp-long v18, v14, v8
 
-    if-lez v18, :cond_3
+    if-lez v18, :cond_58
 
     .line 1592
     iget-object v12, v11, Lokio/Segment;->prev:Lokio/Segment;
@@ -3054,10 +3054,10 @@
 
     sub-long/2addr v14, v12
 
-    goto :goto_2
+    goto :goto_46
 
     .line 1595
-    :cond_3
+    :cond_58
     move-object v12, v11
 
     .local v12, "s$iv":Lokio/Segment;
@@ -3068,13 +3068,13 @@
 
     .line 1561
     .local v13, "$i$a$-seek-_BufferKt$commonIndexOf$5$iv":I
-    if-nez v12, :cond_4
+    if-nez v12, :cond_62
 
     const-wide/16 v12, -0x1
 
-    goto/16 :goto_8
+    goto/16 :goto_192
 
-    :cond_4
+    :cond_62
     move-object/from16 v21, v12
 
     .line 1562
@@ -3123,10 +3123,10 @@
     .end local v21    # "s$iv":Lokio/Segment;
     .local v10, "s$iv":Lokio/Segment;
     .local v25, "resultLimit$iv":J
-    :goto_3
+    :goto_7f
     cmp-long v11, v22, v25
 
-    if-gez v11, :cond_8
+    if-gez v11, :cond_de
 
     .line 1572
     iget-object v11, v10, Lokio/Segment;->data:[B
@@ -3193,9 +3193,9 @@
 
     long-to-int v5, v12
 
-    if-ge v5, v2, :cond_7
+    if-ge v5, v2, :cond_c3
 
-    :cond_5
+    :cond_a8
     move v12, v5
 
     const/4 v13, 0x1
@@ -3206,7 +3206,7 @@
     .line 1576
     aget-byte v14, v11, v12
 
-    if-ne v14, v6, :cond_6
+    if-ne v14, v6, :cond_c1
 
     add-int/lit8 v14, v12, 0x1
 
@@ -3214,7 +3214,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_c1
 
     .line 1577
     iget v5, v10, Lokio/Segment;->pos:I
@@ -3227,15 +3227,15 @@
 
     move-wide v12, v13
 
-    goto/16 :goto_8
+    goto/16 :goto_192
 
     .line 1575
-    :cond_6
-    if-lt v5, v2, :cond_5
+    :cond_c1
+    if-lt v5, v2, :cond_a8
 
     .line 1582
     .end local v12    # "pos$iv":I
-    :cond_7
+    :cond_c3
     iget v5, v10, Lokio/Segment;->limit:I
 
     iget v12, v10, Lokio/Segment;->pos:I
@@ -3268,7 +3268,7 @@
 
     .end local v2    # "segmentLimit$iv":I
     .end local v11    # "data$iv":[B
-    goto :goto_3
+    goto :goto_7f
 
     .line 1587
     .end local v21    # "$i$f$commonIndexOf":I
@@ -3281,7 +3281,7 @@
     .local v12, "s$iv":Lokio/Segment;
     .restart local v13    # "$i$a$-seek-_BufferKt$commonIndexOf$5$iv":I
     .restart local v14    # "offset$iv$iv":J
-    :cond_8
+    :cond_de
     move/from16 v21, v2
 
     move-object/from16 v29, v5
@@ -3304,7 +3304,7 @@
     .restart local v32    # "offset$iv$iv":J
     const-wide/16 v12, -0x1
 
-    goto/16 :goto_8
+    goto/16 :goto_192
 
     .line 1598
     .end local v1    # "bytesSize$iv":I
@@ -3324,7 +3324,7 @@
     .restart local v5    # "$this$seek$iv$iv":Lokio/Buffer;
     .local v10, "$i$f$seek":I
     .local v11, "s$iv$iv":Lokio/Segment;
-    :cond_9
+    :cond_ec
     move/from16 v21, v2
 
     move-object/from16 v29, v5
@@ -3341,7 +3341,7 @@
 
     .line 1599
     .local v1, "offset$iv$iv":J
-    :goto_4
+    :goto_f4
     nop
 
     .line 1600
@@ -3359,7 +3359,7 @@
     .local v12, "nextOffset$iv$iv":J
     cmp-long v5, v12, v8
 
-    if-lez v5, :cond_10
+    if-lez v5, :cond_193
 
     .line 1605
     .end local v12    # "nextOffset$iv$iv":J
@@ -3373,13 +3373,13 @@
 
     .line 1561
     .local v7, "$i$a$-seek-_BufferKt$commonIndexOf$5$iv":I
-    if-nez v5, :cond_a
+    if-nez v5, :cond_109
 
     const-wide/16 v12, -0x1
 
-    goto/16 :goto_8
+    goto/16 :goto_192
 
-    :cond_a
+    :cond_109
     move-object v10, v5
 
     .line 1562
@@ -3428,10 +3428,10 @@
 
     .line 1570
     .local v22, "resultLimit$iv":J
-    :goto_5
+    :goto_123
     cmp-long v7, v14, v22
 
-    if-gez v7, :cond_f
+    if-gez v7, :cond_189
 
     .line 1572
     iget-object v7, v10, Lokio/Segment;->data:[B
@@ -3494,9 +3494,9 @@
 
     long-to-int v0, v12
 
-    if-ge v0, v1, :cond_e
+    if-ge v0, v1, :cond_16e
 
-    :goto_6
+    :goto_148
     move v8, v0
 
     const/4 v12, 0x1
@@ -3507,7 +3507,7 @@
     .line 1576
     aget-byte v13, v7, v8
 
-    if-ne v13, v2, :cond_b
+    if-ne v13, v2, :cond_162
 
     add-int/lit8 v13, v8, 0x1
 
@@ -3522,7 +3522,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_c
+    if-eqz v13, :cond_166
 
     .line 1577
     iget v0, v10, Lokio/Segment;->pos:I
@@ -3533,13 +3533,13 @@
 
     add-long/2addr v12, v14
 
-    goto :goto_8
+    goto :goto_192
 
     .line 1576
     .end local v24    # "b0$iv":B
     .local v2, "b0$iv":B
     .restart local v32    # "targetByteArray$iv":[B
-    :cond_b
+    :cond_162
     move/from16 v24, v2
 
     move-object/from16 v2, v32
@@ -3548,23 +3548,23 @@
     .end local v32    # "targetByteArray$iv":[B
     .local v2, "targetByteArray$iv":[B
     .restart local v24    # "b0$iv":B
-    :cond_c
-    if-lt v0, v1, :cond_d
+    :cond_166
+    if-lt v0, v1, :cond_169
 
-    goto :goto_7
+    goto :goto_173
 
-    :cond_d
+    :cond_169
     move-object/from16 v32, v2
 
     move/from16 v2, v24
 
-    goto :goto_6
+    goto :goto_148
 
     .end local v8    # "pos$iv":I
     .end local v24    # "b0$iv":B
     .local v2, "b0$iv":B
     .restart local v32    # "targetByteArray$iv":[B
-    :cond_e
+    :cond_16e
     move/from16 v24, v2
 
     move-object/from16 v2, v32
@@ -3575,7 +3575,7 @@
     .end local v32    # "targetByteArray$iv":[B
     .local v2, "targetByteArray$iv":[B
     .restart local v24    # "b0$iv":B
-    :goto_7
+    :goto_173
     iget v0, v10, Lokio/Segment;->limit:I
 
     iget v8, v10, Lokio/Segment;->pos:I
@@ -3606,7 +3606,7 @@
 
     .end local v1    # "segmentLimit$iv":I
     .end local v7    # "data$iv":[B
-    goto :goto_5
+    goto :goto_123
 
     .line 1587
     .end local v24    # "b0$iv":B
@@ -3616,7 +3616,7 @@
     .local v1, "targetByteArray$iv":[B
     .local v2, "b0$iv":B
     .local v12, "offset$iv":J
-    :cond_f
+    :cond_189
     move-object/from16 v28, v0
 
     move/from16 v24, v2
@@ -3652,7 +3652,7 @@
     .end local v28    # "$this$commonIndexOf$iv":Lokio/Buffer;
     .end local v29    # "$this$seek$iv$iv":Lokio/Buffer;
     .end local v30    # "offset$iv":J
-    :goto_8
+    :goto_192
     return-wide v12
 
     .line 1602
@@ -3665,7 +3665,7 @@
     .restart local v21    # "$i$f$commonIndexOf":I
     .restart local v27    # "$i$f$seek":I
     .restart local v29    # "$this$seek$iv$iv":Lokio/Buffer;
-    :cond_10
+    :cond_193
     move-object/from16 v28, v0
 
     move-wide/from16 v19, v1
@@ -3694,7 +3694,7 @@
     .end local v12    # "nextOffset$iv$iv":J
     .end local v19    # "offset$iv$iv":J
     .restart local v1    # "offset$iv$iv":J
-    goto/16 :goto_4
+    goto/16 :goto_f4
 
     .line 1556
     .end local v1    # "offset$iv$iv":J
@@ -3706,7 +3706,7 @@
     .end local v29    # "$this$seek$iv$iv":Lokio/Buffer;
     .restart local v0    # "$this$commonIndexOf$iv":Lokio/Buffer;
     .local v2, "$i$f$commonIndexOf":I
-    :cond_11
+    :cond_1a5
     move-object/from16 v28, v0
 
     move/from16 v21, v2
@@ -3747,7 +3747,7 @@
     .end local v28    # "$this$commonIndexOf$iv":Lokio/Buffer;
     .local v0, "$this$commonIndexOf$iv":Lokio/Buffer;
     .restart local v2    # "$i$f$commonIndexOf":I
-    :cond_12
+    :cond_1c0
     move-object/from16 v28, v0
 
     .end local v0    # "$this$commonIndexOf$iv":Lokio/Buffer;
@@ -3775,7 +3775,7 @@
 .end method
 
 .method public indexOfElement(Lokio/ByteString;)J
-    .locals 2
+    .registers 4
     .param p1, "targetBytes"    # Lokio/ByteString;
 
     const-string v0, "targetBytes"
@@ -3793,7 +3793,7 @@
 .end method
 
 .method public indexOfElement(Lokio/ByteString;J)J
-    .locals 30
+    .registers 34
     .param p1, "targetBytes"    # Lokio/ByteString;
     .param p2, "fromIndex"    # J
 
@@ -3821,17 +3821,17 @@
 
     cmp-long v9, v3, v5
 
-    if-ltz v9, :cond_0
+    if-ltz v9, :cond_16
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v5, 0x0
 
-    :goto_0
-    if-eqz v5, :cond_19
+    :goto_17
+    if-eqz v5, :cond_23a
 
     .line 1609
     move-wide v5, v3
@@ -3846,7 +3846,7 @@
     .local v10, "$i$f$seek":I
     iget-object v11, v9, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v11, :cond_1
+    if-nez v11, :cond_2a
 
     const-wide/16 v7, -0x1
 
@@ -3862,12 +3862,12 @@
     .local v14, "$i$a$-seek-_BufferKt$commonIndexOfElement$2$iv":I
     const-wide/16 v12, -0x1
 
-    goto/16 :goto_11
+    goto/16 :goto_227
 
     .end local v7    # "offset$iv":J
     .end local v11    # "s$iv":Lokio/Segment;
     .end local v14    # "$i$a$-seek-_BufferKt$commonIndexOfElement$2$iv":I
-    :cond_1
+    :cond_2a
     nop
 
     .line 1661
@@ -3882,7 +3882,7 @@
 
     cmp-long v13, v14, v5
 
-    if-gez v13, :cond_d
+    if-gez v13, :cond_134
 
     .line 1663
     invoke-virtual {v9}, Lokio/Buffer;->size()J
@@ -3891,10 +3891,10 @@
 
     .line 1664
     .local v13, "offset$iv$iv":J
-    :goto_1
+    :goto_39
     cmp-long v15, v13, v5
 
-    if-lez v15, :cond_2
+    if-lez v15, :cond_4b
 
     .line 1665
     iget-object v15, v11, Lokio/Segment;->prev:Lokio/Segment;
@@ -3914,10 +3914,10 @@
 
     sub-long/2addr v13, v7
 
-    goto :goto_1
+    goto :goto_39
 
     .line 1668
-    :cond_2
+    :cond_4b
     move-object v7, v11
 
     .local v7, "s$iv":Lokio/Segment;
@@ -3928,13 +3928,13 @@
 
     .line 1611
     .local v8, "$i$a$-seek-_BufferKt$commonIndexOfElement$2$iv":I
-    if-nez v7, :cond_3
+    if-nez v7, :cond_55
 
     const-wide/16 v12, -0x1
 
-    goto/16 :goto_11
+    goto/16 :goto_227
 
-    :cond_3
+    :cond_55
     move-object v15, v7
 
     .line 1612
@@ -3951,7 +3951,7 @@
 
     move-result v2
 
-    if-ne v2, v12, :cond_8
+    if-ne v2, v12, :cond_ca
 
     .line 1619
     const/4 v2, 0x0
@@ -3970,14 +3970,14 @@
 
     .line 1621
     .local v12, "b1$iv":B
-    :goto_2
+    :goto_6a
     invoke-virtual {v1}, Lokio/Buffer;->size()J
 
     move-result-wide v16
 
     cmp-long v23, v20, v16
 
-    if-gez v23, :cond_7
+    if-gez v23, :cond_be
 
     .line 1622
     move-object/from16 v16, v7
@@ -4012,8 +4012,8 @@
 
     .line 1625
     .local v8, "limit$iv":I
-    :goto_3
-    if-ge v9, v8, :cond_6
+    :goto_83
+    if-ge v9, v8, :cond_a1
 
     .line 1626
     move-wide/from16 v25, v3
@@ -4024,25 +4024,25 @@
 
     .line 1627
     .local v3, "b$iv":I
-    if-eq v3, v2, :cond_5
+    if-eq v3, v2, :cond_93
 
-    if-ne v3, v12, :cond_4
+    if-ne v3, v12, :cond_8e
 
-    goto :goto_4
+    goto :goto_93
 
     .line 1630
-    :cond_4
+    :cond_8e
     add-int/lit8 v9, v9, 0x1
 
     move-wide/from16 v3, v25
 
     .end local v3    # "b$iv":I
-    goto :goto_3
+    goto :goto_83
 
     .line 1628
     .restart local v3    # "b$iv":I
-    :cond_5
-    :goto_4
+    :cond_93
+    :goto_93
     iget v4, v15, Lokio/Segment;->pos:I
 
     sub-int v4, v9, v4
@@ -4061,7 +4061,7 @@
 
     move-wide v12, v2
 
-    goto/16 :goto_11
+    goto/16 :goto_227
 
     .line 1634
     .end local v17    # "b0$iv":B
@@ -4069,7 +4069,7 @@
     .end local v27    # "b$iv":I
     .restart local v2    # "b0$iv":B
     .local v3, "fromIndex$iv":J
-    :cond_6
+    :cond_a1
     move/from16 v17, v2
 
     move-wide/from16 v25, v3
@@ -4111,7 +4111,7 @@
     .end local v7    # "data$iv":[B
     .end local v8    # "limit$iv":I
     .end local v9    # "pos$iv":I
-    goto :goto_2
+    goto :goto_6a
 
     .line 1621
     .end local v16    # "s$iv":Lokio/Segment;
@@ -4122,7 +4122,7 @@
     .local v7, "s$iv":Lokio/Segment;
     .local v8, "$i$a$-seek-_BufferKt$commonIndexOfElement$2$iv":I
     .local v9, "$this$seek$iv$iv":Lokio/Buffer;
-    :cond_7
+    :cond_be
     move/from16 v17, v2
 
     move-wide/from16 v25, v3
@@ -4143,7 +4143,7 @@
     .restart local v23    # "$i$a$-seek-_BufferKt$commonIndexOfElement$2$iv":I
     .restart local v24    # "$this$seek$iv$iv":Lokio/Buffer;
     .restart local v25    # "fromIndex$iv":J
-    goto/16 :goto_8
+    goto/16 :goto_130
 
     .line 1640
     .end local v12    # "b1$iv":B
@@ -4156,7 +4156,7 @@
     .restart local v7    # "s$iv":Lokio/Segment;
     .restart local v8    # "$i$a$-seek-_BufferKt$commonIndexOfElement$2$iv":I
     .restart local v9    # "$this$seek$iv$iv":Lokio/Buffer;
-    :cond_8
+    :cond_ca
     move-object/from16 v16, v7
 
     move/from16 v23, v8
@@ -4175,14 +4175,14 @@
 
     .line 1641
     .local v2, "targetByteArray$iv":[B
-    :goto_5
+    :goto_d4
     invoke-virtual {v1}, Lokio/Buffer;->size()J
 
     move-result-wide v7
 
     cmp-long v9, v20, v7
 
-    if-gez v9, :cond_c
+    if-gez v9, :cond_12c
 
     .line 1642
     iget-object v7, v15, Lokio/Segment;->data:[B
@@ -4205,8 +4205,8 @@
 
     .line 1645
     .local v8, "limit$iv":I
-    :goto_6
-    if-ge v9, v8, :cond_b
+    :goto_e7
+    if-ge v9, v8, :cond_115
 
     .line 1646
     aget-byte v12, v7, v9
@@ -4221,8 +4221,8 @@
 
     const/4 v4, 0x0
 
-    :goto_7
-    if-ge v4, v3, :cond_a
+    :goto_ef
+    if-ge v4, v3, :cond_10e
 
     move/from16 v27, v3
 
@@ -4232,7 +4232,7 @@
     add-int/lit8 v4, v4, 0x1
 
     .line 1648
-    if-ne v12, v3, :cond_9
+    if-ne v12, v3, :cond_107
 
     iget v4, v15, Lokio/Segment;->pos:I
 
@@ -4252,13 +4252,13 @@
 
     move-wide v12, v2
 
-    goto/16 :goto_11
+    goto/16 :goto_227
 
     .end local v28    # "targetByteArray$iv":[B
     .end local v29    # "t$iv":B
     .restart local v2    # "targetByteArray$iv":[B
     .restart local v3    # "t$iv":B
-    :cond_9
+    :cond_107
     move-object/from16 v28, v2
 
     move/from16 v29, v3
@@ -4269,13 +4269,13 @@
     .restart local v29    # "t$iv":B
     move/from16 v3, v27
 
-    goto :goto_7
+    goto :goto_ef
 
     .line 1650
     .end local v28    # "targetByteArray$iv":[B
     .end local v29    # "t$iv":B
     .restart local v2    # "targetByteArray$iv":[B
-    :cond_a
+    :cond_10e
     move-object/from16 v28, v2
 
     .end local v2    # "targetByteArray$iv":[B
@@ -4285,14 +4285,14 @@
     move-wide/from16 v3, v25
 
     .end local v12    # "b$iv":I
-    goto :goto_6
+    goto :goto_e7
 
     .line 1654
     .end local v25    # "fromIndex$iv":J
     .end local v28    # "targetByteArray$iv":[B
     .restart local v2    # "targetByteArray$iv":[B
     .local v3, "fromIndex$iv":J
-    :cond_b
+    :cond_115
     move-object/from16 v28, v2
 
     move-wide/from16 v25, v3
@@ -4328,22 +4328,22 @@
     .end local v7    # "data$iv":[B
     .end local v8    # "limit$iv":I
     .end local v9    # "pos$iv":I
-    goto :goto_5
+    goto :goto_d4
 
     .line 1641
     .end local v28    # "targetByteArray$iv":[B
     .restart local v2    # "targetByteArray$iv":[B
-    :cond_c
+    :cond_12c
     move-object/from16 v28, v2
 
     move-wide/from16 v25, v3
 
     .line 1660
     .end local v2    # "targetByteArray$iv":[B
-    :goto_8
+    :goto_130
     const-wide/16 v12, -0x1
 
-    goto/16 :goto_11
+    goto/16 :goto_227
 
     .line 1671
     .end local v13    # "offset$iv$iv":J
@@ -4356,7 +4356,7 @@
     .end local v24    # "$this$seek$iv$iv":Lokio/Buffer;
     .local v2, "$i$f$commonIndexOfElement":I
     .local v9, "$this$seek$iv$iv":Lokio/Buffer;
-    :cond_d
+    :cond_134
     move/from16 v22, v2
 
     move-object/from16 v24, v9
@@ -4369,7 +4369,7 @@
 
     .line 1672
     .local v7, "offset$iv$iv":J
-    :goto_9
+    :goto_13a
     nop
 
     .line 1673
@@ -4387,7 +4387,7 @@
     .local v13, "nextOffset$iv$iv":J
     cmp-long v2, v13, v5
 
-    if-lez v2, :cond_18
+    if-lez v2, :cond_228
 
     .line 1678
     .end local v13    # "nextOffset$iv$iv":J
@@ -4401,13 +4401,13 @@
 
     .line 1611
     .local v9, "$i$a$-seek-_BufferKt$commonIndexOfElement$2$iv":I
-    if-nez v2, :cond_e
+    if-nez v2, :cond_14f
 
     const-wide/16 v12, -0x1
 
-    goto/16 :goto_11
+    goto/16 :goto_227
 
-    :cond_e
+    :cond_14f
     move-object v15, v2
 
     .line 1612
@@ -4424,7 +4424,7 @@
 
     move-result v2
 
-    if-ne v2, v12, :cond_13
+    if-ne v2, v12, :cond_1bc
 
     .line 1619
     const/4 v2, 0x0
@@ -4443,14 +4443,14 @@
 
     .line 1621
     .local v12, "b1$iv":B
-    :goto_a
+    :goto_164
     invoke-virtual {v1}, Lokio/Buffer;->size()J
 
     move-result-wide v16
 
     cmp-long v21, v18, v16
 
-    if-gez v21, :cond_12
+    if-gez v21, :cond_1b2
 
     .line 1622
     iget-object v0, v15, Lokio/Segment;->data:[B
@@ -4477,8 +4477,8 @@
 
     .line 1625
     .local v5, "limit$iv":I
-    :goto_b
-    if-ge v6, v5, :cond_11
+    :goto_179
+    if-ge v6, v5, :cond_197
 
     .line 1626
     move-wide/from16 v25, v3
@@ -4489,25 +4489,25 @@
 
     .line 1627
     .local v3, "b$iv":I
-    if-eq v3, v2, :cond_10
+    if-eq v3, v2, :cond_189
 
-    if-ne v3, v12, :cond_f
+    if-ne v3, v12, :cond_184
 
-    goto :goto_c
+    goto :goto_189
 
     .line 1630
-    :cond_f
+    :cond_184
     add-int/lit8 v6, v6, 0x1
 
     move-wide/from16 v3, v25
 
     .end local v3    # "b$iv":I
-    goto :goto_b
+    goto :goto_179
 
     .line 1628
     .restart local v3    # "b$iv":I
-    :cond_10
-    :goto_c
+    :cond_189
+    :goto_189
     iget v4, v15, Lokio/Segment;->pos:I
 
     sub-int v4, v6, v4
@@ -4526,7 +4526,7 @@
 
     move-wide v12, v2
 
-    goto/16 :goto_11
+    goto/16 :goto_227
 
     .line 1634
     .end local v21    # "b0$iv":B
@@ -4534,7 +4534,7 @@
     .end local v25    # "fromIndex$iv":J
     .restart local v2    # "b0$iv":B
     .local v3, "fromIndex$iv":J
-    :cond_11
+    :cond_197
     move/from16 v21, v2
 
     move-wide/from16 v25, v3
@@ -4574,14 +4574,14 @@
     .end local v0    # "data$iv":[B
     .end local v5    # "limit$iv":I
     .end local v6    # "pos$iv":I
-    goto :goto_a
+    goto :goto_164
 
     .line 1621
     .end local v16    # "fromIndex$iv$iv":J
     .end local v21    # "b0$iv":B
     .restart local v2    # "b0$iv":B
     .local v5, "fromIndex$iv$iv":J
-    :cond_12
+    :cond_1b2
     move/from16 v21, v2
 
     move-wide/from16 v25, v3
@@ -4596,7 +4596,7 @@
     .restart local v25    # "fromIndex$iv":J
     move-object/from16 v21, v1
 
-    goto/16 :goto_10
+    goto/16 :goto_225
 
     .line 1640
     .end local v12    # "b1$iv":B
@@ -4605,7 +4605,7 @@
     .end local v25    # "fromIndex$iv":J
     .restart local v3    # "fromIndex$iv":J
     .restart local v5    # "fromIndex$iv$iv":J
-    :cond_13
+    :cond_1bc
     move-wide/from16 v16, v5
 
     const/4 v2, 0x0
@@ -4618,14 +4618,14 @@
 
     .line 1641
     .local v0, "targetByteArray$iv":[B
-    :goto_d
+    :goto_1c3
     invoke-virtual {v1}, Lokio/Buffer;->size()J
 
     move-result-wide v5
 
     cmp-long v12, v18, v5
 
-    if-gez v12, :cond_17
+    if-gez v12, :cond_21f
 
     .line 1642
     iget-object v5, v15, Lokio/Segment;->data:[B
@@ -4652,8 +4652,8 @@
 
     .line 1645
     .local v1, "limit$iv":I
-    :goto_e
-    if-ge v2, v1, :cond_16
+    :goto_1d8
+    if-ge v2, v1, :cond_203
 
     .line 1646
     aget-byte v6, v5, v2
@@ -4668,8 +4668,8 @@
 
     .end local v1    # "limit$iv":I
     .local v25, "limit$iv":I
-    :goto_f
-    if-ge v1, v12, :cond_15
+    :goto_1e0
+    if-ge v1, v12, :cond_1fa
 
     move-wide/from16 v26, v3
 
@@ -4681,7 +4681,7 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 1648
-    if-ne v6, v3, :cond_14
+    if-ne v6, v3, :cond_1f5
 
     iget v1, v15, Lokio/Segment;->pos:I
 
@@ -4697,25 +4697,25 @@
 
     move-wide v12, v0
 
-    goto :goto_11
+    goto :goto_227
 
     .end local v28    # "targetByteArray$iv":[B
     .restart local v0    # "targetByteArray$iv":[B
-    :cond_14
+    :cond_1f5
     move-object/from16 v28, v0
 
     .end local v0    # "targetByteArray$iv":[B
     .restart local v28    # "targetByteArray$iv":[B
     move-wide/from16 v3, v26
 
-    goto :goto_f
+    goto :goto_1e0
 
     .line 1650
     .end local v26    # "fromIndex$iv":J
     .end local v28    # "targetByteArray$iv":[B
     .restart local v0    # "targetByteArray$iv":[B
     .local v3, "fromIndex$iv":J
-    :cond_15
+    :cond_1fa
     move-object/from16 v28, v0
 
     move-wide/from16 v26, v3
@@ -4729,7 +4729,7 @@
     move/from16 v1, v25
 
     .end local v6    # "b$iv":I
-    goto :goto_e
+    goto :goto_1d8
 
     .line 1654
     .end local v25    # "limit$iv":I
@@ -4738,7 +4738,7 @@
     .restart local v0    # "targetByteArray$iv":[B
     .restart local v1    # "limit$iv":I
     .restart local v3    # "fromIndex$iv":J
-    :cond_16
+    :cond_203
     move-object/from16 v28, v0
 
     move/from16 v25, v1
@@ -4782,14 +4782,14 @@
     .end local v2    # "pos$iv":I
     .end local v5    # "data$iv":[B
     .end local v25    # "limit$iv":I
-    goto :goto_d
+    goto :goto_1c3
 
     .line 1641
     .end local v21    # "$this$commonIndexOfElement$iv":Lokio/Buffer;
     .end local v28    # "targetByteArray$iv":[B
     .restart local v0    # "targetByteArray$iv":[B
     .local v1, "$this$commonIndexOfElement$iv":Lokio/Buffer;
-    :cond_17
+    :cond_21f
     move-object/from16 v28, v0
 
     move-object/from16 v21, v1
@@ -4800,7 +4800,7 @@
     .end local v0    # "targetByteArray$iv":[B
     .end local v1    # "$this$commonIndexOfElement$iv":Lokio/Buffer;
     .restart local v21    # "$this$commonIndexOfElement$iv":Lokio/Buffer;
-    :goto_10
+    :goto_225
     const-wide/16 v12, -0x1
 
     .line 486
@@ -4817,7 +4817,7 @@
     .end local v21    # "$this$commonIndexOfElement$iv":Lokio/Buffer;
     .end local v22    # "$i$f$commonIndexOfElement":I
     .end local v24    # "$this$seek$iv$iv":Lokio/Buffer;
-    :goto_11
+    :goto_227
     return-wide v12
 
     .line 1675
@@ -4830,7 +4830,7 @@
     .local v13, "nextOffset$iv$iv":J
     .restart local v22    # "$i$f$commonIndexOfElement":I
     .restart local v24    # "$this$seek$iv$iv":Lokio/Buffer;
-    :cond_18
+    :cond_228
     move-object/from16 v21, v1
 
     move-wide/from16 v16, v5
@@ -4855,7 +4855,7 @@
     move-object/from16 v1, v21
 
     .end local v13    # "nextOffset$iv$iv":J
-    goto/16 :goto_9
+    goto/16 :goto_13a
 
     .line 1608
     .end local v7    # "offset$iv$iv":J
@@ -4867,7 +4867,7 @@
     .end local v24    # "$this$seek$iv$iv":Lokio/Buffer;
     .restart local v1    # "$this$commonIndexOfElement$iv":Lokio/Buffer;
     .local v2, "$i$f$commonIndexOfElement":I
-    :cond_19
+    :cond_23a
     move-object/from16 v21, v1
 
     move/from16 v22, v2
@@ -4905,7 +4905,7 @@
 .end method
 
 .method public inputStream()Ljava/io/InputStream;
-    .locals 1
+    .registers 2
 
     .line 123
     new-instance v0, Lokio/Buffer$inputStream$1;
@@ -4918,7 +4918,7 @@
 .end method
 
 .method public isOpen()Z
-    .locals 1
+    .registers 2
 
     .line 500
     const/4 v0, 0x1
@@ -4927,7 +4927,7 @@
 .end method
 
 .method public final md5()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     .line 511
     const-string v0, "MD5"
@@ -4940,7 +4940,7 @@
 .end method
 
 .method public outputStream()Ljava/io/OutputStream;
-    .locals 1
+    .registers 2
 
     .line 88
     new-instance v0, Lokio/Buffer$outputStream$1;
@@ -4953,7 +4953,7 @@
 .end method
 
 .method public peek()Lokio/BufferedSource;
-    .locals 2
+    .registers 3
 
     .line 119
     new-instance v0, Lokio/PeekSource;
@@ -4974,7 +4974,7 @@
 .end method
 
 .method public rangeEquals(JLokio/ByteString;)Z
-    .locals 7
+    .registers 11
     .param p1, "offset"    # J
     .param p3, "bytes"    # Lokio/ByteString;
 
@@ -5003,7 +5003,7 @@
 .end method
 
 .method public rangeEquals(JLokio/ByteString;II)Z
-    .locals 8
+    .registers 14
     .param p1, "offset"    # J
     .param p3, "bytes"    # Lokio/ByteString;
     .param p4, "bytesOffset"    # I
@@ -5027,13 +5027,13 @@
 
     cmp-long v5, p1, v2
 
-    if-ltz v5, :cond_4
+    if-ltz v5, :cond_3d
 
     .line 1680
-    if-ltz p4, :cond_4
+    if-ltz p4, :cond_3d
 
     .line 1681
-    if-ltz p5, :cond_4
+    if-ltz p5, :cond_3d
 
     .line 1682
     invoke-virtual {v0}, Lokio/Buffer;->size()J
@@ -5046,7 +5046,7 @@
 
     cmp-long v7, v2, v5
 
-    if-ltz v7, :cond_4
+    if-ltz v7, :cond_3d
 
     .line 1683
     invoke-virtual {p3}, Lokio/ByteString;->size()I
@@ -5055,19 +5055,19 @@
 
     sub-int/2addr v2, p4
 
-    if-ge v2, p5, :cond_0
+    if-ge v2, p5, :cond_24
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 1687
-    :cond_0
+    :cond_24
     const/4 v2, 0x1
 
-    if-lez p5, :cond_3
+    if-lez p5, :cond_3b
 
     const/4 v3, 0x0
 
-    :cond_1
+    :cond_28
     move v5, v3
 
     .local v5, "i$iv":I
@@ -5088,36 +5088,36 @@
 
     move-result v7
 
-    if-eq v6, v7, :cond_2
+    if-eq v6, v7, :cond_39
 
     .line 1689
-    goto :goto_1
+    goto :goto_3e
 
     .line 1687
-    :cond_2
-    if-lt v3, p5, :cond_1
+    :cond_39
+    if-lt v3, p5, :cond_28
 
     .line 1692
     .end local v5    # "i$iv":I
-    :cond_3
+    :cond_3b
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 1685
-    :cond_4
-    :goto_0
+    :cond_3d
+    :goto_3d
     nop
 
     .line 496
     .end local v0    # "$this$commonRangeEquals$iv":Lokio/Buffer;
     .end local v1    # "$i$f$commonRangeEquals":I
-    :goto_1
+    :goto_3e
     return v4
 .end method
 
 .method public read(Ljava/nio/ByteBuffer;)I
-    .locals 6
+    .registers 8
     .param p1, "sink"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5132,7 +5132,7 @@
     .line 355
     iget-object v0, p0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const/4 v0, -0x1
 
@@ -5140,7 +5140,7 @@
 
     .line 357
     .local v0, "s":Lokio/Segment;
-    :cond_0
+    :cond_b
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v1
@@ -5184,7 +5184,7 @@
 
     iget v3, v0, Lokio/Segment;->limit:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_39
 
     .line 364
     invoke-virtual {v0}, Lokio/Segment;->pop()Lokio/Segment;
@@ -5197,12 +5197,12 @@
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     .line 368
-    :cond_1
+    :cond_39
     return v1
 .end method
 
 .method public read([B)I
-    .locals 4
+    .registers 6
     .param p1, "sink"    # [B
 
     const-string v0, "sink"
@@ -5232,7 +5232,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 9
+    .registers 13
     .param p1, "sink"    # [B
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I
@@ -5262,15 +5262,15 @@
     .line 1088
     iget-object v2, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_14
 
     const/4 v2, -0x1
 
-    goto :goto_0
+    goto :goto_45
 
     .line 1089
     .local v2, "s$iv":Lokio/Segment;
-    :cond_0
+    :cond_14
     iget v3, v2, Lokio/Segment;->limit:I
 
     iget v4, v2, Lokio/Segment;->pos:I
@@ -5318,7 +5318,7 @@
 
     iget v5, v2, Lokio/Segment;->limit:I
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_44
 
     .line 1098
     invoke-virtual {v2}, Lokio/Segment;->pop()Lokio/Segment;
@@ -5331,7 +5331,7 @@
     invoke-static {v2}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     .line 1102
-    :cond_1
+    :cond_44
     move v2, v3
 
     .line 351
@@ -5339,12 +5339,12 @@
     .end local v1    # "$i$f$commonRead":I
     .end local v2    # "s$iv":Lokio/Segment;
     .end local v3    # "toCopy$iv":I
-    :goto_0
+    :goto_45
     return v2
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 9
+    .registers 13
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -5370,17 +5370,17 @@
 
     cmp-long v6, v2, v4
 
-    if-ltz v6, :cond_0
+    if-ltz v6, :cond_12
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v6, 0x0
 
-    :goto_0
-    if-eqz v6, :cond_3
+    :goto_13
+    if-eqz v6, :cond_31
 
     .line 1501
     invoke-virtual {v0}, Lokio/Buffer;->size()J
@@ -5389,28 +5389,28 @@
 
     cmp-long v8, v6, v4
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_20
 
     const-wide/16 v4, -0x1
 
-    goto :goto_1
+    goto :goto_30
 
     .line 1502
-    :cond_1
+    :cond_20
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v4
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_2
+    if-lez v6, :cond_2c
 
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v2
 
     .line 1503
-    :cond_2
+    :cond_2c
     invoke-virtual {p1, v0, v2, v3}, Lokio/Buffer;->write(Lokio/Buffer;J)V
 
     .line 1504
@@ -5420,14 +5420,14 @@
     .end local v0    # "$this$commonRead$iv":Lokio/Buffer;
     .end local v1    # "$i$f$commonRead":I
     .end local v2    # "byteCount$iv":J
-    :goto_1
+    :goto_30
     return-wide v4
 
     .line 1500
     .restart local v0    # "$this$commonRead$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonRead":I
     .restart local v2    # "byteCount$iv":J
-    :cond_3
+    :cond_31
     const/4 v4, 0x0
 
     .line 1499
@@ -5457,7 +5457,7 @@
 .end method
 
 .method public readAll(Lokio/Sink;)J
-    .locals 7
+    .registers 9
     .param p1, "sink"    # Lokio/Sink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5487,13 +5487,13 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_14
 
     .line 971
     invoke-interface {p1, v0, v2, v3}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
     .line 973
-    :cond_0
+    :cond_14
     nop
 
     .line 295
@@ -5504,7 +5504,7 @@
 .end method
 
 .method public final readAndWriteUnsafe()Lokio/Buffer$UnsafeCursor;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -5518,7 +5518,7 @@
 .end method
 
 .method public final readAndWriteUnsafe(Lokio/Buffer$UnsafeCursor;)Lokio/Buffer$UnsafeCursor;
-    .locals 1
+    .registers 3
     .param p1, "unsafeCursor"    # Lokio/Buffer$UnsafeCursor;
 
     const-string v0, "unsafeCursor"
@@ -5534,7 +5534,7 @@
 .end method
 
 .method public readByte()B
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -5557,7 +5557,7 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_35
 
     .line 680
     iget-object v2, v0, Lokio/Buffer;->head:Lokio/Segment;
@@ -5597,7 +5597,7 @@
     invoke-virtual {v0, v7, v8}, Lokio/Buffer;->setSize$okio(J)V
 
     .line 688
-    if-ne v6, v4, :cond_0
+    if-ne v6, v4, :cond_31
 
     .line 689
     invoke-virtual {v2}, Lokio/Segment;->pop()Lokio/Segment;
@@ -5609,14 +5609,14 @@
     .line 690
     invoke-static {v2}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
-    goto :goto_0
+    goto :goto_33
 
     .line 692
-    :cond_0
+    :cond_31
     iput v6, v2, Lokio/Segment;->pos:I
 
     .line 695
-    :goto_0
+    :goto_33
     nop
 
     .line 255
@@ -5632,7 +5632,7 @@
     .line 678
     .restart local v0    # "$this$commonReadByte$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadByte":I
-    :cond_1
+    :cond_35
     new-instance v2, Ljava/io/EOFException;
 
     invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
@@ -5641,7 +5641,7 @@
 .end method
 
 .method public readByteArray()[B
-    .locals 4
+    .registers 5
 
     .line 340
     move-object v0, p0
@@ -5666,7 +5666,7 @@
 .end method
 
 .method public readByteArray(J)[B
-    .locals 5
+    .registers 8
     .param p1, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5686,23 +5686,23 @@
 
     cmp-long v4, p1, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_11
 
     const-wide/32 v2, 0x7fffffff
 
     cmp-long v4, p1, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_11
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_12
+    if-eqz v2, :cond_2a
 
     .line 1073
     invoke-virtual {v0}, Lokio/Buffer;->size()J
@@ -5711,7 +5711,7 @@
 
     cmp-long v4, v2, p1
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_24
 
     .line 1075
     long-to-int v2, p1
@@ -5734,7 +5734,7 @@
     .line 1073
     .restart local v0    # "$this$commonReadByteArray$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadByteArray":I
-    :cond_1
+    :cond_24
     new-instance v2, Ljava/io/EOFException;
 
     invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
@@ -5742,7 +5742,7 @@
     throw v2
 
     .line 1072
-    :cond_2
+    :cond_2a
     const/4 v2, 0x0
 
     .line 1071
@@ -5772,7 +5772,7 @@
 .end method
 
 .method public readByteString()Lokio/ByteString;
-    .locals 4
+    .registers 5
 
     .line 284
     move-object v0, p0
@@ -5797,7 +5797,7 @@
 .end method
 
 .method public readByteString(J)Lokio/ByteString;
-    .locals 5
+    .registers 8
     .param p1, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5817,23 +5817,23 @@
 
     cmp-long v4, p1, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_11
 
     const-wide/32 v2, 0x7fffffff
 
     cmp-long v4, p1, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_11
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_3
+    :goto_12
+    if-eqz v2, :cond_3d
 
     .line 950
     invoke-virtual {v0}, Lokio/Buffer;->size()J
@@ -5842,14 +5842,14 @@
 
     cmp-long v4, v2, p1
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_37
 
     .line 952
     const-wide/16 v2, 0x1000
 
     cmp-long v4, p1, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_2d
 
     .line 953
     long-to-int v2, p1
@@ -5870,10 +5870,10 @@
 
     .end local v3    # "it$iv":Lokio/ByteString;
     .end local v4    # "$i$a$-also-_BufferKt$commonReadByteString$2$iv":I
-    goto :goto_1
+    goto :goto_36
 
     .line 955
-    :cond_1
+    :cond_2d
     new-instance v2, Lokio/ByteString;
 
     invoke-virtual {v0, p1, p2}, Lokio/Buffer;->readByteArray(J)[B
@@ -5885,13 +5885,13 @@
     .line 287
     .end local v0    # "$this$commonReadByteString$iv":Lokio/Buffer;
     .end local v1    # "$i$f$commonReadByteString":I
-    :goto_1
+    :goto_36
     return-object v2
 
     .line 950
     .restart local v0    # "$this$commonReadByteString$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadByteString":I
-    :cond_2
+    :cond_37
     new-instance v2, Ljava/io/EOFException;
 
     invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
@@ -5899,7 +5899,7 @@
     throw v2
 
     .line 949
-    :cond_3
+    :cond_3d
     const/4 v2, 0x0
 
     .line 948
@@ -5929,7 +5929,7 @@
 .end method
 
 .method public readDecimalLong()J
-    .locals 19
+    .registers 20
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -5952,7 +5952,7 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_10d
 
     .line 834
     const-wide/16 v2, 0x0
@@ -5975,7 +5975,7 @@
 
     .line 842
     .local v9, "overflowDigit$iv":J
-    :goto_0
+    :goto_14
     iget-object v11, v0, Lokio/Buffer;->head:Lokio/Segment;
 
     invoke-static {v11}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -5994,8 +5994,8 @@
 
     .line 848
     .local v14, "limit$iv":I
-    :goto_1
-    if-ge v13, v14, :cond_6
+    :goto_1f
+    if-ge v13, v14, :cond_98
 
     .line 849
     aget-byte v15, v12, v13
@@ -6006,13 +6006,13 @@
 
     int-to-byte v4, v4
 
-    if-lt v15, v4, :cond_4
+    if-lt v15, v4, :cond_79
 
     const/16 v5, 0x39
 
     int-to-byte v5, v5
 
-    if-gt v15, v5, :cond_4
+    if-gt v15, v5, :cond_79
 
     .line 851
     sub-int/2addr v4, v15
@@ -6023,11 +6023,11 @@
 
     cmp-long v5, v2, v16
 
-    if-ltz v5, :cond_2
+    if-ltz v5, :cond_50
 
     cmp-long v5, v2, v16
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_44
 
     move-object v5, v0
 
@@ -6041,15 +6041,15 @@
 
     cmp-long v17, v0, v9
 
-    if-gez v17, :cond_1
+    if-gez v17, :cond_47
 
-    goto :goto_2
+    goto :goto_53
 
     .end local v5    # "$this$commonReadDecimalLong$iv":Lokio/Buffer;
     .end local v16    # "$i$f$commonReadDecimalLong":I
     .restart local v0    # "$this$commonReadDecimalLong$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadDecimalLong":I
-    :cond_0
+    :cond_44
     move-object v5, v0
 
     move/from16 v16, v1
@@ -6059,7 +6059,7 @@
     .end local v1    # "$i$f$commonReadDecimalLong":I
     .restart local v5    # "$this$commonReadDecimalLong$iv":Lokio/Buffer;
     .restart local v16    # "$i$f$commonReadDecimalLong":I
-    :cond_1
+    :cond_47
     const-wide/16 v0, 0xa
 
     mul-long v2, v2, v0
@@ -6072,7 +6072,7 @@
     move/from16 v18, v8
 
     .end local v4    # "digit$iv":I
-    goto :goto_3
+    goto :goto_89
 
     .line 854
     .end local v5    # "$this$commonReadDecimalLong$iv":Lokio/Buffer;
@@ -6080,7 +6080,7 @@
     .restart local v0    # "$this$commonReadDecimalLong$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadDecimalLong":I
     .restart local v4    # "digit$iv":I
-    :cond_2
+    :cond_50
     move-object v5, v0
 
     move/from16 v16, v1
@@ -6090,7 +6090,7 @@
     .end local v1    # "$i$f$commonReadDecimalLong":I
     .restart local v5    # "$this$commonReadDecimalLong$iv":Lokio/Buffer;
     .restart local v16    # "$i$f$commonReadDecimalLong":I
-    :goto_2
+    :goto_53
     new-instance v0, Lokio/Buffer;
 
     invoke-direct {v0}, Lokio/Buffer;-><init>()V
@@ -6105,12 +6105,12 @@
 
     .line 856
     .local v0, "buffer$iv":Lokio/Buffer;
-    if-nez v7, :cond_3
+    if-nez v7, :cond_65
 
     invoke-virtual {v0}, Lokio/Buffer;->readByte()B
 
     .line 857
-    :cond_3
+    :cond_65
     new-instance v1, Ljava/lang/NumberFormatException;
 
     move/from16 v17, v4
@@ -6143,7 +6143,7 @@
     .local v0, "$this$commonReadDecimalLong$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadDecimalLong":I
     .restart local v8    # "done$iv":Z
-    :cond_4
+    :cond_79
     move-object v5, v0
 
     move/from16 v16, v1
@@ -6161,9 +6161,9 @@
 
     int-to-byte v0, v0
 
-    if-ne v15, v0, :cond_5
+    if-ne v15, v0, :cond_95
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_95
 
     .line 862
     const/4 v7, 0x1
@@ -6174,7 +6174,7 @@
     sub-long/2addr v9, v0
 
     .line 869
-    :goto_3
+    :goto_89
     add-int/lit8 v13, v13, 0x1
 
     .line 870
@@ -6189,11 +6189,11 @@
     const-wide/16 v4, 0x0
 
     .end local v15    # "b$iv":B
-    goto :goto_1
+    goto :goto_1f
 
     .line 866
     .restart local v15    # "b$iv":B
-    :cond_5
+    :cond_95
     const/4 v0, 0x1
 
     .line 867
@@ -6201,7 +6201,7 @@
     .local v0, "done$iv":Z
     move v8, v0
 
-    goto :goto_4
+    goto :goto_9d
 
     .line 848
     .end local v5    # "$this$commonReadDecimalLong$iv":Lokio/Buffer;
@@ -6210,7 +6210,7 @@
     .local v0, "$this$commonReadDecimalLong$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadDecimalLong":I
     .restart local v8    # "done$iv":Z
-    :cond_6
+    :cond_98
     move-object v5, v0
 
     move/from16 v16, v1
@@ -6222,8 +6222,8 @@
     .end local v1    # "$i$f$commonReadDecimalLong":I
     .restart local v5    # "$this$commonReadDecimalLong$iv":Lokio/Buffer;
     .restart local v16    # "$i$f$commonReadDecimalLong":I
-    :goto_4
-    if-ne v13, v14, :cond_7
+    :goto_9d
+    if-ne v13, v14, :cond_a9
 
     .line 874
     invoke-virtual {v11}, Lokio/Segment;->pop()Lokio/Segment;
@@ -6235,38 +6235,38 @@
     .line 875
     invoke-static {v11}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
-    goto :goto_5
+    goto :goto_ab
 
     .line 877
-    :cond_7
+    :cond_a9
     iput v13, v11, Lokio/Segment;->pos:I
 
     .line 879
-    :goto_5
-    if-nez v8, :cond_9
+    :goto_ab
+    if-nez v8, :cond_b9
 
     iget-object v0, v5, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_b2
 
-    goto :goto_6
+    goto :goto_b9
 
-    :cond_8
+    :cond_b2
     move-object v0, v5
 
     move/from16 v1, v16
 
     const-wide/16 v4, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_14
 
     .line 881
     .end local v11    # "segment$iv":Lokio/Segment;
     .end local v12    # "data$iv":[B
     .end local v13    # "pos$iv":I
     .end local v14    # "limit$iv":I
-    :cond_9
-    :goto_6
+    :cond_b9
+    :goto_b9
     invoke-virtual {v5}, Lokio/Buffer;->size()J
 
     move-result-wide v0
@@ -6278,19 +6278,19 @@
     invoke-virtual {v5, v0, v1}, Lokio/Buffer;->setSize$okio(J)V
 
     .line 883
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_c6
 
     const/4 v0, 0x2
 
-    goto :goto_7
+    goto :goto_c7
 
-    :cond_a
+    :cond_c6
     const/4 v0, 0x1
 
     .line 884
     .local v0, "minimumSeen$iv":I
-    :goto_7
-    if-ge v6, v0, :cond_d
+    :goto_c7
+    if-ge v6, v0, :cond_107
 
     .line 885
     invoke-virtual {v5}, Lokio/Buffer;->size()J
@@ -6301,21 +6301,21 @@
 
     cmp-long v1, v11, v13
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_101
 
     .line 886
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_d8
 
     const-string v1, "Expected a digit"
 
-    goto :goto_8
+    goto :goto_da
 
-    :cond_b
+    :cond_d8
     const-string v1, "Expected a digit or \'-\'"
 
     .line 887
     .local v1, "expected$iv":Ljava/lang/String;
-    :goto_8
+    :goto_da
     new-instance v4, Ljava/lang/NumberFormatException;
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -6356,7 +6356,7 @@
 
     .line 885
     .end local v1    # "expected$iv":Ljava/lang/String;
-    :cond_c
+    :cond_101
     new-instance v1, Ljava/io/EOFException;
 
     invoke-direct {v1}, Ljava/io/EOFException;-><init>()V
@@ -6364,12 +6364,12 @@
     throw v1
 
     .line 890
-    :cond_d
-    if-eqz v7, :cond_e
+    :cond_107
+    if-eqz v7, :cond_10a
 
-    goto :goto_9
+    goto :goto_10c
 
-    :cond_e
+    :cond_10a
     neg-long v11, v2
 
     move-wide v2, v11
@@ -6383,13 +6383,13 @@
     .end local v8    # "done$iv":Z
     .end local v9    # "overflowDigit$iv":J
     .end local v16    # "$i$f$commonReadDecimalLong":I
-    :goto_9
+    :goto_10c
     return-wide v2
 
     .line 831
     .local v0, "$this$commonReadDecimalLong$iv":Lokio/Buffer;
     .local v1, "$i$f$commonReadDecimalLong":I
-    :cond_f
+    :cond_10d
     move-object v5, v0
 
     .end local v0    # "$this$commonReadDecimalLong$iv":Lokio/Buffer;
@@ -6402,7 +6402,7 @@
 .end method
 
 .method public final readFrom(Ljava/io/InputStream;)Lokio/Buffer;
-    .locals 3
+    .registers 5
     .param p1, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -6426,7 +6426,7 @@
 .end method
 
 .method public final readFrom(Ljava/io/InputStream;J)Lokio/Buffer;
-    .locals 4
+    .registers 8
     .param p1, "input"    # Ljava/io/InputStream;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -6446,17 +6446,17 @@
 
     cmp-long v3, p2, v0
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_f
+    if-eqz v0, :cond_15
 
     .line 226
     invoke-direct {p0, p1, p2, p3, v2}, Lokio/Buffer;->readFrom(Ljava/io/InputStream;JZ)V
@@ -6465,7 +6465,7 @@
     return-object p0
 
     .line 666
-    :cond_1
+    :cond_15
     const/4 v0, 0x0
 
     .line 225
@@ -6495,7 +6495,7 @@
 .end method
 
 .method public readFully(Lokio/Buffer;J)V
-    .locals 5
+    .registers 9
     .param p1, "sink"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -6522,7 +6522,7 @@
 
     cmp-long v4, v2, p2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_14
 
     .line 967
     invoke-virtual {p1, v0, p2, p3}, Lokio/Buffer;->write(Lokio/Buffer;J)V
@@ -6538,7 +6538,7 @@
     .line 964
     .restart local v0    # "$this$commonReadFully$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadFully":I
-    :cond_0
+    :cond_14
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v2
@@ -6554,7 +6554,7 @@
 .end method
 
 .method public readFully([B)V
-    .locals 5
+    .registers 7
     .param p1, "sink"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -6578,10 +6578,10 @@
 
     .line 1080
     .local v2, "offset$iv":I
-    :goto_0
+    :goto_8
     array-length v3, p1
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_1c
 
     .line 1081
     array-length v3, p1
@@ -6596,17 +6596,17 @@
     .local v3, "read$iv":I
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_16
 
     .line 1083
     add-int/2addr v2, v3
 
     .end local v3    # "read$iv":I
-    goto :goto_0
+    goto :goto_8
 
     .line 1082
     .restart local v3    # "read$iv":I
-    :cond_0
+    :cond_16
     new-instance v4, Ljava/io/EOFException;
 
     invoke-direct {v4}, Ljava/io/EOFException;-><init>()V
@@ -6615,7 +6615,7 @@
 
     .line 1085
     .end local v3    # "read$iv":I
-    :cond_1
+    :cond_1c
     nop
 
     .line 348
@@ -6626,7 +6626,7 @@
 .end method
 
 .method public readHexadecimalUnsignedLong()J
-    .locals 17
+    .registers 18
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -6649,7 +6649,7 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_ab
 
     .line 893
     const-wide/16 v2, 0x0
@@ -6664,7 +6664,7 @@
 
     .line 898
     .local v7, "done$iv":Z
-    :cond_0
+    :cond_11
     iget-object v8, v0, Lokio/Buffer;->head:Lokio/Segment;
 
     invoke-static {v8}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -6683,8 +6683,8 @@
 
     .line 904
     .local v11, "limit$iv":I
-    :goto_0
-    if-ge v10, v11, :cond_6
+    :goto_1c
+    if-ge v10, v11, :cond_8c
 
     const/4 v12, 0x0
 
@@ -6698,53 +6698,53 @@
 
     int-to-byte v14, v14
 
-    if-lt v13, v14, :cond_1
+    if-lt v13, v14, :cond_2e
 
     const/16 v15, 0x39
 
     int-to-byte v15, v15
 
-    if-gt v13, v15, :cond_1
+    if-gt v13, v15, :cond_2e
 
     .line 909
     sub-int v12, v13, v14
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 910
-    :cond_1
+    :cond_2e
     const/16 v14, 0x61
 
     int-to-byte v14, v14
 
-    if-lt v13, v14, :cond_2
+    if-lt v13, v14, :cond_3d
 
     const/16 v15, 0x66
 
     int-to-byte v15, v15
 
-    if-gt v13, v15, :cond_2
+    if-gt v13, v15, :cond_3d
 
     .line 911
     sub-int v14, v13, v14
 
     add-int/lit8 v12, v14, 0xa
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 912
-    :cond_2
+    :cond_3d
     const/16 v14, 0x41
 
     int-to-byte v14, v14
 
-    if-lt v13, v14, :cond_4
+    if-lt v13, v14, :cond_78
 
     const/16 v15, 0x46
 
     int-to-byte v15, v15
 
-    if-gt v13, v15, :cond_4
+    if-gt v13, v15, :cond_78
 
     .line 913
     sub-int v14, v13, v14
@@ -6752,14 +6752,14 @@
     add-int/lit8 v12, v14, 0xa
 
     .line 926
-    :goto_1
+    :goto_4b
     const-wide/high16 v14, -0x1000000000000000L    # -3.105036184601418E231
 
     and-long/2addr v14, v2
 
     cmp-long v16, v14, v4
 
-    if-nez v16, :cond_3
+    if-nez v16, :cond_5b
 
     .line 931
     const/4 v14, 0x4
@@ -6779,12 +6779,12 @@
 
     .end local v12    # "digit$iv":I
     .end local v13    # "b$iv":B
-    goto :goto_0
+    goto :goto_1c
 
     .line 927
     .restart local v12    # "digit$iv":I
     .restart local v13    # "b$iv":B
-    :cond_3
+    :cond_5b
     new-instance v4, Lokio/Buffer;
 
     invoke-direct {v4}, Lokio/Buffer;-><init>()V
@@ -6817,17 +6817,17 @@
 
     .line 915
     .end local v4    # "buffer$iv":Lokio/Buffer;
-    :cond_4
-    if-eqz v6, :cond_5
+    :cond_78
+    if-eqz v6, :cond_7c
 
     .line 921
     const/4 v7, 0x1
 
     .line 922
-    goto :goto_2
+    goto :goto_8c
 
     .line 916
-    :cond_5
+    :cond_7c
     new-instance v4, Ljava/lang/NumberFormatException;
 
     .line 917
@@ -6849,9 +6849,9 @@
     .line 937
     .end local v12    # "digit$iv":I
     .end local v13    # "b$iv":B
-    :cond_6
-    :goto_2
-    if-ne v10, v11, :cond_7
+    :cond_8c
+    :goto_8c
+    if-ne v10, v11, :cond_98
 
     .line 938
     invoke-virtual {v8}, Lokio/Segment;->pop()Lokio/Segment;
@@ -6863,26 +6863,26 @@
     .line 939
     invoke-static {v8}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
-    goto :goto_3
+    goto :goto_9a
 
     .line 941
-    :cond_7
+    :cond_98
     iput v10, v8, Lokio/Segment;->pos:I
 
     .line 943
-    :goto_3
-    if-nez v7, :cond_8
+    :goto_9a
+    if-nez v7, :cond_a0
 
     iget-object v12, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v12, :cond_0
+    if-nez v12, :cond_11
 
     .line 945
     .end local v8    # "segment$iv":Lokio/Segment;
     .end local v9    # "data$iv":[B
     .end local v10    # "pos$iv":I
     .end local v11    # "limit$iv":I
-    :cond_8
+    :cond_a0
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v4
@@ -6907,7 +6907,7 @@
     .line 891
     .restart local v0    # "$this$commonReadHexadecimalUnsignedLong$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadHexadecimalUnsignedLong":I
-    :cond_9
+    :cond_ab
     new-instance v2, Ljava/io/EOFException;
 
     invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
@@ -6916,7 +6916,7 @@
 .end method
 
 .method public readInt()I
-    .locals 12
+    .registers 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -6939,7 +6939,7 @@
 
     cmp-long v6, v2, v4
 
-    if-ltz v6, :cond_2
+    if-ltz v6, :cond_8a
 
     .line 745
     iget-object v2, v0, Lokio/Buffer;->head:Lokio/Segment;
@@ -6962,7 +6962,7 @@
 
     cmp-long v9, v7, v4
 
-    if-gez v9, :cond_0
+    if-gez v9, :cond_46
 
     .line 752
     invoke-virtual {v0}, Lokio/Buffer;->readByte()B
@@ -7055,10 +7055,10 @@
     or-int/2addr v4, v5
 
     .line 757
-    goto :goto_1
+    goto :goto_89
 
     .line 765
-    :cond_0
+    :cond_46
     iget-object v7, v2, Lokio/Segment;->data:[B
 
     .line 767
@@ -7174,7 +7174,7 @@
     invoke-virtual {v0, v10, v11}, Lokio/Buffer;->setSize$okio(J)V
 
     .line 774
-    if-ne v9, v6, :cond_1
+    if-ne v9, v6, :cond_86
 
     .line 775
     invoke-virtual {v2}, Lokio/Segment;->pop()Lokio/Segment;
@@ -7186,14 +7186,14 @@
     .line 776
     invoke-static {v2}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
-    goto :goto_0
+    goto :goto_88
 
     .line 778
-    :cond_1
+    :cond_86
     iput v9, v2, Lokio/Segment;->pos:I
 
     .line 781
-    :goto_0
+    :goto_88
     move v4, v3
 
     .line 264
@@ -7204,13 +7204,13 @@
     .end local v6    # "limit$iv":I
     .end local v7    # "data$iv":[B
     .end local v9    # "pos$iv":I
-    :goto_1
+    :goto_89
     return v4
 
     .line 743
     .restart local v0    # "$this$commonReadInt$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadInt":I
-    :cond_2
+    :cond_8a
     new-instance v2, Ljava/io/EOFException;
 
     invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
@@ -7219,7 +7219,7 @@
 .end method
 
 .method public readIntLe()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -7239,7 +7239,7 @@
 .end method
 
 .method public readLong()J
-    .locals 15
+    .registers 16
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -7262,7 +7262,7 @@
 
     cmp-long v6, v2, v4
 
-    if-ltz v6, :cond_2
+    if-ltz v6, :cond_bf
 
     .line 784
     iget-object v2, v0, Lokio/Buffer;->head:Lokio/Segment;
@@ -7287,7 +7287,7 @@
 
     cmp-long v10, v7, v4
 
-    if-gez v10, :cond_0
+    if-gez v10, :cond_3c
 
     .line 791
     invoke-virtual {v0}, Lokio/Buffer;->readInt()I
@@ -7336,10 +7336,10 @@
     or-long/2addr v4, v7
 
     .line 794
-    goto/16 :goto_1
+    goto/16 :goto_be
 
     .line 800
-    :cond_0
+    :cond_3c
     iget-object v7, v2, Lokio/Segment;->data:[B
 
     .line 802
@@ -7589,7 +7589,7 @@
     invoke-virtual {v0, v8, v9}, Lokio/Buffer;->setSize$okio(J)V
 
     .line 823
-    if-ne v5, v6, :cond_1
+    if-ne v5, v6, :cond_bb
 
     .line 824
     invoke-virtual {v2}, Lokio/Segment;->pop()Lokio/Segment;
@@ -7601,14 +7601,14 @@
     .line 825
     invoke-static {v2}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
-    goto :goto_0
+    goto :goto_bd
 
     .line 827
-    :cond_1
+    :cond_bb
     iput v5, v2, Lokio/Segment;->pos:I
 
     .line 830
-    :goto_0
+    :goto_bd
     move-wide v4, v3
 
     .line 267
@@ -7619,13 +7619,13 @@
     .end local v5    # "pos$iv":I
     .end local v6    # "limit$iv":I
     .end local v7    # "data$iv":[B
-    :goto_1
+    :goto_be
     return-wide v4
 
     .line 782
     .restart local v0    # "$this$commonReadLong$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadLong":I
-    :cond_2
+    :cond_bf
     new-instance v2, Ljava/io/EOFException;
 
     invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
@@ -7634,7 +7634,7 @@
 .end method
 
 .method public readLongLe()J
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -7654,7 +7654,7 @@
 .end method
 
 .method public readShort()S
-    .locals 12
+    .registers 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -7677,7 +7677,7 @@
 
     cmp-long v6, v2, v4
 
-    if-ltz v6, :cond_2
+    if-ltz v6, :cond_5c
 
     .line 720
     iget-object v2, v0, Lokio/Buffer;->head:Lokio/Segment;
@@ -7698,7 +7698,7 @@
 
     const/4 v8, 0x2
 
-    if-ge v7, v8, :cond_0
+    if-ge v7, v8, :cond_2f
 
     .line 726
     invoke-virtual {v0}, Lokio/Buffer;->readByte()B
@@ -7745,11 +7745,11 @@
     .local v4, "s$iv":I
     int-to-short v5, v4
 
-    goto :goto_1
+    goto :goto_5b
 
     .line 731
     .end local v4    # "s$iv":I
-    :cond_0
+    :cond_2f
     iget-object v7, v2, Lokio/Segment;->data:[B
 
     .line 732
@@ -7809,7 +7809,7 @@
     invoke-virtual {v0, v10, v11}, Lokio/Buffer;->setSize$okio(J)V
 
     .line 735
-    if-ne v9, v6, :cond_1
+    if-ne v9, v6, :cond_58
 
     .line 736
     invoke-virtual {v2}, Lokio/Segment;->pop()Lokio/Segment;
@@ -7821,14 +7821,14 @@
     .line 737
     invoke-static {v2}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 739
-    :cond_1
+    :cond_58
     iput v9, v2, Lokio/Segment;->pos:I
 
     .line 742
-    :goto_0
+    :goto_5a
     int-to-short v5, v3
 
     .line 261
@@ -7839,13 +7839,13 @@
     .end local v6    # "limit$iv":I
     .end local v7    # "data$iv":[B
     .end local v9    # "pos$iv":I
-    :goto_1
+    :goto_5b
     return v5
 
     .line 718
     .restart local v0    # "$this$commonReadShort$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadShort":I
-    :cond_2
+    :cond_5c
     new-instance v2, Ljava/io/EOFException;
 
     invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
@@ -7854,7 +7854,7 @@
 .end method
 
 .method public readShortLe()S
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -7874,7 +7874,7 @@
 .end method
 
 .method public readString(JLjava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 6
+    .registers 10
     .param p1, "byteCount"    # J
     .param p3, "charset"    # Ljava/nio/charset/Charset;
     .annotation system Ldalvik/annotation/Throws;
@@ -7892,42 +7892,42 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_14
 
     const-wide/32 v2, 0x7fffffff
 
     cmp-long v4, p1, v2
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_14
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_5
+    :goto_15
+    if-eqz v2, :cond_6a
 
     .line 307
     iget-wide v2, p0, Lokio/Buffer;->size:J
 
     cmp-long v4, v2, p1
 
-    if-ltz v4, :cond_4
+    if-ltz v4, :cond_64
 
     .line 308
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_24
 
     const-string v0, ""
 
     return-object v0
 
     .line 310
-    :cond_1
+    :cond_24
     iget-object v0, p0, Lokio/Buffer;->head:Lokio/Segment;
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -7946,7 +7946,7 @@
 
     cmp-long v5, v1, v3
 
-    if-lez v5, :cond_2
+    if-lez v5, :cond_3e
 
     .line 313
     invoke-virtual {p0, p1, p2}, Lokio/Buffer;->readByteArray(J)[B
@@ -7960,7 +7960,7 @@
     return-object v2
 
     .line 316
-    :cond_2
+    :cond_3e
     iget-object v1, v0, Lokio/Segment;->data:[B
 
     iget v2, v0, Lokio/Segment;->pos:I
@@ -7995,7 +7995,7 @@
 
     iget v3, v0, Lokio/Segment;->limit:I
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_63
 
     .line 321
     invoke-virtual {v0}, Lokio/Segment;->pop()Lokio/Segment;
@@ -8008,13 +8008,13 @@
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     .line 325
-    :cond_3
+    :cond_63
     return-object v1
 
     .line 307
     .end local v0    # "s":Lokio/Segment;
     .end local v1    # "result":Ljava/lang/String;
-    :cond_4
+    :cond_64
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -8022,7 +8022,7 @@
     throw v0
 
     .line 666
-    :cond_5
+    :cond_6a
     const/4 v0, 0x0
 
     .line 306
@@ -8052,7 +8052,7 @@
 .end method
 
 .method public readString(Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     const-string v0, "charset"
@@ -8070,7 +8070,7 @@
 .end method
 
 .method public final readUnsafe()Lokio/Buffer$UnsafeCursor;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -8084,7 +8084,7 @@
 .end method
 
 .method public final readUnsafe(Lokio/Buffer$UnsafeCursor;)Lokio/Buffer$UnsafeCursor;
-    .locals 1
+    .registers 3
     .param p1, "unsafeCursor"    # Lokio/Buffer$UnsafeCursor;
 
     const-string v0, "unsafeCursor"
@@ -8100,7 +8100,7 @@
 .end method
 
 .method public readUtf8()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 297
     iget-wide v0, p0, Lokio/Buffer;->size:J
@@ -8115,7 +8115,7 @@
 .end method
 
 .method public readUtf8(J)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -8134,7 +8134,7 @@
 .end method
 
 .method public readUtf8CodePoint()I
-    .locals 14
+    .registers 15
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -8157,7 +8157,7 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_ed
 
     .line 1001
     invoke-virtual {v0, v4, v5}, Lokio/Buffer;->getByte(J)B
@@ -8196,7 +8196,7 @@
     .end local v8    # "$i$f$and":I
     const v7, 0xfffd
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_27
 
     .line 1009
     const/16 v6, 0x7f
@@ -8223,10 +8223,10 @@
     .line 1011
     const/4 v5, 0x0
 
-    goto :goto_0
+    goto :goto_5e
 
     .line 1013
-    :cond_0
+    :cond_27
     const/16 v6, 0xe0
 
     .restart local v6    # "other$iv$iv":I
@@ -8245,7 +8245,7 @@
     .end local v9    # "$i$f$and":I
     const/16 v8, 0xc0
 
-    if-ne v6, v8, :cond_1
+    if-ne v6, v8, :cond_3a
 
     .line 1015
     const/16 v6, 0x1f
@@ -8272,10 +8272,10 @@
     .line 1017
     const/16 v5, 0x80
 
-    goto :goto_0
+    goto :goto_5e
 
     .line 1019
-    :cond_1
+    :cond_3a
     const/16 v6, 0xf0
 
     .restart local v6    # "other$iv$iv":I
@@ -8294,7 +8294,7 @@
     .end local v9    # "$i$f$and":I
     const/16 v8, 0xe0
 
-    if-ne v6, v8, :cond_2
+    if-ne v6, v8, :cond_4d
 
     .line 1021
     const/16 v6, 0xf
@@ -8321,10 +8321,10 @@
     .line 1023
     const/16 v5, 0x800
 
-    goto :goto_0
+    goto :goto_5e
 
     .line 1025
-    :cond_2
+    :cond_4d
     const/16 v6, 0xf8
 
     .restart local v6    # "other$iv$iv":I
@@ -8343,7 +8343,7 @@
     .end local v9    # "$i$f$and":I
     const/16 v8, 0xf0
 
-    if-ne v6, v8, :cond_b
+    if-ne v6, v8, :cond_e6
 
     .line 1027
     const/4 v6, 0x7
@@ -8371,7 +8371,7 @@
     const/high16 v5, 0x10000
 
     .line 1038
-    :goto_0
+    :goto_5e
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v8
@@ -8380,16 +8380,16 @@
 
     cmp-long v6, v8, v10
 
-    if-ltz v6, :cond_a
+    if-ltz v6, :cond_ab
 
     .line 1045
     const/4 v6, 0x1
 
-    if-ge v6, v4, :cond_5
+    if-ge v6, v4, :cond_8b
 
     const/4 v8, 0x1
 
-    :cond_3
+    :cond_6b
     move v9, v8
 
     .local v9, "i$iv":I
@@ -8422,7 +8422,7 @@
     .end local v13    # "$i$f$and":I
     const/16 v12, 0x80
 
-    if-ne v11, v12, :cond_4
+    if-ne v11, v12, :cond_86
 
     .line 1049
     shl-int/lit8 v3, v3, 0x6
@@ -8448,25 +8448,25 @@
 
     .line 1045
     .end local v10    # "b$iv":B
-    if-lt v8, v4, :cond_3
+    if-lt v8, v4, :cond_6b
 
-    goto :goto_1
+    goto :goto_8b
 
     .line 1052
     .restart local v10    # "b$iv":B
-    :cond_4
+    :cond_86
     int-to-long v11, v9
 
     invoke-virtual {v0, v11, v12}, Lokio/Buffer;->skip(J)V
 
     .line 1053
-    goto :goto_4
+    goto :goto_ec
 
     .line 1057
     .end local v9    # "i$iv":I
     .end local v10    # "b$iv":B
-    :cond_5
-    :goto_1
+    :cond_8b
+    :goto_8b
     int-to-long v8, v4
 
     invoke-virtual {v0, v8, v9}, Lokio/Buffer;->skip(J)V
@@ -8477,51 +8477,51 @@
     .line 1060
     const v8, 0x10ffff
 
-    if-le v3, v8, :cond_6
+    if-le v3, v8, :cond_96
 
     .line 1061
-    goto :goto_3
+    goto :goto_aa
 
     .line 1063
-    :cond_6
+    :cond_96
     const v8, 0xd800
 
     const/4 v9, 0x0
 
-    if-gt v8, v3, :cond_7
+    if-gt v8, v3, :cond_a2
 
     const v8, 0xdfff
 
-    if-gt v3, v8, :cond_7
+    if-gt v3, v8, :cond_a2
 
-    goto :goto_2
+    goto :goto_a3
 
-    :cond_7
+    :cond_a2
     const/4 v6, 0x0
 
-    :goto_2
-    if-eqz v6, :cond_8
+    :goto_a3
+    if-eqz v6, :cond_a6
 
     .line 1064
-    goto :goto_3
+    goto :goto_aa
 
     .line 1066
-    :cond_8
-    if-ge v3, v5, :cond_9
+    :cond_a6
+    if-ge v3, v5, :cond_a9
 
     .line 1067
-    goto :goto_3
+    goto :goto_aa
 
     .line 1069
-    :cond_9
+    :cond_a9
     move v7, v3
 
     .line 1059
-    :goto_3
-    goto :goto_4
+    :goto_aa
+    goto :goto_ec
 
     .line 1039
-    :cond_a
+    :cond_ab
     new-instance v6, Ljava/io/EOFException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -8581,7 +8581,7 @@
     throw v6
 
     .line 1033
-    :cond_b
+    :cond_e6
     const-wide/16 v8, 0x1
 
     invoke-virtual {v0, v8, v9}, Lokio/Buffer;->skip(J)V
@@ -8596,13 +8596,13 @@
     .end local v3    # "codePoint$iv":I
     .end local v4    # "byteCount$iv":I
     .end local v5    # "min$iv":I
-    :goto_4
+    :goto_ec
     return v7
 
     .line 999
     .restart local v0    # "$this$commonReadUtf8CodePoint$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonReadUtf8CodePoint":I
-    :cond_c
+    :cond_ed
     new-instance v2, Ljava/io/EOFException;
 
     invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
@@ -8611,7 +8611,7 @@
 .end method
 
 .method public readUtf8Line()Ljava/lang/String;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -8643,16 +8643,16 @@
 
     cmp-long v6, v2, v4
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_15
 
     invoke-static {v0, v2, v3}, Lokio/internal/_BufferKt;->readUtf8Line(Lokio/Buffer;J)Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_0
+    goto :goto_29
 
     .line 978
-    :cond_0
+    :cond_15
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v4
@@ -8661,7 +8661,7 @@
 
     cmp-long v8, v4, v6
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_28
 
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
@@ -8671,14 +8671,14 @@
 
     move-result-object v4
 
-    goto :goto_0
+    goto :goto_29
 
     .line 979
-    :cond_1
+    :cond_28
     const/4 v4, 0x0
 
     .line 976
-    :goto_0
+    :goto_29
     nop
 
     .line 329
@@ -8689,7 +8689,7 @@
 .end method
 
 .method public readUtf8LineStrict()Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -8707,7 +8707,7 @@
 .end method
 
 .method public readUtf8LineStrict(J)Ljava/lang/String;
-    .locals 16
+    .registers 19
     .param p1, "limit"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -8729,17 +8729,17 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_4
+    :goto_e
+    if-eqz v2, :cond_a7
 
     .line 982
     const-wide/16 v10, 0x1
@@ -8748,14 +8748,14 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_1c
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
+    :cond_1c
     add-long v2, v0, v10
 
-    :goto_1
+    :goto_1e
     move-wide v12, v2
 
     .line 983
@@ -8782,23 +8782,23 @@
 
     cmp-long v4, v6, v2
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_36
 
     invoke-static {v8, v6, v7}, Lokio/internal/_BufferKt;->readUtf8Line(Lokio/Buffer;J)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_2
+    goto :goto_53
 
     .line 985
-    :cond_2
+    :cond_36
     invoke-virtual {v8}, Lokio/Buffer;->size()J
 
     move-result-wide v2
 
     cmp-long v4, v12, v2
 
-    if-gez v4, :cond_3
+    if-gez v4, :cond_54
 
     .line 986
     sub-long v2, v12, v10
@@ -8811,14 +8811,14 @@
 
     int-to-byte v3, v3
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_54
 
     .line 987
     invoke-virtual {v8, v12, v13}, Lokio/Buffer;->getByte(J)B
 
     move-result v2
 
-    if-ne v2, v14, :cond_3
+    if-ne v2, v14, :cond_54
 
     .line 989
     invoke-static {v8, v12, v13}, Lokio/internal/_BufferKt;->readUtf8Line(Lokio/Buffer;J)Ljava/lang/String;
@@ -8830,7 +8830,7 @@
     .end local v8    # "$this$commonReadUtf8LineStrict$iv":Lokio/Buffer;
     .end local v9    # "$i$f$commonReadUtf8LineStrict":I
     .end local v12    # "scanLength$iv":J
-    :goto_2
+    :goto_53
     return-object v2
 
     .line 991
@@ -8838,7 +8838,7 @@
     .restart local v8    # "$this$commonReadUtf8LineStrict$iv":Lokio/Buffer;
     .restart local v9    # "$i$f$commonReadUtf8LineStrict":I
     .restart local v12    # "scanLength$iv":J
-    :cond_3
+    :cond_54
     new-instance v3, Lokio/Buffer;
 
     invoke-direct {v3}, Lokio/Buffer;-><init>()V
@@ -8950,7 +8950,7 @@
     .end local v3    # "data$iv":Lokio/Buffer;
     .end local v10    # "newline$iv":J
     .end local v12    # "scanLength$iv":J
-    :cond_4
+    :cond_a7
     const/4 v2, 0x0
 
     .line 980
@@ -8980,7 +8980,7 @@
 .end method
 
 .method public request(J)Z
-    .locals 3
+    .registers 6
     .param p1, "byteCount"    # J
 
     .line 116
@@ -8988,21 +8988,21 @@
 
     cmp-long v2, v0, p1
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public require(J)V
-    .locals 3
+    .registers 6
     .param p1, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9015,13 +9015,13 @@
 
     cmp-long v2, v0, p1
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_7
 
     .line 114
     return-void
 
     .line 113
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -9030,7 +9030,7 @@
 .end method
 
 .method public select(Lokio/Options;)I
-    .locals 6
+    .registers 8
     .param p1, "options"    # Lokio/Options;
 
     const-string v0, "options"
@@ -9059,14 +9059,14 @@
     .local v2, "index$iv":I
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_13
 
     const/4 v2, -0x1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 960
-    :cond_0
+    :cond_13
     invoke-virtual {p1}, Lokio/Options;->getByteStrings$okio()[Lokio/ByteString;
 
     move-result-object v3
@@ -9091,12 +9091,12 @@
     .end local v1    # "$i$f$commonSelect":I
     .end local v2    # "index$iv":I
     .end local v3    # "selectedSize$iv":I
-    :goto_0
+    :goto_22
     return v2
 .end method
 
 .method public final setSize$okio(J)V
-    .locals 0
+    .registers 3
     .param p1, "<set-?>"    # J
 
     .line 81
@@ -9106,7 +9106,7 @@
 .end method
 
 .method public final sha1()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     .line 518
     const-string v0, "SHA-1"
@@ -9119,7 +9119,7 @@
 .end method
 
 .method public final sha256()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     .line 521
     const-string v0, "SHA-256"
@@ -9132,7 +9132,7 @@
 .end method
 
 .method public final sha512()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     .line 524
     const-string v0, "SHA-512"
@@ -9145,7 +9145,7 @@
 .end method
 
 .method public final size()J
-    .locals 2
+    .registers 3
 
     .line 80
     iget-wide v0, p0, Lokio/Buffer;->size:J
@@ -9154,7 +9154,7 @@
 .end method
 
 .method public skip(J)V
-    .locals 10
+    .registers 13
     .param p1, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9174,18 +9174,18 @@
 
     .line 1105
     .local v2, "byteCount$iv":J
-    :cond_0
-    :goto_0
+    :cond_3
+    :goto_3
     const-wide/16 v4, 0x0
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_2
+    if-lez v6, :cond_3f
 
     .line 1106
     iget-object v4, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_39
 
     .line 1108
     .local v4, "head$iv":Lokio/Segment;
@@ -9240,7 +9240,7 @@
 
     iget v7, v4, Lokio/Segment;->limit:I
 
-    if-ne v6, v7, :cond_0
+    if-ne v6, v7, :cond_3
 
     .line 1115
     invoke-virtual {v4}, Lokio/Segment;->pop()Lokio/Segment;
@@ -9254,10 +9254,10 @@
 
     .end local v4    # "head$iv":Lokio/Segment;
     .end local v5    # "toSkip$iv":I
-    goto :goto_0
+    goto :goto_3
 
     .line 1106
-    :cond_1
+    :cond_39
     new-instance v4, Ljava/io/EOFException;
 
     invoke-direct {v4}, Ljava/io/EOFException;-><init>()V
@@ -9265,7 +9265,7 @@
     throw v4
 
     .line 1119
-    :cond_2
+    :cond_3f
     nop
 
     .line 374
@@ -9276,7 +9276,7 @@
 .end method
 
 .method public final snapshot()Lokio/ByteString;
-    .locals 7
+    .registers 8
 
     .line 581
     move-object v0, p0
@@ -9294,17 +9294,17 @@
 
     cmp-long v6, v2, v4
 
-    if-gtz v6, :cond_0
+    if-gtz v6, :cond_f
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_10
+    if-eqz v2, :cond_1c
 
     .line 1757
     invoke-virtual {v0}, Lokio/Buffer;->size()J
@@ -9325,7 +9325,7 @@
     .line 1756
     .restart local v0    # "$this$commonSnapshot$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonSnapshot":I
-    :cond_1
+    :cond_1c
     const/4 v2, 0x0
 
     .line 1755
@@ -9359,7 +9359,7 @@
 .end method
 
 .method public final snapshot(I)Lokio/ByteString;
-    .locals 9
+    .registers 11
     .param p1, "byteCount"    # I
 
     .line 583
@@ -9370,14 +9370,14 @@
 
     .line 1758
     .local v1, "$i$f$commonSnapshot":I
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     sget-object v2, Lokio/ByteString;->EMPTY:Lokio/ByteString;
 
-    goto :goto_2
+    goto :goto_6b
 
     .line 1759
-    :cond_0
+    :cond_7
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v3
@@ -9401,8 +9401,8 @@
 
     .line 1765
     .local v4, "s$iv":Lokio/Segment;
-    :goto_0
-    if-ge v2, p1, :cond_2
+    :goto_15
+    if-ge v2, p1, :cond_33
 
     .line 1766
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -9411,7 +9411,7 @@
 
     iget v6, v4, Lokio/Segment;->pos:I
 
-    if-eq v5, v6, :cond_1
+    if-eq v5, v6, :cond_2b
 
     .line 1769
     iget v5, v4, Lokio/Segment;->limit:I
@@ -9428,10 +9428,10 @@
     .line 1771
     iget-object v4, v4, Lokio/Segment;->next:Lokio/Segment;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 1767
-    :cond_1
+    :cond_2b
     new-instance v5, Ljava/lang/AssertionError;
 
     const-string v6, "s.limit == s.pos"
@@ -9441,7 +9441,7 @@
     throw v5
 
     .line 1775
-    :cond_2
+    :cond_33
     new-array v5, v3, [[B
 
     .line 1776
@@ -9461,8 +9461,8 @@
     iget-object v4, v0, Lokio/Buffer;->head:Lokio/Segment;
 
     .line 1780
-    :goto_1
-    if-ge v2, p1, :cond_3
+    :goto_3d
+    if-ge v2, p1, :cond_63
 
     .line 1781
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -9511,10 +9511,10 @@
     .line 1788
     iget-object v4, v4, Lokio/Segment;->next:Lokio/Segment;
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 1791
-    :cond_3
+    :cond_63
     new-instance v7, Lokio/SegmentedByteString;
 
     invoke-direct {v7, v5, v6}, Lokio/SegmentedByteString;-><init>([[B[I)V
@@ -9531,12 +9531,12 @@
     .end local v4    # "s$iv":Lokio/Segment;
     .end local v5    # "segments$iv":[[B
     .end local v6    # "directory$iv":[I
-    :goto_2
+    :goto_6b
     return-object v2
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 504
     sget-object v0, Lokio/Timeout;->NONE:Lokio/Timeout;
@@ -9545,7 +9545,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 574
     invoke-virtual {p0}, Lokio/Buffer;->snapshot()Lokio/ByteString;
@@ -9560,7 +9560,7 @@
 .end method
 
 .method public final writableSegment$okio(I)Lokio/Segment;
-    .locals 5
+    .registers 7
     .param p1, "minimumCapacity"    # I
 
     .line 461
@@ -9575,22 +9575,22 @@
 
     const/4 v3, 0x1
 
-    if-lt p1, v3, :cond_0
+    if-lt p1, v3, :cond_a
 
-    if-gt p1, v2, :cond_0
+    if-gt p1, v2, :cond_a
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v3, 0x0
 
-    :goto_0
-    if-eqz v3, :cond_4
+    :goto_b
+    if-eqz v3, :cond_3c
 
     .line 1443
     iget-object v3, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_1c
 
     .line 1444
     invoke-static {}, Lokio/SegmentPool;->take()Lokio/Segment;
@@ -9608,11 +9608,11 @@
     iput-object v2, v2, Lokio/Segment;->next:Lokio/Segment;
 
     .line 1448
-    goto :goto_3
+    goto :goto_3b
 
     .line 1451
     .end local v2    # "result$iv":Lokio/Segment;
-    :cond_1
+    :cond_1c
     iget-object v3, v0, Lokio/Buffer;->head:Lokio/Segment;
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -9627,22 +9627,22 @@
 
     add-int/2addr v4, p1
 
-    if-gt v4, v2, :cond_3
+    if-gt v4, v2, :cond_32
 
     iget-boolean v2, v3, Lokio/Segment;->owner:Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_30
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_2
+    :cond_30
     move-object v2, v3
 
-    goto :goto_2
+    goto :goto_3a
 
     .line 1453
-    :cond_3
-    :goto_1
+    :cond_32
+    :goto_32
     invoke-static {}, Lokio/SegmentPool;->take()Lokio/Segment;
 
     move-result-object v2
@@ -9654,20 +9654,20 @@
     .line 1455
     .end local v3    # "tail$iv":Lokio/Segment;
     .local v2, "tail$iv":Lokio/Segment;
-    :goto_2
+    :goto_3a
     nop
 
     .line 461
     .end local v0    # "$this$commonWritableSegment$iv":Lokio/Buffer;
     .end local v1    # "$i$f$commonWritableSegment":I
     .end local v2    # "tail$iv":Lokio/Segment;
-    :goto_3
+    :goto_3b
     return-object v2
 
     .line 1442
     .restart local v0    # "$this$commonWritableSegment$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonWritableSegment":I
-    :cond_4
+    :cond_3c
     const/4 v2, 0x0
 
     .line 1441
@@ -9691,7 +9691,7 @@
 .end method
 
 .method public write(Ljava/nio/ByteBuffer;)I
-    .locals 6
+    .registers 8
     .param p1, "source"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9714,8 +9714,8 @@
 
     .line 420
     .local v1, "remaining":I
-    :goto_0
-    if-lez v1, :cond_0
+    :goto_a
+    if-lez v1, :cond_27
 
     .line 421
     const/4 v2, 0x1
@@ -9754,10 +9754,10 @@
 
     .end local v2    # "tail":Lokio/Segment;
     .end local v3    # "toCopy":I
-    goto :goto_0
+    goto :goto_a
 
     .line 430
-    :cond_0
+    :cond_27
     iget-wide v2, p0, Lokio/Buffer;->size:J
 
     int-to-long v4, v0
@@ -9771,7 +9771,7 @@
 .end method
 
 .method public write(Lokio/ByteString;)Lokio/Buffer;
-    .locals 4
+    .registers 6
     .param p1, "byteString"    # Lokio/ByteString;
 
     const-string v0, "byteString"
@@ -9823,7 +9823,7 @@
 .end method
 
 .method public write(Lokio/ByteString;II)Lokio/Buffer;
-    .locals 2
+    .registers 6
     .param p1, "byteString"    # Lokio/ByteString;
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I
@@ -9852,7 +9852,7 @@
 .end method
 
 .method public write(Lokio/Source;J)Lokio/Buffer;
-    .locals 9
+    .registers 13
     .param p1, "source"    # Lokio/Source;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -9877,12 +9877,12 @@
 
     .line 1296
     .local v2, "byteCount$iv":J
-    :goto_0
+    :goto_8
     const-wide/16 v4, 0x0
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_1
+    if-lez v6, :cond_20
 
     .line 1297
     invoke-interface {p1, v0, v2, v3}, Lokio/Source;->read(Lokio/Buffer;J)J
@@ -9895,17 +9895,17 @@
 
     cmp-long v8, v4, v6
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1a
 
     .line 1299
     sub-long/2addr v2, v4
 
     .end local v4    # "read$iv":J
-    goto :goto_0
+    goto :goto_8
 
     .line 1298
     .restart local v4    # "read$iv":J
-    :cond_0
+    :cond_1a
     new-instance v6, Ljava/io/EOFException;
 
     invoke-direct {v6}, Ljava/io/EOFException;-><init>()V
@@ -9914,7 +9914,7 @@
 
     .line 1301
     .end local v4    # "read$iv":J
-    :cond_1
+    :cond_20
     nop
 
     .line 439
@@ -9925,7 +9925,7 @@
 .end method
 
 .method public write([B)Lokio/Buffer;
-    .locals 4
+    .registers 6
     .param p1, "source"    # [B
 
     const-string v0, "source"
@@ -9955,7 +9955,7 @@
 .end method
 
 .method public write([BII)Lokio/Buffer;
-    .locals 10
+    .registers 14
     .param p1, "source"    # [B
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I
@@ -9991,8 +9991,8 @@
 
     .line 1271
     .local v3, "limit$iv":I
-    :goto_0
-    if-ge v2, v3, :cond_0
+    :goto_11
+    if-ge v2, v3, :cond_34
 
     .line 1272
     const/4 v4, 0x1
@@ -10044,10 +10044,10 @@
 
     .end local v4    # "tail$iv":Lokio/Segment;
     .end local v5    # "toCopy$iv":I
-    goto :goto_0
+    goto :goto_11
 
     .line 1286
-    :cond_0
+    :cond_34
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v4
@@ -10070,7 +10070,7 @@
 .end method
 
 .method public bridge synthetic write(Lokio/ByteString;)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .param p1, "byteString"    # Lokio/ByteString;
 
     .line 76
@@ -10084,7 +10084,7 @@
 .end method
 
 .method public bridge synthetic write(Lokio/ByteString;II)Lokio/BufferedSink;
-    .locals 1
+    .registers 5
     .param p1, "byteString"    # Lokio/ByteString;
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I
@@ -10100,7 +10100,7 @@
 .end method
 
 .method public bridge synthetic write(Lokio/Source;J)Lokio/BufferedSink;
-    .locals 1
+    .registers 5
     .param p1, "source"    # Lokio/Source;
     .param p2, "byteCount"    # J
 
@@ -10115,7 +10115,7 @@
 .end method
 
 .method public bridge synthetic write([B)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .param p1, "source"    # [B
 
     .line 76
@@ -10129,7 +10129,7 @@
 .end method
 
 .method public bridge synthetic write([BII)Lokio/BufferedSink;
-    .locals 1
+    .registers 5
     .param p1, "source"    # [B
     .param p2, "offset"    # I
     .param p3, "byteCount"    # I
@@ -10145,7 +10145,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 11
+    .registers 15
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -10167,17 +10167,17 @@
     .local v6, "byteCount$iv":J
     const/4 v8, 0x0
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_7
+    :goto_e
+    if-eqz v2, :cond_c4
 
     .line 1459
     invoke-virtual {p1}, Lokio/Buffer;->size()J
@@ -10189,12 +10189,12 @@
     invoke-static/range {v2 .. v7}, Lokio/_UtilKt;->checkOffsetAndCount(JJJ)V
 
     .line 1461
-    :goto_1
+    :goto_19
     const-wide/16 v2, 0x0
 
     cmp-long v4, v6, v2
 
-    if-lez v4, :cond_6
+    if-lez v4, :cond_c2
 
     .line 1463
     iget-object v2, p1, Lokio/Buffer;->head:Lokio/Segment;
@@ -10215,12 +10215,12 @@
 
     cmp-long v4, v6, v2
 
-    if-gez v4, :cond_4
+    if-gez v4, :cond_80
 
     .line 1464
     iget-object v2, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3f
 
     iget-object v2, v0, Lokio/Buffer;->head:Lokio/Segment;
 
@@ -10228,19 +10228,19 @@
 
     iget-object v2, v2, Lokio/Segment;->prev:Lokio/Segment;
 
-    goto :goto_2
+    goto :goto_40
 
-    :cond_1
+    :cond_3f
     const/4 v2, 0x0
 
     .line 1465
     .local v2, "tail$iv":Lokio/Segment;
-    :goto_2
-    if-eqz v2, :cond_3
+    :goto_40
+    if-eqz v2, :cond_74
 
     iget-boolean v3, v2, Lokio/Segment;->owner:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_74
 
     .line 1466
     iget v3, v2, Lokio/Segment;->limit:I
@@ -10251,16 +10251,16 @@
 
     iget-boolean v5, v2, Lokio/Segment;->shared:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_50
 
     const/4 v5, 0x0
 
-    goto :goto_3
+    goto :goto_52
 
-    :cond_2
+    :cond_50
     iget v5, v2, Lokio/Segment;->pos:I
 
-    :goto_3
+    :goto_52
     int-to-long v9, v5
 
     sub-long/2addr v3, v9
@@ -10269,7 +10269,7 @@
 
     cmp-long v5, v3, v9
 
-    if-gtz v5, :cond_3
+    if-gtz v5, :cond_74
 
     .line 1469
     iget-object v3, p1, Lokio/Buffer;->head:Lokio/Segment;
@@ -10299,10 +10299,10 @@
     invoke-virtual {v0, v3, v4}, Lokio/Buffer;->setSize$okio(J)V
 
     .line 1472
-    goto :goto_5
+    goto :goto_c3
 
     .line 1476
-    :cond_3
+    :cond_74
     iget-object v3, p1, Lokio/Buffer;->head:Lokio/Segment;
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -10317,7 +10317,7 @@
 
     .line 1481
     .end local v2    # "tail$iv":Lokio/Segment;
-    :cond_4
+    :cond_80
     iget-object v2, p1, Lokio/Buffer;->head:Lokio/Segment;
 
     .line 1482
@@ -10343,7 +10343,7 @@
     .line 1484
     iget-object v5, v0, Lokio/Buffer;->head:Lokio/Segment;
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_9e
 
     .line 1485
     iput-object v2, v0, Lokio/Buffer;->head:Lokio/Segment;
@@ -10356,10 +10356,10 @@
 
     iput-object v5, v2, Lokio/Segment;->next:Lokio/Segment;
 
-    goto :goto_4
+    goto :goto_af
 
     .line 1489
-    :cond_5
+    :cond_9e
     iget-object v5, v0, Lokio/Buffer;->head:Lokio/Segment;
 
     invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -10379,7 +10379,7 @@
 
     .line 1493
     .end local v5    # "tail$iv":Lokio/Segment;
-    :goto_4
+    :goto_af
     invoke-virtual {p1}, Lokio/Buffer;->size()J
 
     move-result-wide v9
@@ -10402,24 +10402,24 @@
 
     .end local v2    # "segmentToMove$iv":Lokio/Segment;
     .end local v3    # "movedByteCount$iv":J
-    goto/16 :goto_1
+    goto/16 :goto_19
 
     .line 1497
-    :cond_6
+    :cond_c2
     nop
 
     .line 463
     .end local v0    # "$this$commonWrite$iv":Lokio/Buffer;
     .end local v1    # "$i$f$commonWrite":I
     .end local v6    # "byteCount$iv":J
-    :goto_5
+    :goto_c3
     return-void
 
     .line 1458
     .restart local v0    # "$this$commonWrite$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonWrite":I
     .restart local v6    # "byteCount$iv":J
-    :cond_7
+    :cond_c4
     const/4 v2, 0x0
 
     .line 1457
@@ -10443,7 +10443,7 @@
 .end method
 
 .method public writeAll(Lokio/Source;)J
-    .locals 9
+    .registers 11
     .param p1, "source"    # Lokio/Source;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -10467,7 +10467,7 @@
 
     .line 1289
     .local v2, "totalBytesRead$iv":J
-    :goto_0
+    :goto_9
     nop
 
     .line 1290
@@ -10483,7 +10483,7 @@
 
     cmp-long v8, v4, v6
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_18
 
     .line 1294
     .end local v4    # "readCount$iv":J
@@ -10500,15 +10500,15 @@
     .restart local v1    # "$i$f$commonWriteAll":I
     .restart local v2    # "totalBytesRead$iv":J
     .restart local v4    # "readCount$iv":J
-    :cond_0
+    :cond_18
     add-long/2addr v2, v4
 
     .end local v4    # "readCount$iv":J
-    goto :goto_0
+    goto :goto_9
 .end method
 
 .method public writeByte(I)Lokio/Buffer;
-    .locals 7
+    .registers 9
     .param p1, "b"    # I
 
     .line 441
@@ -10561,7 +10561,7 @@
 .end method
 
 .method public bridge synthetic writeByte(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .param p1, "b"    # I
 
     .line 76
@@ -10575,7 +10575,7 @@
 .end method
 
 .method public writeDecimalLong(J)Lokio/Buffer;
-    .locals 16
+    .registers 19
     .param p1, "v"    # J
 
     .line 455
@@ -10594,7 +10594,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_14
 
     .line 1341
     const/16 v4, 0x30
@@ -10605,17 +10605,17 @@
 
     move-object v0, v4
 
-    goto/16 :goto_2
+    goto/16 :goto_12a
 
     .line 1344
-    :cond_0
+    :cond_14
     const/4 v6, 0x0
 
     .line 1345
     .local v6, "negative$iv":Z
     cmp-long v7, v2, v4
 
-    if-gez v7, :cond_2
+    if-gez v7, :cond_28
 
     .line 1346
     neg-long v2, v2
@@ -10623,7 +10623,7 @@
     .line 1347
     cmp-long v7, v2, v4
 
-    if-gez v7, :cond_1
+    if-gez v7, :cond_27
 
     .line 1348
     const-string v4, "-9223372036854775808"
@@ -10634,244 +10634,244 @@
 
     move-object v0, v4
 
-    goto/16 :goto_2
+    goto/16 :goto_12a
 
     .line 1350
-    :cond_1
+    :cond_27
     const/4 v6, 0x1
 
     .line 1355
-    :cond_2
+    :cond_28
     const-wide/32 v7, 0x5f5e100
 
     const/16 v9, 0xa
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_a
+    if-gez v10, :cond_77
 
     .line 1356
     const-wide/16 v7, 0x2710
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_6
+    if-gez v10, :cond_55
 
     .line 1357
     const-wide/16 v7, 0x64
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_4
+    if-gez v10, :cond_49
 
     .line 1358
     const-wide/16 v7, 0xa
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_3
+    if-gez v10, :cond_46
 
     const/4 v7, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_ef
 
     .line 1359
-    :cond_3
+    :cond_46
     const/4 v7, 0x2
 
-    goto/16 :goto_0
+    goto/16 :goto_ef
 
     .line 1360
-    :cond_4
+    :cond_49
     const-wide/16 v7, 0x3e8
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_5
+    if-gez v10, :cond_52
 
     const/4 v7, 0x3
 
-    goto/16 :goto_0
+    goto/16 :goto_ef
 
     .line 1361
-    :cond_5
+    :cond_52
     const/4 v7, 0x4
 
-    goto/16 :goto_0
+    goto/16 :goto_ef
 
     .line 1362
-    :cond_6
+    :cond_55
     const-wide/32 v7, 0xf4240
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_8
+    if-gez v10, :cond_69
 
     .line 1363
     const-wide/32 v7, 0x186a0
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_7
+    if-gez v10, :cond_66
 
     const/4 v7, 0x5
 
-    goto/16 :goto_0
+    goto/16 :goto_ef
 
     .line 1364
-    :cond_7
+    :cond_66
     const/4 v7, 0x6
 
-    goto/16 :goto_0
+    goto/16 :goto_ef
 
     .line 1365
-    :cond_8
+    :cond_69
     const-wide/32 v7, 0x989680
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_9
+    if-gez v10, :cond_73
 
     const/4 v7, 0x7
 
-    goto/16 :goto_0
+    goto/16 :goto_ef
 
     .line 1366
-    :cond_9
+    :cond_73
     const/16 v7, 0x8
 
-    goto/16 :goto_0
+    goto/16 :goto_ef
 
     .line 1367
-    :cond_a
+    :cond_77
     const-wide v7, 0xe8d4a51000L
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_e
+    if-gez v10, :cond_a5
 
     .line 1368
     const-wide v7, 0x2540be400L
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_c
+    if-gez v10, :cond_96
 
     .line 1369
     const-wide/32 v7, 0x3b9aca00
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_b
+    if-gez v10, :cond_93
 
     const/16 v7, 0x9
 
-    goto :goto_0
+    goto :goto_ef
 
     .line 1370
-    :cond_b
+    :cond_93
     const/16 v7, 0xa
 
-    goto :goto_0
+    goto :goto_ef
 
     .line 1371
-    :cond_c
+    :cond_96
     const-wide v7, 0x174876e800L
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_d
+    if-gez v10, :cond_a2
 
     const/16 v7, 0xb
 
-    goto :goto_0
+    goto :goto_ef
 
     .line 1372
-    :cond_d
+    :cond_a2
     const/16 v7, 0xc
 
-    goto :goto_0
+    goto :goto_ef
 
     .line 1373
-    :cond_e
+    :cond_a5
     const-wide v7, 0x38d7ea4c68000L
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_11
+    if-gez v10, :cond_c9
 
     .line 1374
     const-wide v7, 0x9184e72a000L
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_f
+    if-gez v10, :cond_ba
 
     const/16 v7, 0xd
 
-    goto :goto_0
+    goto :goto_ef
 
     .line 1375
-    :cond_f
+    :cond_ba
     const-wide v7, 0x5af3107a4000L
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_10
+    if-gez v10, :cond_c6
 
     const/16 v7, 0xe
 
-    goto :goto_0
+    goto :goto_ef
 
     .line 1376
-    :cond_10
+    :cond_c6
     const/16 v7, 0xf
 
-    goto :goto_0
+    goto :goto_ef
 
     .line 1377
-    :cond_11
+    :cond_c9
     const-wide v7, 0x16345785d8a0000L
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_13
+    if-gez v10, :cond_e1
 
     .line 1378
     const-wide v7, 0x2386f26fc10000L
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_12
+    if-gez v10, :cond_de
 
     const/16 v7, 0x10
 
-    goto :goto_0
+    goto :goto_ef
 
     .line 1379
-    :cond_12
+    :cond_de
     const/16 v7, 0x11
 
-    goto :goto_0
+    goto :goto_ef
 
     .line 1380
-    :cond_13
+    :cond_e1
     const-wide v7, 0xde0b6b3a7640000L
 
     cmp-long v10, v2, v7
 
-    if-gez v10, :cond_14
+    if-gez v10, :cond_ed
 
     const/16 v7, 0x12
 
-    goto :goto_0
+    goto :goto_ef
 
     .line 1381
-    :cond_14
+    :cond_ed
     const/16 v7, 0x13
 
     .line 1355
-    :goto_0
+    :goto_ef
     nop
 
     .line 1354
@@ -10879,13 +10879,13 @@
 
     .line 1382
     .local v7, "width$iv":I
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_f5
 
     .line 1383
     add-int/lit8 v7, v7, 0x1
 
     .line 1386
-    :cond_15
+    :cond_f5
     invoke-virtual {v0, v7}, Lokio/Buffer;->writableSegment$okio(I)Lokio/Segment;
 
     move-result-object v8
@@ -10902,10 +10902,10 @@
 
     .line 1389
     .local v11, "pos$iv":I
-    :goto_1
+    :goto_fe
     cmp-long v12, v2, v4
 
-    if-eqz v12, :cond_16
+    if-eqz v12, :cond_112
 
     .line 1390
     int-to-long v12, v9
@@ -10930,11 +10930,11 @@
     div-long/2addr v2, v12
 
     .end local v15    # "digit$iv":I
-    goto :goto_1
+    goto :goto_fe
 
     .line 1394
-    :cond_16
-    if-eqz v6, :cond_17
+    :cond_112
+    if-eqz v6, :cond_11b
 
     .line 1395
     add-int/lit8 v11, v11, -0x1
@@ -10946,7 +10946,7 @@
     aput-byte v4, v10, v11
 
     .line 1398
-    :cond_17
+    :cond_11b
     iget v4, v8, Lokio/Segment;->limit:I
 
     add-int/2addr v4, v7
@@ -10976,12 +10976,12 @@
     .end local v8    # "tail$iv":Lokio/Segment;
     .end local v10    # "data$iv":[B
     .end local v11    # "pos$iv":I
-    :goto_2
+    :goto_12a
     return-object v0
 .end method
 
 .method public bridge synthetic writeDecimalLong(J)Lokio/BufferedSink;
-    .locals 1
+    .registers 4
     .param p1, "v"    # J
 
     .line 76
@@ -10995,7 +10995,7 @@
 .end method
 
 .method public writeHexadecimalUnsignedLong(J)Lokio/Buffer;
-    .locals 16
+    .registers 19
     .param p1, "v"    # J
 
     .line 458
@@ -11014,7 +11014,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_14
 
     .line 1404
     const/16 v4, 0x30
@@ -11025,10 +11025,10 @@
 
     move-object v0, v4
 
-    goto/16 :goto_1
+    goto/16 :goto_8d
 
     .line 1409
-    :cond_0
+    :cond_14
     move-wide v4, v2
 
     .line 1410
@@ -11167,8 +11167,8 @@
 
     .line 1433
     .local v6, "start$iv":I
-    :goto_0
-    if-lt v9, v6, :cond_1
+    :goto_6c
+    if-lt v9, v6, :cond_7e
 
     .line 1434
     invoke-static {}, Lokio/internal/_BufferKt;->getHEX_DIGIT_BYTES()[B
@@ -11191,10 +11191,10 @@
     .line 1436
     add-int/lit8 v9, v9, -0x1
 
-    goto :goto_0
+    goto :goto_6c
 
     .line 1438
-    :cond_1
+    :cond_7e
     iget v8, v4, Lokio/Segment;->limit:I
 
     add-int/2addr v8, v5
@@ -11225,12 +11225,12 @@
     .end local v7    # "data$iv":[B
     .end local v9    # "pos$iv":I
     .end local v12    # "x$iv":J
-    :goto_1
+    :goto_8d
     return-object v0
 .end method
 
 .method public bridge synthetic writeHexadecimalUnsignedLong(J)Lokio/BufferedSink;
-    .locals 1
+    .registers 4
     .param p1, "v"    # J
 
     .line 76
@@ -11244,7 +11244,7 @@
 .end method
 
 .method public writeInt(I)Lokio/Buffer;
-    .locals 9
+    .registers 11
     .param p1, "i"    # I
 
     .line 447
@@ -11347,7 +11347,7 @@
 .end method
 
 .method public bridge synthetic writeInt(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
 
     .line 76
@@ -11361,7 +11361,7 @@
 .end method
 
 .method public writeIntLe(I)Lokio/Buffer;
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
 
     .line 449
@@ -11377,7 +11377,7 @@
 .end method
 
 .method public bridge synthetic writeIntLe(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .param p1, "i"    # I
 
     .line 76
@@ -11391,7 +11391,7 @@
 .end method
 
 .method public writeLong(J)Lokio/Buffer;
-    .locals 11
+    .registers 14
     .param p1, "v"    # J
 
     .line 451
@@ -11576,7 +11576,7 @@
 .end method
 
 .method public bridge synthetic writeLong(J)Lokio/BufferedSink;
-    .locals 1
+    .registers 4
     .param p1, "v"    # J
 
     .line 76
@@ -11590,7 +11590,7 @@
 .end method
 
 .method public writeLongLe(J)Lokio/Buffer;
-    .locals 2
+    .registers 5
     .param p1, "v"    # J
 
     .line 453
@@ -11606,7 +11606,7 @@
 .end method
 
 .method public bridge synthetic writeLongLe(J)Lokio/BufferedSink;
-    .locals 1
+    .registers 4
     .param p1, "v"    # J
 
     .line 76
@@ -11620,7 +11620,7 @@
 .end method
 
 .method public writeShort(I)Lokio/Buffer;
-    .locals 9
+    .registers 11
     .param p1, "s"    # I
 
     .line 443
@@ -11697,7 +11697,7 @@
 .end method
 
 .method public bridge synthetic writeShort(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .param p1, "s"    # I
 
     .line 76
@@ -11711,7 +11711,7 @@
 .end method
 
 .method public writeShortLe(I)Lokio/Buffer;
-    .locals 1
+    .registers 3
     .param p1, "s"    # I
 
     .line 445
@@ -11729,7 +11729,7 @@
 .end method
 
 .method public bridge synthetic writeShortLe(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .param p1, "s"    # I
 
     .line 76
@@ -11743,7 +11743,7 @@
 .end method
 
 .method public writeString(Ljava/lang/String;IILjava/nio/charset/Charset;)Lokio/Buffer;
-    .locals 3
+    .registers 8
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "beginIndex"    # I
     .param p3, "endIndex"    # I
@@ -11762,45 +11762,45 @@
 
     const/4 v1, 0x0
 
-    if-ltz p2, :cond_0
+    if-ltz p2, :cond_10
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_7
+    :goto_11
+    if-eqz v2, :cond_ab
 
     .line 401
-    if-lt p3, p2, :cond_1
+    if-lt p3, p2, :cond_17
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 v2, 0x0
 
-    :goto_1
-    if-eqz v2, :cond_6
+    :goto_18
+    if-eqz v2, :cond_81
 
     .line 402
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-gt p3, v2, :cond_2
+    if-gt p3, v2, :cond_21
 
-    goto :goto_2
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     const/4 v0, 0x0
 
-    :goto_2
-    if-eqz v0, :cond_5
+    :goto_22
+    if-eqz v0, :cond_53
 
     .line 403
     sget-object v0, Lkotlin/text/Charsets;->UTF_8:Ljava/nio/charset/Charset;
@@ -11809,7 +11809,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_31
 
     invoke-virtual {p0, p1, p2, p3}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;II)Lokio/Buffer;
 
@@ -11818,7 +11818,7 @@
     return-object v0
 
     .line 404
-    :cond_3
+    :cond_31
     invoke-virtual {p1, p2, p3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
@@ -11827,7 +11827,7 @@
 
     invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_4b
 
     invoke-virtual {v0, p4}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
@@ -11849,7 +11849,7 @@
 
     .line 404
     .end local v0    # "data":[B
-    :cond_4
+    :cond_4b
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "null cannot be cast to non-null type java.lang.String"
@@ -11859,7 +11859,7 @@
     throw v0
 
     .line 666
-    :cond_5
+    :cond_53
     const/4 v0, 0x0
 
     .line 402
@@ -11910,7 +11910,7 @@
     throw v1
 
     .line 666
-    :cond_6
+    :cond_81
     const/4 v0, 0x0
 
     .line 401
@@ -11957,7 +11957,7 @@
     throw v1
 
     .line 666
-    :cond_7
+    :cond_ab
     const/4 v0, 0x0
 
     .line 400
@@ -11987,7 +11987,7 @@
 .end method
 
 .method public writeString(Ljava/lang/String;Ljava/nio/charset/Charset;)Lokio/Buffer;
-    .locals 2
+    .registers 5
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
 
@@ -12022,7 +12022,7 @@
 .end method
 
 .method public bridge synthetic writeString(Ljava/lang/String;IILjava/nio/charset/Charset;)Lokio/BufferedSink;
-    .locals 1
+    .registers 6
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "beginIndex"    # I
     .param p3, "endIndex"    # I
@@ -12039,7 +12039,7 @@
 .end method
 
 .method public bridge synthetic writeString(Ljava/lang/String;Ljava/nio/charset/Charset;)Lokio/BufferedSink;
-    .locals 1
+    .registers 4
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
 
@@ -12054,7 +12054,7 @@
 .end method
 
 .method public final writeTo(Ljava/io/OutputStream;)Lokio/Buffer;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -12083,7 +12083,7 @@
 .end method
 
 .method public final writeTo(Ljava/io/OutputStream;J)Lokio/Buffer;
-    .locals 8
+    .registers 12
     .param p1, "out"    # Ljava/io/OutputStream;
     .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -12112,13 +12112,13 @@
 
     .line 196
     .local v0, "s":Lokio/Segment;
-    :cond_0
-    :goto_0
+    :cond_f
+    :goto_f
     const-wide/16 v1, 0x0
 
     cmp-long v3, v4, v1
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_49
 
     .line 197
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
@@ -12179,7 +12179,7 @@
 
     iget v3, v0, Lokio/Segment;->limit:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_f
 
     .line 205
     move-object v2, v0
@@ -12198,15 +12198,15 @@
 
     .end local v1    # "toCopy":I
     .end local v2    # "toRecycle":Lokio/Segment;
-    goto :goto_0
+    goto :goto_f
 
     .line 212
-    :cond_1
+    :cond_49
     return-object p0
 .end method
 
 .method public writeUtf8(Ljava/lang/String;)Lokio/Buffer;
-    .locals 2
+    .registers 4
     .param p1, "string"    # Ljava/lang/String;
 
     const-string v0, "string"
@@ -12228,7 +12228,7 @@
 .end method
 
 .method public writeUtf8(Ljava/lang/String;II)Lokio/Buffer;
-    .locals 18
+    .registers 22
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "beginIndex"    # I
     .param p3, "endIndex"    # I
@@ -12253,55 +12253,55 @@
     .local v4, "$i$f$commonWriteUtf8":I
     const/4 v6, 0x1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_13
 
     const/4 v7, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 v7, 0x0
 
-    :goto_0
-    if-eqz v7, :cond_10
+    :goto_14
+    if-eqz v7, :cond_1c5
 
     .line 1131
-    if-lt v2, v1, :cond_1
+    if-lt v2, v1, :cond_1a
 
     const/4 v7, 0x1
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     const/4 v7, 0x0
 
-    :goto_1
-    if-eqz v7, :cond_f
+    :goto_1b
+    if-eqz v7, :cond_19b
 
     .line 1132
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v7
 
-    if-gt v2, v7, :cond_2
+    if-gt v2, v7, :cond_25
 
     const/4 v7, 0x1
 
-    goto :goto_2
+    goto :goto_26
 
-    :cond_2
+    :cond_25
     const/4 v7, 0x0
 
-    :goto_2
-    if-eqz v7, :cond_e
+    :goto_26
+    if-eqz v7, :cond_16d
 
     .line 1135
     move/from16 v7, p2
 
     .line 1136
     .local v7, "i$iv":I
-    :goto_3
-    if-ge v7, v2, :cond_d
+    :goto_2a
+    if-ge v7, v2, :cond_16b
 
     .line 1137
     invoke-virtual {v0, v7}, Ljava/lang/String;->charAt(I)C
@@ -12315,7 +12315,7 @@
     .line 1140
     const/16 v9, 0x80
 
-    if-ge v8, v9, :cond_5
+    if-ge v8, v9, :cond_71
 
     .line 1141
     invoke-virtual {v3, v6}, Lokio/Buffer;->writableSegment$okio(I)Lokio/Segment;
@@ -12357,8 +12357,8 @@
     .line 1151
     .end local v14    # "i$iv":I
     .restart local v7    # "i$iv":I
-    :goto_4
-    if-ge v7, v13, :cond_4
+    :goto_4b
+    if-ge v7, v13, :cond_5c
 
     .line 1152
     invoke-virtual {v0, v7}, Ljava/lang/String;->charAt(I)C
@@ -12366,12 +12366,12 @@
     move-result v8
 
     .line 1153
-    if-lt v8, v9, :cond_3
+    if-lt v8, v9, :cond_54
 
-    goto :goto_5
+    goto :goto_5c
 
     .line 1154
-    :cond_3
+    :cond_54
     add-int/lit8 v14, v7, 0x1
 
     .end local v7    # "i$iv":I
@@ -12384,13 +12384,13 @@
 
     move v7, v14
 
-    goto :goto_4
+    goto :goto_4b
 
     .line 1157
     .end local v14    # "i$iv":I
     .restart local v7    # "i$iv":I
-    :cond_4
-    :goto_5
+    :cond_5c
+    :goto_5c
     add-int v9, v7, v12
 
     iget v14, v10, Lokio/Segment;->limit:I
@@ -12423,15 +12423,15 @@
     .end local v11    # "data$iv":[B
     .end local v12    # "segmentOffset$iv":I
     .end local v13    # "runLimit$iv":I
-    goto :goto_3
+    goto :goto_2a
 
     .line 1162
-    :cond_5
+    :cond_71
     const/16 v5, 0x800
 
     const/4 v6, 0x2
 
-    if-ge v8, v5, :cond_6
+    if-ge v8, v5, :cond_a4
 
     .line 1164
     invoke-virtual {v3, v6}, Lokio/Buffer;->writableSegment$okio(I)Lokio/Segment;
@@ -12493,27 +12493,27 @@
     const/4 v6, 0x1
 
     .end local v5    # "tail$iv":Lokio/Segment;
-    goto :goto_3
+    goto :goto_2a
 
     .line 1174
-    :cond_6
+    :cond_a4
     const v5, 0xd800
 
     const/16 v11, 0x3f
 
-    if-lt v8, v5, :cond_c
+    if-lt v8, v5, :cond_12e
 
     const v5, 0xdfff
 
-    if-le v8, v5, :cond_7
+    if-le v8, v5, :cond_b2
 
-    goto/16 :goto_9
+    goto/16 :goto_12e
 
     .line 1191
-    :cond_7
+    :cond_b2
     add-int/lit8 v12, v7, 0x1
 
-    if-ge v12, v2, :cond_8
+    if-ge v12, v2, :cond_bd
 
     add-int/lit8 v12, v7, 0x1
 
@@ -12521,38 +12521,38 @@
 
     move-result v12
 
-    goto :goto_6
+    goto :goto_be
 
-    :cond_8
+    :cond_bd
     const/4 v12, 0x0
 
     .line 1192
     .local v12, "low$iv":I
-    :goto_6
+    :goto_be
     const v13, 0xdbff
 
-    if-gt v8, v13, :cond_b
+    if-gt v8, v13, :cond_126
 
     const v13, 0xdc00
 
-    if-gt v13, v12, :cond_9
+    if-gt v13, v12, :cond_cc
 
-    if-gt v12, v5, :cond_9
+    if-gt v12, v5, :cond_cc
 
     const/4 v5, 0x1
 
-    goto :goto_7
+    goto :goto_cd
 
-    :cond_9
+    :cond_cc
     const/4 v5, 0x0
 
-    :goto_7
-    if-nez v5, :cond_a
+    :goto_cd
+    if-nez v5, :cond_d0
 
-    goto :goto_8
+    goto :goto_126
 
     .line 1199
-    :cond_a
+    :cond_d0
     and-int/lit16 v5, v8, 0x3ff
 
     shl-int/lit8 v5, v5, 0xa
@@ -12671,13 +12671,13 @@
 
     const/4 v6, 0x1
 
-    goto/16 :goto_3
+    goto/16 :goto_2a
 
     .line 1193
     .restart local v8    # "c$iv":I
     .restart local v12    # "low$iv":I
-    :cond_b
-    :goto_8
+    :cond_126
+    :goto_126
     invoke-virtual {v3, v11}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 1194
@@ -12685,12 +12685,12 @@
 
     const/4 v6, 0x1
 
-    goto/16 :goto_3
+    goto/16 :goto_2a
 
     .line 1176
     .end local v12    # "low$iv":I
-    :cond_c
-    :goto_9
+    :cond_12e
+    :goto_12e
     const/4 v5, 0x3
 
     invoke-virtual {v3, v5}, Lokio/Buffer;->writableSegment$okio(I)Lokio/Segment;
@@ -12771,11 +12771,11 @@
     const/4 v6, 0x1
 
     .end local v10    # "tail$iv":Lokio/Segment;
-    goto/16 :goto_3
+    goto/16 :goto_2a
 
     .line 1217
     .end local v8    # "c$iv":I
-    :cond_d
+    :cond_16b
     nop
 
     .line 384
@@ -12787,7 +12787,7 @@
     .line 1130
     .restart local v3    # "$this$commonWriteUtf8$iv":Lokio/Buffer;
     .restart local v4    # "$i$f$commonWriteUtf8":I
-    :cond_e
+    :cond_16d
     const/4 v5, 0x0
 
     .line 1132
@@ -12838,7 +12838,7 @@
     throw v6
 
     .line 1130
-    :cond_f
+    :cond_19b
     const/4 v5, 0x0
 
     .line 1131
@@ -12885,7 +12885,7 @@
     throw v6
 
     .line 1130
-    :cond_10
+    :cond_1c5
     const/4 v5, 0x0
 
     .line 1129
@@ -12915,7 +12915,7 @@
 .end method
 
 .method public bridge synthetic writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .param p1, "string"    # Ljava/lang/String;
 
     .line 76
@@ -12929,7 +12929,7 @@
 .end method
 
 .method public bridge synthetic writeUtf8(Ljava/lang/String;II)Lokio/BufferedSink;
-    .locals 1
+    .registers 5
     .param p1, "string"    # Ljava/lang/String;
     .param p2, "beginIndex"    # I
     .param p3, "endIndex"    # I
@@ -12945,7 +12945,7 @@
 .end method
 
 .method public writeUtf8CodePoint(I)Lokio/Buffer;
-    .locals 12
+    .registers 14
     .param p1, "codePoint"    # I
 
     .line 387
@@ -12961,22 +12961,22 @@
     .line 1219
     const/16 v2, 0x80
 
-    if-ge p1, v2, :cond_0
+    if-ge p1, v2, :cond_c
 
     .line 1221
     invoke-virtual {v0, p1}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
-    goto/16 :goto_0
+    goto/16 :goto_d4
 
     .line 1223
-    :cond_0
+    :cond_c
     const/16 v3, 0x800
 
     const/4 v4, 0x1
 
     const/4 v5, 0x2
 
-    if-ge p1, v3, :cond_1
+    if-ge p1, v3, :cond_3d
 
     .line 1225
     invoke-virtual {v0, v5}, Lokio/Buffer;->writableSegment$okio(I)Lokio/Segment;
@@ -13031,39 +13031,39 @@
     invoke-virtual {v0, v4, v5}, Lokio/Buffer;->setSize$okio(J)V
 
     .end local v3    # "tail$iv":Lokio/Segment;
-    goto/16 :goto_0
+    goto/16 :goto_d4
 
     .line 1233
-    :cond_1
+    :cond_3d
     const v3, 0xd800
 
     const/4 v6, 0x0
 
-    if-gt v3, p1, :cond_2
+    if-gt v3, p1, :cond_49
 
     const v3, 0xdfff
 
-    if-gt p1, v3, :cond_2
+    if-gt p1, v3, :cond_49
 
     const/4 v6, 0x1
 
-    :cond_2
+    :cond_49
     const/16 v3, 0x3f
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_52
 
     .line 1235
     invoke-virtual {v0, v3}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
-    goto/16 :goto_0
+    goto/16 :goto_d4
 
     .line 1237
-    :cond_3
+    :cond_52
     const/high16 v6, 0x10000
 
     const/4 v7, 0x3
 
-    if-ge p1, v6, :cond_4
+    if-ge p1, v6, :cond_8d
 
     .line 1239
     invoke-virtual {v0, v7}, Lokio/Buffer;->writableSegment$okio(I)Lokio/Segment;
@@ -13135,13 +13135,13 @@
     invoke-virtual {v0, v2, v3}, Lokio/Buffer;->setSize$okio(J)V
 
     .end local v6    # "tail$iv":Lokio/Segment;
-    goto :goto_0
+    goto :goto_d4
 
     .line 1248
-    :cond_4
+    :cond_8d
     const v6, 0x10ffff
 
-    if-gt p1, v6, :cond_5
+    if-gt p1, v6, :cond_d6
 
     .line 1250
     const/4 v6, 0x4
@@ -13233,7 +13233,7 @@
 
     .line 1265
     .end local v8    # "tail$iv":Lokio/Segment;
-    :goto_0
+    :goto_d4
     nop
 
     .line 387
@@ -13244,7 +13244,7 @@
     .line 1261
     .restart local v0    # "$this$commonWriteUtf8CodePoint$iv":Lokio/Buffer;
     .restart local v1    # "$i$f$commonWriteUtf8CodePoint":I
-    :cond_5
+    :cond_d6
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Unexpected code point: 0x"
@@ -13263,7 +13263,7 @@
 .end method
 
 .method public bridge synthetic writeUtf8CodePoint(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .param p1, "codePoint"    # I
 
     .line 76

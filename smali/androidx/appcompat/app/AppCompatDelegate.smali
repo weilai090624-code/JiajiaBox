@@ -74,7 +74,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 114
     new-instance v0, Landroidx/appcompat/app/AppLocalesStorageHelper$SerialExecutor;
@@ -133,7 +133,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 297
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -142,7 +142,7 @@
 .end method
 
 .method static addActiveDelegate(Landroidx/appcompat/app/AppCompatDelegate;)V
-    .locals 3
+    .registers 4
     .param p0, "delegate"    # Landroidx/appcompat/app/AppCompatDelegate;
 
     .line 990
@@ -151,7 +151,7 @@
     monitor-enter v0
 
     .line 993
-    :try_start_0
+    :try_start_3
     invoke-static {p0}, Landroidx/appcompat/app/AppCompatDelegate;->removeDelegateFromActives(Landroidx/appcompat/app/AppCompatDelegate;)V
 
     .line 995
@@ -170,18 +170,18 @@
     return-void
 
     .line 996
-    :catchall_0
+    :catchall_12
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_14
+    .catchall {:try_start_3 .. :try_end_14} :catchall_12
 
     throw v1
 .end method
 
 .method private static applyDayNightToActiveDelegates()V
-    .locals 4
+    .registers 4
 
     .line 1021
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sActivityDelegatesLock:Ljava/lang/Object;
@@ -189,19 +189,19 @@
     monitor-enter v0
 
     .line 1022
-    :try_start_0
+    :try_start_3
     sget-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sActivityDelegates:Landroidx/collection/ArraySet;
 
     invoke-virtual {v1}, Landroidx/collection/ArraySet;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -219,7 +219,7 @@
 
     .line 1024
     .local v3, "delegate":Landroidx/appcompat/app/AppCompatDelegate;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     .line 1028
     invoke-virtual {v3}, Landroidx/appcompat/app/AppCompatDelegate;->applyDayNight()Z
@@ -227,29 +227,29 @@
     .line 1030
     .end local v2    # "activeDelegate":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroidx/appcompat/app/AppCompatDelegate;>;"
     .end local v3    # "delegate":Landroidx/appcompat/app/AppCompatDelegate;
-    :cond_0
-    goto :goto_0
+    :cond_20
+    goto :goto_9
 
     .line 1031
-    :cond_1
+    :cond_21
     monitor-exit v0
 
     .line 1032
     return-void
 
     .line 1031
-    :catchall_0
+    :catchall_23
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_3 .. :try_end_25} :catchall_23
 
     throw v1
 .end method
 
 .method private static applyLocalesToActiveDelegates()V
-    .locals 3
+    .registers 3
 
     .line 1035
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sActivityDelegates:Landroidx/collection/ArraySet;
@@ -258,12 +258,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -281,7 +281,7 @@
 
     .line 1037
     .local v2, "delegate":Landroidx/appcompat/app/AppCompatDelegate;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     .line 1041
     invoke-virtual {v2}, Landroidx/appcompat/app/AppCompatDelegate;->applyAppLocales()Z
@@ -289,16 +289,16 @@
     .line 1043
     .end local v1    # "activeDelegate":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroidx/appcompat/app/AppCompatDelegate;>;"
     .end local v2    # "delegate":Landroidx/appcompat/app/AppCompatDelegate;
-    :cond_0
-    goto :goto_0
+    :cond_1d
+    goto :goto_6
 
     .line 1044
-    :cond_1
+    :cond_1e
     return-void
 .end method
 
 .method public static create(Landroid/app/Activity;Landroidx/appcompat/app/AppCompatCallback;)Landroidx/appcompat/app/AppCompatDelegate;
-    .locals 1
+    .registers 3
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "callback"    # Landroidx/appcompat/app/AppCompatCallback;
 
@@ -311,7 +311,7 @@
 .end method
 
 .method public static create(Landroid/app/Dialog;Landroidx/appcompat/app/AppCompatCallback;)Landroidx/appcompat/app/AppCompatDelegate;
-    .locals 1
+    .registers 3
     .param p0, "dialog"    # Landroid/app/Dialog;
     .param p1, "callback"    # Landroidx/appcompat/app/AppCompatCallback;
 
@@ -324,7 +324,7 @@
 .end method
 
 .method public static create(Landroid/content/Context;Landroid/app/Activity;Landroidx/appcompat/app/AppCompatCallback;)Landroidx/appcompat/app/AppCompatDelegate;
-    .locals 1
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "callback"    # Landroidx/appcompat/app/AppCompatCallback;
@@ -338,7 +338,7 @@
 .end method
 
 .method public static create(Landroid/content/Context;Landroid/view/Window;Landroidx/appcompat/app/AppCompatCallback;)Landroidx/appcompat/app/AppCompatDelegate;
-    .locals 1
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "window"    # Landroid/view/Window;
     .param p2, "callback"    # Landroidx/appcompat/app/AppCompatCallback;
@@ -352,14 +352,14 @@
 .end method
 
 .method public static getApplicationLocales()Landroidx/core/os/LocaleListCompat;
-    .locals 2
+    .registers 2
 
     .line 761
     invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastT()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 763
     invoke-static {}, Landroidx/appcompat/app/AppCompatDelegate;->getLocaleManagerForApplication()Ljava/lang/Object;
@@ -368,7 +368,7 @@
 
     .line 764
     .local v0, "localeManager":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 765
     invoke-static {v0}, Landroidx/appcompat/app/AppCompatDelegate$Api33Impl;->localeManagerGetApplicationLocales(Ljava/lang/Object;)Landroid/os/LocaleList;
@@ -383,14 +383,14 @@
 
     .line 768
     .end local v0    # "localeManager":Ljava/lang/Object;
-    :cond_0
-    goto :goto_0
+    :cond_15
+    goto :goto_1d
 
     .line 769
-    :cond_1
+    :cond_16
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sRequestedAppLocales:Landroidx/core/os/LocaleListCompat;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1d
 
     .line 772
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sRequestedAppLocales:Landroidx/core/os/LocaleListCompat;
@@ -398,8 +398,8 @@
     return-object v0
 
     .line 775
-    :cond_2
-    :goto_0
+    :cond_1d
+    :goto_1d
     invoke-static {}, Landroidx/core/os/LocaleListCompat;->getEmptyLocaleList()Landroidx/core/os/LocaleListCompat;
 
     move-result-object v0
@@ -408,7 +408,7 @@
 .end method
 
 .method public static getDefaultNightMode()I
-    .locals 1
+    .registers 1
 
     .line 785
     sget v0, Landroidx/appcompat/app/AppCompatDelegate;->sDefaultNightMode:I
@@ -417,7 +417,7 @@
 .end method
 
 .method static getLocaleManagerForApplication()Ljava/lang/Object;
-    .locals 4
+    .registers 4
 
     .line 836
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sActivityDelegates:Landroidx/collection/ArraySet;
@@ -426,12 +426,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -449,7 +449,7 @@
 
     .line 838
     .local v2, "delegate":Landroidx/appcompat/app/AppCompatDelegate;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_27
 
     .line 839
     invoke-virtual {v2}, Landroidx/appcompat/app/AppCompatDelegate;->getContextForDelegate()Landroid/content/Context;
@@ -458,7 +458,7 @@
 
     .line 840
     .local v3, "context":Landroid/content/Context;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_27
 
     .line 841
     const-string v0, "locale"
@@ -473,18 +473,18 @@
     .end local v1    # "activeDelegate":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroidx/appcompat/app/AppCompatDelegate;>;"
     .end local v2    # "delegate":Landroidx/appcompat/app/AppCompatDelegate;
     .end local v3    # "context":Landroid/content/Context;
-    :cond_0
-    goto :goto_0
+    :cond_27
+    goto :goto_6
 
     .line 845
-    :cond_1
+    :cond_28
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method static getRequestedAppLocales()Landroidx/core/os/LocaleListCompat;
-    .locals 1
+    .registers 1
 
     .line 795
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sRequestedAppLocales:Landroidx/core/os/LocaleListCompat;
@@ -493,7 +493,7 @@
 .end method
 
 .method static getStoredAppLocales()Landroidx/core/os/LocaleListCompat;
-    .locals 1
+    .registers 1
 
     .line 805
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sStoredAppLocales:Landroidx/core/os/LocaleListCompat;
@@ -502,16 +502,16 @@
 .end method
 
 .method static isAutoStorageOptedIn(Landroid/content/Context;)Z
-    .locals 3
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
     .line 852
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sIsAutoStoreLocalesOptedIn:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2a
 
     .line 854
-    :try_start_0
+    :try_start_4
     invoke-static {p0}, Landroidx/appcompat/app/AppLocalesMetadataHolderService;->getServiceInfo(Landroid/content/Context;)Landroid/content/pm/ServiceInfo;
 
     move-result-object v0
@@ -520,7 +520,7 @@
     .local v0, "serviceInfo":Landroid/content/pm/ServiceInfo;
     iget-object v1, v0, Landroid/content/pm/ServiceInfo;->metaData:Landroid/os/Bundle;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 857
     iget-object v1, v0, Landroid/content/pm/ServiceInfo;->metaData:Landroid/os/Bundle;
@@ -536,16 +536,16 @@
     move-result-object v1
 
     sput-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sIsAutoStoreLocalesOptedIn:Ljava/lang/Boolean;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_4 .. :try_end_1a} :catch_1b
 
     .line 864
     .end local v0    # "serviceInfo":Landroid/content/pm/ServiceInfo;
-    :cond_0
-    goto :goto_0
+    :cond_1a
+    goto :goto_2a
 
     .line 860
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 861
@@ -567,8 +567,8 @@
 
     .line 866
     .end local v0    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    :cond_1
-    :goto_0
+    :cond_2a
+    :goto_2a
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sIsAutoStoreLocalesOptedIn:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -579,7 +579,7 @@
 .end method
 
 .method public static isCompatVectorFromResourcesEnabled()Z
-    .locals 1
+    .registers 1
 
     .line 986
     invoke-static {}, Landroidx/appcompat/widget/VectorEnabledTintResources;->isCompatVectorFromResourcesEnabled()Z
@@ -590,7 +590,7 @@
 .end method
 
 .method static synthetic lambda$asyncExecuteSyncRequestedAndStoredLocales$0(Landroid/content/Context;)V
-    .locals 0
+    .registers 1
     .param p0, "context"    # Landroid/content/Context;
 
     .line 877
@@ -600,7 +600,7 @@
 .end method
 
 .method static synthetic lambda$syncRequestedAndStoredLocales$1(Landroid/content/Context;)V
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
 
     .line 914
@@ -616,7 +616,7 @@
 .end method
 
 .method static removeActivityDelegate(Landroidx/appcompat/app/AppCompatDelegate;)V
-    .locals 2
+    .registers 3
     .param p0, "delegate"    # Landroidx/appcompat/app/AppCompatDelegate;
 
     .line 1000
@@ -625,7 +625,7 @@
     monitor-enter v0
 
     .line 1002
-    :try_start_0
+    :try_start_3
     invoke-static {p0}, Landroidx/appcompat/app/AppCompatDelegate;->removeDelegateFromActives(Landroidx/appcompat/app/AppCompatDelegate;)V
 
     .line 1003
@@ -635,18 +635,18 @@
     return-void
 
     .line 1003
-    :catchall_0
+    :catchall_8
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_3 .. :try_end_a} :catchall_8
 
     throw v1
 .end method
 
 .method private static removeDelegateFromActives(Landroidx/appcompat/app/AppCompatDelegate;)V
-    .locals 3
+    .registers 4
     .param p0, "toRemove"    # Landroidx/appcompat/app/AppCompatDelegate;
 
     .line 1007
@@ -655,7 +655,7 @@
     monitor-enter v0
 
     .line 1008
-    :try_start_0
+    :try_start_3
     sget-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sActivityDelegates:Landroidx/collection/ArraySet;
 
     invoke-virtual {v1}, Landroidx/collection/ArraySet;->iterator()Ljava/util/Iterator;
@@ -664,12 +664,12 @@
 
     .line 1009
     .local v1, "i":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/ref/WeakReference<Landroidx/appcompat/app/AppCompatDelegate;>;>;"
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_23
 
     .line 1010
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -686,40 +686,40 @@
 
     .line 1011
     .local v2, "delegate":Landroidx/appcompat/app/AppCompatDelegate;
-    if-eq v2, p0, :cond_0
+    if-eq v2, p0, :cond_1f
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_22
 
     .line 1014
-    :cond_0
+    :cond_1f
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     .line 1016
     .end local v2    # "delegate":Landroidx/appcompat/app/AppCompatDelegate;
-    :cond_1
-    goto :goto_0
+    :cond_22
+    goto :goto_9
 
     .line 1017
     .end local v1    # "i":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/ref/WeakReference<Landroidx/appcompat/app/AppCompatDelegate;>;>;"
-    :cond_2
+    :cond_23
     monitor-exit v0
 
     .line 1018
     return-void
 
     .line 1017
-    :catchall_0
+    :catchall_25
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_3 .. :try_end_27} :catchall_25
 
     throw v1
 .end method
 
 .method static resetStaticRequestedAndStoredLocales()V
-    .locals 1
+    .registers 1
 
     .line 814
     const/4 v0, 0x0
@@ -734,7 +734,7 @@
 .end method
 
 .method public static setApplicationLocales(Landroidx/core/os/LocaleListCompat;)V
-    .locals 2
+    .registers 3
     .param p0, "locales"    # Landroidx/core/os/LocaleListCompat;
 
     .line 723
@@ -745,7 +745,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 727
     invoke-static {}, Landroidx/appcompat/app/AppCompatDelegate;->getLocaleManagerForApplication()Ljava/lang/Object;
@@ -754,7 +754,7 @@
 
     .line 728
     .local v0, "localeManager":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 729
     nop
@@ -773,18 +773,18 @@
 
     .line 732
     .end local v0    # "localeManager":Ljava/lang/Object;
-    :cond_0
-    goto :goto_0
+    :cond_1b
+    goto :goto_31
 
     .line 737
-    :cond_1
+    :cond_1c
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sRequestedAppLocales:Landroidx/core/os/LocaleListCompat;
 
     invoke-virtual {p0, v0}, Landroidx/core/os/LocaleListCompat;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_31
 
     .line 738
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sActivityDelegatesLock:Ljava/lang/Object;
@@ -792,7 +792,7 @@
     monitor-enter v0
 
     .line 739
-    :try_start_0
+    :try_start_27
     sput-object p0, Landroidx/appcompat/app/AppCompatDelegate;->sRequestedAppLocales:Landroidx/core/os/LocaleListCompat;
 
     .line 740
@@ -801,25 +801,25 @@
     .line 741
     monitor-exit v0
 
-    goto :goto_0
+    goto :goto_31
 
-    :catchall_0
+    :catchall_2e
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_30
+    .catchall {:try_start_27 .. :try_end_30} :catchall_2e
 
     throw v1
 
     .line 747
-    :cond_2
-    :goto_0
+    :cond_31
+    :goto_31
     return-void
 .end method
 
 .method public static setCompatVectorFromResourcesEnabled(Z)V
-    .locals 0
+    .registers 1
     .param p0, "enabled"    # Z
 
     .line 976
@@ -830,11 +830,11 @@
 .end method
 
 .method public static setDefaultNightMode(I)V
-    .locals 2
+    .registers 3
     .param p0, "mode"    # I
 
     .line 644
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_16
 
     .line 659
     const-string v0, "AppCompatDelegate"
@@ -843,13 +843,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_15
 
     .line 650
-    :pswitch_0
+    :pswitch_c
     sget v0, Landroidx/appcompat/app/AppCompatDelegate;->sDefaultNightMode:I
 
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_15
 
     .line 651
     sput p0, Landroidx/appcompat/app/AppCompatDelegate;->sDefaultNightMode:I
@@ -858,22 +858,22 @@
     invoke-static {}, Landroidx/appcompat/app/AppCompatDelegate;->applyDayNightToActiveDelegates()V
 
     .line 662
-    :cond_0
-    :goto_0
+    :cond_15
+    :goto_15
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_16
     .packed-switch -0x1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
     .end packed-switch
 .end method
 
 .method static setIsAutoStoreLocalesOptedIn(Z)V
-    .locals 1
+    .registers 2
     .param p0, "isAutoStoreLocalesOptedIn"    # Z
 
     .line 827
@@ -888,7 +888,7 @@
 .end method
 
 .method static syncRequestedAndStoredLocales(Landroid/content/Context;)V
-    .locals 3
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
     .line 905
@@ -896,23 +896,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 906
     return-void
 
     .line 907
-    :cond_0
+    :cond_7
     invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastT()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 910
     sget-boolean v0, Landroidx/appcompat/app/AppCompatDelegate;->sIsFrameworkSyncChecked:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_59
 
     .line 913
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sSerialExecutorForLocalesStorage:Landroidx/appcompat/app/AppLocalesStorageHelper$SerialExecutor;
@@ -923,24 +923,24 @@
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AppLocalesStorageHelper$SerialExecutor;->execute(Ljava/lang/Runnable;)V
 
-    goto :goto_1
+    goto :goto_59
 
     .line 919
-    :cond_1
+    :cond_1c
     sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sAppLocalesStorageSyncLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     .line 920
-    :try_start_0
+    :try_start_1f
     sget-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sRequestedAppLocales:Landroidx/core/os/LocaleListCompat;
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_41
 
     .line 921
     sget-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sStoredAppLocales:Landroidx/core/os/LocaleListCompat;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_32
 
     .line 922
     nop
@@ -957,14 +957,14 @@
     sput-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sStoredAppLocales:Landroidx/core/os/LocaleListCompat;
 
     .line 925
-    :cond_2
+    :cond_32
     sget-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sStoredAppLocales:Landroidx/core/os/LocaleListCompat;
 
     invoke-virtual {v1}, Landroidx/core/os/LocaleListCompat;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3c
 
     .line 929
     monitor-exit v0
@@ -972,15 +972,15 @@
     return-void
 
     .line 931
-    :cond_3
+    :cond_3c
     sget-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sStoredAppLocales:Landroidx/core/os/LocaleListCompat;
 
     sput-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sRequestedAppLocales:Landroidx/core/os/LocaleListCompat;
 
-    goto :goto_0
+    goto :goto_58
 
     .line 932
-    :cond_4
+    :cond_41
     sget-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sRequestedAppLocales:Landroidx/core/os/LocaleListCompat;
 
     sget-object v2, Landroidx/appcompat/app/AppCompatDelegate;->sStoredAppLocales:Landroidx/core/os/LocaleListCompat;
@@ -989,7 +989,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_58
 
     .line 935
     sget-object v1, Landroidx/appcompat/app/AppCompatDelegate;->sRequestedAppLocales:Landroidx/core/os/LocaleListCompat;
@@ -1006,22 +1006,22 @@
     invoke-static {p0, v1}, Landroidx/appcompat/app/AppLocalesStorageHelper;->persistLocales(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 938
-    :cond_5
-    :goto_0
+    :cond_58
+    :goto_58
     monitor-exit v0
 
     .line 940
-    :cond_6
-    :goto_1
+    :cond_59
+    :goto_59
     return-void
 
     .line 938
-    :catchall_0
+    :catchall_5a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5c
+    .catchall {:try_start_1f .. :try_end_5c} :catchall_5a
 
     throw v1
 .end method
@@ -1032,7 +1032,7 @@
 .end method
 
 .method applyAppLocales()Z
-    .locals 1
+    .registers 2
 
     .line 579
     const/4 v0, 0x0
@@ -1044,7 +1044,7 @@
 .end method
 
 .method asyncExecuteSyncRequestedAndStoredLocales(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 877
@@ -1061,7 +1061,7 @@
 .end method
 
 .method public attachBaseContext(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1071,7 +1071,7 @@
 .end method
 
 .method public attachBaseContext2(Landroid/content/Context;)Landroid/content/Context;
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 421
@@ -1095,7 +1095,7 @@
 .end method
 
 .method public getContextForDelegate()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 587
     const/4 v0, 0x0
@@ -1107,7 +1107,7 @@
 .end method
 
 .method public getLocalNightMode()I
-    .locals 1
+    .registers 2
 
     .line 618
     const/16 v0, -0x64
@@ -1176,7 +1176,7 @@
 .end method
 
 .method public setOnBackInvokedDispatcher(Landroid/window/OnBackInvokedDispatcher;)V
-    .locals 0
+    .registers 2
     .param p1, "dispatcher"    # Landroid/window/OnBackInvokedDispatcher;
 
     .line 563
@@ -1187,7 +1187,7 @@
 .end method
 
 .method public setTheme(I)V
-    .locals 0
+    .registers 2
     .param p1, "themeResId"    # I
 
     .line 374

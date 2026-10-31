@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/CompletableFuture;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 94
@@ -99,11 +99,11 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 2
+    .registers 4
     .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 95
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     iget-object v0, p0, Lkotlinx/coroutines/future/FutureKt$asCompletableFuture$2;->$future:Ljava/util/concurrent/CompletableFuture;
 
@@ -111,15 +111,15 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_f
 
     .line 96
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lkotlinx/coroutines/future/FutureKt$asCompletableFuture$2;->$future:Ljava/util/concurrent/CompletableFuture;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/CompletableFuture;->completeExceptionally(Ljava/lang/Throwable;)Z
 
     .line 97
-    :goto_0
+    :goto_f
     return-void
 .end method

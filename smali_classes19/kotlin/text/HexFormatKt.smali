@@ -37,7 +37,7 @@
 
 # direct methods
 .method private static final HexFormat(Lkotlin/jvm/functions/Function1;)Lkotlin/text/HexFormat;
-    .locals 1
+    .registers 2
     .param p0, "builderAction"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final synthetic access$isCaseSensitive(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Ljava/lang/String;
 
     .line 1
@@ -82,7 +82,7 @@
 .end method
 
 .method private static final isCaseSensitive(Ljava/lang/String;)Z
-    .locals 9
+    .registers 10
     .param p0, "$this$isCaseSensitive"    # Ljava/lang/String;
 
     .line 843
@@ -99,12 +99,12 @@
 
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_3
+    if-ge v3, v4, :cond_2c
 
     invoke-interface {v0, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -126,48 +126,48 @@
 
     const/4 v8, 0x1
 
-    if-gez v7, :cond_1
+    if-gez v7, :cond_24
 
     invoke-static {v5}, Ljava/lang/Character;->isLetter(C)Z
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_22
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_0
+    :cond_22
     const/4 v5, 0x0
 
-    goto :goto_2
+    goto :goto_25
 
-    :cond_1
-    :goto_1
+    :cond_24
+    :goto_24
     const/4 v5, 0x1
 
     .line 845
     .end local v5    # "it":C
     .end local v6    # "$i$a$-any-HexFormatKt$isCaseSensitive$1":I
-    :goto_2
-    if-eqz v5, :cond_2
+    :goto_25
+    if-eqz v5, :cond_29
 
     const/4 v2, 0x1
 
-    goto :goto_3
+    goto :goto_2d
 
     .end local v4    # "element$iv":C
-    :cond_2
+    :cond_29
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 846
-    :cond_3
+    :cond_2c
     nop
 
     .line 843
     .end local v0    # "$this$any$iv":Ljava/lang/CharSequence;
     .end local v1    # "$i$f$any":I
-    :goto_3
+    :goto_2d
     return v2
 .end method

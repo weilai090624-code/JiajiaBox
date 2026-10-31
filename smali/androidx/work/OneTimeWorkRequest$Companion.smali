@@ -46,7 +46,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/work/OneTimeWorkRequest$Companion;-><init>()V
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public final from(Ljava/lang/Class;)Landroidx/work/OneTimeWorkRequest;
-    .locals 1
+    .registers 3
     .param p1, "workerClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -100,7 +100,7 @@
 .end method
 
 .method public final from(Ljava/util/List;)Ljava/util/List;
-    .locals 10
+    .registers 12
     .param p1, "workerClasses"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -158,12 +158,12 @@
 
     move-result-object v5
 
-    :goto_0
+    :goto_1d
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_3a
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -195,11 +195,11 @@
     .end local v8    # "$i$a$-map-OneTimeWorkRequest$Companion$from$1":I
     invoke-interface {v2, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 117
     .end local v6    # "item$iv$iv":Ljava/lang/Object;
-    :cond_0
+    :cond_3a
     nop
 
     .end local v2    # "destination$iv$iv":Ljava/util/Collection;

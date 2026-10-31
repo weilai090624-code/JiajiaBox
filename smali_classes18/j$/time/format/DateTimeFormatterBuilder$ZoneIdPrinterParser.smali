@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/time/temporal/TemporalQuery;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p2, "description"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,7 +85,7 @@
 .end method
 
 .method private parseOffsetBased(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;IILj$/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;)I
-    .locals 6
+    .registers 12
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "prefixPos"    # I
@@ -111,7 +111,7 @@
 
     move-result v1
 
-    if-lt p4, v1, :cond_0
+    if-lt p4, v1, :cond_1a
 
     .line 4310
     invoke-static {v0}, Lj$/time/ZoneId;->of(Ljava/lang/String;)Lj$/time/ZoneId;
@@ -124,14 +124,14 @@
     return p4
 
     .line 4315
-    :cond_0
+    :cond_1a
     invoke-interface {p2, p4}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v1
 
     const/16 v2, 0x30
 
-    if-eq v1, v2, :cond_4
+    if-eq v1, v2, :cond_61
 
     .line 4316
     invoke-interface {p2, p4}, Ljava/lang/CharSequence;->charAt(I)C
@@ -144,12 +144,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2f
 
-    goto :goto_0
+    goto :goto_61
 
     .line 4321
-    :cond_1
+    :cond_2f
     invoke-virtual {p1}, Lj$/time/format/DateTimeParseContext;->copy()Lj$/time/format/DateTimeParseContext;
 
     move-result-object v1
@@ -162,13 +162,13 @@
 
     .line 4324
     .local v2, "endPos":I
-    if-gez v2, :cond_3
+    if-gez v2, :cond_47
 
     .line 4325
-    :try_start_0
+    :try_start_39
     sget-object v3, Lj$/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;->INSTANCE_ID_Z:Lj$/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;
 
-    if-ne p5, v3, :cond_2
+    if-ne p5, v3, :cond_3f
 
     .line 4326
     not-int v3, p3
@@ -176,7 +176,7 @@
     return v3
 
     .line 4328
-    :cond_2
+    :cond_3f
     invoke-static {v0}, Lj$/time/ZoneId;->of(Ljava/lang/String;)Lj$/time/ZoneId;
 
     move-result-object v3
@@ -187,7 +187,7 @@
     return p4
 
     .line 4331
-    :cond_3
+    :cond_47
     sget-object v3, Lj$/time/temporal/ChronoField;->OFFSET_SECONDS:Lj$/time/temporal/ChronoField;
 
     invoke-virtual {v1, v3}, Lj$/time/format/DateTimeParseContext;->getParsed(Lj$/time/temporal/TemporalField;)Ljava/lang/Long;
@@ -213,8 +213,8 @@
     move-result-object v5
 
     invoke-virtual {p1, v5}, Lj$/time/format/DateTimeParseContext;->setParsed(Lj$/time/ZoneId;)V
-    :try_end_0
-    .catch Lj$/time/DateTimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5d
+    .catch Lj$/time/DateTimeException; {:try_start_39 .. :try_end_5d} :catch_5e
 
     .line 4334
     return v2
@@ -222,7 +222,7 @@
     .line 4335
     .end local v3    # "zoneOffset":Lj$/time/ZoneOffset;
     .end local v4    # "offset":I
-    :catch_0
+    :catch_5e
     move-exception v3
 
     .line 4336
@@ -235,8 +235,8 @@
     .end local v1    # "newContext":Lj$/time/format/DateTimeParseContext;
     .end local v2    # "endPos":I
     .end local v3    # "dte":Lj$/time/DateTimeException;
-    :cond_4
-    :goto_0
+    :cond_61
+    :goto_61
     invoke-static {v0}, Lj$/time/ZoneId;->of(Ljava/lang/String;)Lj$/time/ZoneId;
 
     move-result-object v1
@@ -250,7 +250,7 @@
 
 # virtual methods
 .method public format(Lj$/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z
-    .locals 2
+    .registers 5
     .param p1, "context"    # Lj$/time/format/DateTimePrintContext;
     .param p2, "buf"    # Ljava/lang/StringBuilder;
 
@@ -265,7 +265,7 @@
 
     .line 4209
     .local v0, "zone":Lj$/time/ZoneId;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 4210
     const/4 v1, 0x0
@@ -273,7 +273,7 @@
     return v1
 
     .line 4212
-    :cond_0
+    :cond_c
     invoke-virtual {v0}, Lj$/time/ZoneId;->getId()Ljava/lang/String;
 
     move-result-object v1
@@ -287,7 +287,7 @@
 .end method
 
 .method protected getTree(Lj$/time/format/DateTimeParseContext;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
-    .locals 6
+    .registers 8
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
 
     .line 4224
@@ -307,20 +307,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     .line 4227
     sget-object v2, Lj$/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser;->cachedPrefixTree:Ljava/util/Map$Entry;
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     sget-object v2, Lj$/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser;->cachedPrefixTreeCI:Ljava/util/Map$Entry;
 
     .line 4228
     .local v2, "cached":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;>;"
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_13
+    if-eqz v2, :cond_21
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -332,32 +332,32 @@
 
     move-result v3
 
-    if-eq v3, v1, :cond_6
+    if-eq v3, v1, :cond_56
 
     .line 4229
-    :cond_1
+    :cond_21
     monitor-enter p0
 
     .line 4230
-    :try_start_0
+    :try_start_22
     invoke-virtual {p1}, Lj$/time/format/DateTimeParseContext;->isCaseSensitive()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2b
 
     sget-object v3, Lj$/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser;->cachedPrefixTree:Ljava/util/Map$Entry;
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_2
+    :cond_2b
     sget-object v3, Lj$/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser;->cachedPrefixTreeCI:Ljava/util/Map$Entry;
 
-    :goto_1
+    :goto_2d
     move-object v2, v3
 
     .line 4231
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_3c
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -369,10 +369,10 @@
 
     move-result v3
 
-    if-eq v3, v1, :cond_5
+    if-eq v3, v1, :cond_55
 
     .line 4232
-    :cond_3
+    :cond_3c
     new-instance v3, Ljava/util/AbstractMap$SimpleImmutableEntry;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -392,26 +392,26 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_53
 
     .line 4234
     sput-object v2, Lj$/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser;->cachedPrefixTree:Ljava/util/Map$Entry;
 
-    goto :goto_2
+    goto :goto_55
 
     .line 4236
-    :cond_4
+    :cond_53
     sput-object v2, Lj$/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser;->cachedPrefixTreeCI:Ljava/util/Map$Entry;
 
     .line 4239
-    :cond_5
-    :goto_2
+    :cond_55
+    :goto_55
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_56
+    .catchall {:try_start_22 .. :try_end_56} :catchall_5d
 
     .line 4241
-    :cond_6
+    :cond_56
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
@@ -421,19 +421,19 @@
     return-object v3
 
     .line 4239
-    :catchall_0
+    :catchall_5d
     move-exception v3
 
-    :try_start_1
+    :try_start_5e
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5f
+    .catchall {:try_start_5e .. :try_end_5f} :catchall_5d
 
     throw v3
 .end method
 
 .method public parse(Lj$/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I
-    .locals 12
+    .registers 16
     .param p1, "context"    # Lj$/time/format/DateTimeParseContext;
     .param p2, "text"    # Ljava/lang/CharSequence;
     .param p3, "position"    # I
@@ -445,10 +445,10 @@
 
     .line 4252
     .local v0, "length":I
-    if-gt p3, v0, :cond_9
+    if-gt p3, v0, :cond_e2
 
     .line 4255
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_a
 
     .line 4256
     not-int v1, p3
@@ -456,7 +456,7 @@
     return v1
 
     .line 4260
-    :cond_0
+    :cond_a
     invoke-interface {p2, p3}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v1
@@ -465,19 +465,19 @@
     .local v1, "nextChar":C
     const/16 v2, 0x2b
 
-    if-eq v1, v2, :cond_8
+    if-eq v1, v2, :cond_d6
 
     const/16 v2, 0x2d
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_18
 
-    goto/16 :goto_0
+    goto/16 :goto_d6
 
     .line 4263
-    :cond_1
+    :cond_18
     add-int/lit8 v2, p3, 0x2
 
-    if-lt v0, v2, :cond_5
+    if-lt v0, v2, :cond_a9
 
     .line 4264
     add-int/lit8 v2, p3, 0x1
@@ -496,18 +496,18 @@
 
     const/16 v4, 0x54
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_5e
 
     invoke-virtual {p1, v2, v4}, Lj$/time/format/DateTimeParseContext;->charEquals(CC)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_5e
 
     .line 4266
     add-int/lit8 v3, p3, 0x3
 
-    if-lt v0, v3, :cond_2
+    if-lt v0, v3, :cond_51
 
     add-int/lit8 v3, p3, 0x2
 
@@ -521,7 +521,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_51
 
     .line 4267
     add-int/lit8 v8, p3, 0x3
@@ -543,7 +543,7 @@
     return v3
 
     .line 4269
-    :cond_2
+    :cond_51
     add-int/lit8 v8, p3, 0x2
 
     sget-object v9, Lj$/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;->INSTANCE_ID_ZERO:Lj$/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;
@@ -563,18 +563,18 @@
     return v3
 
     .line 4270
-    :cond_3
+    :cond_5e
     const/16 v3, 0x47
 
     invoke-virtual {p1, v1, v3}, Lj$/time/format/DateTimeParseContext;->charEquals(CC)Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_a9
 
     add-int/lit8 v3, p3, 0x3
 
-    if-lt v0, v3, :cond_5
+    if-lt v0, v3, :cond_a9
 
     .line 4271
     const/16 v3, 0x4d
@@ -583,7 +583,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_a9
 
     add-int/lit8 v3, p3, 0x2
 
@@ -595,12 +595,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_a9
 
     .line 4272
     add-int/lit8 v3, p3, 0x4
 
-    if-lt v0, v3, :cond_4
+    if-lt v0, v3, :cond_9c
 
     add-int/lit8 v3, p3, 0x3
 
@@ -614,7 +614,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_9c
 
     .line 4273
     const-string v3, "GMT0"
@@ -631,7 +631,7 @@
     return v3
 
     .line 4276
-    :cond_4
+    :cond_9c
     add-int/lit8 v8, p3, 0x3
 
     sget-object v9, Lj$/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;->INSTANCE_ID_ZERO:Lj$/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;
@@ -652,7 +652,7 @@
 
     .line 4281
     .end local v2    # "nextNextChar":C
-    :cond_5
+    :cond_a9
     invoke-virtual {p0, p1}, Lj$/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser;->getTree(Lj$/time/format/DateTimeParseContext;)Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
 
     move-result-object v2
@@ -671,7 +671,7 @@
 
     .line 4284
     .local v4, "parsedZoneId":Ljava/lang/String;
-    if-nez v4, :cond_7
+    if-nez v4, :cond_ca
 
     .line 4285
     const/16 v5, 0x5a
@@ -680,7 +680,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_c8
 
     .line 4286
     sget-object v5, Lj$/time/ZoneOffset;->UTC:Lj$/time/ZoneOffset;
@@ -693,13 +693,13 @@
     return v5
 
     .line 4289
-    :cond_6
+    :cond_c8
     not-int v5, p3
 
     return v5
 
     .line 4291
-    :cond_7
+    :cond_ca
     invoke-static {v4}, Lj$/time/ZoneId;->of(Ljava/lang/String;)Lj$/time/ZoneId;
 
     move-result-object v5
@@ -717,8 +717,8 @@
     .end local v2    # "tree":Lj$/time/format/DateTimeFormatterBuilder$PrefixTree;
     .end local v3    # "ppos":Ljava/text/ParsePosition;
     .end local v4    # "parsedZoneId":Ljava/lang/String;
-    :cond_8
-    :goto_0
+    :cond_d6
+    :goto_d6
     sget-object v11, Lj$/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;->INSTANCE_ID_Z:Lj$/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;
 
     move-object v6, p0
@@ -739,7 +739,7 @@
 
     .line 4253
     .end local v1    # "nextChar":C
-    :cond_9
+    :cond_e2
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -748,7 +748,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 4342
     iget-object v0, p0, Lj$/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser;->description:Ljava/lang/String;

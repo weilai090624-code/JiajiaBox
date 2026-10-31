@@ -63,7 +63,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     const v0, 0x7f040029
 
@@ -99,7 +99,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_42
 
     sput-object v0, Landroidx/window/R$styleable;->SplitPairRule:[I
 
@@ -121,7 +121,7 @@
 
     return-void
 
-    :array_0
+    :array_42
     .array-data 4
         0x7f0400d6
         0x7f0401e7
@@ -134,7 +134,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

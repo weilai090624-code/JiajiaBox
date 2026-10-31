@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 590
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 3
     .param p1, "componentType"    # Ljava/lang/reflect/Type;
 
     .line 593
@@ -43,7 +43,7 @@
 .end method
 
 .method typeName(Ljava/lang/reflect/Type;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "type"    # Ljava/lang/reflect/Type;
 
     .line 604
@@ -69,16 +69,16 @@
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_13} :catch_22
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_13} :catch_1b
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_13} :catch_14
 
     return-object v1
 
     .line 615
     .end local v0    # "getTypeName":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 616
@@ -91,7 +91,7 @@
 
     .line 613
     .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    :catch_1
+    :catch_1b
     move-exception v0
 
     .line 614
@@ -104,7 +104,7 @@
 
     .line 606
     .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_2
+    :catch_22
     move-exception v0
 
     .line 607
@@ -119,7 +119,7 @@
 .end method
 
 .method usedInGenericType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/reflect/Type;
 
     .line 598

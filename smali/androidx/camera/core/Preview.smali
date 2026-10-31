@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 148
     new-instance v0, Landroidx/camera/core/Preview$Defaults;
@@ -58,7 +58,7 @@
 .end method
 
 .method constructor <init>(Landroidx/camera/core/impl/PreviewConfig;)V
-    .locals 1
+    .registers 3
     .param p1, "config"    # Landroidx/camera/core/impl/PreviewConfig;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -87,7 +87,7 @@
 .end method
 
 .method private getCropRect(Landroid/util/Size;)Landroid/graphics/Rect;
-    .locals 4
+    .registers 6
     .param p1, "surfaceResolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -103,7 +103,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 332
     invoke-virtual {p0}, Landroidx/camera/core/Preview;->getViewPortCropRect()Landroid/graphics/Rect;
@@ -113,8 +113,8 @@
     return-object v0
 
     .line 333
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_b
+    if-eqz p1, :cond_1c
 
     .line 334
     new-instance v0, Landroid/graphics/Rect;
@@ -134,14 +134,14 @@
     return-object v0
 
     .line 336
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method static synthetic lambda$sendSurfaceRequestIfReady$1(Landroidx/camera/core/Preview$SurfaceProvider;Landroidx/camera/core/SurfaceRequest;)V
-    .locals 0
+    .registers 2
     .param p0, "surfaceProvider"    # Landroidx/camera/core/Preview$SurfaceProvider;
     .param p1, "surfaceRequest"    # Landroidx/camera/core/SurfaceRequest;
 
@@ -152,7 +152,7 @@
 .end method
 
 .method private sendSurfaceRequestIfReady()Z
-    .locals 4
+    .registers 5
 
     .line 386
     iget-object v0, p0, Landroidx/camera/core/Preview;->mCurrentSurfaceRequest:Landroidx/camera/core/SurfaceRequest;
@@ -163,9 +163,9 @@
 
     .line 388
     .local v1, "surfaceProvider":Landroidx/camera/core/Preview$SurfaceProvider;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 389
     iget-object v2, p0, Landroidx/camera/core/Preview;->mSurfaceProviderExecutor:Ljava/util/concurrent/Executor;
@@ -182,14 +182,14 @@
     return v2
 
     .line 393
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
     return v2
 .end method
 
 .method private sendTransformationInfoIfReady()V
-    .locals 6
+    .registers 7
 
     .line 312
     invoke-virtual {p0}, Landroidx/camera/core/Preview;->getCamera()Landroidx/camera/core/impl/CameraInternal;
@@ -214,11 +214,11 @@
 
     .line 316
     .local v3, "surfaceRequest":Landroidx/camera/core/SurfaceRequest;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_24
 
     .line 317
     nop
@@ -240,12 +240,12 @@
     invoke-virtual {v3, v4}, Landroidx/camera/core/SurfaceRequest;->updateTransformationInfo(Landroidx/camera/core/SurfaceRequest$TransformationInfo;)V
 
     .line 320
-    :cond_0
+    :cond_24
     return-void
 .end method
 
 .method private updateConfigAndOutput(Ljava/lang/String;Landroidx/camera/core/impl/PreviewConfig;Landroid/util/Size;)V
-    .locals 1
+    .registers 5
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "config"    # Landroidx/camera/core/impl/PreviewConfig;
     .param p3, "resolution"    # Landroid/util/Size;
@@ -280,7 +280,7 @@
 
 # virtual methods
 .method createPipeline(Ljava/lang/String;Landroidx/camera/core/impl/PreviewConfig;Landroid/util/Size;)Landroidx/camera/core/impl/SessionConfig$Builder;
-    .locals 18
+    .registers 22
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "config"    # Landroidx/camera/core/impl/PreviewConfig;
     .param p3, "resolution"    # Landroid/util/Size;
@@ -323,7 +323,7 @@
     .local v14, "captureProcessor":Landroidx/camera/core/impl/CaptureProcessor;
     iget-object v5, v0, Landroidx/camera/core/Preview;->mSessionDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1b
 
     .line 202
     iget-object v5, v0, Landroidx/camera/core/Preview;->mSessionDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
@@ -331,7 +331,7 @@
     invoke-virtual {v5}, Landroidx/camera/core/impl/DeferrableSurface;->close()V
 
     .line 205
-    :cond_0
+    :cond_1b
     new-instance v5, Landroidx/camera/core/SurfaceRequest;
 
     invoke-virtual/range {p0 .. p0}, Landroidx/camera/core/Preview;->getCamera()Landroidx/camera/core/impl/CameraInternal;
@@ -340,16 +340,16 @@
 
     const/4 v7, 0x1
 
-    if-eqz v14, :cond_1
+    if-eqz v14, :cond_26
 
     const/4 v8, 0x1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_1
+    :cond_26
     const/4 v8, 0x0
 
-    :goto_0
+    :goto_27
     invoke-direct {v5, v2, v6, v8}, Landroidx/camera/core/SurfaceRequest;-><init>(Landroid/util/Size;Landroidx/camera/core/impl/CameraInternal;Z)V
 
     move-object v15, v5
@@ -363,20 +363,20 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_37
 
     .line 210
     invoke-direct/range {p0 .. p0}, Landroidx/camera/core/Preview;->sendTransformationInfoIfReady()V
 
-    goto :goto_1
+    goto :goto_39
 
     .line 212
-    :cond_2
+    :cond_37
     iput-boolean v7, v0, Landroidx/camera/core/Preview;->mHasUnsentSurfaceRequest:Z
 
     .line 215
-    :goto_1
-    if-eqz v14, :cond_3
+    :goto_39
+    if-eqz v14, :cond_a0
 
     .line 216
     new-instance v10, Landroidx/camera/core/impl/CaptureStage$DefaultCaptureStage;
@@ -501,17 +501,17 @@
     .end local v5    # "processingSurface":Landroidx/camera/core/ProcessingSurface;
     .end local v7    # "tagBundleKey":Ljava/lang/String;
     .end local v10    # "captureStage":Landroidx/camera/core/impl/CaptureStage;
-    goto :goto_2
+    goto :goto_b4
 
     .line 245
-    :cond_3
+    :cond_a0
     invoke-virtual {v1, v4}, Landroidx/camera/core/impl/PreviewConfig;->getImageInfoProcessor(Landroidx/camera/core/impl/ImageInfoProcessor;)Landroidx/camera/core/impl/ImageInfoProcessor;
 
     move-result-object v4
 
     .line 247
     .local v4, "processor":Landroidx/camera/core/impl/ImageInfoProcessor;
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_ae
 
     .line 248
     new-instance v5, Landroidx/camera/core/Preview$1;
@@ -521,7 +521,7 @@
     invoke-virtual {v3, v5}, Landroidx/camera/core/impl/SessionConfig$Builder;->addCameraCaptureCallback(Landroidx/camera/core/impl/CameraCaptureCallback;)V
 
     .line 260
-    :cond_4
+    :cond_ae
     invoke-virtual {v15}, Landroidx/camera/core/SurfaceRequest;->getDeferrableSurface()Landroidx/camera/core/impl/DeferrableSurface;
 
     move-result-object v5
@@ -530,7 +530,7 @@
 
     .line 262
     .end local v4    # "processor":Landroidx/camera/core/impl/ImageInfoProcessor;
-    :goto_2
+    :goto_b4
     iget-object v4, v0, Landroidx/camera/core/Preview;->mSessionDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
 
     invoke-virtual {v3, v4}, Landroidx/camera/core/impl/SessionConfig$Builder;->addSurface(Landroidx/camera/core/impl/DeferrableSurface;)V
@@ -549,7 +549,7 @@
 .end method
 
 .method public getDefaultConfig(ZLandroidx/camera/core/impl/UseCaseConfigFactory;)Landroidx/camera/core/impl/UseCaseConfig;
-    .locals 2
+    .registers 5
     .param p1, "applyDefaultConfig"    # Z
     .param p2, "factory"    # Landroidx/camera/core/impl/UseCaseConfigFactory;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -582,7 +582,7 @@
 
     .line 453
     .local v0, "captureConfig":Landroidx/camera/core/impl/Config;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 454
     sget-object v1, Landroidx/camera/core/Preview;->DEFAULT_CONFIG:Landroidx/camera/core/Preview$Defaults;
@@ -596,15 +596,15 @@
     move-result-object v0
 
     .line 457
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_12
+    if-nez v0, :cond_16
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 458
-    :cond_1
+    :cond_16
     invoke-virtual {p0, v0}, Landroidx/camera/core/Preview;->getUseCaseConfigBuilder(Landroidx/camera/core/impl/Config;)Landroidx/camera/core/impl/UseCaseConfig$Builder;
 
     move-result-object v1
@@ -614,12 +614,12 @@
     move-result-object v1
 
     .line 457
-    :goto_0
+    :goto_1e
     return-object v1
 .end method
 
 .method public getTargetRotation()I
-    .locals 1
+    .registers 2
 
     .line 432
     invoke-virtual {p0}, Landroidx/camera/core/Preview;->getTargetRotationInternal()I
@@ -630,7 +630,7 @@
 .end method
 
 .method public getUseCaseConfigBuilder(Landroidx/camera/core/impl/Config;)Landroidx/camera/core/impl/UseCaseConfig$Builder;
-    .locals 1
+    .registers 3
     .param p1, "config"    # Landroidx/camera/core/impl/Config;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -660,7 +660,7 @@
 .end method
 
 .method synthetic lambda$createPipeline$0$androidx-camera-core-Preview(Ljava/lang/String;Landroidx/camera/core/impl/PreviewConfig;Landroid/util/Size;Landroidx/camera/core/impl/SessionConfig;Landroidx/camera/core/impl/SessionConfig$SessionError;)V
-    .locals 2
+    .registers 8
     .param p1, "cameraId"    # Ljava/lang/String;
     .param p2, "config"    # Landroidx/camera/core/impl/PreviewConfig;
     .param p3, "resolution"    # Landroid/util/Size;
@@ -672,7 +672,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 269
     invoke-virtual {p0, p1, p2, p3}, Landroidx/camera/core/Preview;->createPipeline(Ljava/lang/String;Landroidx/camera/core/impl/PreviewConfig;Landroid/util/Size;)Landroidx/camera/core/impl/SessionConfig$Builder;
@@ -692,17 +692,17 @@
 
     .line 275
     .end local v0    # "sessionConfigBuilder1":Landroidx/camera/core/impl/SessionConfig$Builder;
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public onDetached()V
-    .locals 1
+    .registers 2
 
     .line 501
     iget-object v0, p0, Landroidx/camera/core/Preview;->mSessionDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 502
     iget-object v0, p0, Landroidx/camera/core/Preview;->mSessionDeferrableSurface:Landroidx/camera/core/impl/DeferrableSurface;
@@ -710,7 +710,7 @@
     invoke-virtual {v0}, Landroidx/camera/core/impl/DeferrableSurface;->close()V
 
     .line 505
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroidx/camera/core/Preview;->mCurrentSurfaceRequest:Landroidx/camera/core/SurfaceRequest;
@@ -720,7 +720,7 @@
 .end method
 
 .method onMergeConfig(Landroidx/camera/core/impl/CameraInfoInternal;Landroidx/camera/core/impl/UseCaseConfig$Builder;)Landroidx/camera/core/impl/UseCaseConfig;
-    .locals 3
+    .registers 6
     .param p1, "cameraInfo"    # Landroidx/camera/core/impl/CameraInfoInternal;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -758,7 +758,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 473
     invoke-interface {p2}, Landroidx/camera/core/impl/UseCaseConfig$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
@@ -775,10 +775,10 @@
 
     invoke-interface {v0, v1, v2}, Landroidx/camera/core/impl/MutableConfig;->insertOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 475
-    :cond_0
+    :cond_1d
     invoke-interface {p2}, Landroidx/camera/core/impl/UseCaseConfig$Builder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
 
     move-result-object v0
@@ -796,7 +796,7 @@
     invoke-interface {v0, v1, v2}, Landroidx/camera/core/impl/MutableConfig;->insertOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)V
 
     .line 478
-    :goto_0
+    :goto_2c
     invoke-interface {p2}, Landroidx/camera/core/impl/UseCaseConfig$Builder;->getUseCaseConfig()Landroidx/camera/core/impl/UseCaseConfig;
 
     move-result-object v0
@@ -805,7 +805,7 @@
 .end method
 
 .method protected onSuggestedResolutionUpdated(Landroid/util/Size;)Landroid/util/Size;
-    .locals 3
+    .registers 5
     .param p1, "suggestedResolution"    # Landroid/util/Size;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -839,7 +839,7 @@
 .end method
 
 .method public setSurfaceProvider(Landroidx/camera/core/Preview$SurfaceProvider;)V
-    .locals 1
+    .registers 3
     .param p1, "surfaceProvider"    # Landroidx/camera/core/Preview$SurfaceProvider;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -860,7 +860,7 @@
 .end method
 
 .method public setSurfaceProvider(Ljava/util/concurrent/Executor;Landroidx/camera/core/Preview$SurfaceProvider;)V
-    .locals 3
+    .registers 6
     .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .param p2, "surfaceProvider"    # Landroidx/camera/core/Preview$SurfaceProvider;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -878,7 +878,7 @@
     invoke-static {}, Landroidx/camera/core/impl/utils/Threads;->checkMainThread()V
 
     .line 356
-    if-nez p2, :cond_0
+    if-nez p2, :cond_c
 
     .line 358
     const/4 v0, 0x0
@@ -888,10 +888,10 @@
     .line 359
     invoke-virtual {p0}, Landroidx/camera/core/Preview;->notifyInactive()V
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 361
-    :cond_0
+    :cond_c
     iput-object p2, p0, Landroidx/camera/core/Preview;->mSurfaceProvider:Landroidx/camera/core/Preview$SurfaceProvider;
 
     .line 362
@@ -903,14 +903,14 @@
     .line 365
     iget-boolean v0, p0, Landroidx/camera/core/Preview;->mHasUnsentSurfaceRequest:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 366
     invoke-direct {p0}, Landroidx/camera/core/Preview;->sendSurfaceRequestIfReady()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3e
 
     .line 367
     invoke-direct {p0}, Landroidx/camera/core/Preview;->sendTransformationInfoIfReady()V
@@ -920,15 +920,15 @@
 
     iput-boolean v0, p0, Landroidx/camera/core/Preview;->mHasUnsentSurfaceRequest:Z
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 376
-    :cond_1
+    :cond_24
     invoke-virtual {p0}, Landroidx/camera/core/Preview;->getAttachedSurfaceResolution()Landroid/util/Size;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3e
 
     .line 377
     invoke-virtual {p0}, Landroidx/camera/core/Preview;->getCameraId()Ljava/lang/String;
@@ -953,13 +953,13 @@
     invoke-virtual {p0}, Landroidx/camera/core/Preview;->notifyReset()V
 
     .line 383
-    :cond_2
-    :goto_0
+    :cond_3e
+    :goto_3e
     return-void
 .end method
 
 .method public setTargetRotation(I)V
-    .locals 1
+    .registers 3
     .param p1, "targetRotation"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -975,18 +975,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 304
     invoke-direct {p0}, Landroidx/camera/core/Preview;->sendTransformationInfoIfReady()V
 
     .line 306
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setViewPortCropRect(Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
     .param p1, "viewPortCropRect"    # Landroid/graphics/Rect;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1008,7 +1008,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 438
     new-instance v0, Ljava/lang/StringBuilder;

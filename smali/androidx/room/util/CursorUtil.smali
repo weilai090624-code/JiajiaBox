@@ -49,7 +49,7 @@
 
 # direct methods
 .method public static final copyAndClose(Landroid/database/Cursor;)Landroid/database/Cursor;
-    .locals 12
+    .registers 13
     .param p0, "c"    # Landroid/database/Cursor;
 
     const-string v0, "c"
@@ -71,7 +71,7 @@
 
     check-cast v2, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_b
     move-object v3, v2
 
     check-cast v3, Landroid/database/Cursor;
@@ -95,14 +95,14 @@
 
     .line 41
     .local v5, "matrixCursor":Landroid/database/MatrixCursor;
-    :goto_0
+    :goto_1c
     invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v6
 
     const/4 v7, 0x0
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_6b
 
     .line 42
     invoke-interface {v3}, Landroid/database/Cursor;->getColumnCount()I
@@ -120,43 +120,43 @@
 
     move-result v9
 
-    :goto_1
-    if-ge v8, v9, :cond_0
+    :goto_2e
+    if-ge v8, v9, :cond_67
 
     .line 44
     invoke-interface {v3, v8}, Landroid/database/Cursor;->getType(I)I
 
     move-result v10
 
-    packed-switch v10, :pswitch_data_0
+    packed-switch v10, :pswitch_data_7a
 
     .line 50
     new-instance v7, Ljava/lang/IllegalStateException;
 
-    goto :goto_3
+    goto :goto_63
 
     .line 49
-    :pswitch_0
+    :pswitch_3a
     invoke-interface {v3, v8}, Landroid/database/Cursor;->getBlob(I)[B
 
     move-result-object v10
 
     aput-object v10, v6, v8
 
-    goto :goto_2
+    goto :goto_60
 
     .line 48
-    :pswitch_1
+    :pswitch_41
     invoke-interface {v3, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v10
 
     aput-object v10, v6, v8
 
-    goto :goto_2
+    goto :goto_60
 
     .line 47
-    :pswitch_2
+    :pswitch_48
     invoke-interface {v3, v8}, Landroid/database/Cursor;->getDouble(I)D
 
     move-result-wide v10
@@ -167,10 +167,10 @@
 
     aput-object v10, v6, v8
 
-    goto :goto_2
+    goto :goto_60
 
     .line 46
-    :pswitch_3
+    :pswitch_53
     invoke-interface {v3, v8}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v10
@@ -181,20 +181,20 @@
 
     aput-object v10, v6, v8
 
-    goto :goto_2
+    goto :goto_60
 
     .line 45
-    :pswitch_4
+    :pswitch_5e
     aput-object v7, v6, v8
 
     .line 43
-    :goto_2
+    :goto_60
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 50
-    :goto_3
+    :goto_63
     invoke-direct {v7}, Ljava/lang/IllegalStateException;-><init>()V
 
     .end local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
@@ -207,16 +207,16 @@
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
     .restart local p0    # "c":Landroid/database/Cursor;
-    :cond_0
+    :cond_67
     invoke-virtual {v5, v6}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6a
+    .catchall {:try_start_b .. :try_end_6a} :catchall_73
 
     .end local v6    # "row":[Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_1c
 
     .line 55
-    :cond_1
+    :cond_6b
     nop
 
     .line 186
@@ -238,39 +238,39 @@
     .line 186
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
-    :catchall_0
+    :catchall_73
     move-exception v3
 
     .end local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .end local v1    # "$i$f$useCursor":I
     .end local p0    # "c":Landroid/database/Cursor;
-    :try_start_1
+    :try_start_74
     throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_75
+    .catchall {:try_start_74 .. :try_end_75} :catchall_75
 
     .restart local v0    # "$this$useCursor$iv":Landroid/database/Cursor;
     .restart local v1    # "$i$f$useCursor":I
     .restart local p0    # "c":Landroid/database/Cursor;
-    :catchall_1
+    :catchall_75
     move-exception v4
 
     invoke-static {v2, v3}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     throw v4
 
-    :pswitch_data_0
+    :pswitch_data_7a
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5e
+        :pswitch_53
+        :pswitch_48
+        :pswitch_41
+        :pswitch_3a
     .end packed-switch
 .end method
 
 .method private static final findColumnIndexBySuffix(Landroid/database/Cursor;Ljava/lang/String;)I
-    .locals 3
+    .registers 5
     .param p0, "cursor"    # Landroid/database/Cursor;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -281,13 +281,13 @@
 
     const/4 v2, -0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_8
 
     .line 114
     return v2
 
     .line 116
-    :cond_0
+    :cond_8
     move-object v0, p1
 
     check-cast v0, Ljava/lang/CharSequence;
@@ -296,23 +296,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_14
+    if-eqz v0, :cond_17
 
     .line 117
     return v2
 
     .line 119
-    :cond_2
+    :cond_17
     invoke-interface {p0}, Landroid/database/Cursor;->getColumnNames()[Ljava/lang/String;
 
     move-result-object v0
@@ -331,7 +331,7 @@
 .end method
 
 .method public static final findColumnIndexBySuffix([Ljava/lang/String;Ljava/lang/String;)I
-    .locals 17
+    .registers 19
     .param p0, "columnNames"    # [Ljava/lang/String;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -407,8 +407,8 @@
 
     const/4 v10, 0x0
 
-    :goto_0
-    if-ge v10, v8, :cond_3
+    :goto_3e
+    if-ge v10, v8, :cond_76
 
     aget-object v11, v5, v10
 
@@ -436,7 +436,7 @@
 
     add-int/lit8 v9, v16, 0x2
 
-    if-lt v15, v9, :cond_1
+    if-lt v15, v9, :cond_6d
 
     .line 130
     const/4 v9, 0x0
@@ -447,20 +447,20 @@
 
     move-result v16
 
-    if-eqz v16, :cond_0
+    if-eqz v16, :cond_5c
 
     .line 131
     return v7
 
     .line 132
-    :cond_0
+    :cond_5c
     invoke-virtual {v13, v15}, Ljava/lang/String;->charAt(I)C
 
     move-result v4
 
     const/16 v9, 0x60
 
-    if-ne v4, v9, :cond_2
+    if-ne v4, v9, :cond_6e
 
     const/4 v4, 0x0
 
@@ -470,17 +470,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_6e
 
     .line 133
     return v7
 
     .line 129
-    :cond_1
+    :cond_6d
     const/4 v15, 0x0
 
     .line 136
-    :cond_2
+    :cond_6e
     nop
 
     .line 193
@@ -496,12 +496,12 @@
 
     const/16 v4, 0x60
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 194
     .end local v12    # "index$iv":I
     .local v7, "index$iv":I
-    :cond_3
+    :cond_76
     nop
 
     .line 137
@@ -514,7 +514,7 @@
 .end method
 
 .method public static final getColumnIndex(Landroid/database/Cursor;Ljava/lang/String;)I
-    .locals 3
+    .registers 5
     .param p0, "c"    # Landroid/database/Cursor;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -533,13 +533,13 @@
 
     .line 68
     .local v0, "index":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_11
 
     .line 69
     return v0
 
     .line 71
-    :cond_0
+    :cond_11
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -567,26 +567,26 @@
     move-result v0
 
     .line 72
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_30
 
     .line 73
     move v1, v0
 
-    goto :goto_0
+    goto :goto_34
 
     .line 75
-    :cond_1
+    :cond_30
     invoke-static {p0, p1}, Landroidx/room/util/CursorUtil;->findColumnIndexBySuffix(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v1
 
     .line 72
-    :goto_0
+    :goto_34
     return v1
 .end method
 
 .method public static final getColumnIndexOrThrow(Landroid/database/Cursor;Ljava/lang/String;)I
-    .locals 12
+    .registers 14
     .param p0, "c"    # Landroid/database/Cursor;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -605,17 +605,17 @@
 
     .line 90
     .local v0, "index":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_11
 
     .line 91
     return v0
 
     .line 93
-    :cond_0
+    :cond_11
     nop
 
     .line 94
-    :try_start_0
+    :try_start_12
     invoke-interface {p0}, Landroid/database/Cursor;->getColumnNames()[Ljava/lang/String;
 
     move-result-object v1
@@ -647,13 +647,13 @@
     invoke-static/range {v3 .. v11}, Lkotlin/collections/ArraysKt;->joinToString$default([Ljava/lang/Object;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_2b} :catch_2c
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 95
-    :catch_0
+    :catch_2c
     move-exception v1
 
     .line 96
@@ -675,7 +675,7 @@
 
     .line 93
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_3b
     nop
 
     .line 99
@@ -718,7 +718,7 @@
 .end method
 
 .method public static final useCursor(Landroid/database/Cursor;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p0, "$this$useCursor"    # Landroid/database/Cursor;
     .param p1, "block"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -753,12 +753,12 @@
 
     check-cast v1, Ljava/io/Closeable;
 
-    :try_start_0
+    :try_start_f
     invoke-interface {p1, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_f .. :try_end_13} :catchall_18
 
     const/4 v3, 0x0
 
@@ -766,21 +766,21 @@
 
     return-object v2
 
-    :catchall_0
+    :catchall_18
     move-exception v2
 
     .end local v0    # "$i$f$useCursor":I
     .end local p0    # "$this$useCursor":Landroid/database/Cursor;
     .end local p1    # "block":Lkotlin/jvm/functions/Function1;
-    :try_start_1
+    :try_start_19
     throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_1a
+    .catchall {:try_start_19 .. :try_end_1a} :catchall_1a
 
     .restart local v0    # "$i$f$useCursor":I
     .restart local p0    # "$this$useCursor":Landroid/database/Cursor;
     .restart local p1    # "block":Lkotlin/jvm/functions/Function1;
-    :catchall_1
+    :catchall_1a
     move-exception v3
 
     invoke-static {v1, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
@@ -789,7 +789,7 @@
 .end method
 
 .method public static final wrapMappedColumns(Landroid/database/Cursor;[Ljava/lang/String;[I)Landroid/database/Cursor;
-    .locals 2
+    .registers 5
     .param p0, "cursor"    # Landroid/database/Cursor;
     .param p1, "columnNames"    # [Ljava/lang/String;
     .param p2, "mapping"    # [I
@@ -811,17 +811,17 @@
 
     array-length v1, p2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_16
+    if-eqz v0, :cond_20
 
     .line 173
     new-instance v0, Landroidx/room/util/CursorUtil$wrapMappedColumns$2;
@@ -833,7 +833,7 @@
     return-object v0
 
     .line 195
-    :cond_1
+    :cond_20
     const/4 v0, 0x0
 
     .line 172

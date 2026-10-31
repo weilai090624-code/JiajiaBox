@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 33
     invoke-direct {p0}, Lorg/ini4j/Ini;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -121,7 +121,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/URL;)V
-    .locals 0
+    .registers 2
     .param p1, "input"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -143,7 +143,7 @@
 
 # virtual methods
 .method public escape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 72
@@ -159,7 +159,7 @@
 .end method
 
 .method public unescape(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/String;
 
     .line 77

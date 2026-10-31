@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/tabs/TabLayout;)V
-    .locals 0
+    .registers 2
 
     .line 3582
     iput-object p1, p0, Lcom/google/android/material/tabs/TabLayout$PagerAdapterObserver;->this$0:Lcom/google/android/material/tabs/TabLayout;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 1
+    .registers 2
 
     .line 3586
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayout$PagerAdapterObserver;->this$0:Lcom/google/android/material/tabs/TabLayout;
@@ -45,7 +45,7 @@
 .end method
 
 .method public onInvalidated()V
-    .locals 1
+    .registers 2
 
     .line 3591
     iget-object v0, p0, Lcom/google/android/material/tabs/TabLayout$PagerAdapterObserver;->this$0:Lcom/google/android/material/tabs/TabLayout;

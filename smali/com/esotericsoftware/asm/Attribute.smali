@@ -12,7 +12,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,34 +24,34 @@
 
 # virtual methods
 .method final a()I
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
     move-object v1, p0
 
-    :goto_0
-    if-eqz v1, :cond_0
+    :goto_2
+    if-eqz v1, :cond_9
 
     add-int/lit8 v0, v0, 0x1
 
     iget-object v1, v1, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_0
+    :cond_9
     return v0
 .end method
 
 .method final a(Lcom/esotericsoftware/asm/ClassWriter;[BIII)I
-    .locals 8
+    .registers 14
 
     const/4 v0, 0x0
 
     move-object v7, p0
 
-    :goto_0
-    if-eqz v7, :cond_0
+    :goto_2
+    if-eqz v7, :cond_1b
 
     iget-object v1, v7, Lcom/esotericsoftware/asm/Attribute;->type:Ljava/lang/String;
 
@@ -81,19 +81,19 @@
 
     iget-object v7, v7, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_0
+    :cond_1b
     return v0
 .end method
 
 .method final a(Lcom/esotericsoftware/asm/ClassWriter;[BIIILcom/esotericsoftware/asm/ByteVector;)V
-    .locals 7
+    .registers 14
 
     move-object v6, p0
 
-    :goto_0
-    if-eqz v6, :cond_0
+    :goto_1
+    if-eqz v6, :cond_27
 
     move-object v0, v6
 
@@ -135,14 +135,14 @@
 
     iget-object v6, v6, Lcom/esotericsoftware/asm/Attribute;->a:Lcom/esotericsoftware/asm/Attribute;
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_27
     return-void
 .end method
 
 .method protected getLabels()[Lcom/esotericsoftware/asm/Label;
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -150,7 +150,7 @@
 .end method
 
 .method public isCodeAttribute()Z
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -158,7 +158,7 @@
 .end method
 
 .method public isUnknown()Z
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -166,7 +166,7 @@
 .end method
 
 .method protected read(Lcom/esotericsoftware/asm/ClassReader;II[CI[Lcom/esotericsoftware/asm/Label;)Lcom/esotericsoftware/asm/Attribute;
-    .locals 0
+    .registers 7
 
     new-instance p4, Lcom/esotericsoftware/asm/Attribute;
 
@@ -190,7 +190,7 @@
 .end method
 
 .method protected write(Lcom/esotericsoftware/asm/ClassWriter;[BIII)Lcom/esotericsoftware/asm/ByteVector;
-    .locals 0
+    .registers 6
 
     new-instance p1, Lcom/esotericsoftware/asm/ByteVector;
 

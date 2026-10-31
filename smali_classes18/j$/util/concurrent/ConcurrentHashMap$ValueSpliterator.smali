@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>([Lj$/util/concurrent/ConcurrentHashMap$Node;IIIJ)V
-    .locals 0
+    .registers 7
     .param p2, "size"    # I
     .param p3, "index"    # I
     .param p4, "limit"    # I
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public characteristics()I
-    .locals 1
+    .registers 2
 
     .line 3623
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;, "Ljava/util/concurrent/ConcurrentHashMap$ValueSpliterator<TK;TV;>;"
@@ -75,7 +75,7 @@
 .end method
 
 .method public estimateSize()J
-    .locals 2
+    .registers 3
 
     .line 3620
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;, "Ljava/util/concurrent/ConcurrentHashMap$ValueSpliterator<TK;TV;>;"
@@ -85,7 +85,7 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -97,10 +97,10 @@
     .line 3606
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;, "Ljava/util/concurrent/ConcurrentHashMap$ValueSpliterator<TK;TV;>;"
     .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TV;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_10
 
     .line 3607
-    :goto_0
+    :goto_2
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
 
     move-result-object v0
@@ -108,22 +108,22 @@
     move-object v1, v0
 
     .local v1, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 3608
     iget-object v0, v1, Lj$/util/concurrent/ConcurrentHashMap$Node;->val:Ljava/lang/Object;
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_2
 
     .line 3609
     .end local v1    # "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    :cond_0
+    :cond_f
     return-void
 
     .line 3606
-    :cond_1
+    :cond_10
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -132,7 +132,7 @@
 .end method
 
 .method public synthetic getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getComparator(Lj$/util/Spliterator;)Ljava/util/Comparator;
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public synthetic getExactSizeIfKnown()J
-    .locals 2
+    .registers 3
 
     invoke-static {p0}, Lj$/util/Spliterator$-CC;->$default$getExactSizeIfKnown(Lj$/util/Spliterator;)J
 
@@ -152,7 +152,7 @@
 .end method
 
 .method public synthetic hasCharacteristics(I)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$-CC;->$default$hasCharacteristics(Lj$/util/Spliterator;I)Z
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -174,7 +174,7 @@
     .line 3612
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;, "Ljava/util/concurrent/ConcurrentHashMap$ValueSpliterator<TK;TV;>;"
     .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TV;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
     .line 3614
     invoke-virtual {p0}, Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;->advance()Lj$/util/concurrent/ConcurrentHashMap$Node;
@@ -184,7 +184,7 @@
     move-object v1, v0
 
     .local v1, "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 3615
     const/4 v0, 0x0
@@ -192,7 +192,7 @@
     return v0
 
     .line 3616
-    :cond_0
+    :cond_b
     iget-object v0, v1, Lj$/util/concurrent/ConcurrentHashMap$Node;->val:Ljava/lang/Object;
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
@@ -204,7 +204,7 @@
 
     .line 3612
     .end local v1    # "p":Lj$/util/concurrent/ConcurrentHashMap$Node;, "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;"
-    :cond_1
+    :cond_12
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -213,7 +213,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 3589
     .local p0, "this":Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;, "Ljava/util/concurrent/ConcurrentHashMap$ValueSpliterator<TK;TV;>;"
@@ -225,7 +225,7 @@
 .end method
 
 .method public trySplit()Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;
-    .locals 10
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -255,14 +255,14 @@
     move v9, v0
 
     .local v9, "h":I
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_20
 
     .line 3601
-    :cond_0
+    :cond_e
     new-instance v0, Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;
 
     iget-object v3, p0, Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;->tab:[Lj$/util/concurrent/ConcurrentHashMap$Node;
@@ -284,6 +284,6 @@
     invoke-direct/range {v2 .. v8}, Lj$/util/concurrent/ConcurrentHashMap$ValueSpliterator;-><init>([Lj$/util/concurrent/ConcurrentHashMap$Node;IIIJ)V
 
     .line 3600
-    :goto_0
+    :goto_20
     return-object v0
 .end method

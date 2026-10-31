@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Comparable;Ljava/lang/Comparable;)V
-    .locals 1
+    .registers 4
     .param p1, "start"    # Ljava/lang/Comparable;
     .param p2, "endExclusive"    # Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public contains(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .param p1, "value"    # Ljava/lang/Comparable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -124,19 +124,19 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 48
     instance-of v0, p1, Lkotlin/ranges/ComparableOpenEndRange;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_37
 
     invoke-virtual {p0}, Lkotlin/ranges/ComparableOpenEndRange;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p1
 
@@ -146,10 +146,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_35
 
     .line 49
-    :cond_0
+    :cond_13
     invoke-virtual {p0}, Lkotlin/ranges/ComparableOpenEndRange;->getStart()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -166,7 +166,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_37
 
     invoke-virtual {p0}, Lkotlin/ranges/ComparableOpenEndRange;->getEndExclusive()Ljava/lang/Comparable;
 
@@ -184,23 +184,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_37
 
-    :cond_1
+    :cond_35
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_38
 
-    :cond_2
+    :cond_37
     const/4 v0, 0x0
 
     .line 48
-    :goto_0
+    :goto_38
     return v0
 .end method
 
 .method public getEndExclusive()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -214,7 +214,7 @@
 .end method
 
 .method public getStart()Ljava/lang/Comparable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -228,20 +228,20 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 53
     invoke-virtual {p0}, Lkotlin/ranges/ComparableOpenEndRange;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lkotlin/ranges/ComparableOpenEndRange;->getStart()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -262,12 +262,12 @@
 
     add-int/2addr v0, v1
 
-    :goto_0
+    :goto_1b
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 42
     invoke-static {p0}, Lkotlin/ranges/OpenEndRange$DefaultImpls;->isEmpty(Lkotlin/ranges/OpenEndRange;)Z
@@ -278,7 +278,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 56
     new-instance v0, Ljava/lang/StringBuilder;

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Lcom/google/zxing/oned/UPCEANWriter;-><init>()V
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;)Lcom/google/zxing/common/BitMatrix;
-    .locals 3
+    .registers 9
     .param p1, "contents"    # Ljava/lang/String;
     .param p2, "format"    # Lcom/google/zxing/BarcodeFormat;
     .param p3, "width"    # I
@@ -48,7 +48,7 @@
     .local p5, "hints":Ljava/util/Map;, "Ljava/util/Map<Lcom/google/zxing/EncodeHintType;*>;"
     sget-object v0, Lcom/google/zxing/BarcodeFormat;->EAN_8:Lcom/google/zxing/BarcodeFormat;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_9
 
     .line 51
     invoke-super/range {p0 .. p5}, Lcom/google/zxing/oned/UPCEANWriter;->encode(Ljava/lang/String;Lcom/google/zxing/BarcodeFormat;IILjava/util/Map;)Lcom/google/zxing/common/BitMatrix;
@@ -58,7 +58,7 @@
     return-object v0
 
     .line 47
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Can only encode EAN_8, but got "
@@ -77,7 +77,7 @@
 .end method
 
 .method public encode(Ljava/lang/String;)[Z
-    .locals 7
+    .registers 9
 
     .line 59
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -85,7 +85,7 @@
     move-result v0
 
     .line 60
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_9a
 
     .line 81
     new-instance p1, Ljava/lang/IllegalArgumentException;
@@ -105,19 +105,19 @@
     throw p1
 
     .line 73
-    :pswitch_0
-    :try_start_0
+    :pswitch_17
+    :try_start_17
     invoke-static {p1}, Lcom/google/zxing/oned/UPCEANReader;->checkStandardUPCEANChecksum(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 78
-    goto :goto_0
+    goto :goto_46
 
     .line 74
-    :cond_0
+    :cond_1e
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Contents do not pass checksum"
@@ -125,11 +125,11 @@
     invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw p1
-    :try_end_0
-    .catch Lcom/google/zxing/FormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Lcom/google/zxing/FormatException; {:try_start_17 .. :try_end_26} :catch_26
 
     .line 76
-    :catch_0
+    :catch_26
     move-exception p1
 
     .line 77
@@ -142,13 +142,13 @@
     throw p1
 
     .line 65
-    :pswitch_1
-    :try_start_1
+    :pswitch_2f
+    :try_start_2f
     invoke-static {p1}, Lcom/google/zxing/oned/UPCEANReader;->getStandardUPCEANChecksum(Ljava/lang/CharSequence;)I
 
     move-result v0
-    :try_end_1
-    .catch Lcom/google/zxing/FormatException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_33
+    .catch Lcom/google/zxing/FormatException; {:try_start_2f .. :try_end_33} :catch_92
 
     .line 68
     nop
@@ -174,7 +174,7 @@
     nop
 
     .line 85
-    :goto_0
+    :goto_46
     const/16 v0, 0x43
 
     new-array v0, v0, [Z
@@ -195,12 +195,12 @@
     .line 90
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_54
     const/4 v5, 0x3
 
     const/16 v6, 0xa
 
-    if-gt v4, v5, :cond_1
+    if-gt v4, v5, :cond_6d
 
     .line 91
     invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
@@ -225,10 +225,10 @@
     .line 90
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_54
 
     .line 95
-    :cond_1
+    :cond_6d
     sget-object v4, Lcom/google/zxing/oned/UPCEANReader;->MIDDLE_PATTERN:[I
 
     invoke-static {v0, v1, v4, v2}, Lcom/google/zxing/oned/EAN8Writer;->appendPattern([ZI[IZ)I
@@ -240,10 +240,10 @@
     .line 97
     const/4 v2, 0x4
 
-    :goto_2
+    :goto_75
     const/4 v4, 0x7
 
-    if-gt v2, v4, :cond_2
+    if-gt v2, v4, :cond_8c
 
     .line 98
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
@@ -268,10 +268,10 @@
     .line 97
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_75
 
     .line 101
-    :cond_2
+    :cond_8c
     sget-object p1, Lcom/google/zxing/oned/UPCEANReader;->START_END_PATTERN:[I
 
     invoke-static {v0, v1, p1, v3}, Lcom/google/zxing/oned/EAN8Writer;->appendPattern([ZI[IZ)I
@@ -280,7 +280,7 @@
     return-object v0
 
     .line 66
-    :catch_1
+    :catch_92
     move-exception p1
 
     .line 67
@@ -292,9 +292,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_9a
     .packed-switch 0x7
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2f
+        :pswitch_17
     .end packed-switch
 .end method

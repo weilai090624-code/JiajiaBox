@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1479
     .local p0, "this":Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive;, "Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive<TT_CONS;>;"
@@ -49,7 +49,7 @@
 .end method
 
 .method reset()V
-    .locals 1
+    .registers 2
 
     .line 1484
     .local p0, "this":Lj$/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive;, "Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive<TT_CONS;>;"

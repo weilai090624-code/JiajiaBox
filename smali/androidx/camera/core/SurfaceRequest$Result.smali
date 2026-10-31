@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 615
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method static of(ILandroid/view/Surface;)Landroidx/camera/core/SurfaceRequest$Result;
-    .locals 1
+    .registers 3
     .param p0, "code"    # I
     .param p1, "surface"    # Landroid/view/Surface;
     .annotation system Ldalvik/annotation/MethodParameters;

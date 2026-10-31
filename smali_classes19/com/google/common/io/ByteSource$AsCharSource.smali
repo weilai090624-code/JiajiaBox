@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/io/ByteSource;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lcom/google/common/io/ByteSource;
     .param p2, "charset"    # Ljava/nio/charset/Charset;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public asByteSource(Ljava/nio/charset/Charset;)Lcom/google/common/io/ByteSource;
-    .locals 1
+    .registers 3
     .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 466
@@ -57,7 +57,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 467
     iget-object v0, p0, Lcom/google/common/io/ByteSource$AsCharSource;->this$0:Lcom/google/common/io/ByteSource;
@@ -65,7 +65,7 @@
     return-object v0
 
     .line 469
-    :cond_0
+    :cond_b
     invoke-super {p0, p1}, Lcom/google/common/io/CharSource;->asByteSource(Ljava/nio/charset/Charset;)Lcom/google/common/io/ByteSource;
 
     move-result-object v0
@@ -74,7 +74,7 @@
 .end method
 
 .method public openStream()Ljava/io/Reader;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -98,7 +98,7 @@
 .end method
 
 .method public read()Ljava/lang/String;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -122,7 +122,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 491
     iget-object v0, p0, Lcom/google/common/io/ByteSource$AsCharSource;->this$0:Lcom/google/common/io/ByteSource;

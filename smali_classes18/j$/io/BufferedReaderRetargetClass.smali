@@ -5,11 +5,11 @@
 
 # direct methods
 .method public static synthetic lines(Ljava/io/BufferedReader;)Lj$/util/stream/Stream;
-    .locals 1
+    .registers 2
 
     instance-of v0, p0, Lj$/io/BufferedReaderRetargetInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     check-cast p0, Lj$/io/BufferedReaderRetargetInterface;
 
@@ -19,7 +19,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     invoke-static {p0}, Lj$/io/DesugarBufferedReader;->lines(Ljava/io/BufferedReader;)Lj$/util/stream/Stream;
 
     move-result-object p0

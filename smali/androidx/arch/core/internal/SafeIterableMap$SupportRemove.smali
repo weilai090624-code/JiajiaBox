@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 368
     .local p0, "this":Landroidx/arch/core/internal/SafeIterableMap$SupportRemove;, "Landroidx/arch/core/internal/SafeIterableMap$SupportRemove<TK;TV;>;"

@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/CaptureSession;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/camera2/internal/CaptureSession;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 4
+    .registers 6
     .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -80,7 +80,7 @@
     monitor-enter v0
 
     .line 232
-    :try_start_0
+    :try_start_c
     sget-object v1, Landroidx/camera/camera2/internal/CaptureSession$3;->$SwitchMap$androidx$camera$camera2$internal$CaptureSession$State:[I
 
     iget-object v2, p0, Landroidx/camera/camera2/internal/CaptureSession$2;->this$0:Landroidx/camera/camera2/internal/CaptureSession;
@@ -93,16 +93,16 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_46
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_1b
+    goto :goto_41
 
     .line 236
-    :pswitch_1
+    :pswitch_1c
     instance-of v1, p1, Ljava/util/concurrent/CancellationException;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_41
 
     .line 237
     const-string v1, "CaptureSession"
@@ -137,34 +137,34 @@
     invoke-virtual {v1}, Landroidx/camera/camera2/internal/CaptureSession;->finishClose()V
 
     .line 243
-    :cond_0
-    :goto_0
+    :cond_41
+    :goto_41
     monitor-exit v0
 
     .line 244
     return-void
 
     .line 243
-    :catchall_0
+    :catchall_43
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_45
+    .catchall {:try_start_c .. :try_end_45} :catchall_43
 
     throw v1
 
-    :pswitch_data_0
+    :pswitch_data_46
     .packed-switch 0x4
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_1
+        :pswitch_1c
+        :pswitch_1b
+        :pswitch_1c
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000
@@ -183,7 +183,7 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Void;)V
-    .locals 0
+    .registers 2
     .param p1, "result"    # Ljava/lang/Void;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

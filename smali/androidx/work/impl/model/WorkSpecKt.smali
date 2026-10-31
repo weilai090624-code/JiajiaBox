@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static final generationalId(Landroidx/work/impl/model/WorkSpec;)Landroidx/work/impl/model/WorkGenerationalId;
-    .locals 3
+    .registers 4
     .param p0, "$this$generationalId"    # Landroidx/work/impl/model/WorkSpec;
 
     const-string v0, "<this>"

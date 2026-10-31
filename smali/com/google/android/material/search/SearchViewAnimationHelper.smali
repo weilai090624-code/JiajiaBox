@@ -67,7 +67,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/search/SearchView;)V
-    .locals 1
+    .registers 3
     .param p1, "searchView"    # Lcom/google/android/material/search/SearchView;
 
     .line 94
@@ -136,7 +136,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/search/SearchViewAnimationHelper;)Lcom/google/android/material/search/SearchView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/search/SearchViewAnimationHelper;
 
     .line 52
@@ -146,7 +146,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/search/SearchViewAnimationHelper;)Lcom/google/android/material/internal/ClippableRoundedCornerLayout;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/search/SearchViewAnimationHelper;
 
     .line 52
@@ -156,7 +156,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/search/SearchViewAnimationHelper;F)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/search/SearchViewAnimationHelper;
     .param p1, "x1"    # F
 
@@ -167,7 +167,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/android/material/search/SearchViewAnimationHelper;)Lcom/google/android/material/search/SearchBar;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/search/SearchViewAnimationHelper;
 
     .line 52
@@ -177,7 +177,7 @@
 .end method
 
 .method private addActionMenuViewAnimatorIfNeeded(Landroid/animation/AnimatorSet;)V
-    .locals 8
+    .registers 10
     .param p1, "animatorSet"    # Landroid/animation/AnimatorSet;
 
     .line 440
@@ -189,13 +189,13 @@
 
     .line 441
     .local v0, "actionMenuView":Landroidx/appcompat/widget/ActionMenuView;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 442
     return-void
 
     .line 445
-    :cond_0
+    :cond_9
     nop
 
     .line 446
@@ -282,7 +282,7 @@
 .end method
 
 .method private addBackButtonProgressAnimatorIfNeeded(Landroid/animation/AnimatorSet;)V
-    .locals 3
+    .registers 5
     .param p1, "animatorSet"    # Landroid/animation/AnimatorSet;
 
     .line 396
@@ -294,13 +294,13 @@
 
     .line 397
     .local v0, "backButton":Landroid/widget/ImageButton;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 398
     return-void
 
     .line 401
-    :cond_0
+    :cond_9
     invoke-virtual {v0}, Landroid/widget/ImageButton;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
@@ -317,7 +317,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     .line 403
     invoke-direct {p0, p1, v1}, Lcom/google/android/material/search/SearchViewAnimationHelper;->addDrawerArrowDrawableAnimatorIfNeeded(Landroid/animation/AnimatorSet;Landroid/graphics/drawable/Drawable;)V
@@ -325,19 +325,19 @@
     .line 404
     invoke-direct {p0, p1, v1}, Lcom/google/android/material/search/SearchViewAnimationHelper;->addFadeThroughDrawableAnimatorIfNeeded(Landroid/animation/AnimatorSet;Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 406
-    :cond_1
+    :cond_20
     invoke-direct {p0, v1}, Lcom/google/android/material/search/SearchViewAnimationHelper;->setFullDrawableProgressIfNeeded(Landroid/graphics/drawable/Drawable;)V
 
     .line 408
-    :goto_0
+    :goto_23
     return-void
 .end method
 
 .method private addBackButtonTranslationAnimatorIfNeeded(Landroid/animation/AnimatorSet;)V
-    .locals 8
+    .registers 10
     .param p1, "animatorSet"    # Landroid/animation/AnimatorSet;
 
     .line 380
@@ -349,13 +349,13 @@
 
     .line 381
     .local v0, "backButton":Landroid/widget/ImageButton;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 382
     return-void
 
     .line 385
-    :cond_0
+    :cond_9
     nop
 
     .line 386
@@ -438,14 +438,14 @@
 .end method
 
 .method private addDrawerArrowDrawableAnimatorIfNeeded(Landroid/animation/AnimatorSet;Landroid/graphics/drawable/Drawable;)V
-    .locals 4
+    .registers 7
     .param p1, "animatorSet"    # Landroid/animation/AnimatorSet;
     .param p2, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 411
     instance-of v0, p2, Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 412
     move-object v0, p2
@@ -458,7 +458,7 @@
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_24
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -486,12 +486,12 @@
     .line 418
     .end local v0    # "drawerArrowDrawable":Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;
     .end local v1    # "animator":Landroid/animation/ValueAnimator;
-    :cond_0
+    :cond_22
     return-void
 
     nop
 
-    :array_0
+    :array_24
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -499,14 +499,14 @@
 .end method
 
 .method private addFadeThroughDrawableAnimatorIfNeeded(Landroid/animation/AnimatorSet;Landroid/graphics/drawable/Drawable;)V
-    .locals 4
+    .registers 7
     .param p1, "animatorSet"    # Landroid/animation/AnimatorSet;
     .param p2, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 421
     instance-of v0, p2, Lcom/google/android/material/internal/FadeThroughDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 422
     move-object v0, p2
@@ -519,7 +519,7 @@
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_24
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -547,12 +547,12 @@
     .line 428
     .end local v0    # "fadeThroughDrawable":Lcom/google/android/material/internal/FadeThroughDrawable;
     .end local v1    # "animator":Landroid/animation/ValueAnimator;
-    :cond_0
+    :cond_22
     return-void
 
     nop
 
-    :array_0
+    :array_24
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -560,7 +560,7 @@
 .end method
 
 .method private calculateFromClipBounds()Landroid/graphics/Rect;
-    .locals 11
+    .registers 12
 
     .line 337
     const/4 v0, 0x2
@@ -639,7 +639,7 @@
 .end method
 
 .method private getActionMenuViewsAlphaAnimator(Z)Landroid/animation/Animator;
-    .locals 4
+    .registers 6
     .param p1, "show"    # Z
 
     .line 466
@@ -647,7 +647,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_3a
 
     invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -655,16 +655,16 @@
 
     .line 467
     .local v0, "animator":Landroid/animation/ValueAnimator;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     const-wide/16 v1, 0x12c
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const-wide/16 v1, 0xfa
 
-    :goto_0
+    :goto_11
     invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     .line 468
@@ -685,7 +685,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_39
 
     .line 472
     iget-object v1, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->dummyToolbar:Landroidx/appcompat/widget/Toolbar;
@@ -713,10 +713,10 @@
     .line 478
     .end local v1    # "dummyActionMenuView":Landroidx/appcompat/widget/ActionMenuView;
     .end local v2    # "actionMenuView":Landroidx/appcompat/widget/ActionMenuView;
-    :cond_1
+    :cond_39
     return-object v0
 
-    :array_0
+    :array_3a
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -724,7 +724,7 @@
 .end method
 
 .method private getButtonsAnimator(Z)Landroid/animation/Animator;
-    .locals 3
+    .registers 5
     .param p1, "show"    # Z
 
     .line 369
@@ -743,16 +743,16 @@
     invoke-direct {p0, v0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->addActionMenuViewAnimatorIfNeeded(Landroid/animation/AnimatorSet;)V
 
     .line 373
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     const-wide/16 v1, 0x12c
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const-wide/16 v1, 0xfa
 
-    :goto_0
+    :goto_15
     invoke-virtual {v0, v1, v2}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
     .line 374
@@ -771,7 +771,7 @@
 .end method
 
 .method private getClearButtonAnimator(Z)Landroid/animation/Animator;
-    .locals 4
+    .registers 6
     .param p1, "show"    # Z
 
     .line 357
@@ -779,7 +779,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_3a
 
     invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -790,34 +790,34 @@
     nop
 
     .line 359
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     const-wide/16 v1, 0x32
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const-wide/16 v1, 0x2a
 
     .line 358
-    :goto_0
+    :goto_12
     invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     .line 360
     nop
 
     .line 361
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1b
 
     const-wide/16 v1, 0xfa
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1b
     const-wide/16 v1, 0x0
 
     .line 360
-    :goto_1
+    :goto_1d
     invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
 
     .line 362
@@ -853,7 +853,7 @@
 
     nop
 
-    :array_0
+    :array_3a
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -861,7 +861,7 @@
 .end method
 
 .method private getContentAlphaAnimator(Z)Landroid/animation/Animator;
-    .locals 4
+    .registers 6
     .param p1, "show"    # Z
 
     .line 497
@@ -869,7 +869,7 @@
 
     new-array v1, v0, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_3e
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -880,34 +880,34 @@
     nop
 
     .line 499
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     const-wide/16 v2, 0x96
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const-wide/16 v2, 0x53
 
     .line 498
-    :goto_0
+    :goto_12
     invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     .line 500
     nop
 
     .line 501
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1b
 
     const-wide/16 v2, 0x4b
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1b
     const-wide/16 v2, 0x0
 
     .line 500
-    :goto_1
+    :goto_1d
     invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
 
     .line 502
@@ -949,7 +949,7 @@
 
     nop
 
-    :array_0
+    :array_3e
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -957,7 +957,7 @@
 .end method
 
 .method private getContentAnimator(Z)Landroid/animation/Animator;
-    .locals 6
+    .registers 8
     .param p1, "show"    # Z
 
     .line 490
@@ -1006,7 +1006,7 @@
 .end method
 
 .method private getContentScaleAnimator(Z)Landroid/animation/Animator;
-    .locals 4
+    .registers 6
     .param p1, "show"    # Z
 
     .line 523
@@ -1014,7 +1014,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_2e
 
     invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -1025,17 +1025,17 @@
     nop
 
     .line 525
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     const-wide/16 v1, 0x12c
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const-wide/16 v1, 0xfa
 
     .line 524
-    :goto_0
+    :goto_12
     invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     .line 526
@@ -1069,7 +1069,7 @@
     .line 529
     return-object v0
 
-    :array_0
+    :array_2e
     .array-data 4
         0x3f733333    # 0.95f
         0x3f800000    # 1.0f
@@ -1077,7 +1077,7 @@
 .end method
 
 .method private getDividerAnimator(Z)Landroid/animation/Animator;
-    .locals 6
+    .registers 8
     .param p1, "show"    # Z
 
     .line 510
@@ -1123,17 +1123,17 @@
     nop
 
     .line 515
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_23
 
     const-wide/16 v4, 0x12c
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_23
     const-wide/16 v4, 0xfa
 
     .line 514
-    :goto_0
+    :goto_25
     invoke-virtual {v1, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     .line 516
@@ -1165,7 +1165,7 @@
 .end method
 
 .method private getDummyToolbarAnimator(Z)Landroid/animation/Animator;
-    .locals 2
+    .registers 4
     .param p1, "show"    # Z
 
     .line 458
@@ -1181,7 +1181,7 @@
 .end method
 
 .method private getEditTextAnimator(Z)Landroid/animation/Animator;
-    .locals 2
+    .registers 4
     .param p1, "show"    # Z
 
     .line 486
@@ -1197,7 +1197,7 @@
 .end method
 
 .method private getExpandCollapseAnimatorSet(Z)Landroid/animation/AnimatorSet;
-    .locals 13
+    .registers 15
     .param p1, "show"    # Z
 
     .line 257
@@ -1318,7 +1318,7 @@
 .end method
 
 .method private getFromTranslationXEnd(Landroid/view/View;)I
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 558
@@ -1343,7 +1343,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 561
     iget-object v1, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchBar:Lcom/google/android/material/search/SearchBar;
@@ -1354,10 +1354,10 @@
 
     sub-int/2addr v1, v0
 
-    goto :goto_0
+    goto :goto_29
 
     .line 562
-    :cond_0
+    :cond_1b
     iget-object v1, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchBar:Lcom/google/android/material/search/SearchBar;
 
     invoke-virtual {v1}, Lcom/google/android/material/search/SearchBar;->getRight()I
@@ -1375,12 +1375,12 @@
     add-int/2addr v1, v0
 
     .line 560
-    :goto_0
+    :goto_29
     return v1
 .end method
 
 .method private getFromTranslationXStart(Landroid/view/View;)I
-    .locals 4
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
 
     .line 549
@@ -1413,7 +1413,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_29
 
     .line 553
     iget-object v2, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchBar:Lcom/google/android/material/search/SearchBar;
@@ -1434,10 +1434,10 @@
 
     sub-int/2addr v2, v1
 
-    goto :goto_0
+    goto :goto_31
 
     .line 554
-    :cond_0
+    :cond_29
     iget-object v2, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchBar:Lcom/google/android/material/search/SearchBar;
 
     invoke-virtual {v2}, Lcom/google/android/material/search/SearchBar;->getLeft()I
@@ -1449,12 +1449,12 @@
     add-int/2addr v2, v1
 
     .line 552
-    :goto_0
+    :goto_31
     return v2
 .end method
 
 .method private getFromTranslationY()I
-    .locals 3
+    .registers 4
 
     .line 566
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->toolbarContainer:Landroid/widget/FrameLayout;
@@ -1499,7 +1499,7 @@
 .end method
 
 .method private getHeaderContainerAnimator(Z)Landroid/animation/Animator;
-    .locals 2
+    .registers 4
     .param p1, "show"    # Z
 
     .line 462
@@ -1515,7 +1515,7 @@
 .end method
 
 .method private getRootViewAnimator(Z)Landroid/animation/Animator;
-    .locals 7
+    .registers 9
     .param p1, "show"    # Z
 
     .line 317
@@ -1577,16 +1577,16 @@
     invoke-virtual {v4, v5}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     .line 330
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_34
 
     const-wide/16 v5, 0x12c
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_0
+    :cond_34
     const-wide/16 v5, 0xfa
 
-    :goto_0
+    :goto_36
     invoke-virtual {v4, v5, v6}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     .line 331
@@ -1605,27 +1605,27 @@
 .end method
 
 .method private getScrimAlphaAnimator(Z)Landroid/animation/Animator;
-    .locals 5
+    .registers 7
     .param p1, "show"    # Z
 
     .line 307
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     sget-object v0, Lcom/google/android/material/animation/AnimationUtils;->LINEAR_INTERPOLATOR:Landroid/animation/TimeInterpolator;
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     sget-object v0, Lcom/google/android/material/animation/AnimationUtils;->FAST_OUT_SLOW_IN_INTERPOLATOR:Landroid/animation/TimeInterpolator;
 
     .line 309
     .local v0, "interpolator":Landroid/animation/TimeInterpolator;
-    :goto_0
+    :goto_7
     const/4 v1, 0x2
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_32
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -1633,16 +1633,16 @@
 
     .line 310
     .local v1, "animator":Landroid/animation/ValueAnimator;
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_16
 
     const-wide/16 v2, 0x12c
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_16
     const-wide/16 v2, 0xfa
 
-    :goto_1
+    :goto_18
     invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     .line 311
@@ -1672,7 +1672,7 @@
     .line 313
     return-object v1
 
-    :array_0
+    :array_32
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -1680,7 +1680,7 @@
 .end method
 
 .method private getSearchPrefixAnimator(Z)Landroid/animation/Animator;
-    .locals 2
+    .registers 4
     .param p1, "show"    # Z
 
     .line 482
@@ -1696,7 +1696,7 @@
 .end method
 
 .method private getTranslateAnimatorSet(Z)Landroid/animation/AnimatorSet;
-    .locals 4
+    .registers 6
     .param p1, "show"    # Z
 
     .line 241
@@ -1735,16 +1735,16 @@
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     .line 246
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_23
 
     const-wide/16 v1, 0x15e
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_23
     const-wide/16 v1, 0x12c
 
-    :goto_0
+    :goto_25
     invoke-virtual {v0, v1, v2}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
     .line 247
@@ -1752,28 +1752,28 @@
 .end method
 
 .method private getTranslationAnimator(ZZLandroid/view/View;)Landroid/animation/Animator;
-    .locals 8
+    .registers 12
     .param p1, "show"    # Z
     .param p2, "anchoredToStart"    # Z
     .param p3, "view"    # Landroid/view/View;
 
     .line 533
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     invoke-direct {p0, p3}, Lcom/google/android/material/search/SearchViewAnimationHelper;->getFromTranslationXStart(Landroid/view/View;)I
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_7
     invoke-direct {p0, p3}, Lcom/google/android/material/search/SearchViewAnimationHelper;->getFromTranslationXEnd(Landroid/view/View;)I
 
     move-result v0
 
     .line 534
     .local v0, "startX":I
-    :goto_0
+    :goto_b
     int-to-float v1, v0
 
     const/4 v2, 0x2
@@ -1851,16 +1851,16 @@
     invoke-virtual {v6, v2}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
     .line 542
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_52
 
     const-wide/16 v1, 0x12c
 
-    goto :goto_1
+    goto :goto_54
 
-    :cond_1
+    :cond_52
     const-wide/16 v1, 0xfa
 
-    :goto_1
+    :goto_54
     invoke-virtual {v6, v1, v2}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
     .line 543
@@ -1879,7 +1879,7 @@
 .end method
 
 .method private getTranslationYAnimator()Landroid/animation/Animator;
-    .locals 4
+    .registers 5
 
     .line 251
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->rootView:Lcom/google/android/material/internal/ClippableRoundedCornerLayout;
@@ -1927,7 +1927,7 @@
 .end method
 
 .method static synthetic lambda$addDrawerArrowDrawableAnimatorIfNeeded$3(Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .registers 3
     .param p0, "drawerArrowDrawable"    # Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
@@ -1942,7 +1942,7 @@
 .end method
 
 .method static synthetic lambda$addFadeThroughDrawableAnimatorIfNeeded$4(Lcom/google/android/material/internal/FadeThroughDrawable;Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .registers 3
     .param p0, "fadeThroughDrawable"    # Lcom/google/android/material/internal/FadeThroughDrawable;
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
@@ -1957,7 +1957,7 @@
 .end method
 
 .method private setActionMenuViewAlphaIfNeeded(F)V
-    .locals 1
+    .registers 3
     .param p1, "alpha"    # F
 
     .line 297
@@ -1967,7 +1967,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 298
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->toolbar:Landroidx/appcompat/widget/Toolbar;
@@ -1978,19 +1978,19 @@
 
     .line 299
     .local v0, "actionMenuView":Landroidx/appcompat/widget/ActionMenuView;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 300
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/ActionMenuView;->setAlpha(F)V
 
     .line 303
     .end local v0    # "actionMenuView":Landroidx/appcompat/widget/ActionMenuView;
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method private setContentViewsAlpha(F)V
-    .locals 1
+    .registers 3
     .param p1, "alpha"    # F
 
     .line 290
@@ -2016,7 +2016,7 @@
 .end method
 
 .method private setFullDrawableProgressIfNeeded(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .registers 4
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 431
@@ -2024,7 +2024,7 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 432
     move-object v0, p1
@@ -2034,10 +2034,10 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;->setProgress(F)V
 
     .line 434
-    :cond_0
+    :cond_c
     instance-of v0, p1, Lcom/google/android/material/internal/FadeThroughDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 435
     move-object v0, p1
@@ -2047,12 +2047,12 @@
     invoke-virtual {v0, v1}, Lcom/google/android/material/internal/FadeThroughDrawable;->setProgress(F)V
 
     .line 437
-    :cond_1
+    :cond_16
     return-void
 .end method
 
 .method private setMenuItemsNotClickable(Landroidx/appcompat/widget/Toolbar;)V
-    .locals 4
+    .registers 6
     .param p1, "toolbar"    # Landroidx/appcompat/widget/Toolbar;
 
     .line 586
@@ -2062,18 +2062,18 @@
 
     .line 587
     .local v0, "actionMenuView":Landroidx/appcompat/widget/ActionMenuView;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 588
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_7
     invoke-virtual {v0}, Landroidx/appcompat/widget/ActionMenuView;->getChildCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1e
 
     .line 589
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/ActionMenuView;->getChildAt(I)Landroid/view/View;
@@ -2096,16 +2096,16 @@
     .end local v2    # "menuItem":Landroid/view/View;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 595
     .end local v1    # "i":I
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method private setUpDummyToolbarIfNeeded()V
-    .locals 3
+    .registers 4
 
     .line 572
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->dummyToolbar:Landroidx/appcompat/widget/Toolbar;
@@ -2116,13 +2116,13 @@
 
     .line 573
     .local v0, "menu":Landroid/view/Menu;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 574
     invoke-interface {v0}, Landroid/view/Menu;->clear()V
 
     .line 576
-    :cond_0
+    :cond_b
     iget-object v1, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchBar:Lcom/google/android/material/search/SearchBar;
 
     invoke-virtual {v1}, Lcom/google/android/material/search/SearchBar;->getMenuResId()I
@@ -2131,7 +2131,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_33
 
     iget-object v1, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchView:Lcom/google/android/material/search/SearchView;
 
@@ -2139,7 +2139,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_33
 
     .line 577
     iget-object v1, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->dummyToolbar:Landroidx/appcompat/widget/Toolbar;
@@ -2164,10 +2164,10 @@
 
     invoke-virtual {v1, v2}, Landroidx/appcompat/widget/Toolbar;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 581
-    :cond_1
+    :cond_33
     iget-object v1, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->dummyToolbar:Landroidx/appcompat/widget/Toolbar;
 
     const/16 v2, 0x8
@@ -2175,12 +2175,12 @@
     invoke-virtual {v1, v2}, Landroidx/appcompat/widget/Toolbar;->setVisibility(I)V
 
     .line 583
-    :goto_0
+    :goto_3a
     return-void
 .end method
 
 .method private startHideAnimationCollapse()V
-    .locals 2
+    .registers 3
 
     .line 162
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchView:Lcom/google/android/material/search/SearchView;
@@ -2189,7 +2189,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 163
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchView:Lcom/google/android/material/search/SearchView;
@@ -2197,7 +2197,7 @@
     invoke-virtual {v0}, Lcom/google/android/material/search/SearchView;->clearFocusAndHideKeyboard()V
 
     .line 165
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->getExpandCollapseAnimatorSet(Z)Landroid/animation/AnimatorSet;
@@ -2220,7 +2220,7 @@
 .end method
 
 .method private startHideAnimationTranslate()V
-    .locals 2
+    .registers 3
 
     .line 217
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchView:Lcom/google/android/material/search/SearchView;
@@ -2229,7 +2229,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 218
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchView:Lcom/google/android/material/search/SearchView;
@@ -2237,7 +2237,7 @@
     invoke-virtual {v0}, Lcom/google/android/material/search/SearchView;->clearFocusAndHideKeyboard()V
 
     .line 220
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->getTranslateAnimatorSet(Z)Landroid/animation/AnimatorSet;
@@ -2260,7 +2260,7 @@
 .end method
 
 .method private startShowAnimationExpand()V
-    .locals 2
+    .registers 3
 
     .line 130
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchView:Lcom/google/android/material/search/SearchView;
@@ -2269,7 +2269,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 131
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchView:Lcom/google/android/material/search/SearchView;
@@ -2277,7 +2277,7 @@
     invoke-virtual {v0}, Lcom/google/android/material/search/SearchView;->requestFocusAndShowKeyboardIfNeeded()V
 
     .line 133
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchView:Lcom/google/android/material/search/SearchView;
 
     sget-object v1, Lcom/google/android/material/search/SearchView$TransitionState;->SHOWING:Lcom/google/android/material/search/SearchView$TransitionState;
@@ -2334,7 +2334,7 @@
 .end method
 
 .method private startShowAnimationTranslate()V
-    .locals 5
+    .registers 6
 
     .line 186
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchView:Lcom/google/android/material/search/SearchView;
@@ -2343,7 +2343,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 187
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchView:Lcom/google/android/material/search/SearchView;
@@ -2363,7 +2363,7 @@
     invoke-virtual {v0, v2, v3, v4}, Lcom/google/android/material/search/SearchView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 191
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->rootView:Lcom/google/android/material/internal/ClippableRoundedCornerLayout;
 
     const/4 v1, 0x4
@@ -2386,29 +2386,29 @@
 
 # virtual methods
 .method hide()V
-    .locals 1
+    .registers 2
 
     .line 122
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchBar:Lcom/google/android/material/search/SearchBar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 123
     invoke-direct {p0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->startHideAnimationCollapse()V
 
-    goto :goto_0
+    goto :goto_b
 
     .line 125
-    :cond_0
+    :cond_8
     invoke-direct {p0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->startHideAnimationTranslate()V
 
     .line 127
-    :goto_0
+    :goto_b
     return-void
 .end method
 
 .method synthetic lambda$getRootViewAnimator$2$com-google-android-material-search-SearchViewAnimationHelper(FLandroid/graphics/Rect;Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 6
     .param p1, "initialCornerRadius"    # F
     .param p2, "clipBounds"    # Landroid/graphics/Rect;
     .param p3, "valueAnimator"    # Landroid/animation/ValueAnimator;
@@ -2435,7 +2435,7 @@
 .end method
 
 .method synthetic lambda$startShowAnimationExpand$0$com-google-android-material-search-SearchViewAnimationHelper()V
-    .locals 2
+    .registers 3
 
     .line 140
     const/4 v0, 0x1
@@ -2460,7 +2460,7 @@
 .end method
 
 .method synthetic lambda$startShowAnimationTranslate$1$com-google-android-material-search-SearchViewAnimationHelper()V
-    .locals 2
+    .registers 3
 
     .line 194
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->rootView:Lcom/google/android/material/internal/ClippableRoundedCornerLayout;
@@ -2498,7 +2498,7 @@
 .end method
 
 .method setSearchBar(Lcom/google/android/material/search/SearchBar;)V
-    .locals 0
+    .registers 2
     .param p1, "searchBar"    # Lcom/google/android/material/search/SearchBar;
 
     .line 110
@@ -2509,23 +2509,23 @@
 .end method
 
 .method show()V
-    .locals 1
+    .registers 2
 
     .line 114
     iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper;->searchBar:Lcom/google/android/material/search/SearchBar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 115
     invoke-direct {p0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->startShowAnimationExpand()V
 
-    goto :goto_0
+    goto :goto_b
 
     .line 117
-    :cond_0
+    :cond_8
     invoke-direct {p0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->startShowAnimationTranslate()V
 
     .line 119
-    :goto_0
+    :goto_b
     return-void
 .end method

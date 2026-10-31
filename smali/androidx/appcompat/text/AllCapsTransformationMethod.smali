@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 37
@@ -38,12 +38,12 @@
 
 # virtual methods
 .method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 5
     .param p1, "source"    # Ljava/lang/CharSequence;
     .param p2, "view"    # Landroid/view/View;
 
     .line 43
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
@@ -55,17 +55,17 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method public onFocusChanged(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V
-    .locals 0
+    .registers 6
     .param p1, "view"    # Landroid/view/View;
     .param p2, "sourceText"    # Ljava/lang/CharSequence;
     .param p3, "focused"    # Z

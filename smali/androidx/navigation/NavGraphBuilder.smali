@@ -82,7 +82,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/navigation/NavigatorProvider;II)V
-    .locals 3
+    .registers 7
     .param p1, "provider"    # Landroidx/navigation/NavigatorProvider;
     .param p2, "id"    # I
     .param p3, "startDestination"    # I
@@ -139,7 +139,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/navigation/NavigatorProvider;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 7
     .param p1, "provider"    # Landroidx/navigation/NavigatorProvider;
     .param p2, "startDestination"    # Ljava/lang/String;
     .param p3, "route"    # Ljava/lang/String;
@@ -195,7 +195,7 @@
 
 # virtual methods
 .method public final addDestination(Landroidx/navigation/NavDestination;)V
-    .locals 1
+    .registers 3
     .param p1, "destination"    # Landroidx/navigation/NavDestination;
 
     const-string v0, "destination"
@@ -214,7 +214,7 @@
 .end method
 
 .method public bridge synthetic build()Landroidx/navigation/NavDestination;
-    .locals 1
+    .registers 2
 
     .line 101
     invoke-virtual {p0}, Landroidx/navigation/NavGraphBuilder;->build()Landroidx/navigation/NavGraph;
@@ -227,7 +227,7 @@
 .end method
 
 .method public build()Landroidx/navigation/NavGraph;
-    .locals 4
+    .registers 5
 
     .line 177
     invoke-super {p0}, Landroidx/navigation/NavDestinationBuilder;->build()Landroidx/navigation/NavDestination;
@@ -252,18 +252,18 @@
     .line 179
     iget v3, p0, Landroidx/navigation/NavGraphBuilder;->startDestinationId:I
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2d
 
     iget-object v3, p0, Landroidx/navigation/NavGraphBuilder;->startDestinationRoute:Ljava/lang/String;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2d
 
     .line 180
     invoke-virtual {p0}, Landroidx/navigation/NavGraphBuilder;->getRoute()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 181
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -275,7 +275,7 @@
     throw v0
 
     .line 183
-    :cond_0
+    :cond_25
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v3, "You must set a start destination id"
@@ -285,10 +285,10 @@
     throw v0
 
     .line 186
-    :cond_1
+    :cond_2d
     iget-object v3, p0, Landroidx/navigation/NavGraphBuilder;->startDestinationRoute:Ljava/lang/String;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3a
 
     .line 187
     iget-object v3, p0, Landroidx/navigation/NavGraphBuilder;->startDestinationRoute:Ljava/lang/String;
@@ -297,16 +297,16 @@
 
     invoke-virtual {v1, v3}, Landroidx/navigation/NavGraph;->setStartDestination(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 189
-    :cond_2
+    :cond_3a
     iget v3, p0, Landroidx/navigation/NavGraphBuilder;->startDestinationId:I
 
     invoke-virtual {v1, v3}, Landroidx/navigation/NavGraph;->setStartDestination(I)V
 
     .line 191
-    :goto_0
+    :goto_3f
     nop
 
     .line 177
@@ -319,7 +319,7 @@
 .end method
 
 .method public final destination(Landroidx/navigation/NavDestinationBuilder;)V
-    .locals 2
+    .registers 4
     .param p1, "navDestination"    # Landroidx/navigation/NavDestinationBuilder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -351,7 +351,7 @@
 .end method
 
 .method public final getProvider()Landroidx/navigation/NavigatorProvider;
-    .locals 1
+    .registers 2
 
     .line 106
     iget-object v0, p0, Landroidx/navigation/NavGraphBuilder;->provider:Landroidx/navigation/NavigatorProvider;
@@ -360,7 +360,7 @@
 .end method
 
 .method public final unaryPlus(Landroidx/navigation/NavDestination;)V
-    .locals 1
+    .registers 3
     .param p1, "$this$unaryPlus"    # Landroidx/navigation/NavDestination;
 
     const-string v0, "<this>"

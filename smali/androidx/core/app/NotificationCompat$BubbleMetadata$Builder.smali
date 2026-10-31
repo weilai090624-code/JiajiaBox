@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;)V
-    .locals 2
+    .registers 5
     .param p1, "intent"    # Landroid/app/PendingIntent;
     .param p2, "icon"    # Landroidx/core/graphics/drawable/IconCompat;
 
@@ -52,10 +52,10 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 8593
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_14
 
     .line 8596
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_c
 
     .line 8599
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mPendingIntent:Landroid/app/PendingIntent;
@@ -67,7 +67,7 @@
     return-void
 
     .line 8597
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Bubbles require non-null icon"
@@ -77,7 +77,7 @@
     throw v0
 
     .line 8594
-    :cond_1
+    :cond_14
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Bubble requires non-null pending intent"
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "shortcutId"    # Ljava/lang/String;
 
     .line 8571
@@ -99,7 +99,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 8575
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mShortcutId:Ljava/lang/String;
@@ -108,7 +108,7 @@
     return-void
 
     .line 8573
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Bubble requires a non-null shortcut id"
@@ -119,12 +119,12 @@
 .end method
 
 .method private setFlag(IZ)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-    .locals 2
+    .registers 5
     .param p1, "mask"    # I
     .param p2, "value"    # Z
 
     .line 8752
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     .line 8753
     iget v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mFlags:I
@@ -133,10 +133,10 @@
 
     iput v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mFlags:I
 
-    goto :goto_0
+    goto :goto_e
 
     .line 8755
-    :cond_0
+    :cond_8
     iget v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mFlags:I
 
     not-int v1, p1
@@ -146,28 +146,28 @@
     iput v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mFlags:I
 
     .line 8757
-    :goto_0
+    :goto_e
     return-object p0
 .end method
 
 
 # virtual methods
 .method public build()Landroidx/core/app/NotificationCompat$BubbleMetadata;
-    .locals 11
+    .registers 12
 
     .line 8736
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mShortcutId:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mPendingIntent:Landroid/app/PendingIntent;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_11
 
     .line 8737
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Must supply pending intent or shortcut to bubble"
@@ -177,20 +177,20 @@
     throw v0
 
     .line 8740
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mShortcutId:Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_22
 
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1a
 
-    goto :goto_1
+    goto :goto_22
 
     .line 8741
-    :cond_2
+    :cond_1a
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Must supply an icon or shortcut for the bubble"
@@ -200,8 +200,8 @@
     throw v0
 
     .line 8744
-    :cond_3
-    :goto_1
+    :cond_22
+    :goto_22
     new-instance v0, Landroidx/core/app/NotificationCompat$BubbleMetadata;
 
     iget-object v3, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mPendingIntent:Landroid/app/PendingIntent;
@@ -235,7 +235,7 @@
 .end method
 
 .method public setAutoExpandBubble(Z)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-    .locals 1
+    .registers 3
     .param p1, "shouldExpand"    # Z
 
     .line 8698
@@ -248,7 +248,7 @@
 .end method
 
 .method public setDeleteIntent(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-    .locals 0
+    .registers 2
     .param p1, "deleteIntent"    # Landroid/app/PendingIntent;
 
     .line 8725
@@ -259,7 +259,7 @@
 .end method
 
 .method public setDesiredHeight(I)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-    .locals 2
+    .registers 4
     .param p1, "height"    # I
 
     .line 8664
@@ -279,7 +279,7 @@
 .end method
 
 .method public setDesiredHeightResId(I)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-    .locals 1
+    .registers 3
     .param p1, "heightResId"    # I
 
     .line 8680
@@ -295,16 +295,16 @@
 .end method
 
 .method public setIcon(Landroidx/core/graphics/drawable/IconCompat;)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-    .locals 2
+    .registers 4
     .param p1, "icon"    # Landroidx/core/graphics/drawable/IconCompat;
 
     .line 8641
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mShortcutId:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     .line 8646
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     .line 8649
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
@@ -313,7 +313,7 @@
     return-object p0
 
     .line 8647
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Bubbles require non-null icon"
@@ -323,7 +323,7 @@
     throw v0
 
     .line 8642
-    :cond_1
+    :cond_11
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Created as a shortcut bubble, cannot set an Icon. Consider using BubbleMetadata.Builder(PendingIntent,Icon) instead."
@@ -334,16 +334,16 @@
 .end method
 
 .method public setIntent(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-    .locals 2
+    .registers 4
     .param p1, "intent"    # Landroid/app/PendingIntent;
 
     .line 8613
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mShortcutId:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     .line 8618
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     .line 8621
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->mPendingIntent:Landroid/app/PendingIntent;
@@ -352,7 +352,7 @@
     return-object p0
 
     .line 8619
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Bubble requires non-null pending intent"
@@ -362,7 +362,7 @@
     throw v0
 
     .line 8614
-    :cond_1
+    :cond_11
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Created as a shortcut bubble, cannot set a PendingIntent. Consider using BubbleMetadata.Builder(PendingIntent,Icon) instead."
@@ -373,7 +373,7 @@
 .end method
 
 .method public setSuppressNotification(Z)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-    .locals 1
+    .registers 3
     .param p1, "shouldSuppressNotif"    # Z
 
     .line 8716

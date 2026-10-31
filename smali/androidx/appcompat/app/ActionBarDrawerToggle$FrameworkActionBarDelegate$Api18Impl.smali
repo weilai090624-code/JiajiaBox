@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 585
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static setHomeActionContentDescription(Landroid/app/ActionBar;I)V
-    .locals 0
+    .registers 2
     .param p0, "actionBar"    # Landroid/app/ActionBar;
     .param p1, "resId"    # I
 
@@ -38,7 +38,7 @@
 .end method
 
 .method static setHomeAsUpIndicator(Landroid/app/ActionBar;Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p0, "actionBar"    # Landroid/app/ActionBar;
     .param p1, "indicator"    # Landroid/graphics/drawable/Drawable;
 

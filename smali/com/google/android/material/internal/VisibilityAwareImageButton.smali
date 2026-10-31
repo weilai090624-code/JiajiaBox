@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 39
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public final getUserSetVisibility()I
-    .locals 1
+    .registers 2
 
     .line 64
     iget v0, p0, Lcom/google/android/material/internal/VisibilityAwareImageButton;->userSetVisibility:I
@@ -67,7 +67,7 @@
 .end method
 
 .method public final internalSetVisibility(IZ)V
-    .locals 0
+    .registers 3
     .param p1, "visibility"    # I
     .param p2, "fromUser"    # Z
 
@@ -75,18 +75,18 @@
     invoke-super {p0, p1}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     .line 58
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     .line 59
     iput p1, p0, Lcom/google/android/material/internal/VisibilityAwareImageButton;->userSetVisibility:I
 
     .line 61
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public setVisibility(I)V
-    .locals 1
+    .registers 3
     .param p1, "visibility"    # I
 
     .line 53

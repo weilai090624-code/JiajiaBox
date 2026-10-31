@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$Companion;
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>(Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$OnKeyListener;)V
-    .locals 1
+    .registers 3
     .param p1, "keyListener"    # Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$OnKeyListener;
 
     const-string v0, "keyListener"
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .param p2, "p1"    # I
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public onBindViewHolder(Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;I)V
-    .locals 2
+    .registers 5
     .param p1, "holder"    # Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;
     .param p2, "position"    # I
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 1
+    .registers 4
     .param p1, "p0"    # Landroid/view/ViewGroup;
     .param p2, "p1"    # I
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lmoe/matsuri/nb4a/ui/ExtendedKeyboard$KeyAdapter$KeyViewHolder;
-    .locals 2
+    .registers 5
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
     .param p1, "slideEdge"    # I
 
     .line 66
@@ -45,7 +45,7 @@
 .end method
 
 .method private static createTranslationAppearAnimator(Landroid/view/View;Landroid/view/View;II)Landroid/animation/Animator;
-    .locals 5
+    .registers 9
     .param p0, "sceneRoot"    # Landroid/view/View;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "slideEdge"    # I
@@ -64,7 +64,7 @@
 
     .line 136
     .local v1, "originalY":F
-    sparse-switch p2, :sswitch_data_0
+    sparse-switch p2, :sswitch_data_66
 
     .line 158
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -92,7 +92,7 @@
     throw v2
 
     .line 152
-    :sswitch_0
+    :sswitch_24
     nop
 
     .line 154
@@ -100,21 +100,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2f
 
     int-to-float v2, p3
 
     sub-float v2, v0, v2
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_2f
     int-to-float v2, p3
 
     add-float/2addr v2, v0
 
     .line 152
-    :goto_0
+    :goto_31
     invoke-static {p1, v2, v0, v0}, Lcom/google/android/material/transition/platform/SlideDistanceProvider;->createTranslationXAnimator(Landroid/view/View;FFF)Landroid/animation/Animator;
 
     move-result-object v2
@@ -122,7 +122,7 @@
     return-object v2
 
     .line 146
-    :sswitch_1
+    :sswitch_36
     nop
 
     .line 148
@@ -130,21 +130,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_40
 
     int-to-float v2, p3
 
     add-float/2addr v2, v0
 
-    goto :goto_1
+    goto :goto_43
 
-    :cond_1
+    :cond_40
     int-to-float v2, p3
 
     sub-float v2, v0, v2
 
     .line 146
-    :goto_1
+    :goto_43
     invoke-static {p1, v2, v0, v0}, Lcom/google/android/material/transition/platform/SlideDistanceProvider;->createTranslationXAnimator(Landroid/view/View;FFF)Landroid/animation/Animator;
 
     move-result-object v2
@@ -152,7 +152,7 @@
     return-object v2
 
     .line 144
-    :sswitch_2
+    :sswitch_48
     int-to-float v2, p3
 
     add-float/2addr v2, v1
@@ -164,7 +164,7 @@
     return-object v2
 
     .line 140
-    :sswitch_3
+    :sswitch_4f
     int-to-float v2, p3
 
     sub-float v2, v1, v2
@@ -176,7 +176,7 @@
     return-object v2
 
     .line 142
-    :sswitch_4
+    :sswitch_57
     int-to-float v2, p3
 
     sub-float v2, v0, v2
@@ -188,7 +188,7 @@
     return-object v2
 
     .line 138
-    :sswitch_5
+    :sswitch_5f
     int-to-float v2, p3
 
     add-float/2addr v2, v0
@@ -199,19 +199,19 @@
 
     return-object v2
 
-    :sswitch_data_0
+    :sswitch_data_66
     .sparse-switch
-        0x3 -> :sswitch_5
-        0x5 -> :sswitch_4
-        0x30 -> :sswitch_3
-        0x50 -> :sswitch_2
-        0x800003 -> :sswitch_1
-        0x800005 -> :sswitch_0
+        0x3 -> :sswitch_5f
+        0x5 -> :sswitch_57
+        0x30 -> :sswitch_4f
+        0x50 -> :sswitch_48
+        0x800003 -> :sswitch_36
+        0x800005 -> :sswitch_24
     .end sparse-switch
 .end method
 
 .method private static createTranslationDisappearAnimator(Landroid/view/View;Landroid/view/View;II)Landroid/animation/Animator;
-    .locals 5
+    .registers 9
     .param p0, "sceneRoot"    # Landroid/view/View;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "slideEdge"    # I
@@ -230,7 +230,7 @@
 
     .line 166
     .local v1, "originalY":F
-    sparse-switch p2, :sswitch_data_0
+    sparse-switch p2, :sswitch_data_66
 
     .line 188
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -258,7 +258,7 @@
     throw v2
 
     .line 182
-    :sswitch_0
+    :sswitch_24
     nop
 
     .line 185
@@ -266,21 +266,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2e
 
     int-to-float v2, p3
 
     add-float/2addr v2, v0
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_2e
     int-to-float v2, p3
 
     sub-float v2, v0, v2
 
     .line 182
-    :goto_0
+    :goto_31
     invoke-static {p1, v0, v2, v0}, Lcom/google/android/material/transition/platform/SlideDistanceProvider;->createTranslationXAnimator(Landroid/view/View;FFF)Landroid/animation/Animator;
 
     move-result-object v2
@@ -288,7 +288,7 @@
     return-object v2
 
     .line 176
-    :sswitch_1
+    :sswitch_36
     nop
 
     .line 179
@@ -296,21 +296,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_41
 
     int-to-float v2, p3
 
     sub-float v2, v0, v2
 
-    goto :goto_1
+    goto :goto_43
 
-    :cond_1
+    :cond_41
     int-to-float v2, p3
 
     add-float/2addr v2, v0
 
     .line 176
-    :goto_1
+    :goto_43
     invoke-static {p1, v0, v2, v0}, Lcom/google/android/material/transition/platform/SlideDistanceProvider;->createTranslationXAnimator(Landroid/view/View;FFF)Landroid/animation/Animator;
 
     move-result-object v2
@@ -318,7 +318,7 @@
     return-object v2
 
     .line 174
-    :sswitch_2
+    :sswitch_48
     int-to-float v2, p3
 
     sub-float v2, v1, v2
@@ -330,7 +330,7 @@
     return-object v2
 
     .line 170
-    :sswitch_3
+    :sswitch_50
     int-to-float v2, p3
 
     add-float/2addr v2, v1
@@ -342,7 +342,7 @@
     return-object v2
 
     .line 172
-    :sswitch_4
+    :sswitch_57
     int-to-float v2, p3
 
     add-float/2addr v2, v0
@@ -354,7 +354,7 @@
     return-object v2
 
     .line 168
-    :sswitch_5
+    :sswitch_5e
     int-to-float v2, p3
 
     sub-float v2, v0, v2
@@ -365,19 +365,19 @@
 
     return-object v2
 
-    :sswitch_data_0
+    :sswitch_data_66
     .sparse-switch
-        0x3 -> :sswitch_5
-        0x5 -> :sswitch_4
-        0x30 -> :sswitch_3
-        0x50 -> :sswitch_2
-        0x800003 -> :sswitch_1
-        0x800005 -> :sswitch_0
+        0x3 -> :sswitch_5e
+        0x5 -> :sswitch_57
+        0x30 -> :sswitch_50
+        0x50 -> :sswitch_48
+        0x800003 -> :sswitch_36
+        0x800005 -> :sswitch_24
     .end sparse-switch
 .end method
 
 .method private static createTranslationXAnimator(Landroid/view/View;FFF)Landroid/animation/Animator;
-    .locals 4
+    .registers 8
     .param p0, "view"    # Landroid/view/View;
     .param p1, "startTranslation"    # F
     .param p2, "endTranslation"    # F
@@ -425,7 +425,7 @@
 .end method
 
 .method private static createTranslationYAnimator(Landroid/view/View;FFF)Landroid/animation/Animator;
-    .locals 4
+    .registers 8
     .param p0, "view"    # Landroid/view/View;
     .param p1, "startTranslation"    # F
     .param p2, "endTranslation"    # F
@@ -473,7 +473,7 @@
 .end method
 
 .method private getSlideDistanceOrDefault(Landroid/content/Context;)I
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 123
@@ -481,7 +481,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     .line 124
     iget v0, p0, Lcom/google/android/material/transition/platform/SlideDistanceProvider;->slideDistance:I
@@ -489,7 +489,7 @@
     return v0
 
     .line 127
-    :cond_0
+    :cond_8
     nop
 
     .line 128
@@ -509,7 +509,7 @@
 .end method
 
 .method private static isRtl(Landroid/view/View;)Z
-    .locals 2
+    .registers 3
     .param p0, "view"    # Landroid/view/View;
 
     .line 231
@@ -519,21 +519,21 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_9
     return v1
 .end method
 
 
 # virtual methods
 .method public createAppear(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/animation/Animator;
-    .locals 2
+    .registers 5
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
 
@@ -558,7 +558,7 @@
 .end method
 
 .method public createDisappear(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/animation/Animator;
-    .locals 2
+    .registers 5
     .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
     .param p2, "view"    # Landroid/view/View;
 
@@ -583,7 +583,7 @@
 .end method
 
 .method public getSlideDistance()I
-    .locals 1
+    .registers 2
 
     .line 87
     iget v0, p0, Lcom/google/android/material/transition/platform/SlideDistanceProvider;->slideDistance:I
@@ -592,7 +592,7 @@
 .end method
 
 .method public getSlideEdge()I
-    .locals 1
+    .registers 2
 
     .line 72
     iget v0, p0, Lcom/google/android/material/transition/platform/SlideDistanceProvider;->slideEdge:I
@@ -601,11 +601,11 @@
 .end method
 
 .method public setSlideDistance(I)V
-    .locals 2
+    .registers 4
     .param p1, "slideDistance"    # I
 
     .line 100
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_5
 
     .line 105
     iput p1, p0, Lcom/google/android/material/transition/platform/SlideDistanceProvider;->slideDistance:I
@@ -614,7 +614,7 @@
     return-void
 
     .line 101
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Slide distance must be positive. If attempting to reverse the direction of the slide, use setSlideEdge(int) instead."
@@ -625,7 +625,7 @@
 .end method
 
 .method public setSlideEdge(I)V
-    .locals 0
+    .registers 2
     .param p1, "slideEdge"    # I
 
     .line 76

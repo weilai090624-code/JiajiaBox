@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .registers 2
 
     .line 65
     iget-object v0, p0, Landroidx/core/os/HandlerKt$postAtTime$runnable$1;->$action:Lkotlin/jvm/functions/Function0;

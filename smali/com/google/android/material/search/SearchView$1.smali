@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/search/SearchView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/google/android/material/search/SearchView;
 
     .line 324
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 0
+    .registers 2
     .param p1, "s"    # Landroid/text/Editable;
 
     .line 334
@@ -45,7 +45,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "count"    # I
@@ -56,7 +56,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 2
+    .registers 7
     .param p1, "s"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "before"    # I
@@ -71,16 +71,16 @@
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_c
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_c
     const/16 v1, 0x8
 
-    :goto_0
+    :goto_e
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     .line 331

@@ -42,7 +42,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$sfgetQUARTER_DAYS()[I
-    .locals 1
+    .registers 1
 
     sget-object v0, Lj$/time/temporal/IsoFields$Field;->QUARTER_DAYS:[I
 
@@ -50,7 +50,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smensureIso(Lj$/time/temporal/TemporalAccessor;)V
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/time/temporal/IsoFields$Field;->ensureIso(Lj$/time/temporal/TemporalAccessor;)V
 
@@ -58,7 +58,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smgetWeek(Lj$/time/LocalDate;)I
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/time/temporal/IsoFields$Field;->getWeek(Lj$/time/LocalDate;)I
 
@@ -68,7 +68,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smgetWeekBasedYear(Lj$/time/LocalDate;)I
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/time/temporal/IsoFields$Field;->getWeekBasedYear(Lj$/time/LocalDate;)I
 
@@ -78,7 +78,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smgetWeekRange(I)I
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/time/temporal/IsoFields$Field;->getWeekRange(I)I
 
@@ -88,7 +88,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smgetWeekRange(Lj$/time/LocalDate;)Lj$/time/temporal/ValueRange;
-    .locals 0
+    .registers 1
 
     invoke-static {p0}, Lj$/time/temporal/IsoFields$Field;->getWeekRange(Lj$/time/LocalDate;)Lj$/time/temporal/ValueRange;
 
@@ -98,7 +98,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 291
     new-instance v0, Lj$/time/temporal/IsoFields$Field$1;
@@ -174,13 +174,13 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_48
 
     sput-object v0, Lj$/time/temporal/IsoFields$Field;->QUARTER_DAYS:[I
 
     return-void
 
-    :array_0
+    :array_48
     .array-data 4
         0x0
         0x5a
@@ -194,7 +194,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -208,7 +208,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILj$/time/temporal/IsoFields-IA;)V
-    .locals 0
+    .registers 4
 
     invoke-direct {p0, p1, p2}, Lj$/time/temporal/IsoFields$Field;-><init>(Ljava/lang/String;I)V
 
@@ -216,7 +216,7 @@
 .end method
 
 .method private static ensureIso(Lj$/time/temporal/TemporalAccessor;)V
-    .locals 2
+    .registers 3
     .param p0, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 590
@@ -224,13 +224,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 593
     return-void
 
     .line 591
-    :cond_0
+    :cond_7
     new-instance v0, Lj$/time/DateTimeException;
 
     const-string v1, "Resolve requires IsoChronology"
@@ -241,7 +241,7 @@
 .end method
 
 .method private static getWeek(Lj$/time/LocalDate;)I
-    .locals 10
+    .registers 11
     .param p0, "date"    # Lj$/time/LocalDate;
 
     .line 610
@@ -287,14 +287,14 @@
     .local v6, "firstMonDoy0":I
     const/4 v7, -0x3
 
-    if-ge v6, v7, :cond_0
+    if-ge v6, v7, :cond_1e
 
     .line 617
     add-int/lit8 v6, v6, 0x7
 
     .line 619
-    :cond_0
-    if-ge v1, v6, :cond_1
+    :cond_1e
+    if-ge v1, v6, :cond_36
 
     .line 620
     const/16 v2, 0xb4
@@ -322,7 +322,7 @@
     return v2
 
     .line 622
-    :cond_1
+    :cond_36
     sub-int v8, v1, v6
 
     div-int/lit8 v8, v8, 0x7
@@ -333,40 +333,40 @@
     .local v8, "week":I
     const/16 v9, 0x35
 
-    if-ne v8, v9, :cond_4
+    if-ne v8, v9, :cond_4f
 
     .line 624
-    if-eq v6, v7, :cond_3
+    if-eq v6, v7, :cond_4c
 
     const/4 v7, -0x2
 
-    if-ne v6, v7, :cond_2
+    if-ne v6, v7, :cond_4b
 
     invoke-virtual {p0}, Lj$/time/LocalDate;->isLeapYear()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_4b
 
-    goto :goto_0
+    goto :goto_4c
 
-    :cond_2
+    :cond_4b
     const/4 v2, 0x0
 
-    :cond_3
-    :goto_0
-    if-nez v2, :cond_4
+    :cond_4c
+    :goto_4c
+    if-nez v2, :cond_4f
 
     .line 625
     const/4 v8, 0x1
 
     .line 628
-    :cond_4
+    :cond_4f
     return v8
 .end method
 
 .method private static getWeekBasedYear(Lj$/time/LocalDate;)I
-    .locals 5
+    .registers 6
     .param p0, "date"    # Lj$/time/LocalDate;
 
     .line 632
@@ -384,7 +384,7 @@
     .local v1, "doy":I
     const/4 v2, 0x3
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_1b
 
     .line 635
     invoke-virtual {p0}, Lj$/time/LocalDate;->getDayOfWeek()Lj$/time/DayOfWeek;
@@ -401,19 +401,19 @@
 
     const/4 v4, -0x2
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_36
 
     .line 637
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_36
 
     .line 639
     .end local v2    # "dow":I
-    :cond_0
+    :cond_1b
     const/16 v2, 0x16b
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_36
 
     .line 640
     invoke-virtual {p0}, Lj$/time/LocalDate;->getDayOfWeek()Lj$/time/DayOfWeek;
@@ -437,27 +437,27 @@
     .line 642
     sub-int v3, v1, v2
 
-    if-ltz v3, :cond_2
+    if-ltz v3, :cond_37
 
     .line 643
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_37
 
     .line 639
     .end local v2    # "dow":I
-    :cond_1
-    :goto_0
+    :cond_36
+    :goto_36
     nop
 
     .line 646
-    :cond_2
-    :goto_1
+    :cond_37
+    :goto_37
     return v0
 .end method
 
 .method private static getWeekRange(I)I
-    .locals 3
+    .registers 4
     .param p0, "wby"    # I
 
     .line 601
@@ -475,7 +475,7 @@
 
     sget-object v2, Lj$/time/DayOfWeek;->THURSDAY:Lj$/time/DayOfWeek;
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_1f
 
     invoke-virtual {v0}, Lj$/time/LocalDate;->getDayOfWeek()Lj$/time/DayOfWeek;
 
@@ -483,32 +483,32 @@
 
     sget-object v2, Lj$/time/DayOfWeek;->WEDNESDAY:Lj$/time/DayOfWeek;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1c
 
     invoke-virtual {v0}, Lj$/time/LocalDate;->isLeapYear()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 606
-    :cond_0
+    :cond_1c
     const/16 v1, 0x34
 
     return v1
 
     .line 604
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     const/16 v1, 0x35
 
     return v1
 .end method
 
 .method private static getWeekRange(Lj$/time/LocalDate;)Lj$/time/temporal/ValueRange;
-    .locals 5
+    .registers 6
     .param p0, "date"    # Lj$/time/LocalDate;
 
     .line 596
@@ -534,7 +534,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lj$/time/temporal/IsoFields$Field;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 290
@@ -550,7 +550,7 @@
 .end method
 
 .method public static values()[Lj$/time/temporal/IsoFields$Field;
-    .locals 1
+    .registers 1
 
     .line 290
     sget-object v0, Lj$/time/temporal/IsoFields$Field;->$VALUES:[Lj$/time/temporal/IsoFields$Field;
@@ -567,7 +567,7 @@
 
 # virtual methods
 .method public synthetic getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/time/temporal/TemporalField$-CC;->$default$getDisplayName(Lj$/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/String;
 
@@ -577,7 +577,7 @@
 .end method
 
 .method public isDateBased()Z
-    .locals 1
+    .registers 2
 
     .line 572
     const/4 v0, 0x1
@@ -586,7 +586,7 @@
 .end method
 
 .method public isTimeBased()Z
-    .locals 1
+    .registers 2
 
     .line 577
     const/4 v0, 0x0
@@ -595,7 +595,7 @@
 .end method
 
 .method public rangeRefinedBy(Lj$/time/temporal/TemporalAccessor;)Lj$/time/temporal/ValueRange;
-    .locals 1
+    .registers 3
     .param p1, "temporal"    # Lj$/time/temporal/TemporalAccessor;
 
     .line 582
@@ -607,7 +607,7 @@
 .end method
 
 .method public synthetic resolve(Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/temporal/TemporalAccessor;
-    .locals 0
+    .registers 4
 
     invoke-static {p0, p1, p2, p3}, Lj$/time/temporal/TemporalField$-CC;->$default$resolve(Lj$/time/temporal/TemporalField;Ljava/util/Map;Lj$/time/temporal/TemporalAccessor;Lj$/time/format/ResolverStyle;)Lj$/time/temporal/TemporalAccessor;
 

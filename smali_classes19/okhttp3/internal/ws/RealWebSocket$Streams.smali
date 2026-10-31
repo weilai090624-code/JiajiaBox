@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(ZLokio/BufferedSource;Lokio/BufferedSink;)V
-    .locals 1
+    .registers 5
     .param p1, "client"    # Z
     .param p2, "source"    # Lokio/BufferedSource;
     .param p3, "sink"    # Lokio/BufferedSink;
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public final getClient()Z
-    .locals 1
+    .registers 2
 
     .line 612
     iget-boolean v0, p0, Lokhttp3/internal/ws/RealWebSocket$Streams;->client:Z
@@ -99,7 +99,7 @@
 .end method
 
 .method public final getSink()Lokio/BufferedSink;
-    .locals 1
+    .registers 2
 
     .line 614
     iget-object v0, p0, Lokhttp3/internal/ws/RealWebSocket$Streams;->sink:Lokio/BufferedSink;
@@ -108,7 +108,7 @@
 .end method
 
 .method public final getSource()Lokio/BufferedSource;
-    .locals 1
+    .registers 2
 
     .line 613
     iget-object v0, p0, Lokhttp3/internal/ws/RealWebSocket$Streams;->source:Lokio/BufferedSource;

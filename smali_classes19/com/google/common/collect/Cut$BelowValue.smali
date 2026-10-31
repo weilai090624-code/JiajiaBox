@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Comparable;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)V"
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 314
     .local p0, "this":Lcom/google/common/collect/Cut$BelowValue;, "Lcom/google/common/collect/Cut$BelowValue<TC;>;"
@@ -69,7 +69,7 @@
 .end method
 
 .method describeAsLowerBound(Ljava/lang/StringBuilder;)V
-    .locals 2
+    .registers 4
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .line 362
@@ -89,7 +89,7 @@
 .end method
 
 .method describeAsUpperBound(Ljava/lang/StringBuilder;)V
-    .locals 2
+    .registers 4
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .line 367
@@ -109,7 +109,7 @@
 .end method
 
 .method greatestValueBelow(Lcom/google/common/collect/DiscreteDomain;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -134,7 +134,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 383
     .local p0, "this":Lcom/google/common/collect/Cut$BelowValue;, "Lcom/google/common/collect/Cut$BelowValue<TC;>;"
@@ -148,7 +148,7 @@
 .end method
 
 .method isLessThan(Ljava/lang/Comparable;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;)Z"
@@ -164,21 +164,21 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method leastValueAbove(Lcom/google/common/collect/DiscreteDomain;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -196,7 +196,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 388
     .local p0, "this":Lcom/google/common/collect/Cut$BelowValue;, "Lcom/google/common/collect/Cut$BelowValue<TC;>;"
@@ -244,7 +244,7 @@
 .end method
 
 .method typeAsLowerBound()Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 2
 
     .line 326
     .local p0, "this":Lcom/google/common/collect/Cut$BelowValue;, "Lcom/google/common/collect/Cut$BelowValue<TC;>;"
@@ -254,7 +254,7 @@
 .end method
 
 .method typeAsUpperBound()Lcom/google/common/collect/BoundType;
-    .locals 1
+    .registers 2
 
     .line 331
     .local p0, "this":Lcom/google/common/collect/Cut$BelowValue;, "Lcom/google/common/collect/Cut$BelowValue<TC;>;"
@@ -264,7 +264,7 @@
 .end method
 
 .method withLowerBoundType(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 2
+    .registers 5
     .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -288,7 +288,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_26
 
     .line 343
     new-instance v0, Ljava/lang/AssertionError;
@@ -298,7 +298,7 @@
     throw v0
 
     .line 340
-    :pswitch_0
+    :pswitch_11
     iget-object v0, p0, Lcom/google/common/collect/Cut$BelowValue;->endpoint:Ljava/lang/Comparable;
 
     invoke-virtual {p2, v0}, Lcom/google/common/collect/DiscreteDomain;->previous(Ljava/lang/Comparable;)Ljava/lang/Comparable;
@@ -307,38 +307,38 @@
 
     .line 341
     .local v0, "previous":Ljava/lang/Comparable;, "TC;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     invoke-static {}, Lcom/google/common/collect/Cut;->belowAll()Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_1e
     new-instance v1, Lcom/google/common/collect/Cut$AboveValue;
 
     invoke-direct {v1, v0}, Lcom/google/common/collect/Cut$AboveValue;-><init>(Ljava/lang/Comparable;)V
 
-    :goto_0
+    :goto_23
     return-object v1
 
     .line 338
     .end local v0    # "previous":Ljava/lang/Comparable;, "TC;"
-    :pswitch_1
+    :pswitch_24
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_24
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method withUpperBoundType(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
-    .locals 2
+    .registers 5
     .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -362,7 +362,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_26
 
     .line 356
     new-instance v0, Ljava/lang/AssertionError;
@@ -372,11 +372,11 @@
     throw v0
 
     .line 354
-    :pswitch_0
+    :pswitch_11
     return-object p0
 
     .line 351
-    :pswitch_1
+    :pswitch_12
     iget-object v0, p0, Lcom/google/common/collect/Cut$BelowValue;->endpoint:Ljava/lang/Comparable;
 
     invoke-virtual {p2, v0}, Lcom/google/common/collect/DiscreteDomain;->previous(Ljava/lang/Comparable;)Ljava/lang/Comparable;
@@ -385,27 +385,27 @@
 
     .line 352
     .local v0, "previous":Ljava/lang/Comparable;, "TC;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     invoke-static {}, Lcom/google/common/collect/Cut;->aboveAll()Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_1f
     new-instance v1, Lcom/google/common/collect/Cut$AboveValue;
 
     invoke-direct {v1, v0}, Lcom/google/common/collect/Cut$AboveValue;-><init>(Ljava/lang/Comparable;)V
 
-    :goto_0
+    :goto_24
     return-object v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_12
+        :pswitch_11
     .end packed-switch
 .end method

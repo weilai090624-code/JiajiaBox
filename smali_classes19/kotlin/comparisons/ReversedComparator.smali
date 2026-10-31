@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Comparator;)V
-    .locals 1
+    .registers 3
     .param p1, "comparator"    # Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .registers 4
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -109,7 +109,7 @@
 .end method
 
 .method public final getComparator()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -125,7 +125,7 @@
 .end method
 
 .method public final reversed()Ljava/util/Comparator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -141,7 +141,7 @@
 .end method
 
 .method public synthetic thenComparing(Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Comparator$-CC;->$default$thenComparing(Ljava/util/Comparator;Ljava/util/Comparator;)Ljava/util/Comparator;
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public synthetic thenComparing(Ljava/util/function/Function;)Ljava/util/Comparator;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Comparator$-CC;->$default$thenComparing(Ljava/util/Comparator;Ljava/util/function/Function;)Ljava/util/Comparator;
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public synthetic thenComparing(Ljava/util/function/Function;Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 0
+    .registers 3
 
     invoke-static {p0, p1, p2}, Lj$/util/Comparator$-CC;->$default$thenComparing(Ljava/util/Comparator;Ljava/util/function/Function;Ljava/util/Comparator;)Ljava/util/Comparator;
 
@@ -171,7 +171,7 @@
 .end method
 
 .method public synthetic thenComparingDouble(Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Comparator$-CC;->$default$thenComparingDouble(Ljava/util/Comparator;Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;
 
@@ -181,7 +181,7 @@
 .end method
 
 .method public synthetic thenComparingInt(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Comparator$-CC;->$default$thenComparingInt(Ljava/util/Comparator;Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;
 
@@ -191,7 +191,7 @@
 .end method
 
 .method public synthetic thenComparingLong(Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Comparator$-CC;->$default$thenComparingLong(Ljava/util/Comparator;Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;
 

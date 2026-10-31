@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 34
     new-instance v0, Lcom/google/android/material/transition/platform/FadeModeEvaluators$1;
@@ -49,7 +49,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,12 +58,12 @@
 .end method
 
 .method static get(IZ)Lcom/google/android/material/transition/platform/FadeModeEvaluator;
-    .locals 3
+    .registers 5
     .param p0, "fadeMode"    # I
     .param p1, "entering"    # Z
 
     .line 82
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_32
 
     .line 92
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -91,50 +91,50 @@
     throw v0
 
     .line 90
-    :pswitch_0
+    :pswitch_1c
     sget-object v0, Lcom/google/android/material/transition/platform/FadeModeEvaluators;->THROUGH:Lcom/google/android/material/transition/platform/FadeModeEvaluator;
 
     return-object v0
 
     .line 88
-    :pswitch_1
+    :pswitch_1f
     sget-object v0, Lcom/google/android/material/transition/platform/FadeModeEvaluators;->CROSS:Lcom/google/android/material/transition/platform/FadeModeEvaluator;
 
     return-object v0
 
     .line 86
-    :pswitch_2
-    if-eqz p1, :cond_0
+    :pswitch_22
+    if-eqz p1, :cond_27
 
     sget-object v0, Lcom/google/android/material/transition/platform/FadeModeEvaluators;->OUT:Lcom/google/android/material/transition/platform/FadeModeEvaluator;
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_27
     sget-object v0, Lcom/google/android/material/transition/platform/FadeModeEvaluators;->IN:Lcom/google/android/material/transition/platform/FadeModeEvaluator;
 
-    :goto_0
+    :goto_29
     return-object v0
 
     .line 84
-    :pswitch_3
-    if-eqz p1, :cond_1
+    :pswitch_2a
+    if-eqz p1, :cond_2f
 
     sget-object v0, Lcom/google/android/material/transition/platform/FadeModeEvaluators;->IN:Lcom/google/android/material/transition/platform/FadeModeEvaluator;
 
-    goto :goto_1
+    goto :goto_31
 
-    :cond_1
+    :cond_2f
     sget-object v0, Lcom/google/android/material/transition/platform/FadeModeEvaluators;->OUT:Lcom/google/android/material/transition/platform/FadeModeEvaluator;
 
-    :goto_1
+    :goto_31
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_32
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2a
+        :pswitch_22
+        :pswitch_1f
+        :pswitch_1c
     .end packed-switch
 .end method

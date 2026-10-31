@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/timepicker/TimePickerView;Landroid/view/GestureDetector;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/timepicker/TimePickerView;
 
     .line 145
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 
@@ -54,7 +54,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 149
     iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerView$3;->val$gestureDetector:Landroid/view/GestureDetector;
@@ -66,7 +66,7 @@
     return v0
 
     .line 152
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0

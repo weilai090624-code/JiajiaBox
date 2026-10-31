@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/CustomTabsClient;Landroidx/browser/customtabs/CustomTabsCallback;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Landroidx/browser/customtabs/CustomTabsClient;
 
     .line 327
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public extraCallback(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1, "callbackName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
@@ -63,12 +63,12 @@
     .line 344
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->val$callback:Landroidx/browser/customtabs/CustomTabsCallback;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 345
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroidx/browser/customtabs/CustomTabsClient$2$2;
@@ -82,7 +82,7 @@
 .end method
 
 .method public extraCallbackWithResult(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 1
+    .registers 4
     .param p1, "callbackName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
@@ -94,14 +94,14 @@
     .line 358
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->val$callback:Landroidx/browser/customtabs/CustomTabsCallback;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 359
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->val$callback:Landroidx/browser/customtabs/CustomTabsCallback;
 
     invoke-virtual {v0, p1, p2}, Landroidx/browser/customtabs/CustomTabsCallback;->extraCallbackWithResult(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
@@ -112,7 +112,7 @@
 .end method
 
 .method public onActivityResized(IILandroid/os/Bundle;)V
-    .locals 2
+    .registers 6
     .param p1, "height"    # I
     .param p2, "width"    # I
     .param p3, "extras"    # Landroid/os/Bundle;
@@ -125,12 +125,12 @@
     .line 404
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->val$callback:Landroidx/browser/customtabs/CustomTabsCallback;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 405
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroidx/browser/customtabs/CustomTabsClient$2$6;
@@ -144,7 +144,7 @@
 .end method
 
 .method public onMessageChannelReady(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
     .param p1, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -155,12 +155,12 @@
     .line 365
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->val$callback:Landroidx/browser/customtabs/CustomTabsCallback;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 366
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroidx/browser/customtabs/CustomTabsClient$2$3;
@@ -174,19 +174,19 @@
 .end method
 
 .method public onNavigationEvent(ILandroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1, "navigationEvent"    # I
     .param p2, "extras"    # Landroid/os/Bundle;
 
     .line 332
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->val$callback:Landroidx/browser/customtabs/CustomTabsCallback;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 333
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroidx/browser/customtabs/CustomTabsClient$2$1;
@@ -200,7 +200,7 @@
 .end method
 
 .method public onPostMessage(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1, "message"    # Ljava/lang/String;
     .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
@@ -212,12 +212,12 @@
     .line 377
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->val$callback:Landroidx/browser/customtabs/CustomTabsCallback;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 378
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroidx/browser/customtabs/CustomTabsClient$2$4;
@@ -231,7 +231,7 @@
 .end method
 
 .method public onRelationshipValidationResult(ILandroid/net/Uri;ZLandroid/os/Bundle;)V
-    .locals 8
+    .registers 13
     .param p1, "relation"    # I
     .param p2, "requestedOrigin"    # Landroid/net/Uri;
     .param p3, "result"    # Z
@@ -245,12 +245,12 @@
     .line 390
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->val$callback:Landroidx/browser/customtabs/CustomTabsCallback;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 391
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->mHandler:Landroid/os/Handler;
 
     new-instance v7, Landroidx/browser/customtabs/CustomTabsClient$2$5;

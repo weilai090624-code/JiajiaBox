@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     const-string v0, "context"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .registers 4
 
     .line 51
     invoke-virtual {p0}, Landroidx/lifecycle/CloseableCoroutineScope;->getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
@@ -80,7 +80,7 @@
 .end method
 
 .method public getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Landroidx/lifecycle/CloseableCoroutineScope;->coroutineContext:Lkotlin/coroutines/CoroutineContext;

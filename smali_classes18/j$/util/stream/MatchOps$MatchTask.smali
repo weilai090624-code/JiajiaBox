@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/MatchOps$MatchOp;Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,7 +70,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/MatchOps$MatchTask;Lj$/util/Spliterator;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method protected doLeaf()Ljava/lang/Boolean;
-    .locals 3
+    .registers 4
 
     .line 306
     .local p0, "this":Lj$/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
@@ -137,7 +137,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_29
 
     .line 308
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -147,14 +147,14 @@
     invoke-virtual {p0, v1}, Lj$/util/stream/MatchOps$MatchTask;->shortCircuit(Ljava/lang/Object;)V
 
     .line 309
-    :cond_0
+    :cond_29
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method protected bridge synthetic doLeaf()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 277
     .local p0, "this":Lj$/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
@@ -166,7 +166,7 @@
 .end method
 
 .method protected getEmptyResult()Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
 
     .line 314
     .local p0, "this":Lj$/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
@@ -188,7 +188,7 @@
 .end method
 
 .method protected bridge synthetic getEmptyResult()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 277
     .local p0, "this":Lj$/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
@@ -200,7 +200,7 @@
 .end method
 
 .method protected bridge synthetic makeChild(Lj$/util/Spliterator;)Lj$/util/stream/AbstractTask;
-    .locals 0
+    .registers 2
 
     .line 277
     .local p0, "this":Lj$/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
@@ -212,7 +212,7 @@
 .end method
 
 .method protected makeChild(Lj$/util/Spliterator;)Lj$/util/stream/MatchOps$MatchTask;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

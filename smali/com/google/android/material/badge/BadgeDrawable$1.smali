@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;Landroid/widget/FrameLayout;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/google/android/material/badge/BadgeDrawable;
 
     .line 371
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 374
     iget-object v0, p0, Lcom/google/android/material/badge/BadgeDrawable$1;->this$0:Lcom/google/android/material/badge/BadgeDrawable;

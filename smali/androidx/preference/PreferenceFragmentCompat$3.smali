@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/preference/PreferenceFragmentCompat;Landroidx/preference/Preference;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/preference/PreferenceFragmentCompat;
 
     .line 698
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .registers 7
 
     .line 701
     iget-object v0, p0, Landroidx/preference/PreferenceFragmentCompat$3;->this$0:Landroidx/preference/PreferenceFragmentCompat;
@@ -60,16 +60,16 @@
     .local v0, "adapter":Landroidx/recyclerview/widget/RecyclerView$Adapter;, "Landroidx/recyclerview/widget/RecyclerView$Adapter<*>;"
     instance-of v1, v0, Landroidx/preference/PreferenceGroup$PreferencePositionCallback;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_17
 
     .line 704
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 709
     return-void
 
     .line 705
-    :cond_0
+    :cond_f
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Adapter must implement PreferencePositionCallback"
@@ -79,10 +79,10 @@
     throw v1
 
     .line 713
-    :cond_1
+    :cond_17
     iget-object v1, p0, Landroidx/preference/PreferenceFragmentCompat$3;->val$preference:Landroidx/preference/Preference;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_25
 
     .line 714
     move-object v1, v0
@@ -97,11 +97,11 @@
     move-result v1
 
     .local v1, "position":I
-    goto :goto_0
+    goto :goto_2e
 
     .line 717
     .end local v1    # "position":I
-    :cond_2
+    :cond_25
     move-object v1, v0
 
     check-cast v1, Landroidx/preference/PreferenceGroup$PreferencePositionCallback;
@@ -115,10 +115,10 @@
 
     .line 720
     .restart local v1    # "position":I
-    :goto_0
+    :goto_2e
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_39
 
     .line 721
     iget-object v2, p0, Landroidx/preference/PreferenceFragmentCompat$3;->this$0:Landroidx/preference/PreferenceFragmentCompat;
@@ -127,10 +127,10 @@
 
     invoke-virtual {v2, v1}, Landroidx/recyclerview/widget/RecyclerView;->scrollToPosition(I)V
 
-    goto :goto_1
+    goto :goto_49
 
     .line 724
-    :cond_3
+    :cond_39
     new-instance v2, Landroidx/preference/PreferenceFragmentCompat$ScrollToPreferenceObserver;
 
     iget-object v3, p0, Landroidx/preference/PreferenceFragmentCompat$3;->this$0:Landroidx/preference/PreferenceFragmentCompat;
@@ -146,6 +146,6 @@
     invoke-virtual {v0, v2}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->registerAdapterDataObserver(Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;)V
 
     .line 727
-    :goto_1
+    :goto_49
     return-void
 .end method

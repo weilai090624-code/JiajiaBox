@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 244
     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V

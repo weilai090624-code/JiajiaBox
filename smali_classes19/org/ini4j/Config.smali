@@ -145,7 +145,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 66
     const-string v0, "line.separator"
@@ -178,7 +178,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 93
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -191,7 +191,7 @@
 .end method
 
 .method private getBoolean(Ljava/lang/String;Z)Z
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "defaultValue"    # Z
 
@@ -220,23 +220,23 @@
 
     .line 395
     .local v0, "value":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     move v1, p2
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1b
     invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v1
 
-    :goto_0
+    :goto_1f
     return v1
 .end method
 
 .method private getChar(Ljava/lang/String;C)C
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "defaultValue"    # C
 
@@ -265,25 +265,25 @@
 
     .line 402
     .local v0, "value":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     move v1, p2
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    :goto_0
+    :goto_20
     return v1
 .end method
 
 .method private getCharset(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "defaultValue"    # Ljava/nio/charset/Charset;
 
@@ -312,23 +312,23 @@
 
     .line 409
     .local v0, "value":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     move-object v1, p2
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1b
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v1
 
-    :goto_0
+    :goto_1f
     return-object v1
 .end method
 
 .method public static getEnvironment(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 99
@@ -342,7 +342,7 @@
 .end method
 
 .method public static getEnvironment(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "defaultValue"    # Ljava/lang/String;
 
@@ -351,16 +351,16 @@
     invoke-static {p0}, Ljava/lang/System;->getenv(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_4} :catch_5
 
     .line 113
     .local v0, "value":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_9
 
     .line 110
     .end local v0    # "value":Ljava/lang/String;
-    :catch_0
+    :catch_5
     move-exception v0
 
     const/4 v1, 0x0
@@ -375,22 +375,22 @@
     .line 115
     .end local v1    # "value":Ljava/lang/String;
     .local v0, "value":Ljava/lang/String;
-    :goto_0
-    if-nez v0, :cond_0
+    :goto_9
+    if-nez v0, :cond_d
 
     move-object v1, p1
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v1, v0
 
-    :goto_1
+    :goto_e
     return-object v1
 .end method
 
 .method public static getGlobal()Lorg/ini4j/Config;
-    .locals 1
+    .registers 1
 
     .line 120
     sget-object v0, Lorg/ini4j/Config;->GLOBAL:Lorg/ini4j/Config;
@@ -399,7 +399,7 @@
 .end method
 
 .method private getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 5
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "defaultValue"    # Ljava/lang/String;
 
@@ -430,7 +430,7 @@
 .end method
 
 .method public static getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 125
@@ -444,7 +444,7 @@
 .end method
 
 .method public static getSystemProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "name"    # Ljava/lang/String;
     .param p1, "defaultValue"    # Ljava/lang/String;
 
@@ -453,16 +453,16 @@
     invoke-static {p0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_4} :catch_5
 
     .line 139
     .local v0, "value":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_9
 
     .line 136
     .end local v0    # "value":Ljava/lang/String;
-    :catch_0
+    :catch_5
     move-exception v0
 
     const/4 v1, 0x0
@@ -477,24 +477,24 @@
     .line 141
     .end local v1    # "value":Ljava/lang/String;
     .local v0, "value":Ljava/lang/String;
-    :goto_0
-    if-nez v0, :cond_0
+    :goto_9
+    if-nez v0, :cond_d
 
     move-object v1, p1
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move-object v1, v0
 
-    :goto_1
+    :goto_e
     return-object v1
 .end method
 
 
 # virtual methods
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -510,7 +510,7 @@
 .end method
 
 .method public clone()Lorg/ini4j/Config;
-    .locals 2
+    .registers 3
 
     .line 358
     :try_start_0
@@ -519,13 +519,13 @@
     move-result-object v0
 
     check-cast v0, Lorg/ini4j/Config;
-    :try_end_0
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
     .line 360
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 362
@@ -538,7 +538,7 @@
 .end method
 
 .method public getFileEncoding()Ljava/nio/charset/Charset;
-    .locals 1
+    .registers 2
 
     .line 196
     iget-object v0, p0, Lorg/ini4j/Config;->_fileEncoding:Ljava/nio/charset/Charset;
@@ -547,7 +547,7 @@
 .end method
 
 .method public getGlobalSectionName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 211
     iget-object v0, p0, Lorg/ini4j/Config;->_globalSectionName:Ljava/lang/String;
@@ -556,7 +556,7 @@
 .end method
 
 .method public getLineSeparator()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 231
     iget-object v0, p0, Lorg/ini4j/Config;->_lineSeparator:Ljava/lang/String;
@@ -565,7 +565,7 @@
 .end method
 
 .method public getPathSeparator()C
-    .locals 1
+    .registers 2
 
     .line 301
     iget-char v0, p0, Lorg/ini4j/Config;->_pathSeparator:C
@@ -574,7 +574,7 @@
 .end method
 
 .method public isComment()Z
-    .locals 1
+    .registers 2
 
     .line 331
     iget-boolean v0, p0, Lorg/ini4j/Config;->_comment:Z
@@ -583,7 +583,7 @@
 .end method
 
 .method public isEmptyOption()Z
-    .locals 1
+    .registers 2
 
     .line 261
     iget-boolean v0, p0, Lorg/ini4j/Config;->_emptyOption:Z
@@ -592,7 +592,7 @@
 .end method
 
 .method public isEmptySection()Z
-    .locals 1
+    .registers 2
 
     .line 266
     iget-boolean v0, p0, Lorg/ini4j/Config;->_emptySection:Z
@@ -601,7 +601,7 @@
 .end method
 
 .method public isEscape()Z
-    .locals 1
+    .registers 2
 
     .line 151
     iget-boolean v0, p0, Lorg/ini4j/Config;->_escape:Z
@@ -610,7 +610,7 @@
 .end method
 
 .method public isEscapeKeyOnly()Z
-    .locals 1
+    .registers 2
 
     .line 351
     iget-boolean v0, p0, Lorg/ini4j/Config;->_escapeKeyOnly:Z
@@ -619,7 +619,7 @@
 .end method
 
 .method public isEscapeNewline()Z
-    .locals 1
+    .registers 2
 
     .line 156
     iget-boolean v0, p0, Lorg/ini4j/Config;->_escapeNewline:Z
@@ -628,7 +628,7 @@
 .end method
 
 .method public isGlobalSection()Z
-    .locals 1
+    .registers 2
 
     .line 271
     iget-boolean v0, p0, Lorg/ini4j/Config;->_globalSection:Z
@@ -637,7 +637,7 @@
 .end method
 
 .method public isHeaderComment()Z
-    .locals 1
+    .registers 2
 
     .line 336
     iget-boolean v0, p0, Lorg/ini4j/Config;->_headerComment:Z
@@ -646,7 +646,7 @@
 .end method
 
 .method public isInclude()Z
-    .locals 1
+    .registers 2
 
     .line 161
     iget-boolean v0, p0, Lorg/ini4j/Config;->_include:Z
@@ -655,7 +655,7 @@
 .end method
 
 .method public isLowerCaseOption()Z
-    .locals 1
+    .registers 2
 
     .line 276
     iget-boolean v0, p0, Lorg/ini4j/Config;->_lowerCaseOption:Z
@@ -664,7 +664,7 @@
 .end method
 
 .method public isLowerCaseSection()Z
-    .locals 1
+    .registers 2
 
     .line 281
     iget-boolean v0, p0, Lorg/ini4j/Config;->_lowerCaseSection:Z
@@ -673,7 +673,7 @@
 .end method
 
 .method public isMultiOption()Z
-    .locals 1
+    .registers 2
 
     .line 286
     iget-boolean v0, p0, Lorg/ini4j/Config;->_multiOption:Z
@@ -682,7 +682,7 @@
 .end method
 
 .method public isMultiSection()Z
-    .locals 1
+    .registers 2
 
     .line 291
     iget-boolean v0, p0, Lorg/ini4j/Config;->_multiSection:Z
@@ -691,7 +691,7 @@
 .end method
 
 .method public isPropertyFirstUpper()Z
-    .locals 1
+    .registers 2
 
     .line 316
     iget-boolean v0, p0, Lorg/ini4j/Config;->_propertyFirstUpper:Z
@@ -700,7 +700,7 @@
 .end method
 
 .method public isStrictOperator()Z
-    .locals 1
+    .registers 2
 
     .line 321
     iget-boolean v0, p0, Lorg/ini4j/Config;->_strictOperator:Z
@@ -709,7 +709,7 @@
 .end method
 
 .method public isTree()Z
-    .locals 1
+    .registers 2
 
     .line 166
     iget-boolean v0, p0, Lorg/ini4j/Config;->_tree:Z
@@ -718,7 +718,7 @@
 .end method
 
 .method public isUnnamedSection()Z
-    .locals 1
+    .registers 2
 
     .line 296
     iget-boolean v0, p0, Lorg/ini4j/Config;->_unnamedSection:Z
@@ -727,7 +727,7 @@
 .end method
 
 .method public final reset()V
-    .locals 4
+    .registers 5
 
     .line 368
     const-string v0, "emptyOption"
@@ -935,7 +935,7 @@
 .end method
 
 .method public setComment(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 146
@@ -946,7 +946,7 @@
 .end method
 
 .method public setEmptyOption(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 171
@@ -957,7 +957,7 @@
 .end method
 
 .method public setEmptySection(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 176
@@ -968,7 +968,7 @@
 .end method
 
 .method public setEscape(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 181
@@ -979,7 +979,7 @@
 .end method
 
 .method public setEscapeKeyOnly(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 186
@@ -990,7 +990,7 @@
 .end method
 
 .method public setEscapeNewline(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 191
@@ -1001,7 +1001,7 @@
 .end method
 
 .method public setFileEncoding(Ljava/nio/charset/Charset;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/nio/charset/Charset;
 
     .line 201
@@ -1012,7 +1012,7 @@
 .end method
 
 .method public setGlobalSection(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 206
@@ -1023,7 +1023,7 @@
 .end method
 
 .method public setGlobalSectionName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/String;
 
     .line 216
@@ -1034,7 +1034,7 @@
 .end method
 
 .method public setHeaderComment(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 221
@@ -1045,7 +1045,7 @@
 .end method
 
 .method public setInclude(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 226
@@ -1056,7 +1056,7 @@
 .end method
 
 .method public setLineSeparator(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/String;
 
     .line 236
@@ -1067,7 +1067,7 @@
 .end method
 
 .method public setLowerCaseOption(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 241
@@ -1078,7 +1078,7 @@
 .end method
 
 .method public setLowerCaseSection(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 246
@@ -1089,7 +1089,7 @@
 .end method
 
 .method public setMultiOption(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 251
@@ -1100,7 +1100,7 @@
 .end method
 
 .method public setMultiSection(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 256
@@ -1111,7 +1111,7 @@
 .end method
 
 .method public setPathSeparator(C)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # C
 
     .line 306
@@ -1122,7 +1122,7 @@
 .end method
 
 .method public setPropertyFirstUpper(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 311
@@ -1133,7 +1133,7 @@
 .end method
 
 .method public setStrictOperator(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 326
@@ -1144,7 +1144,7 @@
 .end method
 
 .method public setTree(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 341
@@ -1155,7 +1155,7 @@
 .end method
 
 .method public setUnnamedSection(Z)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Z
 
     .line 346

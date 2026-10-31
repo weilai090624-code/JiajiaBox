@@ -55,7 +55,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    .locals 1
+    .registers 3
     .param p1, "parcel"    # Landroid/os/Parcel;
 
     const-string v0, "parcel"
@@ -82,7 +82,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Landroid/os/Parcel;
 
     .line 23
@@ -94,7 +94,7 @@
 .end method
 
 .method public newArray(I)[Lio/nekohasekai/sagernet/database/preference/KeyValuePair;
-    .locals 1
+    .registers 3
     .param p1, "size"    # I
 
     .line 29
@@ -104,7 +104,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # I
 
     .line 23

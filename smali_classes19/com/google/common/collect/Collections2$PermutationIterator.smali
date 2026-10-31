@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method calculateNextPermutation()V
-    .locals 6
+    .registers 7
 
     .line 644
     .local p0, "this":Lcom/google/common/collect/Collections2$PermutationIterator;, "Lcom/google/common/collect/Collections2$PermutationIterator<TE;>;"
@@ -130,14 +130,14 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_11
 
     .line 650
     return-void
 
     .line 654
-    :cond_0
-    :goto_0
+    :cond_11
+    :goto_11
     iget-object v1, p0, Lcom/google/common/collect/Collections2$PermutationIterator;->c:[I
 
     iget v2, p0, Lcom/google/common/collect/Collections2$PermutationIterator;->j:I
@@ -154,42 +154,42 @@
 
     .line 655
     .local v1, "q":I
-    if-gez v1, :cond_1
+    if-gez v1, :cond_24
 
     .line 656
     invoke-virtual {p0}, Lcom/google/common/collect/Collections2$PermutationIterator;->switchDirection()V
 
     .line 657
-    goto :goto_0
+    goto :goto_11
 
     .line 659
-    :cond_1
+    :cond_24
     iget v2, p0, Lcom/google/common/collect/Collections2$PermutationIterator;->j:I
 
     add-int/lit8 v2, v2, 0x1
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_35
 
     .line 660
     iget v2, p0, Lcom/google/common/collect/Collections2$PermutationIterator;->j:I
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2f
 
     .line 661
-    goto :goto_1
+    goto :goto_4f
 
     .line 663
-    :cond_2
+    :cond_2f
     add-int/lit8 v0, v0, 0x1
 
     .line 664
     invoke-virtual {p0}, Lcom/google/common/collect/Collections2$PermutationIterator;->switchDirection()V
 
     .line 665
-    goto :goto_0
+    goto :goto_11
 
     .line 668
-    :cond_3
+    :cond_35
     iget-object v2, p0, Lcom/google/common/collect/Collections2$PermutationIterator;->list:Ljava/util/List;
 
     iget v3, p0, Lcom/google/common/collect/Collections2$PermutationIterator;->j:I
@@ -224,12 +224,12 @@
 
     .line 672
     .end local v1    # "q":I
-    :goto_1
+    :goto_4f
     return-void
 .end method
 
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Ljavax/annotation/CheckForNull;
     .end annotation
 
@@ -243,7 +243,7 @@
 .end method
 
 .method protected computeNext()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -259,7 +259,7 @@
     .local p0, "this":Lcom/google/common/collect/Collections2$PermutationIterator;, "Lcom/google/common/collect/Collections2$PermutationIterator<TE;>;"
     iget v0, p0, Lcom/google/common/collect/Collections2$PermutationIterator;->j:I
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_b
 
     .line 636
     invoke-virtual {p0}, Lcom/google/common/collect/Collections2$PermutationIterator;->endOfData()Ljava/lang/Object;
@@ -271,7 +271,7 @@
     return-object v0
 
     .line 638
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/google/common/collect/Collections2$PermutationIterator;->list:Ljava/util/List;
 
     invoke-static {v0}, Lcom/google/common/collect/ImmutableList;->copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableList;
@@ -287,7 +287,7 @@
 .end method
 
 .method switchDirection()V
-    .locals 4
+    .registers 5
 
     .line 675
     .local p0, "this":Lcom/google/common/collect/Collections2$PermutationIterator;, "Lcom/google/common/collect/Collections2$PermutationIterator<TE;>;"

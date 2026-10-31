@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static flatten(Landroid/graphics/Path;)Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .param p0, "path"    # Landroid/graphics/Path;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -47,7 +47,7 @@
 .end method
 
 .method public static flatten(Landroid/graphics/Path;F)Ljava/util/Collection;
-    .locals 15
+    .registers 17
     .param p0, "path"    # Landroid/graphics/Path;
     .param p1, "error"    # F
     .annotation system Ldalvik/annotation/Signature;
@@ -83,8 +83,8 @@
     const/4 v3, 0x1
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_2
+    :goto_d
+    if-ge v3, v1, :cond_4a
 
     .line 68
     mul-int/lit8 v4, v3, 0x3
@@ -131,18 +131,18 @@
     .local v11, "py":F
     cmpl-float v12, v6, v9
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_47
 
     cmpl-float v12, v7, v10
 
-    if-nez v12, :cond_0
+    if-nez v12, :cond_35
 
     cmpl-float v12, v8, v11
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_47
 
     .line 80
-    :cond_0
+    :cond_35
     new-instance v12, Landroidx/core/graphics/PathSegment;
 
     new-instance v13, Landroid/graphics/PointF;
@@ -166,13 +166,13 @@
     .end local v9    # "pd":F
     .end local v10    # "px":F
     .end local v11    # "py":F
-    :cond_1
+    :cond_47
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 83
     .end local v3    # "i":I
-    :cond_2
+    :cond_4a
     return-object v2
 .end method

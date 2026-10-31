@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(III)V
-    .locals 0
+    .registers 4
     .param p1, "x"    # I
     .param p2, "y"    # I
     .param p3, "size"    # I
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method endX()I
-    .locals 2
+    .registers 3
 
     .line 488
     iget v0, p0, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->x:I
@@ -61,7 +61,7 @@
 .end method
 
 .method endY()I
-    .locals 2
+    .registers 3
 
     .line 492
     iget v0, p0, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->y:I

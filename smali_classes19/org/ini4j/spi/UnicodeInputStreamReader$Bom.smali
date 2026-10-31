@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     .line 32
     new-instance v0, Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
@@ -53,7 +53,7 @@
 
     new-array v2, v1, [B
 
-    fill-array-data v2, :array_0
+    fill-array-data v2, :array_70
 
     const-string v3, "UTF32BE"
 
@@ -70,7 +70,7 @@
 
     new-array v2, v1, [B
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_76
 
     const-string v3, "UTF32LE"
 
@@ -89,7 +89,7 @@
 
     new-array v3, v2, [B
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_7c
 
     const-string v6, "UTF16BE"
 
@@ -104,7 +104,7 @@
 
     new-array v3, v2, [B
 
-    fill-array-data v3, :array_3
+    fill-array-data v3, :array_82
 
     const-string v6, "UTF16LE"
 
@@ -121,7 +121,7 @@
 
     new-array v3, v7, [B
 
-    fill-array-data v3, :array_4
+    fill-array-data v3, :array_88
 
     const-string v6, "UTF8"
 
@@ -162,7 +162,7 @@
 
     nop
 
-    :array_0
+    :array_70
     .array-data 1
         0x0t
         0x0t
@@ -170,7 +170,7 @@
         -0x1t
     .end array-data
 
-    :array_1
+    :array_76
     .array-data 1
         -0x1t
         -0x2t
@@ -178,7 +178,7 @@
         0x0t
     .end array-data
 
-    :array_2
+    :array_7c
     .array-data 1
         -0x2t
         -0x1t
@@ -186,7 +186,7 @@
 
     nop
 
-    :array_3
+    :array_82
     .array-data 1
         -0x1t
         -0x2t
@@ -194,7 +194,7 @@
 
     nop
 
-    :array_4
+    :array_88
     .array-data 1
         -0x11t
         -0x45t
@@ -203,7 +203,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;[B)V
-    .locals 0
+    .registers 5
     .param p3, "charsetName"    # Ljava/lang/String;
     .param p4, "bytes"    # [B
     .annotation system Ldalvik/annotation/Signature;
@@ -218,20 +218,20 @@
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     .line 45
-    :try_start_0
+    :try_start_3
     invoke-static {p3}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object p1
 
     iput-object p1, p0, Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->_charset:Ljava/nio/charset/Charset;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_9} :catch_a
 
     .line 50
-    goto :goto_0
+    goto :goto_e
 
     .line 47
-    :catch_0
+    :catch_a
     move-exception p1
 
     .line 49
@@ -242,7 +242,7 @@
 
     .line 52
     .end local p1    # "x":Ljava/lang/Exception;
-    :goto_0
+    :goto_e
     iput-object p4, p0, Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->_bytes:[B
 
     .line 53
@@ -250,7 +250,7 @@
 .end method
 
 .method static synthetic access$000([B)Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # [B
 
     .line 30
@@ -262,7 +262,7 @@
 .end method
 
 .method static synthetic access$100(Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;)Ljava/nio/charset/Charset;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
 
     .line 30
@@ -272,7 +272,7 @@
 .end method
 
 .method static synthetic access$200(Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;)[B
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
 
     .line 30
@@ -282,7 +282,7 @@
 .end method
 
 .method private static find([B)Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
-    .locals 6
+    .registers 7
     .param p0, "data"    # [B
 
     .line 57
@@ -301,8 +301,8 @@
     const/4 v3, 0x0
 
     .local v3, "i$":I
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_7
+    if-ge v3, v2, :cond_1c
 
     aget-object v4, v1, v3
 
@@ -312,38 +312,38 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_19
 
     invoke-direct {v4, p0}, Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->match([B)Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_19
 
     .line 63
     move-object v0, v4
 
     .line 65
-    goto :goto_1
+    goto :goto_1c
 
     .line 59
     .end local v4    # "bom":Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
-    :cond_0
+    :cond_19
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 69
     .end local v1    # "arr$":[Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
     .end local v2    # "len$":I
     .end local v3    # "i$":I
-    :cond_1
-    :goto_1
+    :cond_1c
+    :goto_1c
     return-object v0
 .end method
 
 .method private match([B)Z
-    .locals 4
+    .registers 6
     .param p1, "data"    # [B
 
     .line 74
@@ -354,12 +354,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     iget-object v2, p0, Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->_bytes:[B
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_14
 
     .line 78
     aget-byte v2, p1, v1
@@ -368,48 +368,48 @@
 
     aget-byte v3, v3, v1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_11
 
     .line 80
     const/4 v0, 0x0
 
     .line 82
-    goto :goto_1
+    goto :goto_14
 
     .line 76
-    :cond_0
+    :cond_11
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 86
     .end local v1    # "i":I
-    :cond_1
-    :goto_1
+    :cond_14
+    :goto_14
     return v0
 .end method
 
 .method private supported()Z
-    .locals 1
+    .registers 2
 
     .line 91
     iget-object v0, p0, Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->_charset:Ljava/nio/charset/Charset;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 30
@@ -425,7 +425,7 @@
 .end method
 
 .method public static values()[Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;
-    .locals 1
+    .registers 1
 
     .line 30
     sget-object v0, Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;->$VALUES:[Lorg/ini4j/spi/UnicodeInputStreamReader$Bom;

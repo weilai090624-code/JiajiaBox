@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/Object;II)V
-    .locals 0
+    .registers 4
     .param p1, "alternatingKeysAndValues"    # [Ljava/lang/Object;
     .param p2, "offset"    # I
     .param p3, "size"    # I
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 392
@@ -83,7 +83,7 @@
 .end method
 
 .method isPartialView()Z
-    .locals 1
+    .registers 2
 
     .line 399
     const/4 v0, 0x1
@@ -92,7 +92,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 404
     iget v0, p0, Lcom/google/common/collect/RegularImmutableMap$KeysOrValuesAsList;->size:I

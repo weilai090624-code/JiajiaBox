@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "imageCaptureFormat"    # I
     .param p2, "imageAnalysisFormat"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -55,18 +55,18 @@
     .line 39
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     .line 40
     return v0
 
     .line 42
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/camera/core/ImageReaderFormatRecommender$FormatCombo;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1f
 
     .line 43
     move-object v1, p1
@@ -81,7 +81,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_1d
 
     iget v3, p0, Landroidx/camera/core/AutoValue_ImageReaderFormatRecommender_FormatCombo;->imageAnalysisFormat:I
 
@@ -90,25 +90,25 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
     .line 44
-    :goto_0
+    :goto_1e
     return v0
 
     .line 47
     .end local v1    # "that":Landroidx/camera/core/ImageReaderFormatRecommender$FormatCombo;
-    :cond_2
+    :cond_1f
     return v2
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 52
     const/4 v0, 0x1
@@ -137,7 +137,7 @@
 .end method
 
 .method imageAnalysisFormat()I
-    .locals 1
+    .registers 2
 
     .line 26
     iget v0, p0, Landroidx/camera/core/AutoValue_ImageReaderFormatRecommender_FormatCombo;->imageAnalysisFormat:I
@@ -146,7 +146,7 @@
 .end method
 
 .method imageCaptureFormat()I
-    .locals 1
+    .registers 2
 
     .line 21
     iget v0, p0, Landroidx/camera/core/AutoValue_ImageReaderFormatRecommender_FormatCombo;->imageCaptureFormat:I
@@ -155,7 +155,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 31
     new-instance v0, Ljava/lang/StringBuilder;

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public callUninterruptiblyWithTimeout(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
+    .registers 6
     .param p2, "timeoutDuration"    # J
     .param p4, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -58,7 +58,7 @@
 .end method
 
 .method public callWithTimeout(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 2
+    .registers 7
     .param p2, "timeoutDuration"    # J
     .param p4, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
@@ -90,20 +90,20 @@
     invoke-static {p4}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 58
-    :try_start_0
+    :try_start_6
     invoke-interface {p1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_a} :catch_20
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_a} :catch_19
+    .catch Ljava/lang/Error; {:try_start_6 .. :try_end_a} :catch_12
+    .catchall {:try_start_6 .. :try_end_a} :catchall_b
 
     return-object v0
 
     .line 65
-    :catchall_0
+    :catchall_b
     move-exception v0
 
     .line 68
@@ -116,7 +116,7 @@
 
     .line 63
     .end local v0    # "e":Ljava/lang/Throwable;
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 64
@@ -129,7 +129,7 @@
 
     .line 61
     .end local v0    # "e":Ljava/lang/Error;
-    :catch_1
+    :catch_19
     move-exception v0
 
     .line 62
@@ -142,7 +142,7 @@
 
     .line 59
     .end local v0    # "e":Ljava/lang/Exception;
-    :catch_2
+    :catch_20
     move-exception v0
 
     .line 60
@@ -155,7 +155,7 @@
 .end method
 
 .method public newProxy(Ljava/lang/Object;Ljava/lang/Class;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 0
+    .registers 6
     .param p3, "timeoutDuration"    # J
     .param p5, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
@@ -186,7 +186,7 @@
 .end method
 
 .method public runUninterruptiblyWithTimeout(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)V
-    .locals 0
+    .registers 5
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .param p2, "timeoutDuration"    # J
     .param p4, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -199,7 +199,7 @@
 .end method
 
 .method public runWithTimeout(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)V
-    .locals 2
+    .registers 7
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .param p2, "timeoutDuration"    # J
     .param p4, "timeoutUnit"    # Ljava/util/concurrent/TimeUnit;
@@ -211,12 +211,12 @@
     invoke-static {p4}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 84
-    :try_start_0
+    :try_start_6
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_9} :catch_19
+    .catch Ljava/lang/Error; {:try_start_6 .. :try_end_9} :catch_12
+    .catchall {:try_start_6 .. :try_end_9} :catchall_b
 
     .line 93
     nop
@@ -225,7 +225,7 @@
     return-void
 
     .line 89
-    :catchall_0
+    :catchall_b
     move-exception v0
 
     .line 92
@@ -238,7 +238,7 @@
 
     .line 87
     .end local v0    # "e":Ljava/lang/Throwable;
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 88
@@ -251,7 +251,7 @@
 
     .line 85
     .end local v0    # "e":Ljava/lang/Error;
-    :catch_1
+    :catch_19
     move-exception v0
 
     .line 86

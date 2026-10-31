@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/Timeout;)V
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lokio/Timeout;
 
     const-string v0, "delegate"
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public clearDeadline()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 48
     iget-object v0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -78,7 +78,7 @@
 .end method
 
 .method public clearTimeout()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 46
     iget-object v0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -91,7 +91,7 @@
 .end method
 
 .method public deadlineNanoTime()J
-    .locals 2
+    .registers 3
 
     .line 40
     iget-object v0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -104,7 +104,7 @@
 .end method
 
 .method public deadlineNanoTime(J)Lokio/Timeout;
-    .locals 1
+    .registers 4
     .param p1, "deadlineNanoTime"    # J
 
     .line 42
@@ -123,7 +123,7 @@
 .end method
 
 .method public final delegate()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     .line 25
     iget-object v0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -132,7 +132,7 @@
 .end method
 
 .method public hasDeadline()Z
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -145,7 +145,7 @@
 .end method
 
 .method public final setDelegate(Lokio/Timeout;)Lokio/ForwardingTimeout;
-    .locals 1
+    .registers 3
     .param p1, "delegate"    # Lokio/Timeout;
 
     const-string v0, "delegate"
@@ -160,7 +160,7 @@
 .end method
 
 .method public final synthetic setDelegate(Lokio/Timeout;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Lokio/Timeout;
 
     const-string v0, "<set-?>"
@@ -174,7 +174,7 @@
 .end method
 
 .method public throwIfReached()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -190,7 +190,7 @@
 .end method
 
 .method public timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
-    .locals 1
+    .registers 5
     .param p1, "timeout"    # J
     .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -209,7 +209,7 @@
 .end method
 
 .method public timeoutNanos()J
-    .locals 2
+    .registers 3
 
     .line 36
     iget-object v0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;

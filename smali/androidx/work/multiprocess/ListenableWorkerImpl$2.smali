@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/multiprocess/ListenableWorkerImpl;Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/work/multiprocess/IWorkManagerImplCallback;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Landroidx/work/multiprocess/ListenableWorkerImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 155
     iget-object v0, p0, Landroidx/work/multiprocess/ListenableWorkerImpl$2;->val$future:Lcom/google/common/util/concurrent/ListenableFuture;

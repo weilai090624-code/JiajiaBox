@@ -55,7 +55,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 2275
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Landroidx/navigation/NavController$Companion;-><init>()V
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public static synthetic getKEY_DEEP_LINK_EXTRAS$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final enableDeepLinkSaveState(Z)V
-    .locals 0
+    .registers 2
     .param p1, "saveState"    # Z
     .annotation runtime Landroidx/navigation/NavDeepLinkSaveStateControl;
     .end annotation

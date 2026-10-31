@@ -39,7 +39,7 @@
 
 # direct methods
 .method public static final synthetic buffer(Lkotlinx/coroutines/flow/Flow;I)Lkotlinx/coroutines/flow/Flow;
-    .locals 2
+    .registers 4
     .param p0, "$this$buffer"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "capacity"    # I
     .annotation runtime Lkotlin/Deprecated;
@@ -60,7 +60,7 @@
 .end method
 
 .method public static final buffer(Lkotlinx/coroutines/flow/Flow;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 10
+    .registers 13
     .param p0, "$this$buffer"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "capacity"    # I
     .param p2, "onBufferOverflow"    # Lkotlinx/coroutines/channels/BufferOverflow;
@@ -85,40 +85,40 @@
 
     const/4 v2, -0x1
 
-    if-gez p1, :cond_1
+    if-gez p1, :cond_d
 
     const/4 v3, -0x2
 
-    if-eq p1, v3, :cond_1
+    if-eq p1, v3, :cond_d
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 v3, 0x1
 
-    :goto_1
-    if-eqz v3, :cond_7
+    :goto_e
+    if-eqz v3, :cond_50
 
     .line 129
-    if-ne p1, v2, :cond_2
+    if-ne p1, v2, :cond_16
 
     sget-object v3, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    if-ne p2, v3, :cond_3
+    if-ne p2, v3, :cond_17
 
-    :cond_2
+    :cond_16
     const/4 v0, 0x1
 
-    :cond_3
-    if-eqz v0, :cond_6
+    :cond_17
+    if-eqz v0, :cond_42
 
     .line 133
     move v0, p1
@@ -129,7 +129,7 @@
 
     .line 135
     .local v1, "onBufferOverflow":Lkotlinx/coroutines/channels/BufferOverflow;
-    if-ne v0, v2, :cond_4
+    if-ne v0, v2, :cond_20
 
     .line 136
     const/4 v0, 0x0
@@ -138,13 +138,13 @@
     sget-object v1, Lkotlinx/coroutines/channels/BufferOverflow;->DROP_OLDEST:Lkotlinx/coroutines/channels/BufferOverflow;
 
     .line 140
-    :cond_4
+    :cond_20
     nop
 
     .line 141
     instance-of v2, p0, Lkotlinx/coroutines/flow/internal/FusibleFlow;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_32
 
     move-object v2, p0
 
@@ -164,10 +164,10 @@
 
     move-result-object v2
 
-    goto :goto_2
+    goto :goto_41
 
     .line 142
-    :cond_5
+    :cond_32
     new-instance v9, Lkotlinx/coroutines/flow/internal/ChannelFlowOperatorImpl;
 
     const/4 v7, 0x2
@@ -191,13 +191,13 @@
     check-cast v2, Lkotlinx/coroutines/flow/Flow;
 
     .line 140
-    :goto_2
+    :goto_41
     return-object v2
 
     .line 129
     .end local v0    # "capacity":I
     .end local v1    # "onBufferOverflow":Lkotlinx/coroutines/channels/BufferOverflow;
-    :cond_6
+    :cond_42
     const/4 v0, 0x0
 
     .line 130
@@ -219,7 +219,7 @@
     throw v0
 
     .line 126
-    :cond_7
+    :cond_50
     const/4 v0, 0x0
 
     .line 127
@@ -256,16 +256,16 @@
 .end method
 
 .method public static synthetic buffer$default(Lkotlinx/coroutines/flow/Flow;IILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 0
+    .registers 4
 
     .line 147
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     const/4 p1, -0x2
 
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Lkotlinx/coroutines/flow/FlowKt;->buffer(Lkotlinx/coroutines/flow/Flow;I)Lkotlinx/coroutines/flow/Flow;
 
     move-result-object p0
@@ -274,23 +274,23 @@
 .end method
 
 .method public static synthetic buffer$default(Lkotlinx/coroutines/flow/Flow;ILkotlinx/coroutines/channels/BufferOverflow;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
-    .locals 0
+    .registers 5
 
     .line 125
     and-int/lit8 p4, p3, 0x1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     const/4 p1, -0x2
 
-    :cond_0
+    :cond_5
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_b
 
     sget-object p2, Lkotlinx/coroutines/channels/BufferOverflow;->SUSPEND:Lkotlinx/coroutines/channels/BufferOverflow;
 
-    :cond_1
+    :cond_b
     invoke-static {p0, p1, p2}, Lkotlinx/coroutines/flow/FlowKt;->buffer(Lkotlinx/coroutines/flow/Flow;ILkotlinx/coroutines/channels/BufferOverflow;)Lkotlinx/coroutines/flow/Flow;
 
     move-result-object p0
@@ -299,7 +299,7 @@
 .end method
 
 .method public static final cancellable(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 1
+    .registers 2
     .param p0, "$this$cancellable"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -319,14 +319,14 @@
     .line 259
     instance-of v0, p0, Lkotlinx/coroutines/flow/CancellableFlow;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_e
 
     .line 260
-    :cond_0
+    :cond_7
     new-instance v0, Lkotlinx/coroutines/flow/CancellableFlowImpl;
 
     invoke-direct {v0, p0}, Lkotlinx/coroutines/flow/CancellableFlowImpl;-><init>(Lkotlinx/coroutines/flow/Flow;)V
@@ -334,12 +334,12 @@
     check-cast v0, Lkotlinx/coroutines/flow/Flow;
 
     .line 261
-    :goto_0
+    :goto_e
     return-object v0
 .end method
 
 .method private static final checkFlowContext$FlowKt__ContextKt(Lkotlin/coroutines/CoroutineContext;)V
-    .locals 3
+    .registers 4
     .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     .line 281
@@ -351,23 +351,23 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_d
+    if-eqz v0, :cond_10
 
     .line 284
     return-void
 
     .line 281
-    :cond_1
+    :cond_10
     const/4 v0, 0x0
 
     .line 282
@@ -404,7 +404,7 @@
 .end method
 
 .method public static final conflate(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
-    .locals 3
+    .registers 4
     .param p0, "$this$conflate"    # Lkotlinx/coroutines/flow/Flow;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -433,7 +433,7 @@
 .end method
 
 .method public static final flowOn(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/flow/Flow;
-    .locals 8
+    .registers 10
     .param p0, "$this$flowOn"    # Lkotlinx/coroutines/flow/Flow;
     .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
@@ -463,17 +463,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 244
-    :cond_0
+    :cond_e
     instance-of v0, p0, Lkotlinx/coroutines/flow/internal/FusibleFlow;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     move-object v1, p0
 
@@ -493,10 +493,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 245
-    :cond_1
+    :cond_1f
     new-instance v0, Lkotlinx/coroutines/flow/internal/ChannelFlowOperatorImpl;
 
     const/16 v6, 0xc
@@ -518,6 +518,6 @@
     check-cast v0, Lkotlinx/coroutines/flow/Flow;
 
     .line 242
-    :goto_0
+    :goto_2e
     return-object v0
 .end method

@@ -110,7 +110,7 @@
 
 # direct methods
 .method constructor <init>(JLkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)V
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -137,7 +137,7 @@
 
 # virtual methods
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -153,7 +153,7 @@
 .end method
 
 .method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -190,7 +190,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 14
+    .registers 16
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -201,7 +201,7 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_ac
 
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -211,7 +211,7 @@
 
     throw p1
 
-    :pswitch_0
+    :pswitch_12
     move-object v1, p0
 
     .local v1, "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$sample$2;
@@ -244,7 +244,7 @@
     .local v8, "downstream":Lkotlinx/coroutines/flow/FlowCollector;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_a6
 
     .end local v1    # "this":Lkotlinx/coroutines/flow/FlowKt__DelayKt$sample$2;
     .end local v3    # "$i$f$select":I
@@ -254,7 +254,7 @@
     .end local v7    # "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .end local v8    # "downstream":Lkotlinx/coroutines/flow/FlowCollector;
     .end local p1    # "$result":Ljava/lang/Object;
-    :pswitch_1
+    :pswitch_2a
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
@@ -339,12 +339,12 @@
     .restart local v6    # "lastValue":Lkotlin/jvm/internal/Ref$ObjectRef;
     .restart local v7    # "values":Lkotlinx/coroutines/channels/ReceiveChannel;
     .restart local v8    # "downstream":Lkotlinx/coroutines/flow/FlowCollector;
-    :goto_0
+    :goto_5f
     iget-object v3, v6, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     sget-object v4, Lkotlinx/coroutines/flow/internal/NullSurrogateKt;->DONE:Lkotlinx/coroutines/internal/Symbol;
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_a9
 
     .line 284
     const/4 v3, 0x0
@@ -427,18 +427,18 @@
     move-result-object v4
 
     .end local v4    # "$this$select_u24lambda_u241$iv":Lkotlinx/coroutines/selects/SelectImplementation;
-    if-ne v4, v0, :cond_0
+    if-ne v4, v0, :cond_a5
 
     .line 277
     return-object v0
 
     .line 423
-    :cond_0
+    :cond_a5
     move v4, v9
 
     .end local v9    # "$i$a$-run-SelectKt$select$3$iv":I
     .local v4, "$i$a$-run-SelectKt$select$3$iv":I
-    :goto_1
+    :goto_a6
     nop
 
     .line 419
@@ -446,17 +446,17 @@
     nop
 
     .end local v3    # "$i$f$select":I
-    goto :goto_0
+    goto :goto_5f
 
     .line 303
-    :cond_1
+    :cond_a9
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_ac
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2a
+        :pswitch_12
     .end packed-switch
 .end method

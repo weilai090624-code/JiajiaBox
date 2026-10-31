@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static createBlendModeColorFilterCompat(ILandroidx/core/graphics/BlendModeCompat;)Landroid/graphics/ColorFilter;
-    .locals 3
+    .registers 5
     .param p0, "color"    # I
     .param p1, "blendModeCompat"    # Landroidx/core/graphics/BlendModeCompat;
 
@@ -34,7 +34,7 @@
 
     const/4 v2, 0x0
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_15
 
     .line 46
     nop
@@ -46,25 +46,25 @@
 
     .line 48
     .local v0, "blendMode":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 49
     invoke-static {p0, v0}, Landroidx/core/graphics/BlendModeColorFilterCompat$Api29Impl;->createBlendModeColorFilter(ILjava/lang/Object;)Landroid/graphics/ColorFilter;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     nop
 
     .line 48
-    :goto_0
+    :goto_14
     return-object v2
 
     .line 51
     .end local v0    # "blendMode":Ljava/lang/Object;
-    :cond_1
+    :cond_15
     nop
 
     .line 52
@@ -74,19 +74,19 @@
 
     .line 53
     .local v0, "porterDuffMode":Landroid/graphics/PorterDuff$Mode;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     .line 54
     new-instance v2, Landroid/graphics/PorterDuffColorFilter;
 
     invoke-direct {v2, p0, v0}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_2
+    :cond_22
     nop
 
     .line 53
-    :goto_1
+    :goto_23
     return-object v2
 .end method

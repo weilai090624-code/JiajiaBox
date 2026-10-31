@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lio/nekohasekai/sagernet/ui/profile/ProfileSettingsActivity$PasswordSummaryProvider;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 383
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public provideSummary(Landroidx/preference/EditTextPreference;)Ljava/lang/CharSequence;
-    .locals 3
+    .registers 5
     .param p1, "preference"    # Landroidx/preference/EditTextPreference;
 
     const-string v0, "preference"
@@ -97,27 +97,27 @@
 
     check-cast v1, Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_17
 
     invoke-static {v1}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     const/4 v1, 0x1
 
-    :goto_1
-    if-eqz v1, :cond_2
+    :goto_18
+    if-eqz v1, :cond_2b
 
     .line 388
     invoke-virtual {p1}, Landroidx/preference/EditTextPreference;->getContext()Landroid/content/Context;
@@ -135,10 +135,10 @@
 
     check-cast v1, Ljava/lang/CharSequence;
 
-    goto :goto_2
+    goto :goto_39
 
     .line 390
-    :cond_2
+    :cond_2b
     const-string v1, "\u2022"
 
     check-cast v1, Ljava/lang/CharSequence;
@@ -154,12 +154,12 @@
     check-cast v1, Ljava/lang/CharSequence;
 
     .line 387
-    :goto_2
+    :goto_39
     return-object v1
 .end method
 
 .method public bridge synthetic provideSummary(Landroidx/preference/Preference;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "p0"    # Landroidx/preference/Preference;
 
     .line 383

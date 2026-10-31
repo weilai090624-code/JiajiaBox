@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Set;Landroid/content/Intent;IIFI)V
-    .locals 1
+    .registers 8
     .param p1, "filters"    # Ljava/util/Set;
     .param p2, "placeholderIntent"    # Landroid/content/Intent;
     .param p3, "minWidth"    # I
@@ -126,71 +126,71 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/util/Set;Landroid/content/Intent;IIFIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 9
+    .registers 18
 
     .line 27
     and-int/lit8 v0, p7, 0x4
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 38
     const/4 v5, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 27
-    :cond_0
+    :cond_7
     move v5, p3
 
-    :goto_0
+    :goto_8
     and-int/lit8 v0, p7, 0x8
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
     .line 39
     const/4 v6, 0x0
 
-    goto :goto_1
+    goto :goto_f
 
     .line 27
-    :cond_1
+    :cond_e
     move v6, p4
 
-    :goto_1
+    :goto_f
     and-int/lit8 v0, p7, 0x10
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_18
 
     .line 40
     const/high16 v0, 0x3f000000    # 0.5f
 
     const/high16 v7, 0x3f000000    # 0.5f
 
-    goto :goto_2
+    goto :goto_19
 
     .line 27
-    :cond_2
+    :cond_18
     move v7, p5
 
-    :goto_2
+    :goto_19
     and-int/lit8 v0, p7, 0x20
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_20
 
     .line 42
     const/4 v0, 0x3
 
     const/4 v8, 0x3
 
-    goto :goto_3
+    goto :goto_21
 
     .line 27
-    :cond_3
+    :cond_20
     move v8, p6
 
-    :goto_3
+    :goto_21
     move-object v2, p0
 
     move-object v3, p1
@@ -206,48 +206,48 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 72
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 73
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/window/embedding/SplitPlaceholderRule;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 74
-    :cond_1
+    :cond_a
     invoke-super {p0, p1}, Landroidx/window/embedding/SplitRule;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_11
 
     return v2
 
     .line 76
-    :cond_2
+    :cond_11
     invoke-super {p0, p1}, Landroidx/window/embedding/SplitRule;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_18
 
     return v2
 
     .line 77
-    :cond_3
+    :cond_18
     iget-object v1, p0, Landroidx/window/embedding/SplitPlaceholderRule;->filters:Ljava/util/Set;
 
     move-object v3, p1
@@ -260,12 +260,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_26
 
     return v2
 
     .line 78
-    :cond_4
+    :cond_26
     iget-object v1, p0, Landroidx/window/embedding/SplitPlaceholderRule;->placeholderIntent:Landroid/content/Intent;
 
     move-object v3, p1
@@ -278,17 +278,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_34
 
     return v2
 
     .line 80
-    :cond_5
+    :cond_34
     return v0
 .end method
 
 .method public final getFilters()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -305,7 +305,7 @@
 .end method
 
 .method public final getPlaceholderIntent()Landroid/content/Intent;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Landroidx/window/embedding/SplitPlaceholderRule;->placeholderIntent:Landroid/content/Intent;
@@ -314,7 +314,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 84
     invoke-super {p0}, Landroidx/window/embedding/SplitRule;->hashCode()I
@@ -353,7 +353,7 @@
 .end method
 
 .method public final plus$window_release(Landroidx/window/embedding/ActivityFilter;)Landroidx/window/embedding/SplitPlaceholderRule;
-    .locals 9
+    .registers 11
     .param p1, "filter"    # Landroidx/window/embedding/ActivityFilter;
 
     const-string v0, "filter"

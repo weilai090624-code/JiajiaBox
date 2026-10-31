@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 327
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static getScaledMaximumFlingVelocity(Landroid/view/ViewConfiguration;III)I
-    .locals 1
+    .registers 5
     .param p0, "viewConfiguration"    # Landroid/view/ViewConfiguration;
     .param p1, "inputDeviceId"    # I
     .param p2, "axis"    # I
@@ -41,7 +41,7 @@
 .end method
 
 .method static getScaledMinimumFlingVelocity(Landroid/view/ViewConfiguration;III)I
-    .locals 1
+    .registers 5
     .param p0, "viewConfiguration"    # Landroid/view/ViewConfiguration;
     .param p1, "inputDeviceId"    # I
     .param p2, "axis"    # I

@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lokhttp3/internal/platform/android/ConscryptSocketAdapter$Companion;
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -91,7 +91,7 @@
 .end method
 
 .method public static final synthetic access$getFactory$cp()Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
-    .locals 1
+    .registers 1
 
     .line 28
     sget-object v0, Lokhttp3/internal/platform/android/ConscryptSocketAdapter;->factory:Lokhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 6
+    .registers 10
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
     .param p2, "hostname"    # Ljava/lang/String;
     .param p3, "protocols"    # Ljava/util/List;
@@ -131,7 +131,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     .line 47
     const/4 v0, 0x1
@@ -168,7 +168,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2e
 
     .end local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v2    # "$i$f$toTypedArray":I
@@ -178,13 +178,13 @@
     .line 51
     invoke-static {p1, v4}, Lorg/conscrypt/Conscrypt;->setApplicationProtocols(Ljavax/net/ssl/SSLSocket;[Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 66
     .restart local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .restart local v2    # "$i$f$toTypedArray":I
     .restart local v3    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_0
+    :cond_2e
     new-instance v4, Ljava/lang/NullPointerException;
 
     const-string v5, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -198,13 +198,13 @@
     .end local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
     .end local v2    # "$i$f$toTypedArray":I
     .end local v3    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_1
-    :goto_0
+    :cond_36
+    :goto_36
     return-void
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -219,25 +219,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-static {p1}, Lorg/conscrypt/Conscrypt;->getApplicationProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_12
 
     .line 36
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     .line 37
-    :goto_0
+    :goto_12
     return-object v0
 .end method
 
 .method public isSupported()Z
-    .locals 1
+    .registers 2
 
     .line 31
     sget-object v0, Lokhttp3/internal/platform/ConscryptPlatform;->Companion:Lokhttp3/internal/platform/ConscryptPlatform$Companion;
@@ -250,7 +250,7 @@
 .end method
 
 .method public matchesSocket(Ljavax/net/ssl/SSLSocket;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     const-string v0, "sslSocket"
@@ -266,7 +266,7 @@
 .end method
 
 .method public matchesSocketFactory(Ljavax/net/ssl/SSLSocketFactory;)Z
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 28
@@ -278,7 +278,7 @@
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .registers 3
     .param p1, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 28

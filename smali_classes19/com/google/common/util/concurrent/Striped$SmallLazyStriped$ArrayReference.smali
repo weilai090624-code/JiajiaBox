@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;ILjava/lang/ref/ReferenceQueue;)V
-    .locals 0
+    .registers 4
     .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

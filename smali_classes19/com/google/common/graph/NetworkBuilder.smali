@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>(Z)V
-    .locals 1
+    .registers 3
     .param p1, "directed"    # Z
 
     .line 78
@@ -76,7 +76,7 @@
 .end method
 
 .method private cast()Lcom/google/common/graph/NetworkBuilder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N1:TN;E1:TE;>()",
@@ -91,7 +91,7 @@
 .end method
 
 .method public static directed()Lcom/google/common/graph/NetworkBuilder;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -113,7 +113,7 @@
 .end method
 
 .method public static from(Lcom/google/common/graph/Network;)Lcom/google/common/graph/NetworkBuilder;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N:",
@@ -179,7 +179,7 @@
 .end method
 
 .method public static undirected()Lcom/google/common/graph/NetworkBuilder;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -203,7 +203,7 @@
 
 # virtual methods
 .method public allowsParallelEdges(Z)Lcom/google/common/graph/NetworkBuilder;
-    .locals 0
+    .registers 2
     .param p1, "allowsParallelEdges"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -222,7 +222,7 @@
 .end method
 
 .method public allowsSelfLoops(Z)Lcom/google/common/graph/NetworkBuilder;
-    .locals 0
+    .registers 2
     .param p1, "allowsSelfLoops"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -241,7 +241,7 @@
 .end method
 
 .method public build()Lcom/google/common/graph/MutableNetwork;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N1:TN;E1:TE;>()",
@@ -260,7 +260,7 @@
 .end method
 
 .method public edgeOrder(Lcom/google/common/graph/ElementOrder;)Lcom/google/common/graph/NetworkBuilder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E1:TE;>(",
@@ -293,7 +293,7 @@
 .end method
 
 .method public expectedEdgeCount(I)Lcom/google/common/graph/NetworkBuilder;
-    .locals 1
+    .registers 3
     .param p1, "expectedEdgeCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -324,7 +324,7 @@
 .end method
 
 .method public expectedNodeCount(I)Lcom/google/common/graph/NetworkBuilder;
-    .locals 1
+    .registers 3
     .param p1, "expectedNodeCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -355,7 +355,7 @@
 .end method
 
 .method public immutable()Lcom/google/common/graph/ImmutableNetwork$Builder;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N1:TN;E1:TE;>()",
@@ -380,7 +380,7 @@
 .end method
 
 .method public nodeOrder(Lcom/google/common/graph/ElementOrder;)Lcom/google/common/graph/NetworkBuilder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<N1:TN;>(",

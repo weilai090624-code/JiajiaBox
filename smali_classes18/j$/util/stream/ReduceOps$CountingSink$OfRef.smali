@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 820
     .local p0, "this":Lj$/util/stream/ReduceOps$CountingSink$OfRef;, "Ljava/util/stream/ReduceOps$CountingSink$OfRef<TT;>;"
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -61,7 +61,7 @@
 .end method
 
 .method public bridge synthetic combine(Lj$/util/stream/ReduceOps$AccumulatingSink;)V
-    .locals 0
+    .registers 2
 
     .line 820
     .local p0, "this":Lj$/util/stream/ReduceOps$CountingSink$OfRef;, "Ljava/util/stream/ReduceOps$CountingSink$OfRef<TT;>;"
@@ -73,7 +73,7 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 820
     .local p0, "this":Lj$/util/stream/ReduceOps$CountingSink$OfRef;, "Ljava/util/stream/ReduceOps$CountingSink$OfRef<TT;>;"

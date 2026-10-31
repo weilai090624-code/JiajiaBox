@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/AsyncListDiffer;Ljava/util/List;Ljava/util/List;ILjava/lang/Runnable;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Landroidx/recyclerview/widget/AsyncListDiffer;
 
     .line 289
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 292
     .local p0, "this":Landroidx/recyclerview/widget/AsyncListDiffer$1;, "Landroidx/recyclerview/widget/AsyncListDiffer$1;"

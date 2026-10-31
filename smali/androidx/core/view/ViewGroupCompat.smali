@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method public static getLayoutMode(Landroid/view/ViewGroup;)I
-    .locals 1
+    .registers 2
     .param p0, "group"    # Landroid/view/ViewGroup;
 
     .line 116
@@ -40,7 +40,7 @@
 .end method
 
 .method public static getNestedScrollAxes(Landroid/view/ViewGroup;)I
-    .locals 1
+    .registers 2
     .param p0, "group"    # Landroid/view/ViewGroup;
 
     .line 180
@@ -55,7 +55,7 @@
 .end method
 
 .method public static isTransitionGroup(Landroid/view/ViewGroup;)Z
-    .locals 1
+    .registers 2
     .param p0, "group"    # Landroid/view/ViewGroup;
 
     .line 156
@@ -70,7 +70,7 @@
 .end method
 
 .method public static onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 1
+    .registers 4
     .param p0, "group"    # Landroid/view/ViewGroup;
     .param p1, "child"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
@@ -86,7 +86,7 @@
 .end method
 
 .method public static setLayoutMode(Landroid/view/ViewGroup;I)V
-    .locals 0
+    .registers 2
     .param p0, "group"    # Landroid/view/ViewGroup;
     .param p1, "mode"    # I
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public static setMotionEventSplittingEnabled(Landroid/view/ViewGroup;Z)V
-    .locals 0
+    .registers 2
     .param p0, "group"    # Landroid/view/ViewGroup;
     .param p1, "split"    # Z
     .annotation runtime Ljava/lang/Deprecated;
@@ -112,7 +112,7 @@
 .end method
 
 .method public static setTransitionGroup(Landroid/view/ViewGroup;Z)V
-    .locals 0
+    .registers 2
     .param p0, "group"    # Landroid/view/ViewGroup;
     .param p1, "isTransitionGroup"    # Z
 

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public static final getUuid(Ljava/nio/ByteBuffer;)Lkotlin/uuid/Uuid;
-    .locals 7
+    .registers 8
     .param p0, "$this$getUuid"    # Ljava/nio/ByteBuffer;
 
     const-string v0, "<this>"
@@ -67,7 +67,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_3a
 
     .line 85
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->getLong()J
@@ -92,7 +92,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_33
 
     .line 88
     move-wide v4, v0
@@ -129,7 +129,7 @@
     move-wide v2, v4
 
     .line 91
-    :cond_0
+    :cond_33
     sget-object v4, Lkotlin/uuid/Uuid;->Companion:Lkotlin/uuid/Uuid$Companion;
 
     invoke-virtual {v4, v0, v1, v2, v3}, Lkotlin/uuid/Uuid$Companion;->fromLongs(JJ)Lkotlin/uuid/Uuid;
@@ -141,7 +141,7 @@
     .line 83
     .end local v0    # "msb":J
     .end local v2    # "lsb":J
-    :cond_1
+    :cond_3a
     new-instance v0, Ljava/nio/BufferUnderflowException;
 
     invoke-direct {v0}, Ljava/nio/BufferUnderflowException;-><init>()V
@@ -150,7 +150,7 @@
 .end method
 
 .method public static final getUuid(Ljava/nio/ByteBuffer;I)Lkotlin/uuid/Uuid;
-    .locals 7
+    .registers 9
     .param p0, "$this$getUuid"    # Ljava/nio/ByteBuffer;
     .param p1, "index"    # I
 
@@ -159,7 +159,7 @@
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 125
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_67
 
     .line 127
     add-int/lit8 v0, p1, 0xf
@@ -168,7 +168,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_3a
 
     .line 130
     invoke-virtual {p0, p1}, Ljava/nio/ByteBuffer;->getLong(I)J
@@ -195,7 +195,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_33
 
     .line 133
     move-wide v4, v0
@@ -232,7 +232,7 @@
     move-wide v2, v4
 
     .line 136
-    :cond_0
+    :cond_33
     sget-object v4, Lkotlin/uuid/Uuid;->Companion:Lkotlin/uuid/Uuid$Companion;
 
     invoke-virtual {v4, v0, v1, v2, v3}, Lkotlin/uuid/Uuid$Companion;->fromLongs(JJ)Lkotlin/uuid/Uuid;
@@ -244,7 +244,7 @@
     .line 128
     .end local v0    # "msb":J
     .end local v2    # "lsb":J
-    :cond_1
+    :cond_3a
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -290,7 +290,7 @@
     throw v0
 
     .line 126
-    :cond_2
+    :cond_67
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -317,7 +317,7 @@
 .end method
 
 .method public static final putUuid(Ljava/nio/ByteBuffer;ILkotlin/uuid/Uuid;)Ljava/nio/ByteBuffer;
-    .locals 9
+    .registers 12
     .param p0, "$this$putUuid"    # Ljava/nio/ByteBuffer;
     .param p1, "index"    # I
     .param p2, "uuid"    # Lkotlin/uuid/Uuid;
@@ -345,7 +345,7 @@
 
     .line 211
     .local v4, "$i$a$-toLongs-UuidKt__UuidJVMKt$putUuid$2":I
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_7c
 
     .line 213
     add-int/lit8 v5, p1, 0xf
@@ -354,7 +354,7 @@
 
     move-result v6
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_4f
 
     .line 216
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->order()Ljava/nio/ByteOrder;
@@ -367,7 +367,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_33
 
     .line 217
     invoke-virtual {p0, p1, v0, v1}, Ljava/nio/ByteBuffer;->putLong(IJ)Ljava/nio/ByteBuffer;
@@ -379,10 +379,10 @@
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_48
 
     .line 220
-    :cond_0
+    :cond_33
     move-wide v5, v0
 
     .local v5, "$this$reverseBytes$iv":J
@@ -421,7 +421,7 @@
     move-result-object v5
 
     .line 222
-    :goto_0
+    :goto_48
     nop
 
     .line 210
@@ -439,7 +439,7 @@
     .restart local v0    # "msb":J
     .restart local v2    # "lsb":J
     .restart local v4    # "$i$a$-toLongs-UuidKt__UuidJVMKt$putUuid$2":I
-    :cond_1
+    :cond_4f
     new-instance v5, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -485,7 +485,7 @@
     throw v5
 
     .line 212
-    :cond_2
+    :cond_7c
     new-instance v5, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -512,7 +512,7 @@
 .end method
 
 .method public static final putUuid(Ljava/nio/ByteBuffer;Lkotlin/uuid/Uuid;)Ljava/nio/ByteBuffer;
-    .locals 8
+    .registers 10
     .param p0, "$this$putUuid"    # Ljava/nio/ByteBuffer;
     .param p1, "uuid"    # Lkotlin/uuid/Uuid;
 
@@ -549,7 +549,7 @@
 
     move-result v6
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_4d
 
     .line 169
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->order()Ljava/nio/ByteOrder;
@@ -562,7 +562,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_33
 
     .line 170
     invoke-virtual {p0, v0, v1}, Ljava/nio/ByteBuffer;->putLong(J)Ljava/nio/ByteBuffer;
@@ -572,10 +572,10 @@
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_46
 
     .line 173
-    :cond_0
+    :cond_33
     move-wide v5, v0
 
     .local v5, "$this$reverseBytes$iv":J
@@ -612,7 +612,7 @@
     move-result-object v5
 
     .line 175
-    :goto_0
+    :goto_46
     nop
 
     .line 165
@@ -630,7 +630,7 @@
     .restart local v0    # "msb":J
     .restart local v2    # "lsb":J
     .restart local v4    # "$i$a$-toLongs-UuidKt__UuidJVMKt$putUuid$1":I
-    :cond_1
+    :cond_4d
     new-instance v5, Ljava/nio/BufferOverflowException;
 
     invoke-direct {v5}, Ljava/nio/BufferOverflowException;-><init>()V
@@ -639,7 +639,7 @@
 .end method
 
 .method public static final reverseBytes(J)J
-    .locals 3
+    .registers 5
     .param p0, "$this$reverseBytes"    # J
 
     const/4 v0, 0x0
@@ -654,7 +654,7 @@
 .end method
 
 .method public static final secureRandomUuid()Lkotlin/uuid/Uuid;
-    .locals 2
+    .registers 2
 
     .line 20
     const/16 v0, 0x10
@@ -680,7 +680,7 @@
 .end method
 
 .method public static final toJavaUuid(Lkotlin/uuid/Uuid;)Ljava/util/UUID;
-    .locals 7
+    .registers 8
     .param p0, "$this$toJavaUuid"    # Lkotlin/uuid/Uuid;
 
     const-string v0, "<this>"
@@ -720,7 +720,7 @@
 .end method
 
 .method public static final toKotlinUuid(Ljava/util/UUID;)Lkotlin/uuid/Uuid;
-    .locals 6
+    .registers 7
     .param p0, "$this$toKotlinUuid"    # Ljava/util/UUID;
 
     const-string v0, "<this>"

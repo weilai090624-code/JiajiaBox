@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/PopupMenu;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/appcompat/widget/PopupMenu;
     .param p2, "src"    # Landroid/view/View;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
-    .locals 1
+    .registers 2
 
     .line 191
     iget-object v0, p0, Landroidx/appcompat/widget/PopupMenu$3;->this$0:Landroidx/appcompat/widget/PopupMenu;
@@ -50,7 +50,7 @@
 .end method
 
 .method protected onForwardingStarted()Z
-    .locals 1
+    .registers 2
 
     .line 178
     iget-object v0, p0, Landroidx/appcompat/widget/PopupMenu$3;->this$0:Landroidx/appcompat/widget/PopupMenu;
@@ -64,7 +64,7 @@
 .end method
 
 .method protected onForwardingStopped()Z
-    .locals 1
+    .registers 2
 
     .line 184
     iget-object v0, p0, Landroidx/appcompat/widget/PopupMenu$3;->this$0:Landroidx/appcompat/widget/PopupMenu;

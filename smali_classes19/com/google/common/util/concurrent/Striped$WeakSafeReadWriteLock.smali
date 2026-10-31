@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 327
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public readLock()Ljava/util/concurrent/locks/Lock;
-    .locals 2
+    .registers 3
 
     .line 333
     new-instance v0, Lcom/google/common/util/concurrent/Striped$WeakSafeLock;
@@ -59,7 +59,7 @@
 .end method
 
 .method public writeLock()Ljava/util/concurrent/locks/Lock;
-    .locals 2
+    .registers 3
 
     .line 338
     new-instance v0, Lcom/google/common/util/concurrent/Striped$WeakSafeLock;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     const-string v0, "StopWorkRunnable"
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Landroidx/work/impl/WorkManagerImpl;Landroidx/work/impl/StartStopToken;Z)V
-    .locals 0
+    .registers 4
     .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
     .param p2, "startStopToken"    # Landroidx/work/impl/StartStopToken;
     .param p3, "stopInForeground"    # Z
@@ -71,12 +71,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 49
     iget-boolean v0, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mStopInForeground:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 50
     iget-object v0, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -94,11 +94,11 @@
     move-result v0
 
     .local v0, "isStopped":Z
-    goto :goto_0
+    goto :goto_1d
 
     .line 56
     .end local v0    # "isStopped":Z
-    :cond_0
+    :cond_11
     iget-object v0, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
     .line 57
@@ -115,7 +115,7 @@
 
     .line 61
     .restart local v0    # "isStopped":Z
-    :goto_0
+    :goto_1d
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1

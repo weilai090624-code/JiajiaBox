@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 386
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/Serializer;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public bridge synthetic copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 386
     check-cast p2, Ljava/util/EnumSet;
@@ -48,7 +48,7 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/EnumSet;)Ljava/util/EnumSet;
-    .locals 1
+    .registers 4
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "original"    # Ljava/util/EnumSet;
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 386
     invoke-virtual {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$EnumSetSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/EnumSet;
@@ -72,7 +72,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/EnumSet;
-    .locals 6
+    .registers 10
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .annotation system Ldalvik/annotation/Signature;
@@ -123,8 +123,8 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_16
+    if-ge v4, v3, :cond_23
 
     .line 407
     const/4 v5, 0x0
@@ -138,16 +138,16 @@
     .line 406
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 408
     .end local v4    # "i":I
-    :cond_0
+    :cond_23
     return-object v1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 386
     check-cast p3, Ljava/util/EnumSet;
@@ -158,7 +158,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/EnumSet;)V
-    .locals 3
+    .registers 7
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Ljava/util/EnumSet;
@@ -168,7 +168,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 390
     invoke-static {p3}, Ljava/util/EnumSet;->complementOf(Ljava/util/EnumSet;)Ljava/util/EnumSet;
@@ -181,7 +181,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_25
 
     .line 392
     invoke-virtual {v0}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
@@ -206,11 +206,11 @@
 
     .line 393
     .local v0, "serializer":Lcom/esotericsoftware/kryo/Serializer;
-    goto :goto_0
+    goto :goto_41
 
     .line 391
     .local v0, "tmp":Ljava/util/EnumSet;
-    :cond_0
+    :cond_25
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     const-string v2, "An EnumSet must have a defined Enum to be serialized."
@@ -221,7 +221,7 @@
 
     .line 394
     .end local v0    # "tmp":Ljava/util/EnumSet;
-    :cond_1
+    :cond_2d
     invoke-virtual {p3}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -244,7 +244,7 @@
 
     .line 396
     .local v0, "serializer":Lcom/esotericsoftware/kryo/Serializer;
-    :goto_0
+    :goto_41
     invoke-virtual {p3}, Ljava/util/EnumSet;->size()I
 
     move-result v1
@@ -258,12 +258,12 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_4d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_5b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -274,9 +274,9 @@
     invoke-virtual {v0, p1, p2, v2}, Lcom/esotericsoftware/kryo/Serializer;->write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
 
     .end local v2    # "element":Ljava/lang/Object;
-    goto :goto_1
+    goto :goto_4d
 
     .line 399
-    :cond_2
+    :cond_5b
     return-void
 .end method

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static final isDigitsOnly(Ljava/lang/CharSequence;)Z
-    .locals 2
+    .registers 3
     .param p0, "$this$isDigitsOnly"    # Ljava/lang/CharSequence;
 
     const/4 v0, 0x0
@@ -43,7 +43,7 @@
 .end method
 
 .method public static final trimmedLength(Ljava/lang/CharSequence;)I
-    .locals 2
+    .registers 3
     .param p0, "$this$trimmedLength"    # Ljava/lang/CharSequence;
 
     const/4 v0, 0x0

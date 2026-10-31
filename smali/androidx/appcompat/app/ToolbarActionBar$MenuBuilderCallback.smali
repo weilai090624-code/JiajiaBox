@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/ToolbarActionBar;)V
-    .locals 0
+    .registers 2
 
     .line 580
     iput-object p1, p0, Landroidx/appcompat/app/ToolbarActionBar$MenuBuilderCallback;->this$0:Landroidx/appcompat/app/ToolbarActionBar;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 4
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
     .param p2, "item"    # Landroid/view/MenuItem;
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public onMenuModeChange(Landroidx/appcompat/view/menu/MenuBuilder;)V
-    .locals 4
+    .registers 6
     .param p1, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
 
     .line 590
@@ -62,7 +62,7 @@
 
     const/16 v1, 0x6c
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 591
     iget-object v0, p0, Landroidx/appcompat/app/ToolbarActionBar$MenuBuilderCallback;->this$0:Landroidx/appcompat/app/ToolbarActionBar;
@@ -71,10 +71,10 @@
 
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onPanelClosed(ILandroid/view/Menu;)V
 
-    goto :goto_0
+    goto :goto_27
 
     .line 592
-    :cond_0
+    :cond_14
     iget-object v0, p0, Landroidx/appcompat/app/ToolbarActionBar$MenuBuilderCallback;->this$0:Landroidx/appcompat/app/ToolbarActionBar;
 
     iget-object v0, v0, Landroidx/appcompat/app/ToolbarActionBar;->mWindowCallback:Landroid/view/Window$Callback;
@@ -87,7 +87,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 593
     iget-object v0, p0, Landroidx/appcompat/app/ToolbarActionBar$MenuBuilderCallback;->this$0:Landroidx/appcompat/app/ToolbarActionBar;
@@ -97,7 +97,7 @@
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onMenuOpened(ILandroid/view/Menu;)Z
 
     .line 595
-    :cond_1
-    :goto_0
+    :cond_27
+    :goto_27
     return-void
 .end method

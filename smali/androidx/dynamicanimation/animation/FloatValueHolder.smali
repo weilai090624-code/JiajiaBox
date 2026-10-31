@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(F)V
-    .locals 1
+    .registers 3
     .param p1, "value"    # F
 
     .line 53
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getValue()F
-    .locals 1
+    .registers 2
 
     .line 72
     iget v0, p0, Landroidx/dynamicanimation/animation/FloatValueHolder;->mValue:F
@@ -54,7 +54,7 @@
 .end method
 
 .method public setValue(F)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # F
 
     .line 63

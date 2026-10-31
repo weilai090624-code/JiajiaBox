@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
 
     .line 683
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public evaluate(FLjava/lang/Float;Ljava/lang/Float;)Ljava/lang/Float;
-    .locals 2
+    .registers 6
     .param p1, "fraction"    # F
     .param p2, "startValue"    # Ljava/lang/Float;
     .param p3, "endValue"    # Ljava/lang/Float;
@@ -77,16 +77,16 @@
 
     cmpg-float v1, v0, v1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_13
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     move v1, v0
 
-    :goto_0
+    :goto_14
     invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v1
@@ -95,7 +95,7 @@
 .end method
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 683
     check-cast p2, Ljava/lang/Float;

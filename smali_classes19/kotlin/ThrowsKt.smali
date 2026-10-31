@@ -28,7 +28,7 @@
 
 # direct methods
 .method public static synthetic Throws$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

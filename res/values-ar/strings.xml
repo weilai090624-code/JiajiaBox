@@ -89,8 +89,8 @@
     <string name="call_notification_screening_text">يتم فحص المكالمة الواردة</string>
     <string name="certificates">الشهادات</string>
     <string name="chain_settings">إعدادات السلسلة</string>
-    <string name="character_counter_content_description" formatted="false">تمّ إدخال %1$d حرف من إجمالي %2$d.</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">تجاوز عدد الأحرف المسموح به %1$d من %2$d.</string>
+    <string name="character_counter_content_description">تمّ إدخال %1$d حرف من إجمالي %2$d.</string>
+    <string name="character_counter_overflowed_content_description">تجاوز عدد الأحرف المسموح به %1$d من %2$d.</string>
     <string name="circular_reference">مرجع دائري</string>
     <string name="circular_reference_sum">لا يمكن أن يحتوي المسار على نفسه.</string>
     <string name="clear_logcat">تقارير أداء واضحة</string>
@@ -282,7 +282,7 @@
     <string name="mtrl_picker_out_of_range">خارج النطاق: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">تاريخ البدء – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – تاريخ الانتهاء</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">يُرجى اختيار نطاق زمني.</string>
     <string name="mtrl_picker_range_header_unselected">تاريخ البدء - تاريخ الانتهاء</string>
     <string name="mtrl_picker_save">حفظ</string>
@@ -414,7 +414,7 @@
     <string name="show_system_apps">عرض تطبيقات النظام</string>
     <string name="sni">بيان اسم الخادم</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"بروکسی: 
+    <string name="speed_detail">"بروکسی: 
 \u0009%1$s↑ %2$s↓ 
 مباشر: 
 \u0009%3$s↑ %4$s↓"</string>
@@ -439,14 +439,14 @@
     <string name="subscription_used">%s مستخدمة</string>
     <string name="subscription_user_agent">وكيل المستخدم</string>
     <string name="subscriptions">الاشتراكات</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s، %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s، %2$s</string>
     <string name="tcp_connections">%d اتصالات TCP</string>
     <string name="tcp_keep_alive_interval">يحتفظ TCP بالفاصل الزمني النشط لتسليم الحزم</string>
     <string name="telegram">قناة تحديث Telegram</string>
     <string name="theme">موضوع</string>
     <string name="tile_title">الجلاد</string>
     <string name="tls">استخدم TLS</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="traffic_sniffing">تمكين استنشاق حركة المرور</string>
     <string name="translate_platform">منصة الترجمة</string>
     <string name="transproxy_mode">وضع ترانسبروكسى</string>

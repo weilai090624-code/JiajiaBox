@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;II)V
-    .locals 1
+    .registers 5
     .param p1, "workSpecId"    # Ljava/lang/String;
     .param p2, "generation"    # I
     .param p3, "systemId"    # I
@@ -76,29 +76,29 @@
 .end method
 
 .method public static synthetic copy$default(Landroidx/work/impl/model/SystemIdInfo;Ljava/lang/String;IIILjava/lang/Object;)Landroidx/work/impl/model/SystemIdInfo;
-    .locals 0
+    .registers 6
 
     and-int/lit8 p5, p4, 0x1
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_6
 
     iget-object p1, p0, Landroidx/work/impl/model/SystemIdInfo;->workSpecId:Ljava/lang/String;
 
-    :cond_0
+    :cond_6
     and-int/lit8 p5, p4, 0x2
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_c
 
     iget p2, p0, Landroidx/work/impl/model/SystemIdInfo;->generation:I
 
-    :cond_1
+    :cond_c
     and-int/lit8 p4, p4, 0x4
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_12
 
     iget p3, p0, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
-    :cond_2
+    :cond_12
     invoke-virtual {p0, p1, p2, p3}, Landroidx/work/impl/model/SystemIdInfo;->copy(Ljava/lang/String;II)Landroidx/work/impl/model/SystemIdInfo;
 
     move-result-object p0
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public final component1()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Landroidx/work/impl/model/SystemIdInfo;->workSpecId:Ljava/lang/String;
 
@@ -117,7 +117,7 @@
 .end method
 
 .method public final component2()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Landroidx/work/impl/model/SystemIdInfo;->generation:I
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public final component3()I
-    .locals 1
+    .registers 2
 
     iget v0, p0, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public final copy(Ljava/lang/String;II)Landroidx/work/impl/model/SystemIdInfo;
-    .locals 1
+    .registers 5
 
     const-string/jumbo v0, "workSpecId"
 
@@ -147,24 +147,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     instance-of v1, p1, Landroidx/work/impl/model/SystemIdInfo;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
-    :cond_1
+    :cond_a
     move-object v1, p1
 
     check-cast v1, Landroidx/work/impl/model/SystemIdInfo;
@@ -177,34 +177,34 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_18
 
     return v2
 
-    :cond_2
+    :cond_18
     iget v3, p0, Landroidx/work/impl/model/SystemIdInfo;->generation:I
 
     iget v4, v1, Landroidx/work/impl/model/SystemIdInfo;->generation:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1f
 
     return v2
 
-    :cond_3
+    :cond_1f
     iget v3, p0, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
     iget v1, v1, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
-    if-eq v3, v1, :cond_4
+    if-eq v3, v1, :cond_26
 
     return v2
 
-    :cond_4
+    :cond_26
     return v0
 .end method
 
 .method public final getGeneration()I
-    .locals 1
+    .registers 2
 
     .line 45
     iget v0, p0, Landroidx/work/impl/model/SystemIdInfo;->generation:I
@@ -213,7 +213,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     iget-object v0, p0, Landroidx/work/impl/model/SystemIdInfo;->workSpecId:Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

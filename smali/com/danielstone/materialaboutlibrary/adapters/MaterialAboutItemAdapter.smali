@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 93
     new-instance v0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutItemAdapter$1;
@@ -56,7 +56,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 33
     invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;-><init>()V
@@ -87,7 +87,7 @@
 .end method
 
 .method constructor <init>(Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager;)V
-    .locals 2
+    .registers 4
     .param p1, "customViewTypeManager"    # Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager;
 
     .line 38
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public getData()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -138,7 +138,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutItemAdapter;->differ:Landroidx/recyclerview/widget/AsyncListDiffer;
@@ -155,7 +155,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 4
+    .registers 6
     .param p1, "position"    # I
 
     .line 67
@@ -191,7 +191,7 @@
 .end method
 
 .method public getItemViewType(I)I
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 77
@@ -215,7 +215,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
+    .registers 3
 
     .line 25
     check-cast p1, Lcom/danielstone/materialaboutlibrary/holders/MaterialAboutItemViewHolder;
@@ -226,7 +226,7 @@
 .end method
 
 .method public onBindViewHolder(Lcom/danielstone/materialaboutlibrary/holders/MaterialAboutItemViewHolder;I)V
-    .locals 4
+    .registers 7
     .param p1, "holder"    # Lcom/danielstone/materialaboutlibrary/holders/MaterialAboutItemViewHolder;
     .param p2, "position"    # I
 
@@ -258,7 +258,7 @@
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 0
+    .registers 3
 
     .line 25
     invoke-virtual {p0, p1, p2}, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutItemAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/danielstone/materialaboutlibrary/holders/MaterialAboutItemViewHolder;
@@ -269,7 +269,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/danielstone/materialaboutlibrary/holders/MaterialAboutItemViewHolder;
-    .locals 3
+    .registers 6
     .param p1, "viewGroup"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -283,7 +283,7 @@
     .line 47
     instance-of v0, p1, Landroidx/recyclerview/widget/RecyclerView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 51
     iget-object v0, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutItemAdapter;->viewTypeManager:Lcom/danielstone/materialaboutlibrary/util/ViewTypeManager;
@@ -326,7 +326,7 @@
     .line 48
     .end local v0    # "layoutId":I
     .end local v1    # "view":Landroid/view/View;
-    :cond_0
+    :cond_28
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Not bound to RecyclerView"
@@ -337,7 +337,7 @@
 .end method
 
 .method public setData(Ljava/util/ArrayList;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -359,12 +359,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -382,10 +382,10 @@
 
     .line 84
     .end local v2    # "item":Lcom/danielstone/materialaboutlibrary/items/MaterialAboutItem;
-    goto :goto_0
+    goto :goto_9
 
     .line 85
-    :cond_0
+    :cond_1d
     iget-object v1, p0, Lcom/danielstone/materialaboutlibrary/adapters/MaterialAboutItemAdapter;->differ:Landroidx/recyclerview/widget/AsyncListDiffer;
 
     invoke-virtual {v1, v0}, Landroidx/recyclerview/widget/AsyncListDiffer;->submitList(Ljava/util/List;)V

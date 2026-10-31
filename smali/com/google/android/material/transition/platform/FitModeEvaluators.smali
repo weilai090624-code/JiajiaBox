@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 34
     new-instance v0, Lcom/google/android/material/transition/platform/FitModeEvaluators$1;
@@ -31,7 +31,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 153
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,14 +40,14 @@
 .end method
 
 .method static get(IZLandroid/graphics/RectF;Landroid/graphics/RectF;)Lcom/google/android/material/transition/platform/FitModeEvaluator;
-    .locals 3
+    .registers 7
     .param p0, "fitMode"    # I
     .param p1, "entering"    # Z
     .param p2, "startBounds"    # Landroid/graphics/RectF;
     .param p3, "endBounds"    # Landroid/graphics/RectF;
 
     .line 129
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_2e
 
     .line 137
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -75,45 +75,45 @@
     throw v0
 
     .line 135
-    :pswitch_0
+    :pswitch_1c
     sget-object v0, Lcom/google/android/material/transition/platform/FitModeEvaluators;->HEIGHT:Lcom/google/android/material/transition/platform/FitModeEvaluator;
 
     return-object v0
 
     .line 133
-    :pswitch_1
+    :pswitch_1f
     sget-object v0, Lcom/google/android/material/transition/platform/FitModeEvaluators;->WIDTH:Lcom/google/android/material/transition/platform/FitModeEvaluator;
 
     return-object v0
 
     .line 131
-    :pswitch_2
+    :pswitch_22
     invoke-static {p1, p2, p3}, Lcom/google/android/material/transition/platform/FitModeEvaluators;->shouldAutoFitToWidth(ZLandroid/graphics/RectF;Landroid/graphics/RectF;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     sget-object v0, Lcom/google/android/material/transition/platform/FitModeEvaluators;->WIDTH:Lcom/google/android/material/transition/platform/FitModeEvaluator;
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_2b
     sget-object v0, Lcom/google/android/material/transition/platform/FitModeEvaluators;->HEIGHT:Lcom/google/android/material/transition/platform/FitModeEvaluator;
 
-    :goto_0
+    :goto_2d
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_2e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_22
+        :pswitch_1f
+        :pswitch_1c
     .end packed-switch
 .end method
 
 .method private static shouldAutoFitToWidth(ZLandroid/graphics/RectF;Landroid/graphics/RectF;)Z
-    .locals 9
+    .registers 12
     .param p0, "entering"    # Z
     .param p1, "startBounds"    # Landroid/graphics/RectF;
     .param p2, "endBounds"    # Landroid/graphics/RectF;
@@ -159,25 +159,25 @@
 
     const/4 v7, 0x0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1f
 
     cmpl-float v8, v4, v1
 
-    if-ltz v8, :cond_1
+    if-ltz v8, :cond_24
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_1f
     cmpl-float v8, v5, v3
 
-    if-ltz v8, :cond_1
+    if-ltz v8, :cond_24
 
-    :goto_0
-    goto :goto_1
+    :goto_23
+    goto :goto_25
 
-    :cond_1
+    :cond_24
     const/4 v6, 0x0
 
-    :goto_1
+    :goto_25
     return v6
 .end method

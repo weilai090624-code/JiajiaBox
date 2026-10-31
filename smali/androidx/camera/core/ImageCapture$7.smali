@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/core/ImageCapture;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public check(Landroidx/camera/core/impl/CameraCaptureResult;)Ljava/lang/Boolean;
-    .locals 3
+    .registers 5
     .param p1, "captureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -72,7 +72,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3e
 
     .line 1427
     new-instance v1, Ljava/lang/StringBuilder;
@@ -131,14 +131,14 @@
     invoke-static {v0, v1}, Landroidx/camera/core/Logger;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1432
-    :cond_0
+    :cond_3e
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$7;->this$0:Landroidx/camera/core/ImageCapture;
 
     invoke-virtual {v0, p1}, Landroidx/camera/core/ImageCapture;->is3AConverged(Landroidx/camera/core/impl/CameraCaptureResult;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4c
 
     .line 1433
     const/4 v0, 0x1
@@ -150,14 +150,14 @@
     return-object v0
 
     .line 1436
-    :cond_1
+    :cond_4c
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public bridge synthetic check(Landroidx/camera/core/impl/CameraCaptureResult;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000

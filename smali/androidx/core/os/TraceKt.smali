@@ -30,7 +30,7 @@
 
 # direct methods
 .method public static final trace(Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "sectionName"    # Ljava/lang/String;
     .param p1, "block"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -64,12 +64,12 @@
     nop
 
     .line 35
-    :try_start_0
+    :try_start_5
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_5 .. :try_end_9} :catchall_d
 
     .line 37
     invoke-static {}, Landroid/os/Trace;->endSection()V
@@ -78,7 +78,7 @@
     return-object v1
 
     .line 37
-    :catchall_0
+    :catchall_d
     move-exception v1
 
     invoke-static {}, Landroid/os/Trace;->endSection()V

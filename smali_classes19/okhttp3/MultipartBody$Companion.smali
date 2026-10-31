@@ -52,7 +52,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 277
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/MultipartBody$Companion;-><init>()V
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public final appendQuotedString$okhttp(Ljava/lang/StringBuilder;Ljava/lang/String;)V
-    .locals 6
+    .registers 9
     .param p1, "$this$appendQuotedString"    # Ljava/lang/StringBuilder;
     .param p2, "key"    # Ljava/lang/String;
 
@@ -93,11 +93,11 @@
 
     move-result v1
 
-    if-lez v1, :cond_4
+    if-lez v1, :cond_3e
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_16
     move v3, v2
 
     .local v3, "i":I
@@ -112,48 +112,48 @@
     .local v4, "ch":C
     const/16 v5, 0xa
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_27
 
     const-string v5, "%0A"
 
     invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 336
-    :cond_1
+    :cond_27
     const/16 v5, 0xd
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_31
 
     const-string v5, "%0D"
 
     invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 337
-    :cond_2
-    if-ne v4, v0, :cond_3
+    :cond_31
+    if-ne v4, v0, :cond_39
 
     const-string v5, "%22"
 
     invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 338
-    :cond_3
+    :cond_39
     invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 333
     .end local v4    # "ch":C
-    :goto_0
-    if-lt v2, v1, :cond_0
+    :goto_3c
+    if-lt v2, v1, :cond_16
 
     .line 341
     .end local v3    # "i":I
-    :cond_4
+    :cond_3e
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 342

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static $default$getCameraControl(Landroidx/camera/core/impl/CameraInternal;)Landroidx/camera/core/CameraControl;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/CameraInternal;
 
     .line 162
@@ -17,7 +17,7 @@
 .end method
 
 .method public static $default$getCameraInfo(Landroidx/camera/core/impl/CameraInternal;)Landroidx/camera/core/CameraInfo;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/CameraInternal;
 
     .line 168
@@ -29,7 +29,7 @@
 .end method
 
 .method public static $default$getCameraInternals(Landroidx/camera/core/impl/CameraInternal;)Ljava/util/LinkedHashSet;
-    .locals 2
+    .registers 3
     .param p0, "_this"    # Landroidx/camera/core/impl/CameraInternal;
 
     .line 177
@@ -45,7 +45,7 @@
 .end method
 
 .method public static $default$getExtendedConfig(Landroidx/camera/core/impl/CameraInternal;)Landroidx/camera/core/impl/CameraConfig;
-    .locals 1
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/CameraInternal;
 
     .line 183
@@ -57,7 +57,7 @@
 .end method
 
 .method public static $default$setExtendedConfig(Landroidx/camera/core/impl/CameraInternal;Landroidx/camera/core/impl/CameraConfig;)V
-    .locals 0
+    .registers 2
     .param p0, "_this"    # Landroidx/camera/core/impl/CameraInternal;
     .param p1, "cameraConfig"    # Landroidx/camera/core/impl/CameraConfig;
     .annotation system Ldalvik/annotation/MethodParameters;

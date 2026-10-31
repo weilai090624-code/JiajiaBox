@@ -67,7 +67,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 158
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Builder;, "Lcom/google/common/collect/ImmutableMultimap$Builder<TK;TV;>;"
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public build()Lcom/google/common/collect/ImmutableMultimap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -108,7 +108,7 @@
     .local v0, "mapEntries":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;>;"
     iget-object v1, p0, Lcom/google/common/collect/ImmutableMultimap$Builder;->keyComparator:Ljava/util/Comparator;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 297
     iget-object v1, p0, Lcom/google/common/collect/ImmutableMultimap$Builder;->keyComparator:Ljava/util/Comparator;
@@ -126,7 +126,7 @@
     move-result-object v0
 
     .line 299
-    :cond_0
+    :cond_18
     iget-object v1, p0, Lcom/google/common/collect/ImmutableMultimap$Builder;->valueComparator:Ljava/util/Comparator;
 
     invoke-static {v0, v1}, Lcom/google/common/collect/ImmutableListMultimap;->fromMapEntries(Ljava/util/Collection;Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableListMultimap;
@@ -137,7 +137,7 @@
 .end method
 
 .method combine(Lcom/google/common/collect/ImmutableMultimap$Builder;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,12 +161,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -190,15 +190,15 @@
 
     .line 289
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
-    goto :goto_0
+    goto :goto_a
 
     .line 290
-    :cond_0
+    :cond_24
     return-object p0
 .end method
 
 .method newMutableValueCollection()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -217,7 +217,7 @@
 .end method
 
 .method public orderKeysBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -244,7 +244,7 @@
 .end method
 
 .method public orderValuesBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -271,7 +271,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)",
@@ -297,7 +297,7 @@
 
     .line 171
     .local v0, "valueCollection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 172
     iget-object v1, p0, Lcom/google/common/collect/ImmutableMultimap$Builder;->builderMap:Ljava/util/Map;
@@ -311,7 +311,7 @@
     invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 174
-    :cond_0
+    :cond_17
     invoke-interface {v0, p2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 175
@@ -319,7 +319,7 @@
 .end method
 
 .method public put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -349,7 +349,7 @@
 .end method
 
 .method public putAll(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -375,12 +375,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -404,15 +404,15 @@
 
     .line 259
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+Ljava/util/Collection<+TV;>;>;"
-    goto :goto_0
+    goto :goto_c
 
     .line 260
-    :cond_0
+    :cond_26
     return-object p0
 .end method
 
 .method public putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -432,12 +432,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -451,15 +451,15 @@
 
     .line 198
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    goto :goto_0
+    goto :goto_4
 
     .line 199
-    :cond_0
+    :cond_14
     return-object p0
 .end method
 
 .method public putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -474,7 +474,7 @@
     .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Builder;, "Lcom/google/common/collect/ImmutableMultimap$Builder<TK;TV;>;"
     .local p1, "key":Ljava/lang/Object;, "TK;"
     .local p2, "values":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TV;>;"
-    if-nez p1, :cond_1
+    if-nez p1, :cond_22
 
     .line 211
     new-instance v0, Ljava/lang/NullPointerException;
@@ -493,26 +493,26 @@
 
     const-string v3, "null key in entry: null="
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_19
     new-instance v1, Ljava/lang/String;
 
     invoke-direct {v1, v3}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_1e
     invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 213
-    :cond_1
+    :cond_22
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Builder;->builderMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -523,19 +523,19 @@
 
     .line 214
     .local v0, "valueCollection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_42
 
     .line 215
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_1
+    :goto_30
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_41
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -550,14 +550,14 @@
 
     .line 218
     .end local v2    # "value":Ljava/lang/Object;, "TV;"
-    goto :goto_1
+    goto :goto_30
 
     .line 219
-    :cond_2
+    :cond_41
     return-object p0
 
     .line 221
-    :cond_3
+    :cond_42
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -568,24 +568,24 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_4d
 
     .line 223
     return-object p0
 
     .line 225
-    :cond_4
+    :cond_4d
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMultimap$Builder;->newMutableValueCollection()Ljava/util/Collection;
 
     move-result-object v0
 
     .line 226
-    :goto_2
+    :goto_51
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_62
 
     .line 227
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -601,10 +601,10 @@
 
     .line 230
     .end local v2    # "value":Ljava/lang/Object;, "TV;"
-    goto :goto_2
+    goto :goto_51
 
     .line 231
-    :cond_5
+    :cond_62
     iget-object v2, p0, Lcom/google/common/collect/ImmutableMultimap$Builder;->builderMap:Ljava/util/Map;
 
     invoke-interface {v2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -614,7 +614,7 @@
 .end method
 
 .method public varargs putAll(Ljava/lang/Object;[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMultimap$Builder;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;[TV;)",

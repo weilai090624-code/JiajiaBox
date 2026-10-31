@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public static fromInputStream(Ljava/io/InputStream;)Landroidx/versionedparcelable/VersionedParcelable;
-    .locals 2
+    .registers 3
     .param p0, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -47,7 +47,7 @@
 .end method
 
 .method public static fromParcelable(Landroid/os/Parcelable;)Landroidx/versionedparcelable/VersionedParcelable;
-    .locals 2
+    .registers 3
     .param p0, "p"    # Landroid/os/Parcelable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,7 +62,7 @@
     .line 58
     instance-of v0, p0, Landroidx/versionedparcelable/ParcelImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 61
     move-object v0, p0
@@ -76,7 +76,7 @@
     return-object v0
 
     .line 59
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid parcel"
@@ -87,7 +87,7 @@
 .end method
 
 .method public static getVersionedParcelable(Landroid/os/Bundle;Ljava/lang/String;)Landroidx/versionedparcelable/VersionedParcelable;
-    .locals 3
+    .registers 5
     .param p0, "bundle"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -104,7 +104,7 @@
     .line 109
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v1
@@ -113,13 +113,13 @@
 
     .line 110
     .local v1, "innerBundle":Landroid/os/Bundle;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a
 
     .line 111
     return-object v0
 
     .line 113
-    :cond_0
+    :cond_a
     const-class v2, Landroidx/versionedparcelable/ParcelUtils;
 
     invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -138,14 +138,14 @@
     invoke-static {v2}, Landroidx/versionedparcelable/ParcelUtils;->fromParcelable(Landroid/os/Parcelable;)Landroidx/versionedparcelable/VersionedParcelable;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1d} :catch_1e
 
     return-object v0
 
     .line 115
     .end local v1    # "innerBundle":Landroid/os/Bundle;
-    :catch_0
+    :catch_1e
     move-exception v1
 
     .line 117
@@ -154,7 +154,7 @@
 .end method
 
 .method public static getVersionedParcelableList(Landroid/os/Bundle;Ljava/lang/String;)Ljava/util/List;
-    .locals 6
+    .registers 8
     .param p0, "bundle"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -177,7 +177,7 @@
 
     .line 146
     .local v0, "resultList":Ljava/util/List;, "Ljava/util/List<TT;>;"
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v1
@@ -208,12 +208,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1e
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_33
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -228,23 +228,23 @@
     move-result-object v5
 
     invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_31
+    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_31} :catch_34
 
     .line 152
     nop
 
     .end local v4    # "parcelable":Landroid/os/Parcelable;
-    goto :goto_0
+    goto :goto_1e
 
     .line 153
-    :cond_0
+    :cond_33
     return-object v0
 
     .line 154
     .end local v1    # "innerBundle":Landroid/os/Bundle;
     .end local v2    # "parcelableArrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/Parcelable;>;"
-    :catch_0
+    :catch_34
     move-exception v1
 
     .line 157
@@ -254,19 +254,19 @@
 .end method
 
 .method public static putVersionedParcelable(Landroid/os/Bundle;Ljava/lang/String;Landroidx/versionedparcelable/VersionedParcelable;)V
-    .locals 3
+    .registers 6
     .param p0, "b"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "obj"    # Landroidx/versionedparcelable/VersionedParcelable;
 
     .line 91
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3
 
     .line 92
     return-void
 
     .line 94
-    :cond_0
+    :cond_3
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -289,7 +289,7 @@
 .end method
 
 .method public static putVersionedParcelableList(Landroid/os/Bundle;Ljava/lang/String;Ljava/util/List;)V
-    .locals 5
+    .registers 8
     .param p0, "b"    # Landroid/os/Bundle;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -322,12 +322,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -345,10 +345,10 @@
 
     .line 130
     .end local v3    # "obj":Landroidx/versionedparcelable/VersionedParcelable;
-    goto :goto_0
+    goto :goto_e
 
     .line 131
-    :cond_0
+    :cond_22
     const-string v2, "a"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
@@ -361,7 +361,7 @@
 .end method
 
 .method public static toOutputStream(Landroidx/versionedparcelable/VersionedParcelable;Ljava/io/OutputStream;)V
-    .locals 2
+    .registers 4
     .param p0, "obj"    # Landroidx/versionedparcelable/VersionedParcelable;
     .param p1, "output"    # Ljava/io/OutputStream;
 
@@ -384,7 +384,7 @@
 .end method
 
 .method public static toParcelable(Landroidx/versionedparcelable/VersionedParcelable;)Landroid/os/Parcelable;
-    .locals 1
+    .registers 2
     .param p0, "obj"    # Landroidx/versionedparcelable/VersionedParcelable;
 
     .line 48

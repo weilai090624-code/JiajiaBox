@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 119
     new-instance v0, Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
@@ -100,7 +100,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p3, "lineBreak"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -121,7 +121,7 @@
 .end method
 
 .method public static getPlatformLineBreak()Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
-    .locals 6
+    .registers 6
 
     .line 137
     const-string v0, "line.separator"
@@ -143,8 +143,8 @@
     const/4 v3, 0x0
 
     .local v3, "i$":I
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_c
+    if-ge v3, v2, :cond_1c
 
     aget-object v4, v1, v3
 
@@ -156,30 +156,30 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_19
 
     .line 140
     return-object v4
 
     .line 138
     .end local v4    # "lb":Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
-    :cond_0
+    :cond_19
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 143
     .end local v1    # "arr$":[Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
     .end local v2    # "len$":I
     .end local v3    # "i$":I
-    :cond_1
+    :cond_1c
     sget-object v1, Lorg/yaml/snakeyaml/DumperOptions$LineBreak;->UNIX:Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
 
     return-object v1
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 118
@@ -195,7 +195,7 @@
 .end method
 
 .method public static values()[Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
-    .locals 1
+    .registers 1
 
     .line 118
     sget-object v0, Lorg/yaml/snakeyaml/DumperOptions$LineBreak;->$VALUES:[Lorg/yaml/snakeyaml/DumperOptions$LineBreak;
@@ -212,7 +212,7 @@
 
 # virtual methods
 .method public getString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 128
     iget-object v0, p0, Lorg/yaml/snakeyaml/DumperOptions$LineBreak;->lineBreak:Ljava/lang/String;
@@ -221,7 +221,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 133
     new-instance v0, Ljava/lang/StringBuilder;

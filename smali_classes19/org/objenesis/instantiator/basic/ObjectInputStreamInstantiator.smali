@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,10 +56,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_37
 
     .line 162
-    :try_start_0
+    :try_start_b
     new-instance v0, Ljava/io/ObjectInputStream;
 
     new-instance v1, Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator$MockStream;
@@ -69,8 +69,8 @@
     invoke-direct {v0, v1}, Ljava/io/ObjectInputStream;-><init>(Ljava/io/InputStream;)V
 
     iput-object v0, p0, Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator;->inputStream:Ljava/io/ObjectInputStream;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_17} :catch_19
 
     .line 166
     nop
@@ -79,7 +79,7 @@
     return-void
 
     .line 164
-    :catch_0
+    :catch_19
     move-exception v0
 
     .line 165
@@ -114,7 +114,7 @@
 
     .line 169
     .end local v0    # "e":Ljava/io/IOException;
-    :cond_0
+    :cond_37
     new-instance v0, Lorg/objenesis/ObjenesisException;
 
     new-instance v1, Ljava/io/NotSerializableException;
@@ -147,7 +147,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -162,14 +162,14 @@
     invoke-virtual {v0}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_6} :catch_e
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
     .line 181
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 182
@@ -182,7 +182,7 @@
 
     .line 178
     .end local v0    # "e":Ljava/lang/Exception;
-    :catch_1
+    :catch_e
     move-exception v0
 
     .line 179

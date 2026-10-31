@@ -58,7 +58,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/Sink;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .registers 4
     .param p1, "delegate"    # Lokio/Sink;
     .param p2, "onException"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
@@ -94,30 +94,30 @@
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
 
     .line 56
     iget-boolean v0, p0, Lokhttp3/internal/cache/FaultHidingSink;->hasErrors:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 57
     return-void
 
     .line 59
-    :cond_0
+    :cond_5
     nop
 
     .line 60
-    :try_start_0
+    :try_start_6
     invoke-super {p0}, Lokio/ForwardingSink;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_9} :catch_a
 
-    goto :goto_0
+    goto :goto_13
 
     .line 61
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 62
@@ -133,35 +133,35 @@
 
     .line 65
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method public flush()V
-    .locals 2
+    .registers 3
 
     .line 44
     iget-boolean v0, p0, Lokhttp3/internal/cache/FaultHidingSink;->hasErrors:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 45
     return-void
 
     .line 47
-    :cond_0
+    :cond_5
     nop
 
     .line 48
-    :try_start_0
+    :try_start_6
     invoke-super {p0}, Lokio/ForwardingSink;->flush()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_9} :catch_a
 
-    goto :goto_0
+    goto :goto_13
 
     .line 49
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 50
@@ -177,12 +177,12 @@
 
     .line 53
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method public final getOnException()Lkotlin/jvm/functions/Function1;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -200,7 +200,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 2
+    .registers 6
     .param p1, "source"    # Lokio/Buffer;
     .param p2, "byteCount"    # J
 
@@ -211,7 +211,7 @@
     .line 31
     iget-boolean v0, p0, Lokhttp3/internal/cache/FaultHidingSink;->hasErrors:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 32
     invoke-virtual {p1, p2, p3}, Lokio/Buffer;->skip(J)V
@@ -220,19 +220,19 @@
     return-void
 
     .line 35
-    :cond_0
+    :cond_d
     nop
 
     .line 36
-    :try_start_0
+    :try_start_e
     invoke-super {p0, p1, p2, p3}, Lokio/ForwardingSink;->write(Lokio/Buffer;J)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/io/IOException; {:try_start_e .. :try_end_11} :catch_12
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 37
-    :catch_0
+    :catch_12
     move-exception v0
 
     .line 38
@@ -248,6 +248,6 @@
 
     .line 41
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_1b
     return-void
 .end method

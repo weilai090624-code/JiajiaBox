@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/common/hash/HashFunction;Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 4
     .param p1, "hashFunction"    # Lcom/google/common/hash/HashFunction;
     .param p2, "out"    # Ljava/io/OutputStream;
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -64,7 +64,7 @@
 .end method
 
 .method public hash()Lcom/google/common/hash/HashCode;
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Lcom/google/common/hash/HashingOutputStream;->hasher:Lcom/google/common/hash/Hasher;
@@ -77,7 +77,7 @@
 .end method
 
 .method public write(I)V
-    .locals 2
+    .registers 4
     .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -102,7 +102,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 1
+    .registers 5
     .param p1, "bytes"    # [B
     .param p2, "off"    # I
     .param p3, "len"    # I

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;)V
-    .locals 2
+    .registers 4
     .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 184
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public copy(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 6
+    .registers 9
     .param p1, "original"    # Ljava/lang/Object;
     .param p2, "copy"    # Ljava/lang/Object;
 
@@ -64,14 +64,14 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Object;)V
-    .locals 13
+    .registers 16
     .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p2, "object"    # Ljava/lang/Object;
 
     .line 196
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$LongUnsafeField;->varEncoding:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 197
     sget-object v1, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
@@ -88,10 +88,10 @@
 
     invoke-virtual/range {v1 .. v6}, Lsun/misc/Unsafe;->putLong(Ljava/lang/Object;JJ)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 199
-    :cond_0
+    :cond_12
     sget-object v7, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-wide v9, p0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$LongUnsafeField;->offset:J
@@ -105,19 +105,19 @@
     invoke-virtual/range {v7 .. v12}, Lsun/misc/Unsafe;->putLong(Ljava/lang/Object;JJ)V
 
     .line 200
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p2, "object"    # Ljava/lang/Object;
 
     .line 189
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$LongUnsafeField;->varEncoding:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 190
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
@@ -132,10 +132,10 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 192
-    :cond_0
+    :cond_11
     sget-object v0, Lcom/esotericsoftware/kryo/unsafe/UnsafeUtil;->unsafe:Lsun/misc/Unsafe;
 
     iget-wide v1, p0, Lcom/esotericsoftware/kryo/serializers/UnsafeField$LongUnsafeField;->offset:J
@@ -147,6 +147,6 @@
     invoke-virtual {p1, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeLong(J)V
 
     .line 193
-    :goto_0
+    :goto_1c
     return-void
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>([[D)V
-    .locals 0
+    .registers 2
     .param p1, "points"    # [[D
 
     .line 40
@@ -51,7 +51,7 @@
 .end method
 
 .method static calcNaturalCubic(I[D)[Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;
-    .locals 22
+    .registers 24
     .param p0, "n"    # I
     .param p1, "x"    # [D
 
@@ -85,10 +85,10 @@
     const/4 v4, 0x1
 
     .local v4, "i":I
-    :goto_0
+    :goto_10
     const-wide/high16 v7, 0x3ff0000000000000L    # 1.0
 
-    if-ge v4, v0, :cond_0
+    if-ge v4, v0, :cond_21
 
     .line 156
     add-int/lit8 v5, v4, -0x1
@@ -106,11 +106,11 @@
     .line 155
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 158
     .end local v4    # "i":I
-    :cond_0
+    :cond_21
     add-int/lit8 v4, v0, -0x1
 
     aget-wide v4, v1, v4
@@ -146,8 +146,8 @@
     const/4 v4, 0x1
 
     .restart local v4    # "i":I
-    :goto_1
-    if-ge v4, v0, :cond_1
+    :goto_3d
+    if-ge v4, v0, :cond_58
 
     .line 162
     add-int/lit8 v5, v4, 0x1
@@ -177,11 +177,11 @@
     .line 161
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_3d
 
     .line 164
     .end local v4    # "i":I
-    :cond_1
+    :cond_58
     aget-wide v4, p1, v0
 
     add-int/lit8 v6, v0, -0x1
@@ -213,8 +213,8 @@
     add-int/lit8 v4, v0, -0x1
 
     .restart local v4    # "i":I
-    :goto_2
-    if-ltz v4, :cond_2
+    :goto_72
+    if-ltz v4, :cond_84
 
     .line 168
     aget-wide v5, v2, v4
@@ -234,11 +234,11 @@
     .line 167
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_2
+    goto :goto_72
 
     .line 171
     .end local v4    # "i":I
-    :cond_2
+    :cond_84
     new-array v4, v0, [Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;
 
     .line 172
@@ -246,8 +246,8 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_3
-    if-ge v5, v0, :cond_3
+    :goto_87
+    if-ge v5, v0, :cond_c4
 
     .line 173
     new-instance v6, Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;
@@ -311,18 +311,18 @@
     .line 172
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_3
+    goto :goto_87
 
     .line 176
     .end local v5    # "i":I
-    :cond_3
+    :cond_c4
     return-object v4
 .end method
 
 
 # virtual methods
 .method public approxLength([Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;)D
-    .locals 13
+    .registers 15
     .param p1, "curve"    # [Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;
 
     .line 122
@@ -343,12 +343,12 @@
     const-wide/16 v4, 0x0
 
     .local v4, "i":D
-    :goto_0
+    :goto_8
     const-wide/high16 v6, 0x3ff0000000000000L    # 1.0
 
     cmpg-double v8, v4, v6
 
-    if-gez v8, :cond_2
+    if-gez v8, :cond_37
 
     .line 127
     const-wide/16 v6, 0x0
@@ -358,10 +358,10 @@
     const/4 v8, 0x0
 
     .local v8, "j":I
-    :goto_1
+    :goto_11
     array-length v9, p1
 
-    if-ge v8, v9, :cond_0
+    if-ge v8, v9, :cond_25
 
     .line 129
     aget-wide v9, v3, v8
@@ -387,16 +387,16 @@
     .end local v9    # "tmp":D
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_11
 
     .line 133
     .end local v8    # "j":I
-    :cond_0
+    :cond_25
     const-wide/16 v8, 0x0
 
     cmpl-double v10, v4, v8
 
-    if-lez v10, :cond_1
+    if-lez v10, :cond_30
 
     .line 134
     invoke-static {v6, v7}, Ljava/lang/Math;->sqrt(D)D
@@ -407,16 +407,16 @@
 
     .line 126
     .end local v6    # "s":D
-    :cond_1
+    :cond_30
     const-wide v6, 0x3fb999999999999aL    # 0.1
 
     add-double/2addr v4, v6
 
-    goto :goto_0
+    goto :goto_8
 
     .line 138
     .end local v4    # "i":D
-    :cond_2
+    :cond_37
     const-wide/16 v4, 0x0
 
     .line 139
@@ -424,10 +424,10 @@
     const/4 v8, 0x0
 
     .restart local v8    # "j":I
-    :goto_2
+    :goto_3a
     array-length v9, p1
 
-    if-ge v8, v9, :cond_3
+    if-ge v8, v9, :cond_4e
 
     .line 140
     aget-wide v9, v3, v8
@@ -453,11 +453,11 @@
     .end local v9    # "tmp":D
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2
+    goto :goto_3a
 
     .line 144
     .end local v8    # "j":I
-    :cond_3
+    :cond_4e
     invoke-static {v4, v5}, Ljava/lang/Math;->sqrt(D)D
 
     move-result-wide v6
@@ -469,7 +469,7 @@
 .end method
 
 .method public getPos(DI)D
-    .locals 9
+    .registers 13
     .param p1, "p"    # D
     .param p3, "splineNumber"    # I
 
@@ -488,14 +488,14 @@
 
     .line 115
     .local v4, "k":I
-    :goto_0
+    :goto_7
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
 
     array-length v5, v5
 
     add-int/lit8 v5, v5, -0x1
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_1e
 
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
 
@@ -503,7 +503,7 @@
 
     cmpg-double v5, v6, v0
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_1e
 
     .line 116
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
@@ -515,10 +515,10 @@
     .line 115
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 118
-    :cond_0
+    :cond_1e
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurve:[[Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;
 
     aget-object v5, v5, p3
@@ -539,7 +539,7 @@
 .end method
 
 .method public getPos(D[D)V
-    .locals 10
+    .registers 14
     .param p1, "p"    # D
     .param p3, "x"    # [D
 
@@ -558,14 +558,14 @@
 
     .line 91
     .local v4, "k":I
-    :goto_0
+    :goto_7
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
 
     array-length v5, v5
 
     add-int/lit8 v5, v5, -0x1
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_1e
 
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
 
@@ -573,7 +573,7 @@
 
     cmpg-double v5, v6, v0
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_1e
 
     .line 92
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
@@ -585,17 +585,17 @@
     .line 91
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 94
-    :cond_0
+    :cond_1e
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_1
+    :goto_1f
     array-length v6, p3
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_37
 
     .line 95
     iget-object v6, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurve:[[Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;
@@ -619,16 +619,16 @@
     .line 94
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 97
     .end local v5    # "i":I
-    :cond_1
+    :cond_37
     return-void
 .end method
 
 .method public getPos(D[F)V
-    .locals 10
+    .registers 14
     .param p1, "p"    # D
     .param p3, "x"    # [F
 
@@ -647,14 +647,14 @@
 
     .line 103
     .local v4, "k":I
-    :goto_0
+    :goto_7
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
 
     array-length v5, v5
 
     add-int/lit8 v5, v5, -0x1
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_1e
 
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
 
@@ -662,7 +662,7 @@
 
     cmpg-double v5, v6, v0
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_1e
 
     .line 104
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
@@ -674,17 +674,17 @@
     .line 103
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 106
-    :cond_0
+    :cond_1e
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_1
+    :goto_1f
     array-length v6, p3
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_38
 
     .line 107
     iget-object v6, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurve:[[Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;
@@ -710,16 +710,16 @@
     .line 106
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 109
     .end local v5    # "i":I
-    :cond_1
+    :cond_38
     return-void
 .end method
 
 .method public getVelocity(D[D)V
-    .locals 10
+    .registers 14
     .param p1, "p"    # D
     .param p3, "v"    # [D
 
@@ -738,14 +738,14 @@
 
     .line 79
     .local v4, "k":I
-    :goto_0
+    :goto_7
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
 
     array-length v5, v5
 
     add-int/lit8 v5, v5, -0x1
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_1e
 
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
 
@@ -753,7 +753,7 @@
 
     cmpg-double v5, v6, v0
 
-    if-gez v5, :cond_0
+    if-gez v5, :cond_1e
 
     .line 80
     iget-object v5, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
@@ -765,17 +765,17 @@
     .line 79
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 82
-    :cond_0
+    :cond_1e
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_1
+    :goto_1f
     array-length v6, p3
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_37
 
     .line 83
     iget-object v6, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurve:[[Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;
@@ -799,16 +799,16 @@
     .line 82
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 85
     .end local v5    # "i":I
-    :cond_1
+    :cond_37
     return-void
 .end method
 
 .method public setup([[D)V
-    .locals 7
+    .registers 9
     .param p1, "points"    # [[D
 
     .line 48
@@ -861,19 +861,19 @@
     const/4 v0, 0x0
 
     .local v0, "d":I
-    :goto_0
+    :goto_26
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mDimensionality:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_3f
 
     .line 53
     const/4 v1, 0x0
 
     .local v1, "p":I
-    :goto_1
+    :goto_2b
     iget v2, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mPoints:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_3c
 
     .line 54
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCtl:[[D
@@ -889,25 +889,25 @@
     .line 53
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 52
     .end local v1    # "p":I
-    :cond_0
+    :cond_3c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 58
     .end local v0    # "d":I
-    :cond_1
+    :cond_3f
     const/4 v0, 0x0
 
     .restart local v0    # "d":I
-    :goto_2
+    :goto_40
     iget v1, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mDimensionality:I
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_58
 
     .line 59
     iget-object v1, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurve:[[Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;
@@ -931,11 +931,11 @@
     .line 58
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_40
 
     .line 62
     .end local v0    # "d":I
-    :cond_2
+    :cond_58
     iget v0, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mPoints:I
 
     sub-int/2addr v0, v4
@@ -959,21 +959,21 @@
     const/4 v1, 0x0
 
     .restart local v1    # "p":I
-    :goto_3
+    :goto_68
     iget-object v2, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_8d
 
     .line 66
     const/4 v2, 0x0
 
     .local v2, "d":I
-    :goto_4
+    :goto_6e
     iget v3, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mDimensionality:I
 
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_7d
 
     .line 68
     iget-object v3, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurve:[[Landroidx/constraintlayout/core/motion/utils/HyperSpline$Cubic;
@@ -987,11 +987,11 @@
     .line 66
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4
+    goto :goto_6e
 
     .line 71
     .end local v2    # "d":I
-    :cond_3
+    :cond_7d
     iget-wide v2, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mTotalLength:D
 
     iget-object v4, p0, Landroidx/constraintlayout/core/motion/utils/HyperSpline;->mCurveLength:[D
@@ -1009,10 +1009,10 @@
     .line 65
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
+    goto :goto_68
 
     .line 73
     .end local v1    # "p":I
-    :cond_4
+    :cond_8d
     return-void
 .end method

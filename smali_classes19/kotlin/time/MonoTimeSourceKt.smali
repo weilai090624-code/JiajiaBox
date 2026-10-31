@@ -25,7 +25,7 @@
 
 # direct methods
 .method public static synthetic ValueTimeMarkReading$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method

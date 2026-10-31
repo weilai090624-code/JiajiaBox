@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 129
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 .end method
 
 .method public static wrap(Landroid/location/GnssStatus;)Landroidx/core/location/GnssStatusCompat;
-    .locals 1
+    .registers 2
     .param p0, "gnssStatus"    # Landroid/location/GnssStatus;
 
     .line 116
@@ -53,7 +53,7 @@
 .end method
 
 .method public static wrap(Landroid/location/GpsStatus;)Landroidx/core/location/GnssStatusCompat;
-    .locals 1
+    .registers 2
     .param p0, "gpsStatus"    # Landroid/location/GpsStatus;
 
     .line 125

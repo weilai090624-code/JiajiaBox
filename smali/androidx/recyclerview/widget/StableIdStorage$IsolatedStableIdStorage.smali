@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public createStableIdLookup()Landroidx/recyclerview/widget/StableIdStorage$StableIdLookup;
-    .locals 1
+    .registers 2
 
     .line 89
     new-instance v0, Landroidx/recyclerview/widget/StableIdStorage$IsolatedStableIdStorage$WrapperStableIdLookup;
@@ -56,7 +56,7 @@
 .end method
 
 .method obtainId()J
-    .locals 4
+    .registers 5
 
     .line 83
     iget-wide v0, p0, Landroidx/recyclerview/widget/StableIdStorage$IsolatedStableIdStorage;->mNextStableId:J

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 206
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static of(IIII)Landroid/graphics/Insets;
-    .locals 1
+    .registers 5
     .param p0, "left"    # I
     .param p1, "top"    # I
     .param p2, "right"    # I

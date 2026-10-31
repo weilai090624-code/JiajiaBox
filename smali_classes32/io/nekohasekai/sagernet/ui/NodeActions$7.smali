@@ -46,6 +46,17 @@
     .line 0
     iget-object v0, p0, Lio/nekohasekai/sagernet/ui/NodeActions$7;->f$0:Landroid/app/Dialog;
 
+    invoke-static {v0, p0}, Lio/nekohasekai/sagernet/ui/MorphDialog;->defer(Landroid/app/Dialog;Ljava/lang/Runnable;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    return-void
+
+    :cond_9
+    iget-object v0, p0, Lio/nekohasekai/sagernet/ui/NodeActions$7;->f$0:Landroid/app/Dialog;
+
     iget-object v1, p0, Lio/nekohasekai/sagernet/ui/NodeActions$7;->f$1:Ljava/lang/Object;
 
     iget-object v2, p0, Lio/nekohasekai/sagernet/ui/NodeActions$7;->f$2:Ljava/lang/Object;

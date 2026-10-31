@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "aboutToRecreate"    # Landroid/app/Activity;
 
     .line 192
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public onActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
@@ -78,13 +78,13 @@
 .end method
 
 .method public onActivityDestroyed(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 240
     iget-object v0, p0, Landroidx/core/app/ActivityRecreator$LifecycleCheckCallbacks;->mActivity:Landroid/app/Activity;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_a
 
     .line 244
     const/4 v0, 0x0
@@ -97,26 +97,26 @@
     iput-boolean v0, p0, Landroidx/core/app/ActivityRecreator$LifecycleCheckCallbacks;->mDestroyed:Z
 
     .line 247
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public onActivityPaused(Landroid/app/Activity;)V
-    .locals 2
+    .registers 4
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 217
     iget-boolean v0, p0, Landroidx/core/app/ActivityRecreator$LifecycleCheckCallbacks;->mDestroyed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     iget-boolean v0, p0, Landroidx/core/app/ActivityRecreator$LifecycleCheckCallbacks;->mStopQueued:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     iget-boolean v0, p0, Landroidx/core/app/ActivityRecreator$LifecycleCheckCallbacks;->mStarted:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     iget-object v0, p0, Landroidx/core/app/ActivityRecreator$LifecycleCheckCallbacks;->currentlyRecreatingToken:Ljava/lang/Object;
 
@@ -127,7 +127,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 223
     const/4 v0, 0x1
@@ -140,12 +140,12 @@
     iput-object v0, p0, Landroidx/core/app/ActivityRecreator$LifecycleCheckCallbacks;->currentlyRecreatingToken:Ljava/lang/Object;
 
     .line 227
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method public onActivityResumed(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 213
@@ -153,7 +153,7 @@
 .end method
 
 .method public onActivitySaveInstanceState(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "outState"    # Landroid/os/Bundle;
 
@@ -162,13 +162,13 @@
 .end method
 
 .method public onActivityStarted(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 206
     iget-object v0, p0, Landroidx/core/app/ActivityRecreator$LifecycleCheckCallbacks;->mActivity:Landroid/app/Activity;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_7
 
     .line 207
     const/4 v0, 0x1
@@ -176,12 +176,12 @@
     iput-boolean v0, p0, Landroidx/core/app/ActivityRecreator$LifecycleCheckCallbacks;->mStarted:Z
 
     .line 209
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public onActivityStopped(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 236

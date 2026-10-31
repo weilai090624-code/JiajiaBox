@@ -25,7 +25,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 61
     .local p0, "this":Lcom/google/common/collect/ForwardingList;, "Lcom/google/common/collect/ForwardingList<TE;>;"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -63,7 +63,7 @@
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,7 +88,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 54
     .local p0, "this":Lcom/google/common/collect/ForwardingList;, "Lcom/google/common/collect/ForwardingList<TE;>;"
@@ -100,7 +100,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 54
     .local p0, "this":Lcom/google/common/collect/ForwardingList;, "Lcom/google/common/collect/ForwardingList<TE;>;"
@@ -122,7 +122,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -130,7 +130,7 @@
 
     .line 124
     .local p0, "this":Lcom/google/common/collect/ForwardingList;, "Lcom/google/common/collect/ForwardingList<TE;>;"
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingList;->delegate()Ljava/util/List;
 
@@ -140,25 +140,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -183,7 +183,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 129
     .local p0, "this":Lcom/google/common/collect/ForwardingList;, "Lcom/google/common/collect/ForwardingList<TE;>;"
@@ -199,7 +199,7 @@
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -219,7 +219,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -239,7 +239,7 @@
 .end method
 
 .method public listIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -262,7 +262,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -286,7 +286,7 @@
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "index"    # I
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
@@ -311,7 +311,7 @@
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .param p2    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
@@ -341,7 +341,7 @@
 .end method
 
 .method protected standardAdd(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation runtime Lcom/google/common/collect/ParametricNullness;
         .end annotation
@@ -368,7 +368,7 @@
 .end method
 
 .method protected standardAddAll(ILjava/lang/Iterable;)Z
-    .locals 1
+    .registers 4
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -389,7 +389,7 @@
 .end method
 
 .method protected standardEquals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -405,7 +405,7 @@
 .end method
 
 .method protected standardHashCode()I
-    .locals 1
+    .registers 2
 
     .line 244
     .local p0, "this":Lcom/google/common/collect/ForwardingList;, "Lcom/google/common/collect/ForwardingList<TE;>;"
@@ -417,7 +417,7 @@
 .end method
 
 .method protected standardIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -433,7 +433,7 @@
 .end method
 
 .method protected standardIterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -452,7 +452,7 @@
 .end method
 
 .method protected standardLastIndexOf(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -468,7 +468,7 @@
 .end method
 
 .method protected standardListIterator()Ljava/util/ListIterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -489,7 +489,7 @@
 .end method
 
 .method protected standardListIterator(I)Ljava/util/ListIterator;
-    .locals 1
+    .registers 3
     .param p1, "start"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -509,7 +509,7 @@
 .end method
 
 .method protected standardSubList(II)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -530,7 +530,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p1, "fromIndex"    # I
     .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;

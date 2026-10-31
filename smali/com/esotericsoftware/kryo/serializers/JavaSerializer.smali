@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/Serializer;-><init>()V
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 7
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
     .param p3, "type"    # Ljava/lang/Class;
@@ -45,7 +45,7 @@
 
     .line 62
     .local v1, "objectStream":Ljava/io/ObjectInputStream;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     .line 63
     new-instance v2, Lcom/esotericsoftware/kryo/serializers/JavaSerializer$ObjectInputStreamWithKryoClassLoader;
@@ -58,19 +58,19 @@
     invoke-virtual {v0, p0, v1}, Lcom/esotericsoftware/kryo/util/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 66
-    :cond_0
+    :cond_15
     invoke-virtual {v1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_19} :catch_1a
 
     return-object v2
 
     .line 67
     .end local v0    # "graphContext":Lcom/esotericsoftware/kryo/util/ObjectMap;
     .end local v1    # "objectStream":Ljava/io/ObjectInputStream;
-    :catch_0
+    :catch_1a
     move-exception v0
 
     .line 68
@@ -85,7 +85,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
     .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
     .param p3, "object"    # Ljava/lang/Object;
@@ -106,7 +106,7 @@
 
     .line 47
     .local v1, "objectStream":Ljava/io/ObjectOutputStream;
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     .line 48
     new-instance v2, Ljava/io/ObjectOutputStream;
@@ -119,13 +119,13 @@
     invoke-virtual {v0, p0, v1}, Lcom/esotericsoftware/kryo/util/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 51
-    :cond_0
+    :cond_15
     invoke-virtual {v1, p3}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
     .line 52
     invoke-virtual {v1}, Ljava/io/ObjectOutputStream;->flush()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_1b} :catch_1d
 
     .line 55
     .end local v0    # "graphContext":Lcom/esotericsoftware/kryo/util/ObjectMap;
@@ -136,7 +136,7 @@
     return-void
 
     .line 53
-    :catch_0
+    :catch_1d
     move-exception v0
 
     .line 54

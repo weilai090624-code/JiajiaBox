@@ -25,7 +25,7 @@
 
 # direct methods
 .method private static synthetic $values()[Landroidx/work/impl/utils/futures/DirectExecutor;
-    .locals 3
+    .registers 3
 
     .line 32
     const/4 v0, 0x1
@@ -42,7 +42,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 34
     new-instance v0, Landroidx/work/impl/utils/futures/DirectExecutor;
@@ -66,7 +66,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -91,7 +91,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/work/impl/utils/futures/DirectExecutor;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -115,7 +115,7 @@
 .end method
 
 .method public static values()[Landroidx/work/impl/utils/futures/DirectExecutor;
-    .locals 1
+    .registers 1
 
     .line 32
     sget-object v0, Landroidx/work/impl/utils/futures/DirectExecutor;->$VALUES:[Landroidx/work/impl/utils/futures/DirectExecutor;
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
     .param p1, "command"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -151,7 +151,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 43
     const-string v0, "DirectExecutor"

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public static final findNavController(Landroid/view/View;)Landroidx/navigation/NavController;
-    .locals 1
+    .registers 2
     .param p0, "$this$findNavController"    # Landroid/view/View;
 
     const-string v0, "<this>"

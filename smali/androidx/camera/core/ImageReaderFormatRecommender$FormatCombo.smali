@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static create(II)Landroidx/camera/core/ImageReaderFormatRecommender$FormatCombo;
-    .locals 1
+    .registers 3
     .param p0, "imageCaptureFormat"    # I
     .param p1, "imageAnalysisFormat"    # I
     .annotation system Ldalvik/annotation/MethodParameters;

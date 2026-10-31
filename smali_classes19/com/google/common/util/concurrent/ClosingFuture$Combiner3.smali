@@ -65,7 +65,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;)V
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,7 +107,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture$1;)V
-    .locals 0
+    .registers 5
     .param p1, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture;
     .param p2, "x1"    # Lcom/google/common/util/concurrent/ClosingFuture;
     .param p3, "x2"    # Lcom/google/common/util/concurrent/ClosingFuture;
@@ -121,7 +121,7 @@
 .end method
 
 .method static synthetic access$2000(Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;
 
     .line 1559
@@ -131,7 +131,7 @@
 .end method
 
 .method static synthetic access$2100(Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;
 
     .line 1559
@@ -141,7 +141,7 @@
 .end method
 
 .method static synthetic access$2200(Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/common/util/concurrent/ClosingFuture$Combiner3;
 
     .line 1559
@@ -153,7 +153,7 @@
 
 # virtual methods
 .method public call(Lcom/google/common/util/concurrent/ClosingFuture$Combiner3$ClosingFunction3;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -184,7 +184,7 @@
 .end method
 
 .method public callAsync(Lcom/google/common/util/concurrent/ClosingFuture$Combiner3$AsyncClosingFunction3;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ClosingFuture;
-    .locals 1
+    .registers 4
     .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {

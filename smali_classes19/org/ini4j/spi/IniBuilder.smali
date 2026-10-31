@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;-><init>()V
@@ -21,7 +21,7 @@
 .end method
 
 .method private static newInstance()Lorg/ini4j/spi/IniBuilder;
-    .locals 1
+    .registers 1
 
     .line 52
     const-class v0, Lorg/ini4j/spi/IniBuilder;
@@ -36,7 +36,7 @@
 .end method
 
 .method public static newInstance(Lorg/ini4j/Ini;)Lorg/ini4j/spi/IniBuilder;
-    .locals 1
+    .registers 2
     .param p0, "ini"    # Lorg/ini4j/Ini;
 
     .line 28
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public bridge synthetic endIni()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-super {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->endIni()V
@@ -64,7 +64,7 @@
 .end method
 
 .method public bridge synthetic endSection()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-super {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->endSection()V
@@ -73,7 +73,7 @@
 .end method
 
 .method getConfig()Lorg/ini4j/Config;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Lorg/ini4j/spi/IniBuilder;->_ini:Lorg/ini4j/Ini;
@@ -86,7 +86,7 @@
 .end method
 
 .method getProfile()Lorg/ini4j/Profile;
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Lorg/ini4j/spi/IniBuilder;->_ini:Lorg/ini4j/Ini;
@@ -95,7 +95,7 @@
 .end method
 
 .method public bridge synthetic handleComment(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 22
@@ -105,7 +105,7 @@
 .end method
 
 .method public bridge synthetic handleOption(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Ljava/lang/String;
     .param p2, "x1"    # Ljava/lang/String;
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public setIni(Lorg/ini4j/Ini;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Lorg/ini4j/Ini;
 
     .line 37
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic startIni()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-super {p0}, Lorg/ini4j/spi/AbstractProfileBuilder;->startIni()V
@@ -136,7 +136,7 @@
 .end method
 
 .method public bridge synthetic startSection(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Ljava/lang/String;
 
     .line 22

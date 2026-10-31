@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/view/PreviewView;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/camera/view/PreviewView;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onScale(Landroid/view/ScaleGestureDetector;)Z
-    .locals 2
+    .registers 4
     .param p1, "detector"    # Landroid/view/ScaleGestureDetector;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -58,7 +58,7 @@
 
     iget-object v0, v0, Landroidx/camera/view/PreviewView;->mCameraController:Landroidx/camera/view/CameraController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 792
     iget-object v0, p0, Landroidx/camera/view/PreviewView$PinchToZoomOnScaleGestureListener;->this$0:Landroidx/camera/view/PreviewView;
@@ -72,7 +72,7 @@
     invoke-virtual {v0, v1}, Landroidx/camera/view/CameraController;->onPinchToZoom(F)V
 
     .line 794
-    :cond_0
+    :cond_11
     const/4 v0, 0x1
 
     return v0

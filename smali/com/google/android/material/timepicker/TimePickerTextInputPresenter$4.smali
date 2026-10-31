@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;Landroid/content/Context;ILcom/google/android/material/timepicker/TimeModel;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/google/android/material/timepicker/TimePickerTextInputPresenter;
     .param p2, "context"    # Landroid/content/Context;
     .param p3, "resId"    # I
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 5
+    .registers 8
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 

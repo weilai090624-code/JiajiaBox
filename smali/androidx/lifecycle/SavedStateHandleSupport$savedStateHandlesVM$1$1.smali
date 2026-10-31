@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Landroidx/lifecycle/SavedStateHandleSupport$savedStateHandlesVM$1$1;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public final invoke(Landroidx/lifecycle/viewmodel/CreationExtras;)Landroidx/lifecycle/SavedStateHandlesVM;
-    .locals 1
+    .registers 3
     .param p1, "$this$initializer"    # Landroidx/lifecycle/viewmodel/CreationExtras;
 
     const-string v0, "$this$initializer"
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "p1"    # Ljava/lang/Object;
 
     .line 110

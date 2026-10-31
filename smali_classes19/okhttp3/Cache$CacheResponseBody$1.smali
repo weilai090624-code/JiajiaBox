@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/Cache$CacheResponseBody;Lokio/Source;)V
-    .locals 0
+    .registers 3
     .param p1, "$receiver"    # Lokhttp3/Cache$CacheResponseBody;
     .param p2, "$source"    # Lokio/Source;
 
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

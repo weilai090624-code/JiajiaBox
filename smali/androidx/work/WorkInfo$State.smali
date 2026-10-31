@@ -40,7 +40,7 @@
 
 # direct methods
 .method private static synthetic $values()[Landroidx/work/WorkInfo$State;
-    .locals 3
+    .registers 3
 
     .line 182
     const/4 v0, 0x6
@@ -87,7 +87,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 188
     new-instance v0, Landroidx/work/WorkInfo$State;
@@ -166,7 +166,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -191,7 +191,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/work/WorkInfo$State;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -215,7 +215,7 @@
 .end method
 
 .method public static values()[Landroidx/work/WorkInfo$State;
-    .locals 1
+    .registers 1
 
     .line 182
     sget-object v0, Landroidx/work/WorkInfo$State;->$VALUES:[Landroidx/work/WorkInfo$State;
@@ -232,32 +232,32 @@
 
 # virtual methods
 .method public isFinished()Z
-    .locals 1
+    .registers 2
 
     .line 227
     sget-object v0, Landroidx/work/WorkInfo$State;->SUCCEEDED:Landroidx/work/WorkInfo$State;
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_f
 
     sget-object v0, Landroidx/work/WorkInfo$State;->FAILED:Landroidx/work/WorkInfo$State;
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_f
 
     sget-object v0, Landroidx/work/WorkInfo$State;->CANCELLED:Landroidx/work/WorkInfo$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/PostMessageService;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/browser/customtabs/PostMessageService;
 
     .line 34
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onMessageChannelReady(Landroid/support/customtabs/ICustomTabsCallback;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
@@ -51,7 +51,7 @@
 .end method
 
 .method public onPostMessage(Landroid/support/customtabs/ICustomTabsCallback;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 4
     .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "extras"    # Landroid/os/Bundle;

@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(III)V
-    .locals 3
+    .registers 7
     .param p1, "first"    # I
     .param p2, "last"    # I
     .param p3, "step"    # I
@@ -67,37 +67,37 @@
 
     const/4 v2, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_10
 
-    if-gt p1, p2, :cond_1
+    if-gt p1, p2, :cond_13
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
-    if-lt p1, p2, :cond_1
+    :cond_10
+    if-lt p1, p2, :cond_13
 
-    :goto_0
-    goto :goto_1
+    :goto_12
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_14
     iput-boolean v1, p0, Lkotlin/ranges/IntProgressionIterator;->hasNext:Z
 
     .line 42
     iget-boolean v0, p0, Lkotlin/ranges/IntProgressionIterator;->hasNext:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1c
 
     move v0, p1
 
-    goto :goto_2
+    goto :goto_1e
 
-    :cond_2
+    :cond_1c
     iget v0, p0, Lkotlin/ranges/IntProgressionIterator;->finalElement:I
 
-    :goto_2
+    :goto_1e
     iput v0, p0, Lkotlin/ranges/IntProgressionIterator;->next:I
 
     .line 39
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public final getStep()I
-    .locals 1
+    .registers 2
 
     .line 39
     iget v0, p0, Lkotlin/ranges/IntProgressionIterator;->step:I
@@ -116,7 +116,7 @@
 .end method
 
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 44
     iget-boolean v0, p0, Lkotlin/ranges/IntProgressionIterator;->hasNext:Z
@@ -125,7 +125,7 @@
 .end method
 
 .method public nextInt()I
-    .locals 3
+    .registers 4
 
     .line 47
     iget v0, p0, Lkotlin/ranges/IntProgressionIterator;->next:I
@@ -134,22 +134,22 @@
     .local v0, "value":I
     iget v1, p0, Lkotlin/ranges/IntProgressionIterator;->finalElement:I
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_14
 
     .line 49
     iget-boolean v1, p0, Lkotlin/ranges/IntProgressionIterator;->hasNext:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 50
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lkotlin/ranges/IntProgressionIterator;->hasNext:Z
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 49
-    :cond_0
+    :cond_e
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -157,7 +157,7 @@
     throw v1
 
     .line 53
-    :cond_1
+    :cond_14
     iget v1, p0, Lkotlin/ranges/IntProgressionIterator;->next:I
 
     iget v2, p0, Lkotlin/ranges/IntProgressionIterator;->step:I
@@ -167,6 +167,6 @@
     iput v1, p0, Lkotlin/ranges/IntProgressionIterator;->next:I
 
     .line 55
-    :goto_0
+    :goto_1b
     return v0
 .end method

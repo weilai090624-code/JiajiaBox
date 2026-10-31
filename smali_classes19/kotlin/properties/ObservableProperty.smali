@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1, "initialValue"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method protected afterChange(Lkotlin/reflect/KProperty;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 5
     .param p1, "property"    # Lkotlin/reflect/KProperty;
     .param p2, "oldValue"    # Ljava/lang/Object;
     .param p3, "newValue"    # Ljava/lang/Object;
@@ -115,7 +115,7 @@
 .end method
 
 .method protected beforeChange(Lkotlin/reflect/KProperty;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 5
     .param p1, "property"    # Lkotlin/reflect/KProperty;
     .param p2, "oldValue"    # Ljava/lang/Object;
     .param p3, "newValue"    # Ljava/lang/Object;
@@ -138,7 +138,7 @@
 .end method
 
 .method public getValue(Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
     .annotation system Ldalvik/annotation/Signature;
@@ -161,7 +161,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "thisRef"    # Ljava/lang/Object;
     .param p2, "property"    # Lkotlin/reflect/KProperty;
     .param p3, "value"    # Ljava/lang/Object;
@@ -187,13 +187,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 38
     return-void
 
     .line 40
-    :cond_0
+    :cond_e
     iput-object p3, p0, Lkotlin/properties/ObservableProperty;->value:Ljava/lang/Object;
 
     .line 41
@@ -204,7 +204,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 44
     new-instance v0, Ljava/lang/StringBuilder;

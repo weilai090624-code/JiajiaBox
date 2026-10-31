@@ -67,7 +67,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/Lifecycle$State;Landroidx/lifecycle/Lifecycle;Lkotlinx/coroutines/CancellableContinuation;Lkotlin/jvm/functions/Function0;)V
-    .locals 0
+    .registers 5
     .param p1, "$state"    # Landroidx/lifecycle/Lifecycle$State;
     .param p2, "$receiver"    # Landroidx/lifecycle/Lifecycle;
     .param p3, "$co"    # Lkotlinx/coroutines/CancellableContinuation;
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 3
+    .registers 6
     .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
     .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
@@ -122,7 +122,7 @@
 
     move-result-object v0
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_3b
 
     .line 181
     iget-object v0, p0, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$observer$1;->$this_suspendWithStateAtLeastUnchecked:Landroidx/lifecycle/Lifecycle;
@@ -138,7 +138,7 @@
 
     iget-object v1, p0, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$observer$1;->$block:Lkotlin/jvm/functions/Function0;
 
-    :try_start_0
+    :try_start_21
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-interface {v1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
@@ -148,12 +148,12 @@
     invoke-static {v1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_21 .. :try_end_2b} :catchall_2c
 
-    goto :goto_0
+    goto :goto_37
 
-    :catchall_0
+    :catchall_2c
     move-exception v1
 
     sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
@@ -166,16 +166,16 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_37
     invoke-interface {v0, v1}, Lkotlinx/coroutines/CancellableContinuation;->resumeWith(Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_5f
 
     .line 183
-    :cond_0
+    :cond_3b
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_5f
 
     .line 184
     iget-object v0, p0, Landroidx/lifecycle/WithLifecycleStateKt$suspendWithStateAtLeastUnchecked$2$observer$1;->$this_suspendWithStateAtLeastUnchecked:Landroidx/lifecycle/Lifecycle;
@@ -210,7 +210,7 @@
     invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 187
-    :cond_1
-    :goto_1
+    :cond_5f
+    :goto_5f
     return-void
 .end method

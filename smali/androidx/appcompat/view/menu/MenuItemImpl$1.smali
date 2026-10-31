@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/appcompat/view/menu/MenuItemImpl;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/appcompat/view/menu/MenuItemImpl;
 
     .line 815
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onActionProviderVisibilityChanged(Z)V
-    .locals 2
+    .registers 4
     .param p1, "isVisible"    # Z
 
     .line 818

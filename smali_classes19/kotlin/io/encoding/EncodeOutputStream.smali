@@ -67,7 +67,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;Lkotlin/io/encoding/Base64;)V
-    .locals 1
+    .registers 4
     .param p1, "output"    # Ljava/io/OutputStream;
     .param p2, "base64"    # Lkotlin/io/encoding/Base64;
 
@@ -95,16 +95,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     const/16 v0, 0x4c
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_1d
     iput v0, p0, Lkotlin/io/encoding/EncodeOutputStream;->lineLength:I
 
     .line 250
@@ -126,18 +126,18 @@
 .end method
 
 .method private final checkOpen()V
-    .locals 2
+    .registers 3
 
     .line 351
     iget-boolean v0, p0, Lkotlin/io/encoding/EncodeOutputStream;->isClosed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 352
     return-void
 
     .line 351
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "The output stream is closed."
@@ -148,7 +148,7 @@
 .end method
 
 .method private final copyIntoByteBuffer([BII)I
-    .locals 5
+    .registers 9
     .param p1, "source"    # [B
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -186,18 +186,18 @@
     .line 320
     iget v2, p0, Lkotlin/io/encoding/EncodeOutputStream;->byteBufferLength:I
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_20
 
     .line 321
     invoke-direct {p0}, Lkotlin/io/encoding/EncodeOutputStream;->encodeByteBufferIntoOutput()V
 
     .line 323
-    :cond_0
+    :cond_20
     return v0
 .end method
 
 .method private final encodeByteBufferIntoOutput()V
-    .locals 3
+    .registers 4
 
     .line 327
     iget-object v0, p0, Lkotlin/io/encoding/EncodeOutputStream;->byteBuffer:[B
@@ -214,17 +214,17 @@
     .local v0, "symbolsEncoded":I
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_f
+    if-eqz v1, :cond_14
 
     .line 329
     iput v2, p0, Lkotlin/io/encoding/EncodeOutputStream;->byteBufferLength:I
@@ -233,7 +233,7 @@
     return-void
 
     .line 328
-    :cond_1
+    :cond_14
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Check failed."
@@ -248,7 +248,7 @@
 .end method
 
 .method private final encodeIntoOutput([BII)I
-    .locals 6
+    .registers 10
     .param p1, "source"    # [B
     .param p2, "startIndex"    # I
     .param p3, "endIndex"    # I
@@ -290,7 +290,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_38
 
     .line 341
     iget-object v1, p0, Lkotlin/io/encoding/EncodeOutputStream;->output:Ljava/io/OutputStream;
@@ -309,21 +309,21 @@
     iput v1, p0, Lkotlin/io/encoding/EncodeOutputStream;->lineLength:I
 
     .line 343
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_28
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     const/4 v1, 0x0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_29
+    if-eqz v1, :cond_2c
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_1
+    :cond_2c
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Check failed."
@@ -337,8 +337,8 @@
     throw v1
 
     .line 345
-    :cond_2
-    :goto_1
+    :cond_38
+    :goto_38
     iget-object v1, p0, Lkotlin/io/encoding/EncodeOutputStream;->output:Ljava/io/OutputStream;
 
     iget-object v3, p0, Lkotlin/io/encoding/EncodeOutputStream;->symbolBuffer:[B
@@ -359,12 +359,12 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 305
     iget-boolean v0, p0, Lkotlin/io/encoding/EncodeOutputStream;->isClosed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 306
     const/4 v0, 0x1
@@ -374,24 +374,24 @@
     .line 307
     iget v0, p0, Lkotlin/io/encoding/EncodeOutputStream;->byteBufferLength:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 308
     invoke-direct {p0}, Lkotlin/io/encoding/EncodeOutputStream;->encodeByteBufferIntoOutput()V
 
     .line 310
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lkotlin/io/encoding/EncodeOutputStream;->output:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
     .line 312
-    :cond_1
+    :cond_13
     return-void
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
 
     .line 300
     invoke-direct {p0}, Lkotlin/io/encoding/EncodeOutputStream;->checkOpen()V
@@ -406,7 +406,7 @@
 .end method
 
 .method public write(I)V
-    .locals 3
+    .registers 5
     .param p1, "b"    # I
 
     .line 256
@@ -430,18 +430,18 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_16
 
     .line 259
     invoke-direct {p0}, Lkotlin/io/encoding/EncodeOutputStream;->encodeByteBufferIntoOutput()V
 
     .line 261
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public write([BII)V
-    .locals 11
+    .registers 15
     .param p1, "source"    # [B
     .param p2, "offset"    # I
     .param p3, "length"    # I
@@ -454,24 +454,24 @@
     invoke-direct {p0}, Lkotlin/io/encoding/EncodeOutputStream;->checkOpen()V
 
     .line 265
-    if-ltz p2, :cond_8
+    if-ltz p2, :cond_7f
 
-    if-ltz p3, :cond_8
+    if-ltz p3, :cond_7f
 
     add-int v0, p2, p3
 
     array-length v1, p1
 
-    if-gt v0, v1, :cond_8
+    if-gt v0, v1, :cond_7f
 
     .line 268
-    if-nez p3, :cond_0
+    if-nez p3, :cond_14
 
     .line 269
     return-void
 
     .line 272
-    :cond_0
+    :cond_14
     iget v0, p0, Lkotlin/io/encoding/EncodeOutputStream;->byteBufferLength:I
 
     const/4 v1, 0x1
@@ -480,19 +480,19 @@
 
     const/4 v3, 0x3
 
-    if-ge v0, v3, :cond_1
+    if-ge v0, v3, :cond_1d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1e
     const-string v4, "Check failed."
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_75
 
     .line 274
     move v0, p2
@@ -505,7 +505,7 @@
     .local v5, "endIndex":I
     iget v6, p0, Lkotlin/io/encoding/EncodeOutputStream;->byteBufferLength:I
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_33
 
     .line 278
     invoke-direct {p0, p1, v0, v5}, Lkotlin/io/encoding/EncodeOutputStream;->copyIntoByteBuffer([BII)I
@@ -517,17 +517,17 @@
     .line 279
     iget v6, p0, Lkotlin/io/encoding/EncodeOutputStream;->byteBufferLength:I
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_33
 
     .line 280
     return-void
 
     .line 284
-    :cond_2
-    :goto_1
+    :cond_33
+    :goto_33
     add-int/lit8 v6, v0, 0x3
 
-    if-gt v6, v5, :cond_6
+    if-gt v6, v5, :cond_6b
 
     .line 285
     iget-object v6, p0, Lkotlin/io/encoding/EncodeOutputStream;->base64:Lkotlin/io/encoding/Base64;
@@ -536,18 +536,18 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_42
 
     iget v6, p0, Lkotlin/io/encoding/EncodeOutputStream;->lineLength:I
 
-    goto :goto_2
+    goto :goto_45
 
-    :cond_3
+    :cond_42
     iget-object v6, p0, Lkotlin/io/encoding/EncodeOutputStream;->symbolBuffer:[B
 
     array-length v6, v6
 
-    :goto_2
+    :goto_45
     div-int/lit8 v6, v6, 0x4
 
     .line 286
@@ -576,17 +576,17 @@
     .local v9, "symbolsEncoded":I
     mul-int/lit8 v10, v7, 0x4
 
-    if-ne v9, v10, :cond_4
+    if-ne v9, v10, :cond_5c
 
     const/4 v10, 0x1
 
-    goto :goto_3
+    goto :goto_5d
 
-    :cond_4
+    :cond_5c
     const/4 v10, 0x0
 
-    :goto_3
-    if-eqz v10, :cond_5
+    :goto_5d
+    if-eqz v10, :cond_61
 
     .line 292
     add-int/2addr v0, v8
@@ -595,14 +595,14 @@
     .end local v7    # "groupsToEncode":I
     .end local v8    # "bytesToEncode":I
     .end local v9    # "symbolsEncoded":I
-    goto :goto_1
+    goto :goto_33
 
     .line 290
     .restart local v6    # "groupCapacity":I
     .restart local v7    # "groupsToEncode":I
     .restart local v8    # "bytesToEncode":I
     .restart local v9    # "symbolsEncoded":I
-    :cond_5
+    :cond_61
     new-instance v1, Ljava/lang/IllegalStateException;
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -618,7 +618,7 @@
     .end local v7    # "groupsToEncode":I
     .end local v8    # "bytesToEncode":I
     .end local v9    # "symbolsEncoded":I
-    :cond_6
+    :cond_6b
     iget-object v1, p0, Lkotlin/io/encoding/EncodeOutputStream;->byteBuffer:[B
 
     invoke-static {p1, v1, v2, v0, v5}, Lkotlin/collections/ArraysKt;->copyInto([B[BIII)[B
@@ -634,7 +634,7 @@
     .line 272
     .end local v0    # "startIndex":I
     .end local v5    # "endIndex":I
-    :cond_7
+    :cond_75
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -646,7 +646,7 @@
     throw v0
 
     .line 266
-    :cond_8
+    :cond_7f
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;

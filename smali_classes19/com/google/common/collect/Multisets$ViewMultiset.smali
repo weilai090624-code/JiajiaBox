@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1166
     .local p0, "this":Lcom/google/common/collect/Multisets$ViewMultiset;, "Lcom/google/common/collect/Multisets$ViewMultiset<TE;>;"
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/Multisets$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/collect/Multisets$1;
 
     .line 1166
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 1175
     .local p0, "this":Lcom/google/common/collect/Multisets$ViewMultiset;, "Lcom/google/common/collect/Multisets$ViewMultiset<TE;>;"
@@ -64,7 +64,7 @@
 .end method
 
 .method distinctElements()I
-    .locals 1
+    .registers 2
 
     .line 1185
     .local p0, "this":Lcom/google/common/collect/Multisets$ViewMultiset;, "Lcom/google/common/collect/Multisets$ViewMultiset<TE;>;"
@@ -80,7 +80,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -99,7 +99,7 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 1170
     .local p0, "this":Lcom/google/common/collect/Multisets$ViewMultiset;, "Lcom/google/common/collect/Multisets$ViewMultiset<TE;>;"

@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 2974
     new-instance v0, Lcom/google/android/material/textfield/TextInputLayout$SavedState$1;
@@ -47,7 +47,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 2
+    .registers 5
     .param p1, "source"    # Landroid/os/Parcel;
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
@@ -72,14 +72,14 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_16
     iput-boolean v1, p0, Lcom/google/android/material/textfield/TextInputLayout$SavedState;->isEndIconChecked:Z
 
     .line 2955
@@ -87,7 +87,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 2948
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 2967
     new-instance v0, Ljava/lang/StringBuilder;
@@ -153,7 +153,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

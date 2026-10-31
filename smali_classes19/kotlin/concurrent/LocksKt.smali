@@ -37,7 +37,7 @@
 
 # direct methods
 .method private static final read(Ljava/util/concurrent/locks/ReentrantReadWriteLock;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "$this$read"    # Ljava/util/concurrent/locks/ReentrantReadWriteLock;
     .param p1, "action"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -75,12 +75,12 @@
     nop
 
     .line 38
-    :try_start_0
+    :try_start_13
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_13 .. :try_end_17} :catchall_1b
 
     .line 40
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;->unlock()V
@@ -89,7 +89,7 @@
     return-object v1
 
     .line 40
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;->unlock()V
@@ -98,7 +98,7 @@
 .end method
 
 .method private static final withLock(Ljava/util/concurrent/locks/Lock;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p0, "$this$withLock"    # Ljava/util/concurrent/locks/Lock;
     .param p1, "action"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -130,12 +130,12 @@
     nop
 
     .line 22
-    :try_start_0
+    :try_start_f
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_f .. :try_end_13} :catchall_17
 
     .line 24
     invoke-interface {p0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -144,7 +144,7 @@
     return-object v0
 
     .line 24
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     invoke-interface {p0}, Ljava/util/concurrent/locks/Lock;->unlock()V
@@ -153,7 +153,7 @@
 .end method
 
 .method private static final write(Ljava/util/concurrent/locks/ReentrantReadWriteLock;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p0, "$this$write"    # Ljava/util/concurrent/locks/ReentrantReadWriteLock;
     .param p1, "action"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -191,24 +191,24 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     invoke-virtual {p0}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->getReadHoldCount()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     const/4 v1, 0x0
 
     .line 63
     .local v1, "readCount":I
-    :goto_0
+    :goto_1c
     const/4 v3, 0x0
 
-    :goto_1
-    if-ge v3, v1, :cond_1
+    :goto_1d
+    if-ge v3, v1, :cond_27
 
     move v4, v3
 
@@ -224,10 +224,10 @@
     .end local v5    # "$i$a$-repeat-LocksKt$write$2":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 65
-    :cond_1
+    :cond_27
     invoke-virtual {p0}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
 
     move-result-object v3
@@ -240,18 +240,18 @@
     nop
 
     .line 68
-    :try_start_0
+    :try_start_2f
     invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_2f .. :try_end_33} :catchall_42
 
     .line 70
     nop
 
-    :goto_2
-    if-ge v2, v1, :cond_2
+    :goto_34
+    if-ge v2, v1, :cond_3e
 
     move v5, v2
 
@@ -267,21 +267,21 @@
     .end local v6    # "$i$a$-repeat-LocksKt$write$3":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_34
 
     .line 71
-    :cond_2
+    :cond_3e
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
 
     .line 68
     return-object v4
 
     .line 70
-    :catchall_0
+    :catchall_42
     move-exception v4
 
-    :goto_3
-    if-ge v2, v1, :cond_3
+    :goto_43
+    if-ge v2, v1, :cond_4d
 
     move v5, v2
 
@@ -297,10 +297,10 @@
     .end local v6    # "$i$a$-repeat-LocksKt$write$3":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_43
 
     .line 71
-    :cond_3
+    :cond_4d
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
 
     throw v4

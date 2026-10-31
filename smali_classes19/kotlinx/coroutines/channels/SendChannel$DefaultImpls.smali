@@ -26,25 +26,25 @@
 
 # direct methods
 .method public static synthetic close$default(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Throwable;ILjava/lang/Object;)Z
-    .locals 0
+    .registers 4
 
     .line 98
-    if-nez p3, :cond_1
+    if-nez p3, :cond_c
 
     and-int/lit8 p2, p2, 0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     const/4 p1, 0x0
 
-    :cond_0
+    :cond_7
     invoke-interface {p0, p1}, Lkotlinx/coroutines/channels/SendChannel;->close(Ljava/lang/Throwable;)Z
 
     move-result p0
 
     return p0
 
-    :cond_1
+    :cond_c
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Super calls with default arguments not supported in this target, function: close"
@@ -55,13 +55,13 @@
 .end method
 
 .method public static synthetic isClosedForSend$annotations()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public static offer(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p0, "$this"    # Lkotlinx/coroutines/channels/SendChannel;
     .param p1, "element"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -94,25 +94,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     const/4 v1, 0x1
 
     return v1
 
     .line 179
-    :cond_0
+    :cond_c
     invoke-static {v0}, Lkotlinx/coroutines/channels/ChannelResult;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_14
 
     const/4 v1, 0x0
 
     return v1
 
-    :cond_1
+    :cond_14
     invoke-static {v1}, Lkotlinx/coroutines/internal/StackTraceRecoveryKt;->recoverStackTrace(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v1

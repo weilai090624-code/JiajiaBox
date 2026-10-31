@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 110
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 8
+    .registers 13
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -134,13 +134,13 @@
 
     .line 138
     .local v3, "headerLayoutRes":I
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_30
 
     .line 139
     invoke-virtual {p0, v3}, Lcom/google/android/material/navigationrail/NavigationRailView;->addHeaderView(I)V
 
     .line 142
-    :cond_0
+    :cond_30
     sget v4, Lcom/google/android/material/R$styleable;->NavigationRailView_menuGravity:I
 
     .line 143
@@ -160,7 +160,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4d
 
     .line 146
     sget v4, Lcom/google/android/material/R$styleable;->NavigationRailView_itemMinHeight:I
@@ -176,14 +176,14 @@
     invoke-virtual {p0, v4}, Lcom/google/android/material/navigationrail/NavigationRailView;->setItemMinimumHeight(I)V
 
     .line 151
-    :cond_1
+    :cond_4d
     sget v4, Lcom/google/android/material/R$styleable;->NavigationRailView_paddingTopSystemWindowInsets:I
 
     invoke-virtual {v2, v4}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_61
 
     .line 152
     sget v4, Lcom/google/android/material/R$styleable;->NavigationRailView_paddingTopSystemWindowInsets:I
@@ -200,14 +200,14 @@
     iput-object v4, p0, Lcom/google/android/material/navigationrail/NavigationRailView;->paddingTopSystemWindowInsets:Ljava/lang/Boolean;
 
     .line 156
-    :cond_2
+    :cond_61
     sget v4, Lcom/google/android/material/R$styleable;->NavigationRailView_paddingBottomSystemWindowInsets:I
 
     invoke-virtual {v2, v4}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_75
 
     .line 157
     sget v4, Lcom/google/android/material/R$styleable;->NavigationRailView_paddingBottomSystemWindowInsets:I
@@ -224,7 +224,7 @@
     iput-object v1, p0, Lcom/google/android/material/navigationrail/NavigationRailView;->paddingBottomSystemWindowInsets:Ljava/lang/Boolean;
 
     .line 162
-    :cond_3
+    :cond_75
     invoke-virtual {v2}, Landroidx/appcompat/widget/TintTypedArray;->recycle()V
 
     .line 164
@@ -235,7 +235,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/google/android/material/navigationrail/NavigationRailView;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/navigationrail/NavigationRailView;
 
     .line 97
@@ -245,7 +245,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/android/material/navigationrail/NavigationRailView;Ljava/lang/Boolean;)Z
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/google/android/material/navigationrail/NavigationRailView;
     .param p1, "x1"    # Ljava/lang/Boolean;
 
@@ -258,7 +258,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/android/material/navigationrail/NavigationRailView;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/google/android/material/navigationrail/NavigationRailView;
 
     .line 97
@@ -268,7 +268,7 @@
 .end method
 
 .method private applyWindowInsets()V
-    .locals 1
+    .registers 2
 
     .line 168
     new-instance v0, Lcom/google/android/material/navigationrail/NavigationRailView$1;
@@ -282,7 +282,7 @@
 .end method
 
 .method private getNavigationRailMenuView()Lcom/google/android/material/navigationrail/NavigationRailMenuView;
-    .locals 1
+    .registers 2
 
     .line 338
     invoke-virtual {p0}, Lcom/google/android/material/navigationrail/NavigationRailView;->getMenuView()Landroidx/appcompat/view/menu/MenuView;
@@ -295,12 +295,12 @@
 .end method
 
 .method private isHeaderViewVisible()Z
-    .locals 2
+    .registers 3
 
     .line 362
     iget-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailView;->headerView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailView;->headerView:Landroid/view/View;
 
@@ -310,21 +310,21 @@
 
     const/16 v1, 0x8
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method private makeMinWidthSpec(I)I
-    .locals 4
+    .registers 6
     .param p1, "measureSpec"    # I
 
     .line 350
@@ -340,9 +340,9 @@
 
     const/high16 v2, 0x40000000    # 2.0f
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_26
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_26
 
     .line 352
     invoke-virtual {p0}, Lcom/google/android/material/navigationrail/NavigationRailView;->getPaddingLeft()I
@@ -377,36 +377,36 @@
     return v1
 
     .line 358
-    :cond_0
+    :cond_26
     return p1
 .end method
 
 .method private shouldApplyWindowInsetPadding(Ljava/lang/Boolean;)Z
-    .locals 1
+    .registers 3
     .param p1, "paddingInsetFlag"    # Ljava/lang/Boolean;
 
     .line 204
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_7
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
     move-result v0
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 
 # virtual methods
 .method public addHeaderView(I)V
-    .locals 2
+    .registers 4
     .param p1, "layoutRes"    # I
 
     .line 255
@@ -431,7 +431,7 @@
 .end method
 
 .method public addHeaderView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "headerView"    # Landroid/view/View;
 
     .line 268
@@ -468,7 +468,7 @@
 .end method
 
 .method protected bridge synthetic createNavigationBarMenuView(Landroid/content/Context;)Lcom/google/android/material/navigation/NavigationBarMenuView;
-    .locals 0
+    .registers 2
 
     .line 97
     invoke-virtual {p0, p1}, Lcom/google/android/material/navigationrail/NavigationRailView;->createNavigationBarMenuView(Landroid/content/Context;)Lcom/google/android/material/navigationrail/NavigationRailMenuView;
@@ -479,7 +479,7 @@
 .end method
 
 .method protected createNavigationBarMenuView(Landroid/content/Context;)Lcom/google/android/material/navigationrail/NavigationRailMenuView;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 346
@@ -491,7 +491,7 @@
 .end method
 
 .method public getHeaderView()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 287
     iget-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailView;->headerView:Landroid/view/View;
@@ -500,7 +500,7 @@
 .end method
 
 .method public getItemMinimumHeight()I
-    .locals 2
+    .registers 3
 
     .line 318
     invoke-virtual {p0}, Lcom/google/android/material/navigationrail/NavigationRailView;->getMenuView()Landroidx/appcompat/view/menu/MenuView;
@@ -519,7 +519,7 @@
 .end method
 
 .method public getMaxItemCount()I
-    .locals 1
+    .registers 2
 
     .line 334
     const/4 v0, 0x7
@@ -528,7 +528,7 @@
 .end method
 
 .method public getMenuGravity()I
-    .locals 1
+    .registers 2
 
     .line 311
     invoke-direct {p0}, Lcom/google/android/material/navigationrail/NavigationRailView;->getNavigationRailMenuView()Lcom/google/android/material/navigationrail/NavigationRailMenuView;
@@ -543,7 +543,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 6
+    .registers 12
     .param p1, "changed"    # Z
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -568,7 +568,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_20
 
     .line 226
     iget-object v2, p0, Lcom/google/android/material/navigationrail/NavigationRailView;->headerView:Landroid/view/View;
@@ -589,36 +589,36 @@
 
     .line 228
     .local v3, "menuTop":I
-    if-ge v3, v2, :cond_1
+    if-ge v3, v2, :cond_29
 
     .line 229
     sub-int v1, v2, v3
 
-    goto :goto_0
+    goto :goto_29
 
     .line 231
     .end local v2    # "usedTop":I
     .end local v3    # "menuTop":I
-    :cond_0
+    :cond_20
     invoke-virtual {v0}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->isTopGravity()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_29
 
     .line 232
     iget v1, p0, Lcom/google/android/material/navigationrail/NavigationRailView;->topMargin:I
 
-    goto :goto_1
+    goto :goto_2a
 
     .line 231
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     nop
 
     .line 235
-    :goto_1
-    if-lez v1, :cond_2
+    :goto_2a
+    if-lez v1, :cond_42
 
     .line 236
     nop
@@ -651,12 +651,12 @@
     invoke-virtual {v0, v2, v3, v4, v5}, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->layout(IIII)V
 
     .line 242
-    :cond_2
+    :cond_42
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 4
+    .registers 7
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -674,7 +674,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     .line 213
     invoke-virtual {p0}, Lcom/google/android/material/navigationrail/NavigationRailView;->getMeasuredHeight()I
@@ -712,17 +712,17 @@
     .line 217
     .end local v1    # "maxMenuHeight":I
     .end local v2    # "menuHeightSpec":I
-    :cond_0
+    :cond_28
     return-void
 .end method
 
 .method public removeHeaderView()V
-    .locals 1
+    .registers 2
 
     .line 298
     iget-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailView;->headerView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 299
     iget-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailView;->headerView:Landroid/view/View;
@@ -735,12 +735,12 @@
     iput-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailView;->headerView:Landroid/view/View;
 
     .line 302
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setItemMinimumHeight(I)V
-    .locals 1
+    .registers 3
     .param p1, "minHeight"    # I
 
     .line 328
@@ -759,7 +759,7 @@
 .end method
 
 .method public setMenuGravity(I)V
-    .locals 1
+    .registers 3
     .param p1, "gravity"    # I
 
     .line 306

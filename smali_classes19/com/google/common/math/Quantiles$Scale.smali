@@ -20,23 +20,23 @@
 
 # direct methods
 .method private constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "scale"    # I
 
     .line 169
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 170
-    if-lez p1, :cond_0
+    if-lez p1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     const-string v1, "Quantile scale must be positive"
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
@@ -49,7 +49,7 @@
 .end method
 
 .method synthetic constructor <init>(ILcom/google/common/math/Quantiles$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # I
     .param p2, "x1"    # Lcom/google/common/math/Quantiles$1;
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public index(I)Lcom/google/common/math/Quantiles$ScaleAndIndex;
-    .locals 3
+    .registers 5
     .param p1, "index"    # I
 
     .line 180
@@ -78,7 +78,7 @@
 .end method
 
 .method public indexes(Ljava/util/Collection;)Lcom/google/common/math/Quantiles$ScaleAndIndexes;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,7 +107,7 @@
 .end method
 
 .method public varargs indexes([I)Lcom/google/common/math/Quantiles$ScaleAndIndexes;
-    .locals 4
+    .registers 6
     .param p1, "indexes"    # [I
 
     .line 193

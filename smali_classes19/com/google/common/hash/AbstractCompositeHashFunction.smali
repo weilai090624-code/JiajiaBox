@@ -21,7 +21,7 @@
 
 # direct methods
 .method varargs constructor <init>([Lcom/google/common/hash/HashFunction;)V
-    .locals 3
+    .registers 5
     .param p1, "functions"    # [Lcom/google/common/hash/HashFunction;
 
     .line 39
@@ -32,8 +32,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_5
+    if-ge v1, v0, :cond_f
 
     aget-object v2, p1, v1
 
@@ -45,10 +45,10 @@
     .end local v2    # "function":Lcom/google/common/hash/HashFunction;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 43
-    :cond_0
+    :cond_f
     iput-object p1, p0, Lcom/google/common/hash/AbstractCompositeHashFunction;->functions:[Lcom/google/common/hash/HashFunction;
 
     .line 44
@@ -56,7 +56,7 @@
 .end method
 
 .method private fromHashers([Lcom/google/common/hash/Hasher;)Lcom/google/common/hash/Hasher;
-    .locals 1
+    .registers 3
     .param p1, "hashers"    # [Lcom/google/common/hash/Hasher;
 
     .line 74
@@ -73,7 +73,7 @@
 .end method
 
 .method public newHasher()Lcom/google/common/hash/Hasher;
-    .locals 3
+    .registers 4
 
     .line 56
     iget-object v0, p0, Lcom/google/common/hash/AbstractCompositeHashFunction;->functions:[Lcom/google/common/hash/HashFunction;
@@ -87,10 +87,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     array-length v2, v0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_16
 
     .line 58
     iget-object v2, p0, Lcom/google/common/hash/AbstractCompositeHashFunction;->functions:[Lcom/google/common/hash/HashFunction;
@@ -106,11 +106,11 @@
     .line 57
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 60
     .end local v1    # "i":I
-    :cond_0
+    :cond_16
     invoke-direct {p0, v0}, Lcom/google/common/hash/AbstractCompositeHashFunction;->fromHashers([Lcom/google/common/hash/Hasher;)Lcom/google/common/hash/Hasher;
 
     move-result-object v1
@@ -119,20 +119,20 @@
 .end method
 
 .method public newHasher(I)Lcom/google/common/hash/Hasher;
-    .locals 3
+    .registers 5
     .param p1, "expectedInputSize"    # I
 
     .line 65
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     .line 66
@@ -147,10 +147,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
+    :goto_e
     array-length v2, v0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_1e
 
     .line 68
     iget-object v2, p0, Lcom/google/common/hash/AbstractCompositeHashFunction;->functions:[Lcom/google/common/hash/HashFunction;
@@ -166,11 +166,11 @@
     .line 67
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_e
 
     .line 70
     .end local v1    # "i":I
-    :cond_1
+    :cond_1e
     invoke-direct {p0, v0}, Lcom/google/common/hash/AbstractCompositeHashFunction;->fromHashers([Lcom/google/common/hash/Hasher;)Lcom/google/common/hash/Hasher;
 
     move-result-object v1

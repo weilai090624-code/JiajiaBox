@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 3
+    .registers 6
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;

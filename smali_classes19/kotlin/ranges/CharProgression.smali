@@ -81,7 +81,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lkotlin/ranges/CharProgression$Companion;
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public constructor <init>(CCI)V
-    .locals 2
+    .registers 6
     .param p1, "start"    # C
     .param p2, "endInclusive"    # C
     .param p3, "step"    # I
@@ -107,12 +107,12 @@
     nop
 
     .line 24
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_1f
 
     .line 25
     const/high16 v0, -0x80000000
 
-    if-eq p3, v0, :cond_0
+    if-eq p3, v0, :cond_17
 
     .line 26
     nop
@@ -136,7 +136,7 @@
     return-void
 
     .line 25
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Step must be greater than Int.MIN_VALUE to avoid overflow on negation."
@@ -146,7 +146,7 @@
     throw v0
 
     .line 24
-    :cond_1
+    :cond_1f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Step must be non-zero."
@@ -159,19 +159,19 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 54
     instance-of v0, p1, Lkotlin/ranges/CharProgression;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_30
 
     invoke-virtual {p0}, Lkotlin/ranges/CharProgression;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     move-object v0, p1
 
@@ -181,10 +181,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2e
 
     .line 55
-    :cond_0
+    :cond_13
     iget-char v0, p0, Lkotlin/ranges/CharProgression;->first:C
 
     move-object v1, p1
@@ -193,7 +193,7 @@
 
     iget-char v1, v1, Lkotlin/ranges/CharProgression;->first:C
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_30
 
     iget-char v0, p0, Lkotlin/ranges/CharProgression;->last:C
 
@@ -203,7 +203,7 @@
 
     iget-char v1, v1, Lkotlin/ranges/CharProgression;->last:C
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_30
 
     iget v0, p0, Lkotlin/ranges/CharProgression;->step:I
 
@@ -213,22 +213,22 @@
 
     iget v1, v1, Lkotlin/ranges/CharProgression;->step:I
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_30
 
-    :cond_1
+    :cond_2e
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_2
+    :cond_30
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_31
     return v0
 .end method
 
 .method public final getFirst()C
-    .locals 1
+    .registers 2
 
     .line 31
     iget-char v0, p0, Lkotlin/ranges/CharProgression;->first:C
@@ -237,7 +237,7 @@
 .end method
 
 .method public final getLast()C
-    .locals 1
+    .registers 2
 
     .line 36
     iget-char v0, p0, Lkotlin/ranges/CharProgression;->last:C
@@ -246,7 +246,7 @@
 .end method
 
 .method public final getStep()I
-    .locals 1
+    .registers 2
 
     .line 41
     iget v0, p0, Lkotlin/ranges/CharProgression;->step:I
@@ -255,20 +255,20 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 58
     invoke-virtual {p0}, Lkotlin/ranges/CharProgression;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, -0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_8
     iget-char v0, p0, Lkotlin/ranges/CharProgression;->first:C
 
     mul-int/lit8 v0, v0, 0x1f
@@ -283,12 +283,12 @@
 
     add-int/2addr v0, v1
 
-    :goto_0
+    :goto_14
     return v0
 .end method
 
 .method public isEmpty()Z
-    .locals 4
+    .registers 5
 
     .line 51
     iget v0, p0, Lkotlin/ranges/CharProgression;->step:I
@@ -297,7 +297,7 @@
 
     const/4 v2, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_11
 
     iget-char v0, p0, Lkotlin/ranges/CharProgression;->first:C
 
@@ -307,11 +307,11 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_1c
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_11
     iget-char v0, p0, Lkotlin/ranges/CharProgression;->first:C
 
     iget-char v3, p0, Lkotlin/ranges/CharProgression;->last:C
@@ -320,20 +320,20 @@
 
     move-result v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_1c
 
-    :goto_0
-    goto :goto_1
+    :goto_1b
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_1d
     return v1
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
 
     .line 16
     invoke-virtual {p0}, Lkotlin/ranges/CharProgression;->iterator()Lkotlin/collections/CharIterator;
@@ -346,7 +346,7 @@
 .end method
 
 .method public iterator()Lkotlin/collections/CharIterator;
-    .locals 4
+    .registers 5
 
     .line 43
     new-instance v0, Lkotlin/ranges/CharProgressionIterator;
@@ -365,14 +365,14 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 60
     iget v0, p0, Lkotlin/ranges/CharProgression;->step:I
 
     const-string v1, " step "
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_24
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -402,9 +402,9 @@
 
     iget v1, p0, Lkotlin/ranges/CharProgression;->step:I
 
-    goto :goto_0
+    goto :goto_42
 
-    :cond_0
+    :cond_24
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -435,7 +435,7 @@
 
     neg-int v1, v1
 
-    :goto_0
+    :goto_42
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0

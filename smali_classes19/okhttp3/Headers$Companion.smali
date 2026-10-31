@@ -57,7 +57,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 362
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 .end method
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Lokhttp3/Headers$Companion;-><init>()V
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public static final synthetic access$checkName(Lokhttp3/Headers$Companion;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p0, "$this"    # Lokhttp3/Headers$Companion;
     .param p1, "name"    # Ljava/lang/String;
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public static final synthetic access$checkValue(Lokhttp3/Headers$Companion;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p0, "$this"    # Lokhttp3/Headers$Companion;
     .param p1, "value"    # Ljava/lang/String;
     .param p2, "name"    # Ljava/lang/String;
@@ -97,7 +97,7 @@
 .end method
 
 .method public static final synthetic access$get(Lokhttp3/Headers$Companion;[Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "$this"    # Lokhttp3/Headers$Companion;
     .param p1, "namesAndValues"    # [Ljava/lang/String;
     .param p2, "name"    # Ljava/lang/String;
@@ -111,7 +111,7 @@
 .end method
 
 .method private final checkName(Ljava/lang/String;)V
-    .locals 8
+    .registers 10
     .param p1, "name"    # Ljava/lang/String;
 
     .line 438
@@ -127,17 +127,17 @@
 
     const/4 v2, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_5
+    :goto_e
+    if-eqz v0, :cond_55
 
     .line 439
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -146,11 +146,11 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-ltz v0, :cond_4
+    if-ltz v0, :cond_54
 
     const/4 v3, 0x0
 
-    :cond_1
+    :cond_19
     move v4, v3
 
     .local v4, "i":I
@@ -165,31 +165,31 @@
     .local v5, "c":C
     const/16 v6, 0x21
 
-    if-gt v6, v5, :cond_2
+    if-gt v6, v5, :cond_29
 
     const/16 v6, 0x7e
 
-    if-gt v5, v6, :cond_2
+    if-gt v5, v6, :cond_29
 
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_2
+    :cond_29
     const/4 v6, 0x0
 
-    :goto_1
-    if-eqz v6, :cond_3
+    :goto_2a
+    if-eqz v6, :cond_2f
 
     .line 439
     .end local v5    # "c":C
-    if-le v3, v0, :cond_1
+    if-le v3, v0, :cond_19
 
-    goto :goto_2
+    goto :goto_54
 
     .line 441
     .restart local v5    # "c":C
-    :cond_3
+    :cond_2f
     const/4 v0, 0x0
 
     .line 442
@@ -237,12 +237,12 @@
     .line 445
     .end local v4    # "i":I
     .end local v5    # "c":C
-    :cond_4
-    :goto_2
+    :cond_54
+    :goto_54
     return-void
 
     .line 459
-    :cond_5
+    :cond_55
     const/4 v0, 0x0
 
     .line 438
@@ -266,7 +266,7 @@
 .end method
 
 .method private final checkValue(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 8
+    .registers 11
     .param p1, "value"    # Ljava/lang/String;
     .param p2, "name"    # Ljava/lang/String;
 
@@ -277,13 +277,13 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-ltz v0, :cond_6
+    if-ltz v0, :cond_62
 
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    :cond_0
+    :cond_a
     move v3, v2
 
     .local v3, "i":I
@@ -300,39 +300,39 @@
     .local v5, "c":C
     const/16 v6, 0x9
 
-    if-eq v5, v6, :cond_3
+    if-eq v5, v6, :cond_25
 
     const/16 v6, 0x20
 
-    if-gt v6, v5, :cond_1
+    if-gt v6, v5, :cond_1f
 
     const/16 v6, 0x7e
 
-    if-gt v5, v6, :cond_1
+    if-gt v5, v6, :cond_1f
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1f
     const/4 v6, 0x0
 
-    :goto_0
-    if-eqz v6, :cond_2
+    :goto_20
+    if-eqz v6, :cond_23
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_2
+    :cond_23
     const/4 v6, 0x0
 
-    goto :goto_2
+    goto :goto_26
 
-    :cond_3
-    :goto_1
+    :cond_25
+    :goto_25
     const/4 v6, 0x1
 
-    :goto_2
-    if-nez v6, :cond_5
+    :goto_26
+    if-nez v6, :cond_60
 
     const/4 v0, 0x0
 
@@ -369,13 +369,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_4a
 
     const-string v2, ""
 
-    goto :goto_3
+    goto :goto_50
 
-    :cond_4
+    :cond_4a
     const-string v2, ": "
 
     invoke-static {v2, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -383,7 +383,7 @@
     move-result-object v2
 
     .line 451
-    :goto_3
+    :goto_50
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -404,17 +404,17 @@
 
     .line 448
     .end local v5    # "c":C
-    :cond_5
-    if-le v2, v0, :cond_0
+    :cond_60
+    if-le v2, v0, :cond_a
 
     .line 455
     .end local v3    # "i":I
-    :cond_6
+    :cond_62
     return-void
 .end method
 
 .method private final get([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 9
     .param p1, "namesAndValues"    # [Ljava/lang/String;
     .param p2, "name"    # Ljava/lang/String;
 
@@ -431,9 +431,9 @@
 
     move-result v1
 
-    if-gt v1, v0, :cond_2
+    if-gt v1, v0, :cond_1d
 
-    :cond_0
+    :cond_b
     move v3, v0
 
     .local v3, "i":I
@@ -448,7 +448,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1b
 
     .line 366
     add-int/lit8 v0, v3, 0x1
@@ -458,12 +458,12 @@
     return-object v0
 
     .line 364
-    :cond_1
-    if-ne v3, v1, :cond_0
+    :cond_1b
+    if-ne v3, v1, :cond_b
 
     .line 369
     .end local v3    # "i":I
-    :cond_2
+    :cond_1d
     const/4 v0, 0x0
 
     return-object v0
@@ -472,7 +472,7 @@
 
 # virtual methods
 .method public final -deprecated_of(Ljava/util/Map;)Lokhttp3/Headers;
-    .locals 1
+    .registers 3
     .param p1, "headers"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -507,7 +507,7 @@
 .end method
 
 .method public final varargs -deprecated_of([Ljava/lang/String;)Lokhttp3/Headers;
-    .locals 1
+    .registers 3
     .param p1, "namesAndValues"    # [Ljava/lang/String;
     .annotation runtime Lkotlin/Deprecated;
         level = .enum Lkotlin/DeprecationLevel;->ERROR:Lkotlin/DeprecationLevel;
@@ -539,7 +539,7 @@
 .end method
 
 .method public final of(Ljava/util/Map;)Lokhttp3/Headers;
-    .locals 8
+    .registers 10
     .param p1, "$this$toHeaders"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -582,12 +582,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_16
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_66
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -612,7 +612,7 @@
     .local v3, "v":Ljava/lang/String;
     const-string v5, "null cannot be cast to non-null type kotlin.CharSequence"
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_60
 
     move-object v6, v4
 
@@ -628,7 +628,7 @@
 
     .line 417
     .local v6, "name":Ljava/lang/String;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_5a
 
     move-object v5, v3
 
@@ -666,13 +666,13 @@
     .end local v6    # "name":Ljava/lang/String;
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_0
+    goto :goto_16
 
     .line 417
     .restart local v3    # "v":Ljava/lang/String;
     .restart local v4    # "k":Ljava/lang/String;
     .restart local v6    # "name":Ljava/lang/String;
-    :cond_0
+    :cond_5a
     new-instance v2, Ljava/lang/NullPointerException;
 
     invoke-direct {v2, v5}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
@@ -681,7 +681,7 @@
 
     .line 416
     .end local v6    # "name":Ljava/lang/String;
-    :cond_1
+    :cond_60
     new-instance v2, Ljava/lang/NullPointerException;
 
     invoke-direct {v2, v5}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
@@ -691,7 +691,7 @@
     .line 425
     .end local v3    # "v":Ljava/lang/String;
     .end local v4    # "k":Ljava/lang/String;
-    :cond_2
+    :cond_66
     new-instance v2, Lokhttp3/Headers;
 
     const/4 v3, 0x0
@@ -702,7 +702,7 @@
 .end method
 
 .method public final varargs of([Ljava/lang/String;)Lokhttp3/Headers;
-    .locals 8
+    .registers 10
     .param p1, "namesAndValues"    # [Ljava/lang/String;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
@@ -722,17 +722,17 @@
 
     const/4 v3, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_8
+    :goto_f
+    if-eqz v0, :cond_73
 
     .line 382
     invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
@@ -747,11 +747,11 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    if-ltz v4, :cond_5
+    if-ltz v4, :cond_53
 
     const/4 v5, 0x0
 
-    :cond_1
+    :cond_1d
     move v6, v5
 
     .local v6, "i":I
@@ -760,22 +760,22 @@
     .line 384
     aget-object v7, v0, v6
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_25
 
     const/4 v7, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_2
+    :cond_25
     const/4 v7, 0x0
 
-    :goto_1
-    if-eqz v7, :cond_4
+    :goto_26
+    if-eqz v7, :cond_43
 
     .line 385
     aget-object v7, v0, v6
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_3b
 
     check-cast v7, Ljava/lang/CharSequence;
 
@@ -790,12 +790,12 @@
     aput-object v7, v0, v6
 
     .line 383
-    if-le v5, v4, :cond_1
+    if-le v5, v4, :cond_1d
 
-    goto :goto_2
+    goto :goto_53
 
     .line 385
-    :cond_3
+    :cond_3b
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "null cannot be cast to non-null type kotlin.CharSequence"
@@ -805,7 +805,7 @@
     throw v1
 
     .line 459
-    :cond_4
+    :cond_43
     const/4 v1, 0x0
 
     .line 384
@@ -829,8 +829,8 @@
 
     .line 389
     .end local v6    # "i":I
-    :cond_5
-    :goto_2
+    :cond_53
+    :goto_53
     array-length v2, v0
 
     add-int/lit8 v2, v2, -0x1
@@ -839,9 +839,9 @@
 
     move-result v2
 
-    if-ltz v2, :cond_7
+    if-ltz v2, :cond_6c
 
-    :cond_6
+    :cond_5c
     move v4, v3
 
     .local v4, "i":I
@@ -866,11 +866,11 @@
     .line 389
     .end local v5    # "name":Ljava/lang/String;
     .end local v6    # "value":Ljava/lang/String;
-    if-ne v4, v2, :cond_6
+    if-ne v4, v2, :cond_5c
 
     .line 396
     .end local v4    # "i":I
-    :cond_7
+    :cond_6c
     new-instance v1, Lokhttp3/Headers;
 
     const/4 v2, 0x0
@@ -881,7 +881,7 @@
 
     .line 459
     .end local v0    # "namesAndValues":[Ljava/lang/String;
-    :cond_8
+    :cond_73
     const/4 v0, 0x0
 
     .line 379

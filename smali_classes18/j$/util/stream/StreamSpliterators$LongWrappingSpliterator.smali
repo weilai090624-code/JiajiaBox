@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lj$/util/stream/PipelineHelper;Lj$/util/Spliterator;Z)V
-    .locals 0
+    .registers 4
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +57,7 @@
 .end method
 
 .method constructor <init>(Lj$/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)V
-    .locals 0
+    .registers 4
     .param p3, "parallel"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 379
     .local p0, "this":Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$LongWrappingSpliterator<TP_IN;>;"
@@ -96,7 +96,7 @@
 .end method
 
 .method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfLong$-CC;->$default$forEachRemaining(Lj$/util/Spliterator$OfLong;Ljava/util/function/Consumer;)V
 
@@ -104,18 +104,18 @@
 .end method
 
 .method public forEachRemaining(Ljava/util/function/LongConsumer;)V
-    .locals 3
+    .registers 5
     .param p1, "consumer"    # Ljava/util/function/LongConsumer;
 
     .line 424
     .local p0, "this":Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$LongWrappingSpliterator<TP_IN;>;"
     iget-object v0, p0, Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;->buffer:Lj$/util/stream/AbstractSpinedBuffer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     iget-boolean v0, p0, Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;->finished:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 425
     invoke-static {p1}, Lj$/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -141,23 +141,23 @@
 
     iput-boolean v0, p0, Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;->finished:Z
 
-    goto :goto_0
+    goto :goto_27
 
     .line 432
-    :cond_0
+    :cond_21
     invoke-virtual {p0, p1}, Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;->tryAdvance(Ljava/util/function/LongConsumer;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 434
-    :goto_0
+    :goto_27
     return-void
 .end method
 
 .method initPartialTraversalState()V
-    .locals 3
+    .registers 4
 
     .line 402
     .local p0, "this":Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$LongWrappingSpliterator<TP_IN;>;"
@@ -196,7 +196,7 @@
 .end method
 
 .method synthetic lambda$initPartialTraversalState$0$java-util-stream-StreamSpliterators$LongWrappingSpliterator()Z
-    .locals 2
+    .registers 3
 
     .line 405
     .local p0, "this":Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$LongWrappingSpliterator<TP_IN;>;"
@@ -212,7 +212,7 @@
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 379
     .local p0, "this":Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$LongWrappingSpliterator<TP_IN;>;"
@@ -226,7 +226,7 @@
 .end method
 
 .method public synthetic tryAdvance(Ljava/util/function/Consumer;)Z
-    .locals 0
+    .registers 2
 
     invoke-static {p0, p1}, Lj$/util/Spliterator$OfLong$-CC;->$default$tryAdvance(Lj$/util/Spliterator$OfLong;Ljava/util/function/Consumer;)Z
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public tryAdvance(Ljava/util/function/LongConsumer;)Z
-    .locals 4
+    .registers 6
     .param p1, "consumer"    # Ljava/util/function/LongConsumer;
 
     .line 415
@@ -250,7 +250,7 @@
 
     .line 417
     .local v0, "hasNext":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 418
     iget-object v1, p0, Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;->buffer:Lj$/util/stream/AbstractSpinedBuffer;
@@ -266,12 +266,12 @@
     invoke-interface {p1, v1, v2}, Ljava/util/function/LongConsumer;->accept(J)V
 
     .line 419
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method public trySplit()Lj$/util/Spliterator$OfLong;
-    .locals 1
+    .registers 2
 
     .line 410
     .local p0, "this":Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$LongWrappingSpliterator<TP_IN;>;"
@@ -285,7 +285,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator$OfPrimitive;
-    .locals 1
+    .registers 2
 
     .line 379
     .local p0, "this":Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$LongWrappingSpliterator<TP_IN;>;"
@@ -297,7 +297,7 @@
 .end method
 
 .method public bridge synthetic trySplit()Lj$/util/Spliterator;
-    .locals 1
+    .registers 2
 
     .line 379
     .local p0, "this":Lj$/util/stream/StreamSpliterators$LongWrappingSpliterator;, "Ljava/util/stream/StreamSpliterators$LongWrappingSpliterator<TP_IN;>;"
@@ -309,7 +309,7 @@
 .end method
 
 .method wrap(Lj$/util/Spliterator;)Lj$/util/stream/StreamSpliterators$AbstractWrappingSpliterator;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

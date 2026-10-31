@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Enumeration;)V
-    .locals 0
+    .registers 2
 
     .line 1140
     iput-object p1, p0, Lcom/google/common/collect/Iterators$10;->val$enumeration:Ljava/util/Enumeration;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 1143
     iget-object v0, p0, Lcom/google/common/collect/Iterators$10;->val$enumeration:Ljava/util/Enumeration;
@@ -53,7 +53,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation runtime Lcom/google/common/collect/ParametricNullness;
     .end annotation
 

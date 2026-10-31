@@ -23,7 +23,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/yaml/snakeyaml/constructor/Constructor;)V
-    .locals 0
+    .registers 2
 
     .line 320
     iput-object p1, p0, Lorg/yaml/snakeyaml/constructor/Constructor$ConstructYamlObject;->this$0:Lorg/yaml/snakeyaml/constructor/Constructor;
@@ -34,7 +34,7 @@
 .end method
 
 .method private getConstructor(Lorg/yaml/snakeyaml/nodes/Node;)Lorg/yaml/snakeyaml/constructor/Construct;
-    .locals 3
+    .registers 5
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 323
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
 
     .line 332
@@ -83,14 +83,14 @@
     invoke-interface {v0, p1}, Lorg/yaml/snakeyaml/constructor/Construct;->construct(Lorg/yaml/snakeyaml/nodes/Node;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Lorg/yaml/snakeyaml/constructor/ConstructorException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Lorg/yaml/snakeyaml/constructor/ConstructorException; {:try_start_0 .. :try_end_8} :catch_3d
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object v0
 
     .line 335
-    :catch_0
+    :catch_9
     move-exception v0
 
     move-object v6, v0
@@ -151,7 +151,7 @@
 
     .line 333
     .end local v6    # "e":Ljava/lang/Exception;
-    :catch_1
+    :catch_3d
     move-exception v0
 
     .line 334
@@ -160,7 +160,7 @@
 .end method
 
 .method public construct2ndStep(Lorg/yaml/snakeyaml/nodes/Node;Ljava/lang/Object;)V
-    .locals 7
+    .registers 10
     .param p1, "node"    # Lorg/yaml/snakeyaml/nodes/Node;
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -171,8 +171,8 @@
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Lorg/yaml/snakeyaml/constructor/Construct;->construct2ndStep(Lorg/yaml/snakeyaml/nodes/Node;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_7} :catch_9
 
     .line 349
     nop
@@ -181,7 +181,7 @@
     return-void
 
     .line 344
-    :catch_0
+    :catch_9
     move-exception v0
 
     move-object v6, v0

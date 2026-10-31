@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 56
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/hash/LongAddables$1;)V
-    .locals 0
+    .registers 2
     .param p1, "x0"    # Lcom/google/common/hash/LongAddables$1;
 
     .line 56
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public add(J)V
-    .locals 0
+    .registers 3
     .param p1, "x"    # J
 
     .line 64
@@ -51,7 +51,7 @@
 .end method
 
 .method public increment()V
-    .locals 0
+    .registers 1
 
     .line 59
     invoke-virtual {p0}, Lcom/google/common/hash/LongAddables$PureJavaLongAddable;->getAndIncrement()J
@@ -61,7 +61,7 @@
 .end method
 
 .method public sum()J
-    .locals 2
+    .registers 3
 
     .line 69
     invoke-virtual {p0}, Lcom/google/common/hash/LongAddables$PureJavaLongAddable;->get()J

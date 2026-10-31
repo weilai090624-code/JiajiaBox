@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 30
     new-instance v0, Lcom/google/common/collect/ReverseNaturalOrdering;
@@ -41,7 +41,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 99
     invoke-direct {p0}, Lcom/google/common/collect/Ordering;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 91
     sget-object v0, Lcom/google/common/collect/ReverseNaturalOrdering;->INSTANCE:Lcom/google/common/collect/ReverseNaturalOrdering;
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +78,7 @@
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 35
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_7
 
     .line 36
     const/4 v0, 0x0
@@ -86,7 +86,7 @@
     return v0
 
     .line 39
-    :cond_0
+    :cond_7
     invoke-interface {p2, p1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
@@ -95,7 +95,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 26
     check-cast p1, Ljava/lang/Comparable;
@@ -110,7 +110,7 @@
 .end method
 
 .method public max(Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -134,7 +134,7 @@
 .end method
 
 .method public varargs max(Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;[Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -160,7 +160,7 @@
 .end method
 
 .method public max(Ljava/lang/Iterable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -185,7 +185,7 @@
 .end method
 
 .method public max(Ljava/util/Iterator;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -210,7 +210,7 @@
 .end method
 
 .method public bridge synthetic max(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ReverseNaturalOrdering;->max(Ljava/lang/Iterable;)Ljava/lang/Comparable;
@@ -221,7 +221,7 @@
 .end method
 
 .method public bridge synthetic max(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 26
     check-cast p1, Ljava/lang/Comparable;
@@ -236,7 +236,7 @@
 .end method
 
 .method public bridge synthetic max(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 5
 
     .line 26
     check-cast p1, Ljava/lang/Comparable;
@@ -255,7 +255,7 @@
 .end method
 
 .method public bridge synthetic max(Ljava/util/Iterator;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ReverseNaturalOrdering;->max(Ljava/util/Iterator;)Ljava/lang/Comparable;
@@ -266,7 +266,7 @@
 .end method
 
 .method public min(Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -290,7 +290,7 @@
 .end method
 
 .method public varargs min(Ljava/lang/Comparable;Ljava/lang/Comparable;Ljava/lang/Comparable;[Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -316,7 +316,7 @@
 .end method
 
 .method public min(Ljava/lang/Iterable;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -341,7 +341,7 @@
 .end method
 
 .method public min(Ljava/util/Iterator;)Ljava/lang/Comparable;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -366,7 +366,7 @@
 .end method
 
 .method public bridge synthetic min(Ljava/lang/Iterable;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ReverseNaturalOrdering;->min(Ljava/lang/Iterable;)Ljava/lang/Comparable;
@@ -377,7 +377,7 @@
 .end method
 
 .method public bridge synthetic min(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 26
     check-cast p1, Ljava/lang/Comparable;
@@ -392,7 +392,7 @@
 .end method
 
 .method public bridge synthetic min(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 5
 
     .line 26
     check-cast p1, Ljava/lang/Comparable;
@@ -411,7 +411,7 @@
 .end method
 
 .method public bridge synthetic min(Ljava/util/Iterator;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ReverseNaturalOrdering;->min(Ljava/util/Iterator;)Ljava/lang/Comparable;
@@ -422,7 +422,7 @@
 .end method
 
 .method public reverse()Lcom/google/common/collect/Ordering;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S::",
@@ -442,7 +442,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 96
     const-string v0, "Ordering.natural().reverse()"

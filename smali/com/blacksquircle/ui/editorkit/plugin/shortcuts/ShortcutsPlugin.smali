@@ -76,7 +76,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     new-instance v0, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ShortcutsPlugin$Companion;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 24
     const-string/jumbo v0, "shortcuts-1095"
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public final getOnShortcutListener()Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ShortcutsPlugin;->onShortcutListener:Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
@@ -120,7 +120,7 @@
 .end method
 
 .method public final getShortcutKeyFilter()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -137,7 +137,7 @@
 .end method
 
 .method public onAttached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 2
+    .registers 4
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -159,7 +159,7 @@
 .end method
 
 .method public onDetached(Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;)V
-    .locals 1
+    .registers 3
     .param p1, "editText"    # Lcom/blacksquircle/ui/editorkit/widget/TextProcessor;
 
     const-string v0, "editText"
@@ -179,46 +179,46 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 6
+    .registers 9
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
 
     .line 40
     iget-object v0, p0, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ShortcutsPlugin;->onShortcutListener:Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_4e
 
     .local v0, "onShortcutListener":Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
     const/4 v1, 0x0
 
     .line 41
     .local v1, "$i$a$-let-ShortcutsPlugin$onKeyDown$1":I
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_4c
 
     .line 42
     const/16 v2, 0x71
 
-    if-eq p1, v2, :cond_3
+    if-eq p1, v2, :cond_4c
 
     .line 43
     const/16 v2, 0x72
 
-    if-eq p1, v2, :cond_3
+    if-eq p1, v2, :cond_4c
 
     .line 44
     const/16 v2, 0x39
 
-    if-eq p1, v2, :cond_3
+    if-eq p1, v2, :cond_4c
 
     .line 45
     const/16 v2, 0x3a
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_18
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 50
-    :cond_0
+    :cond_18
     new-instance v2, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/Shortcut;
 
     .line 51
@@ -248,13 +248,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_42
 
     invoke-virtual {v2}, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/Shortcut;->getAlt()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_42
 
     iget-object v3, p0, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/ShortcutsPlugin;->shortcutKeyFilter:Ljava/util/List;
 
@@ -266,15 +266,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4a
 
     .line 59
-    :cond_1
+    :cond_42
     invoke-interface {v0, v2}, Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;->onShortcut(Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/Shortcut;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4a
 
     .line 60
     const/4 v3, 0x1
@@ -282,20 +282,20 @@
     return v3
 
     .line 63
-    :cond_2
+    :cond_4a
     nop
 
     .line 40
     .end local v0    # "onShortcutListener":Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
     .end local v1    # "$i$a$-let-ShortcutsPlugin$onKeyDown$1":I
     .end local v2    # "shortcut":Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/Shortcut;
-    goto :goto_1
+    goto :goto_4e
 
     .line 47
     .restart local v0    # "onShortcutListener":Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
     .restart local v1    # "$i$a$-let-ShortcutsPlugin$onKeyDown$1":I
-    :cond_3
-    :goto_0
+    :cond_4c
+    :goto_4c
     const/4 v2, 0x0
 
     return v2
@@ -303,8 +303,8 @@
     .line 64
     .end local v0    # "onShortcutListener":Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
     .end local v1    # "$i$a$-let-ShortcutsPlugin$onKeyDown$1":I
-    :cond_4
-    :goto_1
+    :cond_4e
+    :goto_4e
     invoke-super {p0, p1, p2}, Lcom/blacksquircle/ui/editorkit/plugin/base/EditorPlugin;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v0
@@ -313,7 +313,7 @@
 .end method
 
 .method public final setOnShortcutListener(Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;)V
-    .locals 0
+    .registers 2
     .param p1, "<set-?>"    # Lcom/blacksquircle/ui/editorkit/plugin/shortcuts/OnShortcutListener;
 
     .line 26
@@ -323,7 +323,7 @@
 .end method
 
 .method public final setShortcutKeyFilter(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .param p1, "<set-?>"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {

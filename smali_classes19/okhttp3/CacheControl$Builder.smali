@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 168
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -97,7 +97,7 @@
 .end method
 
 .method private final clampToInt(J)I
-    .locals 3
+    .registers 6
     .param p1, "$this$clampToInt"    # J
 
     .line 246
@@ -108,25 +108,25 @@
 
     cmp-long v2, p1, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_c
 
     const v0, 0x7fffffff
 
-    goto :goto_0
+    goto :goto_d
 
     .line 248
-    :cond_0
+    :cond_c
     long-to-int v0, p1
 
     .line 246
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 
 # virtual methods
 .method public final build()Lokhttp3/CacheControl;
-    .locals 17
+    .registers 18
 
     .line 253
     move-object/from16 v0, p0
@@ -171,7 +171,7 @@
 .end method
 
 .method public final immutable()Lokhttp3/CacheControl$Builder;
-    .locals 3
+    .registers 4
 
     .line 241
     move-object v0, p0
@@ -202,7 +202,7 @@
 .end method
 
 .method public final maxAge(ILjava/util/concurrent/TimeUnit;)Lokhttp3/CacheControl$Builder;
-    .locals 5
+    .registers 8
     .param p1, "maxAge"    # I
     .param p2, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -220,17 +220,17 @@
 
     .line 196
     .local v1, "$i$a$-apply-CacheControl$Builder$maxAge$1":I
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_e
+    if-eqz v2, :cond_20
 
     .line 197
     int-to-long v2, p1
@@ -264,7 +264,7 @@
     .line 417
     .restart local v0    # "$this$maxAge_u24lambda_u2d3":Lokhttp3/CacheControl$Builder;
     .restart local v1    # "$i$a$-apply-CacheControl$Builder$maxAge$1":I
-    :cond_1
+    :cond_20
     const/4 v2, 0x0
 
     .line 196
@@ -294,7 +294,7 @@
 .end method
 
 .method public final maxStale(ILjava/util/concurrent/TimeUnit;)Lokhttp3/CacheControl$Builder;
-    .locals 5
+    .registers 8
     .param p1, "maxStale"    # I
     .param p2, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -312,17 +312,17 @@
 
     .line 209
     .local v1, "$i$a$-apply-CacheControl$Builder$maxStale$1":I
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_e
+    if-eqz v2, :cond_20
 
     .line 210
     int-to-long v2, p1
@@ -356,7 +356,7 @@
     .line 417
     .restart local v0    # "$this$maxStale_u24lambda_u2d5":Lokhttp3/CacheControl$Builder;
     .restart local v1    # "$i$a$-apply-CacheControl$Builder$maxStale$1":I
-    :cond_1
+    :cond_20
     const/4 v2, 0x0
 
     .line 209
@@ -386,7 +386,7 @@
 .end method
 
 .method public final minFresh(ILjava/util/concurrent/TimeUnit;)Lokhttp3/CacheControl$Builder;
-    .locals 5
+    .registers 8
     .param p1, "minFresh"    # I
     .param p2, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
@@ -404,17 +404,17 @@
 
     .line 223
     .local v1, "$i$a$-apply-CacheControl$Builder$minFresh$1":I
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v2, 0x0
 
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_e
+    if-eqz v2, :cond_20
 
     .line 224
     int-to-long v2, p1
@@ -448,7 +448,7 @@
     .line 417
     .restart local v0    # "$this$minFresh_u24lambda_u2d7":Lokhttp3/CacheControl$Builder;
     .restart local v1    # "$i$a$-apply-CacheControl$Builder$minFresh$1":I
-    :cond_1
+    :cond_20
     const/4 v2, 0x0
 
     .line 223
@@ -478,7 +478,7 @@
 .end method
 
 .method public final noCache()Lokhttp3/CacheControl$Builder;
-    .locals 3
+    .registers 4
 
     .line 179
     move-object v0, p0
@@ -509,7 +509,7 @@
 .end method
 
 .method public final noStore()Lokhttp3/CacheControl$Builder;
-    .locals 3
+    .registers 4
 
     .line 184
     move-object v0, p0
@@ -540,7 +540,7 @@
 .end method
 
 .method public final noTransform()Lokhttp3/CacheControl$Builder;
-    .locals 3
+    .registers 4
 
     .line 237
     move-object v0, p0
@@ -571,7 +571,7 @@
 .end method
 
 .method public final onlyIfCached()Lokhttp3/CacheControl$Builder;
-    .locals 3
+    .registers 4
 
     .line 232
     move-object v0, p0

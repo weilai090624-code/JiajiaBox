@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 3
+    .registers 5
     .param p1, "initialValue"    # I
 
     .line 121
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public getValue()Ljava/lang/Integer;
-    .locals 4
+    .registers 5
 
     .line 126
     const/4 v0, 0x0
@@ -99,7 +99,7 @@
 
     .line 126
     .local v2, "$i$a$-synchronized-SubscriptionCountStateFlow$value$1":I
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0}, Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;->getLastReplayedLocked()Ljava/lang/Object;
 
     move-result-object v3
@@ -114,8 +114,8 @@
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_5 .. :try_end_13} :catchall_16
 
     .line 137
     monitor-exit p0
@@ -131,7 +131,7 @@
     .line 137
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_16
     move-exception v2
 
     monitor-exit p0
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic getValue()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 120
     invoke-virtual {p0}, Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;->getValue()Ljava/lang/Integer;
@@ -151,7 +151,7 @@
 .end method
 
 .method public final increment(I)Z
-    .locals 4
+    .registers 6
     .param p1, "delta"    # I
 
     .line 128
@@ -172,7 +172,7 @@
 
     .line 129
     .local v2, "$i$a$-synchronized-SubscriptionCountStateFlow$increment$1":I
-    :try_start_0
+    :try_start_5
     invoke-virtual {p0}, Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;->getLastReplayedLocked()Ljava/lang/Object;
 
     move-result-object v3
@@ -192,8 +192,8 @@
     invoke-virtual {p0, v3}, Lkotlinx/coroutines/flow/internal/SubscriptionCountStateFlow;->tryEmit(Ljava/lang/Object;)Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_5 .. :try_end_18} :catchall_1b
 
     .line 142
     .end local v2    # "$i$a$-synchronized-SubscriptionCountStateFlow$increment$1":I
@@ -210,7 +210,7 @@
     .line 142
     .restart local v0    # "$i$f$synchronized":I
     .restart local v1    # "$i$f$synchronizedImpl":I
-    :catchall_0
+    :catchall_1b
     move-exception v2
 
     monitor-exit p0

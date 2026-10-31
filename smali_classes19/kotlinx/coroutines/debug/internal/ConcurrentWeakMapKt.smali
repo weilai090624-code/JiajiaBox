@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 254
     new-instance v0, Lkotlinx/coroutines/internal/Symbol;
@@ -84,7 +84,7 @@
 .end method
 
 .method public static final synthetic access$getREHASH$p()Lkotlinx/coroutines/internal/Symbol;
-    .locals 1
+    .registers 1
 
     .line 1
     sget-object v0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->REHASH:Lkotlinx/coroutines/internal/Symbol;
@@ -93,7 +93,7 @@
 .end method
 
 .method public static final synthetic access$mark(Ljava/lang/Object;)Lkotlinx/coroutines/debug/internal/Marked;
-    .locals 1
+    .registers 2
     .param p0, "$receiver"    # Ljava/lang/Object;
 
     .line 1
@@ -105,7 +105,7 @@
 .end method
 
 .method public static final synthetic access$noImpl()Ljava/lang/Void;
-    .locals 1
+    .registers 1
 
     .line 1
     invoke-static {}, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->noImpl()Ljava/lang/Void;
@@ -116,21 +116,21 @@
 .end method
 
 .method private static final mark(Ljava/lang/Object;)Lkotlinx/coroutines/debug/internal/Marked;
-    .locals 1
+    .registers 2
     .param p0, "$this$mark"    # Ljava/lang/Object;
 
     .line 275
     nop
 
     .line 276
-    if-nez p0, :cond_0
+    if-nez p0, :cond_6
 
     sget-object v0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->MARKED_NULL:Lkotlinx/coroutines/debug/internal/Marked;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 277
-    :cond_0
+    :cond_6
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -141,25 +141,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     sget-object v0, Lkotlinx/coroutines/debug/internal/ConcurrentWeakMapKt;->MARKED_TRUE:Lkotlinx/coroutines/debug/internal/Marked;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 278
-    :cond_1
+    :cond_14
     new-instance v0, Lkotlinx/coroutines/debug/internal/Marked;
 
     invoke-direct {v0, p0}, Lkotlinx/coroutines/debug/internal/Marked;-><init>(Ljava/lang/Object;)V
 
     .line 279
-    :goto_0
+    :goto_19
     return-object v0
 .end method
 
 .method private static final noImpl()Ljava/lang/Void;
-    .locals 2
+    .registers 2
 
     .line 282
     new-instance v0, Ljava/lang/UnsupportedOperationException;

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "view"    # Landroid/view/View;
 
     .line 52
@@ -86,13 +86,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 74
     instance-of v0, p1, Landroidx/transition/TransitionValues;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 75
     iget-object v0, p0, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
@@ -103,7 +103,7 @@
 
     iget-object v1, v1, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1c
 
     .line 76
     iget-object v0, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
@@ -118,7 +118,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 77
     const/4 v0, 0x1
@@ -126,14 +126,14 @@
     return v0
 
     .line 81
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 86
     iget-object v0, p0, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
@@ -156,7 +156,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 91
     new-instance v0, Ljava/lang/StringBuilder;
@@ -253,12 +253,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_5d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_95
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -312,9 +312,9 @@
 
     .line 96
     .end local v3    # "s":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_5d
 
     .line 97
-    :cond_0
+    :cond_95
     return-object v0
 .end method

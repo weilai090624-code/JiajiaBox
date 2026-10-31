@@ -25,7 +25,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 56
     .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
@@ -49,7 +49,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 49
     .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
@@ -71,7 +71,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -79,7 +79,7 @@
 
     .line 63
     .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_f
 
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSet;->delegate()Ljava/util/Set;
 
@@ -89,25 +89,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_10
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 68
     .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
@@ -123,7 +123,7 @@
 .end method
 
 .method protected standardEquals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -139,7 +139,7 @@
 .end method
 
 .method protected standardHashCode()I
-    .locals 1
+    .registers 2
 
     .line 101
     .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
@@ -151,7 +151,7 @@
 .end method
 
 .method protected standardRemoveAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

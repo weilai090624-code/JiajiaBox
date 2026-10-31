@@ -61,8 +61,8 @@
     <string name="call_notification_screening_text">Menyaring panggilan masuk</string>
     <string name="certificates">Sertifikat</string>
     <string name="chain_settings">Pengaturan Rantai</string>
-    <string name="character_counter_content_description" formatted="false">Karakter yang dimasukkan %1$d dari %2$d</string>
-    <string name="character_counter_overflowed_content_description" formatted="false">Melebihi batas karakter %1$d dari %2$d</string>
+    <string name="character_counter_content_description">Karakter yang dimasukkan %1$d dari %2$d</string>
+    <string name="character_counter_overflowed_content_description">Melebihi batas karakter %1$d dari %2$d</string>
     <string name="circular_reference">Referensi melingkar</string>
     <string name="clear_selections">Hapus pilihan</string>
     <string name="clear_text_end_icon_content_description">Menghapus teks</string>
@@ -188,7 +188,7 @@
     <string name="mtrl_picker_out_of_range">Di luar rentang: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Tanggal mulai – %1$s</string>
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Tanggal akhir</string>
-    <string name="mtrl_picker_range_header_selected" formatted="false">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
     <string name="mtrl_picker_range_header_title">Pilih Rentang</string>
     <string name="mtrl_picker_range_header_unselected">Tanggal mulai – Tanggal akhir</string>
     <string name="mtrl_picker_save">Simpan</string>
@@ -280,7 +280,7 @@
     <string name="show_system_apps">Tampilkan aplikasi sistem</string>
     <string name="sni">Indikasi Nama Server</string>
     <string name="speed">%s/s</string>
-    <string name="speed_detail" formatted="false">"Proksi： %1$s↑ %2$s↓ 
+    <string name="speed_detail">"Proksi： %1$s↑ %2$s↓ 
 Direk： %3$s↑ %4$s↓"</string>
     <string name="speed_interval">Interval Pembaruan Notifikasi Kecepatan</string>
     <string name="ssh_auth_type_none">Kosong</string>
@@ -289,13 +289,13 @@ Direk： %3$s↑ %4$s↓"</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="stop">Berhenti</string>
     <string name="stopping">Mematikan…</string>
-    <string name="summary_collapsed_preference_list" formatted="false">%1$s, %2$s</string>
+    <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
     <string name="tcp_keep_alive_interval">TCP menjaga interval pengiriman paket aktif</string>
     <string name="telegram">Channel Telegram</string>
     <string name="theme">Tema</string>
     <string name="tile_title">Pengalih</string>
     <string name="tls">Pakai TLS</string>
-    <string name="traffic" formatted="false">%1$s↑ %2$s↓</string>
+    <string name="traffic">%1$s↑ %2$s↓</string>
     <string name="traffic_sniffing">Aktifkan Traffic Sniffing</string>
     <string name="transproxy_mode">Mode Transproksi</string>
     <string name="username">Nama pengguna</string>

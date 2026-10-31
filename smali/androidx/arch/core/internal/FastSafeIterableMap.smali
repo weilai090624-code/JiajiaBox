@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 36
     .local p0, "this":Landroidx/arch/core/internal/FastSafeIterableMap;, "Landroidx/arch/core/internal/FastSafeIterableMap<TK;TV;>;"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public ceil(Ljava/lang/Object;)Ljava/util/Map$Entry;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -67,7 +67,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 80
     iget-object v0, p0, Landroidx/arch/core/internal/FastSafeIterableMap;->mHashMap:Ljava/util/HashMap;
@@ -83,14 +83,14 @@
     return-object v0
 
     .line 82
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)Z"
@@ -110,7 +110,7 @@
 .end method
 
 .method protected get(Ljava/lang/Object;)Landroidx/arch/core/internal/SafeIterableMap$Entry;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -134,7 +134,7 @@
 .end method
 
 .method public putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -151,7 +151,7 @@
 
     .line 50
     .local v0, "current":Landroidx/arch/core/internal/SafeIterableMap$Entry;, "Landroidx/arch/core/internal/SafeIterableMap$Entry<TK;TV;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 51
     iget-object v1, v0, Landroidx/arch/core/internal/SafeIterableMap$Entry;->mValue:Ljava/lang/Object;
@@ -159,7 +159,7 @@
     return-object v1
 
     .line 53
-    :cond_0
+    :cond_9
     iget-object v1, p0, Landroidx/arch/core/internal/FastSafeIterableMap;->mHashMap:Ljava/util/HashMap;
 
     invoke-virtual {p0, p1, p2}, Landroidx/arch/core/internal/FastSafeIterableMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/arch/core/internal/SafeIterableMap$Entry;
@@ -175,7 +175,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"

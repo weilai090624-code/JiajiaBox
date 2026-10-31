@@ -16,7 +16,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 47
     new-instance v0, Landroid/util/Size;
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -63,7 +63,7 @@
 .end method
 
 .method private getPreviewSize()Landroid/util/Size;
-    .locals 5
+    .registers 6
 
     .line 116
     new-instance v0, Landroid/graphics/Point;
@@ -85,7 +85,7 @@
 
     iget v2, v0, Landroid/graphics/Point;->y:I
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_1e
 
     .line 121
     new-instance v1, Landroid/util/Size;
@@ -97,11 +97,11 @@
     invoke-direct {v1, v2, v3}, Landroid/util/Size;-><init>(II)V
 
     .local v1, "displayViewSize":Landroid/util/Size;
-    goto :goto_0
+    goto :goto_27
 
     .line 123
     .end local v1    # "displayViewSize":Landroid/util/Size;
-    :cond_0
+    :cond_1e
     new-instance v1, Landroid/util/Size;
 
     iget v2, v0, Landroid/graphics/Point;->y:I
@@ -112,7 +112,7 @@
 
     .line 127
     .restart local v1    # "displayViewSize":Landroid/util/Size;
-    :goto_0
+    :goto_27
     nop
 
     .line 126
@@ -141,25 +141,25 @@
 
     mul-int v3, v3, v4
 
-    if-le v2, v3, :cond_1
+    if-le v2, v3, :cond_45
 
     sget-object v2, Landroidx/camera/camera2/internal/Camera2UseCaseConfigFactory;->MAX_PREVIEW_SIZE:Landroid/util/Size;
 
-    goto :goto_1
+    goto :goto_46
 
     .line 128
-    :cond_1
+    :cond_45
     move-object v2, v1
 
     .line 126
-    :goto_1
+    :goto_46
     return-object v2
 .end method
 
 
 # virtual methods
 .method public getConfig(Landroidx/camera/core/impl/UseCaseConfigFactory$CaptureType;)Landroidx/camera/core/impl/Config;
-    .locals 6
+    .registers 8
     .param p1, "captureType"    # Landroidx/camera/core/impl/UseCaseConfigFactory$CaptureType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -190,13 +190,13 @@
     .line 69
     sget-object v3, Landroidx/camera/core/impl/UseCaseConfigFactory$CaptureType;->PREVIEW:Landroidx/camera/core/impl/UseCaseConfigFactory$CaptureType;
 
-    if-ne p1, v3, :cond_0
+    if-ne p1, v3, :cond_14
 
     .line 71
     invoke-static {v1}, Landroidx/camera/camera2/internal/compat/workaround/PreviewPixelHDRnet;->setHDRnet(Landroidx/camera/core/impl/SessionConfig$Builder;)V
 
     .line 74
-    :cond_0
+    :cond_14
     sget-object v3, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_DEFAULT_SESSION_CONFIG:Landroidx/camera/core/impl/Config$Option;
 
     invoke-virtual {v1}, Landroidx/camera/core/impl/SessionConfig$Builder;->build()Landroidx/camera/core/impl/SessionConfig;
@@ -227,18 +227,18 @@
 
     aget v4, v4, v5
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_7a
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 90
-    :pswitch_0
+    :pswitch_35
     invoke-virtual {v3, v2}, Landroidx/camera/core/impl/CaptureConfig$Builder;->setTemplateType(I)V
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 85
-    :pswitch_1
+    :pswitch_39
     const/4 v2, 0x2
 
     invoke-virtual {v3, v2}, Landroidx/camera/core/impl/CaptureConfig$Builder;->setTemplateType(I)V
@@ -247,7 +247,7 @@
     nop
 
     .line 93
-    :goto_0
+    :goto_3e
     sget-object v2, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_DEFAULT_CAPTURE_CONFIG:Landroidx/camera/core/impl/Config$Option;
 
     invoke-virtual {v3}, Landroidx/camera/core/impl/CaptureConfig$Builder;->build()Landroidx/camera/core/impl/CaptureConfig;
@@ -262,24 +262,24 @@
     .line 98
     sget-object v4, Landroidx/camera/core/impl/UseCaseConfigFactory$CaptureType;->IMAGE_CAPTURE:Landroidx/camera/core/impl/UseCaseConfigFactory$CaptureType;
 
-    if-ne p1, v4, :cond_1
+    if-ne p1, v4, :cond_50
 
     sget-object v4, Landroidx/camera/camera2/internal/ImageCaptureOptionUnpacker;->INSTANCE:Landroidx/camera/camera2/internal/ImageCaptureOptionUnpacker;
 
-    goto :goto_1
+    goto :goto_52
 
     .line 99
-    :cond_1
+    :cond_50
     sget-object v4, Landroidx/camera/camera2/internal/Camera2CaptureOptionUnpacker;->INSTANCE:Landroidx/camera/camera2/internal/Camera2CaptureOptionUnpacker;
 
     .line 97
-    :goto_1
+    :goto_52
     invoke-virtual {v0, v2, v4}, Landroidx/camera/core/impl/MutableOptionsBundle;->insertOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)V
 
     .line 101
     sget-object v2, Landroidx/camera/core/impl/UseCaseConfigFactory$CaptureType;->PREVIEW:Landroidx/camera/core/impl/UseCaseConfigFactory$CaptureType;
 
-    if-ne p1, v2, :cond_2
+    if-ne p1, v2, :cond_62
 
     .line 102
     sget-object v2, Landroidx/camera/core/impl/ImageOutputConfig;->OPTION_MAX_RESOLUTION:Landroidx/camera/core/impl/Config$Option;
@@ -291,7 +291,7 @@
     invoke-virtual {v0, v2, v4}, Landroidx/camera/core/impl/MutableOptionsBundle;->insertOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)V
 
     .line 105
-    :cond_2
+    :cond_62
     iget-object v2, p0, Landroidx/camera/camera2/internal/Camera2UseCaseConfigFactory;->mWindowManager:Landroid/view/WindowManager;
 
     invoke-interface {v2}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
@@ -319,11 +319,11 @@
 
     return-object v4
 
-    :pswitch_data_0
+    :pswitch_data_7a
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_39
+        :pswitch_35
+        :pswitch_35
+        :pswitch_35
     .end packed-switch
 .end method

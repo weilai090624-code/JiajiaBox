@@ -36,7 +36,7 @@
 
 # direct methods
 .method public static final setupWithNavController(Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/drawerlayout/widget/DrawerLayout;)V
-    .locals 5
+    .registers 8
     .param p0, "$this$setupWithNavController"    # Landroidx/appcompat/widget/Toolbar;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .param p2, "drawerLayout"    # Landroidx/drawerlayout/widget/DrawerLayout;
@@ -112,7 +112,7 @@
 .end method
 
 .method public static final setupWithNavController(Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)V
-    .locals 1
+    .registers 4
     .param p0, "$this$setupWithNavController"    # Landroidx/appcompat/widget/Toolbar;
     .param p1, "navController"    # Landroidx/navigation/NavController;
     .param p2, "configuration"    # Landroidx/navigation/ui/AppBarConfiguration;
@@ -137,12 +137,12 @@
 .end method
 
 .method public static synthetic setupWithNavController$default(Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;ILjava/lang/Object;)V
-    .locals 3
+    .registers 8
 
     .line 68
     and-int/lit8 p3, p3, 0x2
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_28
 
     .line 70
     invoke-virtual {p1}, Landroidx/navigation/NavController;->getGraph()Landroidx/navigation/NavGraph;
@@ -201,7 +201,7 @@
     .end local p2    # "navGraph$iv":Landroidx/navigation/NavGraph;
     .end local p3    # "drawerLayout$iv":Landroidx/customview/widget/Openable;
     .end local p4    # "fallbackOnNavigateUpListener$iv":Lkotlin/jvm/functions/Function0;
-    :cond_0
+    :cond_28
     invoke-static {p0, p1, p2}, Landroidx/navigation/ui/ToolbarKt;->setupWithNavController(Landroidx/appcompat/widget/Toolbar;Landroidx/navigation/NavController;Landroidx/navigation/ui/AppBarConfiguration;)V
 
     return-void

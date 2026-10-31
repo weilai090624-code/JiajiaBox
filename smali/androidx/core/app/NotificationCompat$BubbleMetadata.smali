@@ -46,7 +46,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;IIILjava/lang/String;)V
-    .locals 0
+    .registers 8
     .param p1, "expandIntent"    # Landroid/app/PendingIntent;
     .param p2, "deleteIntent"    # Landroid/app/PendingIntent;
     .param p3, "icon"    # Landroidx/core/graphics/drawable/IconCompat;
@@ -84,7 +84,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;IIILjava/lang/String;Landroidx/core/app/NotificationCompat$1;)V
-    .locals 0
+    .registers 9
     .param p1, "x0"    # Landroid/app/PendingIntent;
     .param p2, "x1"    # Landroid/app/PendingIntent;
     .param p3, "x2"    # Landroidx/core/graphics/drawable/IconCompat;
@@ -101,24 +101,24 @@
 .end method
 
 .method public static fromPlatform(Landroid/app/Notification$BubbleMetadata;)Landroidx/core/app/NotificationCompat$BubbleMetadata;
-    .locals 3
+    .registers 4
     .param p0, "platformMetadata"    # Landroid/app/Notification$BubbleMetadata;
 
     .line 8516
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 8517
     return-object v0
 
     .line 8519
-    :cond_0
+    :cond_4
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1e
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_f
 
     .line 8520
     invoke-static {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Api30Impl;->fromPlatform(Landroid/app/Notification$BubbleMetadata;)Landroidx/core/app/NotificationCompat$BubbleMetadata;
@@ -128,12 +128,12 @@
     return-object v0
 
     .line 8521
-    :cond_1
+    :cond_f
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1d
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_1a
 
     .line 8522
     invoke-static {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Api29Impl;->fromPlatform(Landroid/app/Notification$BubbleMetadata;)Landroidx/core/app/NotificationCompat$BubbleMetadata;
@@ -143,29 +143,29 @@
     return-object v0
 
     .line 8524
-    :cond_2
+    :cond_1a
     return-object v0
 .end method
 
 .method public static toPlatform(Landroidx/core/app/NotificationCompat$BubbleMetadata;)Landroid/app/Notification$BubbleMetadata;
-    .locals 3
+    .registers 4
     .param p0, "compatMetadata"    # Landroidx/core/app/NotificationCompat$BubbleMetadata;
 
     .line 8495
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 8496
     return-object v0
 
     .line 8498
-    :cond_0
+    :cond_4
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1e
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_f
 
     .line 8499
     invoke-static {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Api30Impl;->toPlatform(Landroidx/core/app/NotificationCompat$BubbleMetadata;)Landroid/app/Notification$BubbleMetadata;
@@ -175,12 +175,12 @@
     return-object v0
 
     .line 8500
-    :cond_1
+    :cond_f
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1d
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_1a
 
     .line 8501
     invoke-static {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Api29Impl;->toPlatform(Landroidx/core/app/NotificationCompat$BubbleMetadata;)Landroid/app/Notification$BubbleMetadata;
@@ -190,14 +190,14 @@
     return-object v0
 
     .line 8503
-    :cond_2
+    :cond_1a
     return-object v0
 .end method
 
 
 # virtual methods
 .method public getAutoExpandBubble()Z
-    .locals 2
+    .registers 3
 
     .line 8468
     iget v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mFlags:I
@@ -206,19 +206,19 @@
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_8
     return v1
 .end method
 
 .method public getDeleteIntent()Landroid/app/PendingIntent;
-    .locals 1
+    .registers 2
 
     .line 8429
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mDeleteIntent:Landroid/app/PendingIntent;
@@ -227,7 +227,7 @@
 .end method
 
 .method public getDesiredHeight()I
-    .locals 1
+    .registers 2
 
     .line 8449
     iget v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mDesiredHeight:I
@@ -236,7 +236,7 @@
 .end method
 
 .method public getDesiredHeightResId()I
-    .locals 1
+    .registers 2
 
     .line 8459
     iget v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mDesiredHeightResId:I
@@ -245,7 +245,7 @@
 .end method
 
 .method public getIcon()Landroidx/core/graphics/drawable/IconCompat;
-    .locals 1
+    .registers 2
 
     .line 8439
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
@@ -254,7 +254,7 @@
 .end method
 
 .method public getIntent()Landroid/app/PendingIntent;
-    .locals 1
+    .registers 2
 
     .line 8411
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mPendingIntent:Landroid/app/PendingIntent;
@@ -263,7 +263,7 @@
 .end method
 
 .method public getShortcutId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 8421
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mShortcutId:Ljava/lang/String;
@@ -272,28 +272,28 @@
 .end method
 
 .method public isNotificationSuppressed()Z
-    .locals 1
+    .registers 2
 
     .line 8477
     iget v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mFlags:I
 
     and-int/lit8 v0, v0, 0x2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public setFlags(I)V
-    .locals 0
+    .registers 2
     .param p1, "flags"    # I
 
     .line 8482

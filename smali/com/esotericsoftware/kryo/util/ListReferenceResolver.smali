@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public addWrittenObject(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 41
@@ -53,7 +53,7 @@
 .end method
 
 .method public getReadObject(Ljava/lang/Class;I)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .param p1, "type"    # Ljava/lang/Class;
     .param p2, "id"    # I
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public getWrittenId(Ljava/lang/Object;)I
-    .locals 3
+    .registers 5
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 47
@@ -82,8 +82,8 @@
     move-result v1
 
     .local v1, "n":I
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_7
+    if-ge v0, v1, :cond_15
 
     .line 48
     iget-object v2, p0, Lcom/esotericsoftware/kryo/util/ListReferenceResolver;->seenObjects:Ljava/util/ArrayList;
@@ -92,27 +92,27 @@
 
     move-result-object v2
 
-    if-ne v2, p1, :cond_0
+    if-ne v2, p1, :cond_12
 
     return v0
 
     .line 47
-    :cond_0
+    :cond_12
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 49
     .end local v0    # "i":I
     .end local v1    # "n":I
-    :cond_1
+    :cond_15
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method public nextReadId(Ljava/lang/Class;)I
-    .locals 3
+    .registers 5
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 53
@@ -135,7 +135,7 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/ListReferenceResolver;->seenObjects:Ljava/util/ArrayList;
@@ -147,7 +147,7 @@
 .end method
 
 .method public setKryo(Lcom/esotericsoftware/kryo/Kryo;)V
-    .locals 0
+    .registers 2
     .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
 
     .line 37
@@ -158,7 +158,7 @@
 .end method
 
 .method public setReadObject(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "id"    # I
     .param p2, "object"    # Ljava/lang/Object;
 
@@ -172,7 +172,7 @@
 .end method
 
 .method public useReferences(Ljava/lang/Class;)Z
-    .locals 1
+    .registers 3
     .param p1, "type"    # Ljava/lang/Class;
 
     .line 72
@@ -180,21 +180,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     invoke-static {p1}, Lcom/esotericsoftware/kryo/util/Util;->isEnum(Ljava/lang/Class;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method

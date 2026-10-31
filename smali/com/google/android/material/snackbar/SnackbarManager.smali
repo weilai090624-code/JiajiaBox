@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method private cancelSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z
-    .locals 2
+    .registers 5
     .param p1, "record"    # Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
     .param p2, "event"    # I
 
@@ -82,7 +82,7 @@
 
     .line 206
     .local v0, "callback":Lcom/google/android/material/snackbar/SnackbarManager$Callback;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 208
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->handler:Landroid/os/Handler;
@@ -98,19 +98,19 @@
     return v1
 
     .line 212
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method static getInstance()Lcom/google/android/material/snackbar/SnackbarManager;
-    .locals 1
+    .registers 1
 
     .line 37
     sget-object v0, Lcom/google/android/material/snackbar/SnackbarManager;->snackbarManager:Lcom/google/android/material/snackbar/SnackbarManager;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 38
     new-instance v0, Lcom/google/android/material/snackbar/SnackbarManager;
@@ -120,20 +120,20 @@
     sput-object v0, Lcom/google/android/material/snackbar/SnackbarManager;->snackbarManager:Lcom/google/android/material/snackbar/SnackbarManager;
 
     .line 40
-    :cond_0
+    :cond_b
     sget-object v0, Lcom/google/android/material/snackbar/SnackbarManager;->snackbarManager:Lcom/google/android/material/snackbar/SnackbarManager;
 
     return-object v0
 .end method
 
 .method private isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
     .line 216
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
@@ -141,27 +141,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method private isNextSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
-    .locals 1
+    .registers 3
     .param p1, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
     .line 220
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
@@ -169,21 +169,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method private scheduleTimeoutLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V
-    .locals 5
+    .registers 7
     .param p1, "r"    # Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
     .line 224
@@ -191,40 +191,40 @@
 
     const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
     .line 226
     return-void
 
     .line 229
-    :cond_0
+    :cond_6
     const/16 v0, 0xabe
 
     .line 230
     .local v0, "durationMs":I
     iget v1, p1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->duration:I
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_f
 
     .line 231
     iget v0, p1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->duration:I
 
-    goto :goto_0
+    goto :goto_16
 
     .line 232
-    :cond_1
+    :cond_f
     iget v1, p1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->duration:I
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_16
 
     .line 233
     const/16 v0, 0x5dc
 
     .line 235
-    :cond_2
-    :goto_0
+    :cond_16
+    :goto_16
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->handler:Landroid/os/Handler;
 
     invoke-virtual {v1, p1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
@@ -249,12 +249,12 @@
 .end method
 
 .method private showNextSnackbarLocked()V
-    .locals 2
+    .registers 3
 
     .line 190
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 191
     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
@@ -279,28 +279,28 @@
 
     .line 195
     .local v1, "callback":Lcom/google/android/material/snackbar/SnackbarManager$Callback;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 196
     invoke-interface {v1}, Lcom/google/android/material/snackbar/SnackbarManager$Callback;->show()V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 199
-    :cond_0
+    :cond_1b
     iput-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
     .line 202
     .end local v1    # "callback":Lcom/google/android/material/snackbar/SnackbarManager$Callback;
-    :cond_1
-    :goto_0
+    :cond_1d
+    :goto_1d
     return-void
 .end method
 
 
 # virtual methods
 .method public dismiss(Lcom/google/android/material/snackbar/SnackbarManager$Callback;I)V
-    .locals 2
+    .registers 5
     .param p1, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
     .param p2, "event"    # I
 
@@ -310,27 +310,27 @@
     monitor-enter v0
 
     .line 108
-    :try_start_0
+    :try_start_3
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 109
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
     invoke-direct {p0, v1, p2}, Lcom/google/android/material/snackbar/SnackbarManager;->cancelSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 110
-    :cond_0
+    :cond_f
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isNextSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     .line 111
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
@@ -338,26 +338,26 @@
     invoke-direct {p0, v1, p2}, Lcom/google/android/material/snackbar/SnackbarManager;->cancelSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z
 
     .line 113
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     monitor-exit v0
 
     .line 114
     return-void
 
     .line 113
-    :catchall_0
+    :catchall_1c
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_3 .. :try_end_1e} :catchall_1c
 
     throw v1
 .end method
 
 .method handleTimeout(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V
-    .locals 2
+    .registers 4
     .param p1, "record"    # Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
     .line 240
@@ -366,41 +366,41 @@
     monitor-enter v0
 
     .line 241
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
-    if-eq v1, p1, :cond_0
+    if-eq v1, p1, :cond_b
 
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
-    if-ne v1, p1, :cond_1
+    if-ne v1, p1, :cond_f
 
     .line 242
-    :cond_0
+    :cond_b
     const/4 v1, 0x2
 
     invoke-direct {p0, p1, v1}, Lcom/google/android/material/snackbar/SnackbarManager;->cancelSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z
 
     .line 244
-    :cond_1
+    :cond_f
     monitor-exit v0
 
     .line 245
     return-void
 
     .line 244
-    :catchall_0
+    :catchall_11
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_3 .. :try_end_13} :catchall_11
 
     throw v1
 .end method
 
 .method public isCurrent(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
-    .locals 2
+    .registers 4
     .param p1, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
     .line 163
@@ -409,7 +409,7 @@
     monitor-enter v0
 
     .line 164
-    :try_start_0
+    :try_start_3
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
@@ -419,18 +419,18 @@
     return v1
 
     .line 165
-    :catchall_0
+    :catchall_9
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_3 .. :try_end_b} :catchall_9
 
     throw v1
 .end method
 
 .method public isCurrentOrNext(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
-    .locals 2
+    .registers 4
     .param p1, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
     .line 169
@@ -439,48 +439,48 @@
     monitor-enter v0
 
     .line 170
-    :try_start_0
+    :try_start_3
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_12
 
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isNextSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_13
     monitor-exit v0
 
     return v1
 
     .line 171
-    :catchall_0
+    :catchall_15
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_3 .. :try_end_17} :catchall_15
 
     throw v1
 .end method
 
 .method public onDismissed(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V
-    .locals 2
+    .registers 4
     .param p1, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
     .line 121
@@ -489,12 +489,12 @@
     monitor-enter v0
 
     .line 122
-    :try_start_0
+    :try_start_3
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 124
     const/4 v1, 0x0
@@ -504,31 +504,31 @@
     .line 125
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 126
     invoke-direct {p0}, Lcom/google/android/material/snackbar/SnackbarManager;->showNextSnackbarLocked()V
 
     .line 129
-    :cond_0
+    :cond_13
     monitor-exit v0
 
     .line 130
     return-void
 
     .line 129
-    :catchall_0
+    :catchall_15
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_3 .. :try_end_17} :catchall_15
 
     throw v1
 .end method
 
 .method public onShown(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V
-    .locals 2
+    .registers 4
     .param p1, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
     .line 137
@@ -537,12 +537,12 @@
     monitor-enter v0
 
     .line 138
-    :try_start_0
+    :try_start_3
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 139
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
@@ -550,25 +550,25 @@
     invoke-direct {p0, v1}, Lcom/google/android/material/snackbar/SnackbarManager;->scheduleTimeoutLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V
 
     .line 141
-    :cond_0
+    :cond_e
     monitor-exit v0
 
     .line 142
     return-void
 
     .line 141
-    :catchall_0
+    :catchall_10
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_3 .. :try_end_12} :catchall_10
 
     throw v1
 .end method
 
 .method public pauseTimeout(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V
-    .locals 3
+    .registers 5
     .param p1, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
     .line 145
@@ -577,18 +577,18 @@
     monitor-enter v0
 
     .line 146
-    :try_start_0
+    :try_start_3
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
     iget-boolean v1, v1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->paused:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 147
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
@@ -605,25 +605,25 @@
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
     .line 150
-    :cond_0
+    :cond_1b
     monitor-exit v0
 
     .line 151
     return-void
 
     .line 150
-    :catchall_0
+    :catchall_1d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_3 .. :try_end_1f} :catchall_1d
 
     throw v1
 .end method
 
 .method public restoreTimeoutIfPaused(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V
-    .locals 3
+    .registers 5
     .param p1, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
     .line 154
@@ -632,18 +632,18 @@
     monitor-enter v0
 
     .line 155
-    :try_start_0
+    :try_start_3
     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
     iget-boolean v1, v1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->paused:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 156
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
@@ -658,25 +658,25 @@
     invoke-direct {p0, v1}, Lcom/google/android/material/snackbar/SnackbarManager;->scheduleTimeoutLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V
 
     .line 159
-    :cond_0
+    :cond_19
     monitor-exit v0
 
     .line 160
     return-void
 
     .line 159
-    :catchall_0
+    :catchall_1b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_3 .. :try_end_1d} :catchall_1b
 
     throw v1
 .end method
 
 .method public show(ILcom/google/android/material/snackbar/SnackbarManager$Callback;)V
-    .locals 3
+    .registers 6
     .param p1, "duration"    # I
     .param p2, "callback"    # Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
@@ -686,12 +686,12 @@
     monitor-enter v0
 
     .line 76
-    :try_start_0
+    :try_start_3
     invoke-direct {p0, p2}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 78
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
@@ -716,22 +716,22 @@
     return-void
 
     .line 85
-    :cond_0
+    :cond_1b
     invoke-direct {p0, p2}, Lcom/google/android/material/snackbar/SnackbarManager;->isNextSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_26
 
     .line 87
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
     iput p1, v1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->duration:I
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 90
-    :cond_1
+    :cond_26
     new-instance v1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
     invoke-direct {v1, p1, p2}, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;-><init>(ILcom/google/android/material/snackbar/SnackbarManager$Callback;)V
@@ -739,10 +739,10 @@
     iput-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
     .line 93
-    :goto_0
+    :goto_2d
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3c
 
     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
 
@@ -753,7 +753,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3c
 
     .line 96
     monitor-exit v0
@@ -761,7 +761,7 @@
     return-void
 
     .line 99
-    :cond_2
+    :cond_3c
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
@@ -776,12 +776,12 @@
     return-void
 
     .line 103
-    :catchall_0
+    :catchall_44
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_46
+    .catchall {:try_start_3 .. :try_end_46} :catchall_44
 
     throw v1
 .end method

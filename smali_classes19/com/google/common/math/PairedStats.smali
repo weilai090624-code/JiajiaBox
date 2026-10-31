@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/common/math/Stats;Lcom/google/common/math/Stats;D)V
-    .locals 0
+    .registers 5
     .param p1, "xStats"    # Lcom/google/common/math/Stats;
     .param p2, "yStats"    # Lcom/google/common/math/Stats;
     .param p3, "sumOfProductsOfDeltas"    # D
@@ -49,7 +49,7 @@
 .end method
 
 .method private static ensureInUnitRange(D)D
-    .locals 3
+    .registers 5
     .param p0, "value"    # D
 
     .line 270
@@ -57,29 +57,29 @@
 
     cmpl-double v2, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_7
 
     .line 271
     return-wide v0
 
     .line 273
-    :cond_0
+    :cond_7
     const-wide/high16 v0, -0x4010000000000000L    # -1.0
 
     cmpg-double v2, p0, v0
 
-    if-gtz v2, :cond_1
+    if-gtz v2, :cond_e
 
     .line 274
     return-wide v0
 
     .line 276
-    :cond_1
+    :cond_e
     return-wide p0
 .end method
 
 .method private static ensurePositive(D)D
-    .locals 3
+    .registers 5
     .param p0, "value"    # D
 
     .line 262
@@ -87,20 +87,20 @@
 
     cmpl-double v2, p0, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_7
 
     .line 263
     return-wide p0
 
     .line 265
-    :cond_0
+    :cond_7
     const-wide/16 v0, 0x1
 
     return-wide v0
 .end method
 
 .method public static fromByteArray([B)Lcom/google/common/math/PairedStats;
-    .locals 6
+    .registers 7
     .param p0, "byteArray"    # [B
 
     .line 306
@@ -111,16 +111,16 @@
 
     const/16 v1, 0x58
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_b
     const-string v2, "Expected PairedStats.BYTES = %s, got %s"
 
     array-length v3, p0
@@ -168,7 +168,7 @@
 
 # virtual methods
 .method public count()J
-    .locals 2
+    .registers 3
 
     .line 69
     iget-object v0, p0, Lcom/google/common/math/PairedStats;->xStats:Lcom/google/common/math/Stats;
@@ -181,7 +181,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .registers 9
     .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/CheckForNull;
         .end annotation
@@ -190,13 +190,13 @@
     .line 218
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 219
     return v0
 
     .line 221
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -205,13 +205,13 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_f
 
     .line 222
     return v0
 
     .line 224
-    :cond_1
+    :cond_f
     move-object v1, p1
 
     check-cast v1, Lcom/google/common/math/PairedStats;
@@ -226,7 +226,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_38
 
     iget-object v2, p0, Lcom/google/common/math/PairedStats;->yStats:Lcom/google/common/math/Stats;
 
@@ -237,7 +237,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_38
 
     iget-wide v2, p0, Lcom/google/common/math/PairedStats;->sumOfProductsOfDeltas:D
 
@@ -254,22 +254,22 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_38
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_2
+    :cond_38
     nop
 
     .line 225
-    :goto_0
+    :goto_39
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .registers 6
 
     .line 238
     iget-object v0, p0, Lcom/google/common/math/PairedStats;->xStats:Lcom/google/common/math/Stats;
@@ -306,7 +306,7 @@
 .end method
 
 .method public leastSquaresFit()Lcom/google/common/math/LinearTransformation;
-    .locals 9
+    .registers 10
 
     .line 183
     invoke-virtual {p0}, Lcom/google/common/math/PairedStats;->count()J
@@ -321,16 +321,16 @@
 
     cmp-long v6, v0, v2
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 184
@@ -340,7 +340,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 185
     invoke-static {}, Lcom/google/common/math/LinearTransformation;->forNaN()Lcom/google/common/math/LinearTransformation;
@@ -350,7 +350,7 @@
     return-object v0
 
     .line 187
-    :cond_1
+    :cond_1f
     iget-object v0, p0, Lcom/google/common/math/PairedStats;->xStats:Lcom/google/common/math/Stats;
 
     invoke-virtual {v0}, Lcom/google/common/math/Stats;->sumOfSquaresOfDeltas()D
@@ -363,7 +363,7 @@
 
     cmpl-double v6, v0, v2
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_58
 
     .line 189
     iget-object v4, p0, Lcom/google/common/math/PairedStats;->yStats:Lcom/google/common/math/Stats;
@@ -374,7 +374,7 @@
 
     cmpl-double v6, v4, v2
 
-    if-lez v6, :cond_2
+    if-lez v6, :cond_4d
 
     .line 190
     iget-object v2, p0, Lcom/google/common/math/PairedStats;->xStats:Lcom/google/common/math/Stats;
@@ -406,7 +406,7 @@
     return-object v2
 
     .line 193
-    :cond_2
+    :cond_4d
     iget-object v2, p0, Lcom/google/common/math/PairedStats;->yStats:Lcom/google/common/math/Stats;
 
     invoke-virtual {v2}, Lcom/google/common/math/Stats;->mean()D
@@ -420,7 +420,7 @@
     return-object v2
 
     .line 196
-    :cond_3
+    :cond_58
     iget-object v6, p0, Lcom/google/common/math/PairedStats;->yStats:Lcom/google/common/math/Stats;
 
     invoke-virtual {v6}, Lcom/google/common/math/Stats;->sumOfSquaresOfDeltas()D
@@ -429,14 +429,14 @@
 
     cmpl-double v8, v6, v2
 
-    if-lez v8, :cond_4
+    if-lez v8, :cond_63
 
-    goto :goto_1
+    goto :goto_64
 
-    :cond_4
+    :cond_63
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_64
     invoke-static {v4}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 197
@@ -454,7 +454,7 @@
 .end method
 
 .method public pearsonsCorrelationCoefficient()D
-    .locals 10
+    .registers 11
 
     .line 136
     invoke-virtual {p0}, Lcom/google/common/math/PairedStats;->count()J
@@ -469,16 +469,16 @@
 
     cmp-long v6, v0, v2
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 137
@@ -488,7 +488,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 138
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
@@ -496,7 +496,7 @@
     return-wide v0
 
     .line 140
-    :cond_1
+    :cond_1d
     invoke-virtual {p0}, Lcom/google/common/math/PairedStats;->xStats()Lcom/google/common/math/Stats;
 
     move-result-object v0
@@ -521,29 +521,29 @@
 
     cmpl-double v8, v0, v6
 
-    if-lez v8, :cond_2
+    if-lez v8, :cond_35
 
     const/4 v8, 0x1
 
-    goto :goto_1
+    goto :goto_36
 
-    :cond_2
+    :cond_35
     const/4 v8, 0x0
 
-    :goto_1
+    :goto_36
     invoke-static {v8}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 143
     cmpl-double v8, v2, v6
 
-    if-lez v8, :cond_3
+    if-lez v8, :cond_3e
 
-    goto :goto_2
+    goto :goto_3f
 
-    :cond_3
+    :cond_3e
     const/4 v4, 0x0
 
-    :goto_2
+    :goto_3f
     invoke-static {v4}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 146
@@ -572,7 +572,7 @@
 .end method
 
 .method public populationCovariance()D
-    .locals 5
+    .registers 6
 
     .line 97
     invoke-virtual {p0}, Lcom/google/common/math/PairedStats;->count()J
@@ -583,16 +583,16 @@
 
     cmp-long v4, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 98
@@ -610,7 +610,7 @@
 .end method
 
 .method public sampleCovariance()D
-    .locals 6
+    .registers 7
 
     .line 115
     invoke-virtual {p0}, Lcom/google/common/math/PairedStats;->count()J
@@ -621,16 +621,16 @@
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
 
     .line 116
@@ -650,7 +650,7 @@
 .end method
 
 .method sumOfProductsOfDeltas()D
-    .locals 2
+    .registers 3
 
     .line 258
     iget-wide v0, p0, Lcom/google/common/math/PairedStats;->sumOfProductsOfDeltas:D
@@ -659,7 +659,7 @@
 .end method
 
 .method public toByteArray()[B
-    .locals 3
+    .registers 4
 
     .line 291
     const/16 v0, 0x58
@@ -699,7 +699,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .registers 8
 
     .line 243
     invoke-virtual {p0}, Lcom/google/common/math/PairedStats;->count()J
@@ -714,7 +714,7 @@
 
     cmp-long v6, v0, v2
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_2d
 
     .line 244
     invoke-static {p0}, Lcom/google/common/base/MoreObjects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
@@ -755,7 +755,7 @@
     return-object v0
 
     .line 250
-    :cond_0
+    :cond_2d
     invoke-static {p0}, Lcom/google/common/base/MoreObjects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     move-result-object v0
@@ -784,7 +784,7 @@
 .end method
 
 .method public xStats()Lcom/google/common/math/Stats;
-    .locals 1
+    .registers 2
 
     .line 74
     iget-object v0, p0, Lcom/google/common/math/PairedStats;->xStats:Lcom/google/common/math/Stats;
@@ -793,7 +793,7 @@
 .end method
 
 .method public yStats()Lcom/google/common/math/Stats;
-    .locals 1
+    .registers 2
 
     .line 79
     iget-object v0, p0, Lcom/google/common/math/PairedStats;->yStats:Lcom/google/common/math/Stats;

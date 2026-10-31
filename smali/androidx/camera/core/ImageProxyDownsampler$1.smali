@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>([BII)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public getBuffer()Ljava/nio/ByteBuffer;
-    .locals 1
+    .registers 2
 
     .line 209
     iget-object v0, p0, Landroidx/camera/core/ImageProxyDownsampler$1;->mBuffer:Ljava/nio/ByteBuffer;
@@ -76,7 +76,7 @@
 .end method
 
 .method public getPixelStride()I
-    .locals 1
+    .registers 2
 
     .line 203
     iget v0, p0, Landroidx/camera/core/ImageProxyDownsampler$1;->val$pixelStride:I
@@ -85,7 +85,7 @@
 .end method
 
 .method public getRowStride()I
-    .locals 1
+    .registers 2
 
     .line 198
     iget v0, p0, Landroidx/camera/core/ImageProxyDownsampler$1;->val$rowStride:I

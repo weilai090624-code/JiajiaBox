@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/WorkForegroundUpdater;Landroidx/work/impl/utils/futures/SettableFuture;Ljava/util/UUID;Landroidx/work/ForegroundInfo;Landroid/content/Context;)V
-    .locals 0
+    .registers 6
     .param p1, "this$0"    # Landroidx/work/impl/utils/WorkForegroundUpdater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 86
     :try_start_0
@@ -85,7 +85,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_43
 
     .line 87
     iget-object v0, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$id:Ljava/util/UUID;
@@ -106,7 +106,7 @@
 
     .line 89
     .local v1, "workSpec":Landroidx/work/impl/model/WorkSpec;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3b
 
     iget-object v2, v1, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
@@ -114,7 +114,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_3b
 
     .line 100
     iget-object v2, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->this$0:Landroidx/work/impl/utils/WorkForegroundUpdater;
@@ -144,11 +144,11 @@
 
     invoke-virtual {v3, v2}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    goto :goto_0
+    goto :goto_43
 
     .line 91
     .end local v2    # "intent":Landroid/content/Intent;
-    :cond_0
+    :cond_3b
     const-string v2, "Calls to setForegroundAsync() must complete before a ListenableWorker signals completion of work by returning an instance of Result."
 
     .line 95
@@ -163,21 +163,21 @@
     .end local v0    # "workSpecId":Ljava/lang/String;
     .end local v1    # "workSpec":Landroidx/work/impl/model/WorkSpec;
     .end local v2    # "message":Ljava/lang/String;
-    :cond_1
-    :goto_0
+    :cond_43
+    :goto_43
     iget-object v0, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_49
+    .catchall {:try_start_0 .. :try_end_49} :catchall_4a
 
     .line 110
-    goto :goto_1
+    goto :goto_50
 
     .line 108
-    :catchall_0
+    :catchall_4a
     move-exception v0
 
     .line 109
@@ -188,6 +188,6 @@
 
     .line 111
     .end local v0    # "throwable":Ljava/lang/Throwable;
-    :goto_1
+    :goto_50
     return-void
 .end method

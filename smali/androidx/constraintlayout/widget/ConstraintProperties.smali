@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -62,7 +62,7 @@
     .local v0, "params":Landroid/view/ViewGroup$LayoutParams;
     instance-of v1, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 1053
     move-object v1, v0
@@ -78,7 +78,7 @@
     return-void
 
     .line 1056
-    :cond_0
+    :cond_13
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Only children of ConstraintLayout.LayoutParams supported"
@@ -89,7 +89,7 @@
 .end method
 
 .method private sideToString(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "side"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -101,7 +101,7 @@
     .end annotation
 
     .line 1031
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_1e
 
     .line 1047
     const-string/jumbo v0, "undefined"
@@ -109,63 +109,63 @@
     return-object v0
 
     .line 1045
-    :pswitch_0
+    :pswitch_7
     const-string v0, "end"
 
     return-object v0
 
     .line 1043
-    :pswitch_1
+    :pswitch_a
     const-string/jumbo v0, "start"
 
     return-object v0
 
     .line 1041
-    :pswitch_2
+    :pswitch_e
     const-string v0, "baseline"
 
     return-object v0
 
     .line 1039
-    :pswitch_3
+    :pswitch_11
     const-string v0, "bottom"
 
     return-object v0
 
     .line 1037
-    :pswitch_4
+    :pswitch_14
     const-string/jumbo v0, "top"
 
     return-object v0
 
     .line 1035
-    :pswitch_5
+    :pswitch_18
     const-string v0, "right"
 
     return-object v0
 
     .line 1033
-    :pswitch_6
+    :pswitch_1b
     const-string v0, "left"
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_18
+        :pswitch_14
+        :pswitch_11
+        :pswitch_e
+        :pswitch_a
+        :pswitch_7
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public addToHorizontalChain(II)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 6
+    .registers 9
     .param p1, "leftId"    # I
     .param p2, "rightId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -184,35 +184,35 @@
 
     const/4 v1, 0x1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x2
 
-    :goto_0
+    :goto_7
     const/4 v3, 0x0
 
     invoke-virtual {p0, v1, p1, v2, v3}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 739
-    if-nez p2, :cond_1
+    if-nez p2, :cond_f
 
     const/4 v2, 0x2
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_10
     invoke-virtual {p0, v0, p2, v2, v3}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 740
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2f
 
     .line 741
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mView:Landroid/view/View;
@@ -246,8 +246,8 @@
     .line 745
     .end local v2    # "leftView":Landroid/view/View;
     .end local v4    # "leftProp":Landroidx/constraintlayout/widget/ConstraintProperties;
-    :cond_2
-    if-eqz p2, :cond_3
+    :cond_2f
+    if-eqz p2, :cond_4b
 
     .line 746
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mView:Landroid/view/View;
@@ -281,12 +281,12 @@
     .line 750
     .end local v2    # "rightView":Landroid/view/View;
     .end local v4    # "rightProp":Landroidx/constraintlayout/widget/ConstraintProperties;
-    :cond_3
+    :cond_4b
     return-object p0
 .end method
 
 .method public addToHorizontalChainRTL(II)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 6
+    .registers 9
     .param p1, "leftId"    # I
     .param p2, "rightId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -305,35 +305,35 @@
 
     const/4 v1, 0x6
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
     const/4 v2, 0x6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x7
 
-    :goto_0
+    :goto_7
     const/4 v3, 0x0
 
     invoke-virtual {p0, v1, p1, v2, v3}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 762
-    if-nez p2, :cond_1
+    if-nez p2, :cond_f
 
     const/4 v2, 0x7
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v2, 0x6
 
-    :goto_1
+    :goto_10
     invoke-virtual {p0, v0, p2, v2, v3}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 763
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2f
 
     .line 764
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mView:Landroid/view/View;
@@ -367,8 +367,8 @@
     .line 768
     .end local v2    # "leftView":Landroid/view/View;
     .end local v4    # "leftProp":Landroidx/constraintlayout/widget/ConstraintProperties;
-    :cond_2
-    if-eqz p2, :cond_3
+    :cond_2f
+    if-eqz p2, :cond_4b
 
     .line 769
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mView:Landroid/view/View;
@@ -402,12 +402,12 @@
     .line 773
     .end local v2    # "rightView":Landroid/view/View;
     .end local v4    # "rightProp":Landroidx/constraintlayout/widget/ConstraintProperties;
-    :cond_3
+    :cond_4b
     return-object p0
 .end method
 
 .method public addToVerticalChain(II)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 6
+    .registers 9
     .param p1, "topId"    # I
     .param p2, "bottomId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -426,35 +426,35 @@
 
     const/4 v1, 0x3
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
     const/4 v2, 0x3
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v2, 0x4
 
-    :goto_0
+    :goto_7
     const/4 v3, 0x0
 
     invoke-virtual {p0, v1, p1, v2, v3}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 785
-    if-nez p2, :cond_1
+    if-nez p2, :cond_f
 
     const/4 v2, 0x4
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
+    :cond_f
     const/4 v2, 0x3
 
-    :goto_1
+    :goto_10
     invoke-virtual {p0, v0, p2, v2, v3}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 786
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2f
 
     .line 787
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mView:Landroid/view/View;
@@ -488,8 +488,8 @@
     .line 791
     .end local v2    # "topView":Landroid/view/View;
     .end local v4    # "topProp":Landroidx/constraintlayout/widget/ConstraintProperties;
-    :cond_2
-    if-eqz p2, :cond_3
+    :cond_2f
+    if-eqz p2, :cond_4b
 
     .line 792
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mView:Landroid/view/View;
@@ -523,12 +523,12 @@
     .line 796
     .end local v2    # "bottomView":Landroid/view/View;
     .end local v4    # "bottomProp":Landroidx/constraintlayout/widget/ConstraintProperties;
-    :cond_3
+    :cond_4b
     return-object p0
 .end method
 
 .method public alpha(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "alpha"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -549,14 +549,14 @@
 .end method
 
 .method public apply()V
-    .locals 0
+    .registers 1
 
     .line 1061
     return-void
 .end method
 
 .method public center(IIIIIIF)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 2
+    .registers 10
     .param p1, "firstID"    # I
     .param p2, "firstSide"    # I
     .param p3, "firstMargin"    # I
@@ -588,49 +588,49 @@
     .line 114
     const-string v0, "margin must be > 0"
 
-    if-ltz p3, :cond_6
+    if-ltz p3, :cond_50
 
     .line 117
-    if-ltz p6, :cond_5
+    if-ltz p6, :cond_4a
 
     .line 120
     const/4 v0, 0x0
 
     cmpg-float v0, p7, v0
 
-    if-lez v0, :cond_4
+    if-lez v0, :cond_42
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v0, p7, v0
 
-    if-gtz v0, :cond_4
+    if-gtz v0, :cond_42
 
     .line 124
     const/4 v0, 0x2
 
     const/4 v1, 0x1
 
-    if-eq p2, v1, :cond_3
+    if-eq p2, v1, :cond_37
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_18
 
-    goto :goto_1
+    goto :goto_37
 
     .line 129
-    :cond_0
+    :cond_18
     const/4 v0, 0x7
 
     const/4 v1, 0x6
 
-    if-eq p2, v1, :cond_2
+    if-eq p2, v1, :cond_2c
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_1f
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 135
-    :cond_1
+    :cond_1f
     const/4 v0, 0x3
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
@@ -645,11 +645,11 @@
 
     iput p7, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->verticalBias:F
 
-    goto :goto_2
+    goto :goto_41
 
     .line 130
-    :cond_2
-    :goto_0
+    :cond_2c
+    :goto_2c
     invoke-virtual {p0, v1, p1, p2, p3}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 131
@@ -660,11 +660,11 @@
 
     iput p7, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->horizontalBias:F
 
-    goto :goto_2
+    goto :goto_41
 
     .line 125
-    :cond_3
-    :goto_1
+    :cond_37
+    :goto_37
     invoke-virtual {p0, v1, p1, p2, p3}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 126
@@ -676,11 +676,11 @@
     iput p7, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->horizontalBias:F
 
     .line 140
-    :goto_2
+    :goto_41
     return-object p0
 
     .line 121
-    :cond_4
+    :cond_42
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bias must be between 0 and 1 inclusive"
@@ -690,7 +690,7 @@
     throw v0
 
     .line 118
-    :cond_5
+    :cond_4a
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -698,7 +698,7 @@
     throw v1
 
     .line 115
-    :cond_6
+    :cond_50
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -707,7 +707,7 @@
 .end method
 
 .method public centerHorizontally(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 16
+    .registers 18
     .param p1, "toView"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -719,7 +719,7 @@
     .end annotation
 
     .line 207
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 208
     const/4 v6, 0x0
@@ -740,10 +740,10 @@
 
     invoke-virtual/range {v0 .. v7}, Landroidx/constraintlayout/widget/ConstraintProperties;->center(IIIIIIF)Landroidx/constraintlayout/widget/ConstraintProperties;
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 210
-    :cond_0
+    :cond_10
     const/4 v14, 0x0
 
     const/high16 v15, 0x3f000000    # 0.5f
@@ -763,12 +763,12 @@
     invoke-virtual/range {v8 .. v15}, Landroidx/constraintlayout/widget/ConstraintProperties;->center(IIIIIIF)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 212
-    :goto_0
+    :goto_1f
     return-object p0
 .end method
 
 .method public centerHorizontally(IIIIIIF)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 9
     .param p1, "leftId"    # I
     .param p2, "leftSide"    # I
     .param p3, "leftMargin"    # I
@@ -817,7 +817,7 @@
 .end method
 
 .method public centerHorizontallyRtl(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 16
+    .registers 18
     .param p1, "toView"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -829,7 +829,7 @@
     .end annotation
 
     .line 222
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 223
     const/4 v6, 0x0
@@ -850,10 +850,10 @@
 
     invoke-virtual/range {v0 .. v7}, Landroidx/constraintlayout/widget/ConstraintProperties;->center(IIIIIIF)Landroidx/constraintlayout/widget/ConstraintProperties;
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 225
-    :cond_0
+    :cond_10
     const/4 v14, 0x0
 
     const/high16 v15, 0x3f000000    # 0.5f
@@ -873,12 +873,12 @@
     invoke-virtual/range {v8 .. v15}, Landroidx/constraintlayout/widget/ConstraintProperties;->center(IIIIIIF)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 227
-    :goto_0
+    :goto_1f
     return-object p0
 .end method
 
 .method public centerHorizontallyRtl(IIIIIIF)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 9
     .param p1, "startId"    # I
     .param p2, "startSide"    # I
     .param p3, "startMargin"    # I
@@ -927,7 +927,7 @@
 .end method
 
 .method public centerVertically(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 16
+    .registers 18
     .param p1, "toView"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -939,7 +939,7 @@
     .end annotation
 
     .line 237
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 238
     const/4 v6, 0x0
@@ -960,10 +960,10 @@
 
     invoke-virtual/range {v0 .. v7}, Landroidx/constraintlayout/widget/ConstraintProperties;->center(IIIIIIF)Landroidx/constraintlayout/widget/ConstraintProperties;
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 240
-    :cond_0
+    :cond_10
     const/4 v14, 0x0
 
     const/high16 v15, 0x3f000000    # 0.5f
@@ -983,12 +983,12 @@
     invoke-virtual/range {v8 .. v15}, Landroidx/constraintlayout/widget/ConstraintProperties;->center(IIIIIIF)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 242
-    :goto_0
+    :goto_1f
     return-object p0
 .end method
 
 .method public centerVertically(IIIIIIF)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 9
     .param p1, "topId"    # I
     .param p2, "topSide"    # I
     .param p3, "topMargin"    # I
@@ -1037,7 +1037,7 @@
 .end method
 
 .method public connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 9
+    .registers 14
     .param p1, "startSide"    # I
     .param p2, "endID"    # I
     .param p3, "endSide"    # I
@@ -1076,7 +1076,7 @@
 
     const/4 v8, -0x1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_232
 
     .line 1024
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1123,8 +1123,8 @@
     throw v0
 
     .line 1008
-    :pswitch_0
-    if-ne p3, v1, :cond_0
+    :pswitch_39
+    if-ne p3, v1, :cond_44
 
     .line 1009
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1136,11 +1136,11 @@
 
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToStart:I
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 1011
-    :cond_0
-    if-ne p3, v2, :cond_1
+    :cond_44
+    if-ne p3, v2, :cond_56
 
     .line 1012
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1153,7 +1153,7 @@
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToEnd:I
 
     .line 1017
-    :goto_0
+    :goto_4e
     nop
 
     .line 1019
@@ -1161,10 +1161,10 @@
 
     invoke-virtual {v0, p4}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
 
-    goto/16 :goto_7
+    goto/16 :goto_210
 
     .line 1015
-    :cond_1
+    :cond_56
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1196,8 +1196,8 @@
     throw v0
 
     .line 994
-    :pswitch_1
-    if-ne p3, v2, :cond_2
+    :pswitch_75
+    if-ne p3, v2, :cond_80
 
     .line 995
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1209,11 +1209,11 @@
 
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
 
-    goto :goto_1
+    goto :goto_8a
 
     .line 997
-    :cond_2
-    if-ne p3, v1, :cond_3
+    :cond_80
+    if-ne p3, v1, :cond_92
 
     .line 998
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1226,7 +1226,7 @@
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToStart:I
 
     .line 1003
-    :goto_1
+    :goto_8a
     nop
 
     .line 1004
@@ -1234,10 +1234,10 @@
 
     invoke-virtual {v0, p4}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->setMarginStart(I)V
 
-    goto/16 :goto_7
+    goto/16 :goto_210
 
     .line 1001
-    :cond_3
+    :cond_92
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1269,10 +1269,10 @@
     throw v0
 
     .line 970
-    :pswitch_2
+    :pswitch_b1
     const/4 v0, 0x5
 
-    if-ne p3, v0, :cond_4
+    if-ne p3, v0, :cond_c8
 
     .line 971
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1300,8 +1300,8 @@
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToBottom:I
 
     .line 976
-    :cond_4
-    if-ne p3, v5, :cond_5
+    :cond_c8
+    if-ne p3, v5, :cond_df
 
     .line 977
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1328,11 +1328,11 @@
 
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToBottom:I
 
-    goto :goto_2
+    goto :goto_f5
 
     .line 982
-    :cond_5
-    if-ne p3, v4, :cond_6
+    :cond_df
+    if-ne p3, v4, :cond_fb
 
     .line 983
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1360,16 +1360,16 @@
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToBottom:I
 
     .line 991
-    :goto_2
+    :goto_f5
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p4, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineMargin:I
 
     .line 992
-    goto/16 :goto_7
+    goto/16 :goto_210
 
     .line 989
-    :cond_6
+    :cond_fb
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1401,8 +1401,8 @@
     throw v0
 
     .line 952
-    :pswitch_3
-    if-ne p3, v4, :cond_7
+    :pswitch_11a
+    if-ne p3, v4, :cond_131
 
     .line 953
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1429,11 +1429,11 @@
 
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBottom:I
 
-    goto :goto_3
+    goto :goto_147
 
     .line 958
-    :cond_7
-    if-ne p3, v5, :cond_8
+    :cond_131
+    if-ne p3, v5, :cond_14d
 
     .line 959
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1461,16 +1461,16 @@
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBottom:I
 
     .line 967
-    :goto_3
+    :goto_147
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p4, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->bottomMargin:I
 
     .line 968
-    goto/16 :goto_7
+    goto/16 :goto_210
 
     .line 965
-    :cond_8
+    :cond_14d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1502,8 +1502,8 @@
     throw v0
 
     .line 934
-    :pswitch_4
-    if-ne p3, v5, :cond_9
+    :pswitch_16c
+    if-ne p3, v5, :cond_183
 
     .line 935
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1530,11 +1530,11 @@
 
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBottom:I
 
-    goto :goto_4
+    goto :goto_199
 
     .line 940
-    :cond_9
-    if-ne p3, v4, :cond_a
+    :cond_183
+    if-ne p3, v4, :cond_19e
 
     .line 941
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1562,16 +1562,16 @@
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBottom:I
 
     .line 949
-    :goto_4
+    :goto_199
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p4, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topMargin:I
 
     .line 950
-    goto :goto_7
+    goto :goto_210
 
     .line 947
-    :cond_a
+    :cond_19e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1603,8 +1603,8 @@
     throw v0
 
     .line 920
-    :pswitch_5
-    if-ne p3, v3, :cond_b
+    :pswitch_1bd
+    if-ne p3, v3, :cond_1c8
 
     .line 921
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1616,11 +1616,11 @@
 
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToRight:I
 
-    goto :goto_5
+    goto :goto_1d2
 
     .line 924
-    :cond_b
-    if-ne p3, v0, :cond_c
+    :cond_1c8
+    if-ne p3, v0, :cond_1d7
 
     .line 925
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1633,16 +1633,16 @@
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToLeft:I
 
     .line 931
-    :goto_5
+    :goto_1d2
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p4, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightMargin:I
 
     .line 932
-    goto :goto_7
+    goto :goto_210
 
     .line 929
-    :cond_c
+    :cond_1d7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1674,8 +1674,8 @@
     throw v0
 
     .line 907
-    :pswitch_6
-    if-ne p3, v3, :cond_d
+    :pswitch_1f6
+    if-ne p3, v3, :cond_201
 
     .line 908
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1687,11 +1687,11 @@
 
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToRight:I
 
-    goto :goto_6
+    goto :goto_20b
 
     .line 910
-    :cond_d
-    if-ne p3, v0, :cond_e
+    :cond_201
+    if-ne p3, v0, :cond_211
 
     .line 911
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -1704,7 +1704,7 @@
     iput v8, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToLeft:I
 
     .line 917
-    :goto_6
+    :goto_20b
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p4, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftMargin:I
@@ -1713,11 +1713,11 @@
     nop
 
     .line 1027
-    :goto_7
+    :goto_210
     return-object p0
 
     .line 915
-    :cond_e
+    :cond_211
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1750,20 +1750,20 @@
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_232
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1f6
+        :pswitch_1bd
+        :pswitch_16c
+        :pswitch_11a
+        :pswitch_b1
+        :pswitch_75
+        :pswitch_39
     .end packed-switch
 .end method
 
 .method public constrainDefaultHeight(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "height"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1784,7 +1784,7 @@
 .end method
 
 .method public constrainDefaultWidth(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "width"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1805,7 +1805,7 @@
 .end method
 
 .method public constrainHeight(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "height"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1826,7 +1826,7 @@
 .end method
 
 .method public constrainMaxHeight(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "height"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1847,7 +1847,7 @@
 .end method
 
 .method public constrainMaxWidth(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "width"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1868,7 +1868,7 @@
 .end method
 
 .method public constrainMinHeight(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "height"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1889,7 +1889,7 @@
 .end method
 
 .method public constrainMinWidth(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "width"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1910,7 +1910,7 @@
 .end method
 
 .method public constrainWidth(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "width"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1931,7 +1931,7 @@
 .end method
 
 .method public dimensionRatio(Ljava/lang/String;)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "ratio"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1952,7 +1952,7 @@
 .end method
 
 .method public elevation(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "elevation"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -1976,7 +1976,7 @@
 .end method
 
 .method public goneMargin(II)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 2
+    .registers 5
     .param p1, "anchor"    # I
     .param p2, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -1991,7 +1991,7 @@
     .end annotation
 
     .line 341
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_34
 
     .line 363
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -2003,25 +2003,25 @@
     throw v0
 
     .line 360
-    :pswitch_0
+    :pswitch_c
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneEndMargin:I
 
     .line 361
-    goto :goto_0
+    goto :goto_32
 
     .line 357
-    :pswitch_1
+    :pswitch_11
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneStartMargin:I
 
     .line 358
-    goto :goto_0
+    goto :goto_32
 
     .line 355
-    :pswitch_2
+    :pswitch_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "baseline does not support margins"
@@ -2031,34 +2031,34 @@
     throw v0
 
     .line 352
-    :pswitch_3
+    :pswitch_1e
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneBottomMargin:I
 
     .line 353
-    goto :goto_0
+    goto :goto_32
 
     .line 349
-    :pswitch_4
+    :pswitch_23
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneTopMargin:I
 
     .line 350
-    goto :goto_0
+    goto :goto_32
 
     .line 346
-    :pswitch_5
+    :pswitch_28
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneRightMargin:I
 
     .line 347
-    goto :goto_0
+    goto :goto_32
 
     .line 343
-    :pswitch_6
+    :pswitch_2d
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneLeftMargin:I
@@ -2067,25 +2067,25 @@
     nop
 
     .line 365
-    :goto_0
+    :goto_32
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_34
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2d
+        :pswitch_28
+        :pswitch_23
+        :pswitch_1e
+        :pswitch_16
+        :pswitch_11
+        :pswitch_c
     .end packed-switch
 .end method
 
 .method public horizontalBias(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "bias"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2106,7 +2106,7 @@
 .end method
 
 .method public horizontalChainStyle(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "chainStyle"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2127,7 +2127,7 @@
 .end method
 
 .method public horizontalWeight(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "weight"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2148,7 +2148,7 @@
 .end method
 
 .method public margin(II)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 2
+    .registers 5
     .param p1, "anchor"    # I
     .param p2, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -2163,7 +2163,7 @@
     .end annotation
 
     .line 306
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_36
 
     .line 328
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -2175,25 +2175,25 @@
     throw v0
 
     .line 325
-    :pswitch_0
+    :pswitch_c
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     invoke-virtual {v0, p2}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
 
     .line 326
-    goto :goto_0
+    goto :goto_34
 
     .line 322
-    :pswitch_1
+    :pswitch_12
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     invoke-virtual {v0, p2}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->setMarginStart(I)V
 
     .line 323
-    goto :goto_0
+    goto :goto_34
 
     .line 320
-    :pswitch_2
+    :pswitch_18
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "baseline does not support margins"
@@ -2203,34 +2203,34 @@
     throw v0
 
     .line 317
-    :pswitch_3
+    :pswitch_20
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->bottomMargin:I
 
     .line 318
-    goto :goto_0
+    goto :goto_34
 
     .line 314
-    :pswitch_4
+    :pswitch_25
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topMargin:I
 
     .line 315
-    goto :goto_0
+    goto :goto_34
 
     .line 311
-    :pswitch_5
+    :pswitch_2a
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightMargin:I
 
     .line 312
-    goto :goto_0
+    goto :goto_34
 
     .line 308
-    :pswitch_6
+    :pswitch_2f
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput p2, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftMargin:I
@@ -2239,25 +2239,25 @@
     nop
 
     .line 330
-    :goto_0
+    :goto_34
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_36
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2f
+        :pswitch_2a
+        :pswitch_25
+        :pswitch_20
+        :pswitch_18
+        :pswitch_12
+        :pswitch_c
     .end packed-switch
 .end method
 
 .method public removeConstraints(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 3
+    .registers 5
     .param p1, "anchor"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2273,7 +2273,7 @@
 
     const/4 v1, -0x1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_7e
 
     .line 293
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -2285,7 +2285,7 @@
     throw v0
 
     .line 287
-    :pswitch_0
+    :pswitch_f
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput v1, v2, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->endToStart:I
@@ -2306,10 +2306,10 @@
     iput v0, v1, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneEndMargin:I
 
     .line 291
-    goto :goto_0
+    goto :goto_7c
 
     .line 281
-    :pswitch_1
+    :pswitch_21
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput v1, v2, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
@@ -2330,19 +2330,19 @@
     iput v0, v1, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneStartMargin:I
 
     .line 285
-    goto :goto_0
+    goto :goto_7c
 
     .line 278
-    :pswitch_2
+    :pswitch_33
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput v1, v0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
     .line 279
-    goto :goto_0
+    goto :goto_7c
 
     .line 272
-    :pswitch_3
+    :pswitch_38
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput v1, v2, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->bottomToTop:I
@@ -2363,10 +2363,10 @@
     iput v0, v1, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneBottomMargin:I
 
     .line 276
-    goto :goto_0
+    goto :goto_7c
 
     .line 266
-    :pswitch_4
+    :pswitch_49
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput v1, v2, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToBottom:I
@@ -2387,10 +2387,10 @@
     iput v0, v1, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneTopMargin:I
 
     .line 270
-    goto :goto_0
+    goto :goto_7c
 
     .line 260
-    :pswitch_5
+    :pswitch_5a
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput v1, v2, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToRight:I
@@ -2411,10 +2411,10 @@
     iput v0, v1, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->goneRightMargin:I
 
     .line 264
-    goto :goto_0
+    goto :goto_7c
 
     .line 254
-    :pswitch_6
+    :pswitch_6b
     iget-object v2, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iput v1, v2, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToRight:I
@@ -2438,25 +2438,25 @@
     nop
 
     .line 295
-    :goto_0
+    :goto_7c
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_7e
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6b
+        :pswitch_5a
+        :pswitch_49
+        :pswitch_38
+        :pswitch_33
+        :pswitch_21
+        :pswitch_f
     .end packed-switch
 .end method
 
 .method public removeFromHorizontalChain()Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 13
+    .registers 14
 
     .line 842
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -2475,14 +2475,14 @@
 
     const/4 v3, -0x1
 
-    if-ne v0, v3, :cond_6
+    if-ne v0, v3, :cond_70
 
-    if-eq v1, v3, :cond_0
+    if-eq v1, v3, :cond_f
 
-    goto :goto_1
+    goto :goto_70
 
     .line 867
-    :cond_0
+    :cond_f
     iget-object v4, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iget v4, v4, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->startToEnd:I
@@ -2499,12 +2499,12 @@
 
     const/4 v7, 0x6
 
-    if-ne v4, v3, :cond_1
+    if-ne v4, v3, :cond_1d
 
-    if-eq v5, v3, :cond_5
+    if-eq v5, v3, :cond_69
 
     .line 870
-    :cond_1
+    :cond_1d
     iget-object v8, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v8}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -2545,9 +2545,9 @@
 
     .line 875
     .local v11, "endProp":Landroidx/constraintlayout/widget/ConstraintProperties;
-    if-eq v4, v3, :cond_2
+    if-eq v4, v3, :cond_4a
 
-    if-eq v5, v3, :cond_2
+    if-eq v5, v3, :cond_4a
 
     .line 877
     invoke-virtual {v9, v6, v5, v7, v2}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
@@ -2555,21 +2555,21 @@
     .line 878
     invoke-virtual {v11, v7, v0, v6, v2}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
-    goto :goto_0
+    goto :goto_69
 
     .line 879
-    :cond_2
-    if-ne v0, v3, :cond_3
+    :cond_4a
+    if-ne v0, v3, :cond_4e
 
-    if-eq v5, v3, :cond_5
+    if-eq v5, v3, :cond_69
 
     .line 880
-    :cond_3
+    :cond_4e
     iget-object v12, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iget v12, v12, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToRight:I
 
-    if-eq v12, v3, :cond_4
+    if-eq v12, v3, :cond_5c
 
     .line 882
     iget-object v3, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -2578,15 +2578,15 @@
 
     invoke-virtual {v9, v6, v3, v6, v2}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
-    goto :goto_0
+    goto :goto_69
 
     .line 883
-    :cond_4
+    :cond_5c
     iget-object v12, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iget v12, v12, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToLeft:I
 
-    if-eq v12, v3, :cond_5
+    if-eq v12, v3, :cond_69
 
     .line 885
     iget-object v3, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -2600,20 +2600,20 @@
     .end local v9    # "startProp":Landroidx/constraintlayout/widget/ConstraintProperties;
     .end local v10    # "endView":Landroid/view/View;
     .end local v11    # "endProp":Landroidx/constraintlayout/widget/ConstraintProperties;
-    :cond_5
-    :goto_0
+    :cond_69
+    :goto_69
     invoke-virtual {p0, v7}, Landroidx/constraintlayout/widget/ConstraintProperties;->removeConstraints(I)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 890
     invoke-virtual {p0, v6}, Landroidx/constraintlayout/widget/ConstraintProperties;->removeConstraints(I)Landroidx/constraintlayout/widget/ConstraintProperties;
 
-    goto :goto_3
+    goto :goto_c5
 
     .line 846
     .end local v4    # "startId":I
     .end local v5    # "endId":I
-    :cond_6
-    :goto_1
+    :cond_70
+    :goto_70
     iget-object v4, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -2658,9 +2658,9 @@
 
     const/4 v9, 0x2
 
-    if-eq v0, v3, :cond_7
+    if-eq v0, v3, :cond_9f
 
-    if-eq v1, v3, :cond_7
+    if-eq v1, v3, :cond_9f
 
     .line 852
     invoke-virtual {v5, v9, v1, v8, v2}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
@@ -2668,21 +2668,21 @@
     .line 853
     invoke-virtual {v7, v8, v0, v9, v2}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
-    goto :goto_2
+    goto :goto_be
 
     .line 854
-    :cond_7
-    if-ne v0, v3, :cond_8
+    :cond_9f
+    if-ne v0, v3, :cond_a3
 
-    if-eq v1, v3, :cond_a
+    if-eq v1, v3, :cond_be
 
     .line 855
-    :cond_8
+    :cond_a3
     iget-object v10, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iget v10, v10, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->rightToRight:I
 
-    if-eq v10, v3, :cond_9
+    if-eq v10, v3, :cond_b1
 
     .line 857
     iget-object v3, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -2691,15 +2691,15 @@
 
     invoke-virtual {v5, v9, v3, v9, v2}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
-    goto :goto_2
+    goto :goto_be
 
     .line 858
-    :cond_9
+    :cond_b1
     iget-object v10, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iget v10, v10, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->leftToLeft:I
 
-    if-eq v10, v3, :cond_a
+    if-eq v10, v3, :cond_be
 
     .line 860
     iget-object v3, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -2709,8 +2709,8 @@
     invoke-virtual {v7, v8, v3, v8, v2}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 863
-    :cond_a
-    :goto_2
+    :cond_be
+    :goto_be
     invoke-virtual {p0, v8}, Landroidx/constraintlayout/widget/ConstraintProperties;->removeConstraints(I)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 864
@@ -2724,12 +2724,12 @@
     nop
 
     .line 892
-    :goto_3
+    :goto_c5
     return-object p0
 .end method
 
 .method public removeFromVerticalChain()Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 11
+    .registers 12
 
     .line 807
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -2750,12 +2750,12 @@
 
     const/4 v4, -0x1
 
-    if-ne v0, v4, :cond_0
+    if-ne v0, v4, :cond_f
 
-    if-eq v1, v4, :cond_4
+    if-eq v1, v4, :cond_5c
 
     .line 810
-    :cond_0
+    :cond_f
     iget-object v5, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v5}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -2798,9 +2798,9 @@
     .local v8, "bottomProp":Landroidx/constraintlayout/widget/ConstraintProperties;
     const/4 v9, 0x0
 
-    if-eq v0, v4, :cond_1
+    if-eq v0, v4, :cond_3d
 
-    if-eq v1, v4, :cond_1
+    if-eq v1, v4, :cond_3d
 
     .line 816
     invoke-virtual {v6, v2, v1, v3, v9}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
@@ -2808,21 +2808,21 @@
     .line 817
     invoke-virtual {v8, v3, v0, v2, v9}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 818
-    :cond_1
-    if-ne v0, v4, :cond_2
+    :cond_3d
+    if-ne v0, v4, :cond_41
 
-    if-eq v1, v4, :cond_4
+    if-eq v1, v4, :cond_5c
 
     .line 819
-    :cond_2
+    :cond_41
     iget-object v10, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iget v10, v10, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
-    if-eq v10, v4, :cond_3
+    if-eq v10, v4, :cond_4f
 
     .line 821
     iget-object v4, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -2831,15 +2831,15 @@
 
     invoke-virtual {v6, v2, v4, v2, v9}, Landroidx/constraintlayout/widget/ConstraintProperties;->connect(IIII)Landroidx/constraintlayout/widget/ConstraintProperties;
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 822
-    :cond_3
+    :cond_4f
     iget-object v10, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
     iget v10, v10, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->topToTop:I
 
-    if-eq v10, v4, :cond_4
+    if-eq v10, v4, :cond_5c
 
     .line 824
     iget-object v4, p0, Landroidx/constraintlayout/widget/ConstraintProperties;->mParams:Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
@@ -2853,8 +2853,8 @@
     .end local v6    # "topProp":Landroidx/constraintlayout/widget/ConstraintProperties;
     .end local v7    # "bottomView":Landroid/view/View;
     .end local v8    # "bottomProp":Landroidx/constraintlayout/widget/ConstraintProperties;
-    :cond_4
-    :goto_0
+    :cond_5c
+    :goto_5c
     invoke-virtual {p0, v3}, Landroidx/constraintlayout/widget/ConstraintProperties;->removeConstraints(I)Landroidx/constraintlayout/widget/ConstraintProperties;
 
     .line 830
@@ -2865,7 +2865,7 @@
 .end method
 
 .method public rotation(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "rotation"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2886,7 +2886,7 @@
 .end method
 
 .method public rotationX(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "rotationX"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2907,7 +2907,7 @@
 .end method
 
 .method public rotationY(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "rotationY"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2928,7 +2928,7 @@
 .end method
 
 .method public scaleX(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "scaleX"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2949,7 +2949,7 @@
 .end method
 
 .method public scaleY(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 0
+    .registers 2
     .param p1, "scaleY"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -2965,7 +2965,7 @@
 .end method
 
 .method public transformPivot(FF)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 4
     .param p1, "transformPivotX"    # F
     .param p2, "transformPivotY"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -2994,7 +2994,7 @@
 .end method
 
 .method public transformPivotX(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "transformPivotX"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -3015,7 +3015,7 @@
 .end method
 
 .method public transformPivotY(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "transformPivotY"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -3036,7 +3036,7 @@
 .end method
 
 .method public translation(FF)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 4
     .param p1, "translationX"    # F
     .param p2, "translationY"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -3065,7 +3065,7 @@
 .end method
 
 .method public translationX(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "translationX"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -3086,7 +3086,7 @@
 .end method
 
 .method public translationY(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "translationY"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -3107,7 +3107,7 @@
 .end method
 
 .method public translationZ(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "translationZ"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -3131,7 +3131,7 @@
 .end method
 
 .method public verticalBias(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "bias"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -3152,7 +3152,7 @@
 .end method
 
 .method public verticalChainStyle(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "chainStyle"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -3173,7 +3173,7 @@
 .end method
 
 .method public verticalWeight(F)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "weight"    # F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -3194,7 +3194,7 @@
 .end method
 
 .method public visibility(I)Landroidx/constraintlayout/widget/ConstraintProperties;
-    .locals 1
+    .registers 3
     .param p1, "visibility"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

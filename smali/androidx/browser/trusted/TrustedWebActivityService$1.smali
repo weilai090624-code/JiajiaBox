@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/trusted/TrustedWebActivityService;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Landroidx/browser/trusted/TrustedWebActivityService;
 
     .line 130
@@ -32,7 +32,7 @@
 .end method
 
 .method private checkCaller()V
-    .locals 7
+    .registers 8
 
     .line 196
     iget-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityService$1;->this$0:Landroidx/browser/trusted/TrustedWebActivityService;
@@ -41,7 +41,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_43
 
     .line 197
     iget-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityService$1;->this$0:Landroidx/browser/trusted/TrustedWebActivityService;
@@ -62,13 +62,13 @@
     .local v0, "packages":[Ljava/lang/String;
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 200
     new-array v0, v1, [Ljava/lang/String;
 
     .line 203
-    :cond_0
+    :cond_1a
     iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityService$1;->this$0:Landroidx/browser/trusted/TrustedWebActivityService;
 
     invoke-virtual {v2}, Landroidx/browser/trusted/TrustedWebActivityService;->getTokenStore()Landroidx/browser/trusted/TokenStore;
@@ -89,13 +89,13 @@
 
     .line 206
     .local v3, "pm":Landroid/content/pm/PackageManager;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_43
 
     .line 207
     array-length v4, v0
 
-    :goto_0
-    if-ge v1, v4, :cond_2
+    :goto_2d
+    if-ge v1, v4, :cond_43
 
     aget-object v5, v0, v1
 
@@ -105,7 +105,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_40
 
     .line 209
     iget-object v1, p0, Landroidx/browser/trusted/TrustedWebActivityService$1;->this$0:Landroidx/browser/trusted/TrustedWebActivityService;
@@ -117,21 +117,21 @@
     iput v4, v1, Landroidx/browser/trusted/TrustedWebActivityService;->mVerifiedUid:I
 
     .line 210
-    goto :goto_1
+    goto :goto_43
 
     .line 207
     .end local v5    # "packageName":Ljava/lang/String;
-    :cond_1
+    :cond_40
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 216
     .end local v0    # "packages":[Ljava/lang/String;
     .end local v2    # "verifiedProvider":Landroidx/browser/trusted/Token;
     .end local v3    # "pm":Landroid/content/pm/PackageManager;
-    :cond_2
-    :goto_1
+    :cond_43
+    :goto_43
     iget-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityService$1;->this$0:Landroidx/browser/trusted/TrustedWebActivityService;
 
     iget v0, v0, Landroidx/browser/trusted/TrustedWebActivityService;->mVerifiedUid:I
@@ -140,12 +140,12 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_4e
 
     return-void
 
     .line 218
-    :cond_3
+    :cond_4e
     new-instance v0, Ljava/lang/SecurityException;
 
     const-string v1, "Caller is not verified as Trusted Web Activity provider."
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public areNotificationsEnabled(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 3
+    .registers 5
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 133
@@ -194,7 +194,7 @@
 .end method
 
 .method public cancelNotification(Landroid/os/Bundle;)V
-    .locals 4
+    .registers 6
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 157
@@ -220,7 +220,7 @@
 .end method
 
 .method public extraCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/IBinder;)Landroid/os/Bundle;
-    .locals 2
+    .registers 6
     .param p1, "commandName"    # Ljava/lang/String;
     .param p2, "args"    # Landroid/os/Bundle;
     .param p3, "callback"    # Landroid/os/IBinder;
@@ -245,7 +245,7 @@
 .end method
 
 .method public getActiveNotifications()Landroid/os/Bundle;
-    .locals 2
+    .registers 3
 
     .line 166
     invoke-direct {p0}, Landroidx/browser/trusted/TrustedWebActivityService$1;->checkCaller()V
@@ -271,7 +271,7 @@
 .end method
 
 .method public getSmallIconBitmap()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 181
     invoke-direct {p0}, Landroidx/browser/trusted/TrustedWebActivityService$1;->checkCaller()V
@@ -287,7 +287,7 @@
 .end method
 
 .method public getSmallIconId()I
-    .locals 1
+    .registers 2
 
     .line 174
     invoke-direct {p0}, Landroidx/browser/trusted/TrustedWebActivityService$1;->checkCaller()V
@@ -303,7 +303,7 @@
 .end method
 
 .method public notifyNotificationWithChannel(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 6
+    .registers 8
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 145

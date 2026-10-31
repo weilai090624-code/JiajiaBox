@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/WorkSpecDao_Impl;Landroidx/room/RoomDatabase;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Landroidx/work/impl/model/WorkSpecDao_Impl;
     .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public bind(Landroidx/sqlite/db/SupportSQLiteStatement;Landroidx/work/impl/model/WorkSpec;)V
-    .locals 17
+    .registers 20
     .param p1, "stmt"    # Landroidx/sqlite/db/SupportSQLiteStatement;
     .param p2, "value"    # Landroidx/work/impl/model/WorkSpec;
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -76,21 +76,21 @@
 
     const/4 v3, 0x1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_d
 
     .line 76
     invoke-interface {v0, v3}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 78
-    :cond_0
+    :cond_d
     iget-object v2, v1, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
 
     invoke-interface {v0, v3, v2}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 80
-    :goto_0
+    :goto_12
     sget-object v2, Landroidx/work/impl/model/WorkTypeConverters;->INSTANCE:Landroidx/work/impl/model/WorkTypeConverters;
 
     iget-object v2, v1, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
@@ -112,40 +112,40 @@
 
     const/4 v4, 0x3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_28
 
     .line 83
     invoke-interface {v0, v4}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 85
-    :cond_1
+    :cond_28
     iget-object v3, v1, Landroidx/work/impl/model/WorkSpec;->workerClassName:Ljava/lang/String;
 
     invoke-interface {v0, v4, v3}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 87
-    :goto_1
+    :goto_2d
     iget-object v3, v1, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
 
     const/4 v4, 0x4
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_36
 
     .line 88
     invoke-interface {v0, v4}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_2
+    goto :goto_3b
 
     .line 90
-    :cond_2
+    :cond_36
     iget-object v3, v1, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
 
     invoke-interface {v0, v4, v3}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
     .line 92
-    :goto_2
+    :goto_3b
     iget-object v3, v1, Landroidx/work/impl/model/WorkSpec;->input:Landroidx/work/Data;
 
     invoke-static {v3}, Landroidx/work/Data;->toByteArrayInternal(Landroidx/work/Data;)[B
@@ -156,19 +156,19 @@
     .local v3, "_tmp_1":[B
     const/4 v4, 0x5
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_48
 
     .line 94
     invoke-interface {v0, v4}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_3
+    goto :goto_4b
 
     .line 96
-    :cond_3
+    :cond_48
     invoke-interface {v0, v4, v3}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindBlob(I[B)V
 
     .line 98
-    :goto_3
+    :goto_4b
     iget-object v4, v1, Landroidx/work/impl/model/WorkSpec;->output:Landroidx/work/Data;
 
     invoke-static {v4}, Landroidx/work/Data;->toByteArrayInternal(Landroidx/work/Data;)[B
@@ -179,19 +179,19 @@
     .local v4, "_tmp_2":[B
     const/4 v5, 0x6
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_58
 
     .line 100
     invoke-interface {v0, v5}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_4
+    goto :goto_5b
 
     .line 102
-    :cond_4
+    :cond_58
     invoke-interface {v0, v5, v4}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindBlob(I[B)V
 
     .line 104
-    :goto_4
+    :goto_5b
     const/4 v5, 0x7
 
     iget-wide v6, v1, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
@@ -325,7 +325,7 @@
 
     const/16 v15, 0x14
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_131
 
     .line 122
     sget-object v16, Landroidx/work/impl/model/WorkTypeConverters;->INSTANCE:Landroidx/work/impl/model/WorkTypeConverters;
@@ -425,17 +425,17 @@
 
     .line 135
     .local v1, "_tmp_11":[B
-    if-nez v1, :cond_5
+    if-nez v1, :cond_12b
 
     .line 136
     const/16 v14, 0x1b
 
     invoke-interface {v0, v14}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    goto :goto_5
+    goto :goto_130
 
     .line 138
-    :cond_5
+    :cond_12b
     const/16 v14, 0x1b
 
     invoke-interface {v0, v14, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindBlob(I[B)V
@@ -447,11 +447,11 @@
     .end local v11    # "_tmp_10":I
     .end local v12    # "_tmp_8":I
     .end local v13    # "_tmp_9":I
-    :goto_5
-    goto :goto_6
+    :goto_130
+    goto :goto_155
 
     .line 141
-    :cond_6
+    :cond_131
     invoke-interface {v0, v15}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
     .line 142
@@ -488,12 +488,12 @@
     invoke-interface {v0, v1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
     .line 150
-    :goto_6
+    :goto_155
     return-void
 .end method
 
 .method public bridge synthetic bind(Landroidx/sqlite/db/SupportSQLiteStatement;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -514,7 +514,7 @@
 .end method
 
 .method public createQuery()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 70
     const-string v0, "INSERT OR IGNORE INTO `WorkSpec` (`id`,`state`,`worker_class_name`,`input_merger_class_name`,`input`,`output`,`initial_delay`,`interval_duration`,`flex_duration`,`run_attempt_count`,`backoff_policy`,`backoff_delay_duration`,`last_enqueue_time`,`minimum_retention_duration`,`schedule_requested_at`,`run_in_foreground`,`out_of_quota_policy`,`period_count`,`generation`,`required_network_type`,`requires_charging`,`requires_device_idle`,`requires_battery_not_low`,`requires_storage_not_low`,`trigger_content_update_delay`,`trigger_max_content_delay`,`content_uri_triggers`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"

@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 54
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public isLightSensorEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 116
     iget-boolean v0, p0, Lcom/king/zxing/manager/AmbientLightManager;->isLightSensorEnabled:Z
@@ -99,7 +99,7 @@
 .end method
 
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
-    .locals 0
+    .registers 3
     .param p1, "sensor"    # Landroid/hardware/Sensor;
     .param p2, "accuracy"    # I
 
@@ -108,13 +108,13 @@
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
-    .locals 7
+    .registers 9
     .param p1, "sensorEvent"    # Landroid/hardware/SensorEvent;
 
     .line 75
     iget-boolean v0, p0, Lcom/king/zxing/manager/AmbientLightManager;->isLightSensorEnabled:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3b
 
     .line 76
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -131,19 +131,19 @@
 
     cmp-long v6, v2, v4
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_13
 
     .line 78
     return-void
 
     .line 80
-    :cond_0
+    :cond_13
     iput-wide v0, p0, Lcom/king/zxing/manager/AmbientLightManager;->lastTime:J
 
     .line 82
     iget-object v2, p0, Lcom/king/zxing/manager/AmbientLightManager;->mOnLightSensorEventListener:Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3b
 
     .line 83
     iget-object v2, p1, Landroid/hardware/SensorEvent;->values:[F
@@ -163,7 +163,7 @@
 
     cmpg-float v4, v2, v4
 
-    if-gtz v4, :cond_1
+    if-gtz v4, :cond_30
 
     .line 86
     iget-object v3, p0, Lcom/king/zxing/manager/AmbientLightManager;->mOnLightSensorEventListener:Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener;
@@ -172,15 +172,15 @@
 
     invoke-interface {v3, v4, v2}, Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener;->onSensorChanged(ZF)V
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 87
-    :cond_1
+    :cond_30
     iget v4, p0, Lcom/king/zxing/manager/AmbientLightManager;->brightLightLux:F
 
     cmpl-float v4, v2, v4
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_3b
 
     .line 88
     iget-object v4, p0, Lcom/king/zxing/manager/AmbientLightManager;->mOnLightSensorEventListener:Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener;
@@ -190,22 +190,22 @@
     .line 92
     .end local v0    # "currentTime":J
     .end local v2    # "lightLux":F
-    :cond_2
-    :goto_0
+    :cond_3b
+    :goto_3b
     return-void
 .end method
 
 .method public register()V
-    .locals 3
+    .registers 4
 
     .line 61
     iget-object v0, p0, Lcom/king/zxing/manager/AmbientLightManager;->sensorManager:Landroid/hardware/SensorManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/king/zxing/manager/AmbientLightManager;->lightSensor:Landroid/hardware/Sensor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 62
     iget-object v0, p0, Lcom/king/zxing/manager/AmbientLightManager;->sensorManager:Landroid/hardware/SensorManager;
@@ -217,12 +217,12 @@
     invoke-virtual {v0, p0, v1, v2}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
     .line 64
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public setBrightLightLux(F)V
-    .locals 0
+    .registers 2
     .param p1, "lightLux"    # F
 
     .line 107
@@ -233,7 +233,7 @@
 .end method
 
 .method public setDarkLightLux(F)V
-    .locals 0
+    .registers 2
     .param p1, "lightLux"    # F
 
     .line 99
@@ -244,7 +244,7 @@
 .end method
 
 .method public setLightSensorEnabled(Z)V
-    .locals 0
+    .registers 2
     .param p1, "lightSensorEnabled"    # Z
 
     .line 124
@@ -255,7 +255,7 @@
 .end method
 
 .method public setOnLightSensorEventListener(Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/king/zxing/manager/AmbientLightManager$OnLightSensorEventListener;
 
     .line 132
@@ -266,16 +266,16 @@
 .end method
 
 .method public unregister()V
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Lcom/king/zxing/manager/AmbientLightManager;->sensorManager:Landroid/hardware/SensorManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/king/zxing/manager/AmbientLightManager;->lightSensor:Landroid/hardware/Sensor;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 68
     iget-object v0, p0, Lcom/king/zxing/manager/AmbientLightManager;->sensorManager:Landroid/hardware/SensorManager;
@@ -283,6 +283,6 @@
     invoke-virtual {v0, p0}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
 
     .line 70
-    :cond_0
+    :cond_d
     return-void
 .end method

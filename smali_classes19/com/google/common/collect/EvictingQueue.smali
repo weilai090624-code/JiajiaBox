@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>(I)V
-    .locals 2
+    .registers 4
     .param p1, "maxSize"    # I
 
     .line 55
@@ -49,16 +49,16 @@
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingQueue;-><init>()V
 
     .line 56
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     const-string v1, "maxSize (%s) must >= 0"
 
     invoke-static {v0, v1, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
@@ -78,7 +78,7 @@
 .end method
 
 .method public static create(I)Lcom/google/common/collect/EvictingQueue;
-    .locals 1
+    .registers 2
     .param p0, "maxSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -118,20 +118,20 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 109
     return v1
 
     .line 111
-    :cond_0
+    :cond_9
     invoke-virtual {p0}, Lcom/google/common/collect/EvictingQueue;->size()I
 
     move-result v0
 
     iget v2, p0, Lcom/google/common/collect/EvictingQueue;->maxSize:I
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_16
 
     .line 112
     iget-object v0, p0, Lcom/google/common/collect/EvictingQueue;->delegate:Ljava/util/Queue;
@@ -139,7 +139,7 @@
     invoke-interface {v0}, Ljava/util/Queue;->remove()Ljava/lang/Object;
 
     .line 114
-    :cond_1
+    :cond_16
     iget-object v0, p0, Lcom/google/common/collect/EvictingQueue;->delegate:Ljava/util/Queue;
 
     invoke-interface {v0, p1}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
@@ -149,7 +149,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -169,7 +169,7 @@
     .local v0, "size":I
     iget v1, p0, Lcom/google/common/collect/EvictingQueue;->maxSize:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_18
 
     .line 123
     invoke-virtual {p0}, Lcom/google/common/collect/EvictingQueue;->clear()V
@@ -190,7 +190,7 @@
     return v1
 
     .line 126
-    :cond_0
+    :cond_18
     invoke-virtual {p0, p1}, Lcom/google/common/collect/EvictingQueue;->standardAddAll(Ljava/util/Collection;)Z
 
     move-result v1
@@ -199,7 +199,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 46
     .local p0, "this":Lcom/google/common/collect/EvictingQueue;, "Lcom/google/common/collect/EvictingQueue<TE;>;"
@@ -211,7 +211,7 @@
 .end method
 
 .method protected bridge synthetic delegate()Ljava/util/Collection;
-    .locals 1
+    .registers 2
 
     .line 46
     .local p0, "this":Lcom/google/common/collect/EvictingQueue;, "Lcom/google/common/collect/EvictingQueue<TE;>;"
@@ -223,7 +223,7 @@
 .end method
 
 .method protected delegate()Ljava/util/Queue;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -240,7 +240,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -258,7 +258,7 @@
 .end method
 
 .method public remainingCapacity()I
-    .locals 2
+    .registers 3
 
     .line 78
     .local p0, "this":Lcom/google/common/collect/EvictingQueue;, "Lcom/google/common/collect/EvictingQueue<TE;>;"
@@ -274,7 +274,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 141
     .local p0, "this":Lcom/google/common/collect/EvictingQueue;, "Lcom/google/common/collect/EvictingQueue<TE;>;"

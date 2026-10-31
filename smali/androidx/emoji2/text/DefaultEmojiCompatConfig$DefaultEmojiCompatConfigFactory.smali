@@ -28,25 +28,25 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigHelper;)V
-    .locals 1
+    .registers 3
     .param p1, "helper"    # Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigHelper;
 
     .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 120
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_7
     invoke-static {}, Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigFactory;->getHelperForApi()Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigHelper;
 
     move-result-object v0
 
-    :goto_0
+    :goto_b
     iput-object v0, p0, Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigFactory;->mHelper:Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigHelper;
 
     .line 121
@@ -54,12 +54,12 @@
 .end method
 
 .method private configOrNull(Landroid/content/Context;Landroidx/core/provider/FontRequest;)Landroidx/emoji2/text/EmojiCompat$Config;
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "fontRequest"    # Landroidx/core/provider/FontRequest;
 
     .line 142
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
     .line 143
     const/4 v0, 0x0
@@ -67,7 +67,7 @@
     return-object v0
 
     .line 145
-    :cond_0
+    :cond_4
     new-instance v0, Landroidx/emoji2/text/FontRequestEmojiCompatConfig;
 
     invoke-direct {v0, p1, p2}, Landroidx/emoji2/text/FontRequestEmojiCompatConfig;-><init>(Landroid/content/Context;Landroidx/core/provider/FontRequest;)V
@@ -76,7 +76,7 @@
 .end method
 
 .method private convertToByteArray([Landroid/content/pm/Signature;)Ljava/util/List;
-    .locals 5
+    .registers 7
     .param p1, "signatures"    # [Landroid/content/pm/Signature;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -100,8 +100,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_7
+    if-ge v2, v1, :cond_15
 
     aget-object v3, p1, v2
 
@@ -117,10 +117,10 @@
     .end local v3    # "signature":Landroid/content/pm/Signature;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 238
-    :cond_0
+    :cond_15
     invoke-static {v0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v1
@@ -129,7 +129,7 @@
 .end method
 
 .method private generateFontRequestFrom(Landroid/content/pm/ProviderInfo;Landroid/content/pm/PackageManager;)Landroidx/core/provider/FontRequest;
-    .locals 6
+    .registers 9
     .param p1, "providerInfo"    # Landroid/content/pm/ProviderInfo;
     .param p2, "packageManager"    # Landroid/content/pm/PackageManager;
     .annotation system Ldalvik/annotation/Throws;
@@ -171,14 +171,14 @@
 .end method
 
 .method private static getHelperForApi()Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigHelper;
-    .locals 2
+    .registers 2
 
     .line 246
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1c
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_c
 
     .line 247
     new-instance v0, Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigHelper_API28;
@@ -188,7 +188,7 @@
     return-object v0
 
     .line 248
-    :cond_0
+    :cond_c
     nop
 
     .line 249
@@ -200,15 +200,15 @@
 .end method
 
 .method private hasFlagSystem(Landroid/content/pm/ProviderInfo;)Z
-    .locals 2
+    .registers 4
     .param p1, "providerInfo"    # Landroid/content/pm/ProviderInfo;
 
     .line 201
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     iget-object v0, p1, Landroid/content/pm/ProviderInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p1, Landroid/content/pm/ProviderInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -218,19 +218,19 @@
 
     and-int/2addr v0, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_10
     return v1
 .end method
 
 .method private queryDefaultInstalledContentProvider(Landroid/content/pm/PackageManager;)Landroid/content/pm/ProviderInfo;
-    .locals 5
+    .registers 7
     .param p1, "packageManager"    # Landroid/content/pm/PackageManager;
 
     .line 183
@@ -254,12 +254,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -281,7 +281,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2b
 
     .line 189
     return-object v3
@@ -289,11 +289,11 @@
     .line 191
     .end local v2    # "resolveInfo":Landroid/content/pm/ResolveInfo;
     .end local v3    # "providerInfo":Landroid/content/pm/ProviderInfo;
-    :cond_0
-    goto :goto_0
+    :cond_2b
+    goto :goto_12
 
     .line 192
-    :cond_1
+    :cond_2c
     const/4 v1, 0x0
 
     return-object v1
@@ -302,7 +302,7 @@
 
 # virtual methods
 .method public create(Landroid/content/Context;)Landroidx/emoji2/text/EmojiCompat$Config;
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 130
@@ -318,7 +318,7 @@
 .end method
 
 .method queryForDefaultFontRequest(Landroid/content/Context;)Landroidx/core/provider/FontRequest;
-    .locals 5
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
 
     .line 159
@@ -341,23 +341,23 @@
     .local v1, "providerInfo":Landroid/content/pm/ProviderInfo;
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     return-object v2
 
     .line 167
-    :cond_0
-    :try_start_0
+    :cond_11
+    :try_start_11
     invoke-direct {p0, v1, v0}, Landroidx/emoji2/text/DefaultEmojiCompatConfig$DefaultEmojiCompatConfigFactory;->generateFontRequestFrom(Landroid/content/pm/ProviderInfo;Landroid/content/pm/PackageManager;)Landroidx/core/provider/FontRequest;
 
     move-result-object v2
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_11 .. :try_end_15} :catch_16
 
     return-object v2
 
     .line 168
-    :catch_0
+    :catch_16
     move-exception v3
 
     .line 169

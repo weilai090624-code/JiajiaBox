@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOptionSerializer;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lmoe/matsuri/nb4a/SingBoxOptions$SingBoxOptionSerializer;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 1
+    .registers 4
     .param p1, "gson"    # Lcom/google/gson/Gson;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

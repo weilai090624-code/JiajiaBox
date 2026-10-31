@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lkotlin/sequences/SequencesKt__SequenceBuilderKt;-><init>()V
 
@@ -36,7 +36,7 @@
 .end method
 
 .method private static final asSequence(Ljava/util/Enumeration;)Lkotlin/sequences/Sequence;
-    .locals 1
+    .registers 2
     .param p0, "$this$asSequence"    # Ljava/util/Enumeration;
     .annotation system Ldalvik/annotation/Signature;
         value = {

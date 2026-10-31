@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,12 +25,12 @@
 
 # virtual methods
 .method public isRunningOnAndroid()Z
-    .locals 2
+    .registers 3
 
     .line 23
     iget-object v0, p0, Lorg/yaml/snakeyaml/util/PlatformFeatureDetector;->isRunningOnAndroid:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1d
 
     .line 24
     const-string v0, "java.runtime.name"
@@ -41,7 +41,7 @@
 
     .line 25
     .local v0, "name":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const-string v1, "Android Runtime"
 
@@ -49,16 +49,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_17
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -67,7 +67,7 @@
 
     .line 27
     .end local v0    # "name":Ljava/lang/String;
-    :cond_1
+    :cond_1d
     iget-object v0, p0, Lorg/yaml/snakeyaml/util/PlatformFeatureDetector;->isRunningOnAndroid:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z

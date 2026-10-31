@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;I)V
-    .locals 1
+    .registers 4
     .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -81,14 +81,14 @@
 
 # virtual methods
 .method containsPosition(I)Z
-    .locals 2
+    .registers 4
     .param p1, "pos"    # I
 
     .line 108
     .local p0, "this":Landroidx/recyclerview/widget/TileList$Tile;, "Landroidx/recyclerview/widget/TileList$Tile<TT;>;"
     iget v0, p0, Landroidx/recyclerview/widget/TileList$Tile;->mStartPosition:I
 
-    if-gt v0, p1, :cond_0
+    if-gt v0, p1, :cond_d
 
     iget v0, p0, Landroidx/recyclerview/widget/TileList$Tile;->mStartPosition:I
 
@@ -96,21 +96,21 @@
 
     add-int/2addr v0, v1
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_d
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 .end method
 
 .method getByPosition(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p1, "pos"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {

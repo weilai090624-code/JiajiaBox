@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/emoji2/text/EmojiCompat;)V
-    .locals 0
+    .registers 2
     .param p1, "emojiCompat"    # Landroidx/emoji2/text/EmojiCompat;
 
     .line 1566
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method getAssetSignature()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1597
     const-string v0, ""
@@ -45,7 +45,7 @@
 .end method
 
 .method public getEmojiMatch(Ljava/lang/CharSequence;I)I
-    .locals 1
+    .registers 4
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "metadataVersion"    # I
 
@@ -56,7 +56,7 @@
 .end method
 
 .method hasEmojiGlyph(Ljava/lang/CharSequence;)Z
-    .locals 1
+    .registers 3
     .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 1577
@@ -66,7 +66,7 @@
 .end method
 
 .method hasEmojiGlyph(Ljava/lang/CharSequence;I)Z
-    .locals 1
+    .registers 4
     .param p1, "sequence"    # Ljava/lang/CharSequence;
     .param p2, "metadataVersion"    # I
 
@@ -77,7 +77,7 @@
 .end method
 
 .method loadMetadata()V
-    .locals 1
+    .registers 2
 
     .line 1572
     iget-object v0, p0, Landroidx/emoji2/text/EmojiCompat$CompatInternal;->mEmojiCompat:Landroidx/emoji2/text/EmojiCompat;
@@ -89,7 +89,7 @@
 .end method
 
 .method process(Ljava/lang/CharSequence;IIIZ)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 6
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
     .param p2, "start"    # I
     .param p3, "end"    # I
@@ -101,7 +101,7 @@
 .end method
 
 .method updateEditorInfoAttrs(Landroid/view/inputmethod/EditorInfo;)V
-    .locals 0
+    .registers 2
     .param p1, "outAttrs"    # Landroid/view/inputmethod/EditorInfo;
 
     .line 1594

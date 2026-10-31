@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 40
     nop
@@ -32,10 +32,10 @@
 
     const/16 v1, 0x18
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_25
 
     .line 55
-    :try_start_0
+    :try_start_7
     const-string v0, "libcore.icu.ICU"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -61,15 +61,15 @@
     move-result-object v1
 
     sput-object v1, Landroidx/core/text/ICUCompat;->sAddLikelySubtagsMethod:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_1d} :catch_1e
 
     .line 59
     .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    goto :goto_0
+    goto :goto_25
 
     .line 57
-    :catch_0
+    :catch_1e
     move-exception v0
 
     .line 58
@@ -82,13 +82,13 @@
 
     .line 61
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_25
+    :goto_25
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 149
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -98,7 +98,7 @@
 .end method
 
 .method private static addLikelySubtagsBelowApi21(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 132
@@ -110,10 +110,10 @@
 
     .line 134
     .local v1, "localeStr":Ljava/lang/String;
-    :try_start_0
+    :try_start_6
     sget-object v2, Landroidx/core/text/ICUCompat;->sAddLikelySubtagsMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     .line 135
     const/4 v2, 0x1
@@ -135,26 +135,26 @@
     move-result-object v3
 
     check-cast v3, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/IllegalAccessException; {:try_start_6 .. :try_end_19} :catch_1f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_6 .. :try_end_19} :catch_1a
 
     return-object v3
 
     .line 141
     .end local v2    # "args":[Ljava/lang/Object;
-    :catch_0
+    :catch_1a
     move-exception v2
 
     .line 143
     .local v2, "e":Ljava/lang/reflect/InvocationTargetException;
     invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_24
 
     .line 138
     .end local v2    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_1f
     move-exception v2
 
     .line 140
@@ -163,16 +163,16 @@
 
     .line 144
     .end local v2    # "e":Ljava/lang/IllegalAccessException;
-    :cond_0
+    :cond_23
     nop
 
     .line 146
-    :goto_0
+    :goto_24
     return-object v1
 .end method
 
 .method private static getScriptBelowApi21(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "localeStr"    # Ljava/lang/String;
 
     .line 116
@@ -180,10 +180,10 @@
 
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_3
     sget-object v2, Landroidx/core/text/ICUCompat;->sGetScriptMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     .line 117
     const/4 v2, 0x1
@@ -203,26 +203,26 @@
     move-result-object v3
 
     check-cast v3, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/IllegalAccessException; {:try_start_3 .. :try_end_15} :catch_1b
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_3 .. :try_end_15} :catch_16
 
     return-object v3
 
     .line 123
     .end local v2    # "args":[Ljava/lang/Object;
-    :catch_0
+    :catch_16
     move-exception v2
 
     .line 125
     .local v2, "e":Ljava/lang/reflect/InvocationTargetException;
     invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_20
 
     .line 120
     .end local v2    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
+    :catch_1b
     move-exception v2
 
     .line 122
@@ -231,16 +231,16 @@
 
     .line 126
     .end local v2    # "e":Ljava/lang/IllegalAccessException;
-    :cond_0
+    :cond_1f
     nop
 
     .line 127
-    :goto_0
+    :goto_20
     return-object v1
 .end method
 
 .method public static maximizeAndGetScript(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "locale"    # Ljava/util/Locale;
 
     .line 88
@@ -250,7 +250,7 @@
 
     const/16 v2, 0x18
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_15
 
     .line 89
     invoke-static {p0}, Landroidx/core/text/ICUCompat$Api24Impl;->forLocale(Ljava/util/Locale;)Landroid/icu/util/ULocale;
@@ -271,13 +271,13 @@
 
     .line 91
     .end local v0    # "uLocale":Ljava/lang/Object;
-    :cond_0
+    :cond_15
     nop
 
     .line 93
     const/4 v1, 0x1
 
-    :try_start_0
+    :try_start_17
     new-array v1, v1, [Ljava/lang/Object;
 
     const/4 v2, 0x0
@@ -299,35 +299,35 @@
     invoke-static {v2}, Landroidx/core/text/ICUCompat$Api21Impl;->getScript(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_17 .. :try_end_29} :catch_2c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_17 .. :try_end_29} :catch_2a
 
     return-object v0
 
     .line 99
     .end local v1    # "args":[Ljava/lang/Object;
-    :catch_0
+    :catch_2a
     move-exception v1
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 97
-    :catch_1
+    :catch_2c
     move-exception v1
 
-    goto :goto_1
+    goto :goto_32
 
     .line 100
     .local v1, "e":Ljava/lang/IllegalAccessException;
-    :goto_0
+    :goto_2e
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2
+    goto :goto_36
 
     .line 98
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    :goto_1
+    :goto_32
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 101
@@ -335,7 +335,7 @@
     nop
 
     .line 102
-    :goto_2
+    :goto_36
     invoke-static {p0}, Landroidx/core/text/ICUCompat$Api21Impl;->getScript(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v0

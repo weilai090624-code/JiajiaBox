@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Comparator;Lkotlin/jvm/functions/Function2;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 5
     .param p1, "a"    # Ljava/lang/Object;
     .param p2, "b"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -117,13 +117,13 @@
 
     .line 197
     .local v0, "previousCompare":I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     move v1, v0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_a
     iget-object v1, p0, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt$thenComparator$1;->$comparison:Lkotlin/jvm/functions/Function2;
 
     invoke-interface {v1, p1, p2}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -136,6 +136,6 @@
 
     move-result v1
 
-    :goto_0
+    :goto_16
     return v1
 .end method
